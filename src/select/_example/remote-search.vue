@@ -22,7 +22,7 @@
     />
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const options = ref([
@@ -36,7 +36,7 @@ const value2 = ref([]);
 const loading = ref(false);
 const loading2 = ref(false);
 
-const remoteMethod = (search) => {
+const remoteMethod = (search: string) => {
   console.log('search', search);
   if (search) {
     loading.value = true;
@@ -60,7 +60,7 @@ const remoteMethod = (search) => {
   }
 };
 
-const remoteMethod2 = (search) => {
+const remoteMethod2 = (search: string) => {
   console.log(search);
   if (search) {
     loading2.value = true;

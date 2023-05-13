@@ -18,6 +18,6 @@
   </t-space>
 </template>
 
-<script setup lang="jsx">
+<script setup lang="tsx">
 const separator = () => <t-divider layout="vertical" />;
 </script>

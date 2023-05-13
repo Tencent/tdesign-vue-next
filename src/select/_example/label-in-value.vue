@@ -21,16 +21,18 @@
     />
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
-const options = [
+type selectOption = { label: string; value: string };
+
+const options: selectOption[] = [
   { label: '选项一', value: '1' },
   { label: '选项二', value: '2' },
   { label: '选项三', value: '3' },
 ];
 
-const handleChange = (value) => {
+const handleChange = (value: selectOption) => {
   console.log('handleChange:', value);
 };
 const value = ref({ value: '1', label: '选项一' });

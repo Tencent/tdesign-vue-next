@@ -18,10 +18,15 @@
     </template>
   </t-select-input>
 </template>
-<script setup lang="jsx">
+<script setup lang="tsx">
 import { ref } from 'vue';
 
-const options = [
+type Options = {
+  label: string;
+  value: number;
+};
+
+const options: Options[] = [
   { label: 'tdesign-vue', value: 1 },
   { label: 'tdesign-react', value: 2 },
   { label: 'tdesign-miniprogram', value: 3 },
@@ -34,7 +39,7 @@ const selectValue = ref({ label: 'tdesign-vue', value: 1 });
 
 const popupVisible = ref(false);
 
-const onOptionClick = (item) => {
+const onOptionClick = (item: Options) => {
   selectValue.value = item;
   popupVisible.value = false;
 };
@@ -43,7 +48,7 @@ const onClear = () => {
   selectValue.value = undefined;
 };
 
-const onPopupVisibleChange = (val) => {
+const onPopupVisibleChange = (val: boolean) => {
   popupVisible.value = val;
 };
 </script>

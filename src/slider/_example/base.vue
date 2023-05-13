@@ -5,7 +5,7 @@
     <t-slider v-model="value2" range />
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const value1 = ref(12);

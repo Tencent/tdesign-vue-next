@@ -16,13 +16,13 @@
   </t-space>
 </template>
 
-<script setup lang="jsx">
+<script setup lang="tsx">
 import { ref } from 'vue';
-import { MessagePlugin } from 'tdesign-vue-next';
+import { MessagePlugin, PopconfirmVisibleChangeContext } from 'tdesign-vue-next';
 
 const visible = ref(false);
 
-const onVisibleChange = (val, context = {}) => {
+const onVisibleChange = (val: boolean, context: PopconfirmVisibleChangeContext = {}) => {
   if (context && context.trigger === 'confirm') {
     const msg = MessagePlugin.info('提交中');
     const timer = setTimeout(() => {

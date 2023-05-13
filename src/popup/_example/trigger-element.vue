@@ -27,7 +27,7 @@
   </t-space>
 </template>
 
-<script setup lang="jsx">
+<script setup lang="tsx">
 const renderTriggerElement1 = () => {
   return <t-button variant="outline">渲染函数定义触发元素1</t-button>;
 };

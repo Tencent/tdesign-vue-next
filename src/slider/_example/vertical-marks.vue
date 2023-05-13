@@ -25,7 +25,8 @@
     </div>
   </t-space>
 </template>
-<script setup lang="jsx">
+<script setup lang="tsx">
+import { SliderValue } from 'tdesign-vue-next';
 import { ref } from 'vue';
 
 const value1 = ref(12);
@@ -48,7 +49,7 @@ const marks2 = {
   80: <span style="color: #0052d9">80°C</span>,
   100: <span style="color: #0052d9">100°C</span>,
 };
-const change = (value) => {
+const change = (value: SliderValue) => {
   console.log('change value', value);
 };
 </script>

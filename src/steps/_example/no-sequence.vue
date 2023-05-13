@@ -7,6 +7,6 @@
   </t-steps>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const current = 1;
 </script>

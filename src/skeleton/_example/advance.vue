@@ -21,7 +21,7 @@
   </div>
 </template>
 
-<script setup lang="jsx">
+<script setup lang="tsx">
 const rowCol = [
   [1, 1, 1].map(() => ({ type: 'rect', content: 'image', width: '33%', height: '180px' })),
   [

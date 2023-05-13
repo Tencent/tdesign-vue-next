@@ -9,7 +9,7 @@
     </t-select>
   </t-space>
 </template>
-<script setup lang="jsx">
+<script setup lang="tsx">
 import { ref } from 'vue';
 
 const options1 = [

@@ -2,7 +2,7 @@
   <t-pagination v-model="current" v-model:page-size="pageSize" :total="total" :total-content="renderTotalContent" />
 </template>
 
-<script setup lang="jsx">
+<script setup lang="tsx">
 import { ref } from 'vue';
 
 const current = ref(12);

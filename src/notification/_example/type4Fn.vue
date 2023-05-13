@@ -6,7 +6,7 @@
     <t-button variant="outline" @click="error">错误</t-button>
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
 import { NotifyPlugin } from 'tdesign-vue-next';
 
 const info = () => {

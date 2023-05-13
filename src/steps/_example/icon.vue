@@ -7,7 +7,7 @@
   </t-steps>
 </template>
 
-<script setup lang="jsx">
+<script setup lang="tsx">
 import { LoginIcon, CartIcon, WalletIcon, CheckCircleIcon } from 'tdesign-icons-vue-next';
 
 const renderLoginIcon = () => {

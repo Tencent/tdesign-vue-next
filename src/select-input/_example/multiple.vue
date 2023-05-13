@@ -51,11 +51,14 @@
     </t-select-input>
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
 import { computed, ref } from 'vue';
 import { ChevronDownIcon } from 'tdesign-icons-vue-next';
+import { SelectInputChangeContext, SelectInputValueChangeContext } from 'tdesign-vue-next';
 
-const OPTIONS = [
+type Option = { label: string; value?: number; checkAll?: boolean };
+
+const OPTIONS: Option[] = [
   // 全选
   { label: 'Check All', checkAll: true },
   { label: 'tdesign-vue', value: 1 },
@@ -71,8 +74,8 @@ const allowInput = ref(true);
 const creatable = ref(true);
 const inputValue = ref('');
 // 全量数据
-const options = ref([...OPTIONS]);
-const value = ref([
+const options = ref<Option[]>([...OPTIONS]);
+const value = ref<Option[]>([
   { label: 'Vue', value: 1 },
   { label: 'React', value: 2 },
   { label: 'Miniprogram', value: 3 },
@@ -87,7 +90,7 @@ const checkboxValue = computed(() => {
   return arr;
 });
 // 直接 checkboxgroup 组件渲染输出下拉选项
-const onCheckedChange = (val, { current, type }) => {
+const onCheckedChange = (val: Option[], { current, type }: { current: string | number; type: 'check' | 'uncheck' }) => {
   console.log(current);
   // current 不存在，则表示操作全选
   if (!current) {
@@ -103,7 +106,7 @@ const onCheckedChange = (val, { current, type }) => {
   }
 };
 // 可以根据触发来源，自由定制标签变化时的筛选器行为
-const onTagChange = (currentTags, context) => {
+const onTagChange = (currentTags: Option, context: SelectInputChangeContext) => {
   console.log(currentTags, context);
   const { trigger, index, item } = context;
   if (trigger === 'clear') {
@@ -114,14 +117,14 @@ const onTagChange = (currentTags, context) => {
   }
   // 如果允许创建新条目
   if (creatable.value && trigger === 'enter') {
-    const current = { label: item, value: item };
+    const current = { label: item, value: item } as Option;
     value.value.push(current);
     const newOptions = options.value.concat(current);
     options.value = newOptions;
     inputValue.value = '';
   }
 };
-const onInputChange = (val, context) => {
+const onInputChange = (val: string, context: SelectInputValueChangeContext) => {
   console.log(val, context);
 };
 </script>

@@ -24,7 +24,7 @@
   </t-space>
 </template>
 
-<script setup lang="jsx">
+<script setup lang="tsx">
 function renderPopupContent() {
   return <div>浮层内容是指浮层里面显示的全部内容，这里的浮层内容使用渲染函数定义</div>;
 }

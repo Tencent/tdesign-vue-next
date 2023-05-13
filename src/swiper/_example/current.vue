@@ -11,12 +11,8 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      current: 0,
-    };
-  },
-};
+<script setup lang="ts">
+import { ref } from 'vue';
+
+const current = ref(0);
 </script>

@@ -53,7 +53,7 @@
     </div>
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
 const selectValue = 'TDesign';
 </script>
 <style>

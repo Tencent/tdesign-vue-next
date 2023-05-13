@@ -59,11 +59,16 @@
     </t-select-input>
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 import { ControlPlatformIcon } from 'tdesign-icons-vue-next';
 
-const options = [
+type Options = {
+  label: string;
+  value: number;
+};
+
+const options: Options[] = [
   { label: 'tdesign-vue', value: 1 },
   { label: 'tdesign-react', value: 2 },
   { label: 'tdesign-miniprogram', value: 3 },
@@ -76,7 +81,7 @@ const selectValue1 = ref({ label: 'tdesign-vue', value: 1 });
 const selectValue2 = ref(['tdesign-vue', 'tdesign-react']);
 const selectValue3 = ref(['tdesign-vue', 'tdesign-react', 'tdesign-mobile-vue']);
 
-const onOptionClick = (item) => {
+const onOptionClick = (item: Options) => {
   selectValue1.value = item;
 };
 
@@ -84,11 +89,11 @@ const onClear = () => {
   selectValue1.value = undefined;
 };
 
-const onTagChange2 = (val) => {
+const onTagChange2 = (val: string[]) => {
   selectValue2.value = val;
 };
 
-const onTagChange3 = (val) => {
+const onTagChange3 = (val: string[]) => {
   selectValue3.value = val;
 };
 </script>

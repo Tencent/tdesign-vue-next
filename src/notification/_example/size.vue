@@ -4,7 +4,7 @@
     <t-notification title="文本内容最多支持三行" :content="content" />
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
 const content = `这是一条内容为******************************
       ****************************************************
       ****************************************************

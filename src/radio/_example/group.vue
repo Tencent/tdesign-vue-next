@@ -21,10 +21,16 @@
   </t-space>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
-const options = [
+type Options = {
+  value: string;
+  label: string | (() => string);
+  disabled?: boolean;
+};
+
+const options: Options[] = [
   {
     value: '1',
     label: '选项一',
@@ -46,7 +52,7 @@ const options = [
 const itemOptions = ['选项一', '选项二', '选项三', '选项四'];
 
 const value = ref('');
-const onChange = (checkedValues) => {
+const onChange = (checkedValues: any) => {
   console.log('checkedValues:', value.value, checkedValues);
 };
 </script>

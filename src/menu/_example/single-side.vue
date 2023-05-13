@@ -137,8 +137,10 @@
   </div>
 </template>
 
-<script setup>
-const changeHandler = (active) => {
+<script setup lang="ts">
+import { MenuValue } from 'tdesign-vue-next';
+
+const changeHandler = (active: MenuValue) => {
   console.log('change', active);
 };
 </script>

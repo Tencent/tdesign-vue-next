@@ -62,7 +62,8 @@
   </t-menu>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { MenuValue } from 'tdesign-vue-next';
 import { ref } from 'vue';
 
 const collapsed = ref(true);
@@ -75,7 +76,7 @@ const changeCollapsed = () => {
     : 'https://tdesign.gtimg.com/site/baseLogo-light.png';
 };
 
-const changeHandler = (active) => {
+const changeHandler = (active: MenuValue) => {
   console.log('change', active);
 };
 </script>

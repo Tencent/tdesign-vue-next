@@ -21,7 +21,7 @@
     />
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const value1 = ref('');
@@ -32,7 +32,7 @@ const options = ref([
   { label: '选项三', value: '3' },
 ]);
 
-const createOptions = (val) => {
+const createOptions = (val: string) => {
   options.value.push({
     label: `选项${val}`,
     value: val,

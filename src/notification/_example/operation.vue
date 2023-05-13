@@ -18,7 +18,7 @@
     </t-notification>
   </t-space>
 </template>
-<script lang="jsx" setup>
+<script lang="tsx" setup>
 import { ref } from 'vue';
 
 const visible = ref(true);
@@ -32,7 +32,7 @@ const remind = () => {
 
 const footer = () => {
   return (
-    <div slot="footer" class="t-notification__detail">
+    <div class="t-notification__detail">
       <t-button class="t-notification__detail-item" theme="primary" variant="text">
         查看详情
       </t-button>
@@ -42,7 +42,7 @@ const footer = () => {
 
 const footer2 = () => {
   return (
-    <div slot="footer" class="t-notification__detail">
+    <div class="t-notification__detail">
       <t-button class="t-notification__detail-item" theme="primary" variant="text">
         查看详情
       </t-button>

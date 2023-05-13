@@ -13,8 +13,9 @@
     <t-select v-model="value3" :options="options1" :min-collapsed-num="2" placeholder="请选择云解决方案" multiple />
   </t-space>
 </template>
-<script setup lang="jsx">
-import { ref } from 'vue';
+<script setup lang="tsx">
+import { h, ref } from 'vue';
+type H = typeof h;
 
 const options1 = [
   { label: '全选', checkAll: true },
@@ -28,7 +29,7 @@ const options1 = [
     label: '计算场景',
     value: '6',
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    content: (h) => <span>计算场景（高性能计算）</span>,
+    content: (_h: H) => <span>计算场景（高性能计算）</span>,
   },
 ];
 const options2 = [

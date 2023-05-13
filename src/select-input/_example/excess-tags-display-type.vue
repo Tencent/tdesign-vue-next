@@ -45,10 +45,13 @@
     </t-select-input>
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
+import { SelectInputChangeContext } from 'tdesign-vue-next';
 import { computed, ref } from 'vue';
 
-const OPTIONS = [
+type Option = { label: string; value?: number; checkAll?: boolean };
+
+const OPTIONS: Option[] = [
   // 全选
   { label: 'Check All', checkAll: true },
   { label: 'tdesign-vue', value: 1 },
@@ -59,8 +62,8 @@ const OPTIONS = [
   { label: 'tdesign-mobile-react', value: 6 },
 ];
 
-const options = ref([...OPTIONS]);
-const value = ref(OPTIONS.slice(1));
+const options = ref<Option[]>([...OPTIONS]);
+const value = ref<Option[]>(OPTIONS.slice(1));
 
 const checkboxValue = computed(() => {
   const arr = [];
@@ -73,7 +76,7 @@ const checkboxValue = computed(() => {
 });
 
 // 直接 checkboxgroup 组件渲染输出下拉选项
-const onCheckedChange = (val, { current, type }) => {
+const onCheckedChange = (val: Option[], { current, type }: { current: string | number; type: 'check' | 'uncheck' }) => {
   // current 不存在，则表示操作全选
   if (!current) {
     value.value = type === 'check' ? options.value.slice(1) : [];
@@ -89,7 +92,7 @@ const onCheckedChange = (val, { current, type }) => {
 };
 
 // 可以根据触发来源，自由定制标签变化时的筛选器行为
-const onTagChange = (currentTags, context) => {
+const onTagChange = (currentTags: Option, context: SelectInputChangeContext) => {
   console.log(currentTags, context);
   const { trigger, index, item } = context;
   if (trigger === 'clear') {
@@ -99,7 +102,7 @@ const onTagChange = (currentTags, context) => {
     value.value.splice(index, 1);
   }
   if (trigger === 'enter') {
-    const current = { label: item, value: item };
+    const current = { label: item, value: item } as Option;
     value.value.push(current);
     options.value = options.value.concat(current);
   }

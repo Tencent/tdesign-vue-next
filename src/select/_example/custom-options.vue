@@ -26,10 +26,13 @@
     </t-select>
   </t-space>
 </template>
-<script setup lang="jsx">
-import { ref, computed } from 'vue';
+<script setup lang="tsx">
+import { ref, computed, h } from 'vue';
+type H = typeof h;
 
-const options = [
+type selectOption = { label: string; value: string; description: string };
+
+const options: selectOption[] = [
   { label: '用户一', value: '1', description: '这是一段用户描述信息，可自定义内容' },
   { label: '用户二', value: '2', description: '这是一段用户描述信息，可自定义内容' },
   { label: '用户三', value: '3', description: '这是一段用户描述信息，可自定义内容' },
@@ -43,7 +46,7 @@ const options = [
 
 const value1 = ref('');
 const value2 = ref('');
-const optionRender = (h, option) => (
+const optionRender = (_h: H, option: selectOption) => (
   <div class="tdesign-demo__user-option">
     <img src="https://tdesign.gtimg.com/site/avatar.jpg" />
     <div class="tdesign-demo__user-option-info">
@@ -56,7 +59,7 @@ const optionsData = computed(() =>
   options.map((item) => ({
     ...item,
     // options 自定义下拉选项关键代码
-    content: (h) => optionRender(h, item),
+    content: (h: H) => optionRender(h, item),
   })),
 );
 </script>

@@ -61,7 +61,7 @@
   </t-space>
 </template>
 
-<script setup lang="jsx">
+<script setup lang="tsx">
 import { MessagePlugin } from 'tdesign-vue-next';
 
 const content = () => {

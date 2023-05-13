@@ -20,9 +20,10 @@
     <template #suffixIcon><search-icon /></template>
   </t-select-input>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 import { SearchIcon } from 'tdesign-icons-vue-next';
+import { InputValue } from 'tdesign-vue-next';
 
 const OPTIONS = ['Student A', 'Student B', 'Student C', 'Student D', 'Student E', 'Student F'];
 
@@ -30,17 +31,17 @@ const popupVisible = ref(false);
 const selectValue = ref();
 const options = ref(OPTIONS);
 
-const onOptionClick = (item) => {
+const onOptionClick = (item: string) => {
   selectValue.value = item;
   popupVisible.value = false;
 };
 
-const onInputChange = (keyword) => {
+const onInputChange = (keyword: InputValue) => {
   selectValue.value = keyword;
   options.value = new Array(5).fill(null).map((t, index) => `${keyword} Student ${index}`);
 };
 
-const onPopupVisibleChange = (val) => {
+const onPopupVisibleChange = (val: boolean) => {
   popupVisible.value = val;
 };
 </script>

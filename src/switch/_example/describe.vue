@@ -32,8 +32,9 @@
     </t-space>
   </t-space>
 </template>
-<script setup lang="jsx">
-import { ref } from 'vue';
+<script setup lang="tsx">
+import { h, ref } from 'vue';
+type H = typeof h;
 
 import { CloseIcon, CheckIcon } from 'tdesign-icons-vue-next';
 
@@ -48,7 +49,8 @@ const renderActiveContent = () => {
 const renderInactiveContent = () => {
   return <CloseIcon />;
 };
-const renderContent = (h, data) => {
+const renderContent = (_h: H, data: { value: boolean }) => {
+  console.log(data);
   return data.value ? <CheckIcon /> : <CloseIcon />;
 };
 </script>

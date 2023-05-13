@@ -10,24 +10,24 @@
   />
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
-import { MessagePlugin } from 'tdesign-vue-next';
+import { MessagePlugin, PageInfo } from 'tdesign-vue-next';
 
 const current = ref(1);
 const pageSize = ref(5);
 
-const onPageSizeChange = (size) => {
-  console.log('page-size:', size);
+const onPageSizeChange = (size: number, pageInfo: PageInfo) => {
+  console.log('page-size:', size, pageInfo);
   MessagePlugin.success(`pageSize变化为${size}`);
 };
 
-const onCurrentChange = (index, pageInfo) => {
+const onCurrentChange = (index: number, pageInfo: PageInfo) => {
   MessagePlugin.success(`转到第${index}页`);
   console.log(pageInfo);
 };
 
-const onChange = (pageInfo) => {
+const onChange = (pageInfo: PageInfo) => {
   console.log(pageInfo);
 };
 </script>

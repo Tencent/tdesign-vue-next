@@ -30,7 +30,7 @@
     </t-select>
   </t-space>
 </template>
-<script setup lang="jsx">
+<script setup lang="tsx">
 import { ref } from 'vue';
 
 const OPTIONS = [
@@ -60,7 +60,7 @@ const onAdd = () => {
   editOrCreate.value = 'edit';
 };
 const onAddConfirm = () => {
-  const id = Math.round(Math.random() * 100);
+  const id = Math.round(Math.random() * 100).toString();
   options2.value.push({ label: newOption.value, value: id });
   newOption.value = '';
   editOrCreate.value = 'create';

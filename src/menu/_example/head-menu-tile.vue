@@ -33,7 +33,7 @@
   </t-head-menu>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const menus = [

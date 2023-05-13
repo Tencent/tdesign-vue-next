@@ -7,7 +7,7 @@
     <t-slider v-model="value3" :show-tooltip="true" :marks="[10, 20, 40, 80]" />
   </t-space>
 </template>
-<script setup lang="jsx">
+<script setup lang="tsx">
 import { ref } from 'vue';
 
 const value1 = ref(12);

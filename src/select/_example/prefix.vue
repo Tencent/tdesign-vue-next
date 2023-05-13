@@ -5,7 +5,7 @@
     </template>
   </t-select>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 import { Icon } from 'tdesign-icons-vue-next';
 

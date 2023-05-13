@@ -24,11 +24,17 @@
     </template>
   </t-select-input>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 import { ChevronDownIcon } from 'tdesign-icons-vue-next';
+import { PopupVisibleChangeContext } from 'tdesign-vue-next';
 
-const options = [
+type Options = {
+  label: string;
+  value: number;
+};
+
+const options: Options[] = [
   { label: 'tdesign-vue', value: 1 },
   { label: 'tdesign-react', value: 2 },
   { label: 'tdesign-miniprogram', value: 3 },
@@ -41,7 +47,7 @@ const options = [
 const selectValue = ref({ label: 'tdesign-vue', value: 1 });
 // const selectValue = ref([{ label: 'tdesign-vue', value: 1 }]);
 const popupVisible = ref(false);
-const onOptionClick = (item) => {
+const onOptionClick = (item: Options) => {
   selectValue.value = item;
   // 选中后立即关闭浮层
   popupVisible.value = false;
@@ -49,13 +55,13 @@ const onOptionClick = (item) => {
 const onClear = () => {
   selectValue.value = undefined;
 };
-const onPopupVisibleChange = (val, context) => {
+const onPopupVisibleChange = (visible: boolean, context: PopupVisibleChangeContext) => {
   console.log(context);
-  popupVisible.value = val;
+  popupVisible.value = visible;
 };
-const onInputChange = (val, context) => {
+const onInputChange = (visible: boolean, context: PopupVisibleChangeContext) => {
   // 过滤功能
-  console.log(val, context);
+  console.log(visible, context);
 };
 </script>
 <style lang="less" scoped>

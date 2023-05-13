@@ -5,12 +5,7 @@
 
     <!-- 方式二：使用插槽节点 -->
     <t-select v-model="value2" placeholder="请选择" filterable>
-      <t-option-group
-        v-for="(list, index) in options"
-        :key="index"
-        :label="typeof list.group === 'object' ? list.group.label : list.group"
-        divider
-      >
+      <t-option-group v-for="(list, index) in options" :key="index" :label="list.group" divider>
         <t-option v-for="item in list.children" :key="item.value" :value="item.value" :label="item.label">
           {{ item.label }}
         </t-option>
@@ -18,10 +13,16 @@
     </t-select>
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
-const options = [
+type selectOption = {
+  group: string;
+  divider?: boolean;
+  children: { label: string; value: number }[];
+};
+
+const options: selectOption[] = [
   {
     group: '分组一',
     children: [

@@ -29,8 +29,14 @@
     </t-select>
   </t-space>
 </template>
-<script setup lang="jsx">
-import { ref } from 'vue';
+<script setup lang="tsx">
+import { h, ref } from 'vue';
+type H = typeof h;
+
+type Options = {
+  label: string;
+  value: string;
+};
 
 const options = [
   {
@@ -49,7 +55,7 @@ const options = [
 
 const value = ref(['1', '3']);
 const minCollapsedNum = 1;
-const collapsedItems = (h, { value, count }) => {
+const collapsedItems = (_h: H, { value, count }: { value: Options[]; count: number }) => {
   if (!(value instanceof Array) || !count) return;
   return (
     <t-popup

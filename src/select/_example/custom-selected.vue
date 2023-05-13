@@ -35,10 +35,13 @@
     </t-select>
   </t-space>
 </template>
-<script setup lang="jsx">
-import { ref } from 'vue';
+<script setup lang="tsx">
+import { h, ref } from 'vue';
 
-const options = [
+type H = typeof h;
+type selectOption = { label: string; value: string };
+
+const options: selectOption[] = [
   { label: '选项一', value: '1' },
   { label: '选项二', value: '2' },
   { label: '选项三', value: '3' },
@@ -54,13 +57,24 @@ const value1 = ref(['1', '2', '3']);
 const value2 = ref(['4', '5', '6', '7']);
 const value3 = ref('1');
 
-const valueDisplay = (h, { value, onClose, displayValue }) => {
+const valueDisplay = (
+  _h: H,
+  {
+    value,
+    onClose,
+    displayValue,
+  }: {
+    value: selectOption[];
+    onClose: (index: number) => void;
+    displayValue?: selectOption[];
+  },
+) => {
   if (!(value instanceof Array)) return;
   return displayValue.map((item, index) => (
     <t-tag
       key={index}
       closable={true}
-      onClose={({ e }) => {
+      onClose={({ e }: { e: MouseEvent }) => {
         e.stopPropagation();
         onClose(index);
       }}

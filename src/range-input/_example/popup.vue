@@ -2,6 +2,6 @@
   <t-range-input-popup :panel="panel" />
 </template>
 
-<script setup lang="jsx">
+<script setup lang="tsx">
 const panel = () => <div>hello world</div>;
 </script>

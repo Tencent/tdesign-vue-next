@@ -52,13 +52,14 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { MenuValue } from 'tdesign-vue-next';
 import { ref } from 'vue';
 
 const menu1Value = ref('item2');
 const menu2Value = ref('item1');
 
-const changeHandler = (active) => {
+const changeHandler = (active: MenuValue) => {
   console.log('change', active);
 };
 </script>

@@ -5,7 +5,7 @@
   </t-space>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { MessagePlugin } from 'tdesign-vue-next';
 
 const openSomeMsg = () => {

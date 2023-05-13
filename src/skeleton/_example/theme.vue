@@ -12,7 +12,7 @@
     </t-col>
   </t-row>
 </template>
-<script setup>
+<script setup lang="ts">
 const themes = [
   { label: '文本', value: 'text' },
   { label: '头像', value: 'avatar' },

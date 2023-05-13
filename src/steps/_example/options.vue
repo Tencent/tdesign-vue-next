@@ -2,7 +2,7 @@
   <t-steps :current="current" :options="options" />
 </template>
 
-<script setup>
+<script setup lang="ts">
 const options = [
   {
     title: '步骤一',

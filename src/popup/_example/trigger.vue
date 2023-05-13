@@ -15,8 +15,10 @@
   </t-space>
 </template>
 
-<script setup>
-const onVisibleChange = (visible, context) => {
+<script setup lang="ts">
+import { PopupVisibleChangeContext } from 'tdesign-vue-next';
+
+const onVisibleChange = (visible: boolean, context: PopupVisibleChangeContext) => {
   console.log(visible, context);
 };
 </script>
