@@ -1925,7 +1925,7 @@
   },
   "t-date-range-picker/clearable": {
     "type": "Boolean",
-    "description": "是否显示清楚按钮\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-range-picker?tab=api#daterangepicker-props)"
+    "description": "是否显示清除按钮\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-range-picker?tab=api#daterangepicker-props)"
   },
   "t-date-range-picker/default-time": {
     "type": "Array",

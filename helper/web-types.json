@@ -5167,7 +5167,7 @@
             },
             {
               "name": "clearable",
-              "description": "是否显示清楚按钮",
+              "description": "是否显示清除按钮",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/date-range-picker?tab=api#daterangepicker-props",
               "type": [
                 "Boolean"
