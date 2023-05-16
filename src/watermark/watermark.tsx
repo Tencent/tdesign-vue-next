@@ -45,7 +45,7 @@ export default defineComponent({
       return offset[1] || gapY.value / 2;
     });
 
-    const bgImageOptions = {
+    const bgImageOptions = computed(() => ({
       width: props.width,
       height: props.height,
       rotate: rotate.value,
@@ -56,10 +56,10 @@ export default defineComponent({
       watermarkContent: props.watermarkContent,
       offsetLeft: offsetLeft.value,
       offsetTop: offsetTop.value,
-    };
+    }));
 
     const injectWaterMark = () => {
-      generateBase64Url(bgImageOptions, (base64Url) => {
+      generateBase64Url(bgImageOptions.value, (base64Url) => {
         backgroundImage.value = base64Url;
       });
       const keyframesStyle = randomMovingStyle();
