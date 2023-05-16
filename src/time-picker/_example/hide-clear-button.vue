@@ -7,7 +7,7 @@
   </t-space>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const time1 = ref('11:12:10');

@@ -7,7 +7,13 @@
       </t-radio-group>
     </t-space>
 
-    <t-tabs drag-sort :value="value" :theme="theme" @drag-sort="onDragend" @change="(newValue) => (value = newValue)">
+    <t-tabs
+      drag-sort
+      :value="value"
+      :theme="theme"
+      @drag-sort="onDragend"
+      @change="(newValue: string) => (value = newValue)"
+    >
       <t-tab-panel
         v-for="data in panelData"
         :key="data.value"
@@ -22,7 +28,8 @@
     </t-tabs>
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
+import { TabsDragSortContext } from 'tdesign-vue-next';
 import { ref } from 'vue';
 
 const theme = ref('normal');
@@ -48,7 +55,13 @@ const panelData = ref([
   },
 ]);
 
-const onDragend = ({ currentIndex, targetIndex }) => {
+const onDragend = ({
+  currentIndex,
+  targetIndex,
+}: {
+  currentIndex: TabsDragSortContext['currentIndex'];
+  targetIndex: TabsDragSortContext['targetIndex'];
+}) => {
   [panelData.value[currentIndex], panelData.value[targetIndex]] = [
     panelData.value[targetIndex],
     panelData.value[currentIndex],

@@ -1,8 +1,10 @@
 <template>
   <t-transfer :data="list" :disabled="[false, true]" :default-value="defaultValue" />
 </template>
-<script setup>
-const list = [];
+<script setup lang="ts">
+type List = { value: number; label: string; disabled: boolean };
+
+const list: List[] = [];
 for (let i = 0; i < 20; i++) {
   list.push({
     value: i,
@@ -11,5 +13,5 @@ for (let i = 0; i < 20; i++) {
   });
 }
 
-const defaultValue = list.map((item) => item.value).filter((v) => parseInt(v, 10) % 2 === 0);
+const defaultValue = list.map((item) => item.value).filter((v) => v % 2 === 0);
 </script>

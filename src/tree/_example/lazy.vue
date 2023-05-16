@@ -28,10 +28,16 @@
   </t-space>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
-const items = [
+type Item = {
+  label: string;
+  value: string;
+  children: boolean;
+};
+
+const items: Item[] = [
   {
     label: '1',
     value: '1',

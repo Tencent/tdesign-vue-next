@@ -19,7 +19,7 @@
   </t-timeline>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const CommonStyle = {
   fontSize: '12px',
   color: 'rgba(0,0,0,.6)',

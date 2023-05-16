@@ -13,15 +13,17 @@
     </t-popup>
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
+import { TimePickerValue } from 'tdesign-vue-next';
 import { ref } from 'vue';
 
 const value = ref('11:11:11');
 const usage = ref('single');
 const inputValue = ref('');
 
-const handleChange = (v) => {
-  value.value = v;
-  inputValue.value = v;
+const handleChange = (val: TimePickerValue) => {
+  console.log(val);
+  value.value = val;
+  inputValue.value = val;
 };
 </script>

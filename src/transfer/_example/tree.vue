@@ -11,7 +11,8 @@
     </template>
   </t-transfer>
 </template>
-<script setup>
+<script setup lang="ts">
+import { CheckedOptions, TransferValue } from 'tdesign-vue-next/es/transfer/type';
 import { ref } from 'vue';
 
 const items = [
@@ -69,17 +70,17 @@ const items = [
 const targetValue = ref([]);
 const checkedRef = ref([]);
 
-const handleCheckedChange = ({ checked, sourceChecked, targetChecked, type }) => {
-  checkedRef.value = checked;
+const handleCheckedChange = (val: CheckedOptions) => {
   console.log('handleCheckedChange', {
-    checked,
-    sourceChecked,
-    targetChecked,
-    type,
+    checked: val.checked,
+    sourceChecked: val.sourceChecked,
+    targetChecked: val.targetChecked,
+    type: val.type,
   });
+  checkedRef.value = val.checked;
 };
 
-const onChange = (newTargetValue) => {
+const onChange = (newTargetValue: Array<TransferValue>) => {
   console.log('onChange', newTargetValue);
 };
 </script>

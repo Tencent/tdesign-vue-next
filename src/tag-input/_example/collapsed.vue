@@ -21,15 +21,17 @@
   </t-space>
 </template>
 
-<script lang="jsx">
-import { defineComponent, ref } from 'vue';
-import { Tag } from 'tdesign-vue-next';
-
+<script lang="tsx">
+import { defineComponent, h, ref } from 'vue';
+import { Tag as TTag } from 'tdesign-vue-next';
+type H = typeof h;
 export default defineComponent({
   name: 'TTagInputCollapsed',
   setup() {
     const tags = ref(['Vue', 'React', 'Miniprogram', 'Angular', 'Flutter']);
-    const renderCollapsedItems = (_, { collapsedTags }) => <Tag>更多({collapsedTags.length})</Tag>;
+    const renderCollapsedItems = (_h: H, { collapsedTags }: { collapsedTags: string[] }) => (
+      <TTag>更多({collapsedTags.length})</TTag>
+    );
     return { tags, renderCollapsedItems };
   },
 });

@@ -8,21 +8,22 @@
   </t-space>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { InputValue, TagInputChangeContext } from 'tdesign-vue-next';
 import { ref } from 'vue';
 
-const tags1 = ref(['Vue', 'React']);
-const tags2 = ref(['Vue', 'React']);
-const tags3 = ref(['Vue', 'React']);
+const tags1 = ref<string[]>(['Vue', 'React']);
+const tags2 = ref<string[]>(['Vue', 'React']);
+const tags3 = ref<string[]>(['Vue', 'React']);
 
-const onTagInputEnter = (val, context) => {
-  console.log(val, context);
+const onTagInputEnter = (value: string[], context: { e: KeyboardEvent; inputValue: InputValue }) => {
+  console.log(value, context);
 };
-const onChange = (val, context) => {
-  console.log(val, context);
-  tags2.value = val;
+const onChange = (value: string[], context: TagInputChangeContext) => {
+  console.log(value, context);
+  tags2.value = value;
 };
-const onPaste = (context) => {
+const onPaste = (context: { e: ClipboardEvent; pasteValue: string }) => {
   console.log(context);
 };
 </script>

@@ -8,7 +8,7 @@
   </t-space>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const tags1 = ref(['Vue', 'React']);

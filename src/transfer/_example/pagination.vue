@@ -8,10 +8,14 @@
     :on-page-change="handlePageChange"
   />
 </template>
-<script setup>
+<script setup lang="ts">
+import { PageInfo } from 'tdesign-vue-next';
+import { TransferListType } from 'tdesign-vue-next/es/transfer/type';
 import { ref } from 'vue';
 
-const list = [];
+type List = { value: string; label: string };
+
+const list: List[] = [];
 for (let i = 0; i < 20; i++) {
   list.push({
     value: i.toString(),
@@ -31,7 +35,7 @@ const pagination = ref([
   },
 ]);
 
-const handlePageChange = (...args) => {
-  console.log('handlePageChange', args);
+const handlePageChange = (page: PageInfo, context: { type: TransferListType }) => {
+  console.log('handlePageChange', page, context.type);
 };
 </script>

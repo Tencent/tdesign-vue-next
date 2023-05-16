@@ -42,12 +42,21 @@
     </t-space>
   </t-space>
 </template>
-<script setup lang="jsx">
-import { nextTick, ref } from 'vue';
+<script setup lang="tsx">
+import { VNode, nextTick, ref } from 'vue';
 import { AddIcon } from 'tdesign-icons-vue-next';
 
+type Tag = {
+  name: string;
+  type: string;
+  icon?: () => VNode;
+  showClose: boolean;
+  maxWidth?: number;
+  disabled?: boolean;
+};
+
 const inputVisible = ref(false);
-const tags = ref([
+const tags = ref<Tag[]>([
   {
     name: '可删除标签可删除标签',
     type: 'default',
@@ -68,18 +77,18 @@ const tags = ref([
     disabled: true,
   },
 ]);
-const input = ref('');
+const input = ref();
 
-const handleClose = (index) => {
+const handleClose = (index: number) => {
   console.log(index);
   tags.value.splice(index, 1);
 };
 
-const handleClick = (event) => {
+const handleClick = (event: { e: MouseEvent }) => {
   console.log(event);
 };
 
-const handleInputEnter = (val) => {
+const handleInputEnter = (val: string) => {
   if (val && !tags.value.some((item) => item.name === val)) {
     tags.value.push({ name: val, type: 'default', showClose: true });
   }

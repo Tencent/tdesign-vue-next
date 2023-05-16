@@ -11,8 +11,10 @@
     </template>
   </t-transfer>
 </template>
-<script setup>
-const list = [];
+<script setup lang="ts">
+type List = { value: string; label: string };
+
+const list: List[] = [];
 for (let i = 0; i < 20; i++) {
   list.push({
     value: i.toString(),

@@ -9,25 +9,26 @@
     @blur="onBlur"
   />
 </template>
-<script setup>
+<script setup lang="ts">
+import { TextareaValue } from 'tdesign-vue-next';
 import { ref } from 'vue';
 
 const value = ref('');
 
-const onKeypress = (value, e) => {
-  console.log('onKeypress: ', value, e);
+const onKeypress = (value: TextareaValue, context: { e: KeyboardEvent }) => {
+  console.log('onKeypress: ', value, context);
 };
-const onKeydown = (value, e) => {
-  console.log('onKeydown: ', value, e);
+const onKeydown = (value: TextareaValue, context: { e: KeyboardEvent }) => {
+  console.log('onKeydown: ', value, context);
 };
-const onKeyup = (value, e) => {
-  console.log('onKeyup: ', value, e);
+const onKeyup = (value: TextareaValue, context: { e: KeyboardEvent }) => {
+  console.log('onKeyup: ', value, context);
 };
 
-const onFocus = (value, e) => {
-  console.log('onFocus: ', value, e);
+const onFocus = (value: TextareaValue, context: { e: FocusEvent }) => {
+  console.log('onFocus: ', value, context);
 };
-const onBlur = (value, e) => {
-  console.log('onBlur: ', value, e);
+const onBlur = (value: TextareaValue, context: { e: FocusEvent }) => {
+  console.log('onBlur: ', value, context);
 };
 </script>

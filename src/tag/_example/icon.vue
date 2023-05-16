@@ -11,7 +11,7 @@
   </t-space>
 </template>
 
-<script setup lang="jsx">
+<script setup lang="tsx">
 const renderDiscountIcon = () => {
   return <t-icon name="discount" />;
 };

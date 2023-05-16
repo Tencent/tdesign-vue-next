@@ -19,10 +19,24 @@
   </t-space>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { TreeNodeModel } from 'tdesign-vue-next';
 import { ref } from 'vue';
 
-const items = [
+type Item = {
+  label: string;
+  children: {
+    label: string;
+    children?: {
+      label: string;
+      children?: {
+        label: string;
+      }[];
+    }[];
+  }[];
+};
+
+const items: Item[] = [
   {
     label: '1',
     children: [
@@ -82,11 +96,14 @@ const items = [
 const mutex = ref(true);
 const expandOnClickNode = ref(true);
 
-const onClick = (context) => {
+const onClick = (context: { node: TreeNodeModel<Item>; e: MouseEvent }) => {
   console.info('onClick', context);
 };
 
-const handleExpand = (value, context) => {
+const handleExpand = (
+  value: Item[],
+  context: { node: TreeNodeModel<Item>; e?: MouseEvent; trigger: 'node-click' | 'icon-click' | 'setItem' },
+) => {
   console.info('onExpand', value, context);
 };
 </script>

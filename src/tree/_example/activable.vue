@@ -26,10 +26,13 @@
   </t-space>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { TreeNodeModel, TreeNodeValue } from 'tdesign-vue-next';
 import { ref } from 'vue';
 
-const items = [
+type Item = { label: string; children: { label: string }[] };
+
+const items: Item[] = [
   {
     label: '1',
     children: [
@@ -58,11 +61,11 @@ const activable = ref(true);
 const activeMultiple = ref(false);
 const expandOnClickNode = ref(false);
 
-const onClick = (context) => {
+const onClick = (context: { node: TreeNodeModel<Item[]>; e: MouseEvent }) => {
   console.info('onClick', context);
 };
 
-const onActive = (value, context) => {
+const onActive = (value: Array<TreeNodeValue>, context: { node: TreeNodeModel<Item[]> }) => {
   console.info('onActive', value, context);
 };
 </script>

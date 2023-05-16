@@ -6,6 +6,6 @@
     <t-transfer :data="list" empty="No Data" />
   </t-space>
 </template>
-<script setup>
-const list = [];
+<script setup lang="ts">
+const list: any[] = [];
 </script>

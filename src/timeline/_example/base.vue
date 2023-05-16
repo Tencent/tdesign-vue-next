@@ -14,7 +14,7 @@
     </t-timeline>
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const layout = ref('vertical');

@@ -17,14 +17,15 @@
     />
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
+import { TextareaValue } from 'tdesign-vue-next';
 import { ref } from 'vue';
 
 const value = ref('');
 const value2 = ref('');
 const value3 = ref('');
 
-const onChange = (value, e) => {
-  console.log('onChange：', value, e);
+const onChange = (value: TextareaValue, context?: { e?: InputEvent }) => {
+  console.log('onChange：', value, context.e);
 };
 </script>

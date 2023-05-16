@@ -22,13 +22,13 @@
   </t-space>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const value = ref('first');
 const placement = ref('top');
 
-const handlerChange = (newValue) => {
+const handlerChange = (newValue: string) => {
   value.value = newValue;
 };
 </script>

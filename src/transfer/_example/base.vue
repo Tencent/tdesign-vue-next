@@ -7,10 +7,13 @@
     @checked-change="handleCheckedChange"
   />
 </template>
-<script setup>
+<script setup lang="ts">
+import { CheckedOptions, TransferValue } from 'tdesign-vue-next/es/transfer/type';
 import { ref } from 'vue';
 
-const list = [];
+type List = { value: string; label: string; disabled: boolean };
+
+const list: List[] = [];
 for (let i = 0; i < 20; i++) {
   list.push({
     value: i.toString(),
@@ -20,19 +23,19 @@ for (let i = 0; i < 20; i++) {
 }
 
 const targetValue = ref([]);
-const checked = ref(['2']);
+const checked = ref<TransferValue[]>(['2']);
 
-const handleCheckedChange = ({ checked: checkedVal, sourceChecked, targetChecked, type }) => {
+const handleCheckedChange = (val: CheckedOptions) => {
   console.log('handleCheckedChange', {
-    checkedVal,
-    sourceChecked,
-    targetChecked,
-    type,
+    checked: val.checked,
+    sourceChecked: val.sourceChecked,
+    targetChecked: val.targetChecked,
+    type: val.type,
   });
-  checked.value = checkedVal;
+  checked.value = val.checked;
 };
 
-const onChange = (newTargetValue) => {
+const onChange = (newTargetValue: Array<TransferValue>) => {
   console.log('newTargetValue', newTargetValue);
 };
 </script>

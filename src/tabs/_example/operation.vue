@@ -20,7 +20,8 @@
   </t-space>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { TabValue } from 'tdesign-vue-next';
 import { ref } from 'vue';
 
 let id = 0;
@@ -54,7 +55,7 @@ const addTab = () => {
   id += 1;
 };
 
-const removeTab = ({ value: val }) => {
+const removeTab = ({ val }: { val: TabValue }) => {
   const index = panelData.value.findIndex((data) => data.value === val);
   if (index < 0) return false;
   panelData.value.splice(index, 1);

@@ -7,10 +7,28 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { TreeNodeModel } from 'tdesign-vue-next';
 import { ref } from 'vue';
 
-const items = [
+type Item = {
+  value: string;
+  label: string;
+  children: {
+    value: string;
+    label: string;
+    children?: {
+      value: string;
+      label: string;
+      children: {
+        value: string;
+        label: string;
+      }[];
+    }[];
+  }[];
+};
+
+const items: Item[] = [
   {
     value: '1',
     label: '1',
@@ -106,7 +124,7 @@ const handleFilterByText = ref(null);
 const expanded = ref(['1.1.1']);
 
 const onInput = () => {
-  handleFilterByText.value = (node) => node.data.label.indexOf(filterText.value) >= 0;
+  handleFilterByText.value = (node: TreeNodeModel<Item>) => node.data.label.indexOf(filterText.value) >= 0;
 };
 </script>
 <style scoped>

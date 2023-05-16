@@ -10,7 +10,7 @@
   </t-tree>
 </template>
 
-<script setup lang="jsx">
+<script setup lang="tsx">
 const empty = () => {
   return <div>😊 空数据（ empty props ）</div>;
 };

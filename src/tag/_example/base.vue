@@ -32,8 +32,8 @@
     </t-space>
   </t-space>
 </template>
-<script setup>
-const onClick = ({ e }) => {
+<script setup lang="ts">
+const onClick = ({ e }: { e: MouseEvent }) => {
   e.stopPropagation();
 };
 </script>

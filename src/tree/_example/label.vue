@@ -11,7 +11,9 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { h } from 'vue';
+
 const items = [
   {
     label: '1',
@@ -37,7 +39,7 @@ const items = [
   },
 ];
 
-const label = (h, node) => {
+const label = (node: { value: string; label: string }) => {
   return h('strong', {
     innerHTML: `value: ${node.value}, label: ${node.label}`,
   });

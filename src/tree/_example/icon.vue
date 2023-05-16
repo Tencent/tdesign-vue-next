@@ -13,10 +13,14 @@
   </div>
 </template>
 
-<script setup>
-import { resolveComponent, ref } from 'vue';
-import TIcon from 'tdesign-vue-next/icon';
-
+<script setup lang="ts">
+import { resolveComponent, ref, h } from 'vue';
+import { Icon as TIcon, TreeNodeModel } from 'tdesign-vue-next';
+type H = typeof h;
+type Item = {
+  label: string;
+  children: boolean;
+};
 const items = ref([
   {
     label: '1',
@@ -28,10 +32,11 @@ const items = ref([
   },
 ]);
 
-const icon = (createElement, node) => {
+const icon = (h: H, node: TreeNodeModel<Item[]>) => {
+  console.log(node);
   let name = 'file';
   const TIcon = resolveComponent('t-icon');
-  if (node.getChildren()) {
+  if (node.getChildren(true)) {
     if (node.expanded) {
       name = 'folder-open';
     } else {
@@ -39,12 +44,13 @@ const icon = (createElement, node) => {
     }
   }
 
-  return createElement(TIcon, {
+  return h(TIcon, {
     name,
   });
 };
 
-const load = (node) => {
+const load = (node: TreeNodeModel<Item[]>) => {
+  console.log('load:', node);
   const maxLevel = 2;
   return new Promise((resolve) => {
     setTimeout(() => {

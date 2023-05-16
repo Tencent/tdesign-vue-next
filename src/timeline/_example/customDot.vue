@@ -20,7 +20,7 @@
     </t-timeline>
   </t-space>
 </template>
-<script setup lang="jsx">
+<script setup lang="tsx">
 import { ref } from 'vue';
 import { TipsIcon, UserIcon, HeartIcon, HomeIcon } from 'tdesign-icons-vue-next';
 

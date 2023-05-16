@@ -14,8 +14,26 @@
   />
 </template>
 
-<script setup>
-const items = [
+<script setup lang="ts">
+import { TreeNodeModel } from 'tdesign-vue-next';
+
+type Item = {
+  value: string;
+  label: string;
+  children: {
+    value: string;
+    label: string;
+    children?: {
+      value: string;
+      label: string;
+      children: {
+        value: string;
+        label: string;
+      }[];
+    }[];
+  }[];
+};
+const items: Item[] = [
   {
     value: '1',
     label: '1',
@@ -72,17 +90,17 @@ const items = [
   },
 ];
 
-const handleDragStart = ({ node, e }) => {
+const handleDragStart = ({ node, e }: { e: DragEvent; node: TreeNodeModel<Item> }) => {
   console.log('handleDragStart', node.value, e);
 };
-const handleDragEnd = ({ node, e }) => {
+const handleDragEnd = ({ node, e }: { e: DragEvent; node: TreeNodeModel<Item> }) => {
   console.log('handleDragEnd', node.value, e);
 };
 const handleDragOver = () => {};
-const handleDragLeave = ({ node, e }) => {
+const handleDragLeave = ({ node, e }: { e: DragEvent; node: TreeNodeModel<Item> }) => {
   console.log('handleDragLeave', node.value, e);
 };
-const handleDrop = ({ node, dropPosition, e }) => {
+const handleDrop = ({ node, dropPosition, e }: { node: TreeNodeModel<Item>; e: DragEvent; dropPosition: number }) => {
   console.log('handleDrop', node.value, dropPosition, e);
 };
 </script>

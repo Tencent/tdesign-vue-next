@@ -12,8 +12,13 @@
     </t-check-tag>
   </t-space>
 </template>
-<script setup>
-const tags = [
+<script setup lang="ts">
+type Tag = {
+  name: string;
+  defaultChecked?: boolean;
+  disabled?: boolean;
+};
+const tags: Tag[] = [
   {
     name: '选中',
     defaultChecked: true,
@@ -27,11 +32,11 @@ const tags = [
   },
 ];
 
-const handleClick = (tag, index) => {
+const handleClick = (tag: Tag, index: number) => {
   console.log(tag, index);
 };
 
-const handleChange = (isChecked) => {
+const handleChange = (isChecked: boolean) => {
   console.log(isChecked);
 };
 </script>

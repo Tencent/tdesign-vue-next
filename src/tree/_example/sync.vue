@@ -25,7 +25,7 @@
   />
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, computed } from 'vue';
 
 const items = [
@@ -128,7 +128,7 @@ const actived = ref(['2']);
 const valueMode = 'onlyLeaf';
 
 const allChecked = computed(() => {
-  let arr = [];
+  let arr: string[] = [];
   if (Array.isArray(checked.value)) {
     arr = checked.value;
   }
@@ -136,7 +136,7 @@ const allChecked = computed(() => {
 });
 
 const allExpanded = computed(() => {
-  let arr = [];
+  let arr: string[] = [];
   if (Array.isArray(expanded.value)) {
     arr = expanded.value;
   }
@@ -144,7 +144,7 @@ const allExpanded = computed(() => {
 });
 
 const allActived = computed(() => {
-  let arr = [];
+  let arr: string[] = [];
   if (Array.isArray(actived.value)) {
     arr = actived.value;
   }

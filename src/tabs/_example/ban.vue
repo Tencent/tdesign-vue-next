@@ -7,7 +7,7 @@
       </t-radio-group>
     </t-space>
 
-    <t-tabs :value="value" :theme="theme" @change="(newValue) => (value = newValue)">
+    <t-tabs :value="value" :theme="theme" @change="(newValue: string) => (value = newValue)">
       <t-tab-panel value="first" :label="`选项卡1`">
         <p style="padding: 25px">{{ `选项卡1的内容` }}</p>
       </t-tab-panel>
@@ -20,7 +20,7 @@
     </t-tabs>
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const value = ref('first');

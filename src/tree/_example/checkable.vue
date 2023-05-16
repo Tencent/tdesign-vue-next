@@ -43,8 +43,44 @@
   </t-space>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { TreeNodeModel } from 'tdesign-vue-next';
 import { ref, watch } from 'vue';
+
+type ItemsString = {
+  value: string;
+  label: string;
+  children: {
+    value: string;
+    label: string;
+    children?: {
+      value: string;
+      label: string;
+      children: {
+        value: string;
+        label: string;
+      }[];
+    }[];
+  }[];
+};
+
+type ItemsNumber = {
+  valueAlias?: number;
+  value: number;
+  label: string;
+  children: {
+    value: number;
+    label: string;
+    children?: {
+      value: number;
+      label: string;
+      children: {
+        value: number;
+        label: string;
+      }[];
+    }[];
+  }[];
+};
 
 const valueOptions = [
   {
@@ -71,7 +107,7 @@ const valueAliasOptions = [
   { value: 'valueAlias', label: 'valueAlias' },
 ];
 
-const itemsString = [
+const itemsString: ItemsString[] = [
   {
     value: '1',
     label: '1',
@@ -162,7 +198,7 @@ const itemsString = [
   },
 ];
 
-const itemsNumber = [
+const itemsNumber: ItemsNumber[] = [
   {
     value: 1,
     label: '1',
@@ -199,7 +235,7 @@ const valueAlias = ref('value');
 const keys = ref({});
 const checkable = ref(true);
 const checkStrictly = ref(false);
-const items = ref(itemsString);
+const items = ref<ItemsString[] | ItemsNumber[]>(itemsString);
 
 watch(valueType, (type) => {
   items.value = type === 'string' ? itemsString : itemsNumber;
@@ -213,7 +249,7 @@ watch(valueAlias, (alias) => {
   }
 });
 
-const handleValueAlias = (items) => {
+const handleValueAlias = (items: ItemsNumber[]) => {
   return (items || []).map((ds) => {
     if (ds.value) {
       ds.valueAlias = ds.value;
@@ -224,10 +260,13 @@ const handleValueAlias = (items) => {
     return ds;
   });
 };
-const onClick = (context) => {
+const onClick = (context: { node: TreeNodeModel<ItemsNumber[]> }) => {
   console.info('onClick:', context);
 };
-const onChange = (checked, context) => {
-  console.info('onChange:', checked, context);
+const onChange = (
+  value: Array<number[] | string[]>,
+  context: { node: TreeNodeModel<ItemsNumber[] | ItemsString[]> },
+) => {
+  console.info('onChange:', value, context);
 };
 </script>

@@ -24,35 +24,36 @@
   </t-space>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { InputValue, TagInputChangeContext } from 'tdesign-vue-next';
 import { ref } from 'vue';
 
 const tags1 = ref(['Vue', 'React', 'Angular']);
 const tags2 = ref(['Vue', 'React', 'Angular', 'Miniprogram']);
 
-const onTagInputEnter = (val, context) => {
-  console.log(val, context);
+const onTagInputEnter = (value: string[], context: { e: KeyboardEvent; inputValue: InputValue }) => {
+  console.log(value, context);
 };
 
-const onChange = (val, context) => {
-  console.log(val, context);
+const onChange = (value: string[], context: TagInputChangeContext) => {
+  console.log(value, context);
 };
 
-const onChange2 = (val, context) => {
-  console.log(val, context);
+const onChange2 = (value: string[], context: TagInputChangeContext) => {
+  console.log(value, context);
 };
 
-const onPaste = (context) => {
+const onPaste = (context: { e: ClipboardEvent; pasteValue: string }) => {
   console.log(context);
 };
 
-function onDragSort({ currentIndex, targetIndex }) {
+function onDragSort({ currentIndex, targetIndex }: { currentIndex: number; targetIndex: number }) {
   const temp = tags1.value[currentIndex];
   tags1.value[currentIndex] = tags1.value[targetIndex];
   tags1.value[targetIndex] = temp;
 }
 
-function onDragSort2({ currentIndex, targetIndex }) {
+function onDragSort2({ currentIndex, targetIndex }: { currentIndex: number; targetIndex: number }) {
   const temp = tags2.value[currentIndex];
   tags2.value[currentIndex] = tags2.value[targetIndex];
   tags2.value[targetIndex] = temp;

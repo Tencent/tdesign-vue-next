@@ -17,7 +17,7 @@
   </t-space>
 </template>
 
-<script setup lang="jsx">
+<script setup lang="tsx">
 import { ref } from 'vue';
 
 const tabList = [

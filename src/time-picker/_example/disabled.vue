@@ -7,12 +7,12 @@
   </t-space>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const time1 = ref('11:12:10');
 
-const disableTime = (h) => {
+const disableTime = (h: number) => {
   const disableHour = [1, 2, 3];
   if (h > 4) {
     return {

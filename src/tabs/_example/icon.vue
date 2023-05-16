@@ -28,13 +28,13 @@
     </t-tabs>
   </t-space>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const value = ref('first');
 const theme = ref('normal');
 
-const handlerChange = (newValue) => {
+const handlerChange = (newValue: string) => {
   value.value = newValue;
 };
 </script>

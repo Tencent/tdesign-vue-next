@@ -2,8 +2,10 @@
   <t-tree :data="items" activable hover transition />
 </template>
 
-<script setup>
-const items = [
+<script setup lang="ts">
+type Item = { label: string; children: { label: string }[] };
+
+const items: Item[] = [
   {
     label: '第一段',
     children: [

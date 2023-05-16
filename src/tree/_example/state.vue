@@ -26,10 +26,19 @@
   </div>
 </template>
 
-<script setup>
-import { ref } from 'vue';
+<script setup lang="ts">
+import { TreeNodeModel } from 'tdesign-vue-next';
+import { ref, h } from 'vue';
 
-const items = [
+type H = typeof h;
+
+type Item = {
+  icon: string;
+  label: string;
+  value: string;
+};
+
+const items: Item[] = [
   {
     icon: '',
     label: 'node1',
@@ -42,16 +51,17 @@ const items = [
   },
 ];
 
-const changeIcon = (node) => {
+const changeIcon = (node: TreeNodeModel<Item>) => {
   const { data } = node;
   // 需要自定义视图的数据，如果较多，可以存放到 data 里面
   data.icon = data.icon === 'folder' ? 'folder-open' : 'folder';
 };
 
-const icon = (createElement, node) => {
+const icon = (h: H, node: TreeNodeModel<Item>) => {
+  console.log('icon', node);
   const { data } = node;
   let name = 'file';
-  if (node.getChildren()) {
+  if (node.getChildren(true)) {
     if (node.expanded) {
       name = 'folder-open';
     } else {
@@ -61,7 +71,7 @@ const icon = (createElement, node) => {
   if (data.icon) {
     name = data.icon;
   }
-  return createElement('t-icon', {
+  return h('t-icon', {
     props: {
       name,
     },
@@ -70,12 +80,12 @@ const icon = (createElement, node) => {
 
 const index = ref(2);
 
-const check = (node) => {
+const check = (node: TreeNodeModel<Item>) => {
   console.info('check:', node);
 };
 
 const tree = ref(null);
-const remove = (node) => {
+const remove = (node: TreeNodeModel<Item>) => {
   tree.value.remove(node.value);
 };
 
@@ -90,7 +100,7 @@ const getInsertItem = () => {
   };
   return item;
 };
-const append = (node) => {
+const append = (node?: TreeNodeModel<Item>) => {
   const item = getInsertItem();
   if (item) {
     if (!node) {

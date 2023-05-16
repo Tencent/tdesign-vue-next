@@ -53,14 +53,14 @@
         </t-button>
       </template>
     </t-tree>
-    <h3 class="title">API:</h3>
+    <h3 class="title">Tree API:</h3>
     <div class="operations">
       <t-button theme="primary" @click="getItem"> 获取 value 为 'node1' 的单个节点 </t-button>
       <t-button theme="primary" @click="getAllItems"> 获取所有节点 </t-button>
       <t-button theme="primary" @click="getActiveChildren"> 获取高亮节点的所有子节点 </t-button>
       <t-button theme="primary" @click="getAllActived"> 获取所有高亮节点 </t-button>
       <t-button theme="primary" @click="getActiveChecked"> 获取高亮节点下的选中节点 </t-button>
-      <t-button theme="primary" @click="append()"> 插入一个根节点 </t-button>
+      <t-button theme="primary" @click="append"> 插入一个根节点 </t-button>
       <t-button theme="primary" @click="getActiveParent"> 获取高亮节点的父节点 </t-button>
       <t-button theme="primary" @click="getActiveParents"> 获取高亮节点的所有父节点 </t-button>
       <t-button theme="primary" @click="getActiveIndex"> 获取高亮节点在子节点中的位置 </t-button>
@@ -72,10 +72,17 @@
   </div>
 </template>
 
-<script setup>
-import { ref } from 'vue';
+<script setup lang="ts">
+import { TreeNodeModel } from 'tdesign-vue-next';
+import { h, ref } from 'vue';
 
-const items = [
+type H = typeof h;
+type Item = {
+  value: string;
+  label?: string;
+};
+
+const items: Item[] = [
   {
     value: 'node1',
   },
@@ -84,7 +91,7 @@ const items = [
   },
 ];
 
-const getLabelContent = (node) => {
+const getLabelContent = (node: TreeNodeModel<Item>) => {
   const pathNodes = node.getPath();
   let label = pathNodes.map((itemNode) => itemNode.getIndex() + 1).join('.');
   label = `${label} | value: ${node.value}`;
@@ -102,23 +109,22 @@ const filterText = ref('');
 const filterByText = ref(null);
 const disableLabel = ref(false);
 
-const renderOperations = (createElement, node) => `value: ${node.value}`;
+const renderOperations = (h: H, node: TreeNodeModel<Item[]>) => `value: ${node.value}`;
 
-const getLabel = (createElement, node) => {
+const getLabel = (h: H, node: TreeNodeModel<Item>) => {
+  console.log('getLabel', node);
   const label = getLabelContent(node);
+  console.log('getLabel -label', label);
   const { data } = node;
   data.label = label;
   return label;
 };
 
-const getActivedNode = () => {
-  const activeNode = tree.value.getItem(activeId.value);
-  return activeNode;
-};
+const getActivedNode = (): TreeNodeModel<Item> => tree.value.getItem(activeId.value);
 
 const tree = ref(null);
-const setLabel = (value) => {
-  const node = tree.value.getItem(value);
+const setLabel = (value: string | number) => {
+  const node: TreeNodeModel<Item> = tree.value.getItem(value);
   const label = getLabelContent(node);
   const { data } = node;
   data.label = label;
@@ -133,7 +139,7 @@ const getAllItems = () => {
   const nodes = tree.value.getItems();
   console.info(
     'getAllItems:',
-    nodes.map((node) => node.value),
+    nodes.map((node: Item) => node.value),
   );
 };
 
@@ -144,9 +150,9 @@ const getAllActived = () => {
 const getActiveChildren = () => {
   const node = getActivedNode();
   if (!node) return;
-  let nodes = [];
+  let nodes: TreeNodeModel<Item>[] = [];
   if (node) {
-    nodes = node.getChildren(true) || [];
+    nodes = (node.getChildren(true) as TreeNodeModel<Item>[]) || [];
   }
   console.info(
     'getActiveChildren:',
@@ -160,7 +166,7 @@ const getActiveChecked = () => {
   const nodes = tree.value.getItems(node.value);
   console.info(
     'getChecked:',
-    nodes.filter((node) => node.checked).map((node) => node.value),
+    nodes.filter((node: TreeNodeModel<Item>) => node.checked).map((node: Item) => node.value),
   );
 };
 
@@ -178,10 +184,10 @@ const getInsertItem = () => {
   return item;
 };
 
-const getPlainData = (item) => {
+const getPlainData = (item: TreeNodeModel<Item>) => {
   const root = item;
   if (!root) return null;
-  const children = item.getChildren(true) || [];
+  const children = (item.getChildren(true) as TreeNodeModel<Item>[]) || [];
   const list = [root].concat(children);
   const nodeMap = {};
   const nodeList = list.map((item) => {
@@ -211,7 +217,7 @@ const getPlainData = (item) => {
   return data;
 };
 
-const append = (node) => {
+const append = (node: TreeNodeModel<Item>) => {
   const item = getInsertItem();
   if (item) {
     if (!node) {

@@ -8,10 +8,14 @@
   />
 </template>
 
-<script setup lang="jsx">
-import { ref } from 'vue';
+<script setup lang="tsx">
+import { TransferItem } from 'tdesign-vue-next/es/transfer/type';
+import { VNode, ref } from 'vue';
 
-const list = [];
+type List = { value: string; label: string; description: string };
+
+const list: List[] = [];
+
 for (let i = 0; i < 20; i++) {
   list.push({
     value: i.toString(),
@@ -23,17 +27,17 @@ for (let i = 0; i < 20; i++) {
 const targetValue = ref([]);
 const checkedValue = ref([]);
 
-const transferItem = (h, { data, index, type }) => {
+const transferItem = (h: VNode, val: TransferItem<List>) => {
   const sourceLabel = (
     <span class="transfer-item">
-      {data.label} - {data.description}
+      {val.data.label} - {val.data.description}
     </span>
   );
   const targetLabel = (
     <span class="transfer-item">
-      {index} - {data.label}
+      {val.index} - {val.data.label}
     </span>
   );
-  return type === 'source' ? sourceLabel : targetLabel;
+  return val.type === 'source' ? sourceLabel : targetLabel;
 };
 </script>

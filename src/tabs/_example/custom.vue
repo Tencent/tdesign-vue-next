@@ -16,11 +16,12 @@
   </t-space>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { TabValue } from 'tdesign-vue-next';
 import { ref } from 'vue';
 
 let id = 0;
-const value = ref('first');
+const tabValue = ref('first');
 const panelData = ref([
   {
     value: 'first',
@@ -43,16 +44,16 @@ const addTab = () => {
     removable: true,
     content: '新选项卡内容',
   });
-  value.value = `${id}`;
+  tabValue.value = `${id}`;
   id += 1;
 };
 
-const removeTab = ({ value: val, index }) => {
+const removeTab = ({ value, index }: { value: TabValue; index: number }) => {
   if (index < 0) return false;
   panelData.value.splice(index, 1);
   if (panelData.value.length === 0) return;
-  if (value.value === val) {
-    value.value = panelData.value[Math.max(index - 1, 0)].value;
+  if (tabValue.value === value) {
+    tabValue.value = panelData.value[Math.max(index - 1, 0)].value;
   }
 };
 </script>

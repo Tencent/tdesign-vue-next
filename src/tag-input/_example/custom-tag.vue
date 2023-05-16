@@ -30,7 +30,7 @@
   </t-space>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const tags = ref(['StudentA', 'StudentB', 'StudentC']);
