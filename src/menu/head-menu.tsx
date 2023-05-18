@@ -167,12 +167,12 @@ export default defineComponent({
     };
 
     const formatContent = () => {
-      let slot: Array<VNode | HTMLElement> = ctx.slots.default?.() || ctx.slots.content?.() || [];
+      let slot = ctx.slots.default?.() || ctx.slots.content?.() || [];
 
       if (menuRef.value && innerRef.value) {
         const validNodes = Array.from(menuRef.value.childNodes ?? []).filter(
           (item) => item.nodeName !== '#text' || item.nodeValue,
-        ) as HTMLElement[];
+        ) as Array<HTMLElement & { __vnode: VNode }>;
 
         const menuWidth = calcMenuWidth();
         const menuItemMinWidth = 104;
@@ -189,8 +189,8 @@ export default defineComponent({
           }
         }
 
-        const defaultSlot: Array<VNode | HTMLElement> = validNodes.slice(0, sliceIndex);
-        const subMore = validNodes.slice(sliceIndex);
+        const defaultSlot = validNodes.slice(0, sliceIndex).map((element) => element?.__vnode);
+        const subMore = validNodes.slice(sliceIndex).map((element) => element?.__vnode);
 
         if (subMore.length) {
           slot = defaultSlot.concat(
@@ -237,7 +237,11 @@ export default defineComponent({
                 {logo}
               </div>
             )}
-            <ul class={`${classPrefix.value}-menu`} ref={menuRef}>
+            <ul
+              class={`${classPrefix.value}-menu`}
+              style={{ maxWidth: `${menuContentRef.value ? 'unset' : '1px'}` }}
+              ref={menuRef}
+            >
               {content}
             </ul>
             {operations && (
