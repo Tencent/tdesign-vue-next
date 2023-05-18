@@ -13,11 +13,6 @@ export default {
     type: Array as PropType<TdDateRangePickerPanelProps['defaultTime']>,
     default: (): TdDateRangePickerPanelProps['defaultTime'] => ['00:00:00', '23:59:59'],
   },
-  /** 时间选择器单独使用时生效 */
-  popupVisible: {
-    type: Boolean,
-    default: true,
-  },
   /** 点击日期单元格时触发 */
   onCellClick: Function as PropType<TdDateRangePickerPanelProps['onCellClick']>,
   /** 选中值发生变化时触发。参数 `context.trigger` 表示触发当前事件的来源，不同的模式触发来源也会不同 */

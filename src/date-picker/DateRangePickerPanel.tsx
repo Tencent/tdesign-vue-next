@@ -315,7 +315,7 @@ export default defineComponent({
       enableTimePicker: props.enableTimePicker,
       presetsPlacement: props.presetsPlacement,
       panelPreselection: props.panelPreselection,
-      popupVisible: props.popupVisible,
+      popupVisible: true,
       panelClick: props.onPanelClick,
       onCellClick,
       onCellMouseEnter,

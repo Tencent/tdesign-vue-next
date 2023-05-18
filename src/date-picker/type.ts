@@ -316,10 +316,6 @@ export interface TdDatePickerPanelProps
    */
   defaultTime?: string;
   /**
-   * 时间选择器单独使用时的属性
-   */
-  popupVisible?: boolean;
-  /**
    * 点击日期单元格时触发
    */
   onCellClick?: (context: { date: Date; e: MouseEvent }) => void;
@@ -381,7 +377,6 @@ export interface TdDateRangePickerPanelProps
    * @default ["00:00:00", "23:59:59"]
    */
   defaultTime?: string[];
-  popupVisible?: boolean;
   /**
    * 点击日期单元格时触发
    */
