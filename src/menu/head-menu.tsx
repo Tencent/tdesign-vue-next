@@ -139,6 +139,7 @@ export default defineComponent({
     const innerRef = ref<HTMLDivElement>();
     const logoRef = ref<HTMLDivElement>();
     const operationRef = ref<HTMLDivElement>();
+    const menuContentRef = ref<Array<VNode | HTMLElement>>();
 
     const getComputedCss = (el: Element, cssProperty: keyof CSSStyleDeclaration) =>
       getComputedStyle(el)[cssProperty] ?? '';
@@ -166,7 +167,7 @@ export default defineComponent({
     };
 
     const formatContent = () => {
-      let slot = ctx.slots.default?.() || ctx.slots.content?.() || [];
+      let slot: Array<VNode | HTMLElement> = ctx.slots.default?.() || ctx.slots.content?.() || [];
 
       if (menuRef.value && innerRef.value) {
         const validNodes = Array.from(menuRef.value.childNodes ?? []).filter(
@@ -188,8 +189,8 @@ export default defineComponent({
           }
         }
 
-        const defaultSlot = slot.slice(0, sliceIndex);
-        const subMore = slot.slice(sliceIndex);
+        const defaultSlot: Array<VNode | HTMLElement> = validNodes.slice(0, sliceIndex);
+        const subMore = validNodes.slice(sliceIndex);
 
         if (subMore.length) {
           slot = defaultSlot.concat(
@@ -199,8 +200,12 @@ export default defineComponent({
           );
         }
       }
-      return slot;
+      menuContentRef.value = slot;
     };
+
+    onMounted(() => {
+      formatContent();
+    });
 
     const initVMenu = (slots: VNode[], parentValue?: string) => {
       slots.forEach((node) => {
@@ -222,7 +227,7 @@ export default defineComponent({
     return () => {
       const logo = props.logo?.(h) || ctx.slots.logo?.();
       const operations = props.operations?.(h) || ctx.slots.operations?.() || ctx.slots.options?.();
-      const content = formatContent();
+      const content = menuContentRef.value || ctx.slots.default?.() || ctx.slots.content?.() || [];
 
       return (
         <div class={menuClass.value}>
