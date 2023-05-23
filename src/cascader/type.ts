@@ -192,7 +192,13 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
   /**
    * 【开发中】自定义选中项呈现的内容
    */
-  valueDisplay?: string | TNode<{ value: SelectValue; onClose: (index: number) => void; displayValue?: SelectValue }>;
+  valueDisplay?:
+    | string
+    | TNode<{
+        value: CascaderValue<CascaderOption>;
+        onClose: (index: number) => void;
+        displayValue?: CascaderValue<CascaderOption>;
+      }>;
   /**
    * 选中值模式。all 表示父节点和子节点全部会出现在选中值里面；parentFirst 表示当子节点全部选中时，仅父节点在选中值里面；onlyLeaf 表示无论什么情况，选中值仅呈现叶子节点
    * @default onlyLeaf

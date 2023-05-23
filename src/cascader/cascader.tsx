@@ -109,6 +109,7 @@ export default defineComponent({
           onBlur={(val, context) => {
             props.onBlur?.({
               value: cascaderContext.value.value,
+              inputValue: context.inputValue || '',
               e: context.e as FocusEvent,
             });
             (props?.selectInputProps as TdSelectInputProps)?.onBlur?.(val, context);
