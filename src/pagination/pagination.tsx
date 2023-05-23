@@ -176,7 +176,7 @@ export default defineComponent({
       const pageSize: number = parseInt(e, 10);
       let pageCount = 1;
       if (pageSize > 0) {
-        pageCount = Math.ceil(props.total / pageSize);
+        pageCount = Math.max(Math.ceil(props.total / pageSize), 1);
       }
 
       let isIndexChange = false;
