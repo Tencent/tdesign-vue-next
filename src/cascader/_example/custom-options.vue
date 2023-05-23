@@ -12,7 +12,6 @@
       v-model="value2"
       :popup-props="{ overlayClassName: 'tdesign-demo-select__overlay-option' }"
       :options="options"
-      style="width: 300px"
     >
       <template #option="{ item }">
         <div class="tdesign-demo__user-option">
@@ -30,7 +29,6 @@
       :popup-props="{ overlayClassName: 'tdesign-demo-select__overlay-option' }"
       :options="options"
       :option="optionRender"
-      style="width: 300px"
     >
     </t-cascader>
   </t-space>
