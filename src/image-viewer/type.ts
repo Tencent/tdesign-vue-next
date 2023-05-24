@@ -90,6 +90,11 @@ export interface TdImageViewerProps {
    * 预览图片切换时触发，`context.prev` 切换到上一张图片，`context.next` 切换到下一张图片
    */
   onIndexChange?: (index: number, context: { trigger: 'prev' | 'next' }) => void;
+  /**
+   * 滚轮缩放图片行为, ，`mac`默认，适用于mac使用习惯，`win`适用于window使用习惯
+   * @default mac
+   */
+  wheelBehavior?: 'mac' | 'win';
 }
 
 export interface ImageScale {

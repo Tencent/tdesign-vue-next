@@ -88,4 +88,13 @@ export default {
   onClose: Function as PropType<TdImageViewerProps['onClose']>,
   /** 预览图片切换时触发，`context.prev` 切换到上一张图片，`context.next` 切换到下一张图片 */
   onIndexChange: Function as PropType<TdImageViewerProps['onIndexChange']>,
+  /** 滚轮缩放图片行为, ，`mac`默认，适用于mac使用习惯，`win`适用于window使用习惯 */
+  wheelBehavior: {
+    type: String as PropType<TdImageViewerProps['wheelBehavior']>,
+    default: 'mac' as TdImageViewerProps['wheelBehavior'],
+    validator(val: TdImageViewerProps['wheelBehavior']): boolean {
+      if (!val) return true;
+      return ['mac', 'win'].includes(val);
+    },
+  },
 };

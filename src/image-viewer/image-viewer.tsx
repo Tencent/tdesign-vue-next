@@ -134,7 +134,7 @@ export default defineComponent({
       e.preventDefault();
       const { deltaY, ctrlKey } = e;
       // mac触摸板双指缩放时ctrlKey=true，deltaY>0为缩小  <0为放大
-      if (ctrlKey) {
+      if (ctrlKey || props.wheelBehavior === 'win') {
         return deltaY > 0 ? onZoomOut() : onZoomIn();
       }
       deltaY > 0 ? onZoomIn() : onZoomOut();
