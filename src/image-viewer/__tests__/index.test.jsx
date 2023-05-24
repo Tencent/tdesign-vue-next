@@ -2,6 +2,7 @@ import { mount } from '@vue/test-utils';
 import { expect, it } from 'vitest';
 import { ImageViewer } from '@/src/image-viewer/index.ts';
 import { Button } from '@/src/button/index.ts';
+import { mockDelay } from '@test/utils';
 
 // every component needs four parts: props/events/slots/functions.
 describe('Image-viewer', () => {
@@ -34,6 +35,24 @@ describe('Image-viewer', () => {
       });
 
       // expect(wrapper.element).toMatchSnapshot();
+      expect(document.querySelector('.t-image-viewer-preview-image')).toMatchSnapshot();
+    });
+
+    it('wheelBehavior', async () => {
+      const images = ['https://tdesign.gtimg.com/demo/demo-image-1.png'];
+      const props = {
+        index: 1,
+        visible: true,
+        images,
+        wheelBehavior: 'win',
+      };
+      mount({
+        render() {
+          return <ImageViewer {...props} />;
+        },
+      });
+      document.querySelector('.t-image-viewer-preview-image').dispatchEvent(new Event('wheel'), { wheelDeltaY: 150 });
+      await mockDelay(60);
       expect(document.querySelector('.t-image-viewer-preview-image')).toMatchSnapshot();
     });
 
