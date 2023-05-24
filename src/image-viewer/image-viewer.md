@@ -51,6 +51,7 @@ defaultVisible | Boolean | false | 隐藏/显示预览。非受控属性 | N
 zIndex | Number | - | 层级，默认为 2000 | N
 onClose | Function |  | TS 类型：`(context: { trigger: 'close-btn' \| 'overlay' \| 'esc'; e: MouseEvent \| KeyboardEvent }) => void`<br/>关闭时触发，事件参数包含触发关闭的来源：关闭按钮、遮罩层、ESC 键 | N
 onIndexChange | Function |  | TS 类型：`(index: number, context: { trigger: 'prev' \| 'next' }) => void`<br/>预览图片切换时触发，`context.prev` 切换到上一张图片，`context.next` 切换到下一张图片 | N
+wheelBehavior | String | mac | 滚轮缩放图片行为，`mac`默认，适用于mac使用习惯，`win`适用于window使用习惯 | N
 
 ### ImageViewer Events
 
