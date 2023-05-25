@@ -342,13 +342,18 @@ export default defineComponent({
 
       const bodyClassName =
         props.theme === 'default' ? [`${COMPONENT_NAME.value}__body`] : [`${COMPONENT_NAME.value}__body__icon`];
-      isFullScreen.value && bodyClassName.push(`${COMPONENT_NAME.value}__body--fullscreen`);
+
+      const footerContent = renderTNodeJSX('footer', defaultFooter);
+
+      if (isFullScreen.value && footerContent) {
+        bodyClassName.push(`${COMPONENT_NAME.value}__body--fullscreen`);
+      } else if (isFullScreen.value) {
+        bodyClassName.push(`${COMPONENT_NAME.value}__body--fullscreen--without-footer`);
+      }
 
       const footerClassName = isFullScreen.value
         ? [`${COMPONENT_NAME.value}__footer`, `${COMPONENT_NAME.value}__footer--fullscreen`]
         : `${COMPONENT_NAME.value}__footer`;
-
-      const footerContent = renderTNodeJSX('footer', defaultFooter);
 
       const onStopDown = (e: MouseEvent) => {
         if (isModeLess.value && props.draggable) e.stopPropagation();
