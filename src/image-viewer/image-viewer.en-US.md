@@ -23,7 +23,7 @@ defaultVisible | Boolean | false | uncontrolled property | N
 zIndex | Number | - | \- | N
 onClose | Function |  | Typescript：`(context: { trigger: 'close-btn' \| 'overlay' \| 'esc'; e: MouseEvent \| KeyboardEvent }) => void`<br/> | N
 onIndexChange | Function |  | Typescript：`(index: number, context: { trigger: 'prev' \| 'next' }) => void`<br/> | N
-
+wheelBehavior | String | mac | Scroll wheel zooming behavior, default on `mac`, suitable for Mac usage habits, `win` suitable for Windows usage habits. | N
 ### ImageViewer Events
 
 name | params | description
