@@ -72,7 +72,7 @@ export default function useFilter(props: TdPrimaryTableProps, context: SetupCont
       </div>
     );
     const filterContent = renderTNode('filterRow');
-    if ((props.filterRow && !filterContent) || props.filterRow === null) return null;
+    if ((props.filterRow && !filterContent) || [null, undefined].includes(props.filterRow)) return null;
     return <div class={tableFilterClasses.inner}>{filterContent || defaultNode}</div>;
   }
 
