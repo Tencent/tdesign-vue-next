@@ -1,5 +1,5 @@
 <template>
-  <t-config-provider :global-config="globalConfig" class="tdesign-demo-item--locale-provider-base">
+  <t-config-provider :global-config="globalConfig">
     <div class="tdesign-demo-item--locale-provider-base">
       <t-form :data="formData" :rules="rules">
         <t-form-item label="User Name" name="username">
@@ -108,8 +108,7 @@ for (let i = 0; i < 20; i++) {
 const globalConfig = merge(enConfig, {
   image: {
     // 全局替换图片地址
-    replaceImageSrc(params) {
-      console.log(params);
+    replaceImageSrc() {
       return 'https://tdesign.gtimg.com/demo/demo-image-1.png';
     },
   },

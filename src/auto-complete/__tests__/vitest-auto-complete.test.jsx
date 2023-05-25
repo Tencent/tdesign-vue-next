@@ -410,6 +410,7 @@ describe('AutoComplete Component', () => {
     expect(onSelectFn1.mock.calls[0][0]).toBe('FirstKeyword');
     expect(onSelectFn1.mock.calls[0][1].e.type).toBe('click');
   });
+
   it('events.select: keyboard operations: ArrowDown & ArrowUp & Enter', async () => {
     const onSelectFn6 = vi.fn();
     const wrapper = getNormalAutoCompleteMount(AutoComplete, {}, { onSelect: onSelectFn6 });

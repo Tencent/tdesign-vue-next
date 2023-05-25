@@ -84,11 +84,11 @@ export default defineComponent({
       if (e.code === 'ArrowUp' || e.key === 'ArrowUp') {
         const index = tOptions.value.findIndex((item) => item.text === active.value);
         const newIndex = index - 1 < 0 ? tOptions.value.length - 1 : index - 1;
-        active.value = tOptions.value[newIndex].text;
+        active.value = tOptions.value[newIndex]?.text;
       } else if (e.code === 'ArrowDown' || e.key === 'ArrowDown') {
         const index = tOptions.value.findIndex((item) => item.text === active.value);
         const newIndex = index + 1 >= tOptions.value.length ? 0 : index + 1;
-        active.value = tOptions.value[newIndex].text;
+        active.value = tOptions.value[newIndex]?.text;
       } else if (e.code === 'Enter' || e.key === 'Enter') {
         emit('select', active.value, { e });
       }

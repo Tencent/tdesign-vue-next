@@ -71,8 +71,8 @@ export default defineComponent({
       <li ref="itemRef" class={this.classes} onClick={this.handleClick}>
         {renderTNodeJSX(this, 'icon')}
         {this.href ? (
-          <a href={this.href} target={this.target} className={`${this.classPrefix}-menu__item-link`}>
-            <span className={`${this.classPrefix}-menu__content`}>{renderContent(this, 'default', 'content')}</span>
+          <a href={this.href} target={this.target} class={`${this.classPrefix}-menu__item-link`}>
+            <span class={`${this.classPrefix}-menu__content`}>{renderContent(this, 'default', 'content')}</span>
           </a>
         ) : (
           <span class={[`${this.classPrefix}-menu__content`]}>{renderContent(this, 'default', 'content')}</span>
