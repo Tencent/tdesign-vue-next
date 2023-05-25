@@ -52,7 +52,7 @@ export default defineComponent({
         scrollDOM = containerRef.value;
       }
       containerRef.value.onscroll = () => {
-        const scrollTop = scrollDOM.scrollTop;
+        const scrollTop = scrollDOM?.scrollTop;
         if (scrollTop >= visibleHeight) {
           visible.value = true;
         }
