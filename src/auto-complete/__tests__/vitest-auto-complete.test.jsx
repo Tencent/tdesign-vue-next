@@ -76,7 +76,7 @@ describe('AutoComplete Component', () => {
 
   it('props.filter works fine', async () => {
     const wrapper = getNormalAutoCompleteMount(AutoComplete, {
-      filter: (filterWords, option) => option.text.includes('Second'),
+      filter: (filterWords, option) => option?.text.includes('Second'),
     });
     wrapper.find('input').trigger('focus');
     await wrapper.vm.$nextTick();

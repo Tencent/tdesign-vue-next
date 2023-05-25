@@ -108,8 +108,7 @@ for (let i = 0; i < 20; i++) {
 const globalConfig = merge(enConfig, {
   image: {
     // 全局替换图片地址
-    replaceImageSrc(params) {
-      console.log(params);
+    replaceImageSrc() {
       return 'https://tdesign.gtimg.com/demo/demo-image-1.png';
     },
   },
