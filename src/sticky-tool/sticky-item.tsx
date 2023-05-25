@@ -1,11 +1,13 @@
-import { computed, defineComponent } from 'vue';
+import { computed, defineComponent, PropType } from 'vue';
 import baseProps from './sticky-item-props';
 import TdStickyToolProps from './props';
 import { usePrefixClass } from '../hooks/useConfig';
-import type { TdStickyItemProps } from './type';
 import type { Styles } from '../common';
 import Popup from '../popup';
 import { useTNodeJSX } from '../hooks';
+
+import type { TdStickyItemProps } from './type';
+import type { TdPopupProps } from '../popup/type';
 
 export default defineComponent({
   name: 'TStickyItem',
@@ -14,7 +16,7 @@ export default defineComponent({
     type: TdStickyToolProps.type,
     shape: TdStickyToolProps.shape,
     placement: TdStickyToolProps.placement,
-    basePopupProps: Object,
+    basePopupProps: Object as PropType<TdPopupProps>,
     baseWidth: TdStickyToolProps.width,
     onClick: TdStickyToolProps.onClick,
     onHover: TdStickyToolProps.onHover,

@@ -1,4 +1,4 @@
-import { computed, defineComponent, onMounted, ref } from 'vue';
+import { computed, defineComponent, onBeforeUnmount, onMounted, ref } from 'vue';
 import { BacktopIcon as TdBackTopIcon } from 'tdesign-icons-vue-next';
 
 import { scrollTo } from '../utils/dom';
@@ -55,10 +55,17 @@ export default defineComponent({
         const scrollTop = scrollDOM.scrollTop;
         if (scrollTop >= visibleHeight) {
           visible.value = true;
-          containerRef.value.onscroll = null;
+        }
+        if (scrollTop < visibleHeight && visible.value) {
+          visible.value = false;
         }
       };
     });
+
+    onBeforeUnmount(() => {
+      containerRef.value.onscroll = null;
+    });
+
     return () => {
       const { theme, shape, size, target, duration, offset, container } = props;
       const getChild = useChildSlots();
