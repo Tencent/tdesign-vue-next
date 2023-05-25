@@ -371,7 +371,7 @@ export default defineComponent({
               v-draggable={isModeLess.value && props.draggable}
               ref={dialogEle}
             >
-              <div class={headerClassName} onmousedown={onStopDown}>
+              <div class={headerClassName} onMousedown={onStopDown}>
                 <div class={`${COMPONENT_NAME.value}__header-content`}>
                   {getIcon()}
                   {renderTNodeJSX('header', defaultHeader)}
@@ -383,11 +383,11 @@ export default defineComponent({
                   </span>
                 ) : null}
               </div>
-              <div class={bodyClassName} onmousedown={onStopDown}>
+              <div class={bodyClassName} onMousedown={onStopDown}>
                 {body}
               </div>
               {footerContent && (
-                <div class={footerClassName} onmousedown={onStopDown}>
+                <div class={footerClassName} onMousedown={onStopDown}>
                   {footerContent}
                 </div>
               )}
