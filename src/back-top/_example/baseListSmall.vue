@@ -5,7 +5,7 @@
     </t-list>
     <t-back-top
       container=".baseListSmall-container"
-      :visible-height="200"
+      :visible-height="0"
       style="position: absolute"
       :offset="['24px', '80px']"
       :duration="2000"
