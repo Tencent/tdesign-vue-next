@@ -157,20 +157,17 @@ export default defineComponent({
       };
       return (
         <div class={classes.value}>
-          {panelContent && (
-            <Popup
-              visible={popupVisible.value}
-              onVisibleChange={onPopupVisibleChange}
-              trigger="focus"
-              placement="bottom-left"
-              hideEmptyPopup={true}
-              content={panelContent ? () => panelContent : null}
-              {...popupProps}
-            >
-              {triggerNode}
-            </Popup>
-          )}
-          {!panelContent && triggerNode}
+          <Popup
+            visible={popupVisible.value}
+            onVisibleChange={onPopupVisibleChange}
+            trigger="focus"
+            placement="bottom-left"
+            hideEmptyPopup={true}
+            content={panelContent ? () => panelContent : null}
+            {...popupProps}
+          >
+            {triggerNode}
+          </Popup>
         </div>
       );
     };

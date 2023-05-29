@@ -15,6 +15,8 @@ import {
 import isString from 'lodash/isString';
 import isNumber from 'lodash/isNumber';
 import isNil from 'lodash/isNil';
+import throttle from 'lodash/throttle';
+
 import props from './radio-group-props';
 import { RadioOptionObj, RadioOption } from './type';
 import Radio from './radio';
@@ -26,6 +28,7 @@ import useKeyboard from './useKeyboard';
 import isFunction from 'lodash/isFunction';
 import { useMutationObserver } from '../watermark/hooks';
 import type { UseMutationObserverReturn } from '../watermark/hooks';
+import useResizeObserver from '../hooks/useResizeObserver';
 
 export default defineComponent({
   name: 'TRadioGroup',
@@ -82,8 +85,16 @@ export default defineComponent({
       await nextTick();
       calcBarStyle();
     });
+
     onMounted(() => {
       calcBarStyle();
+      useResizeObserver(
+        radioGroupRef,
+        throttle(async () => {
+          await nextTick();
+          calcBarStyle();
+        }, 300),
+      );
 
       const checkedRadioLabel: HTMLElement = radioGroupRef.value.querySelector(
         `${checkedClassName.value} .${radioBtnName.value}__label`,

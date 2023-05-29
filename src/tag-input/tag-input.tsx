@@ -123,6 +123,10 @@ export default defineComponent({
       props.onClear?.(context);
     };
 
+    const focus = () => {
+      tagInputRef.value.focus();
+    };
+
     return {
       CLEAR_CLASS,
       CloseCircleFilledIcon,
@@ -149,6 +153,7 @@ export default defineComponent({
       onClose,
       onInputCompositionstart,
       onInputCompositionend,
+      focus,
       classes,
     };
   },

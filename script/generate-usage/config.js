@@ -746,4 +746,16 @@ module.exports = {
       `,
     },
   },
+  image: {
+    panelStr: `const panelList = [{label: 'image', value: 'image'}];`,
+    render: {
+      image: `
+        <t-image
+          v-bind="configProps"
+          src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+          :style="{ width: '120px', height: '120px' }"
+        />
+      `,
+    },
+  },
 };

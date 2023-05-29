@@ -39,7 +39,7 @@ export const MessageList = defineComponent({
     const add = (msg: MessageOptions): number => {
       const mg = { ...msg, key: getUniqueId() };
       list.value.push(mg);
-      return list.value.length - 1;
+      return mg.key;
     };
 
     const remove = (index: number) => {
