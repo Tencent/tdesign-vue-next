@@ -1,4 +1,4 @@
-import { computed, onMounted, ref, toRefs, watch } from 'vue';
+import { computed, ref, toRefs, watch } from 'vue';
 import useCommonClassName from '../hooks/useCommonClassName';
 import useVModel from '../hooks/useVModel';
 import { InputNumberValue, TdInputNumberProps } from './type';
@@ -12,6 +12,7 @@ import {
   formatThousandths,
   canSetValue,
   formatUnCompleteNumber,
+  largeNumberToFixed,
 } from '../_common/js/input-number/number';
 import { useFormDisabled } from '../form/hooks';
 import { TdInputProps } from '../input';
@@ -65,6 +66,7 @@ export default function useInputNumber(props: TdInputNumberProps) {
       const num = formatUnCompleteNumber(inputStr, {
         decimalPlaces: props.decimalPlaces,
         largeNumber: props.largeNumber,
+        isToFixed: true,
       });
       inputStr = num || num === 0 ? String(num) : '';
       if (props.format) {
@@ -77,11 +79,18 @@ export default function useInputNumber(props: TdInputNumberProps) {
   watch(
     tValue,
     (val) => {
+      const { largeNumber, decimalPlaces } = props;
+      const inputValue = [undefined, null].includes(val) ? '' : String(val);
       // userInput.value 为非合法数字，则表示用户正在输入，此时无需处理
-      if (!props.largeNumber && !Number.isNaN(userInput.value)) {
-        const inputValue = [undefined, null].includes(val) ? '' : String(val);
+      if (!largeNumber && !Number.isNaN(userInput.value)) {
         if (parseFloat(userInput.value) !== val) {
           userInput.value = getUserInput(inputValue);
+        }
+      }
+      if (largeNumber) {
+        userInput.value = getUserInput(inputValue);
+        if (decimalPlaces && largeNumberToFixed(inputValue, decimalPlaces, largeNumber) !== val) {
+          setTValue(userInput.value, { type: 'props' });
         }
       }
     },
