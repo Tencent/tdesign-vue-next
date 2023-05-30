@@ -7,7 +7,7 @@
 import { CheckboxProps } from '../checkbox';
 import { InputProps } from '../input';
 import { PopupProps } from '../popup';
-import { SelectInputProps } from '../select-input';
+import { SelectInputProps, SelectInputBlurContext } from '../select-input';
 import { TagInputProps } from '../tag-input';
 import { TagProps } from '../tag';
 import { TreeNodeModel } from '../tree';
@@ -15,6 +15,10 @@ import { PopupVisibleChangeContext } from '../popup';
 import { TNode, TreeOptionData, SizeEnum } from '../common';
 
 export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOptionData> {
+  /**
+   * 自动聚焦
+   */
+  autofocus?: boolean;
   /**
    * 参考 checkbox 组件 API
    */
@@ -30,12 +34,11 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   clearable?: boolean;
   /**
-   * 多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义
+   * 多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`collapsedTags` 表示折叠的标签，`count` 表示折叠的数量
    */
   collapsedItems?: TNode<{ value: CascaderOption[]; collapsedSelectedItems: CascaderOption[]; count: number }>;
   /**
    * 是否禁用组件
-   * @default false
    */
   disabled?: boolean;
   /**
@@ -60,6 +63,10 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   keys?: CascaderKeysType;
   /**
+   * 左侧文本
+   */
+  label?: string | TNode;
+  /**
    * 延迟加载 children 为 true 的子节点，即使 expandAll 被设置为 true，也同样延迟加载
    * @default true
    */
@@ -75,7 +82,6 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
   loading?: boolean;
   /**
    * 远程加载时显示的文字，支持自定义。如加上超链接
-   * @default ''
    */
   loadingText?: string | TNode;
   /**
@@ -93,6 +99,10 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    * @default false
    */
   multiple?: boolean;
+  /**
+   * 自定义单个级联选项
+   */
+  option?: TNode<{ item: CascaderOption; index: number }>;
   /**
    * 可选项数据源
    * @default []
@@ -116,6 +126,11 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   readonly?: boolean;
   /**
+   * 多选且可搜索时，是否在选中一个选项后保留当前的搜索关键词
+   * @default false
+   */
+  reserveKeyword?: boolean;
+  /**
    * 透传 SelectInput 筛选器输入框组件的全部属性
    */
   selectInputProps?: SelectInputProps;
@@ -131,8 +146,17 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
   size?: SizeEnum;
   /**
    * 输入框状态
+   * @default default
    */
   status?: 'default' | 'success' | 'warning' | 'error';
+  /**
+   * 后置图标前的后置内容
+   */
+  suffix?: string | TNode;
+  /**
+   * 组件后置图标
+   */
+  suffixIcon?: TNode;
   /**
    * 透传 TagInput 标签输入框组件的全部属性
    */
@@ -166,6 +190,16 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   modelValue?: CascaderValue<CascaderOption>;
   /**
+   * 【开发中】自定义选中项呈现的内容
+   */
+  valueDisplay?:
+    | string
+    | TNode<{
+        value: CascaderValue<CascaderOption>;
+        onClose: (index: number) => void;
+        displayValue?: CascaderValue<CascaderOption>;
+      }>;
+  /**
    * 选中值模式。all 表示父节点和子节点全部会出现在选中值里面；parentFirst 表示当子节点全部选中时，仅父节点在选中值里面；onlyLeaf 表示无论什么情况，选中值仅呈现叶子节点
    * @default onlyLeaf
    */
@@ -178,7 +212,7 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
   /**
    * 当输入框失去焦点时触发
    */
-  onBlur?: (context: { value: CascaderValue<CascaderOption>; e: FocusEvent }) => void;
+  onBlur?: (context: { value: CascaderValue<CascaderOption> } & SelectInputBlurContext) => void;
   /**
    * 选中值发生变化时触发。TreeNodeModel 从树组件中导出。`context.node` 表示触发事件的节点，`context.source` 表示触发事件的来源
    */
