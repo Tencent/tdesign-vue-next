@@ -7,6 +7,7 @@ const isCustomElement = (tag) => tag.startsWith('td-') || tag.startsWith('tdesig
 export const resolveConfig = {
   alias: {
     '@': path.resolve(__dirname, '../'),
+    '@test': path.resolve(__dirname, '../test'),
     '@/src': path.resolve(__dirname, '../src/'),
     '@common': path.resolve(__dirname, '../src/_common'),
     'tdesign-vue-next/es': path.resolve(__dirname, '../src'),
