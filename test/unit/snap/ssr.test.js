@@ -15,7 +15,7 @@ function runTest() {
 
     files.forEach((file) => {
       it(`ssr test ${file}`, async () => {
-        const demo = await import(`../.${file}`);
+        const demo = await import(`../../.${file}`);
         const realDemoComp = demo.default ? demo.default : demo;
         realDemoComp.name = `test-ssr-${realDemoComp.name}`;
         const html = await createSSRApp(realDemoComp);

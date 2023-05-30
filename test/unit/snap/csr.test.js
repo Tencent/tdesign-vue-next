@@ -14,7 +14,7 @@ function runTest() {
 
     files.forEach((file) => {
       it(`csr test ${file}`, async () => {
-        const demo = await import(`../.${file}`);
+        const demo = await import(`../../.${file}`);
         const realDemoComp = demo.default ? demo.default : demo;
         realDemoComp.name = `test-csr-${realDemoComp.name}`;
         const wrapper = mount(realDemoComp);
