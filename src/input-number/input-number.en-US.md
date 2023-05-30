@@ -27,7 +27,7 @@ tips | String / Slot / Function | - | Typescript：`string \| TNode`。[see more
 value | String / Number | - | `v-model` and `v-model:value` is supported。Typescript：`T` `type InputNumberValue = number \| string`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/input-number/type.ts) | N
 defaultValue | String / Number | - | uncontrolled property。Typescript：`T` `type InputNumberValue = number \| string`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/input-number/type.ts) | N
 onBlur | Function |  | Typescript：`(value: InputNumberValue, context: { e: FocusEvent }) => void`<br/> | N
-onChange | Function |  | Typescript：`(value: T, context: ChangeContext) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/input-number/type.ts)。<br/>`interface ChangeContext { type: ChangeSource; e: InputEvent \| MouseEvent \| FocusEvent \| KeyboardEvent }`<br/><br/>`type ChangeSource = 'add' \| 'reduce' \| 'input' \| 'blur' \| 'enter' \| 'clear' \| 'props'`<br/> | N
+onChange | Function |  | Typescript：`(value: T, context: ChangeContext) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/input-number/type.ts)。<br/>`interface ChangeContext { type: ChangeSource; e: InputEvent \| MouseEvent \| FocusEvent \| KeyboardEvent \| CompositionEvent }`<br/><br/>`type ChangeSource = 'add' \| 'reduce' \| 'input' \| 'blur' \| 'enter' \| 'clear' \| 'props'`<br/> | N
 onEnter | Function |  | Typescript：`(value: InputNumberValue, context: { e: KeyboardEvent }) => void`<br/> | N
 onFocus | Function |  | Typescript：`(value: InputNumberValue, context: { e: FocusEvent }) => void`<br/> | N
 onKeydown | Function |  | Typescript：`(value: InputNumberValue, context: { e: KeyboardEvent }) => void`<br/> | N
@@ -40,7 +40,7 @@ onValidate | Function |  | Typescript：`(context: { error?: 'exceed-maximum' \|
 name | params | description
 -- | -- | --
 blur | `(value: InputNumberValue, context: { e: FocusEvent })` | \-
-change | `(value: T, context: ChangeContext)` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/input-number/type.ts)。<br/>`interface ChangeContext { type: ChangeSource; e: InputEvent \| MouseEvent \| FocusEvent \| KeyboardEvent }`<br/><br/>`type ChangeSource = 'add' \| 'reduce' \| 'input' \| 'blur' \| 'enter' \| 'clear' \| 'props'`<br/>
+change | `(value: T, context: ChangeContext)` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/input-number/type.ts)。<br/>`interface ChangeContext { type: ChangeSource; e: InputEvent \| MouseEvent \| FocusEvent \| KeyboardEvent \| CompositionEvent }`<br/><br/>`type ChangeSource = 'add' \| 'reduce' \| 'input' \| 'blur' \| 'enter' \| 'clear' \| 'props'`<br/>
 enter | `(value: InputNumberValue, context: { e: KeyboardEvent })` | \-
 focus | `(value: InputNumberValue, context: { e: FocusEvent })` | \-
 keydown | `(value: InputNumberValue, context: { e: KeyboardEvent })` | \-

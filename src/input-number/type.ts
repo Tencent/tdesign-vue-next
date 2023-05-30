@@ -144,7 +144,7 @@ export type InputNumberValue = number | string;
 
 export interface ChangeContext {
   type: ChangeSource;
-  e: InputEvent | MouseEvent | FocusEvent | KeyboardEvent;
+  e: InputEvent | MouseEvent | FocusEvent | KeyboardEvent | CompositionEvent;
 }
 
 export type ChangeSource = 'add' | 'reduce' | 'input' | 'blur' | 'enter' | 'clear' | 'props';
