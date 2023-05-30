@@ -4,6 +4,23 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 1.3.5 `2023-05-30` 
+### 🚀 Features
+- `TagInput`: 增加 `focus` 方法的导出([issue #2887](https://github.com/Tencent/tdesign-vue-next/issues/2887)) @coderbaozi ([#2893](https://github.com/Tencent/tdesign-vue-next/pull/2893))
+- `TimePicker`: 没有选中值时不允许点击确认按钮 @uyarn ([#2898](https://github.com/Tencent/tdesign-vue-next/pull/2898))
+- `Cascader`: 选项支持自定义样式 @ZekunWu ([#2878](https://github.com/Tencent/tdesign-vue-next/pull/2878))
+### 🐞 Bug Fixes
+- `Pagination`: 修复表格内容为空时，页码值不正常问题([issue #2882](https://github.com/Tencent/tdesign-vue-next/issues/2882)) @yanxugong ([#2886](https://github.com/Tencent/tdesign-vue-next/pull/2886))
+- `Table`: 修复在多级表头中使用筛选功能，显示异常问题([issue #2867](https://github.com/Tencent/tdesign-vue-next/issues/2867)) @yanxugong ([#2892](https://github.com/Tencent/tdesign-vue-next/pull/2892))
+- `Dialog`: 全屏状态下关闭 `footer`,仍然占据 `body` 高度([issue #2644](https://github.com/Tencent/tdesign-vue-next/issues/2644)) @ccccpj ([#2897](https://github.com/Tencent/tdesign-vue-next/pull/2897))
+- `Backtop`: 修复 `visibleHeight` 只作用一次的问题 @uyarn ([#2898](https://github.com/Tencent/tdesign-vue-next/pull/2898))
+- `Tooltip`: 修复 `1.3.4` 版本的箭头位置异常的样式问题 @uyarn ([#2898](https://github.com/Tencent/tdesign-vue-next/pull/2898))
+- `AutoComplete`: 修正当 `options` 在空数组和非空数组之间来回切换时会导致 `triggerElement` 失去焦点的问题 @PDieE ([#2901](https://github.com/Tencent/tdesign-vue-next/pull/2901))
+- `Tree`: 修正由于 `Tree` 组件错误过滤了 `allowFoldNodeOnFilter` 而导致该参数无效的问题 @PDieE ([#2906](https://github.com/Tencent/tdesign-vue-next/pull/2906))
+- `InputAdornment`: 修复 `prepend` 或 `append` 为空字符串时仍然渲染节点的问题 @uyarn ([#2910](https://github.com/Tencent/tdesign-vue-next/pull/2910))
+- `ImageViewer`: `closeBtn` 渲染异常 @sinbadmaster ([#2875](https://github.com/Tencent/tdesign-vue-next/pull/2875))
+- `Test`: 修复单元测试 `log` 抛出大量异常 @PengYYYYY ([#2896](https://github.com/Tencent/tdesign-vue-next/pull/2896))
+
 ## 🌈 1.3.4 `2023-05-19` 
 ### 🐞 Bug Fixes
 - `Watermark`: 修复 `watermark-content` 参数响应式丢失@Lmmmmmm-bb ([#2852](https://github.com/Tencent/tdesign-vue-next/pull/2852))
