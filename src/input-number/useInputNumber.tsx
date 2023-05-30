@@ -90,7 +90,7 @@ export default function useInputNumber(props: TdInputNumberProps) {
       if (largeNumber) {
         userInput.value = getUserInput(inputValue);
         if (decimalPlaces && largeNumberToFixed(inputValue, decimalPlaces, largeNumber) !== val) {
-          setTValue(userInput.value, { type: 'props' });
+          setTValue(userInput.value, { type: 'props', e: undefined });
         }
       }
     },
