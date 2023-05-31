@@ -105,7 +105,7 @@ export default defineComponent({
             }
             return (
               <Option
-                {...omit(item, '$index')}
+                {...omit(item, '$index', 'className')}
                 {...(isVirtual.value
                   ? {
                       rowIndex: item.$index,
