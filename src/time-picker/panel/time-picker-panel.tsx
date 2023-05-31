@@ -83,6 +83,7 @@ export default defineComponent({
             <TButton
               theme="primary"
               variant="base"
+              disabled={!props.value}
               onClick={() => props.handleConfirmClick(defaultValue.value)}
               size="small"
             >
