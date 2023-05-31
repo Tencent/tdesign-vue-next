@@ -73,7 +73,7 @@ export default defineComponent({
     };
 
     const onImgClick = (i: number) => {
-      setIndexValue(i);
+      setIndexValue(i, { trigger: 'current' });
     };
 
     const openHandler = () => {
