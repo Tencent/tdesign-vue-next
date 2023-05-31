@@ -85,7 +85,7 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
         v-slots={slots}
         onInputChange={(val: InputValue, context: InputValueChangeContext) => {
           // 筛选器统一特性：筛选器按下回车时不清空输入框
-          if (['enter', 'blur'].includes(context?.trigger)) return;
+          if (context?.trigger === 'enter' || context?.trigger === 'blur') return;
           setTInputValue(val, { trigger: context.trigger, e: context.e });
         }}
         onChange={onTagInputChange}

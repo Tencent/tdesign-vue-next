@@ -80,7 +80,7 @@ export default defineComponent({
       setVisibleValue(true);
     };
     const onClose: TdImageViewerProps['onClose'] = (ctx) => {
-      setVisibleValue(false, ctx);
+      setVisibleValue(false);
       props.onClose?.(ctx);
     };
     const closeBtnAction = (e: MouseEvent) => {
