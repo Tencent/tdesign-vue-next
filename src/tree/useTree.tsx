@@ -81,7 +81,7 @@ export default function useTree(props: TdTreeProps) {
     if (shouldExpand) {
       const tnode = getNode(treeStore.value, node);
       const expanded = node.setExpanded(!tnode.isExpanded());
-      setInnerExpanded(expanded, ctx);
+      setInnerExpanded(expanded, { ...ctx, trigger: 'node-click' });
     }
 
     if (shouldActive) {

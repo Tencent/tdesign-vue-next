@@ -32,7 +32,7 @@ import { ref, computed } from 'vue';
 
 const value1 = ref('');
 const value2 = ref(100);
-const decimalValue = ref(3);
+const decimalValue = ref(3.41);
 const error = ref(undefined);
 
 const tips = computed(() => {
