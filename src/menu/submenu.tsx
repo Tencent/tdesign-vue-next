@@ -226,7 +226,7 @@ export default defineComponent({
       if (!this.isNested && this.isHead) {
         placement = 'bottom-left';
       }
-      const overlayInnerStyle = this.isNested && this.isHead ? { marginLeft: '0px' } : { [`margin-top': `]: '12px' };
+      const overlayInnerStyle = this.isNested && this.isHead ? { marginLeft: '0px' } : { marginTop: '12px' };
 
       const popupWrapper = (
         <div
@@ -248,7 +248,7 @@ export default defineComponent({
       const realPopup = (
         <Popup
           overlayInnerClassName={[...this.popupClass]}
-          overlayClassName={`${this.classPrefix}-menu--${this.theme}`}
+          overlayClassName={[`${this.classPrefix}-menu--${this.theme}`, this.isHead && `${this.classPrefix}-is-head`]}
           visible={this.popupVisible}
           placement={placement as PopupPlacement}
           overlayInnerStyle={overlayInnerStyle}
