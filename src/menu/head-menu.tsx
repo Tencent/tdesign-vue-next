@@ -183,7 +183,7 @@ export default defineComponent({
         for (let index = 0; index < validNodes.length; index++) {
           const element = validNodes[index];
           remainWidth -= element.offsetWidth || 0;
-          if (remainWidth < menuItemMinWidth) {
+          if (remainWidth < menuItemMinWidth && index < validNodes.length - 1) {
             sliceIndex = index;
             break;
           }
