@@ -5,7 +5,7 @@ import { TdImageViewerProps, ImageInfo } from './type';
 
 export const downloadFile = function (imgSrc: string) {
   const image = new Image();
-  const name = imgSrc?.split?.('/').pop() || Math.random().toString(32).slice(2);
+  const name = imgSrc?.split?.('?')?.[0]?.split?.('#')?.[0]?.split?.('/').pop() || Math.random().toString(32).slice(2);
 
   image.setAttribute('crossOrigin', 'anonymous');
 
