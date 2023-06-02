@@ -1,15 +1,15 @@
 import { ref, Ref, getCurrentInstance } from 'vue';
 import kebabCase from 'lodash/kebabCase';
 
-export type ChangeHandler<T> = (value: T, ...args: any) => void;
+export type ChangeHandler<T, P extends any[]> = (value: T, ...args: P) => void;
 
-export default function useVModel<T, P extends (...args: any) => void>(
+export default function useVModel<T, P extends any[]>(
   value: Ref<T>,
   modelValue: Ref<T>,
   defaultValue: T,
-  onChange: P,
+  onChange: ChangeHandler<T, P>,
   propName = 'value',
-): [Ref<T>, ChangeHandler<T>] {
+): [Ref<T>, ChangeHandler<T, P>] {
   const { emit, vnode } = getCurrentInstance();
   const internalValue: Ref<T> = ref();
 

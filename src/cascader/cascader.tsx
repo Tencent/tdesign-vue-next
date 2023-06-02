@@ -109,6 +109,7 @@ export default defineComponent({
           onBlur={(val, context) => {
             props.onBlur?.({
               value: cascaderContext.value.value,
+              inputValue: context.inputValue || '',
               e: context.e as FocusEvent,
             });
             (props?.selectInputProps as TdSelectInputProps)?.onBlur?.(val, context);
@@ -127,13 +128,14 @@ export default defineComponent({
           v-slots={{
             panel: () => (
               <Panel
+                option={props.option}
                 empty={props.empty}
                 visible={visible}
                 trigger={props.trigger}
                 loading={props.loading}
                 loadingText={props.loadingText}
                 cascaderContext={cascaderContext.value}
-                v-slots={{ empty: slots.empty, loadingText: slots.loadingText }}
+                v-slots={{ option: slots.option, empty: slots.empty, loadingText: slots.loadingText }}
               />
             ),
             collapsedItems: slots.collapsedItems,

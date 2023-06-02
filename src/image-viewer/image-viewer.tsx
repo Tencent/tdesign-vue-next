@@ -73,14 +73,14 @@ export default defineComponent({
     };
 
     const onImgClick = (i: number) => {
-      setIndexValue(i);
+      setIndexValue(i, { trigger: 'current' });
     };
 
     const openHandler = () => {
       setVisibleValue(true);
     };
     const onClose: TdImageViewerProps['onClose'] = (ctx) => {
-      setVisibleValue(false, ctx);
+      setVisibleValue(false);
       props.onClose?.(ctx);
     };
     const closeBtnAction = (e: MouseEvent) => {
@@ -191,6 +191,20 @@ export default defineComponent({
       );
     };
 
+    const renderCloseBtn = () => {
+      if (props.closeBtn === false) {
+        return;
+      }
+      return (
+        <div
+          class={[`${COMPONENT_NAME.value}__modal-icon`, `${COMPONENT_NAME.value}__modal-close-bt`]}
+          onClick={closeBtnAction}
+        >
+          {renderTNodeJSX('closeBtn', <CloseIcon size="24px" />)}
+        </div>
+      );
+    };
+
     return () => {
       if (props.mode === 'modeless') {
         return (
@@ -245,12 +259,7 @@ export default defineComponent({
                       {renderNavigationArrow('next')}
                     </>
                   )}
-                  <div
-                    class={[`${COMPONENT_NAME.value}__modal-icon`, `${COMPONENT_NAME.value}__modal-close-bt`]}
-                    onClick={closeBtnAction}
-                  >
-                    {renderTNodeJSX('closeBtn', <CloseIcon size="24px" />)}
-                  </div>
+                  {renderCloseBtn()}
                   <TImageViewerUtils
                     onZoomIn={onZoomIn}
                     onZoomOut={onZoomOut}

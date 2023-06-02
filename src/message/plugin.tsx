@@ -66,6 +66,7 @@ const MessageFunction = (props: MessageOptions): Promise<MessageInstance> => {
     instanceMap.set(attachDom, {});
   }
   const p = instanceMap.get(attachDom)[placement];
+  let mgKey: number;
   if (!p) {
     const wrapper = document.createElement('div');
 
@@ -74,18 +75,18 @@ const MessageFunction = (props: MessageOptions): Promise<MessageInstance> => {
       placement: options.placement,
     }).mount(wrapper);
 
-    instance.add(options);
+    mgKey = instance.add(options);
     instanceMap.get(attachDom)[placement] = instance;
     attachDom.appendChild(wrapper);
   } else {
-    p.add(options);
+    mgKey = p.add(options);
   }
   // 返回最新消息的 Element
   return new Promise((resolve) => {
     const ins = instanceMap.get(attachDom)[placement];
     nextTick(() => {
       const msg: Array<MessageInstance> = ins.messageList;
-      resolve(msg[msg.length - 1]);
+      resolve(msg?.find((mg) => mg.$?.vnode?.key === mgKey));
     });
   });
 };
@@ -122,7 +123,7 @@ const extraApi: ExtraApi = {
   question: (params, duration) => showThemeMessage('question', params, duration),
   loading: (params, duration) => showThemeMessage('loading', params, duration),
   close: (promise) => {
-    promise.then((instance) => instance.close());
+    promise.then((instance) => instance?.close());
   },
   closeAll: () => {
     if (instanceMap instanceof Map) {
