@@ -285,10 +285,10 @@ export default defineComponent({
     const checkValueInvalid = () => {
       // 参数类型检测与修复
       if (!props.multiple && isArray(orgValue.value)) {
-        setOrgValue(undefined);
+        setOrgValue(undefined, { selectedOptions: [], trigger: 'default' });
       }
       if (props.multiple && !isArray(orgValue.value)) {
-        setOrgValue([]);
+        setOrgValue([], { selectedOptions: [], trigger: 'default' });
       }
     };
     const handleSearch = debounce((value: string, { e }: { e: KeyboardEvent }) => {

@@ -4,7 +4,7 @@ import Radio from './radio';
 import { omit } from '../utils/helper';
 import { RadioButtonInjectionKey } from './constants';
 
-import { useTNodeDefault } from '../hooks/tnode';
+import { useContent } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TRadioButton',
@@ -26,8 +26,8 @@ export default defineComponent({
       return res;
     });
 
-    const renderContent = useTNodeDefault();
+    const renderContent = useContent();
 
-    return () => <Radio {...radioProps.value}>{renderContent('default')}</Radio>;
+    return () => <Radio {...radioProps.value}>{renderContent('default', 'label')}</Radio>;
   },
 });
