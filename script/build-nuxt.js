@@ -46,24 +46,29 @@ const createNuxtComponents = async () => {
   const index = fs.readFileSync(path.resolve(inputComponents, 'index.mjs'));
   const indexMjs = index.toString();
   const execArray = indexMjs.match(/export \{.*} from '.*\.mjs';/g);
+  const cssImport = `${banner}import '../../style/index.css';`;
+
   if (execArray && execArray.length > 0) {
-    execArray.forEach((value, index1, array) => {
-      const exportComponents = value.match(/export \{(.*)} from '(.*\.mjs)';/i);
+    execArray.forEach((value) => {
+      const exportComponents = value.match(/export \{(.*)} from '\.\/(.*)\.mjs';/i);
+      console.log(exportComponents[1]);
       const componentNames = exportComponents[1].split(',').map((value0) => value0.trim());
-      const componentMjs = exportComponents[2].replace('./', '');
+      const componentPath = exportComponents[2];
 
       // 多组件
-      for (const componentName of componentNames) {
+      for (let componentName of componentNames) {
+        componentName = componentName.replace('default as ', '');
+        let exportDefault = '';
         if (componentName.startsWith('default')) {
-          const fileStr = `${banner}import '../../style/index.css';\nexport { default } from '../../${componentMjs}';`;
-          fs.writeFileSync(
-            path.resolve(outputNuxtComponentsDir, `${componentName.replace('default as ', '')}.mjs`),
-            fileStr,
-          );
+          exportDefault = `export { default } from '../../${componentPath}';`;
         } else {
-          const fileStr = `${banner}import '../../style/index.css';\nexport { ${componentName} as default } from '../../${componentMjs}';`;
-          fs.writeFileSync(path.resolve(outputNuxtComponentsDir, `${componentName}.mjs`), fileStr);
+          exportDefault = `export { ${componentName} as default } from '../../${componentPath}';`;
         }
+        fs.writeFileSync(path.resolve(outputNuxtComponentsDir, `${componentName}.d.ts`), exportDefault);
+        fs.writeFileSync(
+          path.resolve(outputNuxtComponentsDir, `${componentName}.mjs`),
+          [cssImport, exportDefault].join('\n'),
+        );
       }
     });
   }

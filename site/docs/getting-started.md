@@ -145,11 +145,13 @@ export default defineNuxtConfig({
 })
 ```
 
+> 如果你开启了自动导入组件，则不需要再配置下面的编辑器提示。
+
 ## 编辑器提示
 
 安装注册 TDesign 之后，在开发项目时，可以配合插件在VSCode等主流编辑器中达到提示组件名及API的效果。
 
-推荐安装 `volar`，并在项目的 tsconfig.json 的 `includes` 属性中增加`node_modules/tdesign-vue-next/global.d.ts`，即可实现该效果。
+推荐安装 `volar`，并在项目的 tsconfig.json 的 `types` 属性中增加`tdesign-vue-next/global`，即可实现该效果。
 
 ## 快速体验
 
