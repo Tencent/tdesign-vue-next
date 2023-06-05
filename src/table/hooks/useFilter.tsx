@@ -94,7 +94,7 @@ export default function useFilter(props: TdPrimaryTableProps, context: SetupCont
       .filter((col) => col.filter)
       .forEach((col) => {
         let value = tFilterValue.value[col.colKey];
-        if (col.filter.list && !['null'].includes(String(value))) {
+        if (col.filter.list && !['null', '', 'undefined'].includes(String(value))) {
           const formattedValue = value instanceof Array ? value : [value];
           const label: string[] = [];
           col.filter.list.forEach((option) => {
