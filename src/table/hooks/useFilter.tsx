@@ -72,14 +72,25 @@ export default function useFilter(props: TdPrimaryTableProps, context: SetupCont
       </div>
     );
     const filterContent = renderTNode('filterRow');
-    if ((props.filterRow && !filterContent) || [null, undefined].includes(props.filterRow)) return null;
+    if ((props.filterRow && !filterContent) || props.filterRow === null) return null;
     return <div class={tableFilterClasses.inner}>{filterContent || defaultNode}</div>;
   }
 
   // 获取搜索条件内容，存在 options 需要获取其 label 显示
   function getFilterResultContent(): string {
     const arr: string[] = [];
-    props.columns
+    const columns: Array<PrimaryTableCol> = [];
+    props.columns.forEach((col) => {
+      if (col.children) {
+        col.children.forEach((child) => {
+          columns.push(child);
+        });
+        columns.push(col);
+      } else {
+        columns.push(col);
+      }
+    });
+    columns
       .filter((col) => col.filter)
       .forEach((col) => {
         let value = tFilterValue.value[col.colKey];
