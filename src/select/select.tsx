@@ -46,7 +46,7 @@ export default defineComponent({
     // 内部数据,格式化过的
     const innerValue = computed(() => {
       if (orgValue.value === undefined || orgValue.value === '') {
-        return props.multiple ? [] : undefined;
+        return props.multiple ? [] : orgValue.value;
       }
       if (props.valueType === 'object') {
         return !props.multiple
