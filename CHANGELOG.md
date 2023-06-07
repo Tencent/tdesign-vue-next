@@ -4,6 +4,24 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 1.3.6 `2023-06-07` 
+### 🚀 Features
+- `Menu`: 侧边导航菜单收起时，`Tooltip` 展示菜单内容 @xiaosansiji ([#2921](https://github.com/Tencent/tdesign-vue-next/pull/2921))
+### 🐞 Bug Fixes
+- `Menu`: 
+  - 修复顶部导航菜单位置有误的问题 @xiaosansiji ([#2927](https://github.com/Tencent/tdesign-vue-next/pull/2927))
+  - 修复 `theme = dark` 模式下弹窗菜单缺少边框样式的问题 @xiaosansiji ([#2927](https://github.com/Tencent/tdesign-vue-next/pull/2927))
+- `InputNumber`: 
+  - 修复部分小数点数字无法输入问题 @chaishi ([#2918](https://github.com/Tencent/tdesign-vue-next/pull/2918))
+  - 支持默认数字格式化小数点 @chaishi ([#2942](https://github.com/Tencent/tdesign-vue-next/pull/2942))
+- `Radio`: 修复 `label` 无效问题 ([issue #2873](https://github.com/Tencent/tdesign-vue-next/issues/2873)) @Aicmortal ([#2919](https://github.com/Tencent/tdesign-vue-next/pull/2919))
+- `Select`: 修正当 `options` 数据存在 `className` 而导致选项样式会被意外污染的问题 @PDieE ([#2920](https://github.com/Tencent/tdesign-vue-next/pull/2920))
+- `ImageViewer`: 修复图片链接带有参数时，下载时文件扩展名丢失 ([issue #2935](https://github.com/Tencent/tdesign-vue-next/issues/2935)) @nined9 ([#2936](https://github.com/Tencent/tdesign-vue-next/pull/2936))
+- `InputAdornment`: 修复`1.3.5`中修复空字符串导致插槽没有正常渲染的问题 @uyarn ([#2944](https://github.com/Tencent/tdesign-vue-next/pull/2944))
+- `Table`: 在多级表头中使用筛选功能，无法正常反显@youlvlv ([#2943](https://github.com/Tencent/tdesign-vue-next/pull/2943))
+### 🚧 Others
+- `Test`: `vitest config` 分离和 `cypress` 升级 @PengYYYYY ([#2913](https://github.com/Tencent/tdesign-vue-next/pull/2913))
+
 ## 🌈 1.3.5 `2023-05-30` 
 ### 🚀 Features
 - `TagInput`: 增加 `focus` 方法的导出([issue #2887](https://github.com/Tencent/tdesign-vue-next/issues/2887)) @coderbaozi ([#2893](https://github.com/Tencent/tdesign-vue-next/pull/2893))
