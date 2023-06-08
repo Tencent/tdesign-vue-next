@@ -7,7 +7,7 @@ import { getCascaderItemClass, getCascaderItemIconClass } from '../core/classNam
 import Checkbox from '../../checkbox/index';
 import TLoading from '../../loading';
 
-import { CascaderContextType, TreeNodeValue, TreeNode } from '../interface';
+import { CascaderContextType, TreeNodeValue, TreeNode, TdCascaderProps } from '../interface';
 import { usePrefixClass, useCommonClassName } from '../../hooks/useConfig';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 import useRipple from '../../hooks/useRipple';
@@ -18,6 +18,9 @@ const props = {
     default() {
       return {};
     },
+  },
+  optionChild: {
+    type: [Object, Array] as PropType<TdCascaderProps['option']>,
   },
   cascaderContext: {
     type: Object as PropType<CascaderContextType>,
@@ -106,7 +109,7 @@ export default defineComponent({
     }
 
     return () => {
-      const { cascaderContext, node } = props;
+      const { cascaderContext, node, optionChild } = props;
       return (
         <li
           ref={liRef}
@@ -120,7 +123,10 @@ export default defineComponent({
             props.onMouseenter();
           }}
         >
-          {cascaderContext.multiple ? RenderCheckBox(node, cascaderContext) : RenderLabelContent(node, cascaderContext)}
+          {optionChild ||
+            (cascaderContext.multiple
+              ? RenderCheckBox(node, cascaderContext)
+              : RenderLabelContent(node, cascaderContext))}
           {node.children &&
             (node.loading ? (
               <TLoading class={iconClass.value} size="small" />

@@ -45,6 +45,7 @@ const items: Item[] = [
           {
             value: '1.1.1',
             label: '1.1.1',
+            draggable: false,
             children: [
               {
                 value: '1.1.1.1',

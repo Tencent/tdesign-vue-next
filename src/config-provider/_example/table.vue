@@ -1,5 +1,5 @@
 <template>
-  <t-config-provider :global-config="globalConfig" style="padding: 16px">
+  <t-config-provider :global-config="globalConfig">
     <!-- 全局配置：空数据呈现，演示 -->
     <t-table :data="[]" :columns="columns" bordered row-key="property"></t-table>
     <br /><br />

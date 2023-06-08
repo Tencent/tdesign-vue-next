@@ -1,5 +1,5 @@
 <template>
-  <t-config-provider :global-config="globalConfig" class="tdesign-demo-item--locale-provider-base">
+  <t-config-provider :global-config="globalConfig">
     <div class="tdesign-demo-item--locale-provider-base">
       <t-form :data="formData" :rules="rules">
         <t-form-item label="User Name" name="username">

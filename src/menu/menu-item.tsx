@@ -1,10 +1,11 @@
-import { defineComponent, computed, inject, onMounted, ref, toRefs } from 'vue';
+import { defineComponent, computed, inject, onMounted, ref, toRefs, getCurrentInstance } from 'vue';
 import props from './menu-item-props';
 import { TdMenuInterface, TdSubMenuInterface } from './const';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import { emitEvent } from '../utils/event';
 import useRipple from '../hooks/useRipple';
 import { usePrefixClass } from '../hooks/useConfig';
+import Tooltip from '../tooltip';
 
 export default defineComponent({
   name: 'TMenuItem',
@@ -18,6 +19,7 @@ export default defineComponent({
     useRipple(itemRef);
     const submenu = inject<TdSubMenuInterface>('TdSubmenu', null);
     const active = computed(() => menu.activeValue.value === props.value);
+    const collapsed = computed(() => menu.collapsed?.value);
     const classes = computed(() => [
       `${classPrefix.value}-menu__item`,
       {
@@ -37,6 +39,7 @@ export default defineComponent({
       classPrefix,
       menu,
       active,
+      collapsed,
       classes,
       itemRef,
       href,
@@ -67,17 +70,29 @@ export default defineComponent({
     },
   },
   render() {
-    return (
+    const liContent = (
       <li ref="itemRef" class={this.classes} onClick={this.handleClick}>
         {renderTNodeJSX(this, 'icon')}
         {this.href ? (
-          <a href={this.href} target={this.target} className={`${this.classPrefix}-menu__item-link`}>
-            <span className={`${this.classPrefix}-menu__content`}>{renderContent(this, 'default', 'content')}</span>
+          <a href={this.href} target={this.target} class={`${this.classPrefix}-menu__item-link`}>
+            <span class={`${this.classPrefix}-menu__content`}>{renderContent(this, 'default', 'content')}</span>
           </a>
         ) : (
           <span class={[`${this.classPrefix}-menu__content`]}>{renderContent(this, 'default', 'content')}</span>
         )}
       </li>
     );
+
+    const instance = getCurrentInstance();
+    const node = instance.parent;
+    // 菜单收起，且只有本身为一级菜单才需要显示 tooltip
+    if (this.collapsed && /tmenu/i.test(node?.type.name)) {
+      return (
+        <Tooltip content={() => renderContent(this, 'default', 'content')} placement="right">
+          {liContent}
+        </Tooltip>
+      );
+    }
+    return liContent;
   },
 });
