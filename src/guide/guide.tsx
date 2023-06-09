@@ -59,7 +59,7 @@ export default defineComponent({
       currentStepInfo.value[propsName] ?? props[propsName];
 
     // 设置高亮层的位置
-    const setHighlightLayerPosition = (highlighLayer: HTMLElement) => {
+    const setHighlightLayerPosition = (highlightLayer: HTMLElement) => {
       // 这里预留了一个相对元素的功能，暂未使用，也是这里导致了 fix #2111
       let { top, left } = getRelativePosition(currentHighlightLayerElm.value);
       let { width, height } = currentHighlightLayerElm.value.getBoundingClientRect();
@@ -76,7 +76,7 @@ export default defineComponent({
         left += scrollLeft;
       }
 
-      setStyle(highlighLayer, {
+      setStyle(highlightLayer, {
         width: `${width}px`,
         height: `${height}px`,
         top: `${top}px`,
