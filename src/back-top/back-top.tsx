@@ -107,9 +107,10 @@ export default defineComponent({
           insetBlockEnd: offset[1],
         };
       });
+      const propsContent = renderContent('content', 'default');
       return (
         <button type="button" class={cls.value} style={positionStyle.value} onClick={handleClick}>
-          {renderContent('content', 'default', defaultContent)}
+          {propsContent ? <div class={`${componentName.value}__text`}>{propsContent}</div> : defaultContent}
         </button>
       );
     };
