@@ -62,6 +62,7 @@ content | String / Slot / Function | - | 菜单项内容。TS 类型：`string \
 default | String / Slot / Function | - | 菜单项内容，同 content。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 disabled | Boolean | - | 是否禁用菜单项展开/收起/跳转等功能 | N
 icon | Slot / Function | - | 菜单项图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+popupProps | Object | - | 透传 Popup 组件全部特性。TS 类型：`PopupProps`，[Popup API Documents](./popup?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/menu/type.ts) | N
 title | String / Slot / Function | - | 二级菜单内容。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 value | String / Number | - | 菜单项唯一标识。TS 类型：`MenuValue` | N
 

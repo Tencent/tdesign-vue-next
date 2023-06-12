@@ -101,7 +101,12 @@
         <t-menu-item value="1-2"> 子菜单1-2 </t-menu-item>
         <t-menu-item value="1-3"> 子菜单1-3 </t-menu-item>
       </t-submenu>
-      <t-submenu value="2">
+      <t-submenu
+        value="2"
+        :popup-props="{
+          overlayClassName: 'custom-popup-class',
+        }"
+      >
         <template #title>
           <span>菜单2</span>
         </template>
