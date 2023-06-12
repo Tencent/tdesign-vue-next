@@ -81,12 +81,6 @@ export default defineComponent({
           [`${classPrefix.value}-size-m`]: size === 'medium',
         };
       });
-      const defaultContent = (
-        <>
-          <BacktopIcon class={`${componentName.value}__icon`} size={'24'} />
-          <span class={`${componentName.value}__text`}>TOP</span>
-        </>
-      );
       const getBackTo = () => {
         if (target === container) return 0;
         if (target === 'body') return 0;
@@ -107,9 +101,11 @@ export default defineComponent({
           insetBlockEnd: offset[1],
         };
       });
+      const propsContent = renderContent('content', 'default');
       return (
         <button type="button" class={cls.value} style={positionStyle.value} onClick={handleClick}>
-          {renderContent('content', 'default', defaultContent)}
+          {!propsContent && <BacktopIcon class={`${componentName.value}__icon`} size={'24'} />}
+          <span class={`${componentName.value}__text`}>{propsContent || 'TOP'}</span>
         </button>
       );
     };
