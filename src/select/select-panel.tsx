@@ -43,34 +43,7 @@ export default defineComponent({
 
     const popupContentRef = computed(() => tSelect.value.popupContentRef.value);
     const showCreateOption = computed(() => props.creatable && props.filterable && props.inputValue);
-
-    const displayOptions = computed(() => {
-      if (!props.inputValue || !(props.filterable || isFunction(props.filter))) return props.options;
-
-      const filterMethods = (option: SelectOption) => {
-        if (isFunction(props.filter)) {
-          return props.filter(`${props.inputValue}`, option);
-        }
-
-        return option.label?.toLowerCase?.().indexOf(`${props.inputValue}`.toLowerCase()) > -1;
-      };
-
-      const res: SelectOption[] = [];
-
-      props.options.forEach((option) => {
-        if ((option as SelectOptionGroup).group && (option as SelectOptionGroup).children) {
-          res.push({
-            ...option,
-            children: (option as SelectOptionGroup).children.filter(filterMethods),
-          });
-        }
-        if (filterMethods(option)) {
-          res.push(option);
-        }
-      });
-
-      return res;
-    });
+    const displayOptions = computed(() => tSelect.value.displayOptions);
 
     const { trs, visibleData, handleRowMounted, isVirtual, panelStyle, cursorStyle } = usePanelVirtualScroll({
       scroll: props.scroll,
