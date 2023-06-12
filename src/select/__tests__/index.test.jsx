@@ -160,7 +160,7 @@ describe('Select', () => {
         });
         await triggerClear(wrapper);
         expect(fn).toBeCalled();
-        expect(value.value).toBe('');
+        expect(value.value).toBe(undefined);
       });
       it('[multiple=false][valueType="object"]', async () => {
         const fn = vi.fn();
@@ -172,7 +172,7 @@ describe('Select', () => {
         });
         await triggerClear(wrapper);
         expect(fn).toBeCalled();
-        expect(value.value).toBe('');
+        expect(value.value).toBe(undefined);
       });
       // TODO: remove skip when multiple select clear icon class bug fixed
       it.skip('[multiple=true][valueType="value"]', async () => {

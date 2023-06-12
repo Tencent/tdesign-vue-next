@@ -99,6 +99,13 @@ export default defineComponent({
       };
     });
 
+    const handleEscKeydown = (e: KeyboardEvent) => {
+      if (props.closeOnEscKeydown ?? (globalConfig.value.closeOnEscKeydown && e.key === 'Escape')) {
+        props.onEscKeydown?.({ e });
+        closeDrawer({ trigger: 'esc', e });
+      }
+    };
+
     const clearStyleFunc = () => {
       clearTimeout(styleTimer.value);
       styleTimer.value = setTimeout(() => {
@@ -238,10 +245,13 @@ export default defineComponent({
       if (isVisible.value && !props.showInAttachedElement && props.preventScrollThrough) {
         document.head.appendChild(styleEl.value);
       }
+
+      window.addEventListener('keydown', handleEscKeydown);
     });
 
     onBeforeUnmount(() => {
       clearStyleFunc();
+      window.removeEventListener('keydown', handleEscKeydown);
     });
 
     return () => {
