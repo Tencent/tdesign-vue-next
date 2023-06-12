@@ -1,5 +1,4 @@
 import { computed, defineComponent, inject, PropType, Slots, ref } from 'vue';
-import isFunction from 'lodash/isFunction';
 import omit from 'lodash/omit';
 import { Styles } from '../common';
 
