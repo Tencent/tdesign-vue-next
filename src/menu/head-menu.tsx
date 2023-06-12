@@ -166,39 +166,40 @@ export default defineComponent({
     };
 
     const formatContent = () => {
-      let slot = ctx.slots.default?.() || ctx.slots.content?.() || [];
+      const slot = ctx.slots.default?.() || ctx.slots.content?.() || [];
 
-      if (menuRef.value && innerRef.value) {
-        const validNodes = Array.from(menuRef.value.childNodes ?? []).filter(
-          (item) => item.nodeName !== '#text' || item.nodeValue,
-        ) as HTMLElement[];
+      // TODO: 判断逻辑不够完善 影响封装组件的子菜单样式渲染 暂时先不执行 待调整实现方案
+      // if (menuRef.value && innerRef.value) {
+      //   const validNodes = Array.from(menuRef.value.childNodes ?? []).filter(
+      //     (item) => item.nodeName !== '#text' || item.nodeValue,
+      //   ) as HTMLElement[];
 
-        const menuWidth = calcMenuWidth();
-        const menuItemMinWidth = 104;
+      //   const menuWidth = calcMenuWidth();
+      //   const menuItemMinWidth = 104;
 
-        let remainWidth = menuWidth;
-        let sliceIndex = validNodes.length;
+      //   let remainWidth = menuWidth;
+      //   let sliceIndex = validNodes.length;
 
-        for (let index = 0; index < validNodes.length; index++) {
-          const element = validNodes[index];
-          remainWidth -= element.offsetWidth || 0;
-          if (remainWidth < menuItemMinWidth) {
-            sliceIndex = index;
-            break;
-          }
-        }
+      //   for (let index = 0; index < validNodes.length; index++) {
+      //     const element = validNodes[index];
+      //     remainWidth -= element.offsetWidth || 0;
+      //     if (remainWidth < menuItemMinWidth) {
+      //       sliceIndex = index;
+      //       break;
+      //     }
+      //   }
 
-        const defaultSlot = slot.slice(0, sliceIndex);
-        const subMore = slot.slice(sliceIndex);
+      //   const defaultSlot = slot.slice(0, sliceIndex);
+      //   const subMore = slot.slice(sliceIndex);
 
-        if (subMore.length) {
-          slot = defaultSlot.concat(
-            <Submenu expandType="popup" title={() => <EllipsisIcon />}>
-              {subMore}
-            </Submenu>,
-          );
-        }
-      }
+      //   if (subMore.length) {
+      //     slot = defaultSlot.concat(
+      //       <Submenu expandType="popup" title={() => <EllipsisIcon />}>
+      //         {subMore}
+      //       </Submenu>,
+      //     );
+      //   }
+      // }
       return slot;
     };
 
