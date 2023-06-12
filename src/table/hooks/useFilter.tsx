@@ -80,16 +80,7 @@ export default function useFilter(props: TdPrimaryTableProps, context: SetupCont
   function getFilterResultContent(): string {
     const arr: string[] = [];
     const columns: Array<PrimaryTableCol> = [];
-    props.columns.forEach((col) => {
-      if (col.children) {
-        col.children.forEach((child) => {
-          columns.push(child);
-        });
-        columns.push(col);
-      } else {
-        columns.push(col);
-      }
-    });
+    getAllColumns(props.columns, columns);
     columns
       .filter((col) => col.filter)
       .forEach((col) => {
@@ -109,6 +100,15 @@ export default function useFilter(props: TdPrimaryTableProps, context: SetupCont
         }
       });
     return arr.join('；');
+  }
+  //递归拿到所有的 column
+  function getAllColumns(col: Array<PrimaryTableCol>, columns: Array<PrimaryTableCol>) {
+    col.forEach((column) => {
+      if (column.children) {
+        getAllColumns(column.children, columns);
+      }
+      columns.push(column);
+    });
   }
 
   function onInnerFilterChange(val: any, column: PrimaryTableCol) {
