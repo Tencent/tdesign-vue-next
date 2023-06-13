@@ -6,7 +6,6 @@ export default function useInputEventHandler(props: TdInputProps, isHover: Ref<B
     if (props.disabled) return;
     const { code } = e;
     if (/enter/i.test(code) || /enter/i.test(e.key)) {
-      e.stopPropagation();
       props.onEnter?.((e.currentTarget as HTMLInputElement).value, { e });
     } else {
       props.onKeydown?.((e.currentTarget as HTMLInputElement).value, { e });

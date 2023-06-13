@@ -1,6 +1,7 @@
 import { computed, Slots, VNode, Ref, ref } from 'vue';
 import isArray from 'lodash/isArray';
 import get from 'lodash/get';
+import isFunction from 'lodash/isFunction';
 
 import { useChildComponentSlots } from '../../hooks/slot';
 import { TdSelectProps, TdOptionProps, SelectOptionGroup, SelectKeysType, SelectValue, SelectOption } from '../type';
@@ -10,7 +11,7 @@ type UniOption = (TdOptionProps | SelectOptionGroup) & {
   slots?: Slots;
 };
 
-export const useSelectOptions = (props: TdSelectProps, keys: Ref<SelectKeysType>) => {
+export const useSelectOptions = (props: TdSelectProps, keys: Ref<SelectKeysType>, inputValue: Ref<string>) => {
   const getChildComponentSlots = useChildComponentSlots();
   const optionsCache = ref<SelectOption[]>([]);
 
@@ -102,10 +103,39 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<SelectKeysType>
     return res;
   });
 
+  const displayOptions = computed(() => {
+    if (!inputValue.value || !(props.filterable || isFunction(props.filter))) return options.value;
+
+    const filterMethods = (option: SelectOption) => {
+      if (isFunction(props.filter)) {
+        return props.filter(`${inputValue.value}`, option);
+      }
+
+      return option.label?.toLowerCase?.().indexOf(`${inputValue.value}`.toLowerCase()) > -1;
+    };
+
+    const res: SelectOption[] = [];
+
+    options.value.forEach((option) => {
+      if ((option as SelectOptionGroup).group && (option as SelectOptionGroup).children) {
+        res.push({
+          ...option,
+          children: (option as SelectOptionGroup).children.filter(filterMethods),
+        });
+      }
+      if (filterMethods(option)) {
+        res.push(option);
+      }
+    });
+
+    return res;
+  });
+
   return {
     options,
     optionsMap,
     optionsList,
     optionsCache,
+    displayOptions,
   };
 };
