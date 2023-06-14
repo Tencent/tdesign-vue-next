@@ -165,6 +165,7 @@ export default defineComponent({
       return totalWidth - menuPaddingLeft - menuPaddingRight;
     };
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const formatContent = () => {
       let slot = ctx.slots.default?.() || ctx.slots.content?.() || [];
 
@@ -222,7 +223,10 @@ export default defineComponent({
     return () => {
       const logo = props.logo?.(h) || ctx.slots.logo?.();
       const operations = props.operations?.(h) || ctx.slots.operations?.() || ctx.slots.options?.();
-      const content = formatContent();
+
+      // TODO: 判断逻辑不够完善 影响封装组件的子菜单样式渲染 暂时先不执行 待调整实现方案
+      // const content = formatContent();
+      const content = ctx.slots.default?.() || ctx.slots.content?.() || [];
 
       return (
         <div class={menuClass.value}>

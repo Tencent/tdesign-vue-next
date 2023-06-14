@@ -19,6 +19,7 @@ export const selectInjectKey: InjectionKey<
     isCheckAll: boolean;
     onCheckAllChange: (checked: boolean) => void;
     getSelectedOptions: (selectValue?: SelectValue[] | SelectValue) => TdOptionProps[];
+    displayOptions: TdSelectProps['options'];
   }>
 > = Symbol('selectProvide');
 

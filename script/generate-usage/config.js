@@ -413,6 +413,16 @@ module.exports = {
       timePicker: `<t-timePicker v-bind="configProps" />`,
     },
   },
+  timeline: {
+    panelStr: `const panelList = [{label: 'timeline', value: 'timeline'}];`,
+    render: {
+      timeline: `<t-timeline v-bind="configProps">
+              <t-timeline-item label="2022-01-01">事件一</t-timeline-item>
+              <t-timeline-item label="2022-02-01">事件二</t-timeline-item>
+              <t-timeline-item label="2022-03-01">事件三</t-timeline-item>
+      </t-timeline>`,
+    },
+  },
   upload: {
     panelStr: `const panelList = [{label: 'upload', value: 'upload'}];`,
     render: {

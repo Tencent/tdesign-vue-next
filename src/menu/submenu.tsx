@@ -20,6 +20,7 @@ import useRipple from '../hooks/useRipple';
 import { usePrefixClass } from '../hooks/useConfig';
 import { Popup, PopupPlacement } from '../popup';
 import isFunction from 'lodash/isFunction';
+import { TdSubmenuProps } from './type';
 
 export default defineComponent({
   name: 'TSubmenu',
@@ -58,12 +59,19 @@ export default defineComponent({
         [`${classPrefix.value}-is-opened`]: isOpen.value,
       },
     ]);
-    const popupClass = computed(() => [
+    const overlayInnerClassName = computed(() => [
       `${classPrefix.value}-menu__popup`,
       `${classPrefix.value}-is-${isHead ? 'horizontal' : 'vertical'}`,
       {
         [`${classPrefix.value}-is-opened`]: popupVisible.value,
       },
+      (props.popupProps as TdSubmenuProps['popupProps'])?.overlayInnerClassName,
+    ]);
+    const overlayClassName = computed(() => [
+      `${classPrefix.value}-menu--${theme.value}`,
+      isHead && `${classPrefix.value}-is-head-menu`,
+      { [`${classPrefix.value}-menu-is-nested`]: isNested.value },
+      (props.popupProps as TdSubmenuProps['popupProps'])?.overlayClassName,
     ]);
     const submenuClass = computed(() => [
       `${classPrefix.value}-menu__item`,
@@ -207,7 +215,8 @@ export default defineComponent({
       classes,
       subClass,
       arrowClass,
-      popupClass,
+      overlayInnerClassName,
+      overlayClassName,
       submenuClass,
       submenuRef,
       popupWrapperRef,
@@ -226,13 +235,11 @@ export default defineComponent({
       if (!this.isNested && this.isHead) {
         placement = 'bottom-left';
       }
-      const overlayInnerStyle = this.isNested && this.isHead ? { marginLeft: '0px' } : { marginTop: '12px' };
 
       const popupWrapper = (
         <div
           ref="popupWrapperRef"
           class={[
-            // ...this.popupClass,
             `${this.classPrefix}-menu__spacer`,
             `${this.classPrefix}-menu__spacer--${!this.isNested && this.isHead ? 'top' : 'left'}`,
           ]}
@@ -247,11 +254,11 @@ export default defineComponent({
       };
       const realPopup = (
         <Popup
-          overlayInnerClassName={[...this.popupClass]}
-          overlayClassName={[`${this.classPrefix}-menu--${this.theme}`, this.isHead && `${this.classPrefix}-is-head`]}
+          props={this.popupProps}
+          overlayInnerClassName={[...this.overlayInnerClassName]}
+          overlayClassName={[...this.overlayClassName]}
           visible={this.popupVisible}
           placement={placement as PopupPlacement}
-          overlayInnerStyle={overlayInnerStyle}
           v-slots={slots}
         >
           <div ref="submenuRef" class={this.submenuClass}>

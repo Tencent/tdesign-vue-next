@@ -57,6 +57,7 @@ content | String / Slot / Function | - | Typescript：`string \| TNode`。[see m
 default | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 disabled | Boolean | - | \- | N
 icon | Slot / Function | - | Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+popupProps | Object | - | Transparent all feature props of the Popup。Typescript：`PopupProps`，[Popup API Documents](./popup?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/menu/type.ts) | N
 title | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 value | String / Number | - | Typescript：`MenuValue` | N
 

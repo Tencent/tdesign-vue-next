@@ -243,6 +243,8 @@ export default defineComponent({
     };
     // 回车出发确认事件
     const keyboardEnterEvent = (e: KeyboardEvent) => {
+      const eventSrc = e.target as HTMLElement;
+      if (eventSrc.tagName.toLowerCase() === 'input') return; // 若是input触发 则不执行
       const { code } = e;
       if ((code === 'Enter' || code === 'NumpadEnter') && stack.top === instance.uid) {
         props.onConfirm?.({ e });

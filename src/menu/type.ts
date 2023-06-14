@@ -4,6 +4,7 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
+import { PopupProps } from '../popup';
 import { TNode } from '../common';
 
 export interface TdMenuProps {
@@ -139,6 +140,10 @@ export interface TdSubmenuProps {
   /**
    * 二级菜单内容
    */
+  /**
+   * 透传 Popup 组件全部特性
+   */
+  popupProps?: PopupProps;
   title?: string | TNode;
   /**
    * 菜单项唯一标识
