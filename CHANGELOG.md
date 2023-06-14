@@ -4,6 +4,22 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 1.3.7 `2023-06-14` 
+### 🚀 Features
+- `Menu`: `Submenu` 新增 `popupProps` 属性，允许透传设置底层 `Popup` 弹窗属性 ([issues #347](https://github.com/Tencent/tdesign/issues/347)) @xiaosansiji ([#2963](https://github.com/Tencent/tdesign-vue-next/pull/2963))
+- `Input`: 回车事件不再阻止事件冒泡 @uyarn ([#2968](https://github.com/Tencent/tdesign-vue-next/pull/2968))
+### 🐞 Bug Fixes
+- `Select`: 
+  - 修复空字符串无法作为可选值的缺陷 @kaishuige ([#2950](https://github.com/Tencent/tdesign-vue-next/pull/2950))
+  - 修复无法通过键盘回车操作选中选项及忽略已过滤选项的缺陷 @uyarn ([#2968](https://github.com/Tencent/tdesign-vue-next/pull/2968))
+- `InputNumber`: 初始值为 `undefined/null`，且存在 `decimalPlaces` 时，不再进行小数点纠正  @chaishi ([#2948](https://github.com/Tencent/tdesign-vue-next/pull/2948))
+- `Menu`: 修复弹出类菜单内容未对齐的问题 @xiaosansiji ([#2957](https://github.com/Tencent/tdesign-vue-next/pull/2957))
+- `Drawer`: 打开抽屉后，无法直接摁 `ESC` 退出，必须先点击抽屉，才可关闭 ([issue #2947](https://github.com/Tencent/tdesign-vue-next/issues/2947)) @kaishuige ([#2958](https://github.com/Tencent/tdesign-vue-next/pull/2958))
+- `Timeline`: 修复 `timeline-item` 内容不支持热更新的缺陷 ([issue #2954](https://github.com/Tencent/tdesign-vue-next/issues/2954)) @uyarn ([#2965](https://github.com/Tencent/tdesign-vue-next/pull/2965))
+- `Table`: 修复在多级表头中使用筛选功能，显示异常问题([issue #2867](https://github.com/Tencent/tdesign-vue-next/issues/2867)) @youlvlv ([#2966](https://github.com/Tencent/tdesign-vue-next/pull/2966))
+### 🚧 Others
+- `Menu`: 去除子菜单 `inline` 样式，改为样式类实现，方便通过全局 `Design Token` 方式调整尺寸和间距等 @xiaosansiji ([#2957](https://github.com/Tencent/tdesign-vue-next/pull/2957))
+- `Table`: 修复可筛选表格，自定义筛选筛选器的 `type` 的类型错误问题 @youlvlv ([#2964](https://github.com/Tencent/tdesign-vue-next/pull/2964))
 ## 🌈 1.3.6 `2023-06-07` 
 ### 🚀 Features
 - `Menu`: 侧边导航菜单收起时，`Tooltip` 展示菜单内容 @xiaosansiji ([#2921](https://github.com/Tencent/tdesign-vue-next/pull/2921))
