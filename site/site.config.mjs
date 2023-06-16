@@ -90,8 +90,8 @@ export const docs = [
       },
       {
         title: 'Link 链接',
-        titleEn: 'Icon',
-        name: 'icon',
+        titleEn: 'Link',
+        name: 'link',
         path: '/vue-next/components/link',
         component: () => import('tdesign-vue-next/link/link.md'),
         componentEn: () => import('tdesign-vue-next/link/link.en-US.md'),
