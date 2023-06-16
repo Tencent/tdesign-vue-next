@@ -155,7 +155,7 @@ export default defineNuxtConfig({
 
 After installing and registering TDesign, it can be used with plugins in editors such as VSCode to achieve the effect of prompting component names and APIs during development.
 
-Plugin `volar` is recommended, after installing `volar`, pleaase add `node_modules/tdesign-vue-next/global.d.ts` to the `includes` property in the project's `tsconfig.json file`.
+Plugin `volar` is recommended, after installing `volar`, please add `node_modules/tdesign-vue-next/global.d.ts` to the `includes` property in the project's `tsconfig.json file`.
 
 ## Starter Kit
 
