@@ -98,7 +98,7 @@ const NormalFile = defineComponent({
     // 输入框型预览
     const renderFilePreviewAsInput = () => {
       if (theme.value !== 'file-input') return;
-      const file = props.displayFiles[0] || [];
+      const file: UploadFile = props.displayFiles[0] || [];
       const inputTextClass = [
         `${classPrefix.value}-input__inner`,
         { [`${uploadPrefix}__placeholder`]: !props.displayFiles[0] },
