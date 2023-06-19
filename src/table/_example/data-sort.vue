@@ -25,7 +25,7 @@
 </template>
 
 <script setup lang="jsx">
-import { watch, ref } from 'vue';
+import { watch, ref, onBeforeMount } from 'vue';
 import {
   CheckCircleFilledIcon,
   CaretDownSmallIcon,
@@ -85,7 +85,7 @@ const columns = ref([
   { colKey: 'createTime', title: '申请时间' },
 ]);
 
-const data = ref([...initialData]);
+const data = ref([]);
 const sort = ref({});
 const singleSort = ref({
   sortBy: 'status',
@@ -99,6 +99,12 @@ const multipleSorts = ref([
   },
 ]);
 
+onBeforeMount(() => {
+  setTimeout(() => {
+    data.value = [...initialData];
+  }, 200);
+});
+
 const allowMultipleSort = ref(false);
 const globalLocale = ref({
   table: {
@@ -111,6 +117,7 @@ watch(
   (val) => {
     sort.value = val ? multipleSorts.value : singleSort.value;
   },
+  { immediate: true },
 );
 
 const sortChange = (sortVal, options) => {
@@ -120,11 +127,8 @@ const sortChange = (sortVal, options) => {
   data.value = options.currentDataSource;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const dataChange = (data) => {
-  // 除了 sortChange，也可以在这里对 data.value 进行赋值
-  // data.value = data;
-  // console.log('data-change', data);
+const dataChange = (newData) => {
+  data.value = newData;
 };
 </script>
 
