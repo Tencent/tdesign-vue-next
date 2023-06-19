@@ -274,6 +274,7 @@ export default defineComponent({
           <div class={`${COMPONENT_NAME.value}__action`}>
             {!hideSkip.value && !isLast && (
               <Button
+                key="skip"
                 class={`${COMPONENT_NAME.value}__skip`}
                 theme="default"
                 size={buttonSize}
@@ -284,16 +285,17 @@ export default defineComponent({
             )}
             {!hidePrev.value && !isFirst && (
               <Button
+                key="prev"
                 class={`${COMPONENT_NAME.value}__prev`}
-                theme="primary"
                 size={buttonSize}
                 variant="base"
                 onClick={handlePrev}
-                {...(getCurrentCrossProps('prevButtonProps') ?? globalConfig.value.prevButtonProps)}
+                {...globalConfig.value.prevButtonProps}
               />
             )}
             {!isLast && (
               <Button
+                key="next"
                 class={`${COMPONENT_NAME.value}__next`}
                 theme="primary"
                 size={buttonSize}
@@ -304,6 +306,7 @@ export default defineComponent({
             )}
             {isLast && (
               <Button
+                key="finish"
                 class={`${COMPONENT_NAME.value}__finish`}
                 theme="primary"
                 size={buttonSize}
