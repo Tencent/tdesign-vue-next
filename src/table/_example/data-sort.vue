@@ -25,7 +25,7 @@
 </template>
 
 <script setup lang="jsx">
-import { watch, ref, onBeforeMount } from 'vue';
+import { watch, ref } from 'vue';
 import {
   CheckCircleFilledIcon,
   CaretDownSmallIcon,
@@ -85,7 +85,7 @@ const columns = ref([
   { colKey: 'createTime', title: '申请时间' },
 ]);
 
-const data = ref([]);
+const data = ref([...initialData]);
 const sort = ref({});
 const singleSort = ref({
   sortBy: 'status',
@@ -98,12 +98,6 @@ const multipleSorts = ref([
     descending: true,
   },
 ]);
-
-onBeforeMount(() => {
-  setTimeout(() => {
-    data.value = [...initialData];
-  }, 200);
-});
 
 const allowMultipleSort = ref(false);
 const globalLocale = ref({
