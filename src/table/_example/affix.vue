@@ -17,6 +17,7 @@
       :foot-data="footData"
       :row-class-name="rowClassName"
       :pagination="{ defaultCurrent: 1, defaultPageSize: 5, total: TOTAL }"
+      :header-affixed-top="headerAffixedTop ? { offsetTop: 87, zIndex: 1000 } : undefined"
       :footer-affixed-bottom="
         footerAffixedBottom ? { offsetBottom: paginationAffixedBottom ? 60 : 0, zIndex: 1000 } : false
       "
@@ -32,6 +33,9 @@
     >
       <template #t-foot-required> 插槽渲染表尾 </template>
     </t-table>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
   </div>
 </template>
 <script setup lang="jsx">
