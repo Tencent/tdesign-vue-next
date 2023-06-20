@@ -287,6 +287,7 @@ export default defineComponent({
               <Button
                 key="prev"
                 class={`${COMPONENT_NAME.value}__prev`}
+                theme="default"
                 size={buttonSize}
                 variant="base"
                 onClick={handlePrev}
