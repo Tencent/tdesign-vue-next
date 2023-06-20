@@ -291,7 +291,7 @@ export default defineComponent({
                 size={buttonSize}
                 variant="base"
                 onClick={handlePrev}
-                {...(getCurrentCrossProps('nextButtonProps') ?? globalConfig.value.prevButtonProps)}
+                {...(getCurrentCrossProps('prevButtonProps') ?? globalConfig.value.prevButtonProps)}
               />
             )}
             {!isLast && (
