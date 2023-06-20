@@ -1,6 +1,5 @@
 import { SetupContext, computed, toRefs, ref, watch } from 'vue';
 import isFunction from 'lodash/isFunction';
-import get from 'lodash/get';
 import { SortInfo, TdPrimaryTableProps, PrimaryTableCol, TableRowData } from '../type';
 import SorterButton from '../sorter-button';
 import useDefaultValue from '../../hooks/useDefaultValue';
@@ -163,25 +162,15 @@ export default function useSorter(props: TdPrimaryTableProps, { slots }: SetupCo
    * 此时，需要在组件内部进行排序，并输出事件
    */
   watch(
-    tSortInfo,
+    () => [tSortInfo, props.data],
     () => {
-      if (!tSortInfo.value) return;
+      if (!tSortInfo.value || !Object.keys(tSortInfo.value).length || !tData.value.length) return;
       // isSortInfoSame 的两个参数顺序不可变
       if (!isSortInfoSame(tSortInfo.value, innerSort.value)) {
         handleDataSort(tSortInfo.value);
       }
     },
     { immediate: true },
-  );
-
-  // async data and default data is empty
-  watch(
-    () => props.data,
-    (val = [], previousVal = []) => {
-      if (val.map((t) => get(t, props.rowKey)).join() !== previousVal.map((t) => get(t, props.rowKey)).join()) {
-        originalData.value = props.data;
-      }
-    },
   );
 
   return {
