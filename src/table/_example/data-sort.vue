@@ -111,6 +111,7 @@ watch(
   (val) => {
     sort.value = val ? multipleSorts.value : singleSort.value;
   },
+  { immediate: true },
 );
 
 const sortChange = (sortVal, options) => {
@@ -120,11 +121,8 @@ const sortChange = (sortVal, options) => {
   data.value = options.currentDataSource;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const dataChange = (data) => {
-  // 除了 sortChange，也可以在这里对 data.value 进行赋值
-  // data.value = data;
-  // console.log('data-change', data);
+const dataChange = (newData) => {
+  data.value = newData;
 };
 </script>
 
