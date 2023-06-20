@@ -7,6 +7,7 @@ import { Color } from '../../utils';
 import { Select as TSelect, Option as TOption } from '../../../select';
 import FormatInputs from './inputs';
 import { useBaseClassName } from '../../hooks';
+import type { TdSelectInputProps } from '../../../select-input/type';
 
 export default defineComponent({
   name: 'FormatPanel',
@@ -71,6 +72,7 @@ export default defineComponent({
             {...selectInputProps}
             popupProps={{
               overlayClassName: `${baseClassName}__select-options`,
+              ...(selectInputProps as TdSelectInputProps).popupProps,
             }}
             v-model={this.formatModel}
             onChange={handleModeChange}
