@@ -44,14 +44,14 @@ export const docs = [
     children: [
       {
         title: '全局特性配置',
-        titleEn: 'Config',
+        titleEn: 'Global Config',
         name: 'config',
         path: '/vue-next/config',
-        component: () => import('tdesign-vue-next/config-provider/config-provider.md'),
+        component: () => import('tdesign-vue-next/config-provider/config-provider.en-US.md'),
       },
       {
         title: '自定义主题',
-        titleEn: 'Custom theme',
+        titleEn: 'Custom Theme',
         name: 'custom-theme',
         path: '/vue-next/custom-theme',
         component: () => import('@common/theme.md'),
@@ -164,6 +164,7 @@ export const docs = [
         name: 'back-top',
         path: '/vue-next/components/back-top',
         component: () => import('tdesign-vue-next/back-top/back-top.md'),
+        componentEn: () => import('tdesign-vue-next/back-top/back-top.en-US.md'),
       },
       {
         title: 'Breadcrumb 面包屑',
@@ -258,6 +259,7 @@ export const docs = [
         name: 'color-picker',
         path: '/vue-next/components/color-picker',
         component: () => import('tdesign-vue-next/color-picker/color-picker.md'),
+        componentEn: () => import('tdesign-vue-next/color-picker/color-picker.en-US.md'),
       },
       {
         title: 'DatePicker 日期选择器',
