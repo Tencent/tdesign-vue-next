@@ -4,6 +4,22 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 1.3.8 `2023-06-20` 
+### 🐞 Bug Fixes
+- `ColorPicker`: 
+  - 初始化为渐变模式时 支持空字符串作为初始值 @uyarn ([#2996](https://github.com/Tencent/tdesign-vue-next/pull/2996))
+  - 修复 `recentColors` 等字段的类型问题 @uyarn ([#2996](https://github.com/Tencent/tdesign-vue-next/pull/2996))
+  - 修复内部下拉选项未透传 `popupProps` 的缺陷 @uyarn ([#2996](https://github.com/Tencent/tdesign-vue-next/pull/2996))
+- `Select`: 修复使用`tagName`作为key时控制台出现告警的问题 @uyarn ([#2980](https://github.com/Tencent/tdesign-vue-next/pull/2980))
+- `Upload`: `ts` 类型修复 @kaishuige ([#2990](https://github.com/Tencent/tdesign-vue-next/pull/2990))
+- `Table`: 本地数据排序，修复初始排序无效问题 @chaishi ([#2999](https://github.com/Tencent/tdesign-vue-next/pull/2999))
+- `TextArea`: 修复不能响应设置 `value` 值后 autosize 自适应失效的问题 @xiaosansiji ([#3002](https://github.com/Tencent/tdesign-vue-next/pull/3002))
+- `Guide`: 切换时按钮出现动画 @zhangpaopao0609 ([#2997](https://github.com/Tencent/tdesign-vue-next/pull/2997))
+- `Swiper`: 修复 `navigation` 插槽失效的问题 @uyarn ([#3003](https://github.com/Tencent/tdesign-vue-next/pull/3003))
+### 🚧 Others
+- `Dropdown`: 新增带图标的下拉菜单示例 @aomnisz ([#2995](https://github.com/Tencent/tdesign-vue-next/pull/2995))
+- `Table`: 修复文档缺失吸顶表头示例代码问题，[issue#2764](https://github.com/Tencent/tdesign-vue-next/issues/2764) @chaishi ([#2999](https://github.com/Tencent/tdesign-vue-next/pull/2999))
+
 ## 🌈 1.3.7 `2023-06-14` 
 ### 🚀 Features
 - `Menu`: `Submenu` 新增 `popupProps` 属性，允许透传设置底层 `Popup` 弹窗属性 ([issues #347](https://github.com/Tencent/tdesign/issues/347)) @xiaosansiji ([#2963](https://github.com/Tencent/tdesign-vue-next/pull/2963))
