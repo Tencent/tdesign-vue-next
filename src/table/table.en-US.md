@@ -46,6 +46,7 @@ tableLayout | String | fixed | table-layout css properties。options：auto/fixe
 topContent | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 verticalAlign | String | middle | vertical align。options：top/middle/bottom | N
 onCellClick | Function |  | Typescript：`(context: BaseTableCellEventContext<T>) => void`<br/>trigger on cell clicked。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface BaseTableCellEventContext<T> { row: T; col: BaseTableCol; rowIndex: number; colIndex: number; e: MouseEvent }`<br/> | N
+onColumnResizeChange | Function |  | Typescript：`(context: { columnsWidth: { [colKey: string]: number }; }) => void`<br/> | N
 onPageChange | Function |  | Typescript：`(pageInfo: PageInfo, newDataSource: Array<T>) => void`<br/>trigger on pagination changing | N
 onRowClick | Function |  | Typescript：`(context: RowEventContext<T>) => void`<br/>trigger on row click。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface RowEventContext<T> { row: T; index: number; e: MouseEvent }`<br/> | N
 onRowDblclick | Function |  | Typescript：`(context: RowEventContext<T>) => void`<br/>trigger on double click | N
@@ -63,6 +64,7 @@ onScrollY | Function |  | Typescript：`(params: { e: WheelEvent }) => void`<br/
 name | params | description
 -- | -- | --
 cell-click | `(context: BaseTableCellEventContext<T>)` | trigger on cell clicked。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface BaseTableCellEventContext<T> { row: T; col: BaseTableCol; rowIndex: number; colIndex: number; e: MouseEvent }`<br/>
+column-resize-change | `(context: { columnsWidth: { [colKey: string]: number }; })` | \-
 page-change | `(pageInfo: PageInfo, newDataSource: Array<T>)` | trigger on pagination changing
 row-click | `(context: RowEventContext<T>)` | trigger on row click。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface RowEventContext<T> { row: T; index: number; e: MouseEvent }`<br/>
 row-dblclick | `(context: RowEventContext<T>)` | trigger on double click
@@ -114,7 +116,6 @@ name | type | default | description | required
 asyncLoading | String / Slot / Function | - | async loading state。Typescript：`'loading' \| 'load-more' \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 columnController | Object | - | Typescript：`TableColumnController` | N
 columnControllerVisible | Boolean | undefined | `v-model:columnControllerVisible` is supported | N
-defaultColumnControllerVisible | Boolean | undefined | uncontrolled property | N
 columns | Array | [] | table column configs。Typescript：`Array<PrimaryTableCol<T>>` | N
 displayColumns | Array | - | `v-model:displayColumns` is supported。Typescript：`CheckboxGroupValue` | N
 defaultDisplayColumns | Array | - | uncontrolled property。Typescript：`CheckboxGroupValue` | N
@@ -185,7 +186,7 @@ validate | `(context: PrimaryTableValidateContext)` | trigger after row data val
 name | params | return | description
 -- | -- | -- | --
 validateRowData | `(rowValue: any)` | `Promise<{ trigger: TableValidateTrigger, result: ErrorListObjectType<T>[] }>` | required。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`type ErrorListObjectType<T> = PrimaryTableRowEditContext<T> & { errorList: AllValidateResult[] }`<br/>
-validateTableData | \- | `Promise<TableErrorListMap>` | required
+validateTableData | \- | `Promise<{ result: TableErrorListMap }>` | required
 
 ### PrimaryTableCol
 

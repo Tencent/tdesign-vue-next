@@ -23,6 +23,7 @@
       :pagination="{ defaultPageSize: 5, defaultCurrent: 1, total: 100 }"
       stripe
       resizable
+      :on-column-resize-change="onColumnResizeChange"
       @column-change="onColumnChange"
     ></t-table>
 
@@ -93,5 +94,10 @@ const columns = ref([
 ]);
 const onColumnChange = (params) => {
   console.log(params);
+};
+
+const onColumnResizeChange = (columnsWidth) => {
+  // 注意：宽度可能存在小数点，根据实际需求处理保存数值
+  console.log(columnsWidth);
 };
 </script>

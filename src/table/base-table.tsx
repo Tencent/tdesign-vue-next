@@ -119,6 +119,7 @@ export default defineComponent({
       updateThWidthList,
       setTableElmWidth,
       updateTableAfterColumnResize,
+      onColumnResizeChange: props.onColumnResizeChange,
     });
     const { resizeLineRef, resizeLineStyle, setEffectColMap, updateTableWidthOnColumnChange } = columnResizeParams;
 
