@@ -139,7 +139,9 @@ export default defineComponent({
     });
 
     function onColumnReduce(reduceKeys: CheckboxGroupValue) {
-      primaryTableRef.value.updateTableWidthOnColumnChange(reduceKeys);
+      if (props.resizable) {
+        primaryTableRef.value.updateTableWidthOnColumnChange(reduceKeys);
+      }
     }
 
     // 对外暴露的方法
