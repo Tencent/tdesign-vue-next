@@ -21,8 +21,8 @@
         hideTriggerButton: true,
       }"
       :pagination="{ defaultPageSize: 5, defaultCurrent: 1, total: 100 }"
-      table-layout="auto"
       stripe
+      resizable
       @column-change="onColumnChange"
     ></t-table>
 

@@ -327,11 +327,26 @@ export default function useColumnResize(params: {
     document.ondragstart = () => false;
   };
 
+  /**
+   * 对外暴露函数：更新列数量减少时的表格宽度
+   * @params colKeys 减少的列
+   */
+  const updateTableWidthOnColumnChange = (colKeys: string[]) => {
+    const thWidthList = getThWidthList('calculate');
+    let reduceWidth = 0;
+    colKeys.forEach((key) => {
+      reduceWidth += thWidthList[key];
+    });
+    const oldTotalWidth = Object.values(thWidthList).reduce((r = 0, n) => r + n);
+    setTableElmWidth(oldTotalWidth - reduceWidth);
+  };
+
   return {
     resizeLineRef,
     resizeLineStyle,
     onColumnMouseover,
     onColumnMousedown,
     setEffectColMap,
+    updateTableWidthOnColumnChange,
   };
 }
