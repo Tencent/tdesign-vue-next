@@ -187,6 +187,8 @@ export default {
   },
   /** 单元格点击时触发 */
   onCellClick: Function as PropType<TdBaseTableProps['onCellClick']>,
+  /** 列调整大小之后触发。`context.columnsWidth` 表示操作后各个列的宽度； */
+  onColumnResizeChange: Function as PropType<TdBaseTableProps['onColumnResizeChange']>,
   /** 分页发生变化时触发。参数 newDataSource 表示分页后的数据。本地数据进行分页时，newDataSource 和源数据 data 会不一样。泛型 T 指表格数据类型 */
   onPageChange: Function as PropType<TdBaseTableProps['onPageChange']>,
   /** 行点击时触发，泛型 T 指表格数据类型 */
