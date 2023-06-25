@@ -25,7 +25,7 @@ export default {
   default: {
     type: [String, Function] as PropType<TdCheckboxProps['default']>,
   },
-  /** 是否禁用组件 */
+  /** 是否禁用组件。如果父组件存在 CheckboxGroup，默认值由 CheckboxGroup.disabled 控制。优先级：Checkbox.disabled > CheckboxGroup.disabled > Form.disabled */
   disabled: {
     type: Boolean,
     default: undefined,
@@ -45,8 +45,11 @@ export default {
   readonly: Boolean,
   /** 多选框的值 */
   value: {
-    type: [String, Number] as PropType<TdCheckboxProps['value']>,
+    type: [String, Number, Boolean] as PropType<TdCheckboxProps['value']>,
+    default: undefined as TdCheckboxProps['value'],
   },
   /** 值变化时触发 */
   onChange: Function as PropType<TdCheckboxProps['onChange']>,
+  /** 点击时出发，一般用于外层阻止冒泡场景 */
+  onClick: Function as PropType<TdCheckboxProps['onClick']>,
 };
