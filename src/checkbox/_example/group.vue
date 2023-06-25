@@ -6,11 +6,12 @@
 
     <br />
     <p>方式二：组件内置全选功能，使用插槽定义选项。选中值: {{ value2.join(', ') }}</p>
+    <!-- 列表渲染，key 是避免重复渲染的重要参数 -->
     <t-checkbox-group v-model="value2" @change="onChange2">
-      <t-checkbox :check-all="true" label="全选" />
-      <t-checkbox value="选项一">选项一</t-checkbox>
-      <t-checkbox label="选项二" value="选项二" />
-      <t-checkbox label="选项三" value="选项三" :disabled="true" />
+      <t-checkbox key="all" :check-all="true" label="全选" />
+      <t-checkbox key="a" value="选项一">选项一</t-checkbox>
+      <t-checkbox key="b" label="选项二" value="选项二" />
+      <t-checkbox key="c" label="选项三" value="选项三" :disabled="true" />
     </t-checkbox-group>
 
     <br />
