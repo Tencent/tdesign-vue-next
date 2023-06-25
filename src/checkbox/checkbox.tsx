@@ -145,7 +145,7 @@ export default defineComponent({
             readonly={props.readonly}
             indeterminate={tIndeterminate.value}
             name={tName.value}
-            value={props.value}
+            value={props.value ? props.value : undefined}
             checked={tChecked.value}
             onChange={handleChange}
           ></input>

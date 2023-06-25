@@ -46,6 +46,7 @@ export default {
   /** 多选框的值 */
   value: {
     type: [String, Number, Boolean] as PropType<TdCheckboxProps['value']>,
+    default: undefined as TdCheckboxProps['value'],
   },
   /** 值变化时触发 */
   onChange: Function as PropType<TdCheckboxProps['onChange']>,
