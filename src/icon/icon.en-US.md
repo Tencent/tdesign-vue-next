@@ -50,7 +50,7 @@ If you need to select icons in your project, please use `Select` to implement an
 
 You can get all the name of icon by import manifest from the bundle `import { manifest } from 'tdesign-icons-vue-next'`
 
-### the usage of full import needs network. What if my project is in a no-network scenario?
+#### the usage of full import needs network. What if my project is in a no-network scenario?
 
 if your project is in a no-network scenario, please use on-demand loading of icons. For example,`<t-icon name="add" />` should be changed to `<AddIcon />`
 ### All Icons
