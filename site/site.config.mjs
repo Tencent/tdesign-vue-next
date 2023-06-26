@@ -44,15 +44,15 @@ export const docs = [
     children: [
       {
         title: '全局特性配置',
-        titleEn: 'Global Config',
+        titleEn: 'Global Configuration',
         name: 'config',
-        path: '/vue-next/global-config',
+        path: '/vue-next/global-configuration',
         component: () => import('tdesign-vue-next/config-provider/config-provider.md'),
         componentEn: () => import('tdesign-vue-next/config-provider/config-provider.en-US.md'),
       },
       {
         title: '自定义主题',
-        titleEn: 'Custom Theme',
+        titleEn: 'Theme Customization',
         name: 'custom-theme',
         path: '/vue-next/custom-theme',
         component: () => import('@common/theme.md'),
