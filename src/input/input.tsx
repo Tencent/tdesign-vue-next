@@ -142,27 +142,33 @@ export default defineComponent({
         }
       }
 
-      if (showClear.value) {
-        // 如果类型为 password 则使用 passwordIcon 显示 clear
-        if (props.type === 'password') {
-          passwordIcon = (
-            <CloseCircleFilledIcon
-              ref={inputHandle.clearIconRef}
-              class={`${COMPONENT_NAME.value}__suffix-clear`}
-              onClick={inputHandle.emitClear}
-              onMousedown={inputHandle.onClearIconMousedown}
-            />
-          );
-        } else {
-          suffixIcon = (
-            <CloseCircleFilledIcon
-              ref={inputHandle.clearIconRef}
-              class={`${COMPONENT_NAME.value}__suffix-clear`}
-              onClick={inputHandle.emitClear}
-              onMousedown={inputHandle.onClearIconMousedown}
-            />
-          );
-        }
+      // 如果类型为 password 则使用 passwordIcon 显示 clear
+      if (props.type === 'password') {
+        passwordIcon = (
+          <CloseCircleFilledIcon
+            ref={inputHandle.clearIconRef}
+            class={[
+              `${COMPONENT_NAME.value}__suffix-clear`,
+              // showClear为false时，添加hidden样式
+              { [`${COMPONENT_NAME.value}__suffix-clear-hidden`]: !showClear.value },
+            ]}
+            onClick={inputHandle.emitClear}
+            onMousedown={inputHandle.onClearIconMousedown}
+          />
+        );
+      } else {
+        suffixIcon = (
+          <CloseCircleFilledIcon
+            ref={inputHandle.clearIconRef}
+            class={[
+              `${COMPONENT_NAME.value}__suffix-clear`,
+              // showClear为false时，添加hidden样式
+              { [`${COMPONENT_NAME.value}__suffix-clear-hidden`]: !showClear.value },
+            ]}
+            onClick={inputHandle.emitClear}
+            onMousedown={inputHandle.onClearIconMousedown}
+          />
+        );
       }
 
       const classes = [
