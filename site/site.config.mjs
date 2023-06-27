@@ -563,6 +563,7 @@ export const docs = [
       },
       {
         title: 'Rate 评分',
+        titleEn: 'Rate',
         name: 'rate',
         docType: 'data',
         path: '/vue-next/components/rate',
