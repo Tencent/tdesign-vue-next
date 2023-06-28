@@ -6,6 +6,7 @@
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
 alt | String | - | 图片描述 | N
+referrerpolicy | String | strict-origin-when-cross-origin | 原生属性 [referrerpolicy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) | N
 error | String / Slot / Function | - | 自定义图片加载失败状态下的显示内容。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 fit | String | fill | 图片填充模式。可选项：contain/cover/fill/none/scale-down | N
 gallery | Boolean | false | 是否展示为图集样式 | N

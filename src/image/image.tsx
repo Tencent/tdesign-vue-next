@@ -138,6 +138,7 @@ export default defineComponent({
           onLoad={handleLoad}
           class={imageClasses.value}
           alt={props.alt}
+          referrerpolicy={props.referrerpolicy}
         />
       );
     }

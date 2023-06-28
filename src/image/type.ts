@@ -13,6 +13,18 @@ export interface TdImageProps {
    */
   alt?: string;
   /**
+   * 原生属性 https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
+   */
+  referrerpolicy?:
+    | 'no-referrer'
+    | 'no-referrer-when-downgrade'
+    | 'origin'
+    | 'origin-when-cross-origin'
+    | 'same-origin'
+    | 'strict-origin'
+    | 'strict-origin-when-cross-origin'
+    | 'unsafe-url';
+  /**
    * 自定义图片加载失败状态下的显示内容
    */
   error?: string | TNode;
