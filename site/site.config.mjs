@@ -607,6 +607,7 @@ export const docs = [
         name: 'guide',
         path: '/vue-next/components/guide',
         component: () => import('tdesign-vue-next/guide/guide.md'),
+        componentEn: () => import('tdesign-vue-next/guide/guide.en-US.md'),
       },
       {
         title: 'Message 全局提示',
