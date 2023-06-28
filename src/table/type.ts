@@ -216,6 +216,10 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   onCellClick?: (context: BaseTableCellEventContext<T>) => void;
   /**
+   * 列调整大小之后触发。`context.columnsWidth` 表示操作后各个列的宽度；
+   */
+  onColumnResizeChange?: (context: { columnsWidth: { [colKey: string]: number } }) => void;
+  /**
    * 分页发生变化时触发。参数 newDataSource 表示分页后的数据。本地数据进行分页时，newDataSource 和源数据 data 会不一样。泛型 T 指表格数据类型
    */
   onPageChange?: (pageInfo: PageInfo, newDataSource: Array<T>) => void;

@@ -7,7 +7,7 @@
  */
 import { ref, Ref, reactive, onMounted } from 'vue';
 import isNumber from 'lodash/isNumber';
-import { BaseTableCol, TableRowData } from '../type';
+import { BaseTableCol, TableRowData, TdBaseTableProps } from '../type';
 import { on, off } from '../../utils/dom';
 
 const DEFAULT_MIN_WIDTH = 80;
@@ -26,6 +26,7 @@ export default function useColumnResize(params: {
   updateThWidthList: (data: { [colKey: string]: number }) => void;
   setTableElmWidth: (width: number) => void;
   updateTableAfterColumnResize: () => void;
+  onColumnResizeChange: TdBaseTableProps['onColumnResizeChange'];
 }) {
   const {
     isWidthOverflow,
@@ -35,6 +36,7 @@ export default function useColumnResize(params: {
     updateThWidthList,
     setTableElmWidth,
     updateTableAfterColumnResize,
+    onColumnResizeChange,
   } = params;
   const resizeLineRef = ref<HTMLDivElement>();
   const effectColMap = ref<{ [colKey: string]: any }>({});
@@ -309,6 +311,7 @@ export default function useColumnResize(params: {
       off(document, 'mousemove', onDragOver);
       document.onselectstart = originalSelectStart;
       document.ondragstart = originalDragStart;
+      onColumnResizeChange?.({ columnsWidth: newThWidthList });
     };
 
     // 注意前后两列最小和最大宽度限制
@@ -327,11 +330,26 @@ export default function useColumnResize(params: {
     document.ondragstart = () => false;
   };
 
+  /**
+   * 对外暴露函数：更新列数量减少时的表格宽度
+   * @params colKeys 减少的列
+   */
+  const updateTableWidthOnColumnChange = (colKeys: string[]) => {
+    const thWidthList = getThWidthList('calculate');
+    let reduceWidth = 0;
+    colKeys.forEach((key) => {
+      reduceWidth += thWidthList[key];
+    });
+    const oldTotalWidth = Object.values(thWidthList).reduce((r = 0, n) => r + n);
+    setTableElmWidth(oldTotalWidth - reduceWidth);
+  };
+
   return {
     resizeLineRef,
     resizeLineStyle,
     onColumnMouseover,
     onColumnMousedown,
     setEffectColMap,
+    updateTableWidthOnColumnChange,
   };
 }

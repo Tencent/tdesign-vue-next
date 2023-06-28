@@ -13,6 +13,24 @@ export default {
     type: String,
     default: '',
   },
+  /** 原生属性 https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy */
+  referrerpolicy: {
+    type: String as PropType<TdImageProps['referrerpolicy']>,
+    default: 'strict-origin-when-cross-origin',
+    validator(val: TdImageProps['referrerpolicy']): boolean {
+      if (!val) return true;
+      return [
+        'no-referrer',
+        'no-referrer-when-downgrade',
+        'origin',
+        'origin-when-cross-origin',
+        'same-origin',
+        'strict-origin',
+        'strict-origin-when-cross-origin',
+        'unsafe-url',
+      ].includes(val);
+    },
+  },
   /** 自定义图片加载失败状态下的显示内容 */
   error: {
     type: [String, Function] as PropType<TdImageProps['error']>,

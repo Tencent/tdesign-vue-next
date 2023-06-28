@@ -6,6 +6,7 @@
 name | type | default | description | required
 -- | -- | -- | -- | --
 alt | String | - | \- | N
+referrerpolicy | String | strict-origin-when-cross-origin | native attribute [referrerpolicy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) | N
 error | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 fit | String | fill | options：contain/cover/fill/none/scale-down | N
 gallery | Boolean | false | \- | N
