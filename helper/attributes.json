@@ -1894,7 +1894,7 @@
   },
   "t-date-picker/confirm": {
     "type": "event",
-    "description": "如果存在“确认”按钮，则点击“确认”按钮时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#datepicker-events)"
+    "description": "如果存在“确定”按钮，则点击“确定”按钮时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#datepicker-events)"
   },
   "t-date-picker/focus": {
     "type": "event",
@@ -1922,7 +1922,7 @@
   },
   "t-date-picker-panel/confirm": {
     "type": "event",
-    "description": "如果存在“确认”按钮，则点击“确认”按钮时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker-panel?tab=api#datepickerpanel-events)"
+    "description": "如果存在“确定”按钮，则点击“确定”按钮时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker-panel?tab=api#datepickerpanel-events)"
   },
   "t-date-picker-panel/month-change": {
     "type": "event",
@@ -2094,7 +2094,7 @@
   },
   "t-date-range-picker/confirm": {
     "type": "event",
-    "description": "如果存在“确认”按钮，则点击“确认”按钮时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-range-picker?tab=api#daterangepicker-events)"
+    "description": "如果存在“确定”按钮，则点击“确定”按钮时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-range-picker?tab=api#daterangepicker-events)"
   },
   "t-date-range-picker/focus": {
     "type": "event",
@@ -2126,7 +2126,7 @@
   },
   "t-date-range-picker-panel/confirm": {
     "type": "event",
-    "description": "如果存在“确认”按钮，则点击“确认”按钮时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-range-picker-panel?tab=api#daterangepickerpanel-events)"
+    "description": "如果存在“确定”按钮，则点击“确定”按钮时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-range-picker-panel?tab=api#daterangepickerpanel-events)"
   },
   "t-date-range-picker-panel/month-change": {
     "type": "event",

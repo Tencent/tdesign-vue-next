@@ -5086,7 +5086,7 @@
               },
               {
                 "name": "confirm",
-                "description": "如果存在“确认”按钮，则点击“确认”按钮时触发",
+                "description": "如果存在“确定”按钮，则点击“确定”按钮时触发",
                 "doc-url": "https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#datepicker-events"
               },
               {
@@ -5166,7 +5166,7 @@
               },
               {
                 "name": "confirm",
-                "description": "如果存在“确认”按钮，则点击“确认”按钮时触发",
+                "description": "如果存在“确定”按钮，则点击“确定”按钮时触发",
                 "doc-url": "https://tdesign.tencent.com/vue-next/components/date-picker-panel?tab=api#datepickerpanel-events"
               },
               {
@@ -5553,7 +5553,7 @@
               },
               {
                 "name": "confirm",
-                "description": "如果存在“确认”按钮，则点击“确认”按钮时触发",
+                "description": "如果存在“确定”按钮，则点击“确定”按钮时触发",
                 "doc-url": "https://tdesign.tencent.com/vue-next/components/date-range-picker?tab=api#daterangepicker-events"
               },
               {
@@ -5638,7 +5638,7 @@
               },
               {
                 "name": "confirm",
-                "description": "如果存在“确认”按钮，则点击“确认”按钮时触发",
+                "description": "如果存在“确定”按钮，则点击“确定”按钮时触发",
                 "doc-url": "https://tdesign.tencent.com/vue-next/components/date-range-picker-panel?tab=api#daterangepickerpanel-events"
               },
               {
