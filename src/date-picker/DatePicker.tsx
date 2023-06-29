@@ -165,7 +165,7 @@ export default defineComponent({
         format: formatRef.value.format,
       });
       if (nextValue) {
-        props.onConfirm?.({ date: dayjs(nextValue as string).toDate(), e });
+        props?.onConfirm?.({ date: dayjs(nextValue as string).toDate(), e });
         onChange?.(
           formatDate(inputValue.value, {
             format: formatRef.value.format,

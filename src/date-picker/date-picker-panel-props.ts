@@ -17,7 +17,7 @@ export default {
   onCellClick: Function as PropType<TdDatePickerPanelProps['onCellClick']>,
   /** 选中值发生变化时触发。参数 `context.trigger` 表示触发当前事件的来源，不同的模式触发来源也会不同 */
   onChange: Function as PropType<TdDatePickerPanelProps['onChange']>,
-  /** 如果存在“确认”按钮，则点击“确认”按钮时触发 */
+  /** 如果存在“确定”按钮，则点击“确定”按钮时触发 */
   onConfirm: Function as PropType<TdDatePickerPanelProps['onConfirm']>,
   /** 月份切换发生变化时触发 */
   onMonthChange: Function as PropType<TdDatePickerPanelProps['onMonthChange']>,

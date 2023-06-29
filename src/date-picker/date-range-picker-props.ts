@@ -152,7 +152,7 @@ export default {
   onBlur: Function as PropType<TdDateRangePickerProps['onBlur']>,
   /** 选中值发生变化时触发 */
   onChange: Function as PropType<TdDateRangePickerProps['onChange']>,
-  /** 如果存在“确认”按钮，则点击“确认”按钮时触发 */
+  /** 如果存在“确定”按钮，则点击“确定”按钮时触发 */
   onConfirm: Function as PropType<TdDateRangePickerProps['onConfirm']>,
   /** 输入框获得焦点时触发 */
   onFocus: Function as PropType<TdDateRangePickerProps['onFocus']>,
