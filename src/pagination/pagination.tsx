@@ -151,10 +151,10 @@ export default defineComponent({
           previous: prev,
           pageSize: innerPageSize.value,
         };
+        setInnerCurrent(current, pageInfo);
         if (isTriggerChange !== false) {
           props.onChange?.(pageInfo);
         }
-        setInnerCurrent(current, pageInfo);
       }
     };
 
