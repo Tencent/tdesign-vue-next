@@ -118,7 +118,16 @@ export default defineComponent({
       const suffix = renderTNodeJSX('suffix');
       const limitNode =
         limitNumber.value && props.showLimitNumber ? (
-          <div class={`${classPrefix.value}-input__limit-number`}>{limitNumber.value}</div>
+          <div
+            class={[
+              `${classPrefix.value}-input__limit-number`,
+              {
+                [`${classPrefix.value}-is-disabled`]: disabled.value,
+              },
+            ]}
+          >
+            {limitNumber.value}
+          </div>
         ) : null;
 
       const labelContent = label ? <div class={`${COMPONENT_NAME.value}__prefix`}>{label}</div> : null;
