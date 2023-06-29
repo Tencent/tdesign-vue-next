@@ -17,9 +17,6 @@ export const getOptionsFromChildren = (menuNode: VNode | VNode[]): DropdownOptio
     }
   }
 
-  // 处理v-if的场景
-  if (isArray(menuNode[0]?.children)) return getOptionsFromChildren(menuNode[0]?.children);
-
   if (isArray(menuNode)) {
     menuNode = menuNode.reduce((acc, item) => {
       acc = acc.concat(isArray(item.children) ? item.children : item);
@@ -56,6 +53,9 @@ export const getOptionsFromChildren = (menuNode: VNode | VNode[]): DropdownOptio
       })
       .filter((v) => !!v.content);
   }
+
+  // 处理v-if的场景
+  if (isArray(menuNode[0]?.children)) return getOptionsFromChildren(menuNode[0]?.children);
 
   return [];
 };

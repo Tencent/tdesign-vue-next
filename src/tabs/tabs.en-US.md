@@ -25,7 +25,7 @@ onRemove | Function |  | Typescript：`(options: { value: TabValue; index: numbe
 name | params | description
 -- | -- | --
 add | `(context: { e: MouseEvent })` | \-
-change | `(value: TabValue, label: string)` | \-
+change | `(value: TabValue)` | \-
 drag-sort | `(context: TabsDragSortContext)` | trigger on drag sort。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tabs/type.ts)。<br/>`interface TabsDragSortContext { currentIndex: number; current: TabValue; targetIndex: number; target: TabValue }`<br/>
 remove | `(options: { value: TabValue; index: number; e: MouseEvent })` | \-
 
