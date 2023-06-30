@@ -6,7 +6,9 @@ import PrimaryTable from './primary-table';
 import { TdEnhancedTableProps, PrimaryTableCol, TableRowData, DragSortContext, TdPrimaryTableProps } from './type';
 import useTreeData from './hooks/useTreeData';
 import useTreeSelect from './hooks/useTreeSelect';
+import get from 'lodash/get';
 import { ScrollToElementParams } from '../hooks/useVirtualScrollNew';
+import { usePrefixClass } from '../hooks';
 
 export default defineComponent({
   name: 'TEnhancedTable',
@@ -20,6 +22,7 @@ export default defineComponent({
   setup(props: TdEnhancedTableProps, context: SetupContext) {
     const primaryTableRef = ref(null);
     const { store, dataSource, formatTreeColumn, swapData, ...treeInstanceFunctions } = useTreeData(props, context);
+    const classPrefix = usePrefixClass();
 
     const treeDataMap = ref(store.value.treeDataMap);
 
@@ -107,6 +110,12 @@ export default defineComponent({
         disableDataPage: Boolean(props.tree && Object.keys(props.tree).length),
         onSelectChange: onInnerSelectChange,
         onDragSort: onDragSortChange,
+        rowClassName: ({ row }) => {
+          const rowValue = get(row, props.rowKey || 'id');
+          const rowState = treeDataMap.value.get(rowValue);
+          if (!rowState) return [props.rowClassName];
+          return [`${classPrefix.value}-table-tr--level-${rowState.level}`, props.rowClassName];
+        },
       };
       if (props.tree?.expandTreeNodeOnClick) {
         enhancedProps.onRowClick = onEnhancedTableRowClick;
