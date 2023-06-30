@@ -129,6 +129,10 @@ export interface TdDatePickerProps {
    */
   onChange?: (value: DateValue, context: { dayjsValue?: Dayjs; trigger?: DatePickerTriggerSource }) => void;
   /**
+   * 如果存在“确定”按钮，则点击“确定”按钮时触发
+   */
+  onConfirm?: (context: { date: Date; e: MouseEvent }) => void;
+  /**
    * 输入框获得焦点时触发
    */
   onFocus?: (context: { value: DateValue; e: FocusEvent }) => void;
@@ -279,6 +283,10 @@ export interface TdDateRangePickerProps {
    */
   onChange?: (value: DateRangeValue, context: { dayjsValue?: Dayjs[]; trigger?: DatePickerTriggerSource }) => void;
   /**
+   * 如果存在“确定”按钮，则点击“确定”按钮时触发
+   */
+  onConfirm?: (context: { date: Date[]; e: MouseEvent; partial: DateRangePickerPartial }) => void;
+  /**
    * 输入框获得焦点时触发
    */
   onFocus?: (context: { value: DateRangeValue; partial: DateRangePickerPartial; e: FocusEvent }) => void;
@@ -327,7 +335,7 @@ export interface TdDatePickerPanelProps
     context: { dayjsValue?: Dayjs; e?: MouseEvent; trigger?: DatePickerTriggerSource },
   ) => void;
   /**
-   * 如果存在“确认”按钮，则点击“确认”按钮时触发
+   * 如果存在“确定”按钮，则点击“确定”按钮时触发
    */
   onConfirm?: (context: { date: Date; e: MouseEvent }) => void;
   /**
@@ -394,7 +402,7 @@ export interface TdDateRangePickerPanelProps
     },
   ) => void;
   /**
-   * 如果存在“确认”按钮，则点击“确认”按钮时触发
+   * 如果存在“确定”按钮，则点击“确定”按钮时触发
    */
   onConfirm?: (context: { date: Date[]; e: MouseEvent }) => void;
   /**
