@@ -329,12 +329,13 @@ export interface FormErrorMessage {
   validator?: string;
 }
 
-export type FormRules<T extends Data> = { [field in keyof T]?: Array<FormRule> };
+export type FormRules<T extends Data = any> = { [field in keyof T]?: Array<FormRule> };
 
 export interface SubmitContext<T extends Data = Data> {
   e?: FormSubmitEvent;
   validateResult: FormValidateResult<T>;
   firstError?: string;
+  fields?: any;
 }
 
 export type FormValidateResult<T> = boolean | ValidateResultObj<T>;
