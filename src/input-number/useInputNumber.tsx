@@ -175,7 +175,7 @@ export default function useInputNumber(props: TdInputNumberProps) {
 
   const handleBlur = (value: string, ctx: { e: FocusEvent }) => {
     const { largeNumber, max, min, decimalPlaces } = props;
-    if (!props.allowInputOverLimit && tValue.value) {
+    if (!props.allowInputOverLimit && tValue.value !== undefined) {
       const r = getMaxOrMinValidateResult({ value: tValue.value, largeNumber, max, min });
       if (r === 'below-minimum') {
         setTValue(min, { type: 'blur', e: ctx.e });
