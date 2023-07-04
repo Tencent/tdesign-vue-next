@@ -13,6 +13,7 @@ export interface RenderSelectMultipleParams {
   commonInputProps: SelectInputCommonProperties;
   onInnerClear: (context: { e: MouseEvent }) => void;
   popupVisible: boolean;
+  allowInput: boolean;
 }
 
 const DEFAULT_KEYS = {
@@ -64,7 +65,7 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
       tag: props.tag,
       value: tags.value,
       valueDisplay: props.valueDisplay,
-      inputValue: tInputValue.value || '',
+      inputValue: p.popupVisible && p.allowInput ? tInputValue.value : '',
       inputProps: {
         readonly: !props.allowInput || props.readonly,
         inputClass: {

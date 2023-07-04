@@ -87,6 +87,7 @@ export default defineComponent({
               commonInputProps: this.commonInputProps,
               onInnerClear: this.onInnerClear,
               popupVisible: visibleProps.visible,
+              allowInput: this.allowInput,
             })
           : this.renderSelectSingle(visibleProps.visible)}
       </Popup>
