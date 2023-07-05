@@ -272,7 +272,7 @@ export default defineComponent({
     }
 
     // 确定
-    function onConfirmClick() {
+    function onConfirmClick({ e }: { e: MouseEvent }) {
       const nextValue = [...(inputValue.value as string[])];
 
       const notValidIndex = nextValue.findIndex((v) => !v || !isValidDate(v, formatRef.value.format));
@@ -288,6 +288,11 @@ export default defineComponent({
           cacheValue.value = nextValue;
           inputValue.value = nextValue;
         } else {
+          props?.onConfirm?.({
+            date: nextValue.map((v) => dayjs(v).toDate()),
+            e,
+            partial: activeIndex.value ? 'end' : 'start',
+          });
           onChange?.(
             formatDate(nextValue, {
               format: formatRef.value.format,
