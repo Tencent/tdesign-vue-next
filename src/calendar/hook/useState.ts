@@ -24,6 +24,7 @@ export function useState(props: TdCalendarProps) {
 
   function toToday() {
     const curDate = createDefaultCurDate();
+    state.curDate = curDate;
     state.curSelectedYear = curDate.year();
     state.curSelectedMonth = parseInt(curDate.format('M'), 10);
   }
