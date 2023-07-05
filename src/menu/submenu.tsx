@@ -107,6 +107,7 @@ export default defineComponent({
       setTimeout(() => {
         if (!popupVisible.value) {
           open(props.value);
+
           // popupVisible设置为TRUE之后打开popup，因此需要在nextTick中确保可以拿到ref值
           nextTick().then(() => {
             passSubPopupRefToParent(popupWrapperRef.value);
@@ -252,9 +253,10 @@ export default defineComponent({
       const slots = {
         content: () => popupWrapper,
       };
+
       const realPopup = (
         <Popup
-          props={this.popupProps}
+          {...((this.popupProps ?? {}) as TdSubmenuProps['popupProps'])}
           overlayInnerClassName={[...this.overlayInnerClassName]}
           overlayClassName={[...this.overlayClassName]}
           visible={this.popupVisible}
