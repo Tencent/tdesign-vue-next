@@ -31,6 +31,8 @@ export default function usePagination(props: TdBaseTableProps, context: SetupCon
     () => [pagination.value?.current, pagination.value?.pageSize, data.value.length, disableDataPage],
     () => {
       if (!pagination.value || !pagination.value.current) return;
+      const { current, pageSize } = pagination.value;
+      innerPagination.value = { current, pageSize };
       updateDataSourceAndPaginate(pagination.value.current, pagination.value.pageSize);
     },
     { immediate: true },
