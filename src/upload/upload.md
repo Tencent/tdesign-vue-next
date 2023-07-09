@@ -88,6 +88,7 @@ waiting-upload-files-change | `(context: { files: Array<UploadFile>, trigger: 'v
 名称 | 参数 | 返回值 | 描述
 -- | -- | -- | --
 triggerUpload | \- | \- | 必需。组件实例方法，打开文件选择器
+uploadFilePercent | \- | \- | 必需。设置上传中文件的上传进度
 uploadFiles | `(files?: UploadFile[])` | \- | 必需。组件实例方法，默认上传未成功上传过的所有文件。带参数时，表示上传指定文件
 
 ### UploadFile

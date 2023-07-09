@@ -274,6 +274,10 @@ export interface UploadInstanceFunctions<T extends UploadFile = UploadFile> {
    */
   triggerUpload: () => void;
   /**
+   * 设置上传中文件的上传进度
+   */
+  uploadFilePercent: () => void;
+  /**
    * 组件实例方法，默认上传未成功上传过的所有文件。带参数时，表示上传指定文件
    */
   uploadFiles: (files?: UploadFile[]) => void;

@@ -88,6 +88,7 @@ waiting-upload-files-change | `(context: { files: Array<UploadFile>, trigger: 'v
 name | params | return | description
 -- | -- | -- | --
 triggerUpload | \- | \- | required。instance function: trigger system file select
+uploadFilePercent | \- | \- | required。instance function: set uploading file progress percent
 uploadFiles | `(files?: UploadFile[])` | \- | required。instance function: upload all files which status are not success
 
 ### UploadFile

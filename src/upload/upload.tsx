@@ -149,6 +149,10 @@ export default defineComponent({
         uploadFiles={uploadFiles}
         cancelUpload={cancelUpload}
         onPreview={props.onPreview}
+        v-slots={{
+          fileListDisplay: slots.fileListDisplay,
+          'file-list-display': slots['file-list-display'],
+        }}
       />
     );
 
