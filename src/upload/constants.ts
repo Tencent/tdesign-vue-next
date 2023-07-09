@@ -2,6 +2,7 @@ import { PropType } from 'vue';
 import { CommonDisplayFileProps } from './interface';
 
 export const commonProps = {
+  accept: String,
   files: Array as PropType<CommonDisplayFileProps['files']>,
   toUploadFiles: Array as PropType<CommonDisplayFileProps['toUploadFiles']>,
   displayFiles: Array as PropType<CommonDisplayFileProps['displayFiles']>,

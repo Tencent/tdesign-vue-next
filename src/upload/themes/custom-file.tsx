@@ -30,8 +30,8 @@ export default defineComponent({
   },
 
   setup(props, { slots }) {
-    const { classPrefix, displayFiles } = toRefs(props);
-    const drag = useDrag(props.dragEvents);
+    const { classPrefix, displayFiles, accept } = toRefs(props);
+    const drag = useDrag(props.dragEvents, accept);
     const { dragActive } = drag;
 
     const renderContent = useContent();

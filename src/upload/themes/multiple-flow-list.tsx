@@ -45,7 +45,7 @@ export default defineComponent({
 
   setup(props, { slots }) {
     // locale 已经在 useUpload 中统一处理优先级
-    const { uploading, disabled, displayFiles, classPrefix } = toRefs(props);
+    const { uploading, disabled, displayFiles, classPrefix, accept } = toRefs(props);
     const uploadPrefix = computed(() => `${classPrefix.value}-upload`);
 
     const locale = computed(() => props.locale as UploadConfig);
@@ -60,7 +60,7 @@ export default defineComponent({
       TimeFilledIcon: TdTimeFilledIcon,
     });
 
-    const drag = useDrag(props.dragEvents);
+    const drag = useDrag(props.dragEvents, accept);
 
     const uploadText = computed(() => {
       if (uploading.value) return `${locale.value.progress.uploadingText}`;
