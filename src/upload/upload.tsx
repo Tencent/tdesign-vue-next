@@ -41,6 +41,7 @@ export default defineComponent({
       onPasteFileChange,
       triggerUpload,
       cancelUpload,
+      uploadFilePercent,
     } = useUpload(props);
     const disabled = useFormDisabled();
 
@@ -50,6 +51,7 @@ export default defineComponent({
       triggerUpload,
       uploadFiles,
       cancelUpload,
+      uploadFilePercent,
     });
 
     const renderTrigger = () => {

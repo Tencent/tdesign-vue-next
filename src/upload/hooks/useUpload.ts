@@ -59,6 +59,12 @@ export default function useUpload(props: TdUploadProps) {
     });
   });
 
+  const uploadFilePercent = (params: { file: UploadFile; percent: number }) => {
+    const { file, percent } = params;
+    const index = toUploadFiles.value.findIndex((item) => file.raw === item.raw);
+    toUploadFiles.value[index] = { ...toUploadFiles.value[index], percent };
+  };
+
   const updateFilesProgress = () => {
     if (props.autoUpload) {
       toUploadFiles.value = [...toUploadFiles.value];
@@ -390,6 +396,7 @@ export default function useUpload(props: TdUploadProps) {
     inputRef,
     disabled,
     xhrReq,
+    uploadFilePercent,
     uploadFiles,
     onFileChange,
     onNormalFileChange,

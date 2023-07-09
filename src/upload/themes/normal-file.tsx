@@ -140,6 +140,7 @@ const NormalFile = defineComponent({
       const classes = [`${uploadPrefix}__single`, `${uploadPrefix}__single-${theme.value}`];
       const fileListDisplay = renderTNodeJSX('fileListDisplay', { params: { files: props.displayFiles } });
       const { displayFiles } = props;
+
       return (
         <div class={classes}>
           {theme.value === 'file-input' && renderFilePreviewAsInput()}
