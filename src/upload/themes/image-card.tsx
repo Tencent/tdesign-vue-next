@@ -144,10 +144,9 @@ export default defineComponent({
                   {file.status === 'progress' && renderProgressFile(file, loadCard)}
                   {file.status === 'fail' && renderFailFile(file, index, loadCard)}
                   {!['progress', 'fail'].includes(file.status) && file.url && renderMainContent(file, index)}
-                  {/* <div class={`${classPrefix.value}-upload__card-name`}>{fileName}</div> */}
                   {fileName &&
                     (file.url ? (
-                      <Link href={file.url} class={fileNameClassName} target="_blank" hover="color">
+                      <Link href={file.url} class={fileNameClassName} target="_blank" hover="color" size="small">
                         {fileName}
                       </Link>
                     ) : (
