@@ -1,22 +1,42 @@
-import { ref } from 'vue';
+import { Ref, ref } from 'vue';
 import { TdUploadProps } from '../type';
 
 export interface UploadDragEvents {
-  onDragFileChange?: (e: DragEvent) => void;
+  onDragFileChange?: (files: File[]) => void;
   onDragenter?: TdUploadProps['onDragenter'];
   onDragleave?: TdUploadProps['onDragleave'];
   onDrop?: TdUploadProps['onDrop'];
 }
 
-export default function useDrag(props: UploadDragEvents) {
+/**
+ * use getFileList in common
+ * @deprecated
+ */
+export function getFileList(files: FileList, accept?: string) {
+  const fileList: File[] = [];
+  for (let i = 0; i < files.length; i++) {
+    const regExp = new RegExp(accept);
+    if (regExp.test(files[i].type)) {
+      fileList.push(files[i]);
+    }
+  }
+  return fileList;
+}
+
+export default function useDrag(props: UploadDragEvents, accept: Ref<string>) {
   const target = ref(null);
   const dragActive = ref(false);
 
   const handleDrop = (event: DragEvent) => {
     event.preventDefault();
-    props.onDragFileChange?.(event);
-    props.onDrop?.({ e: event });
     dragActive.value = false;
+
+    const { files } = event.dataTransfer;
+    const dragFiles: File[] = getFileList(files, accept.value);
+    if (!dragFiles.length) return;
+
+    props.onDragFileChange?.(dragFiles);
+    props.onDrop?.({ e: event });
   };
 
   const handleDragenter = (event: DragEvent) => {

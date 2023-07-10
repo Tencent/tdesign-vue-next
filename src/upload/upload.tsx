@@ -41,6 +41,7 @@ export default defineComponent({
       onPasteFileChange,
       triggerUpload,
       cancelUpload,
+      uploadFilePercent,
     } = useUpload(props);
     const disabled = useFormDisabled();
 
@@ -50,6 +51,7 @@ export default defineComponent({
       triggerUpload,
       uploadFiles,
       cancelUpload,
+      uploadFilePercent,
     });
 
     const renderTrigger = () => {
@@ -75,6 +77,7 @@ export default defineComponent({
     };
 
     const commonDisplayFileProps = computed<CommonDisplayFileProps>(() => ({
+      accept: props.accept,
       files: uploadValue.value,
       toUploadFiles: toUploadFiles.value,
       displayFiles: displayFiles.value,
@@ -147,6 +150,10 @@ export default defineComponent({
         uploadFiles={uploadFiles}
         cancelUpload={cancelUpload}
         onPreview={props.onPreview}
+        v-slots={{
+          fileListDisplay: slots.fileListDisplay,
+          'file-list-display': slots['file-list-display'],
+        }}
       />
     );
 

@@ -29,7 +29,7 @@ export default {
     type: Boolean,
     default: true,
   },
-  /** 如果是自动上传模式 `autoUpload=true`，表示全部文件上传之前的钩子函数，函数参数为上传的文件，函数返回值决定是否继续上传，若返回值为 `false` 则终止上传。<br/>如果是非自动上传模式 `autoUpload=false`，则函数返回值为 `false` 时表示不触发文件变化 */
+  /** 如果是自动上传模式 `autoUpload=true`，表示全部文件上传之前的钩子函数，函数参数为上传的文件，函数返回值决定是否继续上传，若返回值为 `false` 则终止上传。<br/>如果是非自动上传模式 `autoUpload=false`，则函数返回值为 `false` 时表示本次选中的文件不会加入到文件列表中，即不触发 `onChange` 事件 */
   beforeAllFilesUpload: {
     type: Function as PropType<TdUploadProps['beforeAllFilesUpload']>,
   },
@@ -56,7 +56,7 @@ export default {
     type: Boolean,
     default: undefined,
   },
-  /** 用于完全自定义文件列表内容 */
+  /** 用于完全自定义文件列表界面内容(UI)，单文件和多文件均有效 */
   fileListDisplay: {
     type: Function as PropType<TdUploadProps['fileListDisplay']>,
   },

@@ -34,7 +34,12 @@
           },
         }"
         @fail="handleFail"
-      ></t-upload>
+      >
+        <!-- custom UI -->
+        <!-- <template #fileListDisplay="{ files }">
+          <div>{{ JSON.stringify(files) }}</div>
+        </template> -->
+      </t-upload>
 
       <t-upload
         v-model="fileFail"
@@ -59,6 +64,7 @@
       @fail="handleFail"
     ></t-upload>
 
+    <!-- if you want to hide image name, set .t-upload__card-name { display: none } -->
     <t-upload
       ref="uploadRef3"
       v-model="files"
