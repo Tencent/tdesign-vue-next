@@ -199,6 +199,8 @@ export default defineComponent({
       nextTick(() => adjustTextareaHeight());
     });
 
+    watch(() => props.autosize, adjustTextareaHeight, { deep: true });
+
     expose({
       focus,
       blur,
