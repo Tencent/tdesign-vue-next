@@ -1,4 +1,5 @@
 import { Ref, ref } from 'vue';
+import { getFileList } from '../../_common/js/upload/utils';
 import { TdUploadProps } from '../type';
 
 export interface UploadDragEvents {
@@ -6,21 +7,6 @@ export interface UploadDragEvents {
   onDragenter?: TdUploadProps['onDragenter'];
   onDragleave?: TdUploadProps['onDragleave'];
   onDrop?: TdUploadProps['onDrop'];
-}
-
-/**
- * use getFileList in common
- * @deprecated
- */
-export function getFileList(files: FileList, accept?: string) {
-  const fileList: File[] = [];
-  for (let i = 0; i < files.length; i++) {
-    const regExp = new RegExp(accept);
-    if (regExp.test(files[i].type)) {
-      fileList.push(files[i]);
-    }
-  }
-  return fileList;
 }
 
 export default function useDrag(props: UploadDragEvents, accept: Ref<string>) {

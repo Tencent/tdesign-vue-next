@@ -13,7 +13,7 @@ import { getFileUrlByFileRaw } from '../../_common/js/upload/utils';
 import useVModel from '../../hooks/useVModel';
 import { InnerProgressContext, OnResponseErrorContext, SuccessContext } from '../../_common/js/upload/types';
 import { useConfig } from '../../hooks/useConfig';
-import { getFileList } from './useDrag';
+import { getFileList } from '../../_common/js/upload/utils';
 
 export type ValidateParams = Parameters<TdUploadProps['onValidate']>[0];
 
