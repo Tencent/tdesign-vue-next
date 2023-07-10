@@ -69,12 +69,14 @@ export default defineComponent({
     },
   },
   render() {
+    const router = this.router || this.$router;
+
     const liContent = (
       <li ref="itemRef" class={this.classes} onClick={this.handleClick}>
         {renderTNodeJSX(this, 'icon')}
         {this.routerLink ? (
           <a
-            href={this.href ? this.href : this.to ? this.$router.resolve(this.to).href : ''}
+            href={this.href ? this.href : this.to ? router?.resolve(this.to).href : ''}
             target={this.target}
             class={`${this.classPrefix}-menu__item-link`}
             onClick={(e) => e.preventDefault()}
@@ -86,12 +88,12 @@ export default defineComponent({
             href={this.href}
             target={this.target}
             class={`${this.classPrefix}-menu__item-link`}
-            onClick={this.disabled ? (e) => e.preventDefault() : undefined}
+            onClick={(e) => this.disabled && e.preventDefault()}
           >
             <span class={`${this.classPrefix}-menu__content`}>{renderContent(this, 'default', 'content')}</span>
           </a>
         ) : (
-          <span class={[`${this.classPrefix}-menu__content`]}>{renderContent(this, 'default', 'content')}</span>
+          <span class={`${this.classPrefix}-menu__content`}>{renderContent(this, 'default', 'content')}</span>
         )}
       </li>
     );
