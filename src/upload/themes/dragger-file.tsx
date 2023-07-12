@@ -37,7 +37,7 @@ export default defineComponent({
   },
 
   setup(props, { slots }) {
-    const { displayFiles, disabled } = toRefs(props);
+    const { displayFiles, disabled, accept } = toRefs(props);
     const locale = computed(() => props.locale as UploadConfig);
 
     const renderTNodeJSX = useTNodeJSX();
@@ -45,7 +45,7 @@ export default defineComponent({
     const { sizeClassNames } = useCommonClassName();
     const uploadPrefix = `${props.classPrefix}-upload`;
 
-    const drag = useDrag(props.dragEvents);
+    const drag = useDrag(props.dragEvents, accept);
     const { dragActive } = drag;
 
     const draggerFileRef = ref();

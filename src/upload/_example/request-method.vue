@@ -26,14 +26,23 @@ const uploadMethod = ref('requestSuccessMethod');
 // file 为等待上传的文件信息，用于提供给上传接口。file.raw 表示原始文件
 const requestSuccessMethod = (file) => {
   return new Promise((resolve) => {
-    // file.percent 用于控制上传进度，如果不希望显示上传进度，则不对 file.percent 设置值即可。
-    // 如果代码规范不能设置 file.percent，也可以设置 files
-    file.percent = 0;
+    // 上传进度控制示例
+    let percent = 0;
+    const percentTimer = setInterval(() => {
+      if (percent + 10 < 99) {
+        percent += 10;
+        uploadRef.value.uploadFilePercent({ file, percent });
+      } else {
+        clearInterval(percentTimer);
+      }
+    }, 100);
+
     const timer = setTimeout(() => {
       // resolve 参数为关键代码
       resolve({ status: 'success', response: { url: 'https://tdesign.gtimg.com/site/avatar.jpg' } });
-      file.percent = 100;
+
       clearTimeout(timer);
+      clearInterval(percentTimer);
     }, 1000);
   });
 };

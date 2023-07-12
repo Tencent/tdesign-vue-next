@@ -9,7 +9,7 @@ import {
   getDisplayFiles,
   formatToUploadFile,
 } from '../../_common/js/upload/main';
-import { getFileUrlByFileRaw } from '../../_common/js/upload/utils';
+import { getFileUrlByFileRaw, getFileList } from '../../_common/js/upload/utils';
 import useVModel from '../../hooks/useVModel';
 import { InnerProgressContext, OnResponseErrorContext, SuccessContext } from '../../_common/js/upload/types';
 import { useConfig } from '../../hooks/useConfig';
@@ -58,6 +58,12 @@ export default function useUpload(props: TdUploadProps) {
       isBatchUpload: isBatchUpload.value,
     });
   });
+
+  const uploadFilePercent = (params: { file: UploadFile; percent: number }) => {
+    const { file, percent } = params;
+    const index = toUploadFiles.value.findIndex((item) => file.raw === item.raw);
+    toUploadFiles.value[index] = { ...toUploadFiles.value[index], percent };
+  };
 
   const updateFilesProgress = () => {
     if (props.autoUpload) {
@@ -151,10 +157,9 @@ export default function useUpload(props: TdUploadProps) {
     toUploadFiles.value = [];
   };
 
-  const onFileChange = (files: FileList) => {
+  const onFileChange = (files: File[]) => {
     if (disabled.value) return;
     const params = { currentSelectedFiles: formatToUploadFile([...files], props.format) };
-    // @ts-ignore
     props.onSelectChange?.([...files], params);
     validateFile({
       uploadValue: uploadValue.value,
@@ -221,11 +226,12 @@ export default function useUpload(props: TdUploadProps) {
   };
 
   const onNormalFileChange = (e: InputEvent) => {
-    onFileChange?.((e.target as HTMLInputElement).files);
+    const fileList = getFileList((e.target as HTMLInputElement).files);
+    onFileChange?.(fileList);
   };
 
-  function onDragFileChange(e: DragEvent) {
-    onFileChange?.(e.dataTransfer.files);
+  function onDragFileChange(files: File[]) {
+    onFileChange?.(files);
   }
 
   function onPasteFileChange(e: ClipboardEvent) {
@@ -390,6 +396,7 @@ export default function useUpload(props: TdUploadProps) {
     inputRef,
     disabled,
     xhrReq,
+    uploadFilePercent,
     uploadFiles,
     onFileChange,
     onNormalFileChange,
