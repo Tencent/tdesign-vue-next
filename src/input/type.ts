@@ -207,4 +207,4 @@ export interface TdInputGroupProps {
 
 export type InputFormatType = (value: InputValue) => string;
 
-export type InputValue = string;
+export type InputValue = string | number;
