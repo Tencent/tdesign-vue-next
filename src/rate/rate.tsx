@@ -23,9 +23,10 @@ export default defineComponent({
     const root = ref<HTMLTableElement>();
 
     const displayValue = computed(() => Number(hoverValue.value || starValue.value));
-    const displayText = computed(() =>
+    const displayTexts = computed(() =>
       props.texts.length === 0 ? ['极差', '失望', '一般', '满意', '惊喜'] : props.texts,
     );
+    const displayText = computed(() => displayTexts.value[Math.ceil(displayValue.value - 1)]);
 
     // 评分图标
     const RateIcon = (iconProps: any) => {
@@ -90,7 +91,7 @@ export default defineComponent({
                 }}
               >
                 {props.showText ? (
-                  <Tooltip key={index} content={displayText.value[displayValue.value - 1]}>
+                  <Tooltip key={index} content={displayText.value}>
                     <div class={`${classPrefix.value}-rate__star-top`}>
                       <RateIcon size={props.size} color={activeColor} />
                     </div>
@@ -111,9 +112,7 @@ export default defineComponent({
               </li>
             ))}
           </ul>
-          {props.showText && (
-            <div className={`${classPrefix.value}-rate__text`}>{displayText.value[displayValue.value - 1]}</div>
-          )}
+          {props.showText && <div className={`${classPrefix.value}-rate__text`}>{displayText.value}</div>}
         </div>
       );
     };
