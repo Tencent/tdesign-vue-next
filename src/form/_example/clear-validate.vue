@@ -128,10 +128,6 @@ const rules = {
     },
   ],
 };
-const filterWords = (keyword, option) => {
-  const regExp = new RegExp(/\w+@/);
-  return regExp.test(option.text);
-};
 const onReset = () => {
   MessagePlugin.success('重置成功');
   console.log('formData', formData.value);
