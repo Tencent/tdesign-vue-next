@@ -88,13 +88,13 @@ export default function useInputNumber(props: TdInputNumberProps) {
         }
         const fixedNumber = Number(largeNumberToFixed(inputValue, decimalPlaces, largeNumber));
         if (decimalPlaces !== undefined && ![undefined, null].includes(val) && Number(fixedNumber) !== Number(tValue)) {
-          setTValue(fixedNumber, { type: 'props', e: undefined });
+          setTValue(fixedNumber, { type: 'props', e: null });
         }
       }
       if (largeNumber) {
         userInput.value = getUserInput(inputValue);
         if (decimalPlaces !== undefined && largeNumberToFixed(inputValue, decimalPlaces, largeNumber) !== val) {
-          setTValue(userInput.value, { type: 'props', e: undefined });
+          setTValue(userInput.value, { type: 'props', e: null });
         }
       }
     },
@@ -158,7 +158,8 @@ export default function useInputNumber(props: TdInputNumberProps) {
   const onInnerInputChange: TdInputProps['onChange'] = (inputValue, { e }) => {
     // 千分位处理
     const val = formatThousandths(inputValue);
-    if (!canInputNumber(val, props.largeNumber)) return;
+
+    if (!canInputNumber(val, props.largeNumber)) return null;
 
     userInput.value = val;
 
@@ -168,14 +169,14 @@ export default function useInputNumber(props: TdInputNumberProps) {
     }
 
     if (canSetValue(String(val), Number(tValue.value))) {
-      const newVal = val === '' ? undefined : Number(val);
+      const newVal = val === '' ? null : Number(val);
       setTValue(newVal, { type: 'input', e });
     }
   };
 
   const handleBlur = (value: string, ctx: { e: FocusEvent }) => {
     const { largeNumber, max, min, decimalPlaces } = props;
-    if (!props.allowInputOverLimit && tValue.value !== undefined) {
+    if (!props.allowInputOverLimit && tValue.value !== null) {
       const r = getMaxOrMinValidateResult({ value: tValue.value, largeNumber, max, min });
       if (r === 'below-minimum') {
         setTValue(min, { type: 'blur', e: ctx.e });
@@ -191,6 +192,7 @@ export default function useInputNumber(props: TdInputNumberProps) {
       largeNumber,
     });
     userInput.value = getUserInput(newValue);
+
     if (newValue !== tValue.value) {
       setTValue(newValue, { type: 'blur', e: ctx.e });
     }
