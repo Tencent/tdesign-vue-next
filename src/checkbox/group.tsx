@@ -145,7 +145,6 @@ export default defineComponent({
             index={index}
             checked={innerValue.value.includes(option.value)}
             data={option}
-            v-slots={context.slots}
           ></Checkbox>
         ));
       } else {

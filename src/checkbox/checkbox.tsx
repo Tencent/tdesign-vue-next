@@ -3,7 +3,7 @@ import props from './props';
 import useVModel from '../hooks/useVModel';
 import { useFormDisabled } from '../form/hooks';
 import useRipple from '../hooks/useRipple';
-import { useTNodeJSX } from '../hooks/tnode';
+import { useContent } from '../hooks/tnode';
 import { useCommonClassName, usePrefixClass } from '../hooks/useConfig';
 import { CheckboxGroupInjectionKey } from './constants';
 import useCheckboxLazyLoad from './hooks/useCheckboxLazyLoad';
@@ -90,7 +90,7 @@ export default defineComponent({
       return false;
     };
     watch(
-      () => [props.checkAll, props.disabled, tChecked.value, checkboxGroupData?.value.maxExceeded],
+      () => [props.checkAll, props.disabled, tChecked.value, formDisabled.value, checkboxGroupData?.value.maxExceeded],
       () => {
         tDisabled.value = getDisabled();
       },
@@ -133,7 +133,7 @@ export default defineComponent({
       }
     };
 
-    const renderTNodeJSX = useTNodeJSX();
+    const renderContent = useContent();
 
     const handleLabelClick = (e: MouseEvent) => {
       // 在tree等组件中使用  阻止label触发checked 与expand冲突
@@ -144,10 +144,6 @@ export default defineComponent({
     const { onCheckboxFocus, onCheckboxBlur } = useKeyboardEvent(handleChange);
 
     return () => {
-      const slotParams = {
-        data: props.data,
-        index: props.index,
-      };
       return (
         <label
           ref={labelRef}
@@ -174,11 +170,7 @@ export default defineComponent({
                 ></input>,
                 <span class={`${COMPONENT_NAME.value}__input`} key="input-span"></span>,
                 <span class={`${COMPONENT_NAME.value}__label`} key="label" onClick={handleLabelClick}>
-                  {renderTNodeJSX('default', { params: slotParams }) ||
-                    renderTNodeJSX('label', {
-                      slotFirst: true,
-                      params: slotParams,
-                    })}
+                  {renderContent('default', 'label')}
                 </span>,
               ]}
         </label>
