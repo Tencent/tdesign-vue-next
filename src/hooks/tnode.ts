@@ -2,7 +2,7 @@ import { h, getCurrentInstance, ComponentInternalInstance, VNode } from 'vue';
 import isFunction from 'lodash/isFunction';
 import camelCase from 'lodash/camelCase';
 import kebabCase from 'lodash/kebabCase';
-import { getDefaultNode, getParams, OptionsType, JSXRenderContext } from '../utils/render-tnode';
+import { getDefaultNode, getParams, OptionsType, JSXRenderContext, getSlotFirst } from '../utils/render-tnode';
 
 // 兼容处理插槽名称，同时支持驼峰命名和中划线命名，示例：value-display 和 valueDisplay
 function handleSlots(instance: ComponentInternalInstance, name: string, params: Record<string, any>) {
@@ -48,6 +48,7 @@ export const useTNodeJSX = () => {
     // assemble params && defaultNode
     const params = getParams(options);
     const defaultNode = getDefaultNode(options);
+    const slotFirst = getSlotFirst(options);
 
     // 处理 props 类型的Node
     let propsNode;
@@ -70,7 +71,7 @@ export const useTNodeJSX = () => {
     // 同名 props 和 slot 优先处理 props
     if (isFunction(propsNode)) return propsNode(h, params);
     const isPropsEmpty = [undefined, params, ''].includes(propsNode);
-    if (isPropsEmpty && (instance.slots[camelCase(name)] || instance.slots[kebabCase(name)])) {
+    if ((isPropsEmpty || slotFirst) && (instance.slots[camelCase(name)] || instance.slots[kebabCase(name)])) {
       return handleSlots(instance, name, params);
     }
     return propsNode;

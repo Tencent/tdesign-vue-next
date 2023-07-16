@@ -36,6 +36,8 @@ export default {
   label: {
     type: [String, Function] as PropType<TdCheckboxProps['label']>,
   },
+  /** 是否启用懒加载。数据量加大时建议开启；加载复杂内容或大量图片时建议开启 */
+  lazyLoad: Boolean,
   /** HTML 元素原生属性 */
   name: {
     type: String,
@@ -46,10 +48,7 @@ export default {
   /** 多选框的值 */
   value: {
     type: [String, Number, Boolean] as PropType<TdCheckboxProps['value']>,
-    default: undefined as TdCheckboxProps['value'],
   },
   /** 值变化时触发 */
   onChange: Function as PropType<TdCheckboxProps['onChange']>,
-  /** 点击时出发，一般用于外层阻止冒泡场景 */
-  onClick: Function as PropType<TdCheckboxProps['onClick']>,
 };

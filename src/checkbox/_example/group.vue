@@ -16,11 +16,16 @@
 
     <br />
     <p>方式三：组件内置全选功能，使用 `options` 定义选项。选中值: {{ value3.join(', ') }}</p>
-    <t-checkbox-group v-model="value3" :options="options2" @change="onChange3" />
+    <t-checkbox-group v-model="value3" :options="options2" lazy-load @change="onChange3" />
 
     <br />
-    <p>方式四：组件内置全选功能，非受控用法</p>
-    <t-checkbox-group :default-value="['选项一']" :options="options2" />
+    <p>方式四：组件内置全选功能，`options` 定义选项列表，插槽定义选项内容</p>
+    <t-checkbox-group v-model="value4" :options="options4" lazy-load>
+      <template #label="{ data: { label, value, checkAll }, index }">
+        <span v-if="checkAll">{{ label }}</span>
+        <span v-else> {{ label }}（{{ value }}/{{ index }}） </span>
+      </template>
+    </t-checkbox-group>
   </t-space>
 </template>
 
@@ -43,9 +48,17 @@ const options2 = [
   { value: '选项三', label: '选项三' },
 ];
 
+const options4 = [
+  { label: '全选', checkAll: true },
+  { label: '选项一', value: 'OptionA' },
+  { label: '选项二', value: 'OptionB' },
+  { label: '选项三', value: 'OptionC' },
+];
+
 const value1 = ref(['选项一']);
 const value2 = ref(['选项一']);
 const value3 = ref(['选项一', '选项二', '选项三']);
+const value4 = ref([]);
 
 const checkAll = computed(() => options1.length === value1.value.length);
 

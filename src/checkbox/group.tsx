@@ -15,7 +15,7 @@ export default defineComponent({
   name: 'TCheckboxGroup',
   props,
 
-  setup(props) {
+  setup(props, context) {
     /** 样式 */
     const COMPONENT_NAME = usePrefixClass('checkbox-group');
     const renderTNodeJSX = useTNodeJSX();
@@ -140,8 +140,12 @@ export default defineComponent({
         children = optionList.value?.map((option, index) => (
           <Checkbox
             key={`${option.value || ''}${index}`}
+            lazyLoad={props.lazyLoad}
             {...option}
+            index={index}
             checked={innerValue.value.includes(option.value)}
+            data={option}
+            v-slots={context.slots}
           ></Checkbox>
         ));
       } else {
