@@ -6,6 +6,7 @@ import useRipple from '../hooks/useRipple';
 import { useContent } from '../hooks/tnode';
 import { useCommonClassName, usePrefixClass } from '../hooks/useConfig';
 import { CheckboxGroupInjectionKey } from './constants';
+import useKeyboardEvent from './hooks/useKeyboardEvent';
 
 export default defineComponent({
   name: 'TCheckbox',
@@ -135,11 +136,20 @@ export default defineComponent({
       if (props.stopLabelTrigger) e.preventDefault();
     };
 
+    const { onCheckboxFocus, onCheckboxBlur } = useKeyboardEvent(handleChange);
+
     return () => {
       return (
-        <label class={labelClasses.value} ref="labelRef">
+        <label
+          class={labelClasses.value}
+          ref="labelRef"
+          tabindex={tDisabled.value ? undefined : '0'}
+          onFocus={onCheckboxFocus}
+          onBlur={onCheckboxBlur}
+        >
           <input
             type="checkbox"
+            tabindex="-1"
             class={`${COMPONENT_NAME.value}__former`}
             disabled={tDisabled.value}
             readonly={props.readonly}

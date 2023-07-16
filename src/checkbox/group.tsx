@@ -48,9 +48,7 @@ export default defineComponent({
     watchEffect(() => {
       if (!props.options) return [];
       optionList.value = props.options.map((item) => {
-        return isObject(item)
-          ? { ...item, disabled: item.disabled ?? props.disabled }
-          : { label: String(item), value: item };
+        return isObject(item) ? item : { label: String(item), value: item };
       });
     });
 
@@ -151,7 +149,11 @@ export default defineComponent({
         optionList.value = getOptionListBySlots();
         children = nodes;
       }
-      return <div class={COMPONENT_NAME.value}>{children}</div>;
+      return (
+        <div class={COMPONENT_NAME.value} role="group" aria-label="checkbox-group">
+          {children}
+        </div>
+      );
     };
   },
 });
