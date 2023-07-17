@@ -16,11 +16,7 @@
 
     <br />
     <p>方式三：组件内置全选功能，使用 `options` 定义选项。选中值: {{ value3.join(', ') }}</p>
-    <t-checkbox-group v-model="value3" :options="options2" @change="onChange3" />
-
-    <br />
-    <p>方式四：组件内置全选功能，非受控用法</p>
-    <t-checkbox-group :default-value="['选项一']" :options="options2" />
+    <t-checkbox-group v-model="value3" :options="options2" lazy-load @change="onChange3" />
   </t-space>
 </template>
 

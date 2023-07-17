@@ -27,7 +27,9 @@ exports[`Link > :props > :content 1`] = `
     target=""
   >
     <!---->
-    foo
+    
+    bar
+    
     <!---->
   </a>
   <a
