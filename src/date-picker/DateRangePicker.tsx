@@ -105,6 +105,7 @@ export default defineComponent({
           if (month.value.length === 1) month.value = [month.value[0], Math.min(month.value[0] + 1, 11)];
         }
       } else {
+        activeIndex.value = 0;
         isHoverCell.value = false;
         isFirstValueSelected.value = false;
         inputValue.value = formatDate(value.value, {
