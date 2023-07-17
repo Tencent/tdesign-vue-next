@@ -15,7 +15,7 @@ export default defineComponent({
   name: 'TCheckboxGroup',
   props,
 
-  setup(props, context) {
+  setup(props) {
     /** 样式 */
     const COMPONENT_NAME = usePrefixClass('checkbox-group');
     const renderTNodeJSX = useTNodeJSX();
