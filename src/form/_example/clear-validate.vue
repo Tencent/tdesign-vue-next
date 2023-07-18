@@ -75,7 +75,7 @@ const formData = reactive({
   },
   course: [],
 });
-const emailSuffix = ['@qq.com', '163.com', '@gmail.com'];
+const emailSuffix = ['@qq.com', '@163.com', '@gmail.com'];
 const emailOptions = computed(() => {
   const emailPrefix = formData.email.split('@')[0];
   if (!emailPrefix) return [];
