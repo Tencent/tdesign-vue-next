@@ -444,7 +444,9 @@ export default defineComponent({
               setInnerPopupVisible(val, context);
             }}
             onInputChange={(value, context) => {
-              if (!innerPopupVisible.value) return;
+              if (value) {
+                setInnerPopupVisible(true, { e: context.e as KeyboardEvent });
+              }
               setInputValue(value);
               handleSearch(`${value}`, { e: context.e as KeyboardEvent });
             }}
