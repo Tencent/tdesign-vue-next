@@ -4,6 +4,32 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+ ## 🌈 1.3.12 `2023-07-19` 
+### 🚀 Features
+- `Checkbox`: 
+  - 新增支持键盘控制选项选中或取消选中 @chaishi ([#3103](https://github.com/Tencent/tdesign-vue-next/pull/3103))
+  - 新增支持 `lazyLoad`，用于需要渲染大量数据，或懒加载复杂内容/图片场景 @chaishi ([#3103](https://github.com/Tencent/tdesign-vue-next/pull/3103))
+### 🐞 Bug Fixes
+- `Input`: 
+  - 输入框的值 类型移除 `Number` @liweijie0812 ([#3100](https://github.com/Tencent/tdesign-vue-next/pull/3100))
+  - 恢复部分属性默认值数据类型定义 @chaishi ([#3102](https://github.com/Tencent/tdesign-vue-next/pull/3102))
+  - 修复 `prefixIcon` 的 `padding` 样式问题 @uyarn ([#3113](https://github.com/Tencent/tdesign-vue-next/pull/3113))
+- `Rate`: 修复 `rate` 在开启文字显示与半星时，`tooltip` 显示异常的问题([issue #2891](https://github.com/Tencent/tdesign-vue-next/issues/2891)) @xixileng ([#3097](https://github.com/Tencent/tdesign-vue-next/pull/3097))
+- `InputNumber`: 修复 `input-number` 内容为空时，值为 `undefined` 的问题，应当为 `null` ([issue #2900](https://github.com/Tencent/tdesign-vue-next/issues/2900)) @xixileng ([#3098](https://github.com/Tencent/tdesign-vue-next/pull/3098))
+- `Checkbox`: 修复 `Form.disabled` 表单无法统一控制 `Checkbox` 组件禁用状态问题 @chaishi ([#3103](https://github.com/Tencent/tdesign-vue-next/pull/3103))
+- `Select`: 修复 `autofocus` 不生效的问题([issue #2970](https://github.com/Tencent/tdesign-vue-next/issues/2970)) @xixileng ([#3112](https://github.com/Tencent/tdesign-vue-next/pull/3112))
+- `Radio`:  优化选项组换行情况 @ontheroad1992 ([#3081](https://github.com/Tencent/tdesign-vue-next/pull/3081))
+- `Icon`: 修复 `manifest` 字段影响开发阶段请求的问题 @uyarn ([#3113](https://github.com/Tencent/tdesign-vue-next/pull/3113))
+- `TagInput`: 修复 `tag-input` 前缀不居中且会发生抖动的问题 @xixileng  @uyarn ([#3113](https://github.com/Tencent/tdesign-vue-next/pull/3113))
+- `Transfer`: 修复 `t-transfer__list-item` 与 `t-checkbox` 优先级问题 @uyarn ([#3113](https://github.com/Tencent/tdesign-vue-next/pull/3113))
+- `Select`: 修复使用 `tab` 键聚焦时无法输入内容的问题 ([issue #2960](https://github.com/Tencent/tdesign-vue-next/issues/2960)) @xixileng ([#3119](https://github.com/Tencent/tdesign-vue-next/pull/3119))
+- `Stickytool`: 修复 `sticky-item` 组件内部无法更新数据的问题 @uyarn ([#3118](https://github.com/Tencent/tdesign-vue-next/pull/3118))
+- `Dialog`: `dialog plugin` 执行 `destroy` 方法时，销毁组件实例 @xixileng ([#3095](https://github.com/Tencent/tdesign-vue-next/pull/3095))
+- `DatePicker`: 优化关闭浮层后重置默认选中区域 @honkinglin ([#3107](https://github.com/Tencent/tdesign-vue-next/pull/3107))
+- `Grid`: `row Props.gutter` 类型补充 `lg,xl,xxl` @liweijie0812 ([#3105](https://github.com/Tencent/tdesign-vue-next/pull/3105))
+### 🚧 Others
+- `Form`: 示例代码中 `email`  使用 `t-auto-complete` 组件替换 @liweijie0812 ([#3101](https://github.com/Tencent/tdesign-vue-next/pull/3101))
+ 
 ## 🌈 1.3.11 `2023-07-12` 
 ### 🚀 Features
 - `Upload`: 
