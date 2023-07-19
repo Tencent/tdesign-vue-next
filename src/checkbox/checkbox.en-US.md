@@ -12,24 +12,24 @@ default | String / Slot / Function | - | Typescript：`string \| TNode`。[see m
 disabled | Boolean | undefined | \- | N
 indeterminate | Boolean | false | \- | N
 label | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+lazyLoad | Boolean | false | load checkbox content when it entering the visible area | N
 name | String | - | \- | N
 readonly | Boolean | false | \- | N
-value | String / Number / Boolean | undefined | value of checkbox。Typescript：`string \| number \| boolean` | N
+value | String / Number / Boolean | - | value of checkbox。Typescript：`string \| number \| boolean` | N
 onChange | Function |  | Typescript：`(checked: boolean, context: { e: Event }) => void`<br/> | N
-onClick | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/>trigger on click | N
 
 ### Checkbox Events
 
 name | params | description
 -- | -- | --
 change | `(checked: boolean, context: { e: Event })` | \-
-click | `(context: { e: MouseEvent })` | trigger on click
 
 ### CheckboxGroup Props
 
 name | type | default | description | required
 -- | -- | -- | -- | --
 disabled | Boolean | undefined | \- | N
+lazyLoad | Boolean | false | load checkbox content when it entering the visible area | N
 max | Number | undefined | \- | N
 name | String | - | \- | N
 options | Array | - | Typescript：`Array<CheckboxOption>` `type CheckboxOption = string \| number \| CheckboxOptionObj` `interface CheckboxOptionObj extends TdCheckboxProps { text?: string; }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/checkbox/type.ts) | N

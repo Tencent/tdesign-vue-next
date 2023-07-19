@@ -48,7 +48,7 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
 
   const emitFocus = (e: FocusEvent) => {
     inputValue.value = innerValue.value;
-    if (props.disabled || props.readonly) return;
+    if (props.disabled) return;
     focused.value = true;
     props.onFocus?.(innerValue.value, { e });
   };

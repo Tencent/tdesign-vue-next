@@ -1,6 +1,6 @@
 import { config } from '@vue/test-utils';
 import { createApp } from 'vue';
-import { renderToString } from '@vue/server-renderer';
+import { renderToString } from 'vue/server-renderer';
 import createFetchMock from 'vitest-fetch-mock';
 import { vi } from 'vitest';
 import TDesign from '@/src/index';

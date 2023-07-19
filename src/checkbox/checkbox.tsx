@@ -6,6 +6,8 @@ import useRipple from '../hooks/useRipple';
 import { useContent } from '../hooks/tnode';
 import { useCommonClassName, usePrefixClass } from '../hooks/useConfig';
 import { CheckboxGroupInjectionKey } from './constants';
+import useCheckboxLazyLoad from './hooks/useCheckboxLazyLoad';
+import useKeyboardEvent from './hooks/useKeyboardEvent';
 
 export default defineComponent({
   name: 'TCheckbox',
@@ -13,6 +15,9 @@ export default defineComponent({
     ...props,
     needRipple: Boolean,
     stopLabelTrigger: Boolean,
+    index: Number,
+    // 传递给 Checkbox 组件额外的数据
+    data: Object,
   },
 
   setup(props) {
@@ -22,7 +27,7 @@ export default defineComponent({
     }
     const { STATUS } = useCommonClassName();
 
-    const { checked, modelValue } = toRefs(props);
+    const { checked, modelValue, lazyLoad } = toRefs(props);
     const [innerChecked, setInnerChecked] = useVModel(
       checked,
       modelValue,
@@ -85,7 +90,7 @@ export default defineComponent({
       return false;
     };
     watch(
-      () => [props.checkAll, props.disabled, tChecked.value, checkboxGroupData?.value.maxExceeded],
+      () => [props.checkAll, props.disabled, tChecked.value, formDisabled.value, checkboxGroupData?.value.maxExceeded],
       () => {
         tDisabled.value = getDisabled();
       },
@@ -135,24 +140,39 @@ export default defineComponent({
       if (props.stopLabelTrigger) e.preventDefault();
     };
 
+    const { showCheckbox } = useCheckboxLazyLoad(labelRef, lazyLoad);
+    const { onCheckboxFocus, onCheckboxBlur } = useKeyboardEvent(handleChange);
+
     return () => {
       return (
-        <label class={labelClasses.value} ref="labelRef">
-          <input
-            type="checkbox"
-            class={`${COMPONENT_NAME.value}__former`}
-            disabled={tDisabled.value}
-            readonly={props.readonly}
-            indeterminate={tIndeterminate.value}
-            name={tName.value}
-            value={props.value ? props.value : undefined}
-            checked={tChecked.value}
-            onChange={handleChange}
-          ></input>
-          <span class={`${COMPONENT_NAME.value}__input`}></span>
-          <span class={`${COMPONENT_NAME.value}__label`} onClick={handleLabelClick}>
-            {renderContent('default', 'label')}
-          </span>
+        <label
+          ref={labelRef}
+          class={labelClasses.value}
+          tabindex={tDisabled.value ? undefined : '0'}
+          onFocus={onCheckboxFocus}
+          onBlur={onCheckboxBlur}
+        >
+          {!showCheckbox.value
+            ? null
+            : [
+                <input
+                  type="checkbox"
+                  tabindex="-1"
+                  class={`${COMPONENT_NAME.value}__former`}
+                  disabled={tDisabled.value}
+                  readonly={props.readonly}
+                  indeterminate={tIndeterminate.value}
+                  name={tName.value}
+                  value={props.value ? props.value : undefined}
+                  checked={tChecked.value}
+                  onChange={handleChange}
+                  key="input"
+                ></input>,
+                <span class={`${COMPONENT_NAME.value}__input`} key="input-span"></span>,
+                <span class={`${COMPONENT_NAME.value}__label`} key="label" onClick={handleLabelClick}>
+                  {renderContent('default', 'label')}
+                </span>,
+              ]}
         </label>
       );
     };

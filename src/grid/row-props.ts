@@ -17,10 +17,10 @@ export default {
       return ['start', 'end', 'center', 'stretch', 'baseline', 'top', 'middle', 'bottom'].includes(val);
     },
   },
-  /** 栅格间隔，示例：`{ xs: 8, sm: 16, md: 24}`。当数据类型为 Number 和 Object 时，用于指定横向间隔。当数据类型为数组时，第一个参数为横向间隔，第二个参数为纵向间隔， [水平间隔, 垂直间隔] */
+  /** 栅格间隔，示例：`{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 40 }`。当数据类型为 Number 和 Object 时，用于指定横向间隔。当数据类型为数组时，第一个参数为横向间隔，第二个参数为纵向间隔， [水平间隔, 垂直间隔] */
   gutter: {
     type: [Number, Object, Array] as PropType<TdRowProps['gutter']>,
-    default: 0,
+    default: 0 as TdRowProps['gutter'],
   },
   /** flex 布局下的水平排列方式 */
   justify: {
