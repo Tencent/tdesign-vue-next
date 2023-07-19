@@ -129,7 +129,6 @@
     "@vue/babel-plugin-jsx": "1.1.1",
     "@vue/compiler-sfc": "^3.2.26",
     "@vue/eslint-config-typescript": "^10.0.0",
-    "@vue/server-renderer": "^3.2.4",
     "@vue/test-utils": "^2.1.0",
     "autoprefixer": "^10.4.0",
     "babel-eslint": "^10.1.0",
