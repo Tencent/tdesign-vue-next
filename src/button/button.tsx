@@ -1,4 +1,5 @@
-import { computed, defineComponent, h, ref } from 'vue';
+import { computed, defineComponent, h, ref, watch } from 'vue';
+import isBoolean from 'lodash/isBoolean';
 import TLoading from '../loading';
 import props from './props';
 import useRipple from '../hooks/useRipple';
@@ -14,12 +15,10 @@ export default defineComponent({
     const renderContent = useContent();
     const COMPONENT_NAME = usePrefixClass('button');
     const { STATUS, SIZE } = useCommonClassName();
-    const disabled = useFormDisabled();
     const btnRef = ref<HTMLElement>();
 
     useRipple(btnRef);
 
-    const isDisabled = computed(() => props.disabled || props.loading || disabled.value);
     const mergeTheme = computed(() => {
       const { theme, variant } = props;
       if (theme) return theme;
@@ -32,13 +31,36 @@ export default defineComponent({
       `${COMPONENT_NAME.value}--theme-${mergeTheme.value}`,
       {
         [SIZE.value[props.size]]: props.size !== 'medium',
-        [STATUS.value.disabled]: props.disabled || disabled.value,
+        [STATUS.value.disabled]: tDisabled.value,
         [STATUS.value.loading]: props.loading,
         [`${COMPONENT_NAME.value}--shape-${props.shape}`]: props.shape !== 'rectangle',
         [`${COMPONENT_NAME.value}--ghost`]: props.ghost,
         [SIZE.value.block]: props.block,
       },
     ]);
+
+    // Warn: Do not use computed to set tDisabled
+    // Priority: Button.disabled > Form.disabled
+    const tDisabled = ref<boolean>(false);
+    const formDisabled = useFormDisabled();
+    const getDisabled = () => {
+      const { loading, disabled } = props;
+      if (loading) return true;
+
+      if (isBoolean(disabled)) return disabled;
+
+      if (isBoolean(formDisabled.value)) return formDisabled.value;
+
+      return false;
+    };
+
+    watch(
+      () => [props.loading, props.disabled, formDisabled.value],
+      () => {
+        tDisabled.value = getDisabled();
+      },
+      { immediate: true },
+    );
 
     return () => {
       let buttonContent = renderContent('default', 'content');
@@ -65,7 +87,7 @@ export default defineComponent({
       const buttonAttrs = {
         class: [...buttonClass.value, { [`${COMPONENT_NAME.value}--icon-only`]: iconOnly }],
         type: props.type,
-        disabled: isDisabled.value,
+        disabled: tDisabled.value,
         href: props.href,
       };
 
