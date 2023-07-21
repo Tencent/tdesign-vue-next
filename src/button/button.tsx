@@ -1,4 +1,4 @@
-import { computed, defineComponent, h, ref, watch } from 'vue';
+import { computed, defineComponent, h, ref } from 'vue';
 import TLoading from '../loading';
 import props from './props';
 import useRipple from '../hooks/useRipple';
