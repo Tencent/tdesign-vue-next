@@ -44,8 +44,7 @@ export default defineComponent({
     const tDisabled = ref<boolean>(false);
     const formDisabled = useFormDisabled();
     const getDisabled = () => {
-      const { loading, disabled } = props;
-      if (loading) return true;
+      const { disabled } = props;
 
       if (isBoolean(disabled)) return disabled;
 
@@ -55,7 +54,7 @@ export default defineComponent({
     };
 
     watch(
-      () => [props.loading, props.disabled, formDisabled.value],
+      () => [props.disabled, formDisabled.value],
       () => {
         tDisabled.value = getDisabled();
       },
