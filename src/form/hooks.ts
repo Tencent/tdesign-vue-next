@@ -1,4 +1,4 @@
-import { Ref, inject, computed, getCurrentInstance, ref } from 'vue';
+import { Ref, inject, computed, getCurrentInstance } from 'vue';
 import isBoolean from 'lodash/isBoolean';
 import { TdFormProps } from './type';
 
