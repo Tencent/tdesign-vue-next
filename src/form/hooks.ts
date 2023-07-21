@@ -1,4 +1,5 @@
-import { Ref, inject, computed, getCurrentInstance } from 'vue';
+import { Ref, inject, computed, getCurrentInstance, ref } from 'vue';
+import isBoolean from 'lodash/isBoolean';
 import { TdFormProps } from './type';
 
 export interface FormDisabledProvider {
@@ -13,5 +14,13 @@ export function useFormDisabled(extend?: Ref<boolean>) {
   const ctx = getCurrentInstance();
   const propsDisabled = computed(() => ctx.props.disabled as boolean);
   const { disabled } = inject<FormDisabledProvider>('formDisabled', Object.create(null));
-  return computed(() => propsDisabled.value || disabled?.value || extend?.value || false);
+  return computed(() => {
+    if (isBoolean(extend?.value)) return extend.value;
+
+    if (isBoolean(propsDisabled.value)) return propsDisabled.value;
+
+    if (isBoolean(disabled?.value)) return disabled.value;
+
+    return false;
+  });
 }

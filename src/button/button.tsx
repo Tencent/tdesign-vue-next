@@ -1,5 +1,4 @@
 import { computed, defineComponent, h, ref, watch } from 'vue';
-import isBoolean from 'lodash/isBoolean';
 import TLoading from '../loading';
 import props from './props';
 import useRipple from '../hooks/useRipple';
@@ -16,6 +15,7 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('button');
     const { STATUS, SIZE } = useCommonClassName();
     const btnRef = ref<HTMLElement>();
+    const tDisabled = useFormDisabled();
 
     useRipple(btnRef);
 
@@ -25,6 +25,7 @@ export default defineComponent({
       if (variant === 'base') return 'primary';
       return 'default';
     });
+
     const buttonClass = computed(() => [
       `${COMPONENT_NAME.value}`,
       `${COMPONENT_NAME.value}--variant-${props.variant}`,
@@ -38,28 +39,6 @@ export default defineComponent({
         [SIZE.value.block]: props.block,
       },
     ]);
-
-    // Warn: Do not use computed to set tDisabled
-    // Priority: Button.disabled > Form.disabled
-    const tDisabled = ref<boolean>(false);
-    const formDisabled = useFormDisabled();
-    const getDisabled = () => {
-      const { disabled } = props;
-
-      if (isBoolean(disabled)) return disabled;
-
-      if (isBoolean(formDisabled.value)) return formDisabled.value;
-
-      return false;
-    };
-
-    watch(
-      () => [props.disabled, formDisabled.value],
-      () => {
-        tDisabled.value = getDisabled();
-      },
-      { immediate: true },
-    );
 
     return () => {
       let buttonContent = renderContent('default', 'content');
