@@ -119,7 +119,6 @@ exports[`Button > :props > :icon function 1`] = `
 exports[`Button > :props > :loading 1`] = `
 <button
   class="t-button t-button--variant-base t-button--theme-primary t-is-loading"
-  disabled=""
   href=""
   type="button"
 >
