@@ -11,12 +11,12 @@ function handleSlots(instance: ComponentInternalInstance, name: string, params: 
   if (params) {
     Object.assign(finalParams, params);
   }
-  // 检查是否存在 驼峰命名 的插槽
+  // 检查是否存在 驼峰命名 的插槽（过滤注释节点）
   let node = instance.slots[camelCase(name)]?.(finalParams);
-  if (node) return node;
+  if (node && node.filter((t) => t.type.toString() !== 'Symbol(v-cmt)').length) return node;
   // 检查是否存在 中划线命名 的插槽
   node = instance.slots[kebabCase(name)]?.(finalParams);
-  if (node) return node;
+  if (node && node.filter((t) => t.type.toString() !== 'Symbol(v-cmt)').length) return node;
   return null;
 }
 
