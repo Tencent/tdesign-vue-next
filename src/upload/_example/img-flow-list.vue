@@ -63,6 +63,7 @@ const requestMethod1 = () => {
 };
 
 // 示例代码：自定义上传方法，一个请求上传多个文件
+// eslint-disable-next-line
 const requestMethod2 = () => {
   return new Promise((resolve) => {
     resolve({
