@@ -75,6 +75,9 @@ export default defineComponent({
     const handleError = (e: Event) => {
       hasError.value = true;
       props.onError?.({ e });
+      if (props.fallback) {
+        previewUrl.value = props.fallback;
+      }
     };
 
     const hasMouseEvent = computed(() => {
@@ -126,13 +129,13 @@ export default defineComponent({
           {Object.entries(props.srcset).map(([type, url]) => (
             <source type={type} srcset={url} />
           ))}
-          {previewUrl.value && renderImage(previewUrl.value)}
+          {renderImage()}
         </picture>
       );
     }
 
-    function renderImage(url: string) {
-      if ((!url && imageStrSrc.value) || !imageStrSrc.value) return;
+    function renderImage() {
+      const url = typeof imageStrSrc.value === 'string' ? imageStrSrc.value : previewUrl.value;
       return (
         <img
           ref={imgRef}
@@ -182,7 +185,7 @@ export default defineComponent({
 
           {(hasError.value || !shouldLoad.value) && <div class={`${classPrefix.value}-image`} />}
           {!(hasError.value || !shouldLoad.value) &&
-            (props.srcset && Object.keys(props.srcset).length ? renderImageSrcset() : renderImage(previewUrl.value))}
+            (props.srcset && Object.keys(props.srcset).length ? renderImageSrcset() : renderImage())}
           {!(hasError.value || !shouldLoad.value) && !isLoaded.value && (
             <div class={`${classPrefix.value}-image__loading`}>
               {renderTNodeJSX('loading') || (

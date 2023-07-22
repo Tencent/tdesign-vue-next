@@ -18,7 +18,7 @@ placeholder | String / Slot / Function | - | Typescript：`string \| TNode`。[s
 position | String | center | \- | N
 referrerpolicy | String | strict-origin-when-cross-origin | attribute of `<img>`, [MDN Definition](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy)。options: no-referrer/no-referrer-when-downgrade/origin/origin-when-cross-origin/same-origin/strict-origin/strict-origin-when-cross-origin/unsafe-url | N
 shape | String | square | options: circle/round/square | N
-src | String / File | - | src attribute of `<img>`. image File can also be loaded。Typescript：`string \| File` | N
+src | String / Object | - | src attribute of `<img>`. image File can also be loaded。Typescript：`string \| File` | N
 srcset | Object | - | for `.avif` and `.webp` image url, load `srcset` before `src`。Typescript：`ImageSrcset` `interface ImageSrcset { 'image/avif': string; 'image/webp': string; }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/image/type.ts) | N
 onError | Function |  | Typescript：`(context: { e: ImageEvent }) => void`<br/>trigger on image load failed | N
 onLoad | Function |  | Typescript：`(context: { e: ImageEvent }) => void`<br/>trigger on image loaded | N
