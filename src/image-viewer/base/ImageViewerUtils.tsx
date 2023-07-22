@@ -5,9 +5,8 @@ import TImageViewerIcon from './ImageModalIcon';
 import TToolTip from '../../tooltip';
 import { usePrefixClass } from '../../hooks/useConfig';
 import { downloadFile } from '../utils';
-
+import { useImagePreviewUrl } from '../../hooks/useImagePreviewUrl';
 import { ImageInfo } from '../type';
-import { useImagePreviewUrl } from '@src/hooks/useImagePreviewUrl';
 
 export default defineComponent({
   name: 'TImageViewerUtils',
