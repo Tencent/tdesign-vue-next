@@ -122,7 +122,7 @@ export default defineComponent({
       updateTableAfterColumnResize,
       onColumnResizeChange: props.onColumnResizeChange,
     });
-    const { resizeLineRef, resizeLineStyle, setEffectColMap, updateTableWidthOnColumnChange } = columnResizeParams;
+    const { resizeLineRef, resizeLineStyle, setEffectColMap } = columnResizeParams;
 
     const dynamicBaseTableClasses = computed(() => [
       tableClasses.value,
@@ -285,7 +285,6 @@ export default defineComponent({
       tableBodyRef,
       virtualConfig,
       showAffixPagination,
-      updateTableWidthOnColumnChange,
       scrollToElement: virtualConfig.scrollToElement,
       renderPagination,
       renderTNode,
