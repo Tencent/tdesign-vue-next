@@ -20,7 +20,6 @@ import useClassName from './hooks/useClassName';
 import useEditableRow from './hooks/useEditableRow';
 import useStyle from './hooks/useStyle';
 import { ScrollToElementParams } from '../hooks/useVirtualScrollNew';
-import { CheckboxGroupValue } from '../checkbox';
 
 export { BASE_TABLE_ALL_EVENTS } from './base-table';
 
