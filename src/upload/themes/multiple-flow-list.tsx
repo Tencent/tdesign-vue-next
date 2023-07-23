@@ -19,7 +19,16 @@ import { commonProps } from '../constants';
 import TButton from '../../button';
 import { UploadFile, TdUploadProps } from '../type';
 import useDrag, { UploadDragEvents } from '../hooks/useDrag';
-import { abridgeName, returnFileSize } from '../../_common/js/upload/utils';
+import {
+  abridgeName,
+  returnFileSize,
+  IMAGE_REGEXP,
+  FILE_PDF_REGEXP,
+  FILE_EXCEL_REGEXP,
+  FILE_WORD_REGEXP,
+  FILE_PPT_REGEXP,
+  VIDEO_REGEXP,
+} from '../../_common/js/upload/utils';
 import TLoading from '../../loading';
 import { useTNodeJSX } from '../../hooks';
 import Link from '../../link';
@@ -35,13 +44,6 @@ export interface ImageFlowListProps extends CommonDisplayFileProps {
   draggable?: boolean;
   onPreview?: TdUploadProps['onPreview'];
 }
-
-const IMAGE_REGEXP = /(.png|.jpg|.jpeg|.webp|.avif|.svg|.gif|.bmp)/i;
-const FILE_PDF_REGEXP = /(.pdf)/i;
-const FILE_EXCEL_REGEXP = /(.xlsx|.xls|.csv)/i;
-const FILE_WORD_REGEXP = /(.dox|docx|.document)/i;
-const FILE_PPT_REGEXP = /(.ppt|.pptx|.key)/i;
-const VIDEO_REGEXP = /(.avi|.mp3|.mp4|.wmv|.mpg|.mpeg|.mov|.rm|.ram|.swf|.flv|.rmvb|.flash|.mid|.3gp)/i;
 
 export default defineComponent({
   name: 'UploadMultipleFlowList',
