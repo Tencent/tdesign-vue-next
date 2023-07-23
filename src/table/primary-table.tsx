@@ -67,7 +67,7 @@ export default defineComponent({
       useClassName();
     const { sizeClassNames } = useStyle(props);
     // 自定义列配置功能
-    const { tDisplayColumns, renderColumnController } = useColumnController(props, context, { onColumnReduce });
+    const { tDisplayColumns, renderColumnController } = useColumnController(props, context);
     // 展开/收起行功能
     const { showExpandedRow, showExpandIconColumn, getExpandColumn, renderExpandedRow, onInnerExpandRowClick } =
       useRowExpand(props, context);
@@ -137,12 +137,6 @@ export default defineComponent({
       setFilterPrimaryTableRef(primaryTableRef.value);
       setDragSortPrimaryTableRef(primaryTableRef.value);
     });
-
-    function onColumnReduce(reduceKeys: CheckboxGroupValue) {
-      if (props.resizable) {
-        primaryTableRef.value.updateTableWidthOnColumnChange(reduceKeys);
-      }
-    }
 
     // 对外暴露的方法
     context.expose({
