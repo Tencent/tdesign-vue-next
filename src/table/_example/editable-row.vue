@@ -28,6 +28,9 @@ import dayjs from 'dayjs';
 const initData = new Array(5).fill(null).map((_, i) => ({
   key: String(i + 1),
   firstName: ['贾明', '张三', '王芳'][i % 3],
+  user: {
+    firstName: ['贾明', '张三', '王芳'][i % 3],
+  },
   status: i % 3,
   email: [
     'espinke0@apache.org',
@@ -138,7 +141,7 @@ const STATUS_OPTIONS = [
 const columns = computed(() => [
   {
     title: '申请人',
-    colKey: 'firstName',
+    colKey: 'user.firstName',
     align: align.value,
     width: 120,
     // 编辑状态相关配置，全部集中在 edit

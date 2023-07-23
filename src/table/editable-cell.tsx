@@ -2,8 +2,8 @@ import { computed, defineComponent, onMounted, PropType, ref, SetupContext, toRe
 import get from 'lodash/get';
 import set from 'lodash/set';
 import isFunction from 'lodash/isFunction';
+import cloneDeep from 'lodash/cloneDeep';
 import { Edit1Icon as TdEdit1Icon } from 'tdesign-icons-vue-next';
-
 import {
   TableRowData,
   PrimaryTableCol,
@@ -97,8 +97,16 @@ export default defineComponent({
     }));
 
     const currentRow = computed(() => {
+      const { colKey } = col.value;
+      // handle colKey like a.b.c
+      const [firstKey, ...restKeys] = colKey.split('.') || [];
       const newRow = { ...row.value };
-      set(newRow, col.value.colKey, editValue.value);
+      if (restKeys.length) {
+        newRow[firstKey] = cloneDeep(row.value[firstKey]);
+        set(newRow[firstKey], restKeys.join('.'), editValue.value);
+      } else {
+        set(newRow, colKey, editValue.value);
+      }
       return newRow;
     });
 
