@@ -2,8 +2,8 @@ import { computed, defineComponent, onMounted, PropType, ref, SetupContext, toRe
 import get from 'lodash/get';
 import set from 'lodash/set';
 import isFunction from 'lodash/isFunction';
+import cloneDeep from 'lodash/cloneDeep';
 import { Edit1Icon as TdEdit1Icon } from 'tdesign-icons-vue-next';
-
 import {
   TableRowData,
   PrimaryTableCol,
@@ -85,8 +85,13 @@ export default defineComponent({
     const classPrefix = usePrefixClass();
 
     const { Edit1Icon } = useGlobalIcon({ Edit1Icon: TdEdit1Icon });
+
+    const updateEditedCellValue = (val: any) => {
+      editValue.value = val;
+    };
+
     const editOnListeners = computed(() => {
-      return col.value.edit?.on?.({ ...cellParams.value, editedRow: currentRow.value }) || {};
+      return col.value.edit?.on?.({ ...cellParams.value, editedRow: currentRow.value, updateEditedCellValue }) || {};
     });
 
     const cellParams = computed(() => ({
@@ -97,8 +102,16 @@ export default defineComponent({
     }));
 
     const currentRow = computed(() => {
+      const { colKey } = col.value;
+      // handle colKey like a.b.c
+      const [firstKey, ...restKeys] = colKey.split('.') || [];
       const newRow = { ...row.value };
-      set(newRow, col.value.colKey, editValue.value);
+      if (restKeys.length) {
+        newRow[firstKey] = cloneDeep(row.value[firstKey]);
+        set(newRow[firstKey], restKeys.join('.'), editValue.value);
+      } else {
+        set(newRow, colKey, editValue.value);
+      }
       return newRow;
     });
 
@@ -123,6 +136,7 @@ export default defineComponent({
         ? edit.props({
             ...cellParams.value,
             editedRow: currentRow.value,
+            updateEditedCellValue,
           })
         : { ...edit.props };
       // to remove warn: runtime-core.esm-bundler.js:38 [Vue warn]: Invalid prop: type check failed for prop "onChange". Expected Function, got Array
