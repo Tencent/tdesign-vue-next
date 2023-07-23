@@ -153,7 +153,7 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   paginationAffixedBottom?: boolean | Partial<AffixProps>;
   /**
-   * 是否允许调整列宽。如果想要配置宽度可调整的最小值和最大值，请使用 `column.resize`，示例：`columns: [{ resize: { minWidth: 120, maxWidth: 300 } }]`。<br/> 默认规则：因列宽超出存在横向滚动条时，列宽调整仅影响当前列宽和总列宽；表格列较少没有横向滚动条时，列宽调整表现为自身宽度和相邻宽度变化
+   * 是否允许调整列宽，设置 `tableLayout=fixed` 效果更友好。一般不建议在列宽调整场景使用 `tableLayout: auto`。如果想要配置宽度可调整的最小值和最大值，请使用 `column.resize`，示例：`columns: [{ resize: { minWidth: 120, maxWidth: 300 } }]`。<br/> 默认规则：因列宽超出存在横向滚动条时，列宽调整仅影响当前列宽和总列宽；表格列较少没有横向滚动条时，列宽调整表现为自身宽度和相邻宽度变化
    * @default false
    */
   resizable?: boolean;
@@ -203,7 +203,7 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   tableContentWidth?: string;
   /**
-   * 表格布局方式
+   * 表格布局方式，`<table>` 元素原生属性。[MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout)。注意，在列宽调整下场景只能使用 `fixed` 模式
    * @default fixed
    */
   tableLayout?: 'auto' | 'fixed';

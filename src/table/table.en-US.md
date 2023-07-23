@@ -32,7 +32,7 @@ loadingProps | Object | - | Typescript：`Partial<LoadingProps>`，[Loading API 
 maxHeight | String / Number | - | table max height | N
 pagination | Object | - | you can use all props of pagination component with paginationProps。Typescript：`PaginationProps`，[Pagination API Documents](./pagination?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 paginationAffixedBottom | Boolean / Object | - | affix props。Typescript：`boolean \| Partial<AffixProps>` | N
-resizable | Boolean | false | allow to resize column width | N
+resizable | Boolean | false | allow to resize column width, set `tableLayout=fixed` would be better | N
 rowAttributes | Object / Array / Function | - | `tr` attributes。Typescript：`TableRowAttributes<T>` `type TableRowAttributes<T> = HTMLElementAttributes \| ((params: { row: T; rowIndex: number; type: 'body' \| 'foot' }) => HTMLElementAttributes) \| Array<TableRowAttributes<T>>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 rowClassName | String / Object / Array / Function | - | table `th` classname。Typescript：`ClassName \| ((params: RowClassNameParams<T>) => ClassName)` `interface RowClassNameParams<T> { row: T; rowIndex: number; type?: 'body' \| 'foot' }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 rowKey | String | 'id' | required。unique key for each row data | Y
@@ -43,7 +43,7 @@ showHeader | Boolean | true | show table header | N
 size | String | medium | options: small/medium/large。Typescript：`SizeEnum`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 stripe | Boolean | false | show stripe style | N
 tableContentWidth | String | - | \- | N
-tableLayout | String | fixed | table-layout css properties。options: auto/fixed | N
+tableLayout | String | fixed | table-layout css properties, [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout). set value to be `fixed` on `resizable=true` please。options: auto/fixed | N
 topContent | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 verticalAlign | String | middle | vertical align。options: top/middle/bottom | N
 onCellClick | Function |  | Typescript：`(context: BaseTableCellEventContext<T>) => void`<br/>trigger on cell clicked。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface BaseTableCellEventContext<T> { row: T; col: BaseTableCol; rowIndex: number; colIndex: number; e: MouseEvent }`<br/> | N
