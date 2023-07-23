@@ -307,8 +307,7 @@ export default defineComponent({
     const data = this.isPaginateData ? this.dataSource : this.data;
     const columns = this.spansAndLeafNodes?.leafColumns || this.columns;
 
-    const columnResizable = props.allowResizeColumnWidth ?? props.resizable;
-
+    const columnResizable = this.allowResizeColumnWidth ?? this.resizable;
     if (columnResizable && tableLayout === 'auto') {
       log.warn(
         'Table',
