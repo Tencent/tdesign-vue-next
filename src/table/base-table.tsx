@@ -22,6 +22,7 @@ import { getAffixProps } from './utils';
 import { Styles } from '../common';
 import { getIEVersion } from '../_common/js/utils/helper';
 import { BaseTableInstanceFunctions } from './type';
+import log from '../_common/js/log';
 
 export const BASE_TABLE_EVENTS = ['page-change', 'cell-click', 'scroll', 'scrollX', 'scrollY'];
 export const BASE_TABLE_ALL_EVENTS = ROW_LISTENERS.map((t) => `row-${t}`).concat(BASE_TABLE_EVENTS);
@@ -302,13 +303,20 @@ export default defineComponent({
   },
 
   render() {
-    const { rowAndColFixedPosition } = this;
+    const { rowAndColFixedPosition, tableLayout } = this;
     const data = this.isPaginateData ? this.dataSource : this.data;
     const columns = this.spansAndLeafNodes?.leafColumns || this.columns;
 
-    const columnResizable = computed(() => props.allowResizeColumnWidth ?? props.resizable);
+    const columnResizable = props.allowResizeColumnWidth ?? props.resizable;
 
-    const defaultColWidth = this.tableLayout === 'fixed' && this.isWidthOverflow ? '100px' : undefined;
+    if (columnResizable && tableLayout === 'auto') {
+      log.warn(
+        'Table',
+        'table-layout can not be `auto`, cause you are using column resizable, set `table-layout: fixed` please.',
+      );
+    }
+
+    const defaultColWidth = tableLayout === 'fixed' && this.isWidthOverflow ? '100px' : undefined;
 
     const renderColGroup = (isAffixHeader = true) => (
       <colgroup>
@@ -535,10 +543,7 @@ export default defineComponent({
         >
           {renderColGroup(false)}
           {this.showHeader && (
-            <THead
-              v-slots={this.$slots}
-              {...{ ...headProps, thWidthList: columnResizable.value ? this.thWidthList : {} }}
-            />
+            <THead v-slots={this.$slots} {...{ ...headProps, thWidthList: columnResizable ? this.thWidthList : {} }} />
           )}
           <TBody v-slots={this.$slots} {...tableBodyProps} />
           <TFoot

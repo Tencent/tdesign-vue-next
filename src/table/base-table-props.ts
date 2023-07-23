@@ -93,6 +93,8 @@ export default {
   lastFullRow: {
     type: [String, Function] as PropType<TdBaseTableProps['lastFullRow']>,
   },
+  /** 是否启用整个表格元素的懒加载，当页面滚动到可视区域后再渲染表格。注意和表格内部行滚动懒加载的区别，内部行滚动无论表格是否在可视区域都会默认渲染第一屏的行元素 */
+  lazyLoad: Boolean,
   /** 加载中状态。值为 `true` 会显示默认加载中样式，可以通过 Function 和 插槽 自定义加载状态呈现内容和样式。值为 `false` 则会取消加载状态 */
   loading: {
     type: [Boolean, Function] as PropType<TdBaseTableProps['loading']>,
