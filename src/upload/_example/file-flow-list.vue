@@ -3,6 +3,7 @@
     <t-space>
       <t-checkbox v-model="disabled">禁用状态</t-checkbox>
       <t-checkbox v-model="autoUpload">自动上传</t-checkbox>
+      <t-checkbox v-model="showThumbnail">显示文件缩略图</t-checkbox>
       <t-checkbox v-model="allowUploadDuplicateFile"> 允许上传同名文件 </t-checkbox>
       <t-checkbox v-model="isBatchUpload"> 整体替换上传 </t-checkbox>
       <t-checkbox v-model="uploadAllFilesInOneRequest"> 多个文件一个请求上传 </t-checkbox>
@@ -17,8 +18,10 @@
       theme="file-flow"
       multiple
       :disabled="disabled"
+      :abridge-name="ABRIDGE_NAME"
       :auto-upload="autoUpload"
       :max="10"
+      :show-thumbnail="showThumbnail"
       :allow-upload-duplicate-file="allowUploadDuplicateFile"
       :is-batch-upload="isBatchUpload"
       :upload-all-files-in-one-request="uploadAllFilesInOneRequest"
@@ -30,8 +33,11 @@ import { ref } from 'vue';
 
 const files = ref([]);
 
+const ABRIDGE_NAME = [10, 7];
+
 const disabled = ref(false);
 const autoUpload = ref(false);
+const showThumbnail = ref(false);
 const allowUploadDuplicateFile = ref(false);
 const isBatchUpload = ref(false);
 const uploadAllFilesInOneRequest = ref(false);

@@ -48,6 +48,7 @@ exports[`Image Component > props.fit is equal to scale-down 1`] = `
 exports[`Image Component > props.loading works fine 1`] = `
 <div
   class="t-image__wrapper t-image__wrapper--shape-square"
+  fallback=""
   referrerpolicy="strict-origin-when-cross-origin"
 >
   <!---->
@@ -76,6 +77,7 @@ exports[`Image Component > props.loading works fine 1`] = `
 exports[`Image Component > props.overlayContent works fine 1`] = `
 <div
   class="t-image__wrapper t-image__wrapper--shape-square"
+  fallback=""
   referrerpolicy="strict-origin-when-cross-origin"
 >
   <!---->
@@ -150,6 +152,7 @@ exports[`Image Component > props.overlayContent works fine 1`] = `
 exports[`Image Component > props.placeholder works fine 1`] = `
 <div
   class="t-image__wrapper t-image__wrapper--shape-square"
+  fallback=""
   referrerpolicy="strict-origin-when-cross-origin"
 >
   <div
@@ -224,6 +227,7 @@ exports[`Image Component > props.placeholder works fine 1`] = `
 exports[`Image Component > slots.loading works fine 1`] = `
 <div
   class="t-image__wrapper t-image__wrapper--shape-square"
+  fallback=""
   referrerpolicy="strict-origin-when-cross-origin"
 >
   <!---->
@@ -254,6 +258,7 @@ exports[`Image Component > slots.loading works fine 1`] = `
 exports[`Image Component > slots.overlay-content works fine 1`] = `
 <div
   class="t-image__wrapper t-image__wrapper--shape-square"
+  fallback=""
   referrerpolicy="strict-origin-when-cross-origin"
 >
   <!---->
@@ -330,6 +335,7 @@ exports[`Image Component > slots.overlay-content works fine 1`] = `
 exports[`Image Component > slots.overlayContent works fine 1`] = `
 <div
   class="t-image__wrapper t-image__wrapper--shape-square"
+  fallback=""
   referrerpolicy="strict-origin-when-cross-origin"
 >
   <!---->
@@ -406,6 +412,7 @@ exports[`Image Component > slots.overlayContent works fine 1`] = `
 exports[`Image Component > slots.placeholder works fine 1`] = `
 <div
   class="t-image__wrapper t-image__wrapper--shape-square"
+  fallback=""
   referrerpolicy="strict-origin-when-cross-origin"
 >
   <div

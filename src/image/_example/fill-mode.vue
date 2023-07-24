@@ -5,6 +5,7 @@
         src="https://tdesign.gtimg.com/demo/demo-image-1.png"
         :fit="item"
         :style="{ width: '120px', height: '120px' }"
+        @error="onError"
       />
       <span>{{ item }}</span>
     </t-space>
@@ -13,4 +14,7 @@
 
 <script setup>
 const mode = ['fill', 'contain', 'cover', 'none', 'scale-down'];
+const onError = () => {
+  console.log('onError');
+};
 </script>

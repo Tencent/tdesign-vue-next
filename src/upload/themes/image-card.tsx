@@ -15,6 +15,7 @@ import { abridgeName } from '../../_common/js/upload/utils';
 import { UploadConfig } from '../../config-provider';
 import { useTNodeJSX } from '../../hooks';
 import Link from '../../link';
+import Image from '../../image';
 
 export interface ImageCardUploadProps extends CommonDisplayFileProps {
   multiple: TdUploadProps['multiple'];
@@ -64,7 +65,7 @@ export default defineComponent({
     const renderMainContent = (file: UploadFile, index: number) => {
       return (
         <div class={`${classPrefix.value}-upload__card-content ${classPrefix.value}-upload__card-box`}>
-          <img class={`${classPrefix.value}-upload__card-image`} src={file.url} />
+          <Image class={`${classPrefix.value}-upload__card-image`} src={file.url || file.raw} error="" />
           <div class={`${classPrefix.value}-upload__card-mask`}>
             <span class={`${classPrefix.value}-upload__card-mask-item`} onClick={(e) => e.stopPropagation()}>
               <ImageViewer
