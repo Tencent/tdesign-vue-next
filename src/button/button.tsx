@@ -2,9 +2,9 @@ import { computed, defineComponent, h, ref } from 'vue';
 import TLoading from '../loading';
 import props from './props';
 import useRipple from '../hooks/useRipple';
-import { useFormDisabled } from '../form/hooks';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
+import { useDisabled } from '../hooks/useDisabled';
 
 export default defineComponent({
   name: 'TButton',
@@ -15,7 +15,7 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('button');
     const { STATUS, SIZE } = useCommonClassName();
     const btnRef = ref<HTMLElement>();
-    const tDisabled = useFormDisabled();
+    const isDisabled = useDisabled();
 
     useRipple(btnRef);
 
@@ -32,7 +32,7 @@ export default defineComponent({
       `${COMPONENT_NAME.value}--theme-${mergeTheme.value}`,
       {
         [SIZE.value[props.size]]: props.size !== 'medium',
-        [STATUS.value.disabled]: tDisabled.value,
+        [STATUS.value.disabled]: isDisabled.value,
         [STATUS.value.loading]: props.loading,
         [`${COMPONENT_NAME.value}--shape-${props.shape}`]: props.shape !== 'rectangle',
         [`${COMPONENT_NAME.value}--ghost`]: props.ghost,
@@ -65,7 +65,7 @@ export default defineComponent({
       const buttonAttrs = {
         class: [...buttonClass.value, { [`${COMPONENT_NAME.value}--icon-only`]: iconOnly }],
         type: props.type,
-        disabled: tDisabled.value,
+        disabled: isDisabled.value,
         href: props.href,
       };
 
