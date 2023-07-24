@@ -4,7 +4,6 @@
 import { computed, ref, SetupContext, toRefs, watch } from 'vue';
 import { SettingIcon as TdSettingIcon } from 'tdesign-icons-vue-next';
 import intersection from 'lodash/intersection';
-import xorWith from 'lodash/xorWith';
 import Checkbox, {
   CheckboxGroup,
   CheckboxGroupValue,
@@ -32,13 +31,7 @@ export function getColumnKeys(columns: PrimaryTableCol[], keys = new Set<string>
   return keys;
 }
 
-export default function useColumnController(
-  props: TdPrimaryTableProps,
-  context: SetupContext,
-  extra?: {
-    onColumnReduce: (reduceKeys: CheckboxGroupValue) => void;
-  },
-) {
+export default function useColumnController(props: TdPrimaryTableProps, context: SetupContext) {
   const { classPrefix, globalConfig } = useConfig('table');
   const { SettingIcon } = useGlobalIcon({ SettingIcon: TdSettingIcon });
   const { columns, columnController, displayColumns, columnControllerVisible } = toRefs(props);
@@ -65,12 +58,8 @@ export default function useColumnController(
 
   const intersectionChecked = computed(() => intersection(columnCheckboxKeys.value, [...enabledColKeys.value]));
 
-  watch([displayColumns], ([val], [oldVal]) => {
+  watch([displayColumns], ([val]) => {
     columnCheckboxKeys.value = val || props.defaultDisplayColumns || keys;
-    if (val.length < oldVal.length) {
-      const reduceKeys = xorWith(oldVal, val);
-      extra?.onColumnReduce?.(reduceKeys);
-    }
   });
 
   function getCheckboxOptions(columns: PrimaryTableCol[], arr: CheckboxOptionObj[] = []) {

@@ -34,7 +34,7 @@ export default {
   /** 列配置功能中，当前显示的列 */
   displayColumns: {
     type: Array as PropType<TdPrimaryTableProps['displayColumns']>,
-    default: undefined,
+    default: undefined as TdPrimaryTableProps['displayColumns'],
   },
   /** 列配置功能中，当前显示的列，非受控属性 */
   defaultDisplayColumns: {
@@ -74,7 +74,7 @@ export default {
   /** 展开行 */
   expandedRowKeys: {
     type: Array as PropType<TdPrimaryTableProps['expandedRowKeys']>,
-    default: undefined,
+    default: undefined as TdPrimaryTableProps['expandedRowKeys'],
   },
   /** 展开行，非受控属性 */
   defaultExpandedRowKeys: {
@@ -92,7 +92,7 @@ export default {
   /** 过滤数据的值 */
   filterValue: {
     type: Object as PropType<TdPrimaryTableProps['filterValue']>,
-    default: undefined,
+    default: undefined as TdPrimaryTableProps['filterValue'],
   },
   /** 过滤数据的值，非受控属性 */
   defaultFilterValue: {
@@ -116,7 +116,7 @@ export default {
   /** 选中行，控制属性。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制 */
   selectedRowKeys: {
     type: Array as PropType<TdPrimaryTableProps['selectedRowKeys']>,
-    default: undefined,
+    default: undefined as TdPrimaryTableProps['selectedRowKeys'],
   },
   /** 选中行，控制属性。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制，非受控属性 */
   defaultSelectedRowKeys: {
