@@ -15,9 +15,10 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('button');
     const { STATUS, SIZE } = useCommonClassName();
     const btnRef = ref<HTMLElement>();
-    const isDisabled = useDisabled();
 
     useRipple(btnRef);
+
+    const isDisabled = useDisabled();
 
     const mergeTheme = computed(() => {
       const { theme, variant } = props;

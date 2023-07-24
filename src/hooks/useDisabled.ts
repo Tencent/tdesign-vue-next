@@ -7,27 +7,29 @@ export interface FormDisabledProvider {
 }
 
 export interface DisabledContext {
-  //ComponentGroup
-  groupDisabled?: Ref<boolean>;
+  beforeDisabled?: Ref<boolean>;
+  afterDisabled?: Ref<boolean>;
 }
 
 /**
- * 用于实现组件的全局禁用状态hook
+ * 用于实现组件全局禁用状态的hook
+ * 优先级:(beforeDisabled) > Component.disabled > ComponentGroup.disabled(afterDisabled) > Form.disabled
  * @returns
  */
 export function useDisabled(context?: DisabledContext) {
   const currentInstance = getCurrentInstance();
   const componentDisabled = computed(() => currentInstance.props.disabled as boolean);
 
-  const { disabled } = inject<FormDisabledProvider>('formDisabled', Object.create(null));
-  //Priority: Component.disabled > ComponentGroup.disabled > Form.disabled
+  const formDisabled = inject<FormDisabledProvider>('formDisabled', Object.create(null));
+
   return computed(() => {
+    if (isBoolean(context?.beforeDisabled.value)) return context.beforeDisabled.value;
     // Component
     if (isBoolean(componentDisabled.value)) return componentDisabled.value;
     // ComponentGroup
-    if (isBoolean(context?.groupDisabled?.value)) return context.groupDisabled.value;
+    if (isBoolean(context?.afterDisabled.value)) return context.afterDisabled.value;
     // Form
-    if (isBoolean(disabled?.value)) return disabled.value;
+    if (isBoolean(formDisabled.disabled?.value)) return formDisabled.disabled.value;
 
     return false;
   });
