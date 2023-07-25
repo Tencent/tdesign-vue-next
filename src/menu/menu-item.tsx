@@ -50,7 +50,7 @@ export default defineComponent({
       e.stopPropagation();
       if (this.disabled) return;
       this.menu.select(this.value);
-      emitEvent(this, 'click', e);
+      emitEvent(this, 'click', { e });
       if (this.to || (this.routerLink && this.href)) {
         const router = this.router || this.$router;
         const methods: string = this.replace ? 'replace' : 'push';
