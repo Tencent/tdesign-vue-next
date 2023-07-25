@@ -97,6 +97,7 @@ export default function useRowEdit(props: PrimaryTableProps) {
           if (result === true) return;
           allErrorListMap[cellKeys[index]] = result;
         });
+        props.onValidate?.({ result: allErrorListMap });
         resolve({ result: allErrorListMap });
       }, reject);
     });
