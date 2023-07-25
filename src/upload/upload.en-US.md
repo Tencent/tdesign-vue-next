@@ -34,6 +34,7 @@ multiple | Boolean | false | multiple files uploading | N
 name | String | file | field name of files in upload request data | N
 placeholder | String | - | placeholder | N
 requestMethod | Function | - | custom upload request method。Typescript：`(files: UploadFile \| UploadFile[]) => Promise<RequestMethodResponse>` `interface RequestMethodResponse { status: 'success' \| 'fail'; error?: string; response: { url?: string; files?: UploadFile[]; [key: string]: any } }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts) | N
+showThumbnail | Boolean | false | show thumbnail before file name, only works on `theme=file-flow`  | N
 showUploadProgress | Boolean | true | show upload progress nodes | N
 sizeLimit | Number / Object | - | files size limit。Typescript：`number \| SizeLimitObj` `interface SizeLimitObj { size: number; unit: SizeUnit ; message?: string }` `type SizeUnitArray = ['B', 'KB', 'MB', 'GB']` `type SizeUnit = SizeUnitArray[number]`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts) | N
 status | String | - | tips status。options: default/success/warning/error | N

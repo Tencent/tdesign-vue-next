@@ -11,7 +11,7 @@ export default {
   /** 是否展示关闭按钮，值为 `true` 显示默认关闭按钮；值为 `false` 则不显示关闭按钮；也可以完全自定义关闭按钮 */
   closeBtn: {
     type: [Boolean, Function] as PropType<TdImageViewerProps['closeBtn']>,
-    default: true,
+    default: true as TdImageViewerProps['closeBtn'],
   },
   /** 是否在点击遮罩层时，触发预览关闭 */
   closeOnOverlay: Boolean,
@@ -50,7 +50,7 @@ export default {
   /** 切换预览图片的左图标，可自定义 */
   navigationArrow: {
     type: [Boolean, Function] as PropType<TdImageViewerProps['navigationArrow']>,
-    default: true,
+    default: true as TdImageViewerProps['navigationArrow'],
   },
   /** 是否显示遮罩层。`mode=modal` 时，默认显示；`mode=modeless` 时，默认不显示 */
   showOverlay: {

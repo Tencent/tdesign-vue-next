@@ -138,6 +138,11 @@ export interface TdUploadProps<T extends UploadFile = UploadFile> {
    */
   requestMethod?: (files: UploadFile | UploadFile[]) => Promise<RequestMethodResponse>;
   /**
+   * 是否在文件列表中显示缩略图，`theme=file-flow` 时有效
+   * @default false
+   */
+  showThumbnail?: boolean;
+  /**
    * 是否显示上传进度
    * @default true
    */
