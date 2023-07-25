@@ -10,11 +10,15 @@
 </template>
 
 <script>
-const demoReq = import.meta.globEager('../../../src/**/_example/*.vue');
+const demoVueReq = import.meta.globEager('../../../src/**/_example/*.vue');
+const demoJsxReq = import.meta.globEager('../../../src/**/_example/*.jsx');
+
+const demoReq = { ...demoVueReq, ...demoJsxReq };
 const demoObject = {};
 const demoList = {};
+
 Object.keys(demoReq).forEach((key) => {
-  const match = key.match(/([\w-]+)._example.([\w-]+).vue/);
+  const match = key.match(/([\w-]+)._example.([\w-]+).(vue|jsx)/);
   const [, componentName, demoName] = match;
   demoObject[`${componentName}-${demoName}`] = demoReq[key].default;
   demoList[componentName] = [demoName].concat(demoList[componentName]);
