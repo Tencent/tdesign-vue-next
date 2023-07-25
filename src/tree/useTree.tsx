@@ -87,6 +87,7 @@ export default function useTree(props: TdTreeProps) {
     if (shouldActive) {
       const tnode = getNode(treeStore.value, node);
       const actived = node.setActived(!tnode.isActived());
+      ctx.node.actived = actived.includes(ctx.node.value);
       setInnerActived(actived, ctx);
     }
 
