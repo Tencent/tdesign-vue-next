@@ -1,13 +1,13 @@
-import { defineComponent, ref, toRefs, inject, watch } from 'vue';
+import { defineComponent, ref, toRefs, inject, watch, computed } from 'vue';
 import props from './props';
 import useVModel from '../hooks/useVModel';
-import { useFormDisabled } from '../form/hooks';
 import useRipple from '../hooks/useRipple';
 import { useContent } from '../hooks/tnode';
 import { useCommonClassName, usePrefixClass } from '../hooks/useConfig';
 import { CheckboxGroupInjectionKey } from './constants';
 import useCheckboxLazyLoad from './hooks/useCheckboxLazyLoad';
 import useKeyboardEvent from './hooks/useKeyboardEvent';
+import { useDisabled } from '../hooks/useDisabled';
 
 export default defineComponent({
   name: 'TCheckbox',
@@ -73,29 +73,17 @@ export default defineComponent({
       { immediate: true },
     );
 
-    // Warn: Do not use computed to set tDisabled
-    // Form.disabled < CheckboxGroup.disabled < Checkbox.disabled
-    const tDisabled = ref<boolean>(false);
-    const formDisabled = useFormDisabled();
-    const getDisabled = () => {
-      const { checkAll, disabled } = props;
-      if (!checkAll && !tChecked.value && checkboxGroupData?.value.maxExceeded) {
+    //  Checkbox.disabled > CheckboxGroup.disabled > Form.disabled
+    const beforeDisabled = computed(() => {
+      if (!props.checkAll && !tChecked.value && checkboxGroupData?.value.maxExceeded) {
         return true;
       }
-      if (disabled !== undefined) return disabled;
-      if (checkboxGroupData?.value.disabled !== undefined) {
-        return checkboxGroupData.value.disabled;
-      }
-      if (formDisabled.value !== undefined) return formDisabled.value;
-      return false;
-    };
-    watch(
-      () => [props.checkAll, props.disabled, tChecked.value, formDisabled.value, checkboxGroupData?.value.maxExceeded],
-      () => {
-        tDisabled.value = getDisabled();
-      },
-      { immediate: true },
-    );
+      return null;
+    });
+    const afterDisabled = computed(() => {
+      return checkboxGroupData?.value.disabled;
+    });
+    const isDisabled = useDisabled({ beforeDisabled, afterDisabled });
 
     const tIndeterminate = ref(false);
     watch(
@@ -110,13 +98,13 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('checkbox');
     const labelClasses = ref({});
     watch(
-      [tChecked, tDisabled, tIndeterminate],
+      [tChecked, isDisabled, tIndeterminate],
       () => {
         labelClasses.value = [
           `${COMPONENT_NAME.value}`,
           {
             [STATUS.value.checked]: tChecked.value,
-            [STATUS.value.disabled]: tDisabled.value,
+            [STATUS.value.disabled]: isDisabled.value,
             [STATUS.value.indeterminate]: tIndeterminate.value,
           },
         ];
@@ -148,7 +136,7 @@ export default defineComponent({
         <label
           ref={labelRef}
           class={labelClasses.value}
-          tabindex={tDisabled.value ? undefined : '0'}
+          tabindex={isDisabled.value ? undefined : '0'}
           onFocus={onCheckboxFocus}
           onBlur={onCheckboxBlur}
         >
@@ -159,7 +147,7 @@ export default defineComponent({
                   type="checkbox"
                   tabindex="-1"
                   class={`${COMPONENT_NAME.value}__former`}
-                  disabled={tDisabled.value}
+                  disabled={isDisabled.value}
                   readonly={props.readonly}
                   indeterminate={tIndeterminate.value}
                   name={tName.value}

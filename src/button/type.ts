@@ -21,8 +21,7 @@ export interface TdButtonProps {
    */
   default?: string | TNode;
   /**
-   * 禁用状态
-   * @default false
+   * 禁用状态。优先级：Button.disabled > Form.disabled
    */
   disabled?: boolean;
   /**
