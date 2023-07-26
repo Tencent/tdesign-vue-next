@@ -192,6 +192,12 @@ export default defineComponent({
 
       const tips = renderTNodeJSX('tips');
 
+      const tipsClasses = [
+        INPUT_TIPS_CLASS.value,
+        `${classPrefix.value}-tips`,
+        `${classPrefix.value}-is-${tStatus.value || 'default'}`,
+      ];
+
       return (
         <div class={wrapClasses.value} v-show={props.type !== 'hidden'}>
           <div
@@ -246,11 +252,7 @@ export default defineComponent({
               </span>
             ) : null}
           </div>
-          {tips && (
-            <div class={`${INPUT_TIPS_CLASS.value} ${classPrefix.value}-input__tips--${tStatus.value || 'default'}`}>
-              {tips}
-            </div>
-          )}
+          {tips && <div class={tipsClasses}>{tips}</div>}
         </div>
       );
     };
