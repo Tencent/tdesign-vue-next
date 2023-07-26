@@ -7,7 +7,7 @@
 -- | -- | -- | -- | --
 allowInput | Boolean | false | 是否允许直接输入时间 | N
 clearable | Boolean | false | 是否允许清除选中值 | N
-disableTime | Function | - | 禁用时间项。TS 类型：`(h: number, m: number, s: number) => Partial<{ hour: Array<number>, minute: Array<number>, second: Array<number> }>` | N
+disableTime | Function | - | 禁用时间项的配置函数。TS 类型：`(h: number, m: number, s: number, ms: number) => Partial<{ hour: Array<number>, minute: Array<number>, second: Array<number>, millisecond: Array<number>  }>` | N
 disabled | Boolean | false | 是否禁用组件 | N
 format | String | HH:mm:ss | 用于格式化时间，[详细文档](https://day.js.org/docs/en/display/format) | N
 hideDisabledTime | Boolean | true | 是否隐藏禁用状态的时间项 | N
@@ -16,7 +16,7 @@ placeholder | String | undefined | 占位符 | N
 popupProps | Object | - | 透传给 popup 组件的参数。TS 类型：`PopupProps`，[Popup API Documents](./popup?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts) | N
 presets | Object | - | 预设快捷时间选择，示例：`{ '前一小时': '11:00:00' }`。TS 类型：`PresetTime` `interface PresetTime { [presetName: string]: TimePickerValue \| (() => TimePickerValue) }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts) | N
 size | String | medium | 尺寸。可选项：small/medium/large | N
-status | String | - | 输入框状态。可选项：default/success/warning/error | N
+status | String | default | 输入框状态。可选项：default/success/warning/error | N
 steps | Array | [1, 1, 1] | 时间间隔步数，数组排列 [小时, 分钟, 秒]，示例：[2, 1, 1] 或者 ['2', '1', '1']。TS 类型：`Array<string \| number>` | N
 tips | String / Slot / Function | - | 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 value | String | - | 选中值。支持语法糖 `v-model` 或 `v-model:value`。TS 类型：`TimePickerValue` `type TimePickerValue = string`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts) | N
@@ -56,7 +56,7 @@ popupProps | Object | - | 透传给 popup 组件的参数。TS 类型：`PopupPr
 presets | Object | - | 预设快捷时间范围选择，示例：{ '下午': ['13:00:00', '18:00:00'] }。TS 类型：`PresetTimeRange` `interface PresetTimeRange { [presetRageName: string]: TimeRangeValue \| (() => TimeRangeValue)}`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts) | N
 rangeInputProps | Object | - | 透传给范围输入框 RangeInput 组件的参数。TS 类型：`RangeInputProps`，[RangeInput API Documents](./range-input?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts) | N
 size | String | medium | 尺寸。可选项：small/medium/large | N
-status | String | - | 输入框状态。可选项：default/success/warning/error | N
+status | String | default | 输入框状态。可选项：default/success/warning/error | N
 steps | Array | [1, 1, 1] | 时间间隔步数，数组排列 [小时, 分钟, 秒]，示例：[2, 1, 1] 或者 ['2', '1', '1']。TS 类型：`Array<string \| number>` | N
 tips | String / Slot / Function | - | 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 value | Array | - | 选中值。支持语法糖 `v-model` 或 `v-model:value`。TS 类型：`TimeRangeValue` `type TimeRangeValue = Array<string>`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts) | N

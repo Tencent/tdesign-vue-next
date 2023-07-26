@@ -14,6 +14,7 @@ import { TdImageViewerProps } from './type';
 import { useMirror, useRotate, useScale } from './hooks';
 import { formatImages, getOverlay } from './utils';
 import { EVENT_CODE } from './const';
+import Image from '../image';
 
 export default defineComponent({
   name: 'TImageViewer',
@@ -163,8 +164,7 @@ export default defineComponent({
                   },
                 ]}
               >
-                <img
-                  alt=""
+                <Image
                   src={image.thumbnail || image.mainImage}
                   className={`${COMPONENT_NAME.value}__header-img`}
                   onClick={() => onImgClick(index)}

@@ -20,9 +20,70 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, fail 
         class="t-upload__dragger-img-wrap"
       >
         
-        <img
-          src="https://image4.png"
-        />
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          fallback=""
+          referrerpolicy="strict-origin-when-cross-origin"
+        >
+          <!---->
+          <!---->
+          <!---->
+          <img
+            alt=""
+            class="t-image t-image--fit-fill t-image--position-center"
+            referrerpolicy="strict-origin-when-cross-origin"
+            src="https://image4.png"
+          />
+          <div
+            class="t-image__loading"
+          >
+            <div
+              class="t-space t-space-align-center t-space-vertical"
+              style="gap: 8px;"
+            >
+              
+              
+              <div
+                class="t-space-item"
+              >
+                <svg
+                  class="t-icon t-icon-image"
+                  fill="none"
+                  height="1em"
+                  style="font-size: 24px;"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M10 8a2 2 0 100-4 2 2 0 000 4zm0-1a1 1 0 100-2 1 1 0 000 2z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                    fill-rule="evenodd"
+                  />
+                  <path
+                    d="M2 13a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1H3a1 1 0 00-1 1v10zm1-1.3l3-3 4.3 4.3H3v-1.3zm0-1.4V3h10v10h-1.3L6 7.3l-3 3z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                </svg>
+              </div>
+              <!---->
+              
+              
+              <div
+                class="t-space-item"
+              >
+                图片加载中
+              </div>
+              <!---->
+              
+              
+            </div>
+          </div>
+          <!---->
+          <!---->
+        </div>
         <!--teleport start-->
         <!--teleport end-->
         
@@ -136,9 +197,70 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, progr
         class="t-upload__dragger-img-wrap"
       >
         
-        <img
-          src="https://image2.png"
-        />
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          fallback=""
+          referrerpolicy="strict-origin-when-cross-origin"
+        >
+          <!---->
+          <!---->
+          <!---->
+          <img
+            alt=""
+            class="t-image t-image--fit-fill t-image--position-center"
+            referrerpolicy="strict-origin-when-cross-origin"
+            src="https://image2.png"
+          />
+          <div
+            class="t-image__loading"
+          >
+            <div
+              class="t-space t-space-align-center t-space-vertical"
+              style="gap: 8px;"
+            >
+              
+              
+              <div
+                class="t-space-item"
+              >
+                <svg
+                  class="t-icon t-icon-image"
+                  fill="none"
+                  height="1em"
+                  style="font-size: 24px;"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M10 8a2 2 0 100-4 2 2 0 000 4zm0-1a1 1 0 100-2 1 1 0 000 2z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                    fill-rule="evenodd"
+                  />
+                  <path
+                    d="M2 13a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1H3a1 1 0 00-1 1v10zm1-1.3l3-3 4.3 4.3H3v-1.3zm0-1.4V3h10v10h-1.3L6 7.3l-3 3z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                </svg>
+              </div>
+              <!---->
+              
+              
+              <div
+                class="t-space-item"
+              >
+                图片加载中
+              </div>
+              <!---->
+              
+              
+            </div>
+          </div>
+          <!---->
+          <!---->
+        </div>
         <!--teleport start-->
         <!--teleport end-->
         
@@ -257,9 +379,70 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
         class="t-upload__dragger-img-wrap"
       >
         
-        <img
-          src="https://tdesign.gtimg.com/demo/demo-image-1.png"
-        />
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          fallback=""
+          referrerpolicy="strict-origin-when-cross-origin"
+        >
+          <!---->
+          <!---->
+          <!---->
+          <img
+            alt=""
+            class="t-image t-image--fit-fill t-image--position-center"
+            referrerpolicy="strict-origin-when-cross-origin"
+            src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+          />
+          <div
+            class="t-image__loading"
+          >
+            <div
+              class="t-space t-space-align-center t-space-vertical"
+              style="gap: 8px;"
+            >
+              
+              
+              <div
+                class="t-space-item"
+              >
+                <svg
+                  class="t-icon t-icon-image"
+                  fill="none"
+                  height="1em"
+                  style="font-size: 24px;"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M10 8a2 2 0 100-4 2 2 0 000 4zm0-1a1 1 0 100-2 1 1 0 000 2z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                    fill-rule="evenodd"
+                  />
+                  <path
+                    d="M2 13a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1H3a1 1 0 00-1 1v10zm1-1.3l3-3 4.3 4.3H3v-1.3zm0-1.4V3h10v10h-1.3L6 7.3l-3 3z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                </svg>
+              </div>
+              <!---->
+              
+              
+              <div
+                class="t-space-item"
+              >
+                图片加载中
+              </div>
+              <!---->
+              
+              
+            </div>
+          </div>
+          <!---->
+          <!---->
+        </div>
         <!--teleport start-->
         <!--teleport end-->
         
@@ -373,9 +556,70 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
         class="t-upload__dragger-img-wrap"
       >
         
-        <img
-          src="https://tdesign.gtimg.com/demo/demo-image-1.png"
-        />
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          fallback=""
+          referrerpolicy="strict-origin-when-cross-origin"
+        >
+          <!---->
+          <!---->
+          <!---->
+          <img
+            alt=""
+            class="t-image t-image--fit-fill t-image--position-center"
+            referrerpolicy="strict-origin-when-cross-origin"
+            src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+          />
+          <div
+            class="t-image__loading"
+          >
+            <div
+              class="t-space t-space-align-center t-space-vertical"
+              style="gap: 8px;"
+            >
+              
+              
+              <div
+                class="t-space-item"
+              >
+                <svg
+                  class="t-icon t-icon-image"
+                  fill="none"
+                  height="1em"
+                  style="font-size: 24px;"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M10 8a2 2 0 100-4 2 2 0 000 4zm0-1a1 1 0 100-2 1 1 0 000 2z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                    fill-rule="evenodd"
+                  />
+                  <path
+                    d="M2 13a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1H3a1 1 0 00-1 1v10zm1-1.3l3-3 4.3 4.3H3v-1.3zm0-1.4V3h10v10h-1.3L6 7.3l-3 3z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                </svg>
+              </div>
+              <!---->
+              
+              
+              <div
+                class="t-space-item"
+              >
+                图片加载中
+              </div>
+              <!---->
+              
+              
+            </div>
+          </div>
+          <!---->
+          <!---->
+        </div>
         <!--teleport start-->
         <!--teleport end-->
         
@@ -489,9 +733,70 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, waiti
         class="t-upload__dragger-img-wrap"
       >
         
-        <img
-          src="https://image3.png"
-        />
+        <div
+          class="t-image__wrapper t-image__wrapper--shape-square"
+          fallback=""
+          referrerpolicy="strict-origin-when-cross-origin"
+        >
+          <!---->
+          <!---->
+          <!---->
+          <img
+            alt=""
+            class="t-image t-image--fit-fill t-image--position-center"
+            referrerpolicy="strict-origin-when-cross-origin"
+            src="https://image3.png"
+          />
+          <div
+            class="t-image__loading"
+          >
+            <div
+              class="t-space t-space-align-center t-space-vertical"
+              style="gap: 8px;"
+            >
+              
+              
+              <div
+                class="t-space-item"
+              >
+                <svg
+                  class="t-icon t-icon-image"
+                  fill="none"
+                  height="1em"
+                  style="font-size: 24px;"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M10 8a2 2 0 100-4 2 2 0 000 4zm0-1a1 1 0 100-2 1 1 0 000 2z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                    fill-rule="evenodd"
+                  />
+                  <path
+                    d="M2 13a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1H3a1 1 0 00-1 1v10zm1-1.3l3-3 4.3 4.3H3v-1.3zm0-1.4V3h10v10h-1.3L6 7.3l-3 3z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                </svg>
+              </div>
+              <!---->
+              
+              
+              <div
+                class="t-space-item"
+              >
+                图片加载中
+              </div>
+              <!---->
+              
+              
+            </div>
+          </div>
+          <!---->
+          <!---->
+        </div>
         <!--teleport start-->
         <!--teleport end-->
         
@@ -850,6 +1155,11 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
       </tbody>
     </table>
     <!---->
+    
+    <!---->
+    <!--teleport start-->
+    <!--teleport end-->
+    
   </div>
   <!---->
   <!---->
@@ -929,10 +1239,62 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
             class="t-upload__card-content t-is-bordered"
           >
             <!---->
-            <img
-              class="t-upload__card-image"
-              src="//tdesign.gtimg.com/tdesign-default-img.png"
-            />
+            <div
+              class="t-image__wrapper t-image__wrapper--shape-square t-upload__card-image"
+              fallback=""
+              referrerpolicy="strict-origin-when-cross-origin"
+            >
+              <!---->
+              <!---->
+              <!---->
+              <img
+                alt=""
+                class="t-image t-image--fit-fill t-image--position-center"
+                referrerpolicy="strict-origin-when-cross-origin"
+                src=""
+              />
+              <div
+                class="t-image__loading"
+              >
+                <div
+                  class="t-space t-space-align-center t-space-vertical"
+                  style="gap: 8px;"
+                >
+                  
+                  
+                  <div
+                    class="t-space-item"
+                  >
+                    <svg
+                      class="t-icon t-icon-image"
+                      fill="none"
+                      height="1em"
+                      style="font-size: 24px;"
+                      viewBox="0 0 16 16"
+                      width="1em"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M10 8a2 2 0 100-4 2 2 0 000 4zm0-1a1 1 0 100-2 1 1 0 000 2z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
+                        fill-rule="evenodd"
+                      />
+                      <path
+                        d="M2 13a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1H3a1 1 0 00-1 1v10zm1-1.3l3-3 4.3 4.3H3v-1.3zm0-1.4V3h10v10h-1.3L6 7.3l-3 3z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
+                      />
+                    </svg>
+                  </div>
+                  <!---->
+                  
+                  
+                </div>
+              </div>
+              <!---->
+              <!---->
+            </div>
             <div
               class="t-upload__card-mask"
             >
@@ -974,17 +1336,68 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
             class="t-upload__card-content t-is-bordered"
           >
             <!---->
-            <img
-              class="t-upload__card-image"
-              src="https://img1.txt"
-            />
+            <div
+              class="t-image__wrapper t-image__wrapper--shape-square t-upload__card-image"
+              fallback=""
+              referrerpolicy="strict-origin-when-cross-origin"
+            >
+              <!---->
+              <!---->
+              <!---->
+              <img
+                alt=""
+                class="t-image t-image--fit-fill t-image--position-center"
+                referrerpolicy="strict-origin-when-cross-origin"
+                src="https://img1.txt"
+              />
+              <div
+                class="t-image__loading"
+              >
+                <div
+                  class="t-space t-space-align-center t-space-vertical"
+                  style="gap: 8px;"
+                >
+                  
+                  
+                  <div
+                    class="t-space-item"
+                  >
+                    <svg
+                      class="t-icon t-icon-image"
+                      fill="none"
+                      height="1em"
+                      style="font-size: 24px;"
+                      viewBox="0 0 16 16"
+                      width="1em"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M10 8a2 2 0 100-4 2 2 0 000 4zm0-1a1 1 0 100-2 1 1 0 000 2z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
+                        fill-rule="evenodd"
+                      />
+                      <path
+                        d="M2 13a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1H3a1 1 0 00-1 1v10zm1-1.3l3-3 4.3 4.3H3v-1.3zm0-1.4V3h10v10h-1.3L6 7.3l-3 3z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
+                      />
+                    </svg>
+                  </div>
+                  <!---->
+                  
+                  
+                </div>
+              </div>
+              <!---->
+              <!---->
+            </div>
             <div
               class="t-upload__card-mask"
             >
               <span
                 class="t-upload__card-mask-item"
               >
-                
                 <svg
                   class="t-icon t-icon-browse"
                   fill="none"
@@ -1003,9 +1416,6 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                     fill-opacity="0.9"
                   />
                 </svg>
-                <!--teleport start-->
-                <!--teleport end-->
-                
                 <span
                   class="t-upload__card-mask-item-divider"
                 />
@@ -1047,17 +1457,68 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
             class="t-upload__card-content"
           >
             <!---->
-            <img
-              class="t-upload__card-image"
-              src="https://img2.txt"
-            />
+            <div
+              class="t-image__wrapper t-image__wrapper--shape-square t-upload__card-image"
+              fallback=""
+              referrerpolicy="strict-origin-when-cross-origin"
+            >
+              <!---->
+              <!---->
+              <!---->
+              <img
+                alt=""
+                class="t-image t-image--fit-fill t-image--position-center"
+                referrerpolicy="strict-origin-when-cross-origin"
+                src="https://img2.txt"
+              />
+              <div
+                class="t-image__loading"
+              >
+                <div
+                  class="t-space t-space-align-center t-space-vertical"
+                  style="gap: 8px;"
+                >
+                  
+                  
+                  <div
+                    class="t-space-item"
+                  >
+                    <svg
+                      class="t-icon t-icon-image"
+                      fill="none"
+                      height="1em"
+                      style="font-size: 24px;"
+                      viewBox="0 0 16 16"
+                      width="1em"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M10 8a2 2 0 100-4 2 2 0 000 4zm0-1a1 1 0 100-2 1 1 0 000 2z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
+                        fill-rule="evenodd"
+                      />
+                      <path
+                        d="M2 13a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1H3a1 1 0 00-1 1v10zm1-1.3l3-3 4.3 4.3H3v-1.3zm0-1.4V3h10v10h-1.3L6 7.3l-3 3z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
+                      />
+                    </svg>
+                  </div>
+                  <!---->
+                  
+                  
+                </div>
+              </div>
+              <!---->
+              <!---->
+            </div>
             <div
               class="t-upload__card-mask"
             >
               <span
                 class="t-upload__card-mask-item"
               >
-                
                 <svg
                   class="t-icon t-icon-browse"
                   fill="none"
@@ -1076,9 +1537,6 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                     fill-opacity="0.9"
                   />
                 </svg>
-                <!--teleport start-->
-                <!--teleport end-->
-                
                 <span
                   class="t-upload__card-mask-item-divider"
                 />
@@ -1147,7 +1605,6 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
               <span
                 class="t-upload__card-mask-item"
               >
-                
                 <svg
                   class="t-icon t-icon-browse"
                   fill="none"
@@ -1166,9 +1623,6 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                     fill-opacity="0.9"
                   />
                 </svg>
-                <!--teleport start-->
-                <!--teleport end-->
-                
                 <span
                   class="t-upload__card-mask-item-divider"
                 />
@@ -1249,7 +1703,6 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
               <span
                 class="t-upload__card-mask-item"
               >
-                
                 <svg
                   class="t-icon t-icon-browse"
                   fill="none"
@@ -1268,9 +1721,6 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                     fill-opacity="0.9"
                   />
                 </svg>
-                <!--teleport start-->
-                <!--teleport end-->
-                
                 <span
                   class="t-upload__card-mask-item-divider"
                 />
@@ -1310,6 +1760,11 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
     </div>
     <!---->
     <!---->
+    
+    <!---->
+    <!--teleport start-->
+    <!--teleport end-->
+    
   </div>
   <!---->
   <!---->

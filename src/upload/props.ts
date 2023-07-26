@@ -63,7 +63,7 @@ export default {
   /** 已上传文件列表，同 `value`。TS 类型：`UploadFile` */
   files: {
     type: Array as PropType<TdUploadProps['files']>,
-    default: undefined,
+    default: undefined as TdUploadProps['files'],
   },
   /** 已上传文件列表，同 `value`。TS 类型：`UploadFile`，非受控属性 */
   defaultFiles: {
@@ -130,6 +130,8 @@ export default {
   requestMethod: {
     type: Function as PropType<TdUploadProps['requestMethod']>,
   },
+  /** 是否在文件列表中显示缩略图，`theme=file-flow` 时有效 */
+  showThumbnail: Boolean,
   /** 是否显示上传进度 */
   showUploadProgress: {
     type: Boolean,
@@ -180,11 +182,11 @@ export default {
   /** 已上传文件列表，同 `files`。TS 类型：`UploadFile` */
   value: {
     type: Array as PropType<TdUploadProps['value']>,
-    default: undefined,
+    default: undefined as TdUploadProps['value'],
   },
   modelValue: {
     type: Array as PropType<TdUploadProps['value']>,
-    default: undefined,
+    default: undefined as TdUploadProps['value'],
   },
   /** 已上传文件列表，同 `files`。TS 类型：`UploadFile`，非受控属性 */
   defaultValue: {
