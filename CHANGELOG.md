@@ -4,7 +4,7 @@ spline: explain
 toc: false
 docClass: timeline
 ---
-  ## 🌈 1.3.13 `2023-07-26` 
+  ## 🌈 1.4.0 `2023-07-26` 
 ### 🚀 Features
 - `TimePicker`: 
   - `disableTime` 回调新增毫秒参数 @uyarn ([#3151](https://github.com/Tencent/tdesign-vue-next/pull/3151))
