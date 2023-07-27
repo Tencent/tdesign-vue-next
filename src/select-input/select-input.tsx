@@ -95,14 +95,16 @@ export default defineComponent({
 
     const tipsNode = this.renderTNodeJSX('tips');
 
+    const tipsClasses = [
+      `${this.classPrefix}-input__tips`,
+      `${this.classPrefix}-tips`,
+      `${this.classPrefix}-is-${this.status}`,
+    ];
+
     return (
       <div ref="selectInputRef" class={this.classes}>
         {mainContent}
-        {tipsNode && (
-          <div class={`${this.classPrefix}-input__tips ${this.classPrefix}-input__tips--${this.status || 'normal'}`}>
-            {tipsNode}
-          </div>
-        )}
+        {tipsNode && <div class={tipsClasses}>{tipsNode}</div>}
       </div>
     );
   },

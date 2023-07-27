@@ -1,4 +1,4 @@
-import { defineComponent, ref, toRefs, computed } from 'vue';
+import { defineComponent, ref, toRefs, computed, Fragment } from 'vue';
 import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
 import Input from '../input';
@@ -22,9 +22,11 @@ function calcArrayValue(value: unknown | Array<unknown>) {
 
 export default defineComponent({
   name: 'TRangeInput',
+
+  inheritAttrs: false,
   props,
 
-  setup(props, { expose }) {
+  setup(props, { expose, attrs }) {
     const { value, modelValue } = toRefs(props);
     const { STATUS, SIZE } = useCommonClassName();
     const classPrefix = usePrefixClass();
@@ -102,8 +104,9 @@ export default defineComponent({
       const suffixContent = renderTNodeJSX('suffix');
       const suffixIconContent = renderTNodeJSX('suffixIcon');
       const tips = renderTNodeJSX('tips');
-      return (
+      const RangeInputContent = (
         <div
+          {...attrs}
           class={[
             COMPONENT_NAME.value,
             {
@@ -209,8 +212,19 @@ export default defineComponent({
               </span>
             )}
           </div>
-          {tips && <div class={`${COMPONENT_NAME.value}__tips`}>{tips}</div>}
         </div>
+      );
+
+      const tipsClasses = [
+        `${COMPONENT_NAME.value}__tips`,
+        `${classPrefix.value}-tips`,
+        `${classPrefix.value}-is-${props.status}`,
+      ];
+      return (
+        <Fragment>
+          {RangeInputContent}
+          {tips && <div class={tipsClasses}>{tips}</div>}
+        </Fragment>
       );
     };
   },
