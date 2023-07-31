@@ -135,6 +135,7 @@ export default defineComponent({
     }
 
     function renderImage() {
+      // string | File
       const url = typeof imageStrSrc.value === 'string' ? imageStrSrc.value : previewUrl.value;
       return (
         <img

@@ -5,16 +5,12 @@
  * If you need to modify this file, contact PMC first please.
  */
 import { mount } from '@vue/test-utils';
-import { beforeEach, vi } from 'vitest';
+import { vi } from 'vitest';
 import { Image } from '..';
 import { getOverlayImageMount } from './mount';
 import { simulateImageEvent } from '@test/utils';
 
 describe('Image Component', () => {
-  beforeEach(() => {
-    File;
-  });
-
   it('props.alt works fine', () => {
     const wrapper = mount(<Image alt={'text image load failed'} src={'https://www.error.img.com'}></Image>).find('img');
     expect(wrapper.attributes('alt')).toBe('text image load failed');

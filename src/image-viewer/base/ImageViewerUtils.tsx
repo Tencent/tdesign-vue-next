@@ -1,11 +1,10 @@
 import { computed, defineComponent, PropType } from 'vue';
 import { ImageIcon, ZoomInIcon, ZoomOutIcon, DownloadIcon, MirrorIcon, RotationIcon } from 'tdesign-icons-vue-next';
-
 import TImageViewerIcon from './ImageModalIcon';
 import TToolTip from '../../tooltip';
 import { usePrefixClass } from '../../hooks/useConfig';
 import { downloadFile } from '../utils';
-import { useImagePreviewUrl } from '../../hooks/useImagePreviewUrl';
+import { useImagePreviewUrl } from '../../hooks';
 import { ImageInfo } from '../type';
 
 export default defineComponent({
