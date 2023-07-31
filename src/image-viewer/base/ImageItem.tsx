@@ -1,4 +1,4 @@
-import { computed, defineComponent, ref, toRefs, watch } from 'vue';
+import { computed, defineComponent, PropType, ref, toRefs, watch } from 'vue';
 import { ImageErrorIcon } from 'tdesign-icons-vue-next';
 import { usePrefixClass } from '../../hooks/useConfig';
 import { useDrag } from '../hooks';
@@ -10,8 +10,8 @@ export default defineComponent({
     rotate: Number,
     scale: Number,
     mirror: Number,
-    src: [String, File],
-    placementSrc: [String, File],
+    src: [String, Object] as PropType<string | File>,
+    placementSrc: [String, Object] as PropType<string | File>,
   },
 
   setup(props) {
