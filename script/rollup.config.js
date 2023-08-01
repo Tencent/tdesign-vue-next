@@ -81,7 +81,7 @@ const getPlugins = ({
       }),
       ignoreImport({
         include: ['src/*/style/*'],
-        body: 'import "./style/css.mjs";',
+        body: 'import "./css.js";',
       }),
       copy({
         targets: [
@@ -103,7 +103,7 @@ const getPlugins = ({
       }),
       ignoreImport({
         include: ['src/*/style/*'],
-        body: 'import "./style/index.js";',
+        body: 'import "./index.js";',
       }),
     );
   }
@@ -166,7 +166,7 @@ const esConfig = {
 
 /** @type {import('rollup').RollupOptions} */
 const esmConfig = {
-  input: inputList,
+  input: inputList.concat('!src/index-lib.ts'),
   // 为了保留 style/index.js
   treeshake: false,
   external: externalDeps.concat(externalPeerDeps),
