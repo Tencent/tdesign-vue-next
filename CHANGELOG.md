@@ -4,13 +4,13 @@ spline: explain
 toc: false
 docClass: timeline
 ---
-   ## 🌈 1.4.1 `2023-07-27` 
+## 🌈 1.4.1 `2023-07-27` 
 ### 🐞 Bug Fixes
 - `Table`: 可编辑表格校验错误信息样式不对齐，([issue#3154](https://github.com/Tencent/tdesign-vue-next/issues/3154)) @chaishi ([#3155](https://github.com/Tencent/tdesign-vue-next/pull/3155))
 - `Tree`: 修复 ([pr #3154](https://github.com/Tencent/tdesign-vue-next/pull/3154)) 导致的树选择器单选无法选中([issue#3158](https://github.com/Tencent/tdesign-vue-next/issues/3158)) ([issue#3154](https://github.com/Tencent/tdesign-vue-next/issues/3154))  @uyarn ([#3159](https://github.com/Tencent/tdesign-vue-next/pull/3159))
 ### 🚧 Others
 - `Common`: 输入框类组件的 `tips` 使用统一的文本提示样式，注意 `tips` 类名变更 @chaishi ([#3155](https://github.com/Tencent/tdesign-vue-next/pull/3155)) 
-  ## 🌈 1.4.0 `2023-07-26` 
+## 🌈 1.4.0 `2023-07-26` 
 ### 🚀 Features
 - `TimePicker`: 
   - `disableTime` 回调新增毫秒参数 @uyarn ([#3151](https://github.com/Tencent/tdesign-vue-next/pull/3151))
