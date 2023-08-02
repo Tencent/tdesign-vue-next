@@ -81,7 +81,7 @@ const getPlugins = ({
       }),
       ignoreImport({
         include: ['src/*/style/*'],
-        body: 'import "./css.js";',
+        body: 'import "./style/css.mjs";',
       }),
       copy({
         targets: [
@@ -103,7 +103,7 @@ const getPlugins = ({
       }),
       ignoreImport({
         include: ['src/*/style/*'],
-        body: 'import "./index.js";',
+        body: 'import "./style/index.js";',
       }),
     );
   }
