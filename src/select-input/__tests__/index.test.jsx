@@ -117,7 +117,8 @@ describe('SelectInput', () => {
           return <SelectInput value="tdesginer" {...item} />;
         });
         const tips = wrapper.find('.t-input__tips');
-        expect(tips.classes()).contains(`t-input__tips--${item.status}`);
+        expect(tips.classes()).contains(`t-tips`);
+        expect(tips.classes()).contains(`t-is-${item.status}`);
       });
     });
   });

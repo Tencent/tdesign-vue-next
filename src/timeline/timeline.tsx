@@ -30,16 +30,6 @@ export default defineComponent({
       return res;
     });
 
-    const getChildComponentSlots = useChildComponentSlots();
-
-    const timelineItems = computed(() => {
-      const items = getChildComponentSlots('TTimelineItem');
-      if (props.reverse) {
-        items.reverse();
-      }
-      return items;
-    });
-
     const TimeLineProvide = computed(() => {
       const { theme, reverse, layout, labelAlign, mode } = props;
       return {
@@ -56,28 +46,33 @@ export default defineComponent({
     const hasLabelItem = 1;
     provide(TimelineInjectKey, TimeLineProvide);
 
-    return () => (
-      <ul
-        class={[
-          `${COMPONENT_NAME.value}`,
-          {
-            [`${COMPONENT_NAME.value}-${renderAlign.value}`]: true,
-            [`${COMPONENT_NAME.value}-reverse`]: props.reverse,
-            [`${COMPONENT_NAME.value}-${props.layout}`]: true,
-            [`${COMPONENT_NAME.value}-label`]: hasLabelItem,
-            [`${COMPONENT_NAME.value}-label--${props.mode}`]: true,
-          },
-        ]}
-      >
-        {timelineItems.value.map((item, index) => (
-          <TimelineItem
-            {...item.props}
-            index={index}
-            class={{ [`${COMPONENT_NAME.value}-item--last`]: index === timelineItems.value.length - 1 }}
-            v-slots={item.children}
-          ></TimelineItem>
-        ))}
-      </ul>
-    );
+    return () => {
+      const getChildComponentSlots = useChildComponentSlots();
+      let timelineItems = getChildComponentSlots('TTimelineItem');
+      if (props.reverse) timelineItems = timelineItems.reverse();
+      return (
+        <ul
+          class={[
+            `${COMPONENT_NAME.value}`,
+            {
+              [`${COMPONENT_NAME.value}-${renderAlign.value}`]: true,
+              [`${COMPONENT_NAME.value}-reverse`]: props.reverse,
+              [`${COMPONENT_NAME.value}-${props.layout}`]: true,
+              [`${COMPONENT_NAME.value}-label`]: hasLabelItem,
+              [`${COMPONENT_NAME.value}-label--${props.mode}`]: true,
+            },
+          ]}
+        >
+          {timelineItems.map((item, index) => (
+            <TimelineItem
+              {...item.props}
+              index={index}
+              class={{ [`${COMPONENT_NAME.value}-item--last`]: index === timelineItems.length - 1 }}
+              v-slots={item.children}
+            ></TimelineItem>
+          ))}
+        </ul>
+      );
+    };
   },
 });

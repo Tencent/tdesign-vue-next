@@ -3,7 +3,6 @@
  */
 import { computed, ref, SetupContext, toRefs, watch } from 'vue';
 import { SettingIcon as TdSettingIcon } from 'tdesign-icons-vue-next';
-
 import intersection from 'lodash/intersection';
 import Checkbox, {
   CheckboxGroup,

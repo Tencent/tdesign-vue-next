@@ -146,7 +146,7 @@ describe('Grid', () => {
       );
       const cols = wrapper.findAll('.t-col');
       expect(cols[0].classes()).toContain('t-col-4');
-      expect(cols[1].classes()).toContain('t-col-12');
+      expect(cols[1].classes()).toContain('t-col');
     });
     it(':offset', () => {
       const wrapper = mount(

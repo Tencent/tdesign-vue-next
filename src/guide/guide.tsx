@@ -59,7 +59,7 @@ export default defineComponent({
       currentStepInfo.value[propsName] ?? props[propsName];
 
     // 设置高亮层的位置
-    const setHighlightLayerPosition = (highlighLayer: HTMLElement) => {
+    const setHighlightLayerPosition = (highlightLayer: HTMLElement) => {
       // 这里预留了一个相对元素的功能，暂未使用，也是这里导致了 fix #2111
       let { top, left } = getRelativePosition(currentHighlightLayerElm.value);
       let { width, height } = currentHighlightLayerElm.value.getBoundingClientRect();
@@ -76,7 +76,7 @@ export default defineComponent({
         left += scrollLeft;
       }
 
-      setStyle(highlighLayer, {
+      setStyle(highlightLayer, {
         width: `${width}px`,
         height: `${height}px`,
         top: `${top}px`,
@@ -274,6 +274,7 @@ export default defineComponent({
           <div class={`${COMPONENT_NAME.value}__action`}>
             {!hideSkip.value && !isLast && (
               <Button
+                key="skip"
                 class={`${COMPONENT_NAME.value}__skip`}
                 theme="default"
                 size={buttonSize}
@@ -284,8 +285,9 @@ export default defineComponent({
             )}
             {!hidePrev.value && !isFirst && (
               <Button
+                key="prev"
                 class={`${COMPONENT_NAME.value}__prev`}
-                theme="primary"
+                theme="default"
                 size={buttonSize}
                 variant="base"
                 onClick={handlePrev}
@@ -294,6 +296,7 @@ export default defineComponent({
             )}
             {!isLast && (
               <Button
+                key="next"
                 class={`${COMPONENT_NAME.value}__next`}
                 theme="primary"
                 size={buttonSize}
@@ -304,6 +307,7 @@ export default defineComponent({
             )}
             {isLast && (
               <Button
+                key="finish"
                 class={`${COMPONENT_NAME.value}__finish`}
                 theme="primary"
                 size={buttonSize}

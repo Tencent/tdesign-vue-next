@@ -7,7 +7,7 @@
  */
 import { ref, Ref, reactive, onMounted } from 'vue';
 import isNumber from 'lodash/isNumber';
-import { BaseTableCol, TableRowData } from '../type';
+import { BaseTableCol, TableRowData, TdBaseTableProps } from '../type';
 import { on, off } from '../../utils/dom';
 
 const DEFAULT_MIN_WIDTH = 80;
@@ -26,6 +26,7 @@ export default function useColumnResize(params: {
   updateThWidthList: (data: { [colKey: string]: number }) => void;
   setTableElmWidth: (width: number) => void;
   updateTableAfterColumnResize: () => void;
+  onColumnResizeChange: TdBaseTableProps['onColumnResizeChange'];
 }) {
   const {
     isWidthOverflow,
@@ -35,6 +36,7 @@ export default function useColumnResize(params: {
     updateThWidthList,
     setTableElmWidth,
     updateTableAfterColumnResize,
+    onColumnResizeChange,
   } = params;
   const resizeLineRef = ref<HTMLDivElement>();
   const effectColMap = ref<{ [colKey: string]: any }>({});
@@ -309,6 +311,7 @@ export default function useColumnResize(params: {
       off(document, 'mousemove', onDragOver);
       document.onselectstart = originalSelectStart;
       document.ondragstart = originalDragStart;
+      onColumnResizeChange?.({ columnsWidth: newThWidthList });
     };
 
     // 注意前后两列最小和最大宽度限制

@@ -7,6 +7,7 @@ import { useChildComponentSlots } from '../hooks';
 import props from './props';
 import { SwiperNavigation, SwiperChangeSource } from './type';
 import TSwiperItem from './swiper-item';
+import { useTNodeJSX } from '../hooks/tnode';
 
 const defaultNavigation: SwiperNavigation = {
   placement: 'inside',
@@ -21,6 +22,8 @@ export default defineComponent({
   emits: ['update:current'],
   setup(props, { emit }) {
     const prefix = usePrefixClass();
+    const renderTNodeJSX = useTNodeJSX();
+
     const { ChevronLeftIcon, ChevronRightIcon } = useGlobalIcon({
       ChevronLeftIcon: TdChevronLeftIcon,
       ChevronRightIcon: TdChevronRightIcon,
@@ -256,6 +259,9 @@ export default defineComponent({
     };
     const renderNavigation = () => {
       if (isVNode(props.navigation)) return props.navigation;
+      const navigationSlot = renderTNodeJSX('navigation');
+      if (navigationSlot && isVNode(navigationSlot?.[0])) return navigationSlot;
+
       if (navigationConfig.value.type === 'fraction') {
         return (
           <div class={[`${prefix.value}-swiper__navigation`, `${prefix.value}-swiper__navigation--fraction`]}>

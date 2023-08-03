@@ -1,4 +1,4 @@
-import { defineComponent, ref, toRefs, computed } from 'vue';
+import { defineComponent, ref, toRefs, computed, Fragment } from 'vue';
 import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
 import Input from '../input';
@@ -22,9 +22,11 @@ function calcArrayValue(value: unknown | Array<unknown>) {
 
 export default defineComponent({
   name: 'TRangeInput',
+
+  inheritAttrs: false,
   props,
 
-  setup(props, { expose }) {
+  setup(props, { expose, attrs }) {
     const { value, modelValue } = toRefs(props);
     const { STATUS, SIZE } = useCommonClassName();
     const classPrefix = usePrefixClass();
@@ -44,12 +46,6 @@ export default defineComponent({
       () =>
         ((props.clearable && props.value?.length && !disabled.value) || props.showClearIconOnEmpty) && isHover.value,
     );
-
-    const labelContent = renderTNodeJSX('label');
-    const prefixIconContent = renderTNodeJSX('prefixIcon');
-    const suffixContent = renderTNodeJSX('suffix');
-    const suffixIconContent = renderTNodeJSX('suffixIcon');
-    const tips = renderTNodeJSX('tips');
 
     const inputRefs = {
       firstInputRef: ref(),
@@ -102,115 +98,134 @@ export default defineComponent({
       },
     });
 
-    return () => (
-      <div
-        class={[
-          COMPONENT_NAME.value,
-          {
-            [SIZE.value[props.size]]: props.size !== 'medium',
-            [STATUS.value.disabled]: disabled.value,
-            [STATUS.value.focused]: focused.value,
-            [STATUS.value.success]: props.status === 'success',
-            [STATUS.value.warning]: props.status === 'warning',
-            [STATUS.value.error]: props.status === 'error',
-            [`${COMPONENT_NAME.value}--prefix`]: prefixIconContent || labelContent,
-            [`${COMPONENT_NAME.value}--suffix`]: suffixContent || suffixIconContent,
-          },
-        ]}
-        onMouseenter={handleMouseEnter}
-        onMouseleave={handleMouseLeave}
-      >
-        <div class={`${COMPONENT_NAME.value}__inner`}>
-          {prefixIconContent && <div class={`${COMPONENT_NAME.value}__prefix`}>{prefixIconContent}</div>}
-          {labelContent ? <div class={`${COMPONENT_NAME.value}__prefix`}>{labelContent}</div> : null}
-          <Input
-            ref={inputRefs.firstInputRef}
-            class={`${COMPONENT_NAME.value}__inner-left`}
-            inputClass={{
-              [`${classPrefix.value}-is-focused`]: props.activeIndex === 0,
-            }}
-            placeholder={placeholder.value[0]}
-            disabled={disabled.value}
-            readonly={props.readonly}
-            format={format.value[0]}
-            value={innerValue.value?.[0]}
-            onClick={({ e }: { e: MouseEvent }) => props.onClick?.({ e, position: 'first' })}
-            onClear={() => setInnerValue([], { position: 'first', trigger: 'input' })}
-            onEnter={(val, { e }) =>
-              handleEnter([val, innerValue.value?.[1]], { e, position: 'first' } as {
-                e: any;
-                position: RangeInputPosition;
-              })
-            }
-            onFocus={(val, { e }) =>
-              handleFocus([val, innerValue.value?.[1]], { e, position: 'first' } as {
-                e: any;
-                position: RangeInputPosition;
-              })
-            }
-            onBlur={(val, { e }) =>
-              handleBlur([val, innerValue.value?.[1]], { e, position: 'first' } as {
-                e: any;
-                position: RangeInputPosition;
-              })
-            }
-            onChange={(val, { e }) =>
-              setInnerValue([val, innerValue.value?.[1]], { e, position: 'first', trigger: 'input' })
-            }
-            {...inputProps.value[0]}
-          />
+    return () => {
+      const labelContent = renderTNodeJSX('label');
+      const prefixIconContent = renderTNodeJSX('prefixIcon');
+      const suffixContent = renderTNodeJSX('suffix');
+      const suffixIconContent = renderTNodeJSX('suffixIcon');
+      const tips = renderTNodeJSX('tips');
+      const RangeInputContent = (
+        <div
+          {...attrs}
+          class={[
+            COMPONENT_NAME.value,
+            {
+              [SIZE.value[props.size]]: props.size !== 'medium',
+              [STATUS.value.disabled]: disabled.value,
+              [STATUS.value.focused]: focused.value,
+              [STATUS.value.success]: props.status === 'success',
+              [STATUS.value.warning]: props.status === 'warning',
+              [STATUS.value.error]: props.status === 'error',
+              [`${COMPONENT_NAME.value}--prefix`]: prefixIconContent || labelContent,
+              [`${COMPONENT_NAME.value}--suffix`]: suffixContent || suffixIconContent,
+            },
+          ]}
+          onMouseenter={handleMouseEnter}
+          onMouseleave={handleMouseLeave}
+        >
+          <div class={`${COMPONENT_NAME.value}__inner`}>
+            {prefixIconContent && <div class={`${COMPONENT_NAME.value}__prefix`}>{prefixIconContent}</div>}
+            {labelContent ? <div class={`${COMPONENT_NAME.value}__prefix`}>{labelContent}</div> : null}
+            <Input
+              ref={inputRefs.firstInputRef}
+              class={`${COMPONENT_NAME.value}__inner-left`}
+              inputClass={{
+                [`${classPrefix.value}-is-focused`]: props.activeIndex === 0,
+              }}
+              placeholder={placeholder.value[0]}
+              disabled={disabled.value}
+              readonly={props.readonly}
+              format={format.value[0]}
+              value={innerValue.value?.[0]}
+              onClick={({ e }: { e: MouseEvent }) => props.onClick?.({ e, position: 'first' })}
+              onClear={() => setInnerValue([], { position: 'first', trigger: 'input' })}
+              onEnter={(val, { e }) =>
+                handleEnter([val, innerValue.value?.[1]], { e, position: 'first' } as {
+                  e: any;
+                  position: RangeInputPosition;
+                })
+              }
+              onFocus={(val, { e }) =>
+                handleFocus([val, innerValue.value?.[1]], { e, position: 'first' } as {
+                  e: any;
+                  position: RangeInputPosition;
+                })
+              }
+              onBlur={(val, { e }) =>
+                handleBlur([val, innerValue.value?.[1]], { e, position: 'first' } as {
+                  e: any;
+                  position: RangeInputPosition;
+                })
+              }
+              onChange={(val, { e }) =>
+                setInnerValue([val, innerValue.value?.[1]], { e, position: 'first', trigger: 'input' })
+              }
+              {...inputProps.value[0]}
+            />
 
-          <div class={`${COMPONENT_NAME.value}__inner-separator`}>{props.separator}</div>
+            <div class={`${COMPONENT_NAME.value}__inner-separator`}>{props.separator}</div>
 
-          <Input
-            ref={inputRefs.secondInputRef}
-            class={`${COMPONENT_NAME.value}__inner-right`}
-            inputClass={{
-              [`${classPrefix.value}-is-focused`]: props.activeIndex === 1,
-            }}
-            placeholder={placeholder.value[1]}
-            disabled={disabled.value}
-            readonly={props.readonly}
-            format={format.value[1]}
-            value={innerValue.value?.[1]}
-            onClick={({ e }: { e: MouseEvent }) => props.onClick?.({ e, position: 'second' })}
-            onClear={() => setInnerValue([], { position: 'second', trigger: 'input' })}
-            onEnter={(val, { e }) =>
-              handleEnter([innerValue.value?.[0], val], { e, position: 'second' } as {
-                e: any;
-                position: RangeInputPosition;
-              })
-            }
-            onFocus={(val, { e }) =>
-              handleFocus([innerValue.value?.[0], val], { e, position: 'second' } as {
-                e: any;
-                position: RangeInputPosition;
-              })
-            }
-            onBlur={(val, { e }) =>
-              handleBlur([innerValue.value?.[0], val], { e, position: 'second' } as {
-                e: any;
-                position: RangeInputPosition;
-              })
-            }
-            onChange={(val, { e }) =>
-              setInnerValue([innerValue.value?.[0], val], { e, position: 'second', trigger: 'input' })
-            }
-            {...inputProps.value[1]}
-          />
-          {suffixContent ? <div class={`${COMPONENT_NAME.value}__suffix`}>{suffixContent}</div> : null}
-          {suffixIconContent && (
-            <span class={`${COMPONENT_NAME.value}__suffix ${COMPONENT_NAME.value}__suffix-icon`}>
-              {isShowClearIcon.value ? (
-                <CloseCircleFilledIcon class={`${COMPONENT_NAME.value}__suffix-clear`} onClick={handleClear} />
-              ) : (
-                suffixIconContent
-              )}
-            </span>
-          )}
+            <Input
+              ref={inputRefs.secondInputRef}
+              class={`${COMPONENT_NAME.value}__inner-right`}
+              inputClass={{
+                [`${classPrefix.value}-is-focused`]: props.activeIndex === 1,
+              }}
+              placeholder={placeholder.value[1]}
+              disabled={disabled.value}
+              readonly={props.readonly}
+              format={format.value[1]}
+              value={innerValue.value?.[1]}
+              onClick={({ e }: { e: MouseEvent }) => props.onClick?.({ e, position: 'second' })}
+              onClear={() => setInnerValue([], { position: 'second', trigger: 'input' })}
+              onEnter={(val, { e }) =>
+                handleEnter([innerValue.value?.[0], val], { e, position: 'second' } as {
+                  e: any;
+                  position: RangeInputPosition;
+                })
+              }
+              onFocus={(val, { e }) =>
+                handleFocus([innerValue.value?.[0], val], { e, position: 'second' } as {
+                  e: any;
+                  position: RangeInputPosition;
+                })
+              }
+              onBlur={(val, { e }) =>
+                handleBlur([innerValue.value?.[0], val], { e, position: 'second' } as {
+                  e: any;
+                  position: RangeInputPosition;
+                })
+              }
+              onChange={(val, { e }) =>
+                setInnerValue([innerValue.value?.[0], val], { e, position: 'second', trigger: 'input' })
+              }
+              {...inputProps.value[1]}
+            />
+            {suffixContent ? <div class={`${COMPONENT_NAME.value}__suffix`}>{suffixContent}</div> : null}
+            {suffixIconContent && (
+              <span class={`${COMPONENT_NAME.value}__suffix ${COMPONENT_NAME.value}__suffix-icon`}>
+                {isShowClearIcon.value ? (
+                  <CloseCircleFilledIcon class={`${COMPONENT_NAME.value}__suffix-clear`} onClick={handleClear} />
+                ) : (
+                  suffixIconContent
+                )}
+              </span>
+            )}
+          </div>
         </div>
-        {tips && <div class={`${COMPONENT_NAME.value}__tips`}>{tips}</div>}
-      </div>
-    );
+      );
+
+      const tipsClasses = [
+        `${COMPONENT_NAME.value}__tips`,
+        `${classPrefix.value}-tips`,
+        `${classPrefix.value}-is-${props.status}`,
+      ];
+      return (
+        <Fragment>
+          {RangeInputContent}
+          {tips && <div class={tipsClasses}>{tips}</div>}
+        </Fragment>
+      );
+    };
   },
 });

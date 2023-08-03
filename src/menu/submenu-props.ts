@@ -22,6 +22,10 @@ export default {
   icon: {
     type: Function as PropType<TdSubmenuProps['icon']>,
   },
+  /** 透传 Popup 组件全部特性 */
+  popupProps: {
+    type: Object as PropType<TdSubmenuProps['popupProps']>,
+  },
   /** 二级菜单内容 */
   title: {
     type: [String, Function] as PropType<TdSubmenuProps['title']>,

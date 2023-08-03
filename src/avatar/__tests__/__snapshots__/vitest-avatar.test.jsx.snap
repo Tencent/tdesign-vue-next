@@ -112,6 +112,8 @@ exports[`AvatarGroup Component > props.collapseAvatar works fine 1`] = `
   >
     <div
       class="t-image__wrapper t-image__wrapper--shape-square"
+      fallback=""
+      referrerpolicy="strict-origin-when-cross-origin"
     >
       <!---->
       <!---->
@@ -119,6 +121,7 @@ exports[`AvatarGroup Component > props.collapseAvatar works fine 1`] = `
       <img
         alt=""
         class="t-image t-image--fit-fill t-image--position-center"
+        referrerpolicy="strict-origin-when-cross-origin"
         src="https://tdesign.gtimg.com/site/avatar.jpg"
       />
       <div
@@ -223,6 +226,8 @@ exports[`AvatarGroup Component > slots.collapse-avatar works fine 1`] = `
   >
     <div
       class="t-image__wrapper t-image__wrapper--shape-square"
+      fallback=""
+      referrerpolicy="strict-origin-when-cross-origin"
     >
       <!---->
       <!---->
@@ -230,6 +235,7 @@ exports[`AvatarGroup Component > slots.collapse-avatar works fine 1`] = `
       <img
         alt=""
         class="t-image t-image--fit-fill t-image--position-center"
+        referrerpolicy="strict-origin-when-cross-origin"
         src="https://tdesign.gtimg.com/site/avatar.jpg"
       />
       <div
@@ -330,6 +336,8 @@ exports[`AvatarGroup Component > slots.collapseAvatar works fine 1`] = `
   >
     <div
       class="t-image__wrapper t-image__wrapper--shape-square"
+      fallback=""
+      referrerpolicy="strict-origin-when-cross-origin"
     >
       <!---->
       <!---->
@@ -337,6 +345,7 @@ exports[`AvatarGroup Component > slots.collapseAvatar works fine 1`] = `
       <img
         alt=""
         class="t-image t-image--fit-fill t-image--position-center"
+        referrerpolicy="strict-origin-when-cross-origin"
         src="https://tdesign.gtimg.com/site/avatar.jpg"
       />
       <div

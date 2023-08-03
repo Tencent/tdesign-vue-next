@@ -1,6 +1,6 @@
 <template>
   <t-space>
-    <t-dropdown :options="options" @click="clickHandler">
+    <t-dropdown :options="options" trigger="click" @click="clickHandler">
       <t-space>
         <t-button variant="text">
           更多

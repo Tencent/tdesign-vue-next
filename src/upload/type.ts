@@ -34,7 +34,7 @@ export interface TdUploadProps<T extends UploadFile = UploadFile> {
    */
   autoUpload?: boolean;
   /**
-   * 如果是自动上传模式 `autoUpload=true`，表示全部文件上传之前的钩子函数，函数参数为上传的文件，函数返回值决定是否继续上传，若返回值为 `false` 则终止上传。<br/>如果是非自动上传模式 `autoUpload=false`，则函数返回值为 `false` 时表示不触发文件变化
+   * 如果是自动上传模式 `autoUpload=true`，表示全部文件上传之前的钩子函数，函数参数为上传的文件，函数返回值决定是否继续上传，若返回值为 `false` 则终止上传。<br/>如果是非自动上传模式 `autoUpload=false`，则函数返回值为 `false` 时表示本次选中的文件不会加入到文件列表中，即不触发 `onChange` 事件
    */
   beforeAllFilesUpload?: (file: UploadFile[]) => boolean | Promise<boolean>;
   /**
@@ -62,7 +62,7 @@ export interface TdUploadProps<T extends UploadFile = UploadFile> {
    */
   draggable?: boolean;
   /**
-   * 用于完全自定义文件列表内容
+   * 用于完全自定义文件列表界面内容(UI)，单文件和多文件均有效
    */
   fileListDisplay?: TNode<{ files: UploadFile[]; dragEvents?: UploadDisplayDragEvents }>;
   /**
@@ -137,6 +137,11 @@ export interface TdUploadProps<T extends UploadFile = UploadFile> {
    * 自定义上传方法。返回值 `status` 表示上传成功或失败；`error` 或 `response.error` 表示上传失败的原因；<br/>`response` 表示请求上传成功后的返回数据，`response.url` 表示上传成功后的图片/文件地址，`response.files` 表示一个请求上传多个文件/图片后的返回值。<br/>示例一：`{ status: 'fail', error: '上传失败', response }`。<br/>示例二：`{ status: 'success', response: { url: 'https://tdesign.gtimg.com/site/avatar.jpg' } }`。<br/> 示例三：`{ status: 'success', files: [{ url: 'https://xxx.png', name: 'xxx.png' }]}`
    */
   requestMethod?: (files: UploadFile | UploadFile[]) => Promise<RequestMethodResponse>;
+  /**
+   * 是否在文件列表中显示缩略图，`theme=file-flow` 时有效
+   * @default false
+   */
+  showThumbnail?: boolean;
   /**
    * 是否显示上传进度
    * @default true
@@ -273,6 +278,10 @@ export interface UploadInstanceFunctions<T extends UploadFile = UploadFile> {
    * 组件实例方法，打开文件选择器
    */
   triggerUpload: () => void;
+  /**
+   * 设置上传中文件的上传进度
+   */
+  uploadFilePercent: () => void;
   /**
    * 组件实例方法，默认上传未成功上传过的所有文件。带参数时，表示上传指定文件
    */

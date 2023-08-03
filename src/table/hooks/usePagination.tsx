@@ -31,6 +31,8 @@ export default function usePagination(props: TdBaseTableProps, context: SetupCon
     () => [pagination.value?.current, pagination.value?.pageSize, data.value.length, disableDataPage],
     () => {
       if (!pagination.value || !pagination.value.current) return;
+      const { current, pageSize } = pagination.value;
+      innerPagination.value = { current, pageSize };
       updateDataSourceAndPaginate(pagination.value.current, pagination.value.pageSize);
     },
     { immediate: true },
@@ -41,7 +43,10 @@ export default function usePagination(props: TdBaseTableProps, context: SetupCon
     [data],
     () => {
       if (!pagination.value || !pagination.value.defaultCurrent) return;
-      updateDataSourceAndPaginate(pagination.value.defaultCurrent, pagination.value.defaultPageSize);
+      updateDataSourceAndPaginate(
+        innerPagination.value.current ?? pagination.value.defaultCurrent,
+        innerPagination.value.pageSize ?? pagination.value.defaultPageSize,
+      );
     },
     { immediate: true },
   );

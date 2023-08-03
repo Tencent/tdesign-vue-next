@@ -43,7 +43,8 @@ const createDialog: DialogMethod = (props: DialogOptions) => {
       };
     },
   });
-  const dialog = createApp(component).mount(wrapper);
+  const dialogComponent = createApp(component);
+  const dialog = dialogComponent.mount(wrapper);
 
   let preClassName = className;
 
@@ -87,7 +88,7 @@ const createDialog: DialogMethod = (props: DialogOptions) => {
     destroy: () => {
       visible.value = false;
       setTimeout(() => {
-        wrapper.parentNode.removeChild(wrapper);
+        dialogComponent.unmount();
       }, 300);
     },
   };

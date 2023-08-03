@@ -5,7 +5,10 @@ import { TdImageViewerProps, ImageInfo } from './type';
 
 export const downloadFile = function (imgSrc: string) {
   const image = new Image();
-  const name = imgSrc?.split?.('/').pop() || Math.random().toString(32).slice(2);
+  // fix #2935
+  // 当链接携带了参数时，需处理掉参数再取图片名称，否则扩展名会与参数链接导致原扩展名失效
+  // 例如：img.png?sign=xxx 不处理参数会被转成 img.png_sign=xxx
+  const name = imgSrc?.split?.('?')?.[0]?.split?.('#')?.[0]?.split?.('/').pop() || Math.random().toString(32).slice(2);
 
   image.setAttribute('crossOrigin', 'anonymous');
 
@@ -29,8 +32,8 @@ export const downloadFile = function (imgSrc: string) {
   image.src = imgSrc;
 };
 
-const isImageInfo = (image: string | ImageInfo): image is ImageInfo => {
-  return !isString(image);
+const isImageInfo = (image: string | File | ImageInfo): image is ImageInfo => {
+  return !isString(image) && !(image instanceof File);
 };
 
 export const formatImages = (images: TdImageViewerProps['images']): ImageInfo[] => {

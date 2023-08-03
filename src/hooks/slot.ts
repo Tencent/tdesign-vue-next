@@ -54,6 +54,9 @@ export function useChildSlots() {
 
     return content
       .filter((item) => {
+        if (typeof item.type === 'symbol' && !item.children) {
+          return false;
+        }
         return item.type !== Comment;
       })
       .map((item) => {

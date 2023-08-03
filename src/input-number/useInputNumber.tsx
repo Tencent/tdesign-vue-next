@@ -86,10 +86,18 @@ export default function useInputNumber(props: TdInputNumberProps) {
         if (parseFloat(userInput.value) !== val) {
           userInput.value = getUserInput(inputValue);
         }
+        const fixedNumber = Number(largeNumberToFixed(inputValue, decimalPlaces, largeNumber));
+        if (
+          decimalPlaces !== undefined &&
+          ![undefined, null].includes(val) &&
+          Number(fixedNumber) !== Number(tValue.value)
+        ) {
+          setTValue(fixedNumber, { type: 'props', e: undefined });
+        }
       }
       if (largeNumber) {
         userInput.value = getUserInput(inputValue);
-        if (decimalPlaces && largeNumberToFixed(inputValue, decimalPlaces, largeNumber) !== val) {
+        if (decimalPlaces !== undefined && largeNumberToFixed(inputValue, decimalPlaces, largeNumber) !== val) {
           setTValue(userInput.value, { type: 'props', e: undefined });
         }
       }
@@ -154,6 +162,7 @@ export default function useInputNumber(props: TdInputNumberProps) {
   const onInnerInputChange: TdInputProps['onChange'] = (inputValue, { e }) => {
     // 千分位处理
     const val = formatThousandths(inputValue);
+
     if (!canInputNumber(val, props.largeNumber)) return;
 
     userInput.value = val;
@@ -171,7 +180,7 @@ export default function useInputNumber(props: TdInputNumberProps) {
 
   const handleBlur = (value: string, ctx: { e: FocusEvent }) => {
     const { largeNumber, max, min, decimalPlaces } = props;
-    if (!props.allowInputOverLimit && tValue.value) {
+    if (!props.allowInputOverLimit && tValue.value !== undefined) {
       const r = getMaxOrMinValidateResult({ value: tValue.value, largeNumber, max, min });
       if (r === 'below-minimum') {
         setTValue(min, { type: 'blur', e: ctx.e });
@@ -187,6 +196,7 @@ export default function useInputNumber(props: TdInputNumberProps) {
       largeNumber,
     });
     userInput.value = getUserInput(newValue);
+
     if (newValue !== tValue.value) {
       setTValue(newValue, { type: 'blur', e: ctx.e });
     }

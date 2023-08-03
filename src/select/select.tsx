@@ -34,6 +34,12 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('select');
     const { globalConfig, t } = useConfig('select');
     const { popupVisible, inputValue, modelValue, value } = toRefs(props);
+    const [innerInputValue, setInputValue] = useDefaultValue(
+      inputValue,
+      props.defaultInputValue,
+      props.onInputChange,
+      'inputValue',
+    );
     const [orgValue, setOrgValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
     const selectPanelRef = ref(null);
     const selectInputRef = ref(null);
@@ -41,11 +47,15 @@ export default defineComponent({
       label: props.keys?.label || 'label',
       value: props.keys?.value || 'value',
     }));
-    const { options, optionsMap, optionsList, optionsCache } = useSelectOptions(props, keys);
+    const { options, optionsMap, optionsList, optionsCache, displayOptions } = useSelectOptions(
+      props,
+      keys,
+      innerInputValue,
+    );
 
     // 内部数据,格式化过的
     const innerValue = computed(() => {
-      if (orgValue.value === undefined || orgValue.value === '') {
+      if (orgValue.value === undefined) {
         return props.multiple ? [] : undefined;
       }
       if (props.valueType === 'object') {
@@ -59,8 +69,8 @@ export default defineComponent({
       if (props.valueType === 'object') {
         const { value, label } = keys.value;
         const getOption = (val: SelectValue) => {
-          if (val === undefined || val === '') {
-            return '';
+          if (val === undefined) {
+            return undefined;
           }
           const option = optionsMap.value.get(val);
           return {
@@ -77,12 +87,6 @@ export default defineComponent({
       });
     };
 
-    const [innerInputValue, setInputValue] = useDefaultValue(
-      inputValue,
-      props.defaultInputValue,
-      props.onInputChange,
-      'inputValue',
-    );
     const [innerPopupVisible, setInnerPopupVisible] = useDefaultValue(
       popupVisible,
       false,
@@ -157,7 +161,7 @@ export default defineComponent({
     // 键盘操作逻辑
     const hoverIndex = ref(-1);
     const handleKeyDown = (e: KeyboardEvent) => {
-      const optionsListLength = optionsList.value.length;
+      const optionsListLength = displayOptions.value.length;
       let newIndex = hoverIndex.value;
       switch (e.code) {
         case 'ArrowUp':
@@ -278,6 +282,7 @@ export default defineComponent({
       isCheckAll: isCheckAll.value,
       onCheckAllChange,
       getSelectedOptions,
+      displayOptions: displayOptions.value,
     }));
 
     provide(selectInjectKey, SelectProvide);
@@ -399,6 +404,7 @@ export default defineComponent({
             collapsed-items={props.collapsedItems}
             inputProps={{
               size: props.size,
+              autofocus: props.autofocus,
               ...(props.inputProps as TdSelectProps['inputProps']),
               onkeydown: handleKeyDown,
             }}
@@ -438,14 +444,16 @@ export default defineComponent({
               setInnerPopupVisible(val, context);
             }}
             onInputChange={(value, context) => {
-              if (!innerPopupVisible.value) return;
+              if (value) {
+                setInnerPopupVisible(true, { e: context.e as KeyboardEvent });
+              }
               setInputValue(value);
               handleSearch(`${value}`, { e: context.e as KeyboardEvent });
             }}
             onClear={({ e }) => {
-              setInnerValue(props.multiple ? [] : '', {
+              setInnerValue(props.multiple ? [] : undefined, {
                 option: null,
-                selectedOptions: getSelectedOptions(props.multiple ? [] : ''),
+                selectedOptions: getSelectedOptions(props.multiple ? [] : undefined),
                 trigger: 'clear',
                 e,
               });

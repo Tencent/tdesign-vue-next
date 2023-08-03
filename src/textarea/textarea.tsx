@@ -195,6 +195,12 @@ export default defineComponent({
       setStyle(refTextareaElem.value, merge(style, val));
     });
 
+    watch(innerValue, () => {
+      nextTick(() => adjustTextareaHeight());
+    });
+
+    watch(() => props.autosize, adjustTextareaHeight, { deep: true });
+
     expose({
       focus,
       blur,

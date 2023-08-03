@@ -73,10 +73,9 @@ export default defineComponent({
 
       props.onClick?.(state);
     };
-
     const nodeRef = ref<HTMLElement>();
     const { isDragOver, isDragging, dropPosition, setDragStatus } = useDraggable(
-      reactive({ nodeRef, node: props.node }),
+      reactive({ nodeRef, node: props.node }) as { nodeRef: HTMLElement; node: TreeNode },
     );
 
     const handleDragStart = (evt: DragEvent) => {

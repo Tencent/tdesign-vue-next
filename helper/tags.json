@@ -192,6 +192,7 @@
       "top-content",
       "vertical-align",
       "cell-click",
+      "column-resize-change",
       "page-change",
       "row-click",
       "row-dblclick",
@@ -368,6 +369,7 @@
       "max",
       "min-collapsed-num",
       "multiple",
+      "option",
       "options",
       "placeholder",
       "popup-props",
@@ -426,7 +428,6 @@
   },
   "t-checkbox-group": {
     "attributes": [
-      "disabled",
       "max",
       "name",
       "options",
@@ -532,6 +533,7 @@
       "prefix-icon",
       "presets",
       "presets-placement",
+      "size",
       "status",
       "suffix-icon",
       "time-picker-props",
@@ -540,8 +542,10 @@
       "value-type",
       "blur",
       "change",
+      "confirm",
       "focus",
-      "pick"
+      "pick",
+      "preset-click"
     ],
     "description": "DatePicker\n\n日期选择器\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker)"
   },
@@ -578,6 +582,7 @@
       "presets-placement",
       "range-input-props",
       "separator",
+      "size",
       "status",
       "suffix-icon",
       "time-picker-props",
@@ -586,9 +591,11 @@
       "value-type",
       "blur",
       "change",
+      "confirm",
       "focus",
       "input",
-      "pick"
+      "pick",
+      "preset-click"
     ],
     "description": "DateRangePicker\n\n日期范围选择器\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-range-picker)"
   },
@@ -605,6 +612,25 @@
       "year-change"
     ],
     "description": "DateRangePickerPanel\n\n日期范围选择器面板\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-range-picker-panel)"
+  },
+  "t-description-item": {
+    "attributes": [
+      "label",
+      "span"
+    ],
+    "description": "DescriptionItem\n\n描述项\n\n[docs](https://tdesign.tencent.com/vue-next/components/description-item)"
+  },
+  "t-descriptions": {
+    "attributes": [
+      "bordered",
+      "colon",
+      "columns",
+      "content-align",
+      "label-align",
+      "layout",
+      "size"
+    ],
+    "description": "Descriptions\n\n描述列表\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions)"
   },
   "t-dialog": {
     "attributes": [
@@ -1003,6 +1029,7 @@
       "footer",
       "header",
       "layout",
+      "scroll",
       "size",
       "split",
       "stripe",
@@ -1172,7 +1199,6 @@
     "attributes": [
       "cancel-btn",
       "confirm-btn",
-      "content",
       "default",
       "destroy-on-close",
       "icon",
@@ -1181,7 +1207,6 @@
       "show-arrow",
       "theme",
       "trigger-element",
-      "visible",
       "cancel",
       "confirm",
       "visible-change"
@@ -1191,6 +1216,7 @@
   "t-popup": {
     "attributes": [
       "attach",
+      "close-btn",
       "content",
       "default",
       "delay",
@@ -1367,7 +1393,6 @@
       "color",
       "count",
       "disabled",
-      "external-classes",
       "gap",
       "icon",
       "show-text",
@@ -1557,6 +1582,26 @@
     ],
     "description": "Space\n\n间距\n\n[docs](https://tdesign.tencent.com/vue-next/components/space)"
   },
+  "t-statistic": {
+    "attributes": [
+      "animation",
+      "animation-start",
+      "color",
+      "decimal-places",
+      "extra",
+      "format",
+      "loading",
+      "prefix",
+      "separator",
+      "suffix",
+      "title",
+      "trend",
+      "trend-placement",
+      "unit",
+      "value"
+    ],
+    "description": "Statistic\n\n统计数值\n\n[docs](https://tdesign.tencent.com/vue-next/components/statistic)"
+  },
   "t-step-item": {
     "attributes": [
       "content",
@@ -1612,6 +1657,7 @@
       "default",
       "disabled",
       "icon",
+      "popup-props",
       "title",
       "value"
     ],
@@ -1952,6 +1998,8 @@
       "max",
       "min-collapsed-num",
       "multiple",
+      "panel-bottom-content",
+      "panel-top-content",
       "placeholder",
       "popup-props",
       "popup-visible",
@@ -2019,6 +2067,7 @@
       "trigger",
       "trigger-button-props",
       "upload-all-files-in-one-request",
+      "upload-pasted-files",
       "use-mock-progress",
       "value",
       "with-credentials",
