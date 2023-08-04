@@ -423,7 +423,7 @@ export default defineComponent({
                 },
                 props.overlayInnerClassName,
               ]}
-              ref={(ref: HTMLElement) => (overlayEl.value = ref)}
+              ref={overlayEl}
               onScroll={handleOnScroll}
             >
               {content}
