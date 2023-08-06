@@ -9,7 +9,6 @@
       :data="data"
       :editable-cell-state="editableCellState"
       bordered
-      @row-validate="onRowValidate"
     />
     <!-- 示例代码有效，勿删 -->
     <t-button @click="validateTableData">校验</t-button>
@@ -46,10 +45,6 @@ const STATUS_OPTIONS = [
 
 const align = ref('left');
 const data = ref([...initData]);
-
-const onRowValidate = (params) => {
-  console.log('validate:', params);
-};
 
 // 用于控制哪些行或哪些单元格不允许出现编辑态，参数有 { row, col, rowIndex, colIndex }
 const editableCellState = (cellParams) => {
