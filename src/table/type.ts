@@ -871,6 +871,11 @@ export interface TableEditableCellConfig<T extends TableRowData = TableRowData> 
    */
   defaultEditable?: boolean;
   /**
+   * 设置当前列的单元格始终保持为编辑态
+   * @default false
+   */
+  keepEditMode?: boolean;
+  /**
    * 透传给编辑组件的事件
    */
   on?: (context: TableEditableCellPropsParams<T>) => { [eventName: string]: Function };

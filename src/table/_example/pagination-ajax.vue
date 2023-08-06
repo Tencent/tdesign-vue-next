@@ -24,6 +24,9 @@ const statusNameListMap = {
 };
 const columns = [
   {
+    colKey: 'serial-number',
+  },
+  {
     colKey: 'row-select',
     type: 'multiple',
     width: 46,
@@ -71,22 +74,11 @@ const data = ref([]);
 const isLoading = ref(false);
 const selectedRowKeys = ref([]);
 
-// 分页受控用法，需将current和pageSize写回pagination
-const pagination = reactive({
-  current: 1,
-  pageSize: 10,
-  total: 0,
-  showJumper: true,
-  onChange: (pageInfo) => {
-    console.log('pagination.onChange', pageInfo);
-  },
+const pagination = ref({
+  defaultPageSize: 20,
+  total: 100,
+  defaultCurrent: 1,
 });
-// 分页非受控用法（示例有效勿删），仅需传入defaultCurrent和defaultPageSize
-// const pagination = reactive({
-//   defaultCurrent: 1,
-//   defaultPageSize: 10,
-//   total: 0,
-// });
 
 const fetchData = async (paginationInfo) => {
   try {
@@ -97,7 +89,7 @@ const fetchData = async (paginationInfo) => {
     const { results } = await response.json();
     data.value = results;
     // 数据加载完成，设置数据总条数
-    pagination.total = 120;
+    pagination.value.total = 120;
   } catch (err) {
     console.log(err);
     data.value = [];
@@ -113,24 +105,16 @@ const rehandleChange = (changeParams, triggerAndData) => {
 // BaseTable 中只有 page-change 事件，没有 change 事件
 const onPageChange = async (pageInfo) => {
   console.log('page-change', pageInfo);
-  // 分页受控用法
-  pagination.current = pageInfo.current;
-  pagination.pageSize = pageInfo.pageSize;
-  // 分页非受控用法无需更新pagination，每次切换分页都会触发该方法，pageInfo.pageSize为新的单页大小值
+  // pagination.current = pageInfo.current;
+  // pagination.pageSize = pageInfo.pageSize;
   await fetchData(pageInfo);
 };
 
 onMounted(async () => {
-  // 关联受控用法
   await fetchData({
-    current: pagination.current,
-    pageSize: pagination.pageSize,
+    current: pagination.value.current || pagination.value.defaultCurrent,
+    pageSize: pagination.value.pageSize || pagination.value.defaultPageSize,
   });
-  // 关联非受控用法
-  // await fetchData({
-  //   current: pagination.defaultCurrent,
-  //   pageSize: pagination.defaultPageSize,
-  // });
 });
 
 const onSelectChange = (value, params) => {
