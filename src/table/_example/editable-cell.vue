@@ -10,8 +10,12 @@
       :editable-cell-state="editableCellState"
       bordered
     />
+    <br />
+
     <!-- 示例代码有效，勿删 -->
-    <t-button @click="validateTableData">校验</t-button>
+    <t-space>
+      <t-button @click="validateTableData">校验</t-button>
+    </t-space>
   </div>
 </template>
 
@@ -138,6 +142,7 @@ const columns = computed(() => [
     colKey: 'letters',
     cell: (h, { row }) => row.letters.join('、'),
     edit: {
+      // 始终保持为编辑态
       keepEditMode: true,
       component: Select,
       // props, 透传全部属性到 Select 组件
