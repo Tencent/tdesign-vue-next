@@ -2,12 +2,12 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { CheckboxProps } from '../checkbox';
 import { PaginationProps, PageInfo } from '../pagination';
 import { InputProps } from '../input';
+import { TreeProps } from '../tree';
 import { TNode, KeysType } from '../common';
 
 export interface TdTransferProps<T extends DataOption = DataOption> {
@@ -37,7 +37,6 @@ export interface TdTransferProps<T extends DataOption = DataOption> {
   direction?: 'left' | 'right' | 'both';
   /**
    * 禁用全部操作：搜索、选中、移动、分页等。[源列表, 目标列表]，示例：[true, false] 或者 true
-   * @default false
    */
   disabled?: boolean | Array<boolean>;
   /**
@@ -50,7 +49,7 @@ export interface TdTransferProps<T extends DataOption = DataOption> {
    */
   footer?: Array<string | TNode> | TNode<{ type: TransferListType }>;
   /**
-   * 用来定义选项文本和选项值字段，示例：`{ label: 'text', value: 'id' }`，表示选项文本取 `text` 字段，选项值取 `id` 字段
+   * 用来定义选项文本和选项值字段，示例：`{ label: 'text', value: 'id', disabled: 'disabled' }`，表示选项文本取 `text` 字段，选项值取 `id` 字段
    */
   keys?: KeysType;
   /**
@@ -72,6 +71,11 @@ export interface TdTransferProps<T extends DataOption = DataOption> {
    */
   showCheckAll?: boolean | Array<boolean>;
   /**
+   * 是否允许通过拖拽对目标列表进行排序
+   * @default false
+   */
+  targetDraggable?: boolean;
+  /**
    * 目标数据列表排列顺序
    * @default original
    */
@@ -86,6 +90,11 @@ export interface TdTransferProps<T extends DataOption = DataOption> {
    */
   transferItem?: TNode<TransferItem<T>>;
   /**
+   * null
+   * @default 传入 Tree 组件定义树形结构
+   */
+  tree?: (tree: TreeProps) => TNode;
+  /**
    * 目标数据列表数据
    * @default []
    */
@@ -95,6 +104,11 @@ export interface TdTransferProps<T extends DataOption = DataOption> {
    * @default []
    */
   defaultValue?: Array<TransferValue>;
+  /**
+   * 目标数据列表数据
+   * @default []
+   */
+  modelValue?: Array<TransferValue>;
   /**
    * 数据列表发生变化时触发，`type` 值为 `source`，表示源列表移动到目标列表，值为 `target` 表示目标列表移动到源列表，movedValue 则表示被移动的选项
    */

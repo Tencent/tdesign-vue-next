@@ -172,6 +172,7 @@ export default {
   /** 选中值，非受控属性 */
   defaultValue: {
     type: [String, Number, Boolean, Object, Array] as PropType<TdSelectProps['defaultValue']>,
+    default: undefined,
   },
   /** 自定义选中项呈现的内容 */
   valueDisplay: {

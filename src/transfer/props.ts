@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { TdTransferProps } from './type';
@@ -33,24 +32,24 @@ export default {
     type: String as PropType<TdTransferProps['direction']>,
     default: 'both' as TdTransferProps['direction'],
     validator(val: TdTransferProps['direction']): boolean {
+      if (!val) return true;
       return ['left', 'right', 'both'].includes(val);
     },
   },
   /** 禁用全部操作：搜索、选中、移动、分页等。[源列表, 目标列表]，示例：[true, false] 或者 true */
   disabled: {
     type: [Boolean, Array] as PropType<TdTransferProps['disabled']>,
-    default: false,
   },
   /** 列表为空时呈现的内容。值类型为数组，则表示分别控制源列表和目标列表数据为空的呈现内容 */
   empty: {
     type: [String, Array, Function] as PropType<TdTransferProps['empty']>,
-    default: '',
+    default: '' as TdTransferProps['empty'],
   },
   /** 穿梭框底部内容 */
   footer: {
     type: [Array, Function] as PropType<TdTransferProps['footer']>,
   },
-  /** 用来定义选项文本和选项值字段，示例：`{ label: 'text', value: 'id' }`，表示选项文本取 `text` 字段，选项值取 `id` 字段 */
+  /** 用来定义选项文本和选项值字段，示例：`{ label: 'text', value: 'id', disabled: 'disabled' }`，表示选项文本取 `text` 字段，选项值取 `id` 字段 */
   keys: {
     type: Object as PropType<TdTransferProps['keys']>,
   },
@@ -65,25 +64,28 @@ export default {
   /** 搜索框配置，值为 false 表示不显示搜索框；值为 true 表示显示默认搜索框；值类型为对象，用于透传 Props 到 Input 组件；值类型为数组，则分别表示控制两侧搜索框 */
   search: {
     type: [Boolean, Object, Array] as PropType<TdTransferProps['search']>,
-    default: false,
+    default: false as TdTransferProps['search'],
   },
   /** 是否显示全选，值类型为数组则表示分别控制源列表和目标列表 */
   showCheckAll: {
     type: [Boolean, Array] as PropType<TdTransferProps['showCheckAll']>,
-    default: true,
+    default: true as TdTransferProps['showCheckAll'],
   },
+  /** 是否允许通过拖拽对目标列表进行排序 */
+  targetDraggable: Boolean,
   /** 目标数据列表排列顺序 */
   targetSort: {
     type: String as PropType<TdTransferProps['targetSort']>,
     default: 'original' as TdTransferProps['targetSort'],
     validator(val: TdTransferProps['targetSort']): boolean {
+      if (!val) return true;
       return ['original', 'push', 'unshift'].includes(val);
     },
   },
   /** 穿梭框标题，示例：['源列表', '目标列表'] 或者 `[() => 'A', () => 'B']` 或者 `({ type }) => type === 'source' ? '源' : '目标'` */
   title: {
     type: [Array, Function] as PropType<TdTransferProps['title']>,
-    default: (): TdTransferProps['title'] => [],
+    default: (): TdTransferProps['title'] => [] as TdTransferProps['title'],
   },
   /** 自定义渲染节点 */
   transferItem: {
@@ -94,7 +96,6 @@ export default {
     type: Array as PropType<TdTransferProps['value']>,
     default: undefined as TdTransferProps['value'],
   },
-  /** v-model*/
   modelValue: {
     type: Array as PropType<TdTransferProps['value']>,
     default: undefined as TdTransferProps['value'],

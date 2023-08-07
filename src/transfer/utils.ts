@@ -87,6 +87,7 @@ function getTransferData(
   const list: Array<TransferItemOption> = data.map((transferDataItem, index): TransferItemOption => {
     const labelKey = keys?.label || 'label';
     const valueKey = keys?.value || 'value';
+    const disabledKey = keys?.disabled || 'disabled';
     if (isUndefined(transferDataItem[labelKey])) {
       throw new Error(`${labelKey} is not in DataOption ${JSON.stringify(transferDataItem)}`);
     }
@@ -97,7 +98,7 @@ function getTransferData(
       label: transferDataItem[labelKey] as string,
       value: transferDataItem[valueKey],
       key: `key__value_${transferDataItem[valueKey]}_index_${index}`,
-      disabled: transferDataItem.disabled ?? false,
+      disabled: transferDataItem[disabledKey] ?? false,
       data: transferDataItem,
     };
     if (isTreeMode && transferDataItem.children) {
