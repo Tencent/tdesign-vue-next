@@ -14,7 +14,7 @@
   />
 </template>
 <script setup lang="jsx">
-import { ref, reactive, onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
 const statusNameListMap = {
