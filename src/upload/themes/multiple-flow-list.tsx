@@ -237,7 +237,7 @@ export default defineComponent({
       return <FileIcon />;
     };
 
-    const renderFileThumbnail = (file: UploadFile, index: number) => {
+    const renderFileThumbnail = (file: UploadFile) => {
       if (!file || (!file.raw && file.url)) return null;
       const fileType = file.raw.type;
       const className = `${uploadPrefix.value}__file-thumbnail`;
@@ -253,7 +253,7 @@ export default defineComponent({
               e.preventDefault();
               currentPreviewFile.value = [file];
               previewIndex.value = 0;
-              props.onPreview?.({ file, index, e });
+              props.onPreview?.({ file, index: 0, e });
             }}
           />
         );
@@ -295,7 +295,7 @@ export default defineComponent({
               const fileName = props.abridgeName?.length ? abridgeName(file.name, ...props.abridgeName) : file.name;
               const thumbnailNode = props.showThumbnail ? (
                 <div class={`${uploadPrefix.value}__file-info`}>
-                  {renderFileThumbnail(file, index)}
+                  {renderFileThumbnail(file)}
                   {fileName}
                 </div>
               ) : (

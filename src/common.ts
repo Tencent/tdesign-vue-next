@@ -121,3 +121,7 @@ export interface ScrollToElementParams {
   time?: number;
   behavior?: 'auto' | 'smooth';
 }
+
+export interface ComponentScrollToElementParams extends ScrollToElementParams {
+  key: string | number;
+}
