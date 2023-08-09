@@ -420,7 +420,9 @@ export default defineComponent({
               overlayClassName: [`${COMPONENT_NAME.value}__dropdown`, overlayClassName],
               ...restPopupProps,
             }}
-            label={() => renderTNodeJSX('prefixIcon')}
+            label={props.label}
+            prefixIcon={props.prefixIcon}
+            suffix={props.suffix}
             suffixIcon={() => {
               if (props.suffixIcon || slots.suffixIcon) {
                 return renderTNodeJSX('suffixIcon');
@@ -471,6 +473,9 @@ export default defineComponent({
             }}
             {...(props.selectInputProps as TdSelectProps['selectInputProps'])}
             v-slots={{
+              label: slots.label,
+              prefixIcon: slots.prefixIcon,
+              suffix: slots.suffix,
               panel: () => (
                 <SelectPanel
                   ref={selectPanelRef}
@@ -493,7 +498,6 @@ export default defineComponent({
                 />
               ),
               collapsedItems: slots.collapsedItems,
-              suffix: slots.suffix,
             }}
           />
         </div>
