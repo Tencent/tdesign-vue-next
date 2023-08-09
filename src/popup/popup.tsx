@@ -439,7 +439,12 @@ export default defineComponent({
           onContentMounted={() => {
             if (visible.value) {
               updatePopper();
-              updateOverlayInnerStyle();
+
+              const timer = setTimeout(() => {
+                /** compted after animation finished */
+                updateOverlayInnerStyle();
+                clearTimeout(timer);
+              }, 60);
             }
           }}
           onResize={() => {

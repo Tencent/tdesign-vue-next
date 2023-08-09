@@ -12,6 +12,8 @@ export type overlayInnerStyleProps = Pick<
 
 // 单位：px
 const MAX_POPUP_WIDTH = 1000;
+// 避免因滚动条出现文本省略，预留宽度 8
+const RESERVE_WIDTH = 0;
 
 export default function useOverlayInnerStyle(props: overlayInnerStyleProps) {
   const { popupProps, autoWidth } = toRefs(props);
@@ -19,8 +21,7 @@ export default function useOverlayInnerStyle(props: overlayInnerStyleProps) {
   const disable = useFormDisabled();
 
   const matchWidthFunc = (triggerElement: HTMLElement, popupElement: HTMLElement) => {
-    // 避免因滚动条出现文本省略，预留宽度 8
-    const SCROLLBAR_WIDTH = popupElement.scrollHeight > popupElement.offsetHeight ? 8 : 0;
+    const SCROLLBAR_WIDTH = popupElement.scrollHeight > popupElement.offsetHeight ? RESERVE_WIDTH : 0;
     const width =
       popupElement.offsetWidth + SCROLLBAR_WIDTH >= triggerElement.offsetWidth
         ? popupElement.offsetWidth
@@ -50,13 +51,24 @@ export default function useOverlayInnerStyle(props: overlayInnerStyleProps) {
     }
   };
 
+  const getAutoWidthPopupStyleWidth = (triggerElement: HTMLElement, popupElement: HTMLElement) => {
+    return {
+      width: `${Math.max(triggerElement.offsetWidth, popupElement.offsetWidth)}px`,
+      ...popupProps.value?.overlayInnerStyle,
+    };
+  };
+
   const tOverlayInnerStyle = computed(() => {
     let result: TdPopupProps['overlayInnerStyle'] = {};
     const overlayInnerStyle = popupProps.value?.overlayInnerStyle || {};
     if (isFunction(overlayInnerStyle) || (isObject(overlayInnerStyle) && overlayInnerStyle.width)) {
       result = overlayInnerStyle;
-    } else if (!autoWidth.value) {
-      result = matchWidthFunc;
+    } else {
+      if (autoWidth.value) {
+        result = getAutoWidthPopupStyleWidth;
+      } else {
+        result = matchWidthFunc;
+      }
     }
     return result;
   });
