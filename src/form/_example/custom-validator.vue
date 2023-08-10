@@ -56,7 +56,7 @@ const onValidate = ({ validateResult, firstError }) => {
 const rePassword = (val) =>
   new Promise((resolve) => {
     const timer = setTimeout(() => {
-      resolve(formData.value.password === val);
+      resolve(formData.password === val);
       clearTimeout(timer);
     });
   });

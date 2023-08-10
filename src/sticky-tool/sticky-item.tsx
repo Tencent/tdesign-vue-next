@@ -55,21 +55,18 @@ export default defineComponent({
       props.onHover({ e, item });
     };
     const renderTNodeJSX = useTNodeJSX();
-    const icon = renderTNodeJSX('icon');
-    const label = renderTNodeJSX('label');
-    const popup = renderTNodeJSX('popup');
     const popupProps = Object.assign({ hideEmptyPopup: true }, props.basePopupProps, props.popupProps);
     return () => (
       <Popup
         overlayInnerClassName={`${usePrefixClass('sticky-tool').value}-popup-content`}
         trigger={props.trigger}
         placement={popupPlacement.value}
-        content={() => popup}
+        content={() => renderTNodeJSX('popup')}
         {...popupProps}
       >
         <div class={baseClass.value} style={styles.value} onClick={handleClickItem} onMouseenter={handleHoverItem}>
-          {icon}
-          {props.type === 'normal' ? <div class={labelClass.value}>{label}</div> : null}
+          {renderTNodeJSX('icon')}
+          {props.type === 'normal' ? <div class={labelClass.value}>{renderTNodeJSX('label')}</div> : null}
         </div>
       </Popup>
     );

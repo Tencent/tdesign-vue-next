@@ -51,10 +51,51 @@
         </template>
       </t-select-input>
     </div>
+
+    <t-space direction="vertical">
+      <span>动态自定义宽度：</span>
+      <t-space>
+        <!-- content width is larger than trigger element -->
+        <t-select-input
+          :value="selectValue"
+          :popup-props="{
+            overlayInnerStyle: getAutoWidth,
+          }"
+          class="t-demo-select-input__auto-width"
+          auto-width
+        >
+          <template #panel>
+            <div class="tdesign-demo__select-empty-width">
+              <p>动态自定义宽度</p>
+              <p>Math.max(触发元素宽度，下拉浮层宽度)</p>
+            </div>
+          </template>
+        </t-select-input>
+
+        <!-- content width is smaller than trigger element, keep final width being same -->
+        <t-select-input
+          value="Hello TDesign"
+          :popup-props="{
+            overlayInnerStyle: getAutoWidth,
+          }"
+          class="t-demo-select-input__auto-width"
+          auto-width
+        >
+          <template #panel>
+            <div class="tdesign-demo__select-empty-width">
+              <p>content</p>
+            </div>
+          </template>
+        </t-select-input>
+      </t-space>
+    </t-space>
   </t-space>
 </template>
 <script setup>
 const selectValue = 'TDesign';
+const getAutoWidth = (triggerElement, popupElement) => ({
+  width: `${Math.max(triggerElement.clientWidth, popupElement.clientWidth)}px`,
+});
 </script>
 <style>
 .tdesign-demo__select-empty-width {
@@ -72,5 +113,9 @@ const selectValue = 'TDesign';
   width: 380px;
   vertical-align: middle;
   display: inline-flex;
+}
+
+.tdesign-demo__select-input-width .t-demo-select-input__auto-width .t-input__wrap {
+  width: fit-content;
 }
 </style>

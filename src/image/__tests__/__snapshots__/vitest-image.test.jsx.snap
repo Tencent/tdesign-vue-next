@@ -48,6 +48,7 @@ exports[`Image Component > props.fit is equal to scale-down 1`] = `
 exports[`Image Component > props.loading works fine 1`] = `
 <div
   class="t-image__wrapper t-image__wrapper--shape-square"
+  fallback=""
   referrerpolicy="strict-origin-when-cross-origin"
 >
   <!---->
@@ -76,6 +77,7 @@ exports[`Image Component > props.loading works fine 1`] = `
 exports[`Image Component > props.overlayContent works fine 1`] = `
 <div
   class="t-image__wrapper t-image__wrapper--shape-square"
+  fallback=""
   referrerpolicy="strict-origin-when-cross-origin"
 >
   <!---->
@@ -104,20 +106,12 @@ exports[`Image Component > props.overlayContent works fine 1`] = `
           fill="none"
           height="1em"
           style="font-size: 24px;"
-          viewBox="0 0 16 16"
+          viewBox="0 0 24 24"
           width="1em"
         >
           <path
-            clip-rule="evenodd"
-            d="M10 8a2 2 0 100-4 2 2 0 000 4zm0-1a1 1 0 100-2 1 1 0 000 2z"
+            d="M2 2h20v20H2V2zm2 18h13.59L9 11.41l-5 5V20zm16-.41V4H4v9.59l5-5 11 11zM15.55 7a1 1 0 100 2 1 1 0 000-2zm-3 1a3 3 0 116 0 3 3 0 01-6 0z"
             fill="currentColor"
-            fill-opacity="0.9"
-            fill-rule="evenodd"
-          />
-          <path
-            d="M2 13a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1H3a1 1 0 00-1 1v10zm1-1.3l3-3 4.3 4.3H3v-1.3zm0-1.4V3h10v10h-1.3L6 7.3l-3 3z"
-            fill="currentColor"
-            fill-opacity="0.9"
           />
         </svg>
       </div>
@@ -150,6 +144,7 @@ exports[`Image Component > props.overlayContent works fine 1`] = `
 exports[`Image Component > props.placeholder works fine 1`] = `
 <div
   class="t-image__wrapper t-image__wrapper--shape-square"
+  fallback=""
   referrerpolicy="strict-origin-when-cross-origin"
 >
   <div
@@ -186,20 +181,12 @@ exports[`Image Component > props.placeholder works fine 1`] = `
           fill="none"
           height="1em"
           style="font-size: 24px;"
-          viewBox="0 0 16 16"
+          viewBox="0 0 24 24"
           width="1em"
         >
           <path
-            clip-rule="evenodd"
-            d="M10 8a2 2 0 100-4 2 2 0 000 4zm0-1a1 1 0 100-2 1 1 0 000 2z"
+            d="M2 2h20v20H2V2zm2 18h13.59L9 11.41l-5 5V20zm16-.41V4H4v9.59l5-5 11 11zM15.55 7a1 1 0 100 2 1 1 0 000-2zm-3 1a3 3 0 116 0 3 3 0 01-6 0z"
             fill="currentColor"
-            fill-opacity="0.9"
-            fill-rule="evenodd"
-          />
-          <path
-            d="M2 13a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1H3a1 1 0 00-1 1v10zm1-1.3l3-3 4.3 4.3H3v-1.3zm0-1.4V3h10v10h-1.3L6 7.3l-3 3z"
-            fill="currentColor"
-            fill-opacity="0.9"
           />
         </svg>
       </div>
@@ -224,6 +211,7 @@ exports[`Image Component > props.placeholder works fine 1`] = `
 exports[`Image Component > slots.loading works fine 1`] = `
 <div
   class="t-image__wrapper t-image__wrapper--shape-square"
+  fallback=""
   referrerpolicy="strict-origin-when-cross-origin"
 >
   <!---->
@@ -254,6 +242,7 @@ exports[`Image Component > slots.loading works fine 1`] = `
 exports[`Image Component > slots.overlay-content works fine 1`] = `
 <div
   class="t-image__wrapper t-image__wrapper--shape-square"
+  fallback=""
   referrerpolicy="strict-origin-when-cross-origin"
 >
   <!---->
@@ -282,20 +271,12 @@ exports[`Image Component > slots.overlay-content works fine 1`] = `
           fill="none"
           height="1em"
           style="font-size: 24px;"
-          viewBox="0 0 16 16"
+          viewBox="0 0 24 24"
           width="1em"
         >
           <path
-            clip-rule="evenodd"
-            d="M10 8a2 2 0 100-4 2 2 0 000 4zm0-1a1 1 0 100-2 1 1 0 000 2z"
+            d="M2 2h20v20H2V2zm2 18h13.59L9 11.41l-5 5V20zm16-.41V4H4v9.59l5-5 11 11zM15.55 7a1 1 0 100 2 1 1 0 000-2zm-3 1a3 3 0 116 0 3 3 0 01-6 0z"
             fill="currentColor"
-            fill-opacity="0.9"
-            fill-rule="evenodd"
-          />
-          <path
-            d="M2 13a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1H3a1 1 0 00-1 1v10zm1-1.3l3-3 4.3 4.3H3v-1.3zm0-1.4V3h10v10h-1.3L6 7.3l-3 3z"
-            fill="currentColor"
-            fill-opacity="0.9"
           />
         </svg>
       </div>
@@ -330,6 +311,7 @@ exports[`Image Component > slots.overlay-content works fine 1`] = `
 exports[`Image Component > slots.overlayContent works fine 1`] = `
 <div
   class="t-image__wrapper t-image__wrapper--shape-square"
+  fallback=""
   referrerpolicy="strict-origin-when-cross-origin"
 >
   <!---->
@@ -358,20 +340,12 @@ exports[`Image Component > slots.overlayContent works fine 1`] = `
           fill="none"
           height="1em"
           style="font-size: 24px;"
-          viewBox="0 0 16 16"
+          viewBox="0 0 24 24"
           width="1em"
         >
           <path
-            clip-rule="evenodd"
-            d="M10 8a2 2 0 100-4 2 2 0 000 4zm0-1a1 1 0 100-2 1 1 0 000 2z"
+            d="M2 2h20v20H2V2zm2 18h13.59L9 11.41l-5 5V20zm16-.41V4H4v9.59l5-5 11 11zM15.55 7a1 1 0 100 2 1 1 0 000-2zm-3 1a3 3 0 116 0 3 3 0 01-6 0z"
             fill="currentColor"
-            fill-opacity="0.9"
-            fill-rule="evenodd"
-          />
-          <path
-            d="M2 13a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1H3a1 1 0 00-1 1v10zm1-1.3l3-3 4.3 4.3H3v-1.3zm0-1.4V3h10v10h-1.3L6 7.3l-3 3z"
-            fill="currentColor"
-            fill-opacity="0.9"
           />
         </svg>
       </div>
@@ -406,6 +380,7 @@ exports[`Image Component > slots.overlayContent works fine 1`] = `
 exports[`Image Component > slots.placeholder works fine 1`] = `
 <div
   class="t-image__wrapper t-image__wrapper--shape-square"
+  fallback=""
   referrerpolicy="strict-origin-when-cross-origin"
 >
   <div
@@ -444,20 +419,12 @@ exports[`Image Component > slots.placeholder works fine 1`] = `
           fill="none"
           height="1em"
           style="font-size: 24px;"
-          viewBox="0 0 16 16"
+          viewBox="0 0 24 24"
           width="1em"
         >
           <path
-            clip-rule="evenodd"
-            d="M10 8a2 2 0 100-4 2 2 0 000 4zm0-1a1 1 0 100-2 1 1 0 000 2z"
+            d="M2 2h20v20H2V2zm2 18h13.59L9 11.41l-5 5V20zm16-.41V4H4v9.59l5-5 11 11zM15.55 7a1 1 0 100 2 1 1 0 000-2zm-3 1a3 3 0 116 0 3 3 0 01-6 0z"
             fill="currentColor"
-            fill-opacity="0.9"
-            fill-rule="evenodd"
-          />
-          <path
-            d="M2 13a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1H3a1 1 0 00-1 1v10zm1-1.3l3-3 4.3 4.3H3v-1.3zm0-1.4V3h10v10h-1.3L6 7.3l-3 3z"
-            fill="currentColor"
-            fill-opacity="0.9"
           />
         </svg>
       </div>

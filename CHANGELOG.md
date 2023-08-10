@@ -4,6 +4,90 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 1.4.2 `2023-08-02` 
+### 🚀 Features
+- `Table`: 可筛选表格，当前 `filterValue` 未设置过滤值的默认值时，不再透传 `undefined` 到筛选器组件，某些组件的默认值必须为数组，不允许是 `undefined` @chaishi ([#3164](https://github.com/Tencent/tdesign-vue-next/pull/3164))
+- `Table`: 可筛选表格，支持透传 `attrs/style/classNames` 属性、样式、类名等信息到自定义组件，[tdesign-vue#2627](https://github.com/Tencent/tdesign-vue/issues/2627) @chaishi ([#3164](https://github.com/Tencent/tdesign-vue-next/pull/3164))
+### 🐞 Bug Fixes
+- `Table`: 固定表头固定列空数据场景，“暂无数据”错位显示问题，[issue#3166](https://github.com/Tencent/tdesign-vue-next/issues/3166) @chaishi ([#3167](https://github.com/Tencent/tdesign-vue-next/pull/3167))
+- `table`: 远程分页使用非受控用法时，切换超过 `defaultPageSize` 的页面大小数据展示不全 @ngyyuusora ([#3173](https://github.com/Tencent/tdesign-vue-next/pull/3173))
+### 🚧 Others
+- `Image`: 代码整理 @chaishi ([#3167](https://github.com/Tencent/tdesign-vue-next/pull/3167))
+## 🌈 1.4.1 `2023-07-27` 
+### 🐞 Bug Fixes
+- `Table`: 可编辑表格校验错误信息样式不对齐，([issue#3154](https://github.com/Tencent/tdesign-vue-next/issues/3154)) @chaishi ([#3155](https://github.com/Tencent/tdesign-vue-next/pull/3155))
+- `Tree`: 修复 ([pr #3154](https://github.com/Tencent/tdesign-vue-next/pull/3154)) 导致的树选择器单选无法选中([issue#3158](https://github.com/Tencent/tdesign-vue-next/issues/3158)) ([issue#3154](https://github.com/Tencent/tdesign-vue-next/issues/3154))  @uyarn ([#3159](https://github.com/Tencent/tdesign-vue-next/pull/3159))
+### 🚧 Others
+- `Common`: 输入框类组件的 `tips` 使用统一的文本提示样式，注意 `tips` 类名变更 @chaishi ([#3155](https://github.com/Tencent/tdesign-vue-next/pull/3155)) 
+## 🌈 1.4.0 `2023-07-26` 
+### 🚀 Features
+- `TimePicker`: 
+  - `disableTime` 回调新增毫秒参数 @uyarn ([#3151](https://github.com/Tencent/tdesign-vue-next/pull/3151))
+  -  优化展示不可选时间选项时滚动到不可选选项的体验 @uyarn ([#3151](https://github.com/Tencent/tdesign-vue-next/pull/3151))
+- `Menu`: 重构侧边栏导航子菜单展开/收起动画实现，修复 `SubMenu` 菜单项过多时无法完整展示的问题 ([issues #2262](https://github.com/Tencent/tdesign-vue/issues/2262)) @xiaosansiji ([#3140](https://github.com/Tencent/tdesign-vue-next/pull/3140))
+- `Image`: 属性 `src` 支持传入 `File` 文件类型显示图片 @chaishi ([#3136](https://github.com/Tencent/tdesign-vue-next/pull/3136))
+- `ImageViewer`: 属性 `images` 支持传入 `File` 文件类型预览图片 @chaishi ([#3136](https://github.com/Tencent/tdesign-vue-next/pull/3136))
+- `Upload`: 文件上传列表支持显示缩略图，通过 `showThumbnail` 属性控制 @chaishi ([#3136](https://github.com/Tencent/tdesign-vue-next/pull/3136))
+
+### 🐞 Bug Fixes
+- `Table`: 
+  - 可编辑表格场景，支持设置 `colKey` 值为链式属性，如：`a.b.c` @chaishi ([#3137](https://github.com/Tencent/tdesign-vue-next/pull/3137))
+  - 可编辑表格场景，行编辑，`edit.props` 和 `edit.on` 为函数时，新增参数 `updateEditedCellValue` 用于更新编辑状态的表格数据，[tdesign-vue#2577](https://github.com/Tencent/tdesign-vue/issues/2577) @chaishi ([#3137](https://github.com/Tencent/tdesign-vue-next/pull/3137))
+  - 列宽调整 + 表头吸顶 + 列配置自定义综合场景下，列宽变少时，表格宽度无法恢复原来的宽度，([tdesign-vue#2363](https://github.com/Tencent/tdesign-vue/issues/2363)) @chaishi ([#3137](https://github.com/Tencent/tdesign-vue-next/pull/3137))
+  - 修复可编辑单元格场景，执行 `validateTableData` 函数后，没有触发事件 `onValidate` 问题 @chaishi ([#3143](https://github.com/Tencent/tdesign-vue-next/pull/3143))
+- `Tree`: 修复 `active` 事件中，参数 `context` 中 `actived` 值和实际状态相反 @gaoachao ([#3134](https://github.com/Tencent/tdesign-vue-next/pull/3134))
+- `Button`: 禁用优先级, `Button.disabled > Form.disabled` @liweijie0812 ([#3133](https://github.com/Tencent/tdesign-vue-next/pull/3133))
+- `InputNumber`: `decimalPlaces` 存在时，数值满足要求，用户未操作，就已经触发 `onChange` 事件问题，([tdesign-vue#2616](https://github.com/Tencent/tdesign-vue/issues/2616)) @chaishi ([#3145](https://github.com/Tencent/tdesign-vue-next/pull/3145))
+- `Menu`: 修复 `MenuItem` `click` 点击事件未传递 `event` 参数的问题 @xiaosansiji ([#3140](https://github.com/Tencent/tdesign-vue-next/pull/3140)) 
+ ## 🌈 1.3.12 `2023-07-19` 
+### 🚀 Features
+- `Checkbox`: 
+  - 新增支持键盘控制选项选中或取消选中 @chaishi ([#3103](https://github.com/Tencent/tdesign-vue-next/pull/3103))
+  - 新增支持 `lazyLoad`，用于需要渲染大量数据，或懒加载复杂内容/图片场景 @chaishi ([#3103](https://github.com/Tencent/tdesign-vue-next/pull/3103))
+### 🐞 Bug Fixes
+- `Input`: 
+  - 输入框的值 类型移除 `Number` @liweijie0812 ([#3100](https://github.com/Tencent/tdesign-vue-next/pull/3100))
+  - 恢复部分属性默认值数据类型定义 @chaishi ([#3102](https://github.com/Tencent/tdesign-vue-next/pull/3102))
+  - 修复 `prefixIcon` 的 `padding` 样式问题 @uyarn ([#3113](https://github.com/Tencent/tdesign-vue-next/pull/3113))
+- `Rate`: 修复 `rate` 在开启文字显示与半星时，`tooltip` 显示异常的问题([issue #2891](https://github.com/Tencent/tdesign-vue-next/issues/2891)) @xixileng ([#3097](https://github.com/Tencent/tdesign-vue-next/pull/3097))
+- `InputNumber`: 修复 `input-number` 内容为空时，值为 `undefined` 的问题，应当为 `null` ([issue #2900](https://github.com/Tencent/tdesign-vue-next/issues/2900)) @xixileng ([#3098](https://github.com/Tencent/tdesign-vue-next/pull/3098))
+- `Checkbox`: 修复 `Form.disabled` 表单无法统一控制 `Checkbox` 组件禁用状态问题 @chaishi ([#3103](https://github.com/Tencent/tdesign-vue-next/pull/3103))
+- `Select`: 修复 `autofocus` 不生效的问题([issue #2970](https://github.com/Tencent/tdesign-vue-next/issues/2970)) @xixileng ([#3112](https://github.com/Tencent/tdesign-vue-next/pull/3112))
+- `Radio`:  优化选项组换行情况 @ontheroad1992 ([#3081](https://github.com/Tencent/tdesign-vue-next/pull/3081))
+- `Icon`: 修复 `manifest` 字段影响开发阶段请求的问题 @uyarn ([#3113](https://github.com/Tencent/tdesign-vue-next/pull/3113))
+- `TagInput`: 修复 `tag-input` 前缀不居中且会发生抖动的问题 @xixileng  @uyarn ([#3113](https://github.com/Tencent/tdesign-vue-next/pull/3113))
+- `Transfer`: 修复 `t-transfer__list-item` 与 `t-checkbox` 优先级问题 @uyarn ([#3113](https://github.com/Tencent/tdesign-vue-next/pull/3113))
+- `Select`: 修复使用 `tab` 键聚焦时无法输入内容的问题 ([issue #2960](https://github.com/Tencent/tdesign-vue-next/issues/2960)) @xixileng ([#3119](https://github.com/Tencent/tdesign-vue-next/pull/3119))
+- `Stickytool`: 修复 `sticky-item` 组件内部无法更新数据的问题 @uyarn ([#3118](https://github.com/Tencent/tdesign-vue-next/pull/3118))
+- `Dialog`: `dialog plugin` 执行 `destroy` 方法时，销毁组件实例 @xixileng ([#3095](https://github.com/Tencent/tdesign-vue-next/pull/3095))
+- `DatePicker`: 优化关闭浮层后重置默认选中区域 @honkinglin ([#3107](https://github.com/Tencent/tdesign-vue-next/pull/3107))
+- `Grid`: `row Props.gutter` 类型补充 `lg,xl,xxl` @liweijie0812 ([#3105](https://github.com/Tencent/tdesign-vue-next/pull/3105))
+### 🚧 Others
+- `Form`: 示例代码中 `email`  使用 `t-auto-complete` 组件替换 @liweijie0812 ([#3101](https://github.com/Tencent/tdesign-vue-next/pull/3101))
+ 
+## 🌈 1.3.11 `2023-07-12` 
+### 🚀 Features
+- `Upload`: 
+  - 新增组件实例方法，`uploadFilePercent` 用于更新文件上传进度 @chaishi ([#3074](https://github.com/Tencent/tdesign-vue-next/pull/3074))
+  - `theme=image`，支持使用 `fileListDisplay` 自定义 UI 内容 @chaishi ([#3074](https://github.com/Tencent/tdesign-vue-next/pull/3074))
+  - `theme=image`，支持点击名称打开新窗口访问图片，[tdesign-vue#2338](https://github.com/Tencent/tdesign-vue/issues/2338) @chaishi ([#3074](https://github.com/Tencent/tdesign-vue-next/pull/3074))
+  - 拖拽上传场景，支持 `accept` 文件类型限制，[issue#3075](https://github.com/Tencent/tdesign-vue-next/issues/3075) @chaishi ([#3074](https://github.com/Tencent/tdesign-vue-next/pull/3074))
+  -  去除图片文件名颜色，使用 Link 组件统一颜色 @chaishi ([#3074](https://github.com/Tencent/tdesign-vue-next/pull/3074))
+  - 添加文件类型过滤方法 getFileList @chaishi ([#3074](https://github.com/Tencent/tdesign-vue-next/pull/3074))
+- `Textarea`: 支持动态更改 `autosize` 属性 ([issue #3068](https://github.com/Tencent/tdesign-vue-next/issues/3068)) @Zz-ZzzZ ([#3077](https://github.com/Tencent/tdesign-vue-next/pull/3077))
+- `MenuItem`: 新增 `API: routerLink`，可指定菜单项渲染为 `Router` 控制跳转的 `a` 标签 @boogie-ben ([#3057](https://github.com/Tencent/tdesign-vue-next/pull/3057))
+### 🐞 Bug Fixes
+- `MenuItem`: 
+  - 渲染为 `a` 标签时，`a` 标签覆盖范围扩大至整个菜单项，而不是只有文本部分 @boogie-ben ([#3057](https://github.com/Tencent/tdesign-vue-next/pull/3057))
+  - 修复当菜单项渲染 `a` 标签并且 `menu` 在 `collapsed` 状态时，菜单项内容区隐藏导致无法点击跳转的问题 @boogie-ben ([#3057](https://github.com/Tencent/tdesign-vue-next/pull/3057))
+  - 修复渲染为 `a` 标签时并在 `popup` 出现时，文本对齐与正常菜单项的位置不一致的问题 @boogie-ben ([#3057](https://github.com/Tencent/tdesign-vue-next/pull/3057))
+- `Table`: 修复主动触发页码更新时表格序号列没有重新计算([issue #3038](https://github.com/Tencent/tdesign-vue-next/issues/3038)) @tanhh326 ([#3071](https://github.com/Tencent/tdesign-vue-next/pull/3071))
+ - `Upload`: 自定义上传方法，修复未能正确返回上传成功或失败后的文件问题 @chaishi ([#3074](https://github.com/Tencent/tdesign-vue-next/pull/3074))
+ - `SelectInput`: 修复使用回退键删除 `input` 中内容时，会删除 `tag` ([issue #2939](https://github.com/Tencent/tdesign-vue-next/issues/2939)) @tanhh326 ([#3072](https://github.com/Tencent/tdesign-vue-next/pull/3072))
+ - `DateRangePicker`: 修复`suffix` `prefix` 无法响应数据变化渲染的问题 @uyarn ([#3085](https://github.com/Tencent/tdesign-vue-next/pull/3085))
+### 🚧 Others
+- `Upload`: API 添加更多英文描述 @chaishi ([#3074](https://github.com/Tencent/tdesign-vue-next/pull/3074))
+
 ## 🌈 1.3.10 `2023-07-05` 
 ### 🚀 Features
 - `Table`: 树形结构，添加行层级类名，方便业务设置不同层级的样式 @chaishi ([#3037](https://github.com/Tencent/tdesign-vue-next/pull/3037))

@@ -9,6 +9,7 @@ import kebabCase from 'lodash/kebabCase';
 export interface JSXRenderContext {
   defaultNode?: VNode | string;
   params?: Record<string, any>;
+  slotFirst?: boolean;
   // 是否不打印 LOG
   silent?: boolean;
 }
@@ -28,6 +29,10 @@ export function getDefaultNode(options?: OptionsType) {
 
 export function getParams(options?: OptionsType) {
   return isObject(options) && 'params' in options ? options.params : {};
+}
+
+export function getSlotFirst(options?: OptionsType) {
+  return isObject(options) && 'slotFirst' in options ? options.slotFirst : {};
 }
 
 // 同时支持驼峰命名和中划线命名的插槽，示例：value-display 和 valueDisplay

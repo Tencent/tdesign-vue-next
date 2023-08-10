@@ -1,11 +1,10 @@
-import { defineComponent, PropType } from 'vue';
+import { computed, defineComponent, PropType } from 'vue';
 import { ImageIcon, ZoomInIcon, ZoomOutIcon, DownloadIcon, MirrorIcon, RotationIcon } from 'tdesign-icons-vue-next';
-
 import TImageViewerIcon from './ImageModalIcon';
 import TToolTip from '../../tooltip';
 import { usePrefixClass } from '../../hooks/useConfig';
 import { downloadFile } from '../utils';
-
+import { useImagePreviewUrl } from '../../hooks';
 import { ImageInfo } from '../type';
 
 export default defineComponent({
@@ -26,6 +25,9 @@ export default defineComponent({
   },
   setup(props) {
     const classPrefix = usePrefixClass();
+    const imageUrl = computed(() => props.currentImage.mainImage);
+
+    const { previewUrl } = useImagePreviewUrl(imageUrl);
 
     return () => (
       <div class={`${classPrefix.value}-image-viewer__utils`}>
@@ -73,7 +75,7 @@ export default defineComponent({
             <TImageViewerIcon
               icon={() => <DownloadIcon size="medium" />}
               onClick={() => {
-                downloadFile(props.currentImage.mainImage);
+                downloadFile(previewUrl.value);
               }}
             />
           )}

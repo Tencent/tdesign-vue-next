@@ -423,7 +423,7 @@ export default defineComponent({
                 },
                 props.overlayInnerClassName,
               ]}
-              ref={(ref: HTMLElement) => (overlayEl.value = ref)}
+              ref={overlayEl}
               onScroll={handleOnScroll}
             >
               {content}
@@ -439,7 +439,12 @@ export default defineComponent({
           onContentMounted={() => {
             if (visible.value) {
               updatePopper();
-              updateOverlayInnerStyle();
+
+              const timer = setTimeout(() => {
+                /** compted after animation finished */
+                updateOverlayInnerStyle();
+                clearTimeout(timer);
+              }, 60);
             }
           }}
           onResize={() => {

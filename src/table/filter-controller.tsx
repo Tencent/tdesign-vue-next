@@ -79,7 +79,15 @@ export default defineComponent({
           });
         });
       }
-      return <component value={props.innerFilterValue?.[column.colKey]} {...filterComponentProps}></component>;
+      const filter = column.filter || {};
+      return (
+        <component
+          class={filter.classNames}
+          style={filter.style}
+          {...filter.attrs}
+          {...filterComponentProps}
+        ></component>
+      );
     };
 
     const getFilterContent = (column: PrimaryTableCol) => {
@@ -88,6 +96,7 @@ export default defineComponent({
         console.error(`TDesign Table Error: column.filter.type must be the following: ${JSON.stringify(types)}`);
         return;
       }
+      const { innerFilterValue } = props;
       const component =
         {
           single: RadioGroup,
@@ -98,7 +107,6 @@ export default defineComponent({
       const filterComponentProps: { [key: string]: any } = {
         options: ['single', 'multiple'].includes(column.filter.type) ? column.filter?.list : undefined,
         ...(column.filter?.props || {}),
-        value: props.innerFilterValue?.[column.colKey],
         onChange: (val: any, ctx: any) => {
           context.emit('inner-filter-change', val, column);
           if (column.filter.props?.onChange) {
@@ -106,6 +114,9 @@ export default defineComponent({
           }
         },
       };
+      if (column.colKey && innerFilterValue && column.colKey in innerFilterValue) {
+        filterComponentProps.value = props.innerFilterValue?.[column.colKey];
+      }
       // 允许自定义触发确认搜索的事件
       if (column.filter.confirmEvents) {
         column.filter.confirmEvents.forEach((event) => {

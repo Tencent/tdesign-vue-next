@@ -28,6 +28,9 @@ import dayjs from 'dayjs';
 const initData = new Array(5).fill(null).map((_, i) => ({
   key: String(i + 1),
   firstName: ['贾明', '张三', '王芳'][i % 3],
+  user: {
+    firstName: ['贾明', '张三', '王芳'][i % 3],
+  },
   status: i % 3,
   email: [
     'espinke0@apache.org',
@@ -138,7 +141,7 @@ const STATUS_OPTIONS = [
 const columns = computed(() => [
   {
     title: '申请人',
-    colKey: 'firstName',
+    colKey: 'user.firstName',
     align: align.value,
     width: 120,
     // 编辑状态相关配置，全部集中在 edit
@@ -183,10 +186,13 @@ const columns = computed(() => [
     cell: (h, { row }) => row.letters.join('、'),
     edit: {
       component: Select,
-      // props, 透传全部属性到 Select 组件
-      // props 为函数时，参数有：col, row, rowIndex, colIndex, editedRow。一般用于实现编辑组件之间的联动
+      /**
+       * 1. pass props to Select
+       * 2. props 为函数时，参数有：col, row, rowIndex, colIndex, editedRow，updateEditedCellValue。一般用于实现编辑组件之间的联动
+       * 3. updateEditedCellValue used to update value of editable cell
+       */
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      props: ({ col, row, rowIndex, colIndex, editedRow }) => {
+      props: ({ col, row, rowIndex, colIndex, editedRow, updateEditedCellValue }) => {
         return {
           multiple: true,
           minCollapsedNum: 1,

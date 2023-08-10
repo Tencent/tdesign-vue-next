@@ -67,7 +67,9 @@ export default defineComponent({
       vMenu,
       collapsed,
       select: (value: MenuValue) => {
-        setActiveValue(value);
+        if (value !== activeValue.value) {
+          setActiveValue(value);
+        }
       },
       open: (value: MenuValue, type: TdOpenType) => {
         if (mode.value === 'normal') {

@@ -2,8 +2,8 @@ import { computed, defineComponent, onMounted, PropType, ref, SetupContext, toRe
 import get from 'lodash/get';
 import set from 'lodash/set';
 import isFunction from 'lodash/isFunction';
+import cloneDeep from 'lodash/cloneDeep';
 import { Edit1Icon as TdEdit1Icon } from 'tdesign-icons-vue-next';
-
 import {
   TableRowData,
   PrimaryTableCol,
@@ -79,14 +79,26 @@ export default defineComponent({
     const { row, col } = toRefs(props);
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const tableEditableCellRef = ref(null);
-    const isEdit = ref(props.col.edit?.defaultEditable || false);
+    const isKeepEditMode = computed(() => col.value.edit?.keepEditMode);
+    const isEdit = ref(isKeepEditMode.value || props.col.edit?.defaultEditable || false);
     const editValue = ref();
     const errorList = ref<AllValidateResult[]>();
     const classPrefix = usePrefixClass();
 
     const { Edit1Icon } = useGlobalIcon({ Edit1Icon: TdEdit1Icon });
+
+    const updateEditedCellValue = (val: any) => {
+      editValue.value = val;
+    };
+
+    watch([isKeepEditMode], (val) => {
+      if (val) {
+        isEdit.value = true;
+      }
+    });
+
     const editOnListeners = computed(() => {
-      return col.value.edit?.on?.({ ...cellParams.value, editedRow: currentRow.value }) || {};
+      return col.value.edit?.on?.({ ...cellParams.value, editedRow: currentRow.value, updateEditedCellValue }) || {};
     });
 
     const cellParams = computed(() => ({
@@ -97,8 +109,16 @@ export default defineComponent({
     }));
 
     const currentRow = computed(() => {
+      const { colKey } = col.value;
+      // handle colKey like a.b.c
+      const [firstKey, ...restKeys] = colKey.split('.') || [];
       const newRow = { ...row.value };
-      set(newRow, col.value.colKey, editValue.value);
+      if (restKeys.length) {
+        newRow[firstKey] = cloneDeep(row.value[firstKey]);
+        set(newRow[firstKey], restKeys.join('.'), editValue.value);
+      } else {
+        set(newRow, colKey, editValue.value);
+      }
       return newRow;
     });
 
@@ -123,6 +143,7 @@ export default defineComponent({
         ? edit.props({
             ...cellParams.value,
             editedRow: currentRow.value,
+            updateEditedCellValue,
           })
         : { ...edit.props };
       // to remove warn: runtime-core.esm-bundler.js:38 [Vue warn]: Invalid prop: type check failed for prop "onChange". Expected Function, got Array
@@ -192,7 +213,9 @@ export default defineComponent({
         editOnListeners.value[eventName]?.(args[2]);
         // 此处必须在事件执行完成后异步销毁编辑组件，否则会导致事件清除不及时引起的其他问题
         const timer = setTimeout(() => {
-          isEdit.value = false;
+          if (!isKeepEditMode.value) {
+            isEdit.value = false;
+          }
           errorList.value = [];
           props.onEditableChange?.({
             ...cellParams.value,

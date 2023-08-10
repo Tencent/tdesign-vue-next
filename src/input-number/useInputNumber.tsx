@@ -87,7 +87,11 @@ export default function useInputNumber(props: TdInputNumberProps) {
           userInput.value = getUserInput(inputValue);
         }
         const fixedNumber = Number(largeNumberToFixed(inputValue, decimalPlaces, largeNumber));
-        if (decimalPlaces !== undefined && ![undefined, null].includes(val) && Number(fixedNumber) !== Number(tValue)) {
+        if (
+          decimalPlaces !== undefined &&
+          ![undefined, null].includes(val) &&
+          Number(fixedNumber) !== Number(tValue.value)
+        ) {
           setTValue(fixedNumber, { type: 'props', e: undefined });
         }
       }
@@ -158,6 +162,7 @@ export default function useInputNumber(props: TdInputNumberProps) {
   const onInnerInputChange: TdInputProps['onChange'] = (inputValue, { e }) => {
     // 千分位处理
     const val = formatThousandths(inputValue);
+
     if (!canInputNumber(val, props.largeNumber)) return;
 
     userInput.value = val;
@@ -191,6 +196,7 @@ export default function useInputNumber(props: TdInputNumberProps) {
       largeNumber,
     });
     userInput.value = getUserInput(newValue);
+
     if (newValue !== tValue.value) {
       setTValue(newValue, { type: 'blur', e: ctx.e });
     }

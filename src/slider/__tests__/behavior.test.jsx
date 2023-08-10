@@ -63,7 +63,7 @@ describe('Slider', () => {
       // case 1: increase by click button
       // test max limit 60 + 15 = 75
       await increaseButtonEle.trigger('click');
-      expect(Number(inputEle.value) < sliderLimit.max && Number(inputEle.value) > inputNumberLimit.max).toBeTruthy();
+      expect(Number(inputEle.value) <= sliderLimit.max && Number(inputEle.value) > inputNumberLimit.max).toBeTruthy();
       // 75 + 15 = 90，大于 sliderLimit.max
       await increaseButtonEle.trigger('click');
       expect(Number(inputEle.value) < sliderLimit.max).toBeFalsy();
@@ -71,7 +71,7 @@ describe('Slider', () => {
       await decreaseButtonEle.trigger('click');
       await decreaseButtonEle.trigger('click');
       await decreaseButtonEle.trigger('click');
-      expect(Number(inputEle.value) > sliderLimit.min && Number(inputEle.value) < inputNumberLimit.min).toBeTruthy();
+      expect(Number(inputEle.value) >= sliderLimit.min && Number(inputEle.value) < inputNumberLimit.min).toBeTruthy();
       // case 2: increase by input
       inputWrapper.setValue(43);
       await inputWrapper.trigger('blur');

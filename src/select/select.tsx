@@ -404,6 +404,7 @@ export default defineComponent({
             collapsed-items={props.collapsedItems}
             inputProps={{
               size: props.size,
+              autofocus: props.autofocus,
               ...(props.inputProps as TdSelectProps['inputProps']),
               onkeydown: handleKeyDown,
             }}
@@ -419,7 +420,9 @@ export default defineComponent({
               overlayClassName: [`${COMPONENT_NAME.value}__dropdown`, overlayClassName],
               ...restPopupProps,
             }}
-            label={() => renderTNodeJSX('prefixIcon')}
+            label={props.label}
+            prefixIcon={props.prefixIcon}
+            suffix={props.suffix}
             suffixIcon={() => {
               if (props.suffixIcon || slots.suffixIcon) {
                 return renderTNodeJSX('suffixIcon');
@@ -443,7 +446,9 @@ export default defineComponent({
               setInnerPopupVisible(val, context);
             }}
             onInputChange={(value, context) => {
-              if (!innerPopupVisible.value) return;
+              if (value) {
+                setInnerPopupVisible(true, { e: context.e as KeyboardEvent });
+              }
               setInputValue(value);
               handleSearch(`${value}`, { e: context.e as KeyboardEvent });
             }}
@@ -468,6 +473,9 @@ export default defineComponent({
             }}
             {...(props.selectInputProps as TdSelectProps['selectInputProps'])}
             v-slots={{
+              label: slots.label,
+              prefixIcon: slots.prefixIcon,
+              suffix: slots.suffix,
               panel: () => (
                 <SelectPanel
                   ref={selectPanelRef}
@@ -490,7 +498,6 @@ export default defineComponent({
                 />
               ),
               collapsedItems: slots.collapsedItems,
-              suffix: slots.suffix,
             }}
           />
         </div>
