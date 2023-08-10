@@ -20,6 +20,10 @@ export interface TdLinkProps {
    */
   disabled?: boolean;
   /**
+   * 使得浏览器将链接的 URL 视为可下载资源
+   */
+  download?: string | boolean;
+  /**
    * 链接悬浮态样式，有 文本颜色变化、添加下划线等 2 种方法
    * @default underline
    */

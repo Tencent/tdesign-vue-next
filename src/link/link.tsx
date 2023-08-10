@@ -40,7 +40,8 @@ export default defineComponent({
         <a
           class={[...linkClass.value]}
           href={isDisabled.value || !props.href ? undefined : props.href}
-          target={props.target}
+          target={!props.target ? undefined : props.target}
+          download={!props.download ? undefined : props.download}
           onClick={handleClick}
         >
           {prefix ? <span class={`${COMPONENT_NAME.value}__prefix-icon`}>{prefix}</span> : null}
