@@ -18,10 +18,10 @@
     </t-space>
     <t-space break-line>
       <p>How much icons does TDesign Icon includes?</p>
-      <icon-font name="numbers-1-1" style="color: var(--td-brand-color-5)" />
-      <icon-font name="numbers-1" style="color: var(--td-brand-color-6)" />
-      <icon-font name="numbers-9" style="color: var(--td-brand-color-7)" />
-      <icon-font name="numbers-7" style="color: var(--td-brand-color-8)" />
+      <icon-font name="numbers-1" style="color: var(--td-brand-color-5)" />
+      <icon-font name="numbers-2" style="color: var(--td-brand-color-6)" />
+      <icon-font name="numbers-0" style="color: var(--td-brand-color-7)" />
+      <icon-font name="numbers-3" style="color: var(--td-brand-color-8)" />
     </t-space>
   </t-space>
 </template>
