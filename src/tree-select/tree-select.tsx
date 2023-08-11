@@ -422,8 +422,13 @@ export default defineComponent({
             params: props.multiple
               ? {
                   value: nodeInfo.value,
-                  onClose: (value: TagInputValue, context: TagInputChangeContext) => {
-                    tagChange(value, context);
+                  onClose: (index: number) => {
+                    const value = nodeInfo.value.map((node: TreeOptionData) => node.value);
+                    tagChange(value, {
+                      trigger: 'tag-remove',
+                      index,
+                      item: value[index],
+                    });
                   },
                 }
               : {
