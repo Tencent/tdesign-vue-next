@@ -3728,14 +3728,14 @@ exports[`Guide Component > GuideStep.body works fine 1`] = `
   />
   <div
     class="t-guide__highlight t-guide__highlight--popup t-guide--absolute t-guide__highlight--mask"
-    style="z-index: 999998; width: 16px; height: 16px; top: -8px; left: -8px;"
+    style="z-index: 999998; top: -8px; left: -8px; width: 16px; height: 16px;"
   >
     <!---->
   </div>
   
   <div
     class="t-guide__reference t-guide--absolute"
-    style="width: 16px; height: 16px; top: -8px; left: -8px;"
+    style="top: -8px; left: -8px; width: 16px; height: 16px;"
   />
   <!--teleport start-->
   <!--teleport end-->
@@ -7835,14 +7835,14 @@ exports[`Guide Component > GuideStep.content works fine 1`] = `
   />
   <div
     class="t-guide__highlight t-guide__highlight--popup t-guide--absolute t-guide__highlight--mask"
-    style="z-index: 999998; width: 16px; height: 16px; top: -8px; left: -8px;"
+    style="z-index: 999998; top: -8px; left: -8px; width: 16px; height: 16px;"
   >
     <!---->
   </div>
   
   <div
     class="t-guide__reference t-guide--absolute"
-    style="width: 16px; height: 16px; top: -8px; left: -8px;"
+    style="top: -8px; left: -8px; width: 16px; height: 16px;"
   />
   <!--teleport start-->
   <!--teleport end-->
@@ -12177,11 +12177,11 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
     style="z-index: 999997;"
   />
   <div
-    class="t-guide__highlight t-guide__highlight--popup t-guide--absolute t-guide__highlight t-guide__highlight--popup t-guide--absolute"
-    style="z-index: 999998; width: 16px; height: 16px; top: -8px; left: -8px;"
+    class="t-guide__highlight t-guide__highlight--popup t-guide--absolute t-guide__highlight--mask"
+    style="z-index: 999998; top: -8px; left: -8px; width: auto; height: auto;"
   >
     <span
-      class="t-guide__highlight--mask custom-node"
+      class="custom-node"
     >
       TNode
     </span>
@@ -12189,7 +12189,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
   
   <div
     class="t-guide__reference t-guide--absolute"
-    style="width: 16px; height: 16px; top: -8px; left: -8px;"
+    style="top: -8px; left: -8px; width: 0px; height: 0px;"
   />
   <!--teleport start-->
   <!--teleport end-->
@@ -17781,14 +17781,14 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
   />
   <div
     class="t-guide__highlight t-guide__highlight--popup t-guide--absolute t-guide__highlight--mask"
-    style="z-index: 999998; width: 16px; height: 16px; top: -8px; left: -8px;"
+    style="z-index: 999998; top: -8px; left: -8px; width: 16px; height: 16px;"
   >
     <!---->
   </div>
   
   <div
     class="t-guide__reference t-guide--absolute"
-    style="width: 16px; height: 16px; top: -8px; left: -8px;"
+    style="top: -8px; left: -8px; width: 16px; height: 16px;"
   />
   <!--teleport start-->
   <!--teleport end-->
@@ -23986,14 +23986,14 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
   />
   <div
     class="t-guide__highlight t-guide__highlight--popup t-guide--absolute t-guide__highlight--mask"
-    style="z-index: 999998; width: 16px; height: 16px; top: -8px; left: -8px;"
+    style="z-index: 999998; top: -8px; left: -8px; width: 16px; height: 16px;"
   >
     <!---->
   </div>
   
   <div
     class="t-guide__reference t-guide--absolute"
-    style="width: 16px; height: 16px; top: -8px; left: -8px;"
+    style="top: -8px; left: -8px; width: 16px; height: 16px;"
   />
   <!--teleport start-->
   <!--teleport end-->
@@ -30332,14 +30332,14 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
   />
   <div
     class="t-guide__highlight t-guide__highlight--popup t-guide--absolute t-guide__highlight--mask"
-    style="z-index: 999998; width: 16px; height: 16px; top: -8px; left: -8px;"
+    style="z-index: 999998; top: -8px; left: -8px; width: 16px; height: 16px;"
   >
     <!---->
   </div>
   
   <div
     class="t-guide__reference t-guide--absolute"
-    style="width: 16px; height: 16px; top: -8px; left: -8px;"
+    style="top: -8px; left: -8px; width: 16px; height: 16px;"
   />
   <!--teleport start-->
   <!--teleport end-->
@@ -34298,14 +34298,14 @@ exports[`Guide Component > slots.body works fine 1`] = `
   />
   <div
     class="t-guide__highlight t-guide__highlight--popup t-guide--absolute t-guide__highlight--mask"
-    style="z-index: 999998; width: 16px; height: 16px; top: -8px; left: -8px;"
+    style="z-index: 999998; top: -8px; left: -8px; width: 16px; height: 16px;"
   >
     <!---->
   </div>
   
   <div
     class="t-guide__reference t-guide--absolute"
-    style="width: 16px; height: 16px; top: -8px; left: -8px;"
+    style="top: -8px; left: -8px; width: 16px; height: 16px;"
   />
   <!--teleport start-->
   <!--teleport end-->
@@ -38548,14 +38548,14 @@ exports[`Guide Component > slots.content works fine 1`] = `
   />
   <div
     class="t-guide__highlight t-guide__highlight--popup t-guide--absolute t-guide__highlight--mask"
-    style="z-index: 999998; width: 16px; height: 16px; top: -8px; left: -8px;"
+    style="z-index: 999998; top: -8px; left: -8px; width: 16px; height: 16px;"
   >
     <!---->
   </div>
   
   <div
     class="t-guide__reference t-guide--absolute"
-    style="width: 16px; height: 16px; top: -8px; left: -8px;"
+    style="top: -8px; left: -8px; width: 16px; height: 16px;"
   />
   <!--teleport start-->
   <!--teleport end-->
@@ -43176,8 +43176,8 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
     style="z-index: 999997;"
   />
   <div
-    class="t-guide__highlight t-guide__highlight--popup t-guide--absolute t-guide__highlight t-guide__highlight--popup t-guide--absolute"
-    style="z-index: 999998; width: 16px; height: 16px; top: -8px; left: -8px;"
+    class="t-guide__highlight t-guide__highlight--popup t-guide--absolute t-guide__highlight--mask"
+    style="z-index: 999998; top: -8px; left: -8px; width: auto; height: auto;"
   >
     
     <span
@@ -43190,7 +43190,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
   
   <div
     class="t-guide__reference t-guide--absolute"
-    style="width: 16px; height: 16px; top: -8px; left: -8px;"
+    style="top: -8px; left: -8px; width: 0px; height: 0px;"
   />
   <!--teleport start-->
   <!--teleport end-->
@@ -47708,8 +47708,8 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
     style="z-index: 999997;"
   />
   <div
-    class="t-guide__highlight t-guide__highlight--popup t-guide--absolute t-guide__highlight t-guide__highlight--popup t-guide--absolute"
-    style="z-index: 999998; width: 16px; height: 16px; top: -8px; left: -8px;"
+    class="t-guide__highlight t-guide__highlight--popup t-guide--absolute t-guide__highlight--mask"
+    style="z-index: 999998; top: -8px; left: -8px; width: auto; height: auto;"
   >
     
     <span
@@ -47722,7 +47722,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
   
   <div
     class="t-guide__reference t-guide--absolute"
-    style="width: 16px; height: 16px; top: -8px; left: -8px;"
+    style="top: -8px; left: -8px; width: 0px; height: 0px;"
   />
   <!--teleport start-->
   <!--teleport end-->
@@ -54202,14 +54202,14 @@ exports[`Guide Component > slots.title works fine 1`] = `
   />
   <div
     class="t-guide__highlight t-guide__highlight--popup t-guide--absolute t-guide__highlight--mask"
-    style="z-index: 999998; width: 16px; height: 16px; top: -8px; left: -8px;"
+    style="z-index: 999998; top: -8px; left: -8px; width: 16px; height: 16px;"
   >
     <!---->
   </div>
   
   <div
     class="t-guide__reference t-guide--absolute"
-    style="width: 16px; height: 16px; top: -8px; left: -8px;"
+    style="top: -8px; left: -8px; width: 16px; height: 16px;"
   />
   <!--teleport start-->
   <!--teleport end-->
