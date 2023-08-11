@@ -7,7 +7,6 @@ import isNil from 'lodash/isNil';
 
 import Tree, { TreeProps, TreeNodeModel, TreeNodeValue } from '../tree';
 import SelectInput, { TdSelectInputProps } from '../select-input';
-import { TagInputChangeContext, TagInputValue } from '../tag-input';
 import { InputValue } from '../input';
 import FakeArrow from '../common-components/fake-arrow';
 import { PopupVisibleChangeContext } from '../popup';
