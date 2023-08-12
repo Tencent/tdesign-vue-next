@@ -2,14 +2,15 @@ import { onBeforeMount, onMounted, Ref } from 'vue';
 import { off, on } from '../utils/dom';
 import isString from 'lodash/isString';
 
+const CHECKED_CODE_REG = /(enter|space)/i;
+
 /** 键盘操作 */
 export default function useKeyboard(
   radioGroupRef: Ref<HTMLElement>,
   setInnerValue: (value: any, context: { e: Event }) => void,
 ) {
   const checkRadioInGroup = (e: KeyboardEvent) => {
-    const isCheckedCode =
-      /enter/i.test(e.key) || /enter/i.test(e.code) || /space/i.test(e.key) || /space/i.test(e.code);
+    const isCheckedCode = CHECKED_CODE_REG.test(e.key) || CHECKED_CODE_REG.test(e.code);
     if (isCheckedCode) {
       e.preventDefault();
       const inputNode = (e.target as HTMLElement).querySelector('input');
