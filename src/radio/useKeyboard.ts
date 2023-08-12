@@ -8,7 +8,10 @@ export default function useKeyboard(
   setInnerValue: (value: any, context: { e: Event }) => void,
 ) {
   const checkRadioInGroup = (e: KeyboardEvent) => {
-    if (/enter/i.test(e.key) || /enter/i.test(e.code)) {
+    const isCheckedCode =
+      /enter/i.test(e.key) || /enter/i.test(e.code) || /space/i.test(e.key) || /space/i.test(e.code);
+    if (isCheckedCode) {
+      e.preventDefault();
       const inputNode = (e.target as HTMLElement).querySelector('input');
       const data = inputNode.dataset;
       if (inputNode.checked && data.allowUncheck) {

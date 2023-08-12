@@ -1,6 +1,8 @@
 export function useKeyboardEvent(handleChange: (e: Event) => void) {
   const keyboardEventListener = (e: KeyboardEvent) => {
-    if (['Enter', 'Space'].includes(e.code)) {
+    const isCheckedCode =
+      /enter/i.test(e.key) || /enter/i.test(e.code) || /space/i.test(e.key) || /space/i.test(e.code);
+    if (isCheckedCode) {
       e.preventDefault();
       const { disabled } = (e.currentTarget as HTMLElement).querySelector('input');
       !disabled && handleChange(e);
