@@ -51,12 +51,20 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, fail 
                   fill="none"
                   height="1em"
                   style="font-size: 24px;"
-                  viewBox="0 0 24 24"
+                  viewBox="0 0 16 16"
                   width="1em"
                 >
                   <path
-                    d="M2 2h20v20H2V2zm2 18h13.59L9 11.41l-5 5V20zm16-.41V4H4v9.59l5-5 11 11zM15.55 7a1 1 0 100 2 1 1 0 000-2zm-3 1a3 3 0 116 0 3 3 0 01-6 0z"
+                    clip-rule="evenodd"
+                    d="M10 8a2 2 0 100-4 2 2 0 000 4zm0-1a1 1 0 100-2 1 1 0 000 2z"
                     fill="currentColor"
+                    fill-opacity="0.9"
+                    fill-rule="evenodd"
+                  />
+                  <path
+                    d="M2 13a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1H3a1 1 0 00-1 1v10zm1-1.3l3-3 4.3 4.3H3v-1.3zm0-1.4V3h10v10h-1.3L6 7.3l-3 3z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
                   />
                 </svg>
               </div>
@@ -98,12 +106,13 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, fail 
             class="t-icon t-icon-error-circle-filled"
             fill="none"
             height="1em"
-            viewBox="0 0 24 24"
+            viewBox="0 0 16 16"
             width="1em"
           >
             <path
-              d="M12 1a11 11 0 110 22 11 11 0 010-22zm-1 13h2V6.5h-2V14zm2 1.5h-2v2h2v-2z"
+              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
               fill="currentColor"
+              fill-opacity="0.9"
             />
           </svg>
         </div>
@@ -134,6 +143,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, fail 
           <button
             class="t-button t-button--variant-text t-button--theme-primary t-upload__dragger-progress-cancel"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -147,6 +157,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, fail 
           <button
             class="t-button t-button--variant-text t-button--theme-danger t-upload__dragger-delete-btn"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -219,12 +230,20 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, progr
                   fill="none"
                   height="1em"
                   style="font-size: 24px;"
-                  viewBox="0 0 24 24"
+                  viewBox="0 0 16 16"
                   width="1em"
                 >
                   <path
-                    d="M2 2h20v20H2V2zm2 18h13.59L9 11.41l-5 5V20zm16-.41V4H4v9.59l5-5 11 11zM15.55 7a1 1 0 100 2 1 1 0 000-2zm-3 1a3 3 0 116 0 3 3 0 01-6 0z"
+                    clip-rule="evenodd"
+                    d="M10 8a2 2 0 100-4 2 2 0 000 4zm0-1a1 1 0 100-2 1 1 0 000 2z"
                     fill="currentColor"
+                    fill-opacity="0.9"
+                    fill-rule="evenodd"
+                  />
+                  <path
+                    d="M2 13a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1H3a1 1 0 00-1 1v10zm1-1.3l3-3 4.3 4.3H3v-1.3zm0-1.4V3h10v10h-1.3L6 7.3l-3 3z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
                   />
                 </svg>
               </div>
@@ -319,6 +338,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, progr
           <button
             class="t-button t-button--variant-text t-button--theme-primary t-upload__dragger-progress-cancel"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -393,12 +413,20 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
                   fill="none"
                   height="1em"
                   style="font-size: 24px;"
-                  viewBox="0 0 24 24"
+                  viewBox="0 0 16 16"
                   width="1em"
                 >
                   <path
-                    d="M2 2h20v20H2V2zm2 18h13.59L9 11.41l-5 5V20zm16-.41V4H4v9.59l5-5 11 11zM15.55 7a1 1 0 100 2 1 1 0 000-2zm-3 1a3 3 0 116 0 3 3 0 01-6 0z"
+                    clip-rule="evenodd"
+                    d="M10 8a2 2 0 100-4 2 2 0 000 4zm0-1a1 1 0 100-2 1 1 0 000 2z"
                     fill="currentColor"
+                    fill-opacity="0.9"
+                    fill-rule="evenodd"
+                  />
+                  <path
+                    d="M2 13a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1H3a1 1 0 00-1 1v10zm1-1.3l3-3 4.3 4.3H3v-1.3zm0-1.4V3h10v10h-1.3L6 7.3l-3 3z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
                   />
                 </svg>
               </div>
@@ -439,12 +467,13 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
             class="t-icon t-icon-check-circle-filled"
             fill="none"
             height="1em"
-            viewBox="0 0 24 24"
+            viewBox="0 0 16 16"
             width="1em"
           >
             <path
-              d="M12 23a11 11 0 100-22 11 11 0 000 22zM7.5 10.59l3 3 6-6L17.91 9l-7.41 7.41L6.09 12l1.41-1.41z"
+              d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
               fill="currentColor"
+              fill-opacity="0.9"
             />
           </svg>
           <!---->
@@ -476,6 +505,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
           <button
             class="t-button t-button--variant-text t-button--theme-primary t-upload__dragger-progress-cancel"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -489,6 +519,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
           <button
             class="t-button t-button--variant-text t-button--theme-danger t-upload__dragger-delete-btn"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -561,12 +592,20 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
                   fill="none"
                   height="1em"
                   style="font-size: 24px;"
-                  viewBox="0 0 24 24"
+                  viewBox="0 0 16 16"
                   width="1em"
                 >
                   <path
-                    d="M2 2h20v20H2V2zm2 18h13.59L9 11.41l-5 5V20zm16-.41V4H4v9.59l5-5 11 11zM15.55 7a1 1 0 100 2 1 1 0 000-2zm-3 1a3 3 0 116 0 3 3 0 01-6 0z"
+                    clip-rule="evenodd"
+                    d="M10 8a2 2 0 100-4 2 2 0 000 4zm0-1a1 1 0 100-2 1 1 0 000 2z"
                     fill="currentColor"
+                    fill-opacity="0.9"
+                    fill-rule="evenodd"
+                  />
+                  <path
+                    d="M2 13a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1H3a1 1 0 00-1 1v10zm1-1.3l3-3 4.3 4.3H3v-1.3zm0-1.4V3h10v10h-1.3L6 7.3l-3 3z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
                   />
                 </svg>
               </div>
@@ -607,12 +646,13 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
             class="t-icon t-icon-check-circle-filled"
             fill="none"
             height="1em"
-            viewBox="0 0 24 24"
+            viewBox="0 0 16 16"
             width="1em"
           >
             <path
-              d="M12 23a11 11 0 100-22 11 11 0 000 22zM7.5 10.59l3 3 6-6L17.91 9l-7.41 7.41L6.09 12l1.41-1.41z"
+              d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
               fill="currentColor"
+              fill-opacity="0.9"
             />
           </svg>
           <!---->
@@ -644,6 +684,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
           <button
             class="t-button t-button--variant-text t-button--theme-primary t-upload__dragger-progress-cancel"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -657,6 +698,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
           <button
             class="t-button t-button--variant-text t-button--theme-danger t-upload__dragger-delete-btn"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -729,12 +771,20 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, waiti
                   fill="none"
                   height="1em"
                   style="font-size: 24px;"
-                  viewBox="0 0 24 24"
+                  viewBox="0 0 16 16"
                   width="1em"
                 >
                   <path
-                    d="M2 2h20v20H2V2zm2 18h13.59L9 11.41l-5 5V20zm16-.41V4H4v9.59l5-5 11 11zM15.55 7a1 1 0 100 2 1 1 0 000-2zm-3 1a3 3 0 116 0 3 3 0 01-6 0z"
+                    clip-rule="evenodd"
+                    d="M10 8a2 2 0 100-4 2 2 0 000 4zm0-1a1 1 0 100-2 1 1 0 000 2z"
                     fill="currentColor"
+                    fill-opacity="0.9"
+                    fill-rule="evenodd"
+                  />
+                  <path
+                    d="M2 13a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1H3a1 1 0 00-1 1v10zm1-1.3l3-3 4.3 4.3H3v-1.3zm0-1.4V3h10v10h-1.3L6 7.3l-3 3z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
                   />
                 </svg>
               </div>
@@ -795,6 +845,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, waiti
           <button
             class="t-button t-button--variant-text t-button--theme-primary t-upload__dragger-progress-cancel"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -843,6 +894,7 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
         <button
           class="t-button t-button--variant-outline t-button--theme-default"
           href=""
+          tabindex="0"
           type="button"
         >
           
@@ -850,12 +902,18 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
             class="t-icon t-icon-upload"
             fill="none"
             height="1em"
-            viewBox="0 0 24 24"
+            viewBox="0 0 16 16"
             width="1em"
           >
             <path
-              d="M12 2.59l5.91 5.91-1.41 1.41-3.5-3.5V16h-2V6.41l-3.5 3.5L6.09 8.5 12 2.59zM4.5 14v5h15v-5h2v7h-19v-7h2z"
+              d="M3.74 6.68L7.5 2.9v8.59h1V2.91l3.76 3.77.71-.7-4.62-4.63a.5.5 0 00-.7 0L3.03 5.97l.7.7z"
               fill="currentColor"
+              fill-opacity="0.9"
+            />
+            <path
+              d="M2 11v2a1 1 0 001 1h10a1 1 0 001-1v-2h-1v2H3v-2H2z"
+              fill="currentColor"
+              fill-opacity="0.9"
             />
           </svg>
           <span
@@ -915,12 +973,13 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
                 class="t-icon t-icon-check-circle-filled"
                 fill="none"
                 height="1em"
-                viewBox="0 0 24 24"
+                viewBox="0 0 16 16"
                 width="1em"
               >
                 <path
-                  d="M12 23a11 11 0 100-22 11 11 0 000 22zM7.5 10.59l3 3 6-6L17.91 9l-7.41 7.41L6.09 12l1.41-1.41z"
+                  d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
                   fill="currentColor"
+                  fill-opacity="0.9"
                 />
               </svg>
               <span
@@ -935,6 +994,7 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
             <button
               class="t-button t-button--variant-text t-button--theme-primary t-upload__delete"
               href=""
+              tabindex="0"
               type="button"
             >
               <span
@@ -962,12 +1022,13 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
                 class="t-icon t-icon-time-filled"
                 fill="none"
                 height="1em"
-                viewBox="0 0 24 24"
+                viewBox="0 0 16 16"
                 width="1em"
               >
                 <path
-                  d="M12 23a11 11 0 110-22 11 11 0 010 22zm1-17.5h-2v6.91l4 4L16.41 15 13 11.59V5.5z"
+                  d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.5 5h1v2.97l2.85 2.86-.7.7L7.5 8.4V5z"
                   fill="currentColor"
+                  fill-opacity="0.9"
                 />
               </svg>
               <span
@@ -982,6 +1043,7 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
             <button
               class="t-button t-button--variant-text t-button--theme-primary t-upload__delete"
               href=""
+              tabindex="0"
               type="button"
             >
               <span
@@ -1009,12 +1071,13 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
                 class="t-icon t-icon-error-circle-filled"
                 fill="none"
                 height="1em"
-                viewBox="0 0 24 24"
+                viewBox="0 0 16 16"
                 width="1em"
               >
                 <path
-                  d="M12 1a11 11 0 110 22 11 11 0 010-22zm-1 13h2V6.5h-2V14zm2 1.5h-2v2h2v-2z"
+                  d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
                   fill="currentColor"
+                  fill-opacity="0.9"
                 />
               </svg>
               <span
@@ -1029,6 +1092,7 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
             <button
               class="t-button t-button--variant-text t-button--theme-primary t-upload__delete"
               href=""
+              tabindex="0"
               type="button"
             >
               <span
@@ -1089,6 +1153,7 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
             <button
               class="t-button t-button--variant-text t-button--theme-primary t-upload__delete"
               href=""
+              tabindex="0"
               type="button"
             >
               <span
@@ -1139,6 +1204,7 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
         <button
           class="t-button t-button--variant-outline t-button--theme-default"
           href=""
+          tabindex="0"
           type="button"
         >
           
@@ -1146,12 +1212,18 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
             class="t-icon t-icon-upload"
             fill="none"
             height="1em"
-            viewBox="0 0 24 24"
+            viewBox="0 0 16 16"
             width="1em"
           >
             <path
-              d="M12 2.59l5.91 5.91-1.41 1.41-3.5-3.5V16h-2V6.41l-3.5 3.5L6.09 8.5 12 2.59zM4.5 14v5h15v-5h2v7h-19v-7h2z"
+              d="M3.74 6.68L7.5 2.9v8.59h1V2.91l3.76 3.77.71-.7-4.62-4.63a.5.5 0 00-.7 0L3.03 5.97l.7.7z"
               fill="currentColor"
+              fill-opacity="0.9"
+            />
+            <path
+              d="M2 11v2a1 1 0 001 1h10a1 1 0 001-1v-2h-1v2H3v-2H2z"
+              fill="currentColor"
+              fill-opacity="0.9"
             />
           </svg>
           <span
@@ -1212,12 +1284,20 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                       fill="none"
                       height="1em"
                       style="font-size: 24px;"
-                      viewBox="0 0 24 24"
+                      viewBox="0 0 16 16"
                       width="1em"
                     >
                       <path
-                        d="M2 2h20v20H2V2zm2 18h13.59L9 11.41l-5 5V20zm16-.41V4H4v9.59l5-5 11 11zM15.55 7a1 1 0 100 2 1 1 0 000-2zm-3 1a3 3 0 116 0 3 3 0 01-6 0z"
+                        clip-rule="evenodd"
+                        d="M10 8a2 2 0 100-4 2 2 0 000 4zm0-1a1 1 0 100-2 1 1 0 000 2z"
                         fill="currentColor"
+                        fill-opacity="0.9"
+                        fill-rule="evenodd"
+                      />
+                      <path
+                        d="M2 13a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1H3a1 1 0 00-1 1v10zm1-1.3l3-3 4.3 4.3H3v-1.3zm0-1.4V3h10v10h-1.3L6 7.3l-3 3z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
                       />
                     </svg>
                   </div>
@@ -1240,12 +1320,18 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                   class="t-icon t-icon-delete"
                   fill="none"
                   height="1em"
-                  viewBox="0 0 24 24"
+                  viewBox="0 0 16 16"
                   width="1em"
                 >
                   <path
-                    d="M7.5 1h9v3H22v2h-2.03l-.5 17H4.53l-.5-17H2V4h5.5V1zm2 3h5V3h-5v1zM6.03 6l.44 15h11.06l.44-15H6.03zM13 8v11h-2V8h2z"
+                    d="M6 12V6h1v6H6zM9 6v6h1V6H9z"
                     fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                  <path
+                    d="M10.5 3H14v1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2V3h3.5V1.8c0-.44.36-.8.8-.8h3.4c.44 0 .8.36.8.8V3zm-4 0h3V2h-3v1zM4 4v10h8V4H4z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
                   />
                 </svg>
               </span>
@@ -1295,12 +1381,20 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                       fill="none"
                       height="1em"
                       style="font-size: 24px;"
-                      viewBox="0 0 24 24"
+                      viewBox="0 0 16 16"
                       width="1em"
                     >
                       <path
-                        d="M2 2h20v20H2V2zm2 18h13.59L9 11.41l-5 5V20zm16-.41V4H4v9.59l5-5 11 11zM15.55 7a1 1 0 100 2 1 1 0 000-2zm-3 1a3 3 0 116 0 3 3 0 01-6 0z"
+                        clip-rule="evenodd"
+                        d="M10 8a2 2 0 100-4 2 2 0 000 4zm0-1a1 1 0 100-2 1 1 0 000 2z"
                         fill="currentColor"
+                        fill-opacity="0.9"
+                        fill-rule="evenodd"
+                      />
+                      <path
+                        d="M2 13a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1H3a1 1 0 00-1 1v10zm1-1.3l3-3 4.3 4.3H3v-1.3zm0-1.4V3h10v10h-1.3L6 7.3l-3 3z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
                       />
                     </svg>
                   </div>
@@ -1322,17 +1416,19 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                   class="t-icon t-icon-browse"
                   fill="none"
                   height="1em"
-                  viewBox="0 0 24 24"
+                  viewBox="0 0 16 16"
                   width="1em"
                 >
-                  <g
-                    clipPath="url(#clip0_8726_7319)"
-                  >
-                    <path
-                      d="M2.1 12a10.5 10.5 0 0019.8 0 10.5 10.5 0 00-19.8 0zm-2.01-.3a12.5 12.5 0 0123.82 0l.1.3-.1.3a12.5 12.5 0 01-23.82 0l-.1-.3.1-.3zM12 9a3 3 0 100 6 3 3 0 000-6zm-5 3a5 5 0 1110 0 5 5 0 01-10 0z"
-                      fill="currentColor"
-                    />
-                  </g>
+                  <path
+                    d="M10.88 8a2.88 2.88 0 11-5.76 0 2.88 2.88 0 015.76 0zm-1 0a1.88 1.88 0 10-3.76 0 1.88 1.88 0 003.76 0z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                  <path
+                    d="M1.12 8.23A7.72 7.72 0 008 12.5c2.9 0 5.54-1.63 6.88-4.27L15 8l-.12-.23A7.73 7.73 0 008 3.5a7.74 7.74 0 00-6.88 4.27L1 8l.12.23zM8 11.5A6.73 6.73 0 012.11 8 6.73 6.73 0 0113.9 8 6.74 6.74 0 018 11.5z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
                 </svg>
                 <span
                   class="t-upload__card-mask-item-divider"
@@ -1345,12 +1441,18 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                   class="t-icon t-icon-delete"
                   fill="none"
                   height="1em"
-                  viewBox="0 0 24 24"
+                  viewBox="0 0 16 16"
                   width="1em"
                 >
                   <path
-                    d="M7.5 1h9v3H22v2h-2.03l-.5 17H4.53l-.5-17H2V4h5.5V1zm2 3h5V3h-5v1zM6.03 6l.44 15h11.06l.44-15H6.03zM13 8v11h-2V8h2z"
+                    d="M6 12V6h1v6H6zM9 6v6h1V6H9z"
                     fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                  <path
+                    d="M10.5 3H14v1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2V3h3.5V1.8c0-.44.36-.8.8-.8h3.4c.44 0 .8.36.8.8V3zm-4 0h3V2h-3v1zM4 4v10h8V4H4z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
                   />
                 </svg>
               </span>
@@ -1400,12 +1502,20 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                       fill="none"
                       height="1em"
                       style="font-size: 24px;"
-                      viewBox="0 0 24 24"
+                      viewBox="0 0 16 16"
                       width="1em"
                     >
                       <path
-                        d="M2 2h20v20H2V2zm2 18h13.59L9 11.41l-5 5V20zm16-.41V4H4v9.59l5-5 11 11zM15.55 7a1 1 0 100 2 1 1 0 000-2zm-3 1a3 3 0 116 0 3 3 0 01-6 0z"
+                        clip-rule="evenodd"
+                        d="M10 8a2 2 0 100-4 2 2 0 000 4zm0-1a1 1 0 100-2 1 1 0 000 2z"
                         fill="currentColor"
+                        fill-opacity="0.9"
+                        fill-rule="evenodd"
+                      />
+                      <path
+                        d="M2 13a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1H3a1 1 0 00-1 1v10zm1-1.3l3-3 4.3 4.3H3v-1.3zm0-1.4V3h10v10h-1.3L6 7.3l-3 3z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
                       />
                     </svg>
                   </div>
@@ -1427,17 +1537,19 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                   class="t-icon t-icon-browse"
                   fill="none"
                   height="1em"
-                  viewBox="0 0 24 24"
+                  viewBox="0 0 16 16"
                   width="1em"
                 >
-                  <g
-                    clipPath="url(#clip0_8726_7319)"
-                  >
-                    <path
-                      d="M2.1 12a10.5 10.5 0 0019.8 0 10.5 10.5 0 00-19.8 0zm-2.01-.3a12.5 12.5 0 0123.82 0l.1.3-.1.3a12.5 12.5 0 01-23.82 0l-.1-.3.1-.3zM12 9a3 3 0 100 6 3 3 0 000-6zm-5 3a5 5 0 1110 0 5 5 0 01-10 0z"
-                      fill="currentColor"
-                    />
-                  </g>
+                  <path
+                    d="M10.88 8a2.88 2.88 0 11-5.76 0 2.88 2.88 0 015.76 0zm-1 0a1.88 1.88 0 10-3.76 0 1.88 1.88 0 003.76 0z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                  <path
+                    d="M1.12 8.23A7.72 7.72 0 008 12.5c2.9 0 5.54-1.63 6.88-4.27L15 8l-.12-.23A7.73 7.73 0 008 3.5a7.74 7.74 0 00-6.88 4.27L1 8l.12.23zM8 11.5A6.73 6.73 0 012.11 8 6.73 6.73 0 0113.9 8 6.74 6.74 0 018 11.5z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
                 </svg>
                 <span
                   class="t-upload__card-mask-item-divider"
@@ -1450,12 +1562,18 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                   class="t-icon t-icon-delete"
                   fill="none"
                   height="1em"
-                  viewBox="0 0 24 24"
+                  viewBox="0 0 16 16"
                   width="1em"
                 >
                   <path
-                    d="M7.5 1h9v3H22v2h-2.03l-.5 17H4.53l-.5-17H2V4h5.5V1zm2 3h5V3h-5v1zM6.03 6l.44 15h11.06l.44-15H6.03zM13 8v11h-2V8h2z"
+                    d="M6 12V6h1v6H6zM9 6v6h1V6H9z"
                     fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                  <path
+                    d="M10.5 3H14v1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2V3h3.5V1.8c0-.44.36-.8.8-.8h3.4c.44 0 .8.36.8.8V3zm-4 0h3V2h-3v1zM4 4v10h8V4H4z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
                   />
                 </svg>
               </span>
@@ -1480,12 +1598,13 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                 class="t-icon t-icon-error-circle-filled"
                 fill="none"
                 height="1em"
-                viewBox="0 0 24 24"
+                viewBox="0 0 16 16"
                 width="1em"
               >
                 <path
-                  d="M12 1a11 11 0 110 22 11 11 0 010-22zm-1 13h2V6.5h-2V14zm2 1.5h-2v2h2v-2z"
+                  d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
                   fill="currentColor"
+                  fill-opacity="0.9"
                 />
               </svg>
               <p>
@@ -1504,17 +1623,19 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                   class="t-icon t-icon-browse"
                   fill="none"
                   height="1em"
-                  viewBox="0 0 24 24"
+                  viewBox="0 0 16 16"
                   width="1em"
                 >
-                  <g
-                    clipPath="url(#clip0_8726_7319)"
-                  >
-                    <path
-                      d="M2.1 12a10.5 10.5 0 0019.8 0 10.5 10.5 0 00-19.8 0zm-2.01-.3a12.5 12.5 0 0123.82 0l.1.3-.1.3a12.5 12.5 0 01-23.82 0l-.1-.3.1-.3zM12 9a3 3 0 100 6 3 3 0 000-6zm-5 3a5 5 0 1110 0 5 5 0 01-10 0z"
-                      fill="currentColor"
-                    />
-                  </g>
+                  <path
+                    d="M10.88 8a2.88 2.88 0 11-5.76 0 2.88 2.88 0 015.76 0zm-1 0a1.88 1.88 0 10-3.76 0 1.88 1.88 0 003.76 0z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                  <path
+                    d="M1.12 8.23A7.72 7.72 0 008 12.5c2.9 0 5.54-1.63 6.88-4.27L15 8l-.12-.23A7.73 7.73 0 008 3.5a7.74 7.74 0 00-6.88 4.27L1 8l.12.23zM8 11.5A6.73 6.73 0 012.11 8 6.73 6.73 0 0113.9 8 6.74 6.74 0 018 11.5z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
                 </svg>
                 <span
                   class="t-upload__card-mask-item-divider"
@@ -1527,12 +1648,18 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                   class="t-icon t-icon-delete"
                   fill="none"
                   height="1em"
-                  viewBox="0 0 24 24"
+                  viewBox="0 0 16 16"
                   width="1em"
                 >
                   <path
-                    d="M7.5 1h9v3H22v2h-2.03l-.5 17H4.53l-.5-17H2V4h5.5V1zm2 3h5V3h-5v1zM6.03 6l.44 15h11.06l.44-15H6.03zM13 8v11h-2V8h2z"
+                    d="M6 12V6h1v6H6zM9 6v6h1V6H9z"
                     fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                  <path
+                    d="M10.5 3H14v1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2V3h3.5V1.8c0-.44.36-.8.8-.8h3.4c.44 0 .8.36.8.8V3zm-4 0h3V2h-3v1zM4 4v10h8V4H4z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
                   />
                 </svg>
               </span>
@@ -1594,17 +1721,19 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                   class="t-icon t-icon-browse"
                   fill="none"
                   height="1em"
-                  viewBox="0 0 24 24"
+                  viewBox="0 0 16 16"
                   width="1em"
                 >
-                  <g
-                    clipPath="url(#clip0_8726_7319)"
-                  >
-                    <path
-                      d="M2.1 12a10.5 10.5 0 0019.8 0 10.5 10.5 0 00-19.8 0zm-2.01-.3a12.5 12.5 0 0123.82 0l.1.3-.1.3a12.5 12.5 0 01-23.82 0l-.1-.3.1-.3zM12 9a3 3 0 100 6 3 3 0 000-6zm-5 3a5 5 0 1110 0 5 5 0 01-10 0z"
-                      fill="currentColor"
-                    />
-                  </g>
+                  <path
+                    d="M10.88 8a2.88 2.88 0 11-5.76 0 2.88 2.88 0 015.76 0zm-1 0a1.88 1.88 0 10-3.76 0 1.88 1.88 0 003.76 0z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                  <path
+                    d="M1.12 8.23A7.72 7.72 0 008 12.5c2.9 0 5.54-1.63 6.88-4.27L15 8l-.12-.23A7.73 7.73 0 008 3.5a7.74 7.74 0 00-6.88 4.27L1 8l.12.23zM8 11.5A6.73 6.73 0 012.11 8 6.73 6.73 0 0113.9 8 6.74 6.74 0 018 11.5z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
                 </svg>
                 <span
                   class="t-upload__card-mask-item-divider"
@@ -1617,12 +1746,18 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                   class="t-icon t-icon-delete"
                   fill="none"
                   height="1em"
-                  viewBox="0 0 24 24"
+                  viewBox="0 0 16 16"
                   width="1em"
                 >
                   <path
-                    d="M7.5 1h9v3H22v2h-2.03l-.5 17H4.53l-.5-17H2V4h5.5V1zm2 3h5V3h-5v1zM6.03 6l.44 15h11.06l.44-15H6.03zM13 8v11h-2V8h2z"
+                    d="M6 12V6h1v6H6zM9 6v6h1V6H9z"
                     fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                  <path
+                    d="M10.5 3H14v1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2V3h3.5V1.8c0-.44.36-.8.8-.8h3.4c.44 0 .8.36.8.8V3zm-4 0h3V2h-3v1zM4 4v10h8V4H4z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
                   />
                 </svg>
               </span>

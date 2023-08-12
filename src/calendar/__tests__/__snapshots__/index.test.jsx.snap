@@ -238,6 +238,7 @@ exports[`Calendar > :props > :cell 1`] = `
           <button
             class="t-button t-button--variant-base t-button--theme-primary"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -763,6 +764,7 @@ exports[`Calendar > :props > :cell 1`] = `
           <button
             class="t-button t-button--variant-base t-button--theme-primary"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -1367,6 +1369,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
           <button
             class="t-button t-button--variant-base t-button--theme-primary"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -2277,6 +2280,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
           <button
             class="t-button t-button--variant-base t-button--theme-primary"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -3935,6 +3939,7 @@ exports[`Calendar > :props > :controllerConfig 1`] = `
           <button
             class="t-button t-button--variant-base t-button--theme-warning t-size-s"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -4854,6 +4859,7 @@ exports[`Calendar > :props > :fillWithZero 1`] = `
           <button
             class="t-button t-button--variant-base t-button--theme-primary"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -5764,6 +5770,7 @@ exports[`Calendar > :props > :fillWithZero 1`] = `
           <button
             class="t-button t-button--variant-base t-button--theme-primary"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -6679,6 +6686,7 @@ exports[`Calendar > :props > :firstDayOfWeek 1`] = `
         <button
           class="t-button t-button--variant-base t-button--theme-primary"
           href=""
+          tabindex="0"
           type="button"
         >
           <span
@@ -7710,6 +7718,7 @@ exports[`Calendar > :props > :format 1`] = `
         <button
           class="t-button t-button--variant-base t-button--theme-primary"
           href=""
+          tabindex="0"
           type="button"
         >
           <span
@@ -8627,6 +8636,7 @@ exports[`Calendar > :props > :head 1`] = `
           <button
             class="t-button t-button--variant-base t-button--theme-primary"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -9539,6 +9549,7 @@ exports[`Calendar > :props > :head 1`] = `
           <button
             class="t-button t-button--variant-base t-button--theme-primary"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -10458,6 +10469,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
           <button
             class="t-button t-button--variant-base t-button--theme-primary"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -11368,6 +11380,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
           <button
             class="t-button t-button--variant-base t-button--theme-primary"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -12125,6 +12138,7 @@ exports[`Calendar > :props > :mode 1`] = `
           <button
             class="t-button t-button--variant-base t-button--theme-primary"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -12969,6 +12983,7 @@ exports[`Calendar > :props > :mode 1`] = `
           <button
             class="t-button t-button--variant-base t-button--theme-primary"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -13445,6 +13460,7 @@ exports[`Calendar > :props > :multiple 1`] = `
         <button
           class="t-button t-button--variant-base t-button--theme-primary"
           href=""
+          tabindex="0"
           type="button"
         >
           <span
@@ -14362,6 +14378,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
           <button
             class="t-button t-button--variant-base t-button--theme-primary"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -15272,6 +15289,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
           <button
             class="t-button t-button--variant-base t-button--theme-primary"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -16187,6 +16205,7 @@ exports[`Calendar > :props > :range 1`] = `
         <button
           class="t-button t-button--variant-base t-button--theme-primary"
           href=""
+          tabindex="0"
           type="button"
         >
           <span
@@ -17987,6 +18006,7 @@ exports[`Calendar > :props > :theme 1`] = `
           <button
             class="t-button t-button--variant-base t-button--theme-primary"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -18902,6 +18922,7 @@ exports[`Calendar > :props > :value 1`] = `
         <button
           class="t-button t-button--variant-base t-button--theme-primary"
           href=""
+          tabindex="0"
           type="button"
         >
           <span
@@ -19819,6 +19840,7 @@ exports[`Calendar > :props > :week 1`] = `
           <button
             class="t-button t-button--variant-base t-button--theme-primary"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -20715,6 +20737,7 @@ exports[`Calendar > :props > :week 1`] = `
           <button
             class="t-button t-button--variant-base t-button--theme-primary"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -21634,6 +21657,7 @@ exports[`Calendar > :props > :year:month 1`] = `
           <button
             class="t-button t-button--variant-base t-button--theme-primary"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -22544,6 +22568,7 @@ exports[`Calendar > :props > :year:month 1`] = `
           <button
             class="t-button t-button--variant-base t-button--theme-primary"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -23459,6 +23484,7 @@ exports[`Calendar > <slot> > <cell> 1`] = `
         <button
           class="t-button t-button--variant-base t-button--theme-primary"
           href=""
+          tabindex="0"
           type="button"
         >
           <span
@@ -24127,6 +24153,7 @@ exports[`Calendar > <slot> > <cellAppend> 1`] = `
         <button
           class="t-button t-button--variant-base t-button--theme-primary"
           href=""
+          tabindex="0"
           type="button"
         >
           <span
@@ -25185,6 +25212,7 @@ exports[`Calendar > <slot> > <head> 1`] = `
         <button
           class="t-button t-button--variant-base t-button--theme-primary"
           href=""
+          tabindex="0"
           type="button"
         >
           <span
@@ -26098,6 +26126,7 @@ exports[`Calendar > <slot> > <week> 1`] = `
         <button
           class="t-button t-button--variant-base t-button--theme-primary"
           href=""
+          tabindex="0"
           type="button"
         >
           <span
