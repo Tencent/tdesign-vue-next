@@ -393,9 +393,9 @@ export default defineComponent({
       const tmpTips = renderContent('tips');
       if (!tmpTips) return null;
       const tmpClasses = [
-        `${formItemClassPrefix}-tips`,
-        `${classPrefix}-tips`,
-        `${classPrefix}-is-${props.status || 'default'}`,
+        `${formItemClassPrefix.value}-tips`,
+        `${classPrefix.value}-tips`,
+        `${classPrefix.value}-is-${props.status || 'default'}`,
       ];
       return <div class={tmpClasses}>{tmpTips}</div>;
     });
