@@ -57,7 +57,7 @@ export type FormItemValidateResult<T extends Data = Data> = { [key in keyof T]: 
 
 export function getFormItemClassName(componentName: string, name?: string) {
   if (!name) return '';
-  return `${componentName}-item__${name}`.replace(/(\[|\]\.)/g, '_');
+  return `${componentName}__${name}`.replace(/(\[|\]\.)/g, '_');
 }
 
 export default defineComponent({
