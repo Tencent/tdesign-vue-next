@@ -134,6 +134,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, fail 
           <button
             class="t-button t-button--variant-text t-button--theme-primary t-upload__dragger-progress-cancel"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -147,6 +148,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, fail 
           <button
             class="t-button t-button--variant-text t-button--theme-danger t-upload__dragger-delete-btn"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -319,6 +321,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, progr
           <button
             class="t-button t-button--variant-text t-button--theme-primary t-upload__dragger-progress-cancel"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -476,6 +479,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
           <button
             class="t-button t-button--variant-text t-button--theme-primary t-upload__dragger-progress-cancel"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -489,6 +493,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
           <button
             class="t-button t-button--variant-text t-button--theme-danger t-upload__dragger-delete-btn"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -644,6 +649,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
           <button
             class="t-button t-button--variant-text t-button--theme-primary t-upload__dragger-progress-cancel"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -657,6 +663,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
           <button
             class="t-button t-button--variant-text t-button--theme-danger t-upload__dragger-delete-btn"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -795,6 +802,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, waiti
           <button
             class="t-button t-button--variant-text t-button--theme-primary t-upload__dragger-progress-cancel"
             href=""
+            tabindex="0"
             type="button"
           >
             <span
@@ -843,6 +851,7 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
         <button
           class="t-button t-button--variant-outline t-button--theme-default"
           href=""
+          tabindex="0"
           type="button"
         >
           
@@ -935,6 +944,7 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
             <button
               class="t-button t-button--variant-text t-button--theme-primary t-upload__delete"
               href=""
+              tabindex="0"
               type="button"
             >
               <span
@@ -982,6 +992,7 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
             <button
               class="t-button t-button--variant-text t-button--theme-primary t-upload__delete"
               href=""
+              tabindex="0"
               type="button"
             >
               <span
@@ -1029,6 +1040,7 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
             <button
               class="t-button t-button--variant-text t-button--theme-primary t-upload__delete"
               href=""
+              tabindex="0"
               type="button"
             >
               <span
@@ -1089,6 +1101,7 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
             <button
               class="t-button t-button--variant-text t-button--theme-primary t-upload__delete"
               href=""
+              tabindex="0"
               type="button"
             >
               <span
@@ -1139,6 +1152,7 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
         <button
           class="t-button t-button--variant-outline t-button--theme-default"
           href=""
+          tabindex="0"
           type="button"
         >
           
