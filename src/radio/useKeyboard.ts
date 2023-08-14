@@ -1,8 +1,7 @@
 import { onBeforeMount, onMounted, Ref } from 'vue';
 import { off, on } from '../utils/dom';
 import isString from 'lodash/isString';
-
-const CHECKED_CODE_REG = /(enter|space)/i;
+import { CHECKED_CODE_REG } from '../checkbox/hooks/useKeyboard';
 
 /** 键盘操作 */
 export default function useKeyboard(

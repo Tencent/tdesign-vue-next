@@ -1,4 +1,4 @@
-const CHECKED_CODE_REG = /(enter|space)/i;
+export const CHECKED_CODE_REG = /(enter|space)/i;
 
 export function useKeyboardEvent(handleChange: (e: Event) => void) {
   const keyboardEventListener = (e: KeyboardEvent) => {
