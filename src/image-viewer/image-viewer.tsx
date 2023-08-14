@@ -65,11 +65,13 @@ export default defineComponent({
 
     const prevImage = () => {
       const newIndex = indexValue.value - 1;
+      onRest();
       setIndexValue(newIndex < 0 ? 0 : newIndex, { trigger: 'prev' });
     };
 
     const nextImage = () => {
       const newIndex = indexValue.value + 1;
+      onRest();
       setIndexValue(newIndex >= images.value.length ? indexValue.value : newIndex, { trigger: 'next' });
     };
 
@@ -122,6 +124,8 @@ export default defineComponent({
         if (val) {
           animationEnd.value = false;
           window.addEventListener('keydown', keydownHandler);
+
+          onRest();
         } else {
           animationTimer.value = setTimeout(() => {
             animationEnd.value = true;
