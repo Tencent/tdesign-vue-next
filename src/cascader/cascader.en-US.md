@@ -6,6 +6,7 @@
 name | type | default | description | required
 -- | -- | -- | -- | --
 autofocus | Boolean | - | \- | N
+borderless | Boolean | false | \- | N
 checkProps | Object | - | Typescript：`CheckboxProps`，[Checkbox API Documents](./checkbox?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/cascader/type.ts) | N
 checkStrictly | Boolean | false | \- | N
 clearable | Boolean | false | \- | N
