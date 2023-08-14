@@ -1,5 +1,39 @@
 :: BASE_DOC ::
 
+### Global Component Classprefix
+
+the classprefix of TDesign component is `t`. In some situations, it is necessary to change the component prefix to meet the usage needs.
+
+You can use the `esm` version (which guarantees that you can modify less vars), modify the `classPrefix` through global configuration, and cooperate with less-loader to modify the `@prefix` less vars to ensure the normal styling of the components.
+
+```js
+import Vue from 'vue'
+import TDesign from 'tdesign-vue-next/esm'
+
+Vue.createApp({}).use(TDesign)
+
+...
+
+<t-config-provider :globalConfig="{ classPrefix: 'any'}">
+    <t-button>TDesign to any design</t-button>
+</t-config-provider>
+```
+
+```js
+{
+    loaderOptions: {
+        less: {
+            lessOptions: {
+                modifyVars: {
+                    '@prefix': 'any', // should be the same as classPrefix
+                },
+                javascriptEnabled: true,
+            },
+        },
+    }
+}
+```
+
 ## API
 ### GlobalConfigProvider
 

@@ -1,7 +1,6 @@
 :: BASE_DOC ::
 
 ## API
-
 ### Checkbox Props
 
 name | type | default | description | required
@@ -13,9 +12,10 @@ default | String / Slot / Function | - | Typescript：`string \| TNode`。[see m
 disabled | Boolean | undefined | \- | N
 indeterminate | Boolean | false | \- | N
 label | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+lazyLoad | Boolean | false | load checkbox content when it entering the visible area | N
 name | String | - | \- | N
 readonly | Boolean | false | \- | N
-value | String / Number | - | Typescript：`string \| number` | N
+value | String / Number / Boolean | - | value of checkbox。Typescript：`string \| number \| boolean` | N
 onChange | Function |  | Typescript：`(checked: boolean, context: { e: Event }) => void`<br/> | N
 
 ### Checkbox Events
@@ -28,16 +28,17 @@ change | `(checked: boolean, context: { e: Event })` | \-
 
 name | type | default | description | required
 -- | -- | -- | -- | --
-disabled | Boolean | - | \- | N
+disabled | Boolean | undefined | \- | N
+lazyLoad | Boolean | false | load checkbox content when it entering the visible area | N
 max | Number | undefined | \- | N
 name | String | - | \- | N
-options | Array | [] | Typescript：`Array<CheckboxOption>` `type CheckboxOption = string \| number \| CheckboxOptionObj` `interface CheckboxOptionObj { label?: string \| TNode; value?: string \| number; disabled?: boolean; name?: string; checkAll?: true }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/checkbox/type.ts) | N
-value | Array | [] | `v-model` and `v-model:value` is supported。Typescript：`CheckboxGroupValue` `type CheckboxGroupValue = Array<string \| number>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/checkbox/type.ts) | N
-defaultValue | Array | [] | uncontrolled property。Typescript：`CheckboxGroupValue` `type CheckboxGroupValue = Array<string \| number>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/checkbox/type.ts) | N
-onChange | Function |  | Typescript：`(value: CheckboxGroupValue, context: CheckboxGroupChangeContext) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/checkbox/type.ts)。<br/>`interface CheckboxGroupChangeContext { e: Event; current: string \| number; option: CheckboxOption \| TdCheckboxProps; type: 'check' \| 'uncheck' }`<br/> | N
+options | Array | - | Typescript：`Array<CheckboxOption>` `type CheckboxOption = string \| number \| CheckboxOptionObj` `interface CheckboxOptionObj extends TdCheckboxProps { text?: string; }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/checkbox/type.ts) | N
+value | Array | [] | `v-model` and `v-model:value` is supported。Typescript：`T` `type CheckboxGroupValue = Array<string \| number \| boolean>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/checkbox/type.ts) | N
+defaultValue | Array | [] | uncontrolled property。Typescript：`T` `type CheckboxGroupValue = Array<string \| number \| boolean>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/checkbox/type.ts) | N
+onChange | Function |  | Typescript：`(value: T, context: CheckboxGroupChangeContext) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/checkbox/type.ts)。<br/>`interface CheckboxGroupChangeContext { e: Event; current: string \| number \| boolean; option: CheckboxOption \| TdCheckboxProps; type: 'check' \| 'uncheck' }`<br/> | N
 
 ### CheckboxGroup Events
 
 name | params | description
 -- | -- | --
-change | `(value: CheckboxGroupValue, context: CheckboxGroupChangeContext)` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/checkbox/type.ts)。<br/>`interface CheckboxGroupChangeContext { e: Event; current: string \| number; option: CheckboxOption \| TdCheckboxProps; type: 'check' \| 'uncheck' }`<br/>
+change | `(value: T, context: CheckboxGroupChangeContext)` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/checkbox/type.ts)。<br/>`interface CheckboxGroupChangeContext { e: Event; current: string \| number \| boolean; option: CheckboxOption \| TdCheckboxProps; type: 'check' \| 'uncheck' }`<br/>

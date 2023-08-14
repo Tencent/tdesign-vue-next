@@ -1,6 +1,7 @@
 import { computed, Slots, VNode, Ref, ref } from 'vue';
 import isArray from 'lodash/isArray';
 import get from 'lodash/get';
+import isFunction from 'lodash/isFunction';
 
 import { useChildComponentSlots } from '../../hooks/slot';
 import { TdSelectProps, TdOptionProps, SelectOptionGroup, SelectKeysType, SelectValue, SelectOption } from '../type';
@@ -10,7 +11,7 @@ type UniOption = (TdOptionProps | SelectOptionGroup) & {
   slots?: Slots;
 };
 
-export const useSelectOptions = (props: TdSelectProps, keys: Ref<SelectKeysType>) => {
+export const useSelectOptions = (props: TdSelectProps, keys: Ref<SelectKeysType>, inputValue: Ref<string>) => {
   const getChildComponentSlots = useChildComponentSlots();
   const optionsCache = ref<SelectOption[]>([]);
 
@@ -18,26 +19,27 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<SelectKeysType>
     let dynamicIndex = 0;
 
     // 统一处理 keys,处理通用数据
-    const innerOptions: UniOption[] = props.options.map((option) => {
-      const getFormatOption = (option: TdOptionProps) => {
-        const { value, label } = keys.value;
-        const res = {
-          ...option,
-          index: dynamicIndex,
-          label: get(option, label),
-          value: get(option, value),
+    const innerOptions: UniOption[] =
+      props.options?.map((option) => {
+        const getFormatOption = (option: TdOptionProps) => {
+          const { value, label } = keys.value;
+          const res = {
+            ...option,
+            index: dynamicIndex,
+            label: get(option, label),
+            value: get(option, value),
+          };
+          dynamicIndex++;
+          return res;
         };
-        dynamicIndex++;
-        return res;
-      };
-      if ((option as SelectOptionGroup).group && (option as SelectOptionGroup).children) {
-        return {
-          ...option,
-          children: (option as SelectOptionGroup).children.map((child) => getFormatOption(child)),
-        };
-      }
-      return getFormatOption(option);
-    });
+        if ((option as SelectOptionGroup).group && (option as SelectOptionGroup).children) {
+          return {
+            ...option,
+            children: (option as SelectOptionGroup).children.map((child) => getFormatOption(child)),
+          };
+        }
+        return getFormatOption(option);
+      }) || [];
 
     // 处理 slots
     const optionsSlots = getChildComponentSlots('Option');
@@ -74,7 +76,6 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<SelectKeysType>
         dynamicIndex++;
       }
     }
-
     return innerOptions;
   });
 
@@ -95,9 +96,38 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<SelectKeysType>
 
   const optionsMap = computed(() => {
     const res = new Map<SelectValue, TdOptionProps>();
-    optionsList.value.concat(optionsCache.value).forEach((option: TdOptionProps) => {
+    // map以最新的为主 避免存在重复value更新的场景 https://github.com/Tencent/tdesign-vue-next/issues/2646
+    optionsCache.value.concat(optionsList.value).forEach((option: TdOptionProps) => {
       res.set(option.value, option);
     });
+    return res;
+  });
+
+  const displayOptions = computed(() => {
+    if (!inputValue.value || !(props.filterable || isFunction(props.filter))) return options.value;
+
+    const filterMethods = (option: SelectOption) => {
+      if (isFunction(props.filter)) {
+        return props.filter(`${inputValue.value}`, option);
+      }
+
+      return option.label?.toLowerCase?.().indexOf(`${inputValue.value}`.toLowerCase()) > -1;
+    };
+
+    const res: SelectOption[] = [];
+
+    options.value.forEach((option) => {
+      if ((option as SelectOptionGroup).group && (option as SelectOptionGroup).children) {
+        res.push({
+          ...option,
+          children: (option as SelectOptionGroup).children.filter(filterMethods),
+        });
+      }
+      if (filterMethods(option)) {
+        res.push(option);
+      }
+    });
+
     return res;
   });
 
@@ -106,5 +136,6 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<SelectKeysType>
     optionsMap,
     optionsList,
     optionsCache,
+    displayOptions,
   };
 };

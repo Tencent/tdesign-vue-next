@@ -17,9 +17,13 @@ export default defineComponent({
     const renderAddon = (h: any, type: string, addon: string | Function | VNodeChild | undefined): VNodeChild => {
       let addonNode: VNodeChild;
       const isContentNode = isString(addon) || isNumber(addon);
-
+      if (!slots[type] && isString(addon) && !addon) return null;
       if (slots[type]) {
-        addonNode = slots[type](null);
+        if (slots[type](null).length === 1 && typeof slots[type](null)[0].children === 'string') {
+          addonNode = <span class={`${COMPONENT_NAME.value}__text`}>{slots[type](null)}</span>;
+        } else {
+          addonNode = slots[type](null);
+        }
       } else if (isFunction(addon)) {
         addonNode = addon(h);
       } else {

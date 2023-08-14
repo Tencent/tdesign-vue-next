@@ -17,13 +17,13 @@ export default {
   onCellClick: Function as PropType<TdDateRangePickerPanelProps['onCellClick']>,
   /** 选中值发生变化时触发。参数 `context.trigger` 表示触发当前事件的来源，不同的模式触发来源也会不同 */
   onChange: Function as PropType<TdDateRangePickerPanelProps['onChange']>,
-  /** 如果存在“确认”按钮，则点击“确认”按钮时触发 */
+  /** 如果存在“确定”按钮，则点击“确定”按钮时触发 */
   onConfirm: Function as PropType<TdDateRangePickerPanelProps['onConfirm']>,
   /** 月份切换发生变化时触发 */
   onMonthChange: Function as PropType<TdDateRangePickerPanelProps['onMonthChange']>,
   /** 点击面板时触发 */
   onPanelClick: Function as PropType<TdDateRangePickerPanelProps['onPanelClick']>,
-  /** 如果存在“确认”按钮，则点击“确认”按钮时触发 */
+  /** 点击预设按钮后触发 */
   onPresetClick: Function as PropType<TdDateRangePickerPanelProps['onPresetClick']>,
   /** 时间切换发生变化时触发 */
   onTimeChange: Function as PropType<TdDateRangePickerPanelProps['onTimeChange']>,

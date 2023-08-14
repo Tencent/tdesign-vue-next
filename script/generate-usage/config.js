@@ -413,6 +413,16 @@ module.exports = {
       timePicker: `<t-timePicker v-bind="configProps" />`,
     },
   },
+  timeline: {
+    panelStr: `const panelList = [{label: 'timeline', value: 'timeline'}];`,
+    render: {
+      timeline: `<t-timeline v-bind="configProps">
+              <t-timeline-item label="2022-01-01">事件一</t-timeline-item>
+              <t-timeline-item label="2022-02-01">事件二</t-timeline-item>
+              <t-timeline-item label="2022-03-01">事件三</t-timeline-item>
+      </t-timeline>`,
+    },
+  },
   upload: {
     panelStr: `const panelList = [{label: 'upload', value: 'upload'}];`,
     render: {
@@ -687,6 +697,74 @@ module.exports = {
           <t-button>Button</t-button>
           <t-button>Button</t-button>
         </t-space>
+      `,
+    },
+  },
+  'back-top': {
+    panelStr: `const panelList = [{label: 'backTop', value: 'backTop'}];`,
+    render: {
+      backTop: `
+        <div style="position: relative; height: 100%; width: 100%">
+          <t-list class="container" style="position: relative; height: 100%; overflow-y: scroll">
+            <t-list-item v-for="index in 15" :key="index">列表内容{{ index }}</t-list-item>
+          </t-list>
+          <t-back-top
+            container=".container"
+            v-bind="configProps"
+            :visible-height="0"
+            :offset="[20, 0]"
+            style="position: absolute; right: 20px; bottom: 0"
+          ></t-back-top>
+        </div>
+    `,
+    },
+  },
+  'sticky-tool': {
+    panelStr: `const panelList = [{label: 'stickyTool', value: 'stickyTool'}];`,
+    script: `
+      import { ChatIcon, AddIcon, QrcodeIcon } from 'tdesign-icons-vue-next';
+      const renderQrIcon = () => {
+        return <QrcodeIcon />;
+      };
+      const renderPopup = () => {
+        return <img alt="TDesign Logo" width="120" height="120" src="https://tdesign.gtimg.com/site/site.jpg" />;
+      };
+    `,
+    render: {
+      stickyTool: `
+        <t-space>
+          <t-sticky-tool
+            :style="{ position: 'relative', overflow: 'hidden' }"
+            :offset="[-300, -80]"
+            v-bind="configProps"
+          >
+            <t-sticky-item label="chat">
+              <template #icon><chat-icon /></template>
+            </t-sticky-item>
+            <t-sticky-item label="add">
+              <template #icon><add-icon /></template>
+            </t-sticky-item>
+            <t-sticky-item
+              label="aqcode"
+              :icon="renderQrIcon"
+              :popup="renderPopup"
+              :popup-props="{ overlayInnerStyle: { padding: '4px', height: '128px' } }"
+            >
+            </t-sticky-item>
+          </t-sticky-tool>
+        </t-space>
+      `,
+    },
+  },
+  image: {
+    panelStr: `const panelList = [{label: 'image', value: 'image'}];`,
+    render: {
+      image: `
+        <t-image
+          v-bind="configProps"
+          src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+          :style="{ width: '120px', height: '120px' }"
+        />
       `,
     },
   },

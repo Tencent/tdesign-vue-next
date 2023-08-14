@@ -69,7 +69,7 @@ npm package 中提供了多种构建产物，可以阅读 [这里](https://githu
 
 # 参与贡献
 
-TDesign 欢迎任何愿意参与贡献的参与者。如果需要本地运行代码或参与贡献，请先阅读[参与贡献](https://github.com/Tencent/tdesign-vue/blob/develop/CONTRIBUTING.md)。
+TDesign 欢迎任何愿意参与贡献的参与者。如果需要本地运行代码或参与贡献，请先阅读[参与贡献](https://github.com/Tencent/tdesign-vue-next/blob/develop/CONTRIBUTING.md)。
 
 # 开源协议
 

@@ -38,8 +38,10 @@ export default defineComponent({
       uploadFiles,
       onNormalFileChange,
       onDragFileChange,
+      onPasteFileChange,
       triggerUpload,
       cancelUpload,
+      uploadFilePercent,
     } = useUpload(props);
     const disabled = useFormDisabled();
 
@@ -49,6 +51,7 @@ export default defineComponent({
       triggerUpload,
       uploadFiles,
       cancelUpload,
+      uploadFilePercent,
     });
 
     const renderTrigger = () => {
@@ -74,6 +77,7 @@ export default defineComponent({
     };
 
     const commonDisplayFileProps = computed<CommonDisplayFileProps>(() => ({
+      accept: props.accept,
       files: uploadValue.value,
       toUploadFiles: toUploadFiles.value,
       displayFiles: displayFiles.value,
@@ -94,6 +98,8 @@ export default defineComponent({
       showUploadProgress: props.showUploadProgress,
       fileListDisplay: props.fileListDisplay,
       onRemove: onInnerRemove,
+      uploadPastedFiles: props.uploadPastedFiles,
+      onPasteFileChange: onPasteFileChange,
     }));
 
     const dragProps: UploadDragEvents = {
@@ -144,6 +150,10 @@ export default defineComponent({
         uploadFiles={uploadFiles}
         cancelUpload={cancelUpload}
         onPreview={props.onPreview}
+        v-slots={{
+          fileListDisplay: slots.fileListDisplay,
+          'file-list-display': slots['file-list-display'],
+        }}
       />
     );
 
@@ -156,6 +166,7 @@ export default defineComponent({
         uploadFiles={uploadFiles}
         cancelUpload={cancelUpload}
         onPreview={props.onPreview}
+        showThumbnail={props.showThumbnail}
         v-slots={{
           fileListDisplay: slots.fileListDisplay,
           'file-list-display': slots['file-list-display'],
@@ -187,7 +198,7 @@ export default defineComponent({
     );
 
     return () => (
-      <div class={`${classPrefix.value}-upload`}>
+      <div class={`${classPrefix.value}-upload`} onPaste={props.uploadPastedFiles && onPasteFileChange}>
         <input
           ref={inputRef}
           type="file"

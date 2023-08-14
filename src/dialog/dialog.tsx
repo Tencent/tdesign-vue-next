@@ -243,6 +243,8 @@ export default defineComponent({
     };
     // 回车出发确认事件
     const keyboardEnterEvent = (e: KeyboardEvent) => {
+      const eventSrc = e.target as HTMLElement;
+      if (eventSrc.tagName.toLowerCase() === 'input') return; // 若是input触发 则不执行
       const { code } = e;
       if ((code === 'Enter' || code === 'NumpadEnter') && stack.top === instance.uid) {
         props.onConfirm?.({ e });
@@ -342,13 +344,18 @@ export default defineComponent({
 
       const bodyClassName =
         props.theme === 'default' ? [`${COMPONENT_NAME.value}__body`] : [`${COMPONENT_NAME.value}__body__icon`];
-      isFullScreen.value && bodyClassName.push(`${COMPONENT_NAME.value}__body--fullscreen`);
+
+      const footerContent = renderTNodeJSX('footer', defaultFooter);
+
+      if (isFullScreen.value && footerContent) {
+        bodyClassName.push(`${COMPONENT_NAME.value}__body--fullscreen`);
+      } else if (isFullScreen.value) {
+        bodyClassName.push(`${COMPONENT_NAME.value}__body--fullscreen--without-footer`);
+      }
 
       const footerClassName = isFullScreen.value
         ? [`${COMPONENT_NAME.value}__footer`, `${COMPONENT_NAME.value}__footer--fullscreen`]
         : `${COMPONENT_NAME.value}__footer`;
-
-      const footerContent = renderTNodeJSX('footer', defaultFooter);
 
       const onStopDown = (e: MouseEvent) => {
         if (isModeLess.value && props.draggable) e.stopPropagation();
@@ -371,7 +378,7 @@ export default defineComponent({
               v-draggable={isModeLess.value && props.draggable}
               ref={dialogEle}
             >
-              <div class={headerClassName} onmousedown={onStopDown}>
+              <div class={headerClassName} onMousedown={onStopDown}>
                 <div class={`${COMPONENT_NAME.value}__header-content`}>
                   {getIcon()}
                   {renderTNodeJSX('header', defaultHeader)}
@@ -383,11 +390,11 @@ export default defineComponent({
                   </span>
                 ) : null}
               </div>
-              <div class={bodyClassName} onmousedown={onStopDown}>
+              <div class={bodyClassName} onMousedown={onStopDown}>
                 {body}
               </div>
               {footerContent && (
-                <div class={footerClassName} onmousedown={onStopDown}>
+                <div class={footerClassName} onMousedown={onStopDown}>
                   {footerContent}
                 </div>
               )}

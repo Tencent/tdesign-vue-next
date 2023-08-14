@@ -25,7 +25,7 @@ onRemove | Function |  | TS 类型：`(options: { value: TabValue; index: number
 名称 | 参数 | 描述
 -- | -- | --
 add | `(context: { e: MouseEvent })` | 添加选项卡时触发
-change | `(value: TabValue, label: string)` | 激活的选项卡发生变化时触发
+change | `(value: TabValue)` | 激活的选项卡发生变化时触发
 drag-sort | `(context: TabsDragSortContext)` | 拖拽排序时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tabs/type.ts)。<br/>`interface TabsDragSortContext { currentIndex: number; current: TabValue; targetIndex: number; target: TabValue }`<br/>
 remove | `(options: { value: TabValue; index: number; e: MouseEvent })` | 删除选项卡时触发
 

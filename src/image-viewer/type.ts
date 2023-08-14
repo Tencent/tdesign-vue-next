@@ -28,7 +28,7 @@ export interface TdImageViewerProps {
    * 图片数组。`mainImage` 表示主图，必传；`thumbnail` 表示缩略图，如果不存在，则使用主图显示；`download` 是否允许下载图片，默认允许下载。示例: `['img_url_1', 'img_url_2']`，`[{ thumbnail: 'small_image_url', mainImage: 'big_image_url', download: false }]`
    * @default []
    */
-  images?: Array<string | ImageInfo>;
+  images?: Array<string | File | ImageInfo>;
   /**
    * 当前预览图片所在的下标
    */
@@ -89,7 +89,7 @@ export interface TdImageViewerProps {
   /**
    * 预览图片切换时触发，`context.prev` 切换到上一张图片，`context.next` 切换到下一张图片
    */
-  onIndexChange?: (index: number, context: { trigger: 'prev' | 'next' }) => void;
+  onIndexChange?: (index: number, context: { trigger: 'prev' | 'next' | 'current' }) => void;
 }
 
 export interface ImageScale {
@@ -99,8 +99,8 @@ export interface ImageScale {
 }
 
 export interface ImageInfo {
-  mainImage: string;
-  thumbnail?: string;
+  mainImage: string | File;
+  thumbnail?: string | File;
   download?: boolean;
 }
 

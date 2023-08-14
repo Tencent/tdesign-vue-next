@@ -40,13 +40,12 @@ exports[`DatePicker > :mode 1`] = `
             class="t-icon t-icon-calendar"
             fill="none"
             height="1em"
-            viewBox="0 0 16 16"
+            viewBox="0 0 24 24"
             width="1em"
           >
             <path
-              d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+              d="M6 4V1.5h2V4h8V1.5h2V4h4v18H2V4h4zM4 6v3h16V6H4zm16 5H4v9h16v-9z"
               fill="currentColor"
-              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -101,13 +100,12 @@ exports[`DatePicker > :range 1`] = `
             class="t-icon t-icon-calendar"
             fill="none"
             height="1em"
-            viewBox="0 0 16 16"
+            viewBox="0 0 24 24"
             width="1em"
           >
             <path
-              d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+              d="M6 4V1.5h2V4h8V1.5h2V4h4v18H2V4h4zM4 6v3h16V6H4zm16 5H4v9h16v-9z"
               fill="currentColor"
-              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -161,13 +159,12 @@ exports[`DatePicker > :value 1`] = `
             class="t-icon t-icon-calendar"
             fill="none"
             height="1em"
-            viewBox="0 0 16 16"
+            viewBox="0 0 24 24"
             width="1em"
           >
             <path
-              d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+              d="M6 4V1.5h2V4h8V1.5h2V4h4v18H2V4h4zM4 6v3h16V6H4zm16 5H4v9h16v-9z"
               fill="currentColor"
-              fill-opacity="0.9"
             />
           </svg>
         </span>

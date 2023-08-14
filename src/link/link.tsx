@@ -1,6 +1,7 @@
 import { computed, defineComponent } from 'vue';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useContent, useTNodeJSX } from '../hooks/tnode';
+import { useFormDisabled } from '../form/hooks';
 import props from './props';
 
 export default defineComponent({
@@ -13,20 +14,22 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('link');
     const { STATUS, SIZE } = useCommonClassName();
     const { classPrefix } = useConfig('classPrefix');
+    const disabled = useFormDisabled();
 
+    const isDisabled = computed(() => props.disabled || disabled.value);
     const linkClass = computed(() => [
       `${COMPONENT_NAME.value}`,
       `${COMPONENT_NAME.value}--theme-${props.theme}`,
       {
         [SIZE.value[props.size]]: props.size !== 'medium',
-        [STATUS.value.disabled]: props.disabled,
+        [STATUS.value.disabled]: isDisabled.value,
         [`${classPrefix.value}-is-underline`]: props.underline,
-        [`${COMPONENT_NAME.value}--hover-${props.hover}`]: !props.disabled,
+        [`${COMPONENT_NAME.value}--hover-${props.hover}`]: !isDisabled.value,
       },
     ]);
     // 禁用时 无点击事件
     const handleClick = (event: MouseEvent) => {
-      if (!props.disabled) emit('click', event);
+      if (!isDisabled.value) emit('click', event);
     };
     return () => {
       const linkContent = renderContent('default', 'content');
@@ -36,8 +39,9 @@ export default defineComponent({
       return (
         <a
           class={[...linkClass.value]}
-          href={props.disabled || !props.href ? undefined : props.href}
-          target={props.target}
+          href={isDisabled.value || !props.href ? undefined : props.href}
+          target={!props.target ? undefined : props.target}
+          download={!props.download ? undefined : props.download}
           onClick={handleClick}
         >
           {prefix ? <span class={`${COMPONENT_NAME.value}__prefix-icon`}>{prefix}</span> : null}

@@ -19,7 +19,6 @@ export default {
   /** 是否禁用组件，值为数组表示可分别控制开始日期和结束日期是否禁用 */
   disabled: {
     type: [Boolean, Array] as PropType<TdTimeRangePickerProps['disabled']>,
-    default: false,
   },
   /** 用于格式化时间，[详细文档](https://day.js.org/docs/en/display/format) */
   format: {
@@ -34,7 +33,7 @@ export default {
   /** 占位符，值为数组表示可分别为开始日期和结束日期设置占位符 */
   placeholder: {
     type: [String, Array] as PropType<TdTimeRangePickerProps['placeholder']>,
-    default: undefined,
+    default: undefined as TdTimeRangePickerProps['placeholder'],
   },
   /** 透传给 popup 组件的参数 */
   popupProps: {
@@ -60,6 +59,7 @@ export default {
   /** 输入框状态 */
   status: {
     type: String as PropType<TdTimeRangePickerProps['status']>,
+    default: 'default' as TdTimeRangePickerProps['status'],
     validator(val: TdTimeRangePickerProps['status']): boolean {
       if (!val) return true;
       return ['default', 'success', 'warning', 'error'].includes(val);

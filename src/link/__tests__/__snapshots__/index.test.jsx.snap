@@ -4,7 +4,6 @@ exports[`Link > :props > :content 1`] = `
 <div>
   <a
     class="t-link t-link--theme-default t-link--hover-underline"
-    target=""
   >
     <!---->
     
@@ -14,7 +13,6 @@ exports[`Link > :props > :content 1`] = `
   </a>
   <a
     class="t-link t-link--theme-default t-link--hover-underline"
-    target=""
   >
     <!---->
     
@@ -24,7 +22,15 @@ exports[`Link > :props > :content 1`] = `
   </a>
   <a
     class="t-link t-link--theme-default t-link--hover-underline"
-    target=""
+  >
+    <!---->
+    
+    bar
+    
+    <!---->
+  </a>
+  <a
+    class="t-link t-link--theme-default t-link--hover-underline"
   >
     <!---->
     foo
@@ -32,15 +38,6 @@ exports[`Link > :props > :content 1`] = `
   </a>
   <a
     class="t-link t-link--theme-default t-link--hover-underline"
-    target=""
-  >
-    <!---->
-    foo
-    <!---->
-  </a>
-  <a
-    class="t-link t-link--theme-default t-link--hover-underline"
-    target=""
   >
     <!---->
     
@@ -54,7 +51,6 @@ exports[`Link > :props > :content 1`] = `
 exports[`Link > :props > :disabled 1`] = `
 <a
   class="t-link t-link--theme-default t-is-disabled"
-  target=""
 >
   <!---->
   
@@ -67,7 +63,6 @@ exports[`Link > :props > :disabled 1`] = `
 exports[`Link > :props > :hover 1`] = `
 <a
   class="t-link t-link--theme-default t-link--hover-color"
-  target=""
 >
   <!---->
   
@@ -80,7 +75,6 @@ exports[`Link > :props > :hover 1`] = `
 exports[`Link > :props > :size 1`] = `
 <a
   class="t-link t-link--theme-default t-size-l t-link--hover-underline"
-  target=""
 >
   <!---->
   
@@ -93,7 +87,6 @@ exports[`Link > :props > :size 1`] = `
 exports[`Link > :props > :theme 1`] = `
 <a
   class="t-link t-link--theme-primary t-link--hover-underline"
-  target=""
 >
   <!---->
   
@@ -106,7 +99,6 @@ exports[`Link > :props > :theme 1`] = `
 exports[`Link > :props > :underline 1`] = `
 <a
   class="t-link t-link--theme-default t-is-underline t-link--hover-underline"
-  target=""
 >
   <!---->
   
@@ -119,7 +111,6 @@ exports[`Link > :props > :underline 1`] = `
 exports[`Link > <slot> > <icon> 1`] = `
 <a
   class="t-link t-link--theme-default t-link--hover-underline"
-  target=""
 >
   <!---->
   <!---->

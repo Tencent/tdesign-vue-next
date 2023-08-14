@@ -1,5 +1,10 @@
 :: BASE_DOC ::
 
+### 指令方式调用
+支持 `v-loading` 指令调用 `Loading`，只需要绑定 `boolean` 值即可，支持 `fullscreen` 和 `inheritColor` 修饰符。
+
+{{ directive }}
+
 ### 挂载到指定元素
 
 可通过 `attach` 挂载到指定元素。
@@ -7,6 +12,8 @@
 注：被挂载元素（loading的父元素）需设置：`position: relative;`
 
 {{ attach }}
+
+
 
 ## FAQ
 

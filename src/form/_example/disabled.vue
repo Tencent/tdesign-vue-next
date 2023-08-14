@@ -70,6 +70,17 @@
         <t-space size="small">
           <t-button theme="primary" type="submit">提交</t-button>
           <t-button theme="default" variant="base" type="reset">重置</t-button>
+          <t-button
+            theme="primary"
+            variant="base"
+            :disabled="false"
+            @click="
+              () => {
+                formDisabled = !formDisabled;
+              }
+            "
+            >{{ formDisabled ? '关闭' : '开启' }}禁用表单</t-button
+          >
         </t-space>
       </t-form-item>
     </t-form>

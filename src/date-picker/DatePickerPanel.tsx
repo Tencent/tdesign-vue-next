@@ -145,13 +145,13 @@ export default defineComponent({
     }
 
     // 预设
-    function onPresetClick(presetValue: DateValue | (() => DateValue), { e, preset }: any) {
-      const presetVal = isFunction(presetValue) ? presetValue() : presetValue;
+    function onPresetClick(preset: any, context: any) {
+      const presetVal = isFunction(preset) ? preset() : preset;
       onChange?.(formatDate(presetVal, { format: formatRef.value.format }) as DateValue, {
         dayjsValue: parseToDayjs(presetVal, formatRef.value.format),
         trigger: 'preset',
       });
-      props.onPresetClick?.({ e, preset });
+      props.onPresetClick?.(context);
     }
 
     function onYearChange(nextYear: number) {
@@ -187,6 +187,7 @@ export default defineComponent({
       timePickerProps: props.timePickerProps,
       enableTimePicker: props.enableTimePicker,
       presetsPlacement: props.presetsPlacement,
+      popupVisible: true,
       panelClick: props.onPanelClick,
       onCellClick,
       onJumperClick,

@@ -13,7 +13,7 @@ import { TdPaginationProps } from '../pagination/type';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import TInputNumber from '../input-number';
-import { Option, Select } from '../select';
+import { Select } from '../select';
 import TInputAdornment from '../input-adornment';
 import props from './props';
 import usePaginationClasses from './usePaginationClasses';
@@ -151,10 +151,10 @@ export default defineComponent({
           previous: prev,
           pageSize: innerPageSize.value,
         };
+        setInnerCurrent(current, pageInfo);
         if (isTriggerChange !== false) {
           props.onChange?.(pageInfo);
         }
-        setInnerCurrent(current, pageInfo);
       }
     };
 
@@ -176,7 +176,7 @@ export default defineComponent({
       const pageSize: number = parseInt(e, 10);
       let pageCount = 1;
       if (pageSize > 0) {
-        pageCount = Math.ceil(props.total / pageSize);
+        pageCount = Math.max(Math.ceil(props.total / pageSize), 1);
       }
 
       let isIndexChange = false;
@@ -240,7 +240,6 @@ export default defineComponent({
             'totalContent',
             <div class={CLASS_MAP.totalClass.value}>{t(globalConfig.value.total, { total })}</div>,
           )}
-
           {/* 分页器 */}
           {showPageSize && pageSizeOptions.length > 0 && (
             <Select
@@ -250,12 +249,9 @@ export default defineComponent({
               class={CLASS_MAP.sizerClass.value}
               autoWidth={true}
               onChange={onSelectorChange}
+              options={sizeOptions.value}
               {...props.selectProps}
-            >
-              {sizeOptions.value.map((item, index) => (
-                <Option value={item.value} label={item.label} key={index} />
-              ))}
-            </Select>
+            />
           )}
           {/* 首页按钮 */}
           {props.showFirstAndLastPageBtn ? (

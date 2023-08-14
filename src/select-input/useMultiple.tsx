@@ -13,6 +13,7 @@ export interface RenderSelectMultipleParams {
   commonInputProps: SelectInputCommonProperties;
   onInnerClear: (context: { e: MouseEvent }) => void;
   popupVisible: boolean;
+  allowInput: boolean;
 }
 
 const DEFAULT_KEYS = {
@@ -64,7 +65,7 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
       tag: props.tag,
       value: tags.value,
       valueDisplay: props.valueDisplay,
-      inputValue: tInputValue.value || '',
+      inputValue: p.popupVisible && p.allowInput ? tInputValue.value : '',
       inputProps: {
         readonly: !props.allowInput || props.readonly,
         inputClass: {
@@ -85,7 +86,7 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
         v-slots={slots}
         onInputChange={(val: InputValue, context: InputValueChangeContext) => {
           // 筛选器统一特性：筛选器按下回车时不清空输入框
-          if (['enter', 'blur'].includes(context?.trigger)) return;
+          if (context?.trigger === 'enter' || context?.trigger === 'blur') return;
           setTInputValue(val, { trigger: context.trigger, e: context.e });
         }}
         onChange={onTagInputChange}

@@ -118,7 +118,16 @@ export default defineComponent({
       const suffix = renderTNodeJSX('suffix');
       const limitNode =
         limitNumber.value && props.showLimitNumber ? (
-          <div class={`${classPrefix.value}-input__limit-number`}>{limitNumber.value}</div>
+          <div
+            class={[
+              `${classPrefix.value}-input__limit-number`,
+              {
+                [`${classPrefix.value}-is-disabled`]: disabled.value,
+              },
+            ]}
+          >
+            {limitNumber.value}
+          </div>
         ) : null;
 
       const labelContent = label ? <div class={`${COMPONENT_NAME.value}__prefix`}>{label}</div> : null;
@@ -183,8 +192,14 @@ export default defineComponent({
 
       const tips = renderTNodeJSX('tips');
 
+      const tipsClasses = [
+        INPUT_TIPS_CLASS.value,
+        `${classPrefix.value}-tips`,
+        `${classPrefix.value}-is-${tStatus.value || 'default'}`,
+      ];
+
       return (
-        <div class={wrapClasses.value}>
+        <div class={wrapClasses.value} v-show={props.type !== 'hidden'}>
           <div
             class={classes}
             onClick={inputHandle.onRootClick}
@@ -237,11 +252,7 @@ export default defineComponent({
               </span>
             ) : null}
           </div>
-          {tips && (
-            <div class={`${INPUT_TIPS_CLASS.value} ${classPrefix.value}-input__tips--${tStatus.value || 'default'}`}>
-              {tips}
-            </div>
-          )}
+          {tips && <div class={tipsClasses}>{tips}</div>}
         </div>
       );
     };

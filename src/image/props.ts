@@ -17,6 +17,11 @@ export default {
   error: {
     type: [String, Function] as PropType<TdImageProps['error']>,
   },
+  /** 图片加载失败时，显示当前链接设置的图片地址。如果要使用组件图标或完全自定义加载失败时显示的内容，请更为使用 `error` */
+  fallback: {
+    type: String,
+    default: '',
+  },
   /** 图片填充模式 */
   fit: {
     type: String as PropType<TdImageProps['fit']>,
@@ -56,6 +61,24 @@ export default {
     type: String,
     default: 'center',
   },
+  /** `<img>` 标签的原生属性，[MDN 定义](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) */
+  referrerpolicy: {
+    type: String as PropType<TdImageProps['referrerpolicy']>,
+    default: 'strict-origin-when-cross-origin' as TdImageProps['referrerpolicy'],
+    validator(val: TdImageProps['referrerpolicy']): boolean {
+      if (!val) return true;
+      return [
+        'no-referrer',
+        'no-referrer-when-downgrade',
+        'origin',
+        'origin-when-cross-origin',
+        'same-origin',
+        'strict-origin',
+        'strict-origin-when-cross-origin',
+        'unsafe-url',
+      ].includes(val);
+    },
+  },
   /** 图片圆角类型 */
   shape: {
     type: String as PropType<TdImageProps['shape']>,
@@ -65,12 +88,11 @@ export default {
       return ['circle', 'round', 'square'].includes(val);
     },
   },
-  /** 图片链接 */
+  /** 用于显示图片的链接或原始图片文件对象 */
   src: {
-    type: String,
-    default: '',
+    type: [String, Object] as PropType<TdImageProps['src']>,
   },
-  /** 图片地址，支持特殊格式的图片，如 `.avif` 和 `.webp` */
+  /** 图片链接集合，用于支持特殊格式的图片，如 `.avif` 和 `.webp`。会优先加载 `srcset` 中的图片格式，浏览器不支持的情况下，加载 `src` 设置的图片地址 */
   srcset: {
     type: Object as PropType<TdImageProps['srcset']>,
   },

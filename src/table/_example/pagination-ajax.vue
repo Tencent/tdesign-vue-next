@@ -14,7 +14,7 @@
   />
 </template>
 <script setup lang="jsx">
-import { ref, reactive, onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
 const statusNameListMap = {
@@ -23,6 +23,9 @@ const statusNameListMap = {
   2: { label: '审批过期', theme: 'warning', icon: <ErrorCircleFilledIcon /> },
 };
 const columns = [
+  {
+    colKey: 'serial-number',
+  },
   {
     colKey: 'row-select',
     type: 'multiple',
@@ -71,14 +74,10 @@ const data = ref([]);
 const isLoading = ref(false);
 const selectedRowKeys = ref([]);
 
-const pagination = reactive({
-  current: 1,
-  pageSize: 10,
-  total: 0,
-  showJumper: true,
-  onChange: (pageInfo) => {
-    console.log('pagination.onChange', pageInfo);
-  },
+const pagination = ref({
+  defaultPageSize: 20,
+  total: 100,
+  defaultCurrent: 1,
 });
 
 const fetchData = async (paginationInfo) => {
@@ -90,7 +89,7 @@ const fetchData = async (paginationInfo) => {
     const { results } = await response.json();
     data.value = results;
     // 数据加载完成，设置数据总条数
-    pagination.total = 120;
+    pagination.value.total = 120;
   } catch (err) {
     console.log(err);
     data.value = [];
@@ -106,15 +105,15 @@ const rehandleChange = (changeParams, triggerAndData) => {
 // BaseTable 中只有 page-change 事件，没有 change 事件
 const onPageChange = async (pageInfo) => {
   console.log('page-change', pageInfo);
-  pagination.current = pageInfo.current;
-  pagination.pageSize = pageInfo.pageSize;
+  // pagination.current = pageInfo.current;
+  // pagination.pageSize = pageInfo.pageSize;
   await fetchData(pageInfo);
 };
 
 onMounted(async () => {
   await fetchData({
-    current: pagination.current || pagination.defaultCurrent,
-    pageSize: pagination.pageSize || pagination.defaultPageSize,
+    current: pagination.value.current || pagination.value.defaultCurrent,
+    pageSize: pagination.value.pageSize || pagination.value.defaultPageSize,
   });
 });
 

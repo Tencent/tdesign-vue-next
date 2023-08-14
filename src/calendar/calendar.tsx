@@ -76,6 +76,22 @@ export default defineComponent({
       }
       return disabled;
     }
+    // 当存在日期范围限制时，改变年份后应将月份调整为合法月份
+    function adjustMonth(): void {
+      if (rangeFromTo.value?.from && rangeFromTo.value?.to) {
+        const beginYear = dayjs(rangeFromTo.value.from).year();
+        const endYear = dayjs(rangeFromTo.value.to).year();
+        const beginMon = parseInt(dayjs(rangeFromTo.value.from).format('M'), 10);
+        if (checkMonthAndYearSelectedDisabled(state.curSelectedYear, state.curSelectedMonth)) {
+          state.curSelectedMonth =
+            state.curSelectedYear === beginYear
+              ? beginMon
+              : state.curSelectedYear === endYear
+              ? 1
+              : state.curSelectedMonth;
+        }
+      }
+    }
     watch(
       () => {
         return {
@@ -106,11 +122,10 @@ export default defineComponent({
         }
 
         for (let i = begin; i <= end; i++) {
-          const disabled = checkMonthAndYearSelectedDisabled(i, state.curSelectedMonth);
           re.push({
             value: i,
             label: t(globalConfig.value.yearSelection, { year: i }),
-            disabled,
+            disabled: false,
           });
         }
         return re;
@@ -122,6 +137,7 @@ export default defineComponent({
         return controller.checkControllerDisabled('year', 'selectProps');
       }),
       monthSelectOptionList: computed<YearMonthOption[]>(() => {
+        adjustMonth();
         const re: YearMonthOption[] = [];
         for (let i = FIRST_MONTH_OF_YEAR; i <= LAST_MONTH_OF_YEAR; i++) {
           const disabled = checkMonthAndYearSelectedDisabled(state.curSelectedYear, i);

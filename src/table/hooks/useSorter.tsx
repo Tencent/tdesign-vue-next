@@ -1,6 +1,5 @@
 import { SetupContext, computed, toRefs, ref, watch } from 'vue';
 import isFunction from 'lodash/isFunction';
-import get from 'lodash/get';
 import { SortInfo, TdPrimaryTableProps, PrimaryTableCol, TableRowData } from '../type';
 import SorterButton from '../sorter-button';
 import useDefaultValue from '../../hooks/useDefaultValue';
@@ -86,6 +85,7 @@ export default function useSorter(props: TdPrimaryTableProps, { slots }: SetupCo
     if (props.multipleSort) {
       sortInfo = getMultipleNextSort(col, p);
     } else {
+      // 如果此次调用之前开启了multipleSort，tSortInfo可能为数组，尝试取数组中第一个排序字段的参数
       const sort = tSortInfo.value instanceof Array ? tSortInfo.value[0] : tSortInfo.value;
       sortInfo = getSingleNextSort(col, sort, p);
     }
@@ -113,8 +113,11 @@ export default function useSorter(props: TdPrimaryTableProps, { slots }: SetupCo
   }
 
   function getMultipleNextSort(col: PrimaryTableCol<TableRowData>, p: { descending: boolean }): Array<SortInfo> {
+    // 如tSortInfo不是数组，判断是否存在，如存在作为第一个排序字段（保留之前未开启multipleSort时的字段），否则初始化为空数组
+    if (!Array.isArray(tSortInfo.value)) {
+      tSortInfo.value = tSortInfo.value ? [tSortInfo.value] : [];
+    }
     const sort = tSortInfo.value;
-    if (!(sort instanceof Array)) return;
     const { colKey } = col;
     const result = [...sort];
     for (let i = 0, len = sort.length; i < len; i++) {
@@ -163,25 +166,15 @@ export default function useSorter(props: TdPrimaryTableProps, { slots }: SetupCo
    * 此时，需要在组件内部进行排序，并输出事件
    */
   watch(
-    tSortInfo,
+    () => [tSortInfo, props.data],
     () => {
-      if (!tSortInfo.value) return;
+      if (!tSortInfo.value || !Object.keys(tSortInfo.value).length || !tData.value.length) return;
       // isSortInfoSame 的两个参数顺序不可变
       if (!isSortInfoSame(tSortInfo.value, innerSort.value)) {
         handleDataSort(tSortInfo.value);
       }
     },
     { immediate: true },
-  );
-
-  // async data and default data is empty
-  watch(
-    () => props.data,
-    (val = [], previousVal = []) => {
-      if (val.map((t) => get(t, props.rowKey)).join() !== previousVal.map((t) => get(t, props.rowKey)).join()) {
-        originalData.value = props.data;
-      }
-    },
   );
 
   return {

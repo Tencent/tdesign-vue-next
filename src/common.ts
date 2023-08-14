@@ -58,6 +58,8 @@ export type TreeOptionData<T = string | number> = {
   text?: string;
   /** option value */
   value?: T;
+  /** option node content */
+  content?: string | TNode;
 } & PlainObject;
 
 export type SizeEnum = 'small' | 'medium' | 'large';
@@ -76,7 +78,7 @@ export interface KeysType {
 }
 
 export interface HTMLElementAttributes {
-  [css: string]: string;
+  [attribute: string]: string;
 }
 
 export interface TScroll {
@@ -118,4 +120,8 @@ export interface ScrollToElementParams {
   /** 单个元素高度非固定场景下，即 isFixedRowHeight = false。延迟设置元素位置，一般用于依赖不同高度异步渲染等场景，单位：毫秒 */
   time?: number;
   behavior?: 'auto' | 'smooth';
+}
+
+export interface ComponentScrollToElementParams extends ScrollToElementParams {
+  key: string | number;
 }

@@ -18,7 +18,7 @@ export default {
   },
   /** 是否禁用菜单项展开/收起/跳转等功能 */
   disabled: Boolean,
-  /** 跳转链接 */
+  /** 跳转链接，菜单项渲染为a标签，当routerLink为true时将使用Router进行路由跳转 */
   href: {
     type: String,
     default: '',
@@ -33,6 +33,10 @@ export default {
   router: {
     type: Object as PropType<TdMenuItemProps['router']>,
   },
+  /**
+   * 菜单项内容是否渲染为使用Router进行跳转的a标签，当且仅当 Router 存在时，该 API 有效
+   */
+  routerLink: Boolean,
   /** 链接或路由跳转方式 */
   target: {
     type: String as PropType<TdMenuItemProps['target']>,

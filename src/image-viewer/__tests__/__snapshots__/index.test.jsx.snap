@@ -19,13 +19,12 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
         class="t-icon t-icon-chevron-down"
         fill="none"
         height="1em"
-        viewBox="0 0 16 16"
+        viewBox="0 0 24 24"
         width="1em"
       >
         <path
-          d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+          d="M17.5 8.09l-5.5 5.5-5.5-5.5L5.09 9.5 12 16.41l6.91-6.91-1.41-1.41z"
           fill="currentColor"
-          fill-opacity="0.9"
         />
       </svg>
       <!---->
@@ -41,29 +40,182 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
         <div
           class="t-image-viewer__header-box"
         >
-          <img
-            alt=""
+          <div
             class="t-image-viewer__header-img"
-            src="https://tdesign.gtimg.com/demo/demo-image-1.png"
-          />
+            fallback=""
+            referrerpolicy="strict-origin-when-cross-origin"
+          >
+            <!---->
+            <!---->
+            <!---->
+            <img
+              alt=""
+              class="t-image t-image--fit-fill t-image--position-center"
+              referrerpolicy="strict-origin-when-cross-origin"
+              src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+            />
+            <div
+              class="t-image__loading"
+            >
+              <div
+                class="t-space t-space-align-center t-space-vertical"
+                style="gap: 8px;"
+              >
+                
+                
+                <div
+                  class="t-space-item"
+                >
+                  <svg
+                    class="t-icon t-icon-image"
+                    fill="none"
+                    height="1em"
+                    style="font-size: 24px;"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                  >
+                    <path
+                      d="M2 2h20v20H2V2zm2 18h13.59L9 11.41l-5 5V20zm16-.41V4H4v9.59l5-5 11 11zM15.55 7a1 1 0 100 2 1 1 0 000-2zm-3 1a3 3 0 116 0 3 3 0 01-6 0z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+                <!---->
+                
+                
+                <div
+                  class="t-space-item"
+                >
+                  图片加载中
+                </div>
+                <!---->
+                
+                
+              </div>
+            </div>
+            <!---->
+            <!---->
+          </div>
         </div>
         <div
           class="t-image-viewer__header-box t-is-active"
         >
-          <img
-            alt=""
+          <div
             class="t-image-viewer__header-img"
-            src="https://tdesign.gtimg.com/demo/demo-image-2.png"
-          />
+            fallback=""
+            referrerpolicy="strict-origin-when-cross-origin"
+          >
+            <!---->
+            <!---->
+            <!---->
+            <img
+              alt=""
+              class="t-image t-image--fit-fill t-image--position-center"
+              referrerpolicy="strict-origin-when-cross-origin"
+              src="https://tdesign.gtimg.com/demo/demo-image-2.png"
+            />
+            <div
+              class="t-image__loading"
+            >
+              <div
+                class="t-space t-space-align-center t-space-vertical"
+                style="gap: 8px;"
+              >
+                
+                
+                <div
+                  class="t-space-item"
+                >
+                  <svg
+                    class="t-icon t-icon-image"
+                    fill="none"
+                    height="1em"
+                    style="font-size: 24px;"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                  >
+                    <path
+                      d="M2 2h20v20H2V2zm2 18h13.59L9 11.41l-5 5V20zm16-.41V4H4v9.59l5-5 11 11zM15.55 7a1 1 0 100 2 1 1 0 000-2zm-3 1a3 3 0 116 0 3 3 0 01-6 0z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+                <!---->
+                
+                
+                <div
+                  class="t-space-item"
+                >
+                  图片加载中
+                </div>
+                <!---->
+                
+                
+              </div>
+            </div>
+            <!---->
+            <!---->
+          </div>
         </div>
         <div
           class="t-image-viewer__header-box"
         >
-          <img
-            alt=""
+          <div
             class="t-image-viewer__header-img"
-            src="https://tdesign.gtimg.com/demo/demo-image-3.png"
-          />
+            fallback=""
+            referrerpolicy="strict-origin-when-cross-origin"
+          >
+            <!---->
+            <!---->
+            <!---->
+            <img
+              alt=""
+              class="t-image t-image--fit-fill t-image--position-center"
+              referrerpolicy="strict-origin-when-cross-origin"
+              src="https://tdesign.gtimg.com/demo/demo-image-3.png"
+            />
+            <div
+              class="t-image__loading"
+            >
+              <div
+                class="t-space t-space-align-center t-space-vertical"
+                style="gap: 8px;"
+              >
+                
+                
+                <div
+                  class="t-space-item"
+                >
+                  <svg
+                    class="t-icon t-icon-image"
+                    fill="none"
+                    height="1em"
+                    style="font-size: 24px;"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                  >
+                    <path
+                      d="M2 2h20v20H2V2zm2 18h13.59L9 11.41l-5 5V20zm16-.41V4H4v9.59l5-5 11 11zM15.55 7a1 1 0 100 2 1 1 0 000-2zm-3 1a3 3 0 116 0 3 3 0 01-6 0z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+                <!---->
+                
+                
+                <div
+                  class="t-space-item"
+                >
+                  图片加载中
+                </div>
+                <!---->
+                
+                
+              </div>
+            </div>
+            <!---->
+            <!---->
+          </div>
         </div>
         
       </div>
@@ -83,13 +235,12 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
       fill="none"
       height="1em"
       style="font-size: 24px; transform: rotate(0deg);"
-      viewBox="0 0 16 16"
+      viewBox="0 0 24 24"
       width="1em"
     >
       <path
-        d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+        d="M15.91 17.5l-5.5-5.5 5.5-5.5-1.41-1.41L7.59 12l6.91 6.91 1.41-1.41z"
         fill="currentColor"
-        fill-opacity="0.9"
       />
     </svg>
     <!---->
@@ -102,13 +253,12 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
       fill="none"
       height="1em"
       style="font-size: 24px; transform: rotate(180deg);"
-      viewBox="0 0 16 16"
+      viewBox="0 0 24 24"
       width="1em"
     >
       <path
-        d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+        d="M15.91 17.5l-5.5-5.5 5.5-5.5-1.41-1.41L7.59 12l6.91 6.91 1.41-1.41z"
         fill="currentColor"
-        fill-opacity="0.9"
       />
     </svg>
     <!---->
@@ -122,13 +272,12 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
       fill="none"
       height="1em"
       style="font-size: 24px;"
-      viewBox="0 0 16 16"
+      viewBox="0 0 24 24"
       width="1em"
     >
       <path
-        d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+        d="M7.05 5.64L12 10.59l4.95-4.95 1.41 1.41L13.41 12l4.95 4.95-1.41 1.41L12 13.41l-4.95 4.95-1.41-1.41L10.59 12 5.64 7.05l1.41-1.41z"
         fill="currentColor"
-        fill-opacity="0.9"
       />
     </svg>
   </div>
@@ -146,13 +295,12 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
           class="t-icon t-icon-mirror t-size-m"
           fill="none"
           height="1em"
-          viewBox="0 0 16 16"
+          viewBox="0 0 24 24"
           width="1em"
         >
           <path
-            d="M7.5 1h1v14h-1V1zM14.72 12.44a.5.5 0 01-.35.54c-.07.02-.17.02-.38.02h-3.34l-.27-.01a.5.5 0 01-.37-.37l-.01-.27V5c0-.53 0-.8.04-.89a.5.5 0 01.8-.17c.07.07.18.3.4.8l3.34 7.34c.09.19.13.28.14.36zM11 12h2.45L11 6.62V12zM1.63 12.98c.07.02.17.02.38.02h3.34l.27-.01a.5.5 0 00.37-.37l.01-.27V5c0-.53 0-.8-.04-.89a.5.5 0 00-.8-.17c-.07.07-.18.3-.4.8l-3.34 7.34c-.09.19-.13.28-.14.36a.5.5 0 00.35.54zM5 6.62V12H2.55L5 6.62z"
+            d="M13 2v20h-2V2h2zM9 4.64V18.5H1.3L9 4.64zm6 0l7.7 13.86H15V4.64zM4.7 16.5H7v-4.14L4.7 16.5zM17 12.36v4.14h2.3L17 12.36z"
             fill="currentColor"
-            fill-opacity="0.9"
           />
         </svg>
         <!---->
@@ -167,13 +315,12 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
           class="t-icon t-icon-rotation t-size-m"
           fill="none"
           height="1em"
-          viewBox="0 0 16 16"
+          viewBox="0 0 24 24"
           width="1em"
         >
           <path
-            d="M2 2h1v6.08A6 6 0 017.92 13H14v1H3a1 1 0 01-1-1V2zm4.9 11A5 5 0 003 9.1V13h3.9z"
+            d="M4 2v9a9 9 0 019 9h9v2H2V2h2zm0 18h7a7 7 0 00-7-7v7z"
             fill="currentColor"
-            fill-opacity="0.9"
           />
         </svg>
         <!---->
@@ -187,18 +334,12 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
           class="t-icon t-icon-zoom-out t-size-m"
           fill="none"
           height="1em"
-          viewBox="0 0 16 16"
+          viewBox="0 0 24 24"
           width="1em"
         >
           <path
-            d="M9 7H4V6h5v1z"
+            d="M15.1 5.9a6.5 6.5 0 10-9.2 9.2 6.5 6.5 0 009.2-9.2zM4.49 4.5a8.5 8.5 0 0112.69 11.27l5.34 5.35-1.41 1.41-5.35-5.34A8.5 8.5 0 014.5 4.49zM6.5 11.5v-2h8v2h-8z"
             fill="currentColor"
-            fill-opacity="0.9"
-          />
-          <path
-            d="M9.51 10.22a4.76 4.76 0 11.7-.7l3.54 3.52-.7.7-3.54-3.52zm.77-3.7a3.76 3.76 0 10-7.53 0 3.76 3.76 0 007.53 0z"
-            fill="currentColor"
-            fill-opacity="0.9"
           />
         </svg>
         <!---->
@@ -221,18 +362,12 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
           class="t-icon t-icon-zoom-in t-size-m"
           fill="none"
           height="1em"
-          viewBox="0 0 16 16"
+          viewBox="0 0 24 24"
           width="1em"
         >
           <path
-            d="M6 7v2h1V7h2V6H7V4H6v2H4v1h2z"
+            d="M15.1 5.9a6.5 6.5 0 10-9.2 9.2 6.5 6.5 0 009.2-9.2zM4.49 4.5a8.5 8.5 0 0112.69 11.27l5.34 5.35-1.41 1.41-5.35-5.34A8.5 8.5 0 014.5 4.49zM11.5 6.5v3h3v2h-3v3h-2v-3h-3v-2h3v-3h2z"
             fill="currentColor"
-            fill-opacity="0.9"
-          />
-          <path
-            d="M9.51 10.22a4.76 4.76 0 11.7-.7l3.54 3.52-.7.7-3.54-3.52zm.77-3.7a3.76 3.76 0 10-7.53 0 3.76 3.76 0 007.53 0z"
-            fill="currentColor"
-            fill-opacity="0.9"
           />
         </svg>
         <!---->
@@ -248,20 +383,12 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
             class="t-icon t-icon-image t-size-m"
             fill="none"
             height="1em"
-            viewBox="0 0 16 16"
+            viewBox="0 0 24 24"
             width="1em"
           >
             <path
-              clip-rule="evenodd"
-              d="M10 8a2 2 0 100-4 2 2 0 000 4zm0-1a1 1 0 100-2 1 1 0 000 2z"
+              d="M2 2h20v20H2V2zm2 18h13.59L9 11.41l-5 5V20zm16-.41V4H4v9.59l5-5 11 11zM15.55 7a1 1 0 100 2 1 1 0 000-2zm-3 1a3 3 0 116 0 3 3 0 01-6 0z"
               fill="currentColor"
-              fill-opacity="0.9"
-              fill-rule="evenodd"
-            />
-            <path
-              d="M2 13a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1H3a1 1 0 00-1 1v10zm1-1.3l3-3 4.3 4.3H3v-1.3zm0-1.4V3h10v10h-1.3L6 7.3l-3 3z"
-              fill="currentColor"
-              fill-opacity="0.9"
             />
           </svg>
           <!---->
@@ -276,18 +403,12 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
           class="t-icon t-icon-download t-size-m"
           fill="none"
           height="1em"
-          viewBox="0 0 16 16"
+          viewBox="0 0 24 24"
           width="1em"
         >
           <path
-            d="M12.26 5.81L8.5 9.58V.5h-1v9.08L3.74 5.8l-.71.71 4.62 4.62c.2.2.5.2.7 0l4.62-4.62-.7-.7z"
+            d="M13 3v9.59l3.5-3.5 1.41 1.41L12 16.41 6.09 10.5 7.5 9.09l3.5 3.5V3h2zM4.5 14v5h15v-5h2v7h-19v-7h2z"
             fill="currentColor"
-            fill-opacity="0.9"
-          />
-          <path
-            d="M2 11v2a1 1 0 001 1h10a1 1 0 001-1v-2h-1v2H3v-2H2z"
-            fill="currentColor"
-            fill-opacity="0.9"
           />
         </svg>
         <!---->
@@ -340,13 +461,12 @@ exports[`Image-viewer > :props > images, index, visible 1`] = `
         class="t-icon t-icon-chevron-down"
         fill="none"
         height="1em"
-        viewBox="0 0 16 16"
+        viewBox="0 0 24 24"
         width="1em"
       >
         <path
-          d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+          d="M17.5 8.09l-5.5 5.5-5.5-5.5L5.09 9.5 12 16.41l6.91-6.91-1.41-1.41z"
           fill="currentColor"
-          fill-opacity="0.9"
         />
       </svg>
       <!---->
@@ -362,29 +482,182 @@ exports[`Image-viewer > :props > images, index, visible 1`] = `
         <div
           class="t-image-viewer__header-box"
         >
-          <img
-            alt=""
+          <div
             class="t-image-viewer__header-img"
-            src="https://tdesign.gtimg.com/demo/demo-image-1.png"
-          />
+            fallback=""
+            referrerpolicy="strict-origin-when-cross-origin"
+          >
+            <!---->
+            <!---->
+            <!---->
+            <img
+              alt=""
+              class="t-image t-image--fit-fill t-image--position-center"
+              referrerpolicy="strict-origin-when-cross-origin"
+              src="https://tdesign.gtimg.com/demo/demo-image-1.png"
+            />
+            <div
+              class="t-image__loading"
+            >
+              <div
+                class="t-space t-space-align-center t-space-vertical"
+                style="gap: 8px;"
+              >
+                
+                
+                <div
+                  class="t-space-item"
+                >
+                  <svg
+                    class="t-icon t-icon-image"
+                    fill="none"
+                    height="1em"
+                    style="font-size: 24px;"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                  >
+                    <path
+                      d="M2 2h20v20H2V2zm2 18h13.59L9 11.41l-5 5V20zm16-.41V4H4v9.59l5-5 11 11zM15.55 7a1 1 0 100 2 1 1 0 000-2zm-3 1a3 3 0 116 0 3 3 0 01-6 0z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+                <!---->
+                
+                
+                <div
+                  class="t-space-item"
+                >
+                  图片加载中
+                </div>
+                <!---->
+                
+                
+              </div>
+            </div>
+            <!---->
+            <!---->
+          </div>
         </div>
         <div
           class="t-image-viewer__header-box t-is-active"
         >
-          <img
-            alt=""
+          <div
             class="t-image-viewer__header-img"
-            src="https://tdesign.gtimg.com/demo/demo-image-2.png"
-          />
+            fallback=""
+            referrerpolicy="strict-origin-when-cross-origin"
+          >
+            <!---->
+            <!---->
+            <!---->
+            <img
+              alt=""
+              class="t-image t-image--fit-fill t-image--position-center"
+              referrerpolicy="strict-origin-when-cross-origin"
+              src="https://tdesign.gtimg.com/demo/demo-image-2.png"
+            />
+            <div
+              class="t-image__loading"
+            >
+              <div
+                class="t-space t-space-align-center t-space-vertical"
+                style="gap: 8px;"
+              >
+                
+                
+                <div
+                  class="t-space-item"
+                >
+                  <svg
+                    class="t-icon t-icon-image"
+                    fill="none"
+                    height="1em"
+                    style="font-size: 24px;"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                  >
+                    <path
+                      d="M2 2h20v20H2V2zm2 18h13.59L9 11.41l-5 5V20zm16-.41V4H4v9.59l5-5 11 11zM15.55 7a1 1 0 100 2 1 1 0 000-2zm-3 1a3 3 0 116 0 3 3 0 01-6 0z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+                <!---->
+                
+                
+                <div
+                  class="t-space-item"
+                >
+                  图片加载中
+                </div>
+                <!---->
+                
+                
+              </div>
+            </div>
+            <!---->
+            <!---->
+          </div>
         </div>
         <div
           class="t-image-viewer__header-box"
         >
-          <img
-            alt=""
+          <div
             class="t-image-viewer__header-img"
-            src="https://tdesign.gtimg.com/demo/demo-image-3.png"
-          />
+            fallback=""
+            referrerpolicy="strict-origin-when-cross-origin"
+          >
+            <!---->
+            <!---->
+            <!---->
+            <img
+              alt=""
+              class="t-image t-image--fit-fill t-image--position-center"
+              referrerpolicy="strict-origin-when-cross-origin"
+              src="https://tdesign.gtimg.com/demo/demo-image-3.png"
+            />
+            <div
+              class="t-image__loading"
+            >
+              <div
+                class="t-space t-space-align-center t-space-vertical"
+                style="gap: 8px;"
+              >
+                
+                
+                <div
+                  class="t-space-item"
+                >
+                  <svg
+                    class="t-icon t-icon-image"
+                    fill="none"
+                    height="1em"
+                    style="font-size: 24px;"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                  >
+                    <path
+                      d="M2 2h20v20H2V2zm2 18h13.59L9 11.41l-5 5V20zm16-.41V4H4v9.59l5-5 11 11zM15.55 7a1 1 0 100 2 1 1 0 000-2zm-3 1a3 3 0 116 0 3 3 0 01-6 0z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+                <!---->
+                
+                
+                <div
+                  class="t-space-item"
+                >
+                  图片加载中
+                </div>
+                <!---->
+                
+                
+              </div>
+            </div>
+            <!---->
+            <!---->
+          </div>
         </div>
         
       </div>
@@ -404,13 +677,12 @@ exports[`Image-viewer > :props > images, index, visible 1`] = `
       fill="none"
       height="1em"
       style="font-size: 24px; transform: rotate(0deg);"
-      viewBox="0 0 16 16"
+      viewBox="0 0 24 24"
       width="1em"
     >
       <path
-        d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+        d="M15.91 17.5l-5.5-5.5 5.5-5.5-1.41-1.41L7.59 12l6.91 6.91 1.41-1.41z"
         fill="currentColor"
-        fill-opacity="0.9"
       />
     </svg>
     <!---->
@@ -423,13 +695,12 @@ exports[`Image-viewer > :props > images, index, visible 1`] = `
       fill="none"
       height="1em"
       style="font-size: 24px; transform: rotate(180deg);"
-      viewBox="0 0 16 16"
+      viewBox="0 0 24 24"
       width="1em"
     >
       <path
-        d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+        d="M15.91 17.5l-5.5-5.5 5.5-5.5-1.41-1.41L7.59 12l6.91 6.91 1.41-1.41z"
         fill="currentColor"
-        fill-opacity="0.9"
       />
     </svg>
     <!---->
@@ -443,13 +714,12 @@ exports[`Image-viewer > :props > images, index, visible 1`] = `
       fill="none"
       height="1em"
       style="font-size: 24px;"
-      viewBox="0 0 16 16"
+      viewBox="0 0 24 24"
       width="1em"
     >
       <path
-        d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+        d="M7.05 5.64L12 10.59l4.95-4.95 1.41 1.41L13.41 12l4.95 4.95-1.41 1.41L12 13.41l-4.95 4.95-1.41-1.41L10.59 12 5.64 7.05l1.41-1.41z"
         fill="currentColor"
-        fill-opacity="0.9"
       />
     </svg>
   </div>
@@ -467,13 +737,12 @@ exports[`Image-viewer > :props > images, index, visible 1`] = `
           class="t-icon t-icon-mirror t-size-m"
           fill="none"
           height="1em"
-          viewBox="0 0 16 16"
+          viewBox="0 0 24 24"
           width="1em"
         >
           <path
-            d="M7.5 1h1v14h-1V1zM14.72 12.44a.5.5 0 01-.35.54c-.07.02-.17.02-.38.02h-3.34l-.27-.01a.5.5 0 01-.37-.37l-.01-.27V5c0-.53 0-.8.04-.89a.5.5 0 01.8-.17c.07.07.18.3.4.8l3.34 7.34c.09.19.13.28.14.36zM11 12h2.45L11 6.62V12zM1.63 12.98c.07.02.17.02.38.02h3.34l.27-.01a.5.5 0 00.37-.37l.01-.27V5c0-.53 0-.8-.04-.89a.5.5 0 00-.8-.17c-.07.07-.18.3-.4.8l-3.34 7.34c-.09.19-.13.28-.14.36a.5.5 0 00.35.54zM5 6.62V12H2.55L5 6.62z"
+            d="M13 2v20h-2V2h2zM9 4.64V18.5H1.3L9 4.64zm6 0l7.7 13.86H15V4.64zM4.7 16.5H7v-4.14L4.7 16.5zM17 12.36v4.14h2.3L17 12.36z"
             fill="currentColor"
-            fill-opacity="0.9"
           />
         </svg>
         <!---->
@@ -488,13 +757,12 @@ exports[`Image-viewer > :props > images, index, visible 1`] = `
           class="t-icon t-icon-rotation t-size-m"
           fill="none"
           height="1em"
-          viewBox="0 0 16 16"
+          viewBox="0 0 24 24"
           width="1em"
         >
           <path
-            d="M2 2h1v6.08A6 6 0 017.92 13H14v1H3a1 1 0 01-1-1V2zm4.9 11A5 5 0 003 9.1V13h3.9z"
+            d="M4 2v9a9 9 0 019 9h9v2H2V2h2zm0 18h7a7 7 0 00-7-7v7z"
             fill="currentColor"
-            fill-opacity="0.9"
           />
         </svg>
         <!---->
@@ -508,18 +776,12 @@ exports[`Image-viewer > :props > images, index, visible 1`] = `
           class="t-icon t-icon-zoom-out t-size-m"
           fill="none"
           height="1em"
-          viewBox="0 0 16 16"
+          viewBox="0 0 24 24"
           width="1em"
         >
           <path
-            d="M9 7H4V6h5v1z"
+            d="M15.1 5.9a6.5 6.5 0 10-9.2 9.2 6.5 6.5 0 009.2-9.2zM4.49 4.5a8.5 8.5 0 0112.69 11.27l5.34 5.35-1.41 1.41-5.35-5.34A8.5 8.5 0 014.5 4.49zM6.5 11.5v-2h8v2h-8z"
             fill="currentColor"
-            fill-opacity="0.9"
-          />
-          <path
-            d="M9.51 10.22a4.76 4.76 0 11.7-.7l3.54 3.52-.7.7-3.54-3.52zm.77-3.7a3.76 3.76 0 10-7.53 0 3.76 3.76 0 007.53 0z"
-            fill="currentColor"
-            fill-opacity="0.9"
           />
         </svg>
         <!---->
@@ -542,18 +804,12 @@ exports[`Image-viewer > :props > images, index, visible 1`] = `
           class="t-icon t-icon-zoom-in t-size-m"
           fill="none"
           height="1em"
-          viewBox="0 0 16 16"
+          viewBox="0 0 24 24"
           width="1em"
         >
           <path
-            d="M6 7v2h1V7h2V6H7V4H6v2H4v1h2z"
+            d="M15.1 5.9a6.5 6.5 0 10-9.2 9.2 6.5 6.5 0 009.2-9.2zM4.49 4.5a8.5 8.5 0 0112.69 11.27l5.34 5.35-1.41 1.41-5.35-5.34A8.5 8.5 0 014.5 4.49zM11.5 6.5v3h3v2h-3v3h-2v-3h-3v-2h3v-3h2z"
             fill="currentColor"
-            fill-opacity="0.9"
-          />
-          <path
-            d="M9.51 10.22a4.76 4.76 0 11.7-.7l3.54 3.52-.7.7-3.54-3.52zm.77-3.7a3.76 3.76 0 10-7.53 0 3.76 3.76 0 007.53 0z"
-            fill="currentColor"
-            fill-opacity="0.9"
           />
         </svg>
         <!---->
@@ -569,20 +825,12 @@ exports[`Image-viewer > :props > images, index, visible 1`] = `
             class="t-icon t-icon-image t-size-m"
             fill="none"
             height="1em"
-            viewBox="0 0 16 16"
+            viewBox="0 0 24 24"
             width="1em"
           >
             <path
-              clip-rule="evenodd"
-              d="M10 8a2 2 0 100-4 2 2 0 000 4zm0-1a1 1 0 100-2 1 1 0 000 2z"
+              d="M2 2h20v20H2V2zm2 18h13.59L9 11.41l-5 5V20zm16-.41V4H4v9.59l5-5 11 11zM15.55 7a1 1 0 100 2 1 1 0 000-2zm-3 1a3 3 0 116 0 3 3 0 01-6 0z"
               fill="currentColor"
-              fill-opacity="0.9"
-              fill-rule="evenodd"
-            />
-            <path
-              d="M2 13a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1H3a1 1 0 00-1 1v10zm1-1.3l3-3 4.3 4.3H3v-1.3zm0-1.4V3h10v10h-1.3L6 7.3l-3 3z"
-              fill="currentColor"
-              fill-opacity="0.9"
             />
           </svg>
           <!---->
@@ -597,18 +845,12 @@ exports[`Image-viewer > :props > images, index, visible 1`] = `
           class="t-icon t-icon-download t-size-m"
           fill="none"
           height="1em"
-          viewBox="0 0 16 16"
+          viewBox="0 0 24 24"
           width="1em"
         >
           <path
-            d="M12.26 5.81L8.5 9.58V.5h-1v9.08L3.74 5.8l-.71.71 4.62 4.62c.2.2.5.2.7 0l4.62-4.62-.7-.7z"
+            d="M13 3v9.59l3.5-3.5 1.41 1.41L12 16.41 6.09 10.5 7.5 9.09l3.5 3.5V3h2zM4.5 14v5h15v-5h2v7h-19v-7h2z"
             fill="currentColor"
-            fill-opacity="0.9"
-          />
-          <path
-            d="M2 11v2a1 1 0 001 1h10a1 1 0 001-1v-2h-1v2H3v-2H2z"
-            fill="currentColor"
-            fill-opacity="0.9"
           />
         </svg>
         <!---->
@@ -650,6 +892,7 @@ exports[`Image-viewer > :props > trigger 1`] = `
   <button
     class="t-button t-button--variant-base t-button--theme-primary"
     href=""
+    tabindex="0"
     type="button"
   >
     <span

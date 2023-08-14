@@ -1,4 +1,4 @@
-import { defineComponent, ref, toRefs, watch } from 'vue';
+import { defineComponent, ref, toRefs, watch, computed } from 'vue';
 import { useCommonClassName, useConfig } from '../../hooks/useConfig';
 import props from '../props';
 import {
@@ -37,9 +37,15 @@ export default defineComponent({
     const statusClassNames = STATUS.value;
     const { value: inputValue, modelValue, recentColors } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(inputValue, modelValue, props.defaultValue, props.onChange);
-    const color = ref<Color>(new Color(innerValue.value || DEFAULT_COLOR));
-    const updateColor = () => color.value.update(innerValue.value || DEFAULT_COLOR);
-    const mode = ref<TdColorModes>(color.value.isGradient ? 'linear-gradient' : 'monochrome');
+
+    const defaultEmptyColor = computed(() => (isGradient.value ? DEFAULT_LINEAR_GRADIENT : DEFAULT_COLOR));
+
+    const mode = ref<TdColorModes>(props.colorModes?.length === 1 ? props.colorModes[0] : 'monochrome');
+    const isGradient = computed(() => mode.value === 'linear-gradient');
+
+    const color = ref<Color>(new Color(innerValue.value || defaultEmptyColor.value));
+    const updateColor = () => color.value.update(innerValue.value || defaultEmptyColor.value);
+
     const formatModel = ref<TdColorPickerProps['format']>(color.value.isGradient ? 'CSS' : 'RGB');
 
     const [recentlyUsedColors, setRecentlyUsedColors] = useDefaultValue(
@@ -48,12 +54,6 @@ export default defineComponent({
       props.onRecentColorsChange,
       'recentColors',
     );
-
-    if (props.colorModes.length === 1) {
-      // eslint-disable-next-line vue/no-setup-props-destructure
-      const m = props.colorModes[0];
-      mode.value = m;
-    }
 
     const formatValue = () => {
       // 渐变模式下直接输出css样式
@@ -256,6 +256,7 @@ export default defineComponent({
       mode,
       formatModel,
       recentlyUsedColors,
+      isGradient,
       addRecentlyUsedColor,
       handleModeChange,
       handleSatAndValueChange,
@@ -269,8 +270,16 @@ export default defineComponent({
     };
   },
   render() {
-    const { t, baseClassName, statusClassNames, globalConfig, recentColors, swatchColors, showPrimaryColorPreview } =
-      this;
+    const {
+      t,
+      baseClassName,
+      statusClassNames,
+      globalConfig,
+      recentColors,
+      swatchColors,
+      showPrimaryColorPreview,
+      isGradient,
+    } = this;
     const baseProps = {
       color: this.color,
       disabled: this.disabled,
@@ -314,13 +323,17 @@ export default defineComponent({
       );
     };
 
-    const isGradient = this.mode === 'linear-gradient';
-
     return (
       <div class={[`${baseClassName}__panel`, this.disabled ? statusClassNames.disabled : false]}>
         <PanelHeader {...this.$props} mode={this.mode} onModeChange={this.handleModeChange} />
         <div class={[`${baseClassName}__body`]}>
-          {isGradient ? <LinearGradient {...baseProps} onChange={this.handleGradientChange} /> : null}
+          {isGradient ? (
+            <LinearGradient
+              {...baseProps}
+              onChange={this.handleGradientChange}
+              enableMultipleGradient={this.enableMultipleGradient}
+            />
+          ) : null}
 
           <SaturationPanel {...baseProps} onChange={this.handleSatAndValueChange} />
 

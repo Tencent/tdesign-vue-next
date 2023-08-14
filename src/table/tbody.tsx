@@ -32,6 +32,7 @@ export interface TableBodyProps extends BaseTableProps {
 
 // table 到 body 的相同属性
 export const extendTableProps = [
+  'bordered',
   'rowKey',
   'rowClassName',
   'rowAttributes',
@@ -106,12 +107,13 @@ export default defineComponent({
 
   render() {
     const renderEmpty = (columns: TableBodyProps['columns']) => {
+      const tableWidth = this.bordered ? this.tableWidth - 2 : this.tableWidth;
       return (
         <tr class={[this.tableBaseClass.emptyRow, { [this.tableFullRowClasses.base]: this.isWidthOverflow }]}>
           <td colspan={columns.length}>
             <div
               class={[this.tableBaseClass.empty, { [this.tableFullRowClasses.innerFullRow]: this.isWidthOverflow }]}
-              style={this.isWidthOverflow ? { width: `${this.tableWidth}px` } : {}}
+              style={this.isWidthOverflow ? { width: `${tableWidth}px` } : {}}
             >
               {this.renderTNode('empty') || this.t(this.globalConfig.empty)}
             </div>
@@ -126,13 +128,14 @@ export default defineComponent({
       if (['', null, undefined, false].includes(fullRowNode)) return null;
       const isFixedToLeft = this.isWidthOverflow && this.columns.find((col) => col.fixed === 'left');
       const classes = [this.tableFullRowClasses.base, this.tableFullRowClasses[tType]];
+      const tableWidth = this.bordered ? this.tableWidth - 2 : this.tableWidth;
       /** innerFullRow 和 innerFullElement 同时存在，是为了保证 固定列时，当前行不随内容进行横向滚动 */
       return (
         <tr class={classes} key={`key-full-row-${type}`}>
           <td colspan={columnLength}>
             <div
               class={{ [this.tableFullRowClasses.innerFullRow]: isFixedToLeft }}
-              style={isFixedToLeft ? { width: `${this.tableWidth}px` } : {}}
+              style={isFixedToLeft ? { width: `${tableWidth}px` } : {}}
             >
               <div class={this.tableFullRowClasses.innerFullElement}>{fullRowNode}</div>
             </div>

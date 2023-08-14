@@ -14,6 +14,7 @@ import { TdImageViewerProps } from './type';
 import { useMirror, useRotate, useScale } from './hooks';
 import { formatImages, getOverlay } from './utils';
 import { EVENT_CODE } from './const';
+import Image from '../image';
 
 export default defineComponent({
   name: 'TImageViewer',
@@ -73,14 +74,14 @@ export default defineComponent({
     };
 
     const onImgClick = (i: number) => {
-      setIndexValue(i);
+      setIndexValue(i, { trigger: 'current' });
     };
 
     const openHandler = () => {
       setVisibleValue(true);
     };
     const onClose: TdImageViewerProps['onClose'] = (ctx) => {
-      setVisibleValue(false, ctx);
+      setVisibleValue(false);
       props.onClose?.(ctx);
     };
     const closeBtnAction = (e: MouseEvent) => {
@@ -163,8 +164,7 @@ export default defineComponent({
                   },
                 ]}
               >
-                <img
-                  alt=""
+                <Image
                   src={image.thumbnail || image.mainImage}
                   className={`${COMPONENT_NAME.value}__header-img`}
                   onClick={() => onImgClick(index)}
@@ -188,6 +188,20 @@ export default defineComponent({
           onClick={type === 'prev' ? prevImage : nextImage}
           icon={() => icon}
         />
+      );
+    };
+
+    const renderCloseBtn = () => {
+      if (props.closeBtn === false) {
+        return;
+      }
+      return (
+        <div
+          class={[`${COMPONENT_NAME.value}__modal-icon`, `${COMPONENT_NAME.value}__modal-close-bt`]}
+          onClick={closeBtnAction}
+        >
+          {renderTNodeJSX('closeBtn', <CloseIcon size="24px" />)}
+        </div>
       );
     };
 
@@ -245,12 +259,7 @@ export default defineComponent({
                       {renderNavigationArrow('next')}
                     </>
                   )}
-                  <div
-                    class={[`${COMPONENT_NAME.value}__modal-icon`, `${COMPONENT_NAME.value}__modal-close-bt`]}
-                    onClick={closeBtnAction}
-                  >
-                    {renderTNodeJSX('closeBtn', <CloseIcon size="24px" />)}
-                  </div>
+                  {renderCloseBtn()}
                   <TImageViewerUtils
                     onZoomIn={onZoomIn}
                     onZoomOut={onZoomOut}

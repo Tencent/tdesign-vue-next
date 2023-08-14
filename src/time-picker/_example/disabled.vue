@@ -4,6 +4,8 @@
     <t-time-picker v-model="time1" :disabled="true" />
     <h3>禁用指定时间</h3>
     <t-time-picker :disable-time="disableTime" />
+    <h3>禁用指定时间 同时展示禁用的时间选项</h3>
+    <t-time-picker :disable-time="disableTime" :hide-disabled-time="false" />
   </t-space>
 </template>
 

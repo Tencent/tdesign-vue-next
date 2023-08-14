@@ -34,7 +34,7 @@ export interface TdUploadProps<T extends UploadFile = UploadFile> {
    */
   autoUpload?: boolean;
   /**
-   * 如果是自动上传模式 `autoUpload=true`，表示全部文件上传之前的钩子函数，函数参数为上传的文件，函数返回值决定是否继续上传，若返回值为 `false` 则终止上传。<br/>如果是非自动上传模式 `autoUpload=false`，则函数返回值为 `false` 时表示不触发文件变化
+   * 如果是自动上传模式 `autoUpload=true`，表示全部文件上传之前的钩子函数，函数参数为上传的文件，函数返回值决定是否继续上传，若返回值为 `false` 则终止上传。<br/>如果是非自动上传模式 `autoUpload=false`，则函数返回值为 `false` 时表示本次选中的文件不会加入到文件列表中，即不触发 `onChange` 事件
    */
   beforeAllFilesUpload?: (file: UploadFile[]) => boolean | Promise<boolean>;
   /**
@@ -62,7 +62,7 @@ export interface TdUploadProps<T extends UploadFile = UploadFile> {
    */
   draggable?: boolean;
   /**
-   * 用于完全自定义文件列表内容
+   * 用于完全自定义文件列表界面内容(UI)，单文件和多文件均有效
    */
   fileListDisplay?: TNode<{ files: UploadFile[]; dragEvents?: UploadDisplayDragEvents }>;
   /**
@@ -138,6 +138,11 @@ export interface TdUploadProps<T extends UploadFile = UploadFile> {
    */
   requestMethod?: (files: UploadFile | UploadFile[]) => Promise<RequestMethodResponse>;
   /**
+   * 是否在文件列表中显示缩略图，`theme=file-flow` 时有效
+   * @default false
+   */
+  showThumbnail?: boolean;
+  /**
    * 是否显示上传进度
    * @default true
    */
@@ -172,6 +177,11 @@ export interface TdUploadProps<T extends UploadFile = UploadFile> {
    * @default false
    */
   uploadAllFilesInOneRequest?: boolean;
+  /**
+   * 是否允许粘贴上传剪贴板中的文件
+   * @default false
+   */
+  uploadPastedFiles?: boolean;
   /**
    * 是否在请求时间超过 300ms 后显示模拟进度。上传进度有模拟进度和真实进度两种。一般大小的文件上传，真实的上传进度只有 0 和 100，不利于交互呈现，因此组件内置模拟上传进度。真实上传进度一般用于大文件上传。
    * @default true
@@ -234,7 +244,7 @@ export interface TdUploadProps<T extends UploadFile = UploadFile> {
    */
   onPreview?: (options: { file: UploadFile; index: number; e: MouseEvent }) => void;
   /**
-   * 上传进度变化时触发，真实进度和模拟进度都会触发。`type=real` 表示真实上传进度，`type=mock` 表示模拟上传进度
+   * 上传进度变化时触发，真实进度和模拟进度都会触发。<br/>⚠️ 原始上传请求，小文件的上传进度只有 0 和 100，故而不会触发 `progress` 事件；只有大文件才有真实的中间进度。如果你希望很小的文件也显示上传进度，保证 `useMockProgress=true` 的情况下，设置 `mockProgressDuration` 为更小的值。<br/>参数 `options.type=real` 表示真实上传进度，`options.type=mock` 表示模拟上传进度
    */
   onProgress?: (options: ProgressContext) => void;
   /**
@@ -268,6 +278,10 @@ export interface UploadInstanceFunctions<T extends UploadFile = UploadFile> {
    * 组件实例方法，打开文件选择器
    */
   triggerUpload: () => void;
+  /**
+   * 设置上传中文件的上传进度
+   */
+  uploadFilePercent: () => void;
   /**
    * 组件实例方法，默认上传未成功上传过的所有文件。带参数时，表示上传指定文件
    */

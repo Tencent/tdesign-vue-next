@@ -12,11 +12,6 @@ export default {
   autoWidth: Boolean,
   /** 自动聚焦 */
   autofocus: Boolean,
-  /** 是否有边框 */
-  bordered: {
-    type: Boolean,
-    default: true,
-  },
   /** 无边框模式 */
   borderless: Boolean,
   /** 是否可以清空选项 */
@@ -46,7 +41,7 @@ export default {
   /** 输入框的值 */
   inputValue: {
     type: [String, Number] as PropType<TdSelectProps['inputValue']>,
-    default: undefined,
+    default: undefined as TdSelectProps['inputValue'],
   },
   /** 输入框的值，非受控属性 */
   defaultInputValue: {
@@ -81,7 +76,6 @@ export default {
   /** 数据化配置选项内容 */
   options: {
     type: Array as PropType<TdSelectProps['options']>,
-    default: (): TdSelectProps['options'] => [],
   },
   /** 面板内的底部内容 */
   panelBottomContent: {
@@ -168,16 +162,17 @@ export default {
   },
   /** 选中值 */
   value: {
-    type: [String, Number, Object, Array] as PropType<TdSelectProps['value']>,
+    type: [String, Number, Boolean, Object, Array] as PropType<TdSelectProps['value']>,
     default: undefined as TdSelectProps['value'],
   },
   modelValue: {
-    type: [String, Number, Object, Array] as PropType<TdSelectProps['value']>,
+    type: [String, Number, Boolean, Object, Array] as PropType<TdSelectProps['value']>,
     default: undefined as TdSelectProps['value'],
   },
   /** 选中值，非受控属性 */
   defaultValue: {
-    type: [String, Number, Object, Array] as PropType<TdSelectProps['defaultValue']>,
+    type: [String, Number, Boolean, Object, Array] as PropType<TdSelectProps['defaultValue']>,
+    default: undefined,
   },
   /** 自定义选中项呈现的内容 */
   valueDisplay: {
@@ -212,6 +207,4 @@ export default {
   onRemove: Function as PropType<TdSelectProps['onRemove']>,
   /** 输入值变化时，触发搜索事件。主要用于远程搜索新数据 */
   onSearch: Function as PropType<TdSelectProps['onSearch']>,
-  /** 下拉框隐藏/显示时触发 */
-  onVisibleChange: Function as PropType<TdSelectProps['onVisibleChange']>,
 };

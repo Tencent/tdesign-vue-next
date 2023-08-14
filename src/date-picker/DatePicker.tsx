@@ -160,11 +160,12 @@ export default defineComponent({
     }
 
     // 确定
-    function onConfirmClick() {
+    function onConfirmClick({ e }: { e: MouseEvent }) {
       const nextValue = formatDate(inputValue.value, {
         format: formatRef.value.format,
       });
       if (nextValue) {
+        props?.onConfirm?.({ date: dayjs(nextValue as string).toDate(), e });
         onChange?.(
           formatDate(inputValue.value, {
             format: formatRef.value.format,
@@ -196,6 +197,7 @@ export default defineComponent({
           trigger: 'preset',
         },
       );
+
       popupVisible.value = false;
     }
 

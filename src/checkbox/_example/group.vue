@@ -6,20 +6,17 @@
 
     <br />
     <p>方式二：组件内置全选功能，使用插槽定义选项。选中值: {{ value2.join(', ') }}</p>
+    <!-- 列表渲染，key 是避免重复渲染的重要参数 -->
     <t-checkbox-group v-model="value2" @change="onChange2">
-      <t-checkbox :check-all="true" label="全选" />
-      <t-checkbox value="选项一">选项一</t-checkbox>
-      <t-checkbox label="选项二" value="选项二" />
-      <t-checkbox label="选项三" value="选项三" :disabled="true" />
+      <t-checkbox key="all" :check-all="true" label="全选" />
+      <t-checkbox key="a" value="选项一">选项一</t-checkbox>
+      <t-checkbox key="b" label="选项二" value="选项二" />
+      <t-checkbox key="c" label="选项三" value="选项三" :disabled="true" />
     </t-checkbox-group>
 
     <br />
     <p>方式三：组件内置全选功能，使用 `options` 定义选项。选中值: {{ value3.join(', ') }}</p>
-    <t-checkbox-group v-model="value3" :options="options2" @change="onChange3" />
-
-    <br />
-    <p>方式四：组件内置全选功能，非受控用法</p>
-    <t-checkbox-group :default-value="['选项一']" :options="options2" />
+    <t-checkbox-group v-model="value3" :options="options2" lazy-load @change="onChange3" />
   </t-space>
 </template>
 
@@ -35,7 +32,8 @@ const options1 = [
 
 const options2 = [
   { label: '全选', checkAll: true },
-  { value: '选项一', label: '选项一' },
+  // html attribute: title, hover to see more label text info
+  { value: '选项一', label: '选项一', title: '选项一' },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   { value: '选项二', label: (h) => <div>选项二</div> },
   { value: '选项三', label: '选项三' },

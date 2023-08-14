@@ -105,6 +105,7 @@ export default defineComponent({
           if (month.value.length === 1) month.value = [month.value[0], Math.min(month.value[0] + 1, 11)];
         }
       } else {
+        activeIndex.value = 0;
         isHoverCell.value = false;
         isFirstValueSelected.value = false;
         inputValue.value = formatDate(value.value, {
@@ -272,7 +273,7 @@ export default defineComponent({
     }
 
     // 确定
-    function onConfirmClick() {
+    function onConfirmClick({ e }: { e: MouseEvent }) {
       const nextValue = [...(inputValue.value as string[])];
 
       const notValidIndex = nextValue.findIndex((v) => !v || !isValidDate(v, formatRef.value.format));
@@ -288,6 +289,11 @@ export default defineComponent({
           cacheValue.value = nextValue;
           inputValue.value = nextValue;
         } else {
+          props?.onConfirm?.({
+            date: nextValue.map((v) => dayjs(v).toDate()),
+            e,
+            partial: activeIndex.value ? 'end' : 'start',
+          });
           onChange?.(
             formatDate(nextValue, {
               format: formatRef.value.format,
@@ -303,18 +309,18 @@ export default defineComponent({
       }
 
       // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
-      if (!isFirstValueSelected.value) {
+      if (!isFirstValueSelected.value || nextValue.length === 1) {
         let nextIndex = notValidIndex;
         if (nextIndex === -1) nextIndex = activeIndex.value ? 0 : 1;
         activeIndex.value = nextIndex;
         isFirstValueSelected.value = true;
-      } else {
+      } else if (nextValue.length === 2) {
         popupVisible.value = false;
       }
     }
 
     // 预设
-    function onPresetClick(preset: any) {
+    function onPresetClick(preset: any, context: any) {
       let presetValue = preset;
       if (isFunction(preset)) {
         presetValue = preset();
@@ -334,6 +340,7 @@ export default defineComponent({
           },
         );
         popupVisible.value = false;
+        props.onPresetClick?.(context);
       }
     }
 

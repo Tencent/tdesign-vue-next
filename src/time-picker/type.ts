@@ -6,6 +6,7 @@
 
 import { InputProps } from '../input';
 import { PopupProps } from '../popup';
+import { SelectInputBlurContext } from '../select-input';
 import { RangeInputProps } from '../range-input';
 import { TNode } from '../common';
 
@@ -21,13 +22,14 @@ export interface TdTimePickerProps {
    */
   clearable?: boolean;
   /**
-   * 禁用时间项
+   * 禁用时间项的配置函数
    */
   disableTime?: (
     h: number,
     m: number,
     s: number,
-  ) => Partial<{ hour: Array<number>; minute: Array<number>; second: Array<number> }>;
+    ms: number,
+  ) => Partial<{ hour: Array<number>; minute: Array<number>; second: Array<number>; millisecond: Array<number> }>;
   /**
    * 是否禁用组件
    * @default false
@@ -66,6 +68,7 @@ export interface TdTimePickerProps {
   size?: 'small' | 'medium' | 'large';
   /**
    * 输入框状态
+   * @default default
    */
   status?: 'default' | 'success' | 'warning' | 'error';
   /**
@@ -144,7 +147,6 @@ export interface TdTimeRangePickerProps {
   ) => Partial<{ hour: Array<number>; minute: Array<number>; second: Array<number> }>;
   /**
    * 是否禁用组件，值为数组表示可分别控制开始日期和结束日期是否禁用
-   * @default false
    */
   disabled?: boolean | Array<boolean>;
   /**
@@ -180,6 +182,7 @@ export interface TdTimeRangePickerProps {
   size?: 'small' | 'medium' | 'large';
   /**
    * 输入框状态
+   * @default default
    */
   status?: 'default' | 'success' | 'warning' | 'error';
   /**

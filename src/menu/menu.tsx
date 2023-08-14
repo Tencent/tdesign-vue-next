@@ -24,6 +24,7 @@ export default defineComponent({
     const mode = ref(props.expandType);
     const theme = computed(() => props.theme);
     const isMutex = computed(() => props.expandMutex);
+    const collapsed = computed(() => props.collapsed);
     const menuClass = computed(() => [
       `${classPrefix.value}-default-menu`,
       `${classPrefix.value}-menu--${props.theme}`,
@@ -31,11 +32,7 @@ export default defineComponent({
         [`${classPrefix.value}-is-collapsed`]: props.collapsed,
       },
     ]);
-    const innerClasses = computed(() => [
-      `${classPrefix.value}-menu`,
-      { [`${classPrefix.value}-menu--scroll`]: mode.value !== 'popup' },
-      'narrow-scrollbar',
-    ]);
+    const innerClasses = computed(() => [`${classPrefix.value}-menu`, `${classPrefix.value}-menu--scroll`]);
     const expandWidth = computed(() => {
       const { width } = props;
       const format = (val: string | number) => (isNumber(val) ? `${val}px` : val);
@@ -68,8 +65,11 @@ export default defineComponent({
       theme,
       isHead: false,
       vMenu,
+      collapsed,
       select: (value: MenuValue) => {
-        setActiveValue(value);
+        if (value !== activeValue.value) {
+          setActiveValue(value);
+        }
       },
       open: (value: MenuValue, type: TdOpenType) => {
         if (mode.value === 'normal') {

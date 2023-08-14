@@ -18,6 +18,10 @@ export default {
   },
   /** 禁用链接 */
   disabled: Boolean,
+  /** 使得浏览器将链接的 URL 视为可下载资源 */
+  download: {
+    type: [String, Boolean] as PropType<TdLinkProps['download']>,
+  },
   /** 链接悬浮态样式，有 文本颜色变化、添加下划线等 2 种方法 */
   hover: {
     type: String as PropType<TdLinkProps['hover']>,

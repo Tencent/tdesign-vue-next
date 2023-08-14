@@ -57,9 +57,44 @@ export default defineComponent({
     // 获取当前步骤的属性值 用户当前步骤设置 > 用户组件设置的
     const getCurrentCrossProps = <Key extends keyof GuideCrossProps>(propsName: Key) =>
       currentStepInfo.value[propsName] ?? props[propsName];
+    // 获取当前步骤的用户设定的高亮内容
+    const currentCustomHighlightContent = computed(() => {
+      const { highlightContent } = currentStepInfo.value;
+
+      let node: any = highlightContent;
+      if (isFunction(highlightContent)) {
+        // 支持函数
+        node = highlightContent(hWithParams());
+      } else if (context.slots.highlightContent) {
+        // 支持插槽
+        node = context.slots.highlightContent(hWithParams());
+      } else if (context.slots['highlight-content']) {
+        // 支持插槽
+        node = context.slots['highlight-content'](hWithParams());
+      } else if (!!highlightContent) {
+        // 支持组件
+        node = <node />;
+      }
+
+      // 给自定义元素添加类名
+      if (node) {
+        if (!node.props) node.props = {};
+        node.props.class = node.props.class || '';
+      }
+      return node;
+    });
+
+    // 是否展示高亮区域
+    const showCustomHighlightContent = computed(() => Boolean(currentCustomHighlightContent.value && isPopup.value));
+    //
+    const popupVisible = ref(false);
+    const hWithParams = (params: Record<string, any> = { currentStepInfo: currentStepInfo.value }) => {
+      const newH = new Function('return ' + h.toString())();
+      return Object.assign({}, newH, params);
+    };
 
     // 设置高亮层的位置
-    const setHighlightLayerPosition = (highlighLayer: HTMLElement) => {
+    const setHighlightLayerPosition = (highlightLayer: HTMLElement, isReference = false) => {
       // 这里预留了一个相对元素的功能，暂未使用，也是这里导致了 fix #2111
       let { top, left } = getRelativePosition(currentHighlightLayerElm.value);
       let { width, height } = currentHighlightLayerElm.value.getBoundingClientRect();
@@ -76,12 +111,33 @@ export default defineComponent({
         left += scrollLeft;
       }
 
-      setStyle(highlighLayer, {
-        width: `${width}px`,
-        height: `${height}px`,
+      const style = {
         top: `${top}px`,
         left: `${left}px`,
-      });
+      };
+
+      // 展示自定义高亮
+      if (showCustomHighlightContent.value) {
+        // 高亮框本身不设定宽高，引用用框的宽高设定为用户自定义的宽高
+        if (isReference) {
+          const { width, height } = highlightLayerRef.value.getBoundingClientRect();
+          Object.assign(style, {
+            width: `${width}px`,
+            height: `${height}px`,
+          });
+        } else {
+          Object.assign(style, {
+            width: 'auto',
+            height: 'auto',
+          });
+        }
+      } else {
+        Object.assign(style, {
+          width: `${width}px`,
+          height: `${height}px`,
+        });
+      }
+      setStyle(highlightLayer, style);
     };
 
     const showPopupGuide = () => {
@@ -90,7 +146,7 @@ export default defineComponent({
         if (!currentHighlightLayerElm.value) return;
         scrollToParentVisibleArea(currentHighlightLayerElm.value);
         setHighlightLayerPosition(highlightLayerRef.value);
-        setHighlightLayerPosition(referenceLayerRef.value);
+        setHighlightLayerPosition(referenceLayerRef.value, true);
         scrollToElm(currentHighlightLayerElm.value);
         // fix: https://github.com/Tencent/tdesign-vue-next/issues/2536
         // 这里其实是一个临时解决方案，最合理的是 popup 内部处理
@@ -124,6 +180,7 @@ export default defineComponent({
         destroyTooltipElm();
         showDialogGuide();
       }
+      popupVisible.value = true;
     };
 
     const destroyGuide = () => {
@@ -182,6 +239,7 @@ export default defineComponent({
 
     watch(innerCurrent, (val) => {
       if (val >= 0 && val < steps.value.length) {
+        popupVisible.value = false;
         initGuide();
       } else {
         actived.value = false;
@@ -198,37 +256,6 @@ export default defineComponent({
         <div ref={overlayLayerRef} class={`${COMPONENT_NAME.value}__overlay`} style={{ zIndex: zIndex.value - 2 }} />
       );
 
-      const hWithParams = (params: Record<string, any> = { currentStepInfo: currentStepInfo.value }) => {
-        const newH = new Function('return ' + h.toString())();
-        return Object.assign({}, newH, params);
-      };
-
-      const getHighlightContent = () => {
-        const { highlightContent } = currentStepInfo.value;
-
-        let node: any = highlightContent;
-        if (isFunction(highlightContent)) {
-          // 支持函数
-          node = highlightContent(hWithParams());
-        } else if (context.slots.highlightContent) {
-          // 支持插槽
-          node = context.slots.highlightContent(hWithParams());
-        } else if (context.slots['highlight-content']) {
-          // 支持插槽
-          node = context.slots['highlight-content'](hWithParams());
-        } else if (!!highlightContent) {
-          // 支持组件
-          node = <node />;
-        }
-
-        // 给自定义元素添加类名
-        if (node) {
-          if (!node.props) node.props = {};
-          node.props.class = `${COMPONENT_NAME.value}__highlight--mask ${node.props.class || ''}`;
-        }
-        return node;
-      };
-
       const renderHighlightLayer = () => {
         const style = { zIndex: zIndex.value - 1 };
         const highlightClass = [
@@ -238,16 +265,10 @@ export default defineComponent({
         ];
         const showOverlay = getCurrentCrossProps('showOverlay');
         const maskClass = [`${COMPONENT_NAME.value}__highlight--${showOverlay ? 'mask' : 'nomask'}`];
-        const innerHighlightContent = getHighlightContent();
-        const showHighlightContent = Boolean(innerHighlightContent && isPopup.value);
 
         return (
-          <div
-            ref={highlightLayerRef}
-            class={highlightClass.concat(showHighlightContent ? highlightClass : maskClass)}
-            style={style}
-          >
-            {showHighlightContent && innerHighlightContent}
+          <div ref={highlightLayerRef} class={[...highlightClass, ...maskClass]} style={style}>
+            {showCustomHighlightContent.value && currentCustomHighlightContent.value}
           </div>
         );
       };
@@ -274,6 +295,7 @@ export default defineComponent({
           <div class={`${COMPONENT_NAME.value}__action`}>
             {!hideSkip.value && !isLast && (
               <Button
+                key="skip"
                 class={`${COMPONENT_NAME.value}__skip`}
                 theme="default"
                 size={buttonSize}
@@ -284,8 +306,9 @@ export default defineComponent({
             )}
             {!hidePrev.value && !isFirst && (
               <Button
+                key="prev"
                 class={`${COMPONENT_NAME.value}__prev`}
-                theme="primary"
+                theme="default"
                 size={buttonSize}
                 variant="base"
                 onClick={handlePrev}
@@ -294,6 +317,7 @@ export default defineComponent({
             )}
             {!isLast && (
               <Button
+                key="next"
                 class={`${COMPONENT_NAME.value}__next`}
                 theme="primary"
                 size={buttonSize}
@@ -304,6 +328,7 @@ export default defineComponent({
             )}
             {isLast && (
               <Button
+                key="finish"
                 class={`${COMPONENT_NAME.value}__finish`}
                 theme="primary"
                 size={buttonSize}
@@ -393,10 +418,11 @@ export default defineComponent({
             [`${COMPONENT_NAME.value}__popup--content`]: !!content,
           },
         ];
+
         return (
           <Popup
             ref={popupTooltipRef}
-            visible={true}
+            visible={popupVisible.value}
             show-arrow={!content}
             zIndex={zIndex.value}
             placement={currentStepInfo.value.placement as any}

@@ -161,6 +161,7 @@ export default function useRange(props: TdDateRangePickerProps) {
         isMountedRef.value = true;
         return;
       }
+      if (!popupVisible.value) return;
       const indexMap = { 0: 'first', 1: 'second' };
       inputRef.value?.focus?.({ position: indexMap[index] });
     },

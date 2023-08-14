@@ -1,8 +1,8 @@
-import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import config from '../site.config';
 import TdesignComponents from './components/components.jsx';
 
-const { docs } = config;
+const { docs, enDocs } = config;
 
 function getDocsRoutes(docs, type) {
   let docsRoutes = [];
@@ -35,7 +35,7 @@ const routes = [
     path: '/vue-next/',
     redirect: '/vue-next/overview',
     component: TdesignComponents,
-    children: getDocsRoutes(docs),
+    children: [...getDocsRoutes(docs), ...getDocsRoutes(enDocs)],
   },
   {
     path: '/',

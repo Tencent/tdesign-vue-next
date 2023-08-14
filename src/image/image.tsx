@@ -1,4 +1,4 @@
-import { defineComponent, ref, onMounted, computed, onUnmounted, watch } from 'vue';
+import { defineComponent, ref, onMounted, computed, onUnmounted, watch, toRefs } from 'vue';
 import omit from 'lodash/omit';
 import isFunction from 'lodash/isFunction';
 import { ImageErrorIcon, ImageIcon } from 'tdesign-icons-vue-next';
@@ -8,6 +8,7 @@ import { useTNodeDefault, useTNodeJSX } from '../hooks/tnode';
 import { TdImageProps } from './type';
 import props from './props';
 import Space from '../space';
+import { useImagePreviewUrl } from '../hooks/useImagePreviewUrl';
 
 export default defineComponent({
   name: 'TImage',
@@ -15,36 +16,42 @@ export default defineComponent({
   props,
 
   setup(props: TdImageProps) {
-    const imageRef = ref<HTMLElement>(null);
+    const divRef = ref<HTMLElement>(null);
+    const imgRef = ref<HTMLImageElement>(null);
     let io: IntersectionObserver = null;
+
+    const { src } = toRefs(props);
 
     const renderTNodeJSX = useTNodeJSX();
 
     onMounted(() => {
-      if (!props.lazy || !imageRef.value) return;
+      //在nuxt3中img的onload事件会失效
+      if (imgRef.value?.complete && !props.lazy) {
+        triggerHandleLoad();
+      }
 
-      const ioObserver = observe(imageRef.value, null, handleLoadImage, 0);
+      if (!props.lazy || !divRef.value) return;
+
+      const ioObserver = observe(divRef.value, null, handleLoadImage, 0);
       io = ioObserver;
     });
-
     onUnmounted(() => {
-      imageRef.value && io && io.unobserve(imageRef.value);
+      divRef.value && io && io.unobserve(divRef.value);
     });
 
     const { classPrefix, globalConfig } = useConfig('image');
 
     // replace image url
-    const imageSrc = computed(() =>
-      isFunction(globalConfig.value.replaceImageSrc) ? globalConfig.value.replaceImageSrc(props) : props.src,
+    const imageStrSrc = computed(() =>
+      isFunction(globalConfig.value.replaceImageSrc) ? globalConfig.value.replaceImageSrc(props) : src.value,
     );
 
-    watch(
-      () => props.src,
-      () => {
-        hasError.value = false;
-        isLoaded.value = false;
-      },
-    );
+    const { previewUrl } = useImagePreviewUrl(imageStrSrc);
+
+    watch([previewUrl], () => {
+      hasError.value = false;
+      isLoaded.value = false;
+    });
 
     const shouldLoad = ref(!props.lazy);
     const handleLoadImage = () => {
@@ -56,11 +63,21 @@ export default defineComponent({
       isLoaded.value = true;
       props.onLoad?.({ e });
     };
-
+    const triggerHandleLoad = () => {
+      const loadEvent = new Event('load');
+      Object.defineProperty(loadEvent, 'target', {
+        value: imgRef.value,
+        enumerable: true,
+      });
+      handleLoad(loadEvent);
+    };
     const hasError = ref(false);
     const handleError = (e: Event) => {
       hasError.value = true;
       props.onError?.({ e });
+      if (props.fallback) {
+        previewUrl.value = props.fallback;
+      }
     };
 
     const hasMouseEvent = computed(() => {
@@ -112,77 +129,91 @@ export default defineComponent({
           {Object.entries(props.srcset).map(([type, url]) => (
             <source type={type} srcset={url} />
           ))}
-          {props.src && renderImage(props.src)}
+          {renderImage()}
         </picture>
       );
     }
 
-    function renderImage(url: string) {
-      return <img src={url} onError={handleError} onLoad={handleLoad} class={imageClasses.value} alt={props.alt} />;
+    function renderImage() {
+      // string | File
+      const url = typeof imageStrSrc.value === 'string' ? imageStrSrc.value : previewUrl.value;
+      return (
+        <img
+          ref={imgRef}
+          src={url}
+          onError={handleError}
+          onLoad={handleLoad}
+          class={imageClasses.value}
+          alt={props.alt}
+          referrerpolicy={props.referrerpolicy}
+        />
+      );
     }
 
     const renderTNodDefault = useTNodeDefault();
 
-    return () => (
-      <div
-        ref={imageRef}
-        class={[
-          `${classPrefix.value}-image__wrapper`,
-          `${classPrefix.value}-image__wrapper--shape-${props.shape}`,
-          props.gallery && `${classPrefix.value}-image__wrapper--gallery`,
-          hasMouseEvent.value && `${classPrefix.value}-image__wrapper--need-hover`,
-        ]}
-        onMouseenter={handleToggleOverlay}
-        onMouseleave={handleToggleOverlay}
-        {...omit(props, [
-          'src',
-          'alt',
-          'fit',
-          'position',
-          'shape',
-          'placeholder',
-          'loading',
-          'error',
-          'overlayTrigger',
-          'overlayContent',
-          'lazy',
-          'gallery',
-          'onLoad',
-          'onError',
-        ])}
-      >
-        {renderPlaceholder()}
-        {renderGalleryShadow()}
+    return () => {
+      return (
+        <div
+          ref={divRef}
+          class={[
+            `${classPrefix.value}-image__wrapper`,
+            `${classPrefix.value}-image__wrapper--shape-${props.shape}`,
+            props.gallery && `${classPrefix.value}-image__wrapper--gallery`,
+            hasMouseEvent.value && `${classPrefix.value}-image__wrapper--need-hover`,
+          ]}
+          onMouseenter={handleToggleOverlay}
+          onMouseleave={handleToggleOverlay}
+          {...omit(props, [
+            'src',
+            'alt',
+            'fit',
+            'position',
+            'shape',
+            'placeholder',
+            'loading',
+            'error',
+            'overlayTrigger',
+            'overlayContent',
+            'lazy',
+            'gallery',
+            'onLoad',
+            'onError',
+          ])}
+        >
+          {renderPlaceholder()}
+          {renderGalleryShadow()}
 
-        {(hasError.value || !shouldLoad.value) && <div class={`${classPrefix.value}-image`} />}
-        {!(hasError.value || !shouldLoad.value) &&
-          (props.srcset && Object.keys(props.srcset).length ? renderImageSrcset() : renderImage(imageSrc.value))}
-        {!(hasError.value || !shouldLoad.value) && !isLoaded.value && (
-          <div class={`${classPrefix.value}-image__loading`}>
-            {renderTNodeJSX('loading') || (
-              <Space direction="vertical" size={8} align="center">
-                <ImageIcon size="24px" />
-                {globalConfig.value.loadingText}
-              </Space>
-            )}
-          </div>
-        )}
-
-        {hasError.value && (
-          <div class={`${classPrefix.value}-image__error`}>
-            {renderTNodDefault('error', {
-              defaultNode: (
+          {(hasError.value || !shouldLoad.value) && <div class={`${classPrefix.value}-image`} />}
+          {!(hasError.value || !shouldLoad.value) &&
+            (props.srcset && Object.keys(props.srcset).length ? renderImageSrcset() : renderImage())}
+          {!(hasError.value || !shouldLoad.value) && !isLoaded.value && (
+            <div class={`${classPrefix.value}-image__loading`}>
+              {renderTNodeJSX('loading') || (
                 <Space direction="vertical" size={8} align="center">
-                  <ImageErrorIcon size="24px" />
-                  {globalConfig.value.errorText}
+                  <ImageIcon size="24px" />
+                  {typeof props.loading === 'string' ? props.loading : globalConfig.value.loadingText}
                 </Space>
-              ),
-            })}
-          </div>
-        )}
+              )}
+            </div>
+          )}
 
-        {renderOverlay()}
-      </div>
-    );
+          {hasError.value && (
+            <div class={`${classPrefix.value}-image__error`}>
+              {renderTNodDefault('error', {
+                defaultNode: (
+                  <Space direction="vertical" size={8} align="center">
+                    <ImageErrorIcon size="24px" />
+                    {typeof props.error === 'string' ? props.error : globalConfig.value.errorText}
+                  </Space>
+                ),
+              })}
+            </div>
+          )}
+
+          {renderOverlay()}
+        </div>
+      );
+    };
   },
 });

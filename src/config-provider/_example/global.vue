@@ -2,9 +2,9 @@
   <t-config-provider :global-config="globalConfig">
     <div>使用<code>t-config-provider</code>包裹业务功能的最外层组件，点击下方图标查看示例代码</div>
     <br />
-    <div>英文语言包引入路径：<code>import enConfig from 'tdesign-vue-next/es/locale/en_US';</code></div>
+    <div>English: <code>import enConfig from 'tdesign-vue-next/es/locale/en_US';</code></div>
     <br />
-    <div>中文语言包引入路径：<code>import enConfig from 'tdesign-vue-next/es/locale/zh_CN';</code></div>
+    <div>中文：<code>import enConfig from 'tdesign-vue-next/es/locale/zh_CN';</code></div>
   </t-config-provider>
 </template>
 

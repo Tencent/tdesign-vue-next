@@ -7,7 +7,7 @@
  */
 import { ref, Ref, reactive, onMounted } from 'vue';
 import isNumber from 'lodash/isNumber';
-import { BaseTableCol, TableRowData } from '../type';
+import { BaseTableCol, TableRowData, TdBaseTableProps } from '../type';
 import { on, off } from '../../utils/dom';
 
 const DEFAULT_MIN_WIDTH = 80;
@@ -26,6 +26,7 @@ export default function useColumnResize(params: {
   updateThWidthList: (data: { [colKey: string]: number }) => void;
   setTableElmWidth: (width: number) => void;
   updateTableAfterColumnResize: () => void;
+  onColumnResizeChange: TdBaseTableProps['onColumnResizeChange'];
 }) {
   const {
     isWidthOverflow,
@@ -35,6 +36,7 @@ export default function useColumnResize(params: {
     updateThWidthList,
     setTableElmWidth,
     updateTableAfterColumnResize,
+    onColumnResizeChange,
   } = params;
   const resizeLineRef = ref<HTMLDivElement>();
   const effectColMap = ref<{ [colKey: string]: any }>({});
@@ -104,7 +106,7 @@ export default function useColumnResize(params: {
   // 频繁事件，仅用于计算是否在表头显示拖拽鼠标形态
   const onColumnMouseover = (e: MouseEvent, col: BaseTableCol<TableRowData>) => {
     // calculate mouse cursor before drag start
-    if (!resizeLineRef.value || resizeLineParams.isDragging) return;
+    if (!resizeLineRef.value || resizeLineParams.isDragging || !e.target) return;
     const target = (e.target as HTMLElement).closest('th');
     // 判断是否为叶子阶段，仅叶子结点允许拖拽
     const colKey = target.getAttribute('data-colkey');
@@ -184,6 +186,16 @@ export default function useColumnResize(params: {
     };
   };
 
+  const getFixedToLeftResizeInfo = (targetBoundRect: DOMRect, tableBoundRect: DOMRect) => {
+    const resizeLinePos = targetBoundRect.left - tableBoundRect.left;
+    const colLeft = targetBoundRect.left - tableBoundRect.left;
+    return {
+      resizeLinePos,
+      minResizeLineLeft: colLeft,
+      maxResizeLineLeft: colLeft,
+    };
+  };
+
   const getTotalTableWidth = (thWidthList: { [key: string]: number }): number => {
     let tableWidth = 0;
     leafColumns.value.forEach((col) => {
@@ -191,6 +203,29 @@ export default function useColumnResize(params: {
     });
     return tableWidth;
   };
+  const getSiblingColCanResizable = (
+    newThWidthList: { [key: string]: number },
+    effectNextCol: BaseTableCol,
+    distance: number,
+    index: number,
+  ) => {
+    let isWidthAbnormal = true;
+    if (effectNextCol) {
+      const { minColWidth, maxColWidth } = getMinMaxColWidth(effectNextCol);
+      const targetNextColWidth = newThWidthList[effectNextCol.colKey] + distance;
+      isWidthAbnormal = targetNextColWidth < minColWidth || targetNextColWidth > maxColWidth;
+    }
+    return !(isWidthAbnormal || isWidthOverflow.value || index === leafColumns.value.length - 1);
+  };
+  const getOtherResizeInfo = (
+    col: BaseTableCol<TableRowData>,
+    effectPrevCol: BaseTableCol,
+    targetBoundRect: DOMRect,
+    tableBoundRect: DOMRect,
+  ) =>
+    effectPrevCol
+      ? getNormalResizeInfo(col, effectPrevCol, targetBoundRect, tableBoundRect)
+      : getFixedToLeftResizeInfo(targetBoundRect, tableBoundRect);
 
   // 调整表格列宽
   const onColumnMousedown = (e: MouseEvent, col: BaseTableCol<TableRowData>, index: number) => {
@@ -202,7 +237,7 @@ export default function useColumnResize(params: {
     const effectPrevCol = effectColMap.value[col.colKey]?.prev;
     const { resizeLinePos, minResizeLineLeft, maxResizeLineLeft } = isColRightFixActive(col)
       ? getFixedToRightResizeInfo(target, col, effectNextCol, targetBoundRect, tableBoundRect)
-      : getNormalResizeInfo(col, effectPrevCol, targetBoundRect, tableBoundRect);
+      : getOtherResizeInfo(col, effectNextCol, targetBoundRect, tableBoundRect);
 
     // 开始拖拽，记录下鼠标起始位置
     resizeLineParams.isDragging = true;
@@ -229,13 +264,14 @@ export default function useColumnResize(params: {
        */
       const thWidthList = getThWidthList('calculate');
       const currentCol = effectColMap.value[col.colKey]?.current;
-      const currentSibling = resizeLineParams.effectCol === 'next' ? currentCol.prevSibling : currentCol.nextSibling;
+      const currentSibling = resizeLineParams.effectCol === 'next' ? currentCol.nextSibling : currentCol.prevSibling;
       // 多行表头，列宽为最后一层的宽度，即叶子结点宽度
       const newThWidthList = { ...thWidthList };
       // 当前列不允许修改宽度，就调整相邻列的宽度
       const tmpCurrentCol = col.resizable !== false ? col : currentSibling;
-      // 是否允许调整相邻列宽：列宽未超出时，且并非是最后一列（最后一列的右侧拉伸会认为是表格整体宽度调整）
-      const canResizeSiblingColWidth = !(isWidthOverflow.value || index === leafColumns.value.length - 1);
+      // 是否允许调整后一列的列宽：列宽未超出时，满足后一列设置的最大最小值时且并非是最后一列（最后一列的右侧拉伸会认为是表格整体宽度调整）
+      const rightCol = resizeLineParams.effectCol === 'next' ? currentCol.nextSibling : col;
+      const canResizeSiblingColWidth = getSiblingColCanResizable(newThWidthList, rightCol, moveDistance, index);
 
       if (resizeLineParams.effectCol === 'next') {
         // 右侧激活态的固定列，需特殊调整
@@ -257,7 +293,7 @@ export default function useColumnResize(params: {
         if (canResizeSiblingColWidth) {
           newThWidthList[tmpCurrentCol.colKey] += moveDistance;
         }
-        newThWidthList[effectPrevCol.colKey] -= moveDistance;
+        effectPrevCol && (newThWidthList[effectPrevCol.colKey] -= moveDistance);
       }
       updateThWidthList(newThWidthList);
       const tableWidth = getTotalTableWidth(newThWidthList);
@@ -275,6 +311,7 @@ export default function useColumnResize(params: {
       off(document, 'mousemove', onDragOver);
       document.onselectstart = originalSelectStart;
       document.ondragstart = originalDragStart;
+      onColumnResizeChange?.({ columnsWidth: newThWidthList });
     };
 
     // 注意前后两列最小和最大宽度限制

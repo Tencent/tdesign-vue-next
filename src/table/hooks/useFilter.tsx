@@ -79,11 +79,13 @@ export default function useFilter(props: TdPrimaryTableProps, context: SetupCont
   // 获取搜索条件内容，存在 options 需要获取其 label 显示
   function getFilterResultContent(): string {
     const arr: string[] = [];
-    props.columns
+    const columns: Array<PrimaryTableCol> = [];
+    getAllColumns(props.columns, columns);
+    columns
       .filter((col) => col.filter)
       .forEach((col) => {
         let value = tFilterValue.value[col.colKey];
-        if (col.filter.list && !['null', '', 'undefined'].includes(String(value))) {
+        if (col.filter.list && !['null'].includes(String(value))) {
           const formattedValue = value instanceof Array ? value : [value];
           const label: string[] = [];
           col.filter.list.forEach((option) => {
@@ -98,6 +100,15 @@ export default function useFilter(props: TdPrimaryTableProps, context: SetupCont
         }
       });
     return arr.join('；');
+  }
+  //递归拿到所有的 column
+  function getAllColumns(col: Array<PrimaryTableCol>, columns: Array<PrimaryTableCol>) {
+    col.forEach((column) => {
+      if (column.children) {
+        getAllColumns(column.children, columns);
+      }
+      columns.push(column);
+    });
   }
 
   function onInnerFilterChange(val: any, column: PrimaryTableCol) {

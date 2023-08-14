@@ -47,7 +47,6 @@ export default {
   /** 栅格占位格数，为 0 时相当于 display: none */
   span: {
     type: Number,
-    default: 12,
   },
   /** 自定义元素标签 */
   tag: {

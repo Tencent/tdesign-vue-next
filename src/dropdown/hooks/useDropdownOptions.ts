@@ -1,6 +1,7 @@
 import { computed, ComputedRef, VNode, getCurrentInstance, Slots } from 'vue';
 import isString from 'lodash/isString';
 import isArray from 'lodash/isArray';
+import camelCase from 'lodash/camelCase';
 
 import { useChildComponentSlots } from '../../hooks/slot';
 import type { DropdownOption, TdDropdownProps } from '../type';
@@ -16,9 +17,6 @@ export const getOptionsFromChildren = (menuNode: VNode | VNode[]): DropdownOptio
     }
   }
 
-  // 处理v-if的场景
-  if (isArray(menuNode[0]?.children)) return getOptionsFromChildren(menuNode[0]?.children);
-
   if (isArray(menuNode)) {
     menuNode = menuNode.reduce((acc, item) => {
       acc = acc.concat(isArray(item.children) ? item.children : item);
@@ -26,6 +24,8 @@ export const getOptionsFromChildren = (menuNode: VNode | VNode[]): DropdownOptio
     }, []);
     return menuNode
       .map((item) => {
+        const slotContent = (item.children as any)?.content?.();
+        const slotPrefixIcon = (item.children as any)?.prefixIcon?.() || (item.children as any)?.['prefix-icon']?.();
         const groupChildren = (item.children as any)?.default?.();
 
         // 当前节点的渲染内容
@@ -38,14 +38,24 @@ export const getOptionsFromChildren = (menuNode: VNode | VNode[]): DropdownOptio
             !isString(v.children) && ['TDropdownMenu', 'TDropdownItem'].includes((v.type as { name: string })?.name),
         );
 
+        // 将item.props的属性名都转成驼峰，再进行传递
+        const itemProps = Object.keys(item.props || {}).reduce((props, propName) => {
+          props[camelCase(propName)] = item.props[propName];
+          return props;
+        }, {});
+
         return {
-          content: contentCtx || groupChildren,
-          ...item.props,
+          content: slotContent || contentCtx || groupChildren,
+          ...itemProps,
+          ...(slotPrefixIcon ? { prefixIcon: () => slotPrefixIcon } : {}),
           children: childrenCtx?.length > 0 ? getOptionsFromChildren(childrenCtx) : null,
         };
       })
       .filter((v) => !!v.content);
   }
+
+  // 处理v-if的场景
+  if (isArray(menuNode[0]?.children)) return getOptionsFromChildren(menuNode[0]?.children);
 
   return [];
 };

@@ -18,6 +18,8 @@ export * from './menu';
 export * from './pagination';
 export * from './steps';
 export * from './tabs';
+export * from './sticky-tool';
+export * from './back-top';
 
 // 输入
 export * from './auto-complete';

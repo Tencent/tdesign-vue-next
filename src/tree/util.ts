@@ -129,6 +129,7 @@ export const getStoreConfig = (props: TdTreeProps) => {
     'lazy',
     'valueMode',
     'filter',
+    'allowFoldNodeOnFilter',
   ]);
   return storeProps;
 };

@@ -116,10 +116,11 @@ export default defineComponent({
     const timeItemCanUsed = (col: EPickerCols, el: string | number) => {
       const colIdx = timeArr.indexOf(col);
       if (colIdx !== -1) {
-        const params: [number, number, number] = [
+        const params: [number, number, number, number] = [
           dayjsValue.value.hour(),
           dayjsValue.value.minute(),
           dayjsValue.value.second(),
+          dayjsValue.value.millisecond(),
         ];
         params[colIdx] = Number(el);
         return !props.disableTime?.(...params, { partial: position.value || 'start' })?.[col]?.includes(Number(el));
@@ -144,10 +145,11 @@ export default defineComponent({
         const colList = range(0, count + 1, Number(colStep)).map((v) => padStart(String(v), 2, '0')) || [];
         return props.hideDisabledTime && !!props.disableTime
           ? colList.filter((t) => {
-              const params: [number, number, number] = [
+              const params: [number, number, number, number] = [
                 dayjsValue.value.hour(),
                 dayjsValue.value.minute(),
                 dayjsValue.value.second(),
+                dayjsValue.value.millisecond(),
               ];
               params[colIdx] = Number(t);
               return !props
@@ -213,6 +215,7 @@ export default defineComponent({
 
       if (timeArr.includes(col)) {
         if (timeItemCanUsed(col, val)) formattedVal = dayjsValue.value[col]?.(val).format(format.value);
+        else formattedVal = dayjsValue.value.format(format.value);
       } else {
         const currentHour = dayjsValue.value.hour();
         if (meridiem === AM && currentHour >= 12) {

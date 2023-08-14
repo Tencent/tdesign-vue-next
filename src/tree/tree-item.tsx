@@ -1,19 +1,21 @@
 import { computed, h, defineComponent, ref, PropType, inject, reactive } from 'vue';
 import isFunction from 'lodash/isFunction';
+import isBoolean from 'lodash/isBoolean';
 import { CaretRightSmallIcon as TdCaretRightSmallIcon } from 'tdesign-icons-vue-next';
+
 import TCheckBox from '../checkbox';
 import TLoading from '../loading';
 
 import { getTNode } from './util';
-import { TypeEventState, TreeNodeModel } from './interface';
 import { useCLASSNAMES, injectKey } from './constants';
 import TreeNode from '../_common/js/tree/tree-node';
 
 import useRipple from '../hooks/useRipple';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-
 import useDraggable from './hooks/useDraggable';
+
+import type { TypeEventState, TreeNodeModel } from './interface';
 
 export default defineComponent({
   name: 'TTreeNode',
@@ -71,10 +73,9 @@ export default defineComponent({
 
       props.onClick?.(state);
     };
-
     const nodeRef = ref<HTMLElement>();
     const { isDragOver, isDragging, dropPosition, setDragStatus } = useDraggable(
-      reactive({ nodeRef, node: props.node }),
+      reactive({ nodeRef, node: props.node }) as { nodeRef: HTMLElement; node: TreeNode },
     );
 
     const handleDragStart = (evt: DragEvent) => {
@@ -309,8 +310,15 @@ export default defineComponent({
           disabled: checkboxDisabled,
         };
 
-        // 当开启expandOnClickNode且为非叶子节点时 不选中选项
-        const stopLabelTrigger = props.expandOnClickNode && node.children instanceof Array && node.children?.length > 0;
+        // 当开启expandOnClickNode且为非叶子节点时 点击label不选中选项
+        const shouldStopLabelTrigger = computed(() => {
+          const isNormalBranchNode = Array.isArray(node.children) && node.children?.length > 0;
+          const isLazyLoadChildBranchNode = isBoolean(node.children) && node.children; // 懒加载子节点场景
+
+          const isBranchNode = isNormalBranchNode || isLazyLoadChildBranchNode;
+
+          return props.expandOnClickNode && isBranchNode;
+        });
 
         labelNode = (
           <TCheckBox
@@ -321,7 +329,7 @@ export default defineComponent({
             name={node.value.toString()}
             onChange={() => handleChange()}
             ignore="expand"
-            stopLabelTrigger={stopLabelTrigger}
+            stopLabelTrigger={shouldStopLabelTrigger.value}
             needRipple={true}
             {...itemCheckProps}
           >

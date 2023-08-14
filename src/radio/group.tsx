@@ -1,7 +1,22 @@
-import { VNode, defineComponent, h, provide, reactive, ref, computed, onMounted, watch, nextTick, toRefs } from 'vue';
+import {
+  VNode,
+  defineComponent,
+  h,
+  provide,
+  reactive,
+  ref,
+  computed,
+  onMounted,
+  watch,
+  nextTick,
+  toRefs,
+  onUnmounted,
+} from 'vue';
 import isString from 'lodash/isString';
 import isNumber from 'lodash/isNumber';
 import isNil from 'lodash/isNil';
+import throttle from 'lodash/throttle';
+
 import props from './radio-group-props';
 import { RadioOptionObj, RadioOption } from './type';
 import Radio from './radio';
@@ -11,6 +26,9 @@ import useVModel from '../hooks/useVModel';
 import { useTNodeDefault } from '../hooks/tnode';
 import useKeyboard from './useKeyboard';
 import isFunction from 'lodash/isFunction';
+import { useMutationObserver } from '../watermark/hooks';
+import type { UseMutationObserverReturn } from '../watermark/hooks';
+import useResizeObserver from '../hooks/useResizeObserver';
 
 export default defineComponent({
   name: 'TRadioGroup',
@@ -29,7 +47,7 @@ export default defineComponent({
 
     const checkedClassName = computed(() => `.${radioBtnName.value}.${STATUS.value.checked}`);
 
-    const barStyle = ref({ width: '0px', left: '0px' });
+    const barStyle = ref({ width: '0px', height: '0px', left: '0px', top: '0px' });
 
     const calcDefaultBarStyle = () => {
       const div = document.createElement('div');
@@ -38,8 +56,13 @@ export default defineComponent({
       document.body.appendChild(div);
 
       const defaultCheckedRadio: HTMLElement = div.querySelector(checkedClassName.value);
-      const { offsetWidth, offsetLeft } = defaultCheckedRadio;
-      barStyle.value = { width: `${offsetWidth}px`, left: `${offsetLeft}px` };
+      const { offsetWidth, offsetHeight, offsetLeft, offsetTop } = defaultCheckedRadio;
+      barStyle.value = {
+        width: `${offsetWidth}px`,
+        height: `${offsetHeight}px`,
+        left: `${offsetLeft}px`,
+        top: `${offsetTop}px`,
+      };
       document.body.removeChild(div);
     };
 
@@ -48,25 +71,65 @@ export default defineComponent({
 
       const checkedRadio: HTMLElement = radioGroupRef.value.querySelector(checkedClassName.value);
       if (!checkedRadio) {
-        barStyle.value = { width: '0px', left: '0px' };
+        barStyle.value = { width: '0px', height: '9px', left: '0px', top: '0px' };
         return;
       }
 
-      const { offsetWidth, offsetLeft } = checkedRadio;
+      const { offsetWidth, offsetHeight, offsetLeft, offsetTop } = checkedRadio;
       // current node is not rendered，fallback to default render
       if (!offsetWidth) {
         calcDefaultBarStyle();
       } else {
-        barStyle.value = { width: `${offsetWidth}px`, left: `${offsetLeft}px` };
+        barStyle.value = {
+          width: `${offsetWidth}px`,
+          height: `${offsetHeight}px`,
+          left: `${offsetLeft}px`,
+          top: `${offsetTop}px`,
+        };
       }
     };
+
+    let observerReturn: UseMutationObserverReturn;
 
     watch(innerValue, async () => {
       await nextTick();
       calcBarStyle();
     });
+
     onMounted(() => {
       calcBarStyle();
+      useResizeObserver(
+        radioGroupRef,
+        throttle(async () => {
+          await nextTick();
+          calcBarStyle();
+        }, 300),
+      );
+
+      const checkedRadioLabel: HTMLElement = radioGroupRef.value.querySelector(
+        `${checkedClassName.value} .${radioBtnName.value}__label`,
+      );
+      if (checkedRadioLabel) {
+        observerReturn = useMutationObserver(
+          checkedRadioLabel,
+          (mutations) => {
+            mutations.forEach((mutation) => {
+              if (mutation.type === 'characterData') {
+                calcBarStyle();
+              }
+            });
+          },
+          {
+            attributes: true,
+            childList: true,
+            characterData: true,
+            subtree: true,
+          },
+        );
+      }
+    });
+    onUnmounted(() => {
+      observerReturn?.stop();
     });
     /** calculate bar style end */
 

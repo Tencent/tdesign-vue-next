@@ -1,6 +1,7 @@
 import { onBeforeMount, onMounted, Ref } from 'vue';
 import { off, on } from '../utils/dom';
 import isString from 'lodash/isString';
+import { CHECKED_CODE_REG } from '../checkbox/hooks/useKeyboard';
 
 /** 键盘操作 */
 export default function useKeyboard(
@@ -8,7 +9,9 @@ export default function useKeyboard(
   setInnerValue: (value: any, context: { e: Event }) => void,
 ) {
   const checkRadioInGroup = (e: KeyboardEvent) => {
-    if (/enter/i.test(e.key) || /enter/i.test(e.code)) {
+    const isCheckedCode = CHECKED_CODE_REG.test(e.key) || CHECKED_CODE_REG.test(e.code);
+    if (isCheckedCode) {
+      e.preventDefault();
       const inputNode = (e.target as HTMLElement).querySelector('input');
       const data = inputNode.dataset;
       if (inputNode.checked && data.allowUncheck) {

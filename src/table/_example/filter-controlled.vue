@@ -149,11 +149,13 @@ const columns = computed(() => [
     sorter: true,
     // 自定义过滤组件：日期过滤配置，请确保自定义组件包含 value 和 onChange 属性
     filter: {
-      type: 'custom',
       component: DateRangePickerPanel,
       props: {
         firstDayOfWeek: 7,
       },
+      style: { fontSize: '14px' },
+      classNames: 'custom-class-name',
+      attrs: { 'data-type': 'date-range-picker' },
       // 是否显示重置取消按钮，一般情况不需要显示
       showConfirmAndReset: true,
       // 日期范围是一个组件，重置时需赋值为 []
@@ -162,7 +164,7 @@ const columns = computed(() => [
   },
 ]);
 
-const filterValue = ref({ channel: [], createTime: [] });
+const filterValue = ref({ channel: [] });
 const data = ref([...initData]);
 const bordered = ref(true);
 

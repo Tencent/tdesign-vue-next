@@ -11,11 +11,12 @@ import {
   CSSProperties,
 } from 'vue';
 import merge from 'lodash/merge';
-import props from './props';
-import { TextareaValue, TdTextareaProps } from './type';
+import isUndefined from 'lodash/isUndefined';
+
 import { getCharacterLength, omit } from '../utils/helper';
 import calcTextareaHeight from './calcTextareaHeight';
 import { FormItemInjectionKey } from '../form/const';
+import setStyle from '../_common/js/utils/set-style';
 
 // hooks
 import useVModel from '../hooks/useVModel';
@@ -23,8 +24,8 @@ import { useFormDisabled } from '../form/hooks';
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
-import setStyle from '../_common/js/utils/set-style';
-import isUndefined from 'lodash/isUndefined';
+import props from './props';
+import type { TextareaValue, TdTextareaProps } from './type';
 
 function getValidAttrs(obj: object): object {
   const newObj = {};
@@ -63,7 +64,7 @@ export default defineComponent({
     const adjustTextareaHeight = () => {
       if (props.autosize === true) {
         textareaStyle.value = calcTextareaHeight(refTextareaElem.value);
-      } else if (typeof props.autosize === 'object') {
+      } else if (props.autosize && typeof props.autosize === 'object') {
         const { minRows, maxRows } = props.autosize;
         textareaStyle.value = calcTextareaHeight(refTextareaElem.value, minRows, maxRows);
       } else if (attrs.rows) {
@@ -193,6 +194,12 @@ export default defineComponent({
       const { style } = attrs as { style: StyleValue };
       setStyle(refTextareaElem.value, merge(style, val));
     });
+
+    watch(innerValue, () => {
+      nextTick(() => adjustTextareaHeight());
+    });
+
+    watch(() => props.autosize, adjustTextareaHeight, { deep: true });
 
     expose({
       focus,

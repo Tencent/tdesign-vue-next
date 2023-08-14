@@ -19,7 +19,9 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
   // @ts-ignore 判断是否有拖拽列
   const dragCol = computed(() => columns.value.find((item) => item.colKey === 'drag'));
   // 行拖拽判断条件
-  const isRowDraggable = computed(() => sortOnRowDraggable.value || dragSort.value === 'row');
+  const isRowDraggable = computed(
+    () => sortOnRowDraggable.value || ['row', 'row-handler-col'].includes(dragSort.value),
+  );
   // 行拖拽判断条件-手柄列
   const isRowHandlerDraggable = computed(
     () => ['row-handler', 'row-handler-col'].includes(dragSort.value) && !!dragCol.value,

@@ -14,7 +14,7 @@
     </t-form-item>
 
     <t-form-item label="邮箱" name="email">
-      <t-input v-model="formData.email"></t-input>
+      <t-auto-complete v-model="formData.email" :options="emailOptions" filterable></t-auto-complete>
     </t-form-item>
 
     <t-form-item label="年龄" name="age">
@@ -65,7 +65,7 @@
   </t-form>
 </template>
 <script setup>
-import { ref, reactive } from 'vue';
+import { ref, reactive, computed } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
 
 const form = ref(null);
@@ -122,7 +122,13 @@ const courseOptions = [
   { label: '英语', value: '3' },
   { label: '体育', value: '4' },
 ];
+const emailSuffix = ['@qq.com', '@163.com', '@gmail.com'];
+const emailOptions = computed(() => {
+  const emailPrefix = formData.email.split('@')[0];
+  if (!emailPrefix) return [];
 
+  return emailSuffix.map((suffix) => emailPrefix + suffix);
+});
 const options = [
   { label: '计算机学院', value: '1' },
   { label: '软件学院', value: '2' },

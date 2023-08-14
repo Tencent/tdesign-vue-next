@@ -297,7 +297,7 @@
   },
   "t-avatar/size": {
     "type": "String",
-    "description": "size\n\n尺寸，示例值：small/medium/large/24px/38px 等。优先级高于 AvatarGroup.size 。Avatar 单独存在时，默认值为 medium。如果父组件存在 AvatarGroup，默认值便由 AvatarGroup.size 决定\n\n[docs](https://tdesign.tencent.com/vue-next/components/avatar?tab=api#avatar-props)"
+    "description": "size\n\n尺寸，示例值：small/medium/large/24px/38px 等。优先级高于 AvatarGroup.size 。Avatar 单独存在时，默认值为 medium。如果父组件存在 AvatarGroup，默认值便由 AvatarGroup.size 决定\n\ndefault: medium\n\n[docs](https://tdesign.tencent.com/vue-next/components/avatar?tab=api#avatar-props)"
   },
   "t-avatar/error": {
     "type": "event",
@@ -325,7 +325,7 @@
   },
   "t-avatar-group/size": {
     "type": "String",
-    "description": "size\n\n尺寸，示例值：small/medium/large/24px/38px 等。优先级低于 Avatar.size\n\n[docs](https://tdesign.tencent.com/vue-next/components/avatar-group?tab=api#avatargroup-props)"
+    "description": "size\n\n尺寸，示例值：small/medium/large/24px/38px 等。优先级低于 Avatar.size\n\ndefault: medium\n\n[docs](https://tdesign.tencent.com/vue-next/components/avatar-group?tab=api#avatargroup-props)"
   },
   "t-back-top/container": {
     "type": "String|Function",
@@ -788,6 +788,14 @@
     "type": "event",
     "description": "trigger on cell clicked\n\n单元格点击时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/primary-table?tab=api#primarytable-events)"
   },
+  "t-base-table/column-resize-change": {
+    "type": "event",
+    "description": "列调整大小之后触发。`context.columnsWidth` 表示操作后各个列的宽度；\n\n[docs](https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-events)"
+  },
+  "t-table/column-resize-change": {
+    "type": "event",
+    "description": "列调整大小之后触发。`context.columnsWidth` 表示操作后各个列的宽度；\n\n[docs](https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-events)"
+  },
   "t-base-table/page-change": {
     "type": "event",
     "description": "trigger on pagination changing\n\n分页发生变化时触发。参数 newDataSource 表示分页后的数据。本地数据进行分页时，newDataSource 和源数据 data 会不一样。泛型 T 指表格数据类型\n\n[docs](https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-events)"
@@ -983,7 +991,7 @@
       "medium",
       "large"
     ],
-    "description": "a button has three size\n\n组件尺寸\n\ndefault: medium\n\n[docs](https://tdesign.tencent.com/vue-next/components/button?tab=api#button-props)"
+    "description": "a button has four size\n\n组件尺寸\n\ndefault: medium\n\n[docs](https://tdesign.tencent.com/vue-next/components/button?tab=api#button-props)"
   },
   "t-button/suffix": {
     "type": "TNode",
@@ -1294,6 +1302,10 @@
     "type": "Boolean",
     "description": "是否允许多选\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/cascader?tab=api#cascader-props)"
   },
+  "t-cascader/option": {
+    "type": "TNode",
+    "description": "customize one option\n\n自定义单个级联选项\n\n[docs](https://tdesign.tencent.com/vue-next/components/cascader?tab=api#cascader-props)"
+  },
   "t-cascader/options": {
     "type": "Array",
     "description": "可选项数据源\n\ndefault: []\n\n[docs](https://tdesign.tencent.com/vue-next/components/cascader?tab=api#cascader-props)"
@@ -1465,7 +1477,7 @@
   },
   "t-checkbox/disabled": {
     "type": "Boolean",
-    "description": "是否禁用组件。如果父组件存在 CheckboxGroup，默认值由 CheckboxGroup.disabled 控制。Checkbox.disabled 优先级高于 CheckboxGroup.disabled\n\ndefault: undefined\n\n[docs](https://tdesign.tencent.com/vue-next/components/checkbox?tab=api#checkbox-props)"
+    "description": "是否禁用组件。如果父组件存在 CheckboxGroup，默认值由 CheckboxGroup.disabled 控制。优先级：Checkbox.disabled > CheckboxGroup.disabled > Form.disabled\n\ndefault: undefined\n\n[docs](https://tdesign.tencent.com/vue-next/components/checkbox?tab=api#checkbox-props)"
   },
   "t-checkbox/indeterminate": {
     "type": "Boolean",
@@ -1494,10 +1506,6 @@
   "t-checkbox/click": {
     "type": "event",
     "description": "trigger on click\n\n点击时出发，一般用于外层阻止冒泡场景\n\n[docs](https://tdesign.tencent.com/vue-next/components/checkbox?tab=api#checkbox-events)"
-  },
-  "t-checkbox-group/disabled": {
-    "type": "Boolean",
-    "description": "是否禁用组件，默认为 false。CheckboxGroup.disabled 优先级低于 Checkbox.disabled\n\n[docs](https://tdesign.tencent.com/vue-next/components/checkbox-group?tab=api#checkboxgroup-props)"
   },
   "t-checkbox-group/max": {
     "type": "Number",
@@ -1837,6 +1845,15 @@
     ],
     "description": "预设面板展示区域（包含确定按钮）\n\ndefault: bottom\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#datepicker-props)"
   },
+  "t-date-picker/size": {
+    "type": "String",
+    "options": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "description": "输入框尺寸\n\ndefault: medium\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#datepicker-props)"
+  },
   "t-date-picker/status": {
     "type": "String",
     "options": [
@@ -1875,6 +1892,10 @@
     "type": "event",
     "description": "选中值发生变化时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#datepicker-events)"
   },
+  "t-date-picker/confirm": {
+    "type": "event",
+    "description": "如果存在“确定”按钮，则点击“确定”按钮时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#datepicker-events)"
+  },
   "t-date-picker/focus": {
     "type": "event",
     "description": "输入框获得焦点时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#datepicker-events)"
@@ -1882,6 +1903,10 @@
   "t-date-picker/pick": {
     "type": "event",
     "description": "面板选中值后触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#datepicker-events)"
+  },
+  "t-date-picker/preset-click": {
+    "type": "event",
+    "description": "点击预设按钮后触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#datepicker-events)"
   },
   "t-date-picker-panel/default-time": {
     "type": "String",
@@ -1897,7 +1922,7 @@
   },
   "t-date-picker-panel/confirm": {
     "type": "event",
-    "description": "如果存在“确认”按钮，则点击“确认”按钮时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker-panel?tab=api#datepickerpanel-events)"
+    "description": "如果存在“确定”按钮，则点击“确定”按钮时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker-panel?tab=api#datepickerpanel-events)"
   },
   "t-date-picker-panel/month-change": {
     "type": "event",
@@ -1909,7 +1934,7 @@
   },
   "t-date-picker-panel/preset-click": {
     "type": "event",
-    "description": "如果存在“确认”按钮，则点击“确认”按钮时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker-panel?tab=api#datepickerpanel-events)"
+    "description": "点击预设按钮后触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker-panel?tab=api#datepickerpanel-events)"
   },
   "t-date-picker-panel/time-change": {
     "type": "event",
@@ -1925,7 +1950,7 @@
   },
   "t-date-range-picker/clearable": {
     "type": "Boolean",
-    "description": "是否显示清楚按钮\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-range-picker?tab=api#daterangepicker-props)"
+    "description": "是否显示清除按钮\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-range-picker?tab=api#daterangepicker-props)"
   },
   "t-date-range-picker/default-time": {
     "type": "Array",
@@ -2009,6 +2034,15 @@
     "type": "String",
     "description": "日期分隔符，支持全局配置，默认为 '-'\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-range-picker?tab=api#daterangepicker-props)"
   },
+  "t-date-range-picker/size": {
+    "type": "String",
+    "options": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "description": "输入框尺寸\n\ndefault: medium\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-range-picker?tab=api#daterangepicker-props)"
+  },
   "t-date-range-picker/status": {
     "type": "String",
     "options": [
@@ -2038,7 +2072,15 @@
   "t-date-range-picker/value-type": {
     "type": "String",
     "options": [
-      "'time-stamp' | 'Date' | 'YYYY' | 'YYYY-MM' | 'YYYY-MM-DD' | 'YYYY-MM-DD HH' | 'YYYY-MM-DD HH:mm' | 'YYYY-MM-DD HH:mm:ss' | 'YYYY-MM-DD HH:mm:ss:SSS'"
+      "time-stamp",
+      "Date",
+      "YYYY",
+      "YYYY-MM",
+      "YYYY-MM-DD",
+      "YYYY-MM-DD HH",
+      "YYYY-MM-DD HH:mm",
+      "YYYY-MM-DD HH:mm:ss",
+      "YYYY-MM-DD HH:mm:ss:SSS"
     ],
     "description": "用于格式化日期的值，仅支持部分格式，时间戳、日期等。⚠️ `YYYYMMDD` 这种格式不支持，请勿使用，如果希望支持可以给 `dayjs` 提个 PR。注意和 `format` 的区别，`format` 仅用于处理日期在页面中呈现的格式\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-range-picker?tab=api#daterangepicker-props)"
   },
@@ -2049,6 +2091,10 @@
   "t-date-range-picker/change": {
     "type": "event",
     "description": "选中值发生变化时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-range-picker?tab=api#daterangepicker-events)"
+  },
+  "t-date-range-picker/confirm": {
+    "type": "event",
+    "description": "如果存在“确定”按钮，则点击“确定”按钮时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-range-picker?tab=api#daterangepicker-events)"
   },
   "t-date-range-picker/focus": {
     "type": "event",
@@ -2061,6 +2107,10 @@
   "t-date-range-picker/pick": {
     "type": "event",
     "description": "选中日期时触发，可能是开始日期，也可能是结束日期，第二个参数可以区分是开始日期或是结束日期\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-range-picker?tab=api#daterangepicker-events)"
+  },
+  "t-date-range-picker/preset-click": {
+    "type": "event",
+    "description": "点击预设按钮后触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-range-picker?tab=api#daterangepicker-events)"
   },
   "t-date-range-picker-panel/default-time": {
     "type": "Array",
@@ -2076,7 +2126,7 @@
   },
   "t-date-range-picker-panel/confirm": {
     "type": "event",
-    "description": "如果存在“确认”按钮，则点击“确认”按钮时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-range-picker-panel?tab=api#daterangepickerpanel-events)"
+    "description": "如果存在“确定”按钮，则点击“确定”按钮时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-range-picker-panel?tab=api#daterangepickerpanel-events)"
   },
   "t-date-range-picker-panel/month-change": {
     "type": "event",
@@ -2088,7 +2138,7 @@
   },
   "t-date-range-picker-panel/preset-click": {
     "type": "event",
-    "description": "如果存在“确认”按钮，则点击“确认”按钮时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-range-picker-panel?tab=api#daterangepickerpanel-events)"
+    "description": "点击预设按钮后触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-range-picker-panel?tab=api#daterangepickerpanel-events)"
   },
   "t-date-range-picker-panel/time-change": {
     "type": "event",
@@ -2097,6 +2147,60 @@
   "t-date-range-picker-panel/year-change": {
     "type": "event",
     "description": "年份切换发生变化时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-range-picker-panel?tab=api#daterangepickerpanel-events)"
+  },
+  "t-description-item/label": {
+    "type": "String|TNode",
+    "description": "label of description item\n\n描述项字段名\n\n[docs](https://tdesign.tencent.com/vue-next/components/description-item?tab=api#descriptionitem-props)"
+  },
+  "t-description-item/span": {
+    "type": "Number",
+    "description": "width count\n\n占用的宽度数量\n\ndefault: 1\n\n[docs](https://tdesign.tencent.com/vue-next/components/description-item?tab=api#descriptionitem-props)"
+  },
+  "t-descriptions/bordered": {
+    "type": "Boolean",
+    "description": "set description list with grey border\n\n是否带边框\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions?tab=api#descriptions-props)"
+  },
+  "t-descriptions/colon": {
+    "type": "Boolean",
+    "description": "set label with \":\" on the right\n\n字段名右侧是否携带冒号“：”\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions?tab=api#descriptions-props)"
+  },
+  "t-descriptions/columns": {
+    "type": "Number",
+    "description": "count of DescriptionItem in one row\n\n一行 DescriptionItem 的数量\n\ndefault: 2\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions?tab=api#descriptions-props)"
+  },
+  "t-descriptions/content-align": {
+    "type": "String",
+    "options": [
+      "left",
+      "center"
+    ],
+    "description": "字段值内容的对齐方式：左对齐、居中对齐\n\ndefault: left\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions?tab=api#descriptions-props)"
+  },
+  "t-descriptions/label-align": {
+    "type": "String",
+    "options": [
+      "left",
+      "right",
+      "top"
+    ],
+    "description": "字段标签对齐方式：左对齐、右对齐、顶部对齐\n\ndefault: right\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions?tab=api#descriptions-props)"
+  },
+  "t-descriptions/layout": {
+    "type": "String",
+    "options": [
+      "horizontal",
+      "vertical"
+    ],
+    "description": "layout direction\n\n排列方向\n\ndefault: horizontal\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions?tab=api#descriptions-props)"
+  },
+  "t-descriptions/size": {
+    "type": "String",
+    "options": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "description": "a descriptions has three size\n\n组件尺寸\n\ndefault: medium\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions?tab=api#descriptions-props)"
   },
   "t-dialog/attach": {
     "type": "String|Function",
@@ -3413,6 +3517,10 @@
     ],
     "description": "排列方式（待设计稿输出）\n\ndefault: horizontal\n\n[docs](https://tdesign.tencent.com/vue-next/components/list?tab=api#list-props)"
   },
+  "t-list/scroll": {
+    "type": "event",
+    "description": "列表滚动时触发，scrollTop 表示顶部滚动距离，scrollBottom 表示底部滚动距离\n\n[docs](https://tdesign.tencent.com/vue-next/components/list?tab=api#list-events)"
+  },
   "t-list/size": {
     "type": "String",
     "options": [
@@ -3433,10 +3541,6 @@
   "t-list/load-more": {
     "type": "event",
     "description": "点击加载更多时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/list?tab=api#list-events)"
-  },
-  "t-list/scroll": {
-    "type": "event",
-    "description": "列表滚动时触发，scrollTop 表示顶部滚动距离，scrollBottom 表示底部滚动距离\n\n[docs](https://tdesign.tencent.com/vue-next/components/list?tab=api#list-events)"
   },
   "t-list-item/action": {
     "type": "String|TNode",
@@ -3889,10 +3993,6 @@
     "type": "String|Object|TNode",
     "description": "确认按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制确认事件\n\ndefault: ''\n\n[docs](https://tdesign.tencent.com/vue-next/components/popconfirm?tab=api#popconfirm-props)"
   },
-  "t-popconfirm/content": {
-    "type": "String|TNode",
-    "description": "确认框内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/popconfirm?tab=api#popconfirm-props)"
-  },
   "t-popconfirm/default": {
     "type": "String|TNode",
     "description": "触发元素，同 triggerElement\n\n[docs](https://tdesign.tencent.com/vue-next/components/popconfirm?tab=api#popconfirm-props)"
@@ -3944,10 +4044,6 @@
     "type": "String|TNode",
     "description": "触发元素\n\n[docs](https://tdesign.tencent.com/vue-next/components/popconfirm?tab=api#popconfirm-props)"
   },
-  "t-popconfirm/visible": {
-    "type": "Boolean",
-    "description": "是否显示气泡确认框\n\n[docs](https://tdesign.tencent.com/vue-next/components/popconfirm?tab=api#popconfirm-props)"
-  },
   "t-popconfirm/cancel": {
     "type": "event",
     "description": "点击取消按钮时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/popconfirm?tab=api#popconfirm-events)"
@@ -3963,6 +4059,10 @@
   "t-popup/attach": {
     "type": "String|Function",
     "description": "制定挂载节点。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body\n\ndefault: 'body'\n\n[docs](https://tdesign.tencent.com/vue-next/components/popup?tab=api#popup-props)"
+  },
+  "t-popup/close-btn": {
+    "type": "Boolean|TNode",
+    "description": "是否展示关闭按钮，值为 `true` 显示默认关闭按钮；值为 `false` 则不显示关闭按钮；也可以自定义关闭按钮\n\n[docs](https://tdesign.tencent.com/vue-next/components/popup?tab=api#popup-props)"
   },
   "t-popup/content": {
     "type": "String|TNode",
@@ -4701,10 +4801,6 @@
     "type": "Boolean",
     "description": "是否禁用评分\n\n[docs](https://tdesign.tencent.com/vue-next/components/rate?tab=api#rate-props)"
   },
-  "t-rate/external-classes": {
-    "type": "Array",
-    "description": "组件类名，分别用于设置 组件外层类名、评分图标类名、辅助文字类名\n\n[docs](https://tdesign.tencent.com/vue-next/components/rate?tab=api#rate-props)"
-  },
   "t-rate/gap": {
     "type": "Number",
     "description": "评分图标的间距\n\ndefault: 4\n\n[docs](https://tdesign.tencent.com/vue-next/components/rate?tab=api#rate-props)"
@@ -5030,7 +5126,7 @@
     "description": "输入框下方提示文本，会根据不同的 `status` 呈现不同的样式\n\n[docs](https://tdesign.tencent.com/vue-next/components/select?tab=api#select-props)"
   },
   "t-select/value": {
-    "type": "String|Number|Object|Array",
+    "type": "String|Number|Boolean|Object|Array",
     "description": "选中值\n\n[docs](https://tdesign.tencent.com/vue-next/components/select?tab=api#select-props)"
   },
   "t-select/value-display": {
@@ -5374,6 +5470,81 @@
     "type": "String|Number|Array",
     "description": "Spacing\n\n间距大小\n\ndefault: 'medium'\n\n[docs](https://tdesign.tencent.com/vue-next/components/space?tab=api#space-props)"
   },
+  "t-statistic/animation": {
+    "type": "Object",
+    "description": "Animation effect control, `duration` refers to the transition time of the animation `unit: millisecond`, `valueFrom` refers to the initial value of the animation. `{ duration, valueFrom }`\n\n动画效果控制，`duration` 指动画的过渡时间`单位：毫秒`，`valueFrom` 指动画的起始数值。`{ duration, valueFrom }`\n\n[docs](https://tdesign.tencent.com/vue-next/components/statistic?tab=api#statistic-props)"
+  },
+  "t-statistic/animation-start": {
+    "type": "Boolean",
+    "description": "Whether to start animation\n\n是否开始动画\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/statistic?tab=api#statistic-props)"
+  },
+  "t-statistic/color": {
+    "type": "String",
+    "options": [
+      "black",
+      "blue",
+      "red",
+      "orange",
+      "green"
+    ],
+    "description": "Color style, followed by TDesign style black, blue, red, orange, green.Can also be any RGB equivalent supported by [CSS color](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value)\n\n颜色风格，依次为 TDesign 风格的黑色、蓝色、红色、橙色、绿色。也可以为任何 [CSS color](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) 支持的 RGB 等值\n\n[docs](https://tdesign.tencent.com/vue-next/components/statistic?tab=api#statistic-props)"
+  },
+  "t-statistic/decimal-places": {
+    "type": "Number",
+    "description": " Decimal places\n\n小数保留位数\n\n[docs](https://tdesign.tencent.com/vue-next/components/statistic?tab=api#statistic-props)"
+  },
+  "t-statistic/extra": {
+    "type": "String|TNode",
+    "description": " Additional display content\n\n额外的显示内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/statistic?tab=api#statistic-props)"
+  },
+  "t-statistic/format": {
+    "type": "Function",
+    "description": "Format numeric display value\n\n格式化数值显示值\n\n[docs](https://tdesign.tencent.com/vue-next/components/statistic?tab=api#statistic-props)"
+  },
+  "t-statistic/loading": {
+    "type": "Boolean",
+    "description": "Loading\n\n是否加载中\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/statistic?tab=api#statistic-props)"
+  },
+  "t-statistic/prefix": {
+    "type": "String|TNode",
+    "description": "Prefix content, display priority is higher than trend\n\n前缀内容，展示优先级高于 trend\n\n[docs](https://tdesign.tencent.com/vue-next/components/statistic?tab=api#statistic-props)"
+  },
+  "t-statistic/separator": {
+    "type": "String",
+    "description": "The carry separator is displayed by default, and can be customized to other content. When `separator = ''` is set to an empty string/null/undefined, the separator is hidden\n\n默认展示进位分隔符，可以自定义为其他内容，`separator = ''` 设置为空字符串/null/undefined 时隐藏分隔符\n\ndefault: ,\n\n[docs](https://tdesign.tencent.com/vue-next/components/statistic?tab=api#statistic-props)"
+  },
+  "t-statistic/suffix": {
+    "type": "String|TNode",
+    "description": " Suffix content, display priority is higher than trend\n\n后缀内容，展示优先级高于 trend\n\n[docs](https://tdesign.tencent.com/vue-next/components/statistic?tab=api#statistic-props)"
+  },
+  "t-statistic/title": {
+    "type": "String|TNode",
+    "description": "The title of Statistic\n\n数值显示的标题\n\n[docs](https://tdesign.tencent.com/vue-next/components/statistic?tab=api#statistic-props)"
+  },
+  "t-statistic/trend": {
+    "type": "String",
+    "options": [
+      "increase",
+      "decrease"
+    ],
+    "description": "trend\n\n趋势\n\n[docs](https://tdesign.tencent.com/vue-next/components/statistic?tab=api#statistic-props)"
+  },
+  "t-statistic/trend-placement": {
+    "type": "String",
+    "options": [
+      "left",
+      "right"
+    ],
+    "description": "Position of trending placements\n\n趋势展示位置\n\ndefault: left\n\n[docs](https://tdesign.tencent.com/vue-next/components/statistic?tab=api#statistic-props)"
+  },
+  "t-statistic/unit": {
+    "type": "String|TNode",
+    "description": "Unit content\n\n单位内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/statistic?tab=api#statistic-props)"
+  },
+  "t-statistic/value": {
+    "type": "Number",
+    "description": "The value of Statistic\n\n数值显示的值\n\n[docs](https://tdesign.tencent.com/vue-next/components/statistic?tab=api#statistic-props)"
+  },
   "t-step-item/content": {
     "type": "String|TNode",
     "description": "步骤描述\n\ndefault: ''\n\n[docs](https://tdesign.tencent.com/vue-next/components/step-item?tab=api#stepitem-props)"
@@ -5548,6 +5719,10 @@
   "t-submenu/icon": {
     "type": "TNode",
     "description": "菜单项图标\n\n[docs](https://tdesign.tencent.com/vue-next/components/submenu?tab=api#submenu-props)"
+  },
+  "t-submenu/popup-props": {
+    "type": "Object",
+    "description": "Transparent all feature props of the Popup\n\n透传 Popup 组件全部特性\n\n[docs](https://tdesign.tencent.com/vue-next/components/submenu?tab=api#submenu-props)"
   },
   "t-submenu/title": {
     "type": "String|TNode",
@@ -6731,6 +6906,14 @@
     "type": "Boolean",
     "description": "是否允许多选\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/tree-select?tab=api#treeselect-props)"
   },
+  "t-tree-select/panel-bottom-content": {
+    "type": "String|TNode",
+    "description": "面板内的底部内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/tree-select?tab=api#treeselect-props)"
+  },
+  "t-tree-select/panel-top-content": {
+    "type": "String|TNode",
+    "description": "面板内的顶部内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/tree-select?tab=api#treeselect-props)"
+  },
   "t-tree-select/placeholder": {
     "type": "String",
     "description": "占位符\n\ndefault: undefined\n\n[docs](https://tdesign.tencent.com/vue-next/components/tree-select?tab=api#treeselect-props)"
@@ -7020,6 +7203,10 @@
     "type": "Boolean",
     "description": "是否在同一个请求中上传全部文件，默认一个请求上传一个文件。多文件上传时有效\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props)"
   },
+  "t-upload/upload-pasted-files": {
+    "type": "Boolean",
+    "description": "allow to upload files in clipboard after pasting\n\n是否允许粘贴上传剪贴板中的文件\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props)"
+  },
   "t-upload/use-mock-progress": {
     "type": "Boolean",
     "description": "是否在请求时间超过 300ms 后显示模拟进度。上传进度有模拟进度和真实进度两种。一般大小的文件上传，真实的上传进度只有 0 和 100，不利于交互呈现，因此组件内置模拟上传进度。真实上传进度一般用于大文件上传。\n\ndefault: true\n\n[docs](https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props)"
@@ -7070,7 +7257,7 @@
   },
   "t-upload/progress": {
     "type": "event",
-    "description": "上传进度变化时触发，真实进度和模拟进度都会触发。`type=real` 表示真实上传进度，`type=mock` 表示模拟上传进度\n\n[docs](https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-events)"
+    "description": "上传进度变化时触发，真实进度和模拟进度都会触发。<br/>⚠️ 原始上传请求，小文件的上传进度只有 0 和 100，故而不会触发 `progress` 事件；只有大文件才有真实的中间进度。如果你希望很小的文件也显示上传进度，保证 `useMockProgress=true` 的情况下，设置 `mockProgressDuration` 为更小的值。<br/>参数 `options.type=real` 表示真实上传进度，`options.type=mock` 表示模拟上传进度\n\n[docs](https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-events)"
   },
   "t-upload/remove": {
     "type": "event",

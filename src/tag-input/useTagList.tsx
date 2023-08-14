@@ -59,7 +59,7 @@ export default function useTagList(props: TagInputProps) {
     if (!tagValue.value || !tagValue.value.length || e.key === 'Process') return;
     // 回车键删除，输入框值为空时，才允许 Backspace 删除标签
     const isDelete = /(Backspace|NumpadDelete)/i.test(e.code) || /(Backspace|NumpadDelete)/i.test(e.key);
-    if (!oldInputValue.value && isDelete) {
+    if (!value && isDelete) {
       const index = tagValue.value.length - 1;
       const item = tagValue.value[index];
       const trigger = 'backspace';
@@ -74,7 +74,7 @@ export default function useTagList(props: TagInputProps) {
     const newList = minCollapsedNum.value ? tagValue.value.slice(0, minCollapsedNum.value) : tagValue.value;
     const list = displayNode
       ? [displayNode]
-      : newList?.map((item, index) => {
+      : newList?.map?.((item, index) => {
           const tagContent = renderTNode('tag', { params: { value: item } });
           return (
             <Tag
@@ -89,7 +89,7 @@ export default function useTagList(props: TagInputProps) {
               {tagContent ?? item}
             </Tag>
           );
-        });
+        }) || [];
     if (![null, undefined, ''].includes(label)) {
       list.unshift(
         <div class={`${classPrefix.value}-tag-input__prefix`} key="label">

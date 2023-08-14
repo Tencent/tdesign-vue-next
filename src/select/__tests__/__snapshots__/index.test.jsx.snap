@@ -1,11 +1,11 @@
 // Vitest Snapshot v1
 
-exports[`Select > :props > :bordered 1`] = `
+exports[`Select > :props > :borderless 1`] = `
 <div
   class="t-select__wrap"
 >
   <div
-    class="t-select-input t-select-input--empty t-select"
+    class="t-select-input t-select-input--borderless t-select-input--empty t-select"
   >
     
     <div

@@ -1,13 +1,16 @@
-import { InjectionKey } from 'vue';
-import { TdCheckboxProps } from '@src/checkbox/type';
+import { ComputedRef, InjectionKey } from 'vue';
+import { TdCheckboxGroupProps, TdCheckboxProps } from './type';
 
-export const CheckboxGroupInjectionKey: InjectionKey<{
-  name: string;
+export interface CheckboxGroupInjectData {
+  name?: string;
   isCheckAll: boolean;
-  checkedMap: { [key: string | number]: boolean };
   maxExceeded: boolean;
   disabled: boolean;
   indeterminate: boolean;
+  checkedValues: TdCheckboxGroupProps['value'];
   handleCheckboxChange: (data: { checked: boolean; e: Event; option: TdCheckboxProps }) => void;
   onCheckedChange: (p: { checked: boolean; checkAll: boolean; e: Event; option: TdCheckboxProps }) => void;
-}> = Symbol('CheckboxGroupProvide');
+}
+
+export const CheckboxGroupInjectionKey: InjectionKey<ComputedRef<CheckboxGroupInjectData>> =
+  Symbol('CheckboxGroupProvide');
