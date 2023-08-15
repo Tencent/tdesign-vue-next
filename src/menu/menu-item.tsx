@@ -50,9 +50,9 @@ export default defineComponent({
       e.stopPropagation();
       if (this.disabled) return;
       this.menu.select(this.value);
-      emitEvent(this, 'click', { e });
+      emitEvent(this, 'click', { e, value: this.value });
       if (this.to || (this.routerLink && this.href)) {
-        const router = this.router || this.$router;
+        const router = this.router;
         const methods: string = this.replace ? 'replace' : 'push';
         router[methods](this.to || this.href).catch((err: Error) => {
           // vue-router 3.1.0+ push/replace cause NavigationDuplicated error
@@ -69,7 +69,8 @@ export default defineComponent({
     },
   },
   render() {
-    const router = this.router || this.$router;
+    // 去掉 this.$router 这种处理方式，因为在 vue3 中，因为这个属性是不存在
+    const router = this.router as any;
 
     const liContent = (
       <li ref="itemRef" class={this.classes} onClick={this.handleClick}>

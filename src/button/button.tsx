@@ -68,6 +68,7 @@ export default defineComponent({
         type: props.type,
         disabled: isDisabled.value,
         href: props.href,
+        tabindex: isDisabled.value ? undefined : '0',
       };
 
       return h(

@@ -36,7 +36,8 @@ export default {
   },
   /** 表单字段名称 */
   name: {
-    type: [String, Number] as PropType<TdFormItemProps['name']>,
+    type: String,
+    default: '',
   },
   /** 是否显示必填符号（*），优先级高于 Form.requiredMark */
   requiredMark: {
@@ -55,7 +56,7 @@ export default {
   /** 校验状态，可在需要完全自主控制校验状态时使用 */
   status: {
     type: String as PropType<TdFormItemProps['status']>,
-    default: '',
+    default: '' as TdFormItemProps['status'],
   },
   /** 校验状态图标，值为 `true` 显示默认图标，默认图标有 成功、失败、警告 等，不同的状态图标不同。`statusIcon` 值为 `false`，不显示图标。`statusIcon` 值类型为渲染函数，则可以自定义右侧状态图标。优先级高级 Form 的 statusIcon */
   statusIcon: {

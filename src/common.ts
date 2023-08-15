@@ -75,6 +75,7 @@ export type CSSSelector = string;
 export interface KeysType {
   value?: string;
   label?: string;
+  disabled?: string;
 }
 
 export interface HTMLElementAttributes {
@@ -120,4 +121,8 @@ export interface ScrollToElementParams {
   /** 单个元素高度非固定场景下，即 isFixedRowHeight = false。延迟设置元素位置，一般用于依赖不同高度异步渲染等场景，单位：毫秒 */
   time?: number;
   behavior?: 'auto' | 'smooth';
+}
+
+export interface ComponentScrollToElementParams extends ScrollToElementParams {
+  key: string | number;
 }

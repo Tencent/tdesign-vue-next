@@ -79,7 +79,8 @@ export default defineComponent({
     const { row, col } = toRefs(props);
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const tableEditableCellRef = ref(null);
-    const isEdit = ref(props.col.edit?.defaultEditable || false);
+    const isKeepEditMode = computed(() => col.value.edit?.keepEditMode);
+    const isEdit = ref(isKeepEditMode.value || props.col.edit?.defaultEditable || false);
     const editValue = ref();
     const errorList = ref<AllValidateResult[]>();
     const classPrefix = usePrefixClass();
@@ -89,6 +90,12 @@ export default defineComponent({
     const updateEditedCellValue = (val: any) => {
       editValue.value = val;
     };
+
+    watch([isKeepEditMode], (val) => {
+      if (val) {
+        isEdit.value = true;
+      }
+    });
 
     const editOnListeners = computed(() => {
       return col.value.edit?.on?.({ ...cellParams.value, editedRow: currentRow.value, updateEditedCellValue }) || {};
@@ -206,7 +213,9 @@ export default defineComponent({
         editOnListeners.value[eventName]?.(args[2]);
         // 此处必须在事件执行完成后异步销毁编辑组件，否则会导致事件清除不及时引起的其他问题
         const timer = setTimeout(() => {
-          isEdit.value = false;
+          if (!isKeepEditMode.value) {
+            isEdit.value = false;
+          }
           errorList.value = [];
           props.onEditableChange?.({
             ...cellParams.value,

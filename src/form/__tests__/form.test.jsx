@@ -5,7 +5,7 @@ import { CheckCircleFilledIcon, CloseCircleFilledIcon, InfoCircleIcon } from 'td
 import isObject from 'lodash/isObject';
 import omit from 'lodash/omit';
 import { FormItem, Form } from '../index.ts';
-import { Input } from '@/src/index.ts';
+import { Input, InputNumber } from '@/src/index.ts';
 import { useFormDisabled } from '../hooks';
 
 const delay = (time = 0) =>
@@ -212,7 +212,7 @@ describe('Form', () => {
                 return () => (
                   <>
                     <FormItem label="name" name="name">
-                      <Input v-model={formData.value.name} />
+                      <InputNumber v-model={formData.value.name} />
                     </FormItem>
                     <FormItem label="radio" name="radio"></FormItem>
                     <FormItem label="time" name="time"></FormItem>
@@ -518,7 +518,7 @@ describe('Form', () => {
                     <Input v-model={data.value.name} />
                   </FormItem>
                   <FormItem label="age" name="age">
-                    <Input v-model={data.value.age} />
+                    <InputNumber v-model={data.value.age} />
                   </FormItem>
                 </>
               );
@@ -649,7 +649,7 @@ describe('Form', () => {
                     <Input v-model={data.value.name} />
                   </FormItem>
                   <FormItem label="age" name="age">
-                    <Input v-model={data.value.age} />
+                    <InputNumber v-model={data.value.age} />
                   </FormItem>
                 </>
               );
@@ -870,7 +870,7 @@ describe('Form', () => {
                     <Input v-model={data.value.name} />
                   </FormItem>
                   <FormItem label="age" name="age">
-                    <Input v-model={data.value.age} />
+                    <InputNumber v-model={data.value.age} />
                   </FormItem>
                 </>
               );

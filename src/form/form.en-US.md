@@ -10,14 +10,14 @@ data | Object | {} | Typescript：`FormData` | N
 disabled | Boolean | undefined | \- | N
 errorMessage | Object | - | Typescript：`FormErrorMessage` | N
 formControlledComponents | Array | - | Typescript：`Array<string>` | N
-labelAlign | String | right | options：left/right/top | N
+labelAlign | String | right | options: left/right/top | N
 labelWidth | String / Number | '100px' | \- | N
-layout | String | vertical | options：vertical/inline | N
+layout | String | vertical | options: vertical/inline | N
 preventSubmitDefault | Boolean | true | \- | N
 requiredMark | Boolean | true | \- | N
-resetType | String | empty | options：empty/initial | N
+resetType | String | empty | options: empty/initial | N
 rules | Object | - | Typescript：`FormRules<FormData>` `type FormRules<T extends Data = any> = { [field in keyof T]?: Array<FormRule> }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/form/type.ts) | N
-scrollToFirstError | String | - | options：''/smooth/auto | N
+scrollToFirstError | String | - | options: ''/smooth/auto | N
 showErrorMessage | Boolean | true | \- | N
 statusIcon | Boolean / Slot / Function | undefined | Typescript：`boolean \| TNode<TdFormItemProps>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 submitWithWarningMessage | Boolean | false | \- | N
@@ -51,9 +51,9 @@ name | type | default | description | required
 for | String | - | \- | N
 help | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 label | String / Slot / Function | '' | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-labelAlign | String | - | options：left/right/top | N
+labelAlign | String | - | options: left/right/top | N
 labelWidth | String / Number | - | \- | N
-name | String / Number | - | Typescript：`string \| number` | N
+name | String | - | \- | N
 requiredMark | Boolean | undefined | \- | N
 rules | Array | - | Typescript：`Array<FormRule>` | N
 showErrorMessage | Boolean | undefined | \- | N
@@ -79,8 +79,8 @@ number | Boolean | - | \- | N
 pattern | Object | - | Typescript：`RegExp` | N
 required | Boolean | - | \- | N
 telnumber | Boolean | - | \- | N
-trigger | String | change | options：change/blur | N
-type | String | error | options：error/warning | N
+trigger | String | change | options: change/blur | N
+type | String | error | options: error/warning | N
 url | Boolean / Object | - | Typescript：`boolean \| IsURLOptions` `import { IsURLOptions } from 'validator/es/lib/isURL'`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/form/type.ts) | N
 validator | Function | - | Typescript：`CustomValidator` `type CustomValidator = (val: ValueType) => CustomValidateResolveType \| Promise<CustomValidateResolveType>` `type CustomValidateResolveType = boolean \| CustomValidateObj` `interface CustomValidateObj { result: boolean; message: string; type?: 'error' \| 'warning' \| 'success' }` `type ValueType = any`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/form/type.ts) | N
 whitespace | Boolean | - | \- | N

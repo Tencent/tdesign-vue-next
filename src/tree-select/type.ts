@@ -9,7 +9,7 @@ import { InputValue } from '../input';
 import { PopupProps } from '../popup';
 import { SelectInputProps } from '../select-input';
 import { TagProps } from '../tag';
-import { TreeProps, TreeNodeModel } from '../tree';
+import { TreeProps, TreeNodeModel, TreeKeysType } from '../tree';
 import { SelectInputValueChangeContext } from '../select-input';
 import { PopupVisibleChangeContext } from '../popup';
 import { TNode, TreeOptionData } from '../common';
@@ -70,6 +70,10 @@ export interface TdTreeSelectProps<DataOption extends TreeOptionData = TreeOptio
    * 输入框的值，非受控属性
    */
   defaultInputValue?: InputValue;
+  /**
+   * 用来定义 `value / label / children / disabled` 在 `data` 数据中对应的字段别名，示例：`{ value: 'key', label 'name', children: 'list' }`
+   */
+  keys?: TreeKeysType;
   /**
    * 是否正在加载数据
    * @default false

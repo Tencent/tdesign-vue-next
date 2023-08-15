@@ -7,7 +7,6 @@ import isNil from 'lodash/isNil';
 
 import Tree, { TreeProps, TreeNodeModel, TreeNodeValue } from '../tree';
 import SelectInput, { TdSelectInputProps } from '../select-input';
-import { TagInputChangeContext, TagInputValue } from '../tag-input';
 import { InputValue } from '../input';
 import FakeArrow from '../common-components/fake-arrow';
 import { PopupVisibleChangeContext } from '../popup';
@@ -340,6 +339,7 @@ export default defineComponent({
         key={treeKey.value}
         value={[...checked.value]}
         hover
+        keys={props.keys}
         data={props.data}
         activable={!props.multiple}
         checkable={props.multiple}
@@ -422,8 +422,13 @@ export default defineComponent({
             params: props.multiple
               ? {
                   value: nodeInfo.value,
-                  onClose: (value: TagInputValue, context: TagInputChangeContext) => {
-                    tagChange(value, context);
+                  onClose: (index: number) => {
+                    const value = nodeInfo.value.map((node: TreeOptionData) => node.value);
+                    tagChange(value, {
+                      trigger: 'tag-remove',
+                      index,
+                      item: value[index],
+                    });
                   },
                 }
               : {

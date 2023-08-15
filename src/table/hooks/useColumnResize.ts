@@ -106,7 +106,7 @@ export default function useColumnResize(params: {
   // 频繁事件，仅用于计算是否在表头显示拖拽鼠标形态
   const onColumnMouseover = (e: MouseEvent, col: BaseTableCol<TableRowData>) => {
     // calculate mouse cursor before drag start
-    if (!resizeLineRef.value || resizeLineParams.isDragging) return;
+    if (!resizeLineRef.value || resizeLineParams.isDragging || !e.target) return;
     const target = (e.target as HTMLElement).closest('th');
     // 判断是否为叶子阶段，仅叶子结点允许拖拽
     const colKey = target.getAttribute('data-colkey');

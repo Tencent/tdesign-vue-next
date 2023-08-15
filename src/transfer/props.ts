@@ -50,7 +50,7 @@ export default {
   footer: {
     type: [Array, Function] as PropType<TdTransferProps['footer']>,
   },
-  /** 用来定义选项文本和选项值字段，示例：`{ label: 'text', value: 'id' }`，表示选项文本取 `text` 字段，选项值取 `id` 字段 */
+  /** 用来定义选项文本和选项值字段，示例：`{ label: 'text', value: 'id', disabled: 'disabled' }`，表示选项文本取 `text` 字段，选项值取 `id` 字段 */
   keys: {
     type: Object as PropType<TdTransferProps['keys']>,
   },
