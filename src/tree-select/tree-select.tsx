@@ -339,6 +339,7 @@ export default defineComponent({
         key={treeKey.value}
         value={[...checked.value]}
         hover
+        keys={props.keys}
         data={props.data}
         activable={!props.multiple}
         checkable={props.multiple}

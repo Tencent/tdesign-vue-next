@@ -47,7 +47,7 @@ export default {
   defaultInputValue: {
     type: [String, Number] as PropType<TdSelectProps['defaultInputValue']>,
   },
-  /** 用来定义 value / label 在 `options` 中对应的字段别名 */
+  /** 用来定义 value / label / disabled 在 `options` 中对应的字段别名 */
   keys: {
     type: Object as PropType<TdSelectProps['keys']>,
   },

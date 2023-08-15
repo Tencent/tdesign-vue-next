@@ -46,6 +46,7 @@ export default defineComponent({
     const keys = computed(() => ({
       label: props.keys?.label || 'label',
       value: props.keys?.value || 'value',
+      disabled: props.keys?.disabled || 'disabled',
     }));
     const { options, optionsMap, optionsList, optionsCache, displayOptions } = useSelectOptions(
       props,
