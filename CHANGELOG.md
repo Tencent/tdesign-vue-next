@@ -4,6 +4,47 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 1.5.0 `2023-08-15` 
+
+### ❗ Breaking Changes
+- `Icon`: 新增 960 个图标；调整图标命名 `photo` 为 `camera`，`books` 为 `bookmark`, `stop-cirle-1` 为 `stop-circle-stroke`；移除 `money-circle` 图标，具体请查看图标页面  @uyarn ([#3174](https://github.com/Tencent/tdesign-vue-next/pull/3174))
+
+### 🚀 Features
+- `Select`: 
+  - 支持透传 `label` 属性，定义内部标签名称 @chaishi ([#3212](https://github.com/Tencent/tdesign-vue-next/pull/3212))
+  - 增加 `keys.disabled` 用于定制字段控制选项的禁用 @PengYYYYY ([#3202](https://github.com/Tencent/tdesign-vue-next/pull/3202))
+- `Table`: 可编辑单元格场景，新增 `edit.keepEditMode` ，用于保持单元格始终为编辑模式 @chaishi ([#3199](https://github.com/Tencent/tdesign-vue-next/pull/3199))
+- `Link`: 新增透传 `download` 属性，支持浏览器直接下载 ([issue #2628](https://github.com/Tencent/tdesign-vue/issues/2628)) @xiaosansiji ([#3201](https://github.com/Tencent/tdesign-vue-next/pull/3201))
+- `Guide`: 完整支持自定义高亮框 @zhangpaopao0609 ([#3111](https://github.com/Tencent/tdesign-vue-next/pull/3111))
+- `Button`: 支持使用  `Tab` 键聚焦 @chaishi ([#3218](https://github.com/Tencent/tdesign-vue-next/pull/3218))
+- `Checkbox`: 支持使用空格键选中或取消选中 @chaishi ([#3218](https://github.com/Tencent/tdesign-vue-next/pull/3218))
+- `Radio`: 支持使用空格键选中或取消选中 @chaishi ([#3218](https://github.com/Tencent/tdesign-vue-next/pull/3218))
+- `Form`: `FormItem` 组件支持遗漏的属性 `status` 和 `tips`，用于定义不同状态的提升文本；其中 `tips` 支持插槽形式 @chaishi ([#3225](https://github.com/Tencent/tdesign-vue-next/pull/3225))
+- `InputNumber`: `tips` 支持使用插槽自定义 @chaishi ([#3225](https://github.com/Tencent/tdesign-vue-next/pull/3225))
+- `TreeSelect`: 增加 `keys` 字段用于定制数据中对应的字段别名 @PengYYYYY ([#3202](https://github.com/Tencent/tdesign-vue-next/pull/3202))
+- `Cascader`: 增加 `keys.disabled` 用于定制字段控制节点的禁用([issue #3193](https://github.com/Tencent/tdesign-vue-next/issues/3193)) @PengYYYYY ([#3202](https://github.com/Tencent/tdesign-vue-next/pull/3202))
+- `Tree`: 增加 `keys.disabled` 用于定制字段控制节点的禁用 @PengYYYYY ([#3202](https://github.com/Tencent/tdesign-vue-next/pull/3202))
+- `Transfer`: 增加 `keys.disabled` 用于定制字段控制选项的禁用 @PengYYYYY ([#3202](https://github.com/Tencent/tdesign-vue-next/pull/3202))
+### 🐞 Bug Fixes
+- `Table`: 
+  - 修复 `dragSort` 配置为 `row-handler-col` 时拖拽排序不生效的问题([issue #2718](https://github.com/Tencent/tdesign-vue-next/issues/2718)) @nined9 ([#2717](https://github.com/Tencent/tdesign-vue-next/pull/2717)) 
+  - 虚拟滚动场景，修复默认的滚动条长度（位置）和滚动后的不一致问题 @chaishi ([#3199](https://github.com/Tencent/tdesign-vue-next/pull/3199))
+- `Popup`: `overlayEl` 未绑定，第一次点开无法定位到选中项 @AuYuHui ([#3189](https://github.com/Tencent/tdesign-vue-next/pull/3189))
+- `Menu`: 修复同一个 `MenuItem` 多次触发 `onChange` 的问题 @leezng ([#3187](https://github.com/Tencent/tdesign-vue-next/pull/3187))
+- `SelectInput`: 修复宽度自适应模式 `autoWidth` 下拉框宽度过窄问题 @chaishi ([#3212](https://github.com/Tencent/tdesign-vue-next/pull/3212))
+- `Select`: 修复宽度自适应模式 `autoWidth` 下拉框宽度过窄问题 @chaishi ([#3212](https://github.com/Tencent/tdesign-vue-next/pull/3212))
+- `Link`: 修复 `target` 属性未传时，实际渲染 `<a />` 标签会显示 `target` 空属性的问题 @xiaosansiji ([#3201](https://github.com/Tencent/tdesign-vue-next/pull/3201))
+- `TreeSelect`: 自定义显示 `tag` 关闭异常 ([issue #3216](https://github.com/Tencent/tdesign-vue-next/issues/3216)) @sinbadmaster ([#3217](https://github.com/Tencent/tdesign-vue-next/pull/3217))
+- `Form`: 修复 `scrollToFirstError` 无法滚动到 `<form-item :name="list[${index}].name"` 这样的列表元素问题 @chaishi ([#3225](https://github.com/Tencent/tdesign-vue-next/pull/3225))
+- `ImageViewer`:  清除图片查看状态 @sinbadmaster ([#3224](https://github.com/Tencent/tdesign-vue-next/pull/3224))
+- `MenuItem`:  `onClick` 事件参数调整 @dexterBo ([#3228](https://github.com/Tencent/tdesign-vue-next/pull/3228))
+- `Tree`:  修复 `tree` 组件深度监听问题([issue #3227](https://github.com/Tencent/tdesign-vue-next/issues/3227)) @PengYYYYY ([#3232](https://github.com/Tencent/tdesign-vue-next/pull/3232))
+### 🚧 Others
+- `Demo`: 修复 `form` 的 `custom-validator` 示例代码 @PengYYYYY ([#3205](https://github.com/Tencent/tdesign-vue-next/pull/3205))
+- `Icon`: 新增分类展示全部图标的UI  @uyarn ([#3174](https://github.com/Tencent/tdesign-vue-next/pull/3174))
+- `InputNumber`: `tips` 使用统一的类名 `.t-tips` 和 `t-is-xxx` @chaishi ([#3225](https://github.com/Tencent/tdesign-vue-next/pull/3225))
+- `Cascader`: 补充 `borderless` 文档 @PengYYYYY ([#3202](https://github.com/Tencent/tdesign-vue-next/pull/3202))
+- `Test`: 修复测试告警 @PengYYYYY ([#3229](https://github.com/Tencent/tdesign-vue-next/pull/3229))
 ## 🌈 1.4.2 `2023-08-02` 
 ### 🚀 Features
 - `Table`: 可筛选表格，当前 `filterValue` 未设置过滤值的默认值时，不再透传 `undefined` 到筛选器组件，某些组件的默认值必须为数组，不允许是 `undefined` @chaishi ([#3164](https://github.com/Tencent/tdesign-vue-next/pull/3164))
