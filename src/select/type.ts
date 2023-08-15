@@ -73,7 +73,7 @@ export interface TdSelectProps<T extends SelectOption = SelectOption> {
    */
   defaultInputValue?: InputValue;
   /**
-   * 用来定义 value / label 在 `options` 中对应的字段别名
+   * 用来定义 value / label / disabled 在 `options` 中对应的字段别名
    */
   keys?: SelectKeysType;
   /**
@@ -306,6 +306,7 @@ export interface TdOptionGroupProps {
 export interface SelectKeysType {
   value?: string;
   label?: string;
+  disabled?: string;
 }
 
 export type SelectValue<T extends SelectOption = SelectOption> = string | number | boolean | T | Array<SelectValue<T>>;

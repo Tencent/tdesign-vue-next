@@ -20,6 +20,11 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   autofocus?: boolean;
   /**
+   * 是否为无边框模式
+   * @default false
+   */
+  borderless?: boolean;
+  /**
    * 参考 checkbox 组件 API
    */
   checkProps?: CheckboxProps;
@@ -59,7 +64,7 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   inputProps?: InputProps;
   /**
-   * 用来定义 value / label / children 在 `options` 中对应的字段别名
+   * 用来定义 value / label / children / disabled 在 `options` 中对应的字段别名
    */
   keys?: CascaderKeysType;
   /**
@@ -234,7 +239,8 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
 export interface CascaderKeysType {
   value?: string;
   label?: string;
-  children?: string | boolean;
+  children?: string;
+  disabled?: string;
 }
 
 export type CascaderValue<T extends TreeOptionData = TreeOptionData> = string | number | T | Array<CascaderValue<T>>;
