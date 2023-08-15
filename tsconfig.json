@@ -25,10 +25,18 @@
     "jsx": "preserve",
     "baseUrl": "./",
     "paths": {
-      "@src/*": ["src/*"],
-      "tdesign-vue-next": ["src/*"],
-      "@common/*": ["src/_common/*"],
-      "@test/utils": ["test/utils"]
+      "@src/*": [
+        "src/*"
+      ],
+      "tdesign-vue-next": [
+        "src/*"
+      ],
+      "@common/*": [
+        "src/_common/*"
+      ],
+      "@test/utils": [
+        "test/utils"
+      ]
     }
   },
   "include": [
@@ -37,7 +45,6 @@
     "src/**/*.vue",
     "scripts/rollup.config.js"
   ],
-  
   "exclude": [
     "node_modules",
     "src/_common",
