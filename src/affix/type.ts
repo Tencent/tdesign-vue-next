@@ -2,10 +2,9 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
-import { ScrollContainer } from '../common';
+import { TNode, ScrollContainer } from '../common';
 
 export interface TdAffixProps {
   /**
@@ -14,12 +13,20 @@ export interface TdAffixProps {
    */
   container?: ScrollContainer;
   /**
-   *  距离容器顶部达到指定距离后触发固定
+   * 内容
+   */
+  content?: string | TNode;
+  /**
+   * 内容，同 content
+   */
+  default?: string | TNode;
+  /**
+   *  距离容器底部达到指定距离后触发固定
    * @default 0
    */
   offsetBottom?: number;
   /**
-   *  距离容器底部达到指定距离后触发固定
+   *  距离容器顶部达到指定距离后触发固定
    * @default 0
    */
   offsetTop?: number;
