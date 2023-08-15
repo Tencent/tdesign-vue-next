@@ -44,7 +44,7 @@ describe('DatePicker', () => {
           '2018-08', // new Date(2017, 7)
           '2028-04', // new Date(2027, 3)
         ];
-        return <DateRangePicker value={testRange} range></DateRangePicker>;
+        return <DateRangePicker value={testRange}></DateRangePicker>;
       },
     });
     expect(wrapper.element).toMatchSnapshot();

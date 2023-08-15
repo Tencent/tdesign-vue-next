@@ -62,7 +62,6 @@ exports[`DatePicker > :mode 1`] = `
 exports[`DatePicker > :range 1`] = `
 <div
   class="t-date-range-picker"
-  range="true"
 >
   <div
     class="t-range-input-popup"
