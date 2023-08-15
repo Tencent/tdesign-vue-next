@@ -238,6 +238,7 @@ export default function useTree(props: TdTreeProps) {
       // 刷新节点状态
       treeStore.value.refreshState();
     },
+    { deep: true },
   );
 
   // tree插件配置变化
@@ -248,15 +249,27 @@ export default function useTree(props: TdTreeProps) {
       treeStore.value.setConfig(getStoreConfig(props));
     },
   );
-  watch(innerChecked, (nVal) => {
-    treeStore.value.replaceChecked(nVal);
-  });
-  watch(innerExpanded, (nVal) => {
-    treeStore.value.replaceExpanded(nVal);
-  });
-  watch(innerActived, (nVal) => {
-    treeStore.value.replaceActived(nVal);
-  });
+  watch(
+    innerChecked,
+    (nVal) => {
+      treeStore.value.replaceChecked(nVal);
+    },
+    { deep: true },
+  );
+  watch(
+    innerExpanded,
+    (nVal) => {
+      treeStore.value.replaceExpanded(nVal);
+    },
+    { deep: true },
+  );
+  watch(
+    innerActived,
+    (nVal) => {
+      treeStore.value.replaceActived(nVal);
+    },
+    { deep: true },
+  );
 
   // 初始化树
   init();
