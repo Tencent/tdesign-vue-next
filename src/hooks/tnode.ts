@@ -6,16 +6,18 @@ import { getDefaultNode, getParams, OptionsType, JSXRenderContext, getSlotFirst 
 
 // 兼容处理插槽名称，同时支持驼峰命名和中划线命名，示例：value-display 和 valueDisplay
 function handleSlots(instance: ComponentInternalInstance, name: string, params: Record<string, any>) {
-  // 每个 slots 需要单独的 h 函数 否则直接assign会重复把不同 slots 的 params 都注入
-  const finalParams = new Function('return ' + h.toString())();
-  if (params) {
-    Object.assign(finalParams, params);
-  }
+  // 2023-08 new Function 触发部分使用场景安全策略问题（Chrome插件/eletron等）
+  // // 每个 slots 需要单独的 h 函数 否则直接assign会重复把不同 slots 的 params 都注入
+  // const finalParams = new Function('return ' + h.toString())();
+  // if (params) {
+  //   Object.assign(finalParams, params);
+  // }
+
   // 检查是否存在 驼峰命名 的插槽（过滤注释节点）
-  let node = instance.slots[camelCase(name)]?.(finalParams);
+  let node = instance.slots[camelCase(name)]?.(params);
   if (node && node.filter((t) => t.type.toString() !== 'Symbol(v-cmt)').length) return node;
   // 检查是否存在 中划线命名 的插槽
-  node = instance.slots[kebabCase(name)]?.(finalParams);
+  node = instance.slots[kebabCase(name)]?.(params);
   if (node && node.filter((t) => t.type.toString() !== 'Symbol(v-cmt)').length) return node;
   return null;
 }
