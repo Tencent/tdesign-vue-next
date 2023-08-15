@@ -4,6 +4,14 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 1.5.1 `2023-08-15` 
+### 🐞 Bug Fixes
+- `ImageViewer`: 修复图片浏览的全局配置无效([issue #3171](https://github.com/Tencent/tdesign-vue-next/issues/3171)) @sinbadmaster ([#3236](https://github.com/Tencent/tdesign-vue-next/pull/3236))
+- `MenuItem`: 修复点击后的回调函数报错 @PengYYYYY ([#3237](https://github.com/Tencent/tdesign-vue-next/pull/3237))
+### 🚧 Others
+- `Affix`: 修复 `offsetBottom/offsetTop` 文档描述 @xiaosansiji ([#3233](https://github.com/Tencent/tdesign-vue-next/pull/3233))
+- `Treeselect`: 修复 `keys` 文档描述 @xiaosansiji ([#3233](https://github.com/Tencent/tdesign-vue-next/pull/3233))
+- chore: remove cross-env @btea ([#3235](https://github.com/Tencent/tdesign-vue-next/pull/3235))
 ## 🌈 1.5.0 `2023-08-15` 
 
 ### ❗ Breaking Changes
