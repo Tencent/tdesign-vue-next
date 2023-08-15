@@ -8,6 +8,7 @@ MockDate.set('2020-12-28 00:00:00');
 
 function runTest() {
   const files = glob.sync('./src/**/_example/*.vue');
+  let $routerMock = { push: vi.fn() };
 
   describe('csr snapshot test', () => {
     HTMLCanvasElement.prototype.getContext = vi.fn();
@@ -17,7 +18,13 @@ function runTest() {
         const demo = await import(`../../.${file}`);
         const realDemoComp = demo.default ? demo.default : demo;
         realDemoComp.name = `test-csr-${realDemoComp.name}`;
-        const wrapper = mount(realDemoComp);
+        const wrapper = mount(realDemoComp, {
+          global: {
+            mocks: {
+              $router: $routerMock,
+            },
+          },
+        });
         expect(wrapper.element).toMatchSnapshot();
       });
     });
