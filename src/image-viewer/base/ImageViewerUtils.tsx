@@ -2,7 +2,7 @@ import { computed, defineComponent, PropType } from 'vue';
 import { ImageIcon, ZoomInIcon, ZoomOutIcon, DownloadIcon, MirrorIcon, RotationIcon } from 'tdesign-icons-vue-next';
 import TImageViewerIcon from './ImageModalIcon';
 import TToolTip from '../../tooltip';
-import { usePrefixClass } from '../../hooks/useConfig';
+import { usePrefixClass, useConfig } from '../../hooks/useConfig';
 import { downloadFile } from '../utils';
 import { useImagePreviewUrl } from '../../hooks';
 import { ImageInfo } from '../type';
@@ -28,13 +28,14 @@ export default defineComponent({
     const imageUrl = computed(() => props.currentImage.mainImage);
 
     const { previewUrl } = useImagePreviewUrl(imageUrl);
+    const { globalConfig } = useConfig('imageViewer');
 
     return () => (
       <div class={`${classPrefix.value}-image-viewer__utils`}>
         <div class={`${classPrefix.value}-image-viewer__utils-content`}>
           <TToolTip
             overlayClassName={`${classPrefix.value}-image-viewer__utils--tip`}
-            content="镜像"
+            content={globalConfig.value.mirrorTipText ?? '镜像'}
             destroyOnClose
             placement="top"
             showArrow
@@ -44,7 +45,7 @@ export default defineComponent({
           </TToolTip>
           <TToolTip
             overlayClassName={`${classPrefix.value}-image-viewer__utils--tip`}
-            content="旋转"
+            content={globalConfig.value.rotateTipText ?? '旋转'}
             destroyOnClose
             placement="top"
             showArrow
@@ -61,7 +62,7 @@ export default defineComponent({
           <TImageViewerIcon icon={() => <ZoomInIcon size="medium" />} onClick={props.onZoomIn} />
           <TToolTip
             overlayClassName={`${classPrefix.value}-image-viewer__utils--tip`}
-            content="原始大小"
+            content={globalConfig.value.originalSizeTipText ?? '原始大小'}
             destroyOnClose
             placement="top"
             showArrow

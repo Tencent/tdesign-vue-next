@@ -1,6 +1,6 @@
 import { computed, defineComponent, PropType, ref, toRefs, watch } from 'vue';
 import { ImageErrorIcon } from 'tdesign-icons-vue-next';
-import { usePrefixClass } from '../../hooks/useConfig';
+import { usePrefixClass, useConfig } from '../../hooks/useConfig';
 import { useDrag } from '../hooks';
 import { useImagePreviewUrl } from '../../hooks/useImagePreviewUrl';
 
@@ -20,6 +20,8 @@ export default defineComponent({
     const error = ref(false);
     const loaded = ref(false);
     const { transform, mouseDownHandler } = useDrag({ translateX: 0, translateY: 0 });
+    const { globalConfig } = useConfig('imageViewer');
+    const errorText = globalConfig.value.errorText ?? '图片加载失败，可尝试重新加载';
 
     const imgStyle = computed(() => ({
       transform: `rotate(${props.rotate}deg) scale(${props.scale})`,
@@ -59,7 +61,7 @@ export default defineComponent({
               {/* 脱离文档流 */}
               <div class={`${classPrefix.value}-image-viewer__img-error-content`}>
                 <ImageErrorIcon size="4em" />
-                <div class={`${classPrefix.value}-image-viewer__img-error-text`}>图片加载失败，可尝试重新加载</div>
+                <div class={`${classPrefix.value}-image-viewer__img-error-text`}>{errorText}</div>
               </div>
             </div>
           )}
