@@ -78,6 +78,10 @@ export interface KeysType {
   disabled?: string;
 }
 
+export interface TreeKeysType extends KeysType {
+  children?: string;
+}
+
 export interface HTMLElementAttributes {
   [attribute: string]: string;
 }
