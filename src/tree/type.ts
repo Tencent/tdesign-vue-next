@@ -5,7 +5,7 @@
  * */
 
 import { CheckboxProps } from '../checkbox';
-import { TNode, TreeOptionData, TScroll } from '../common';
+import { TNode, TreeOptionData, TreeKeysType, TScroll } from '../common';
 
 export interface TdTreeProps<T extends TreeOptionData = TreeOptionData> {
   /**
@@ -60,7 +60,7 @@ export interface TdTreeProps<T extends TreeOptionData = TreeOptionData> {
    */
   disabled?: boolean;
   /**
-   * 节点是否可拖拽
+   * [开发中]节点是否可拖拽
    */
   draggable?: boolean;
   /**
@@ -108,7 +108,7 @@ export interface TdTreeProps<T extends TreeOptionData = TreeOptionData> {
    */
   filter?: (node: TreeNodeModel<T>) => boolean;
   /**
-   * 表格高度，超出后会出现滚动条。示例：100,  '30%',  '300'。值为数字类型，会自动加上单位 px。如果不是绝对固定表格高度，建议使用 `maxHeight`
+   * 树的高度，超出后会出现滚动条。示例：100,  '30%',  '300'。值为数字类型，会自动加上单位 px。如果不是绝对固定树的高度，建议使用 `maxHeight`
    */
   height?: string | number;
   /**
@@ -121,7 +121,7 @@ export interface TdTreeProps<T extends TreeOptionData = TreeOptionData> {
    */
   icon?: boolean | TNode<TreeNodeModel<T>>;
   /**
-   * 用来定义 `value / label / children` 在 `data` 数据中对应的字段别名，示例：`{ value: 'key', label 'name', children: 'list' }`
+   * 用来定义 `value / label / disabled / children` 在 `data` 数据中对应的字段别名，示例：`{ value: 'key', label 'name', children: 'list' }`。其中，disabled 待开发。
    */
   keys?: TreeKeysType;
   /**
@@ -144,7 +144,7 @@ export interface TdTreeProps<T extends TreeOptionData = TreeOptionData> {
    */
   load?: (node: TreeNodeModel<T>) => Promise<Array<T>>;
   /**
-   * 表格最大高度，超出后会出现滚动条。示例：100, '30%', '300'。值为数字类型，会自动加上单位 px
+   * 树的最大高度，超出后会出现滚动条。示例：100, '30%', '300'。值为数字类型，会自动加上单位 px
    */
   maxHeight?: string | number;
   /**
@@ -183,11 +183,17 @@ export interface TdTreeProps<T extends TreeOptionData = TreeOptionData> {
   /**
    * 节点激活时触发，泛型 `T` 表示树节点 TS 类型
    */
-  onActive?: (value: Array<TreeNodeValue>, context: { node: TreeNodeModel<T> }) => void;
+  onActive?: (
+    value: Array<TreeNodeValue>,
+    context: { node: TreeNodeModel<T>; e?: MouseEvent; trigger: 'node-click' | 'setItem' },
+  ) => void;
   /**
    * 节点选中状态变化时触发，context.node 表示当前变化的选项，泛型 `T` 表示树节点 TS 类型
    */
-  onChange?: (value: Array<TreeNodeValue>, context: { node: TreeNodeModel<T>; e?: MouseEvent }) => void;
+  onChange?: (
+    value: Array<TreeNodeValue>,
+    context: { node: TreeNodeModel<T>; e?: any; trigger: 'node-click' | 'setItem' },
+  ) => void;
   /**
    * 节点点击时触发，泛型 `T` 表示树节点 TS 类型
    */
@@ -438,12 +444,6 @@ export interface TreeNodeModel<T extends TreeOptionData = TreeOptionData> extend
    * 设置节点数据，数据变化可自动刷新页面，泛型 `T` 表示树节点 TS 类型，继承 `TreeOptionData`
    */
   setData: (data: T) => void;
-}
-
-export interface TreeKeysType {
-  value?: string;
-  label?: string;
-  children?: string;
 }
 
 export type TreeNodeValue = string | number;
