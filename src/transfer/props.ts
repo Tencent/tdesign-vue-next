@@ -64,7 +64,7 @@ export default {
   /** 搜索框配置，值为 false 表示不显示搜索框；值为 true 表示显示默认搜索框；值类型为对象，用于透传 Props 到 Input 组件；值类型为数组，则分别表示控制两侧搜索框 */
   search: {
     type: [Boolean, Object, Array] as PropType<TdTransferProps['search']>,
-    default: false as TdTransferProps['search'],
+    default: false,
   },
   /** 是否显示全选，值类型为数组则表示分别控制源列表和目标列表 */
   showCheckAll: {

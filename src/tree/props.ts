@@ -43,7 +43,7 @@ export default {
   },
   /** 是否禁用树操作 */
   disabled: Boolean,
-  /** 节点是否可拖拽 */
+  /** [开发中]节点是否可拖拽 */
   draggable: Boolean,
   /** 数据为空时展示的文本 */
   empty: {
