@@ -2,19 +2,17 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { TNode } from '../common';
 
-export interface TdSwitchProps {
+export interface TdSwitchProps<T = SwitchValue> {
   /**
-   * 开关内容，[打开时的值，关闭时的值]。默认为 [true, false]。示例：[1, 0]
+   * 用于自定义开关的值，[打开时的值，关闭时的值]。默认为 [true, false]。示例：[1, 0]、['open', 'close']
    */
   customValue?: Array<SwitchValue>;
   /**
-   * 是否禁用组件
-   * @default false
+   * 是否禁用组件。优先级：Switch.disabled > Form.disabled
    */
   disabled?: boolean;
   /**
@@ -34,18 +32,20 @@ export interface TdSwitchProps {
   size?: 'small' | 'medium' | 'large';
   /**
    * 开关值
-   * @default false
    */
-  value?: SwitchValue;
+  value?: T;
   /**
    * 开关值，非受控属性
-   * @default false
    */
-  defaultValue?: SwitchValue;
+  defaultValue?: T;
+  /**
+   * 开关值
+   */
+  modelValue?: T;
   /**
    * 数据发生变化时触发
    */
-  onChange?: (value: SwitchValue) => void;
+  onChange?: (value: T, context: { e: MouseEvent }) => void;
 }
 
 export type SwitchValue = string | number | boolean;
