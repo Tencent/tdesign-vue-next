@@ -143,7 +143,7 @@ export default defineComponent({
                 {iconMap[file.status as 'fail' | 'progress']}
                 <p>
                   {textMap[file.status as 'fail' | 'progress']}
-                  {file.status === 'progress' ? ` ${file.percent}%` : ''}
+                  {props.showUploadProgress && file.status === 'progress' ? ` ${file.percent}%` : ''}
                 </p>
               </div>
             )}
