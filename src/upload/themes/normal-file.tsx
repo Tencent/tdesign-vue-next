@@ -49,7 +49,7 @@ const NormalFile = defineComponent({
     const renderProgress = (percent: number) => (
       <div class={`${uploadPrefix}__single-progress`}>
         <TLoading />
-        <span class={`${uploadPrefix}__single-percent`}>{percent || 0}%</span>
+        {props.showUploadProgress && <span class={`${uploadPrefix}__single-percent`}>{percent || 0}%</span>}
       </div>
     );
 
