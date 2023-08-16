@@ -235,8 +235,9 @@ export default defineComponent({
       onPanelClick: () => inputRef.value?.focus?.(),
     }));
 
+    const blockclass = `${COMPONENT_NAME.value}-block`;
     return () => (
-      <div class={COMPONENT_NAME.value}>
+      <div class={!props.block ? COMPONENT_NAME.value : blockclass}>
         <TSelectInput
           disabled={disabled.value}
           value={inputValue.value}
