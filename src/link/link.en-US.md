@@ -7,7 +7,7 @@ name | type | default | description | required
 -- | -- | -- | -- | --
 content | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 default | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-disabled | Boolean | - | make link to be disabled | N
+disabled | Boolean | undefined | make link to be disabled | N
 download | String / Boolean | - | Causes the browser to treat the linked URL as a download | N
 hover | String | underline | hover link style。options: color/underline | N
 href | String | - | \- | N

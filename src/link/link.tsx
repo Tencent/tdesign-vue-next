@@ -1,7 +1,7 @@
 import { computed, defineComponent } from 'vue';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useContent, useTNodeJSX } from '../hooks/tnode';
-import { useFormDisabled } from '../form/hooks';
+import { useDisabled } from '../hooks/useDisabled';
 import props from './props';
 
 export default defineComponent({
@@ -14,9 +14,8 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('link');
     const { STATUS, SIZE } = useCommonClassName();
     const { classPrefix } = useConfig('classPrefix');
-    const disabled = useFormDisabled();
+    const isDisabled = useDisabled();
 
-    const isDisabled = computed(() => props.disabled || disabled.value);
     const linkClass = computed(() => [
       `${COMPONENT_NAME.value}`,
       `${COMPONENT_NAME.value}--theme-${props.theme}`,
