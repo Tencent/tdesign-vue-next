@@ -4,14 +4,15 @@ import get from 'lodash/get';
 import isFunction from 'lodash/isFunction';
 
 import { useChildComponentSlots } from '../../hooks/slot';
-import { TdSelectProps, TdOptionProps, SelectOptionGroup, SelectKeysType, SelectValue, SelectOption } from '../type';
+import { TdSelectProps, TdOptionProps, SelectOptionGroup, SelectValue, SelectOption } from '../type';
+import { KeysType } from '../../common';
 
 type UniOption = (TdOptionProps | SelectOptionGroup) & {
   index?: number;
   slots?: Slots;
 };
 
-export const useSelectOptions = (props: TdSelectProps, keys: Ref<SelectKeysType>, inputValue: Ref<string>) => {
+export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inputValue: Ref<string>) => {
   const getChildComponentSlots = useChildComponentSlots();
   const optionsCache = ref<SelectOption[]>([]);
 
