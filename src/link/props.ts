@@ -16,8 +16,11 @@ export default {
   default: {
     type: [String, Function] as PropType<TdLinkProps['default']>,
   },
-  /** 禁用链接 */
-  disabled: Boolean,
+  /** 禁用链接。优先级：Link.disabled > Form.disabled */
+  disabled: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 使得浏览器将链接的 URL 视为可下载资源 */
   download: {
     type: [String, Boolean] as PropType<TdLinkProps['download']>,
