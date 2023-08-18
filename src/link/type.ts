@@ -16,7 +16,7 @@ export interface TdLinkProps {
    */
   default?: string | TNode;
   /**
-   * 禁用链接
+   * 禁用链接。优先级：Link.disabled > Form.disabled
    */
   disabled?: boolean;
   /**

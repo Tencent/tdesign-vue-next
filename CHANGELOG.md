@@ -4,15 +4,7 @@ spline: explain
 toc: false
 docClass: timeline
 ---
-## 🌈 1.5.1 `2023-08-15` 
-### 🐞 Bug Fixes
-- `ImageViewer`: 修复图片浏览的全局配置无效([issue #3171](https://github.com/Tencent/tdesign-vue-next/issues/3171)) @sinbadmaster ([#3236](https://github.com/Tencent/tdesign-vue-next/pull/3236))
-- `MenuItem`: 修复点击后的回调函数报错 @PengYYYYY ([#3237](https://github.com/Tencent/tdesign-vue-next/pull/3237))
-### 🚧 Others
-- `Affix`: 修复 `offsetBottom/offsetTop` 文档描述 @xiaosansiji ([#3233](https://github.com/Tencent/tdesign-vue-next/pull/3233))
-- `Treeselect`: 修复 `keys` 文档描述 @xiaosansiji ([#3233](https://github.com/Tencent/tdesign-vue-next/pull/3233))
-- chore: remove cross-env @btea ([#3235](https://github.com/Tencent/tdesign-vue-next/pull/3235))
-## 🌈 1.5.0 `2023-08-15` 
+## 🌈 1.5.1 `2023-08-15`
 
 ### ❗ Breaking Changes
 - `Icon`: 新增 960 个图标；调整图标命名 `photo` 为 `camera`，`books` 为 `bookmark`, `stop-cirle-1` 为 `stop-circle-stroke`；移除 `money-circle` 图标，具体请查看图标页面  @uyarn ([#3174](https://github.com/Tencent/tdesign-vue-next/pull/3174))
@@ -33,6 +25,8 @@ docClass: timeline
 - `Cascader`: 增加 `keys.disabled` 用于定制字段控制节点的禁用([issue #3193](https://github.com/Tencent/tdesign-vue-next/issues/3193)) @PengYYYYY ([#3202](https://github.com/Tencent/tdesign-vue-next/pull/3202))
 - `Tree`: 增加 `keys.disabled` 用于定制字段控制节点的禁用 @PengYYYYY ([#3202](https://github.com/Tencent/tdesign-vue-next/pull/3202))
 - `Transfer`: 增加 `keys.disabled` 用于定制字段控制选项的禁用 @PengYYYYY ([#3202](https://github.com/Tencent/tdesign-vue-next/pull/3202))
+- `ImageViewer`: 修复图片浏览的全局配置无效([issue #3171](https://github.com/Tencent/tdesign-vue-next/issues/3171)) @sinbadmaster ([#3236](https://github.com/Tencent/tdesign-vue-next/pull/3236))
+- `MenuItem`: 修复点击后的回调函数报错 @PengYYYYY ([#3237](https://github.com/Tencent/tdesign-vue-next/pull/3237))
 ### 🐞 Bug Fixes
 - `Table`: 
   - 修复 `dragSort` 配置为 `row-handler-col` 时拖拽排序不生效的问题([issue #2718](https://github.com/Tencent/tdesign-vue-next/issues/2718)) @nined9 ([#2717](https://github.com/Tencent/tdesign-vue-next/pull/2717)) 
@@ -53,6 +47,8 @@ docClass: timeline
 - `InputNumber`: `tips` 使用统一的类名 `.t-tips` 和 `t-is-xxx` @chaishi ([#3225](https://github.com/Tencent/tdesign-vue-next/pull/3225))
 - `Cascader`: 补充 `borderless` 文档 @PengYYYYY ([#3202](https://github.com/Tencent/tdesign-vue-next/pull/3202))
 - `Test`: 修复测试告警 @PengYYYYY ([#3229](https://github.com/Tencent/tdesign-vue-next/pull/3229))
+- `Affix`: 修复 `offsetBottom/offsetTop` 文档描述 @xiaosansiji ([#3233](https://github.com/Tencent/tdesign-vue-next/pull/3233))
+- `Treeselect`: 修复 `keys` 文档描述 @xiaosansiji ([#3233](https://github.com/Tencent/tdesign-vue-next/pull/3233))
 ## 🌈 1.4.2 `2023-08-02` 
 ### 🚀 Features
 - `Table`: 可筛选表格，当前 `filterValue` 未设置过滤值的默认值时，不再透传 `undefined` 到筛选器组件，某些组件的默认值必须为数组，不允许是 `undefined` @chaishi ([#3164](https://github.com/Tencent/tdesign-vue-next/pull/3164))

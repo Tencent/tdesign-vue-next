@@ -7,7 +7,7 @@
 -- | -- | -- | -- | --
 content | String / Slot / Function | - | 链接内容。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 default | String / Slot / Function | - | 链接内容，同 content。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-disabled | Boolean | - | 禁用链接 | N
+disabled | Boolean | undefined | 禁用链接。优先级：Link.disabled > Form.disabled | N
 download | String / Boolean | - | 使得浏览器将链接的 URL 视为可下载资源 | N
 hover | String | underline | 链接悬浮态样式，有 文本颜色变化、添加下划线等 2 种方法。可选项：color/underline | N
 href | String | - | 跳转链接 | N

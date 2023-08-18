@@ -87,7 +87,7 @@ export default defineComponent({
         return (
           <div class={`${uploadPrefix}__single-progress`}>
             <TLoading />
-            <span class={`${uploadPrefix}__single-percent`}>{file.percent}%</span>
+            {props.showUploadProgress && <span class={`${uploadPrefix}__single-percent`}>{file.percent}%</span>}
           </div>
         );
       }

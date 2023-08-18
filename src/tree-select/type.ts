@@ -9,10 +9,10 @@ import { InputValue } from '../input';
 import { PopupProps } from '../popup';
 import { SelectInputProps } from '../select-input';
 import { TagProps } from '../tag';
-import { TreeProps, TreeNodeModel, TreeKeysType } from '../tree';
+import { TreeProps, TreeNodeModel } from '../tree';
 import { SelectInputValueChangeContext } from '../select-input';
 import { PopupVisibleChangeContext } from '../popup';
-import { TNode, TreeOptionData } from '../common';
+import { TNode, TreeOptionData, TreeKeysType } from '../common';
 
 export interface TdTreeSelectProps<DataOption extends TreeOptionData = TreeOptionData> {
   /**

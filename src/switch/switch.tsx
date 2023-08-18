@@ -5,7 +5,7 @@ import props from './props';
 import { TNodeReturnValue } from '../common';
 
 // hooks
-import { useFormDisabled } from '../form/hooks';
+import { useDisabled } from '../hooks/useDisabled';
 import useVModel from '../hooks/useVModel';
 import isFunction from 'lodash/isFunction';
 import isString from 'lodash/isString';
@@ -16,7 +16,7 @@ export default defineComponent({
   props: { ...props },
 
   setup(props, { slots }) {
-    const disabled = useFormDisabled();
+    const disabled = useDisabled();
     const COMPONENT_NAME = usePrefixClass('switch');
     const { STATUS, SIZE } = useCommonClassName();
     // values
@@ -37,17 +37,17 @@ export default defineComponent({
     });
 
     // methods
-    function handleToggle() {
+    function handleToggle(e: MouseEvent) {
       const checked = innerValue.value === activeValue.value ? inactiveValue.value : activeValue.value;
       // emits
-      setSwitchVal(checked);
+      setSwitchVal(checked, { e });
     }
 
-    function toggle() {
+    function toggle(e: MouseEvent) {
       if (disabled.value || props.loading) {
         return;
       }
-      handleToggle();
+      handleToggle(e);
     }
 
     // classes
