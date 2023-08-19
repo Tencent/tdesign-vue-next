@@ -1,4 +1,4 @@
-import { defineComponent, PropType, SetupContext, h, computed, ref, reactive, toRefs, watch, VNode } from 'vue';
+import { defineComponent, PropType, SetupContext, h, computed, ref, reactive, toRefs, watch } from 'vue';
 import isFunction from 'lodash/isFunction';
 import upperFirst from 'lodash/upperFirst';
 import isString from 'lodash/isString';
