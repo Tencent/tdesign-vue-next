@@ -45,7 +45,7 @@ export interface TdCheckboxProps {
    */
   label?: string | TNode;
   /**
-   * 是否启用懒加载。数据量加大时建议开启；加载复杂内容或大量图片时建议开启
+   * 是否启用懒加载。数据量大时建议开启；加载复杂内容或大量图片时建议开启
    * @default false
    */
   lazyLoad?: boolean;
@@ -75,7 +75,7 @@ export interface TdCheckboxGroupProps<T = CheckboxGroupValue> {
    */
   disabled?: boolean;
   /**
-   * 是否启用懒加载。数据量加大时建议开启；加载复杂内容或大量图片时建议开启
+   * 是否启用懒加载。子组件 Checkbox 数据量大时建议开启；加载复杂内容或大量图片时建议开启
    * @default false
    */
   lazyLoad?: boolean;
