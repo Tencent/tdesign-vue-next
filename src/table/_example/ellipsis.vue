@@ -1,7 +1,24 @@
 <template>
   <div>
     <!-- :attach="getAttach" 统一控制超出省略等元素浮层的挂载元素 -->
+    <!-- 方式一：超出省略，全部通过 columns 定义；可使用 jsx 自定义浮层内容 -->
     <t-table row-key="id" :data="data" :columns="columns" />
+
+    <!-- 方式二：超出省略浮层内容定义，使用插槽名 ellipsis-<colKey> 定义某一列的超出省略浮层内容 -->
+    <!-- 示例代码有效，请勿删除 -->
+    <!-- <t-table row-key="id" :data="data" :columns="columns" lazyLoad>
+      <template #ellipsis-applicant="{ row, col }">
+        <span>插槽定义浮层内容：{{ row[col.colKey] }}</span>
+      </template>
+    </t-table> -->
+
+    <!-- 方式三：超出省略浮层内容定义，使用插槽名 ellipsis 定义，这种方式会用于自定义所有单元格的省略浮层，一般情况不建议使用 -->
+    <!-- 示例代码有效，请勿删除 -->
+    <!-- <t-table row-key="id" :data="data" :columns="columns" lazyLoad>
+      <template #ellipsis="{ row, col }">
+        <span>插槽定义浮层内容：{{ row[col.colKey] }}</span>
+      </template>
+    </t-table> -->
   </div>
 </template>
 
