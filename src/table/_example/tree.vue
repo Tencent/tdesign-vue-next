@@ -16,11 +16,13 @@
       </t-checkbox>
     </div>
     <br />
-    <!-- 第一列展开树结点，缩进为 24px，子节点字段 childrenKey 默认为 children -->
     <!-- !!! 树形结构 EnhancedTable 才支持，普通 Table 不支持 !!! -->
-    <!-- Ref: table.value.dataSource 查看树形结构平铺数据，获取属性结构使用 table.value.getTreeNode() -->
+    <!-- 第一列展开树结点，缩进为 24px，子节点字段 childrenKey 默认为 children -->
+    <!-- v-model:displayColumns="displayColumns" used to control displayed columns -->
+    <!-- v-model:expandedTreeNodes is not required. you can control expanded tree node by expandedTreeNodes -->
     <t-enhanced-table
       ref="table"
+      v-model:expandedTreeNodes="expandedTreeNodes"
       row-key="key"
       drag-sort="row-handler"
       :data="data"
@@ -38,8 +40,9 @@
       @page-change="onPageChange"
       @abnormal-drag-sort="onAbnormalDragSort"
       @drag-sort="onDragSort"
-      @tree-expand-change="onTreeExpandChange"
+      @expanded-tree-nodes-change="onExpandedTreeNodesChange"
     ></t-enhanced-table>
+    <!-- @tree-expand-change="onTreeExpandChange" -->
 
     <!-- 第二列展开树结点，缩进为 12px，示例代码有效，勿删 -->
     <!-- indent 定义缩进距离 -->
@@ -133,6 +136,9 @@ function getData(currentPage = 1) {
 const table = ref(null);
 const data = ref(getData());
 const lazyLoadingData = ref(null);
+
+// 非必须，如果不传，表格有内置树形节点展开逻辑
+const expandedTreeNodes = ref([]);
 
 const treeConfig = reactive({ childrenKey: 'list', treeNodeColumnIndex: 2, indent: 25 });
 
@@ -350,6 +356,8 @@ const lazyLoadingTreeIconRender = (h, params) => {
 // });
 
 const getTreeNode = () => {
+  // 查看树形结构平铺数据
+  // table.value.dataSource
   const treeData = table.value.getTreeNode();
   console.log(treeData);
   MessagePlugin.success('树形结构获取成功，请打开控制台查看');
@@ -387,6 +395,13 @@ const onAbnormalDragSort = (params) => {
   if (params.code === 1001) {
     MessagePlugin.warning('不同层级的元素，不允许调整顺序');
   }
+};
+
+const onExpandedTreeNodesChange = (expandedTreeNodes, context) => {
+  console.log(expandedTreeNodes, context);
+  // 全选不需要处理；仅处理懒加载
+  if (!context.rowState) return;
+  onTreeExpandChange(context);
 };
 
 const onTreeExpandChange = (context) => {

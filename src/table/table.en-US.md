@@ -212,18 +212,22 @@ type | String | single | row select type。options: single/multiple | N
 name | type | default | description | required
 -- | -- | -- | -- | --
 beforeDragSort | Function | - | stop to drag sort。Typescript：`(context: DragSortContext<T>) => boolean` | N
+expandedTreeNodes | Array | [] | expanded tree node row keys, row key value is from data[rowKey]。`v-model:expandedTreeNodes` is supported。Typescript：`Array<string \| number>` | N
+defaultExpandedTreeNodes | Array | [] | expanded tree node row keys, row key value is from data[rowKey]。uncontrolled property。Typescript：`Array<string \| number>` | N
 tree | Object | - | tree data configs。Typescript：`TableTreeConfig` | N
 treeExpandAndFoldIcon | Function | - | sort icon。Typescript：`TNode<{ type: 'expand' \| 'fold' }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 `PrimaryTableProps<T>` | \- | - | extends `PrimaryTableProps<T>` | N
 onAbnormalDragSort | Function |  | Typescript：`(context: TableAbnormalDragSortContext<T>) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface TableAbnormalDragSortContext<T> { code: number; reason: string }`<br/> | N
-onTreeExpandChange | Function |  | Typescript：`(context: TableTreeExpandChangeContext<T>) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface TableTreeExpandChangeContext<T> { row: T; rowIndex: number; rowState: TableRowState<T>; trigger?: 'expand-fold-icon' \| 'row-click' }`<br/> | N
+onExpandedTreeNodesChange | Function |  | Typescript：`(expandedTreeNodes: Array<string \| number>, options: TableTreeNodeExpandOptions <T>) => void`<br/>trigger on tree node expanded or folded。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface TableTreeNodeExpandOptions<T> { row: T; rowIndex: number; rowState: TableRowState<T>; type: 'fold' \| 'expand'; trigger?: 'expand-fold-icon' \| 'row-click' \| 'default-expand-all' \| 'expand-all' \| 'fold-all' }`<br/> | N
+onTreeExpandChange | Function |  | Typescript：`(context: TableTreeExpandChangeContext<T>) => void`<br/>`deprecated`。trigger on tree node expanded or folded, use `expandedTreeNodesChange` please。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface TableTreeExpandChangeContext<T> { row: T; rowIndex: number; rowState: TableRowState<T>; trigger?: 'expand-fold-icon' \| 'row-click' }`<br/> | N
 
 ### EnhancedTable Events
 
 name | params | description
 -- | -- | --
 abnormal-drag-sort | `(context: TableAbnormalDragSortContext<T>)` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface TableAbnormalDragSortContext<T> { code: number; reason: string }`<br/>
-tree-expand-change | `(context: TableTreeExpandChangeContext<T>)` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface TableTreeExpandChangeContext<T> { row: T; rowIndex: number; rowState: TableRowState<T>; trigger?: 'expand-fold-icon' \| 'row-click' }`<br/>
+expanded-tree-nodes-change | `(expandedTreeNodes: Array<string \| number>, options: TableTreeNodeExpandOptions <T>)` | trigger on tree node expanded or folded。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface TableTreeNodeExpandOptions<T> { row: T; rowIndex: number; rowState: TableRowState<T>; type: 'fold' \| 'expand'; trigger?: 'expand-fold-icon' \| 'row-click' \| 'default-expand-all' \| 'expand-all' \| 'fold-all' }`<br/>
+tree-expand-change | `(context: TableTreeExpandChangeContext<T>)` | `deprecated`。trigger on tree node expanded or folded, use `expandedTreeNodesChange` please。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface TableTreeExpandChangeContext<T> { row: T; rowIndex: number; rowState: TableRowState<T>; trigger?: 'expand-fold-icon' \| 'row-click' }`<br/>
 
 ### EnhancedTableInstanceFunctions 组件实例方法
 
