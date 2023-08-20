@@ -41,7 +41,6 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
 
   const { tExpandedTreeNode, expandAll, foldAll, updateExpandOnDataChange, onExpandFoldIconClick } = useTreeDataExpand(
     props,
-    context,
     { store, dataSource, rowDataKeys },
   );
 

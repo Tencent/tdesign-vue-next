@@ -6,7 +6,6 @@ import { TableTreeExpandType } from '../interface';
 
 export function useTreeDataExpand(
   props: TdEnhancedTableProps,
-  context: SetupContext,
   params: {
     store: Ref<InstanceType<typeof TableTreeStore>>;
     dataSource: Ref<TdEnhancedTableProps['data']>;
@@ -96,8 +95,6 @@ export function useTreeDataExpand(
       type: rowState.expanded ? 'fold' : 'expand',
     });
     props.onTreeExpandChange?.(params);
-    // Vue3 ignore next line
-    context.emit('tree-expand-change', params);
   }
 
   function updateExpandState(
