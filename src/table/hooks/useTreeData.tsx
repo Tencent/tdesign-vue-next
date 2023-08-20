@@ -3,7 +3,6 @@ import {
   AddRectangleIcon as TdAddRectangleIcon,
   MinusRectangleIcon as TdMinusRectangleIcon,
 } from 'tdesign-icons-vue-next';
-import cloneDeep from 'lodash/cloneDeep';
 import get from 'lodash/get';
 import TableTreeStore, { SwapParams } from '../../_common/js/table/tree-store';
 import {
