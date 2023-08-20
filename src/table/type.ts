@@ -732,6 +732,10 @@ export interface EnhancedTableInstanceFunctions<T extends TableRowData = TableRo
    */
   remove: (key: TableRowValue) => void;
   /**
+   * 树形结构中，移除指定节点的所有子节点
+   */
+  removeChildren: (key: TableRowValue) => void;
+  /**
    * 重置或更新整个表格数据
    */
   resetData: (newData: T[]) => void;

@@ -242,6 +242,7 @@ getTreeNode | \- | `T[]` | required
 insertAfter | `(key: TableRowValue, newData: T)` | \- | required
 insertBefore | `(key: TableRowValue, newData: T)` | \- | required
 remove | `(key: TableRowValue)` | \- | required
+removeChildren | `(key: TableRowValue)` | \- | required。remove all children nodes of one node
 resetData | `(newData: T[])` | \- | required
 setData | `(key: TableRowValue, newRowData: T)` | \- | required
 swapData | `(params: SwapParams<T>)` | \- | required。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface SwapParams<T> { current: T; target: T; currentIndex: number; targetIndex: number }`<br/>

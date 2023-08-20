@@ -242,6 +242,7 @@ getTreeNode | \- | `T[]` | 必需。树形结构中，获取完整的树形结�
 insertAfter | `(key: TableRowValue, newData: T)` | \- | 必需。树形结构中，在当前节点之后添加子节点
 insertBefore | `(key: TableRowValue, newData: T)` | \- | 必需。树形结构中，在当前节点之前添加子节点
 remove | `(key: TableRowValue)` | \- | 必需。树形结构中，移除指定节点
+removeChildren | `(key: TableRowValue)` | \- | 必需。树形结构中，移除指定节点的所有子节点
 resetData | `(newData: T[])` | \- | 必需。重置或更新整个表格数据
 setData | `(key: TableRowValue, newRowData: T)` | \- | 必需。树形结构中，用于更新行数据。泛型 `T` 表示行数据类型
 swapData | `(params: SwapParams<T>)` | \- | 必需。树形结构中，交换两个节点的顺序。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface SwapParams<T> { current: T; target: T; currentIndex: number; targetIndex: number }`<br/>
