@@ -16,7 +16,7 @@ import { getCellKey, SkipSpansValue } from './hooks/useRowspanAndColspan';
 import { TooltipProps } from '../tooltip';
 import { PaginationProps } from '..';
 import { VirtualScrollConfig } from '../hooks/useVirtualScrollNew';
-import { AttachNode } from '../common';
+import { AttachNode, SlotReturnValue } from '../common';
 
 export interface RenderTdExtra {
   rowAndColFixedPosition: RowAndColFixedPosition;
@@ -206,10 +206,20 @@ export default defineComponent({
     function renderEllipsisCell(cellParams: BaseTableCellParams<TableRowData>, params: RenderEllipsisCellParams) {
       const { cellNode } = params;
       const { col, colIndex } = cellParams;
-      let content = isFunction(col.ellipsis) ? col.ellipsis(h, cellParams) : undefined;
-      if (typeof col.ellipsis === 'object' && isFunction(col.ellipsis.content)) {
+
+      let content: SlotReturnValue;
+      if (isFunction(col.ellipsis)) {
+        content = col.ellipsis(h, cellParams);
+      } else if (typeof col.ellipsis === 'object' && isFunction(col.ellipsis.content)) {
         content = col.ellipsis.content(h, cellParams);
+      } else if (context.slots[`ellipsis-${col.colKey}`]) {
+        // support ellipsis-<colKey> to define one column cell ellipsis-content
+        content = context.slots[`ellipsis-${col.colKey}`](cellParams);
+      } else if (context.slots.ellipsis) {
+        // support ellipsis slot to define all table cell ellipsis-content
+        content = context.slots.ellipsis(cellParams);
       }
+
       let tooltipProps = {};
       if (typeof col.ellipsis === 'object') {
         tooltipProps = 'props' in col.ellipsis ? col.ellipsis.props : col.ellipsis || undefined;
