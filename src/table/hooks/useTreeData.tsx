@@ -228,6 +228,14 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
   }
 
   /**
+   * 移除子节点
+   * @param key 行唯一标识
+   */
+  function removeChildren(key: TableRowValue) {
+    dataSource.value = [...store.value.removeChildren(key, dataSource.value, rowDataKeys.value)];
+  }
+
+  /**
    * 对外暴露的组件实例方法，为当前节点添加子节点，默认添加到最后一个节点
    * @param key 当前节点唯一标识，值为空，则表示给根节点添加元素
    * @param newData 待添加的新节点
@@ -294,6 +302,7 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
     setData,
     getData,
     remove,
+    removeChildren,
     appendTo,
     insertAfter,
     insertBefore,

@@ -165,7 +165,11 @@ const onEditClick = (row) => {
 };
 
 const onDeleteConfirm = (row) => {
+  // 移除当前节点及其所有子节点
   tableRef.value.remove(row.key);
+
+  // 仅移除所有子节点
+  // tableRef.value.removeChildren(row.key);
   MessagePlugin.success('删除成功');
 };
 
