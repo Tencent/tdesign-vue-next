@@ -1,5 +1,5 @@
 import { ref, Slot } from 'vue';
-
+import type { TdMenuItemProps } from './type';
 type MenuValue = string | number;
 type MenuNode = MenuValue | VMenuData;
 
@@ -10,7 +10,7 @@ interface VMenuData {
   vnode?: Slot;
 }
 
-interface VMenuItem {
+interface VMenuItem extends TdMenuItemProps {
   value?: MenuValue;
   parent: MenuValue;
   vnode?: Slot;
@@ -73,6 +73,7 @@ export default class VMenu {
       parent,
       children: [],
       vnode,
+      ...item,
     };
 
     this.cache.forEach((data, v2, set) => {

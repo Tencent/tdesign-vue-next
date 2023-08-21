@@ -11,6 +11,7 @@ import {
   h,
   VNode,
   Component,
+  getCurrentInstance,
 } from 'vue';
 import { EllipsisIcon } from 'tdesign-icons-vue-next';
 import isFunction from 'lodash/isFunction';
@@ -23,6 +24,7 @@ import { TdMenuInterface, TdOpenType } from './const';
 import { Tabs, TabPanel } from '../tabs';
 import Submenu from './submenu';
 import VMenu from './v-menu';
+
 import { usePrefixClass } from '../hooks/useConfig';
 import useVModel from '../hooks/useVModel';
 import useDefaultValue from '../hooks/useDefaultValue';
@@ -32,6 +34,7 @@ export default defineComponent({
   props: { ...props },
   setup(props, ctx) {
     const classPrefix = usePrefixClass();
+    const { proxy } = getCurrentInstance();
     watchEffect(() => {
       if (ctx.slots.options) {
         log.warnOnce('TMenu', '`options` slot is going to be deprecated, please use `operations` for slot instead.');
@@ -88,6 +91,7 @@ export default defineComponent({
     // methods
     const handleTabChange = (value: MenuValue) => {
       setActiveValue(value);
+      handleClickSubMenuItem(value);
     };
 
     const handleSubmenuExpand = (value: MenuValue) => {
@@ -119,6 +123,19 @@ export default defineComponent({
         handleSubmenuExpand(expandValues.value[0]); // 顶部导航只能同时展开一个子菜单
       }
     });
+
+    const handleClickSubMenuItem = (value: MenuValue) => {
+      const activeMenuItem = submenu.find((v) => v.value === value);
+      activeMenuItem.onClick?.({ value });
+      const { to, href, replace } = activeMenuItem;
+      if (href) {
+        window.location.href = activeMenuItem.href;
+      }
+      const router = activeMenuItem.router || proxy.$root.$router;
+      if (to && router) {
+        replace ? router.replace(to) : router.push(to);
+      }
+    };
     // setup返回的render函数中无法访问methods属性中的类容，移动此方法到setup中
     const renderNormalSubmenu = () => {
       if (submenu.length === 0) return null;
@@ -207,7 +224,7 @@ export default defineComponent({
       slots.forEach((node) => {
         const nodeValue = node.props?.value;
         if ((node.type as Component)?.name === 'TSubmenu' || (node.type as Component)?.name === 'TMenuItem') {
-          vMenu.add({ value: nodeValue, parent: parentValue, vnode: (node.children as any).default });
+          vMenu.add({ value: nodeValue, parent: parentValue, vnode: (node.children as any).default, ...node.props });
         }
         if (isFunction((node.children as any)?.default)) {
           initVMenu((node.children as any).default(), nodeValue);
