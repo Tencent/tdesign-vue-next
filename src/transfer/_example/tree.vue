@@ -3,6 +3,7 @@
     v-model="targetValue"
     v-model:checked="checkedRef"
     :data="items"
+    :keys="keys"
     @change="onChange"
     @checked-change="handleCheckedChange"
   >
@@ -14,30 +15,32 @@
 <script setup>
 import { ref } from 'vue';
 
+// support using keys to rename data attributes, keys should be defined in transfer
+const keys = { value: 'id', label: 'name' };
 const items = [
   {
-    value: '1',
-    label: '1',
+    id: '12',
+    name: '1',
     children: [
       {
-        value: '1.1',
-        label: '1.1',
+        id: '1.12',
+        name: '1.1',
       },
       {
-        value: '1.2',
-        label: '1.2',
+        id: '1.22',
+        name: '1.2',
         children: [
           {
-            value: '1.2.1',
-            label: '1.2.1',
+            id: '1.2.12',
+            name: '1.2.1',
             children: [
               {
-                value: '1.2.1.1',
-                label: '1.2.1.1',
+                id: '1.2.1.1',
+                name: '1.2.1.1',
               },
               {
-                value: '1.2.1.2',
-                label: '1.2.1.2',
+                id: '1.2.1.2',
+                name: '1.2.1.2',
               },
             ],
           },
@@ -46,22 +49,22 @@ const items = [
     ],
   },
   {
-    value: '2',
-    label: '2',
+    id: '2',
+    name: '2',
     children: [
       {
-        value: '2.1',
-        label: '2.1',
+        id: '2.1',
+        name: '2.1',
       },
       {
-        value: '2.2',
-        label: '2.2',
+        id: '2.2',
+        name: '2.2',
       },
     ],
   },
   {
-    value: '3',
-    label: '3',
+    id: '3',
+    name: '3',
     children: [],
   },
 ];
