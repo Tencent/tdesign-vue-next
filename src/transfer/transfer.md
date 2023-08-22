@@ -7,7 +7,6 @@
 -- | -- | -- | -- | --
 checkboxProps | Object | - | 用于控制复选框属性。TS 类型：`CheckboxProps`，[Checkbox API Documents](./checkbox?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/transfer/type.ts) | N
 checked | Array | [] | 数据列表选中项。支持语法糖 `v-model:checked`。TS 类型：`Array<TransferValue>` | N
-defaultChecked | Array | [] | 数据列表选中项。非受控属性。TS 类型：`Array<TransferValue>` | N
 data | Array | [] | 全量数据。TS 类型：`Array<T>` | N
 direction | String | both | 穿梭框可操作方向。可选项：left/right/both | N
 disabled | Boolean / Array | - | 禁用全部操作：搜索、选中、移动、分页等。[源列表, 目标列表]，示例：[true, false] 或者 true。TS 类型：`boolean \| Array<boolean>` | N

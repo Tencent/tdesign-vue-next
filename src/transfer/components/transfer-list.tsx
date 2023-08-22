@@ -1,4 +1,4 @@
-import { defineComponent, VNode, PropType, ref, computed, watch } from 'vue';
+import { defineComponent, VNode, PropType, ref, computed, watch, toRefs } from 'vue';
 import {
   EmptyType,
   SearchEvent,
@@ -10,12 +10,13 @@ import {
 } from '../interface';
 import { PageInfo, TdPaginationProps, Pagination } from '../../pagination';
 import { Checkbox as TCheckbox, CheckboxGroup as TCheckboxGroup, CheckboxProps } from '../../checkbox';
-import { getLefCount, getDataValues } from '../utils';
+import { getLefCount, getDataValues, TARGET } from '../utils';
 import Search from './transfer-search';
 import { useTNodeDefault } from '../../hooks/tnode';
 
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 import isString from 'lodash/isString';
+import useDragSort from '../hooks/useDragSort';
 
 const props = {
   checkboxProps: {
@@ -64,6 +65,11 @@ const props = {
   onPageChange: Function,
   onScroll: Function,
   onSearch: Function,
+  onDataChange: Function as PropType<(data: Array<TransferValue>, movedValue: Array<TransferValue>) => void>,
+  draggable: Boolean,
+  currentValue: {
+    type: Array as PropType<Array<TransferValue>>,
+  },
 };
 
 export default defineComponent({
@@ -71,6 +77,7 @@ export default defineComponent({
   props: { ...props },
   setup(props) {
     const classPrefix = usePrefixClass();
+    const { currentValue } = toRefs(props);
     const { t, globalConfig } = useConfig('transfer');
     // 搜索框输入内容
     const filterValue = ref('');
@@ -124,7 +131,11 @@ export default defineComponent({
           }
         : {};
     });
-
+    const { onDragStart, onDragEnd, onDrop, onDragOver, onDragLeave } = useDragSort(
+      currentValue,
+      curPageData,
+      props.onDataChange,
+    );
     const isAllChecked = computed(() => {
       const allValue = getDataValues(props.dataSource, [], { isTreeMode: props.isTreeMode, include: false });
 
@@ -171,7 +182,7 @@ export default defineComponent({
         handleCheckedChange([]);
       }
     };
-    const scroll = (e: Event) => {
+    const handleScroll = (e: Event) => {
       props.onScroll?.(e);
     };
     const handleSearch = (e: any) => {
@@ -196,30 +207,68 @@ export default defineComponent({
       return <span>{titleNode}</span>;
     };
     const renderContent = () => {
-      const defaultNode = (
-        <TCheckboxGroup value={props.checkedValue} onChange={handleCheckedChange}>
-          {curPageData.value.map((item, index) => (
-            <TCheckbox
-              disabled={props.disabled || item.disabled}
-              value={item.value}
-              needRipple={true}
-              class={[
-                `${classPrefix.value}-transfer__list-item`,
-                props.checkedValue.includes(item.value) ? `${classPrefix.value}-is-checked` : '',
-              ]}
-              key={item.key}
-              {...props.checkboxProps}
-            >
-              {renderTNodeJSX('transferItem', {
-                defaultNode: <span>{item.label}</span>,
-                params: { data: item.data, index, type: props.listType },
-              })}
-            </TCheckbox>
-          ))}
-        </TCheckboxGroup>
-      );
+      const isDraggable = props.draggable && props.listType === TARGET;
+      let defaultNode: JSX.Element = null;
+      if (!isDraggable) {
+        defaultNode = (
+          <TCheckboxGroup value={props.checkedValue} onChange={handleCheckedChange}>
+            {curPageData.value.map((item, index) => (
+              <TCheckbox
+                disabled={props.disabled || item.disabled}
+                value={item.value}
+                needRipple={true}
+                class={[
+                  `${classPrefix.value}-transfer__list-item`,
+                  props.checkedValue.includes(item.value) ? `${classPrefix.value}-is-checked` : '',
+                ]}
+                key={item.key}
+                {...props.checkboxProps}
+              >
+                {renderTNodeJSX('transferItem', {
+                  defaultNode: <span>{item.label}</span>,
+                  params: { data: item.data, index, type: props.listType },
+                })}
+              </TCheckbox>
+            ))}
+          </TCheckboxGroup>
+        );
+      } else {
+        defaultNode = (
+          <TCheckboxGroup value={props.checkedValue} onChange={handleCheckedChange}>
+            {curPageData.value.map((item, index) => (
+              <div
+                draggable={isDraggable}
+                onDragend={onDragEnd}
+                onDragstart={onDragStart}
+                onDragover={onDragOver}
+                onDragleave={onDragLeave}
+                onDrop={onDrop}
+                data-index={index}
+              >
+                <TCheckbox
+                  disabled={props.disabled || item.disabled}
+                  value={item.value}
+                  needRipple={true}
+                  class={[
+                    `${classPrefix.value}-transfer__list-item`,
+                    props.checkedValue.includes(item.value) ? `${classPrefix.value}-is-checked` : '',
+                  ]}
+                  key={item.key}
+                  {...props.checkboxProps}
+                >
+                  {renderTNodeJSX('transferItem', {
+                    defaultNode: <span>{item.label}</span>,
+                    params: { data: item.data, index, type: props.listType },
+                  })}
+                </TCheckbox>
+              </div>
+            ))}
+          </TCheckboxGroup>
+        );
+      }
+
       return (
-        <div class={`${classPrefix.value}-transfer__list-content narrow-scrollbar`} onScroll={scroll}>
+        <div class={[`${classPrefix.value}-transfer__list-content`, 'narrow-scrollbar']} onScroll={handleScroll}>
           {renderTNodeJSX('tree', {
             defaultNode,
             params: {
@@ -258,7 +307,7 @@ export default defineComponent({
     };
 
     return () => (
-      <div class={`${classPrefix.value}-transfer__list ${classPrefix.value}-transfer__list-${props.listType}`}>
+      <div class={[`${classPrefix.value}-transfer__list`, `${classPrefix.value}-transfer__list-${props.listType}`]}>
         <div class={`${classPrefix.value}-transfer__list-header`}>
           <div>
             {props.checkAll && (
