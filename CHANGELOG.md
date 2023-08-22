@@ -4,6 +4,27 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 1.5.2 `2023-08-22` 
+### 🚀 Features
+- `Table`: 
+  - 支持使用名为 `ellipsis` 或者 `ellipsis-<colKey>` 的插槽自定义超出省略时的浮层内容，使用方法可参考示例代码 @chaishi ([#3259](https://github.com/Tencent/tdesign-vue-next/pull/3259))
+  - 树形结构，支持通过属性 `expandedTreeNodes.sync` 自由控制展开节点，非必传属性 @chaishi ([#3260](https://github.com/Tencent/tdesign-vue-next/pull/3260))
+  - 树形结构，新增组件实例方法 `removeChildren`，用于移除子节点 @chaishi ([#3260](https://github.com/Tencent/tdesign-vue-next/pull/3260))
+- `Switch`: `onchange` 参数添加 `context: { e: MouseEvent }` @liweijie0812 ([#3247](https://github.com/Tencent/tdesign-vue-next/pull/3247))
+- `Keys`: 全局 `keys api` 引用 `common.ts` 导出变量 @PengYYYYY ([#3243](https://github.com/Tencent/tdesign-vue-next/pull/3243))
+- `Transfer`: 支持 `targetDraggable`，可对目标列表进行排序，具体使用方式见示例代码 @uyarn ([#3267](https://github.com/Tencent/tdesign-vue-next/pull/3267))
+### 🐞 Bug Fixes
+- `Menu`: 
+  - 修复普通双层菜单模式路由跳转功能失效的问题([issue #3261](https://github.com/Tencent/tdesign-vue-next/issues/3261)) @uyarn ([#3263](https://github.com/Tencent/tdesign-vue-next/pull/3263))
+  - 修复普通双层菜单 `click` 事件丢失的问题([issue #3256](https://github.com/Tencent/tdesign-vue-next/issues/3256)) @uyarn ([#3263](https://github.com/Tencent/tdesign-vue-next/pull/3263))
+- `Table`: 
+  - 树形结构，修复组件实例方法 展开全部 `expandAll` 问题 @chaishi ([#3260](https://github.com/Tencent/tdesign-vue-next/pull/3260))
+  - 点击行展开/点击行选中，修复 `expandOnRowClick`和 `selectOnRowClick` 无法独立控制行点击执行交互问题 [issue#3254](https://github.com/Tencent/tdesign-vue-next/issues/3254) @chaishi ([#3260](https://github.com/Tencent/tdesign-vue-next/pull/3260))
+- `Upload`: 修复`Upload`组件`showUploadProgress`属性不生效([issue #3239](https://github.com/Tencent/tdesign-vue-next/issues/3239)) @imp2002 ([#3245](https://github.com/Tencent/tdesign-vue-next/pull/3245))
+- `Switch`:  调整 `disabled` 禁用优先级，`Switch.disabled > Form.disabled` @liweijie0812 ([#3247](https://github.com/Tencent/tdesign-vue-next/pull/3247))
+- `Link`: 调整 `disabled` 禁用优先级，`Link.disabled > Form.disabled` @liweijie0812 ([#3252](https://github.com/Tencent/tdesign-vue-next/pull/3252))
+### 🚧 Others
+- `Transfer`: 树形示例增加 `keys` 配置，方便了解使用方式 @uyarn ([#3267](https://github.com/Tencent/tdesign-vue-next/pull/3267))
 ## 🌈 1.5.1 `2023-08-15`
 
 ### ❗ Breaking Changes

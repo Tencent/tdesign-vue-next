@@ -264,14 +264,22 @@ export default defineComponent({
       }
     };
 
+    const onSingleRowClick: TdPrimaryTableProps['onRowClick'] = (params) => {
+      if (props.expandOnRowClick) {
+        onInnerExpandRowClick(params);
+      }
+      if (props.selectOnRowClick) {
+        onInnerSelectRowClick(params);
+      }
+    };
+
     // handle click and dblclick exits at the same time
     let timer: any;
     const DURATION = 250;
     const onInnerRowClick: TdPrimaryTableProps['onRowClick'] = (params) => {
       // no dbl click conflict, no delay
       if (!props.onRowDblclick) {
-        onInnerExpandRowClick(params);
-        onInnerSelectRowClick(params);
+        onSingleRowClick(params);
         return;
       }
       if (timer) {
@@ -280,8 +288,7 @@ export default defineComponent({
         timer = undefined;
       } else {
         timer = setTimeout(() => {
-          onInnerExpandRowClick(params);
-          onInnerSelectRowClick(params);
+          onSingleRowClick(params);
           timer = undefined;
         }, DURATION);
       }

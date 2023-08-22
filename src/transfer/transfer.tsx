@@ -4,7 +4,15 @@ import TransferList from './components/transfer-list';
 import TransferOperations from './components/transfer-operations';
 import { TransferListType, CheckedOptions, TransferValue, EmptyType, TargetParams, SearchEvent } from './interface';
 
-import { getTransferListOption, getDataValues, getTransferData, filterTransferData, TRANSFER_NAME } from './utils';
+import {
+  getTransferListOption,
+  getDataValues,
+  getTransferData,
+  filterTransferData,
+  TRANSFER_NAME,
+  SOURCE,
+  TARGET,
+} from './utils';
 import { PageInfo, TdPaginationProps } from '../pagination/type';
 import props from './props';
 import { TNode } from '../common';
@@ -15,9 +23,6 @@ import useDefaultValue from '../hooks/useDefaultValue';
 import { useFormDisabled } from '../form/hooks';
 import { usePrefixClass } from '../hooks/useConfig';
 import isFunction from 'lodash/isFunction';
-
-const SOURCE = 'source';
-const TARGET = 'target';
 
 export default defineComponent({
   name: TRANSFER_NAME,
@@ -158,6 +163,13 @@ export default defineComponent({
     const handlePageChange = (pageInfo: PageInfo, listType: TransferListType) => {
       props.onPageChange?.(pageInfo, { type: listType });
     };
+
+    const handleDataChange = (data: Array<TransferValue>, movedValue: Array<TransferValue>) => {
+      setInnerValue(data, {
+        type: TARGET,
+        movedValue,
+      });
+    };
     const renderTransferList = (listType: TransferListType) => {
       const scopedSlots = pick(slots, ['title', 'empty', 'footer', 'operation', 'transferItem', 'default', 'tree']);
       return (
@@ -179,6 +191,9 @@ export default defineComponent({
           onSearch={handleSearch}
           onPageChange={($event: any) => handlePageChange($event, listType)}
           isTreeMode={isTreeMode.value}
+          onDataChange={handleDataChange}
+          currentValue={valueList.value}
+          draggable={props.targetDraggable && listType === TARGET}
         >
           {scopedSlots}
         </TransferList>
