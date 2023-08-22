@@ -16,11 +16,13 @@
       </t-checkbox>
     </div>
     <br />
-    <!-- 第一列展开树结点，缩进为 24px，子节点字段 childrenKey 默认为 children -->
     <!-- !!! 树形结构 EnhancedTable 才支持，普通 Table 不支持 !!! -->
-    <!-- Ref: table.value.dataSource 查看树形结构平铺数据，获取属性结构使用 table.value.getTreeNode() -->
+    <!-- 第一列展开树结点，缩进为 24px，子节点字段 childrenKey 默认为 children -->
+    <!-- v-model:displayColumns="displayColumns" used to control displayed columns -->
+    <!-- v-model:expandedTreeNodes is not required. you can control expanded tree node by expandedTreeNodes -->
     <t-enhanced-table
-      ref="table"
+      ref="tableRef"
+      v-model:expandedTreeNodes="expandedTreeNodes"
       row-key="key"
       drag-sort="row-handler"
       :data="data"
@@ -38,14 +40,15 @@
       @page-change="onPageChange"
       @abnormal-drag-sort="onAbnormalDragSort"
       @drag-sort="onDragSort"
-      @tree-expand-change="onTreeExpandChange"
+      @expanded-tree-nodes-change="onExpandedTreeNodesChange"
     ></t-enhanced-table>
+    <!-- @tree-expand-change="onTreeExpandChange" -->
 
     <!-- 第二列展开树结点，缩进为 12px，示例代码有效，勿删 -->
     <!-- indent 定义缩进距离 -->
     <!-- 如果子结点字段不是 'children'，可以使用 childrenKey 定义字段别名，如 `:tree="{ childrenKey: 'list' }"` -->
     <!-- <t-enhanced-table
-      ref="table"
+      ref="tableRef"
       rowKey="key"
       :pagination="defaultPagination"
       :data="data"
@@ -130,20 +133,24 @@ function getData(currentPage = 1) {
   return data;
 }
 
-const table = ref(null);
+const tableRef = ref(null);
 const data = ref(getData());
 const lazyLoadingData = ref(null);
 
+// 非必须，如果不传，表格有内置树形节点展开逻辑
+const expandedTreeNodes = ref([]);
+
 const treeConfig = reactive({ childrenKey: 'list', treeNodeColumnIndex: 2, indent: 25 });
 
+// 重置数据和展开节点
 const resetData = () => {
-  // 需要更新数据地址空间
   const newData = getData();
-  // 直接赋值，仅在 keys 发生变化时会重置；无论什么情况都希望更新数据，请使用 table.value.resetData(newData)
-  // data.value = newData;
-  table.value.resetData(newData);
+  // 方式一
+  data.value = newData;
+  expandedTreeNodes.value = [];
 
-  console.log(table.value);
+  // 方式二
+  // tableRef.value.resetData(newData);
 };
 
 const onEditClick = (row) => {
@@ -153,17 +160,21 @@ const onEditClick = (row) => {
     type: 'Symbol',
     default: 'undefined',
   };
-  table.value.setData(row.key, newData);
+  tableRef.value.setData(row.key, newData);
   MessagePlugin.success('数据已更新');
 };
 
 const onDeleteConfirm = (row) => {
-  table.value.remove(row.key);
+  // 移除当前节点及其所有子节点
+  tableRef.value.remove(row.key);
+
+  // 仅移除所有子节点
+  // tableRef.value.removeChildren(row.key);
   MessagePlugin.success('删除成功');
 };
 
 const onLookUp = (row) => {
-  const allRowData = table.value.getData(row.key);
+  const allRowData = tableRef.value.getData(row.key);
   const message = '当前行全部数据，包含节点路径、父节点、子节点、是否展开、是否禁用等';
   MessagePlugin.success(`打开控制台查看${message}`);
   console.log(`${message}：`, allRowData);
@@ -171,7 +182,7 @@ const onLookUp = (row) => {
 
 const appendTo = (row) => {
   const randomKey1 = Math.round(Math.random() * Math.random() * 1000) + 10000;
-  table.value.appendTo(row.key, {
+  tableRef.value.appendTo(row.key, {
     id: randomKey1,
     key: `申请人 ${randomKey1} 号`,
     platform: '电子签署',
@@ -187,7 +198,7 @@ function appendMultipleDataTo(row) {
   const randomKey1 = Math.round(Math.random() * Math.random() * 1000) + 10000;
   const randomKey2 = Math.round(Math.random() * Math.random() * 1000) + 10000;
   const randomKey3 = Math.round(Math.random() * Math.random() * 1000) + 10000;
-  const newData = [
+  const appendList = [
     {
       id: randomKey1,
       key: `申请人 ${randomKey1} 号`,
@@ -199,7 +210,6 @@ function appendMultipleDataTo(row) {
       key: `申请人 ${randomKey2} 号`,
       platform: '纸质签署',
       type: 'Number',
-      list: true,
     },
     {
       id: randomKey3,
@@ -209,14 +219,14 @@ function appendMultipleDataTo(row) {
       list: true,
     },
   ];
-  table.value.appendTo(row?.key, newData);
+  tableRef.value.appendTo(row?.key, appendList);
   MessagePlugin.success(`已插入子节点申请人 ${randomKey1} 和 ${randomKey2} 号，请展开查看`);
 }
 
 // 当前节点之前，新增兄弟节前
 const insertBefore = (row) => {
   const randomKey = Math.round(Math.random() * Math.random() * 1000) + 10000;
-  table.value.insertBefore(row.key, {
+  tableRef.value.insertBefore(row.key, {
     id: randomKey,
     key: `申请人 ${randomKey} 号`,
     platform: '纸质签署',
@@ -228,7 +238,7 @@ const insertBefore = (row) => {
 // 当前节点之后，新增兄弟节前
 const insertAfter = (row) => {
   const randomKey = Math.round(Math.random() * Math.random() * 1000) + 10000;
-  table.value.insertAfter(row.key, {
+  tableRef.value.insertAfter(row.key, {
     id: randomKey,
     key: `申请人 ${randomKey} 号`,
     platform: '纸质签署',
@@ -319,17 +329,17 @@ const onRowToggle = () => {
   const rowIds = ['申请人 1_1 号', '申请人 2_1 号', '申请人 3_1 号', '申请人 4_1 号'];
   rowIds.forEach((id) => {
     // getData 参数为行唯一标识，lodash.get(row, rowKey)
-    const rowData = table.value.getData(id);
-    table.value.toggleExpandData(rowData);
+    const rowData = tableRef.value.getData(id);
+    tableRef.value.toggleExpandData(rowData);
     // 或者
-    // table.value.toggleExpandData({ rowIndex: rowData.rowIndex, row: rowData.row });
+    // tableRef.value.toggleExpandData({ rowIndex: rowData.rowIndex, row: rowData.row });
   });
 };
 
 const customTreeExpandAndFoldIcon = ref(false);
 
 const treeExpandAndFoldIconRender = (h, { type, row }) => {
-  if (lazyLoadingData.value && lazyLoadingData.value.id === row?.id) {
+  if (lazyLoadingData.value && lazyLoadingData.value.key === row?.key) {
     return <Loading size="14px" />;
   }
   return type === 'expand' ? <ChevronRightIcon /> : <ChevronDownIcon />;
@@ -338,7 +348,7 @@ const treeExpandAndFoldIconRender = (h, { type, row }) => {
 // 懒加载图标渲染
 const lazyLoadingTreeIconRender = (h, params) => {
   const { type, row } = params;
-  if (lazyLoadingData.value && lazyLoadingData.value.id === row?.id) {
+  if (lazyLoadingData.value && lazyLoadingData.value.key === row?.key) {
     return <Loading size="14px" />;
   }
   return type === 'expand' ? <AddRectangleIcon /> : <MinusRectangleIcon />;
@@ -346,18 +356,20 @@ const lazyLoadingTreeIconRender = (h, params) => {
 
 // 默认展开全部。示例代码有效，勿删
 // onMounted(() => {
-//   table.value.expandAll();
+//   tableRef.value.expandAll();
 // });
 
 const getTreeNode = () => {
-  const treeData = table.value.getTreeNode();
+  // 查看树形结构平铺数据
+  // tableRef.value.dataSource
+  const treeData = tableRef.value.getTreeNode();
   console.log(treeData);
   MessagePlugin.success('树形结构获取成功，请打开控制台查看');
 };
 
 const onExpandAllToggle = () => {
   expandAll.value = !expandAll.value;
-  expandAll.value ? table.value.expandAll() : table.value.foldAll();
+  expandAll.value ? tableRef.value.expandAll() : tableRef.value.foldAll();
 };
 
 const appendToRoot = () => {
@@ -375,7 +387,7 @@ const appendToRoot = () => {
     description: '数据源',
   };
   // data.value.push(newData);
-  table.value.appendTo('', newData);
+  tableRef.value.appendTo('', newData);
 
   // 同时添加多个元素，示例代码有效勿删
   // appendMultipleDataTo();
@@ -387,6 +399,13 @@ const onAbnormalDragSort = (params) => {
   if (params.code === 1001) {
     MessagePlugin.warning('不同层级的元素，不允许调整顺序');
   }
+};
+
+const onExpandedTreeNodesChange = (expandedTreeNodes, context) => {
+  console.log(expandedTreeNodes, context);
+  // 全选不需要处理；仅处理懒加载
+  if (!context.rowState) return;
+  onTreeExpandChange(context);
 };
 
 const onTreeExpandChange = (context) => {

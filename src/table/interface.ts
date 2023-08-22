@@ -72,3 +72,5 @@ export interface FixedColumnInfo {
 
 // 固定表头和固定列 具体的固定位置（left/top/right/bottom）
 export type RowAndColFixedPosition = Map<string | number, FixedColumnInfo>;
+
+export type TableTreeExpandType = 'expand-all' | 'fold-all' | 'user-reaction-change' | 'props-change';

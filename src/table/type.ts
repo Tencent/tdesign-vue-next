@@ -658,6 +658,16 @@ export interface TdEnhancedTableProps<T extends TableRowData = TableRowData> ext
    */
   beforeDragSort?: (context: DragSortContext<T>) => boolean;
   /**
+   * 展开的树形节点。非必须。在需要自由控制展开的树形节点时使用。其他场景无需设置，表格组件有内置展开逻辑
+   * @default []
+   */
+  expandedTreeNodes?: Array<string | number>;
+  /**
+   * 展开的树形节点。非必须。在需要自由控制展开的树形节点时使用。其他场景无需设置，表格组件有内置展开逻辑，非受控属性
+   * @default []
+   */
+  defaultExpandedTreeNodes?: Array<string | number>;
+  /**
    * 树形结构相关配置。具体属性文档查看 `TableTreeConfig` 相关描述
    */
   tree?: TableTreeConfig;
@@ -670,7 +680,15 @@ export interface TdEnhancedTableProps<T extends TableRowData = TableRowData> ext
    */
   onAbnormalDragSort?: (context: TableAbnormalDragSortContext<T>) => void;
   /**
-   * 树形结构，用户操作引起节点展开或收起时触发，代码操作不会触发
+   * 树形结构，展开的树节点发生变化时触发，泛型 T 指表格数据类型
+   */
+  onExpandedTreeNodesChange?: (
+    expandedTreeNodes: Array<string | number>,
+    options: TableTreeNodeExpandOptions<T>,
+  ) => void;
+  /**
+   * 树形结构，用户操作引起节点展开或收起时触发。请更为使用 `onExpandedTreeNodesChange`
+   * @deprecated
    */
   onTreeExpandChange?: (context: TableTreeExpandChangeContext<T>) => void;
 }
@@ -713,6 +731,10 @@ export interface EnhancedTableInstanceFunctions<T extends TableRowData = TableRo
    * 树形结构中，移除指定节点
    */
   remove: (key: TableRowValue) => void;
+  /**
+   * 树形结构中，移除指定节点的所有子节点
+   */
+  removeChildren: (key: TableRowValue) => void;
   /**
    * 重置或更新整个表格数据
    */
@@ -1128,6 +1150,14 @@ export type SorterFun<T> = (a: T, b: T) => number;
 export interface TableAbnormalDragSortContext<T> {
   code: number;
   reason: string;
+}
+
+export interface TableTreeNodeExpandOptions<T> {
+  row: T;
+  rowIndex: number;
+  rowState: TableRowState<T>;
+  type: 'fold' | 'expand';
+  trigger?: 'expand-fold-icon' | 'row-click' | 'default-expand-all' | 'expand-all' | 'fold-all';
 }
 
 export interface TableTreeExpandChangeContext<T> {

@@ -212,18 +212,22 @@ type | String | single | `colKey` 值为 `row-select` 时表示行选中列，�
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
 beforeDragSort | Function | - | 树形结构中，拖拽排序前控制，返回值为 `true` 则继续排序；返回值为 `false` 则中止排序还原数据。TS 类型：`(context: DragSortContext<T>) => boolean` | N
+expandedTreeNodes | Array | [] | 展开的树形节点。非必须。在需要自由控制展开的树形节点时使用。其他场景无需设置，表格组件有内置展开逻辑。支持语法糖 `v-model:expandedTreeNodes`。TS 类型：`Array<string \| number>` | N
+defaultExpandedTreeNodes | Array | [] | 展开的树形节点。非必须。在需要自由控制展开的树形节点时使用。其他场景无需设置，表格组件有内置展开逻辑。非受控属性。TS 类型：`Array<string \| number>` | N
 tree | Object | - | 树形结构相关配置。具体属性文档查看 `TableTreeConfig` 相关描述。TS 类型：`TableTreeConfig` | N
 treeExpandAndFoldIcon | Function | - | 自定义树形结构展开图标，支持全局配置 `GlobalConfigProvider`。TS 类型：`TNode<{ type: 'expand' \| 'fold' }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 `PrimaryTableProps<T>` | \- | - | 继承 `PrimaryTableProps<T>` 中的全部属性 | N
 onAbnormalDragSort | Function |  | TS 类型：`(context: TableAbnormalDragSortContext<T>) => void`<br/>异常拖拽排序时触发，如：树形结构中，非同层级之间的交换。`context.code` 指交换异常错误码，固定值；`context.reason` 指交换异常的原因。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface TableAbnormalDragSortContext<T> { code: number; reason: string }`<br/> | N
-onTreeExpandChange | Function |  | TS 类型：`(context: TableTreeExpandChangeContext<T>) => void`<br/>树形结构，用户操作引起节点展开或收起时触发，代码操作不会触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface TableTreeExpandChangeContext<T> { row: T; rowIndex: number; rowState: TableRowState<T>; trigger?: 'expand-fold-icon' \| 'row-click' }`<br/> | N
+onExpandedTreeNodesChange | Function |  | TS 类型：`(expandedTreeNodes: Array<string \| number>, options: TableTreeNodeExpandOptions <T>) => void`<br/>树形结构，展开的树节点发生变化时触发，泛型 T 指表格数据类型。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface TableTreeNodeExpandOptions<T> { row: T; rowIndex: number; rowState: TableRowState<T>; type: 'fold' \| 'expand'; trigger?: 'expand-fold-icon' \| 'row-click' \| 'default-expand-all' \| 'expand-all' \| 'fold-all' }`<br/> | N
+onTreeExpandChange | Function |  | TS 类型：`(context: TableTreeExpandChangeContext<T>) => void`<br/>已废弃。树形结构，用户操作引起节点展开或收起时触发。请更为使用 `onExpandedTreeNodesChange`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface TableTreeExpandChangeContext<T> { row: T; rowIndex: number; rowState: TableRowState<T>; trigger?: 'expand-fold-icon' \| 'row-click' }`<br/> | N
 
 ### EnhancedTable Events
 
 名称 | 参数 | 描述
 -- | -- | --
 abnormal-drag-sort | `(context: TableAbnormalDragSortContext<T>)` | 异常拖拽排序时触发，如：树形结构中，非同层级之间的交换。`context.code` 指交换异常错误码，固定值；`context.reason` 指交换异常的原因。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface TableAbnormalDragSortContext<T> { code: number; reason: string }`<br/>
-tree-expand-change | `(context: TableTreeExpandChangeContext<T>)` | 树形结构，用户操作引起节点展开或收起时触发，代码操作不会触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface TableTreeExpandChangeContext<T> { row: T; rowIndex: number; rowState: TableRowState<T>; trigger?: 'expand-fold-icon' \| 'row-click' }`<br/>
+expanded-tree-nodes-change | `(expandedTreeNodes: Array<string \| number>, options: TableTreeNodeExpandOptions <T>)` | 树形结构，展开的树节点发生变化时触发，泛型 T 指表格数据类型。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface TableTreeNodeExpandOptions<T> { row: T; rowIndex: number; rowState: TableRowState<T>; type: 'fold' \| 'expand'; trigger?: 'expand-fold-icon' \| 'row-click' \| 'default-expand-all' \| 'expand-all' \| 'fold-all' }`<br/>
+tree-expand-change | `(context: TableTreeExpandChangeContext<T>)` | 已废弃。树形结构，用户操作引起节点展开或收起时触发。请更为使用 `onExpandedTreeNodesChange`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface TableTreeExpandChangeContext<T> { row: T; rowIndex: number; rowState: TableRowState<T>; trigger?: 'expand-fold-icon' \| 'row-click' }`<br/>
 
 ### EnhancedTableInstanceFunctions 组件实例方法
 
@@ -238,6 +242,7 @@ getTreeNode | \- | `T[]` | 必需。树形结构中，获取完整的树形结�
 insertAfter | `(key: TableRowValue, newData: T)` | \- | 必需。树形结构中，在当前节点之后添加子节点
 insertBefore | `(key: TableRowValue, newData: T)` | \- | 必需。树形结构中，在当前节点之前添加子节点
 remove | `(key: TableRowValue)` | \- | 必需。树形结构中，移除指定节点
+removeChildren | `(key: TableRowValue)` | \- | 必需。树形结构中，移除指定节点的所有子节点
 resetData | `(newData: T[])` | \- | 必需。重置或更新整个表格数据
 setData | `(key: TableRowValue, newRowData: T)` | \- | 必需。树形结构中，用于更新行数据。泛型 `T` 表示行数据类型
 swapData | `(params: SwapParams<T>)` | \- | 必需。树形结构中，交换两个节点的顺序。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface SwapParams<T> { current: T; target: T; currentIndex: number; targetIndex: number }`<br/>
