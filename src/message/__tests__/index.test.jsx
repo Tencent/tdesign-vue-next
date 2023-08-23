@@ -48,6 +48,14 @@ describe('Message', () => {
       expect(fn).toBeCalled();
     });
 
+    it(':onClose', async () => {
+      const onClose = vi.fn();
+      const wrapper = mount(() => <Message content={text} closeBtn onClose={onClose} />);
+      const closeBtn = wrapper.findComponent(CloseIcon);
+      await closeBtn.trigger('click');
+      expect(onClose).toBeCalled();
+    });
+
     it(':onDurationEnd', () => {
       vi.useFakeTimers();
       const onDurationEnd = vi.fn();
