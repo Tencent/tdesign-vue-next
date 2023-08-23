@@ -16,7 +16,7 @@ format | Function | - | Typescript：`InputFormatType` `type InputFormatType = (
 inputClass | String / Object / Array | - | Typescript：`ClassName`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 label | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 maxcharacter | Number | - | \- | N
-maxlength | Number | - | \- | N
+maxlength | Number / String | - | \- | N
 name | String | - | \- | N
 placeholder | String | undefined | \- | N
 prefixIcon | Slot / Function | - | Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
