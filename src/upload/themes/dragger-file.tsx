@@ -69,12 +69,10 @@ export default defineComponent({
       const url = file?.url || file?.response?.url;
       return (
         <div class={`${uploadPrefix}__dragger-img-wrap`}>
-          {url && (
-            <ImageViewer
-              images={[url]}
-              trigger={(h, { open }: any) => <Image src={url || file.raw} onClick={open} error="" />}
-            ></ImageViewer>
-          )}
+          <ImageViewer
+            images={[url]}
+            trigger={(h, { open }: any) => <Image src={url || file.raw} onClick={open} error="" />}
+          ></ImageViewer>
         </div>
       );
     };
