@@ -161,6 +161,7 @@ exports[`Button Component > props.href works fine 1`] = `
 exports[`Button Component > props.loading works fine 1`] = `
 <button
   class="t-button t-button--variant-base t-button--theme-primary t-is-loading"
+  disabled=""
   href=""
   tabindex="0"
   type="button"
@@ -222,6 +223,7 @@ exports[`Button Component > props.loading works fine 2`] = `
 exports[`Button Component > props.loading: Button contains element \`.t-loading\` 1`] = `
 <button
   class="t-button t-button--variant-base t-button--theme-primary t-is-loading"
+  disabled=""
   href=""
   tabindex="0"
   type="button"

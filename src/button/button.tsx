@@ -66,7 +66,7 @@ export default defineComponent({
       const buttonAttrs = {
         class: [...buttonClass.value, { [`${COMPONENT_NAME.value}--icon-only`]: iconOnly }],
         type: props.type,
-        disabled: isDisabled.value,
+        disabled: isDisabled.value || props.loading,
         href: props.href,
         tabindex: isDisabled.value ? undefined : '0',
       };
