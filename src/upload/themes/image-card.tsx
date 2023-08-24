@@ -157,7 +157,7 @@ export default defineComponent({
               );
             })}
 
-            {showTrigger.value && (
+            {showTrigger.value && !props.disabled && (
               <li class={cardItemClasses} onClick={props.triggerUpload}>
                 <div
                   class={[
