@@ -11,7 +11,7 @@ autosize | Boolean / Object | false | 高度自动撑开。 autosize = true 表�
 disabled | Boolean | false | 是否禁用文本框 | N
 label | String / Slot / Function | - | 左侧文本。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 maxcharacter | Number | - | 用户最多可以输入的字符个数，一个中文汉字表示两个字符长度 | N
-maxlength | Number | - | 用户最多可以输入的字符个数 | N
+maxlength | Number / String | - | 用户最多可以输入的字符个数 | N
 name | String | - | 名称，HTML 元素原生属性 | N
 placeholder | String | undefined | 占位符 | N
 readonly | Boolean | false | 只读状态 | N

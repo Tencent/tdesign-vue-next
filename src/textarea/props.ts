@@ -23,7 +23,7 @@ export default {
   },
   /** 用户最多可以输入的字符个数 */
   maxlength: {
-    type: Number,
+    type: [Number, String] as PropType<TdTextareaProps['maxlength']>,
   },
   /** 名称，HTML 元素原生属性 */
   name: {
