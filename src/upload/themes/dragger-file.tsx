@@ -71,7 +71,7 @@ export default defineComponent({
         <div class={`${uploadPrefix}__dragger-img-wrap`}>
           <ImageViewer
             images={[url]}
-            trigger={(h, { open }: any) => <Image src={url || file.raw} onClick={open} error="" />}
+            trigger={(h, { open }: any) => <Image src={url || file.raw} onClick={open} error="" loading="" />}
           ></ImageViewer>
         </div>
       );
