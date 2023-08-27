@@ -11,6 +11,7 @@ import swapDragArrayElement from '../../_common/js/utils/swapDragArrayElement';
 import { BaseTableColumns } from '../interface';
 import { getColumnDataByKey, getColumnIndexByKey } from '../utils';
 import { PaginationProps } from '../../pagination';
+import { SimplePageInfo } from '../interface';
 
 export default function useDragSort(props: TdPrimaryTableProps, context: SetupContext) {
   const { sortOnRowDraggable, dragSort, data, rowKey } = toRefs(props);
@@ -77,7 +78,7 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
   );
 
   // 本地分页的表格，index 不同，需加上分页计数
-  function getDataPageIndex(index: number, pagination: PaginationProps) {
+  function getDataPageIndex(index: number, pagination: SimplePageInfo) {
     const current = pagination.current ?? pagination.defaultCurrent;
     const pageSize = pagination.pageSize ?? pagination.defaultPageSize;
     // 开启本地分页的场景
@@ -112,9 +113,7 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
           targetIndex -= 1;
         }
         if (innerPagination.value) {
-          // @ts-ignore
           currentIndex = getDataPageIndex(currentIndex, innerPagination.value);
-          // @ts-ignore
           targetIndex = getDataPageIndex(targetIndex, innerPagination.value);
         }
         const params: DragSortContext<TableRowData> = {
