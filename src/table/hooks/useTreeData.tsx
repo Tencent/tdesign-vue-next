@@ -101,8 +101,10 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
   );
 
   function resetData(data: TableRowData[]) {
-    store.value.initialTreeStore(data, props.columns, rowDataKeys.value);
-    if (tExpandedTreeNode.value?.length) {
+    const { columns, expandedTreeNodes, defaultExpandedTreeNodes } = props;
+    store.value.initialTreeStore(data, columns, rowDataKeys.value);
+    const hasSettingExpandedTreeNodes = !!(expandedTreeNodes?.length || defaultExpandedTreeNodes?.length);
+    if (tExpandedTreeNode.value?.length && hasSettingExpandedTreeNodes) {
       updateExpandOnDataChange(data);
     } else {
       dataSource.value = [...data];

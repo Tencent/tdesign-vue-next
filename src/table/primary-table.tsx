@@ -1,4 +1,4 @@
-import { computed, defineComponent, toRefs, h, ref, onMounted, SetupContext } from 'vue';
+import { computed, defineComponent, toRefs, h, ref, onMounted } from 'vue';
 import get from 'lodash/get';
 import omit from 'lodash/omit';
 import baseTableProps from './base-table-props';
@@ -15,7 +15,7 @@ import useFilter from './hooks/useFilter';
 import useDragSort from './hooks/useDragSort';
 import useAsyncLoading from './hooks/useAsyncLoading';
 import EditableCell, { EditableCellProps } from './editable-cell';
-import { PageInfo, PaginationProps } from '../pagination';
+import { PageInfo } from '../pagination';
 import useClassName from './hooks/useClassName';
 import useEditableRow from './hooks/useEditableRow';
 import useStyle from './hooks/useStyle';
