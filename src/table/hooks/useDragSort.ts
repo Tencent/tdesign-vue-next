@@ -10,7 +10,6 @@ import { hasClass } from '../../utils/dom';
 import swapDragArrayElement from '../../_common/js/utils/swapDragArrayElement';
 import { BaseTableColumns } from '../interface';
 import { getColumnDataByKey, getColumnIndexByKey } from '../utils';
-import { PaginationProps } from '../../pagination';
 import { SimplePageInfo } from '../interface';
 
 export default function useDragSort(props: TdPrimaryTableProps, context: SetupContext) {
