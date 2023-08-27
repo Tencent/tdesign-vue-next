@@ -111,14 +111,9 @@ export function valueChangeEffect(node: TreeNode, cascaderContext: CascaderConte
  * @param cascaderContext
  */
 export function closeIconClickEffect(cascaderContext: CascaderContextType) {
-  const { setVisible, multiple, setExpend, setValue } = cascaderContext;
+  const { setVisible, multiple, setValue } = cascaderContext;
 
   setVisible(false, {});
-
-  // 手动设置的展开需要去除
-  if (multiple) {
-    setExpend([]);
-  }
 
   setValue(multiple ? [] : '', 'clear');
 }
@@ -221,8 +216,6 @@ export const treeStoreExpendEffect = (
       });
       const expandedArr = Array.from(expandedMap.keys());
       treeStore.replaceExpanded(expandedArr);
-    } else {
-      treeStore.resetExpanded();
     }
   }
   // 本地维护 expend，更加可控，不需要依赖于 tree 的状态
