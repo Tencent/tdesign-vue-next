@@ -41,19 +41,22 @@ export default defineComponent({
 
     // render
     const getSlotPanels = () => {
-      let content = renderTNodeJSX('default');
+      const content = renderTNodeJSX('default');
       if (!content) return [];
-      content = content
-        .map((item: ComponentPublicInstance) => {
-          if (item.children && isArray(item.children)) return item.children;
-          return item;
-        })
-        .flat()
-        .filter((item: ComponentPublicInstance) => {
-          return item.type.name === 'TTabPanel';
-        });
 
-      return content;
+      const flatContent = (ct: any) => {
+        return ct
+          .map((item: ComponentPublicInstance) => {
+            if (item.children && isArray(item.children)) return flatContent(item.children);
+            return item;
+          })
+          .flat()
+          .filter((item: ComponentPublicInstance) => {
+            return item.type.name === 'TTabPanel';
+          });
+      };
+
+      return flatContent(content);
     };
     const renderHeader = () => {
       const panels = (props.list?.length ? props.list : getSlotPanels()) || [];
