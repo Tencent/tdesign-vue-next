@@ -1,4 +1,4 @@
-import { computed, defineComponent, toRefs, h, ref, onMounted, SetupContext } from 'vue';
+import { computed, defineComponent, toRefs, h, ref, onMounted } from 'vue';
 import get from 'lodash/get';
 import omit from 'lodash/omit';
 import baseTableProps from './base-table-props';
@@ -57,7 +57,7 @@ export default defineComponent({
     ...primaryTableProps,
   },
 
-  setup(props: TdPrimaryTableProps, context: SetupContext) {
+  setup(props, context) {
     const renderTNode = useTNodeJSX();
     const { columns, columnController } = toRefs(props);
     const primaryTableRef = ref(null);
@@ -90,8 +90,14 @@ export default defineComponent({
     } = useFilter(props, context);
 
     // 拖拽排序功能
-    const { isRowHandlerDraggable, isRowDraggable, isColDraggable, setDragSortPrimaryTableRef, setDragSortColumns } =
-      useDragSort(props, context);
+    const {
+      isRowHandlerDraggable,
+      isRowDraggable,
+      isColDraggable,
+      innerPagination,
+      setDragSortPrimaryTableRef,
+      setDragSortColumns,
+    } = useDragSort(props, context);
 
     const { renderTitleWidthIcon } = useTableHeader(props);
     const { renderAsyncLoading } = useAsyncLoading(props);
@@ -247,6 +253,7 @@ export default defineComponent({
     });
 
     const onInnerPageChange = (pageInfo: PageInfo, newData: Array<TableRowData>) => {
+      innerPagination.value = { ...innerPagination.value, ...pageInfo };
       currentPaginateData.value = newData;
       props.onPageChange?.(pageInfo, newData);
       const changeParams: Parameters<TdPrimaryTableProps['onChange']> = [

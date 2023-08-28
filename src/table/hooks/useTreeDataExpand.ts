@@ -16,6 +16,7 @@ export function useTreeDataExpand(
   const { data, expandedTreeNodes, tree } = toRefs(props);
 
   const isDefaultExpandAllExecute = ref(false);
+  const isDefaultExpandedTreeNodesExecute = ref(false);
   const [tExpandedTreeNode, setTExpandedTreeNode] = useDefaultValue(
     expandedTreeNodes,
     props.defaultExpandedTreeNodes,
@@ -132,6 +133,7 @@ export function useTreeDataExpand(
 
   return {
     tExpandedTreeNode,
+    isDefaultExpandedTreeNodesExecute,
     expandAll,
     foldAll,
     onExpandFoldIconClick,

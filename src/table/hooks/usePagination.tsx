@@ -43,6 +43,9 @@ export default function usePagination(props: TdBaseTableProps, context: SetupCon
     [data],
     () => {
       if (!pagination.value || !pagination.value.defaultCurrent) return;
+      const isControlled = Boolean(pagination.value.current);
+      // 存在受控属性时，立即返回不再执行后续内容
+      if (isControlled) return;
       updateDataSourceAndPaginate(
         innerPagination.value.current ?? pagination.value.defaultCurrent,
         innerPagination.value.pageSize ?? pagination.value.defaultPageSize,
