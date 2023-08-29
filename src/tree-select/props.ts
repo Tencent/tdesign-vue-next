@@ -105,6 +105,14 @@ export default {
       return ['small', 'medium', 'large'].includes(val);
     },
   },
+  /** 后置图标前的后置内容 */
+  suffix: {
+    type: [String, Function] as PropType<TdTreeSelectProps['suffix']>,
+  },
+  /** 组件后置图标 */
+  suffixIcon: {
+    type: Function as PropType<TdTreeSelectProps['suffixIcon']>,
+  },
   /** 【开发中】透传 Tag 标签组件全部属性 */
   tagProps: {
     type: Object as PropType<TdTreeSelectProps['tagProps']>,

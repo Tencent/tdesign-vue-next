@@ -409,7 +409,14 @@ export default defineComponent({
           ...(props.tagProps as TdTreeSelectProps['tagProps']),
         }}
         label={() => renderTNodeJSX('prefixIcon')}
-        suffixIcon={() => renderSuffixIcon()}
+        suffix={props.suffix}
+        suffixIcon={() => {
+          if (props.suffixIcon || slots.suffixIcon) {
+            return renderTNodeJSX('suffixIcon');
+          }
+
+          return renderSuffixIcon();
+        }}
         onClear={clear}
         onBlur={(_: any, context) => {
           props.onBlur?.({ value: treeSelectValue.value, e: context.e as FocusEvent });
@@ -437,6 +444,7 @@ export default defineComponent({
           })
         }
         v-slots={{
+          suffix: slots.suffix,
           panel: () => (
             <div
               class={[
