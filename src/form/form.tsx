@@ -64,7 +64,7 @@ export default defineComponent({
       { [`${COMPONENT_NAME.value}-inline`]: props.layout === 'inline' },
     ]);
 
-    const FORM_ITEM_CLASS_PREFIX = usePrefixClass('form-item__');
+    const FORM_ITEM_CLASS_PREFIX = usePrefixClass('form-item');
 
     const getFirstError = (result: Result) => {
       if (isBoolean(result)) return '';
