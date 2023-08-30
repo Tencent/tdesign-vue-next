@@ -225,15 +225,18 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
   // 注册拖拽事件
   watch([primaryTableRef, columns, dragSort], ([val]: [any]) => {
     if (!val || !val.$el) return;
-    registerRowDragEvent(val.$el);
-    registerColDragEvent(val.$el);
-    /** 待表头节点准备完成后 */
-    const timer = setTimeout(() => {
-      if (val.$refs.affixHeaderRef) {
-        registerColDragEvent(val.$refs.affixHeaderRef);
-      }
-      clearTimeout(timer);
-    });
+    const timerA = setTimeout(() => {
+      registerRowDragEvent(val.$el);
+      registerColDragEvent(val.$el);
+      /** 待表头节点准备完成后 */
+      const timer = setTimeout(() => {
+        if (val.$refs.affixHeaderRef) {
+          registerColDragEvent(val.$refs.affixHeaderRef);
+        }
+        clearTimeout(timer);
+      });
+      clearTimeout(timerA);
+    }, 0);
   });
 
   return {
