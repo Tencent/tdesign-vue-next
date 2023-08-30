@@ -4,6 +4,27 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 1.5.3 `2023-08-29` 
+### 🚀 Features
+- `Upload`: 上传组件 `theme='image'` 时，在 `disabled` 状态不显示上传按钮 @yuzunyue ([#3277](https://github.com/Tencent/tdesign-vue-next/pull/3277))
+- `Input`: 添加 `maxlength` 属性 `String` 类型 ([issue #3265](https://github.com/Tencent/tdesign-vue-next/issues/3265)) @Zz-ZzzZ ([#3271](https://github.com/Tencent/tdesign-vue-next/pull/3271))
+- `Textarea`: 添加 `maxlength` 属性 `String` 类型 ([issue #3265](https://github.com/Tencent/tdesign-vue-next/issues/3265)) @Zz-ZzzZ ([#3271](https://github.com/Tencent/tdesign-vue-next/pull/3271))
+- `Table`: 树形结构，没有设置 `expandedTreeNodes` 情况下，`data` 数据发生变化时，自动重置收起所有展开节点（如果希望保持展开节点，请使用属性 `expandedTreeNodes` 控制，[tdesign-vue#2735](https://github.com/Tencent/tdesign-vue/issues/2735) @chaishi ([#3283](https://github.com/Tencent/tdesign-vue-next/pull/3283))
+
+### 🐞 Bug Fixes
+- `Table`: 
+  - 拖拽排序 + 本地数据分页场景，修复拖拽排序事件参数 `currentIndex/targetIndex/current/target` 等不正确问题 @chaishi ([#3283](https://github.com/Tencent/tdesign-vue-next/pull/3283))
+  - 拖拽排序 + 本地数据分页场景，修复在第二页以后的分页数据中拖拽调整顺序后，会自动跳转到第一页问题 @chaishi ([#3283](https://github.com/Tencent/tdesign-vue-next/pull/3283))
+  - 支持分页非受控用法的拖拽排序场景 @chaishi ([#3283](https://github.com/Tencent/tdesign-vue-next/pull/3283))
+- `Button`: 修复了 `button` 在 `loading` 状态下依然可以触发点击事件的问题 @yuzunyue ([#3269](https://github.com/Tencent/tdesign-vue-next/pull/3269))
+- `Upload`: 修复非自动上传时图片缩略图不显示 @imp2002 ([#3276](https://github.com/Tencent/tdesign-vue-next/pull/3276))
+- `Menu`: 修复通过 `v-for` 渲染双层菜单时部分属性失效的问题 @uyarn ([#3289](https://github.com/Tencent/tdesign-vue-next/pull/3289))
+- `Tabs`: 修复在封装`tabs`组件时内部定义了`slot`后使用`v-for`不渲染的问题([issue #3281](https://github.com/Tencent/tdesign-vue-next/issues/3281)) @Zz-ZzzZ ([#3288](https://github.com/Tencent/tdesign-vue-next/pull/3288))
+- `Cascader`: 修复 `cascader` 清空时展开状态表现 @PengYYYYY ([#3284](https://github.com/Tencent/tdesign-vue-next/pull/3284))
+- `Message`: 修复 `message` 没有触发 `onClose` 事件 @Zzongke ([#3258](https://github.com/Tencent/tdesign-vue-next/pull/3258))
+### 🚧 Others
+- `Table`: 文档修正 `tree.checkStrictly` 默认值为 `false` @chaishi ([#3283](https://github.com/Tencent/tdesign-vue-next/pull/3283))
+
 ## 🌈 1.5.2 `2023-08-22` 
 ### 🚀 Features
 - `Table`: 
