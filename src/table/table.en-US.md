@@ -309,7 +309,7 @@ validateTrigger | String | 'exit' | when to trigger validate。Typescript：`'ex
 
 name | type | default | description | required
 -- | -- | -- | -- | --
-checkStrictly | Boolean | true | \- | N
+checkStrictly | Boolean | false | \- | N
 childrenKey | String | children | \- | N
 defaultExpandAll | Boolean | false | \- | N
 expandTreeNodeOnClick | Boolean | false | \- | N

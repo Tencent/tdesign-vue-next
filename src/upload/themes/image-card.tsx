@@ -69,7 +69,7 @@ export default defineComponent({
           <div class={`${classPrefix.value}-upload__card-mask`}>
             <span class={`${classPrefix.value}-upload__card-mask-item`} onClick={(e) => e.stopPropagation()}>
               <ImageViewer
-                images={displayFiles.value.map((t: UploadFile) => t.url)}
+                images={displayFiles.value.map((t: UploadFile) => t.url || t.raw)}
                 defaultIndex={index}
                 trigger={(h, { open }) => {
                   return (
@@ -144,7 +144,7 @@ export default defineComponent({
                 <li class={cardItemClasses} key={index}>
                   {file.status === 'progress' && renderProgressFile(file, loadCard)}
                   {file.status === 'fail' && renderFailFile(file, index, loadCard)}
-                  {!['progress', 'fail'].includes(file.status) && file.url && renderMainContent(file, index)}
+                  {!['progress', 'fail'].includes(file.status) && renderMainContent(file, index)}
                   {fileName &&
                     (file.url ? (
                       <Link href={file.url} class={fileNameClassName} target="_blank" hover="color" size="small">
@@ -157,7 +157,7 @@ export default defineComponent({
               );
             })}
 
-            {showTrigger.value && (
+            {showTrigger.value && !props.disabled && (
               <li class={cardItemClasses} onClick={props.triggerUpload}>
                 <div
                   class={[

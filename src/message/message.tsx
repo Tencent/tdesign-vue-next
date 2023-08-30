@@ -53,6 +53,7 @@ export default defineComponent({
     });
 
     const close = (e?: MouseEvent) => {
+      props.onClose?.({ trigger: 'close-click', e });
       props.onCloseBtnClick?.({ e });
     };
 
@@ -69,6 +70,7 @@ export default defineComponent({
           clearTimer();
           const msgDom = msgRef.value as HTMLElement;
           fadeOut(msgDom, props.placement, () => {
+            props.onClose?.({ trigger: 'duration-end' });
             props.onDurationEnd?.();
           });
         }, props.duration),

@@ -928,7 +928,7 @@ export interface TableEditableCellConfig<T extends TableRowData = TableRowData> 
 export interface TableTreeConfig {
   /**
    * 表示树形结构的行选中（多选），父子行选中是否独立
-   * @default true
+   * @default false
    */
   checkStrictly?: boolean;
   /**

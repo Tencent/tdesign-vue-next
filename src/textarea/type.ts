@@ -29,7 +29,7 @@ export interface TdTextareaProps {
   /**
    * 用户最多可以输入的字符个数
    */
-  maxlength?: number;
+  maxlength?: number | string;
   /**
    * 名称，HTML 元素原生属性
    * @default ''
