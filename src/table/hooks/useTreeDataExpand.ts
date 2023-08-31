@@ -106,14 +106,14 @@ export function useTreeDataExpand(
     const { addedList, removedList } = diffExpandedTreeNode(tExpandedTreeNode, oldExpandedTreeNode);
     store.value.expandTreeNode(addedList, data, rowDataKeys.value);
     store.value.foldTreeNode(removedList, data, rowDataKeys.value);
-    return data;
+    return [...data];
   }
 
   watch([tExpandedTreeNode], ([tExpandedTreeNode], [oldExpandedTreeNode]) => {
     if (!store.value.treeDataMap.size) return;
     if (changedExpandTreeNode.value.type === 'user-reaction-change') {
       const { row, rowIndex } = changedExpandTreeNode.value || {};
-      dataSource.value = store.value.toggleExpandData({ row, rowIndex }, dataSource.value, rowDataKeys.value);
+      dataSource.value = [...store.value.toggleExpandData({ row, rowIndex }, [...dataSource.value], rowDataKeys.value)];
     } else if (changedExpandTreeNode.value.type === 'props-change') {
       updateExpandState(dataSource.value, tExpandedTreeNode, oldExpandedTreeNode);
     }
@@ -133,6 +133,7 @@ export function useTreeDataExpand(
 
   return {
     tExpandedTreeNode,
+    isDefaultExpandAllExecute,
     isDefaultExpandedTreeNodesExecute,
     expandAll,
     foldAll,
