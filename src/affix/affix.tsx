@@ -100,6 +100,7 @@ export default defineComponent({
       on(scrollContainer.value, 'scroll', handleScroll);
       on(window, 'resize', handleScroll);
       binded.value = true;
+      handleScroll();
     };
 
     const unbindScroll = () => {
