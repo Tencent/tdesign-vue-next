@@ -54,7 +54,12 @@ describe('Tag or CheckTag', () => {
       });
       expect(wrapper.classes()).toContain('t-tag--success');
     });
-
+    it(':color', () => {
+      const wrapper = mount(() => <Tag color="red"></Tag>);
+      const tag = wrapper.find('.t-tag');
+      expect(getComputedStyle(tag.element, null).background).toBe('red');
+      expect(getComputedStyle(tag.element, null).color).toBe('#fff');
+    });
     it(':size:small', () => {
       const wrapper = mount(() => <Tag size="small"></Tag>);
       expect(wrapper.classes()).toContain('t-size-s');
