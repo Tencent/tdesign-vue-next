@@ -15,6 +15,11 @@ export interface TdTagProps {
   /**
    * 组件子元素
    */
+  color?: string;
+  /**
+   * 自定义标签颜色
+   * @default ''
+   */
   content?: string | TNode;
   /**
    * 组件子元素，同 `content`

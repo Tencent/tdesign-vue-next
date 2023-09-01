@@ -21,9 +21,9 @@ export default defineComponent({
     const tagClass = computed(() => {
       return [
         `${COMPONENT_NAME.value}`,
-        `${COMPONENT_NAME.value}--${props.theme}`,
-        `${COMPONENT_NAME.value}--${props.variant}`,
         {
+          [`${COMPONENT_NAME.value}--${props.theme}`]: !props.color,
+          [`${COMPONENT_NAME.value}--${props.variant}`]: !props.color,
           [`${COMPONENT_NAME.value}--ellipsis`]: props.maxWidth,
           [`${COMPONENT_NAME.value}--close`]: props.closable,
           [`${COMPONENT_NAME.value}--disabled`]: props.disabled,
@@ -39,6 +39,8 @@ export default defineComponent({
         ? {
             maxWidth: isNaN(Number(maxWidth)) ? String(maxWidth) : `${maxWidth}px`,
           }
+        : props.color
+        ? { background: props.color, color: '#fff' }
         : {};
     });
 
