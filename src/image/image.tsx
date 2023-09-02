@@ -20,7 +20,7 @@ export default defineComponent({
     const imgRef = ref<HTMLImageElement>(null);
     let io: IntersectionObserver = null;
 
-    const { src, fallback } = toRefs(props);
+    const { src } = toRefs(props);
 
     const renderTNodeJSX = useTNodeJSX();
 
