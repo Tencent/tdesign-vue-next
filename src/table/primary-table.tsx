@@ -168,7 +168,8 @@ export default defineComponent({
         let item = { ...columns[i] };
         // 自定义列显示控制
         const isDisplayColumn = item.children?.length || tDisplayColumns.value?.includes(item.colKey);
-        if (!isDisplayColumn && props.columnController) continue;
+        if (!isDisplayColumn && (props.columnController || props.displayColumns || props.defaultDisplayColumns))
+          continue;
         item = formatToRowSelectColumn(item);
         const { sort } = props;
         if (item.sorter && props.showSortColumnBgColor) {
