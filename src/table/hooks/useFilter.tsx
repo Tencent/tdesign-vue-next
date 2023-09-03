@@ -6,6 +6,7 @@ import useDefaultValue from '../../hooks/useDefaultValue';
 import { useTNodeDefault } from '../../hooks/tnode';
 import TableFilterController from '../filter-controller';
 import { useConfig } from '../../hooks/useConfig';
+import { getColumnsResetValue } from '../../_common/js/table/utils';
 
 function isFilterValueExist(value: any) {
   const isArrayTrue = value instanceof Array && value.length;
@@ -147,12 +148,7 @@ export default function useFilter(props: TdPrimaryTableProps, context: SetupCont
   }
 
   function onResetAll() {
-    const resetValue: { [key: string]: any } = {};
-    columns.value.forEach((col) => {
-      if (col.filter && 'resetValue' in col.filter) {
-        resetValue[col.colKey] = col.filter.resetValue;
-      }
-    });
+    const resetValue = getColumnsResetValue(columns.value);
     emitFilterChange(resetValue, 'clear', undefined);
   }
 
