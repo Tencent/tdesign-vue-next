@@ -86,6 +86,7 @@ export default defineComponent({
       props.onError?.({ e });
       if (props.fallback) {
         imageStrSrc.value = props.fallback;
+        hasError.value = false;
       }
     };
 
