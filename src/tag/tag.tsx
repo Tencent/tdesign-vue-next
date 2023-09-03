@@ -35,13 +35,16 @@ export default defineComponent({
 
     const tagStyle = computed<Record<string, string>>(() => {
       const { maxWidth } = props;
-      return props.maxWidth
+      const maxWidthStyle = props.maxWidth
         ? {
             maxWidth: isNaN(Number(maxWidth)) ? String(maxWidth) : `${maxWidth}px`,
           }
-        : props.color
-        ? { background: props.color, color: '#fff' }
         : {};
+      const colorStyle = props.color ? { background: props.color, color: '#fff' } : {};
+      return {
+        ...maxWidthStyle,
+        ...colorStyle,
+      };
     });
 
     const handleClick = (e: MouseEvent) => {
