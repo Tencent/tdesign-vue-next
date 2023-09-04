@@ -191,7 +191,8 @@ const request = (filters) => {
   }, 100);
 };
 
-const onFilterChange = (filters) => {
+const onFilterChange = (filters, ctx) => {
+  console.log('filter-change', filters, ctx);
   filterValue.value = {
     ...filters,
     createTime: filters.createTime || [],

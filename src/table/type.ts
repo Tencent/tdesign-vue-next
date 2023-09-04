@@ -561,7 +561,7 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
   /**
    * 过滤参数发生变化时触发，泛型 T 指表格数据类型
    */
-  onFilterChange?: (filterValue: FilterValue, context: { col?: PrimaryTableCol<T> }) => void;
+  onFilterChange?: (filterValue: FilterValue, context: TableFilterChangeContext<T>) => void;
   /**
    * 行编辑时触发
    */
@@ -1097,6 +1097,11 @@ export interface DragSortContext<T> {
 export interface ExpandOptions<T> {
   expandedRowData: Array<T>;
   currentRowData: T;
+}
+
+export interface TableFilterChangeContext<T> {
+  col?: PrimaryTableCol<T>;
+  trigger: 'filter-change' | 'confirm' | 'reset' | 'clear';
 }
 
 export type PrimaryTableRowEditContext<T> = PrimaryTableCellParams<T> & { value: any; editedRow: T };
