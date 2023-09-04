@@ -17,7 +17,8 @@ import { TimeRangePickerPartial } from './type';
 import useVModel from '../hooks/useVModel';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useFormDisabled } from '../form/hooks';
+import { useFormDisabled, useFormSize } from '../form/hooks';
+import { SizeEnum } from '..';
 
 dayjs.extend(customParseFormat);
 
@@ -45,6 +46,9 @@ export default defineComponent({
     ]);
     const { value, modelValue, allowInput, format } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange as any);
+
+    const formSize = useFormSize();
+    const inputSize = computed((): SizeEnum => (formSize.value === '' ? 'medium' : (formSize.value as SizeEnum)));
 
     const handleShowPopup = (visible: boolean, context: any) => {
       // 输入框点击不关闭面板
@@ -143,7 +147,7 @@ export default defineComponent({
           onInputChange={handleInputChange}
           inputValue={isShowPanel.value ? currentValue.value : innerValue.value ?? TIME_PICKER_EMPTY}
           rangeInputProps={{
-            size: props.size,
+            size: inputSize.value,
             clearable: props.clearable,
             class: inputClasses.value,
             value: isShowPanel.value ? currentValue.value : innerValue.value ?? undefined,

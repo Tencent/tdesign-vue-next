@@ -48,6 +48,17 @@ export default {
   rules: {
     type: Array as PropType<TdFormItemProps['rules']>,
   },
+  /**
+   * 表单元素尺寸
+   */
+  size: {
+    type: String as PropType<TdFormItemProps['size']>,
+    default: 'medium' as TdFormItemProps['size'],
+    validator(val: TdFormItemProps['size']): boolean {
+      if (!val) return true;
+      return ['small', 'medium', 'large'].includes(val);
+    },
+  },
   /** 校验不通过时，是否显示错误提示信息，优先级高于 `Form.showErrorMessage` */
   showErrorMessage: {
     type: Boolean,

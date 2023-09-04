@@ -82,6 +82,17 @@ export default {
       return ['', 'smooth', 'auto'].includes(val);
     },
   },
+  /**
+   * 表单元素尺寸
+   */
+  size: {
+    type: String as PropType<TdFormProps['size']>,
+    default: 'medium' as TdFormProps['size'],
+    validator(val: TdFormProps['size']): boolean {
+      if (!val) return true;
+      return ['small', 'medium', 'large'].includes(val);
+    },
+  },
   /** 校验不通过时，是否显示错误提示信息，统一控制全部表单项。如果希望控制单个表单项，请给 FormItem 设置该属性 */
   showErrorMessage: {
     type: Boolean,

@@ -1,4 +1,4 @@
-import { ref, toRefs } from 'vue';
+import { computed, ref, toRefs } from 'vue';
 import { TagInputValue, TagInputChangeContext } from './type';
 import { TagInputProps } from './interface';
 import { InputValue } from '../input';
@@ -6,6 +6,8 @@ import Tag from '../tag';
 import useVModel from '../hooks/useVModel';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
+import { useFormSize } from '../form/hooks';
+import { SizeEnum } from '..';
 
 export type ChangeParams = [TagInputChangeContext];
 
@@ -13,12 +15,13 @@ export type ChangeParams = [TagInputChangeContext];
 export default function useTagList(props: TagInputProps) {
   const renderTNode = useTNodeJSX();
   const classPrefix = usePrefixClass();
-  const { value, modelValue, onRemove, max, minCollapsedNum, size, disabled, readonly, tagProps, getDragProps } =
+  const { value, modelValue, onRemove, max, minCollapsedNum, disabled, readonly, tagProps, getDragProps } =
     toRefs(props);
   // handle controlled property and uncontrolled property
   const [tagValue, setTagValue] = useVModel(value, modelValue, props.defaultValue || [], props.onChange);
   const oldInputValue = ref<InputValue>();
-
+  const formSize = useFormSize();
+  const inputSize = computed((): SizeEnum => (formSize.value === '' ? 'medium' : (formSize.value as SizeEnum)));
   // 点击标签关闭按钮，删除标签
   const onClose = (p: { e?: MouseEvent; index: number; item: string | number }) => {
     const arr = [...tagValue.value];
@@ -79,7 +82,7 @@ export default function useTagList(props: TagInputProps) {
           return (
             <Tag
               key={`${item}${index}`}
-              size={size.value}
+              size={inputSize.value}
               disabled={disabled.value}
               onClose={(context: { e: MouseEvent }) => onClose({ e: context.e, item, index })}
               closable={!readonly.value && !disabled.value}

@@ -52,6 +52,8 @@ import {
 
 import { useConfig, usePrefixClass, useTNodeJSX } from '../hooks';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import { useFormSize } from './hooks';
+import { SizeEnum } from '..';
 
 export type FormItemValidateResult<T extends Data = Data> = { [key in keyof T]: boolean | AllValidateResult[] };
 
@@ -187,6 +189,9 @@ export default defineComponent({
     const verifyStatus = ref(ValidateStatus.TO_BE_VALIDATED);
     const resetValidating = ref(false);
     const needResetField = ref(false);
+
+    const formSize = useFormSize(undefined, { formItem: false });
+    const inputSize = computed((): SizeEnum => (formSize.value === '' ? 'medium' : (formSize.value as SizeEnum)));
 
     const resetHandler = () => {
       needResetField.value = false;
@@ -405,6 +410,9 @@ export default defineComponent({
     };
     provide(FormItemInjectionKey, {
       handleBlur,
+      ...reactive({
+        size: inputSize.value,
+      }),
     });
 
     return () => (

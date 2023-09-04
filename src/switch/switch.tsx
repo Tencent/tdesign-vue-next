@@ -2,7 +2,7 @@ import { defineComponent, h, VNodeChild, computed, watch, toRefs } from 'vue';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import TLoading from '../loading';
 import props from './props';
-import { TNodeReturnValue } from '../common';
+import { SizeEnum, TNodeReturnValue } from '../common';
 
 // hooks
 import { useDisabled } from '../hooks/useDisabled';
@@ -10,6 +10,7 @@ import useVModel from '../hooks/useVModel';
 import isFunction from 'lodash/isFunction';
 import isString from 'lodash/isString';
 import isArray from 'lodash/isArray';
+import { useFormSize } from '../form/hooks';
 
 export default defineComponent({
   name: 'TSwitch',
@@ -22,7 +23,8 @@ export default defineComponent({
     // values
     const { value, modelValue } = toRefs(props);
     const [innerValue, setSwitchVal] = useVModel(value, modelValue, props.defaultValue, props.onChange);
-
+    const formSize = useFormSize();
+    const inputSize = computed((): SizeEnum => (formSize.value === '' ? 'medium' : (formSize.value as SizeEnum)));
     const activeValue = computed(() => {
       if (props.customValue && props.customValue.length > 0) {
         return props.customValue[0];
@@ -53,7 +55,7 @@ export default defineComponent({
     // classes
     const classes = computed(() => [
       `${COMPONENT_NAME.value}`,
-      SIZE.value[props.size],
+      SIZE.value[inputSize.value],
       {
         [STATUS.value.disabled]: disabled.value,
         [STATUS.value.loading]: props.loading,
@@ -72,7 +74,7 @@ export default defineComponent({
     const contentClasses = computed(() => {
       return [
         `${COMPONENT_NAME.value}__content`,
-        SIZE.value[props.size],
+        SIZE.value[inputSize.value],
         {
           [STATUS.value.disabled]: disabled.value,
         },

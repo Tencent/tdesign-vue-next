@@ -5,6 +5,8 @@ import useRipple from '../hooks/useRipple';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import { useDisabled } from '../hooks/useDisabled';
+import { useFormSize } from '../form/hooks';
+import { SizeEnum } from '..';
 
 export default defineComponent({
   name: 'TButton',
@@ -20,6 +22,9 @@ export default defineComponent({
 
     const isDisabled = useDisabled();
 
+    const formSize = useFormSize();
+    const inputSize = computed((): SizeEnum => (formSize.value === '' ? 'medium' : (formSize.value as SizeEnum)));
+
     const mergeTheme = computed(() => {
       const { theme, variant } = props;
       if (theme) return theme;
@@ -32,7 +37,7 @@ export default defineComponent({
       `${COMPONENT_NAME.value}--variant-${props.variant}`,
       `${COMPONENT_NAME.value}--theme-${mergeTheme.value}`,
       {
-        [SIZE.value[props.size]]: props.size !== 'medium',
+        [SIZE.value[inputSize.value]]: inputSize.value !== 'medium',
         [STATUS.value.disabled]: isDisabled.value,
         [STATUS.value.loading]: props.loading,
         [`${COMPONENT_NAME.value}--shape-${props.shape}`]: props.shape !== 'rectangle',

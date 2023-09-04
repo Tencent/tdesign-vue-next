@@ -12,7 +12,8 @@ import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfi
 import { closeIconClickEffect, handleRemoveTagEffect } from './core/effect';
 import { getPanels, getSingleContent, getMultipleContent } from './core/helper';
 import { getFakeArrowIconClass } from './core/className';
-import { useFormDisabled } from '../form/hooks';
+import { useFormDisabled, useFormSize } from '../form/hooks';
+import { SizeEnum } from '..';
 
 export default defineComponent({
   name: 'TCascader',
@@ -29,6 +30,9 @@ export default defineComponent({
 
     // 拿到全局状态的上下文
     const { cascaderContext, isFilterable } = useCascaderContext(props);
+
+    const formSize = useFormSize();
+    const inputSize = computed((): SizeEnum => (formSize.value === '' ? 'medium' : (formSize.value as SizeEnum)));
 
     const displayValue = computed(() =>
       props.multiple ? getMultipleContent(cascaderContext.value) : getSingleContent(cascaderContext.value),
@@ -83,9 +87,9 @@ export default defineComponent({
               (props.popupProps as TdCascaderProps['popupProps'])?.overlayClassName,
             ],
           }}
-          inputProps={{ size: props.size, ...(props.inputProps as TdCascaderProps['inputProps']) }}
+          inputProps={{ size: inputSize.value, ...(props.inputProps as TdCascaderProps['inputProps']) }}
           tagInputProps={{
-            size: props.size,
+            size: inputSize.value,
             ...(props.tagInputProps as TdCascaderProps['tagInputProps']),
           }}
           tagProps={{ ...(props.tagProps as TdCascaderProps['tagProps']) }}

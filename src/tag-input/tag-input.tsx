@@ -13,6 +13,8 @@ import useHover from './hooks/useHover';
 import useDefault from '../hooks/useDefaultValue';
 import useDragSorter from './hooks/useDragSorter';
 import isArray from 'lodash/isArray';
+import { useFormSize } from '../form/hooks';
+import { SizeEnum } from '..';
 
 const useComponentClassName = () => {
   return {
@@ -30,7 +32,8 @@ export default defineComponent({
   setup(props: TdTagInputProps) {
     const { NAME_CLASS, CLEAR_CLASS, BREAK_LINE_CLASS } = useComponentClassName();
     const { CloseCircleFilledIcon } = useGlobalIcon({ CloseCircleFilledIcon: TdCloseCircleFilledIcon });
-
+    const formSize = useFormSize();
+    const inputSize = computed((): SizeEnum => (formSize.value === '' ? 'medium' : (formSize.value as SizeEnum)));
     const { inputValue, inputProps } = toRefs(props);
     const [tInputValue, setTInputValue] = useDefault(
       inputValue,
@@ -155,6 +158,7 @@ export default defineComponent({
       onInputCompositionend,
       focus,
       classes,
+      inputSize,
     };
   },
 
@@ -187,7 +191,7 @@ export default defineComponent({
         readonly={this.readonly}
         value={this.tInputValue}
         autoWidth={true} // 控制input_inner的宽度 设置为true让内部input不会提前换行
-        size={this.size}
+        size={this.inputSize}
         disabled={this.disabled}
         label={() => this.renderLabel({ displayNode, label })}
         class={this.classes}

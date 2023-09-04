@@ -5,7 +5,7 @@ import {
   CloseCircleFilledIcon as TdCloseCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
 import props from './props';
-import { useFormDisabled } from '../form/hooks';
+import { useFormDisabled, useFormSize } from '../form/hooks';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useTNodeJSX } from '../hooks/tnode';
@@ -13,6 +13,7 @@ import useInput from './useInput';
 import useInputEventHandler from './useInputEventHandler';
 import useInputWidth from './useInputWidth';
 import isUndefined from 'lodash/isUndefined';
+import { SizeEnum } from '..';
 
 function getValidAttrs(obj: Record<string, unknown>): Record<string, unknown> {
   const newObj = {};
@@ -72,6 +73,9 @@ export default defineComponent({
       limitNumber,
       ...inputHandle
     } = useInput(props, expose);
+
+    const formSize = useFormSize();
+    const inputSize = computed((): SizeEnum => (formSize.value === '' ? 'medium' : (formSize.value as SizeEnum)));
 
     const { inputPreRef } = useInputWidth(props, inputRef, innerValue);
 
@@ -178,7 +182,7 @@ export default defineComponent({
         COMPONENT_NAME.value,
         props.inputClass,
         {
-          [SIZE.value[props.size]]: props.size !== 'medium',
+          [SIZE.value[inputSize.value]]: inputSize.value !== 'medium',
           [STATUS.value.disabled]: disabled.value,
           [STATUS.value.focused]: focused.value,
           [`${classPrefix.value}-is-${tStatus.value}`]: tStatus.value && tStatus.value !== 'default',

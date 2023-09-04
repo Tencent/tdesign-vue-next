@@ -7,8 +7,9 @@ import useCommonClassName from '../hooks/useCommonClassName';
 import AutoCompleteOptionList from './option-list';
 import useVModel from '../hooks/useVModel';
 import { useConfig } from '../config-provider/useConfig';
-import { ClassName } from '../common';
+import { ClassName, SizeEnum } from '../common';
 import { useContent, useTNodeJSX } from '../hooks';
+import { useFormSize } from '../form/hooks';
 
 export default defineComponent({
   name: 'TAutoComplete',
@@ -35,7 +36,8 @@ export default defineComponent({
         ...props.popupProps?.overlayInnerStyle,
       };
     };
-
+    const formSize = useFormSize();
+    const inputSize = computed((): SizeEnum => (formSize.value === '' ? 'medium' : (formSize.value as SizeEnum)));
     const classes = computed(() => [`${classPrefix.value}-auto-complete`]);
     const popupClasses = computed(() => {
       let classes: ClassName = [`${classPrefix.value}-select__dropdown`];
@@ -59,7 +61,7 @@ export default defineComponent({
     const innerInputProps = computed(() => {
       const tProps: InputProps = {
         value: tValue.value,
-        size: props.size,
+        size: inputSize.value,
         ...props.inputProps,
       };
       return tProps;
@@ -130,7 +132,7 @@ export default defineComponent({
           ref={optionListRef}
           value={tValue.value}
           options={props.options}
-          size={props.size}
+          size={inputSize.value}
           sizeClassNames={sizeClassNames}
           onSelect={onInnerSelect}
           popupVisible={popupVisible.value}

@@ -3,7 +3,7 @@ import { CalendarIcon as TdCalendarIcon } from 'tdesign-icons-vue-next';
 import dayjs from 'dayjs';
 
 import { useTNodeJSX } from '../../hooks/tnode';
-import { useFormDisabled } from '../../form/hooks';
+import { useFormDisabled, useFormSize } from '../../form/hooks';
 import { usePrefixClass, useConfig } from '../../hooks/useConfig';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 import { TdDatePickerProps, DateValue } from '../type';
@@ -15,6 +15,7 @@ import {
   parseToDayjs,
 } from '../../_common/js/date-picker/format';
 import useSingleValue from './useSingleValue';
+import { SizeEnum } from '../../common';
 
 export default function useSingle(props: TdDatePickerProps) {
   const COMPONENT_NAME = usePrefixClass('date-picker');
@@ -40,11 +41,12 @@ export default function useSingle(props: TdDatePickerProps) {
   const isHoverCell = ref(false);
   // 未真正选中前可能不断变更输入框的内容
   const inputValue = ref(formatDate(value.value, { format: formatRef.value.format }));
-
+  const formSize = useFormSize();
+  const inputSize = computed((): SizeEnum => (formSize.value === '' ? 'medium' : (formSize.value as SizeEnum)));
   // input 设置
   const inputProps = computed(() => ({
     ...props.inputProps,
-    size: props.size,
+    size: inputSize.value,
     ref: inputRef,
     prefixIcon: props.prefixIcon && (() => renderTNodeJSX('prefixIcon')),
     readonly: !props.allowInput,

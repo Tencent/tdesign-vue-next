@@ -8,6 +8,8 @@ import { usePrefixClass, useConfig } from '../../hooks/useConfig';
 import { TdDateRangePickerProps, DateValue } from '../type';
 import { isValidDate, formatDate, getDefaultFormat, parseToDayjs } from '../../_common/js/date-picker/format';
 import useRangeValue from './useRangeValue';
+import { SizeEnum } from '../../common';
+import { useFormSize } from '../../form/hooks';
 
 export const PARTIAL_MAP = { first: 'start', second: 'end' };
 
@@ -35,11 +37,12 @@ export default function useRange(props: TdDateRangePickerProps) {
   const isHoverCell = ref(false);
   const activeIndex = ref(0); // 确定当前选中的输入框序号
   const inputValue = ref(formatDate(props.value, { format: formatRef.value.format })); // 未真正选中前可能不断变更输入框的内容
-
+  const formSize = useFormSize();
+  const inputSize = computed((): SizeEnum => (formSize.value === '' ? 'medium' : (formSize.value as SizeEnum)));
   // input 设置
   const rangeInputProps = computed(() => ({
     ...props.rangeInputProps,
-    size: props.size,
+    size: inputSize.value,
     ref: inputRef,
     clearable: props.clearable,
     prefixIcon: () => renderTNodeJSX('prefixIcon'),

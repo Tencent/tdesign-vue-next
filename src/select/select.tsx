@@ -16,13 +16,14 @@ import { TdSelectProps, SelectValue } from './type';
 import { PopupVisibleChangeContext } from '../popup';
 
 // hooks
-import { useFormDisabled } from '../form/hooks';
+import { useFormDisabled, useFormSize } from '../form/hooks';
 import useDefaultValue from '../hooks/useDefaultValue';
 import useVModel from '../hooks/useVModel';
 import { useTNodeJSX } from '../hooks/tnode';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { selectInjectKey, getSingleContent, getMultipleContent, getNewMultipleValue } from './helper';
 import { useSelectOptions } from './hooks/useSelectOptions';
+import { SizeEnum } from '..';
 
 export default defineComponent({
   name: 'TSelect',
@@ -53,6 +54,9 @@ export default defineComponent({
       keys,
       innerInputValue,
     );
+
+    const formSize = useFormSize();
+    const inputSize = computed((): SizeEnum => (formSize.value === '' ? 'medium' : (formSize.value as SizeEnum)));
 
     // 内部数据,格式化过的
     const innerValue = computed(() => {
@@ -277,7 +281,7 @@ export default defineComponent({
       handlerInputChange: setInputValue,
       handlePopupVisibleChange: setInnerPopupVisible,
       handleCreate,
-      size: props.size,
+      size: inputSize.value,
       popupContentRef,
       indeterminate: indeterminate.value,
       isCheckAll: isCheckAll.value,
@@ -404,13 +408,13 @@ export default defineComponent({
             allowInput={isFilterable.value}
             collapsed-items={props.collapsedItems}
             inputProps={{
-              size: props.size,
+              size: inputSize.value,
               autofocus: props.autofocus,
               ...(props.inputProps as TdSelectProps['inputProps']),
               onkeydown: handleKeyDown,
             }}
             tagInputProps={{
-              size: props.size,
+              size: inputSize.value,
               ...(props.tagInputProps as TdSelectProps['tagInputProps']),
             }}
             onTagChange={(val, ctx) => {

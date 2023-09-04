@@ -1,4 +1,4 @@
-import { defineComponent, SetupContext } from 'vue';
+import { computed, defineComponent, SetupContext } from 'vue';
 import {
   AddIcon as TdAddIcon,
   RemoveIcon as TdRemoveIcon,
@@ -12,6 +12,8 @@ import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { TdInputNumberProps } from './type';
 import useInputNumber from './useInputNumber';
 import { useTNodeJSX } from '../hooks';
+import { useFormSize } from '../form/hooks';
+import { SizeEnum } from '..';
 
 export default defineComponent({
   name: 'TInputNumber',
@@ -28,12 +30,16 @@ export default defineComponent({
     const p = useInputNumber(props);
     const { inputRef } = p;
 
+    const formSize = useFormSize();
+    const inputSize = computed((): SizeEnum => (formSize.value === '' ? 'medium' : (formSize.value as SizeEnum)));
+
     context.expose({ ...p });
 
     return () => {
       const reduceIcon =
-        props.theme === 'column' ? <ChevronDownIcon size={props.size} /> : <RemoveIcon size={props.size} />;
-      const addIcon = props.theme === 'column' ? <ChevronUpIcon size={props.size} /> : <AddIcon size={props.size} />;
+        props.theme === 'column' ? <ChevronDownIcon size={inputSize.value} /> : <RemoveIcon size={inputSize.value} />;
+      const addIcon =
+        props.theme === 'column' ? <ChevronUpIcon size={inputSize.value} /> : <AddIcon size={inputSize.value} />;
       const status = p.isError.value ? 'error' : props.status;
       const classPrefix = p.classPrefix.value;
       const tipsNode = renderTNodeJSX('tips');
