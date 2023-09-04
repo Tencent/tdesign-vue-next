@@ -187,7 +187,8 @@ export default defineComponent({
     const defaultFilterIcon = this.t(this.globalConfig.filterIcon) || <FilterIcon />;
     const filterValue = this.tFilterValue?.[column.colKey];
     const isObjectTrue = typeof filterValue === 'object' && !isEmpty(filterValue);
-    const isValueTrue = filterValue && typeof filterValue !== 'object';
+    // false is a valid filter value
+    const isValueExist = (filterValue || filterValue === false) && typeof filterValue !== 'object';
     return (
       <Popup
         attach={this.attach || (this.primaryTableElement ? () => this.primaryTableElement as HTMLElement : undefined)}
@@ -201,7 +202,7 @@ export default defineComponent({
         class={[
           this.tableFilterClasses.icon,
           {
-            [this.isFocusClass]: isObjectTrue || isValueTrue,
+            [this.isFocusClass]: isObjectTrue || isValueExist,
           },
         ]}
         content={this.getContent}
