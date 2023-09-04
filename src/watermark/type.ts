@@ -87,6 +87,11 @@ export interface WatermarkText {
    */
   fontColor?: string;
   /**
+   * 水印文本文字字体
+   * @default ''
+   */
+  fontFamily?: string;
+  /**
    * 水印文本文字大小
    * @default 16
    */
