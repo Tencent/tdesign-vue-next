@@ -54,6 +54,7 @@ export * from './image-viewer';
 export * from './list';
 export * from './progress';
 export * from './skeleton';
+export * from './statistic';
 export * from './swiper';
 export * from './table';
 export * from './tag';
