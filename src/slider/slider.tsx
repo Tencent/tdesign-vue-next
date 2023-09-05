@@ -35,8 +35,9 @@ export default defineComponent({
     event: 'change',
   },
   props: { ...props },
+  emits: ['drag-start', 'drag-end'],
 
-  setup(props) {
+  setup(props, ctx) {
     const disabled = useFormDisabled();
     const COMPONENT_NAME = usePrefixClass('slider');
     const { STATUS } = useCommonClassName();
@@ -394,6 +395,8 @@ export default defineComponent({
               disabled={disabled.value}
               tooltip-props={props.tooltipProps}
               label={props.label}
+              onDrag-start={(e) => ctx.emit('drag-start', e)}
+              onDrag-end={(e) => ctx.emit('drag-start', e)}
               onInput={(v: number) => {
                 firstValue.value = v;
               }}
