@@ -12,7 +12,7 @@ export default function useInputWidth(
   const composing = ref(false);
   const updateInputWidth = () => {
     if (!inputPreRef.value || !inputRef.value) return;
-    const { width } = inputPreRef.value.getBoundingClientRect();
+    const width = window.getComputedStyle(inputPreRef.value, null).width.replace('px', '');
     inputRef.value.style.width = `${width || 0}px`;
   };
 
