@@ -220,8 +220,7 @@ export default defineComponent({
           this.onFocus?.(this.tagValue, { e: context.e, inputValue });
         }}
         onBlur={(inputValue: InputValue, context: { e: MouseEvent }) => {
-          this.setTInputValue('', { e: context.e, trigger: 'blur' });
-          this.onBlur?.(this.tagValue, { e: context.e, inputValue: '' });
+          this.onBlur?.(this.tagValue, { e: context.e, inputValue });
         }}
         onClick={this.onClick}
         onCompositionstart={this.onInputCompositionstart}
