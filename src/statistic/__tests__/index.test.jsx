@@ -94,7 +94,7 @@ describe('Statistic', () => {
 
       const trendIconElement = wrapper.find('.t-icon.t-icon-arrow-triangle-up-filled');
       expect(trendIconElement.exists()).toBe(true);
-      expect(trendIconElement.is('svg')).toBe(true);
+      expect(trendIconElement.element.tagName).toBe('svg');
     });
 
     it('trend="decrease"', () => {
@@ -108,7 +108,7 @@ describe('Statistic', () => {
 
       const trendIconElement = wrapper.find('.t-icon.t-icon-arrow-triangle-down-filled');
       expect(trendIconElement.exists()).toBe(true);
-      expect(trendIconElement.is('svg')).toBe(true);
+      expect(trendIconElement.element.tagName).toBe('svg');
     });
   });
 });
