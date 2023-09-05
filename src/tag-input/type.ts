@@ -92,7 +92,7 @@ export interface TdTagInputProps {
    */
   suffixIcon?: TNode;
   /**
-   * 组件后置图标
+   * 组件前置图标
    */
   prefixIcon?: TNode;
   /**
