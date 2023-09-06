@@ -15,6 +15,7 @@ export interface MixinsConfirmBtn {
   globalConfirm: PopconfirmConfig['confirm'] | DrawerConfig['confirm'] | DialogConfig['confirm'];
   globalConfirmBtnTheme?: PopconfirmConfig['confirmBtnTheme'] | DialogConfig['confirmBtnTheme'];
   size?: ButtonProps['size'];
+  confirmLoading?: boolean;
 }
 
 export interface MixinsCancelBtn {
@@ -69,17 +70,28 @@ export function useAction(action: BtnAction) {
     }
     return props;
   };
-  const getButtonByProps = (button: string | ButtonProps, defaultButton: ButtonProps, className?: ClassName) => {
-    let newOptions = defaultButton;
+  const getButtonByProps = (
+    button: string | ButtonProps,
+    params: {
+      defaultButtonProps: ButtonProps;
+      className?: ClassName;
+      confirmLoading?: boolean;
+    },
+  ) => {
+    const { defaultButtonProps, className, confirmLoading } = params;
+    let newOptions = defaultButtonProps;
     if (isString(button)) {
       newOptions.content = button;
     } else if (isObject(button)) {
       newOptions = { ...newOptions, ...button };
     }
+    if (confirmLoading !== undefined) {
+      newOptions.loading = confirmLoading;
+    }
     return <TButton class={className} {...newOptions} />;
   };
   const getConfirmBtn = (options: MixinsConfirmBtn) => {
-    const { confirmBtn, className } = options;
+    const { confirmBtn, className, confirmLoading } = options;
     if (confirmBtn === null) return null;
     if (confirmBtn && instance.slots.confirmBtn) {
       console.warn('Both $props.confirmBtn and $scopedSlots.confirmBtn exist, $props.confirmBtn is preferred.');
@@ -91,7 +103,11 @@ export function useAction(action: BtnAction) {
     }
     // 如果属性存在，优先返回属性配置
     if (confirmBtn && ['string', 'object'].includes(typeof confirmBtn)) {
-      return getButtonByProps(confirmBtn as string | ButtonProps, defaultButtonProps, className);
+      return getButtonByProps(confirmBtn as string | ButtonProps, {
+        defaultButtonProps,
+        className,
+        confirmLoading,
+      });
     }
     // 渲染插槽 或 function 类型的 confirmBtn，属性优先级更高
     return renderTNodeJSX('confirmBtn');
@@ -109,7 +125,7 @@ export function useAction(action: BtnAction) {
     }
     // 如果属性存在，优先返回属性配置
     if (cancelBtn && ['string', 'object'].includes(typeof cancelBtn)) {
-      return getButtonByProps(cancelBtn as string | ButtonProps, defaultButtonProps);
+      return getButtonByProps(cancelBtn as string | ButtonProps, { defaultButtonProps });
     }
     // 渲染插槽 或 function 类型的 confirmBtn，属性优先级更高
     return renderTNodeJSX('cancelBtn');

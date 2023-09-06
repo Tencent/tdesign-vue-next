@@ -8,25 +8,22 @@ import { TdDialogProps } from './type';
 import { PropType } from 'vue';
 
 export default {
-  /** 对话框挂载的节点，默认挂在组件本身的位置。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body */
+  /** 对话框挂载的节点。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body */
   attach: {
     type: [String, Function] as PropType<TdDialogProps['attach']>,
-    default: '',
   },
   /** 对话框内容 */
   body: {
     type: [String, Function] as PropType<TdDialogProps['body']>,
-    default: '',
   },
   /** 取消按钮，可自定义。值为 null 则不显示取消按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制取消事件 */
   cancelBtn: {
     type: [String, Object, Function] as PropType<TdDialogProps['cancelBtn']>,
-    default: '' as TdDialogProps['cancelBtn'],
   },
   /** 关闭按钮，可以自定义。值为 true 显示默认关闭按钮，值为 false 不显示关闭按钮。值类型为 string 则直接显示值，如：“关闭”。值类型为 TNode，则表示呈现自定义按钮示例 */
   closeBtn: {
     type: [String, Boolean, Function] as PropType<TdDialogProps['closeBtn']>,
-    default: true,
+    default: true as TdDialogProps['closeBtn'],
   },
   /** 按下 ESC 时是否触发对话框关闭事件 */
   closeOnEscKeydown: {
@@ -41,7 +38,11 @@ export default {
   /** 确认按钮。值为 null 则不显示确认按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制确认事件 */
   confirmBtn: {
     type: [String, Object, Function] as PropType<TdDialogProps['confirmBtn']>,
-    default: '' as TdDialogProps['confirmBtn'],
+  },
+  /** 确认按钮加载状态 */
+  confirmLoading: {
+    type: Boolean,
+    default: undefined,
   },
   /** 是否在按下回车键时，触发确认事件 */
   confirmOnEnter: Boolean,
@@ -56,12 +57,12 @@ export default {
   /** 底部操作栏，默认会有“确认”和“取消”两个按钮。值为 true 显示默认操作按钮，值为 false 不显示任何内容，值类型为 Function 表示自定义底部内容 */
   footer: {
     type: [Boolean, Function] as PropType<TdDialogProps['footer']>,
-    default: true,
+    default: true as TdDialogProps['footer'],
   },
   /** 头部内容。值为 true 显示空白头部，值为 false 不显示任何内容，值类型为 string 则直接显示值，值类型为 Function 表示自定义头部内容 */
   header: {
     type: [String, Boolean, Function] as PropType<TdDialogProps['header']>,
-    default: true,
+    default: true as TdDialogProps['header'],
   },
   /** 对话框类型，有 4 种：模态对话框、非模态对话框、普通对话框、全屏对话框。弹出「模态对话框」时，只能操作对话框里面的内容，不能操作其他内容。弹出「非模态对话框」时，则可以操作页面内所有内容。「普通对话框」是指没有脱离文档流的对话框，可以在这个基础上开发更多的插件 */
   mode: {
