@@ -164,12 +164,18 @@ export default defineComponent({
           );
         } else {
           suffixIcon = (
-            <CloseCircleFilledIcon
-              ref={inputHandle.clearIconRef}
-              class={`${COMPONENT_NAME.value}__suffix-clear`}
-              onClick={inputHandle.emitClear}
-              onMousedown={inputHandle.onClearIconMousedown}
-            />
+            <span class={[`${COMPONENT_NAME.value}__suffix`, `${COMPONENT_NAME.value}__suffix-icon`]}>
+              <span style={{ marginRight: suffixIcon ? '5px' : '' }}>{suffixIcon}</span>
+              <CloseCircleFilledIcon
+                ref={inputHandle.clearIconRef}
+                class={[
+                  `${COMPONENT_NAME.value}__suffix-clear`,
+                  { [`${COMPONENT_NAME.value}__clear`]: showClear.value },
+                ]}
+                onClick={inputHandle.emitClear}
+                onMousedown={inputHandle.onClearIconMousedown}
+              />
+            </span>
           );
         }
       }
@@ -240,17 +246,7 @@ export default defineComponent({
                 {passwordIcon}
               </span>
             ) : null}
-            {suffixIcon ? (
-              <span
-                class={[
-                  `${COMPONENT_NAME.value}__suffix`,
-                  `${COMPONENT_NAME.value}__suffix-icon`,
-                  { [`${COMPONENT_NAME.value}__clear`]: showClear.value },
-                ]}
-              >
-                {suffixIcon}
-              </span>
-            ) : null}
+            {suffixIcon ? <span>{suffixIcon}</span> : null}
           </div>
           {tips && <div class={tipsClasses}>{tips}</div>}
         </div>
