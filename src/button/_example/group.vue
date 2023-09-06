@@ -1,36 +1,52 @@
 <template>
-  <div class="demo-button-row">
-    <div class="demo-button-col">
-      <t-button theme="primary"> 确定 </t-button>
-      <t-button variant="outline"> 取消 </t-button>
-    </div>
-    <div class="demo-button-col">
-      <t-button theme="primary"> 下一步 </t-button>
-      <t-button variant="outline"> 上一步 </t-button>
-    </div>
-    <div class="demo-button-col">
-      <t-button theme="primary"> 新建主机 </t-button>
-      <t-button variant="outline"> 重装系统 </t-button>
-      <t-button variant="outline"> 批量续费 </t-button>
-      <t-button variant="outline">
-        <template #icon>
-          <more-icon />
-        </template>
-      </t-button>
-    </div>
-  </div>
+  <t-space direction="vertical">
+    <t-space>
+      <t-button-group>
+        <t-button>选择</t-button>
+        <t-button theme="primary" shape="square" variant="base"><chevron-down-icon slot="icon" /></t-button>
+      </t-button-group>
+    </t-space>
+
+    <t-space>
+      <t-button-group>
+        <t-button>按钮1</t-button>
+        <t-button>按钮2</t-button>
+      </t-button-group>
+    </t-space>
+
+    <t-space>
+      <t-button-group>
+        <t-button theme="warning" shape="square" variant="base"><thumb-up-2-icon slot="icon" /></t-button>
+        <t-button theme="warning" shape="square" variant="base"><heart-icon slot="icon" /></t-button>
+        <t-button theme="warning" shape="square" variant="base"><star-icon slot="icon" /></t-button>
+      </t-button-group>
+    </t-space>
+
+    <t-space>
+      <t-button-group theme="success">
+        <t-button>按钮1</t-button>
+        <t-button>按钮2</t-button>
+        <t-button>按钮3</t-button>
+      </t-button-group>
+    </t-space>
+
+    <t-space>
+      <t-button-group size="large">
+        <t-button>大按钮1</t-button>
+        <t-button>大按钮2</t-button>
+        <t-button>大按钮2</t-button>
+      </t-button-group>
+    </t-space>
+
+    <t-space>
+      <t-button-group disabled>
+        <t-button>禁用按钮1</t-button>
+        <t-button>禁用按钮2</t-button>
+      </t-button-group>
+    </t-space>
+  </t-space>
 </template>
-<script setup>
-import { MoreIcon } from 'tdesign-icons-vue-next';
+
+<script setup lang="ts">
+import { ChevronDownIcon, ThumbUp2Icon, HeartIcon, StarIcon } from 'tdesign-icons-vue-next';
 </script>
-<style scoped>
-.demo-button-row {
-  display: flex;
-}
-.demo-button-col + .demo-button-col {
-  margin-left: 32px;
-}
-.t-button + .t-button {
-  margin-left: 16px;
-}
-</style>

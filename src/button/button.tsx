@@ -1,10 +1,11 @@
-import { computed, defineComponent, h, ref } from 'vue';
+import { computed, defineComponent, h, inject, ref } from 'vue';
 import TLoading from '../loading';
 import props from './props';
 import useRipple from '../hooks/useRipple';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import { useDisabled } from '../hooks/useDisabled';
+import { ButtonGroupInjectionKey } from './constants';
 
 export default defineComponent({
   name: 'TButton',
@@ -15,25 +16,32 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('button');
     const { STATUS, SIZE } = useCommonClassName();
     const btnRef = ref<HTMLElement>();
-
+    const buttonGroupData = inject(ButtonGroupInjectionKey, undefined);
     useRipple(btnRef);
 
     const isDisabled = useDisabled();
 
     const mergeTheme = computed(() => {
       const { theme, variant } = props;
-      if (theme) return theme;
+      if (theme) {
+        return theme;
+      } else if (buttonGroupData?.value?.theme) {
+        return buttonGroupData?.value?.theme;
+      }
       if (variant === 'base') return 'primary';
       return 'default';
     });
+
+    const mergeSize = computed(() => buttonGroupData?.value?.size ?? props.size);
+    const mergeDisabled = computed(() => buttonGroupData?.value?.disabled || isDisabled.value);
 
     const buttonClass = computed(() => [
       `${COMPONENT_NAME.value}`,
       `${COMPONENT_NAME.value}--variant-${props.variant}`,
       `${COMPONENT_NAME.value}--theme-${mergeTheme.value}`,
       {
-        [SIZE.value[props.size]]: props.size !== 'medium',
-        [STATUS.value.disabled]: isDisabled.value,
+        [SIZE.value[mergeSize.value]]: mergeSize.value !== 'medium',
+        [STATUS.value.disabled]: mergeDisabled.value,
         [STATUS.value.loading]: props.loading,
         [`${COMPONENT_NAME.value}--shape-${props.shape}`]: props.shape !== 'rectangle',
         [`${COMPONENT_NAME.value}--ghost`]: props.ghost,
@@ -47,7 +55,7 @@ export default defineComponent({
       const iconOnly = icon && !buttonContent;
       const suffix =
         props.suffix || slots.suffix ? (
-          <span className={`${COMPONENT_NAME.value}__suffix`}>{renderTNodeJSX('suffix')}</span>
+          <span class={`${COMPONENT_NAME.value}__suffix`}>{renderTNodeJSX('suffix')}</span>
         ) : null;
 
       buttonContent = buttonContent ? <span class={`${COMPONENT_NAME.value}__text`}>{buttonContent}</span> : '';
