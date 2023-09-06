@@ -170,6 +170,10 @@ export default defineComponent({
         v-slots={{
           fileListDisplay: slots.fileListDisplay,
           'file-list-display': slots['file-list-display'],
+          cancelUploadButton: slots.cancelUploadButton,
+          'cancel-upload-button': slots['cancel-upload-button'],
+          uploadButton: slots.uploadButton,
+          'upload-button': slots['continue-upload-button'],
         }}
       >
         <div class={`${classPrefix.value}-upload__trigger`} onClick={triggerUpload}>

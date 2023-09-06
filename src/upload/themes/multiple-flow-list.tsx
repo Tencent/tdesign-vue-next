@@ -369,21 +369,36 @@ export default defineComponent({
 
           {!props.autoUpload && (
             <div class={`${uploadPrefix.value}__flow-bottom`}>
-              <TButton
-                theme="default"
-                disabled={disabled.value || !uploading.value}
-                content={locale.value?.cancelUploadText}
-                class={`${uploadPrefix.value}__cancel`}
-                onClick={(e) => props.cancelUpload?.({ e })}
-              ></TButton>
-              <TButton
-                disabled={disabled.value || uploading.value || !displayFiles.value.length}
-                theme="primary"
-                loading={uploading.value}
-                class={`${uploadPrefix.value}__continue`}
-                content={uploadText.value}
-                onClick={() => props.uploadFiles?.()}
-              ></TButton>
+              {slots.cancelUploadButton ? (
+                slots.cancelUploadButton?.({
+                  disabled: disabled.value || !uploading.value,
+                  cancelUpload: props.cancelUpload,
+                })
+              ) : (
+                <TButton
+                  theme="default"
+                  disabled={disabled.value || !uploading.value}
+                  content={locale.value?.cancelUploadText}
+                  class={`${uploadPrefix.value}__cancel`}
+                  onClick={(e) => props.cancelUpload?.({ e })}
+                ></TButton>
+              )}
+              {slots.uploadButton ? (
+                slots.uploadButton?.({
+                  disabled: disabled.value || uploading.value || !displayFiles.value.length,
+                  loading: uploading.value,
+                  upload: props.uploadFiles,
+                })
+              ) : (
+                <TButton
+                  disabled={disabled.value || uploading.value || !displayFiles.value.length}
+                  theme="primary"
+                  loading={uploading.value}
+                  class={`${uploadPrefix.value}__continue`}
+                  content={uploadText.value}
+                  onClick={() => props.uploadFiles?.()}
+                ></TButton>
+              )}
             </div>
           )}
 
