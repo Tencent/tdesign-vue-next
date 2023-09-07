@@ -4,6 +4,36 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 1.5.4 `2023-09-07` 
+### 🚀 Features
+- `Table`: @chaishi
+  - 可筛选表格，`onFilterChange` 事件新增参数 `trigger: 'filter-change' | 'confirm' | 'reset' | 'clear'`，表示触发筛选条件变化的来源 ([#3316](https://github.com/Tencent/tdesign-vue-next/pull/3316))
+  - 可筛选表格，支持使用 `filter.label` 单独定义晒选项别名，可以和 `title` 标题不一样 ([#3321](https://github.com/Tencent/tdesign-vue-next/pull/3321))
+- `Watermark`: 文字新增`fontFamily`属性 @LadyChatterleyLover ([#3314](https://github.com/Tencent/tdesign-vue-next/pull/3314))
+- `Dialog`: @chaishi
+   - 支持使用 `confirmLoading` 控制确认按钮加载状态  ([#3343](https://github.com/Tencent/tdesign-vue-next/pull/3343))
+   - 组件实例函数新增 `confirmDialog.setConfirmLoading(true)` 和 `confirmDialog.update({ confirmLoading: true })`，用于设置确认按钮加载状态 ([#3343](https://github.com/Tencent/tdesign-vue-next/pull/3343))
+- `TreeSelect`: 树选择支持suffix和suffixIcon @ngyyuusora ([#3290](https://github.com/Tencent/tdesign-vue-next/pull/3290))
+### 🐞 Bug Fixes
+
+- `Form`: 修复 form 组件 scrollToFirstError 无效的问题 @dreamlords ([#3294](https://github.com/Tencent/tdesign-vue-next/pull/3294))
+- `Table`:  @chaishi
+   - 可筛选表格，修复 `resetValue` 在清空筛选时，未能重置到指定 `resetValue` 值的问题 ([#3316](https://github.com/Tencent/tdesign-vue-next/pull/3316))
+   - 可筛选表格，修复晒选项的值为 `false` 时，筛选图标未能高亮问题 ([#3321](https://github.com/Tencent/tdesign-vue-next/pull/3321))
+   -  树形结构，可拖拽调整行顺序，修复最后一个节点展开的子节点位置不正确问题 ([#3296](https://github.com/Tencent/tdesign-vue-next/pull/3296))
+   -  树形结构，修复 `v1.5.3` 中 `tree.defaultExpandAll` 失效问题 ([#3296](https://github.com/Tencent/tdesign-vue-next/pull/3296))
+   - 树形结构表格，修复 expandedTreeNodes.sync 和 @expanded-tree-nodes-change 使用 expandTreeNodeOnClick  时无效问题
+   -  支持不使用columnController时也可以使用列配置 @ngyyuusora ([#3301](https://github.com/Tencent/tdesign-vue-next/pull/3301))
+   - 可筛选表格，解决 `title` 使用函数或插槽定义时，过滤结果行文本显示问题，[issue#3303](https://github.com/Tencent/tdesign-vue-next/issues/3303) ([#3321](https://github.com/Tencent/tdesign-vue-next/pull/3321))
+   - 可编辑表格，修复多个可编辑表格同时存在时，校验互相影响问题 ([#3341](https://github.com/Tencent/tdesign-vue-next/pull/3341))
+- `Image`: 修复 `fallback` 在第一次加载失败后无效问题 @chaishi ([#3319](https://github.com/Tencent/tdesign-vue-next/pull/3319))
+- `Select`: 修复下拉框多选状态下不显示前缀图标 @LadyChatterleyLover ([#3323](https://github.com/Tencent/tdesign-vue-next/pull/3323))
+- `Menu`: 修复双层菜单未配置`router`时 to 属性无法基于`vue-router`默认跳转的缺陷 @uyarn ([#3325](https://github.com/Tencent/tdesign-vue-next/pull/3325))
+- `Breadcrumb`: 修复未配置`router`时 to 属性无法基于`vue-router`默认跳转的缺陷 @uyarn ([#3325](https://github.com/Tencent/tdesign-vue-next/pull/3325))
+- `Transfer`: 修复穿梭框组件无法搜索深层级树形结构数据 @LadyChatterleyLover ([#3336](https://github.com/Tencent/tdesign-vue-next/pull/3336))
+- `Form`: 修复 form 组件 scrollToFirstError 无效的问题 @dreamlords ([#3294](https://github.com/Tencent/tdesign-vue-next/pull/3294))
+
+
 ## 🌈 1.5.3 `2023-08-29` 
 ### 🚀 Features
 - `Upload`: 上传组件 `theme='image'` 时，在 `disabled` 状态不显示上传按钮 @yuzunyue ([#3277](https://github.com/Tencent/tdesign-vue-next/pull/3277))
