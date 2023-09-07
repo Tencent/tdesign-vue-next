@@ -1,5 +1,5 @@
 import isBoolean from 'lodash/isBoolean';
-import { computed, ref, watch, onBeforeMount } from 'vue';
+import { computed, ref, watch, onBeforeUnmount } from 'vue';
 import { TdBaseTableProps } from '../type';
 import { on, off } from '../../utils/dom';
 import { AffixProps } from '../../affix';
@@ -226,7 +226,7 @@ export default function useAffix(props: TdBaseTableProps) {
     },
   );
 
-  onBeforeMount(() => {
+  onBeforeUnmount(() => {
     off(document, 'scroll', onDocumentScroll);
     removeHorizontalScrollListeners();
   });
