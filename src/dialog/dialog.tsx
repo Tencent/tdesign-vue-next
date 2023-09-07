@@ -331,6 +331,7 @@ export default defineComponent({
             globalConfirm: globalConfig.value.confirm,
             globalConfirmBtnTheme: globalConfig.value.confirmBtnTheme,
             className: `${COMPONENT_NAME.value}__confirm`,
+            confirmLoading: props.confirmLoading,
           })}
         </div>
       );
