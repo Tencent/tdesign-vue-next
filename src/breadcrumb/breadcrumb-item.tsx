@@ -69,7 +69,7 @@ export default defineComponent({
         if (props.href) {
           window.location.href = props.href;
         }
-        const router = props.router || proxy.$root.$router;
+        const router = props.router || proxy.$router;
         if (props.to && router) {
           props.replace ? router.replace(props.to) : router.push(props.to);
         }

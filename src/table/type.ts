@@ -561,7 +561,7 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
   /**
    * 过滤参数发生变化时触发，泛型 T 指表格数据类型
    */
-  onFilterChange?: (filterValue: FilterValue, context: { col?: PrimaryTableCol<T> }) => void;
+  onFilterChange?: (filterValue: FilterValue, context: TableFilterChangeContext<T>) => void;
   /**
    * 行编辑时触发
    */
@@ -812,6 +812,10 @@ export interface TableColumnFilter {
    * 哪些事件触发后会进行过滤搜索（确认按钮无需配置，会默认触发搜索）。输入框组件示例：`confirmEvents: ['onEnter']`
    */
   confirmEvents?: string[];
+  /**
+   * 过滤项标题文本，显示在“过滤结果行”中的列标题描述。一般用于表头标题和过滤文本行中的列标题不一样的场景
+   */
+  label?: string | TNode;
   /**
    * 用于配置当前筛选器可选值有哪些，仅当 `filter.type` 等于 `single` 或 `multiple` 时有效
    */
@@ -1097,6 +1101,11 @@ export interface DragSortContext<T> {
 export interface ExpandOptions<T> {
   expandedRowData: Array<T>;
   currentRowData: T;
+}
+
+export interface TableFilterChangeContext<T> {
+  col?: PrimaryTableCol<T>;
+  trigger: 'filter-change' | 'confirm' | 'reset' | 'clear';
 }
 
 export type PrimaryTableRowEditContext<T> = PrimaryTableCellParams<T> & { value: any; editedRow: T };

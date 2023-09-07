@@ -140,7 +140,12 @@ const lazyLoadingData = ref(null);
 // 非必须，如果不传，表格有内置树形节点展开逻辑
 const expandedTreeNodes = ref([]);
 
-const treeConfig = reactive({ childrenKey: 'list', treeNodeColumnIndex: 2, indent: 25 });
+const treeConfig = reactive({
+  childrenKey: 'list',
+  treeNodeColumnIndex: 2,
+  indent: 25,
+  expandTreeNodeOnClick: true,
+});
 
 // 重置数据和展开节点
 const resetData = () => {

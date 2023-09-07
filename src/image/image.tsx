@@ -42,8 +42,17 @@ export default defineComponent({
     const { classPrefix, globalConfig } = useConfig('image');
 
     // replace image url
-    const imageStrSrc = computed(() =>
-      isFunction(globalConfig.value.replaceImageSrc) ? globalConfig.value.replaceImageSrc(props) : src.value,
+    const imageStrSrc = ref(src.value);
+
+    watch(
+      [src, globalConfig],
+      ([src, globalConfig]) => {
+        const { replaceImageSrc } = globalConfig || {};
+        const tmpUrl = isFunction(replaceImageSrc) ? replaceImageSrc(props) : src;
+        if (tmpUrl === imageStrSrc.value && imageStrSrc.value) return;
+        imageStrSrc.value = tmpUrl;
+      },
+      { immediate: true },
     );
 
     const { previewUrl } = useImagePreviewUrl(imageStrSrc);
@@ -76,7 +85,8 @@ export default defineComponent({
       hasError.value = true;
       props.onError?.({ e });
       if (props.fallback) {
-        previewUrl.value = props.fallback;
+        imageStrSrc.value = props.fallback;
+        hasError.value = false;
       }
     };
 

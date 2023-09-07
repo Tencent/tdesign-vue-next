@@ -64,14 +64,14 @@ export default defineComponent({
       { [`${COMPONENT_NAME.value}-inline`]: props.layout === 'inline' },
     ]);
 
-    const FORM_ITEM_CLASS_PREFIX = usePrefixClass('form-item__');
+    const FORM_ITEM_CLASS_PREFIX = usePrefixClass('form-item');
 
     const getFirstError = (result: Result) => {
       if (isBoolean(result)) return '';
       const [firstKey] = Object.keys(result);
       if (props.scrollToFirstError) {
         const tmpClassName = getFormItemClassName(FORM_ITEM_CLASS_PREFIX.value, firstKey);
-        scrollTo(`.${tmpClassName}`);
+        scrollTo(tmpClassName);
       }
       const resArr = result[firstKey] as ValidateResultList;
       if (!isArray(resArr)) return '';

@@ -130,6 +130,14 @@ export interface TdTreeSelectProps<DataOption extends TreeOptionData = TreeOptio
    */
   size?: 'small' | 'medium' | 'large';
   /**
+   * 后置图标前的后置内容
+   */
+  suffix?: string | TNode;
+  /**
+   * 组件后置图标
+   */
+  suffixIcon?: TNode;
+  /**
    * 【开发中】透传 Tag 标签组件全部属性
    */
   tagProps?: TagProps;

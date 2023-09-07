@@ -31,7 +31,7 @@
         <t-space>
           <t-space direction="vertical">
             <span>默认错误</span>
-            <t-image :key="errorCount" src="" :style="{ width: '284px', height: '160px' }" />
+            <t-image :key="errorCount" src="error url" :style="{ width: '284px', height: '160px' }" />
             <t-button variant="outline" :icon="renderIcon" @click="errorCount = errorCount + 1"> 重演 error </t-button>
           </t-space>
           <t-space direction="vertical">

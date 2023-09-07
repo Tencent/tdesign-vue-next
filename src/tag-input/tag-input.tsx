@@ -165,6 +165,7 @@ export default defineComponent({
     ) : (
       renderTNodeJSX(this, 'suffixIcon')
     );
+    const prefixIconNode = renderTNodeJSX(this, 'prefixIcon');
     const suffixClass = `${this.classPrefix}-tag-input__with-suffix-icon`;
     if (suffixIconNode && !this.classes.includes(suffixClass)) {
       this.classes.push(suffixClass);
@@ -196,6 +197,7 @@ export default defineComponent({
         placeholder={this.tagInputPlaceholder}
         suffix={this.suffix}
         suffixIcon={() => suffixIconNode}
+        prefixIcon={() => prefixIconNode}
         showInput={
           !(this.inputProps as TdTagInputProps['inputProps'])?.readonly || !this.tagValue || !this.tagValue?.length
         }
