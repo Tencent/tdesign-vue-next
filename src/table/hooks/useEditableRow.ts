@@ -19,9 +19,8 @@ export interface TablePromiseErrorData {
   errorMap: TableErrorListMap;
 }
 
-const cellRuleMap = new Map<any, PrimaryTableRowEditContext<TableRowData>[]>();
-
 export default function useRowEdit(props: PrimaryTableProps) {
+  const cellRuleMap = new Map<any, PrimaryTableRowEditContext<TableRowData>[]>();
   // 校验不通过的错误信息，其中 key 值为 [rowValue, col.colKey].join('__')
   const errorListMap = ref<TableErrorListMap>({});
   // 处于编辑态的表格行

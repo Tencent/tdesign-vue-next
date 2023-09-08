@@ -131,7 +131,7 @@ export default defineComponent({
       if (href) {
         window.location.href = activeMenuItem.href;
       }
-      const router = activeMenuItem.router || proxy.$root.$router;
+      const router = activeMenuItem.router || proxy.$router;
       if (to && router) {
         replace ? router.replace(to) : router.push(to);
       }

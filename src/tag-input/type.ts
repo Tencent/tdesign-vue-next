@@ -92,6 +92,10 @@ export interface TdTagInputProps {
    */
   suffixIcon?: TNode;
   /**
+   * 组件前置图标
+   */
+  prefixIcon?: TNode;
+  /**
    * 自定义标签的内部内容，每一个标签的当前值。注意和 `valueDisplay` 区分，`valueDisplay`  是用来定义全部标签内容，而非某一个标签
    */
   tag?: string | TNode<{ value: string | number }>;

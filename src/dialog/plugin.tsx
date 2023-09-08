@@ -91,6 +91,9 @@ const createDialog: DialogMethod = (props: DialogOptions) => {
         dialogComponent.unmount();
       }, 300);
     },
+    setConfirmLoading: (val: boolean) => {
+      dialog.update({ confirmLoading: val });
+    },
   };
   return dialogNode;
 };
