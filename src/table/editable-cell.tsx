@@ -151,7 +151,7 @@ export default defineComponent({
       const { edit } = col.value;
       if (!edit) return {};
       const tmpProps = { ...editProps.value };
-      // fo removing warn: runtime-core.esm-bundler.js:38 [Vue warn]: Invalid prop: type check failed for prop "onChange". Expected Function, got Array
+      // for removing warn: runtime-core.esm-bundler.js:38 [Vue warn]: Invalid prop: type check failed for prop "onChange". Expected Function, got Array
       delete tmpProps.onChange;
       delete tmpProps.value;
       edit.abortEditOnEvent?.forEach((item) => {
