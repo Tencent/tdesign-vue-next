@@ -3,7 +3,7 @@
 exports[`BaseTable Component > props.showHeader: BaseTable contains element \`thead\` 1`] = `
 <div
   class="t-table"
-  style="position: relative;"
+  tabindex="0"
 >
   <!---->
   <!---->
@@ -240,7 +240,7 @@ exports[`BaseTable Component > props.showHeader: BaseTable contains element \`th
 exports[`BaseTable Component > props.size is equal to large 1`] = `
 <div
   class="t-table t-size-l"
-  style="position: relative;"
+  tabindex="0"
 >
   <!---->
   <!---->
@@ -477,7 +477,7 @@ exports[`BaseTable Component > props.size is equal to large 1`] = `
 exports[`BaseTable Component > props.size is equal to medium 1`] = `
 <div
   class="t-table"
-  style="position: relative;"
+  tabindex="0"
 >
   <!---->
   <!---->
@@ -714,7 +714,7 @@ exports[`BaseTable Component > props.size is equal to medium 1`] = `
 exports[`BaseTable Component > props.size is equal to small 1`] = `
 <div
   class="t-table t-size-s"
-  style="position: relative;"
+  tabindex="0"
 >
   <!---->
   <!---->
@@ -951,7 +951,7 @@ exports[`BaseTable Component > props.size is equal to small 1`] = `
 exports[`BaseTable Component > props.tableLayout is equal to auto 1`] = `
 <div
   class="t-table"
-  style="position: relative;"
+  tabindex="0"
 >
   <!---->
   <!---->
@@ -1182,7 +1182,7 @@ exports[`BaseTable Component > props.tableLayout is equal to auto 1`] = `
 exports[`BaseTable Component > props.tableLayout is equal to fixed 1`] = `
 <div
   class="t-table"
-  style="position: relative;"
+  tabindex="0"
 >
   <!---->
   <!---->
