@@ -5,6 +5,9 @@
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
+activeRowKeys | Array | [] | 高亮行。支持语法糖 `v-model:activeRowKeys`。TS 类型：`Array<string \| number>` | N
+defaultActiveRowKeys | Array | [] | 高亮行。非受控属性。TS 类型：`Array<string \| number>` | N
+activeRowType | String | - | 默认不会高亮点击行，`activeRowType=single` 表示仅允许同时高亮一行，`activeRowType= multiple ` 表示允许同时高亮多行。TS 类型：`'single' \| 'multiple'` | N
 allowResizeColumnWidth | Boolean | undefined | 已废弃。是否允许调整列宽。请更为使用 `resizable` | N
 attach | String / Function | - | 超出省略等所有浮层元素统一绑定到 `attach`，可根据实际情况调整挂载元素。TS 类型：`AttachNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 bordered | Boolean | false | 是否显示表格边框 | N
@@ -46,10 +49,11 @@ tableContentWidth | String | - | 表格内容的总宽度，注意不是表格�
 tableLayout | String | fixed | 表格布局方式，`<table>` 元素原生属性。[MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout)。注意，在列宽调整下场景只能使用 `fixed` 模式。可选项：auto/fixed | N
 topContent | String / Slot / Function | - | 表格顶部内容，可以用于自定义列设置、顶部查询条件等。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 verticalAlign | String | middle | 行内容上下方向对齐。可选项：top/middle/bottom | N
+onActiveChange | Function |  | TS 类型：`(activeRowKeys: Array<string \| number>, context: ActiveChangeContext<T>) => void`<br/>高亮行发生变化时触发，泛型 T 指表格数据类型。参数 `activeRowList` 表示所有高亮行数据， `currentRowData` 表示当前操作行数据。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface ActiveChangeContext<T> { activeRowList: Array<T>; currentRowData?: T; type: 'active' \| 'inactive' }`<br/> | N
 onCellClick | Function |  | TS 类型：`(context: BaseTableCellEventContext<T>) => void`<br/>单元格点击时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface BaseTableCellEventContext<T> { row: T; col: BaseTableCol; rowIndex: number; colIndex: number; e: MouseEvent }`<br/> | N
 onColumnResizeChange | Function |  | TS 类型：`(context: { columnsWidth: { [colKey: string]: number }; }) => void`<br/>列调整大小之后触发。`context.columnsWidth` 表示操作后各个列的宽度； | N
 onPageChange | Function |  | TS 类型：`(pageInfo: PageInfo, newDataSource: Array<T>) => void`<br/>分页发生变化时触发。参数 newDataSource 表示分页后的数据。本地数据进行分页时，newDataSource 和源数据 data 会不一样。泛型 T 指表格数据类型 | N
-onRowClick | Function |  | TS 类型：`(context: RowEventContext<T>) => void`<br/>行点击时触发，泛型 T 指表格数据类型。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface RowEventContext<T> { row: T; index: number; e: MouseEvent }`<br/> | N
+onRowClick | Function |  | TS 类型：`(context: RowEventContext<T>) => void`<br/>行点击时触发，泛型 T 指表格数据类型。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface RowEventContext<T> { row: T; index: number; e: MouseEvent \| KeyboardEvent }`<br/> | N
 onRowDblclick | Function |  | TS 类型：`(context: RowEventContext<T>) => void`<br/>行双击时触发，泛型 T 指表格数据类型 | N
 onRowMousedown | Function |  | TS 类型：`(context: RowEventContext<T>) => void`<br/>鼠标在表格行按下时触发，泛型 T 指表格数据类型 | N
 onRowMouseenter | Function |  | TS 类型：`(context: RowEventContext<T>) => void`<br/>鼠标在表格行进入时触发，泛型 T 指表格数据类型 | N
@@ -64,10 +68,11 @@ onScrollY | Function |  | TS 类型：`(params: { e: WheelEvent }) => void`<br/>
 
 名称 | 参数 | 描述
 -- | -- | --
+active-change | `(activeRowKeys: Array<string \| number>, context: ActiveChangeContext<T>)` | 高亮行发生变化时触发，泛型 T 指表格数据类型。参数 `activeRowList` 表示所有高亮行数据， `currentRowData` 表示当前操作行数据。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface ActiveChangeContext<T> { activeRowList: Array<T>; currentRowData?: T; type: 'active' \| 'inactive' }`<br/>
 cell-click | `(context: BaseTableCellEventContext<T>)` | 单元格点击时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface BaseTableCellEventContext<T> { row: T; col: BaseTableCol; rowIndex: number; colIndex: number; e: MouseEvent }`<br/>
 column-resize-change | `(context: { columnsWidth: { [colKey: string]: number }; })` | 列调整大小之后触发。`context.columnsWidth` 表示操作后各个列的宽度；
 page-change | `(pageInfo: PageInfo, newDataSource: Array<T>)` | 分页发生变化时触发。参数 newDataSource 表示分页后的数据。本地数据进行分页时，newDataSource 和源数据 data 会不一样。泛型 T 指表格数据类型
-row-click | `(context: RowEventContext<T>)` | 行点击时触发，泛型 T 指表格数据类型。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface RowEventContext<T> { row: T; index: number; e: MouseEvent }`<br/>
+row-click | `(context: RowEventContext<T>)` | 行点击时触发，泛型 T 指表格数据类型。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface RowEventContext<T> { row: T; index: number; e: MouseEvent \| KeyboardEvent }`<br/>
 row-dblclick | `(context: RowEventContext<T>)` | 行双击时触发，泛型 T 指表格数据类型
 row-mousedown | `(context: RowEventContext<T>)` | 鼠标在表格行按下时触发，泛型 T 指表格数据类型
 row-mouseenter | `(context: RowEventContext<T>)` | 鼠标在表格行进入时触发，泛型 T 指表格数据类型
@@ -138,8 +143,8 @@ indeterminateSelectedRowKeys | Array | - | 半选状态行。选中行请更为�
 multipleSort | Boolean | false | 是否支持多列排序 | N
 reserveSelectedRowOnPaginate | Boolean | true | 行选中功能，是否在分页时保留上一页选中结果不清空，本地数据分页场景下，会全选所有页数据。值为 `false` 则表示全部选中操作停留在当前页，不跨分页；本地数据分页场景下，全选仅选中当前页 | N
 selectOnRowClick | Boolean | - | 是否在点击整行时选中 | N
-selectedRowKeys | Array | [] | 选中行，控制属性。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制。支持语法糖 `v-model:selectedRowKeys`。TS 类型：`Array<string \| number>` | N
-defaultSelectedRowKeys | Array | [] | 选中行，控制属性。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制。非受控属性。TS 类型：`Array<string \| number>` | N
+selectedRowKeys | Array | [] | 选中行。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制。支持语法糖 `v-model:selectedRowKeys`。TS 类型：`Array<string \| number>` | N
+defaultSelectedRowKeys | Array | [] | 选中行。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制。非受控属性。TS 类型：`Array<string \| number>` | N
 showSortColumnBgColor | Boolean | false | 当前排序列是否显示背景色 | N
 sort | Object / Array | - | 排序控制。sortBy 排序字段；descending 是否进行降序排列。值为数组时，表示正进行多字段排序。支持语法糖 `v-model:sort`。TS 类型：`TableSort` `type TableSort = SortInfo \| Array<SortInfo>` `interface SortInfo { sortBy: string; descending: boolean }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 defaultSort | Object / Array | - | 排序控制。sortBy 排序字段；descending 是否进行降序排列。值为数组时，表示正进行多字段排序。非受控属性。TS 类型：`TableSort` `type TableSort = SortInfo \| Array<SortInfo>` `interface SortInfo { sortBy: string; descending: boolean }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N

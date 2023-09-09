@@ -5,6 +5,9 @@
 
 name | type | default | description | required
 -- | -- | -- | -- | --
+activeRowKeys | Array | [] | keys of highlight rows。`v-model:activeRowKeys` is supported。Typescript：`Array<string \| number>` | N
+defaultActiveRowKeys | Array | [] | keys of highlight rows。uncontrolled property。Typescript：`Array<string \| number>` | N
+activeRowType | String | - | make nodes can be highlight on clicked。Typescript：`'single' \| 'multiple'` | N
 allowResizeColumnWidth | Boolean | undefined | `deprecated`。allow to resize column width | N
 attach | String / Function | - | elements with popup would be attached to `attach`。Typescript：`AttachNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 bordered | Boolean | false | show table bordered | N
@@ -46,10 +49,11 @@ tableContentWidth | String | - | \- | N
 tableLayout | String | fixed | table-layout css properties, [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout). set value to be `fixed` on `resizable=true` please。options: auto/fixed | N
 topContent | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 verticalAlign | String | middle | vertical align。options: top/middle/bottom | N
+onActiveChange | Function |  | Typescript：`(activeRowKeys: Array<string \| number>, context: ActiveChangeContext<T>) => void`<br/>trigger on row active change。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface ActiveChangeContext<T> { activeRowList: Array<T>; currentRowData?: T; type: 'active' \| 'inactive' }`<br/> | N
 onCellClick | Function |  | Typescript：`(context: BaseTableCellEventContext<T>) => void`<br/>trigger on cell clicked。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface BaseTableCellEventContext<T> { row: T; col: BaseTableCol; rowIndex: number; colIndex: number; e: MouseEvent }`<br/> | N
 onColumnResizeChange | Function |  | Typescript：`(context: { columnsWidth: { [colKey: string]: number }; }) => void`<br/> | N
 onPageChange | Function |  | Typescript：`(pageInfo: PageInfo, newDataSource: Array<T>) => void`<br/>trigger on pagination changing | N
-onRowClick | Function |  | Typescript：`(context: RowEventContext<T>) => void`<br/>trigger on row click。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface RowEventContext<T> { row: T; index: number; e: MouseEvent }`<br/> | N
+onRowClick | Function |  | Typescript：`(context: RowEventContext<T>) => void`<br/>trigger on row click。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface RowEventContext<T> { row: T; index: number; e: MouseEvent \| KeyboardEvent }`<br/> | N
 onRowDblclick | Function |  | Typescript：`(context: RowEventContext<T>) => void`<br/>trigger on double click | N
 onRowMousedown | Function |  | Typescript：`(context: RowEventContext<T>) => void`<br/>trigger on row mousedown | N
 onRowMouseenter | Function |  | Typescript：`(context: RowEventContext<T>) => void`<br/>trigger on row mouseenter | N
@@ -64,10 +68,11 @@ onScrollY | Function |  | Typescript：`(params: { e: WheelEvent }) => void`<br/
 
 name | params | description
 -- | -- | --
+active-change | `(activeRowKeys: Array<string \| number>, context: ActiveChangeContext<T>)` | trigger on row active change。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface ActiveChangeContext<T> { activeRowList: Array<T>; currentRowData?: T; type: 'active' \| 'inactive' }`<br/>
 cell-click | `(context: BaseTableCellEventContext<T>)` | trigger on cell clicked。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface BaseTableCellEventContext<T> { row: T; col: BaseTableCol; rowIndex: number; colIndex: number; e: MouseEvent }`<br/>
 column-resize-change | `(context: { columnsWidth: { [colKey: string]: number }; })` | \-
 page-change | `(pageInfo: PageInfo, newDataSource: Array<T>)` | trigger on pagination changing
-row-click | `(context: RowEventContext<T>)` | trigger on row click。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface RowEventContext<T> { row: T; index: number; e: MouseEvent }`<br/>
+row-click | `(context: RowEventContext<T>)` | trigger on row click。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface RowEventContext<T> { row: T; index: number; e: MouseEvent \| KeyboardEvent }`<br/>
 row-dblclick | `(context: RowEventContext<T>)` | trigger on double click
 row-mousedown | `(context: RowEventContext<T>)` | trigger on row mousedown
 row-mouseenter | `(context: RowEventContext<T>)` | trigger on row mouseenter

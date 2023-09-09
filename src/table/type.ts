@@ -33,6 +33,21 @@ import {
 
 export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
   /**
+   * 高亮行
+   * @default []
+   */
+  activeRowKeys?: Array<string | number>;
+  /**
+   * 高亮行，非受控属性
+   * @default []
+   */
+  defaultActiveRowKeys?: Array<string | number>;
+  /**
+   * 默认不会高亮点击行，`activeRowType=single` 表示仅允许同时高亮一行，`activeRowType= multiple ` 表示允许同时高亮多行
+   * @default ''
+   */
+  activeRowType?: 'single' | 'multiple';
+  /**
    * 是否允许调整列宽。请更为使用 `resizable`
    * @deprecated
    */
@@ -217,6 +232,10 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    * @default middle
    */
   verticalAlign?: 'top' | 'middle' | 'bottom';
+  /**
+   * 高亮行发生变化时触发，泛型 T 指表格数据类型。参数 `activeRowList` 表示所有高亮行数据， `currentRowData` 表示当前操作行数据
+   */
+  onActiveChange?: (activeRowKeys: Array<string | number>, context: ActiveChangeContext<T>) => void;
   /**
    * 单元格点击时触发
    */
@@ -490,12 +509,12 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   selectOnRowClick?: boolean;
   /**
-   * 选中行，控制属性。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制
+   * 选中行。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制
    * @default []
    */
   selectedRowKeys?: Array<string | number>;
   /**
-   * 选中行，控制属性。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制，非受控属性
+   * 选中行。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制，非受控属性
    * @default []
    */
   defaultSelectedRowKeys?: Array<string | number>;
@@ -980,6 +999,12 @@ export interface RowspanColspan {
   rowspan?: number;
 }
 
+export interface ActiveChangeContext<T> {
+  activeRowList: Array<T>;
+  currentRowData?: T;
+  type: 'active' | 'inactive';
+}
+
 export interface BaseTableCellEventContext<T> {
   row: T;
   col: BaseTableCol;
@@ -991,7 +1016,7 @@ export interface BaseTableCellEventContext<T> {
 export interface RowEventContext<T> {
   row: T;
   index: number;
-  e: MouseEvent;
+  e: MouseEvent | KeyboardEvent;
 }
 
 export interface TableRowData {

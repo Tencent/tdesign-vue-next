@@ -8,6 +8,21 @@ import { TdBaseTableProps } from '../table/type';
 import { PropType } from 'vue';
 
 export default {
+  /** 高亮行 */
+  activeRowKeys: {
+    type: Array as PropType<TdBaseTableProps['activeRowKeys']>,
+    default: undefined as TdBaseTableProps['activeRowKeys'],
+  },
+  /** 高亮行，非受控属性 */
+  defaultActiveRowKeys: {
+    type: Array as PropType<TdBaseTableProps['defaultActiveRowKeys']>,
+    default: (): TdBaseTableProps['defaultActiveRowKeys'] => [],
+  },
+  /** 默认不会高亮点击行，`activeRowType=single` 表示仅允许同时高亮一行，`activeRowType= multiple ` 表示允许同时高亮多行 */
+  activeRowType: {
+    type: String as PropType<TdBaseTableProps['activeRowType']>,
+    default: '' as TdBaseTableProps['activeRowType'],
+  },
   /** 已废弃。是否允许调整列宽。请更为使用 `resizable` */
   allowResizeColumnWidth: {
     type: Boolean,
@@ -187,6 +202,8 @@ export default {
       return ['top', 'middle', 'bottom'].includes(val);
     },
   },
+  /** 高亮行发生变化时触发，泛型 T 指表格数据类型。参数 `activeRowList` 表示所有高亮行数据， `currentRowData` 表示当前操作行数据 */
+  onActiveChange: Function as PropType<TdBaseTableProps['onActiveChange']>,
   /** 单元格点击时触发 */
   onCellClick: Function as PropType<TdBaseTableProps['onCellClick']>,
   /** 列调整大小之后触发。`context.columnsWidth` 表示操作后各个列的宽度； */
