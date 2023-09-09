@@ -136,23 +136,28 @@ export default defineComponent({
       return node;
     });
 
-    const componentProps = computed(() => {
+    const editProps = computed(() => {
       const { edit } = col.value;
-      if (!edit) return {};
-      const editProps = isFunction(edit.props)
+      return isFunction(edit.props)
         ? edit.props({
             ...cellParams.value,
             editedRow: currentRow.value,
             updateEditedCellValue,
           })
         : { ...edit.props };
-      // to remove warn: runtime-core.esm-bundler.js:38 [Vue warn]: Invalid prop: type check failed for prop "onChange". Expected Function, got Array
-      delete editProps.onChange;
-      delete editProps.value;
+    });
+
+    const componentProps = computed(() => {
+      const { edit } = col.value;
+      if (!edit) return {};
+      const tmpProps = { ...editProps.value };
+      // fo removing warn: runtime-core.esm-bundler.js:38 [Vue warn]: Invalid prop: type check failed for prop "onChange". Expected Function, got Array
+      delete tmpProps.onChange;
+      delete tmpProps.value;
       edit.abortEditOnEvent?.forEach((item) => {
-        delete editProps[item];
+        delete tmpProps[item];
       });
-      return editProps;
+      return tmpProps;
     });
 
     const isAbortEditOnChange = computed(() => {
@@ -264,6 +269,7 @@ export default defineComponent({
         value: val,
         editedRow: { ...props.row, [props.col.colKey]: val },
       };
+      editProps.value?.onChange?.(val, ...args);
       props.onChange?.(params);
       props.onRuleChange?.(params);
       editOnListeners.value?.onChange?.(params);
