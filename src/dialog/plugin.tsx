@@ -115,9 +115,9 @@ const extraApi: ExtraApi = {
   alert,
 };
 
-export type DialogPluginType = Plugin & ExtraApi & DialogAlertMethod;
+export type DialogPluginType = Plugin & ExtraApi & DialogMethod;
 
-export const DialogPlugin: DialogPluginType = createDialog as DialogPluginType;
+export const DialogPlugin = createDialog as DialogPluginType;
 
 DialogPlugin.install = (app: App): void => {
   app.config.globalProperties.$dialog = createDialog;
