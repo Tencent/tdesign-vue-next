@@ -4,15 +4,26 @@ import useDefaultValue from '../../hooks/useDefaultValue';
 import { BaseTableProps } from '../interface';
 import { RowEventContext, TableRowData } from '../type';
 import { on, off } from '../../utils/dom';
-import { ARROW_DOWN_REG, ARROW_UP_REG, ESCAPE_REG, SPACE_REG, SHIFT_REG } from '../../_common/js/common';
+import {
+  ARROW_DOWN_REG,
+  ARROW_UP_REG,
+  ESCAPE_REG,
+  SPACE_REG,
+  SHIFT_REG,
+  CLEAR_REG,
+  ALL_REG,
+} from '../../_common/js/common';
 
 /**
  * 行高亮功能，支持键盘操作
  */
 export function useRowHighlight(props: BaseTableProps, tableRef: Ref<HTMLDivElement>) {
-  const { data, activeRowType, activeRowKeys, defaultActiveRowKeys } = toRefs(props);
-  const currentClickRowIndex = ref(-1);
+  const { data, activeRowType, activeRowKeys, defaultActiveRowKeys, disableSpaceInactiveRow } = toRefs(props);
+  const currentOperationRowIndex = ref(-1);
   const isShiftPressed = ref(false);
+  const shiftSelectionState = ref(false);
+  const shiftSelectionDataList = ref([]);
+  const areaSelectionStartIndex = ref(-1);
 
   const [tActiveRow, setTActiveRow] = useDefaultValue(
     activeRowKeys,
@@ -41,14 +52,21 @@ export function useRowHighlight(props: BaseTableProps, tableRef: Ref<HTMLDivElem
     const rowValue = get(row, props.rowKey);
     if (activeRowType.value === 'single') {
       setTActiveRow([rowValue], {
-        activeRowList: [row],
+        activeRowList: [{ row, rowIndex: ctx.index }],
         currentRowData: row,
         type: 'active',
       });
     } else {
       const newActiveRowKeys = tActiveRow.value.concat(rowValue);
+      const activeRowList: { row: TableRowData; rowIndex: number }[] = [];
+      for (let i = 0, len = data.value.length; i < len; i++) {
+        const row = data.value[i];
+        if (newActiveRowKeys.includes(get(row, props.rowKey))) {
+          activeRowList.push({ row, rowIndex: i });
+        }
+      }
       setTActiveRow(newActiveRowKeys, {
-        activeRowList: data.value.filter((item) => newActiveRowKeys.includes(get(item, props.rowKey))),
+        activeRowList,
         currentRowData: row,
         type: 'active',
       });
@@ -57,16 +75,33 @@ export function useRowHighlight(props: BaseTableProps, tableRef: Ref<HTMLDivElem
 
   const handleShiftActive = (ctx: RowEventContext<TableRowData>) => {
     document.getSelection().removeAllRanges();
-    const { row, index } = ctx;
-    const startIndex = Math.min(currentClickRowIndex.value, index);
-    const endIndex = Math.max(currentClickRowIndex.value, index);
-    const newActiveRowData = data.value.slice(startIndex, endIndex + 1);
-    const newActiveRowKeys = newActiveRowData.map((item) => get(item, props.rowKey));
+    const { row } = ctx;
+    const currentIndex = currentOperationRowIndex.value;
+    const startIndex = Math.min(areaSelectionStartIndex.value, currentIndex);
+    const endIndex = Math.max(areaSelectionStartIndex.value, currentIndex);
+    const newActiveRowData: { row: TableRowData; rowIndex: number }[] = [];
+    for (let i = startIndex; i <= endIndex; i++) {
+      newActiveRowData.push({ row: data.value[i], rowIndex: i });
+    }
+    const newActiveRowKeys = newActiveRowData.map((item) => get(item.row, props.rowKey));
     setTActiveRow(newActiveRowKeys, {
       activeRowList: newActiveRowData,
       type: 'active',
       currentRowData: row,
     });
+    // shiftSelectionDataList.value = newActiveRowData;
+  };
+
+  const getActiveRowList = () => {
+    const list: { row: TableRowData; rowIndex: number }[] = [];
+    for (let i = 0, len = data.value.length; i < len; i++) {
+      const row = data.value[i];
+      const rowValue = get(row, props.rowKey);
+      if (tActiveRow.value.includes(rowValue)) {
+        list.push({ row, rowIndex: i });
+      }
+    }
+    return list;
   };
 
   const onHighlightRow = (ctx: RowEventContext<TableRowData>, extra?: { action?: 'active' | 'inactive' }) => {
@@ -75,15 +110,18 @@ export function useRowHighlight(props: BaseTableProps, tableRef: Ref<HTMLDivElem
     const rowValue = get(row, props.rowKey);
     // 如果是连续选中
     if (isShiftPressed.value) {
+      currentOperationRowIndex.value = index;
       handleShiftActive(ctx);
+      shiftSelectionState.value = true;
     } else if (tActiveRow.value.includes(rowValue) && extra?.action !== 'active') {
       // 如果已经高亮，则取消高亮
       handleInactive(ctx);
+      currentOperationRowIndex.value = index;
     } else {
       // 如果没有高亮，则设置高亮
       handleActive(ctx);
+      currentOperationRowIndex.value = index;
     }
-    currentClickRowIndex.value = index;
   };
 
   const clearActive = () => {
@@ -92,34 +130,77 @@ export function useRowHighlight(props: BaseTableProps, tableRef: Ref<HTMLDivElem
       currentRowData: undefined,
       type: 'inactive',
     });
-    currentClickRowIndex.value = -1;
+    props.onActiveRowAction?.({ action: 'clear', activeRowList: [] });
+    currentOperationRowIndex.value = -1;
+  };
+
+  const setAllActive = () => {
+    const activeKeys = data.value.map((item) => get(item, props.rowKey));
+    const activeRowList = data.value.map((row, rowIndex) => ({ row, rowIndex }));
+    setTActiveRow(activeKeys, {
+      activeRowList,
+      currentRowData: undefined,
+      type: 'active',
+    });
+    props.onActiveRowAction?.({ action: 'select-all', activeRowList });
+    currentOperationRowIndex.value = -1;
+  };
+
+  const clearShiftAreaSelection = () => {
+    shiftSelectionState.value = false;
+    // shiftSelectionDataList.value = [];
   };
 
   const keyboardDownListener = (e: KeyboardEvent) => {
-    const code = e.key?.trim() || e.code;
+    const code = e.code || e.key?.trim();
     if (ARROW_DOWN_REG.test(code)) {
-      const index = Math.min(data.value.length - 1, currentClickRowIndex.value + 1);
+      e.preventDefault();
+      const index = Math.min(data.value.length - 1, currentOperationRowIndex.value + 1);
       if (activeRowType.value === 'single') {
         onHighlightRow({ row: data.value[index], index, e }, { action: 'active' });
       } else {
-        currentClickRowIndex.value = index;
+        currentOperationRowIndex.value = index;
       }
     } else if (ARROW_UP_REG.test(code)) {
-      const index = Math.max(0, currentClickRowIndex.value - 1);
+      e.preventDefault();
+      const index = Math.max(0, currentOperationRowIndex.value - 1);
       if (activeRowType.value === 'single') {
         onHighlightRow({ row: data.value[index], index, e }, { action: 'active' });
       } else {
-        currentClickRowIndex.value = index;
+        currentOperationRowIndex.value = index;
       }
     } else if (SPACE_REG.test(code)) {
       // keydown space to active or inactive
-      const index = currentClickRowIndex.value;
-      onHighlightRow({ row: data.value[index], index, e });
-    } else if (ESCAPE_REG.test(code)) {
-      clearActive();
+      const index = currentOperationRowIndex.value;
+      // area selection can not cancel active with keydown space
+      if (shiftSelectionState.value) {
+        props.onActiveRowAction?.({
+          action: 'shift-area-selection',
+          activeRowList: getActiveRowList(),
+        });
+      } else if (!disableSpaceInactiveRow.value) {
+        onHighlightRow({ row: data.value[index], index, e });
+      } else {
+        props.onActiveRowAction?.({
+          action: 'space-one-selection',
+          activeRowList: getActiveRowList(),
+        });
+      }
     } else if (SHIFT_REG.test(code)) {
-      // shift 连续选中
+      // shift 连续选中开始
       isShiftPressed.value = true;
+      areaSelectionStartIndex.value = currentOperationRowIndex.value;
+    } else if (ESCAPE_REG.test(code) || CLEAR_REG.test(code)) {
+      // 清空
+      clearActive();
+      clearShiftAreaSelection();
+    } else if (ALL_REG.test(code)) {
+      // 全选
+      setAllActive();
+    }
+
+    if (!SPACE_REG.test(code)) {
+      clearShiftAreaSelection();
     }
   };
 

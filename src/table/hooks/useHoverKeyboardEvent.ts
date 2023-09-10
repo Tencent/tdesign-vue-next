@@ -5,17 +5,25 @@ import { on, off } from '../../utils/dom';
 import { ARROW_DOWN_REG, ARROW_UP_REG, SPACE_REG } from '../../_common/js/common';
 import { RowEventContext, TableRowData } from '../type';
 
+/**
+ * 需要进行表格行操作时，则需要键盘操作的悬浮效果来表达当前的哪一行
+ * 如：高亮多行、行选中、行展开等功能
+ */
 export function useHoverKeyboardEvent(props: BaseTableProps, tableRef: Ref<HTMLDivElement>) {
-  const { hover, data } = toRefs(props);
+  const { hover, data, activeRowType, keyboardRowHover } = toRefs(props);
   const hoverRow = ref<string | number>();
   const currentHoverRowIndex = ref(-1);
 
   // 单行高亮场景，不需要键盘悬浮效果
-  const needKeyboardRowHover = computed(() => !(hover.value && props.activeRowType === 'single'));
+  const needKeyboardRowHover = computed(() => {
+    if (activeRowType.value === 'single') return false;
+    if (activeRowType.value === 'multiple') return true;
+    return hover.value || keyboardRowHover.value;
+  });
 
-  const onHoverRow = (ctx: RowEventContext<TableRowData>) => {
+  const onHoverRow = (ctx: RowEventContext<TableRowData>, extra?: { action?: 'hover' }) => {
     const rowValue = get(ctx.row, props.rowKey);
-    if (hoverRow.value === rowValue) {
+    if (hoverRow.value === rowValue && extra?.action !== 'hover') {
       hoverRow.value = undefined;
     } else {
       hoverRow.value = rowValue;
@@ -32,11 +40,13 @@ export function useHoverKeyboardEvent(props: BaseTableProps, tableRef: Ref<HTMLD
     if (!needKeyboardRowHover.value) return;
     const code = e.key?.trim() || e.code;
     if (ARROW_DOWN_REG.test(code)) {
+      e.preventDefault();
       const index = Math.min(data.value.length - 1, currentHoverRowIndex.value + 1);
-      onHoverRow({ row: data.value[index], index, e });
+      onHoverRow({ row: data.value[index], index, e }, { action: 'hover' });
     } else if (ARROW_UP_REG.test(code)) {
+      e.preventDefault();
       const index = Math.max(0, currentHoverRowIndex.value - 1);
-      onHoverRow({ row: data.value[index], index, e });
+      onHoverRow({ row: data.value[index], index, e }, { action: 'hover' });
     } else if (SPACE_REG.test(code) && props.activeRowType !== 'multiple') {
       const index = currentHoverRowIndex.value;
       onHoverRow({ row: data.value[index], index, e });

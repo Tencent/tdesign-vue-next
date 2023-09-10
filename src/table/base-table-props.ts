@@ -8,17 +8,17 @@ import { TdBaseTableProps } from '../table/type';
 import { PropType } from 'vue';
 
 export default {
-  /** 高亮行 */
+  /** 高亮行，支持鼠标键盘操作(Shift)连续高亮行，可用于处理行选中等批量操作，模拟操作系统区域选择行为 */
   activeRowKeys: {
     type: Array as PropType<TdBaseTableProps['activeRowKeys']>,
     default: undefined as TdBaseTableProps['activeRowKeys'],
   },
-  /** 高亮行，非受控属性 */
+  /** 高亮行，支持鼠标键盘操作(Shift)连续高亮行，可用于处理行选中等批量操作，模拟操作系统区域选择行为，非受控属性 */
   defaultActiveRowKeys: {
     type: Array as PropType<TdBaseTableProps['defaultActiveRowKeys']>,
     default: (): TdBaseTableProps['defaultActiveRowKeys'] => [],
   },
-  /** 默认不会高亮点击行，`activeRowType=single` 表示仅允许同时高亮一行，`activeRowType= multiple ` 表示允许同时高亮多行 */
+  /** 默认不会高亮点击行，`activeRowType=single` 表示鼠标点击仅允许同时高亮一行，Shift 键盘操作加鼠标操作依然可以高亮多行，因为这属于明显的区域选择行为。`activeRowType= multiple ` 表示允许鼠标点击同时高亮多行 */
   activeRowType: {
     type: String as PropType<TdBaseTableProps['activeRowType']>,
     default: '' as TdBaseTableProps['activeRowType'],
@@ -54,6 +54,11 @@ export default {
   },
   /** 是否禁用本地数据分页。当 `data` 数据长度超过分页大小时，会自动进行本地数据分页。如果 `disableDataPage` 设置为 true，则无论何时，都不会进行本地数据分页 */
   disableDataPage: Boolean,
+  /** 默认重复按下 Space 键可取消当前行高亮，是否禁用取消 */
+  disableSpaceInactiveRow: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 空表格呈现样式，支持全局配置 `GlobalConfigProvider` */
   empty: {
     type: [String, Function] as PropType<TdBaseTableProps['empty']>,
@@ -104,6 +109,11 @@ export default {
   },
   /** 是否显示鼠标悬浮状态 */
   hover: Boolean,
+  /** 键盘操作行显示悬浮效果，一般用于键盘操作行选中、行展开、行高亮等功能 */
+  keyboardRowHover: {
+    type: Boolean,
+    default: true,
+  },
   /** 尾行内容，横跨所有列 */
   lastFullRow: {
     type: [String, Function] as PropType<TdBaseTableProps['lastFullRow']>,
@@ -204,6 +214,8 @@ export default {
   },
   /** 高亮行发生变化时触发，泛型 T 指表格数据类型。参数 `activeRowList` 表示所有高亮行数据， `currentRowData` 表示当前操作行数据 */
   onActiveChange: Function as PropType<TdBaseTableProps['onActiveChange']>,
+  /** 键盘操作事件。开启行高亮功能后，会自动开启键盘操作功能，如：通过键盘(Shift)或鼠标操作连续选中高亮行时触发，一般用于处理行选中等批量操作，模拟操作系统区域选择行为 */
+  onActiveRowAction: Function as PropType<TdBaseTableProps['onActiveRowAction']>,
   /** 单元格点击时触发 */
   onCellClick: Function as PropType<TdBaseTableProps['onCellClick']>,
   /** 列调整大小之后触发。`context.columnsWidth` 表示操作后各个列的宽度； */

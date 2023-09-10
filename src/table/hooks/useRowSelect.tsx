@@ -7,6 +7,7 @@ import get from 'lodash/get';
 import isFunction from 'lodash/isFunction';
 import useDefaultValue from '../../hooks/useDefaultValue';
 import {
+  ActiveRowActionContext,
   PrimaryTableCellParams,
   PrimaryTableCol,
   RowClassNameParams,
@@ -213,11 +214,60 @@ export default function useRowSelect(
     { immediate: true },
   );
 
+  // 是否开启了行选中功能
+  const showRowSelect = computed(() => !!selectColumn.value);
+
+  const clearAllSelectedRowKeys = () => {
+    setTSelectedRowKeys([], {
+      selectedRowData: [],
+      currentRowKey: undefined,
+      currentRowData: undefined,
+      type: 'uncheck',
+    });
+  };
+
+  const handleRowSelectWithAreaSelection = ({ activeRowList, action }: ActiveRowActionContext<TableRowData>) => {
+    if (!showRowSelect.value) return;
+
+    if (action === 'clear') {
+      clearAllSelectedRowKeys();
+      return;
+    }
+
+    const validAreaSelection = activeRowList.filter(
+      ({ row, rowIndex }) =>
+        !getRowSelectDisabledData({
+          row,
+          rowIndex,
+          col: selectColumn.value,
+          colIndex: undefined,
+        }).disabled,
+    );
+    if (!validAreaSelection.length) return;
+
+    const areaSelectionKeys = validAreaSelection.map(({ row }) => get(row, props.rowKey));
+    const intersectionKeys = intersection(tSelectedRowKeys.value, areaSelectionKeys);
+    const toCheck = intersectionKeys.length !== areaSelectionKeys.length;
+    const clearedKeys = tSelectedRowKeys.value.filter((key) => !areaSelectionKeys.includes(key));
+    const newSelectedRowKeys = toCheck ? [...new Set(tSelectedRowKeys.value.concat(areaSelectionKeys))] : clearedKeys;
+
+    const currentRowData = action === 'space-one-selection' ? activeRowList[0].row : undefined;
+    setTSelectedRowKeys(newSelectedRowKeys, {
+      selectedRowData: activeRowList,
+      currentRowKey: get(currentRowData, props.rowKey),
+      currentRowData,
+      type: toCheck ? 'check' : 'uncheck',
+    });
+  };
+
   return {
+    selectColumn,
+    showRowSelect,
     selectedRowClassNames,
     currentPaginateData,
     setTSelectedRowKeys,
     formatToRowSelectColumn,
     onInnerSelectRowClick,
+    handleRowSelectWithAreaSelection,
   };
 }
