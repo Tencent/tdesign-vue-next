@@ -22,7 +22,6 @@ export function useRowHighlight(props: BaseTableProps, tableRef: Ref<HTMLDivElem
   const currentOperationRowIndex = ref(-1);
   const isShiftPressed = ref(false);
   const shiftSelectionState = ref(false);
-  const shiftSelectionDataList = ref([]);
   const areaSelectionStartIndex = ref(-1);
 
   const [tActiveRow, setTActiveRow] = useDefaultValue(
@@ -89,7 +88,6 @@ export function useRowHighlight(props: BaseTableProps, tableRef: Ref<HTMLDivElem
       type: 'active',
       currentRowData: row,
     });
-    // shiftSelectionDataList.value = newActiveRowData;
   };
 
   const getActiveRowList = () => {
@@ -148,7 +146,6 @@ export function useRowHighlight(props: BaseTableProps, tableRef: Ref<HTMLDivElem
 
   const clearShiftAreaSelection = () => {
     shiftSelectionState.value = false;
-    // shiftSelectionDataList.value = [];
   };
 
   const keyboardDownListener = (e: KeyboardEvent) => {
