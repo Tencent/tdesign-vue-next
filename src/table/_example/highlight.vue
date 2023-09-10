@@ -29,7 +29,7 @@ export default {
 </script>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 const activeRowType = ref('single');
 const hover = ref(false);
 
@@ -44,6 +44,12 @@ const columns = [
 const onActiveChange = (highlightRowKeys, ctx) => {
   console.log(highlightRowKeys, ctx);
 };
+
+watch([activeRowType], ([activeRowType]) => {
+  if (!activeRowType) {
+    hover.value = true;
+  }
+});
 
 function getTableData(total = 5) {
   const data = [];
