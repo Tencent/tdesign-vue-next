@@ -132,7 +132,7 @@ export default defineComponent({
         [tableDraggableClasses.rowDraggable]: isRowDraggable.value,
         [tableBaseClass.overflowVisible]: isTableOverflowHidden.value === false,
         [tableBaseClass.tableRowEdit]: props.editableRowKeys,
-        [`${classPrefix}-table--select-${selectColumn.value.type}`]: selectColumn.value,
+        [`${classPrefix}-table--select-${selectColumn.value?.type}`]: selectColumn.value,
         [`${classPrefix}-table--row-select`]: showRowSelect.value,
         [`${classPrefix}-table--row-expandable`]: showExpandedRow.value,
       };

@@ -205,7 +205,7 @@ export default function useRowSelect(
   };
 
   watch(
-    () => [[...data.value], rowKey],
+    [data, rowKey],
     () => {
       for (let i = 0, len = data.value.length; i < len; i++) {
         selectedRowDataMap.value.set(get(data.value[i], rowKey.value || 'id'), data.value[i]);
@@ -231,6 +231,13 @@ export default function useRowSelect(
 
     if (action === 'clear') {
       clearAllSelectedRowKeys();
+      return;
+    }
+
+    if (selectColumn.value?.type === 'single') {
+      if (action === 'space-one-selection') {
+        handleSelectChange(activeRowList[0].row);
+      }
       return;
     }
 
