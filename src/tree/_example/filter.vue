@@ -3,7 +3,15 @@
     <t-input-adornment prepend="filter:">
       <t-input v-model="filterText" @change="onInput" />
     </t-input-adornment>
-    <t-tree :data="items" expand-on-click-node :default-expanded="expanded" :filter="handleFilterByText" hover line />
+    <t-tree
+      :data="items"
+      expand-on-click-node
+      :filter="handleFilterByText"
+      allow-fold-node-on-filter
+      expand-all
+      hover
+      line
+    />
   </div>
 </template>
 
@@ -103,7 +111,6 @@ const items = [
 
 const filterText = ref('');
 const handleFilterByText = ref(null);
-const expanded = ref(['1.1.1']);
 
 const onInput = () => {
   handleFilterByText.value = (node) => node.data.label.indexOf(filterText.value) >= 0;
