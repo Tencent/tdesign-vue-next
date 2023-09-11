@@ -452,6 +452,7 @@ export default defineComponent({
                 `${classPrefix.value}-select__dropdown-inner--size-${dropdownInnerSize.value}`,
               ]}
             >
+              {renderTNodeJSX('panelTopContent')}
               <p
                 v-show={props.loading && !tDisabled.value}
                 class={[`${classPrefix.value}-select-loading-tips`, `${classPrefix.value}-select__right-icon-polyfill`]}
@@ -461,6 +462,7 @@ export default defineComponent({
                 })}
               </p>
               {renderTree()}
+              {renderTNodeJSX('panelBottomContent')}
             </div>
           ),
           collapsedItems: slots.collapsedItems,
