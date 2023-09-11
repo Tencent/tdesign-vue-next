@@ -167,6 +167,7 @@ export function useRowHighlight(props: BaseTableProps, tableRef: Ref<HTMLDivElem
         currentOperationRowIndex.value = index;
       }
     } else if (SPACE_REG.test(code)) {
+      e.preventDefault();
       // keydown space to active or inactive
       const index = currentOperationRowIndex.value;
       // area selection can not cancel active with keydown space
