@@ -15,7 +15,6 @@ export default {
   /** 高亮的节点值 */
   actived: {
     type: Array as PropType<TdTreeProps['actived']>,
-    default: undefined as TdTreeProps['actived'],
   },
   /** 高亮的节点值，非受控属性 */
   defaultActived: {
@@ -39,7 +38,7 @@ export default {
   /** 禁用复选框，可支持禁用不同的行 */
   disableCheck: {
     type: [Boolean, Function] as PropType<TdTreeProps['disableCheck']>,
-    default: false as TdTreeProps['disableCheck'],
+    default: false,
   },
   /** 是否禁用树操作 */
   disabled: Boolean,
@@ -48,7 +47,7 @@ export default {
   /** 数据为空时展示的文本 */
   empty: {
     type: [String, Function] as PropType<TdTreeProps['empty']>,
-    default: '' as TdTreeProps['empty'],
+    default: '',
   },
   /** 是否展开全部节点 */
   expandAll: Boolean,
@@ -66,7 +65,7 @@ export default {
   /** 展开的节点值 */
   expanded: {
     type: Array as PropType<TdTreeProps['expanded']>,
-    default: undefined as TdTreeProps['expanded'],
+    default: (): TdTreeProps['expanded'] => [],
   },
   /** 展开的节点值，非受控属性 */
   defaultExpanded: {
@@ -86,7 +85,7 @@ export default {
   /** 节点图标，可自定义 */
   icon: {
     type: [Boolean, Function] as PropType<TdTreeProps['icon']>,
-    default: true as TdTreeProps['icon'],
+    default: true,
   },
   /** 用来定义 `value / label / disabled / children` 在 `data` 数据中对应的字段别名，示例：`{ value: 'key', label 'name', children: 'list' }`。其中，disabled 待开发。 */
   keys: {
@@ -95,7 +94,7 @@ export default {
   /** 自定义节点内容，值为 `false` 不显示，值为 `true` 显示默认 label，值为字符串直接输出该字符串。泛型 `T` 表示树节点 TS 类型。<br/>如果期望只有点击复选框才选中，而点击节点不选中，可以使用 `label` 自定义节点，然后加上点击事件 `e.preventDefault()`，通过调整自定义节点的宽度和高度决定禁止点击选中的范围 */
   label: {
     type: [String, Boolean, Function] as PropType<TdTreeProps['label']>,
-    default: true as TdTreeProps['label'],
+    default: true,
   },
   /** 延迟加载 children 为 true 的节点的子节点数据，即使 expandAll 被设置为 true，也同样延迟加载 */
   lazy: {
@@ -105,7 +104,7 @@ export default {
   /** 连接线。值为 false 不显示连接线；值为 true 显示默认连接线；值类型为 Function 表示自定义连接线 */
   line: {
     type: [Boolean, Function] as PropType<TdTreeProps['line']>,
-    default: false as TdTreeProps['line'],
+    default: false,
   },
   /** 加载子数据的方法，在展开节点时调用（仅当节点 children 为 true 时生效），泛型 `T` 表示树节点 TS 类型 */
   load: {
@@ -131,11 +130,7 @@ export default {
   /** 选中值（组件为可选状态时） */
   value: {
     type: Array as PropType<TdTreeProps['value']>,
-    default: undefined as TdTreeProps['value'],
-  },
-  modelValue: {
-    type: Array as PropType<TdTreeProps['value']>,
-    default: undefined as TdTreeProps['value'],
+    default: (): TdTreeProps['value'] => [],
   },
   /** 选中值（组件为可选状态时），非受控属性 */
   defaultValue: {
