@@ -47,7 +47,7 @@ export default defineComponent({
 
     const isCheckedAll = computed(() => {
       const len = intersectionKeys.value.length;
-      return len && allCheckedColumnKeys.value.length === len;
+      return Boolean(len && allCheckedColumnKeys.value.length === len);
     });
 
     const isIndeterminate = computed(() => {

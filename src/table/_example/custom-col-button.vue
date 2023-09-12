@@ -29,6 +29,7 @@
       :column-controller="columnControllerConfig"
       :pagination="{ defaultPageSize: 5, defaultCurrent: 1, total: 100 }"
       :bordered="bordered"
+      :locale="tableLocale"
       stripe
       resizable
       @column-change="onColumnChange"
@@ -85,6 +86,9 @@ for (let i = 0; i < 100; i++) {
 const data = ref([...initialData]);
 
 const groupColumn = ref(false);
+const tableLocale = ref({
+  columnConfigDescriptionText: '',
+});
 
 const columnControllerConfig = computed(() => ({
   // 列配置按钮位置

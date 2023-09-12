@@ -129,6 +129,10 @@ export default {
   loadingProps: {
     type: Object as PropType<TdBaseTableProps['loadingProps']>,
   },
+  /** 语言配置 */
+  locale: {
+    type: Object as PropType<TdBaseTableProps['locale']>,
+  },
   /** 表格最大高度，超出后会出现滚动条。示例：100, '30%', '300'。值为数字类型，会自动加上单位 px */
   maxHeight: {
     type: [String, Number] as PropType<TdBaseTableProps['maxHeight']>,

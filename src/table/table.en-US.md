@@ -34,6 +34,7 @@ lastFullRow | String / Slot / Function | - | Typescript：`string \| TNode`。[s
 lazyLoad | Boolean | false | load table content when it entering the visible area, all elements in table are not rendered before it become visible | N
 loading | Boolean / Slot / Function | undefined | loading state table。Typescript：`boolean \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 loadingProps | Object | - | Typescript：`Partial<LoadingProps>`，[Loading API Documents](./loading?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
+locale | Object | - | table locale config。Typescript：`TableConfig`，[ConfigProvider API Documents](./config-provider?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 maxHeight | String / Number | - | table max height | N
 pagination | Object | - | you can use all props of pagination component with paginationProps。Typescript：`PaginationProps`，[Pagination API Documents](./pagination?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 paginationAffixedBottom | Boolean / Object | - | affix props。Typescript：`boolean \| Partial<AffixProps>` | N

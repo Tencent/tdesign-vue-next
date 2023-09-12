@@ -34,7 +34,7 @@ interface CheckboxGroupOptionsType {
 }
 
 export default function useColumnController(props: TdPrimaryTableProps, context: SetupContext) {
-  const { classPrefix, globalConfig } = useConfig('table');
+  const { classPrefix, globalConfig } = useConfig('table', props.locale);
   const { SettingIcon } = useGlobalIcon({ SettingIcon: TdSettingIcon });
   const { columns, columnController, displayColumns, columnControllerVisible } = toRefs(props);
   const dialogInstance = ref<DialogInstance>(null);
@@ -163,9 +163,11 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
           >
             <div class={`${classPrefix.value}-table__column-controller-body`}>
               {/* 请选择需要在表格中显示的数据列 */}
-              <p class={`${classPrefix.value}-table__column-controller-desc`}>
-                {globalConfig.value.columnConfigDescriptionText}
-              </p>
+              {globalConfig.value.columnConfigDescriptionText && (
+                <p class={`${classPrefix.value}-table__column-controller-desc`}>
+                  {globalConfig.value.columnConfigDescriptionText}
+                </p>
+              )}
               {checkboxGroupList.value.map((group, index) => {
                 return (
                   <ColumnCheckboxGroup
@@ -190,7 +192,7 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
         setTDisplayColumns([...columnCheckboxKeys.value]);
         // 此处逻辑不要随意改动，涉及到 内置列配置按钮 和 不包含列配置按钮等场景
         if (columnControllerVisible.value === undefined) {
-          dialogInstance.value.hide();
+          dialogInstance.value.destroy();
         } else {
           props.onColumnControllerVisibleChange?.(false, { trigger: 'cancel' });
           context.emit('update:columnControllerVisible', false);
@@ -199,7 +201,7 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
       onClose: () => {
         // 此处逻辑不要随意改动，涉及到 内置列配置按钮 和 不包含列配置按钮等场景
         if (columnControllerVisible.value === undefined) {
-          dialogInstance.value.hide();
+          dialogInstance.value.destroy();
         } else {
           props.onColumnControllerVisibleChange?.(false, { trigger: 'confirm' });
           context.emit('update:columnControllerVisible', false);
@@ -215,7 +217,7 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
     ([visible]) => {
       if (visible === undefined) return;
       if (dialogInstance.value) {
-        visible ? dialogInstance.value.show() : dialogInstance.value.hide();
+        visible ? dialogInstance.value.show() : dialogInstance.value.destroy();
       } else {
         visible && handleToggleColumnController();
       }

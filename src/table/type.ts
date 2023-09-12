@@ -6,6 +6,7 @@
 
 import { AffixProps } from '../affix';
 import { LoadingProps } from '../loading';
+import { TableConfig } from '../config-provider';
 import { PaginationProps, PageInfo } from '../pagination';
 import { TooltipProps } from '../tooltip';
 import { CheckboxGroupValue } from '../checkbox';
@@ -165,6 +166,10 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    * 透传加载组件全部属性
    */
   loadingProps?: Partial<LoadingProps>;
+  /**
+   * 语言配置
+   */
+  locale?: TableConfig;
   /**
    * 表格最大高度，超出后会出现滚动条。示例：100, '30%', '300'。值为数字类型，会自动加上单位 px
    */
