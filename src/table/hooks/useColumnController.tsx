@@ -3,13 +3,8 @@
  */
 import { computed, ref, SetupContext, toRefs, watch } from 'vue';
 import { SettingIcon as TdSettingIcon } from 'tdesign-icons-vue-next';
-import intersection from 'lodash/intersection';
-import Checkbox, {
-  CheckboxGroup,
-  CheckboxGroupValue,
-  CheckboxOptionObj,
-  CheckboxGroupChangeContext,
-} from '../../checkbox';
+// import intersection from 'lodash/intersection';
+import { CheckboxGroupValue, CheckboxOptionObj, CheckboxGroupChangeContext } from '../../checkbox';
 import { DialogPlugin } from '../../dialog/plugin';
 import { renderTitle } from './useTableHeader';
 import { PrimaryTableCol, TdPrimaryTableProps } from '../type';
@@ -19,6 +14,7 @@ import useDefaultValue from '../../hooks/useDefaultValue';
 import { getCurrentRowByKey } from '../utils';
 import { DialogInstance } from '../../dialog';
 import TButton from '../../button';
+import ColumnCheckboxGroup from '../column-checkbox-group';
 
 export function getColumnKeys(columns: PrimaryTableCol[], keys = new Set<string>()) {
   for (let i = 0, len = columns.length; i < len; i++) {
@@ -29,6 +25,12 @@ export function getColumnKeys(columns: PrimaryTableCol[], keys = new Set<string>
     }
   }
   return keys;
+}
+
+interface CheckboxGroupOptionsType {
+  options: CheckboxOptionObj[];
+  label: string;
+  value?: string | number;
 }
 
 export default function useColumnController(props: TdPrimaryTableProps, context: SetupContext) {
@@ -54,24 +56,64 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
   // 弹框内的多选
   const columnCheckboxKeys = ref<CheckboxGroupValue>(displayColumns.value || props.defaultDisplayColumns || keys);
 
-  const checkboxOptions = computed<CheckboxOptionObj[]>(() => getCheckboxOptions(columns.value));
+  const checkboxGroupList = computed<CheckboxGroupOptionsType[]>(() => {
+    if (columnController.value?.groupColumns?.length) {
+      return getCheckboxGroupOptions(columns.value);
+    }
+    const oneItem: CheckboxGroupOptionsType = {
+      label: globalConfig.value.selectAllText,
+      options: getCheckboxOptions(columns.value),
+    };
+    return [oneItem];
+  });
 
-  const intersectionChecked = computed(() => intersection(columnCheckboxKeys.value, [...enabledColKeys.value]));
+  // const intersectionChecked = computed(() => intersection(columnCheckboxKeys.value, [...enabledColKeys.value]));
 
   watch([displayColumns], ([val]) => {
     columnCheckboxKeys.value = val || props.defaultDisplayColumns || keys;
   });
 
+  function getOneColumnItem(column: PrimaryTableCol, i: number) {
+    return {
+      label: () => renderTitle(context.slots, column, i),
+      value: column.colKey,
+      disabled: !enabledColKeys.value.has(column.colKey),
+    };
+  }
+
+  // 列配置分组
+  function getCheckboxGroupOptions(columns: PrimaryTableCol[]) {
+    const groupColumns = columnController.value?.groupColumns;
+    if (!groupColumns?.length) return [];
+    const groupList: CheckboxGroupOptionsType[] = [];
+    const loop = (columns: PrimaryTableCol[]) => {
+      for (let i = 0, len = columns.length; i < len; i++) {
+        const column = columns[i];
+        const oneItem = getOneColumnItem(column, i);
+        for (let j = 0, len1 = groupColumns.length; j < len1; j++) {
+          const groupInfo = groupColumns[j];
+          if (!groupInfo.columns.includes(column.colKey)) continue;
+          if (groupList[j]?.options?.length) {
+            groupList[j].options.push(oneItem);
+          } else {
+            groupList[j] = { ...groupColumns[j], options: [oneItem] };
+          }
+        }
+        if (column.children?.length) {
+          loop(column.children);
+        }
+      }
+    };
+    loop(columns);
+    return groupList;
+  }
+
   function getCheckboxOptions(columns: PrimaryTableCol[], arr: CheckboxOptionObj[] = []) {
-    // 减少循环次数
+    if (columnController.value?.groupColumns?.length) return [];
     for (let i = 0, len = columns.length; i < len; i++) {
       const item = columns[i];
       if (item.colKey) {
-        arr.push({
-          label: () => renderTitle(context.slots, item, i),
-          value: item.colKey,
-          disabled: !enabledColKeys.value.has(item.colKey),
-        });
+        arr.push(getOneColumnItem(item, i));
       }
       if (item.children?.length) {
         getCheckboxOptions(item.children, arr);
@@ -91,26 +133,27 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
     props.onColumnChange?.(params);
   };
 
-  const handleClickAllShowColumns = (checked: boolean, ctx: { e: Event }) => {
-    if (checked) {
-      const newData = checkboxOptions.value?.map((t) => t.value) || [];
-      columnCheckboxKeys.value = newData;
-      props.onColumnChange?.({ type: 'check', columns: newData, e: ctx.e });
-    } else {
-      const disabledColKeys = checkboxOptions.value.filter((t) => t.disabled).map((t) => t.value);
-      columnCheckboxKeys.value = disabledColKeys;
-      props.onColumnChange?.({ type: 'uncheck', columns: disabledColKeys, e: ctx.e });
-    }
-  };
+  // 暂时不删除，万一后面需要整体的全选
+  // const handleClickAllShowColumns = (checked: boolean, ctx: { e: Event }) => {
+  //   if (checked) {
+  //     const newData = checkboxOptions.value?.map((t) => t.value) || [];
+  //     columnCheckboxKeys.value = newData;
+  //     props.onColumnChange?.({ type: 'check', columns: newData, e: ctx.e });
+  //   } else {
+  //     const disabledColKeys = checkboxOptions.value.filter((t) => t.disabled).map((t) => t.value);
+  //     columnCheckboxKeys.value = disabledColKeys;
+  //     props.onColumnChange?.({ type: 'uncheck', columns: disabledColKeys, e: ctx.e });
+  //   }
+  // };
 
   const handleToggleColumnController = () => {
     dialogInstance.value = DialogPlugin.confirm({
       header: globalConfig.value.columnConfigTitleText,
       body: () => {
         const widthMode = columnController.value?.displayType === 'fixed-width' ? 'fixed' : 'auto';
-        const checkedLength = intersectionChecked.value.length;
-        const isCheckedAll = checkedLength === enabledColKeys.value.size;
-        const isIndeterminate = checkedLength > 0 && checkedLength < enabledColKeys.value.size;
+        // const checkedLength = intersectionChecked.value.length;
+        // const isCheckedAll = checkedLength === enabledColKeys.value.size;
+        // const isIndeterminate = checkedLength > 0 && checkedLength < enabledColKeys.value.size;
         const defaultNode = (
           <div
             class={[
@@ -123,19 +166,18 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
               <p class={`${classPrefix.value}-table__column-controller-desc`}>
                 {globalConfig.value.columnConfigDescriptionText}
               </p>
-              <div class={`${classPrefix.value}-table__column-controller-block`}>
-                <Checkbox indeterminate={isIndeterminate} checked={isCheckedAll} onChange={handleClickAllShowColumns}>
-                  {globalConfig.value.selectAllText}
-                </Checkbox>
-              </div>
-              <div class={`${classPrefix.value}-table__column-controller-block`}>
-                <CheckboxGroup
-                  options={checkboxOptions.value}
-                  {...(columnController.value?.checkboxProps || {})}
-                  value={columnCheckboxKeys.value}
-                  onChange={handleCheckChange}
-                />
-              </div>
+              {checkboxGroupList.value.map((group, index) => {
+                return (
+                  <ColumnCheckboxGroup
+                    key={group.value || index}
+                    value={columnCheckboxKeys.value}
+                    label={group.label}
+                    options={group.options}
+                    onChange={handleCheckChange}
+                    checkboxProps={columnController.value?.checkboxProps}
+                  />
+                );
+              })}
             </div>
           </div>
         );
@@ -208,7 +250,6 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
   return {
     tDisplayColumns,
     columnCheckboxKeys,
-    checkboxOptions,
     renderColumnController,
   };
 }

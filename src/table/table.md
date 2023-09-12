@@ -297,6 +297,7 @@ checkboxProps | Object | - | 透传复选框组件全部特性。TS 类型：`Ch
 dialogProps | Object | - | 透传弹框组件全部特性，如：防止滚动穿透。TS 类型：`DialogProps`，[Dialog API Documents](./dialog?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 displayType | String | auto-width | 指列配置弹框中，各列的字段平铺方式：`fixed-width` 表示固定宽度，每行固定数量，横向和纵向均对齐，`auto-width` 表示宽度随列标题数量自由显示，横向铺满，纵向不要求对齐。可选项：fixed-width/auto-width | N
 fields | Array | - | 用于设置允许用户对哪些列进行显示或隐藏的控制，默认为全部字段。TS 类型：`string[]` | N
+groupColumns | Array | - | 列分组功能配置，当列数量过多的时候，为了方便阅读，一般需要进行列分组设置。TS 类型：`TableColumnGroup[]` `interface TableColumnGroup { label: string; value?: string \| number; columns: string[] }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 hideTriggerButton | Boolean | false | 是否隐藏表格组件内置的“列配置”按钮 | N
 placement | String | top-right | 列配置按钮基于表格的放置位置：左上角、右上角、左下角、右下角等。可选项：top-left/top-right/bottom-left/bottom-right | N
 

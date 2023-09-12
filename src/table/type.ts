@@ -903,6 +903,10 @@ export interface TableColumnController {
    */
   fields?: string[];
   /**
+   * 列分组功能配置，当列数量过多的时候，为了方便阅读，一般需要进行列分组设置
+   */
+  groupColumns?: TableColumnGroup[];
+  /**
    * 是否隐藏表格组件内置的“列配置”按钮
    * @default false
    */
@@ -1233,6 +1237,12 @@ export interface SwapParams<T> {
 export type FilterProps = RadioProps | CheckboxProps | InputProps | { [key: string]: any };
 
 export type FilterType = 'input' | 'single' | 'multiple';
+
+export interface TableColumnGroup {
+  label: string;
+  value?: string | number;
+  columns: string[];
+}
 
 export type PrimaryTableOnEditedContext<T> = PrimaryTableCellParams<T> & { trigger: string; newRowData: T };
 

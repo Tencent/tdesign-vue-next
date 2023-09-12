@@ -9,6 +9,7 @@
         <t-radio-button value="bottom-right">右下角</t-radio-button>
       </t-radio-group>
       <t-space>
+        <t-checkbox v-model="groupColumn">分组列配置</t-checkbox>
         <t-checkbox v-model="bordered">是否显示边框</t-checkbox>
         <t-checkbox v-model="customText">自定义列配置按钮</t-checkbox>
       </t-space>
@@ -25,12 +26,7 @@
       row-key="index"
       :data="data"
       :columns="columns"
-      :column-controller="{
-        placement,
-        fields: ['channel', 'detail.email', 'createTime'],
-        dialogProps: { preventScrollThrough: true },
-        buttonProps: customText ? { content: '显示列控制', theme: 'primary', variant: 'base' } : undefined,
-      }"
+      :column-controller="columnControllerConfig"
       :pagination="{ defaultPageSize: 5, defaultCurrent: 1, total: 100 }"
       :bordered="bordered"
       stripe
@@ -53,7 +49,7 @@
   </div>
 </template>
 <script setup lang="jsx">
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
 const placement = ref('top-right');
@@ -79,10 +75,49 @@ for (let i = 0; i < 100; i++) {
     matters: ['宣传物料制作费用', 'algolia 服务报销', '相关周边制作费', '激励奖品快递费'][i % 4],
     time: [2, 3, 1, 4][i % 4],
     createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
+    data1: '123',
+    data2: '23414',
+    data3: '52435',
+    data4: '132434',
   });
 }
 
 const data = ref([...initialData]);
+
+const groupColumn = ref(false);
+
+const columnControllerConfig = computed(() => ({
+  // 列配置按钮位置
+  placement: placement.value,
+  // 用于设置允许用户对哪些列进行显示或隐藏的控制，默认为全部字段
+  fields: ['channel', 'detail.email', 'createTime', 'data1', 'data2', 'data3', 'data4'],
+
+  // 弹框组件属性透传
+  dialogProps: { preventScrollThrough: true },
+  // 列配置按钮组件属性透传
+  buttonProps: customText.value ? { content: '显示列控制', theme: 'primary', variant: 'base' } : undefined,
+
+  // 数据字段分组显示
+  groupColumns: groupColumn.value
+    ? [
+        {
+          label: '指标维度',
+          value: 'index',
+          columns: ['applicant', 'status', 'channel'],
+        },
+        {
+          label: '次要维度',
+          value: 'data',
+          columns: ['detail.email', 'createTime'],
+        },
+        {
+          label: '数据维度',
+          value: 'data',
+          columns: ['data1', 'data2', 'data3', 'data4'],
+        },
+      ]
+    : undefined,
+}));
 
 const staticColumn = ['applicant', 'status'];
 const displayColumns = ref(staticColumn.concat(['channel', 'detail.email', 'createTime']));
@@ -105,6 +140,10 @@ const columns = ref([
   { colKey: 'channel', title: '签署方式', width: '120' },
   { colKey: 'detail.email', title: '邮箱地址', ellipsis: true },
   { colKey: 'createTime', title: '申请时间' },
+  { colKey: 'data1', title: 'Data A', align: 'right' },
+  { colKey: 'data2', title: 'Data B', align: 'right' },
+  { colKey: 'data3', title: 'Data C', align: 'right' },
+  { colKey: 'data4', title: 'Data D', align: 'right' },
 ]);
 
 const onColumnChange = (params) => {

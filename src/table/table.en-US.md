@@ -297,6 +297,7 @@ checkboxProps | Object | - | Typescript：`CheckboxGroupProps`，[Checkbox API D
 dialogProps | Object | - | Typescript：`DialogProps`，[Dialog API Documents](./dialog?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 displayType | String | auto-width | options: fixed-width/auto-width | N
 fields | Array | - | Typescript：`string[]` | N
+groupColumns | Array | - | show columns by group。Typescript：`TableColumnGroup[]` `interface TableColumnGroup { label: string; value?: string \| number; columns: string[] }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 hideTriggerButton | Boolean | false | \- | N
 placement | String | top-right | options: top-left/top-right/bottom-left/bottom-right | N
 
