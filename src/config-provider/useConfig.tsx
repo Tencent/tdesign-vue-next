@@ -20,7 +20,7 @@ export * from './type';
  * useConfig('pagination')
  */
 export function useConfig<T extends keyof GlobalConfigProvider>(
-  componentName: T,
+  componentName: T = undefined,
   componentLocale?: GlobalConfigProvider[T],
 ) {
   const injectGlobalConfig = getCurrentInstance() ? inject(configProviderInjectKey, null) : globalConfigCopy;
