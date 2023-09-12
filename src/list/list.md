@@ -24,6 +24,12 @@
 
 {{ scroll }}
 
+### 支持虚拟滚动的列表
+
+支持开启虚拟滚动，适用于一次性加载长列表的场景
+
+{{ virtual-scroll }}
+
 ## API
 ### List Props
 
@@ -33,6 +39,7 @@ asyncLoading | String / Slot / Function | - | 自定义加载中。值为空不�
 footer | String / Slot / Function | - | 底部。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 header | String / Slot / Function | - | 头部。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 layout | String | horizontal | 排列方式（待设计稿输出）。可选项：horizontal/vertical | N
+scroll | Object | - | 懒加载和虚拟滚动。为保证组件收益最大化，当数据量小于阈值 `scroll.threshold` 时，无论虚拟滚动的配置是否存在，组件内部都不会开启虚拟滚动，`scroll.threshold` 默认为 `100`。TS 类型：`TScroll`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 size | String | medium | 尺寸。可选项：small/medium/large | N
 split | Boolean | false | 是否展示分割线 | N
 stripe | Boolean | false | 是否展示斑马纹 | N
