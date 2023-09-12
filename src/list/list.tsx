@@ -125,7 +125,6 @@ export default defineComponent({
       handleScroll,
       handleLoadMore,
       listRef,
-      panelStyle,
       isVirtualScroll,
     };
   },
