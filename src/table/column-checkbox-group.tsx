@@ -6,6 +6,7 @@ import { usePrefixClass } from '../hooks';
 export type ColumnCheckboxGroupProps = Pick<CheckboxGroupProps, 'value' | 'onChange' | 'options'> & {
   checkboxProps: CheckboxGroupProps;
   label?: string;
+  uniqueKey?: string;
 };
 
 export default defineComponent({
@@ -18,6 +19,7 @@ export default defineComponent({
       default: () => [] as ColumnCheckboxGroupProps['options'],
     },
     label: String,
+    uniqueKey: String,
     value: Array as PropType<ColumnCheckboxGroupProps['value']>,
     onChange: Function as PropType<ColumnCheckboxGroupProps['onChange']>,
   },
@@ -75,9 +77,16 @@ export default defineComponent({
       props.onChange?.(val, ctx);
     };
 
+    const classes = computed(() => [
+      `${classPrefix.value}-table__column-controller-item`,
+      {
+        [`${classPrefix.value}-table__${props.uniqueKey}`]: props.uniqueKey,
+      },
+    ]);
+
     return () => {
       return (
-        <div class={`${classPrefix.value}-table__column-controller-item`}>
+        <div class={classes.value}>
           <div class={`${classPrefix.value}-table__column-controller-block`}>
             <Checkbox
               indeterminate={isIndeterminate.value}

@@ -295,6 +295,8 @@ name | type | default | description | required
 -- | -- | -- | -- | --
 buttonProps | Object | - | Typescript：`ButtonProps`，[Button API Documents](./button?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 checkboxProps | Object | - | Typescript：`CheckboxGroupProps`，[Checkbox API Documents](./checkbox?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
+columnControllerBottomContent | Slot / Function | - | column controller content at bottom of checkbox list。Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+columnControllerTopContent | Slot / Function | - | column controller content at top of checkbox list。Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 dialogProps | Object | - | Typescript：`DialogProps`，[Dialog API Documents](./dialog?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 displayType | String | auto-width | options: fixed-width/auto-width | N
 fields | Array | - | Typescript：`string[]` | N

@@ -36,6 +36,15 @@
     >
     </t-table>
 
+    <!--
+    <template #columnControllerTopContent>
+      <span>列配置弹框顶部内容</span>
+    </template>
+    <template #columnControllerBottomContent>
+      <span>列配置弹框底部内容</span>
+    </template>
+  -->
+
     <!-- 非受控用法，示例代码有效，勿删 -->
     <!-- <t-table
       row-key="index"
@@ -111,7 +120,7 @@ const columnControllerConfig = computed(() => ({
         },
         {
           label: '次要维度',
-          value: 'data',
+          value: 'secondary',
           columns: ['detail.email', 'createTime'],
         },
         {

@@ -895,6 +895,14 @@ export interface TableColumnController {
    */
   checkboxProps?: CheckboxGroupProps;
   /**
+   * 列配置控制器底部内容
+   */
+  columnControllerBottomContent?: TNode;
+  /**
+   * 列配置控制器顶部内容
+   */
+  columnControllerTopContent?: TNode;
+  /**
    * 透传弹框组件全部特性，如：防止滚动穿透
    */
   dialogProps?: DialogProps;

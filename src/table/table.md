@@ -295,6 +295,8 @@ type | String | - | 用于设置筛选器类型：单选按钮筛选器、复选
 -- | -- | -- | -- | --
 buttonProps | Object | - | 自定义列配置按钮，包括 Button 组件的全部属性。比如：按钮颜色和文本。TS 类型：`ButtonProps`，[Button API Documents](./button?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 checkboxProps | Object | - | 透传复选框组件全部特性。TS 类型：`CheckboxGroupProps`，[Checkbox API Documents](./checkbox?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
+columnControllerBottomContent | Slot / Function | - | 列配置控制器底部内容。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+columnControllerTopContent | Slot / Function | - | 列配置控制器顶部内容。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 dialogProps | Object | - | 透传弹框组件全部特性，如：防止滚动穿透。TS 类型：`DialogProps`，[Dialog API Documents](./dialog?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 displayType | String | auto-width | 指列配置弹框中，各列的字段平铺方式：`fixed-width` 表示固定宽度，每行固定数量，横向和纵向均对齐，`auto-width` 表示宽度随列标题数量自由显示，横向铺满，纵向不要求对齐。可选项：fixed-width/auto-width | N
 fields | Array | - | 用于设置允许用户对哪些列进行显示或隐藏的控制，默认为全部字段。TS 类型：`string[]` | N

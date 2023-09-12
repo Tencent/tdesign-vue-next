@@ -1,7 +1,7 @@
 /**
  * 自定义显示列控制器，即列配置
  */
-import { computed, ref, SetupContext, toRefs, watch } from 'vue';
+import { computed, ref, SetupContext, toRefs, watch, h } from 'vue';
 import { SettingIcon as TdSettingIcon } from 'tdesign-icons-vue-next';
 // import intersection from 'lodash/intersection';
 import { CheckboxGroupValue, CheckboxOptionObj, CheckboxGroupChangeContext } from '../../checkbox';
@@ -15,6 +15,8 @@ import { getCurrentRowByKey } from '../utils';
 import { DialogInstance } from '../../dialog';
 import TButton from '../../button';
 import ColumnCheckboxGroup from '../column-checkbox-group';
+import isFunction from 'lodash/isFunction';
+import { useTNodeJSX } from '../../hooks';
 
 export function getColumnKeys(columns: PrimaryTableCol[], keys = new Set<string>()) {
   for (let i = 0, len = columns.length; i < len; i++) {
@@ -38,6 +40,7 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
   const { SettingIcon } = useGlobalIcon({ SettingIcon: TdSettingIcon });
   const { columns, columnController, displayColumns, columnControllerVisible } = toRefs(props);
   const dialogInstance = ref<DialogInstance>(null);
+  const renderTNodeJSX = useTNodeJSX();
 
   const enabledColKeys = computed(() => {
     const arr = (columnController.value?.fields || [...getColumnKeys(columns.value)] || []).filter((v) => v);
@@ -154,6 +157,7 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
         // const checkedLength = intersectionChecked.value.length;
         // const isCheckedAll = checkedLength === enabledColKeys.value.size;
         // const isIndeterminate = checkedLength > 0 && checkedLength < enabledColKeys.value.size;
+        const { columnControllerTopContent, columnControllerBottomContent } = columnController.value || {};
         const defaultNode = (
           <div
             class={[
@@ -162,6 +166,9 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
             ]}
           >
             <div class={`${classPrefix.value}-table__column-controller-body`}>
+              {isFunction(columnControllerTopContent)
+                ? columnControllerTopContent(h)
+                : renderTNodeJSX('columnControllerTopContent')}
               {/* 请选择需要在表格中显示的数据列 */}
               {globalConfig.value.columnConfigDescriptionText && (
                 <p class={`${classPrefix.value}-table__column-controller-desc`}>
@@ -169,9 +176,13 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
                 </p>
               )}
               {checkboxGroupList.value.map((group, index) => {
+                const uniqueKey = columnController.value?.groupColumns?.length
+                  ? String(group.value || index)
+                  : undefined;
                 return (
                   <ColumnCheckboxGroup
                     key={group.value || index}
+                    uniqueKey={uniqueKey}
                     value={columnCheckboxKeys.value}
                     label={group.label}
                     options={group.options}
@@ -180,6 +191,10 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
                   />
                 );
               })}
+
+              {isFunction(columnControllerBottomContent)
+                ? columnControllerBottomContent(h)
+                : renderTNodeJSX('columnControllerBottomContent')}
             </div>
           </div>
         );
