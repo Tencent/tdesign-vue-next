@@ -5,6 +5,9 @@
 
 name | type | default | description | required
 -- | -- | -- | -- | --
+activeRowKeys | Array | [] | keys of highlight rows, used to mock area selection behavior, just like macOS or windows area selection。`v-model:activeRowKeys` is supported。Typescript：`Array<string \| number>` | N
+defaultActiveRowKeys | Array | [] | keys of highlight rows, used to mock area selection behavior, just like macOS or windows area selection。uncontrolled property。Typescript：`Array<string \| number>` | N
+activeRowType | String | - | make nodes can be highlight on clicked。Typescript：`'single' \| 'multiple'` | N
 allowResizeColumnWidth | Boolean | undefined | `deprecated`。allow to resize column width | N
 attach | String / Function | - | elements with popup would be attached to `attach`。Typescript：`AttachNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 bordered | Boolean | false | show table bordered | N
@@ -13,6 +16,7 @@ cellEmptyContent | String / Slot / Function | - | Typescript：`string \| TNode<
 columns | Array | [] | table column configs。Typescript：`Array<BaseTableCol<T>>` | N
 data | Array | [] | table data。Typescript：`Array<T>` | N
 disableDataPage | Boolean | false | \- | N
+disableSpaceInactiveRow | Boolean | undefined | can not set row to be inactive with Space keydown | N
 empty | String / Slot / Function | '' | empty text or empty element。Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 firstFullRow | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 fixedRows | Array | - | Typescript：`Array<number>` | N
@@ -25,6 +29,7 @@ headerAffixedTop | Boolean / Object | false | affix header to viewport top。Typ
 height | String / Number | - | table height | N
 horizontalScrollAffixedBottom | Boolean / Object | - | affix props。Typescript：`boolean \| Partial<AffixProps>` | N
 hover | Boolean | false | show hover style | N
+keyboardRowHover | Boolean | true | make table row to be hover by keydown ArrowUp/ArrowDown | N
 lastFullRow | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 lazyLoad | Boolean | false | load table content when it entering the visible area, all elements in table are not rendered before it become visible | N
 loading | Boolean / Slot / Function | undefined | loading state table。Typescript：`boolean \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
@@ -46,10 +51,12 @@ tableContentWidth | String | - | \- | N
 tableLayout | String | fixed | table-layout css properties, [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout). set value to be `fixed` on `resizable=true` please。options: auto/fixed | N
 topContent | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 verticalAlign | String | middle | vertical align。options: top/middle/bottom | N
+onActiveChange | Function |  | Typescript：`(activeRowKeys: Array<string \| number>, context: ActiveChangeContext<T>) => void`<br/>trigger on row active change。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface ActiveChangeContext<T> { activeRowList: Array<{ row: T, rowIndex: number }>; currentRowData?: T; type: 'active' \| 'inactive' }`<br/> | N
+onActiveRowAction | Function |  | Typescript：`(context: ActiveRowActionContext<T>) => void`<br/>keyboard operation event actions. used to mock selection behavior, just like macOS or windows。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface ActiveRowActionContext<T> { action: ActiveRowActionType,  activeRowList: Array<{ row: T, rowIndex: number }> }`<br/><br/>`type ActiveRowActionType ='shift-area-selection' \| 'space-one-selection' \| 'clear' \| 'select-all'`<br/> | N
 onCellClick | Function |  | Typescript：`(context: BaseTableCellEventContext<T>) => void`<br/>trigger on cell clicked。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface BaseTableCellEventContext<T> { row: T; col: BaseTableCol; rowIndex: number; colIndex: number; e: MouseEvent }`<br/> | N
 onColumnResizeChange | Function |  | Typescript：`(context: { columnsWidth: { [colKey: string]: number }; }) => void`<br/> | N
 onPageChange | Function |  | Typescript：`(pageInfo: PageInfo, newDataSource: Array<T>) => void`<br/>trigger on pagination changing | N
-onRowClick | Function |  | Typescript：`(context: RowEventContext<T>) => void`<br/>trigger on row click。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface RowEventContext<T> { row: T; index: number; e: MouseEvent }`<br/> | N
+onRowClick | Function |  | Typescript：`(context: RowEventContext<T>) => void`<br/>trigger on row click。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface RowEventContext<T> { row: T; index: number; e: MouseEvent \| KeyboardEvent }`<br/> | N
 onRowDblclick | Function |  | Typescript：`(context: RowEventContext<T>) => void`<br/>trigger on double click | N
 onRowMousedown | Function |  | Typescript：`(context: RowEventContext<T>) => void`<br/>trigger on row mousedown | N
 onRowMouseenter | Function |  | Typescript：`(context: RowEventContext<T>) => void`<br/>trigger on row mouseenter | N
@@ -64,10 +71,12 @@ onScrollY | Function |  | Typescript：`(params: { e: WheelEvent }) => void`<br/
 
 name | params | description
 -- | -- | --
+active-change | `(activeRowKeys: Array<string \| number>, context: ActiveChangeContext<T>)` | trigger on row active change。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface ActiveChangeContext<T> { activeRowList: Array<{ row: T, rowIndex: number }>; currentRowData?: T; type: 'active' \| 'inactive' }`<br/>
+active-row-action | `(context: ActiveRowActionContext<T>)` | keyboard operation event actions. used to mock selection behavior, just like macOS or windows。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface ActiveRowActionContext<T> { action: ActiveRowActionType,  activeRowList: Array<{ row: T, rowIndex: number }> }`<br/><br/>`type ActiveRowActionType ='shift-area-selection' \| 'space-one-selection' \| 'clear' \| 'select-all'`<br/>
 cell-click | `(context: BaseTableCellEventContext<T>)` | trigger on cell clicked。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface BaseTableCellEventContext<T> { row: T; col: BaseTableCol; rowIndex: number; colIndex: number; e: MouseEvent }`<br/>
 column-resize-change | `(context: { columnsWidth: { [colKey: string]: number }; })` | \-
 page-change | `(pageInfo: PageInfo, newDataSource: Array<T>)` | trigger on pagination changing
-row-click | `(context: RowEventContext<T>)` | trigger on row click。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface RowEventContext<T> { row: T; index: number; e: MouseEvent }`<br/>
+row-click | `(context: RowEventContext<T>)` | trigger on row click。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface RowEventContext<T> { row: T; index: number; e: MouseEvent \| KeyboardEvent }`<br/>
 row-dblclick | `(context: RowEventContext<T>)` | trigger on double click
 row-mousedown | `(context: RowEventContext<T>)` | trigger on row mousedown
 row-mouseenter | `(context: RowEventContext<T>)` | trigger on row mouseenter

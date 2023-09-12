@@ -8,6 +8,7 @@
       :data="data"
       :selected-row-keys="selectedRowKeys"
       select-on-row-click
+      active-row-type="single"
       @select-change="rehandleSelectChange"
       @row-dblclick="onRowDblclick"
     >

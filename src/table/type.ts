@@ -33,6 +33,21 @@ import {
 
 export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
   /**
+   * 高亮行，支持鼠标键盘操作(Shift)连续高亮行，可用于处理行选中等批量操作，模拟操作系统区域选择行为
+   * @default []
+   */
+  activeRowKeys?: Array<string | number>;
+  /**
+   * 高亮行，支持鼠标键盘操作(Shift)连续高亮行，可用于处理行选中等批量操作，模拟操作系统区域选择行为，非受控属性
+   * @default []
+   */
+  defaultActiveRowKeys?: Array<string | number>;
+  /**
+   * 默认不会高亮点击行，`activeRowType=single` 表示鼠标点击仅允许同时高亮一行，Shift 键盘操作加鼠标操作依然可以高亮多行，因为这属于明显的区域选择行为。`activeRowType= multiple ` 表示允许鼠标点击同时高亮多行
+   * @default ''
+   */
+  activeRowType?: 'single' | 'multiple';
+  /**
    * 是否允许调整列宽。请更为使用 `resizable`
    * @deprecated
    */
@@ -69,6 +84,10 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    * @default false
    */
   disableDataPage?: boolean;
+  /**
+   * 默认重复按下 Space 键可取消当前行高亮，是否禁用取消
+   */
+  disableSpaceInactiveRow?: boolean;
   /**
    * 空表格呈现样式，支持全局配置 `GlobalConfigProvider`
    * @default ''
@@ -124,6 +143,11 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    * @default false
    */
   hover?: boolean;
+  /**
+   * 键盘操作行显示悬浮效果，一般用于键盘操作行选中、行展开、行高亮等功能
+   * @default true
+   */
+  keyboardRowHover?: boolean;
   /**
    * 尾行内容，横跨所有列
    */
@@ -217,6 +241,14 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    * @default middle
    */
   verticalAlign?: 'top' | 'middle' | 'bottom';
+  /**
+   * 高亮行发生变化时触发，泛型 T 指表格数据类型。参数 `activeRowList` 表示所有高亮行数据， `currentRowData` 表示当前操作行数据
+   */
+  onActiveChange?: (activeRowKeys: Array<string | number>, context: ActiveChangeContext<T>) => void;
+  /**
+   * 键盘操作事件。开启行高亮功能后，会自动开启键盘操作功能，如：通过键盘(Shift)或鼠标操作连续选中高亮行时触发，一般用于处理行选中等批量操作，模拟操作系统区域选择行为
+   */
+  onActiveRowAction?: (context: ActiveRowActionContext<T>) => void;
   /**
    * 单元格点击时触发
    */
@@ -490,12 +522,12 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   selectOnRowClick?: boolean;
   /**
-   * 选中行，控制属性。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制
+   * 选中行。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制
    * @default []
    */
   selectedRowKeys?: Array<string | number>;
   /**
-   * 选中行，控制属性。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制，非受控属性
+   * 选中行。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制，非受控属性
    * @default []
    */
   defaultSelectedRowKeys?: Array<string | number>;
@@ -980,6 +1012,19 @@ export interface RowspanColspan {
   rowspan?: number;
 }
 
+export interface ActiveChangeContext<T> {
+  activeRowList: Array<{ row: T; rowIndex: number }>;
+  currentRowData?: T;
+  type: 'active' | 'inactive';
+}
+
+export interface ActiveRowActionContext<T> {
+  action: ActiveRowActionType;
+  activeRowList: Array<{ row: T; rowIndex: number }>;
+}
+
+export type ActiveRowActionType = 'shift-area-selection' | 'space-one-selection' | 'clear' | 'select-all';
+
 export interface BaseTableCellEventContext<T> {
   row: T;
   col: BaseTableCol;
@@ -991,7 +1036,7 @@ export interface BaseTableCellEventContext<T> {
 export interface RowEventContext<T> {
   row: T;
   index: number;
-  e: MouseEvent;
+  e: MouseEvent | KeyboardEvent;
 }
 
 export interface TableRowData {
