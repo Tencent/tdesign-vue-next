@@ -2,12 +2,18 @@
   <div>
     <!-- 支持非受控属性 default-selected-row-keys -->
     <!-- 支持语法糖 v-model:selected-row-keys -->
+    <!-- 支持键盘操作，
+        可尝试使用 Shift/Space/ArrowUp/ArrowDown/KeyC/KeyA/KeyL 等键盘操作选中和取消选择，
+        其中键 KeyC 表示 Clear，清空高亮，清空全选
+        其中键 KeyA/KeyL 表示全选，全部高亮
+    -->
     <t-table
       row-key="index"
       :columns="columns"
       :data="data"
       :selected-row-keys="selectedRowKeys"
       select-on-row-click
+      active-row-type="single"
       @select-change="rehandleSelectChange"
     >
     </t-table>
@@ -74,9 +80,9 @@ const columns = [
 
 const selectedRowKeys = ref([]);
 
-const rehandleSelectChange = (value, { selectedRowData }) => {
+const rehandleSelectChange = (value, ctx) => {
   selectedRowKeys.value = value;
-  console.log(value, selectedRowData);
+  console.log(value, ctx);
 };
 </script>
 

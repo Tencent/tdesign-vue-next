@@ -104,7 +104,7 @@ export default function useRowExpand(props: TdPrimaryTableProps, context: SetupC
   };
 
   const onInnerExpandRowClick = (p: RowEventContext<TableRowData>) => {
-    onToggleExpand(p.e, p.row);
+    onToggleExpand(p.e as MouseEvent, p.row);
   };
 
   return {

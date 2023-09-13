@@ -19,10 +19,13 @@ export * from './type';
  * @returns {t, globalConfig}
  * useConfig('pagination')
  */
-export function useConfig<T extends keyof GlobalConfigProvider>(componentName?: T) {
+export function useConfig<T extends keyof GlobalConfigProvider>(
+  componentName: T = undefined,
+  componentLocale?: GlobalConfigProvider[T],
+) {
   const injectGlobalConfig = getCurrentInstance() ? inject(configProviderInjectKey, null) : globalConfigCopy;
   const mergedGlobalConfig = computed(() => injectGlobalConfig?.value || (defaultGlobalConfig as GlobalConfigProvider));
-  const globalConfig = computed(() => mergedGlobalConfig.value[componentName]);
+  const globalConfig = computed(() => Object.assign({}, mergedGlobalConfig.value[componentName], componentLocale));
 
   const classPrefix = computed(() => {
     return mergedGlobalConfig.value.classPrefix;

@@ -4,6 +4,32 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 1.5.5 `2023-09-13` 
+### 🚀 Features
+- `Table`: 
+  - 可编辑单元格，支持透传编辑组件事件属性 `edit.props.onChange`，[issue#2843](https://github.com/Tencent/tdesign-vue-next/issues/2843) @chaishi ([#3353](https://github.com/Tencent/tdesign-vue-next/pull/3353))
+  - 可高亮行表格，支持鼠标点击高亮表格行，支持键盘操作高亮行（ArrowDown/ArrowUp/Space/ESC/Shift），支持连续高亮行区域，[issue#2217](https://github.com/Tencent/tdesign-vue-next/issues/2217) @chaishi ([#3353](https://github.com/Tencent/tdesign-vue-next/pull/3353))
+  - 可悬浮表格，除鼠标悬浮表格行之外，本次新增支持键盘操作悬浮表格行 @chaishi ([#3353](https://github.com/Tencent/tdesign-vue-next/pull/3353))
+  - 可选中行表格，支持键盘操作（ArrowDown/ArrowUp/Space/ESC/Shift） @chaishi ([#3353](https://github.com/Tencent/tdesign-vue-next/pull/3353))
+  - 除全局配置支持语言配置外，本次新增通过属性 `local` 进行单个组件进行语言配置 @chaishi ([#3362](https://github.com/Tencent/tdesign-vue-next/pull/3362))
+  - 列配置功能，支持定义 `columnControllerTopContent` 和 `columnControllerBottomContent` 定义列配置弹框顶部或底部内容 @chaishi ([#3362](https://github.com/Tencent/tdesign-vue-next/pull/3362))
+  - 列配置功能，支持分组显示列配置信息，一般用于表格列数量特别多，需要分类显示场景 @chaishi ([#3362](https://github.com/Tencent/tdesign-vue-next/pull/3362))
+- `SelectInput`: 新增 `valueDisplayOptions`，可配置在使用 `valueDisplay` 时也使用自带的占位符与输入回显实现([issue #3339](https://github.com/Tencent/tdesign-vue-next/issues/3339)) @ngyyuusora ([#3342](https://github.com/Tencent/tdesign-vue-next/pull/3342))
+- `List`: 支持虚拟滚动的支持 @uyarn ([#3360](https://github.com/Tencent/tdesign-vue-next/pull/3360))
+- `TreeSelect`: 支持`panelTopContent`和 `panelBottomContent` 的使用 @uyarn ([#3355](https://github.com/Tencent/tdesign-vue-next/pull/3355))
+
+### 🐞 Bug Fixes
+- `Table`: 
+  - 修复 Dialog 弹框中打开表格，表格中分页组件信息出现超出省略问题，[issue#3266](https://github.com/Tencent/tdesign-vue-next/issues/3266)，[issue#3092](https://github.com/Tencent/tdesign-vue-next/issues/3092) @chaishi ([#3352](https://github.com/Tencent/tdesign-vue-next/pull/3352))
+  - 列配置功能，修复每次打开自定义列配置弹框，都会创建一个新的弹框而旧弹框没有消除问题 @chaishi ([#3362](https://github.com/Tencent/tdesign-vue-next/pull/3362))
+- `Dialog`: 
+  - 修复 Dialog 弹框中打开表格，分页组件信息出现超出省略问题，[issue#3266](https://github.com/Tencent/tdesign-vue-next/issues/3266)，[issue#3092](https://github.com/Tencent/tdesign-vue-next/issues/3092) @chaishi ([#3352](https://github.com/Tencent/tdesign-vue-next/pull/3352))
+  - 类型问题，修复 DialogPlugin({ cancenBtn: '取消' }) 提醒类型缺失问题， [issues#2635](https://github.com/Tencent/tdesign-vue-next/issues/2635) @chaishi ([#3352](https://github.com/Tencent/tdesign-vue-next/pull/3352))
+- `Cascader`: 修复 `borderless` 无效 @PengYYYYY ([#3359](https://github.com/Tencent/tdesign-vue-next/pull/3359))
+- `Pagination`: 修复 Dialog 弹框中打开表格，分页组件信息出现超出省略问题，[issue#3266](https://github.com/Tencent/tdesign-vue-next/issues/3266)，[issue#3092](https://github.com/Tencent/tdesign-vue-next/issues/3092) @chaishi ([#3352](https://github.com/Tencent/tdesign-vue-next/pull/3352))
+- `Input`: 修复默认不显示，满足某种条件后才显示的场景下，自动宽度计算错误问题，[issue#3266](https://github.com/Tencent/tdesign-vue-next/issues/3266)，[issue#3092](https://github.com/Tencent/tdesign-vue-next/issues/3092) @chaishi ([#3352](https://github.com/Tencent/tdesign-vue-next/pull/3352))
+### 🚧 Others
+- docs(tree): example filter update @liweijie0812 ([#3326](https://github.com/Tencent/tdesign-vue-next/pull/3326))
 ## 🌈 1.5.4 `2023-09-07` 
 ### 🚀 Features
 - `Table`: @chaishi

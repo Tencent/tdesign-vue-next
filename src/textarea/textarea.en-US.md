@@ -9,7 +9,6 @@ allowInputOverMax | Boolean | false | \- | N
 autofocus | Boolean | false | \- | N
 autosize | Boolean / Object | false | Typescript：`boolean \| { minRows?: number; maxRows?: number }` | N
 disabled | Boolean | false | \- | N
-label | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 maxcharacter | Number | - | \- | N
 maxlength | Number / String | - | \- | N
 name | String | - | \- | N

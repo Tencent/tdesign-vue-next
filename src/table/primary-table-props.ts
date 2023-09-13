@@ -113,12 +113,12 @@ export default {
   },
   /** 是否在点击整行时选中 */
   selectOnRowClick: Boolean,
-  /** 选中行，控制属性。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制 */
+  /** 选中行。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制 */
   selectedRowKeys: {
     type: Array as PropType<TdPrimaryTableProps['selectedRowKeys']>,
     default: undefined as TdPrimaryTableProps['selectedRowKeys'],
   },
-  /** 选中行，控制属性。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制，非受控属性 */
+  /** 选中行。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制，非受控属性 */
   defaultSelectedRowKeys: {
     type: Array as PropType<TdPrimaryTableProps['defaultSelectedRowKeys']>,
     default: (): TdPrimaryTableProps['defaultSelectedRowKeys'] => [],
