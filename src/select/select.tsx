@@ -393,6 +393,7 @@ export default defineComponent({
               minCollapsedNum: props.minCollapsedNum,
               autofocus: props.autofocus,
               suffix: props.suffix,
+              valueDisplayOptions: props.valueDisplayOptions,
             }}
             ref={selectInputRef}
             class={COMPONENT_NAME.value}
