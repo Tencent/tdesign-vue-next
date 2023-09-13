@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { TdListProps } from './type';
@@ -26,14 +25,20 @@ export default {
     type: String as PropType<TdListProps['layout']>,
     default: 'horizontal' as TdListProps['layout'],
     validator(val: TdListProps['layout']): boolean {
+      if (!val) return true;
       return ['horizontal', 'vertical'].includes(val);
     },
+  },
+  /** 懒加载和虚拟滚动。为保证组件收益最大化，当数据量小于阈值 `scroll.threshold` 时，无论虚拟滚动的配置是否存在，组件内部都不会开启虚拟滚动，`scroll.threshold` 默认为 `100` */
+  scroll: {
+    type: Object as PropType<TdListProps['scroll']>,
   },
   /** 尺寸 */
   size: {
     type: String as PropType<TdListProps['size']>,
     default: 'medium' as TdListProps['size'],
     validator(val: TdListProps['size']): boolean {
+      if (!val) return true;
       return ['small', 'medium', 'large'].includes(val);
     },
   },
