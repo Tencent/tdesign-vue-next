@@ -6,6 +6,7 @@
 
 import { AffixProps } from '../affix';
 import { LoadingProps } from '../loading';
+import { TableConfig } from '../config-provider';
 import { PaginationProps, PageInfo } from '../pagination';
 import { TooltipProps } from '../tooltip';
 import { CheckboxGroupValue } from '../checkbox';
@@ -165,6 +166,10 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    * 透传加载组件全部属性
    */
   loadingProps?: Partial<LoadingProps>;
+  /**
+   * 语言配置
+   */
+  locale?: TableConfig;
   /**
    * 表格最大高度，超出后会出现滚动条。示例：100, '30%', '300'。值为数字类型，会自动加上单位 px
    */
@@ -890,6 +895,14 @@ export interface TableColumnController {
    */
   checkboxProps?: CheckboxGroupProps;
   /**
+   * 列配置控制器底部内容
+   */
+  columnControllerBottomContent?: TNode;
+  /**
+   * 列配置控制器顶部内容
+   */
+  columnControllerTopContent?: TNode;
+  /**
    * 透传弹框组件全部特性，如：防止滚动穿透
    */
   dialogProps?: DialogProps;
@@ -902,6 +915,10 @@ export interface TableColumnController {
    * 用于设置允许用户对哪些列进行显示或隐藏的控制，默认为全部字段
    */
   fields?: string[];
+  /**
+   * 列分组功能配置，当列数量过多的时候，为了方便阅读，一般需要进行列分组设置
+   */
+  groupColumns?: TableColumnGroup[];
   /**
    * 是否隐藏表格组件内置的“列配置”按钮
    * @default false
@@ -1233,6 +1250,12 @@ export interface SwapParams<T> {
 export type FilterProps = RadioProps | CheckboxProps | InputProps | { [key: string]: any };
 
 export type FilterType = 'input' | 'single' | 'multiple';
+
+export interface TableColumnGroup {
+  label: string;
+  value?: string | number;
+  columns: string[];
+}
 
 export type PrimaryTableOnEditedContext<T> = PrimaryTableCellParams<T> & { trigger: string; newRowData: T };
 

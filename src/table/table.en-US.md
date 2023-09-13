@@ -34,6 +34,7 @@ lastFullRow | String / Slot / Function | - | Typescript：`string \| TNode`。[s
 lazyLoad | Boolean | false | load table content when it entering the visible area, all elements in table are not rendered before it become visible | N
 loading | Boolean / Slot / Function | undefined | loading state table。Typescript：`boolean \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 loadingProps | Object | - | Typescript：`Partial<LoadingProps>`，[Loading API Documents](./loading?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
+locale | Object | - | table locale config。Typescript：`TableConfig`，[ConfigProvider API Documents](./config-provider?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 maxHeight | String / Number | - | table max height | N
 pagination | Object | - | you can use all props of pagination component with paginationProps。Typescript：`PaginationProps`，[Pagination API Documents](./pagination?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 paginationAffixedBottom | Boolean / Object | - | affix props。Typescript：`boolean \| Partial<AffixProps>` | N
@@ -294,9 +295,12 @@ name | type | default | description | required
 -- | -- | -- | -- | --
 buttonProps | Object | - | Typescript：`ButtonProps`，[Button API Documents](./button?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 checkboxProps | Object | - | Typescript：`CheckboxGroupProps`，[Checkbox API Documents](./checkbox?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
+columnControllerBottomContent | Slot / Function | - | column controller content at bottom of checkbox list。Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+columnControllerTopContent | Slot / Function | - | column controller content at top of checkbox list。Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 dialogProps | Object | - | Typescript：`DialogProps`，[Dialog API Documents](./dialog?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 displayType | String | auto-width | options: fixed-width/auto-width | N
 fields | Array | - | Typescript：`string[]` | N
+groupColumns | Array | - | show columns by group。Typescript：`TableColumnGroup[]` `interface TableColumnGroup { label: string; value?: string \| number; columns: string[] }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 hideTriggerButton | Boolean | false | \- | N
 placement | String | top-right | options: top-left/top-right/bottom-left/bottom-right | N
 
