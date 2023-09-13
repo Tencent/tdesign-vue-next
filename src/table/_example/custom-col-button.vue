@@ -20,7 +20,7 @@
     <!-- 3. onDisplayColumnsChange 当前显示列发生变化时触发 -->
     <!-- 4. 如果希望顶部内容 和 列配置按钮 保持在同一行，可将内容放在 topContent，并调整按钮父元素宽度(CSS) -->
     <!-- 5. resizable and tableLayout: fixed is suggested  -->
-    <!-- 受控用法，示例代码有效，勿删  -->
+    <!-- :locale="tableLocale" 可用于定义列配置弹框所有文本信息 -->
     <t-table
       v-model:displayColumns="displayColumns"
       row-key="index"
@@ -29,7 +29,6 @@
       :column-controller="columnControllerConfig"
       :pagination="{ defaultPageSize: 5, defaultCurrent: 1, total: 100 }"
       :bordered="bordered"
-      :locale="tableLocale"
       stripe
       resizable
       @column-change="onColumnChange"
@@ -95,9 +94,10 @@ for (let i = 0; i < 100; i++) {
 const data = ref([...initialData]);
 
 const groupColumn = ref(false);
-const tableLocale = ref({
-  columnConfigDescriptionText: '',
-});
+// 可用于隐藏弹框中的 “请选择需要在表格中显示的数据列” 这句话
+// const tableLocale = ref({
+//   columnConfigDescriptionText: '',
+// });
 
 const columnControllerConfig = computed(() => ({
   // 列配置按钮位置

@@ -232,7 +232,7 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
     ([visible]) => {
       if (visible === undefined) return;
       if (dialogInstance.value) {
-        visible ? dialogInstance.value.show() : dialogInstance.value.destroy();
+        visible ? dialogInstance.value.show() : dialogInstance.value.hide();
       } else {
         visible && handleToggleColumnController();
       }
