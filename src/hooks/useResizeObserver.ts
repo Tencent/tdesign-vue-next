@@ -13,7 +13,7 @@ export default function useResizeObserver(
   let containerObserver: ResizeObserver = null;
 
   const cleanupObserver = () => {
-    if (!containerObserver) return;
+    if (!containerObserver || !container.value) return;
     containerObserver.unobserve(container.value);
     containerObserver.disconnect();
     containerObserver = null;
@@ -24,7 +24,7 @@ export default function useResizeObserver(
     containerObserver.observe(el);
   };
 
-  if (container) {
+  if (container?.value) {
     watch(
       container,
       (el) => {
