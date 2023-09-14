@@ -10,7 +10,7 @@ export type UseLazyLoadParams = UnwrapRef<{
 
 export default function useLazyLoad(
   containerRef: Ref<HTMLElement>,
-  childRef: Ref<HTMLTableRowElement>,
+  childRef: Ref<HTMLElement>,
   params: UseLazyLoadParams,
 ) {
   const tRowHeight = computed(() => Math.max(params.rowHeight || 48, 48));
