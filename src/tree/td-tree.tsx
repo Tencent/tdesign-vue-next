@@ -11,6 +11,7 @@ import {
   TypeTNodeReturnValue,
   TypeCreateElement,
   TransitionGroup,
+  getCreateElement,
 } from './adapt';
 import props from './props';
 import { TreeNodeValue, TreeNodeState, TypeTreeNodeModel } from './tree-types';
@@ -203,13 +204,15 @@ export default defineComponent({
       cursorStyles,
     } = this;
 
+    const createElement = getCreateElement(h);
+
     updateStoreConfig();
 
     const { scope } = state;
     // 更新 scopedSlots
     scope.scopedSlots = this.$slots;
 
-    const treeNodeViews = renderTreeNodes(h);
+    const treeNodeViews = renderTreeNodes(createElement);
     const cname = this.componentName;
     const isVirtual = virtualConfig.isVirtualScroll.value;
 

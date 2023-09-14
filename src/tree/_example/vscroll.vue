@@ -42,7 +42,7 @@
       <t-form label-align="left" :label-width="80" style="max-width: 500px">
         <t-form-item>
           <t-input-adornment prepend="插入节点数量:">
-            <t-input v-model="insertCount" />
+            <t-input v-model="textInsertCount" />
           </t-input-adornment>
         </t-form-item>
         <t-form-item>
@@ -51,9 +51,9 @@
       </t-form>
     </t-space>
     <t-tree
+      ref="tree"
       :data="items"
       hover
-      ref="tree"
       activable
       :checkable="isCheckable"
       expand-all
@@ -125,7 +125,7 @@ export default {
     return {
       index: 0,
       transition: true,
-      insertCount: 1,
+      textInsertCount: '1',
       useActived: false,
       enableVScroll: true,
       lazyVScroll: false,
@@ -137,6 +137,11 @@ export default {
       items: virtualTree.items,
       lazyItems: lazyTree.items,
     };
+  },
+  computed: {
+    insertCount() {
+      return parseInt(this.textInsertCount, 10) || 1;
+    },
   },
   methods: {
     label(createElement, node) {

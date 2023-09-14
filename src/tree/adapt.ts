@@ -1,5 +1,6 @@
 // 在这个文件，解决 vue2/vue3 tree 组件依赖的差异问题
 // 除此文件之外的其他组件文件，可从 vue2 项目直接复制到 vue3 项目进行维护
+import * as Vue from 'vue';
 import { ref } from 'vue';
 import { Ref, SetupContext, ToRefs, VNode, PropType, ComponentPublicInstance } from 'vue';
 import { CheckboxProps } from '../checkbox';
@@ -25,7 +26,7 @@ export type TypeVModel = ReturnType<typeof tdUseVModel>;
 
 export type TypeRef<T> = Ref<T>;
 export type TypeSetupContext = SetupContext;
-export type TypeCreateElement = any;
+export type TypeCreateElement = typeof Vue.h;
 export type TypeVNode = VNode;
 export type TypePropType<T> = PropType<T>;
 export type TypeCheckboxProps = CheckboxProps;
@@ -69,6 +70,13 @@ export interface UseVModelParams<T> {
   value: Ref<T>;
   eventName?: string;
   propName?: string;
+}
+
+export function getCreateElement(h?: TypeCreateElement) {
+  if (h) {
+    // do nothing, just for adapt
+  }
+  return Vue.h;
 }
 
 export function useVModel(

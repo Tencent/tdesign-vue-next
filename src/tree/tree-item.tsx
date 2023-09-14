@@ -1,4 +1,12 @@
-import { TypePropType, defineComponent, TypeCreateElement, ref, TreeItemDefinition, useRipple } from './adapt';
+import {
+  TypePropType,
+  defineComponent,
+  TypeCreateElement,
+  ref,
+  TreeItemDefinition,
+  useRipple,
+  getCreateElement,
+} from './adapt';
 import { TypeTreeItemProps } from './tree-types';
 import useTreeItem from './hooks/useTreeItem';
 
@@ -31,11 +39,12 @@ export default defineComponent({
     };
   },
   render(h: TypeCreateElement) {
+    const createElement = getCreateElement(h);
     // 这个类型判断看起来多此一举
     // 然而单元测试时没有它却会报错:
     // This expression is not callable. Type '{}' has no call signatures.
     if (typeof this.renderItemNode === 'function') {
-      return this.renderItemNode(h);
+      return this.renderItemNode(createElement);
     }
     return null;
   },
