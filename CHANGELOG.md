@@ -4,6 +4,9 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 1.5.6 `2023-09-14` 
+### 🐞 Bug Fixes
+- `useResizeObserver`: 修复缺少容器元素判空问题 @chaishi ([#3372](https://github.com/Tencent/tdesign-vue-next/pull/3372))
 ## 🌈 1.5.5 `2023-09-13` 
 ### 🚀 Features
 - `Table`: 
