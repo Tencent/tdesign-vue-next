@@ -83,20 +83,16 @@ export function useVModel(
     // do nothing，just for adapt
   }
   const modelValue = ref('');
+  let vm;
   if (propName === 'value') {
-    return tdUseVModel(refsProps[propName], modelValue, props[defaultPropName], props[eventPropName]);
+    vm = tdUseVModel(refsProps[propName], modelValue, props[defaultPropName], props[eventPropName]);
   } else {
-    const vm = tdUseDefaultValue(
-      refsProps[propName],
-      props[defaultPropName],
-      props[eventPropName],
-      props[eventPropName],
-    );
-    const [prop] = vm;
-    const propValue = refsProps[propName].value;
-    if (Array.isArray(propValue) && propValue.length > 0) {
-      prop.value = propValue;
-    }
-    return vm;
+    vm = tdUseDefaultValue(refsProps[propName], props[defaultPropName], props[eventPropName], props[eventPropName]);
   }
+  const [prop] = vm;
+  const propValue = refsProps[propName].value;
+  if (Array.isArray(propValue) && propValue.length > 0) {
+    prop.value = propValue;
+  }
+  return vm;
 }
