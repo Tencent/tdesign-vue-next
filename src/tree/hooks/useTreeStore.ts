@@ -1,5 +1,6 @@
 import pick from 'lodash/pick';
-import { TypeSetupContext, TreeStore, watch } from '../adapt';
+import { TreeStore } from '../../_common/js/tree/tree-store';
+import { TypeSetupContext, watch } from '../adapt';
 import {
   TreeProps,
   TreeNodeValue,

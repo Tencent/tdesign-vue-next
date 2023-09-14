@@ -8,10 +8,10 @@ export default function useTreeState(props: TreeProps) {
   const allNodes: TypeRef<TreeNode[]> = ref([]);
   const isScrolling: TypeRef<boolean> = ref(false);
 
-  const { value, actived, expanded } = toRefs(props);
-  const vmValue = useVModel(value, props.defaultValue, props.onChange, 'change', 'value');
-  const vmActived = useVModel(actived, props.defaultActived, props.onActive, 'active', 'actived');
-  const vmExpanded = useVModel(expanded, props.defaultExpanded, props.onExpand, 'expand', 'expanded');
+  const refsProps = toRefs(props);
+  const vmValue = useVModel(props, refsProps, 'defaultValue', 'onChange', 'value', 'change');
+  const vmActived = useVModel(props, refsProps, 'defaultActived', 'onActive', 'actived', 'active');
+  const vmExpanded = useVModel(props, refsProps, 'defaultExpanded', 'onExpand', 'expanded', 'expand');
 
   function setStore(store: TypeTreeStore) {
     state.store = store;
