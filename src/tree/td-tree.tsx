@@ -10,6 +10,7 @@ import {
   TypeTreeOptionData,
   TypeTNodeReturnValue,
   TypeCreateElement,
+  TransitionGroup,
 } from './adapt';
 import props from './props';
 import { TreeNodeValue, TreeNodeState, TypeTreeNodeModel } from './tree-types';
@@ -239,7 +240,7 @@ export default defineComponent({
     } else {
       // 启用动画时，需要确保滚动中动画样式失效
       treeNodeList = (
-        <transition-group
+        <TransitionGroup
           tag="div"
           class={`${cname}__list`}
           enter-active-class={`${cname}__item--enter-active`}
@@ -247,7 +248,7 @@ export default defineComponent({
           style={scrollStyles}
         >
           {treeNodeViews}
-        </transition-group>
+        </TransitionGroup>
       );
     }
 

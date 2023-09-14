@@ -12,7 +12,7 @@ import tdUseVModel from '../hooks/useVModel';
 import tdUseDefaultValue from '../hooks/useDefaultValue';
 import { TreeStore } from '../_common/js/tree/tree-store';
 
-export { ref, reactive, computed, watch, onMounted, toRefs, defineComponent } from 'vue';
+export { ref, reactive, computed, watch, onMounted, toRefs, defineComponent, TransitionGroup } from 'vue';
 export { CaretRightSmallIcon as TdCaretRightSmallIcon } from 'tdesign-icons-vue-next';
 export { Checkbox as TCheckBox } from '../checkbox';
 export { Loading as TLoading } from '../loading';
