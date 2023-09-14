@@ -86,6 +86,17 @@ export function useVModel(
   if (propName === 'value') {
     return tdUseVModel(refsProps[propName], modelValue, props[defaultPropName], props[eventPropName]);
   } else {
-    return tdUseDefaultValue(refsProps[propName], props[defaultPropName], props[eventPropName], props[eventPropName]);
+    const vm = tdUseDefaultValue(
+      refsProps[propName],
+      props[defaultPropName],
+      props[eventPropName],
+      props[eventPropName],
+    );
+    const [prop] = vm;
+    const propValue = refsProps[propName].value;
+    if (Array.isArray(propValue) && propValue.length > 0) {
+      prop.value = propValue;
+    }
+    return vm;
   }
 }
