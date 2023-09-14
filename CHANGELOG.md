@@ -5,9 +5,6 @@ toc: false
 docClass: timeline
 ---
 ## 🌈 1.5.6 `2023-09-14` 
-### 🐞 Bug Fixes
-- `useResizeObserver`: 修复缺少容器元素判空问题 @chaishi ([#3372](https://github.com/Tencent/tdesign-vue-next/pull/3372))
-## 🌈 1.5.5 `2023-09-13` 
 ### 🚀 Features
 - `Table`: 
   - 可编辑单元格，支持透传编辑组件事件属性 `edit.props.onChange`，[issue#2843](https://github.com/Tencent/tdesign-vue-next/issues/2843) @chaishi ([#3353](https://github.com/Tencent/tdesign-vue-next/pull/3353))
@@ -31,6 +28,7 @@ docClass: timeline
 - `Cascader`: 修复 `borderless` 无效 @PengYYYYY ([#3359](https://github.com/Tencent/tdesign-vue-next/pull/3359))
 - `Pagination`: 修复 Dialog 弹框中打开表格，分页组件信息出现超出省略问题，[issue#3266](https://github.com/Tencent/tdesign-vue-next/issues/3266)，[issue#3092](https://github.com/Tencent/tdesign-vue-next/issues/3092) @chaishi ([#3352](https://github.com/Tencent/tdesign-vue-next/pull/3352))
 - `Input`: 修复默认不显示，满足某种条件后才显示的场景下，自动宽度计算错误问题，[issue#3266](https://github.com/Tencent/tdesign-vue-next/issues/3266)，[issue#3092](https://github.com/Tencent/tdesign-vue-next/issues/3092) @chaishi ([#3352](https://github.com/Tencent/tdesign-vue-next/pull/3352))
+- `useResizeObserver`: 修复缺少容器元素判空问题 @chaishi ([#3372](https://github.com/Tencent/tdesign-vue-next/pull/3372))
 ### 🚧 Others
 - docs(tree): example filter update @liweijie0812 ([#3326](https://github.com/Tencent/tdesign-vue-next/pull/3326))
 ## 🌈 1.5.4 `2023-09-07` 
