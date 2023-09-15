@@ -71,6 +71,12 @@ npm package 中提供了多种构建产物，可以阅读 [这里](https://githu
 
 TDesign 欢迎任何愿意参与贡献的参与者。如果需要本地运行代码或参与贡献，请先阅读[参与贡献](https://github.com/Tencent/tdesign-vue-next/blob/develop/CONTRIBUTING.md)。
 
+# 反馈
+
+有任何问题，建议通过 [Github issues](https://github.com/Tencent/tdesign-vue-next/issues) 反馈或扫码加入用户微信群。
+
+<img src="https://oteam-tdesign-1258344706.cos.ap-guangzhou.myqcloud.com/site/doc/Vue3-IM.png" width="200" />
+
 # 开源协议
 
 TDesign 遵循 [MIT 协议](https://github.com/Tencent/tdesign-vue-next/LICENSE)。
