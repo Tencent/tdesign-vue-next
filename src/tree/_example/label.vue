@@ -44,11 +44,8 @@ export default {
         },
       ],
       label(createElement, node) {
-        return createElement('strong', {
-          domProps: {
-            innerHTML: `value: ${node.value}, label: ${node.label}`,
-          },
-        });
+        // 注意 vue2 和 vue3 下 createElement 的使用方法实际上存在差异
+        return createElement('strong', `value: ${node.value}, label: ${node.label}`);
       },
     };
   },
