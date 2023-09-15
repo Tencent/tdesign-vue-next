@@ -8,7 +8,7 @@
       <h3>slot 形式</h3>
       <t-tree :data="items" expand-all checkable>
         <template #label="{ node }">
-          <font color="blue">label: {{ node.label }}, value: {{ node.value }}</font>
+          <span style="color: blue">label: {{ node.label }}, value: {{ node.value }}</span>
         </template>
       </t-tree>
     </t-space>

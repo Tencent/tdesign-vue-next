@@ -79,6 +79,10 @@ export function getCreateElement(h?: TypeCreateElement) {
   return Vue.h;
 }
 
+export function getScopedSlots(instance: ComponentPublicInstance) {
+  return instance.$slots;
+}
+
 export function useVModel(
   props: TreeProps,
   refsProps: ToRefs<TreeProps>,

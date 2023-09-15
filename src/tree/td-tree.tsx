@@ -12,6 +12,7 @@ import {
   TypeCreateElement,
   TransitionGroup,
   getCreateElement,
+  getScopedSlots,
 } from './adapt';
 import props from './props';
 import { TreeNodeValue, TreeNodeState, TypeTreeNodeModel } from './tree-types';
@@ -206,11 +207,11 @@ export default defineComponent({
 
     const createElement = getCreateElement(h);
 
-    updateStoreConfig();
-
     const { scope } = state;
     // 更新 scopedSlots
-    scope.scopedSlots = this.$slots;
+    scope.scopedSlots = getScopedSlots(this);
+
+    updateStoreConfig();
 
     const treeNodeViews = renderTreeNodes(createElement);
     const cname = this.componentName;
