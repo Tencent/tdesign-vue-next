@@ -75,7 +75,7 @@ TDesign 欢迎任何愿意参与贡献的参与者。如果需要本地运行代
 
 有任何问题，建议通过 [Github issues](https://github.com/Tencent/tdesign-vue-next/issues) 反馈或扫码加入用户微信群。
 
-<img src="https://oteam-tdesign-1258344706.cos.ap-guangzhou.myqcloud.com/site/doc/Vue3-IM.png" width="200" />
+<img src="https://oteam-tdesign-1258344706.cos.ap-guangzhou.myqcloud.com/site/doc/VueNext-IM.png" width="200" />
 
 # 开源协议
 
