@@ -1,5 +1,6 @@
 import { defineComponent, VNodeChild, computed, ref } from 'vue';
 import isString from 'lodash/isString';
+import omit from 'lodash/omit';
 import { useTNodeJSX } from '../hooks/tnode';
 import TLoading from '../loading';
 import TListItem from './list-item';
@@ -56,17 +57,13 @@ export default defineComponent({
               <ul class={`${COMPONENT_NAME.value}__inner`} style={listStyle.value}>
                 {virtualConfig.visibleData.value.map((item) => (
                   <>
-                    <TListItem v-slots={item.slots}></TListItem>
+                    <TListItem v-slots={item.slots} {...omit(item, 'slots')}></TListItem>
                   </>
                 ))}
               </ul>
             </>
           ) : (
-            <ul class={`${COMPONENT_NAME.value}__inner`}>
-              {listItems.value.map((item) => (
-                <TListItem v-slots={item.slots}></TListItem>
-              ))}
-            </ul>
+            <ul class={`${COMPONENT_NAME.value}__inner`}>{renderTNodeJSX('default')}</ul>
           )}
           {propsFooterContent ? <div class={`${COMPONENT_NAME.value}__footer`}>{propsFooterContent}</div> : null}
         </>
