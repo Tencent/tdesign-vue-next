@@ -19,7 +19,7 @@ import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 export default function useRowExpand(props: TdPrimaryTableProps, context: SetupContext) {
   const { expandedRowKeys } = toRefs(props);
   const renderTNode = useTNodeJSX();
-  const { t, globalConfig } = useConfig('table');
+  const { t, globalConfig } = useConfig('table', props.locale);
   const { ChevronRightCircleIcon } = useGlobalIcon({ ChevronRightCircleIcon: TdChevronRightCircleIcon });
   const { tableExpandClasses, positiveRotate90, tableFullRowClasses } = useClassName();
   // controlled and uncontrolled

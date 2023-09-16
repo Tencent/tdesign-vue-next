@@ -150,6 +150,10 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
   // };
 
   const handleToggleColumnController = () => {
+    if (dialogInstance.value) {
+      dialogInstance.value.show();
+      return;
+    }
     dialogInstance.value = DialogPlugin.confirm({
       header: globalConfig.value.columnConfigTitleText,
       body: () => {
@@ -207,7 +211,7 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
         setTDisplayColumns([...columnCheckboxKeys.value]);
         // 此处逻辑不要随意改动，涉及到 内置列配置按钮 和 不包含列配置按钮等场景
         if (columnControllerVisible.value === undefined) {
-          dialogInstance.value.destroy();
+          dialogInstance.value.hide();
         } else {
           props.onColumnControllerVisibleChange?.(false, { trigger: 'cancel' });
           context.emit('update:columnControllerVisible', false);
@@ -216,7 +220,7 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
       onClose: () => {
         // 此处逻辑不要随意改动，涉及到 内置列配置按钮 和 不包含列配置按钮等场景
         if (columnControllerVisible.value === undefined) {
-          dialogInstance.value.destroy();
+          dialogInstance.value.hide();
         } else {
           props.onColumnControllerVisibleChange?.(false, { trigger: 'confirm' });
           context.emit('update:columnControllerVisible', false);
