@@ -7,7 +7,7 @@ import { useConfig } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useTNodeDefault } from '../hooks/tnode';
 import { TNode } from '../common';
-import { TableConfig } from '../config-provider/type';
+import { TableConfig } from '../config-provider';
 
 type SortTypeEnums = Array<'desc' | 'asc'>;
 
@@ -87,9 +87,9 @@ export default defineComponent({
         <Tooltip
           content={tips}
           placement="right"
-          {...(this.tooltipProps as TooltipProps)}
           showArrow={false}
           class={this.tableSortClasses.iconDirection[direction]}
+          {...(this.tooltipProps as TooltipProps)}
         >
           {this.getSortIcon(direction, activeClass)}
         </Tooltip>

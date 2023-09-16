@@ -12,7 +12,7 @@ import { useConfig } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { AttachNode } from '../common';
 import isFunction from 'lodash/isFunction';
-import { TableConfig } from '..';
+import { TableConfig } from '../config-provider';
 
 export interface TableFilterControllerProps {
   locale: TableConfig;
