@@ -20,6 +20,15 @@
             <t-input :value="allActived" />
           </t-input-adornment>
         </t-form-item>
+        <t-form-item>
+          <t-button theme="primary" @click="selectNode">选中节点 1.1</t-button>
+        </t-form-item>
+        <t-form-item>
+          <t-button theme="primary" @click="activeNode">激活节点 2</t-button>
+        </t-form-item>
+        <t-form-item>
+          <t-button theme="primary" @click="expandNode">展开节点 1.2</t-button>
+        </t-form-item>
       </t-form>
       <t-tree
         :data="items"
@@ -45,9 +54,9 @@ export default {
   data() {
     return {
       valueMode: 'onlyLeaf',
-      checked: ['1.1.1.1', '1.1.1.2'],
-      expanded: ['1', '1.1', '1.1.1', '2'],
-      actived: ['2'],
+      checked: ['1.2.1', '1.2.2'],
+      expanded: ['1', '1.1'],
+      actived: [],
       items: [
         {
           value: '1',
@@ -60,30 +69,10 @@ export default {
                 {
                   value: '1.1.1',
                   label: '1.1.1',
-                  children: [
-                    {
-                      value: '1.1.1.1',
-                      label: '1.1.1.1',
-                    },
-                    {
-                      value: '1.1.1.2',
-                      label: '1.1.1.2',
-                    },
-                  ],
                 },
                 {
                   value: '1.1.2',
                   label: '1.1.2',
-                  children: [
-                    {
-                      value: '1.1.2.1',
-                      label: '1.1.2.1',
-                    },
-                    {
-                      value: '1.1.2.2',
-                      label: '1.1.2.2',
-                    },
-                  ],
                 },
               ],
             },
@@ -94,30 +83,10 @@ export default {
                 {
                   value: '1.2.1',
                   label: '1.2.1',
-                  children: [
-                    {
-                      value: '1.2.1.1',
-                      label: '1.2.1.1',
-                    },
-                    {
-                      value: '1.2.1.2',
-                      label: '1.2.1.2',
-                    },
-                  ],
                 },
                 {
                   value: '1.2.2',
                   label: '1.2.2',
-                  children: [
-                    {
-                      value: '1.2.2.1',
-                      label: '1.2.2.1',
-                    },
-                    {
-                      value: '1.2.2.2',
-                      label: '1.2.2.2',
-                    },
-                  ],
                 },
               ],
             },
@@ -183,6 +152,15 @@ export default {
     },
   },
   methods: {
+    selectNode() {
+      this.checked = ['1.1'];
+    },
+    activeNode() {
+      this.actived = ['2'];
+    },
+    expandNode() {
+      this.expanded = ['1', '1.2'];
+    },
     onClick(context) {
       console.info('onClick:', context);
       const { node } = context;

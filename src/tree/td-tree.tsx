@@ -1,7 +1,6 @@
 import upperFirst from 'lodash/upperFirst';
 import isFunction from 'lodash/isFunction';
 import {
-  watch,
   defineComponent,
   TreeNode,
   useConfig,
@@ -49,26 +48,14 @@ export default defineComponent({
 
     // 用于 hooks 传递数据
     const { state } = useTreeState(props);
-    const { refProps, treeContentRef, isScrolling } = state;
-    const { store, rebuild, updateStoreConfig, checkFilterExpand } = useTreeStore(props, context, state);
+    const { treeContentRef, isScrolling } = state;
+    const { store, updateStoreConfig } = useTreeStore(props, context, state);
 
     useDragHandle(props, context, state);
     const { setActived, setExpanded, setChecked } = useTreeAction(props, context, state);
     const { onInnerVirtualScroll, virtualConfig } = useTreeScroll(props, context, state);
     const { renderTreeNodes, nodesEmpty } = useTreeNodes(props, context, state);
     const { treeClasses, treeContentStyles, scrollStyles, cursorStyles } = useTreeStyles(props, state);
-
-    watch(refProps.data, (list) => {
-      rebuild(list);
-    });
-    watch(refProps.keys, (keys) => {
-      store.setConfig({
-        keys,
-      });
-    });
-    watch(refProps.filter, (nVal, previousVal) => {
-      checkFilterExpand(nVal, previousVal);
-    });
 
     // 不想暴露给用户的属性与方法，统一挂载到 setup 返回的对象上
     // 实例上无法直接访问这些方法与属性

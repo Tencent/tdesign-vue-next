@@ -183,6 +183,7 @@ export default function useTreeStore(props: TreeProps, context: TypeSetupContext
   initStore();
   // 设置初始化状态
   state.setStore(store);
+
   // 配置属性监听
   watch(refProps.value, (nVal: TreeNodeValue[]) => {
     const previousVal = store.getChecked();
@@ -197,13 +198,22 @@ export default function useTreeStore(props: TreeProps, context: TypeSetupContext
     if (nVal.join() === previousVal?.join()) return;
     store.replaceActived(nVal);
   });
+  watch(refProps.data, (list) => {
+    rebuild(list);
+  });
+  watch(refProps.filter, (nVal, previousVal) => {
+    checkFilterExpand(nVal, previousVal);
+  });
+  watch(refProps.keys, (keys) => {
+    store.setConfig({
+      keys,
+    });
+  });
 
   return {
     store,
-    rebuild,
     updateStoreConfig,
     updateExpanded,
-    checkFilterExpand,
     expandFilterPath,
   };
 }

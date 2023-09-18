@@ -9,7 +9,6 @@ export default function useTreeState(props: TreeProps) {
   const isScrolling: TypeRef<boolean> = ref(false);
 
   const refProps = toRefs(props);
-
   const vmValue = useVModel(props, refProps, 'value', 'defaultValue', 'onChange', 'change');
   const vmActived = useVModel(props, refProps, 'actived', 'defaultActived', 'onActive', 'active');
   const vmExpanded = useVModel(props, refProps, 'expanded', 'defaultExpanded', 'onExpand', 'expand');

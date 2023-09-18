@@ -35,21 +35,21 @@
 <script>
 const data1 = [
   {
-    value: '1',
+    value: 't1',
     children: [
       {
-        value: '1.1',
+        value: 't1.1',
         children: [
           {
-            value: '1.1.1',
+            value: 't1.1.1',
           },
           {
-            value: '1.1.2',
+            value: 't1.1.2',
           },
         ],
       },
       {
-        value: '1.2',
+        value: 't1.2',
         children: [
           {
             value: '1.2.1',
@@ -62,13 +62,13 @@ const data1 = [
     ],
   },
   {
-    value: '2',
+    value: 't2',
     children: [
       {
-        value: '2.1',
+        value: 't2.1',
       },
       {
-        value: '2.2',
+        value: 't2.2',
       },
     ],
   },
@@ -76,38 +76,38 @@ const data1 = [
 
 const data2 = [
   {
-    value: '1',
+    value: 'd1',
     children: [
       {
-        value: '1.1',
-        label: '1.1 custom label',
+        value: 'd1.1',
+        label: 'd1.1 custom label',
         children: [
           {
-            value: '1.1.1',
+            value: 'd1.1.1',
           },
         ],
       },
       {
-        value: '1.2',
+        value: 'd1.2',
         children: [
           {
-            value: '1.2.1',
+            value: 'd1.2.1',
           },
           {
-            value: '1.2.2',
+            value: 'd1.2.2',
           },
         ],
       },
     ],
   },
   {
-    value: '2',
+    value: 'd2',
     children: [
       {
-        value: '2.1',
+        value: 'd2.1',
       },
       {
-        value: '2.2',
+        value: 'd2.2',
       },
     ],
   },
@@ -125,7 +125,8 @@ export default {
   },
   methods: {
     toggleData() {
-      this.items = this.items === data1 ? data2 : data1;
+      const items = this.items[0].value === 't1' ? data2 : data1;
+      this.items = items;
     },
     label(createElement, node) {
       return node.label || node.value;
