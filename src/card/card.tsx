@@ -83,8 +83,8 @@ export default defineComponent({
           <div class={headerWrapperCls.value}>
             {showAvatar.value && <div class={headerAvatarCls.value}>{renderTNodeJSX('avatar')}</div>}
             <div>
-              {showTitle.value && <span class={headerTitleCls.value}>{renderTNodeJSX('title')}</span>}
-              {showSubtitle.value && <span class={headerSubTitleCls.value}>{renderTNodeJSX('subtitle')}</span>}
+              {showTitle.value && <div class={headerTitleCls.value}>{renderTNodeJSX('title')}</div>}
+              {showSubtitle.value && <div class={headerSubTitleCls.value}>{renderTNodeJSX('subtitle')}</div>}
               {showDescription.value && <p class={headerDescriptionCls.value}>{renderTNodeJSX('description')}</p>}
             </div>
           </div>
