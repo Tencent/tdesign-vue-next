@@ -1,39 +1,35 @@
 <template>
-  <t-space :size="32" direction="vertical">
-    <t-space direction="vertical">
-      <t-space direction="vertical">
-        <t-space>
-          <span>可选:</span>
-          <t-switch v-model="checkable" />
-        </t-space>
-        <t-space>
-          <span>严格模式:</span>
-          <t-switch v-model="checkStrictly" />
-        </t-space>
-        <t-space>
-          <t-radio-group v-model="valueMode" name="value-mode" variant="default-filled">
-            <t-radio-button v-for="item in valueOptions" :key="item.value" :value="item.value">{{
-              item.label
-            }}</t-radio-button>
-          </t-radio-group>
-        </t-space>
-        <t-space>
-          <t-button theme="primary" @click="selectInvert">反选</t-button>
-        </t-space>
-      </t-space>
-      <t-tree
-        ref="tree"
-        :data="items"
-        hover
-        expand-all
-        :checkable="checkable"
-        :check-strictly="checkStrictly"
-        :value-mode="valueMode"
-        :value="allChecked"
-        @change="onChange"
-        @click="onClick"
-      />
+  <t-space direction="vertical">
+    <t-space>
+      <span>可选:</span>
+      <t-switch v-model="checkable" />
     </t-space>
+    <t-space>
+      <span>严格模式:</span>
+      <t-switch v-model="checkStrictly" />
+    </t-space>
+    <t-space>
+      <t-radio-group v-model="valueMode" name="value-mode" variant="default-filled">
+        <t-radio-button v-for="item in valueOptions" :key="item.value" :value="item.value">{{
+          item.label
+        }}</t-radio-button>
+      </t-radio-group>
+    </t-space>
+    <t-space>
+      <t-button theme="primary" @click="selectInvert">反选</t-button>
+    </t-space>
+    <t-tree
+      ref="tree"
+      :data="items"
+      hover
+      expand-all
+      :checkable="checkable"
+      :check-strictly="checkStrictly"
+      :value-mode="valueMode"
+      :value="allChecked"
+      @change="onChange"
+      @click="onClick"
+    />
   </t-space>
 </template>
 

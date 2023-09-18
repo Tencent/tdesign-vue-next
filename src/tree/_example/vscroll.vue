@@ -1,7 +1,7 @@
 <template>
-  <t-space :size="32" direction="vertical" class="tdesign-tree-demo" style="width: 100%">
-    <t-space :size="10" direction="vertical" class="tdesign-tree-vscroll-lazy" style="width: 80%">
-      <h3 class="title">虚拟滚动 - lazy模式</h3>
+  <t-space :size="32" direction="vertical" style="width: 100%">
+    <t-space direction="vertical" style="width: 80%">
+      <h3>虚拟滚动 - lazy模式</h3>
       <t-tree
         ref="tree"
         :data="lazyItems"
@@ -20,35 +20,36 @@
       ></t-tree>
     </t-space>
 
-    <t-space :size="10" direction="vertical" style="width: 100%">
-      <h3 class="title">虚拟滚动 - virtual 模式</h3>
-      <t-form label-width="150" style="max-width: 500px">
-        <t-form-item label="动画">
-          <t-switch v-model="transition" />
-        </t-form-item>
-        <t-form-item label="显示连线">
-          <t-switch v-model="showLine" />
-        </t-form-item>
-        <t-form-item label="显示图标">
-          <t-switch v-model="showIcon" />
-        </t-form-item>
-        <t-form-item label="可选">
-          <t-switch v-model="isCheckable" />
-        </t-form-item>
-        <t-form-item label="可操作">
-          <t-switch v-model="isOperateAble" />
-        </t-form-item>
-      </t-form>
-      <t-form label-align="left" :label-width="80" style="max-width: 500px">
-        <t-form-item>
-          <t-input-adornment prepend="插入节点数量:">
-            <t-input v-model="textInsertCount" />
-          </t-input-adornment>
-        </t-form-item>
-        <t-form-item>
-          <t-button @click="append()">插入根节点</t-button>
-        </t-form-item>
-      </t-form>
+    <t-space direction="vertical" style="width: 80%">
+      <h3>虚拟滚动 - virtual 模式</h3>
+      <t-space>
+        <span>动画:</span>
+        <t-switch v-model="transition" />
+      </t-space>
+      <t-space>
+        <span>显示连线:</span>
+        <t-switch v-model="showLine" />
+      </t-space>
+      <t-space>
+        <span>显示图标:</span>
+        <t-switch v-model="showIcon" />
+      </t-space>
+      <t-space>
+        <span>可选:</span>
+        <t-switch v-model="isCheckable" />
+      </t-space>
+      <t-space>
+        <span>可操作:</span>
+        <t-switch v-model="isOperateAble" />
+      </t-space>
+      <t-space>
+        <t-input-adornment prepend="插入节点数量:">
+          <t-input v-model="textInsertCount" />
+        </t-input-adornment>
+      </t-space>
+      <t-space>
+        <t-button @click="append()">插入根节点</t-button>
+      </t-space>
     </t-space>
     <t-tree
       ref="tree"

@@ -1,26 +1,22 @@
 <template>
   <t-space :size="32" direction="vertical">
     <t-space direction="vertical">
-      <h3 class="title">禁用整个 tree</h3>
-      <t-space direction="vertical">
-        <t-space>
-          <span>是否禁用整个 tree:</span>
-          <t-switch v-model="disabled" />
-        </t-space>
-        <t-space>
-          <span>是否只禁用 checkbox:</span>
-          <t-switch v-model="disableCheck" />
-        </t-space>
+      <h3>禁用整个 tree</h3>
+      <t-space>
+        <span>是否禁用整个 tree:</span>
+        <t-switch v-model="disabled" />
+      </t-space>
+      <t-space>
+        <span>是否只禁用 checkbox:</span>
+        <t-switch v-model="disableCheck" />
       </t-space>
       <t-tree :data="items" hover checkable expand-all :disabled="disabled" :disable-check="disableCheck" />
     </t-space>
     <t-space direction="vertical">
-      <h3 class="title">禁用指定节点</h3>
-      <t-space direction="vertical">
-        <t-space>
-          <span>禁用指定节点 checkbox:</span>
-          <t-switch v-model="disableTarget" />
-        </t-space>
+      <h3>禁用指定节点</h3>
+      <t-space>
+        <span>禁用指定节点 checkbox:</span>
+        <t-switch v-model="disableTarget" />
       </t-space>
       <t-tree :data="items" hover checkable expand-all :disable-check="fnDisableCheck" />
     </t-space>

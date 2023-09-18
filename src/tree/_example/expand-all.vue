@@ -1,16 +1,14 @@
 <template>
-  <t-space :size="32" direction="vertical" class="tdesign-tree-demo">
-    <t-space :size="10" direction="vertical">
-      <t-form label-align="left" :label-width="80">
-        <t-form-item label="切换数据">
-          <t-switch @change="toggleData" />
-        </t-form-item>
-        <t-form-item label="展开动画">
-          <t-switch v-model="transition" />
-        </t-form-item>
-      </t-form>
-      <t-tree :data="items" expand-all :transition="transition" />
+  <t-space direction="vertical">
+    <t-space>
+      <span>切换数据:</span>
+      <t-switch @change="toggleData" />
     </t-space>
+    <t-space>
+      <span>展开动画:</span>
+      <t-switch v-model="transition" />
+    </t-space>
+    <t-tree :data="items" expand-all :transition="transition" />
   </t-space>
 </template>
 

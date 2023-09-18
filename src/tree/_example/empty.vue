@@ -1,19 +1,19 @@
 <template>
-  <t-space :size="32" direction="vertical" class="tdesign-tree-demo">
-    <t-space :size="10" direction="vertical">
-      <h3 class="title">默认为空状态</h3>
+  <t-space :size="32" direction="vertical">
+    <t-space direction="vertical">
+      <h3>默认为空状态</h3>
       <t-tree :data="[]" />
     </t-space>
-    <t-space :size="10" direction="vertical">
-      <h3 class="title">设置 empty 属性为指定字符串</h3>
-      <t-tree :data="[]" empty="😊 空数据（string）" /><br />
+    <t-space direction="vertical">
+      <h3>设置 empty 属性为指定字符串</h3>
+      <t-tree :data="[]" empty="😊 空数据（string）" />
     </t-space>
-    <t-space :size="10" direction="vertical">
-      <h3 class="title">jsx 形式</h3>
+    <t-space direction="vertical">
+      <h3>jsx 形式</h3>
       <t-tree :data="[]" :empty="empty" />
     </t-space>
-    <t-space :size="10" direction="vertical">
-      <h3 class="title">slot 形式</h3>
+    <t-space direction="vertical">
+      <h3>slot 形式</h3>
       <t-tree :data="[]">
         <div slot="empty">😊 空数据（slot）</div>
       </t-tree>

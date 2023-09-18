@@ -1,8 +1,6 @@
 <template>
-  <t-space :size="32" direction="vertical">
-    <t-space direction="vertical">
-      <t-tree :data="items" activable hover transition />
-    </t-space>
+  <t-space direction="vertical">
+    <t-tree :data="items" activable hover transition />
   </t-space>
 </template>
 

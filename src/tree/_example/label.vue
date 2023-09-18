@@ -1,10 +1,10 @@
 <template>
-  <t-space :size="32" direction="vertical" class="tdesign-tree-demo">
-    <t-space :size="10" direction="vertical">
-      <h3 class="title">属性设置 jsx 形式</h3>
+  <t-space :size="32" direction="vertical">
+    <t-space direction="vertical">
+      <h3>属性设置 jsx 形式</h3>
       <t-tree :data="items" expand-all :label="label"></t-tree>
     </t-space>
-    <t-space :size="10" direction="vertical">
+    <t-space direction="vertical">
       <h3>slot 形式</h3>
       <t-tree :data="items" expand-all checkable>
         <template #label="{ node }">

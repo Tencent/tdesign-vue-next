@@ -1,39 +1,35 @@
 <template>
-  <t-space :size="32" direction="vertical">
-    <t-space direction="vertical">
-      <h3 class="title">数据切换</h3>
-      <t-space direction="vertical">
-        <t-space>
-          <span>切换数据:</span>
-          <t-switch @change="toggleData" />
-        </t-space>
-        <t-space>
-          <span>默认展开全部:</span>
-          <t-switch v-model="expandAll" />
-        </t-space>
-        <t-space>
-          <span>可选:</span>
-          <t-switch v-model="checkable" />
-        </t-space>
-        <t-space>
-          <span>节点可高亮:</span>
-          <t-switch v-model="activable" />
-        </t-space>
-        <t-space>
-          <span>展开动画:</span>
-          <t-switch v-model="transition" />
-        </t-space>
-      </t-space>
-      <t-tree
-        :data="items"
-        hover
-        :expand-all="expandAll"
-        :transition="transition"
-        :activable="activable"
-        :checkable="checkable"
-        :label="label"
-      />
+  <t-space direction="vertical">
+    <h3>数据切换</h3>
+    <t-space>
+      <span>切换数据:</span>
+      <t-switch @change="toggleData" />
     </t-space>
+    <t-space>
+      <span>默认展开全部:</span>
+      <t-switch v-model="expandAll" />
+    </t-space>
+    <t-space>
+      <span>可选:</span>
+      <t-switch v-model="checkable" />
+    </t-space>
+    <t-space>
+      <span>节点可高亮:</span>
+      <t-switch v-model="activable" />
+    </t-space>
+    <t-space>
+      <span>展开动画:</span>
+      <t-switch v-model="transition" />
+    </t-space>
+    <t-tree
+      :data="items"
+      hover
+      :expand-all="expandAll"
+      :transition="transition"
+      :activable="activable"
+      :checkable="checkable"
+      :label="label"
+    />
   </t-space>
 </template>
 

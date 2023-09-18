@@ -1,47 +1,43 @@
 <template>
-  <t-space :size="32" direction="vertical">
-    <t-space direction="vertical">
-      <t-space direction="vertical">
-        <t-space>
-          <span>选中节点:</span>
-          <t-input-adornment prepend="checked:">
-            <t-input :value="allChecked" />
-          </t-input-adornment>
-        </t-space>
-        <t-space>
-          <span>展开节点:</span>
-          <t-input-adornment prepend="expanded:">
-            <t-input :value="allExpanded" />
-          </t-input-adornment>
-        </t-space>
-        <t-space>
-          <span>高亮节点:</span>
-          <t-input-adornment prepend="actived:">
-            <t-input :value="allActived" />
-          </t-input-adornment>
-        </t-space>
-        <t-space>
-          <t-button theme="primary" @click="selectNode">选中节点 1.1</t-button>
-          <t-button theme="primary" @click="activeNode">激活节点 2</t-button>
-          <t-button theme="primary" @click="expandNode">展开节点 1.2</t-button>
-        </t-space>
-      </t-space>
-      <t-tree
-        :data="items"
-        checkable
-        activable
-        :expand-on-click-node="false"
-        :active-multiple="false"
-        :expanded="expanded"
-        :actived="actived"
-        :value="checked"
-        :value-mode="valueMode"
-        @expand="onExpand"
-        @change="onChange"
-        @active="onActive"
-        @click="onClick"
-      />
+  <t-space direction="vertical">
+    <t-space>
+      <span>选中节点:</span>
+      <t-input-adornment prepend="checked:">
+        <t-input :value="allChecked" />
+      </t-input-adornment>
     </t-space>
+    <t-space>
+      <span>展开节点:</span>
+      <t-input-adornment prepend="expanded:">
+        <t-input :value="allExpanded" />
+      </t-input-adornment>
+    </t-space>
+    <t-space>
+      <span>高亮节点:</span>
+      <t-input-adornment prepend="actived:">
+        <t-input :value="allActived" />
+      </t-input-adornment>
+    </t-space>
+    <t-space>
+      <t-button theme="primary" @click="selectNode">选中节点 1.1</t-button>
+      <t-button theme="primary" @click="activeNode">激活节点 2</t-button>
+      <t-button theme="primary" @click="expandNode">展开节点 1.2</t-button>
+    </t-space>
+    <t-tree
+      :data="items"
+      checkable
+      activable
+      :expand-on-click-node="false"
+      :active-multiple="false"
+      :expanded="expanded"
+      :actived="actived"
+      :value="checked"
+      :value-mode="valueMode"
+      @expand="onExpand"
+      @change="onChange"
+      @active="onActive"
+      @click="onClick"
+    />
   </t-space>
 </template>
 

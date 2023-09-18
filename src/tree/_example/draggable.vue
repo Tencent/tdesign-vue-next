@@ -1,20 +1,18 @@
 <template>
-  <t-space :size="32" direction="vertical">
-    <t-space direction="vertical">
-      <t-tree
-        :data="items"
-        activable
-        hover
-        transition
-        expand-all
-        draggable
-        @drag-start="handleDragStart"
-        @drag-end="handleDragEnd"
-        @drag-over="handleDragOver"
-        @drag-leave="handleDragLeave"
-        @drop="handleDrop"
-      />
-    </t-space>
+  <t-space direction="vertical">
+    <t-tree
+      :data="items"
+      activable
+      hover
+      transition
+      expand-all
+      draggable
+      @drag-start="handleDragStart"
+      @drag-end="handleDragEnd"
+      @drag-over="handleDragOver"
+      @drag-leave="handleDragLeave"
+      @drop="handleDrop"
+    />
   </t-space>
 </template>
 

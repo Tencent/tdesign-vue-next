@@ -1,33 +1,29 @@
 <template>
-  <t-space :size="32" direction="vertical">
-    <t-space direction="vertical">
-      <t-space direction="vertical">
-        <t-space>
-          <t-input-adornment prepend="filter:">
-            <t-input v-model="filterText" @change="onInput" />
-          </t-input-adornment>
-        </t-space>
-        <t-space>
-          <span>允许折叠:</span>
-          <t-switch v-model="allowFoldNodeOnFilter" />
-        </t-space>
-        <t-space>
-          <span>可选:</span>
-          <t-switch v-model="isCheckable" />
-        </t-space>
-      </t-space>
-      <t-tree
-        ref="tree"
-        :data="items"
-        expand-on-click-node
-        :allow-fold-node-on-filter="allowFoldNodeOnFilter"
-        :default-expanded="expanded"
-        :filter="filterByText"
-        :checkable="isCheckable"
-        hover
-        line
-      />
+  <t-space direction="vertical">
+    <t-space>
+      <t-input-adornment prepend="filter:">
+        <t-input v-model="filterText" @change="onInput" />
+      </t-input-adornment>
     </t-space>
+    <t-space>
+      <span>允许折叠:</span>
+      <t-switch v-model="allowFoldNodeOnFilter" />
+    </t-space>
+    <t-space>
+      <span>可选:</span>
+      <t-switch v-model="isCheckable" />
+    </t-space>
+    <t-tree
+      ref="tree"
+      :data="items"
+      expand-on-click-node
+      :allow-fold-node-on-filter="allowFoldNodeOnFilter"
+      :default-expanded="expanded"
+      :filter="filterByText"
+      :checkable="isCheckable"
+      hover
+      line
+    />
   </t-space>
 </template>
 

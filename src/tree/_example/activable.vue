@@ -1,32 +1,28 @@
 <template>
-  <t-space :size="32" direction="vertical">
-    <t-space direction="vertical">
-      <t-space direction="vertical">
-        <t-space>
-          <span>节点可高亮: </span>
-          <t-switch v-model="activable" />
-        </t-space>
-        <t-space>
-          <span>节点可多选高亮:</span>
-          <t-switch v-model="activeMultiple" />
-        </t-space>
-        <t-space>
-          <span>整个节点可点击:</span>
-          <t-switch v-model="expandOnClickNode" />
-        </t-space>
-      </t-space>
-      <t-tree
-        :data="items"
-        expand-all
-        :activable="activable"
-        :active-multiple="activeMultiple"
-        :expand-on-click-node="expandOnClickNode"
-        :on-active="propOnActive"
-        hover
-        @click="onClick"
-        @active="onActive"
-      />
+  <t-space direction="vertical">
+    <t-space>
+      <span>节点可高亮: </span>
+      <t-switch v-model="activable" />
     </t-space>
+    <t-space>
+      <span>节点可多选高亮:</span>
+      <t-switch v-model="activeMultiple" />
+    </t-space>
+    <t-space>
+      <span>整个节点可点击:</span>
+      <t-switch v-model="expandOnClickNode" />
+    </t-space>
+    <t-tree
+      :data="items"
+      expand-all
+      :activable="activable"
+      :active-multiple="activeMultiple"
+      :expand-on-click-node="expandOnClickNode"
+      :on-active="propOnActive"
+      hover
+      @click="onClick"
+      @active="onActive"
+    />
   </t-space>
 </template>
 
