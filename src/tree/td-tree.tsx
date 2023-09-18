@@ -47,15 +47,15 @@ export default defineComponent({
     const componentName = usePrefixClass('tree');
 
     // 用于 hooks 传递数据
-    const { state } = useTreeState(props);
+    const { state } = useTreeState(props, context);
     const { treeContentRef, isScrolling } = state;
-    const { store, updateStoreConfig } = useTreeStore(props, context, state);
+    const { store, updateStoreConfig } = useTreeStore(state);
 
-    useDragHandle(props, context, state);
-    const { setActived, setExpanded, setChecked } = useTreeAction(props, context, state);
-    const { onInnerVirtualScroll, virtualConfig } = useTreeScroll(props, context, state);
-    const { renderTreeNodes, nodesEmpty } = useTreeNodes(props, context, state);
-    const { treeClasses, treeContentStyles, scrollStyles, cursorStyles } = useTreeStyles(props, state);
+    useDragHandle(state);
+    const { setActived, setExpanded, setChecked } = useTreeAction(state);
+    const { onInnerVirtualScroll, virtualConfig } = useTreeScroll(state);
+    const { renderTreeNodes, nodesEmpty } = useTreeNodes(state);
+    const { treeClasses, treeContentStyles, scrollStyles, cursorStyles } = useTreeStyles(state);
 
     // 不想暴露给用户的属性与方法，统一挂载到 setup 返回的对象上
     // 实例上无法直接访问这些方法与属性
@@ -220,7 +220,7 @@ export default defineComponent({
 
     let treeNodeList = null;
     if (!transition || (isVirtual && isScrolling)) {
-      // 关闭动画时，列表不使用 transition-group 以启用更高的性能
+      // vue3 不使用 transition group 会导致展开收起动作异常
       treeNodeList = (
         <div class={`${cname}__list`} style={scrollStyles}>
           {treeNodeViews}

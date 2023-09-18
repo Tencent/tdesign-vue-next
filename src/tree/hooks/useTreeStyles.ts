@@ -1,12 +1,13 @@
 import { computed, TypeStyles, usePrefixClass } from '../adapt';
-import { TreeProps, TypeTreeState } from '../tree-types';
+import { TypeTreeState } from '../tree-types';
 
 export function formatCSSUnit(unit: string | number) {
   if (!unit) return unit;
   return isNaN(Number(unit)) ? unit : `${unit}px`;
 }
 
-export default function useTreeStyles(props: TreeProps, state: TypeTreeState) {
+export default function useTreeStyles(state: TypeTreeState) {
+  const { props } = state;
   const componentName = usePrefixClass('tree').value;
   const classPrefix = usePrefixClass().value;
   const { virtualConfig, isScrolling, refProps } = state;

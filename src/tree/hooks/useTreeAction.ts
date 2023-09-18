@@ -1,7 +1,6 @@
-import { usePrefixClass, TypeSetupContext } from '../adapt';
+import { usePrefixClass } from '../adapt';
 import {
   TreeNodeValue,
-  TreeProps,
   TypeTreeState,
   TypeTargetNode,
   TypeExpandEventContext,
@@ -11,7 +10,7 @@ import {
 import { getNode, pathMatchClass } from '../util';
 
 // tree 组件节点状态设置
-export default function useTreeAction(props: TreeProps, context: TypeSetupContext, state: TypeTreeState) {
+export default function useTreeAction(state: TypeTreeState) {
   const treeState = state;
   const { store } = treeState;
   const componentName = usePrefixClass('tree').value;

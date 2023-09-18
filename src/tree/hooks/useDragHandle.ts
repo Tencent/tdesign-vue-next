@@ -1,11 +1,9 @@
-import { TypeSetupContext, TreeNode } from '../adapt';
+import { TreeNode } from '../adapt';
 import { TreeProps, TypDragEventState, TypeTreeState, TypeDragHandle } from '../tree-types';
 import { emitEvent } from '../util';
 
-export default function useDragHandle(props: TreeProps, context: TypeSetupContext, state: TypeTreeState) {
-  const treeState = state;
-  const { store } = treeState;
-
+export default function useDragHandle(state: TypeTreeState) {
+  const { props, context, scope, store } = state;
   let dragNode: TreeNode = null;
 
   const handleDragStart = (state: TypDragEventState) => {
@@ -83,7 +81,6 @@ export default function useDragHandle(props: TreeProps, context: TypeSetupContex
     handleDrop,
   };
 
-  const { scope } = treeState;
   scope.drag = drag;
 
   return {

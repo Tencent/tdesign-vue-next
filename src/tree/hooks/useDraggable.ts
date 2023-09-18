@@ -1,6 +1,6 @@
 import throttle from 'lodash/throttle';
-import { TypeRef, reactive } from '../adapt';
-import { TypeTreeItemProps } from '../tree-types';
+import { reactive } from '../adapt';
+import { TypeTreeItemState } from '../tree-types';
 
 export interface TypeDragStates {
   isDragOver: boolean;
@@ -10,7 +10,8 @@ export interface TypeDragStates {
 
 type TypeDrag = 'dragStart' | 'dragOver' | 'dragLeave' | 'dragEnd' | 'drop';
 
-export default function useDraggable(props: TypeTreeItemProps, treeItemRef: TypeRef<HTMLElement>) {
+export default function useDraggable(state: TypeTreeItemState) {
+  const { treeItemRef } = state;
   const dragStates = reactive({
     isDragOver: false,
     isDragging: false,
@@ -37,7 +38,7 @@ export default function useDraggable(props: TypeTreeItemProps, treeItemRef: Type
   };
 
   const setDragStatus = (status: TypeDrag, dragEvent: DragEvent) => {
-    const { node, treeScope } = props;
+    const { node, treeScope } = state;
     const { drag } = treeScope;
     if (!drag) return;
 
@@ -76,7 +77,7 @@ export default function useDraggable(props: TypeTreeItemProps, treeItemRef: Type
   };
 
   const handleDragStart = (evt: DragEvent) => {
-    const { node } = props;
+    const { node } = state;
     if (!node.isDraggable()) return;
     evt.stopPropagation();
     setDragStatus('dragStart', evt);
@@ -90,14 +91,14 @@ export default function useDraggable(props: TypeTreeItemProps, treeItemRef: Type
   };
 
   const handleDragEnd = (evt: DragEvent) => {
-    const { node } = props;
+    const { node } = state;
     if (!node.isDraggable()) return;
     evt.stopPropagation();
     setDragStatus('dragEnd', evt);
   };
 
   const handleDragOver = (evt: DragEvent) => {
-    const { node } = props;
+    const { node } = state;
     if (!node.isDraggable()) return;
     evt.stopPropagation();
     evt.preventDefault();
@@ -105,14 +106,14 @@ export default function useDraggable(props: TypeTreeItemProps, treeItemRef: Type
   };
 
   const handleDragLeave = (evt: DragEvent) => {
-    const { node } = props;
+    const { node } = state;
     if (!node.isDraggable()) return;
     evt.stopPropagation();
     setDragStatus('dragLeave', evt);
   };
 
   const handleDrop = (evt: DragEvent) => {
-    const { node } = props;
+    const { node } = state;
     if (!node.isDraggable()) return;
     evt.stopPropagation();
     evt.preventDefault();

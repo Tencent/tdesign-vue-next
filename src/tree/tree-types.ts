@@ -12,6 +12,7 @@ import {
   TypeCreateElement,
   TreeProps as AdaptTreeProps,
   TypeTreeInstance as AdaptTypeTreeInstance,
+  TypeSetupContext,
 } from './adapt';
 import { TreeStore } from '../_common/js/tree/tree-store';
 
@@ -40,7 +41,7 @@ export type TypeTreeNodeModel = TreeNodeModel<TypeTreeOptionData>;
 export type TypeTargetNode = TreeNodeValue | TypeTreeNode | TypeTreeNodeModel;
 export type TypeTimer = ReturnType<typeof setTimeout>;
 
-export interface TypeTreeRow extends TreeNode {
+export interface TypeTreeRow extends TypeTreeNode {
   __VIRTUAL_SCROLL_INDEX?: number;
 }
 
@@ -96,6 +97,7 @@ export interface TypeDragHandle {
 }
 
 export interface TypeTreeScope {
+  store: TypeTreeStore;
   treeContentRef: TypeRef<HTMLDivElement>;
   treeProps?: TreeProps;
   scopedSlots?: TypeScopedSlots;
@@ -105,10 +107,12 @@ export interface TypeTreeScope {
 }
 
 export interface TypeTreeState {
+  props: TreeProps;
+  context: TypeSetupContext;
   scope: TypeTreeScope;
   store: TypeTreeStore;
-  nodes: TypeRef<TreeNode[]>;
-  allNodes: TypeRef<TreeNode[]>;
+  nodes: TypeRef<TypeTreeNode[]>;
+  allNodes: TypeRef<TypeTreeNode[]>;
   isScrolling: TypeRef<boolean>;
   treeContentRef: TypeRef<HTMLDivElement>;
   mouseEvent?: Event;
@@ -120,8 +124,18 @@ export interface TypeTreeState {
   vmExpanded: TypeVModel;
 }
 
-export interface TypeTreeItemProps {
+export interface TypeTreeItemState {
+  props: TypeTreeItemProps;
+  context: TypeSetupContext;
+  treeScope: TypeTreeScope;
   node: TypeTreeNode;
+  refProps: TypeToRefs<TypeTreeItemProps>;
+  refNode: TypeRef<TypeTreeNode>;
+  treeItemRef: TypeRef<HTMLDivElement>;
+}
+
+export interface TypeTreeItemProps {
+  itemkey: string;
   treeScope: TypeTreeScope;
   expandOnClickNode: boolean;
   rowIndex: number;

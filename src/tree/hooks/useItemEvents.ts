@@ -1,9 +1,9 @@
-import { TypeSetupContext, TypeCheckboxProps, usePrefixClass } from '../adapt';
-import { TypeTreeItemProps, TypeEventState } from '../tree-types';
+import { TypeCheckboxProps, usePrefixClass } from '../adapt';
+import { TypeEventState, TypeTreeItemState } from '../tree-types';
 // 这里封装 tree-item 的一般事件
 // 拖动事件，虚拟滚动事件不要安排到这里
-export default function useItemEvents(props: TypeTreeItemProps, context: TypeSetupContext) {
-  const { node } = props;
+export default function useItemEvents(state: TypeTreeItemState) {
+  const { node, context, props } = state;
 
   const classPrefix = usePrefixClass().value;
 

@@ -83,7 +83,7 @@ export default {
   data() {
     return {
       index: 0,
-      transition: true,
+      transition: false,
       showLine: true,
       showIcon: true,
       items,

@@ -1,6 +1,6 @@
 import pick from 'lodash/pick';
 import { TreeStore } from '../../_common/js/tree/tree-store';
-import { TypeSetupContext, watch } from '../adapt';
+import { watch } from '../adapt';
 import {
   TreeProps,
   TreeNodeValue,
@@ -12,7 +12,8 @@ import {
   TypeTreeState,
 } from '../tree-types';
 
-export default function useTreeStore(props: TreeProps, context: TypeSetupContext, state: TypeTreeState) {
+export default function useTreeStore(state: TypeTreeState) {
+  const { props, context } = state;
   const { valueMode, filter, keys } = props;
 
   const store: TreeStore = new TreeStore({

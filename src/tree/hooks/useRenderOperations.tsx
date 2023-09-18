@@ -1,13 +1,13 @@
 import { usePrefixClass, TypeCreateElement, TypeVNode } from '../adapt';
-import { TypeTreeItemProps } from '../tree-types';
+import { TypeTreeItemState } from '../tree-types';
 import { getTNode } from '../util';
 
 // 渲染节点操作区域
-export default function useRenderOperations(props: TypeTreeItemProps) {
+export default function useRenderOperations(state: TypeTreeItemState) {
   const componentName = usePrefixClass('tree').value;
 
   const renderOperations = (h: TypeCreateElement): TypeVNode => {
-    const { node, treeScope } = props;
+    const { node, treeScope } = state;
     const { scopedSlots } = treeScope;
     const treeProps = treeScope?.treeProps || {};
     const { operations } = treeProps;
