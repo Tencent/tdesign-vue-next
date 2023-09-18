@@ -20,6 +20,7 @@ export default function useTreeStore(props: TreeProps, context: TypeSetupContext
     filter,
   });
 
+  const { refProps } = state;
   const [tValue] = state.vmValue;
   const [tActived] = state.vmActived;
   const [tExpanded] = state.vmExpanded;
@@ -183,15 +184,15 @@ export default function useTreeStore(props: TreeProps, context: TypeSetupContext
   // 设置初始化状态
   state.setStore(store);
   // 配置属性监听
-  watch(tValue, (nVal: TreeNodeValue[]) => {
+  watch(refProps.value, (nVal: TreeNodeValue[]) => {
     const previousVal = store.getChecked();
     if (nVal.join() === previousVal?.join()) return;
     store.replaceChecked(nVal);
   });
-  watch(tExpanded, (nVal: TreeNodeValue[]) => {
+  watch(refProps.expanded, (nVal: TreeNodeValue[]) => {
     store.replaceExpanded(nVal);
   });
-  watch(tActived, (nVal: TreeNodeValue[]) => {
+  watch(refProps.actived, (nVal: TreeNodeValue[]) => {
     const previousVal = store.getActived();
     if (nVal.join() === previousVal?.join()) return;
     store.replaceActived(nVal);

@@ -2,7 +2,6 @@ import upperFirst from 'lodash/upperFirst';
 import isFunction from 'lodash/isFunction';
 import {
   watch,
-  toRefs,
   defineComponent,
   TreeNode,
   useConfig,
@@ -47,11 +46,10 @@ export default defineComponent({
     const { t, global } = useConfig('tree');
     const classPrefix = usePrefixClass();
     const componentName = usePrefixClass('tree');
-    const refProps = toRefs(props);
 
     // 用于 hooks 传递数据
-    const { state, treeContentRef, isScrolling } = useTreeState(props);
-
+    const { state } = useTreeState(props);
+    const { refProps, treeContentRef, isScrolling } = state;
     const { store, rebuild, updateStoreConfig, checkFilterExpand } = useTreeStore(props, context, state);
 
     useDragHandle(props, context, state);

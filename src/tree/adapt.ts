@@ -38,6 +38,7 @@ export type TypeTNodeReturnValue = TNodeReturnValue;
 export type TypeTreeOptionData = TreeOptionData;
 export type TypeTreeEventState = TreeEventState;
 export type TypeVirtualScrollConfig = VirtualScrollConfig;
+export type TypeToRefs<T> = ToRefs<T>;
 export interface TypeTreeInstance extends ComponentPublicInstance, TreeInstanceFunctions {}
 
 export type TreeProps<T extends TypeTreeOptionData = TypeTreeOptionData> = TdTreeProps<T> & {
@@ -51,6 +52,8 @@ export interface TypeOnDrag {
 const onDrag: TypeOnDrag = {
   default: undefined,
 };
+
+export const isVueNext = true;
 
 export const TreeItemDefinition = {
   name: 'TTreeNode',

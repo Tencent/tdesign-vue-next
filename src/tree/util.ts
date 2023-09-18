@@ -1,5 +1,5 @@
 import camelCase from 'lodash/camelCase';
-import { TypeVNode, TypeSetupContext } from './adapt';
+import { TypeVNode, TypeSetupContext, isVueNext } from './adapt';
 import {
   TreeProps,
   TypeTreeStore,
@@ -17,7 +17,10 @@ export function emitEvent<T extends any[]>(props: TreeProps, context: TypeSetupC
   if (typeof props[apiName] === 'function') {
     props[apiName](...args);
   }
-  context.emit(evtName, ...args);
+  if (!isVueNext) {
+    // vue3 调用 props.onClick 时就已经派发了事件了
+    context.emit(evtName, ...args);
+  }
 }
 
 export function getParentsToRoot(element?: HTMLElement, root?: HTMLElement): HTMLElement[] {

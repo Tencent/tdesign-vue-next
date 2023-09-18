@@ -1,5 +1,6 @@
 import {
   TypeRef,
+  TypeToRefs,
   TypeVNode,
   TreeNode,
   TypeVirtualScrollConfig,
@@ -113,6 +114,7 @@ export interface TypeTreeState {
   mouseEvent?: Event;
   virtualConfig?: TypeVirtualScrollConfig;
   setStore: (store: TypeTreeStore) => void;
+  refProps: TypeToRefs<TreeProps>;
   vmValue: TypeVModel;
   vmActived: TypeVModel;
   vmExpanded: TypeVModel;

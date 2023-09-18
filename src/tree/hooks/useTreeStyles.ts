@@ -1,4 +1,4 @@
-import { computed, toRefs, TypeStyles, usePrefixClass } from '../adapt';
+import { computed, TypeStyles, usePrefixClass } from '../adapt';
 import { TreeProps, TypeTreeState } from '../tree-types';
 
 export function formatCSSUnit(unit: string | number) {
@@ -9,10 +9,9 @@ export function formatCSSUnit(unit: string | number) {
 export default function useTreeStyles(props: TreeProps, state: TypeTreeState) {
   const componentName = usePrefixClass('tree').value;
   const classPrefix = usePrefixClass().value;
-  const treeState = state;
-  const { virtualConfig, isScrolling } = treeState;
+  const { virtualConfig, isScrolling, refProps } = state;
 
-  const { height, maxHeight } = toRefs(props);
+  const { height, maxHeight } = refProps;
 
   const treeClasses = computed(() => {
     const list: Array<string> = [componentName];

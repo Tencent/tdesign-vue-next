@@ -131,7 +131,6 @@ export default {
             {
               value: '2.1',
               label: '2.1 这个节点不允许选中',
-              checkable: false,
             },
             {
               value: '2.2',
@@ -185,7 +184,7 @@ export default {
     onExpand(vals, context) {
       console.info('onExpand:', vals, context);
       const expanded = vals.filter((val) => val !== '2');
-      console.info('节点 2 不允许展开');
+      console.info('节点 2 不允许展开', expanded);
       this.expanded = expanded;
       const { node } = context;
       console.info(node.value, 'expanded:', node.expanded);
@@ -193,7 +192,7 @@ export default {
     onActive(vals, context) {
       console.info('onActive:', vals, context);
       const actived = vals.filter((val) => val !== '2');
-      console.info('节点 2 不允许激活');
+      console.info('节点 2 不允许激活', actived);
       this.actived = actived;
       const { node } = context;
       console.info(node.value, 'actived:', node.actived);
