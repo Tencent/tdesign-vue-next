@@ -16,9 +16,9 @@
       </t-input-adornment>
     </t-space>
     <t-tree
-      v-model:expanded="expanded"
-      v-model:actived="actived"
-      v-model:value="checked"
+      :expanded="expanded"
+      :actived="actived"
+      :value="checked"
       :data="items"
       checkable
       activable
