@@ -19,7 +19,7 @@
 </template>
 
 <script lang="jsx">
-import { Icon } from 'tdesign-icons-vue';
+import { Icon } from 'tdesign-icons-vue-next';
 
 export default {
   components: {
