@@ -90,7 +90,7 @@ export default defineComponent({
   setup(props: TableBodyProps) {
     const renderTNode = useTNodeJSX();
     const { data, columns, rowKey, rowspanAndColspan } = toRefs(props);
-    const { t, globalConfig } = useConfig('table');
+    const { t, globalConfig } = useConfig('table', props.locale);
     const { tableFullRowClasses, tableBaseClass } = useClassName();
     const { skipSpansMap } = useRowspanAndColspan(data, columns, rowKey, rowspanAndColspan);
 

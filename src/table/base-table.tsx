@@ -57,7 +57,7 @@ export default defineComponent({
       useClassName();
     // 表格基础样式类
     const { tableClasses, sizeClassNames, tableContentStyles, tableElementStyles } = useStyle(props);
-    const { globalConfig } = useConfig('table');
+    const { globalConfig } = useConfig('table', props.locale);
     const { isMultipleHeader, spansAndLeafNodes, thList } = useTableHeader(props);
     const finalColumns = computed(() => spansAndLeafNodes.value?.leafColumns || props.columns);
 
