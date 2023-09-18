@@ -1,24 +1,26 @@
 <template>
-  <t-space :size="32" direction="vertical" class="tdesign-tree-demo">
-    <t-space :size="10" direction="vertical">
-      <t-form>
-        <t-form-item label="可选">
+  <t-space :size="32" direction="vertical">
+    <t-space direction="vertical">
+      <t-space direction="vertical">
+        <t-space>
+          <span>可选:</span>
           <t-switch v-model="checkable" />
-        </t-form-item>
-        <t-form-item label="严格模式">
+        </t-space>
+        <t-space>
+          <span>严格模式:</span>
           <t-switch v-model="checkStrictly" />
-        </t-form-item>
-        <t-form-item label="选中值模式">
+        </t-space>
+        <t-space>
           <t-radio-group v-model="valueMode" name="value-mode" variant="default-filled">
             <t-radio-button v-for="item in valueOptions" :key="item.value" :value="item.value">{{
               item.label
             }}</t-radio-button>
           </t-radio-group>
-        </t-form-item>
-        <t-form-item>
+        </t-space>
+        <t-space>
           <t-button theme="primary" @click="selectInvert">反选</t-button>
-        </t-form-item>
-      </t-form>
+        </t-space>
+      </t-space>
       <t-tree
         ref="tree"
         :data="items"

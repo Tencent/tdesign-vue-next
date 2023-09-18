@@ -1,45 +1,48 @@
 <template>
-  <t-space :size="32" direction="vertical" class="tdesign-tree-demo" style="width: 100%">
-    <t-space :size="10" direction="vertical" style="width: 100%">
+  <t-space :size="32" direction="vertical" style="width: 100%">
+    <t-space direction="vertical">
       <h3 class="title">虚拟滚动 - virtual 模式</h3>
-      <t-form label-width="150" style="max-width: 500px">
-        <t-form-item label="动画">
+      <t-space direction="vertical">
+        <t-space>
+          <span>动画:</span>
           <t-switch v-model="transition" />
-        </t-form-item>
-        <t-form-item label="显示连线">
+        </t-space>
+        <t-space>
+          <span>显示连线:</span>
           <t-switch v-model="showLine" />
-        </t-form-item>
-        <t-form-item label="显示图标">
+        </t-space>
+        <t-space>
+          <span>显示图标:</span>
           <t-switch v-model="showIcon" />
-        </t-form-item>
-        <t-form-item label="可选">
+        </t-space>
+        <t-space>
+          <span>可选:</span>
           <t-switch v-model="isCheckable" />
-        </t-form-item>
-        <t-form-item label="可操作">
+        </t-space>
+        <t-space>
+          <span>可操作:</span>
           <t-switch v-model="isOperateAble" />
-        </t-form-item>
-      </t-form>
-      <t-form label-align="left" :label-width="80" style="max-width: 500px">
-        <t-form-item>
+        </t-space>
+        <t-space>
           <t-input-adornment prepend="插入节点数量:">
-            <t-input v-model="insertCount" />
+            <t-input v-model="textInsertCount" />
           </t-input-adornment>
-        </t-form-item>
-        <t-form-item>
+        </t-space>
+        <t-space>
           <t-button @click="append()">插入根节点</t-button>
-        </t-form-item>
-        <t-form-item label="">
+        </t-space>
+        <t-space>
           <t-input-adornment prepend="filter:">
             <t-input v-model="filterText" @change="onInput" />
           </t-input-adornment>
-        </t-form-item>
-      </t-form>
+        </t-space>
+      </t-space>
     </t-space>
     <t-tree
+      ref="tree"
       :data="items"
       hover
       activable
-      ref="tree"
       :checkable="isCheckable"
       expand-all
       :height="300"
@@ -110,7 +113,7 @@ export default {
     return {
       index: 0,
       transition: true,
-      insertCount: 1,
+      textInsertCount: '1',
       useActived: false,
       enableVScroll: true,
       lazyVScroll: false,
@@ -123,6 +126,11 @@ export default {
       filterText: '',
       filterByText: null,
     };
+  },
+  computed: {
+    insertCount() {
+      return parseInt(this.textInsertCount, 10) || 1;
+    },
   },
   methods: {
     label(createElement, node) {

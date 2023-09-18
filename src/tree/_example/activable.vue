@@ -1,17 +1,20 @@
 <template>
-  <t-space :size="32" direction="vertical" class="tdesign-tree-demo">
-    <t-space :size="10" direction="vertical">
-      <t-form label-width="120">
-        <t-form-item label="节点可高亮">
+  <t-space :size="32" direction="vertical">
+    <t-space direction="vertical">
+      <t-space direction="vertical">
+        <t-space>
+          <span>节点可高亮: </span>
           <t-switch v-model="activable" />
-        </t-form-item>
-        <t-form-item label="节点可多选高亮">
+        </t-space>
+        <t-space>
+          <span>节点可多选高亮:</span>
           <t-switch v-model="activeMultiple" />
-        </t-form-item>
-        <t-form-item label="整个节点可点击">
+        </t-space>
+        <t-space>
+          <span>整个节点可点击:</span>
           <t-switch v-model="expandOnClickNode" />
-        </t-form-item>
-      </t-form>
+        </t-space>
+      </t-space>
       <t-tree
         :data="items"
         expand-all

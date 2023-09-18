@@ -1,24 +1,29 @@
 <template>
-  <t-space :size="32" direction="vertical" class="tdesign-tree-demo">
-    <t-space :size="10" direction="vertical">
+  <t-space :size="32" direction="vertical">
+    <t-space direction="vertical">
       <h3 class="title">数据切换</h3>
-      <t-form label-width="150">
-        <t-form-item label="切换数据">
+      <t-space direction="vertical">
+        <t-space>
+          <span>切换数据:</span>
           <t-switch @change="toggleData" />
-        </t-form-item>
-        <t-form-item label="默认展开全部">
+        </t-space>
+        <t-space>
+          <span>默认展开全部:</span>
           <t-switch v-model="expandAll" />
-        </t-form-item>
-        <t-form-item label="可选">
+        </t-space>
+        <t-space>
+          <span>可选:</span>
           <t-switch v-model="checkable" />
-        </t-form-item>
-        <t-form-item label="节点可高亮">
+        </t-space>
+        <t-space>
+          <span>节点可高亮:</span>
           <t-switch v-model="activable" />
-        </t-form-item>
-        <t-form-item label="展开动画">
+        </t-space>
+        <t-space>
+          <span>展开动画:</span>
           <t-switch v-model="transition" />
-        </t-form-item>
-      </t-form>
+        </t-space>
+      </t-space>
       <t-tree
         :data="items"
         hover

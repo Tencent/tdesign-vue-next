@@ -1,35 +1,31 @@
 <template>
-  <t-space :size="32" direction="vertical" class="tdesign-tree-demo">
-    <t-space :size="10" direction="vertical">
-      <t-form label-align="left" :label-width="80">
-        <t-form-item>
-          <template #label>选中节点</template>
+  <t-space :size="32" direction="vertical">
+    <t-space direction="vertical">
+      <t-space direction="vertical">
+        <t-space>
+          <span>选中节点:</span>
           <t-input-adornment prepend="checked:">
             <t-input :value="allChecked" />
           </t-input-adornment>
-        </t-form-item>
-        <t-form-item>
-          <template #label>展开节点</template>
+        </t-space>
+        <t-space>
+          <span>展开节点:</span>
           <t-input-adornment prepend="expanded:">
             <t-input :value="allExpanded" />
           </t-input-adornment>
-        </t-form-item>
-        <t-form-item>
-          <template #label>高亮节点</template>
+        </t-space>
+        <t-space>
+          <span>高亮节点:</span>
           <t-input-adornment prepend="actived:">
             <t-input :value="allActived" />
           </t-input-adornment>
-        </t-form-item>
-        <t-form-item>
+        </t-space>
+        <t-space>
           <t-button theme="primary" @click="selectNode">选中节点 1.1</t-button>
-        </t-form-item>
-        <t-form-item>
           <t-button theme="primary" @click="activeNode">激活节点 2</t-button>
-        </t-form-item>
-        <t-form-item>
           <t-button theme="primary" @click="expandNode">展开节点 1.2</t-button>
-        </t-form-item>
-      </t-form>
+        </t-space>
+      </t-space>
       <t-tree
         :data="items"
         checkable
