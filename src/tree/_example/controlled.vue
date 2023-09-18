@@ -125,7 +125,7 @@ export default {
         },
         {
           value: '2',
-          label: '2 这个节点不允许展开, 不允许激活',
+          label: '2',
           checkable: false,
           children: [
             {
@@ -134,8 +134,25 @@ export default {
             },
             {
               value: '2.2',
-              label: '2.2',
+              label: '2.2 这个节点不允许激活',
               checkable: false,
+            },
+            {
+              value: '2.3',
+              label: '2.3 这个节点不允许展开',
+              checkable: false,
+              children: [
+                {
+                  value: '2.3.1',
+                  label: '2.3.1',
+                  checkable: false,
+                },
+                {
+                  value: '2.3.2',
+                  label: '2.3.2',
+                  checkable: false,
+                },
+              ],
             },
           ],
         },
@@ -181,21 +198,21 @@ export default {
       const { node } = context;
       console.info(node.value, 'checked:', node.checked);
     },
-    onExpand(vals, context) {
-      console.info('onExpand:', vals, context);
-      const expanded = vals.filter((val) => val !== '2');
-      console.info('节点 2 不允许展开', expanded);
-      this.expanded = expanded;
-      const { node } = context;
-      console.info(node.value, 'expanded:', node.expanded);
-    },
     onActive(vals, context) {
       console.info('onActive:', vals, context);
-      const actived = vals.filter((val) => val !== '2');
-      console.info('节点 2 不允许激活', actived);
+      const actived = vals.filter((val) => val !== '2.2');
+      console.info('节点 2.2 不允许激活', actived);
       this.actived = actived;
       const { node } = context;
       console.info(node.value, 'actived:', node.actived);
+    },
+    onExpand(vals, context) {
+      console.info('onExpand:', vals, context);
+      const expanded = vals.filter((val) => val !== '2.3');
+      console.info('节点 2.3 不允许展开', expanded);
+      this.expanded = expanded;
+      const { node } = context;
+      console.info(node.value, 'expanded:', node.expanded);
     },
   },
 };
