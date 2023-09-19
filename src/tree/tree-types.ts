@@ -139,7 +139,6 @@ export interface TypeTreeItemProps {
   renderId: number;
   itemKey: string;
   treeScope: TypeTreeScope;
-  expandOnClickNode: boolean;
   rowIndex: number;
 }
 

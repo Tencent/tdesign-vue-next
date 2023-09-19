@@ -24,9 +24,6 @@ export const treeItemProps = {
   treeScope: {
     type: Object as TypePropType<TypeTreeItemProps['treeScope']>,
   },
-  expandOnClickNode: {
-    type: Boolean as TypePropType<TypeTreeItemProps['expandOnClickNode']>,
-  },
 };
 
 export default defineComponent({

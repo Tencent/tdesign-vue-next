@@ -6,18 +6,15 @@ import useItemEvents from './useItemEvents';
 
 // 渲染节点文本与内容
 export default function useRenderLabel(state: TypeTreeItemState) {
-  const { props } = state;
   const classPrefix = usePrefixClass().value;
   const componentName = usePrefixClass('tree').value;
 
   const { handleChange } = useItemEvents(state);
 
   const renderLabel = (h: TypeCreateElement): TypeVNode => {
-    const { expandOnClickNode } = props;
     const { node, treeScope } = state;
-    const { scopedSlots } = treeScope;
-    const treeProps = treeScope?.treeProps || {};
-    const { label, disableCheck } = treeProps;
+    const { scopedSlots, treeProps = {} } = treeScope;
+    const { label, disableCheck, expandOnClickNode } = treeProps;
     const checkProps = treeProps?.checkProps || {};
 
     let labelNode = null;
