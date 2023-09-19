@@ -8,7 +8,7 @@ import useRenderOperations from './useRenderOperations';
 import useDraggable from './useDraggable';
 
 export default function useTreeItem(state: TypeTreeItemState) {
-  const { refNode, treeScope, treeItemRef } = state;
+  const { treeScope, treeItemRef } = state;
   const { virtualConfig, treeContentRef, scrollProps } = treeScope;
   const classPrefix = usePrefixClass().value;
   const componentName = usePrefixClass('tree').value;
@@ -28,18 +28,19 @@ export default function useTreeItem(state: TypeTreeItemState) {
   );
 
   onMounted(() => {
+    const { node } = state;
     const isVirtual = virtualConfig?.isVirtualScroll.value;
     if (isVirtual) {
       virtualConfig.handleRowMounted({
         ref: treeItemRef,
-        data: refNode.value,
+        data: node,
       });
     }
   });
 
   // 节点隐藏用 class 切换，不要写在 js 中
   const getItemStyles = (): string => {
-    const node = refNode.value;
+    const { node } = state;
     const { level } = node;
     // 原本想在这里计算 --hscale
     // 实际操作中发现 scrollHeight 在动画执行到一半的时候取得了错误的值
@@ -86,30 +87,24 @@ export default function useTreeItem(state: TypeTreeItemState) {
 
   const renderItem = (h: TypeCreateElement) => {
     const itemNodes: TypeVNode[] = [];
-
     // 第一步是渲染图标
     const iconNode = renderIcon(h);
-
     // 渲染连线排在渲染图标之后，是为了确认图标是否存在
     const lineNode = renderLine(h);
     if (lineNode) {
       itemNodes.push(lineNode);
     }
-
     if (iconNode) {
       itemNodes.push(iconNode);
     }
-
     const labelNode = renderLabel(h);
     if (labelNode) {
       itemNodes.push(labelNode);
     }
-
     const opNode = renderOperations(h);
     if (opNode) {
       itemNodes.push(opNode);
     }
-
     return itemNodes;
   };
 
