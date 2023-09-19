@@ -42,10 +42,9 @@ export default function useRenderLabel(state: TypeTreeItemState) {
 
     const shouldStopLabelTrigger = computed(() => {
       const isNormalBranchNode = Array.isArray(node.children) && node.children?.length > 0;
-      const isLazyLoadChildBranchNode = isBoolean(node.children) && node.children; // 懒加载子节点场景
-
+      // 延迟加载子节点场景
+      const isLazyLoadChildBranchNode = isBoolean(node.children) && node.children;
       const isBranchNode = isNormalBranchNode || isLazyLoadChildBranchNode;
-
       return expandOnClickNode && isBranchNode;
     });
 
@@ -72,7 +71,7 @@ export default function useRenderLabel(state: TypeTreeItemState) {
           class={labelClasses}
           checked={node.checked}
           indeterminate={node.indeterminate}
-          disabled={node.isDisabled()}
+          disabled={checkboxDisabled}
           name={String(node.value)}
           onChange={handleChange}
           stopLabelTrigger={shouldStopLabelTrigger.value}
