@@ -15,7 +15,9 @@
     <t-space direction="vertical">
       <h3>slot 形式</h3>
       <t-tree :data="[]">
-        <div slot="empty">😊 空数据（slot）</div>
+        <template #empty>
+          <div>😊 空数据（slot）</div>
+        </template>
       </t-tree>
     </t-space>
   </t-space>
