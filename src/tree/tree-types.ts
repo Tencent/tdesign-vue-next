@@ -13,6 +13,7 @@ import {
   TreeProps as AdaptTreeProps,
   TypeTreeInstance as AdaptTypeTreeInstance,
   TypeSetupContext,
+  TypeUnwrapNestedRefs,
 } from './adapt';
 import { TreeStore } from '../_common/js/tree/tree-store';
 
@@ -130,12 +131,13 @@ export interface TypeTreeItemState {
   treeScope: TypeTreeScope;
   node: TypeTreeNode;
   refProps: TypeToRefs<TypeTreeItemProps>;
-  refNode: TypeRef<TypeTreeNode>;
+  reactNode: TypeUnwrapNestedRefs<TypeTreeNode>;
   treeItemRef: TypeRef<HTMLDivElement>;
 }
 
 export interface TypeTreeItemProps {
-  itemkey: string;
+  renderId: number;
+  itemKey: string;
   treeScope: TypeTreeScope;
   expandOnClickNode: boolean;
   rowIndex: number;

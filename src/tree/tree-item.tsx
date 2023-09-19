@@ -12,8 +12,11 @@ import useItemState from './hooks/useItemState';
 import useTreeItem from './hooks/useTreeItem';
 
 export const treeItemProps = {
-  itemkey: {
-    type: String as TypePropType<TypeTreeItemProps['itemkey']>,
+  renderId: {
+    type: Number as TypePropType<TypeTreeItemProps['renderId']>,
+  },
+  itemKey: {
+    type: String as TypePropType<TypeTreeItemProps['itemKey']>,
   },
   rowIndex: {
     type: Number as TypePropType<TypeTreeItemProps['rowIndex']>,
@@ -35,6 +38,7 @@ export default defineComponent({
     const label = ref<HTMLElement>();
     useRipple(label);
     const { renderItemNode } = useTreeItem(state);
+
     return {
       treeItemRef,
       renderItemNode,

@@ -2,7 +2,7 @@
 // 除此文件之外的其他组件文件，可从 vue2 项目直接复制到 vue3 项目进行维护
 import * as Vue from 'vue';
 import { ref } from 'vue';
-import { Ref, SetupContext, ToRefs, VNode, PropType, ComponentPublicInstance } from 'vue';
+import { Ref, SetupContext, ToRefs, VNode, PropType, ComponentPublicInstance, UnwrapNestedRefs } from 'vue';
 import { CheckboxProps } from '../checkbox';
 import { ClassName, TScroll, Styles, TNode, TreeOptionData, TNodeReturnValue } from '../common';
 import { TypeTreeEventState as TreeEventState } from '../_common/js/tree/types';
@@ -39,6 +39,7 @@ export type TypeTreeOptionData = TreeOptionData;
 export type TypeTreeEventState = TreeEventState;
 export type TypeVirtualScrollConfig = VirtualScrollConfig;
 export type TypeToRefs<T> = ToRefs<T>;
+export type TypeUnwrapNestedRefs<T> = UnwrapNestedRefs<T>;
 export interface TypeTreeInstance extends ComponentPublicInstance, TreeInstanceFunctions {}
 
 export type TreeProps<T extends TypeTreeOptionData = TypeTreeOptionData> = TdTreeProps<T> & {
