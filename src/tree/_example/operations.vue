@@ -112,7 +112,7 @@ export default {
     getItem() {
       const { tree } = this.$refs;
       const node = tree.getItem('node1');
-      console.info('getItem:', node.label);
+      console.info('getItem:', node.value);
     },
     getAllItems() {
       const { tree } = this.$refs;
@@ -166,37 +166,50 @@ export default {
       }
       return item;
     },
+    // 获取节点原始数据
     getPlainData(item) {
       const root = item;
       if (!root) return null;
       const children = item.getChildren(true) || [];
       const list = [root].concat(children);
-      const nodeMap = {};
+
+      // 一维数组原始数据获取
       const nodeList = list.map((item) => {
-        const node = {
-          walkData() {
-            const data = {
-              ...this.data,
-            };
-            const itemChildren = this.getChildren();
-            if (Array.isArray(itemChildren)) {
-              data.children = [];
-              itemChildren.forEach((childItem) => {
-                const childNode = nodeMap[childItem.value];
-                const childData = childNode.walkData();
-                data.children.push(childData);
-              });
-            }
-            return data;
-          },
-          ...item,
+        const { value } = item;
+        const itemData = {
+          ...this.data,
+          value,
         };
-        nodeMap[item.value] = node;
-        return node;
+        const parent = item.getParent();
+        if (parent) {
+          itemData.parent = parent.value;
+        }
+        return itemData;
       });
-      const [rootNode] = nodeList;
-      const data = rootNode.walkData();
-      return data;
+      console.info('一维结构数据:', nodeList);
+
+      // 一维结构数据转树结构数据
+      const nodeMap = {};
+      const treeNodes = [];
+      list.forEach((item) => {
+        const { value } = item;
+        const itemData = {
+          ...this.data,
+          value,
+        };
+        nodeMap[value] = itemData;
+        const parent = item.getParent();
+        if (!parent) {
+          treeNodes.push(itemData);
+        } else {
+          const parentData = nodeMap[parent.value];
+          if (!Array.isArray(parentData.children)) {
+            parentData.children = [];
+          }
+          parentData.children.push(itemData);
+        }
+      });
+      console.info('树结构数据:', treeNodes);
     },
     append(node) {
       const { tree } = this.$refs;
@@ -272,8 +285,7 @@ export default {
     getActivePlainData() {
       const node = this.getActivedNode();
       if (!node) return;
-      const data = this.getPlainData(node);
-      return data;
+      this.getPlainData(node);
     },
     remove(node) {
       const { tree } = this.$refs;
@@ -297,11 +309,15 @@ export default {
     },
     onInputChange(state) {
       console.info('on input:', state);
-      this.filterByText = (node) => {
-        const label = node?.data?.label || '';
-        const rs = label.indexOf(this.filterText) >= 0;
-        return rs;
-      };
+      if (this.filterText) {
+        this.filterByText = (node) => {
+          const label = node?.data?.label || '';
+          const rs = label.indexOf(this.filterText) >= 0;
+          return rs;
+        };
+      } else {
+        this.filterByText = null;
+      }
     },
   },
 };
