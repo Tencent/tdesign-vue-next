@@ -12,8 +12,8 @@ import useItemState from './hooks/useItemState';
 import useTreeItem from './hooks/useTreeItem';
 
 export const treeItemProps = {
-  renderId: {
-    type: Number as TypePropType<TypeTreeItemProps['renderId']>,
+  stateId: {
+    type: String as TypePropType<TypeTreeItemProps['stateId']>,
   },
   itemKey: {
     type: String as TypePropType<TypeTreeItemProps['itemKey']>,

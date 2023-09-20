@@ -1,5 +1,5 @@
-import { ref, reactive, toRefs, TypeSetupContext, TypeUnwrapNestedRefs } from '../adapt';
-import { TypeTreeItemProps, TypeTreeItemState, TypeTreeNode } from '../tree-types';
+import { ref, toRefs, TypeSetupContext } from '../adapt';
+import { TypeTreeItemProps, TypeTreeItemState } from '../tree-types';
 
 // 提供公共对象
 export default function useItemState(props: TypeTreeItemProps, context: TypeSetupContext) {
@@ -8,7 +8,6 @@ export default function useItemState(props: TypeTreeItemProps, context: TypeSetu
   const { treeScope } = props;
   const { store } = treeScope;
   const node = store.privateMap.get(props.itemKey);
-  const reactNode = reactive(node) as TypeUnwrapNestedRefs<TypeTreeNode>;
 
   const state: TypeTreeItemState = {
     props,
@@ -16,7 +15,6 @@ export default function useItemState(props: TypeTreeItemProps, context: TypeSetu
     treeScope,
     refProps,
     node: node,
-    reactNode,
     treeItemRef,
   };
 

@@ -33,22 +33,16 @@ import { Icon } from 'tdesign-icons-vue-next';
 
 export default {
   data() {
-    const timeStamp = new Date('2021-12-12').getTime();
     return {
       index: 2,
       useActived: false,
       expandParent: true,
-      // icon 要先预置到节点中，才能触发视图更新
       items: [
         {
-          icon: '',
           value: 'node1',
-          timeStamp,
         },
         {
-          icon: '',
           value: 'node2',
-          timeStamp,
         },
       ],
     };
@@ -70,17 +64,15 @@ export default {
       return <Icon name={name} />;
     },
     label(createElement, node) {
-      return `${node.value}: ${node.data.timeStamp}`;
+      const timeStamp = node.data.timeStamp || '--';
+      return `${node.value}: ${timeStamp}`;
     },
     getInsertItem() {
       let item = null;
       this.index += 1;
       const value = `t${this.index}`;
-      const timeStamp = new Date('2021-12-13').getTime();
       item = {
-        icon: '',
         value,
-        timeStamp,
       };
       return item;
     },
@@ -100,8 +92,12 @@ export default {
     },
     changeIcon(node) {
       const { data } = node;
-      // 需要自定义视图的数据，如果较多，可以存放到 data 里面
-      data.icon = data.icon === 'folder' ? 'folder-open' : 'folder';
+      const icon = data.icon === 'folder' ? 'folder-open' : 'folder';
+      // vue3 中，由于并未使用 defineProperty 进行属性监听，所以节点数据的直接变更未能反馈到 ui 组件
+      // 因此提供 node.setData 方法专门处理这个问题，setData 方法触发 update 事件，通知 ui 组件更新
+      node.setData({
+        icon,
+      });
     },
     changeTime(node) {
       const timeStamp = new Date().getTime();

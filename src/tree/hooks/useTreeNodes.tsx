@@ -46,19 +46,20 @@ export default function useTreeNodes(state: TypeTreeState) {
   };
 
   // 创建单个 tree 节点
-  const renderItem = (h: TypeCreateElement, node: TypeTreeRow, index: number, ts: number) => {
+  const renderItem = (h: TypeCreateElement, node: TypeTreeRow, index: number, stateId: string) => {
     const rowIndex = node.__VIRTUAL_SCROLL_INDEX || index;
+    const nodeUniqueId = node[privateKey];
     // vue3 中，不使用动画时，传递 node, 或者单纯传递 itemKey 无法触发 treeItem 的 render 方法
-    // 考虑到有必要对所有节点状态更新，所以添加 renderId 属性，专门用于触发 treeItem 的 render 方法
+    // 考虑到有必要对所有节点状态更新，所以添加 stateId 属性，专门用于触发 treeItem 的 render 方法
     // 使用动画时，transition group 触发了所有节点的 render 方法，回头可以研究看下更合适的方案
     // 未来也可以根据节点数据的具体更新状态，来决定节点更新与否
     // 考虑到 value 值有冲突可能，所以使用 privateKey 来作为节点标记
     const treeItem = (
       <TreeItem
-        key={node[privateKey]}
+        key={nodeUniqueId}
         rowIndex={rowIndex}
-        renderId={ts}
-        itemKey={node[privateKey]}
+        stateId={stateId}
+        itemKey={nodeUniqueId}
         treeScope={scope}
         onClick={handleClick}
         onChange={handleChange}
@@ -68,8 +69,10 @@ export default function useTreeNodes(state: TypeTreeState) {
   };
 
   const renderTreeNodes = (h: TypeCreateElement) => {
-    const ts = new Date().getTime();
-    const treeNodeViews: TypeVNode[] = nodes.value.map((node: TypeTreeNode, index) => renderItem(h, node, index, ts));
+    const stateId = `render-${new Date().getTime()}`;
+    const treeNodeViews: TypeVNode[] = nodes.value.map((node: TypeTreeNode, index) =>
+      renderItem(h, node, index, stateId),
+    );
     return treeNodeViews;
   };
 
