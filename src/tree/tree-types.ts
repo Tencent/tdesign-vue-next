@@ -125,6 +125,7 @@ export interface TypeTreeState {
 }
 
 export interface TypeTreeItemState {
+  stateId: string;
   props: TypeTreeItemProps;
   context: TypeSetupContext;
   treeScope: TypeTreeScope;

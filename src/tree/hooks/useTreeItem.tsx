@@ -109,10 +109,15 @@ export default function useTreeItem(state: TypeTreeItemState) {
   };
 
   const renderItemNode = (h: TypeCreateElement) => {
-    const { node } = state;
+    const { node, props } = state;
     const { level, value } = node;
     const styles = getItemStyles();
     const classList = getItemClassList();
+
+    // 这里的代码用于 vue2 组件触发节点更新
+    // 即使是新增的属性，调用 node.setData 也会触发节点更新
+    const treeState = state;
+    treeState.stateId = props.stateId;
 
     const itemNode = (
       <div
