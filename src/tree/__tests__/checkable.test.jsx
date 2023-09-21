@@ -195,15 +195,18 @@ describe('Tree:checkable', () => {
           ],
         },
       ];
+      let changeParams = null;
+      const onChange = (checked, context) => {
+        changeParams = [checked, context];
+      };
       const wrapper = mount({
         render() {
-          return <Tree transition={false} ref="tree" data={data} checkable valueMode="onlyLeaf"></Tree>;
+          return (
+            <Tree transition={false} ref="tree" data={data} checkable valueMode="onlyLeaf" onChange={onChange}></Tree>
+          );
         },
       });
-
       await wrapper.find('[data-value="t1"] input[type="checkbox"]').setChecked();
-      const treeWrapper = wrapper.findComponent(Tree);
-      const changeParams = treeWrapper.emitted().change[0];
       expect(changeParams[0]).toEqual(['t1.1.1']);
       expect(changeParams[1].node.value).toEqual('t1');
     });
@@ -224,14 +227,16 @@ describe('Tree:checkable', () => {
           ],
         },
       ];
+      let changeParams = null;
+      const onChange = (checked, context) => {
+        changeParams = [checked, context];
+      };
       const wrapper = mount({
         render() {
-          return <Tree transition={false} ref="tree" data={data} checkable valueMode="all"></Tree>;
+          return <Tree transition={false} ref="tree" data={data} checkable valueMode="all" onChange={onChange}></Tree>;
         },
       });
-      const treeWrapper = wrapper.findComponent(Tree);
       await wrapper.find('[data-value="t1"] input[type="checkbox"]').setChecked();
-      const changeParams = treeWrapper.emitted().change[0];
       expect(changeParams[0]).toEqual(['t1', 't1.1', 't1.1.1']);
       expect(changeParams[1].node.value).toEqual('t1');
     });
@@ -252,14 +257,25 @@ describe('Tree:checkable', () => {
           ],
         },
       ];
+      let changeParams = null;
+      const onChange = (checked, context) => {
+        changeParams = [checked, context];
+      };
       const wrapper = mount({
         render() {
-          return <Tree transition={false} ref="tree" data={data} checkable valueMode="parentFirst"></Tree>;
+          return (
+            <Tree
+              transition={false}
+              ref="tree"
+              data={data}
+              checkable
+              valueMode="parentFirst"
+              onChange={onChange}
+            ></Tree>
+          );
         },
       });
-      const treeWrapper = wrapper.findComponent(Tree);
       await wrapper.find('[data-value="t1"] input[type="checkbox"]').setChecked();
-      const changeParams = treeWrapper.emitted().change[0];
       expect(changeParams[0]).toEqual(['t1']);
       expect(changeParams[1].node.value).toEqual('t1');
     });
