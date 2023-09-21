@@ -4,6 +4,17 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 1.5.7 `2023-09-21` 
+### 🚀 Features
+- `Table`: 支持通过属性 `local` 配置组件所有文本 @chaishi ([#3380](https://github.com/Tencent/tdesign-vue-next/pull/3380))
+- `Card`: `title` 使用 `div` 取代 `span` 在自定义场景下更符合规范 @uyarn ([#3385](https://github.com/Tencent/tdesign-vue-next/pull/3385))
+### 🐞 Bug Fixes
+- `Dialog`: 
+  - 修复 `Dialog plugin` 事件销毁 `Dialog` 未销毁 `wrapper`，导致多个 `wrapper` 在页面([issue #3381](https://github.com/Tencent/tdesign-vue-next/issues/3381)) @Zzongke ([#3383](https://github.com/Tencent/tdesign-vue-next/pull/3383))
+  - 修复没有定义确认按钮属性场景时（即没有设置 `confirmBtn`），`confirmLoading` 无效问题 @chaishi ([#3393](https://github.com/Tencent/tdesign-vue-next/pull/3393))
+- `Table`: 列配置弹框，关闭时默认不销毁 @chaishi ([#3380](https://github.com/Tencent/tdesign-vue-next/pull/3380))
+- `Checkbox`: 修复 `checkbox-group` 的 `innerValue.value` 为 `undefined` 导致异常 @Nice-PLQ ([#3405](https://github.com/Tencent/tdesign-vue-next/pull/3405))
+- `List`: 修复 `1.5.6` 版本 `list-item` 丢失 `props` 的异常 @uyarn ([#3376](https://github.com/Tencent/tdesign-vue-next/pull/3376))
 ## 🌈 1.5.6 `2023-09-14` 
 ### 🚀 Features
 - `Table`: 
