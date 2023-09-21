@@ -1,42 +1,15 @@
 import { mount } from '@vue/test-utils';
-import { vi } from 'vitest';
 import Tree from '@/src/tree/index.ts';
 import { delay } from './kit';
 
 describe('Tree:init', () => {
   vi.useRealTimers();
   describe(':props.data', () => {
-    it('传递空数据时，展示兜底界面', () => {
+    it('传递空数据时，展示兜底界面', async () => {
       const wrapper = mount({
         render() {
           return (
-            <Tree
-              data={null}
-              v-slots={{
-                empty: () => (
-                  <div slot="empty" class="tree-empty">
-                    暂无数据
-                  </div>
-                ),
-              }}
-            ></Tree>
-          );
-        },
-      });
-      expect(wrapper.find('.tree-empty').exists()).toBe(true);
-    });
-
-    it('空数据初始化后，允许插入根节点', async () => {
-      const wrapper = mount({
-        mounted() {
-          const { tree } = this.$refs;
-          tree.appendTo('', {
-            value: 'insert1',
-          });
-        },
-        render() {
-          return (
-            <Tree ref="tree" data={null}>
+            <Tree transition={false} data={null}>
               <div slot="empty" class="tree-empty">
                 暂无数据
               </div>
@@ -45,9 +18,34 @@ describe('Tree:init', () => {
         },
       });
       await delay(1);
-      expect(wrapper.find('.tree-empty').exists()).toBe(false);
-      expect(wrapper.find('[data-value="insert1"]').exists()).toBe(true);
+      expect(wrapper.find('.tree-empty').exists()).toBe(true);
     });
+
+    it('空数据初始化后，允许插入根节点', () =>
+      new Promise((resolve) => {
+        const wrapper = mount({
+          mounted() {
+            const { tree } = this.$refs;
+            tree.appendTo('', {
+              value: 'insert1',
+            });
+            setTimeout(() => {
+              expect(wrapper.find('.tree-empty').exists()).toBe(false);
+              expect(wrapper.find('[data-value="insert1"]').exists()).toBe(true);
+              resolve();
+            });
+          },
+          render() {
+            return (
+              <Tree transition={false} ref="tree" data={null}>
+                <div slot="empty" class="tree-empty">
+                  暂无数据
+                </div>
+              </Tree>
+            );
+          },
+        });
+      }));
 
     it('可以传递一个树结构的数据来完成初始化', () => {
       const data = [
@@ -66,7 +64,7 @@ describe('Tree:init', () => {
       const wrapper = mount({
         render() {
           return (
-            <Tree data={data}>
+            <Tree transition={false} data={data}>
               <div slot="empty" class="tree-empty">
                 暂无数据
               </div>
