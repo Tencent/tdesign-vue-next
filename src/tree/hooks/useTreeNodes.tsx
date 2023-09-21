@@ -16,6 +16,9 @@ export default function useTreeNodes(state: TypeTreeState) {
   };
 
   const refreshVisibleNodes = () => {
+    const isVirtual = virtualConfig?.isVirtualScroll.value;
+    if (isVirtual) return;
+    // 非虚拟滚动，渲染可视节点
     const list: TypeTreeNode[] = [];
     // 非虚拟滚动，缓存曾经展示过的节点
     let hasVisibleNode = false;
@@ -42,11 +45,10 @@ export default function useTreeNodes(state: TypeTreeState) {
   };
 
   const refreshVirtualNodes = () => {
-    let list: TypeTreeNode[] = [];
     const isVirtual = virtualConfig?.isVirtualScroll.value;
     if (!isVirtual) return;
     // 虚拟滚动只渲染可见节点
-    list = virtualConfig.visibleData.value;
+    const list = virtualConfig.visibleData.value;
     nodes.value = list;
     nodesEmpty.value = list.length <= 0;
   };
@@ -82,17 +84,15 @@ export default function useTreeNodes(state: TypeTreeState) {
     return treeNodeViews;
   };
 
-  watch(allNodes, () => {
-    const isVirtual = virtualConfig?.isVirtualScroll.value;
-    if (!isVirtual) {
-      refreshVisibleNodes();
-    }
-  });
+  watch(allNodes, refreshVisibleNodes);
   watch(virtualConfig.visibleData, refreshVirtualNodes);
+
+  refresh();
+  refreshVisibleNodes();
+  refreshVirtualNodes();
   store.emitter.on('update', refresh);
 
   return {
-    refresh,
     nodesEmpty,
     renderTreeNodes,
   };
