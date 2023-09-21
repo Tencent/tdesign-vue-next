@@ -13,8 +13,8 @@
 tree 针对性测试命令:
 
 ```bash
-# 执行单测
-npx vitest ./src/tree/__tests__/
+# vue-next 项目执行单测
+npx vitest run --config test/unit/vitest.config.js src/tree/__tests__/
 ```
 
 ## 分支维护
