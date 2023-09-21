@@ -242,12 +242,7 @@ export default defineComponent({
     }
 
     const treeNode = (
-      <div
-        class={treeClasses}
-        ref="treeContentRef"
-        on={{ scroll: this.onInnerVirtualScroll }}
-        style={treeContentStyles}
-      >
+      <div class={treeClasses} ref="treeContentRef" onScroll={this.onInnerVirtualScroll} style={treeContentStyles}>
         {isVirtual && <div class={`${cname}__vscroll-cursor`} style={cursorStyles} />}
         {emptyNode || treeNodeList}
       </div>
