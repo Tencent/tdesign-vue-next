@@ -1,7 +1,7 @@
 {
   "name": "tdesign-vue-next",
   "purename": "tdesign",
-  "version": "1.5.6",
+  "version": "1.5.7",
   "title": "tdesign-vue-next",
   "description": "TDesign Component for vue-next",
   "keywords": [
@@ -52,8 +52,8 @@
     "start": "npm run init && npm run dev",
     "dev": "cd site && vite",
     "site": "cd site && vite build --debug",
-    "site:intranet": "npm run generate:coverage-badge && cd site && vite build --mode intranet",
-    "site:preview": "npm run generate:coverage-badge && cd site && vite build --mode preview",
+    "site:intranet": "cd site && vite build --mode intranet",
+    "site:preview": "cd site && vite build --mode preview",
     "postsite:preview": "cp _site/index.html _site/404.html",
     "generate:usage": "node script/generate-usage/index.js",
     "generate:component": "node script/init/index.js",

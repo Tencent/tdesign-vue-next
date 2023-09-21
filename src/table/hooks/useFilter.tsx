@@ -31,7 +31,7 @@ function filterEmptyData(data: FilterValue) {
 
 export default function useFilter(props: TdPrimaryTableProps, context: SetupContext) {
   const primaryTableRef = ref(null);
-  const { t, globalConfig } = useConfig('table');
+  const { t, globalConfig } = useConfig('table', props.locale);
   const renderTNode = useTNodeDefault();
   const { filterValue, columns } = toRefs(props);
   const { tableFilterClasses, isFocusClass } = useClassName();
@@ -174,6 +174,7 @@ export default function useFilter(props: TdPrimaryTableProps, context: SetupCont
         isFocusClass={isFocusClass}
         popupProps={col.filter.popupProps}
         attach={props.attach}
+        locale={props.locale}
         onReset={onReset}
         onConfirm={onConfirm}
         onInnerFilterChange={onInnerFilterChange}

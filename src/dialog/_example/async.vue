@@ -4,6 +4,7 @@
       <t-button @click="visible = true">异步加载类按钮</t-button>
       <t-button @click="openAnotherDialog">插件函数异步加载</t-button>
     </t-space>
+    <!-- :confirmLoading="true" -->
     <t-dialog
       v-model:visible="visible"
       header="保存订单"

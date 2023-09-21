@@ -12,8 +12,10 @@ import { useConfig } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { AttachNode } from '../common';
 import isFunction from 'lodash/isFunction';
+import { TableConfig } from '../config-provider';
 
 export interface TableFilterControllerProps {
+  locale: TableConfig;
   tFilterValue: FilterValue;
   innerFilterValue: FilterValue;
   tableFilterClasses: {
@@ -41,6 +43,7 @@ export default defineComponent({
   name: 'TableFilterController',
 
   props: {
+    locale: Object as PropType<TableFilterControllerProps['locale']>,
     column: Object as PropType<TableFilterControllerProps['column']>,
     colIndex: Number,
     tFilterValue: Object as PropType<TableFilterControllerProps['tFilterValue']>,
@@ -59,7 +62,7 @@ export default defineComponent({
   setup(props: TableFilterControllerProps, context) {
     const triggerElementRef = ref<HTMLDivElement>(null);
     const renderTNode = useTNodeDefault();
-    const { t, globalConfig } = useConfig('table');
+    const { t, globalConfig } = useConfig('table', props.locale);
     const { FilterIcon } = useGlobalIcon({ FilterIcon: TdFilterIcon });
     const filterPopupVisible = ref(false);
 
@@ -96,7 +99,7 @@ export default defineComponent({
         console.error(`TDesign Table Error: column.filter.type must be the following: ${JSON.stringify(types)}`);
         return;
       }
-      const { innerFilterValue } = props;
+      const { innerFilterValue = {} } = props;
       const component =
         {
           single: RadioGroup,
@@ -115,7 +118,7 @@ export default defineComponent({
         },
       };
       if (column.colKey && innerFilterValue && column.colKey in innerFilterValue) {
-        filterComponentProps.value = props.innerFilterValue?.[column.colKey];
+        filterComponentProps.value = innerFilterValue?.[column.colKey];
       }
       // 允许自定义触发确认搜索的事件
       if (column.filter.confirmEvents) {

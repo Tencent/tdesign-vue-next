@@ -89,6 +89,7 @@ const createDialog: DialogMethod = (props: DialogOptions) => {
       visible.value = false;
       setTimeout(() => {
         dialogComponent.unmount();
+        wrapper.remove();
       }, 300);
     },
     setConfirmLoading: (val: boolean) => {
