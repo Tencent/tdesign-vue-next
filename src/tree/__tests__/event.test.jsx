@@ -1,5 +1,5 @@
 /* eslint-disable vue/order-in-components */
-import Vue from 'vue';
+import { defineComponent } from './adapt';
 import { mount } from '@vue/test-utils';
 import Tree from '@/src/tree/index.ts';
 
@@ -11,7 +11,7 @@ describe('Tree:props:events', () => {
         const data = [{ value: 't1' }, { value: 't2' }];
         mount(
           // eslint-disable-next-line vue/one-component-per-file
-          Vue.component('TestOnactive', {
+          defineComponent({
             components: {
               Tree,
             },
@@ -51,7 +51,7 @@ describe('Tree:props:events', () => {
         const data = [{ value: 't1' }, { value: 't2' }];
         mount(
           // eslint-disable-next-line vue/one-component-per-file
-          Vue.component('TestActiveEmit', {
+          defineComponent({
             components: {
               Tree,
             },
@@ -111,7 +111,7 @@ describe('Tree:props:events', () => {
 
         mount(
           // eslint-disable-next-line vue/one-component-per-file
-          Vue.component('TestOnexpand', {
+          defineComponent({
             components: {
               Tree,
             },
@@ -168,7 +168,7 @@ describe('Tree:props:events', () => {
 
         mount(
           // eslint-disable-next-line vue/one-component-per-file
-          Vue.component('TestExpandEmit', {
+          defineComponent({
             components: {
               Tree,
             },
