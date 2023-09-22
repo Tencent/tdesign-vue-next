@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils';
 import Tree from '@/src/tree/index.ts';
+import { defineComponent } from './adapt';
 import { delay } from './kit';
 
 describe('Tree:filter', () => {
@@ -20,25 +21,31 @@ describe('Tree:filter', () => {
         },
       ];
 
-      const wrapper = mount({
-        data() {
-          return {
-            filter: null,
-          };
-        },
-        created() {
-          this.filter = (node) => node.value.indexOf('2') >= 0;
-        },
-        render() {
-          return (
-            <Tree transition={false} data={data} expandAll filter={this.filter}>
-              <div slot="empty" class="tree-empty">
-                暂无数据
-              </div>
-            </Tree>
-          );
-        },
-      });
+      const wrapper = mount(
+        defineComponent({
+          components: {
+            Tree,
+          },
+          data() {
+            return {
+              items: data,
+              filter: null,
+            };
+          },
+          created() {
+            this.filter = (node) => node.value.indexOf('2') >= 0;
+          },
+          template: [
+            '<Tree',
+            'ref="tree"',
+            'expandAll',
+            ':transition="false"',
+            ':data="items"',
+            ':filter="this.filter"',
+            '><template #empty><div class="tree-empty">暂无数据</div></template></Tree>',
+          ].join(' '),
+        }),
+      );
 
       await delay(10);
 
