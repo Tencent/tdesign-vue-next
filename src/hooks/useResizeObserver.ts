@@ -29,7 +29,6 @@ export default function useResizeObserver(
     watch(
       container,
       (el) => {
-        if (!el) return;
         cleanupObserver();
         el && addObserver(el);
       },
