@@ -110,6 +110,8 @@ export default function useTreeItem(state: TypeTreeItemState) {
 
   const renderItemNode = (h: TypeCreateElement) => {
     const { node, props } = state;
+    if (!node) return null;
+
     const { level, value } = node;
     const styles = getItemStyles();
     const classList = getItemClassList();

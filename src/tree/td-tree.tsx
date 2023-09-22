@@ -11,6 +11,7 @@ import {
   TransitionGroup,
   getCreateElement,
   getScopedSlots,
+  TypeStyles,
 } from './adapt';
 import props from './props';
 import { TreeNodeValue, TreeNodeState, TypeTreeNodeModel } from './tree-types';
@@ -192,7 +193,7 @@ export default defineComponent({
 
     const createElement = getCreateElement(h);
 
-    const { scope } = state;
+    const { scope, allNodes, refProps } = state;
     // 更新 scopedSlots
     scope.scopedSlots = getScopedSlots(this);
 
@@ -241,10 +242,24 @@ export default defineComponent({
       );
     }
 
+    const placeholderStyles: TypeStyles = {
+      width: '1px',
+      height: '1px',
+      opacity: 0,
+      pointerEvents: 'none',
+      position: 'absolute',
+      left: 0,
+      top:
+        (allNodes.value?.filter((node) => node.visible).length ?? 0) * (refProps.scroll.value?.rowHeight ?? 34) + 'px',
+    };
+
+    const placeholderEl = <div style={placeholderStyles} />;
+
     const treeNode = (
       <div class={treeClasses} ref="treeContentRef" onScroll={this.onInnerVirtualScroll} style={treeContentStyles}>
         {isVirtual && <div class={`${cname}__vscroll-cursor`} style={cursorStyles} />}
         {emptyNode || treeNodeList}
+        {isVirtual && placeholderEl}
       </div>
     );
 
