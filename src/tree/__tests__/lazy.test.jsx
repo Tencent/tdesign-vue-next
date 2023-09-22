@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import Tree from '@/src/tree/index.ts';
-import { delay } from './kit';
+import { delay, step } from './kit';
 
 describe('Tree:lazy-load', () => {
   vi.useRealTimers();
@@ -62,7 +62,7 @@ describe('Tree:lazy-load', () => {
         });
       });
       await pm;
-
+      await delay(1);
       expect(wrapper.find('[data-value="t1.1"]').exists()).toBe(true);
       expect(wrapper.find('[data-value="t1.1.1"]').exists()).toBe(true);
       expect(wrapper.find('[data-value="t1.1.1.1"]').exists()).toBe(false);
@@ -130,7 +130,7 @@ describe('Tree:lazy-load', () => {
       });
 
       await pm;
-
+      await delay(1);
       expect(wrapper.find('[data-value="t1"] .t-checkbox').classes('t-is-indeterminate')).toBe(true);
       expect(wrapper.find('[data-value="t1"] .t-checkbox').classes('t-is-checked')).toBe(false);
       expect(wrapper.find('[data-value="t1.1"] .t-checkbox').classes('t-is-indeterminate')).toBe(true);
@@ -200,7 +200,7 @@ describe('Tree:lazy-load', () => {
       });
 
       await pm;
-
+      await delay(1);
       expect(wrapper.find('[data-value="t1"] .t-checkbox').classes('t-is-indeterminate')).toBe(false);
       expect(wrapper.find('[data-value="t1"] .t-checkbox').classes('t-is-checked')).toBe(false);
       expect(wrapper.find('[data-value="t1.1"] .t-checkbox').classes('t-is-indeterminate')).toBe(false);
@@ -217,6 +217,9 @@ describe('Tree:lazy-load', () => {
           children: true,
         },
       ];
+
+      const step1 = step();
+      const step2 = step();
 
       let loadIndex = 0;
       const wrapper = mount({
@@ -245,7 +248,12 @@ describe('Tree:lazy-load', () => {
           },
           onLoad() {
             loadIndex += 1;
-            this.$emit('load', loadIndex);
+            if (loadIndex >= 1) {
+              step1.ready();
+            }
+            if (loadIndex >= 2) {
+              step2.ready();
+            }
           },
         },
         render() {
@@ -264,15 +272,6 @@ describe('Tree:lazy-load', () => {
 
       await delay(10);
 
-      const step1 = new Promise((resolve) => {
-        wrapper.vm.$off('load');
-        wrapper.vm.$on('load', (index) => {
-          if (index >= 1) {
-            resolve();
-          }
-        });
-      });
-
       expect(wrapper.find('[data-value="t1.1"]').exists()).toBe(false);
       wrapper.find('[data-value="t1"] .t-tree__icon').trigger('click');
 
@@ -280,15 +279,6 @@ describe('Tree:lazy-load', () => {
       await step1;
       // 留给 dom 渲染时间
       await delay(10);
-
-      const step2 = new Promise((resolve) => {
-        wrapper.vm.$off('load');
-        wrapper.vm.$on('load', (index) => {
-          if (index >= 2) {
-            resolve();
-          }
-        });
-      });
 
       expect(wrapper.find('[data-value="t1.1"]').exists()).toBe(true);
       expect(wrapper.find('[data-value="t1.1.1"]').exists()).toBe(false);
@@ -310,6 +300,8 @@ describe('Tree:lazy-load', () => {
           children: true,
         },
       ];
+
+      const step1 = step();
 
       let loadIndex = 0;
       const wrapper = mount({
@@ -334,7 +326,9 @@ describe('Tree:lazy-load', () => {
           },
           onLoad() {
             loadIndex += 1;
-            this.$emit('load', loadIndex);
+            if (loadIndex >= 1) {
+              step1.ready();
+            }
           },
         },
         mounted() {
@@ -361,15 +355,6 @@ describe('Tree:lazy-load', () => {
 
       await delay(10);
 
-      const step1 = new Promise((resolve) => {
-        wrapper.vm.$off('load');
-        wrapper.vm.$on('load', (index) => {
-          if (index >= 1) {
-            resolve();
-          }
-        });
-      });
-
       expect(wrapper.find('[data-value="t1"] .t-checkbox').classes('t-is-checked')).toBe(true);
       wrapper.find('[data-value="t1"] .t-tree__icon').trigger('click');
 
@@ -387,6 +372,8 @@ describe('Tree:lazy-load', () => {
           children: true,
         },
       ];
+
+      const step1 = step();
 
       let loadIndex = 0;
       const wrapper = mount({
@@ -411,7 +398,9 @@ describe('Tree:lazy-load', () => {
           },
           onLoad() {
             loadIndex += 1;
-            this.$emit('load', loadIndex);
+            if (loadIndex >= 1) {
+              step1.ready();
+            }
           },
         },
         mounted() {
@@ -438,15 +427,6 @@ describe('Tree:lazy-load', () => {
       });
 
       await delay(10);
-
-      const step1 = new Promise((resolve) => {
-        wrapper.vm.$off('load');
-        wrapper.vm.$on('load', (index) => {
-          if (index >= 1) {
-            resolve();
-          }
-        });
-      });
 
       expect(wrapper.find('[data-value="t1"] .t-checkbox').classes('t-is-checked')).toBe(true);
       wrapper.find('[data-value="t1"] .t-tree__icon').trigger('click');
