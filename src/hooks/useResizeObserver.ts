@@ -24,15 +24,16 @@ export default function useResizeObserver(
     containerObserver.observe(el);
   };
 
-  watch(
-    container,
-    (el) => {
-      if (!el) return;
-      cleanupObserver();
-      el && addObserver(el);
-    },
-    { immediate: true, flush: 'post' },
-  );
+  container &&
+    watch(
+      container,
+      (el) => {
+        if (!el) return;
+        cleanupObserver();
+        el && addObserver(el);
+      },
+      { immediate: true, flush: 'post' },
+    );
 
   onBeforeUnmount(() => {
     cleanupObserver();
