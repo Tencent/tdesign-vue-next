@@ -24,6 +24,7 @@ export default function useResizeObserver(
     containerObserver.observe(el);
   };
 
+  // can not use container.value to judge
   container &&
     watch(
       container,
