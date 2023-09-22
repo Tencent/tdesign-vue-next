@@ -37,6 +37,7 @@
       :selected-row-keys="selectedRowKeys"
       :height="300"
       :scroll="{ type: 'virtual', rowHeight: 49, bufferSize: 10 }"
+      lazy-load
       @expand-change="onExpandChange"
       @select-change="rehandleSelectChange"
       @row-click="onRowClick"

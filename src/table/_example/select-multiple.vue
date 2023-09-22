@@ -14,6 +14,7 @@
       :selected-row-keys="selectedRowKeys"
       select-on-row-click
       active-row-type="single"
+      lazy-load
       @select-change="rehandleSelectChange"
     >
     </t-table>

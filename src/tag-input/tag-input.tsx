@@ -179,13 +179,16 @@ export default defineComponent({
     });
     // 左侧文本
     const label = renderTNodeJSX(this, 'label', { silent: true });
+    const inputProps = this.inputProps as TdTagInputProps['inputProps'];
+    const readonly = this.readonly || inputProps?.readonly;
     return (
       <TInput
         ref="tagInputRef"
         v-slots={{
           suffix: this.$slots.suffix,
         }}
-        readonly={this.readonly}
+        readonly={readonly}
+        showInput={!readonly || !this.tagValue || !this.tagValue?.length}
         value={this.tInputValue}
         autoWidth={true} // 控制input_inner的宽度 设置为true让内部input不会提前换行
         size={this.size}
@@ -198,9 +201,6 @@ export default defineComponent({
         suffix={this.suffix}
         suffixIcon={() => suffixIconNode}
         prefixIcon={() => prefixIconNode}
-        showInput={
-          !(this.inputProps as TdTagInputProps['inputProps'])?.readonly || !this.tagValue || !this.tagValue?.length
-        }
         keepWrapperWidth={!this.autoWidth}
         onWheel={this.onWheel}
         onChange={(val, context) => {

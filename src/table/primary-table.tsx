@@ -62,6 +62,7 @@ export default defineComponent({
     const renderTNode = useTNodeJSX();
     const { columns, columnController } = toRefs(props);
     const primaryTableRef = ref(null);
+    const showElement = ref(false);
 
     const { classPrefix, tableDraggableClasses, tableBaseClass, tableSelectedClasses, tableSortClasses } =
       useClassName();
@@ -98,6 +99,9 @@ export default defineComponent({
     } = useFilter(props, context);
 
     // 拖拽排序功能
+    const dragSortParams = computed(() => ({
+      showElement: showElement.value,
+    }));
     const {
       isRowHandlerDraggable,
       isRowDraggable,
@@ -105,7 +109,7 @@ export default defineComponent({
       innerPagination,
       setDragSortPrimaryTableRef,
       setDragSortColumns,
-    } = useDragSort(props, context);
+    } = useDragSort(props, context, dragSortParams);
 
     const { renderTitleWidthIcon } = useTableHeader(props);
     const { renderAsyncLoading } = useAsyncLoading(props);
@@ -323,6 +327,10 @@ export default defineComponent({
       }
     };
 
+    const onShowElementChange = (val: boolean) => {
+      showElement.value = val;
+    };
+
     return () => {
       const formatNode = (
         api: string,
@@ -374,6 +382,7 @@ export default defineComponent({
         firstFullRow,
         lastFullRow,
         thDraggable: ['col', 'row-handler-col'].includes(props.dragSort),
+        onShowElementChange,
         onPageChange: onInnerPageChange,
         renderExpandedRow: showExpandedRow.value ? renderExpandedRow : undefined,
         onActiveRowAction: onInnerActiveRowAction,

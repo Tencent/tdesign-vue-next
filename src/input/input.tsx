@@ -213,16 +213,15 @@ export default defineComponent({
               </span>
             ) : null}
             {labelContent}
-            {props.showInput && (
-              <input
-                class={`${COMPONENT_NAME.value}__inner`}
-                {...inputAttrs.value}
-                {...inputEvents}
-                ref={inputRef}
-                value={isComposition.value ? compositionValue.value ?? '' : inputValue.value ?? ''}
-                onInput={(e: Event) => inputHandle.handleInput(e as InputEvent)}
-              />
-            )}
+            {/* input element must exist, or other select components can not focus by keyboard operation */}
+            <input
+              class={[`${COMPONENT_NAME.value}__inner`, { [`${COMPONENT_NAME.value}--soft-hidden`]: !props.showInput }]}
+              {...inputAttrs.value}
+              {...inputEvents}
+              ref={inputRef}
+              value={isComposition.value ? compositionValue.value ?? '' : inputValue.value ?? ''}
+              onInput={(e: Event) => inputHandle.handleInput(e as InputEvent)}
+            />
             {props.autoWidth && (
               <span ref={inputPreRef} class={`${classPrefix.value}-input__input-pre`}>
                 {innerValue.value || tPlaceholder.value}

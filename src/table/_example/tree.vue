@@ -31,12 +31,8 @@
       :tree-expand-and-fold-icon="treeExpandIcon"
       :pagination="pagination"
       :before-drag-sort="beforeDragSort"
-      :column-controller="{
-        placement: 'bottom-left',
-        // 允许控制哪些列显示或隐藏
-        fields: ['id', 'platform', 'operate'],
-        dialogProps: { preventScrollThrough: true },
-      }"
+      :column-controller="columnController"
+      lazy-load
       @page-change="onPageChange"
       @abnormal-drag-sort="onAbnormalDragSort"
       @drag-sort="onDragSort"
@@ -136,6 +132,12 @@ function getData(currentPage = 1) {
 const tableRef = ref(null);
 const data = ref(getData());
 const lazyLoadingData = ref(null);
+const columnController = ref({
+  placement: 'bottom-left',
+  // 允许控制哪些列显示或隐藏
+  fields: ['id', 'platform', 'operate'],
+  dialogProps: { preventScrollThrough: true },
+});
 
 // 非必须，如果不传，表格有内置树形节点展开逻辑
 const expandedTreeNodes = ref([]);

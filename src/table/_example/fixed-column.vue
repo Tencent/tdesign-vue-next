@@ -32,6 +32,7 @@
       :table-content-width="tableLayout === 'fixed' ? undefined : '1200px'"
       bordered
       resizable
+      lazy-load
     >
       <template #operation="{ row }">
         <t-link theme="primary" hover="color" @click="rehandleClickOp(row)">

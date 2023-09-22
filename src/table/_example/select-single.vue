@@ -9,6 +9,7 @@
       :selected-row-keys="selectedRowKeys"
       select-on-row-click
       active-row-type="single"
+      lazy-load
       @select-change="rehandleSelectChange"
       @row-dblclick="onRowDblclick"
     >

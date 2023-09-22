@@ -1,4 +1,4 @@
-import { computed, defineComponent, SetupContext, ref, nextTick, PropType, watch, onMounted } from 'vue';
+import { computed, defineComponent, SetupContext, ref, nextTick, PropType, watch, onMounted, toRefs } from 'vue';
 import pick from 'lodash/pick';
 import props from './base-table-props';
 import useTableHeader from './hooks/useTableHeader';
@@ -25,6 +25,8 @@ import { BaseTableInstanceFunctions } from './type';
 import log from '../_common/js/log';
 import { useRowHighlight } from './hooks/useRowHighlight';
 import useHoverKeyboardEvent from './hooks/useHoverKeyboardEvent';
+import useElementLazyRender from '../hooks/useElementLazyRender';
+import isFunction from 'lodash/isFunction';
 
 export const BASE_TABLE_EVENTS = ['page-change', 'cell-click', 'scroll', 'scrollX', 'scrollY'];
 export const BASE_TABLE_ALL_EVENTS = ROW_LISTENERS.map((t) => `row-${t}`).concat(BASE_TABLE_EVENTS);
@@ -47,6 +49,7 @@ export default defineComponent({
   },
 
   setup(props: BaseTableProps, context: SetupContext) {
+    const { lazyLoad } = toRefs(props);
     const renderTNode = useTNodeJSX();
     const tableRef = ref<HTMLDivElement>();
     const tableElmRef = ref<HTMLTableElement>();
@@ -60,6 +63,8 @@ export default defineComponent({
     const { globalConfig } = useConfig('table', props.locale);
     const { isMultipleHeader, spansAndLeafNodes, thList } = useTableHeader(props);
     const finalColumns = computed(() => spansAndLeafNodes.value?.leafColumns || props.columns);
+
+    const { showElement } = useElementLazyRender(tableRef, lazyLoad);
 
     // 吸附相关ref 用来做视图resize后重新定位
     const paginationAffixRef = ref();
@@ -270,6 +275,14 @@ export default defineComponent({
       needKeyboardRowHover.value && clearHoverRow();
     };
 
+    watch(
+      [showElement],
+      ([showElement]) => {
+        context.emit('show-element-change', showElement);
+      },
+      { immediate: true },
+    );
+
     return {
       thList,
       classPrefix,
@@ -318,6 +331,7 @@ export default defineComponent({
       showAffixPagination,
       tActiveRow,
       hoverRow,
+      showElement,
       scrollToElement: virtualConfig.scrollToElement,
       renderPagination,
       renderTNode,
@@ -338,6 +352,10 @@ export default defineComponent({
   },
 
   render() {
+    if (!this.showElement) {
+      return <div ref="tableRef"></div>;
+    }
+
     const { rowAndColFixedPosition, tableLayout } = this;
     const data = this.isPaginateData ? this.dataSource : this.data;
     const columns = this.spansAndLeafNodes?.leafColumns || this.columns;
@@ -599,11 +617,11 @@ export default defineComponent({
       </div>
     );
 
-    const customLoadingText = this.renderTNode('loading');
+    const getCustomLoadingText = isFunction(this.loading) ? this.loading : this.$slots.loading;
     const loadingContent = this.loading !== undefined && (
       <Loading
         loading={!!this.loading}
-        text={customLoadingText ? () => customLoadingText : undefined}
+        text={getCustomLoadingText}
         attach={this.tableRef ? () => this.tableRef : undefined}
         showOverlay
         size="small"
@@ -622,6 +640,7 @@ export default defineComponent({
         {this.renderPagination()}
       </div>
     );
+
     const bottom = !!bottomContent && (
       <div ref="bottomContentRef" class={this.tableBaseClass.bottomContent}>
         {bottomContent}

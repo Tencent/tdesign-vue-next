@@ -13,6 +13,7 @@
       :columns="columns"
       :pagination="pagination"
       :reserve-selected-row-on-paginate="reserveSelectedRowOnPaginate"
+      lazy-load
       @page-change="onPageChange"
       @change="onChange"
       @select-change="onSelectChange"
