@@ -23,7 +23,7 @@ trigger | String | hover | options: hover/click/focus/mousedown/context-menu | N
 triggerElement | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 visible | Boolean | - | `v-model` and `v-model:visible` is supported。Typescript：`boolean` | N
 zIndex | Number | - | \- | N
-onContentClick | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/>trigger on popup content click | N
+onOverlayClick | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/>trigger on popup content click | N
 onScroll | Function |  | Typescript：`(context: { e: WheelEvent }) => void`<br/> | N
 onScrollToBottom | Function |  | Typescript：`(context: { e: WheelEvent }) => void`<br/> | N
 onVisibleChange | Function |  | Typescript：`(visible: boolean, context: PopupVisibleChangeContext) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/popup/type.ts)。<br/>`interface PopupVisibleChangeContext { e?: PopupTriggerEvent; trigger?: PopupTriggerSource }`<br/><br/>`type PopupTriggerEvent = MouseEvent \| FocusEvent \| KeyboardEvent`<br/><br/>`type PopupTriggerSource = 'document' \| 'trigger-element-click' \| 'trigger-element-hover' \| 'trigger-element-blur' \| 'trigger-element-focus' \| 'trigger-element-mousedown' \| 'trigger-element-close' \| 'context-menu' \| 'keydown-esc'`<br/> | N
@@ -32,7 +32,15 @@ onVisibleChange | Function |  | Typescript：`(visible: boolean, context: PopupV
 
 name | params | description
 -- | -- | --
-content-click | `(context: { e: MouseEvent })` | trigger on popup content click
+overlay-click | `(context: { e: MouseEvent })` | trigger on popup content click
 scroll | `(context: { e: WheelEvent })` | \-
 scroll-to-bottom | `(context: { e: WheelEvent })` | \-
 visible-change | `(visible: boolean, context: PopupVisibleChangeContext)` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/popup/type.ts)。<br/>`interface PopupVisibleChangeContext { e?: PopupTriggerEvent; trigger?: PopupTriggerSource }`<br/><br/>`type PopupTriggerEvent = MouseEvent \| FocusEvent \| KeyboardEvent`<br/><br/>`type PopupTriggerSource = 'document' \| 'trigger-element-click' \| 'trigger-element-hover' \| 'trigger-element-blur' \| 'trigger-element-focus' \| 'trigger-element-mousedown' \| 'trigger-element-close' \| 'context-menu' \| 'keydown-esc'`<br/>
+
+### PopupInstanceFunctions 组件实例方法
+
+name | params | return | description
+-- | -- | -- | --
+getOverlay | \- | `HTMLElement` | used to get overly html element
+getOverlayState | \- | `{ hover: boolean }` | get mouseover state of overlay
+update | \- | \- | used to update overlay content

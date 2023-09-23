@@ -115,6 +115,7 @@ export default defineComponent({
     const overlayEl = ref<HTMLElement>(null);
     const popperEl = ref<HTMLElement>(null);
     const containerRef = ref<typeof Container>(null);
+    const isOverlayHover = ref(false);
 
     const id = typeof process !== 'undefined' && process.env?.TEST ? '' : Date.now().toString(36);
     const parent = inject(parentKey, undefined);
@@ -222,10 +223,12 @@ export default defineComponent({
 
     expose({
       update: updatePopper,
+      getOverlay: () => overlayEl.value,
+      getOverlayState: () => ({
+        hover: isOverlayHover.value,
+      }),
+      /** close is going to be deprecated. visible is enough */
       close: () => hide(),
-      getOverlay() {
-        return overlayEl.value;
-      },
     });
 
     function getOverlayStyle() {
@@ -353,6 +356,7 @@ export default defineComponent({
     }
 
     function onMouseLeave(ev: MouseEvent) {
+      isOverlayHover.value = false;
       if (props.trigger !== 'hover' || triggerEl.value.contains(ev.target as Node)) return;
 
       const isCursorOverlaps = getPopperTree(id).some((el) => {
@@ -367,13 +371,14 @@ export default defineComponent({
     }
 
     function onMouseenter() {
-      if (visible.value) {
+      isOverlayHover.value = true;
+      if (visible.value && props.trigger === 'hover') {
         clearAllTimeout();
       }
     }
 
     function onOverlayClick(e: MouseEvent) {
-      props.onContentClick?.({ e });
+      props.onOverlayClick?.({ e });
     }
 
     const updateScrollTop = inject('updateScrollTop', undefined);
@@ -416,10 +421,8 @@ export default defineComponent({
             style={[{ zIndex: props.zIndex }, getOverlayStyle(), hidePopup && { visibility: 'hidden' }]}
             vShow={visible.value}
             onClick={onOverlayClick}
-            {...(props.trigger === 'hover' && {
-              onMouseenter,
-              onMouseleave: onMouseLeave,
-            })}
+            onMouseenter={onMouseenter}
+            onMouseleave={onMouseLeave}
           >
             <div
               class={[
