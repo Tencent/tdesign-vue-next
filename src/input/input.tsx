@@ -100,7 +100,7 @@ export default defineComponent({
     ]);
 
     const inputEvents = getValidAttrs({
-      onFocus: (e: FocusEvent) => inputHandle.emitFocus(e),
+      onFocus: inputHandle.emitFocus,
       onBlur: inputHandle.formatAndEmitBlur,
       onKeydown: inputEventHandler.handleKeydown,
       onKeyup: inputEventHandler.handleKeyUp,

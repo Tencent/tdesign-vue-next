@@ -53,6 +53,7 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
   };
 
   const emitFocus = (e: FocusEvent) => {
+    if (isHover.value && focused.value) return;
     inputValue.value = innerValue.value;
     if (props.disabled) return;
     focused.value = true;
@@ -124,6 +125,7 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
 
   const formItem = inject(FormItemInjectionKey, undefined);
   const formatAndEmitBlur = (e: FocusEvent) => {
+    if (isHover.value) return;
     if (!isClearIcon()) {
       if (props.format) {
         inputValue.value = props.format(innerValue.value);
