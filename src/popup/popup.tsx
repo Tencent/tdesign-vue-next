@@ -24,7 +24,7 @@ import { off, on, once } from '../utils/dom';
 import setStyle from '../_common/js/utils/set-style';
 import Container from './container';
 import props from './props';
-import { TdPopupProps } from './type';
+import { PopupTriggerEvent, TdPopupProps } from './type';
 
 const POPUP_ATTR_NAME = 'data-td-popup';
 const POPUP_PARENT_ATTR_NAME = 'data-td-popup-parent';
@@ -264,7 +264,7 @@ export default defineComponent({
           popper.state.elements.reference = triggerEl.value;
           popper.update();
         } else {
-          setVisible(false, { trigger: getTriggerType({ type: 'mouseenter' } as Event) });
+          setVisible(false, { trigger: getTriggerType({ type: 'mouseenter' } as MouseEvent) });
         }
         return;
       }
@@ -288,17 +288,17 @@ export default defineComponent({
       }
     }
 
-    function show(ev: Event) {
+    function show(ev: PopupTriggerEvent) {
       clearAllTimeout();
       showTimeout = setTimeout(() => {
         setVisible(true, { trigger: getTriggerType(ev) });
       }, delay.value.show);
     }
 
-    function hide(ev?: Event) {
+    function hide(ev?: PopupTriggerEvent) {
       clearAllTimeout();
       hideTimeout = setTimeout(() => {
-        setVisible(false, { trigger: getTriggerType(ev) });
+        setVisible(false, { trigger: getTriggerType(ev), e: ev });
       }, delay.value.hide);
     }
 
@@ -307,9 +307,10 @@ export default defineComponent({
       clearTimeout(hideTimeout);
     }
 
-    function getTriggerType(ev?: Event) {
+    function getTriggerType(ev?: PopupTriggerEvent) {
       switch (ev?.type) {
         case 'mouseenter':
+          return 'trigger-element-hover';
         case 'mouseleave':
           return 'trigger-element-hover';
         case 'focusin':
@@ -365,6 +366,16 @@ export default defineComponent({
       }
     }
 
+    function onMouseenter() {
+      if (visible.value) {
+        clearAllTimeout();
+      }
+    }
+
+    function onOverlayClick(e: MouseEvent) {
+      props.onContentClick?.({ e });
+    }
+
     const updateScrollTop = inject('updateScrollTop', undefined);
 
     function handleOnScroll(e: WheelEvent) {
@@ -404,12 +415,9 @@ export default defineComponent({
             ref={(ref: HTMLElement) => (popperEl.value = ref)}
             style={[{ zIndex: props.zIndex }, getOverlayStyle(), hidePopup && { visibility: 'hidden' }]}
             vShow={visible.value}
+            onClick={onOverlayClick}
             {...(props.trigger === 'hover' && {
-              onMouseenter: () => {
-                if (visible.value) {
-                  clearAllTimeout();
-                }
-              },
+              onMouseenter,
               onMouseleave: onMouseLeave,
             })}
           >
