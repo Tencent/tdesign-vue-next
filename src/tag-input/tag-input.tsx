@@ -1,6 +1,6 @@
 import { defineComponent, computed, toRefs, ref, nextTick, reactive } from 'vue';
 import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-import TInput, { InputValue, TdInputProps } from '../input';
+import TInput, { InputProps, InputValue, TdInputProps } from '../input';
 import { TdTagInputProps } from './type';
 import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
@@ -47,6 +47,8 @@ export default defineComponent({
     });
     const isComposition = ref(false);
     const { classPrefix } = useConfig();
+    const isFocused = ref(false);
+
     // 这里不需要响应式，因此直接传递参数
     const { getDragProps } = useDragSorter({
       ...props,
@@ -113,6 +115,7 @@ export default defineComponent({
     };
 
     const onClick: TdInputProps['onClick'] = (ctx) => {
+      isFocused.value = true;
       tagInputRef.value.focus();
       props.onClick?.(ctx);
     };
@@ -127,6 +130,36 @@ export default defineComponent({
       tagInputRef.value.focus();
     };
 
+    const blur = () => {
+      tagInputRef.value.blur();
+    };
+
+    const onMouseEnter: InputProps['onMouseenter'] = (context) => {
+      addHover(context);
+      scrollToRightOnEnter();
+    };
+
+    const onMouseLeave: InputProps['onMouseleave'] = (context) => {
+      cancelHover(context);
+      scrollToLeftOnLeave();
+    };
+
+    const onInnerFocus: InputProps['onFocus'] = (inputValue: InputValue, context: { e: MouseEvent }) => {
+      if (isFocused.value) return;
+      isFocused.value = true;
+      props.onFocus?.(tagValue.value, { e: context.e, inputValue });
+    };
+
+    const onInnerBlur: InputProps['onFocus'] = (inputValue: InputValue, context: { e: MouseEvent }) => {
+      isFocused.value = false;
+      setTInputValue('', { e: context.e, trigger: 'blur' });
+      props.onBlur?.(tagValue.value, { e: context.e, inputValue });
+    };
+
+    const onInnerChange: InputProps['onChange'] = (val, context) => {
+      setTInputValue(val, { ...context, trigger: 'input' });
+    };
+
     return {
       CLEAR_CLASS,
       CloseCircleFilledIcon,
@@ -137,7 +170,15 @@ export default defineComponent({
       showClearIcon,
       tagInputRef,
       classPrefix,
+      isFocused,
+      focus,
+      blur,
       setTInputValue,
+      onMouseEnter,
+      onMouseLeave,
+      onInnerFocus,
+      onInnerBlur,
+      onInnerChange,
       addHover,
       cancelHover,
       onInputEnter,
@@ -153,7 +194,6 @@ export default defineComponent({
       onClose,
       onInputCompositionstart,
       onInputCompositionend,
-      focus,
       classes,
     };
   },
@@ -203,28 +243,15 @@ export default defineComponent({
         prefixIcon={() => prefixIconNode}
         keepWrapperWidth={!this.autoWidth}
         onWheel={this.onWheel}
-        onChange={(val, context) => {
-          this.setTInputValue(val, { ...context, trigger: 'input' });
-        }}
+        onChange={this.onInnerChange}
         onPaste={this.onPaste}
         onEnter={this.onInputEnter}
         onKeyup={this.onInputBackspaceKeyUp}
         onKeydown={this.onInputBackspaceKeyDown}
-        onMouseenter={(context: { e: MouseEvent }) => {
-          this.addHover(context);
-          this.scrollToRightOnEnter();
-        }}
-        onMouseleave={(context: { e: MouseEvent }) => {
-          this.cancelHover(context);
-          this.scrollToLeftOnLeave();
-        }}
-        onFocus={(inputValue: InputValue, context: { e: MouseEvent }) => {
-          this.onFocus?.(this.tagValue, { e: context.e, inputValue });
-        }}
-        onBlur={(inputValue: InputValue, context: { e: MouseEvent }) => {
-          this.setTInputValue('', { e: context.e, trigger: 'blur' });
-          this.onBlur?.(this.tagValue, { e: context.e, inputValue: '' });
-        }}
+        onMouseenter={this.onMouseEnter}
+        onMouseleave={this.onMouseLeave}
+        onFocus={this.onInnerFocus}
+        onBlur={this.onInnerBlur}
         onClick={this.onClick}
         onCompositionstart={this.onInputCompositionstart}
         onCompositionend={this.onInputCompositionend}

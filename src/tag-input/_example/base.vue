@@ -1,6 +1,6 @@
 <template>
   <t-space direction="vertical">
-    <t-tag-input v-model="tags1" clearable @paste="onPaste" @enter="onTagInputEnter" />
+    <t-tag-input v-model="tags1" clearable @paste="onPaste" @enter="onTagInputEnter" @focus="onFocus" @blur="onBlur" />
 
     <t-tag-input :value="tags2" label="Controlled: " clearable @change="onChange" />
 
@@ -24,5 +24,13 @@ const onChange = (val, context) => {
 };
 const onPaste = (context) => {
   console.log(context);
+};
+
+const onFocus = (val, ctx) => {
+  console.log('focus:', val, ctx);
+};
+
+const onBlur = (val, ctx) => {
+  console.log('blur:', val, ctx);
 };
 </script>
