@@ -216,9 +216,10 @@ const columns = computed(() => [
     title: '创建日期',
     colKey: 'createTime',
     className: 't-demo-col__datepicker',
-    // props, 透传全部属性到 DatePicker 组件
     edit: {
       component: DatePicker,
+      // props, 透传全部属性到 DatePicker 组件
+      props: { allowInput: true },
       showEditIcon: false,
       // 校验规则，此处同 Form 表单
       rules: [
