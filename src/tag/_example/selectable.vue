@@ -1,8 +1,8 @@
 <template>
   <t-space direction="vertical">
     <t-space>
-      <label>风格一：</label>
-      <t-check-tag v-model="checked1">选中/未选态</t-check-tag>
+      <label>StyleA</label>
+      <t-check-tag v-model="checked1" style="margin-right: 32px">选中/未选态</t-check-tag>
       <t-check-tag :checked="true">选中态</t-check-tag>
       <t-check-tag :checked="false">未选态</t-check-tag>
       <t-check-tag :checked="true" disabled>选中禁用</t-check-tag>
@@ -10,8 +10,11 @@
     </t-space>
 
     <t-space>
-      <label>风格二：</label>
-      <t-check-tag v-model="checked2" :unchecked-props="{ theme: 'default', variant: 'outline' }"
+      <label>StyleB</label>
+      <t-check-tag
+        v-model="checked2"
+        :unchecked-props="{ theme: 'default', variant: 'outline' }"
+        style="margin-right: 32px"
         >选中/未选态</t-check-tag
       >
       <t-check-tag :checked="true">选中态</t-check-tag>
@@ -23,11 +26,12 @@
     </t-space>
 
     <t-space>
-      <label>风格三：</label>
+      <label>StyleC</label>
       <t-check-tag
         v-model="checked3"
-        :checked-props="{ theme: 'error', variant: 'outline' }"
+        :checked-props="{ theme: 'primary', variant: 'outline' }"
         :unchecked-props="{ theme: 'default', variant: 'outline' }"
+        style="margin-right: 32px"
         >选中/未选态</t-check-tag
       >
       <t-check-tag :checked="true" :checked-props="{ theme: 'primary', variant: 'outline' }">选中态</t-check-tag>

@@ -12,7 +12,7 @@ export default defineComponent({
 
   setup(props: TdCheckTagProps) {
     const prefix = usePrefixClass();
-    const COMPONENT_NAME = usePrefixClass('check-tag');
+    const COMPONENT_NAME = usePrefixClass('tag');
     const { SIZE } = useCommonClassName();
     const renderContent = useContent();
 
@@ -28,23 +28,18 @@ export default defineComponent({
     const tagClass = computed(() => {
       return [
         `${COMPONENT_NAME.value}`,
+        `${COMPONENT_NAME.value}--check`,
         SIZE.value[props.size],
         `${COMPONENT_NAME.value}--${innerChecked.value ? 'checked' : 'unchecked'}`,
         {
           [`${COMPONENT_NAME.value}--disabled`]: props.disabled,
         },
-        /** the follow class name is going to be deprecated */
-        // `${prefix.value}-tag--check`,
-        // {
-        //   [`${prefix.value}-tag--checked`]: !props.disabled && innerChecked.value,
-        //   [`${prefix.value}-tag--disabled`]: props.disabled,
-        // }
       ];
     });
 
     const checkTagProps = computed(() => {
-      const checkedProps: TdTagProps = { theme: 'primary', variant: 'dark', ...props.checkedProps };
-      const uncheckedProps: TdTagProps = { theme: 'default', variant: 'light', ...props.uncheckedProps };
+      const checkedProps: TdTagProps = { theme: 'primary', ...props.checkedProps };
+      const uncheckedProps: TdTagProps = { ...props.uncheckedProps };
       return innerChecked.value ? checkedProps : uncheckedProps;
     });
 
