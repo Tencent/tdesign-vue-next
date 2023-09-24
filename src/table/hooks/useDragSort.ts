@@ -3,7 +3,7 @@ import { SetupContext, computed, toRefs, ref, watch, h, ComputedRef } from 'vue'
 import Sortable, { SortableEvent, SortableOptions, MoveEvent } from 'sortablejs';
 import get from 'lodash/get';
 import isFunction from 'lodash/isFunction';
-import { TableRowData, TdPrimaryTableProps, DragSortContext, PrimaryTableCol } from '../type';
+import { TableRowData, TdPrimaryTableProps, DragSortContext } from '../type';
 import useClassName from './useClassName';
 import log from '../../_common/js/log';
 import { hasClass } from '../../utils/dom';

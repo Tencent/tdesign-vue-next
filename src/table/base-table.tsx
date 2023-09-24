@@ -48,6 +48,8 @@ export default defineComponent({
     thDraggable: Boolean,
   },
 
+  emits: ['show-element-change'],
+
   setup(props: BaseTableProps, context: SetupContext) {
     const { lazyLoad } = toRefs(props);
     const renderTNode = useTNodeJSX();
