@@ -3,7 +3,7 @@ import { SetupContext, computed, toRefs, ref, watch, h, ComputedRef } from 'vue'
 import Sortable, { SortableEvent, SortableOptions, MoveEvent } from 'sortablejs';
 import get from 'lodash/get';
 import isFunction from 'lodash/isFunction';
-import { TableRowData, TdPrimaryTableProps, DragSortContext } from '../type';
+import { TableRowData, TdPrimaryTableProps, DragSortContext, PrimaryTableCol } from '../type';
 import useClassName from './useClassName';
 import log from '../../_common/js/log';
 import { hasClass } from '../../utils/dom';
@@ -19,9 +19,10 @@ export default function useDragSort(
     showElement: boolean;
   }>,
 ) {
-  const { sortOnRowDraggable, dragSort, data, rowKey, columns } = toRefs(props);
+  const { sortOnRowDraggable, dragSort, data, rowKey } = toRefs(props);
   const innerPagination = ref(props.pagination);
   const { tableDraggableClasses, tableBaseClass, tableFullRowClasses } = useClassName();
+  const columns = ref<PrimaryTableCol[]>(props.columns || []);
   const primaryTableRef = ref(null);
   // @ts-ignore 判断是否有拖拽列
   const dragCol = computed(() => columns.value.find((item) => item.colKey === 'drag'));
@@ -224,7 +225,7 @@ export default function useDragSort(
   }
 
   function setDragSortColumns(val: BaseTableColumns) {
-    // columns.value = val;
+    columns.value = val;
   }
 
   // eslint-disable-next-line

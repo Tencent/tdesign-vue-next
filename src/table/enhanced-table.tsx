@@ -16,7 +16,6 @@ import useTreeSelect from './hooks/useTreeSelect';
 import get from 'lodash/get';
 import { ComponentScrollToElementParams } from '../common';
 import log from '../_common/js/log';
-import { ScrollToElementParams } from '../hooks/useVirtualScrollNew';
 import { usePrefixClass } from '../hooks';
 
 export default defineComponent({
