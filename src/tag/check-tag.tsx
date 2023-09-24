@@ -3,13 +3,16 @@ import props from './check-tag-props';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import useVModel from '../hooks/useVModel';
 import { useContent } from '../hooks/tnode';
+import Tag from './tag';
+import { TdCheckTagProps, TdTagProps } from './type';
 
 export default defineComponent({
   name: 'TCheckTag',
   props,
 
-  setup(props) {
-    const COMPONENT_NAME = usePrefixClass('tag');
+  setup(props: TdCheckTagProps) {
+    const prefix = usePrefixClass();
+    const COMPONENT_NAME = usePrefixClass('check-tag');
     const { SIZE } = useCommonClassName();
     const renderContent = useContent();
 
@@ -25,17 +28,27 @@ export default defineComponent({
     const tagClass = computed(() => {
       return [
         `${COMPONENT_NAME.value}`,
-        `${COMPONENT_NAME.value}--check`,
-        `${COMPONENT_NAME.value}--default`,
         SIZE.value[props.size],
+        `${COMPONENT_NAME.value}--${innerChecked.value ? 'checked' : 'unchecked'}`,
         {
-          [`${COMPONENT_NAME.value}--checked`]: !props.disabled && innerChecked.value,
           [`${COMPONENT_NAME.value}--disabled`]: props.disabled,
         },
+        /** the follow class name is going to be deprecated */
+        // `${prefix.value}-tag--check`,
+        // {
+        //   [`${prefix.value}-tag--checked`]: !props.disabled && innerChecked.value,
+        //   [`${prefix.value}-tag--disabled`]: props.disabled,
+        // }
       ];
     });
 
-    const handleClick = (e: MouseEvent) => {
+    const checkTagProps = computed(() => {
+      const checkedProps: TdTagProps = { theme: 'primary', variant: 'dark', ...props.checkedProps };
+      const uncheckedProps: TdTagProps = { theme: 'default', variant: 'light', ...props.uncheckedProps };
+      return innerChecked.value ? checkedProps : uncheckedProps;
+    });
+
+    const handleClick = ({ e }: { e: MouseEvent }) => {
       if (!props.disabled) {
         props.onClick?.({ e });
         setInnerChecked(!innerChecked.value);
@@ -43,13 +56,11 @@ export default defineComponent({
     };
 
     return () => {
-      // 标签内容
       const tagContent = renderContent('default', 'content');
-
       return (
-        <span class={tagClass.value} onClick={handleClick}>
+        <Tag class={tagClass.value} disabled={props.disabled} {...checkTagProps.value} onClick={handleClick}>
           {tagContent}
-        </span>
+        </Tag>
       );
     };
   },

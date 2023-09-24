@@ -77,6 +77,10 @@ export interface TdCheckTagProps {
    */
   modelValue?: boolean;
   /**
+   * 透传标签选中态属性
+   */
+  checkedProps?: TdTagProps;
+  /**
    * 组件子元素；传入数组时：[选中内容，非选中内容]
    */
   content?: string | number | string[] | TNode;
@@ -94,6 +98,10 @@ export interface TdCheckTagProps {
    * @default medium
    */
   size?: SizeEnum;
+  /**
+   * 透传标签未选态属性
+   */
+  uncheckedProps?: TdTagProps;
   /**
    * 状态切换时触发
    */

@@ -1,23 +1,5 @@
 :: BASE_DOC ::
 
-### 超长省略文本标签
-
-通过 `maxWidth` 设置最大宽度，超出部分自动省略。
-
-{{ long-text }}
-
-### 不同尺寸的标签
-
-提供大、中（默认）、小三种尺寸。
-
-{{ size }}
-
-### 不同形状的标签
-
-提供方形、圆角方形、标记型三种形状。
-
-{{ shape }}
-
 ## API
 ### Tag Props
 
@@ -49,10 +31,12 @@ close | `(context: { e: MouseEvent })` | 如果关闭按钮存在，点击关闭
 -- | -- | -- | -- | --
 checked | Boolean | - | 标签选中的状态，默认风格（theme=default）才有选中态。支持语法糖 `v-model` 或 `v-model:checked` | N
 defaultChecked | Boolean | - | 标签选中的状态，默认风格（theme=default）才有选中态。非受控属性 | N
+checkedProps | Object | - | 透传标签选中态属性。TS 类型：`TdTagProps` | N
 content | String / Number / Array / Slot / Function | - | 组件子元素；传入数组时：[选中内容，非选中内容]。TS 类型：`string \| number \| string[] \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 default | String / Slot / Function | - | 组件子元素，默认插槽。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 disabled | Boolean | false | 标签禁用态，失效标签不能触发事件。默认风格（theme=default）才有禁用态 | N
 size | String | medium | 标签尺寸。可选项：small/medium/large。TS 类型：`SizeEnum`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+uncheckedProps | Object | - | 透传标签未选态属性。TS 类型：`TdTagProps` | N
 onChange | Function |  | TS 类型：`(checked: boolean) => void`<br/>状态切换时触发 | N
 onClick | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>点击标签时触发 | N
 
