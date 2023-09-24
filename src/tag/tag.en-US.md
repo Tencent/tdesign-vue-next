@@ -37,12 +37,30 @@ default | String / Slot / Function | - | Typescript：`string \| TNode`。[see m
 disabled | Boolean | false | \- | N
 size | String | medium | options: small/medium/large。Typescript：`SizeEnum`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 uncheckedProps | Object | - | used to set unchecked tag props。Typescript：`TdTagProps` | N
-onChange | Function |  | Typescript：`(checked: boolean) => void`<br/> | N
+onChange | Function |  | Typescript：`(checked: boolean, context: CheckTagChangeContext) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag/type.ts)。<br/>`interface CheckTagChangeContext { e: MouseEvent \| KeyboardEvent }`<br/> | N
 onClick | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/> | N
 
 ### CheckTag Events
 
 name | params | description
 -- | -- | --
-change | `(checked: boolean)` | \-
+change | `(checked: boolean, context: CheckTagChangeContext)` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag/type.ts)。<br/>`interface CheckTagChangeContext { e: MouseEvent \| KeyboardEvent }`<br/>
 click | `(context: { e: MouseEvent })` | \-
+
+### CheckTagGroup Props
+
+name | type | default | description | required
+-- | -- | -- | -- | --
+checkedProps | Object | - | used to set checked tag props。Typescript：`TdTagProps` | N
+multiple | Boolean | false | allow to select multiple tags | N
+options | Array | - | tag list。Typescript：`CheckTagGroupOption[]` `interface CheckTagGroupOption extends TdCheckTagProps { label: string; value: string \| number; content?: TNode }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag/type.ts) | N
+uncheckedProps | Object | - | used to set unchecked tag props。Typescript：`TdTagProps` | N
+value | Array | [] | selected tag value list。`v-model` and `v-model:value` is supported。Typescript：`CheckTagGroupValue` `type CheckTagGroupValue = Array<string \| number>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag/type.ts) | N
+defaultValue | Array | [] | selected tag value list。uncontrolled property。Typescript：`CheckTagGroupValue` `type CheckTagGroupValue = Array<string \| number>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag/type.ts) | N
+onChange | Function |  | Typescript：`(value: CheckTagGroupValue, context: CheckTagGroupChangeContext) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag/type.ts)。<br/>`interface CheckTagGroupChangeContext { type: 'check' \| 'uncheck'; e: MouseEvent \| KeyboardEvent }`<br/> | N
+
+### CheckTagGroup Events
+
+name | params | description
+-- | -- | --
+change | `(value: CheckTagGroupValue, context: CheckTagGroupChangeContext)` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag/type.ts)。<br/>`interface CheckTagGroupChangeContext { type: 'check' \| 'uncheck'; e: MouseEvent \| KeyboardEvent }`<br/>

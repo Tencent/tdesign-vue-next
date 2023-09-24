@@ -105,9 +105,65 @@ export interface TdCheckTagProps {
   /**
    * 状态切换时触发
    */
-  onChange?: (checked: boolean) => void;
+  onChange?: (checked: boolean, context: CheckTagChangeContext) => void;
   /**
    * 点击标签时触发
    */
   onClick?: (context: { e: MouseEvent }) => void;
+}
+
+export interface TdCheckTagGroupProps {
+  /**
+   * 透传标签选中态属性
+   */
+  checkedProps?: TdTagProps;
+  /**
+   * 是否支持选中多个标签
+   * @default false
+   */
+  multiple?: boolean;
+  /**
+   * 标签选项列表
+   */
+  options?: CheckTagGroupOption[];
+  /**
+   * 透传标签未选态属性
+   */
+  uncheckedProps?: TdTagProps;
+  /**
+   * 选中标签值
+   * @default []
+   */
+  value?: CheckTagGroupValue;
+  /**
+   * 选中标签值，非受控属性
+   * @default []
+   */
+  defaultValue?: CheckTagGroupValue;
+  /**
+   * 选中标签值
+   * @default []
+   */
+  modelValue?: CheckTagGroupValue;
+  /**
+   * null
+   */
+  onChange?: (value: CheckTagGroupValue, context: CheckTagGroupChangeContext) => void;
+}
+
+export interface CheckTagChangeContext {
+  e: MouseEvent | KeyboardEvent;
+}
+
+export interface CheckTagGroupOption extends TdCheckTagProps {
+  label: string;
+  value: string | number;
+  content?: TNode;
+}
+
+export type CheckTagGroupValue = Array<string | number>;
+
+export interface CheckTagGroupChangeContext {
+  type: 'check' | 'uncheck';
+  e: MouseEvent | KeyboardEvent;
 }

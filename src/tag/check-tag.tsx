@@ -8,11 +8,11 @@ import { TdCheckTagProps, TdTagProps } from './type';
 
 export default defineComponent({
   name: 'TCheckTag',
+
   props,
 
   setup(props: TdCheckTagProps) {
-    const prefix = usePrefixClass();
-    const COMPONENT_NAME = usePrefixClass('tag');
+    const componentName = usePrefixClass('tag');
     const { SIZE } = useCommonClassName();
     const renderContent = useContent();
 
@@ -27,12 +27,12 @@ export default defineComponent({
 
     const tagClass = computed(() => {
       return [
-        `${COMPONENT_NAME.value}`,
-        `${COMPONENT_NAME.value}--check`,
+        `${componentName.value}`,
+        `${componentName.value}--check`,
         SIZE.value[props.size],
-        `${COMPONENT_NAME.value}--${innerChecked.value ? 'checked' : 'unchecked'}`,
         {
-          [`${COMPONENT_NAME.value}--disabled`]: props.disabled,
+          [`${componentName.value}--checked`]: innerChecked.value,
+          [`${componentName.value}--disabled`]: props.disabled,
         },
       ];
     });
@@ -46,7 +46,7 @@ export default defineComponent({
     const handleClick = ({ e }: { e: MouseEvent }) => {
       if (!props.disabled) {
         props.onClick?.({ e });
-        setInnerChecked(!innerChecked.value);
+        setInnerChecked(!innerChecked.value, { e });
       }
     };
 
