@@ -172,7 +172,7 @@ export default defineComponent({
         primaryTableRef.value.refreshTable();
       },
       scrollToElement: (data: ScrollToElementParams) => {
-        primaryTableRef.value.virtualConfig.scrollToElement(data);
+        primaryTableRef.value.scrollToElement(data);
       },
       scrollColumnIntoView: (colKey: string) => {
         primaryTableRef.value.scrollColumnIntoView(colKey);

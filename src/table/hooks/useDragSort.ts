@@ -224,7 +224,7 @@ export default function useDragSort(
   }
 
   function setDragSortColumns(val: BaseTableColumns) {
-    columns.value = val;
+    // columns.value = val;
   }
 
   // eslint-disable-next-line

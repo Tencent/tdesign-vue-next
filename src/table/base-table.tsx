@@ -1,5 +1,6 @@
 import { computed, defineComponent, SetupContext, ref, nextTick, PropType, watch, onMounted, toRefs } from 'vue';
 import pick from 'lodash/pick';
+import get from 'lodash/get';
 import props from './base-table-props';
 import useTableHeader from './hooks/useTableHeader';
 import useColumnResize from './hooks/useColumnResize';
@@ -19,7 +20,7 @@ import { ROW_LISTENERS } from './tr';
 import THead from './thead';
 import TFoot from './tfoot';
 import { getAffixProps } from './utils';
-import { Styles } from '../common';
+import { Styles, ComponentScrollToElementParams } from '../common';
 import { getIEVersion } from '../_common/js/utils/helper';
 import { BaseTableInstanceFunctions } from './type';
 import log from '../_common/js/log';
@@ -285,6 +286,23 @@ export default defineComponent({
       { immediate: true },
     );
 
+    const tableData = computed(() => (isPaginateData.value ? dataSource.value : props.data));
+
+    const scrollToElement = (params: ComponentScrollToElementParams) => {
+      let { index } = params;
+      if (!index && index !== 0) {
+        if (!params.key) {
+          log.error('Table', 'scrollToElement: one of `index` or `key` must exist.');
+          return;
+        }
+        index = tableData.value?.findIndex((item) => get(item, props.rowKey) === params.key);
+        if (index < 0) {
+          log.error('Table', `${params.key} does not exist in data, check \`rowKey\` or \`data\` please.`);
+        }
+      }
+      virtualConfig.scrollToElement({ ...params, index: index - 1 });
+    };
+
     return {
       thList,
       classPrefix,
@@ -334,7 +352,7 @@ export default defineComponent({
       tActiveRow,
       hoverRow,
       showElement,
-      scrollToElement: virtualConfig.scrollToElement,
+      scrollToElement,
       renderPagination,
       renderTNode,
       onFixedChange,
