@@ -77,7 +77,7 @@ export default defineComponent({
             }
             return (
               <Option
-                {...omit(item, '$index', 'className', 'tagName')}
+                {...omit(item, 'index', '$index', 'className', 'tagName')}
                 {...(isVirtual.value
                   ? {
                       rowIndex: item.$index,
@@ -90,6 +90,7 @@ export default defineComponent({
                   : {
                       key: `${index}_${item.value}`,
                     })}
+                index={index}
                 multiple={props.multiple}
                 v-slots={item.slots}
                 onRowMounted={handleRowMounted}
