@@ -46,6 +46,10 @@ export default {
   uncheckedProps: {
     type: Object as PropType<TdCheckTagProps['uncheckedProps']>,
   },
+  /** 标签唯一标识，一般用于标签组场景，单个可选择标签无需设置 */
+  value: {
+    type: [String, Number] as PropType<TdCheckTagProps['value']>,
+  },
   /** 状态切换时触发 */
   onChange: Function as PropType<TdCheckTagProps['onChange']>,
   /** 点击标签时触发 */

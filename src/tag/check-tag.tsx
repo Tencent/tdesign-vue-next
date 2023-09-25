@@ -46,7 +46,7 @@ export default defineComponent({
     const handleClick = ({ e }: { e: MouseEvent }) => {
       if (!props.disabled) {
         props.onClick?.({ e });
-        setInnerChecked(!innerChecked.value, { e });
+        setInnerChecked(!innerChecked.value, { e, value: props.value });
       }
     };
 

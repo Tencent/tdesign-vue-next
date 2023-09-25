@@ -76,7 +76,7 @@ export default defineComponent({
       const titleAttribute = title && props.maxWidth ? title : undefined;
 
       return (
-        <span class={tagClass.value} style={tagStyle.value} onClick={handleClick}>
+        <div class={tagClass.value} style={tagStyle.value} onClick={handleClick}>
           {icon}
           {props.maxWidth ? (
             <span class={{ [`${COMPONENT_NAME.value}--text`]: props.maxWidth }} title={titleAttribute}>
@@ -86,7 +86,7 @@ export default defineComponent({
             tagContent
           )}
           {!props.disabled && closeIcon}
-        </span>
+        </div>
       );
     };
   },

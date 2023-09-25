@@ -103,6 +103,10 @@ export interface TdCheckTagProps {
    */
   uncheckedProps?: TdTagProps;
   /**
+   * 标签唯一标识，一般用于标签组场景，单个可选择标签无需设置
+   */
+  value?: string | number;
+  /**
    * 状态切换时触发
    */
   onChange?: (checked: boolean, context: CheckTagChangeContext) => void;
@@ -153,12 +157,12 @@ export interface TdCheckTagGroupProps {
 
 export interface CheckTagChangeContext {
   e: MouseEvent | KeyboardEvent;
+  value: string | number;
 }
 
 export interface CheckTagGroupOption extends TdCheckTagProps {
-  label: string;
+  label: string | TNode;
   value: string | number;
-  content?: TNode;
 }
 
 export type CheckTagGroupValue = Array<string | number>;
@@ -166,4 +170,5 @@ export type CheckTagGroupValue = Array<string | number>;
 export interface CheckTagGroupChangeContext {
   type: 'check' | 'uncheck';
   e: MouseEvent | KeyboardEvent;
+  value: string | number;
 }

@@ -17335,21 +17335,6 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
   
   
   <div
-    style="position: absolute; top: 0px; left: 0px; width: 100%;"
-  >
-    
-    
-    <transition-stub
-      appear="true"
-      css="true"
-      name="t-popup--animation"
-      persisted="false"
-    />
-    
-    
-  </div>
-  
-  <div
     data-v-app=""
   >
     <div>
@@ -17476,6 +17461,21 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
   <!--teleport start-->
   <!--teleport end-->
   
+  
+  <div
+    style="position: absolute; top: 0px; left: 0px; width: 100%;"
+  >
+    
+    
+    <transition-stub
+      appear="true"
+      css="true"
+      name="t-popup--animation"
+      persisted="false"
+    />
+    
+    
+  </div>
   
   <div
     style="position: absolute; top: 0px; left: 0px; width: 100%;"
@@ -22771,21 +22771,6 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
   
   
   <div
-    style="position: absolute; top: 0px; left: 0px; width: 100%;"
-  >
-    
-    
-    <transition-stub
-      appear="true"
-      css="true"
-      name="t-popup--animation"
-      persisted="false"
-    />
-    
-    
-  </div>
-  
-  <div
     data-v-app=""
   >
     <div>
@@ -22912,6 +22897,21 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
   <!--teleport start-->
   <!--teleport end-->
   
+  
+  <div
+    style="position: absolute; top: 0px; left: 0px; width: 100%;"
+  >
+    
+    
+    <transition-stub
+      appear="true"
+      css="true"
+      name="t-popup--animation"
+      persisted="false"
+    />
+    
+    
+  </div>
   
   <div
     style="position: absolute; top: 0px; left: 0px; width: 100%;"
@@ -29065,21 +29065,6 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
   
   
   <div
-    style="position: absolute; top: 0px; left: 0px; width: 100%;"
-  >
-    
-    
-    <transition-stub
-      appear="true"
-      css="true"
-      name="t-popup--animation"
-      persisted="false"
-    />
-    
-    
-  </div>
-  
-  <div
     data-v-app=""
   >
     <div>
@@ -29206,6 +29191,21 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
   <!--teleport start-->
   <!--teleport end-->
   
+  
+  <div
+    style="position: absolute; top: 0px; left: 0px; width: 100%;"
+  >
+    
+    
+    <transition-stub
+      appear="true"
+      css="true"
+      name="t-popup--animation"
+      persisted="false"
+    />
+    
+    
+  </div>
   
   <div
     style="position: absolute; top: 0px; left: 0px; width: 100%;"
@@ -43812,87 +43812,8 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
     class="t-guide__reference t-guide--absolute"
     style="top: -8px; left: -8px; width: 0px; height: 0px;"
   />
-  <!--teleport start-->
-  <!--teleport end-->
+  <!---->
   
-  
-  <div
-    style="position: absolute; top: 0px; left: 0px; width: 100%;"
-  >
-    
-    
-    <transition-stub
-      appear="true"
-      css="true"
-      name="t-popup--animation"
-      persisted="false"
-    >
-      <div
-        class="t-popup t-guide__popup"
-        data-popper-escaped=""
-        data-popper-placement="bottom-end"
-        data-popper-reference-hidden=""
-        data-td-popup=""
-        style="z-index: 999999; position: absolute; left: 0px; top: 0px; margin: 0px; right: 0px; transform: translate(0px, 0px);"
-      >
-        <div
-          class="t-popup__content t-popup__content--arrow"
-        >
-          <div
-            class="t-guide__tooltip"
-          >
-            
-            <div
-              class="t-guide__title"
-            >
-              新手引导标题
-            </div>
-            <div
-              class="t-guide__desc"
-            >
-              新手引导的说明文案
-            </div>
-            
-            <div
-              class="t-guide__footer t-guide__footer--popup"
-            >
-              
-              <div
-                class="t-guide__counter"
-              >
-                1/1
-              </div>
-              
-              <div
-                class="t-guide__action"
-              >
-                <!---->
-                <!---->
-                <!---->
-                <button
-                  class="t-button t-button--variant-base t-button--theme-primary t-size-s t-guide__finish"
-                  href=""
-                  tabindex="0"
-                  type="button"
-                >
-                  <span
-                    class="t-button__text"
-                  >
-                    完成
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div
-            class="t-popup__arrow"
-          />
-        </div>
-      </div>
-    </transition-stub>
-    
-    
-  </div>
   
 </body>
 `;
@@ -53134,21 +53055,6 @@ exports[`Guide Component > slots.title works fine 1`] = `
   
   
   <div
-    style="position: absolute; top: 0px; left: 0px; width: 100%;"
-  >
-    
-    
-    <transition-stub
-      appear="true"
-      css="true"
-      name="t-popup--animation"
-      persisted="false"
-    />
-    
-    
-  </div>
-  
-  <div
     data-v-app=""
   >
     <div>
@@ -53275,6 +53181,21 @@ exports[`Guide Component > slots.title works fine 1`] = `
   <!--teleport start-->
   <!--teleport end-->
   
+  
+  <div
+    style="position: absolute; top: 0px; left: 0px; width: 100%;"
+  >
+    
+    
+    <transition-stub
+      appear="true"
+      css="true"
+      name="t-popup--animation"
+      persisted="false"
+    />
+    
+    
+  </div>
   
   <div
     style="position: absolute; top: 0px; left: 0px; width: 100%;"
