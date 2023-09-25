@@ -1,4 +1,4 @@
-import _TdTree from './td-tree';
+import _TdTree from './tree';
 import { withInstall } from './adapt';
 
 import './style';
