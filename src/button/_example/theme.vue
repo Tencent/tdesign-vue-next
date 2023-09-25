@@ -7,8 +7,8 @@
       <t-button variant="text" theme="default">文字按钮</t-button>
     </t-space>
     <t-space>
-      <t-button theme="primary" disabled>填充按钮</t-button>
-      <t-button variant="outline" theme="primary" disabled>描边按钮</t-button>
+      <t-button theme="primary">填充按钮</t-button>
+      <t-button variant="outline" theme="primary">描边按钮</t-button>
       <t-button variant="dashed" theme="primary">虚框按钮</t-button>
       <t-button variant="text" theme="primary">文字按钮</t-button>
     </t-space>

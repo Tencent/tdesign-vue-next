@@ -18,7 +18,7 @@ export default defineComponent({
 
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
 
-    const onChange: TdCheckTagProps['onChange'] = (checked, ctx) => {
+    const onCheckTagChange: TdCheckTagProps['onChange'] = (checked, ctx) => {
       const value = ctx.value;
       if (checked) {
         if (props.multiple) {
@@ -56,7 +56,7 @@ export default defineComponent({
               checkedProps={props.checkedProps}
               uncheckedProps={props.uncheckedProps}
               checked={innerValue.value.includes(option.value)}
-              onChange={onChange}
+              onChange={onCheckTagChange}
               disabled={option.disabled}
               size={option.size}
               data-value={option.value}
