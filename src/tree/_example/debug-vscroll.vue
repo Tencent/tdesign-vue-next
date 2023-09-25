@@ -22,6 +22,21 @@
       <t-switch v-model="isOperateAble" />
     </t-space>
     <t-space>
+      <t-button theme="primary" @click="clearTree">清空 tree</t-button>
+    </t-space>
+    <t-space>
+      <t-input-adornment prepend="level1 节点数量:">
+        <t-input v-model="textLevel1Count" />
+      </t-input-adornment>
+      <t-input-adornment prepend="level2 节点数量:">
+        <t-input v-model="textLevel2Count" />
+      </t-input-adornment>
+      <t-input-adornment prepend="level3 节点数量:">
+        <t-input v-model="textLevel3Count" />
+      </t-input-adornment>
+      <t-button theme="primary" @click="createTree">构造 tree</t-button>
+    </t-space>
+    <t-space>
       <t-input-adornment prepend="插入节点数量:">
         <t-input v-model="textInsertCount" />
       </t-input-adornment>
@@ -67,43 +82,6 @@
 </template>
 
 <script>
-const allLevels = [5, 10, 10];
-
-function createTreeData() {
-  let cacheIndex = 0;
-
-  function getValue() {
-    cacheIndex += 1;
-    return `t${cacheIndex}`;
-  }
-
-  function createNodes(items, level) {
-    const count = allLevels[level];
-    if (count) {
-      let index = 0;
-      for (index = 0; index < count; index += 1) {
-        const value = getValue();
-        const item = { value };
-        items.push(item);
-        if (allLevels[level + 1]) {
-          item.children = [];
-          createNodes(item.children, level + 1);
-        }
-      }
-    }
-  }
-
-  const items = [];
-  createNodes(items, 0);
-
-  return {
-    getValue,
-    items,
-  };
-}
-
-const virtualTree = createTreeData();
-
 export default {
   data() {
     return {
@@ -118,12 +96,24 @@ export default {
       showIcon: true,
       isCheckable: true,
       isOperateAble: true,
-      items: virtualTree.items,
+      items: [],
       filterText: '',
       filterByText: null,
+      textLevel1Count: '10',
+      textLevel2Count: '10',
+      textLevel3Count: '10',
     };
   },
   computed: {
+    level1Count() {
+      return parseInt(this.textLevel1Count, 10) || 1;
+    },
+    level2Count() {
+      return parseInt(this.textLevel2Count, 10) || 1;
+    },
+    level3Count() {
+      return parseInt(this.textLevel3Count, 10) || 1;
+    },
     insertCount() {
       return parseInt(this.textInsertCount, 10) || 1;
     },
@@ -170,6 +160,46 @@ export default {
         // 过滤文案为空，则还原 tree 为无过滤状态
         this.filterByText = null;
       }
+    },
+    createTreeData() {
+      const allLevels = [this.level1Count, this.level2Count, this.level3Count];
+      let cacheIndex = 0;
+
+      const getValue = () => {
+        cacheIndex += 1;
+        return `t${cacheIndex}`;
+      };
+
+      const createNodes = (items, level) => {
+        const count = allLevels[level];
+        if (count) {
+          let index = 0;
+          for (index = 0; index < count; index += 1) {
+            const value = getValue();
+            const item = { value };
+            items.push(item);
+            if (allLevels[level + 1]) {
+              item.children = [];
+              createNodes(item.children, level + 1);
+            }
+          }
+        }
+      };
+
+      const items = [];
+      createNodes(items, 0);
+
+      return {
+        getValue,
+        items,
+      };
+    },
+    createTree() {
+      const virtualTree = this.createTreeData();
+      this.items = virtualTree.items;
+    },
+    clearTree() {
+      this.items = [];
     },
   },
 };

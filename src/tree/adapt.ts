@@ -10,6 +10,7 @@ import { TdTreeProps, TreeInstanceFunctions } from './type';
 import { VirtualScrollConfig } from '../hooks/useVirtualScrollNew';
 import tdWithInstall from '../utils/withInstall';
 import tdUseVModel from '../hooks/useVModel';
+import tdUseDefaultValue from '../hooks/useDefaultValue';
 import { TreeStore } from '../_common/js/tree/tree-store';
 
 export { ref, reactive, computed, watch, onMounted, toRefs, defineComponent, TransitionGroup } from 'vue';
@@ -98,6 +99,11 @@ export function useVModel(
     // do nothing，just for adapt
   }
   const modelValue = ref('');
-  const vm = tdUseVModel(refsProps[propName], modelValue, props[defaultPropName], props[eventPropName], propName);
+  let vm;
+  if (propName === 'value') {
+    vm = tdUseVModel(refsProps[propName], modelValue, props[defaultPropName], props[eventPropName], propName);
+  } else {
+    vm = tdUseDefaultValue(refsProps[propName], props[defaultPropName], props[eventPropName], propName);
+  }
   return vm;
 }

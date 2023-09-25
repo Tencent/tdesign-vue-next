@@ -21,9 +21,7 @@ export default function useTreeAction(state: TypeTreeState) {
 
   const setExpanded = (item: TypeTargetNode, isExpanded: boolean): TreeNodeValue[] => {
     const node = getNode(store, item);
-    const expanded = node.setExpanded(isExpanded, {
-      directly: true,
-    });
+    const expanded = node.setExpanded(isExpanded);
     const mouseEvent = treeState.mouseEvent as MouseEvent;
     const evtCtx: TypeExpandEventContext = {
       node: node.getModel(),
@@ -49,9 +47,7 @@ export default function useTreeAction(state: TypeTreeState) {
 
   const setActived = (item: TypeTargetNode, isActived: boolean) => {
     const node = getNode(store, item);
-    const actived = node.setActived(isActived, {
-      directly: true,
-    });
+    const actived = node.setActived(isActived);
     const mouseEvent = treeState.mouseEvent as MouseEvent;
     const evtCtx: TypeActiveEventContext = {
       node: node.getModel(),
@@ -72,9 +68,7 @@ export default function useTreeAction(state: TypeTreeState) {
 
   const setChecked = (item: TypeTargetNode, isChecked: boolean, ctx: { e: Event }): TreeNodeValue[] => {
     const node = getNode(store, item);
-    const checked = node.setChecked(isChecked, {
-      directly: true,
-    });
+    const checked = node.setChecked(isChecked);
     const mouseEvent = ctx?.e as MouseEvent;
     const evtCtx: TypeChangeEventContext = {
       node: node.getModel(),

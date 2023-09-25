@@ -19,14 +19,26 @@
       </t-input-adornment>
     </t-space>
     <t-space>
-      <t-button theme="primary" @click="selectNode">选中节点 1.1</t-button>
-      <t-button theme="primary" @click="activeNode">激活节点 2</t-button>
-      <t-button theme="primary" @click="expandNode">展开节点 1.2</t-button>
+      <span>可选:</span>
+      <t-switch v-model="checkable" />
+    </t-space>
+    <t-space>
+      <span>节点可高亮: </span>
+      <t-switch v-model="activable" />
+    </t-space>
+    <t-space>
+      <span>受控同步节点:</span>
+      <t-switch v-model="syncProps" />
+    </t-space>
+    <t-space>
+      <t-button theme="primary" variant="outline" @click="selectNode">选中节点 1.1</t-button>
+      <t-button theme="primary" variant="outline" @click="activeNode">激活节点 2</t-button>
+      <t-button theme="primary" variant="outline" @click="expandNode">展开节点 1.2</t-button>
     </t-space>
     <t-tree
       :data="items"
-      checkable
-      activable
+      :activable="activable"
+      :checkable="checkable"
       :expand-on-click-node="false"
       :active-multiple="false"
       :expanded="expanded"
@@ -45,6 +57,9 @@
 export default {
   data() {
     return {
+      syncProps: false,
+      checkable: true,
+      activable: false,
       valueMode: 'onlyLeaf',
       checked: ['1.2.1', '1.2.2'],
       expanded: ['1', '1.1'],
@@ -156,15 +171,15 @@ export default {
     onClick(context) {
       console.info('onClick:', context);
       const { node } = context;
-      console.info(node.value, 'checked:', node.checked);
-      console.info(node.value, 'expanded:', node.expanded);
-      console.info(node.value, 'actived:', node.actived);
+      console.info(node.value, 'checked:', node.checked, 'expanded:', node.expanded, 'actived:', node.actived);
     },
     onChange(vals, context) {
       console.info('onChange:', vals, context);
       const checked = vals.filter((val) => val !== '2.1');
       console.info('节点 2.1 不允许选中');
-      this.checked = checked;
+      if (this.syncProps) {
+        this.checked = checked;
+      }
       const { node } = context;
       console.info(node.value, 'checked:', node.checked);
     },
@@ -172,7 +187,9 @@ export default {
       console.info('onActive:', vals, context);
       const actived = vals.filter((val) => val !== '2.2');
       console.info('节点 2.2 不允许激活', actived);
-      this.actived = actived;
+      if (this.syncProps) {
+        this.actived = actived;
+      }
       const { node } = context;
       console.info(node.value, 'actived:', node.actived);
     },
@@ -180,7 +197,9 @@ export default {
       console.info('onExpand:', vals, context);
       const expanded = vals.filter((val) => val !== '2.3');
       console.info('节点 2.3 不允许展开', expanded);
-      this.expanded = expanded;
+      if (this.syncProps) {
+        this.expanded = expanded;
+      }
       const { node } = context;
       console.info(node.value, 'expanded:', node.expanded);
     },
