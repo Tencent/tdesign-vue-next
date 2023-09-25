@@ -40,18 +40,18 @@
     </t-tree>
     <h3>操作树节点</h3>
     <t-space :size="10" break-line>
-      <t-button theme="primary" @click="getItem">获取 value 为 'node1' 的单个节点</t-button>
-      <t-button theme="primary" @click="getAllItems">获取所有节点</t-button>
-      <t-button theme="primary" @click="getActiveChildren">获取高亮节点的所有子节点</t-button>
-      <t-button theme="primary" @click="getAllActived">获取所有高亮节点</t-button>
-      <t-button theme="primary" @click="getActiveChecked">获取高亮节点下的选中节点</t-button>
-      <t-button theme="primary" @click="append()">插入一个根节点</t-button>
-      <t-button theme="primary" @click="getActiveParent">获取高亮节点的父节点</t-button>
-      <t-button theme="primary" @click="getActiveParents">获取高亮节点的所有父节点</t-button>
-      <t-button theme="primary" @click="getActiveIndex">获取高亮节点在子节点中的位置</t-button>
-      <t-button theme="primary" @click="setActiveChecked">选中高亮节点</t-button>
-      <t-button theme="primary" @click="setActiveExpanded">展开高亮节点</t-button>
-      <t-button theme="primary" @click="getActivePlainData">获取高亮节点与其子节点的数据</t-button>
+      <t-button theme="primary" variant="outline" @click="getItem">获取 value 为 'node1' 的单个节点</t-button>
+      <t-button theme="primary" variant="outline" @click="getAllItems">获取所有节点</t-button>
+      <t-button theme="primary" variant="outline" @click="getActiveChildren">获取高亮节点的所有子节点</t-button>
+      <t-button theme="primary" variant="outline" @click="getAllActived">获取所有高亮节点</t-button>
+      <t-button theme="primary" variant="outline" @click="getActiveChecked">获取高亮节点下的选中节点</t-button>
+      <t-button theme="primary" variant="outline" @click="append()">插入一个根节点</t-button>
+      <t-button theme="primary" variant="outline" @click="getActiveParent">获取高亮节点的父节点</t-button>
+      <t-button theme="primary" variant="outline" @click="getActiveParents">获取高亮节点的所有父节点</t-button>
+      <t-button theme="primary" variant="outline" @click="getActiveIndex">获取高亮节点在子节点中的位置</t-button>
+      <t-button theme="primary" variant="outline" @click="setActiveChecked">选中高亮节点</t-button>
+      <t-button theme="primary" variant="outline" @click="setActiveExpanded">展开高亮节点</t-button>
+      <t-button theme="primary" variant="outline" @click="getActivePlainData">获取高亮节点与其子节点的数据</t-button>
     </t-space>
     <div>* 相关信息通过控制台输出</div>
   </t-space>
