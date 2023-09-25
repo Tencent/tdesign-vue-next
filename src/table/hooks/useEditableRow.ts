@@ -2,7 +2,7 @@ import { ref, computed } from 'vue';
 import get from 'lodash/get';
 import isFunction from 'lodash/isFunction';
 import { PrimaryTableProps } from '../interface';
-import { getEditableKeysMap } from '../utils';
+import { getEditableKeysMap } from '../../_common/js/table/utils';
 import { validate } from '../../form/form-model';
 import {
   PrimaryTableRowEditContext,

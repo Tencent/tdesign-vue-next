@@ -2,7 +2,8 @@
   <div class="demo-container t-table-demo-sort">
     <div class="item">
       <!-- 拖拽排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
-      <t-table row-key="index" :columns="columns" :data="data" drag-sort="col" @drag-sort="onDragSort"> </t-table>
+      <t-table row-key="index" :columns="columns" :data="data" drag-sort="col" lazy-load @drag-sort="onDragSort">
+      </t-table>
     </div>
   </div>
 </template>

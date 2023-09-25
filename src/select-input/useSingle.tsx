@@ -1,14 +1,15 @@
-import { SetupContext, ref, computed, toRefs } from 'vue';
+import { SetupContext, ref, computed, toRefs, Ref } from 'vue';
 import isObject from 'lodash/isObject';
 import pick from 'lodash/pick';
 import { SelectInputCommonProperties } from './interface';
 import { TdSelectInputProps } from './type';
-import Input, { InputValue, TdInputProps } from '../input';
+import Input, { InputProps, TdInputProps } from '../input';
 import Loading from '../loading';
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
 import useDefaultValue from '../hooks/useDefaultValue';
 import { useFormDisabled } from '../form/hooks';
+import { PopupInstanceFunctions } from '../popup';
 
 // single 和 multiple 共有特性
 const COMMON_PROPERTIES = [
@@ -36,9 +37,14 @@ function getInputValue(value: TdSelectInputProps['value'], keys: TdSelectInputPr
   return isObject(value) ? value[iKeys.label] : value;
 }
 
-export default function useSingle(props: TdSelectInputProps, context: SetupContext) {
+export default function useSingle(
+  props: TdSelectInputProps,
+  context: SetupContext,
+  popupRef: Ref<PopupInstanceFunctions>,
+) {
   const { value, keys, inputValue: propsInputValue } = toRefs(props);
   const classPrefix = usePrefixClass();
+  const isSingleFocus = ref(props.autofocus);
   const inputRef = ref();
   const [inputValue, setInputValue] = useDefaultValue(
     propsInputValue,
@@ -81,7 +87,6 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
       showClearIconOnEmpty: Boolean(
         props.clearable && (inputValue.value || displayedValue) && !disable.value && !props.readonly,
       ),
-      allowTriggerBlur: props.allowInput && !props.readonly,
       ...props.inputProps,
     };
 
@@ -92,25 +97,35 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
       ? [`${classPrefix.value}-input--focused`, `${classPrefix.value}-is-focused`, inputProps?.inputClass]
       : inputProps?.inputClass;
 
+    const onEnter: InputProps['onEnter'] = (val, context) => {
+      props.onEnter?.(value.value, { ...context, inputValue: val });
+    };
+
+    const onFocus: InputProps['onFocus'] = (val, context) => {
+      const overlayState = popupRef.value?.getOverlayState();
+      if (isSingleFocus.value || overlayState?.hover) return;
+      isSingleFocus.value = true;
+      props.onFocus?.(value.value, { ...context, inputValue: val });
+    };
+
+    const onBlur: InputProps['onBlur'] = (val, context) => {
+      const overlayState = popupRef.value?.getOverlayState();
+      if (overlayState?.hover) return;
+      isSingleFocus.value = false;
+      props.onBlur?.(value.value, { ...context, inputValue: val });
+    };
+
     return (
       <Input
-        ref="inputRef"
+        ref={inputRef}
         style={context.attrs?.style}
         v-slots={slots}
         {...{
           onChange: onInnerInputChange,
           onClear: onInnerClear,
-          onBlur: (val: InputValue, context: { e: MouseEvent }) => {
-            props.onBlur?.(value.value, { ...context, inputValue: val });
-          },
-          onEnter: (val: InputValue, context: { e: KeyboardEvent }) => {
-            props.onEnter?.(value.value, { ...context, inputValue: val });
-          },
-          onFocus: (val, context) => {
-            props.onFocus?.(value.value, { ...context, inputValue: val });
-            //删除，下面这行代码不允许恢复！不符合正常逻辑，也会造成 defaultInputValue 无效；树形结构搜索功能异常等问题
-            // !popupVisible && setInputValue(getInputValue(value.value, keys.value), { ...context, trigger: 'input' }); // 聚焦时拿到value
-          },
+          onEnter,
+          onFocus,
+          onBlur,
           ...inputProps,
         }}
         inputClass={inputClassProps}
@@ -158,7 +173,9 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
 
   return {
     inputRef,
+    isSingleFocus,
     commonInputProps,
+    singleInputValue: inputValue,
     onInnerClear,
     renderSelectSingle,
   };

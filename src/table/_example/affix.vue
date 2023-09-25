@@ -25,6 +25,7 @@
       drag-sort="col"
       bordered
       resizable
+      lazy-load
       @drag-sort="onDragSortChange"
     >
       <template #t-foot-required> 插槽渲染表尾 </template>

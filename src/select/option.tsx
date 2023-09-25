@@ -70,7 +70,7 @@ export default defineComponent({
         [STATUS.value.disabled]: disabled.value,
         [STATUS.value.selected]: isSelected.value,
         [`${selectName.value}-option__hover`]:
-          (isHover.value || selectProvider.value.hoverIndex === props.index) && !disabled.value && !isSelected.value,
+          (isHover.value || selectProvider.value.hoverIndex === props.index) && !disabled.value,
       },
     ]);
 
@@ -83,7 +83,6 @@ export default defineComponent({
         e.preventDefault();
         return;
       }
-      e.stopPropagation();
 
       if (props.createAble) {
         selectProvider.value.handleCreate?.(props.value);

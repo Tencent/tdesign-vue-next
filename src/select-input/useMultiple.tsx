@@ -1,13 +1,13 @@
-import { SetupContext, computed, ref, toRefs } from 'vue';
+import { SetupContext, computed, ref, toRefs, Ref } from 'vue';
 import isObject from 'lodash/isObject';
 import { TdSelectInputProps, SelectInputChangeContext, SelectInputKeys } from './type';
 import { SelectInputCommonProperties } from './interface';
-import { InputValue } from '../input';
-import TagInput, { TagInputValue, InputValueChangeContext } from '../tag-input';
+import TagInput, { TagInputValue, TagInputProps } from '../tag-input';
 import Loading from '../loading';
 import useDefault from '../hooks/useDefaultValue';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useFormDisabled } from '../form/hooks';
+import { PopupInstanceFunctions } from '../popup';
 
 export interface RenderSelectMultipleParams {
   commonInputProps: SelectInputCommonProperties;
@@ -22,10 +22,15 @@ const DEFAULT_KEYS = {
   children: 'children',
 };
 
-export default function useMultiple(props: TdSelectInputProps, context: SetupContext) {
+export default function useMultiple(
+  props: TdSelectInputProps,
+  context: SetupContext,
+  popupRef: Ref<PopupInstanceFunctions>,
+) {
   const { inputValue } = toRefs(props);
   const classPrefix = usePrefixClass();
   const tagInputRef = ref();
+  const isMultipleFocus = ref(props.autofocus);
   const [tInputValue, setTInputValue] = useDefault(
     inputValue,
     props.defaultInputValue,
@@ -50,6 +55,36 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
       context.e?.stopPropagation();
     }
     props.onTagChange?.(val, context);
+  };
+
+  const onInputChange: TagInputProps['onInputChange'] = (val, ctx) => {
+    if (ctx.trigger === 'enter' || ctx.trigger === 'blur') return;
+    setTInputValue(val, { trigger: ctx.trigger, e: ctx.e });
+  };
+
+  /**
+   * 筛选器统一特性：
+   * 1. 筛选器按下回车时不清空输入框;
+   * 2. SelectInput 的失焦不等于 TagInput。如点击下拉面板时，TagInput 失去焦点，但 SelectInput 依旧保持聚焦，允许继续选择。
+   */
+  const onBlur: TagInputProps['onBlur'] = (val, ctx) => {
+    const overlayState = popupRef.value?.getOverlayState();
+    if (overlayState?.hover) return;
+    isMultipleFocus.value = false;
+    props.onBlur?.(props.value, { ...ctx, tagInputValue: val });
+  };
+
+  const onFocus: TagInputProps['onFocus'] = (val, ctx) => {
+    const overlayState = popupRef.value?.getOverlayState();
+    if (isMultipleFocus.value || overlayState?.hover) return;
+    isMultipleFocus.value = true;
+    const params = { ...ctx, tagInputValue: val };
+    props.onFocus?.(props.value, params);
+  };
+
+  const onEnter: TagInputProps['onEnter'] = (val, ctx) => {
+    const params = { ...ctx, tagInputValue: val };
+    props.onEnter?.(props.value, params);
   };
 
   const renderSelectMultiple = (p: RenderSelectMultipleParams) => {
@@ -81,25 +116,15 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
     const { tips, ...slots } = context.slots;
     return (
       <TagInput
-        ref="tagInputRef"
+        ref={tagInputRef}
         {...tagInputProps}
         v-slots={slots}
-        onInputChange={(val: InputValue, context: InputValueChangeContext) => {
-          // 筛选器统一特性：筛选器按下回车时不清空输入框
-          if (context?.trigger === 'enter' || context?.trigger === 'blur') return;
-          setTInputValue(val, { trigger: context.trigger, e: context.e });
-        }}
+        onInputChange={onInputChange}
         onChange={onTagInputChange}
         onClear={p.onInnerClear}
-        onBlur={(val, context) => {
-          props.onBlur?.(props.value, { ...context, tagInputValue: val });
-        }}
-        onEnter={(val, context) => {
-          props.onEnter?.(props.value, { ...context, inputValue: tInputValue.value });
-        }}
-        onFocus={(val, context) => {
-          props.onFocus?.(props.value, { ...context, tagInputValue: val });
-        }}
+        onBlur={onBlur}
+        onEnter={onEnter}
+        onFocus={onFocus}
       />
     );
   };
@@ -108,6 +133,8 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
     tags,
     tPlaceholder,
     tagInputRef,
+    isMultipleFocus,
+    multipleInputValue: tInputValue,
     renderSelectMultiple,
   };
 }

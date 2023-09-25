@@ -24,6 +24,7 @@
       :fixed-rows="fixedTopAndBottomRows ? [2, 2] : undefined"
       bordered
       resizable
+      lazy-load
     >
       <template #operation="{ row }">
         <t-link theme="primary" hover="color" @click="rehandleClickOp(row)">
