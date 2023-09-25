@@ -5,6 +5,7 @@ import useVModel from '../hooks/useVModel';
 import { useContent } from '../hooks/tnode';
 import Tag from './tag';
 import { TdCheckTagProps, TdTagProps } from './type';
+import { ENTER_REG, SPACE_REG } from '../_common/js/common';
 
 export default defineComponent({
   name: 'TCheckTag',
@@ -50,10 +51,35 @@ export default defineComponent({
       }
     };
 
+    const keyboardEventListener = (e: KeyboardEvent) => {
+      const code = e.code || e.key?.trim();
+      const isCheckedCode = SPACE_REG.test(code) || ENTER_REG.test(code);
+      if (isCheckedCode) {
+        e.preventDefault();
+        setInnerChecked(!innerChecked.value, { e, value: props.value });
+      }
+    };
+
+    const onCheckboxFocus = (e: FocusEvent) => {
+      e.currentTarget.addEventListener('keydown', keyboardEventListener);
+    };
+
+    const onCheckboxBlur = (e: FocusEvent) => {
+      e.currentTarget.removeEventListener('keydown', keyboardEventListener);
+    };
+
     return () => {
       const tagContent = renderContent('default', 'content');
       return (
-        <Tag class={tagClass.value} disabled={props.disabled} {...checkTagProps.value} onClick={handleClick}>
+        <Tag
+          class={tagClass.value}
+          disabled={props.disabled}
+          tabindex={props.disabled ? undefined : '0'}
+          onFocus={onCheckboxFocus}
+          onBlur={onCheckboxBlur}
+          {...checkTagProps.value}
+          onClick={handleClick}
+        >
           {tagContent}
         </Tag>
       );
