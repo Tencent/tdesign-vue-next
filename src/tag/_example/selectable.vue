@@ -32,7 +32,7 @@
         :checked-props="{ theme: 'primary', variant: 'outline' }"
         :unchecked-props="{ theme: 'default', variant: 'outline' }"
         style="margin-right: 32px"
-        >Check Tag</t-check-tag
+        >Outline Tag</t-check-tag
       >
       <t-check-tag :checked="true" :checked-props="{ theme: 'primary', variant: 'outline' }">Checked</t-check-tag>
       <t-check-tag :checked="false" :unchecked-props="{ theme: 'default', variant: 'outline' }">Unchecked</t-check-tag>
