@@ -1,26 +1,6 @@
 <template>
   <t-space :size="32" direction="vertical" style="width: 100%">
     <t-space direction="vertical" style="width: 80%">
-      <h3>虚拟滚动 - lazy模式</h3>
-      <t-tree
-        ref="tree"
-        :data="lazyItems"
-        hover
-        activable
-        expand-all
-        :height="300"
-        :expand-on-click-node="false"
-        :label="label"
-        :scroll="{
-          rowHeight: 34,
-          bufferSize: 10,
-          threshold: 10,
-          type: 'lazy',
-        }"
-      ></t-tree>
-    </t-space>
-
-    <t-space direction="vertical" style="width: 80%">
       <h3>虚拟滚动 - virtual 模式</h3>
       <t-space>
         <span>动画:</span>
@@ -118,7 +98,6 @@ function createTreeData() {
   };
 }
 
-const lazyTree = createTreeData();
 const virtualTree = createTreeData();
 
 export default {
@@ -127,16 +106,11 @@ export default {
       index: 0,
       transition: true,
       textInsertCount: '1',
-      useActived: false,
-      enableVScroll: true,
-      lazyVScroll: false,
-      expandParent: true,
       showLine: true,
       showIcon: true,
       isCheckable: true,
       isOperateAble: true,
       items: virtualTree.items,
-      lazyItems: lazyTree.items,
     };
   },
   computed: {
