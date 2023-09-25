@@ -80,11 +80,13 @@ const onEmailChange = (val, ctx) => {
 const columns = computed(() => [
   { colKey: 'applicant', title: '申请人', width: 100, foot: '-' },
   {
-    title: '申请状态',
+    title: () => '申请状态',
     colKey: 'status',
     align: align.value,
     // 单选过滤配置
     filter: {
+      // 过滤行中的列标题别名
+      // label: '申请状态 A',
       type: 'single',
       list: [
         { label: '审批通过', value: 0 },
@@ -191,7 +193,8 @@ const request = (filters) => {
   }, 100);
 };
 
-const onFilterChange = (filters) => {
+const onFilterChange = (filters, ctx) => {
+  console.log('filter-change', filters, ctx);
   filterValue.value = {
     ...filters,
     createTime: filters.createTime || [],

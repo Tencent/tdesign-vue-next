@@ -143,7 +143,7 @@ export default defineComponent({
             lazyLoad={props.lazyLoad}
             {...option}
             index={index}
-            checked={innerValue.value.includes(option.value)}
+            checked={innerValue.value?.includes(option.value)}
             data={option}
           ></Checkbox>
         ));

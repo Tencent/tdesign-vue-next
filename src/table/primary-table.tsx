@@ -20,6 +20,7 @@ import useClassName from './hooks/useClassName';
 import useEditableRow from './hooks/useEditableRow';
 import useStyle from './hooks/useStyle';
 import { ScrollToElementParams } from '../hooks/useVirtualScrollNew';
+import { BaseTableProps } from './interface';
 
 export { BASE_TABLE_ALL_EVENTS } from './base-table';
 
@@ -67,19 +68,26 @@ export default defineComponent({
     const { sizeClassNames } = useStyle(props);
     // 自定义列配置功能
     const { tDisplayColumns, renderColumnController } = useColumnController(props, context);
+
     // 展开/收起行功能
     const { showExpandedRow, showExpandIconColumn, getExpandColumn, renderExpandedRow, onInnerExpandRowClick } =
       useRowExpand(props, context);
+
     // 排序功能
     const { renderSortIcon } = useSorter(props, context);
+
     // 行选中功能
     const {
+      selectColumn,
+      showRowSelect,
       selectedRowClassNames,
       currentPaginateData,
       formatToRowSelectColumn,
       setTSelectedRowKeys,
       onInnerSelectRowClick,
+      handleRowSelectWithAreaSelection,
     } = useRowSelect(props, tableSelectedClasses);
+
     // 过滤功能
     const {
       hasEmptyCondition,
@@ -102,6 +110,7 @@ export default defineComponent({
     const { renderTitleWidthIcon } = useTableHeader(props);
     const { renderAsyncLoading } = useAsyncLoading(props);
 
+    // 可编辑行
     const {
       errorListMap,
       editableKeysMap,
@@ -112,6 +121,10 @@ export default defineComponent({
       onPrimaryTableCellEditChange,
     } = useEditableRow(props);
 
+    const innerKeyboardRowHover = computed(() => Boolean(showExpandedRow.value || showRowSelect.value));
+
+    const innerDisableSpaceInactiveRow = computed(() => Boolean(showExpandedRow.value || showRowSelect.value));
+
     const primaryTableClasses = computed(() => {
       return {
         [tableDraggableClasses.colDraggable]: isColDraggable.value,
@@ -119,6 +132,9 @@ export default defineComponent({
         [tableDraggableClasses.rowDraggable]: isRowDraggable.value,
         [tableBaseClass.overflowVisible]: isTableOverflowHidden.value === false,
         [tableBaseClass.tableRowEdit]: props.editableRowKeys,
+        [`${classPrefix}-table--select-${selectColumn.value?.type}`]: selectColumn.value,
+        [`${classPrefix}-table--row-select`]: showRowSelect.value,
+        [`${classPrefix}-table--row-expandable`]: showExpandedRow.value,
       };
     });
 
@@ -272,6 +288,11 @@ export default defineComponent({
       }
     };
 
+    const onInnerActiveRowAction: BaseTableProps['onActiveRowAction'] = (params) => {
+      props.onActiveRowAction?.(params);
+      handleRowSelectWithAreaSelection(params);
+    };
+
     const onSingleRowClick: TdPrimaryTableProps['onRowClick'] = (params) => {
       if (props.expandOnRowClick) {
         onInnerExpandRowClick(params);
@@ -346,6 +367,8 @@ export default defineComponent({
         rowClassName: tRowClassNames.value,
         rowAttributes: tRowAttributes.value,
         columns: tColumns.value,
+        keyboardRowHover: props.keyboardRowHover ?? innerKeyboardRowHover.value,
+        disableSpaceInactiveRow: props.disableSpaceInactiveRow ?? innerDisableSpaceInactiveRow.value,
         topContent,
         bottomContent,
         firstFullRow,
@@ -353,6 +376,7 @@ export default defineComponent({
         thDraggable: ['col', 'row-handler-col'].includes(props.dragSort),
         onPageChange: onInnerPageChange,
         renderExpandedRow: showExpandedRow.value ? renderExpandedRow : undefined,
+        onActiveRowAction: onInnerActiveRowAction,
       };
 
       if (props.expandOnRowClick || props.selectOnRowClick) {

@@ -43,15 +43,12 @@ export default defineComponent({
       loaded.value = false;
     };
 
-    watch(
-      () => props.src,
-      () => {
-        resetStatus();
-      },
-    );
-
     const { previewUrl: mainImagePreviewUrl } = useImagePreviewUrl(src);
     const { previewUrl: placementImagePreviewUrl } = useImagePreviewUrl(placementSrc);
+
+    watch([mainImagePreviewUrl, placementImagePreviewUrl], () => {
+      resetStatus();
+    });
 
     return () => (
       <div class={`${classPrefix.value}-image-viewer__modal-pic`}>

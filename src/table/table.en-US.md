@@ -5,6 +5,9 @@
 
 name | type | default | description | required
 -- | -- | -- | -- | --
+activeRowKeys | Array | [] | keys of highlight rows, used to mock area selection behavior, just like macOS or windows area selection。`v-model:activeRowKeys` is supported。Typescript：`Array<string \| number>` | N
+defaultActiveRowKeys | Array | [] | keys of highlight rows, used to mock area selection behavior, just like macOS or windows area selection。uncontrolled property。Typescript：`Array<string \| number>` | N
+activeRowType | String | - | make nodes can be highlight on clicked。Typescript：`'single' \| 'multiple'` | N
 allowResizeColumnWidth | Boolean | undefined | `deprecated`。allow to resize column width | N
 attach | String / Function | - | elements with popup would be attached to `attach`。Typescript：`AttachNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 bordered | Boolean | false | show table bordered | N
@@ -13,6 +16,7 @@ cellEmptyContent | String / Slot / Function | - | Typescript：`string \| TNode<
 columns | Array | [] | table column configs。Typescript：`Array<BaseTableCol<T>>` | N
 data | Array | [] | table data。Typescript：`Array<T>` | N
 disableDataPage | Boolean | false | \- | N
+disableSpaceInactiveRow | Boolean | undefined | can not set row to be inactive with Space keydown | N
 empty | String / Slot / Function | '' | empty text or empty element。Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 firstFullRow | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 fixedRows | Array | - | Typescript：`Array<number>` | N
@@ -25,10 +29,12 @@ headerAffixedTop | Boolean / Object | false | affix header to viewport top。Typ
 height | String / Number | - | table height | N
 horizontalScrollAffixedBottom | Boolean / Object | - | affix props。Typescript：`boolean \| Partial<AffixProps>` | N
 hover | Boolean | false | show hover style | N
+keyboardRowHover | Boolean | true | make table row to be hover by keydown ArrowUp/ArrowDown | N
 lastFullRow | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 lazyLoad | Boolean | false | load table content when it entering the visible area, all elements in table are not rendered before it become visible | N
 loading | Boolean / Slot / Function | undefined | loading state table。Typescript：`boolean \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 loadingProps | Object | - | Typescript：`Partial<LoadingProps>`，[Loading API Documents](./loading?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
+locale | Object | - | table locale config。Typescript：`TableConfig`，[ConfigProvider API Documents](./config-provider?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 maxHeight | String / Number | - | table max height | N
 pagination | Object | - | you can use all props of pagination component with paginationProps。Typescript：`PaginationProps`，[Pagination API Documents](./pagination?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 paginationAffixedBottom | Boolean / Object | - | affix props。Typescript：`boolean \| Partial<AffixProps>` | N
@@ -46,10 +52,12 @@ tableContentWidth | String | - | \- | N
 tableLayout | String | fixed | table-layout css properties, [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout). set value to be `fixed` on `resizable=true` please。options: auto/fixed | N
 topContent | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 verticalAlign | String | middle | vertical align。options: top/middle/bottom | N
+onActiveChange | Function |  | Typescript：`(activeRowKeys: Array<string \| number>, context: ActiveChangeContext<T>) => void`<br/>trigger on row active change。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface ActiveChangeContext<T> { activeRowList: Array<{ row: T, rowIndex: number }>; currentRowData?: T; type: 'active' \| 'inactive' }`<br/> | N
+onActiveRowAction | Function |  | Typescript：`(context: ActiveRowActionContext<T>) => void`<br/>keyboard operation event actions. used to mock selection behavior, just like macOS or windows。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface ActiveRowActionContext<T> { action: ActiveRowActionType,  activeRowList: Array<{ row: T, rowIndex: number }> }`<br/><br/>`type ActiveRowActionType ='shift-area-selection' \| 'space-one-selection' \| 'clear' \| 'select-all'`<br/> | N
 onCellClick | Function |  | Typescript：`(context: BaseTableCellEventContext<T>) => void`<br/>trigger on cell clicked。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface BaseTableCellEventContext<T> { row: T; col: BaseTableCol; rowIndex: number; colIndex: number; e: MouseEvent }`<br/> | N
 onColumnResizeChange | Function |  | Typescript：`(context: { columnsWidth: { [colKey: string]: number }; }) => void`<br/> | N
 onPageChange | Function |  | Typescript：`(pageInfo: PageInfo, newDataSource: Array<T>) => void`<br/>trigger on pagination changing | N
-onRowClick | Function |  | Typescript：`(context: RowEventContext<T>) => void`<br/>trigger on row click。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface RowEventContext<T> { row: T; index: number; e: MouseEvent }`<br/> | N
+onRowClick | Function |  | Typescript：`(context: RowEventContext<T>) => void`<br/>trigger on row click。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface RowEventContext<T> { row: T; index: number; e: MouseEvent \| KeyboardEvent }`<br/> | N
 onRowDblclick | Function |  | Typescript：`(context: RowEventContext<T>) => void`<br/>trigger on double click | N
 onRowMousedown | Function |  | Typescript：`(context: RowEventContext<T>) => void`<br/>trigger on row mousedown | N
 onRowMouseenter | Function |  | Typescript：`(context: RowEventContext<T>) => void`<br/>trigger on row mouseenter | N
@@ -64,10 +72,12 @@ onScrollY | Function |  | Typescript：`(params: { e: WheelEvent }) => void`<br/
 
 name | params | description
 -- | -- | --
+active-change | `(activeRowKeys: Array<string \| number>, context: ActiveChangeContext<T>)` | trigger on row active change。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface ActiveChangeContext<T> { activeRowList: Array<{ row: T, rowIndex: number }>; currentRowData?: T; type: 'active' \| 'inactive' }`<br/>
+active-row-action | `(context: ActiveRowActionContext<T>)` | keyboard operation event actions. used to mock selection behavior, just like macOS or windows。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface ActiveRowActionContext<T> { action: ActiveRowActionType,  activeRowList: Array<{ row: T, rowIndex: number }> }`<br/><br/>`type ActiveRowActionType ='shift-area-selection' \| 'space-one-selection' \| 'clear' \| 'select-all'`<br/>
 cell-click | `(context: BaseTableCellEventContext<T>)` | trigger on cell clicked。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface BaseTableCellEventContext<T> { row: T; col: BaseTableCol; rowIndex: number; colIndex: number; e: MouseEvent }`<br/>
 column-resize-change | `(context: { columnsWidth: { [colKey: string]: number }; })` | \-
 page-change | `(pageInfo: PageInfo, newDataSource: Array<T>)` | trigger on pagination changing
-row-click | `(context: RowEventContext<T>)` | trigger on row click。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface RowEventContext<T> { row: T; index: number; e: MouseEvent }`<br/>
+row-click | `(context: RowEventContext<T>)` | trigger on row click。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface RowEventContext<T> { row: T; index: number; e: MouseEvent \| KeyboardEvent }`<br/>
 row-dblclick | `(context: RowEventContext<T>)` | trigger on double click
 row-mousedown | `(context: RowEventContext<T>)` | trigger on row mousedown
 row-mouseenter | `(context: RowEventContext<T>)` | trigger on row mouseenter
@@ -155,7 +165,7 @@ onDataChange | Function |  | Typescript：`(data: Array<T>, context: TableDataCh
 onDisplayColumnsChange | Function |  | Typescript：`(value: CheckboxGroupValue) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`import { CheckboxGroupValue } from '@Checkbox'`<br/> | N
 onDragSort | Function |  | Typescript：`(context: DragSortContext<T>) => void`<br/>trigger on drag sort。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface DragSortContext<T> { currentIndex: number; current: T; targetIndex: number; target: T; data: T[]; newData: T[]; currentData?: T[]; e: SortableEvent; sort: 'row' \| 'col' }`<br/><br/>`import { SortableEvent, SortableOptions } from 'sortablejs'`<br/> | N
 onExpandChange | Function |  | Typescript：`(expandedRowKeys: Array<string \| number>, options: ExpandOptions<T>) => void`<br/>trigger on expand row keys changing。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface ExpandOptions<T> { expandedRowData: Array<T>; currentRowData: T }`<br/> | N
-onFilterChange | Function |  | Typescript：`(filterValue: FilterValue, context: { col?: PrimaryTableCol<T> }) => void`<br/>trigger on filter value changing | N
+onFilterChange | Function |  | Typescript：`(filterValue: FilterValue, context: TableFilterChangeContext<T>) => void`<br/>trigger on filter value changing。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface TableFilterChangeContext<T> { col?: PrimaryTableCol<T>; trigger: 'filter-change' \| 'confirm' \| 'reset' \| 'clear' }`<br/> | N
 onRowEdit | Function |  | Typescript：`(context: PrimaryTableRowEditContext<T>) => void`<br/>trigger on row data is editing。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`type PrimaryTableRowEditContext<T> = PrimaryTableCellParams<T> & { value: any; editedRow: T }`<br/> | N
 onRowValidate | Function |  | Typescript：`(context: PrimaryTableRowValidateContext<T>) => void`<br/>trigger after row data validated。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`type PrimaryTableRowValidateContext<T> = { result: TableRowValidateResult<T>[]; trigger: TableValidateTrigger }`<br/><br/>`type TableValidateTrigger = 'self' \| 'parent'`<br/><br/>`export type TableRowValidateResult<T> = PrimaryTableCellParams<T> & { errorList: AllValidateResult[]; value: any }`<br/> | N
 onSelectChange | Function |  | Typescript：`(selectedRowKeys: Array<string \| number>, options: SelectOptions<T>) => void`<br/>trigger on select changing。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface SelectOptions<T> { selectedRowData: Array<T>; type: 'uncheck' \| 'check'; currentRowKey?: string; currentRowData?: T }`<br/> | N
@@ -175,7 +185,7 @@ data-change | `(data: Array<T>, context: TableDataChangeContext)` | trigger on d
 display-columns-change | `(value: CheckboxGroupValue)` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`import { CheckboxGroupValue } from '@Checkbox'`<br/>
 drag-sort | `(context: DragSortContext<T>)` | trigger on drag sort。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface DragSortContext<T> { currentIndex: number; current: T; targetIndex: number; target: T; data: T[]; newData: T[]; currentData?: T[]; e: SortableEvent; sort: 'row' \| 'col' }`<br/><br/>`import { SortableEvent, SortableOptions } from 'sortablejs'`<br/>
 expand-change | `(expandedRowKeys: Array<string \| number>, options: ExpandOptions<T>)` | trigger on expand row keys changing。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface ExpandOptions<T> { expandedRowData: Array<T>; currentRowData: T }`<br/>
-filter-change | `(filterValue: FilterValue, context: { col?: PrimaryTableCol<T> })` | trigger on filter value changing
+filter-change | `(filterValue: FilterValue, context: TableFilterChangeContext<T>)` | trigger on filter value changing。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface TableFilterChangeContext<T> { col?: PrimaryTableCol<T>; trigger: 'filter-change' \| 'confirm' \| 'reset' \| 'clear' }`<br/>
 row-edit | `(context: PrimaryTableRowEditContext<T>)` | trigger on row data is editing。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`type PrimaryTableRowEditContext<T> = PrimaryTableCellParams<T> & { value: any; editedRow: T }`<br/>
 row-validate | `(context: PrimaryTableRowValidateContext<T>)` | trigger after row data validated。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`type PrimaryTableRowValidateContext<T> = { result: TableRowValidateResult<T>[]; trigger: TableValidateTrigger }`<br/><br/>`type TableValidateTrigger = 'self' \| 'parent'`<br/><br/>`export type TableRowValidateResult<T> = PrimaryTableCellParams<T> & { errorList: AllValidateResult[]; value: any }`<br/>
 select-change | `(selectedRowKeys: Array<string \| number>, options: SelectOptions<T>)` | trigger on select changing。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface SelectOptions<T> { selectedRowData: Array<T>; type: 'uncheck' \| 'check'; currentRowKey?: string; currentRowData?: T }`<br/>
@@ -270,6 +280,7 @@ attrs | Object | - | html attributes of component。Typescript：`HTMLElementAtt
 classNames | String | - | component class names。Typescript：`ClassName`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 component | Slot / Function | - | Typescript：`ComponentType`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 confirmEvents | Array | - | Typescript：`string[]` | N
+label | String / Function | - | filter column title text, used to be showed in filter row。Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 list | Array | - | Typescript：`Array<OptionData>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 popupProps | Object | - | Typescript：`PopupProps`，[Popup API Documents](./popup?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 props | Object | - | Typescript：`FilterProps` `type FilterProps = RadioProps \| CheckboxProps \| InputProps \| { [key: string]: any }`，[Input API Documents](./input?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
@@ -284,9 +295,12 @@ name | type | default | description | required
 -- | -- | -- | -- | --
 buttonProps | Object | - | Typescript：`ButtonProps`，[Button API Documents](./button?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 checkboxProps | Object | - | Typescript：`CheckboxGroupProps`，[Checkbox API Documents](./checkbox?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
+columnControllerBottomContent | Slot / Function | - | column controller content at bottom of checkbox list。Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+columnControllerTopContent | Slot / Function | - | column controller content at top of checkbox list。Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 dialogProps | Object | - | Typescript：`DialogProps`，[Dialog API Documents](./dialog?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 displayType | String | auto-width | options: fixed-width/auto-width | N
 fields | Array | - | Typescript：`string[]` | N
+groupColumns | Array | - | show columns by group。Typescript：`TableColumnGroup[]` `interface TableColumnGroup { label: string; value?: string \| number; columns: string[] }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 hideTriggerButton | Boolean | false | \- | N
 placement | String | top-right | options: top-left/top-right/bottom-left/bottom-right | N
 

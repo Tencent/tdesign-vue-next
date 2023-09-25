@@ -35,6 +35,7 @@ tagProps | Object | - | Typescript：`TagProps`，[Tag API Documents](./tag?tab=
 tips | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 value | String / Number / Boolean / Object / Array / Date | - | Typescript：`SelectInputValue` `type SelectInputValue = string \| number \| boolean \| Date \| Object \| Array<any> \| Array<SelectInputValue>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select-input/type.ts) | N
 valueDisplay | String / Slot / Function | - | Typescript：`string \| TNode<{ value: TagInputValue; onClose: (index: number, item?: any) => void }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+valueDisplayOptions | Object | - | Custom value display. See `SelectInputValueDisplayOptions` below. TypeScript: `SelectInputValueDisplayOptions` | N
 onBlur | Function |  | Typescript：`(value: SelectInputValue, context: SelectInputBlurContext) => void`<br/>trigger on blur。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select-input/type.ts)。<br/>`type SelectInputBlurContext = PopupVisibleChangeContext & { inputValue: string; tagInputValue?: TagInputValue; }`<br/> | N
 onClear | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/> | N
 onEnter | Function |  | Typescript：`(value: SelectInputValue, context: { e: KeyboardEvent; inputValue: InputValue; tagInputValue?: TagInputValue }) => void`<br/> | N
@@ -60,3 +61,10 @@ mouseleave | `(context: { e: MouseEvent })` | trigger on mouseleave
 paste | `(context: { e: ClipboardEvent; pasteValue: string })` | \-
 popup-visible-change | `(visible: boolean, context: PopupVisibleChangeContext)` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select-input/type.ts)。<br/>`import { PopupVisibleChangeContext } from '@Popup'`<br/>
 tag-change | `(value: TagInputValue, context: SelectInputChangeContext)` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select-input/type.ts)。<br/>`type SelectInputChangeContext = TagInputChangeContext`<br/>
+
+### SelectInputValueDisplayOptions
+
+name | type | default | description | required
+-- | -- | -- | -- | --
+useInputDisplay | Boolean | false | Use with valueDisplay, enable component's integrated input display when single select(multiple disabled) with filterable enabled. In default need to render valueDisplay via input event. This option is not used when multiple select(multiple enabled), will use component's integrated input display by default. | N
+usePlaceholder | Boolean | false | Use with valueDisplay, enable component's integrated placeholder implementation when single select(multiple disabled). In default need to render valueDisplay via param value(while param placeholder not rendered). This option is not used when multiple select(multiple enabled), will use component's integrated placeholder implementation by default. | N

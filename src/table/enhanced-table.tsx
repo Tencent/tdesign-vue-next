@@ -21,7 +21,8 @@ export default defineComponent({
 
   setup(props: TdEnhancedTableProps, context: SetupContext) {
     const primaryTableRef = ref(null);
-    const { store, dataSource, formatTreeColumn, swapData, ...treeInstanceFunctions } = useTreeData(props, context);
+    const { store, dataSource, formatTreeColumn, swapData, onExpandFoldIconClick, ...treeInstanceFunctions } =
+      useTreeData(props, context);
     const classPrefix = usePrefixClass();
 
     const treeDataMap = ref(store.value.treeDataMap);
@@ -64,7 +65,7 @@ export default defineComponent({
 
     const onEnhancedTableRowClick: TdPrimaryTableProps['onRowClick'] = (p) => {
       if (props.tree?.expandTreeNodeOnClick) {
-        treeInstanceFunctions.toggleExpandData(
+        onExpandFoldIconClick(
           {
             row: p.row,
             rowIndex: p.index,

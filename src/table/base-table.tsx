@@ -23,6 +23,8 @@ import { Styles } from '../common';
 import { getIEVersion } from '../_common/js/utils/helper';
 import { BaseTableInstanceFunctions } from './type';
 import log from '../_common/js/log';
+import { useRowHighlight } from './hooks/useRowHighlight';
+import useHoverKeyboardEvent from './hooks/useHoverKeyboardEvent';
 
 export const BASE_TABLE_EVENTS = ['page-change', 'cell-click', 'scroll', 'scrollX', 'scrollY'];
 export const BASE_TABLE_ALL_EVENTS = ROW_LISTENERS.map((t) => `row-${t}`).concat(BASE_TABLE_EVENTS);
@@ -55,7 +57,7 @@ export default defineComponent({
       useClassName();
     // 表格基础样式类
     const { tableClasses, sizeClassNames, tableContentStyles, tableElementStyles } = useStyle(props);
-    const { globalConfig } = useConfig('table');
+    const { globalConfig } = useConfig('table', props.locale);
     const { isMultipleHeader, spansAndLeafNodes, thList } = useTableHeader(props);
     const finalColumns = computed(() => spansAndLeafNodes.value?.leafColumns || props.columns);
 
@@ -134,6 +136,7 @@ export default defineComponent({
         [tableColFixedClasses.leftShadow]: showColumnShadow.left,
         [tableColFixedClasses.rightShadow]: showColumnShadow.right,
         [tableBaseClass.columnResizableTable]: props.resizable,
+        [`${classPrefix}-table__row--active-${props.activeRowType}`]: props.activeRowType,
       },
     ]);
 
@@ -152,6 +155,18 @@ export default defineComponent({
       const paginationRect = paginationRef.value?.getBoundingClientRect();
       return (bottomRect?.height || 0) + (paginationRect?.height || 0);
     });
+
+    // 行高亮
+    const { tActiveRow, onHighlightRow, addHighlightKeyboardListener, removeHighlightKeyboardListener } =
+      useRowHighlight(props, tableRef);
+
+    const {
+      hoverRow,
+      needKeyboardRowHover,
+      clearHoverRow,
+      addRowHoverKeyboardListener,
+      removeRowHoverKeyboardListener,
+    } = useHoverKeyboardEvent(props, tableRef);
 
     watch(tableElmRef, () => {
       setUseFixedTableElmRef(tableElmRef.value);
@@ -239,6 +254,22 @@ export default defineComponent({
       addTableResizeObserver(tableRef.value);
     });
 
+    const onTableFocus = () => {
+      props.activeRowType && addHighlightKeyboardListener();
+      needKeyboardRowHover.value && addRowHoverKeyboardListener();
+    };
+
+    const onTableBlur = () => {
+      props.activeRowType && removeHighlightKeyboardListener();
+      needKeyboardRowHover.value && removeRowHoverKeyboardListener();
+    };
+
+    const onInnerRowClick: BaseTableProps['onRowClick'] = (ctx) => {
+      props.onRowClick?.(ctx);
+      props.activeRowType && onHighlightRow(ctx);
+      needKeyboardRowHover.value && clearHoverRow();
+    };
+
     return {
       thList,
       classPrefix,
@@ -285,6 +316,8 @@ export default defineComponent({
       tableBodyRef,
       virtualConfig,
       showAffixPagination,
+      tActiveRow,
+      hoverRow,
       scrollToElement: virtualConfig.scrollToElement,
       renderPagination,
       renderTNode,
@@ -294,6 +327,9 @@ export default defineComponent({
       onInnerVirtualScroll,
       refreshTable,
       scrollColumnIntoView,
+      onTableFocus,
+      onTableBlur,
+      onInnerRowClick,
       paginationAffixRef,
       horizontalScrollAffixRef,
       headerTopAffixRef,
@@ -516,6 +552,9 @@ export default defineComponent({
       // 内部使用分页信息必须取 innerPagination
       pagination: this.innerPagination,
       attach: this.attach,
+      hoverRow: this.hoverRow,
+      activeRow: this.tActiveRow,
+      onRowClick: this.onInnerRowClick,
     };
     const tableContent = (
       <div
@@ -590,7 +629,13 @@ export default defineComponent({
     );
 
     return (
-      <div ref="tableRef" class={this.dynamicBaseTableClasses} style="position: relative">
+      <div
+        ref="tableRef"
+        tabindex="0"
+        class={this.dynamicBaseTableClasses}
+        onFocus={this.onTableFocus}
+        onBlur={this.onTableBlur}
+      >
         {!!topContent && <div class={this.tableBaseClass.topContent}>{topContent}</div>}
 
         {renderAffixedHeader()}

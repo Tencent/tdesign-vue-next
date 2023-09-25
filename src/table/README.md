@@ -4,7 +4,7 @@
 
 因此，表格组件有三个：`BaseTable`（基础表格）、`PrimaryTable`（主表格）、`EnhancedTable`（增强型表格），三种表格都会导出。默认导出 `PrimaryTable`。
 
-- `BaseTable`（基础表格）包含一些基础功能：固定表头、固定列、冻结行、加载态、分页、多级表头、合并单元格、自定义单元格、自定义表头、自定义表尾、文本省略、对齐方式、表格事件、尺寸、行类名、边框、斑马线、悬浮态、空数据等
+- `BaseTable`（基础表格）包含一些基础功能：行高亮、固定表头、固定列、冻结行、加载态、分页、多级表头、合并单元格、自定义单元格、自定义表头、自定义表尾、文本省略、对齐方式、表格事件、尺寸、行类名、边框、斑马线、悬浮态、空数据等
 - `PrimaryTable` 或 `Table`（主表格）包含一些更高级的功能：行展开/收起、过滤、排序、异步加载、拖拽排序等。`PrimaryTable` 和 `Table` 包含 `BaseTable` 的所有功能。`Table` 和 `PrimaryTable` 完全等价。
 - `EnhancedTable`（增强型表格）包含一些更复杂的功能：树形结构等。`EnhancedTable` 包含 `BaseTable` 和 `PrimaryTable` 的所有功能
 
@@ -22,6 +22,7 @@
 - hooks/useMultiHeader 多级表头，BaseTable
 - hooks/usePagination 分页，BaseTable
 - hooks/useLazyLoad 懒加载，BaseTable
+- hooks/useRowHighlight 行高亮，BaseTable
 
 - hooks/useAsyncLoading 异步加载功能，PrimaryTable
 - hooks/useColumnController 自定义列配置，PrimaryTable
@@ -33,3 +34,4 @@
 
 - hooks/useTreeData 树形结构，EnhancedTable
 - hooks/useTreeSelect 树形选择，EnhancedTable
+- hooks/useTreeExpand 树形节点展开，EnhancedTable

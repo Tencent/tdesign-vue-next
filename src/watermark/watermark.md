@@ -27,6 +27,7 @@ zIndex | Number | - | 水印元素的 `z-index`，默认值写在 CSS 中 | N
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
 fontColor | String | rgba(0,0,0,0.1) | 水印文本文字颜色 | N
+fontFamily | String | - | 水印文本文字字体 | N
 fontSize | Number | 16 | 水印文本文字大小 | N
 fontWeight | String | normal | 水印文本文字粗细。可选项：normal/lighter/bold/bolder | N
 text | String | - | 水印文本内容 | N

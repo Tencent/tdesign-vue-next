@@ -16,6 +16,8 @@ import { useTNodeDefault } from '../../hooks/tnode';
 
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 import isString from 'lodash/isString';
+import filter from 'lodash/filter';
+import cloneDeep from 'lodash/cloneDeep';
 import useDragSort from '../hooks/useDragSort';
 
 const props = {
@@ -94,11 +96,17 @@ export default defineComponent({
       const pagination = props.pagination as any;
       return pagination?.pageSize || defaultPageSize.value || pagination?.defaultPageSize;
     });
+
     const filteredData = computed(() => {
-      return props.dataSource.filter((item: TransferItemOption) => {
-        const label = item && item.label.toString();
-        return label.toLowerCase().indexOf(filterValue.value.toLowerCase()) > -1;
-      });
+      const isTreeData = props.dataSource.some((item) => item.children && item.children.length);
+      if (!isTreeData) {
+        return props.dataSource.filter((item: TransferItemOption) => {
+          const label = item && item.label.toString();
+          return label.toLowerCase().indexOf(filterValue.value.toLowerCase()) > -1;
+        });
+      } else {
+        return filteredTreeData(props.dataSource, filterValue.value);
+      }
     });
 
     const pageTotal = computed(() => {
@@ -162,6 +170,22 @@ export default defineComponent({
         defaultCurrent.value = lastPage;
       }
     });
+
+    const filteredTreeData = (list: TransferItemOption[], keyword: string) => {
+      const res = filter(cloneDeep(list), (node) => {
+        if (node.label.toLowerCase().includes(keyword.toLowerCase())) {
+          return true;
+        }
+        if (node.children && node.children.length > 0) {
+          node.children = filteredTreeData(node.children, keyword);
+          if (node.children.length > 0) {
+            return true;
+          }
+        }
+        return false;
+      });
+      return res;
+    };
 
     const handlePaginationChange = (pageInfo: PageInfo) => {
       props.onPageChange?.(pageInfo);

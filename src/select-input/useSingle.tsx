@@ -69,14 +69,14 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
   const renderSelectSingle = (popupVisible: boolean) => {
     const singleValueDisplay = renderTNode('valueDisplay');
     const displayedValue = popupVisible && props.allowInput ? inputValue.value : getInputValue(value.value, keys.value);
-    const prefixContent = [renderTNode('label'), singleValueDisplay];
+    const prefixContent = renderPrefixContent(singleValueDisplay, popupVisible);
     const inputProps = {
       ...commonInputProps.value,
-      value: singleValueDisplay ? undefined : displayedValue,
+      value: renderInputDisplay(singleValueDisplay, displayedValue, popupVisible),
       label: prefixContent.length ? () => prefixContent : undefined,
       autoWidth: props.autoWidth,
       readonly: !props.allowInput || props.readonly,
-      placeholder: singleValueDisplay ? '' : props.placeholder,
+      placeholder: renderPlaceholder(singleValueDisplay),
       suffixIcon: !disable.value && props.loading ? () => <Loading loading size="small" /> : props.suffixIcon,
       showClearIconOnEmpty: Boolean(
         props.clearable && (inputValue.value || displayedValue) && !disable.value && !props.readonly,
@@ -116,6 +116,44 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
         inputClass={inputClassProps}
       />
     );
+  };
+
+  const renderPrefixContent = (singleValueDisplay: any, popupVisible: boolean) => {
+    // 需要隐藏valueDisplay的两个情况
+    // 1 用户传入usePlaceholder希望使用自带占位符实现，则应在未选择值时隐藏valueDisplay，只展示占位符
+    // 2 用户传入useInputDisplay希望使用自带输入回显实现，激活选择器浮层时只展示input值（待讨论是否修改为激活后真的输入字符再隐藏valueDisplay，此处实现效果与不使用valueDisplay只使用filterable时不同）
+    if (singleValueDisplay) {
+      if (
+        (props.valueDisplayOptions?.usePlaceholder && !value.value) ||
+        (props.valueDisplayOptions?.useInputDisplay && popupVisible)
+      ) {
+        return [renderTNode('label')];
+      }
+    }
+    return [renderTNode('label'), singleValueDisplay];
+  };
+
+  const renderInputDisplay = (singleValueDisplay: any, displayedValue: any, popupVisible: boolean) => {
+    // 使用valueDisplay插槽时，如用户传入useInputDisplay使用自带输入回显实现，未传则认为用户自行实现。
+    if (singleValueDisplay)
+      if (
+        !props.valueDisplayOptions?.useInputDisplay ||
+        (props.valueDisplayOptions?.useInputDisplay && !popupVisible)
+      ) {
+        return undefined;
+      }
+    return displayedValue;
+  };
+
+  const renderPlaceholder = (singleValueDisplay: any) => {
+    // 使用valueDisplay插槽时，如用户传入usePlaceholder使用自带占位符实现，未传则认为用户自行实现。
+    // 如果当前存在value（对应直接使用组件和select组件调用时），不显示占位符。
+    if (singleValueDisplay) {
+      if (!props.valueDisplayOptions?.usePlaceholder || (props.valueDisplayOptions?.usePlaceholder && value.value)) {
+        return '';
+      }
+    }
+    return props.placeholder;
   };
 
   return {
