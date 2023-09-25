@@ -20,13 +20,13 @@
     </t-space>
     <t-tree
       ref="tree"
+      v-model:value="allChecked"
       :data="items"
-      hover
-      expand-all
       :checkable="checkable"
       :check-strictly="checkStrictly"
       :value-mode="valueMode"
-      :value="allChecked"
+      hover
+      expand-all
       @change="onChange"
       @click="onClick"
     />
