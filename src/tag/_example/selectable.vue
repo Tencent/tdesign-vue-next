@@ -32,7 +32,7 @@
         :checked-props="{ theme: 'primary', variant: 'outline' }"
         :unchecked-props="{ theme: 'default', variant: 'outline' }"
         style="margin-right: 32px"
-        >选中/未选态</t-check-tag
+        >Check Tag</t-check-tag
       >
       <t-check-tag :checked="true" :checked-props="{ theme: 'primary', variant: 'outline' }">Checked</t-check-tag>
       <t-check-tag :checked="false" :unchecked-props="{ theme: 'default', variant: 'outline' }">Unchecked</t-check-tag>
@@ -51,26 +51,4 @@ import { ref } from 'vue';
 const checked1 = ref(false);
 const checked2 = ref(false);
 const checked3 = ref(false);
-
-const tags = [
-  {
-    name: '选中',
-    defaultChecked: true,
-  },
-  {
-    name: '未选',
-  },
-  {
-    name: 'Disabled',
-    disabled: true,
-  },
-];
-
-const handleClick = (tag, index) => {
-  console.log(tag, index);
-};
-
-const handleChange = (isChecked) => {
-  console.log(isChecked);
-};
 </script>

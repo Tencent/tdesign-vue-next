@@ -27,7 +27,7 @@
     </t-space>
 
     <t-space align="center">
-      <label>TagContent</label>
+      <label>CustomContent</label>
       <t-check-tag-group
         v-model="checkTagValue4"
         :options="options2"
@@ -65,12 +65,12 @@ const options = [
 
 const AVATAR = 'https://tdesign.gtimg.com/site/avatar.jpg';
 const options2 = [
-  { label: '标签A', value: 1, avatar: AVATAR },
-  { label: '标签B', value: 2, avatar: AVATAR },
-  { label: '标签C', value: 3, avatar: AVATAR },
-  { label: '标签D', value: 4, avatar: AVATAR },
-  { label: '标签E', value: '5', avatar: AVATAR },
-  { label: '标签F', value: 6, avatar: AVATAR },
+  { label: 'TAG_A', value: 1, avatar: AVATAR },
+  { label: 'TAG_B', value: 2, avatar: AVATAR },
+  { label: 'TAG_C', value: 3, avatar: AVATAR },
+  { label: 'TAG_D', value: 4, avatar: AVATAR },
+  { label: 'TAG_E', value: '5', avatar: AVATAR },
+  { label: 'TAG_F', value: 6, avatar: AVATAR },
 ];
 </script>
 
