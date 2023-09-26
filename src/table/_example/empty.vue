@@ -2,7 +2,7 @@
   <div>
     <t-table :data="data" :columns="columns" :row-key="rowKey" />
     <br /><br />
-    <t-table :data="data" :columns="columns" :row-key="rowKey">
+    <t-table :data="data" :columns="columns" :row-key="rowKey" lazy-load>
       <template #empty>
         <span
           style="display: flex; align-items: center; justify-content: center; height: 100px; color: rgba(0, 0, 0, 0.26)"

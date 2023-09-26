@@ -126,6 +126,10 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   popupVisible?: boolean;
   /**
+   * 组件前置图标
+   */
+  prefixIcon?: TNode;
+  /**
    * 只读状态，值为真会隐藏输入框，且无法打开下拉框
    * @default false
    */
@@ -195,7 +199,7 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   modelValue?: CascaderValue<CascaderOption>;
   /**
-   * 【开发中】自定义选中项呈现的内容
+   * 自定义选中项呈现的内容
    */
   valueDisplay?:
     | string
@@ -203,6 +207,7 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
         value: CascaderValue<CascaderOption>;
         onClose: (index: number) => void;
         displayValue?: CascaderValue<CascaderOption>;
+        selectedOptions: CascaderOption[];
       }>;
   /**
    * 选中值模式。all 表示父节点和子节点全部会出现在选中值里面；parentFirst 表示当子节点全部选中时，仅父节点在选中值里面；onlyLeaf 表示无论什么情况，选中值仅呈现叶子节点

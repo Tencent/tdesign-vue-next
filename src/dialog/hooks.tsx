@@ -99,7 +99,7 @@ export function useAction(action: BtnAction) {
     const defaultButtonProps = getDefaultConfirmBtnProps(options);
     // 属性和插槽都不存在，就返回全局默认配置
     if (!confirmBtn && !instance.slots.confirmBtn) {
-      return <TButton class={className} {...defaultButtonProps} />;
+      return <TButton class={className} loading={confirmLoading} {...defaultButtonProps} />;
     }
     // 如果属性存在，优先返回属性配置
     if (confirmBtn && ['string', 'object'].includes(typeof confirmBtn)) {

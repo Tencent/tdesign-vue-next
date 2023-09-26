@@ -3,7 +3,15 @@
     <div class="item">
       <div style="margin: 16px">排序方式：{{ JSON.stringify(sort) }}</div>
       <!-- 支持受控用法 ，也支持非受控用法 -->
-      <t-table row-key="index" :columns="columns" :data="data" :sort="sort" multiple-sort @sort-change="sortChange">
+      <t-table
+        row-key="index"
+        :columns="columns"
+        :data="data"
+        :sort="sort"
+        multiple-sort
+        lazy-load
+        @sort-change="sortChange"
+      >
       </t-table>
     </div>
   </div>

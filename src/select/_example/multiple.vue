@@ -1,7 +1,14 @@
 <template>
   <t-space direction="vertical">
     <!-- 方式一：使用 options 输出下拉选项。优先级高于 t-option-->
-    <t-select v-model="value1" :options="options1" placeholder="请选择云解决方案" multiple />
+    <t-select
+      v-model="value1"
+      :options="options1"
+      placeholder="请选择云解决方案"
+      multiple
+      @focus="onFocus"
+      @blur="onBlur"
+    />
 
     <!-- 方式二：使用 t-option 输出下拉选项。options 和 t-option 两种实现方式二选一即可 -->
     <t-select v-model="value2" placeholder="请选择云产品" multiple>
@@ -10,7 +17,14 @@
     </t-select>
 
     <!-- 超出 2 个的选中项折叠，如果想要自定义折叠项，参考下文「自定义折叠的选中项」 -->
-    <t-select v-model="value3" :options="options1" :min-collapsed-num="2" placeholder="请选择云解决方案" multiple />
+    <t-select
+      v-model="value3"
+      label="折叠选项："
+      :options="options1"
+      :min-collapsed-num="2"
+      placeholder="请选择云解决方案"
+      multiple
+    />
   </t-space>
 </template>
 <script setup lang="jsx">
@@ -43,4 +57,12 @@ const options2 = [
 const value1 = ref(['1', '3']);
 const value2 = ref(['1', '2', '3', '4', '5', '6']);
 const value3 = ref(['3', '5', '6', '2']);
+
+const onFocus = (ctx) => {
+  console.log('focus:', ctx);
+};
+
+const onBlur = (ctx) => {
+  console.log('blur:', ctx);
+};
 </script>

@@ -24,7 +24,8 @@ export default function useResizeObserver(
     containerObserver.observe(el);
   };
 
-  if (container?.value) {
+  // can not use container.value to judge
+  container &&
     watch(
       container,
       (el) => {
@@ -33,7 +34,6 @@ export default function useResizeObserver(
       },
       { immediate: true, flush: 'post' },
     );
-  }
 
   onBeforeUnmount(() => {
     cleanupObserver();

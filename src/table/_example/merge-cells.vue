@@ -8,6 +8,7 @@
       :rowspan-and-colspan="rowspanAndColspan"
       resizable
       table-layout="fixed"
+      lazy-load
     />
   </div>
 </template>

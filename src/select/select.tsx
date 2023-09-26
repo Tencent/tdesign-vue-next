@@ -169,7 +169,7 @@ export default defineComponent({
           e.preventDefault();
           if (hoverIndex.value === -1) {
             newIndex = 0;
-          } else if (hoverIndex.value === 0) {
+          } else if (hoverIndex.value === 0 || hoverIndex.value > displayOptions.value.length - 1) {
             newIndex = optionsListLength - 1;
           } else {
             newIndex--;
@@ -181,7 +181,7 @@ export default defineComponent({
           break;
         case 'ArrowDown':
           e.preventDefault();
-          if (hoverIndex.value === -1 || hoverIndex.value === optionsListLength - 1) {
+          if (hoverIndex.value === -1 || hoverIndex.value >= optionsListLength - 1) {
             newIndex = 0;
           } else {
             newIndex++;
@@ -341,12 +341,6 @@ export default defineComponent({
       if (value) {
         // 显示
         hoverIndex.value = -1;
-      } else {
-        // 隐藏
-        // eslint-disable-next-line no-lonely-if
-        if (innerInputValue.value) {
-          setInputValue('');
-        }
       }
     });
 
@@ -471,6 +465,7 @@ export default defineComponent({
               props.onBlur?.({ e, value: innerValue.value });
             }}
             onFocus={(inputValue, { e }) => {
+              setInputValue('');
               props.onFocus?.({ e, value: innerValue.value });
             }}
             {...(props.selectInputProps as TdSelectProps['selectInputProps'])}

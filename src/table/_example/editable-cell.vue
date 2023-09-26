@@ -9,6 +9,7 @@
       :data="data"
       :editable-cell-state="editableCellState"
       bordered
+      lazy-load
     />
     <br />
 
