@@ -42,18 +42,22 @@ export function getCodeSandboxParams(code, meta) {
   return getParameters({
     files: {
       'package.json': {
-        content: JSON.stringify({
-          title: meta.title,
-          dependencies: {
-            vue: orgPkg.devDependencies.vue,
-            less: orgPkg.devDependencies.less,
-            'tdesign-vue-next': orgPkg.version,
-            'tdesign-icons-vue-next': orgPkg.dependencies['tdesign-icons-vue-next'],
+        content: JSON.stringify(
+          {
+            title: meta.title,
+            dependencies: {
+              vue: orgPkg.devDependencies.vue,
+              less: orgPkg.devDependencies.less,
+              'tdesign-vue-next': orgPkg.version,
+              'tdesign-icons-vue-next': orgPkg.dependencies['tdesign-icons-vue-next'],
+            },
+            devDependencies: {
+              '@vue/cli-plugin-babel': '~4.5.0',
+            },
           },
-          devDependencies: {
-            '@vue/cli-plugin-babel': '~4.5.0',
-          },
-        }),
+          null,
+          2,
+        ),
         isBinary: false,
       },
       'index.html': {
