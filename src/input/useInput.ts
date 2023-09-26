@@ -8,7 +8,6 @@ import useLengthLimit from './useLengthLimit';
 export interface ExtendsTdInputProps extends TdInputProps {
   showInput: boolean;
   keepWrapperWidth: boolean;
-  allowTriggerBlur: boolean;
 }
 
 export default function useInput(props: ExtendsTdInputProps, expose: (exposed: Record<string, any>) => void) {
@@ -43,10 +42,18 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
     );
   });
 
-  const focus = () => inputRef.value?.focus();
-  const blur = () => inputRef.value?.blur();
+  const focus = () => {
+    focused.value = true;
+    inputRef.value?.focus();
+  };
+
+  const blur = () => {
+    focused.value = false;
+    inputRef.value?.blur();
+  };
 
   const emitFocus = (e: FocusEvent) => {
+    if (isHover.value && focused.value) return;
     inputValue.value = innerValue.value;
     if (props.disabled) return;
     focused.value = true;
@@ -118,14 +125,16 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
 
   const formItem = inject(FormItemInjectionKey, undefined);
   const formatAndEmitBlur = (e: FocusEvent) => {
-    if (props.format) {
-      inputValue.value = props.format(innerValue.value);
-    }
-    focused.value = false;
-    // 点击清空按钮的时候，不应该触发 onBlur 事件。这个规则在表格单元格编辑中有很重要的应用
-    if (!isClearIcon() && props.allowTriggerBlur) {
+    if (isHover.value) return;
+    if (!isClearIcon()) {
+      if (props.format) {
+        inputValue.value = props.format(innerValue.value);
+      }
+      focused.value = false;
       props.onBlur?.(innerValue.value, { e });
       formItem?.handleBlur();
+    } else {
+      focus();
     }
   };
 

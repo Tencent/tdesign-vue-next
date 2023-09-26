@@ -28,19 +28,19 @@ export default defineComponent({
   name: 'TInput',
   props: {
     ...props,
+    /**
+     * 非公开 API，随时可能变动，请勿使用。控制透传readonly同时是否展示input 默认保留 因为正常Input需要撑开宽度
+     */
     showInput: {
-      // 没有这个 API，请勿使用，即将删除。控制透传readonly同时是否展示input 默认保留 因为正常Input需要撑开宽度
       type: Boolean,
       default: true,
     },
+    /**
+     * 非公开 API，随时可能变动，请勿使用。控制透传autoWidth之后是否容器宽度也自适应 多选等组件需要用到自适应但也需要保留宽度
+     */
     keepWrapperWidth: {
-      // 没有这个 API，请勿使用，即将删除。控制透传autoWidth之后是否容器宽度也自适应 多选等组件需要用到自适应但也需要保留宽度
       type: Boolean,
       default: false,
-    },
-    allowTriggerBlur: {
-      type: Boolean,
-      default: true,
     },
   },
 
@@ -100,7 +100,7 @@ export default defineComponent({
     ]);
 
     const inputEvents = getValidAttrs({
-      onFocus: (e: FocusEvent) => inputHandle.emitFocus(e),
+      onFocus: inputHandle.emitFocus,
       onBlur: inputHandle.formatAndEmitBlur,
       onKeydown: inputEventHandler.handleKeydown,
       onKeyup: inputEventHandler.handleKeyUp,
@@ -213,16 +213,15 @@ export default defineComponent({
               </span>
             ) : null}
             {labelContent}
-            {props.showInput && (
-              <input
-                class={`${COMPONENT_NAME.value}__inner`}
-                {...inputAttrs.value}
-                {...inputEvents}
-                ref={inputRef}
-                value={isComposition.value ? compositionValue.value ?? '' : inputValue.value ?? ''}
-                onInput={(e: Event) => inputHandle.handleInput(e as InputEvent)}
-              />
-            )}
+            {/* input element must exist, or other select components can not focus by keyboard operation */}
+            <input
+              class={[`${COMPONENT_NAME.value}__inner`, { [`${COMPONENT_NAME.value}--soft-hidden`]: !props.showInput }]}
+              {...inputAttrs.value}
+              {...inputEvents}
+              ref={inputRef}
+              value={isComposition.value ? compositionValue.value ?? '' : inputValue.value ?? ''}
+              onInput={(e: Event) => inputHandle.handleInput(e as InputEvent)}
+            />
             {props.autoWidth && (
               <span ref={inputPreRef} class={`${classPrefix.value}-input__input-pre`}>
                 {innerValue.value || tPlaceholder.value}

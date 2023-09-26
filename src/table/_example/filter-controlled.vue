@@ -41,6 +41,7 @@
       :data="data"
       :filter-value="filterValue"
       :bordered="bordered"
+      lazy-load
       @filter-change="onFilterChange"
     />
   </div>

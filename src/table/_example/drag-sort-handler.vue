@@ -12,6 +12,7 @@
         :data="data"
         :loading="loading"
         drag-sort="row-handler"
+        lazy-load
         @drag-sort="onDragSort"
       >
       </t-table>
