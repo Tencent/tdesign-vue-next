@@ -199,6 +199,15 @@ export default function useTreeStore(state: TypeTreeState) {
     if (nVal.join() === previousVal?.join()) return;
     store.replaceActived(nVal);
   });
+  watch(tValue, (nVal: TreeNodeValue[]) => {
+    store.replaceChecked(nVal);
+  });
+  watch(tExpanded, (nVal: TreeNodeValue[]) => {
+    store.replaceExpanded(nVal);
+  });
+  watch(tActived, (nVal: TreeNodeValue[]) => {
+    store.replaceActived(nVal);
+  });
   watch(refProps.data, (list) => {
     rebuild(list);
   });
