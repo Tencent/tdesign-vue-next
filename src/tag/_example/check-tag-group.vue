@@ -10,7 +10,7 @@
       <t-check-tag-group
         v-model="checkTagValue2"
         :options="options"
-        :unchecked-props="{ theme: 'default', variant: 'outline' }"
+        :unchecked-props="STYLE_B_UNCHECKED_PROPS"
         multiple
       />
     </t-space>
@@ -20,8 +20,8 @@
       <t-check-tag-group
         v-model="checkTagValue3"
         :options="options"
-        :checked-props="{ theme: 'primary', variant: 'outline' }"
-        :unchecked-props="{ theme: 'default', variant: 'outline' }"
+        :checked-props="STYLE_C_CHECKED_PROPS"
+        :unchecked-props="STYLE_B_UNCHECKED_PROPS"
         multiple
       />
     </t-space>
@@ -31,8 +31,8 @@
       <t-check-tag-group
         v-model="checkTagValue4"
         :options="options2"
-        :checked-props="{ theme: 'primary', variant: 'outline' }"
-        :unchecked-props="{ theme: 'default', variant: 'outline' }"
+        :checked-props="STYLE_C_CHECKED_PROPS"
+        :unchecked-props="STYLE_B_UNCHECKED_PROPS"
         multiple
       >
         <template #option="{ label, value, avatar }">
@@ -49,6 +49,16 @@
 <!-- 如果是 TS 项目，请设置 lang="tsx" -->
 <script lang="jsx" setup>
 import { ref } from 'vue';
+
+const STYLE_B_UNCHECKED_PROPS = {
+  theme: 'default',
+  variant: 'outline',
+};
+
+const STYLE_C_CHECKED_PROPS = {
+  theme: 'primary',
+  variant: 'outline',
+};
 
 const checkTagValue1 = ref([1]);
 const checkTagValue2 = ref([2]);
