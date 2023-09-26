@@ -1,4 +1,4 @@
-import { defineComponent, h, VNodeChild, onMounted, onUnmounted, inject, watch } from 'vue';
+import { defineComponent, h, VNodeChild, onMounted, onUnmounted, inject, watch, cloneVNode, ref, nextTick } from 'vue';
 import { ANCHOR_SHARP_REGEXP } from './utils';
 import props from './anchor-item-props';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
@@ -15,6 +15,10 @@ const localProps = {
       return ANCHOR_SHARP_REGEXP.test(v);
     },
   },
+  _level: {
+    type: Number,
+    default: 1,
+  },
 };
 
 export default defineComponent({
@@ -24,6 +28,7 @@ export default defineComponent({
   },
   props: localProps,
   setup(props, { slots }) {
+    const elRef = ref<HTMLElement>(null);
     const anchor = inject(AnchorInjectionKey, undefined);
     const CLASSNAME_PREFIX = usePrefixClass('anchor__item');
     const { STATUS } = useCommonClassName();
@@ -60,8 +65,10 @@ export default defineComponent({
       },
       { immediate: true },
     );
-    onMounted(() => {
+    onMounted(async () => {
       register();
+      await nextTick();
+      elRef.value.style.setProperty('--level', `${props._level}`);
     });
     onUnmounted(() => {
       unregister();
@@ -80,12 +87,19 @@ export default defineComponent({
         [`${CLASSNAME_PREFIX.value}-link`]: true,
       };
       return (
-        <div class={wrapperClass}>
-          <a href={href} title={titleAttr} class={titleClass} target={target} onClick={handleClick}>
-            {titleSlot ? titleSlot(null) : title}
-          </a>
-          {children && children(null)}
-        </div>
+        <>
+          <div class={wrapperClass} ref={elRef}>
+            <a href={href} title={titleAttr} class={titleClass} target={target} onClick={handleClick}>
+              {titleSlot ? titleSlot(null) : title}
+            </a>
+          </div>
+          {children &&
+            children(null).map((child) =>
+              cloneVNode(child, {
+                _level: props._level + 1,
+              }),
+            )}
+        </>
       );
     };
   },
