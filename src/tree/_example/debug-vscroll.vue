@@ -123,7 +123,7 @@ export default {
       return `${node.value}`;
     },
     getInsertItem() {
-      const value = virtualTree.getValue();
+      const value = this.getValue();
       return {
         value,
       };
@@ -161,21 +161,18 @@ export default {
         this.filterByText = null;
       }
     },
+    getValue() {
+      this.index += 1;
+      return `t${this.index}`;
+    },
     createTreeData() {
       const allLevels = [this.level1Count, this.level2Count, this.level3Count];
-      let cacheIndex = 0;
-
-      const getValue = () => {
-        cacheIndex += 1;
-        return `t${cacheIndex}`;
-      };
-
       const createNodes = (items, level) => {
         const count = allLevels[level];
         if (count) {
           let index = 0;
           for (index = 0; index < count; index += 1) {
-            const value = getValue();
+            const value = this.getValue();
             const item = { value };
             items.push(item);
             if (allLevels[level + 1]) {
@@ -185,18 +182,12 @@ export default {
           }
         }
       };
-
       const items = [];
       createNodes(items, 0);
-
-      return {
-        getValue,
-        items,
-      };
+      return items;
     },
     createTree() {
-      const virtualTree = this.createTreeData();
-      this.items = virtualTree.items;
+      this.items = this.createTreeData();
     },
     clearTree() {
       this.items = [];
