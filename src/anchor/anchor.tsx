@@ -18,6 +18,7 @@ import Affix from '../affix';
 import { TdAnchorProps } from './type';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { AnchorInjectionKey } from './constants';
+import { isFunction } from 'lodash';
 
 export interface Anchor extends ComponentPublicInstance {
   scrollContainer: ANCHOR_CONTAINER;
@@ -122,14 +123,15 @@ export default defineComponent({
     /**
      * 设置当前激活状态锚点
      *
-     * @param {string} link
+     * @param {string} href
      */
-    const setCurrentActiveLink = async (link: string): Promise<void> => {
-      if (active.value === link) {
+    const setCurrentActiveLink = async (href: string): Promise<void> => {
+      if (active.value === href) {
         return;
       }
-      active.value = link;
-      props.onChange?.(link, active.value);
+      const newHref = isFunction(props.getCurrentAnchor) ? props.getCurrentAnchor(href) : href;
+      active.value = newHref;
+      props.onChange?.(newHref, active.value);
       await nextTick();
       updateActiveLine();
     };
@@ -156,6 +158,8 @@ export default defineComponent({
      */
     const handleLinkClick = (link: { href: string; title: string; e: MouseEvent }) => {
       props.onClick?.(link);
+      const newHref = isFunction(props.getCurrentAnchor) ? props.getCurrentAnchor(link.href) : link.href;
+      handleScrollTo(newHref);
     };
     /**
      * 滚动到指定锚点
@@ -182,10 +186,15 @@ export default defineComponent({
     };
     onMounted(async () => {
       getScrollContainer();
-      if (active.value) {
-        await nextTick();
-        handleScrollTo(active.value);
+      // 初始化
+      let newHref = active.value;
+      if (props.getCurrentAnchor) {
+        newHref = props.getCurrentAnchor(newHref);
+      } else {
+        newHref = decodeURIComponent(window?.location.hash);
       }
+      await nextTick();
+      handleScrollTo(newHref);
     });
     onUnmounted(() => {
       if (!scrollContainer.value) return;
@@ -203,7 +212,6 @@ export default defineComponent({
       reactive({
         registerLink,
         unregisterLink,
-        handleScrollTo,
         handleLinkClick,
         active,
       }),

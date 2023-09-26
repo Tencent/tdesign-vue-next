@@ -37,7 +37,6 @@ export default defineComponent({
     };
     const handleClick = (e: MouseEvent) => {
       const { href, title } = props;
-      anchor.handleScrollTo(href);
       anchor.handleLinkClick({ href, title: isString(title) ? title : undefined, e });
     };
     const renderTitle = () => {
