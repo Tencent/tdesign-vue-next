@@ -99,9 +99,12 @@ export default defineComponent({
             const val = spec[name];
             delete spec[name];
             const methodName = `set${upperFirst(name)}`;
-            const setupMethod = this[methodName];
+            const setupMethod = node[methodName];
             if (isFunction(setupMethod)) {
-              setupMethod(node, val);
+              setupMethod.call(node, val, {
+                directly: true,
+                isAction: false,
+              });
             }
           }
         });
@@ -242,6 +245,8 @@ export default defineComponent({
       );
     }
 
+    const topValue =
+      (allNodes.value?.filter((node) => node.visible).length ?? 0) * (refProps.scroll.value?.rowHeight ?? 34);
     const placeholderStyles: TypeStyles = {
       width: '1px',
       height: '1px',
@@ -249,8 +254,7 @@ export default defineComponent({
       pointerEvents: 'none',
       position: 'absolute',
       left: 0,
-      top:
-        (allNodes.value?.filter((node) => node.visible).length ?? 0) * (refProps.scroll.value?.rowHeight ?? 34) + 'px',
+      top: `${topValue}px`,
     };
 
     const placeholderEl = <div style={placeholderStyles} />;
