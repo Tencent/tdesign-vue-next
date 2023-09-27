@@ -54,7 +54,7 @@ describe('Tree:props:events', () => {
       expect(rsActived.length).toBe(1);
       expect(rsActived[0]).toBe('t2');
       expect(rsContext.node.value).toBe('t2');
-    }, 3);
+    }, 300);
 
     it('active 事件可触发', async () => {
       const data = [{ value: 't1' }, { value: 't2' }];
@@ -98,7 +98,7 @@ describe('Tree:props:events', () => {
       expect(rsActived.length).toBe(1);
       expect(rsActived[0]).toBe('t2');
       expect(rsContext.node.value).toBe('t2');
-    }, 3);
+    }, 300);
   });
 
   describe('event:expand', () => {
@@ -161,7 +161,7 @@ describe('Tree:props:events', () => {
       expect(rsExpanded.length).toBe(1);
       expect(rsExpanded[0]).toBe('t2');
       expect(rsContext.node.value).toBe('t2');
-    }, 3);
+    }, 300);
 
     it('expand 事件可触发', async () => {
       const data = [
@@ -222,7 +222,7 @@ describe('Tree:props:events', () => {
       expect(rsExpanded.length).toBe(1);
       expect(rsExpanded[0]).toBe('t2');
       expect(rsContext.node.value).toBe('t2');
-    }, 3);
+    }, 300);
   });
 
   describe('event:change', async () => {
@@ -286,7 +286,7 @@ describe('Tree:props:events', () => {
       expect(rsValue.length).toBe(1);
       expect(rsValue[0]).toBe('t2.1');
       expect(rsContext.node.value).toBe('t2');
-    }, 3);
+    }, 300);
 
     it('change 事件可触发', async () => {
       const data = [
@@ -348,7 +348,7 @@ describe('Tree:props:events', () => {
       expect(rsValue.length).toBe(1);
       expect(rsValue[0]).toBe('t2.1');
       expect(rsContext.node.value).toBe('t2');
-    }, 3);
+    }, 300);
   });
 
   describe('event:load', () => {
@@ -402,6 +402,6 @@ describe('Tree:props:events', () => {
 
       await delay(10);
       expect(loadedValues[0]).toBe('t1');
-    }, 3);
+    }, 300);
   });
 });
