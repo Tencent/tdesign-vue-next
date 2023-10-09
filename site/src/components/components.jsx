@@ -2,6 +2,8 @@ import { defineComponent } from 'vue';
 import semver from 'semver';
 import siteConfig from '../../site.config';
 import packageJson from '@/package.json';
+import './style.less';
+import { SearchIcon } from 'tdesign-icons-vue-next';
 
 const { docs, enDocs } = JSON.parse(JSON.stringify(siteConfig).replace(/component:.+/g, ''));
 
@@ -34,6 +36,8 @@ export default defineComponent({
       loaded: false,
       version: packageJson.version,
       options: [],
+      visible: false,
+      value: '',
     };
   },
 
@@ -44,6 +48,17 @@ export default defineComponent({
     },
     lang() {
       return this.$route?.meta?.lang || 'zh';
+    },
+  },
+  watch: {
+    visible(val) {
+      if (val) {
+        this.$nextTick(() => {
+          this.$refs.searchRef.focus();
+        });
+      } else {
+        this.value = '';
+      }
     },
   },
 
@@ -58,8 +73,12 @@ export default defineComponent({
     };
     this.$refs.tdDocSearch.docsearchInfo = { indexName: 'tdesign_doc_vue_next' };
     this.initHistoryVersions();
+    this.initDocSearch({ indexName: 'tdesign_doc_vue_next' });
+    window.addEventListener('keydown', this.quickSearch);
   },
-
+  unmounted() {
+    window.removeEventListener('keydown', this.quickSearch);
+  },
   methods: {
     initHistoryVersions() {
       fetch(registryUrl)
@@ -93,11 +112,58 @@ export default defineComponent({
         this.version = packageJson.version;
       });
     },
+
+    quickSearch(event) {
+      const isCtrlPressed = event.ctrlKey || event.metaKey;
+      if (isCtrlPressed && event.key === 'k') {
+        this.visible = true;
+        event.preventDefault();
+      }
+      if (event.key === 'Escape') {
+        this.visible = false;
+        event.preventDefault();
+      }
+    },
+    initDocSearch(docsearchInfo) {
+      if (!docsearchInfo.indexName) return;
+      const config = Object.assign(
+        {
+          apiKey: 'b27ded009670a12d2f36303309a7f50a',
+          appId: 'FK4VWYRY3Q',
+          inputSelector: '#TDQuickSearch',
+          debug: false,
+        },
+        docsearchInfo,
+      );
+
+      window.docsearch(config);
+    },
   },
 
   render() {
+    const dialogSearch = () => {
+      return (
+        <div className="tdesign-quick-search-header">
+          <div className="tdesign-quick-search-header-left">
+            <SearchIcon style={{ color: '#0052d9', fontSize: 22 }} />
+            <input ref="searchRef" id="TDQuickSearch" placeholder="搜索" v-model={this.value}></input>
+          </div>
+          <div className="tdesign-quick-search-header-right">
+            <div className="tdesign-quick-search-header-right-word">退出</div>
+            <div className="tdesign-quick-search-header-right-key">ESC</div>
+          </div>
+        </div>
+      );
+    };
+
     return (
       <td-doc-layout>
+        <div className="tdesign-quick-search">
+          <t-dialog visible={this.visible} width={500} header={false} footer={false} closeBtn={false} zIndex={10000}>
+            {dialogSearch()}
+            <div className="tdesign-quick-search-no-result">暂无搜索结果</div>
+          </t-dialog>
+        </div>
         <td-header ref="tdHeader" slot="header">
           <td-doc-search slot="search" ref="tdDocSearch" />
         </td-header>
