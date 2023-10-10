@@ -132,6 +132,10 @@ export default {
     type: Array as PropType<TdTreeProps['value']>,
     default: (): TdTreeProps['value'] => [],
   },
+  modelValue: {
+    type: Array as PropType<TdTreeProps['value']>,
+    default: (): TdTreeProps['value'] => [],
+  },
   /** 选中值（组件为可选状态时），非受控属性 */
   defaultValue: {
     type: Array as PropType<TdTreeProps['defaultValue']>,

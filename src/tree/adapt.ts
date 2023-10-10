@@ -98,7 +98,7 @@ export function useVModel(
   if (eventName) {
     // do nothing，just for adapt
   }
-  const modelValue = ref('');
+  const { modelValue } = refsProps;
   let vm;
   if (propName === 'value') {
     vm = tdUseVModel(refsProps[propName], modelValue, props[defaultPropName], props[eventPropName], propName);

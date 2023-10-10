@@ -20,7 +20,7 @@
     </t-space>
     <t-tree
       ref="tree"
-      v-model:value="allChecked"
+      :model-value="allChecked"
       :data="items"
       :checkable="checkable"
       :check-strictly="checkStrictly"
@@ -40,7 +40,7 @@ export default {
       valueMode: 'onlyLeaf',
       checkable: true,
       checkStrictly: false,
-      allChecked: [],
+      allChecked: ['1.1.1.1'],
       valueOptions: [
         {
           value: 'onlyLeaf',
