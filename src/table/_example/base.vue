@@ -29,6 +29,7 @@
       :show-header="showHeader"
       cell-empty-content="-"
       resizable
+      lazy-load
       @row-click="handleRowClick"
     >
     </t-table>

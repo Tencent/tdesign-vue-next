@@ -32,10 +32,15 @@ export function useRowHighlight(props: BaseTableProps, tableRef: Ref<HTMLDivElem
   );
 
   const handleInactive = (ctx: RowEventContext<TableRowData>) => {
-    const { row } = ctx;
+    const { row, index } = ctx;
     const rowValue = get(row, props.rowKey);
     if (activeRowType.value === 'single') {
-      setTActiveRow([], { type: 'inactive', activeRowList: [], currentRowData: row });
+      const newActiveRowKeys = tActiveRow.value.length > 1 ? [rowValue] : [];
+      setTActiveRow(newActiveRowKeys, {
+        type: 'inactive',
+        activeRowList: [{ row, rowIndex: index }],
+        currentRowData: row,
+      });
     } else if (activeRowType.value === 'multiple') {
       const newActiveRowKeys = tActiveRow.value.filter((t) => t !== rowValue);
       setTActiveRow(newActiveRowKeys, {
@@ -112,9 +117,11 @@ export function useRowHighlight(props: BaseTableProps, tableRef: Ref<HTMLDivElem
       handleShiftActive(ctx);
       shiftSelectionState.value = true;
     } else if (tActiveRow.value.includes(rowValue) && extra?.action !== 'active') {
-      // 如果已经高亮，则取消高亮
-      handleInactive(ctx);
-      currentOperationRowIndex.value = index;
+      if (!disableSpaceInactiveRow.value) {
+        // 如果已经高亮，则取消高亮
+        handleInactive(ctx);
+        currentOperationRowIndex.value = index;
+      }
     } else {
       // 如果没有高亮，则设置高亮
       handleActive(ctx);

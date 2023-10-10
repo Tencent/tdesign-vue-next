@@ -31,6 +31,7 @@
       :bordered="bordered"
       stripe
       resizable
+      lazy-load
       @column-change="onColumnChange"
     >
     </t-table>

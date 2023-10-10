@@ -6,7 +6,7 @@ import { useContent } from '../hooks/tnode';
 import { useCommonClassName, usePrefixClass } from '../hooks/useConfig';
 import { CheckboxGroupInjectionKey } from './constants';
 import useCheckboxLazyLoad from './hooks/useCheckboxLazyLoad';
-import useKeyboard from './hooks/useKeyboard';
+import useKeyboardEvent from './hooks/useKeyboardEvent';
 import { useDisabled } from '../hooks/useDisabled';
 
 export default defineComponent({
@@ -129,7 +129,7 @@ export default defineComponent({
     };
 
     const { showCheckbox } = useCheckboxLazyLoad(labelRef, lazyLoad);
-    const { onCheckboxFocus, onCheckboxBlur } = useKeyboard(handleChange);
+    const { onCheckboxFocus, onCheckboxBlur } = useKeyboardEvent(handleChange);
 
     return () => {
       return (

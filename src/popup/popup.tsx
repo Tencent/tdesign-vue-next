@@ -24,7 +24,7 @@ import { off, on, once } from '../utils/dom';
 import setStyle from '../_common/js/utils/set-style';
 import Container from './container';
 import props from './props';
-import { TdPopupProps } from './type';
+import { PopupTriggerEvent, TdPopupProps } from './type';
 
 const POPUP_ATTR_NAME = 'data-td-popup';
 const POPUP_PARENT_ATTR_NAME = 'data-td-popup-parent';
@@ -115,6 +115,7 @@ export default defineComponent({
     const overlayEl = ref<HTMLElement>(null);
     const popperEl = ref<HTMLElement>(null);
     const containerRef = ref<typeof Container>(null);
+    const isOverlayHover = ref(false);
 
     const id = typeof process !== 'undefined' && process.env?.TEST ? '' : Date.now().toString(36);
     const parent = inject(parentKey, undefined);
@@ -222,10 +223,12 @@ export default defineComponent({
 
     expose({
       update: updatePopper,
+      getOverlay: () => overlayEl.value,
+      getOverlayState: () => ({
+        hover: isOverlayHover.value,
+      }),
+      /** close is going to be deprecated. visible is enough */
       close: () => hide(),
-      getOverlay() {
-        return overlayEl.value;
-      },
     });
 
     function getOverlayStyle() {
@@ -264,7 +267,7 @@ export default defineComponent({
           popper.state.elements.reference = triggerEl.value;
           popper.update();
         } else {
-          setVisible(false, { trigger: getTriggerType({ type: 'mouseenter' } as Event) });
+          setVisible(false, { trigger: getTriggerType({ type: 'mouseenter' } as MouseEvent) });
         }
         return;
       }
@@ -288,17 +291,17 @@ export default defineComponent({
       }
     }
 
-    function show(ev: Event) {
+    function show(ev: PopupTriggerEvent) {
       clearAllTimeout();
       showTimeout = setTimeout(() => {
         setVisible(true, { trigger: getTriggerType(ev) });
       }, delay.value.show);
     }
 
-    function hide(ev?: Event) {
+    function hide(ev?: PopupTriggerEvent) {
       clearAllTimeout();
       hideTimeout = setTimeout(() => {
-        setVisible(false, { trigger: getTriggerType(ev) });
+        setVisible(false, { trigger: getTriggerType(ev), e: ev });
       }, delay.value.hide);
     }
 
@@ -307,9 +310,10 @@ export default defineComponent({
       clearTimeout(hideTimeout);
     }
 
-    function getTriggerType(ev?: Event) {
+    function getTriggerType(ev?: PopupTriggerEvent) {
       switch (ev?.type) {
         case 'mouseenter':
+          return 'trigger-element-hover';
         case 'mouseleave':
           return 'trigger-element-hover';
         case 'focusin':
@@ -352,6 +356,7 @@ export default defineComponent({
     }
 
     function onMouseLeave(ev: MouseEvent) {
+      isOverlayHover.value = false;
       if (props.trigger !== 'hover' || triggerEl.value.contains(ev.target as Node)) return;
 
       const isCursorOverlaps = getPopperTree(id).some((el) => {
@@ -363,6 +368,17 @@ export default defineComponent({
         hide(ev);
         parent?.assertMouseLeave(ev);
       }
+    }
+
+    function onMouseenter() {
+      isOverlayHover.value = true;
+      if (visible.value && props.trigger === 'hover') {
+        clearAllTimeout();
+      }
+    }
+
+    function onOverlayClick(e: MouseEvent) {
+      props.onOverlayClick?.({ e });
     }
 
     const updateScrollTop = inject('updateScrollTop', undefined);
@@ -404,14 +420,9 @@ export default defineComponent({
             ref={(ref: HTMLElement) => (popperEl.value = ref)}
             style={[{ zIndex: props.zIndex }, getOverlayStyle(), hidePopup && { visibility: 'hidden' }]}
             vShow={visible.value}
-            {...(props.trigger === 'hover' && {
-              onMouseenter: () => {
-                if (visible.value) {
-                  clearAllTimeout();
-                }
-              },
-              onMouseleave: onMouseLeave,
-            })}
+            onClick={onOverlayClick}
+            onMouseenter={onMouseenter}
+            onMouseleave={onMouseLeave}
           >
             <div
               class={[

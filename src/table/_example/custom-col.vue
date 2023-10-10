@@ -21,6 +21,7 @@
       :pagination="{ defaultPageSize: 5, defaultCurrent: 1, total: 100 }"
       stripe
       resizable
+      lazy-load
       :on-column-resize-change="onColumnResizeChange"
       @column-change="onColumnChange"
     >

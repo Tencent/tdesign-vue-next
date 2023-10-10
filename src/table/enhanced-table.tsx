@@ -3,11 +3,19 @@ import baseTableProps from './base-table-props';
 import primaryTableProps from './primary-table-props';
 import enhancedTableProps from './enhanced-table-props';
 import PrimaryTable from './primary-table';
-import { TdEnhancedTableProps, PrimaryTableCol, TableRowData, DragSortContext, TdPrimaryTableProps } from './type';
+import {
+  TdEnhancedTableProps,
+  PrimaryTableCol,
+  TableRowData,
+  DragSortContext,
+  TdPrimaryTableProps,
+  TableRowState,
+} from './type';
 import useTreeData from './hooks/useTreeData';
 import useTreeSelect from './hooks/useTreeSelect';
 import get from 'lodash/get';
-import { ScrollToElementParams } from '../hooks/useVirtualScrollNew';
+import { ComponentScrollToElementParams } from '../common';
+import log from '../_common/js/log';
 import { usePrefixClass } from '../hooks';
 
 export default defineComponent({
@@ -76,6 +84,30 @@ export default defineComponent({
       props.onRowClick?.(p);
     };
 
+    const getScrollRowIndex = (rowStateData: TableRowState, key: string | number): number => {
+      if (!rowStateData) return -1;
+      if (rowStateData.rowIndex >= 0) return rowStateData.rowIndex;
+      if (rowStateData.rowIndex < 0) {
+        return getScrollRowIndex(rowStateData.parent, key);
+      }
+    };
+
+    const scrollToElement = (params: ComponentScrollToElementParams) => {
+      let { index } = params;
+      if (!index && index !== 0) {
+        if (!params.key) {
+          log.error('Table', 'scrollToElement: one of `index` or `key` must exist.');
+          return;
+        }
+        const rowStateData = treeDataMap.value.get(params.key);
+        index = getScrollRowIndex(rowStateData, params.key);
+        if (index < 0 || index === undefined) {
+          log.error('Table', `${params.key} does not exist in data, check \`rowKey\` or \`data\` please.`);
+        }
+      }
+      primaryTableRef.value.scrollToElement({ ...params, index });
+    };
+
     context.expose({
       store: store.value,
       dataSource: dataSource.value,
@@ -93,9 +125,7 @@ export default defineComponent({
       refreshTable: () => {
         primaryTableRef.value.refreshTable();
       },
-      scrollToElement: (data: ScrollToElementParams) => {
-        primaryTableRef.value.scrollToElement(data);
-      },
+      scrollToElement,
     });
 
     return () => {

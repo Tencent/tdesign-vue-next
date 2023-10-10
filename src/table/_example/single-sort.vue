@@ -24,6 +24,7 @@
       :hide-sort-tips="hideSortTips"
       :show-sort-column-bg-color="true"
       bordered
+      lazy-load
       @sort-change="sortChange"
       @change="onChange"
     >

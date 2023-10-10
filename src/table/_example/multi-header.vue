@@ -26,6 +26,7 @@
       :filter-row="() => null"
       :header-affix-props="{ offsetTop: 0 }"
       :header-affixed-top="headerAffixedTop"
+      lazy-load
       @data-change="onDataChange"
       @filter-change="onFilterChange"
     ></t-table>

@@ -234,6 +234,11 @@ export default function useRowSelect(
       return;
     }
 
+    if (action === 'select-all') {
+      handleSelectAll(true);
+      return;
+    }
+
     if (selectColumn.value?.type === 'single') {
       if (action === 'space-one-selection') {
         handleSelectChange(activeRowList[0].row);

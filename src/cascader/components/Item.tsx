@@ -111,18 +111,7 @@ export default defineComponent({
     return () => {
       const { cascaderContext, node, optionChild } = props;
       return (
-        <li
-          ref={liRef}
-          class={itemClass.value}
-          onClick={(e: Event) => {
-            e.stopPropagation();
-            props.onClick();
-          }}
-          onMouseenter={(e: Event) => {
-            e.stopPropagation();
-            props.onMouseenter();
-          }}
-        >
+        <li ref={liRef} class={itemClass.value} onClick={props.onClick} onMouseenter={props.onMouseenter}>
           {optionChild ||
             (cascaderContext.multiple
               ? RenderCheckBox(node, cascaderContext)
