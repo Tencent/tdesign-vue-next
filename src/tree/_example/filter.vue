@@ -1,35 +1,23 @@
 <template>
   <t-space :size="32" direction="vertical">
     <t-space direction="vertical">
-      <h3>默认状态</h3>
-      <div>
-        <div>
-          过滤动作由 filter 属性的变更触发，所以不能只修改传递给 filter 属性内部的数据，应当在条件变化时变更 filter
-          属性。
-        </div>
-        <div>清空过滤条件时，应设置 filter 属性为 null, 来触发 tree 组件展示状态还原。</div>
-        <div>allowFoldNodeOnFilter 属性默认为 false, 此时过滤状态下展开的路径节点无法被收起。</div>
-      </div>
       <t-space>
         <t-input-adornment prepend="filter:">
-          <t-input v-model="demo1Text" @change="demo1Input" />
+          <t-input v-model="demo1Text" style="width: 300px" @change="demo1Input" />
         </t-input-adornment>
       </t-space>
       <t-tree ref="tree" :data="items" expand-on-click-node :filter="demo1Filter" hover line />
     </t-space>
+
     <t-space direction="vertical">
-      <h3>allowFoldNodeOnFilter="true"</h3>
-      <div>
-        <div>
-          allowFoldNodeOnFilter 属性设置为 true 时，过滤状态下展开的节点，允许点击收起，注意这会影响到 tree
-          组件当前的展开状态数据。
-        </div>
-        <div>每次变更过滤条件时，会重设节点展开状态，将命中节点的路径节点展开。</div>
-        <div>当清空过滤条件时，将会还原为设置过滤条件之前时的展开状态。</div>
-      </div>
       <t-space>
         <t-input-adornment prepend="filter:">
-          <t-input v-model="demo2Text" @change="demo2Input" />
+          <t-input
+            v-model="demo2Text"
+            placeholder="allow expand or fold tree nodes on filter"
+            style="width: 300px"
+            @change="demo2Input"
+          />
         </t-input-adornment>
       </t-space>
       <t-tree
