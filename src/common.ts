@@ -51,7 +51,7 @@ export type OptionData = {
 } & PlainObject;
 
 export type TreeOptionData<T = string | number> = {
-  children?: Array<TreeOptionData<T>>;
+  children?: Array<TreeOptionData<T>> | boolean;
   /** option label content */
   label?: string | TNode;
   /** option search text */
