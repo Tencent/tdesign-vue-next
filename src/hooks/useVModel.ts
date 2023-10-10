@@ -1,6 +1,5 @@
 import { ref, Ref, getCurrentInstance } from 'vue';
 import kebabCase from 'lodash/kebabCase';
-import capitalize from 'lodash/capitalize';
 
 export type ChangeHandler<T, P extends any[]> = (value: T, ...args: P) => void;
 
@@ -15,10 +14,9 @@ export default function useVModel<T, P extends any[]>(
   const internalValue: Ref<T> = ref();
 
   const vProps = vnode.props || {};
-  const modelProp = `model${capitalize(propName)}`;
   const isVM =
-    Object.prototype.hasOwnProperty.call(vProps, modelProp) ||
-    Object.prototype.hasOwnProperty.call(vProps, `model-${propName}`);
+    Object.prototype.hasOwnProperty.call(vProps, 'modelValue') ||
+    Object.prototype.hasOwnProperty.call(vProps, 'model-value');
   const isVMP =
     Object.prototype.hasOwnProperty.call(vProps, propName) ||
     Object.prototype.hasOwnProperty.call(vProps, kebabCase(propName));
@@ -27,7 +25,7 @@ export default function useVModel<T, P extends any[]>(
     return [
       modelValue,
       (newValue, ...args) => {
-        emit(`update:${modelProp}`, newValue);
+        emit('update:modelValue', newValue);
         onChange?.(newValue, ...args);
       },
     ];
