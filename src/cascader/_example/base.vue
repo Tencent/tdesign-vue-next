@@ -1,5 +1,5 @@
 <template>
-  <t-cascader v-model="value" :options="options" clearable @change="onChange" />
+  <t-cascader v-model="value" :options="options" clearable @change="onChange" @focus="onFocus" @blur="onBlur" />
 </template>
 
 <script setup>
@@ -42,8 +42,15 @@ const options = [
 
 const value = ref('1.1');
 
-const onChange = (e, context) => {
-  console.log(e);
-  console.log(context);
+const onChange = (val, context) => {
+  console.log(val, context);
+};
+
+const onFocus = (ctx) => {
+  console.log('focus', ctx);
+};
+
+const onBlur = (ctx) => {
+  console.log('blur', ctx);
 };
 </script>

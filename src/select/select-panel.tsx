@@ -77,7 +77,7 @@ export default defineComponent({
             }
             return (
               <Option
-                {...omit(item, '$index', 'className', 'tagName')}
+                {...omit(item, 'index', '$index', 'className', 'tagName')}
                 {...(isVirtual.value
                   ? {
                       rowIndex: item.$index,
@@ -90,6 +90,7 @@ export default defineComponent({
                   : {
                       key: `${index}_${item.value}`,
                     })}
+                index={index}
                 multiple={props.multiple}
                 v-slots={item.slots}
                 onRowMounted={handleRowMounted}
@@ -118,7 +119,6 @@ export default defineComponent({
           `${COMPONENT_NAME.value}__dropdown-inner`,
           `${COMPONENT_NAME.value}__dropdown-inner--size-${dropdownInnerSize.value}`,
         ]}
-        onClick={(e) => e.stopPropagation()}
         style={extraStyle}
       >
         {}

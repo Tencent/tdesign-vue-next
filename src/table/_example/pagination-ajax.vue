@@ -8,6 +8,7 @@
     :selected-row-keys="selectedRowKeys"
     bordered
     stripe
+    lazy-load
     @change="rehandleChange"
     @page-change="onPageChange"
     @select-change="onSelectChange"

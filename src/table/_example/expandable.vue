@@ -27,6 +27,7 @@
       :expand-icon="expandIcon"
       table-layout="auto"
       table-content-width="1200"
+      lazy-load
       @expand-change="rehandleExpandChange"
     >
       <template #operation="{ row }">

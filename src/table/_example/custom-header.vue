@@ -1,6 +1,6 @@
 <template>
   <div>
-    <t-table :data="data" :columns="columns" row-key="property">
+    <t-table :data="data" :columns="columns" row-key="property" lazy-load>
       <!-- 自定义表头，title值为插槽名称  -->
       <template #title-slot-name>
         <div style="display: flex; align-items: center"><UserCircleIcon style="margin-right: 8px" />申请人</div>

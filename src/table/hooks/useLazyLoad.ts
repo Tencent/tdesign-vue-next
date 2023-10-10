@@ -32,6 +32,7 @@ export default function useLazyLoad(
     nextTick(() => {
       const bufferSize = Math.max(10, params.bufferSize || 10);
       const height = tRowHeight.value * bufferSize;
+      if (!childRef?.value || !containerRef?.value) return;
       observe(childRef.value, containerRef.value, init, height);
     });
   });

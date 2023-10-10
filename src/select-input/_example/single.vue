@@ -10,6 +10,7 @@
     allow-input
     @popup-visible-change="onPopupVisibleChange"
     @clear="onClear"
+    @focus="onFocus"
     @input-change="onInputChange"
   >
     <template #panel>
@@ -57,6 +58,10 @@ const onInputChange = (val, context) => {
   // 过滤功能
   console.log(val, context);
 };
+
+function onFocus(val, context) {
+  console.log('focus:', val, context);
+}
 </script>
 <style lang="less" scoped>
 .tdesign-demo__select-input-ul-single {

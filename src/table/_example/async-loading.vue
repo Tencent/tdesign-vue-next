@@ -12,6 +12,7 @@
       :columns="columns"
       :data="data"
       :async-loading="loadingNode"
+      lazy-load
       @async-loading-click="onAsyncLoadingClick"
     />
   </div>
