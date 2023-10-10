@@ -37,6 +37,7 @@
       :selected-row-keys="selectedRowKeys"
       :height="300"
       :scroll="{ type: 'virtual', rowHeight: 49, bufferSize: 10 }"
+      lazy-load
       @expand-change="onExpandChange"
       @select-change="rehandleSelectChange"
       @row-click="onRowClick"
@@ -164,17 +165,30 @@ const getTreeExpandedRow = () => {
 };
 
 const scrollToElement = () => {
-  const treeNodeData = enhancedTableRef.value.getData(`first_level_150`);
-  console.log(treeNodeData);
-  // 因为可能会存在前面的元素节点展开，或行展开，故而下标跟序号不一定一样，不一定是 150
+  // 方式一：通过行唯一标识跳转到指定行
   enhancedTableRef.value.scrollToElement({
-    // 跳转元素下标（第 151 个元素位置）
-    index: treeNodeData.rowIndex - selectedRowKeys.value.length,
+    // 滚动到指定元素
+    key: 'first_level_150',
+    // 如果元素没有被展开，则跳转到父元素所在位置
+    // key: 'second_level_1510',
     // 滚动元素距离顶部的距离（如表头高度）
     top: 47,
     // 高度动态变化场景下，即 isFixedRowHeight = false。延迟设置元素位置，一般用于依赖不同高度异步渲染等场景，单位：毫秒。（固定高度不需要这个）
     time: 60,
   });
+
+  // 方式二：通过行下标跳转到指定行（示例代码有效：勿删）
+  // const treeNodeData = enhancedTableRef.value.getData(`first_level_150`);
+  // console.log(treeNodeData);
+  // // 因为可能会存在前面的元素节点展开，或行展开，故而下标跟序号不一定一样，不一定是 150
+  // enhancedTableRef.value.scrollToElement({
+  //   // 跳转元素下标（第 151 个元素位置）
+  //   index: treeNodeData.rowIndex - selectedRowKeys.value.length,
+  //   // 滚动元素距离顶部的距离（如表头高度）
+  //   top: 47,
+  //   // 高度动态变化场景下，即 isFixedRowHeight = false。延迟设置元素位置，一般用于依赖不同高度异步渲染等场景，单位：毫秒。（固定高度不需要这个）
+  //   time: 60,
+  // });
 };
 
 const onRowClick = (data) => {

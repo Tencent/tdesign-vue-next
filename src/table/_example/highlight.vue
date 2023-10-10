@@ -17,6 +17,7 @@
       :columns="columns"
       :active-row-type="activeRowType"
       :hover="hover"
+      lazy-load
       @active-change="onActiveChange"
     ></t-table>
   </t-space>

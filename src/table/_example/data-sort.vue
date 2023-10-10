@@ -15,6 +15,7 @@
           :data="data"
           :sort="sort"
           :multiple-sort="allowMultipleSort"
+          lazy-load
           @sort-change="sortChange"
           @data-change="dataChange"
         >

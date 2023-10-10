@@ -4,6 +4,7 @@ import App from './app.vue';
 import router from './routes';
 
 import Stackblitz from './components/stackblitz/index.vue';
+import CodeSandbox from './components/codeSandbox/index.vue';
 import BaseUsage from './components/base-usage.vue';
 
 // import tdesign style
@@ -27,6 +28,7 @@ registerLocaleChange();
 const app = createApp(App);
 
 app.component('Stackblitz', Stackblitz);
+app.component('CodeSandbox', CodeSandbox);
 app.component('BaseUsage', BaseUsage);
 
 app.use(TDesign).use(router).mount('#app');

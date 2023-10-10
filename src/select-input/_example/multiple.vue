@@ -21,15 +21,7 @@
       :allow-input="allowInput"
       :placeholder="allowInput ? '请选择或输入' : '请选择'"
       :tag-input-props="{ excessTagsDisplayType }"
-      :popup-props="{
-        overlayInnerClassName: ['narrow-scrollbar'],
-        overlayInnerStyle: {
-          maxHeight: '280px',
-          overflowY: 'auto',
-          overscrollBehavior: 'contain',
-          padding: '6px',
-        },
-      }"
+      :popup-props="popupProps"
       clearable
       multiple
       @tag-change="onTagChange"
@@ -77,6 +69,17 @@ const value = ref([
   { label: 'React', value: 2 },
   { label: 'Miniprogram', value: 3 },
 ]);
+
+const popupProps = ref({
+  overlayInnerClassName: ['narrow-scrollbar'],
+  overlayInnerStyle: {
+    maxHeight: '280px',
+    overflowY: 'auto',
+    overscrollBehavior: 'contain',
+    padding: '6px',
+  },
+});
+
 const checkboxValue = computed(() => {
   const arr = [];
   const list = value.value;
@@ -86,6 +89,7 @@ const checkboxValue = computed(() => {
   }
   return arr;
 });
+
 // 直接 checkboxgroup 组件渲染输出下拉选项
 const onCheckedChange = (val, { current, type }) => {
   console.log(current);
@@ -102,6 +106,7 @@ const onCheckedChange = (val, { current, type }) => {
     value.value = value.value.filter((v) => v.value !== current);
   }
 };
+
 // 可以根据触发来源，自由定制标签变化时的筛选器行为
 const onTagChange = (currentTags, context) => {
   console.log(currentTags, context);

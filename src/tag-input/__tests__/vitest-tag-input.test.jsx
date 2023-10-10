@@ -379,7 +379,7 @@ describe('TagInput Component', () => {
     expect(onBlurFn2).toHaveBeenCalled();
     expect(onBlurFn2.mock.calls[0][0]).toEqual([]);
     expect(onBlurFn2.mock.calls[0][1].e.type).toBe('blur');
-    expect(onBlurFn2.mock.calls[0][1].inputValue).toBe('');
+    expect(onBlurFn2.mock.calls[0][1].inputValue).toBe('tag1');
     expect(onInputChangeFn2).toHaveBeenCalled();
     expect(onInputChangeFn2.mock.calls[1][0]).toBe('');
     expect(onInputChangeFn2.mock.calls[1][1].e.type).toBe('blur');
