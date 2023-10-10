@@ -60,7 +60,7 @@ export interface TdTreeProps<T extends TreeOptionData = TreeOptionData> {
    */
   disabled?: boolean;
   /**
-   * [开发中]节点是否可拖拽
+   * 节点是否可拖拽
    */
   draggable?: boolean;
   /**
