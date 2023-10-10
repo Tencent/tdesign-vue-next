@@ -1,64 +1,67 @@
 <template>
   <t-space direction="vertical">
-    <t-form label-width="150">
-      <t-form-item label="可选">
-        <t-switch v-model="checkable" />
-      </t-form-item>
-      <t-form-item label="默认展开全部">
-        <t-switch v-model="expandAll" />
-      </t-form-item>
-      <t-form-item label="懒加载">
-        <t-switch v-model="lazy" />
-      </t-form-item>
-    </t-form>
-    <div v-if="rebuilding" class="rebuild-container">树重建中....</div>
-    <t-tree v-else :data="items" :checkable="checkable" hover :load="load" :expand-all="expandAll" :lazy="lazy" />
+    <t-space>
+      <span>可选:</span>
+      <t-switch v-model="checkable" />
+    </t-space>
+    <t-space>
+      <t-button @click="reload()">重新加载数据</t-button>
+    </t-space>
+    <t-tree :value="value" :data="items" hover expand-all :checkable="checkable" :load="load" :lazy="false" />
   </t-space>
 </template>
 
-<script setup>
-import { ref, watch } from 'vue';
-
-const checkable = ref(true);
-const lazy = ref(true);
-const expandAll = ref(false);
-const rebuilding = ref(false);
-
-const items = [
+<script>
+const treeData = [
   {
     label: '1',
+    value: '1',
     children: true,
   },
   {
     label: '2',
+    value: '2',
     children: true,
   },
 ];
 
-watch([lazy, expandAll], () => {
-  rebuilding.value = true;
-  setTimeout(() => {
-    rebuilding.value = false;
-  }, 1000);
-});
-
-const load = (node) =>
-  new Promise((resolve) => {
-    setTimeout(() => {
-      let nodes = [];
-      if (node.level < 2) {
-        nodes = [
-          {
-            label: `${node.label}.1`,
-            children: true,
-          },
-          {
-            label: `${node.label}.2`,
-            children: true,
-          },
-        ];
-      }
-      resolve(nodes);
-    }, 1000);
-  });
+export default {
+  data() {
+    return {
+      checkable: true,
+      value: ['1.1.1'],
+      items: [],
+    };
+  },
+  methods: {
+    reload() {
+      this.items = [];
+      setTimeout(() => {
+        this.items = treeData;
+      });
+    },
+    load(node) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          let nodes = [];
+          if (node.level < 2) {
+            nodes = [
+              {
+                label: `${node.label}.1`,
+                value: `${node.value}.1`,
+                children: true,
+              },
+              {
+                label: `${node.label}.2`,
+                value: `${node.value}.2`,
+                children: true,
+              },
+            ];
+          }
+          resolve(nodes);
+        }, 1000);
+      });
+    },
+  },
+};
 </script>
