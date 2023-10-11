@@ -181,7 +181,7 @@ export default defineComponent({
 
     const treeNodeChange = (
       valueParam: Array<TreeNodeValue>,
-      context: { node: TreeNodeModel<TreeOptionData>; e: MouseEvent },
+      context: { node: TreeNodeModel<TreeOptionData>; e?: MouseEvent },
     ) => {
       let current: TreeSelectValue = valueParam;
       if (isObjectValue.value) {
@@ -192,7 +192,7 @@ export default defineComponent({
 
     const treeNodeActive = (
       valueParam: Array<TreeNodeValue>,
-      context: { node: TreeNodeModel<TreeOptionData>; e: MouseEvent },
+      context: { node: TreeNodeModel<TreeOptionData>; e?: MouseEvent },
     ) => {
       if (!props.multiple) {
         setInnerVisible(false, context);
