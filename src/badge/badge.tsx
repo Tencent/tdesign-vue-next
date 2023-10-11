@@ -43,7 +43,7 @@ export default defineComponent({
         {
           [`${COMPONENT_NAME.value}--dot`]: !!props.dot,
           [`${COMPONENT_NAME.value}--circle`]: !props.dot && props.shape === 'circle',
-          [`${COMPONENT_NAME.value}--round`]: props.shape === 'round',
+          [`${COMPONENT_NAME.value}--round`]: !props.dot && props.shape === 'round',
           [`${classPrefix.value}-size-s`]: props.size === 'small',
         },
       ];
