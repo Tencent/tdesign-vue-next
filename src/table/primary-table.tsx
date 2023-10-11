@@ -1,4 +1,4 @@
-import { computed, defineComponent, toRefs, h, ref, onMounted } from 'vue';
+import { computed, defineComponent, toRefs, h, ref, onMounted, getCurrentInstance } from 'vue';
 import get from 'lodash/get';
 import omit from 'lodash/omit';
 import baseTableProps from './base-table-props';
@@ -9,7 +9,7 @@ import useColumnController from './hooks/useColumnController';
 import useRowExpand from './hooks/useRowExpand';
 import useTableHeader, { renderTitle } from './hooks/useTableHeader';
 import useRowSelect from './hooks/useRowSelect';
-import { TdPrimaryTableProps, PrimaryTableCol, TableRowData, PrimaryTableCellParams } from './type';
+import { TdPrimaryTableProps, PrimaryTableCol, TableRowData, PrimaryTableCellParams, TdBaseTableProps } from './type';
 import useSorter from './hooks/useSorter';
 import useFilter from './hooks/useFilter';
 import useDragSort from './hooks/useDragSort';
@@ -370,8 +370,12 @@ export default defineComponent({
       const firstFullRow = formatNode('firstFullRow', renderFirstFilterRow, !hasEmptyCondition.value);
       const lastFullRow = formatNode('lastFullRow', renderAsyncLoading, !!props.asyncLoading);
 
-      const baseTableProps = {
-        ...omit(props, OMIT_PROPS),
+      // important for base-table controlled properties
+      const { vnode } = getCurrentInstance();
+
+      const baseTableProps: BaseTableProps = {
+        ...omit(vnode.props, OMIT_PROPS),
+        rowKey: props.rowKey,
         rowClassName: tRowClassNames.value,
         rowAttributes: tRowAttributes.value,
         columns: tColumns.value,

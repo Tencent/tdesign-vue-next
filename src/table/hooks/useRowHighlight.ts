@@ -28,7 +28,7 @@ export function useRowHighlight(props: BaseTableProps, tableRef: Ref<HTMLDivElem
     activeRowKeys,
     defaultActiveRowKeys.value,
     props.onActiveChange,
-    'active-row-keys',
+    'activeRowKeys',
   );
 
   const handleInactive = (ctx: RowEventContext<TableRowData>) => {
