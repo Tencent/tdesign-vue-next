@@ -4,6 +4,36 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 🌈 1.6.0 `2023-10-11` 
+### 🚀 Features
+- `Table`: 
+  - 键盘操作，可编辑单元格，支持使用 `Tab` 键切换可编辑的单元格，实现快速修改操作 @chaishi ([#3414](https://github.com/Tencent/tdesign-vue-next/pull/3414))
+  - 键盘操作，优化行高亮键盘操作和样式，兼容行选中功能 @chaishi ([#3414](https://github.com/Tencent/tdesign-vue-next/pull/3414))
+  - 键盘操作，行选中功能支持不设置行高亮，也能使用键盘操作选中、取消选中、全选、取消全选等 @chaishi ([#3414](https://github.com/Tencent/tdesign-vue-next/pull/3414))
+  - 树形结构表格，支持通过行唯一标识滚动到指定行（之前仅可通过行下标滚动到指定行） @chaishi ([#3414](https://github.com/Tencent/tdesign-vue-next/pull/3414))
+  - 支持整个表格懒加载 @chaishi ([#3414](https://github.com/Tencent/tdesign-vue-next/pull/3414))
+- `Popup`: 组件新增实例方法 `update/getOverlay/getOverlayState`，用于更新或获取浮层内容、状态等 @chaishi ([#3414](https://github.com/Tencent/tdesign-vue-next/pull/3414))
+- `Select`: 支持键盘操作下拉选项选中或取消 @chaishi ([#3414](https://github.com/Tencent/tdesign-vue-next/pull/3414))
+- `Cascader`: 支持使用 `valueDisplay` 自定义选中项的内容呈现 @chaishi ([#3414](https://github.com/Tencent/tdesign-vue-next/pull/3414))
+- `Tree`: 提供虚拟滚动能力 @TabSpace ([#3410](https://github.com/Tencent/tdesign-vue-next/pull/3410))
+- `Badge`: `content`,`count` 插槽支持([issue #3447](https://github.com/Tencent/tdesign-vue-next/issues/3447)) @liweijie0812 ([#3454](https://github.com/Tencent/tdesign-vue-next/pull/3454))
+
+### 🐞 Bug Fixes
+- `Input`: 聚焦和失焦事件纠正，当组件已经处于聚焦状态时，点击 `label/suffix/prefix/icon` 等元素，不再重复触发一次失焦和聚焦事件 @chaishi ([#3414](https://github.com/Tencent/tdesign-vue-next/pull/3414))
+- `TagInput`: 聚焦和失焦事件纠正，当组件已经处于聚焦状态时，点击标签，不再重复触发一次失焦和聚焦事件 @chaishi ([#3414](https://github.com/Tencent/tdesign-vue-next/pull/3414))
+- `Select`: 
+  - 聚焦和失焦事件纠正，下拉选项选中时不再自动失焦，以便继续切换选项 @chaishi ([#3414](https://github.com/Tencent/tdesign-vue-next/pull/3414))
+  - 筛选后使用键盘上下键选择功能异常([isssue #3392](https://github.com/Tencent/tdesign-vue-next/issues/3392)) @liweijie0812 ([#3420](https://github.com/Tencent/tdesign-vue-next/pull/3420))
+ - 修复下拉选项闪现([issue #3416](https://github.com/Tencent/tdesign-vue-next/issues/3416)) @betavs ([#3418](https://github.com/Tencent/tdesign-vue-next/pull/3418))
+- `Cascader`: 
+  - 聚焦和失焦事件纠正，下拉选项选中时不再自动失焦，以便继续切换选项 @chaishi ([#3414](https://github.com/Tencent/tdesign-vue-next/pull/3414))
+   - 修复 `cascader` 渲染多余的 `tag-input__prefix` 元素导致表现异常 @PengYYYYY ([#3446](https://github.com/Tencent/tdesign-vue-next/pull/3446))
+  - `change` 事件中 `source` 异常问题([issue #2835](https://github.com/Tencent/tdesign-vue/issues/2835)) @PengYYYYY ([#3456](https://github.com/Tencent/tdesign-vue-next/pull/3456))
+- `Tree`: 解决 `setData` 方法无法触发属性变更的问题 @TabSpace ([#3410](https://github.com/Tencent/tdesign-vue-next/pull/3410))
+- `Form`: 修复 `statusIcon` 为函数或插槽时，参数为空的问题 @SBDaQingWa ([#3449](https://github.com/Tencent/tdesign-vue-next/pull/3449))
+### 🚧 Others
+- docs: 新增 `CodeSandbox` 支持 @LadyChatterleyLover ([#3422](https://github.com/Tencent/tdesign-vue-next/pull/3422))
+
 ## 🌈 1.5.7 `2023-09-21` 
 ### 🚀 Features
 - `Table`: 支持通过属性 `local` 配置组件所有文本 @chaishi ([#3380](https://github.com/Tencent/tdesign-vue-next/pull/3380))
