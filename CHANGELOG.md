@@ -4,7 +4,8 @@ spline: explain
 toc: false
 docClass: timeline
 ---
-## 🌈 1.6.0 `2023-10-11` 
+
+## 🌈 1.6.1 `2023-10-11` 
 ### 🚀 Features
 - `Table`: 
   - 键盘操作，可编辑单元格，支持使用 `Tab` 键切换可编辑的单元格，实现快速修改操作 @chaishi ([#3414](https://github.com/Tencent/tdesign-vue-next/pull/3414))
