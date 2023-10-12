@@ -19,6 +19,10 @@ export interface BaseTableProps extends TdBaseTableProps {
    */
   onLeafColumnsChange?: (columns: BaseTableColumns) => void;
   /**
+   * 是否显示表格内容。非公开属性，请勿在业务中使用
+   */
+  onShowElementChange?: (show: boolean) => void;
+  /**
    * 表头是否可拖拽。非公开属性，请勿在业务中使用
    */
   thDraggable?: boolean;
