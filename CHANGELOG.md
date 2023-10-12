@@ -5,6 +5,15 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.6.2 `2023-10-12` 
+### 🚀 Features
+- `Tag`: `CheckTag` 支持多种风格标签配置 @chaishi ([#3419](https://github.com/Tencent/tdesign-vue-next/pull/3419))
+- `Tag`: 支持标签组 `CheckTagGroup` 选择 @chaishi ([#3419](https://github.com/Tencent/tdesign-vue-next/pull/3419))
+### 🐞 Bug Fixes
+- `Badge`: 边框圆角方形样式([common#1617](https://github.com/Tencent/tdesign-common/pull/1617)) @liweijie0812 ([#3461](https://github.com/Tencent/tdesign-vue-next/pull/3461))
+- `Badge`: 开启`dot` 忽略形状设置 @liweijie0812 ([#3461](https://github.com/Tencent/tdesign-vue-next/pull/3461))
+- `Table`: 修复行高亮受控属性 `activeRowKeys` 无效问题 @chaishi ([#3463](https://github.com/Tencent/tdesign-vue-next/pull/3463))
+
 ## 🌈 1.6.1 `2023-10-11` 
 ### 🚀 Features
 - `Table`: 
