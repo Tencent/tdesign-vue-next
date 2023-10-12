@@ -27,6 +27,11 @@ export interface TdTabsProps {
    */
   dragSort?: boolean;
   /**
+   * 是否在首次展示标签时挂载内容
+   * @default false
+   */
+  lazyLoad?: boolean;
+  /**
    * 选项卡列表
    */
   list?: Array<TdTabPanelProps>;

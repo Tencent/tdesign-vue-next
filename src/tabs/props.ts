@@ -18,6 +18,8 @@ export default {
   disabled: Boolean,
   /** 是否开启拖拽调整顺序 */
   dragSort: Boolean,
+  /** 是否在首次展示标签时挂载内容 */
+  lazyLoad: Boolean,
   /** 选项卡列表 */
   list: {
     type: Array as PropType<TdTabsProps['list']>,
