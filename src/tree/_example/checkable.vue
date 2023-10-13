@@ -20,7 +20,7 @@
     </t-space>
     <t-tree
       ref="tree"
-      :model-value="allChecked"
+      v-model="allChecked"
       :data="items"
       :checkable="checkable"
       :check-strictly="checkStrictly"
