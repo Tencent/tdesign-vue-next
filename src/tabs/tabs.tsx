@@ -11,7 +11,6 @@ import isArray from 'lodash/isArray';
 
 export interface InjectTabs {
   value: Ref<TabValue>;
-  lazyLoad: Boolean;
 }
 
 export default defineComponent({
@@ -27,7 +26,7 @@ export default defineComponent({
     const { value, modelValue } = toRefs(props);
     const [tabValue, setTabValue] = useVModel(value, modelValue, props.defaultValue || '', props.onChange);
 
-    provide<InjectTabs>('tabs', { value: tabValue, lazyLoad: props.lazyLoad });
+    provide<InjectTabs>('tabs', { value: tabValue });
 
     // methods
     const onTabAdd = (context: { e: MouseEvent }) => {

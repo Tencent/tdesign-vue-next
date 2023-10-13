@@ -27,11 +27,6 @@ export interface TdTabsProps {
    */
   dragSort?: boolean;
   /**
-   * 是否在首次展示标签时挂载内容
-   * @default false
-   */
-  lazyLoad?: boolean;
-  /**
    * 选项卡列表
    */
   list?: Array<TdTabPanelProps>;
@@ -87,7 +82,7 @@ export interface TdTabPanelProps {
   default?: TNode;
   /**
    * 选项卡内容隐藏时是否销毁
-   * @default true
+   * @default false
    */
   destroyOnHide?: boolean;
   /**
@@ -104,6 +99,11 @@ export interface TdTabPanelProps {
    * 选项卡名称，可自定义选项卡导航内容
    */
   label?: string | TNode;
+  /**
+   * 是否启用选项卡懒加载
+   * @default false
+   */
+  lazyLoad?: boolean;
   /**
    * 用于自定义选项卡面板内容
    */
