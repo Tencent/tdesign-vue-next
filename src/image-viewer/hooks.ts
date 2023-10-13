@@ -64,8 +64,6 @@ export function useScale(imageScale: ImageScale = { max: 2, min: 0.5, step: 0.5 
   };
 
   const setScale = (newScale: number) => {
-    // console.log(newScale);
-
     let value = newScale;
     if (newScale < min) {
       value = min;
