@@ -1,3 +1,4 @@
+import { positiveSubtract, positiveAdd } from '../_common/js/input-number/number';
 import { ref } from 'vue';
 import { ImageScale } from './type';
 
@@ -51,16 +52,20 @@ export function useScale(imageScale: ImageScale = { max: 2, min: 0.5, step: 0.5 
   const { max, min, step } = imageScale;
   const scale = ref(1);
   const onZoomIn = () => {
-    setScale(scale.value + step);
+    const result = positiveAdd(scale.value, step);
+    setScale(result);
   };
   const onZoomOut = () => {
-    setScale(scale.value - step);
+    const result = positiveSubtract(scale.value, step);
+    setScale(result);
   };
   const resetScale = () => {
     scale.value = 1;
   };
 
   const setScale = (newScale: number) => {
+    // console.log(newScale);
+
     let value = newScale;
     if (newScale < min) {
       value = min;
