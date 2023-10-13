@@ -1,6 +1,6 @@
 import { computed, defineComponent, inject, ref, watch } from 'vue';
 import props from './tab-panel-props';
-import { usePrefixClass } from '../hooks/useConfig';
+import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import useDestroyOnClose from '../hooks/useDestroyOnClose';
 import { useContent } from '../hooks/tnode';
 
@@ -13,6 +13,7 @@ export default defineComponent({
 
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('tab-panel');
+    const { STATUS } = useCommonClassName();
     const renderTNodeContent = useContent();
 
     useDestroyOnClose();
@@ -34,7 +35,7 @@ export default defineComponent({
     const tabPanelClass = computed(() => [
       COMPONENT_NAME.value,
       {
-        [`${COMPONENT_NAME.value}-is-hidden`]: !isActive.value,
+        [STATUS.value.hidden]: !isActive.value,
       },
     ]);
     return () => {
