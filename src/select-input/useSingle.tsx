@@ -138,10 +138,10 @@ export default function useSingle(
     // 1 用户传入usePlaceholder希望使用自带占位符实现，则应在未选择值时隐藏valueDisplay，只展示占位符
     // 2 用户传入useInputDisplay希望使用自带输入回显实现，激活选择器浮层时只展示input值（待讨论是否修改为激活后真的输入字符再隐藏valueDisplay，此处实现效果与不使用valueDisplay只使用filterable时不同）
     const prefixContent = [];
-    const lable = renderTNode('label');
+    const label = renderTNode('label');
 
-    if (lable) {
-      prefixContent.push(lable);
+    if (label) {
+      prefixContent.push(label);
     }
 
     if (singleValueDisplay) {
