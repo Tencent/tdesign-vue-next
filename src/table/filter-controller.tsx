@@ -115,6 +115,9 @@ export default defineComponent({
           if (column.filter.props?.onChange) {
             column.filter.props.onChange?.(val, ctx);
           }
+          if (column.filter?.confirmEvents?.includes('onChange')) {
+            filterPopupVisible.value = false;
+          }
         },
       };
       if (column.colKey && innerFilterValue && column.colKey in innerFilterValue) {
@@ -123,6 +126,7 @@ export default defineComponent({
       // 允许自定义触发确认搜索的事件
       if (column.filter.confirmEvents) {
         column.filter.confirmEvents.forEach((event) => {
+          if (event === 'onChange') return;
           filterComponentProps[event] = () => {
             context.emit('confirm', column);
             filterPopupVisible.value = false;
