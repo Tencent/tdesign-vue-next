@@ -46,7 +46,7 @@ export default function useSingle(props: TdDatePickerProps) {
     ...props.inputProps,
     size: props.size,
     ref: inputRef,
-    prefixIcon: props.prefixIcon && (() => renderTNodeJSX('prefixIcon')),
+    prefixIcon: () => renderTNodeJSX('prefixIcon'),
     readonly: !props.allowInput,
     placeholder: props.placeholder || globalConfig.value.placeholder[props.mode],
     suffixIcon: () => {
