@@ -23,13 +23,10 @@ const localProps = {
 
 export default defineComponent({
   name: 'TAnchorItem',
-  inject: {
-    tAnchor: { default: undefined },
-  },
   props: localProps,
   setup(props, { slots }) {
     const elRef = ref<HTMLElement>(null);
-    const anchor = inject(AnchorInjectionKey, undefined);
+    const anchor = inject(AnchorInjectionKey);
     const CLASSNAME_PREFIX = usePrefixClass('anchor__item');
     const { STATUS } = useCommonClassName();
     const register = () => {
