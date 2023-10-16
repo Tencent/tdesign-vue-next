@@ -16,7 +16,7 @@
 <script setup>
 import { ref } from 'vue';
 
-const getCurrentAnchor = ref((oldHref) => {
+const getCurrentAnchor = ref(() => {
   // return oldHref || '#不同尺寸的锚点';
   return '#不同尺寸的锚点';
 });
