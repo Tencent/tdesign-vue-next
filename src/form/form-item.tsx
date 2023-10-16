@@ -150,7 +150,7 @@ export default defineComponent({
       if (resultIcon) return <span class={CLASS_NAMES.value.status}>{resultIcon}</span>;
       if (resultIcon === false) return;
 
-      resultIcon = form?.renderContent('statusIcon', { defaultNode: getDefaultIcon() });
+      resultIcon = form?.renderContent('statusIcon', { defaultNode: getDefaultIcon(), params: props });
       if (resultIcon) return resultIcon;
     };
     /** Suffix Icon END */

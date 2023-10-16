@@ -1,29 +1,26 @@
 import { defineComponent, computed } from 'vue';
 import props from './props';
-import { useTNodeJSX } from '../hooks/tnode';
-import { useConfig } from '../hooks/useConfig';
-import isFunction from 'lodash/isFunction';
+import { useContent, useTNodeJSX } from '../hooks/tnode';
+import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TBadge',
   inheritAttrs: false,
   props: { ...props },
-  setup(props) {
+  setup(props, { attrs }) {
+    const renderContent = useContent();
     const renderTNodeJSX = useTNodeJSX();
 
     /** 内容计算相关逻辑 start */
-    const content = computed(() => {
-      if (isFunction(props.count)) {
-        return renderTNodeJSX('count');
+    const displayCount = computed(() => {
+      let count = renderTNodeJSX('count');
+
+      if (Number.isNaN(Number(count))) {
+        return count;
       }
-      if (Number.isNaN(Number(props.count))) {
-        return props.count;
-      }
-      const count = Number(props.count);
+      count = Number(props.count);
       return count > props.maxCount ? `${props.maxCount}+` : count;
     });
-
-    const renderChildren = () => renderTNodeJSX('default');
 
     const getOffset = () => {
       if (!props.offset) return {};
@@ -35,18 +32,18 @@ export default defineComponent({
     /** 内容计算相关逻辑 end */
 
     /** 样式计算相关逻辑 start */
-    const { classPrefix } = useConfig('classPrefix');
-    const name = `${classPrefix.value}-badge`;
+    const classPrefix = usePrefixClass();
+    const COMPONENT_NAME = usePrefixClass('badge');
     const isHidden = computed(() => {
-      return !props.showZero && (content.value === 0 || content.value === '0');
+      return !props.showZero && (displayCount.value === 0 || displayCount.value === '0');
     });
 
     const badgeClassNames = computed(() => {
       return [
         {
-          [`${name}--dot`]: !!props.dot,
-          [`${name}--circle`]: !props.dot && props.shape === 'circle',
-          [`${name}--round`]: props.shape === 'round',
+          [`${COMPONENT_NAME.value}--dot`]: !!props.dot,
+          [`${COMPONENT_NAME.value}--circle`]: !props.dot && props.shape === 'circle',
+          [`${COMPONENT_NAME.value}--round`]: !props.dot && props.shape === 'round',
           [`${classPrefix.value}-size-s`]: props.size === 'small',
         },
       ];
@@ -61,23 +58,13 @@ export default defineComponent({
       };
     });
     /** 样式计算相关逻辑 end */
-    return {
-      content,
-      inlineStyle,
-      badgeClassNames,
-      isHidden,
-      renderChildren,
-      name,
-    };
-  },
 
-  render() {
-    return (
-      <div class={this.name} {...this.$attrs}>
-        {this.renderChildren()}
-        {this.isHidden ? null : (
-          <sup class={this.badgeClassNames} style={this.inlineStyle}>
-            {this.dot ? null : this.content}
+    return () => (
+      <div class={COMPONENT_NAME.value} {...attrs}>
+        {renderContent('default', 'content')}
+        {isHidden.value ? null : (
+          <sup class={badgeClassNames.value} style={inlineStyle.value}>
+            {props.dot ? null : displayCount.value}
           </sup>
         )}
       </div>

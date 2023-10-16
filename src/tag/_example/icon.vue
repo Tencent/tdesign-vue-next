@@ -1,12 +1,12 @@
 <template>
   <t-space>
-    <t-tag :icon="renderDiscountIcon"> 默认标签 </t-tag>
+    <t-tag :icon="renderDiscountIcon">函数图标</t-tag>
 
     <t-tag>
       <template #icon>
         <t-icon name="discount" />
       </template>
-      Icon插槽
+      插槽图标
     </t-tag>
   </t-space>
 </template>

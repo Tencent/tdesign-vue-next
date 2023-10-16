@@ -143,5 +143,26 @@ describe('Badge', () => {
       expect(text.exists()).toBeTruthy();
       expect(text.text()).toBe('Tdesign');
     });
+    it('content', () => {
+      const wrapper = mount(Badge, {
+        slots: {
+          content: <div class="text">Tdesign</div>,
+        },
+      });
+      const text = wrapper.find('.text');
+      expect(text.exists()).toBeTruthy();
+      expect(text.text()).toBe('Tdesign');
+    });
+
+    it('count', () => {
+      const wrapper = mount(Badge, {
+        slots: {
+          count: '66',
+        },
+      });
+      const count = wrapper.find('.t-badge--circle');
+      expect(count.exists()).toBeTruthy();
+      expect(count.text()).toBe('66');
+    });
   });
 });

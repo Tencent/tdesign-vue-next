@@ -5,7 +5,7 @@
 
 name | type | default | description | required
 -- | -- | -- | -- | --
-activable | Boolean | false | \- | N
+activable | Boolean | false | make nodes can be highlight | N
 activeMultiple | Boolean | false | \- | N
 actived | Array | - | `v-model:actived` is supported。Typescript：`Array<TreeNodeValue>` | N
 allowFoldNodeOnFilter | Boolean | false | \- | N
@@ -81,6 +81,7 @@ getPath | `(value: TreeNodeValue)` | `TreeNodeModel<T>[]` | required
 insertAfter | `(value: TreeNodeValue, newData: T)` | \- | required
 insertBefore | `(value: TreeNodeValue, newData: T)` | \- | required
 remove | `(value: TreeNodeValue)` | \- | required
+scrollTo | `(scrollToParams: ScrollToElementParams)` | \- | support scrolling to a specific node when virtual scrolling 
 setItem | `(value: TreeNodeValue, options: TreeNodeState)` | \- | required
 
 ### TreeNodeState

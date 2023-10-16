@@ -1,4 +1,4 @@
-import { computed, defineComponent, toRefs, h, ref, onMounted } from 'vue';
+import { computed, defineComponent, toRefs, h, ref, onMounted, getCurrentInstance } from 'vue';
 import get from 'lodash/get';
 import omit from 'lodash/omit';
 import baseTableProps from './base-table-props';
@@ -33,10 +33,33 @@ const OMIT_PROPS = [
   'filterRow',
   'sortOnRowDraggable',
   'expandOnRowClick',
+  'expand-on-row-click',
+  'expanded-row',
+  'editable-row-keys',
+  'editable-cell-state',
+  'filter-value',
   'multipleSort',
   'expandIcon',
+  'expand-icon',
   'reserveSelectedRowOnPaginate',
+  'expandedRowKeys',
+  'expandedRow',
+  'reserve-selected-row-on-paginate',
+  'reserveSelectedRowOnPaginate',
+  'selected-row-keys',
+  'selectedRowKeys',
   'selectOnRowClick',
+  'column-controller',
+  'columnController',
+  'dragSort',
+  'drag-sort',
+  'hideSortTips',
+  'showSortColumnBgColor',
+  'filter-row',
+  'filterRow',
+  'multiple-sort',
+  'multipleSort',
+  'async-loading',
   'onChange',
   'onAsyncLoadingClick',
   'onColumnChange',
@@ -370,8 +393,12 @@ export default defineComponent({
       const firstFullRow = formatNode('firstFullRow', renderFirstFilterRow, !hasEmptyCondition.value);
       const lastFullRow = formatNode('lastFullRow', renderAsyncLoading, !!props.asyncLoading);
 
-      const baseTableProps = {
-        ...omit(props, OMIT_PROPS),
+      // important for base-table controlled properties
+      const { vnode } = getCurrentInstance();
+
+      const baseTableProps: BaseTableProps = {
+        ...omit(vnode.props, OMIT_PROPS),
+        rowKey: props.rowKey,
         rowClassName: tRowClassNames.value,
         rowAttributes: tRowAttributes.value,
         columns: tColumns.value,

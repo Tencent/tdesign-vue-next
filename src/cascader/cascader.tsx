@@ -79,6 +79,7 @@ export default defineComponent({
     const renderLabel = () => {
       const label = renderTNodeJSX('label');
       if (props.multiple) return label;
+      if (!label) return null;
       return <div class={`${classPrefix.value}-tag-input__prefix`}>{label}</div>;
     };
 

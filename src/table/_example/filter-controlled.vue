@@ -94,6 +94,8 @@ const columns = computed(() => [
         { label: '已过期', value: 1 },
         { label: '审批失败', value: 2 },
       ],
+      // confirm to search and hide filter popup
+      confirmEvents: ['onChange'],
       // 支持透传全部 Popup 组件属性
       // popupProps: {
       //   attach: () => document.body,

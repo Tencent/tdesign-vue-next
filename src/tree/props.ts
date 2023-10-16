@@ -43,7 +43,7 @@ export default {
   },
   /** 是否禁用树操作 */
   disabled: Boolean,
-  /** [开发中]节点是否可拖拽 */
+  /** 节点是否可拖拽 */
   draggable: Boolean,
   /** 数据为空时展示的文本 */
   empty: {
@@ -128,7 +128,7 @@ export default {
     type: Boolean,
     default: true,
   },
-  /** 选中值（组件为可选状态时） */
+  /** 选中值，组件为可选状态时有效 */
   value: {
     type: Array as PropType<TdTreeProps['value']>,
     default: undefined as TdTreeProps['value'],
@@ -137,7 +137,7 @@ export default {
     type: Array as PropType<TdTreeProps['value']>,
     default: undefined as TdTreeProps['value'],
   },
-  /** 选中值（组件为可选状态时），非受控属性 */
+  /** 选中值，组件为可选状态时有效，非受控属性 */
   defaultValue: {
     type: Array as PropType<TdTreeProps['defaultValue']>,
     default: (): TdTreeProps['defaultValue'] => [],
