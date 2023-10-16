@@ -26,7 +26,7 @@ export default {
     type: [String, Function] as PropType<TdTabPanelProps['label']>,
   },
   /** 是否启用选项卡懒加载 */
-  lazyLoad: Boolean,
+  lazy: Boolean,
   /** 用于自定义选项卡面板内容 */
   panel: {
     type: [String, Function] as PropType<TdTabPanelProps['panel']>,

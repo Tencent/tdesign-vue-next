@@ -38,7 +38,7 @@ destroyOnHide | Boolean | false | 选项卡内容隐藏时是否销毁 | N
 disabled | Boolean | false | 是否禁用当前选项卡 | N
 draggable | Boolean | true | 选项卡组件开启允许拖动排序时，当前选项卡是否允许拖动 | N
 label | String / Slot / Function | - | 选项卡名称，可自定义选项卡导航内容。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-lazyLoad | Boolean | false | 是否启用选项卡懒加载 | N
+lazy | Boolean | false | 是否启用选项卡懒加载 | N
 panel | String / Slot / Function | - | 用于自定义选项卡面板内容。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 removable | Boolean | false | 当前选项卡是否允许移除 | N
 value | String / Number | - | 选项卡的值，唯一标识。TS 类型：`TabValue` | N
