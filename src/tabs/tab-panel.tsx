@@ -20,7 +20,7 @@ export default defineComponent({
 
     const tabs = inject<InjectTabs>('tabs');
     const isActive = computed(() => props.value === tabs.value.value);
-    const isMount = ref(props.lazyLoad ? isActive.value : true);
+    const isMount = ref(props.lazy ? isActive.value : true);
 
     watch(isActive, () => {
       if (isActive.value) {

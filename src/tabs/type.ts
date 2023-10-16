@@ -103,7 +103,7 @@ export interface TdTabPanelProps {
    * 是否启用选项卡懒加载
    * @default false
    */
-  lazyLoad?: boolean;
+  lazy?: boolean;
   /**
    * 用于自定义选项卡面板内容
    */
