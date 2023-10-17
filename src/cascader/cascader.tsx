@@ -93,7 +93,7 @@ export default defineComponent({
 
       return (
         <SelectInput
-          class={cascaderClassNames}
+          class={cascaderClassNames.value}
           value={displayValue.value}
           inputValue={visible ? inputVal : ''}
           popupVisible={visible}
