@@ -1,8 +1,7 @@
 import { SetupContext, ref, computed, toRefs, Ref } from 'vue';
 import isObject from 'lodash/isObject';
 import pick from 'lodash/pick';
-import { SelectInputCommonProperties } from './interface';
-import { TdSelectInputProps } from './type';
+import isUndefined from 'lodash/isUndefined';
 import Input, { InputProps, TdInputProps } from '../input';
 import Loading from '../loading';
 import { useTNodeJSX } from '../hooks/tnode';
@@ -10,7 +9,8 @@ import { usePrefixClass } from '../hooks/useConfig';
 import useDefaultValue from '../hooks/useDefaultValue';
 import { useFormDisabled } from '../form/hooks';
 import { PopupInstanceFunctions } from '../popup';
-import isUndefined from 'lodash/isUndefined';
+import { TdSelectInputProps } from './type';
+import { SelectInputCommonProperties } from './interface';
 
 // single 和 multiple 共有特性
 const COMMON_PROPERTIES = [
