@@ -6,6 +6,7 @@ import { usePrefixClass, useConfig } from '../../hooks/useConfig';
 import { downloadFile } from '../utils';
 import { useImagePreviewUrl } from '../../hooks';
 import { ImageInfo } from '../type';
+import { largeNumberToFixed } from '../../_common/js/input-number/large-number';
 
 export default defineComponent({
   name: 'TImageViewerUtils',
@@ -57,8 +58,9 @@ export default defineComponent({
           <TImageViewerIcon
             class={`${classPrefix.value}-image-viewer__utils-scale`}
             size="medium"
-            label={`${props.scale * 100}%`}
+            label={`${largeNumberToFixed(String(props.scale * 100))}%`}
           />
+
           <TImageViewerIcon icon={() => <ZoomInIcon size="medium" />} onClick={props.onZoomIn} />
           <TToolTip
             overlayClassName={`${classPrefix.value}-image-viewer__utils--tip`}
