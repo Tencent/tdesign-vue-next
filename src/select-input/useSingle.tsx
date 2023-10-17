@@ -10,6 +10,7 @@ import { usePrefixClass } from '../hooks/useConfig';
 import useDefaultValue from '../hooks/useDefaultValue';
 import { useFormDisabled } from '../form/hooks';
 import { PopupInstanceFunctions } from '../popup';
+import isUndefined from 'lodash/isUndefined';
 
 // single 和 multiple 共有特性
 const COMMON_PROPERTIES = [
@@ -139,8 +140,7 @@ export default function useSingle(
     // 2 用户传入useInputDisplay希望使用自带输入回显实现，激活选择器浮层时只展示input值（待讨论是否修改为激活后真的输入字符再隐藏valueDisplay，此处实现效果与不使用valueDisplay只使用filterable时不同）
     const label = renderTNode('label');
 
-    // label==undefined && singleValueDisplay==undefined,return []
-    if (!label && !singleValueDisplay) {
+    if (isUndefined(label) && isUndefined(singleValueDisplay)) {
       return [];
     }
 

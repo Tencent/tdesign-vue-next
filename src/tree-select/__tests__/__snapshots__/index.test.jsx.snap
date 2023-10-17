@@ -1122,6 +1122,7 @@ exports[`TreeSelect > <slot> > <prefixIcon> 1`] = `
           this is a icon.
         </i>
         
+        <!---->
         
       </div>
       <input
@@ -1179,6 +1180,7 @@ exports[`TreeSelect > <slot> > <valueDisplay> 1`] = `
         class="t-input__prefix"
       >
         
+        <!---->
         
         <div>
           深圳市(shenzhen)
@@ -1443,6 +1445,7 @@ exports[`TreeSelect > function > :prefixIcon 1`] = `
             this is a icon.
           </i>
         </div>
+        <!---->
         
       </div>
       <input
@@ -1500,6 +1503,7 @@ exports[`TreeSelect > function > :valueDisplay 1`] = `
         class="t-input__prefix"
       >
         
+        <!---->
         <div>
           深圳市(shenzhen)
         </div>
