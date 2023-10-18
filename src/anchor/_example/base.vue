@@ -7,7 +7,6 @@
       <t-anchor-item href="#指定容器锚点" title="指定容器锚点" />
       <t-anchor-item href="#特定交互锚点" title="特定交互锚点" />
       <t-anchor-item href="#不同尺寸的锚点" title="不同尺寸的锚点" />
-      <t-anchor-item href="#自定义锚点高亮" title="自定义锚点高亮" />
     </t-anchor>
   </div>
 </template>
