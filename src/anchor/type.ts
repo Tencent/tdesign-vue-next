@@ -45,10 +45,6 @@ export interface TdAnchorProps {
    * 锚点被点击时触发
    */
   onClick?: (link: { href: string; title: string; e: MouseEvent }) => void;
-  /**
-   * 自定义高亮的锚点
-   */
-  getCurrentAnchor?: (activeLink: string) => string;
 }
 
 export interface TdAnchorTargetProps {
