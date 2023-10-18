@@ -5,6 +5,22 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.6.3 `2023-10-18` 
+### 🚀 Features
+- `Table`: 可筛选表格，支持设置 `confirmEvents: ['onChange']` 后，单选筛选器(`Radio`) 选择完成后自动关闭筛选器浮层 @chaishi ([#3478](https://github.com/Tencent/tdesign-vue-next/pull/3478))
+- `Tabs`: `destroyOnHide` 默认值改false @liweijie0812 ([#3467](https://github.com/Tencent/tdesign-vue-next/pull/3467))
+- `Tabs`: 新增`lazy` 支持选项卡懒加载 @liweijie0812 ([#3467](https://github.com/Tencent/tdesign-vue-next/pull/3467))
+### 🐞 Bug Fixes
+- `Cascader`: 
+  - 修复顶层 `class` 使用了 `proxy` 值，导致样式表现异常 @PengYYYYY ([#3488](https://github.com/Tencent/tdesign-vue-next/pull/3488))
+  - 多选场景，未开启搜索功能，宽度自适应模式，修复鼠标悬浮时宽度会发生变化问题 ([#1623](https://github.com/Tencent/tdesign-common/pull/1623))
+- `ImageViewer`: 控制栏控件中部数据，在步长值不为0.5时，精度丢失的问题 @xiaojueshi ([#3476](https://github.com/Tencent/tdesign-vue-next/pull/3476))
+- `DatePicker`: `prefixIcon`  插槽不生效([issue #3475](https://github.com/Tencent/tdesign-vue-next/pull/3475)) @liweijie0812 ([#3479](https://github.com/Tencent/tdesign-vue-next/pull/3479))
+- `SelectInput`: `renderPrefixContent` 返回 `[null,undefined]` 或 `[undefined,undefined]` ,传递给 `input props.label`, 导致 `input` 渲染空的 `t-input__prefix` 节点 ([issue #2658](https://github.com/Tencent/tdesign-vue-next/pull/2658)) @liweijie0812 ([#3479](https://github.com/Tencent/tdesign-vue-next/pull/3479))
+- `TagInput`: 多选场景，未开启搜索功能，宽度自适应模式，修复鼠标悬浮时宽度会发生变化问题 ([#1623](https://github.com/Tencent/tdesign-common/pull/1623))
+- `Select`: 多选场景，未开启搜索功能，宽度自适应模式，修复鼠标悬浮时宽度会发生变化问题 ([#1623](https://github.com/Tencent/tdesign-common/pull/1623))
+- `TreeSelect`: 多选场景，未开启搜索功能，宽度自适应模式，修复鼠标悬浮时宽度会发生变化问题 ([#1623](https://github.com/Tencent/tdesign-common/pull/1623))
+
 ## 🌈 1.6.2 `2023-10-12` 
 ### 🚀 Features
 - `Tag`: `CheckTag` 支持多种风格标签配置 @chaishi ([#3419](https://github.com/Tencent/tdesign-vue-next/pull/3419))
