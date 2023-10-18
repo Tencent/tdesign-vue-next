@@ -84,6 +84,9 @@ export default defineComponent({
 
     const onOverlayClick: PopupProps['onOverlayClick'] = (ctx) => {
       ctx.e?.stopPropagation();
+      ctx.e?.preventDefault();
+      // do not set focus if target can be focused
+      if ((ctx.e.target as HTMLElement).tabIndex >= 0) return;
       if (props.multiple) {
         tagInputRef.value.focus();
       } else {
