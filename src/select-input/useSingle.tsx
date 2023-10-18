@@ -1,8 +1,6 @@
 import { SetupContext, ref, computed, toRefs, Ref } from 'vue';
 import isObject from 'lodash/isObject';
 import pick from 'lodash/pick';
-import { SelectInputCommonProperties } from './interface';
-import { TdSelectInputProps } from './type';
 import Input, { InputProps, TdInputProps } from '../input';
 import Loading from '../loading';
 import { useTNodeJSX } from '../hooks/tnode';
@@ -10,6 +8,8 @@ import { usePrefixClass } from '../hooks/useConfig';
 import useDefaultValue from '../hooks/useDefaultValue';
 import { useFormDisabled } from '../form/hooks';
 import { PopupInstanceFunctions } from '../popup';
+import { TdSelectInputProps } from './type';
+import { SelectInputCommonProperties } from './interface';
 
 // single 和 multiple 共有特性
 const COMMON_PROPERTIES = [
@@ -137,15 +137,21 @@ export default function useSingle(
     // 需要隐藏valueDisplay的两个情况
     // 1 用户传入usePlaceholder希望使用自带占位符实现，则应在未选择值时隐藏valueDisplay，只展示占位符
     // 2 用户传入useInputDisplay希望使用自带输入回显实现，激活选择器浮层时只展示input值（待讨论是否修改为激活后真的输入字符再隐藏valueDisplay，此处实现效果与不使用valueDisplay只使用filterable时不同）
+    const label = renderTNode('label');
+
+    if (!label && !singleValueDisplay) {
+      return [];
+    }
+
     if (singleValueDisplay) {
       if (
         (props.valueDisplayOptions?.usePlaceholder && !value.value) ||
         (props.valueDisplayOptions?.useInputDisplay && popupVisible)
       ) {
-        return [renderTNode('label')];
+        return [label];
       }
     }
-    return [renderTNode('label'), singleValueDisplay];
+    return [label, singleValueDisplay];
   };
 
   const renderInputDisplay = (singleValueDisplay: any, displayedValue: any, popupVisible: boolean) => {
