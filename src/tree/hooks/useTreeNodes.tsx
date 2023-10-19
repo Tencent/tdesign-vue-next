@@ -28,7 +28,7 @@ export default function useTreeNodes(state: TypeTreeState) {
         hasVisibleNode = true;
         cacheMap.set(node.value, node.value);
       }
-      if (cacheMap.get(node.value)) {
+      if (cacheMap.has(node.value)) {
         // 创建的节点是缓存的节点
         list.push(node);
       }
