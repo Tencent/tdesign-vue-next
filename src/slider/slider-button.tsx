@@ -37,7 +37,7 @@ export default defineComponent({
       default: false,
     },
   },
-  emits: ['input'],
+  emits: ['input', 'drag-start', 'drag-end'],
   setup(props, ctx) {
     const COMPONENT_NAME = usePrefixClass('slider__button');
     const tooltipConfig = computed(() => props);
@@ -126,6 +126,7 @@ export default defineComponent({
       }
       slideButtonProps.startPos = parseFloat(currentPos.value);
       slideButtonProps.newPos = slideButtonProps.startPos;
+      ctx.emit('drag-start', event);
     };
 
     const onDragging = (e: MouseEvent | TouchEvent) => {
@@ -149,7 +150,7 @@ export default defineComponent({
       setPosition(slideButtonProps.newPos);
     };
 
-    const onDragEnd = () => {
+    const onDragEnd = (event: MouseEvent | TouchEvent) => {
       if (slideButtonProps.dragging) {
         setTimeout(() => {
           slideButtonProps.dragging = false;
@@ -163,6 +164,7 @@ export default defineComponent({
         window.removeEventListener('mouseup', onDragEnd);
         window.removeEventListener('touchend', onDragEnd);
         window.removeEventListener('contextmenu', onDragEnd);
+        ctx.emit('drag-end', event);
       }
     };
 
