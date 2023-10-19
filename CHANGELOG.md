@@ -5,7 +5,7 @@ toc: false
 docClass: timeline
 ---
 
-## 🌈 1.6.3 `2023-10-18` 
+## 🌈 1.6.4 `2023-10-19` 
 ### 🚀 Features
 - `Table`: 可筛选表格，支持设置 `confirmEvents: ['onChange']` 后，单选筛选器(`Radio`) 选择完成后自动关闭筛选器浮层 @chaishi ([#3478](https://github.com/Tencent/tdesign-vue-next/pull/3478))
 - `Tabs`: `destroyOnHide` 默认值改 `false` @liweijie0812 ([#3467](https://github.com/Tencent/tdesign-vue-next/pull/3467))
