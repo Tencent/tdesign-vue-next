@@ -22,15 +22,19 @@ export default defineComponent({
     const isActive = computed(() => props.value === tabs.value.value);
     const isMount = ref(props.lazy ? isActive.value : true);
 
-    watch(isActive, () => {
-      if (isActive.value) {
-        if (!isMount.value) {
-          isMount.value = true;
+    watch(
+      isActive,
+      () => {
+        if (isActive.value) {
+          if (!isMount.value) {
+            isMount.value = true;
+          }
+        } else if (props.destroyOnHide) {
+          isMount.value = false;
         }
-      } else if (props.destroyOnHide) {
-        isMount.value = false;
-      }
-    });
+      },
+      { immediate: true },
+    );
 
     const tabPanelClass = computed(() => [
       COMPONENT_NAME.value,

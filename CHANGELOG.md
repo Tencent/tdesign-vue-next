@@ -5,6 +5,19 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.6.5 `2023-10-20` 
+### 🚀 Features
+- `TagInput`: 支持在超长滚动模式下进行滚动，对选项进行增删操作 @liweijie0812 ([#3501](https://github.com/Tencent/tdesign-vue-next/pull/3501))
+- `Tabs`: `destroyOnHide` 默认值回退为true，懒加载使用请配合`destroyOnHide`设置为false使用，详情请看示例 @liweijie0812 ([#3504](https://github.com/Tencent/tdesign-vue-next/pull/3504))
+### 🐞 Bug Fixes
+- `Tree`: 修复当 `node` 的 `value` 为 `0` 时不会渲染的问题([issue #3474](https://github.com/Tencent/tdesign-vue-next/issues/3474)) @Zz-ZzzZ ([#3500](https://github.com/Tencent/tdesign-vue-next/pull/3500))
+- `SelectInput`: 修复`1.6.2`之后非多选场景下基于`SelectInput`的组件如`Select`等，自动聚焦输入框的问题 @uyarn ([#3506](https://github.com/Tencent/tdesign-vue-next/pull/3506))
+- `DatePicker`: 修复`1.6.2`之后选中控制台报错的问题 @uyarn ([#3506](https://github.com/Tencent/tdesign-vue-next/pull/3506))
+### 🚧 Others
+- `Select`: 修复示例的错误 @liect ([#3503](https://github.com/Tencent/tdesign-vue-next/pull/3503))
+
+
+
 ## 🌈 1.6.4 `2023-10-19` 
 ### 🚀 Features
 - `Table`: 可筛选表格，支持设置 `confirmEvents: ['onChange']` 后，单选筛选器(`Radio`) 选择完成后自动关闭筛选器浮层 @chaishi ([#3478](https://github.com/Tencent/tdesign-vue-next/pull/3478))

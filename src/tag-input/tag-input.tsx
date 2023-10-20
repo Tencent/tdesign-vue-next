@@ -1,4 +1,4 @@
-import { defineComponent, computed, toRefs, ref, nextTick, reactive } from 'vue';
+import { defineComponent, computed, toRefs, ref, nextTick, reactive, watch } from 'vue';
 import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import TInput, { InputProps, InputValue, TdInputProps } from '../input';
 import { TdTagInputProps } from './type';
@@ -58,7 +58,8 @@ export default defineComponent({
         targetClassNameRegExp: new RegExp(`^${classPrefix.value}-tag`),
       },
     });
-    const { scrollToRight, onWheel, scrollToRightOnEnter, scrollToLeftOnLeave, tagInputRef } = useTagScroll(props);
+    const { scrollToRight, onWheel, scrollToRightOnEnter, scrollToLeftOnLeave, tagInputRef, isScrollable } =
+      useTagScroll(props);
     // handle tag add and remove
     // 需要响应式，为了尽量的和 react 版本做法相同，这里进行响应式处理
     const { tagValue, onInnerEnter, onInputBackspaceKeyUp, onInputBackspaceKeyDown, clearAll, renderLabel, onClose } =
@@ -160,6 +161,16 @@ export default defineComponent({
       setTInputValue(val, { ...context, trigger: 'input' });
     };
 
+    watch(
+      () => isScrollable.value,
+      (v) => {
+        if (props.excessTagsDisplayType !== 'scroll') return;
+        const scrollElementClass = `${classPrefix.value}-input__prefix`;
+        const scrollElement = tagInputRef.value.$el.querySelector(`.${scrollElementClass}`);
+        if (v) scrollElement.classList.add(`${scrollElementClass}--scrollable`);
+        else scrollElement.classList.remove(`${scrollElementClass}--scrollable`);
+      },
+    );
     return {
       CLEAR_CLASS,
       CloseCircleFilledIcon,

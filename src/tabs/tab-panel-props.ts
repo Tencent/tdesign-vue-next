@@ -13,7 +13,10 @@ export default {
     type: Function as PropType<TdTabPanelProps['default']>,
   },
   /** 选项卡内容隐藏时是否销毁 */
-  destroyOnHide: Boolean,
+  destroyOnHide: {
+    type: Boolean,
+    default: true,
+  },
   /** 是否禁用当前选项卡 */
   disabled: Boolean,
   /** 选项卡组件开启允许拖动排序时，当前选项卡是否允许拖动 */

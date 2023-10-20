@@ -34,7 +34,7 @@ remove | `(options: { value: TabValue; index: number; e: MouseEvent })` | \-
 name | type | default | description | required
 -- | -- | -- | -- | --
 default | Slot / Function | - | Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-destroyOnHide | Boolean | false | \- | N
+destroyOnHide | Boolean | true | \- | N
 disabled | Boolean | false | \- | N
 draggable | Boolean | true | \- | N
 label | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N

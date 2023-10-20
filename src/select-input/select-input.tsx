@@ -35,11 +35,7 @@ export default defineComponent({
 
     const { tOverlayInnerStyle, innerPopupVisible, onInnerPopupVisibleChange } = useOverlayInnerStyle(props);
 
-    const { isSingleFocus, commonInputProps, inputRef, onInnerClear, renderSelectSingle } = useSingle(
-      props,
-      context,
-      popupRef,
-    );
+    const { isSingleFocus, commonInputProps, onInnerClear, renderSelectSingle } = useSingle(props, context, popupRef);
 
     const { isMultipleFocus, tagInputRef, renderSelectMultiple } = useMultiple(props, context, popupRef);
 
@@ -86,11 +82,7 @@ export default defineComponent({
       ctx.e?.stopPropagation();
       // do not set focus if target can be focused
       if ((ctx.e.target as HTMLElement).tabIndex >= 0) return;
-      if (props.multiple) {
-        tagInputRef.value.focus();
-      } else {
-        inputRef.value.focus();
-      }
+      if (props.multiple) tagInputRef.value.focus();
     };
 
     return {
