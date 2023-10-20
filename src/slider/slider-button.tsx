@@ -36,6 +36,13 @@ export default defineComponent({
       type: [String, Boolean, Function] as PropType<TdSliderProps['label']>,
       default: false,
     },
+    range: {
+      type: Boolean,
+      default: false,
+    },
+    position: {
+      type: String,
+    },
   },
   emits: ['input'],
   setup(props, ctx) {
