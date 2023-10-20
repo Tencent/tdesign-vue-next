@@ -35,11 +35,7 @@ export default defineComponent({
 
     const { tOverlayInnerStyle, innerPopupVisible, onInnerPopupVisibleChange } = useOverlayInnerStyle(props);
 
-    const { isSingleFocus, commonInputProps, inputRef, onInnerClear, renderSelectSingle } = useSingle(
-      props,
-      context,
-      popupRef,
-    );
+    const { isSingleFocus, commonInputProps, onInnerClear, renderSelectSingle } = useSingle(props, context, popupRef);
 
     const { isMultipleFocus, tagInputRef, renderSelectMultiple } = useMultiple(props, context, popupRef);
 
