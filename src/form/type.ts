@@ -6,7 +6,7 @@
 
 import { IsEmailOptions } from 'validator/es/lib/isEmail';
 import { IsURLOptions } from 'validator/es/lib/isURL';
-import { TNode, FormResetEvent, FormSubmitEvent } from '../common';
+import { TNode, FormResetEvent, FormSubmitEvent, SizeEnum } from '../common';
 
 export interface TdFormProps<FormData extends Data = Data> {
   /**
@@ -68,6 +68,11 @@ export interface TdFormProps<FormData extends Data = Data> {
    * 表单校验不通过时，是否自动滚动到第一个校验不通过的字段，平滑滚动或是瞬间直达。值为空则表示不滚动
    */
   scrollToFirstError?: '' | 'smooth' | 'auto';
+  /**
+   * 表单元素尺寸
+   * @default medium
+   */
+  size?: SizeEnum;
   /**
    * 校验不通过时，是否显示错误提示信息，统一控制全部表单项。如果希望控制单个表单项，请给 FormItem 设置该属性
    * @default true
@@ -160,6 +165,10 @@ export interface TdFormItemProps {
    * 表单字段校验规则
    */
   rules?: Array<FormRule>;
+  /**
+   * 表单元素尺寸
+   */
+  size?: SizeEnum;
   /**
    * 校验不通过时，是否显示错误提示信息，优先级高于 `Form.showErrorMessage`
    */

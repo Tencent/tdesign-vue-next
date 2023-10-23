@@ -11,6 +11,7 @@ import {
   ValidateTriggerType,
 } from './type';
 import { usePrefixClass, useTNodeJSX } from '../hooks';
+import { SizeEnum } from '..';
 
 // 允许 Form 统一控制的表单
 export const FORM_CONTROL_COMPONENTS = [
@@ -116,8 +117,10 @@ export const FormInjectionKey: InjectionKey<{
   resetType: TdFormProps['resetType'];
   children: FormItemContext[];
   renderContent: ReturnType<typeof useTNodeJSX>;
+  size: SizeEnum;
 }> = Symbol('FormProvide');
 
 export const FormItemInjectionKey: InjectionKey<{
   handleBlur: () => Promise<void>;
+  size: SizeEnum;
 }> = Symbol('FormItemProvide');

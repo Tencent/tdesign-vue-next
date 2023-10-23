@@ -14,8 +14,9 @@ import {
   formatUnCompleteNumber,
   largeNumberToFixed,
 } from '../_common/js/input-number/number';
-import { useFormDisabled } from '../form/hooks';
+import { useFormDisabled, useFormSize } from '../form/hooks';
 import { TdInputProps } from '../input';
+import { SizeEnum } from '..';
 
 /**
  * 独立一个组件 Hook 方便用户直接使用相关逻辑 自定义任何样式的数字输入框
@@ -36,11 +37,14 @@ export default function useInputNumber(props: TdInputNumberProps) {
     () => tDisabled.value || !canReduceNumber(tValue.value, props.min, props.largeNumber),
   );
 
+  const formSize = useFormSize();
+  const inputSize = computed((): SizeEnum => (formSize.value === '' ? 'medium' : (formSize.value as SizeEnum)));
+
   const disabledAdd = computed(() => tDisabled.value || !canAddNumber(tValue.value, props.max, props.largeNumber));
 
   const wrapClasses = computed(() => [
     `${classPrefix.value}-input-number`,
-    sizeClassNames[props.size],
+    sizeClassNames[inputSize.value],
     {
       [statusClassNames.disabled]: tDisabled.value,
       [`${classPrefix.value}-is-controls-right`]: props.theme === 'column',

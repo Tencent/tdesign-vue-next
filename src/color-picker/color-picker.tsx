@@ -1,4 +1,4 @@
-import { defineComponent, ref, toRefs } from 'vue';
+import { computed, defineComponent, ref, toRefs } from 'vue';
 import useVModel from '../hooks/useVModel';
 import { renderTNodeJSXDefault } from '../utils/render-tnode';
 import props from './props';
@@ -7,6 +7,8 @@ import ColorPanel from './panel';
 import DefaultTrigger from './trigger';
 import { TdColorContext } from './interfaces';
 import { useBaseClassName } from './hooks';
+import { SizeEnum } from '..';
+import { useFormSize } from '../form/hooks';
 
 export default defineComponent({
   name: 'TColorPicker',
@@ -22,6 +24,9 @@ export default defineComponent({
     const [innerValue, setInnerValue] = useVModel(inputValue, modelValue, props.defaultValue, props.onChange);
 
     const refTrigger = ref<HTMLElement>();
+
+    const formSize = useFormSize();
+    const inputSize = computed((): SizeEnum => (formSize.value === '' ? 'medium' : (formSize.value as SizeEnum)));
 
     const renderPopupContent = () => {
       if (props.disabled) {
@@ -48,6 +53,7 @@ export default defineComponent({
       renderPopupContent,
       setVisible,
       setInnerValue,
+      inputSize,
     };
   },
   render() {
@@ -85,7 +91,7 @@ export default defineComponent({
               clearable={this.clearable}
               input-props={this.inputProps}
               onTriggerChange={this.setInnerValue}
-              size={this.size}
+              size={this.inputSize}
             />,
           )}
         </div>

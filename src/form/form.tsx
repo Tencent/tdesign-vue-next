@@ -38,8 +38,18 @@ export default defineComponent({
     const formRef = ref<HTMLFormElement>(null);
     const children = ref<FormItemContext[]>([]);
 
-    const { showErrorMessage, labelWidth, labelAlign, data, colon, requiredMark, rules, errorMessage, resetType } =
-      toRefs(props);
+    const {
+      showErrorMessage,
+      labelWidth,
+      labelAlign,
+      data,
+      colon,
+      requiredMark,
+      rules,
+      errorMessage,
+      resetType,
+      size,
+    } = toRefs(props);
     provide(
       FormInjectionKey,
       reactive({
@@ -54,6 +64,7 @@ export default defineComponent({
         resetType,
         children,
         renderContent,
+        size,
       }),
     );
 
@@ -176,9 +187,11 @@ export default defineComponent({
     expose({ validate, submit, reset, clearValidate, setValidateMessage, validateOnly });
 
     return () => (
-      <form ref={formRef} class={formClass.value} onSubmit={(e) => onSubmit(e)} onReset={(e) => onReset(e)}>
-        {renderContent('default')}
-      </form>
+      <div>
+        <form ref={formRef} class={formClass.value} onSubmit={(e) => onSubmit(e)} onReset={(e) => onReset(e)}>
+          {renderContent('default')}
+        </form>
+      </div>
     );
   },
 });

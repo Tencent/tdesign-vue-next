@@ -7,11 +7,12 @@ import { RangeInputValue, RangeInputPosition } from './type';
 
 // hooks
 import useVModel from '../hooks/useVModel';
-import { useFormDisabled } from '../form/hooks';
+import { useFormDisabled, useFormSize } from '../form/hooks';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
 import isArray from 'lodash/isArray';
+import { SizeEnum } from '..';
 
 function calcArrayValue(value: unknown | Array<unknown>) {
   if (isArray(value)) {
@@ -41,6 +42,9 @@ export default defineComponent({
     const inputProps = computed(() => calcArrayValue(props.inputProps));
     const placeholder = computed(() => calcArrayValue(props.placeholder));
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+
+    const formSize = useFormSize();
+    const inputSize = computed((): SizeEnum => (formSize.value === '' ? 'medium' : (formSize.value as SizeEnum)));
 
     const isShowClearIcon = computed(
       () =>
@@ -110,7 +114,7 @@ export default defineComponent({
           class={[
             COMPONENT_NAME.value,
             {
-              [SIZE.value[props.size]]: props.size !== 'medium',
+              [SIZE.value[inputSize.value]]: inputSize.value !== 'medium',
               [STATUS.value.disabled]: disabled.value,
               [STATUS.value.focused]: focused.value,
               [STATUS.value.success]: props.status === 'success',

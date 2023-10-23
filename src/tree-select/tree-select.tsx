@@ -13,12 +13,12 @@ import { PopupVisibleChangeContext } from '../popup';
 
 import { INodeOptions } from './interface';
 import { TreeSelectValue, TdTreeSelectProps, TreeSelectValueChangeTrigger } from './type';
-import { TreeOptionData } from '../common';
+import { SizeEnum, TreeOptionData } from '../common';
 import props from './props';
 
 // hooks
 import { usePrefixClass, useConfig } from '../hooks/useConfig';
-import { useFormDisabled } from '../form/hooks';
+import { useFormDisabled, useFormSize } from '../form/hooks';
 import { useTNodeJSX, useTNodeDefault } from '../hooks/tnode';
 import useVModel from '../hooks/useVModel';
 import useDefaultValue from '../hooks/useDefaultValue';
@@ -59,6 +59,9 @@ export default defineComponent({
       'inputValue',
     );
 
+    const formSize = useFormSize();
+    const inputSize = computed((): SizeEnum => (formSize.value === '' ? 'medium' : (formSize.value as SizeEnum)));
+
     // watch
     watch(treeSelectValue, async () => {
       await changeNodeInfo();
@@ -95,7 +98,7 @@ export default defineComponent({
         small: 's',
         medium: 'm',
         large: 'l',
-      }[props.size];
+      }[inputSize.value];
     });
 
     const isObjectValue = computed(() => props.valueType === 'object');
@@ -344,7 +347,7 @@ export default defineComponent({
         activable={!props.multiple}
         checkable={props.multiple}
         disabled={tDisabled.value || multiLimitDisabled.value}
-        size={props.size}
+        size={inputSize.value}
         filter={filterByText.value}
         icon={!filterByText.value}
         actived={actived.value}
@@ -398,11 +401,11 @@ export default defineComponent({
           ...(props.popupProps as TdTreeSelectProps['popupProps']),
         }}
         inputProps={{
-          size: props.size,
+          size: inputSize.value,
           ...(props.inputProps as TdTreeSelectProps['inputProps']),
         }}
         tagInputProps={{
-          size: props.size,
+          size: inputSize.value,
         }}
         tagProps={{
           maxWidth: 300,
