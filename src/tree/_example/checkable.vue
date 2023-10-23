@@ -40,7 +40,7 @@ export default {
       valueMode: 'onlyLeaf',
       checkable: true,
       checkStrictly: false,
-      allChecked: ['1.1.1.1'],
+      allChecked: [],
       valueOptions: [
         {
           value: 'onlyLeaf',
@@ -149,19 +149,14 @@ export default {
   },
   methods: {
     onClick(context) {
-      console.info('onClick:', context);
+      console.info('onClick context:', context);
       const { node } = context;
-      console.info(node.value, 'checked:', node.checked);
+      console.info(node.value, 'onClick context.node.checked:', node.checked);
     },
     onChange(checked, context) {
-      console.info('onChange:', checked, context);
+      console.info('onChange checked:', checked, 'context:', context);
       const { node } = context;
-      console.info(node.value, 'checked:', node.checked);
-    },
-    propOnChange(checked, context) {
-      console.info('propOnChange:', checked, context);
-      const { node } = context;
-      console.info(node.value, 'checked:', node.checked);
+      console.info(node.value, 'onChange context.node.checked:', node.checked);
     },
     selectInvert() {
       const { tree } = this.$refs;
