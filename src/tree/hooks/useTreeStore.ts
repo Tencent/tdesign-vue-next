@@ -186,25 +186,15 @@ export default function useTreeStore(state: TypeTreeState) {
   state.setStore(store);
 
   // 配置属性监听
-  watch(refProps.value, (nVal: TreeNodeValue[]) => {
-    const previousVal = store.getChecked();
-    if (nVal.join() === previousVal?.join()) return;
-    store.replaceChecked(nVal);
-  });
-  watch(refProps.expanded, (nVal: TreeNodeValue[]) => {
-    store.replaceExpanded(nVal);
-  });
-  watch(refProps.actived, (nVal: TreeNodeValue[]) => {
-    const previousVal = store.getActived();
-    if (nVal.join() === previousVal?.join()) return;
-    store.replaceActived(nVal);
-  });
+  // tValue 就是 refProps.value
   watch(tValue, (nVal: TreeNodeValue[]) => {
     store.replaceChecked(nVal);
   });
+  // tExpanded 就是 refProps.expanded
   watch(tExpanded, (nVal: TreeNodeValue[]) => {
     store.replaceExpanded(nVal);
   });
+  // tActived 就是 refProps.actived
   watch(tActived, (nVal: TreeNodeValue[]) => {
     store.replaceActived(nVal);
   });

@@ -169,39 +169,60 @@ export default {
       this.expanded = ['1', '1.2'];
     },
     onClick(context) {
-      console.info('onClick:', context);
-      const { node } = context;
-      console.info(node.value, 'checked:', node.checked, 'expanded:', node.expanded, 'actived:', node.actived);
+      console.info('onClick context:', context);
     },
     onChange(vals, context) {
-      console.info('onChange:', vals, context);
-      const checked = vals.filter((val) => val !== '2.1');
-      console.info('节点 2.1 不允许选中');
+      console.info('onChange value:', vals, 'context:', context);
+      const { node } = context;
+      // onChange 事件发生时，context.node 状态预先发生变更，此时拿到预先变更的节点状态
+      console.info(node.value, 'context.node.checked:', node.checked);
       if (this.syncProps) {
+        const checked = vals.filter((val) => {
+          if (val === '2.1') {
+            console.info('节点 2.1 不允许选中');
+            return false;
+          }
+          return true;
+        });
+        // 受控状态下, tree 的 props.value 可被修改为预期的值
+        console.log('before set this.checked, expect checked:', checked);
         this.checked = checked;
       }
-      const { node } = context;
-      console.info(node.value, 'checked:', node.checked);
+      // 赋值变更后的选中态之后，nextTick 之后触发视图更新
+      // node.checked 状态发生变更，符合 tree 的 props.value 的取值
+      this.$nextTick(() => {
+        console.info(node.value, 'nextTick context.node.checked:', node.checked);
+      });
     },
     onActive(vals, context) {
-      console.info('onActive:', vals, context);
-      const actived = vals.filter((val) => val !== '2.2');
-      console.info('节点 2.2 不允许激活', actived);
+      console.info('onActive actived:', vals, 'context:', context);
+      const { node } = context;
+      console.info(node.value, 'context.node.actived:', node.actived);
+      const actived = vals.filter((val) => {
+        if (val === '2.2') {
+          console.info('节点 2.2 不允许激活');
+          return false;
+        }
+        return true;
+      });
       if (this.syncProps) {
         this.actived = actived;
       }
-      const { node } = context;
-      console.info(node.value, 'actived:', node.actived);
     },
     onExpand(vals, context) {
-      console.info('onExpand:', vals, context);
-      const expanded = vals.filter((val) => val !== '2.3');
-      console.info('节点 2.3 不允许展开', expanded);
+      console.info('onExpand expanded:', vals, 'context:', context);
+      const { node } = context;
+      console.info(node.value, 'context.node.expanded:', node.expanded);
+      const expanded = vals.filter((val) => {
+        if (val === '2.3') {
+          console.info('节点 2.3 不允许展开');
+          return false;
+        }
+        return true;
+      });
       if (this.syncProps) {
         this.expanded = expanded;
       }
-      const { node } = context;
-      console.info(node.value, 'expanded:', node.expanded);
     },
   },
 };

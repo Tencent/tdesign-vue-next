@@ -99,12 +99,9 @@ export default defineComponent({
             const val = spec[name];
             delete spec[name];
             const methodName = `set${upperFirst(name)}`;
-            const setupMethod = node[methodName];
+            const setupMethod = this[methodName];
             if (isFunction(setupMethod)) {
-              setupMethod.call(node, val, {
-                directly: true,
-                isAction: false,
-              });
+              setupMethod.call(this, node, val);
             }
           }
         });

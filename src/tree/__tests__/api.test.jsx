@@ -123,7 +123,7 @@ describe('Tree:api', () => {
       expect(wrapper.find('[data-value="t1"]').text()).toBe('节点1');
     });
 
-    it('可以设置节点属性 checked，触发视图更新', async () => {
+    it('可以设置节点属性 checked, 触发视图更新', async () => {
       const data = [
         {
           value: 't1',
@@ -142,13 +142,37 @@ describe('Tree:api', () => {
           ],
         },
       ];
+      let changeParams = null;
+      let changeCount = 0;
+      const onChange = (checked, context) => {
+        changeCount += 1;
+        changeParams = {
+          checked,
+          context,
+        };
+      };
       const wrapper = mount({
+        data() {
+          return {
+            checked: [],
+          };
+        },
         render() {
-          return <Tree ref="tree" transition={false} data={data} expandAll={true} checkable />;
+          return (
+            <Tree
+              ref="tree"
+              expandAll
+              checkable
+              transition={false}
+              data={data}
+              v-model={this.checked}
+              onChange={onChange}
+            />
+          );
         },
       });
 
-      await delay(10);
+      await delay(1);
       const { tree } = wrapper.vm.$refs;
       tree.setItem('t1', {
         checked: true,
@@ -156,14 +180,24 @@ describe('Tree:api', () => {
       tree.setItem('t2', {
         checked: true,
       });
-      await delay(10);
+
+      expect(wrapper.vm.checked.length).toBe(2);
+      expect(wrapper.vm.checked[0]).toBe('t1.1');
+      expect(wrapper.vm.checked[1]).toBe('t2.1');
+      await delay(1);
       expect(wrapper.find('[data-value="t1"] .t-checkbox').classes('t-is-checked')).toBe(true);
       expect(wrapper.find('[data-value="t1.1"] .t-checkbox').classes('t-is-checked')).toBe(true);
       expect(wrapper.find('[data-value="t2"] .t-checkbox').classes('t-is-checked')).toBe(true);
       expect(wrapper.find('[data-value="t2.1"] .t-checkbox').classes('t-is-checked')).toBe(true);
+
+      expect(changeCount).toBe(2);
+      expect(changeParams.checked.length).toBe(2);
+      expect(changeParams.checked[0]).toBe('t1.1');
+      expect(changeParams.checked[1]).toBe('t2.1');
+      expect(changeParams.context.node.value).toEqual('t2');
     });
 
-    it('可以设置节点属性 expanded，触发视图更新', async () => {
+    it('可以设置节点属性 expanded, 触发视图更新', async () => {
       const data = [
         {
           value: 't1',
@@ -182,13 +216,23 @@ describe('Tree:api', () => {
           ],
         },
       ];
+
+      let expandParams = null;
+      let expandCount = 0;
+      const onExpand = (expanded, context) => {
+        expandCount += 1;
+        expandParams = {
+          expanded,
+          context,
+        };
+      };
       const wrapper = mount({
         render() {
-          return <Tree ref="tree" transition={false} data={data} />;
+          return <Tree ref="tree" transition={false} data={data} onExpand={onExpand} />;
         },
       });
 
-      await delay(10);
+      await delay(1);
       const { tree } = wrapper.vm.$refs;
       tree.setItem('t1', {
         expanded: true,
@@ -196,13 +240,80 @@ describe('Tree:api', () => {
       tree.setItem('t2', {
         expanded: true,
       });
-      await delay(10);
+      await delay(1);
       const t1d1 = wrapper.find('[data-value="t1.1"]');
       expect(t1d1.exists()).toBe(true);
       expect(t1d1.classes('t-tree__item--visible')).toBe(true);
       const t2d1 = wrapper.find('[data-value="t2.1"]');
       expect(t2d1.exists()).toBe(true);
       expect(t2d1.classes('t-tree__item--visible')).toBe(true);
+
+      expect(expandCount).toBe(2);
+      expect(expandParams.expanded.length).toBe(2);
+      expect(expandParams.expanded[0]).toBe('t1');
+      expect(expandParams.expanded[1]).toBe('t2');
+      expect(expandParams.context.node.value).toEqual('t2');
+    });
+
+    it('可以设置节点属性 actived, 触发视图更新', async () => {
+      const data = [
+        {
+          value: 't1',
+          children: [
+            {
+              value: 't1.1',
+            },
+          ],
+        },
+        {
+          value: 't2',
+          children: [
+            {
+              value: 't2.1',
+            },
+          ],
+        },
+      ];
+
+      let activeParams = null;
+      let activeCount = 0;
+      const onActive = (actived, context) => {
+        activeCount += 1;
+        activeParams = {
+          actived,
+          context,
+        };
+      };
+      const wrapper = mount({
+        render() {
+          return <Tree ref="tree" activable expandAll transition={false} data={data} onActive={onActive} />;
+        },
+      });
+
+      await delay(1);
+      const t1d1 = wrapper.find('[data-value="t1.1"]');
+      const t2d1 = wrapper.find('[data-value="t2.1"]');
+
+      const { tree } = wrapper.vm.$refs;
+      tree.setItem('t1.1', {
+        actived: true,
+      });
+      expect(activeCount).toBe(1);
+      expect(activeParams.actived.length).toBe(1);
+      expect(activeParams.actived[0]).toBe('t1.1');
+      expect(activeParams.context.node.value).toEqual('t1.1');
+      await delay(1);
+      expect(t1d1.classes('t-is-active')).toBe(true);
+
+      tree.setItem('t2.1', {
+        actived: true,
+      });
+      expect(activeCount).toBe(2);
+      expect(activeParams.actived.length).toBe(1);
+      expect(activeParams.actived[0]).toBe('t2.1');
+      expect(activeParams.context.node.value).toEqual('t2.1');
+      await delay(1);
+      expect(t2d1.classes('t-is-active')).toBe(true);
     });
   });
 
