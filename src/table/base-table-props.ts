@@ -4,8 +4,8 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
-import { TdBaseTableProps } from '../table/type';
-import { PropType } from 'vue';
+import {TdBaseTableProps} from '../table/type';
+import {PropType} from 'vue';
 
 export default {
   /** 高亮行，支持鼠标键盘操作(Shift)连续高亮行，可用于处理行选中等批量操作，模拟操作系统区域选择行为 */
@@ -159,7 +159,6 @@ export default {
   rowKey: {
     type: String,
     default: 'id',
-    required: true,
   },
   /** 用于自定义合并单元格，泛型 T 指表格数据类型。示例：`({ row, col, rowIndex, colIndex }) => { rowspan: 2, colspan: 3 }` */
   rowspanAndColspan: {
