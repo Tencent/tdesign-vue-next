@@ -951,7 +951,7 @@ export interface TableEditableCellConfig<T extends TableRowData = TableRowData> 
    */
   keepEditMode?: boolean;
   /**
-   * 透传给编辑组件的事件
+   * 透传给编辑组件的事件，可以使用参数 `updateEditedCellValue` 更新当前行任意编辑状态单元格的值
    */
   on?: (context: TableEditableCellPropsParams<T>) => { [eventName: string]: Function };
   /**
@@ -959,7 +959,7 @@ export interface TableEditableCellConfig<T extends TableRowData = TableRowData> 
    */
   onEdited?: (context: PrimaryTableOnEditedContext<T>) => void;
   /**
-   * 透传给组件 `edit.component` 的属性
+   * 透传给组件 `edit.component` 的属性，可以使用 `updateEditedCellValue` 更新当前行任意编辑状态单元格的值
    */
   props?: TableEditableCellProps<T>;
   /**
@@ -1265,7 +1265,7 @@ export type TableEditableCellProps<T> =
 
 export interface TableEditableCellPropsParams<T> extends PrimaryTableCellParams<T> {
   editedRow: T;
-  updateEditedCellValue: (val: any) => void;
+  updateEditedCellValue: (val: any | { colKey: string; value: any }) => void;
 }
 
 export interface TablePlainObject {
