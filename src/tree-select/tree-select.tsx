@@ -141,7 +141,7 @@ export default defineComponent({
       if (!isEmpty(props.treeProps) && !isEmpty((props.treeProps as TreeProps).keys)) {
         return (props.treeProps as TreeProps).keys.children || 'children';
       }
-      return 'children';
+      return props.keys?.children || 'children';
     });
 
     // timelifes
