@@ -78,6 +78,8 @@ export default defineComponent({
     onEditableChange: Function as PropType<EditableCellProps['onEditableChange']>,
   },
 
+  emits: ['update-edited-cell'],
+
   setup(props: EditableCellProps, context: SetupContext) {
     const { row, col } = toRefs(props);
     // eslint-disable-next-line @typescript-eslint/no-unused-vars

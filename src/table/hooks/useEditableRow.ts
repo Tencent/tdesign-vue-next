@@ -142,7 +142,6 @@ export default function useRowEdit(props: PrimaryTableProps) {
   const onRuleChange = (context: PrimaryTableRowEditContext<TableRowData>) => {
     // 编辑行，预存校验信息，方便最终校验
     if (props.editableRowKeys) {
-      const { col, editedRow } = context;
       const rowValue = get(context.row, props.rowKey || 'id');
       const rules = cellRuleMap.get(rowValue);
       if (rules) {
