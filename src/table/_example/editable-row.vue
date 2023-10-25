@@ -179,6 +179,12 @@ const columns = computed(() => [
       // 校验规则，此处同 Form 表单
       rules: [{ required: true, message: '不能为空' }],
       showEditIcon: false,
+      on: ({ updateEditedCellValue }) => ({
+        onChange: () => {
+          // clear `letters` on status changed
+          updateEditedCellValue({ colKey: 'letters', value: [] });
+        },
+      }),
     },
   },
   {
@@ -208,7 +214,10 @@ const columns = computed(() => [
         };
       },
       // 校验规则，此处同 Form 表单
-      rules: [{ validator: (val) => val && val.length < 3, message: '数量不能超过 2 个' }],
+      rules: [
+        { validator: (val) => val && val.length < 3, message: '数量不能超过 2 个' },
+        { validator: (val) => Boolean(val?.length), message: '至少选择一个' },
+      ],
       showEditIcon: false,
     },
   },

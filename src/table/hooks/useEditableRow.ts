@@ -1,5 +1,6 @@
 import { ref, computed } from 'vue';
 import get from 'lodash/get';
+import set from 'lodash/set';
 import isFunction from 'lodash/isFunction';
 import { PrimaryTableProps } from '../interface';
 import { getEditableKeysMap } from '../../_common/js/table/utils';
@@ -10,6 +11,7 @@ import {
   TableErrorListMap,
   PrimaryTableInstanceFunctions,
   ErrorListObjectType,
+  PrimaryTableCellParams,
 } from '../type';
 import { getCellKey } from './useRowspanAndColspan';
 import { OnEditableChangeContext } from '../editable-cell';
@@ -27,6 +29,8 @@ export default function useRowEdit(props: PrimaryTableProps) {
   const editableKeysMap = computed(() => getEditableKeysMap(props.editableRowKeys, props.data, props.rowKey || 'id'));
   // 当前编辑的单元格
   const editingCells = ref<{ [cellKey: string]: OnEditableChangeContext<TableRowData> }>({});
+  // 编辑状态的数据
+  const editedFormData = ref<{ [rowValue: string]: { [colKey: string]: {} } }>({});
 
   const getErrorListMapByErrors = (errors: ErrorListObjectType<TableRowData>[]): TableErrorListMap => {
     const errorMap: TableErrorListMap = {};
@@ -128,9 +132,17 @@ export default function useRowEdit(props: PrimaryTableProps) {
     });
   };
 
+  const onUpdateEditedCell = (params: { rowValue: any; colKey: string; value: any }) => {
+    if (!editedFormData.value[params.rowValue]) {
+      editedFormData.value[params.rowValue] = {};
+    }
+    editedFormData.value[params.rowValue][params.colKey] = params.value;
+  };
+
   const onRuleChange = (context: PrimaryTableRowEditContext<TableRowData>) => {
     // 编辑行，预存校验信息，方便最终校验
     if (props.editableRowKeys) {
+      const { col, editedRow } = context;
       const rowValue = get(context.row, props.rowKey || 'id');
       const rules = cellRuleMap.get(rowValue);
       if (rules) {
@@ -161,13 +173,28 @@ export default function useRowEdit(props: PrimaryTableProps) {
     }
   };
 
+  const getEditRowData = ({ row, col }: PrimaryTableCellParams<TableRowData>) => {
+    const rowValue = get(row, props.rowKey || 'id');
+    const editedRowValue = editedFormData.value[rowValue];
+    const hasEditedCellValue = editedRowValue && col.colKey in editedRowValue;
+    if (hasEditedCellValue) {
+      const tmpRow = { ...row };
+      set(tmpRow, col.colKey, editedRowValue[col.colKey]);
+      return tmpRow;
+    }
+    return row;
+  };
+
   return {
+    editedFormData,
     errorListMap,
     editableKeysMap,
     validateTableData,
     validateRowData,
     onRuleChange,
     clearValidateData,
+    onUpdateEditedCell,
+    getEditRowData,
     onPrimaryTableCellEditChange,
   };
 }

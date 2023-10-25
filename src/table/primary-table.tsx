@@ -145,6 +145,8 @@ export default defineComponent({
       validateTableData,
       onRuleChange,
       clearValidateData,
+      onUpdateEditedCell,
+      getEditRowData,
       onPrimaryTableCellEditChange,
     } = useEditableRow(props);
 
@@ -204,6 +206,15 @@ export default defineComponent({
       baseTableRef: primaryTableRef,
     });
 
+    const onEditableCellChange: EditableCellProps['onChange'] = (params) => {
+      props.onRowEdit?.(params);
+      onUpdateEditedCell({
+        rowValue: get(params.editedRow, props.rowKey || 'id'),
+        colKey: params.col.colKey,
+        value: params.value,
+      });
+    };
+
     // 1. 影响列数量的因素有：自定义列配置、展开/收起行、多级表头；2. 影响表头内容的因素有：排序图标、筛选图标
     const getColumns = (columns: PrimaryTableCol<TableRowData>[]) => {
       const arr: PrimaryTableCol<TableRowData>[] = [];
@@ -256,10 +267,12 @@ export default defineComponent({
           item.cell = (h, p: PrimaryTableCellParams<TableRowData>) => {
             const cellProps: EditableCellProps = {
               ...p,
+              row: getEditRowData(p),
               oldCell,
+              rowKey: props.rowKey || 'id',
               tableBaseClass,
               cellEmptyContent: props.cellEmptyContent,
-              onChange: props.onRowEdit,
+              onChange: onEditableCellChange,
               onValidate: props.onRowValidate,
               onRuleChange,
               onEditableChange: onPrimaryTableCellEditChange,
@@ -274,7 +287,7 @@ export default defineComponent({
             if (props.editableCellState) {
               cellProps.readonly = !props.editableCellState(p);
             }
-            return <EditableCell {...cellProps} v-slots={context.slots} />;
+            return <EditableCell {...cellProps} v-slots={context.slots} onUpdateEditedCell={onUpdateEditedCell} />;
           };
         }
         if (item.children?.length) {

@@ -1265,7 +1265,7 @@ export type TableEditableCellProps<T> =
 
 export interface TableEditableCellPropsParams<T> extends PrimaryTableCellParams<T> {
   editedRow: T;
-  updateEditedCellValue: (val: any) => void;
+  updateEditedCellValue: (val: any | { colKey: string; value: any }) => void;
 }
 
 export interface TablePlainObject {
