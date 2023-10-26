@@ -49,6 +49,7 @@ export default defineComponent({
 
     const onLabelClick = (e: MouseEvent) => {
       if (disabled.value) return;
+      if (!allowUncheck.value && radioChecked.value) return;
       props.onClick?.({ e });
       if (radioGroup) {
         const value = radioChecked.value && allowUncheck.value ? undefined : props.value;
