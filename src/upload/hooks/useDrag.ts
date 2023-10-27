@@ -19,7 +19,6 @@ export default function useDrag(props: UploadDragEvents, accept: Ref<string>) {
 
     const { files } = event.dataTransfer;
     const dragFiles: File[] = getFileList(files, accept.value);
-    if (!dragFiles.length) return;
 
     props.onDragFileChange?.(dragFiles);
     props.onDrop?.({ e: event });
