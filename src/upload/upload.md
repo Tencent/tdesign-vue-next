@@ -21,7 +21,7 @@ fileListDisplay | Slot / Function | - | 用于完全自定义文件列表界面�
 files | Array | [] | 已上传文件列表，同 `value`。TS 类型：`UploadFile`。支持语法糖 `v-model:files`。TS 类型：`Array<T>` | N
 defaultFiles | Array | [] | 已上传文件列表，同 `value`。TS 类型：`UploadFile`。非受控属性。TS 类型：`Array<T>` | N
 format | Function | - | 转换文件 `UploadFile` 的数据结构，可新增或修改 `UploadFile` 的属性，注意不能删除 `UploadFile` 属性。`action` 存在时有效。TS 类型：`(file: File) => UploadFile` | N
-formatRequest | Function | - | 用于新增或修改文件上传请求参数。`action` 存在时有效。一个请求上传一个文件时，默认请求字段有 `file`；<br/>一个请求上传多个文件时，默认字段有 `file[0]/file[1]/file[2]/.../length`，其中 `length` 表示本次上传的文件数量。<br/>⚠️非常注意，此处的 `file[0]/file[1]` 仅仅是一个字段名，并非表示 `file` 是一个数组，接口获取字段时注意区分。<br/>可以使用 `name` 定义 `file` 字段的别名，也可以使用 `formatRequest` 自定义任意字段。TS 类型：`(requestData: { [key: string]: any }) => { [key: string]: any }` | N
+formatRequest | Function | - | 用于新增或修改文件上传请求 参数。`action` 存在时有效。一个请求上传一个文件时，默认请求字段有 `file`。<br/>一个请求上传多个文件时，默认字段有 `file[0]/file[1]/file[2]/.../length`，其中 `length` 表示本次上传的文件数量。<br/>⚠️非常注意，此处的 `file[0]/file[1]` 仅仅是一个字段名，并非表示 `file` 是一个数组，接口获取字段时注意区分。<br/>可以使用 `name` 定义 `file` 字段的别名。<br/>也可以使用 `formatRequest` 自定义任意字段，如添加一个字段 `fileList` ，存储文件数组。TS 类型：`(requestData: { [key: string]: any }) => { [key: string]: any }` | N
 formatResponse | Function | - | 用于格式化文件上传后的接口响应数据，`response` 便是接口响应的原始数据。`action` 存在时有效。<br/> 此函数的返回值 `error` 或 `response.error` 会作为错误文本提醒，如果存在会判定为本次上传失败。<br/> 此函数的返回值 `url` 或 `response.url` 会作为上传成功后的链接。TS 类型：`(response: any, context: FormatResponseContext) => ResponseType ` `type ResponseType = { error?: string; url?: string } & Record<string, any>` `interface FormatResponseContext { file: UploadFile; currentFiles?: UploadFile[] }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts) | N
 headers | Object | - | 设置上传的请求头部，`action` 存在时有效。TS 类型：`{[key: string]: string}` | N
 inputAttributes | Object | - | 用于添加属性到 HTML 元素 `input`。TS 类型：`CSSProperties` | N
@@ -89,7 +89,7 @@ waiting-upload-files-change | `(context: { files: Array<UploadFile>, trigger: 'v
 名称 | 参数 | 返回值 | 描述
 -- | -- | -- | --
 triggerUpload | \- | \- | 必需。组件实例方法，打开文件选择器
-uploadFilePercent | \- | \- | 必需。设置上传中文件的上传进度
+uploadFilePercent | `(params: { file: UploadFile; percent: number })` | \- | 必需。设置上传中文件的上传进度
 uploadFiles | `(files?: UploadFile[])` | \- | 必需。组件实例方法，默认上传未成功上传过的所有文件。带参数时，表示上传指定文件
 
 ### UploadFile
