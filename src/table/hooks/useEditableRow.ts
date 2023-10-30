@@ -1,10 +1,11 @@
-import { ref, computed } from 'vue';
+import { ref, computed, watch, toRefs } from 'vue';
 import get from 'lodash/get';
 import set from 'lodash/set';
 import isFunction from 'lodash/isFunction';
 import { PrimaryTableProps } from '../interface';
 import { getEditableKeysMap } from '../../_common/js/table/utils';
 import { validate } from '../../form/form-model';
+import cloneDeep from 'lodash/cloneDeep';
 import {
   PrimaryTableRowEditContext,
   TableRowData,
@@ -22,6 +23,7 @@ export interface TablePromiseErrorData {
 }
 
 export default function useRowEdit(props: PrimaryTableProps) {
+  const { editableRowKeys } = toRefs(props);
   const cellRuleMap = new Map<any, PrimaryTableRowEditContext<TableRowData>[]>();
   // 校验不通过的错误信息，其中 key 值为 [rowValue, col.colKey].join('__')
   const errorListMap = ref<TableErrorListMap>({});
@@ -30,7 +32,7 @@ export default function useRowEdit(props: PrimaryTableProps) {
   // 当前编辑的单元格
   const editingCells = ref<{ [cellKey: string]: OnEditableChangeContext<TableRowData> }>({});
   // 编辑状态的数据
-  const editedFormData = ref<{ [rowValue: string]: { [colKey: string]: {} } }>({});
+  const editedFormData = ref<{ [rowValue: string]: { [colKey: string]: any } }>({});
 
   const getErrorListMapByErrors = (errors: ErrorListObjectType<TableRowData>[]): TableErrorListMap => {
     const errorMap: TableErrorListMap = {};
@@ -132,11 +134,14 @@ export default function useRowEdit(props: PrimaryTableProps) {
     });
   };
 
-  const onUpdateEditedCell = (params: { rowValue: any; colKey: string; value: any }) => {
-    if (!editedFormData.value[params.rowValue]) {
-      editedFormData.value[params.rowValue] = {};
+  /** 更新编辑态单元格数据 */
+  const onUpdateEditedCell = (rowValue: any, lastRowData: TableRowData, data: { [key: string]: any }) => {
+    if (!editedFormData.value[rowValue]) {
+      editedFormData.value[rowValue] = cloneDeep(lastRowData);
     }
-    editedFormData.value[params.rowValue][params.colKey] = params.value;
+    Object.entries(data).forEach(([key, val]) => {
+      set(editedFormData.value[rowValue], key, val);
+    });
   };
 
   const onRuleChange = (context: PrimaryTableRowEditContext<TableRowData>) => {
@@ -174,15 +179,28 @@ export default function useRowEdit(props: PrimaryTableProps) {
 
   const getEditRowData = ({ row, col }: PrimaryTableCellParams<TableRowData>) => {
     const rowValue = get(row, props.rowKey || 'id');
-    const editedRowValue = editedFormData.value[rowValue];
-    const hasEditedCellValue = editedRowValue && col.colKey in editedRowValue;
-    if (hasEditedCellValue) {
-      const tmpRow = { ...row };
-      set(tmpRow, col.colKey, editedRowValue[col.colKey]);
+    const editedRowData = editedFormData.value[rowValue];
+    if (editedRowData && props.editableRowKeys.includes(rowValue)) {
+      const tmpRow = { ...editedRowData };
+      set(tmpRow, col.colKey, get(editedRowData, col.colKey));
       return tmpRow;
     }
     return row;
   };
+
+  watch(
+    () => editableRowKeys.value?.join(','),
+    (keyStr) => {
+      const editableRowKeys = keyStr.split(',');
+      const rowValueList = Object.keys(editedFormData.value);
+      rowValueList.forEach((key) => {
+        if (!editableRowKeys.includes(key)) {
+          // clear exited editable state row data
+          delete editedFormData.value[key];
+        }
+      });
+    },
+  );
 
   return {
     editedFormData,
