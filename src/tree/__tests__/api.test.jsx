@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import Tree from '@/src/tree/index.ts';
-import { delay } from './kit';
+import { delay, step } from './kit';
 
 describe('Tree:api', () => {
   vi.useRealTimers();
@@ -121,6 +121,66 @@ describe('Tree:api', () => {
       expect(t1.label).toBe('节点1');
       await delay(10);
       expect(wrapper.find('[data-value="t1"]').text()).toBe('节点1');
+    });
+
+    it('mounted 生命周期初始化数据, 在 nextTick 触发视图更新', async () => {
+      const data = [
+        {
+          value: 't1',
+          children: [
+            {
+              value: 't1.1',
+            },
+          ],
+        },
+        {
+          value: 't2',
+          children: [
+            {
+              value: 't2.1',
+            },
+          ],
+        },
+      ];
+
+      const step1 = step();
+      let count = 0;
+      const wrapper = mount({
+        data() {
+          return {
+            items: [],
+            checked: [],
+          };
+        },
+        mounted() {
+          this.items = data;
+          this.onInit();
+        },
+        methods: {
+          onInit() {
+            const { tree } = this.$refs;
+            this.$nextTick(() => {
+              tree.setItem('t1', {
+                checked: true,
+              });
+              const items = tree.getItems();
+              count = items.length;
+              step1.ready();
+            });
+          },
+        },
+        render() {
+          return <Tree ref="tree" expandAll checkable transition={false} data={this.items} v-model={this.checked} />;
+        },
+      });
+
+      await step1;
+      await delay(1);
+      expect(wrapper.find('[data-value="t1"] .t-checkbox').classes('t-is-checked')).toBe(true);
+      expect(wrapper.find('[data-value="t1.1"] .t-checkbox').classes('t-is-checked')).toBe(true);
+      expect(wrapper.find('[data-value="t2"] .t-checkbox').classes('t-is-checked')).toBe(false);
+      expect(wrapper.find('[data-value="t2.1"] .t-checkbox').classes('t-is-checked')).toBe(false);
+      expect(count).toBe(4);
     });
 
     it('可以设置节点属性 checked, 触发视图更新', async () => {

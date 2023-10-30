@@ -1,4 +1,4 @@
-import { h, defineComponent, Transition, ref, computed, watch, onMounted } from 'vue';
+import { h, defineComponent, Transition, ref, computed, watch, onMounted, nextTick } from 'vue';
 import debounce from 'lodash/debounce';
 import {
   ChevronLeftIcon as TdChevronLeftIcon,
@@ -137,8 +137,10 @@ export default defineComponent({
     });
 
     const totalAdjust = () => {
-      adjustArrowDisplay();
-      adjustScrollLeft();
+      nextTick(() => {
+        adjustArrowDisplay();
+        adjustScrollLeft();
+      });
     };
     // watch
     watch([scrollLeft, () => props.placement, () => props.panels], totalAdjust);

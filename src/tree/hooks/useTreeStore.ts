@@ -1,9 +1,7 @@
 import pick from 'lodash/pick';
 import { TreeStore } from '../../_common/js/tree/tree-store';
-import { watch } from '../adapt';
 import {
   TreeProps,
-  TreeNodeValue,
   TypeValueMode,
   TypeEventState,
   TypeTreeNodeModel,
@@ -21,7 +19,6 @@ export default function useTreeStore(state: TypeTreeState) {
     filter,
   });
 
-  const { refProps } = state;
   const [tValue] = state.vmValue;
   const [tActived] = state.vmActived;
   const [tExpanded] = state.vmExpanded;
@@ -137,6 +134,7 @@ export default function useTreeStore(state: TypeTreeState) {
 
   const rebuild = (list: TreeProps['data']) => {
     store.reload(list || []);
+    store.refreshNodes();
     // 初始化选中状态
     if (Array.isArray(tValue.value)) {
       store.setChecked(tValue.value);
@@ -185,33 +183,10 @@ export default function useTreeStore(state: TypeTreeState) {
   // 设置初始化状态
   state.setStore(store);
 
-  // 配置属性监听
-  // tValue 就是 refProps.value
-  watch(tValue, (nVal: TreeNodeValue[]) => {
-    store.replaceChecked(nVal);
-  });
-  // tExpanded 就是 refProps.expanded
-  watch(tExpanded, (nVal: TreeNodeValue[]) => {
-    store.replaceExpanded(nVal);
-  });
-  // tActived 就是 refProps.actived
-  watch(tActived, (nVal: TreeNodeValue[]) => {
-    store.replaceActived(nVal);
-  });
-  watch(refProps.data, (list) => {
-    rebuild(list);
-  });
-  watch(refProps.filter, (nVal, previousVal) => {
-    checkFilterExpand(nVal, previousVal);
-  });
-  watch(refProps.keys, (keys) => {
-    store.setConfig({
-      keys,
-    });
-  });
-
   return {
     store,
+    rebuild,
+    checkFilterExpand,
     updateStoreConfig,
     updateExpanded,
     expandFilterPath,
