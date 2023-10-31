@@ -1,4 +1,4 @@
-import { computed, defineComponent, inject, PropType, Slots, ref } from 'vue';
+import { computed, defineComponent, inject, Slots, ref } from 'vue';
 import omit from 'lodash/omit';
 import { Styles } from '../common';
 
@@ -25,10 +25,6 @@ export default defineComponent({
     multiple: TdSelectProps.multiple,
     filterable: TdSelectProps.filterable,
     filter: TdSelectProps.filter,
-    options: {
-      type: Array as PropType<SelectOption[]>,
-      default: (): SelectOption[] => [],
-    },
     scroll: TdSelectProps.scroll,
     size: TdSelectProps.size,
   },
@@ -110,6 +106,8 @@ export default defineComponent({
 
     expose({
       innerRef,
+      visibleData,
+      isVirtual,
     });
 
     const renderPanel = (options: SelectOption[], extraStyle?: Styles) => (
