@@ -257,7 +257,7 @@ export default defineComponent({
       handleSearch(`${value}`, { e: context.e as KeyboardEvent });
 
       nextTick(() => {
-        virtualFilteredOptions.value = selectPanelRef.value.visibleData;
+        virtualFilteredOptions.value = selectPanelRef.value?.visibleData;
       });
     };
 
