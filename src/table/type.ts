@@ -951,7 +951,7 @@ export interface TableEditableCellConfig<T extends TableRowData = TableRowData> 
    */
   keepEditMode?: boolean;
   /**
-   * 透传给编辑组件的事件，可以使用参数 `updateEditedCellValue` 更新当前行任意编辑状态单元格的值
+   * 透传给编辑组件的事件，参数有({ row, rowIndex, col, colIndex, editedRow, updateEditedCellValue })。可以使用参数 `updateEditedCellValue` 更新当前单元格（或当前行任意编辑状态单元格）的值。<br/>更新当前单元格数据示例：`updateEditedCellValue(value)`；<br/>更新当前行编辑态数据示例：`updateEditedCellValue({ isUpdateCurrentRow: true, column_key: 'test'  })`；<br/>更新其他行编辑态数据示例：`updateEditedCellValue({ rowValue: '124', column_key: 'test' })`
    */
   on?: (context: TableEditableCellPropsParams<T>) => { [eventName: string]: Function };
   /**
@@ -1265,7 +1265,9 @@ export type TableEditableCellProps<T> =
 
 export interface TableEditableCellPropsParams<T> extends PrimaryTableCellParams<T> {
   editedRow: T;
-  updateEditedCellValue: (val: any | { colKey: string; value: any }) => void;
+  updateEditedCellValue: (
+    val: any | { rowValue?: string | number; isUpdateCurrentRow?: boolean; [key: string]: any },
+  ) => void;
 }
 
 export interface TablePlainObject {

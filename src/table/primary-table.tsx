@@ -208,10 +208,9 @@ export default defineComponent({
 
     const onEditableCellChange: EditableCellProps['onChange'] = (params) => {
       props.onRowEdit?.(params);
-      onUpdateEditedCell({
-        rowValue: get(params.editedRow, props.rowKey || 'id'),
-        colKey: params.col.colKey,
-        value: params.value,
+      const rowValue = get(params.editedRow, props.rowKey || 'id');
+      onUpdateEditedCell(rowValue, params.row, {
+        [params.col.colKey]: params.value,
       });
     };
 
@@ -435,9 +434,9 @@ export default defineComponent({
       return (
         // @ts-ignore
         <BaseTable
-          ref={primaryTableRef}
           v-slots={context.slots}
           {...baseTableProps}
+          ref={primaryTableRef}
           class={primaryTableClasses.value}
           onLeafColumnsChange={setDragSortColumns}
         />

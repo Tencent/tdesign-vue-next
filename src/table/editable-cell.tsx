@@ -93,8 +93,11 @@ export default defineComponent({
     const { Edit1Icon } = useGlobalIcon({ Edit1Icon: TdEdit1Icon });
 
     const updateEditedCellValue: TableEditableCellPropsParams<TableRowData>['updateEditedCellValue'] = (obj) => {
-      if (typeof obj === 'object' && obj.colKey && 'value' in obj) {
-        context.emit('update-edited-cell', { ...obj, rowValue: get(row.value, props.rowKey) });
+      if (typeof obj === 'object' && ('rowValue' in obj || obj.isUpdateCurrentRow)) {
+        const rowValue = obj.isUpdateCurrentRow ? get(row.value, props.rowKey) : obj.rowValue;
+        delete obj.rowValue;
+        delete obj.isUpdateCurrentRow;
+        context.emit('update-edited-cell', rowValue, row.value, obj);
       } else {
         editValue.value = obj;
       }
