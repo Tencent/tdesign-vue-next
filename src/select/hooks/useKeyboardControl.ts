@@ -115,10 +115,11 @@ export default function useKeyboardControl({
   };
 
   watch(innerPopupVisible, (value) => {
-    if (value)
+    if (value) {
       // 展开重新恢复初始值
       hoverIndex.value = -1;
-    virtualFilteredOptions.value = [];
+      virtualFilteredOptions.value = [];
+    }
   });
 
   // 处理键盘操作滚动 超出视图时继续自动滚动到键盘所在元素
