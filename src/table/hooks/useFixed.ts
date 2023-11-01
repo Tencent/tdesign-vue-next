@@ -20,6 +20,7 @@ import { getScrollbarWidthWithCSS } from '../../_common/js/utils/getScrollbarWid
 import { on, off } from '../../utils/dom';
 import { FixedColumnInfo, TableRowFixedClasses, RowAndColFixedPosition, TableColFixedClasses } from '../interface';
 import { getIEVersion } from '../../_common/js/utils/helper';
+import pick from 'lodash/pick';
 
 // 固定列相关类名处理
 export function getColumnFixedStyles(
@@ -503,7 +504,8 @@ export default function useFixed(
       reduceKeys.forEach((key) => {
         reduceWidth += thWidthList[key];
       });
-      const oldTotalWidth = Object.values(thWidthList).reduce((r = 0, n) => r + n);
+      const rootThWidthList = pick(thWidthList, preColKeys);
+      const oldTotalWidth = Object.values(rootThWidthList).reduce((r = 0, n) => r + n);
       setTableElmWidth(oldTotalWidth - reduceWidth);
     }
   });
