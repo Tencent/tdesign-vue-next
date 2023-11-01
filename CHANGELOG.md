@@ -5,7 +5,7 @@ toc: false
 docClass: timeline
 ---
 
-## 🌈 1.6.6 `2023-10-31` 
+## 🌈 1.6.7 `2023-11-01` 
 ### 🚀 Features
 - `Table`: 
   - 可编辑单元格场景，支持通过 `updateEditedCellValue` 方法更新当前行编辑状态任意单元格的值 @chaishi ([#3522](https://github.com/Tencent/tdesign-vue-next/pull/3522))
@@ -13,6 +13,7 @@ docClass: timeline
   - 多级表头下，动态列配置支持指定父级列以展示其下的所有子列 @Cat1007 ([#3539](https://github.com/Tencent/tdesign-vue-next/pull/3539))
 - `Slider`: 增加 `label` 的函数方式参数支持 ([#3470](https://github.com/Tencent/tdesign-vue-next/pull/3470))@liect ([#3502](https://github.com/Tencent/tdesign-vue-next/pull/3502))
 - `Timeline`: `TimelineItem` 新增 `onClick` 事件 @liweijie0812 ([#3512](https://github.com/Tencent/tdesign-vue-next/pull/3512))
+- `Select`: 支持通过键盘选择时同时滚动到可视选项范围的能力 @uyarn ([#3542](https://github.com/Tencent/tdesign-vue-next/pull/3542))
 ### 🐞 Bug Fixes
 - `Table`: 
   - `primaryTableRef` 未绑定，导致其导出的方法无法使用 @AuYuHui ([#3528](https://github.com/Tencent/tdesign-vue-next/pull/3528))
