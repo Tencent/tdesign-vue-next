@@ -10,6 +10,7 @@ import {
   PrimaryTableRowEditContext,
   PrimaryTableRowValidateContext,
   TdBaseTableProps,
+  TableEditableCellPropsParams,
 } from './type';
 import { TableClassName } from './hooks/useClassName';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
@@ -27,6 +28,7 @@ export interface OnEditableChangeContext<T> extends PrimaryTableRowEditContext<T
 }
 
 export interface EditableCellProps {
+  rowKey: string;
   row: TableRowData;
   rowIndex: number;
   col: PrimaryTableCol<TableRowData>;
@@ -52,6 +54,7 @@ export default defineComponent({
   name: 'TableEditableCell',
   props: {
     row: Object as PropType<EditableCellProps['row']>,
+    rowKey: String,
     rowIndex: Number,
     col: Object as PropType<EditableCellProps['col']>,
     colIndex: Number,
@@ -75,6 +78,8 @@ export default defineComponent({
     onEditableChange: Function as PropType<EditableCellProps['onEditableChange']>,
   },
 
+  emits: ['update-edited-cell'],
+
   setup(props: EditableCellProps, context: SetupContext) {
     const { row, col } = toRefs(props);
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -87,8 +92,15 @@ export default defineComponent({
 
     const { Edit1Icon } = useGlobalIcon({ Edit1Icon: TdEdit1Icon });
 
-    const updateEditedCellValue = (val: any) => {
-      editValue.value = val;
+    const updateEditedCellValue: TableEditableCellPropsParams<TableRowData>['updateEditedCellValue'] = (obj) => {
+      if (typeof obj === 'object' && ('rowValue' in obj || obj.isUpdateCurrentRow)) {
+        const rowValue = obj.isUpdateCurrentRow ? get(row.value, props.rowKey) : obj.rowValue;
+        delete obj.rowValue;
+        delete obj.isUpdateCurrentRow;
+        context.emit('update-edited-cell', rowValue, row.value, obj);
+      } else {
+        editValue.value = obj;
+      }
     };
 
     watch([isKeepEditMode], (val) => {
