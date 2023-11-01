@@ -5,35 +5,6 @@ toc: false
 docClass: timeline
 ---
 
-## 🌈 1.6.6 `2023-10-31` 
-### 🚀 Features
-- `Table`: 
-  - 可编辑单元格场景，支持通过 `updateEditedCellValue` 方法更新当前行编辑状态任意单元格的值 @chaishi ([#3522](https://github.com/Tencent/tdesign-vue-next/pull/3522))
-  - 可编辑单元格，支持使用 `updateEditedCellValue` 更新整行编辑态数据 @chaishi ([#3536](https://github.com/Tencent/tdesign-vue-next/pull/3536))
-  - 多级表头下，动态列配置支持指定父级列以展示其下的所有子列 @Cat1007 ([#3539](https://github.com/Tencent/tdesign-vue-next/pull/3539))
-- `Slider`: 增加 `label` 的函数方式参数支持 ([#3470](https://github.com/Tencent/tdesign-vue-next/pull/3470))@liect ([#3502](https://github.com/Tencent/tdesign-vue-next/pull/3502))
-- `Timeline`: `TimelineItem` 新增 `onClick` 事件 @liweijie0812 ([#3512](https://github.com/Tencent/tdesign-vue-next/pull/3512))
-### 🐞 Bug Fixes
-- `Table`: 
-  - `primaryTableRef` 未绑定，导致其导出的方法无法使用 @AuYuHui ([#3528](https://github.com/Tencent/tdesign-vue-next/pull/3528))
-  - 可编辑单元格，修复某一列单元格数据发生变化时，其他列接收到的 `editedRow` 不是最新数据问题 @chaishi ([#3536](https://github.com/Tencent/tdesign-vue-next/pull/3536))
-- `Select`: 
-  - 修复在虚拟滚动下通过键盘回车选择过滤项错误的问题 @uyarn ([#3542](https://github.com/Tencent/tdesign-vue-next/pull/3542))
-  - 修复多选小尺寸和大尺寸的样式缺陷 by @Zzongke ([#3542](https://github.com/Tencent/tdesign-vue-next/pull/3542))
-- `Tree`: 
-  - 完善受控逻辑，解决 `onChange` 事件触发时，组件状态传递有延迟的问题 @TabSpace ([#3509](https://github.com/Tencent/tdesign-vue-next/pull/3509))
-  - 解决 `watch` 时机问题 @TabSpace ([#3526](https://github.com/Tencent/tdesign-vue-next/pull/3526))
-- `Upload`: 
-  - 修复当 `upload` 为手动上传时，进度无法显示的问题([issue #3279](https://github.com/Tencent/tdesign-vue-next/issues/3279)) @ziyi99 ([#3531](https://github.com/Tencent/tdesign-vue-next/pull/3531))
-  - 修复拖拽的文件不符合 `accept` 配置时，拖拽结束后不会触发 `Drop` 事件的问题 @ziyi99 ([#3532](https://github.com/Tencent/tdesign-vue-next/pull/3532))
-- `TabNav`: 动态修改选项卡数量导致滑动按钮不符合预期 @betavs ([#3517](https://github.com/Tencent/tdesign-vue-next/pull/3517))
-- `Timeline`:  修复 `TimelineItem` 的 `dotColor` 默认值错误 @liweijie0812 ([#3512](https://github.com/Tencent/tdesign-vue-next/pull/3512))
-- `Pagination`: 修复当前页在被动更改时触发 `onCurrentChange` 事件([issue #3483](https://github.com/Tencent/tdesign-vue-next/issues/3483)) @Zz-ZzzZ ([#3511](https://github.com/Tencent/tdesign-vue-next/pull/3511))
-- `Menu`: 修复菜单收起时的样式问题 by @RayJason ([#3542](https://github.com/Tencent/tdesign-vue-next/pull/3542))
-- `Radio`: 修复只有一个选项的边角样式缺陷  @uyarn ([#3542](https://github.com/Tencent/tdesign-vue-next/pull/3542))
-- `ColorPicker`: 修复最近使用颜色异常问题 @liect ([#3515](https://github.com/Tencent/tdesign-vue-next/pull/3515))
-- `TreeSelect`: 修复未使用 `keys` 别名 @liect ([#3520](https://github.com/Tencent/tdesign-vue-next/pull/3520))
-
 ## 🌈 1.6.5 `2023-10-20` 
 ### 🚀 Features
 - `TagInput`: 支持在超长滚动模式下进行滚动，对选项进行增删操作 @liweijie0812 ([#3501](https://github.com/Tencent/tdesign-vue-next/pull/3501))
