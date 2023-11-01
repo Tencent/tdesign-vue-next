@@ -1,8 +1,10 @@
 import pick from 'lodash/pick';
 import { TreeStore } from '../../_common/js/tree/tree-store';
+import { watch } from '../adapt';
 import {
   TreeProps,
   TypeValueMode,
+  TreeNodeValue,
   TypeEventState,
   TypeTreeNodeModel,
   TypeTreeNode,
@@ -182,6 +184,11 @@ export default function useTreeStore(state: TypeTreeState) {
   initStore();
   // 设置初始化状态
   state.setStore(store);
+
+  // tValue 就是 refProps.value
+  watch(tValue, (nVal: TreeNodeValue[]) => {
+    store.replaceChecked(nVal);
+  });
 
   return {
     store,
