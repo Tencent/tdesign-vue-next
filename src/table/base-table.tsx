@@ -477,15 +477,22 @@ export default defineComponent({
     // IE 浏览器需要遮挡 header 吸顶滚动条，要减去 getBoundingClientRect.height 的滚动条高度 4 像素
     const IEHeaderWrap = getIEVersion() <= 11 ? 4 : 0;
     const barWidth = this.isWidthOverflow ? this.scrollbarWidth : 0;
-    const affixHeaderHeight = (this.affixHeaderRef?.getBoundingClientRect().height || 0) - IEHeaderWrap;
-    const affixHeaderWrapHeight = affixHeaderHeight - barWidth;
+    const affixHeaderHeight = ref((this.affixHeaderRef?.getBoundingClientRect().height || 0) - IEHeaderWrap);
+    // 等待表头渲染完成后再更新高度，有可能列变动带来多级表头的高度变化，错误高度会导致滚动条显示
+    const timer = setTimeout(() => {
+      affixHeaderHeight.value = (this.affixHeaderRef?.getBoundingClientRect().height || 0) - IEHeaderWrap;
+      clearTimeout(timer);
+    }, 0);
+    const affixHeaderWrapHeight = computed(() => affixHeaderHeight.value - barWidth);
     // 两类场景：1. 虚拟滚动，永久显示表头，直到表头消失在可视区域； 2. 表头吸顶，根据滚动情况判断是否显示吸顶表头
     const headerOpacity = props.headerAffixedTop ? Number(this.showAffixHeader) : 1;
-    const affixHeaderWrapHeightStyle = {
-      width: `${this.tableWidth}px`,
-      height: `${affixHeaderWrapHeight}px`,
-      opacity: headerOpacity,
-    };
+    const affixHeaderWrapHeightStyle = computed(() => {
+      return {
+        width: `${this.tableWidth}px`,
+        height: `${affixHeaderWrapHeight.value}px`,
+        opacity: headerOpacity,
+      };
+    });
     // 多级表头左边线缺失
     const affixedLeftBorder = this.bordered ? 1 : 0;
     const affixedHeader = Boolean(
