@@ -95,9 +95,6 @@ export default defineComponent({
     data(list) {
       this.rebuild(list);
     },
-    value(nVal: TreeNodeValue[]) {
-      this.store.replaceChecked(nVal);
-    },
     expanded(nVal: TreeNodeValue[]) {
       this.store.replaceExpanded(nVal);
     },
