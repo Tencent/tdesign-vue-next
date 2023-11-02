@@ -115,11 +115,13 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
     if (columnController.value?.groupColumns?.length) return [];
     for (let i = 0, len = columns.length; i < len; i++) {
       const item = columns[i];
-      if (item.colKey) {
-        arr.push(getOneColumnItem(item, i));
-      }
       if (item.children?.length) {
         getCheckboxOptions(item.children, arr);
+      } else {
+        // 只把叶子列提供出去进行配置
+        if (item.colKey) {
+          arr.push(getOneColumnItem(item, i));
+        }
       }
     }
     return arr;
