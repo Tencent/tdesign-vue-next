@@ -506,7 +506,10 @@ export default function useFixed(
       });
       const rootThWidthList = pick(thWidthList, preColKeys);
       const oldTotalWidth = Object.values(rootThWidthList).reduce((r = 0, n) => r + n);
-      setTableElmWidth(oldTotalWidth - reduceWidth);
+      // 保留原有可能编辑过的列宽度，但是当剩余列过小时，表头小于内容宽，需要缩放回内容宽度
+      const contentWidth = tableElmRef.value.getBoundingClientRect().width;
+      const widthToReserve = oldTotalWidth - reduceWidth;
+      setTableElmWidth(Math.max(contentWidth, widthToReserve));
     }
   });
 
