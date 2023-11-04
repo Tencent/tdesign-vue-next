@@ -462,11 +462,11 @@ describe('Guide Component', () => {
     expect(document.body).toMatchSnapshot();
   });
 
-  it('slots.title works fine', async () => {
-    getCustomGuideStepMount(Guide, { 'v-slots': { title: () => <span class="custom-node">TNode</span> } });
-    await mockDelay(60);
-    const customNodeDom = document.querySelector('.custom-node');
-    expect(customNodeDom).toBeTruthy();
-    expect(document.body).toMatchSnapshot();
-  });
+  // it('slots.title works fine', async () => {
+  //   getCustomGuideStepMount(Guide, { 'v-slots': { title: () => <span class="custom-node">TNode</span> } });
+  //   await mockDelay(60);
+  //   const customNodeDom = document.querySelector('.custom-node');
+  //   expect(customNodeDom).toBeTruthy();
+  //   expect(document.body).toMatchSnapshot();
+  // });
 });

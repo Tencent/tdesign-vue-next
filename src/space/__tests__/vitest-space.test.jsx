@@ -18,7 +18,7 @@ describe('Space Component', () => {
   it(`props.breakLine is equal to true`, () => {
     const wrapper = getSpaceDefaultMount(Space, { breakLine: true });
     const domWrapper = wrapper.findComponent(Space);
-    expect(domWrapper.element.style.flexWrap).toBe('wrap');
+    expect(domWrapper.classes('t-space--break-line')).toBeTruthy();
   });
 
   ['vertical', 'horizontal'].forEach((item) => {
