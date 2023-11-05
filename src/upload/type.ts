@@ -4,6 +4,7 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
+import { ImageViewerProps } from '../image-viewer';
 import { UploadConfig } from '../config-provider/type';
 import { ButtonProps } from '../button';
 import { PlainObject, TNode, UploadDisplayDragEvents } from '../common';
@@ -91,6 +92,10 @@ export interface TdUploadProps<T extends UploadFile = UploadFile> {
    * 设置上传的请求头部，`action` 存在时有效
    */
   headers?: { [key: string]: string };
+  /**
+   * 透传图片预览组件全部属性
+   */
+  imageViewerProps?: ImageViewerProps;
   /**
    * 用于添加属性到 HTML 元素 `input`
    */

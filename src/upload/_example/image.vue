@@ -21,6 +21,7 @@
       <t-upload
         ref="uploadRef1"
         v-model="file1"
+        :image-viewer-props="imageViewerProps"
         action="https://service-bv448zsw-1257786608.gz.apigw.tencentcs.com/api/upload-demo"
         theme="image"
         tips="单张图片文件上传（上传成功状态演示）"
@@ -97,6 +98,8 @@ const autoUpload = ref(true);
 const uploadRef1 = ref();
 const uploadRef2 = ref();
 const uploadRef3 = ref();
+
+const imageViewerProps = ref({ closeOnEscKeydown: false });
 
 const handleFail = ({ file }) => {
   MessagePlugin.error(`文件 ${file.name} 上传失败`);

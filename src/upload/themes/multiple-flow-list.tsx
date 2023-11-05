@@ -13,7 +13,7 @@ import {
   VideoIcon,
 } from 'tdesign-icons-vue-next';
 import useGlobalIcon from '../../hooks/useGlobalIcon';
-import ImageViewer from '../../image-viewer';
+import ImageViewer, { ImageViewerProps } from '../../image-viewer';
 import { CommonDisplayFileProps } from '../interface';
 import { commonProps } from '../constants';
 import TButton from '../../button';
@@ -395,6 +395,7 @@ export default defineComponent({
             }}
             index={previewIndex.value}
             onIndexChange={(val) => (previewIndex.value = val)}
+            {...(props.imageViewerProps as ImageViewerProps)}
           ></ImageViewer>
         </div>
       );

@@ -100,6 +100,7 @@ export default defineComponent({
       onRemove: onInnerRemove,
       uploadPastedFiles: props.uploadPastedFiles,
       onPasteFileChange: onPasteFileChange,
+      imageViewerProps: props.imageViewerProps,
     }));
 
     const dragProps: UploadDragEvents = {

@@ -7,7 +7,7 @@ import {
 } from 'tdesign-icons-vue-next';
 import Loading from '../../loading';
 import useGlobalIcon from '../../hooks/useGlobalIcon';
-import ImageViewer from '../../image-viewer';
+import ImageViewer, { ImageViewerProps } from '../../image-viewer';
 import { CommonDisplayFileProps } from '../interface';
 import { commonProps } from '../constants';
 import { TdUploadProps, UploadFile } from '../type';
@@ -81,6 +81,7 @@ export default defineComponent({
                     />
                   );
                 }}
+                {...(props.imageViewerProps as ImageViewerProps)}
               ></ImageViewer>
             </span>
             {!props.disabled && (

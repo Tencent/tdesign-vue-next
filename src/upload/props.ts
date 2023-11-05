@@ -86,6 +86,10 @@ export default {
   headers: {
     type: Object as PropType<TdUploadProps['headers']>,
   },
+  /** 透传图片预览组件全部属性 */
+  imageViewerProps: {
+    type: Object as PropType<TdUploadProps['imageViewerProps']>,
+  },
   /** 用于添加属性到 HTML 元素 `input` */
   inputAttributes: {
     type: Object as PropType<TdUploadProps['inputAttributes']>,
