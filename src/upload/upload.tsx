@@ -221,6 +221,8 @@ export default defineComponent({
             {renderTNodeJSX('tips')}
           </small>
         )}
+
+        {sizeOverLimitMessage.value && <small class={errorClasses}>{sizeOverLimitMessage.value}</small>}
       </div>
     );
   },

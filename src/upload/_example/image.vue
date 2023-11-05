@@ -22,6 +22,7 @@
         ref="uploadRef1"
         v-model="file1"
         :image-viewer-props="imageViewerProps"
+        :size-limit="sizeLimit"
         action="https://service-bv448zsw-1257786608.gz.apigw.tencentcs.com/api/upload-demo"
         theme="image"
         tips="单张图片文件上传（上传成功状态演示）"
@@ -73,7 +74,8 @@
       theme="image"
       tips="允许选择多张图片文件上传，最多只能上传 3 张图片"
       accept="image/*"
-      :abridge-name="[6, 6]"
+      :size-limit="sizeLimit"
+      :abridge-name="abridgeName"
       :disabled="disabled"
       :auto-upload="autoUpload"
       :upload-all-files-in-one-request="uploadAllFilesInOneRequest"
@@ -100,6 +102,8 @@ const uploadRef2 = ref();
 const uploadRef3 = ref();
 
 const imageViewerProps = ref({ closeOnEscKeydown: false });
+const sizeLimit = ref({ size: 500, unit: 'KB' });
+const abridgeName = [6, 6];
 
 const handleFail = ({ file }) => {
   MessagePlugin.error(`文件 ${file.name} 上传失败`);

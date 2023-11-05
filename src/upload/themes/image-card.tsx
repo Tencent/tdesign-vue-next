@@ -128,6 +128,7 @@ export default defineComponent({
       const customList = renderTNodeJSX('fileListDisplay', {
         params: {
           files: displayFiles.value,
+          ...props,
         },
       });
       if (customList) return customList;
