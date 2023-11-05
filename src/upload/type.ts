@@ -110,7 +110,7 @@ export interface TdUploadProps<T extends UploadFile = UploadFile> {
    */
   locale?: UploadConfig;
   /**
-   * 用于控制文件上传数量，值为 0 则不限制
+   * 用于控制文件上传数量，值为 0 则不限制。注意，单文件上传场景，请勿设置 `max` 属性
    * @default 0
    */
   max?: number;

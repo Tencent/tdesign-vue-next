@@ -100,7 +100,7 @@ export default {
   locale: {
     type: Object as PropType<TdUploadProps['locale']>,
   },
-  /** 用于控制文件上传数量，值为 0 则不限制 */
+  /** 用于控制文件上传数量，值为 0 则不限制。注意，单文件上传场景，请勿设置 `max` 属性 */
   max: {
     type: Number,
     default: 0,
