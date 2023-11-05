@@ -196,7 +196,7 @@ export default defineComponent({
         <div class={`${uploadPrefix.value}__flow-status`}>
           {iconMap[file.status]}
           <span class={`${uploadPrefix.value}__${props.theme}-${file.status}`}>
-            {textMap[file.status]}
+            {file.response?.error ? file.response?.error || textMap[file.status] : textMap[file.status]}
             {props.showUploadProgress && file.status === 'progress' ? ` ${file.percent || 0}%` : ''}
           </span>
         </div>

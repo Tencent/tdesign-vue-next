@@ -23,7 +23,7 @@ files | Array | [] | `v-model:files` is supported。Typescript：`Array<T>` | N
 defaultFiles | Array | [] | uncontrolled property。Typescript：`Array<T>` | N
 format | Function | - | to redefine  `UploadFile` data structure。Typescript：`(file: File) => UploadFile` | N
 formatRequest | Function | - | redefine request data。Typescript：`(requestData: { [key: string]: any }) => { [key: string]: any }` | N
-formatResponse | Function | - | redefine response data structure。Typescript：`(response: any, context: FormatResponseContext) => ResponseType ` `type ResponseType = { error?: string; url?: string } & Record<string, any>` `interface FormatResponseContext { file: UploadFile; currentFiles?: UploadFile[] }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts) | N
+formatResponse | Function | - | redefine response data structure。Typescript：`(response: any, context: FormatResponseContext) => ResponseType ` `type ResponseType = { error?: string; url?: string; status?: 'fail' \| 'success'; files?: UploadFile[] } & Record<string, any>` `interface FormatResponseContext { file: UploadFile; currentFiles?: UploadFile[] }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts) | N
 headers | Object | - | HTTP Request Header。Typescript：`{[key: string]: string}` | N
 imageViewerProps | Object | - | ImageViewer Component Props。Typescript：`ImageViewerProps`，[ImageViewer API Documents](./image-viewer?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts) | N
 inputAttributes | Object | - | add attributes to HTML element `input`。Typescript：`CSSProperties` | N

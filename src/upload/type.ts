@@ -92,7 +92,7 @@ export interface TdUploadProps<T extends UploadFile = UploadFile> {
    */
   formatRequest?: (requestData: { [key: string]: any }) => { [key: string]: any };
   /**
-   * 用于格式化文件上传后的接口响应数据，`response` 便是接口响应的原始数据。`action` 存在时有效。<br/> 此函数的返回值 `error` 或 `response.error` 会作为错误文本提醒，如果存在会判定为本次上传失败。<br/> 此函数的返回值 `url` 或 `response.url` 会作为上传成功后的链接
+   * 用于格式化文件上传后的接口响应数据，`response` 便是接口响应的原始数据。`action` 存在时有效。<br/> 示例返回值：`{ error, url, status, files }` <br/> 此函数的返回值 `error` 会作为错误文本提醒，表示上传失败的原因，如果存在会判定为本次上传失败。<br/> 此函数的返回值 `url` 会作为单个文件上传成功后的链接。<br/> `files` 表示一个请求同时上传多个文件后的文件列表
    */
   formatResponse?: (response: any, context: FormatResponseContext) => ResponseType;
   /**
@@ -360,7 +360,10 @@ export interface UploadFile extends PlainObject {
   url?: string;
 }
 
-export type ResponseType = { error?: string; url?: string } & Record<string, any>;
+export type ResponseType = { error?: string; url?: string; status?: 'fail' | 'success'; files?: UploadFile[] } & Record<
+  string,
+  any
+>;
 
 export interface FormatResponseContext {
   file: UploadFile;
