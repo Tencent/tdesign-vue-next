@@ -33,7 +33,7 @@ export const downloadFile = function (imgSrc: string) {
 };
 
 const isImageInfo = (image: string | File | ImageInfo): image is ImageInfo => {
-  return !isString(image) && !(image instanceof File);
+  return !!image && !isString(image) && !(image instanceof File);
 };
 
 export const formatImages = (images: TdImageViewerProps['images']): ImageInfo[] => {

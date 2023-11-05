@@ -158,7 +158,7 @@ export default defineComponent({
               <Image class={`${uploadPrefix.value}__card-image`} src={file.url || file.raw} error="" loading="" />
             )}
             <div class={`${uploadPrefix.value}__card-mask`}>
-              {(file.url || file.raw) && ['waiting', 'success'].includes(file.status) && (
+              {(file.url || file.raw) && !['progress', 'fail'].includes(file.status) && (
                 <span class={`${uploadPrefix.value}__card-mask-item`}>
                   <BrowseIcon
                     onClick={({ e }: { e: MouseEvent }) => {
