@@ -127,8 +127,15 @@ export default defineComponent({
       // render custom UI with fileListDisplay
       const customList = renderTNodeJSX('fileListDisplay', {
         params: {
+          triggerUpload: props.triggerUpload,
+          uploadFiles: props.uploadFiles,
+          cancelUpload: props.cancelUpload,
+          onPreview: props.onPreview,
+          onRemove: props.onRemove,
+          toUploadFiles: props.toUploadFiles,
+          sizeOverLimitMessage: props.sizeOverLimitMessage,
+          locale: props.locale,
           files: displayFiles.value,
-          ...props,
         },
       });
       if (customList) return customList;

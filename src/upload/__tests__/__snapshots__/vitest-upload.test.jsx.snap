@@ -159,6 +159,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, fail 
   <!---->
   <!---->
   <!---->
+  
 </div>
 `;
 
@@ -326,6 +327,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, progr
   <!---->
   <!---->
   <!---->
+  
 </div>
 `;
 
@@ -488,6 +490,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
   <!---->
   <!---->
   <!---->
+  
 </div>
 `;
 
@@ -650,6 +653,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
   <!---->
   <!---->
   <!---->
+  
 </div>
 `;
 
@@ -783,6 +787,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, waiti
   <!---->
   <!---->
   <!---->
+  
 </div>
 `;
 
@@ -1084,6 +1089,7 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
   </div>
   <!---->
   <!---->
+  
 </div>
 `;
 
@@ -1621,5 +1627,6 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
   </div>
   <!---->
   <!---->
+  
 </div>
 `;

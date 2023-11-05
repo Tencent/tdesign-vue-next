@@ -138,7 +138,15 @@ const NormalFile = defineComponent({
 
     return () => {
       const classes = [`${uploadPrefix}__single`, `${uploadPrefix}__single-${theme.value}`];
-      const fileListDisplay = renderTNodeJSX('fileListDisplay', { params: { files: props.displayFiles } });
+      const fileListDisplay = renderTNodeJSX('fileListDisplay', {
+        params: {
+          onRemove: props.onRemove,
+          toUploadFiles: props.toUploadFiles,
+          sizeOverLimitMessage: props.sizeOverLimitMessage,
+          locale: props.locale,
+          files: props.displayFiles,
+        },
+      });
       const { displayFiles } = props;
 
       return (
