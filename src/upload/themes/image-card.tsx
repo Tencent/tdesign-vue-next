@@ -41,6 +41,7 @@ export default defineComponent({
     uploadFiles: Function as PropType<ImageCardUploadProps['uploadFiles']>,
     cancelUpload: Function as PropType<ImageCardUploadProps['cancelUpload']>,
     onPreview: Function as PropType<ImageCardUploadProps['onPreview']>,
+    showImageFileName: Boolean,
   },
 
   setup(props) {
@@ -155,6 +156,7 @@ export default defineComponent({
                   {file.status === 'fail' && renderFailFile(file, index, loadCard)}
                   {!['progress', 'fail'].includes(file.status) && renderMainContent(file, index)}
                   {fileName &&
+                    props.showImageFileName &&
                     (file.url ? (
                       <Link href={file.url} class={fileNameClassName} target="_blank" hover="color" size="small">
                         {fileName}

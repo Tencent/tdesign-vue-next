@@ -43,6 +43,13 @@ export interface TdUploadProps<T extends UploadFile = UploadFile> {
    */
   beforeUpload?: (file: UploadFile) => boolean | Promise<boolean>;
   /**
+   * 批量文件/图片上传，`autoUpload=false` 场景下，透传“取消上传”按钮属性
+   */
+  cancelUploadButton?:
+    | null
+    | ButtonProps
+    | TNode<{ disabled: boolean; cancelUploadText: string; cancelUpload: (ctx: { e: MouseEvent }) => void }>;
+  /**
    * 上传请求所需的额外字段，默认字段有 `file`，表示文件信息。可以添加额外的文件名字段，如：`{file_name: "custom-file-name.txt"}`。`autoUpload=true` 时有效。也可以使用 `formatRequest` 完全自定义上传请求的字段
    */
   data?: Record<string, any> | ((files: UploadFile[]) => Record<string, any>);
@@ -143,6 +150,11 @@ export interface TdUploadProps<T extends UploadFile = UploadFile> {
    */
   requestMethod?: (files: UploadFile | UploadFile[]) => Promise<RequestMethodResponse>;
   /**
+   * 是否显示图片的文件名称
+   * @default true
+   */
+  showImageFileName?: boolean;
+  /**
    * 是否在文件列表中显示缩略图，`theme=file-flow` 时有效
    * @default false
    */
@@ -182,6 +194,13 @@ export interface TdUploadProps<T extends UploadFile = UploadFile> {
    * @default false
    */
   uploadAllFilesInOneRequest?: boolean;
+  /**
+   * 批量文件/图片上传，`autoUpload=false` 场景下，透传“点击上传”按钮属性
+   */
+  uploadButton?:
+    | null
+    | ButtonProps
+    | TNode<{ disabled: boolean; uploading: boolean; uploadFiles: () => void; uploadText: string }>;
   /**
    * 是否允许粘贴上传剪贴板中的文件
    * @default false

@@ -12,6 +12,8 @@ import {
   FileIcon,
   VideoIcon,
 } from 'tdesign-icons-vue-next';
+import isFunction from 'lodash/isFunction';
+import isObject from 'lodash/isObject';
 import useGlobalIcon from '../../hooks/useGlobalIcon';
 import ImageViewer, { ImageViewerProps } from '../../image-viewer';
 import { CommonDisplayFileProps } from '../interface';
@@ -43,6 +45,8 @@ export interface ImageFlowListProps extends CommonDisplayFileProps {
   isBatchUpload?: boolean;
   draggable?: boolean;
   onPreview?: TdUploadProps['onPreview'];
+  uploadButton?: TdUploadProps['uploadButton'];
+  cancelUploadButton?: TdUploadProps['cancelUploadButton'];
 }
 
 export default defineComponent({
@@ -57,6 +61,9 @@ export default defineComponent({
     disabled: Boolean,
     isBatchUpload: Boolean,
     draggable: Boolean,
+    showImageFileName: Boolean,
+    uploadButton: Object as PropType<ImageFlowListProps['uploadButton']>,
+    cancelUploadButton: Object as PropType<ImageFlowListProps['cancelUploadButton']>,
     onPreview: Function as PropType<ImageFlowListProps['onPreview']>,
   },
 
@@ -151,7 +158,7 @@ export default defineComponent({
               <Image class={`${uploadPrefix.value}__card-image`} src={file.url || file.raw} error="" loading="" />
             )}
             <div class={`${uploadPrefix.value}__card-mask`}>
-              {file.url && (
+              {(file.url || file.raw) && ['waiting', 'success'].includes(file.status) && (
                 <span class={`${uploadPrefix.value}__card-mask-item`}>
                   <BrowseIcon
                     onClick={({ e }: { e: MouseEvent }) => {
@@ -173,7 +180,12 @@ export default defineComponent({
               )}
             </div>
           </div>
-          <p class={`${uploadPrefix.value}__card-name`}>{fileName}</p>
+          {props.showImageFileName && (
+            <p class={[`${uploadPrefix.value}__card-name`, `${uploadPrefix.value}__flow-status`]}>
+              {['success', 'waiting'].includes(file.status) && iconMap[file.status]}
+              {fileName}
+            </p>
+          )}
         </li>
       );
     };
@@ -349,6 +361,10 @@ export default defineComponent({
 
     return () => {
       const cardClassName = `${uploadPrefix.value}__flow-card-area`;
+      const cancelUploadDisabled = disabled.value || !uploading.value;
+      const hasCancelUploadTNode = slots.uploadButton || isFunction(props.uploadButton);
+      const uploadButtonDisabled = Boolean(disabled.value || uploading.value || !displayFiles.value.length);
+      const hasUploadButtonTNode = slots.cancelUploadButton || isFunction(props.cancelUploadButton);
       return (
         <div class={`${uploadPrefix.value}__flow ${uploadPrefix.value}__flow-${props.theme}`}>
           <div class={`${uploadPrefix.value}__flow-op`}>
@@ -375,23 +391,48 @@ export default defineComponent({
               </div>
             ))}
 
-          {!props.autoUpload && (
+          {!props.autoUpload && (props.uploadButton !== null || props.cancelUploadButton !== null) && (
             <div class={`${uploadPrefix.value}__flow-bottom`}>
-              <TButton
-                theme="default"
-                disabled={disabled.value || !uploading.value}
-                content={locale.value?.cancelUploadText}
-                class={`${uploadPrefix.value}__cancel`}
-                onClick={(e) => props.cancelUpload?.({ e })}
-              ></TButton>
-              <TButton
-                disabled={disabled.value || uploading.value || !displayFiles.value.length}
-                theme="primary"
-                loading={uploading.value}
-                class={`${uploadPrefix.value}__continue`}
-                content={uploadText.value}
-                onClick={() => props.uploadFiles?.()}
-              ></TButton>
+              {props.cancelUploadButton !== null &&
+                (hasCancelUploadTNode ? (
+                  renderTNodeJSX('cancelUploadButton', {
+                    params: {
+                      disabled: cancelUploadDisabled,
+                      cancelUploadText: locale.value?.cancelUploadText,
+                      cancelUpload: props.cancelUpload,
+                    },
+                  })
+                ) : (
+                  <TButton
+                    theme="default"
+                    disabled={cancelUploadDisabled}
+                    content={locale.value?.cancelUploadText}
+                    class={`${uploadPrefix.value}__cancel`}
+                    onClick={(e) => props.cancelUpload?.({ e })}
+                    {...(isObject(props.cancelUploadButton) ? props.cancelUploadButton : {})}
+                  ></TButton>
+                ))}
+              {props.uploadButton !== null &&
+                (hasUploadButtonTNode ? (
+                  renderTNodeJSX('uploadButton', {
+                    params: {
+                      disabled: uploadButtonDisabled,
+                      uploading: uploading.value,
+                      uploadText: uploadText.value,
+                      uploadFiles: props.uploadFiles,
+                    },
+                  })
+                ) : (
+                  <TButton
+                    disabled={uploadButtonDisabled}
+                    theme="primary"
+                    loading={uploading.value}
+                    class={`${uploadPrefix.value}__continue`}
+                    content={uploadText.value}
+                    onClick={() => props.uploadFiles?.()}
+                    {...(isObject(props.uploadButton) ? props.uploadButton : {})}
+                  ></TButton>
+                ))}
             </div>
           )}
 

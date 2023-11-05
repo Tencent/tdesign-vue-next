@@ -1,6 +1,7 @@
 <template>
   <t-space direction="vertical">
     <t-space>
+      <t-checkbox v-model="showImageFileName"> 显示图片名称 </t-checkbox>
       <t-checkbox v-model="disabled"> 禁用状态 </t-checkbox>
       <t-checkbox v-model="uploadAllFilesInOneRequest"> 多个文件一个请求上传 </t-checkbox>
       <t-checkbox v-model="autoUpload"> 自动上传 </t-checkbox>
@@ -29,6 +30,7 @@
         accept="image/*"
         :disabled="disabled"
         :auto-upload="autoUpload"
+        :show-image-file-name="showImageFileName"
         :upload-all-files-in-one-request="uploadAllFilesInOneRequest"
         :locale="{
           triggerUploadText: {
@@ -49,6 +51,7 @@
         theme="image"
         tips="单张图片文件上传（上传失败状态演示）"
         accept="image/*"
+        :show-image-file-name="showImageFileName"
         :format-response="formatResponse"
       ></t-upload>
     </t-space>
@@ -62,6 +65,7 @@
       :disabled="disabled"
       :auto-upload="autoUpload"
       :upload-all-files-in-one-request="uploadAllFilesInOneRequest"
+      :show-image-file-name="showImageFileName"
       :format-response="formatImgResponse"
       @fail="handleFail"
     ></t-upload>
@@ -96,6 +100,7 @@ const fileFail = ref([]);
 const disabled = ref(false);
 const uploadAllFilesInOneRequest = ref(false);
 const autoUpload = ref(true);
+const showImageFileName = ref(true);
 
 const uploadRef1 = ref();
 const uploadRef2 = ref();

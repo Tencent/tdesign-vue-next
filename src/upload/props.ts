@@ -37,6 +37,10 @@ export default {
   beforeUpload: {
     type: Function as PropType<TdUploadProps['beforeUpload']>,
   },
+  /** 批量文件/图片上传，`autoUpload=false` 场景下，透传“取消上传”按钮属性 */
+  cancelUploadButton: {
+    type: [Object, Function] as PropType<TdUploadProps['cancelUploadButton']>,
+  },
   /** 上传请求所需的额外字段，默认字段有 `file`，表示文件信息。可以添加额外的文件名字段，如：`{file_name: "custom-file-name.txt"}`。`autoUpload=true` 时有效。也可以使用 `formatRequest` 完全自定义上传请求的字段 */
   data: {
     type: Object as PropType<TdUploadProps['data']>,
@@ -134,6 +138,11 @@ export default {
   requestMethod: {
     type: Function as PropType<TdUploadProps['requestMethod']>,
   },
+  /** 是否显示图片的文件名称 */
+  showImageFileName: {
+    type: Boolean,
+    default: true,
+  },
   /** 是否在文件列表中显示缩略图，`theme=file-flow` 时有效 */
   showThumbnail: Boolean,
   /** 是否显示上传进度 */
@@ -176,6 +185,10 @@ export default {
   },
   /** 是否在同一个请求中上传全部文件，默认一个请求上传一个文件。多文件上传时有效 */
   uploadAllFilesInOneRequest: Boolean,
+  /** 批量文件/图片上传，`autoUpload=false` 场景下，透传“点击上传”按钮属性 */
+  uploadButton: {
+    type: [Object, Function] as PropType<TdUploadProps['uploadButton']>,
+  },
   /** 是否允许粘贴上传剪贴板中的文件 */
   uploadPastedFiles: Boolean,
   /** 是否在请求时间超过 300ms 后显示模拟进度。上传进度有模拟进度和真实进度两种。一般大小的文件上传，真实的上传进度只有 0 和 100，不利于交互呈现，因此组件内置模拟上传进度。真实上传进度一般用于大文件上传。 */
