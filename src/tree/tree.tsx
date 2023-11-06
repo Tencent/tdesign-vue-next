@@ -50,7 +50,7 @@ export default defineComponent({
     // 用于 hooks 传递数据
     const { state } = useTreeState(props, context);
     const { treeContentRef, isScrolling } = state;
-    const { store, updateStoreConfig, rebuild, checkFilterExpand } = useTreeStore(state);
+    const { store, updateStoreConfig, rebuild } = useTreeStore(state);
 
     useDragHandle(state);
     const { setActived, setExpanded, setChecked } = useTreeAction(state);
@@ -71,7 +71,6 @@ export default defineComponent({
       treeContentRef,
 
       rebuild,
-      checkFilterExpand,
       updateStoreConfig,
       setActived,
       setExpanded,
@@ -91,23 +90,9 @@ export default defineComponent({
 
   watch: {
     // 实测发现，composition api 中的 refsProps watch ，回调时间迟于 $nextTick 回调
-    // 因此改为在这里绑定属性监听，实测这里的 watch 回调，早于 $nextTick 回调发生
+    // 因此改为在这里绑定 data 属性监听，实测这里的 watch 回调，早于 $nextTick 回调发生
     data(list) {
       this.rebuild(list);
-    },
-    expanded(nVal: TreeNodeValue[]) {
-      this.store.replaceExpanded(nVal);
-    },
-    actived(nVal: TreeNodeValue[]) {
-      this.store.replaceActived(nVal);
-    },
-    filter(nVal, previousVal) {
-      this.checkFilterExpand(nVal, previousVal);
-    },
-    keys(keys) {
-      this.store.setConfig({
-        keys,
-      });
     },
   },
   // 在 methods 提供公共方法
