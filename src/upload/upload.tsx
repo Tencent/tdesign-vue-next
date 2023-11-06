@@ -100,6 +100,7 @@ export default defineComponent({
       onRemove: onInnerRemove,
       uploadPastedFiles: props.uploadPastedFiles,
       onPasteFileChange: onPasteFileChange,
+      imageViewerProps: props.imageViewerProps,
     }));
 
     const dragProps: UploadDragEvents = {
@@ -150,6 +151,7 @@ export default defineComponent({
         uploadFiles={uploadFiles}
         cancelUpload={cancelUpload}
         onPreview={props.onPreview}
+        showImageFileName={props.showImageFileName}
         v-slots={{
           fileListDisplay: slots.fileListDisplay,
           'file-list-display': slots['file-list-display'],
@@ -166,7 +168,10 @@ export default defineComponent({
         uploadFiles={uploadFiles}
         cancelUpload={cancelUpload}
         onPreview={props.onPreview}
+        showImageFileName={props.showImageFileName}
         showThumbnail={props.showThumbnail}
+        uploadButton={props.uploadButton}
+        cancelUploadButton={props.cancelUploadButton}
         v-slots={{
           fileListDisplay: slots.fileListDisplay,
           'file-list-display': slots['file-list-display'],
@@ -220,6 +225,7 @@ export default defineComponent({
             {renderTNodeJSX('tips')}
           </small>
         )}
+        {sizeOverLimitMessage.value && <small class={errorClasses}>{sizeOverLimitMessage.value}</small>}
       </div>
     );
   },

@@ -7,7 +7,7 @@ import {
 } from 'tdesign-icons-vue-next';
 import Loading from '../../loading';
 import useGlobalIcon from '../../hooks/useGlobalIcon';
-import ImageViewer from '../../image-viewer';
+import ImageViewer, { ImageViewerProps } from '../../image-viewer';
 import { CommonDisplayFileProps } from '../interface';
 import { commonProps } from '../constants';
 import { TdUploadProps, UploadFile } from '../type';
@@ -41,6 +41,7 @@ export default defineComponent({
     uploadFiles: Function as PropType<ImageCardUploadProps['uploadFiles']>,
     cancelUpload: Function as PropType<ImageCardUploadProps['cancelUpload']>,
     onPreview: Function as PropType<ImageCardUploadProps['onPreview']>,
+    showImageFileName: Boolean,
   },
 
   setup(props) {
@@ -81,6 +82,7 @@ export default defineComponent({
                     />
                   );
                 }}
+                {...(props.imageViewerProps as ImageViewerProps)}
               ></ImageViewer>
             </span>
             {!props.disabled && (
@@ -126,6 +128,14 @@ export default defineComponent({
       // render custom UI with fileListDisplay
       const customList = renderTNodeJSX('fileListDisplay', {
         params: {
+          triggerUpload: props.triggerUpload,
+          uploadFiles: props.uploadFiles,
+          cancelUpload: props.cancelUpload,
+          onPreview: props.onPreview,
+          onRemove: props.onRemove,
+          toUploadFiles: props.toUploadFiles,
+          sizeOverLimitMessage: props.sizeOverLimitMessage,
+          locale: props.locale,
           files: displayFiles.value,
         },
       });
@@ -146,6 +156,7 @@ export default defineComponent({
                   {file.status === 'fail' && renderFailFile(file, index, loadCard)}
                   {!['progress', 'fail'].includes(file.status) && renderMainContent(file, index)}
                   {fileName &&
+                    props.showImageFileName &&
                     (file.url ? (
                       <Link href={file.url} class={fileNameClassName} target="_blank" hover="color" size="small">
                         {fileName}
