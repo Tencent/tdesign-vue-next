@@ -138,7 +138,7 @@ const NormalFile = defineComponent({
 
     return () => {
       const classes = [`${uploadPrefix}__single`, `${uploadPrefix}__single-${theme.value}`];
-      const fileListDisplay = renderTNodeJSX('fileListDisplay', {
+      let fileListDisplay = renderTNodeJSX('fileListDisplay', {
         params: {
           onRemove: props.onRemove,
           toUploadFiles: props.toUploadFiles,
@@ -147,6 +147,10 @@ const NormalFile = defineComponent({
           files: props.displayFiles,
         },
       });
+      if (props.fileListDisplay === null || fileListDisplay === null) {
+        fileListDisplay = null;
+      }
+
       const { displayFiles } = props;
 
       return (
@@ -159,7 +163,7 @@ const NormalFile = defineComponent({
             <small class={[props.tipsClasses, props.placeholderClass]}>{props.placeholder}</small>
           )}
 
-          {fileListDisplay || renderFilePreviewAsText(displayFiles)}
+          {fileListDisplay === null ? null : fileListDisplay || renderFilePreviewAsText(displayFiles)}
 
           {/* 单文件上传失败要显示失败的原因 */}
           {!props.multiple && displayFiles[0]?.status === 'fail' && theme.value === 'file' ? (
