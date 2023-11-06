@@ -98,6 +98,7 @@ export default defineComponent({
   // 在 methods 提供公共方法
   // 实例上可以直接访问
   methods: {
+    // 设置目标节点状态
     setItem(value: TreeNodeValue, options: TreeNodeState): void {
       const node: TreeNode = this.store.getNode(value);
       const spec = options;
@@ -117,14 +118,19 @@ export default defineComponent({
         node.set(spec);
       }
     },
+    // 获取目标节点
     getItem(value: TreeNodeValue): TypeTreeNodeModel {
       const node: TreeNode = this.store.getNode(value);
       return node?.getModel();
     },
+    // 无 value 参数: 获取 tree 所有节点，一维结构
+    // 传递 value 参数: 获取节点值对应的目标节点下，包含自己在内的所有子节点
     getItems(value?: TreeNodeValue): TypeTreeNodeModel[] {
       const nodes = this.store.getNodes(value);
       return nodes.map((node: TreeNode) => node.getModel());
     },
+    // 将节点数据插入到目标节点
+    // 无目标节点，则插入为根节点
     appendTo(para?: TreeNodeValue, item?: TypeTreeOptionData | TypeTreeOptionData[]) {
       const { store } = this;
       let list = [];
@@ -143,6 +149,7 @@ export default defineComponent({
         }
       });
     },
+    // 在指定节点之前插入单个节点数据
     insertBefore(value: TreeNodeValue, item: TypeTreeOptionData) {
       const { store } = this;
       const val = item?.value || '';
@@ -153,6 +160,7 @@ export default defineComponent({
         store.insertBefore(value, item);
       }
     },
+    // 在指定节点之后插入单个节点数据
     insertAfter(value: TreeNodeValue, item: TypeTreeOptionData) {
       const { store } = this;
       const val = item?.value || '';
@@ -163,20 +171,25 @@ export default defineComponent({
         store.insertAfter(value, item);
       }
     },
+    // 移除目标节点
     remove(value?: TreeNodeValue) {
       return this.store.remove(value);
     },
+    // 获取节点在当前层级的 index
     getIndex(value: TreeNodeValue): number {
       return this.store.getNodeIndex(value);
     },
+    // 获取父节点
     getParent(value: TreeNodeValue): TypeTreeNodeModel {
       const node = this.store.getParent(value);
       return node?.getModel();
     },
+    // 获取父节点列表
     getParents(value: TreeNodeValue): TypeTreeNodeModel[] {
       const nodes = this.store.getParents(value);
       return nodes.map((node: TreeNode) => node.getModel());
     },
+    // 获取路径节点列表
     getPath(value: TreeNodeValue): TypeTreeNodeModel[] {
       const node = this.store.getNode(value);
       let pathNodes: TypeTreeNodeModel[] = [];
@@ -184,6 +197,45 @@ export default defineComponent({
         pathNodes = node.getPath().map((node: TreeNode) => node.getModel());
       }
       return pathNodes;
+    },
+    // 提供树结构原始数据
+    getTreeData(value?: TreeNodeValue): TypeTreeOptionData[] {
+      let list: TreeNode[] = [];
+      if (value) {
+        const node = this.store.getNode(value);
+        if (!node) return [];
+        list = this.store.getNodes(value);
+      } else {
+        list = this.store.getNodes();
+      }
+      // 一维结构树节点转树结构数据
+      const nodeMap = {};
+      const treeNodes: TypeTreeOptionData[] = [];
+      list.forEach((item: TreeNode) => {
+        const { value } = item;
+        const itemData = {
+          ...item.data,
+          value,
+        };
+        nodeMap[value] = itemData;
+        const parent = item.getParent();
+        if (!parent) {
+          // 是根节点
+          treeNodes.push(itemData);
+        } else {
+          const parentData = nodeMap[parent.value];
+          if (!parentData) {
+            // 为目标节点范围内的根节点
+            treeNodes.push(itemData);
+          } else {
+            if (!Array.isArray(parentData.children)) {
+              parentData.children = [];
+            }
+            parentData.children.push(itemData);
+          }
+        }
+      });
+      return treeNodes;
     },
   },
   render(h: TypeCreateElement) {

@@ -166,51 +166,6 @@ export default {
       }
       return item;
     },
-    // 获取节点原始数据
-    getPlainData(item) {
-      const root = item;
-      if (!root) return null;
-      const children = item.getChildren(true) || [];
-      const list = [root].concat(children);
-
-      // 一维数组原始数据获取
-      const nodeList = list.map((item) => {
-        const { value } = item;
-        const itemData = {
-          ...this.data,
-          value,
-        };
-        const parent = item.getParent();
-        if (parent) {
-          itemData.parent = parent.value;
-        }
-        return itemData;
-      });
-      console.info('一维结构数据:', nodeList);
-
-      // 一维结构数据转树结构数据
-      const nodeMap = {};
-      const treeNodes = [];
-      list.forEach((item) => {
-        const { value } = item;
-        const itemData = {
-          ...this.data,
-          value,
-        };
-        nodeMap[value] = itemData;
-        const parent = item.getParent();
-        if (!parent) {
-          treeNodes.push(itemData);
-        } else {
-          const parentData = nodeMap[parent.value];
-          if (!Array.isArray(parentData.children)) {
-            parentData.children = [];
-          }
-          parentData.children.push(itemData);
-        }
-      });
-      console.info('树结构数据:', treeNodes);
-    },
     append(node) {
       const { tree } = this.$refs;
       const item = this.getInsertItem();
@@ -283,9 +238,15 @@ export default {
       console.info('getIndex', index);
     },
     getActivePlainData() {
+      const { tree } = this.$refs;
       const node = this.getActivedNode();
-      if (!node) return;
-      this.getPlainData(node);
+      let treeNodes = [];
+      if (!node) {
+        treeNodes = tree.getTreeData();
+      } else {
+        treeNodes = tree.getTreeData(node.value);
+      }
+      console.info('树结构数据:', treeNodes);
     },
     remove(node) {
       const { tree } = this.$refs;
