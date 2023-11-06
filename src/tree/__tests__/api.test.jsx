@@ -1003,6 +1003,10 @@ describe('Tree:api', () => {
       expect(tnodes[0].children.length).toBe(1);
       expect(tnodes[0].value).toBe('t2.1');
       expect(tnodes[0].children[0].value).toBe('t2.1.1');
+
+      const nnodes = tree.getTreeData('t2.2');
+      expect(Array.isArray(nnodes)).toBe(true);
+      expect(nnodes.length).toBe(0);
     });
   });
 });
