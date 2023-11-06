@@ -507,7 +507,8 @@ export default function useFixed(
       const rootThWidthList = pick(thWidthList, preColKeys);
       const oldTotalWidth = Object.values(rootThWidthList).reduce((r = 0, n) => r + n);
       // 保留原有可能编辑过的列宽度，但是当剩余列过小时，表头小于内容宽，需要缩放回内容宽度
-      const contentWidth = tableElmRef.value.getBoundingClientRect().width;
+      // 使用不包含滚动条的可视化区域宽度，意味着当不再溢出的时候，将宽度设置回完整宽度
+      const contentWidth = tableContentRef.value.clientWidth;
       const widthToReserve = oldTotalWidth - reduceWidth;
       setTableElmWidth(Math.max(contentWidth, widthToReserve));
     }
