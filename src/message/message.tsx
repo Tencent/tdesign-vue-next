@@ -1,4 +1,4 @@
-import { defineComponent, h, onBeforeMount, onMounted, computed, ref } from 'vue';
+import { defineComponent, h, onBeforeMount, onMounted, computed, ref, CSSProperties } from 'vue';
 import {
   InfoCircleFilledIcon as TdInfoCircleFilledIcon,
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
@@ -15,6 +15,7 @@ import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { fadeIn, fadeOut } from './animation';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import isFunction from 'lodash/isFunction';
+import { useConfig } from '../config-provider/useConfig';
 
 export default defineComponent({
   name: 'TMessage',
@@ -33,10 +34,9 @@ export default defineComponent({
         CloseIcon: TdCloseIcon,
       });
     const classPrefix = usePrefixClass();
-
+    const { globalConfig } = useConfig('message');
     const renderTNode = useTNodeJSX();
     const renderContent = useContent();
-
     const msgRef = ref(null);
     const timer = ref(null);
 
@@ -115,7 +115,13 @@ export default defineComponent({
     expose({ close });
 
     return () => (
-      <div ref={msgRef} class={classes.value} onMouseenter={clearTimer} onMouseleave={setTimer}>
+      <div
+        ref={msgRef}
+        class={classes.value}
+        style={globalConfig.value.style as CSSProperties}
+        onMouseenter={clearTimer}
+        onMouseleave={setTimer}
+      >
         {renderIcon()}
         {renderContent('content', 'default')}
         {renderClose()}

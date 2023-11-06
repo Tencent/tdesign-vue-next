@@ -2,9 +2,16 @@ import { mount } from '@vue/test-utils';
 import { describe, expect, it, vi } from 'vitest';
 import { CloseIcon, InfoCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { Message } from '@/src/message/index.ts';
+import ConfigProvider from '../../config-provider/config-provider';
 
 const text = '这是一条Message信息';
-
+const globalConfig = {
+  message: {
+    style: {
+      width: '300px',
+    },
+  },
+};
 describe('Message', () => {
   describe(':props', () => {
     it('', () => {
@@ -63,6 +70,17 @@ describe('Message', () => {
       expect(onDurationEnd).not.toBeCalled();
       vi.runAllTimers();
       expect(onDurationEnd).toHaveBeenCalledTimes(1);
+    });
+  });
+  describe(':MessageOptions', () => {
+    it(':style', () => {
+      const wrapper = mount(() => (
+        <ConfigProvider global-config={globalConfig}>
+          <Message content={text} />
+        </ConfigProvider>
+      ));
+      const message = wrapper.find('.t-message');
+      expect(getComputedStyle(message.element).width).toBe('300px');
     });
   });
 });
