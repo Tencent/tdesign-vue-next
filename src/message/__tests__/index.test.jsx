@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils';
 import { describe, expect, it, vi } from 'vitest';
 import { CloseIcon, InfoCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { Message } from '@/src/message/index.ts';
-import ConfigProvider from '../../config-provider/config-provider';
+import { ConfigProvider } from '@/src/config-provider/index.ts';
 
 const text = '这是一条Message信息';
 const globalConfig = {
