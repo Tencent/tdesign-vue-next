@@ -367,10 +367,12 @@ describe('Tree:props:events', () => {
         },
       ];
 
+      const step1 = step();
       const loadedValues = [];
       const onLoad = (context) => {
         // 这个事件会被触发多次
         loadedValues.push(context.node.value);
+        step1.ready();
       };
 
       const loadData = (node) =>
@@ -406,7 +408,8 @@ describe('Tree:props:events', () => {
         },
       });
 
-      await delay(10);
+      await delay(1);
+      await step1;
       expect(loadedValues[0]).toBe('t1');
     }, 300);
   });
