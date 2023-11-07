@@ -945,4 +945,68 @@ describe('Tree:api', () => {
       expect(pnodes[2].value).toBe('t1.1.1');
     });
   });
+
+  // tree.getTreeData
+  // 获取树结构数据
+  describe('getTreeData', () => {
+    it('获取树结构数据', async () => {
+      const data = [
+        {
+          value: 't1',
+          children: [
+            {
+              value: 't1.1',
+              children: [
+                {
+                  value: 't1.1.1',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          value: 't2',
+          children: [
+            {
+              value: 't2.1',
+              children: [
+                {
+                  value: 't2.1.1',
+                },
+              ],
+            },
+          ],
+        },
+      ];
+      const wrapper = mount({
+        render() {
+          return <Tree ref="tree" transition={false} data={data} expandAll={true} />;
+        },
+      });
+
+      const { tree } = wrapper.vm.$refs;
+
+      const pnodes = tree.getTreeData();
+      expect(Array.isArray(pnodes)).toBe(true);
+      expect(pnodes.length).toBe(2);
+      expect(Array.isArray(pnodes[0].children)).toBe(true);
+      expect(pnodes[0].children.length).toBe(1);
+      expect(Array.isArray(pnodes[0].children[0].children)).toBe(true);
+      expect(pnodes[0].children[0].children[0].value).toBe('t1.1.1');
+      expect(pnodes[0].value).toBe('t1');
+      expect(pnodes[1].value).toBe('t2');
+
+      const tnodes = tree.getTreeData('t2.1');
+      expect(Array.isArray(tnodes)).toBe(true);
+      expect(tnodes.length).toBe(1);
+      expect(Array.isArray(tnodes[0].children)).toBe(true);
+      expect(tnodes[0].children.length).toBe(1);
+      expect(tnodes[0].value).toBe('t2.1');
+      expect(tnodes[0].children[0].value).toBe('t2.1.1');
+
+      const nnodes = tree.getTreeData('t2.2');
+      expect(Array.isArray(nnodes)).toBe(true);
+      expect(nnodes.length).toBe(0);
+    });
+  });
 });

@@ -159,6 +159,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, fail 
   <!---->
   <!---->
   <!---->
+  
 </div>
 `;
 
@@ -326,6 +327,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, progr
   <!---->
   <!---->
   <!---->
+  
 </div>
 `;
 
@@ -488,6 +490,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
   <!---->
   <!---->
   <!---->
+  
 </div>
 `;
 
@@ -650,6 +653,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
   <!---->
   <!---->
   <!---->
+  
 </div>
 `;
 
@@ -783,6 +787,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, waiti
   <!---->
   <!---->
   <!---->
+  
 </div>
 `;
 
@@ -1084,6 +1089,7 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
   </div>
   <!---->
   <!---->
+  
 </div>
 `;
 
@@ -1206,7 +1212,7 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
             <div
               class="t-upload__card-mask"
             >
-              
+              <!---->
               <span
                 class="t-upload__card-mask-item t-upload__delete"
               >
@@ -1226,8 +1232,20 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
             </div>
           </div>
           <p
-            class="t-upload__card-name"
+            class="t-upload__card-name t-upload__flow-status"
           >
+            <svg
+              class="t-icon t-icon-check-circle-filled"
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+            >
+              <path
+                d="M12 23a11 11 0 100-22 11 11 0 000 22zM7.5 10.59l3 3 6-6L17.91 9l-7.41 7.41L6.09 12l1.41-1.41z"
+                fill="currentColor"
+              />
+            </svg>
             img.txt
           </p>
         </li>
@@ -1331,8 +1349,20 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
             </div>
           </div>
           <p
-            class="t-upload__card-name"
+            class="t-upload__card-name t-upload__flow-status"
           >
+            <svg
+              class="t-icon t-icon-check-circle-filled"
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+            >
+              <path
+                d="M12 23a11 11 0 100-22 11 11 0 000 22zM7.5 10.59l3 3 6-6L17.91 9l-7.41 7.41L6.09 12l1.41-1.41z"
+                fill="currentColor"
+              />
+            </svg>
             img1.txt
           </p>
         </li>
@@ -1436,8 +1466,20 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
             </div>
           </div>
           <p
-            class="t-upload__card-name"
+            class="t-upload__card-name t-upload__flow-status"
           >
+            <svg
+              class="t-icon t-icon-time-filled"
+              fill="none"
+              height="1em"
+              viewBox="0 0 24 24"
+              width="1em"
+            >
+              <path
+                d="M12 23a11 11 0 110-22 11 11 0 010 22zm1-17.5h-2v6.91l4 4L16.41 15 13 11.59V5.5z"
+                fill="currentColor"
+              />
+            </svg>
             img2.txt
           </p>
         </li>
@@ -1471,29 +1513,7 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
             <div
               class="t-upload__card-mask"
             >
-              <span
-                class="t-upload__card-mask-item"
-              >
-                <svg
-                  class="t-icon t-icon-browse"
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 24 24"
-                  width="1em"
-                >
-                  <g
-                    clipPath="url(#clip0_8726_7319)"
-                  >
-                    <path
-                      d="M2.1 12a10.5 10.5 0 0019.8 0 10.5 10.5 0 00-19.8 0zm-2.01-.3a12.5 12.5 0 0123.82 0l.1.3-.1.3a12.5 12.5 0 01-23.82 0l-.1-.3.1-.3zM12 9a3 3 0 100 6 3 3 0 000-6zm-5 3a5 5 0 1110 0 5 5 0 01-10 0z"
-                      fill="currentColor"
-                    />
-                  </g>
-                </svg>
-                <span
-                  class="t-upload__card-mask-item-divider"
-                />
-              </span>
+              <!---->
               <span
                 class="t-upload__card-mask-item t-upload__delete"
               >
@@ -1513,8 +1533,9 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
             </div>
           </div>
           <p
-            class="t-upload__card-name"
+            class="t-upload__card-name t-upload__flow-status"
           >
+            <!---->
             img3.txt
           </p>
         </li>
@@ -1561,29 +1582,7 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
             <div
               class="t-upload__card-mask"
             >
-              <span
-                class="t-upload__card-mask-item"
-              >
-                <svg
-                  class="t-icon t-icon-browse"
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 24 24"
-                  width="1em"
-                >
-                  <g
-                    clipPath="url(#clip0_8726_7319)"
-                  >
-                    <path
-                      d="M2.1 12a10.5 10.5 0 0019.8 0 10.5 10.5 0 00-19.8 0zm-2.01-.3a12.5 12.5 0 0123.82 0l.1.3-.1.3a12.5 12.5 0 01-23.82 0l-.1-.3.1-.3zM12 9a3 3 0 100 6 3 3 0 000-6zm-5 3a5 5 0 1110 0 5 5 0 01-10 0z"
-                      fill="currentColor"
-                    />
-                  </g>
-                </svg>
-                <span
-                  class="t-upload__card-mask-item-divider"
-                />
-              </span>
+              <!---->
               <span
                 class="t-upload__card-mask-item t-upload__delete"
               >
@@ -1603,8 +1602,9 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
             </div>
           </div>
           <p
-            class="t-upload__card-name"
+            class="t-upload__card-name t-upload__flow-status"
           >
+            <!---->
             img4.txt
           </p>
         </li>
@@ -1621,5 +1621,6 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
   </div>
   <!---->
   <!---->
+  
 </div>
 `;

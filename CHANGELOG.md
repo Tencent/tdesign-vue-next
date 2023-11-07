@@ -5,6 +5,31 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.6.8 `2023-11-07` 
+### 🚀 Features
+- `ImageViewer`: 新增支持 `closeOnEscKeydown`，用于控制是否允许 ESC 退出预览，[#2928](https://github.com/Tencent/tdesign-vue-next/issues/2928) @chaishi ([#3566](https://github.com/Tencent/tdesign-vue-next/pull/3566))
+- `Upload`:  @chaishi
+   - 图片预览功能，新增支持透传图片预览全部属性 `imageViewerProps`，[#2928](https://github.com/Tencent/tdesign-vue-next/issues/2928) ([#3566](https://github.com/Tencent/tdesign-vue-next/pull/3566))
+   - ⚠️新增图片上传大小超出限制提醒，有额外单独实现此功能的业务需注意是否存在重复显示大小限制提醒问题，[#2736](https://github.com/Tencent/tdesign-vue-next/issues/2736) ([#3566](https://github.com/Tencent/tdesign-vue-next/pull/3566))
+   - 多文件/图片上传场景下，`autoUpload=false` 时，支持使用 Props 属性/函数/插槽等方法自定义上传按钮和取消上传按钮，[#2469](https://github.com/Tencent/tdesign-vue-next/issues/2469) ([#3566](https://github.com/Tencent/tdesign-vue-next/pull/3566))
+   - 多文件/图片上传场景下，`autoUpload=false` 时，区分已上传状态和待上传状态，[#2518](https://github.com/Tencent/tdesign-vue-next/issues/2518) ([#3566](https://github.com/Tencent/tdesign-vue-next/pull/3566))
+   -  批量文件上传支持在列表中显示上传失败的原因，[#2518](https://github.com/Tencent/tdesign-vue-next/issues/2518) ([#3566](https://github.com/Tencent/tdesign-vue-next/pull/3566))
+   - 新增支持 `fileListDisplay=null` 控制单文件或文件列表不显示 ([#3573](https://github.com/Tencent/tdesign-vue-next/pull/3573))
+### 🐞 Bug Fixes
+- `Table`: 
+   - 修复 `v1.6.7` 引起的单元格编辑失效问题 @chaishi ([#3577](https://github.com/Tencent/tdesign-vue-next/pull/3577))
+   - 多级表头 + 列宽调整场景，修正动态列表头宽度计算错误的问题 @Cat1007 ([#3552](https://github.com/Tencent/tdesign-vue-next/pull/3552))
+   - 在提供列配置选项时,默认只提供叶子列作为配置选项,作为最细粒度配置的方式 @Cat1007 ([#3555](https://github.com/Tencent/tdesign-vue-next/pull/3555))
+   - 修正列变动时,列宽重置的判断问题 @Cat1007 ([#3568](https://github.com/Tencent/tdesign-vue-next/pull/3568))
+   - 修正动态列变化时，表头过小或表头高度更新错误导致意外的滚动条出现的问题 @Cat1007 ([#3557](https://github.com/Tencent/tdesign-vue-next/pull/3557))
+- `TreeSelect`: 处理导入的样式文件异常问题 @betavs ([#3556](https://github.com/Tencent/tdesign-vue-next/pull/3556))
+- `Upload`: @chaishi
+   -  修复 `max=1 multiple=false` 情况下，无法替换上传文件问题，[#2909](https://github.com/Tencent/tdesign-vue-next/issues/2909) ([#3566](https://github.com/Tencent/tdesign-vue-next/pull/3566))
+   - 图片上传场景，修复禁用态卡片无法显示问题 ([#3573](https://github.com/Tencent/tdesign-vue-next/pull/3573))
+- `Tree`: 提供获取树结构数据的 api: getTreeData @TabSpace ([#3571](https://github.com/Tencent/tdesign-vue-next/pull/3571))
+- `Dialog`: 修复以Plugin的方式调用时，更新className会报错并且会覆盖组件的原className。 @Zz-ZzzZ ([#3570](https://github.com/Tencent/tdesign-vue-next/pull/3570))
+
+
 ## 🌈 1.6.7 `2023-11-01` 
 ### 🚀 Features
 - `Table`: 
