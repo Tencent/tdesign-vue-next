@@ -346,7 +346,13 @@ export default defineComponent({
     const renderImageList = () => {
       const customList = renderTNodeJSX('fileListDisplay', {
         params: {
-          ...props,
+          cancelUpload: props.cancelUpload,
+          uploadFiles: props.uploadFiles,
+          onRemove: props.onRemove,
+          onPreview: props.onPreview,
+          toUploadFiles: props.toUploadFiles,
+          sizeOverLimitMessage: props.sizeOverLimitMessage,
+          locale: props.locale,
           files: props.displayFiles,
           dragEvents: innerDragEvents.value,
         },

@@ -155,8 +155,7 @@ export default defineComponent({
                   {file.status === 'progress' && renderProgressFile(file, loadCard)}
                   {file.status === 'fail' && renderFailFile(file, index, loadCard)}
                   {!['progress', 'fail'].includes(file.status) && renderMainContent(file, index)}
-                  {fileName &&
-                    props.showImageFileName &&
+                  {Boolean(fileName && props.showImageFileName) &&
                     (file.url ? (
                       <Link href={file.url} class={fileNameClassName} target="_blank" hover="color" size="small">
                         {fileName}
@@ -168,17 +167,22 @@ export default defineComponent({
               );
             })}
 
-            {showTrigger.value && !props.disabled && (
+            {showTrigger.value && (
               <li class={cardItemClasses} onClick={props.triggerUpload}>
                 <div
                   class={[
                     `${classPrefix.value}-upload__image-add`,
                     `${classPrefix.value}-upload__card-container`,
                     `${classPrefix.value}-upload__card-box`,
+                    {
+                      [`${classPrefix.value}-is-disabled`]: props.disabled,
+                    },
                   ]}
                 >
                   <AddIcon />
-                  <p class={`${classPrefix.value}-size-s`}>{locale.value?.triggerUploadText?.image}</p>
+                  <p class={[`${classPrefix.value}-size-s`, `${classPrefix.value}-upload__add-text`]}>
+                    {locale.value?.triggerUploadText?.image}
+                  </p>
                 </div>
               </li>
             )}
