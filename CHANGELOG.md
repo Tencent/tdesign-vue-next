@@ -24,8 +24,8 @@ docClass: timeline
    - 修正动态列变化时，表头过小或表头高度更新错误导致意外的滚动条出现的问题 @Cat1007 ([#3557](https://github.com/Tencent/tdesign-vue-next/pull/3557))
 - `TreeSelect`: 处理导入的样式文件异常问题 @betavs ([#3556](https://github.com/Tencent/tdesign-vue-next/pull/3556))
 - `Upload`: @chaishi
-   -  修复 `max=1 multiple=false` 情况下，无法替换上传文件问题，[#2909](https://github.com/Tencent/tdesign-vue-next/issues/2909) @chaishi ([#3566](https://github.com/Tencent/tdesign-vue-next/pull/3566))
-   - 图片上传场景，修复禁用态卡片无法显示问题 @chaishi ([#3573](https://github.com/Tencent/tdesign-vue-next/pull/3573))
+   -  修复 `max=1 multiple=false` 情况下，无法替换上传文件问题，[#2909](https://github.com/Tencent/tdesign-vue-next/issues/2909) ([#3566](https://github.com/Tencent/tdesign-vue-next/pull/3566))
+   - 图片上传场景，修复禁用态卡片无法显示问题 ([#3573](https://github.com/Tencent/tdesign-vue-next/pull/3573))
 - `Tree`: 提供获取树结构数据的 api: getTreeData @TabSpace ([#3571](https://github.com/Tencent/tdesign-vue-next/pull/3571))
 - `Dialog`: 修复以Plugin的方式调用时，更新className会报错并且会覆盖组件的原className。 @Zz-ZzzZ ([#3570](https://github.com/Tencent/tdesign-vue-next/pull/3570))
 
