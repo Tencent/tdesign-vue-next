@@ -4,8 +4,8 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
-import { ComponentPublicInstance } from 'vue';
 import { TNode, AttachNode } from '../common';
+import { CSSProperties } from 'vue';
 
 export interface TdMessageProps {
   /**
@@ -68,7 +68,7 @@ export interface MessageOptions extends TdMessageProps {
   /**
    * 内敛样式
    */
-  style?: object;
+  style?: CSSProperties;
   /**
    * 消息层级
    * @default 5000
@@ -89,7 +89,7 @@ export type MessagePlacementList =
   | 'bottom-left'
   | 'bottom-right';
 
-export interface MessageInstance extends ComponentPublicInstance {
+export interface MessageInstance {
   close: () => void;
 }
 
