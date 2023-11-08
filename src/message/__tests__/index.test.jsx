@@ -5,17 +5,11 @@ import { Message } from '@/src/message/index.ts';
 import { ConfigProvider } from '@/src/config-provider/index.ts';
 
 const text = '这是一条Message信息';
-const globalConfig = {
-  message: {
-    style: {
-      width: '300px',
-    },
-  },
-};
 describe('Message', () => {
   describe(':props', () => {
     it('', () => {
       const wrapper = mount(() => <Message content={text} />);
+      expect(wrapper.element).toMatchSnapshot();
       const message = wrapper.find('.t-message');
       expect(message.exists()).toBeTruthy();
     });
@@ -72,15 +66,40 @@ describe('Message', () => {
       expect(onDurationEnd).toHaveBeenCalledTimes(1);
     });
   });
-  describe(':MessageOptions', () => {
+  describe(':globalConfig', () => {
     it(':style', () => {
+      const globalConfig = {
+        message: {
+          style: {
+            width: '300px',
+          },
+        },
+      };
       const wrapper = mount(() => (
         <ConfigProvider global-config={globalConfig}>
           <Message content={text} />
         </ConfigProvider>
       ));
+      expect(wrapper.element).toMatchSnapshot();
+
       const message = wrapper.find('.t-message');
       expect(getComputedStyle(message.element).width).toBe('300px');
+    });
+    it(':zIndex', () => {
+      const globalConfig = {
+        message: {
+          zIndex: 2048,
+        },
+      };
+      const wrapper = mount(() => (
+        <ConfigProvider global-config={globalConfig}>
+          <Message content={text} />
+        </ConfigProvider>
+      ));
+      expect(wrapper.element).toMatchSnapshot();
+
+      const message = wrapper.find('.t-message');
+      expect(getComputedStyle(message.element).zIndex).toBe('2048');
     });
   });
 });

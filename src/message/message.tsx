@@ -1,4 +1,4 @@
-import { defineComponent, h, onBeforeMount, onMounted, computed, ref, CSSProperties } from 'vue';
+import { defineComponent, h, onBeforeMount, onMounted, computed, ref, PropType, CSSProperties } from 'vue';
 import {
   InfoCircleFilledIcon as TdInfoCircleFilledIcon,
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
@@ -6,22 +6,22 @@ import {
   HelpCircleFilledIcon as TdHelpCircleFilledIcon,
   CloseIcon as TdCloseIcon,
 } from 'tdesign-icons-vue-next';
-
+import isFunction from 'lodash/isFunction';
 import TLoading from '../loading';
 import { THEME_LIST } from './const';
 import props from './props';
+import { MessagePlacementList } from './type';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { fadeIn, fadeOut } from './animation';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
-import isFunction from 'lodash/isFunction';
 import { useConfig } from '../config-provider/useConfig';
 
 export default defineComponent({
   name: 'TMessage',
   props: {
     ...props,
-    placement: String, // just for animation
+    placement: String as PropType<MessagePlacementList>, // just for animation
   },
   setup(props, { slots, expose }) {
     const COMPONENT_NAME = usePrefixClass('message');
@@ -51,8 +51,15 @@ export default defineComponent({
         },
       ];
     });
+    const styles = computed(() => {
+      const style = { ...globalConfig.value.style };
+      if (globalConfig.value.zIndex) {
+        style.zIndex = globalConfig.value.zIndex;
+      }
 
-    const close = (e?: MouseEvent) => {
+      return style;
+    });
+    const handleCloseClick = (e?: MouseEvent) => {
       props.onClose?.({ trigger: 'close-click', e });
       props.onCloseBtnClick?.({ e });
     };
@@ -80,7 +87,7 @@ export default defineComponent({
     const renderClose = () => {
       const defaultClose = <CloseIcon />;
       return (
-        <span class={`${COMPONENT_NAME.value}__close`} onClick={close}>
+        <span class={`${COMPONENT_NAME.value}__close`} onClick={handleCloseClick}>
           {renderTNode('closeBtn', defaultClose)}
         </span>
       );
@@ -115,13 +122,7 @@ export default defineComponent({
     expose({ close });
 
     return () => (
-      <div
-        ref={msgRef}
-        class={classes.value}
-        style={globalConfig.value.style as CSSProperties}
-        onMouseenter={clearTimer}
-        onMouseleave={setTimer}
-      >
+      <div ref={msgRef} class={classes.value} style={styles.value} onMouseenter={clearTimer} onMouseleave={setTimer}>
         {renderIcon()}
         {renderContent('content', 'default')}
         {renderClose()}

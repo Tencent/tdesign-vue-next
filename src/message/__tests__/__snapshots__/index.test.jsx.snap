@@ -1,0 +1,94 @@
+// Vitest Snapshot v1
+
+exports[`Message > :globalConfig > :style 1`] = `
+<div
+  data-v-app=""
+>
+  
+  
+  <div
+    class="t-message t-is-info"
+    style="width: 300px;"
+  >
+    <svg
+      class="t-icon t-icon-info-circle-filled"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M12 23a11 11 0 100-22 11 11 0 000 22zM11 8.5v-2h2v2h-2zm2 1.5v7.5h-2V10h2z"
+        fill="currentColor"
+      />
+    </svg>
+    这是一条Message信息
+    <span
+      class="t-message__close"
+    >
+      <!---->
+    </span>
+  </div>
+  
+  
+</div>
+`;
+
+exports[`Message > :globalConfig > :zIndex 1`] = `
+<div
+  data-v-app=""
+>
+  
+  
+  <div
+    class="t-message t-is-info"
+    style="z-index: 2048;"
+  >
+    <svg
+      class="t-icon t-icon-info-circle-filled"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M12 23a11 11 0 100-22 11 11 0 000 22zM11 8.5v-2h2v2h-2zm2 1.5v7.5h-2V10h2z"
+        fill="currentColor"
+      />
+    </svg>
+    这是一条Message信息
+    <span
+      class="t-message__close"
+    >
+      <!---->
+    </span>
+  </div>
+  
+  
+</div>
+`;
+
+exports[`Message > :props >  1`] = `
+<div
+  class="t-message t-is-info"
+>
+  <svg
+    class="t-icon t-icon-info-circle-filled"
+    fill="none"
+    height="1em"
+    viewBox="0 0 24 24"
+    width="1em"
+  >
+    <path
+      d="M12 23a11 11 0 100-22 11 11 0 000 22zM11 8.5v-2h2v2h-2zm2 1.5v7.5h-2V10h2z"
+      fill="currentColor"
+    />
+  </svg>
+  这是一条Message信息
+  <span
+    class="t-message__close"
+  >
+    <!---->
+  </span>
+</div>
+`;
