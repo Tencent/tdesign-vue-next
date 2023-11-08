@@ -271,6 +271,10 @@ export interface TreeInstanceFunctions<T extends TreeOptionData = TreeOptionData
    */
   getPath: (value: TreeNodeValue) => TreeNodeModel<T>[];
   /**
+   * 获取某节点的全部树形结构；参数为空，则表示获取整棵树的结构数据，泛型 `T` 表示树节点 TS 类型
+   */
+  getTreeData: (value?: TreeNodeValue) => Array<T>;
+  /**
    * 插入新节点到指定节点后面，泛型 `T` 表示树节点 TS 类型
    */
   insertAfter: (value: TreeNodeValue, newData: T) => void;
