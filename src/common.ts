@@ -1,5 +1,4 @@
 /** Vue3 特有全局类型 */
-import { CSSProperties } from 'vue';
 type VNode = import('vue').VNode;
 export type ScopedSlot = () => SlotReturnValue;
 export type SlotReturnValue = VNode | string | boolean | null | undefined | SlotReturnArray;
@@ -28,7 +27,9 @@ export type FormResetEvent = Event;
 // export type FormSubmitEvent = SubmitEvent; (for higher typescript version)
 export type FormSubmitEvent = Event;
 
-export type Styles = CSSProperties;
+export interface Styles {
+  [css: string]: string | number;
+}
 
 export interface UploadDisplayDragEvents {
   onDrop?: (event: DragEvent) => void;
