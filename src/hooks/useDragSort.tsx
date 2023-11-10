@@ -89,14 +89,7 @@ export default function useDragSort(props: any) {
       // 当props.theme === "normal" 会多出一个指示条为第一个dom节点，所以需要减1
       const currentIndex = props.theme === 'card' ? dragIndex : dragIndex - 1;
       const endIndex = props.theme === 'card' ? targetIndex : targetIndex - 1;
-      if (props.onDragSort) {
-        props.onDragSort({
-          currentIndex,
-          current: props.panels[currentIndex].value,
-          targetIndex: endIndex,
-          target: props.panels[endIndex].value,
-        });
-      };
+      props.onDragSort?.({ currentIndex, current: props.panels[currentIndex].value, targetIndex: endIndex, target: props.panels[endIndex].value });
     }
   };
   function setNavsWrap(val: HTMLDivElement) {
