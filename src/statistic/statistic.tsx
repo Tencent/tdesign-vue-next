@@ -85,17 +85,6 @@ export default defineComponent({
       };
     });
 
-    const trendIcons = {
-      increase: <ArrowTriangleUpFilledIcon />,
-      decrease: <ArrowTriangleDownFilledIcon />,
-    };
-    const trendIcon = props.trend ? trendIcons[props.trend] : null;
-    const prefix = renderTNodeJSX('prefix') || (trendIcon && props.trendPlacement !== 'right' ? trendIcon : null);
-    const suffix = renderTNodeJSX('suffix') || (trendIcon && props.trendPlacement === 'right' ? trendIcon : null);
-    const title = renderTNodeJSX('title');
-    const unit = renderTNodeJSX('unit');
-    const extra = renderTNodeJSX('extra');
-
     watch(
       () => props.animationStart,
       (value) => {
@@ -117,19 +106,32 @@ export default defineComponent({
 
     onMounted(() => props.animation && props.animationStart && start());
 
-    return () => (
-      <div class={COMPONENT_NAME.value}>
-        {title && <div class={`${COMPONENT_NAME.value}-title`}>{title}</div>}
-        <Skeleton animation="gradient" theme="text" loading={!!props.loading}>
-          <div class={`${COMPONENT_NAME.value}-content`} style={contentStyle.value}>
-            {prefix && <span class={`${COMPONENT_NAME.value}-content-prefix`}>{prefix}</span>}
-            <span class={`${COMPONENT_NAME.value}-content-value`}>{formatValue.value}</span>
-            {unit && <span class={`${COMPONENT_NAME.value}-content-unit`}>{unit}</span>}
-            {suffix && <span class={`${COMPONENT_NAME.value}-content-suffix`}>{suffix}</span>}
-          </div>
-        </Skeleton>
-        {extra && <div class={`${COMPONENT_NAME.value}-extra`}>{extra}</div>}
-      </div>
-    );
+    return () => {
+      const trendIcons = {
+        increase: <ArrowTriangleUpFilledIcon />,
+        decrease: <ArrowTriangleDownFilledIcon />,
+      };
+      const trendIcon = props.trend ? trendIcons[props.trend] : null;
+      const prefix = renderTNodeJSX('prefix') || (trendIcon && props.trendPlacement !== 'right' ? trendIcon : null);
+      const suffix = renderTNodeJSX('suffix') || (trendIcon && props.trendPlacement === 'right' ? trendIcon : null);
+      const title = renderTNodeJSX('title');
+      const unit = renderTNodeJSX('unit');
+      const extra = renderTNodeJSX('extra');
+
+      return (
+        <div class={COMPONENT_NAME.value}>
+          {title && <div class={`${COMPONENT_NAME.value}-title`}>{title}</div>}
+          <Skeleton animation="gradient" theme="text" loading={!!props.loading}>
+            <div class={`${COMPONENT_NAME.value}-content`} style={contentStyle.value}>
+              {prefix && <span class={`${COMPONENT_NAME.value}-content-prefix`}>{prefix}</span>}
+              <span class={`${COMPONENT_NAME.value}-content-value`}>{formatValue.value}</span>
+              {unit && <span class={`${COMPONENT_NAME.value}-content-unit`}>{unit}</span>}
+              {suffix && <span class={`${COMPONENT_NAME.value}-content-suffix`}>{suffix}</span>}
+            </div>
+          </Skeleton>
+          {extra && <div class={`${COMPONENT_NAME.value}-extra`}>{extra}</div>}
+        </div>
+      );
+    };
   },
 });
