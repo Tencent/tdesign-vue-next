@@ -9,7 +9,7 @@ exports[`TimelineItem Component > props.content works fine 1`] = `
     class="t-timeline-item__wrapper"
   >
     <div
-      class="t-timeline-item__dot t-timeline-item__dot--default"
+      class="t-timeline-item__dot t-timeline-item__dot--primary"
     >
       <!---->
       <!---->
@@ -48,7 +48,7 @@ exports[`TimelineItem Component > props.label works fine 1`] = `
     class="t-timeline-item__wrapper"
   >
     <div
-      class="t-timeline-item__dot t-timeline-item__dot--default"
+      class="t-timeline-item__dot t-timeline-item__dot--primary"
     >
       <!---->
       <!---->
@@ -75,7 +75,7 @@ exports[`TimelineItem Component > slots.content works fine 1`] = `
     class="t-timeline-item__wrapper"
   >
     <div
-      class="t-timeline-item__dot t-timeline-item__dot--default"
+      class="t-timeline-item__dot t-timeline-item__dot--primary"
     >
       <!---->
       <!---->
@@ -118,7 +118,7 @@ exports[`TimelineItem Component > slots.label works fine 1`] = `
     class="t-timeline-item__wrapper"
   >
     <div
-      class="t-timeline-item__dot t-timeline-item__dot--default"
+      class="t-timeline-item__dot t-timeline-item__dot--primary"
     >
       <!---->
       <!---->

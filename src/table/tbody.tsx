@@ -81,6 +81,8 @@ export default defineComponent({
     renderExpandedRow: Function as PropType<TableBodyProps['renderExpandedRow']>,
     firstFullRow: [String, Function] as PropType<TableBodyProps['firstFullRow']>,
     lastFullRow: [String, Function] as PropType<TableBodyProps['lastFullRow']>,
+    activeRow: [Array] as PropType<Array<string | number>>,
+    hoverRow: [String, Number],
     ...pick(baseTableProps, extendTableProps),
   },
 
@@ -88,7 +90,7 @@ export default defineComponent({
   setup(props: TableBodyProps) {
     const renderTNode = useTNodeJSX();
     const { data, columns, rowKey, rowspanAndColspan } = toRefs(props);
-    const { t, globalConfig } = useConfig('table');
+    const { t, globalConfig } = useConfig('table', props.locale);
     const { tableFullRowClasses, tableBaseClass } = useClassName();
     const { skipSpansMap } = useRowspanAndColspan(data, columns, rowKey, rowspanAndColspan);
 
@@ -159,15 +161,19 @@ export default defineComponent({
       'attach',
     ];
     this.data?.forEach((row, rowIndex) => {
+      const rowKey = this.rowKey || 'id';
+      const rowValue = get(row, rowKey);
       const trProps = {
         ...pick(this.$props, TABLE_PROPS),
-        rowKey: this.rowKey || 'id',
+        rowKey,
         row,
         columns: this.columns,
         rowIndex: row.__VIRTUAL_SCROLL_INDEX || rowIndex,
         dataLength,
         skipSpansMap: this.skipSpansMap,
         virtualConfig: this.virtualConfig,
+        active: this.activeRow?.includes(rowValue),
+        isHover: this.hoverRow === rowValue,
         ...pick(this.$props, properties),
         // 遍历的同时，计算后面的节点，是否会因为合并单元格跳过渲染
       };

@@ -95,6 +95,10 @@ export default {
   },
   /** 是否显示下拉框 */
   popupVisible: Boolean,
+  /** 组件前置图标 */
+  prefixIcon: {
+    type: Function as PropType<TdCascaderProps['prefixIcon']>,
+  },
   /** 只读状态，值为真会隐藏输入框，且无法打开下拉框 */
   readonly: Boolean,
   /** 多选且可搜索时，是否在选中一个选项后保留当前的搜索关键词 */
@@ -169,7 +173,7 @@ export default {
     type: [String, Number, Array] as PropType<TdCascaderProps['defaultValue']>,
     default: (): TdCascaderProps['defaultValue'] => [] as TdCascaderProps['defaultValue'],
   },
-  /** 【开发中】自定义选中项呈现的内容 */
+  /** 自定义选中项呈现的内容 */
   valueDisplay: {
     type: [String, Function] as PropType<TdCascaderProps['valueDisplay']>,
   },

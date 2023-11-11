@@ -20,6 +20,7 @@ import { getScrollbarWidthWithCSS } from '../../_common/js/utils/getScrollbarWid
 import { on, off } from '../../utils/dom';
 import { FixedColumnInfo, TableRowFixedClasses, RowAndColFixedPosition, TableColFixedClasses } from '../interface';
 import { getIEVersion } from '../../_common/js/utils/helper';
+import pick from 'lodash/pick';
 
 // 固定列相关类名处理
 export function getColumnFixedStyles(
@@ -503,8 +504,13 @@ export default function useFixed(
       reduceKeys.forEach((key) => {
         reduceWidth += thWidthList[key];
       });
-      const oldTotalWidth = Object.values(thWidthList).reduce((r = 0, n) => r + n);
-      setTableElmWidth(oldTotalWidth - reduceWidth);
+      const rootThWidthList = pick(thWidthList, preColKeys);
+      const oldTotalWidth = Object.values(rootThWidthList).reduce((r = 0, n) => r + n);
+      // 保留原有可能编辑过的列宽度，但是当剩余列过小时，表头小于内容宽，需要缩放回内容宽度
+      // 使用不包含滚动条的可视化区域宽度，意味着当不再溢出的时候，将宽度设置回完整宽度
+      const contentWidth = tableContentRef.value.clientWidth;
+      const widthToReserve = oldTotalWidth - reduceWidth;
+      setTableElmWidth(Math.max(contentWidth, widthToReserve));
     }
   });
 

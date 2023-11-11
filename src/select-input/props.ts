@@ -118,6 +118,10 @@ export default {
   valueDisplay: {
     type: [String, Function] as PropType<TdSelectInputProps['valueDisplay']>,
   },
+  /** 自定义值呈现的选项，useInputDisplay表示在使用时仍然使用组件自带的输入回显实现，usePlaceholder表示在使用时仍然使用自带的占位符实现 */
+  valueDisplayOptions: {
+    type: Object as PropType<TdSelectInputProps['valueDisplayOptions']>,
+  },
   /** 失去焦点时触发，`context.inputValue` 表示输入框的值；`context.tagInputValue` 表示标签输入框的值 */
   onBlur: Function as PropType<TdSelectInputProps['onBlur']>,
   /** 清空按钮点击时触发 */

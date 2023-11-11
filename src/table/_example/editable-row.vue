@@ -13,6 +13,7 @@
       :editable-row-keys="editableRowKeys"
       table-layout="auto"
       bordered
+      lazy-load
       @row-edit="onRowEdit"
       @row-validate="onRowValidate"
       @validate="onValidate"
@@ -178,6 +179,25 @@ const columns = computed(() => [
       // 校验规则，此处同 Form 表单
       rules: [{ required: true, message: '不能为空' }],
       showEditIcon: false,
+      on: ({ updateEditedCellValue }) => ({
+        onChange: () => {
+          /**
+           * change other columns edited cell value
+           * 更新本行其他编辑态单元格的数据(to update editedRow)
+           */
+          updateEditedCellValue({
+            isUpdateCurrentRow: true,
+            letters: [],
+            // 'user.firstName': '',
+            // createTime: dayjs().add(1, 'day').toDate(),
+          });
+          /**
+           * update edited row data with row unique value is qual to 2
+           * 更新行唯一标识值为 2 的编辑态数据
+           */
+          // updateEditedCellValue({ rowValue: 2, letters: [] });
+        },
+      }),
     },
   },
   {
@@ -193,6 +213,7 @@ const columns = computed(() => [
        */
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       props: ({ col, row, rowIndex, colIndex, editedRow, updateEditedCellValue }) => {
+        console.log(editedRow);
         return {
           multiple: true,
           minCollapsedNum: 1,
@@ -207,7 +228,10 @@ const columns = computed(() => [
         };
       },
       // 校验规则，此处同 Form 表单
-      rules: [{ validator: (val) => val && val.length < 3, message: '数量不能超过 2 个' }],
+      rules: [
+        { validator: (val) => val && val.length < 3, message: '数量不能超过 2 个' },
+        { validator: (val) => Boolean(val?.length), message: '至少选择一个' },
+      ],
       showEditIcon: false,
     },
   },
@@ -215,9 +239,10 @@ const columns = computed(() => [
     title: '创建日期',
     colKey: 'createTime',
     className: 't-demo-col__datepicker',
-    // props, 透传全部属性到 DatePicker 组件
     edit: {
       component: DatePicker,
+      // props, 透传全部属性到 DatePicker 组件
+      props: { allowInput: true },
       showEditIcon: false,
       // 校验规则，此处同 Form 表单
       rules: [

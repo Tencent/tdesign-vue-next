@@ -41,6 +41,7 @@
       :data="data"
       :filter-value="filterValue"
       :bordered="bordered"
+      lazy-load
       @filter-change="onFilterChange"
     />
   </div>
@@ -80,17 +81,21 @@ const onEmailChange = (val, ctx) => {
 const columns = computed(() => [
   { colKey: 'applicant', title: '申请人', width: 100, foot: '-' },
   {
-    title: '申请状态',
+    title: () => '申请状态',
     colKey: 'status',
     align: align.value,
     // 单选过滤配置
     filter: {
+      // 过滤行中的列标题别名
+      // label: '申请状态 A',
       type: 'single',
       list: [
         { label: '审批通过', value: 0 },
         { label: '已过期', value: 1 },
         { label: '审批失败', value: 2 },
       ],
+      // confirm to search and hide filter popup
+      confirmEvents: ['onChange'],
       // 支持透传全部 Popup 组件属性
       // popupProps: {
       //   attach: () => document.body,

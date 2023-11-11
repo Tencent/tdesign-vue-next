@@ -8,7 +8,7 @@ import props from './props';
 import { useCascaderContext } from './hooks';
 import { CascaderValue, TdSelectInputProps, TdCascaderProps } from './interface';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-
+import { useTNodeJSX } from '../hooks/tnode';
 import { closeIconClickEffect, handleRemoveTagEffect } from './core/effect';
 import { getPanels, getSingleContent, getMultipleContent } from './core/helper';
 import { getFakeArrowIconClass } from './core/className';
@@ -27,8 +27,10 @@ export default defineComponent({
     const overlayClassName = usePrefixClass('cascader__popup');
     const { globalConfig } = useConfig('cascader');
 
+    const renderTNodeJSX = useTNodeJSX();
+
     // 拿到全局状态的上下文
-    const { cascaderContext, isFilterable } = useCascaderContext(props);
+    const { cascaderContext, innerValue, isFilterable, getCascaderItems } = useCascaderContext(props);
 
     const displayValue = computed(() =>
       props.multiple ? getMultipleContent(cascaderContext.value) : getSingleContent(cascaderContext.value),
@@ -53,12 +55,45 @@ export default defineComponent({
       );
     };
 
+    const valueDisplayParams = computed(() => {
+      const arrayValue = innerValue.value instanceof Array ? innerValue.value : [innerValue.value];
+      const displayValue =
+        props.multiple && props.minCollapsedNum ? arrayValue.slice(0, props.minCollapsedNum) : innerValue.value;
+      const options = getCascaderItems(arrayValue);
+      return {
+        value: innerValue.value,
+        selectedOptions: options,
+        onClose: (index: number) => {
+          handleRemoveTagEffect(cascaderContext.value, index, props.onRemove);
+        },
+        displayValue,
+      };
+    });
+
+    const renderValueDisplay = () => {
+      return renderTNodeJSX('valueDisplay', {
+        params: valueDisplayParams.value,
+      });
+    };
+
+    const renderLabel = () => {
+      const label = renderTNodeJSX('label');
+      if (props.multiple) return label;
+      if (!label) return null;
+      return <div class={`${classPrefix.value}-tag-input__prefix`}>{label}</div>;
+    };
+
+    const cascaderClassNames = computed(() => [
+      COMPONENT_NAME.value,
+      props.multiple ? `${COMPONENT_NAME.value}--multiple` : `${COMPONENT_NAME.value}--single`,
+    ]);
+
     return () => {
       const { setVisible, visible, inputVal, setInputVal } = cascaderContext.value;
 
       return (
         <SelectInput
-          class={COMPONENT_NAME.value}
+          class={cascaderClassNames.value}
           value={displayValue.value}
           inputValue={visible ? inputVal : ''}
           popupVisible={visible}
@@ -74,6 +109,9 @@ export default defineComponent({
           loading={props.loading}
           status={props.status}
           tips={props.tips}
+          borderless={props.borderless}
+          label={renderLabel}
+          valueDisplay={renderValueDisplay}
           suffixIcon={() => renderSuffixIcon()}
           popupProps={{
             ...(props.popupProps as TdCascaderProps['popupProps']),
@@ -126,6 +164,9 @@ export default defineComponent({
             (props?.selectInputProps as TdSelectInputProps)?.onClear?.(context);
           }}
           v-slots={{
+            label: slots.label,
+            suffix: props.suffix,
+            prefixIcon: props.prefixIcon,
             panel: () => (
               <Panel
                 option={props.option}

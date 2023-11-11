@@ -1,0 +1,1 @@
+export { defineComponent } from 'vue';

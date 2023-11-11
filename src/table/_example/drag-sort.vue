@@ -9,6 +9,7 @@
         :data="data"
         drag-sort="row"
         :pagination="pagination"
+        lazy-load
         @drag-sort="onDragSort"
       ></t-table>
     </div>

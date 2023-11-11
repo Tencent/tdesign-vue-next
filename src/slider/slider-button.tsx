@@ -34,7 +34,13 @@ export default defineComponent({
     },
     label: {
       type: [String, Boolean, Function] as PropType<TdSliderProps['label']>,
+    },
+    range: {
+      type: Boolean,
       default: false,
+    },
+    position: {
+      type: String,
     },
   },
   emits: ['input'],
@@ -224,7 +230,7 @@ export default defineComponent({
         onblur={handleMouseLeave}
         onKeydown={onNativeKeyDown}
       >
-        {showTooltip.value ? (
+        {showTooltip.value && props.label !== false ? (
           <TTooltip ref={tooltipRef} disabled={!showTooltip.value} {...tooltipProps.value}>
             <div class={[COMPONENT_NAME.value, { [`${COMPONENT_NAME.value}--dragging`]: slideButtonProps.dragging }]} />
           </TTooltip>

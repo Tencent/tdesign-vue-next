@@ -133,6 +133,16 @@ describe('TagInput', () => {
       expect(suffix.findComponent(AppIcon)).toBeTruthy();
     });
 
+    it(':prefixIcon', () => {
+      const slots = {
+        prefixIcon: () => <AppIcon />,
+      };
+      const wrapper = mount(() => <TagInput v-slots={slots} />);
+      const prefix = wrapper.find('.t-input__prefix');
+      expect(prefix.exists()).toBeTruthy();
+      expect(prefix.findComponent(AppIcon)).toBeTruthy();
+    });
+
     it(':tips', () => {
       const wrapper = mount(() => <TagInput tips="tips" />);
       const tips = wrapper.find('.t-input__tips');

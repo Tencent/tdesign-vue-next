@@ -7,6 +7,7 @@ import get from 'lodash/get';
 import isFunction from 'lodash/isFunction';
 import useDefaultValue from '../../hooks/useDefaultValue';
 import {
+  ActiveRowActionContext,
   PrimaryTableCellParams,
   PrimaryTableCol,
   RowClassNameParams,
@@ -204,7 +205,7 @@ export default function useRowSelect(
   };
 
   watch(
-    () => [[...data.value], rowKey],
+    [data, rowKey],
     () => {
       for (let i = 0, len = data.value.length; i < len; i++) {
         selectedRowDataMap.value.set(get(data.value[i], rowKey.value || 'id'), data.value[i]);
@@ -213,11 +214,72 @@ export default function useRowSelect(
     { immediate: true },
   );
 
+  // 是否开启了行选中功能
+  const showRowSelect = computed(() => !!selectColumn.value);
+
+  const clearAllSelectedRowKeys = () => {
+    setTSelectedRowKeys([], {
+      selectedRowData: [],
+      currentRowKey: undefined,
+      currentRowData: undefined,
+      type: 'uncheck',
+    });
+  };
+
+  const handleRowSelectWithAreaSelection = ({ activeRowList, action }: ActiveRowActionContext<TableRowData>) => {
+    if (!showRowSelect.value) return;
+
+    if (action === 'clear') {
+      clearAllSelectedRowKeys();
+      return;
+    }
+
+    if (action === 'select-all') {
+      handleSelectAll(true);
+      return;
+    }
+
+    if (selectColumn.value?.type === 'single') {
+      if (action === 'space-one-selection') {
+        handleSelectChange(activeRowList[0].row);
+      }
+      return;
+    }
+
+    const validAreaSelection = activeRowList.filter(
+      ({ row, rowIndex }) =>
+        !getRowSelectDisabledData({
+          row,
+          rowIndex,
+          col: selectColumn.value,
+          colIndex: undefined,
+        }).disabled,
+    );
+    if (!validAreaSelection.length) return;
+
+    const areaSelectionKeys = validAreaSelection.map(({ row }) => get(row, props.rowKey));
+    const intersectionKeys = intersection(tSelectedRowKeys.value, areaSelectionKeys);
+    const toCheck = intersectionKeys.length !== areaSelectionKeys.length;
+    const clearedKeys = tSelectedRowKeys.value.filter((key) => !areaSelectionKeys.includes(key));
+    const newSelectedRowKeys = toCheck ? [...new Set(tSelectedRowKeys.value.concat(areaSelectionKeys))] : clearedKeys;
+
+    const currentRowData = action === 'space-one-selection' ? activeRowList[0].row : undefined;
+    setTSelectedRowKeys(newSelectedRowKeys, {
+      selectedRowData: activeRowList,
+      currentRowKey: get(currentRowData, props.rowKey),
+      currentRowData,
+      type: toCheck ? 'check' : 'uncheck',
+    });
+  };
+
   return {
+    selectColumn,
+    showRowSelect,
     selectedRowClassNames,
     currentPaginateData,
     setTSelectedRowKeys,
     formatToRowSelectColumn,
     onInnerSelectRowClick,
+    handleRowSelectWithAreaSelection,
   };
 }

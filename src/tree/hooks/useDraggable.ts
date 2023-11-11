@@ -1,77 +1,135 @@
-import { ref, toRefs, inject } from 'vue';
 import throttle from 'lodash/throttle';
-import { TreeNode } from '../../_common/js/tree/tree-node';
-import { DropPosition } from '../interface';
-import { dragInjectKey } from '../constants';
+import { reactive } from '../adapt';
+import { TypeTreeItemState } from '../tree-types';
 
-export default function useDraggable(props: { nodeRef: HTMLElement | undefined; node: TreeNode }) {
-  const { nodeRef, node } = toRefs(props);
-  const onDrag = inject(dragInjectKey);
+export interface TypeDragStates {
+  isDragOver: boolean;
+  isDragging: boolean;
+  dropPosition: number;
+}
 
-  const isDragOver = ref(false);
-  const isDragging = ref(false);
-  const dropPosition = ref<DropPosition>(0);
+type TypeDrag = 'dragStart' | 'dragOver' | 'dragLeave' | 'dragEnd' | 'drop';
 
-  const updateDropPosition = throttle((e: DragEvent) => {
-    if (typeof window === 'undefined') return;
-    if (!nodeRef.value) return;
+export default function useDraggable(state: TypeTreeItemState) {
+  const { treeItemRef } = state;
+  const dragStates = reactive({
+    isDragOver: false,
+    isDragging: false,
+    dropPosition: 0,
+  });
 
-    const rect = nodeRef.value.getBoundingClientRect();
-    const offsetY = window.pageYOffset + rect.top;
-    const { pageY } = e;
+  const updateDropPosition = (dragEvent: DragEvent) => {
+    const rootNode = treeItemRef.value;
+    if (!rootNode) return;
+
+    const rect = rootNode?.getBoundingClientRect?.();
+    const offsetY = window.scrollY + rect.top;
+    const { pageY } = dragEvent;
     const gapHeight = rect.height / 4;
     const diff = pageY - offsetY;
 
-    // 其实三元可行
     if (diff < gapHeight) {
-      dropPosition.value = -1;
+      dragStates.dropPosition = -1;
     } else if (diff < rect.height - gapHeight) {
-      dropPosition.value = 0;
+      dragStates.dropPosition = 0;
     } else {
-      dropPosition.value = 1;
+      dragStates.dropPosition = 1;
     }
-  });
+  };
 
-  const setDragStatus = (status: 'dragStart' | 'dragOver' | 'dragLeave' | 'dragEnd' | 'drop', e: DragEvent) => {
+  const setDragStatus = (status: TypeDrag, dragEvent: DragEvent) => {
+    const { node, treeScope } = state;
+    const { drag } = treeScope;
+    if (!drag) return;
+
     switch (status) {
       case 'dragStart':
-        isDragging.value = true;
-        dropPosition.value = 0;
-        onDrag.onDragStart?.({ node: node.value, e });
-        e.dataTransfer.effectAllowed = 'move';
+        dragStates.isDragging = true;
+        dragStates.dropPosition = 0;
+        drag.handleDragStart?.({ node, dragEvent });
         break;
       case 'dragEnd':
-        isDragging.value = false;
-        isDragOver.value = false;
-        dropPosition.value = 0;
-        updateDropPosition.cancel();
-        onDrag.onDragEnd?.({ node: node.value, e });
+        dragStates.isDragging = false;
+        dragStates.isDragOver = false;
+        dragStates.dropPosition = 0;
+        throttleUpdateDropPosition.cancel();
+        drag.handleDragEnd?.({ node, dragEvent });
         break;
       case 'dragOver':
-        isDragOver.value = true;
-        updateDropPosition(e);
-        onDrag.onDragOver?.({ node: node.value, e });
+        dragStates.isDragOver = true;
+        throttleUpdateDropPosition(dragEvent);
+        drag.handleDragOver?.({ node, dragEvent });
         break;
       case 'dragLeave':
-        isDragOver.value = false;
-        dropPosition.value = 0;
-        updateDropPosition.cancel();
-        onDrag.onDragLeave?.({ node: node.value, e });
+        dragStates.isDragOver = false;
+        dragStates.dropPosition = 0;
+        throttleUpdateDropPosition.cancel();
+        drag.handleDragLeave?.({ node, dragEvent });
         break;
       case 'drop':
-        onDrag.onDrop?.({ node: node.value, dropPosition: dropPosition.value, e });
-        isDragOver.value = false;
-        updateDropPosition.cancel();
+        drag.handleDrop?.({ node, dropPosition: dragStates.dropPosition, dragEvent });
+        dragStates.isDragOver = false;
+        throttleUpdateDropPosition.cancel();
         break;
       default:
         break;
     }
   };
 
+  const handleDragStart = (evt: DragEvent) => {
+    const { node } = state;
+    if (!node.isDraggable()) return;
+    evt.stopPropagation();
+    setDragStatus('dragStart', evt);
+
+    try {
+      // ie throw error firefox-need-it
+      evt.dataTransfer?.setData('text/plain', '');
+    } catch (e) {
+      // empty
+    }
+  };
+
+  const handleDragEnd = (evt: DragEvent) => {
+    const { node } = state;
+    if (!node.isDraggable()) return;
+    evt.stopPropagation();
+    setDragStatus('dragEnd', evt);
+  };
+
+  const handleDragOver = (evt: DragEvent) => {
+    const { node } = state;
+    if (!node.isDraggable()) return;
+    evt.stopPropagation();
+    evt.preventDefault();
+    setDragStatus('dragOver', evt);
+  };
+
+  const handleDragLeave = (evt: DragEvent) => {
+    const { node } = state;
+    if (!node.isDraggable()) return;
+    evt.stopPropagation();
+    setDragStatus('dragLeave', evt);
+  };
+
+  const handleDrop = (evt: DragEvent) => {
+    const { node } = state;
+    if (!node.isDraggable()) return;
+    evt.stopPropagation();
+    evt.preventDefault();
+    setDragStatus('drop', evt);
+  };
+
+  const throttleUpdateDropPosition = throttle((dragEvent: DragEvent) => {
+    updateDropPosition(dragEvent);
+  });
+
   return {
-    isDragOver,
-    isDragging,
-    dropPosition,
-    setDragStatus,
+    dragStates,
+    handleDragStart,
+    handleDragEnd,
+    handleDragOver,
+    handleDragLeave,
+    handleDrop,
   };
 }

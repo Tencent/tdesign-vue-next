@@ -1,5 +1,15 @@
 <template>
   <div>
+    <t-space>
+      <!-- 默认支持单项键盘操作选中或取消 -->
+      <!-- 设置 active-row-type="single" 行高亮后，支持键盘批量操作，
+          可尝试使用 Shift/Space/ArrowUp/ArrowDown/KeyC/KeyA/KeyL 等键盘操作选中和取消选择，
+          其中键 KeyC 表示 Clear，清空高亮，清空全选
+          其中键 KeyA/KeyL 表示全选，全部高亮
+      -->
+      <t-checkbox v-model="activeRow">行高亮</t-checkbox>
+    </t-space>
+
     <!-- 支持非受控属性 default-selected-row-keys -->
     <!-- 支持语法糖 v-model:selected-row-keys -->
     <t-table
@@ -7,7 +17,9 @@
       :columns="columns"
       :data="data"
       :selected-row-keys="selectedRowKeys"
+      :active-row-type="activeRow ? 'single' : undefined"
       select-on-row-click
+      lazy-load
       @select-change="rehandleSelectChange"
     >
     </t-table>
@@ -72,11 +84,12 @@ const columns = [
   { colKey: 'createTime', title: '申请时间' },
 ];
 
+const activeRow = ref(false);
 const selectedRowKeys = ref([]);
 
-const rehandleSelectChange = (value, { selectedRowData }) => {
+const rehandleSelectChange = (value, ctx) => {
   selectedRowKeys.value = value;
-  console.log(value, selectedRowData);
+  console.log(value, ctx);
 };
 </script>
 

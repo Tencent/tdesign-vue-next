@@ -1,4 +1,4 @@
-import { toRefs, ref, watch, computed, SetupContext } from 'vue';
+import { toRefs, ref, watch, computed, SetupContext, h } from 'vue';
 import useClassName from './useClassName';
 import TButton from '../../button';
 import { TdPrimaryTableProps, PrimaryTableCol, TableRowData, FilterValue, TableFilterChangeContext } from '../type';
@@ -6,7 +6,9 @@ import useDefaultValue from '../../hooks/useDefaultValue';
 import { useTNodeDefault } from '../../hooks/tnode';
 import TableFilterController from '../filter-controller';
 import { useConfig } from '../../hooks/useConfig';
+import isFunction from 'lodash/isFunction';
 import { getColumnsResetValue } from '../../_common/js/table/utils';
+import { renderTitle } from './useTableHeader';
 
 function isFilterValueExist(value: any) {
   const isArrayTrue = value instanceof Array && value.length;
@@ -29,7 +31,7 @@ function filterEmptyData(data: FilterValue) {
 
 export default function useFilter(props: TdPrimaryTableProps, context: SetupContext) {
   const primaryTableRef = ref(null);
-  const { t, globalConfig } = useConfig('table');
+  const { t, globalConfig } = useConfig('table', props.locale);
   const renderTNode = useTNodeDefault();
   const { filterValue, columns } = toRefs(props);
   const { tableFilterClasses, isFocusClass } = useClassName();
@@ -84,7 +86,7 @@ export default function useFilter(props: TdPrimaryTableProps, context: SetupCont
     getAllColumns(props.columns, columns);
     columns
       .filter((col) => col.filter)
-      .forEach((col) => {
+      .forEach((col, index) => {
         let value = tFilterValue.value[col.colKey];
         if (col.filter.list && !['null'].includes(String(value))) {
           const formattedValue = value instanceof Array ? value : [value];
@@ -97,7 +99,9 @@ export default function useFilter(props: TdPrimaryTableProps, context: SetupCont
           value = label.join();
         }
         if (isFilterValueExist(value)) {
-          arr.push(`${col.title}：${value}`);
+          const label = isFunction(col.filter?.label) ? col.filter.label(h) : col.filter?.label;
+          const title = renderTitle(context.slots, col, index);
+          arr.push(`${label || title}：${value}`);
         }
       });
     return arr.join('；');
@@ -170,6 +174,7 @@ export default function useFilter(props: TdPrimaryTableProps, context: SetupCont
         isFocusClass={isFocusClass}
         popupProps={col.filter.popupProps}
         attach={props.attach}
+        locale={props.locale}
         onReset={onReset}
         onConfirm={onConfirm}
         onInnerFilterChange={onInnerFilterChange}

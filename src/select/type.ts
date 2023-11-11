@@ -7,7 +7,7 @@
 import { InputProps } from '../input';
 import { InputValue } from '../input';
 import { PopupProps } from '../popup';
-import { SelectInputProps } from '../select-input';
+import { SelectInputProps, SelectInputValueDisplayOptions } from '../select-input';
 import { TagInputProps } from '../tag-input';
 import { TagProps } from '../tag';
 import { SelectInputValueChangeContext } from '../select-input';
@@ -205,6 +205,10 @@ export interface TdSelectProps<T extends SelectOption = SelectOption> {
    * 自定义选中项呈现的内容
    */
   valueDisplay?: string | TNode<{ value: SelectValue; onClose: (index: number) => void; displayValue?: SelectValue }>;
+  /**
+   * 自定义值呈现的选项，useInputDisplay表示在使用时仍然使用组件自带的输入回显实现，usePlaceholder表示在使用时仍然使用自带的占位符实现
+   */
+  valueDisplayOptions?: SelectInputValueDisplayOptions;
   /**
    * 用于控制选中值的类型。假设数据选项为：`[{ label: '姓名', value: 'name' }]`，value 表示值仅返回数据选项中的 value， object 表示值返回全部数据。
    * @default value

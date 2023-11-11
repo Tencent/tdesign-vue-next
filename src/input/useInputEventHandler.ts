@@ -44,6 +44,7 @@ export default function useInputEventHandler(props: TdInputProps, isHover: Ref<B
   };
 
   return {
+    isHover,
     handleKeydown,
     handleKeyUp,
     handleKeypress,

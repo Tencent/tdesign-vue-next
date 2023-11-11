@@ -127,21 +127,21 @@ export default defineComponent({
       if (!isEmpty(props.treeProps) && !isEmpty((props.treeProps as TreeProps).keys)) {
         return (props.treeProps as TreeProps).keys.label || 'label';
       }
-      return 'label';
+      return props.keys?.label || 'label';
     });
 
     const realValue = computed(() => {
       if (!isEmpty(props.treeProps) && !isEmpty((props.treeProps as TreeProps).keys)) {
         return (props.treeProps as TreeProps).keys.value || 'value';
       }
-      return 'value';
+      return props.keys?.value || 'value';
     });
 
     const realChildren = computed(() => {
       if (!isEmpty(props.treeProps) && !isEmpty((props.treeProps as TreeProps).keys)) {
         return (props.treeProps as TreeProps).keys.children || 'children';
       }
-      return 'children';
+      return props.keys?.children || 'children';
     });
 
     // timelifes
@@ -181,7 +181,7 @@ export default defineComponent({
 
     const treeNodeChange = (
       valueParam: Array<TreeNodeValue>,
-      context: { node: TreeNodeModel<TreeOptionData>; e: MouseEvent },
+      context: { node: TreeNodeModel<TreeOptionData>; e?: MouseEvent },
     ) => {
       let current: TreeSelectValue = valueParam;
       if (isObjectValue.value) {
@@ -192,7 +192,7 @@ export default defineComponent({
 
     const treeNodeActive = (
       valueParam: Array<TreeNodeValue>,
-      context: { node: TreeNodeModel<TreeOptionData>; e: MouseEvent },
+      context: { node: TreeNodeModel<TreeOptionData>; e?: MouseEvent },
     ) => {
       if (!props.multiple) {
         setInnerVisible(false, context);
@@ -452,6 +452,7 @@ export default defineComponent({
                 `${classPrefix.value}-select__dropdown-inner--size-${dropdownInnerSize.value}`,
               ]}
             >
+              {renderTNodeJSX('panelTopContent')}
               <p
                 v-show={props.loading && !tDisabled.value}
                 class={[`${classPrefix.value}-select-loading-tips`, `${classPrefix.value}-select__right-icon-polyfill`]}
@@ -461,6 +462,7 @@ export default defineComponent({
                 })}
               </p>
               {renderTree()}
+              {renderTNodeJSX('panelBottomContent')}
             </div>
           ),
           collapsedItems: slots.collapsedItems,
