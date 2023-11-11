@@ -73,8 +73,8 @@ export default class Tween {
       this.onFinish?.(this.keys);
       return;
     }
-    const elapsed = Math.min(this.time - this.startTime, this.duration);
-    const progress = quartOut(elapsed / this.duration);
+    this.elapsed = Math.min(this.time - this.startTime, this.duration);
+    const progress = quartOut(this.elapsed / this.duration);
 
     Object.keys(this.to).forEach((key) => {
       const delta = this.to[key] - this.from[key];
