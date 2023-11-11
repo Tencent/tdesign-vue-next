@@ -18,12 +18,12 @@
             <t-space direction="vertical" :size="0">
               <span>
                 the day before
-                <t-icon name="arrow-up" style="color: #d54941" />
+                <t-icon name="arrow-triangle-up-filled" style="color: #d54941" />
                 9%
               </span>
               <span>
                 last week
-                <t-icon name="arrow-down" style="color: #2ba471" />
+                <t-icon name="arrow-triangle-down-filled" style="color: #2ba471" />
                 9%
               </span>
             </t-space>
@@ -47,9 +47,9 @@ export default {
 <style>
 .icon {
   font-size: 32px;
-  color: #0052d9;
-  background: #f2f3ffff;
-  border-radius: 6px;
+  color: var(--td-brand-color);
+  background: var(--td-brand-color-light);
+  border-radius: var(--td-radius-medium);
   padding: 12px;
 }
 </style>
