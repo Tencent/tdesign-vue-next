@@ -6,10 +6,9 @@ import {
 import isNumber from 'lodash/isNumber';
 import isFunction from 'lodash/isFunction';
 import props from './props';
-import { renderTNodeJSX } from '../utils/render-tnode';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-
+import { useTNodeJSX } from '../hooks/tnode';
 import Skeleton from '../skeleton';
 import Tween from './tween';
 
@@ -19,8 +18,14 @@ export default defineComponent({
   props,
 
   setup(props) {
-    const classPrefix = usePrefixClass('statistic');
-
+    const COMPONENT_NAME = usePrefixClass('statistic');
+    const renderTNodeJSX = useTNodeJSX();
+    const { ArrowTriangleUpFilledIcon } = useGlobalIcon({
+      ArrowTriangleUpFilledIcon: TDArrowTriangleUpFilledIcon,
+    });
+    const { ArrowTriangleDownFilledIcon } = useGlobalIcon({
+      ArrowTriangleDownFilledIcon: TDArrowTriangleDownFilledIcon,
+    });
     const numberValue = computed(() => (isNumber(props.value) ? props.value : 0));
     const innerValue = ref(props.animation?.valueFrom ?? props.value);
 
@@ -73,14 +78,23 @@ export default defineComponent({
       green: 'var(--td-success-color)',
     };
 
-    const valueStyle = computed(() => {
+    const contentStyle = computed(() => {
       const { color } = props;
       return {
         color: COLOR_MAP[color] || color,
       };
     });
 
-    onMounted(() => props.animation && props.animationStart && start());
+    const trendIcons = {
+      increase: <ArrowTriangleUpFilledIcon />,
+      decrease: <ArrowTriangleDownFilledIcon />,
+    };
+    const trendIcon = props.trend ? trendIcons[props.trend] : null;
+    const prefix = renderTNodeJSX('prefix') || (trendIcon && props.trendPlacement !== 'right' ? trendIcon : null);
+    const suffix = renderTNodeJSX('suffix') || (trendIcon && props.trendPlacement === 'right' ? trendIcon : null);
+    const title = renderTNodeJSX('title');
+    const unit = renderTNodeJSX('unit');
+    const extra = renderTNodeJSX('extra');
 
     watch(
       () => props.animationStart,
@@ -100,44 +114,21 @@ export default defineComponent({
         start();
       }
     });
-    return {
-      start,
-      classPrefix,
-      formatValue,
-      valueStyle,
-    };
-  },
-  render() {
-    const { classPrefix, formatValue, valueStyle, loading, trendPlacement, trend } = this;
-    const { ArrowTriangleUpFilledIcon } = useGlobalIcon({ ArrowTriangleUpFilledIcon: TDArrowTriangleUpFilledIcon });
-    const { ArrowTriangleDownFilledIcon } = useGlobalIcon({
-      ArrowTriangleDownFilledIcon: TDArrowTriangleDownFilledIcon,
-    });
 
-    const trendIcons = {
-      increase: <ArrowTriangleUpFilledIcon />,
-      decrease: <ArrowTriangleDownFilledIcon />,
-    };
-    const trendIcon = trend ? trendIcons[trend] : null;
+    onMounted(() => props.animation && props.animationStart && start());
 
-    const prefix = renderTNodeJSX(this, 'prefix') || (trendIcon && trendPlacement !== 'right' ? trendIcon : null);
-    const suffix = renderTNodeJSX(this, 'suffix') || (trendIcon && trendPlacement === 'right' ? trendIcon : null);
-    const title = renderTNodeJSX(this, 'title');
-    const unit = renderTNodeJSX(this, 'unit');
-    const extra = renderTNodeJSX(this, 'extra');
-
-    return (
-      <div class={classPrefix}>
-        {title && <div class={`${classPrefix}-title`}>{title}</div>}
-        <Skeleton animation="gradient" theme="text" loading={!!loading}>
-          <div class={`${classPrefix}-content`} style={valueStyle}>
-            {prefix && <span class={`${classPrefix}-content-prefix`}>{prefix}</span>}
-            <span class={`${classPrefix}-content-value`}>{formatValue}</span>
-            {unit && <span class={`${classPrefix}-content-unit`}>{unit}</span>}
-            {suffix && <span class={`${classPrefix}-content-suffix`}>{suffix}</span>}
+    return () => (
+      <div class={COMPONENT_NAME.value}>
+        {title && <div class={`${COMPONENT_NAME.value}-title`}>{title}</div>}
+        <Skeleton animation="gradient" theme="text" loading={!!props.loading}>
+          <div class={`${COMPONENT_NAME.value}-content`} style={contentStyle.value}>
+            {prefix && <span class={`${COMPONENT_NAME.value}-content-prefix`}>{prefix}</span>}
+            <span class={`${COMPONENT_NAME.value}-content-value`}>{formatValue.value}</span>
+            {unit && <span class={`${COMPONENT_NAME.value}-content-unit`}>{unit}</span>}
+            {suffix && <span class={`${COMPONENT_NAME.value}-content-suffix`}>{suffix}</span>}
           </div>
         </Skeleton>
-        {extra && <div class={`${classPrefix}-extra`}>{extra}</div>}
+        {extra && <div class={`${COMPONENT_NAME.value}-extra`}>{extra}</div>}
       </div>
     );
   },
