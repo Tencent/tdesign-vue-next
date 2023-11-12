@@ -13,9 +13,10 @@ import useInput from './useInput';
 import useInputEventHandler from './useInputEventHandler';
 import useInputWidth from './useInputWidth';
 import isUndefined from 'lodash/isUndefined';
+import { PlainObject } from '../common';
 
-function getValidAttrs(obj: Record<string, unknown>): Record<string, unknown> {
-  const newObj = {};
+function getValidAttrs(obj: PlainObject): PlainObject {
+  const newObj: PlainObject = {};
   Object.keys(obj).forEach((key) => {
     if (!isUndefined(obj[key])) {
       newObj[key] = obj[key];

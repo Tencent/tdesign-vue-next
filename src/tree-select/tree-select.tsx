@@ -224,7 +224,7 @@ export default defineComponent({
       changeNodeInfo();
     };
 
-    const inputChange = (value: InputValue): boolean => {
+    const inputChange = (value: string): boolean => {
       // 未打开状态不处理输入框输入
       if (!innerVisible.value) {
         props.onSearch?.(String(value));
