@@ -1,6 +1,6 @@
 import { defineComponent, computed, toRefs, ref, nextTick, reactive, watch } from 'vue';
 import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-import TInput, { InputProps, InputValue, StrInputProps, TdInputProps } from '../input';
+import TInput, { InputProps, StrInputProps, TdInputProps } from '../input';
 import { TdTagInputProps } from './type';
 import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
