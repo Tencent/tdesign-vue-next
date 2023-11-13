@@ -181,8 +181,21 @@ const columns = computed(() => [
       showEditIcon: false,
       on: ({ updateEditedCellValue }) => ({
         onChange: () => {
-          // clear `letters` on status changed
-          updateEditedCellValue({ colKey: 'letters', value: [] });
+          /**
+           * change other columns edited cell value
+           * 更新本行其他编辑态单元格的数据(to update editedRow)
+           */
+          updateEditedCellValue({
+            isUpdateCurrentRow: true,
+            letters: [],
+            // 'user.firstName': '',
+            // createTime: dayjs().add(1, 'day').toDate(),
+          });
+          /**
+           * update edited row data with row unique value is qual to 2
+           * 更新行唯一标识值为 2 的编辑态数据
+           */
+          // updateEditedCellValue({ rowValue: 2, letters: [] });
         },
       }),
     },
@@ -200,6 +213,7 @@ const columns = computed(() => [
        */
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       props: ({ col, row, rowIndex, colIndex, editedRow, updateEditedCellValue }) => {
+        console.log(editedRow);
         return {
           multiple: true,
           minCollapsedNum: 1,

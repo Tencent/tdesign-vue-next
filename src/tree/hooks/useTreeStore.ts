@@ -3,8 +3,8 @@ import { TreeStore } from '../../_common/js/tree/tree-store';
 import { watch } from '../adapt';
 import {
   TreeProps,
-  TreeNodeValue,
   TypeValueMode,
+  TreeNodeValue,
   TypeEventState,
   TypeTreeNodeModel,
   TypeTreeNode,
@@ -13,7 +13,7 @@ import {
 } from '../tree-types';
 
 export default function useTreeStore(state: TypeTreeState) {
-  const { props, context } = state;
+  const { props, context, refProps } = state;
   const { valueMode, filter, keys } = props;
 
   const store: TreeStore = new TreeStore({
@@ -21,7 +21,6 @@ export default function useTreeStore(state: TypeTreeState) {
     filter,
   });
 
-  const { refProps } = state;
   const [tValue] = state.vmValue;
   const [tActived] = state.vmActived;
   const [tExpanded] = state.vmExpanded;
@@ -137,6 +136,7 @@ export default function useTreeStore(state: TypeTreeState) {
 
   const rebuild = (list: TreeProps['data']) => {
     store.reload(list || []);
+    store.refreshNodes();
     // 初始化选中状态
     if (Array.isArray(tValue.value)) {
       store.setChecked(tValue.value);
@@ -198,9 +198,6 @@ export default function useTreeStore(state: TypeTreeState) {
   watch(tActived, (nVal: TreeNodeValue[]) => {
     store.replaceActived(nVal);
   });
-  watch(refProps.data, (list) => {
-    rebuild(list);
-  });
   watch(refProps.filter, (nVal, previousVal) => {
     checkFilterExpand(nVal, previousVal);
   });
@@ -212,6 +209,8 @@ export default function useTreeStore(state: TypeTreeState) {
 
   return {
     store,
+    rebuild,
+    checkFilterExpand,
     updateStoreConfig,
     updateExpanded,
     expandFilterPath,

@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import Tree from '@/src/tree/index.ts';
-import { delay } from './kit';
+import { delay, step } from './kit';
 
 describe('Tree:api', () => {
   vi.useRealTimers();
@@ -121,6 +121,66 @@ describe('Tree:api', () => {
       expect(t1.label).toBe('节点1');
       await delay(10);
       expect(wrapper.find('[data-value="t1"]').text()).toBe('节点1');
+    });
+
+    it('mounted 生命周期初始化数据, 在 nextTick 触发视图更新', async () => {
+      const data = [
+        {
+          value: 't1',
+          children: [
+            {
+              value: 't1.1',
+            },
+          ],
+        },
+        {
+          value: 't2',
+          children: [
+            {
+              value: 't2.1',
+            },
+          ],
+        },
+      ];
+
+      const step1 = step();
+      let count = 0;
+      const wrapper = mount({
+        data() {
+          return {
+            items: [],
+            checked: [],
+          };
+        },
+        mounted() {
+          this.items = data;
+          this.onInit();
+        },
+        methods: {
+          onInit() {
+            const { tree } = this.$refs;
+            this.$nextTick(() => {
+              tree.setItem('t1', {
+                checked: true,
+              });
+              const items = tree.getItems();
+              count = items.length;
+              step1.ready();
+            });
+          },
+        },
+        render() {
+          return <Tree ref="tree" expandAll checkable transition={false} data={this.items} v-model={this.checked} />;
+        },
+      });
+
+      await step1;
+      await delay(1);
+      expect(wrapper.find('[data-value="t1"] .t-checkbox').classes('t-is-checked')).toBe(true);
+      expect(wrapper.find('[data-value="t1.1"] .t-checkbox').classes('t-is-checked')).toBe(true);
+      expect(wrapper.find('[data-value="t2"] .t-checkbox').classes('t-is-checked')).toBe(false);
+      expect(wrapper.find('[data-value="t2.1"] .t-checkbox').classes('t-is-checked')).toBe(false);
+      expect(count).toBe(4);
     });
 
     it('可以设置节点属性 checked, 触发视图更新', async () => {
@@ -883,6 +943,70 @@ describe('Tree:api', () => {
       expect(pnodes[0].value).toBe('t1');
       expect(pnodes[1].value).toBe('t1.1');
       expect(pnodes[2].value).toBe('t1.1.1');
+    });
+  });
+
+  // tree.getTreeData
+  // 获取树结构数据
+  describe('getTreeData', () => {
+    it('获取树结构数据', async () => {
+      const data = [
+        {
+          value: 't1',
+          children: [
+            {
+              value: 't1.1',
+              children: [
+                {
+                  value: 't1.1.1',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          value: 't2',
+          children: [
+            {
+              value: 't2.1',
+              children: [
+                {
+                  value: 't2.1.1',
+                },
+              ],
+            },
+          ],
+        },
+      ];
+      const wrapper = mount({
+        render() {
+          return <Tree ref="tree" transition={false} data={data} expandAll={true} />;
+        },
+      });
+
+      const { tree } = wrapper.vm.$refs;
+
+      const pnodes = tree.getTreeData();
+      expect(Array.isArray(pnodes)).toBe(true);
+      expect(pnodes.length).toBe(2);
+      expect(Array.isArray(pnodes[0].children)).toBe(true);
+      expect(pnodes[0].children.length).toBe(1);
+      expect(Array.isArray(pnodes[0].children[0].children)).toBe(true);
+      expect(pnodes[0].children[0].children[0].value).toBe('t1.1.1');
+      expect(pnodes[0].value).toBe('t1');
+      expect(pnodes[1].value).toBe('t2');
+
+      const tnodes = tree.getTreeData('t2.1');
+      expect(Array.isArray(tnodes)).toBe(true);
+      expect(tnodes.length).toBe(1);
+      expect(Array.isArray(tnodes[0].children)).toBe(true);
+      expect(tnodes[0].children.length).toBe(1);
+      expect(tnodes[0].value).toBe('t2.1');
+      expect(tnodes[0].children[0].value).toBe('t2.1.1');
+
+      const nnodes = tree.getTreeData('t2.2');
+      expect(Array.isArray(nnodes)).toBe(true);
+      expect(nnodes.length).toBe(0);
     });
   });
 });

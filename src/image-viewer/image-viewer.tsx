@@ -110,7 +110,9 @@ export default defineComponent({
           onZoomOut();
           break;
         case EVENT_CODE.esc:
-          onClose({ e, trigger: 'esc' });
+          if (props.closeOnEscKeydown) {
+            onClose({ e, trigger: 'esc' });
+          }
           break;
         default:
           break;

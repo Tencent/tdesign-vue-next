@@ -23,7 +23,8 @@ function createLoading(props: TdLoadingProps): LoadingInstance {
 
   const attach = getAttach(props.attach);
 
-  const loading = createApp(component).mount(document.createElement('div'));
+  const app = createApp(component);
+  const loading = app.mount(document.createElement('div'));
   const parentRelativeClass = usePrefixClass('loading__parent--relative').value;
   const prefixClass = usePrefixClass('loading');
 
@@ -40,6 +41,7 @@ function createLoading(props: TdLoadingProps): LoadingInstance {
         item.remove();
       });
       removeClass(attach, parentRelativeClass);
+      app.unmount();
     },
   };
   return loadingInstance;

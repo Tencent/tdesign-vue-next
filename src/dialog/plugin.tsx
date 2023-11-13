@@ -2,6 +2,7 @@ import { App, createApp, ref, Plugin, defineComponent, h, onMounted } from 'vue'
 import DialogComponent from './dialog';
 import { getAttach } from '../utils/dom';
 import { DialogOptions, DialogMethod, DialogConfirmMethod, DialogAlertMethod, DialogInstance } from './type';
+import omit from 'lodash/omit';
 
 const createDialog: DialogMethod = (props: DialogOptions) => {
   const options = { ...props };
@@ -50,7 +51,7 @@ const createDialog: DialogMethod = (props: DialogOptions) => {
 
   const updateClassNameStyle = (className: string, style: DialogOptions['style']) => {
     if (className) {
-      if (preClassName !== className) {
+      if (preClassName && preClassName !== className) {
         wrapper.firstElementChild.classList.remove(...preClassName.split(' ').map((name) => name.trim()));
       }
       className.split(' ').forEach((name) => {
@@ -82,7 +83,8 @@ const createDialog: DialogMethod = (props: DialogOptions) => {
       visible.value = false;
     },
     update: (newOptions: DialogOptions) => {
-      dialog.update(newOptions);
+      // className & style由updateClassNameStyle来处理
+      dialog.update(omit(newOptions, ['className', 'style']));
       updateClassNameStyle(newOptions.className, newOptions.style);
     },
     destroy: () => {
