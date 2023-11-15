@@ -98,7 +98,7 @@ export default function useKeyboardControl({
           if (!optionValue) return;
           const newValue = getNewMultipleValue(innerValue.value, optionValue);
 
-          if (newValue.value.length > max) return; // 如果已选达到最大值 则不处理
+          if (max > 0 && newValue.value.length > max) return; // 如果已选达到最大值 则不处理
           const selectedOptions = getSelectedOptions(newValue.value);
           setInnerValue(newValue.value, {
             option: selectedOptions.find((v) => v.value == optionValue),
