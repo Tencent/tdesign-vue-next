@@ -8,7 +8,13 @@ import type { ChangeHandler } from '../../hooks/useVModel';
 import type { PopupVisibleChangeContext } from '../../popup';
 
 export type useKeyboardControlType = {
-  displayOptions: ComputedRef<SelectOption[]>;
+  displayOptions: ComputedRef<
+    SelectOption &
+      {
+        index?: number;
+        disabled?: boolean;
+      }[]
+  >;
   optionsList: ComputedRef<TdOptionProps[]>;
   innerPopupVisible: Ref<boolean>;
   setInnerPopupVisible: ChangeHandler<boolean, [context: PopupVisibleChangeContext]>;
@@ -37,6 +43,7 @@ export default function useKeyboardControl({
   multiple,
   max,
 }: useKeyboardControlType) {
+  let optionIndex = -1;
   const hoverIndex = ref(-1);
   const virtualFilteredOptions = ref([]); // 处理虚拟滚动下选项过滤通过键盘选择的问题
   const classPrefix = usePrefixClass();
@@ -54,7 +61,7 @@ export default function useKeyboardControl({
         } else {
           newIndex--;
         }
-        if (optionsList.value[newIndex]?.disabled) {
+        if (displayOptions.value[newIndex]?.disabled) {
           newIndex--;
         }
         hoverIndex.value = newIndex;
@@ -66,7 +73,7 @@ export default function useKeyboardControl({
         } else {
           newIndex++;
         }
-        if (optionsList.value[newIndex]?.disabled) {
+        if (displayOptions.value[newIndex]?.disabled) {
           newIndex++;
         }
         hoverIndex.value = newIndex;
@@ -83,17 +90,17 @@ export default function useKeyboardControl({
             : optionsList.value;
 
         if (!multiple) {
-          const selectedOptions = getSelectedOptions(filteredOptions[hoverIndex.value].value);
-          setInnerValue(filteredOptions[hoverIndex.value].value, {
+          const selectedOptions = getSelectedOptions(filteredOptions[optionIndex].value);
+          setInnerValue(filteredOptions[optionIndex].value, {
             option: selectedOptions?.[0],
-            selectedOptions: getSelectedOptions(filteredOptions[hoverIndex.value].value),
+            selectedOptions: getSelectedOptions(filteredOptions[optionIndex].value),
             trigger: 'check',
             e,
           });
           setInnerPopupVisible(false, { e });
         } else {
           if (hoverIndex.value === -1) return;
-          const optionValue = filteredOptions[hoverIndex.value]?.value;
+          const optionValue = filteredOptions[optionIndex]?.value;
 
           if (!optionValue) return;
           const newValue = getNewMultipleValue(innerValue.value, optionValue);
@@ -134,6 +141,9 @@ export default function useKeyboardControl({
       top: scrollHeight,
       behavior: 'smooth',
     });
+
+    // 保存hoverIndex对应选项的index值
+    optionIndex = index >= 0 ? displayOptions.value[index]?.index : index;
   });
 
   return {
