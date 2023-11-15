@@ -78,6 +78,7 @@ getItems | `(value?: TreeNodeValue)` | `Array<TreeNodeModel<T>>` | 必需。获�
 getParent | `(value: TreeNodeValue)` | `TreeNodeModel<T>` | 必需。获取指定节点的直属父节点，泛型 `T` 表示树节点 TS 类型
 getParents | `(value: TreeNodeValue)` | `TreeNodeModel<T>[]` | 必需。获取指定节点的全部父节点，泛型 `T` 表示树节点 TS 类型
 getPath | `(value: TreeNodeValue)` | `TreeNodeModel<T>[]` | 必需。自下而上获取全路径数据，泛型 `T` 表示树节点 TS 类型
+getTreeData | `(value?: TreeNodeValue)` | `Array<T>` | 必需。获取某节点的全部树形结构；参数为空，则表示获取整棵树的结构数据，泛型 `T` 表示树节点 TS 类型
 insertAfter | `(value: TreeNodeValue, newData: T)` | \- | 必需。插入新节点到指定节点后面，泛型 `T` 表示树节点 TS 类型
 insertBefore | `(value: TreeNodeValue, newData: T)` | \- | 必需。插入新节点到指定节点前面，泛型 `T` 表示树节点 TS 类型
 remove | `(value: TreeNodeValue)` | \- | 必需。移除指定节点

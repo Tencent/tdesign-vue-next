@@ -147,7 +147,7 @@ export default function useUpload(props: TdUploadProps) {
       // @ts-ignore
       files: [...files],
       allowUploadDuplicateFile: props.allowUploadDuplicateFile,
-      max: props.max,
+      max: props.multiple ? props.max : 0,
       sizeLimit: props.sizeLimit,
       isBatchUpload: isBatchUpload.value,
       autoUpload: autoUpload.value,

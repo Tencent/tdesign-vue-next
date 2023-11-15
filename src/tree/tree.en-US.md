@@ -78,6 +78,7 @@ getItems | `(value?: TreeNodeValue)` | `Array<TreeNodeModel<T>>` | required
 getParent | `(value: TreeNodeValue)` | `TreeNodeModel<T>` | required
 getParents | `(value: TreeNodeValue)` | `TreeNodeModel<T>[]` | required
 getPath | `(value: TreeNodeValue)` | `TreeNodeModel<T>[]` | required
+getTreeData | `(value?: TreeNodeValue)` | `Array<T>` | required。get tree struct data
 insertAfter | `(value: TreeNodeValue, newData: T)` | \- | required
 insertBefore | `(value: TreeNodeValue, newData: T)` | \- | required
 remove | `(value: TreeNodeValue)` | \- | required

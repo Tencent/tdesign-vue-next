@@ -180,7 +180,7 @@ export default function useRowEdit(props: PrimaryTableProps) {
   const getEditRowData = ({ row, col }: PrimaryTableCellParams<TableRowData>) => {
     const rowValue = get(row, props.rowKey || 'id');
     const editedRowData = editedFormData.value[rowValue];
-    if (editedRowData && props.editableRowKeys.includes(rowValue)) {
+    if (editedRowData && props.editableRowKeys?.includes(rowValue)) {
       const tmpRow = { ...editedRowData };
       set(tmpRow, col.colKey, get(editedRowData, col.colKey));
       return tmpRow;
