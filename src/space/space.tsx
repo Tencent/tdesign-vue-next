@@ -47,7 +47,7 @@ export default defineComponent({
       if (needPolyfill.value) {
         const [columnGap, rowGap] = renderGap.split(' ');
         style['--td-space-column-gap'] = columnGap;
-        style['--row-gap'] = rowGap || columnGap;
+        style['--td-space-row-gap'] = rowGap || columnGap;
       } else {
         style.gap = renderGap;
       }
