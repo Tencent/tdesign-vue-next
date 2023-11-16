@@ -18,7 +18,7 @@ export default defineComponent({
 
   props,
 
-  setup(props) {
+  setup(props, { expose }) {
     const COMPONENT_NAME = usePrefixClass('statistic');
     const renderTNodeJSX = useTNodeJSX();
     const { ArrowTriangleUpFilledIcon } = useGlobalIcon({
@@ -99,6 +99,8 @@ export default defineComponent({
     });
 
     onMounted(() => props.animation && props.animationStart && start());
+
+    expose({ start });
 
     return () => {
       const trendIcons = {
