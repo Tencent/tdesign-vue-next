@@ -16,16 +16,24 @@
         <t-statistic title="Total number of voice DAUs" :value="188" color="red">
           <template #extra>
             <t-space direction="vertical" :size="0">
-              <span>
-                the day before
-                <t-icon name="arrow-triangle-up-filled" style="color: #d54941" />
-                9%
-              </span>
-              <span>
-                last week
-                <t-icon name="arrow-triangle-down-filled" style="color: #2ba471" />
-                9%
-              </span>
+              <t-space align="center" :size="7">
+                <div style="width: 120px">the day before</div>
+                <t-icon
+                  name="arrow-triangle-up-filled"
+                  style="color: #d54941; font-size: var(--td-font-size-body-large)"
+                />
+                <div>9%</div>
+              </t-space>
+
+              <t-space align="center" :size="7">
+                <div style="width: 120px">last week</div>
+                <t-icon
+                  name="arrow-triangle-down-filled"
+                  size="16"
+                  style="color: #2ba471; font-size;: var(--td-font-size-body-large)"
+                />
+                <div>9%</div>
+              </t-space>
             </t-space>
           </template>
         </t-statistic>

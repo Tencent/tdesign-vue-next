@@ -7,7 +7,7 @@
     </t-statistic>
     <t-statistic title="Total Assets" :value="176059" prefix="$" unit="%" trend="increase" />
 
-    <t-statistic title="Total Assets" :value="62.58">
+    <t-statistic title="Total Assets" :value="62.58" unit="%">
       <template #suffix>
         <arrow-triangle-down-filled-icon style="color: #ee4d38" />
       </template>
