@@ -150,20 +150,19 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
   };
 
   const onHandleCompositionend = (e: CompositionEvent) => {
-    if (typeof innerValue.value === 'number' || props.type === 'number') return;
     isComposition.value = false;
     compositionValue.value = '';
     inputValueChangeHandle(e);
-    props.onCompositionend?.(innerValue.value, { e });
+    props.onCompositionend?.(String(innerValue.value), { e });
   };
+
   const onHandleCompositionstart = (e: CompositionEvent) => {
-    if (typeof innerValue.value === 'number' || props.type === 'number') return;
     isComposition.value = true;
     const {
       currentTarget: { value },
     }: any = e;
     compositionValue.value = value;
-    props.onCompositionstart?.(innerValue.value, { e });
+    props.onCompositionstart?.(String(innerValue.value), { e });
   };
 
   const onRootClick = (e: MouseEvent) => {
