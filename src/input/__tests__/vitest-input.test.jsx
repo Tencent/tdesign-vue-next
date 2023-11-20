@@ -399,7 +399,7 @@ describe('Input Component', () => {
     wrapper.find('input').trigger('focus');
     await wrapper.vm.$nextTick();
     expect(onFocusFn).toHaveBeenCalled(1);
-    expect(onFocusFn.mock.calls[0][0]).toBe('');
+    expect(onFocusFn.mock.calls[0][0]).toBe(undefined);
     expect(onFocusFn.mock.calls[0][1].e.type).toBe('focus');
   });
 

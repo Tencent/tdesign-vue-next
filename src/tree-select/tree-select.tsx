@@ -7,7 +7,6 @@ import isNil from 'lodash/isNil';
 
 import Tree, { TreeProps, TreeNodeModel, TreeNodeValue } from '../tree';
 import SelectInput, { TdSelectInputProps } from '../select-input';
-import { InputValue } from '../input';
 import FakeArrow from '../common-components/fake-arrow';
 import { PopupVisibleChangeContext } from '../popup';
 
@@ -224,7 +223,7 @@ export default defineComponent({
       changeNodeInfo();
     };
 
-    const inputChange = (value: InputValue): boolean => {
+    const inputChange = (value: string): boolean => {
       // 未打开状态不处理输入框输入
       if (!innerVisible.value) {
         props.onSearch?.(String(value));
