@@ -76,6 +76,8 @@ export default {
   defaultPopupVisible: Boolean,
   /** 只读状态，值为真会隐藏输入框，且无法打开下拉框 */
   readonly: Boolean,
+  /** 多选且可搜索时，是否在选中一个选项后保留当前的搜索关键词 */
+  reserveKeyword: Boolean,
   /** 输入框状态 */
   status: {
     type: String as PropType<TdSelectInputProps['status']>,
@@ -112,15 +114,11 @@ export default {
   /** 全部标签值。值为数组表示多个标签，值为非数组表示单个数值 */
   value: {
     type: [String, Number, Boolean, Object, Array, Date] as PropType<TdSelectInputProps['value']>,
-    default: undefined,
+    default: undefined as TdSelectInputProps['value'],
   },
   /** 自定义值呈现的全部内容，参数为所有标签的值 */
   valueDisplay: {
     type: [String, Function] as PropType<TdSelectInputProps['valueDisplay']>,
-  },
-  /** 自定义值呈现的选项，useInputDisplay表示在使用时仍然使用组件自带的输入回显实现，usePlaceholder表示在使用时仍然使用自带的占位符实现 */
-  valueDisplayOptions: {
-    type: Object as PropType<TdSelectInputProps['valueDisplayOptions']>,
   },
   /** 失去焦点时触发，`context.inputValue` 表示输入框的值；`context.tagInputValue` 表示标签输入框的值 */
   onBlur: Function as PropType<TdSelectInputProps['onBlur']>,

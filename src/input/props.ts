@@ -28,11 +28,13 @@ export default {
   },
   /** 自动聚焦 */
   autofocus: Boolean,
+  /** 【开发中】无边框模式 */
+  borderless: Boolean,
   /** 是否可清空 */
   clearable: Boolean,
   /** 是否禁用输入框 */
   disabled: Boolean,
-  /** 指定输入框展示值的格式 */
+  /** 指定输入框展示值的格式。注意 `type=number` 时请勿使用，此功能建议更为使用 `InputNumber` 组件 */
   format: {
     type: Function as PropType<TdInputProps['format']>,
   },
@@ -50,7 +52,7 @@ export default {
   },
   /** 用户最多可以输入的文本长度，一个中文等于一个计数长度。值为空，则表示不限制输入长度。`maxcharacter` 和 `maxlength` 二选一使用 */
   maxlength: {
-    type: [Number, String] as PropType<TdInputProps['maxlength']>,
+    type: [String, Number] as PropType<TdInputProps['maxlength']>,
   },
   /** 名称 */
   name: {
@@ -102,7 +104,7 @@ export default {
   tips: {
     type: [String, Function] as PropType<TdInputProps['tips']>,
   },
-  /** 输入框类型 */
+  /** 输入框类型。`type=number` 仅支持最基础的数字输入功能，更多功能建议使用 `InputNumber` 组件 */
   type: {
     type: String as PropType<TdInputProps['type']>,
     default: 'text' as TdInputProps['type'],
@@ -113,21 +115,20 @@ export default {
   },
   /** 输入框的值 */
   value: {
-    type: String as PropType<TdInputProps['value']>,
+    type: [String, Number] as PropType<TdInputProps['value']>,
     default: undefined as TdInputProps['value'],
   },
   modelValue: {
-    type: String as PropType<TdInputProps['value']>,
+    type: [String, Number] as PropType<TdInputProps['value']>,
     default: undefined as TdInputProps['value'],
   },
   /** 输入框的值，非受控属性 */
   defaultValue: {
-    type: String as PropType<TdInputProps['defaultValue']>,
-    default: '' as TdInputProps['defaultValue'],
+    type: [String, Number] as PropType<TdInputProps['defaultValue']>,
   },
   /** 失去焦点时触发 */
   onBlur: Function as PropType<TdInputProps['onBlur']>,
-  /** 输入框值发生变化时触发。`trigger=initial` 表示传入的数据不符合预期，组件自动处理后触发 change 告知父组件。如：初始值长度超过 `maxlength` 限制 */
+  /** 输入框值发生变化时触发。参数 `trigger=initial` 表示传入的数据不符合预期，组件自动处理后触发 change 告知父组件。如：初始值长度超过 `maxlength` 限制 */
   onChange: Function as PropType<TdInputProps['onChange']>,
   /** 清空按钮点击时触发 */
   onClear: Function as PropType<TdInputProps['onClear']>,
