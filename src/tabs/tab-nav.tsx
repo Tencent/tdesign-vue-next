@@ -150,6 +150,15 @@ export default defineComponent({
     onMounted(totalAdjust);
 
     // methods
+    const defineActiveTabIntoView = () => {
+      scrollLeft.value = moveActiveTabIntoView(
+        {
+          activeTab: activeTabRef.value,
+          ...getRefs(),
+        },
+        scrollLeft.value,
+      );
+    };
     const adjustScrollLeft = () => {
       scrollLeft.value = calcScrollLeft(getRefs(), scrollLeft.value);
     };
@@ -180,19 +189,14 @@ export default defineComponent({
     const setActiveTab = (ref: any) => {
       if (ref?.value === props.value && activeTabRef.value !== ref.$el) {
         activeTabRef.value = ref.$el;
-        scrollLeft.value = moveActiveTabIntoView(
-          {
-            activeTab: activeTabRef.value,
-            ...getRefs(),
-          },
-          scrollLeft.value,
-        );
+        defineActiveTabIntoView();
       }
     };
 
     const { setNavsWrap } = useDragSort(props);
     onMounted(() => {
       setNavsWrap(navsWrapRef.value);
+      nextTick(defineActiveTabIntoView);
     });
     // renders
     const navs = computed(() => {
