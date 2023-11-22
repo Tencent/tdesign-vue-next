@@ -33,6 +33,7 @@ export default defineComponent({
       type: Array as { new (): Array<InstanceType<typeof TTabPanel>> },
       default: (): Array<InstanceType<typeof TTabPanel>> => [] as Array<InstanceType<typeof TTabPanel>>,
     },
+    action: tabProps.action,
     value: tabProps.value,
     placement: tabProps.placement,
     size: tabProps.size,
@@ -52,6 +53,7 @@ export default defineComponent({
       AddIcon: TdAddIcon,
     });
     const classPrefix = usePrefixClass();
+
     const { SIZE } = useCommonClassName();
 
     const scrollLeft = ref(0);
@@ -76,9 +78,12 @@ export default defineComponent({
       toRightBtn: toRightBtnRef.value,
     });
 
+    // left right位置 选项卡的位置是在左右侧垂直方向铺开的
+    const isVerticalPlacement = computed(() => ['left', 'right'].includes(props.placement.toLowerCase()));
+
     // style
     const wrapTransformStyle = computed(() => {
-      if (['left', 'right'].includes(props.placement.toLowerCase())) return {};
+      if (isVerticalPlacement.value) return {};
       return {
         transform: `translate3d(${-scrollLeft.value}px, 0, 0)`,
       };
@@ -132,7 +137,7 @@ export default defineComponent({
       return [
         `${COMPONENT_NAME.value}__nav-wrap`,
         `${classPrefix.value}-is-smooth`,
-        { [`${classPrefix.value}-is-vertical`]: props.placement === 'left' || props.placement === 'right' },
+        { [`${classPrefix.value}-is-vertical`]: isVerticalPlacement.value },
       ];
     });
 
@@ -147,16 +152,31 @@ export default defineComponent({
 
     // life times
     useResize(debounce(totalAdjust), navsContainerRef.value);
-    onMounted(totalAdjust);
+    onMounted(() => {
+      totalAdjust();
+      calculateMountedScrollLeft();
+    });
 
+    // calculate scroll left after mounted
+    const calculateMountedScrollLeft = () => {
+      if (isVerticalPlacement.value) return;
+
+      const container = navsContainerRef.value;
+      const activeTabEl = activeTabRef.value;
+      const totalWidthBeforeActiveTab = activeTabEl?.offsetLeft;
+      const containerWidth = container.offsetWidth || 0;
+      if (totalWidthBeforeActiveTab > containerWidth) scrollLeft.value = totalWidthBeforeActiveTab;
+    };
     // methods
     const adjustScrollLeft = () => {
       scrollLeft.value = calcScrollLeft(getRefs(), scrollLeft.value);
     };
+
     const adjustArrowDisplay = () => {
       canToLeft.value = calculateCanToLeft(getRefs(), scrollLeft.value, props.placement);
       canToRight.value = calculateCanToRight(getRefs(), scrollLeft.value, props.placement);
     };
+
     const handleScroll = (direction: 'left' | 'right') => {
       if (direction === 'left') {
         scrollLeft.value = scrollToLeft(getRefs(), scrollLeft.value);
@@ -164,9 +184,11 @@ export default defineComponent({
         scrollLeft.value = scrollToRight(getRefs(), scrollLeft.value);
       }
     };
+
     const handleAddTab = (e: MouseEvent) => {
       props.onAdd?.({ e });
     };
+
     const tabClick = (event: MouseEvent, nav: Partial<InstanceType<typeof TTabPanel>>) => {
       const { value, disabled } = nav;
       if (disabled || props.value === value) {
@@ -191,6 +213,7 @@ export default defineComponent({
     };
 
     const { setNavsWrap } = useDragSort(props);
+
     onMounted(() => {
       setNavsWrap(navsWrapRef.value);
     });
@@ -259,6 +282,7 @@ export default defineComponent({
               <AddIcon></AddIcon>
             </div>
           ) : null}
+          {props.action}
         </div>,
       ];
     };
