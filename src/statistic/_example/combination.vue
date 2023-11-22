@@ -29,7 +29,6 @@
                 <div style="width: 120px">last week</div>
                 <t-icon
                   name="arrow-triangle-down-filled"
-                  size="16"
                   style="color: #2ba471; font-size;: var(--td-font-size-body-large)"
                 />
                 <div>9%</div>
