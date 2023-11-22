@@ -213,7 +213,7 @@ const columns = computed(() => [
        */
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       props: ({ col, row, rowIndex, colIndex, editedRow, updateEditedCellValue }) => {
-        console.log(editedRow);
+        console.log(col, row, rowIndex, colIndex, editedRow, updateEditedCellValue);
         return {
           multiple: true,
           minCollapsedNum: 1,
