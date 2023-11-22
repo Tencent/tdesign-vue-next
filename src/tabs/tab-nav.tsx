@@ -20,7 +20,6 @@ import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import useDragSort from '../hooks/useDragSort';
 import isFunction from 'lodash/isFunction';
-import { useTNodeJSX } from '../hooks/tnode';
 
 const { calculateCanToLeft, calculateCanToRight, calcScrollLeft, scrollToLeft, scrollToRight, moveActiveTabIntoView } =
   tabBase;
