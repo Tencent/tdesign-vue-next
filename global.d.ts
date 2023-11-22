@@ -115,6 +115,7 @@ declare module '@vue/runtime-core' {
     TPopup: typeof import('tdesign-vue-next')['Popup'];
     TUpload: typeof import('tdesign-vue-next')['Upload'];
     TConfigProvider: typeof import('tdesign-vue-next')['ConfigProvider'];
+    TStatistic: typeof import('tdesign-vue-next')['Statistic'];
   }
 }
 
