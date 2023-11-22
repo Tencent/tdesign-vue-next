@@ -191,7 +191,7 @@ export default defineComponent({
         if (value) {
           if ((isModal.value && !props.showInAttachedElement) || isFullScreen.value) {
             if (props.preventScrollThrough) {
-              document.head.appendChild(styleEl.value);
+              document.body.appendChild(styleEl.value);
             }
 
             nextTick(() => {
