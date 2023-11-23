@@ -1,6 +1,6 @@
 # CONTRIBUTING
 
-`tdesign-vue-next` 包含 `web-vue-next` 代码和一个子仓库，子仓库指向 `tdesign-common`仓库
+`tdesign-vue-next` 包含 `vue-next` 代码和一个子仓库，子仓库指向 `tdesign-common`仓库
 
 ## 开发
 
@@ -21,11 +21,14 @@ npm run start
 ### 目录结构
 
 ```text
-├── examples // 组件文档与 demos
 ├── script // 构建代码
 ├── site // 站点代码
 ├── src // 组件代码
-├── test // 测试文件
+     └─ componentA
+          ├── _example // 组件示例文档
+          ├── _usage // 组件 live demo
+          └─  __tests__ // 组件测试用例
+└─ test // 测试配置文件
 ```
 
 ### 组件页路由配置
@@ -52,7 +55,7 @@ npm run start
 },
 ```
 
-### md 文件 demo 引用
+### Markdown 文件 demo 引用
 
 文档 demo 排列与 common 仓库中的 UI demo 展示一致
 
@@ -61,7 +64,7 @@ npm run start
 [demo 描述（可不填）]
 ```
 
-### demo 调试
+### Demo 调试
 
 当一个 md 文件插入了很多个 demo 之后，一些组件生命周期方法调试起来会变得困难，若想对某个 demo 单独调试，可以访问路由：/demos/组件名/demo 名，
 
@@ -128,7 +131,7 @@ git merge upstream/develop
 
 ## 关于组件库 UI
 
-UI 开发（html & css）是多个框架共用的，比如 React-web/Vue-web/Vue-next web。各个框架组件实现应该要复用 UI 开发的 html 结构，引用其组件 css 与 demo css（本仓库已在入口处引用了），UI 开发一般可由单独的 UI 开发同学认领完成或各框架组件开发同学的其中一名同学完成
+UI 开发（HTML & CSS）是多个框架共用的，比如 React-web/Vue-web/Vue-next web。各个框架组件实现应该要复用 UI 开发的 html 结构，引用其组件 CSS 与 Demo CSS（本仓库已在入口处引用了），UI 开发一般可由单独的 UI 开发同学认领完成或各框架组件开发同学的其中一名同学完成
 
 - 如果开发前已有某个组件的 UI 开发内容，直接在主仓库使用即可
 - 如果没有，且你也负责 UI 开发：参考 UI 开发规范完成 UI 开发内容、然后再开发主仓库组件
@@ -160,12 +163,12 @@ npm run generate:component
 
 ### API 规范
 
-API 会由管理员统一生成
+API 由 API 平台统一管理生成 https://github.com/tdesignoteam/tdesign-api
 
 ### 前缀
 
-组件和 `css` 前缀以 `t-` 开头，无论 `js` 还是 `css` 都使用变量定义前缀，方便后续替换
+组件和 `CSS` 前缀以 `t-` 开头，无论 `js` 还是 `css` 都使用变量定义前缀，方便后续替换
 
-### css
+### CSS
 
 组件样式在 `common` 子仓库开发，遵循 [tdesign-common 仓库 UI 开发规范](https://github.com/Tencent/tdesign-common/blob/main/style/web/README.md)

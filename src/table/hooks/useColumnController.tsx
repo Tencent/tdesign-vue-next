@@ -21,9 +21,10 @@ import { useTNodeJSX } from '../../hooks';
 export function getColumnKeys(columns: PrimaryTableCol[], keys = new Set<string>()) {
   for (let i = 0, len = columns.length; i < len; i++) {
     const col = columns[i];
-    col.colKey && keys.add(col.colKey);
     if (col.children?.length) {
       getColumnKeys(col.children, keys);
+    } else {
+      col.colKey && keys.add(col.colKey);
     }
   }
   return keys;
