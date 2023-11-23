@@ -5,6 +5,27 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.7.0 `2023-11-22` 
+### 🚀 Features
+- `Statistic`: 新增 `Statistic` 统计数值组件 @liweijie0812 ([#3329](https://github.com/Tencent/tdesign-vue-next/pull/3329))
+- `Loading`: 当使用 `Plugin` 或指令调用时，隐藏 `Loading` 将会移除 `app` 实例([issue #3540](https://github.com/Tencent/tdesign-vue-next/issues/3540)) @Zz-ZzzZ ([#3576](https://github.com/Tencent/tdesign-vue-next/pull/3576))
+- `Space`: 支持老旧浏览器也能正常显示子元素之间的间距，([tdesign-vue#1901](https://github.com/Tencent/tdesign-vue/issues/1901)) @chaishi ([#3565](https://github.com/Tencent/tdesign-vue-next/pull/3565))
+- `Input`: `value` 支持数据类型 `number` @chaishi ([#3600](https://github.com/Tencent/tdesign-vue-next/pull/3600))
+- `Tabs`: 新增滚动后对超长场景计算滚动距离的逻辑([issue #3543](https://github.com/Tencent/tdesign-vue-next/issues/3543)) @uyarn ([#3624](https://github.com/Tencent/tdesign-vue-next/pull/3624))
+- `Tabs`: 支持`action`的使用 @uyarn ([#3624](https://github.com/Tencent/tdesign-vue-next/pull/3624))
+### 🐞 Bug Fixes
+- `Affix`: 新增元素判空，避免出现元素不存在报错 @chaishi ([#3584](https://github.com/Tencent/tdesign-vue-next/pull/3584))
+- `Radio`: `useKeyboard` 通过正则匹配 `space`, 修复误判断删除键(`backspace`)是空格键(`space`) @liweijie0812 ([#3599](https://github.com/Tencent/tdesign-vue-next/pull/3599))
+- `Checkbox`: `useKeyboardEvent ` 通过正则匹配 `space`, 修复误判断删除键(`backspace`)是空格键(`space`) @liweijie0812 ([#3599](https://github.com/Tencent/tdesign-vue-next/pull/3599))
+- `Collapse`: 自定义右侧操作点击触发了折叠事件  ([issue#3579](https://github.com/Tencent/tdesign-vue-next/issues/3579)) @liweijie0812 ([#3581](https://github.com/Tencent/tdesign-vue-next/pull/3581))
+- `Hooks`: 修复在使用 `dragSort` 时不使用回调 `Props` 函数出现的报错 @SuperManito ([#3592](https://github.com/Tencent/tdesign-vue-next/pull/3592))
+- `Select`: 修复`1.6.6`版本后，多选模式下，无法通过enter键选中选项问题 @wilonjiang ([#3608](https://github.com/Tencent/tdesign-vue-next/pull/3608))
+- `Cascader`: 修复默认值在选项中不存在时的报错([issue #3595](https://github.com/Tencent/tdesign-vue-next/issues/3595)) @PengYYYYY ([#3611](https://github.com/Tencent/tdesign-vue-next/pull/3611))
+- `Dialog`: 修复 `attach="body"` `destroyOnClose` 嵌套超过三层关闭报错 @AuYuHui ([#3619](https://github.com/Tencent/tdesign-vue-next/pull/3619))
+- `Table`: 修复多级表头场景，列配置功能失效问题 @chaishi ([#3622](https://github.com/Tencent/tdesign-vue-next/pull/3622))
+### 🚧 Others
+- `Table`: 优化示例代码 @chaishi ([#3584](https://github.com/Tencent/tdesign-vue-next/pull/3584))
+
 ## 🌈 1.6.8 `2023-11-07` 
 ### 🚀 Features
 - `ImageViewer`: 新增支持 `closeOnEscKeydown`，用于控制是否允许 ESC 退出预览，[#2928](https://github.com/Tencent/tdesign-vue-next/issues/2928) @chaishi ([#3566](https://github.com/Tencent/tdesign-vue-next/pull/3566))
