@@ -24,10 +24,10 @@ npm run start
 ├── script // 构建代码
 ├── site // 站点代码
 ├── src // 组件代码
-    ├── componentA
-    ├── _example // 组件示例文档
-    ├── _usage // 组件 live demo
-    └─  __tests__ // 组件测试用例
+     └─ componentA
+          ├── _example // 组件示例文档
+          ├── _usage // 组件 live demo
+          └─  __tests__ // 组件测试用例
 └─ test // 测试配置文件
 ```
 
