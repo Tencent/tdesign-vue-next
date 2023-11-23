@@ -1,4 +1,4 @@
-import { defineComponent, provide, computed, toRefs, watch, ref, nextTick } from 'vue';
+import { defineComponent, provide, computed, toRefs, watch, ref, nextTick, PropType } from 'vue';
 import picker from 'lodash/pick';
 import isArray from 'lodash/isArray';
 import isFunction from 'lodash/isFunction';
@@ -6,11 +6,9 @@ import debounce from 'lodash/debounce';
 import cloneDeep from 'lodash/cloneDeep';
 import get from 'lodash/get';
 import intersection from 'lodash/intersection';
-
 import FakeArrow from '../common-components/fake-arrow';
 import SelectInput from '../select-input';
 import SelectPanel from './select-panel';
-
 import props from './props';
 // hooks
 import { useFormDisabled } from '../form/hooks';
@@ -21,15 +19,23 @@ import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { selectInjectKey, getSingleContent, getMultipleContent } from './helper';
 import { useSelectOptions } from './hooks/useSelectOptions';
 import useKeyboardControl from './hooks/useKeyboardControl';
-
 import type { PopupVisibleChangeContext } from '../popup';
 import type { SelectInputValueChangeContext } from '../select-input';
 import type { TdSelectProps, SelectValue } from './type';
+import { SelectInputValueDisplayOptions } from '../select-input/useSingle';
 
 export default defineComponent({
   name: 'TSelect',
-  props: { ...props },
-  setup(props: TdSelectProps, { slots }) {
+  props: {
+    ...props,
+    /**
+     * 非公开 API，请勿使用（后续即将删除）
+     */
+    valueDisplayOptions: {
+      type: Object as PropType<SelectInputValueDisplayOptions>,
+    },
+  },
+  setup(props: TdSelectProps & { valueDisplayOptions: SelectInputValueDisplayOptions }, { slots }) {
     const classPrefix = usePrefixClass();
     const disabled = useFormDisabled();
     const renderTNodeJSX = useTNodeJSX();

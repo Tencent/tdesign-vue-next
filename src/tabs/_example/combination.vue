@@ -17,6 +17,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const value = ref('1');
+const value = ref('20');
 const theme = ref('normal');
 </script>

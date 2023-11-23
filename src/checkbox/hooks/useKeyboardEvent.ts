@@ -1,8 +1,8 @@
-export const CHECKED_CODE_REG = /(enter|space)/i;
+export const CHECKED_CODE = ['Enter', 'Space'];
 
 export function useKeyboardEvent(handleChange: (e: Event) => void) {
   const keyboardEventListener = (e: KeyboardEvent) => {
-    const isCheckedCode = CHECKED_CODE_REG.test(e.key) || CHECKED_CODE_REG.test(e.code);
+    const isCheckedCode = CHECKED_CODE.includes(e.key) || CHECKED_CODE.includes(e.code);
     if (isCheckedCode) {
       e.preventDefault();
       const { disabled } = (e.currentTarget as HTMLElement).querySelector('input');

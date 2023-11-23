@@ -1,25 +1,29 @@
 import { Ref } from 'vue';
 import { TdInputProps } from './type';
+import { getOutputValue } from './useInput';
 
 export default function useInputEventHandler(props: TdInputProps, isHover: Ref<Boolean>) {
   const handleKeydown = (e: KeyboardEvent) => {
     if (props.disabled) return;
     const { code } = e;
+    const tmpValue = getOutputValue((e.currentTarget as HTMLInputElement).value, props.type);
     if (/enter/i.test(code) || /enter/i.test(e.key)) {
-      props.onEnter?.((e.currentTarget as HTMLInputElement).value, { e });
+      props.onEnter?.(tmpValue, { e });
     } else {
-      props.onKeydown?.((e.currentTarget as HTMLInputElement).value, { e });
+      props.onKeydown?.(tmpValue, { e });
     }
   };
 
   const handleKeyUp = (e: KeyboardEvent) => {
     if (props.disabled) return;
-    props.onKeyup?.((e.currentTarget as HTMLInputElement).value, { e });
+    const tmpValue = getOutputValue((e.currentTarget as HTMLInputElement).value, props.type);
+    props.onKeyup?.(tmpValue, { e });
   };
 
   const handleKeypress = (e: KeyboardEvent) => {
     if (props.disabled) return;
-    props.onKeypress?.((e.currentTarget as HTMLInputElement).value, { e });
+    const tmpValue = getOutputValue((e.currentTarget as HTMLInputElement).value, props.type);
+    props.onKeypress?.(tmpValue, { e });
   };
 
   const onHandlePaste = (e: ClipboardEvent) => {

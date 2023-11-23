@@ -48,8 +48,7 @@ tips | String / Slot / Function | - | 输入框下方提示文本，会根据不
 value | String / Number / Boolean / Object / Array | - | 选中值。支持语法糖 `v-model` 或 `v-model:value`。TS 类型：`SelectValue` `type SelectValue<T extends SelectOption = SelectOption> = string \| number \| boolean \| T \| Array<SelectValue<T>>`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select/type.ts) | N
 defaultValue | String / Number / Boolean / Object / Array | - | 选中值。非受控属性。TS 类型：`SelectValue` `type SelectValue<T extends SelectOption = SelectOption> = string \| number \| boolean \| T \| Array<SelectValue<T>>`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select/type.ts) | N
 valueDisplay | String / Slot / Function | - | 自定义选中项呈现的内容。TS 类型：`string \| TNode<{ value: SelectValue; onClose: (index: number) => void; displayValue?: SelectValue }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-valueDisplayOptions | Object | - | 自定义选中项呈现的选项。具体属性请看下方 `SelectInputValueDisplayOptions` 文档。TS 类型：`SelectInputValueDisplayOptions` | N
-valueType | String | value | 用于控制选中值的类型。假设数据选项为：`[{ label: '姓名', value: 'name' }]`，value 表示值仅返回数据选项中的 value， object 表示值返回全部数据。。可选项：value/object | N
+valueType | String | value | 用于控制选中值的类型。假设数据选项为：`[{ label: '姓名', value: 'name' }]`，value 表示值仅返回数据选项中的 value， object 表示值返回全部数据。可选项：value/object | N
 onBlur | Function |  | TS 类型：`(context: { value: SelectValue; e: FocusEvent \| KeyboardEvent }) => void`<br/>输入框失去焦点时触发 | N
 onChange | Function |  | TS 类型：`(value: SelectValue, context: { option?: T, selectedOptions: T[], trigger: SelectValueChangeTrigger; e?: MouseEvent \| KeyboardEvent }) => void`<br/>选中值变化时触发。`context.trigger` 表示触发变化的来源；`context.selectedOptions` 表示选中值的完整对象，数组长度一定和 `value` 相同；`context.option` 表示当前操作的选项，不一定存在。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select/type.ts)。<br/>`type SelectValueChangeTrigger = 'clear' \| 'tag-remove' \| 'backspace' \| 'check' \| 'uncheck' \| 'default'`<br/> | N
 onClear | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>点击清除按钮时触发 | N
@@ -104,10 +103,3 @@ isFixedRowHeight | Boolean | false | 表示每行内容是否同一个固定高�
 rowHeight | Number | - | 行高，不会给`<tr>`元素添加样式高度，仅作为滚动时的行高参考。一般情况不需要设置该属性。如果设置，可尽量将该属性设置为每行平均高度，从而使得滚动过程更加平滑 | N
 threshold | Number | 100 | 启动虚拟滚动的阈值。为保证组件收益最大化，当数据量小于阈值 `scroll.threshold` 时，无论虚拟滚动的配置是否存在，组件内部都不会开启虚拟滚动 | N
 type | String | - | 必需。滚动加载类型，有两种：懒加载和虚拟滚动。<br />值为 `lazy` ，表示滚动时会进行懒加载，非可视区域内的内容将不会默认渲染，直到该内容可见时，才会进行渲染，并且已渲染的内容滚动到不可见时，不会被销毁；<br />值为`virtual`时，表示会进行虚拟滚动，无论滚动条滚动到哪个位置，同一时刻，仅渲染该可视区域内的内容，当需要展示的数据量较大时，建议开启该特性。可选项：lazy/virtual | Y
-
-### SelectInputValueDisplayOptions
-
-名称 | 类型 | 默认值 | 说明 | 必传
--- | -- | -- | -- | --
-useInputDisplay | Boolean | false | 配合valueDisplay使用，单选模式（未启用multiple）时仍然使用组件自带的输入回显实现（启用filterable），默认需自行通过输入事件维护valueDisplay实现。多选模式（启用multiple）时此选项无效，会使用自带的输入回显实现。 | N
-usePlaceholder | Boolean | false | 配合valueDisplay使用，单选模式（未启用multiple）时仍然使用自带的占位符实现，默认需自行通过value参数维护valueDisplay实现（同时placeholder参数无效）。多选模式（启用multiple）时此选项无效，会使用自带的占位符实现。 | N

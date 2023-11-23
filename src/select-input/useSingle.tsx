@@ -1,7 +1,7 @@
 import { SetupContext, ref, computed, toRefs, Ref } from 'vue';
 import isObject from 'lodash/isObject';
 import pick from 'lodash/pick';
-import Input, { InputProps, TdInputProps } from '../input';
+import Input, { StrInputProps } from '../input';
 import Loading from '../loading';
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
@@ -32,13 +32,18 @@ const DEFAULT_KEYS = {
   children: 'children',
 };
 
+export interface SelectInputValueDisplayOptions {
+  useInputDisplay: boolean;
+  usePlaceholder: boolean;
+}
+
 function getInputValue(value: TdSelectInputProps['value'], keys: TdSelectInputProps['keys']) {
   const iKeys = { ...DEFAULT_KEYS, ...keys };
   return isObject(value) ? value[iKeys.label] : value;
 }
 
 export default function useSingle(
-  props: TdSelectInputProps,
+  props: TdSelectInputProps & { valueDisplayOptions: SelectInputValueDisplayOptions },
   context: SetupContext,
   popupRef: Ref<PopupInstanceFunctions>,
 ) {
@@ -66,7 +71,7 @@ export default function useSingle(
     setInputValue('', { trigger: 'clear' });
   };
 
-  const onInnerInputChange: TdInputProps['onChange'] = (value, context) => {
+  const onInnerInputChange: StrInputProps['onChange'] = (value, context) => {
     if (props.allowInput) {
       setInputValue(value, { ...context, trigger: context.trigger || 'input' });
     }
@@ -97,18 +102,18 @@ export default function useSingle(
       ? [`${classPrefix.value}-input--focused`, `${classPrefix.value}-is-focused`, inputProps?.inputClass]
       : inputProps?.inputClass;
 
-    const onEnter: InputProps['onEnter'] = (val, context) => {
+    const onEnter: StrInputProps['onEnter'] = (val, context) => {
       props.onEnter?.(value.value, { ...context, inputValue: val });
     };
 
-    const onFocus: InputProps['onFocus'] = (val, context) => {
+    const onFocus: StrInputProps['onFocus'] = (val, context) => {
       const overlayState = popupRef.value?.getOverlayState();
       if (isSingleFocus.value || overlayState?.hover) return;
       isSingleFocus.value = true;
       props.onFocus?.(value.value, { ...context, inputValue: val });
     };
 
-    const onBlur: InputProps['onBlur'] = (val, context) => {
+    const onBlur: StrInputProps['onBlur'] = (val, context) => {
       const overlayState = popupRef.value?.getOverlayState();
       if (overlayState?.hover) return;
       isSingleFocus.value = false;

@@ -320,15 +320,13 @@ describe('CollapsePanel', () => {
   });
 
   describe('<slot>', () => {
-    test('default、header、headerRightContent', () => {
+    test('default', () => {
       const wrapper = mount({
         setup() {
           return () => (
             <Collapse>
               <CollapsePanel ref="1" value="1">
                 {{
-                  header: () => <h4>标题</h4>,
-                  headerRightContent: () => <span>操作</span>,
                   default: () => <div>内容</div>,
                 }}
               </CollapsePanel>
@@ -339,8 +337,44 @@ describe('CollapsePanel', () => {
 
       const panel = wrapper.findComponent({ ref: '1' });
       expect(panel.find('.t-collapse-panel__content > div').html()).toBe('<div>内容</div>');
+    });
+
+    test('header', () => {
+      const wrapper = mount({
+        setup() {
+          return () => (
+            <Collapse>
+              <CollapsePanel ref="1" value="1">
+                {{
+                  header: () => <h4>标题</h4>,
+                }}
+              </CollapsePanel>
+            </Collapse>
+          );
+        },
+      });
+
+      const panel = wrapper.findComponent({ ref: '1' });
       expect(panel.find('.t-collapse-panel__header > h4').html()).toBe('<h4>标题</h4>');
-      expect(panel.find('.t-collapse-panel__header > span').html()).toBe('<span>操作</span>');
+    });
+
+    test('headerRightContent', () => {
+      const wrapper = mount({
+        setup() {
+          return () => (
+            <Collapse>
+              <CollapsePanel ref="1" value="1">
+                {{
+                  headerRightContent: () => <span>操作</span>,
+                }}
+              </CollapsePanel>
+            </Collapse>
+          );
+        },
+      });
+
+      const panel = wrapper.findComponent({ ref: '1' });
+      expect(panel.find('.t-collapse-panel__header > div > span').html()).toBe('<span>操作</span>');
     });
 
     test('content', () => {

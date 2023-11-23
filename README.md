@@ -16,7 +16,7 @@
   </a>
 </p>
 
-English | [简体中文](./README-zh_CN.md) 
+English | [简体中文](./README-zh_CN.md)
 
 TDesign Vue Next is a UI component library for Vue 3 and desktop application.
 
@@ -58,9 +58,10 @@ Visit [TDesign Starter](https://tdesign.tencent.com/starter/vue-next/) to experi
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br> IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Edge >=84                                                                                                                                                                                                        | Firefox >=83                                                                                                                                                                                                      | Chrome >=84                                                                                                                                                                                                   | Safari >=14.1                                                                                                                                                                                                   |
+| Edge >=84                                                                                                                                                                                                        | Firefox >=83                                                                                                                                                                                                      | Chrome >=84                                                                                                                                                                                                   | Safari >=14.1                                                                                                                                                                                                 |
 
 Read our [browser compatibility](https://github.com/Tencent/tdesign/wiki/Browser-Compatibility) for more details.
+
 # TDesign component libraries
 
 TDesign also provides component libraries for other platforms and frameworks.
@@ -72,6 +73,12 @@ TDesign also provides component libraries for other platforms and frameworks.
 # Contributing
 
 Contributing is welcome. Read [guidelines for contributing](https://github.com/Tencent/tdesign-vue-next/blob/develop/CONTRIBUTING.md) before submitting your [Pull Request](https://github.com/Tencent/tdesign-vue-next/pulls).
+
+## Contributors
+
+<a href="https://github.com/tencent/tdesign-vue-next/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=tencent/tdesign-vue-next" />
+</a>
 
 # Feedback
 
