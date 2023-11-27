@@ -72,7 +72,7 @@ href | String | - | \- | N
 icon | Slot / Function | - | Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 replace | Boolean | false | \- | N
 router | Object | - | Typescript：`Record<string, any>` | N
-target | String | - | options：_blank/_self/_parent/_top | N
+target | String | _self | options：_blank/_self/_parent/_top | N
 to | String / Object | - | Typescript：`MenuRoute` `interface MenuRoute { path?: string; name?: string; hash?: string; query?: MenuQueryData; params?: MenuQueryData }` `type MenuQueryData = { [key: string]: string \| string[] }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/menu/type.ts) | N
 value | String / Number | - | Typescript：`MenuValue` | N
 onClick | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/>trigger on click | N
