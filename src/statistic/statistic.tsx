@@ -55,11 +55,11 @@ export default defineComponent({
     };
 
     const formatValue = computed(() => {
-      let _value: number | undefined | string = innerValue.value;
+      let formatValue: number | undefined | string = innerValue.value;
       const { decimalPlaces, separator } = props;
 
       if (isFunction(props.format)) {
-        return props.format(_value);
+        return props.format(formatValue);
       }
       const options = {
         minimumFractionDigits: decimalPlaces || 0,
@@ -67,9 +67,9 @@ export default defineComponent({
         useGrouping: !!separator,
       };
       // replace的替换的方案仅能应对大部分地区
-      _value = _value.toLocaleString(undefined, options).replace(/,|，/g, separator);
+      formatValue = formatValue.toLocaleString(undefined, options).replace(/,|，/g, separator);
 
-      return _value;
+      return formatValue;
     });
 
     const contentStyle = computed(() => {

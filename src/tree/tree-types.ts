@@ -42,7 +42,7 @@ export type TypeTargetNode = TreeNodeValue | TypeTreeNode | TypeTreeNodeModel;
 export type TypeTimer = ReturnType<typeof setTimeout>;
 
 export interface TypeTreeRow extends TypeTreeNode {
-  __VIRTUAL_SCROLL_INDEX?: number;
+  VIRTUAL_SCROLL_INDEX?: number;
 }
 
 export interface TypeEventState extends TypeTreeEventState {

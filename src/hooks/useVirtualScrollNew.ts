@@ -95,7 +95,7 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
   const handleRowMounted = (rowData: any) => {
     if (!isVirtualScroll.value || !rowData || tScroll.value.isFixedRowHeight || !container.value) return;
     const trHeight = rowData.ref.value?.getBoundingClientRect().height;
-    const rowIndex = rowData.data.__VIRTUAL_SCROLL_INDEX;
+    const rowIndex = rowData.data.VIRTUAL_SCROLL_INDEX;
     const newTrHeightList = trHeightList.value;
     if (newTrHeightList[rowIndex] !== trHeight) {
       newTrHeightList[rowIndex] = trHeight;
@@ -127,7 +127,7 @@ const useVirtualScroll = (container: Ref<HTMLElement>, params: UseVirtualScrollP
   const addIndexToData = (data: any[]) => {
     data.forEach((item, index) => {
       // eslint-disable-next-line
-      item['__VIRTUAL_SCROLL_INDEX'] = index;
+      item['VIRTUAL_SCROLL_INDEX'] = index;
     });
   };
 
