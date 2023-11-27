@@ -40,11 +40,11 @@ export default {
   /** 链接或路由跳转方式 */
   target: {
     type: String as PropType<TdMenuItemProps['target']>,
+    default: '_self' as TdMenuItemProps['target'],
     validator(val: TdMenuItemProps['target']): boolean {
       if (!val) return true;
       return ['_blank', '_self', '_parent', '_top'].includes(val);
     },
-    default: '_self',
   },
   /** 路由跳转目标，当且仅当 Router 存在时，该 API 有效 */
   to: {
