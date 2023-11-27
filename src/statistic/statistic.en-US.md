@@ -20,3 +20,9 @@ trend | String | - | trend。options: increase/decrease | N
 trendPlacement | String | left | Position of trending placements。options: left/right | N
 unit | String / Slot / Function | - | Unit content。Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 value | Number | - | The value of Statistic | N
+
+### StatisticInstanceFunctions 组件实例方法
+
+name | params | return | description
+-- | -- | -- | --
+start | `(from: number, to: number)` | \- | required。Digital scrolling change, from one number to another number
