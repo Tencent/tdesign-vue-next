@@ -73,6 +73,14 @@ export interface TdStatisticProps {
   value?: number;
 }
 
+/** 组件实例方法 */
+export interface StatisticInstanceFunctions {
+  /**
+   * 设置数字滚动变化效果，从一个数字到另一个数字
+   */
+  start: (from: number, to: number) => void;
+}
+
 export interface animation {
   duration: number;
   valueFrom: number;

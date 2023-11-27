@@ -21,16 +21,18 @@ export default defineComponent({
   setup(props, { expose }) {
     const COMPONENT_NAME = usePrefixClass('statistic');
     const renderTNodeJSX = useTNodeJSX();
-    const { ArrowTriangleUpFilledIcon } = useGlobalIcon({
+    const { ArrowTriangleUpFilledIcon, ArrowTriangleDownFilledIcon } = useGlobalIcon({
       ArrowTriangleUpFilledIcon: TDArrowTriangleUpFilledIcon,
-    });
-    const { ArrowTriangleDownFilledIcon } = useGlobalIcon({
       ArrowTriangleDownFilledIcon: TDArrowTriangleDownFilledIcon,
     });
+    const trendIcons = {
+      increase: <ArrowTriangleUpFilledIcon />,
+      decrease: <ArrowTriangleDownFilledIcon />,
+    };
     const numberValue = computed(() => (isNumber(props.value) ? props.value : 0));
     const innerValue = ref(props.animation?.valueFrom ?? props.value);
 
-    const tween = ref(null);
+    const tween = ref<Tween>();
     const { value } = toRefs(props);
 
     const start = (from: number = props.animation?.valueFrom ?? 0, to: number = numberValue.value) => {
@@ -50,7 +52,7 @@ export default defineComponent({
             innerValue.value = to;
           },
         });
-        (tween.value as any)?.start();
+        tween.value?.start();
       }
     };
 
@@ -103,10 +105,6 @@ export default defineComponent({
     expose({ start });
 
     return () => {
-      const trendIcons = {
-        increase: <ArrowTriangleUpFilledIcon />,
-        decrease: <ArrowTriangleDownFilledIcon />,
-      };
       const trendIcon = props.trend ? trendIcons[props.trend] : null;
       const prefix = renderTNodeJSX('prefix') || (trendIcon && props.trendPlacement !== 'right' ? trendIcon : null);
       const suffix = renderTNodeJSX('suffix') || (trendIcon && props.trendPlacement === 'right' ? trendIcon : null);
