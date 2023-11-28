@@ -73,6 +73,36 @@ const defaultProps = ref(
   }, {}),
 );
 
+function formatCode(code) {
+  const stack = [];
+  let indent = '';
+  let result = code.replace(/(\<\/?[^>]+>)|([^<>]+)|\n+/g, (match, p1, p2, offset) => {
+    if (match === '\n') {
+      return '';
+    }
+    let addNewLine = '\n';
+    if (p1) {
+      if (p1.startsWith('</')) {
+        stack.pop();
+        indent = '  '.repeat(stack.length);
+      }
+      if (offset > 0 && code[offset - 1] !== '\n' && !p1.startsWith('</')) {
+        addNewLine = '\n';
+      }
+      if (!p1.startsWith('</')) {
+        indent = '  '.repeat(stack.length);
+        if (!p1.endsWith('/>')) {
+          stack.push(p1);
+        }
+      }
+      return `${addNewLine}${indent}${p1}`;
+    } else if (p2) {
+      return p2.trim();
+    }
+  });
+  return result.replace(/\n{2,}/g, '\n').trim();
+}
+
 const usageCode = computed(() => {
   const propsStr = Object.keys(changedProps.value)
     .map((name) => `${stringifyProp(name, changedProps.value[name])}`)
@@ -80,6 +110,6 @@ const usageCode = computed(() => {
   const trueCode = props.code.replace(/\s*v-bind="configProps"/g, () =>
     propsStr.length ? `\n  ${propsStr.join('\n  ')}` : '',
   );
-  return trueCode;
+  return formatCode(trueCode);
 });
 </script>
