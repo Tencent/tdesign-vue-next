@@ -14,7 +14,7 @@ export default function useRenderLabel(state: TypeTreeItemState) {
   const renderLabel = (h: TypeCreateElement): TypeVNode => {
     const { node, treeScope } = state;
     const { scopedSlots, treeProps = {} } = treeScope;
-    const { label, disableCheck, expandOnClickNode } = treeProps;
+    const { label, expandOnClickNode } = treeProps;
     const checkProps = treeProps?.checkProps || {};
 
     let labelNode = null;
@@ -50,11 +50,6 @@ export default function useRenderLabel(state: TypeTreeItemState) {
 
     if (node.vmCheckable) {
       let checkboxDisabled = false;
-      if (typeof disableCheck === 'function') {
-        checkboxDisabled = disableCheck(node.getModel());
-      } else {
-        checkboxDisabled = !!disableCheck;
-      }
       if (node.vmIsLocked && !node.vmIsRest) {
         checkboxDisabled = true;
       }

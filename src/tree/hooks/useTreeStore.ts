@@ -37,6 +37,7 @@ export default function useTreeStore(state: TypeTreeState) {
       'activable',
       'activeMultiple',
       'disabled',
+      'disableCheck',
       'checkable',
       'draggable',
       'checkStrictly',
