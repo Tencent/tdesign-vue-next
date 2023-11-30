@@ -10,7 +10,7 @@ autoWidth | Boolean | false | 宽度随内容自适应 | N
 autofocus | Boolean | false | 自动聚焦 | N
 borderless | Boolean | false | 无边框模式 | N
 clearable | Boolean | false | 是否可清空 | N
-collapsedItems | Slot / Function | - | 标签过多的情况下，折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 `collapsedItems` 自定义。`value` 表示所有标签值，`collapsedTags` 表示折叠标签值，`count` 表示折叠的数量。TS 类型：`TNode<{ value: SelectInputValue; collapsedTags: SelectInputValue; count: number }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+collapsedItems | Slot / Function | - | 标签过多的情况下，折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 `collapsedItems` 自定义。`value` 表示所有标签值，`onClose` 表示关闭标签时触发的事件。TS 类型：`TNode<{ value: SelectInputValue; onClose: (p: { e?: MouseEvent; index: number; }) => void; }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 disabled | Boolean | - | 是否禁用 | N
 inputProps | Object | - | 透传 Input 输入框组件全部属性。TS 类型：`InputProps`，[Input API Documents](./input?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select-input/type.ts) | N
 inputValue | String / Number | - | 输入框的值。支持语法糖 `v-model:inputValue`。TS 类型：`string` | N

@@ -30,9 +30,9 @@ export interface TdTreeSelectProps<DataOption extends TreeOptionData = TreeOptio
    */
   clearable?: boolean;
   /**
-   * 多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义
+   * 多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`onClose` 表示关闭标签时触发的事件
    */
-  collapsedItems?: TNode<{ value: DataOption[]; collapsedSelectedItems: DataOption[]; count: number }>;
+  collapsedItems?: TNode<{ value: DataOption[]; onClose: (p: { e?: MouseEvent; index: number; }) => void; }>;
   /**
    * 数据
    * @default []

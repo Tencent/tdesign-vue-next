@@ -7,7 +7,7 @@ name | type | default | description | required
 -- | -- | -- | -- | --
 autoWidth | Boolean | false | \- | N
 clearable | Boolean | false | \- | N
-collapsedItems | Slot / Function | - | Typescript：`TNode<{ value: TagInputValue; collapsedTags: TagInputValue; count: number }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+collapsedItems | Slot / Function | - | Typescript：`TNode<{ value: TagInputValue; onClose: (p: { e?: MouseEvent; index: number; }) => void; }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 disabled | Boolean | - | \- | N
 dragSort | Boolean | false | \- | N
 excessTagsDisplayType | String | break-line | options: scroll/break-line | N
