@@ -70,6 +70,7 @@ export default defineComponent({
   },
   render() {
     const router = this.router || this.$router;
+    if (!router) console.error('router is not found, please install vue-router');
 
     const liContent = (
       <li ref="itemRef" class={this.classes} onClick={this.handleClick}>
@@ -100,8 +101,8 @@ export default defineComponent({
 
     const instance = getCurrentInstance();
     const node = instance.parent;
-    // 菜单收起，且只有本身为一级菜单才需要显示 tooltip
-    if (this.collapsed && /tmenu/i.test(node?.type.name)) {
+    // 菜单收起，且只有本身为一级菜单才需要显示 tooltip (一级菜单没有 BaseTransition 组件, 或者使用其他判断条件)
+    if (this.collapsed && !/BaseTransition/i.test(node?.type.name)) {
       return (
         <Tooltip content={() => renderContent(this, 'default', 'content')} placement="right">
           {liContent}
