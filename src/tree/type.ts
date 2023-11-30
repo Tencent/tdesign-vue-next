@@ -171,6 +171,11 @@ export interface TdTreeProps<T extends TreeOptionData = TreeOptionData> {
    */
   defaultValue?: Array<TreeNodeValue>;
   /**
+   * 选中值，组件为可选状态时有效
+   * @default []
+   */
+  modelValue?: Array<TreeNodeValue>;
+  /**
    * 选中值模式。all 表示父节点和子节点全部会出现在选中值里面；parentFirst 表示当子节点全部选中时，仅父节点在选中值里面；onlyLeaft 表示无论什么情况，选中值仅呈现叶子节点
    * @default onlyLeaf
    */
@@ -372,6 +377,10 @@ export interface TreeNodeModel<T extends TreeOptionData = TreeOptionData> extend
    */
   data: T;
   /**
+   * 禁用状态
+   */
+  disabled: boolean;
+  /**
    * 当前节点是否展开
    */
   expanded: boolean;
@@ -383,10 +392,6 @@ export interface TreeNodeModel<T extends TreeOptionData = TreeOptionData> extend
    * 当前节点是否处于加载中状态
    */
   loading: boolean;
-  /**
-   * 当前节点是否被禁用
-   */
-  disabled: boolean;
   /**
    * 追加子节点数据，泛型 `T` 表示树节点 TS 类型，继承 `TreeOptionData`
    */
