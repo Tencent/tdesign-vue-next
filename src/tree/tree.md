@@ -115,7 +115,8 @@ expanded | Boolean | - | 必需。当前节点是否展开 | Y
 indeterminate | Boolean | - | 必需。当前节点是否处于半选状态 | Y
 loading | Boolean | - | 必需。当前节点是否处于加载中状态 | Y
 `TreeNodeState` | \- | - | 继承 `TreeNodeState` 中的全部属性 | N
-### TreeNodeModel
+
+### TreeNodeModelFunctions
 
 名称 | 参数 | 返回值 | 描述
 -- | -- | -- | --

@@ -131,8 +131,8 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
    */
   function toggleExpandData(p: { row: TableRowData; rowIndex: number }, trigger?: 'expand-fold-icon' | 'row-click') {
     const currentData = { ...p };
-    if (p.row.__VIRTUAL_SCROLL_INDEX !== undefined) {
-      currentData.rowIndex = p.row.__VIRTUAL_SCROLL_INDEX;
+    if (p.row.VIRTUAL_SCROLL_INDEX !== undefined) {
+      currentData.rowIndex = p.row.VIRTUAL_SCROLL_INDEX;
     }
     dataSource.value = [...store.value.toggleExpandData(currentData, dataSource.value, rowDataKeys.value)];
     const rowValue = get(p.row, rowDataKeys.value.rowKey);

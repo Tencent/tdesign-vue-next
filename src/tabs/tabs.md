@@ -5,7 +5,7 @@
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
-action | String / Slot / Function | - | 【开发中】选项卡右侧的操作区域。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+action | String / Slot / Function | - | 选项卡右侧的操作区域。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 addable | Boolean | false | 选项卡是否可增加 | N
 disabled | Boolean | false | 是否禁用选项卡 | N
 dragSort | Boolean | false | 是否开启拖拽调整顺序 | N

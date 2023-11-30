@@ -113,8 +113,8 @@ export default defineComponent({
 
     const eventDeal = (name: 'keydown' | 'keyup' | 'keypress' | 'change', e: KeyboardEvent | FocusEvent) => {
       if (disabled.value) return;
-      const _name = `on${name[0].toUpperCase()}${name.slice(1)}`;
-      props[_name]?.(innerValue.value, { e });
+      const eventName = `on${name[0].toUpperCase()}${name.slice(1)}`;
+      props[eventName]?.(innerValue.value, { e });
     };
 
     const emitKeyDown = (e: KeyboardEvent) => {

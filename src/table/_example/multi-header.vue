@@ -26,6 +26,7 @@
       :filter-row="() => null"
       :header-affix-props="{ offsetTop: 0 }"
       :header-affixed-top="headerAffixedTop"
+      :scroll="{ type: 'virtual' }"
       lazy-load
       @data-change="onDataChange"
       @filter-change="onFilterChange"
@@ -43,7 +44,7 @@ const statusNameListMap = {
 };
 
 const initialData = [];
-for (let i = 0; i < 19; i++) {
+for (let i = 0; i < 1900; i++) {
   initialData.push({
     index: i + 1,
     applicant: ['贾明', '张三', '王芳'][i % 3],
