@@ -4,7 +4,7 @@ import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { TimeIcon as TdTimeIcon } from 'tdesign-icons-vue-next';
 
 import TimePickerPanel from './panel/time-picker-panel';
-import TSelectInput, { TdSelectInputProps } from '../select-input';
+import TSelectInput, { SelectInputBlurContext } from '../select-input';
 import { formatInputValue, validateInputValue } from '../_common/js/time-picker/utils';
 
 import type { InputProps } from '../input';
@@ -61,14 +61,14 @@ export default defineComponent({
       currentValue.value = value;
     };
 
-    const handleInputBlur = (value: string, { e }: { e: FocusEvent }) => {
+    const handleInputBlur = (value: string, context: SelectInputBlurContext) => {
       if (allowInput.value) {
         const isValidTime = validateInputValue(currentValue.value, format.value);
         if (isValidTime) {
           setInnerValue(formatInputValue(currentValue.value, format.value));
         }
       }
-      props.onBlur?.({ value, inputValue: value, e });
+      props.onBlur?.({ value, inputValue: context.inputValue, e: context.e });
     };
 
     const handleClickConfirm = () => {
