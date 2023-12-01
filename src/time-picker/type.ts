@@ -32,7 +32,6 @@ export interface TdTimePickerProps {
   ) => Partial<{ hour: Array<number>; minute: Array<number>; second: Array<number>; millisecond: Array<number> }>;
   /**
    * 是否禁用组件
-   * @default false
    */
   disabled?: boolean;
   /**
@@ -98,7 +97,7 @@ export interface TdTimePickerProps {
   /**
    * 当输入框失去焦点时触发，value 表示组件当前有效值
    */
-  onBlur?: (context: { value: TimePickerValue; e: FocusEvent }) => void;
+  onBlur?: (context: { value: TimePickerValue } & SelectInputBlurContext) => void;
   /**
    * 选中值发生变化时触发
    */

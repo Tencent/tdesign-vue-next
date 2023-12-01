@@ -61,14 +61,14 @@ export default defineComponent({
       currentValue.value = value;
     };
 
-    const handleInputBlur: TdSelectInputProps['onBlur'] = (value, { e }) => {
+    const handleInputBlur = (value: string, { e }: { e: FocusEvent }) => {
       if (allowInput.value) {
         const isValidTime = validateInputValue(currentValue.value, format.value);
         if (isValidTime) {
           setInnerValue(formatInputValue(currentValue.value, format.value));
         }
       }
-      props.onBlur?.({ value: String(value), e: e as FocusEvent });
+      props.onBlur?.({ value, inputValue: value, e });
     };
 
     const handleClickConfirm = () => {
@@ -121,6 +121,7 @@ export default defineComponent({
               onChange={handlePanelChange}
               hideDisabledTime={props.hideDisabledTime}
               handleConfirmClick={handleClickConfirm}
+              presets={props.presets}
             />
           )}
         />

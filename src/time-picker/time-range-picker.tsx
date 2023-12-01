@@ -15,7 +15,7 @@ import { TimeRangeValue } from './interface';
 import { TimeRangePickerPartial } from './type';
 // hooks
 import useVModel from '../hooks/useVModel';
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import { useCommonClassName, useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useFormDisabled } from '../form/hooks';
 
@@ -29,7 +29,7 @@ export default defineComponent({
   setup(props) {
     const componentName = usePrefixClass('time-range-picker');
     const { globalConfig } = useConfig('timePicker');
-    const { classPrefix } = useConfig('classPrefix');
+    const { STATUS } = useCommonClassName();
     const { TimeIcon } = useGlobalIcon({ TimeIcon: TdTimeIcon });
 
     const disabled = useFormDisabled();
@@ -40,7 +40,7 @@ export default defineComponent({
     const inputClasses = computed(() => [
       `${componentName.value}__group`,
       {
-        [`${classPrefix.value}-is-focused`]: isShowPanel.value,
+        [STATUS.value.focused]: isShowPanel.value,
       },
     ]);
     const { value, modelValue, allowInput, format } = toRefs(props);
@@ -161,17 +161,23 @@ export default defineComponent({
           tips={props.tips}
           panel={() => (
             <TimePickerPanel
-              steps={props.steps}
-              format={format.value}
-              isShowPanel={isShowPanel.value}
-              disableTime={props.disableTime}
-              hideDisabledTime={props.hideDisabledTime}
-              isFooterDisplay={true}
-              value={currentValue.value[currentPanelIdx.value || 0]}
-              onChange={handleTimeChange}
-              onPick={handleOnPick}
-              handleConfirmClick={handleClickConfirm}
-              position={currentPanelIdx.value === 0 ? 'start' : 'end'}
+              {...{
+                props: {
+                  steps: props.steps,
+                  format: format.value,
+                  isShowPanel: isShowPanel.value,
+                  disableTime: props.disableTime,
+                  hideDisabledTime: props.hideDisabledTime,
+                  isFooterDisplay: true,
+                  value: currentValue.value[currentPanelIdx.value || 0],
+                  onChange: handleTimeChange,
+                  onPick: handleOnPick,
+                  handleConfirmClick: handleClickConfirm,
+                  position: currentPanelIdx.value === 0 ? 'start' : 'end',
+                  activeIndex: currentPanelIdx.value,
+                  presets: props.presets,
+                },
+              }}
             />
           )}
         />
