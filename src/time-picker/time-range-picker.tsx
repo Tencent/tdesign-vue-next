@@ -161,23 +161,19 @@ export default defineComponent({
           tips={props.tips}
           panel={() => (
             <TimePickerPanel
-              {...{
-                props: {
-                  steps: props.steps,
-                  format: format.value,
-                  isShowPanel: isShowPanel.value,
-                  disableTime: props.disableTime,
-                  hideDisabledTime: props.hideDisabledTime,
-                  isFooterDisplay: true,
-                  value: currentValue.value[currentPanelIdx.value || 0],
-                  onChange: handleTimeChange,
-                  onPick: handleOnPick,
-                  handleConfirmClick: handleClickConfirm,
-                  position: currentPanelIdx.value === 0 ? 'start' : 'end',
-                  activeIndex: currentPanelIdx.value,
-                  presets: props.presets,
-                },
-              }}
+              steps={props.steps}
+              format={format.value}
+              isShowPanel={isShowPanel.value}
+              disableTime={props.disableTime}
+              hideDisabledTime={props.hideDisabledTime}
+              isFooterDisplay={true}
+              value={currentValue.value[currentPanelIdx.value || 0]}
+              onChange={handleTimeChange}
+              onPick={handleOnPick}
+              handleConfirmClick={handleClickConfirm}
+              position={currentPanelIdx.value === 0 ? 'start' : 'end'}
+              activeIndex={currentPanelIdx.value}
+              presets={props.presets}
             />
           )}
         />

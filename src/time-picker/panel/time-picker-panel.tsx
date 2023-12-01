@@ -120,7 +120,7 @@ export default defineComponent({
                   theme="primary"
                   size="small"
                   variant="text"
-                  onClick={() => handlePresetClick?.(props.presets[key])}
+                  onClick={() => handlePresetClick(props.presets[key])}
                 >
                   {key}
                 </TButton>
