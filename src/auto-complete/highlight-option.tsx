@@ -1,6 +1,7 @@
 import { computed, defineComponent } from 'vue';
 import { usePrefixClass } from '../hooks/useConfig';
 import isString from 'lodash/isString';
+import escapeRegExp from 'lodash/escapeRegExp';
 
 export default defineComponent({
   name: 'HighlightOption',
@@ -18,7 +19,7 @@ export default defineComponent({
       const { content, keyword } = props;
       if (!content) return { list: [] };
       if (!isString(content) || !keyword) return { list: [content] };
-      const regExp = new RegExp(keyword, 'i');
+      const regExp = new RegExp(escapeRegExp(keyword), 'i');
       const splitKeyword = content.match(regExp)?.[0];
       return {
         list: content.split(splitKeyword),
