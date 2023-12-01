@@ -62,6 +62,7 @@ export default function useTreeAction(state: TypeTreeState) {
       evtCtx.trigger = 'node-click';
     }
     const actived = node.setActived(isActived, {
+      isAction: evtCtx.trigger === 'node-click',
       directly: true,
     });
     setTActived(actived, evtCtx);
@@ -88,6 +89,7 @@ export default function useTreeAction(state: TypeTreeState) {
       evtCtx.trigger = 'node-click';
     }
     const checked = node.setChecked(isChecked, {
+      isAction: evtCtx.trigger === 'node-click',
       directly: true,
     });
     setTValue(checked, evtCtx);
@@ -100,6 +102,10 @@ export default function useTreeAction(state: TypeTreeState) {
 
   const toggleChecked = (item: TypeTargetNode, ctx: { e: Event }): TreeNodeValue[] => {
     const node = getNode(store, item);
+    if (node.isIndeterminate()) {
+      const expectState = node.hasEnableUnCheckedChild();
+      return setChecked(node, expectState, ctx);
+    }
     return setChecked(node, !node.isChecked(), ctx);
   };
 

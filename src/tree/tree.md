@@ -110,6 +110,7 @@ visible | Boolean | false | 节点是否可视 | N
 actived | Boolean | - | 必需。当前节点是否处于高亮激活态 | Y
 checked | Boolean | - | 必需。当前节点是否被选中 | Y
 data | Object | - | 必需。节点数据，泛型 `T` 表示树节点 TS 类型，继承 `TreeOptionData`。TS 类型：`T` | Y
+disabled | Boolean | - | 必需。禁用状态 | Y
 expanded | Boolean | - | 必需。当前节点是否展开 | Y
 indeterminate | Boolean | - | 必需。当前节点是否处于半选状态 | Y
 loading | Boolean | - | 必需。当前节点是否处于加载中状态 | Y
