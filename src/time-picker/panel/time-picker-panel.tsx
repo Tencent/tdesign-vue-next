@@ -7,7 +7,7 @@ import { panelProps } from './props';
 import SinglePanel from './single-panel';
 import TButton from '../../button/button';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
-import { TimePickerValue } from '../type';
+import { TimePickerValue, TimeRangeValue } from '../type';
 import log from '../../_common/js/log';
 
 dayjs.extend(customParseFormat);
@@ -52,7 +52,9 @@ export default defineComponent({
     const resetTriggerScroll = () => {
       triggerScroll.value = false;
     };
-    const handlePresetClick = (presetValue: TimePickerValue | (() => TimePickerValue)) => {
+    const handlePresetClick = (
+      presetValue: TimePickerValue | (() => TimePickerValue) | TimeRangeValue | (() => TimeRangeValue),
+    ) => {
       const presetVal = typeof presetValue === 'function' ? presetValue() : presetValue;
       if (typeof props.activeIndex === 'number') {
         if (Array.isArray(presetVal)) {
