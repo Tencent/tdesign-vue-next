@@ -18,7 +18,7 @@
       <span>readonly control:</span>
       <t-checkbox :checked="readonly" @change="(value) => readonly = value" />
     </t-space>
-    <!-- 自定义折叠项内容，collapsedItems 为渲染函数 (value, count, collapsedSelectedItems) -->
+    <!-- 自定义折叠项内容，collapsedItems 为渲染函数 -->
     <t-select
       v-model="value"
       :options="options"
@@ -30,7 +30,7 @@
       :readonly="readonly"
     />
 
-    <!-- 自定义折叠项内容，collapsedItems 为 插槽(slot) { value, count, collapsedSelectedItems }-->
+    <!-- 自定义折叠项内容，collapsedItems 为 插槽(slot) -->
     <t-select
       v-model="value"
       :options="options"

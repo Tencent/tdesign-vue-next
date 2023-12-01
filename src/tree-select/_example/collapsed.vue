@@ -12,16 +12,6 @@
       :min-collapsed-num="1"
     >
     </t-tree-select>
-    <t-tree-select
-      v-model="value"
-      :data="options"
-      class="demo-space"
-      multiple
-      clearable
-      placeholder="请选择"
-      :min-collapsed-num="1"
-    >
-    </t-tree-select>
 
     <h3>use collapsedItems: </h3>
     <t-space>
