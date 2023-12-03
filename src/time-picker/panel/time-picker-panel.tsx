@@ -100,7 +100,7 @@ export default defineComponent({
               theme="primary"
               variant="base"
               disabled={!props.value}
-              onClick={() => props.handleConfirmClick(defaultValue.value)}
+              onClick={() => props.handleConfirmClick?.(defaultValue.value)}
               size="small"
             >
               {globalConfig.value.confirm}
@@ -110,7 +110,7 @@ export default defineComponent({
                 theme="primary"
                 variant="text"
                 size="small"
-                onClick={() => props.onChange(dayjs().format(props.format))}
+                onClick={() => props.onChange?.(dayjs().format(props.format))}
               >
                 {globalConfig.value.now}
               </TButton>

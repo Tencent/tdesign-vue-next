@@ -51,7 +51,7 @@ export default defineComponent({
     const colsRef = reactive({ 0: null, 1: null, 2: null, 3: null, 4: null, 5: null });
 
     const dayjsValue = computed(() => {
-      const isStepsSet = !!steps.value.filter((v) => v > 1).length;
+      const isStepsSet = !!steps.value.filter((step) => Number(step) > 1).length;
 
       if (value.value) return dayjs(value.value, format.value);
 
@@ -271,9 +271,9 @@ export default defineComponent({
       } else {
         const currentHour = dayjsValue.value.hour();
         if (el === AM && currentHour >= 12) {
-          props.onChange(dayjsValue.value.hour(currentHour - 12).format(format.value), e);
+          props.onChange?.(dayjsValue.value.hour(currentHour - 12).format(format.value), e);
         } else if (el === PM && currentHour < 12) {
-          props.onChange(dayjsValue.value.hour(currentHour + 12).format(format.value), e);
+          props.onChange?.(dayjsValue.value.hour(currentHour + 12).format(format.value), e);
         }
       }
     };
@@ -281,7 +281,7 @@ export default defineComponent({
     // update each columns scroll distance
     const updateTimeScrollPos = (isAutoScroll = false) => {
       const behavior = value.value && !isAutoScroll ? 'smooth' : 'auto';
-      const isStepsSet = !!steps.value.filter((v) => v > 1).length;
+      const isStepsSet = !!steps.value.filter((step) => Number(step) > 1).length;
       nextTick(() => {
         cols.value.forEach((col: EPickerCols, idx: number) => {
           if (!isStepsSet || (isStepsSet && value.value)) {
