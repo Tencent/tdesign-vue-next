@@ -28,7 +28,7 @@ export default defineComponent({
     const triggerScroll = ref(false);
     const panelRef = ref();
     const { globalConfig } = useConfig('timePicker');
-    const showNowTimeBtn = computed(() => !!steps.value.filter((v) => Number(v) > 1).length);
+    const showNowTimeBtn = computed(() => !!steps.value.filter((step) => Number(step) > 1).length);
 
     const defaultValue = computed(() => {
       const isStepsSet = showNowTimeBtn.value;
@@ -58,12 +58,12 @@ export default defineComponent({
       const presetVal = typeof presetValue === 'function' ? presetValue() : presetValue;
       if (typeof props.activeIndex === 'number') {
         if (Array.isArray(presetVal)) {
-          props.onChange(presetVal[props.activeIndex]);
+          props.onChange?.(presetVal[props.activeIndex]);
         } else {
           log.error('TimePicker', `preset: ${props.presets} 预设值必须是数组!`);
         }
       } else {
-        props.onChange(presetVal);
+        props.onChange?.(presetVal);
       }
     };
 
