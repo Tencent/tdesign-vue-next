@@ -26,7 +26,7 @@ export default defineComponent({
 
   setup(props) {
     const { globalConfig } = useConfig('timePicker');
-    const componentName = usePrefixClass('time-picker');
+    const COMPONENT_NAME = usePrefixClass('time-picker');
     const { STATUS } = useCommonClassName();
     const { TimeIcon } = useGlobalIcon({ TimeIcon: TdTimeIcon });
 
@@ -40,7 +40,7 @@ export default defineComponent({
     const { allowInput, format } = toRefs(props);
 
     const inputClasses = computed(() => [
-      `${componentName.value}__group`,
+      `${COMPONENT_NAME.value}__group`,
       {
         [STATUS.value.focused]: isShowPanel.value,
       },
@@ -91,7 +91,7 @@ export default defineComponent({
     );
 
     return () => (
-      <div class={componentName.value}>
+      <div class={COMPONENT_NAME.value}>
         <TSelectInput
           onFocus={props.onFocus}
           onClear={handleClear}

@@ -27,7 +27,7 @@ export default defineComponent({
   props: { ...props, rangeInputProps: Object, popupProps: Object },
 
   setup(props) {
-    const componentName = usePrefixClass('time-range-picker');
+    const COMPONENT_NAME = usePrefixClass('time-range-picker');
     const { globalConfig } = useConfig('timePicker');
     const { STATUS } = useCommonClassName();
     const { TimeIcon } = useGlobalIcon({ TimeIcon: TdTimeIcon });
@@ -38,7 +38,7 @@ export default defineComponent({
     const isShowPanel = ref(false);
 
     const inputClasses = computed(() => [
-      `${componentName.value}__group`,
+      `${COMPONENT_NAME.value}__group`,
       {
         [STATUS.value.focused]: isShowPanel.value,
       },
@@ -128,7 +128,7 @@ export default defineComponent({
     );
 
     return () => (
-      <div class={componentName.value}>
+      <div class={COMPONENT_NAME.value}>
         <RangeInputPopup
           disabled={disabled.value}
           popupVisible={isShowPanel.value}

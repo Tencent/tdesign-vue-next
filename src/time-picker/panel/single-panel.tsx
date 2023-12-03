@@ -39,7 +39,7 @@ export default defineComponent({
 
   setup(props) {
     const { globalConfig } = useConfig('timePicker');
-    const panelClassName = usePrefixClass('time-picker__panel');
+    const COMPONENT_NAME = usePrefixClass('time-picker__panel');
     const { STATUS } = useCommonClassName();
 
     const { steps, value, format, position, triggerScroll } = toRefs(props);
@@ -314,8 +314,8 @@ export default defineComponent({
     };
 
     return () => (
-      <div class={`${panelClassName.value}-body`} ref={bodyRef}>
-        <div class={`${panelClassName.value}-body-active-mask`} ref={maskRef}>
+      <div class={`${COMPONENT_NAME.value}-body`} ref={bodyRef}>
+        <div class={`${COMPONENT_NAME.value}-body-active-mask`} ref={maskRef}>
           {/* 渲染遮罩层 */}
           {cols.value.map?.((col, idx) => (
             <div key={`${col}_${idx}`} />
@@ -326,14 +326,14 @@ export default defineComponent({
           <ul
             key={`${col}_${idx}`}
             ref={(el) => (colsRef[idx] = el)}
-            class={`${panelClassName.value}-body-scroll`}
+            class={`${COMPONENT_NAME.value}-body-scroll`}
             onScroll={debounce((e) => handleScroll(col, idx, e), 50)}
           >
             {getColList(col).map((el) => (
               <li
                 key={el}
                 class={[
-                  `${panelClassName.value}-body-scroll-item`,
+                  `${COMPONENT_NAME.value}-body-scroll-item`,
                   {
                     [STATUS.value.disabled]: !timeItemCanUsed(col, el),
                     [STATUS.value.current]: isCurrent(col, el),

@@ -23,11 +23,11 @@ export default defineComponent({
   },
 
   setup(props) {
-    const panelClassName = usePrefixClass('time-picker__panel');
+    const { globalConfig } = useConfig('timePicker');
+    const COMPONENT_NAME = usePrefixClass('time-picker__panel');
     const { steps, isFooterDisplay, isShowPanel } = toRefs(props);
     const triggerScroll = ref(false);
     const panelRef = ref();
-    const { globalConfig } = useConfig('timePicker');
     const showNowTimeBtn = computed(() => !!steps.value.filter((step) => Number(step) > 1).length);
 
     const defaultValue = computed(() => {
@@ -80,8 +80,8 @@ export default defineComponent({
     );
 
     return () => (
-      <div class={panelClassName.value}>
-        <div class={`${panelClassName.value}-section-body`}>
+      <div class={COMPONENT_NAME.value}>
+        <div class={`${COMPONENT_NAME.value}-section-body`}>
           <SinglePanel
             {...props}
             ref={panelRef}
@@ -95,7 +95,7 @@ export default defineComponent({
           />
         </div>
         {isFooterDisplay.value ? (
-          <div class={`${panelClassName.value}-section-footer`}>
+          <div class={`${COMPONENT_NAME.value}-section-footer`}>
             <TButton
               theme="primary"
               variant="base"
