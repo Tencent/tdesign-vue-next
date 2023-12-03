@@ -14,7 +14,7 @@ import props from './props';
 // hooks
 import useVModel from '../hooks/useVModel';
 import { useFormDisabled } from '../form/hooks';
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import { useCommonClassName, useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 
 dayjs.extend(customParseFormat);
@@ -25,23 +25,24 @@ export default defineComponent({
   props: { ...props },
 
   setup(props) {
+    const { globalConfig } = useConfig('timePicker');
+    const componentName = usePrefixClass('time-picker');
+    const { STATUS } = useCommonClassName();
+    const { TimeIcon } = useGlobalIcon({ TimeIcon: TdTimeIcon });
+
     const currentValue = ref('');
     const isShowPanel = ref(false);
-    const { globalConfig } = useConfig('timePicker');
-    const { TimeIcon } = useGlobalIcon({ TimeIcon: TdTimeIcon });
+
     const { value, modelValue } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
 
     const disabled = useFormDisabled();
     const { allowInput, format } = toRefs(props);
-    const { classPrefix } = useConfig('classPrefix');
-
-    const componentName = usePrefixClass('time-picker');
 
     const inputClasses = computed(() => [
       `${componentName.value}__group`,
       {
-        [`${classPrefix.value}-is-focused`]: isShowPanel.value,
+        [STATUS.value.focused]: isShowPanel.value,
       },
     ]);
 
