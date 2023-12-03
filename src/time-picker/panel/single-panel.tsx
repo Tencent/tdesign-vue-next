@@ -15,7 +15,7 @@ import {
   MERIDIEM_LIST,
 } from '../../_common/js/time-picker/const';
 import { closestLookup } from '../../_common/js/time-picker/utils';
-import { useConfig } from '../../hooks/useConfig';
+import { useCommonClassName, useConfig, usePrefixClass } from '../../hooks/useConfig';
 
 dayjs.extend(customParseFormat);
 
@@ -38,11 +38,11 @@ export default defineComponent({
   },
 
   setup(props) {
-    const { steps, value, format, position, triggerScroll } = toRefs(props);
-
     const { globalConfig } = useConfig('timePicker');
+    const panelClassName = usePrefixClass('time-picker__panel');
+    const { STATUS } = useCommonClassName();
 
-    const { classPrefix } = useConfig();
+    const { steps, value, format, position, triggerScroll } = toRefs(props);
 
     const cols = ref<Array<EPickerCols>>([]);
     const bodyRef = ref();
@@ -59,8 +59,6 @@ export default defineComponent({
 
       return dayjs();
     });
-
-    const panelClassName = computed(() => `${classPrefix.value}-time-picker__panel`);
 
     // 面板打开时 触发滚动 初始化面板
     watch(
@@ -337,8 +335,8 @@ export default defineComponent({
                 class={[
                   `${panelClassName.value}-body-scroll-item`,
                   {
-                    [`${classPrefix.value}-is-disabled`]: !timeItemCanUsed(col, el),
-                    [`${classPrefix.value}-is-current`]: isCurrent(col, el),
+                    [STATUS.value.disabled]: !timeItemCanUsed(col, el),
+                    [STATUS.value.current]: isCurrent(col, el),
                   },
                 ]}
                 onClick={(e) => handleTimeItemClick(col, el, idx, e)}
