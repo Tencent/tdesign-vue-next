@@ -40,7 +40,7 @@ export default function useTreeAction(state: TypeTreeState) {
     });
     setTExpanded(expanded, evtCtx);
     if (evtCtx.trigger !== 'setItem') {
-      store.replaceExpanded(tExpanded.value as TreeNodeValue[]);
+      store.replaceExpanded((tExpanded.value || []) as TreeNodeValue[]);
     }
     return expanded;
   };
@@ -67,7 +67,7 @@ export default function useTreeAction(state: TypeTreeState) {
     });
     setTActived(actived, evtCtx);
     if (evtCtx.trigger !== 'setItem') {
-      store.replaceActived(tActived.value as TreeNodeValue[]);
+      store.replaceActived((tActived.value || []) as TreeNodeValue[]);
     }
     return actived;
   };
@@ -95,7 +95,7 @@ export default function useTreeAction(state: TypeTreeState) {
     setTValue(checked, evtCtx);
     // 这是针对受控执行的操作，如果 props.value 未变更，则执行还原操作
     if (evtCtx.trigger !== 'setItem') {
-      store.replaceChecked(tValue.value as TreeNodeValue[]);
+      store.replaceChecked((tValue.value || []) as TreeNodeValue[]);
     }
     return checked;
   };
