@@ -184,34 +184,29 @@ export default function useTreeStore(state: TypeTreeState) {
     store.emitter.on('update', expandFilterPath);
   }
 
-  // 设置属性监听
-  function setPropWatch(refProp: TypeRef<TreeNodeValue[]>, methodName: string) {
-    const propOnChange = (nVal: TreeNodeValue[]) => {
-      store[methodName](nVal);
-    };
-    let propUnwatch: VoidFunction = null;
-    watch(refProp, (nVal: TreeNodeValue[]) => {
-      propOnChange(nVal);
-      if (propUnwatch) propUnwatch();
-      if (Array.isArray(refProp.value)) {
-        // 监听数组变更
-        propUnwatch = watch(() => [...refProp.value], propOnChange);
-      }
-    });
-    if (Array.isArray(refProp.value)) {
-      // 监听数组变更
-      propUnwatch = watch(() => [...refProp.value], propOnChange);
-    }
-  }
-
   // 初始化 store
   initStore();
   // 设置初始化状态
   state.setStore(store);
   // 配置属性监听
-  setPropWatch(tValue, 'replaceChecked');
-  setPropWatch(tExpanded, 'replaceExpanded');
-  setPropWatch(tActived, 'replaceActived');
+  watch(
+    () => [...(tValue.value || [])],
+    (nVal: TreeNodeValue[]) => {
+      store.replaceChecked(nVal);
+    },
+  );
+  watch(
+    () => [...(tExpanded.value || [])],
+    (nVal: TreeNodeValue[]) => {
+      store.replaceExpanded(nVal);
+    },
+  );
+  watch(
+    () => [...(tActived.value || [])],
+    (nVal: TreeNodeValue[]) => {
+      store.replaceActived(nVal);
+    },
+  );
 
   watch(refProps.filter, (nVal, previousVal) => {
     checkFilterExpand(nVal, previousVal);
