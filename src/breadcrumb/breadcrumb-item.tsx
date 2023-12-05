@@ -99,7 +99,6 @@ export default defineComponent({
             e.stopPropagation();
             return;
           }
-          (props as any).onClick?.({ e });
         },
       };
       const textContent = (
