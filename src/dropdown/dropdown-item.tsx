@@ -31,6 +31,7 @@ export default defineComponent({
     const prefixIcon = renderTNodeJSX('prefixIcon');
     const dropdownItemClass = usePrefixClass('dropdown__item');
     const handleItemClick = (e: MouseEvent) => {
+      if (props.disabled) return;
       props.onClick?.(props.value, {
         e,
       });
