@@ -46,7 +46,7 @@ export default defineComponent({
     onDragSort: tabProps.onDragSort,
   },
   setup(props) {
-    const COMPONENT_NAME = usePrefixClass('tabs');
+    const componentName = usePrefixClass('tabs');
     const { ChevronLeftIcon, ChevronRightIcon, AddIcon } = useGlobalIcon({
       ChevronLeftIcon: TdChevronLeftIcon,
       ChevronRightIcon: TdChevronRightIcon,
@@ -69,6 +69,7 @@ export default defineComponent({
     const rightOperationsRef = ref();
     const toRightBtnRef = ref();
     const activeTabRef = ref();
+
     const getRefs = () => ({
       navsContainer: navsContainerRef.value,
       navsWrap: navsWrapRef.value,
@@ -95,47 +96,47 @@ export default defineComponent({
     // class
     const iconBaseClass = computed(() => {
       return {
-        [`${COMPONENT_NAME.value}__btn`]: true,
+        [`${componentName.value}__btn`]: true,
         [SIZE.value.medium]: props.size === 'medium',
         [SIZE.value.large]: props.size === 'large',
       };
     });
     const leftIconClass = computed(() => {
       return {
-        [`${COMPONENT_NAME.value}__btn--left`]: true,
+        [`${componentName.value}__btn--left`]: true,
         ...iconBaseClass.value,
       };
     });
     const rightIconClass = computed(() => {
       return {
-        [`${COMPONENT_NAME.value}__btn--right`]: true,
+        [`${componentName.value}__btn--right`]: true,
         ...iconBaseClass.value,
       };
     });
     const addIconClass = computed(() => {
       return {
-        [`${COMPONENT_NAME.value}__add-btn`]: true,
+        [`${componentName.value}__add-btn`]: true,
         ...iconBaseClass.value,
       };
     });
     const navContainerClass = computed(() => {
       return {
-        [`${COMPONENT_NAME.value}__nav-container`]: true,
-        [`${COMPONENT_NAME.value}__nav--card`]: props.theme === 'card',
+        [`${componentName.value}__nav-container`]: true,
+        [`${componentName.value}__nav--card`]: props.theme === 'card',
         [`${classPrefix.value}-is-${props.placement}`]: true,
         [`${classPrefix.value}-is-addable`]: props.addable,
       };
     });
     const navScrollContainerClass = computed(() => {
       return {
-        [`${COMPONENT_NAME.value}__nav-scroll`]: true,
+        [`${componentName.value}__nav-scroll`]: true,
         [`${classPrefix.value}-is-scrollable`]: canToLeft.value || canToRight.value,
       };
     });
 
     const navsWrapClass = computed(() => {
       return [
-        `${COMPONENT_NAME.value}__nav-wrap`,
+        `${componentName.value}__nav-wrap`,
         `${classPrefix.value}-is-smooth`,
         { [`${classPrefix.value}-is-vertical`]: isVerticalPlacement.value },
       ];
@@ -152,21 +153,26 @@ export default defineComponent({
 
     // life times
     useResize(debounce(totalAdjust), navsContainerRef.value);
+
     onMounted(() => {
-      totalAdjust();
       calculateMountedScrollLeft();
+      totalAdjust();
     });
 
     // calculate scroll left after mounted
     const calculateMountedScrollLeft = () => {
       if (isVerticalPlacement.value) return;
+      setTimeout(() => {
+        const container = navsContainerRef.value;
+        const activeTabEl = activeTabRef.value;
+        const leftBtnWidth = container.querySelector('.t-tabs__btn').offsetWidth;
+        const totalWidthBeforeActiveTab = activeTabEl?.offsetLeft;
 
-      const container = navsContainerRef.value;
-      const activeTabEl = activeTabRef.value;
-      const totalWidthBeforeActiveTab = activeTabEl?.offsetLeft;
-      const containerWidth = container.offsetWidth || 0;
-      if (totalWidthBeforeActiveTab > containerWidth) scrollLeft.value = totalWidthBeforeActiveTab;
+        const containerWidth = container.offsetWidth || 0;
+        if (totalWidthBeforeActiveTab > containerWidth) scrollLeft.value = totalWidthBeforeActiveTab - leftBtnWidth;
+      });
     };
+
     // methods
     const adjustScrollLeft = () => {
       scrollLeft.value = calcScrollLeft(getRefs(), scrollLeft.value);
@@ -256,7 +262,7 @@ export default defineComponent({
       return [
         <div
           ref={leftOperationsRef}
-          class={[`${COMPONENT_NAME.value}__operations`, `${COMPONENT_NAME.value}__operations--left`]}
+          class={[`${componentName.value}__operations`, `${componentName.value}__operations--left`]}
         >
           <Transition name="fade" mode="out-in" appear>
             {canToLeft.value ? (
@@ -268,7 +274,7 @@ export default defineComponent({
         </div>,
         <div
           ref={rightOperationsRef}
-          class={[`${COMPONENT_NAME.value}__operations`, `${COMPONENT_NAME.value}__operations--right`]}
+          class={[`${componentName.value}__operations`, `${componentName.value}__operations--right`]}
         >
           <Transition name="fade" mode="out-in" appear>
             {canToRight.value ? (
@@ -303,7 +309,7 @@ export default defineComponent({
 
     return () => {
       return (
-        <div ref={navsContainerRef} class={[`${COMPONENT_NAME.value}__nav`]} style={navsContainerStyle.value}>
+        <div ref={navsContainerRef} class={[`${componentName.value}__nav`]} style={navsContainerStyle.value}>
           {renderArrows()}
           {renderNavs()}
         </div>
