@@ -165,8 +165,8 @@ export default defineComponent({
 
       const container = navsContainerRef.value;
       const activeTabEl = activeTabRef.value;
-      const activeTabWidth = activeTabEl.offsetWidth || 0;
-      const containerWidth = container.offsetWidth || 0;
+      const activeTabWidth = activeTabEl?.offsetWidth || 0;
+      const containerWidth = container?.offsetWidth || 0;
 
       const activeElIndex = Array.prototype.indexOf.call(navsWrapRef.value.children, activeTabEl); // index of the active tab
 

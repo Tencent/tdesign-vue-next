@@ -1,5 +1,5 @@
 <template>
-  <t-space direction="vertical" style="width: 825px" size="32px">
+  <t-space direction="vertical" style="width: 100%" size="32px">
     <t-space>
       <t-radio-group v-model="theme" variant="default-filled">
         <t-radio-button value="normal">常规型</t-radio-button>
