@@ -1,4 +1,4 @@
-import { computed, defineComponent, ref, toRefs, Teleport, watch, Transition } from 'vue';
+import { computed, defineComponent, ref, toRefs, Teleport, watch, Transition, nextTick } from 'vue';
 import { ChevronLeftIcon, ChevronDownIcon, CloseIcon } from 'tdesign-icons-vue-next';
 
 import props from './props';
@@ -96,6 +96,8 @@ export default defineComponent({
     };
 
     const keydownHandler = (e: KeyboardEvent) => {
+      e.stopPropagation();
+
       switch (e.code) {
         case EVENT_CODE.left:
           prevImage();
@@ -119,20 +121,22 @@ export default defineComponent({
       }
     };
 
+    const divRef = ref<HTMLDivElement>();
     watch(
       () => visibleValue.value,
       (val) => {
         clearTimeout(animationTimer.value);
         if (val) {
           animationEnd.value = false;
-          window.addEventListener('keydown', keydownHandler);
+          nextTick().then(() => {
+            divRef.value?.focus?.();
+          });
 
           onRest();
         } else {
           animationTimer.value = setTimeout(() => {
             animationEnd.value = true;
           }, 200);
-          window.removeEventListener('keydown', keydownHandler);
         }
       },
     );
@@ -246,10 +250,13 @@ export default defineComponent({
             <Transition>
               {(visibleValue.value || !animationEnd.value) && (
                 <div
+                  ref={divRef}
                   v-show={visibleValue.value}
                   class={wrapClass.value}
                   style={{ zIndex: zIndexValue.value }}
                   onWheel={onWheel}
+                  tabindex={-1}
+                  onKeydown={keydownHandler}
                 >
                   {!!showOverlayValue.value && (
                     <div class={`${COMPONENT_NAME.value}__modal-mask`} onClick={clickOverlayHandler} />
