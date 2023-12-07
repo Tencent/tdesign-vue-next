@@ -110,8 +110,19 @@ export default defineComponent({
         } else {
           const foldedStart = isMidEllipsis.value ? 2 : 1;
           const foldedEnd = isMidEllipsis.value ? pageCount.value - 1 : pageCount.value;
-          start = isPrevMoreShow.value ? pageCount.value - props.foldedMaxPageBtn + 1 : foldedStart;
-          end = isPrevMoreShow.value ? foldedEnd : props.foldedMaxPageBtn;
+          if (isPrevMoreShow.value) {
+            // 保证前面还有一页展示
+            start = Math.min(innerCurrent.value - 1, pageCount.value - props.foldedMaxPageBtn + 1);
+          } else {
+            start = foldedStart;
+          }
+
+          if (isNextMoreShow.value) {
+            // 保证后面还有一页展示
+            end = Math.max(innerCurrent.value + 1, props.foldedMaxPageBtn);
+          } else {
+            end = foldedEnd;
+          }
         }
       } else {
         start = 1;
@@ -168,8 +179,8 @@ export default defineComponent({
       const pageChangeMap = {
         prevPage: () => toPage(innerCurrent.value - 1),
         nextPage: () => toPage(innerCurrent.value + 1),
-        prevMorePage: () => toPage(innerCurrent.value - props.foldedMaxPageBtn),
-        nextMorePage: () => toPage(innerCurrent.value + props.foldedMaxPageBtn),
+        prevMorePage: () => toPage(Math.max(2, innerCurrent.value - props.foldedMaxPageBtn)),
+        nextMorePage: () => toPage(Math.min(innerCurrent.value + props.foldedMaxPageBtn, pageCount.value - 1)),
       };
 
       pageChangeMap[type]();
