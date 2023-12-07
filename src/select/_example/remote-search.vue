@@ -4,10 +4,10 @@
       v-model="value"
       filterable
       placeholder="请选择"
-      :on-search="remoteMethod"
       :loading="loading"
       :options="options"
       style="width: 200px; display: inline-block; margin: 0 20px 20px 0"
+      @search="remoteMethod"
     />
     <t-select
       v-model="value2"
@@ -44,16 +44,16 @@ const remoteMethod = (search) => {
       loading.value = false;
       options.value = [
         {
-          value: `${search}_test1`,
-          label: `${search}_test1`,
+          value: `腾讯_test1`,
+          label: `腾讯_test1`,
         },
         {
-          value: `${search}_test2`,
-          label: `${search}_test2`,
+          value: `腾讯_test2`,
+          label: `腾讯_test2`,
         },
         {
-          value: `${search}_test3`,
-          label: `${search}_test3`,
+          value: `腾讯_test3`,
+          label: `腾讯_test3`,
         },
       ];
     }, 500);
