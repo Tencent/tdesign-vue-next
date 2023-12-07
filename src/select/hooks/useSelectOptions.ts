@@ -106,6 +106,8 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inpu
   });
 
   const displayOptions = computed(() => {
+    if (props.onSearch && props.filterable) return options.value; // 远程搜索时，不执行内部的过滤，不干预用户的自行处理，如输入首字母搜索中文的场景等
+
     if (!inputValue.value || !(props.filterable || isFunction(props.filter))) return options.value;
 
     const filterMethods = (option: SelectOption) => {
