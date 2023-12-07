@@ -120,11 +120,6 @@ export default defineComponent({
     };
 
     watch(
-      () => props.imageScale,
-      () => resetScale(),
-    );
-
-    watch(
       () => visibleValue.value,
       (val) => {
         clearTimeout(animationTimer.value);

@@ -1,5 +1,5 @@
 import { positiveSubtract, positiveAdd } from '../_common/js/input-number/number';
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import { ImageScale } from './type';
 
 interface InitTransform {
@@ -73,6 +73,11 @@ export function useScale(imageScale: ImageScale = { max: 2, min: 0.5, step: 0.5 
     }
     scale.value = value;
   };
+
+  watch(
+    () => imageScale,
+    () => resetScale(),
+  );
 
   return { scale, onZoomIn, onZoomOut, resetScale };
 }
