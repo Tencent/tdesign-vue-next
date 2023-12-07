@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils';
 import Tree from '@/src/tree/index.ts';
 import { delay } from './kit';
+import { ref } from './adapt';
 
 describe('Tree:expand', () => {
   vi.useRealTimers();
@@ -148,6 +149,58 @@ describe('Tree:expand', () => {
       expect(t1d1.classes('t-tree__item--visible')).toBe(true);
 
       const t2d1 = wrapper.find('[data-value="t2.1"]');
+      expect(t2d1.exists()).toBe(true);
+      expect(t2d1.classes('t-tree__item--visible')).toBe(false);
+      expect(t2d1.classes('t-tree__item--hidden')).toBe(true);
+    });
+
+    it('操作 expanded 数组可变更展开节点', async () => {
+      const data = [
+        {
+          value: 't1',
+          children: [
+            {
+              value: 't1.1',
+            },
+          ],
+        },
+        {
+          value: 't2',
+          children: [
+            {
+              value: 't2.1',
+            },
+          ],
+        },
+      ];
+      const refExpanded = ref(['t2']);
+      const wrapper = mount({
+        render() {
+          return <Tree data={data} expanded={refExpanded.value} transition={false}></Tree>;
+        },
+      });
+
+      expect(wrapper.find('[data-value="t1.1"]').exists()).toBe(false);
+      expect(wrapper.find('[data-value="t2.1"]').exists()).toBe(true);
+
+      await delay(1);
+
+      let t1d1 = wrapper.find('[data-value="t1.1"]');
+      const t2d1 = wrapper.find('[data-value="t2.1"]');
+      expect(t1d1.exists()).toBe(false);
+      expect(t2d1.exists()).toBe(true);
+      expect(t2d1.classes('t-tree__item--visible')).toBe(true);
+      expect(t2d1.classes('t-tree__item--hidden')).toBe(false);
+
+      refExpanded.value.push('t1');
+      await delay(1);
+      t1d1 = wrapper.find('[data-value="t1.1"]');
+      expect(t1d1.exists()).toBe(true);
+      expect(t1d1.classes('t-tree__item--visible')).toBe(true);
+      expect(t1d1.classes('t-tree__item--hidden')).toBe(false);
+
+      refExpanded.value.shift();
+      await delay(1);
       expect(t2d1.exists()).toBe(true);
       expect(t2d1.classes('t-tree__item--visible')).toBe(false);
       expect(t2d1.classes('t-tree__item--hidden')).toBe(true);

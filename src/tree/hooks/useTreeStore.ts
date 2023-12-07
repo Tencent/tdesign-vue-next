@@ -1,6 +1,6 @@
 import pick from 'lodash/pick';
 import { TreeStore } from '../../_common/js/tree/tree-store';
-import { watch } from '../adapt';
+import { watch, TypeRef } from '../adapt';
 import {
   TreeProps,
   TypeValueMode,
@@ -21,9 +21,12 @@ export default function useTreeStore(state: TypeTreeState) {
     filter,
   });
 
-  const [tValue] = state.vmValue;
-  const [tActived] = state.vmActived;
-  const [tExpanded] = state.vmExpanded;
+  // tValue 就是 refProps.value
+  const tValue = state.vmValue[0] as TypeRef<TreeNodeValue[]>;
+  // tActived 就是 refProps.actived
+  const tActived = state.vmActived[0] as TypeRef<TypeTNodeValue[]>;
+  // tExpanded 就是 refProps.expanded
+  const tExpanded = state.vmExpanded[0] as TypeRef<TypeTNodeValue[]>;
 
   // 同步 Store 选项
   const updateStoreConfig = () => {
@@ -37,6 +40,7 @@ export default function useTreeStore(state: TypeTreeState) {
       'activable',
       'activeMultiple',
       'disabled',
+      'disableCheck',
       'checkable',
       'draggable',
       'checkStrictly',
@@ -184,20 +188,26 @@ export default function useTreeStore(state: TypeTreeState) {
   initStore();
   // 设置初始化状态
   state.setStore(store);
-
   // 配置属性监听
-  // tValue 就是 refProps.value
-  watch(tValue, (nVal: TreeNodeValue[]) => {
-    store.replaceChecked(nVal);
-  });
-  // tExpanded 就是 refProps.expanded
-  watch(tExpanded, (nVal: TreeNodeValue[]) => {
-    store.replaceExpanded(nVal);
-  });
-  // tActived 就是 refProps.actived
-  watch(tActived, (nVal: TreeNodeValue[]) => {
-    store.replaceActived(nVal);
-  });
+  watch(
+    () => [...(tValue.value || [])],
+    (nVal: TreeNodeValue[]) => {
+      store.replaceChecked(nVal);
+    },
+  );
+  watch(
+    () => [...(tExpanded.value || [])],
+    (nVal: TreeNodeValue[]) => {
+      store.replaceExpanded(nVal);
+    },
+  );
+  watch(
+    () => [...(tActived.value || [])],
+    (nVal: TreeNodeValue[]) => {
+      store.replaceActived(nVal);
+    },
+  );
+
   watch(refProps.filter, (nVal, previousVal) => {
     checkFilterExpand(nVal, previousVal);
   });

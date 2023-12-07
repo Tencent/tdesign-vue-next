@@ -7,6 +7,8 @@ import { panelProps } from './props';
 import SinglePanel from './single-panel';
 import TButton from '../../button/button';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
+import { TimePickerValue, TimeRangeValue } from '../type';
+import log from '../../_common/js/log';
 
 dayjs.extend(customParseFormat);
 
@@ -21,12 +23,12 @@ export default defineComponent({
   },
 
   setup(props) {
-    const panelClassName = usePrefixClass('time-picker__panel');
+    const { globalConfig } = useConfig('timePicker');
+    const COMPONENT_NAME = usePrefixClass('time-picker__panel');
     const { steps, isFooterDisplay, isShowPanel } = toRefs(props);
     const triggerScroll = ref(false);
     const panelRef = ref();
-    const { globalConfig } = useConfig('timePicker');
-    const showNowTimeBtn = computed(() => !!steps.value.filter((v) => v > 1).length);
+    const showNowTimeBtn = computed(() => !!steps.value.filter((step) => Number(step) > 1).length);
 
     const defaultValue = computed(() => {
       const isStepsSet = showNowTimeBtn.value;
@@ -50,6 +52,20 @@ export default defineComponent({
     const resetTriggerScroll = () => {
       triggerScroll.value = false;
     };
+    const handlePresetClick = (
+      presetValue: TimePickerValue | (() => TimePickerValue) | TimeRangeValue | (() => TimeRangeValue),
+    ) => {
+      const presetVal = typeof presetValue === 'function' ? presetValue() : presetValue;
+      if (typeof props.activeIndex === 'number') {
+        if (Array.isArray(presetVal)) {
+          props.onChange?.(presetVal[props.activeIndex]);
+        } else {
+          log.error('TimePicker', `preset: ${props.presets} 预设值必须是数组!`);
+        }
+      } else {
+        props.onChange?.(presetVal);
+      }
+    };
 
     // 渲染后执行update 使面板滚动至当前时间位置
     onMounted(() => {
@@ -64,8 +80,8 @@ export default defineComponent({
     );
 
     return () => (
-      <div class={panelClassName.value}>
-        <div class={`${panelClassName.value}-section-body`}>
+      <div class={COMPONENT_NAME.value}>
+        <div class={`${COMPONENT_NAME.value}-section-body`}>
           <SinglePanel
             {...props}
             ref={panelRef}
@@ -79,12 +95,12 @@ export default defineComponent({
           />
         </div>
         {isFooterDisplay.value ? (
-          <div class={`${panelClassName.value}-section-footer`}>
+          <div class={`${COMPONENT_NAME.value}-section-footer`}>
             <TButton
               theme="primary"
               variant="base"
               disabled={!props.value}
-              onClick={() => props.handleConfirmClick(defaultValue.value)}
+              onClick={() => props.handleConfirmClick?.(defaultValue.value)}
               size="small"
             >
               {globalConfig.value.confirm}
@@ -94,11 +110,23 @@ export default defineComponent({
                 theme="primary"
                 variant="text"
                 size="small"
-                onClick={() => props.onChange(dayjs().format(props.format))}
+                onClick={() => props.onChange?.(dayjs().format(props.format))}
               >
                 {globalConfig.value.now}
               </TButton>
             ) : null}
+            {props.presets &&
+              Object.keys(props.presets).map((key: string) => (
+                <TButton
+                  key={key}
+                  theme="primary"
+                  size="small"
+                  variant="text"
+                  onClick={() => handlePresetClick(props.presets[key])}
+                >
+                  {key}
+                </TButton>
+              ))}
           </div>
         ) : null}
       </div>

@@ -55,7 +55,7 @@ export default function useTreeNodes(state: TypeTreeState) {
 
   // 创建单个 tree 节点
   const renderItem = (h: TypeCreateElement, node: TypeTreeRow, index: number, stateId: string) => {
-    const rowIndex = node.__VIRTUAL_SCROLL_INDEX || index;
+    const rowIndex = node.VIRTUAL_SCROLL_INDEX || index;
     const nodeUniqueId = node[privateKey];
     // vue3 中，不使用动画时，传递 node, 或者单纯传递 itemKey 无法触发 treeItem 的 render 方法
     // 考虑到有必要对所有节点状态更新，所以添加 stateId 属性，专门用于触发 treeItem 的 render 方法

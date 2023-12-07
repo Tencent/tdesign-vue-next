@@ -4,6 +4,7 @@ import dayjs from 'dayjs';
 
 import * as Props from '../props';
 import { EPickerCols } from '../../_common/js/time-picker/const';
+import { TdTimePickerProps, TdTimeRangePickerProps } from '../type';
 
 // 布尔类型
 const BooleanType = {
@@ -46,6 +47,12 @@ export const panelProps = () => ({
     ...{
       default: true,
     },
+  },
+  activeIndex: {
+    type: Number,
+  },
+  presets: {
+    type: Object as PropType<TdTimePickerProps['presets'] | TdTimeRangePickerProps['presets']>,
   },
   hideDisabledTime: {
     ...Props.default.hideDisabledTime,

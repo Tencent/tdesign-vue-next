@@ -63,17 +63,24 @@ export default defineComponent({
       <ChevronRightIcon {...{ color: 'rgba(0,0,0,.3)' }} />
     );
     const { proxy } = getCurrentInstance();
-    const bindEvent = (e: MouseEvent) => {
-      if (!props.disabled) {
-        e.preventDefault();
-        if (props.href) {
-          window.location.href = props.href;
-        }
-        const router = props.router || proxy.$router;
-        if (props.to && router) {
-          props.replace ? router.replace(props.to) : router.push(props.to);
-        }
+
+    const handleClick = () => {
+      if (props.href) {
+        window.location.href = props.href;
       }
+      const router = props.router || proxy.$router;
+      if (props.to && router) {
+        props.replace ? router.replace(props.to) : router.push(props.to);
+      }
+    };
+    const bindEvent = (e: MouseEvent) => {
+      if (!props.disabled)
+        if (props.target === '_blank') {
+          props.href ? window.open(props.href) : window.open(props.to as string);
+        } else {
+          e.preventDefault();
+          handleClick();
+        }
     };
 
     return () => {
@@ -92,7 +99,6 @@ export default defineComponent({
             e.stopPropagation();
             return;
           }
-          (props as any).onClick?.({ e });
         },
       };
       const textContent = (

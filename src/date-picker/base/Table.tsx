@@ -27,17 +27,17 @@ export default defineComponent({
     const { weekdays, weekAbbreviation, dayjsLocale } = globalConfig.value;
 
     const weekArr = computed(() => {
-      const _weekArr = [];
+      const weekArr = [];
       let wi = props.firstDayOfWeek - 1;
       const len = weekdays.length;
-      while (_weekArr.length < len) {
-        _weekArr.push(weekdays[wi]);
+      while (weekArr.length < len) {
+        weekArr.push(weekdays[wi]);
         wi = (wi + len + 1) % len;
       }
 
-      if (props.mode === 'week') _weekArr.unshift(weekAbbreviation);
+      if (props.mode === 'week') weekArr.unshift(weekAbbreviation);
 
-      return _weekArr;
+      return weekArr;
     });
 
     const showThead = computed(() => props.mode === 'date' || props.mode === 'week');

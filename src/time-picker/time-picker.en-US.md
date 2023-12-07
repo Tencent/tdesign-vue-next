@@ -8,7 +8,7 @@ name | type | default | description | required
 allowInput | Boolean | false | \- | N
 clearable | Boolean | false | \- | N
 disableTime | Function | - | disable time config function。Typescript：`(h: number, m: number, s: number, ms: number) => Partial<{ hour: Array<number>, minute: Array<number>, second: Array<number>, millisecond: Array<number>  }>` | N
-disabled | Boolean | false | \- | N
+disabled | Boolean | - | \- | N
 format | String | HH:mm:ss | \- | N
 hideDisabledTime | Boolean | true | \- | N
 inputProps | Object | - | Typescript：`InputProps`，[Input API Documents](./input?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts) | N
@@ -21,7 +21,7 @@ steps | Array | [1, 1, 1] | Typescript：`Array<string \| number>` | N
 tips | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 value | String | - | `v-model` and `v-model:value` is supported。Typescript：`TimePickerValue` `type TimePickerValue = string`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts) | N
 defaultValue | String | - | uncontrolled property。Typescript：`TimePickerValue` `type TimePickerValue = string`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts) | N
-onBlur | Function |  | Typescript：`(context: { value: TimePickerValue; e: FocusEvent }) => void`<br/> | N
+onBlur | Function |  | Typescript：`(context: { value: TimePickerValue } & SelectInputBlurContext) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts)。<br/>`import { SelectInputBlurContext } from '@SelectInput'`<br/> | N
 onChange | Function |  | Typescript：`(value: TimePickerValue) => void`<br/> | N
 onClose | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/> | N
 onFocus | Function |  | Typescript：`(context: { value: TimePickerValue; e: FocusEvent }) => void`<br/> | N
@@ -33,7 +33,7 @@ onPick | Function |  | Typescript：`(value: TimePickerValue, context: { e: Mous
 
 name | params | description
 -- | -- | --
-blur | `(context: { value: TimePickerValue; e: FocusEvent })` | \-
+blur | `(context: { value: TimePickerValue } & SelectInputBlurContext)` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts)。<br/>`import { SelectInputBlurContext } from '@SelectInput'`<br/>
 change | `(value: TimePickerValue)` | \-
 close | `(context: { e: MouseEvent })` | \-
 focus | `(context: { value: TimePickerValue; e: FocusEvent })` | \-
@@ -48,7 +48,7 @@ name | type | default | description | required
 allowInput | Boolean | false | \- | N
 clearable | Boolean | false | \- | N
 disableTime | Function | - | Typescript：`(h: number, m: number, s: number, context: { partial: TimeRangePickerPartial }) =>Partial<{ hour: Array<number>, minute: Array<number>, second: Array<number> }>` `type TimeRangePickerPartial = 'start' \| 'end'`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts) | N
-disabled | Boolean / Array | false | Typescript：`boolean \| Array<boolean>` | N
+disabled | Boolean / Array | - | Typescript：`boolean \| Array<boolean>` | N
 format | String | HH:mm:ss | \- | N
 hideDisabledTime | Boolean | true | \- | N
 placeholder | String / Array | undefined | Typescript：`string \| Array<string>` | N

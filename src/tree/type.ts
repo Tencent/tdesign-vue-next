@@ -377,6 +377,10 @@ export interface TreeNodeModel<T extends TreeOptionData = TreeOptionData> extend
    */
   data: T;
   /**
+   * 禁用状态
+   */
+  disabled: boolean;
+  /**
    * 当前节点是否展开
    */
   expanded: boolean;

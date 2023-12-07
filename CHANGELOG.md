@@ -5,6 +5,31 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.7.1 `2023-12-07` 
+### 🚀 Features
+- `Table`: 支持 `thClassName` 单独给表头添加类名 @chaishi ([#3669](https://github.com/Tencent/tdesign-vue-next/pull/3669))
+- `TimePicker`: `props.presets`预设快捷时间选择 @liweijie0812 ([#3665](https://github.com/Tencent/tdesign-vue-next/pull/3665))
+- `Dropdown`: 添加`DropdownItem`传递`boolean attribute`时的转换(#3692) @Zz-ZzzZ ([#3702](https://github.com/Tencent/tdesign-vue-next/pull/3702))
+### 🐞 Bug Fixes
+- `Tree`: 
+  - `tree` 节点禁用状态逻辑改进 @TabSpace ([#3653](https://github.com/Tencent/tdesign-vue-next/pull/3653))
+  - `value`, `active`, `expanded` 属性, 支持数组操作触发视图变更 @TabSpace ([#3682](https://github.com/Tencent/tdesign-vue-next/pull/3682))
+- `Select`: 
+  - 远程搜索不再进行本地过滤，支持远程对选项 `trim` 或者额外处理的场景([issue #3605](https://github.com/Tencent/tdesign-vue-next/issues/3605))([issue #2801](https://github.com/Tencent/tdesign-vue-next/issues/2801)) @uyarn ([#3707](https://github.com/Tencent/tdesign-vue-next/pull/3707))
+   - 修复非虚拟滚动场景下，无法键盘回车键直接选中过滤后的选项的缺陷 @uyarn ([#3707](https://github.com/Tencent/tdesign-vue-next/pull/3707))
+- `Loading`: `ts` 类型丢失, `volar` 提示无效 @liweijie0812 ([#3684](https://github.com/Tencent/tdesign-vue-next/pull/3684))
+- `AutoComplete`: 使用 `lodash/escapeRegExp` 转换关键字文本 @ZWkang ([#3661](https://github.com/Tencent/tdesign-vue-next/pull/3661))
+- `Table`:  本地数据分页场景，修复行选中无效问题，[#3669](https://github.com/Tencent/tdesign-vue-next/pull/3669) @chaishi ([#3669](https://github.com/Tencent/tdesign-vue-next/pull/3669))
+- `DropdownItem`: 处理禁用状态可点击的问题([issue #3693](https://github.com/Tencent/tdesign-vue-next/issues/3693)) @betavs ([#3696](https://github.com/Tencent/tdesign-vue-next/pull/3696))
+- `Tabs`: 优化初始化滚动的场景，对处于中间的部分场景进行进一步优化([issue #3632](https://github.com/Tencent/tdesign-vue-next/issues/3632)) @uyarn ([#3699](https://github.com/Tencent/tdesign-vue-next/pull/3699))
+- `Popup`:  修复控制台报错 @liweijie0812 ([#3705](https://github.com/Tencent/tdesign-vue-next/pull/3705))
+- `Pagination`: 分页组件 `foldedMaxPageBtn` 优化([issue #3703](https://github.com/Tencent/tdesign-vue-next/issues/3703)) @DYS1230 ([#3704](https://github.com/Tencent/tdesign-vue-next/pull/3704))
+- `BreadcrumbItem`: 修复 `breadcrumb-item` 组件 `target` 属性为 `_blank` 时没有在新标签页打开([#3634](https://github.com/Tencent/tdesign-vue-next/issues/3634)) @selicens ([#3637](https://github.com/Tencent/tdesign-vue-next/pull/3637))
+- `AutoComplete`: 没选中项回车不触发选中事件([issue #3649](https://github.com/Tencent/tdesign-vue-next/issues/3649)) @liweijie0812 ([#3700](https://github.com/Tencent/tdesign-vue-next/pull/3700))
+### 🚧 Others
+- `BaseUsage`: 基础示例部分的代码格式化 @coderYangLiu ([#3654](https://github.com/Tencent/tdesign-vue-next/pull/3654))
+- `Doc`: 更新 `CONTRIBUTING.md` @uyarn ([#3681](https://github.com/Tencent/tdesign-vue-next/pull/3681))
+
 ## 🌈 1.7.0 `2023-11-22` 
 ### 🚀 Features
 - `Statistic`: 新增 `Statistic` 统计数值组件 @liweijie0812 ([#3329](https://github.com/Tencent/tdesign-vue-next/pull/3329))

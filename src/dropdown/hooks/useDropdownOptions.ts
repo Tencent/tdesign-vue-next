@@ -1,4 +1,4 @@
-import { computed, ComputedRef, VNode, getCurrentInstance, Slots } from 'vue';
+import { computed, ComputedRef, VNode, getCurrentInstance, Slots, Component } from 'vue';
 import isString from 'lodash/isString';
 import isArray from 'lodash/isArray';
 import camelCase from 'lodash/camelCase';
@@ -40,7 +40,16 @@ export const getOptionsFromChildren = (menuNode: VNode | VNode[]): DropdownOptio
 
         // 将item.props的属性名都转成驼峰，再进行传递
         const itemProps = Object.keys(item.props || {}).reduce((props, propName) => {
-          props[camelCase(propName)] = item.props[propName];
+          // 处理 TDropdownItem 的 boolean attribute
+          if (
+            item.props[propName] === '' &&
+            (item.type as Component)?.name === 'TDropdownItem' &&
+            ['active', 'divider', 'disabled'].includes(propName)
+          ) {
+            props[camelCase(propName)] = true;
+          } else {
+            props[camelCase(propName)] = item.props[propName];
+          }
           return props;
         }, {});
 

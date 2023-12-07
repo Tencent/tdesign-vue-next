@@ -21,16 +21,21 @@ export default defineComponent({
   setup(props, { expose }) {
     const COMPONENT_NAME = usePrefixClass('statistic');
     const renderTNodeJSX = useTNodeJSX();
-    const { ArrowTriangleUpFilledIcon } = useGlobalIcon({
+    const { ArrowTriangleUpFilledIcon, ArrowTriangleDownFilledIcon } = useGlobalIcon({
       ArrowTriangleUpFilledIcon: TDArrowTriangleUpFilledIcon,
-    });
-    const { ArrowTriangleDownFilledIcon } = useGlobalIcon({
       ArrowTriangleDownFilledIcon: TDArrowTriangleDownFilledIcon,
     });
+    const trendIcons = {
+      increase: <ArrowTriangleUpFilledIcon />,
+      decrease: <ArrowTriangleDownFilledIcon />,
+    };
     const numberValue = computed(() => (isNumber(props.value) ? props.value : 0));
     const innerValue = ref(props.animation?.valueFrom ?? props.value);
+    const innerDecimalPlaces = computed(
+      () => props.decimalPlaces ?? numberValue.value.toString().split('.')[1]?.length ?? 0,
+    );
 
-    const tween = ref(null);
+    const tween = ref<Tween>();
     const { value } = toRefs(props);
 
     const start = (from: number = props.animation?.valueFrom ?? 0, to: number = numberValue.value) => {
@@ -44,22 +49,22 @@ export default defineComponent({
           },
           duration: props.animation.duration,
           onUpdate: (keys) => {
-            innerValue.value = keys.value;
+            innerValue.value = Number(keys.value.toFixed(innerDecimalPlaces.value));
           },
           onFinish: () => {
             innerValue.value = to;
           },
         });
-        (tween.value as any)?.start();
+        tween.value?.start();
       }
     };
 
     const formatValue = computed(() => {
-      let _value: number | undefined | string = innerValue.value;
+      let formatValue: number | undefined | string = innerValue.value;
       const { decimalPlaces, separator } = props;
 
       if (isFunction(props.format)) {
-        return props.format(_value);
+        return props.format(formatValue);
       }
       const options = {
         minimumFractionDigits: decimalPlaces || 0,
@@ -67,9 +72,9 @@ export default defineComponent({
         useGrouping: !!separator,
       };
       // replace的替换的方案仅能应对大部分地区
-      _value = _value.toLocaleString(undefined, options).replace(/,|，/g, separator);
+      formatValue = formatValue.toLocaleString(undefined, options).replace(/,|，/g, separator);
 
-      return _value;
+      return formatValue;
     });
 
     const contentStyle = computed(() => {
@@ -103,10 +108,6 @@ export default defineComponent({
     expose({ start });
 
     return () => {
-      const trendIcons = {
-        increase: <ArrowTriangleUpFilledIcon />,
-        decrease: <ArrowTriangleDownFilledIcon />,
-      };
       const trendIcon = props.trend ? trendIcons[props.trend] : null;
       const prefix = renderTNodeJSX('prefix') || (trendIcon && props.trendPlacement !== 'right' ? trendIcon : null);
       const suffix = renderTNodeJSX('suffix') || (trendIcon && props.trendPlacement === 'right' ? trendIcon : null);
