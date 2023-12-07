@@ -162,19 +162,20 @@ export default defineComponent({
     // calculate scroll left after mounted
     const calculateMountedScrollLeft = () => {
       if (isVerticalPlacement.value) return;
+      nextTick(() => {
+        const container = navsContainerRef.value;
+        const activeTabEl = activeTabRef.value;
+        const activeTabWidth = activeTabEl?.offsetWidth || 0;
+        const containerWidth = container?.offsetWidth || 0;
 
-      const container = navsContainerRef.value;
-      const activeTabEl = activeTabRef.value;
-      const activeTabWidth = activeTabEl?.offsetWidth || 0;
-      const containerWidth = container?.offsetWidth || 0;
+        const activeElIndex = Array.prototype.indexOf.call(navsWrapRef.value.children, activeTabEl); // index of the active tab
 
-      const activeElIndex = Array.prototype.indexOf.call(navsWrapRef.value.children, activeTabEl); // index of the active tab
-
-      const isRightBtnShow =
-        navs.value.length - activeElIndex >= Math.round((containerWidth - activeTabWidth) / activeTabWidth) ? 1 : 0; // calculate whether the right btn is display or not
-      const totalWidthBeforeActiveTab = activeTabEl?.offsetLeft;
-      if (totalWidthBeforeActiveTab > containerWidth - activeTabWidth)
-        scrollLeft.value = totalWidthBeforeActiveTab - isRightBtnShow * activeTabWidth;
+        const isRightBtnShow =
+          navs.value.length - activeElIndex >= Math.round((containerWidth - activeTabWidth) / activeTabWidth) ? 1 : 0; // calculate whether the right btn is display or not
+        const totalWidthBeforeActiveTab = activeTabEl?.offsetLeft;
+        if (totalWidthBeforeActiveTab > containerWidth - activeTabWidth)
+          scrollLeft.value = totalWidthBeforeActiveTab - isRightBtnShow * activeTabWidth;
+      });
     };
 
     // methods
