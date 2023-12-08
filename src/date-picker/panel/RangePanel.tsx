@@ -33,6 +33,7 @@ export default defineComponent({
     year: Array as PropType<Array<number>>,
     month: Array as PropType<Array<number>>,
     time: Array as PropType<Array<string>>,
+    disableDateSelectLimit: Boolean,
     onClick: Function,
     onCellClick: Function,
     onCellMouseEnter: Function,
@@ -91,6 +92,7 @@ export default defineComponent({
         mode: props.mode,
         firstDayOfWeek: props.firstDayOfWeek || globalConfig.value.firstDayOfWeek,
         ...disableDateOptions.value,
+        disableDateSelectLimit: props.disableDateSelectLimit,
       }),
     );
 
@@ -112,6 +114,7 @@ export default defineComponent({
         mode: props.mode,
         firstDayOfWeek: props.firstDayOfWeek || globalConfig.value.firstDayOfWeek,
         ...disableDateOptions.value,
+        disableDateSelectLimit: props.disableDateSelectLimit,
       }),
     );
 
