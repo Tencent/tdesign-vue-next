@@ -15,7 +15,7 @@ import {
   MERIDIEM_LIST,
 } from '../../_common/js/time-picker/const';
 import { closestLookup } from '../../_common/js/time-picker/utils';
-import { useConfig } from '../../hooks/useConfig';
+import { useCommonClassName, useConfig, usePrefixClass } from '../../hooks/useConfig';
 
 dayjs.extend(customParseFormat);
 
@@ -38,11 +38,11 @@ export default defineComponent({
   },
 
   setup(props) {
-    const { steps, value, format, position, triggerScroll } = toRefs(props);
-
     const { globalConfig } = useConfig('timePicker');
+    const COMPONENT_NAME = usePrefixClass('time-picker__panel');
+    const { STATUS } = useCommonClassName();
 
-    const { classPrefix } = useConfig();
+    const { steps, value, format, position, triggerScroll } = toRefs(props);
 
     const cols = ref<Array<EPickerCols>>([]);
     const bodyRef = ref();
@@ -51,7 +51,7 @@ export default defineComponent({
     const colsRef = reactive({ 0: null, 1: null, 2: null, 3: null, 4: null, 5: null });
 
     const dayjsValue = computed(() => {
-      const isStepsSet = !!steps.value.filter((v) => v > 1).length;
+      const isStepsSet = !!steps.value.filter((step) => Number(step) > 1).length;
 
       if (value.value) return dayjs(value.value, format.value);
 
@@ -59,8 +59,6 @@ export default defineComponent({
 
       return dayjs();
     });
-
-    const panelClassName = computed(() => `${classPrefix.value}-time-picker__panel`);
 
     // 面板打开时 触发滚动 初始化面板
     watch(
@@ -271,9 +269,9 @@ export default defineComponent({
       } else {
         const currentHour = dayjsValue.value.hour();
         if (el === AM && currentHour >= 12) {
-          props.onChange(dayjsValue.value.hour(currentHour - 12).format(format.value), e);
+          props.onChange?.(dayjsValue.value.hour(currentHour - 12).format(format.value), e);
         } else if (el === PM && currentHour < 12) {
-          props.onChange(dayjsValue.value.hour(currentHour + 12).format(format.value), e);
+          props.onChange?.(dayjsValue.value.hour(currentHour + 12).format(format.value), e);
         }
       }
     };
@@ -281,7 +279,7 @@ export default defineComponent({
     // update each columns scroll distance
     const updateTimeScrollPos = (isAutoScroll = false) => {
       const behavior = value.value && !isAutoScroll ? 'smooth' : 'auto';
-      const isStepsSet = !!steps.value.filter((v) => v > 1).length;
+      const isStepsSet = !!steps.value.filter((step) => Number(step) > 1).length;
       nextTick(() => {
         cols.value.forEach((col: EPickerCols, idx: number) => {
           if (!isStepsSet || (isStepsSet && value.value)) {
@@ -316,8 +314,8 @@ export default defineComponent({
     };
 
     return () => (
-      <div class={`${panelClassName.value}-body`} ref={bodyRef}>
-        <div class={`${panelClassName.value}-body-active-mask`} ref={maskRef}>
+      <div class={`${COMPONENT_NAME.value}-body`} ref={bodyRef}>
+        <div class={`${COMPONENT_NAME.value}-body-active-mask`} ref={maskRef}>
           {/* 渲染遮罩层 */}
           {cols.value.map?.((col, idx) => (
             <div key={`${col}_${idx}`} />
@@ -328,17 +326,17 @@ export default defineComponent({
           <ul
             key={`${col}_${idx}`}
             ref={(el) => (colsRef[idx] = el)}
-            class={`${panelClassName.value}-body-scroll`}
+            class={`${COMPONENT_NAME.value}-body-scroll`}
             onScroll={debounce((e) => handleScroll(col, idx, e), 50)}
           >
             {getColList(col).map((el) => (
               <li
                 key={el}
                 class={[
-                  `${panelClassName.value}-body-scroll-item`,
+                  `${COMPONENT_NAME.value}-body-scroll-item`,
                   {
-                    [`${classPrefix.value}-is-disabled`]: !timeItemCanUsed(col, el),
-                    [`${classPrefix.value}-is-current`]: isCurrent(col, el),
+                    [STATUS.value.disabled]: !timeItemCanUsed(col, el),
+                    [STATUS.value.current]: isCurrent(col, el),
                   },
                 ]}
                 onClick={(e) => handleTimeItemClick(col, el, idx, e)}

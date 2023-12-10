@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils';
 import Tree from '@/src/tree/index.ts';
 import { delay } from './kit';
+import { ref } from './adapt';
 
 describe('Tree:checkable', () => {
   vi.useRealTimers();
@@ -139,6 +140,40 @@ describe('Tree:checkable', () => {
       expect(wrapper.find('[data-value="t1"] .t-checkbox').classes('t-is-checked')).toBe(false);
       expect(wrapper.find('[data-value="t1"] .t-checkbox').classes('t-is-indeterminate')).toBe(true);
       expect(wrapper.find('[data-value="t1.1"] .t-checkbox').classes('t-is-checked')).toBe(false);
+      expect(wrapper.find('[data-value="t1.2"] .t-checkbox').classes('t-is-checked')).toBe(true);
+    });
+
+    it('操作 value 数组可变更节点选中状态', async () => {
+      const data = [
+        {
+          value: 't1',
+          children: [
+            {
+              value: 't1.1',
+            },
+            {
+              value: 't1.2',
+            },
+          ],
+        },
+      ];
+
+      const refChecked = ref(['t1.1']);
+      const wrapper = mount({
+        render() {
+          return <Tree transition={false} data={data} checkable expandAll value={refChecked.value}></Tree>;
+        },
+      });
+      expect(wrapper.find('[data-value="t1"] .t-checkbox').classes('t-is-checked')).toBe(false);
+      expect(wrapper.find('[data-value="t1"] .t-checkbox').classes('t-is-indeterminate')).toBe(true);
+      expect(wrapper.find('[data-value="t1.1"] .t-checkbox').classes('t-is-checked')).toBe(true);
+      expect(wrapper.find('[data-value="t1.2"] .t-checkbox').classes('t-is-checked')).toBe(false);
+
+      refChecked.value.push('t1.2');
+      await delay(1);
+      expect(wrapper.find('[data-value="t1"] .t-checkbox').classes('t-is-checked')).toBe(true);
+      expect(wrapper.find('[data-value="t1"] .t-checkbox').classes('t-is-indeterminate')).toBe(false);
+      expect(wrapper.find('[data-value="t1.1"] .t-checkbox').classes('t-is-checked')).toBe(true);
       expect(wrapper.find('[data-value="t1.2"] .t-checkbox').classes('t-is-checked')).toBe(true);
     });
   });

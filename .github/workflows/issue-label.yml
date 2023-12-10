@@ -1,0 +1,50 @@
+name: issue on label
+on:
+  issues:
+    types: ['labeled']
+jobs:
+  add-issueshoot-template:
+    runs-on: ubuntu-latest
+    if: contains(fromJSON('["easy", "middle", "hard"]'), github.event.label.name)
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Get token
+        id: token
+        run: |
+          label=${{ github.event.label.name }}
+          if [[ $label = "easy" ]]
+          then
+            echo "level=低" >> $GITHUB_OUTPUT
+            echo "duration=1" >> $GITHUB_OUTPUT
+            deadline=$(date -d "+3 days" +'%Y-%m-%d')
+            echo "deadline=${deadline}" >> $GITHUB_OUTPUT
+          elif [[ $label = "middle" ]]
+          then
+            echo "level=中" >> $GITHUB_OUTPUT
+            echo "duration=3" >> $GITHUB_OUTPUT
+            deadline=$(date -d "+7 days" +'%Y-%m-%d')
+            echo "deadline=${deadline}" >> $GITHUB_OUTPUT
+          else
+            echo "level=高" >> $GITHUB_OUTPUT
+            echo "duration=5" >> $GITHUB_OUTPUT
+            deadline=$(date -d "+10 days" +'%Y-%m-%d')
+            echo "deadline=${deadline}" >> $GITHUB_OUTPUT
+          fi
+      - name: Create template
+        id: template
+        uses: chuhlomin/render-template@v1.4
+        with:
+          template: .github/issue-shoot.md
+          vars: |
+            level: ${{ steps.token.outputs.level }}
+            duration: ${{ steps.token.outputs.duration }}
+            deadline: ${{ steps.token.outputs.deadline }}
+      - name: Update issue
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'update-issue'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          body: ${{ steps.template.outputs.result }}
+          update-mode: 'append'

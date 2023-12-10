@@ -184,7 +184,7 @@ export default defineComponent({
       });
     };
 
-    const { hoverIndex, virtualFilteredOptions, handleKeyDown } = useKeyboardControl({
+    const { hoverIndex, virtualFilteredOptions, handleKeyDown, filteredOptions } = useKeyboardControl({
       displayOptions,
       optionsList,
       innerPopupVisible,
@@ -261,9 +261,9 @@ export default defineComponent({
       }
       setInputValue(value);
       handleSearch(`${value}`, { e: context.e as KeyboardEvent });
-
       nextTick(() => {
         virtualFilteredOptions.value = selectPanelRef.value?.visibleData;
+        filteredOptions.value = selectPanelRef.value?.displayOptions;
       });
     };
 

@@ -24,7 +24,7 @@ export default function useRowSelect(
   props: TdPrimaryTableProps,
   tableSelectedClasses: TableClassName['tableSelectedClasses'],
 ) {
-  const { selectedRowKeys, columns, rowKey, data, pagination, reserveSelectedRowOnPaginate } = toRefs(props);
+  const { selectedRowKeys, columns, rowKey, data, reserveSelectedRowOnPaginate } = toRefs(props);
   const currentPaginateData = ref<TableRowData[]>(data.value);
   const selectedRowClassNames = ref();
   const [tSelectedRowKeys, setTSelectedRowKeys] = useDefaultValue(
@@ -53,18 +53,6 @@ export default function useRowSelect(
       return false;
     return singleSelectCol.checkProps.allowUncheck;
   });
-
-  watch(
-    [data, pagination, reserveSelectedRowOnPaginate],
-    () => {
-      if (reserveSelectedRowOnPaginate.value) return;
-      const { pageSize, current, defaultPageSize, defaultCurrent } = pagination.value;
-      const tPageSize = pageSize || defaultPageSize;
-      const tCurrent = current || defaultCurrent;
-      currentPaginateData.value = data.value.slice(tPageSize * (tCurrent - 1), tPageSize * tCurrent);
-    },
-    { immediate: true },
-  );
 
   watch(
     [data, columns, tSelectedRowKeys, selectColumn, rowKey],

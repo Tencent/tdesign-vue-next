@@ -34,6 +34,14 @@
           <t-button size="small" variant="base" @click="append(node)">添加子节点</t-button>
           <t-button size="small" variant="outline" @click="insertBefore(node)">前插节点</t-button>
           <t-button size="small" variant="outline" @click="insertAfter(node)">后插节点</t-button>
+          <t-button
+            size="small"
+            :theme="node.disabled ? 'success' : 'warning'"
+            variant="base"
+            @click="toggleDisable(node)"
+          >
+            {{ node.disabled ? 'enable' : 'disable' }}
+          </t-button>
           <t-button size="small" variant="base" theme="danger" @click="remove(node)">删除</t-button>
         </t-space>
       </template>
@@ -50,6 +58,7 @@
       <t-button theme="primary" variant="outline" @click="getActiveParents">获取高亮节点的所有父节点</t-button>
       <t-button theme="primary" variant="outline" @click="getActiveIndex">获取高亮节点在子节点中的位置</t-button>
       <t-button theme="primary" variant="outline" @click="setActiveChecked">选中高亮节点</t-button>
+      <t-button theme="primary" variant="outline" @click="setActiveUnChecked">取消选中高亮节点</t-button>
       <t-button theme="primary" variant="outline" @click="setActiveExpanded">展开高亮节点</t-button>
       <t-button theme="primary" variant="outline" @click="getActivePlainData">获取高亮节点与其子节点的数据</t-button>
     </t-space>
@@ -222,6 +231,14 @@ export default {
         checked: true,
       });
     },
+    setActiveUnChecked() {
+      const { tree } = this.$refs;
+      const node = this.getActivedNode();
+      if (!node) return;
+      tree.setItem(node?.value, {
+        checked: false,
+      });
+    },
     setActiveExpanded() {
       const { tree } = this.$refs;
       const node = this.getActivedNode();
@@ -247,6 +264,12 @@ export default {
         treeNodes = tree.getTreeData(node.value);
       }
       console.info('树结构数据:', treeNodes);
+    },
+    toggleDisable(node) {
+      const { tree } = this.$refs;
+      tree.setItem(node.value, {
+        disabled: !node.disabled,
+      });
     },
     remove(node) {
       const { tree } = this.$refs;
