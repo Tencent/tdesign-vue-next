@@ -185,6 +185,7 @@ export default defineComponent({
       return !isFullScreen.value ? { width: GetCSSValue(props.width) } : {}; // width全屏模式不生效
     });
 
+    const divRef = ref<HTMLDivElement>();
     watch(
       () => props.visible,
       (value) => {
@@ -204,11 +205,14 @@ export default defineComponent({
           }
           // 清除鼠标焦点 避免entry事件多次触发（按钮弹出弹窗 不移除焦点 立即按Entry按键 会造成弹窗关闭再弹出）
           (document.activeElement as HTMLElement)?.blur();
+          // 获取焦点到当前dialog上
+          nextTick(() => {
+            divRef.value?.focus?.();
+          });
         } else {
           clearStyleFunc();
         }
         storeUid(value);
-        addKeyboardEvent(value);
       },
     );
 
@@ -232,17 +236,11 @@ export default defineComponent({
       }
     };
 
-    const addKeyboardEvent = (status: boolean) => {
-      if (status) {
-        document.addEventListener('keydown', keyboardEvent);
-        props.confirmOnEnter && document.addEventListener('keydown', keyboardEnterEvent);
-      } else {
-        document.removeEventListener('keydown', keyboardEvent);
-        props.confirmOnEnter && document.removeEventListener('keydown', keyboardEnterEvent);
-      }
-    };
     // 回车出发确认事件
     const keyboardEnterEvent = (e: KeyboardEvent) => {
+      if (!props.confirmOnEnter) {
+        return;
+      }
       const eventSrc = e.target as HTMLElement;
       if (eventSrc.tagName.toLowerCase() === 'input') return; // 若是input触发 则不执行
       const { code } = e;
@@ -251,6 +249,7 @@ export default defineComponent({
       }
     };
     const keyboardEvent = (e: KeyboardEvent) => {
+      keyboardEnterEvent(e);
       if (e.code === 'Escape' && stack.top === instance.uid) {
         props.onEscKeydown?.({ e });
         // 根据closeOnEscKeydown判断按下ESC时是否触发close事件
@@ -419,7 +418,6 @@ export default defineComponent({
     });
 
     onBeforeUnmount(() => {
-      addKeyboardEvent(false);
       destroySelf();
     });
 
@@ -437,6 +435,8 @@ export default defineComponent({
       hasEventOn,
       renderDialog,
       teleportElement,
+      keyboardEvent,
+      divRef,
     };
   },
   render() {
@@ -465,7 +465,15 @@ export default defineComponent({
           onAfterLeave={this.afterLeave}
         >
           {(!this.destroyOnClose || this.visible) && (
-            <div v-show={this.visible} class={ctxClass} style={ctxStyle} {...this.$attrs}>
+            <div
+              ref="divRef"
+              tabindex={0}
+              onKeydown={this.keyboardEvent}
+              v-show={this.visible}
+              class={ctxClass}
+              style={ctxStyle}
+              {...this.$attrs}
+            >
               {view}
             </div>
           )}
