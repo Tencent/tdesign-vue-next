@@ -3,12 +3,33 @@ import DialogComponent from './dialog';
 import { getAttach } from '../utils/dom';
 import { DialogOptions, DialogMethod, DialogConfirmMethod, DialogAlertMethod, DialogInstance } from './type';
 import omit from 'lodash/omit';
+import { nextTick } from 'process';
 
 const createDialog: DialogMethod = (props: DialogOptions) => {
   const options = { ...props };
   const wrapper = document.createElement('div');
   const visible = ref(false);
   const { className, style } = options;
+
+  let preClassName = className;
+
+  const updateClassNameStyle = (className: string, style: DialogOptions['style']) => {
+    if (className) {
+      if (preClassName && preClassName !== className) {
+        wrapper.firstElementChild.classList.remove(...preClassName.split(' ').map((name) => name.trim()));
+      }
+      className.split(' ').forEach((name) => {
+        wrapper.firstElementChild.classList.add(name.trim());
+      });
+    }
+
+    if (style) {
+      (wrapper.firstElementChild as HTMLElement).style.cssText += style;
+    }
+
+    preClassName = className;
+  };
+
   const component = defineComponent({
     setup(props, { expose }) {
       const dialogOptions = ref<Record<string, any>>(options);
@@ -16,6 +37,10 @@ const createDialog: DialogMethod = (props: DialogOptions) => {
         visible.value = true;
         // 处理 https://github.com/Tencent/tdesign-vue-next/issues/394
         (document.activeElement as HTMLElement).blur();
+        // 避免元素未挂载就触发样式获取，子元素为空的问题
+        nextTick(() => {
+          updateClassNameStyle(className, style);
+        });
       });
       const update = (newOptions: DialogOptions) => {
         dialogOptions.value = {
@@ -47,26 +72,7 @@ const createDialog: DialogMethod = (props: DialogOptions) => {
   const dialogComponent = createApp(component);
   const dialog = dialogComponent.mount(wrapper);
 
-  let preClassName = className;
-
-  const updateClassNameStyle = (className: string, style: DialogOptions['style']) => {
-    if (className) {
-      if (preClassName && preClassName !== className) {
-        wrapper.firstElementChild.classList.remove(...preClassName.split(' ').map((name) => name.trim()));
-      }
-      className.split(' ').forEach((name) => {
-        wrapper.firstElementChild.classList.add(name.trim());
-      });
-    }
-
-    if (style) {
-      (wrapper.firstElementChild as HTMLElement).style.cssText += style;
-    }
-
-    preClassName = className;
-  };
-
-  updateClassNameStyle(className, style);
+  // updateClassNameStyle(className, style);
 
   const container = getAttach(options.attach);
   if (container) {
