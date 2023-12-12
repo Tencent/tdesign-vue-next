@@ -180,15 +180,19 @@ export default function useAffix(props: TdBaseTableProps) {
   const removeHorizontalScrollElementEnterListeners = () => {
     if (affixHeaderRef.value) {
       off(affixHeaderRef.value, 'mouseenter', onHeaderMouseEnter);
+      off(affixHeaderRef.value, 'touchstart', onHeaderMouseEnter);
     }
     if (affixFooterRef.value) {
       off(affixFooterRef.value, 'mouseenter', onFootMouseEnter);
+      off(affixFooterRef.value, 'touchstart', onFootMouseEnter);
     }
     if (tableContentRef.value) {
       off(tableContentRef.value, 'mouseenter', onTableContentMouseEnter);
+      off(tableContentRef.value, 'touchstart', onTableContentMouseEnter);
     }
     if (horizontalScrollbarRef.value) {
       off(horizontalScrollbarRef.value, 'mouseenter', onScrollbarMouseEnter);
+      off(horizontalScrollbarRef.value, 'touchstart', onScrollbarMouseEnter);
     }
   };
 
