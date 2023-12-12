@@ -104,95 +104,99 @@ export default function useAffix(props: TdBaseTableProps) {
     updateAffixHeaderOrFooter();
   };
 
-  const onFootScroll = () => {
-    onHorizontalScroll(affixFooterRef.value);
-  };
+  // 包含移动端的 touch 事件
+  const enterEvent = ['mouseenter', 'touchstart'];
+  const leaveEvent = ['mouseleave', 'touchend'];
 
-  const onHeaderScroll = () => {
-    onHorizontalScroll(affixHeaderRef.value);
-  };
+  const setupElementHorizontalScrollingListeners = (element: HTMLElement) => {
+    let isOverElement = false;
+    let isScrolling = false;
 
-  const horizontalScrollbarScroll = () => {
-    onHorizontalScroll(horizontalScrollbarRef.value);
-  };
-
-  const onTableContentScroll = () => {
-    onHorizontalScroll(tableContentRef.value);
-  };
-
-  const onFootMouseEnter = (event: UIEvent) => {
-    if (event.composedPath().includes(affixFooterRef.value)) {
-      removeHorizontalScrollListeners();
-      on(affixFooterRef.value, 'scroll', onFootScroll);
+    function onElementScroll() {
+      isScrolling = true;
+      onHorizontalScroll(element);
     }
-  };
 
-  const onHeaderMouseEnter = (event: UIEvent) => {
-    if (event.composedPath().includes(affixHeaderRef.value)) {
-      removeHorizontalScrollListeners();
-      on(affixHeaderRef.value, 'scroll', onHeaderScroll);
+    function onElementScrollEnd() {
+      isScrolling = false;
+      if (!isOverElement) {
+        off(element, 'scroll', onElementScroll);
+        off(element, 'scrollend', onElementScrollEnd);
+      }
     }
-  };
 
-  const onScrollbarMouseEnter = (event: UIEvent) => {
-    if (event.composedPath().includes(horizontalScrollbarRef.value)) {
-      removeHorizontalScrollListeners();
-      on(horizontalScrollbarRef.value, 'scroll', horizontalScrollbarScroll);
+    function onElementEnter(event: UIEvent) {
+      if (event.composedPath().includes(element)) {
+        if (!isOverElement) {
+          isOverElement = true;
+          // 如果已经在滚动中，意味着已经绑定过 scroll 监听器，不再重复绑定
+          if (!isScrolling) {
+            on(element, 'scroll', onElementScroll);
+            on(element, 'scrollend', onElementScrollEnd);
+          }
+        }
+      }
     }
-  };
 
-  const onTableContentMouseEnter = (event: UIEvent) => {
-    if (event.composedPath().includes(tableContentRef.value)) {
-      removeHorizontalScrollListeners();
-      on(tableContentRef.value, 'scroll', onTableContentScroll);
+    function onElementLeave() {
+      isOverElement = false;
+      if (!isScrolling) {
+        off(element, 'scroll', onElementScroll);
+        off(element, 'scrollend', onElementScrollEnd);
+      }
     }
+
+    enterEvent.forEach((eventName) => {
+      on(element, eventName, onElementEnter);
+    });
+
+    leaveEvent.forEach((eventName) => {
+      on(element, eventName, onElementLeave);
+    });
+
+    function removeEnterListener() {
+      enterEvent.forEach((eventName) => {
+        off(element, eventName, onElementEnter);
+      });
+
+      leaveEvent.forEach((eventName) => {
+        off(element, eventName, onElementLeave);
+      });
+    }
+
+    return {
+      removeEnterListener,
+    };
   };
 
-  const removeHorizontalScrollListeners = () => {
-    off(affixFooterRef.value, 'scroll', onFootScroll);
-    off(affixHeaderRef.value, 'scroll', onHeaderScroll);
-    off(horizontalScrollbarRef.value, 'scroll', horizontalScrollbarScroll);
-    off(tableContentRef.value, 'scroll', onTableContentScroll);
+  const enterListenersRemoveCallback: Array<() => void> = [];
+
+  const removeHorizontalScrollElementEnterListeners = () => {
+    enterListenersRemoveCallback.forEach((callback) => {
+      callback();
+    });
   };
 
   const addHorizontalScrollElementEnterListeners = () => {
+    removeHorizontalScrollElementEnterListeners();
     if (affixHeaderRef.value) {
-      on(affixHeaderRef.value, 'mouseenter', onHeaderMouseEnter);
-      on(affixHeaderRef.value, 'touchstart', onHeaderMouseEnter);
+      const { removeEnterListener } = setupElementHorizontalScrollingListeners(affixHeaderRef.value);
+      enterListenersRemoveCallback.push(removeEnterListener);
     }
 
     if (props.footerAffixedBottom && affixFooterRef.value) {
-      on(affixFooterRef.value, 'mouseenter', onFootMouseEnter);
-      on(affixFooterRef.value, 'touchstart', onFootMouseEnter);
+      const { removeEnterListener } = setupElementHorizontalScrollingListeners(affixFooterRef.value);
+      enterListenersRemoveCallback.push(removeEnterListener);
     }
 
     if (props.horizontalScrollAffixedBottom && horizontalScrollbarRef.value) {
-      on(horizontalScrollbarRef.value, 'mouseenter', onScrollbarMouseEnter);
-      on(horizontalScrollbarRef.value, 'touchstart', onScrollbarMouseEnter);
+      const { removeEnterListener } = setupElementHorizontalScrollingListeners(horizontalScrollbarRef.value);
+      enterListenersRemoveCallback.push(removeEnterListener);
     }
 
     if ((isAffixed.value || isVirtualScroll.value) && tableContentRef.value) {
-      on(tableContentRef.value, 'mouseenter', onTableContentMouseEnter);
-      on(tableContentRef.value, 'touchstart', onTableContentMouseEnter);
-    }
-  };
-
-  const removeHorizontalScrollElementEnterListeners = () => {
-    if (affixHeaderRef.value) {
-      off(affixHeaderRef.value, 'mouseenter', onHeaderMouseEnter);
-      off(affixHeaderRef.value, 'touchstart', onHeaderMouseEnter);
-    }
-    if (affixFooterRef.value) {
-      off(affixFooterRef.value, 'mouseenter', onFootMouseEnter);
-      off(affixFooterRef.value, 'touchstart', onFootMouseEnter);
-    }
-    if (tableContentRef.value) {
-      off(tableContentRef.value, 'mouseenter', onTableContentMouseEnter);
-      off(tableContentRef.value, 'touchstart', onTableContentMouseEnter);
-    }
-    if (horizontalScrollbarRef.value) {
-      off(horizontalScrollbarRef.value, 'mouseenter', onScrollbarMouseEnter);
-      off(horizontalScrollbarRef.value, 'touchstart', onScrollbarMouseEnter);
+      const { removeEnterListener } = setupElementHorizontalScrollingListeners(tableContentRef.value);
+      enterListenersRemoveCallback.push(removeEnterListener);
     }
   };
 
