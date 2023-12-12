@@ -120,76 +120,75 @@ export default function useAffix(props: TdBaseTableProps) {
     onHorizontalScroll(tableContentRef.value);
   };
 
-  const onFootMouseEnter = () => {
-    on(affixFooterRef.value, 'scroll', onFootScroll);
-  };
-
-  const onFootMouseLeave = () => {
-    off(affixFooterRef.value, 'scroll', onFootScroll);
-  };
-
-  const onHeaderMouseEnter = () => {
-    on(affixHeaderRef.value, 'scroll', onHeaderScroll);
-  };
-
-  const onHeaderMouseLeave = () => {
-    off(affixHeaderRef.value, 'scroll', onHeaderScroll);
-  };
-
-  const onScrollbarMouseEnter = () => {
-    on(horizontalScrollbarRef.value, 'scroll', horizontalScrollbarScroll);
-  };
-
-  const onScrollbarMouseLeave = () => {
-    off(horizontalScrollbarRef.value, 'scroll', horizontalScrollbarScroll);
-  };
-
-  const onTableContentMouseEnter = () => {
-    on(tableContentRef.value, 'scroll', onTableContentScroll);
-  };
-
-  const onTableContentMouseLeave = () => {
-    off(tableContentRef.value, 'scroll', onTableContentScroll);
-  };
-
-  const addHorizontalScrollListeners = () => {
-    if (affixHeaderRef.value) {
-      on(affixHeaderRef.value, 'mouseenter', onHeaderMouseEnter);
-      on(affixHeaderRef.value, 'mouseleave', onHeaderMouseLeave);
+  const onFootMouseEnter = (event: UIEvent) => {
+    if (event.composedPath().includes(affixFooterRef.value)) {
+      removeHorizontalScrollListeners();
+      on(affixFooterRef.value, 'scroll', onFootScroll);
     }
+  };
 
-    if (props.footerAffixedBottom && affixFooterRef.value) {
-      on(affixFooterRef.value, 'mouseenter', onFootMouseEnter);
-      on(affixFooterRef.value, 'mouseleave', onFootMouseLeave);
+  const onHeaderMouseEnter = (event: UIEvent) => {
+    if (event.composedPath().includes(affixHeaderRef.value)) {
+      removeHorizontalScrollListeners();
+      on(affixHeaderRef.value, 'scroll', onHeaderScroll);
     }
+  };
 
-    if (props.horizontalScrollAffixedBottom && horizontalScrollbarRef.value) {
-      on(horizontalScrollbarRef.value, 'mouseenter', onScrollbarMouseEnter);
-      on(horizontalScrollbarRef.value, 'mouseleave', onScrollbarMouseLeave);
+  const onScrollbarMouseEnter = (event: UIEvent) => {
+    if (event.composedPath().includes(horizontalScrollbarRef.value)) {
+      removeHorizontalScrollListeners();
+      on(horizontalScrollbarRef.value, 'scroll', horizontalScrollbarScroll);
     }
+  };
 
-    if ((isAffixed.value || isVirtualScroll.value) && tableContentRef.value) {
-      on(tableContentRef.value, 'mouseenter', onTableContentMouseEnter);
-      on(tableContentRef.value, 'mouseleave', onTableContentMouseLeave);
+  const onTableContentMouseEnter = (event: UIEvent) => {
+    if (event.composedPath().includes(tableContentRef.value)) {
+      removeHorizontalScrollListeners();
+      on(tableContentRef.value, 'scroll', onTableContentScroll);
     }
   };
 
   const removeHorizontalScrollListeners = () => {
+    off(affixFooterRef.value, 'scroll', onFootScroll);
+    off(affixHeaderRef.value, 'scroll', onHeaderScroll);
+    off(horizontalScrollbarRef.value, 'scroll', horizontalScrollbarScroll);
+    off(tableContentRef.value, 'scroll', onTableContentScroll);
+  };
+
+  const addHorizontalScrollElementEnterListeners = () => {
+    if (affixHeaderRef.value) {
+      on(affixHeaderRef.value, 'mouseenter', onHeaderMouseEnter);
+      on(affixHeaderRef.value, 'touchstart', onHeaderMouseEnter);
+    }
+
+    if (props.footerAffixedBottom && affixFooterRef.value) {
+      on(affixFooterRef.value, 'mouseenter', onFootMouseEnter);
+      on(affixFooterRef.value, 'touchstart', onFootMouseEnter);
+    }
+
+    if (props.horizontalScrollAffixedBottom && horizontalScrollbarRef.value) {
+      on(horizontalScrollbarRef.value, 'mouseenter', onScrollbarMouseEnter);
+      on(horizontalScrollbarRef.value, 'touchstart', onScrollbarMouseEnter);
+    }
+
+    if ((isAffixed.value || isVirtualScroll.value) && tableContentRef.value) {
+      on(tableContentRef.value, 'mouseenter', onTableContentMouseEnter);
+      on(tableContentRef.value, 'touchstart', onTableContentMouseEnter);
+    }
+  };
+
+  const removeHorizontalScrollElementEnterListeners = () => {
     if (affixHeaderRef.value) {
       off(affixHeaderRef.value, 'mouseenter', onHeaderMouseEnter);
-      off(affixHeaderRef.value, 'mouseleave', onHeaderMouseLeave);
     }
     if (affixFooterRef.value) {
       off(affixFooterRef.value, 'mouseenter', onFootMouseEnter);
-      off(affixFooterRef.value, 'mouseleave', onFootMouseLeave);
     }
     if (tableContentRef.value) {
       off(tableContentRef.value, 'mouseenter', onTableContentMouseEnter);
-      off(tableContentRef.value, 'mouseleave', onTableContentMouseLeave);
     }
     if (horizontalScrollbarRef.value) {
       off(horizontalScrollbarRef.value, 'mouseenter', onScrollbarMouseEnter);
-      off(horizontalScrollbarRef.value, 'mouseleave', onScrollbarMouseLeave);
     }
   };
 
@@ -206,7 +205,7 @@ export default function useAffix(props: TdBaseTableProps) {
   };
 
   watch([affixHeaderRef, affixFooterRef, horizontalScrollbarRef, tableContentRef], () => {
-    addHorizontalScrollListeners();
+    addHorizontalScrollElementEnterListeners();
     onHorizontalScroll();
     updateAffixHeaderOrFooter();
   });
@@ -228,7 +227,7 @@ export default function useAffix(props: TdBaseTableProps) {
 
   onBeforeUnmount(() => {
     off(document, 'scroll', onDocumentScroll);
-    removeHorizontalScrollListeners();
+    removeHorizontalScrollElementEnterListeners();
   });
 
   const setTableContentRef = (tableContent: HTMLDivElement) => {
