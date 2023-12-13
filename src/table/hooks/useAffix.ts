@@ -3,6 +3,7 @@ import { computed, ref, watch, onBeforeUnmount } from 'vue';
 import { TdBaseTableProps } from '../type';
 import { on, off } from '../../utils/dom';
 import { AffixProps } from '../../affix';
+import debounce from 'lodash/debounce';
 
 /**
  * 1. 表头吸顶（普通表头吸顶 和 虚拟滚动表头吸顶）
@@ -152,29 +153,53 @@ export default function useAffix(props: TdBaseTableProps) {
     off(tableContentRef.value, 'scroll', onTableContentScroll);
   };
 
-  const addHorizontalScrollListeners = () => {
-    if (affixHeaderRef.value) {
-      on(affixHeaderRef.value, 'mouseenter', onHeaderMouseEnter);
-      on(affixHeaderRef.value, 'mouseleave', onHeaderMouseLeave);
+  // 记录激活中的 scroll，在新元素点击时要进行抢占
+  const activatingTouchScrollListenerCleanups: Array<() => void> = [];
+  const setupElementTouchScrollListener = (element: HTMLElement) => {
+    // 思路来源 https://github.com/vueuse/vueuse/blob/main/packages/core/useScroll/index.ts
+    // 兼容不支持 scrollend 但是又存在惯性滑动的场景，例如 safari
+    // 200 毫秒这个默认值是 vueuse 的用法，后面有问题可以再重新考虑
+    const debounceOffScrollListener = debounce((listener) => {
+      off(element, 'scroll', listener);
+    }, 200);
+
+    function onElementTouchScroll() {
+      onHorizontalScroll(element);
+      debounceOffScrollListener(onElementTouchScroll);
+    }
+    function onElementTouchStart(e: UIEvent) {
+      if (e.composedPath().includes(element)) {
+        // 下一次 touch 清理所有的 scroll，不同于 pc 端的 enter，触碰打断是合理的
+        activatingTouchScrollListenerCleanups.forEach((cleanup) => cleanup());
+        activatingTouchScrollListenerCleanups.length = 0;
+        // 即使是相同元素也重新绑定，因为 touch 必定带来滑动停止
+        on(element, 'scroll', onElementTouchScroll);
+        activatingTouchScrollListenerCleanups.push(() => {
+          off(element, 'scroll', onElementTouchScroll);
+        });
+      }
     }
 
-    if (props.footerAffixedBottom && affixFooterRef.value) {
-      on(affixFooterRef.value, 'mouseenter', onFootMouseEnter);
-      on(affixFooterRef.value, 'mouseleave', onFootMouseLeave);
+    on(element, 'touchstart', onElementTouchStart);
+
+    function removeElementTouchScrollListener() {
+      off(element, 'touchstart', onElementTouchStart);
     }
 
-    if (props.horizontalScrollAffixedBottom && horizontalScrollbarRef.value) {
-      on(horizontalScrollbarRef.value, 'mouseenter', onScrollbarMouseEnter);
-      on(horizontalScrollbarRef.value, 'mouseleave', onScrollbarMouseLeave);
-    }
+    return {
+      removeElementTouchScrollListener,
+    };
+  };
 
-    if ((isAffixed.value || isVirtualScroll.value) && tableContentRef.value) {
-      on(tableContentRef.value, 'mouseenter', onTableContentMouseEnter);
-      on(tableContentRef.value, 'mouseleave', onTableContentMouseLeave);
-    }
+  // 清理所有 touch 相关的逻辑
+  const elementTouchScrollCleanups: Array<() => void> = [];
+  const cleanupElementTouchScroll = () => {
+    elementTouchScrollCleanups.forEach((cleanup) => cleanup());
+    elementTouchScrollCleanups.length = 0;
   };
 
   const removeHorizontalScrollListeners = () => {
+    cleanupElementTouchScroll();
     if (affixHeaderRef.value) {
       off(affixHeaderRef.value, 'mouseenter', onHeaderMouseEnter);
       off(affixHeaderRef.value, 'mouseleave', onHeaderMouseLeave);
@@ -190,6 +215,34 @@ export default function useAffix(props: TdBaseTableProps) {
     if (horizontalScrollbarRef.value) {
       off(horizontalScrollbarRef.value, 'mouseenter', onScrollbarMouseEnter);
       off(horizontalScrollbarRef.value, 'mouseleave', onScrollbarMouseLeave);
+    }
+  };
+
+  const addHorizontalScrollListeners = () => {
+    // 上一版本中，add 之前最好进行清理，不然 enter 也可能重复绑定，因为 add 由 watch 触发
+    removeHorizontalScrollListeners();
+    if (affixHeaderRef.value) {
+      on(affixHeaderRef.value, 'mouseenter', onHeaderMouseEnter);
+      on(affixHeaderRef.value, 'mouseleave', onHeaderMouseLeave);
+      const { removeElementTouchScrollListener } = setupElementTouchScrollListener(affixHeaderRef.value);
+      elementTouchScrollCleanups.push(removeElementTouchScrollListener);
+    }
+
+    if (props.footerAffixedBottom && affixFooterRef.value) {
+      on(affixFooterRef.value, 'mouseenter', onFootMouseEnter);
+      on(affixFooterRef.value, 'mouseleave', onFootMouseLeave);
+    }
+
+    if (props.horizontalScrollAffixedBottom && horizontalScrollbarRef.value) {
+      on(horizontalScrollbarRef.value, 'mouseenter', onScrollbarMouseEnter);
+      on(horizontalScrollbarRef.value, 'mouseleave', onScrollbarMouseLeave);
+    }
+
+    if ((isAffixed.value || isVirtualScroll.value) && tableContentRef.value) {
+      on(tableContentRef.value, 'mouseenter', onTableContentMouseEnter);
+      on(tableContentRef.value, 'mouseleave', onTableContentMouseLeave);
+      const { removeElementTouchScrollListener } = setupElementTouchScrollListener(tableContentRef.value);
+      elementTouchScrollCleanups.push(removeElementTouchScrollListener);
     }
   };
 
