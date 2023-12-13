@@ -174,6 +174,8 @@ export default function useAffix(props: TdBaseTableProps) {
         activatingTouchScrollListenerCleanups.length = 0;
         // 即使是相同元素也重新绑定，因为 touch 必定带来滑动停止
         on(element, 'scroll', onElementTouchScroll);
+        // 有可能触碰了一下，没触发 scroll，也销毁
+        debounceOffScrollListener(onElementTouchScroll);
         activatingTouchScrollListenerCleanups.push(() => {
           off(element, 'scroll', onElementTouchScroll);
         });
