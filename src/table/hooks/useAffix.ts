@@ -288,6 +288,10 @@ export default function useAffix(props: TdBaseTableProps) {
   onBeforeUnmount(() => {
     off(document, 'scroll', onDocumentScroll);
     removeHorizontalScrollListeners();
+    affixHeaderRef.value = null;
+    affixFooterRef.value = null;
+    horizontalScrollbarRef.value = null;
+    tableContentRef.value = null;
   });
 
   const setTableContentRef = (tableContent: HTMLDivElement) => {
