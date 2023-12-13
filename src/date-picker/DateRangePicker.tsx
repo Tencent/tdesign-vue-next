@@ -390,7 +390,7 @@ export default defineComponent({
       presetsPlacement: props.presetsPlacement,
       popupVisible: popupVisible.value,
       panelPreselection: props.panelPreselection,
-      disableDateSelectLimit: props.disableDateSelectLimit,
+      cancelRangeSelectLimit: props.cancelRangeSelectLimit,
       onCellClick,
       onCellMouseEnter,
       onCellMouseLeave,
