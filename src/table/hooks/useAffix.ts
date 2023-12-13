@@ -231,11 +231,15 @@ export default function useAffix(props: TdBaseTableProps) {
     if (props.footerAffixedBottom && affixFooterRef.value) {
       on(affixFooterRef.value, 'mouseenter', onFootMouseEnter);
       on(affixFooterRef.value, 'mouseleave', onFootMouseLeave);
+      const { removeElementTouchScrollListener } = setupElementTouchScrollListener(affixFooterRef.value);
+      elementTouchScrollCleanups.push(removeElementTouchScrollListener);
     }
 
     if (props.horizontalScrollAffixedBottom && horizontalScrollbarRef.value) {
       on(horizontalScrollbarRef.value, 'mouseenter', onScrollbarMouseEnter);
       on(horizontalScrollbarRef.value, 'mouseleave', onScrollbarMouseLeave);
+      const { removeElementTouchScrollListener } = setupElementTouchScrollListener(horizontalScrollbarRef.value);
+      elementTouchScrollCleanups.push(removeElementTouchScrollListener);
     }
 
     if ((isAffixed.value || isVirtualScroll.value) && tableContentRef.value) {
