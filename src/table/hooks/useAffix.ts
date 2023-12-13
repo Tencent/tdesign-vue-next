@@ -180,6 +180,8 @@ export default function useAffix(props: TdBaseTableProps) {
     enterListenersRemoveCallback.forEach((callback) => {
       callback();
     });
+    // 清空数组
+    enterListenersRemoveCallback.length = 0;
   };
 
   const addHorizontalScrollElementEnterListeners = () => {
