@@ -104,11 +104,11 @@ export default function useAffix(props: TdBaseTableProps) {
     updateAffixHeaderOrFooter();
   };
 
-  // 包含移动端的 touch 事件
-  const enterEvent = ['mouseenter', 'touchstart'];
-  const leaveEvent = ['mouseleave', 'touchend'];
-
   const setupElementHorizontalScrollingListeners = (element: HTMLElement) => {
+    // 包含移动端的 touch 事件
+    const enterEvent = ['mouseenter', 'touchstart'];
+    const leaveEvent = ['mouseleave', 'touchend'];
+
     let isOverElement = false;
     let isScrolling = false;
 
@@ -155,6 +155,7 @@ export default function useAffix(props: TdBaseTableProps) {
     });
 
     function removeEnterListener() {
+      // 销毁进入移出监听器
       enterEvent.forEach((eventName) => {
         off(element, eventName, onElementEnter);
       });
@@ -162,6 +163,10 @@ export default function useAffix(props: TdBaseTableProps) {
       leaveEvent.forEach((eventName) => {
         off(element, eventName, onElementLeave);
       });
+
+      // 兜底销毁滚动监听器，理论上不需要这里来销毁，以防万一加上
+      off(element, 'scroll', onElementScroll);
+      off(element, 'scrollend', onElementScrollEnd);
     }
 
     return {
