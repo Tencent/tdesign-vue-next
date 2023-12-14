@@ -9,7 +9,7 @@
 ### 1.初始化子仓库
 
 ```bash
-git submodule init && git submodule update
+npm run init
 ```
 
 ### 2.安装依赖
