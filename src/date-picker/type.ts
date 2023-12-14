@@ -153,6 +153,11 @@ export interface TdDateRangePickerProps {
    */
   allowInput?: boolean;
   /**
+   * 默认的日期选择交互是根据点击前后日期的顺序来决定并且会加以限制。比如：用户先点击开始时间输入框，选择了一个日期例如2020-05-15，紧接着交互会自动将焦点跳到结束日期输入框，等待用户选择结束时间。此时用户只能选择大于2020-05-15的日期（之前的日期会被灰态禁止点击，限制用户的点击）。当该值传递`true`时，则取消该限制。
+   * @default false
+   */
+  cancelRangeSelectLimit?: boolean;
+  /**
    * 是否显示清除按钮
    * @default false
    */
