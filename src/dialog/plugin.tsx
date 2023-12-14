@@ -71,8 +71,6 @@ const createDialog: DialogMethod = (props: DialogOptions) => {
   const dialogComponent = createApp(component);
   const dialog = dialogComponent.mount(wrapper);
 
-  // updateClassNameStyle(className, style);
-
   const container = getAttach(options.attach);
   if (container) {
     container.appendChild(wrapper);
