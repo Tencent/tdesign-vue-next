@@ -210,7 +210,7 @@ export function useRowHighlight(props: BaseTableProps, tableRef: Ref<HTMLDivElem
   };
 
   const keyboardUpListener = (e: KeyboardEvent) => {
-    const code = e.key?.trim() || e.code;
+    const code = e.code || e.key?.trim();
     if (SHIFT_REG.test(code)) {
       isShiftPressed.value = false;
     }
