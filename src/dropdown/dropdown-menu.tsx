@@ -1,5 +1,5 @@
 import { defineComponent, ref, onMounted, h, reactive } from 'vue';
-import { ChevronRightIcon as TdChevronRightIcon, ChevronLeftIcon as TdChevronLeftIcon } from 'tdesign-icons-vue-next';
+import { ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
 import DropdownItem from './dropdown-item';
 
 import { DropdownOption } from './type';
@@ -19,9 +19,8 @@ export default defineComponent({
     const scrollTopMap = reactive({});
     const menuRef = ref<HTMLElement>();
     const isOverMaxHeight = ref(false);
-    const { ChevronRightIcon, ChevronLeftIcon } = useGlobalIcon({
+    const { ChevronRightIcon } = useGlobalIcon({
       ChevronRightIcon: TdChevronRightIcon,
-      ChevronLeftIcon: TdChevronLeftIcon,
     });
 
     const handleItemClick = (options: { data: DropdownOption; context: { e: MouseEvent } }) => {
@@ -75,17 +74,8 @@ export default defineComponent({
                 isSubmenu={true}
               >
                 <div class={`${dropdownClass.value}__item-content`}>
-                  {props.direction === 'right' ? (
-                    <>
-                      <span class={`${dropdownClass.value}__item-text`}>{getContent(optionItem.content)}</span>
-                      <ChevronRightIcon class={`${dropdownClass.value}__item-direction`} size="16" />
-                    </>
-                  ) : (
-                    <>
-                      <ChevronLeftIcon class={`${dropdownClass.value}__item-direction`} size="16" />
-                      <span class={`${dropdownClass.value}__item-text`}>{getContent(optionItem.content)}</span>
-                    </>
-                  )}
+                  <span class={`${dropdownClass.value}__item-text`}>{getContent(optionItem.content)}</span>
+                  <ChevronRightIcon class={`${dropdownClass.value}__item-direction`} size="16" />
                 </div>
                 <div
                   class={[
