@@ -214,7 +214,7 @@ export default defineComponent({
     );
 
     return () => (
-      <div class={uploadClasses} onPaste={props.uploadPastedFiles ? onPasteFileChange : undefined}>
+      <div class={uploadClasses.value} onPaste={props.uploadPastedFiles ? onPasteFileChange : undefined}>
         <input
           ref={inputRef}
           type="file"
