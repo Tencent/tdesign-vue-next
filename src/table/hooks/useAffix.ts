@@ -27,6 +27,9 @@ export default function useAffix(props: TdBaseTableProps) {
   const showAffixFooter = ref(true);
   // 当表格完全滚动消失在视野时，需要隐藏吸底分页器
   const showAffixPagination = ref(true);
+  // 当鼠标按下拖动内容来滚动时，需要更新表头位置（Windows 按下鼠标横向滚动，滚动结束后，再松开鼠标）
+  let isMousedown = false;
+  let isMouseInScrollableArea = false;
 
   const isVirtualScroll = computed(
     () => props.scroll && props.scroll.type === 'virtual' && (props.scroll.threshold || 100) < props.data.length,
@@ -131,10 +134,12 @@ export default function useAffix(props: TdBaseTableProps) {
 
   const onHeaderMouseEnter = () => {
     on(affixHeaderRef.value, 'scroll', onHeaderScroll);
+    onMouseEnterScrollableArea();
   };
 
   const onHeaderMouseLeave = () => {
-    off(affixHeaderRef.value, 'scroll', onHeaderScroll);
+    if (!isMousedown) off(affixHeaderRef.value, 'scroll', onHeaderScroll);
+    onMouseLeaveScrollableArea();
   };
 
   const onScrollbarMouseEnter = () => {
@@ -147,10 +152,32 @@ export default function useAffix(props: TdBaseTableProps) {
 
   const onTableContentMouseEnter = () => {
     on(tableContentRef.value, 'scroll', onTableContentScroll);
+    onMouseEnterScrollableArea();
   };
 
   const onTableContentMouseLeave = () => {
-    off(tableContentRef.value, 'scroll', onTableContentScroll);
+    if (!isMousedown) off(tableContentRef.value, 'scroll', onTableContentScroll);
+    onMouseLeaveScrollableArea();
+  };
+
+  const onMousedown = () => {
+    isMousedown = true;
+  };
+
+  const onMouseup = () => {
+    isMousedown = false;
+    if (!isMouseInScrollableArea) {
+      off(affixHeaderRef.value, 'scroll', onHeaderScroll);
+      off(tableContentRef.value, 'scroll', onTableContentScroll);
+    }
+  };
+
+  const onMouseEnterScrollableArea = () => {
+    isMouseInScrollableArea = true;
+  };
+
+  const onMouseLeaveScrollableArea = () => {
+    isMouseInScrollableArea = false;
   };
 
   // 记录激活中的 scroll，在新元素点击时要进行抢占
@@ -201,6 +228,9 @@ export default function useAffix(props: TdBaseTableProps) {
   };
 
   const removeHorizontalScrollListeners = () => {
+    off(window, 'mousedown', onMousedown);
+    off(window, 'mouseup', onMouseup);
+
     cleanupElementTouchScroll();
     if (affixHeaderRef.value) {
       off(affixHeaderRef.value, 'mouseenter', onHeaderMouseEnter);
@@ -221,7 +251,9 @@ export default function useAffix(props: TdBaseTableProps) {
   };
 
   const addHorizontalScrollListeners = () => {
-    // 上一版本中，add 之前最好进行清理，不然 enter 也可能重复绑定，因为 add 由 watch 触发
+    on(window, 'mousedown', onMousedown);
+    on(window, 'mouseup', onMouseup);
+
     removeHorizontalScrollListeners();
     if (affixHeaderRef.value) {
       on(affixHeaderRef.value, 'mouseenter', onHeaderMouseEnter);
