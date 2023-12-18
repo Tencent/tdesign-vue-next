@@ -99,12 +99,12 @@ export default defineComponent({
       };
     });
 
-    const handleEscKeydown = (e: KeyboardEvent) => {
-      if (props.closeOnEscKeydown ?? (globalConfig.value.closeOnEscKeydown && e.key === 'Escape')) {
-        props.onEscKeydown?.({ e });
-        closeDrawer({ trigger: 'esc', e });
-      }
-    };
+    // const handleEscKeydown = (e: KeyboardEvent) => {
+    //   if (props.closeOnEscKeydown ?? (globalConfig.value.closeOnEscKeydown && e.key === 'Escape')) {
+    //     props.onEscKeydown?.({ e });
+    //     closeDrawer({ trigger: 'esc', e });
+    //   }
+    // };
 
     const clearStyleFunc = () => {
       clearTimeout(styleTimer.value);
@@ -174,6 +174,9 @@ export default defineComponent({
           if (!props.showInAttachedElement && props.preventScrollThrough) {
             styleEl.value && document.head.appendChild(styleEl.value);
           }
+          nextTick(() => {
+            drawerEle.value?.focus?.();
+          });
         } else {
           clearStyleFunc();
         }
@@ -246,12 +249,12 @@ export default defineComponent({
         document.head.appendChild(styleEl.value);
       }
 
-      window.addEventListener('keydown', handleEscKeydown);
+      // window.addEventListener('keydown', handleEscKeydown);
     });
 
     onBeforeUnmount(() => {
       clearStyleFunc();
-      window.removeEventListener('keydown', handleEscKeydown);
+      // window.removeEventListener('keydown', handleEscKeydown);
     });
 
     return () => {
