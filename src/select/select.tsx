@@ -303,6 +303,12 @@ export default defineComponent({
         checkValueInvalid();
       },
     );
+    watch(innerPopupVisible, (value) => {
+      if (value) {
+        // 原本存在搜索内容 重新打开时清空
+        innerInputValue.value && setInputValue('');
+      }
+    });
 
     // 列表展开时定位置选中项
     const updateScrollTop = (content: HTMLDivElement) => {
@@ -419,7 +425,6 @@ export default defineComponent({
               props.onBlur?.({ e, value: innerValue.value });
             }}
             onFocus={(inputValue, { e }) => {
-              setInputValue('');
               props.onFocus?.({ e, value: innerValue.value });
             }}
             {...(props.selectInputProps as TdSelectProps['selectInputProps'])}
