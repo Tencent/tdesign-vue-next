@@ -143,6 +143,12 @@ export default defineComponent({
       return props.keys?.children || 'children';
     });
 
+    watch(innerVisible, (value) => {
+      if (value) {
+        innerInputValue.value && setInnerInputValue(''); // 原本存在搜索内容 重新打开时清空
+      }
+    });
+
     // timelifes
     onMounted(async () => {
       if (!treeSelectValue.value && props.defaultValue) {
