@@ -305,8 +305,8 @@ export default defineComponent({
     );
     watch(innerPopupVisible, (value) => {
       if (value) {
-        // 显示
-        innerInputValue.value && setInputValue(''); // 原本存在搜索内容 重新打开时清空
+        // 原本存在搜索内容 重新打开时清空
+        innerInputValue.value && setInputValue('');
       }
     });
 
