@@ -177,6 +177,7 @@ export default defineComponent({
               >
                 <Image
                   src={image.thumbnail || image.mainImage}
+                  error=""
                   className={`${COMPONENT_NAME.value}__header-img`}
                   onClick={() => onImgClick(index)}
                 />
