@@ -110,6 +110,13 @@ export default defineComponent({
       onDrop: props.onDrop,
     };
 
+    const uploadClasses = computed(() => [
+      `${classPrefix.value}-upload`,
+      {
+        [`${classPrefix.value}-upload--theme-${props.theme}`]: props.theme === 'file-input',
+      },
+    ]);
+
     const getNormalFileNode = () => (
       <NormalFile
         {...commonDisplayFileProps.value}
@@ -207,7 +214,7 @@ export default defineComponent({
     );
 
     return () => (
-      <div class={`${classPrefix.value}-upload`} onPaste={props.uploadPastedFiles && onPasteFileChange}>
+      <div class={uploadClasses.value} onPaste={props.uploadPastedFiles ? onPasteFileChange : undefined}>
         <input
           ref={inputRef}
           type="file"
