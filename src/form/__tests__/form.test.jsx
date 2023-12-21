@@ -429,6 +429,18 @@ describe('Form', () => {
         expectToSuccess(res);
       });
 
+      it('ip', async () => {
+        rules.value = { name: [{ ip: true }] };
+
+        formData.value.name = '19999';
+        let res = await validate();
+        expectToFailure(res);
+
+        formData.value.name = '192.168.2.1';
+        res = await validate();
+        expectToSuccess(res);
+      });
+
       it('trigger', async () => {
         rules.value = { name: [{ required: true, trigger: 'change' }] };
 
