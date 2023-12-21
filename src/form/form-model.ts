@@ -44,7 +44,9 @@ const VALIDATE_MAP = {
   idcard: (val: ValueType): boolean => /^(\d{18,18}|\d{15,15}|\d{17,17}x)$/i.test(val),
   telnumber: (val: ValueType): boolean => /^1[3-9]\d{9}$/.test(val),
   ip: (val: ValueType): boolean =>
-    /^(2(5[0-5]{1}|[0-4]\d{1})|[0-1]?\d{1,2})(\.(2(5[0-5]{1}|[0-4]\d{1})|[0-1]?\d{1,2})){3}$/.test(val),
+    /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$|^([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$/.test(
+      val,
+    ),
   pattern: (val: ValueType, regexp: RegExp): boolean => regexp.test(val),
   // 自定义校验规则，可能是异步校验
   validator: (val: ValueType, validate: CustomValidator): ReturnType<CustomValidator> => validate(val),
