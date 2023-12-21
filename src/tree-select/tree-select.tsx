@@ -255,6 +255,11 @@ export default defineComponent({
       change(treeSelectValue.value, null, trigger as 'tag-remove' | 'backspace');
     };
 
+    const handlePopupVisibleChange = (visible: boolean, context: PopupVisibleChangeContext) => {
+      setInnerVisible(visible, context);
+      // 在通过点击选择器打开弹窗时 清空此前的输入内容 避免在关闭时就清空引起的闪烁问题
+      if (visible && context.trigger === 'trigger-element-click') setInnerInputValue('');
+    };
     const changeNodeInfo = async () => {
       await treeSelectValue.value;
 
@@ -468,7 +473,7 @@ export default defineComponent({
         }}
         onInputChange={inputChange}
         onTagChange={tagChange}
-        onPopupVisibleChange={(state: boolean, context: PopupVisibleChangeContext) => setInnerVisible(state, context)}
+        onPopupVisibleChange={handlePopupVisibleChange}
         {...(props.selectInputProps as TdTreeSelectProps['selectInputProps'])}
       />
     );

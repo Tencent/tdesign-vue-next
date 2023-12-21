@@ -111,6 +111,16 @@ export default {
     type: Boolean,
     default: true,
   },
+  /** 行选中单选场景，是否允许取消选中 */
+  rowSelectionAllowUncheck: Boolean,
+  /** 行选中类型，单选或多选。效果和 `columns` 中配置的 `{ colKey: 'row-select', type: 'single' }` 一样 */
+  rowSelectionType: {
+    type: String as PropType<TdPrimaryTableProps['rowSelectionType']>,
+    validator(val: TdPrimaryTableProps['rowSelectionType']): boolean {
+      if (!val) return true;
+      return ['single', 'multiple'].includes(val);
+    },
+  },
   /** 是否在点击整行时选中 */
   selectOnRowClick: Boolean,
   /** 选中行。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制 */
