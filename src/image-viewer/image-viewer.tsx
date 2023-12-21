@@ -15,6 +15,7 @@ import { useMirror, useRotate, useScale } from './hooks';
 import { formatImages, getOverlay } from './utils';
 import { EVENT_CODE } from './const';
 import Image from '../image';
+import usePopupManager from '../hooks/usePopupManager';
 
 export default defineComponent({
   name: 'TImageViewer',
@@ -29,7 +30,6 @@ export default defineComponent({
     const { index, visible, modelValue } = toRefs(props);
     const [indexValue, setIndexValue] = useDefaultValue(index, props.defaultIndex ?? 0, props.onIndexChange, 'index');
     const [visibleValue, setVisibleValue] = useVModel(visible, modelValue, props.defaultVisible, () => {}, 'visible');
-
     const animationEnd = ref(true);
     const animationTimer = ref();
 
@@ -62,6 +62,10 @@ export default defineComponent({
 
     const images = computed(() => formatImages(props.images));
     const currentImage = computed(() => images.value[indexValue.value] ?? { mainImage: '' });
+
+    const { isLastDialog } = usePopupManager('dialog', {
+      visible: visibleValue,
+    });
 
     const prevImage = () => {
       const newIndex = indexValue.value - 1;
@@ -112,7 +116,7 @@ export default defineComponent({
           onZoomOut();
           break;
         case EVENT_CODE.esc:
-          if (props.closeOnEscKeydown) {
+          if (props.closeOnEscKeydown && isLastDialog()) {
             onClose({ e, trigger: 'esc' });
           }
           break;
@@ -143,12 +147,9 @@ export default defineComponent({
 
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
-      const { deltaY, ctrlKey } = e;
-      // mac触摸板双指缩放时ctrlKey=true，deltaY>0为缩小  <0为放大
-      if (ctrlKey) {
-        return deltaY > 0 ? onZoomOut() : onZoomIn();
-      }
-      deltaY > 0 ? onZoomIn() : onZoomOut();
+      const { deltaY } = e;
+
+      deltaY > 0 ? onZoomOut() : onZoomIn();
     };
 
     const transStyle = computed(() => ({
@@ -176,6 +177,7 @@ export default defineComponent({
               >
                 <Image
                   src={image.thumbnail || image.mainImage}
+                  error=""
                   className={`${COMPONENT_NAME.value}__header-img`}
                   onClick={() => onImgClick(index)}
                 />

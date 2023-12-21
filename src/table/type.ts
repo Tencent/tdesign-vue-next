@@ -337,7 +337,7 @@ export interface BaseTableCol<T extends TableRowData = TableRowData> {
    */
   attrs?: BaseTableColumnAttributes<T>;
   /**
-   * 自定义单元格渲染。值类型为 Function 表示以函数形式渲染单元格。值类型为 string 表示使用插槽渲染，插槽名称为 cell 的值。默认使用 colKey 作为插槽名称。优先级高于 render。泛型 T 指表格数据类型
+   * 自定义单元格渲染。默认使用 `colKey` 的值作为自定义当前列的插槽名称。<br/>如果 `cell` 值类型为 Function 表示以函数形式渲染单元格。值类型为 string 表示使用插槽渲染，插槽名称为 cell 的值。优先级高于 `render`。泛型 T 指表格数据类型
    */
   cell?: string | TNode<BaseTableCellParams<T>>;
   /**
@@ -522,6 +522,14 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    * @default true
    */
   reserveSelectedRowOnPaginate?: boolean;
+  /**
+   * 行选中单选场景，是否允许取消选中
+   */
+  rowSelectionAllowUncheck?: boolean;
+  /**
+   * 行选中类型，单选或多选。效果和 `columns` 中配置的 `{ colKey: 'row-select', type: 'single' }` 一样
+   */
+  rowSelectionType?: 'single' | 'multiple';
   /**
    * 是否在点击整行时选中
    */
