@@ -328,11 +328,6 @@ export interface FormErrorMessage {
    */
   ip?: string;
   /**
-   * email校验不通过时的表单项显示文案，全局配置默认是：`'请输入正确的${name}'`
-   * @default ''
-   */
-  email?: string;
-  /**
    * 链接校验规则不通过时的表单项显示文案，全局配置默认是：`'请输入正确的${name}'`
    * @default ''
    */
