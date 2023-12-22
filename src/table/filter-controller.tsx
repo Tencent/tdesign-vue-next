@@ -195,7 +195,7 @@ export default defineComponent({
     const filterValue = this.tFilterValue?.[column.colKey];
     const isObjectTrue = typeof filterValue === 'object' && !isEmpty(filterValue);
     // false is a valid filter value
-    const isValueExist = (filterValue || filterValue === false) && typeof filterValue !== 'object';
+    const isValueExist = ![null, undefined, ''].includes(filterValue) && typeof filterValue !== 'object';
     return (
       <Popup
         attach={this.attach || (this.primaryTableElement ? () => this.primaryTableElement as HTMLElement : undefined)}

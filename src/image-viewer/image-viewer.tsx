@@ -1,4 +1,4 @@
-import { computed, defineComponent, ref, toRefs, Teleport, watch, Transition } from 'vue';
+import { computed, defineComponent, ref, toRefs, Teleport, watch, Transition, nextTick } from 'vue';
 import { ChevronLeftIcon, ChevronDownIcon, CloseIcon } from 'tdesign-icons-vue-next';
 
 import props from './props';
@@ -15,6 +15,7 @@ import { useMirror, useRotate, useScale } from './hooks';
 import { formatImages, getOverlay } from './utils';
 import { EVENT_CODE } from './const';
 import Image from '../image';
+import usePopupManager from '../hooks/usePopupManager';
 
 export default defineComponent({
   name: 'TImageViewer',
@@ -29,7 +30,6 @@ export default defineComponent({
     const { index, visible, modelValue } = toRefs(props);
     const [indexValue, setIndexValue] = useDefaultValue(index, props.defaultIndex ?? 0, props.onIndexChange, 'index');
     const [visibleValue, setVisibleValue] = useVModel(visible, modelValue, props.defaultVisible, () => {}, 'visible');
-
     const animationEnd = ref(true);
     const animationTimer = ref();
 
@@ -62,6 +62,10 @@ export default defineComponent({
 
     const images = computed(() => formatImages(props.images));
     const currentImage = computed(() => images.value[indexValue.value] ?? { mainImage: '' });
+
+    const { isLastDialog } = usePopupManager('dialog', {
+      visible: visibleValue,
+    });
 
     const prevImage = () => {
       const newIndex = indexValue.value - 1;
@@ -96,6 +100,8 @@ export default defineComponent({
     };
 
     const keydownHandler = (e: KeyboardEvent) => {
+      e.stopPropagation();
+
       switch (e.code) {
         case EVENT_CODE.left:
           prevImage();
@@ -110,7 +116,7 @@ export default defineComponent({
           onZoomOut();
           break;
         case EVENT_CODE.esc:
-          if (props.closeOnEscKeydown) {
+          if (props.closeOnEscKeydown && isLastDialog()) {
             onClose({ e, trigger: 'esc' });
           }
           break;
@@ -119,32 +125,31 @@ export default defineComponent({
       }
     };
 
+    const divRef = ref<HTMLDivElement>();
     watch(
       () => visibleValue.value,
       (val) => {
         clearTimeout(animationTimer.value);
         if (val) {
           animationEnd.value = false;
-          window.addEventListener('keydown', keydownHandler);
+          nextTick().then(() => {
+            divRef.value?.focus?.();
+          });
 
           onRest();
         } else {
           animationTimer.value = setTimeout(() => {
             animationEnd.value = true;
           }, 200);
-          window.removeEventListener('keydown', keydownHandler);
         }
       },
     );
 
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
-      const { deltaY, ctrlKey } = e;
-      // mac触摸板双指缩放时ctrlKey=true，deltaY>0为缩小  <0为放大
-      if (ctrlKey) {
-        return deltaY > 0 ? onZoomOut() : onZoomIn();
-      }
-      deltaY > 0 ? onZoomIn() : onZoomOut();
+      const { deltaY } = e;
+
+      deltaY > 0 ? onZoomOut() : onZoomIn();
     };
 
     const transStyle = computed(() => ({
@@ -172,6 +177,7 @@ export default defineComponent({
               >
                 <Image
                   src={image.thumbnail || image.mainImage}
+                  error=""
                   className={`${COMPONENT_NAME.value}__header-img`}
                   onClick={() => onImgClick(index)}
                 />
@@ -246,10 +252,13 @@ export default defineComponent({
             <Transition>
               {(visibleValue.value || !animationEnd.value) && (
                 <div
+                  ref={divRef}
                   v-show={visibleValue.value}
                   class={wrapClass.value}
                   style={{ zIndex: zIndexValue.value }}
                   onWheel={onWheel}
+                  tabindex={-1}
+                  onKeydown={keydownHandler}
                 >
                   {!!showOverlayValue.value && (
                     <div class={`${COMPONENT_NAME.value}__modal-mask`} onClick={clickOverlayHandler} />

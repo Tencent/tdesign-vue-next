@@ -4,6 +4,7 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
+import { LoadingProps } from '../loading';
 import { TNode } from '../common';
 
 export interface TdCardProps {
@@ -55,10 +56,14 @@ export interface TdCardProps {
    */
   hoverShadow?: boolean;
   /**
-   * 加载状态，值为 true 会根据不同的布局显示不同的加载状态，值为 false 则表示非加载状态。也可以使用 Sketon 组件完全自定义加载态呈现内容
+   * 加载状态，值为 true 会根据不同的布局显示不同的加载状态，值为 false 则表示非加载状态。也可以使用 Skeleton 组件完全自定义加载态呈现内容
    * @default false
    */
   loading?: boolean | TNode;
+  /**
+   * 透传加载组件(Loading)全部属性
+   */
+  loadingProps?: LoadingProps;
   /**
    * 是否显示卡片阴影，默认不显示
    * @default false
