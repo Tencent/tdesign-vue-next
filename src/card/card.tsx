@@ -5,6 +5,7 @@ import { useTNodeJSX } from '../hooks/tnode';
 import TLoading from '../loading';
 import props from './props';
 import isString from 'lodash/isString';
+import { TdCardProps } from './type';
 
 export default defineComponent({
   name: 'TCard',
@@ -59,7 +60,6 @@ export default defineComponent({
     const showCover = computed(() => props.cover || slots.cover);
     const showLoading = computed(() => props.loading || slots.loading);
     const showContent = computed(() => props.content || slots.content || props.default || slots.default);
-    const loadingProps = computed(() => props.loadingProps || {});
 
     // 是否展示头部区域
     const isHeaderRender = computed(
@@ -119,7 +119,11 @@ export default defineComponent({
       );
 
       if (showLoading.value) {
-        return renderTNodeJSX('loading') || <TLoading {...loadingProps.value}>{content}</TLoading>;
+        return (
+          renderTNodeJSX('loading') || (
+            <TLoading {...(props.loadingProps as TdCardProps['loadingProps'])}>{content}</TLoading>
+          )
+        );
       }
       return content;
     };
