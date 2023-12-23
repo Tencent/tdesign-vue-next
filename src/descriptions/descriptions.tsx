@@ -77,9 +77,11 @@ export default defineComponent({
       return (
         <table class={tableClass}>
           <tbody>
-            {rows.value.map((row) => (
-              <DescriptionsRow row={row} />
-            ))}
+            {props.direction === 'horizontal' ? (
+              rows.value.map((row) => <DescriptionsRow row={row} />)
+            ) : (
+              <DescriptionsRow row={getChildByName('TDescriptionsItem')} />
+            )}
           </tbody>
         </table>
       );

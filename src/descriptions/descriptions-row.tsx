@@ -16,52 +16,63 @@ export default defineComponent({
     row: Array as PropType<VNode[]>,
   },
   setup(props, context) {
-    const COMPONENT_NAME = usePrefixClass('descriptions');
-    const getChildByName = useChildComponentSlots();
-    const renderTNodeJSX = useTNodeJSX();
-
     const descriptionsProps = inject(descriptionsKey);
+
+    const label = (node: VNode) => <td>{node.props.label}</td>;
+    const children = (node: VNode) => <td>{(node.children as Slots)?.default?.()}</td>;
+
+    // 总共有四种布局
+    // direction horizontal vertical
+    // itemDirection horizontal vertical
+
+    const hh = () => (
+      <tr>
+        {props.row.map((node) => (
+          <>
+            {label(node)}
+            {children(node)}
+          </>
+        ))}
+      </tr>
+    );
+
+    const hv = () => (
+      <>
+        <tr>{props.row.map((node) => label(node))}</tr>
+        <tr>{props.row.map((node) => children(node))}</tr>
+      </>
+    );
+    const vh = () => (
+      <>
+        {props.row.map((node) => (
+          <tr>
+            {label(node)}
+            {children(node)}
+          </tr>
+        ))}
+      </>
+    );
+
+    const vv = () => (
+      <>
+        {props.row.map((node) => (
+          <>
+            <tr>{label(node)}</tr>
+            <tr>{children(node)}</tr>
+          </>
+        ))}
+      </>
+    );
 
     return () => (
       <>
-        {descriptionsProps.direction === 'horizontal' ? (
-          descriptionsProps.itemDirection === 'horizontal' ? (
-            <tr>
-              {props.row.map((node) => (
-                <>
-                  <td>{node.props.label}</td>
-                  <td>{(node.children as Slots)?.default?.()}</td>
-                </>
-              ))}
-            </tr>
-          ) : (
-            <>
-              <tr>
-                {props.row.map((node) => (
-                  <>
-                    <td>{node.props.label}</td>
-                  </>
-                ))}
-              </tr>
-              <tr>
-                {props.row.map((node) => (
-                  <>
-                    <td>{(node.children as Slots)?.default?.()}</td>
-                  </>
-                ))}
-              </tr>
-            </>
-          )
-        ) : (
-          <tr>
-            {props.row.map((node) => (
-              <>
-                <td>{node.props.label}</td>
-                <td>{(node.children as Slots)?.default?.()}</td>
-              </>
-            ))}
-          </tr>
-        )}
+        {descriptionsProps.direction === 'horizontal'
+          ? descriptionsProps.itemDirection === 'horizontal'
+            ? hh()
+            : hv()
+          : descriptionsProps.itemDirection === 'horizontal'
+          ? vh()
+          : vv()}
       </>
     );
   },
