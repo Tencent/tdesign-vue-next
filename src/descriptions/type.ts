@@ -20,7 +20,7 @@ export interface TdDescriptionsProps {
    * 一行 DescriptionItem 的数量
    * @default 2
    */
-  columns?: number;
+  column?: number;
   /**
    * 字段值内容的对齐方式：左对齐、居中对齐
    * @default left
@@ -41,6 +41,10 @@ export interface TdDescriptionsProps {
    * @default medium
    */
   size?: SizeEnum;
+  /**
+   * 描述项
+   */
+  items?: TdDescriptionItemProps[];
 }
 
 export interface TdDescriptionItemProps {

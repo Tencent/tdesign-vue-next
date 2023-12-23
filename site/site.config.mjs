@@ -136,6 +136,14 @@ export const docs = [
         component: () => import('tdesign-vue-next/space/space.md'),
         componentEn: () => import('tdesign-vue-next/space/space.en-US.md'),
       },
+      {
+        title: 'Descriptions 描述',
+        titleEn: 'Descriptions',
+        name: 'descriptions',
+        path: '/vue-next/components/descriptions',
+        component: () => import('tdesign-vue-next/descriptions/descriptions.md'),
+        componentEn: () => import('tdesign-vue-next/descriptions/descriptions.en-US.md'),
+      },
     ],
   },
   {
