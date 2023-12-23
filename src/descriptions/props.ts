@@ -13,9 +13,9 @@ export default {
   /** 字段名右侧是否携带冒号“：” */
   colon: Boolean,
   /** 一行 DescriptionItem 的数量 */
-  columns: {
+  column: {
     type: Number,
-    default: 2,
+    default: 3,
   },
   /** 字段值内容的对齐方式：左对齐、居中对齐 */
   contentAlign: {
@@ -36,10 +36,19 @@ export default {
     },
   },
   /** 排列方向 */
-  layout: {
-    type: String as PropType<TdDescriptionsProps['layout']>,
-    default: 'horizontal' as TdDescriptionsProps['layout'],
-    validator(val: TdDescriptionsProps['layout']): boolean {
+  direction: {
+    type: String as PropType<TdDescriptionsProps['direction']>,
+    default: 'horizontal' as TdDescriptionsProps['direction'],
+    validator(val: TdDescriptionsProps['direction']): boolean {
+      if (!val) return true;
+      return ['horizontal', 'vertical'].includes(val);
+    },
+  },
+  /** item 排列方向 */
+  itemlDirection: {
+    type: String as PropType<TdDescriptionsProps['itemDirection']>,
+    default: 'horizontal' as TdDescriptionsProps['itemDirection'],
+    validator(val: TdDescriptionsProps['itemDirection']): boolean {
       if (!val) return true;
       return ['horizontal', 'vertical'].includes(val);
     },

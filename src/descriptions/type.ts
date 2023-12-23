@@ -5,6 +5,7 @@
  * */
 
 import { TNode, SizeEnum } from '../common';
+import { VNode } from 'vue';
 
 export interface TdDescriptionsProps {
   /**
@@ -35,7 +36,7 @@ export interface TdDescriptionsProps {
    * 排列方向
    * @default horizontal
    */
-  layout?: 'horizontal' | 'vertical';
+  direction?: 'horizontal' | 'vertical';
   /**
    * 组件尺寸
    * @default medium
@@ -45,6 +46,7 @@ export interface TdDescriptionsProps {
    * 描述项
    */
   items?: TdDescriptionItemProps[];
+  itemDirection?: 'horizontal' | 'vertical';
 }
 
 export interface TdDescriptionItemProps {
@@ -58,3 +60,5 @@ export interface TdDescriptionItemProps {
    */
   span?: number;
 }
+
+export type TdDescriptionItemVnode = VNode & {};
