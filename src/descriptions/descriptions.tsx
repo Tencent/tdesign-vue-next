@@ -29,7 +29,7 @@ export default defineComponent({
   name: 'TDescriptions',
   props,
   setup(props: TdDescriptionsProps, context) {
-    const COMPONENT_NAME = usePrefixClass('guide');
+    const COMPONENT_NAME = usePrefixClass('descriptions');
     const getChildByName = useChildComponentSlots();
     // 计算渲染的行内容
     const rows = computed(() => {
@@ -69,18 +69,26 @@ export default defineComponent({
 
     provide(descriptionsKey, props);
 
+    const renderBody = () => {
+      const tableClass = [
+        `${COMPONENT_NAME.value}__body`,
+        { [`${COMPONENT_NAME.value}__body--border`]: props.bordered },
+      ];
+      return (
+        <table class={tableClass}>
+          <tbody>
+            {rows.value.map((row) => (
+              <DescriptionsRow row={row} />
+            ))}
+          </tbody>
+        </table>
+      );
+    };
+
     return () => (
       <div class={COMPONENT_NAME.value}>
         <div class={`${COMPONENT_NAME.value}__header`}></div>
-        <div class={`${COMPONENT_NAME.value}__body`}>
-          <table>
-            <tbody>
-              {rows.value.map((row) => (
-                <DescriptionsRow row={row} />
-              ))}
-            </tbody>
-          </table>
-        </div>
+        {renderBody()}
       </div>
     );
   },

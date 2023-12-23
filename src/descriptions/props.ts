@@ -45,7 +45,7 @@ export default {
     },
   },
   /** item 排列方向 */
-  itemlDirection: {
+  itemDirection: {
     type: String as PropType<TdDescriptionsProps['itemDirection']>,
     default: 'horizontal' as TdDescriptionsProps['itemDirection'],
     validator(val: TdDescriptionsProps['itemDirection']): boolean {
