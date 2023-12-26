@@ -5,6 +5,50 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.7.2 `2023-12-22` 
+### 🚀 Features
+- `Upload`: 
+  - 设置 `uploadPastedFiles` 默认值为 `true` @chaishi ([#3754](https://github.com/Tencent/tdesign-vue-next/pull/3754))
+  - 输入框类型的上传组件，新增类名 `t-upload--theme-file-input` @chaishi ([#3754](https://github.com/Tencent/tdesign-vue-next/pull/3754))
+- `Table`: 
+  - 行选中功能，新增 `rowSelectionType` 用于定义是单选/多选，用于支持即使没有配置 `columns: [{ rowKey: "row-select", type: 'single' }]` 的情况下，也能通过 `selectOnRowClick` 进行行选中的控制 @chaishi ([#3758](https://github.com/Tencent/tdesign-vue-next/pull/3758))
+  - 行选中功能，新增 `rowSelectionAllowUncheck` ，用于控制单选场景，是否允许取消选中 @chaishi ([#3758](https://github.com/Tencent/tdesign-vue-next/pull/3758))
+- `ImageViewer`: 图片预览，加载失败时，不显示错误文本，只显示图标 @chaishi ([#3754](https://github.com/Tencent/tdesign-vue-next/pull/3754))
+- `Menu`: 选中后关闭菜单，与其他组件保持交互行为一致([issue #2940](https://github.com/Tencent/tdesign-vue/issues/2940)) @uyarn ([#3764](https://github.com/Tencent/tdesign-vue-next/pull/3764))
+- `RadioGroup`:  优化组件样式体验，`variant`为`default-filled`时初始状态不执行动画 @loganylwu ([#3765](https://github.com/Tencent/tdesign-vue-next/pull/3765))
+- `Card`: `card` 组件支持传入 `loadingProps` 参数 @iiimix ([#3731](https://github.com/Tencent/tdesign-vue-next/pull/3731))
+- `DatePicker`:  支持 `cancelRangeSelectLimit` `API` @githubid0719 ([#3718](https://github.com/Tencent/tdesign-vue-next/pull/3718))
+- `Dropdown`: 移除对 `left` 的 `item` 样式特殊处理 @uyarn ([#3752](https://github.com/Tencent/tdesign-vue-next/pull/3752))
+
+### 🐞 Bug Fixes
+
+- `ImageViewer`: 
+  - 去除默认值设置以使用 `globalConfig` 中的默认值,避免在不同语言环境中出现异常 @sinbadmaster ([#3709](https://github.com/Tencent/tdesign-vue-next/pull/3709))
+  - 修改键盘事件绑定对象,避免影响全局键盘事件 @sinbadmaster ([#3712](https://github.com/Tencent/tdesign-vue-next/pull/3712))
+- `Table`: 
+  - 修复 `column-controller-visible-change` 事件参数 `trigger` 值不正确问题，[issue#3706](https://github.com/Tencent/tdesign-vue-next/issues/3706) @chaishi ([#3716](https://github.com/Tencent/tdesign-vue-next/pull/3716))
+  - 虚拟滚动场景，修复吸顶 `Affix` 表头无法滚动同步问题 @Cat1007 ([#3746](https://github.com/Tencent/tdesign-vue-next/pull/3746))
+  - 横向滚动场景，修复在 `Windows` 场景中，按下鼠标（不松开鼠标）横向滚动时，表头没有跟随滚动问题 @chaishi ([#3753](https://github.com/Tencent/tdesign-vue-next/pull/3753))
+  - 可筛选表格，修复筛选值为 `0` 时，筛选图表没有高亮问题，[tdesign-vue#2987](https://github.com/Tencent/tdesign-vue/issues/2987) @chaishi ([#3753](https://github.com/Tencent/tdesign-vue-next/pull/3753))
+  - `fixedRowHeight` 场景下初始化失败，导致虚拟滚动不生效 @Cat1007 ([#3739](https://github.com/Tencent/tdesign-vue-next/pull/3739))
+  -  修正表格精度,避免表头和表格出现精度误差因此预期外的滚动条 @Cat1007 ([#3747](https://github.com/Tencent/tdesign-vue-next/pull/3747))
+- `Tree`: 
+  - 处理 `height` 属性无效的问题 ([issue #3713](https://github.com/Tencent/tdesign-vue-next/issues/3713)) @betavs ([#3717](https://github.com/Tencent/tdesign-vue-next/pull/3717))
+  - 解决选中态初始化异常的问题 @TabSpace ([#3742](https://github.com/Tencent/tdesign-vue-next/pull/3742))
+- `ImageViewer`: 滚轮缩放符合操作直觉 @sinbadmaster ([#3738](https://github.com/Tencent/tdesign-vue-next/pull/3738))
+- `DateRangePicker`: 修复 `12` 月时选择同一个月内的日期后，第一次打开面板左右月份一样的问题([issue #3683](https://github.com/Tencent/tdesign-vue-next/issues/3683)) @Lyan-u ([#3727](https://github.com/Tencent/tdesign-vue-next/pull/3727))
+- `DialogPlugin`: 修正获取元素操作 `className` 的时机 @Cat1007 ([#3732](https://github.com/Tencent/tdesign-vue-next/pull/3732))
+- `DatePicker`: 修复日期选择禁用后，后缀图标颜色改变的问题 @HaixingOoO  @uyarn ([#3752](https://github.com/Tencent/tdesign-vue-next/pull/3752))
+- `Table`: 修复 `1.7.1` 中，`Shift` 连续选中失效问题，[#3751](https://github.com/Tencent/tdesign-vue-next/issues/3751) @chaishi ([#3753](https://github.com/Tencent/tdesign-vue-next/pull/3753))
+- `Select`: 修复 `1.6.0` 版本后 可过滤下 重新打开没有正常清除过滤输入内容的问题 @uyarn ([#3762](https://github.com/Tencent/tdesign-vue-next/pull/3762))
+- `TreeSelect`: 修复可过滤下，重新打开没有清除过滤输入内容的问题 @uyarn ([#3762](https://github.com/Tencent/tdesign-vue-next/pull/3762))
+- `Upload`: 修复取消拖拽上传后，状态无法回到组件初始状态问题，[#3646](https://github.com/Tencent/tdesign-vue-next/issues/3646) @chaishi ([#3754](https://github.com/Tencent/tdesign-vue-next/pull/3754))
+- `InputNumber`: `allowInputOverLimit` 为 `false` 时，数字超过最大值 `onBlur` 不触发 @zhaodesen ([#3722](https://github.com/Tencent/tdesign-vue-next/pull/3722))
+- `Pagination`: 将总数单位 `项` 改为 `条` , 保持内容一致性 @dinghuihua ([common#1687](https://github.com/Tencent/tdesign-common/pull/1687))
+### 🚧 Others
+-  `Dialog`:  增加统一管理弹窗 hooks @AuYuHui ([#3635](https://github.com/Tencent/tdesign-vue-next/pull/3635))
+
+
 ## 🌈 1.7.1 `2023-12-07` 
 ### 🚀 Features
 - `Table`: 支持 `thClassName` 单独给表头添加类名 @chaishi ([#3669](https://github.com/Tencent/tdesign-vue-next/pull/3669))
