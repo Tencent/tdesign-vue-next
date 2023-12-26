@@ -1,7 +1,6 @@
 :: BASE_DOC ::
 
 ## API
-
 ### Card Props
 
 name | type | default | description | required

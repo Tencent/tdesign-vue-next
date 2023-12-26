@@ -56,7 +56,7 @@ export interface TdCardProps {
    */
   hoverShadow?: boolean;
   /**
-   * 加载状态，值为 true 会根据不同的布局显示不同的加载状态，值为 false 则表示非加载状态。也可以使用 Sketon 组件完全自定义加载态呈现内容
+   * 加载状态，值为 true 会根据不同的布局显示不同的加载状态，值为 false 则表示非加载状态。也可以使用 Skeleton 组件完全自定义加载态呈现内容
    * @default false
    */
   loading?: boolean | TNode;
