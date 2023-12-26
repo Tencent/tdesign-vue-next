@@ -378,7 +378,11 @@ export default defineComponent({
       return null;
     });
     const extraNode = computed<VNode>(() => {
-      const getExtraNode = (content: string) => <div class={CLASS_NAMES.value.extra}>{content}</div>;
+      const getExtraNode = (content: string) => (
+        <div class={CLASS_NAMES.value.extra} title={content}>
+          {content}
+        </div>
+      );
       const list = errorList.value;
       if (showErrorMessage.value && list?.[0]?.message) {
         return getExtraNode(list[0].message);
