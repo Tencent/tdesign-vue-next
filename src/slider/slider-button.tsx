@@ -43,7 +43,7 @@ export default defineComponent({
       type: String,
     },
   },
-  emits: ['input'],
+  emits: ['input', 'mouseup'],
   setup(props, ctx) {
     const COMPONENT_NAME = usePrefixClass('slider__button');
     const tooltipConfig = computed(() => props);
@@ -163,6 +163,7 @@ export default defineComponent({
           if (!slideButtonProps.isClick) {
             setPosition(slideButtonProps.newPos);
           }
+          ctx.emit('mouseup');
         }, 0);
         window.removeEventListener('mousemove', onDragging);
         window.removeEventListener('touchmove', onDragging);
