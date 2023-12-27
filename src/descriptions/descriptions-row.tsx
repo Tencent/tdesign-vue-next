@@ -23,9 +23,12 @@ export default defineComponent({
     const label = (node: VNode) => {
       const labelClass = [
         `${COMPONENT_NAME.value}__label`,
-        { [`${COMPONENT_NAME.value}__label--${descriptionsProps.labelAlign}`]: descriptionsProps.labelAlign },
+        {
+          [`${COMPONENT_NAME.value}__label--${descriptionsProps.labelAlign}`]: descriptionsProps.labelAlign,
+          [`${descriptionsProps.labelClassName}`]: descriptionsProps.labelClassName,
+        },
       ];
-
+      // 这里的写法可以优化，找 宇杨 帮忙
       const labelStyle = isNil(descriptionsProps.labelWidth) ? '' : `width: ${descriptionsProps.labelWidth}px`;
       return (
         <td style={labelStyle} class={labelClass}>
@@ -38,7 +41,10 @@ export default defineComponent({
     const content = (node: VNode) => {
       const contentClass = [
         `${COMPONENT_NAME.value}__content`,
-        { [`${COMPONENT_NAME.value}__content--${descriptionsProps.contentAlign}`]: descriptionsProps.contentAlign },
+        {
+          [`${COMPONENT_NAME.value}__content--${descriptionsProps.contentAlign}`]: descriptionsProps.contentAlign,
+          [`${descriptionsProps.contentClassName}`]: descriptionsProps.contentClassName,
+        },
       ];
       const contentStyle = isNil(descriptionsProps.contentWidth) ? '' : `width: ${descriptionsProps.contentWidth}px`;
       return (

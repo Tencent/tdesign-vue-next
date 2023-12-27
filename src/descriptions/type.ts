@@ -47,8 +47,10 @@ export interface TdDescriptionsProps {
    */
   items?: TdDescriptionItemProps[];
   itemDirection?: 'horizontal' | 'vertical';
-  labelWidth?: Number;
-  contentWidth?: Number;
+  labelWidth?: number;
+  contentWidth?: number;
+  contentClassName?: string;
+  labelClassName?: String;
 }
 
 export interface TdDescriptionItemProps {

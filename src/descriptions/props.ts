@@ -65,4 +65,6 @@ export default {
   /** 组件尺寸 */
   labelWidth: Number,
   contentWidth: Number,
+  contentClassName: String as PropType<TdDescriptionsProps['contentClassName']>,
+  labelClassName: String as PropType<TdDescriptionsProps['labelClassName']>,
 };
