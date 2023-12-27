@@ -29,7 +29,7 @@ export default {
   /** 字段标签对齐方式：左对齐、右对齐、顶部对齐 */
   labelAlign: {
     type: String as PropType<TdDescriptionsProps['labelAlign']>,
-    default: 'right' as TdDescriptionsProps['labelAlign'],
+    default: 'left' as TdDescriptionsProps['labelAlign'],
     validator(val: TdDescriptionsProps['labelAlign']): boolean {
       if (!val) return true;
       return ['left', 'right', 'center'].includes(val);

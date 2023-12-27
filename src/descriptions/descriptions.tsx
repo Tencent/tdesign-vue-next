@@ -1,5 +1,5 @@
 import { defineComponent, computed, nextTick, onMounted, ref, toRefs, watch, h, Teleport, VNode, provide } from 'vue';
-import isFunction from 'lodash/isFunction';
+import isNil from 'lodash/isNil';
 import setStyle from '../_common/js/utils/set-style';
 import useVModel from '../hooks/useVModel';
 import { useTNodeJSX } from '../hooks/tnode';
@@ -47,8 +47,10 @@ export default defineComponent({
       // 3. 记录结果
       const res: VNode[][] = [];
       items.forEach((item, index) => {
-        const span = item.props?.span || 1;
-
+        if (isNil(item.props?.span)) {
+          item.props.span = 1;
+        }
+        const span = item.props.span;
         if (reset >= span) {
           // 当前行还剩余空间
           temp.push(item);
@@ -62,6 +64,7 @@ export default defineComponent({
 
         if (index === items.length - 1) {
           // 最后一个
+          item.props.span += reset;
           res.push(temp);
         }
       });

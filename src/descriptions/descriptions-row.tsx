@@ -20,7 +20,7 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('descriptions');
     const { SIZE } = useCommonClassName();
 
-    const label = (node: VNode) => {
+    const label = (node: VNode, direction: 'vertical' | 'horizontal' = 'horizontal') => {
       const labelClass = [
         `${COMPONENT_NAME.value}__label`,
         {
@@ -30,15 +30,19 @@ export default defineComponent({
       ];
       // 这里的写法可以优化，找 宇杨 帮忙
       const labelStyle = isNil(descriptionsProps.labelWidth) ? '' : `width: ${descriptionsProps.labelWidth}px`;
+
+      const { span } = node.props;
+      const labelSpan = direction === 'horizontal' ? 1 : span;
       return (
-        <td style={labelStyle} class={labelClass}>
+        <td colspan={labelSpan} style={labelStyle} class={labelClass}>
           {node.props.label}
           {descriptionsProps.colon && ':'}
         </td>
       );
     };
 
-    const content = (node: VNode) => {
+    // !todo 这里 ts 最好有全局的
+    const content = (node: VNode, direction: 'vertical' | 'horizontal' = 'horizontal') => {
       const contentClass = [
         `${COMPONENT_NAME.value}__content`,
         {
@@ -47,8 +51,10 @@ export default defineComponent({
         },
       ];
       const contentStyle = isNil(descriptionsProps.contentWidth) ? '' : `width: ${descriptionsProps.contentWidth}px`;
+      const { span } = node.props;
+      const contentSpan = span > 1 && direction === 'horizontal' ? span * 2 - 1 : span;
       return (
-        <td style={contentStyle} class={contentClass}>
+        <td colspan={contentSpan} style={contentStyle} class={contentClass}>
           {(node.children as Slots)?.default?.()}
         </td>
       );
@@ -71,8 +77,8 @@ export default defineComponent({
 
     const hv = () => (
       <>
-        <tr>{props.row.map((node) => label(node))}</tr>
-        <tr>{props.row.map((node) => content(node))}</tr>
+        <tr>{props.row.map((node) => label(node, 'vertical'))}</tr>
+        <tr>{props.row.map((node) => content(node, 'vertical'))}</tr>
       </>
     );
     const vh = () => (
