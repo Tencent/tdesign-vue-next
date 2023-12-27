@@ -22,7 +22,12 @@ export default defineComponent({
 
     const label = (node: VNode) => {
       const labelClass = [`${COMPONENT_NAME.value}__label`];
-      return <td class={labelClass}>{node.props.label}</td>;
+      return (
+        <td class={labelClass}>
+          {node.props.label}
+          {descriptionsProps.colon && ':'}
+        </td>
+      );
     };
 
     const content = (node: VNode) => {
