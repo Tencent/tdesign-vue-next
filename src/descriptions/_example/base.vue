@@ -9,15 +9,6 @@
   </t-row>
 </template>
 
-<script setup lang="jsx">
-import { ref } from 'vue';
-
-// const descriptionsItems = [
-//   { label: '姓名', content: 'zhangpaopao0609' },
-//   { label: '姓名', content: 'zhangpaopao0609' },
-//   { label: '姓名', content: 'zhangpaopao0609' },
-//   { label: '姓名', content: 'zhangpaopao0609' },
-// ];
-</script>
+<script setup lang="jsx"></script>
 
 <style scoped></style>

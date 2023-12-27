@@ -4,7 +4,7 @@ import setStyle from '../_common/js/utils/set-style';
 import useVModel from '../hooks/useVModel';
 import { useTNodeJSX } from '../hooks/tnode';
 import { useChildComponentSlots } from '../hooks/slot';
-import { usePrefixClass, useConfig } from '../hooks/useConfig';
+import { usePrefixClass, useConfig, useCommonClassName } from '../hooks/useConfig';
 
 import { TdDescriptionsProps } from './type';
 import { getDefaultNode } from '../utils/render-tnode';
@@ -17,9 +17,18 @@ export default defineComponent({
   },
   setup(props, context) {
     const descriptionsProps = inject(descriptionsKey);
+    const COMPONENT_NAME = usePrefixClass('descriptions');
+    const { SIZE } = useCommonClassName();
 
-    const label = (node: VNode) => <td>{node.props.label}</td>;
-    const children = (node: VNode) => <td>{(node.children as Slots)?.default?.()}</td>;
+    const label = (node: VNode) => {
+      const labelClass = [`${COMPONENT_NAME.value}__label`];
+      return <td class={labelClass}>{node.props.label}</td>;
+    };
+
+    const content = (node: VNode) => {
+      const contentClass = [`${COMPONENT_NAME.value}__content`];
+      return <td class={contentClass}>{(node.children as Slots)?.default?.()}</td>;
+    };
 
     // 总共有四种布局
     // direction horizontal vertical
@@ -30,7 +39,7 @@ export default defineComponent({
         {props.row.map((node) => (
           <>
             {label(node)}
-            {children(node)}
+            {content(node)}
           </>
         ))}
       </tr>
@@ -39,7 +48,7 @@ export default defineComponent({
     const hv = () => (
       <>
         <tr>{props.row.map((node) => label(node))}</tr>
-        <tr>{props.row.map((node) => children(node))}</tr>
+        <tr>{props.row.map((node) => content(node))}</tr>
       </>
     );
     const vh = () => (
@@ -47,7 +56,7 @@ export default defineComponent({
         {props.row.map((node) => (
           <tr>
             {label(node)}
-            {children(node)}
+            {content(node)}
           </tr>
         ))}
       </>
@@ -58,7 +67,7 @@ export default defineComponent({
         {props.row.map((node) => (
           <>
             <tr>{label(node)}</tr>
-            <tr>{children(node)}</tr>
+            <tr>{content(node)}</tr>
           </>
         ))}
       </>

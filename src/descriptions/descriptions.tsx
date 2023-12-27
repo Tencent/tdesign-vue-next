@@ -4,7 +4,7 @@ import setStyle from '../_common/js/utils/set-style';
 import useVModel from '../hooks/useVModel';
 import { useTNodeJSX } from '../hooks/tnode';
 import { useChildComponentSlots } from '../hooks/slot';
-import { usePrefixClass, useConfig } from '../hooks/useConfig';
+import { usePrefixClass, useConfig, useCommonClassName } from '../hooks/useConfig';
 
 import props from './props';
 import { TdDescriptionsProps } from './type';
@@ -30,6 +30,7 @@ export default defineComponent({
   props,
   setup(props: TdDescriptionsProps, context) {
     const COMPONENT_NAME = usePrefixClass('descriptions');
+    const { SIZE } = useCommonClassName();
     const getChildByName = useChildComponentSlots();
     // 计算渲染的行内容
     const rows = computed(() => {
@@ -72,6 +73,7 @@ export default defineComponent({
     const renderBody = () => {
       const tableClass = [
         `${COMPONENT_NAME.value}__body`,
+        SIZE.value[props.size],
         { [`${COMPONENT_NAME.value}__body--border`]: props.bordered },
       ];
       return (
