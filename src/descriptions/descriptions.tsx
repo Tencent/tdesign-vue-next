@@ -1,14 +1,11 @@
-import { defineComponent, computed, nextTick, onMounted, ref, toRefs, watch, h, Teleport, VNode, provide } from 'vue';
+import { defineComponent, computed, VNode, provide } from 'vue';
 import isNil from 'lodash/isNil';
-import setStyle from '../_common/js/utils/set-style';
-import useVModel from '../hooks/useVModel';
-import { useTNodeJSX } from '../hooks/tnode';
+
 import { useChildComponentSlots } from '../hooks/slot';
-import { usePrefixClass, useConfig, useCommonClassName } from '../hooks/useConfig';
+import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 import props from './props';
 import { TdDescriptionsProps } from './type';
-// import DescriptionsItem from './descriptions-item';
 import DescriptionsRow from './descriptions-row';
 import { descriptionsKey } from './interface';
 
@@ -28,7 +25,7 @@ import { descriptionsKey } from './interface';
 export default defineComponent({
   name: 'TDescriptions',
   props,
-  setup(props: TdDescriptionsProps, context) {
+  setup(props: TdDescriptionsProps) {
     const COMPONENT_NAME = usePrefixClass('descriptions');
     const { SIZE } = useCommonClassName();
     const getChildByName = useChildComponentSlots();
@@ -40,11 +37,9 @@ export default defineComponent({
 
       // 1. 获取 TDescriptionsItem
       const items = getChildByName('TDescriptionsItem');
-      // 2. 记录总的 span
-      const totalSpan = 0;
       let temp: VNode[] = [];
       let reset = column;
-      // 3. 记录结果
+      // 2. 记录结果
       const res: VNode[][] = [];
       items.forEach((item, index) => {
         if (isNil(item.props?.span)) {

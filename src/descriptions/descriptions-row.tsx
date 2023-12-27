@@ -1,13 +1,7 @@
 import { defineComponent, inject, VNode, PropType, Slots } from 'vue';
 import isNil from 'lodash/isNil';
-import setStyle from '../_common/js/utils/set-style';
-import useVModel from '../hooks/useVModel';
-import { useTNodeJSX } from '../hooks/tnode';
-import { useChildComponentSlots } from '../hooks/slot';
-import { usePrefixClass, useConfig, useCommonClassName } from '../hooks/useConfig';
 
-import { TdDescriptionsProps } from './type';
-import { getDefaultNode } from '../utils/render-tnode';
+import { usePrefixClass } from '../hooks/useConfig';
 import { descriptionsKey } from './interface';
 
 export default defineComponent({
@@ -15,10 +9,9 @@ export default defineComponent({
   props: {
     row: Array as PropType<VNode[]>,
   },
-  setup(props, context) {
+  setup(props) {
     const descriptionsProps = inject(descriptionsKey);
     const COMPONENT_NAME = usePrefixClass('descriptions');
-    const { SIZE } = useCommonClassName();
 
     const label = (node: VNode, direction: 'vertical' | 'horizontal' = 'horizontal') => {
       const labelClass = [
