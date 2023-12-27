@@ -23,7 +23,7 @@ export default {
     default: 'left' as TdDescriptionsProps['contentAlign'],
     validator(val: TdDescriptionsProps['contentAlign']): boolean {
       if (!val) return true;
-      return ['left', 'center'].includes(val);
+      return ['left', 'right', 'center'].includes(val);
     },
   },
   /** 字段标签对齐方式：左对齐、右对齐、顶部对齐 */
@@ -32,7 +32,7 @@ export default {
     default: 'right' as TdDescriptionsProps['labelAlign'],
     validator(val: TdDescriptionsProps['labelAlign']): boolean {
       if (!val) return true;
-      return ['left', 'right', 'top'].includes(val);
+      return ['left', 'right', 'center'].includes(val);
     },
   },
   /** 排列方向 */
@@ -62,4 +62,7 @@ export default {
       return ['small', 'medium', 'large'].includes(val);
     },
   },
+  /** 组件尺寸 */
+  labelWidth: Number,
+  contentWidth: Number,
 };

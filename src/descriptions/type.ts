@@ -26,12 +26,12 @@ export interface TdDescriptionsProps {
    * 字段值内容的对齐方式：左对齐、居中对齐
    * @default left
    */
-  contentAlign?: 'left' | 'center';
+  contentAlign?: 'left' | 'right' | 'center';
   /**
    * 字段标签对齐方式：左对齐、右对齐、顶部对齐
    * @default right
    */
-  labelAlign?: 'left' | 'right' | 'top';
+  labelAlign?: 'left' | 'right' | 'center';
   /**
    * 排列方向
    * @default horizontal
@@ -47,6 +47,8 @@ export interface TdDescriptionsProps {
    */
   items?: TdDescriptionItemProps[];
   itemDirection?: 'horizontal' | 'vertical';
+  labelWidth?: Number;
+  contentWidth?: Number;
 }
 
 export interface TdDescriptionItemProps {

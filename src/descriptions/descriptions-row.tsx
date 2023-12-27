@@ -1,5 +1,5 @@
 import { defineComponent, inject, VNode, PropType, Slots } from 'vue';
-import isFunction from 'lodash/isFunction';
+import isNil from 'lodash/isNil';
 import setStyle from '../_common/js/utils/set-style';
 import useVModel from '../hooks/useVModel';
 import { useTNodeJSX } from '../hooks/tnode';
@@ -21,9 +21,14 @@ export default defineComponent({
     const { SIZE } = useCommonClassName();
 
     const label = (node: VNode) => {
-      const labelClass = [`${COMPONENT_NAME.value}__label`];
+      const labelClass = [
+        `${COMPONENT_NAME.value}__label`,
+        { [`${COMPONENT_NAME.value}__label--${descriptionsProps.labelAlign}`]: descriptionsProps.labelAlign },
+      ];
+
+      const labelStyle = isNil(descriptionsProps.labelWidth) ? '' : `width: ${descriptionsProps.labelWidth}px`;
       return (
-        <td class={labelClass}>
+        <td style={labelStyle} class={labelClass}>
           {node.props.label}
           {descriptionsProps.colon && ':'}
         </td>
@@ -31,8 +36,16 @@ export default defineComponent({
     };
 
     const content = (node: VNode) => {
-      const contentClass = [`${COMPONENT_NAME.value}__content`];
-      return <td class={contentClass}>{(node.children as Slots)?.default?.()}</td>;
+      const contentClass = [
+        `${COMPONENT_NAME.value}__content`,
+        { [`${COMPONENT_NAME.value}__content--${descriptionsProps.contentAlign}`]: descriptionsProps.contentAlign },
+      ];
+      const contentStyle = isNil(descriptionsProps.contentWidth) ? '' : `width: ${descriptionsProps.contentWidth}px`;
+      return (
+        <td style={contentStyle} class={contentClass}>
+          {(node.children as Slots)?.default?.()}
+        </td>
+      );
     };
 
     // 总共有四种布局
