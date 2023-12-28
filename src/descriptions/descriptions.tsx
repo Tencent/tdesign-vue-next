@@ -47,7 +47,7 @@ export default defineComponent({
     // 计算渲染的行内容
     const rows = computed(() => {
       // 1. 两种方式：a. slots t-descriptions-item; b. props 传 items  a 优先级更高
-      const { column, direction } = props;
+      const { column, layout } = props;
 
       let items: TdDescriptionItemProps[] = [];
       const slots = getChildByName('TDescriptionsItem');
@@ -69,7 +69,7 @@ export default defineComponent({
       }
 
       // 2. 判断布局，如果整体布局为 LayoutEnum.VERTICAL，那么直接返回即可。
-      if (direction === LayoutEnum.VERTICAL) {
+      if (layout === LayoutEnum.VERTICAL) {
         return [items];
       }
       // 3. 布局为 LayoutEnum.HORIZONTAL 时，需要计算每一行的 item 个数

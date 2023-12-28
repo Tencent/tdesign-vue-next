@@ -17,38 +17,32 @@ export default {
     type: Number,
     default: 3,
   },
-  /** 字段值内容的对齐方式：左对齐、居中对齐 */
-  contentAlign: {
-    type: String as PropType<TdDescriptionsProps['contentAlign']>,
-    default: 'left' as TdDescriptionsProps['contentAlign'],
-    validator(val: TdDescriptionsProps['contentAlign']): boolean {
-      if (!val) return true;
-      return ['left', 'right', 'center'].includes(val);
-    },
+  /** 自定义描述项内容的样式 */
+  contentStyle: {
+    type: Object as PropType<TdDescriptionsProps['contentStyle']>,
   },
-  /** 字段标签对齐方式：左对齐、右对齐、顶部对齐 */
-  labelAlign: {
-    type: String as PropType<TdDescriptionsProps['labelAlign']>,
-    default: 'left' as TdDescriptionsProps['labelAlign'],
-    validator(val: TdDescriptionsProps['labelAlign']): boolean {
-      if (!val) return true;
-      return ['left', 'right', 'center'].includes(val);
-    },
-  },
-  /** 排列方向 */
-  direction: {
-    type: String as PropType<TdDescriptionsProps['direction']>,
-    default: 'horizontal' as TdDescriptionsProps['direction'],
-    validator(val: TdDescriptionsProps['direction']): boolean {
+  /** 描述项的排列方向 */
+  itemLayout: {
+    type: String as PropType<TdDescriptionsProps['itemLayout']>,
+    default: 'horizontal' as TdDescriptionsProps['itemLayout'],
+    validator(val: TdDescriptionsProps['itemLayout']): boolean {
       if (!val) return true;
       return ['horizontal', 'vertical'].includes(val);
     },
   },
-  /** item 排列方向 */
-  itemDirection: {
-    type: String as PropType<TdDescriptionsProps['itemDirection']>,
-    default: 'horizontal' as TdDescriptionsProps['itemDirection'],
-    validator(val: TdDescriptionsProps['itemDirection']): boolean {
+  /** 描述项的列表 */
+  items: {
+    type: Array as PropType<TdDescriptionsProps['items']>,
+  },
+  /** 自定义描述项标签的样式 */
+  labelStyle: {
+    type: Object as PropType<TdDescriptionsProps['labelStyle']>,
+  },
+  /** 排列方向 */
+  layout: {
+    type: String as PropType<TdDescriptionsProps['layout']>,
+    default: 'horizontal' as TdDescriptionsProps['layout'],
+    validator(val: TdDescriptionsProps['layout']): boolean {
       if (!val) return true;
       return ['horizontal', 'vertical'].includes(val);
     },
@@ -62,10 +56,8 @@ export default {
       return ['small', 'medium', 'large'].includes(val);
     },
   },
-  /** 组件尺寸 */
-  labelWidth: Number,
-  contentWidth: Number,
-  contentClassName: String as PropType<TdDescriptionsProps['contentClassName']>,
-  labelClassName: String as PropType<TdDescriptionsProps['labelClassName']>,
-  title: String,
+  /** 描述列表的标题 */
+  title: {
+    type: [String, Function] as PropType<TdDescriptionsProps['title']>,
+  },
 };

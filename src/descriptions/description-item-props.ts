@@ -8,7 +8,11 @@ import { TdDescriptionItemProps } from '../descriptions/type';
 import { PropType } from 'vue';
 
 export default {
-  /** 描述项字段名 */
+  /** 描述项内容 */
+  content: {
+    type: [String, Function] as PropType<TdDescriptionItemProps['content']>,
+  },
+  /** 描述项标签 */
   label: {
     type: [String, Function] as PropType<TdDescriptionItemProps['label']>,
   },

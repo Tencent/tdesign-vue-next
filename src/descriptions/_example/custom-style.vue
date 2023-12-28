@@ -1,26 +1,26 @@
 <template>
-  <t-row justify="center">
-    <t-descriptions
-      title="我是张跑跑"
-      label-class-name="customLabelClassName"
-      content-class-name="customContentClassName"
-    >
-      <t-descriptions-item label="姓名">zhangpaopao0609</t-descriptions-item>
-      <t-descriptions-item label="姓名">zhangpaopao0609</t-descriptions-item>
-      <t-descriptions-item label="姓名">zhangpaopao0609</t-descriptions-item>
-      <t-descriptions-item label="姓名"><div>zhangpaopao0609</div></t-descriptions-item>
-    </t-descriptions>
-  </t-row>
+  <t-descriptions
+    title="Shipping address"
+    bordered
+    label-style="customLabelClassName"
+    content-style="customContentClassName"
+  >
+    <t-descriptions-item label="Name">TDesign</t-descriptions-item>
+    <t-descriptions-item label="Telephone Number">139****0609</t-descriptions-item>
+    <t-descriptions-item label="Area">China Tencent Headquarters</t-descriptions-item>
+    <t-descriptions-item label="Address">Shenzhen Penguin Island D1 4A Mail Center</t-descriptions-item>
+  </t-descriptions>
 </template>
 
 <script setup lang="jsx"></script>
 
 <style>
 .customLabelClassName {
-  background-color: red;
+  width: 100px;
+  text-align: left;
 }
 
 .customContentClassName {
-  background-color: skyblue;
+  text-align: center;
 }
 </style>

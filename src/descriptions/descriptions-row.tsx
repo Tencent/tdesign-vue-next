@@ -1,4 +1,4 @@
-import { defineComponent, inject, VNode, PropType, Slots } from 'vue';
+import { defineComponent, inject, PropType } from 'vue';
 
 import { usePrefixClass } from '../hooks/useConfig';
 import { descriptionsKey } from './interface';
@@ -19,8 +19,7 @@ export default defineComponent({
       const labelClass = [
         `${COMPONENT_NAME.value}__label`,
         {
-          [`${COMPONENT_NAME.value}__label--${descriptionsProps.labelAlign}`]: descriptionsProps.labelAlign,
-          [`${descriptionsProps.labelClassName}`]: descriptionsProps.labelClassName,
+          [`${descriptionsProps.labelStyle}`]: descriptionsProps.labelStyle,
         },
       ];
       const { span } = node;
@@ -37,8 +36,7 @@ export default defineComponent({
       const contentClass = [
         `${COMPONENT_NAME.value}__content`,
         {
-          [`${COMPONENT_NAME.value}__content--${descriptionsProps.contentAlign}`]: descriptionsProps.contentAlign,
-          [`${descriptionsProps.contentClassName}`]: descriptionsProps.contentClassName,
+          [`${descriptionsProps.contentStyle}`]: descriptionsProps.contentStyle,
         },
       ];
       const { span } = node;
@@ -95,11 +93,11 @@ export default defineComponent({
 
     return () => (
       <>
-        {descriptionsProps.direction === LayoutEnum.HORIZONTAL
-          ? descriptionsProps.itemDirection === LayoutEnum.HORIZONTAL
+        {descriptionsProps.layout === LayoutEnum.HORIZONTAL
+          ? descriptionsProps.itemLayout === LayoutEnum.HORIZONTAL
             ? hh()
             : hv()
-          : descriptionsProps.itemDirection === LayoutEnum.HORIZONTAL
+          : descriptionsProps.itemLayout === LayoutEnum.HORIZONTAL
           ? vh()
           : vv()}
       </>

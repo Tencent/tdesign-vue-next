@@ -4,8 +4,7 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
-import { TNode, SizeEnum } from '../common';
-import { VNode } from 'vue';
+import { TNode, SizeEnum, Styles } from '../common';
 
 export interface TdDescriptionsProps {
   /**
@@ -19,43 +18,49 @@ export interface TdDescriptionsProps {
   colon?: boolean;
   /**
    * 一行 DescriptionItem 的数量
-   * @default 2
+   * @default 3
    */
   column?: number;
   /**
-   * 字段值内容的对齐方式：左对齐、居中对齐
-   * @default left
+   * 自定义描述项内容的样式
    */
-  contentAlign?: 'left' | 'right' | 'center';
+  contentStyle?: Styles;
   /**
-   * 字段标签对齐方式：左对齐、右对齐、顶部对齐
-   * @default right
+   * 描述项的排列方向
+   * @default horizontal
    */
-  labelAlign?: 'left' | 'right' | 'center';
+  itemLayout?: 'horizontal' | 'vertical';
+  /**
+   * 描述项的列表
+   */
+  items?: Array<TdDescriptionItemProps>;
+  /**
+   * 自定义描述项标签的样式
+   */
+  labelStyle?: Styles;
   /**
    * 排列方向
    * @default horizontal
    */
-  direction?: 'horizontal' | 'vertical';
+  layout?: 'horizontal' | 'vertical';
   /**
    * 组件尺寸
    * @default medium
    */
   size?: SizeEnum;
   /**
-   * 描述项
+   * 描述列表的标题
    */
-  items?: TdDescriptionItemProps[];
-  itemDirection?: 'horizontal' | 'vertical';
-  labelWidth?: number;
-  contentWidth?: number;
-  contentClassName?: string;
-  labelClassName?: String;
+  title?: string | TNode;
 }
 
 export interface TdDescriptionItemProps {
   /**
-   * 描述项字段名
+   * 描述项内容
+   */
+  content?: string | TNode;
+  /**
+   * 描述项标签
    */
   label?: string | TNode;
   /**
@@ -63,7 +68,4 @@ export interface TdDescriptionItemProps {
    * @default 1
    */
   span?: number;
-  content?: string | TNode;
 }
-
-export type TdDescriptionItemVnode = VNode & {};
