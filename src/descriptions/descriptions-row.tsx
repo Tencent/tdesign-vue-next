@@ -1,8 +1,8 @@
 import { defineComponent, inject, VNode, PropType, Slots } from 'vue';
-import isNil from 'lodash/isNil';
 
 import { usePrefixClass } from '../hooks/useConfig';
 import { descriptionsKey } from './interface';
+import { LayoutEnum } from '../common';
 
 export default defineComponent({
   name: 'TDescriptionsRow',
@@ -13,7 +13,7 @@ export default defineComponent({
     const descriptionsProps = inject(descriptionsKey);
     const COMPONENT_NAME = usePrefixClass('descriptions');
 
-    const label = (node: VNode, direction: 'vertical' | 'horizontal' = 'horizontal') => {
+    const label = (node: VNode, direction: LayoutEnum = LayoutEnum.HORIZONTAL) => {
       const labelClass = [
         `${COMPONENT_NAME.value}__label`,
         {
@@ -21,21 +21,17 @@ export default defineComponent({
           [`${descriptionsProps.labelClassName}`]: descriptionsProps.labelClassName,
         },
       ];
-      // 这里的写法可以优化，找 宇杨 帮忙
-      const labelStyle = isNil(descriptionsProps.labelWidth) ? '' : `width: ${descriptionsProps.labelWidth}px`;
-
       const { span } = node.props;
-      const labelSpan = direction === 'horizontal' ? 1 : span;
+      const labelSpan = direction === LayoutEnum.HORIZONTAL ? 1 : span;
       return (
-        <td colspan={labelSpan} style={labelStyle} class={labelClass}>
+        <td colspan={labelSpan} class={labelClass}>
           {node.props.label}
           {descriptionsProps.colon && ':'}
         </td>
       );
     };
 
-    // !todo 这里 ts 最好有全局的
-    const content = (node: VNode, direction: 'vertical' | 'horizontal' = 'horizontal') => {
+    const content = (node: VNode, direction: LayoutEnum = LayoutEnum.HORIZONTAL) => {
       const contentClass = [
         `${COMPONENT_NAME.value}__content`,
         {
@@ -43,11 +39,10 @@ export default defineComponent({
           [`${descriptionsProps.contentClassName}`]: descriptionsProps.contentClassName,
         },
       ];
-      const contentStyle = isNil(descriptionsProps.contentWidth) ? '' : `width: ${descriptionsProps.contentWidth}px`;
       const { span } = node.props;
-      const contentSpan = span > 1 && direction === 'horizontal' ? span * 2 - 1 : span;
+      const contentSpan = span > 1 && direction === LayoutEnum.HORIZONTAL ? span * 2 - 1 : span;
       return (
-        <td colspan={contentSpan} style={contentStyle} class={contentClass}>
+        <td colspan={contentSpan} class={contentClass}>
           {(node.children as Slots)?.default?.()}
         </td>
       );
@@ -70,8 +65,8 @@ export default defineComponent({
 
     const hv = () => (
       <>
-        <tr>{props.row.map((node) => label(node, 'vertical'))}</tr>
-        <tr>{props.row.map((node) => content(node, 'vertical'))}</tr>
+        <tr>{props.row.map((node) => label(node, LayoutEnum.VERTICAL))}</tr>
+        <tr>{props.row.map((node) => content(node, LayoutEnum.VERTICAL))}</tr>
       </>
     );
     const vh = () => (
@@ -98,11 +93,11 @@ export default defineComponent({
 
     return () => (
       <>
-        {descriptionsProps.direction === 'horizontal'
-          ? descriptionsProps.itemDirection === 'horizontal'
+        {descriptionsProps.direction === LayoutEnum.HORIZONTAL
+          ? descriptionsProps.itemDirection === LayoutEnum.HORIZONTAL
             ? hh()
             : hv()
-          : descriptionsProps.itemDirection === 'horizontal'
+          : descriptionsProps.itemDirection === LayoutEnum.HORIZONTAL
           ? vh()
           : vv()}
       </>

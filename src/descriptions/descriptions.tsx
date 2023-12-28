@@ -8,6 +8,7 @@ import props from './props';
 import { TdDescriptionsProps } from './type';
 import DescriptionsRow from './descriptions-row';
 import { descriptionsKey } from './interface';
+import { LayoutEnum } from '../common';
 
 /**
  * 实现思路
@@ -77,7 +78,7 @@ export default defineComponent({
       return (
         <table class={tableClass}>
           <tbody>
-            {props.direction === 'horizontal' ? (
+            {props.direction === LayoutEnum.HORIZONTAL ? (
               rows.value.map((row) => <DescriptionsRow row={row} />)
             ) : (
               <DescriptionsRow row={getChildByName('TDescriptionsItem')} />
