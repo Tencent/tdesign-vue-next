@@ -138,13 +138,14 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
   };
 
   const refreshVirtualScroll = ([{ contentRect }]: [ResizeObserverEntry]) => {
-    // 如果宽度发生变化，重置滚动位置（高度发生变化时，会触发 container 变化，下方的 watch 会计算）
+    // 如果宽度发生变化，重置滚动位置
     const maxScrollbarWidth = 16;
     if (Math.abs(contentRect.width - containerWidth.value) > maxScrollbarWidth) {
       container.value.scrollTop = 0;
       translateY.value = 0;
     }
     containerWidth.value = contentRect.width;
+    // 高度更新后，由 height 独立的 watch 触发可视区域的更新
     containerHeight.value = contentRect.height;
   };
 
@@ -201,6 +202,14 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
       }, 0);
     },
     { immediate: true },
+  );
+
+  // 当容器高度变化后，重新计算可视区域数据
+  watch(
+    () => containerHeight.value,
+    () => {
+      updateVisibleData();
+    },
   );
 
   return {
