@@ -50,6 +50,7 @@ export default defineComponent({
     const { tooltipRef, tooltipProps, toggleTooltip, showTooltip } = useSliderTooltip(tooltipConfig);
     const parentProps = inject(sliderPropsInjectKey);
     const buttonRef = ref();
+    const dragged = ref(false);
 
     /** --------------------- slide button 相关状态start ------------------- */
     const slideButtonProps = reactive({
@@ -139,6 +140,7 @@ export default defineComponent({
       if (!slideButtonProps.dragging) {
         return;
       }
+      dragged.value = true;
       slideButtonProps.isClick = false;
       if (parentProps?.resetSize && isFunction(parentProps?.resetSize)) {
         parentProps.resetSize();
@@ -163,7 +165,8 @@ export default defineComponent({
           if (!slideButtonProps.isClick) {
             setPosition(slideButtonProps.newPos);
           }
-          ctx.emit('mouseup');
+          dragged.value && ctx.emit('mouseup');
+          dragged.value = false;
         }, 0);
         window.removeEventListener('mousemove', onDragging);
         window.removeEventListener('touchmove', onDragging);
