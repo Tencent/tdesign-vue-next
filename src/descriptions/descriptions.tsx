@@ -24,6 +24,7 @@ import { LayoutEnum, TNode } from '../common';
  * TDescriptionsItem：获取 item 数据（span, label, content）
  */
 
+// ! 处理 vnode 中的 slot prop，待讨论
 function renderVNodeTNode(node: VNode, name1: string, name2?: string): string | TNode {
   const slot = (node.children as Slots)?.[name1] || (node.children as Slots)?.[name2]; // slots 优先级更高
   const prop = node.props?.[name1];
@@ -55,7 +56,6 @@ export default defineComponent({
         // 2.1 a 方式 获取 TDescriptionsItem
 
         items = slots.map((item) => {
-          // !todo 还要支持插槽
           const { span = 1 } = item.props || {};
           return {
             label: renderVNodeTNode(item, 'label'),
@@ -65,6 +65,7 @@ export default defineComponent({
         });
       } else {
         // 2.2 b 方式 获取 items
+        // ! 这里也要支持 label: string / <div></div> / () =>  <div></div> 所以感觉需要这样一个全局的方法
         items = props.items;
       }
 
