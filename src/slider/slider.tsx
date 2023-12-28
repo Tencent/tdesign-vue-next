@@ -271,6 +271,8 @@ export default defineComponent({
       const value = Number((point / rangeDiff.value) * 100);
       setPosition(value);
       emitChange(point);
+      const fixValue = getFixValue();
+      props.onChangeEnd?.(fixValue);
     };
 
     /** 副作用监听 */
