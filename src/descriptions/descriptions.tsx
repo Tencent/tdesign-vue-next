@@ -1,4 +1,4 @@
-import { defineComponent, computed, provide, VNode, Slot, Slots } from 'vue';
+import { defineComponent, computed, provide, VNode, Slots } from 'vue';
 
 import { useChildComponentSlots } from '../hooks/slot';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
