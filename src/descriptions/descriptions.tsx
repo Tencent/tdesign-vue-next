@@ -1,4 +1,4 @@
-import { defineComponent, computed, provide, VNode, Slots } from 'vue';
+import { defineComponent, computed, provide, VNode, Slots, isVNode } from 'vue';
 
 import { useChildComponentSlots } from '../hooks/slot';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
@@ -9,6 +9,9 @@ import { TdDescriptionsProps, TdDescriptionItemProps } from './type';
 import DescriptionsRow from './descriptions-row';
 import { descriptionsKey } from './interface';
 import { LayoutEnum, TNode } from '../common';
+
+import isFunction from 'lodash/isFunction';
+import isString from 'lodash/isString';
 
 /**
  * 实现思路
@@ -24,7 +27,7 @@ import { LayoutEnum, TNode } from '../common';
  * TDescriptionsItem：获取 item 数据（span, label, content）
  */
 
-// ! 处理 vnode 中的 slot prop，待讨论
+// ! 临时方法，处理 vnode 中的 slot prop，待讨论
 function renderVNodeTNode(node: VNode, name1: string, name2?: string): string | TNode {
   const slot = (node.children as Slots)?.[name1] || (node.children as Slots)?.[name2]; // slots 优先级更高
   const prop = node.props?.[name1];
@@ -34,6 +37,17 @@ function renderVNodeTNode(node: VNode, name1: string, name2?: string): string | 
     return prop;
   } else {
     return '';
+  }
+}
+
+// ! 临时方法，处理 node string / <div> / () => <div>
+function renderSringOrTNode(node: string | Function | VNode): string | TNode {
+  if (isFunction(node)) {
+    return node();
+  } else if (isString(node)) {
+    return node;
+  } else {
+    return (<node />) as unknown as TNode;
   }
 }
 
@@ -52,7 +66,8 @@ export default defineComponent({
 
       let items: TdDescriptionItemProps[] = [];
       const slots = getChildByName('TDescriptionsItem');
-      if (slots) {
+
+      if (slots.length !== 0) {
         // 2.1 a 方式 获取 TDescriptionsItem
 
         items = slots.map((item) => {
@@ -66,7 +81,16 @@ export default defineComponent({
       } else {
         // 2.2 b 方式 获取 items
         // ! 这里也要支持 label: string / <div></div> / () =>  <div></div> 所以感觉需要这样一个全局的方法
-        items = props.items;
+
+        // ! 先在这里写两个临时方法，待讨论
+        items = props.items.map((item) => {
+          const { span = 1 } = item;
+          return {
+            label: renderSringOrTNode(item.label),
+            content: renderSringOrTNode(item.content),
+            span,
+          };
+        });
       }
 
       // 2. 判断布局，如果整体布局为 LayoutEnum.VERTICAL，那么直接返回即可。
