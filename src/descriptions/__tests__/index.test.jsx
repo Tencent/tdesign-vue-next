@@ -1,8 +1,7 @@
-import { nextTick, ref } from 'vue';
+import { it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { vi, it, expect } from 'vitest';
-import Descriptions from '@/src/descriptions/index.ts';
 import { getDescriptionsMount } from './mount';
+import Descriptions, { DescriptionsItem } from '@/src/descriptions/index.ts';
 
 const sizeList = ['small', 'medium', 'large'];
 const layout = {
@@ -132,9 +131,77 @@ describe('Descriptions', () => {
       // 检查第 1 个 tr 元素中是否只有 8 个 td 元素
       expect(firstTr.findAll('td')).toHaveLength(8);
 
-      const firstTrTd = secondTr.findAll('td')[7];
+      const firstTrTd = firstTr.findAll('td')[7];
       // 检查第 1 个 tr 元素中的第 7 个 td 元素是否具有 colspan 属性，并检查其值是否为 1
       expect(firstTrTd.element.getAttribute('colspan')).toBe('1');
+    });
+  });
+
+  describe(':slots', () => {
+    it(':title', () => {
+      const titleSlotsClassName = 'titleSlotsClassName';
+      const titleContent = 'titleContent';
+      const wrapper = mount({
+        render() {
+          return <Descriptions v-slots={{ title: () => <div class={titleSlotsClassName}>{titleContent}</div> }} />;
+        },
+      });
+      const titleElement = wrapper.find(`.${titleSlotsClassName}`);
+      expect(titleElement.exists()).toBeTruthy();
+      expect(titleElement.text()).toBe(titleContent);
+    });
+
+    it(':label', () => {
+      const labelSlotsClassName = 'labelSlotsClassName';
+      const labelContent = 'labelContent';
+      const wrapper = mount({
+        render() {
+          return (
+            <Descriptions>
+              <DescriptionsItem v-slots={{ label: () => <div class={labelSlotsClassName}>{labelContent}</div> }}>
+                TDesign
+              </DescriptionsItem>
+            </Descriptions>
+          );
+        },
+      });
+
+      // 检查 label 是否正常渲染在单元格中
+      const tbody = wrapper.find('tbody');
+      const firstTr = tbody.findAll('tr')[0];
+      const firstTrTd = firstTr.findAll('td')[0];
+
+      // 检查元素是否正常渲染
+      const labelElement = firstTrTd.find(`.${labelSlotsClassName}`);
+      expect(labelElement.exists()).toBeTruthy();
+      expect(labelElement.text()).toBe(labelContent);
+    });
+
+    it(':content', () => {
+      const contentSlotsClassName = 'contentSlotsClassName';
+      const contentContent = 'contentContent';
+      const wrapper = mount({
+        render() {
+          return (
+            <Descriptions>
+              <DescriptionsItem
+                label="Name"
+                v-slots={{ content: () => <div class={contentSlotsClassName}>{contentContent}</div> }}
+              />
+            </Descriptions>
+          );
+        },
+      });
+
+      // 检查 content 是否正常渲染在单元格中
+      const tbody = wrapper.find('tbody');
+      const firstTr = tbody.findAll('tr')[0];
+      const firstTrTd = firstTr.findAll('td')[1];
+
+      // 检查元素是否正常渲染
+      const labelElement = firstTrTd.find(`.${contentSlotsClassName}`);
+      expect(labelElement.exists()).toBeTruthy();
+      expect(labelElement.text()).toBe(contentContent);
     });
   });
 });
