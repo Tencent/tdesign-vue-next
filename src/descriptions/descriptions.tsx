@@ -1,14 +1,14 @@
-import { defineComponent, computed, VNode, provide } from 'vue';
-import isNil from 'lodash/isNil';
+import { defineComponent, computed, provide, VNode, Slot, Slots } from 'vue';
 
 import { useChildComponentSlots } from '../hooks/slot';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { useTNodeJSX } from '../hooks/tnode';
 
 import props from './props';
-import { TdDescriptionsProps } from './type';
+import { TdDescriptionsProps, TdDescriptionItemProps } from './type';
 import DescriptionsRow from './descriptions-row';
 import { descriptionsKey } from './interface';
-import { LayoutEnum } from '../common';
+import { LayoutEnum, TNode } from '../common';
 
 /**
  * 实现思路
@@ -23,6 +23,19 @@ import { LayoutEnum } from '../common';
  * TDescriptionsRow：承载每一行（tr）
  * TDescriptionsItem：获取 item 数据（span, label, content）
  */
+
+function renderVNodeTNode(node: VNode, name1: string, name2?: string): string | TNode {
+  const slot = (node.children as Slots)?.[name1] || (node.children as Slots)?.[name2]; // slots 优先级更高
+  const prop = node.props?.[name1];
+  if (slot) {
+    return (slot?.() || '') as string | TNode;
+  } else if (prop) {
+    return prop;
+  } else {
+    return '';
+  }
+}
+
 export default defineComponent({
   name: 'TDescriptions',
   props,
@@ -30,23 +43,42 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('descriptions');
     const { SIZE } = useCommonClassName();
     const getChildByName = useChildComponentSlots();
+    const renderTNodeJSX = useTNodeJSX();
     // 计算渲染的行内容
     const rows = computed(() => {
-      // 两种方式：1. props 传 items 2. slots t-descriptions-item 第 2 种优先级更高
-      const { column } = props;
-      // 先使用第 2 种方式实现
+      // 1. 两种方式：a. slots t-descriptions-item; b. props 传 items  a 优先级更高
+      const { column, direction } = props;
 
-      // 1. 获取 TDescriptionsItem
-      const items = getChildByName('TDescriptionsItem');
-      let temp: VNode[] = [];
+      let items: TdDescriptionItemProps[] = [];
+      const slots = getChildByName('TDescriptionsItem');
+      if (slots) {
+        // 2.1 a 方式 获取 TDescriptionsItem
+
+        items = slots.map((item) => {
+          // !todo 还要支持插槽
+          const { span = 1 } = item.props || {};
+          return {
+            label: renderVNodeTNode(item, 'label'),
+            content: renderVNodeTNode(item, 'content', 'default'),
+            span,
+          };
+        });
+      } else {
+        // 2.2 b 方式 获取 items
+        items = props.items;
+      }
+
+      // 2. 判断布局，如果整体布局为 LayoutEnum.VERTICAL，那么直接返回即可。
+      if (direction === LayoutEnum.VERTICAL) {
+        return [items];
+      }
+      // 3. 布局为 LayoutEnum.HORIZONTAL 时，需要计算每一行的 item 个数
+      let temp: TdDescriptionItemProps[] = [];
       let reset = column;
-      // 2. 记录结果
-      const res: VNode[][] = [];
+      // 4. 记录结果
+      const res: TdDescriptionItemProps[][] = [];
       items.forEach((item, index) => {
-        if (isNil(item.props?.span)) {
-          item.props.span = 1;
-        }
-        const span = item.props.span;
+        const { span } = item;
         if (reset >= span) {
           // 当前行还剩余空间
           temp.push(item);
@@ -60,7 +92,7 @@ export default defineComponent({
 
         if (index === items.length - 1) {
           // 最后一个
-          item.props.span += reset;
+          item.span += reset;
           res.push(temp);
         }
       });
@@ -78,19 +110,22 @@ export default defineComponent({
       return (
         <table class={tableClass}>
           <tbody>
-            {props.direction === LayoutEnum.HORIZONTAL ? (
-              rows.value.map((row) => <DescriptionsRow row={row} />)
-            ) : (
-              <DescriptionsRow row={getChildByName('TDescriptionsItem')} />
-            )}
+            {rows.value.map((row) => (
+              <DescriptionsRow row={row} />
+            ))}
           </tbody>
         </table>
       );
     };
 
+    const renderHeader = () => {
+      const title = renderTNodeJSX('title');
+      return title ? <div class={`${COMPONENT_NAME.value}__header`}>{title}</div> : '';
+    };
+
     return () => (
       <div class={COMPONENT_NAME.value}>
-        <div class={`${COMPONENT_NAME.value}__header`}></div>
+        {renderHeader()}
         {renderBody()}
       </div>
     );

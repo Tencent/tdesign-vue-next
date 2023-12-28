@@ -4,16 +4,18 @@ import { usePrefixClass } from '../hooks/useConfig';
 import { descriptionsKey } from './interface';
 import { LayoutEnum } from '../common';
 
+import { TdDescriptionItemProps } from './type';
+
 export default defineComponent({
   name: 'TDescriptionsRow',
   props: {
-    row: Array as PropType<VNode[]>,
+    row: Array as PropType<TdDescriptionItemProps[]>,
   },
   setup(props) {
     const descriptionsProps = inject(descriptionsKey);
     const COMPONENT_NAME = usePrefixClass('descriptions');
 
-    const label = (node: VNode, direction: LayoutEnum = LayoutEnum.HORIZONTAL) => {
+    const label = (node: TdDescriptionItemProps, direction: LayoutEnum = LayoutEnum.HORIZONTAL) => {
       const labelClass = [
         `${COMPONENT_NAME.value}__label`,
         {
@@ -21,17 +23,17 @@ export default defineComponent({
           [`${descriptionsProps.labelClassName}`]: descriptionsProps.labelClassName,
         },
       ];
-      const { span } = node.props;
+      const { span } = node;
       const labelSpan = direction === LayoutEnum.HORIZONTAL ? 1 : span;
       return (
         <td colspan={labelSpan} class={labelClass}>
-          {node.props.label}
+          {node.label}
           {descriptionsProps.colon && ':'}
         </td>
       );
     };
 
-    const content = (node: VNode, direction: LayoutEnum = LayoutEnum.HORIZONTAL) => {
+    const content = (node: TdDescriptionItemProps, direction: LayoutEnum = LayoutEnum.HORIZONTAL) => {
       const contentClass = [
         `${COMPONENT_NAME.value}__content`,
         {
@@ -39,11 +41,11 @@ export default defineComponent({
           [`${descriptionsProps.contentClassName}`]: descriptionsProps.contentClassName,
         },
       ];
-      const { span } = node.props;
+      const { span } = node;
       const contentSpan = span > 1 && direction === LayoutEnum.HORIZONTAL ? span * 2 - 1 : span;
       return (
         <td colspan={contentSpan} class={contentClass}>
-          {(node.children as Slots)?.default?.()}
+          {node.content}
         </td>
       );
     };

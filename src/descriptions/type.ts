@@ -63,6 +63,7 @@ export interface TdDescriptionItemProps {
    * @default 1
    */
   span?: number;
+  content?: string | TNode;
 }
 
 export type TdDescriptionItemVnode = VNode & {};

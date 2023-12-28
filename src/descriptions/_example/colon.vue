@@ -1,14 +1,18 @@
 <template>
-  <t-row justify="center">
-    <t-descriptions title="我是张跑跑" colon>
-      <t-descriptions-item label="姓名">zhangpaopao0609</t-descriptions-item>
-      <t-descriptions-item label="姓名">zhangpaopao0609</t-descriptions-item>
-      <t-descriptions-item label="姓名">zhangpaopao0609</t-descriptions-item>
-      <t-descriptions-item label="姓名"><div>zhangpaopao0609</div></t-descriptions-item>
+  <t-space direction="vertical">
+    <t-checkbox v-model="checked">展示引号</t-checkbox>
+    <t-descriptions title="Shipping address" bordered :colon="checked">
+      <t-descriptions-item label="Name">TDesign</t-descriptions-item>
+      <t-descriptions-item label="Telephone Number">139****0609</t-descriptions-item>
+      <t-descriptions-item label="Area">China Tencent Headquarters</t-descriptions-item>
+      <t-descriptions-item label="Address">Shenzhen Penguin Island D1 4A Mail Center</t-descriptions-item>
     </t-descriptions>
-  </t-row>
+  </t-space>
+  <t-row justify="center"> </t-row>
 </template>
 
-<script setup lang="jsx"></script>
+<script setup>
+import { ref } from 'vue';
 
-<style scoped></style>
+const checked = ref(true);
+</script>

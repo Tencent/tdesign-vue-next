@@ -67,4 +67,5 @@ export default {
   contentWidth: Number,
   contentClassName: String as PropType<TdDescriptionsProps['contentClassName']>,
   labelClassName: String as PropType<TdDescriptionsProps['labelClassName']>,
+  title: String,
 };
