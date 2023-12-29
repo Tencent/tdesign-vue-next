@@ -12,6 +12,7 @@ import { LayoutEnum, TNode } from '../common';
 
 import isFunction from 'lodash/isFunction';
 import isString from 'lodash/isString';
+import isArray from 'lodash/isArray';
 
 /**
  * 实现思路
@@ -78,7 +79,7 @@ export default defineComponent({
             span,
           };
         });
-      } else {
+      } else if (isArray(props.items)) {
         // 2.2 b 方式 获取 items
         // ! 这里也要支持 label: string / <div></div> / () =>  <div></div> 所以感觉需要这样一个全局的方法
 
