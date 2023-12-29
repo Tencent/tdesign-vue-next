@@ -31,10 +31,14 @@ export default function useTreeItem(state: TypeTreeItemState) {
     const { node } = state;
     const isVirtual = virtualConfig?.isVirtualScroll.value;
     if (isVirtual) {
-      virtualConfig.handleRowMounted({
-        ref: treeItemRef,
-        data: node,
-      });
+      // mounted 了，但是有可能样式没有计算完毕，此时获取的 row height 会有坑，延迟一点点再触发虚拟滚动的 mounted 回调，确保获取到正确的渲染高度
+      const timer = setTimeout(() => {
+        virtualConfig.handleRowMounted({
+          ref: treeItemRef,
+          data: node,
+        });
+        clearTimeout(timer);
+      }, 100);
     }
   });
 
