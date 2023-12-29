@@ -1,4 +1,4 @@
-import { defineComponent, computed, provide, VNode, Slots, isVNode } from 'vue';
+import { defineComponent, computed, provide, VNode, Slots } from 'vue';
 
 import { useChildComponentSlots } from '../hooks/slot';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
@@ -42,7 +42,7 @@ function renderVNodeTNode(node: VNode, name1: string, name2?: string): string | 
 }
 
 // ! 临时方法，处理 node string / <div> / () => <div>
-function renderSringOrTNode(node: string | Function | VNode): string | TNode {
+function renderStringOrTNode(node: string | Function | VNode): string | TNode {
   if (isFunction(node)) {
     return node();
   } else if (isString(node)) {
@@ -87,8 +87,8 @@ export default defineComponent({
         items = props.items.map((item) => {
           const { span = 1 } = item;
           return {
-            label: renderSringOrTNode(item.label),
-            content: renderSringOrTNode(item.content),
+            label: renderStringOrTNode(item.label),
+            content: renderStringOrTNode(item.content),
             span,
           };
         });
