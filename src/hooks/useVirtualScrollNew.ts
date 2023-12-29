@@ -185,7 +185,7 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
   // 固定高度场景，可直接通过数据长度计算出最大滚动高度
   watch(
     () => [[...params.value.data, tScroll.value, isVirtualScroll.value, container.value]],
-    async () => {
+    () => {
       if (!isVirtualScroll.value || !container.value) return;
       const { data } = params.value;
       addIndexToData(data);
