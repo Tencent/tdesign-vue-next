@@ -112,6 +112,7 @@ export default defineComponent({
           borderless={props.borderless}
           label={renderLabel}
           valueDisplay={renderValueDisplay}
+          suffix={renderTNodeJSX('suffix')}
           suffixIcon={() => renderSuffixIcon()}
           popupProps={{
             ...(props.popupProps as TdCascaderProps['popupProps']),
@@ -165,7 +166,6 @@ export default defineComponent({
           }}
           v-slots={{
             label: slots.label,
-            suffix: renderTNodeJSX('suffix'),
             prefixIcon: props.prefixIcon,
             panel: () => (
               <Panel
