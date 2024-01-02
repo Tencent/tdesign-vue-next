@@ -92,14 +92,12 @@ describe('Radio Component', () => {
     expect(onChangeFn.mock.calls[0][0]).toBe(true);
     expect(onChangeFn.mock.calls[0][1].e.type).toBe('click');
   });
-  it('Events.change: checked value is true, without allowUncheck, click radio and trigger change', async () => {
+  it('Events.change: checked value is true, without allowUncheck, click radio and can not trigger change', async () => {
     const onChangeFn = vi.fn();
     const wrapper = mount(<Radio checked={true} onChange={onChangeFn}></Radio>);
     wrapper.find('.t-radio__label').trigger('click');
     await wrapper.vm.$nextTick();
-    expect(onChangeFn).toHaveBeenCalled();
-    expect(onChangeFn.mock.calls[0][0]).toBe(true);
-    expect(onChangeFn.mock.calls[0][1].e.type).toBe('click');
+    expect(onChangeFn).not.toHaveBeenCalled();
   });
 });
 
