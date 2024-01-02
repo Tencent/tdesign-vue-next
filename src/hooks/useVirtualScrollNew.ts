@@ -190,6 +190,9 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
       const { data } = params.value;
       addIndexToData(data);
 
+      // 有可能初始化时，resize 监听没触发，尝试设置初始化容器高度
+      containerHeight.value = container.value.getBoundingClientRect().height;
+
       // data 或者 rowHeight 发生了变化，清空之前记录的高度
       trHeightList.value = [];
       const scrollTopHeightList = getTrScrollTopHeightList([]);
