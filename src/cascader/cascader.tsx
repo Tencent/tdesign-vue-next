@@ -165,7 +165,7 @@ export default defineComponent({
           }}
           v-slots={{
             label: slots.label,
-            suffix: props.suffix,
+            suffix: renderTNodeJSX('suffix'),
             prefixIcon: props.prefixIcon,
             panel: () => (
               <Panel
