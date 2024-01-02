@@ -8,7 +8,7 @@
 import { ref, computed, watch, Ref } from 'vue';
 import { TScroll } from '../common';
 import useResizeObserver from './useResizeObserver';
-import { max, min } from 'lodash';
+import { cloneDeep, max, min } from 'lodash';
 
 export type UseVirtualScrollParams = Ref<{
   /** 列数据 */
@@ -123,8 +123,10 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
     const trHeight = rowData.ref.value?.getBoundingClientRect().height;
     const rowIndex = rowData.data.VIRTUAL_SCROLL_INDEX;
     if (trHeightList.value[rowIndex] !== trHeight) {
-      // 直接修改 trHeightList 即可，原逻辑将引用拷贝，实际上还是修改了，但代码语义不对，容易忽略
-      trHeightList.value.splice(rowIndex, 1, trHeight);
+      // 原逻辑将引用拷贝，实际上还是修改了，但代码语义不对，容易忽略
+      const newTrHeightList = cloneDeep(trHeightList.value);
+      newTrHeightList[rowIndex] = trHeight;
+      trHeightList.value = newTrHeightList;
       const scrollTopHeightList = getTrScrollTopHeightList(trHeightList.value);
       trScrollTopHeightList.value = scrollTopHeightList;
 
@@ -184,7 +186,7 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
 
   // 固定高度场景，可直接通过数据长度计算出最大滚动高度
   watch(
-    () => [[...params.value.data, tScroll.value, isVirtualScroll.value, container.value]],
+    () => [params.value.data, tScroll.value, isVirtualScroll.value, container.value],
     () => {
       if (!isVirtualScroll.value || !container.value) return;
       const { data } = params.value;
