@@ -15,7 +15,7 @@ export default defineComponent({
     const descriptionsProps = inject(descriptionsKey);
     const COMPONENT_NAME = usePrefixClass('descriptions');
 
-    const label = (node: TdDescriptionItemProps, direction: LayoutEnum = LayoutEnum.HORIZONTAL) => {
+    const label = (node: TdDescriptionItemProps, layout: LayoutEnum = LayoutEnum.HORIZONTAL) => {
       const labelClass = [
         `${COMPONENT_NAME.value}__label`,
         {
@@ -23,7 +23,7 @@ export default defineComponent({
         },
       ];
       const { span } = node;
-      const labelSpan = direction === LayoutEnum.HORIZONTAL ? 1 : span;
+      const labelSpan = layout === LayoutEnum.HORIZONTAL ? 1 : span;
       return (
         <td colspan={labelSpan} class={labelClass}>
           {node.label}
@@ -32,7 +32,7 @@ export default defineComponent({
       );
     };
 
-    const content = (node: TdDescriptionItemProps, direction: LayoutEnum = LayoutEnum.HORIZONTAL) => {
+    const content = (node: TdDescriptionItemProps, layout: LayoutEnum = LayoutEnum.HORIZONTAL) => {
       const contentClass = [
         `${COMPONENT_NAME.value}__content`,
         {
@@ -40,7 +40,7 @@ export default defineComponent({
         },
       ];
       const { span } = node;
-      const contentSpan = span > 1 && direction === LayoutEnum.HORIZONTAL ? span * 2 - 1 : span;
+      const contentSpan = span > 1 && layout === LayoutEnum.HORIZONTAL ? span * 2 - 1 : span;
       return (
         <td colspan={contentSpan} class={contentClass}>
           {node.content}
@@ -49,8 +49,8 @@ export default defineComponent({
     };
 
     // 总共有四种布局
-    // direction horizontal vertical
-    // itemDirection horizontal vertical
+    // Layout horizontal vertical
+    // itemLayout horizontal vertical
 
     const hh = () => (
       <tr>
@@ -69,6 +69,7 @@ export default defineComponent({
         <tr>{props.row.map((node) => content(node, LayoutEnum.VERTICAL))}</tr>
       </>
     );
+
     const vh = () => (
       <>
         {props.row.map((node) => (

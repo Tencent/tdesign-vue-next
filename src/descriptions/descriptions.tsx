@@ -62,25 +62,13 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     // 计算渲染的行内容
     const rows = computed(() => {
-      // 1. 两种方式：a. slots t-descriptions-item; b. props 传 items  a 优先级更高
+      // 1. 两种方式：a. props 传 items b. slots t-descriptions-item; a 优先级更高
       const { column, layout } = props;
 
       let items: TdDescriptionItemProps[] = [];
-      const slots = getChildByName('TDescriptionsItem');
 
-      if (slots.length !== 0) {
-        // 2.1 a 方式 获取 TDescriptionsItem
-
-        items = slots.map((item) => {
-          const { span = 1 } = item.props || {};
-          return {
-            label: renderVNodeTNode(item, 'label'),
-            content: renderVNodeTNode(item, 'content', 'default'),
-            span,
-          };
-        });
-      } else if (isArray(props.items)) {
-        // 2.2 b 方式 获取 items
+      if (isArray(props.items)) {
+        // 2.a b 方式 获取 items
         // ! 这里也要支持 label: string / <div></div> / () =>  <div></div> 所以感觉需要这样一个全局的方法
 
         // ! 先在这里写两个临时方法，待讨论
@@ -92,6 +80,19 @@ export default defineComponent({
             span,
           };
         });
+      } else {
+        const slots = getChildByName('TDescriptionsItem');
+        if (slots.length !== 0) {
+          // 2.2 b 方式 获取 TDescriptionsItem
+          items = slots.map((item) => {
+            const { span = 1 } = item.props || {};
+            return {
+              label: renderVNodeTNode(item, 'label'),
+              content: renderVNodeTNode(item, 'content', 'default'),
+              span,
+            };
+          });
+        }
       }
 
       // 2. 判断布局，如果整体布局为 LayoutEnum.VERTICAL，那么直接返回即可。
