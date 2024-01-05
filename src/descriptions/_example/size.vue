@@ -1,6 +1,6 @@
 <template>
   <t-space direction="vertical">
-    <t-radio-group v-model="size" :options="sizeOptions" @change="onChange"></t-radio-group>
+    <t-radio-group v-model="size" :options="sizeOptions"></t-radio-group>
     <t-descriptions bordered :size="size">
       <t-descriptions-item label="Name">TDesign</t-descriptions-item>
       <t-descriptions-item label="Telephone Number">139****0609</t-descriptions-item>
@@ -14,9 +14,5 @@
 import { ref } from 'vue';
 
 const sizeOptions = ['large', 'medium', 'small'];
-
 const size = ref('medium');
-const onChange = (checkedValues) => {
-  size.value = checkedValues;
-};
 </script>

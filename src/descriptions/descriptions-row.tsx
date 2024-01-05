@@ -16,16 +16,12 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('descriptions');
 
     const label = (node: TdDescriptionItemProps, layout: LayoutEnum = LayoutEnum.HORIZONTAL) => {
-      const labelClass = [
-        `${COMPONENT_NAME.value}__label`,
-        {
-          [`${descriptionsProps.labelStyle}`]: descriptionsProps.labelStyle,
-        },
-      ];
+      const labelClass = [`${COMPONENT_NAME.value}__label`];
       const { span } = node;
       const labelSpan = layout === LayoutEnum.HORIZONTAL ? 1 : span;
+
       return (
-        <td colspan={labelSpan} class={labelClass}>
+        <td colspan={labelSpan} class={labelClass} {...{ style: descriptionsProps.labelStyle }}>
           {node.label}
           {descriptionsProps.colon && ':'}
         </td>
@@ -33,16 +29,12 @@ export default defineComponent({
     };
 
     const content = (node: TdDescriptionItemProps, layout: LayoutEnum = LayoutEnum.HORIZONTAL) => {
-      const contentClass = [
-        `${COMPONENT_NAME.value}__content`,
-        {
-          [`${descriptionsProps.contentStyle}`]: descriptionsProps.contentStyle,
-        },
-      ];
+      const contentClass = [`${COMPONENT_NAME.value}__content`];
       const { span } = node;
       const contentSpan = span > 1 && layout === LayoutEnum.HORIZONTAL ? span * 2 - 1 : span;
+
       return (
-        <td colspan={contentSpan} class={contentClass}>
+        <td colspan={contentSpan} class={contentClass} {...{ style: descriptionsProps.contentStyle }}>
           {node.content}
         </td>
       );
