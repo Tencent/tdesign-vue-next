@@ -85,23 +85,25 @@ export default defineComponent({
     }
 
     // hover title
-    const labelMap = {
-      year: {
-        prev: globalConfig.value.preDecade,
-        current: globalConfig.value.now,
-        next: globalConfig.value.nextDecade,
-      },
-      month: {
-        prev: globalConfig.value.preYear,
-        current: globalConfig.value.now,
-        next: globalConfig.value.nextYear,
-      },
-      date: {
-        prev: globalConfig.value.preMonth,
-        current: globalConfig.value.now,
-        next: globalConfig.value.nextMonth,
-      },
-    };
+    const labelMap = computed(() => {
+      return {
+        year: {
+          prev: globalConfig.value.preDecade,
+          current: globalConfig.value.now,
+          next: globalConfig.value.nextDecade,
+        },
+        month: {
+          prev: globalConfig.value.preYear,
+          current: globalConfig.value.now,
+          next: globalConfig.value.nextYear,
+        },
+        date: {
+          prev: globalConfig.value.preMonth,
+          current: globalConfig.value.now,
+          next: globalConfig.value.nextMonth,
+        },
+      };
+    });
 
     // 滚动顶部底部自动加载
     function handleScroll({ e }: any) {
@@ -166,7 +168,7 @@ export default defineComponent({
           />
         </div>
 
-        <PaginationMini tips={labelMap[props.mode]} size="small" onChange={props.onJumperClick} />
+        <PaginationMini tips={labelMap.value[props.mode]} size="small" onChange={props.onJumperClick} />
       </div>
     );
   },
