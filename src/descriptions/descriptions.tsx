@@ -1,5 +1,6 @@
+import isNil from 'lodash/isNil';
 import isArray from 'lodash/isArray';
-import { defineComponent, computed, provide } from 'vue';
+import { defineComponent, provide, ref } from 'vue';
 
 import { LayoutEnum } from '../common';
 import { useTNodeJSX } from '../hooks/tnode';
@@ -7,10 +8,11 @@ import { useChildComponentSlots } from '../hooks/slot';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 import props from './props';
-import { descriptionsKey } from './interface';
+import { descriptionsKey } from './const';
+import { TdDescriptionsProps } from './type';
 import DescriptionsRow from './descriptions-row';
-import { renderCustomNode, renderVNodeTNode } from './utils';
-import { TdDescriptionsProps, TdDescriptionItemProps } from './type';
+import { renderCustomNode, itemTypeIsProps } from './utils';
+import { ItemsType, TdDescriptionItem } from './interface';
 
 /**
  * 实现思路
@@ -34,8 +36,10 @@ export default defineComponent({
     const { SIZE } = useCommonClassName();
     const getChildByName = useChildComponentSlots();
     const renderTNodeJSX = useTNodeJSX();
+    const itemsType = ref<ItemsType>(ItemsType.props);
+
     // 计算渲染的行内容
-    const rows = computed(() => {
+    const getRows = () => {
       /**
        * 1. 两种方式获取要渲染的 items
        *  a. props 传 items
@@ -44,7 +48,7 @@ export default defineComponent({
        */
       const { column, layout } = props;
 
-      let items: TdDescriptionItemProps[] = [];
+      let items: TdDescriptionItem[] = [];
 
       if (isArray(props.items)) {
         /**
@@ -57,18 +61,13 @@ export default defineComponent({
           content: renderCustomNode(item.content),
           span: item.span || 1,
         }));
+        itemsType.value = ItemsType.props;
       } else {
         const slots = getChildByName('TDescriptionsItem');
         if (slots.length !== 0) {
           // 2.2 b 方式 获取 TDescriptionsItem
-          items = slots.map((item) => {
-            const { span = 1 } = item.props || {};
-            return {
-              label: renderVNodeTNode(item, 'label'),
-              content: renderVNodeTNode(item, 'content', 'default'),
-              span,
-            };
-          });
+          items = slots;
+          itemsType.value = ItemsType.slots;
         }
       }
 
@@ -78,13 +77,21 @@ export default defineComponent({
       }
 
       // 3. 布局为 LayoutEnum.HORIZONTAL 时，需要计算每一行的 item 个数
-      let temp: TdDescriptionItemProps[] = [];
+      let temp: TdDescriptionItem[] = [];
       let reset = column;
 
       // 4. 记录结果
-      const res: TdDescriptionItemProps[][] = [];
+      const res: TdDescriptionItem[][] = [];
       items.forEach((item, index) => {
-        const { span } = item;
+        let span = 1;
+        if (itemTypeIsProps(itemsType.value, item)) {
+          span = isNil(item.span) ? span : item.span;
+        } else {
+          item.props = item.props || {};
+          span = isNil(item.props?.span) ? span : item.props.span;
+          item.props.span = span;
+        }
+
         if (reset >= span) {
           // 当前行还剩余空间
           temp.push(item);
@@ -98,12 +105,16 @@ export default defineComponent({
 
         if (index === items.length - 1) {
           // 最后一个
-          item.span += reset;
+          if (itemTypeIsProps(itemsType.value, item)) {
+            item.span += reset;
+          } else {
+            item.props.span += reset;
+          }
           res.push(temp);
         }
       });
       return res;
-    });
+    };
 
     provide(descriptionsKey, props);
 
@@ -116,8 +127,8 @@ export default defineComponent({
       return (
         <table class={tableClass}>
           <tbody>
-            {rows.value.map((row) => (
-              <DescriptionsRow row={row} />
+            {getRows().map((row) => (
+              <DescriptionsRow item-type={itemsType.value} row={row} />
             ))}
           </tbody>
         </table>

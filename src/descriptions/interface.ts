@@ -1,4 +1,9 @@
-import type { InjectionKey } from 'vue';
-import { TdDescriptionsProps } from './type';
+import type { VNode } from 'vue';
+import { TdDescriptionItemProps } from './type';
 
-export const descriptionsKey: InjectionKey<TdDescriptionsProps> = Symbol('TDescriptions');
+export enum ItemsType {
+  props = 'props',
+  slots = 'slots',
+}
+
+export type TdDescriptionItem = TdDescriptionItemProps | VNode;

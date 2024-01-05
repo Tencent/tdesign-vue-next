@@ -2,6 +2,9 @@ import { VNode, Slots, h, ComponentOptions } from 'vue';
 import isFunction from 'lodash/isFunction';
 import isString from 'lodash/isString';
 
+import { ItemsType, TdDescriptionItem } from '../interface';
+import { TdDescriptionItemProps } from '../type';
+
 /**
  * ! 处理 node string / <div> / () => <div> / Component
  * [
@@ -42,4 +45,14 @@ export function renderVNodeTNode(node: VNode, name1: string, name2?: string) {
   if (slot) return slot?.();
 
   return node;
+}
+
+/**
+ * 判断 item 当前类型
+ * @param itemsType
+ * @param item
+ * @returns
+ */
+export function itemTypeIsProps(itemsType: ItemsType, item: TdDescriptionItem): item is TdDescriptionItemProps {
+  return itemsType === ItemsType.props;
 }

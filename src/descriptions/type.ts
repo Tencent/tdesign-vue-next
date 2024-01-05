@@ -24,7 +24,7 @@ export interface TdDescriptionsProps {
    * 一行 `DescriptionItem` 的数量
    * @default 3
    */
-  column: number;
+  column?: number;
   /**
    * 自定义描述项内容的样式
    */
@@ -37,7 +37,7 @@ export interface TdDescriptionsProps {
   /**
    * 描述项的列表
    */
-  items?: Array<T>;
+  items?: Array<TdDescriptionItemProps>;
   /**
    * 自定义描述项标签的样式
    */

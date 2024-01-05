@@ -7,7 +7,7 @@ name | type | default | description | required
 -- | -- | -- | -- | --
 bordered | Boolean | false | set description list with grey border | N
 colon | Boolean | - | set label with ":" on the right | N
-column | Number | 3 | count of DescriptionItem in one row | N
+columns | Number | 2 | count of DescriptionItem in one row | N
 contentStyle | Object | - | style of description cotent。Typescript：`Styles`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 itemLayout | String | horizontal | layout direction of description item。options: horizontal/vertical | N
 items | Array | - | list of descriptions items。Typescript：`Array<T>` | N

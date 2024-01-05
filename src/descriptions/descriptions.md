@@ -7,7 +7,7 @@
 -- | -- | -- | -- | --
 bordered | Boolean | false | 是否带边框 | N
 colon | Boolean | - | 字段名右侧是否携带冒号“：” | N
-column | Number | 3 | 一行 `DescriptionItem` 的数量 | N
+columns | Number | 2 | 一行 `DescriptionItem` 的数量 | N
 contentStyle | Object | - | 自定义描述项内容的样式。TS 类型：`Styles`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 itemLayout | String | horizontal | 描述项的排列方向。可选项：horizontal/vertical | N
 items | Array | - | 描述项的列表。TS 类型：`Array<T>` | N
