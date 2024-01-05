@@ -21,5 +21,6 @@ title | String / Slot / Function | - | title of descriptions。Typescript：`str
 name | type | default | description | required
 -- | -- | -- | -- | --
 content | String / Slot / Function | - | content of description item。Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+default | String / Slot / Function | - | content of description item。Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 label | String / Slot / Function | - | label of description item。Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 span | Number | 1 | width count | N

@@ -1,9 +1,9 @@
 import { defineComponent, inject, PropType } from 'vue';
 
-import { usePrefixClass } from '../hooks/useConfig';
-import { descriptionsKey } from './interface';
 import { LayoutEnum } from '../common';
+import { usePrefixClass } from '../hooks/useConfig';
 
+import { descriptionsKey } from './interface';
 import { TdDescriptionItemProps } from './type';
 
 export default defineComponent({

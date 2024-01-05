@@ -8,9 +8,21 @@ import { TdDescriptionItemProps } from '../descriptions/type';
 import { PropType } from 'vue';
 
 export default {
+  /** 内容垂直对齐方式，DescriptionItem.align 优先级高于 Descriptions.align */
+  align: {
+    type: String as PropType<TdDescriptionItemProps['align']>,
+    validator(val: TdDescriptionItemProps['align']): boolean {
+      if (!val) return true;
+      return ['top', 'middle', 'bottom'].includes(val);
+    },
+  },
   /** 描述项内容 */
   content: {
     type: [String, Function] as PropType<TdDescriptionItemProps['content']>,
+  },
+  /** 描述项内容，同 `content` */
+  default: {
+    type: [String, Function] as PropType<TdDescriptionItemProps['default']>,
   },
   /** 描述项标签 */
   label: {

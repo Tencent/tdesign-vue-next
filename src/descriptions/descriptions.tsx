@@ -1,18 +1,16 @@
-import { defineComponent, computed, provide, VNode, Slots } from 'vue';
+import isArray from 'lodash/isArray';
+import { defineComponent, computed, provide } from 'vue';
 
+import { LayoutEnum } from '../common';
+import { useTNodeJSX } from '../hooks/tnode';
 import { useChildComponentSlots } from '../hooks/slot';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
 
 import props from './props';
-import { TdDescriptionsProps, TdDescriptionItemProps } from './type';
-import DescriptionsRow from './descriptions-row';
 import { descriptionsKey } from './interface';
-import { LayoutEnum, TNode } from '../common';
-
-import isFunction from 'lodash/isFunction';
-import isString from 'lodash/isString';
-import isArray from 'lodash/isArray';
+import DescriptionsRow from './descriptions-row';
+import { renderCustomNode, renderVNodeTNode } from './utils';
+import { TdDescriptionsProps, TdDescriptionItemProps } from './type';
 
 /**
  * 实现思路
@@ -28,30 +26,6 @@ import isArray from 'lodash/isArray';
  * TDescriptionsItem：获取 item 数据（span, label, content）
  */
 
-// ! 临时方法，处理 vnode 中的 slot prop，待讨论
-function renderVNodeTNode(node: VNode, name1: string, name2?: string): string | TNode {
-  const slot = (node.children as Slots)?.[name1] || (node.children as Slots)?.[name2]; // slots 优先级更高
-  const prop = node.props?.[name1];
-  if (slot) {
-    return (slot?.() || '') as string | TNode;
-  } else if (prop) {
-    return prop;
-  } else {
-    return '';
-  }
-}
-
-// ! 临时方法，处理 node string / <div> / () => <div>
-function renderStringOrTNode(node: string | Function | VNode): string | TNode {
-  if (isFunction(node)) {
-    return node();
-  } else if (isString(node)) {
-    return node;
-  } else {
-    return (<node />) as unknown as TNode;
-  }
-}
-
 export default defineComponent({
   name: 'TDescriptions',
   props,
@@ -62,24 +36,27 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     // 计算渲染的行内容
     const rows = computed(() => {
-      // 1. 两种方式：a. props 传 items b. slots t-descriptions-item; a 优先级更高
+      /**
+       * 1. 两种方式获取要渲染的 items
+       *  a. props 传 items
+       *  b. slots t-descriptions-item
+       * a 优先级更高
+       */
       const { column, layout } = props;
 
       let items: TdDescriptionItemProps[] = [];
 
       if (isArray(props.items)) {
-        // 2.a b 方式 获取 items
-        // ! 这里也要支持 label: string / <div></div> / () =>  <div></div> 所以感觉需要这样一个全局的方法
-
-        // ! 先在这里写两个临时方法，待讨论
-        items = props.items.map((item) => {
-          const { span = 1 } = item;
-          return {
-            label: renderStringOrTNode(item.label),
-            content: renderStringOrTNode(item.content),
-            span,
-          };
-        });
+        /**
+         * 2.1 a 方式获取 items
+         * ! 这里要支持 label: string / <div></div> / () =>  <div></div>
+         * ! 暂时没有这样一个全局的方法，所以先在组件内部写一个临时方法，无论之后是有了更好的处理方式要删除掉，还是其它组件也需要时再放到公共方法里面，都是可行的
+         */
+        items = props.items.map((item) => ({
+          label: renderCustomNode(item.label),
+          content: renderCustomNode(item.content),
+          span: item.span || 1,
+        }));
       } else {
         const slots = getChildByName('TDescriptionsItem');
         if (slots.length !== 0) {
@@ -99,9 +76,11 @@ export default defineComponent({
       if (layout === LayoutEnum.VERTICAL) {
         return [items];
       }
+
       // 3. 布局为 LayoutEnum.HORIZONTAL 时，需要计算每一行的 item 个数
       let temp: TdDescriptionItemProps[] = [];
       let reset = column;
+
       // 4. 记录结果
       const res: TdDescriptionItemProps[][] = [];
       items.forEach((item, index) => {
