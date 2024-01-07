@@ -17,12 +17,15 @@ export default function useDragSort(
   context: SetupContext,
   params: ComputedRef<{
     showElement: boolean;
+    onTableRefresh: () => void;
+    tableKey: number;
   }>,
 ) {
   const { sortOnRowDraggable, dragSort, data, rowKey } = toRefs(props);
   const innerPagination = ref(props.pagination);
   const { tableDraggableClasses, tableBaseClass, tableFullRowClasses } = useClassName();
   const columns = ref<PrimaryTableCol[]>(props.columns || []);
+  const { onTableRefresh } = params.value;
   const primaryTableRef = ref(null);
   // @ts-ignore 判断是否有拖拽列
   const dragCol = computed(() => columns.value.find((item) => item.colKey === 'drag'));
@@ -51,33 +54,19 @@ export default function useDragSort(
   }
 
   watch(
-    [data],
-    ([data]) => {
+    () => [...data.value],
+    (data) => {
       lastRowList.value = data?.map((item) => get(item, rowKey.value)) || [];
-      // Hack 处理：数据变化时，DOM 元素无法自动变化，只得手动设置顺序和重置数据
-      const timer = setTimeout(() => {
-        if (data.length) {
-          dragRowInstanceTmp?.sort(lastRowList.value);
-        } else {
-          const trList = primaryTableRef.value?.$el.querySelectorAll('tr[data-id]');
-          trList?.forEach((node: HTMLElement) => node.remove());
-        }
-        clearTimeout(timer);
-      }, 0);
+      onTableRefresh?.();
     },
     { immediate: true },
   );
 
   watch(
-    columns,
+    () => [...columns.value],
     (columns) => {
       lastColList.value = columns ? columns.map((t) => t.colKey) : [];
-      // Hack 处理：数据变化时，DOM 元素无法自动变化，只得手动设置顺序和重置数据
-      const timer = setTimeout(() => {
-        if (!dragColInstanceTmp || !dragColInstanceTmp.el) return;
-        dragColInstanceTmp?.sort(lastColList.value);
-        clearTimeout(timer);
-      }, 0);
+      onTableRefresh?.();
     },
     // { immediate: true },
   );
@@ -113,7 +102,11 @@ export default function useDragSort(
         // 处理受控：拖拽列表恢复原始排序
         dragRowInstanceTmp?.sort(lastRowList.value);
         let { oldIndex: currentIndex, newIndex: targetIndex } = evt;
-        if ((isFunction(props.firstFullRow) && props.firstFullRow(h)) || context.slots.firstFullRow) {
+        if (
+          (isFunction(props.firstFullRow) && props.firstFullRow(h)) ||
+          context.slots.firstFullRow ||
+          context.slots['first-full-row']
+        ) {
           currentIndex -= 1;
           targetIndex -= 1;
         }
@@ -147,6 +140,7 @@ export default function useDragSort(
         handle: `.${tableDraggableClasses.handle}`,
       });
     }
+
     lastRowList.value = dragRowInstanceTmp.toArray();
   };
 
@@ -230,9 +224,13 @@ export default function useDragSort(
 
   // eslint-disable-next-line
   watch([primaryTableRef, columns, dragSort, params], ([val, columns, dragSort, params]) => {
+    register(val, params);
+  });
+
+  function register(val: any, params: any) {
     const primaryTableCmp = val as any;
     if (!val || !primaryTableCmp.$el || !params.showElement) return;
-    // regis after table tr rendered
+    // register after table tr rendered
     const timerA = setTimeout(() => {
       registerRowDragEvent(primaryTableCmp.$el);
       registerColDragEvent(primaryTableCmp.$el);
@@ -243,9 +241,10 @@ export default function useDragSort(
         }
         clearTimeout(timer);
       });
+
       clearTimeout(timerA);
     }, 60);
-  });
+  }
 
   return {
     innerPagination,
