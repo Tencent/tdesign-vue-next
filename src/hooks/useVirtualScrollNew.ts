@@ -76,14 +76,14 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
 
     let heightSum = 0;
 
-    for (let i = 0, len = trHeightList.length; i < len; i++) {
+    for (let i = 0, len = params.value.data.length; i < len; i++) {
       const rowHeight = trHeightList[i] ?? tScroll.value.rowHeight;
       heightSum = heightSum + rowHeight;
       // 获取第一个可是范围内的元素
       if (heightSum > scrollTop && visibleStart === -1) {
         visibleStart = i;
         if (visibleStart - tScroll.value.bufferSize > 0) {
-          hiddenHeight = heightSum - sum(prevBufferHeightList);
+          hiddenHeight = heightSum - rowHeight - sum(prevBufferHeightList);
         }
       }
       if (visibleStart === -1) {
@@ -113,6 +113,7 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
   const updateVisibleData = throttle(() => {
     // 计算前后的buffer偏移后的渲染数据
     const { startIndex, endIndex, totalHeight, translateY: translateYValue } = getVisibleRangeConfig();
+
     if (startAndEndIndex.value.join() !== [startIndex, endIndex].join() && startIndex >= 0) {
       translateY.value = translateYValue;
       scrollHeight.value = totalHeight;
@@ -157,7 +158,7 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
   };
 
   const updateScrollTop = ({ index, top = 0, behavior }: ScrollToElementParams) => {
-    const scrollTop = sum(trHeightList.slice(0, index - 1)) - containerHeight.value - top;
+    const scrollTop = sum(trHeightList.slice(0, index)) - top;
     container.value.scrollTo({
       top: scrollTop,
       behavior: behavior || 'auto',
@@ -192,9 +193,12 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
       // 有可能初始化时，resize 监听没触发，尝试设置初始化容器高度
       containerHeight.value = container.value.getBoundingClientRect().height;
 
-      // data 或者 rowHeight 发生了变化，清空之前记录的高度
-      const initHeightList: number[] = Array(params.value.data.length).fill(tScroll.value.rowHeight || 47);
-      trHeightList = initHeightList;
+      // 暂时对于 table 和 tree 场景，信任之前缓存的行高
+      // 后续优化可能提供一个参数，进行监听从而清除记录的行高会更好
+      if (trHeightList.length === 0) {
+        const initHeightList: number[] = Array(params.value.data.length).fill(tScroll.value.rowHeight || 47);
+        trHeightList = initHeightList;
+      }
 
       // 清除记录的滚动顺序
       startAndEndIndex.value = [0, 0];

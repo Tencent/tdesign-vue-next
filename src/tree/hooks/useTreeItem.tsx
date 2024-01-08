@@ -6,6 +6,7 @@ import useRenderLabel from './useRenderLabel';
 import useRenderLine from './useRenderLine';
 import useRenderOperations from './useRenderOperations';
 import useDraggable from './useDraggable';
+import { onUpdated } from 'vue';
 
 export default function useTreeItem(state: TypeTreeItemState) {
   const { treeScope, treeItemRef } = state;
@@ -27,7 +28,7 @@ export default function useTreeItem(state: TypeTreeItemState) {
     reactive({ ...scrollProps?.value }),
   );
 
-  onMounted(() => {
+  function tryNotifyVirtualScrollRowUpdate() {
     const { node } = state;
     const isVirtual = virtualConfig?.isVirtualScroll.value;
     if (isVirtual) {
@@ -40,6 +41,15 @@ export default function useTreeItem(state: TypeTreeItemState) {
         clearTimeout(timer);
       }, 100);
     }
+  }
+
+  onMounted(() => {
+    tryNotifyVirtualScrollRowUpdate();
+  });
+
+  // 有可能因为 row-key 带来组件复用，这时候通过 update 进行更新
+  onUpdated(() => {
+    tryNotifyVirtualScrollRowUpdate();
   });
 
   // 节点隐藏用 class 切换，不要写在 js 中
