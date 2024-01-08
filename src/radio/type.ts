@@ -45,6 +45,11 @@ export interface TdRadioProps {
    */
   name?: string;
   /**
+   * 只读状态
+   * @default false
+   */
+  readonly?: boolean;
+  /**
    * 单选按钮的值
    */
   value?: string | number | boolean;
@@ -111,6 +116,7 @@ export interface RadioOptionObj {
   label?: string | TNode;
   value?: string | number | boolean;
   disabled?: boolean;
+  readonly?: boolean;
 }
 
 export type RadioValue = string | number | boolean;
