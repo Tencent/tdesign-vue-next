@@ -23,7 +23,7 @@ export default {
   /** 一行 `DescriptionItem` 的数量 */
   column: {
     type: Number,
-    default: 3,
+    default: 2,
   },
   /** 自定义描述项内容的样式 */
   contentStyle: {
