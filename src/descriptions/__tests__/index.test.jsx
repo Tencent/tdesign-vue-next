@@ -31,7 +31,7 @@ describe('Descriptions', () => {
     });
 
     it(':layout:horizontal', () => {
-      const wrapper = getDescriptionsMount({ layout: layout.H });
+      const wrapper = getDescriptionsMount({ layout: layout.H, column: 3 });
       const tbody = wrapper.find('tbody');
       // 检查 tbody 下面是否只有 2 个 tr 元素
       expect(tbody.findAll('tr')).toHaveLength(2);
@@ -69,7 +69,7 @@ describe('Descriptions', () => {
     });
 
     it(':itemLayout:vertical', () => {
-      const wrapper = getDescriptionsMount({ itemLayout: layout.V });
+      const wrapper = getDescriptionsMount({ itemLayout: layout.V, column: 3 });
       const tbody = wrapper.find('tbody');
       // 检查 tbody 下面是否只有 4 个 tr 元素
       expect(tbody.findAll('tr')).toHaveLength(4);

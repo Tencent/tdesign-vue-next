@@ -10,7 +10,7 @@
       <t-radio-group v-model="itemLayout" :options="itemLayoutOptions"></t-radio-group>
     </t-row>
 
-    <t-descriptions title="Shipping address" bordered :layout="layout" :item-layout="itemLayout">
+    <t-descriptions title="Shipping address" bordered :layout="layout" :item-layout="itemLayout" :column="3">
       <t-descriptions-item label="Name">TDesign</t-descriptions-item>
       <t-descriptions-item label="Telephone Number">139****0609</t-descriptions-item>
       <t-descriptions-item label="Area">China Tencent Headquarters</t-descriptions-item>
