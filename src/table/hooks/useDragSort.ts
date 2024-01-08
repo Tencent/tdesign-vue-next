@@ -141,6 +141,10 @@ export default function useDragSort(
       });
     }
 
+    if (!dragRowInstanceTmp.toArray().join().includes(lastRowList.value.join())) {
+      dragRowInstanceTmp.sort(lastRowList.value);
+    }
+
     lastRowList.value = dragRowInstanceTmp.toArray();
   };
 
