@@ -121,9 +121,17 @@ export default defineComponent({
       setFilterPrimaryTableRef,
     } = useFilter(props, context);
 
+    const tableKey = ref(1);
+
+    const onTableRefresh = () => {
+      tableKey.value += 1;
+    };
+
     // 拖拽排序功能
     const dragSortParams = computed(() => ({
       showElement: showElement.value,
+      onTableRefresh,
+      tableKey: tableKey.value,
     }));
     const {
       isRowHandlerDraggable,
@@ -436,7 +444,6 @@ export default defineComponent({
       }
 
       return (
-        // @ts-ignore
         <BaseTable
           v-slots={context.slots}
           {...baseTableProps}
