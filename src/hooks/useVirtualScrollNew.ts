@@ -180,7 +180,11 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
     }
   };
 
-  useResizeObserver(isVirtualScroll.value ? container : undefined, refreshVirtualScroll);
+  // 如果初始化时 isVirtualScroll 为 false，undefined 的 ref 会导致无法监听元素高度变化
+  useResizeObserver(
+    computed(() => (isVirtualScroll.value ? container.value : undefined)),
+    refreshVirtualScroll,
+  );
 
   // 固定高度场景，可直接通过数据长度计算出最大滚动高度
   watch(
