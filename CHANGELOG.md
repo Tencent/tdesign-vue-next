@@ -5,6 +5,24 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.8.0 `2024-01-09` 
+### 🚀 Features
+- `Descriptions`: 新增 `Descriptions` 描述组件 @zhangpaopao0609 ([#3787](https://github.com/Tencent/tdesign-vue-next/pull/3787))
+- `Slider`: 实现 `changeEnd` 事件 ([issue #3772](https://github.com/Tencent/tdesign-vue-next/issues/3772)) @Lyan-u ([#3780](https://github.com/Tencent/tdesign-vue-next/pull/3780))
+- `Form`: 为 `Form Item` 校验信息增加 `title` 属性，用于鼠标停留时展示完整信息 @sosohime ([#3779](https://github.com/Tencent/tdesign-vue-next/pull/3779))
+- `ImageViewer`: 新增默认缩放比例 @timi137137 ([#3678](https://github.com/Tencent/tdesign-vue-next/pull/3678))
+- `Radio`: 新增 `readonly` 属性 @betavs ([#3814](https://github.com/Tencent/tdesign-vue-next/pull/3814))
+### 🐞 Bug Fixes
+- `Table`: 
+  - 修复行拖拽排序场景，异步加载行会变到第一行问题 @chaishi ([#3819](https://github.com/Tencent/tdesign-vue-next/pull/3819))
+  - 拖拽排序场景，修复通过 `push` 新增 `data` 元素后，被添加的新元素出现在第一列问题 @chaishi ([#3822](https://github.com/Tencent/tdesign-vue-next/pull/3822))
+  - 修复 `sortablejs` 操作 `DOM` 后对虚拟 `DOM` 产生的副作用。 @huangchen1031 ([#3825](https://github.com/Tencent/tdesign-vue-next/pull/3825))
+  - 修复 `EnhancedTable` 树型表格表头操作全选，会选中已禁用选择的行的问题 @huangchen1031 @uyarn ([#3832](https://github.com/Tencent/tdesign-vue-next/pull/3832))
+- `Cascader`: 修复 `mutiple & show-all-levels = false` 的场景下设置`value`为`options`内不存在的值报错 @Zz-ZzzZ ([#3810](https://github.com/Tencent/tdesign-vue-next/pull/3810))
+- `DatePicker`: 国际化切换无效([issue#3807](https://github.com/Tencent/tdesign-vue-next/issues/3807)) @liweijie0812 ([#3818](https://github.com/Tencent/tdesign-vue-next/pull/3818))
+- `TagInput`: 解决 `disabled` 为真时，可以点击的问题([issue #3829](https://github.com/Tencent/tdesign-vue-next/issues/3829)) @betavs ([#3831](https://github.com/Tencent/tdesign-vue-next/pull/3831))
+- `Radio`: 处理选中状态也会触发 `change` 事件的问题 @betavs ([#3782](https://github.com/Tencent/tdesign-vue-next/pull/3782))
+
 ## 🌈 1.7.2 `2023-12-22` 
 ### 🚀 Features
 - `Upload`: 
