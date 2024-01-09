@@ -44,7 +44,7 @@ export function renderVNodeTNode(node: VNode, name1: string, name2?: string) {
 
   if (slot) return slot?.();
 
-  return node;
+  return null;
 }
 
 /**

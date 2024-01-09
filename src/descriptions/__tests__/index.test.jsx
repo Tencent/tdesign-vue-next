@@ -2,6 +2,7 @@ import { it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { getDescriptionsMount } from './mount';
 import Descriptions, { DescriptionsItem } from '@/src/descriptions/index.ts';
+import CustomComp from './custom-comp.vue';
 
 const sizeList = ['small', 'medium', 'large'];
 const layout = {
@@ -135,6 +136,26 @@ describe('Descriptions', () => {
       // 检查第 1 个 tr 元素中的第 7 个 td 元素是否具有 colspan 属性，并检查其值是否为 1
       expect(firstTrTd.element.getAttribute('colspan')).toBe('1');
     });
+
+    it(':items', () => {
+      const items = [
+        { label: 'Name', content: 'TDesign' },
+        { label: 'Telephone Number', content: '139****0609' },
+      ];
+      const wrapper = mount({
+        render() {
+          return <Descriptions items={items} />;
+        },
+      });
+
+      const tbody = wrapper.find('tbody');
+      // 检查 tbody 下面是否只有 1 个 tr 元素
+      expect(tbody.findAll('tr')).toHaveLength(1);
+
+      const firstTr = tbody.findAll('tr')[0];
+      // 检查第 1 个 tr 元素中是否只有 4 个 td 元素
+      expect(firstTr.findAll('td')).toHaveLength(4);
+    });
   });
 
   describe(':slots', () => {
@@ -202,6 +223,53 @@ describe('Descriptions', () => {
       const labelElement = firstTrTd.find(`.${contentSlotsClassName}`);
       expect(labelElement.exists()).toBeTruthy();
       expect(labelElement.text()).toBe(contentContent);
+    });
+  });
+
+  describe(':functions', () => {
+    it(':renderCustomNode', () => {
+      const label = 'Name';
+      const items = [
+        { label: () => label, content: 'TDesign' },
+        { label: CustomComp, content: 'TDesign' },
+        { label: [1, 2], content: 'TDesign' },
+      ];
+      const wrapper = mount({
+        render() {
+          return <Descriptions items={items} />;
+        },
+      });
+
+      const tbody = wrapper.find('tbody');
+      const firstTr = tbody.findAll('tr')[0];
+      const secondTr = tbody.findAll('tr')[1];
+
+      const firstTd = firstTr.findAll('td')[0];
+      expect(firstTd.text()).toBe(label);
+
+      const thirdTd = firstTr.findAll('td')[2];
+      expect(thirdTd.text()).toBe('custom-comp');
+
+      const secondTrFirstTd = secondTr.findAll('td')[0];
+      expect(secondTrFirstTd.text()).toBe('12');
+    });
+
+    it(':renderVNodeTNode', () => {
+      const wrapper = mount({
+        render() {
+          return (
+            <Descriptions>
+              <DescriptionsItem />
+            </Descriptions>
+          );
+        },
+      });
+
+      const tbody = wrapper.find('tbody');
+      const firstTr = tbody.findAll('tr')[0];
+      const firstTrTd = firstTr.findAll('td')[0];
+
+      expect(firstTrTd.text()).toBe('');
     });
   });
 });
