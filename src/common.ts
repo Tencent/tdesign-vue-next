@@ -68,6 +68,11 @@ export type HorizontalAlignEnum = 'left' | 'center' | 'right';
 
 export type VerticalAlignEnum = 'top' | 'middle' | 'bottom';
 
+export enum LayoutEnum {
+  VERTICAL = 'vertical',
+  HORIZONTAL = 'horizontal',
+}
+
 export type ClassName = { [className: string]: any } | ClassName[] | string;
 
 export type CSSSelector = string;

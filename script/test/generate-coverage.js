@@ -11,7 +11,7 @@ function resolveCwd(...args) {
   return path.join(...args);
 }
 
-fs.readFile(resolveCwd('test/unit/coverage/index.html'), 'utf8', (err, html) => {
+fs.readFile(resolveCwd('/coverage/index.html'), 'utf8', (err, html) => {
   if (err) {
     console.log('please execute npm run test:unit-coverage first!', err);
     return;

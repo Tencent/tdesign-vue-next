@@ -116,6 +116,7 @@ export default defineComponent({
     };
 
     const onClick: TdInputProps['onClick'] = (ctx) => {
+      if (disabled.value) return;
       isFocused.value = true;
       tagInputRef.value.focus();
       props.onClick?.(ctx);

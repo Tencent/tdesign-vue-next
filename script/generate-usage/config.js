@@ -700,6 +700,19 @@ module.exports = {
       `,
     },
   },
+  descriptions: {
+    panelStr: `const panelList = [{label: 'descriptions', value: 'descriptions'}];`,
+    render: {
+      descriptions: `
+        <t-descriptions title="Shipping address" v-bind="configProps">
+          <t-descriptions-item label="Name">TDesign</t-descriptions-item>
+          <t-descriptions-item label="Telephone Number">139****0609</t-descriptions-item>
+          <t-descriptions-item label="Area">China Tencent Headquarters</t-descriptions-item>
+          <t-descriptions-item label="Address">Shenzhen Penguin Island D1 4A Mail Center</t-descriptions-item>
+        </t-descriptions>
+      `,
+    },
+  },
   'back-top': {
     panelStr: `const panelList = [{label: 'backTop', value: 'backTop'}];`,
     render: {
