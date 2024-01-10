@@ -212,10 +212,7 @@ export default defineComponent({
         closeDrawer({ trigger: 'overlay', e });
       }
     };
-    const onKeyDown = (e: KeyboardEvent) => {
-      // 根据closeOnEscKeydown判断按下ESC时是否触发close事件
-      handleEscKeydown(e);
-    };
+
     const closeDrawer = (params: DrawerCloseContext) => {
       props.onClose?.(params);
       context.emit('update:visible', false);
@@ -262,7 +259,7 @@ export default defineComponent({
             ref={drawerEle}
             class={drawerClasses.value}
             style={{ zIndex: props.zIndex }}
-            onKeydown={onKeyDown}
+            onKeydown={handleEscKeydown}
             tabindex={0}
             {...context.attrs}
           >
