@@ -100,7 +100,7 @@ export default defineComponent({
     });
 
     const handleEscKeydown = (e: KeyboardEvent) => {
-      if (props.closeOnEscKeydown ?? (globalConfig.value.closeOnEscKeydown && e.key === 'Escape')) {
+      if (props.closeOnEscKeydown ?? (globalConfig.value.closeOnEscKeydown && e.key === 'Escape' && isVisible.value)) {
         props.onEscKeydown?.({ e });
         closeDrawer({ trigger: 'esc', e });
       }
@@ -214,10 +214,7 @@ export default defineComponent({
     };
     const onKeyDown = (e: KeyboardEvent) => {
       // 根据closeOnEscKeydown判断按下ESC时是否触发close事件
-      if ((props.closeOnEscKeydown ?? globalConfig.value.closeOnEscKeydown) && e.key === 'Escape') {
-        props.onEscKeydown?.({ e });
-        closeDrawer({ trigger: 'esc', e });
-      }
+      handleEscKeydown(e);
     };
     const closeDrawer = (params: DrawerCloseContext) => {
       props.onClose?.(params);
