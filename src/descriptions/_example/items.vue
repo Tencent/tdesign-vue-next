@@ -1,5 +1,5 @@
 <template>
-  <t-descriptions title="Shipping address" :items="items" />
+  <t-descriptions title="Shipping address" :items="items" :column="3" />
 </template>
 
 <script setup lang="jsx">

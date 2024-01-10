@@ -1,7 +1,6 @@
 // 表格 行拖拽 + 列拖拽功能
 import { SetupContext, computed, toRefs, ref, watch, h, ComputedRef } from 'vue';
 import Sortable, { SortableEvent, SortableOptions, MoveEvent } from 'sortablejs';
-import get from 'lodash/get';
 import isFunction from 'lodash/isFunction';
 import { TableRowData, TdPrimaryTableProps, DragSortContext, PrimaryTableCol } from '../type';
 import useClassName from './useClassName';
@@ -12,6 +11,17 @@ import { BaseTableColumns } from '../interface';
 import { getColumnDataByKey, getColumnIndexByKey } from '../../_common/js/table/utils';
 import { SimplePageInfo } from '../interface';
 
+function removeNode(node: HTMLElement) {
+  if (node.parentElement !== null) {
+    node.parentElement.removeChild(node);
+  }
+}
+
+function insertNodeAt(fatherNode: HTMLElement, node: HTMLElement, position: number) {
+  const refNode = position === 0 ? fatherNode.children[0] : fatherNode.children[position - 1].nextSibling;
+  fatherNode.insertBefore(node, refNode);
+}
+
 export default function useDragSort(
   props: TdPrimaryTableProps,
   context: SetupContext,
@@ -21,9 +31,9 @@ export default function useDragSort(
     tableKey: number;
   }>,
 ) {
-  const { sortOnRowDraggable, dragSort, data, rowKey } = toRefs(props);
+  const { sortOnRowDraggable, dragSort, data } = toRefs(props);
   const innerPagination = ref(props.pagination);
-  const { tableDraggableClasses, tableBaseClass, tableFullRowClasses } = useClassName();
+  const { tableDraggableClasses, tableBaseClass, tableFullRowClasses, tableExpandClasses } = useClassName();
   const columns = ref<PrimaryTableCol[]>(props.columns || []);
   const { onTableRefresh } = params.value;
   const primaryTableRef = ref(null);
@@ -39,29 +49,14 @@ export default function useDragSort(
   );
   // 列拖拽判断条件
   const isColDraggable = computed(() => ['col', 'row-handler-col'].includes(dragSort.value));
-  // 行拖拽排序，存储上一次的变化结果
-  const lastRowList = ref([]);
   // 列拖拽排序，存储上一次的变化结果
   const lastColList = ref([]);
-
-  // 行拖拽实例
-  let dragRowInstanceTmp: Sortable = null;
   // 列拖拽实例
   let dragColInstanceTmp: Sortable = null;
 
   if (props.sortOnRowDraggable) {
     log.error('Table', "`sortOnRowDraggable` is going to be deprecated, use dragSort='row' instead.");
   }
-
-  watch(
-    () => [...data.value],
-    (data) => {
-      lastRowList.value = data?.map((item) => get(item, rowKey.value)) || [];
-      onTableRefresh?.();
-    },
-    { immediate: true },
-  );
-
   watch(
     () => [...columns.value],
     (columns) => {
@@ -95,12 +90,13 @@ export default function useDragSort(
       ghostClass: tableDraggableClasses.ghost,
       chosenClass: tableDraggableClasses.chosen,
       dragClass: tableDraggableClasses.dragging,
-      filter: `.${tableFullRowClasses.base}`, // 过滤首行尾行固定
+      filter: `.${tableFullRowClasses.base},.${tableExpandClasses.row}`, // 过滤首行尾行固定，过滤展开行
       onMove: (evt: MoveEvent) => !hasClass(evt.related, tableFullRowClasses.base),
       onEnd(evt: SortableEvent) {
         if (evt.newIndex === evt.oldIndex) return;
         // 处理受控：拖拽列表恢复原始排序
-        dragRowInstanceTmp?.sort(lastRowList.value);
+        removeNode(evt.item);
+        insertNodeAt(evt.from, evt.item, evt.oldIndex);
         let { oldIndex: currentIndex, newIndex: targetIndex } = evt;
         if (
           (isFunction(props.firstFullRow) && props.firstFullRow(h)) ||
@@ -133,19 +129,13 @@ export default function useDragSort(
 
     if (!dragContainer) return;
     if (isRowDraggable.value) {
-      dragRowInstanceTmp = new Sortable(dragContainer, { ...baseOptions });
+      new Sortable(dragContainer, { ...baseOptions });
     } else {
-      dragRowInstanceTmp = new Sortable(dragContainer, {
+      new Sortable(dragContainer, {
         ...baseOptions,
         handle: `.${tableDraggableClasses.handle}`,
       });
     }
-
-    if (!dragRowInstanceTmp.toArray().join().includes(lastRowList.value.join())) {
-      dragRowInstanceTmp.sort(lastRowList.value);
-    }
-
-    lastRowList.value = dragRowInstanceTmp.toArray();
   };
 
   const registerOneLevelColDragEvent = (container: HTMLElement, recover: boolean) => {

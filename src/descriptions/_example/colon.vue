@@ -1,7 +1,7 @@
 <template>
   <t-space direction="vertical">
     <t-checkbox v-model="checked">展示引号</t-checkbox>
-    <t-descriptions title="Shipping address" bordered :colon="checked">
+    <t-descriptions title="Shipping address" bordered :colon="checked" :column="3">
       <t-descriptions-item label="Name">TDesign</t-descriptions-item>
       <t-descriptions-item label="Telephone Number">139****0609</t-descriptions-item>
       <t-descriptions-item label="Area">China Tencent Headquarters</t-descriptions-item>

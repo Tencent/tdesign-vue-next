@@ -114,10 +114,10 @@ module.exports = {
     lines: '62.29%',
   },
   descriptions: {
-    statements: '94.63%',
-    branches: '91.07%',
-    functions: '88.23%',
-    lines: '94.63%',
+    statements: '100%',
+    branches: '91.66%',
+    functions: '94.11%',
+    lines: '100%',
   },
   dialog: {
     statements: '73.34%',
@@ -144,10 +144,10 @@ module.exports = {
     lines: '53.96%',
   },
   form: {
-    statements: '96.33%',
+    statements: '96.34%',
     branches: '86.34%',
     functions: '90.9%',
-    lines: '96.33%',
+    lines: '96.34%',
   },
   grid: {
     statements: '89.8%',
@@ -156,10 +156,10 @@ module.exports = {
     lines: '89.8%',
   },
   guide: {
-    statements: '95.6%',
-    branches: '87.96%',
+    statements: '97.29%',
+    branches: '90.65%',
     functions: '93.75%',
-    lines: '95.6%',
+    lines: '97.29%',
   },
   hooks: {
     statements: '59.53%',
@@ -180,10 +180,10 @@ module.exports = {
     lines: '98.25%',
   },
   imageViewer: {
-    statements: '72.32%',
-    branches: '82.53%',
+    statements: '72.56%',
+    branches: '82.81%',
     functions: '59.18%',
-    lines: '72.32%',
+    lines: '72.56%',
   },
   input: {
     statements: '97.03%',
@@ -258,10 +258,10 @@ module.exports = {
     lines: '96.61%',
   },
   popup: {
-    statements: '85.58%',
-    branches: '86.36%',
+    statements: '85.33%',
+    branches: '85.71%',
     functions: '81.63%',
-    lines: '85.58%',
+    lines: '85.33%',
   },
   progress: {
     statements: '96.72%',
@@ -270,10 +270,10 @@ module.exports = {
     lines: '96.72%',
   },
   radio: {
-    statements: '92.6%',
-    branches: '91.76%',
+    statements: '92.68%',
+    branches: '92.13%',
     functions: '90.9%',
-    lines: '92.6%',
+    lines: '92.68%',
   },
   rangeInput: {
     statements: '86.93%',
@@ -288,10 +288,10 @@ module.exports = {
     lines: '90.67%',
   },
   select: {
-    statements: '82.25%',
-    branches: '68.05%',
+    statements: '82.34%',
+    branches: '67.8%',
     functions: '60.78%',
-    lines: '82.25%',
+    lines: '82.34%',
   },
   selectInput: {
     statements: '94.67%',
@@ -306,10 +306,10 @@ module.exports = {
     lines: '97.87%',
   },
   slider: {
-    statements: '73.84%',
+    statements: '72.62%',
     branches: '75.28%',
-    functions: '41.93%',
-    lines: '73.84%',
+    functions: '38.23%',
+    lines: '72.62%',
   },
   space: {
     statements: '97.85%',
@@ -336,10 +336,10 @@ module.exports = {
     lines: '49.14%',
   },
   swiper: {
-    statements: '82.23%',
-    branches: '70.4%',
+    statements: '83.07%',
+    branches: '69.23%',
     functions: '67.74%',
-    lines: '82.23%',
+    lines: '83.07%',
   },
   switch: {
     statements: '97.95%',
@@ -348,10 +348,10 @@ module.exports = {
     lines: '97.95%',
   },
   table: {
-    statements: '65%',
-    branches: '61.18%',
-    functions: '42.62%',
-    lines: '65%',
+    statements: '65.06%',
+    branches: '61.31%',
+    functions: '43.08%',
+    lines: '65.06%',
   },
   tabs: {
     statements: '96.15%',
@@ -420,10 +420,10 @@ module.exports = {
     lines: '100%',
   },
   utils: {
-    statements: '71.31%',
+    statements: '71.7%',
     branches: '76.28%',
     functions: '64.04%',
-    lines: '71.31%',
+    lines: '71.7%',
   },
   watermark: {
     statements: '92.5%',

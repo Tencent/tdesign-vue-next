@@ -4,6 +4,7 @@
     bordered
     :label-style="{ width: '100px', textAlign: 'left' }"
     :content-style="{ textAlign: 'right' }"
+    :column="3"
   >
     <t-descriptions-item label="Name">TDesign</t-descriptions-item>
     <t-descriptions-item label="Telephone Number">139****0609</t-descriptions-item>

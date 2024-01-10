@@ -8,14 +8,6 @@ import { TdDescriptionsProps } from './type';
 import { PropType } from 'vue';
 
 export default {
-  /** 内容垂直对齐方式，DescriptionItem.align 优先级高于 Descriptions.align */
-  align: {
-    type: String as PropType<TdDescriptionsProps['align']>,
-    validator(val: TdDescriptionsProps['align']): boolean {
-      if (!val) return true;
-      return ['top', 'middle', 'bottom'].includes(val);
-    },
-  },
   /** 是否带边框 */
   bordered: Boolean,
   /** 字段名右侧是否携带冒号“：” */
@@ -23,7 +15,7 @@ export default {
   /** 一行 `DescriptionItem` 的数量 */
   column: {
     type: Number,
-    default: 3,
+    default: 2,
   },
   /** 自定义描述项内容的样式 */
   contentStyle: {
