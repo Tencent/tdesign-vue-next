@@ -118,12 +118,12 @@ const { TDesignResolver } = require('unplugin-vue-components/resolvers');
 module.exports = {
   // ...
   plugins: [
-    AutoImport({
+    AutoImport.default({
       resolvers: [TDesignResolver({
         library: 'vue-next'
       })],
     }),
-    Components({
+    Components.default({
       resolvers: [TDesignResolver({
         library: 'vue-next'
       })],
