@@ -181,7 +181,7 @@ export default defineComponent({
         {
           [SIZE.value[props.size]]: props.size !== 'medium',
           [STATUS.value.disabled]: disabled.value,
-          [STATUS.value.focused]: focused.value,
+          [STATUS.value.focused]: disabled.value ? false : focused.value,
           [`${classPrefix.value}-is-${tStatus.value}`]: tStatus.value && tStatus.value !== 'default',
           [`${classPrefix.value}-align-${props.align}`]: props.align !== 'left',
           [`${classPrefix.value}-is-readonly`]: props.readonly,
