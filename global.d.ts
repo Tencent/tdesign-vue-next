@@ -116,6 +116,7 @@ declare module '@vue/runtime-core' {
     TUpload: typeof import('tdesign-vue-next')['Upload'];
     TConfigProvider: typeof import('tdesign-vue-next')['ConfigProvider'];
     TStatistic: typeof import('tdesign-vue-next')['Statistic'];
+    TDescriptions: typeof import('tdesign-vue-next')['Descriptions'];
   }
 }
 
