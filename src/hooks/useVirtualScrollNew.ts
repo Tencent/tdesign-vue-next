@@ -74,16 +74,16 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
     let visibleStart = -1;
     let visibleEnd = -1;
 
-    let heightSum = 0;
+    let totalHeight = 0;
 
     for (let i = 0, len = params.value.data.length; i < len; i++) {
       const rowHeight = trHeightList[i] ?? tScroll.value.rowHeight;
-      heightSum = heightSum + rowHeight;
-      // 获取第一个可是范围内的元素
-      if (heightSum > scrollTop && visibleStart === -1) {
+      totalHeight = totalHeight + rowHeight;
+      // 获取第一个可视范围内的元素
+      if (totalHeight > scrollTop && visibleStart === -1) {
         visibleStart = i;
         if (visibleStart - tScroll.value.bufferSize > 0) {
-          hiddenHeight = heightSum - rowHeight - sum(prevBufferHeightList);
+          hiddenHeight = totalHeight - rowHeight - sum(prevBufferHeightList);
         }
       }
       if (visibleStart === -1) {
@@ -93,7 +93,10 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
         }
       }
       // 获取最后一个可视范围内的元素
-      if ((heightSum > containerHeight.value + scrollTop || i === params.value.data.length - 1) && visibleEnd === -1) {
+      if (
+        visibleEnd === -1 &&
+        (totalHeight > containerHeight.value + scrollTop || i === params.value.data.length - 1)
+      ) {
         visibleEnd = i;
       }
     }
@@ -105,7 +108,7 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
     return {
       startIndex,
       endIndex,
-      totalHeight: heightSum,
+      totalHeight: totalHeight,
       translateY: hiddenHeight,
     };
   }
