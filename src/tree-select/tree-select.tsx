@@ -36,7 +36,6 @@ export default defineComponent({
     const treeRef = ref(null);
 
     // data
-    const filterByText = ref(null);
     const actived = ref([]);
     const expanded = ref([]);
     const nodeInfo = ref(null);
@@ -77,6 +76,22 @@ export default defineComponent({
     );
 
     // computed
+    /** filterByText keep pace with innerInputValue */
+    const filterByText = computed(() => {
+      const value = innerInputValue.value || '';
+      if (value === '') {
+        return null;
+      }
+      return (node: TreeNodeModel<TreeOptionData>) => {
+        if (isFunction(props.filter)) {
+          const filter: boolean | Promise<boolean> = props.filter(String(value), node);
+          if (isBoolean(filter)) {
+            return filter;
+          }
+        }
+        return node.data[realLabel.value].indexOf(value) >= 0;
+      };
+    });
     const tDisabled = computed(() => {
       return formDisabled.value || props.disabled;
     });
@@ -230,19 +245,6 @@ export default defineComponent({
         return;
       }
       setInnerInputValue(value);
-      if (!value) {
-        filterByText.value = null;
-        return null;
-      }
-      filterByText.value = (node: TreeNodeModel<TreeOptionData>) => {
-        if (isFunction(props.filter)) {
-          const filter: boolean | Promise<boolean> = props.filter(String(value), node);
-          if (isBoolean(filter)) {
-            return filter;
-          }
-        }
-        return node.data[realLabel.value].indexOf(value) >= 0;
-      };
       props.onSearch?.(String(value));
     };
 
