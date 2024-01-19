@@ -99,6 +99,11 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
       ) {
         visibleEnd = i;
       }
+
+      if (visibleStart !== -1 && visibleEnd !== -1) {
+        // 不再统计高度
+        break;
+      }
     }
 
     // 前后偏移 buffer
@@ -108,18 +113,16 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
     return {
       startIndex,
       endIndex,
-      totalHeight: totalHeight,
       translateY: hiddenHeight,
     };
   }
 
   const updateVisibleData = throttle(() => {
     // 计算前后的buffer偏移后的渲染数据
-    const { startIndex, endIndex, totalHeight, translateY: translateYValue } = getVisibleRangeConfig();
+    const { startIndex, endIndex, translateY: translateYValue } = getVisibleRangeConfig();
 
     if (startAndEndIndex.value.join() !== [startIndex, endIndex].join() && startIndex >= 0) {
       translateY.value = translateYValue;
-      scrollHeight.value = totalHeight;
       visibleData.value = params.value.data.slice(startIndex, endIndex);
       startAndEndIndex.value = [startIndex, endIndex];
     }
@@ -132,7 +135,10 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
     const rowIndex = rowData.data.VIRTUAL_SCROLL_INDEX;
 
     if (trHeightList[rowIndex] !== trHeight) {
+      const diff = trHeight - trHeightList[rowIndex];
       trHeightList[rowIndex] = trHeight;
+      // 采用 diff 的方式更新，不再遍历数组
+      scrollHeight.value = scrollHeight.value + diff;
     }
   };
 
@@ -206,6 +212,7 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
         const initHeightList: number[] = Array(params.value.data.length).fill(tScroll.value.rowHeight || 47);
         trHeightList = initHeightList;
       }
+      scrollHeight.value = sum(trHeightList);
 
       // 清除记录的滚动顺序
       startAndEndIndex.value = [0, 0];
