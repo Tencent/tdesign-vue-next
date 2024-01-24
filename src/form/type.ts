@@ -239,6 +239,10 @@ export interface FormRule {
    */
   telnumber?: boolean;
   /**
+   * 内置校验方法，校验值是否为 IP 地址，校验正则为`/^(2(5[0-5]{1}|[0-4]\d{1})|[0-1]?\d{1,2})(\.(2(5[0-5]{1}|[0-4]\d{1})|[0-1]?\d{1,2})){3}$/`示例：`{ ip: true, message: '请输入正确的 IP 地址' }`
+   */
+  ip?: boolean;
+  /**
    * 校验触发方式
    * @default change
    */
@@ -318,6 +322,11 @@ export interface FormErrorMessage {
    * @default ''
    */
   telnumber?: string;
+  /**
+   * IP地址校验不通过时的表单项显示文案，全局配置默认是：`'请输入正确的${name}'`
+   * @default ''
+   */
+  ip?: string;
   /**
    * 链接校验规则不通过时的表单项显示文案，全局配置默认是：`'请输入正确的${name}'`
    * @default ''

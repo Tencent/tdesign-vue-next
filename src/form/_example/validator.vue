@@ -17,6 +17,10 @@
       <t-auto-complete v-model="formData.email" :options="emailOptions" filterable></t-auto-complete>
     </t-form-item>
 
+    <t-form-item label="IP地址" name="ip">
+      <t-input v-model="formData.ip"></t-input>
+    </t-form-item>
+
     <t-form-item label="年龄" name="age">
       <t-input-number v-model="formData.age" />
     </t-form-item>
@@ -73,6 +77,7 @@ const formData = reactive({
   account: '',
   password: '',
   email: '',
+  ip: '',
   age: undefined,
   gender: '',
   course: [],
@@ -93,6 +98,10 @@ const rules = {
   ],
   password: [{ required: true, message: '密码必填', type: 'error' }],
   email: [{ required: true, message: '格式必须为邮箱', type: 'warning' }],
+  ip: [
+    { required: true, message: '请输入正确的IP格式', type: 'error' },
+    { ip: true, message: '请输入正确的IP格式', type: 'warning' },
+  ],
   age: [
     { required: true, message: '年龄必填', type: 'error' },
     { number: true, message: '请输入数字', type: 'warning' },
