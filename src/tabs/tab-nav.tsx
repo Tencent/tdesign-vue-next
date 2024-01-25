@@ -211,6 +211,7 @@ export default defineComponent({
       props.onRemove({ e, value, index });
     };
     const setActiveTab = (ref: any) => {
+      if (!ref?.$el) return;
       if (ref?.value === props.value && activeTabRef.value !== ref.$el) {
         activeTabRef.value = ref.$el;
         scrollLeft.value = moveActiveTabIntoView(
