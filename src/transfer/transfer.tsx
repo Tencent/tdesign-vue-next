@@ -219,6 +219,7 @@ export default defineComponent({
             disabledOption.value[SOURCE] || rightButtonDisabled.value || checkedValue.value[SOURCE].length === 0
           }
           operation={props.operation}
+          direction={props.direction}
           onMoveToRight={transferToRight}
           onMoveToLeft={transferToLeft}
           v-slots={{ operation: slots.operation }}

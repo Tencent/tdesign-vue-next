@@ -1,4 +1,4 @@
-import { defineComponent, createElementVNode, PropType, h } from 'vue';
+import { defineComponent, createElementVNode, PropType, h, computed } from 'vue';
 import { ChevronRightIcon as TdChevronRightIcon, ChevronLeftIcon as TdChevronLeftIcon } from 'tdesign-icons-vue-next';
 
 import Button from '../../button';
@@ -24,6 +24,7 @@ export default defineComponent({
       required: true,
     },
     operation: props.operation,
+    direction: props.direction,
   },
   emits: ['moveToRight', 'moveToLeft'],
   setup(props, { slots, emit }) {
@@ -44,6 +45,9 @@ export default defineComponent({
     const getIconLeft = () => {
       return <ChevronLeftIcon />;
     };
+    const isToLeftBtnShow = computed(() => props.direction !== 'right');
+    const isToRightBtnShow = computed(() => props.direction !== 'left');
+
     const getIcon = (direction: 'left' | 'right') => {
       if (isFunction(props.operation)) {
         return null;
@@ -84,28 +88,32 @@ export default defineComponent({
 
     return () => (
       <div class={`${classPrefix.value}-transfer__operations`}>
-        <Button
-          variant="outline"
-          size="small"
-          shape={isString(props.operation?.[1]) ? 'rectangle' : 'square'}
-          key={props.rightDisabled ? 'right-outline' : 'right-base'}
-          disabled={props.rightDisabled}
-          onClick={moveToRight}
-          icon={getIcon('right')}
-        >
-          {renderButton(h, 'right')}
-        </Button>
-        <Button
-          variant="outline"
-          size="small"
-          shape={isString(props.operation?.[0]) ? 'rectangle' : 'square'}
-          key={props.rightDisabled ? 'left-outline' : 'left-base'}
-          disabled={props.leftDisabled}
-          onClick={moveToLeft}
-          icon={getIcon('left')}
-        >
-          {renderButton(h, 'left')}
-        </Button>
+        {isToRightBtnShow.value && (
+          <Button
+            variant="outline"
+            size="small"
+            shape={isString(props.operation?.[1]) ? 'rectangle' : 'square'}
+            key={props.rightDisabled ? 'right-outline' : 'right-base'}
+            disabled={props.rightDisabled}
+            onClick={moveToRight}
+            icon={getIcon('right')}
+          >
+            {renderButton(h, 'right')}
+          </Button>
+        )}
+        {isToLeftBtnShow.value && (
+          <Button
+            variant="outline"
+            size="small"
+            shape={isString(props.operation?.[0]) ? 'rectangle' : 'square'}
+            key={props.rightDisabled ? 'left-outline' : 'left-base'}
+            disabled={props.leftDisabled}
+            onClick={moveToLeft}
+            icon={getIcon('left')}
+          >
+            {renderButton(h, 'left')}
+          </Button>
+        )}
       </div>
     );
   },
