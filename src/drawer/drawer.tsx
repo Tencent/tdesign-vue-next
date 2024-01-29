@@ -100,7 +100,7 @@ export default defineComponent({
     });
 
     const handleEscKeydown = (e: KeyboardEvent) => {
-      if (props.closeOnEscKeydown ?? (globalConfig.value.closeOnEscKeydown && e.key === 'Escape' && isVisible.value)) {
+      if ((props.closeOnEscKeydown ?? globalConfig.value.closeOnEscKeydown) && e.key === 'Escape' && isVisible.value) {
         props.onEscKeydown?.({ e });
         closeDrawer({ trigger: 'esc', e });
       }
@@ -203,18 +203,18 @@ export default defineComponent({
       { immediate: true },
     );
     const handleCloseBtnClick = (e: MouseEvent) => {
-      props.onCloseBtnClick?.({ e });
+      props.onCloseBtnClick?。({ e });
       closeDrawer({ trigger: 'close-btn', e });
     };
     const handleWrapperClick = (e: MouseEvent) => {
-      props.onOverlayClick?.({ e });
+      props.onOverlayClick?。({ e });
       if (props.closeOnOverlayClick ?? globalConfig.value.closeOnOverlayClick) {
         closeDrawer({ trigger: 'overlay', e });
       }
     };
 
     const closeDrawer = (params: DrawerCloseContext) => {
-      props.onClose?.(params);
+      props.onClose?。(params);
       context.emit('update:visible', false);
     };
 
