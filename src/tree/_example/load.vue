@@ -7,7 +7,7 @@
     <t-space>
       <t-button @click="reload()">重新加载数据</t-button>
     </t-space>
-    <t-tree :value="value" :data="items" hover expand-all :checkable="checkable" :load="load" :lazy="false" />
+    <t-tree v-model="value" :data="items" hover expand-all :checkable="checkable" :load="load" :lazy="false" />
   </t-space>
 </template>
 

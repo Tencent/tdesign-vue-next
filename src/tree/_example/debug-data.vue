@@ -119,8 +119,8 @@ const checkable = ref(true);
 const transition = ref(true);
 const items = ref(data1);
 const toggleData = () => {
-  const items = items.value[0].value === 't1' ? data2 : data1;
-  items.value = items;
+  const tmpItems = items.value[0].value === 't1' ? data2 : data1;
+  items.value = tmpItems;
 };
 const label = (h, node) => {
   return node.label || node.value;
