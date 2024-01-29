@@ -1,6 +1,7 @@
 import { computed, Ref } from 'vue';
+import omit from 'lodash/omit';
 import { TdSliderProps } from '../type';
-import InputNumber, { InputNumberProps } from '../../input-number';
+import InputNumber, { InputNumberProps, ChangeContext } from '../../input-number';
 import isBoolean from 'lodash/isBoolean';
 
 interface useSliderInputProps {
@@ -30,7 +31,7 @@ export const useSliderInput = (config: Ref<useSliderInputProps>) => {
     const inputProps = config.value;
     if (!isBoolean(inputProps.inputNumberProps)) {
       const inputTheme = inputProps.inputNumberProps?.theme;
-      initialState = { ...initialState, ...inputProps.inputNumberProps };
+      initialState = { ...initialState, ...omit(inputProps.inputNumberProps, 'onChange') };
       if (['column', 'row', 'normal'].includes(inputTheme)) {
         initialState.theme = inputTheme;
       }
@@ -49,14 +50,15 @@ export const useSliderInput = (config: Ref<useSliderInputProps>) => {
 
   const renderInputNumber = (val: number, changeFn: (val: number) => void) => {
     // if exist min or max prop, onChange callback function will pass undefined value when decrease
-    const normalizeChangeFn = (num: number | undefined) => {
+    const normalizeChangeFn = (num: number | undefined, context: ChangeContext) => {
       if (num !== undefined && !isNaN(num)) {
         changeFn(num);
       }
+      (config.value?.inputNumberProps as InputNumberProps)?.onChange?.(num, context);
     };
     return (
       <InputNumber
-        {...sliderInputState.value}
+        {...{ ...sliderInputState.value }}
         class={sliderNumberClass.value}
         value={val}
         step={config.value.step}
