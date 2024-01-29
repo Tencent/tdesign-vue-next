@@ -33,6 +33,7 @@ const items = ref([
 ]);
 const icon = (h, node) => {
   let name = 'file';
+  // node.children is undefined on some cases
   if (node.getChildren && node.getChildren()) {
     if (node.expanded) {
       name = 'folder-open';
