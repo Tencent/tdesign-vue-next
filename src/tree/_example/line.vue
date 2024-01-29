@@ -119,12 +119,6 @@ const items = ref([
     label: '4',
   },
 ]);
-const toggleLine = () => {
-  showLine.value = !showLine.value;
-};
-const toggleIcon = () => {
-  showIcon.value = !showIcon.value;
-};
 const getLineNodes = (node) => {
   const nodes = node.getParents().reverse();
   const lineNodes = [];

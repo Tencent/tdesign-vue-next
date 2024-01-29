@@ -73,15 +73,12 @@ function createTreeData() {
   return items;
 }
 const tree = ref();
-const items = createTreeData();
-const index = ref(0);
+const initialData = createTreeData();
 const transition = ref(true);
 const textInsertCount = ref('1');
-const useActived = ref(false);
-const expandParent = ref(true);
 const showLine = ref(true);
 const showIcon = ref(true);
-const items = ref(items);
+const items = ref(initialData);
 const insertCount = computed(() => {
   return parseInt(textInsertCount, 10) || 1;
 });

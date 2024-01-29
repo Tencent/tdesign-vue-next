@@ -33,8 +33,6 @@ import { ref } from 'vue';
 import { Icon } from 'tdesign-icons-vue-next';
 const tree = ref();
 const index = ref(2);
-const useActived = ref(false);
-const expandParent = ref(true);
 const items = ref([
   {
     value: 'node1',

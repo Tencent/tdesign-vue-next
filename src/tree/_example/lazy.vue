@@ -26,7 +26,6 @@
 import { ref } from 'vue';
 const checkable = ref(true);
 const checkStrictly = ref(false);
-const value = ref(['1.1', '1.1.1']);
 const items = ref([
   {
     label: '1',

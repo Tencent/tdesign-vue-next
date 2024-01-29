@@ -28,7 +28,7 @@
 
 <script setup>
 import { ref } from 'vue';
-const items = [
+const initialData = [
   {
     value: 't1',
     children: [
@@ -79,11 +79,10 @@ const items = [
     ],
   },
 ];
-const index = ref(0);
 const transition = ref(false);
 const showLine = ref(true);
 const showIcon = ref(true);
-const items = ref(items);
+const items = ref(initialData);
 const label = (h, node) => {
   return `${node.value}`;
 };

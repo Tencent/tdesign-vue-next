@@ -67,7 +67,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 const tree = ref();
 const index = ref(2);
 const activeId = ref('');
@@ -86,13 +86,7 @@ const items = ref([
     value: 'node2',
   },
 ]);
-const btnSetActivedVariant = computed(() => {
-  let variant = 'outline';
-  if (useActived.value) {
-    variant = 'base';
-  }
-  return variant;
-});
+
 const getLabelContent = (node) => {
   const pathNodes = node.getPath();
   let label = pathNodes.map((itemNode) => itemNode.getIndex() + 1).join('.');
@@ -251,9 +245,7 @@ const toggleDisable = (node) => {
 const remove = (node) => {
   tree.value.remove(node.value);
 };
-const toggleExpandParent = () => {
-  expandParent.value = !expandParent.value;
-};
+
 const onChange = (vals, state) => {
   console.info('on change:', vals, state);
   checkedIds.value = vals;

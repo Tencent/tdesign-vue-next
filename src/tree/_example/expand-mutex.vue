@@ -89,10 +89,4 @@ const onExpand = (value, context) => {
 const propOnExpand = (value, context) => {
   console.info('propOnExpand', value, context);
 };
-const toggleMutex = () => {
-  mutex.value = !mutex.value;
-};
-const toggleExpandOnClickNode = () => {
-  expandOnClickNode.value = !expandOnClickNode.value;
-};
 </script>

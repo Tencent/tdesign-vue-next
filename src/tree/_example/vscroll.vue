@@ -97,7 +97,6 @@ function createTreeData() {
 }
 const virtualTree = createTreeData();
 const tree = ref();
-const index = ref(0);
 const transition = ref(true);
 const textInsertCount = ref('1');
 const showLine = ref(true);

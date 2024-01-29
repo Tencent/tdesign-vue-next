@@ -39,7 +39,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'; // 预期规则:
+import { ref } from 'vue'; // 预期规则:
 // 默认父节点被禁用，所有子节点一并呈现禁用状态
 // checkStrictly = true 时，父节点禁用状态不影响子节点禁用状态。
 // 父节点操作选中，不影响被禁用的子节点的原始选中状态。
@@ -106,9 +106,7 @@ const items = ref([
     ],
   },
 ]);
-const disabledList = computed(() => {
-  return disabledMap.value.keys();
-});
+
 const fnDisableCheck = (node) => {
   const map = disabledMap.value;
   return map.get(node.value);

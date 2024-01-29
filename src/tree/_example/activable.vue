@@ -76,13 +76,4 @@ const propOnActive = (value, context) => {
   const { node } = context;
   console.info(node.value, 'actived:', node.actived);
 };
-const toggleActivable = () => {
-  activable.value = !activable.value;
-};
-const toggleActiveMultiple = () => {
-  activeMultiple.value = !activeMultiple.value;
-};
-const toggleExpandOnClickNode = () => {
-  expandOnClickNode.value = !expandOnClickNode.value;
-};
 </script>
