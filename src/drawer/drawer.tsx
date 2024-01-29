@@ -203,18 +203,18 @@ export default defineComponent({
       { immediate: true },
     );
     const handleCloseBtnClick = (e: MouseEvent) => {
-      props.onCloseBtnClick?。({ e });
+      props.onCloseBtnClick?.({ e });
       closeDrawer({ trigger: 'close-btn', e });
     };
     const handleWrapperClick = (e: MouseEvent) => {
-      props.onOverlayClick?。({ e });
+      props.onOverlayClick?.({ e });
       if (props.closeOnOverlayClick ?? globalConfig.value.closeOnOverlayClick) {
         closeDrawer({ trigger: 'overlay', e });
       }
     };
 
     const closeDrawer = (params: DrawerCloseContext) => {
-      props.onClose?。(params);
+      props.onClose?.(params);
       context.emit('update:visible', false);
     };
 
