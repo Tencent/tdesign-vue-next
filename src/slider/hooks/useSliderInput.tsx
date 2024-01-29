@@ -58,7 +58,7 @@ export const useSliderInput = (config: Ref<useSliderInputProps>) => {
     };
     return (
       <InputNumber
-        {...{ ...sliderInputState.value }}
+        {...sliderInputState.value}
         class={sliderNumberClass.value}
         value={val}
         step={config.value.step}

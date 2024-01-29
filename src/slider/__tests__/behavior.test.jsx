@@ -82,7 +82,8 @@ describe('Slider', () => {
     it('inputNumberProps: callback event works', async () => {
       const sliderLimit = { max: 80, min: 40 };
       const onEnterFn = vi.fn();
-      const inputNumberLimit = { max: 70, min: 50, onEnter: onEnterFn };
+      const onChangeFn = vi.fn();
+      const inputNumberLimit = { max: 70, min: 50, onEnter: onEnterFn, onChange: onChangeFn };
       const testValue = 60;
 
       const wrapper = mount({
@@ -93,8 +94,11 @@ describe('Slider', () => {
 
       await nextTick();
       const inputWrapper = wrapper.find('.t-input__inner');
+      const increaseButtonEle = wrapper.find('.t-input-number__increase');
       inputWrapper.trigger('keydown.enter');
       expect(onEnterFn).toBeCalled();
+      await increaseButtonEle.trigger('click');
+      expect(onChangeFn).toBeCalled();
     });
   });
   // test prop disabled
