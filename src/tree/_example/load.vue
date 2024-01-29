@@ -11,7 +11,8 @@
   </t-space>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue';
 const treeData = [
   {
     label: '1',
@@ -24,44 +25,35 @@ const treeData = [
     children: true,
   },
 ];
-
-export default {
-  data() {
-    return {
-      checkable: true,
-      value: ['1.1.1'],
-      items: [],
-    };
-  },
-  methods: {
-    reload() {
-      this.items = [];
-      setTimeout(() => {
-        this.items = treeData;
-      });
-    },
-    load(node) {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          let nodes = [];
-          if (node.level < 2) {
-            nodes = [
-              {
-                label: `${node.label}.1`,
-                value: `${node.value}.1`,
-                children: true,
-              },
-              {
-                label: `${node.label}.2`,
-                value: `${node.value}.2`,
-                children: true,
-              },
-            ];
-          }
-          resolve(nodes);
-        }, 1000);
-      });
-    },
-  },
+const checkable = ref(true);
+const value = ref(['1.1.1']);
+const items = ref([]);
+const reload = () => {
+  items.value = [];
+  setTimeout(() => {
+    items.value = treeData;
+  });
+};
+const load = (node) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      let nodes = [];
+      if (node.level < 2) {
+        nodes = [
+          {
+            label: `${node.label}.1`,
+            value: `${node.value}.1`,
+            children: true,
+          },
+          {
+            label: `${node.label}.2`,
+            value: `${node.value}.2`,
+            children: true,
+          },
+        ];
+      }
+      resolve(nodes);
+    }, 1000);
+  });
 };
 </script>

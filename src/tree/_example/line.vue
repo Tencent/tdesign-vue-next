@@ -40,170 +40,148 @@
   </t-space>
 </template>
 
-<script lang="jsx">
+<script setup lang="jsx">
+import { ref } from 'vue';
 import { Icon } from 'tdesign-icons-vue-next';
-
-export default {
-  components: {
-    Icon,
+const showLine = ref(true);
+const showIcon = ref(true);
+const items = ref([
+  {
+    value: '1',
+    label: '1',
+    children: [
+      {
+        value: '1.1',
+        label: '1.1',
+      },
+      {
+        value: '1.2',
+        label: '1.2',
+      },
+    ],
   },
-  data() {
-    return {
-      showLine: true,
-      showIcon: true,
-      items: [
-        {
-          value: '1',
-          label: '1',
-          children: [
-            {
-              value: '1.1',
-              label: '1.1',
-            },
-            {
-              value: '1.2',
-              label: '1.2',
-            },
-          ],
-        },
-        {
-          value: '2',
-          label: '2',
-          children: [
-            {
-              value: '2.1',
-              label: '2.1',
-              children: [
-                {
-                  value: '2.1.1',
-                  label: '2.1.1',
-                  children: [
-                    {
-                      value: '2.1.1.1',
-                      label: '2.1.1.1',
-                      children: [
-                        {
-                          value: '2.1.1.1.1',
-                          label: '2.1.1.1.1',
-                        },
-                        {
-                          value: '2.1.1.1.2',
-                          label: '2.1.1.1.2',
-                        },
-                      ],
-                    },
-                  ],
-                },
-                {
-                  value: '2.1.2',
-                  label: '2.1.2',
-                },
-              ],
-            },
-            {
-              value: '2.2',
-              label: '2.2',
-            },
-          ],
-        },
-        {
-          value: '3',
-          label: '3',
-          children: [
-            {
-              value: '3.1',
-              label: '3.1',
-            },
-            {
-              value: '3.2',
-              label: '3.2',
-            },
-          ],
-        },
-        {
-          value: '4',
-          label: '4',
-        },
-      ],
-    };
-  },
-  methods: {
-    toggleLine() {
-      this.showLine = !this.showLine;
-    },
-    toggleIcon() {
-      this.showIcon = !this.showIcon;
-    },
-    getLineNodes(node) {
-      const nodes = node.getParents().reverse();
-      const lineNodes = [];
-      nodes.forEach((item, index) => {
-        const line = {};
-        const nextItem = nodes[index + 1];
-        if (index < nodes.length - 1 && nextItem) {
-          line.cross = !nextItem.isLast();
-        }
-        lineNodes.push(line);
-      });
-      return lineNodes;
-    },
-    lineClass(node) {
-      const list = ['custom-line'];
-      if (node.isFirst()) {
-        list.push('custom-line-first');
-      }
-      if (node.isLeaf()) {
-        list.push('custom-line-leaf');
-      }
-      if (node.isLast()) {
-        list.push('custom-line-last');
-      }
-      return list;
-    },
-    renderLine(createElement, node) {
-      if (!this.showLine) return null;
-
-      const lineChildren = [];
-
-      const lines = this.getLineNodes(node).map((item) =>
-        createElement('span', {
-          class: {
-            'custom-line-cross': item.cross,
-          },
-        }),
-      );
-
-      lineChildren.push(
-        createElement(
-          'div',
+  {
+    value: '2',
+    label: '2',
+    children: [
+      {
+        value: '2.1',
+        label: '2.1',
+        children: [
           {
-            class: 'custom-line-box',
+            value: '2.1.1',
+            label: '2.1.1',
+            children: [
+              {
+                value: '2.1.1.1',
+                label: '2.1.1.1',
+                children: [
+                  {
+                    value: '2.1.1.1.1',
+                    label: '2.1.1.1.1',
+                  },
+                  {
+                    value: '2.1.1.1.2',
+                    label: '2.1.1.1.2',
+                  },
+                ],
+              },
+            ],
           },
-          lines,
-        ),
-      );
-
-      if (node.isLeaf()) {
-        const tIcon = <Icon name="heart-filled" />;
-        const iconNode = createElement(
-          'i',
           {
-            class: 'custom-line-icon',
+            value: '2.1.2',
+            label: '2.1.2',
           },
-          [tIcon],
-        );
-        lineChildren.push(iconNode);
-      }
-
-      return createElement(
-        'div',
-        {
-          class: this.lineClass(node),
-        },
-        lineChildren,
-      );
-    },
+        ],
+      },
+      {
+        value: '2.2',
+        label: '2.2',
+      },
+    ],
   },
+  {
+    value: '3',
+    label: '3',
+    children: [
+      {
+        value: '3.1',
+        label: '3.1',
+      },
+      {
+        value: '3.2',
+        label: '3.2',
+      },
+    ],
+  },
+  {
+    value: '4',
+    label: '4',
+  },
+]);
+const getLineNodes = (node) => {
+  const nodes = node.getParents().reverse();
+  const lineNodes = [];
+  nodes.forEach((item, index) => {
+    const line = {};
+    const nextItem = nodes[index + 1];
+    if (index < nodes.length - 1 && nextItem) {
+      line.cross = !nextItem.isLast();
+    }
+    lineNodes.push(line);
+  });
+  return lineNodes;
+};
+const lineClass = (node) => {
+  const list = ['custom-line'];
+  if (node.isFirst()) {
+    list.push('custom-line-first');
+  }
+  if (node.isLeaf()) {
+    list.push('custom-line-leaf');
+  }
+  if (node.isLast()) {
+    list.push('custom-line-last');
+  }
+  return list;
+};
+const renderLine = (h, node) => {
+  if (!showLine.value) return null;
+  const lineChildren = [];
+  const lines = getLineNodes(node).map((item) =>
+    h('span', {
+      class: {
+        'custom-line-cross': item.cross,
+      },
+    }),
+  );
+  lineChildren.push(
+    h(
+      'div',
+      {
+        class: 'custom-line-box',
+      },
+      lines,
+    ),
+  );
+  if (node.isLeaf()) {
+    const tIcon = <Icon name="heart-filled" />;
+    const iconNode = h(
+      'i',
+      {
+        class: 'custom-line-icon',
+      },
+      [tIcon],
+    );
+    lineChildren.push(iconNode);
+  }
+  return h(
+    'div',
+    {
+      class: lineClass(node),
+    },
+    lineChildren,
+  );
 };
 </script>
 <style scoped>
