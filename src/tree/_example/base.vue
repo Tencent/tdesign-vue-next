@@ -4,57 +4,52 @@
   </t-space>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      items: [
-        {
-          label: '第一段',
-          children: [
-            {
-              label: '第二段',
-            },
-            {
-              label: '第二段',
-            },
-          ],
-        },
-        {
-          label: '第一段',
-          children: [
-            {
-              label: '第二段',
-            },
-            {
-              label: '第二段',
-            },
-          ],
-        },
-        {
-          label: '第一段',
-          children: [
-            {
-              label: '第二段',
-            },
-            {
-              label: '第二段',
-            },
-          ],
-        },
-        {
-          label: '第一段',
-          children: [
-            {
-              label: '第二段',
-            },
-            {
-              label: '第二段',
-            },
-          ],
-        },
-      ],
-    };
+<script setup>
+import { ref } from 'vue';
+const items = ref([
+  {
+    label: '第一段',
+    children: [
+      {
+        label: '第二段',
+      },
+      {
+        label: '第二段',
+      },
+    ],
   },
-};
+  {
+    label: '第一段',
+    children: [
+      {
+        label: '第二段',
+      },
+      {
+        label: '第二段',
+      },
+    ],
+  },
+  {
+    label: '第一段',
+    children: [
+      {
+        label: '第二段',
+      },
+      {
+        label: '第二段',
+      },
+    ],
+  },
+  {
+    label: '第一段',
+    children: [
+      {
+        label: '第二段',
+      },
+      {
+        label: '第二段',
+      },
+    ],
+  },
+]);
 </script>
