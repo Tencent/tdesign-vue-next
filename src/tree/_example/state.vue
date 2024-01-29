@@ -43,7 +43,7 @@ const items = ref([
     value: 'node2',
   },
 ]);
-const icon = (createElement, node) => {
+const icon = (h, node) => {
   const { data } = node;
   let name = 'file';
   if (node.getChildren()) {
@@ -58,7 +58,7 @@ const icon = (createElement, node) => {
   }
   return <Icon name={name} />;
 };
-const label = (createElement, node) => {
+const label = (h, node) => {
   const timeStamp = node.data.timeStamp || '--';
   return `${node.value}: ${timeStamp}`;
 };

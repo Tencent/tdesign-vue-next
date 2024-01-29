@@ -84,7 +84,7 @@ const transition = ref(false);
 const showLine = ref(true);
 const showIcon = ref(true);
 const items = ref(items);
-const label = (createElement, node) => {
+const label = (h, node) => {
   return `${node.value}`;
 };
 </script>

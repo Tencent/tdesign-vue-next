@@ -31,7 +31,7 @@ const items = ref([
     children: true,
   },
 ]);
-const icon = (createElement, node) => {
+const icon = (h, node) => {
   let name = 'file';
   if (node.getChildren && node.getChildren()) {
     if (node.expanded) {

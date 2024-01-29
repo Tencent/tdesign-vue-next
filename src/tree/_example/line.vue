@@ -151,18 +151,18 @@ const lineClass = (node) => {
   }
   return list;
 };
-const renderLine = (createElement, node) => {
+const renderLine = (h, node) => {
   if (!showLine.value) return null;
   const lineChildren = [];
   const lines = getLineNodes(node).map((item) =>
-    createElement('span', {
+    h('span', {
       class: {
         'custom-line-cross': item.cross,
       },
     }),
   );
   lineChildren.push(
-    createElement(
+    h(
       'div',
       {
         class: 'custom-line-box',
@@ -172,7 +172,7 @@ const renderLine = (createElement, node) => {
   );
   if (node.isLeaf()) {
     const tIcon = <Icon name="heart-filled" />;
-    const iconNode = createElement(
+    const iconNode = h(
       'i',
       {
         class: 'custom-line-icon',
@@ -181,7 +181,7 @@ const renderLine = (createElement, node) => {
     );
     lineChildren.push(iconNode);
   }
-  return createElement(
+  return h(
     'div',
     {
       class: lineClass(node),

@@ -58,7 +58,7 @@ function createTreeData() {
 }
 const lazyTree = createTreeData();
 const lazyItems = ref(lazyTree.items);
-const label = (createElement, node) => {
+const label = (h, node) => {
   return `${node.value}`;
 };
 </script>

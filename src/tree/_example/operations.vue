@@ -99,7 +99,7 @@ const getLabelContent = (node) => {
   label = `${label} | value: ${node.value}`;
   return label;
 };
-const getLabel = (createElement, node) => {
+const getLabel = (h, node) => {
   const label = getLabelContent(node);
   const { data } = node;
   data.label = label;

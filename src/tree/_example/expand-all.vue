@@ -98,7 +98,7 @@ const toggleData = () => {
   const items = items.value[0].value === 't1' ? data2 : data1;
   items.value = items;
 };
-const label = (createElement, node) => {
+const label = (h, node) => {
   return node.label || node.value;
 };
 </script>

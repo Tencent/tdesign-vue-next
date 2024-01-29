@@ -85,7 +85,7 @@ const items = ref(items);
 const insertCount = computed(() => {
   return parseInt(textInsertCount, 10) || 1;
 });
-const label = (createElement, node) => {
+const label = (h, node) => {
   return `${node.value}`;
 };
 const getInsertItem = () => {
