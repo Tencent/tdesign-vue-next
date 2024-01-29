@@ -33,7 +33,8 @@
   </t-space>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue';
 const exampleItems = [
   {
     value: '1',
@@ -124,37 +125,28 @@ const exampleItems = [
     ],
   },
 ];
-
-export default {
-  data() {
-    return {
-      demo1Text: '',
-      demo1Filter: null,
-      demo2Text: '',
-      demo2Filter: null,
-      items: exampleItems,
+const demo1Text = ref('');
+const demo1Filter = ref(null);
+const demo2Text = ref('');
+const demo2Filter = ref(null);
+const items = ref(exampleItems);
+const demo1Input = (state) => {
+  console.info('demo1 input:', state);
+  if (demo1Text.value) {
+    // 存在过滤文案，才启用过滤
+    demo1Filter.value = (node) => {
+      const rs = node.data.label.indexOf(demo1Text.value) >= 0;
+      // 命中的节点会强制展示
+      // 命中节点的路径节点会锁定展示
+      // 未命中的节点会隐藏
+      return rs;
     };
-  },
-  methods: {
-    demo1Input(state) {
-      console.info('demo1 input:', state);
-      if (this.demo1Text) {
-        // 存在过滤文案，才启用过滤
-        this.demo1Filter = (node) => {
-          const rs = node.data.label.indexOf(this.demo1Text) >= 0;
-          // 命中的节点会强制展示
-          // 命中节点的路径节点会锁定展示
-          // 未命中的节点会隐藏
-          return rs;
-        };
-      } else {
-        // 过滤文案为空，则还原 tree 为无过滤状态
-        this.demo1Filter = null;
-      }
-    },
-    demo2Input() {
-      this.demo2Filter = this.demo2Text ? (node) => node.data.label.indexOf(this.demo2Text) >= 0 : null;
-    },
-  },
+  } else {
+    // 过滤文案为空，则还原 tree 为无过滤状态
+    demo1Filter.value = null;
+  }
+};
+const demo2Input = () => {
+  demo2Filter.value = demo2Text.value ? (node) => node.data.label.indexOf(demo2Text.value) >= 0 : null;
 };
 </script>

@@ -3,13 +3,6 @@ import { TdSliderProps } from '../type';
 import InputNumber, { InputNumberProps } from '../../input-number';
 import isBoolean from 'lodash/isBoolean';
 
-const INPUT_NUMBER_PROPS_INITIAL_STATE: InputNumberProps = {
-  decimalPlaces: 0,
-  format: undefined as InputNumberProps['format'],
-  placeholder: '',
-  theme: 'column' as InputNumberProps['theme'],
-};
-
 interface useSliderInputProps {
   inputNumberProps: boolean | TdSliderProps['inputNumberProps'];
   max: number;
@@ -28,7 +21,12 @@ export const useSliderInput = (config: Ref<useSliderInputProps>) => {
 
   /** 根据传入属性缓存计算inputNumber props */
   const sliderInputState = computed(() => {
-    let initialState = { ...INPUT_NUMBER_PROPS_INITIAL_STATE };
+    let initialState: InputNumberProps = {
+      format: undefined,
+      placeholder: '',
+      theme: 'column',
+      decimalPlaces: config.value.step.toString().split('.')[1]?.length || 0,
+    };
     const inputProps = config.value;
     if (!isBoolean(inputProps.inputNumberProps)) {
       const inputTheme = inputProps.inputNumberProps?.theme;

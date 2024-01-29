@@ -81,117 +81,106 @@
   </t-space>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      index: 0,
-      transition: true,
-      textInsertCount: '1',
-      useActived: false,
-      enableVScroll: true,
-      lazyVScroll: false,
-      expandParent: true,
-      showLine: true,
-      showIcon: true,
-      isCheckable: true,
-      isOperateAble: true,
-      items: [],
-      filterText: '',
-      filterByText: null,
-      textLevel1Count: '10',
-      textLevel2Count: '10',
-      textLevel3Count: '10',
+<script setup>
+import { ref, computed } from 'vue';
+const tree = ref();
+const index = ref(0);
+const transition = ref(true);
+const textInsertCount = ref('1');
+const showLine = ref(true);
+const showIcon = ref(true);
+const isCheckable = ref(true);
+const isOperateAble = ref(true);
+const items = ref([]);
+const filterText = ref('');
+const filterByText = ref(null);
+const textLevel1Count = ref('10');
+const textLevel2Count = ref('10');
+const textLevel3Count = ref('10');
+const level1Count = computed(() => {
+  return parseInt(textLevel1Count.value, 10) || 1;
+});
+const level2Count = computed(() => {
+  return parseInt(textLevel2Count.value, 10) || 1;
+});
+const level3Count = computed(() => {
+  return parseInt(textLevel3Count.value, 10) || 1;
+});
+const insertCount = computed(() => {
+  return parseInt(textInsertCount.value, 10) || 1;
+});
+const label = (h, node) => {
+  return `${node.value}`;
+};
+const getValue = () => {
+  index.value += 1;
+  return `t${index.value}`;
+};
+const getInsertItem = () => {
+  const value = getValue();
+  return {
+    value,
+  };
+};
+const append = (node) => {
+  if (!node) {
+    for (let index = 0; index < insertCount.value; index += 1) {
+      const item = getInsertItem();
+      tree.value.appendTo('', item);
+    }
+  } else {
+    for (let index = 0; index < insertCount.value; index += 1) {
+      const item = getInsertItem();
+      tree.value.appendTo(node.value, item);
+    }
+  }
+};
+const remove = (node) => {
+  node.remove();
+};
+const onInput = (state) => {
+  console.info('onInput:', state);
+  if (filterText.value) {
+    // 存在过滤文案，才启用过滤
+    filterByText.value = (node) => {
+      const rs = node.value.indexOf(filterText.value) >= 0;
+      // 命中的节点会强制展示
+      // 命中节点的路径节点会锁定展示
+      // 未命中的节点会隐藏
+      return rs;
     };
-  },
-  computed: {
-    level1Count() {
-      return parseInt(this.textLevel1Count, 10) || 1;
-    },
-    level2Count() {
-      return parseInt(this.textLevel2Count, 10) || 1;
-    },
-    level3Count() {
-      return parseInt(this.textLevel3Count, 10) || 1;
-    },
-    insertCount() {
-      return parseInt(this.textInsertCount, 10) || 1;
-    },
-  },
-  methods: {
-    label(createElement, node) {
-      return `${node.value}`;
-    },
-    getInsertItem() {
-      const value = this.getValue();
-      return {
-        value,
-      };
-    },
-    append(node) {
-      const { tree } = this.$refs;
-      if (!node) {
-        for (let index = 0; index < this.insertCount; index += 1) {
-          const item = this.getInsertItem();
-          tree.appendTo('', item);
-        }
-      } else {
-        for (let index = 0; index < this.insertCount; index += 1) {
-          const item = this.getInsertItem();
-          tree.appendTo(node.value, item);
-        }
-      }
-    },
-    remove(node) {
-      node.remove();
-    },
-    onInput(state) {
-      console.info('onInput:', state);
-      if (this.filterText) {
-        // 存在过滤文案，才启用过滤
-        this.filterByText = (node) => {
-          const rs = node.value.indexOf(this.filterText) >= 0;
-          // 命中的节点会强制展示
-          // 命中节点的路径节点会锁定展示
-          // 未命中的节点会隐藏
-          return rs;
+  } else {
+    // 过滤文案为空，则还原 tree 为无过滤状态
+    filterByText.value = null;
+  }
+};
+const createTreeData = () => {
+  const allLevels = [level1Count.value, level2Count.value, level3Count.value];
+  const createNodes = (items, level) => {
+    const count = allLevels[level];
+    if (count) {
+      let index = 0;
+      for (index = 0; index < count; index += 1) {
+        const value = getValue();
+        const item = {
+          value,
         };
-      } else {
-        // 过滤文案为空，则还原 tree 为无过滤状态
-        this.filterByText = null;
-      }
-    },
-    getValue() {
-      this.index += 1;
-      return `t${this.index}`;
-    },
-    createTreeData() {
-      const allLevels = [this.level1Count, this.level2Count, this.level3Count];
-      const createNodes = (items, level) => {
-        const count = allLevels[level];
-        if (count) {
-          let index = 0;
-          for (index = 0; index < count; index += 1) {
-            const value = this.getValue();
-            const item = { value };
-            items.push(item);
-            if (allLevels[level + 1]) {
-              item.children = [];
-              createNodes(item.children, level + 1);
-            }
-          }
+        items.push(item);
+        if (allLevels[level + 1]) {
+          item.children = [];
+          createNodes(item.children, level + 1);
         }
-      };
-      const items = [];
-      createNodes(items, 0);
-      return items;
-    },
-    createTree() {
-      this.items = this.createTreeData();
-    },
-    clearTree() {
-      this.items = [];
-    },
-  },
+      }
+    }
+  };
+  const items = [];
+  createNodes(items, 0);
+  return items;
+};
+const createTree = () => {
+  items.value = createTreeData();
+};
+const clearTree = () => {
+  items.value = [];
 };
 </script>
