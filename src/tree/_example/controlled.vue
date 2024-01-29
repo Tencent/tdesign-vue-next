@@ -54,7 +54,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, nextTick } from 'vue';
 const syncProps = ref(false);
 const checkable = ref(true);
 const activable = ref(false);
@@ -170,7 +170,7 @@ const onChange = (vals, context) => {
   // onChange 事件发生时，context.node 状态预先发生变更，此时拿到预先变更的节点状态
   console.info(node.value, 'context.node.checked:', node.checked);
   if (syncProps.value) {
-    const checked = vals.filter((val) => {
+    const tmpChecked = vals.filter((val) => {
       if (val === '2.1') {
         console.info('节点 2.1 不允许选中');
         return false;
@@ -179,11 +179,11 @@ const onChange = (vals, context) => {
     });
     // 受控状态下, tree 的 props.value 可被修改为预期的值
     console.log('before set this.checked, expect checked:', checked);
-    checked.value = checked;
+    checked.value = tmpChecked;
   }
   // 赋值变更后的选中态之后，nextTick 之后触发视图更新
   // node.checked 状态发生变更，符合 tree 的 props.value 的取值
-  $nextTick(() => {
+  nextTick(() => {
     console.info(node.value, 'nextTick context.node.checked:', node.checked);
   });
 };
