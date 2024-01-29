@@ -41,21 +41,18 @@ export const createPopupPlugin: PopupPluginMethod = (trigger, content, popupProp
   triggerEl = currentTriggerEl;
   removeOverlayInstance();
 
-  let overlayAttach = getAttach(popupProps?.attach || 'body');
+  const overlayAttach = getAttach(popupProps?.attach || 'body');
 
-  // const delay = [].concat(popupProps?.delay ?? [250, 150]);
-  // const closeDelay = delay[1] ?? delay[0];
-  if (overlayAttach === document.body) {
-    // don't allow mount on body directly
-    const popupDom = document.createElement('div');
-    document.body.appendChild(popupDom);
-    overlayAttach = popupDom;
-  }
+  const popupDom = document.createElement('div');
+  popupDom.style.cssText = 'position: absolute; top: 0px; left: 0px; width: 100%';
+
   const overlayInstance = createApp(popupOverlayComponent, {
     ...popupProps,
     content,
     triggerElement: triggerEl,
-  }).mount(overlayAttach).$el;
+  }).mount(popupDom).$el;
+
+  overlayAttach.appendChild(popupDom);
 
   popperInstance = createPopper(triggerEl, overlayInstance, {
     placement: getPopperPlacement(popupProps?.placement || ('top' as TdPopupProps['placement'])),
