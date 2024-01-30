@@ -16,11 +16,4 @@
 </template>
 <script>
 import { ControlPlatformIcon, ArrowTriangleDownFilledIcon } from 'tdesign-icons-vue-next';
-
-export default {
-  components: {
-    ArrowTriangleDownFilledIcon,
-    ControlPlatformIcon,
-  },
-};
 </script>
