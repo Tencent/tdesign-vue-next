@@ -14,6 +14,6 @@
     </t-statistic>
   </t-space>
 </template>
-<script>
+<script setup>
 import { ControlPlatformIcon, ArrowTriangleDownFilledIcon } from 'tdesign-icons-vue-next';
 </script>
