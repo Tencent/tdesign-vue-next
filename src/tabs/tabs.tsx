@@ -36,7 +36,7 @@ export default defineComponent({
       setTabValue(value);
     };
     const onTabRemove = ({ e, value, index }: Parameters<TdTabsProps['onRemove']>[0]) => {
-      props.onRemove({ value, index, e });
+      props.onRemove?.({ value, index, e });
     };
 
     // render

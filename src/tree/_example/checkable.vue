@@ -33,7 +33,8 @@
   </t-space>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue';
 const treeItems = [
   {
     value: '1',
@@ -124,56 +125,47 @@ const treeItems = [
     ],
   },
 ];
-
-export default {
-  data() {
-    return {
-      valueMode: 'onlyLeaf',
-      checkable: true,
-      checkStrictly: false,
-      allChecked: [],
-      valueOptions: [
-        {
-          value: 'onlyLeaf',
-          label: 'onlyLeaf',
-        },
-        {
-          value: 'parentFirst',
-          label: 'parentFirst',
-        },
-        {
-          value: 'all',
-          label: 'all',
-        },
-      ],
-      items: treeItems,
-    };
+const tree = ref();
+const valueMode = ref('onlyLeaf');
+const checkable = ref(true);
+const checkStrictly = ref(false);
+const allChecked = ref([]);
+const valueOptions = ref([
+  {
+    value: 'onlyLeaf',
+    label: 'onlyLeaf',
   },
-  methods: {
-    onClick(context) {
-      console.info('onClick context:', context);
-      const { node } = context;
-      console.info(node.value, 'onClick context.node.checked:', node.checked);
-    },
-    onChange(checked, context) {
-      console.info('onChange checked:', checked, 'context:', context);
-      const { node } = context;
-      console.info(node.value, 'onChange context.node.checked:', node.checked);
-    },
-    selectInvert() {
-      const { tree } = this.$refs;
-      // 取得所有节点
-      const items = tree.getItems();
-      const revertSelection = [];
-      items.forEach((item) => {
-        if (!item.checked && !item.indeterminate) {
-          // checked 为 true, 为直接选中状态
-          // indeterminate 为 true, 为半选状态
-          revertSelection.push(item.value);
-        }
-      });
-      this.allChecked = revertSelection;
-    },
+  {
+    value: 'parentFirst',
+    label: 'parentFirst',
   },
+  {
+    value: 'all',
+    label: 'all',
+  },
+]);
+const items = ref(treeItems);
+const onClick = (context) => {
+  console.info('onClick context:', context);
+  const { node } = context;
+  console.info(node.value, 'onClick context.node.checked:', node.checked);
+};
+const onChange = (checked, context) => {
+  console.info('onChange checked:', checked, 'context:', context);
+  const { node } = context;
+  console.info(node.value, 'onChange context.node.checked:', node.checked);
+};
+const selectInvert = () => {
+  // 取得所有节点
+  const items = tree.value.getItems();
+  const revertSelection = [];
+  items.forEach((item) => {
+    if (!item.checked && !item.indeterminate) {
+      // checked 为 true, 为直接选中状态
+      // indeterminate 为 true, 为半选状态
+      revertSelection.push(item.value);
+    }
+  });
+  allChecked.value = revertSelection;
 };
 </script>

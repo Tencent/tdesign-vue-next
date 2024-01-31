@@ -33,7 +33,8 @@
   </t-space>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue';
 const data1 = [
   {
     value: 't1',
@@ -74,7 +75,6 @@ const data1 = [
     ],
   },
 ];
-
 const data2 = [
   {
     value: 'd1',
@@ -113,25 +113,16 @@ const data2 = [
     ],
   },
 ];
-
-export default {
-  data() {
-    return {
-      expandAll: true,
-      activable: true,
-      checkable: true,
-      transition: true,
-      items: data1,
-    };
-  },
-  methods: {
-    toggleData() {
-      const items = this.items[0].value === 't1' ? data2 : data1;
-      this.items = items;
-    },
-    label(createElement, node) {
-      return node.label || node.value;
-    },
-  },
+const expandAll = ref(true);
+const activable = ref(true);
+const checkable = ref(true);
+const transition = ref(true);
+const items = ref(data1);
+const toggleData = () => {
+  const tmpItems = items.value[0].value === 't1' ? data2 : data1;
+  items.value = tmpItems;
+};
+const label = (h, node) => {
+  return node.label || node.value;
 };
 </script>

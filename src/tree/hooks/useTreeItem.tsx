@@ -6,6 +6,7 @@ import useRenderLabel from './useRenderLabel';
 import useRenderLine from './useRenderLine';
 import useRenderOperations from './useRenderOperations';
 import useDraggable from './useDraggable';
+import { onUpdated } from 'vue';
 
 export default function useTreeItem(state: TypeTreeItemState) {
   const { treeScope, treeItemRef } = state;
@@ -27,15 +28,28 @@ export default function useTreeItem(state: TypeTreeItemState) {
     reactive({ ...scrollProps?.value }),
   );
 
-  onMounted(() => {
+  function tryNotifyVirtualScrollRowUpdate() {
     const { node } = state;
     const isVirtual = virtualConfig?.isVirtualScroll.value;
     if (isVirtual) {
-      virtualConfig.handleRowMounted({
-        ref: treeItemRef,
-        data: node,
-      });
+      // mounted 了，但是有可能样式没有计算完毕，此时获取的 row height 会有坑，延迟一点点再触发虚拟滚动的 mounted 回调，确保获取到正确的渲染高度
+      const timer = setTimeout(() => {
+        virtualConfig.handleRowMounted({
+          ref: treeItemRef,
+          data: node,
+        });
+        clearTimeout(timer);
+      }, 100);
     }
+  }
+
+  onMounted(() => {
+    tryNotifyVirtualScrollRowUpdate();
+  });
+
+  // 有可能因为 row-key 带来组件复用，这时候通过 update 进行更新
+  onUpdated(() => {
+    tryNotifyVirtualScrollRowUpdate();
   });
 
   // 节点隐藏用 class 切换，不要写在 js 中

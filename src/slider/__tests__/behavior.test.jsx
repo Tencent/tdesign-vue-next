@@ -1,4 +1,6 @@
 import { mount } from '@vue/test-utils';
+import { vi } from 'vitest';
+
 import { nextTick } from 'vue';
 import { describe, expect, it } from 'vitest';
 import Slider from '@/src/slider/index.ts';
@@ -76,6 +78,27 @@ describe('Slider', () => {
       inputWrapper.setValue(43);
       await inputWrapper.trigger('blur');
       expect(Number(inputEle.value) >= sliderLimit.min && Number(inputEle.value) < inputNumberLimit.min).toBeTruthy();
+    });
+    it('inputNumberProps: callback event works', async () => {
+      const sliderLimit = { max: 80, min: 40 };
+      const onEnterFn = vi.fn();
+      const onChangeFn = vi.fn();
+      const inputNumberLimit = { max: 70, min: 50, onEnter: onEnterFn, onChange: onChangeFn };
+      const testValue = 60;
+
+      const wrapper = mount({
+        render() {
+          return <Slider inputNumberProps={inputNumberLimit} step={15} {...sliderLimit} modelValue={testValue} />;
+        },
+      });
+
+      await nextTick();
+      const inputWrapper = wrapper.find('.t-input__inner');
+      const increaseButtonEle = wrapper.find('.t-input-number__increase');
+      inputWrapper.trigger('keydown.enter');
+      expect(onEnterFn).toBeCalled();
+      await increaseButtonEle.trigger('click');
+      expect(onChangeFn).toBeCalled();
     });
   });
   // test prop disabled
