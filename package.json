@@ -87,7 +87,7 @@
   "dependencies": {
     "@babel/runtime": "^7.22.6",
     "@popperjs/core": "^2.11.8",
-    "@types/lodash": "4.14.182",
+    "@types/lodash": "4.14.202",
     "@types/sortablejs": "^1.15.1",
     "@types/tinycolor2": "^1.4.3",
     "@types/validator": "^13.7.17",
