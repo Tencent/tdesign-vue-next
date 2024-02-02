@@ -5,6 +5,7 @@ import mdToVue from './md-to-vue';
 
 let demoImports = {};
 let demoCodesImports = {};
+let tsDemoCodeImport = {};
 
 export default {
   before({ source, file }) {
@@ -15,6 +16,7 @@ export default {
     const localeName = reg && reg[2];
     demoImports = {};
     demoCodesImports = {};
+    tsDemoCodeImport = {};
 
     // 统一换成 common 公共文档内容
     if (fileName && source.includes(':: BASE_DOC ::')) {
@@ -36,25 +38,31 @@ export default {
     // 替换成对应 demo 文件
     source = source.replace(/\{\{\s+(.+)\s+\}\}/g, (demoStr, demoFileName) => {
       const defaultDemoPath = path.resolve(resourceDir, `./_example/${demoFileName}.vue`);
-      const localeDemoPath = path.resolve(resourceDir, `../_example/${demoFileName}.${localeName}.vue`);
-      // localeDemo 优先级最高
-      if (fs.existsSync(localeDemoPath))
-        return `\n::: demo _example/${demoFileName}.${localeName} ${componentName}\n:::\n`;
+      const tsDemoPath = path.resolve(resourceDir, `./_example-ts/${demoFileName}.vue`);
 
       if (!fs.existsSync(defaultDemoPath)) {
         console.log('\x1B[36m%s\x1B[0m', `${componentName} 组件需要实现 _example/${demoFileName}.vue 示例!`);
         return '\n<h3>DEMO (🚧建设中）...</h3>';
       }
 
+      if (!fs.existsSync(tsDemoPath)) {
+        console.log('\x1B[36m%s\x1B[0m', `${componentName} 组件需要实现 _example-ts/${demoFileName}.vue 示例!`);
+        return '\n<h3>DEMO (🚧建设中）...</h3>';
+      }
+
       return `\n::: demo _example/${demoFileName} ${componentName}\n:::\n`;
     });
-
     source.replace(/:::\s*demo\s+([\\/.\w-]+)/g, (demoStr, relativeDemoPath) => {
+      const tsDemoPath = `_example-ts/${relativeDemoPath.split('/')?.[1]}`;
       const demoPathOnlyLetters = relativeDemoPath.replace(/[^a-zA-Z\d]/g, '');
       const demoDefName = `Demo${demoPathOnlyLetters}`;
+
       const demoCodeDefName = `Demo${demoPathOnlyLetters}Code`;
-      demoImports[demoDefName] = `import ${demoDefName} from './${relativeDemoPath}.vue';`;
-      demoCodesImports[demoCodeDefName] = `import ${demoCodeDefName} from './${relativeDemoPath}.vue?raw';`;
+      const demoTsCodeDefName = `Demo${demoPathOnlyLetters}TsCode`;
+
+      demoImports[demoDefName] = `import ${demoDefName} from './${relativeDemoPath}.vue'`;
+      demoCodesImports[demoCodeDefName] = `import ${demoCodeDefName} from './${relativeDemoPath}.vue?raw'`;
+      tsDemoCodeImport[demoTsCodeDefName] = `import ${demoTsCodeDefName} from './${tsDemoPath}.vue?raw'`;
     });
 
     return source;
@@ -66,7 +74,9 @@ export default {
     const demoCodesDefsStr = Object.keys(demoCodesImports)
       .map((key) => demoCodesImports[key])
       .join(';\n');
-
+    const tsDemoCodesDefsStr = Object.keys(tsDemoCodeImport)
+      .map((key) => tsDemoCodeImport[key])
+      .join(';\n');
     const demoInstallStr = Object.keys(demoImports).join(',');
     const demoCodeInstallStr = Object.keys(demoCodesImports).join(',');
 
@@ -76,6 +86,7 @@ export default {
       source,
       demoDefsStr,
       demoCodesDefsStr,
+      tsDemoCodesDefsStr,
       demoInstallStr,
       demoCodeInstallStr,
     });

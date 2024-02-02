@@ -21,7 +21,9 @@ const DEFAULT_EN_TABS = [
 
 export default async function mdToVue(options) {
   const mdSegment = await customRender(options);
-  const { demoDefsStr, demoCodesDefsStr, demoInstallStr, demoCodeInstallStr } = options;
+  const { demoDefsStr, demoCodesDefsStr, tsDemoCodesDefsStr, demoInstallStr, demoCodeInstallStr } = options;
+  console.log(demoCodesDefsStr, 'demoCodesDefsStr');
+  console.log(tsDemoCodesDefsStr, 'tsDemoCodesDefsStr');
 
   let coverage = {};
   if (mdSegment.isComponent) {
@@ -90,6 +92,7 @@ export default async function mdToVue(options) {
       import 'prismjs/components/prism-bash.js';
       ${demoDefsStr}
       ${demoCodesDefsStr}
+      ${tsDemoCodesDefsStr}
       ${mdSegment.usage.importStr}
 
       export default defineComponent({
