@@ -14,7 +14,7 @@ export default function renderDemo(md, container) {
         const demoName = path.basename(demoPath);
         const demoDefName = `Demo${demoPathOnlyLetters}`;
         const demoCodeDefName = `Demo${demoPathOnlyLetters}Code`;
-        const demoTSCodeDefName = `Demo${demoPathOnlyLetters}TsCode`;
+        const demoTSCodeDefName = `Demo${demoPathOnlyLetters}TsCode`; // ts示例
 
         const tpl = `
           <td-doc-demo component-name="${componentName.trim()}" :code=${demoCodeDefName} :ts-code=${demoTSCodeDefName} demo-name="${demoName}" language="markup">
