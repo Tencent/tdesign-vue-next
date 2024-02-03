@@ -5,6 +5,37 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.8.1 `2024-01-31` 
+### 🚀 Features
+- `Loading`: 支持自定义 `v-loading` 配置，具体参考示例代码 @uyarn ([#3911](https://github.com/Tencent/tdesign-vue-next/pull/3911))
+### 🐞 Bug Fixes
+- `Tabs`: 
+  - 修复层级问题影响 `action`区域操作的问题 @uyarn ([#3881](https://github.com/Tencent/tdesign-vue-next/pull/3881))
+  - 逻辑容错处理 @betavs ([#3891](https://github.com/Tencent/tdesign-vue-next/pull/3891))
+- `Form`: 
+  - `FormRule` 规则中 `trigger` 值类型缺失 `all` 选项 @betavs ([#3875](https://github.com/Tencent/tdesign-vue-next/pull/3875))
+  - 修复计算 `^` 字符异常的问题 @uyarn ([#3881](https://github.com/Tencent/tdesign-vue-next/pull/3881))
+- `Drawer`: 
+  - `visible` 为 `false` 时，按 `esc` 会触发 `onEscKeydown` 和 `onCancel` 事件 @betavs ([#3836](https://github.com/Tencent/tdesign-vue-next/pull/3836))
+  - 修复 `closeOnEscKeydown` 开启时任意按键都会触发 `Drawer` 问题 @ruanlinxin ([#3904](https://github.com/Tencent/tdesign-vue-next/pull/3904))
+- `Input`: 修复禁用状态下 `focused` 样式未消除的问题 @wilonjiang ([#3840](https://github.com/Tencent/tdesign-vue-next/pull/3840))
+- `TreeSelect`: 修复可过滤开启时搜索框内容与 `filter` 函数不同步更新的问题 @PeterJayawesome ([#3862](https://github.com/Tencent/tdesign-vue-next/pull/3862))
+- `VirtualScroll`: 修改 `virtual` 中的 `buffer` 实现,修正错位的translateY的计算逻辑 @Cat1007 ([#3776](https://github.com/Tencent/tdesign-vue-next/pull/3776))
+- `Slider`: @uyarn 
+   - 修复 `step` 设置小于 `1` 时的使用异常问题 ([#3883](https://github.com/Tencent/tdesign-vue-next/pull/3883))
+   -  修复inputProps的onChange事件无法正常触发的问题 (https://github.com/Tencent/tdesign-vue-next/pull/3906)
+- `Loading`: 修复未设置 `z-index` 默认值的问题 @betavs ([#3881](https://github.com/Tencent/tdesign-vue-next/pull/3881))
+- `DatePicker`: 修复单独配置 `popupProps` 的 `on-visible-change` 功能异常的问题 @uyarn ([#3908](https://github.com/Tencent/tdesign-vue-next/pull/3908))
+- `TagInput`: 修复 `taginput` 中 `size` 对默认 `collapsedItems` 不生效的问题 @SadWood ([#3847](https://github.com/Tencent/tdesign-vue-next/pull/3847))
+- `Radio`: 修复回车时控制台报错的问题 @liweijie0812 ([#3896](https://github.com/Tencent/tdesign-vue-next/pull/3896))
+
+### 🚧 Others
+- `Form`:  `trigger api` 文档更新 @liweijie0812 ([#3882](https://github.com/Tencent/tdesign-vue-next/pull/3882))
+- `Tree`: 示例代码由 `OptionsAPI` 更为 `CompositionAPI` @chaishi ([#3899](https://github.com/Tencent/tdesign-vue-next/pull/3899))
+- `Descriptions`: 展示冒号示例文字错误 @czq297297 ([#3841](https://github.com/Tencent/tdesign-vue-next/pull/3841))
+
+
+
 ## 🌈 1.8.0 `2024-01-09` 
 ### 🚀 Features
 - `Descriptions`: 新增 `Descriptions` 描述组件 @zhangpaopao0609 ([#3787](https://github.com/Tencent/tdesign-vue-next/pull/3787))
