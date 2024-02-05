@@ -29,7 +29,7 @@
         "src/*"
       ],
       "tdesign-vue-next": [
-        "src/*"
+        "src"
       ],
       "@common/*": [
         "src/_common/*"
