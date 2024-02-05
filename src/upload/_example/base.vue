@@ -154,8 +154,8 @@ const handleFail = ({ file }) => {
   MessagePlugin.error(`文件 ${file.name} 上传失败`);
 };
 
-function handleSelectChange(files) {
-  console.log('onSelectChange', files);
+function handleSelectChange(files, context) {
+  console.log('onSelectChange', files, context);
 }
 
 const handleSuccess = (params) => {
