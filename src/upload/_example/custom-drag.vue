@@ -48,9 +48,9 @@ const handleFail = ({ file }) => {
   MessagePlugin.error(`文件 ${file.name} 上传失败`);
 };
 
-const onProgress = (val) => {
-  console.log('进度：', val);
-  progress.value = val;
+const onProgress = ({ percent }) => {
+  console.log('进度：', percent);
+  progress.value = percent;
 };
 
 const upload = () => {

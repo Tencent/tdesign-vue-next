@@ -103,19 +103,19 @@ const requestMethod1 = () => {
 
 // 示例代码：自定义上传方法，一个请求上传多个文件
 // eslint-disable-next-line
-const requestMethod2 = () => {
-  return new Promise((resolve) => {
-    resolve({
-      status: 'success',
-      response: {
-        files: [
-          { name: 'avatar1.jpg', url: 'https://tdesign.gtimg.com/site/avatar.jpg' },
-          { name: 'avatar2.jpg', url: 'https://avatars.githubusercontent.com/u/11605702?v=4' },
-        ],
-      },
-    });
-  });
-};
+// const requestMethod2 = () => {
+//   return new Promise((resolve) => {
+//     resolve({
+//       status: 'success',
+//       response: {
+//         files: [
+//           { name: 'avatar1.jpg', url: 'https://tdesign.gtimg.com/site/avatar.jpg' },
+//           { name: 'avatar2.jpg', url: 'https://avatars.githubusercontent.com/u/11605702?v=4' },
+//         ],
+//       },
+//     });
+//   });
+// };
 </script>
 
 <style>
