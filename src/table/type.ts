@@ -29,7 +29,7 @@ import {
   HTMLElementAttributes,
   ComponentType,
   TScroll,
-  ScrollToElementParams,
+  ComponentScrollToElementParams,
 } from '../common';
 
 export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
@@ -323,7 +323,7 @@ export interface BaseTableInstanceFunctions<T extends TableRowData = TableRowDat
   /**
    * 虚拟滚动场景，纵向滚动到指定行。示例：`scrollToElement({ index: 100, top: 80, time: 200, behavior: 'smooth' })`
    */
-  scrollToElement: (params: ScrollToElementParams) => void;
+  scrollToElement: (params: ComponentScrollToElementParams) => void;
 }
 
 export interface BaseTableCol<T extends TableRowData = TableRowData> {
@@ -719,7 +719,7 @@ export interface TdEnhancedTableProps<T extends TableRowData = TableRowData> ext
   /**
    * 自定义树形结构展开图标，支持全局配置 `GlobalConfigProvider`
    */
-  treeExpandAndFoldIcon?: TNode<{ type: 'expand' | 'fold' }>;
+  treeExpandAndFoldIcon?: TNode<{ type: 'expand' | 'fold'; row: T }>;
   /**
    * 异常拖拽排序时触发，如：树形结构中，非同层级之间的交换。`context.code` 指交换异常错误码，固定值；`context.reason` 指交换异常的原因
    */

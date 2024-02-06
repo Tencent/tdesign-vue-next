@@ -23,11 +23,10 @@ const columns = [
     colKey: 'status',
     title: '状态',
     width: 100,
-    scopedSlots: { col: 'status' },
   },
   { colKey: 'owner', title: '管理员' },
   { colKey: 'description', title: '描述' },
-  { colKey: 'op', width: 200, scopedSlots: { title: 'op-column', col: 'op' } },
+  { colKey: 'op', width: 200 },
 ];
 const data = [
   {

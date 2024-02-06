@@ -84,7 +84,7 @@ const statusNameListMap = {
 };
 
 const getColumns = (isFixedColumn) => [
-  { colKey: 'applicant', title: '申请人', width: '80', fixed: isFixedColumn ? 'left' : '' },
+  { colKey: 'applicant', title: '申请人', width: '80', fixed: isFixedColumn ? 'left' : undefined },
   {
     colKey: 'status',
     title: '申请状态',
@@ -100,7 +100,7 @@ const getColumns = (isFixedColumn) => [
   { colKey: 'channel', title: '签署方式' },
   { colKey: 'detail.email', title: '邮箱地址', ellipsis: true },
   { colKey: 'createTime', title: '申请时间' },
-  { colKey: 'operation', title: '操作', fixed: isFixedColumn ? 'right' : '' },
+  { colKey: 'operation', title: '操作', fixed: isFixedColumn ? 'right' : undefined },
 ];
 
 const data = new Array(5).fill(null).map((item, i) => ({
