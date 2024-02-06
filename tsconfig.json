@@ -31,6 +31,9 @@
       "tdesign-vue-next": [
         "src"
       ],
+      "tdesign-vue-next/es/locale/*": [
+        "src/locale/*"
+      ],
       "@common/*": [
         "src/_common/*"
       ],
