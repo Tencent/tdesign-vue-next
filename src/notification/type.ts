@@ -84,7 +84,7 @@ export interface NotificationInstance {
 
 export type NotificationMethod = (
   theme: NotificationThemeList,
-  options: NotificationOptions,
+  options?: NotificationOptions,
 ) => Promise<NotificationInstance>;
 
 export type NotificationInfoOptions = Omit<NotificationOptions, 'theme'>;

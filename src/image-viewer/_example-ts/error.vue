@@ -24,30 +24,28 @@
   </div>
 </template>
 
-<script setup lang="js">
+<script lang="ts" setup>
 import { reactive } from 'vue';
 import { BrowseIcon, ImageErrorIcon } from 'tdesign-icons-vue-next';
-
 const visible = reactive([false, false, false, false]);
 const isError = reactive([false, false, false, false]);
-const onOpen = (index) => {
+const onOpen = (index: number) => {
   visible[index] = true;
 };
-const onClose = (index) => {
+const onClose = (index: number) => {
   visible[index] = false;
 };
-const onError = (index) => {
+const onError = (index: number) => {
   isError[index] = true;
 };
-
 const img = 'https://tdesign.gtimg.com/demo/demo-image-1.png';
-
-const images = [
+const images: string[] = [
   img,
   'https://tdesign.gtimg.com/demo/demo-image-error1.png',
   'https://tdesign.gtimg.com/demo/demo-image-error2.png',
   'https://tdesign.gtimg.com/demo/demo-image-error3.png',
 ];
+
 </script>
 
 <style scoped>

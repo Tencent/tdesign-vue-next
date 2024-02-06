@@ -9,10 +9,17 @@
   </div>
 </template>
 
-<script setup lang="jsx">
+<script lang='ts' lang="tsx" setup>
+import { ImageViewerProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
-
 const visible = ref(false);
+const trigger: ImageViewerProps['trigger'] = (
+  h,
+  {
+    open,
+  }: {
+    open: () => void;
+  },
+) => <t-button onClick={open}>预览单张图片</t-button>;
 
-const trigger = (h, { open }) => <t-button onClick={open}>预览单张图片</t-button>;
 </script>

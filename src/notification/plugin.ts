@@ -105,4 +105,7 @@ Object.keys(extraApi).forEach((funcName) => {
   NotificationPlugin[funcName] = extraApi[funcName];
 });
 
+export const NotifyPlugin = NotificationPlugin;
+export const Notify = NotificationPlugin;
+
 export default NotificationPlugin;

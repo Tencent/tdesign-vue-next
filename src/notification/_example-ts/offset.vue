@@ -4,20 +4,18 @@
     <t-button variant="outline" @click="showInOffset2">偏移的信息</t-button>
   </t-space>
 </template>
-<script setup>
+<script lang='ts' setup>
 import { NotifyPlugin } from 'tdesign-vue-next';
-
 const showInOffset = () => {
-  NotifyPlugin({
+  NotifyPlugin('warning', {
     title: '标题名称',
     content: '这是一条可以自动关闭的消息通知',
     offset: [30, 30],
     duration: 3000,
   });
 };
-
 const showInOffset2 = () => {
-  NotifyPlugin({
+  NotifyPlugin('success', {
     title: '标题名称',
     content: '这是一条可以自动关闭的消息通知',
     placement: 'top-left',
@@ -25,4 +23,5 @@ const showInOffset2 = () => {
     duration: 3000,
   });
 };
+
 </script>

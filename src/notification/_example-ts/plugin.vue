@@ -74,7 +74,7 @@
   </t-space>
 </template>
 
-<script setup lang="jsx">
+<script lang='tsx' setup>
 import { NotifyPlugin, Link } from 'tdesign-vue-next';
 import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
@@ -98,7 +98,6 @@ const content = () => {
     </div>
   );
 };
-
 const footer = () => {
   return (
     <div class="t-notification__detail">
@@ -106,7 +105,6 @@ const footer = () => {
     </div>
   );
 };
-
 const iconRender = () => {
   return (
     <CloseCircleFilledIcon
@@ -118,4 +116,5 @@ const iconRender = () => {
     />
   );
 };
+
 </script>

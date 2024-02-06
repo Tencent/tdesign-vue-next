@@ -12,13 +12,13 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang='ts' setup>
 import { ref } from 'vue';
-
+import { InputNumberProps } from 'tdesign-vue-next';
 const value1 = ref(3);
 const value2 = ref(3.01);
 
-const numberFormat1 = (value) => `${value} %`;
+const numberFormat1: InputNumberProps['format'] = (value) => `${value} %`;
 
-const numberFormat = (value, { fixedNumber }) => `${fixedNumber} %`;
+const numberFormat: InputNumberProps['format'] = (value, { fixedNumber }) => `${fixedNumber} %`;
 </script>
