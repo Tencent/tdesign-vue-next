@@ -17,7 +17,7 @@ export default defineComponent({
     const descriptionsProps = inject(descriptionsKey);
     const COMPONENT_NAME = usePrefixClass('descriptions');
 
-    const label = (node: TdDescriptionItem, layout: LayoutEnum = LayoutEnum.HORIZONTAL) => {
+    const label = (node: TdDescriptionItem, layout: LayoutEnum = 'horizontal') => {
       const labelClass = [`${COMPONENT_NAME.value}__label`];
 
       let label = null;
@@ -29,7 +29,7 @@ export default defineComponent({
         label = renderVNodeTNode(node, 'label');
         span = node.props.span;
       }
-      const labelSpan = layout === LayoutEnum.HORIZONTAL ? 1 : span;
+      const labelSpan = layout === 'horizontal' ? 1 : span;
 
       return (
         <td colspan={labelSpan} class={labelClass} {...{ style: descriptionsProps.labelStyle }}>
@@ -39,7 +39,7 @@ export default defineComponent({
       );
     };
 
-    const content = (node: TdDescriptionItem, layout: LayoutEnum = LayoutEnum.HORIZONTAL) => {
+    const content = (node: TdDescriptionItem, layout: LayoutEnum = 'horizontal') => {
       const contentClass = [`${COMPONENT_NAME.value}__content`];
 
       let content = null;
@@ -51,7 +51,7 @@ export default defineComponent({
         content = renderVNodeTNode(node, 'content', 'default');
         span = node.props.span;
       }
-      const contentSpan = span > 1 && layout === LayoutEnum.HORIZONTAL ? span * 2 - 1 : span;
+      const contentSpan = span > 1 && layout === 'horizontal' ? span * 2 - 1 : span;
 
       return (
         <td colspan={contentSpan} class={contentClass} {...{ style: descriptionsProps.contentStyle }}>
@@ -77,8 +77,8 @@ export default defineComponent({
 
     const hv = () => (
       <>
-        <tr>{props.row.map((node) => label(node, LayoutEnum.VERTICAL))}</tr>
-        <tr>{props.row.map((node) => content(node, LayoutEnum.VERTICAL))}</tr>
+        <tr>{props.row.map((node) => label(node, 'vertical'))}</tr>
+        <tr>{props.row.map((node) => content(node, 'vertical'))}</tr>
       </>
     );
 
@@ -106,11 +106,11 @@ export default defineComponent({
 
     return () => (
       <>
-        {descriptionsProps.layout === LayoutEnum.HORIZONTAL
-          ? descriptionsProps.itemLayout === LayoutEnum.HORIZONTAL
+        {descriptionsProps.layout === 'horizontal'
+          ? descriptionsProps.itemLayout === 'horizontal'
             ? hh()
             : hv()
-          : descriptionsProps.itemLayout === LayoutEnum.HORIZONTAL
+          : descriptionsProps.itemLayout === 'horizontal'
           ? vh()
           : vv()}
       </>

@@ -2,7 +2,6 @@ import isNil from 'lodash/isNil';
 import isArray from 'lodash/isArray';
 import { defineComponent, provide, ref } from 'vue';
 
-import { LayoutEnum } from '../common';
 import { useTNodeJSX } from '../hooks/tnode';
 import { useChildComponentSlots } from '../hooks/slot';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
@@ -71,12 +70,12 @@ export default defineComponent({
         }
       }
 
-      // 2. 判断布局，如果整体布局为 LayoutEnum.VERTICAL，那么直接返回即可。
-      if (layout === LayoutEnum.VERTICAL) {
+      // 2. 判断布局，如果整体布局为 VERTICAL，那么直接返回即可。
+      if (layout === 'vertical') {
         return [items];
       }
 
-      // 3. 布局为 LayoutEnum.HORIZONTAL 时，需要计算每一行的 item 个数
+      // 3. 布局为 HORIZONTAL 时，需要计算每一行的 item 个数
       let temp: TdDescriptionItem[] = [];
       let reset = column;
 
