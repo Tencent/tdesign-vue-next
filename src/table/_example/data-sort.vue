@@ -87,7 +87,7 @@ const columns = ref([
 ]);
 
 const data = ref([...initialData]);
-const sort = ref({});
+const sort = ref();
 const singleSort = ref({
   sortBy: 'status',
   descending: true,
