@@ -16,6 +16,6 @@
 import { computed, getCurrentInstance } from 'vue';
 import get from 'lodash/get';
 
-const { ctx } = getCurrentInstance();
-const path = computed(() => get(ctx, '$route.path', ''));
+const { appContext } = getCurrentInstance();
+const path = computed(() => get(appContext, '$route.path', ''));
 </script>

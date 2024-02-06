@@ -15,17 +15,17 @@
     </t-space>
   </div>
 </template>
-<script setup>
+<script lang='tsx' setup>
+import { AnchorProps } from 'tdesign-vue-next';
 import { computed, getCurrentInstance } from 'vue';
 import get from 'lodash/get';
-
 const { appContext } = getCurrentInstance();
 const path = computed(() => get(appContext, '$route.path', ''));
-
-const handleClick = ({ e, href, title }) => {
+const handleClick: AnchorProps['onClick'] = ({ e, href, title }) => {
   e.preventDefault();
   console.log('click', href, title);
 };
+
 </script>
 <style lang="less" scoped>
 .anchor-container-demo {

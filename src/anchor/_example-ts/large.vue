@@ -1,6 +1,6 @@
 <template>
-  <t-space :id="`${path}#small`" class="anchor-demo">
-    <t-anchor size="small">
+  <t-space :id="`${path}#large`" class="anchor-demo">
+    <t-anchor size="large">
       <t-anchor-item :href="`#${path}#default`" title="定义" />
       <t-anchor-item :href="`#${path}#multiple`" title="服务功能" />
       <t-anchor-item :href="`#${path}#small`" title="使用指南" />
@@ -11,12 +11,12 @@
     </t-anchor>
   </t-space>
 </template>
-<script setup>
+<script lang='tsx' setup>
 import { computed, getCurrentInstance } from 'vue';
 import get from 'lodash/get';
-
 const { appContext } = getCurrentInstance();
 const path = computed(() => get(appContext, '$route.path', ''));
+
 </script>
 <style lang="less" scoped>
 .anchor-demo {
