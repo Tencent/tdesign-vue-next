@@ -7,10 +7,7 @@ import './style';
 
 export * from './type';
 
-/**
- * @deprecated use TdTimelineProps instead
- */
-export type TdTimeLineProps = TdTimelineProps;
+export type TimelineProps = TdTimelineProps;
 
 export const Timeline = withInstall(_Timeline);
 export const TimelineItem = withInstall(_TimelineItem);

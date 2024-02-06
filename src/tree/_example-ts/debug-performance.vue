@@ -42,7 +42,8 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang='ts' setup>
+import { TreeProps, TreeInstanceFunctions } from 'tdesign-vue-next';
 import { ref, computed } from 'vue';
 const allLevels = [3, 3, 3];
 let cacheIndex = 0;
@@ -50,6 +51,8 @@ function getValue() {
   cacheIndex += 1;
   return `t${cacheIndex}`;
 }
+
+// @ts-ignore
 function createNodes(items, level) {
   const count = allLevels[level];
   if (count) {
@@ -61,37 +64,44 @@ function createNodes(items, level) {
       };
       items.push(item);
       if (allLevels[level + 1]) {
+        // @ts-ignore
         item.children = [];
+        // @ts-ignore
         createNodes(item.children, level + 1);
       }
     }
   }
 }
 function createTreeData() {
-  const items = [];
+  const items: TreeProps['data'] = [];
   createNodes(items, 0);
   return items;
 }
-const tree = ref();
+const tree = ref<TreeInstanceFunctions>();
 const initialData = createTreeData();
 const transition = ref(true);
 const textInsertCount = ref('1');
-const showLine = ref(true);
-const showIcon = ref(true);
-const items = ref(initialData);
+const showLine = ref<TreeProps['line']>(true);
+const showIcon = ref<TreeProps['icon']>(true);
+const items = ref<TreeProps['data']>(initialData);
 const insertCount = computed(() => {
   return parseInt(textInsertCount.value, 10) || 1;
 });
-const label = (h, node) => {
+const label: TreeProps['label'] = (h, node) => {
   return `${node.value}`;
 };
+
+const label: TNode<TreeNodeModel<TreeOptionData>> = (h, node) => {
+  return (node.label || node.value) as SlotReturnValue;
+};
+
 const getInsertItem = () => {
   const value = getValue();
   return {
     value,
   };
 };
-const append = (node) => {
+const append = (node?: { value: number }) => {
   if (!node) {
     for (let index = 0; index < insertCount.value; index += 1) {
       const item = getInsertItem();
@@ -104,7 +114,10 @@ const append = (node) => {
     }
   }
 };
+
+// @ts-ignore
 const remove = (node) => {
   node.remove();
 };
+
 </script>

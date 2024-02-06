@@ -27,12 +27,12 @@
     </t-space>
   </t-space>
 </template>
-<script setup>
+<script lang='ts' setup>
+import { TabsProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+const value1 = ref<TabsProps['value']>('first');
+const value2 = ref<TabsProps['value']>('first');
+const onTabChange1: TabsProps['onChange'] = (newValue) => (value1.value = newValue);
+const onTabChange2: TabsProps['onChange'] = (newValue) => (value2.value = newValue);
 
-const value1 = ref('first');
-const value2 = ref('first');
-
-const onTabChange1 = (newValue) => (value1.value = newValue);
-const onTabChange2 = (newValue) => (value2.value = newValue);
 </script>
