@@ -17,10 +17,11 @@
     <t-button variant="outline" :icon="renderIcon"> 搜索 </t-button>
   </t-space>
 </template>
-<script setup lang="jsx">
+<script lang='tsx' setup>
+import { ButtonProps } from 'tdesign-vue-next';
 import { AddIcon, CloudUploadIcon, SearchIcon, CloudDownloadIcon, DiscountIcon } from 'tdesign-icons-vue-next';
-
-const renderIcon = () => {
+const renderIcon: ButtonProps['icon'] = () => {
   return <SearchIcon />;
 };
+
 </script>
