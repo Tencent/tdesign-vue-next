@@ -94,7 +94,7 @@ name | params | return | description
 -- | -- | -- | --
 refreshTable | \- | \- | required
 scrollColumnIntoView | `(colKey: string)` | \- | required
-scrollToElement | `(params: ScrollToElementParams)` | \- | required
+scrollToElement | `(params: ComponentScrollToElementParams)` | \- | required
 
 ### BaseTableCol
 

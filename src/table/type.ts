@@ -29,7 +29,6 @@ import {
   HTMLElementAttributes,
   ComponentType,
   TScroll,
-  ScrollToElementParams,
   ComponentScrollToElementParams,
 } from '../common';
 
@@ -631,8 +630,7 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
 }
 
 /** 组件实例方法 */
-export interface PrimaryTableInstanceFunctions<T extends TableRowData = TableRowData>
-  extends BaseTableInstanceFunctions {
+export interface PrimaryTableInstanceFunctions<T extends TableRowData = TableRowData> {
   /**
    * 校验行信息，校验完成后，会触发事件 `onRowValidate`。参数 `rowValue` 表示行唯一标识的值
    */
