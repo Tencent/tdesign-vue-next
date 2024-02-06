@@ -4,7 +4,7 @@
   </t-config-provider>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { GlobalConfigProvider } from 'tdesign-vue-next';
 import { LockOnIcon, LockOffIcon } from 'tdesign-icons-vue-next';
 
@@ -17,5 +17,4 @@ const globalConfig: GlobalConfigProvider = {
     BrowseIcon: LockOffIcon,
   },
 };
-
 </script>

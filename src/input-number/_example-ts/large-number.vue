@@ -9,14 +9,13 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { InputNumberProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const value1 = ref('19999999999999999.977');
 const value2 = ref('0.8975527383412673418');
 const value3 = ref('19999999999999999.977');
 const format: InputNumberProps['format'] = (val) => {
-  return val.replace(/\d{1,3}(?=(\d{3})+(\.|$))/g, '$&,');
+  return String(val).replace(/\d{1,3}(?=(\d{3})+(\.|$))/g, '$&,');
 };
-
 </script>

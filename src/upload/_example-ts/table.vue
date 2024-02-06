@@ -51,7 +51,7 @@
     </div>
   </section>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { UploadFile, UploadProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import { UploadIcon } from 'tdesign-icons-vue-next';
@@ -68,7 +68,8 @@ const getStatusText = (status: UploadFile['status']) =>
     success: '上传成功',
     fail: '上传失败',
     progress: '上传中',
-  })[status];
+    waiting: '等待中',
+  }[status]);
 const getFileSize = (size: UploadFile['size']) => `${(size / 1024 / 1024).toFixed(2)}Mb`;
 const getIcon = (status: UploadFile['status']) =>
   ({
@@ -84,6 +85,9 @@ const getIcon = (status: UploadFile['status']) =>
       name: 'loading',
       fill: '#0052d9',
     },
-  })[status];
-
+    waiting: {
+      name: 'time-filled',
+      fill: 'rgba(0,0,0,0.4)',
+    },
+  }[status]);
 </script>

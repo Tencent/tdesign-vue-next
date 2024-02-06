@@ -1,7 +1,7 @@
 <template>
   <t-input v-model="input" :status="inputStatus" :format="format" placeholder="请输入数字" :tips="tips" />
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { InputProps } from 'tdesign-vue-next';
 import { ref, computed } from 'vue';
 const input = ref('');
@@ -9,7 +9,7 @@ const inputStatus = computed<InputProps['status']>(() => {
   if (isNaN(+input.value)) {
     return 'error';
   }
-  return '';
+  return 'default';
 });
 const tips = computed<InputProps['tips']>(() => {
   if (!inputStatus.value) {
@@ -22,5 +22,4 @@ const format: InputProps['format'] = (val) => {
   const str = val.replace(reg, '$1,');
   return str;
 };
-
 </script>

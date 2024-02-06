@@ -15,13 +15,12 @@
     </t-space>
   </t-space>
 </template>
-<script lang='ts' setup>
-import { ButtonProps } from 'tdesign-vue-next';
+<script lang="ts" setup>
 import { ref, onMounted } from 'vue';
 const loading = ref(true);
 const data = ref('');
 const delay = ref(500);
-const loadingData: ButtonProps['onClick'] = (time) => {
+const loadingData = (time: number) => {
   loading.value = true;
   data.value = '';
   const timer = setTimeout(() => {
@@ -31,7 +30,6 @@ const loadingData: ButtonProps['onClick'] = (time) => {
   }, time || 100);
 };
 onMounted(() => {
-  loadingData();
+  loadingData(250);
 });
-
 </script>

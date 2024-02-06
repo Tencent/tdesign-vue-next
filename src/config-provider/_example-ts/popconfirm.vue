@@ -25,7 +25,7 @@
   </t-config-provider>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { GlobalConfigProvider } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const drawerVisible = ref(false);
@@ -48,7 +48,6 @@ const globalConfig: GlobalConfigProvider = {
     cancel: 'cancel',
   },
 };
-
 </script>
 
 <style scoped>

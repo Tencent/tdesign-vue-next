@@ -90,7 +90,7 @@
   </t-config-provider>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import {
   TransferProps,
   GlobalConfigProvider,
@@ -112,7 +112,8 @@ for (let i = 0; i < 20; i++) {
 }
 
 // 全局特性配置，可以引入英文默认配置 enConfig，还可以在默认配置的基础上进行自定义配置
-const globalConfig: GlobalConfigProvider = merge(enConfig, {
+const empty: GlobalConfigProvider = {};
+const customConfig: GlobalConfigProvider = {
   image: {
     // 全局替换图片地址
     replaceImageSrc() {
@@ -158,9 +159,10 @@ const globalConfig: GlobalConfigProvider = merge(enConfig, {
   steps: {
     errorIcon: () => <ErrorIcon />,
   },
-});
+};
+const globalConfig = merge(empty, enConfig, customConfig);
 const transferChecked: TransferProps['checked'] = [];
-const transferTargetValue = [];
+const transferTargetValue: TransferProps['value'] = [];
 const options1: SelectProps['options'] = [
   {
     label: 'Shanghai',
@@ -247,7 +249,6 @@ const rules: FormProps['rules'] = {
     },
   ],
 };
-
 </script>
 <style scoped>
 .tdesign-demo-item--locale-provider-base {

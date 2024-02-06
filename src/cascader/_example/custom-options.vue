@@ -87,11 +87,11 @@ const optionRender = (h, { item }) => (
 
 const getDeepOptions = (options) => {
   if (!options) return null;
-  return options.map((item) => ({
+  return options.map((item, index) => ({
     ...item,
-    children: getDeepOptions(item.children),
+    children: typeof item.children !== 'boolean' ? getDeepOptions(item.children) : item.children,
     // content 自定义下拉选项关键代码
-    content: (h) => optionRender(h, { item }),
+    content: (h) => optionRender(h, { item, index }),
   }));
 };
 

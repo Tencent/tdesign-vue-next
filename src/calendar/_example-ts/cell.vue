@@ -19,7 +19,9 @@
   </t-calendar>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
+import { CalendarCell } from 'tdesign-vue-next';
+
 import dayjs from 'dayjs';
 const dataList = [
   {
@@ -35,15 +37,14 @@ const dataList = [
     label: '正常事件',
   },
 ];
-const isShow = (data) =>
+const isShow = (data: CalendarCell) =>
   data.mode === 'month' ? dayjs(data.formattedDate).date() === 15 : dayjs(data.formattedDate).month() === 7;
-const displayNum = (cellData) => {
+const displayNum = (cellData: CalendarCell) => {
   if (cellData.mode === 'month') {
     return cellData.date.getDate();
   }
   return cellData.date.getMonth() + 1;
 };
-
 </script>
 
 <style lang="less" scoped>
