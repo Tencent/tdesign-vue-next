@@ -9,7 +9,7 @@ const inputStatus = computed(() => {
   if (isNaN(+input.value)) {
     return 'error';
   }
-  return '';
+  return 'default';
 });
 
 const tips = computed(() => {

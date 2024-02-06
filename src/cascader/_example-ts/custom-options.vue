@@ -33,7 +33,7 @@
     </t-cascader>
   </t-space>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { CascaderProps } from 'tdesign-vue-next';
 import { ref, computed } from 'vue';
 const options: CascaderProps['options'] = [
@@ -82,20 +82,20 @@ const optionRender: CascaderProps['option'] = (h, { item }) => (
     </div>
   </div>
 );
-const getDeepOptions = (options) => {
+const getDeepOptions = (options: CascaderProps['options']): CascaderProps['options'] => {
   if (!options) return null;
-  return options.map((item) => ({
+  return options.map((item, index) => ({
     ...item,
-    children: getDeepOptions(item.children),
+    children: typeof item.children !== 'boolean' ? getDeepOptions(item.children) : item.children,
     // content 自定义下拉选项关键代码
     content: (h) =>
       optionRender(h, {
         item,
+        index,
       }),
   }));
 };
 const optionsData = computed<CascaderProps['options']>(() => getDeepOptions(options));
-
 </script>
 <style>
 .tdesign-demo__user-option {

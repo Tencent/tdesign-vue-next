@@ -14,7 +14,7 @@
   </t-config-provider>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { GlobalConfigProvider } from 'tdesign-vue-next';
 const globalConfig: GlobalConfigProvider = {
   dialog: {
@@ -34,5 +34,4 @@ const globalConfig: GlobalConfigProvider = {
     },
   },
 };
-
 </script>

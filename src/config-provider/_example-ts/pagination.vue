@@ -6,7 +6,7 @@
   </t-config-provider>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { GlobalConfigProvider } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const current = ref(1);
@@ -18,5 +18,4 @@ const globalConfig: GlobalConfigProvider = {
     total: 'Total {total} items',
   },
 };
-
 </script>

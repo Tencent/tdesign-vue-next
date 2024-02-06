@@ -16,7 +16,7 @@
   </t-config-provider>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TableProps, GlobalConfigProvider } from 'tdesign-vue-next';
 import { ChevronRightIcon, CaretDownSmallIcon /** , ChevronDownIcon */ } from 'tdesign-icons-vue-next';
 import merge from 'lodash/merge';
@@ -64,7 +64,9 @@ const expandedRow: TableProps['expandedRow'] = (h) => {
 };
 
 // 全局特性配置，可以引入英文默认配置 enConfig，还可以在默认配置的基础上进行自定义配置
-const globalConfig: GlobalConfigProvider = merge(enConfig, {
+
+const empty: GlobalConfigProvider = {};
+const customConfig: GlobalConfigProvider = {
   table: {
     empty: 'Empty Data',
     // empty can also be a function
@@ -82,8 +84,8 @@ const globalConfig: GlobalConfigProvider = merge(enConfig, {
     // sortDescendingOperationText: 'descending sort',
     // treeExpandAndFoldIcon: (h, { type }) => type === 'expand' ? <ChevronRightIcon /> : <ChevronDownIcon />,
   },
-});
-
+};
+const globalConfig = merge(empty, enConfig, customConfig);
 </script>
 
 <style scoped>

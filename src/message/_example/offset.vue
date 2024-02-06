@@ -12,10 +12,7 @@ const showOffsetMsg = () => {
   MessagePlugin.info({
     content: '用户表示普通操作信息提示',
     placement: 'top',
-    offset: {
-      top: '50px',
-      left: '-300px',
-    },
+    offset: ['50px', '-300px'],
   });
 };
 </script>

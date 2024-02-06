@@ -20,8 +20,8 @@
   </t-space>
 </template>
 
-<script lang='tsx' setup>
-import { CalendarProps } from 'tdesign-vue-next';
+<script lang="tsx" setup>
+import { CalendarCell, CalendarProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const themeOptions = [
   {
@@ -34,11 +34,11 @@ const themeOptions = [
   },
 ];
 const theme = ref<CalendarProps['theme']>('card');
-const getDateStr = (cellData) => {
+const getDateStr = (cellData: CalendarCell) => {
   const y = cellData.date.getFullYear();
   const m = cellData.date.getMonth() + 1;
   const d = cellData.date.getDate();
-  if (cellData.theme === 'full') {
+  if (theme.value === 'full') {
     return `${y}-${m}-${d}`;
   }
   if (cellData.mode === 'month') {
@@ -46,14 +46,13 @@ const getDateStr = (cellData) => {
   }
   return `${y}-${m}`;
 };
-const getCellAppendCls = (cellData) => ({
+const getCellAppendCls = (cellData: CalendarCell) => ({
   belongCurrent: cellData.mode === 'year' || cellData.belongTo === 0,
   activated: cellData.isCurrent,
 });
 const handleClick: CalendarProps['onCellRightClick'] = () => {
   console.log('handleClick');
 };
-
 </script>
 
 <style scoped>

@@ -2,11 +2,11 @@
   <t-calendar :head="renderHead" :cell="renderCell" />
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { CalendarProps } from 'tdesign-vue-next';
 import dayjs from 'dayjs';
 const renderHead: CalendarProps['head'] = (h, params) => {
-  let title = params.filterDate.getFullYear();
+  let title = String(params.filterDate.getFullYear());
   if (params.mode === 'month') {
     title += `-${params.filterDate.getMonth() + 1}`;
   }
@@ -51,7 +51,6 @@ const renderCell: CalendarProps['cell'] = (h, params) => {
     </div>
   );
 };
-
 </script>
 <style lang="less">
 .calendar-slot-props-api-demo {

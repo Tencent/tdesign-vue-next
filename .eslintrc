@@ -102,6 +102,7 @@
     {
       "files": [
         "**/_example/*",
+        "**/_example-ts/*",
         "script/**/*",
         "script/*",
         "*.js",
