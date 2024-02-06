@@ -91,10 +91,6 @@ const label: TreeProps['label'] = (h, node) => {
   return `${node.value}`;
 };
 
-const label: TNode<TreeNodeModel<TreeOptionData>> = (h, node) => {
-  return (node.label || node.value) as SlotReturnValue;
-};
-
 const getInsertItem = () => {
   const value = getValue();
   return {
