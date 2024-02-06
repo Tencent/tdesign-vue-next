@@ -36,13 +36,12 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang='ts' setup>
+import { DatePickerProps } from 'tdesign-vue-next';
 import { ref, computed } from 'vue';
 import dayjs from 'dayjs';
-
 const pickDate = ref();
-
-const timePickerProps = computed(() => {
+const timePickerProps = computed<DatePickerProps['timePickerProps']>(() => {
   return {
     disableTime: () => {
       if (pickDate.value === dayjs().format('YYYY-MM-DD')) {
@@ -54,10 +53,9 @@ const timePickerProps = computed(() => {
     },
   };
 });
-
-const onPick = (date) => {
+const onPick: DatePickerProps['onPick'] = (date) => {
   pickDate.value = dayjs(date).format('YYYY-MM-DD');
 };
 
-const disableDate = (date) => dayjs(date).day() === 6;
+const disableDate: DatePickerProps['disableDate'] = (date) => dayjs(date).day() === 6;
 </script>
