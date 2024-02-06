@@ -82,7 +82,6 @@ const onSave = (e: MouseEvent) => {
   currentSaveId.value = id;
   // 触发内部校验，而后也可在 onRowValidate 中接收异步校验结果
   tableRef.value.validateRowData(id).then((params) => {
-    // eslint-disable-next-line no-console
     console.log('Event Table Promise Validate:', params);
     if (params.result.length) {
       const r = params.result[0];
@@ -103,13 +102,11 @@ const onSave = (e: MouseEvent) => {
 
 // 行校验反馈事件，tableRef.value.validateRowData 执行结束后触发
 const onRowValidate: TableProps['onRowValidate'] = (params) => {
-  // eslint-disable-next-line no-console
   console.log('Event Table Row Validate:', params);
 };
 function onValidateTableData() {
   // 执行结束后触发事件 validate
   tableRef.value.validateTableData().then((params) => {
-    // eslint-disable-next-line no-console
     console.log('Promise Table Data Validate:', params);
     const cellKeys = Object.keys(params.result);
     const firstError = params.result[cellKeys[0]];
@@ -121,7 +118,6 @@ function onValidateTableData() {
 
 // 表格全量数据校验反馈事件，tableRef.value.validateTableData() 执行结束后触发
 function onValidate(params: PrimaryTableValidateContext) {
-  // eslint-disable-next-line no-console
   console.log('Event Table Data Validate:', params);
 }
 const onRowEdit: TableProps['onRowEdit'] = (params) => {
@@ -190,7 +186,7 @@ const columns = computed<TableProps['columns']>(() => [
   {
     title: '申请状态',
     colKey: 'status',
-    cell: (_h, { row }) => STATUS_OPTIONS.find((t) => t.value === row.status)?.label,
+    cell: (H, { row }) => STATUS_OPTIONS.find((t) => t.value === row.status)?.label,
     edit: {
       component: Select,
       // props, 透传全部属性到 Select 组件
@@ -231,7 +227,7 @@ const columns = computed<TableProps['columns']>(() => [
   {
     title: '申请事项',
     colKey: 'letters',
-    cell: (_h, { row }) => row.letters.join('、'),
+    cell: (H, { row }) => row.letters.join('、'),
     edit: {
       component: Select,
       /**
@@ -241,7 +237,6 @@ const columns = computed<TableProps['columns']>(() => [
        */
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       props: ({ col, row, rowIndex, colIndex, editedRow, updateEditedCellValue }) => {
-        // eslint-disable-next-line no-console
         console.log(col, row, rowIndex, colIndex, editedRow, updateEditedCellValue);
         return {
           multiple: true,
@@ -308,7 +303,7 @@ const columns = computed<TableProps['columns']>(() => [
     title: '操作栏',
     colKey: 'operate',
     width: 150,
-    cell: (_h, { row }) => {
+    cell: (H, { row }) => {
       const editable = editableRowKeys.value.includes(row.key);
       return (
         <div class="table-operations">

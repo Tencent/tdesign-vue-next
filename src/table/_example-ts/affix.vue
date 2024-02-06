@@ -76,7 +76,7 @@ function getData(count: number) {
 }
 const TOTAL = 38;
 function getColumns(
-  _h: H,
+  H: H,
   { fixedLeftColumn, fixedRightColumn }: { fixedLeftColumn: boolean; fixedRightColumn: boolean },
 ) {
   const columns: TableProps['columns'] = [
@@ -92,7 +92,7 @@ function getColumns(
       colKey: 'status',
       title: '申请状态',
       width: '150',
-      cell: (_h, { row }) => {
+      cell: (H, { row }) => {
         return (
           <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
             {statusNameListMap[row.status].icon}
@@ -126,7 +126,7 @@ function getColumns(
     {
       colKey: 'operation',
       title: '操作',
-      cell: (_h, { row }) => (
+      cell: (H, { row }) => (
         <t-link hover="color" theme="primary">
           {row.status === 0 ? '查看详情' : '再次申请'}
         </t-link>

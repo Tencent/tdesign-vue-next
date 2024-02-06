@@ -149,7 +149,7 @@ const columns = computed<TableProps['columns']>(() => [
   {
     title: '申请状态',
     colKey: 'status',
-    cell: (_h, { row }) => STATUS_OPTIONS.find((t) => t.value === row.status)?.label,
+    cell: (H, { row }) => STATUS_OPTIONS.find((t) => t.value === row.status)?.label,
     1: {
       component: Select,
       // props, 透传全部属性到 Select 组件

@@ -46,7 +46,7 @@ const columns: TableProps['columns'] = [
     colKey: 'status',
     title: '申请状态',
     width: '150',
-    cell: (_h, { rowIndex }) => {
+    cell: (H, { rowIndex }) => {
       const status = rowIndex % 3;
       return (
         <t-tag shape="round" theme={statusNameListMap[status].theme} variant="light-outline">

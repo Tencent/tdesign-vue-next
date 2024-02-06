@@ -150,7 +150,7 @@ const columns: EnhancedTableProps['columns'] = [
     colKey: 'status',
     title: '状态',
     width: 144,
-    cell: (_h, { rowIndex }) => {
+    cell: (H, { rowIndex }) => {
       const status = rowIndex % 3;
       return (
         <t-tag shape="round" theme={statusNameListMap[status].theme} variant="light-outline">
@@ -182,7 +182,7 @@ const rehandleSelectChange: EnhancedTableProps['onSelectChange'] = (value, { sel
   selectedRowKeys.value = value;
   console.log(value, selectedRowData);
 };
-const expandedRowRender: EnhancedTableProps['expandedRow'] = (_h, { row }) => <div>拓展信息：我是 {row.key} 号</div>;
+const expandedRowRender: EnhancedTableProps['expandedRow'] = (H, { row }) => <div>拓展信息：我是 {row.key} 号</div>;
 const onExpandChange: EnhancedTableProps['onExpandChange'] = (val) => {
   expandedRowKeys.value = val;
 };

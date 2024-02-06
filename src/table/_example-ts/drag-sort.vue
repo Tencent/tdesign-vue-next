@@ -85,7 +85,7 @@ const columns: TableProps['columns'] = [
     colKey: 'status',
     title: '申请状态',
     width: '150',
-    cell: (_h, { row }) => {
+    cell: (H, { row }) => {
       return (
         <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
           {statusNameListMap[row.status].icon}
