@@ -50,7 +50,7 @@
   </t-space>
 </template>
 
-<script lang='tsx' setup>
+<script lang='ts' setup>
 import { UploadProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const autoUpload = ref(false);

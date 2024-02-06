@@ -41,7 +41,7 @@
     </t-space>
   </div>
 </template>
-<script lang='tsx' setup>
+<script lang='ts' setup>
 import { UploadProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 function getCurrentDate(needTime = false) {

@@ -92,7 +92,7 @@
     </t-space>
   </t-space>
 </template>
-<script lang='tsx' setup>
+<script lang='ts' setup>
 import { ref, watch } from 'vue';
 import {
   MessagePlugin,

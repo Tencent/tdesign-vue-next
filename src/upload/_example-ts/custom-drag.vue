@@ -31,7 +31,7 @@
     </t-upload>
   </div>
 </template>
-<script lang='tsx' setup>
+<script lang='ts' setup>
 import { ref } from 'vue';
 import { CloudUploadIcon } from 'tdesign-icons-vue-next';
 import { MessagePlugin, UploadInstanceFunctions, UploadProps, ButtonProps } from 'tdesign-vue-next';

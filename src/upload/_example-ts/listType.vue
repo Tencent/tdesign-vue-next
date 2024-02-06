@@ -20,7 +20,7 @@
     </header>
   </section>
 </template>
-<script lang='tsx' setup>
+<script lang='ts' setup>
 import { UploadProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import { UploadIcon } from 'tdesign-icons-vue-next';

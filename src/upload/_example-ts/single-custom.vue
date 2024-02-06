@@ -19,7 +19,7 @@
     </div>
   </t-space>
 </template>
-<script lang='tsx' setup>
+<script lang='ts' setup>
 import { ref } from 'vue';
 import { MessagePlugin, UploadProps } from 'tdesign-vue-next';
 const files = ref([]);
