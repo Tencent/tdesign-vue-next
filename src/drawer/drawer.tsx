@@ -100,7 +100,7 @@ export default defineComponent({
     });
 
     const handleEscKeydown = (e: KeyboardEvent) => {
-      if (props.closeOnEscKeydown ?? (globalConfig.value.closeOnEscKeydown && e.key === 'Escape' && isVisible.value)) {
+      if ((props.closeOnEscKeydown ?? globalConfig.value.closeOnEscKeydown) && e.key === 'Escape' && isVisible.value) {
         props.onEscKeydown?.({ e });
         closeDrawer({ trigger: 'esc', e });
       }
