@@ -162,6 +162,10 @@ export interface CalendarCell extends ControllerOptions {
   weekOrder?: number;
 }
 
+export interface CalendarInstanceFunctions {
+  toCurrent: () => void;
+}
+
 export type CalendarValue = string | Date;
 
 export interface CalendarWeek {
