@@ -15,7 +15,7 @@
   </div>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TableProps, ButtonProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
@@ -46,7 +46,7 @@ const columns: TableProps['columns'] = [
     colKey: 'status',
     title: '申请状态',
     width: '150',
-    cell: (h, { rowIndex }) => {
+    cell: (_h, { rowIndex }) => {
       const status = rowIndex % 3;
       return (
         <t-tag shape="round" theme={statusNameListMap[status].theme} variant="light-outline">
@@ -104,5 +104,4 @@ const reset: ButtonProps['onClick'] = () => {
     data.value = testData;
   });
 };
-
 </script>

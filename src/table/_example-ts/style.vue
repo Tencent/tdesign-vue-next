@@ -9,7 +9,7 @@
   </div>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TableProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import {
@@ -60,7 +60,7 @@ const columns = ref<TableProps['columns']>([
     colKey: 'status',
     title: '审批状态',
     width: 120,
-    cell: (h, { row }) => {
+    cell: (_h, { row }) => {
       return (
         <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
           {statusNameListMap[row.status].icon}
@@ -116,7 +116,6 @@ const getRowClassName: TableProps['rowClassName'] = ({ rowIndex }) => {
   if (rowIndex === 2) return 'custom-third-class-name';
   return '';
 };
-
 </script>
 
 <style>

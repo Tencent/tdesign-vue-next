@@ -24,13 +24,13 @@
   </t-space>
 </template>
 
-<script lang='tsx'>
+<script lang="tsx">
 export default {
   name: '',
 };
 </script>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TableProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const rowSelectionType = ref<TableProps['rowSelectionType']>('single');
@@ -77,7 +77,6 @@ const rehandleSelectChange: TableProps['onSelectChange'] = (value, { selectedRow
   selectedRowKeys.value = value;
   console.log(value, selectedRowData);
 };
-
 </script>
 
 <style lang="less">

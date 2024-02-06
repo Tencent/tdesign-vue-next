@@ -34,7 +34,7 @@
     </t-table>
   </div>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TableProps, TableRowData } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
@@ -126,5 +126,4 @@ const columns = ref<TableProps['columns']>([
 const rehandleClickOp = (context: TableRowData) => {
   console.log(context);
 };
-
 </script>

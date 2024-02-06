@@ -15,7 +15,7 @@
     <t-table :data="data" :columns="columns" :empty="empty" :row-key="rowKey" />
   </div>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TableProps } from 'tdesign-vue-next';
 const columns: TableProps['columns'] = [
   {
@@ -50,5 +50,4 @@ const empty: TableProps['empty'] = () => (
     😊 我是自定义的空内容 😊: empty function
   </span>
 );
-
 </script>

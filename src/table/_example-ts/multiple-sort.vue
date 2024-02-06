@@ -17,7 +17,7 @@
   </div>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TableProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
@@ -113,7 +113,6 @@ const sortChange: TableProps['onSortChange'] = (val) => {
   // Request: 发起远程请求进行排序
   console.log('发起远程请求进行排序（未模拟请求数据）');
 };
-
 </script>
 <style lang="less">
 :deep([class*='t-table-expandable-icon-cell']) .t-icon {

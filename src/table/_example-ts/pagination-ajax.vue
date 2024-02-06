@@ -14,7 +14,7 @@
     @select-change="onSelectChange"
   />
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { PaginationProps, TableProps } from 'tdesign-vue-next';
 import { ref, onMounted } from 'vue';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
@@ -47,7 +47,7 @@ const columns: TableProps['columns'] = [
   {
     colKey: 'name',
     title: '姓名',
-    render(h, { type, row: { name } }) {
+    render(_h, { type, row: { name } }) {
       if (type === 'title') return '申请人';
       return name ? `${name.first} ${name.last}` : 'UNKNOWN_USER';
     },
@@ -55,7 +55,7 @@ const columns: TableProps['columns'] = [
   {
     colKey: 'status',
     title: '申请状态',
-    cell: (h, { row, rowIndex }) => {
+    cell: (_h, { rowIndex }) => {
       const status = rowIndex % 3;
       return (
         <t-tag shape="round" theme={statusNameListMap[status].theme} variant="light-outline">
@@ -68,7 +68,7 @@ const columns: TableProps['columns'] = [
   {
     colKey: 'phone',
     title: '联系方式',
-    render(h, { row: { phone } }) {
+    render(_h, { row: { phone } }) {
       return phone;
     },
   },
@@ -126,5 +126,4 @@ const onSelectChange: TableProps['onSelectChange'] = (value, params) => {
   console.log(value, params);
 };
 const rowKey: TableProps['rowKey'] = 'phone';
-
 </script>

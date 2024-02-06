@@ -25,7 +25,7 @@
   </div>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TableProps, GlobalConfigProvider } from 'tdesign-vue-next';
 import { watch, ref } from 'vue';
 import {
@@ -51,7 +51,7 @@ const statusNameListMap = {
     icon: <ErrorCircleFilledIcon />,
   },
 };
-const initialData = [];
+const initialData: TableProps['data'] = [];
 for (let i = 0; i < 5; i++) {
   initialData.push({
     index: i + 1,
@@ -78,7 +78,7 @@ const columns = ref<TableProps['columns']>([
     width: '150',
     sortType: 'all',
     sorter: (a, b) => a.status - b.status,
-    cell: (h, { row }) => {
+    cell: (_h, { row }) => {
       return (
         <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
           {statusNameListMap[row.status].icon}
@@ -146,7 +146,6 @@ const sortChange: TableProps['onSortChange'] = (sortVal, options) => {
 const dataChange: TableProps['onDataChange'] = (newData) => {
   data.value = newData;
 };
-
 </script>
 
 <style lang="less">

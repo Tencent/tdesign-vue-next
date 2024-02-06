@@ -58,7 +58,7 @@
     ></t-table> -->
   </div>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TableColumnController, TableProps } from 'tdesign-vue-next';
 import { computed, ref } from 'vue';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
@@ -160,7 +160,7 @@ const columns = ref<TableProps['columns']>([
     colKey: 'status',
     title: '申请状态',
     width: '150',
-    cell: (h, { row }) => {
+    cell: (_h, { row }) => {
       return (
         <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
           {statusNameListMap[row.status].icon}
@@ -207,5 +207,4 @@ const columns = ref<TableProps['columns']>([
 const onColumnChange: TableProps['onColumnChange'] = (params) => {
   console.log(params);
 };
-
 </script>

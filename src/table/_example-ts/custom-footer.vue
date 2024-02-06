@@ -28,7 +28,7 @@
     </t-table>
   </div>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TableProps, RowClassNameParams, TableRowData } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
@@ -87,7 +87,7 @@ const columns: TableProps['columns'] = [
     colKey: 'status',
     width: '150',
     // 使用 cell 方法自定义单元格：
-    cell: (h, { row }) => {
+    cell: (_h, { row }) => {
       return (
         <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
           {statusNameListMap[row.status].icon}
@@ -119,12 +119,11 @@ const rowspanAndColspanInFooter: TableProps['rowspanAndColspanInFooter'] = ({ ro
       colspan: columns.length - 2,
     };
   return {};
-}
+};
 
 // type 可选值：foot 和 body
 function rowClassName({ type }: RowClassNameParams<TableRowData>) {
   if (type === 'foot') return 't-tdesign__custom-footer-tr';
   return 't-tdesign__custom-body-tr';
 }
-
 </script>

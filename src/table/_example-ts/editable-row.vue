@@ -21,7 +21,7 @@
   </div>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { ref, computed } from 'vue';
 import {
   Input,
@@ -31,7 +31,7 @@ import {
   TableInstanceFunctions,
   TableProps,
   PrimaryTableValidateContext,
-BaseTableCol,
+  BaseTableCol,
 } from 'tdesign-vue-next';
 import dayjs from 'dayjs';
 const initData = new Array(5).fill(null).map((_, i) => ({
@@ -60,28 +60,29 @@ const editableRowKeys = ref<TableProps['editableRowKeys']>(['1']);
 const currentSaveId = ref('');
 // 保存变化过的行信息
 const editMap = {};
-const onEdit = (e) => {
-  const { id } = e.currentTarget.dataset;
+const onEdit = (e: MouseEvent) => {
+  const { id } = (e.currentTarget as HTMLElement).dataset;
   if (!editableRowKeys.value.includes(id)) {
     editableRowKeys.value.push(id);
   }
 };
 
 // 更新 editableRowKeys
-const updateEditState = (id) => {
+const updateEditState = (id: string) => {
   const index = editableRowKeys.value.findIndex((t) => t === id);
   editableRowKeys.value.splice(index, 1);
 };
-const onCancel = (e) => {
-  const { id } = e.currentTarget.dataset;
+const onCancel = (e: MouseEvent) => {
+  const { id } = (e.currentTarget as HTMLElement).dataset;
   updateEditState(id);
-  tableRef.value.clearValidateData();
+  tableRef.value?.clearValidateData();
 };
-const onSave = (e) => {
-  const { id } = e.currentTarget.dataset;
+const onSave = (e: MouseEvent) => {
+  const { id } = (e.currentTarget as HTMLElement).dataset;
   currentSaveId.value = id;
   // 触发内部校验，而后也可在 onRowValidate 中接收异步校验结果
   tableRef.value.validateRowData(id).then((params) => {
+    // eslint-disable-next-line no-console
     console.log('Event Table Promise Validate:', params);
     if (params.result.length) {
       const r = params.result[0];
@@ -102,11 +103,13 @@ const onSave = (e) => {
 
 // 行校验反馈事件，tableRef.value.validateRowData 执行结束后触发
 const onRowValidate: TableProps['onRowValidate'] = (params) => {
+  // eslint-disable-next-line no-console
   console.log('Event Table Row Validate:', params);
 };
 function onValidateTableData() {
   // 执行结束后触发事件 validate
   tableRef.value.validateTableData().then((params) => {
+    // eslint-disable-next-line no-console
     console.log('Promise Table Data Validate:', params);
     const cellKeys = Object.keys(params.result);
     const firstError = params.result[cellKeys[0]];
@@ -118,6 +121,7 @@ function onValidateTableData() {
 
 // 表格全量数据校验反馈事件，tableRef.value.validateTableData() 执行结束后触发
 function onValidate(params: PrimaryTableValidateContext) {
+  // eslint-disable-next-line no-console
   console.log('Event Table Data Validate:', params);
 }
 const onRowEdit: TableProps['onRowEdit'] = (params) => {
@@ -186,7 +190,7 @@ const columns = computed<TableProps['columns']>(() => [
   {
     title: '申请状态',
     colKey: 'status',
-    cell: (h, { row }) => STATUS_OPTIONS.find((t) => t.value === row.status)?.label,
+    cell: (_h, { row }) => STATUS_OPTIONS.find((t) => t.value === row.status)?.label,
     edit: {
       component: Select,
       // props, 透传全部属性到 Select 组件
@@ -227,7 +231,7 @@ const columns = computed<TableProps['columns']>(() => [
   {
     title: '申请事项',
     colKey: 'letters',
-    cell: (h, { row }) => row.letters.join('、'),
+    cell: (_h, { row }) => row.letters.join('、'),
     edit: {
       component: Select,
       /**
@@ -237,6 +241,7 @@ const columns = computed<TableProps['columns']>(() => [
        */
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       props: ({ col, row, rowIndex, colIndex, editedRow, updateEditedCellValue }) => {
+        // eslint-disable-next-line no-console
         console.log(col, row, rowIndex, colIndex, editedRow, updateEditedCellValue);
         return {
           multiple: true,
@@ -303,7 +308,7 @@ const columns = computed<TableProps['columns']>(() => [
     title: '操作栏',
     colKey: 'operate',
     width: 150,
-    cell: (h, { row }) => {
+    cell: (_h, { row }) => {
       const editable = editableRowKeys.value.includes(row.key);
       return (
         <div class="table-operations">
@@ -327,7 +332,6 @@ const columns = computed<TableProps['columns']>(() => [
     },
   },
 ]);
-
 </script>
 
 <style>

@@ -18,7 +18,7 @@
     </t-table>
   </div>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TableProps } from 'tdesign-vue-next';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 const data: TableProps['data'] = [];
@@ -75,7 +75,7 @@ const columns: TableProps['columns'] = [
     title: '邮箱地址',
     colKey: 'email',
     // render 即可渲染表头，也可以渲染单元格。但 cell 只能渲染单元格，title 只能渲染表头
-    render(h, context) {
+    render(_h, context) {
       const { type, row, col } = context;
       if (type === 'title') return '邮箱地址';
       return <div>{row[col.colKey]}</div>;
@@ -86,5 +86,4 @@ const columns: TableProps['columns'] = [
     title: '申请时间',
   },
 ];
-
 </script>

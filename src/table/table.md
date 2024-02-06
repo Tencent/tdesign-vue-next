@@ -1,7 +1,6 @@
 :: BASE_DOC ::
 
-## API
-### BaseTable Props
+## API### BaseTable Props
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
@@ -198,6 +197,7 @@ validate | `(context: PrimaryTableValidateContext)` | 可编辑行表格，全�
 
 名称 | 参数 | 返回值 | 描述
 -- | -- | -- | --
+clearValidateData | \- | \- | 必需。清空所有校验结果
 validateRowData | `(rowValue: any)` | `Promise<{ trigger: TableValidateTrigger, result: ErrorListObjectType<T>[] }>` | 必需。校验行信息，校验完成后，会触发事件 `onRowValidate`。参数 `rowValue` 表示行唯一标识的值。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`type ErrorListObjectType<T> = PrimaryTableRowEditContext<T> & { errorList: AllValidateResult[] }`<br/>
 validateTableData | \- | `Promise<{ result: TableErrorListMap }>` | 必需。校验表格全部数据，校验完成后，会触发事件 `onValidate`
 

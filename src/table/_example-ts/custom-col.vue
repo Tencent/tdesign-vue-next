@@ -46,7 +46,7 @@
     ></t-table> -->
   </div>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TableProps } from 'tdesign-vue-next';
 import { ref, computed } from 'vue';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
@@ -67,7 +67,7 @@ const statusNameListMap = {
     icon: <ErrorCircleFilledIcon />,
   },
 };
-const initialData = [];
+const initialData: TableProps['data'] = [];
 for (let i = 0; i < 100; i++) {
   initialData.push({
     index: i + 1,
@@ -138,7 +138,7 @@ const columns = ref<TableProps['columns']>([
     colKey: 'status',
     title: '申请状态',
     width: '150',
-    cell: (h, { row }) => {
+    cell: (_h, { row }) => {
       return (
         <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
           {statusNameListMap[row.status].icon}
@@ -189,5 +189,4 @@ const onColumnResizeChange: TableProps['onColumnResizeChange'] = (columnsWidth) 
   // 注意：宽度可能存在小数点，根据实际需求处理保存数值
   console.log(columnsWidth);
 };
-
 </script>

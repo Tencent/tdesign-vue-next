@@ -22,7 +22,7 @@
   </div>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { ref } from 'vue';
 import { MessagePlugin, TableProps } from 'tdesign-vue-next';
 import {
@@ -97,7 +97,7 @@ const columns = ref<TableProps['columns']>([
     colKey: 'status',
     title: '审批状态',
     width: 120,
-    cell: (h, { row }) => {
+    cell: (_h, { row }) => {
       return (
         <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
           {statusNameListMap[row.status].icon}
@@ -125,7 +125,7 @@ const columns = ref<TableProps['columns']>([
     title: '申请事项',
     colKey: 'ellipsisContent',
     // ellipsis 定义超出省略的浮层内容，cell 定义单元格内容
-    ellipsis: (h, { row }) => (
+    ellipsis: (_h, { row }) => (
       <div>
         {row.ellipsisContent}
         <FileCopyIcon
@@ -148,7 +148,7 @@ const columns = ref<TableProps['columns']>([
         theme: 'light',
         placement: 'bottom-right',
       },
-      content: (h, { row }) => (
+      content: (_h, { row }) => (
         <div>
           <p>
             <b>创建日期:</b> {row.propsAndContent1}
@@ -164,14 +164,13 @@ const columns = ref<TableProps['columns']>([
     title: '操作',
     colKey: 'link',
     // 超出省略的内容显示纯文本，不带任何样式和元素
-    ellipsis: (h, { row }) => row.link,
+    ellipsis: (_h, { row }) => row.link,
     // 注意这种 JSX 写法需设置 <script lang='tsx' setup>
-    cell: (h, { row }) => (
+    cell: (_h, { row }) => (
       <a href="/vue-next/components/table" target="_blank">
         {row.link}
       </a>
     ),
   },
 ]);
-
 </script>

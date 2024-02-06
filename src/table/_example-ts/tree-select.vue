@@ -45,17 +45,30 @@
   </t-space>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { ref, watch } from 'vue';
 import {
   EnhancedTable as TEnhancedTable,
   MessagePlugin,
-  EnhancedTableInstanceFunctions,
   EnhancedTableProps,
   ButtonProps,
+  AllTableInstanceFunctions,
 } from 'tdesign-vue-next';
 import cloneDeep from 'lodash/cloneDeep';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+
+interface TableData {
+  key: string;
+  applicant: string;
+  status: number;
+  channel: string;
+  email: string;
+  matters: string;
+  time: number;
+  createTime: string;
+  childrenList?: TableData[];
+}
+
 const statusNameListMap = {
   0: {
     label: '审批通过',
@@ -75,7 +88,7 @@ const statusNameListMap = {
 };
 const initData = [];
 for (let i = 0; i < 500; i++) {
-  const obj = {
+  const obj: TableData = {
     key: `first_level_${i}`,
     applicant: ['贾明', '张三', '王芳'][i % 3],
     status: i % 3,
@@ -106,7 +119,7 @@ for (let i = 0; i < 500; i++) {
   });
   initData.push(obj);
 }
-const enhancedTableRef = ref<EnhancedTableInstanceFunctions>();
+const enhancedTableRef = ref<AllTableInstanceFunctions>();
 const columns: EnhancedTableProps['columns'] = [
   {
     colKey: 'row-select',
@@ -137,7 +150,7 @@ const columns: EnhancedTableProps['columns'] = [
     colKey: 'status',
     title: '状态',
     width: 144,
-    cell: (h, { rowIndex }) => {
+    cell: (_h, { rowIndex }) => {
       const status = rowIndex % 3;
       return (
         <t-tag shape="round" theme={statusNameListMap[status].theme} variant="light-outline">
@@ -169,7 +182,7 @@ const rehandleSelectChange: EnhancedTableProps['onSelectChange'] = (value, { sel
   selectedRowKeys.value = value;
   console.log(value, selectedRowData);
 };
-const expandedRowRender: EnhancedTableProps['expandedRow'] = (h, { row }) => <div>拓展信息：我是 {row.key} 号</div>;
+const expandedRowRender: EnhancedTableProps['expandedRow'] = (_h, { row }) => <div>拓展信息：我是 {row.key} 号</div>;
 const onExpandChange: EnhancedTableProps['onExpandChange'] = (val) => {
   expandedRowKeys.value = val;
 };
@@ -211,5 +224,4 @@ const scrollToElement: ButtonProps['onClick'] = () => {
 const onRowClick: EnhancedTableProps['onRowClick'] = (data) => {
   console.log(data);
 };
-
 </script>

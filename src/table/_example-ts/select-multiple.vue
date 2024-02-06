@@ -27,7 +27,7 @@
   </div>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TableProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
@@ -88,7 +88,7 @@ const columns: TableProps['columns'] = [
     colKey: 'status',
     title: '申请状态',
     width: '150',
-    cell: (h, { row }) => {
+    cell: (_h, { row }) => {
       return (
         <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
           {statusNameListMap[row.status].icon}
@@ -118,7 +118,6 @@ const rehandleSelectChange: TableProps['onSelectChange'] = (value, ctx) => {
   selectedRowKeys.value = value;
   console.log(value, ctx);
 };
-
 </script>
 
 <style lang="less" scoped>

@@ -33,7 +33,7 @@
     ></t-table>
   </div>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TableProps } from 'tdesign-vue-next';
 import { computed, ref } from 'vue';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
@@ -102,7 +102,7 @@ function getColumns(fixedLeftCol: boolean, fixedRightCol: boolean) {
           fixed: fixedLeftCol ? 'left' : undefined,
           width: 120,
           sorter: (a, b) => a.default - b.default,
-          cell: (h, { row }) => {
+          cell: (_h, { row }) => {
             return (
               <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
                 {statusNameListMap[row.status].icon}

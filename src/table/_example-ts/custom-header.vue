@@ -8,7 +8,7 @@
     </t-table>
   </div>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TableProps } from 'tdesign-vue-next';
 import {
   UserCircleIcon,
@@ -56,13 +56,13 @@ const columns: TableProps['columns'] = [
   },
   {
     colKey: 'matters',
-    title: (h, { colIndex }) => <b style="font-wight: bold">{['', '申请事项'][colIndex]}</b>,
+    title: (_h, { colIndex }) => <b style="font-wight: bold">{['', '申请事项'][colIndex]}</b>,
   },
   {
     title: '审批状态',
     colKey: 'status',
     // 使用 cell 方法自定义单元格：
-    cell: (h, { row }) => {
+    cell: (_h, { row }) => {
       return (
         <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
           {statusNameListMap[row.status].icon}
@@ -88,7 +88,6 @@ const columns: TableProps['columns'] = [
     },
   },
 ];
-
 </script>
 <style scoped>
 .link {

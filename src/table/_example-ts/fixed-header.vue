@@ -31,7 +31,7 @@
     </t-table>
   </div>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TableProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
@@ -116,5 +116,4 @@ const columns = ref<TableProps['columns']>([
     foot: '-',
   },
 ]);
-
 </script>

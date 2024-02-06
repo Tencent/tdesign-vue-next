@@ -17,9 +17,19 @@
     </div>
 
     <!-- :defaultExpandedRowKeys="defaultExpandedRowKeys" -->
-    <t-table row-key="index" :columns="columns" :data="emptyData ? [] : data" :expanded-row-keys="expandedRowKeys"
-      :expanded-row="expandedRow" :expand-on-row-click="expandOnRowClick" :expand-icon="expandIcon" table-layout="auto"
-      table-content-width="1200" lazy-load @expand-change="rehandleExpandChange">
+    <t-table
+      row-key="index"
+      :columns="columns"
+      :data="emptyData ? [] : data"
+      :expanded-row-keys="expandedRowKeys"
+      :expanded-row="expandedRow"
+      :expand-on-row-click="expandOnRowClick"
+      :expand-icon="expandIcon"
+      table-layout="auto"
+      table-content-width="1200"
+      lazy-load
+      @expand-change="rehandleExpandChange"
+    >
       <template #operation="{ row }">
         <t-link hover="color" theme="primary" @click="rehandleClickOp(row)">
           {{ row.status === 0 ? '查看详情' : '再次申请' }}
@@ -56,7 +66,7 @@
   </div>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TableProps, TableRowData } from 'tdesign-vue-next';
 import { ref, watch, computed } from 'vue';
 import {
@@ -123,7 +133,7 @@ const getColumns = (isFixedColumn: boolean) => {
     },
   ];
   return columns;
-}
+};
 const data = new Array(5).fill(null).map((item, i) => ({
   index: i + 1,
   applicant: ['贾明', '张三', '王芳'][i % 3],
@@ -190,7 +200,6 @@ watch(
     }
   },
 );
-
 </script>
 
 <style lang="less">
@@ -206,12 +215,12 @@ watch(
 .more-detail {
   line-height: 22px;
 
-  >p {
+  > p {
     display: inline-block;
     margin: 4px 0;
   }
 
-  >p.title {
+  > p.title {
     width: 120px;
   }
 }

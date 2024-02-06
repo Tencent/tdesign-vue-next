@@ -632,6 +632,10 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
 /** 组件实例方法 */
 export interface PrimaryTableInstanceFunctions<T extends TableRowData = TableRowData> {
   /**
+   * 清空所有校验结果
+   */
+  clearValidateData: () => void;
+  /**
    * 校验行信息，校验完成后，会触发事件 `onRowValidate`。参数 `rowValue` 表示行唯一标识的值
    */
   validateRowData: (rowValue: any) => Promise<{ trigger: TableValidateTrigger; result: ErrorListObjectType<T>[] }>;
