@@ -7,8 +7,7 @@
   </t-steps>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { StepsProps } from 'tdesign-vue-next';
 const current: StepsProps['current'] = 1;
-
 </script>

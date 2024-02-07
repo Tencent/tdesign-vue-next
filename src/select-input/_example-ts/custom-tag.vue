@@ -59,7 +59,7 @@
     </t-select-input>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { SelectInputProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import { ControlPlatformIcon } from 'tdesign-icons-vue-next';
@@ -89,25 +89,24 @@ const options = [
     value: 6,
   },
 ];
-const selectValue1 = ref<{ label: string, value: number }>({
+const selectValue1 = ref<{ label: string; value: number }>({
   label: 'tdesign-vue',
   value: 1,
 });
 const selectValue2 = ref<string[]>(['tdesign-vue', 'tdesign-react']);
 const selectValue3 = ref<string[]>(['tdesign-vue', 'tdesign-react', 'tdesign-mobile-vue']);
-const onOptionClick = (item: { label: string, value: number }) => {
+const onOptionClick = (item: { label: string; value: number }) => {
   selectValue1.value = item;
 };
 const onClear: SelectInputProps['onClear'] = () => {
   selectValue1.value = undefined;
 };
 const onTagChange2: SelectInputProps['onTagChange'] = (val) => {
-  selectValue2.value = val.map(t => String(t));
+  selectValue2.value = val.map((t) => String(t));
 };
 const onTagChange3: SelectInputProps['onTagChange'] = (val) => {
-  selectValue3.value = val.map(t => String(t));
+  selectValue3.value = val.map((t) => String(t));
 };
-
 </script>
 <style lang="less" scoped>
 .tdesign-demo__select-input-ul-single {

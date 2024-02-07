@@ -4,7 +4,7 @@
     <t-button id="t-demo-msg-close-all" variant="outline" @click="closeAll">点击关闭所有通知</t-button>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { NotifyPlugin, ButtonProps } from 'tdesign-vue-next';
 const openSomeNotification: ButtonProps['onClick'] = () => {
   NotifyPlugin.info({
@@ -20,5 +20,4 @@ const openSomeNotification: ButtonProps['onClick'] = () => {
 const closeAll: ButtonProps['onClick'] = () => {
   NotifyPlugin.closeAll();
 };
-
 </script>

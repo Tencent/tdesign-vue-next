@@ -11,7 +11,7 @@
   />
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 import { MessagePlugin, PaginationProps } from 'tdesign-vue-next';
 const current = ref(1);
@@ -27,5 +27,4 @@ const onCurrentChange: PaginationProps['onCurrentChange'] = (index, pageInfo) =>
 const onChange: PaginationProps['onChange'] = (pageInfo) => {
   console.log(pageInfo);
 };
-
 </script>

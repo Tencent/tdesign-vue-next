@@ -10,7 +10,7 @@
     />
   </div>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { TransferProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const list = [];
@@ -34,5 +34,4 @@ const handleCheckedChange: TransferProps['onCheckedChange'] = ({ checked, source
 const onChange: TransferProps['onChange'] = (newTargetValue) => {
   console.log(newTargetValue);
 };
-
 </script>

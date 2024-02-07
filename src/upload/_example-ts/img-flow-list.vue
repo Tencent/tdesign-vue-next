@@ -50,7 +50,7 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { UploadProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const autoUpload = ref(false);
@@ -115,7 +115,6 @@ const requestMethod1: UploadProps['requestMethod'] = () => {
 //     });
 //   });
 // };
-
 </script>
 
 <style>

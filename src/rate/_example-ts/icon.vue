@@ -17,7 +17,6 @@
     </t-rate>
   </t-space>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { StarIcon, LogoGithubIcon, HeartFilledIcon } from 'tdesign-icons-vue-next';
-
 </script>

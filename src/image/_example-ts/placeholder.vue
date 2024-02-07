@@ -44,7 +44,7 @@
   </div>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { ImageProps, ButtonProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import { RefreshIcon, ImageErrorIcon } from 'tdesign-icons-vue-next';
@@ -54,5 +54,4 @@ const renderCustomIcon: ImageProps['error'] = () => <ImageErrorIcon size="24" />
 const renderIcon: ButtonProps['icon'] = () => {
   return <RefreshIcon />;
 };
-
 </script>

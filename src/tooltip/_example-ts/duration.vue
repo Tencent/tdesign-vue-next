@@ -4,7 +4,7 @@
   </t-tooltip>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { TooltipProps } from 'tdesign-vue-next';
 import { ref, onUnmounted, watch } from 'vue';
 const timeout = ref(0);
@@ -28,5 +28,4 @@ watch(
 onUnmounted(() => {
   clearInterval(timer);
 });
-
 </script>

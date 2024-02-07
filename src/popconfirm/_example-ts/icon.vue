@@ -28,7 +28,7 @@
     </t-space>
   </t-space>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { PopconfirmProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import { BrowseIcon } from 'tdesign-icons-vue-next';
@@ -45,5 +45,4 @@ const customIcon: PopconfirmProps['icon'] = () => {
     />
   );
 };
-
 </script>

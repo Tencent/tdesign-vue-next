@@ -2,7 +2,7 @@
   <t-cascader v-model="value" :options="options" multiple clearable :max="3" />
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { CascaderProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const options: CascaderProps['options'] = [
@@ -40,5 +40,4 @@ const options: CascaderProps['options'] = [
   },
 ];
 const value = ref([]);
-
 </script>

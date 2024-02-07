@@ -16,7 +16,7 @@
     />
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { SelectProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const options: SelectProps['options'] = [
@@ -44,5 +44,4 @@ const popupProps2: SelectProps['popupProps'] = {
     width: `${trigger.offsetWidth}px`,
   }),
 };
-
 </script>

@@ -7,7 +7,7 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { MessageProps, ButtonProps } from 'tdesign-vue-next';
 import { ref, computed, onMounted } from 'vue';
 const status1 = ref<MessageProps['theme']>('loading');
@@ -35,5 +35,4 @@ onMounted(() => {
   fn1();
   fn2();
 });
-
 </script>

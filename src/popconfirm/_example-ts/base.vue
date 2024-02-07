@@ -16,7 +16,7 @@
   </t-space>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { ref } from 'vue';
 import { MessagePlugin, PopconfirmProps } from 'tdesign-vue-next';
 const visible = ref(false);
@@ -33,5 +33,4 @@ const onVisibleChange: PopconfirmProps['onVisibleChange'] = (val, context = {}) 
     visible.value = val;
   }
 };
-
 </script>

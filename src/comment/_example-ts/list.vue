@@ -19,7 +19,7 @@
   </t-list>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 const commentsData = [
   {
     id: 'A',
@@ -43,5 +43,4 @@ const commentsData = [
     content: '评论作者名C写的评论内容。',
   },
 ];
-
 </script>

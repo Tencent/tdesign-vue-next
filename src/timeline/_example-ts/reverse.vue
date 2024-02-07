@@ -11,7 +11,7 @@
     </t-timeline>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 const reverse = ref(false);
 const options = [
@@ -32,5 +32,4 @@ const options = [
     content: '事件四',
   },
 ];
-
 </script>

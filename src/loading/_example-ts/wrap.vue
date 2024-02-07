@@ -14,9 +14,8 @@
     </t-space>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { LoadingProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const loading = ref(true);
-
 </script>

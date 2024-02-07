@@ -14,10 +14,24 @@
     </template> -->
   </t-tree-select>
 </template>
-<script lang='tsx' setup>
-import { TreeSelectProps } from 'tdesign-vue-next';
+<script lang="tsx" setup>
+import { PopupTriggerEvent, PopupTriggerSource, TreeNodeModel, TreeSelectProps } from 'tdesign-vue-next';
 import { ref, computed } from 'vue';
 import { Icon } from 'tdesign-icons-vue-next';
+
+interface TreeSelectPopupVisibleContext<T> {
+  e?: PopupTriggerEvent | Event;
+  node?: TreeNodeModel<T>;
+  trigger?: PopupTriggerSource | 'clear';
+}
+
+interface Option {
+  label: string;
+  value: string;
+  disabled?: boolean;
+  children?: Option[];
+}
+
 const options: TreeSelectProps['data'] = [
   {
     label: '广东省',
@@ -51,7 +65,7 @@ const options: TreeSelectProps['data'] = [
 ];
 const value = ref('');
 const popupVisible = ref(false);
-const onVisibleChange: TreeSelectProps['onPopupVisibleChange'] = (visible, context) => {
+const onVisibleChange = (visible: boolean, context: TreeSelectPopupVisibleContext<Option>) => {
   console.log(visible, context);
   if (context.trigger || context.node?.label !== '广州市') {
     popupVisible.value = visible;
@@ -62,5 +76,4 @@ const onVisibleChange: TreeSelectProps['onPopupVisibleChange'] = (visible, conte
 const renderArrowIcon = computed<TreeSelectProps['suffixIcon']>(() =>
   popupVisible.value ? () => '我是选择器激活时内容' : () => <Icon name="center-focus-strong" />,
 );
-
 </script>

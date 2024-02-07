@@ -41,7 +41,7 @@
     </t-space>
   </div>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { UploadProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 function getCurrentDate(needTime = false) {
@@ -74,5 +74,4 @@ function formatResponse(res: any) {
   res.uploadTime = getCurrentDate();
   return res;
 }
-
 </script>

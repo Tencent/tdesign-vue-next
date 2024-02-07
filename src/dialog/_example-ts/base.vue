@@ -23,7 +23,7 @@
     </t-dialog>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { DialogProps, PaginationProps, ButtonProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const visible = ref(false);
@@ -52,5 +52,4 @@ const onCloseBtnClick: DialogProps['onCloseBtnClick'] = (context) => {
 const onOverlayClick: DialogProps['onOverlayClick'] = (context) => {
   console.log('点击了蒙层', context);
 };
-
 </script>

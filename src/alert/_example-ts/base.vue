@@ -8,8 +8,7 @@
     <t-alert theme="error">高危操作/出错信息提示</t-alert>
   </t-space>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { AlertProps } from 'tdesign-vue-next';
 const infoMessage: AlertProps['message'] = () => <div>这是一条普通的消息提示</div>;
-
 </script>

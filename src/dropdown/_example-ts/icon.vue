@@ -10,7 +10,7 @@
     </t-dropdown>
   </t-space>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { MessagePlugin, DropdownProps } from 'tdesign-vue-next';
 import { DiscountIcon } from 'tdesign-icons-vue-next';
 const options: DropdownProps['options'] = [
@@ -50,5 +50,4 @@ const options: DropdownProps['options'] = [
 const clickHandler: DropdownProps['onClick'] = (data) => {
   MessagePlugin.success(`选中【${data.content}】`);
 };
-
 </script>

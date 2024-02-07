@@ -2,7 +2,7 @@
   <t-time-picker v-model="value" @change="timeChange" @open="open" @close="close" @pick="pick" />
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { TimePickerProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const value = ref('12:20:30');
@@ -18,5 +18,4 @@ const close: TimePickerProps['onClose'] = () => {
 const pick: TimePickerProps['onPick'] = (v, context) => {
   console.log(v, context, 'on pick');
 };
-
 </script>

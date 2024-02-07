@@ -1,7 +1,7 @@
 <template>
   <t-select v-model="value" placeholder="-请选择-" multiple :max="2" :options="options" style="width: 200px" />
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { SelectProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const options: SelectProps['options'] = [
@@ -19,5 +19,4 @@ const options: SelectProps['options'] = [
   },
 ];
 const value = ref([]);
-
 </script>

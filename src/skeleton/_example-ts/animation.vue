@@ -13,7 +13,7 @@
   </t-row>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 const animations = [
   {
     label: '渐变加载动画',
@@ -24,5 +24,4 @@ const animations = [
     value: 'flashed',
   },
 ];
-
 </script>

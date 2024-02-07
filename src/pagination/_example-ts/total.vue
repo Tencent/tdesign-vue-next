@@ -2,7 +2,7 @@
   <t-pagination v-model="current" v-model:page-size="pageSize" :total="total" :total-content="renderTotalContent" />
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { PaginationProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const current = ref(12);
@@ -11,5 +11,4 @@ const total = ref(685);
 const renderTotalContent: PaginationProps['totalContent'] = () => {
   return <div class="t-pagination__total">{`共 ${total.value} 项数据`}</div>;
 };
-
 </script>

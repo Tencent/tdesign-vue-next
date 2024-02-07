@@ -10,12 +10,11 @@
     </t-anchor>
   </div>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { computed, getCurrentInstance } from 'vue';
 import get from 'lodash/get';
 const { appContext } = getCurrentInstance() || {};
 const path = computed(() => get(appContext, '$route.path', ''));
-
 </script>
 <style lang="less" scoped>
 .anchor-demo {

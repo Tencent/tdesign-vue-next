@@ -50,7 +50,7 @@
     </template>
   </t-select-input>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { SelectInputProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import { ChevronDownIcon } from 'tdesign-icons-vue-next';
@@ -80,13 +80,13 @@ const options = [
     value: 6,
   },
 ];
-const selectValue = ref<{ label: string, value: number }>({
+const selectValue = ref<{ label: string; value: number }>({
   label: 'tdesign-vue',
   value: 1,
 });
 const popupVisible = ref(false);
 const popupVisible2 = ref(false);
-const onOptionClick = (item: { label: string, value: number }) => {
+const onOptionClick = (item: { label: string; value: number }) => {
   selectValue.value = item;
   // 选中后立即关闭浮层
   popupVisible.value = false;
@@ -103,7 +103,6 @@ const onPopupVisibleChange2: SelectInputProps['onPopupVisibleChange'] = (val, co
   console.log(context);
   popupVisible2.value = val;
 };
-
 </script>
 <style lang="less" scoped>
 .tdesign-demo__select-input-ul-label-suffix {

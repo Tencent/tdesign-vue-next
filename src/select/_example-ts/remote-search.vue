@@ -22,7 +22,7 @@
     />
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { SelectProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const options = ref<SelectProps['options']>([
@@ -90,5 +90,4 @@ const remoteMethod2: SelectProps['onSearch'] = (search) => {
     }, 500);
   }
 };
-
 </script>

@@ -22,12 +22,11 @@
     </t-space>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 const color1 = ref('#0052d9');
 const color2 = ref('#0052d9');
 const color3 = ref('linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)');
-
 </script>
 <style scoped>
 p {

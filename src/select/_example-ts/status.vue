@@ -7,7 +7,7 @@
     <t-select v-model="value3" :options="options" loading placeholder="请选择云解决方案" />
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { SelectProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const options: SelectProps['options'] = [
@@ -36,7 +36,6 @@ const options: SelectProps['options'] = [
 const value1 = ref('');
 const value2 = ref('');
 const value3 = ref('');
-
 </script>
 <style scoped>
 .tdesign-demo-select-base {

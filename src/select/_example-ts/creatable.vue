@@ -21,7 +21,7 @@
     />
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { SelectProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const value1 = ref('');
@@ -47,5 +47,4 @@ const createOptions: SelectProps['onCreate'] = (val) => {
   });
   console.log('create option:', val);
 };
-
 </script>

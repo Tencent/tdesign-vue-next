@@ -2,7 +2,7 @@
   <t-descriptions title="Shipping address" :items="items" :column="3" />
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { DescriptionsProps } from 'tdesign-vue-next';
 const items: DescriptionsProps['items'] = [
   {
@@ -22,5 +22,4 @@ const items: DescriptionsProps['items'] = [
     content: () => <mark> 'Shenzhen Penguin Island D1 4A Mail Center'</mark>,
   },
 ];
-
 </script>

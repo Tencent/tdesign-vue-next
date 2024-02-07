@@ -10,11 +10,10 @@
     </t-link>
   </t-space>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { LinkProps } from 'tdesign-vue-next';
 import { JumpIcon } from 'tdesign-icons-vue-next';
 const clickLink: LinkProps['onClick'] = () => {
   console.log('不触发');
 };
-
 </script>

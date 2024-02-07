@@ -67,7 +67,7 @@
     </t-space>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 import { MessagePlugin, DropdownProps, DropdownItemProps } from 'tdesign-vue-next';
 const operationMenu = ref([
@@ -87,5 +87,4 @@ const clickHandler: DropdownProps['onClick'] = (data) => {
 const handleClick: DropdownItemProps['onClick'] = () => {
   MessagePlugin.success(`点击 操作2-1-2`);
 };
-
 </script>

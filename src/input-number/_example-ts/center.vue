@@ -27,7 +27,7 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { InputNumberProps } from 'tdesign-vue-next';
 import { ref, computed } from 'vue';
 const value1 = ref('');
@@ -63,5 +63,4 @@ const handleKeyup: InputNumberProps['onKeyup'] = (v, ctx) => {
 const handleKeypress: InputNumberProps['onKeypress'] = (v, ctx) => {
   console.info('keypress', v, ctx);
 };
-
 </script>

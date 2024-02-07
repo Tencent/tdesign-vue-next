@@ -19,7 +19,7 @@
     </t-form>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { FormProps } from 'tdesign-vue-next';
 import { reactive } from 'vue';
 const formData: FormProps['data'] = reactive({
@@ -27,5 +27,4 @@ const formData: FormProps['data'] = reactive({
   name: '',
   password: '',
 });
-
 </script>

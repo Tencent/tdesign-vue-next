@@ -89,7 +89,7 @@
     ></t-upload>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 import { MessagePlugin, UploadProps, UploadInstanceFunctions, ButtonProps } from 'tdesign-vue-next';
 const file1 = ref([]);
@@ -136,5 +136,4 @@ const uploadFiles: ButtonProps['onClick'] = () => {
   uploadRef2.value.uploadFiles();
   uploadRef3.value.uploadFiles();
 };
-
 </script>

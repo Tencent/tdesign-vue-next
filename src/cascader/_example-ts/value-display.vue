@@ -24,13 +24,13 @@
   </t-space>
 </template>
 
-<script lang='tsx'>
+<script lang="tsx">
 export default {
   name: 'CascaderValueDisplay',
 };
 </script>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { CascaderProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const value1 = ref('2.2');
@@ -75,7 +75,6 @@ const optionsData: CascaderProps['options'] = [
     ],
   },
 ];
-
 </script>
 
 <style lang="less" scoped>

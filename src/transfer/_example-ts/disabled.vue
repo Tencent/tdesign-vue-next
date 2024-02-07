@@ -1,7 +1,7 @@
 <template>
   <t-transfer :data="list" :disabled="[false, true]" :default-value="defaultValue" />
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { TransferProps } from 'tdesign-vue-next';
 const list: TransferProps['data'] = [];
 for (let i = 0; i < 20; i++) {
@@ -14,5 +14,4 @@ for (let i = 0; i < 20; i++) {
 const defaultValue: TransferProps['defaultValue'] = list
   .map((item) => item.value)
   .filter((v) => parseInt(v, 10) % 2 === 0);
-
 </script>

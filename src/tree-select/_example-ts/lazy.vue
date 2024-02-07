@@ -9,10 +9,17 @@
     }"
   />
 </template>
-<script lang='ts' setup>
-import { TreeSelectProps } from 'tdesign-vue-next';
+<script lang="ts" setup>
+import { TreeNodeModel } from 'tdesign-vue-next';
 import { ref } from 'vue';
-const options: TreeSelectProps['data'] = [
+
+interface TreeNode {
+  label: string;
+  value: string;
+  children?: boolean | TreeNode[];
+}
+
+const options: TreeNode[] = [
   {
     label: '1',
     value: '1',
@@ -25,10 +32,10 @@ const options: TreeSelectProps['data'] = [
   },
 ];
 const value = ref('');
-const loadFunc = (node) =>
+const loadFunc = (node: TreeNodeModel<TreeNode>) =>
   new Promise((resolve) => {
     let timer = setTimeout(() => {
-      let nodes = [];
+      let nodes: TreeNode[] = [];
       if (node.level < 2) {
         nodes = [
           {
@@ -48,5 +55,4 @@ const loadFunc = (node) =>
       timer = null;
     }, 1000);
   });
-
 </script>

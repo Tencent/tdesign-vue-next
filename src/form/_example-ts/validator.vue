@@ -64,7 +64,7 @@
     </t-form-item>
   </t-form>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ref, reactive, computed } from 'vue';
 import {
   MessagePlugin,
@@ -242,7 +242,6 @@ const onSubmit: FormProps['onSubmit'] = ({ validateResult, firstError, e }) => {
 const handleClear: ButtonProps['onClick'] = () => {
   form.value.clearValidate();
 };
-
 </script>
 <style scoped>
 .demo-select-base {

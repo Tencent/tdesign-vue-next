@@ -20,7 +20,7 @@
     </t-timeline>
   </t-space>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TimelineProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import { TipsIcon, UserIcon, HeartIcon, HomeIcon } from 'tdesign-icons-vue-next';
@@ -48,5 +48,4 @@ const options = [
     dot: () => <HomeIcon size="medium" color={color} />,
   },
 ];
-
 </script>

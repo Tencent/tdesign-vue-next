@@ -42,7 +42,7 @@
     </t-space>
   </t-space>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { InputInstanceFunctions, TagProps, InputProps } from 'tdesign-vue-next';
 import { nextTick, ref } from 'vue';
 import { AddIcon } from 'tdesign-icons-vue-next';
@@ -92,5 +92,4 @@ const handleClickAdd: TagProps['onClick'] = () => {
     input.value.focus();
   });
 };
-
 </script>

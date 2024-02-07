@@ -11,7 +11,7 @@
     </t-notification>
   </t-space>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { NotificationProps } from 'tdesign-vue-next';
 const footer: NotificationProps['footer'] = () => {
   return (
@@ -20,5 +20,4 @@ const footer: NotificationProps['footer'] = () => {
     </div>
   );
 };
-
 </script>

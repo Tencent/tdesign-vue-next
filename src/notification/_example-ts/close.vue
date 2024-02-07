@@ -19,7 +19,7 @@
     />
   </div>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { NotificationProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const visible = ref(false);
@@ -27,7 +27,6 @@ const visible2 = ref(false);
 const closeBtn: NotificationProps['closeBtn'] = () => {
   return <span>close</span>;
 };
-
 </script>
 <style scoped>
 .t-notification + .t-notification {

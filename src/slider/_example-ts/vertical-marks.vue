@@ -25,7 +25,7 @@
     </div>
   </t-space>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { SliderProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const value1 = ref(12);
@@ -54,7 +54,6 @@ const marks2: SliderProps['marks'] = {
 const change: SliderProps['onChange'] = (value) => {
   console.log('change value', value);
 };
-
 </script>
 <style>
 .vertical-marks-block {

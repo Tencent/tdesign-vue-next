@@ -29,7 +29,7 @@
     ></t-upload>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { UploadProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const files = ref([]);
@@ -49,5 +49,4 @@ const formatResponse: UploadProps['formatResponse'] = (res) => {
   }
   return res;
 };
-
 </script>

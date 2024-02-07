@@ -139,7 +139,7 @@
   </div>
 </template>
 
-<script lang='ts' lang="ts" setup>
+<script lang="ts" lang="ts" setup>
 import { HeadMenuProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const expanded = ref<HeadMenuProps['defaultExpanded']>(['1']);

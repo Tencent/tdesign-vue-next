@@ -53,7 +53,7 @@
   </t-menu>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { MenuProps, ButtonProps, MenuItemProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const collapsed = ref(false);

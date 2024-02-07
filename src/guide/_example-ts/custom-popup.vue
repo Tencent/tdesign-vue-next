@@ -37,7 +37,7 @@
   </t-row>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { GuideProps, ButtonProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import MyPopup from './my-popup.vue';
@@ -92,7 +92,6 @@ const handleSkip: GuideProps['onSkip'] = ({ e, current, total }) => {
   visible.value = false;
   console.log(e, current, total);
 };
-
 </script>
 
 <style scoped>

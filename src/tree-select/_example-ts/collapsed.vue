@@ -17,7 +17,7 @@
     </t-tree-select>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { TreeSelectProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const options: TreeSelectProps['data'] = [
@@ -52,5 +52,4 @@ const options: TreeSelectProps['data'] = [
 ];
 const value = ref(['guangzhou', 'shenzhen']);
 const slotValue = ref(['guangzhou', 'shenzhen']);
-
 </script>

@@ -19,12 +19,11 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { DescriptionsProps, RadioGroupProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const layout = ref<DescriptionsProps['layout']>('horizontal');
 const itemLayout = ref<DescriptionsProps['itemLayout']>('horizontal');
 const layoutOptions: RadioGroupProps['options'] = ['horizontal', 'vertical'];
 const itemLayoutOptions: RadioGroupProps['options'] = ['horizontal', 'vertical'];
-
 </script>

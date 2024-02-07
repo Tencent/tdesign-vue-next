@@ -17,7 +17,7 @@
     </t-timeline>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 const loading = ref(false);
 const options = [
@@ -38,5 +38,4 @@ const options = [
     content: '事件四',
   },
 ];
-
 </script>

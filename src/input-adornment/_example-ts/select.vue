@@ -17,7 +17,7 @@
   </t-space>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { InputAdornmentProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const protocolSelect = ref<InputAdornmentProps['prepend']>(() => (
@@ -40,5 +40,4 @@ const tldSelect = ref<InputAdornmentProps['append']>(() => (
     defaultValue=".cn"
   />
 ));
-
 </script>

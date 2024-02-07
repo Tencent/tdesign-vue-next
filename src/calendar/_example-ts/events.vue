@@ -8,7 +8,7 @@
   />
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { CalendarProps } from 'tdesign-vue-next';
 // 单元格单击和双击事件共存的时候，双击事件会触发单击事件（两次），这“可能不是”正确的效果，
 // 这种场景下建议对单击事件进行延迟处理（详见下面 cellClick 和 cellDoubleClick 的代码）
@@ -32,7 +32,6 @@ const monthChange: CalendarProps['onMonthChange'] = (options) => {
 const controllerChange: CalendarProps['onControllerChange'] = (data) => {
   console.log('控件值变化', data);
 };
-
 </script>
 
 <style scoped>

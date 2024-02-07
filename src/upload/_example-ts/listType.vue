@@ -20,7 +20,7 @@
     </header>
   </section>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { UploadProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import { UploadIcon } from 'tdesign-icons-vue-next';
@@ -32,7 +32,6 @@ const handlePreview: UploadProps['onPreview'] = ({ file }) => {
   console.log(file);
   window.open(file.thumbUrl);
 };
-
 </script>
 <style lang="less" scoped>
 .describe {

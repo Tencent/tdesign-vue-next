@@ -10,7 +10,7 @@
   </t-menu>
 </template>
 
-<script lang='ts' lang="ts" setup>
+<script lang="ts" lang="ts" setup>
 import { ref } from 'vue';
 const value = ref('item2');
 </script>

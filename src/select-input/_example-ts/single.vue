@@ -25,7 +25,7 @@
     </template>
   </t-select-input>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { SelectInputProps, SelectInputValue, SelectInputFocusContext } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import { ChevronDownIcon } from 'tdesign-icons-vue-next';
@@ -57,13 +57,13 @@ const options = [
 ];
 
 // const selectValue = ref('tdesign-vue');
-const selectValue = ref<{ label: string, value: number }>({
+const selectValue = ref<{ label: string; value: number }>({
   label: 'tdesign-vue',
   value: 1,
 });
 // const selectValue = ref([{ label: 'tdesign-vue', value: 1 }]);
 const popupVisible = ref(false);
-const onOptionClick = (item: { label: string, value: number }) => {
+const onOptionClick = (item: { label: string; value: number }) => {
   selectValue.value = item;
   // 选中后立即关闭浮层
   popupVisible.value = false;
@@ -82,7 +82,6 @@ const onInputChange: SelectInputProps['onInputChange'] = (val, context) => {
 function onFocus(val: SelectInputValue, context: SelectInputFocusContext) {
   console.log('focus:', val, context);
 }
-
 </script>
 <style lang="less" scoped>
 .tdesign-demo__select-input-ul-single {

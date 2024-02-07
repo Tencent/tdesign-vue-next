@@ -7,7 +7,7 @@
   />
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { ImageProps } from 'tdesign-vue-next';
 const renderMask: ImageProps['overlayContent'] = () => (
   <div
@@ -18,9 +18,9 @@ const renderMask: ImageProps['overlayContent'] = () => (
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-    }}>
+    }}
+  >
     预览
   </div>
 );
-
 </script>

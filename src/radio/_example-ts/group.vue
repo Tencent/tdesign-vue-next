@@ -21,7 +21,7 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { RadioGroupProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const options: RadioGroupProps['options'] = [
@@ -48,7 +48,6 @@ const value = ref('');
 const onChange: RadioGroupProps['onChange'] = (checkedValues) => {
   console.log('checkedValues:', value.value, checkedValues);
 };
-
 </script>
 
 <style scoped>

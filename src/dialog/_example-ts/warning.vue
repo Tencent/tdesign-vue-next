@@ -63,7 +63,7 @@
     </t-dialog>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { DialogProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const visible1 = ref(false);
@@ -95,5 +95,4 @@ const close4: DialogProps['onClose'] = () => {
 const close5: DialogProps['onClose'] = () => {
   visible5.value = false;
 };
-
 </script>

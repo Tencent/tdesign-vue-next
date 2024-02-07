@@ -5,7 +5,7 @@
   </t-space>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { CascaderProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const options: CascaderProps['options'] = [
@@ -43,5 +43,4 @@ const options: CascaderProps['options'] = [
   },
 ];
 const value = ref('');
-
 </script>

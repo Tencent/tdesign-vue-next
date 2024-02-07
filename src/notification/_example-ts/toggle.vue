@@ -3,7 +3,7 @@
     <t-button variant="outline" @click="toggle">自由控制关闭时机（{{ notification ? '关闭' : '打开' }}）</t-button>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 import { NotifyPlugin, ButtonProps } from 'tdesign-vue-next';
 const notification = ref(null);
@@ -19,5 +19,4 @@ const toggle: ButtonProps['onClick'] = () => {
     notification.value = null;
   }
 };
-
 </script>

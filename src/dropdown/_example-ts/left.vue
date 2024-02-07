@@ -10,7 +10,7 @@
     </t-dropdown>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ChevronDownIcon } from 'tdesign-icons-vue-next';
 import { MessagePlugin, DropdownProps } from 'tdesign-vue-next';
 const options: DropdownProps['options'] = [
@@ -62,5 +62,4 @@ const options: DropdownProps['options'] = [
 const clickHandler: DropdownProps['onClick'] = (data) => {
   MessagePlugin.success(`选中【${data.content}】`);
 };
-
 </script>

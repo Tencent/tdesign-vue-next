@@ -20,10 +20,9 @@
     </t-tabs>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { TabsProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const value = ref<TabsProps['value']>('first');
 const theme = ref<TabsProps['theme']>('normal');
-
 </script>

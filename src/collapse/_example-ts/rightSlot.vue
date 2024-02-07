@@ -42,12 +42,11 @@
   </t-collapse>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { CollapsePanelProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const disable0 = ref(false);
 const disable1 = ref(true);
 const disable2 = ref(false);
 const disable3 = ref(true);
-
 </script>

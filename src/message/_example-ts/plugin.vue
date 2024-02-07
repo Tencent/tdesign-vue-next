@@ -61,7 +61,7 @@
   </t-space>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { MessagePlugin } from 'tdesign-vue-next';
 const content = () => {
   return (
@@ -70,5 +70,4 @@ const content = () => {
     </div>
   );
 };
-
 </script>

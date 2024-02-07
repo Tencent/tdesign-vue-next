@@ -10,7 +10,7 @@
   </t-space>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { UserIcon } from 'tdesign-icons-vue-next';
 </script>
 

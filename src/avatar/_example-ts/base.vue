@@ -5,11 +5,10 @@
     <t-avatar>W</t-avatar>
   </t-space>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { AvatarProps } from 'tdesign-vue-next';
 import { computed } from 'vue';
 import { UserIcon } from 'tdesign-icons-vue-next';
 const icon = computed<AvatarProps['icon']>(() => () => <UserIcon />);
 const image: AvatarProps['image'] = 'https://tdesign.gtimg.com/site/avatar.jpg';
-
 </script>

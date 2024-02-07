@@ -21,7 +21,7 @@
   </t-space>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { MessageProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const isShowMsg = ref(true);
@@ -34,10 +34,10 @@ const closeBtn: MessageProps['closeBtn'] = () => {
       class="t-message-close"
       onClick={() => {
         closableMsg1.value = false;
-      }}>
+      }}
+    >
       <b>x</b>
     </div>
   );
 };
-
 </script>

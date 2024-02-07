@@ -81,7 +81,7 @@
     </t-form>
   </t-space>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { ref, onMounted } from 'vue';
 import { MessagePlugin, FormProps, FormInstanceFunctions, ButtonProps, FormItemProps } from 'tdesign-vue-next';
 const INITIAL_DATA = {
@@ -183,7 +183,6 @@ const getStatusIcon: FormItemProps['statusIcon'] = () => (
     }}
   />
 );
-
 </script>
 <style>
 .tdesign-demo-form-status .t-input {

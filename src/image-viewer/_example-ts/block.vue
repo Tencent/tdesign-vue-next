@@ -27,7 +27,7 @@
   </div>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ImageInfo } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import { BrowseIcon } from 'tdesign-icons-vue-next';
@@ -42,7 +42,6 @@ const images: ImageInfo[] = [
     thumbnail: 'https://tdesign.gtimg.com/demo/demo-image-1.png',
   },
 ];
-
 </script>
 
 <style scoped>

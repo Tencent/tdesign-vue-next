@@ -20,7 +20,7 @@
   </t-space>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { CheckboxGroupProps, CheckboxProps } from 'tdesign-vue-next';
 import { ref, computed } from 'vue';
 const options1: CheckboxGroupProps['options'] = [
@@ -76,5 +76,4 @@ const onChange2: CheckboxGroupProps['onChange'] = (val) => {
 const onChange3: CheckboxGroupProps['onChange'] = (val) => {
   console.log(value3.value, val);
 };
-
 </script>

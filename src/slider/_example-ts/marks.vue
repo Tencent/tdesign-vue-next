@@ -7,7 +7,7 @@
     <t-slider v-model="value3" :show-tooltip="true" :marks="[10, 20, 40, 80]" />
   </t-space>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { SliderProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const value1 = ref(12);
@@ -32,7 +32,6 @@ const marks2: SliderProps['marks'] = {
   80: <span style="color: #0052d9">80°C</span>,
   100: '100°C',
 };
-
 </script>
 <style>
 .slider-demo-container {

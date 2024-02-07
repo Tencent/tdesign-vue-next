@@ -81,7 +81,7 @@
   </div>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 const type = ref('align-input');
 const value0 = ref(3);
@@ -94,7 +94,6 @@ const value6 = ref(3);
 const value7 = ref(3);
 const value8 = ref(3);
 const value9 = ref(3);
-
 </script>
 
 <style scoped>

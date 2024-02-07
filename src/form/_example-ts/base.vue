@@ -35,7 +35,7 @@
     </t-form-item>
   </t-form>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ref, reactive } from 'vue';
 import { MessagePlugin, FormProps, FormInstanceFunctions, CheckboxGroupProps, InputProps } from 'tdesign-vue-next';
 const FORM_RULES: FormProps['rules'] = {
@@ -120,5 +120,4 @@ const validateOnly = async () => {
 const onEnter: InputProps['onEnter'] = (_, { e }) => {
   e.preventDefault();
 };
-
 </script>

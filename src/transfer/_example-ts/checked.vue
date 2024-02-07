@@ -1,7 +1,7 @@
 <template>
   <t-transfer v-model:checked="checked" :data="list" />
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { TransferProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const list: TransferProps['data'] = [];
@@ -13,5 +13,4 @@ for (let i = 0; i < 20; i++) {
   });
 }
 const checked = ref<TransferProps['checked']>(list.map((item) => item.value).filter((v) => v % 2 === 0));
-
 </script>

@@ -5,7 +5,7 @@
     </t-dropdown>
   </t-space>
 </template>
-<script lang='ts' lang="ts" setup>
+<script lang="ts" lang="ts" setup>
 import { DropdownProps } from 'tdesign-vue-next';
 const options: DropdownProps['options'] = Array.from({
   length: 20,
@@ -13,5 +13,4 @@ const options: DropdownProps['options'] = Array.from({
   content: `选项${k + 1}`,
   value: k + 1,
 }));
-
 </script>

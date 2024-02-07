@@ -11,8 +11,7 @@
   </div>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 const current = ref(0);
-
 </script>

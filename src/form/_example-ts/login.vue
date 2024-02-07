@@ -23,7 +23,7 @@
     </t-form>
   </div>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { reactive } from 'vue';
 import { MessagePlugin, FormProps } from 'tdesign-vue-next';
 import { DesktopIcon, LockOnIcon } from 'tdesign-icons-vue-next';
@@ -42,5 +42,4 @@ const onSubmit: FormProps['onSubmit'] = ({ validateResult, firstError }) => {
     MessagePlugin.warning(firstError);
   }
 };
-
 </script>

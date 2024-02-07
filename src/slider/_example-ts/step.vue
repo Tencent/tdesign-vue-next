@@ -5,13 +5,12 @@
     <t-slider v-model="value2" range :show-tooltip="true" :step="step" />
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { SliderProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const value1 = ref(12);
 const value2 = ref([30, 70]);
 const step: SliderProps['step'] = 4;
-
 </script>
 <style>
 .slider-demo-container {

@@ -13,10 +13,9 @@
   </t-space>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { ref } from 'vue';
 const loading = ref(false);
-
 </script>
 
 <style scoped>

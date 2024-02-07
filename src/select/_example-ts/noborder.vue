@@ -9,7 +9,7 @@
     :options="options"
   />
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { SelectProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const options: SelectProps['options'] = [
@@ -27,5 +27,4 @@ const options: SelectProps['options'] = [
   },
 ];
 const value = ref('1');
-
 </script>

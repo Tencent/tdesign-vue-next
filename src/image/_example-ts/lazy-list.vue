@@ -15,7 +15,7 @@
   </t-space>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { ButtonProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import { RefreshIcon } from 'tdesign-icons-vue-next';
@@ -28,5 +28,4 @@ const list = ref(
 const renderRefreshIcon: ButtonProps['icon'] = () => {
   return <RefreshIcon />;
 };
-
 </script>

@@ -7,7 +7,7 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ImageProps } from 'tdesign-vue-next';
 import { onBeforeMount, ref } from 'vue';
 const mode = ['fill', 'contain', 'cover', 'none', 'scale-down'];
@@ -21,5 +21,4 @@ onBeforeMount(() => {
 const onError: ImageProps['onError'] = () => {
   console.log('onError');
 };
-
 </script>

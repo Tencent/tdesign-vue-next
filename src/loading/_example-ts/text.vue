@@ -12,10 +12,9 @@
     </t-loading>
   </t-space>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { LoadingProps } from 'tdesign-vue-next';
 const renderText: LoadingProps['text'] = () => {
   return <span>变量文字加载中...</span>;
 };
-
 </script>

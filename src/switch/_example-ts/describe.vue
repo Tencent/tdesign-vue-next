@@ -32,7 +32,7 @@
     </t-space>
   </t-space>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { SwitchProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import { CloseIcon, CheckIcon } from 'tdesign-icons-vue-next';
@@ -49,7 +49,6 @@ const renderInactiveContent = () => {
 const renderContent: SwitchProps['label'] = (h, data) => {
   return data.value ? <CheckIcon /> : <CloseIcon />;
 };
-
 </script>
 
 <style scoped>

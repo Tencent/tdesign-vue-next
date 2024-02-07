@@ -9,7 +9,7 @@
   </t-space>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { CascaderPanelProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const options: CascaderPanelProps['options'] = [
@@ -48,7 +48,6 @@ const options: CascaderPanelProps['options'] = [
 ];
 const value = ref('');
 const value2 = ref([]);
-
 </script>
 <style>
 .cascader-demo-panel-container {

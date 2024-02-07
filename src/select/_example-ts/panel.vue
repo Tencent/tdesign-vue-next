@@ -30,7 +30,7 @@
     </t-select>
   </t-space>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { SelectProps, TextareaProps, ButtonProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const OPTIONS = [
@@ -86,7 +86,7 @@ const onAddConfirm: ButtonProps['onClick'] = () => {
   const id = Math.round(Math.random() * 100);
   options2.value.push({
     label: newOption.value,
-    value: id,
+    value: id.toString(),
   });
   newOption.value = '';
   editOrCreate.value = 'create';
@@ -94,7 +94,6 @@ const onAddConfirm: ButtonProps['onClick'] = () => {
 const onAddCancel: ButtonProps['onClick'] = () => {
   editOrCreate.value = 'create';
 };
-
 </script>
 <style scoped>
 .tdesign-demo-select-base {

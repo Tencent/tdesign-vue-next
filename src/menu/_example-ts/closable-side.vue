@@ -40,7 +40,7 @@
   </t-menu>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ButtonProps } from 'tdesign-vue-next';
 import { ref, computed } from 'vue';
 const collapsed = ref(false);

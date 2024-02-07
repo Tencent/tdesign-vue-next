@@ -4,7 +4,7 @@
     <t-tree-select v-model="mulValue" :data="options" clearable multiple value-type="object" placeholder="请选择" />
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { TreeSelectProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const options: TreeSelectProps['data'] = [
@@ -51,5 +51,4 @@ const mulValue = ref([
     value: 'shenzhen',
   },
 ]);
-
 </script>

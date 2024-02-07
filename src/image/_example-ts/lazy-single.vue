@@ -14,7 +14,7 @@
   </t-space>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { ref } from 'vue';
 import { RefreshIcon } from 'tdesign-icons-vue-next';
 import { Loading, ImageProps, ButtonProps } from 'tdesign-vue-next';
@@ -32,7 +32,8 @@ const renderLoading: ImageProps['loading'] = () => (
       height: '100%',
       background: 'rgba(255,255,255,.4)',
       backdropFilter: 'blur(10px)',
-    }}>
+    }}
+  >
     <Loading
       delay={0}
       fullscreen={false}
@@ -48,5 +49,4 @@ const renderLoading: ImageProps['loading'] = () => (
 const renderRefreshIcon: ButtonProps['icon'] = () => {
   return <RefreshIcon />;
 };
-
 </script>

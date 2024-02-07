@@ -29,7 +29,7 @@
     </t-timeline>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { TimelineProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const layout = ref<TimelineProps['layout']>('vertical');
@@ -53,5 +53,4 @@ const options = [
     content: '事件四',
   },
 ];
-
 </script>

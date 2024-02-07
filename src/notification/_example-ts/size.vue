@@ -4,11 +4,10 @@
     <t-notification title="文本内容最多支持三行" :content="content" />
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { NotificationProps } from 'tdesign-vue-next';
 const content: NotificationProps['content'] = `这是一条内容为******************************
       ****************************************************
       ****************************************************
       *********************的消息通知`;
-
 </script>

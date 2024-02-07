@@ -9,7 +9,7 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { TimePickerProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const time1 = ref('11:12:10');
@@ -25,5 +25,4 @@ const disableTime: TimePickerProps['disableTime'] = (h) => {
     hour: disableHour,
   };
 };
-
 </script>

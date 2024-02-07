@@ -25,11 +25,10 @@
   </t-steps>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { StepsProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const current = ref<StepsProps['current']>(0);
-
 </script>
 <style lang="less" scoped>
 .steps-demos-extra {

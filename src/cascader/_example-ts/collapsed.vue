@@ -17,7 +17,7 @@
   </t-space>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { CascaderProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const options: CascaderProps['options'] = [
@@ -70,12 +70,12 @@ const collapsedItems: CascaderProps['collapsedItems'] = (h, { value, count }) =>
             ))}
           </div>
         ),
-      }}>
+      }}
+    >
       <span v-show={count > 0} style="color: #ED7B2F; margin-left: 10px;">
         +{count - 1}
       </span>
     </t-popup>
   );
 };
-
 </script>

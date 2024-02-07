@@ -5,11 +5,10 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 const time1 = ref('20:22');
 const time2 = ref('21:22');
-
 </script>
 
 <style scoped>

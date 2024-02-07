@@ -18,7 +18,7 @@
     </template>
   </t-select-input>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { SelectInputProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const options = [
@@ -47,12 +47,12 @@ const options = [
     value: 6,
   },
 ];
-const selectValue = ref<{ label: string, value: number }>({
+const selectValue = ref<{ label: string; value: number }>({
   label: 'tdesign-vue',
   value: 1,
 });
 const popupVisible = ref(false);
-const onOptionClick = (item: { label: string, value: number }) => {
+const onOptionClick = (item: { label: string; value: number }) => {
   selectValue.value = item;
   popupVisible.value = false;
 };
@@ -62,7 +62,6 @@ const onClear: SelectInputProps['onClear'] = () => {
 const onPopupVisibleChange: SelectInputProps['onPopupVisibleChange'] = (val) => {
   popupVisible.value = val;
 };
-
 </script>
 <style lang="less" scoped>
 .tdesign-demo__select-input-ul-borderless {
