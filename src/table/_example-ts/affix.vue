@@ -32,10 +32,11 @@
     </t-table>
   </div>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TableProps, RowClassNameParams, TableRowData, DragSortContext } from 'tdesign-vue-next';
 import { ref, watch, h, computed } from 'vue';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+
 const statusNameListMap = {
   0: {
     label: '审批通过',
@@ -53,7 +54,7 @@ const statusNameListMap = {
     icon: <ErrorCircleFilledIcon />,
   },
 };
-function getData(count) {
+function getData(count: number) {
   const data: TableProps['data'] = [];
   for (let i = 0; i < count; i++) {
     data.push({
@@ -72,8 +73,9 @@ function getData(count) {
   return data;
 }
 const TOTAL = 38;
-function getColumns(h, { fixedLeftColumn, fixedRightColumn }) {
-  return [
+
+function getColumns({ fixedLeftColumn, fixedRightColumn }: { fixedLeftColumn: boolean; fixedRightColumn: boolean }) {
+  const columns: TableProps['columns'] = [
     {
       align: 'left',
       colKey: 'applicant',
@@ -130,6 +132,8 @@ function getColumns(h, { fixedLeftColumn, fixedRightColumn }) {
       fixed: fixedRightColumn ? 'right' : undefined,
     },
   ];
+
+  return columns;
 }
 const data: TableProps['data'] = getData(TOTAL);
 // 表尾有一行数据
@@ -200,7 +204,8 @@ const horizontalScrollAffixedBottomProps = computed<TableProps['horizontalScroll
 watch(
   fixedLeftColumn,
   (val) => {
-    columns.value = getColumns(h, {
+    // @ts-ignore
+    columns.value = getColumns({
       fixedLeftColumn: val,
       fixedRightColumn: fixedRightColumn.value,
     });
@@ -214,7 +219,7 @@ watch(
 watch(
   fixedRightColumn,
   (val) => {
-    columns.value = getColumns(h, {
+    columns.value = getColumns({
       fixedLeftColumn: fixedLeftColumn.value,
       fixedRightColumn: val,
     });
@@ -223,5 +228,4 @@ watch(
     immediate: true,
   },
 );
-
 </script>

@@ -16,7 +16,7 @@
   </div>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TableProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
@@ -38,7 +38,7 @@ const statusNameListMap = {
   },
 };
 function getData(total = 500) {
-  const initialData = [];
+  const initialData: TableProps['data'] = [];
   for (let i = 0; i < total; i++) {
     initialData.push({
       index: i + 1,
@@ -115,5 +115,4 @@ const onDragSort: TableProps['onDragSort'] = (params) => {
   console.log('交换行', params);
   data.value = params.newData;
 };
-
 </script>

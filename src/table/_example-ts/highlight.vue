@@ -23,13 +23,13 @@
   </t-space>
 </template>
 
-<script lang='tsx'>
+<script lang="tsx">
 export default {
   name: 'HighlightTable',
 };
 </script>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TableProps } from 'tdesign-vue-next';
 import { ref, watch } from 'vue';
 const activeRowType = ref<TableProps['activeRowType']>('single');
@@ -81,5 +81,4 @@ function getTableData(total = 5) {
   }
   return data;
 }
-
 </script>

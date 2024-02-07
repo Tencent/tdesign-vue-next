@@ -12,7 +12,7 @@
     />
   </div>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TableProps } from 'tdesign-vue-next';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 const statusNameListMap = {
@@ -116,5 +116,4 @@ const rowspanAndColspan: TableProps['rowspanAndColspan'] = ({ col, rowIndex, col
     };
   }
 };
-
 </script>

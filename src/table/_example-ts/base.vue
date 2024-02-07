@@ -36,7 +36,7 @@
   </t-space>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TableProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
@@ -119,5 +119,4 @@ const pagination: TableProps['pagination'] = {
   defaultPageSize: 5,
   total,
 };
-
 </script>

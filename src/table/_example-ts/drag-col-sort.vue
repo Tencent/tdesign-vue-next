@@ -8,7 +8,7 @@
   </div>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TableProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
@@ -97,5 +97,4 @@ const onDragSort: TableProps['onDragSort'] = ({
     columns.value = newData;
   }
 };
-
 </script>

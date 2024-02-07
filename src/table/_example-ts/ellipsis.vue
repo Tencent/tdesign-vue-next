@@ -22,7 +22,7 @@
   </div>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { ref } from 'vue';
 import { MessagePlugin, TableProps } from 'tdesign-vue-next';
 import {
@@ -173,5 +173,4 @@ const columns = ref<TableProps['columns']>([
     ),
   },
 ]);
-
 </script>

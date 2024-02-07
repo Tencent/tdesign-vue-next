@@ -8,7 +8,7 @@
     </t-table>
   </div>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TableProps } from 'tdesign-vue-next';
 import {
   UserCircleIcon,
@@ -88,7 +88,6 @@ const columns: TableProps['columns'] = [
     },
   },
 ];
-
 </script>
 <style scoped>
 .link {

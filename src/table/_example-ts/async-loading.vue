@@ -18,7 +18,7 @@
   </div>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TableProps } from 'tdesign-vue-next';
 import { ref, computed } from 'vue';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
@@ -91,7 +91,9 @@ const columns: TableProps['columns'] = [
 const asyncLoading = ref<'loading' | 'load-more' | 'loading-custom'>('loading');
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const customLoadingNode: TableProps['asyncLoading'] = (h) => <div class="t-table--loading-async">这是自定义加载状态和内容</div>;
+const customLoadingNode: TableProps['asyncLoading'] = (h) => (
+  <div class="t-table--loading-async">这是自定义加载状态和内容</div>
+);
 const loadingNode = computed<TableProps['asyncLoading']>(() =>
   asyncLoading.value === 'loading-custom' ? customLoadingNode : asyncLoading.value,
 );
@@ -100,5 +102,4 @@ const onAsyncLoadingClick: TableProps['onAsyncLoadingClick'] = ({ status }) => {
     asyncLoading.value = 'loading';
   }
 };
-
 </script>

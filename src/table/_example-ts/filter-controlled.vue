@@ -35,12 +35,19 @@
         <div><FilterIcon /> {{ colIndex }}</div>
       </template>
     -->
-    <t-table row-key="key" :columns="columns" :data="data" :filter-value="filterValue" :bordered="bordered" lazy-load
-      @filter-change="onFilterChange" />
+    <t-table
+      row-key="key"
+      :columns="columns"
+      :data="data"
+      :filter-value="filterValue"
+      :bordered="bordered"
+      lazy-load
+      @filter-change="onFilterChange"
+    />
   </div>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { ref, computed } from 'vue';
 import { DateRangePickerPanel, TableProps, ButtonProps, BaseTableCol } from 'tdesign-vue-next';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
@@ -240,14 +247,13 @@ const setFilters: ButtonProps['onClick'] = () => {
 };
 
 // const getAttach = () => document.body;
-
 </script>
 <style scoped>
 .table-operations {
   margin-bottom: 16px;
 }
 
-.table-operations>button {
+.table-operations > button {
   margin-right: 8px;
 }
 </style>

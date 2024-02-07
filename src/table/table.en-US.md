@@ -1,6 +1,7 @@
 :: BASE_DOC ::
 
 ## API
+
 ### BaseTable Props
 
 name | type | default | description | required
@@ -198,6 +199,7 @@ validate | `(context: PrimaryTableValidateContext)` | trigger after row data val
 
 name | params | return | description
 -- | -- | -- | --
+clearValidateData | \- | \- | required。clear all validated errors
 validateRowData | `(rowValue: any)` | `Promise<{ trigger: TableValidateTrigger, result: ErrorListObjectType<T>[] }>` | required。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`type ErrorListObjectType<T> = PrimaryTableRowEditContext<T> & { errorList: AllValidateResult[] }`<br/>
 validateTableData | \- | `Promise<{ result: TableErrorListMap }>` | required
 

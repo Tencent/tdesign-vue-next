@@ -26,7 +26,7 @@
   </t-space>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TableProps, TableInstanceFunctions, ButtonProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
@@ -102,7 +102,7 @@ for (let i = 0; i < 10; i++) {
 }
 const times = Array.from(new Array(1000), () => '');
 const testData: TableProps['data'] = [];
-times.forEach((item, i) => {
+times.forEach((_item, i) => {
   const k = i % 10;
   testData[i] = {
     ...initialData[k],
@@ -133,5 +133,4 @@ const height = ref<TableProps['height']>(300);
 // const setHigherHeight = () => {
 //   height.value = 600;
 // };
-
 </script>

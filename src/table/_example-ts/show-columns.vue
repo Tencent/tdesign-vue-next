@@ -16,7 +16,7 @@
   </div>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TableProps } from 'tdesign-vue-next';
 const columns: TableProps['columns'] = [
   {
@@ -72,7 +72,6 @@ const data: TableProps['data'] = [
     description: 'test',
   },
 ];
-
 </script>
 
 <style lang="less" scoped>

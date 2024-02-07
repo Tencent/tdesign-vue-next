@@ -9,7 +9,7 @@
     <t-table :data="[]" :columns="columns" :row-key="rowKey" :size="size" :loading="renderLoading" />
   </div>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TableProps } from 'tdesign-vue-next';
 const data: TableProps['data'] = [];
 const columns: TableProps['columns'] = [
@@ -67,5 +67,4 @@ const renderLoading: TableProps['loading'] = () => (
 );
 const rowKey: TableProps['rowKey'] = 'property';
 const size: TableProps['size'] = 'small';
-
 </script>

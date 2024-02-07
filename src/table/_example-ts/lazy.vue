@@ -15,7 +15,7 @@
   </div>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TableProps, ButtonProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
@@ -104,5 +104,4 @@ const reset: ButtonProps['onClick'] = () => {
     data.value = testData;
   });
 };
-
 </script>

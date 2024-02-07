@@ -28,7 +28,7 @@
     </t-table>
   </div>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TableProps, RowClassNameParams, TableRowData } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
@@ -119,12 +119,11 @@ const rowspanAndColspanInFooter: TableProps['rowspanAndColspanInFooter'] = ({ ro
       colspan: columns.length - 2,
     };
   return {};
-}
+};
 
 // type 可选值：foot 和 body
 function rowClassName({ type }: RowClassNameParams<TableRowData>) {
   if (type === 'foot') return 't-tdesign__custom-footer-tr';
   return 't-tdesign__custom-body-tr';
 }
-
 </script>

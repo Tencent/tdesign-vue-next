@@ -20,7 +20,7 @@
     />
   </t-space>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TableProps } from 'tdesign-vue-next';
 import { ref, reactive } from 'vue';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
@@ -126,5 +126,4 @@ const onPageChange: TableProps['onPageChange'] = (pageInfo, context) => {
 const onSelectChange: TableProps['onSelectChange'] = (selectedRowKeys, context) => {
   console.log(selectedRowKeys, context);
 };
-
 </script>

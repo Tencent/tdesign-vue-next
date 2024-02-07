@@ -9,7 +9,7 @@
   </div>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TableProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import {
@@ -116,7 +116,6 @@ const getRowClassName: TableProps['rowClassName'] = ({ rowIndex }) => {
   if (rowIndex === 2) return 'custom-third-class-name';
   return '';
 };
-
 </script>
 
 <style>

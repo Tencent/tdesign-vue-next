@@ -14,7 +14,7 @@
     @select-change="onSelectChange"
   />
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { PaginationProps, TableProps } from 'tdesign-vue-next';
 import { ref, onMounted } from 'vue';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
@@ -55,7 +55,7 @@ const columns: TableProps['columns'] = [
   {
     colKey: 'status',
     title: '申请状态',
-    cell: (h, { row, rowIndex }) => {
+    cell: (h, { rowIndex }) => {
       const status = rowIndex % 3;
       return (
         <t-tag shape="round" theme={statusNameListMap[status].theme} variant="light-outline">
@@ -126,5 +126,4 @@ const onSelectChange: TableProps['onSelectChange'] = (value, params) => {
   console.log(value, params);
 };
 const rowKey: TableProps['rowKey'] = 'phone';
-
 </script>

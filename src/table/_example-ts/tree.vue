@@ -54,7 +54,7 @@
     ></t-enhanced-table> -->
   </div>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { ref, reactive, computed /** , onMounted */ } from 'vue';
 import {
   EnhancedTable as TEnhancedTable,
@@ -63,8 +63,8 @@ import {
   EnhancedTableProps,
   EnhancedTableInstanceFunctions,
   ButtonProps,
-TableTreeNodeExpandOptions,
-TableRowData,
+  TableTreeNodeExpandOptions,
+  TableRowData,
 } from 'tdesign-vue-next';
 import {
   ChevronRightIcon,
@@ -73,9 +73,24 @@ import {
   AddRectangleIcon,
   MinusRectangleIcon,
 } from 'tdesign-icons-vue-next';
+
+interface TableData {
+  id: number;
+  key: string;
+  platform: string;
+  type: string;
+  default: string;
+  detail: {
+    position: string;
+  };
+  needed: string;
+  description: string;
+  list?: boolean | TableData[];
+}
+
 const TOTAL = 5;
-function getObject(i, currentPage) {
-  return {
+function getObject(i: number, currentPage: number) {
+  const columns = {
     id: i,
     key: `申请人 ${i}_${currentPage} 号`,
     platform: ['电子签署', '纸质签署', '纸质签署'][i % 3],
@@ -87,12 +102,13 @@ function getObject(i, currentPage) {
     needed: i % 4 === 0 ? '是' : '否',
     description: '数据源',
   };
+  return columns;
 }
 function getData(currentPage = 1) {
-  const data: EnhancedTableProps['data'] = [];
+  const data: TableData[] = [];
   // const pageInfo = `第 ${currentPage} 页`;
   for (let i = 0; i < TOTAL; i++) {
-    const obj = getObject(i, currentPage);
+    const obj: TableData = getObject(i, currentPage);
     // 第一行不设置子节点
     obj.list = new Array(2).fill(null).map((t, j) => {
       const secondIndex = 100 * j + (i + 1) * 10;
@@ -440,7 +456,6 @@ const treeExpandIcon = computed<EnhancedTableProps['treeExpandAndFoldIcon']>(() 
   }
   return lazyLoadingTreeIconRender;
 });
-
 </script>
 
 <style>

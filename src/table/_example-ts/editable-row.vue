@@ -21,7 +21,7 @@
   </div>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { ref, computed } from 'vue';
 import {
   Input,
@@ -31,7 +31,7 @@ import {
   TableInstanceFunctions,
   TableProps,
   PrimaryTableValidateContext,
-BaseTableCol,
+  BaseTableCol,
 } from 'tdesign-vue-next';
 import dayjs from 'dayjs';
 const initData = new Array(5).fill(null).map((_, i) => ({
@@ -60,25 +60,25 @@ const editableRowKeys = ref<TableProps['editableRowKeys']>(['1']);
 const currentSaveId = ref('');
 // 保存变化过的行信息
 const editMap = {};
-const onEdit = (e) => {
-  const { id } = e.currentTarget.dataset;
+const onEdit = (e: MouseEvent) => {
+  const { id } = (e.currentTarget as HTMLElement).dataset;
   if (!editableRowKeys.value.includes(id)) {
     editableRowKeys.value.push(id);
   }
 };
 
 // 更新 editableRowKeys
-const updateEditState = (id) => {
+const updateEditState = (id: string) => {
   const index = editableRowKeys.value.findIndex((t) => t === id);
   editableRowKeys.value.splice(index, 1);
 };
-const onCancel = (e) => {
-  const { id } = e.currentTarget.dataset;
+const onCancel = (e: MouseEvent) => {
+  const { id } = (e.currentTarget as HTMLElement).dataset;
   updateEditState(id);
-  tableRef.value.clearValidateData();
+  tableRef.value?.clearValidateData();
 };
-const onSave = (e) => {
-  const { id } = e.currentTarget.dataset;
+const onSave = (e: MouseEvent) => {
+  const { id } = (e.currentTarget as HTMLElement).dataset;
   currentSaveId.value = id;
   // 触发内部校验，而后也可在 onRowValidate 中接收异步校验结果
   tableRef.value.validateRowData(id).then((params) => {
@@ -251,7 +251,7 @@ const columns = computed<TableProps['columns']>(() => [
               label: 'algolia 服务报销',
               value: 'algolia 服务报销',
             },
-            // 如果状态选择了 已过期，则 Letters 隐藏 G 和 H
+            // 如果状态选择了 已过期，则 Letters 隐藏 G 和 h
             {
               label: '相关周边制作费',
               value: '相关周边制作费',
@@ -327,7 +327,6 @@ const columns = computed<TableProps['columns']>(() => [
     },
   },
 ]);
-
 </script>
 
 <style>

@@ -20,7 +20,7 @@
   </div>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { ref, computed } from 'vue';
 import {
   Input,
@@ -30,9 +30,21 @@ import {
   TableProps,
   TableInstanceFunctions,
   ButtonProps,
-BaseTableCol,
+  BaseTableCol,
+  TableEditableCellPropsParams,
+  PrimaryTableOnEditedContext,
 } from 'tdesign-vue-next';
 import dayjs from 'dayjs';
+
+interface TableData {
+  key: string;
+  firstName: string;
+  status: number;
+  email: string;
+  letters: string[];
+  createTime: string;
+}
+
 const initData = new Array(5).fill(null).map((_, i) => ({
   key: String(i + 1),
   firstName: ['贾明', '张三', '王芳'][i % 3],
@@ -102,7 +114,7 @@ const columns = computed<TableProps['columns']>(() => [
         onBlur: () => {
           console.log('失去焦点', editContext);
         },
-        onEnter: (ctx) => {
+        onEnter: (ctx: { e: { preventDefault: () => void } }) => {
           ctx?.e?.preventDefault();
           console.log('onEnter', ctx);
         },
@@ -138,22 +150,22 @@ const columns = computed<TableProps['columns']>(() => [
     title: '申请状态',
     colKey: 'status',
     cell: (h, { row }) => STATUS_OPTIONS.find((t) => t.value === row.status)?.label,
-    edit: {
+    1: {
       component: Select,
       // props, 透传全部属性到 Select 组件
       props: {
         clearable: true,
         options: STATUS_OPTIONS,
       },
-      on: (editContext) => ({
-        onChange: (params) => {
+      on: (editContext: TableEditableCellPropsParams<TableData>) => ({
+        onChange: (params: any) => {
           console.log('status changed', editContext, params);
         },
       }),
       // 除了点击非自身元素退出编辑态之外，还有哪些事件退出编辑态
       // abortEditOnEvent: ['onChange'],
       // 编辑完成，退出编辑态后触发
-      onEdited: (context) => {
+      onEdited: (context: PrimaryTableOnEditedContext<TableData>) => {
         data.value.splice(context.rowIndex, 1, context.newRowData);
         console.log('Edit Framework:', context);
         MessagePlugin.success('Success');
@@ -171,7 +183,7 @@ const columns = computed<TableProps['columns']>(() => [
       // props, 透传全部属性到 Select 组件
       // props 为函数时，参数有：col, row, rowIndex, colIndex, editedRow。一般用于实现编辑组件之间的联动
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      props: ({ col, row, rowIndex, colIndex, editedRow }) => {
+      props: ({ editedRow }) => {
         return {
           multiple: true,
           minCollapsedNum: 1,
@@ -184,7 +196,7 @@ const columns = computed<TableProps['columns']>(() => [
               label: 'algolia 服务报销',
               value: 'algolia 服务报销',
             },
-            // 如果状态选择了 已过期，则 Letters 隐藏 G 和 H
+            // 如果状态选择了 已过期，则 Letters 隐藏 G 和 h
             {
               label: '相关周边制作费',
               value: '相关周边制作费',
@@ -236,5 +248,4 @@ const columns = computed<TableProps['columns']>(() => [
     },
   },
 ]);
-
 </script>
