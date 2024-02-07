@@ -102,7 +102,7 @@ function getColumns(fixedLeftCol: boolean, fixedRightCol: boolean) {
           fixed: fixedLeftCol ? 'left' : undefined,
           width: 120,
           sorter: (a, b) => a.default - b.default,
-          cell: (H, { row }) => {
+          cell: (h, { row }) => {
             return (
               <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
                 {statusNameListMap[row.status].icon}

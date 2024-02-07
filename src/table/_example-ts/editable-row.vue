@@ -186,7 +186,7 @@ const columns = computed<TableProps['columns']>(() => [
   {
     title: '申请状态',
     colKey: 'status',
-    cell: (H, { row }) => STATUS_OPTIONS.find((t) => t.value === row.status)?.label,
+    cell: (h, { row }) => STATUS_OPTIONS.find((t) => t.value === row.status)?.label,
     edit: {
       component: Select,
       // props, 透传全部属性到 Select 组件
@@ -227,7 +227,7 @@ const columns = computed<TableProps['columns']>(() => [
   {
     title: '申请事项',
     colKey: 'letters',
-    cell: (H, { row }) => row.letters.join('、'),
+    cell: (h, { row }) => row.letters.join('、'),
     edit: {
       component: Select,
       /**
@@ -251,7 +251,7 @@ const columns = computed<TableProps['columns']>(() => [
               label: 'algolia 服务报销',
               value: 'algolia 服务报销',
             },
-            // 如果状态选择了 已过期，则 Letters 隐藏 G 和 H
+            // 如果状态选择了 已过期，则 Letters 隐藏 G 和 h
             {
               label: '相关周边制作费',
               value: '相关周边制作费',
@@ -303,7 +303,7 @@ const columns = computed<TableProps['columns']>(() => [
     title: '操作栏',
     colKey: 'operate',
     width: 150,
-    cell: (H, { row }) => {
+    cell: (h, { row }) => {
       const editable = editableRowKeys.value.includes(row.key);
       return (
         <div class="table-operations">

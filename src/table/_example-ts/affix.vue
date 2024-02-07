@@ -74,8 +74,7 @@ function getData(count: number) {
 }
 const TOTAL = 38;
 
-// @ts-ignore
-function getColumns(h, { fixedLeftColumn, fixedRightColumn }: { fixedLeftColumn: boolean; fixedRightColumn: boolean }) {
+function getColumns({ fixedLeftColumn, fixedRightColumn }: { fixedLeftColumn: boolean; fixedRightColumn: boolean }) {
   const columns: TableProps['columns'] = [
     {
       align: 'left',
@@ -89,7 +88,7 @@ function getColumns(h, { fixedLeftColumn, fixedRightColumn }: { fixedLeftColumn:
       colKey: 'status',
       title: '申请状态',
       width: '150',
-      cell: (H, { row }) => {
+      cell: (h, { row }) => {
         return (
           <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
             {statusNameListMap[row.status].icon}
@@ -123,7 +122,7 @@ function getColumns(h, { fixedLeftColumn, fixedRightColumn }: { fixedLeftColumn:
     {
       colKey: 'operation',
       title: '操作',
-      cell: (H, { row }) => (
+      cell: (h, { row }) => (
         <t-link hover="color" theme="primary">
           {row.status === 0 ? '查看详情' : '再次申请'}
         </t-link>
@@ -206,7 +205,7 @@ watch(
   fixedLeftColumn,
   (val) => {
     // @ts-ignore
-    columns.value = getColumns(h, {
+    columns.value = getColumns({
       fixedLeftColumn: val,
       fixedRightColumn: fixedRightColumn.value,
     });
@@ -220,7 +219,7 @@ watch(
 watch(
   fixedRightColumn,
   (val) => {
-    columns.value = getColumns(h, {
+    columns.value = getColumns({
       fixedLeftColumn: fixedLeftColumn.value,
       fixedRightColumn: val,
     });

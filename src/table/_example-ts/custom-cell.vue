@@ -75,7 +75,7 @@ const columns: TableProps['columns'] = [
     title: '邮箱地址',
     colKey: 'email',
     // render 即可渲染表头，也可以渲染单元格。但 cell 只能渲染单元格，title 只能渲染表头
-    render(H, context) {
+    render(h, context) {
       const { type, row, col } = context;
       if (type === 'title') return '邮箱地址';
       return <div>{row[col.colKey]}</div>;

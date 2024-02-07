@@ -47,7 +47,7 @@ const columns: TableProps['columns'] = [
   {
     colKey: 'name',
     title: '姓名',
-    render(H, { type, row: { name } }) {
+    render(h, { type, row: { name } }) {
       if (type === 'title') return '申请人';
       return name ? `${name.first} ${name.last}` : 'UNKNOWN_USER';
     },
@@ -55,7 +55,7 @@ const columns: TableProps['columns'] = [
   {
     colKey: 'status',
     title: '申请状态',
-    cell: (H, { rowIndex }) => {
+    cell: (h, { rowIndex }) => {
       const status = rowIndex % 3;
       return (
         <t-tag shape="round" theme={statusNameListMap[status].theme} variant="light-outline">
@@ -68,7 +68,7 @@ const columns: TableProps['columns'] = [
   {
     colKey: 'phone',
     title: '联系方式',
-    render(H, { row: { phone } }) {
+    render(h, { row: { phone } }) {
       return phone;
     },
   },

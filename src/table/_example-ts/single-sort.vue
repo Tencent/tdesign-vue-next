@@ -65,7 +65,7 @@ const columns = ref<TableProps['columns']>([
     width: '150',
     sortType: 'all',
     sorter: true,
-    cell: (H, { row }) => {
+    cell: (h, { row }) => {
       return (
         <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
           {statusNameListMap[row.status].icon}

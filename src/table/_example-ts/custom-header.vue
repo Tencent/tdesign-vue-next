@@ -56,13 +56,13 @@ const columns: TableProps['columns'] = [
   },
   {
     colKey: 'matters',
-    title: (H, { colIndex }) => <b style="font-wight: bold">{['', '申请事项'][colIndex]}</b>,
+    title: (h, { colIndex }) => <b style="font-wight: bold">{['', '申请事项'][colIndex]}</b>,
   },
   {
     title: '审批状态',
     colKey: 'status',
     // 使用 cell 方法自定义单元格：
-    cell: (H, { row }) => {
+    cell: (h, { row }) => {
       return (
         <t-tag shape="round" theme={statusNameListMap[row.status].theme} variant="light-outline">
           {statusNameListMap[row.status].icon}
