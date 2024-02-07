@@ -62,8 +62,8 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
-import { TreeProps, TreeInstanceFunctions } from 'tdesign-vue-next';
+<script lang="ts" setup>
+import { TreeProps, TreeInstanceFunctions, TreeOptionData, TypeTreeNodeModel } from 'tdesign-vue-next';
 import { ref, computed } from 'vue';
 const allLevels = [5, 5, 5];
 function createTreeData() {
@@ -72,13 +72,13 @@ function createTreeData() {
     cacheIndex += 1;
     return `t${cacheIndex}`;
   }
-  function createNodes(items, level) {
+  function createNodes(items: TreeProps['data'], level: number) {
     const count = allLevels[level];
     if (count) {
       let index = 0;
       for (index = 0; index < count; index += 1) {
         const value = getValue();
-        const item = {
+        const item: TreeOptionData = {
           value,
         };
         items.push(item);
@@ -117,7 +117,7 @@ const getInsertItem = () => {
     value,
   };
 };
-const append = (node) => {
+const append = (node?: TypeTreeNodeModel) => {
   if (!node) {
     for (let index = 0; index < insertCount.value; index += 1) {
       const item = getInsertItem();
@@ -130,8 +130,7 @@ const append = (node) => {
     }
   }
 };
-const remove = (node) => {
+const remove = (node: TypeTreeNodeModel) => {
   node.remove();
 };
-
 </script>

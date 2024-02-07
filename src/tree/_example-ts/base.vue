@@ -4,7 +4,7 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { TreeProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const items = ref<TreeProps['data']>([
@@ -53,5 +53,4 @@ const items = ref<TreeProps['data']>([
     ],
   },
 ]);
-
 </script>

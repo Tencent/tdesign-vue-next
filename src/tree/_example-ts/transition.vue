@@ -26,7 +26,7 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { TreeProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const initialData = [
@@ -87,5 +87,4 @@ const items = ref<TreeProps['data']>(initialData);
 const label: TreeProps['label'] = (h, node) => {
   return `${node.value}`;
 };
-
 </script>

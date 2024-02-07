@@ -15,7 +15,7 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { TreeProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const items = ref<TreeProps['data']>([
@@ -46,5 +46,4 @@ const label = ref<TreeProps['label']>((h, node) => {
   // 注意 vue2 和 vue3 下 h 的使用方法实际上存在差异
   return h('strong', `value: ${node.value}, label: ${node.label}`);
 });
-
 </script>

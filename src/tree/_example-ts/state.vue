@@ -28,8 +28,8 @@
   </t-space>
 </template>
 
-<script lang='tsx' setup>
-import { TreeInstanceFunctions, TreeProps } from 'tdesign-vue-next';
+<script lang="tsx" setup>
+import { TreeInstanceFunctions, TreeProps, TypeTreeNodeModel } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import { Icon } from 'tdesign-icons-vue-next';
 const tree = ref<TreeInstanceFunctions>();
@@ -45,7 +45,7 @@ const items = ref<TreeProps['data']>([
 const icon: TreeProps['icon'] = (h, node) => {
   const { data } = node;
   let name = 'file';
-  if (node.getChildren()) {
+  if (node.getChildren(false)) {
     if (node.expanded) {
       name = 'folder-open';
     } else {
@@ -70,7 +70,7 @@ const getInsertItem = () => {
   };
   return item;
 };
-const append = (node) => {
+const append = (node?: TypeTreeNodeModel) => {
   const item = getInsertItem();
   if (item) {
     if (!node) {
@@ -80,26 +80,25 @@ const append = (node) => {
     }
   }
 };
-const check = (node) => {
+const check = (node: TypeTreeNodeModel) => {
   console.info('check:', node);
 };
-const changeIcon = (node) => {
+const changeIcon = (node: TypeTreeNodeModel) => {
   const { data } = node;
-  const icon: TreeProps['icon'] = data.icon === 'folder' ? 'folder-open' : 'folder';
+  const icon = data.icon === 'folder' ? 'folder-open' : 'folder';
   // vue3 中，由于并未使用 defineProperty 进行属性监听，所以节点数据的直接变更未能反馈到 ui 组件
   // 因此提供 node.setData 方法专门处理这个问题，setData 方法触发 update 事件，通知 ui 组件更新
   node.setData({
     icon,
   });
 };
-const changeTime = (node) => {
+const changeTime = (node: TypeTreeNodeModel) => {
   const timeStamp = new Date().getTime();
   node.setData({
     timeStamp,
   });
 };
-const remove = (node) => {
+const remove = (node: TypeTreeNodeModel) => {
   node.remove();
 };
-
 </script>

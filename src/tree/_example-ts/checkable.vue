@@ -33,7 +33,7 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { TreeInstanceFunctions, TreeProps, ButtonProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const treeItems = [
@@ -159,7 +159,7 @@ const onChange: TreeProps['onChange'] = (checked, context) => {
 const selectInvert: ButtonProps['onClick'] = () => {
   // 取得所有节点
   const items: TreeProps['data'] = tree.value.getItems();
-  const revertSelection = [];
+  const revertSelection: TreeProps['value'] = [];
   items.forEach((item) => {
     if (!item.checked && !item.indeterminate) {
       // checked 为 true, 为直接选中状态
@@ -169,5 +169,4 @@ const selectInvert: ButtonProps['onClick'] = () => {
   });
   allChecked.value = revertSelection;
 };
-
 </script>

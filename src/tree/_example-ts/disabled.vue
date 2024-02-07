@@ -38,8 +38,8 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
-import { TreeInstanceFunctions, TreeProps } from 'tdesign-vue-next';
+<script lang="ts" setup>
+import { TreeInstanceFunctions, TreeProps, TypeTreeNodeModel } from 'tdesign-vue-next';
 import { ref } from 'vue'; // 预期规则:
 // 默认父节点被禁用，所有子节点一并呈现禁用状态
 // checkStrictly = true 时，父节点禁用状态不影响子节点禁用状态。
@@ -109,15 +109,15 @@ const items = ref<TreeProps['data']>([
 ]);
 const fnDisableCheck: TreeProps['disableCheck'] = (node) => {
   const map = disabledMap.value;
-  return map.get(node.value);
+  return map.get(String(node.value));
 };
 const label: TreeProps['label'] = (h, node) => {
-  return node.value;
+  return String(node.value);
 };
-const setEnable = (node) => {
+const setEnable = (node: TypeTreeNodeModel) => {
   const map = disabledMap.value;
   if (node.disabled) {
-    map.delete(node.value);
+    map.delete(String(node.value));
     // 移除节点本身的 disabled 属性
     // 这个属性在 data 中被预先定义
     // 如果不更新状态，则该节点仍然被视为禁用状态
@@ -127,15 +127,14 @@ const setEnable = (node) => {
     tree.value.refresh();
   }
 };
-const setDisable = (node) => {
+const setDisable = (node: TypeTreeNodeModel) => {
   const map = disabledMap.value;
   // 交给 disable-check 接管 disabled 属性判断
   // 注意这里的逻辑: 如果先禁用了某个子节点，再禁用其父节点
   // 启用父节点时，子节点会仍然为禁用状态，因为它还在 map 当中，这是符合逻辑的
-  map.set(node.value, true);
+  map.set(String(node.value), true);
   // 由于传递给 tree 的 disableCheck 函数未变更，所以不会自动更新节点状态
   // 需要调用 refresh 方法来更新节点状态
   tree.value.refresh();
 };
-
 </script>

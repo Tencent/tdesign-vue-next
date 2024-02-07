@@ -16,7 +16,7 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { TreeProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const items = ref<TreeProps['data']>([
@@ -90,5 +90,4 @@ const handleDragLeave: TreeProps['onDragLeave'] = (ctx) => {
 const handleDrop: TreeProps['onDrop'] = (ctx) => {
   console.log('handleDrop', ctx);
 };
-
 </script>

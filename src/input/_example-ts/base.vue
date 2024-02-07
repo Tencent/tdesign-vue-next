@@ -15,26 +15,23 @@
   </t-space>
 </template>
 <script lang="ts" setup>
-import { InputProps, InputValue } from 'tdesign-vue-next';
+import { InputProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import { SearchIcon } from 'tdesign-icons-vue-next';
 const input = ref('有默认值');
 const onEnter: InputProps['onEnter'] = () => {
   console.log('trigger enter');
 };
-const onChange: InputProps['onChange'] = (val: InputValue) => {
+const onChange: InputProps['onChange'] = (val) => {
   console.log(val);
 };
-const onFocus: InputProps['onFocus'] = (val: InputValue, ctx: { e: FocusEvent }) => {
+const onFocus: InputProps['onFocus'] = (val, ctx) => {
   console.log('focus:', val, ctx);
 };
-const onBlur: InputProps['onBlur'] = (val: InputValue, ctx: { e: FocusEvent }) => {
+const onBlur: InputProps['onBlur'] = (val, ctx) => {
   console.log('blur:', val, ctx);
 };
-const onNumberChange: InputProps['onChange'] = (
-  val: InputValue,
-  ctx: { e?: InputEvent | MouseEvent | CompositionEvent; trigger: 'input' | 'initial' | 'clear' },
-) => {
+const onNumberChange: InputProps['onChange'] = (val, ctx) => {
   console.log(val, ctx);
 };
 </script>
