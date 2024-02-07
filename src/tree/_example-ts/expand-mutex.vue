@@ -20,7 +20,7 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { TreeProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const mutex = ref(true);
@@ -90,5 +90,4 @@ const onExpand: TreeProps['onExpand'] = (value, context) => {
 const propOnExpand: TreeProps['onExpand'] = (value, context) => {
   console.info('propOnExpand', value, context);
 };
-
 </script>

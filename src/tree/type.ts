@@ -283,6 +283,10 @@ export interface TreeInstanceFunctions<T extends TreeOptionData = TreeOptionData
    */
   insertBefore: (value: TreeNodeValue, newData: T) => void;
   /**
+   * 刷新树节点状态，可用于搜索场景刷新
+   */
+  refresh: () => void;
+  /**
    * 移除指定节点
    */
   remove: (value: TreeNodeValue) => void;

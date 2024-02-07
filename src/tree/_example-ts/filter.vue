@@ -33,7 +33,7 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { TreeProps, InputProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const exampleItems = [
@@ -136,7 +136,7 @@ const demo1Input: InputProps['onChange'] = (state) => {
   if (demo1Text.value) {
     // 存在过滤文案，才启用过滤
     demo1Filter.value = (node) => {
-      const rs = node.data.label.indexOf(demo1Text.value) >= 0;
+      const rs = (node.data.label as string).indexOf(demo1Text.value) >= 0;
       // 命中的节点会强制展示
       // 命中节点的路径节点会锁定展示
       // 未命中的节点会隐藏
@@ -148,7 +148,6 @@ const demo1Input: InputProps['onChange'] = (state) => {
   }
 };
 const demo2Input: InputProps['onChange'] = () => {
-  demo2Filter.value = demo2Text.value ? (node) => node.data.label.indexOf(demo2Text.value) >= 0 : null;
+  demo2Filter.value = demo2Text.value ? (node) => (node.data.label as string).indexOf(demo2Text.value) >= 0 : null;
 };
-
 </script>

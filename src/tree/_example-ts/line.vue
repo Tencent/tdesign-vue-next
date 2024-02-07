@@ -40,10 +40,11 @@
   </t-space>
 </template>
 
-<script lang='tsx' setup>
-import { TreeProps } from 'tdesign-vue-next';
+<script lang="tsx" setup>
+import { TreeProps, TypeTreeNodeModel } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import { Icon } from 'tdesign-icons-vue-next';
+import { TypeCreateElement } from '../adapt';
 const showLine = ref<TreeProps['line']>(true);
 const showIcon = ref<TreeProps['icon']>(true);
 const items = ref<TreeProps['data']>([
@@ -120,11 +121,14 @@ const items = ref<TreeProps['data']>([
     label: '4',
   },
 ]);
-const getLineNodes = (node) => {
+
+type lineNodes = { cross?: boolean };
+
+const getLineNodes = (node: TypeTreeNodeModel) => {
   const nodes = node.getParents().reverse();
-  const lineNodes = [];
+  const lineNodes: lineNodes[] = [];
   nodes.forEach((item, index) => {
-    const line = {};
+    const line: lineNodes = {};
     const nextItem = nodes[index + 1];
     if (index < nodes.length - 1 && nextItem) {
       line.cross = !nextItem.isLast();
@@ -133,7 +137,7 @@ const getLineNodes = (node) => {
   });
   return lineNodes;
 };
-const lineClass = (node) => {
+const lineClass = (node: TypeTreeNodeModel) => {
   const list = ['custom-line'];
   if (node.isFirst()) {
     list.push('custom-line-first');
@@ -146,7 +150,7 @@ const lineClass = (node) => {
   }
   return list;
 };
-const renderLine: TreeProps['line'] = (h, node) => {
+const renderLine = (h: TypeCreateElement, node: TypeTreeNodeModel) => {
   if (!showLine.value) return null;
   const lineChildren = [];
   const lines = getLineNodes(node).map((item) =>
@@ -184,7 +188,6 @@ const renderLine: TreeProps['line'] = (h, node) => {
     lineChildren,
   );
 };
-
 </script>
 <style scoped>
 .tdesign-tree-line .custom-line {

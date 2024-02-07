@@ -12,7 +12,7 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { TreeProps, SwitchProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const data1 = [
@@ -100,7 +100,6 @@ const toggleData: SwitchProps['onChange'] = () => {
   items.value = tmpItems;
 };
 const label: TreeProps['label'] = (h, node) => {
-  return node.label || node.value;
+  return node.label || String(node.value);
 };
-
 </script>

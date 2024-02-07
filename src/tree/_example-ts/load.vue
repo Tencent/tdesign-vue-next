@@ -11,8 +11,8 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
-import { TreeProps } from 'tdesign-vue-next';
+<script lang="ts" setup>
+import { TreeOptionData, TreeProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const treeData = [
   {
@@ -38,7 +38,7 @@ const reload = () => {
 const load: TreeProps['load'] = (node) => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      let nodes = [];
+      let nodes: TreeOptionData[] = [];
       if (node.level < 2) {
         nodes = [
           {
@@ -57,5 +57,4 @@ const load: TreeProps['load'] = (node) => {
     }, 1000);
   });
 };
-
 </script>

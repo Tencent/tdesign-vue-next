@@ -66,8 +66,17 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
-import { TreeInstanceFunctions, TreeProps, ButtonProps, InputProps } from 'tdesign-vue-next';
+<script lang="ts" setup>
+import {
+  TreeInstanceFunctions,
+  TreeProps,
+  ButtonProps,
+  InputProps,
+  TreeNodeModel,
+  TreeOptionData,
+  TreeNodeValue,
+  TypeTreeNodeModel,
+} from 'tdesign-vue-next';
 import { ref } from 'vue';
 const tree = ref<TreeInstanceFunctions>();
 const index = ref(2);
@@ -87,7 +96,7 @@ const items = ref<TreeProps['data']>([
     value: 'node2',
   },
 ]);
-const getLabelContent = (node) => {
+const getLabelContent = (node: TreeNodeModel<TreeOptionData>) => {
   const pathNodes = node.getPath();
   let label = pathNodes.map((itemNode) => itemNode.getIndex() + 1).join('.');
   label = `${label} | value: ${node.value}`;
@@ -99,7 +108,7 @@ const getLabel: TreeProps['label'] = (h, node) => {
   data.label = label;
   return label;
 };
-const setLabel = (value) => {
+const setLabel = (value: TreeNodeValue) => {
   const node = tree.value.getItem(value);
   const label = getLabelContent(node);
   const { data } = node;
@@ -120,12 +129,14 @@ const getActivedNode = () => {
   const activeNode = tree.value.getItem(activeId.value);
   return activeNode;
 };
+type Nodes = TreeNodeModel<TreeOptionData>[];
 const getActiveChildren: ButtonProps['onClick'] = () => {
   const node = getActivedNode();
   if (!node) return;
-  let nodes = [];
+  let nodes: Nodes = [];
   if (node) {
-    nodes = node.getChildren(true) || [];
+    const nodeChildrens = node.getChildren(true);
+    nodes = typeof nodeChildrens === 'boolean' ? [] : nodeChildrens;
   }
   console.info(
     'getActiveChildren:',
@@ -157,7 +168,7 @@ const getInsertItem = () => {
   }
   return item;
 };
-const append = (node) => {
+const append = (node?: TypeTreeNodeModel) => {
   const item = getInsertItem();
   if (item) {
     if (!node) {
@@ -171,14 +182,14 @@ const append = (node) => {
     activeId.value = '';
   }
 };
-const insertBefore = (node) => {
+const insertBefore = (node: TypeTreeNodeModel) => {
   const item = getInsertItem();
   if (item) {
     tree.value.insertBefore(node.value, item);
     setLabel(item.value);
   }
 };
-const insertAfter = (node) => {
+const insertAfter = (node: TypeTreeNodeModel) => {
   const item = getInsertItem();
   if (item) {
     tree.value.insertAfter(node.value, item);
@@ -237,12 +248,12 @@ const getActivePlainData: ButtonProps['onClick'] = () => {
   }
   console.info('树结构数据:', treeNodes);
 };
-const toggleDisable = (node) => {
+const toggleDisable = (node: TypeTreeNodeModel) => {
   tree.value.setItem(node.value, {
     disabled: !node.disabled,
   });
 };
-const remove = (node) => {
+const remove = (node: TypeTreeNodeModel) => {
   tree.value.remove(node.value);
 };
 const onChange: TreeProps['onChange'] = (vals, state) => {
@@ -256,21 +267,20 @@ const onExpand: TreeProps['onExpand'] = (vals, state) => {
 const onActive: TreeProps['onActive'] = (vals, state) => {
   console.info('on active:', vals, state);
   activeIds.value = vals;
-  activeId.value = vals[0] || '';
+  activeId.value = String(vals[0]) || '';
 };
 const onInputChange: InputProps['onChange'] = (state) => {
   console.info('on input:', state);
   if (filterText.value) {
     filterByText.value = (node) => {
       const label = node?.data?.label || '';
-      const rs = label.indexOf(filterText.value) >= 0;
+      const rs = (label as string).indexOf(filterText.value) >= 0;
       return rs;
     };
   } else {
     filterByText.value = null;
   }
 };
-
 </script>
 <style>
 .tdesign-tree-operations .t-is-active .t-tree__label,

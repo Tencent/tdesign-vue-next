@@ -81,6 +81,7 @@ getPath | `(value: TreeNodeValue)` | `TreeNodeModel<T>[]` | required
 getTreeData | `(value?: TreeNodeValue)` | `Array<T>` | required。get tree struct data
 insertAfter | `(value: TreeNodeValue, newData: T)` | \- | required
 insertBefore | `(value: TreeNodeValue, newData: T)` | \- | required
+refresh | \- | \- | required。refresh tree state, used in tree search
 remove | `(value: TreeNodeValue)` | \- | required
 scrollTo | `(scrollToParams: ScrollToElementParams)` | \- | support scrolling to a specific node when virtual scrolling 
 setItem | `(value: TreeNodeValue, options: TreeNodeState)` | \- | required

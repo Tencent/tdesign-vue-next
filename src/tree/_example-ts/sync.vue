@@ -29,8 +29,8 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
-import { TreeProps, InputProps } from 'tdesign-vue-next';
+<script lang="ts" setup>
+import { TreeProps, InputProps, InputValue } from 'tdesign-vue-next';
 import { ref, computed } from 'vue';
 const valueMode = ref<TreeProps['valueMode']>('onlyLeaf');
 const checked = ref<TreeProps['value']>(['1.1.1.1', '1.1.1.2']);
@@ -130,29 +130,29 @@ const items = ref<TreeProps['data']>([
   },
 ]);
 const allChecked = computed<InputProps['value']>(() => {
-  let arr = [];
+  let arr: TreeProps['value'] = [];
   if (Array.isArray(checked.value)) {
     arr = checked.value;
   }
   return arr.map((val) => `{${val}}`).join(', ');
 });
 const allExpanded = computed<InputProps['value']>(() => {
-  let arr = [];
+  let arr: TreeProps['value'] = [];
   if (Array.isArray(expanded.value)) {
     arr = expanded.value;
   }
   return arr.map((val) => `{${val}}`).join(', ');
 });
 const allActived = computed<InputProps['value']>(() => {
-  let arr = [];
+  let arr: TreeProps['value'] = [];
   if (Array.isArray(actived.value)) {
     arr = actived.value;
   }
   return arr.map((val) => `{${val}}`).join(', ');
 });
-const getValueFromString = (val) => {
-  const arr = val.split(',');
-  const vals = [];
+const getValueFromString = (val: InputValue) => {
+  const arr = String(val).split(',');
+  const vals: TreeProps['value'] = [];
   arr
     .map((str) => str.trim())
     .forEach((tag) => {
@@ -178,5 +178,4 @@ const onAllActivedInput: InputProps['onChange'] = (val) => {
   const vals = getValueFromString(val);
   actived.value = vals;
 };
-
 </script>

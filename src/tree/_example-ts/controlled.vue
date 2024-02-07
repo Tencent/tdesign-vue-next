@@ -53,7 +53,7 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { TreeProps, InputProps, ButtonProps } from 'tdesign-vue-next';
 import { ref, computed, nextTick } from 'vue';
 const syncProps = ref(false);
@@ -133,21 +133,21 @@ const items = ref<TreeProps['data']>([
   },
 ]);
 const allChecked = computed<InputProps['value']>(() => {
-  let arr = [];
+  let arr: TreeProps['value'] = [];
   if (Array.isArray(checked.value)) {
     arr = checked.value;
   }
   return arr.join(', ');
 });
 const allExpanded = computed<InputProps['value']>(() => {
-  let arr = [];
+  let arr: TreeProps['value'] = [];
   if (Array.isArray(expanded.value)) {
     arr = expanded.value;
   }
   return arr.join(', ');
 });
 const allActived = computed<InputProps['value']>(() => {
-  let arr = [];
+  let arr: TreeProps['value'] = [];
   if (Array.isArray(actived.value)) {
     arr = actived.value;
   }
@@ -192,7 +192,7 @@ const onActive: TreeProps['onActive'] = (vals, context) => {
   console.info('onActive actived:', vals, 'context:', context);
   const { node } = context;
   console.info(node.value, 'context.node.actived:', node.actived);
-  const actived: TreeProps['actived'] = vals.filter((val) => {
+  const filterActived: TreeProps['actived'] = vals.filter((val) => {
     if (val === '2.2') {
       console.info('节点 2.2 不允许激活');
       return false;
@@ -200,14 +200,14 @@ const onActive: TreeProps['onActive'] = (vals, context) => {
     return true;
   });
   if (syncProps.value) {
-    actived.value = actived;
+    actived.value = filterActived;
   }
 };
 const onExpand: TreeProps['onExpand'] = (vals, context) => {
   console.info('onExpand expanded:', vals, 'context:', context);
   const { node } = context;
   console.info(node.value, 'context.node.expanded:', node.expanded);
-  const expanded: TreeProps['expanded'] = vals.filter((val) => {
+  const filterExpanded: TreeProps['expanded'] = vals.filter((val) => {
     if (val === '2.3') {
       console.info('节点 2.3 不允许展开');
       return false;
@@ -215,8 +215,7 @@ const onExpand: TreeProps['onExpand'] = (vals, context) => {
     return true;
   });
   if (syncProps.value) {
-    expanded.value = expanded;
+    expanded.value = filterExpanded;
   }
 };
-
 </script>

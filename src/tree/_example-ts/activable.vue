@@ -26,7 +26,7 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { TreeProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const activable = ref(true);
@@ -77,5 +77,4 @@ const propOnActive: TreeProps['onActive'] = (value, context) => {
   const { node } = context;
   console.info(node.value, 'actived:', node.actived);
 };
-
 </script>

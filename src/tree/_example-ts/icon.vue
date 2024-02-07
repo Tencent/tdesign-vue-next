@@ -18,8 +18,8 @@
   </t-space>
 </template>
 
-<script lang='tsx' setup>
-import { TreeProps } from 'tdesign-vue-next';
+<script lang="tsx" setup>
+import { TreeOptionData, TreeProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import { Icon } from 'tdesign-icons-vue-next';
 const items = ref<TreeProps['data']>([
@@ -35,7 +35,7 @@ const items = ref<TreeProps['data']>([
 const icon: TreeProps['icon'] = (h, node) => {
   let name = 'file';
   // node.children is undefined on some cases
-  if (node.getChildren && node.getChildren()) {
+  if (node.getChildren && node.getChildren(false)) {
     if (node.expanded) {
       name = 'folder-open';
       if (node.loading) {
@@ -51,7 +51,7 @@ const load: TreeProps['load'] = (node) => {
   const maxLevel = 2;
   return new Promise((resolve) => {
     setTimeout(() => {
-      let nodes = [];
+      let nodes: TreeOptionData[] = [];
       if (node.level < maxLevel) {
         nodes = [
           {
@@ -68,5 +68,4 @@ const load: TreeProps['load'] = (node) => {
     }, 500);
   });
 };
-
 </script>
