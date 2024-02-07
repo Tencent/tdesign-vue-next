@@ -114,7 +114,6 @@ data | Object | - | required。node data, extends `TreeOptionData`。Typescript�
 disabled | Boolean | - | required。node disabled state | Y
 expanded | Boolean | - | required | Y
 indeterminate | Boolean | - | required | Y
-level | Number | - | required。level of current node, you can get node level through `getLevel` | Y
 loading | Boolean | - | required | Y
 `TreeNodeState` | \- | - | extends `TreeNodeState` | N
 ### TreeNodeModel

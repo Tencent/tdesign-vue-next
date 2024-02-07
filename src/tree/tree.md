@@ -114,7 +114,6 @@ data | Object | - | 必需。节点数据，泛型 `T` 表示树节点 TS 类型
 disabled | Boolean | - | 必需。禁用状态 | Y
 expanded | Boolean | - | 必需。当前节点是否展开 | Y
 indeterminate | Boolean | - | 必需。当前节点是否处于半选状态 | Y
-level | Number | - | 必需。当前节点所在层级，如果不存在请使用 `getLevel` 获取 | Y
 loading | Boolean | - | 必需。当前节点是否处于加载中状态 | Y
 `TreeNodeState` | \- | - | 继承 `TreeNodeState` 中的全部属性 | N
 ### TreeNodeModel

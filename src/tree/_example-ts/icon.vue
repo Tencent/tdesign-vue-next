@@ -52,15 +52,15 @@ const load: TreeProps['load'] = (node) => {
   return new Promise((resolve) => {
     setTimeout(() => {
       let nodes: TreeOptionData[] = [];
-      if (node.level < maxLevel) {
+      if (node.getLevel() < maxLevel) {
         nodes = [
           {
             label: `${node.label}.1`,
-            children: node.level < maxLevel - 1,
+            children: node.getLevel() < maxLevel - 1,
           },
           {
             label: `${node.label}.2`,
-            children: node.level < maxLevel - 1,
+            children: node.getLevel() < maxLevel - 1,
           },
         ];
       }

@@ -393,10 +393,6 @@ export interface TreeNodeModel<T extends TreeOptionData = TreeOptionData> extend
    */
   indeterminate: boolean;
   /**
-   * 当前节点所在层级，如果不存在请使用 `getLevel` 获取
-   */
-  level: number;
-  /**
    * 当前节点是否处于加载中状态
    */
   loading: boolean;
