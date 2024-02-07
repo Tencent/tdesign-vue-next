@@ -1,6 +1,8 @@
 :: BASE_DOC ::
 
-## API### BaseTable Props
+## API
+
+### BaseTable Props
 
 name | type | default | description | required
 -- | -- | -- | -- | --
