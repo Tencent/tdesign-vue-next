@@ -50,7 +50,7 @@ export default {
       return `\n::: demo _example/${demoFileName} ${componentName}\n:::\n`;
     });
     source.replace(/:::\s*demo\s+([\\/.\w-]+)/g, (demoStr, relativeDemoPath) => {
-      const tsDemoPath = path.join('_example-ts', `${relativeDemoPath.split('/')?.[1]}`);
+      const tsDemoPath = `_example-ts/${relativeDemoPath.split('/')?.[1]}`;
       const demoPathOnlyLetters = relativeDemoPath.replace(/[^a-zA-Z\d]/g, '');
       const demoDefName = `Demo${demoPathOnlyLetters}`;
 
