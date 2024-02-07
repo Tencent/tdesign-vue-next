@@ -37,8 +37,6 @@ import { TableProps, RowClassNameParams, TableRowData, DragSortContext } from 't
 import { ref, watch, h, computed } from 'vue';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
-type H = typeof h;
-
 const statusNameListMap = {
   0: {
     label: '审批通过',
@@ -75,10 +73,9 @@ function getData(count: number) {
   return data;
 }
 const TOTAL = 38;
-function getColumns(
-  H: H,
-  { fixedLeftColumn, fixedRightColumn }: { fixedLeftColumn: boolean; fixedRightColumn: boolean },
-) {
+
+// @ts-ignore
+function getColumns(h, { fixedLeftColumn, fixedRightColumn }: { fixedLeftColumn: boolean; fixedRightColumn: boolean }) {
   const columns: TableProps['columns'] = [
     {
       align: 'left',
