@@ -16,9 +16,9 @@
     <!-- 多级表头中，如果要使用固定列功能，则必须设置 colKey 和 fixed -->
     <!-- :scroll="{ type: 'virtual' }" -->
     <t-table
+      v-model:sort="sortInfo"
       row-key="index"
       :data="data"
-      :v-model:sort="sortInfo"
       :columns="columns"
       :bordered="bordered"
       :max-height="fixedHeader ? 380 : undefined"
