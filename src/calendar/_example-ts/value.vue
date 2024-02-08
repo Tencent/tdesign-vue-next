@@ -20,12 +20,11 @@
   </t-space>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { CalendarProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const value: CalendarProps['value'] = '1998-11-11'; // new Date(1998, 10, 11)
 const year = ref<CalendarProps['year']>('1998');
 const month = ref<CalendarProps['month']>('11');
 const valueList: CalendarProps['value'] = ['1998-10-27', '1998-11-11', '1998-11-12', '1998-11-13', '1998-12-05'];
-
 </script>

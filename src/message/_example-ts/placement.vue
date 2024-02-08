@@ -24,7 +24,7 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { computed, ref } from 'vue';
 const offsetX = ref('');
 const offsetY = ref('');
@@ -71,7 +71,6 @@ const msgList = computed(() =>
     offset: [offsetX.value, offsetY.value],
   })),
 );
-
 </script>
 
 <style scoped>

@@ -25,7 +25,7 @@
     </template>
   </t-card>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { HeartIcon, ChatIcon, ShareIcon, MoreIcon } from 'tdesign-icons-vue-next';
 import { MessagePlugin, CardProps, DropdownProps } from 'tdesign-vue-next';
 const cover: CardProps['cover'] = 'https://tdesign.gtimg.com/site/source/card-demo.png';
@@ -42,5 +42,4 @@ const options: DropdownProps['options'] = [
 const clickHandler: DropdownProps['onClick'] = (data) => {
   MessagePlugin.success(`选中【${data.content}】`);
 };
-
 </script>

@@ -8,7 +8,7 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { TagInputProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const tags1 = ref(['Vue', 'React']);
@@ -30,5 +30,4 @@ const onFocus: TagInputProps['onFocus'] = (val, ctx) => {
 const onBlur: TagInputProps['onBlur'] = (val, ctx) => {
   console.log('blur:', val, ctx);
 };
-
 </script>

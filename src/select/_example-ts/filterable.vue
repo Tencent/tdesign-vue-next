@@ -22,7 +22,7 @@
     />
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { SelectProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const options: SelectProps['options'] = [
@@ -62,5 +62,4 @@ const handleFocus: SelectProps['onFocus'] = ({ value, e }) => {
 const handleEnter: SelectProps['onEnter'] = ({ value, e, inputValue }) => {
   console.log('handleEnter: ', value, e, inputValue);
 };
-
 </script>

@@ -14,17 +14,7 @@
     <!-- 自定义选中项内容，valueDisplay 为 插槽(slot) -->
     <t-select v-model="value2" :options="options" placeholder="请选择" multiple clearable>
       <template #valueDisplay="{ value, onClose }">
-        <t-tag
-          v-for="(item, index) in value"
-          :key="index"
-          :closable="true"
-          :on-close="
-            ({ e }) => {
-              e.stopPropagation();
-              onClose(index);
-            }
-          "
-        >
+        <t-tag v-for="(item, index) in value" :key="index" :closable="true" :on-close="handleClose(index, onClose)">
           {{ item.label }}({{ item.value[0].toUpperCase() }})
         </t-tag>
       </template>
@@ -35,7 +25,7 @@
     </t-select>
   </t-space>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { SelectProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const options: SelectProps['options'] = [
@@ -79,19 +69,26 @@ const options: SelectProps['options'] = [
 const value1 = ref(['1', '2', '3']);
 const value2 = ref(['4', '5', '6', '7']);
 const value3 = ref('1');
-const valueDisplay: SelectProps['valueDisplay'] = (h, { value, onClose, displayValue }) => {
-  if (!(value instanceof Array)) return;
-  return displayValue.map((item, index) => (
+const valueDisplay: SelectProps['valueDisplay'] = (h, { onClose, displayValue }) => {
+  if (!(displayValue instanceof Array)) return;
+  return displayValue.map((item: { label: any; value: string[] }, index: number) => (
     <t-tag
       key={index}
       closable={true}
-      onClose={({ e }) => {
+      onClose={({ e }: { e: MouseEvent }) => {
         e.stopPropagation();
         onClose(index);
-      }}>
+      }}
+    >
       {item.label}({item.value[0].toUpperCase()})
     </t-tag>
   ));
 };
 
+const handleClose =
+  (index: number, onClose: (index: number) => void) =>
+  ({ e }: { e: MouseEvent }) => {
+    e.stopPropagation();
+    onClose(index);
+  };
 </script>

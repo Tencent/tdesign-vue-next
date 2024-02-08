@@ -11,12 +11,11 @@
     ></t-upload>
   </div>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 import { MessagePlugin, UploadProps } from 'tdesign-vue-next';
 const files = ref([]);
 const handleFail: UploadProps['onFail'] = ({ file }) => {
   MessagePlugin.error(`文件 ${file.name} 上传失败`);
 };
-
 </script>

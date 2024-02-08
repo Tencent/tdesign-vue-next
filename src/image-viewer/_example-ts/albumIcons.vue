@@ -46,7 +46,7 @@
   </div>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ImageViewerProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import { BrowseIcon, EllipsisIcon } from 'tdesign-icons-vue-next';
@@ -64,7 +64,6 @@ const onIndexChange = (i: number) => {
   index.value = i;
 };
 const title: ImageViewerProps['title'] = '相册封面标题';
-
 </script>
 
 <style scoped>

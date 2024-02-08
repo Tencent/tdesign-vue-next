@@ -17,7 +17,7 @@
     />
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { TextareaProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const value = ref('');
@@ -26,5 +26,4 @@ const value3 = ref('');
 const onChange: TextareaProps['onChange'] = (value, e) => {
   console.log('onChange：', value, e);
 };
-
 </script>

@@ -8,7 +8,7 @@
     @popup-visible-change="onVisibleChange"
   />
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { TreeSelectProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const options: TreeSelectProps['data'] = [
@@ -50,5 +50,4 @@ const onVisibleChange: TreeSelectProps['onPopupVisibleChange'] = (visible, conte
     popupVisible.value = visible;
   }
 };
-
 </script>

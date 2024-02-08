@@ -43,11 +43,15 @@
     </t-select-input>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { SelectInputProps, CheckboxGroupProps } from 'tdesign-vue-next';
 import { computed, ref } from 'vue';
 import { ChevronDownIcon } from 'tdesign-icons-vue-next';
-interface CustomOptionInfo { label: string, value?: number, checkAll?: boolean }
+interface CustomOptionInfo {
+  label: string;
+  value?: number;
+  checkAll?: boolean;
+}
 const OPTIONS: CustomOptionInfo[] = [
   // 全选
   {
@@ -84,7 +88,7 @@ const allowInput = ref(true);
 const creatable = ref(true);
 const inputValue = ref('');
 // 全量数据
-const options = ref<CheckboxGroupProps['options']>([...OPTIONS]);
+const options = ref<CustomOptionInfo[]>([...OPTIONS]);
 const value = ref<CustomOptionInfo[]>([
   {
     label: 'Vue',
@@ -123,7 +127,8 @@ const onCheckedChange: CheckboxGroupProps['onChange'] = (val, { current, type })
   console.log(current);
   // current 不存在，则表示操作全选
   if (!current) {
-    value.value = type === 'check' ? options.value.slice(1) : [];
+    value.value =
+      type === 'check' ? options.value.slice(1).map((option) => ({ ...option, value: option?.value || 0 })) : [];
     return;
   }
   // 普通操作
@@ -148,8 +153,8 @@ const onTagChange: SelectInputProps['onTagChange'] = (currentTags, context) => {
   // 如果允许创建新条目
   if (creatable.value && trigger === 'enter') {
     const current = {
-      label: item,
-      value: item,
+      label: item.toString(),
+      value: Number(item) || index,
     };
     value.value.push(current);
     const newOptions = options.value.concat(current);
@@ -160,7 +165,6 @@ const onTagChange: SelectInputProps['onTagChange'] = (currentTags, context) => {
 const onInputChange: SelectInputProps['onInputChange'] = (val, context) => {
   console.log(val, context);
 };
-
 </script>
 <style>
 .tdesign-demo__panel-options-multiple {

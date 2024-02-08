@@ -28,10 +28,10 @@
     />
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { SelectProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
-const options: SelectProps['options'] = [
+const options = [
   {
     label: '选项一',
     value: '1',
@@ -53,5 +53,4 @@ const popupProps: SelectProps['popupProps'] = {
     width: '300px',
   },
 };
-
 </script>

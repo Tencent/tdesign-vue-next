@@ -4,7 +4,7 @@
     <t-button variant="outline" @click="showInOffset2">偏移的信息</t-button>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { NotifyPlugin } from 'tdesign-vue-next';
 const showInOffset = () => {
   NotifyPlugin('warning', {
@@ -23,5 +23,4 @@ const showInOffset2 = () => {
     duration: 3000,
   });
 };
-
 </script>

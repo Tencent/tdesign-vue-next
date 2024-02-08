@@ -5,7 +5,7 @@
     </t-dropdown>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { MessagePlugin, DropdownProps } from 'tdesign-vue-next';
 const options: DropdownProps['options'] = [
   {
@@ -29,5 +29,4 @@ const options: DropdownProps['options'] = [
     onClick: () => MessagePlugin.success('选项四'),
   },
 ];
-
 </script>

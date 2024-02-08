@@ -92,7 +92,7 @@
     </t-space>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ref, watch } from 'vue';
 import {
   MessagePlugin,
@@ -218,5 +218,4 @@ const handleProgress: UploadProps['onProgress'] = (params) => {
 //   MessagePlugin.error(`文件不满足条件`);
 //   return false;
 // };
-
 </script>

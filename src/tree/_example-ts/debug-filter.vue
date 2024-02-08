@@ -27,7 +27,7 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { TreeProps, InputProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const exampleItems = [
@@ -143,5 +143,4 @@ const onInput: InputProps['onChange'] = (state) => {
     filterByText.value = null;
   }
 };
-
 </script>

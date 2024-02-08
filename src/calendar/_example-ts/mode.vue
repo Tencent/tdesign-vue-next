@@ -11,7 +11,7 @@
   </t-space>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { CalendarProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const options = [
@@ -25,7 +25,6 @@ const options = [
   },
 ];
 const mode = ref<CalendarProps['mode']>('year');
-
 </script>
 
 <style scoped>

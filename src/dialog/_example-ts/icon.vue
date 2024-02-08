@@ -44,7 +44,7 @@
     </t-space>
   </div>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { DialogProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const visible1 = ref(false);
@@ -63,5 +63,4 @@ const close3: DialogProps['onConfirm'] = () => {
 const close4: DialogProps['onConfirm'] = () => {
   visible4.value = false;
 };
-
 </script>

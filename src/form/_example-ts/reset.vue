@@ -31,7 +31,7 @@
     </t-form>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ref, reactive } from 'vue';
 import { MessagePlugin, FormProps, FormInstanceFunctions, CheckboxGroupProps, ButtonProps } from 'tdesign-vue-next';
 const formData: FormProps['data'] = reactive({
@@ -71,5 +71,4 @@ const resetPhoneNumber: ButtonProps['onClick'] = () => {
     fields: ['tel'],
   });
 };
-
 </script>

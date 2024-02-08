@@ -21,7 +21,7 @@
   </div>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { SkeletonProps } from 'tdesign-vue-next';
 const rowCol: SkeletonProps['rowCol'] = [
   [1, 1, 1].map(() => ({
@@ -68,7 +68,6 @@ const rowCol: SkeletonProps['rowCol'] = [
     ),
   },
 ];
-
 </script>
 
 <style lang="less" scoped>

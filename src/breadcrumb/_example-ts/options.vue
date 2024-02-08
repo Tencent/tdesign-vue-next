@@ -2,7 +2,7 @@
   <t-breadcrumb :options="options" />
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { BreadcrumbProps } from 'tdesign-vue-next';
 const options: BreadcrumbProps['options'] = [
   {
@@ -16,5 +16,4 @@ const options: BreadcrumbProps['options'] = [
     href: 'https://www.tencent.com',
   },
 ];
-
 </script>

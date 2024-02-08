@@ -18,7 +18,7 @@
     />
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { SelectProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const options: SelectProps['options'] = [
@@ -37,5 +37,4 @@ const options: SelectProps['options'] = [
 ];
 const value = ref('');
 const value2 = ref(['shanghai', 'beijing']);
-
 </script>

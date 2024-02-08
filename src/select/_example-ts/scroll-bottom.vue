@@ -8,7 +8,7 @@
     />
   </t-space>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { SelectProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const options = ref<SelectProps['options']>([]);
@@ -38,5 +38,4 @@ const handleScrollToBottom = () => {
     value: options.value.length + 1,
   });
 };
-
 </script>

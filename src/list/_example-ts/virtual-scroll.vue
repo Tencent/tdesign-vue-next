@@ -4,7 +4,7 @@
       <t-list-item-meta :image="imageUrl" title="列表标题" :description="item.content" /></t-list-item
   ></t-list>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ListItemMetaProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const list = [];
@@ -15,5 +15,4 @@ for (let i = 0; i < 3000; i++) {
   });
 }
 const listRef = ref(list);
-
 </script>

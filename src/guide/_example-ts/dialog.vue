@@ -38,7 +38,7 @@
   </t-row>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { DrawerProps, GuideProps, ButtonProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import DialogBody from './dialog-body.vue';
@@ -90,7 +90,6 @@ const handleSkip: GuideProps['onSkip'] = ({ e, current, total }) => {
   visible.value = false;
   console.log(e, current, total);
 };
-
 </script>
 
 <style scoped>

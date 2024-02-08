@@ -57,7 +57,7 @@
     </t-form-item>
   </t-form>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ref, reactive, computed } from 'vue';
 import {
   MessagePlugin,
@@ -219,7 +219,6 @@ const clearFieldsValidateResult: ButtonProps['onClick'] = () => {
   form.value.clearValidate(['email', 'course', 'content.url']);
   MessagePlugin.success('已清除邮箱、课程、个人网站等字段校验结果');
 };
-
 </script>
 <style scoped>
 .demo-select-base {

@@ -11,7 +11,7 @@
   </t-space>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { CalendarProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const options = [
@@ -45,7 +45,6 @@ const options = [
   },
 ];
 const firstDayOfWeek = ref<CalendarProps['firstDayOfWeek']>(3);
-
 </script>
 
 <style scoped>

@@ -2,7 +2,7 @@
   <t-cascader v-model="value" :options="options" multiple clearable @focus="onFocus" @blur="onBlur" />
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { CascaderProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const options: CascaderProps['options'] = [
@@ -46,5 +46,4 @@ const onFocus: CascaderProps['onFocus'] = (ctx) => {
 const onBlur: CascaderProps['onBlur'] = (ctx) => {
   console.log('blur', ctx);
 };
-
 </script>

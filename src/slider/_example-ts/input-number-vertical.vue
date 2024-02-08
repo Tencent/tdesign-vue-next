@@ -9,7 +9,7 @@
     </div>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { SliderProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const value1 = ref(12);
@@ -18,7 +18,6 @@ const inputNumberProps: SliderProps['inputNumberProps'] = {
   theme: 'column',
 };
 const layout: SliderProps['layout'] = 'vertical';
-
 </script>
 <style>
 .number-vertical-block {

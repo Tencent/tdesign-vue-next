@@ -20,7 +20,7 @@
     </t-form-item>
   </t-form>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ref, reactive } from 'vue';
 import { MessagePlugin, FormInstanceFunctions, FormProps, CustomValidator } from 'tdesign-vue-next';
 const form = ref<FormInstanceFunctions>(null);
@@ -113,5 +113,4 @@ const rules: FormProps['rules'] = {
     },
   ],
 };
-
 </script>

@@ -21,7 +21,7 @@
     />
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { SelectProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const options: SelectProps['options'] = [
@@ -51,5 +51,4 @@ const value2 = ref([
     label: '选项一',
   },
 ]);
-
 </script>

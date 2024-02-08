@@ -18,7 +18,7 @@
     </t-select>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 
 interface CustomOptionInfo {
@@ -81,7 +81,6 @@ const options: CustomOptionInfo[] = [
 ];
 const value1 = ref('');
 const value2 = ref('');
-
 </script>
 <style scoped>
 .tdesign-demo-select-base {

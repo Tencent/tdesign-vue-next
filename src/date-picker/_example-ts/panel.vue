@@ -16,7 +16,7 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { DateRangeValue, DateRangePickerPartial } from 'tdesign-vue-next';
 function handleChange(value: DateRangeValue) {
   console.log('onChange value', value);
@@ -24,7 +24,6 @@ function handleChange(value: DateRangeValue) {
 function handleCellClick(value: { date: Date[]; partial: DateRangePickerPartial; e: MouseEvent }) {
   console.log('onCellClick value', value);
 }
-
 </script>
 <style>
 .date-picker-panel-border {

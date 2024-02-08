@@ -27,7 +27,7 @@
     />
   </t-space>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { SelectProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const options1: SelectProps['options'] = [
@@ -99,5 +99,4 @@ const onFocus: SelectProps['onFocus'] = (ctx) => {
 const onBlur: SelectProps['onBlur'] = (ctx) => {
   console.log('blur:', ctx);
 };
-
 </script>

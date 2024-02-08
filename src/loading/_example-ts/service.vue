@@ -26,7 +26,7 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 import { LoadingPlugin, ButtonProps } from 'tdesign-vue-next';
 const content = ref(null);
@@ -104,7 +104,6 @@ const showFullScrollScreen1: ButtonProps['onClick'] = () => {
     clearTimeout(timer);
   }, 1000);
 };
-
 </script>
 
 <style scoped>

@@ -11,7 +11,7 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { Dayjs } from 'dayjs';
 import { DateValue, DatePickerTriggerSource } from 'tdesign-vue-next';
 import { ref } from 'vue';
@@ -28,5 +28,4 @@ function handleChange(
   console.log('timestamp:', context.dayjsValue.valueOf());
   console.log('YYYYMMDD:', context.dayjsValue.format('YYYYMMDD'));
 }
-
 </script>

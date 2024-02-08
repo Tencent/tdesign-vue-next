@@ -8,10 +8,9 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { DatePickerProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const startWeek = ref<DatePickerProps['firstDayOfWeek']>(1);
 const list = ref([1, 2, 3, 4, 5, 6, 7]);
-
 </script>

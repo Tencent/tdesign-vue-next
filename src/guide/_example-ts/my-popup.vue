@@ -11,7 +11,7 @@
   </div>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ArrowUpIcon } from 'tdesign-icons-vue-next';
 defineProps({
   handlePrev: Function,
@@ -21,7 +21,6 @@ defineProps({
   current: Number,
   total: Number,
 });
-
 </script>
 
 <style scoped>

@@ -46,7 +46,7 @@
   </t-space>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { CheckTagGroupOption, CheckTagGroupProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const STYLE_B_UNCHECKED_PROPS: CheckTagGroupProps['uncheckedProps'] = {
@@ -120,7 +120,6 @@ const options2: (CheckTagGroupOption & { avatar: string })[] = [
     avatar: AVATAR,
   },
 ];
-
 </script>
 
 <style lang="less" scoped>

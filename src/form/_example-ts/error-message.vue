@@ -83,7 +83,7 @@
     </t-form>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ref, reactive, computed } from 'vue';
 import {
   MessagePlugin,
@@ -243,7 +243,6 @@ const rules: FormProps['rules'] = {
 const handleClear: ButtonProps['onClick'] = () => {
   form.value.clearValidate();
 };
-
 </script>
 
 <style scoped>

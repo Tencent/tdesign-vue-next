@@ -13,7 +13,7 @@
   </div>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { StepsProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const steps: StepsProps['options'] = [
@@ -39,5 +39,4 @@ const steps: StepsProps['options'] = [
   },
 ];
 const current = ref('third');
-
 </script>

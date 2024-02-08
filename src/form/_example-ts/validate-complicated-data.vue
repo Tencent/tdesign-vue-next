@@ -55,7 +55,7 @@
     </t-tabs>
   </t-form>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ref, computed, watch, reactive } from 'vue';
 import { MessagePlugin, FormProps, RadioGroupProps, CheckboxGroupProps, TabsProps } from 'tdesign-vue-next';
 let id = 0;
@@ -204,5 +204,4 @@ const onAddStudent: TabsProps['onAdd'] = () => {
   });
   studentTab.value = id;
 };
-
 </script>

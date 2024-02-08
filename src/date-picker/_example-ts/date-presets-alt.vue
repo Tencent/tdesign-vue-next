@@ -5,7 +5,7 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { DateRangePickerProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import dayjs from 'dayjs';
@@ -16,5 +16,4 @@ const presets = ref<DateRangePickerProps['presets']>({
 });
 const range1 = ref(['2022-01-01', '2022-08-08']);
 const range2 = ref(['2022-01-01 11:11:11', '2022-08-08 12:12:12']);
-
 </script>

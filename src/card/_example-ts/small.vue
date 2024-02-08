@@ -6,7 +6,7 @@
     </template>
   </t-card>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { MessagePlugin, CardProps } from 'tdesign-vue-next';
 const clickHandler = () => {
   MessagePlugin.success('操作');
@@ -17,5 +17,4 @@ const infoMessage = `这是一段很长很长很长很长很长很长很长很�
   很长很长很长很长很长很长很长很长很长很长很长很长很长很长
   很长很长很长很长很长很长很长很长很长很长很长很长很长很长
   很长很长很长很长很长很长很长很长很长很长很长的内容示例。`;
-
 </script>

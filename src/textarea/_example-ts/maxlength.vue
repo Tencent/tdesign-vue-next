@@ -14,9 +14,8 @@
     ></t-textarea>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 const value = ref('');
 const value2 = ref('');
-
 </script>

@@ -20,7 +20,7 @@
     <template #suffixIcon><search-icon /></template>
   </t-select-input>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { SelectInputProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import { SearchIcon } from 'tdesign-icons-vue-next';
@@ -39,7 +39,6 @@ const onInputChange: SelectInputProps['onInputChange'] = (keyword) => {
 const onPopupVisibleChange: SelectInputProps['onPopupVisibleChange'] = (val) => {
   popupVisible.value = val;
 };
-
 </script>
 <style lang="less">
 .tdesign-demo__select-input-ul-autocomplete {

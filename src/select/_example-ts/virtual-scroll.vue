@@ -27,10 +27,16 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
-import { SelectProps, TextareaProps } from 'tdesign-vue-next';
+<script lang="ts" setup>
+import { TextareaProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
-const options: SelectProps['options'] = [];
+
+interface Option {
+  label: string;
+  value: string;
+}
+
+const options: Option[] = [];
 for (let i = 0; i < 10000; i++) {
   options.push({
     label: `选项${i + 1}`,
@@ -44,5 +50,4 @@ const search = ref('');
 const onSearch: TextareaProps['onChange'] = () => {
   optionsRef.value = options.filter((item) => item.label.indexOf(search.value) !== -1);
 };
-
 </script>

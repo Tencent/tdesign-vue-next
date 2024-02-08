@@ -35,7 +35,7 @@
   </t-space>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { PrintIcon } from 'tdesign-icons-vue-next';
 import { Tag, ImageProps } from 'tdesign-vue-next';
 const renderMask: ImageProps['overlayContent'] = () => (
@@ -48,7 +48,8 @@ const renderMask: ImageProps['overlayContent'] = () => (
       justifyContent: 'center',
       fontSize: '14px',
       lineHeight: '22px',
-    }}>
+    }}
+  >
     <Tag
       shape="mark"
       theme="warning"
@@ -56,7 +57,8 @@ const renderMask: ImageProps['overlayContent'] = () => (
         borderRadius: '3px',
         background: 'transparent',
         color: '#fff',
-      }}>
+      }}
+    >
       <PrintIcon size="16" /> 高清
     </Tag>
   </div>
@@ -71,9 +73,9 @@ const renderButton: ImageProps['overlayContent'] = () => (
       right: '8px',
       bottom: '8px',
       borderRadius: '3px',
-    }}>
+    }}
+  >
     <PrintIcon size="16" /> 高清
   </Tag>
 );
-
 </script>

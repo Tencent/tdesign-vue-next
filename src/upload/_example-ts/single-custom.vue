@@ -19,7 +19,7 @@
     </div>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 import { MessagePlugin, UploadProps } from 'tdesign-vue-next';
 const files = ref([]);
@@ -34,7 +34,6 @@ const beforeUpload: UploadProps['beforeUpload'] = (file) => {
   return true;
 };
 const tips = ref<UploadProps['tips']>('上传文件大小在 5M 以内');
-
 </script>
 <style scoped>
 .tdesign-demo-upload .list-custom {

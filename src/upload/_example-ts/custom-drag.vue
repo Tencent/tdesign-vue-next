@@ -31,7 +31,7 @@
     </t-upload>
   </div>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 import { CloudUploadIcon } from 'tdesign-icons-vue-next';
 import { MessagePlugin, UploadInstanceFunctions, UploadProps, ButtonProps } from 'tdesign-vue-next';
@@ -51,5 +51,4 @@ const onProgress: UploadProps['onProgress'] = ({ percent }) => {
 const upload: ButtonProps['onClick'] = () => {
   uploadRef.value.triggerUpload();
 };
-
 </script>

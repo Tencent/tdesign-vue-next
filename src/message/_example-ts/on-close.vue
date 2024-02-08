@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { MessagePlugin, ButtonProps } from 'tdesign-vue-next';
 const closeFunc: ButtonProps['onClick'] = () => {
   MessagePlugin.info({
@@ -30,5 +30,4 @@ const closeFunc: ButtonProps['onClick'] = () => {
     },
   });
 };
-
 </script>

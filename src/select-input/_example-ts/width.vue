@@ -91,13 +91,12 @@
     </t-space>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { SelectInputProps } from 'tdesign-vue-next';
 const selectValue: SelectInputProps['value'] = 'TDesign';
 const getAutoWidth = (triggerElement: HTMLElement, popupElement: HTMLElement) => ({
   width: `${Math.max(triggerElement.clientWidth, popupElement.clientWidth)}px`,
 });
-
 </script>
 <style>
 .tdesign-demo__select-empty-width {

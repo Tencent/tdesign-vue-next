@@ -45,7 +45,6 @@ const images: string[] = [
   'https://tdesign.gtimg.com/demo/demo-image-error2.png',
   'https://tdesign.gtimg.com/demo/demo-image-error3.png',
 ];
-
 </script>
 
 <style scoped>

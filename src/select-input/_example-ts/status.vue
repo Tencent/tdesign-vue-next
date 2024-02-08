@@ -46,10 +46,9 @@
     </t-space>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { SelectInputProps } from 'tdesign-vue-next';
 const selectValue: SelectInputProps['value'] = 'TDesign';
-
 </script>
 <style>
 .tdesign-demo__select-empty-status {

@@ -3,12 +3,7 @@
     <t-input-number v-model="value1" :max="15" :min="-2" :format="numberFormat1" auto-width></t-input-number>
 
     <!-- 小数位数和格式化函数组合使用 -->
-    <t-input-number
-      v-model="value2"
-      :decimal-places="2"
-      :format="numberFormat"
-      auto-width
-    ></t-input-number>
+    <t-input-number v-model="value2" :decimal-places="2" :format="numberFormat" auto-width></t-input-number>
   </t-space>
 </template>
 

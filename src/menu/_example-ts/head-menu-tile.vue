@@ -33,7 +33,7 @@
   </t-head-menu>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { HeadMenuProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const menus = [

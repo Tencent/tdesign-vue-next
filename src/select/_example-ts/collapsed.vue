@@ -29,7 +29,7 @@
     </t-select>
   </t-space>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { SelectProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const options: SelectProps['options'] = [
@@ -56,12 +56,12 @@ const collapsedItems: SelectProps['collapsedItems'] = (h, { value, count }) => {
         content: () => {
           return value.map((item) => <p style="padding: 8px;">{item}</p>);
         },
-      }}>
+      }}
+    >
       <span v-show={count > 0} style="color: #ED7B2F; margin-left: 8px">
         +{count}
       </span>
     </t-popup>
   );
 };
-
 </script>

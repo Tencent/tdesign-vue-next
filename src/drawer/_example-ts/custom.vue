@@ -39,7 +39,7 @@
   </div>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { DrawerProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const visible = ref(false);
@@ -55,5 +55,4 @@ const renderFooter: DrawerProps['footer'] = () => {
     </div>
   );
 };
-
 </script>

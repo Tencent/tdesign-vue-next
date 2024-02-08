@@ -32,7 +32,7 @@
     <t-input v-model="input4" :maxlength="5" :suffix="suffix" placeholder="自定义字数限制文本" />
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { InputProps } from 'tdesign-vue-next';
 import { ref, computed } from 'vue';
 const input1 = ref('');
@@ -49,5 +49,4 @@ const onValidate: InputProps['onValidate'] = ({ error }) => {
 const onCompositionend: InputProps['onCompositionend'] = () => {
   console.log('onCompositionend');
 };
-
 </script>

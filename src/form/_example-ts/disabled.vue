@@ -86,7 +86,7 @@
     </t-form>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ref, reactive } from 'vue';
 import { MessagePlugin, FormProps, CheckboxGroupProps, SelectProps, CascaderProps } from 'tdesign-vue-next';
 const formDisabled = ref(true);
@@ -178,5 +178,4 @@ const onSubmit: FormProps['onSubmit'] = ({ validateResult, firstError }) => {
     MessagePlugin.warning(firstError);
   }
 };
-
 </script>

@@ -11,10 +11,9 @@
   </t-space>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TagProps } from 'tdesign-vue-next';
 const renderDiscountIcon: TagProps['icon'] = () => {
   return <t-icon name="discount" />;
 };
-
 </script>

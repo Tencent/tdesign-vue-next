@@ -26,7 +26,7 @@
     </t-select>
   </t-space>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { SelectProps } from 'tdesign-vue-next';
 import { ref, computed } from 'vue';
 const options = [
@@ -78,7 +78,7 @@ const options = [
 ];
 const value1 = ref('');
 const value2 = ref('');
-const optionRender = (h, option) => (
+const optionRender = (option: { label: string; value: string; description: string }) => (
   <div class="tdesign-demo__user-option">
     <img src="https://tdesign.gtimg.com/site/avatar.jpg" />
     <div class="tdesign-demo__user-option-info">
@@ -91,10 +91,9 @@ const optionsData = computed<SelectProps['options']>(() =>
   options.map((item) => ({
     ...item,
     // options 自定义下拉选项关键代码
-    content: (h) => optionRender(h, item),
+    content: () => optionRender(item),
   })),
 );
-
 </script>
 <style>
 .tdesign-demo__user-option {

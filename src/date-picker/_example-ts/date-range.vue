@@ -5,7 +5,7 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { DateRangePickerProps } from 'tdesign-vue-next';
 const onPick: DateRangePickerProps['onPick'] = (value, context) => console.log('onPick:', value, context);
 const onChange: DateRangePickerProps['onChange'] = (value, context) => {
@@ -19,5 +19,4 @@ const onChange: DateRangePickerProps['onChange'] = (value, context) => {
     context.dayjsValue.map((d) => d.format('YYYYMMDD')),
   );
 };
-
 </script>

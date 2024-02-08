@@ -29,7 +29,7 @@
     <p>当前展开项:{{ currentItem }}</p>
   </t-space>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TagInputProps, CollapseProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const currentItem = ref<number[]>([1]);
@@ -37,7 +37,7 @@ const tags1 = ref(['Vue', 'React']);
 const tags2 = ref<TagInputProps['value']>(['Vue', 'React']);
 const tags3 = ref<TagInputProps['defaultValue']>(['Vue', 'React']);
 const handlePanelChange: CollapseProps['onChange'] = (val) => {
-  currentItem.value = val.map(n => Number(n));
+  currentItem.value = val.map((n) => Number(n));
 };
 const onTagInputEnter: TagInputProps['onEnter'] = (val, context) => {
   console.log(val, context);
@@ -49,7 +49,6 @@ const onChange: TagInputProps['onChange'] = (val, context) => {
 const onPaste: TagInputProps['onPaste'] = (context) => {
   console.log(context);
 };
-
 </script>
 <style lang="less">
 .accordion-demo {

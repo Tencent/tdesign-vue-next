@@ -33,7 +33,7 @@
   </div>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ImageViewerProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import { BrowseIcon } from 'tdesign-icons-vue-next';
@@ -47,7 +47,6 @@ const img3 = 'https://tdesign.gtimg.com/demo/demo-image-3.png';
 const img2 = 'https://tdesign.gtimg.com/demo/demo-image-2.png';
 const img1 = 'https://tdesign.gtimg.com/demo/demo-image-1.png';
 const images: ImageViewerProps['images'] = [img1, img2, img3];
-
 </script>
 <style scoped>
 .tdesign-demo-image-viewer__ui-image {

@@ -6,7 +6,7 @@
   </t-space>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { CascaderProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const options: CascaderProps['options'] = [
@@ -50,5 +50,4 @@ const filterMethod: CascaderProps['filter'] = (search, node) => {
   console.log('filter:', search, node.label);
   return node.label.indexOf(search) !== -1;
 };
-
 </script>

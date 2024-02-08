@@ -17,7 +17,7 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ListProps, ListItemMetaProps } from 'tdesign-vue-next';
 import { ref, computed } from 'vue';
 const listCount = ref(3);
@@ -32,5 +32,4 @@ const asyncLoading = computed<ListProps['asyncLoading']>(() => {
   return asyncLoadingRadio.value;
 });
 const imageUrl: ListItemMetaProps['image'] = 'https://tdesign.gtimg.com/site/avatar.jpg';
-
 </script>

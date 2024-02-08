@@ -36,7 +36,7 @@
   </t-space>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { StickyItemProps, StickyToolProps } from 'tdesign-vue-next';
 import { ChatIcon, AddIcon, QrcodeIcon } from 'tdesign-icons-vue-next';
 const renderChatIcon: StickyItemProps['icon'] = () => {
@@ -57,5 +57,4 @@ const handleClick: StickyToolProps['onClick'] = (context) => {
 const handleHover: StickyToolProps['onHover'] = (context) => {
   console.log('hover', context);
 };
-
 </script>

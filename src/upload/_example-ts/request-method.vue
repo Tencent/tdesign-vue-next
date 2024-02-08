@@ -16,7 +16,7 @@
     ></t-upload>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { UploadInstanceFunctions, UploadProps } from 'tdesign-vue-next';
 import { ref, computed } from 'vue';
 const files = ref([]);
@@ -69,5 +69,4 @@ const handleRequestFail: UploadProps['onFail'] = (e) => {
 const requestMethod = computed<UploadProps['requestMethod']>(() =>
   uploadMethod.value === 'requestSuccessMethod' ? requestSuccessMethod : requestFailMethod,
 );
-
 </script>

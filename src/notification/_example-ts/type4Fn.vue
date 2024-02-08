@@ -6,7 +6,7 @@
     <t-button variant="outline" @click="error">错误</t-button>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { NotifyPlugin, ButtonProps } from 'tdesign-vue-next';
 const info: ButtonProps['onClick'] = () => {
   NotifyPlugin.info({
@@ -36,5 +36,4 @@ const error: ButtonProps['onClick'] = () => {
     duration: 3000,
   });
 };
-
 </script>

@@ -74,10 +74,16 @@
     </t-select-input>
   </t-space>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { computed, ref } from 'vue';
 import { Tag, CheckboxGroupProps, SelectInputProps } from 'tdesign-vue-next';
-interface CustomOptionInfo { label: string, value?: number, checkAll?: boolean }
+
+interface CustomOptionInfo {
+  label: string;
+  value?: number;
+  checkAll?: boolean;
+}
+
 const OPTIONS: CustomOptionInfo[] = [
   // 全选
   {
@@ -109,7 +115,7 @@ const OPTIONS: CustomOptionInfo[] = [
     value: 6,
   },
 ];
-const options = ref<CheckboxGroupProps['options']>([...OPTIONS]);
+const options = ref<CustomOptionInfo[]>([...OPTIONS]);
 const value = ref(OPTIONS.slice(1));
 const checkboxValue = computed<CheckboxGroupProps['value']>(() => {
   const arr = [];
@@ -149,17 +155,16 @@ const onTagChange: SelectInputProps['onTagChange'] = (currentTags, context) => {
   }
   if (trigger === 'enter') {
     const current = {
-      label: item,
-      value: item,
+      label: item.toString(),
+      value: Number(item) || index,
     };
     value.value.push(current);
     options.value = options.value.concat(current);
   }
 };
 const renderCollapsedItems: SelectInputProps['collapsedItems'] = (_, { collapsedTags }) => {
-  return <Tag>更多({collapsedTags.length})</Tag>;
+  return <Tag>更多({Array.isArray(collapsedTags) ? collapsedTags.length : collapsedTags})</Tag>;
 };
-
 </script>
 <style>
 .tdesign-demo__panel-options-collapsed-items {

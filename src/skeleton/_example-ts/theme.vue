@@ -12,7 +12,7 @@
     </t-col>
   </t-row>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 const themes = [
   {
     label: '文本',
@@ -39,5 +39,4 @@ const themes = [
     value: 'article',
   },
 ];
-
 </script>

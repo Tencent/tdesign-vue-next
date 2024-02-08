@@ -10,11 +10,11 @@ import './style';
 
 export * from './type';
 export * from './interface';
+
 export type AllTableInstanceFunctions = EnhancedTableInstanceFunctions &
   PrimaryTableInstanceFunctions &
   BaseTableInstanceFunctions;
 
-export type AllTableInstanceFunctions = EnhancedTableInstanceFunctions & PrimaryTableInstanceFunctions & BaseTableInstanceFunctions;
 export type TableScroll = InfinityScroll;
 export const BaseTable = withInstall(_BaseTable);
 export const PrimaryTable = withInstall(_PrimaryTable);

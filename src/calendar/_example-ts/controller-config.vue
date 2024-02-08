@@ -87,7 +87,7 @@
   </t-space>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { reactive } from 'vue';
 const controllerConfig = reactive({
   visible: true,
@@ -156,7 +156,6 @@ const controllerConfig = reactive({
     },
   },
 });
-
 </script>
 
 <style scoped>

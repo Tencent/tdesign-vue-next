@@ -18,7 +18,7 @@
     </t-notification>
   </t-space>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { ButtonProps, NotificationProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const visible = ref(true);
@@ -49,5 +49,4 @@ const footer2: NotificationProps['footer'] = () => {
 const content: NotificationProps['content'] = () => {
   return '文案不限长度，但在实际使用时建议文案显示内容不易过多，建议最大展示行数数量以三行为宜，最后一行折行末尾处超出文本建议会变为省略号显示。';
 };
-
 </script>

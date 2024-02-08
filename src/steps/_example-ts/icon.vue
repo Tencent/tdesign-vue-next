@@ -7,7 +7,7 @@
   </t-steps>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { StepItemProps } from 'tdesign-vue-next';
 import { LoginIcon, CartIcon, WalletIcon, CheckCircleIcon } from 'tdesign-icons-vue-next';
 const renderLoginIcon: StepItemProps['icon'] = () => {
@@ -22,5 +22,4 @@ const renderWalletIcon: StepItemProps['icon'] = () => {
 const renderSuccessIcon: StepItemProps['icon'] = () => {
   return <CheckCircleIcon size="24" class="icon-margin" />;
 };
-
 </script>

@@ -16,7 +16,7 @@
   </div>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ImageViewerProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 import { BrowseIcon } from 'tdesign-icons-vue-next';
@@ -29,7 +29,6 @@ const title: ImageViewerProps['title'] = '相册封面标题';
 const onOpen = () => {
   visible.value = true;
 };
-
 </script>
 
 <style scoped>

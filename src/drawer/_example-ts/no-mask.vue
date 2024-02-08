@@ -14,7 +14,7 @@
   </div>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { DrawerProps, ButtonProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const visible = ref(false);
@@ -24,5 +24,4 @@ const handleClick: ButtonProps['onClick'] = () => {
 const handleClose: DrawerProps['onClose'] = () => {
   visible.value = false;
 };
-
 </script>

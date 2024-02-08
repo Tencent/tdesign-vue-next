@@ -45,10 +45,14 @@
     </t-select-input>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { CheckboxGroupProps, SelectInputProps } from 'tdesign-vue-next';
 import { computed, ref } from 'vue';
-interface CustomOptionInfo { label: string, value?: number, checkAll?: boolean }
+interface CustomOptionInfo {
+  label: string;
+  value?: number;
+  checkAll?: boolean;
+}
 const OPTIONS: CustomOptionInfo[] = [
   // 全选
   {
@@ -127,7 +131,6 @@ const onTagChange: SelectInputProps['onTagChange'] = (currentTags, context) => {
     options.value = options.value.concat(current);
   }
 };
-
 </script>
 <style>
 .tdesign-demo__panel-options-excess-tags-display-type {

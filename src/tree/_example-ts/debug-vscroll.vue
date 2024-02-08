@@ -81,7 +81,7 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { TreeInstanceFunctions, TreeProps, InputProps, ButtonProps } from 'tdesign-vue-next';
 import { ref, computed } from 'vue';
 const tree = ref<TreeInstanceFunctions>();
@@ -189,5 +189,4 @@ const createTree: ButtonProps['onClick'] = () => {
 const clearTree: ButtonProps['onClick'] = () => {
   items.value = [];
 };
-
 </script>

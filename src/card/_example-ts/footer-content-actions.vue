@@ -12,7 +12,7 @@
     </template>
   </t-card>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { MessagePlugin, DropdownProps, CardProps } from 'tdesign-vue-next';
 import { MoreIcon } from 'tdesign-icons-vue-next';
 const clickHandler: DropdownProps['onClick'] = (data) => {
@@ -29,5 +29,4 @@ const options: DropdownProps['options'] = [
   },
 ];
 const cover: CardProps['cover'] = 'https://tdesign.gtimg.com/site/source/card-demo.png';
-
 </script>

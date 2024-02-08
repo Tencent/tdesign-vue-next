@@ -7,7 +7,7 @@
   </div>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 import { MessagePlugin, DrawerProps, ButtonProps } from 'tdesign-vue-next';
 const visible = ref(false);
@@ -22,5 +22,4 @@ const onClickConfirm: DrawerProps['onConfirm'] = () => {
     MessagePlugin.info('数据保存成功!');
   }, 1000);
 };
-
 </script>

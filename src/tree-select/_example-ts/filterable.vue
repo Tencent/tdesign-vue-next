@@ -15,7 +15,7 @@
     <t-tree-select v-else v-model="value" :data="options" clearable :filter="filterFunction" placeholder="请选择" />
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { TreeSelectProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const options: TreeSelectProps['data'] = [
@@ -53,5 +53,4 @@ const type = ref('default');
 const filterFunction: TreeSelectProps['filter'] = (searchText, node) => {
   return node.data.label.indexOf(searchText) >= 0;
 };
-
 </script>

@@ -8,7 +8,7 @@
   />
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TransferProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const list: TransferProps['data'] = [];
@@ -34,5 +34,4 @@ const transferItem: TransferProps['transferItem'] = (h, { data, index, type }) =
   );
   return type === 'source' ? sourceLabel : targetLabel;
 };
-
 </script>

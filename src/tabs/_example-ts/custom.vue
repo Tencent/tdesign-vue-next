@@ -16,7 +16,7 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { TabsProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 let id = 0;
@@ -53,5 +53,4 @@ const removeTab: TabsProps['onRemove'] = ({ value: val, index }) => {
     value.value = panelData.value[Math.max(index - 1, 0)].value;
   }
 };
-
 </script>

@@ -2,7 +2,7 @@
   <t-steps :current="current" :options="options" />
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { StepsProps } from 'tdesign-vue-next';
 const options: StepsProps['options'] = [
   {
@@ -23,5 +23,4 @@ const options: StepsProps['options'] = [
   },
 ];
 const current: StepsProps['current'] = 1;
-
 </script>

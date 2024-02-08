@@ -49,7 +49,7 @@
     </t-space>
   </t-space>
 </template>
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { DialogProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const visible1 = ref(false);
@@ -79,5 +79,4 @@ const onConfirm: DialogProps['onConfirm'] = () => {
   visible1.value = false;
   alert('跳转支付~');
 };
-
 </script>

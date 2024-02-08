@@ -23,10 +23,17 @@
     </t-select-input>
   </div>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { CheckboxGroupProps, SelectInputProps } from 'tdesign-vue-next';
 import { computed, ref } from 'vue';
-const OPTIONS = [
+
+interface CustomOptionInfo {
+  label: string;
+  value?: number;
+  checkAll?: boolean;
+}
+
+const OPTIONS: CustomOptionInfo[] = [
   // 全选
   {
     label: 'all frameworks',
@@ -57,8 +64,8 @@ const OPTIONS = [
     value: 6,
   },
 ];
-const options = ref<CheckboxGroupProps['options']>([...OPTIONS]);
-const value = ref<{ label: string, value: number }[]>([
+const options = ref<CustomOptionInfo[]>([...OPTIONS]);
+const value = ref<CustomOptionInfo[]>([
   {
     label: 'Vue',
     value: 1,
@@ -86,7 +93,8 @@ const checkboxValue = computed<CheckboxGroupProps['value']>(() => {
 const onCheckedChange: CheckboxGroupProps['onChange'] = (val, { current, type }) => {
   // current 不存在，则表示操作全选
   if (!current) {
-    value.value = type === 'check' ? options.value.slice(1) : [];
+    value.value =
+      type === 'check' ? options.value.slice(1).map((option) => ({ ...option, value: option?.value || 0 })) : [];
     return;
   }
   // 普通操作
@@ -111,14 +119,13 @@ const onTagChange: SelectInputProps['onTagChange'] = (currentTags, context) => {
   // 如果允许创建新条目
   if (trigger === 'enter') {
     const current = {
-      label: item,
-      value: item,
+      label: item.toString(),
+      value: Number(item) || index,
     };
     value.value.push(current);
     options.value = options.value.concat(current);
   }
 };
-
 </script>
 <style lang="less">
 .tdesign-demo__panel-options-borderless-multiple {

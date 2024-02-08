@@ -7,7 +7,7 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { TimePickerProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const time1 = ref('20:22:33');
@@ -20,7 +20,6 @@ const focus: TimePickerProps['onFocus'] = (v) => {
   console.log('focus');
   console.log(v);
 };
-
 </script>
 
 <style lang="less" scoped>

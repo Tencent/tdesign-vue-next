@@ -30,7 +30,7 @@
     </t-dialog>
   </div>
 </template>
-<script lang='ts' lang="ts" setup>
+<script lang="ts" lang="ts" setup>
 import { DialogProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const visible = ref(false);
@@ -51,5 +51,4 @@ const close3: DialogProps['onClose'] = () => {
 const close4: DialogProps['onClose'] = () => {
   visibleOverflow.value = false;
 };
-
 </script>

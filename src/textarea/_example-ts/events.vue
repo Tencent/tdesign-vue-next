@@ -9,7 +9,7 @@
     @blur="onBlur"
   />
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { TextareaProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const value = ref('');
@@ -28,5 +28,4 @@ const onFocus: TextareaProps['onFocus'] = (value, e) => {
 const onBlur: TextareaProps['onBlur'] = (value, e) => {
   console.log('onBlur: ', value, e);
 };
-
 </script>

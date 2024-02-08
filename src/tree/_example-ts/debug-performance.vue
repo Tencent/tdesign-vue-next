@@ -42,7 +42,7 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { TreeProps, TreeInstanceFunctions } from 'tdesign-vue-next';
 import { ref, computed } from 'vue';
 const allLevels = [3, 3, 3];
@@ -115,5 +115,4 @@ const append = (node?: { value: number }) => {
 const remove = (node) => {
   node.remove();
 };
-
 </script>

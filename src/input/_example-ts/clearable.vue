@@ -1,7 +1,7 @@
 <template>
   <t-input v-model="value" clearable placeholder="请输入" @clear="onClear" @blur="onBlur" />
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { InputProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const value = ref('Hello TDesign');
@@ -11,5 +11,4 @@ const onClear: InputProps['onClear'] = () => {
 const onBlur: InputProps['onBlur'] = () => {
   console.log('blur');
 };
-
 </script>

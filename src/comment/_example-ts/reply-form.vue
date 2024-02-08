@@ -9,7 +9,7 @@
   </t-comment>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { ref } from 'vue';
 import { NotifyPlugin, ButtonProps } from 'tdesign-vue-next';
 const replyData = ref('');
@@ -20,7 +20,6 @@ const submitReply: ButtonProps['onClick'] = () => {
     duration: 3000,
   });
 };
-
 </script>
 
 <style lang="less" scoped>

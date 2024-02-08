@@ -7,7 +7,7 @@
   />
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { Tag, ImageProps } from 'tdesign-vue-next';
 const label: ImageProps['overlayContent'] = () => (
   <Tag
@@ -18,9 +18,9 @@ const label: ImageProps['overlayContent'] = () => (
       borderRadius: '3px',
       background: 'rgba(236,242,254,1)',
       color: 'rgba(0,82,217,1)',
-    }}>
+    }}
+  >
     标签一
   </Tag>
 );
-
 </script>

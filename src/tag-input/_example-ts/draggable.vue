@@ -24,7 +24,7 @@
   </t-space>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { TagInputProps, TagInputDragSortContext } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const tags1 = ref(['Vue', 'React', 'Angular']);
@@ -51,5 +51,4 @@ function onDragSort2({ currentIndex, targetIndex }: TagInputDragSortContext) {
   tags2.value[currentIndex] = tags2.value[targetIndex];
   tags2.value[targetIndex] = temp;
 }
-
 </script>

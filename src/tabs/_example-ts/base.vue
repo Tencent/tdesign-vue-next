@@ -17,7 +17,7 @@
   </t-space>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { TabsProps, TabPanelProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const tabList: TabsProps['list'] = [
@@ -42,5 +42,4 @@ const tab = ref(1);
 const panelRender: TabPanelProps['panel'] = () => {
   return <p style="padding: 25px;">选项卡3的内容，使用 t-tab-panel 渲染</p>;
 };
-
 </script>

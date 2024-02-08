@@ -11,7 +11,7 @@
     </template>
   </t-transfer>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { TransferProps } from 'tdesign-vue-next';
 const list: TransferProps['data'] = [];
 for (let i = 0; i < 20; i++) {
@@ -20,7 +20,6 @@ for (let i = 0; i < 20; i++) {
     label: `内容${i + 1}`,
   });
 }
-
 </script>
 <style>
 .tdesign-transfer-custom .t-button .t-icon {

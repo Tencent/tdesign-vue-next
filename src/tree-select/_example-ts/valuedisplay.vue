@@ -12,7 +12,7 @@
     </t-tree-select>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { TreeSelectProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const value = ref('shenzhen');
@@ -53,5 +53,4 @@ const options: TreeSelectProps['data'] = [
     ],
   },
 ];
-
 </script>

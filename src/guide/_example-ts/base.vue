@@ -37,7 +37,7 @@
   </t-row>
 </template>
 
-<script lang='tsx' setup>
+<script lang="tsx" setup>
 import { GuideProps, ButtonProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const visible = ref(false);
@@ -90,7 +90,6 @@ const handleSkip: GuideProps['onSkip'] = ({ e, current, total }) => {
   visible.value = false;
   console.log(e, current, total);
 };
-
 </script>
 
 <style scoped>

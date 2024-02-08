@@ -39,7 +39,7 @@
     </t-form>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ref, reactive } from 'vue';
 import { MessagePlugin, FormProps, CheckboxGroupProps } from 'tdesign-vue-next';
 const formData: FormProps['data'] = reactive({
@@ -73,5 +73,4 @@ const onSubmit: FormProps['onSubmit'] = ({ validateResult, firstError }) => {
     MessagePlugin.warning(firstError);
   }
 };
-
 </script>

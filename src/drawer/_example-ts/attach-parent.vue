@@ -35,13 +35,12 @@
   </div>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { DrawerProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const visible = ref(false);
 const placement = ref<DrawerProps['placement']>('right');
 const mode = ref<DrawerProps['mode']>('overlay');
-
 </script>
 <style scoped>
 .t-container {

@@ -13,7 +13,7 @@
     />
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { SliderProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const value1 = ref(12);
@@ -24,7 +24,6 @@ const marks: SliderProps['marks'] = {
   10: 'min:10',
   30: 'max:30',
 };
-
 </script>
 <style>
 .slider-demo-container {

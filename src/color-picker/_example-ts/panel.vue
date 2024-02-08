@@ -23,7 +23,7 @@
     /></t-space>
   </t-space>
 </template>
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ColorPickerPanelProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const color = ref('#0052d9');
@@ -37,5 +37,4 @@ const handlePaletteChange: ColorPickerPanelProps['onPaletteBarChange'] = (contex
 const handleRecentColorsChange: ColorPickerPanelProps['onRecentColorsChange'] = (value, context) => {
   console.log('最近使用颜色改变', value, context);
 };
-
 </script>
