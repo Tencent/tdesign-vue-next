@@ -12,7 +12,6 @@
 </template>
 
 <script lang="ts" setup>
-import { DescriptionsProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const checked = ref(true);
 </script>

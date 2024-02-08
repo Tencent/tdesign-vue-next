@@ -39,7 +39,7 @@
 </template>
 
 <script lang="ts" setup>
-import { DrawerProps, GuideProps, ButtonProps } from 'tdesign-vue-next';
+import { GuideProps, ButtonProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const visible = ref(false);
 const current = ref(-1);

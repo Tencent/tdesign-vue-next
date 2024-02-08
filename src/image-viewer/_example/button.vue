@@ -9,7 +9,7 @@
   </div>
 </template>
 
-<script setup lang="jsx">
+<script lang="jsx" setup>
 import { ref } from 'vue';
 
 const visible = ref(false);

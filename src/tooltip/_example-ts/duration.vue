@@ -5,7 +5,6 @@
 </template>
 
 <script lang="ts" setup>
-import { TooltipProps } from 'tdesign-vue-next';
 import { ref, onUnmounted, watch } from 'vue';
 const timeout = ref(0);
 const renderId = ref(0);

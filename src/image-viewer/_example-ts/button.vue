@@ -9,7 +9,7 @@
   </div>
 </template>
 
-<script lang="ts" lang="tsx" setup>
+<script lang="tsx" setup>
 import { ImageViewerProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const visible = ref(false);

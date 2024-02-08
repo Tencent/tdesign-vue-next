@@ -5,7 +5,7 @@
     </t-dropdown>
   </t-space>
 </template>
-<script lang="ts" lang="ts" setup>
+<script lang="ts" setup>
 import { DropdownProps } from 'tdesign-vue-next';
 const options: DropdownProps['options'] = [
   {

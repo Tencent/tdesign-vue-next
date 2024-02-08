@@ -23,7 +23,7 @@
 </template>
 
 <script lang="ts" setup>
-import { DrawerProps, RadioGroupProps } from 'tdesign-vue-next';
+import { RadioGroupProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const visible = ref(false);
 const placement = ref<RadioGroupProps['defaultValue']>('right');

@@ -60,7 +60,6 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { DialogProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const visibleNormalDrag = ref(false);
 const visibleModal = ref(false);

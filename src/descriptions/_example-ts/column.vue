@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts" setup>
-import { RadioGroupProps, DescriptionsProps } from 'tdesign-vue-next';
+import { RadioGroupProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const columnOptions: RadioGroupProps['options'] = [2, 3, 4];
 const column = ref(2);

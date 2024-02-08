@@ -24,9 +24,9 @@
 import { CheckboxGroupProps, CheckboxProps } from 'tdesign-vue-next';
 import { ref, computed } from 'vue';
 const options1: CheckboxGroupProps['options'] = [
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   {
     value: '选项一',
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     label: (h) => <div>选项一</div>,
   },
   {
@@ -49,9 +49,9 @@ const options2: CheckboxGroupProps['options'] = [
     label: '选项一',
     title: '选项一',
   },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   {
     value: '选项二',
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     label: (h) => <div>选项二</div>,
   },
   {

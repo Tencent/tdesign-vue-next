@@ -24,7 +24,7 @@
   </t-space>
 </template>
 <script lang="ts" setup>
-import { DialogProps, PaginationProps, ButtonProps } from 'tdesign-vue-next';
+import { DialogProps, ButtonProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
 const visible = ref(false);
 const current = ref(1);
