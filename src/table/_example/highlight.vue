@@ -15,6 +15,7 @@
       row-key="key"
       :data="tableData"
       :columns="columns"
+      :active-row-keys="activeRowKeys"
       :active-row-type="activeRowType"
       :hover="hover"
       lazy-load
@@ -33,6 +34,7 @@ export default {
 import { ref, watch } from 'vue';
 const activeRowType = ref('single');
 const hover = ref(false);
+const activeRowKeys = ref([]);
 
 const tableData = getTableData();
 const columns = [
@@ -43,6 +45,7 @@ const columns = [
 ];
 
 const onActiveChange = (highlightRowKeys, ctx) => {
+  activeRowKeys.value = highlightRowKeys;
   console.log(highlightRowKeys, ctx);
 };
 
