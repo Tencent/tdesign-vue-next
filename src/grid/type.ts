@@ -88,18 +88,18 @@ export interface TdColProps {
 }
 
 export interface GutterObject {
-  xs: number;
-  sm: number;
-  md: number;
-  lg: number;
-  xl: number;
-  xxl: number;
+  xs?: number;
+  sm?: number;
+  md?: number;
+  lg?: number;
+  xl?: number;
+  xxl?: number;
 }
 
 export interface BaseColProps {
-  offset: number;
-  order: number;
-  pull: number;
-  push: number;
-  span: number;
+  offset?: number;
+  order?: number;
+  pull?: number;
+  push?: number;
+  span?: number;
 }

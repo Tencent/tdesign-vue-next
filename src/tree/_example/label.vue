@@ -1,18 +1,23 @@
 <template>
-  <div class="tdesign-tree-demo">
-    <h3>render:</h3>
-    <t-tree :data="items" expand-all :label="label" />
-    <h3>scope slot:</h3>
-    <t-tree :data="items" expand-all checkable>
-      <template #label="{ node }">
-        <span style="color: blue">label: {{ node.label }}, value: {{ node.value }}</span>
-      </template>
-    </t-tree>
-  </div>
+  <t-space :size="32" direction="vertical">
+    <t-space direction="vertical">
+      <h3>属性设置 jsx 形式</h3>
+      <t-tree :data="items" expand-all :label="label"></t-tree>
+    </t-space>
+    <t-space direction="vertical">
+      <h3>slot 形式</h3>
+      <t-tree :data="items" expand-all checkable>
+        <template #label="{ node }">
+          <span style="color: blue">label: {{ node.label }}, value: {{ node.value }}</span>
+        </template>
+      </t-tree>
+    </t-space>
+  </t-space>
 </template>
 
 <script setup>
-const items = [
+import { ref } from 'vue';
+const items = ref([
   {
     label: '1',
     children: [
@@ -35,31 +40,9 @@ const items = [
       },
     ],
   },
-];
-
-const label = (h, node) => {
-  return h('strong', {
-    innerHTML: `value: ${node.value}, label: ${node.label}`,
-  });
-};
+]);
+const label = ref((h, node) => {
+  // 注意 vue2 和 vue3 下 h 的使用方法实际上存在差异
+  return h('strong', `value: ${node.value}, label: ${node.label}`);
+});
 </script>
-<style scoped>
-.tdesign-tree-demo .t-tree {
-  margin-bottom: 20px;
-}
-.tdesign-tree-demo .title {
-  margin-bottom: 10px;
-}
-.tdesign-tree-demo .tips {
-  margin-bottom: 10px;
-}
-.tdesign-tree-demo .operations {
-  margin-bottom: 10px;
-}
-.tdesign-tree-demo .t-form__item {
-  margin-bottom: 5px;
-}
-.tdesign-tree-demo .t-button {
-  margin: 0 10px 10px 0;
-}
-</style>

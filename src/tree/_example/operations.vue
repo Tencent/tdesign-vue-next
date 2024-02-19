@@ -1,26 +1,18 @@
 <template>
-  <div class="tdesign-tree-demo">
-    <h3 class="title">Render:</h3>
-    <t-tree :data="items" hover expand-all :label="getLabel" :operations="renderOperations" />
-    <h3 class="title">Scope Slot:</h3>
-    <div class="operations">
-      <t-form label-width="200">
-        <t-form-item label="插入节点使用高亮节点">
-          <t-switch v-model="useActived" />
-        </t-form-item>
-        <t-form-item label="子节点展开触发父节点展开">
-          <t-switch v-model="expandParent" />
-        </t-form-item>
-        <t-form-item label="开启修改节点功能">
-          <t-switch v-model="disableLabel" />
-        </t-form-item>
-      </t-form>
-    </div>
-    <div class="operations">
+  <t-space direction="vertical" style="width: 100%" class="tdesign-tree-operations">
+    <t-space>
+      <span>插入节点使用高亮节点:</span>
+      <t-switch v-model="useActived" />
+    </t-space>
+    <t-space>
+      <span>子节点展开触发父节点展开:</span>
+      <t-switch v-model="expandParent" />
+    </t-space>
+    <t-space>
       <t-input-adornment prepend="filter:">
         <t-input v-model="filterText" @change="onInputChange" />
       </t-input-adornment>
-    </div>
+    </t-space>
     <t-tree
       ref="tree"
       :data="items"
@@ -29,7 +21,7 @@
       activable
       checkable
       :expand-on-click-node="false"
-      :label="disableLabel || getLabel"
+      :label="getLabel"
       :expand-parent="expandParent"
       :filter="filterByText"
       line
@@ -38,59 +30,45 @@
       @active="onActive"
     >
       <template #operations="{ node }">
-        <t-button :disabled="disableLabel" size="small" variant="base" @click="append(node)"> 添加子节点 </t-button>
-        <t-button :disabled="disableLabel" size="small" variant="outline" @click="insertBefore(node)">
-          前插节点
-        </t-button>
-        <t-button :disabled="disableLabel" size="small" variant="outline" @click="insertAfter(node)">
-          后插节点
-        </t-button>
-        <t-button :disabled="!disableLabel" size="small" variant="outline" @click="setData(node)">
-          修改节点label
-        </t-button>
-        <t-button :disabled="disableLabel" size="small" variant="base" theme="danger" @click="remove(node)">
-          删除
-        </t-button>
+        <t-space :size="10">
+          <t-button size="small" variant="base" @click="append(node)">添加子节点</t-button>
+          <t-button size="small" variant="outline" @click="insertBefore(node)">前插节点</t-button>
+          <t-button size="small" variant="outline" @click="insertAfter(node)">后插节点</t-button>
+          <t-button
+            size="small"
+            :theme="node.disabled ? 'success' : 'warning'"
+            variant="base"
+            @click="toggleDisable(node)"
+          >
+            {{ node.disabled ? 'enable' : 'disable' }}
+          </t-button>
+          <t-button size="small" variant="base" theme="danger" @click="remove(node)">删除</t-button>
+        </t-space>
       </template>
     </t-tree>
-    <h3 class="title">API:</h3>
-    <div class="operations">
-      <t-button theme="primary" @click="getItem"> 获取 value 为 'node1' 的单个节点 </t-button>
-      <t-button theme="primary" @click="getAllItems"> 获取所有节点 </t-button>
-      <t-button theme="primary" @click="getActiveChildren"> 获取高亮节点的所有子节点 </t-button>
-      <t-button theme="primary" @click="getAllActived"> 获取所有高亮节点 </t-button>
-      <t-button theme="primary" @click="getActiveChecked"> 获取高亮节点下的选中节点 </t-button>
-      <t-button theme="primary" @click="append()"> 插入一个根节点 </t-button>
-      <t-button theme="primary" @click="getActiveParent"> 获取高亮节点的父节点 </t-button>
-      <t-button theme="primary" @click="getActiveParents"> 获取高亮节点的所有父节点 </t-button>
-      <t-button theme="primary" @click="getActiveIndex"> 获取高亮节点在子节点中的位置 </t-button>
-      <t-button theme="primary" @click="setActiveChecked"> 选中高亮节点 </t-button>
-      <t-button theme="primary" @click="setActiveExpanded"> 展开高亮节点 </t-button>
-      <t-button theme="primary" @click="getActivePlainData"> 获取高亮节点与其子节点的数据 </t-button>
-    </div>
-    <p class="tips">* 相关信息通过控制台输出</p>
-  </div>
+    <h3>操作树节点</h3>
+    <t-space :size="10" break-line>
+      <t-button theme="primary" variant="outline" @click="getItem">获取 value 为 'node1' 的单个节点</t-button>
+      <t-button theme="primary" variant="outline" @click="getAllItems">获取所有节点</t-button>
+      <t-button theme="primary" variant="outline" @click="getActiveChildren">获取高亮节点的所有子节点</t-button>
+      <t-button theme="primary" variant="outline" @click="getAllActived">获取所有高亮节点</t-button>
+      <t-button theme="primary" variant="outline" @click="getActiveChecked">获取高亮节点下的选中节点</t-button>
+      <t-button theme="primary" variant="outline" @click="append()">插入一个根节点</t-button>
+      <t-button theme="primary" variant="outline" @click="getActiveParent">获取高亮节点的父节点</t-button>
+      <t-button theme="primary" variant="outline" @click="getActiveParents">获取高亮节点的所有父节点</t-button>
+      <t-button theme="primary" variant="outline" @click="getActiveIndex">获取高亮节点在子节点中的位置</t-button>
+      <t-button theme="primary" variant="outline" @click="setActiveChecked">选中高亮节点</t-button>
+      <t-button theme="primary" variant="outline" @click="setActiveUnChecked">取消选中高亮节点</t-button>
+      <t-button theme="primary" variant="outline" @click="setActiveExpanded">展开高亮节点</t-button>
+      <t-button theme="primary" variant="outline" @click="getActivePlainData">获取高亮节点与其子节点的数据</t-button>
+    </t-space>
+    <div>* 相关信息通过控制台输出</div>
+  </t-space>
 </template>
 
 <script setup>
 import { ref } from 'vue';
-
-const items = [
-  {
-    value: 'node1',
-  },
-  {
-    value: 'node2',
-  },
-];
-
-const getLabelContent = (node) => {
-  const pathNodes = node.getPath();
-  let label = pathNodes.map((itemNode) => itemNode.getIndex() + 1).join('.');
-  label = `${label} | value: ${node.value}`;
-  return label;
-};
-
+const tree = ref();
 const index = ref(2);
 const activeId = ref('');
 const activeIds = ref([]);
@@ -100,35 +78,37 @@ const useActived = ref(false);
 const expandParent = ref(true);
 const filterText = ref('');
 const filterByText = ref(null);
-const disableLabel = ref(false);
+const items = ref([
+  {
+    value: 'node1',
+  },
+  {
+    value: 'node2',
+  },
+]);
 
-const renderOperations = (createElement, node) => `value: ${node.value}`;
-
-const getLabel = (createElement, node) => {
+const getLabelContent = (node) => {
+  const pathNodes = node.getPath();
+  let label = pathNodes.map((itemNode) => itemNode.getIndex() + 1).join('.');
+  label = `${label} | value: ${node.value}`;
+  return label;
+};
+const getLabel = (h, node) => {
   const label = getLabelContent(node);
   const { data } = node;
   data.label = label;
   return label;
 };
-
-const getActivedNode = () => {
-  const activeNode = tree.value.getItem(activeId.value);
-  return activeNode;
-};
-
-const tree = ref(null);
 const setLabel = (value) => {
   const node = tree.value.getItem(value);
   const label = getLabelContent(node);
   const { data } = node;
   data.label = label;
 };
-
 const getItem = () => {
   const node = tree.value.getItem('node1');
-  console.info('getItem:', node.label);
+  console.info('getItem:', node.value);
 };
-
 const getAllItems = () => {
   const nodes = tree.value.getItems();
   console.info(
@@ -136,24 +116,26 @@ const getAllItems = () => {
     nodes.map((node) => node.value),
   );
 };
-
-const getAllActived = () => {
-  console.info('getActived value:', activeIds.value.slice(0));
+const getActivedNode = () => {
+  const activeNode = tree.value.getItem(activeId.value);
+  return activeNode;
 };
-
 const getActiveChildren = () => {
   const node = getActivedNode();
   if (!node) return;
   let nodes = [];
   if (node) {
-    nodes = node.getChildren(true) || [];
+    const nodeChildrens = node.getChildren(true);
+    nodes = typeof nodeChildrens === 'boolean' ? [] : nodeChildrens;
   }
   console.info(
     'getActiveChildren:',
     nodes.map((node) => node.value),
   );
 };
-
+const getAllActived = () => {
+  console.info('getActived value:', activeIds.value.slice(0));
+};
 const getActiveChecked = () => {
   const node = getActivedNode();
   if (!node) return;
@@ -163,7 +145,6 @@ const getActiveChecked = () => {
     nodes.filter((node) => node.checked).map((node) => node.value),
   );
 };
-
 const getInsertItem = () => {
   let item = null;
   if (useActived.value) {
@@ -177,40 +158,6 @@ const getInsertItem = () => {
   }
   return item;
 };
-
-const getPlainData = (item) => {
-  const root = item;
-  if (!root) return null;
-  const children = item.getChildren(true) || [];
-  const list = [root].concat(children);
-  const nodeMap = {};
-  const nodeList = list.map((item) => {
-    const node = {
-      walkData() {
-        const data = {
-          ...this.data,
-        };
-        const itemChildren = this.getChildren();
-        if (Array.isArray(itemChildren)) {
-          data.children = [];
-          itemChildren.forEach((childItem) => {
-            const childNode = nodeMap[childItem.value];
-            const childData = childNode.walkData();
-            data.children.push(childData);
-          });
-        }
-        return data;
-      },
-      ...item,
-    };
-    nodeMap[item.value] = node;
-    return node;
-  });
-  const [rootNode] = nodeList;
-  const data = rootNode.walkData();
-  return data;
-};
-
 const append = (node) => {
   const item = getInsertItem();
   if (item) {
@@ -221,8 +168,10 @@ const append = (node) => {
     }
     setLabel(item.value);
   }
+  if (useActived.value) {
+    activeId.value = '';
+  }
 };
-
 const insertBefore = (node) => {
   const item = getInsertItem();
   if (item) {
@@ -230,7 +179,6 @@ const insertBefore = (node) => {
     setLabel(item.value);
   }
 };
-
 const insertAfter = (node) => {
   const item = getInsertItem();
   if (item) {
@@ -238,14 +186,12 @@ const insertAfter = (node) => {
     setLabel(item.value);
   }
 };
-
 const getActiveParent = () => {
   const node = getActivedNode();
   if (!node) return;
   const parent = tree.value.getParent(node.value);
   console.info('getParent', parent?.value);
 };
-
 const getActiveParents = () => {
   const node = getActivedNode();
   if (!node) return;
@@ -255,7 +201,6 @@ const getActiveParents = () => {
     parents.map((node) => node.value),
   );
 };
-
 const setActiveChecked = () => {
   const node = getActivedNode();
   if (!node) return;
@@ -263,7 +208,13 @@ const setActiveChecked = () => {
     checked: true,
   });
 };
-
+const setActiveUnChecked = () => {
+  const node = getActivedNode();
+  if (!node) return;
+  tree.value.setItem(node?.value, {
+    checked: false,
+  });
+};
 const setActiveExpanded = () => {
   const node = getActivedNode();
   if (!node) return;
@@ -271,21 +222,27 @@ const setActiveExpanded = () => {
     expanded: true,
   });
 };
-
 const getActiveIndex = () => {
   const node = getActivedNode();
   if (!node) return;
   const index = tree.value.getIndex(node.value);
   console.info('getIndex', index);
 };
-
 const getActivePlainData = () => {
   const node = getActivedNode();
-  if (!node) return;
-  const data = getPlainData(node);
-  return data;
+  let treeNodes = [];
+  if (!node) {
+    treeNodes = tree.value.getTreeData();
+  } else {
+    treeNodes = tree.value.getTreeData(node.value);
+  }
+  console.info('树结构数据:', treeNodes);
 };
-
+const toggleDisable = (node) => {
+  tree.value.setItem(node.value, {
+    disabled: !node.disabled,
+  });
+};
 const remove = (node) => {
   tree.value.remove(node.value);
 };
@@ -294,52 +251,35 @@ const onChange = (vals, state) => {
   console.info('on change:', vals, state);
   checkedIds.value = vals;
 };
-
 const onExpand = (vals, state) => {
   console.info('on expand:', vals, state);
   expandIds.value = vals;
 };
-
 const onActive = (vals, state) => {
   console.info('on active:', vals, state);
   activeIds.value = vals;
   activeId.value = vals[0] || '';
 };
-
 const onInputChange = (state) => {
   console.info('on input:', state);
-  filterByText.value = (node) => {
-    const label = node?.data?.label || '';
-    const rs = label.indexOf(filterText.value) >= 0;
-    return rs;
-  };
-};
-const setData = (node) => {
-  node.setData({ label: Math.random().toFixed(2) });
+  if (filterText.value) {
+    filterByText.value = (node) => {
+      const label = node?.data?.label || '';
+      const rs = label.indexOf(filterText.value) >= 0;
+      return rs;
+    };
+  } else {
+    filterByText.value = null;
+  }
 };
 </script>
-<style scoped>
-.tdesign-tree-demo .t-tree {
-  margin-bottom: 20px;
+<style>
+.tdesign-tree-operations .t-is-active .t-tree__label,
+.tdesign-tree-operations .t-is-active .t-checkbox__label {
+  background-color: rgba(255, 0, 0, 0.3);
 }
-.tdesign-tree-demo .title {
-  margin-bottom: 10px;
-}
-.tdesign-tree-demo .tips {
-  margin-bottom: 10px;
-}
-.tdesign-tree-demo .operations {
-  margin-bottom: 10px;
-}
-.tdesign-tree-demo .t-form__item {
-  margin-bottom: 5px;
-}
-.tdesign-tree-demo .t-button {
-  margin: 0 10px 10px 0;
-}
-
-.tips {
-  font-size: 10px;
-  color: gray;
+.tdesign-tree-operations .tips p {
+  line-height: 24px;
+  text-indent: 1em;
 }
 </style>

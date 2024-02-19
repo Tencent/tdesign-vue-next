@@ -19,6 +19,10 @@ export default {
   },
   /** 标签选中的状态，默认风格（theme=default）才有选中态，非受控属性 */
   defaultChecked: Boolean,
+  /** 透传标签选中态属性 */
+  checkedProps: {
+    type: Object as PropType<TdCheckTagProps['checkedProps']>,
+  },
   /** 组件子元素；传入数组时：[选中内容，非选中内容] */
   content: {
     type: [String, Number, Array, Function] as PropType<TdCheckTagProps['content']>,
@@ -37,6 +41,14 @@ export default {
       if (!val) return true;
       return ['small', 'medium', 'large'].includes(val);
     },
+  },
+  /** 透传标签未选态属性 */
+  uncheckedProps: {
+    type: Object as PropType<TdCheckTagProps['uncheckedProps']>,
+  },
+  /** 标签唯一标识，一般用于标签组场景，单个可选择标签无需设置 */
+  value: {
+    type: [String, Number] as PropType<TdCheckTagProps['value']>,
   },
   /** 状态切换时触发 */
   onChange: Function as PropType<TdCheckTagProps['onChange']>,

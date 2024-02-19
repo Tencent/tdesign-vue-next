@@ -7,7 +7,6 @@ import isNil from 'lodash/isNil';
 
 import Tree, { TreeProps, TreeNodeModel, TreeNodeValue } from '../tree';
 import SelectInput, { TdSelectInputProps } from '../select-input';
-import { InputValue } from '../input';
 import FakeArrow from '../common-components/fake-arrow';
 import { PopupVisibleChangeContext } from '../popup';
 
@@ -37,7 +36,6 @@ export default defineComponent({
     const treeRef = ref(null);
 
     // data
-    const filterByText = ref(null);
     const actived = ref([]);
     const expanded = ref([]);
     const nodeInfo = ref(null);
@@ -78,6 +76,22 @@ export default defineComponent({
     );
 
     // computed
+    /** filterByText keep pace with innerInputValue */
+    const filterByText = computed(() => {
+      const value = innerInputValue.value || '';
+      if (value === '') {
+        return null;
+      }
+      return (node: TreeNodeModel<TreeOptionData>) => {
+        if (isFunction(props.filter)) {
+          const filter: boolean | Promise<boolean> = props.filter(String(value), node);
+          if (isBoolean(filter)) {
+            return filter;
+          }
+        }
+        return node.data[realLabel.value].indexOf(value) >= 0;
+      };
+    });
     const tDisabled = computed(() => {
       return formDisabled.value || props.disabled;
     });
@@ -127,21 +141,21 @@ export default defineComponent({
       if (!isEmpty(props.treeProps) && !isEmpty((props.treeProps as TreeProps).keys)) {
         return (props.treeProps as TreeProps).keys.label || 'label';
       }
-      return 'label';
+      return props.keys?.label || 'label';
     });
 
     const realValue = computed(() => {
       if (!isEmpty(props.treeProps) && !isEmpty((props.treeProps as TreeProps).keys)) {
         return (props.treeProps as TreeProps).keys.value || 'value';
       }
-      return 'value';
+      return props.keys?.value || 'value';
     });
 
     const realChildren = computed(() => {
       if (!isEmpty(props.treeProps) && !isEmpty((props.treeProps as TreeProps).keys)) {
         return (props.treeProps as TreeProps).keys.children || 'children';
       }
-      return 'children';
+      return props.keys?.children || 'children';
     });
 
     // timelifes
@@ -181,7 +195,7 @@ export default defineComponent({
 
     const treeNodeChange = (
       valueParam: Array<TreeNodeValue>,
-      context: { node: TreeNodeModel<TreeOptionData>; e: MouseEvent },
+      context: { node: TreeNodeModel<TreeOptionData>; e?: MouseEvent },
     ) => {
       let current: TreeSelectValue = valueParam;
       if (isObjectValue.value) {
@@ -192,7 +206,7 @@ export default defineComponent({
 
     const treeNodeActive = (
       valueParam: Array<TreeNodeValue>,
-      context: { node: TreeNodeModel<TreeOptionData>; e: MouseEvent },
+      context: { node: TreeNodeModel<TreeOptionData>; e?: MouseEvent },
     ) => {
       if (!props.multiple) {
         setInnerVisible(false, context);
@@ -224,26 +238,13 @@ export default defineComponent({
       changeNodeInfo();
     };
 
-    const inputChange = (value: InputValue): boolean => {
+    const inputChange = (value: string): boolean => {
       // 未打开状态不处理输入框输入
       if (!innerVisible.value) {
         props.onSearch?.(String(value));
         return;
       }
       setInnerInputValue(value);
-      if (!value) {
-        filterByText.value = null;
-        return null;
-      }
-      filterByText.value = (node: TreeNodeModel<TreeOptionData>) => {
-        if (isFunction(props.filter)) {
-          const filter: boolean | Promise<boolean> = props.filter(String(value), node);
-          if (isBoolean(filter)) {
-            return filter;
-          }
-        }
-        return node.data[realLabel.value].indexOf(value) >= 0;
-      };
       props.onSearch?.(String(value));
     };
 
@@ -256,6 +257,11 @@ export default defineComponent({
       change(treeSelectValue.value, null, trigger as 'tag-remove' | 'backspace');
     };
 
+    const handlePopupVisibleChange = (visible: boolean, context: PopupVisibleChangeContext) => {
+      setInnerVisible(visible, context);
+      // 在通过点击选择器打开弹窗时 清空此前的输入内容 避免在关闭时就清空引起的闪烁问题
+      if (visible && context.trigger === 'trigger-element-click') setInnerInputValue('');
+    };
     const changeNodeInfo = async () => {
       await treeSelectValue.value;
 
@@ -469,7 +475,7 @@ export default defineComponent({
         }}
         onInputChange={inputChange}
         onTagChange={tagChange}
-        onPopupVisibleChange={(state: boolean, context: PopupVisibleChangeContext) => setInnerVisible(state, context)}
+        onPopupVisibleChange={handlePopupVisibleChange}
         {...(props.selectInputProps as TdTreeSelectProps['selectInputProps'])}
       />
     );

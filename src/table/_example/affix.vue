@@ -1,14 +1,14 @@
 <template>
   <!-- 注意组件父元素的宽度 -->
   <div style="width: 830px" class="tdesign-demo-block-column-large tdesign-demo__table-affix">
-    <div>
+    <t-space>
       <t-checkbox v-model="headerAffixedTop">表头吸顶</t-checkbox>
-      <t-checkbox v-model="footerAffixedBottom" style="margin-left: 32px">表尾吸底</t-checkbox>
-      <t-checkbox v-model="horizontalScrollAffixedBottom" style="margin-left: 32px">滚动条吸底</t-checkbox>
-      <t-checkbox v-model="paginationAffixedBottom" style="margin-left: 32px">分页器吸底</t-checkbox>
-      <t-checkbox v-model="fixedLeftColumn" style="margin-left: 32px">固定左侧列</t-checkbox>
-      <t-checkbox v-model="fixedRightColumn" style="margin-left: 32px">固定右侧列</t-checkbox>
-    </div>
+      <t-checkbox v-model="footerAffixedBottom">表尾吸底</t-checkbox>
+      <t-checkbox v-model="horizontalScrollAffixedBottom">滚动条吸底</t-checkbox>
+      <t-checkbox v-model="paginationAffixedBottom">分页器吸底</t-checkbox>
+      <t-checkbox v-model="fixedLeftColumn">固定左侧列</t-checkbox>
+      <t-checkbox v-model="fixedRightColumn">固定右侧列</t-checkbox>
+    </t-space>
 
     <t-table
       row-key="index"
@@ -17,9 +17,9 @@
       :foot-data="footData"
       :row-class-name="rowClassName"
       :pagination="pagination"
-      :header-affixed-top="headerAffixedTop ? headerAffixedTopProps : undefined"
-      :footer-affixed-bottom="footerAffixedBottom ? footerAffixedBottomProps : false"
-      :horizontal-scroll-affixed-bottom="horizontalScrollAffixedBottom ? horizontalScrollAffixedBottomProps : false"
+      :header-affixed-top="headerAffixedTopProps"
+      :footer-affixed-bottom="footerAffixedBottomProps"
+      :horizontal-scroll-affixed-bottom="horizontalScrollAffixedBottomProps"
       :pagination-affixed-bottom="paginationAffixedBottom"
       table-layout="fixed"
       drag-sort="col"
@@ -33,7 +33,7 @@
   </div>
 </template>
 <script setup lang="jsx">
-import { ref, watch, h } from 'vue';
+import { ref, watch, h, computed } from 'vue';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
 const statusNameListMap = {
@@ -112,11 +112,11 @@ const columns = ref([]);
 
 // 重要：如果在预渲染场景下，初次渲染的表格宽度和最终呈现宽度不一样，请异步设置表头吸顶
 const headerAffixedTop = ref(true);
-const footerAffixedBottom = ref(true);
+const footerAffixedBottom = ref(false);
 const fixedLeftColumn = ref(true);
 const fixedRightColumn = ref(true);
-const horizontalScrollAffixedBottom = ref(false);
-const paginationAffixedBottom = ref(false);
+const horizontalScrollAffixedBottom = ref(true);
+const paginationAffixedBottom = ref(true);
 
 // type 可选值：foot 和 body
 function rowClassName({ type }) {
@@ -131,34 +131,37 @@ function onDragSortChange({ newData }) {
 const pagination = ref({ defaultCurrent: 1, defaultPageSize: 5, total: TOTAL });
 
 // 注意保证对象引用不会发生变化，数据的变更始终保持为同一个对象。以免造成表格重新渲染问题
-const headerAffixedTopProps = ref({
-  offsetTop: 87,
-  zIndex: 1000,
+const headerAffixedTopProps = computed(() => {
+  if (headerAffixedTop.value) {
+    return {
+      offsetTop: 87,
+      zIndex: 1000,
+      // container used to set scroll container, default container is body
+      // container: () => document.body,
+    };
+  }
+  return false;
 });
 
-const footerAffixedBottomProps = ref({
-  offsetBottom: paginationAffixedBottom.value ? 60 : 0,
-  zIndex: 1000,
+const footerAffixedBottomProps = computed(() => {
+  if (footerAffixedBottom.value) {
+    return {
+      offsetBottom: paginationAffixedBottom.value ? 64 : 0,
+      zIndex: 1000,
+    };
+  }
+  return false;
 });
 
-const horizontalScrollAffixedBottomProps = ref({
-  offsetBottom: paginationAffixedBottom.value ? 61 : 0,
-  zIndex: 1000,
-});
-
-watch([paginationAffixedBottom], (val) => {
-  footerAffixedBottomProps.value.offsetBottom = val ? 60 : 0;
-  horizontalScrollAffixedBottomProps.value.offsetBottom = val ? 61 : 0;
-});
-
-// 表尾吸顶和底部滚动条，二选一即可，也只能二选一
-watch(horizontalScrollAffixedBottom, (val) => {
-  val && (footerAffixedBottom.value = false);
-});
-
-// 表尾吸顶和底部滚动条，二选一即可，也只能二选一
-watch(footerAffixedBottom, (val) => {
-  val && (horizontalScrollAffixedBottom.value = false);
+const horizontalScrollAffixedBottomProps = computed(() => {
+  if (horizontalScrollAffixedBottom.value) {
+    return {
+      // height of pagination component is 64
+      offsetBottom: paginationAffixedBottom.value ? 64 : 0,
+      zIndex: 1000,
+    };
+  }
+  return false;
 });
 
 // 左侧固定列发生变化时

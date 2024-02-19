@@ -1,6 +1,6 @@
-import { defineComponent, computed, toRefs, ref, nextTick, reactive } from 'vue';
+import { defineComponent, computed, toRefs, ref, nextTick, reactive, watch } from 'vue';
 import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-import TInput, { InputProps, InputValue, TdInputProps } from '../input';
+import TInput, { InputProps, StrInputProps, TdInputProps } from '../input';
 import { TdTagInputProps } from './type';
 import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
@@ -58,7 +58,8 @@ export default defineComponent({
         targetClassNameRegExp: new RegExp(`^${classPrefix.value}-tag`),
       },
     });
-    const { scrollToRight, onWheel, scrollToRightOnEnter, scrollToLeftOnLeave, tagInputRef } = useTagScroll(props);
+    const { scrollToRight, onWheel, scrollToRightOnEnter, scrollToLeftOnLeave, tagInputRef, isScrollable } =
+      useTagScroll(props);
     // handle tag add and remove
     // 需要响应式，为了尽量的和 react 版本做法相同，这里进行响应式处理
     const { tagValue, onInnerEnter, onInputBackspaceKeyUp, onInputBackspaceKeyDown, clearAll, renderLabel, onClose } =
@@ -93,7 +94,7 @@ export default defineComponent({
       ),
     );
 
-    const onInputEnter = (value: InputValue, context: { e: KeyboardEvent }) => {
+    const onInputEnter = (value: string, context: { e: KeyboardEvent }) => {
       // 阻止 Enter 默认行为，避免在 Form 中触发 submit 事件
       context.e?.preventDefault?.();
       setTInputValue('', { e: context.e, trigger: 'enter' });
@@ -104,17 +105,18 @@ export default defineComponent({
       });
     };
 
-    const onInputCompositionstart = (value: InputValue, context: { e: CompositionEvent }) => {
+    const onInputCompositionstart = (value: string, context: { e: CompositionEvent }) => {
       isComposition.value = true;
       inputProps.value?.onCompositionstart?.(value, context);
     };
 
-    const onInputCompositionend = (value: InputValue, context: { e: CompositionEvent }) => {
+    const onInputCompositionend = (value: string, context: { e: CompositionEvent }) => {
       isComposition.value = false;
       inputProps.value?.onCompositionend?.(value, context);
     };
 
     const onClick: TdInputProps['onClick'] = (ctx) => {
+      if (disabled.value) return;
       isFocused.value = true;
       tagInputRef.value.focus();
       props.onClick?.(ctx);
@@ -144,22 +146,32 @@ export default defineComponent({
       scrollToLeftOnLeave();
     };
 
-    const onInnerFocus: InputProps['onFocus'] = (inputValue: InputValue, context: { e: MouseEvent }) => {
+    const onInnerFocus: InputProps['onFocus'] = (inputValue: string, context: { e: MouseEvent }) => {
       if (isFocused.value) return;
       isFocused.value = true;
       props.onFocus?.(tagValue.value, { e: context.e, inputValue });
     };
 
-    const onInnerBlur: InputProps['onFocus'] = (inputValue: InputValue, context: { e: MouseEvent }) => {
+    const onInnerBlur: InputProps['onFocus'] = (inputValue: string, context: { e: MouseEvent }) => {
       isFocused.value = false;
       setTInputValue('', { e: context.e, trigger: 'blur' });
       props.onBlur?.(tagValue.value, { e: context.e, inputValue });
     };
 
-    const onInnerChange: InputProps['onChange'] = (val, context) => {
+    const onInnerChange: StrInputProps['onChange'] = (val, context) => {
       setTInputValue(val, { ...context, trigger: 'input' });
     };
 
+    watch(
+      () => isScrollable.value,
+      (v) => {
+        if (props.excessTagsDisplayType !== 'scroll') return;
+        const scrollElementClass = `${classPrefix.value}-input__prefix`;
+        const scrollElement = tagInputRef.value.$el.querySelector(`.${scrollElementClass}`);
+        if (v) scrollElement.classList.add(`${scrollElementClass}--scrollable`);
+        else scrollElement.classList.remove(`${scrollElementClass}--scrollable`);
+      },
+    );
     return {
       CLEAR_CLASS,
       CloseCircleFilledIcon,

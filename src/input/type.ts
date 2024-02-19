@@ -6,7 +6,7 @@
 
 import { TNode, SizeEnum, ClassName } from '../common';
 
-export interface TdInputProps {
+export interface TdInputProps<T = InputValue> {
   /**
    * 文本内容位置，居左/居中/居右
    * @default left
@@ -32,6 +32,11 @@ export interface TdInputProps {
    */
   autofocus?: boolean;
   /**
+   * 【开发中】无边框模式
+   * @default false
+   */
+  borderless?: boolean;
+  /**
    * 是否可清空
    * @default false
    */
@@ -41,7 +46,7 @@ export interface TdInputProps {
    */
   disabled?: boolean;
   /**
-   * 指定输入框展示值的格式
+   * 指定输入框展示值的格式。注意 `type=number` 时请勿使用，此功能建议更为使用 `InputNumber` 组件
    */
   format?: InputFormatType;
   /**
@@ -59,7 +64,7 @@ export interface TdInputProps {
   /**
    * 用户最多可以输入的文本长度，一个中文等于一个计数长度。值为空，则表示不限制输入长度。`maxcharacter` 和 `maxlength` 二选一使用
    */
-  maxlength?: number | string;
+  maxlength?: string | number;
   /**
    * 名称
    * @default ''
@@ -110,34 +115,31 @@ export interface TdInputProps {
    */
   tips?: string | TNode;
   /**
-   * 输入框类型
+   * 输入框类型。`type=number` 仅支持最基础的数字输入功能，更多功能建议使用 `InputNumber` 组件
    * @default text
    */
   type?: 'text' | 'number' | 'url' | 'tel' | 'password' | 'search' | 'submit' | 'hidden';
   /**
    * 输入框的值
-   * @default ''
    */
-  value?: InputValue;
+  value?: T;
   /**
    * 输入框的值，非受控属性
-   * @default ''
    */
-  defaultValue?: InputValue;
+  defaultValue?: T;
   /**
    * 输入框的值
-   * @default ''
    */
-  modelValue?: InputValue;
+  modelValue?: T;
   /**
    * 失去焦点时触发
    */
-  onBlur?: (value: InputValue, context: { e: FocusEvent }) => void;
+  onBlur?: (value: T, context: { e: FocusEvent }) => void;
   /**
-   * 输入框值发生变化时触发。`trigger=initial` 表示传入的数据不符合预期，组件自动处理后触发 change 告知父组件。如：初始值长度超过 `maxlength` 限制
+   * 输入框值发生变化时触发。参数 `trigger=initial` 表示传入的数据不符合预期，组件自动处理后触发 change 告知父组件。如：初始值长度超过 `maxlength` 限制
    */
   onChange?: (
-    value: InputValue,
+    value: T,
     context?: { e?: InputEvent | MouseEvent | CompositionEvent; trigger: 'input' | 'initial' | 'clear' },
   ) => void;
   /**
@@ -151,31 +153,31 @@ export interface TdInputProps {
   /**
    * 中文输入结束时触发
    */
-  onCompositionend?: (value: InputValue, context: { e: CompositionEvent }) => void;
+  onCompositionend?: (value: string, context: { e: CompositionEvent }) => void;
   /**
    * 中文输入开始时触发
    */
-  onCompositionstart?: (value: InputValue, context: { e: CompositionEvent }) => void;
+  onCompositionstart?: (value: string, context: { e: CompositionEvent }) => void;
   /**
    * 回车键按下时触发
    */
-  onEnter?: (value: InputValue, context: { e: KeyboardEvent }) => void;
+  onEnter?: (value: T, context: { e: KeyboardEvent }) => void;
   /**
    * 获得焦点时触发
    */
-  onFocus?: (value: InputValue, context: { e: FocusEvent }) => void;
+  onFocus?: (value: T, context: { e: FocusEvent }) => void;
   /**
    * 键盘按下时触发
    */
-  onKeydown?: (value: InputValue, context: { e: KeyboardEvent }) => void;
+  onKeydown?: (value: T, context: { e: KeyboardEvent }) => void;
   /**
    * 按下字符键时触发（keydown -> keypress -> keyup）
    */
-  onKeypress?: (value: InputValue, context: { e: KeyboardEvent }) => void;
+  onKeypress?: (value: T, context: { e: KeyboardEvent }) => void;
   /**
    * 释放键盘时触发
    */
-  onKeyup?: (value: InputValue, context: { e: KeyboardEvent }) => void;
+  onKeyup?: (value: T, context: { e: KeyboardEvent }) => void;
   /**
    * 进入输入框时触发
    */
@@ -205,6 +207,6 @@ export interface TdInputGroupProps {
   separate?: boolean;
 }
 
-export type InputFormatType = (value: InputValue) => string;
+export type InputFormatType = (value: string) => string;
 
-export type InputValue = string;
+export type InputValue = string | number;

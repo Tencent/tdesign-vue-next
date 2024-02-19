@@ -20,6 +20,7 @@ import { TdColorModes } from '../interfaces';
 import { useBaseClassName } from '../hooks';
 import useVModel from '../../hooks/useVModel';
 import useDefaultValue from '../../hooks/useDefaultValue';
+import cloneDeep from 'lodash/cloneDeep';
 
 export default defineComponent({
   name: 'ColorPanel',
@@ -71,7 +72,7 @@ export default defineComponent({
       if (recentlyUsedColors.value === null || recentlyUsedColors.value === false) {
         return;
       }
-      const colors = (recentlyUsedColors.value as string[]) || [];
+      const colors = cloneDeep(recentlyUsedColors.value as string[]) || [];
       const currentColor = color.value.isGradient ? color.value.linearGradient : color.value.rgba;
       const index = colors.indexOf(currentColor);
       if (index > -1) {
@@ -89,7 +90,6 @@ export default defineComponent({
      * @param colors
      */
     const handleRecentlyUsedColorsChange = (colors: string[]) => {
-      recentlyUsedColors.value = colors;
       setRecentlyUsedColors(colors);
     };
 

@@ -1,6 +1,7 @@
 import { TdUploadProps, UploadRemoveContext } from './type';
 import { GlobalConfigProvider } from '../config-provider/type';
 import { TNode } from '../common';
+import { ImageViewerProps } from '../image-viewer';
 
 export interface CommonDisplayFileProps {
   files: TdUploadProps['files'];
@@ -26,6 +27,7 @@ export interface CommonDisplayFileProps {
   fileListDisplay?: TdUploadProps['fileListDisplay'];
   onRemove?: (p: UploadRemoveContext) => void;
   onPasteFileChange?: (payload: ClipboardEvent) => void;
+  imageViewerProps?: ImageViewerProps;
 }
 
 export type UploadProps = TdUploadProps;

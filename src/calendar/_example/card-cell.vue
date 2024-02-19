@@ -34,7 +34,7 @@ const getDateStr = (cellData) => {
   const y = cellData.date.getFullYear();
   const m = cellData.date.getMonth() + 1;
   const d = cellData.date.getDate();
-  if (cellData.theme === 'full') {
+  if (theme.value === 'full') {
     return `${y}-${m}-${d}`;
   }
   if (cellData.mode === 'month') {

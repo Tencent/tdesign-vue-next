@@ -9,17 +9,10 @@ exports[`TreeSelect > :props > :clearable 1`] = `
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-readonly t-input--suffix"
     >
       <!---->
-      <div
-        class="t-input__prefix"
-      >
-        
-        <!---->
-        <!---->
-        
-      </div>
+      <!---->
       <input
         class="t-input__inner"
         placeholder="请选择"
@@ -75,7 +68,7 @@ exports[`TreeSelect > :props > :defaultValue 1`] = `
         class="t-input__prefix"
       >
         
-        <span
+        <div
           class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close"
           style="max-width: 300px;"
         >
@@ -97,7 +90,7 @@ exports[`TreeSelect > :props > :defaultValue 1`] = `
               fill="currentColor"
             />
           </svg>
-        </span>
+        </div>
         
       </div>
       <input
@@ -152,17 +145,10 @@ exports[`TreeSelect > :props > :disabled 1`] = `
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-disabled t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-disabled t-is-readonly t-input--suffix"
     >
       <!---->
-      <div
-        class="t-input__prefix"
-      >
-        
-        <!---->
-        <!---->
-        
-      </div>
+      <!---->
       <input
         class="t-input__inner"
         disabled=""
@@ -212,17 +198,10 @@ exports[`TreeSelect > :props > :empty string 1`] = `
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-readonly t-input--suffix"
     >
       <!---->
-      <div
-        class="t-input__prefix"
-      >
-        
-        <!---->
-        <!---->
-        
-      </div>
+      <!---->
       <input
         class="t-input__inner"
         placeholder="请选择"
@@ -271,17 +250,10 @@ exports[`TreeSelect > :props > :filterable 1`] = `
     class="t-input__wrap"
   >
     <div
-      class="t-input t-input--prefix t-input--suffix"
+      class="t-input t-input--suffix"
     >
       <!---->
-      <div
-        class="t-input__prefix"
-      >
-        
-        <!---->
-        <!---->
-        
-      </div>
+      <!---->
       <input
         class="t-input__inner"
         placeholder="请选择"
@@ -328,17 +300,10 @@ exports[`TreeSelect > :props > :loading 1`] = `
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-readonly t-input--suffix"
     >
       <!---->
-      <div
-        class="t-input__prefix"
-      >
-        
-        <!---->
-        <!---->
-        
-      </div>
+      <!---->
       <input
         class="t-input__inner"
         placeholder="请选择"
@@ -396,17 +361,10 @@ exports[`TreeSelect > :props > :loadingText 1`] = `
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-readonly t-input--suffix"
     >
       <!---->
-      <div
-        class="t-input__prefix"
-      >
-        
-        <!---->
-        <!---->
-        
-      </div>
+      <!---->
       <input
         class="t-input__inner"
         placeholder="请选择"
@@ -455,17 +413,10 @@ exports[`TreeSelect > :props > :max 1`] = `
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-readonly t-input--suffix"
     >
       <!---->
-      <div
-        class="t-input__prefix"
-      >
-        
-        <!---->
-        <!---->
-        
-      </div>
+      <!---->
       <input
         class="t-input__inner"
         placeholder="请选择"
@@ -514,17 +465,10 @@ exports[`TreeSelect > :props > :minCollapsedNum 1`] = `
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-readonly t-input--suffix"
     >
       <!---->
-      <div
-        class="t-input__prefix"
-      >
-        
-        <!---->
-        <!---->
-        
-      </div>
+      <!---->
       <input
         class="t-input__inner"
         placeholder="请选择"
@@ -580,7 +524,7 @@ exports[`TreeSelect > :props > :multiple 1`] = `
         class="t-input__prefix"
       >
         
-        <span
+        <div
           class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close"
           style="max-width: 300px;"
         >
@@ -602,7 +546,7 @@ exports[`TreeSelect > :props > :multiple 1`] = `
               fill="currentColor"
             />
           </svg>
-        </span>
+        </div>
         
       </div>
       <input
@@ -657,17 +601,10 @@ exports[`TreeSelect > :props > :placeholder 1`] = `
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-readonly t-input--suffix"
     >
       <!---->
-      <div
-        class="t-input__prefix"
-      >
-        
-        <!---->
-        <!---->
-        
-      </div>
+      <!---->
       <input
         class="t-input__inner"
         placeholder="please select address"
@@ -716,17 +653,10 @@ exports[`TreeSelect > :props > :popupProps 1`] = `
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-readonly t-input--suffix"
     >
       <!---->
-      <div
-        class="t-input__prefix"
-      >
-        
-        <!---->
-        <!---->
-        
-      </div>
+      <!---->
       <input
         class="t-input__inner"
         placeholder="请选择"
@@ -775,17 +705,10 @@ exports[`TreeSelect > :props > :size 1`] = `
     class="t-input__wrap"
   >
     <div
-      class="t-input t-size-l t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-size-l t-is-readonly t-input--suffix"
     >
       <!---->
-      <div
-        class="t-input__prefix"
-      >
-        
-        <!---->
-        <!---->
-        
-      </div>
+      <!---->
       <input
         class="t-input__inner"
         placeholder="请选择"
@@ -834,17 +757,10 @@ exports[`TreeSelect > :props > :treeProps 1`] = `
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-readonly t-input--suffix"
     >
       <!---->
-      <div
-        class="t-input__prefix"
-      >
-        
-        <!---->
-        <!---->
-        
-      </div>
+      <!---->
       <input
         class="t-input__inner"
         placeholder="请选择"
@@ -893,17 +809,10 @@ exports[`TreeSelect > :props > :value 1`] = `
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-readonly t-input--suffix"
     >
       <!---->
-      <div
-        class="t-input__prefix"
-      >
-        
-        <!---->
-        <!---->
-        
-      </div>
+      <!---->
       <input
         class="t-input__inner"
         placeholder="请选择"
@@ -952,17 +861,10 @@ exports[`TreeSelect > :props > :valueType 1`] = `
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-readonly t-input--suffix"
     >
       <!---->
-      <div
-        class="t-input__prefix"
-      >
-        
-        <!---->
-        <!---->
-        
-      </div>
+      <!---->
       <input
         class="t-input__inner"
         placeholder="请选择"
@@ -1018,7 +920,7 @@ exports[`TreeSelect > <slot> > <collapsedItems> 1`] = `
         class="t-input__prefix"
       >
         
-        <span
+        <div
           class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close"
           style="max-width: 300px;"
         >
@@ -1040,7 +942,7 @@ exports[`TreeSelect > <slot> > <collapsedItems> 1`] = `
               fill="currentColor"
             />
           </svg>
-        </span>
+        </div>
         
       </div>
       <input
@@ -1095,17 +997,10 @@ exports[`TreeSelect > <slot> > <empty> 1`] = `
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-readonly t-input--suffix"
     >
       <!---->
-      <div
-        class="t-input__prefix"
-      >
-        
-        <!---->
-        <!---->
-        
-      </div>
+      <!---->
       <input
         class="t-input__inner"
         placeholder="请选择"
@@ -1154,17 +1049,10 @@ exports[`TreeSelect > <slot> > <loadingText> 1`] = `
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-readonly t-input--suffix"
     >
       <!---->
-      <div
-        class="t-input__prefix"
-      >
-        
-        <!---->
-        <!---->
-        
-      </div>
+      <!---->
       <input
         class="t-input__inner"
         placeholder="请选择"
@@ -1355,7 +1243,7 @@ exports[`TreeSelect > function > :collapsedItems 1`] = `
         class="t-input__prefix"
       >
         
-        <span
+        <div
           class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close"
           style="max-width: 300px;"
         >
@@ -1377,7 +1265,7 @@ exports[`TreeSelect > function > :collapsedItems 1`] = `
               fill="currentColor"
             />
           </svg>
-        </span>
+        </div>
         
       </div>
       <input
@@ -1432,17 +1320,10 @@ exports[`TreeSelect > function > :empty 1`] = `
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-readonly t-input--suffix"
     >
       <!---->
-      <div
-        class="t-input__prefix"
-      >
-        
-        <!---->
-        <!---->
-        
-      </div>
+      <!---->
       <input
         class="t-input__inner"
         placeholder="请选择"
@@ -1491,17 +1372,10 @@ exports[`TreeSelect > function > :loadingText 1`] = `
     class="t-input__wrap"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input t-is-readonly t-input--suffix"
     >
       <!---->
-      <div
-        class="t-input__prefix"
-      >
-        
-        <!---->
-        <!---->
-        
-      </div>
+      <!---->
       <input
         class="t-input__inner"
         placeholder="请选择"

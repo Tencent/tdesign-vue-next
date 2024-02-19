@@ -334,12 +334,12 @@ export default defineComponent({
 
     function onDocumentMouseDown(ev: MouseEvent) {
       // click content
-      if (popperEl.value.contains(ev.target as Node)) {
+      if (popperEl.value?.contains(ev.target as Node)) {
         return;
       }
 
       // click trigger element
-      if (triggerEl.value.contains(ev.target as Node)) {
+      if (triggerEl.value?.contains(ev.target as Node)) {
         return;
       }
 

@@ -99,7 +99,9 @@ const columns = computed(() => [
       // 编辑完成，退出编辑态后触发
       onEdited: (context) => {
         console.log(context);
-        data.value.splice(context.rowIndex, 1, context.newRowData);
+        const newData = [...data.value];
+        newData.splice(context.rowIndex, 1, context.newRowData);
+        data.value = newData;
         console.log('Edit firstName:', context);
         MessagePlugin.success('Success');
       },

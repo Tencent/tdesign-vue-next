@@ -48,7 +48,6 @@ tips | String / Slot / Function | - | Typescript：`string \| TNode`。[see more
 value | String / Number / Boolean / Object / Array | - | `v-model` and `v-model:value` is supported。Typescript：`SelectValue` `type SelectValue<T extends SelectOption = SelectOption> = string \| number \| boolean \| T \| Array<SelectValue<T>>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select/type.ts) | N
 defaultValue | String / Number / Boolean / Object / Array | - | uncontrolled property。Typescript：`SelectValue` `type SelectValue<T extends SelectOption = SelectOption> = string \| number \| boolean \| T \| Array<SelectValue<T>>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select/type.ts) | N
 valueDisplay | String / Slot / Function | - | `MouseEvent<SVGElement>`。Typescript：`string \| TNode<{ value: SelectValue; onClose: (index: number) => void; displayValue?: SelectValue }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-valueDisplayOptions | Object | - | Custom select item display. See `SelectInputValueDisplayOptions` below. TypeScript: `SelectInputValueDisplayOptions` | N
 valueType | String | value | options: value/object | N
 onBlur | Function |  | Typescript：`(context: { value: SelectValue; e: FocusEvent \| KeyboardEvent }) => void`<br/> | N
 onChange | Function |  | Typescript：`(value: SelectValue, context: { option?: T, selectedOptions: T[], trigger: SelectValueChangeTrigger; e?: MouseEvent \| KeyboardEvent }) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select/type.ts)。<br/>`type SelectValueChangeTrigger = 'clear' \| 'tag-remove' \| 'backspace' \| 'check' \| 'uncheck' \| 'default'`<br/> | N
@@ -104,10 +103,3 @@ isFixedRowHeight | Boolean | false | \- | N
 rowHeight | Number | - | \- | N
 threshold | Number | 100 | \- | N
 type | String | - | required。options: lazy/virtual | Y
-
-### SelectInputValueDisplayOptions
-
-name | type | default | description | required
--- | -- | -- | -- | --
-useInputDisplay | Boolean | false | Use with valueDisplay, enable component's integrated input display when single select(multiple disabled) with filterable enabled. In default need to render valueDisplay via input event. This option is not used when multiple select(multiple enabled), will use component's integrated input display by default. | N
-usePlaceholder | Boolean | false | Use with valueDisplay, enable component's integrated placeholder implementation when single select(multiple disabled). In default need to render valueDisplay via param value(while param placeholder not rendered). This option is not used when multiple select(multiple enabled), will use component's integrated placeholder implementation by default. | N

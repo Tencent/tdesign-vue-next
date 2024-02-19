@@ -40,6 +40,7 @@ export default {
   /** 链接或路由跳转方式 */
   target: {
     type: String as PropType<TdMenuItemProps['target']>,
+    default: '_self' as TdMenuItemProps['target'],
     validator(val: TdMenuItemProps['target']): boolean {
       if (!val) return true;
       return ['_blank', '_self', '_parent', '_top'].includes(val);

@@ -1,13 +1,27 @@
-import { VNode, h } from 'vue';
-import pick from 'lodash/pick';
-import isFunction from 'lodash/isFunction';
-import isString from 'lodash/isString';
-import isArray from 'lodash/isArray';
-import isNumber from 'lodash/isNumber';
-import TreeStore from '../_common/js/tree/tree-store';
-import TreeNode from '../_common/js/tree/tree-node';
-import { TypeMark, TypeLineModel, TypeTNodeProp, TypeGetTNodeOption, TypeTargetNode } from './interface';
-import { TdTreeProps } from './type';
+import camelCase from 'lodash/camelCase';
+import { TypeVNode, TypeSetupContext, isVueNext } from './adapt';
+import {
+  TreeProps,
+  TypeTreeStore,
+  TypeTreeNode,
+  TypeMark,
+  TypeLineModel,
+  TypeTNodeProp,
+  TypeGetTNodeOption,
+  TypeTargetNode,
+} from './tree-types';
+
+export function emitEvent<T extends any[]>(props: TreeProps, context: TypeSetupContext, evtName: string, ...args: T) {
+  const apiName = camelCase(`on-${evtName}`);
+  evtName.replace(/^on/, '').toLowerCase();
+  if (typeof props[apiName] === 'function') {
+    props[apiName](...args);
+  }
+  if (!isVueNext) {
+    // vue3 调用 props.onClick 时就已经派发了事件了
+    context.emit(evtName, ...args);
+  }
+}
 
 export function getParentsToRoot(element?: HTMLElement, root?: HTMLElement): HTMLElement[] {
   const list = [];
@@ -28,7 +42,7 @@ export function getParentMarks(name: string, element?: HTMLElement, root?: HTMLE
     .map((el) => {
       const mark: TypeMark = {
         name,
-        value: el.getAttribute(name) || '',
+        value: el?.getAttribute(name) || '',
         el,
       };
       return mark;
@@ -42,27 +56,33 @@ export function getMark(name: string, element?: HTMLElement, root?: HTMLElement)
   return info;
 }
 
-export function getTNode(prop: TypeTNodeProp, options: TypeGetTNodeOption = {}): string | VNode {
+export function pathMatchClass(name: string, element?: HTMLElement, root?: HTMLElement): boolean {
+  const list = getParentsToRoot(element, root);
+  const rs = list.some((el) => el.classList.contains(name));
+  return rs;
+}
+
+export function getTNode(prop: TypeTNodeProp, options: TypeGetTNodeOption): string | TypeVNode {
   let tnode = null;
   let item = null;
   const conf = {
     ...options,
   };
-  if (isFunction(prop)) {
-    item = prop(h, conf.node?.getModel());
-  } else if (isString(prop)) {
+  if (typeof prop === 'function') {
+    item = prop(conf.createElement, conf.node?.getModel());
+  } else if (typeof prop === 'string') {
     item = prop;
   }
-  if (isString(item)) {
+  if (typeof item === 'string') {
     tnode = item;
   } else if (item) {
-    tnode = item as VNode;
+    tnode = item as TypeVNode;
   }
   return tnode;
 }
 
 // 获取一个节点层级位置的连线模型
-export function getLineModel(nodes: TreeNode[], node: TreeNode, index: number): TypeLineModel {
+export function getLineModel(nodes: TypeTreeNode[], node: TypeTreeNode, index: number): TypeLineModel {
   // 标记 [上，右，下，左] 是否有连线
   const lineModel: TypeLineModel = {
     top: false,
@@ -72,7 +92,7 @@ export function getLineModel(nodes: TreeNode[], node: TreeNode, index: number): 
   };
 
   let nodeChildren = [];
-  if (isArray(node.children)) {
+  if (Array.isArray(node.children)) {
     nodeChildren = node.children;
   }
   const childNode = nodes[index - 1] || null;
@@ -95,13 +115,13 @@ export function getLineModel(nodes: TreeNode[], node: TreeNode, index: number): 
 }
 
 export function isTreeNodeValue(item: unknown): boolean {
-  return isString(item) || isNumber(item);
+  return typeof item === 'string' || typeof item === 'number';
 }
 
-export function getNode(store: TreeStore, item: TypeTargetNode): TreeNode {
+export function getNode(store: TypeTreeStore, item: TypeTargetNode): TypeTreeNode {
   let node = null;
   let val = null;
-  if (isString(item) || isNumber(item)) {
+  if (typeof item === 'string' || typeof item === 'number') {
     val = item;
   } else if (item && isTreeNodeValue(item.value)) {
     val = item.value;
@@ -109,27 +129,3 @@ export function getNode(store: TreeStore, item: TypeTargetNode): TreeNode {
   node = store.getNode(val);
   return node;
 }
-
-// 统一获取tree的config
-export const getStoreConfig = (props: TdTreeProps) => {
-  // 统一更新选项，然后在 store 统一识别属性更新
-  const storeProps = pick(props, [
-    'keys',
-    'expandAll',
-    'expandLevel',
-    'expandMutex',
-    'expandParent',
-    'activable',
-    'activeMultiple',
-    'disabled',
-    'draggable',
-    'checkable',
-    'checkStrictly',
-    'load',
-    'lazy',
-    'valueMode',
-    'filter',
-    'allowFoldNodeOnFilter',
-  ]);
-  return storeProps;
-};

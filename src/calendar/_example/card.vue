@@ -24,7 +24,7 @@ const options = [
 ];
 
 const theme = ref('card');
-const myCalendar = ref('');
+const myCalendar = ref();
 const fillWithZero = ref(true);
 const toCurrent = () => {
   if (myCalendar.value) {

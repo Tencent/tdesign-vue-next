@@ -5,6 +5,7 @@ import { useTNodeJSX } from '../hooks/tnode';
 import TLoading from '../loading';
 import props from './props';
 import isString from 'lodash/isString';
+import { TdCardProps } from './type';
 
 export default defineComponent({
   name: 'TCard',
@@ -118,7 +119,11 @@ export default defineComponent({
       );
 
       if (showLoading.value) {
-        return renderTNodeJSX('loading') || <TLoading>{content}</TLoading>;
+        return (
+          renderTNodeJSX('loading') || (
+            <TLoading {...(props.loadingProps as TdCardProps['loadingProps'])}>{content}</TLoading>
+          )
+        );
       }
       return content;
     };

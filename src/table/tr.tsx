@@ -1,4 +1,16 @@
-import { defineComponent, PropType, SetupContext, h, computed, ref, reactive, toRefs, watch } from 'vue';
+import {
+  defineComponent,
+  PropType,
+  SetupContext,
+  h,
+  computed,
+  ref,
+  reactive,
+  toRefs,
+  onUpdated,
+  nextTick,
+  onMounted,
+} from 'vue';
 import isFunction from 'lodash/isFunction';
 import upperFirst from 'lodash/upperFirst';
 import isString from 'lodash/isString';
@@ -205,13 +217,27 @@ export default defineComponent({
       return trListeners;
     };
 
-    watch([trRef], () => {
+    // 触发 row 的更新行高事件，通知虚拟滚动相关逻辑
+    const notifyVirtualSizeUpdate = () => {
       if (props.virtualConfig?.isVirtualScroll.value) {
         context.emit('row-mounted', {
           ref: trRef,
           data: props.row,
         });
       }
+    };
+
+    onMounted(() => {
+      nextTick(() => {
+        notifyVirtualSizeUpdate();
+      });
+    });
+
+    // 有可能因为 row-key 带来组件复用，这时候通过 update 进行更新
+    onUpdated(() => {
+      nextTick(() => {
+        notifyVirtualSizeUpdate();
+      });
     });
 
     function renderEllipsisCell(cellParams: BaseTableCellParams<TableRowData>, params: RenderEllipsisCellParams) {

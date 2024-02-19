@@ -103,7 +103,7 @@ export function valueChangeEffect(node: TreeNode, cascaderContext: CascaderConte
             .map((item) => item.value),
         );
 
-  setValue(resValue, 'check', node.getModel());
+  setValue(resValue, node.checked ? 'uncheck' : 'check', node.getModel());
 }
 
 /**

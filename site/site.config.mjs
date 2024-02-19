@@ -458,6 +458,14 @@ export const docs = [
         componentEn: () => import('tdesign-vue-next/comment/comment.en-US.md'),
       },
       {
+        title: 'Descriptions 描述',
+        titleEn: 'Descriptions',
+        name: 'descriptions',
+        path: '/vue-next/components/descriptions',
+        component: () => import('tdesign-vue-next/descriptions/descriptions.md'),
+        componentEn: () => import('tdesign-vue-next/descriptions/descriptions.en-US.md'),
+      },
+      {
         title: 'Image 图片',
         titleEn: 'Image',
         name: 'image',
@@ -504,6 +512,14 @@ export const docs = [
         path: '/vue-next/components/skeleton',
         component: () => import('tdesign-vue-next/skeleton/skeleton.md'),
         componentEn: () => import('tdesign-vue-next/skeleton/skeleton.en-US.md'),
+      },
+      {
+        title: 'Statistic 统计数值',
+        titleEn: 'Statistic',
+        name: 'statistic',
+        path: '/vue-next/components/statistic',
+        component: () => import('tdesign-vue-next/statistic/statistic.md'),
+        componentEn: () => import('tdesign-vue-next/statistic/statistic.en-US.md'),
       },
       {
         title: 'Swiper 轮播框',

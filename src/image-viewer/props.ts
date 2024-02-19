@@ -13,6 +13,11 @@ export default {
     type: [Boolean, Function] as PropType<TdImageViewerProps['closeBtn']>,
     default: true as TdImageViewerProps['closeBtn'],
   },
+  /** 按下 ESC 时是否触发图片预览器关闭事件 */
+  closeOnEscKeydown: {
+    type: Boolean,
+    default: true,
+  },
   /** 是否在点击遮罩层时，触发预览关闭 */
   closeOnOverlay: Boolean,
   /** 是否允许拖拽调整位置。`mode=modal` 时，默认不允许拖拽；`mode=modeless` 时，默认允许拖拽 */
@@ -20,7 +25,7 @@ export default {
     type: Boolean,
     default: undefined,
   },
-  /**  图片缩放相关配置。`imageScale.max` 缩放的最大比例；`imageScale.min` 缩放的最小比例；`imageScale.step` 缩放的步长速度 */
+  /**  图片缩放相关配置。`imageScale.max` 缩放的最大比例；`imageScale.min` 缩放的最小比例；`imageScale.step` 缩放的步长速度；`imageScale.defaultScale` 默认的缩放比例 */
   imageScale: {
     type: Object as PropType<TdImageViewerProps['imageScale']>,
   },
@@ -37,6 +42,7 @@ export default {
   /** 当前预览图片所在的下标，非受控属性 */
   defaultIndex: {
     type: Number,
+    default: 0,
   },
   /** 模态预览（modal）和非模态预览（modeless) */
   mode: {

@@ -178,10 +178,6 @@ export default {
   valueDisplay: {
     type: [String, Function] as PropType<TdSelectProps['valueDisplay']>,
   },
-  /** 自定义值呈现的选项，useInputDisplay表示在使用时仍然使用组件自带的输入回显实现，usePlaceholder表示在使用时仍然使用自带的占位符实现 */
-  valueDisplayOptions: {
-    type: Object as PropType<TdSelectProps['valueDisplayOptions']>,
-  },
   /** 用于控制选中值的类型。假设数据选项为：`[{ label: '姓名', value: 'name' }]`，value 表示值仅返回数据选项中的 value， object 表示值返回全部数据。 */
   valueType: {
     type: String as PropType<TdSelectProps['valueType']>,

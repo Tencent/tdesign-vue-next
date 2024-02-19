@@ -13,10 +13,11 @@ import {
 import merge from 'lodash/merge';
 import isUndefined from 'lodash/isUndefined';
 
-import { getCharacterLength, omit } from '../utils/helper';
+import { omit } from '../utils/helper';
 import calcTextareaHeight from './calcTextareaHeight';
 import { FormItemInjectionKey } from '../form/const';
 import setStyle from '../_common/js/utils/set-style';
+import { getCharacterLength } from '../_common/js/utils/helper';
 
 // hooks
 import useVModel from '../hooks/useVModel';
@@ -113,8 +114,8 @@ export default defineComponent({
 
     const eventDeal = (name: 'keydown' | 'keyup' | 'keypress' | 'change', e: KeyboardEvent | FocusEvent) => {
       if (disabled.value) return;
-      const _name = `on${name[0].toUpperCase()}${name.slice(1)}`;
-      props[_name]?.(innerValue.value, { e });
+      const eventName = `on${name[0].toUpperCase()}${name.slice(1)}`;
+      props[eventName]?.(innerValue.value, { e });
     };
 
     const emitKeyDown = (e: KeyboardEvent) => {

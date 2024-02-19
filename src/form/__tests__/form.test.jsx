@@ -444,6 +444,13 @@ describe('Form', () => {
         await form.findComponent(Input).vm.$.exposed.blur();
         await delay();
         expect(form.find('.t-input__extra').exists()).toBe(true);
+
+        await reset();
+        await nextTick();
+        rules.value = { name: [{ required: true, trigger: 'submit' }] };
+        await form.trigger('submit');
+        await delay();
+        expect(form.find('.t-input__extra').exists()).toBe(true);
       });
 
       it('type', async () => {

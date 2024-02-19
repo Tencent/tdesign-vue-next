@@ -34,16 +34,23 @@ export default defineComponent({
     },
     label: {
       type: [String, Boolean, Function] as PropType<TdSliderProps['label']>,
+    },
+    range: {
+      type: Boolean,
       default: false,
     },
+    position: {
+      type: String,
+    },
   },
-  emits: ['input'],
+  emits: ['input', 'mouseup'],
   setup(props, ctx) {
     const COMPONENT_NAME = usePrefixClass('slider__button');
     const tooltipConfig = computed(() => props);
     const { tooltipRef, tooltipProps, toggleTooltip, showTooltip } = useSliderTooltip(tooltipConfig);
     const parentProps = inject(sliderPropsInjectKey);
     const buttonRef = ref();
+    const dragged = ref(false);
 
     /** --------------------- slide button 相关状态start ------------------- */
     const slideButtonProps = reactive({
@@ -133,6 +140,7 @@ export default defineComponent({
       if (!slideButtonProps.dragging) {
         return;
       }
+      dragged.value = true;
       slideButtonProps.isClick = false;
       if (parentProps?.resetSize && isFunction(parentProps?.resetSize)) {
         parentProps.resetSize();
@@ -157,6 +165,8 @@ export default defineComponent({
           if (!slideButtonProps.isClick) {
             setPosition(slideButtonProps.newPos);
           }
+          dragged.value && ctx.emit('mouseup');
+          dragged.value = false;
         }, 0);
         window.removeEventListener('mousemove', onDragging);
         window.removeEventListener('touchmove', onDragging);
@@ -224,7 +234,7 @@ export default defineComponent({
         onblur={handleMouseLeave}
         onKeydown={onNativeKeyDown}
       >
-        {showTooltip.value ? (
+        {showTooltip.value && props.label !== false ? (
           <TTooltip ref={tooltipRef} disabled={!showTooltip.value} {...tooltipProps.value}>
             <div class={[COMPONENT_NAME.value, { [`${COMPONENT_NAME.value}--dragging`]: slideButtonProps.dragging }]} />
           </TTooltip>

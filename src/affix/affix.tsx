@@ -34,7 +34,7 @@ export default defineComponent({
             top: wrapToTop,
             width: wrapWidth,
             height: wrapHeight,
-          } = affixWrapRef.value.getBoundingClientRect() ?? { top: 0, width: 0, height: 0 }; // top = 节点到页面顶部的距离，包含 scroll 中的高度
+          } = affixWrapRef.value?.getBoundingClientRect() ?? { top: 0, width: 0, height: 0 }; // top = 节点到页面顶部的距离，包含 scroll 中的高度
 
           let containerTop = 0; // containerTop = 容器到页面顶部的距离
           if (scrollContainer.value instanceof HTMLElement) {

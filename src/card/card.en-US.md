@@ -1,7 +1,6 @@
 :: BASE_DOC ::
 
 ## API
-
 ### Card Props
 
 name | type | default | description | required
@@ -18,9 +17,10 @@ header | String / Slot / Function | - | Typescript：`string \| TNode`。[see mo
 headerBordered | Boolean | false | \- | N
 hoverShadow | Boolean | false | \- | N
 loading | Boolean / Slot / Function | false | Typescript：`boolean \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+loadingProps | Object | - | Loading Component Props。Typescript：`LoadingProps`，[Loading API Documents](./loading?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/card/type.ts) | N
 shadow | Boolean | false | \- | N
-size | String | medium | options：medium/small | N
+size | String | medium | options: medium/small | N
 status | String | - | \- | N
 subtitle | String / Slot / Function | - | card subtitle。Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-theme | String | normal | options：normal/poster1/poster2 | N
+theme | String | normal | options: normal/poster1/poster2 | N
 title | String / Slot / Function | - | card title。Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N

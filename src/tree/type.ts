@@ -5,7 +5,7 @@
  * */
 
 import { CheckboxProps } from '../checkbox';
-import { TNode, TreeOptionData, TreeKeysType, TScroll } from '../common';
+import { TNode, TreeOptionData, TreeKeysType, TScroll, ScrollToElementParams } from '../common';
 
 export interface TdTreeProps<T extends TreeOptionData = TreeOptionData> {
   /**
@@ -161,17 +161,17 @@ export interface TdTreeProps<T extends TreeOptionData = TreeOptionData> {
    */
   transition?: boolean;
   /**
-   * 选中值（组件为可选状态时）
+   * 选中值，组件为可选状态时有效
    * @default []
    */
   value?: Array<TreeNodeValue>;
   /**
-   * 选中值（组件为可选状态时），非受控属性
+   * 选中值，组件为可选状态时有效，非受控属性
    * @default []
    */
   defaultValue?: Array<TreeNodeValue>;
   /**
-   * 选中值（组件为可选状态时）
+   * 选中值，组件为可选状态时有效
    * @default []
    */
   modelValue?: Array<TreeNodeValue>;
@@ -183,11 +183,17 @@ export interface TdTreeProps<T extends TreeOptionData = TreeOptionData> {
   /**
    * 节点激活时触发，泛型 `T` 表示树节点 TS 类型
    */
-  onActive?: (value: Array<TreeNodeValue>, context: { node: TreeNodeModel<T> }) => void;
+  onActive?: (
+    value: Array<TreeNodeValue>,
+    context: { node: TreeNodeModel<T>; e?: MouseEvent; trigger: 'node-click' | 'setItem' },
+  ) => void;
   /**
    * 节点选中状态变化时触发，context.node 表示当前变化的选项，泛型 `T` 表示树节点 TS 类型
    */
-  onChange?: (value: Array<TreeNodeValue>, context: { node: TreeNodeModel<T>; e?: MouseEvent }) => void;
+  onChange?: (
+    value: Array<TreeNodeValue>,
+    context: { node: TreeNodeModel<T>; e?: any; trigger: 'node-click' | 'setItem' },
+  ) => void;
   /**
    * 节点点击时触发，泛型 `T` 表示树节点 TS 类型
    */
@@ -265,6 +271,10 @@ export interface TreeInstanceFunctions<T extends TreeOptionData = TreeOptionData
    */
   getPath: (value: TreeNodeValue) => TreeNodeModel<T>[];
   /**
+   * 获取某节点的全部树形结构；参数为空，则表示获取整棵树的结构数据，泛型 `T` 表示树节点 TS 类型
+   */
+  getTreeData: (value?: TreeNodeValue) => Array<T>;
+  /**
    * 插入新节点到指定节点后面，泛型 `T` 表示树节点 TS 类型
    */
   insertAfter: (value: TreeNodeValue, newData: T) => void;
@@ -273,9 +283,17 @@ export interface TreeInstanceFunctions<T extends TreeOptionData = TreeOptionData
    */
   insertBefore: (value: TreeNodeValue, newData: T) => void;
   /**
+   * 刷新树节点状态，可用于搜索场景刷新
+   */
+  refresh: () => void;
+  /**
    * 移除指定节点
    */
   remove: (value: TreeNodeValue) => void;
+  /**
+   * 虚拟滚动场景下 支持指定滚动到具体的节点
+   */
+  scrollTo?: (scrollToParams: ScrollToElementParams) => void;
   /**
    * 设置节点状态
    */
@@ -362,6 +380,10 @@ export interface TreeNodeModel<T extends TreeOptionData = TreeOptionData> extend
    * 节点数据，泛型 `T` 表示树节点 TS 类型，继承 `TreeOptionData`
    */
   data: T;
+  /**
+   * 禁用状态
+   */
+  disabled: boolean;
   /**
    * 当前节点是否展开
    */

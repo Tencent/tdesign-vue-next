@@ -5,9 +5,8 @@
  * */
 
 import { InputProps } from '../input';
-import { InputValue } from '../input';
 import { PopupProps } from '../popup';
-import { SelectInputProps, SelectInputValueDisplayOptions } from '../select-input';
+import { SelectInputProps } from '../select-input';
 import { TagInputProps } from '../tag-input';
 import { TagProps } from '../tag';
 import { SelectInputValueChangeContext } from '../select-input';
@@ -67,11 +66,11 @@ export interface TdSelectProps<T extends SelectOption = SelectOption> {
   /**
    * 输入框的值
    */
-  inputValue?: InputValue;
+  inputValue?: string;
   /**
    * 输入框的值，非受控属性
    */
-  defaultInputValue?: InputValue;
+  defaultInputValue?: string;
   /**
    * 用来定义 value / label / disabled 在 `options` 中对应的字段别名
    */
@@ -206,10 +205,6 @@ export interface TdSelectProps<T extends SelectOption = SelectOption> {
    */
   valueDisplay?: string | TNode<{ value: SelectValue; onClose: (index: number) => void; displayValue?: SelectValue }>;
   /**
-   * 自定义值呈现的选项，useInputDisplay表示在使用时仍然使用组件自带的输入回显实现，usePlaceholder表示在使用时仍然使用自带的占位符实现
-   */
-  valueDisplayOptions?: SelectInputValueDisplayOptions;
-  /**
    * 用于控制选中值的类型。假设数据选项为：`[{ label: '姓名', value: 'name' }]`，value 表示值仅返回数据选项中的 value， object 表示值返回全部数据。
    * @default value
    */
@@ -244,7 +239,7 @@ export interface TdSelectProps<T extends SelectOption = SelectOption> {
   /**
    * 输入框值发生变化时触发，`context.trigger` 表示触发输入框值变化的来源：文本输入触发、清除按钮触发、失去焦点等
    */
-  onInputChange?: (value: InputValue, context?: SelectInputValueChangeContext) => void;
+  onInputChange?: (value: string, context?: SelectInputValueChangeContext) => void;
   /**
    * 下拉框显示或隐藏时触发
    */

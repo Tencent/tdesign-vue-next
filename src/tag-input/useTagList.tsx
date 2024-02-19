@@ -32,7 +32,7 @@ export default function useTagList(props: TagInputProps) {
   };
 
   // 按下 Enter 键，新增标签
-  const onInnerEnter = (value: InputValue, context: { e: KeyboardEvent }) => {
+  const onInnerEnter = (value: string, context: { e: KeyboardEvent }) => {
     const valueStr = value ? String(value).trim() : '';
     const isLimitExceeded = max && tagValue.value?.length >= max.value;
     let newValue: TagInputValue = tagValue.value;
@@ -108,7 +108,13 @@ export default function useTagList(props: TagInputProps) {
           collapsedSelectedItems: tagValue.value.slice(minCollapsedNum.value, tagValue.value.length),
         },
       });
-      list.push(more ?? <Tag key="more">+{len}</Tag>);
+      list.push(
+        more ?? (
+          <Tag key="more" size={size.value}>
+            +{len}
+          </Tag>
+        ),
+      );
     }
     return list;
   };

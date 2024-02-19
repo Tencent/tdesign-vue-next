@@ -61,8 +61,9 @@ export default function useUpload(props: TdUploadProps) {
 
   const uploadFilePercent = (params: { file: UploadFile; percent: number }) => {
     const { file, percent } = params;
-    const index = toUploadFiles.value.findIndex((item) => file.raw === item.raw);
-    toUploadFiles.value[index] = { ...toUploadFiles.value[index], percent };
+    const operationUploadFiles = autoUpload.value ? toUploadFiles : uploadValue;
+    const index = operationUploadFiles.value.findIndex((item) => file.raw === item.raw);
+    operationUploadFiles.value[index] = { ...operationUploadFiles.value[index], percent };
   };
 
   const updateFilesProgress = () => {
@@ -146,7 +147,7 @@ export default function useUpload(props: TdUploadProps) {
       // @ts-ignore
       files: [...files],
       allowUploadDuplicateFile: props.allowUploadDuplicateFile,
-      max: props.max,
+      max: props.multiple ? props.max : 0,
       sizeLimit: props.sizeLimit,
       isBatchUpload: isBatchUpload.value,
       autoUpload: autoUpload.value,
@@ -215,7 +216,7 @@ export default function useUpload(props: TdUploadProps) {
   }
 
   function onPasteFileChange(e: ClipboardEvent) {
-    onFileChange?.([...e.clipboardData.items].map((file: DataTransferItem) => file.getAsFile()) as any);
+    onFileChange?.([...e.clipboardData.files]);
   }
 
   /**
@@ -337,8 +338,9 @@ export default function useUpload(props: TdUploadProps) {
     });
     uploading.value = false;
 
+    // autoUpload do not need to reset to waiting state
     if (autoUpload.value) {
-      toUploadFiles.value = toUploadFiles.value.map((item) => ({ ...item, status: 'waiting' }));
+      toUploadFiles.value = [];
     } else {
       setUploadValue(
         uploadValue.value.map((item) => {

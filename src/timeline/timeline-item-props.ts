@@ -18,7 +18,7 @@ export default {
   },
   /** 时间轴颜色，内置 `primary/warning/error/default` 四种色值，可传入 16 进制颜色码或 RGB 颜色值. */
   dotColor: {
-    type: String,
+    type: String as PropType<TdTimelineItemProps['dotColor']>,
     default: 'primary',
   },
   /** 标签文本内容，可完全自定义 */
@@ -35,4 +35,6 @@ export default {
   },
   /** 是否处在加载状态 */
   loading: Boolean,
+  /** 点击时触发 */
+  onClick: Function as PropType<TdTimelineItemProps['onClick']>,
 };

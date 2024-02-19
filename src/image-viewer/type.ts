@@ -13,6 +13,11 @@ export interface TdImageViewerProps {
    */
   closeBtn?: boolean | TNode;
   /**
+   * 按下 ESC 时是否触发图片预览器关闭事件
+   * @default true
+   */
+  closeOnEscKeydown?: boolean;
+  /**
    * 是否在点击遮罩层时，触发预览关闭
    */
   closeOnOverlay?: boolean;
@@ -21,7 +26,7 @@ export interface TdImageViewerProps {
    */
   draggable?: boolean;
   /**
-   *  图片缩放相关配置。`imageScale.max` 缩放的最大比例；`imageScale.min` 缩放的最小比例；`imageScale.step` 缩放的步长速度
+   *  图片缩放相关配置。`imageScale.max` 缩放的最大比例；`imageScale.min` 缩放的最小比例；`imageScale.step` 缩放的步长速度；`imageScale.defaultScale` 默认的缩放比例
    */
   imageScale?: ImageScale;
   /**
@@ -31,10 +36,12 @@ export interface TdImageViewerProps {
   images?: Array<string | File | ImageInfo>;
   /**
    * 当前预览图片所在的下标
+   * @default 0
    */
   index?: number;
   /**
    * 当前预览图片所在的下标，非受控属性
+   * @default 0
    */
   defaultIndex?: number;
   /**
@@ -58,7 +65,7 @@ export interface TdImageViewerProps {
   /**
    * 触发图片预览的元素，可能是一个预览按钮，可能是一张缩略图，完全自定义
    */
-  trigger?: string | TNode<{ open: () => void }>;
+  trigger?: TNode | TNode<{ open: () => void }>;
   /**
    * 限制预览器缩放的最小宽度和最小高度，仅 `mode=modeless` 时有效
    */
@@ -96,6 +103,7 @@ export interface ImageScale {
   max: number;
   min: number;
   step: number;
+  defaultScale?: number;
 }
 
 export interface ImageInfo {

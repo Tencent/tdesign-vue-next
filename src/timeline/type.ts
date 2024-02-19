@@ -60,4 +60,8 @@ export interface TdTimelineItemProps {
    * 是否处在加载状态
    */
   loading?: boolean;
+  /**
+   * 点击时触发
+   */
+  onClick?: (context: { e: MouseEvent; item: TdTimelineItemProps }) => void;
 }

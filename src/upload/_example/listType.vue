@@ -30,7 +30,7 @@ const handleChange = (files) => {
   console.log(files);
 };
 
-const handlePreview = (file) => {
+const handlePreview = ({ file }) => {
   console.log(file);
   window.open(file.thumbUrl);
 };

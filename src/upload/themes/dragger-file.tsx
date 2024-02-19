@@ -12,7 +12,7 @@ import useCommonClassName from '../../hooks/useCommonClassName';
 import TLoading from '../../loading';
 import useDrag, { UploadDragEvents } from '../hooks/useDrag';
 import useGlobalIcon from '../../hooks/useGlobalIcon';
-import ImageViewer from '../../image-viewer';
+import ImageViewer, { ImageViewerProps } from '../../image-viewer';
 import { useTNodeJSX } from '../../hooks';
 import { UploadConfig } from '../../config-provider';
 import Image from '../../image';
@@ -72,6 +72,7 @@ export default defineComponent({
           <ImageViewer
             images={[url]}
             trigger={(h, { open }: any) => <Image src={url || file.raw} onClick={open} error="" loading="" />}
+            {...(props.imageViewerProps as ImageViewerProps)}
           ></ImageViewer>
         </div>
       );

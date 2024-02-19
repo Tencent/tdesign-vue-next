@@ -1,7 +1,6 @@
 // 表格 行拖拽 + 列拖拽功能
 import { SetupContext, computed, toRefs, ref, watch, h, ComputedRef } from 'vue';
 import Sortable, { SortableEvent, SortableOptions, MoveEvent } from 'sortablejs';
-import get from 'lodash/get';
 import isFunction from 'lodash/isFunction';
 import { TableRowData, TdPrimaryTableProps, DragSortContext, PrimaryTableCol } from '../type';
 import useClassName from './useClassName';
@@ -12,17 +11,31 @@ import { BaseTableColumns } from '../interface';
 import { getColumnDataByKey, getColumnIndexByKey } from '../../_common/js/table/utils';
 import { SimplePageInfo } from '../interface';
 
+function removeNode(node: HTMLElement) {
+  if (node.parentElement !== null) {
+    node.parentElement.removeChild(node);
+  }
+}
+
+function insertNodeAt(fatherNode: HTMLElement, node: HTMLElement, position: number) {
+  const refNode = position === 0 ? fatherNode.children[0] : fatherNode.children[position - 1].nextSibling;
+  fatherNode.insertBefore(node, refNode);
+}
+
 export default function useDragSort(
   props: TdPrimaryTableProps,
   context: SetupContext,
   params: ComputedRef<{
     showElement: boolean;
+    onTableRefresh: () => void;
+    tableKey: number;
   }>,
 ) {
-  const { sortOnRowDraggable, dragSort, data, rowKey } = toRefs(props);
+  const { sortOnRowDraggable, dragSort, data } = toRefs(props);
   const innerPagination = ref(props.pagination);
-  const { tableDraggableClasses, tableBaseClass, tableFullRowClasses } = useClassName();
+  const { tableDraggableClasses, tableBaseClass, tableFullRowClasses, tableExpandClasses } = useClassName();
   const columns = ref<PrimaryTableCol[]>(props.columns || []);
+  const { onTableRefresh } = params.value;
   const primaryTableRef = ref(null);
   // @ts-ignore 判断是否有拖拽列
   const dragCol = computed(() => columns.value.find((item) => item.colKey === 'drag'));
@@ -36,48 +49,19 @@ export default function useDragSort(
   );
   // 列拖拽判断条件
   const isColDraggable = computed(() => ['col', 'row-handler-col'].includes(dragSort.value));
-  // 行拖拽排序，存储上一次的变化结果
-  const lastRowList = ref([]);
   // 列拖拽排序，存储上一次的变化结果
   const lastColList = ref([]);
-
-  // 行拖拽实例
-  let dragRowInstanceTmp: Sortable = null;
   // 列拖拽实例
   let dragColInstanceTmp: Sortable = null;
 
   if (props.sortOnRowDraggable) {
     log.error('Table', "`sortOnRowDraggable` is going to be deprecated, use dragSort='row' instead.");
   }
-
   watch(
-    [data],
-    ([data]) => {
-      lastRowList.value = data?.map((item) => get(item, rowKey.value)) || [];
-      // Hack 处理：数据变化时，DOM 元素无法自动变化，只得手动设置顺序和重置数据
-      const timer = setTimeout(() => {
-        if (data.length) {
-          dragRowInstanceTmp?.sort(lastRowList.value);
-        } else {
-          const trList = primaryTableRef.value?.$el.querySelectorAll('tr[data-id]');
-          trList?.forEach((node: HTMLElement) => node.remove());
-        }
-        clearTimeout(timer);
-      }, 0);
-    },
-    { immediate: true },
-  );
-
-  watch(
-    columns,
+    () => [...columns.value],
     (columns) => {
       lastColList.value = columns ? columns.map((t) => t.colKey) : [];
-      // Hack 处理：数据变化时，DOM 元素无法自动变化，只得手动设置顺序和重置数据
-      const timer = setTimeout(() => {
-        if (!dragColInstanceTmp || !dragColInstanceTmp.el) return;
-        dragColInstanceTmp?.sort(lastColList.value);
-        clearTimeout(timer);
-      }, 0);
+      onTableRefresh?.();
     },
     // { immediate: true },
   );
@@ -106,14 +90,19 @@ export default function useDragSort(
       ghostClass: tableDraggableClasses.ghost,
       chosenClass: tableDraggableClasses.chosen,
       dragClass: tableDraggableClasses.dragging,
-      filter: `.${tableFullRowClasses.base}`, // 过滤首行尾行固定
+      filter: `.${tableFullRowClasses.base},.${tableExpandClasses.row}`, // 过滤首行尾行固定，过滤展开行
       onMove: (evt: MoveEvent) => !hasClass(evt.related, tableFullRowClasses.base),
       onEnd(evt: SortableEvent) {
         if (evt.newIndex === evt.oldIndex) return;
         // 处理受控：拖拽列表恢复原始排序
-        dragRowInstanceTmp?.sort(lastRowList.value);
+        removeNode(evt.item);
+        insertNodeAt(evt.from, evt.item, evt.oldIndex);
         let { oldIndex: currentIndex, newIndex: targetIndex } = evt;
-        if ((isFunction(props.firstFullRow) && props.firstFullRow(h)) || context.slots.firstFullRow) {
+        if (
+          (isFunction(props.firstFullRow) && props.firstFullRow(h)) ||
+          context.slots.firstFullRow ||
+          context.slots['first-full-row']
+        ) {
           currentIndex -= 1;
           targetIndex -= 1;
         }
@@ -140,14 +129,13 @@ export default function useDragSort(
 
     if (!dragContainer) return;
     if (isRowDraggable.value) {
-      dragRowInstanceTmp = new Sortable(dragContainer, { ...baseOptions });
+      new Sortable(dragContainer, { ...baseOptions });
     } else {
-      dragRowInstanceTmp = new Sortable(dragContainer, {
+      new Sortable(dragContainer, {
         ...baseOptions,
         handle: `.${tableDraggableClasses.handle}`,
       });
     }
-    lastRowList.value = dragRowInstanceTmp.toArray();
   };
 
   const registerOneLevelColDragEvent = (container: HTMLElement, recover: boolean) => {
@@ -230,9 +218,13 @@ export default function useDragSort(
 
   // eslint-disable-next-line
   watch([primaryTableRef, columns, dragSort, params], ([val, columns, dragSort, params]) => {
+    register(val, params);
+  });
+
+  function register(val: any, params: any) {
     const primaryTableCmp = val as any;
     if (!val || !primaryTableCmp.$el || !params.showElement) return;
-    // regis after table tr rendered
+    // register after table tr rendered
     const timerA = setTimeout(() => {
       registerRowDragEvent(primaryTableCmp.$el);
       registerColDragEvent(primaryTableCmp.$el);
@@ -243,9 +235,10 @@ export default function useDragSort(
         }
         clearTimeout(timer);
       });
+
       clearTimeout(timerA);
     }, 60);
-  });
+  }
 
   return {
     innerPagination,

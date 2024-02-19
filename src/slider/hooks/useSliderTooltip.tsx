@@ -2,6 +2,7 @@ import { TooltipProps } from '@src/tooltip';
 import { ref, computed, ComputedRef, Ref } from 'vue';
 import { TdSliderProps } from '../type';
 import { formatLabel } from '../util/common';
+import { useTNodeDefault } from '../../hooks';
 
 const initialProps: TooltipProps & { overlayClassName: string } = {
   visible: false,
@@ -18,6 +19,8 @@ export interface TooltipConfig {
   vertical: boolean;
   value: number;
   label: TdSliderProps['label'];
+  position: string;
+  range: boolean;
 }
 
 /**
@@ -43,11 +46,30 @@ export const useSliderTooltip = (tooltipConfig: Ref<TooltipConfig>) => {
     normalizeProps.value.visible = toState;
   };
 
+  const renderTNodeJSX = useTNodeDefault();
+
   /** 合并最终tooltip属性，以外部同名属性覆盖初始化属性 */
   const validProps = computed(() => {
-    const { vertical, tooltipProps, label, value } = tooltipConfig.value;
+    const { vertical, tooltipProps, label, value, position, range } = tooltipConfig.value;
     const placement = vertical ? 'right' : 'top';
-    let content = formatLabel(label, value);
+
+    let content = (() => {
+      if (typeof label === 'boolean') {
+        return String(value);
+      }
+      if (typeof label === 'string') {
+        return formatLabel(label, value);
+      }
+      return renderTNodeJSX('label', {
+        params: range
+          ? {
+              value,
+              position,
+            }
+          : { value },
+      });
+    })();
+
     if (tooltipProps instanceof Object) {
       if (!tooltipProps?.placement) {
         normalizeProps.value.placement = placement;

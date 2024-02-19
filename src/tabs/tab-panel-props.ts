@@ -28,6 +28,8 @@ export default {
   label: {
     type: [String, Function] as PropType<TdTabPanelProps['label']>,
   },
+  /** 是否启用选项卡懒加载 */
+  lazy: Boolean,
   /** 用于自定义选项卡面板内容 */
   panel: {
     type: [String, Function] as PropType<TdTabPanelProps['panel']>,

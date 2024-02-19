@@ -36,7 +36,7 @@ export default defineComponent({
       setTabValue(value);
     };
     const onTabRemove = ({ e, value, index }: Parameters<TdTabsProps['onRemove']>[0]) => {
-      props.onRemove({ value, index, e });
+      props.onRemove?.({ value, index, e });
     };
 
     // render
@@ -60,6 +60,7 @@ export default defineComponent({
     };
     const renderHeader = () => {
       const panels = (props.list?.length ? props.list : getSlotPanels()) || [];
+      const actionContent = renderTNodeJSX('action');
       const panelsData = panels.map((item: ComponentPublicInstance) => {
         const selfItem = item;
 
@@ -80,6 +81,7 @@ export default defineComponent({
         addable: props.addable,
         panels: panelsData,
         dragSort: props.dragSort,
+        action: actionContent,
       };
       return (
         <div

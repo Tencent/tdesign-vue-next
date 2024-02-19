@@ -138,7 +138,19 @@ const NormalFile = defineComponent({
 
     return () => {
       const classes = [`${uploadPrefix}__single`, `${uploadPrefix}__single-${theme.value}`];
-      const fileListDisplay = renderTNodeJSX('fileListDisplay', { params: { files: props.displayFiles } });
+      let fileListDisplay = renderTNodeJSX('fileListDisplay', {
+        params: {
+          onRemove: props.onRemove,
+          toUploadFiles: props.toUploadFiles,
+          sizeOverLimitMessage: props.sizeOverLimitMessage,
+          locale: props.locale,
+          files: props.displayFiles,
+        },
+      });
+      if (props.fileListDisplay === null || fileListDisplay === null) {
+        fileListDisplay = null;
+      }
+
       const { displayFiles } = props;
 
       return (
@@ -151,9 +163,7 @@ const NormalFile = defineComponent({
             <small class={[props.tipsClasses, props.placeholderClass]}>{props.placeholder}</small>
           )}
 
-          {fileListDisplay || renderFilePreviewAsText(displayFiles)}
-
-          {props.sizeOverLimitMessage && <small class={props.errorClasses}>{props.sizeOverLimitMessage}</small>}
+          {fileListDisplay === null ? null : fileListDisplay || renderFilePreviewAsText(displayFiles)}
 
           {/* 单文件上传失败要显示失败的原因 */}
           {!props.multiple && displayFiles[0]?.status === 'fail' && theme.value === 'file' ? (

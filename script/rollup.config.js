@@ -3,6 +3,7 @@ import json from '@rollup/plugin-json';
 import babel from '@rollup/plugin-babel';
 import vuePlugin from 'rollup-plugin-vue';
 import styles from 'rollup-plugin-styles';
+import deletePlugin from 'rollup-plugin-delete';
 import esbuild from 'rollup-plugin-esbuild';
 import postcss from 'rollup-plugin-postcss';
 import replace from '@rollup/plugin-replace';
@@ -145,6 +146,11 @@ const cssConfig = {
   },
 };
 
+const deleteEmptyJSConfig = {
+  input: 'script/utils/rollup-empty-input.js',
+  plugins: [deletePlugin({ targets: 'es/**/style/index.js', runOnce: true })],
+};
+
 // lodash会使ssr无法运行,@babel\runtime affix组件报错,tinycolor2 颜色组件报错,dayjs 日期组件报错
 const exception = ['tinycolor2', 'dayjs'];
 const esExternal = esExternalDeps.concat(externalPeerDeps).filter((value) => !exception.includes(value));
@@ -262,4 +268,14 @@ const resetCss = {
   plugins: [postcss({ extract: true })],
 };
 
-export default [cssConfig, esConfig, esmConfig, libConfig, cjsConfig, umdConfig, umdMinConfig, resetCss];
+export default [
+  cssConfig,
+  esConfig,
+  esmConfig,
+  libConfig,
+  cjsConfig,
+  umdConfig,
+  umdMinConfig,
+  resetCss,
+  deleteEmptyJSConfig,
+];

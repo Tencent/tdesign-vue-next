@@ -1,4 +1,4 @@
-import { defineComponent, provide, computed, toRefs, watch, ref, nextTick } from 'vue';
+import { defineComponent, provide, computed, toRefs, watch, ref, nextTick, PropType } from 'vue';
 import picker from 'lodash/pick';
 import isArray from 'lodash/isArray';
 import isFunction from 'lodash/isFunction';
@@ -6,28 +6,36 @@ import debounce from 'lodash/debounce';
 import cloneDeep from 'lodash/cloneDeep';
 import get from 'lodash/get';
 import intersection from 'lodash/intersection';
-
 import FakeArrow from '../common-components/fake-arrow';
 import SelectInput from '../select-input';
 import SelectPanel from './select-panel';
-
 import props from './props';
-import { TdSelectProps, SelectValue } from './type';
-import { PopupVisibleChangeContext } from '../popup';
-
 // hooks
 import { useFormDisabled } from '../form/hooks';
 import useDefaultValue from '../hooks/useDefaultValue';
 import useVModel from '../hooks/useVModel';
 import { useTNodeJSX } from '../hooks/tnode';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
-import { selectInjectKey, getSingleContent, getMultipleContent, getNewMultipleValue } from './helper';
+import { selectInjectKey, getSingleContent, getMultipleContent } from './helper';
 import { useSelectOptions } from './hooks/useSelectOptions';
+import useKeyboardControl from './hooks/useKeyboardControl';
+import type { PopupVisibleChangeContext } from '../popup';
+import type { SelectInputValueChangeContext } from '../select-input';
+import type { TdSelectProps, SelectValue } from './type';
+import { SelectInputValueDisplayOptions } from '../select-input/useSingle';
 
 export default defineComponent({
   name: 'TSelect',
-  props: { ...props },
-  setup(props: TdSelectProps, { slots }) {
+  props: {
+    ...props,
+    /**
+     * 非公开 API，请勿使用（后续即将删除）
+     */
+    valueDisplayOptions: {
+      type: Object as PropType<SelectInputValueDisplayOptions>,
+    },
+  },
+  setup(props: TdSelectProps & { valueDisplayOptions: SelectInputValueDisplayOptions }, { slots }) {
     const classPrefix = usePrefixClass();
     const disabled = useFormDisabled();
     const renderTNodeJSX = useTNodeJSX();
@@ -48,11 +56,7 @@ export default defineComponent({
       value: props.keys?.value || 'value',
       disabled: props.keys?.disabled || 'disabled',
     }));
-    const { options, optionsMap, optionsList, optionsCache, displayOptions } = useSelectOptions(
-      props,
-      keys,
-      innerInputValue,
-    );
+    const { optionsMap, optionsList, optionsCache, displayOptions } = useSelectOptions(props, keys, innerInputValue);
 
     // 内部数据,格式化过的
     const innerValue = computed(() => {
@@ -66,6 +70,7 @@ export default defineComponent({
       }
       return orgValue.value;
     });
+
     const setInnerValue: TdSelectProps['onChange'] = (newVal: SelectValue | SelectValue[], context) => {
       if (props.valueType === 'object') {
         const { value, label } = keys.value;
@@ -159,73 +164,6 @@ export default defineComponent({
       setInputValue('');
     };
 
-    // 键盘操作逻辑
-    const hoverIndex = ref(-1);
-    const handleKeyDown = (e: KeyboardEvent) => {
-      const optionsListLength = displayOptions.value.length;
-      let newIndex = hoverIndex.value;
-      switch (e.code) {
-        case 'ArrowUp':
-          e.preventDefault();
-          if (hoverIndex.value === -1) {
-            newIndex = 0;
-          } else if (hoverIndex.value === 0 || hoverIndex.value > displayOptions.value.length - 1) {
-            newIndex = optionsListLength - 1;
-          } else {
-            newIndex--;
-          }
-          if (optionsList.value[newIndex]?.disabled) {
-            newIndex--;
-          }
-          hoverIndex.value = newIndex;
-          break;
-        case 'ArrowDown':
-          e.preventDefault();
-          if (hoverIndex.value === -1 || hoverIndex.value >= optionsListLength - 1) {
-            newIndex = 0;
-          } else {
-            newIndex++;
-          }
-          if (optionsList.value[newIndex]?.disabled) {
-            newIndex++;
-          }
-          hoverIndex.value = newIndex;
-          break;
-        case 'Enter':
-          if (hoverIndex.value === -1) break;
-          if (!innerPopupVisible.value) {
-            setInnerPopupVisible(true, { e });
-            break;
-          }
-          if (!props.multiple) {
-            const selectedOptions = getSelectedOptions(optionsList.value[hoverIndex.value].value);
-            setInnerValue(optionsList.value[hoverIndex.value].value, {
-              option: selectedOptions?.[0],
-              selectedOptions: getSelectedOptions(optionsList.value[hoverIndex.value].value),
-              trigger: 'check',
-              e,
-            });
-            setInnerPopupVisible(false, { e });
-          } else {
-            if (hoverIndex.value === -1) return;
-            const optionValue = optionsList.value[hoverIndex.value]?.value;
-            if (!optionValue) return;
-            const newValue = getNewMultipleValue(innerValue.value, optionValue);
-            const selectedOptions = getSelectedOptions(newValue.value);
-            setInnerValue(newValue.value, {
-              option: selectedOptions.find((v) => v.value == optionValue),
-              selectedOptions,
-              trigger: newValue.isCheck ? 'check' : 'uncheck',
-              e,
-            });
-          }
-          break;
-        case 'Escape':
-          setInnerPopupVisible(false, { e });
-          break;
-      }
-    };
-
     const popupContentRef = computed(() => selectInputRef.value?.popupRef.getOverlay() as HTMLElement);
 
     /**
@@ -245,6 +183,21 @@ export default defineComponent({
         return selectValue === option.value;
       });
     };
+
+    const { hoverIndex, virtualFilteredOptions, handleKeyDown, filteredOptions } = useKeyboardControl({
+      displayOptions,
+      optionsList,
+      innerPopupVisible,
+      setInnerPopupVisible,
+      selectPanelRef,
+      isFilterable,
+      getSelectedOptions,
+      setInnerValue,
+      innerValue,
+      popupContentRef,
+      multiple: props.multiple,
+      max: props.max,
+    });
 
     const onCheckAllChange = (checked: boolean) => {
       if (!props.multiple) return;
@@ -267,7 +220,7 @@ export default defineComponent({
     // 半选
     const indeterminate = computed<boolean>(() => !isCheckAll.value && intersectionLen.value !== 0);
 
-    const SelectProvide = computed(() => ({
+    const SelectProvider = computed(() => ({
       max: props.max,
       multiple: props.multiple,
       hoverIndex: hoverIndex.value,
@@ -286,7 +239,7 @@ export default defineComponent({
       displayOptions: displayOptions.value,
     }));
 
-    provide(selectInjectKey, SelectProvide);
+    provide(selectInjectKey, SelectProvider);
 
     const checkValueInvalid = () => {
       // 参数类型检测与修复
@@ -297,9 +250,28 @@ export default defineComponent({
         setOrgValue([], { selectedOptions: [], trigger: 'default' });
       }
     };
+
     const handleSearch = debounce((value: string, { e }: { e: KeyboardEvent }) => {
       props.onSearch?.(`${value}`, { e });
     }, 300);
+
+    const handlerInputChange = (value: string, context: SelectInputValueChangeContext) => {
+      if (value) {
+        setInnerPopupVisible(true, { e: context.e as KeyboardEvent });
+      }
+      setInputValue(value);
+      handleSearch(`${value}`, { e: context.e as KeyboardEvent });
+      nextTick(() => {
+        virtualFilteredOptions.value = selectPanelRef.value?.visibleData;
+        filteredOptions.value = selectPanelRef.value?.displayOptions;
+      });
+    };
+
+    const handlerPopupVisibleChange = (visible: boolean, context: PopupVisibleChangeContext) => {
+      setInnerPopupVisible(visible, context);
+      // 在通过点击选择器打开弹窗时 清空此前的输入内容 避免在关闭时就清空引起的闪烁问题
+      if (visible && context.trigger === 'trigger-element-click') setInputValue('');
+    };
 
     const addCache = (val: SelectValue) => {
       if (props.multiple) {
@@ -337,12 +309,6 @@ export default defineComponent({
         checkValueInvalid();
       },
     );
-    watch(innerPopupVisible, (value) => {
-      if (value) {
-        // 显示
-        hoverIndex.value = -1;
-      }
-    });
 
     // 列表展开时定位置选中项
     const updateScrollTop = (content: HTMLDivElement) => {
@@ -438,16 +404,8 @@ export default defineComponent({
                 params: valueDisplayParams.value,
               })
             }
-            onPopupVisibleChange={(val: boolean, context) => {
-              setInnerPopupVisible(val, context);
-            }}
-            onInputChange={(value, context) => {
-              if (value) {
-                setInnerPopupVisible(true, { e: context.e as KeyboardEvent });
-              }
-              setInputValue(value);
-              handleSearch(`${value}`, { e: context.e as KeyboardEvent });
-            }}
+            onPopupVisibleChange={handlerPopupVisibleChange}
+            onInputChange={handlerInputChange}
             onClear={({ e }) => {
               setInnerValue(props.multiple ? [] : undefined, {
                 option: null,
@@ -465,7 +423,6 @@ export default defineComponent({
               props.onBlur?.({ e, value: innerValue.value });
             }}
             onFocus={(inputValue, { e }) => {
-              setInputValue('');
               props.onFocus?.({ e, value: innerValue.value });
             }}
             {...(props.selectInputProps as TdSelectProps['selectInputProps'])}
@@ -489,7 +446,6 @@ export default defineComponent({
                     'filter',
                     'scroll',
                   ])}
-                  options={options.value}
                   inputValue={innerInputValue.value}
                   v-slots={slots}
                 />

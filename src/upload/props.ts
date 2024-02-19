@@ -37,6 +37,10 @@ export default {
   beforeUpload: {
     type: Function as PropType<TdUploadProps['beforeUpload']>,
   },
+  /** 批量文件/图片上传，`autoUpload=false` 场景下，透传“取消上传”按钮属性 */
+  cancelUploadButton: {
+    type: [Object, Function] as PropType<TdUploadProps['cancelUploadButton']>,
+  },
   /** 上传请求所需的额外字段，默认字段有 `file`，表示文件信息。可以添加额外的文件名字段，如：`{file_name: "custom-file-name.txt"}`。`autoUpload=true` 时有效。也可以使用 `formatRequest` 完全自定义上传请求的字段 */
   data: {
     type: Object as PropType<TdUploadProps['data']>,
@@ -74,17 +78,21 @@ export default {
   format: {
     type: Function as PropType<TdUploadProps['format']>,
   },
-  /** 用于新增或修改文件上传请求参数。`action` 存在时有效。一个请求上传一个文件时，默认请求字段有 `file`；<br/>一个请求上传多个文件时，默认字段有 `file[0]/file[1]/file[2]/.../length`，其中 `length` 表示本次上传的文件数量。<br/>⚠️非常注意，此处的 `file[0]/file[1]` 仅仅是一个字段名，并非表示 `file` 是一个数组，接口获取字段时注意区分。<br/>可以使用 `name` 定义 `file` 字段的别名，也可以使用 `formatRequest` 自定义任意字段 */
+  /** 用于新增或修改文件上传请求 参数。`action` 存在时有效。一个请求上传一个文件时，默认请求字段有 `file`。<br/>一个请求上传多个文件时，默认字段有 `file[0]/file[1]/file[2]/.../length`，其中 `length` 表示本次上传的文件数量。<br/>⚠️非常注意，此处的 `file[0]/file[1]` 仅仅是一个字段名，并非表示 `file` 是一个数组，接口获取字段时注意区分。<br/>可以使用 `name` 定义 `file` 字段的别名。<br/>也可以使用 `formatRequest` 自定义任意字段，如添加一个字段 `fileList` ，存储文件数组 */
   formatRequest: {
     type: Function as PropType<TdUploadProps['formatRequest']>,
   },
-  /** 用于格式化文件上传后的接口响应数据，`response` 便是接口响应的原始数据。`action` 存在时有效。<br/> 此函数的返回值 `error` 或 `response.error` 会作为错误文本提醒，如果存在会判定为本次上传失败。<br/> 此函数的返回值 `url` 或 `response.url` 会作为上传成功后的链接 */
+  /** 用于格式化文件上传后的接口响应数据，`response` 便是接口响应的原始数据。`action` 存在时有效。<br/> 示例返回值：`{ error, url, status, files }` <br/> 此函数的返回值 `error` 会作为错误文本提醒，表示上传失败的原因，如果存在会判定为本次上传失败。<br/> 此函数的返回值 `url` 会作为单个文件上传成功后的链接。<br/> `files` 表示一个请求同时上传多个文件后的文件列表 */
   formatResponse: {
     type: Function as PropType<TdUploadProps['formatResponse']>,
   },
   /** 设置上传的请求头部，`action` 存在时有效 */
   headers: {
     type: Object as PropType<TdUploadProps['headers']>,
+  },
+  /** 透传图片预览组件全部属性 */
+  imageViewerProps: {
+    type: Object as PropType<TdUploadProps['imageViewerProps']>,
   },
   /** 用于添加属性到 HTML 元素 `input` */
   inputAttributes: {
@@ -96,7 +104,7 @@ export default {
   locale: {
     type: Object as PropType<TdUploadProps['locale']>,
   },
-  /** 用于控制文件上传数量，值为 0 则不限制 */
+  /** 用于控制文件上传数量，值为 0 则不限制。注意，单文件上传场景，请勿设置 `max` 属性 */
   max: {
     type: Number,
     default: 0,
@@ -129,6 +137,11 @@ export default {
   /** 自定义上传方法。返回值 `status` 表示上传成功或失败；`error` 或 `response.error` 表示上传失败的原因；<br/>`response` 表示请求上传成功后的返回数据，`response.url` 表示上传成功后的图片/文件地址，`response.files` 表示一个请求上传多个文件/图片后的返回值。<br/>示例一：`{ status: 'fail', error: '上传失败', response }`。<br/>示例二：`{ status: 'success', response: { url: 'https://tdesign.gtimg.com/site/avatar.jpg' } }`。<br/> 示例三：`{ status: 'success', files: [{ url: 'https://xxx.png', name: 'xxx.png' }]}` */
   requestMethod: {
     type: Function as PropType<TdUploadProps['requestMethod']>,
+  },
+  /** 是否显示图片的文件名称 */
+  showImageFileName: {
+    type: Boolean,
+    default: true,
   },
   /** 是否在文件列表中显示缩略图，`theme=file-flow` 时有效 */
   showThumbnail: Boolean,
@@ -172,8 +185,15 @@ export default {
   },
   /** 是否在同一个请求中上传全部文件，默认一个请求上传一个文件。多文件上传时有效 */
   uploadAllFilesInOneRequest: Boolean,
+  /** 批量文件/图片上传，`autoUpload=false` 场景下，透传“点击上传”按钮属性 */
+  uploadButton: {
+    type: [Object, Function] as PropType<TdUploadProps['uploadButton']>,
+  },
   /** 是否允许粘贴上传剪贴板中的文件 */
-  uploadPastedFiles: Boolean,
+  uploadPastedFiles: {
+    type: Boolean,
+    default: true,
+  },
   /** 是否在请求时间超过 300ms 后显示模拟进度。上传进度有模拟进度和真实进度两种。一般大小的文件上传，真实的上传进度只有 0 和 100，不利于交互呈现，因此组件内置模拟上传进度。真实上传进度一般用于大文件上传。 */
   useMockProgress: {
     type: Boolean,

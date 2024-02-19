@@ -20,6 +20,7 @@ import { getScrollbarWidthWithCSS } from '../../_common/js/utils/getScrollbarWid
 import { on, off } from '../../utils/dom';
 import { FixedColumnInfo, TableRowFixedClasses, RowAndColFixedPosition, TableColFixedClasses } from '../interface';
 import { getIEVersion } from '../../_common/js/utils/helper';
+import pick from 'lodash/pick';
 
 // 固定列相关类名处理
 export function getColumnFixedStyles(
@@ -374,7 +375,7 @@ export default function useFixed(
     if (!rect) return;
     // 存在纵向滚动条，且固定表头时，需去除滚动条宽度
     const reduceWidth = isFixedHeader.value ? scrollbarWidth.value : 0;
-    tableWidth.value = Math.floor(rect.width - reduceWidth - (props.bordered ? 1 : 0));
+    tableWidth.value = rect.width - reduceWidth - (props.bordered ? 1 : 0);
     const elmRect = tableElmRef?.value?.getBoundingClientRect();
     elmRect?.width && setTableElmWidth(elmRect.width);
   };
@@ -474,7 +475,16 @@ export default function useFixed(
     { immediate: true },
   );
 
-  watch([maxHeight, data, columns, bordered], updateFixedHeader, { immediate: true });
+  watch(
+    [maxHeight, data, columns, bordered, tableContentRef],
+    () => {
+      if (tableContentRef.value) {
+        // 如果不监听元素的ref，会出现watch在ref还没ready的时候触发，此时没有触发这个判断的更新，导致表头消失
+        updateFixedHeader();
+      }
+    },
+    { immediate: true },
+  );
 
   watch(finalColumns, () => {
     resetThWidthList();
@@ -503,8 +513,13 @@ export default function useFixed(
       reduceKeys.forEach((key) => {
         reduceWidth += thWidthList[key];
       });
-      const oldTotalWidth = Object.values(thWidthList).reduce((r = 0, n) => r + n);
-      setTableElmWidth(oldTotalWidth - reduceWidth);
+      const rootThWidthList = pick(thWidthList, preColKeys);
+      const oldTotalWidth = Object.values(rootThWidthList).reduce((r = 0, n) => r + n);
+      // 保留原有可能编辑过的列宽度，但是当剩余列过小时，表头小于内容宽，需要缩放回内容宽度
+      // 使用不包含滚动条的可视化区域宽度，意味着当不再溢出的时候，将宽度设置回完整宽度
+      const contentWidth = tableContentRef.value.clientWidth;
+      const widthToReserve = oldTotalWidth - reduceWidth;
+      setTableElmWidth(Math.max(contentWidth, widthToReserve));
     }
   });
 

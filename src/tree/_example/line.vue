@@ -1,19 +1,25 @@
 <template>
-  <div class="tdesign-demo-block-column-large tdesign-tree-demo tdesign-tree-line">
-    <t-form>
-      <t-form-item label="显示连线" style="margin-bottom: 16px">
+  <t-space :size="32" direction="vertical">
+    <t-space direction="vertical">
+      <t-space>
+        <span>显示连线:</span>
         <t-switch v-model="showLine" />
-      </t-form-item>
-      <t-form-item label="显示图标" style="margin-bottom: 16px">
+      </t-space>
+      <t-space>
+        <span>显示图标:</span>
         <t-switch v-model="showIcon" />
-      </t-form-item>
-    </t-form>
-
-    <div class="tdesign-demo-block-column">
+      </t-space>
+    </t-space>
+    <t-space direction="vertical">
+      <h3>默认样式</h3>
       <t-tree :data="items" :line="showLine" :icon="showIcon" expand-all />
-      <h3>render</h3>
+    </t-space>
+    <t-space direction="vertical" class="tdesign-tree-line">
+      <h3>使用属性结合 jsx 来自定义呈现</h3>
       <t-tree :data="items" :icon="showIcon" expand-all :line="renderLine" />
-      <h3>scope slot</h3>
+    </t-space>
+    <t-space direction="vertical" class="tdesign-tree-line">
+      <h3>slot 形式</h3>
       <t-tree :data="items" :icon="showIcon" line expand-all>
         <template #line="{ node }">
           <div v-if="showLine" :class="lineClass(node)">
@@ -22,22 +28,24 @@
                 v-for="(item, index) in getLineNodes(node)"
                 :key="index"
                 :class="{ 'custom-line-cross': item.cross }"
-              />
+              ></span>
             </div>
             <i v-if="node.isLeaf()" class="custom-line-icon">
-              <t-icon name="heart-filled" />
+              <icon name="heart-filled" />
             </i>
           </div>
         </template>
       </t-tree>
-    </div>
-  </div>
+    </t-space>
+  </t-space>
 </template>
 
 <script setup lang="jsx">
 import { ref } from 'vue';
-
-const items = [
+import { Icon } from 'tdesign-icons-vue-next';
+const showLine = ref(true);
+const showIcon = ref(true);
+const items = ref([
   {
     value: '1',
     label: '1',
@@ -110,11 +118,7 @@ const items = [
     value: '4',
     label: '4',
   },
-];
-
-const showLine = ref(true);
-const showIcon = ref(true);
-
+]);
 const getLineNodes = (node) => {
   const nodes = node.getParents().reverse();
   const lineNodes = [];
@@ -128,7 +132,6 @@ const getLineNodes = (node) => {
   });
   return lineNodes;
 };
-
 const lineClass = (node) => {
   const list = ['custom-line'];
   if (node.isFirst()) {
@@ -142,22 +145,18 @@ const lineClass = (node) => {
   }
   return list;
 };
-
-const renderLine = (createElement, node) => {
+const renderLine = (h, node) => {
   if (!showLine.value) return null;
-
   const lineChildren = [];
-
   const lines = getLineNodes(node).map((item) =>
-    createElement('span', {
+    h('span', {
       class: {
         'custom-line-cross': item.cross,
       },
     }),
   );
-
   lineChildren.push(
-    createElement(
+    h(
       'div',
       {
         class: 'custom-line-box',
@@ -165,19 +164,18 @@ const renderLine = (createElement, node) => {
       lines,
     ),
   );
-
   if (node.isLeaf()) {
-    const iconNode = createElement(
+    const tIcon = <Icon name="heart-filled" />;
+    const iconNode = h(
       'i',
       {
         class: 'custom-line-icon',
       },
-      [<t-icon name="heart-filled" />],
+      [tIcon],
     );
     lineChildren.push(iconNode);
   }
-
-  return createElement(
+  return h(
     'div',
     {
       class: lineClass(node),
@@ -186,10 +184,7 @@ const renderLine = (createElement, node) => {
   );
 };
 </script>
-<style>
-.tdesign-tree-line .operations .t-button {
-  margin: 0 10px 10px 0;
-}
+<style scoped>
 .tdesign-tree-line .custom-line {
   display: flex;
   position: absolute;
@@ -210,7 +205,7 @@ const renderLine = (createElement, node) => {
   content: '';
   position: absolute;
   display: block;
-  bottom: 26px;
+  bottom: 22px;
   left: 6px;
   width: 12px;
   height: 26px;
@@ -232,7 +227,7 @@ const renderLine = (createElement, node) => {
 }
 .tdesign-tree-line .custom-line-icon {
   position: absolute;
-  top: 6px;
+  top: 10px;
   right: -14px;
   display: flex;
   box-sizing: border-box;
@@ -249,15 +244,15 @@ const renderLine = (createElement, node) => {
   position: absolute;
   display: block;
   box-sizing: border-box;
-  top: 9px;
+  top: 14px;
   left: 3px;
   z-index: 1;
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 2px;
   border: 1px solid #0052d9;
   background-color: #fff;
   transform: rotate(45deg);
-  transform-origin: 50%, 50%;
+  transform-origin: 50% 50%;
 }
 </style>

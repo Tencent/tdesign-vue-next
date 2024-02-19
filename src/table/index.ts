@@ -4,11 +4,16 @@ import _PrimaryTable from './primary-table';
 import _EnhancedTable from './enhanced-table';
 import withInstall from '../utils/withInstall';
 import { InfinityScroll } from '../common';
+import { BaseTableInstanceFunctions, EnhancedTableInstanceFunctions, PrimaryTableInstanceFunctions } from './type';
 
 import './style';
 
 export * from './type';
 export * from './interface';
+
+export type AllTableInstanceFunctions = EnhancedTableInstanceFunctions &
+  PrimaryTableInstanceFunctions &
+  BaseTableInstanceFunctions;
 
 export type TableScroll = InfinityScroll;
 export const BaseTable = withInstall(_BaseTable);

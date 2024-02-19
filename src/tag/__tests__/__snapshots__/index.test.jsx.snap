@@ -1,7 +1,7 @@
 // Vitest Snapshot v1
 
 exports[`Tag or CheckTag > @event: Tag > Event passthrough: close 1`] = `
-<span
+<div
   class="t-tag t-tag--default t-tag--dark t-tag--close"
 >
   <!---->
@@ -18,5 +18,5 @@ exports[`Tag or CheckTag > @event: Tag > Event passthrough: close 1`] = `
       fill="currentColor"
     />
   </svg>
-</span>
+</div>
 `;

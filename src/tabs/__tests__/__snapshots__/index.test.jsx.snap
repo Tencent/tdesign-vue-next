@@ -54,6 +54,7 @@ exports[`Tabs > :props > :addable 1`] = `
             />
           </svg>
         </div>
+        <!---->
       </div>
       
       <div
@@ -118,6 +119,7 @@ exports[`Tabs > :props > :defaultValue 1`] = `
         >
           <!---->
         </transition-stub>
+        <!---->
         <!---->
       </div>
       
@@ -184,6 +186,7 @@ exports[`Tabs > :props > :disabled 1`] = `
           <!---->
         </transition-stub>
         <!---->
+        <!---->
       </div>
       
       <div
@@ -249,6 +252,7 @@ exports[`Tabs > :props > :placement 1`] = `
           <!---->
         </transition-stub>
         <!---->
+        <!---->
       </div>
       
       <div
@@ -312,6 +316,7 @@ exports[`Tabs > :props > :size 1`] = `
         >
           <!---->
         </transition-stub>
+        <!---->
         <!---->
       </div>
       
@@ -378,6 +383,7 @@ exports[`Tabs > :props > :theme 1`] = `
           <!---->
         </transition-stub>
         <!---->
+        <!---->
       </div>
       
       <div
@@ -440,6 +446,7 @@ exports[`Tabs > :props > :value 1`] = `
         >
           <!---->
         </transition-stub>
+        <!---->
         <!---->
       </div>
       

@@ -1,9 +1,12 @@
 <template>
-  <t-tree :data="items" hover :expand-level="1" />
+  <t-space direction="vertical">
+    <t-tree :data="items" hover :expand-level="1" />
+  </t-space>
 </template>
 
 <script setup>
-const items = [
+import { ref } from 'vue';
+const items = ref([
   {
     label: '1',
     children: [
@@ -42,5 +45,5 @@ const items = [
       },
     ],
   },
-];
+]);
 </script>

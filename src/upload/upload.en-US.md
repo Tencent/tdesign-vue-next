@@ -12,6 +12,7 @@ allowUploadDuplicateFile | Boolean | false | allow to upload duplicate name file
 autoUpload | Boolean | true | post upload request automatically after files being selected | N
 beforeAllFilesUpload | Function | - | before all files upload, return false can stop uploading file。Typescript：`(file: UploadFile[]) => boolean \| Promise<boolean>` | N
 beforeUpload | Function | - | stop one of files to upload。Typescript：`(file: UploadFile) => boolean \| Promise<boolean>` | N
+cancelUploadButton | Object / Slot / Function | - | cancel upload button props, which showed on `autoUpload=false` and multiple files/images upload。Typescript：`null \| ButtonProps \| TNode<{ disabled: boolean; cancelUploadText: string; cancelUpload: (ctx: { e: MouseEvent }) => void }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 data | Object | - | extra request data of uploading. `formatRequest` can redefine all request data。Typescript：`Record<string, any> \| ((files: UploadFile[]) => Record<string, any>)` | N
 default | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 disabled | Boolean | - | make upload to be disabled | N
@@ -22,8 +23,9 @@ files | Array | [] | `v-model:files` is supported。Typescript：`Array<T>` | N
 defaultFiles | Array | [] | uncontrolled property。Typescript：`Array<T>` | N
 format | Function | - | to redefine  `UploadFile` data structure。Typescript：`(file: File) => UploadFile` | N
 formatRequest | Function | - | redefine request data。Typescript：`(requestData: { [key: string]: any }) => { [key: string]: any }` | N
-formatResponse | Function | - | redefine response data structure。Typescript：`(response: any, context: FormatResponseContext) => ResponseType ` `type ResponseType = { error?: string; url?: string } & Record<string, any>` `interface FormatResponseContext { file: UploadFile; currentFiles?: UploadFile[] }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts) | N
+formatResponse | Function | - | redefine response data structure。Typescript：`(response: any, context: FormatResponseContext) => ResponseType ` `type ResponseType = { error?: string; url?: string; status?: 'fail' \| 'success'; files?: UploadFile[] } & Record<string, any>` `interface FormatResponseContext { file: UploadFile; currentFiles?: UploadFile[] }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts) | N
 headers | Object | - | HTTP Request Header。Typescript：`{[key: string]: string}` | N
+imageViewerProps | Object | - | ImageViewer Component Props。Typescript：`ImageViewerProps`，[ImageViewer API Documents](./image-viewer?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts) | N
 inputAttributes | Object | - | add attributes to HTML element `input`。Typescript：`CSSProperties` | N
 isBatchUpload | Boolean | false | make all files to be a whole package, files can only be replaced or deleted together, can not add more files | N
 locale | Object | - | upload language config, priority of `locale` is higher than global language config。Typescript：`UploadConfig` `import { UploadConfig } from '../config-provider/type'`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts) | N
@@ -34,6 +36,7 @@ multiple | Boolean | false | multiple files uploading | N
 name | String | file | field name of files in upload request data | N
 placeholder | String | - | placeholder | N
 requestMethod | Function | - | custom upload request method。Typescript：`(files: UploadFile \| UploadFile[]) => Promise<RequestMethodResponse>` `interface RequestMethodResponse { status: 'success' \| 'fail'; error?: string; response: { url?: string; files?: UploadFile[]; [key: string]: any } }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts) | N
+showImageFileName | Boolean | true | show image's name | N
 showThumbnail | Boolean | false | show thumbnail before file name, only works on `theme=file-flow`  | N
 showUploadProgress | Boolean | true | show upload progress nodes | N
 sizeLimit | Number / Object | - | files size limit。Typescript：`number \| SizeLimitObj` `interface SizeLimitObj { size: number; unit: SizeUnit ; message?: string }` `type SizeUnitArray = ['B', 'KB', 'MB', 'GB']` `type SizeUnit = SizeUnitArray[number]`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts) | N
@@ -43,7 +46,8 @@ tips | String / Slot / Function | - | tips text below upload component, define i
 trigger | Slot / Function | - | trigger elements UI。Typescript：`TNode<TriggerContext>` `interface TriggerContext { dragActive?: boolean;  files: UploadFile[] }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts) | N
 triggerButtonProps | Object | - | trigger button props, it can be used to change color/size/href/... of the trigger button。Typescript：`ButtonProps`，[Button API Documents](./button?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts) | N
 uploadAllFilesInOneRequest | Boolean | false | uploading all files in one request | N
-uploadPastedFiles | Boolean | false | allow to upload files in clipboard after pasting | N
+uploadButton | Object / Slot / Function | - | upload button props, which showed on `autoUpload=false` and multiple files/images upload。Typescript：`null \| ButtonProps \| TNode<{ disabled: boolean; uploading: boolean; uploadFiles: () => void; uploadText: string }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+uploadPastedFiles | Boolean | true | allow to upload files in clipboard after pasting | N
 useMockProgress | Boolean | true | use mock progress, instead of real progress | N
 value | Array | [] | file list。`v-model` and `v-model:value` is supported。Typescript：`Array<T>` | N
 defaultValue | Array | [] | file list。uncontrolled property。Typescript：`Array<T>` | N
@@ -89,7 +93,7 @@ waiting-upload-files-change | `(context: { files: Array<UploadFile>, trigger: 'v
 name | params | return | description
 -- | -- | -- | --
 triggerUpload | \- | \- | required。instance function: trigger system file select
-uploadFilePercent | \- | \- | required。instance function: set uploading file progress percent
+uploadFilePercent | `(params: { file: UploadFile; percent: number })` | \- | required。instance function: set uploading file progress percent
 uploadFiles | `(files?: UploadFile[])` | \- | required。instance function: upload all files which status are not success
 
 ### UploadFile

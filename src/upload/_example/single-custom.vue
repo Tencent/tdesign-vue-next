@@ -37,7 +37,7 @@ const beforeUpload = (file) => {
 
   return true;
 };
-const tips = '上传文件大小在 5M 以内';
+const tips = ref('上传文件大小在 5M 以内');
 </script>
 <style scoped>
 .tdesign-demo-upload .list-custom {

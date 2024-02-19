@@ -1,28 +1,30 @@
 <template>
   <t-space direction="vertical">
-    <t-form label-width="120">
-      <t-form-item label="互斥展开">
-        <t-switch v-model="mutex" />
-      </t-form-item>
-      <t-form-item label="整个节点可点击">
-        <t-switch v-model="expandOnClickNode" />
-      </t-form-item>
-    </t-form>
+    <t-space>
+      <span>互斥展开:</span>
+      <t-switch v-model="mutex" />
+    </t-space>
+    <t-space>
+      <span>整个节点可点击:</span>
+      <t-switch v-model="expandOnClickNode" />
+    </t-space>
     <t-tree
       :data="items"
       hover
       :expand-mutex="mutex"
       :expand-on-click-node="expandOnClickNode"
+      :on-expand="propOnExpand"
       @click="onClick"
-      @expand="handleExpand"
+      @expand="onExpand"
     />
   </t-space>
 </template>
 
 <script setup>
 import { ref } from 'vue';
-
-const items = [
+const mutex = ref(true);
+const expandOnClickNode = ref(true);
+const items = ref([
   {
     label: '1',
     children: [
@@ -77,16 +79,14 @@ const items = [
       },
     ],
   },
-];
-
-const mutex = ref(true);
-const expandOnClickNode = ref(true);
-
+]);
 const onClick = (context) => {
   console.info('onClick', context);
 };
-
-const handleExpand = (value, context) => {
+const onExpand = (value, context) => {
   console.info('onExpand', value, context);
+};
+const propOnExpand = (value, context) => {
+  console.info('propOnExpand', value, context);
 };
 </script>

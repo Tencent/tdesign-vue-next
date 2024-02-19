@@ -7,7 +7,7 @@ import isEmail from 'validator/lib/isEmail';
 import isEmpty from 'lodash/isEmpty';
 import isURL from 'validator/lib/isURL';
 import isNumber from 'lodash/isNumber';
-import { getCharacterLength } from '../utils/helper';
+import { getCharacterLength } from '../_common/js/utils/helper';
 import {
   CustomValidator,
   FormRule,

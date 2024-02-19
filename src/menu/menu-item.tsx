@@ -12,7 +12,7 @@ export default defineComponent({
   props: { ...props },
   emits: ['click'],
   setup(props, ctx) {
-    const { href, target = '_self' } = toRefs(props);
+    const { href, target } = toRefs(props);
     const classPrefix = usePrefixClass();
     const menu = inject<TdMenuInterface>('TdMenu');
     const itemRef = ref<HTMLElement>();
@@ -43,6 +43,7 @@ export default defineComponent({
       itemRef,
       href,
       target,
+      submenu,
     };
   },
   methods: {
@@ -66,6 +67,7 @@ export default defineComponent({
           }
         });
       }
+      this.submenu?.closeParentPopup?.(e);
     },
   },
   render() {

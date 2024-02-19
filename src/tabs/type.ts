@@ -100,6 +100,11 @@ export interface TdTabPanelProps {
    */
   label?: string | TNode;
   /**
+   * 是否启用选项卡懒加载
+   * @default false
+   */
+  lazy?: boolean;
+  /**
    * 用于自定义选项卡面板内容
    */
   panel?: string | TNode;

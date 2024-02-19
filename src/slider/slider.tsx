@@ -236,6 +236,11 @@ export default defineComponent({
       }
     };
 
+    const getFixValue = () => {
+      const changeValue = props.range ? [firstValue.value, secondValue.value] : firstValue.value;
+      return setValues(changeValue);
+    };
+
     // 全局点击
     const onSliderClick = (event: MouseEvent): void => {
       if (disabled.value || dragging.value) {
@@ -253,6 +258,8 @@ export default defineComponent({
         value = ((event.clientX - sliderOffsetLeft) / sliderSize.value) * 100;
         setPosition(value);
       }
+      const fixValue = getFixValue();
+      props.onChangeEnd?.(fixValue);
     };
 
     // mark 点击触发修改事件
@@ -264,6 +271,8 @@ export default defineComponent({
       const value = Number((point / rangeDiff.value) * 100);
       setPosition(value);
       emitChange(point);
+      const fixValue = getFixValue();
+      props.onChangeEnd?.(fixValue);
     };
 
     /** 副作用监听 */
@@ -392,10 +401,16 @@ export default defineComponent({
               value={firstValue.value}
               ref={firstButtonRef}
               disabled={disabled.value}
+              range={props.range}
+              position="start"
               tooltip-props={props.tooltipProps}
               label={props.label}
               onInput={(v: number) => {
                 firstValue.value = v;
+              }}
+              onMouseup={() => {
+                const fixValue = getFixValue();
+                props.onChangeEnd?.(fixValue);
               }}
             />
             {props.range && (
@@ -405,9 +420,15 @@ export default defineComponent({
                 ref={secondButtonRef}
                 disabled={disabled.value}
                 label={props.label}
+                range={props.range}
+                position="end"
                 tooltip-props={props.tooltipProps}
                 onInput={(v: number) => {
                   secondValue.value = v;
+                }}
+                onMouseup={() => {
+                  const fixValue = getFixValue();
+                  props.onChangeEnd?.(fixValue);
                 }}
               />
             )}

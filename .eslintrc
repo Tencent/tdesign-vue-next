@@ -51,7 +51,7 @@
     "no-plusplus": "off",
     "no-param-reassign":  "off",
     "no-shadow":  "off",
-    "no-underscore-dangle": "off",
+    "no-underscore-dangle": ["error"],
     "no-unused-vars": "off",
     "no-unused-expressions": "off",
     "no-return-assign": "off",
@@ -102,6 +102,7 @@
     {
       "files": [
         "**/_example/*",
+        "**/_example-ts/*",
         "script/**/*",
         "script/*",
         "*.js",

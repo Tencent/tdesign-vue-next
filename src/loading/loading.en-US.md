@@ -1,5 +1,21 @@
 :: BASE_DOC ::
 
+
+### calling by v-loading
+
+Supports calling the Loading component using the `v-loading` directive. You just need to bind a `boolean` value. It also supports the `fullscreen` and `inheritColor` modifiers, as well as custom configuration in the form of `Object`.
+
+{{ directive }}
+
+### attach to 
+
+It can be attached to a specific element using the attach method.
+
+Note: The element to which it is attached (parent of the loading) should have the CSS property set to `position: relative`.
+
+{{ attach }}
+
+
 ## API
 
 ### Loading Props

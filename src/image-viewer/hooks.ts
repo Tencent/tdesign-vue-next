@@ -1,4 +1,5 @@
-import { ref } from 'vue';
+import { positiveSubtract, positiveAdd } from '../_common/js/input-number/number';
+import { ref, watch } from 'vue';
 import { ImageScale } from './type';
 
 interface InitTransform {
@@ -48,16 +49,18 @@ export function useMirror() {
 }
 
 export function useScale(imageScale: ImageScale = { max: 2, min: 0.5, step: 0.5 }) {
-  const { max, min, step } = imageScale;
-  const scale = ref(1);
+  const { max, min, step, defaultScale } = imageScale;
+  const scale = ref(defaultScale ?? 1);
   const onZoomIn = () => {
-    setScale(scale.value + step);
+    const result = positiveAdd(scale.value, step);
+    setScale(result);
   };
   const onZoomOut = () => {
-    setScale(scale.value - step);
+    const result = positiveSubtract(scale.value, step);
+    setScale(result);
   };
   const resetScale = () => {
-    scale.value = 1;
+    scale.value = defaultScale ?? 1;
   };
 
   const setScale = (newScale: number) => {
@@ -70,6 +73,11 @@ export function useScale(imageScale: ImageScale = { max: 2, min: 0.5, step: 0.5 
     }
     scale.value = value;
   };
+
+  watch(
+    () => imageScale,
+    () => resetScale(),
+  );
 
   return { scale, onZoomIn, onZoomOut, resetScale };
 }

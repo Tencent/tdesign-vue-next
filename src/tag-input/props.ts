@@ -36,12 +36,12 @@ export default {
   /** 输入框的值 */
   inputValue: {
     type: [String, Number] as PropType<TdTagInputProps['inputValue']>,
-    default: undefined,
+    default: undefined as TdTagInputProps['inputValue'],
   },
   /** 输入框的值，非受控属性 */
   defaultInputValue: {
     type: [String, Number] as PropType<TdTagInputProps['defaultInputValue']>,
-    default: '',
+    default: '' as TdTagInputProps['defaultInputValue'],
   },
   /** 左侧文本 */
   label: {
@@ -60,6 +60,10 @@ export default {
   placeholder: {
     type: String,
     default: undefined,
+  },
+  /** 组件前置图标 */
+  prefixIcon: {
+    type: Function as PropType<TdTagInputProps['prefixIcon']>,
   },
   /** 只读状态，值为真会隐藏标签移除按钮和输入框 */
   readonly: Boolean,
@@ -87,10 +91,6 @@ export default {
   /** 组件后置图标 */
   suffixIcon: {
     type: Function as PropType<TdTagInputProps['suffixIcon']>,
-  },
-  /** 组件前置图标 */
-  prefixIcon: {
-    type: Function as PropType<TdTagInputProps['prefixIcon']>,
   },
   /** 自定义标签的内部内容，每一个标签的当前值。注意和 `valueDisplay` 区分，`valueDisplay`  是用来定义全部标签内容，而非某一个标签 */
   tag: {

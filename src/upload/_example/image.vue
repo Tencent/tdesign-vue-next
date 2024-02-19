@@ -1,6 +1,7 @@
 <template>
   <t-space direction="vertical">
     <t-space>
+      <t-checkbox v-model="showImageFileName"> 显示图片名称 </t-checkbox>
       <t-checkbox v-model="disabled"> 禁用状态 </t-checkbox>
       <t-checkbox v-model="uploadAllFilesInOneRequest"> 多个文件一个请求上传 </t-checkbox>
       <t-checkbox v-model="autoUpload"> 自动上传 </t-checkbox>
@@ -21,12 +22,15 @@
       <t-upload
         ref="uploadRef1"
         v-model="file1"
+        :image-viewer-props="imageViewerProps"
+        :size-limit="sizeLimit"
         action="https://service-bv448zsw-1257786608.gz.apigw.tencentcs.com/api/upload-demo"
         theme="image"
         tips="单张图片文件上传（上传成功状态演示）"
         accept="image/*"
         :disabled="disabled"
         :auto-upload="autoUpload"
+        :show-image-file-name="showImageFileName"
         :upload-all-files-in-one-request="uploadAllFilesInOneRequest"
         :locale="{
           triggerUploadText: {
@@ -47,6 +51,7 @@
         theme="image"
         tips="单张图片文件上传（上传失败状态演示）"
         accept="image/*"
+        :show-image-file-name="showImageFileName"
         :format-response="formatResponse"
       ></t-upload>
     </t-space>
@@ -60,6 +65,7 @@
       :disabled="disabled"
       :auto-upload="autoUpload"
       :upload-all-files-in-one-request="uploadAllFilesInOneRequest"
+      :show-image-file-name="showImageFileName"
       :format-response="formatImgResponse"
       @fail="handleFail"
     ></t-upload>
@@ -72,7 +78,8 @@
       theme="image"
       tips="允许选择多张图片文件上传，最多只能上传 3 张图片"
       accept="image/*"
-      :abridge-name="[6, 6]"
+      :size-limit="sizeLimit"
+      :abridge-name="abridgeName"
       :disabled="disabled"
       :auto-upload="autoUpload"
       :upload-all-files-in-one-request="uploadAllFilesInOneRequest"
@@ -93,10 +100,15 @@ const fileFail = ref([]);
 const disabled = ref(false);
 const uploadAllFilesInOneRequest = ref(false);
 const autoUpload = ref(true);
+const showImageFileName = ref(true);
 
 const uploadRef1 = ref();
 const uploadRef2 = ref();
 const uploadRef3 = ref();
+
+const imageViewerProps = ref({ closeOnEscKeydown: false });
+const sizeLimit = ref({ size: 500, unit: 'KB' });
+const abridgeName = [6, 6];
 
 const handleFail = ({ file }) => {
   MessagePlugin.error(`文件 ${file.name} 上传失败`);

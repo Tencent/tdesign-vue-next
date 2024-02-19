@@ -1,4 +1,7 @@
 import type { Directive, DirectiveBinding } from 'vue';
+import isObject from 'lodash/isObject';
+import mapKeys from 'lodash/mapKeys';
+import isEqual from 'lodash/isEqual';
 import { TdLoadingProps } from './type';
 import produceLoading from './plugin';
 
@@ -12,6 +15,12 @@ const createInstance = (el: HTMLElement, binding: DirectiveBinding) => {
     inheritColor: inheritColor ?? false,
     loading: binding.value,
   };
+
+  if (isObject(binding.value)) {
+    mapKeys(binding.value, (value, key) => {
+      options[key] = value;
+    });
+  }
 
   el[INSTANCE_KEY] = {
     options,
@@ -28,8 +37,9 @@ export const vLoading: Directive = {
   updated(el, binding) {
     const instance = el[INSTANCE_KEY];
     const { value, oldValue } = binding;
-    if (!!oldValue !== !!value) {
-      if (value) {
+    if (!isEqual(value, oldValue)) {
+      const loading = value?.loading ?? value;
+      if (loading) {
         createInstance(el, binding);
       } else {
         instance?.instance.hide();

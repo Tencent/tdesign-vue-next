@@ -100,6 +100,7 @@ export default defineComponent({
       onRemove: onInnerRemove,
       uploadPastedFiles: props.uploadPastedFiles,
       onPasteFileChange: onPasteFileChange,
+      imageViewerProps: props.imageViewerProps,
     }));
 
     const dragProps: UploadDragEvents = {
@@ -108,6 +109,13 @@ export default defineComponent({
       onDragleave: props.onDragleave,
       onDrop: props.onDrop,
     };
+
+    const uploadClasses = computed(() => [
+      `${classPrefix.value}-upload`,
+      {
+        [`${classPrefix.value}-upload--theme-${props.theme}`]: props.theme === 'file-input',
+      },
+    ]);
 
     const getNormalFileNode = () => (
       <NormalFile
@@ -150,6 +158,7 @@ export default defineComponent({
         uploadFiles={uploadFiles}
         cancelUpload={cancelUpload}
         onPreview={props.onPreview}
+        showImageFileName={props.showImageFileName}
         v-slots={{
           fileListDisplay: slots.fileListDisplay,
           'file-list-display': slots['file-list-display'],
@@ -166,10 +175,17 @@ export default defineComponent({
         uploadFiles={uploadFiles}
         cancelUpload={cancelUpload}
         onPreview={props.onPreview}
+        showImageFileName={props.showImageFileName}
         showThumbnail={props.showThumbnail}
+        uploadButton={props.uploadButton}
+        cancelUploadButton={props.cancelUploadButton}
         v-slots={{
           fileListDisplay: slots.fileListDisplay,
           'file-list-display': slots['file-list-display'],
+          uploadButton: slots.uploadButton,
+          'upload-button': slots['upload-button'],
+          cancelUploadButton: slots.cancelUploadButton,
+          'cancel-upload-button': slots['cancel-upload-button'],
         }}
       >
         <div class={`${classPrefix.value}-upload__trigger`} onClick={triggerUpload}>
@@ -198,7 +214,7 @@ export default defineComponent({
     );
 
     return () => (
-      <div class={`${classPrefix.value}-upload`} onPaste={props.uploadPastedFiles && onPasteFileChange}>
+      <div class={uploadClasses.value} onPaste={props.uploadPastedFiles ? onPasteFileChange : undefined}>
         <input
           ref={inputRef}
           type="file"
@@ -220,6 +236,7 @@ export default defineComponent({
             {renderTNodeJSX('tips')}
           </small>
         )}
+        {sizeOverLimitMessage.value && <small class={errorClasses}>{sizeOverLimitMessage.value}</small>}
       </div>
     );
   },

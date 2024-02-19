@@ -168,7 +168,7 @@ export default defineComponent({
         rowKey,
         row,
         columns: this.columns,
-        rowIndex: row.__VIRTUAL_SCROLL_INDEX || rowIndex,
+        rowIndex: row.VIRTUAL_SCROLL_INDEX || rowIndex,
         dataLength,
         skipSpansMap: this.skipSpansMap,
         virtualConfig: this.virtualConfig,

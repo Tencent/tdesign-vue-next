@@ -229,7 +229,7 @@ export const useCascaderContext = (props: TdCascaderProps) => {
     const options: TreeOptionData[] = [];
     arrValue.forEach((value) => {
       const nodes = statusContext.treeStore?.getNodes(value);
-      nodes && options.push(nodes[0].data);
+      nodes && nodes[0] && options.push(nodes[0].data);
     });
     return options;
   };

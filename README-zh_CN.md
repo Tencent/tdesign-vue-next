@@ -71,6 +71,12 @@ npm package 中提供了多种构建产物，可以阅读 [这里](https://githu
 
 TDesign 欢迎任何愿意参与贡献的参与者。如果需要本地运行代码或参与贡献，请先阅读[参与贡献](https://github.com/Tencent/tdesign-vue-next/blob/develop/CONTRIBUTING.md)。
 
+## 贡献成员
+
+<a href="https://github.com/tencent/tdesign-vue-next/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=tencent/tdesign-vue-next" />
+</a>
+
 # 反馈
 
 有任何问题，建议通过 [Github issues](https://github.com/Tencent/tdesign-vue-next/issues) 反馈或扫码加入用户微信群。

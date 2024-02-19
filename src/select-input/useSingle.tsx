@@ -1,15 +1,15 @@
 import { SetupContext, ref, computed, toRefs, Ref } from 'vue';
 import isObject from 'lodash/isObject';
 import pick from 'lodash/pick';
-import { SelectInputCommonProperties } from './interface';
-import { TdSelectInputProps } from './type';
-import Input, { InputProps, TdInputProps } from '../input';
+import Input, { StrInputProps } from '../input';
 import Loading from '../loading';
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
 import useDefaultValue from '../hooks/useDefaultValue';
 import { useFormDisabled } from '../form/hooks';
 import { PopupInstanceFunctions } from '../popup';
+import { TdSelectInputProps } from './type';
+import { SelectInputCommonProperties } from './interface';
 
 // single 和 multiple 共有特性
 const COMMON_PROPERTIES = [
@@ -32,13 +32,18 @@ const DEFAULT_KEYS = {
   children: 'children',
 };
 
+export interface SelectInputValueDisplayOptions {
+  useInputDisplay: boolean;
+  usePlaceholder: boolean;
+}
+
 function getInputValue(value: TdSelectInputProps['value'], keys: TdSelectInputProps['keys']) {
   const iKeys = { ...DEFAULT_KEYS, ...keys };
   return isObject(value) ? value[iKeys.label] : value;
 }
 
 export default function useSingle(
-  props: TdSelectInputProps,
+  props: TdSelectInputProps & { valueDisplayOptions: SelectInputValueDisplayOptions },
   context: SetupContext,
   popupRef: Ref<PopupInstanceFunctions>,
 ) {
@@ -66,7 +71,7 @@ export default function useSingle(
     setInputValue('', { trigger: 'clear' });
   };
 
-  const onInnerInputChange: TdInputProps['onChange'] = (value, context) => {
+  const onInnerInputChange: StrInputProps['onChange'] = (value, context) => {
     if (props.allowInput) {
       setInputValue(value, { ...context, trigger: context.trigger || 'input' });
     }
@@ -97,18 +102,18 @@ export default function useSingle(
       ? [`${classPrefix.value}-input--focused`, `${classPrefix.value}-is-focused`, inputProps?.inputClass]
       : inputProps?.inputClass;
 
-    const onEnter: InputProps['onEnter'] = (val, context) => {
+    const onEnter: StrInputProps['onEnter'] = (val, context) => {
       props.onEnter?.(value.value, { ...context, inputValue: val });
     };
 
-    const onFocus: InputProps['onFocus'] = (val, context) => {
+    const onFocus: StrInputProps['onFocus'] = (val, context) => {
       const overlayState = popupRef.value?.getOverlayState();
       if (isSingleFocus.value || overlayState?.hover) return;
       isSingleFocus.value = true;
       props.onFocus?.(value.value, { ...context, inputValue: val });
     };
 
-    const onBlur: InputProps['onBlur'] = (val, context) => {
+    const onBlur: StrInputProps['onBlur'] = (val, context) => {
       const overlayState = popupRef.value?.getOverlayState();
       if (overlayState?.hover) return;
       isSingleFocus.value = false;
@@ -137,15 +142,21 @@ export default function useSingle(
     // 需要隐藏valueDisplay的两个情况
     // 1 用户传入usePlaceholder希望使用自带占位符实现，则应在未选择值时隐藏valueDisplay，只展示占位符
     // 2 用户传入useInputDisplay希望使用自带输入回显实现，激活选择器浮层时只展示input值（待讨论是否修改为激活后真的输入字符再隐藏valueDisplay，此处实现效果与不使用valueDisplay只使用filterable时不同）
+    const label = renderTNode('label');
+
+    if (!label && !singleValueDisplay) {
+      return [];
+    }
+
     if (singleValueDisplay) {
       if (
         (props.valueDisplayOptions?.usePlaceholder && !value.value) ||
         (props.valueDisplayOptions?.useInputDisplay && popupVisible)
       ) {
-        return [renderTNode('label')];
+        return [label];
       }
     }
-    return [renderTNode('label'), singleValueDisplay];
+    return [label, singleValueDisplay];
   };
 
   const renderInputDisplay = (singleValueDisplay: any, displayedValue: any, popupVisible: boolean) => {

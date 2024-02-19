@@ -56,7 +56,7 @@ describe('Space', () => {
         </Space>
       ));
       const space = wrapper.find('.t-space');
-      expect(getComputedStyle(space.element, null).flexWrap).toBe('wrap');
+      expect(space.element.classList.contains('t-space--break-line')).toBeTruthy();
     });
   });
 

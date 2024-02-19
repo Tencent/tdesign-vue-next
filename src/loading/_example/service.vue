@@ -13,8 +13,8 @@
       <t-button size="small" @click="showFullScrollScreen1">函数方式加载（全屏-滚动穿透）</t-button>
     </t-space>
 
-    <p>this.$loading(true)</p>
-    <p>this.$loading({ attach: '#loading-service-demo', showOverlay: true })</p>
+    <p>LoadingPlugin(true)</p>
+    <p>LoadingPlugin({ attach: '#loading-service-demo', showOverlay: true })</p>
 
     <t-space>
       <t-button class="t-loading__btn" size="small" :disabled="attachLoading2" @click="showAttach2">
@@ -27,11 +27,47 @@
 </template>
 
 <script setup>
-import { LoadingPlugin } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { LoadingPlugin } from 'tdesign-vue-next';
 
-const attachLoading1 = ref(false);
 const content = ref(null);
+const attachLoading = ref(false);
+const attachLoading1 = ref(false);
+const attachLoading2 = ref(false);
+// 插件式：局部加载，局部加载模式添加 attach="body" 无效
+const showAttach2 = () => {
+  const loadingAttachInstance = LoadingPlugin({
+    attach: '#loading-service-demo',
+    showOverlay: true,
+    size: '20px',
+  });
+  attachLoading.value = true;
+  const timer = setTimeout(() => {
+    loadingAttachInstance.hide();
+    attachLoading.value = false;
+    clearTimeout(timer);
+  }, 1000);
+};
+// 插件式：全屏加载，默认防止滚动穿透
+const showFullScreen2 = () => {
+  LoadingPlugin(true);
+  const timer = setTimeout(() => {
+    LoadingPlugin(false);
+    clearTimeout(timer);
+  }, 10000);
+};
+// 插件式：全屏加载，允许滚动穿透
+const showFullScrollScreen2 = () => {
+  const instance = LoadingPlugin({
+    fullscreen: true,
+    attach: 'body',
+    preventScrollThrough: false,
+  });
+  const timer = setTimeout(() => {
+    instance.hide();
+    clearTimeout(timer);
+  }, 1000);
+};
 
 // 函数式：局部加载
 const showAttach1 = () => {
@@ -68,53 +104,6 @@ const showFullScrollScreen1 = () => {
     instance.hide();
     clearTimeout(timer);
   }, 1000);
-};
-</script>
-
-<script>
-export default {
-  name: 'LoadingPlugin',
-  data() {
-    return {
-      attachLoading2: false,
-    };
-  },
-  methods: {
-    // 插件式：局部加载，局部加载模式添加 attach="body" 无效
-    showAttach2() {
-      const loadingAttachInstance = this.$loading({
-        attach: '#loading-service-demo',
-        showOverlay: true,
-        size: '20px',
-      });
-      this.attachLoading = true;
-      const timer = setTimeout(() => {
-        loadingAttachInstance.hide();
-        this.attachLoading = false;
-        clearTimeout(timer);
-      }, 1000);
-    },
-    // 插件式：全屏加载，默认防止滚动穿透
-    showFullScreen2() {
-      this.$loading(true);
-      const timer = setTimeout(() => {
-        this.$loading(false);
-        clearTimeout(timer);
-      }, 10000);
-    },
-    // 插件式：全屏加载，允许滚动穿透
-    showFullScrollScreen2() {
-      const instance = this.$loading({
-        fullscreen: true,
-        attach: 'body',
-        preventScrollThrough: false,
-      });
-      const timer = setTimeout(() => {
-        instance.hide();
-        clearTimeout(timer);
-      }, 1000);
-    },
-  },
 };
 </script>
 

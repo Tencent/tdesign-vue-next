@@ -1,5 +1,6 @@
 import { defineComponent, inject } from 'vue';
-import TimeLineItemProps from './time-line-item-props';
+import omit from 'lodash/omit';
+import props from './timeline-item-props';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useContent, useTNodeJSX } from '../hooks/tnode';
 import { TimelineInjectKey, DEFAULT_PROVIDER } from './hooks';
@@ -10,7 +11,7 @@ const DEFAULT_THEME = ['default', 'primary', 'success', 'warning', 'error'];
 export default defineComponent({
   name: 'TTimelineItem',
   props: {
-    ...TimeLineItemProps,
+    ...props,
     index: {
       type: Number,
     },
@@ -44,6 +45,9 @@ export default defineComponent({
       }
       return '';
     };
+    const handleClick = (e: MouseEvent) => {
+      props.onClick?.({ e, item: omit(props, ['index']) });
+    };
 
     return () => {
       const { mode, theme, itemsStatus, reverse } = TimelineProvider.value;
@@ -59,7 +63,7 @@ export default defineComponent({
       }
 
       return (
-        <li class={[`${COMPONENT_NAME.value}`, `${getPositionClassName(props.index)}`]}>
+        <li class={[`${COMPONENT_NAME.value}`, `${getPositionClassName(props.index)}`]} onClick={handleClick}>
           {mode === 'alternate' && labelNode && (
             <div class={[`${COMPONENT_NAME.value}__label`, `${COMPONENT_NAME.value}__label--${mode}`]}>{labelNode}</div>
           )}

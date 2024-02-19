@@ -1,8 +1,8 @@
-import { computed, defineComponent, onBeforeUnmount, onMounted, ref, SetupContext, toRefs, watch } from 'vue';
+import { computed, defineComponent, onBeforeUnmount, onMounted, PropType, ref, SetupContext, toRefs, watch } from 'vue';
 import Popup, { PopupInstanceFunctions, PopupProps, PopupVisibleChangeContext } from '../popup';
 import props from './props';
 import { TdSelectInputProps } from './type';
-import useSingle from './useSingle';
+import useSingle, { SelectInputValueDisplayOptions } from './useSingle';
 import useMultiple from './useMultiple';
 import useOverlayInnerStyle from './useOverlayInnerStyle';
 import { usePrefixClass } from '../hooks/useConfig';
@@ -21,9 +21,20 @@ const useComponentClassName = () => {
 export default defineComponent({
   name: 'TSelectInput',
 
-  props: { ...props },
+  props: {
+    ...props,
+    /**
+     * 非公开 API，请勿使用（后续即将删除）
+     * 自定义值呈现的选项
+     * useInputDisplay 表示在使用时仍然使用组件自带的输入回显实现，
+     * usePlaceholder 表示在使用时仍然使用自带的占位符实现
+     * */
+    valueDisplayOptions: {
+      type: Object as PropType<SelectInputValueDisplayOptions>,
+    },
+  },
 
-  setup(props: TdSelectInputProps, context: SetupContext) {
+  setup(props: TdSelectInputProps & { valueDisplayOptions: SelectInputValueDisplayOptions }, context: SetupContext) {
     const { NAME_CLASS, BASE_CLASS_BORDERLESS, BASE_CLASS_MULTIPLE, BASE_CLASS_POPUP_VISIBLE, BASE_CLASS_EMPTY } =
       useComponentClassName();
     const classPrefix = usePrefixClass();
@@ -35,11 +46,7 @@ export default defineComponent({
 
     const { tOverlayInnerStyle, innerPopupVisible, onInnerPopupVisibleChange } = useOverlayInnerStyle(props);
 
-    const { isSingleFocus, commonInputProps, inputRef, onInnerClear, renderSelectSingle } = useSingle(
-      props,
-      context,
-      popupRef,
-    );
+    const { isSingleFocus, commonInputProps, onInnerClear, renderSelectSingle } = useSingle(props, context, popupRef);
 
     const { isMultipleFocus, tagInputRef, renderSelectMultiple } = useMultiple(props, context, popupRef);
 
@@ -84,11 +91,9 @@ export default defineComponent({
 
     const onOverlayClick: PopupProps['onOverlayClick'] = (ctx) => {
       ctx.e?.stopPropagation();
-      if (props.multiple) {
-        tagInputRef.value.focus();
-      } else {
-        inputRef.value.focus();
-      }
+      // do not set focus if target can be focused
+      if ((ctx.e.target as HTMLElement).tabIndex >= 0) return;
+      if (props.multiple) tagInputRef.value?.focus();
     };
 
     return {

@@ -1,7 +1,7 @@
 import { onBeforeMount, onMounted, Ref } from 'vue';
-import { off, on } from '../utils/dom';
 import isString from 'lodash/isString';
-import { CHECKED_CODE_REG } from '../checkbox/hooks/useKeyboardEvent';
+import { off, on } from '../utils/dom';
+import { CHECKED_CODE_REG } from '../_common/js/common';
 
 /** 键盘操作 */
 export default function useKeyboard(
@@ -13,6 +13,8 @@ export default function useKeyboard(
     if (isCheckedCode) {
       e.preventDefault();
       const inputNode = (e.target as HTMLElement).querySelector('input');
+      if (!inputNode) return;
+
       const data = inputNode.dataset;
       if (inputNode.checked && data.allowUncheck) {
         setInnerValue(undefined, { e });

@@ -130,7 +130,7 @@ const controllerConfig = reactive({
     hideWeekendButtonProps: {
       // 用于透传props给隐藏周末按钮组件
       disabled: false,
-      variant: 'base',
+      variant: 'dark',
       size: 'medium',
     },
   },

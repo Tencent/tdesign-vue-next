@@ -5,7 +5,6 @@
  * */
 
 import { InputProps } from '../input';
-import { InputValue } from '../input';
 import { PopupProps } from '../popup';
 import { TagInputProps, TagInputValue, TagInputChangeContext } from '../tag-input';
 import { TagProps } from '../tag';
@@ -53,11 +52,11 @@ export interface TdSelectInputProps {
   /**
    * 输入框的值
    */
-  inputValue?: InputValue;
+  inputValue?: string;
   /**
    * 输入框的值，非受控属性
    */
-  defaultInputValue?: InputValue;
+  defaultInputValue?: string;
   /**
    * 定义字段别名，示例：`{ label: 'text', value: 'id', children: 'list' }`
    */
@@ -108,6 +107,11 @@ export interface TdSelectInputProps {
    */
   readonly?: boolean;
   /**
+   * 多选且可搜索时，是否在选中一个选项后保留当前的搜索关键词
+   * @default false
+   */
+  reserveKeyword?: boolean;
+  /**
    * 输入框状态
    * @default default
    */
@@ -145,10 +149,6 @@ export interface TdSelectInputProps {
    */
   valueDisplay?: string | TNode<{ value: TagInputValue; onClose: (index: number, item?: any) => void }>;
   /**
-   * 自定义值呈现的选项，useInputDisplay表示在使用时仍然使用组件自带的输入回显实现，usePlaceholder表示在使用时仍然使用自带的占位符实现
-   */
-  valueDisplayOptions?: SelectInputValueDisplayOptions;
-  /**
    * 失去焦点时触发，`context.inputValue` 表示输入框的值；`context.tagInputValue` 表示标签输入框的值
    */
   onBlur?: (value: SelectInputValue, context: SelectInputBlurContext) => void;
@@ -161,7 +161,7 @@ export interface TdSelectInputProps {
    */
   onEnter?: (
     value: SelectInputValue,
-    context: { e: KeyboardEvent; inputValue: InputValue; tagInputValue?: TagInputValue },
+    context: { e: KeyboardEvent; inputValue: string; tagInputValue?: TagInputValue },
   ) => void;
   /**
    * 聚焦时触发
@@ -170,7 +170,7 @@ export interface TdSelectInputProps {
   /**
    * 输入框值发生变化时触发，`context.trigger` 表示触发输入框值变化的来源：文本输入触发、清除按钮触发等
    */
-  onInputChange?: (value: InputValue, context?: SelectInputValueChangeContext) => void;
+  onInputChange?: (value: string, context?: SelectInputValueChangeContext) => void;
   /**
    * 进入输入框时触发
    */
@@ -204,7 +204,7 @@ export type SelectInputValue = string | number | boolean | Date | Object | Array
 export type SelectInputBlurContext = PopupVisibleChangeContext & { inputValue: string; tagInputValue?: TagInputValue };
 
 export interface SelectInputFocusContext {
-  inputValue: InputValue;
+  inputValue: string;
   tagInputValue?: TagInputValue;
   e: FocusEvent;
 }
@@ -215,8 +215,3 @@ export interface SelectInputValueChangeContext {
 }
 
 export type SelectInputChangeContext = TagInputChangeContext;
-
-export interface SelectInputValueDisplayOptions {
-  useInputDisplay: boolean;
-  usePlaceholder: boolean;
-}

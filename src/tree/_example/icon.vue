@@ -1,22 +1,26 @@
 <template>
-  <div class="tdesign-tree-base">
-    <h3>render:</h3>
-    <t-tree :data="items" hover expand-all :load="load" :icon="icon" />
-    <h3>scope slot:</h3>
-    <t-tree :data="items" hover lazy :load="load">
-      <template #icon="{ node }">
-        <t-icon v-if="node.getChildren() && !node.expanded" name="caret-right" />
-        <t-icon v-else-if="node.getChildren() && node.expanded" name="caret-down" />
-        <t-icon v-else name="attach" />
-      </template>
-    </t-tree>
-  </div>
+  <t-space :size="32" direction="vertical">
+    <t-space direction="vertical">
+      <h3>属性设置 jsx 形式</h3>
+      <t-tree :data="items" hover expand-all :load="load" :icon="icon" />
+    </t-space>
+    <t-space direction="vertical">
+      <h3>slot 形式</h3>
+      <t-tree :data="items" hover lazy :load="load">
+        <template #icon="{ node }">
+          <icon v-if="node.getChildren() && !node.expanded" name="caret-right" />
+          <icon v-else-if="node.getChildren() && node.expanded && node.loading" name="loading" />
+          <icon v-else-if="node.getChildren() && node.expanded" name="caret-down" />
+          <icon v-else name="attach" />
+        </template>
+      </t-tree>
+    </t-space>
+  </t-space>
 </template>
 
-<script setup>
-import { resolveComponent, ref } from 'vue';
-import TIcon from 'tdesign-vue-next/icon';
-
+<script setup lang="jsx">
+import { ref } from 'vue';
+import { Icon } from 'tdesign-icons-vue-next';
 const items = ref([
   {
     label: '1',
@@ -27,47 +31,40 @@ const items = ref([
     children: true,
   },
 ]);
-
-const icon = (createElement, node) => {
+const icon = (h, node) => {
   let name = 'file';
-  const TIcon = resolveComponent('t-icon');
-  if (node.getChildren()) {
+  // node.children is undefined on some cases
+  if (node.getChildren && node.getChildren(false)) {
     if (node.expanded) {
       name = 'folder-open';
+      if (node.loading) {
+        name = 'loading';
+      }
     } else {
       name = 'folder';
     }
   }
-
-  return createElement(TIcon, {
-    name,
-  });
+  return <Icon name={name} />;
 };
-
 const load = (node) => {
   const maxLevel = 2;
   return new Promise((resolve) => {
     setTimeout(() => {
       let nodes = [];
-      if (node.level < maxLevel) {
+      if (node.getLevel() < maxLevel) {
         nodes = [
           {
             label: `${node.label}.1`,
-            children: node.level < maxLevel - 1,
+            children: node.getLevel() < maxLevel - 1,
           },
           {
             label: `${node.label}.2`,
-            children: node.level < maxLevel - 1,
+            children: node.getLevel() < maxLevel - 1,
           },
         ];
       }
       resolve(nodes);
-    }, 100);
+    }, 500);
   });
 };
 </script>
-<style scoped>
-.demo-tree-base {
-  display: block;
-}
-</style>
