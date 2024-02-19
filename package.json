@@ -96,7 +96,7 @@
     "mitt": "^3.0.1",
     "sortablejs": "^1.15.0",
     "tdesign-icons-vue-next": "^0.2.0",
-    "tdesign-site-components": "^0.14.0-alpha.4",
+    "tdesign-site-components": "^0.14.0",
     "tinycolor2": "^1.6.0",
     "validator": "^13.9.0"
   },
