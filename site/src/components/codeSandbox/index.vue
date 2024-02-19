@@ -21,17 +21,10 @@
 
 <script>
 import { defineComponent, computed, ref } from 'vue';
-import {
-  htmlContent,
-  mainJsContent,
-  styleContent,
-  packageJSONContent,
-  stackblitzRc,
-  viteConfigContent,
-} from './content';
+import { htmlContent, mainJsContent, styleContent, packageJSONContent, viteConfigContent } from './content';
 
 export default defineComponent({
-  name: 'Stackblitz',
+  name: 'CodeSandbox',
   props: {
     demoName: String,
     componentName: String,

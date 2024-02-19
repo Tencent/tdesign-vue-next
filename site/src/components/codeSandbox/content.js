@@ -42,13 +42,6 @@ export const styleContent = `
   }
 `;
 
-export const stackblitzRc = `
-  {
-    "installDependencies": false,
-    "startCommand": "turbo && turbo dev"
-  }
-`;
-
 export const viteConfigContent = `
   import { defineConfig } from 'vite';
   import vue from '@vitejs/plugin-vue';
@@ -66,7 +59,7 @@ export const packageJSONContent = JSON.stringify(
     private: true,
     scripts: {
       dev: 'vite',
-      build: 'vite',
+      build: 'vite build',
       serve: 'vite preview',
     },
     dependencies: {
