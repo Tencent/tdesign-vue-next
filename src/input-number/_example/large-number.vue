@@ -17,6 +17,6 @@ const value2 = ref('0.8975527383412673418');
 const value3 = ref('19999999999999999.977');
 
 const format = (val) => {
-  return val.replace(/\d{1,3}(?=(\d{3})+(\.|$))/g, '$&,');
+  return String(val).replace(/\d{1,3}(?=(\d{3})+(\.|$))/g, '$&,');
 };
 </script>

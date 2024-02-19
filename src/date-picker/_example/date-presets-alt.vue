@@ -10,9 +10,9 @@ import { ref } from 'vue';
 import dayjs from 'dayjs';
 
 const presets = ref({
-  最近7天: [dayjs().subtract(6, 'day'), dayjs()],
-  最近3天: [dayjs().subtract(2, 'day'), dayjs()],
-  今天: [dayjs(), dayjs()],
+  最近7天: [dayjs().subtract(6, 'day').toDate(), dayjs().toDate()],
+  最近3天: [dayjs().subtract(2, 'day').toDate(), dayjs().toDate()],
+  今天: [dayjs().toDate(), dayjs().toDate()],
 });
 
 const range1 = ref(['2022-01-01', '2022-08-08']);

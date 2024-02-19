@@ -43,7 +43,8 @@ const columns = [
   {
     colKey: 'status',
     title: '申请状态',
-    cell: (h, { _row, rowIndex }) => {
+    // eslint-disable-next-line
+    cell: (h, { row, rowIndex }) => {
       const status = rowIndex % 3;
       return (
         <t-tag shape="round" theme={statusNameListMap[status].theme} variant="light-outline">

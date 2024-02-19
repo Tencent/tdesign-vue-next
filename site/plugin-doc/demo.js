@@ -14,14 +14,16 @@ export default function renderDemo(md, container) {
         const demoName = path.basename(demoPath);
         const demoDefName = `Demo${demoPathOnlyLetters}`;
         const demoCodeDefName = `Demo${demoPathOnlyLetters}Code`;
+        const demoTSCodeDefName = `Demo${demoPathOnlyLetters}TsCode`; // ts示例
+
         const tpl = `
-          <td-doc-demo component-name="${componentName.trim()}" :code=${demoCodeDefName} demo-name="${demoName}" language="markup">
+          <td-doc-demo component-name="${componentName.trim()}" demo-name="${demoName}" language="markup" languages="JavaScript,TypeScript" :data-JavaScript="${demoCodeDefName}" :data-TypeScript="${demoTSCodeDefName}">
             <div slot="action">
               <Stackblitz demo-name="${demoName}" component-name="${componentName}" :code=${demoCodeDefName} />
               <CodeSandbox demo-name="${demoName}" component-name="${componentName}" :code=${demoCodeDefName} />
             </div>
             <div class="tdesign-demo-item__body">
-              <${demoDefName} />
+              <${demoDefName} />  
             </div>
           </td-doc-demo>
         `;

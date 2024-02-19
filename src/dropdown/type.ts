@@ -44,6 +44,14 @@ export interface TdDropdownProps {
    */
   options?: Array<DropdownOption>;
   /**
+   * 面板内的底部内容
+   */
+  panelBottomContent?: string | TNode;
+  /**
+   * 面板内的顶部内容
+   */
+  panelTopContent?: string | TNode;
+  /**
    * 弹窗定位方式，可选值同 Popup 组件
    * @default bottom-left
    */
@@ -115,6 +123,6 @@ export interface TdDropdownItemProps {
   onClick?: (dropdownItem: DropdownOption, context: { e: MouseEvent }) => void;
 }
 
-export type DropdownOption = { children?: Array<TdDropdownItemProps> } & TdDropdownItemProps & Record<string, any>;
+export type DropdownOption = { children?: DropdownOption[] } & TdDropdownItemProps & Record<string, any>;
 
 export type DropdownItemTheme = 'default' | 'success' | 'warning' | 'error';

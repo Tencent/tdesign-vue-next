@@ -79,12 +79,8 @@ import { NotifyPlugin, Link } from 'tdesign-vue-next';
 import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
 // you can define close icon to be anything
-const closeBtn = (close) => {
-  return (
-    <b class="t-message__close" onClick={close}>
-      x
-    </b>
-  );
+const closeBtn = () => {
+  return <b class="t-message__close">x</b>;
 };
 
 // you can define notification content

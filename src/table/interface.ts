@@ -7,6 +7,9 @@ import {
   TdEnhancedTableProps,
   RowspanColspan,
   BaseTableCol,
+  PrimaryTableInstanceFunctions,
+  PrimaryTableCol,
+  BaseTableInstanceFunctions,
 } from './type';
 
 export interface BaseTableProps extends TdBaseTableProps {
@@ -28,9 +31,12 @@ export interface BaseTableProps extends TdBaseTableProps {
   thDraggable?: boolean;
 }
 
-export type PrimaryTableProps = TdPrimaryTableProps;
-export type EnhancedTableProps = TdEnhancedTableProps;
-export type TableProps = PrimaryTableProps;
+export type PrimaryTableProps<T extends TableRowData = TableRowData> = TdPrimaryTableProps<T>;
+export type EnhancedTableProps<T extends TableRowData = TableRowData> = TdEnhancedTableProps<T>;
+export type TableProps<T extends TableRowData = TableRowData> = PrimaryTableProps<T>;
+export type TableCol<T extends TableRowData = TableRowData> = PrimaryTableCol<T>;
+export type TableInstanceFunctions<T extends TableRowData = TableRowData> = PrimaryTableInstanceFunctions<T> &
+  BaseTableInstanceFunctions<T>;
 
 export type ThRowspanAndColspan = Map<any, RowspanColspan>;
 
