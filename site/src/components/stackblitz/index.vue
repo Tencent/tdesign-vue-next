@@ -42,12 +42,11 @@ import {
 export default defineComponent({
   name: 'Stackblitz',
   props: {
-    code: String,
     demoName: String,
     componentName: String,
   },
 
-  setup() {
+  setup(props) {
     const data = {
       htmlContent,
       mainJsContent,
@@ -56,14 +55,18 @@ export default defineComponent({
       viteConfigContent,
       packageJSONContent,
     };
+    const code = ref('');
 
     const formRef = ref(null);
 
     const submit = () => {
-      formRef.value.submit();
+      code.value = document.querySelector(`td-doc-demo[demo-name='${props.demoName}']`).currentRenderCode;
+      setTimeout(() => {
+        formRef.value.submit();
+      });
     };
 
-    return { ...data, formRef, submit };
+    return { ...data, formRef, submit, code };
   },
 });
 </script>

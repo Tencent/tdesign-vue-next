@@ -35,21 +35,23 @@ import { getCodeSandboxParams } from './getCodeSandboxParams';
 export default defineComponent({
   name: 'Stackblitz',
   props: {
-    code: String,
     demoName: String,
     componentName: String,
   },
   setup(props) {
-    const params = computed(() =>
-      getCodeSandboxParams(props.code, {
+    const code = ref('');
+    const params = computed(() => {
+      return getCodeSandboxParams(code.value, {
         title: `${props.demoName} - ${props.componentName}`,
-      }),
-    );
+      });
+    });
     const codeformRef = ref(null);
 
     const submit = () => {
-      console.log(111);
-      codeformRef.value.submit();
+      code.value = document.querySelector(`td-doc-demo[demo-name='${props.demoName}']`).currentRenderCode;
+      setTimeout(() => {
+        codeformRef.value.submit();
+      });
     };
     return {
       params,
