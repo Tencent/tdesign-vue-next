@@ -9,10 +9,10 @@
   </div>
 </template>
 
-<script setup lang="tsx">
+<script lang="jsx" setup>
 import { ref } from 'vue';
 
 const visible = ref(false);
 
-const trigger = (h: any, { open }: { open: () => void }) => <t-button onClick={open}>预览单张图片</t-button>;
+const trigger = (h, { open }) => <t-button onClick={open}>预览单张图片</t-button>;
 </script>

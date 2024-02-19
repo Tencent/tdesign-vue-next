@@ -1,7 +1,6 @@
 :: BASE_DOC ::
 
-## API
-### BaseTable Props
+## API### BaseTable Props
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
@@ -198,6 +197,7 @@ validate | `(context: PrimaryTableValidateContext)` | 可编辑行表格，全�
 
 名称 | 参数 | 返回值 | 描述
 -- | -- | -- | --
+clearValidateData | \- | \- | 必需。清空所有校验结果
 validateRowData | `(rowValue: any)` | `Promise<{ trigger: TableValidateTrigger, result: ErrorListObjectType<T>[] }>` | 必需。校验行信息，校验完成后，会触发事件 `onRowValidate`。参数 `rowValue` 表示行唯一标识的值。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`type ErrorListObjectType<T> = PrimaryTableRowEditContext<T> & { errorList: AllValidateResult[] }`<br/>
 validateTableData | \- | `Promise<{ result: TableErrorListMap }>` | 必需。校验表格全部数据，校验完成后，会触发事件 `onValidate`
 
@@ -227,7 +227,7 @@ beforeDragSort | Function | - | 树形结构中，拖拽排序前控制，返回
 expandedTreeNodes | Array | [] | 展开的树形节点。非必须。在需要自由控制展开的树形节点时使用。其他场景无需设置，表格组件有内置展开逻辑。支持语法糖 `v-model:expandedTreeNodes`。TS 类型：`Array<string \| number>` | N
 defaultExpandedTreeNodes | Array | [] | 展开的树形节点。非必须。在需要自由控制展开的树形节点时使用。其他场景无需设置，表格组件有内置展开逻辑。非受控属性。TS 类型：`Array<string \| number>` | N
 tree | Object | - | 树形结构相关配置。具体属性文档查看 `TableTreeConfig` 相关描述。TS 类型：`TableTreeConfig` | N
-treeExpandAndFoldIcon | Function | - | 自定义树形结构展开图标，支持全局配置 `GlobalConfigProvider`。TS 类型：`TNode<{ type: 'expand' \| 'fold' }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+treeExpandAndFoldIcon | Function | - | 自定义树形结构展开图标，支持全局配置 `GlobalConfigProvider`。TS 类型：`TNode<{ type: 'expand' \| 'fold', row: T }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 `PrimaryTableProps<T>` | \- | - | 继承 `PrimaryTableProps<T>` 中的全部属性 | N
 onAbnormalDragSort | Function |  | TS 类型：`(context: TableAbnormalDragSortContext<T>) => void`<br/>异常拖拽排序时触发，如：树形结构中，非同层级之间的交换。`context.code` 指交换异常错误码，固定值；`context.reason` 指交换异常的原因。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface TableAbnormalDragSortContext<T> { code: number; reason: string }`<br/> | N
 onExpandedTreeNodesChange | Function |  | TS 类型：`(expandedTreeNodes: Array<string \| number>, options: TableTreeNodeExpandOptions <T>) => void`<br/>树形结构，展开的树节点发生变化时触发，泛型 T 指表格数据类型。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface TableTreeNodeExpandOptions<T> { row: T; rowIndex: number; rowState: TableRowState<T>; type: 'fold' \| 'expand'; trigger?: 'expand-fold-icon' \| 'row-click' \| 'default-expand-all' \| 'expand-all' \| 'fold-all' }`<br/> | N

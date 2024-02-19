@@ -112,7 +112,7 @@ const fnDisableCheck = (node) => {
   return map.get(node.value);
 };
 const label = (h, node) => {
-  return node.value;
+  return String(node.value);
 };
 const setEnable = (node) => {
   const map = disabledMap.value;

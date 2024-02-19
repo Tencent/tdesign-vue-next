@@ -18,11 +18,10 @@
 </template>
 
 <script setup lang="jsx">
-import { ref, nextTick, onMounted, onBeforeUnmount } from 'vue';
+import { ref } from 'vue';
 
 const affixed = ref(false);
 const affixContainerRef = ref(null);
-const affixRef = ref(null);
 
 const getContainer = () => affixContainerRef.value;
 
@@ -30,16 +29,6 @@ const handleFixedChange = (_affixed, { top }) => {
   console.log('top', top);
   affixed.value = _affixed;
 };
-
-onMounted(() => {
-  nextTick(() => {
-    window.addEventListener('scroll', affixRef.value.handleScroll);
-  });
-});
-
-onBeforeUnmount(() => {
-  window.removeEventListener('scroll', affixRef.value.handleScroll);
-});
 </script>
 
 <style lang="less" scoped>

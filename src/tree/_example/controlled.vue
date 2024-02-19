@@ -191,7 +191,7 @@ const onActive = (vals, context) => {
   console.info('onActive actived:', vals, 'context:', context);
   const { node } = context;
   console.info(node.value, 'context.node.actived:', node.actived);
-  const actived = vals.filter((val) => {
+  const filterActived = vals.filter((val) => {
     if (val === '2.2') {
       console.info('节点 2.2 不允许激活');
       return false;
@@ -199,14 +199,14 @@ const onActive = (vals, context) => {
     return true;
   });
   if (syncProps.value) {
-    actived.value = actived;
+    actived.value = filterActived;
   }
 };
 const onExpand = (vals, context) => {
   console.info('onExpand expanded:', vals, 'context:', context);
   const { node } = context;
   console.info(node.value, 'context.node.expanded:', node.expanded);
-  const expanded = vals.filter((val) => {
+  const filterExpanded = vals.filter((val) => {
     if (val === '2.3') {
       console.info('节点 2.3 不允许展开');
       return false;
@@ -214,7 +214,7 @@ const onExpand = (vals, context) => {
     return true;
   });
   if (syncProps.value) {
-    expanded.value = expanded;
+    expanded.value = filterExpanded;
   }
 };
 </script>
