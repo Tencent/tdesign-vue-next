@@ -16,14 +16,14 @@
     <!-- 多级表头中，如果要使用固定列功能，则必须设置 colKey 和 fixed -->
     <!-- :scroll="{ type: 'virtual' }" -->
     <t-table
+      v-model:sort="sortInfo"
       row-key="index"
       :data="data"
-      :v-model:sort="sortInfo"
       :columns="columns"
       :bordered="bordered"
       :max-height="fixedHeader ? 380 : undefined"
       :column-controller="{ displayType: 'auto-width' }"
-      :filter-row="() => null"
+      :filter-row="filterRowMethod"
       :header-affix-props="{ offsetTop: 0 }"
       :header-affixed-top="headerAffixedTop"
       :scroll="{ type: 'virtual' }"
@@ -76,12 +76,12 @@ function getColumns(fixedLeftCol, fixedRightCol) {
     {
       title: '申请人',
       colKey: 'applicant',
-      fixed: fixedLeftCol && 'left',
+      fixed: fixedLeftCol ? 'left' : undefined,
       width: 100,
     },
     {
       title: '申请汇总',
-      fixed: fixedLeftCol && 'left',
+      fixed: fixedLeftCol ? 'left' : undefined,
       width: 100,
       colKey: 'total_info',
       children: [
@@ -89,7 +89,7 @@ function getColumns(fixedLeftCol, fixedRightCol) {
           align: 'left',
           colKey: 'platform',
           title: '申请状态',
-          fixed: fixedLeftCol && 'left',
+          fixed: fixedLeftCol ? 'left' : undefined,
           width: 120,
           sorter: (a, b) => a.default - b.default,
           cell: (h, { row }) => {
@@ -104,21 +104,21 @@ function getColumns(fixedLeftCol, fixedRightCol) {
         {
           title: '申请渠道和金额',
           colKey: 'type_default',
-          fixed: fixedLeftCol && 'left',
+          fixed: fixedLeftCol ? 'left' : undefined,
           width: 100,
           children: [
             {
               align: 'left',
               colKey: 'channel',
               title: '类型',
-              fixed: fixedLeftCol && 'left',
+              fixed: fixedLeftCol ? 'left' : undefined,
               width: 110,
             },
             {
               align: 'center',
               colKey: 'time',
               title: '申请耗时(天)',
-              fixed: fixedLeftCol && 'left',
+              fixed: fixedLeftCol ? 'left' : undefined,
               width: 150,
             },
           ],
@@ -148,14 +148,14 @@ function getColumns(fixedLeftCol, fixedRightCol) {
     {
       title: '审批汇总',
       colKey: 'instruction',
-      fixed: fixedRightCol && 'right',
+      fixed: fixedRightCol ? 'right' : undefined,
       width: 100,
       children: [
         {
           align: 'left',
           colKey: 'property',
           title: '审批状态',
-          fixed: fixedRightCol && 'right',
+          fixed: fixedRightCol ? 'right' : undefined,
           width: 120,
           filter: {
             type: 'single',
@@ -172,19 +172,19 @@ function getColumns(fixedLeftCol, fixedRightCol) {
           ellipsis: true,
           colKey: 'description',
           title: '说明',
-          fixed: fixedRightCol && 'right',
+          fixed: fixedRightCol ? 'right' : undefined,
           width: 100,
           children: [
             {
               colKey: 'field7',
               title: '审批单号',
-              fixed: fixedRightCol && 'right',
+              fixed: fixedRightCol ? 'right' : undefined,
               width: 120,
             },
             {
               colKey: 'detail.email',
               title: '邮箱地址',
-              fixed: fixedRightCol && 'right',
+              fixed: fixedRightCol ? 'right' : undefined,
               ellipsis: true,
               width: 150,
             },
@@ -195,14 +195,14 @@ function getColumns(fixedLeftCol, fixedRightCol) {
     {
       colKey: 'createTime',
       title: '申请时间',
-      fixed: fixedRightCol && 'right',
+      fixed: fixedRightCol ? 'right' : undefined,
       width: '120',
     },
   ];
 }
 
 const data = ref([...initialData]);
-const sortInfo = ref({});
+const sortInfo = ref();
 const bordered = ref(true);
 const fixedHeader = ref(true);
 const fixedLeftCol = ref(false);
@@ -218,4 +218,6 @@ const onDataChange = (val) => {
 const onFilterChange = (filterValue) => {
   data.value = initialData.filter((t) => !filterValue.property || filterValue.property === t.property);
 };
+
+const filterRowMethod = () => null;
 </script>

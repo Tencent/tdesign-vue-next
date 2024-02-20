@@ -11,7 +11,7 @@
         to: dayjs().add(3, 'day').format(),
       }"
     />
-    <t-date-picker placeholder="禁用所有周六" :disable-date="(date) => dayjs(date).day() === 6" />
+    <t-date-picker placeholder="禁用所有周六" :disable-date="disableDate" />
     <t-date-picker
       placeholder="禁用最近 3 天外的日期"
       :disable-date="{
@@ -58,4 +58,6 @@ const timePickerProps = computed(() => {
 const onPick = (date) => {
   pickDate.value = dayjs(date).format('YYYY-MM-DD');
 };
+
+const disableDate = (date) => dayjs(date).day() === 6;
 </script>

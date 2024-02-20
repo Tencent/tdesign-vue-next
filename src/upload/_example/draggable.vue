@@ -47,7 +47,7 @@ import { ref } from 'vue';
 function getCurrentDate(needTime = false) {
   const d = new Date();
   let month = d.getMonth() + 1;
-  month = month < 10 ? `0${month}` : month;
+  month = month < 10 ? Number(`0${month}`) : month;
   const date = `${d.getFullYear()}-${month}-${d.getDate()}`;
   const time = `${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`;
   if (needTime) return [date, time].join(' ');

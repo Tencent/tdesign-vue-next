@@ -99,6 +99,6 @@ const toggleData = () => {
   items.value = tmpItems;
 };
 const label = (h, node) => {
-  return node.label || node.value;
+  return node.label || String(node.value);
 };
 </script>

@@ -125,7 +125,8 @@ const getActiveChildren = () => {
   if (!node) return;
   let nodes = [];
   if (node) {
-    nodes = node.getChildren(true) || [];
+    const nodeChildrens = node.getChildren(true);
+    nodes = typeof nodeChildrens === 'boolean' ? [] : nodeChildrens;
   }
   console.info(
     'getActiveChildren:',

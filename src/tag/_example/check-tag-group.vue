@@ -46,7 +46,6 @@
   </t-space>
 </template>
 
-<!-- 如果是 TS 项目，请设置 lang="tsx" -->
 <script lang="jsx" setup>
 import { ref } from 'vue';
 

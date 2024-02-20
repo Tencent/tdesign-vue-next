@@ -80,7 +80,7 @@ const showLine = ref(true);
 const showIcon = ref(true);
 const items = ref(initialData);
 const insertCount = computed(() => {
-  return parseInt(textInsertCount, 10) || 1;
+  return parseInt(textInsertCount.value, 10) || 1;
 });
 const label = (h, node) => {
   return `${node.value}`;

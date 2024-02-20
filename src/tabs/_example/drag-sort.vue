@@ -7,7 +7,7 @@
       </t-radio-group>
     </t-space>
 
-    <t-tabs drag-sort :value="value" :theme="theme" @drag-sort="onDragend" @change="(newValue) => (value = newValue)">
+    <t-tabs drag-sort :value="value" :theme="theme" @drag-sort="onDragend" @change="onTabChange">
       <t-tab-panel
         v-for="data in panelData"
         :key="data.value"
@@ -54,4 +54,6 @@ const onDragend = ({ currentIndex, targetIndex }) => {
     panelData.value[currentIndex],
   ];
 };
+
+const onTabChange = (newValue) => (value.value = newValue);
 </script>

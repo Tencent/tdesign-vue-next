@@ -34,7 +34,7 @@ const items = ref([
 const icon = (h, node) => {
   let name = 'file';
   // node.children is undefined on some cases
-  if (node.getChildren && node.getChildren()) {
+  if (node.getChildren && node.getChildren(false)) {
     if (node.expanded) {
       name = 'folder-open';
       if (node.loading) {
@@ -51,15 +51,15 @@ const load = (node) => {
   return new Promise((resolve) => {
     setTimeout(() => {
       let nodes = [];
-      if (node.level < maxLevel) {
+      if (node.getLevel() < maxLevel) {
         nodes = [
           {
             label: `${node.label}.1`,
-            children: node.level < maxLevel - 1,
+            children: node.getLevel() < maxLevel - 1,
           },
           {
             label: `${node.label}.2`,
-            children: node.level < maxLevel - 1,
+            children: node.getLevel() < maxLevel - 1,
           },
         ];
       }
