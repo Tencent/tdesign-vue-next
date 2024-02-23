@@ -25,6 +25,9 @@ export interface TFootProps {
   thWidthList?: { [colKey: string]: number };
   footerSummary?: TdBaseTableProps['footerSummary'];
   rowspanAndColspanInFooter: TdBaseTableProps['rowspanAndColspanInFooter'];
+
+  // 是否虚拟滚动
+  virtualScroll?: boolean;
 }
 
 export default defineComponent({
@@ -41,6 +44,7 @@ export default defineComponent({
     thWidthList: [Object] as PropType<TFootProps['thWidthList']>,
     footerSummary: [String, Function] as PropType<TFootProps['footerSummary']>,
     rowspanAndColspanInFooter: Function as PropType<TFootProps['rowspanAndColspanInFooter']>,
+    virtualScroll: Boolean,
   },
 
   // eslint-disable-next-line
@@ -70,6 +74,7 @@ export default defineComponent({
 
   render() {
     if (!this.columns) return null;
+    // 虚拟滚动情况下，不使用 sticky 定位，外部通过 affix 实现 footer
     const theadClasses = [this.tableFooterClasses.footer, { [this.tableFooterClasses.fixed]: this.isFixedHeader }];
     const footerDomList = this.footData?.map((row, rowIndex) => {
       const trAttributes = formatRowAttributes(this.rowAttributes, { row, rowIndex, type: 'foot' });
@@ -120,7 +125,8 @@ export default defineComponent({
     // 都不存在，则不需要渲染 footer
     if (!footerSummary && (!this.footData || !this.footData.length)) return null;
     return (
-      <tfoot ref="tFooterRef" class={theadClasses}>
+      // 虚拟滚动下，不显示 footer，但预留元素，用于高度计算
+      <tfoot ref="tFooterRef" class={theadClasses} style={{ visibility: this.virtualScroll ? 'hidden' : 'visible' }}>
         {footerSummary && (
           <tr class={this.tableFullRowClasses.base}>
             <td colspan={this.columns.length}>
