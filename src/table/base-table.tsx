@@ -534,11 +534,9 @@ export default defineComponent({
       marginScrollbarWidth += 1;
     }
     // Hack: Affix 组件，marginTop 临时使用 负 margin 定位位置
-    const affixedFooter = Boolean(
-      Boolean(this.virtualConfig.isVirtualScroll.value || this.footerAffixedBottom) &&
-        (this.footData?.length || this.footerSummary || this.$slots['footerSummary']) &&
-        this.tableWidth,
-    ) && (
+    const showFooter = Boolean(this.virtualConfig.isVirtualScroll.value || this.footerAffixedBottom);
+    const hasFooter = this.footData?.length || this.footerSummary || this.$slots['footerSummary'];
+    const affixedFooter = Boolean(showFooter && hasFooter && this.tableWidth) && (
       <Affix
         class={this.tableBaseClass.affixedFooterWrap}
         onFixedChange={this.onFixedChange}
