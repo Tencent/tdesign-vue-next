@@ -534,7 +534,11 @@ export default defineComponent({
       marginScrollbarWidth += 1;
     }
     // Hack: Affix 组件，marginTop 临时使用 负 margin 定位位置
-    const affixedFooter = Boolean(this.footerAffixedBottom && this.footData?.length && this.tableWidth) && (
+    const affixedFooter = Boolean(
+      Boolean(this.virtualConfig.isVirtualScroll.value || this.footerAffixedBottom) &&
+        (this.footData?.length || this.footerSummary || this.$slots['footerSummary']) &&
+        this.tableWidth,
+    ) && (
       <Affix
         class={this.tableBaseClass.affixedFooterWrap}
         onFixedChange={this.onFixedChange}
@@ -546,7 +550,13 @@ export default defineComponent({
         <div
           ref="affixFooterRef"
           style={{ width: `${this.tableWidth - affixedLeftBorder}px`, opacity: Number(this.showAffixFooter) }}
-          class={['scrollbar', { [this.tableBaseClass.affixedFooterElm]: this.footerAffixedBottom || this.isVirtual }]}
+          class={[
+            'scrollbar',
+            {
+              [this.tableBaseClass.affixedFooterElm]:
+                this.footerAffixedBottom || this.virtualConfig.isVirtualScroll.value,
+            },
+          ]}
         >
           <table class={this.tableElmClasses} style={{ ...this.tableElementStyles, width: `${this.tableElmWidth}px` }}>
             {/* 此处和 Vue2 不同，Vue3 里面必须每一处单独写 <colgroup> */}
@@ -569,7 +579,10 @@ export default defineComponent({
       </Affix>
     );
 
-    const translate = `translate(0, ${this.virtualConfig.scrollHeight.value}px)`;
+    // 通过 translate 撑开虚拟滚动的高度，应该是内容高度加上表头和表尾的高度
+    const translate = `translate(0, ${
+      this.virtualConfig.scrollHeight.value + (this.tableFootHeight ?? 0) + (affixHeaderHeight.value ?? 0)
+    }px)`;
     const virtualStyle = {
       transform: translate,
       '-ms-transform': translate,
@@ -639,6 +652,7 @@ export default defineComponent({
             rowClassName={this.rowClassName}
             footerSummary={this.footerSummary}
             rowspanAndColspanInFooter={this.rowspanAndColspanInFooter}
+            virtualScroll={this.virtualConfig.isVirtualScroll.value}
           ></TFoot>
         </table>
       </div>
