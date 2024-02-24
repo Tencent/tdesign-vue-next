@@ -72,8 +72,8 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { DialogProps } from 'tdesign-vue-next';
 import { ref, getCurrentInstance } from 'vue';
+import { DialogProps } from 'tdesign-vue-next';
 const visibleBody = ref(false);
 const visibleIdAttach = ref(false);
 const visibleFunctionAttach = ref(false);

@@ -17,10 +17,10 @@
 </template>
 
 <script lang="tsx" setup>
-import { TableProps, GlobalConfigProvider } from 'tdesign-vue-next';
-import { ChevronRightIcon, CaretDownSmallIcon /** , ChevronDownIcon */ } from 'tdesign-icons-vue-next';
 import merge from 'lodash/merge';
 import enConfig from 'tdesign-vue-next/es/locale/en_US';
+import { TableProps, GlobalConfigProvider } from 'tdesign-vue-next';
+import { ChevronRightIcon, CaretDownSmallIcon /** , ChevronDownIcon */ } from 'tdesign-icons-vue-next';
 const columns: TableProps['columns'] = [
   {
     colKey: 'type',

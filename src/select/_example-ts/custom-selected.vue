@@ -26,8 +26,8 @@
   </t-space>
 </template>
 <script lang="tsx" setup>
-import { SelectProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { SelectProps } from 'tdesign-vue-next';
 const options: SelectProps['options'] = [
   {
     label: '选项一',
@@ -71,20 +71,27 @@ const value2 = ref(['4', '5', '6', '7']);
 const value3 = ref('1');
 const valueDisplay: SelectProps['valueDisplay'] = (h, { onClose, displayValue }) => {
   if (!(displayValue instanceof Array)) return;
-  return displayValue.map((item: { label: any; value: string[] }, index: number) => (
-    <t-tag
-      key={index}
-      closable={true}
-      onClose={({ e }: { e: MouseEvent }) => {
-        e.stopPropagation();
-        onClose(index);
-      }}
-    >
-      {item.label}({item.value[0].toUpperCase()})
-    </t-tag>
-  ));
+  return displayValue.map(
+    (
+      item: {
+        label: any;
+        value: string[];
+      },
+      index: number,
+    ) => (
+      <t-tag
+        key={index}
+        closable={true}
+        onClose={({ e }: { e: MouseEvent }) => {
+          e.stopPropagation();
+          onClose(index);
+        }}
+      >
+        {item.label}({item.value[0].toUpperCase()})
+      </t-tag>
+    ),
+  );
 };
-
 const handleClose =
   (index: number, onClose: (index: number) => void) =>
   ({ e }: { e: MouseEvent }) => {

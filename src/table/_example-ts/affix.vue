@@ -33,10 +33,9 @@
   </div>
 </template>
 <script lang="tsx" setup>
-import { TableProps, RowClassNameParams, TableRowData, DragSortContext } from 'tdesign-vue-next';
 import { ref, watch, computed } from 'vue';
+import { TableProps, RowClassNameParams, TableRowData, DragSortContext } from 'tdesign-vue-next';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-
 const statusNameListMap = {
   0: {
     label: '审批通过',
@@ -73,7 +72,6 @@ function getData(count: number) {
   return data;
 }
 const TOTAL = 38;
-
 function getColumns({ fixedLeftColumn, fixedRightColumn }: { fixedLeftColumn: boolean; fixedRightColumn: boolean }) {
   const columns: TableProps['columns'] = [
     {
@@ -132,7 +130,6 @@ function getColumns({ fixedLeftColumn, fixedRightColumn }: { fixedLeftColumn: bo
       fixed: fixedRightColumn ? 'right' : undefined,
     },
   ];
-
   return columns;
 }
 const data: TableProps['data'] = getData(TOTAL);

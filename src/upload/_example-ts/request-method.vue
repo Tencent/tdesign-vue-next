@@ -17,8 +17,8 @@
   </t-space>
 </template>
 <script lang="ts" setup>
-import { UploadInstanceFunctions, UploadProps } from 'tdesign-vue-next';
 import { ref, computed } from 'vue';
+import { UploadInstanceFunctions, UploadProps } from 'tdesign-vue-next';
 const files = ref([]);
 const uploadRef = ref<UploadInstanceFunctions>();
 const uploadMethod = ref('requestSuccessMethod');

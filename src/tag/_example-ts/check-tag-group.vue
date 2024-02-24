@@ -47,8 +47,8 @@
 </template>
 
 <script lang="tsx" setup>
-import { CheckTagGroupOption, CheckTagGroupProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { CheckTagGroupOption, CheckTagGroupProps } from 'tdesign-vue-next';
 const STYLE_B_UNCHECKED_PROPS: CheckTagGroupProps['uncheckedProps'] = {
   theme: 'default',
   variant: 'outline',
@@ -88,7 +88,9 @@ const options: CheckTagGroupProps['options'] = [
   },
 ];
 const AVATAR = 'https://tdesign.gtimg.com/site/avatar.jpg';
-const options2: (CheckTagGroupOption & { avatar: string })[] = [
+const options2: (CheckTagGroupOption & {
+  avatar: string;
+})[] = [
   {
     label: 'TAG_A',
     value: 1,

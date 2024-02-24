@@ -82,8 +82,8 @@
 </template>
 
 <script lang="ts" setup>
-import { TreeInstanceFunctions, TreeProps, InputProps, ButtonProps } from 'tdesign-vue-next';
 import { ref, computed } from 'vue';
+import { TreeInstanceFunctions, TreeProps, InputProps, ButtonProps } from 'tdesign-vue-next';
 const tree = ref<TreeInstanceFunctions>();
 const index = ref(0);
 const transition = ref(true);

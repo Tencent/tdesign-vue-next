@@ -34,8 +34,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ImageViewerProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { ImageViewerProps } from 'tdesign-vue-next';
 import { BrowseIcon } from 'tdesign-icons-vue-next';
 const visible = ref(false);
 const visible2 = ref(false);

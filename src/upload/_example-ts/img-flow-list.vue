@@ -51,8 +51,8 @@
 </template>
 
 <script lang="ts" setup>
-import { UploadProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { UploadProps } from 'tdesign-vue-next';
 const autoUpload = ref(false);
 const showImageFileName = ref(true);
 const showUploadButton = ref(true);
