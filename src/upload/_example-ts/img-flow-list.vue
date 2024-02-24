@@ -52,11 +52,11 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { UploadProps } from 'tdesign-vue-next';
+import { UploadProps, CheckboxProps } from 'tdesign-vue-next';
 const autoUpload = ref(false);
 const showImageFileName = ref(true);
-const showUploadButton = ref(true);
-const files = ref([
+const showUploadButton = ref<CheckboxProps['value']>(true);
+const files = ref<UploadProps['value']>([
   {
     url: 'https://tdesign.gtimg.com/demo/demo-image-1.png',
     name: 'loading.svg',

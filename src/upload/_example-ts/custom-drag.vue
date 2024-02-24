@@ -35,7 +35,7 @@
 import { ref } from 'vue';
 import { MessagePlugin, UploadInstanceFunctions, UploadProps, ButtonProps } from 'tdesign-vue-next';
 import { CloudUploadIcon } from 'tdesign-icons-vue-next';
-const files = ref([]);
+const files = ref<UploadProps['value']>([]);
 const uploadRef = ref<UploadInstanceFunctions>();
 const progress = ref(0);
 const handleSuccess: UploadProps['onSuccess'] = ({ file }) => {

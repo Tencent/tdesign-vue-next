@@ -18,10 +18,10 @@
 </template>
 <script lang="ts" setup>
 import { ref, computed } from 'vue';
-import { UploadInstanceFunctions, UploadProps } from 'tdesign-vue-next';
-const files = ref([]);
+import { UploadInstanceFunctions, UploadProps, RadioGroupProps } from 'tdesign-vue-next';
+const files = ref<UploadProps['value']>([]);
 const uploadRef = ref<UploadInstanceFunctions>();
-const uploadMethod = ref('requestSuccessMethod');
+const uploadMethod = ref<RadioGroupProps['value']>('requestSuccessMethod');
 
 // file 为等待上传的文件信息，用于提供给上传接口。file.raw 表示原始文件
 const requestSuccessMethod: UploadProps['requestMethod'] = (file) => {

@@ -54,8 +54,8 @@ function getCurrentDate(needTime = false) {
   return date;
 }
 const autoUpload = ref(true);
-const files = ref([]);
-const files2 = ref([
+const files = ref<UploadProps['value']>([]);
+const files2 = ref<UploadProps['value']>([
   {
     name: '默认文件',
     url: 'https://tdesign.gtimg.com/site/source/figma-pc.png',
