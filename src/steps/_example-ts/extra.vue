@@ -26,8 +26,8 @@
 </template>
 
 <script lang="ts" setup>
-import { StepsProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { StepsProps } from 'tdesign-vue-next';
 const current = ref<StepsProps['current']>(0);
 </script>
 <style lang="less" scoped>

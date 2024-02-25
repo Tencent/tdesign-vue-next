@@ -28,14 +28,12 @@
 </template>
 
 <script lang="ts" setup>
-import { TextareaProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
-
+import { TextareaProps } from 'tdesign-vue-next';
 interface Option {
   label: string;
   value: string;
 }
-
 const options: Option[] = [];
 for (let i = 0; i < 10000; i++) {
   options.push({

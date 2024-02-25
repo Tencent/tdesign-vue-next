@@ -28,8 +28,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ImageInfo } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { ImageInfo } from 'tdesign-vue-next';
 import { BrowseIcon } from 'tdesign-icons-vue-next';
 const visible1 = ref(false);
 const visible2 = ref(false);

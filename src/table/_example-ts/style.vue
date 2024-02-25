@@ -10,8 +10,8 @@
 </template>
 
 <script lang="tsx" setup>
-import { TableProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { TableProps } from 'tdesign-vue-next';
 import {
   ErrorCircleFilledIcon,
   InfoCircleIcon,

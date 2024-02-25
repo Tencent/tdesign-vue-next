@@ -10,15 +10,13 @@
   />
 </template>
 <script lang="ts" setup>
-import { TreeNodeModel } from 'tdesign-vue-next';
 import { ref } from 'vue';
-
+import { TreeNodeModel } from 'tdesign-vue-next';
 interface TreeNode {
   label: string;
   value: string;
   children?: boolean | TreeNode[];
 }
-
 const options: TreeNode[] = [
   {
     label: '1',

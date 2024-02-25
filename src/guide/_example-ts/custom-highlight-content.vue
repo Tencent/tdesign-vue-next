@@ -38,12 +38,14 @@
 </template>
 
 <script lang="ts" setup>
-import { GuideProps, ButtonProps, GuideStep } from 'tdesign-vue-next';
-import { ref } from 'vue';
 import HighlightContent from './highlight-content.vue';
+import { ref } from 'vue';
+import { GuideProps, ButtonProps, GuideStep } from 'tdesign-vue-next';
 const visible = ref(false);
 const current = ref(-1);
-const steps: (GuideStep & { description: string })[] = [
+const steps: (GuideStep & {
+  description: string;
+})[] = [
   {
     element: '.main-title',
     title: '新手引导标题',

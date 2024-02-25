@@ -60,8 +60,8 @@
   </t-space>
 </template>
 <script lang="ts" setup>
-import { SelectInputProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { SelectInputProps } from 'tdesign-vue-next';
 import { ControlPlatformIcon } from 'tdesign-icons-vue-next';
 const options = [
   {
@@ -89,7 +89,10 @@ const options = [
     value: 6,
   },
 ];
-const selectValue1 = ref<{ label: string; value: number }>({
+const selectValue1 = ref<{
+  label: string;
+  value: number;
+}>({
   label: 'tdesign-vue',
   value: 1,
 });
