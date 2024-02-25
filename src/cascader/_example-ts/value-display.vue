@@ -31,8 +31,8 @@ export default {
 </script>
 
 <script lang="tsx" setup>
-import { CascaderProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { CascaderProps } from 'tdesign-vue-next';
 const value1 = ref('2.2');
 const value2 = ref(['1.3', '2.1', '2.2']);
 const AVATAR = 'https://tdesign.gtimg.com/site/avatar.jpg';

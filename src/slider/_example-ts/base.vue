@@ -6,8 +6,8 @@
   </t-space>
 </template>
 <script lang="ts" setup>
-import { SliderProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { SliderProps } from 'tdesign-vue-next';
 const value1 = ref(12);
 const value2 = ref([30, 70]);
 const onChangeEnd: SliderProps['onChangeEnd'] = (value) => {

@@ -20,8 +20,8 @@
 </template>
 
 <script lang="ts" setup>
-import { DescriptionsProps, RadioGroupProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { DescriptionsProps, RadioGroupProps } from 'tdesign-vue-next';
 const layout = ref<DescriptionsProps['layout']>('horizontal');
 const itemLayout = ref<DescriptionsProps['itemLayout']>('horizontal');
 const layoutOptions: RadioGroupProps['options'] = ['horizontal', 'vertical'];

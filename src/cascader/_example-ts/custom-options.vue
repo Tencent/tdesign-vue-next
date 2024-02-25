@@ -34,8 +34,8 @@
   </t-space>
 </template>
 <script lang="tsx" setup>
-import { CascaderProps } from 'tdesign-vue-next';
 import { ref, computed } from 'vue';
+import { CascaderProps } from 'tdesign-vue-next';
 const options: CascaderProps['options'] = [
   {
     label: '选项一',

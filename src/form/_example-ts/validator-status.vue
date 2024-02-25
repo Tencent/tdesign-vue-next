@@ -133,12 +133,10 @@ const formData = ref<FormProps['data']>({
   ...INITIAL_DATA,
 });
 const formValidatorStatus = ref<FormInstanceFunctions>(null);
-
 interface DataInfo {
   id: number;
   name: string;
 }
-
 const addlist = ref<DataInfo[]>([
   {
     id: 0,

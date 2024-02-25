@@ -146,3 +146,8 @@ export interface AutoCompleteOptionObj {
   text?: string;
   [key: string]: any;
 }
+
+export interface HighlightOptionProps {
+  content: string;
+  keyword: string;
+}

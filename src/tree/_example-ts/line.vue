@@ -41,10 +41,10 @@
 </template>
 
 <script lang="tsx" setup>
-import { TreeProps, TypeTreeNodeModel } from 'tdesign-vue-next';
-import { ref } from 'vue';
-import { Icon } from 'tdesign-icons-vue-next';
 import { TypeCreateElement } from '../adapt';
+import { ref } from 'vue';
+import { TreeProps, TypeTreeNodeModel } from 'tdesign-vue-next';
+import { Icon } from 'tdesign-icons-vue-next';
 const showLine = ref<TreeProps['line']>(true);
 const showIcon = ref<TreeProps['icon']>(true);
 const items = ref<TreeProps['data']>([
@@ -121,9 +121,9 @@ const items = ref<TreeProps['data']>([
     label: '4',
   },
 ]);
-
-type lineNodes = { cross?: boolean };
-
+type lineNodes = {
+  cross?: boolean;
+};
 const getLineNodes = (node: TypeTreeNodeModel) => {
   const nodes = node.getParents().reverse();
   const lineNodes: lineNodes[] = [];

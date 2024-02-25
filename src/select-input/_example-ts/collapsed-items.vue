@@ -77,13 +77,11 @@
 <script lang="tsx" setup>
 import { computed, ref } from 'vue';
 import { Tag, CheckboxGroupProps, SelectInputProps } from 'tdesign-vue-next';
-
 interface CustomOptionInfo {
   label: string;
   value?: number;
   checkAll?: boolean;
 }
-
 const OPTIONS: CustomOptionInfo[] = [
   // 全选
   {

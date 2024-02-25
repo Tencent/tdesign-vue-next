@@ -15,8 +15,8 @@
   </t-space>
 </template>
 <script lang="ts" setup>
-import { InputProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { InputProps } from 'tdesign-vue-next';
 import { SearchIcon } from 'tdesign-icons-vue-next';
 const input = ref('有默认值');
 const onEnter: InputProps['onEnter'] = () => {

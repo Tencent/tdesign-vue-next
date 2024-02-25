@@ -5,9 +5,9 @@
 </template>
 
 <script lang="ts" setup>
-import { GlobalConfigProvider } from 'tdesign-vue-next';
 import merge from 'lodash/merge';
 import enConfig from 'tdesign-vue-next/es/locale/en_US';
+import { GlobalConfigProvider } from 'tdesign-vue-next';
 const MONTHS = [
   'January',
   'February',
