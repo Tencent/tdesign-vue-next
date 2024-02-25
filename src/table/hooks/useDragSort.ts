@@ -213,6 +213,7 @@ export default function useDragSort(
   }
 
   function setDragSortColumns(val: BaseTableColumns) {
+    // @ts-ignore
     columns.value = val;
   }
 
