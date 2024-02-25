@@ -549,7 +549,7 @@ export default function useFixed(
       const timer = setTimeout(() => {
         refreshTable();
         clearTimeout(timer);
-      }, 60);
+      }, 200);
     });
     resizeObserver.observe(tableElement);
     tableRef.value = tableElement;
