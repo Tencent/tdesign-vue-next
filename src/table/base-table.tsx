@@ -542,7 +542,7 @@ export default defineComponent({
         onFixedChange={this.onFixedChange}
         offsetBottom={marginScrollbarWidth || 0}
         {...getAffixProps(this.footerAffixedBottom)}
-        style={{ marginTop: `${-1 * (this.tableFootHeight + marginScrollbarWidth)}px` }}
+        style={{ marginTop: `${-1 * ((this.tableFootHeight ?? 0) + marginScrollbarWidth)}px` }}
         ref="footerBottomAffixRef"
       >
         <div
