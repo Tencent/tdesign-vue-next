@@ -48,10 +48,10 @@
 </template>
 
 <script lang="tsx" setup>
-import { ref, computed } from 'vue';
-import { DateRangePickerPanel, TableProps, ButtonProps, BaseTableCol } from 'tdesign-vue-next';
-import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import isNumber from 'lodash/isNumber';
+import { ref, computed } from 'vue';
+import { DateRangePickerPanel, TableProps, ButtonProps, BaseTableCol, FilterValue, InputProps } from 'tdesign-vue-next';
+import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 const statusNameListMap = {
   0: {
     label: '审批通过',
@@ -82,7 +82,7 @@ const initData = new Array(5).fill(null).map((_, i) => ({
   createTime: ['2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01'][i % 4],
 }));
 const align = ref<BaseTableCol['align']>('left');
-const onEmailChange = (val, ctx) => {
+const onEmailChange: InputProps['onChange'] = (val, ctx) => {
   console.log(val, ctx);
 };
 const columns = computed<TableProps['columns']>(() => {
@@ -209,7 +209,7 @@ const filterValue = ref<TableProps['filterValue']>({
 });
 const data = ref<TableProps['data']>([...initData]);
 const bordered = ref(true);
-const request = (filters) => {
+const request = (filters: FilterValue) => {
   const timer = setTimeout(() => {
     clearTimeout(timer);
     const newData = initData.filter((item) => {
@@ -221,7 +221,7 @@ const request = (filters) => {
         result = filters.channel.includes(item.channel);
       }
       if (result && filters.email) {
-        result = item.email.indexOf(filters.email) !== -1;
+        result = item.detail.email.indexOf(filters.email) !== -1;
       }
       if (result && filters.createTime && filters.createTime.length) {
         result = item.createTime === filters.createTime;

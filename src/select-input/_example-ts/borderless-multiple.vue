@@ -24,15 +24,13 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { CheckboxGroupProps, SelectInputProps } from 'tdesign-vue-next';
 import { computed, ref } from 'vue';
-
+import { CheckboxGroupProps, SelectInputProps } from 'tdesign-vue-next';
 interface CustomOptionInfo {
   label: string;
   value?: number;
   checkAll?: boolean;
 }
-
 const OPTIONS: CustomOptionInfo[] = [
   // 全选
   {
@@ -94,7 +92,12 @@ const onCheckedChange: CheckboxGroupProps['onChange'] = (val, { current, type })
   // current 不存在，则表示操作全选
   if (!current) {
     value.value =
-      type === 'check' ? options.value.slice(1).map((option) => ({ ...option, value: option?.value || 0 })) : [];
+      type === 'check'
+        ? options.value.slice(1).map((option) => ({
+            ...option,
+            value: option?.value || 0,
+          }))
+        : [];
     return;
   }
   // 普通操作

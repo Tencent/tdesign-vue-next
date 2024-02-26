@@ -12,8 +12,6 @@ import { ref } from 'vue';
 import { InputNumberProps } from 'tdesign-vue-next';
 const value1 = ref(3);
 const value2 = ref(3.01);
-
 const numberFormat1: InputNumberProps['format'] = (value) => `${value} %`;
-
 const numberFormat: InputNumberProps['format'] = (value, { fixedNumber }) => `${fixedNumber} %`;
 </script>

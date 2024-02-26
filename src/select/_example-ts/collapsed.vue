@@ -30,8 +30,8 @@
   </t-space>
 </template>
 <script lang="tsx" setup>
-import { SelectProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { SelectProps } from 'tdesign-vue-next';
 const options: SelectProps['options'] = [
   {
     label: '选项一',

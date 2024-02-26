@@ -6,8 +6,8 @@
   </t-tree-select>
 </template>
 <script lang="ts" setup>
-import { TreeSelectProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { TreeSelectProps } from 'tdesign-vue-next';
 const options: TreeSelectProps['data'] = [
   {
     label: '开发一组',

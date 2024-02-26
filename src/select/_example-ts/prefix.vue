@@ -6,8 +6,8 @@
   </t-select>
 </template>
 <script lang="ts" setup>
-import { SelectProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { SelectProps } from 'tdesign-vue-next';
 import { Icon } from 'tdesign-icons-vue-next';
 const options: SelectProps['options'] = [
   {

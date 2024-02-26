@@ -45,8 +45,8 @@
 </template>
 
 <script lang="tsx" setup>
-import { ImageProps, ButtonProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { ImageProps, ButtonProps } from 'tdesign-vue-next';
 import { RefreshIcon, ImageErrorIcon } from 'tdesign-icons-vue-next';
 const loadingCount = ref(0);
 const errorCount = ref(0);
