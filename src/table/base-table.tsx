@@ -250,7 +250,18 @@ export default defineComponent({
       setTableContentRef(tableContentRef.value);
     });
 
-    watch(tableElmRef, getTFootHeight);
+    // 应该有多种情况下需要更新 foot 高度
+    // 原方案只监听 tableElmRef，但是可能有异步渲染的情况，footer 的渲染晚于 dom 引用的产生
+    // 加入 timeout，避免渲染延迟导致的高度获取失败
+    watch(
+      () => [tableElmRef.value, props.footData, props.footerSummary, props.columns],
+      () => {
+        const timer = setTimeout(() => {
+          getTFootHeight();
+          clearTimeout(timer);
+        }, 0);
+      },
+    );
 
     watch(tableRef, (tableRef) => {
       addTableResizeObserver(tableRef);
