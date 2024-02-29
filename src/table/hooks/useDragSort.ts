@@ -27,15 +27,12 @@ export default function useDragSort(
   context: SetupContext,
   params: ComputedRef<{
     showElement: boolean;
-    onTableRefresh: () => void;
-    tableKey: number;
   }>,
 ) {
   const { sortOnRowDraggable, dragSort, data } = toRefs(props);
   const innerPagination = ref(props.pagination);
   const { tableDraggableClasses, tableBaseClass, tableFullRowClasses, tableExpandClasses } = useClassName();
   const columns = ref<PrimaryTableCol[]>(props.columns || []);
-  const { onTableRefresh } = params.value;
   const primaryTableRef = ref(null);
   // @ts-ignore 判断是否有拖拽列
   const dragCol = computed(() => columns.value.find((item) => item.colKey === 'drag'));
@@ -49,22 +46,10 @@ export default function useDragSort(
   );
   // 列拖拽判断条件
   const isColDraggable = computed(() => ['col', 'row-handler-col'].includes(dragSort.value));
-  // 列拖拽排序，存储上一次的变化结果
-  const lastColList = ref([]);
-  // 列拖拽实例
-  let dragColInstanceTmp: Sortable = null;
 
   if (props.sortOnRowDraggable) {
     log.error('Table', "`sortOnRowDraggable` is going to be deprecated, use dragSort='row' instead.");
   }
-  watch(
-    () => [...columns.value],
-    (columns) => {
-      lastColList.value = columns ? columns.map((t) => t.colKey) : [];
-      onTableRefresh?.();
-    },
-    // { immediate: true },
-  );
 
   // 本地分页的表格，index 不同，需加上分页计数
   function getDataPageIndex(index: number, pagination: SimplePageInfo) {
@@ -90,7 +75,8 @@ export default function useDragSort(
       ghostClass: tableDraggableClasses.ghost,
       chosenClass: tableDraggableClasses.chosen,
       dragClass: tableDraggableClasses.dragging,
-      filter: `.${tableFullRowClasses.base},.${tableExpandClasses.row}`, // 过滤首行尾行固定，过滤展开行
+      // 过滤首行尾行固定，过滤展开行
+      filter: `.${tableFullRowClasses.base},.${tableExpandClasses.row}`,
       onMove: (evt: MoveEvent) => !hasClass(evt.related, tableFullRowClasses.base),
       onEnd(evt: SortableEvent) {
         if (evt.newIndex === evt.oldIndex) return;
@@ -153,7 +139,8 @@ export default function useDragSort(
         if (evt.newIndex === evt.oldIndex) return;
         if (recover) {
           // 处理受控：拖拽列表恢复原始排序，等待外部数据 data 变化，更新最终顺序
-          dragColInstanceTmp?.sort([...lastColList.value]);
+          removeNode(evt.item);
+          insertNodeAt(evt.from, evt.item, evt.oldIndex);
         }
         const { oldIndex, newIndex, target: targetElement } = evt;
         let currentIndex = recover ? oldIndex : newIndex;
@@ -188,8 +175,7 @@ export default function useDragSort(
       ...props.dragSortOptions,
     };
     if (!container) return;
-    dragColInstanceTmp = new Sortable(container, options);
-    return dragColInstanceTmp;
+    new Sortable(container, options);
   };
 
   // 列拖拽排序：涉及到多级表头、自定义显示列 等综合场景
@@ -198,8 +184,7 @@ export default function useDragSort(
     const trList = tableElement.querySelectorAll('thead > tr');
     if (trList.length <= 1) {
       const [container] = trList;
-      const dragInstanceTmp = registerOneLevelColDragEvent(container as HTMLElement, true);
-      lastColList.value = dragInstanceTmp?.toArray();
+      registerOneLevelColDragEvent(container as HTMLElement, true);
     } else {
       // 多级表头只抛出事件，不处理其他未知逻辑（如多层表头之间具体如何交换）
       trList?.forEach((container) => {
@@ -213,6 +198,7 @@ export default function useDragSort(
   }
 
   function setDragSortColumns(val: BaseTableColumns) {
+    // @ts-ignore
     columns.value = val;
   }
 
