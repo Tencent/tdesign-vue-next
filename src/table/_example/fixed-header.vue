@@ -80,4 +80,8 @@ const columns = ref([
   { colKey: 'createTime', title: '申请日期', width: 120, foot: '-' },
   { colKey: 'operation', title: '操作', width: 120, foot: '-' },
 ]);
+
+const rehandleClickOp = (context) => {
+  console.log(context);
+};
 </script>
