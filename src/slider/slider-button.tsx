@@ -234,15 +234,10 @@ export default defineComponent({
         onblur={handleMouseLeave}
         onKeydown={onNativeKeyDown}
       >
-        {showTooltip.value && props.label !== false ? (
-          <TTooltip ref={tooltipRef} disabled={!showTooltip.value} {...tooltipProps.value}>
-            <div class={[COMPONENT_NAME.value, { [`${COMPONENT_NAME.value}--dragging`]: slideButtonProps.dragging }]} />
-          </TTooltip>
-        ) : (
-          <div
-            class={[COMPONENT_NAME.value, { [`${COMPONENT_NAME.value}--dragging`]: slideButtonProps.dragging }]}
-          ></div>
-        )}
+        {/* hide tooltip with `hideEmptyPopup`, empty content won't show */}
+        <TTooltip ref={tooltipRef} hideEmptyPopup disabled={!showTooltip.value} {...tooltipProps.value}>
+          <div class={[COMPONENT_NAME.value, { [`${COMPONENT_NAME.value}--dragging`]: slideButtonProps.dragging }]} />
+        </TTooltip>
       </div>
     );
   },

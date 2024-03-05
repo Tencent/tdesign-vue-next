@@ -74,7 +74,7 @@ export const renderTNodeJSX = (instance: ComponentPublicInstance, name: string, 
   // }
 
   // propsNode 为 false 不渲染
-  if (propsNode === false) return;
+  if (propsNode === false || propsNode === null) return;
   if (propsNode === true && defaultNode) {
     return handleSlots(instance, params, name) || defaultNode;
   }
