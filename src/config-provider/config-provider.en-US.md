@@ -92,7 +92,7 @@ name | type | default | description | required
 cellMonth | String | - | \- | N
 controllerConfig | Object | - | Typescript：`CalendarController`，[Calendar API Documents](./calendar?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
 fillWithZero | Boolean | true | \- | N
-firstDayOfWeek | Number | 1 | options：1/2/3/4/5/6/7 | N
+firstDayOfWeek | Number | 1 | options: 1/2/3/4/5/6/7 | N
 hideWeekend | String | - | \- | N
 monthRadio | String | - | \- | N
 monthSelection | String | - | \- | N
@@ -145,7 +145,7 @@ confirm | String | - | confirm text | N
 dayAriaLabel | String | - | date text | N
 dayjsLocale | String | - | dayjs language international configuration | N
 direction | String | 'ltr' | range separator text | N
-firstDayOfWeek | Number | 7 | options：1/2/3/4/5/6/7 | N
+firstDayOfWeek | Number | 7 | options: 1/2/3/4/5/6/7 | N
 format | String | 'YYYY-MM-DD' | date format rules | N
 monthAriaLabel | String | - | month text | N
 months | Array | - | Typescript：`string[]` | N
@@ -171,7 +171,7 @@ yearAriaLabel | String | - | year text | N
 name | type | default | description | required
 -- | -- | -- | -- | --
 cancel | Object | - | Typescript：`string \| ButtonProps`，[Button API Documents](./button?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
-closeOnEscKeydown | Boolean | true | \- | N
+closeOnEscKeydown | Boolean | true | trigger dialog close on `ESC` keydown | N
 closeOnOverlayClick | Boolean | true | \- | N
 confirm | Object | - | Typescript：`string \| ButtonProps` | N
 confirmBtnTheme | Object | - | Typescript：`{ default: string; info: string; warning: string; danger: string; success: string; }` | N
@@ -181,7 +181,7 @@ confirmBtnTheme | Object | - | Typescript：`{ default: string; info: string; wa
 name | type | default | description | required
 -- | -- | -- | -- | --
 cancel | String | - | Typescript：`string \| ButtonProps` | N
-closeOnEscKeydown | Boolean | true | \- | N
+closeOnEscKeydown | Boolean | true | trigger drawer close event on `ESC` keydown | N
 closeOnOverlayClick | Boolean | true | \- | N
 confirm | String | - | Typescript：`string \| ButtonProps` | N
 size | String | 'small' | \- | N
@@ -213,6 +213,7 @@ loadingText | String | - | \- | N
 resetText | String | - | \- | N
 searchResultText | String | - | \- | N
 selectAllText | String | - | \- | N
+size | String | medium | options: small/medium/large。Typescript：`SizeEnum`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 sortAscendingOperationText | String | - | \- | N
 sortCancelOperationText | String | - | \- | N
 sortDescendingOperationText | String | - | \- | N
