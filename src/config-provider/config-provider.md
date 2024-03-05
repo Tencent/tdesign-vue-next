@@ -212,6 +212,7 @@ loadingText | String | - | 语言配置，“正在加载中，请稍后” 描�
 resetText | String | - | 语言配置，“重置” 描述文本 | N
 searchResultText | String | - | 语言配置，过滤功能中，过滤条件和结果描述文本，示例：'搜索“{result}”，找到 {count} 条结果' | N
 selectAllText | String | - | 语言配置，'全选' 描述文本 | N
+size | String | medium | 全局表格尺寸配置。可选项：small/medium/large。TS 类型：`SizeEnum`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 sortAscendingOperationText | String | - | 语言配置，'点击升序' 描述文本 | N
 sortCancelOperationText | String | - | 语言配置，'点击取消排序' 描述文本 | N
 sortDescendingOperationText | String | - | 语言配置，'点击降序' 描述文本 | N
