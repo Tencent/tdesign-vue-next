@@ -104,6 +104,10 @@ const scrollToCreateTime = () => {
   // 横向滚动到指定列
   tableRef.value.scrollColumnIntoView('matters');
 };
+
+const rehandleClickOp = (context) => {
+  console.log(context);
+};
 </script>
 <style lang="less" scoped>
 .tdesign-demo-block-column {

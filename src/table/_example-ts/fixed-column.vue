@@ -43,8 +43,8 @@
   </div>
 </template>
 <script lang="tsx" setup>
-import { TableProps, TableInstanceFunctions } from 'tdesign-vue-next';
 import { ref, computed } from 'vue';
+import { TableProps, TableInstanceFunctions, TableRowData } from 'tdesign-vue-next';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 const statusNameListMap = {
   0: {
@@ -134,6 +134,10 @@ const tableRef = ref<TableInstanceFunctions>(null);
 const scrollToCreateTime = () => {
   // 横向滚动到指定列
   tableRef.value.scrollColumnIntoView('matters');
+};
+
+const rehandleClickOp = (context: TableRowData) => {
+  console.log(context);
 };
 </script>
 <style lang="less" scoped>

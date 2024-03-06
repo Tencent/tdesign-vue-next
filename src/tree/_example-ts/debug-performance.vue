@@ -43,8 +43,8 @@
 </template>
 
 <script lang="ts" setup>
-import { TreeProps, TreeInstanceFunctions } from 'tdesign-vue-next';
 import { ref, computed } from 'vue';
+import { TreeProps, TreeInstanceFunctions } from 'tdesign-vue-next';
 const allLevels = [3, 3, 3];
 let cacheIndex = 0;
 function getValue() {
@@ -90,7 +90,6 @@ const insertCount = computed(() => {
 const label: TreeProps['label'] = (h, node) => {
   return `${node.value}`;
 };
-
 const getInsertItem = () => {
   const value = getValue();
   return {

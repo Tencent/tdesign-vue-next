@@ -34,8 +34,8 @@
 </template>
 
 <script lang="ts" setup>
-import { TreeProps, InputProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { TreeProps, InputProps } from 'tdesign-vue-next';
 const exampleItems = [
   {
     value: '1',

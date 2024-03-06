@@ -264,6 +264,7 @@ export default function useColumnResize(params: {
        */
       const thWidthList = getThWidthList('calculate');
       const currentCol = effectColMap.value[col.colKey]?.current;
+      if (!currentCol) return;
       const currentSibling = resizeLineParams.effectCol === 'next' ? currentCol.nextSibling : currentCol.prevSibling;
       // 多行表头，列宽为最后一层的宽度，即叶子结点宽度
       const newThWidthList = { ...thWidthList };

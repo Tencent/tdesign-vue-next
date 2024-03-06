@@ -73,7 +73,6 @@ import {
   AddRectangleIcon,
   MinusRectangleIcon,
 } from 'tdesign-icons-vue-next';
-
 interface TableData {
   id: number;
   key: string;
@@ -87,7 +86,6 @@ interface TableData {
   description: string;
   list?: boolean | TableData[];
 }
-
 const TOTAL = 5;
 function getObject(i: number, currentPage: number) {
   const columns = {

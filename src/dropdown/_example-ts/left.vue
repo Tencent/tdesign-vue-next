@@ -11,8 +11,8 @@
   </t-space>
 </template>
 <script lang="ts" setup>
-import { ChevronDownIcon } from 'tdesign-icons-vue-next';
 import { MessagePlugin, DropdownProps } from 'tdesign-vue-next';
+import { ChevronDownIcon } from 'tdesign-icons-vue-next';
 const options: DropdownProps['options'] = [
   {
     content: '选项一',

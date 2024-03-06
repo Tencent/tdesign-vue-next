@@ -20,15 +20,17 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-
 interface CustomOptionInfo {
-  group?: string | { label: string };
+  group?:
+    | string
+    | {
+        label: string;
+      };
   divider?: boolean;
   label?: string;
   value?: number;
   children?: CustomOptionInfo[];
 }
-
 const options: CustomOptionInfo[] = [
   {
     group: '分组一',

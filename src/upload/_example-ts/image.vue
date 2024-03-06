@@ -92,15 +92,15 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import { MessagePlugin, UploadProps, UploadInstanceFunctions, ButtonProps } from 'tdesign-vue-next';
-const file1 = ref([]);
-const file2 = ref([
+const file1 = ref<UploadProps['value']>([]);
+const file2 = ref<UploadProps['value']>([
   {
     name: 'demo-image-1.png',
     url: 'https://tdesign.gtimg.com/demo/demo-image-1.png',
   },
 ]);
-const files = ref([]);
-const fileFail = ref([]);
+const files = ref<UploadProps['value']>([]);
+const fileFail = ref<UploadProps['value']>([]);
 const disabled = ref(false);
 const uploadAllFilesInOneRequest = ref(false);
 const autoUpload = ref(true);

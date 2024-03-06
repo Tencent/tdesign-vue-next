@@ -39,8 +39,8 @@
 </template>
 
 <script lang="ts" setup>
-import { GuideProps, ButtonProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { GuideProps, ButtonProps } from 'tdesign-vue-next';
 const visible = ref(false);
 const current = ref(-1);
 const steps: GuideProps['steps'] = [

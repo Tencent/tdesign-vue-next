@@ -31,8 +31,8 @@
   </t-space>
 </template>
 <script lang="tsx" setup>
-import { SelectProps, TextareaProps, ButtonProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { SelectProps, TextareaProps, ButtonProps } from 'tdesign-vue-next';
 const OPTIONS = [
   {
     label: '架构云',

@@ -20,8 +20,8 @@
   </t-space>
 </template>
 <script lang="ts" setup>
-import { FormProps } from 'tdesign-vue-next';
 import { reactive } from 'vue';
+import { FormProps } from 'tdesign-vue-next';
 const formData: FormProps['data'] = reactive({
   labelAlign: 'right',
   name: '',

@@ -21,8 +21,8 @@
 </template>
 
 <script lang="ts" setup>
-import { TabsProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { TabsProps } from 'tdesign-vue-next';
 let id = 0;
 const value = ref('first');
 const panelData = ref([
