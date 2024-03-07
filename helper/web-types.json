@@ -5971,17 +5971,17 @@
           "slots": []
         },
         {
-          "name": "t-description-item",
+          "name": "t-descriptions-item",
           "source": {
-            "symbol": "DescriptionItem"
+            "symbol": "DescriptionsItem"
           },
-          "description": "DescriptionItem\n\n描述项",
-          "doc-url": "https://tdesign.tencent.com/vue-next/components/description-item",
+          "description": "DescriptionsItem\n\n描述项",
+          "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions-item",
           "props": [
             {
               "name": "align",
-              "description": "content align type\n\n内容垂直对齐方式，DescriptionItem.align 优先级高于 Descriptions.align",
-              "doc-url": "https://tdesign.tencent.com/vue-next/components/description-item?tab=api#descriptionitem-props",
+              "description": "content align type\n\n内容垂直对齐方式，DescriptionsItem.align 优先级高于 Descriptions.align",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsitem-props",
               "type": [
                 "String"
               ],
@@ -6003,7 +6003,7 @@
             {
               "name": "content",
               "description": "content of description item\n\n描述项内容",
-              "doc-url": "https://tdesign.tencent.com/vue-next/components/description-item?tab=api#descriptionitem-props",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsitem-props",
               "type": [
                 "String",
                 "TNode"
@@ -6012,7 +6012,7 @@
             {
               "name": "default",
               "description": "content of description item\n\n描述项内容，同 `content`",
-              "doc-url": "https://tdesign.tencent.com/vue-next/components/description-item?tab=api#descriptionitem-props",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsitem-props",
               "type": [
                 "String",
                 "TNode"
@@ -6021,7 +6021,7 @@
             {
               "name": "label",
               "description": "label of description item\n\n描述项标签",
-              "doc-url": "https://tdesign.tencent.com/vue-next/components/description-item?tab=api#descriptionitem-props",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsitem-props",
               "type": [
                 "String",
                 "TNode"
@@ -6030,7 +6030,7 @@
             {
               "name": "span",
               "description": "width count\n\n占用的宽度数量",
-              "doc-url": "https://tdesign.tencent.com/vue-next/components/description-item?tab=api#descriptionitem-props",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsitem-props",
               "type": [
                 "Number"
               ],
@@ -6041,17 +6041,17 @@
             {
               "name": "content",
               "description": "content of description item\n\n描述项内容",
-              "doc-url": "https://tdesign.tencent.com/vue-next/components/description-item?tab=api#descriptionitem-props"
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsitem-props"
             },
             {
               "name": "default",
               "description": "content of description item\n\n描述项内容，同 `content`",
-              "doc-url": "https://tdesign.tencent.com/vue-next/components/description-item?tab=api#descriptionitem-props"
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsitem-props"
             },
             {
               "name": "label",
               "description": "label of description item\n\n描述项标签",
-              "doc-url": "https://tdesign.tencent.com/vue-next/components/description-item?tab=api#descriptionitem-props"
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsitem-props"
             }
           ]
         },
@@ -6065,7 +6065,7 @@
           "props": [
             {
               "name": "align",
-              "description": "content align type\n\n内容垂直对齐方式，DescriptionItem.align 优先级高于 Descriptions.align",
+              "description": "content align type\n\n内容垂直对齐方式，DescriptionsItem.align 优先级高于 Descriptions.align",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions?tab=api#descriptions-props",
               "type": [
                 "String"
@@ -6104,7 +6104,7 @@
             },
             {
               "name": "column",
-              "description": "count of DescriptionItem in one row\n\n一行 `DescriptionItem` 的数量",
+              "description": "count of DescriptionsItem in one row\n\n一行 `DescriptionsItem` 的数量",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions?tab=api#descriptions-props",
               "type": [
                 "Number"

@@ -646,7 +646,7 @@
     ],
     "description": "DateRangePickerPanel\n\n日期范围选择器面板\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-range-picker-panel)"
   },
-  "t-description-item": {
+  "t-descriptions-item": {
     "attributes": [
       "align",
       "content",
@@ -654,7 +654,7 @@
       "label",
       "span"
     ],
-    "description": "DescriptionItem\n\n描述项\n\n[docs](https://tdesign.tencent.com/vue-next/components/description-item)"
+    "description": "DescriptionsItem\n\n描述项\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions-item)"
   },
   "t-descriptions": {
     "attributes": [

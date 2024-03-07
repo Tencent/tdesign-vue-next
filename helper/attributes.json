@@ -2284,30 +2284,30 @@
     "type": "event",
     "description": "年份切换发生变化时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-range-picker-panel?tab=api#daterangepickerpanel-events)"
   },
-  "t-description-item/align": {
+  "t-descriptions-item/align": {
     "type": "String",
     "options": [
       "top",
       "middle",
       "bottom"
     ],
-    "description": "content align type\n\n内容垂直对齐方式，DescriptionItem.align 优先级高于 Descriptions.align\n\n[docs](https://tdesign.tencent.com/vue-next/components/description-item?tab=api#descriptionitem-props)"
+    "description": "content align type\n\n内容垂直对齐方式，DescriptionsItem.align 优先级高于 Descriptions.align\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsItem-props)"
   },
-  "t-description-item/content": {
+  "t-descriptions-item/content": {
     "type": "String|TNode",
-    "description": "content of description item\n\n描述项内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/description-item?tab=api#descriptionitem-props)"
+    "description": "content of description item\n\n描述项内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsItem-props)"
   },
-  "t-description-item/default": {
+  "t-descriptions-item/default": {
     "type": "String|TNode",
-    "description": "content of description item\n\n描述项内容，同 `content`\n\n[docs](https://tdesign.tencent.com/vue-next/components/description-item?tab=api#descriptionitem-props)"
+    "description": "content of description item\n\n描述项内容，同 `content`\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsItem-props)"
   },
-  "t-description-item/label": {
+  "t-descriptions-item/label": {
     "type": "String|TNode",
-    "description": "label of description item\n\n描述项标签\n\n[docs](https://tdesign.tencent.com/vue-next/components/description-item?tab=api#descriptionitem-props)"
+    "description": "label of description item\n\n描述项标签\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsItem-props)"
   },
-  "t-description-item/span": {
+  "t-descriptions-item/span": {
     "type": "Number",
-    "description": "width count\n\n占用的宽度数量\n\ndefault: 1\n\n[docs](https://tdesign.tencent.com/vue-next/components/description-item?tab=api#descriptionitem-props)"
+    "description": "width count\n\n占用的宽度数量\n\ndefault: 1\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsItem-props)"
   },
   "t-descriptions/align": {
     "type": "String",
@@ -2316,7 +2316,7 @@
       "middle",
       "bottom"
     ],
-    "description": "content align type\n\n内容垂直对齐方式，DescriptionItem.align 优先级高于 Descriptions.align\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions?tab=api#descriptions-props)"
+    "description": "content align type\n\n内容垂直对齐方式，DescriptionsItem.align 优先级高于 Descriptions.align\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions?tab=api#descriptions-props)"
   },
   "t-descriptions/bordered": {
     "type": "Boolean",
@@ -2328,7 +2328,7 @@
   },
   "t-descriptions/column": {
     "type": "Number",
-    "description": "count of DescriptionItem in one row\n\n一行 `DescriptionItem` 的数量\n\ndefault: 2\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions?tab=api#descriptions-props)"
+    "description": "count of DescriptionsItem in one row\n\n一行 `DescriptionsItem` 的数量\n\ndefault: 2\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions?tab=api#descriptions-props)"
   },
   "t-descriptions/content-style": {
     "type": "Object",
