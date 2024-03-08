@@ -1,7 +1,7 @@
 {
   "name": "tdesign-vue-next",
   "purename": "tdesign",
-  "version": "1.8.1",
+  "version": "1.9.0",
   "title": "tdesign-vue-next",
   "description": "TDesign Component for vue-next",
   "keywords": [
@@ -59,8 +59,7 @@
     "generate:component": "node script/init/index.js",
     "generate:coverage-badge": "npm run test:unit-coverage && node script/test/generate-coverage.js",
     "prebuild": "rimraf es/* esm/* lib/* cjs/* dist/* --glob",
-    "build": "cross-env NODE_ENV=production rollup -c script/rollup.config.js && npm run build:tsc && npm run build:nuxt-es",
-    "build:nuxt-es": "node script/build-nuxt.js",
+    "build": "cross-env NODE_ENV=production rollup -c script/rollup.config.js && npm run build:tsc",
     "build:tsc": "run-p build:tsc-*",
     "build:tsc-es": "tsc --emitDeclarationOnly -d --outDir es/",
     "build:tsc-esm": "tsc --emitDeclarationOnly -d --outDir esm/",

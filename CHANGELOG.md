@@ -5,6 +5,37 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.9.0 `2024-03-07` 
+### 🚀 Features
+- `Description`:
+  -  `layout` 类型定义调整为字符串多类型 @chaishi ([#3939](https://github.com/Tencent/tdesign-vue-next/pull/3939))
+  - 支持嵌套的描述组件([issue #3952](https://github.com/Tencent/tdesign-vue-next/issues/3952)) @zhangpaopao0609 ([#3970](https://github.com/Tencent/tdesign-vue-next/pull/3970))
+- `Form`: `trigger` 支持 `submit` @liweijie0812 ([#3910](https://github.com/Tencent/tdesign-vue-next/pull/3910))
+-  `Demo`: 支持 `Typescript` 代码示例 @chaishi @uyarn @RSS1102 @HaixingOoO  ([#3929](https://github.com/Tencent/tdesign-vue-next/pull/3929))
+- `Statistic`:  `color`黑色风格适配深色模式 [(common#1721)](https://github.com/Tencent/tdesign-common/pull/1721) @liweijie0812 ([#3910](https://github.com/Tencent/tdesign-vue-next/pull/3910))
+- `Slider`: 支持通过 `label=null` 或 `label=false` 隐藏滑块数字浮层 @chaishi ([#3997](https://github.com/Tencent/tdesign-vue-next/pull/3997))
+- `Table`: 支持全局配置 `size` @Lyan-u ([#3993](https://github.com/Tencent/tdesign-vue-next/pull/3993))
+- `Nuxt`: 移除产物中的nuxt module，调整为安装`@tdesign-vue-next/nuxt`使用，解决使用`es/nuxt`的功能异常的问题，详细使用方式请参考快速开始中的介绍 @uyarn @liweijie0812 ([#4001](https://github.com/Tencent/tdesign-vue-next/pull/4001))
+### 🐞 Bug Fixes
+- `Table`: 
+  - 修正虚拟滚动下 `footer` 的实现 @Cat1007 ([#3965](https://github.com/Tencent/tdesign-vue-next/pull/3965))
+  - 树形结构表格，修复同时异步设置 `data` 和 `expandedTreeNodes` 时，展开节点无效问题（延迟设置有效），[issue#3873](https://github.com/Tencent/tdesign-vue-next/issues/3873) @chaishi ([#3967](https://github.com/Tencent/tdesign-vue-next/pull/3967))
+  - 固定列表格，在 `Dialog` 中固定列宽度被挤压问题，[issue#3844](https://github.com/Tencent/tdesign-vue-next/issues/3844) @chaishi ([#3967](https://github.com/Tencent/tdesign-vue-next/pull/3967))
+  - 完善 `Table` 组件 `Typescript` 类型定义 @chaishi ([#3936](https://github.com/Tencent/tdesign-vue-next/pull/3936))
+  - 修复列拖拽排序问题 @chaishi ([#3968](https://github.com/Tencent/tdesign-vue-next/pull/3968))
+  - 修正在 `footer` 高度更新的场景下, `footer` 没有被正常刷新的问题 @Cat1007 ([#3975](https://github.com/Tencent/tdesign-vue-next/pull/3975))
+- `Drawer`: 修复 `closeBtn` 属性 `Boolean` 类型转换未生效的问题 @trojanyao ([#3427](https://github.com/Tencent/tdesign-vue-next/pull/3427))
+- `Form`: 校验判断不严谨的问题 @betavs ([#3960](https://github.com/Tencent/tdesign-vue-next/pull/3960))
+- `Select`: 修复select createAble 选中没有触发change事件问题 @hkaikai ([#3962](https://github.com/Tencent/tdesign-vue-next/pull/3962))
+- `Nuxt`: 修复在`nuxt`中使用 `Form` 组件无法正常构建的问题 @richardji202 ([#3977](https://github.com/Tencent/tdesign-vue-next/pull/3977))
+- `ColorPicker`: `color` 值未同步更新 @betavs ([#4005](https://github.com/Tencent/tdesign-vue-next/pull/4005))
+- `Drawer`: 修复 `closeBtn` 属性 `Boolean` 类型转换未生效的问题 @trojanyao ([#3427](https://github.com/Tencent/tdesign-vue-next/pull/3427))
+- `Affix`: 修正 `margin` 计算,避免出现 `error` @Cat1007 ([#3972](https://github.com/Tencent/tdesign-vue-next/pull/3972))
+
+### 🚧 Others
+- `Code`: 编辑器代码提示更新 @liweijie0812 ([#3927](https://github.com/Tencent/tdesign-vue-next/pull/3927))
+
+
 ## 🌈 1.8.1 `2024-01-31` 
 ### 🚀 Features
 - `Loading`: 支持自定义 `v-loading` 配置，具体参考示例代码 @uyarn ([#3911](https://github.com/Tencent/tdesign-vue-next/pull/3911))
