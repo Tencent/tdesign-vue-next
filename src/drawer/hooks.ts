@@ -36,7 +36,7 @@ export const useDrag = (props: TdDrawerProps) => {
     isSizeDragging.value = false;
   };
 
-  const handleMousemove = (e: DragEvent) => {
+  const handleMousemove = (e: MouseEvent) => {
     // 鼠标移动时计算draggedSizeValue的值
     const { x, y } = e;
     const maxHeight = document.documentElement.clientHeight;
