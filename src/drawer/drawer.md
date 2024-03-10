@@ -2,7 +2,6 @@
 
 ## API
 
-
 ### Drawer Props
 
 名称 | 类型 | 默认值 | 描述 | 必传
@@ -33,7 +32,7 @@ onCloseBtnClick | Function |  | TS 类型：`(context: { e: MouseEvent }) => voi
 onConfirm | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>如果“确认”按钮存在，则点击“确认”按钮时触发 | N
 onEscKeydown | Function |  | TS 类型：`(context: { e: KeyboardEvent }) => void`<br/>按下 ESC 键时触发 | N
 onOverlayClick | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>如果蒙层存在，点击蒙层时触发 | N
-onSizeDragEnd | Function |  | TS 类型：`(context: { e: DragEvent; size: number  }) => void`<br/>抽屉大小拖拽结束时触发，事件参数 `size` 在横向抽屉中表示宽度，在纵向抽屉中表示高度 | N
+onSizeDragEnd | Function |  | TS 类型：`(context: { e: MouseEvent; size: number  }) => void`<br/>抽屉大小拖拽结束时触发，事件参数 `size` 在横向抽屉中表示宽度，在纵向抽屉中表示高度 | N
 
 ### Drawer Events
 
@@ -45,7 +44,7 @@ close-btn-click | `(context: { e: MouseEvent })` | 如果关闭按钮存在，�
 confirm | `(context: { e: MouseEvent })` | 如果“确认”按钮存在，则点击“确认”按钮时触发
 esc-keydown | `(context: { e: KeyboardEvent })` | 按下 ESC 键时触发
 overlay-click | `(context: { e: MouseEvent })` | 如果蒙层存在，点击蒙层时触发
-size-drag-end | `(context: { e: DragEvent; size: number  })` | 抽屉大小拖拽结束时触发，事件参数 `size` 在横向抽屉中表示宽度，在纵向抽屉中表示高度
+size-drag-end | `(context: { e: MouseEvent; size: number  })` | 抽屉大小拖拽结束时触发，事件参数 `size` 在横向抽屉中表示宽度，在纵向抽屉中表示高度
 
 ### DrawerOptions
 

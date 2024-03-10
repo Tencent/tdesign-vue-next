@@ -2,7 +2,6 @@
 
 ## API
 
-
 ### Drawer Props
 
 name | type | default | description | required
@@ -33,7 +32,7 @@ onCloseBtnClick | Function |  | Typescript：`(context: { e: MouseEvent }) => vo
 onConfirm | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/> | N
 onEscKeydown | Function |  | Typescript：`(context: { e: KeyboardEvent }) => void`<br/> | N
 onOverlayClick | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/> | N
-onSizeDragEnd | Function |  | Typescript：`(context: { e: DragEvent; size: number  }) => void`<br/>trigger on size drag end | N
+onSizeDragEnd | Function |  | Typescript：`(context: { e: MouseEvent; size: number  }) => void`<br/>trigger on size drag end | N
 
 ### Drawer Events
 
@@ -45,7 +44,7 @@ close-btn-click | `(context: { e: MouseEvent })` | \-
 confirm | `(context: { e: MouseEvent })` | \-
 esc-keydown | `(context: { e: KeyboardEvent })` | \-
 overlay-click | `(context: { e: MouseEvent })` | \-
-size-drag-end | `(context: { e: DragEvent; size: number  })` | trigger on size drag end
+size-drag-end | `(context: { e: MouseEvent; size: number  })` | trigger on size drag end
 
 ### DrawerOptions
 
