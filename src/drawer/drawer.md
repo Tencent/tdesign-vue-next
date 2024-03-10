@@ -1,5 +1,41 @@
 :: BASE_DOC ::
 
+## FAQ
+
+### 为什么在 Drawer 中无法使用样式穿透？
+
+`Drawer` 组件在 `1.0.8` 之后使用 `Vue3` 的 [Teleport](https://cn.vuejs.org/guide/built-ins/teleport.html) 重构了 `attach` 属性的实现，因此 `:deep()` 深度选择器无法作用于 [Teleport](https://cn.vuejs.org/guide/built-ins/teleport.html) 包裹的元素。
+
+如果必须要进行样式替换，可以采用以下几种方案。
+
+方案一：单独创建一个不使用`scoped`的`style`标签
+```html
+<style>
+.test .t-radio-button__label {
+  color: red;
+}
+</style>
+```
+方案二：使用 `:global` 伪类来实现相同效果，比起单独创建一个`style`更加简洁明了。
+```html
+<style scoped>
+.abc{
+  color: red;
+}
+:global(.test .t-radio-button__label) {
+  color: red;
+}
+</style>
+```
+
+### 为什么使用 attach 属性挂载元素时会失败？
+
+`attach` 属性使用属性使用 `Vue3` 的 [Teleport](https://cn.vuejs.org/guide/built-ins/teleport.html) 实现，因此attach遵守[Teleport](https://cn.vuejs.org/guide/built-ins/teleport.html)的使用规则。
+
+> `Teleport` 挂载时，传送的 `to` 目标必须已经存在于 `DOM` 中。理想情况下，这应该是整个 `Vue` 应用 `DOM` 树外部的一个元素。如果目标元素也是由 `Vue` 渲染的，你需要确保在挂载 `Teleport` 之前先挂载该元素。
+
+如果您不确定问题是否是由该规则引起的，或者确定该规则不是问题的根本原因，请在 `GitHub` 上提出一个 `issue`，并提供可以重现问题的代码。这将有助于我们更好地了解您的问题并提供更好的帮助。
+
 ## API
 
 ### Drawer Props
