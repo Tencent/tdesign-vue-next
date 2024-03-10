@@ -10,7 +10,6 @@ import { TNode, Styles, AttachNode } from '../common';
 export interface TdDrawerProps {
   /**
    * 抽屉挂载的节点，默认挂在组件本身的位置。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body
-   * @default ''
    */
   attach?: AttachNode;
   /**
@@ -19,7 +18,6 @@ export interface TdDrawerProps {
   body?: string | TNode;
   /**
    * 取消按钮，可自定义。值为 null 则不显示取消按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制取消事件
-   * @default ''
    */
   cancelBtn?: FooterButton;
   /**
@@ -36,7 +34,6 @@ export interface TdDrawerProps {
   closeOnOverlayClick?: boolean;
   /**
    * 确认按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制确认事件
-   * @default ''
    */
   confirmBtn?: FooterButton;
   /**
@@ -88,10 +85,10 @@ export interface TdDrawerProps {
    */
   size?: string;
   /**
-   * 抽屉大小可拖拽调整，横向抽屉调整宽度，纵向抽屉调整高度
+   * 抽屉大小可拖拽调整，横向抽屉调整宽度，纵向抽屉调整高度。`sizeDraggable.max` 和 `sizeDraggable.min` 用于控制拖拽尺寸大小限制
    * @default false
    */
-  sizeDraggable?: boolean;
+  sizeDraggable?: boolean | SizeDragLimit;
   /**
    * 组件是否可见
    * @default false
@@ -125,6 +122,10 @@ export interface TdDrawerProps {
    * 如果蒙层存在，点击蒙层时触发
    */
   onOverlayClick?: (context: { e: MouseEvent }) => void;
+  /**
+   * 抽屉大小拖拽结束时触发，事件参数 `size` 在横向抽屉中表示宽度，在纵向抽屉中表示高度
+   */
+  onSizeDragEnd?: (context: { e: DragEvent; size: number }) => void;
 }
 
 export interface DrawerOptions extends Omit<TdDrawerProps, 'attach'> {
@@ -164,6 +165,11 @@ export interface DrawerInstance {
 }
 
 export type FooterButton = string | ButtonProps | TNode;
+
+export interface SizeDragLimit {
+  max: number;
+  min: number;
+}
 
 export type DrawerEventSource = 'esc' | 'close-btn' | 'cancel' | 'overlay';
 
