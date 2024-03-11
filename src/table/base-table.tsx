@@ -66,6 +66,7 @@ export default defineComponent({
     const { globalConfig } = useConfig('table', props.locale);
     const { isMultipleHeader, spansAndLeafNodes, thList } = useTableHeader(props);
     const finalColumns = computed(() => spansAndLeafNodes.value?.leafColumns || props.columns);
+    const tableSize = computed(() => props.size ?? globalConfig.value.size);
 
     const { showElement } = useElementLazyRender(tableRef, lazyLoad);
 
@@ -321,6 +322,7 @@ export default defineComponent({
       globalConfig,
       tableFootHeight,
       virtualScrollHeaderPos,
+      tableSize,
       tableWidth,
       tableElmWidth,
       tableRef,
@@ -476,7 +478,7 @@ export default defineComponent({
       resizable: this.resizable,
       columnResizeParams: this.columnResizeParams,
       classPrefix: this.classPrefix,
-      ellipsisOverlayClassName: this.size !== 'medium' ? this.sizeClassNames[this.size] : '',
+      ellipsisOverlayClassName: this.tableSize !== 'medium' ? this.sizeClassNames[this.tableSize] : '',
       attach: this.attach,
       showColumnShadow: this.showColumnShadow,
       thDraggable: this.thDraggable,
@@ -601,7 +603,7 @@ export default defineComponent({
     const { virtualConfig } = this;
     const tableBodyProps = {
       classPrefix: this.classPrefix,
-      ellipsisOverlayClassName: this.size !== 'medium' ? this.sizeClassNames[this.size] : '',
+      ellipsisOverlayClassName: this.tableSize !== 'medium' ? this.sizeClassNames[this.tableSize] : '',
       rowAndColFixedPosition,
       showColumnShadow: this.showColumnShadow,
       data: virtualConfig.isVirtualScroll.value ? virtualConfig.visibleData.value : data,
