@@ -64,7 +64,8 @@ export default defineComponent({
     );
     const { proxy } = getCurrentInstance();
 
-    const handleClick = () => {
+    const handleClick = (e: MouseEvent) => {
+      props.onClick?.(e);
       if (props.href) {
         window.location.href = props.href;
       }
@@ -79,7 +80,7 @@ export default defineComponent({
           props.href ? window.open(props.href) : window.open(props.to as string);
         } else {
           e.preventDefault();
-          handleClick();
+          handleClick(e);
         }
     };
 
