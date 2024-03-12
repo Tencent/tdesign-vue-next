@@ -212,6 +212,9 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
         const initHeightList: number[] = Array(params.value.data.length).fill(tScroll.value.rowHeight || 47);
         trHeightList = initHeightList;
       }
+
+      // 数据长度如果发生变化，裁剪高度记录的数组，避免算出异常的总高度
+      trHeightList = trHeightList.slice(0, params.value.data.length);
       scrollHeight.value = sum(trHeightList);
 
       // 清除记录的滚动顺序
