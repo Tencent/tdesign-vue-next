@@ -64,8 +64,7 @@ export default defineComponent({
     );
     const { proxy } = getCurrentInstance();
 
-    const handleClick = (e: MouseEvent) => {
-      props.onClick?.(e);
+    const handleClick = () => {
       if (props.href) {
         window.location.href = props.href;
       }
@@ -80,7 +79,7 @@ export default defineComponent({
           props.href ? window.open(props.href) : window.open(props.to as string);
         } else {
           e.preventDefault();
-          handleClick(e);
+          handleClick();
         }
     };
 
@@ -121,7 +120,7 @@ export default defineComponent({
         );
       }
       return (
-        <div class={itemClass} {...attrs}>
+        <div class={itemClass} {...attrs} onClick={!props.disabled && props.onClick}>
           {isCutOff.value ? <Tooltip content={() => slots?.default()}>{itemContent}</Tooltip> : itemContent}
           <span class={separatorClass.value}>
             {isFunction(separatorContent) ? separatorContent() : separatorContent}
