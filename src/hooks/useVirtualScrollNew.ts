@@ -206,15 +206,16 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
       // 有可能初始化时，resize 监听没触发，尝试设置初始化容器高度
       containerHeight.value = container.value.getBoundingClientRect().height;
 
-      // 暂时对于 table 和 tree 场景，信任之前缓存的行高
-      // 后续优化可能提供一个参数，进行监听从而清除记录的行高会更好
-      if (trHeightList.length === 0) {
-        const initHeightList: number[] = Array(params.value.data.length).fill(tScroll.value.rowHeight || 47);
+      if (trHeightList.length !== params.value.data.length) {
+        // 暂时对于 table 和 tree 场景，信任之前缓存的行高
+        // 后续优化可能提供一个参数，进行监听从而清除记录的行高会更好
+        const initHeightList: number[] = Array.from(trHeightList);
+        // 数据长度如果发生变化，裁剪高度记录的数组，避免算出异常的总高度
+        initHeightList.length = params.value.data.length;
+        initHeightList.fill(tScroll.value.rowHeight || 47);
         trHeightList = initHeightList;
       }
 
-      // 数据长度如果发生变化，裁剪高度记录的数组，避免算出异常的总高度
-      trHeightList = trHeightList.slice(0, params.value.data.length);
       scrollHeight.value = sum(trHeightList);
 
       // 清除记录的滚动顺序
