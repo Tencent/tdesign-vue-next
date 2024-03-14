@@ -284,7 +284,8 @@
       "replace",
       "router",
       "target",
-      "to"
+      "to",
+      "click"
     ],
     "description": "BreadcrumbItem\n\n面包屑项\n\n[docs](https://tdesign.tencent.com/vue-next/components/breadcrumb-item)"
   },
@@ -449,6 +450,7 @@
       "lazy-load",
       "name",
       "readonly",
+      "title",
       "value",
       "change"
     ],
@@ -683,6 +685,7 @@
       "confirm-on-enter",
       "default",
       "destroy-on-close",
+      "dialog-class-name",
       "draggable",
       "footer",
       "header",
@@ -749,7 +752,8 @@
       "close-btn-click",
       "confirm",
       "esc-keydown",
-      "overlay-click"
+      "overlay-click",
+      "size-drag-end"
     ],
     "description": "Drawer\n\n模态抽屉\n\n[docs](https://tdesign.tencent.com/vue-next/components/drawer)"
   },
