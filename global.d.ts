@@ -3,7 +3,7 @@
  * https://github.com/TDesignOteam/tdesign-api
  * eslint-disable
  * */
-declare module '@vue/runtime-core' {
+declare module 'vue' {
   export interface GlobalComponents {
     TAffix: typeof import('tdesign-vue-next')['Affix'];
     TAlert: typeof import('tdesign-vue-next')['Alert'];
