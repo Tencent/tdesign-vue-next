@@ -319,10 +319,17 @@ export default defineComponent({
         return node;
       });
     };
+
+    const getNestLabel = (data: TreeOptionData) => {
+      const properties = (realLabel.value as string).split('.');
+      const label = properties.reduce((pre, current) => pre[current], data);
+      return typeof label === 'string' ? label : '';
+    };
+
     const getTreeNode = (data: Array<TreeOptionData>, targetValue: TreeSelectValue): TreeSelectValue | null => {
       for (let i = 0, len = data.length; i < len; i++) {
         if (data[i][realValue.value] === targetValue) {
-          return { label: data[i][realLabel.value], value: data[i][realValue.value] };
+          return { label: getNestLabel(data[i]), value: data[i][realValue.value] };
         }
         if (data[i]?.[realChildren.value]) {
           const result = getTreeNode(data[i]?.[realChildren.value], targetValue);
