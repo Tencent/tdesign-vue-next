@@ -5,7 +5,7 @@ import omit from 'lodash/omit';
 
 import { useTNodeJSX } from '../../hooks/tnode';
 import { useFormDisabled } from '../../form/hooks';
-import { usePrefixClass, useConfig } from '../../hooks/useConfig';
+import { usePrefixClass } from '../../hooks/useConfig';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 import { TdDatePickerProps, DateValue } from '../type';
 import {
@@ -19,7 +19,6 @@ import useSingleValue from './useSingleValue';
 
 export default function useSingle(props: TdDatePickerProps) {
   const COMPONENT_NAME = usePrefixClass('date-picker');
-  const { globalConfig } = useConfig('datePicker');
   const { CalendarIcon } = useGlobalIcon({ CalendarIcon: TdCalendarIcon });
   const disabled = useFormDisabled();
   const renderTNodeJSX = useTNodeJSX();
@@ -49,7 +48,6 @@ export default function useSingle(props: TdDatePickerProps) {
     ref: inputRef,
     prefixIcon: () => renderTNodeJSX('prefixIcon'),
     readonly: !props.allowInput,
-    placeholder: props.placeholder || globalConfig.value.placeholder[props.mode],
     suffixIcon: () => {
       return renderTNodeJSX('suffixIcon') || <CalendarIcon />;
     },

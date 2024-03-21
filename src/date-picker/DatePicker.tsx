@@ -1,17 +1,19 @@
 import { defineComponent, computed, watch } from 'vue';
 import dayjs from 'dayjs';
-import { usePrefixClass } from '../hooks/useConfig';
 import isFunction from 'lodash/isFunction';
 
+import { useTNodeJSX } from '../hooks/tnode';
+import { usePrefixClass, useConfig } from '../hooks/useConfig';
 import { useFormDisabled } from '../form/hooks';
 import useSingle from './hooks/useSingle';
 import { parseToDayjs, getDefaultFormat, formatTime, formatDate } from '../_common/js/date-picker/format';
 import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-picker/utils';
-import type { DateValue } from './type';
 import props from './props';
-
 import TSelectInput from '../select-input';
 import TSinglePanel from './panel/SinglePanel';
+
+import type { TdDatePickerProps } from './type';
+import type { DateValue } from './type';
 
 export default defineComponent({
   name: 'TDatePicker',
@@ -39,6 +41,8 @@ export default defineComponent({
     } = useSingle(props);
 
     const disabled = useFormDisabled();
+    const renderTNodeJSX = useTNodeJSX();
+    const { globalConfig } = useConfig('datePicker');
 
     const formatRef = computed(() =>
       getDefaultFormat({
@@ -48,6 +52,12 @@ export default defineComponent({
         enableTimePicker: props.enableTimePicker,
       }),
     );
+    const valueDisplayParams = computed(() => {
+      return {
+        value: value.value,
+        displayValue: inputValue.value,
+      };
+    });
 
     watch(popupVisible, (visible) => {
       cacheValue.value = formatDate(value.value, {
@@ -245,7 +255,10 @@ export default defineComponent({
           clearable={props.clearable}
           popupProps={popupProps.value}
           inputProps={inputProps.value}
+          placeholder={props.placeholder || globalConfig.value.placeholder[props.mode]}
           popupVisible={popupVisible.value}
+          valueDisplay={() => renderTNodeJSX('valueDisplay', { params: valueDisplayParams.value })}
+          {...(props.selectInputProps as TdDatePickerProps['selectInputProps'])}
           panel={() => <TSinglePanel {...panelProps.value} />}
         />
       </div>
