@@ -73,7 +73,7 @@ function produceLoading(props: boolean | TdLoadingProps): LoadingInstance {
 
 export type LoadingPluginType = Plugin & LoadingMethod;
 
-const LoadingPlugin: LoadingPluginType = produceLoading as LoadingPluginType;
+export const LoadingPlugin: LoadingPluginType = produceLoading as LoadingPluginType;
 
 LoadingPlugin.install = (app: App) => {
   // eslint-disable-next-line no-param-reassign
