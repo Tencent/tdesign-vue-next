@@ -11,7 +11,7 @@ autoWidth | Boolean | false | \- | N
 autofocus | Boolean | false | \- | N
 borderless | Boolean | false | \- | N
 clearable | Boolean | false | \- | N
-collapsedItems | Slot / Function | - | Typescript：`TNode<{ value: SelectInputValue; collapsedTags: SelectInputValue; count: number; onClose: (context: { index: number, e?: MouseEvent }) => void }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+collapsedItems | Slot / Function | - | Typescript：`TNode<{ value: SelectInputValue; collapsedSelectedItems: SelectInputValue; count: number; onClose: (context: { index: number, e?: MouseEvent }) => void }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 disabled | Boolean | - | \- | N
 inputProps | Object | - | Typescript：`InputProps`，[Input API Documents](./input?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select-input/type.ts) | N
 inputValue | String / Number | - | input value。`v-model:inputValue` is supported。Typescript：`string` | N
