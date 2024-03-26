@@ -182,8 +182,6 @@ export interface TdTagInputProps {
 
 export type TagInputValue = Array<string | number>;
 
-export type TagInputValue = Array<string | number>;
-
 export interface TagInputChangeContext {
   trigger: TagInputTriggerSource;
   index?: number;

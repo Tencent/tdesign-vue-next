@@ -212,8 +212,6 @@ export interface SelectInputKeys {
 
 export type SelectInputValue = string | number | boolean | Date | Object | Array<any> | Array<SelectInputValue>;
 
-export type SelectInputValue = string | number | boolean | Date | Object | Array<any> | Array<SelectInputValue>;
-
 export type SelectInputBlurContext = PopupVisibleChangeContext & { inputValue: string; tagInputValue?: TagInputValue };
 
 export interface SelectInputFocusContext {

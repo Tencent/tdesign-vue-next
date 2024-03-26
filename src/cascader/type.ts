@@ -248,8 +248,6 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
 
 export type CascaderValue<T extends TreeOptionData = TreeOptionData> = string | number | T | Array<CascaderValue<T>>;
 
-export type CascaderValue<T extends TreeOptionData = TreeOptionData> = string | number | T | Array<CascaderValue<T>>;
-
 export interface CascaderChangeContext<CascaderOption> {
   node?: TreeNodeModel<CascaderOption>;
   source: CascaderChangeSource;
