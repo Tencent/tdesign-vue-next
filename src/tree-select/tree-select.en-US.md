@@ -1,7 +1,6 @@
 :: BASE_DOC ::
 
 ## API
-
 ### TreeSelect Props
 
 name | type | default | description | required
@@ -17,8 +16,8 @@ empty | String / Slot / Function | - | Typescript：`string \| TNode`。[see mor
 filter | Function | - | Typescript：`(filterWords: string, option: DataOption) => boolean` | N
 filterable | Boolean | false | \- | N
 inputProps | Object | - | Typescript：`InputProps`，[Input API Documents](./input?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tree-select/type.ts) | N
-inputValue | String / Number | - | input value。`v-model:inputValue` is supported。Typescript：`string` | N
-defaultInputValue | String / Number | - | input value。uncontrolled property。Typescript：`string` | N
+inputValue | String / Number | - | input value。`v-model:inputValue` is supported。Typescript：`string`，[Input API Documents](./input?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tree-select/type.ts) | N
+defaultInputValue | String / Number | - | input value。uncontrolled property。Typescript：`string`，[Input API Documents](./input?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tree-select/type.ts) | N
 keys | Object | - | alias filed name in data。Typescript：`TreeKeysType`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 label | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 loading | Boolean | false | \- | N
