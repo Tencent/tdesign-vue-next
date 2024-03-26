@@ -3515,7 +3515,7 @@
             },
             {
               "name": "collapsed-items",
-              "description": "多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`onClose` 表示关闭标签时触发的事件",
+              "description": "多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`collapsedTags` 表示折叠的标签，`count` 表示折叠的数量",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/cascader?tab=api#cascader-props",
               "type": [
                 "TNode"
@@ -3934,12 +3934,12 @@
           "slots": [
             {
               "name": "collapsedItems",
-              "description": "多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`onClose` 表示关闭标签时触发的事件类型和参数：TNode<{ value: CascaderOption[]; collapsedSelectedItems: CascaderOption[]; count: number }>",
+              "description": "多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`collapsedTags` 表示折叠的标签，`count` 表示折叠的数量类型和参数：TNode<{ value: CascaderOption[]; collapsedSelectedItems: CascaderOption[]; count: number }>",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/cascader?tab=api#cascader-props"
             },
             {
               "name": "collapsed-items",
-              "description": "多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`onClose` 表示关闭标签时触发的事件类型和参数：TNode<{ value: CascaderOption[]; collapsedSelectedItems: CascaderOption[]; count: number }>",
+              "description": "多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`collapsedTags` 表示折叠的标签，`count` 表示折叠的数量类型和参数：TNode<{ value: CascaderOption[]; collapsedSelectedItems: CascaderOption[]; count: number }>",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/cascader?tab=api#cascader-props"
             },
             {
@@ -14614,7 +14614,7 @@
             },
             {
               "name": "collapsed-items",
-              "description": "标签过多的情况下，折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 `collapsedItems` 自定义。`value` 表示所有标签值，`onClose` 表示关闭标签时触发的事件",
+              "description": "标签过多的情况下，折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 `collapsedItems` 自定义。`value` 表示所有标签值，`collapsedTags` 表示折叠标签值，`count` 表示折叠的数量",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/select-input?tab=api#selectinput-props",
               "type": [
                 "TNode"
@@ -14898,12 +14898,12 @@
           "slots": [
             {
               "name": "collapsedItems",
-              "description": "标签过多的情况下，折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 `collapsedItems` 自定义。`value` 表示所有标签值，`onClose` 表示关闭标签时触发的事件：TNode<{ value: SelectInputValue; collapsedTags: SelectInputValue; count: number }>",
+              "description": "标签过多的情况下，折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 `collapsedItems` 自定义。`value` 表示所有标签值，`collapsedTags` 表示折叠标签值，`count` 表示折叠的数量类型和参数：TNode<{ value: SelectInputValue; collapsedTags: SelectInputValue; count: number }>",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/select-input?tab=api#selectinput-props"
             },
             {
               "name": "collapsed-items",
-              "description": "标签过多的情况下，折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 `collapsedItems` 自定义。`value` 表示所有标签值，`onClose` 表示关闭标签时触发的事件：TNode<{ value: SelectInputValue; collapsedTags: SelectInputValue; count: number }>",
+              "description": "标签过多的情况下，折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 `collapsedItems` 自定义。`value` 表示所有标签值，`collapsedTags` 表示折叠标签值，`count` 表示折叠的数量类型和参数：TNode<{ value: SelectInputValue; collapsedTags: SelectInputValue; count: number }>",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/select-input?tab=api#selectinput-props"
             },
             {
@@ -16870,7 +16870,7 @@
             },
             {
               "name": "collapsed-items",
-              "description": "标签过多的情况下，折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`onClose` 表示关闭标签时触发的事件",
+              "description": "标签过多的情况下，折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`collapsedTags` 表示折叠的标签，`count` 表示折叠的数量",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/tag-input?tab=api#taginput-props",
               "type": [
                 "TNode"
@@ -17160,12 +17160,12 @@
           "slots": [
             {
               "name": "collapsedItems",
-              "description": "标签过多的情况下，折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`onClose` 表示关闭标签时触发的事件类型和参数：TNode<{ value: TagInputValue; collapsedTags: TagInputValue; count: number }>",
+              "description": "标签过多的情况下，折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`collapsedTags` 表示折叠的标签，`count` 表示折叠的数量类型和参数：TNode<{ value: TagInputValue; collapsedTags: TagInputValue; count: number }>",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/tag-input?tab=api#taginput-props"
             },
             {
               "name": "collapsed-items",
-              "description": "标签过多的情况下，折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`onClose` 表示关闭标签时触发的事件类型和参数：TNode<{ value: TagInputValue; collapsedTags: TagInputValue; count: number }>",
+              "description": "标签过多的情况下，折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`collapsedTags` 表示折叠的标签，`count` 表示折叠的数量类型和参数：TNode<{ value: TagInputValue; collapsedTags: TagInputValue; count: number }>",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/tag-input?tab=api#taginput-props"
             },
             {
@@ -19200,7 +19200,7 @@
             },
             {
               "name": "collapsed-items",
-              "description": "多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`onClose` 表示关闭标签时触发的事件",
+              "description": "多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`collapsedTags` 表示折叠的标签，`count` 表示折叠的数量",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/tree-select?tab=api#treeselect-props",
               "type": [
                 "TNode"
@@ -19589,12 +19589,12 @@
           "slots": [
             {
               "name": "collapsedItems",
-              "description": "多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`onClose` 表示关闭标签时触发的事件类型和参数：TNode<{ value: DataOption[]; collapsedSelectedItems: DataOption[]; count: number }>",
+              "description": "多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`collapsedTags` 表示折叠的标签，`count` 表示折叠的数量类型和参数：TNode<{ value: DataOption[]; collapsedSelectedItems: DataOption[]; count: number }>",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/tree-select?tab=api#treeselect-props"
             },
             {
               "name": "collapsed-items",
-              "description": "多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`onClose` 表示关闭标签时触发的事件类型和参数：TNode<{ value: DataOption[]; collapsedSelectedItems: DataOption[]; count: number }>",
+              "description": "多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`collapsedTags` 表示折叠的标签，`count` 表示折叠的数量类型和参数：TNode<{ value: DataOption[]; collapsedSelectedItems: DataOption[]; count: number }>",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/tree-select?tab=api#treeselect-props"
             },
             {
