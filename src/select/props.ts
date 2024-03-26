@@ -77,11 +77,6 @@ export default {
   options: {
     type: Array as PropType<TdSelectProps['options']>,
   },
-  /** 下拉选项布局方式，有纵向排列和横向排列两种，默认纵向排列 */
-  optionsLayout: {
-    type: String as PropType<TdSelectProps['optionsLayout']>,
-    default: 'vertical',
-  },
   /** 面板内的底部内容 */
   panelBottomContent: {
     type: [String, Function] as PropType<TdSelectProps['panelBottomContent']>,

@@ -113,11 +113,6 @@ export interface TdSelectProps<T extends SelectOption = SelectOption> {
    */
   options?: Array<T>;
   /**
-   * 下拉选项布局方式，有纵向排列和横向排列两种，默认纵向排列
-   * @default vertical
-   */
-  optionsLayout?: vertical | horizontal;
-  /**
    * 面板内的底部内容
    */
   panelBottomContent?: string | TNode;
