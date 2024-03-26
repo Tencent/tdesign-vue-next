@@ -25,7 +25,7 @@ export default {
     type: Boolean,
     default: undefined,
   },
-  /**  图片缩放相关配置。`imageScale.max` 缩放的最大比例；`imageScale.min` 缩放的最小比例；`imageScale.step` 缩放的步长速度 */
+  /**  图片缩放相关配置。`imageScale.max` 缩放的最大比例；`imageScale.min` 缩放的最小比例；`imageScale.step` 缩放的步长速度；`imageScale.defaultScale` 默认的缩放比例 */
   imageScale: {
     type: Object as PropType<TdImageViewerProps['imageScale']>,
   },

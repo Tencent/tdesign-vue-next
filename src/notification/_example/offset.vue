@@ -11,10 +11,7 @@ const showInOffset = () => {
   NotifyPlugin({
     title: '标题名称',
     content: '这是一条可以自动关闭的消息通知',
-    offset: {
-      top: 30,
-      right: 30,
-    },
+    offset: [30, 30],
     duration: 3000,
   });
 };
@@ -24,10 +21,7 @@ const showInOffset2 = () => {
     title: '标题名称',
     content: '这是一条可以自动关闭的消息通知',
     placement: 'top-left',
-    offset: {
-      top: 30,
-      left: 30,
-    },
+    offset: [30, 30],
     duration: 3000,
   });
 };

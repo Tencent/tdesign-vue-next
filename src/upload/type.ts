@@ -203,7 +203,7 @@ export interface TdUploadProps<T extends UploadFile = UploadFile> {
     | TNode<{ disabled: boolean; uploading: boolean; uploadFiles: () => void; uploadText: string }>;
   /**
    * 是否允许粘贴上传剪贴板中的文件
-   * @default false
+   * @default true
    */
   uploadPastedFiles?: boolean;
   /**

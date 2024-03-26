@@ -106,8 +106,9 @@ export default defineComponent({
 
     expose({
       innerRef,
-      visibleData,
+      visibleData, // 虚拟滚动的展示数据
       isVirtual,
+      displayOptions, // 非虚拟滚动的展示数据
     });
 
     const renderPanel = (options: SelectOption[], extraStyle?: Styles) => (
@@ -119,7 +120,6 @@ export default defineComponent({
         ]}
         style={extraStyle}
       >
-        {}
         {/* create option */}
         {showCreateOption.value && renderCreateOption()}
         {/* loading状态 */}

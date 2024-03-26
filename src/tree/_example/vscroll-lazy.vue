@@ -23,24 +23,24 @@
   </t-space>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue';
 const allLevels = [5, 5, 5];
-
 function createTreeData() {
   let cacheIndex = 0;
-
   function getValue() {
     cacheIndex += 1;
     return `t${cacheIndex}`;
   }
-
   function createNodes(items, level) {
     const count = allLevels[level];
     if (count) {
       let index = 0;
       for (index = 0; index < count; index += 1) {
         const value = getValue();
-        const item = { value };
+        const item = {
+          value,
+        };
         items.push(item);
         if (allLevels[level + 1]) {
           item.children = [];
@@ -49,28 +49,16 @@ function createTreeData() {
       }
     }
   }
-
   const items = [];
   createNodes(items, 0);
-
   return {
     getValue,
     items,
   };
 }
-
 const lazyTree = createTreeData();
-
-export default {
-  data() {
-    return {
-      lazyItems: lazyTree.items,
-    };
-  },
-  methods: {
-    label(createElement, node) {
-      return `${node.value}`;
-    },
-  },
+const lazyItems = ref(lazyTree.items);
+const label = (h, node) => {
+  return `${node.value}`;
 };
 </script>

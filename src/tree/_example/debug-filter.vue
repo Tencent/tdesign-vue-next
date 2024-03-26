@@ -27,7 +27,8 @@
   </t-space>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue';
 const exampleItems = [
   {
     value: '1',
@@ -118,35 +119,26 @@ const exampleItems = [
     ],
   },
 ];
-
-export default {
-  data() {
-    return {
-      isCheckable: false,
-      filterText: '',
-      filterByText: null,
-      expanded: ['1.1.1'],
-      allowFoldNodeOnFilter: false,
-      items: exampleItems,
+const isCheckable = ref(false);
+const filterText = ref('');
+const filterByText = ref(null);
+const expanded = ref(['1.1.1']);
+const allowFoldNodeOnFilter = ref(false);
+const items = ref(exampleItems);
+const onInput = (state) => {
+  console.info('onInput:', state);
+  if (filterText.value) {
+    // 存在过滤文案，才启用过滤
+    filterByText.value = (node) => {
+      const rs = node.data.label.indexOf(filterText.value) >= 0;
+      // 命中的节点会强制展示
+      // 命中节点的路径节点会锁定展示
+      // 未命中的节点会隐藏
+      return rs;
     };
-  },
-  methods: {
-    onInput(state) {
-      console.info('onInput:', state);
-      if (this.filterText) {
-        // 存在过滤文案，才启用过滤
-        this.filterByText = (node) => {
-          const rs = node.data.label.indexOf(this.filterText) >= 0;
-          // 命中的节点会强制展示
-          // 命中节点的路径节点会锁定展示
-          // 未命中的节点会隐藏
-          return rs;
-        };
-      } else {
-        // 过滤文案为空，则还原 tree 为无过滤状态
-        this.filterByText = null;
-      }
-    },
-  },
+  } else {
+    // 过滤文案为空，则还原 tree 为无过滤状态
+    filterByText.value = null;
+  }
 };
 </script>

@@ -109,8 +109,8 @@ export function useTreeDataExpand(
     return [...data];
   }
 
-  watch([tExpandedTreeNode], ([tExpandedTreeNode], [oldExpandedTreeNode]) => {
-    if (!store.value.treeDataMap.size) return;
+  watch([tExpandedTreeNode, data], ([tExpandedTreeNode], [oldExpandedTreeNode]) => {
+    if (!store.value.treeDataMap.size || !data.value.length) return;
     if (changedExpandTreeNode.value.type === 'user-reaction-change') {
       const { row, rowIndex } = changedExpandTreeNode.value || {};
       dataSource.value = [...store.value.toggleExpandData({ row, rowIndex }, [...dataSource.value], rowDataKeys.value)];

@@ -120,14 +120,14 @@ const { TDesignResolver } = require('unplugin-vue-components/resolvers');
 module.exports = {
   // ...
   plugins: [
-    AutoImport({
+    AutoImport.default({
       resolvers: [
         TDesignResolver({
           library: 'vue-next',
         }),
       ],
     }),
-    Components({
+    Components.default({
       resolvers: [
         TDesignResolver({
           library: 'vue-next',
@@ -142,12 +142,26 @@ module.exports = {
 
 ### Use tdesign-vue-next in Nuxt3
 
+In Nuxt 3, you can install the Nuxt module @tdesign-vue-next/nuxt
+
+```bash
+npm install tdesign-vue-next
+npm install -D @tdesign-vue-next/nuxt
+```
+
+You can also adjust specific configurations in the Nuxt config through tdesign. For configurable content, please refer to [@tdesign-vue-next/nuxt](https://www.npmjs.com/package/@tdesign-vue-next/nuxt)
+
 ```js
 export default defineNuxtConfig({
   modules: [
     // ...
-    'tdesign-vue-next/es/nuxt',
+    '@tdesign-vue-next/nuxt',
   ],
+  // configuration for  @tdesign-vue-next/nuxt
+  // tdesign: {
+  //   resolveIcons: true
+  //   ...
+  // }
 });
 ```
 

@@ -24,7 +24,7 @@ export default function useRowSelect(
   props: TdPrimaryTableProps,
   tableSelectedClasses: TableClassName['tableSelectedClasses'],
 ) {
-  const { selectedRowKeys, columns, rowKey, data, pagination, reserveSelectedRowOnPaginate } = toRefs(props);
+  const { selectedRowKeys, columns, rowKey, data, reserveSelectedRowOnPaginate } = toRefs(props);
   const currentPaginateData = ref<TableRowData[]>(data.value);
   const selectedRowClassNames = ref();
   const [tSelectedRowKeys, setTSelectedRowKeys] = useDefaultValue(
@@ -35,6 +35,7 @@ export default function useRowSelect(
   );
   const selectedRowDataMap = ref(new Map<string | number, TableRowData>());
   const selectColumn = computed(() => props.columns.find(({ type }) => ['multiple', 'single'].includes(type)));
+  const selectionType = computed(() => props.rowSelectionType || selectColumn.value?.type || 'single');
   const canSelectedRows = computed(() => {
     const currentData = reserveSelectedRowOnPaginate.value ? data.value : currentPaginateData.value;
     return currentData.filter((row, rowIndex): boolean => !isDisabled(row, rowIndex));
@@ -48,23 +49,11 @@ export default function useRowSelect(
   );
 
   const allowUncheck = computed(() => {
-    const singleSelectCol = columns.value.find((col) => col.type === 'single');
-    if (!singleSelectCol || !singleSelectCol.checkProps || !('allowUncheck' in singleSelectCol.checkProps))
-      return false;
-    return singleSelectCol.checkProps.allowUncheck;
+    if (props.rowSelectionAllowUncheck) return true;
+    const singleSelectCol = selectionType.value === 'single';
+    if (!singleSelectCol || !selectColumn.value || !('allowUncheck' in selectColumn.value?.checkProps)) return false;
+    return selectColumn.value.checkProps.allowUncheck;
   });
-
-  watch(
-    [data, pagination, reserveSelectedRowOnPaginate],
-    () => {
-      if (reserveSelectedRowOnPaginate.value) return;
-      const { pageSize, current, defaultPageSize, defaultCurrent } = pagination.value;
-      const tPageSize = pageSize || defaultPageSize;
-      const tCurrent = current || defaultCurrent;
-      currentPaginateData.value = data.value.slice(tPageSize * (tCurrent - 1), tPageSize * tCurrent);
-    },
-    { immediate: true },
-  );
 
   watch(
     [data, columns, tSelectedRowKeys, selectColumn, rowKey],
@@ -151,9 +140,9 @@ export default function useRowSelect(
     const id = get(row, reRowKey);
     const selectedRowIndex = selectedRowKeys.indexOf(id);
     const isExisted = selectedRowIndex !== -1;
-    if (selectColumn.value.type === 'multiple') {
+    if (selectionType.value === 'multiple') {
       isExisted ? selectedRowKeys.splice(selectedRowIndex, 1) : selectedRowKeys.push(id);
-    } else if (selectColumn.value.type === 'single') {
+    } else if (selectionType.value === 'single') {
       selectedRowKeys = isExisted && allowUncheck.value ? [] : [id];
     } else {
       log.warn('Table', '`column.type` must be one of `multiple` and `single`');
@@ -193,13 +182,15 @@ export default function useRowSelect(
 
   const onInnerSelectRowClick: TdPrimaryTableProps['onRowClick'] = ({ row, index }) => {
     const selectedColIndex = props.columns.findIndex((item) => item.colKey === 'row-select');
-    if (selectedColIndex === -1) return;
-    const { disabled } = getRowSelectDisabledData({
-      row,
-      rowIndex: index,
-      col: props.columns[selectedColIndex],
-      colIndex: selectedColIndex,
-    });
+    let disabled = false;
+    if (selectedColIndex !== -1) {
+      disabled = getRowSelectDisabledData({
+        row,
+        rowIndex: index,
+        col: props.columns[selectedColIndex],
+        colIndex: selectedColIndex,
+      })?.disabled;
+    }
     if (disabled) return;
     handleSelectChange(row);
   };
@@ -215,7 +206,7 @@ export default function useRowSelect(
   );
 
   // 是否开启了行选中功能
-  const showRowSelect = computed(() => !!selectColumn.value);
+  const showRowSelect = computed(() => Boolean(selectColumn.value || props.selectOnRowClick || props.selectedRowKeys));
 
   const clearAllSelectedRowKeys = () => {
     setTSelectedRowKeys([], {
@@ -239,7 +230,7 @@ export default function useRowSelect(
       return;
     }
 
-    if (selectColumn.value?.type === 'single') {
+    if (selectionType.value === 'single') {
       if (action === 'space-one-selection') {
         handleSelectChange(activeRowList[0].row);
       }

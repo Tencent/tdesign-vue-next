@@ -40,7 +40,7 @@ export default function useTreeAction(state: TypeTreeState) {
     });
     setTExpanded(expanded, evtCtx);
     if (evtCtx.trigger !== 'setItem') {
-      store.replaceExpanded(tExpanded.value as TreeNodeValue[]);
+      store.replaceExpanded((tExpanded.value || []) as TreeNodeValue[]);
     }
     return expanded;
   };
@@ -62,11 +62,12 @@ export default function useTreeAction(state: TypeTreeState) {
       evtCtx.trigger = 'node-click';
     }
     const actived = node.setActived(isActived, {
+      isAction: evtCtx.trigger === 'node-click',
       directly: true,
     });
     setTActived(actived, evtCtx);
     if (evtCtx.trigger !== 'setItem') {
-      store.replaceActived(tActived.value as TreeNodeValue[]);
+      store.replaceActived((tActived.value || []) as TreeNodeValue[]);
     }
     return actived;
   };
@@ -88,18 +89,23 @@ export default function useTreeAction(state: TypeTreeState) {
       evtCtx.trigger = 'node-click';
     }
     const checked = node.setChecked(isChecked, {
+      isAction: evtCtx.trigger === 'node-click',
       directly: true,
     });
     setTValue(checked, evtCtx);
     // 这是针对受控执行的操作，如果 props.value 未变更，则执行还原操作
     if (evtCtx.trigger !== 'setItem') {
-      store.replaceChecked(tValue.value as TreeNodeValue[]);
+      store.replaceChecked((tValue.value || []) as TreeNodeValue[]);
     }
     return checked;
   };
 
   const toggleChecked = (item: TypeTargetNode, ctx: { e: Event }): TreeNodeValue[] => {
     const node = getNode(store, item);
+    if (node.isIndeterminate()) {
+      const expectState = node.hasEnableUnCheckedChild();
+      return setChecked(node, expectState, ctx);
+    }
     return setChecked(node, !node.isChecked(), ctx);
   };
 

@@ -81,6 +81,7 @@ getPath | `(value: TreeNodeValue)` | `TreeNodeModel<T>[]` | 必需。自下而�
 getTreeData | `(value?: TreeNodeValue)` | `Array<T>` | 必需。获取某节点的全部树形结构；参数为空，则表示获取整棵树的结构数据，泛型 `T` 表示树节点 TS 类型
 insertAfter | `(value: TreeNodeValue, newData: T)` | \- | 必需。插入新节点到指定节点后面，泛型 `T` 表示树节点 TS 类型
 insertBefore | `(value: TreeNodeValue, newData: T)` | \- | 必需。插入新节点到指定节点前面，泛型 `T` 表示树节点 TS 类型
+refresh | \- | \- | 必需。刷新树节点状态，可用于搜索场景刷新
 remove | `(value: TreeNodeValue)` | \- | 必需。移除指定节点
 scrollTo | `(scrollToParams: ScrollToElementParams)` | \- | 虚拟滚动场景下 支持指定滚动到具体的节点
 setItem | `(value: TreeNodeValue, options: TreeNodeState)` | \- | 必需。设置节点状态
@@ -110,12 +111,12 @@ visible | Boolean | false | 节点是否可视 | N
 actived | Boolean | - | 必需。当前节点是否处于高亮激活态 | Y
 checked | Boolean | - | 必需。当前节点是否被选中 | Y
 data | Object | - | 必需。节点数据，泛型 `T` 表示树节点 TS 类型，继承 `TreeOptionData`。TS 类型：`T` | Y
+disabled | Boolean | - | 必需。禁用状态 | Y
 expanded | Boolean | - | 必需。当前节点是否展开 | Y
 indeterminate | Boolean | - | 必需。当前节点是否处于半选状态 | Y
 loading | Boolean | - | 必需。当前节点是否处于加载中状态 | Y
 `TreeNodeState` | \- | - | 继承 `TreeNodeState` 中的全部属性 | N
-
-### TreeNodeModelFunctions
+### TreeNodeModel
 
 名称 | 参数 | 返回值 | 描述
 -- | -- | -- | --

@@ -45,7 +45,7 @@
             },
             {
               "name": "offset-bottom",
-              "description": " 距离容器顶部达到指定距离后触发固定",
+              "description": "When the distance from the bottom of the container reaches the specified distance, the trigger is fixed\n\n 距离容器底部达到指定距离后触发固定",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/affix?tab=api#affix-props",
               "type": [
                 "Number"
@@ -54,7 +54,7 @@
             },
             {
               "name": "offset-top",
-              "description": " 距离容器底部达到指定距离后触发固定",
+              "description": "When the distance from the top of the container reaches the specified distance, the trigger is fixed\n\n 距离容器顶部达到指定距离后触发固定",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/affix?tab=api#affix-props",
               "type": [
                 "Number"
@@ -278,6 +278,14 @@
               "doc-url": "https://tdesign.tencent.com/vue-next/components/anchor?tab=api#anchor-props",
               "type": [
                 "TNode"
+              ]
+            },
+            {
+              "name": "get-current-anchor",
+              "description": "Custom Highlighted Anchor Points\n\n自定义高亮的锚点\t",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/anchor?tab=api#anchor-props",
+              "type": [
+                "Function"
               ]
             },
             {
@@ -1248,6 +1256,23 @@
           "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table",
           "props": [
             {
+              "name": "active-row-keys",
+              "description": "keys of highlight rows, used to mock area selection behavior, just like macOS or windows area selection\n\n高亮行，支持鼠标键盘操作(Shift)连续高亮行，可用于处理行选中等批量操作，模拟操作系统区域选择行为",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props",
+              "type": [
+                "Array"
+              ],
+              "default": "[]"
+            },
+            {
+              "name": "active-row-type",
+              "description": "make nodes can be highlight on clicked\n\n默认不会高亮点击行，`activeRowType=single` 表示鼠标点击仅允许同时高亮一行，Shift 键盘操作加鼠标操作依然可以高亮多行，因为这属于明显的区域选择行为。`activeRowType= multiple ` 表示允许鼠标点击同时高亮多行",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props",
+              "type": [
+                "String"
+              ]
+            },
+            {
               "name": "allow-resize-column-width",
               "description": "allow to resize column width\n\n是否允许调整列宽。请更为使用 `resizable`",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props",
@@ -1318,6 +1343,15 @@
                 "Boolean"
               ],
               "default": "false"
+            },
+            {
+              "name": "disable-space-inactive-row",
+              "description": "can not set row to be inactive with Space keydown\n\n默认重复按下 Space 键可取消当前行高亮，是否禁用取消",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props",
+              "type": [
+                "Boolean"
+              ],
+              "default": "undefined"
             },
             {
               "name": "empty",
@@ -1428,6 +1462,15 @@
               "default": "false"
             },
             {
+              "name": "keyboard-row-hover",
+              "description": "make table row to be hover by keydown ArrowUp/ArrowDown\n\n键盘操作行显示悬浮效果，一般用于键盘操作行选中、行展开、行高亮等功能",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props",
+              "type": [
+                "Boolean"
+              ],
+              "default": "true"
+            },
+            {
               "name": "last-full-row",
               "description": "尾行内容，横跨所有列",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props",
@@ -1435,6 +1478,15 @@
                 "String",
                 "TNode"
               ]
+            },
+            {
+              "name": "lazy-load",
+              "description": "load table content when it entering the visible area, all elements in table are not rendered before it become visible\n\n是否启用整个表格元素的懒加载，当页面滚动到可视区域后再渲染表格。注意和表格内部行滚动懒加载的区别，内部行滚动无论表格是否在可视区域都会默认渲染第一屏的行元素",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props",
+              "type": [
+                "Boolean"
+              ],
+              "default": "false"
             },
             {
               "name": "loading",
@@ -1449,6 +1501,14 @@
             {
               "name": "loading-props",
               "description": "透传加载组件全部属性",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "locale",
+              "description": "table locale config\n\n语言配置",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props",
               "type": [
                 "Object"
@@ -1482,7 +1542,7 @@
             },
             {
               "name": "resizable",
-              "description": "allow to resize column width\n\n是否允许调整列宽。如果想要配置宽度可调整的最小值和最大值，请使用 `column.resize`，示例：`columns: [{ resize: { minWidth: 120, maxWidth: 300 } }]`。<br/> 默认规则：因列宽超出存在横向滚动条时，列宽调整仅影响当前列宽和总列宽；表格列较少没有横向滚动条时，列宽调整表现为自身宽度和相邻宽度变化",
+              "description": "allow to resize column width, set `tableLayout=fixed` would be better\n\n是否允许调整列宽，设置 `tableLayout=fixed` 效果更友好，此时不允许通过 CSS 设置 `table`元素宽度，也不允许设置 `tableContentWidth`。一般不建议在列宽调整场景使用 `tableLayout: auto`。如果想要配置宽度可调整的最小值和最大值，请使用 `column.resize`，示例：`columns: [{ resize: { minWidth: 120, maxWidth: 300 } }]`。<br/> 默认规则：因列宽超出存在横向滚动条时，列宽调整仅影响当前列宽和总列宽；表格列较少没有横向滚动条时，列宽调整表现为自身宽度和相邻宽度变化",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props",
               "type": [
                 "Boolean"
@@ -1554,12 +1614,11 @@
             },
             {
               "name": "size",
-              "description": "表格尺寸",
+              "description": "table size, support `GlobalConfigProvider`, default value is `medium`\n\n表格尺寸，支持全局配置 `GlobalConfigProvider`，默认全局配置值为 `medium`",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props",
               "type": [
                 "String"
               ],
-              "default": "medium",
               "attribute-value": {
                 "type": "enum"
               },
@@ -1594,7 +1653,7 @@
             },
             {
               "name": "table-layout",
-              "description": "table-layout css properties\n\n表格布局方式",
+              "description": "table-layout css properties, [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout). set value to be `fixed` on `resizable=true` please\n\n表格布局方式，`<table>` 元素原生属性。[MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout)。注意，在列宽调整下场景只能使用 `fixed` 模式",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props",
               "type": [
                 "String"
@@ -1647,6 +1706,16 @@
           ],
           "js": {
             "events": [
+              {
+                "name": "active-change",
+                "description": "trigger on row active change\n\n高亮行发生变化时触发，泛型 T 指表格数据类型。参数 `activeRowList` 表示所有高亮行数据， `currentRowData` 表示当前操作行数据",
+                "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-events"
+              },
+              {
+                "name": "active-row-action",
+                "description": "keyboard operation event actions. used to mock selection behavior, just like macOS or windows\n\n键盘操作事件。开启行高亮功能后，会自动开启键盘操作功能，如：通过键盘(Shift)或鼠标操作连续选中高亮行时触发，一般用于处理行选中等批量操作，模拟操作系统区域选择行为",
+                "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-events"
+              },
               {
                 "name": "cell-click",
                 "description": "trigger on cell clicked\n\n单元格点击时触发",
@@ -1796,6 +1865,23 @@
           "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table",
           "props": [
             {
+              "name": "active-row-keys",
+              "description": "keys of highlight rows, used to mock area selection behavior, just like macOS or windows area selection\n\n高亮行，支持鼠标键盘操作(Shift)连续高亮行，可用于处理行选中等批量操作，模拟操作系统区域选择行为",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props",
+              "type": [
+                "Array"
+              ],
+              "default": "[]"
+            },
+            {
+              "name": "active-row-type",
+              "description": "make nodes can be highlight on clicked\n\n默认不会高亮点击行，`activeRowType=single` 表示鼠标点击仅允许同时高亮一行，Shift 键盘操作加鼠标操作依然可以高亮多行，因为这属于明显的区域选择行为。`activeRowType= multiple ` 表示允许鼠标点击同时高亮多行",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props",
+              "type": [
+                "String"
+              ]
+            },
+            {
               "name": "allow-resize-column-width",
               "description": "allow to resize column width\n\n是否允许调整列宽。请更为使用 `resizable`",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props",
@@ -1866,6 +1952,15 @@
                 "Boolean"
               ],
               "default": "false"
+            },
+            {
+              "name": "disable-space-inactive-row",
+              "description": "can not set row to be inactive with Space keydown\n\n默认重复按下 Space 键可取消当前行高亮，是否禁用取消",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props",
+              "type": [
+                "Boolean"
+              ],
+              "default": "undefined"
             },
             {
               "name": "empty",
@@ -1976,6 +2071,15 @@
               "default": "false"
             },
             {
+              "name": "keyboard-row-hover",
+              "description": "make table row to be hover by keydown ArrowUp/ArrowDown\n\n键盘操作行显示悬浮效果，一般用于键盘操作行选中、行展开、行高亮等功能",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props",
+              "type": [
+                "Boolean"
+              ],
+              "default": "true"
+            },
+            {
               "name": "last-full-row",
               "description": "尾行内容，横跨所有列",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props",
@@ -1983,6 +2087,15 @@
                 "String",
                 "TNode"
               ]
+            },
+            {
+              "name": "lazy-load",
+              "description": "load table content when it entering the visible area, all elements in table are not rendered before it become visible\n\n是否启用整个表格元素的懒加载，当页面滚动到可视区域后再渲染表格。注意和表格内部行滚动懒加载的区别，内部行滚动无论表格是否在可视区域都会默认渲染第一屏的行元素",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props",
+              "type": [
+                "Boolean"
+              ],
+              "default": "false"
             },
             {
               "name": "loading",
@@ -1997,6 +2110,14 @@
             {
               "name": "loading-props",
               "description": "透传加载组件全部属性",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "locale",
+              "description": "table locale config\n\n语言配置",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props",
               "type": [
                 "Object"
@@ -2030,7 +2151,7 @@
             },
             {
               "name": "resizable",
-              "description": "allow to resize column width\n\n是否允许调整列宽。如果想要配置宽度可调整的最小值和最大值，请使用 `column.resize`，示例：`columns: [{ resize: { minWidth: 120, maxWidth: 300 } }]`。<br/> 默认规则：因列宽超出存在横向滚动条时，列宽调整仅影响当前列宽和总列宽；表格列较少没有横向滚动条时，列宽调整表现为自身宽度和相邻宽度变化",
+              "description": "allow to resize column width, set `tableLayout=fixed` would be better\n\n是否允许调整列宽，设置 `tableLayout=fixed` 效果更友好，此时不允许通过 CSS 设置 `table`元素宽度，也不允许设置 `tableContentWidth`。一般不建议在列宽调整场景使用 `tableLayout: auto`。如果想要配置宽度可调整的最小值和最大值，请使用 `column.resize`，示例：`columns: [{ resize: { minWidth: 120, maxWidth: 300 } }]`。<br/> 默认规则：因列宽超出存在横向滚动条时，列宽调整仅影响当前列宽和总列宽；表格列较少没有横向滚动条时，列宽调整表现为自身宽度和相邻宽度变化",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props",
               "type": [
                 "Boolean"
@@ -2102,12 +2223,11 @@
             },
             {
               "name": "size",
-              "description": "表格尺寸",
+              "description": "table size, support `GlobalConfigProvider`, default value is `medium`\n\n表格尺寸，支持全局配置 `GlobalConfigProvider`，默认全局配置值为 `medium`",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props",
               "type": [
                 "String"
               ],
-              "default": "medium",
               "attribute-value": {
                 "type": "enum"
               },
@@ -2142,7 +2262,7 @@
             },
             {
               "name": "table-layout",
-              "description": "table-layout css properties\n\n表格布局方式",
+              "description": "table-layout css properties, [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout). set value to be `fixed` on `resizable=true` please\n\n表格布局方式，`<table>` 元素原生属性。[MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout)。注意，在列宽调整下场景只能使用 `fixed` 模式",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props",
               "type": [
                 "String"
@@ -2195,6 +2315,16 @@
           ],
           "js": {
             "events": [
+              {
+                "name": "active-change",
+                "description": "trigger on row active change\n\n高亮行发生变化时触发，泛型 T 指表格数据类型。参数 `activeRowList` 表示所有高亮行数据， `currentRowData` 表示当前操作行数据",
+                "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-events"
+              },
+              {
+                "name": "active-row-action",
+                "description": "keyboard operation event actions. used to mock selection behavior, just like macOS or windows\n\n键盘操作事件。开启行高亮功能后，会自动开启键盘操作功能，如：通过键盘(Shift)或鼠标操作连续选中高亮行时触发，一般用于处理行选中等批量操作，模拟操作系统区域选择行为",
+                "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-events"
+              },
               {
                 "name": "cell-click",
                 "description": "trigger on cell clicked\n\n单元格点击时触发",
@@ -2507,6 +2637,15 @@
               ]
             }
           ],
+          "js": {
+            "events": [
+              {
+                "name": "click",
+                "description": "trigger on click\n\n点击时触发",
+                "doc-url": "https://tdesign.tencent.com/vue-next/components/breadcrumb-item?tab=api#breadcrumbitem-events"
+              }
+            ]
+          },
           "slots": [
             {
               "name": "content",
@@ -3170,13 +3309,21 @@
             },
             {
               "name": "loading",
-              "description": "加载状态，值为 true 会根据不同的布局显示不同的加载状态，值为 false 则表示非加载状态。也可以使用 Sketon 组件完全自定义加载态呈现内容",
+              "description": "加载状态，值为 true 会根据不同的布局显示不同的加载状态，值为 false 则表示非加载状态。也可以使用 Skeleton 组件完全自定义加载态呈现内容",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/card?tab=api#card-props",
               "type": [
                 "Boolean",
                 "TNode"
               ],
               "default": "false"
+            },
+            {
+              "name": "loading-props",
+              "description": "Loading Component Props\n\n透传加载组件(Loading)全部属性",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/card?tab=api#card-props",
+              "type": [
+                "Object"
+              ]
             },
             {
               "name": "shadow",
@@ -3300,7 +3447,7 @@
             },
             {
               "name": "loading",
-              "description": "加载状态，值为 true 会根据不同的布局显示不同的加载状态，值为 false 则表示非加载状态。也可以使用 Sketon 组件完全自定义加载态呈现内容类型和参数：boolean | TNode",
+              "description": "加载状态，值为 true 会根据不同的布局显示不同的加载状态，值为 false 则表示非加载状态。也可以使用 Skeleton 组件完全自定义加载态呈现内容类型和参数：boolean | TNode",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/card?tab=api#card-props"
             },
             {
@@ -3330,6 +3477,15 @@
               "type": [
                 "Boolean"
               ]
+            },
+            {
+              "name": "borderless",
+              "description": "无边框模式",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/cascader?tab=api#cascader-props",
+              "type": [
+                "Boolean"
+              ],
+              "default": "false"
             },
             {
               "name": "check-props",
@@ -3409,7 +3565,7 @@
             },
             {
               "name": "keys",
-              "description": "用来定义 value / label / children 在 `options` 中对应的字段别名",
+              "description": "用来定义 value / label / children / disabled 在 `options` 中对应的字段别名",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/cascader?tab=api#cascader-props",
               "type": [
                 "Object"
@@ -3526,6 +3682,14 @@
               "doc-url": "https://tdesign.tencent.com/vue-next/components/cascader?tab=api#cascader-props",
               "type": [
                 "Boolean"
+              ]
+            },
+            {
+              "name": "prefix-icon",
+              "description": "组件前置图标",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/cascader?tab=api#cascader-props",
+              "type": [
+                "TNode"
               ]
             },
             {
@@ -3687,7 +3851,7 @@
             },
             {
               "name": "value-display",
-              "description": "`MouseEvent<SVGElement>`\n\n【开发中】自定义选中项呈现的内容",
+              "description": "`MouseEvent<SVGElement>`\n\n自定义选中项呈现的内容",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/cascader?tab=api#cascader-props",
               "type": [
                 "String",
@@ -3804,6 +3968,16 @@
               "doc-url": "https://tdesign.tencent.com/vue-next/components/cascader?tab=api#cascader-props"
             },
             {
+              "name": "prefixIcon",
+              "description": "组件前置图标",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/cascader?tab=api#cascader-props"
+            },
+            {
+              "name": "prefix-icon",
+              "description": "组件前置图标",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/cascader?tab=api#cascader-props"
+            },
+            {
               "name": "suffix",
               "description": "后置图标前的后置内容",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/cascader?tab=api#cascader-props"
@@ -3825,12 +3999,12 @@
             },
             {
               "name": "valueDisplay",
-              "description": "`MouseEvent<SVGElement>`\n\n【开发中】自定义选中项呈现的内容类型和参数：string | TNode<{ value: CascaderValue<CascaderOption>; onClose: (index: number) => void; displayValue?: CascaderValue<CascaderOption> }>",
+              "description": "`MouseEvent<SVGElement>`\n\n自定义选中项呈现的内容类型和参数：string | TNode<{ value: CascaderValue<CascaderOption>; onClose: (index: number) => void; displayValue?: CascaderValue<CascaderOption>; selectedOptions: CascaderOption[] }>",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/cascader?tab=api#cascader-props"
             },
             {
               "name": "value-display",
-              "description": "`MouseEvent<SVGElement>`\n\n【开发中】自定义选中项呈现的内容类型和参数：string | TNode<{ value: CascaderValue<CascaderOption>; onClose: (index: number) => void; displayValue?: CascaderValue<CascaderOption> }>",
+              "description": "`MouseEvent<SVGElement>`\n\n自定义选中项呈现的内容类型和参数：string | TNode<{ value: CascaderValue<CascaderOption>; onClose: (index: number) => void; displayValue?: CascaderValue<CascaderOption>; selectedOptions: CascaderOption[] }>",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/cascader?tab=api#cascader-props"
             }
           ]
@@ -3849,6 +4023,14 @@
               "doc-url": "https://tdesign.tencent.com/vue-next/components/check-tag?tab=api#checktag-props",
               "type": [
                 "Boolean"
+              ]
+            },
+            {
+              "name": "checked-props",
+              "description": "used to set checked tag props\n\n透传标签选中态属性",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/check-tag?tab=api#checktag-props",
+              "type": [
+                "Object"
               ]
             },
             {
@@ -3902,6 +4084,23 @@
                   "name": "large"
                 }
               ]
+            },
+            {
+              "name": "unchecked-props",
+              "description": "used to set unchecked tag props\n\n透传标签未选态属性",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/check-tag?tab=api#checktag-props",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "value",
+              "description": "tag unique key\n\n标签唯一标识，一般用于标签组场景，单个可选择标签无需设置",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/check-tag?tab=api#checktag-props",
+              "type": [
+                "String",
+                "Number"
+              ]
             }
           ],
           "js": {
@@ -3930,6 +4129,68 @@
               "doc-url": "https://tdesign.tencent.com/vue-next/components/check-tag?tab=api#checktag-props"
             }
           ]
+        },
+        {
+          "name": "t-check-tag-group",
+          "source": {
+            "symbol": "CheckTagGroup"
+          },
+          "description": "CheckTagGroup\n\n可选标签组",
+          "doc-url": "https://tdesign.tencent.com/vue-next/components/check-tag-group",
+          "props": [
+            {
+              "name": "checked-props",
+              "description": "used to set checked tag props\n\n透传标签选中态属性",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/check-tag-group?tab=api#checktaggroup-props",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "multiple",
+              "description": "allow to select multiple tags\n\n是否支持选中多个标签",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/check-tag-group?tab=api#checktaggroup-props",
+              "type": [
+                "Boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "options",
+              "description": "tag list\n\n标签选项列表",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/check-tag-group?tab=api#checktaggroup-props",
+              "type": [
+                "Array"
+              ]
+            },
+            {
+              "name": "unchecked-props",
+              "description": "used to set unchecked tag props\n\n透传标签未选态属性",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/check-tag-group?tab=api#checktaggroup-props",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "value",
+              "description": "selected tag value list\n\n选中标签值",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/check-tag-group?tab=api#checktaggroup-props",
+              "type": [
+                "Array"
+              ],
+              "default": "[]"
+            }
+          ],
+          "js": {
+            "events": [
+              {
+                "name": "change",
+                "description": "",
+                "doc-url": "https://tdesign.tencent.com/vue-next/components/check-tag-group?tab=api#checktaggroup-events"
+              }
+            ]
+          },
+          "slots": []
         },
         {
           "name": "t-checkbox",
@@ -3994,6 +4255,15 @@
               ]
             },
             {
+              "name": "lazy-load",
+              "description": "load checkbox content when it entering the visible area\n\n是否启用懒加载。数据量大时建议开启；加载复杂内容或大量图片时建议开启",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/checkbox?tab=api#checkbox-props",
+              "type": [
+                "Boolean"
+              ],
+              "default": "false"
+            },
+            {
               "name": "name",
               "description": "HTML 元素原生属性",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/checkbox?tab=api#checkbox-props",
@@ -4011,6 +4281,14 @@
               "default": "false"
             },
             {
+              "name": "title",
+              "description": "html attribute\n\nHTML 原生属性",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/checkbox?tab=api#checkbox-props",
+              "type": [
+                "String"
+              ]
+            },
+            {
               "name": "value",
               "description": "value of checkbox\n\n多选框的值",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/checkbox?tab=api#checkbox-props",
@@ -4026,11 +4304,6 @@
               {
                 "name": "change",
                 "description": "值变化时触发",
-                "doc-url": "https://tdesign.tencent.com/vue-next/components/checkbox?tab=api#checkbox-events"
-              },
-              {
-                "name": "click",
-                "description": "trigger on click\n\n点击时出发，一般用于外层阻止冒泡场景",
                 "doc-url": "https://tdesign.tencent.com/vue-next/components/checkbox?tab=api#checkbox-events"
               }
             ]
@@ -4056,6 +4329,24 @@
           "description": "CheckboxGroup\n\n多选框组",
           "doc-url": "https://tdesign.tencent.com/vue-next/components/checkbox-group",
           "props": [
+            {
+              "name": "disabled",
+              "description": "是否禁用组件，默认为 false。优先级：Form.disabled < CheckboxGroup.disabled < Checkbox.disabled",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/checkbox-group?tab=api#checkboxgroup-props",
+              "type": [
+                "Boolean"
+              ],
+              "default": "undefined"
+            },
+            {
+              "name": "lazy-load",
+              "description": "load checkbox content when it entering the visible area\n\n是否启用懒加载。子组件 Checkbox 数据量大时建议开启；加载复杂内容或大量图片时建议开启",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/checkbox-group?tab=api#checkboxgroup-props",
+              "type": [
+                "Boolean"
+              ],
+              "default": "false"
+            },
             {
               "name": "max",
               "description": "支持最多选中的数量",
@@ -4239,7 +4530,7 @@
           "props": [
             {
               "name": "borderless",
-              "description": "是否为无边框模式",
+              "description": "无边框模式",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/collapse?tab=api#collapse-props",
               "type": [
                 "Boolean"
@@ -5216,6 +5507,15 @@
               "default": "false"
             },
             {
+              "name": "cancel-range-select-limit",
+              "description": "The default date selection interaction is determined based on the order of dates clicked and will be restricted. For example, if a user first clicks on the start date input box and chooses a date, for instance, 2020-05-15, the interaction will automatically shift focus to the end date input box, waiting for the user to select the end time. At this point, the user can only select a date later than 2020-05-15 (previous dates will be grayed out and disabled, restricting the user's selection). When this value is set to `true`, this restriction is lifted.\n\n默认的日期选择交互是根据点击前后日期的顺序来决定并且会加以限制。比如：用户先点击开始时间输入框，选择了一个日期例如2020-05-15，紧接着交互会自动将焦点跳到结束日期输入框，等待用户选择结束时间。此时用户只能选择大于2020-05-15的日期（之前的日期会被灰态禁止点击，限制用户的点击）。当该值传递`true`时，则取消该限制。",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/date-range-picker?tab=api#daterangepicker-props",
+              "type": [
+                "Boolean"
+              ],
+              "default": "false"
+            },
+            {
               "name": "clearable",
               "description": "是否显示清除按钮",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/date-range-picker?tab=api#daterangepicker-props",
@@ -5671,17 +5971,57 @@
           "slots": []
         },
         {
-          "name": "t-description-item",
+          "name": "t-descriptions-item",
           "source": {
-            "symbol": "DescriptionItem"
+            "symbol": "DescriptionsItem"
           },
-          "description": "DescriptionItem\n\n描述项",
-          "doc-url": "https://tdesign.tencent.com/vue-next/components/description-item",
+          "description": "DescriptionsItem\n\n描述项",
+          "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions-item",
           "props": [
             {
+              "name": "align",
+              "description": "content align type\n\n内容垂直对齐方式，DescriptionsItem.align 优先级高于 Descriptions.align",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsitem-props",
+              "type": [
+                "String"
+              ],
+              "attribute-value": {
+                "type": "enum"
+              },
+              "values": [
+                {
+                  "name": "top"
+                },
+                {
+                  "name": "middle"
+                },
+                {
+                  "name": "bottom"
+                }
+              ]
+            },
+            {
+              "name": "content",
+              "description": "content of description item\n\n描述项内容",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsitem-props",
+              "type": [
+                "String",
+                "TNode"
+              ]
+            },
+            {
+              "name": "default",
+              "description": "content of description item\n\n描述项内容，同 `content`",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsitem-props",
+              "type": [
+                "String",
+                "TNode"
+              ]
+            },
+            {
               "name": "label",
-              "description": "label of description item\n\n描述项字段名",
-              "doc-url": "https://tdesign.tencent.com/vue-next/components/description-item?tab=api#descriptionitem-props",
+              "description": "label of description item\n\n描述项标签",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsitem-props",
               "type": [
                 "String",
                 "TNode"
@@ -5690,7 +6030,7 @@
             {
               "name": "span",
               "description": "width count\n\n占用的宽度数量",
-              "doc-url": "https://tdesign.tencent.com/vue-next/components/description-item?tab=api#descriptionitem-props",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsitem-props",
               "type": [
                 "Number"
               ],
@@ -5699,9 +6039,19 @@
           ],
           "slots": [
             {
+              "name": "content",
+              "description": "content of description item\n\n描述项内容",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsitem-props"
+            },
+            {
+              "name": "default",
+              "description": "content of description item\n\n描述项内容，同 `content`",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsitem-props"
+            },
+            {
               "name": "label",
-              "description": "label of description item\n\n描述项字段名",
-              "doc-url": "https://tdesign.tencent.com/vue-next/components/description-item?tab=api#descriptionitem-props"
+              "description": "label of description item\n\n描述项标签",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsitem-props"
             }
           ]
         },
@@ -5713,6 +6063,28 @@
           "description": "Descriptions\n\n描述列表",
           "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions",
           "props": [
+            {
+              "name": "align",
+              "description": "content align type\n\n内容垂直对齐方式，DescriptionsItem.align 优先级高于 Descriptions.align",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions?tab=api#descriptions-props",
+              "type": [
+                "String"
+              ],
+              "attribute-value": {
+                "type": "enum"
+              },
+              "values": [
+                {
+                  "name": "top"
+                },
+                {
+                  "name": "middle"
+                },
+                {
+                  "name": "bottom"
+                }
+              ]
+            },
             {
               "name": "bordered",
               "description": "set description list with grey border\n\n是否带边框",
@@ -5731,8 +6103,8 @@
               ]
             },
             {
-              "name": "columns",
-              "description": "count of DescriptionItem in one row\n\n一行 DescriptionItem 的数量",
+              "name": "column",
+              "description": "count of DescriptionsItem in one row\n\n一行 `DescriptionsItem` 的数量",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions?tab=api#descriptions-props",
               "type": [
                 "Number"
@@ -5740,46 +6112,47 @@
               "default": "2"
             },
             {
-              "name": "content-align",
-              "description": "字段值内容的对齐方式：左对齐、居中对齐",
+              "name": "content-style",
+              "description": "style of description cotent\n\n自定义描述项内容的样式",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions?tab=api#descriptions-props",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "item-layout",
+              "description": "layout direction of description item\n\n描述项的排列方向",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions?tab=api#descriptions-props",
               "type": [
                 "String"
               ],
-              "default": "left",
+              "default": "horizontal",
               "attribute-value": {
                 "type": "enum"
               },
               "values": [
                 {
-                  "name": "left"
+                  "name": "horizontal"
                 },
                 {
-                  "name": "center"
+                  "name": "vertical"
                 }
               ]
             },
             {
-              "name": "label-align",
-              "description": "字段标签对齐方式：左对齐、右对齐、顶部对齐",
+              "name": "items",
+              "description": "list of descriptions items\n\n描述项的列表",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions?tab=api#descriptions-props",
               "type": [
-                "String"
-              ],
-              "default": "right",
-              "attribute-value": {
-                "type": "enum"
-              },
-              "values": [
-                {
-                  "name": "left"
-                },
-                {
-                  "name": "right"
-                },
-                {
-                  "name": "top"
-                }
+                "Array"
+              ]
+            },
+            {
+              "name": "label-style",
+              "description": "style of description item\n\n自定义描述项标签的样式",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions?tab=api#descriptions-props",
+              "type": [
+                "Object"
               ]
             },
             {
@@ -5824,9 +6197,24 @@
                   "name": "large"
                 }
               ]
+            },
+            {
+              "name": "title",
+              "description": "title of descriptions\n\n描述列表的标题",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions?tab=api#descriptions-props",
+              "type": [
+                "String",
+                "TNode"
+              ]
             }
           ],
-          "slots": []
+          "slots": [
+            {
+              "name": "title",
+              "description": "title of descriptions\n\n描述列表的标题",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions?tab=api#descriptions-props"
+            }
+          ]
         },
         {
           "name": "t-dialog",
@@ -5877,7 +6265,7 @@
             },
             {
               "name": "close-on-esc-keydown",
-              "description": "按下 ESC 时是否触发对话框关闭事件",
+              "description": "trigger dialog close event on `ESC` keydown\n\n按下 ESC 时是否触发对话框关闭事件",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/dialog?tab=api#dialog-props",
               "type": [
                 "Boolean"
@@ -5904,6 +6292,15 @@
               ]
             },
             {
+              "name": "confirm-loading",
+              "description": "confirm button loading status\n\n确认按钮加载状态",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/dialog?tab=api#dialog-props",
+              "type": [
+                "Boolean"
+              ],
+              "default": "undefined"
+            },
+            {
               "name": "confirm-on-enter",
               "description": "confirm on enter\n\n是否在按下回车键时，触发确认事件",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/dialog?tab=api#dialog-props",
@@ -5928,6 +6325,14 @@
                 "Boolean"
               ],
               "default": "false"
+            },
+            {
+              "name": "dialog-class-name",
+              "description": "弹框元素类名，示例：'t-class-dialog-first t-class-dialog-second'",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/dialog?tab=api#dialog-props",
+              "type": [
+                "String"
+              ]
             },
             {
               "name": "draggable",
@@ -6359,7 +6764,7 @@
             },
             {
               "name": "close-on-esc-keydown",
-              "description": "按下 ESC 时是否触发抽屉关闭事件",
+              "description": "trigger drawer close event on `ESC` keydown\n\n按下 ESC 时是否触发抽屉关闭事件",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/drawer?tab=api#drawer-props",
               "type": [
                 "Boolean"
@@ -6508,10 +6913,11 @@
             },
             {
               "name": "size-draggable",
-              "description": "抽屉大小可拖拽调整，横向抽屉调整宽度，纵向抽屉调整高度",
+              "description": "allow resizing drawer width/height, set `max` or `min` to limit size\n\n抽屉大小可拖拽调整，横向抽屉调整宽度，纵向抽屉调整高度。`sizeDraggable.max` 和 `sizeDraggable.min` 用于控制拖拽尺寸大小限制",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/drawer?tab=api#drawer-props",
               "type": [
-                "Boolean"
+                "Boolean",
+                "Object"
               ],
               "default": "false"
             },
@@ -6563,6 +6969,11 @@
               {
                 "name": "overlay-click",
                 "description": "如果蒙层存在，点击蒙层时触发",
+                "doc-url": "https://tdesign.tencent.com/vue-next/components/drawer?tab=api#drawer-events"
+              },
+              {
+                "name": "size-drag-end",
+                "description": "trigger on size drag end\n\n抽屉大小拖拽结束时触发，事件参数 `size` 在横向抽屉中表示宽度，在纵向抽屉中表示高度",
                 "doc-url": "https://tdesign.tencent.com/vue-next/components/drawer?tab=api#drawer-events"
               }
             ]
@@ -6705,6 +7116,24 @@
               "default": "[]"
             },
             {
+              "name": "panel-bottom-content",
+              "description": "bottom content of the dropdown panel\n\n面板内的底部内容",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/dropdown?tab=api#dropdown-props",
+              "type": [
+                "String",
+                "TNode"
+              ]
+            },
+            {
+              "name": "panel-top-content",
+              "description": "top content of the dropdown panel\n\n面板内的顶部内容",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/dropdown?tab=api#dropdown-props",
+              "type": [
+                "String",
+                "TNode"
+              ]
+            },
+            {
               "name": "placement",
               "description": "弹窗定位方式，可选值同 Popup 组件",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/dropdown?tab=api#dropdown-props",
@@ -6798,7 +7227,28 @@
               }
             ]
           },
-          "slots": []
+          "slots": [
+            {
+              "name": "panelBottomContent",
+              "description": "bottom content of the dropdown panel\n\n面板内的底部内容",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/dropdown?tab=api#dropdown-props"
+            },
+            {
+              "name": "panel-bottom-content",
+              "description": "bottom content of the dropdown panel\n\n面板内的底部内容",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/dropdown?tab=api#dropdown-props"
+            },
+            {
+              "name": "panelTopContent",
+              "description": "top content of the dropdown panel\n\n面板内的顶部内容",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/dropdown?tab=api#dropdown-props"
+            },
+            {
+              "name": "panel-top-content",
+              "description": "top content of the dropdown panel\n\n面板内的顶部内容",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/dropdown?tab=api#dropdown-props"
+            }
+          ]
         },
         {
           "name": "t-dropdown-item",
@@ -6918,6 +7368,110 @@
           ]
         },
         {
+          "name": "t-empty",
+          "source": {
+            "symbol": "Empty"
+          },
+          "description": "Empty\n\n空状态",
+          "doc-url": "https://tdesign.tencent.com/vue-next/components/empty",
+          "props": [
+            {
+              "name": "action",
+              "description": "action block\n\n操作区域",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/empty?tab=api#empty-props",
+              "type": [
+                "TNode"
+              ]
+            },
+            {
+              "name": "description",
+              "description": "empty component description\n\n描述文字",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/empty?tab=api#empty-props",
+              "type": [
+                "String",
+                "TNode"
+              ]
+            },
+            {
+              "name": "image",
+              "description": "image url, or Image component props, or custom any node you need.\n\n组件图片，可以完全自定义内容。值类型为字符串时，表示图片地址；值类型为对象时，则表示透传全部属性到图片组件，示例：`<Empty image={{ src: '', shape: 'round' }} />`",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/empty?tab=api#empty-props",
+              "type": [
+                "String",
+                "TNode"
+              ]
+            },
+            {
+              "name": "image-style",
+              "description": "pass `Cascading Style Sheets` to image element\n\n透传图片样式表",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/empty?tab=api#empty-props",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "title",
+              "description": "empty component title\n\n错误标题",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/empty?tab=api#empty-props",
+              "type": [
+                "String",
+                "TNode"
+              ]
+            },
+            {
+              "name": "type",
+              "description": "Empty component type\n\n组件类型，如：空数据/成功/失败/网络错误/建设中",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/empty?tab=api#empty-props",
+              "type": [
+                "String"
+              ],
+              "default": "empty",
+              "attribute-value": {
+                "type": "enum"
+              },
+              "values": [
+                {
+                  "name": "empty"
+                },
+                {
+                  "name": "success"
+                },
+                {
+                  "name": "fail"
+                },
+                {
+                  "name": "network-error"
+                },
+                {
+                  "name": "maintenance"
+                }
+              ]
+            }
+          ],
+          "slots": [
+            {
+              "name": "action",
+              "description": "action block\n\n操作区域",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/empty?tab=api#empty-props"
+            },
+            {
+              "name": "description",
+              "description": "empty component description\n\n描述文字",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/empty?tab=api#empty-props"
+            },
+            {
+              "name": "image",
+              "description": "image url, or Image component props, or custom any node you need.\n\n组件图片，可以完全自定义内容。值类型为字符串时，表示图片地址；值类型为对象时，则表示透传全部属性到图片组件，示例：`<Empty image={{ src: '', shape: 'round' }} />`类型和参数：string | ImageProps | TNode 【import { ImageProps } from '@Image'】",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/empty?tab=api#empty-props"
+            },
+            {
+              "name": "title",
+              "description": "empty component title\n\n错误标题",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/empty?tab=api#empty-props"
+            }
+          ]
+        },
+        {
           "name": "t-enhanced-table",
           "source": {
             "symbol": "EnhancedTable"
@@ -6932,6 +7486,15 @@
               "type": [
                 "Function"
               ]
+            },
+            {
+              "name": "expanded-tree-nodes",
+              "description": "expanded tree node row keys, row key value is from data[rowKey]\n\n展开的树形节点。非必须。在需要自由控制展开的树形节点时使用。其他场景无需设置，表格组件有内置展开逻辑",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/enhanced-table?tab=api#enhancedtable-props",
+              "type": [
+                "Array"
+              ],
+              "default": "[]"
             },
             {
               "name": "tree",
@@ -6958,8 +7521,13 @@
                 "doc-url": "https://tdesign.tencent.com/vue-next/components/enhanced-table?tab=api#enhancedtable-events"
               },
               {
+                "name": "expanded-tree-nodes-change",
+                "description": "trigger on tree node expanded or folded\n\n树形结构，展开的树节点发生变化时触发，泛型 T 指表格数据类型",
+                "doc-url": "https://tdesign.tencent.com/vue-next/components/enhanced-table?tab=api#enhancedtable-events"
+              },
+              {
                 "name": "tree-expand-change",
-                "description": "树形结构，用户操作引起节点展开或收起时触发，代码操作不会触发",
+                "description": "trigger on tree node expanded or folded, use `expandedTreeNodesChange` please\n\n树形结构，用户操作引起节点展开或收起时触发。请更为使用 `onExpandedTreeNodesChange`",
                 "doc-url": "https://tdesign.tencent.com/vue-next/components/enhanced-table?tab=api#enhancedtable-events"
               }
             ]
@@ -7289,8 +7857,7 @@
               "description": "表单字段名称",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/form-item?tab=api#formitem-props",
               "type": [
-                "String",
-                "Number"
+                "String"
               ]
             },
             {
@@ -7850,6 +8417,14 @@
               ]
             },
             {
+              "name": "fallback",
+              "description": "display `fallback` image on `src` loading failed. you can also use `error` to define more complex error content\n\n图片加载失败时，显示当前链接设置的图片地址。如果要使用组件图标或完全自定义加载失败时显示的内容，请更为使用 `error`",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/image?tab=api#image-props",
+              "type": [
+                "String"
+              ]
+            },
+            {
               "name": "fit",
               "description": "图片填充模式",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/image?tab=api#image-props",
@@ -7953,6 +8528,43 @@
               "default": "center"
             },
             {
+              "name": "referrerpolicy",
+              "description": "attribute of `<img>`, [MDN Definition](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy)\n\n`<img>` 标签的原生属性，[MDN 定义](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy)",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/image?tab=api#image-props",
+              "type": [
+                "String"
+              ],
+              "attribute-value": {
+                "type": "enum"
+              },
+              "values": [
+                {
+                  "name": "no-referrer"
+                },
+                {
+                  "name": "no-referrer-when-downgrade"
+                },
+                {
+                  "name": "origin"
+                },
+                {
+                  "name": "origin-when-cross-origin"
+                },
+                {
+                  "name": "same-origin"
+                },
+                {
+                  "name": "strict-origin"
+                },
+                {
+                  "name": "strict-origin-when-cross-origin"
+                },
+                {
+                  "name": "unsafe-url"
+                }
+              ]
+            },
+            {
               "name": "shape",
               "description": "图片圆角类型",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/image?tab=api#image-props",
@@ -7977,15 +8589,16 @@
             },
             {
               "name": "src",
-              "description": "图片链接",
+              "description": "src attribute of `<img>`. image File can also be loaded\n\n用于显示图片的链接或原始图片文件对象",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/image?tab=api#image-props",
               "type": [
-                "String"
+                "String",
+                "File"
               ]
             },
             {
               "name": "srcset",
-              "description": "for `.avif` and `.webp` image url\n\n图片地址，支持特殊格式的图片，如 `.avif` 和 `.webp`",
+              "description": "for `.avif` and `.webp` image url, load `srcset` before `src`\n\n图片链接集合，用于支持特殊格式的图片，如 `.avif` 和 `.webp`。会优先加载 `srcset` 中的图片格式，浏览器不支持的情况下，加载 `src` 设置的图片地址",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/image?tab=api#image-props",
               "type": [
                 "Object"
@@ -8053,6 +8666,15 @@
               "default": "true"
             },
             {
+              "name": "close-on-esc-keydown",
+              "description": "trigger image viewer close event on `ESC` keydown\n\n按下 ESC 时是否触发图片预览器关闭事件",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/image-viewer?tab=api#imageviewer-props",
+              "type": [
+                "Boolean"
+              ],
+              "default": "true"
+            },
+            {
               "name": "close-on-overlay",
               "description": "是否在点击遮罩层时，触发预览关闭",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/image-viewer?tab=api#imageviewer-props",
@@ -8071,7 +8693,7 @@
             },
             {
               "name": "image-scale",
-              "description": " 图片缩放相关配置。`imageScale.max` 缩放的最大比例；`imageScale.min` 缩放的最小比例；`imageScale.step` 缩放的步长速度",
+              "description": " 图片缩放相关配置。`imageScale.max` 缩放的最大比例；`imageScale.min` 缩放的最小比例；`imageScale.step` 缩放的步长速度; `imageScale.defaultScale` 默认的缩放比例",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/image-viewer?tab=api#imageviewer-props",
               "type": [
                 "Object"
@@ -8092,7 +8714,8 @@
               "doc-url": "https://tdesign.tencent.com/vue-next/components/image-viewer?tab=api#imageviewer-props",
               "type": [
                 "Number"
-              ]
+              ],
+              "default": "0"
             },
             {
               "name": "mode",
@@ -8161,7 +8784,7 @@
             },
             {
               "name": "visible",
-              "description": "隐藏/显示预览",
+              "description": "hide or show image viewer\n\n隐藏/显示预览",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/image-viewer?tab=api#imageviewer-props",
               "type": [
                 "Boolean"
@@ -8219,7 +8842,7 @@
             },
             {
               "name": "trigger",
-              "description": "trigger element\n\n触发图片预览的元素，可能是一个预览按钮，可能是一张缩略图，完全自定义类型和参数：string | TNode<{ open: () => void }>",
+              "description": "trigger element\n\n触发图片预览的元素，可能是一个预览按钮，可能是一张缩略图，完全自定义类型和参数：TNode | TNode<{ open: () => void }>",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/image-viewer?tab=api#imageviewer-props"
             }
           ]
@@ -8234,7 +8857,7 @@
           "props": [
             {
               "name": "align",
-              "description": "文本内容位置，居左/居中/居右",
+              "description": "text align type\n\n文本内容位置，居左/居中/居右",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/input?tab=api#input-props",
               "type": [
                 "String"
@@ -8257,7 +8880,7 @@
             },
             {
               "name": "allow-input-over-max",
-              "description": "超出 `maxlength` 或 `maxcharacter` 之后是否允许继续输入",
+              "description": "allow to continue input on value length is over `maxlength` or `maxcharacter`\n\n超出 `maxlength` 或 `maxcharacter` 之后是否允许继续输入",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/input?tab=api#input-props",
               "type": [
                 "Boolean"
@@ -8266,7 +8889,7 @@
             },
             {
               "name": "auto-width",
-              "description": "宽度随内容自适应",
+              "description": "input width is fit to input content\n\n宽度随内容自适应",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/input?tab=api#input-props",
               "type": [
                 "Boolean"
@@ -8275,7 +8898,7 @@
             },
             {
               "name": "autocomplete",
-              "description": "是否开启自动填充功能，HTML5 原生属性，[点击查看详情](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)",
+              "description": "attribute of input element, [see here](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)\n\n是否开启自动填充功能，HTML5 原生属性，[点击查看详情](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/input?tab=api#input-props",
               "type": [
                 "String"
@@ -8284,7 +8907,16 @@
             },
             {
               "name": "autofocus",
-              "description": "自动聚焦",
+              "description": "autofocus on first rendered\n\n自动聚焦",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/input?tab=api#input-props",
+              "type": [
+                "Boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "borderless",
+              "description": "input without border\n\n【开发中】无边框模式",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/input?tab=api#input-props",
               "type": [
                 "Boolean"
@@ -8293,7 +8925,7 @@
             },
             {
               "name": "clearable",
-              "description": "是否可清空",
+              "description": "show clear icon, clicked to clear input value\n\n是否可清空",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/input?tab=api#input-props",
               "type": [
                 "Boolean"
@@ -8302,7 +8934,7 @@
             },
             {
               "name": "disabled",
-              "description": "是否禁用输入框",
+              "description": "make input to be disabled\n\n是否禁用输入框",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/input?tab=api#input-props",
               "type": [
                 "Boolean"
@@ -8310,7 +8942,7 @@
             },
             {
               "name": "format",
-              "description": "指定输入框展示值的格式",
+              "description": "input value formatter, `type=number` does not work. if you need to format number, `InputNumber` Component might be better\n\n指定输入框展示值的格式。注意 `type=number` 时请勿使用，此功能建议更为使用 `InputNumber` 组件",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/input?tab=api#input-props",
               "type": [
                 "Function"
@@ -8318,7 +8950,7 @@
             },
             {
               "name": "input-class",
-              "description": "t-input 同级类名，示例：'name1 name2 name3' 或 `['name1', 'name2']` 或 `[{ 'name1': true }]`",
+              "description": "add className to the element with `t-input` class\n\nt-input 同级类名，示例：'name1 name2 name3' 或 `['name1', 'name2']` 或 `[{ 'name1': true }]`",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/input?tab=api#input-props",
               "type": [
                 "String",
@@ -8328,7 +8960,7 @@
             },
             {
               "name": "label",
-              "description": "左侧文本",
+              "description": "text on the left of input\n\n左侧文本",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/input?tab=api#input-props",
               "type": [
                 "String",
@@ -8348,6 +8980,7 @@
               "description": "用户最多可以输入的文本长度，一个中文等于一个计数长度。值为空，则表示不限制输入长度。`maxcharacter` 和 `maxlength` 二选一使用",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/input?tab=api#input-props",
               "type": [
+                "String",
                 "Number"
               ]
             },
@@ -8387,7 +9020,7 @@
             },
             {
               "name": "show-clear-icon-on-empty",
-              "description": "输入框内容为空时，悬浮状态是否显示清空按钮，默认不显示",
+              "description": "show clear icon on empty input value\n\n输入框内容为空时，悬浮状态是否显示清空按钮，默认不显示",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/input?tab=api#input-props",
               "type": [
                 "Boolean"
@@ -8405,7 +9038,7 @@
             },
             {
               "name": "size",
-              "description": "输入框尺寸",
+              "description": "make input to be different size\n\n输入框尺寸",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/input?tab=api#input-props",
               "type": [
                 "String"
@@ -8454,7 +9087,7 @@
             },
             {
               "name": "suffix",
-              "description": "后置图标前的后置内容",
+              "description": "suffix content before suffixIcon\n\n后置图标前的后置内容",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/input?tab=api#input-props",
               "type": [
                 "String",
@@ -8463,7 +9096,7 @@
             },
             {
               "name": "suffix-icon",
-              "description": "组件后置图标",
+              "description": "suffix icon of input\n\n组件后置图标",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/input?tab=api#input-props",
               "type": [
                 "TNode"
@@ -8471,7 +9104,7 @@
             },
             {
               "name": "tips",
-              "description": "输入框下方提示文本，会根据不同的 `status` 呈现不同的样式",
+              "description": "tips on the bottom of input, different `status` can make tips to be different color\n\n输入框下方提示文本，会根据不同的 `status` 呈现不同的样式",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/input?tab=api#input-props",
               "type": [
                 "String",
@@ -8480,7 +9113,7 @@
             },
             {
               "name": "type",
-              "description": "输入框类型",
+              "description": "type attribute of input element. if you are using `type=number`, `InputNumber` Component might be better\n\n输入框类型。`type=number` 仅支持最基础的数字输入功能，更多功能建议使用 `InputNumber` 组件",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/input?tab=api#input-props",
               "type": [
                 "String"
@@ -8518,13 +9151,12 @@
             },
             {
               "name": "value",
-              "description": "输入框的值",
+              "description": "input value\n\n输入框的值",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/input?tab=api#input-props",
               "type": [
                 "String",
                 "Number"
-              ],
-              "default": "''"
+              ]
             }
           ],
           "js": {
@@ -8536,7 +9168,7 @@
               },
               {
                 "name": "change",
-                "description": "输入框值发生变化时触发。`trigger=initial` 表示传入的数据不符合预期，组件自动处理后触发 change 告知父组件。如：初始值长度超过 `maxlength` 限制",
+                "description": "trigger on input value changed\n\n输入框值发生变化时触发。参数 `trigger=initial` 表示传入的数据不符合预期，组件自动处理后触发 change 告知父组件。如：初始值长度超过 `maxlength` 限制",
                 "doc-url": "https://tdesign.tencent.com/vue-next/components/input?tab=api#input-events"
               },
               {
@@ -8614,7 +9246,7 @@
           "slots": [
             {
               "name": "label",
-              "description": "左侧文本",
+              "description": "text on the left of input\n\n左侧文本",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/input?tab=api#input-props"
             },
             {
@@ -8629,22 +9261,22 @@
             },
             {
               "name": "suffix",
-              "description": "后置图标前的后置内容",
+              "description": "suffix content before suffixIcon\n\n后置图标前的后置内容",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/input?tab=api#input-props"
             },
             {
               "name": "suffixIcon",
-              "description": "组件后置图标",
+              "description": "suffix icon of input\n\n组件后置图标",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/input?tab=api#input-props"
             },
             {
               "name": "suffix-icon",
-              "description": "组件后置图标",
+              "description": "suffix icon of input\n\n组件后置图标",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/input?tab=api#input-props"
             },
             {
               "name": "tips",
-              "description": "输入框下方提示文本，会根据不同的 `status` 呈现不同的样式",
+              "description": "tips on the bottom of input, different `status` can make tips to be different color\n\n输入框下方提示文本，会根据不同的 `status` 呈现不同的样式",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/input?tab=api#input-props"
             }
           ]
@@ -9082,6 +9714,15 @@
               ]
             },
             {
+              "name": "download",
+              "description": "Causes the browser to treat the linked URL as a download\n\n使得浏览器将链接的 URL 视为可下载资源",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/link?tab=api#link-props",
+              "type": [
+                "String",
+                "Boolean"
+              ]
+            },
+            {
               "name": "hover",
               "description": "hover link style\n\n链接悬浮态样式，有 文本颜色变化、添加下划线等 2 种方法",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/link?tab=api#link-props",
@@ -9289,6 +9930,14 @@
                 {
                   "name": "vertical"
                 }
+              ]
+            },
+            {
+              "name": "scroll",
+              "description": "lazy load and virtual scroll\n\n懒加载和虚拟滚动。为保证组件收益最大化，当数据量小于阈值 `scroll.threshold` 时，无论虚拟滚动的配置是否存在，组件内部都不会开启虚拟滚动，`scroll.threshold` 默认为 `100`",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/list?tab=api#list-props",
+              "type": [
+                "Object"
               ]
             },
             {
@@ -9895,6 +10544,7 @@
               "type": [
                 "String"
               ],
+              "default": "_self",
               "attribute-value": {
                 "type": "enum"
               },
@@ -10681,6 +11331,56 @@
           "slots": []
         },
         {
+          "name": "t-paragraph",
+          "source": {
+            "symbol": "Paragraph"
+          },
+          "description": "Paragraph\n\n段落",
+          "doc-url": "https://tdesign.tencent.com/vue-next/components/paragraph",
+          "props": [
+            {
+              "name": "content",
+              "description": "content of paragraph\n\n段落内容",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/paragraph?tab=api#paragraph-props",
+              "type": [
+                "String",
+                "TNode"
+              ]
+            },
+            {
+              "name": "default",
+              "description": "default slot of paragraph\n\n段落内容",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/paragraph?tab=api#paragraph-props",
+              "type": [
+                "String",
+                "TNode"
+              ]
+            },
+            {
+              "name": "ellipsis",
+              "description": "add ellipsis style\n\n是否省略展示，可通过配置参数自定义省略操作的具体功能和样式",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/paragraph?tab=api#paragraph-props",
+              "type": [
+                "Boolean",
+                "Object"
+              ],
+              "default": "false"
+            }
+          ],
+          "slots": [
+            {
+              "name": "content",
+              "description": "content of paragraph\n\n段落内容",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/paragraph?tab=api#paragraph-props"
+            },
+            {
+              "name": "default",
+              "description": "default slot of paragraph\n\n段落内容",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/paragraph?tab=api#paragraph-props"
+            }
+          ]
+        },
+        {
           "name": "t-popconfirm",
           "source": {
             "symbol": "Popconfirm"
@@ -10917,15 +11617,6 @@
               "default": "'body'"
             },
             {
-              "name": "close-btn",
-              "description": "是否展示关闭按钮，值为 `true` 显示默认关闭按钮；值为 `false` 则不显示关闭按钮；也可以自定义关闭按钮",
-              "doc-url": "https://tdesign.tencent.com/vue-next/components/popup?tab=api#popup-props",
-              "type": [
-                "Boolean",
-                "TNode"
-              ]
-            },
-            {
               "name": "content",
               "description": "浮层里面的内容",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/popup?tab=api#popup-props",
@@ -11102,6 +11793,11 @@
           "js": {
             "events": [
               {
+                "name": "overlay-click",
+                "description": "trigger on popup content click\n\n内容面板点击时触发",
+                "doc-url": "https://tdesign.tencent.com/vue-next/components/popup?tab=api#popup-events"
+              },
+              {
                 "name": "scroll",
                 "description": "下拉选项滚动事件",
                 "doc-url": "https://tdesign.tencent.com/vue-next/components/popup?tab=api#popup-events"
@@ -11119,16 +11815,6 @@
             ]
           },
           "slots": [
-            {
-              "name": "closeBtn",
-              "description": "是否展示关闭按钮，值为 `true` 显示默认关闭按钮；值为 `false` 则不显示关闭按钮；也可以自定义关闭按钮",
-              "doc-url": "https://tdesign.tencent.com/vue-next/components/popup?tab=api#popup-props"
-            },
-            {
-              "name": "close-btn",
-              "description": "是否展示关闭按钮，值为 `true` 显示默认关闭按钮；值为 `false` 则不显示关闭按钮；也可以自定义关闭按钮",
-              "doc-url": "https://tdesign.tencent.com/vue-next/components/popup?tab=api#popup-props"
-            },
             {
               "name": "content",
               "description": "浮层里面的内容",
@@ -11350,6 +12036,33 @@
               "default": "true"
             },
             {
+              "name": "row-selection-allow-uncheck",
+              "description": "allow to uncheck selection in table with single row selection\n\n行选中单选场景，是否允许取消选中",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/primary-table?tab=api#primarytable-props",
+              "type": [
+                "Boolean"
+              ]
+            },
+            {
+              "name": "row-selection-type",
+              "description": "single row selection, or multiple row selection\n\n行选中类型，单选或多选。效果和 `columns` 中配置的 `{ colKey: 'row-select', type: 'single' }` 一样",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/primary-table?tab=api#primarytable-props",
+              "type": [
+                "String"
+              ],
+              "attribute-value": {
+                "type": "enum"
+              },
+              "values": [
+                {
+                  "name": "single"
+                },
+                {
+                  "name": "multiple"
+                }
+              ]
+            },
+            {
               "name": "select-on-row-click",
               "description": "select row data on row click\n\n是否在点击整行时选中",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/primary-table?tab=api#primarytable-props",
@@ -11359,7 +12072,7 @@
             },
             {
               "name": "selected-row-keys",
-              "description": "selected row keys, row key is from data[rowKey]\n\n选中行，控制属性。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制",
+              "description": "selected row keys, row key is from data[rowKey]\n\n选中行。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/primary-table?tab=api#primarytable-props",
               "type": [
                 "Array"
@@ -11743,6 +12456,33 @@
               "default": "true"
             },
             {
+              "name": "row-selection-allow-uncheck",
+              "description": "allow to uncheck selection in table with single row selection\n\n行选中单选场景，是否允许取消选中",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/primary-table?tab=api#primarytable-props",
+              "type": [
+                "Boolean"
+              ]
+            },
+            {
+              "name": "row-selection-type",
+              "description": "single row selection, or multiple row selection\n\n行选中类型，单选或多选。效果和 `columns` 中配置的 `{ colKey: 'row-select', type: 'single' }` 一样",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/primary-table?tab=api#primarytable-props",
+              "type": [
+                "String"
+              ],
+              "attribute-value": {
+                "type": "enum"
+              },
+              "values": [
+                {
+                  "name": "single"
+                },
+                {
+                  "name": "multiple"
+                }
+              ]
+            },
+            {
               "name": "select-on-row-click",
               "description": "select row data on row click\n\n是否在点击整行时选中",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/primary-table?tab=api#primarytable-props",
@@ -11752,7 +12492,7 @@
             },
             {
               "name": "selected-row-keys",
-              "description": "selected row keys, row key is from data[rowKey]\n\n选中行，控制属性。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制",
+              "description": "selected row keys, row key is from data[rowKey]\n\n选中行。半选状态行请更为使用 `indeterminateSelectedRowKeys` 控制",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/primary-table?tab=api#primarytable-props",
               "type": [
                 "Array"
@@ -12123,6 +12863,15 @@
               ]
             },
             {
+              "name": "readonly",
+              "description": "只读状态",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/radio?tab=api#radio-props",
+              "type": [
+                "Boolean"
+              ],
+              "default": "false"
+            },
+            {
               "name": "value",
               "description": "单选按钮的值",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/radio?tab=api#radio-props",
@@ -12221,6 +12970,15 @@
               "type": [
                 "String"
               ]
+            },
+            {
+              "name": "readonly",
+              "description": "只读状态",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/radio?tab=api#radio-props",
+              "type": [
+                "Boolean"
+              ],
+              "default": "false"
             },
             {
               "name": "value",
@@ -12948,7 +13706,7 @@
             },
             {
               "name": "gutter",
-              "description": "栅格间隔，示例：`{ xs: 8, sm: 16, md: 24}`。当数据类型为 Number 和 Object 时，用于指定横向间隔。当数据类型为数组时，第一个参数为横向间隔，第二个参数为纵向间隔， [水平间隔, 垂直间隔]",
+              "description": "栅格间隔，示例：`{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 40 }`。当数据类型为 Number 和 Object 时，用于指定横向间隔。当数据类型为数组时，第一个参数为横向间隔，第二个参数为纵向间隔， [水平间隔, 垂直间隔]",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/row?tab=api#row-props",
               "type": [
                 "Number",
@@ -13283,7 +14041,7 @@
             },
             {
               "name": "collapsed-items",
-              "description": "多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`onClose` 表示关闭标签时触发的事件",
+              "description": "多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`collapsedTags` 表示折叠的标签，泛型 `T` 继承 `SelectOption`，表示选项数据；`count` 表示折叠的数量, `onClose` 表示移除标签",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/select?tab=api#select-props",
               "type": [
                 "TNode"
@@ -13350,7 +14108,7 @@
             },
             {
               "name": "keys",
-              "description": "用来定义 value / label 在 `options` 中对应的字段别名",
+              "description": "alias option field\n\n用来定义 value / label / disabled 在 `options` 中对应的字段别名",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/select?tab=api#select-props",
               "type": [
                 "Object"
@@ -13417,6 +14175,15 @@
               "type": [
                 "Array"
               ]
+            },
+            {
+              "name": "options-layout",
+              "description": "layout of options in popup\n\n下拉选项布局方式，有纵向排列和横向排列两种，默认纵向排列",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/select?tab=api#select-props",
+              "type": [
+                "String"
+              ],
+              "default": "vertical"
             },
             {
               "name": "panel-bottom-content",
@@ -13702,12 +14469,12 @@
           "slots": [
             {
               "name": "collapsedItems",
-              "description": "多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`onClose` 表示关闭标签时触发的事件：TNode<{ value: T[]; collapsedSelectedItems: T[]; count: number }>",
+              "description": "多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`collapsedTags` 表示折叠的标签，泛型 `T` 继承 `SelectOption`，表示选项数据；`count` 表示折叠的数量, `onClose` 表示移除标签类型和参数：TNode<{ value: T[]; collapsedSelectedItems: T[]; count: number, onClose: (index: number) => void }>",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/select?tab=api#select-props"
             },
             {
               "name": "collapsed-items",
-              "description": "多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`onClose` 表示关闭标签时触发的事件：TNode<{ value: T[]; collapsedSelectedItems: T[]; count: number }>",
+              "description": "多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`collapsedTags` 表示折叠的标签，泛型 `T` 继承 `SelectOption`，表示选项数据；`count` 表示折叠的数量, `onClose` 表示移除标签类型和参数：TNode<{ value: T[]; collapsedSelectedItems: T[]; count: number, onClose: (index: number) => void }>",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/select?tab=api#select-props"
             },
             {
@@ -14443,6 +15210,11 @@
               {
                 "name": "change",
                 "description": "滑块值变化时触发",
+                "doc-url": "https://tdesign.tencent.com/vue-next/components/slider?tab=api#slider-events"
+              },
+              {
+                "name": "change-end",
+                "description": "triggered when the mouse button is released after dragging or clicking on the slider bar. It is suitable for scenarios where you do not want the callback to be triggered frequently during the process of dragging the slider\n\n松开拖动`mouseup` 或点击滑块条时触发，适合不希望在拖动滑块过程频繁触发回调的场景实用",
                 "doc-url": "https://tdesign.tencent.com/vue-next/components/slider?tab=api#slider-events"
               }
             ]
@@ -15651,6 +16423,15 @@
               ]
             },
             {
+              "name": "lazy",
+              "description": "Enable tab lazy loading\n\n是否启用选项卡懒加载",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/tab-panel?tab=api#tabpanel-props",
+              "type": [
+                "Boolean"
+              ],
+              "default": "false"
+            },
+            {
               "name": "panel",
               "description": "用于自定义选项卡面板内容",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/tab-panel?tab=api#tabpanel-props",
@@ -16186,6 +16967,14 @@
               "default": "undefined"
             },
             {
+              "name": "prefix-icon",
+              "description": "组件前置图标",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/tag-input?tab=api#taginput-props",
+              "type": [
+                "TNode"
+              ]
+            },
+            {
               "name": "readonly",
               "description": "只读状态，值为真会隐藏标签移除按钮和输入框",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/tag-input?tab=api#taginput-props",
@@ -16385,6 +17174,16 @@
               "doc-url": "https://tdesign.tencent.com/vue-next/components/tag-input?tab=api#taginput-props"
             },
             {
+              "name": "prefixIcon",
+              "description": "组件前置图标",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/tag-input?tab=api#taginput-props"
+            },
+            {
+              "name": "prefix-icon",
+              "description": "组件前置图标",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/tag-input?tab=api#taginput-props"
+            },
+            {
               "name": "suffix",
               "description": "后置图标前的后置内容",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/tag-input?tab=api#taginput-props"
@@ -16418,6 +17217,167 @@
               "name": "value-display",
               "description": "自定义值呈现的全部内容，参数为所有标签的值类型和参数：string | TNode<{ value: TagInputValue; onClose: (index: number, item?: any) => void }>",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/tag-input?tab=api#taginput-props"
+            }
+          ]
+        },
+        {
+          "name": "t-text",
+          "source": {
+            "symbol": "Text"
+          },
+          "description": "Text\n\n文本",
+          "doc-url": "https://tdesign.tencent.com/vue-next/components/text",
+          "props": [
+            {
+              "name": "code",
+              "description": "add code style\n\n是否添加代码样式",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/text?tab=api#text-props",
+              "type": [
+                "Boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "content",
+              "description": "content of text\n\n文本内容",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/text?tab=api#text-props",
+              "type": [
+                "String",
+                "TNode"
+              ]
+            },
+            {
+              "name": "copyable",
+              "description": "add copyable style\n\n是否可复制，可通过配置参数自定义复制操作的具体功能和样式",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/text?tab=api#text-props",
+              "type": [
+                "Boolean",
+                "Object"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "default",
+              "description": "default slot of text\n\n文本内容",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/text?tab=api#text-props",
+              "type": [
+                "String",
+                "TNode"
+              ]
+            },
+            {
+              "name": "delete",
+              "description": "add delete line style\n\n是否添加删除线样式",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/text?tab=api#text-props",
+              "type": [
+                "Boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "disabled",
+              "description": "add disabled style\n\n是否添加不可用样式",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/text?tab=api#text-props",
+              "type": [
+                "Boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "ellipsis",
+              "description": "add ellipsis style\n\n是否省略展示，可通过配置参数自定义省略操作的具体功能和样式",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/text?tab=api#text-props",
+              "type": [
+                "Boolean",
+                "Object"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "italic",
+              "description": "add italic style\n\n文本是否为斜体",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/text?tab=api#text-props",
+              "type": [
+                "Boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "keyboard",
+              "description": "add keyboard style\n\n是否添加键盘样式",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/text?tab=api#text-props",
+              "type": [
+                "Boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "mark",
+              "description": "add mark style\n\n是否添加标记样式，默认为黄色，可通过配置颜色修改标记样式，如#0052D9",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/text?tab=api#text-props",
+              "type": [
+                "String",
+                "Boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "strong",
+              "description": "add bold style\n\n文本是否加粗",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/text?tab=api#text-props",
+              "type": [
+                "Boolean"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "theme",
+              "description": "theme of text\n\n主题",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/text?tab=api#text-props",
+              "type": [
+                "String"
+              ],
+              "attribute-value": {
+                "type": "enum"
+              },
+              "values": [
+                {
+                  "name": "primary"
+                },
+                {
+                  "name": "secondary"
+                },
+                {
+                  "name": "success"
+                },
+                {
+                  "name": "warning"
+                },
+                {
+                  "name": "error"
+                }
+              ]
+            },
+            {
+              "name": "underline",
+              "description": "add underline style\n\n是否添加下划线样式",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/text?tab=api#text-props",
+              "type": [
+                "Boolean"
+              ],
+              "default": "false"
+            }
+          ],
+          "slots": [
+            {
+              "name": "content",
+              "description": "content of text\n\n文本内容",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/text?tab=api#text-props"
+            },
+            {
+              "name": "default",
+              "description": "default slot of text\n\n文本内容",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/text?tab=api#text-props"
             }
           ]
         },
@@ -16488,6 +17448,7 @@
               "description": "用户最多可以输入的字符个数",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/textarea?tab=api#textarea-props",
               "type": [
+                "String",
                 "Number"
               ]
             },
@@ -16637,7 +17598,7 @@
             },
             {
               "name": "disable-time",
-              "description": "禁用时间项",
+              "description": "disable time config function\n\n禁用时间项的配置函数",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/time-picker?tab=api#timepicker-props",
               "type": [
                 "Function"
@@ -17219,6 +18180,15 @@
               ]
             }
           ],
+          "js": {
+            "events": [
+              {
+                "name": "click",
+                "description": "trigger on click\n\n点击时触发",
+                "doc-url": "https://tdesign.tencent.com/vue-next/components/timeline-item?tab=api#timelineitem-events"
+              }
+            ]
+          },
           "slots": [
             {
               "name": "content",
@@ -17234,6 +18204,88 @@
               "name": "label",
               "description": "标签文本内容，可完全自定义",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/timeline-item?tab=api#timelineitem-props"
+            }
+          ]
+        },
+        {
+          "name": "t-title",
+          "source": {
+            "symbol": "Title"
+          },
+          "description": "Title\n\n标题",
+          "doc-url": "https://tdesign.tencent.com/vue-next/components/title",
+          "props": [
+            {
+              "name": "content",
+              "description": "content of title\n\n段落内容",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/title?tab=api#title-props",
+              "type": [
+                "String",
+                "TNode"
+              ]
+            },
+            {
+              "name": "default",
+              "description": "default slot of title\n\n标题内容",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/title?tab=api#title-props",
+              "type": [
+                "String",
+                "TNode"
+              ]
+            },
+            {
+              "name": "ellipsis",
+              "description": "add ellipsis style\n\n是否省略展示，可通过配置参数自定义省略操作的具体功能和样式",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/title?tab=api#title-props",
+              "type": [
+                "Boolean",
+                "Object"
+              ],
+              "default": "false"
+            },
+            {
+              "name": "level",
+              "description": "level of title\n\n标题等级",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/title?tab=api#title-props",
+              "type": [
+                "String"
+              ],
+              "default": "h1",
+              "attribute-value": {
+                "type": "enum"
+              },
+              "values": [
+                {
+                  "name": "h1"
+                },
+                {
+                  "name": "h2"
+                },
+                {
+                  "name": "h3"
+                },
+                {
+                  "name": "h4"
+                },
+                {
+                  "name": "h5"
+                },
+                {
+                  "name": "h6"
+                }
+              ]
+            }
+          ],
+          "slots": [
+            {
+              "name": "content",
+              "description": "content of title\n\n段落内容",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/title?tab=api#title-props"
+            },
+            {
+              "name": "default",
+              "description": "default slot of title\n\n标题内容",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/title?tab=api#title-props"
             }
           ]
         },
@@ -17518,7 +18570,7 @@
             },
             {
               "name": "keys",
-              "description": "用来定义选项文本和选项值字段，示例：`{ label: 'text', value: 'id' }`，表示选项文本取 `text` 字段，选项值取 `id` 字段",
+              "description": "alias field name in data\n\n用来定义 value / label / disabled 在 `data` 中对应的字段别名，示例：`{ label: 'text', value: 'id' }`，表示选项文本取 `text` 字段，选项值取 `id` 字段",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/transfer?tab=api#transfer-props",
               "type": [
                 "Object"
@@ -17562,6 +18614,15 @@
                 "Array"
               ],
               "default": "true"
+            },
+            {
+              "name": "target-draggable",
+              "description": "allowed to sort the target list by dragging\n\n是否允许通过拖拽对目标列表进行排序",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/transfer?tab=api#transfer-props",
+              "type": [
+                "Boolean"
+              ],
+              "default": "false"
             },
             {
               "name": "target-sort",
@@ -17700,7 +18761,7 @@
           "props": [
             {
               "name": "activable",
-              "description": "节点是否可高亮",
+              "description": "make nodes can be highlight\n\n节点是否可高亮",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/tree?tab=api#tree-props",
               "type": [
                 "Boolean"
@@ -17788,7 +18849,7 @@
             },
             {
               "name": "draggable",
-              "description": "[开发中]节点是否可拖拽",
+              "description": "节点是否可拖拽",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/tree?tab=api#tree-props",
               "type": [
                 "Boolean"
@@ -17868,7 +18929,7 @@
             },
             {
               "name": "height",
-              "description": "table height\n\n表格高度，超出后会出现滚动条。示例：100,  '30%',  '300'。值为数字类型，会自动加上单位 px。如果不是绝对固定表格高度，建议使用 `maxHeight`",
+              "description": "The height of tree. Scrollbar will appear after the content is overflow. Examples: 100, '30%', '300'. The value should be a number and will automatically be converted to a pixel value. If the tree height is not fixed, it is recommended to use `maxHeight`.\n\n树的高度，超出后会出现滚动条。示例：100,  '30%',  '300'。值为数字类型，会自动加上单位 px。如果不是绝对固定树的高度，建议使用 `maxHeight`",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/tree?tab=api#tree-props",
               "type": [
                 "String",
@@ -17895,7 +18956,7 @@
             },
             {
               "name": "keys",
-              "description": "用来定义 `value / label / children` 在 `data` 数据中对应的字段别名，示例：`{ value: 'key', label 'name', children: 'list' }`",
+              "description": "alias field name in data\n\n用来定义 `value / label / disabled / children` 在 `data` 数据中对应的字段别名，示例：`{ value: 'key', label 'name', children: 'list' }`。其中，disabled 待开发。",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/tree?tab=api#tree-props",
               "type": [
                 "Object"
@@ -17941,7 +19002,7 @@
             },
             {
               "name": "max-height",
-              "description": "table max height\n\n表格最大高度，超出后会出现滚动条。示例：100, '30%', '300'。值为数字类型，会自动加上单位 px",
+              "description": "The max height of tree. Scrollbar will appear after the content is overflow. Examples: 100, '30%', '300'. \n\n树的最大高度，超出后会出现滚动条。示例：100, '30%', '300'。值为数字类型，会自动加上单位 px",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/tree?tab=api#tree-props",
               "type": [
                 "String",
@@ -17975,7 +19036,7 @@
             },
             {
               "name": "value",
-              "description": "选中值（组件为可选状态时）",
+              "description": "选中值，组件为可选状态时有效",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/tree?tab=api#tree-props",
               "type": [
                 "Array"
@@ -18207,7 +19268,7 @@
             },
             {
               "name": "keys",
-              "description": "用来定义 `value / label / children` 在 `data` 数据中对应的字段别名，示例：`{ value: 'key', label 'name', children: 'list' }`",
+              "description": "alias filed name in data\n\n用来定义 `value / label / disabled / children` 在 `data` 数据中对应的字段别名，示例：`{ value: 'key', label: 'name', children: 'list' }`",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/tree-select?tab=api#treeselect-props",
               "type": [
                 "Object"
@@ -18636,7 +19697,7 @@
             },
             {
               "name": "accept",
-              "description": "接受上传的文件类型，[查看 W3C示例](https://www.w3schools.com/tags/att_input_accept.asp)，[查看 MDN 示例](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input/file)",
+              "description": "File types that can be accepted. [W3C](https://www.w3schools.com/tags/att_input_accept.asp)，[MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input/file)\n\n接受上传的文件类型，[查看 W3C示例](https://www.w3schools.com/tags/att_input_accept.asp)，[查看 MDN 示例](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input/file)",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
               "type": [
                 "String"
@@ -18644,7 +19705,7 @@
             },
             {
               "name": "action",
-              "description": "upload action url\n\n上传接口。设接口响应数据为字段 `response`，那么 `response.error` 存在时会判断此次上传失败，并显示错误文本信息；`response.url` 会作为文件上传成功后的地址，并使用该地址显示图片或文件",
+              "description": "Uploading URL\n\n上传接口。设接口响应数据为字段 `response`，那么 `response.error` 存在时会判断此次上传失败，并显示错误文本信息；`response.url` 会作为文件上传成功后的地址，并使用该地址显示图片或文件",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
               "type": [
                 "String"
@@ -18652,7 +19713,7 @@
             },
             {
               "name": "allow-upload-duplicate-file",
-              "description": "是否允许重复上传相同文件名的文件",
+              "description": "allow to upload duplicate name files\n\n是否允许重复上传相同文件名的文件",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
               "type": [
                 "Boolean"
@@ -18661,7 +19722,7 @@
             },
             {
               "name": "auto-upload",
-              "description": "是否在选择文件后自动发起请求上传文件",
+              "description": "post upload request automatically after files being selected\n\n是否在选择文件后自动发起请求上传文件",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
               "type": [
                 "Boolean"
@@ -18670,7 +19731,7 @@
             },
             {
               "name": "before-all-files-upload",
-              "description": "before all files upload, return false can stop uploading file\n\n如果是自动上传模式 `autoUpload=true`，表示全部文件上传之前的钩子函数，函数参数为上传的文件，函数返回值决定是否继续上传，若返回值为 `false` 则终止上传。<br/>如果是非自动上传模式 `autoUpload=false`，则函数返回值为 `false` 时表示不触发文件变化",
+              "description": "before all files upload, return false can stop uploading file\n\n如果是自动上传模式 `autoUpload=true`，表示全部文件上传之前的钩子函数，函数参数为上传的文件，函数返回值决定是否继续上传，若返回值为 `false` 则终止上传。<br/>如果是非自动上传模式 `autoUpload=false`，则函数返回值为 `false` 时表示本次选中的文件不会加入到文件列表中，即不触发 `onChange` 事件",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
               "type": [
                 "Function"
@@ -18678,15 +19739,24 @@
             },
             {
               "name": "before-upload",
-              "description": "如果是自动上传模式 `autoUpload=true`，表示单个文件上传之前的钩子函数，若函数返回值为 `false` 则表示不上传当前文件。<br/>如果是非自动上传模式 `autoUpload=false`，函数返回值为 `false` 时表示从上传文件中剔除当前文件",
+              "description": "stop one of files to upload\n\n如果是自动上传模式 `autoUpload=true`，表示单个文件上传之前的钩子函数，若函数返回值为 `false` 则表示不上传当前文件。<br/>如果是非自动上传模式 `autoUpload=false`，函数返回值为 `false` 时表示从上传文件中剔除当前文件",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
               "type": [
                 "Function"
               ]
             },
             {
+              "name": "cancel-upload-button",
+              "description": "cancel upload button props, which showed on `autoUpload=false` and multiple files/images upload\n\n批量文件/图片上传，`autoUpload=false` 场景下，透传“取消上传”按钮属性",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
+              "type": [
+                "Object",
+                "TNode"
+              ]
+            },
+            {
               "name": "data",
-              "description": "上传请求所需的额外字段，默认字段有 `file`，表示文件信息。可以添加额外的文件名字段，如：`{file_name: \"custom-file-name.txt\"}`。`autoUpload=true` 时有效。也可以使用 `formatRequest` 完全自定义上传请求的字段",
+              "description": "extra request data of uploading. `formatRequest` can redefine all request data\n\n上传请求所需的额外字段，默认字段有 `file`，表示文件信息。可以添加额外的文件名字段，如：`{file_name: \"custom-file-name.txt\"}`。`autoUpload=true` 时有效。也可以使用 `formatRequest` 完全自定义上传请求的字段",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
               "type": [
                 "Object"
@@ -18703,7 +19773,7 @@
             },
             {
               "name": "disabled",
-              "description": "是否禁用",
+              "description": "make upload to be disabled\n\n是否禁用",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
               "type": [
                 "Boolean"
@@ -18729,7 +19799,7 @@
             },
             {
               "name": "file-list-display",
-              "description": "用于完全自定义文件列表内容",
+              "description": "used to render file list UI\n\n用于完全自定义文件列表界面内容(UI)，单文件和多文件均有效",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
               "type": [
                 "TNode"
@@ -18746,7 +19816,7 @@
             },
             {
               "name": "format",
-              "description": "转换文件 `UploadFile` 的数据结构，可新增或修改 `UploadFile` 的属性，注意不能删除 `UploadFile` 属性。`action` 存在时有效",
+              "description": "to redefine  `UploadFile` data structure\n\n转换文件 `UploadFile` 的数据结构，可新增或修改 `UploadFile` 的属性，注意不能删除 `UploadFile` 属性。`action` 存在时有效",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
               "type": [
                 "Function"
@@ -18754,7 +19824,7 @@
             },
             {
               "name": "format-request",
-              "description": "用于新增或修改文件上传请求参数。`action` 存在时有效。一个请求上传一个文件时，默认请求字段有 `file`；<br/>一个请求上传多个文件时，默认字段有 `file[0]/file[1]/file[2]/.../length`，其中 `length` 表示本次上传的文件数量。<br/>⚠️非常注意，此处的 `file[0]/file[1]` 仅仅是一个字段名，并非表示 `file` 是一个数组，接口获取字段时注意区分。<br/>可以使用 `name` 定义 `file` 字段的别名，也可以使用 `formatRequest` 自定义任意字段",
+              "description": "redefine request data\n\n用于新增或修改文件上传请求 参数。`action` 存在时有效。一个请求上传一个文件时，默认请求字段有 `file`。<br/>一个请求上传多个文件时，默认字段有 `file[0]/file[1]/file[2]/.../length`，其中 `length` 表示本次上传的文件数量。<br/>⚠️非常注意，此处的 `file[0]/file[1]` 仅仅是一个字段名，并非表示 `file` 是一个数组，接口获取字段时注意区分。<br/>可以使用 `name` 定义 `file` 字段的别名。<br/>也可以使用 `formatRequest` 自定义任意字段，如添加一个字段 `fileList` ，存储文件数组",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
               "type": [
                 "Function"
@@ -18762,7 +19832,7 @@
             },
             {
               "name": "format-response",
-              "description": "用于格式化文件上传后的接口响应数据，`response` 便是接口响应的原始数据。`action` 存在时有效。<br/> 此函数的返回值 `error` 或 `response.error` 会作为错误文本提醒，如果存在会判定为本次上传失败。<br/> 此函数的返回值 `url` 或 `response.url` 会作为上传成功后的链接",
+              "description": "redefine response data structure\n\n用于格式化文件上传后的接口响应数据，`response` 便是接口响应的原始数据。`action` 存在时有效。<br/> 示例返回值：`{ error, url, status, files }` <br/> 此函数的返回值 `error` 会作为错误文本提醒，表示上传失败的原因，如果存在会判定为本次上传失败。<br/> 此函数的返回值 `url` 会作为单个文件上传成功后的链接。<br/> `files` 表示一个请求同时上传多个文件后的文件列表",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
               "type": [
                 "Function"
@@ -18770,7 +19840,15 @@
             },
             {
               "name": "headers",
-              "description": "设置上传的请求头部，`action` 存在时有效",
+              "description": "HTTP Request Header\n\n设置上传的请求头部，`action` 存在时有效",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "image-viewer-props",
+              "description": "ImageViewer Component Props\n\n透传图片预览组件全部属性",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
               "type": [
                 "Object"
@@ -18786,7 +19864,7 @@
             },
             {
               "name": "is-batch-upload",
-              "description": "多个文件是否作为一个独立文件包，整体替换，整体删除。不允许追加文件，只允许替换文件。`theme=file-flow` 时有效",
+              "description": "make all files to be a whole package, files can only be replaced or deleted together, can not add more files\n\n多个文件是否作为一个独立文件包，整体替换，整体删除。不允许追加文件，只允许替换文件。`theme=file-flow` 时有效",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
               "type": [
                 "Boolean"
@@ -18803,7 +19881,7 @@
             },
             {
               "name": "max",
-              "description": "用于控制文件上传数量，值为 0 则不限制",
+              "description": "max count of files limit\n\n用于控制文件上传数量，值为 0 则不限制。注意，单文件上传场景，请勿设置 `max` 属性",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
               "type": [
                 "Number"
@@ -18812,7 +19890,7 @@
             },
             {
               "name": "method",
-              "description": "HTTP 请求类型",
+              "description": "HTTP request method\n\nHTTP 请求类型",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
               "type": [
                 "String"
@@ -18856,7 +19934,7 @@
             },
             {
               "name": "mock-progress-duration",
-              "description": "模拟进度间隔时间，单位：毫秒，默认：300。由于原始的上传请求，小文件上传进度只有 0 和 100，故而新增模拟进度，每间隔 `mockProgressDuration` 毫秒刷新一次模拟进度。小文件设置小一点，大文件设置大一点。注意：当 `useMockProgress` 为真时，当前设置有效",
+              "description": "mock progress duration time. more large files more duration time\n\n模拟进度间隔时间，单位：毫秒，默认：300。由于原始的上传请求，小文件上传进度只有 0 和 100，故而新增模拟进度，每间隔 `mockProgressDuration` 毫秒刷新一次模拟进度。小文件设置小一点，大文件设置大一点。注意：当 `useMockProgress` 为真时，当前设置有效",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
               "type": [
                 "Number"
@@ -18864,7 +19942,7 @@
             },
             {
               "name": "multiple",
-              "description": "支持多文件上传",
+              "description": "multiple files uploading\n\n支持多文件上传",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
               "type": [
                 "Boolean"
@@ -18873,7 +19951,7 @@
             },
             {
               "name": "name",
-              "description": "文件上传时的名称",
+              "description": "field name of files in upload request data\n\n文件上传时的名称",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
               "type": [
                 "String"
@@ -18882,7 +19960,7 @@
             },
             {
               "name": "placeholder",
-              "description": "占位符",
+              "description": "placeholder\n\n占位符",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
               "type": [
                 "String"
@@ -18890,15 +19968,33 @@
             },
             {
               "name": "request-method",
-              "description": "自定义上传方法。返回值 `status` 表示上传成功或失败；`error` 或 `response.error` 表示上传失败的原因；<br/>`response` 表示请求上传成功后的返回数据，`response.url` 表示上传成功后的图片/文件地址，`response.files` 表示一个请求上传多个文件/图片后的返回值。<br/>示例一：`{ status: 'fail', error: '上传失败', response }`。<br/>示例二：`{ status: 'success', response: { url: 'https://tdesign.gtimg.com/site/avatar.jpg' } }`。<br/> 示例三：`{ status: 'success', files: [{ url: 'https://xxx.png', name: 'xxx.png' }]}`",
+              "description": "custom upload request method\n\n自定义上传方法。返回值 `status` 表示上传成功或失败；`error` 或 `response.error` 表示上传失败的原因；<br/>`response` 表示请求上传成功后的返回数据，`response.url` 表示上传成功后的图片/文件地址，`response.files` 表示一个请求上传多个文件/图片后的返回值。<br/>示例一：`{ status: 'fail', error: '上传失败', response }`。<br/>示例二：`{ status: 'success', response: { url: 'https://tdesign.gtimg.com/site/avatar.jpg' } }`。<br/> 示例三：`{ status: 'success', files: [{ url: 'https://xxx.png', name: 'xxx.png' }]}`",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
               "type": [
                 "Function"
               ]
             },
             {
+              "name": "show-image-file-name",
+              "description": "show image's name\n\n是否显示图片的文件名称",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
+              "type": [
+                "Boolean"
+              ],
+              "default": "true"
+            },
+            {
+              "name": "show-thumbnail",
+              "description": "show thumbnail before file name, only works on `theme=file-flow` \n\n是否在文件列表中显示缩略图，`theme=file-flow` 时有效",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
+              "type": [
+                "Boolean"
+              ],
+              "default": "false"
+            },
+            {
               "name": "show-upload-progress",
-              "description": "是否显示上传进度",
+              "description": "show upload progress nodes\n\n是否显示上传进度",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
               "type": [
                 "Boolean"
@@ -18907,7 +20003,7 @@
             },
             {
               "name": "size-limit",
-              "description": "图片文件大小限制，默认单位 KB。可选单位有：`'B' | 'KB' | 'MB' | 'GB'`。示例一：`1000`。示例二：`{ size: 2, unit: 'MB', message: '图片大小不超过 {sizeLimit} MB' }`",
+              "description": "files size limit\n\n图片文件大小限制，默认单位 KB。可选单位有：`'B' | 'KB' | 'MB' | 'GB'`。示例一：`1000`。示例二：`{ size: 2, unit: 'MB', message: '图片大小不超过 {sizeLimit} MB' }`",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
               "type": [
                 "Number",
@@ -18941,7 +20037,7 @@
             },
             {
               "name": "theme",
-              "description": "组件风格。custom 表示完全自定义风格；file 表示默认文件上传风格；file-input 表示输入框形式的文件上传；file-flow 表示文件批量上传；image 表示默认图片上传风格；image-flow 表示图片批量上传",
+              "description": "different upload UI styles\n\n组件风格。custom 表示完全自定义风格；file 表示默认文件上传风格；file-input 表示输入框形式的文件上传；file-flow 表示文件批量上传；image 表示默认图片上传风格；image-flow 表示图片批量上传",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
               "type": [
                 "String"
@@ -18982,7 +20078,7 @@
             },
             {
               "name": "trigger",
-              "description": "触发上传的元素，`files` 指本次显示的全部文件",
+              "description": "trigger elements UI\n\n触发上传的元素，`files` 指本次显示的全部文件",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
               "type": [
                 "TNode"
@@ -18990,7 +20086,7 @@
             },
             {
               "name": "trigger-button-props",
-              "description": "透传选择按钮全部属性",
+              "description": "trigger button props, it can be used to change color/size/href/... of the trigger button\n\n透传选择按钮全部属性",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
               "type": [
                 "Object"
@@ -18998,12 +20094,21 @@
             },
             {
               "name": "upload-all-files-in-one-request",
-              "description": "是否在同一个请求中上传全部文件，默认一个请求上传一个文件。多文件上传时有效",
+              "description": "uploading all files in one request\n\n是否在同一个请求中上传全部文件，默认一个请求上传一个文件。多文件上传时有效",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
               "type": [
                 "Boolean"
               ],
               "default": "false"
+            },
+            {
+              "name": "upload-button",
+              "description": "upload button props, which showed on `autoUpload=false` and multiple files/images upload\n\n批量文件/图片上传，`autoUpload=false` 场景下，透传“点击上传”按钮属性",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
+              "type": [
+                "Object",
+                "TNode"
+              ]
             },
             {
               "name": "upload-pasted-files",
@@ -19012,11 +20117,11 @@
               "type": [
                 "Boolean"
               ],
-              "default": "false"
+              "default": "true"
             },
             {
               "name": "use-mock-progress",
-              "description": "是否在请求时间超过 300ms 后显示模拟进度。上传进度有模拟进度和真实进度两种。一般大小的文件上传，真实的上传进度只有 0 和 100，不利于交互呈现，因此组件内置模拟上传进度。真实上传进度一般用于大文件上传。",
+              "description": "use mock progress, instead of real progress\n\n是否在请求时间超过 300ms 后显示模拟进度。上传进度有模拟进度和真实进度两种。一般大小的文件上传，真实的上传进度只有 0 和 100，不利于交互呈现，因此组件内置模拟上传进度。真实上传进度一般用于大文件上传。",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
               "type": [
                 "Boolean"
@@ -19025,7 +20130,7 @@
             },
             {
               "name": "value",
-              "description": "file list, `UploadFile`\n\n已上传文件列表，同 `files`。TS 类型：`UploadFile`",
+              "description": "file list\n\n已上传文件列表，同 `files`。TS 类型：`UploadFile`",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
               "type": [
                 "Array"
@@ -19034,7 +20139,7 @@
             },
             {
               "name": "with-credentials",
-              "description": "上传请求时是否携带 cookie",
+              "description": "uploading request with cookie\n\n上传请求时是否携带 cookie",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
               "type": [
                 "Boolean"
@@ -19046,27 +20151,27 @@
             "events": [
               {
                 "name": "cancel-upload",
-                "description": "点击「取消上传」时触发",
+                "description": "trigger on cancel button click\n\n点击「取消上传」时触发",
                 "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-events"
               },
               {
                 "name": "change",
-                "description": "已上传文件列表发生变化时触发，`trigger` 表示触发本次的来源",
+                "description": "trigger on uploaded files change\n\n已上传文件列表发生变化时触发，`trigger` 表示触发本次的来源",
                 "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-events"
               },
               {
                 "name": "dragenter",
-                "description": "进入拖拽区域时触发",
+                "description": "trigger on file dragged into drag elements\n\n进入拖拽区域时触发",
                 "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-events"
               },
               {
                 "name": "dragleave",
-                "description": "离开拖拽区域时触发",
+                "description": "trigger on file dragged leave drag elements\n\n离开拖拽区域时触发",
                 "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-events"
               },
               {
                 "name": "drop",
-                "description": "拖拽结束时触发",
+                "description": "trigger on file dropped\n\n拖拽结束时触发",
                 "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-events"
               },
               {
@@ -19081,22 +20186,22 @@
               },
               {
                 "name": "one-file-success",
-                "description": "单个文件上传成功后触发，在多文件场景下会触发多次。`context.file` 表示当前上传成功的单个文件，`context.response` 表示上传请求的返回数据",
+                "description": "trigger on file uploaded successfully\n\n单个文件上传成功后触发，在多文件场景下会触发多次。`context.file` 表示当前上传成功的单个文件，`context.response` 表示上传请求的返回数据",
                 "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-events"
               },
               {
                 "name": "preview",
-                "description": "点击图片预览时触发，文件没有预览",
+                "description": "trigger on preview elements click\n\n点击图片预览时触发，文件没有预览",
                 "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-events"
               },
               {
                 "name": "progress",
-                "description": "上传进度变化时触发，真实进度和模拟进度都会触发。<br/>⚠️ 原始上传请求，小文件的上传进度只有 0 和 100，故而不会触发 `progress` 事件；只有大文件才有真实的中间进度。如果你希望很小的文件也显示上传进度，保证 `useMockProgress=true` 的情况下，设置 `mockProgressDuration` 为更小的值。<br/>参数 `options.type=real` 表示真实上传进度，`options.type=mock` 表示模拟上传进度",
+                "description": "uploading request progress event\n\n上传进度变化时触发，真实进度和模拟进度都会触发。<br/>⚠️ 原始上传请求，小文件的上传进度只有 0 和 100，故而不会触发 `progress` 事件；只有大文件才有真实的中间进度。如果你希望很小的文件也显示上传进度，保证 `useMockProgress=true` 的情况下，设置 `mockProgressDuration` 为更小的值。<br/>参数 `options.type=real` 表示真实上传进度，`options.type=mock` 表示模拟上传进度",
                 "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-events"
               },
               {
                 "name": "remove",
-                "description": "移除文件时触发",
+                "description": "trigger on file removed\n\n移除文件时触发",
                 "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-events"
               },
               {
@@ -19106,7 +20211,7 @@
               },
               {
                 "name": "success",
-                "description": "上传成功后触发。<br/>`context.currentFiles` 表示当次请求上传的文件（无论成功或失败），`context.fileList` 表示上传成功后的文件，`context.response` 表示上传请求的返回数据。<br/>`context.results` 表示单次选择全部文件上传成功后的响应结果，可以在这个字段存在时提醒用户上传成功或失败。<br />",
+                "description": "trigger on all files uploaded successfully\n\n上传成功后触发。<br/>`context.currentFiles` 表示当次请求上传的文件（无论成功或失败），`context.fileList` 表示上传成功后的文件，`context.response` 表示上传请求的返回数据。<br/>`context.results` 表示单次选择全部文件上传成功后的响应结果，可以在这个字段存在时提醒用户上传成功或失败。<br />",
                 "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-events"
               },
               {
@@ -19122,6 +20227,16 @@
             ]
           },
           "slots": [
+            {
+              "name": "cancelUploadButton",
+              "description": "cancel upload button props, which showed on `autoUpload=false` and multiple files/images upload\n\n批量文件/图片上传，`autoUpload=false` 场景下，透传“取消上传”按钮属性类型和参数：null | ButtonProps | TNode<{ disabled: boolean; cancelUploadText: string; cancelUpload: (ctx: { e: MouseEvent }) => void }>",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props"
+            },
+            {
+              "name": "cancel-upload-button",
+              "description": "cancel upload button props, which showed on `autoUpload=false` and multiple files/images upload\n\n批量文件/图片上传，`autoUpload=false` 场景下，透传“取消上传”按钮属性类型和参数：null | ButtonProps | TNode<{ disabled: boolean; cancelUploadText: string; cancelUpload: (ctx: { e: MouseEvent }) => void }>",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props"
+            },
             {
               "name": "default",
               "description": "非拖拽场景，指触发上传的元素，如：“选择文件”。如果是拖拽场景，则是指拖拽区域",
@@ -19139,12 +20254,12 @@
             },
             {
               "name": "fileListDisplay",
-              "description": "用于完全自定义文件列表内容类型和参数：TNode<{ files: UploadFile[]; dragEvents?: UploadDisplayDragEvents }>",
+              "description": "used to render file list UI\n\n用于完全自定义文件列表界面内容(UI)，单文件和多文件均有效类型和参数：TNode<{ files: UploadFile[]; dragEvents?: UploadDisplayDragEvents }>",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props"
             },
             {
               "name": "file-list-display",
-              "description": "用于完全自定义文件列表内容类型和参数：TNode<{ files: UploadFile[]; dragEvents?: UploadDisplayDragEvents }>",
+              "description": "used to render file list UI\n\n用于完全自定义文件列表界面内容(UI)，单文件和多文件均有效类型和参数：TNode<{ files: UploadFile[]; dragEvents?: UploadDisplayDragEvents }>",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props"
             },
             {
@@ -19154,7 +20269,17 @@
             },
             {
               "name": "trigger",
-              "description": "触发上传的元素，`files` 指本次显示的全部文件类型和参数：TNode<TriggerContext>【interface TriggerContext { dragActive?: boolean;  files: UploadFile[] }】",
+              "description": "trigger elements UI\n\n触发上传的元素，`files` 指本次显示的全部文件类型和参数：TNode<TriggerContext>【interface TriggerContext { dragActive?: boolean;  files: UploadFile[] }】",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props"
+            },
+            {
+              "name": "uploadButton",
+              "description": "upload button props, which showed on `autoUpload=false` and multiple files/images upload\n\n批量文件/图片上传，`autoUpload=false` 场景下，透传“点击上传”按钮属性类型和参数：null | ButtonProps | TNode<{ disabled: boolean; uploading: boolean; uploadFiles: () => void; uploadText: string }>",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props"
+            },
+            {
+              "name": "upload-button",
+              "description": "upload button props, which showed on `autoUpload=false` and multiple files/images upload\n\n批量文件/图片上传，`autoUpload=false` 场景下，透传“点击上传”按钮属性类型和参数：null | ButtonProps | TNode<{ disabled: boolean; uploading: boolean; uploadFiles: () => void; uploadText: string }>",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props"
             }
           ]

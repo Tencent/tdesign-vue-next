@@ -1,7 +1,7 @@
 {
   "name": "tdesign-vue-next",
   "purename": "tdesign",
-  "version": "1.7.0",
+  "version": "1.9.0",
   "title": "tdesign-vue-next",
   "description": "TDesign Component for vue-next",
   "keywords": [
@@ -59,8 +59,7 @@
     "generate:component": "node script/init/index.js",
     "generate:coverage-badge": "npm run test:unit-coverage && node script/test/generate-coverage.js",
     "prebuild": "rimraf es/* esm/* lib/* cjs/* dist/* --glob",
-    "build": "cross-env NODE_ENV=production rollup -c script/rollup.config.js && npm run build:tsc && npm run build:nuxt-es",
-    "build:nuxt-es": "node script/build-nuxt.js",
+    "build": "cross-env NODE_ENV=production rollup -c script/rollup.config.js && npm run build:tsc",
     "build:tsc": "run-p build:tsc-*",
     "build:tsc-es": "tsc --emitDeclarationOnly -d --outDir es/",
     "build:tsc-esm": "tsc --emitDeclarationOnly -d --outDir esm/",
@@ -105,6 +104,7 @@
   "devDependencies": {
     "@babel/cli": "^7.22.9",
     "@babel/core": "^7.22.9",
+    "@babel/helper-module-imports": "7.22.5",
     "@babel/plugin-transform-modules-commonjs": "^7.22.5",
     "@babel/plugin-transform-object-assign": "^7.22.5",
     "@babel/plugin-transform-runtime": "^7.22.9",
@@ -166,6 +166,7 @@
     "rollup": "^2.79.1",
     "rollup-plugin-analyzer": "^4.0.0",
     "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-esbuild": "^4.10.3",
     "rollup-plugin-ignore-import": "^1.3.2",
     "rollup-plugin-multi-input": "^1.4.1",
@@ -177,7 +178,7 @@
     "semver": "^7.5.4",
     "tdesign-icons-view": "^0.2.0",
     "tdesign-publish-cli": "^0.0.12",
-    "tdesign-site-components": "^0.13.4",
+    "tdesign-site-components": "^0.14.0",
     "tdesign-theme-generator": "^1.0.11",
     "typescript": "~4.8.4",
     "vite": "^2.9.16",
@@ -185,7 +186,7 @@
     "vite-plugin-tdoc": "^2.0.4",
     "vitest": "^0.14.2",
     "vitest-fetch-mock": "^0.1.0",
-    "vue": "^3.3.4",
+    "vue": "3.3.9",
     "vue-router": "^4.2.4",
     "workbox-precaching": "^6.6.0"
   },

@@ -1,0 +1,95 @@
+<template>
+  <!-- error-message 非必需 -->
+  <t-form ref="form" :data="formData" :rules="rules" scroll-to-first-error="smooth" @reset="onReset" @submit="onSubmit">
+    <t-form-item label="用户名" help="这是用户名字段帮助说明" name="account">
+      <t-input v-model="formData.account"></t-input>
+    </t-form-item>
+
+    <t-form-item label="个人简介" help="一句话介绍自己" name="description">
+      <t-input v-model="formData.description"></t-input>
+    </t-form-item>
+
+    <t-form-item label="密码" name="password">
+      <t-input v-model="formData.password" type="password"></t-input>
+    </t-form-item>
+
+    <t-form-item>
+      <t-space size="small">
+        <t-button theme="primary" type="submit">提交</t-button>
+        <t-button theme="default" variant="base" type="reset">重置</t-button>
+        <t-button theme="default" variant="base" @click="handleValidateMessage">设置校验信息提示</t-button>
+      </t-space>
+    </t-form-item>
+  </t-form>
+</template>
+<script lang="ts" setup>
+import { ref, onMounted, reactive } from 'vue';
+import { MessagePlugin, FormProps, FormInstanceFunctions, ButtonProps, FormValidateMessage } from 'tdesign-vue-next';
+const formData: FormProps['data'] = reactive({
+  account: '',
+  description: '',
+  password: '',
+});
+const form = ref<FormInstanceFunctions>(null);
+const validateMessage: FormValidateMessage<FormProps['data']> = {
+  account: [
+    {
+      type: 'error',
+      message: '自定义用户名校验信息提示',
+    },
+  ],
+  description: [
+    {
+      type: 'warning',
+      message: '自定义个人简介校验信息提示',
+    },
+  ],
+};
+const rules: FormProps['rules'] = {
+  account: [
+    {
+      required: true,
+    },
+    {
+      min: 2,
+    },
+    {
+      max: 10,
+      type: 'warning',
+    },
+  ],
+  description: [
+    {
+      validator: (val) => val.length < 10,
+      message: '不能超过 20 个字，中文长度等于英文长度',
+    },
+  ],
+  password: [
+    {
+      required: true,
+    },
+    {
+      len: 8,
+      message: '请输入 8 位密码',
+    },
+  ],
+};
+const onReset: FormProps['onReset'] = () => {
+  MessagePlugin.success('重置成功');
+};
+const onSubmit: FormProps['onSubmit'] = ({ validateResult, firstError }) => {
+  if (validateResult === true) {
+    MessagePlugin.success('提交成功');
+  } else {
+    console.log('Errors: ', validateResult);
+    MessagePlugin.warning(firstError);
+  }
+};
+const handleValidateMessage: ButtonProps['onClick'] = () => {
+  MessagePlugin.success('设置表单校验信息提示成功');
+  form.value.setValidateMessage(validateMessage);
+};
+onMounted(() => {
+  form.value.setValidateMessage(validateMessage);
+});
+</script>

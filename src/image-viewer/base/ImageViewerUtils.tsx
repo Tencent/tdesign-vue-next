@@ -36,7 +36,7 @@ export default defineComponent({
         <div class={`${classPrefix.value}-image-viewer__utils-content`}>
           <TToolTip
             overlayClassName={`${classPrefix.value}-image-viewer__utils--tip`}
-            content={globalConfig.value.mirrorTipText ?? '镜像'}
+            content={globalConfig.value.mirrorTipText}
             destroyOnClose
             placement="top"
             showArrow
@@ -46,7 +46,7 @@ export default defineComponent({
           </TToolTip>
           <TToolTip
             overlayClassName={`${classPrefix.value}-image-viewer__utils--tip`}
-            content={globalConfig.value.rotateTipText ?? '旋转'}
+            content={globalConfig.value.rotateTipText}
             destroyOnClose
             placement="top"
             showArrow
@@ -64,7 +64,7 @@ export default defineComponent({
           <TImageViewerIcon icon={() => <ZoomInIcon size="medium" />} onClick={props.onZoomIn} />
           <TToolTip
             overlayClassName={`${classPrefix.value}-image-viewer__utils--tip`}
-            content={globalConfig.value.originalSizeTipText ?? '原始大小'}
+            content={globalConfig.value.originalSizeTipText}
             destroyOnClose
             placement="top"
             showArrow

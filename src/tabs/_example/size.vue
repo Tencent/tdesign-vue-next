@@ -1,7 +1,7 @@
 <template>
   <t-space>
     <t-space direction="vertical">
-      <t-tabs :value="value1" size="medium" @change="(newValue) => (value1 = newValue)">
+      <t-tabs :value="value1" size="medium" @change="onTabChange1">
         <t-tab-panel value="first" label="选项卡1">
           <p style="padding: 25px">选项卡1</p>
         </t-tab-panel>
@@ -13,7 +13,7 @@
         </t-tab-panel>
       </t-tabs>
 
-      <t-tabs :value="value2" size="large" @change="(newValue) => (value2 = newValue)">
+      <t-tabs :value="value2" size="large" @change="onTabChange2">
         <t-tab-panel value="first" label="选项卡1">
           <p style="padding: 25px">选项卡1</p>
         </t-tab-panel>
@@ -32,4 +32,7 @@ import { ref } from 'vue';
 
 const value1 = ref('first');
 const value2 = ref('first');
+
+const onTabChange1 = (newValue) => (value1.value = newValue);
+const onTabChange2 = (newValue) => (value2.value = newValue);
 </script>

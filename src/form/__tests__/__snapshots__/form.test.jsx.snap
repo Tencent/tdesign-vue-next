@@ -79,6 +79,7 @@ exports[`Form > function > clearValidate 1`] = `
     "isDisabled": [Function],
     "wrapperElement": <div
       class="t-input__extra"
+      title="姓名必填"
     >
       姓名必填
     </div>,
@@ -87,6 +88,7 @@ exports[`Form > function > clearValidate 1`] = `
     "isDisabled": [Function],
     "wrapperElement": <div
       class="t-input__extra"
+      title="age必填"
     >
       age必填
     </div>,
@@ -100,6 +102,7 @@ exports[`Form > function > clearValidate 2`] = `
     "isDisabled": [Function],
     "wrapperElement": <div
       class="t-input__extra"
+      title="age必填"
     >
       age必填
     </div>,
@@ -113,6 +116,7 @@ exports[`Form > function > reset 1`] = `
     "isDisabled": [Function],
     "wrapperElement": <div
       class="t-input__extra"
+      title="姓名必填"
     >
       姓名必填
     </div>,
@@ -121,6 +125,7 @@ exports[`Form > function > reset 1`] = `
     "isDisabled": [Function],
     "wrapperElement": <div
       class="t-input__extra"
+      title="age必填"
     >
       age必填
     </div>,
@@ -134,6 +139,7 @@ exports[`Form > function > reset 2`] = `
     "isDisabled": [Function],
     "wrapperElement": <div
       class="t-input__extra"
+      title="姓名校验失败"
     >
       姓名校验失败
     </div>,
@@ -142,6 +148,7 @@ exports[`Form > function > reset 2`] = `
     "isDisabled": [Function],
     "wrapperElement": <div
       class="t-input__extra"
+      title="年龄校验失败"
     >
       年龄校验失败
     </div>,
@@ -155,6 +162,7 @@ exports[`Form > function > reset 3`] = `
     "isDisabled": [Function],
     "wrapperElement": <div
       class="t-input__extra"
+      title="年龄校验失败"
     >
       年龄校验失败
     </div>,
@@ -189,6 +197,7 @@ exports[`Form > function > validate 2`] = `
     "isDisabled": [Function],
     "wrapperElement": <div
       class="t-input__extra"
+      title="姓名必填"
     >
       姓名必填
     </div>,
@@ -197,6 +206,7 @@ exports[`Form > function > validate 2`] = `
     "isDisabled": [Function],
     "wrapperElement": <div
       class="t-input__extra"
+      title="age必填"
     >
       age必填
     </div>,
@@ -280,6 +290,7 @@ exports[`Form > function > validateOnly 2`] = `
     "isDisabled": [Function],
     "wrapperElement": <div
       class="t-input__extra"
+      title="姓名必填"
     >
       姓名必填
     </div>,
@@ -288,6 +299,7 @@ exports[`Form > function > validateOnly 2`] = `
     "isDisabled": [Function],
     "wrapperElement": <div
       class="t-input__extra"
+      title="age必填"
     >
       age必填
     </div>,
@@ -303,6 +315,7 @@ exports[`Form > function > validateOnly 4`] = `
     "isDisabled": [Function],
     "wrapperElement": <div
       class="t-input__extra"
+      title="姓名必填"
     >
       姓名必填
     </div>,
@@ -311,6 +324,7 @@ exports[`Form > function > validateOnly 4`] = `
     "isDisabled": [Function],
     "wrapperElement": <div
       class="t-input__extra"
+      title="age必填"
     >
       age必填
     </div>,

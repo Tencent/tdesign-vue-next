@@ -17,6 +17,7 @@ import useAsyncLoading from './hooks/useAsyncLoading';
 import EditableCell, { EditableCellProps } from './editable-cell';
 import { PageInfo } from '../pagination';
 import useClassName from './hooks/useClassName';
+import { useConfig } from '../hooks/useConfig';
 import useEditableRow from './hooks/useEditableRow';
 import useStyle from './hooks/useStyle';
 import { ScrollToElementParams } from '../hooks/useVirtualScrollNew';
@@ -89,7 +90,9 @@ export default defineComponent({
 
     const { classPrefix, tableDraggableClasses, tableBaseClass, tableSelectedClasses, tableSortClasses } =
       useClassName();
+    const { globalConfig } = useConfig('table', props.locale);
     const { sizeClassNames } = useStyle(props);
+    const tableSize = computed(() => props.size ?? globalConfig.value.size);
     // 自定义列配置功能
     const { tDisplayColumns, renderColumnController } = useColumnController(props, context);
 
@@ -258,7 +261,7 @@ export default defineComponent({
               attach,
               {
                 classPrefix,
-                ellipsisOverlayClassName: props.size !== 'medium' ? sizeClassNames[props.size] : '',
+                ellipsisOverlayClassName: tableSize.value !== 'medium' ? sizeClassNames[tableSize.value] : '',
               },
             );
           };
@@ -436,7 +439,6 @@ export default defineComponent({
       }
 
       return (
-        // @ts-ignore
         <BaseTable
           v-slots={context.slots}
           {...baseTableProps}

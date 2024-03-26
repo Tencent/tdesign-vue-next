@@ -36,7 +36,6 @@ export default defineComponent({
     const treeRef = ref(null);
 
     // data
-    const filterByText = ref(null);
     const actived = ref([]);
     const expanded = ref([]);
     const nodeInfo = ref(null);
@@ -77,6 +76,22 @@ export default defineComponent({
     );
 
     // computed
+    /** filterByText keep pace with innerInputValue */
+    const filterByText = computed(() => {
+      const value = innerInputValue.value || '';
+      if (value === '') {
+        return null;
+      }
+      return (node: TreeNodeModel<TreeOptionData>) => {
+        if (isFunction(props.filter)) {
+          const filter: boolean | Promise<boolean> = props.filter(String(value), node);
+          if (isBoolean(filter)) {
+            return filter;
+          }
+        }
+        return node.data[realLabel.value].indexOf(value) >= 0;
+      };
+    });
     const tDisabled = computed(() => {
       return formDisabled.value || props.disabled;
     });
@@ -230,19 +245,6 @@ export default defineComponent({
         return;
       }
       setInnerInputValue(value);
-      if (!value) {
-        filterByText.value = null;
-        return null;
-      }
-      filterByText.value = (node: TreeNodeModel<TreeOptionData>) => {
-        if (isFunction(props.filter)) {
-          const filter: boolean | Promise<boolean> = props.filter(String(value), node);
-          if (isBoolean(filter)) {
-            return filter;
-          }
-        }
-        return node.data[realLabel.value].indexOf(value) >= 0;
-      };
       props.onSearch?.(String(value));
     };
 
@@ -255,6 +257,11 @@ export default defineComponent({
       change(treeSelectValue.value, null, trigger as 'tag-remove' | 'backspace');
     };
 
+    const handlePopupVisibleChange = (visible: boolean, context: PopupVisibleChangeContext) => {
+      setInnerVisible(visible, context);
+      // 在通过点击选择器打开弹窗时 清空此前的输入内容 避免在关闭时就清空引起的闪烁问题
+      if (visible && context.trigger === 'trigger-element-click') setInnerInputValue('');
+    };
     const changeNodeInfo = async () => {
       await treeSelectValue.value;
 
@@ -468,7 +475,7 @@ export default defineComponent({
         }}
         onInputChange={inputChange}
         onTagChange={tagChange}
-        onPopupVisibleChange={(state: boolean, context: PopupVisibleChangeContext) => setInnerVisible(state, context)}
+        onPopupVisibleChange={handlePopupVisibleChange}
         {...(props.selectInputProps as TdTreeSelectProps['selectInputProps'])}
       />
     );

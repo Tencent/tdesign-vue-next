@@ -18,63 +18,53 @@
   </t-space>
 </template>
 
-<script lang="jsx">
+<script setup lang="jsx">
+import { ref } from 'vue';
 import { Icon } from 'tdesign-icons-vue-next';
-
-export default {
-  components: {
-    Icon,
+const items = ref([
+  {
+    label: '1',
+    children: true,
   },
-  data() {
-    return {
-      items: [
-        {
-          label: '1',
-          children: true,
-        },
-        {
-          label: '2',
-          children: true,
-        },
-      ],
-    };
+  {
+    label: '2',
+    children: true,
   },
-  methods: {
-    icon(createElement, node) {
-      let name = 'file';
-      if (node.getChildren()) {
-        if (node.expanded) {
-          name = 'folder-open';
-          if (node.loading) {
-            name = 'loading';
-          }
-        } else {
-          name = 'folder';
-        }
+]);
+const icon = (h, node) => {
+  let name = 'file';
+  // node.children is undefined on some cases
+  if (node.getChildren && node.getChildren(false)) {
+    if (node.expanded) {
+      name = 'folder-open';
+      if (node.loading) {
+        name = 'loading';
       }
-      return <Icon name={name} />;
-    },
-    load(node) {
-      const maxLevel = 2;
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          let nodes = [];
-          if (node.level < maxLevel) {
-            nodes = [
-              {
-                label: `${node.label}.1`,
-                children: node.level < maxLevel - 1,
-              },
-              {
-                label: `${node.label}.2`,
-                children: node.level < maxLevel - 1,
-              },
-            ];
-          }
-          resolve(nodes);
-        }, 500);
-      });
-    },
-  },
+    } else {
+      name = 'folder';
+    }
+  }
+  return <Icon name={name} />;
+};
+const load = (node) => {
+  const maxLevel = 2;
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      let nodes = [];
+      if (node.getLevel() < maxLevel) {
+        nodes = [
+          {
+            label: `${node.label}.1`,
+            children: node.getLevel() < maxLevel - 1,
+          },
+          {
+            label: `${node.label}.2`,
+            children: node.getLevel() < maxLevel - 1,
+          },
+        ];
+      }
+      resolve(nodes);
+    }, 500);
+  });
 };
 </script>

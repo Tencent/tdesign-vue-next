@@ -25,4 +25,4 @@ value | Number | - | The value of Statistic | N
 
 name | params | return | description
 -- | -- | -- | --
-start | `(from: number, to: number)` | \- | required。Digital scrolling change, from one number to another number
+start | \- | \- | required。start animation

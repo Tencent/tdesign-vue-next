@@ -42,15 +42,10 @@
   </t-space>
 </template>
 
-<script lang="jsx">
-export default {
-  data() {
-    return {
-      separator: () => <t-divider layout="vertical" style="height:100%" />,
-    };
-  },
-};
+<script setup lang="jsx">
+const separator = () => <t-divider layout="vertical" style="height:100%" />;
 </script>
+
 <style>
 .icon {
   font-size: 32px;

@@ -99,7 +99,6 @@ export default defineComponent({
             e.stopPropagation();
             return;
           }
-          (props as any).onClick?.({ e });
         },
       };
       const textContent = (
@@ -121,7 +120,7 @@ export default defineComponent({
         );
       }
       return (
-        <div class={itemClass} {...attrs}>
+        <div class={itemClass} {...attrs} onClick={!props.disabled && props.onClick}>
           {isCutOff.value ? <Tooltip content={() => slots?.default()}>{itemContent}</Tooltip> : itemContent}
           <span class={separatorClass.value}>
             {isFunction(separatorContent) ? separatorContent() : separatorContent}

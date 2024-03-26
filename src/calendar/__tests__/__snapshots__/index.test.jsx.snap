@@ -202,7 +202,7 @@ exports[`Calendar > :props > :cell 1`] = `
             
             <div
               class="t-radio-group__bg-block"
-              style="width: 0px; height: 0px; left: 0px; top: 0px;"
+              style="width: 0px; height: 0px; left: 0px; top: 0px; transition-property: none;"
             />
           </div>
         </div>
@@ -718,7 +718,7 @@ exports[`Calendar > :props > :cell 1`] = `
             
             <div
               class="t-radio-group__bg-block"
-              style="width: 0px; height: 0px; left: 0px; top: 0px;"
+              style="width: 0px; height: 0px; left: 0px; top: 0px; transition-property: none;"
             />
           </div>
         </div>
@@ -1313,7 +1313,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
             
             <div
               class="t-radio-group__bg-block"
-              style="width: 0px; height: 0px; left: 0px; top: 0px;"
+              style="width: 0px; height: 0px; left: 0px; top: 0px; transition-property: none;"
             />
           </div>
         </div>
@@ -2214,7 +2214,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
             
             <div
               class="t-radio-group__bg-block"
-              style="width: 0px; height: 0px; left: 0px; top: 0px;"
+              style="width: 0px; height: 0px; left: 0px; top: 0px; transition-property: none;"
             />
           </div>
         </div>
@@ -3862,7 +3862,7 @@ exports[`Calendar > :props > :controllerConfig 1`] = `
             
             <div
               class="t-radio-group__bg-block"
-              style="width: 0px; height: 0px; left: 0px; top: 0px;"
+              style="width: 0px; height: 0px; left: 0px; top: 0px; transition-property: none;"
             />
           </div>
         </div>
@@ -4772,7 +4772,7 @@ exports[`Calendar > :props > :fillWithZero 1`] = `
             
             <div
               class="t-radio-group__bg-block"
-              style="width: 0px; height: 0px; left: 0px; top: 0px;"
+              style="width: 0px; height: 0px; left: 0px; top: 0px; transition-property: none;"
             />
           </div>
         </div>
@@ -5673,7 +5673,7 @@ exports[`Calendar > :props > :fillWithZero 1`] = `
             
             <div
               class="t-radio-group__bg-block"
-              style="width: 0px; height: 0px; left: 0px; top: 0px;"
+              style="width: 0px; height: 0px; left: 0px; top: 0px; transition-property: none;"
             />
           </div>
         </div>
@@ -6579,7 +6579,7 @@ exports[`Calendar > :props > :firstDayOfWeek 1`] = `
           
           <div
             class="t-radio-group__bg-block"
-            style="width: 0px; height: 0px; left: 0px; top: 0px;"
+            style="width: 0px; height: 0px; left: 0px; top: 0px; transition-property: none;"
           />
         </div>
       </div>
@@ -7601,7 +7601,7 @@ exports[`Calendar > :props > :format 1`] = `
           
           <div
             class="t-radio-group__bg-block"
-            style="width: 0px; height: 0px; left: 0px; top: 0px;"
+            style="width: 0px; height: 0px; left: 0px; top: 0px; transition-property: none;"
           />
         </div>
       </div>
@@ -8509,7 +8509,7 @@ exports[`Calendar > :props > :head 1`] = `
             
             <div
               class="t-radio-group__bg-block"
-              style="width: 0px; height: 0px; left: 0px; top: 0px;"
+              style="width: 0px; height: 0px; left: 0px; top: 0px; transition-property: none;"
             />
           </div>
         </div>
@@ -9412,7 +9412,7 @@ exports[`Calendar > :props > :head 1`] = `
             
             <div
               class="t-radio-group__bg-block"
-              style="width: 0px; height: 0px; left: 0px; top: 0px;"
+              style="width: 0px; height: 0px; left: 0px; top: 0px; transition-property: none;"
             />
           </div>
         </div>
@@ -10322,7 +10322,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
             
             <div
               class="t-radio-group__bg-block"
-              style="width: 0px; height: 0px; left: 0px; top: 0px;"
+              style="width: 0px; height: 0px; left: 0px; top: 0px; transition-property: none;"
             />
           </div>
         </div>
@@ -11223,7 +11223,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
             
             <div
               class="t-radio-group__bg-block"
-              style="width: 0px; height: 0px; left: 0px; top: 0px;"
+              style="width: 0px; height: 0px; left: 0px; top: 0px; transition-property: none;"
             />
           </div>
         </div>
@@ -11971,7 +11971,7 @@ exports[`Calendar > :props > :mode 1`] = `
             
             <div
               class="t-radio-group__bg-block"
-              style="width: 0px; height: 0px; left: 0px; top: 0px;"
+              style="width: 0px; height: 0px; left: 0px; top: 0px; transition-property: none;"
             />
           </div>
         </div>
@@ -12813,7 +12813,7 @@ exports[`Calendar > :props > :mode 1`] = `
             
             <div
               class="t-radio-group__bg-block"
-              style="width: 0px; height: 0px; left: 0px; top: 0px;"
+              style="width: 0px; height: 0px; left: 0px; top: 0px; transition-property: none;"
             />
           </div>
         </div>
@@ -13280,7 +13280,7 @@ exports[`Calendar > :props > :multiple 1`] = `
           
           <div
             class="t-radio-group__bg-block"
-            style="width: 0px; height: 0px; left: 0px; top: 0px;"
+            style="width: 0px; height: 0px; left: 0px; top: 0px; transition-property: none;"
           />
         </div>
       </div>
@@ -14188,7 +14188,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
             
             <div
               class="t-radio-group__bg-block"
-              style="width: 0px; height: 0px; left: 0px; top: 0px;"
+              style="width: 0px; height: 0px; left: 0px; top: 0px; transition-property: none;"
             />
           </div>
         </div>
@@ -15089,7 +15089,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
             
             <div
               class="t-radio-group__bg-block"
-              style="width: 0px; height: 0px; left: 0px; top: 0px;"
+              style="width: 0px; height: 0px; left: 0px; top: 0px; transition-property: none;"
             />
           </div>
         </div>
@@ -15995,7 +15995,7 @@ exports[`Calendar > :props > :range 1`] = `
           
           <div
             class="t-radio-group__bg-block"
-            style="width: 0px; height: 0px; left: 0px; top: 0px;"
+            style="width: 0px; height: 0px; left: 0px; top: 0px; transition-property: none;"
           />
         </div>
       </div>
@@ -16903,7 +16903,7 @@ exports[`Calendar > :props > :theme 1`] = `
             
             <div
               class="t-radio-group__bg-block"
-              style="width: 0px; height: 0px; left: 0px; top: 0px;"
+              style="width: 0px; height: 0px; left: 0px; top: 0px; transition-property: none;"
             />
           </div>
         </div>
@@ -17772,7 +17772,7 @@ exports[`Calendar > :props > :theme 1`] = `
             
             <div
               class="t-radio-group__bg-block"
-              style="width: 0px; height: 0px; left: 0px; top: 0px;"
+              style="width: 0px; height: 0px; left: 0px; top: 0px; transition-property: none;"
             />
           </div>
         </div>
@@ -18678,7 +18678,7 @@ exports[`Calendar > :props > :value 1`] = `
           
           <div
             class="t-radio-group__bg-block"
-            style="width: 0px; height: 0px; left: 0px; top: 0px;"
+            style="width: 0px; height: 0px; left: 0px; top: 0px; transition-property: none;"
           />
         </div>
       </div>
@@ -19586,7 +19586,7 @@ exports[`Calendar > :props > :week 1`] = `
             
             <div
               class="t-radio-group__bg-block"
-              style="width: 0px; height: 0px; left: 0px; top: 0px;"
+              style="width: 0px; height: 0px; left: 0px; top: 0px; transition-property: none;"
             />
           </div>
         </div>
@@ -20473,7 +20473,7 @@ exports[`Calendar > :props > :week 1`] = `
             
             <div
               class="t-radio-group__bg-block"
-              style="width: 0px; height: 0px; left: 0px; top: 0px;"
+              style="width: 0px; height: 0px; left: 0px; top: 0px; transition-property: none;"
             />
           </div>
         </div>
@@ -21383,7 +21383,7 @@ exports[`Calendar > :props > :year:month 1`] = `
             
             <div
               class="t-radio-group__bg-block"
-              style="width: 0px; height: 0px; left: 0px; top: 0px;"
+              style="width: 0px; height: 0px; left: 0px; top: 0px; transition-property: none;"
             />
           </div>
         </div>
@@ -22284,7 +22284,7 @@ exports[`Calendar > :props > :year:month 1`] = `
             
             <div
               class="t-radio-group__bg-block"
-              style="width: 0px; height: 0px; left: 0px; top: 0px;"
+              style="width: 0px; height: 0px; left: 0px; top: 0px; transition-property: none;"
             />
           </div>
         </div>
@@ -23190,7 +23190,7 @@ exports[`Calendar > <slot> > <cell> 1`] = `
           
           <div
             class="t-radio-group__bg-block"
-            style="width: 0px; height: 0px; left: 0px; top: 0px;"
+            style="width: 0px; height: 0px; left: 0px; top: 0px; transition-property: none;"
           />
         </div>
       </div>
@@ -23849,7 +23849,7 @@ exports[`Calendar > <slot> > <cellAppend> 1`] = `
           
           <div
             class="t-radio-group__bg-block"
-            style="width: 0px; height: 0px; left: 0px; top: 0px;"
+            style="width: 0px; height: 0px; left: 0px; top: 0px; transition-property: none;"
           />
         </div>
       </div>
@@ -24898,7 +24898,7 @@ exports[`Calendar > <slot> > <head> 1`] = `
           
           <div
             class="t-radio-group__bg-block"
-            style="width: 0px; height: 0px; left: 0px; top: 0px;"
+            style="width: 0px; height: 0px; left: 0px; top: 0px; transition-property: none;"
           />
         </div>
       </div>
@@ -25802,7 +25802,7 @@ exports[`Calendar > <slot> > <week> 1`] = `
           
           <div
             class="t-radio-group__bg-block"
-            style="width: 0px; height: 0px; left: 0px; top: 0px;"
+            style="width: 0px; height: 0px; left: 0px; top: 0px; transition-property: none;"
           />
         </div>
       </div>

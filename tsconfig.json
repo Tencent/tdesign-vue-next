@@ -29,7 +29,10 @@
         "src/*"
       ],
       "tdesign-vue-next": [
-        "src/*"
+        "src"
+      ],
+      "tdesign-vue-next/es/locale/*": [
+        "src/locale/*"
       ],
       "@common/*": [
         "src/_common/*"

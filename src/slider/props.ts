@@ -72,4 +72,6 @@ export default {
   },
   /** 滑块值变化时触发 */
   onChange: Function as PropType<TdSliderProps['onChange']>,
+  /** 松开拖动`mouseup` 或点击滑块条时触发，适合不希望在拖动滑块过程频繁触发回调的场景实用 */
+  onChangeEnd: Function as PropType<TdSliderProps['onChangeEnd']>,
 };

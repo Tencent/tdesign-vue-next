@@ -1,15 +1,4 @@
-import {
-  computed,
-  defineComponent,
-  nextTick,
-  onBeforeUnmount,
-  onMounted,
-  ref,
-  Transition,
-  watch,
-  getCurrentInstance,
-  Teleport,
-} from 'vue';
+import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, ref, Transition, watch, Teleport } from 'vue';
 import {
   CloseIcon as TdCloseIcon,
   InfoCircleFilledIcon as TdInfoCircleFilledIcon,
@@ -24,11 +13,11 @@ import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useAction, useSameTarget } from './hooks';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import useDestroyOnClose from '../hooks/useDestroyOnClose';
-import { stack } from './stack';
 import { getScrollbarWidth } from '../_common/js/utils/getScrollbarWidth';
 
 import type { TdDialogProps } from './type';
 import useTeleport from '../hooks/useTeleport';
+import usePopupManager from '../hooks/usePopupManager';
 
 function GetCSSValue(v: string | number) {
   return Number.isNaN(Number(v)) ? v : `${Number(v)}px`;
@@ -140,6 +129,7 @@ export default defineComponent({
     const isNormal = computed(() => props.mode === 'normal');
     // 是否全屏对话框
     const isFullScreen = computed(() => props.mode === 'full-screen');
+    const computedVisible = computed(() => props.visible);
     const maskClass = computed(() => [
       `${COMPONENT_NAME.value}__mask`,
       !props.showOverlay && `${classPrefix.value}-is-hidden`,
@@ -184,6 +174,9 @@ export default defineComponent({
     const dialogStyle = computed(() => {
       return !isFullScreen.value ? { width: GetCSSValue(props.width) } : {}; // width全屏模式不生效
     });
+    const { isLastDialog } = usePopupManager('dialog', {
+      visible: computedVisible,
+    });
 
     watch(
       () => props.visible,
@@ -207,7 +200,6 @@ export default defineComponent({
         } else {
           clearStyleFunc();
         }
-        storeUid(value);
         addKeyboardEvent(value);
       },
     );
@@ -223,15 +215,6 @@ export default defineComponent({
       }, 150);
     }
 
-    const instance = getCurrentInstance();
-    const storeUid = (flag: boolean) => {
-      if (flag) {
-        stack.push(instance.uid);
-      } else {
-        stack.pop();
-      }
-    };
-
     const addKeyboardEvent = (status: boolean) => {
       if (status) {
         document.addEventListener('keydown', keyboardEvent);
@@ -246,12 +229,12 @@ export default defineComponent({
       const eventSrc = e.target as HTMLElement;
       if (eventSrc.tagName.toLowerCase() === 'input') return; // 若是input触发 则不执行
       const { code } = e;
-      if ((code === 'Enter' || code === 'NumpadEnter') && stack.top === instance.uid) {
+      if ((code === 'Enter' || code === 'NumpadEnter') && isLastDialog()) {
         props.onConfirm?.({ e });
       }
     };
     const keyboardEvent = (e: KeyboardEvent) => {
-      if (e.code === 'Escape' && stack.top === instance.uid) {
+      if (e.code === 'Escape' && isLastDialog()) {
         props.onEscKeydown?.({ e });
         // 根据closeOnEscKeydown判断按下ESC时是否触发close事件
         if (props.closeOnEscKeydown ?? globalConfig.value.closeOnEscKeydown) {

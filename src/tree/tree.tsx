@@ -98,6 +98,10 @@ export default defineComponent({
   // 在 methods 提供公共方法
   // 实例上可以直接访问
   methods: {
+    // 刷新树节点状态
+    refresh(): void {
+      this.store.refreshState();
+    },
     // 设置目标节点状态
     setItem(value: TreeNodeValue, options: TreeNodeState): void {
       const node: TreeNode = this.store.getNode(value);

@@ -39,6 +39,8 @@ export default {
     type: String,
     default: '',
   },
+  /** 只读状态 */
+  readonly: Boolean,
   /** 单选按钮的值 */
   value: {
     type: [String, Number, Boolean] as PropType<TdRadioProps['value']>,

@@ -42,22 +42,23 @@
   </t-space>
 </template>
 
-<script>
+<script setup>
+import { ref, computed } from 'vue';
 const allLevels = [3, 3, 3];
-
 let cacheIndex = 0;
 function getValue() {
   cacheIndex += 1;
   return `t${cacheIndex}`;
 }
-
 function createNodes(items, level) {
   const count = allLevels[level];
   if (count) {
     let index = 0;
     for (index = 0; index < count; index += 1) {
       const value = getValue();
-      const item = { value };
+      const item = {
+        value,
+      };
       items.push(item);
       if (allLevels[level + 1]) {
         item.children = [];
@@ -66,61 +67,44 @@ function createNodes(items, level) {
     }
   }
 }
-
 function createTreeData() {
   const items = [];
   createNodes(items, 0);
   return items;
 }
-
-export default {
-  data() {
-    const items = createTreeData();
-    return {
-      index: 0,
-      transition: true,
-      textInsertCount: '1',
-      useActived: false,
-      expandParent: true,
-      showLine: true,
-      showIcon: true,
-      items,
-    };
-  },
-  computed: {
-    insertCount() {
-      const { textInsertCount } = this;
-      return parseInt(textInsertCount, 10) || 1;
-    },
-  },
-  methods: {
-    label(createElement, node) {
-      return `${node.value}`;
-    },
-
-    getInsertItem() {
-      const value = getValue();
-      return {
-        value,
-      };
-    },
-    append(node) {
-      const { tree } = this.$refs;
-      if (!node) {
-        for (let index = 0; index < this.insertCount; index += 1) {
-          const item = this.getInsertItem();
-          tree.appendTo('', item);
-        }
-      } else {
-        for (let index = 0; index < this.insertCount; index += 1) {
-          const item = this.getInsertItem();
-          tree.appendTo(node.value, item);
-        }
-      }
-    },
-    remove(node) {
-      node.remove();
-    },
-  },
+const tree = ref();
+const initialData = createTreeData();
+const transition = ref(true);
+const textInsertCount = ref('1');
+const showLine = ref(true);
+const showIcon = ref(true);
+const items = ref(initialData);
+const insertCount = computed(() => {
+  return parseInt(textInsertCount.value, 10) || 1;
+});
+const label = (h, node) => {
+  return `${node.value}`;
+};
+const getInsertItem = () => {
+  const value = getValue();
+  return {
+    value,
+  };
+};
+const append = (node) => {
+  if (!node) {
+    for (let index = 0; index < insertCount.value; index += 1) {
+      const item = getInsertItem();
+      tree.value.appendTo('', item);
+    }
+  } else {
+    for (let index = 0; index < insertCount.value; index += 1) {
+      const item = getInsertItem();
+      tree.value.appendTo(node.value, item);
+    }
+  }
+};
+const remove = (node) => {
+  node.remove();
 };
 </script>

@@ -20,7 +20,7 @@ export default function useTagList(props: TagInputProps) {
   const oldInputValue = ref<InputValue>();
 
   // 点击标签关闭按钮，删除标签
-  const onClose = (p: { e?: MouseEvent; index: number; }) => {
+  const onClose = (p: { e?: MouseEvent; index: number }) => {
     const arr = [...tagValue.value];
     const [item] = arr.splice(p.index, 1); // 当前删除的item无需参数传递
     setTagValue(arr, { trigger: 'tag-remove', ...p, item });
@@ -106,7 +106,13 @@ export default function useTagList(props: TagInputProps) {
           onClose,
         },
       });
-      list.push(more ?? <Tag key="more">+{len}</Tag>);
+      list.push(
+        more ?? (
+          <Tag key="more" size={size.value}>
+            +{len}
+          </Tag>
+        ),
+      );
     }
     return list;
   };

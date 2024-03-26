@@ -184,10 +184,12 @@ export default function useInputNumber(props: TdInputNumberProps) {
       const r = getMaxOrMinValidateResult({ value: tValue.value, largeNumber, max, min });
       if (r === 'below-minimum') {
         setTValue(min, { type: 'blur', e: ctx.e });
+        props.onBlur?.(min, ctx);
         return;
       }
       if (r === 'exceed-maximum') {
         setTValue(max, { type: 'blur', e: ctx.e });
+        props.onBlur?.(max, ctx);
         return;
       }
     }

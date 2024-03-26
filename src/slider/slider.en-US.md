@@ -19,9 +19,11 @@ tooltipProps | Object | - | Typescript：`TooltipProps`，[Tooltip API Documents
 value | Number / Array | 0 | `v-model` and `v-model:value` is supported。Typescript：`SliderValue` `type SliderValue = number \| Array<number>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/slider/type.ts) | N
 defaultValue | Number / Array | 0 | uncontrolled property。Typescript：`SliderValue` `type SliderValue = number \| Array<number>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/slider/type.ts) | N
 onChange | Function |  | Typescript：`(value: SliderValue) => void`<br/> | N
+onChangeEnd | Function |  | Typescript：`(value: SliderValue) => void`<br/>triggered when the mouse button is released after dragging or clicking on the slider bar. It is suitable for scenarios where you do not want the callback to be triggered frequently during the process of dragging the slider | N
 
 ### Slider Events
 
 name | params | description
 -- | -- | --
 change | `(value: SliderValue)` | \-
+change-end | `(value: SliderValue)` | triggered when the mouse button is released after dragging or clicking on the slider bar. It is suitable for scenarios where you do not want the callback to be triggered frequently during the process of dragging the slider

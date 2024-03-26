@@ -27,7 +27,7 @@ export default {
   /** 选项最大宽度，内容超出时，显示为省略号。值为字符串时，值就是最大宽度；值为数字时，单位：px */
   maxColumnWidth: {
     type: [String, Number] as PropType<TdDropdownProps['maxColumnWidth']>,
-    default: 100,
+    default: 100 as TdDropdownProps['maxColumnWidth'],
   },
   /** 弹窗最大高度，单位：px 。统一控制每一列的高度 */
   maxHeight: {
@@ -37,12 +37,20 @@ export default {
   /** 选项最小宽度。值为字符串时，值就是最小宽度；值为数字时，单位：px */
   minColumnWidth: {
     type: [String, Number] as PropType<TdDropdownProps['minColumnWidth']>,
-    default: 10,
+    default: 10 as TdDropdownProps['minColumnWidth'],
   },
   /** 下拉操作项 */
   options: {
     type: Array as PropType<TdDropdownProps['options']>,
     default: (): TdDropdownProps['options'] => [],
+  },
+  /** 面板内的底部内容 */
+  panelBottomContent: {
+    type: [String, Function] as PropType<TdDropdownProps['panelBottomContent']>,
+  },
+  /** 面板内的顶部内容 */
+  panelTopContent: {
+    type: [String, Function] as PropType<TdDropdownProps['panelTopContent']>,
   },
   /** 弹窗定位方式，可选值同 Popup 组件 */
   placement: {

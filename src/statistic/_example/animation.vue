@@ -20,13 +20,8 @@
   </t-space>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      start: false,
-      value: 56.32,
-    };
-  },
-};
+<script setup>
+import { ref } from 'vue';
+const start = ref(false);
+const value = ref(56.32);
 </script>

@@ -26,8 +26,9 @@
   </t-space>
 </template>
 
-<script>
-const items = [
+<script setup>
+import { ref } from 'vue';
+const initialData = [
   {
     value: 't1',
     children: [
@@ -78,21 +79,11 @@ const items = [
     ],
   },
 ];
-
-export default {
-  data() {
-    return {
-      index: 0,
-      transition: false,
-      showLine: true,
-      showIcon: true,
-      items,
-    };
-  },
-  methods: {
-    label(createElement, node) {
-      return `${node.value}`;
-    },
-  },
+const transition = ref(false);
+const showLine = ref(true);
+const showIcon = ref(true);
+const items = ref(initialData);
+const label = (h, node) => {
+  return `${node.value}`;
 };
 </script>

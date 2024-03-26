@@ -31,6 +31,9 @@ export default defineComponent({
     };
     const numberValue = computed(() => (isNumber(props.value) ? props.value : 0));
     const innerValue = ref(props.animation?.valueFrom ?? props.value);
+    const innerDecimalPlaces = computed(
+      () => props.decimalPlaces ?? numberValue.value.toString().split('.')[1]?.length ?? 0,
+    );
 
     const tween = ref<Tween>();
     const { value } = toRefs(props);
@@ -46,7 +49,7 @@ export default defineComponent({
           },
           duration: props.animation.duration,
           onUpdate: (keys) => {
-            innerValue.value = keys.value;
+            innerValue.value = Number(keys.value.toFixed(innerDecimalPlaces.value));
           },
           onFinish: () => {
             innerValue.value = to;

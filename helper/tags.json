@@ -32,6 +32,7 @@
       "bounds",
       "container",
       "cursor",
+      "get-current-anchor",
       "size",
       "target-offset",
       "change",
@@ -151,6 +152,8 @@
   },
   "t-base-table": {
     "attributes": [
+      "active-row-keys",
+      "active-row-type",
       "allow-resize-column-width",
       "attach",
       "bordered",
@@ -159,6 +162,7 @@
       "columns",
       "data",
       "disable-data-page",
+      "disable-space-inactive-row",
       "empty",
       "first-full-row",
       "fixed-rows",
@@ -171,9 +175,12 @@
       "height",
       "horizontal-scroll-affixed-bottom",
       "hover",
+      "keyboard-row-hover",
       "last-full-row",
+      "lazy-load",
       "loading",
       "loading-props",
+      "locale",
       "max-height",
       "pagination",
       "pagination-affixed-bottom",
@@ -191,6 +198,8 @@
       "table-layout",
       "top-content",
       "vertical-align",
+      "active-change",
+      "active-row-action",
       "cell-click",
       "column-resize-change",
       "page-change",
@@ -229,6 +238,8 @@
       "indeterminate-selected-row-keys",
       "multiple-sort",
       "reserve-selected-row-on-paginate",
+      "row-selection-allow-uncheck",
+      "row-selection-type",
       "select-on-row-click",
       "selected-row-keys",
       "show-sort-column-bg-color",
@@ -273,7 +284,8 @@
       "replace",
       "router",
       "target",
-      "to"
+      "to",
+      "click"
     ],
     "description": "BreadcrumbItem\n\n面包屑项\n\n[docs](https://tdesign.tencent.com/vue-next/components/breadcrumb-item)"
   },
@@ -339,6 +351,7 @@
       "header-bordered",
       "hover-shadow",
       "loading",
+      "loading-props",
       "shadow",
       "size",
       "status",
@@ -351,6 +364,7 @@
   "t-cascader": {
     "attributes": [
       "autofocus",
+      "borderless",
       "check-props",
       "check-strictly",
       "clearable",
@@ -374,6 +388,7 @@
       "placeholder",
       "popup-props",
       "popup-visible",
+      "prefix-icon",
       "readonly",
       "reserve-keyword",
       "select-input-props",
@@ -401,14 +416,28 @@
   "t-check-tag": {
     "attributes": [
       "checked",
+      "checked-props",
       "content",
       "default",
       "disabled",
       "size",
+      "unchecked-props",
+      "value",
       "change",
       "click"
     ],
     "description": "CheckTag\n\n可选标签\n\n[docs](https://tdesign.tencent.com/vue-next/components/check-tag)"
+  },
+  "t-check-tag-group": {
+    "attributes": [
+      "checked-props",
+      "multiple",
+      "options",
+      "unchecked-props",
+      "value",
+      "change"
+    ],
+    "description": "CheckTagGroup\n\n可选标签组\n\n[docs](https://tdesign.tencent.com/vue-next/components/check-tag-group)"
   },
   "t-checkbox": {
     "attributes": [
@@ -418,16 +447,19 @@
       "disabled",
       "indeterminate",
       "label",
+      "lazy-load",
       "name",
       "readonly",
+      "title",
       "value",
-      "change",
-      "click"
+      "change"
     ],
     "description": "Checkbox\n\n多选框\n\n[docs](https://tdesign.tencent.com/vue-next/components/checkbox)"
   },
   "t-checkbox-group": {
     "attributes": [
+      "disabled",
+      "lazy-load",
       "max",
       "name",
       "options",
@@ -566,6 +598,7 @@
   "t-date-range-picker": {
     "attributes": [
       "allow-input",
+      "cancel-range-select-limit",
       "clearable",
       "default-time",
       "disable-date",
@@ -613,22 +646,29 @@
     ],
     "description": "DateRangePickerPanel\n\n日期范围选择器面板\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-range-picker-panel)"
   },
-  "t-description-item": {
+  "t-descriptions-item": {
     "attributes": [
+      "align",
+      "content",
+      "default",
       "label",
       "span"
     ],
-    "description": "DescriptionItem\n\n描述项\n\n[docs](https://tdesign.tencent.com/vue-next/components/description-item)"
+    "description": "DescriptionsItem\n\n描述项\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions-item)"
   },
   "t-descriptions": {
     "attributes": [
+      "align",
       "bordered",
       "colon",
-      "columns",
-      "content-align",
-      "label-align",
+      "column",
+      "content-style",
+      "item-layout",
+      "items",
+      "label-style",
       "layout",
-      "size"
+      "size",
+      "title"
     ],
     "description": "Descriptions\n\n描述列表\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions)"
   },
@@ -641,9 +681,11 @@
       "close-on-esc-keydown",
       "close-on-overlay-click",
       "confirm-btn",
+      "confirm-loading",
       "confirm-on-enter",
       "default",
       "destroy-on-close",
+      "dialog-class-name",
       "draggable",
       "footer",
       "header",
@@ -710,7 +752,8 @@
       "close-btn-click",
       "confirm",
       "esc-keydown",
-      "overlay-click"
+      "overlay-click",
+      "size-drag-end"
     ],
     "description": "Drawer\n\n模态抽屉\n\n[docs](https://tdesign.tencent.com/vue-next/components/drawer)"
   },
@@ -723,6 +766,8 @@
       "max-height",
       "min-column-width",
       "options",
+      "panel-bottom-content",
+      "panel-top-content",
       "placement",
       "popup-props",
       "trigger",
@@ -743,12 +788,25 @@
     ],
     "description": "DropdownItem\n\n下拉菜单选项\n\n[docs](https://tdesign.tencent.com/vue-next/components/dropdown-item)"
   },
+  "t-empty": {
+    "attributes": [
+      "action",
+      "description",
+      "image",
+      "image-style",
+      "title",
+      "type"
+    ],
+    "description": "Empty\n\n空状态\n\n[docs](https://tdesign.tencent.com/vue-next/components/empty)"
+  },
   "t-enhanced-table": {
     "attributes": [
       "before-drag-sort",
+      "expanded-tree-nodes",
       "tree",
       "tree-expand-and-fold-icon",
       "abnormal-drag-sort",
+      "expanded-tree-nodes-change",
       "tree-expand-change"
     ],
     "description": "EnhancedTable\n\n增强表格\n\n[docs](https://tdesign.tencent.com/vue-next/components/enhanced-table)"
@@ -871,6 +929,7 @@
     "attributes": [
       "alt",
       "error",
+      "fallback",
       "fit",
       "gallery",
       "lazy",
@@ -879,6 +938,7 @@
       "overlay-trigger",
       "placeholder",
       "position",
+      "referrerpolicy",
       "shape",
       "src",
       "srcset",
@@ -890,6 +950,7 @@
   "t-image-viewer": {
     "attributes": [
       "close-btn",
+      "close-on-esc-keydown",
       "close-on-overlay",
       "draggable",
       "image-scale",
@@ -915,6 +976,7 @@
       "auto-width",
       "autocomplete",
       "autofocus",
+      "borderless",
       "clearable",
       "disabled",
       "format",
@@ -1011,6 +1073,7 @@
       "content",
       "default",
       "disabled",
+      "download",
       "hover",
       "href",
       "prefix-icon",
@@ -1029,6 +1092,7 @@
       "footer",
       "header",
       "layout",
+      "scroll",
       "scroll",
       "size",
       "split",
@@ -1195,6 +1259,14 @@
     ],
     "description": "PaginationMini\n\n迷你分页\n\n[docs](https://tdesign.tencent.com/vue-next/components/pagination-mini)"
   },
+  "t-paragraph": {
+    "attributes": [
+      "content",
+      "default",
+      "ellipsis"
+    ],
+    "description": "Paragraph\n\n段落\n\n[docs](https://tdesign.tencent.com/vue-next/components/paragraph)"
+  },
   "t-popconfirm": {
     "attributes": [
       "cancel-btn",
@@ -1216,7 +1288,6 @@
   "t-popup": {
     "attributes": [
       "attach",
-      "close-btn",
       "content",
       "default",
       "delay",
@@ -1234,6 +1305,7 @@
       "trigger-element",
       "visible",
       "z-index",
+      "overlay-click",
       "scroll",
       "scroll-to-bottom",
       "visible-change"
@@ -1262,6 +1334,8 @@
       "indeterminate-selected-row-keys",
       "multiple-sort",
       "reserve-selected-row-on-paginate",
+      "row-selection-allow-uncheck",
+      "row-selection-type",
       "select-on-row-click",
       "selected-row-keys",
       "show-sort-column-bg-color",
@@ -1307,6 +1381,7 @@
       "disabled",
       "label",
       "name",
+      "readonly",
       "value",
       "change",
       "click"
@@ -1321,6 +1396,7 @@
       "disabled",
       "label",
       "name",
+      "readonly",
       "value",
       "change",
       "click"
@@ -1464,6 +1540,7 @@
       "min-collapsed-num",
       "multiple",
       "options",
+      "options-layout",
       "panel-bottom-content",
       "panel-top-content",
       "placeholder",
@@ -1568,7 +1645,8 @@
       "step",
       "tooltip-props",
       "value",
-      "change"
+      "change",
+      "change-end"
     ],
     "description": "Slider\n\n滑块\n\n[docs](https://tdesign.tencent.com/vue-next/components/slider)"
   },
@@ -1701,6 +1779,7 @@
       "disabled",
       "draggable",
       "label",
+      "lazy",
       "panel",
       "removable",
       "value",
@@ -1757,6 +1836,7 @@
       "max",
       "min-collapsed-num",
       "placeholder",
+      "prefix-icon",
       "readonly",
       "size",
       "status",
@@ -1781,6 +1861,24 @@
       "remove"
     ],
     "description": "TagInput\n\n标签输入框\n\n[docs](https://tdesign.tencent.com/vue-next/components/tag-input)"
+  },
+  "t-text": {
+    "attributes": [
+      "code",
+      "content",
+      "copyable",
+      "default",
+      "delete",
+      "disabled",
+      "ellipsis",
+      "italic",
+      "keyboard",
+      "mark",
+      "strong",
+      "theme",
+      "underline"
+    ],
+    "description": "Text\n\n文本\n\n[docs](https://tdesign.tencent.com/vue-next/components/text)"
   },
   "t-textarea": {
     "attributes": [
@@ -1875,9 +1973,19 @@
       "dot-color",
       "label",
       "label-align",
-      "loading"
+      "loading",
+      "click"
     ],
     "description": "TimelineItem\n\n时间轴\n\n[docs](https://tdesign.tencent.com/vue-next/components/timeline-item)"
+  },
+  "t-title": {
+    "attributes": [
+      "content",
+      "default",
+      "ellipsis",
+      "level"
+    ],
+    "description": "Title\n\n标题\n\n[docs](https://tdesign.tencent.com/vue-next/components/title)"
   },
   "t-tooltip": {
     "attributes": [
@@ -1915,6 +2023,7 @@
       "pagination",
       "search",
       "show-check-all",
+      "target-draggable",
       "target-sort",
       "title",
       "transfer-item",
@@ -2038,6 +2147,7 @@
       "auto-upload",
       "before-all-files-upload",
       "before-upload",
+      "cancel-upload-button",
       "data",
       "default",
       "disabled",
@@ -2049,6 +2159,7 @@
       "format-request",
       "format-response",
       "headers",
+      "image-viewer-props",
       "input-attributes",
       "is-batch-upload",
       "locale",
@@ -2059,6 +2170,8 @@
       "name",
       "placeholder",
       "request-method",
+      "show-image-file-name",
+      "show-thumbnail",
       "show-upload-progress",
       "size-limit",
       "status",
@@ -2067,6 +2180,7 @@
       "trigger",
       "trigger-button-props",
       "upload-all-files-in-one-request",
+      "upload-button",
       "upload-pasted-files",
       "use-mock-progress",
       "value",

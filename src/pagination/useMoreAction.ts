@@ -8,7 +8,7 @@ export default function useMoreAction(props: TdPaginationProps, pageCount: Ref<n
 
   const curPageLeftCount = computed(() => Math.ceil((props.foldedMaxPageBtn - 1) / 2));
 
-  const curPageRightCount = computed(() => Math.ceil((props.foldedMaxPageBtn - 1) / 2));
+  const curPageRightCount = computed(() => Math.floor((props.foldedMaxPageBtn - 1) / 2));
 
   const isPrevMoreShow = computed(() => 2 + curPageLeftCount.value < innerCurrent.value);
 

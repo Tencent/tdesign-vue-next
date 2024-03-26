@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils';
 import Tree from '@/src/tree/index.ts';
 import { delay } from './kit';
+import { ref } from './adapt';
 
 describe('Tree:activable', () => {
   vi.useRealTimers();
@@ -214,6 +215,50 @@ describe('Tree:activable', () => {
       await delay(1);
       await wrapper.find('[data-value="t1"] .t-tree__label').trigger('click');
       expect(wrapper.find('[data-value="t1"]').classes('t-is-active')).toBe(false);
+    });
+
+    it('操作 actived 数组可变更激活节点', async () => {
+      const data = [
+        {
+          value: 't1',
+          children: [
+            {
+              value: 't1.1',
+            },
+            {
+              value: 't1.2',
+            },
+          ],
+        },
+      ];
+      const refActived = ref(['t1.1']);
+      const wrapper = mount({
+        render() {
+          return (
+            <Tree ref="tree" expand-all data={data} activable actived={refActived.value} transition={false}></Tree>
+          );
+        },
+      });
+      await delay(1);
+      expect(wrapper.find('[data-value="t1"]').classes('t-is-active')).toBe(false);
+      expect(wrapper.find('[data-value="t1.1"]').classes('t-is-active')).toBe(true);
+      expect(wrapper.find('[data-value="t1.2"]').classes('t-is-active')).toBe(false);
+
+      refActived.value.push('t1.2');
+      // refActived.value 为 t1.1, t1.2
+      // 但由于默认为单选机制，仅第一个被激活
+      await delay(1);
+      expect(wrapper.find('[data-value="t1"]').classes('t-is-active')).toBe(false);
+      expect(wrapper.find('[data-value="t1.1"]').classes('t-is-active')).toBe(true);
+      expect(wrapper.find('[data-value="t1.2"]').classes('t-is-active')).toBe(false);
+
+      refActived.value.shift();
+      // refActived.value 为 t1.2
+      // 第一个激活节点变更为了 t1.2
+      await delay(1);
+      expect(wrapper.find('[data-value="t1"]').classes('t-is-active')).toBe(false);
+      expect(wrapper.find('[data-value="t1.1"]').classes('t-is-active')).toBe(false);
+      expect(wrapper.find('[data-value="t1.2"]').classes('t-is-active')).toBe(true);
     });
   });
 

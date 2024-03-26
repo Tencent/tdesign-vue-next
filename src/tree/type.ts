@@ -283,6 +283,10 @@ export interface TreeInstanceFunctions<T extends TreeOptionData = TreeOptionData
    */
   insertBefore: (value: TreeNodeValue, newData: T) => void;
   /**
+   * 刷新树节点状态，可用于搜索场景刷新
+   */
+  refresh: () => void;
+  /**
    * 移除指定节点
    */
   remove: (value: TreeNodeValue) => void;
@@ -376,6 +380,10 @@ export interface TreeNodeModel<T extends TreeOptionData = TreeOptionData> extend
    * 节点数据，泛型 `T` 表示树节点 TS 类型，继承 `TreeOptionData`
    */
   data: T;
+  /**
+   * 禁用状态
+   */
+  disabled: boolean;
   /**
    * 当前节点是否展开
    */

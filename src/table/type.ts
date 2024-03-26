@@ -29,7 +29,7 @@ import {
   HTMLElementAttributes,
   ComponentType,
   TScroll,
-  ScrollToElementParams,
+  ComponentScrollToElementParams,
 } from '../common';
 
 export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
@@ -218,8 +218,7 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   showHeader?: boolean;
   /**
-   * 表格尺寸
-   * @default medium
+   * 表格尺寸，支持全局配置 `GlobalConfigProvider`，默认全局配置值为 `medium`
    */
   size?: SizeEnum;
   /**
@@ -323,7 +322,7 @@ export interface BaseTableInstanceFunctions<T extends TableRowData = TableRowDat
   /**
    * 虚拟滚动场景，纵向滚动到指定行。示例：`scrollToElement({ index: 100, top: 80, time: 200, behavior: 'smooth' })`
    */
-  scrollToElement: (params: ScrollToElementParams) => void;
+  scrollToElement: (params: ComponentScrollToElementParams) => void;
 }
 
 export interface BaseTableCol<T extends TableRowData = TableRowData> {
@@ -337,7 +336,7 @@ export interface BaseTableCol<T extends TableRowData = TableRowData> {
    */
   attrs?: BaseTableColumnAttributes<T>;
   /**
-   * 自定义单元格渲染。值类型为 Function 表示以函数形式渲染单元格。值类型为 string 表示使用插槽渲染，插槽名称为 cell 的值。默认使用 colKey 作为插槽名称。优先级高于 render。泛型 T 指表格数据类型
+   * 自定义单元格渲染。默认使用 `colKey` 的值作为自定义当前列的插槽名称。<br/>如果 `cell` 值类型为 Function 表示以函数形式渲染单元格。值类型为 string 表示使用插槽渲染，插槽名称为 cell 的值。优先级高于 `render`。泛型 T 指表格数据类型
    */
   cell?: string | TNode<BaseTableCellParams<T>>;
   /**
@@ -392,7 +391,7 @@ export interface BaseTableCol<T extends TableRowData = TableRowData> {
    */
   render?: TNode<BaseTableRenderParams<T>>;
   /**
-   * 是否允许调整当前列列宽
+   * 是否允许调整当前列列宽，一般用于设置为 `false` 禁止调整某一列列宽。如果是允许列宽调整，需要先设置 `BaseTable.resizable` 为 `true` 打开所有列宽调整
    * @default true
    */
   resizable?: boolean;
@@ -523,6 +522,14 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   reserveSelectedRowOnPaginate?: boolean;
   /**
+   * 行选中单选场景，是否允许取消选中
+   */
+  rowSelectionAllowUncheck?: boolean;
+  /**
+   * 行选中类型，单选或多选。效果和 `columns` 中配置的 `{ colKey: 'row-select', type: 'single' }` 一样
+   */
+  rowSelectionType?: 'single' | 'multiple';
+  /**
    * 是否在点击整行时选中
    */
   selectOnRowClick?: boolean;
@@ -624,6 +631,10 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
 /** 组件实例方法 */
 export interface PrimaryTableInstanceFunctions<T extends TableRowData = TableRowData> {
   /**
+   * 清空所有校验结果
+   */
+  clearValidateData: () => void;
+  /**
    * 校验行信息，校验完成后，会触发事件 `onRowValidate`。参数 `rowValue` 表示行唯一标识的值
    */
   validateRowData: (rowValue: any) => Promise<{ trigger: TableValidateTrigger; result: ErrorListObjectType<T>[] }>;
@@ -711,7 +722,7 @@ export interface TdEnhancedTableProps<T extends TableRowData = TableRowData> ext
   /**
    * 自定义树形结构展开图标，支持全局配置 `GlobalConfigProvider`
    */
-  treeExpandAndFoldIcon?: TNode<{ type: 'expand' | 'fold' }>;
+  treeExpandAndFoldIcon?: TNode<{ type: 'expand' | 'fold'; row: T }>;
   /**
    * 异常拖拽排序时触发，如：树形结构中，非同层级之间的交换。`context.code` 指交换异常错误码，固定值；`context.reason` 指交换异常的原因
    */

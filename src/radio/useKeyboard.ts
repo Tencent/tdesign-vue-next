@@ -13,6 +13,8 @@ export default function useKeyboard(
     if (isCheckedCode) {
       e.preventDefault();
       const inputNode = (e.target as HTMLElement).querySelector('input');
+      if (!inputNode) return;
+
       const data = inputNode.dataset;
       if (inputNode.checked && data.allowUncheck) {
         setInnerValue(undefined, { e });

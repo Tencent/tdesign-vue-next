@@ -154,9 +154,9 @@ const handleFail = ({ file }) => {
   MessagePlugin.error(`文件 ${file.name} 上传失败`);
 };
 
-const handleSelectChange = (files) => {
-  console.log('onSelectChange', files);
-};
+function handleSelectChange(files, context) {
+  console.log('onSelectChange', files, context);
+}
 
 const handleSuccess = (params) => {
   console.log('success', params);
@@ -186,11 +186,11 @@ const onValidate = (params) => {
 
 // 仅自定义文件列表所需
 // eslint-disable-next-line
-const outsideRemove = (index) => {
-  const tmpFiles = [...files3.value];
-  tmpFiles.splice(index, 1);
-  files3.value = tmpFiles;
-};
+// const outsideRemove = (index) => {
+//   const tmpFiles = [...files3.value];
+//   tmpFiles.splice(index, 1);
+//   files3.value = tmpFiles;
+// };
 
 // 非自动上传文件，需要在父组件单独执行上传请求
 const uploadFiles = () => {

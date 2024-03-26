@@ -47,7 +47,7 @@ trigger | Slot / Function | - | trigger elements UI。Typescript：`TNode<Trigge
 triggerButtonProps | Object | - | trigger button props, it can be used to change color/size/href/... of the trigger button。Typescript：`ButtonProps`，[Button API Documents](./button?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts) | N
 uploadAllFilesInOneRequest | Boolean | false | uploading all files in one request | N
 uploadButton | Object / Slot / Function | - | upload button props, which showed on `autoUpload=false` and multiple files/images upload。Typescript：`null \| ButtonProps \| TNode<{ disabled: boolean; uploading: boolean; uploadFiles: () => void; uploadText: string }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-uploadPastedFiles | Boolean | false | allow to upload files in clipboard after pasting | N
+uploadPastedFiles | Boolean | true | allow to upload files in clipboard after pasting | N
 useMockProgress | Boolean | true | use mock progress, instead of real progress | N
 value | Array | [] | file list。`v-model` and `v-model:value` is supported。Typescript：`Array<T>` | N
 defaultValue | Array | [] | file list。uncontrolled property。Typescript：`Array<T>` | N

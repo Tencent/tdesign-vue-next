@@ -88,8 +88,8 @@ export default defineComponent({
     const throttleUpdate = throttle(updateModelValue, 100);
 
     watch(() => {
-      const { saturation, hue, value, alpha } = props.color;
-      return [saturation, hue, value, alpha, props.format];
+      const { saturation, hue, value, alpha, css } = props.color;
+      return [saturation, hue, value, alpha, css, props.format];
     }, throttleUpdate);
 
     const handleChange = (key: string, v: number | string) => {

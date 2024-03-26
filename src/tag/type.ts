@@ -13,6 +13,10 @@ export interface TdTagProps {
    */
   closable?: boolean;
   /**
+   * 自定义颜色
+   */
+  color?: string;
+  /**
    * 组件子元素
    */
   content?: string | TNode;

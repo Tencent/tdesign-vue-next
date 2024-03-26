@@ -21,7 +21,7 @@ export default defineComponent({
     const loaded = ref(false);
     const { transform, mouseDownHandler } = useDrag({ translateX: 0, translateY: 0 });
     const { globalConfig } = useConfig('imageViewer');
-    const errorText = globalConfig.value.errorText ?? '图片加载失败，可尝试重新加载';
+    const errorText = globalConfig.value.errorText;
 
     const imgStyle = computed(() => ({
       transform: `rotate(${props.rotate}deg) scale(${props.scale})`,

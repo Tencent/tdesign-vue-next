@@ -184,7 +184,7 @@ export default defineComponent({
       });
     };
 
-    const { hoverIndex, virtualFilteredOptions, handleKeyDown } = useKeyboardControl({
+    const { hoverIndex, virtualFilteredOptions, handleKeyDown, filteredOptions } = useKeyboardControl({
       displayOptions,
       optionsList,
       innerPopupVisible,
@@ -261,10 +261,16 @@ export default defineComponent({
       }
       setInputValue(value);
       handleSearch(`${value}`, { e: context.e as KeyboardEvent });
-
       nextTick(() => {
         virtualFilteredOptions.value = selectPanelRef.value?.visibleData;
+        filteredOptions.value = selectPanelRef.value?.displayOptions;
       });
+    };
+
+    const handlerPopupVisibleChange = (visible: boolean, context: PopupVisibleChangeContext) => {
+      setInnerPopupVisible(visible, context);
+      // 在通过点击选择器打开弹窗时 清空此前的输入内容 避免在关闭时就清空引起的闪烁问题
+      if (visible && context.trigger === 'trigger-element-click') setInputValue('');
     };
 
     const addCache = (val: SelectValue) => {
@@ -398,9 +404,7 @@ export default defineComponent({
                 params: valueDisplayParams.value,
               })
             }
-            onPopupVisibleChange={(val: boolean, context) => {
-              setInnerPopupVisible(val, context);
-            }}
+            onPopupVisibleChange={handlerPopupVisibleChange}
             onInputChange={handlerInputChange}
             onClear={({ e }) => {
               setInnerValue(props.multiple ? [] : undefined, {
@@ -419,7 +423,6 @@ export default defineComponent({
               props.onBlur?.({ e, value: innerValue.value });
             }}
             onFocus={(inputValue, { e }) => {
-              setInputValue('');
               props.onFocus?.({ e, value: innerValue.value });
             }}
             {...(props.selectInputProps as TdSelectProps['selectInputProps'])}

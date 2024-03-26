@@ -52,6 +52,7 @@ export default function useTreeStyles(state: TypeTreeState) {
   const treeContentStyles = computed<TypeStyles>(() => ({
     height: formatCSSUnit(height.value),
     maxHeight: formatCSSUnit(maxHeight.value),
+    overflowY: formatCSSUnit(height.value) || formatCSSUnit(maxHeight.value) ? 'auto' : undefined,
   }));
 
   const scrollStyles = computed<TypeStyles>(() => {

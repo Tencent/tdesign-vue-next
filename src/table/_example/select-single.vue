@@ -1,6 +1,7 @@
 <template>
   <div>
     <t-space>
+      <t-checkbox v-model="selectOnRowClick">点击行选中</t-checkbox>
       <!-- 默认支持单项键盘操作选中或取消 -->
       <!-- 设置 active-row-type="single" 行高亮后，支持键盘批量操作，
           可尝试使用 Shift/Space/ArrowUp/ArrowDown/KeyC/KeyA/KeyL 等键盘操作选中和取消选择，
@@ -17,11 +18,10 @@
       :columns="columns"
       :data="data"
       :selected-row-keys="selectedRowKeys"
-      select-on-row-click
+      :select-on-row-click="selectOnRowClick"
       :active-row-type="activeRow ? 'single' : undefined"
       lazy-load
       @select-change="rehandleSelectChange"
-      @row-dblclick="onRowDblclick"
     >
     </t-table>
   </div>
@@ -30,6 +30,8 @@
 <script setup lang="jsx">
 import { ref } from 'vue';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+
+const selectOnRowClick = ref(true);
 
 const statusNameListMap = {
   0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
@@ -97,9 +99,9 @@ const rehandleSelectChange = (value, { selectedRowData }) => {
   console.log(value, selectedRowData);
 };
 
-const onRowDblclick = (context) => {
-  console.log('dbl', context);
-};
+// const onRowDblclick = (context) => {
+//   console.log('dbl', context);
+// };
 </script>
 
 <style lang="less" scoped>

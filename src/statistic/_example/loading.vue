@@ -5,12 +5,7 @@
   </t-space>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      loading: true,
-    };
-  },
-};
+<script setup>
+import { ref } from 'vue';
+const loading = ref(true);
 </script>

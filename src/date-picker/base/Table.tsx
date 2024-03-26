@@ -24,18 +24,18 @@ export default defineComponent({
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('date-picker__table');
     const { globalConfig } = useConfig('datePicker');
-    const { weekdays, weekAbbreviation, dayjsLocale } = globalConfig.value;
+    const { dayjsLocale } = globalConfig.value;
 
     const weekArr = computed(() => {
       const weekArr = [];
       let wi = props.firstDayOfWeek - 1;
-      const len = weekdays.length;
+      const len = globalConfig.value.weekdays.length;
       while (weekArr.length < len) {
-        weekArr.push(weekdays[wi]);
+        weekArr.push(globalConfig.value.weekdays[wi]);
         wi = (wi + len + 1) % len;
       }
 
-      if (props.mode === 'week') weekArr.unshift(weekAbbreviation);
+      if (props.mode === 'week') weekArr.unshift(globalConfig.value.weekAbbreviation);
 
       return weekArr;
     });

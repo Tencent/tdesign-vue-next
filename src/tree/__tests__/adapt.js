@@ -1,1 +1,1 @@
-export { defineComponent } from 'vue';
+export { defineComponent, ref } from 'vue';

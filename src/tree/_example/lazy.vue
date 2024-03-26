@@ -22,53 +22,45 @@
   </t-space>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      checkable: true,
-      checkStrictly: false,
-      value: ['1.1', '1.1.1'],
-      items: [
-        {
-          label: '1',
-          value: '1',
-          children: true,
-        },
-        {
-          label: '2',
-          value: '2',
-          children: true,
-        },
-      ],
-    };
+<script setup>
+import { ref } from 'vue';
+const checkable = ref(true);
+const checkStrictly = ref(false);
+const items = ref([
+  {
+    label: '1',
+    value: '1',
+    children: true,
   },
-  methods: {
-    onLoad(state) {
-      console.log('on load:', state);
-    },
-    load(node) {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          let nodes = [];
-          if (node.level < 2) {
-            nodes = [
-              {
-                label: `${node.label}.1`,
-                value: `${node.value}.1`,
-                children: true,
-              },
-              {
-                label: `${node.label}.2`,
-                value: `${node.value}.2`,
-                children: true,
-              },
-            ];
-          }
-          resolve(nodes);
-        }, 1000);
-      });
-    },
+  {
+    label: '2',
+    value: '2',
+    children: true,
   },
+]);
+const onLoad = (state) => {
+  console.log('on load:', state);
+};
+const load = (node) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      let nodes = [];
+      if (node.level < 2) {
+        nodes = [
+          {
+            label: `${node.label}.1`,
+            value: `${node.value}.1`,
+            children: true,
+          },
+          {
+            label: `${node.label}.2`,
+            value: `${node.value}.2`,
+            children: true,
+          },
+        ];
+      }
+      resolve(nodes);
+    }, 1000);
+  });
 };
 </script>

@@ -43,6 +43,7 @@ export default defineComponent({
       itemRef,
       href,
       target,
+      submenu,
     };
   },
   methods: {
@@ -66,6 +67,7 @@ export default defineComponent({
           }
         });
       }
+      this.submenu?.closeParentPopup?.(e);
     },
   },
   render() {

@@ -375,7 +375,7 @@ export default function useFixed(
     if (!rect) return;
     // 存在纵向滚动条，且固定表头时，需去除滚动条宽度
     const reduceWidth = isFixedHeader.value ? scrollbarWidth.value : 0;
-    tableWidth.value = Math.floor(rect.width - reduceWidth - (props.bordered ? 1 : 0));
+    tableWidth.value = rect.width - reduceWidth - (props.bordered ? 1 : 0);
     const elmRect = tableElmRef?.value?.getBoundingClientRect();
     elmRect?.width && setTableElmWidth(elmRect.width);
   };
@@ -475,7 +475,16 @@ export default function useFixed(
     { immediate: true },
   );
 
-  watch([maxHeight, data, columns, bordered], updateFixedHeader, { immediate: true });
+  watch(
+    [maxHeight, data, columns, bordered, tableContentRef],
+    () => {
+      if (tableContentRef.value) {
+        // 如果不监听元素的ref，会出现watch在ref还没ready的时候触发，此时没有触发这个判断的更新，导致表头消失
+        updateFixedHeader();
+      }
+    },
+    { immediate: true },
+  );
 
   watch(finalColumns, () => {
     resetThWidthList();
@@ -540,7 +549,7 @@ export default function useFixed(
       const timer = setTimeout(() => {
         refreshTable();
         clearTimeout(timer);
-      }, 60);
+      }, 200);
     });
     resizeObserver.observe(tableElement);
     tableRef.value = tableElement;

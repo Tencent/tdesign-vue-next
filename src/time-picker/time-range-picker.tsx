@@ -15,7 +15,7 @@ import { TimeRangeValue } from './interface';
 import { TimeRangePickerPartial } from './type';
 // hooks
 import useVModel from '../hooks/useVModel';
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import { useCommonClassName, useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useFormDisabled } from '../form/hooks';
 
@@ -27,9 +27,9 @@ export default defineComponent({
   props: { ...props, rangeInputProps: Object, popupProps: Object },
 
   setup(props) {
-    const componentName = usePrefixClass('time-range-picker');
+    const COMPONENT_NAME = usePrefixClass('time-range-picker');
     const { globalConfig } = useConfig('timePicker');
-    const { classPrefix } = useConfig('classPrefix');
+    const { STATUS } = useCommonClassName();
     const { TimeIcon } = useGlobalIcon({ TimeIcon: TdTimeIcon });
 
     const disabled = useFormDisabled();
@@ -38,9 +38,9 @@ export default defineComponent({
     const isShowPanel = ref(false);
 
     const inputClasses = computed(() => [
-      `${componentName.value}__group`,
+      `${COMPONENT_NAME.value}__group`,
       {
-        [`${classPrefix.value}-is-focused`]: isShowPanel.value,
+        [STATUS.value.focused]: isShowPanel.value,
       },
     ]);
     const { value, modelValue, allowInput, format } = toRefs(props);
@@ -128,7 +128,7 @@ export default defineComponent({
     );
 
     return () => (
-      <div class={componentName.value}>
+      <div class={COMPONENT_NAME.value}>
         <RangeInputPopup
           disabled={disabled.value}
           popupVisible={isShowPanel.value}
@@ -172,6 +172,8 @@ export default defineComponent({
               onPick={handleOnPick}
               handleConfirmClick={handleClickConfirm}
               position={currentPanelIdx.value === 0 ? 'start' : 'end'}
+              activeIndex={currentPanelIdx.value}
+              presets={props.presets}
             />
           )}
         />

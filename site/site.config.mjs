@@ -458,6 +458,14 @@ export const docs = [
         componentEn: () => import('tdesign-vue-next/comment/comment.en-US.md'),
       },
       {
+        title: 'Descriptions 描述',
+        titleEn: 'Descriptions',
+        name: 'descriptions',
+        path: '/vue-next/components/descriptions',
+        component: () => import('tdesign-vue-next/descriptions/descriptions.md'),
+        componentEn: () => import('tdesign-vue-next/descriptions/descriptions.en-US.md'),
+      },
+      {
         title: 'Image 图片',
         titleEn: 'Image',
         name: 'image',

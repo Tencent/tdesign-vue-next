@@ -7,7 +7,7 @@ import isEmail from 'validator/lib/isEmail';
 import isEmpty from 'lodash/isEmpty';
 import isURL from 'validator/lib/isURL';
 import isNumber from 'lodash/isNumber';
-import { getCharacterLength } from '../utils/helper';
+import { getCharacterLength } from '../_common/js/utils/helper';
 import {
   CustomValidator,
   FormRule,
@@ -38,7 +38,7 @@ const VALIDATE_MAP = {
   boolean: (val: ValueType): boolean => isBoolean(val),
   max: (val: ValueType, num: number): boolean => (isNumber(val) ? val <= num : getCharacterLength(val) <= num),
   min: (val: ValueType, num: number): boolean => (isNumber(val) ? val >= num : getCharacterLength(val) >= num),
-  len: (val: ValueType, num: number): boolean => getCharacterLength(val) === num,
+  len: (val: ValueType, num: number): boolean => getCharacterLength(String(val)) === num,
   number: (val: ValueType): boolean => isNumber(val),
   enum: (val: ValueType, strs: Array<string>): boolean => strs.includes(val),
   idcard: (val: ValueType): boolean => /^(\d{18,18}|\d{15,15}|\d{17,17}x)$/i.test(val),

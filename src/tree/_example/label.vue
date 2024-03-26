@@ -15,39 +15,34 @@
   </t-space>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      items: [
-        {
-          label: '1',
-          children: [
-            {
-              label: '1.1',
-            },
-            {
-              label: '1.2',
-            },
-          ],
-        },
-        {
-          label: '2',
-          children: [
-            {
-              label: '2.1',
-            },
-            {
-              label: '2.2',
-            },
-          ],
-        },
-      ],
-      label(createElement, node) {
-        // 注意 vue2 和 vue3 下 createElement 的使用方法实际上存在差异
-        return createElement('strong', `value: ${node.value}, label: ${node.label}`);
+<script setup>
+import { ref } from 'vue';
+const items = ref([
+  {
+    label: '1',
+    children: [
+      {
+        label: '1.1',
       },
-    };
+      {
+        label: '1.2',
+      },
+    ],
   },
-};
+  {
+    label: '2',
+    children: [
+      {
+        label: '2.1',
+      },
+      {
+        label: '2.2',
+      },
+    ],
+  },
+]);
+const label = ref((h, node) => {
+  // 注意 vue2 和 vue3 下 h 的使用方法实际上存在差异
+  return h('strong', `value: ${node.value}, label: ${node.label}`);
+});
 </script>

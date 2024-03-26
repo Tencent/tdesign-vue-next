@@ -2,6 +2,7 @@ import { computed, toRefs } from 'vue';
 import { TdBaseTableProps } from '../type';
 import useClassName from './useClassName';
 import useCommonClassName from '../../hooks/useCommonClassName';
+import { useConfig } from '../../hooks/useConfig';
 
 export function formatCSSUnit(unit: string | number) {
   if (!unit) return unit;
@@ -13,11 +14,13 @@ export default function useStyle(props: TdBaseTableProps) {
 
   const { tableBaseClass, tableAlignClasses } = useClassName();
   const { sizeClassNames } = useCommonClassName();
+  const { globalConfig } = useConfig('table', props.locale);
+  const tableSize = computed(() => size.value ?? globalConfig.value.size);
 
   const tableClasses = computed(() => [
     tableBaseClass.table,
     {
-      [sizeClassNames[size.value]]: size.value !== 'medium',
+      [sizeClassNames[tableSize.value]]: tableSize.value !== 'medium',
       [tableBaseClass.bordered]: bordered.value,
       [tableBaseClass.striped]: stripe.value,
       [tableBaseClass.hover]: hover.value,

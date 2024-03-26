@@ -216,7 +216,7 @@ export default function useUpload(props: TdUploadProps) {
   }
 
   function onPasteFileChange(e: ClipboardEvent) {
-    onFileChange?.([...e.clipboardData.items].map((file: DataTransferItem) => file.getAsFile()) as any);
+    onFileChange?.([...e.clipboardData.files]);
   }
 
   /**
@@ -338,8 +338,9 @@ export default function useUpload(props: TdUploadProps) {
     });
     uploading.value = false;
 
+    // autoUpload do not need to reset to waiting state
     if (autoUpload.value) {
-      toUploadFiles.value = toUploadFiles.value.map((item) => ({ ...item, status: 'waiting' }));
+      toUploadFiles.value = [];
     } else {
       setUploadValue(
         uploadValue.value.map((item) => {

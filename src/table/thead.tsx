@@ -144,6 +144,7 @@ export default defineComponent({
           const thClasses = [
             thStyles.classes,
             customClasses,
+            col.thClassName,
             {
               // 受 rowspan 影响，部分 tr > th:first-child 需要补足左边框
               [this.tableHeaderClasses.thBordered]: thBorderMap.get(col),

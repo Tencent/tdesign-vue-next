@@ -23,15 +23,9 @@
   </t-space>
 </template>
 
-<script lang="jsx">
-export default {
-  data() {
-    return {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      empty(h) {
-        return <div>😊 空数据（ empty props ）</div>;
-      },
-    };
-  },
+<script setup lang="jsx">
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const empty = () => {
+  return <div>😊 空数据（ empty props ）</div>;
 };
 </script>

@@ -87,12 +87,14 @@ export default defineComponent({
       if (props.createAble) {
         selectProvider.value.handleCreate?.(props.value);
         if (selectProvider.value.multiple) {
-          (selectProvider.value.selectValue as SelectValue[]).push(props.value);
-          selectProvider.value.handleValueChange(selectProvider.value.selectValue, {
-            selectedOptions: selectProvider.value.getSelectedOptions(),
-            trigger: 'check',
-            e,
-          });
+          selectProvider.value.handleValueChange(
+            [...(selectProvider.value.selectValue as SelectValue[]), props.value],
+            {
+              selectedOptions: selectProvider.value.getSelectedOptions(),
+              trigger: 'check',
+              e,
+            },
+          );
           return;
         }
       }

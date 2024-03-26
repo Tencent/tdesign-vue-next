@@ -26,70 +26,54 @@
   </t-space>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      activable: true,
-      activeMultiple: false,
-      expandOnClickNode: false,
-      items: [
-        {
-          value: 't1',
-          label: '1',
-          children: [
-            {
-              value: 't1.1',
-              label: '1.1',
-            },
-            {
-              value: 't1.2',
-              label: '1.2',
-            },
-          ],
-        },
-        {
-          value: 't2',
-          label: '2',
-          children: [
-            {
-              value: 't2.1',
-              label: '2.1',
-            },
-            {
-              value: 't2.2',
-              label: '2.2',
-            },
-          ],
-        },
-      ],
-    };
+<script setup>
+import { ref } from 'vue';
+const activable = ref(true);
+const activeMultiple = ref(false);
+const expandOnClickNode = ref(false);
+const items = ref([
+  {
+    value: 't1',
+    label: '1',
+    children: [
+      {
+        value: 't1.1',
+        label: '1.1',
+      },
+      {
+        value: 't1.2',
+        label: '1.2',
+      },
+    ],
   },
-  methods: {
-    onClick(context) {
-      console.info('onClick', context);
-      const { node } = context;
-      console.info(node.value, 'actived:', node.actived);
-    },
-    onActive(value, context) {
-      console.info('onActive', value, context);
-      const { node } = context;
-      console.info(node.value, 'actived:', node.actived);
-    },
-    propOnActive(value, context) {
-      console.info('propOnActive', value, context);
-      const { node } = context;
-      console.info(node.value, 'actived:', node.actived);
-    },
-    toggleActivable() {
-      this.activable = !this.activable;
-    },
-    toggleActiveMultiple() {
-      this.activeMultiple = !this.activeMultiple;
-    },
-    toggleExpandOnClickNode() {
-      this.expandOnClickNode = !this.expandOnClickNode;
-    },
+  {
+    value: 't2',
+    label: '2',
+    children: [
+      {
+        value: 't2.1',
+        label: '2.1',
+      },
+      {
+        value: 't2.2',
+        label: '2.2',
+      },
+    ],
   },
+]);
+const onClick = (context) => {
+  console.info('onClick', context);
+  const { node } = context;
+  console.info(node.value, 'actived:', node.actived);
+};
+const onActive = (value, context) => {
+  console.info('onActive', value, context);
+  const { node } = context;
+  console.info(node.value, 'actived:', node.actived);
+};
+const propOnActive = (value, context) => {
+  console.info('propOnActive', value, context);
+  const { node } = context;
+  console.info(node.value, 'actived:', node.actived);
 };
 </script>
