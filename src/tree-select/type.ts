@@ -6,21 +6,28 @@
 
 import { InputProps } from '../input';
 import { PopupProps } from '../popup';
-import { SelectInputProps } from '../select-input';
+import { SelectInputProps, SelectInputBlurContext, SelectInputValueChangeContext } from '../select-input';
 import { TagProps } from '../tag';
-import { TreeProps, TreeNodeModel } from '../tree';
-import { SelectInputValueChangeContext } from '../select-input';
-import { PopupVisibleChangeContext } from '../popup';
+import { TreeProps, TreeNodeModel, TreeKeysType } from '../tree';
+import { PopupVisibleChangeContext, PopupTriggerEvent, PopupTriggerSource } from '../popup';
 import { TNode, TreeOptionData, TreeKeysType } from '../common';
 
-export interface TdTreeSelectProps<DataOption extends TreeOptionData = TreeOptionData> {
+export interface TdTreeSelectProps<
+  DataOption extends TreeOptionData = TreeOptionData,
+  TreeValueType extends TreeSelectValue = TreeSelectValue,
+> {
   /**
    * 宽度随内容自适应
    * @default false
    */
   autoWidth?: boolean;
   /**
-   * 【开发中】无边框模式
+   * 自动聚焦
+   * @default false
+   */
+  autofocus?: boolean;
+  /**
+   * 无边框模式
    * @default false
    */
   borderless?: boolean;
@@ -30,22 +37,25 @@ export interface TdTreeSelectProps<DataOption extends TreeOptionData = TreeOptio
    */
   clearable?: boolean;
   /**
-   * 多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`onClose` 表示关闭标签时触发的事件
+   * 多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`collapsedTags` 表示折叠的标签，`count` 表示折叠的数量，`onClose` 表示移除标签的事件回调
    */
-  collapsedItems?: TNode<{ value: DataOption[]; onClose: (p: { e?: MouseEvent; index: number; }) => void; }>;
+  collapsedItems?: TNode<{
+    value: DataOption[];
+    collapsedSelectedItems: DataOption[];
+    count: number;
+    onClose: (context: { index: number; e?: MouseEvent }) => void;
+  }>;
   /**
-   * 数据
+   * 树选择的数据列表。结构：`[{ label: TNode, value: string | number, text: string, ... }]`，其中 `label` 表示选项呈现的内容，可自定义；`value` 表示选项的唯一值；表示当 `label` 用于选项复杂内容呈现时，`text` 用于搜索功能。<br />其中 `label` 和 `value` 可以使用 `keys` 属性定义别名
    * @default []
    */
   data?: Array<DataOption>;
   /**
    * 是否禁用组件
-   * @default false
    */
   disabled?: boolean;
   /**
    * 当下拉列表为空时显示的内容
-   * @default ''
    */
   empty?: string | TNode;
   /**
@@ -70,9 +80,13 @@ export interface TdTreeSelectProps<DataOption extends TreeOptionData = TreeOptio
    */
   defaultInputValue?: string;
   /**
-   * 用来定义 `value / label / children / disabled` 在 `data` 数据中对应的字段别名，示例：`{ value: 'key', label 'name', children: 'list' }`
+   * 用来定义 `value / label / disabled / children` 在 `data` 数据中对应的字段别名，示例：`{ value: 'key', label: 'name', children: 'list' }`
    */
   keys?: TreeKeysType;
+  /**
+   * 左侧文本
+   */
+  label?: string | TNode;
   /**
    * 是否正在加载数据
    * @default false
@@ -80,7 +94,6 @@ export interface TdTreeSelectProps<DataOption extends TreeOptionData = TreeOptio
   loading?: boolean;
   /**
    * 远程加载时显示的文字，支持自定义。如加上超链接
-   * @default ''
    */
   loadingText?: string | TNode;
   /**
@@ -99,6 +112,14 @@ export interface TdTreeSelectProps<DataOption extends TreeOptionData = TreeOptio
    */
   multiple?: boolean;
   /**
+   * 面板内的底部内容
+   */
+  panelBottomContent?: string | TNode;
+  /**
+   * 面板内的顶部内容
+   */
+  panelTopContent?: string | TNode;
+  /**
    * 占位符
    */
   placeholder?: string;
@@ -111,6 +132,10 @@ export interface TdTreeSelectProps<DataOption extends TreeOptionData = TreeOptio
    */
   popupVisible?: boolean;
   /**
+   * 是否显示下拉框，非受控属性
+   */
+  defaultPopupVisible?: boolean;
+  /**
    * 组件前置图标
    */
   prefixIcon?: TNode;
@@ -120,7 +145,12 @@ export interface TdTreeSelectProps<DataOption extends TreeOptionData = TreeOptio
    */
   readonly?: boolean;
   /**
-   * 透传 SelectInput 筛选器输入框组件的全部属性
+   * 多选且可搜索时，是否在选中一个选项后保留当前的搜索关键词
+   * @default false
+   */
+  reserveKeyword?: boolean;
+  /**
+   * 【开发中】透传 SelectInput 筛选器输入框组件的全部属性
    */
   selectInputProps?: SelectInputProps;
   /**
@@ -128,6 +158,11 @@ export interface TdTreeSelectProps<DataOption extends TreeOptionData = TreeOptio
    * @default medium
    */
   size?: 'small' | 'medium' | 'large';
+  /**
+   * 输入框状态
+   * @default default
+   */
+  status?: 'default' | 'success' | 'warning' | 'error';
   /**
    * 后置图标前的后置内容
    */
@@ -137,29 +172,33 @@ export interface TdTreeSelectProps<DataOption extends TreeOptionData = TreeOptio
    */
   suffixIcon?: TNode;
   /**
-   * 【开发中】透传 Tag 标签组件全部属性
+   * 透传 Tag 标签组件全部属性
    */
   tagProps?: TagProps;
+  /**
+   * 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式
+   */
+  tips?: string | TNode;
   /**
    * 透传 Tree 组件的全部属性
    */
   treeProps?: TreeProps;
   /**
-   * 选中值
+   * 选中值，泛型 `TreeValueType` 继承自 `TreeSelectValue`
    */
-  value?: TreeSelectValue;
+  value?: TreeValueType;
   /**
-   * 选中值，非受控属性
+   * 选中值，泛型 `TreeValueType` 继承自 `TreeSelectValue`，非受控属性
    */
-  defaultValue?: TreeSelectValue;
+  defaultValue?: TreeValueType;
   /**
-   * 选中值
+   * 选中值，泛型 `TreeValueType` 继承自 `TreeSelectValue`
    */
-  modelValue?: TreeSelectValue;
+  modelValue?: TreeValueType;
   /**
    * 自定义选中项呈现方式
    */
-  valueDisplay?: TNode<{ value: DataOption[]; onClose: () => void }>;
+  valueDisplay?: string | TNode<{ value: TreeOptionData | TreeOptionData[]; onClose: (index: number) => void }>;
   /**
    * 用于控制选中值的类型。假设数据选项为：`[{ label: '姓名', value: 'name' }]`，value 表示值仅返回数据选项中的 value， object 表示值返回全部数据
    * @default value
@@ -168,18 +207,19 @@ export interface TdTreeSelectProps<DataOption extends TreeOptionData = TreeOptio
   /**
    * 输入框失去焦点时触发
    */
-  onBlur?: (context: { value: TreeSelectValue; e: FocusEvent }) => void;
+  onBlur?: (context: SelectInputBlurContext & { value: TreeSelectValue }) => void;
   /**
-   * 节点选中状态变化时触发，`context.node` 表示当前变化的选项，`context. trigger` 表示触发变化的来源
+   * 节点选中状态变化时触发，`context.node` 表示当前变化的选项，`context. trigger` 表示触发变化的来源。泛型 `TreeValueType` 继承自 `TreeSelectValue`
    */
-  onChange?: (
-    value: TreeSelectValue,
-    context: { node: TreeNodeModel<DataOption>; trigger: TreeSelectValueChangeTrigger; e?: MouseEvent | KeyboardEvent },
-  ) => void;
+  onChange?: (value: TreeValueType, context: TreeSelectChangeContext<DataOption>) => void;
   /**
    * 点击清除按钮时触发
    */
   onClear?: (context: { e: MouseEvent }) => void;
+  /**
+   * 回车键按下时触发。`inputValue` 表示输入框的值，`value` 表示选中值。泛型 `TreeValueType` 继承 `TreeSelectValue`
+   */
+  onEnter?: (context: { inputValue: string; e: KeyboardEvent; value: TreeValueType }) => void;
   /**
    * 输入框获得焦点时触发
    */
@@ -187,27 +227,46 @@ export interface TdTreeSelectProps<DataOption extends TreeOptionData = TreeOptio
   /**
    * 输入框值发生变化时触发，`context.trigger` 表示触发输入框值变化的来源：文本输入触发、清除按钮触发、失去焦点等
    */
-  onInputChange?: (value: string, context?: SelectInputValueChangeContext) => void;
+  onInputChange?: (value: string, context: SelectInputValueChangeContext) => void;
   /**
-   * 下拉框显示或隐藏时触发
+   * 下拉框显示或隐藏时触发。单选场景，选中某个选项时触发关闭，此时需要添加参数 `node`
    */
-  onPopupVisibleChange?: (visible: boolean, context: PopupVisibleChangeContext) => void;
+  onPopupVisibleChange?: (visible: boolean, context: TreeSelectPopupVisibleContext<DataOption>) => void;
   /**
    * 多选模式下，选中数据被移除时触发
    */
-  onRemove?: (options: RemoveOptions<DataOption>) => void;
+  onRemove?: (options: RemoveOptions<DataOption, TreeValueType>) => void;
   /**
-   * 输入值变化时，触发搜索事件。主要用于远程搜索新数据
+   * 输入值变化时，触发搜索事件。主要用于远程搜索新数据。设置 `filterable=true` 开启此功能。优先级高于本地数据搜索 `filter`，即一旦存在这个远程搜索事件 `filter` 失效
    */
-  onSearch?: (filterWords: string) => void;
+  onSearch?: (filterWords: string, context: { e: KeyboardEvent | SelectInputValueChangeContext['e'] }) => void;
 }
 
-export type TreeSelectValue = string | number | object | Array<TreeSelectValue>;
+export type TreeSelectValue = string | number | TreeOptionData | Array<string | number | TreeOptionData>;
+
+export type TreeSelectValue = string | number | TreeOptionData | Array<string | number | TreeOptionData>;
+
+export interface TreeSelectChangeContext<DataOption> {
+  node: TreeNodeModel<DataOption>;
+  data: DataOption;
+  index?: number;
+  trigger: TreeSelectValueChangeTrigger;
+  e?: MouseEvent | KeyboardEvent | Event;
+}
 
 export type TreeSelectValueChangeTrigger = 'clear' | 'tag-remove' | 'backspace' | 'check' | 'uncheck';
 
-export interface RemoveOptions<T> {
-  value: string | number | object;
+export interface TreeSelectPopupVisibleContext<T> {
+  e?: PopupTriggerEvent | Event;
+  node?: TreeNodeModel<T>;
+  trigger?: PopupTriggerSource | 'clear';
+}
+
+export interface RemoveOptions<T extends TreeOptionData = TreeOptionData, N extends TreeSelectValue = TreeSelectValue> {
+  value: N;
   data: T;
-  e?: MouseEvent;
+  index: number;
+  node: TreeNodeModel<T>;
+  e?: MouseEvent | KeyboardEvent;
+  trigger: 'tag-remove' | 'backspace';
 }

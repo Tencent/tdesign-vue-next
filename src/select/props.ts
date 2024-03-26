@@ -16,7 +16,7 @@ export default {
   borderless: Boolean,
   /** 是否可以清空选项 */
   clearable: Boolean,
-  /** 多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`onClose` 表示关闭标签时触发的事件 */
+  /** 多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`collapsedTags` 表示折叠的标签，泛型 `T` 继承 `SelectOption`，表示选项数据；`count` 表示折叠的数量, `onClose` 表示移除标签 */
   collapsedItems: {
     type: Function as PropType<TdSelectProps['collapsedItems']>,
   },
@@ -76,6 +76,11 @@ export default {
   /** 数据化配置选项内容 */
   options: {
     type: Array as PropType<TdSelectProps['options']>,
+  },
+  /** 下拉选项布局方式，有纵向排列和横向排列两种，默认纵向排列 */
+  optionsLayout: {
+    type: String as PropType<TdSelectProps['optionsLayout']>,
+    default: 'vertical',
   },
   /** 面板内的底部内容 */
   panelBottomContent: {
@@ -172,7 +177,6 @@ export default {
   /** 选中值，非受控属性 */
   defaultValue: {
     type: [String, Number, Boolean, Object, Array] as PropType<TdSelectProps['defaultValue']>,
-    default: undefined,
   },
   /** 自定义选中项呈现的内容 */
   valueDisplay: {

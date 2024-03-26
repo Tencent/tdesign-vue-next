@@ -11,7 +11,7 @@ import { TagInputProps } from '../tag-input';
 import { TagProps } from '../tag';
 import { SelectInputValueChangeContext } from '../select-input';
 import { PopupVisibleChangeContext } from '../popup';
-import { PlainObject, TNode, SizeEnum, KeysType, InfinityScroll } from '../common';
+import { PlainObject, TNode, SizeEnum, InfinityScroll } from '../common';
 
 export interface TdSelectProps<T extends SelectOption = SelectOption> {
   /**
@@ -35,9 +35,9 @@ export interface TdSelectProps<T extends SelectOption = SelectOption> {
    */
   clearable?: boolean;
   /**
-   * 多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`onClose` 表示关闭标签时触发的事件
+   * 多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`collapsedTags` 表示折叠的标签，泛型 `T` 继承 `SelectOption`，表示选项数据；`count` 表示折叠的数量, `onClose` 表示移除标签
    */
-  collapsedItems?: TNode<{ value: T[]; onClose: (p: { e?: MouseEvent; index: number; }) => void; }>;
+  collapsedItems?: TNode<{ value: T[]; collapsedSelectedItems: T[]; count: number; onClose: (index: number) => void }>;
   /**
    * 是否允许用户创建新条目，需配合 filterable 使用
    * @default false
@@ -74,7 +74,7 @@ export interface TdSelectProps<T extends SelectOption = SelectOption> {
   /**
    * 用来定义 value / label / disabled 在 `options` 中对应的字段别名
    */
-  keys?: KeysType;
+  keys?: SelectKeysType;
   /**
    * 左侧文本
    */
@@ -107,6 +107,11 @@ export interface TdSelectProps<T extends SelectOption = SelectOption> {
    * 数据化配置选项内容
    */
   options?: Array<T>;
+  /**
+   * 下拉选项布局方式，有纵向排列和横向排列两种，默认纵向排列
+   * @default vertical
+   */
+  optionsLayout?: vertical | horizontal;
   /**
    * 面板内的底部内容
    */
@@ -300,6 +305,12 @@ export interface TdOptionGroupProps {
    * @default ''
    */
   label?: string;
+}
+
+export interface SelectKeysType {
+  value?: string | ((option: SelectOption) => string);
+  label?: string | ((option: SelectOption) => string);
+  disabled?: string;
 }
 
 export type SelectValue<T extends SelectOption = SelectOption> = string | number | boolean | T | Array<SelectValue<T>>;

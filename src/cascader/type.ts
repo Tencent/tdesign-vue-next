@@ -39,9 +39,14 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   clearable?: boolean;
   /**
-   * 多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`onClose` 表示关闭标签时触发的事件
+   * 多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`collapsedTags` 表示折叠的标签，`count` 表示折叠的数量，`onClose` 表示移除标签的事件回调
    */
-  collapsedItems?: TNode<{ value: CascaderOption[]; onClose: (p: { e?: MouseEvent; index: number; }) => void; }>;
+  collapsedItems?: TNode<{
+    value: CascaderOption[];
+    collapsedSelectedItems: CascaderOption[];
+    count: number;
+    onClose: (context: { index: number; e?: MouseEvent }) => void;
+  }>;
   /**
    * 是否禁用组件
    */
@@ -240,6 +245,8 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   onRemove?: (context: RemoveContext<CascaderOption>) => void;
 }
+
+export type CascaderValue<T extends TreeOptionData = TreeOptionData> = string | number | T | Array<CascaderValue<T>>;
 
 export type CascaderValue<T extends TreeOptionData = TreeOptionData> = string | number | T | Array<CascaderValue<T>>;
 
