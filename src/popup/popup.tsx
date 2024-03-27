@@ -1,4 +1,4 @@
-import { createPopper, Placement } from '@popperjs/core';
+import { createPopper } from '@popperjs/core';
 import isFunction from 'lodash/isFunction';
 import isObject from 'lodash/isObject';
 import debounce from 'lodash/debounce';
@@ -12,7 +12,6 @@ import {
   onUnmounted,
   provide,
   ref,
-  Ref,
   toRefs,
   Transition,
   watch,
@@ -24,65 +23,21 @@ import { off, on, once } from '../utils/dom';
 import setStyle from '../_common/js/utils/set-style';
 import Container from './container';
 import props from './props';
-import { PopupTriggerEvent, TdPopupProps } from './type';
+import {
+  getPopperTree,
+  getPopperPlacement,
+  attachListeners,
+  POPUP_ATTR_NAME,
+  POPUP_PARENT_ATTR_NAME,
+  getTriggerType,
+} from './utils';
 
-const POPUP_ATTR_NAME = 'data-td-popup';
-const POPUP_PARENT_ATTR_NAME = 'data-td-popup-parent';
-
-/**
- * @param id
- * @param upwards query upwards poppers
- */
-function getPopperTree(id: number | string, upwards?: boolean): Element[] {
-  const list = [] as any;
-  const selectors = [POPUP_PARENT_ATTR_NAME, POPUP_ATTR_NAME];
-
-  if (!id) return list;
-  if (upwards) {
-    selectors.unshift(selectors.pop());
-  }
-
-  recurse(id);
-
-  return list;
-
-  function recurse(id: number | string) {
-    const children = document.querySelectorAll(`[${selectors[0]}="${id}"]`);
-    children.forEach((el) => {
-      list.push(el);
-      const childId = el.getAttribute(selectors[1]);
-      if (childId && childId !== id) {
-        recurse(childId);
-      }
-    });
-  }
-}
+import type { PopupTriggerEvent } from './type';
 
 const parentKey = Symbol() as InjectionKey<{
   id: string;
   assertMouseLeave: (ev: MouseEvent) => void;
 }>;
-
-function getPopperPlacement(placement: TdPopupProps['placement']): Placement {
-  return placement.replace(/-(left|top)$/, '-start').replace(/-(right|bottom)$/, '-end') as Placement;
-}
-
-function attachListeners(elm: Ref<Element>) {
-  const offs: Array<() => void> = [];
-  return {
-    add<K extends keyof HTMLElementEventMap>(type: K, listener: (ev: HTMLElementEventMap[K]) => void) {
-      if (!type) return;
-      on(elm.value, type, listener);
-      offs.push(() => {
-        off(elm.value, type, listener);
-      });
-    },
-    clean() {
-      offs.forEach((handler) => handler?.());
-      offs.length = 0;
-    },
-  };
-}
 
 export default defineComponent({
   name: 'TPopup',
@@ -308,28 +263,6 @@ export default defineComponent({
     function clearAllTimeout() {
       clearTimeout(showTimeout);
       clearTimeout(hideTimeout);
-    }
-
-    function getTriggerType(ev?: PopupTriggerEvent) {
-      switch (ev?.type) {
-        case 'mouseenter':
-          return 'trigger-element-hover';
-        case 'mouseleave':
-          return 'trigger-element-hover';
-        case 'focusin':
-          return 'trigger-element-focus';
-        case 'focusout':
-          return 'trigger-element-blur';
-        case 'click':
-          return 'trigger-element-click';
-        case 'context-menu':
-        case 'keydown':
-          return 'keydown-esc';
-        case 'mousedown':
-          return 'document';
-        default:
-          return 'trigger-element-close';
-      }
     }
 
     function onDocumentMouseDown(ev: MouseEvent) {
