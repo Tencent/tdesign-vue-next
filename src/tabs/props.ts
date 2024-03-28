@@ -8,7 +8,7 @@ import { TdTabsProps } from './type';
 import { PropType } from 'vue';
 
 export default {
-  /** 【开发中】选项卡右侧的操作区域 */
+  /** 选项卡右侧的操作区域 */
   action: {
     type: [String, Function] as PropType<TdTabsProps['action']>,
   },

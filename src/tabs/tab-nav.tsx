@@ -33,7 +33,7 @@ export default defineComponent({
       type: Array as { new (): Array<InstanceType<typeof TTabPanel>> },
       default: (): Array<InstanceType<typeof TTabPanel>> => [] as Array<InstanceType<typeof TTabPanel>>,
     },
-    action: tabProps.action,
+    action: Array,
     value: tabProps.value,
     placement: tabProps.placement,
     size: tabProps.size,
