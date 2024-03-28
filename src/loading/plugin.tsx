@@ -1,4 +1,5 @@
 import { App, Plugin, createApp, defineComponent, h, reactive } from 'vue';
+import merge from 'lodash/merge';
 import LoadingComponent from './loading';
 import { getAttach, removeClass, addClass } from '../utils/dom';
 import { TdLoadingProps, LoadingInstance, LoadingMethod } from './type';
@@ -6,10 +7,25 @@ import { usePrefixClass } from '../hooks/useConfig';
 
 let fullScreenLoadingInstance: LoadingInstance = null;
 
+function mergeDefaultProps(props: TdLoadingProps): TdLoadingProps {
+  const options: TdLoadingProps = merge(
+    {
+      fullscreen: false,
+      attach: 'body',
+      loading: true,
+      preventScrollThrough: true,
+    },
+    props,
+  );
+
+  return options;
+}
+
 function createLoading(props: TdLoadingProps): LoadingInstance {
+  const mergedProps = mergeDefaultProps(props);
   const component = defineComponent({
     setup() {
-      const loadingOptions = reactive(props);
+      const loadingOptions = reactive(mergedProps);
       return {
         loadingOptions,
       };
@@ -21,12 +37,18 @@ function createLoading(props: TdLoadingProps): LoadingInstance {
     },
   });
 
-  const attach = getAttach(props.attach);
+  const attach = getAttach(mergedProps.fullscreen ? 'body' : mergedProps.attach);
 
   const app = createApp(component);
   const loading = app.mount(document.createElement('div'));
   const parentRelativeClass = usePrefixClass('loading__parent--relative').value;
   const prefixClass = usePrefixClass('loading');
+  const lockClass = usePrefixClass('loading--lock');
+  const lockFullscreen = mergedProps.preventScrollThrough && mergedProps.fullscreen;
+
+  if (lockFullscreen) {
+    addClass(document.body, lockClass.value);
+  }
 
   if (attach) {
     addClass(attach, parentRelativeClass);
@@ -41,6 +63,7 @@ function createLoading(props: TdLoadingProps): LoadingInstance {
         item.remove();
       });
       removeClass(attach, parentRelativeClass);
+      removeClass(document.body, lockClass.value);
       app.unmount();
     },
   };
@@ -48,22 +71,19 @@ function createLoading(props: TdLoadingProps): LoadingInstance {
 }
 
 function produceLoading(props: boolean | TdLoadingProps): LoadingInstance {
-  const lockClass = usePrefixClass('loading--lock');
-
   // 全屏加载
   if (props === true) {
     fullScreenLoadingInstance = createLoading({
       fullscreen: true,
       loading: true,
       attach: 'body',
+      preventScrollThrough: true,
     });
     return fullScreenLoadingInstance;
   }
-  removeClass(document.body, lockClass.value);
 
   if (props === false) {
     // 销毁全屏实例
-    removeClass(document.body, lockClass.value);
     fullScreenLoadingInstance.hide();
     fullScreenLoadingInstance = null;
     return;
@@ -73,7 +93,7 @@ function produceLoading(props: boolean | TdLoadingProps): LoadingInstance {
 
 export type LoadingPluginType = Plugin & LoadingMethod;
 
-const LoadingPlugin: LoadingPluginType = produceLoading as LoadingPluginType;
+export const LoadingPlugin: LoadingPluginType = produceLoading as LoadingPluginType;
 
 LoadingPlugin.install = (app: App) => {
   // eslint-disable-next-line no-param-reassign

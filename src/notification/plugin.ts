@@ -54,8 +54,8 @@ const NotificationFunction = (options: NotificationOptions): Promise<Notificatio
   return new Promise((resolve) => {
     const ins = instanceMap.get(attachEl)[hackOptions.placement];
     nextTick(() => {
-      const { notificationList } = ins;
-      resolve(notificationList[notificationList.length - 1]);
+      const notificationList: NotificationInstance[] = ins.notificationList;
+      resolve(notificationList?.find((notify) => notify.$?.vnode?.key === hackOptions.id));
     });
   });
 };
@@ -106,6 +106,5 @@ Object.keys(extraApi).forEach((funcName) => {
 });
 
 export const NotifyPlugin = NotificationPlugin;
-export const Notify = NotificationPlugin;
 
 export default NotificationPlugin;

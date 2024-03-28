@@ -38,9 +38,14 @@ export interface TdSelectInputProps {
    */
   clearable?: boolean;
   /**
-   * 标签过多的情况下，折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 `collapsedItems` 自定义。`value` 表示所有标签值，`collapsedTags` 表示折叠标签值，`count` 表示折叠的数量
+   * 标签过多的情况下，折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 `collapsedItems` 自定义。`value` 表示所有标签值，`collapsedSelectedItems` 表示折叠标签值，`count` 表示折叠的数量，`onClose` 表示移除标签的事件回调
    */
-  collapsedItems?: TNode<{ value: SelectInputValue; collapsedTags: SelectInputValue; count: number }>;
+  collapsedItems?: TNode<{
+    value: SelectInputValue;
+    collapsedSelectedItems: SelectInputValue;
+    count: number;
+    onClose: (context: { index: number; e?: MouseEvent }) => void;
+  }>;
   /**
    * 是否禁用
    */
@@ -191,6 +196,12 @@ export interface TdSelectInputProps {
    * 值变化时触发，参数 `context.trigger` 表示数据变化的触发来源；`context.index` 指当前变化项的下标；`context.item` 指当前变化项；`context.e` 表示事件参数
    */
   onTagChange?: (value: TagInputValue, context: SelectInputChangeContext) => void;
+}
+
+export interface SelectInputKeys {
+  label?: string;
+  value?: string;
+  children?: string;
 }
 
 export interface SelectInputKeys {

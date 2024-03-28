@@ -226,7 +226,7 @@ export default defineComponent({
     const displayNode = renderTNodeJSX(this, 'valueDisplay', {
       params: {
         value: this.tagValue,
-        onClose: (index: number, item: any) => this.onClose({ index, item }),
+        onClose: (index: number) => this.onClose({ index }),
       },
     });
     // 左侧文本

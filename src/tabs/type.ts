@@ -8,7 +8,7 @@ import { TNode } from '../common';
 
 export interface TdTabsProps {
   /**
-   * 【开发中】选项卡右侧的操作区域
+   * 选项卡右侧的操作区域
    */
   action?: string | TNode;
   /**

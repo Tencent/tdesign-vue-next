@@ -1614,12 +1614,11 @@
             },
             {
               "name": "size",
-              "description": "表格尺寸",
+              "description": "table size, support `GlobalConfigProvider`, default value is `medium`\n\n表格尺寸，支持全局配置 `GlobalConfigProvider`，默认全局配置值为 `medium`",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props",
               "type": [
                 "String"
               ],
-              "default": "medium",
               "attribute-value": {
                 "type": "enum"
               },
@@ -2224,12 +2223,11 @@
             },
             {
               "name": "size",
-              "description": "表格尺寸",
+              "description": "table size, support `GlobalConfigProvider`, default value is `medium`\n\n表格尺寸，支持全局配置 `GlobalConfigProvider`，默认全局配置值为 `medium`",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props",
               "type": [
                 "String"
               ],
-              "default": "medium",
               "attribute-value": {
                 "type": "enum"
               },
@@ -2639,6 +2637,15 @@
               ]
             }
           ],
+          "js": {
+            "events": [
+              {
+                "name": "click",
+                "description": "trigger on click\n\n点击时触发",
+                "doc-url": "https://tdesign.tencent.com/vue-next/components/breadcrumb-item?tab=api#breadcrumbitem-events"
+              }
+            ]
+          },
           "slots": [
             {
               "name": "content",
@@ -4272,6 +4279,14 @@
                 "Boolean"
               ],
               "default": "false"
+            },
+            {
+              "name": "title",
+              "description": "html attribute\n\nHTML 原生属性",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/checkbox?tab=api#checkbox-props",
+              "type": [
+                "String"
+              ]
             },
             {
               "name": "value",
@@ -5956,17 +5971,17 @@
           "slots": []
         },
         {
-          "name": "t-description-item",
+          "name": "t-descriptions-item",
           "source": {
-            "symbol": "DescriptionItem"
+            "symbol": "DescriptionsItem"
           },
-          "description": "DescriptionItem\n\n描述项",
-          "doc-url": "https://tdesign.tencent.com/vue-next/components/description-item",
+          "description": "DescriptionsItem\n\n描述项",
+          "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions-item",
           "props": [
             {
               "name": "align",
-              "description": "content align type\n\n内容垂直对齐方式，DescriptionItem.align 优先级高于 Descriptions.align",
-              "doc-url": "https://tdesign.tencent.com/vue-next/components/description-item?tab=api#descriptionitem-props",
+              "description": "content align type\n\n内容垂直对齐方式，DescriptionsItem.align 优先级高于 Descriptions.align",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsitem-props",
               "type": [
                 "String"
               ],
@@ -5988,7 +6003,7 @@
             {
               "name": "content",
               "description": "content of description item\n\n描述项内容",
-              "doc-url": "https://tdesign.tencent.com/vue-next/components/description-item?tab=api#descriptionitem-props",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsitem-props",
               "type": [
                 "String",
                 "TNode"
@@ -5997,7 +6012,7 @@
             {
               "name": "default",
               "description": "content of description item\n\n描述项内容，同 `content`",
-              "doc-url": "https://tdesign.tencent.com/vue-next/components/description-item?tab=api#descriptionitem-props",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsitem-props",
               "type": [
                 "String",
                 "TNode"
@@ -6006,7 +6021,7 @@
             {
               "name": "label",
               "description": "label of description item\n\n描述项标签",
-              "doc-url": "https://tdesign.tencent.com/vue-next/components/description-item?tab=api#descriptionitem-props",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsitem-props",
               "type": [
                 "String",
                 "TNode"
@@ -6015,7 +6030,7 @@
             {
               "name": "span",
               "description": "width count\n\n占用的宽度数量",
-              "doc-url": "https://tdesign.tencent.com/vue-next/components/description-item?tab=api#descriptionitem-props",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsitem-props",
               "type": [
                 "Number"
               ],
@@ -6026,17 +6041,17 @@
             {
               "name": "content",
               "description": "content of description item\n\n描述项内容",
-              "doc-url": "https://tdesign.tencent.com/vue-next/components/description-item?tab=api#descriptionitem-props"
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsitem-props"
             },
             {
               "name": "default",
               "description": "content of description item\n\n描述项内容，同 `content`",
-              "doc-url": "https://tdesign.tencent.com/vue-next/components/description-item?tab=api#descriptionitem-props"
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsitem-props"
             },
             {
               "name": "label",
               "description": "label of description item\n\n描述项标签",
-              "doc-url": "https://tdesign.tencent.com/vue-next/components/description-item?tab=api#descriptionitem-props"
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsitem-props"
             }
           ]
         },
@@ -6050,7 +6065,7 @@
           "props": [
             {
               "name": "align",
-              "description": "content align type\n\n内容垂直对齐方式，DescriptionItem.align 优先级高于 Descriptions.align",
+              "description": "content align type\n\n内容垂直对齐方式，DescriptionsItem.align 优先级高于 Descriptions.align",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions?tab=api#descriptions-props",
               "type": [
                 "String"
@@ -6089,7 +6104,7 @@
             },
             {
               "name": "column",
-              "description": "count of DescriptionItem in one row\n\n一行 `DescriptionItem` 的数量",
+              "description": "count of DescriptionsItem in one row\n\n一行 `DescriptionsItem` 的数量",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions?tab=api#descriptions-props",
               "type": [
                 "Number"
@@ -6310,6 +6325,14 @@
                 "Boolean"
               ],
               "default": "false"
+            },
+            {
+              "name": "dialog-class-name",
+              "description": "弹框元素类名，示例：'t-class-dialog-first t-class-dialog-second'",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/dialog?tab=api#dialog-props",
+              "type": [
+                "String"
+              ]
             },
             {
               "name": "draggable",
@@ -6890,10 +6913,11 @@
             },
             {
               "name": "size-draggable",
-              "description": "抽屉大小可拖拽调整，横向抽屉调整宽度，纵向抽屉调整高度",
+              "description": "allow resizing drawer width/height, set `max` or `min` to limit size\n\n抽屉大小可拖拽调整，横向抽屉调整宽度，纵向抽屉调整高度。`sizeDraggable.max` 和 `sizeDraggable.min` 用于控制拖拽尺寸大小限制",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/drawer?tab=api#drawer-props",
               "type": [
-                "Boolean"
+                "Boolean",
+                "Object"
               ],
               "default": "false"
             },
@@ -6945,6 +6969,11 @@
               {
                 "name": "overlay-click",
                 "description": "如果蒙层存在，点击蒙层时触发",
+                "doc-url": "https://tdesign.tencent.com/vue-next/components/drawer?tab=api#drawer-events"
+              },
+              {
+                "name": "size-drag-end",
+                "description": "trigger on size drag end\n\n抽屉大小拖拽结束时触发，事件参数 `size` 在横向抽屉中表示宽度，在纵向抽屉中表示高度",
                 "doc-url": "https://tdesign.tencent.com/vue-next/components/drawer?tab=api#drawer-events"
               }
             ]

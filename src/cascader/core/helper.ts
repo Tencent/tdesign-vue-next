@@ -97,7 +97,7 @@ export const getTreeValue = (value: CascaderContextType['value']) => {
     } else if (value.length) {
       treeValue = value as TreeNodeValue[];
     }
-  } else if (value) {
+  } else if (!isEmptyValues(value)) {
     if (isObject(value)) {
       treeValue = [(value as TreeOptionData).value];
     } else {

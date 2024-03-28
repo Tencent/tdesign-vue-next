@@ -44,7 +44,7 @@ export default defineComponent({
     const mode = ref<TdColorModes>(props.colorModes?.length === 1 ? props.colorModes[0] : 'monochrome');
     const isGradient = computed(() => mode.value === 'linear-gradient');
 
-    const color = computed<Color>(() => new Color(innerValue.value || defaultEmptyColor.value));
+    const color = ref(new Color(innerValue.value || defaultEmptyColor.value));
     const updateColor = () => color.value.update(innerValue.value || defaultEmptyColor.value);
 
     const formatModel = ref<TdColorPickerProps['format']>(color.value.isGradient ? 'CSS' : 'RGB');
@@ -161,6 +161,8 @@ export default defineComponent({
       } else {
         return;
       }
+
+      color.value.update(color.value.rgba);
       emitColorChange(changeTrigger);
     };
 

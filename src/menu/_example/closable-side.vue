@@ -1,5 +1,5 @@
 <template>
-  <t-menu theme="light" default-value="2-1" :collapsed="collapsed" height="550px">
+  <t-menu theme="light" default-value="2-1" :collapsed="collapsed">
     <template #logo>
       <span>LOGO</span>
     </template>
