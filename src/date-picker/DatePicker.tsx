@@ -7,7 +7,7 @@ import { usePrefixClass, useConfig } from '../hooks/useConfig';
 import { useFormDisabled } from '../form/hooks';
 import useSingle from './hooks/useSingle';
 import { parseToDayjs, getDefaultFormat, formatTime, formatDate } from '../_common/js/date-picker/format';
-import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-picker/utils';
+import { subtractMonth, addMonth, extractTimeObj, covertToDate } from '../_common/js/date-picker/utils';
 import props from './props';
 import TSelectInput from '../select-input';
 import TSinglePanel from './panel/SinglePanel';
@@ -60,10 +60,12 @@ export default defineComponent({
     });
 
     watch(popupVisible, (visible) => {
-      cacheValue.value = formatDate(value.value, {
+      const dateValue = covertToDate(value.value as string, formatRef.value?.valueType);
+
+      cacheValue.value = formatDate(dateValue, {
         format: formatRef.value.format,
       });
-      inputValue.value = formatDate(value.value, {
+      inputValue.value = formatDate(dateValue, {
         format: formatRef.value.format,
       });
 
