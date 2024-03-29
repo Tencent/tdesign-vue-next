@@ -5,10 +5,11 @@ toc: false
 docClass: timeline
 ---
 
-## 🌈 1.9.2 `2024-03-29` 
+## 🌈 1.9.3 `2024-03-29`
 ### 🐞 Bug Fixes
 - `Form`: 修复`1.9.1`版本的告警问题 @uyarn ([#4060](https://github.com/Tencent/tdesign-vue-next/pull/4060))
 - `Loading`: 修复`1.9.1`版本对外暴露 `directive` 使用的告警及命名错误 @uyarn ([#4060](https://github.com/Tencent/tdesign-vue-next/pull/4060))
+- `DatePicker`: 修复`1.9.1`版本使用`Date`的异常问题 @uyarn
 
 ## 🌈 1.9.1 `2024-03-28` 
 ### 🚀 Features
