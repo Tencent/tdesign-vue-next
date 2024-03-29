@@ -51,7 +51,7 @@
     "init": "git submodule init && git submodule update",
     "start": "npm run init && npm run dev",
     "dev": "cd site && vite",
-    "site": "cd site && vite build --debug",
+    "site": "cd site && vite build",
     "site:intranet": "cd site && vite build --mode intranet",
     "site:preview": "cd site && vite build --mode preview",
     "postsite:preview": "cp _site/index.html _site/404.html",
