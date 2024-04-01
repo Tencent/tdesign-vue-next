@@ -150,7 +150,7 @@
     "eslint-plugin-vue": "^8.7.1",
     "glob": "^7.2.3",
     "gray-matter": "^4.0.3",
-    "husky": "^7.0.4",
+    "husky": "^9.0.11",
     "ignore": "^5.2.4",
     "jsdom": "^19.0.0",
     "less": "^4.1.3",
