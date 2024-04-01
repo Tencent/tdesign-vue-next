@@ -148,7 +148,7 @@
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^8.7.1",
-    "glob": "^7.2.3",
+    "glob": "^10.3.12",
     "gray-matter": "^4.0.3",
     "husky": "^7.0.4",
     "ignore": "^5.2.4",
