@@ -104,6 +104,8 @@ export default defineComponent({
       const suffixContent = renderTNodeJSX('suffix');
       const suffixIconContent = renderTNodeJSX('suffixIcon');
       const tips = renderTNodeJSX('tips');
+      const separator = renderTNodeJSX('separator');
+
       const RangeInputContent = (
         <div
           {...attrs}
@@ -163,7 +165,7 @@ export default defineComponent({
               {...inputProps.value[0]}
             />
 
-            <div class={`${COMPONENT_NAME.value}__inner-separator`}>{props.separator}</div>
+            <div class={`${COMPONENT_NAME.value}__inner-separator`}>{separator}</div>
 
             <Input
               ref={inputRefs.secondInputRef}
