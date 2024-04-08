@@ -23,6 +23,11 @@ function mergeDefaultProps(props: TdLoadingProps): TdLoadingProps {
 
 function createLoading(props: TdLoadingProps): LoadingInstance {
   const mergedProps = mergeDefaultProps(props);
+
+  if (mergedProps.fullscreen && fullScreenLoadingInstance) {
+    return fullScreenLoadingInstance;
+  }
+
   const component = defineComponent({
     setup() {
       const loadingOptions = reactive(mergedProps);
@@ -42,7 +47,6 @@ function createLoading(props: TdLoadingProps): LoadingInstance {
   const app = createApp(component);
   const loading = app.mount(document.createElement('div'));
   const parentRelativeClass = usePrefixClass('loading__parent--relative').value;
-  const prefixClass = usePrefixClass('loading');
   const lockClass = usePrefixClass('loading--lock');
   const lockFullscreen = mergedProps.preventScrollThrough && mergedProps.fullscreen;
 
@@ -59,9 +63,6 @@ function createLoading(props: TdLoadingProps): LoadingInstance {
   const loadingInstance: LoadingInstance = {
     hide: () => {
       loading.loading = false;
-      attach.querySelectorAll(`.${prefixClass.value}`)?.forEach((item) => {
-        item.remove();
-      });
       removeClass(attach, parentRelativeClass);
       removeClass(document.body, lockClass.value);
       app.unmount();
@@ -84,7 +85,7 @@ function produceLoading(props: boolean | TdLoadingProps): LoadingInstance {
 
   if (props === false) {
     // 销毁全屏实例
-    fullScreenLoadingInstance.hide();
+    fullScreenLoadingInstance?.hide();
     fullScreenLoadingInstance = null;
     return;
   }
