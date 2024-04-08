@@ -24,6 +24,7 @@ onFocus | Function |  | Typescript：`(value: TextareaValue, context : { e: Focu
 onKeydown | Function |  | Typescript：`(value: TextareaValue, context: { e: KeyboardEvent }) => void`<br/> | N
 onKeypress | Function |  | Typescript：`(value: TextareaValue, context: { e: KeyboardEvent }) => void`<br/> | N
 onKeyup | Function |  | Typescript：`(value: TextareaValue, context: { e: KeyboardEvent }) => void`<br/> | N
+onValidate | Function |  | Typescript：`(context: { error?: 'exceed-maximum' \| 'below-minimum' }) => void`<br/>trigger on text length being over max length or max character | N
 
 ### Textarea Events
 

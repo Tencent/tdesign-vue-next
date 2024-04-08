@@ -8,6 +8,10 @@ import { TdTextareaProps } from './type';
 import { PropType } from 'vue';
 
 export default {
+  allowInputOverMax: {
+    type: Boolean,
+    default: false,
+  },
   /** 自动聚焦，拉起键盘 */
   autofocus: Boolean,
   /** 高度自动撑开。 autosize = true 表示组件高度自动撑开，同时，依旧允许手动拖高度。如果设置了 autosize.maxRows 或者 autosize.minRows 则不允许手动调整高度 */
@@ -72,4 +76,6 @@ export default {
   onKeypress: Function as PropType<TdTextareaProps['onKeypress']>,
   /** 释放键盘时触发 */
   onKeyup: Function as PropType<TdTextareaProps['onKeyup']>,
+  /** 字数超出限制时触发 */
+  onValidate: Function as PropType<TdTextareaProps['onValidate']>,
 };
