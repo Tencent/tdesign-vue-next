@@ -417,7 +417,7 @@ export default defineComponent({
             }}
             onEnter={(inputValue, { e }) => {
               props.onEnter?.({ inputValue: `${innerInputValue.value}`, e, value: innerValue.value });
-              handleCreate();
+              props.creatable && handleCreate();
             }}
             onBlur={(inputValue, { e }) => {
               props.onBlur?.({ e, value: innerValue.value });
