@@ -257,7 +257,7 @@ export const isNodeOverflow = (
   ele: ComponentPublicInstance | Element | ComponentPublicInstance[] | Element[],
 ): boolean => {
   const { clientWidth = 0, scrollWidth = 0 } = ele as Element & { clientWidth: number; scrollWidth: number };
-  return scrollWidth > clientWidth;
+  return scrollWidth >= clientWidth;
 };
 
 // 将子元素selected滚动到父元素parentEle的可视范围内
