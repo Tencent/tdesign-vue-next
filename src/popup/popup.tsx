@@ -257,17 +257,26 @@ export default defineComponent({
     function updatePopper() {
       if (!popperEl.value || !visible.value) return;
       if (popper) {
-        const rect = triggerEl.value.getBoundingClientRect();
-        let parent = triggerEl.value;
-        while (parent && parent !== document.body) {
-          parent = parent.parentElement;
-        }
-        const isHidden = parent !== document.body || (rect.width === 0 && rect.height === 0);
-        if (!isHidden) {
+        /**
+         * web component 内的元素限制在了shadow root内，
+         * 无法通过寻找父元素的方式判定是否在当前文档内
+         */
+        if (triggerEl.value.getRootNode() instanceof ShadowRoot) {
           popper.state.elements.reference = triggerEl.value;
           popper.update();
         } else {
-          setVisible(false, { trigger: getTriggerType({ type: 'mouseenter' } as MouseEvent) });
+          const rect = triggerEl.value.getBoundingClientRect();
+          let parent = triggerEl.value;
+          while (parent && parent !== document.body) {
+            parent = parent.parentElement;
+          }
+          const isHidden = parent !== document.body || (rect.width === 0 && rect.height === 0);
+          if (!isHidden) {
+            popper.state.elements.reference = triggerEl.value;
+            popper.update();
+          } else {
+            setVisible(false, { trigger: getTriggerType({ type: 'mouseenter' } as MouseEvent) });
+          }
         }
         return;
       }
