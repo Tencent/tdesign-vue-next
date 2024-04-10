@@ -156,6 +156,26 @@ describe('Descriptions', () => {
       // 检查第 1 个 tr 元素中是否只有 4 个 td 元素
       expect(firstTr.findAll('td')).toHaveLength(4);
     });
+
+    it(':items:undefined:null', () => {
+      const items = [
+        { label: undefined, content: 'TDesign' },
+        { label: 'Telephone Number', content: null },
+      ];
+      const wrapper = mount({
+        render() {
+          return <Descriptions items={items} />;
+        },
+      });
+
+      const tbody = wrapper.find('tbody');
+      const firstTr = tbody.findAll('tr')[0];
+      // 检查 第 1 个 td 是否为空
+      expect(firstTr.findAll('td')[0].text()).toBe('');
+
+      // 检查 第 4 个 td 是否为空
+      expect(firstTr.findAll('td')[3].text()).toBe('');
+    });
   });
 
   describe(':slots', () => {
