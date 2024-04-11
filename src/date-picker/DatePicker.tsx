@@ -62,8 +62,8 @@ export default defineComponent({
 
     watch(popupVisible, (visible) => {
       const dateValue =
-        // Date 属性不再 parse，避免 dayjs 处理成 Invalid
-        value.value && !isDate(value.value)
+        // Date 属性、季度和周不再 parse，避免 dayjs 处理成 Invalid
+        value.value && !isDate(value.value) && !['week', 'quarter'].includes(props.mode)
           ? covertToDate(value.value as string, formatRef.value?.valueType)
           : value.value;
 
