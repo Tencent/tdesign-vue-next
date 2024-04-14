@@ -14,14 +14,14 @@ import { TdDescriptionItemProps } from '../type';
  * @param params
  * @returns
  */
-export function renderCustomNode(node: string | ((...args: any[]) => any) | ComponentOptions, params = {}) {
+export function renderCustomNode(node?: string | ((...args: any[]) => any) | ComponentOptions, params = {}) {
   if (isString(node)) {
     return node;
   }
   if (isFunction(node)) {
     return node(h, params);
   }
-  if (isFunction(node.render)) {
+  if (isFunction(node?.render)) {
     return node.render(h, params);
   }
 
