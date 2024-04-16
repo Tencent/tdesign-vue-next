@@ -84,7 +84,7 @@ export default function useDragSort(props: any) {
       if (targetIndex > dragIndex) {
         target = navsWrap.children[targetIndex + 1];
       }
-      navsWrap.insertBefore(dragged, target);
+      // navsWrap.insertBefore(dragged, target);
 
       // 当props.theme === "normal" 会多出一个指示条为第一个dom节点，所以需要减1
       const currentIndex = props.theme === 'card' ? dragIndex : dragIndex - 1;
