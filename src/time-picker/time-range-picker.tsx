@@ -1,5 +1,6 @@
 import { defineComponent, ref, toRefs, watch, computed } from 'vue';
 import dayjs from 'dayjs';
+import isArray from 'lodash/isArray';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { TimeIcon as TdTimeIcon } from 'tdesign-icons-vue-next';
 
@@ -66,8 +67,10 @@ export default defineComponent({
       currentPanelIdx.value = position === 'first' ? 0 : 1;
     };
 
-    const handleTimeChange = (newValue: string, e: MouseEvent) => {
-      if (currentPanelIdx.value === 0) {
+    const handleTimeChange = (newValue: string | string[], e: MouseEvent) => {
+      if (isArray(newValue)) {
+        currentValue.value = newValue;
+      } else if (currentPanelIdx.value === 0) {
         currentValue.value = [newValue, currentValue.value[1] ?? newValue];
       } else {
         currentValue.value = [currentValue.value[0] ?? newValue, newValue];
@@ -106,10 +109,13 @@ export default defineComponent({
       props.onFocus?.({ value, e, position: position === 'first' ? 'start' : 'end' });
     };
 
-    const handleOnPick = (pickValue: string, e: MouseEvent) => {
+    const handleOnPick = (pickValue: string | string[], e: MouseEvent) => {
       let pickedRangeValue = [];
       let context;
-      if (currentPanelIdx.value === 0) {
+      if (isArray(pickValue)) {
+        pickedRangeValue = pickValue;
+        context = { e };
+      } else if (currentPanelIdx.value === 0) {
         pickedRangeValue = [pickValue, currentValue.value[1] ?? pickValue];
         context = { e, position: 'start' as TimeRangePickerPartial };
       } else {
