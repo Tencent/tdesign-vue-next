@@ -91,16 +91,24 @@ export default defineComponent({
       return rowCol.map((item) => <div class={getBlockClass()}>{renderCols(item)}</div>);
     };
 
+    let timer: NodeJS.Timeout = null;
+
     watch(
       () => props.loading,
-      (val) => {
-        if (!val || props.delay === 0) {
-          isShow.value = val;
+      (bool) => {
+        if (!bool) {
+          clearTimeout(timer);
+          isShow.value = false;
           return;
         }
-        setTimeout(() => {
-          isShow.value = val;
-        }, props.delay);
+        if (props.delay > 0) {
+          timer = setTimeout(() => {
+            clearTimeout(timer);
+            isShow.value = true;
+          }, props.delay);
+        } else {
+          isShow.value = true;
+        }
       },
       { immediate: true },
     );
