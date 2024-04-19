@@ -5,6 +5,26 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.9.4 `2024-04-18` 
+### 🚀 Features
+- `Textarea`: 
+  - 新增 `allow-input-over-max` 属性 @betavs ([#4086](https://github.com/Tencent/tdesign-vue-next/pull/4086))
+  - 新增`onValidate` 事件 @betavs ([#4086](https://github.com/Tencent/tdesign-vue-next/pull/4086))
+### 🐞 Bug Fixes
+- `DatePicker`: 对于 `valueType = 'Date'` 不进行初始化的 parse @Cat1007 ([#4066](https://github.com/Tencent/tdesign-vue-next/pull/4066))
+- `Loading`: `hide` 函数错误关闭所有 `Loading` 实例. @XBIsland ([#4081](https://github.com/Tencent/tdesign-vue-next/pull/4081))
+- `Popup`: 修复在 `webcomponent` 场景下由于 `shadowroot` 导致 `document` 判断异常引起的展示问题 @decadef20 ([#4091](https://github.com/Tencent/tdesign-vue-next/pull/4091))
+- `Descriptions`: 修复内容为空时候的报错 @zhangpaopao0609 ([#4092](https://github.com/Tencent/tdesign-vue-next/pull/4092))
+- `Textarea`: `autosize` 在 `Firefox` 中不生效。 @XBIsland ([#4104](https://github.com/Tencent/tdesign-vue-next/pull/4104))
+- `DatePicker`: 修复`1.9.3`版本中周和季度模式选择异常的问题 @uyarn ([#4096](https://github.com/Tencent/tdesign-vue-next/pull/4096))
+- `Tabs`: 修复拖拽排序后手动新增 `tab` 位置异常问题 @Liao-js ([#4108](https://github.com/Tencent/tdesign-vue-next/pull/4108))
+- `Cascader`: 修复自定义渲染内容不支持多选 @ZTH520 ([#4109](https://github.com/Tencent/tdesign-vue-next/pull/4109))
+- `TimePicker`:  修复没有选中具体区间时预设值错误的问题 @uyarn ([#4123](https://github.com/Tencent/tdesign-vue-next/pull/4123))
+- `Tabs`: 修复拖拽排序后手动新增 `tab` 位置异常问题 @Liao-js ([#4108](https://github.com/Tencent/tdesign-vue-next/pull/4108))
+- `Skeleton`: 修复设置 `delay` 延迟并且 `loading` 为 `true` 时，无法在到达 `delay` 时间前取消准备到来的 `loading` @boogie-ben ([#4119](https://github.com/Tencent/tdesign-vue-next/pull/4119))
+- `BreadcrumbItem`:  修复读取 `content` 内容; 文本溢出时调用 `slot?.default()` 非函数的问题 @boogie-ben ([#4120](https://github.com/Tencent/tdesign-vue-next/pull/4120))
+
+
 ## 🌈 1.9.3 `2024-03-29`
 ### 🐞 Bug Fixes
 - `Form`: 修复`1.9.1`版本的告警问题 @uyarn ([#4060](https://github.com/Tencent/tdesign-vue-next/pull/4060))
