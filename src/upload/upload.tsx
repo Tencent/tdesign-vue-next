@@ -45,6 +45,10 @@ export default defineComponent({
     } = useUpload(props);
     const disabled = useFormDisabled();
 
+    const triggerUploadButtonText = computed(
+      () => props.triggerButtonProps?.default || props.triggerButtonProps?.content || triggerUploadText.value,
+    );
+
     expose({
       upload: inputRef.value,
       uploading,
@@ -59,13 +63,13 @@ export default defineComponent({
         if (props.theme === 'file-input') {
           return (
             <Button disabled={disabled.value} variant="outline" {...props.triggerButtonProps}>
-              {triggerUploadText.value}
+              {triggerUploadButtonText.value}
             </Button>
           );
         }
         return (
           <Button disabled={disabled.value} variant="outline" icon={() => <UploadIcon />} {...props.triggerButtonProps}>
-            {triggerUploadText.value}
+            {triggerUploadButtonText.value}
           </Button>
         );
       };
