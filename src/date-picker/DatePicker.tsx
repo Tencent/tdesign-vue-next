@@ -14,6 +14,7 @@ import TSinglePanel from './panel/SinglePanel';
 
 import type { TdDatePickerProps } from './type';
 import type { DateValue } from './type';
+import isDate from 'lodash/isDate';
 
 export default defineComponent({
   name: 'TDatePicker',
@@ -60,7 +61,11 @@ export default defineComponent({
     });
 
     watch(popupVisible, (visible) => {
-      const dateValue = value.value ? covertToDate(value.value as string, formatRef.value?.valueType) : value.value;
+      const dateValue =
+        // Date 属性、季度和周不再 parse，避免 dayjs 处理成 Invalid
+        value.value && !isDate(value.value) && !['week', 'quarter'].includes(props.mode)
+          ? covertToDate(value.value as string, formatRef.value?.valueType)
+          : value.value;
 
       cacheValue.value = formatDate(dateValue, {
         format: formatRef.value.format,
