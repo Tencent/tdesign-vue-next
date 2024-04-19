@@ -10,6 +10,8 @@ docClass: timeline
 - `Textarea`: 
   - 新增 `allow-input-over-max` 属性 @betavs ([#4086](https://github.com/Tencent/tdesign-vue-next/pull/4086))
   - 新增`onValidate` 事件 @betavs ([#4086](https://github.com/Tencent/tdesign-vue-next/pull/4086))
+- `Scroll`: 修复由于 `Chrome 121` 版本支持 scroll width 之后导致 Table、Select 及部分出现滚动条组件的样式异常问题 @loopzhou (common#1765)。请注意，基于 @vue/cli-service 4.x 及以下版本初始化的项目由于依赖的 `autoprefixer` 版本过低，会因为这个修复受影响编译，请整体升级@vue/cli-service至5.0以上
+
 ### 🐞 Bug Fixes
 - `DatePicker`: 对于 `valueType = 'Date'` 不进行初始化的 parse @Cat1007 ([#4066](https://github.com/Tencent/tdesign-vue-next/pull/4066))
 - `Loading`: `hide` 函数错误关闭所有 `Loading` 实例. @XBIsland ([#4081](https://github.com/Tencent/tdesign-vue-next/pull/4081))
