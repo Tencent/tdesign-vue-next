@@ -43,7 +43,7 @@ export default {
   },
   /** 上传请求所需的额外字段，默认字段有 `file`，表示文件信息。可以添加额外的文件名字段，如：`{file_name: "custom-file-name.txt"}`。`autoUpload=true` 时有效。也可以使用 `formatRequest` 完全自定义上传请求的字段 */
   data: {
-    type: Object as PropType<TdUploadProps['data']>,
+    type: [Object, Function] as PropType<TdUploadProps['data']>,
   },
   /** 非拖拽场景，指触发上传的元素，如：“选择文件”。如果是拖拽场景，则是指拖拽区域 */
   default: {

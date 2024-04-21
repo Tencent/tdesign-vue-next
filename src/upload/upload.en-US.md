@@ -13,7 +13,7 @@ autoUpload | Boolean | true | post upload request automatically after files bein
 beforeAllFilesUpload | Function | - | before all files upload, return false can stop uploading file。Typescript：`(file: UploadFile[]) => boolean \| Promise<boolean>` | N
 beforeUpload | Function | - | stop one of files to upload。Typescript：`(file: UploadFile) => boolean \| Promise<boolean>` | N
 cancelUploadButton | Object / Slot / Function | - | cancel upload button props, which showed on `autoUpload=false` and multiple files/images upload。Typescript：`null \| ButtonProps \| TNode<{ disabled: boolean; cancelUploadText: string; cancelUpload: (ctx: { e: MouseEvent }) => void }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-data | Object | - | extra request data of uploading. `formatRequest` can redefine all request data。Typescript：`Record<string, any> \| ((files: UploadFile[]) => Record<string, any>)` | N
+data | Object / Function | - | extra request data of uploading. `formatRequest` can redefine all request data。Typescript：`Record<string, any> \| ((files: UploadFile[]) => Record<string, any>)` | N
 default | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 disabled | Boolean | - | make upload to be disabled | N
 dragContent | String / Slot / Function | - | define drag content nodes, it works on `theme=custom`。Typescript：`TNode \| TNode<TriggerContext>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
