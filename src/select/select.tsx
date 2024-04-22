@@ -257,7 +257,7 @@ export default defineComponent({
 
     const handlerInputChange = (value: string, context: SelectInputValueChangeContext) => {
       if (value) {
-        setInnerPopupVisible(true, { e: context.e as KeyboardEvent });
+        !innerPopupVisible.value && setInnerPopupVisible(true, { e: context.e as KeyboardEvent });
       }
       setInputValue(value);
       handleSearch(`${value}`, { e: context.e as KeyboardEvent });
