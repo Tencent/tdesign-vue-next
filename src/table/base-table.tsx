@@ -600,13 +600,12 @@ export default defineComponent({
       '-moz-transform': translate,
       '-webkit-transform': translate,
     };
-    const { virtualConfig } = this;
     const tableBodyProps = {
       classPrefix: this.classPrefix,
       ellipsisOverlayClassName: this.tableSize !== 'medium' ? this.sizeClassNames[this.tableSize] : '',
       rowAndColFixedPosition,
       showColumnShadow: this.showColumnShadow,
-      data: virtualConfig.isVirtualScroll.value ? virtualConfig.visibleData.value : data,
+      data: data,
       virtualConfig: this.virtualConfig,
       columns: this.spansAndLeafNodes.leafColumns,
       tableElm: this.tableRef,

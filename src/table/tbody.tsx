@@ -160,7 +160,32 @@ export default defineComponent({
       'pagination',
       'attach',
     ];
-    this.data?.forEach((row, rowIndex) => {
+
+    // 需要合并虚拟滚动的数据已经首尾固定行列的数据
+    const getVirtualRenderData = () => {
+      const visibleStart = this.virtualConfig.visibleData.value[0]?.['VIRTUAL_SCROLL_INDEX'] ?? 0;
+      const topEndIndex = Math.min(this.fixedRows?.[0] ?? 0, visibleStart);
+      const visibleEnd =
+        this.virtualConfig.visibleData.value[this.virtualConfig.visibleData.value.length - 1]?.[
+          'VIRTUAL_SCROLL_INDEX'
+        ] ?? 0;
+      const bottomStartIndex = Math.max(-1 * this.fixedRows?.[1] ?? 0, (this.data.length - 1 - visibleEnd) * -1);
+      const fixedStartData = this.data
+        .slice(0, topEndIndex)
+        .map((item, index) => ({ ...item, VIRTUAL_SCROLL_INDEX: index }));
+
+      const fixedEndData =
+        bottomStartIndex !== 0
+          ? this.data
+              .slice(bottomStartIndex)
+              .map((item, index) => ({ ...item, VIRTUAL_SCROLL_INDEX: this.data.length + bottomStartIndex + index }))
+          : [];
+      return [...fixedStartData, ...this.virtualConfig.visibleData.value, ...fixedEndData];
+    };
+
+    const renderData = this.virtualConfig.isVirtualScroll.value ? getVirtualRenderData() : this.data;
+
+    renderData?.forEach((row, rowIndex) => {
       const rowKey = this.rowKey || 'id';
       const rowValue = get(row, rowKey);
       const trProps = {

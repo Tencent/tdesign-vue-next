@@ -273,7 +273,8 @@ export default function useFixed(
       initialColumnMap.set(rowId, { ...thisRowInfo, height: tr?.getBoundingClientRect().height || 0 });
     }
     for (let i = data.length - 1; i >= data.length - fixedBottomRows; i--) {
-      const tr = trList[i] as HTMLElement;
+      // 当虚拟滚动的时候，尾部固定行并非对应数据的 index，需要进行倒推计算
+      const tr = trList[trList.length - (data.length - i)] as HTMLElement;
       const rowId = get(data[i], rowKey);
       const thisRowInfo = initialColumnMap.get(rowId) || {};
       const lastRowId = get(data[i + 1], rowKey);
