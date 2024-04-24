@@ -154,7 +154,7 @@ export default defineComponent({
     };
 
     const columnLength = this.columns.length;
-    const dataLength = this.data.length;
+    const dataLength = this.data?.length;
     const trNodeList: TNodeReturnValue[] = [];
 
     const properties = [
