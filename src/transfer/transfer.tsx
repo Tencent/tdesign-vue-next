@@ -119,8 +119,15 @@ export default defineComponent({
         newTargetValue = oldTargetValue.filter((v) => !selfCheckedValue.includes(v));
       } else if (props.targetSort === 'original') {
         // 按照原始顺序
+        const remainValue = transferData.value.reduce((acc, data) => {
+          if (oldTargetValue.includes(data.value) && data.disabled) {
+            return acc.concat(data.value);
+          }
+          return acc;
+        }, []);
         newTargetValue = getDataValues(transferData.value, oldTargetValue.concat(selfCheckedValue), {
           isTreeMode: isTreeMode.value,
+          remainValue,
         });
       } else if (props.targetSort === 'unshift') {
         newTargetValue = selfCheckedValue.concat(oldTargetValue);
