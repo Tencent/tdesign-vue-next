@@ -47,7 +47,6 @@ export default defineComponent({
     ]);
 
     function handleClick(e: MouseEvent) {
-      // debugger;
       if (props.disabled) return;
       if (props.time) {
         const { hours, minutes, seconds, milliseconds, meridiem } = extractTimeObj(props.time);
