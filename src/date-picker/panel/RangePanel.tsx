@@ -65,7 +65,11 @@ export default defineComponent({
         disableDate: props.disableDate,
         start:
           props.isFirstValueSelected && props.activeIndex === 1
-            ? new Date(parseToDayjs(props.value[0], format, 'start').toDate().setHours(0, 0, 0))
+            ? new Date(
+                parseToDayjs(props.value[0], format, 'start', globalConfig.value.dayjsLocale, props.firstDayOfWeek)
+                  .toDate()
+                  .setHours(0, 0, 0),
+              )
             : undefined,
         end:
           props.isFirstValueSelected && props.activeIndex === 0
