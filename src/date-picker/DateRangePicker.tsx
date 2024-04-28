@@ -109,7 +109,8 @@ export default defineComponent({
         isHoverCell.value = false;
         isFirstValueSelected.value = false;
         inputValue.value = formatDate(value.value, {
-          format: formatRef.value.format,
+          format: formatRef.value.valueType,
+          targetFormat: formatRef.value.format,
         });
       }
     });
