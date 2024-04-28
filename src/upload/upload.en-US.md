@@ -30,7 +30,7 @@ inputAttributes | Object | - | add attributes to HTML element `input`。Typescri
 isBatchUpload | Boolean | false | make all files to be a whole package, files can only be replaced or deleted together, can not add more files | N
 locale | Object | - | upload language config, priority of `locale` is higher than global language config。Typescript：`UploadConfig` `import { UploadConfig } from '../config-provider/type'`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts) | N
 max | Number | 0 | max count of files limit | N
-method | String | POST | HTTP request method。options: POST/GET/PUT/OPTION/PATCH/post/get/put/option/patch | N
+method | String | POST | HTTP request method。options: POST/GET/PUT/OPTIONS/PATCH/post/get/put/options/patch | N
 mockProgressDuration | Number | - | mock progress duration time. more large files more duration time | N
 multiple | Boolean | false | multiple files uploading | N
 name | String | file | field name of files in upload request data | N
