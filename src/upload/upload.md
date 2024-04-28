@@ -30,7 +30,7 @@ inputAttributes | Object | - | 用于添加属性到 HTML 元素 `input`。TS �
 isBatchUpload | Boolean | false | 多个文件是否作为一个独立文件包，整体替换，整体删除。不允许追加文件，只允许替换文件。`theme=file-flow` 时有效 | N
 locale | Object | - | 上传组件文本语言配置，支持自定义配置组件中的全部文本。优先级高于全局配置中语言。TS 类型：`UploadConfig` `import { UploadConfig } from '../config-provider/type'`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts) | N
 max | Number | 0 | 用于控制文件上传数量，值为 0 则不限制。注意，单文件上传场景，请勿设置 `max` 属性 | N
-method | String | POST | HTTP 请求类型。可选项：POST/GET/PUT/OPTION/PATCH/post/get/put/option/patch | N
+method | String | POST | HTTP 请求类型。可选项：POST/GET/PUT/OPTIONS/PATCH/post/get/put/options/patch | N
 mockProgressDuration | Number | - | 模拟进度间隔时间，单位：毫秒，默认：300。由于原始的上传请求，小文件上传进度只有 0 和 100，故而新增模拟进度，每间隔 `mockProgressDuration` 毫秒刷新一次模拟进度。小文件设置小一点，大文件设置大一点。注意：当 `useMockProgress` 为真时，当前设置有效 | N
 multiple | Boolean | false | 支持多文件上传 | N
 name | String | file | 文件上传时的名称 | N
