@@ -3,7 +3,7 @@ import { ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
 
 import props from './breadcrumb-item-props';
 import Tooltip from '../tooltip/index';
-import { isNodeOverflow } from '../utils/dom';
+import { isTextEllipsis } from '../utils/dom';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useTNodeJSX } from '../hooks/tnode';
@@ -51,10 +51,10 @@ export default defineComponent({
     });
 
     onMounted(() => {
-      isCutOff.value = isNodeOverflow(breadcrumbText.value);
+      isCutOff.value = isTextEllipsis(breadcrumbText.value);
     });
     onBeforeUpdate(() => {
-      isCutOff.value = isNodeOverflow(breadcrumbText.value);
+      isCutOff.value = isTextEllipsis(breadcrumbText.value);
     });
 
     const separatorPropContent = localTBreadcrumb?.separator;
