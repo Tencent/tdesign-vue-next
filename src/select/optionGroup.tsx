@@ -1,8 +1,10 @@
 import { defineComponent, inject, computed } from 'vue';
+
 import { useTNodeJSX } from '../hooks/tnode';
-import props from './option-group-props';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+
 import { selectInjectKey } from './helper';
+import props from './option-group-props';
 
 export default defineComponent({
   name: 'TOptionGroup',

@@ -15,9 +15,9 @@
 </template>
 
 <script setup lang="jsx">
-import { ref } from 'vue';
 import { RefreshIcon } from 'tdesign-icons-vue-next';
 import { Loading } from 'tdesign-vue-next';
+import { ref } from 'vue';
 
 const loadingCount = ref(0);
 const renderPlaceholder = () => (

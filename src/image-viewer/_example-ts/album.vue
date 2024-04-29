@@ -17,9 +17,9 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
-import { ImageViewerProps } from 'tdesign-vue-next';
 import { BrowseIcon } from 'tdesign-icons-vue-next';
+import { ImageViewerProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const img3 = 'https://tdesign.gtimg.com/demo/demo-image-3.png';
 const img2 = 'https://tdesign.gtimg.com/demo/demo-image-2.png';
 const img1 = 'https://tdesign.gtimg.com/demo/demo-image-1.png';

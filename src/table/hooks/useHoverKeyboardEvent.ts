@@ -1,8 +1,9 @@
-import { toRefs, Ref, ref, computed } from 'vue';
 import get from 'lodash/get';
-import { BaseTableProps } from '../interface';
-import { on, off } from '../../utils/dom';
+import { toRefs, Ref, ref, computed } from 'vue';
+
 import { ALL_REG, ARROW_DOWN_REG, ARROW_UP_REG, CLEAR_REG, ESCAPE_REG, SPACE_REG } from '../../_common/js/common';
+import { on, off } from '../../utils/dom';
+import { BaseTableProps } from '../interface';
 import { RowEventContext, TableRowData } from '../type';
 
 /**

@@ -93,8 +93,8 @@
   </t-space>
 </template>
 <script setup>
-import { ref, watch } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
+import { ref, watch } from 'vue';
 // import { CloseIcon } from 'tdesign-icons-vue-next';
 
 const uploadRef1 = ref();

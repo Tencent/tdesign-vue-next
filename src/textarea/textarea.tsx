@@ -1,3 +1,5 @@
+import isUndefined from 'lodash/isUndefined';
+import merge from 'lodash/merge';
 import {
   defineComponent,
   computed,
@@ -10,24 +12,24 @@ import {
   StyleValue,
   CSSProperties,
 } from 'vue';
-import merge from 'lodash/merge';
-import isUndefined from 'lodash/isUndefined';
 
-import { omit } from '../utils/helper';
-import calcTextareaHeight from './calcTextareaHeight';
-import { FormItemInjectionKey } from '../form/const';
-import setStyle from '../_common/js/utils/set-style';
 import { getCharacterLength } from '../_common/js/utils/helper';
+import setStyle from '../_common/js/utils/set-style';
+// eslint-disable-next-line import/order
+import { FormItemInjectionKey } from '../form/const';
 
 // hooks
-import useVModel from '../hooks/useVModel';
 import { useFormDisabled } from '../form/hooks';
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-
-import props from './props';
-import type { TextareaValue, TdTextareaProps } from './type';
+import useVModel from '../hooks/useVModel';
 import useLengthLimit from '../input/useLengthLimit';
+import { omit } from '../utils/helper';
+
+import calcTextareaHeight from './calcTextareaHeight';
+import props from './props';
+
+import type { TextareaValue, TdTextareaProps } from './type';
 
 function getValidAttrs(obj: object): object {
   const newObj = {};

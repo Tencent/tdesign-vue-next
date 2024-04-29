@@ -1,9 +1,10 @@
-import { computed, defineComponent } from 'vue';
 import dayjs from 'dayjs';
+import { computed, defineComponent } from 'vue';
 
-import { useCommonClassName } from '../hooks/useConfig';
 import { useContent } from '../hooks/tnode';
+import { useCommonClassName } from '../hooks/useConfig';
 
+// eslint-disable-next-line import/order
 import { useCalendarCellClass } from './hook';
 
 // 组件相关的自定义类型

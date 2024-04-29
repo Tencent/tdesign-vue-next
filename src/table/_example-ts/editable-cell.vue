@@ -22,7 +22,6 @@
 
 <script lang="tsx" setup>
 import dayjs from 'dayjs';
-import { ref, computed } from 'vue';
 import {
   Input,
   Select,
@@ -35,6 +34,7 @@ import {
   TableEditableCellPropsParams,
   PrimaryTableOnEditedContext,
 } from 'tdesign-vue-next';
+import { ref, computed } from 'vue';
 interface TableData {
   key: string;
   firstName: string;

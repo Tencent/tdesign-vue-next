@@ -56,8 +56,8 @@
   </t-form>
 </template>
 <script setup>
-import { ref, computed, watch, reactive } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
+import { ref, computed, watch, reactive } from 'vue';
 
 let id = 0;
 const getId = () => {

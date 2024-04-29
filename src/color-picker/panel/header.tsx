@@ -1,10 +1,10 @@
 import { defineComponent, PropType, ref, watch } from 'vue';
 
-import props from '../props';
-import { COLOR_MODES } from '../const';
 import { RadioGroup as TRadioGroup, RadioButton as TRadioButton } from '../../radio';
-import { TdColorModes } from '../interfaces';
+import { COLOR_MODES } from '../const';
 import { useBaseClassName } from '../hooks';
+import { TdColorModes } from '../interfaces';
+import props from '../props';
 
 export default defineComponent({
   name: 'PanelHeader',

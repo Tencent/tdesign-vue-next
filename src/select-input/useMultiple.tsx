@@ -1,13 +1,15 @@
-import { SetupContext, computed, ref, toRefs, Ref } from 'vue';
 import isObject from 'lodash/isObject';
-import { TdSelectInputProps, SelectInputChangeContext, SelectInputKeys } from './type';
-import { SelectInputCommonProperties } from './interface';
-import TagInput, { TagInputValue, TagInputProps } from '../tag-input';
-import Loading from '../loading';
-import useDefault from '../hooks/useDefaultValue';
-import { usePrefixClass } from '../hooks/useConfig';
+import { SetupContext, computed, ref, toRefs, Ref } from 'vue';
+
 import { useFormDisabled } from '../form/hooks';
+import { usePrefixClass } from '../hooks/useConfig';
+import useDefault from '../hooks/useDefaultValue';
+import Loading from '../loading';
 import { PopupInstanceFunctions } from '../popup';
+import TagInput, { TagInputValue, TagInputProps } from '../tag-input';
+
+import { SelectInputCommonProperties } from './interface';
+import { TdSelectInputProps, SelectInputChangeContext, SelectInputKeys } from './type';
 
 export interface RenderSelectMultipleParams {
   commonInputProps: SelectInputCommonProperties;

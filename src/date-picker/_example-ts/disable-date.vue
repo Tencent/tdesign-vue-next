@@ -38,8 +38,8 @@
 
 <script lang="ts" setup>
 import dayjs from 'dayjs';
-import { ref, computed } from 'vue';
 import { DatePickerProps } from 'tdesign-vue-next';
+import { ref, computed } from 'vue';
 const pickDate = ref();
 const timePickerProps = computed<DatePickerProps['timePickerProps']>(() => {
   return {

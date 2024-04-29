@@ -44,9 +44,9 @@
   </t-space>
 </template>
 <script lang="ts" setup>
-import { computed, ref } from 'vue';
-import { SelectInputProps, CheckboxGroupProps } from 'tdesign-vue-next';
 import { ChevronDownIcon } from 'tdesign-icons-vue-next';
+import { SelectInputProps, CheckboxGroupProps } from 'tdesign-vue-next';
+import { computed, ref } from 'vue';
 interface CustomOptionInfo {
   label: string;
   value?: number;

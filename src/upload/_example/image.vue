@@ -90,8 +90,8 @@
   </t-space>
 </template>
 <script setup>
-import { ref } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
+import { ref } from 'vue';
 
 const file1 = ref([]);
 const file2 = ref([{ name: 'demo-image-1.png', url: 'https://tdesign.gtimg.com/demo/demo-image-1.png' }]);

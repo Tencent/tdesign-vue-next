@@ -1,25 +1,27 @@
-import { h, defineComponent, Transition, ref, computed, watch, onMounted, nextTick } from 'vue';
 import debounce from 'lodash/debounce';
+import isFunction from 'lodash/isFunction';
 import {
   ChevronLeftIcon as TdChevronLeftIcon,
   ChevronRightIcon as TdChevronRightIcon,
   AddIcon as TdAddIcon,
 } from 'tdesign-icons-vue-next';
-import { TdTabsProps } from './type';
-import tabProps from './props';
+import { h, defineComponent, Transition, ref, computed, watch, onMounted, nextTick } from 'vue';
+
 import tabBase from '../_common/js/tabs/base';
+import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import useDragSort from '../hooks/useDragSort';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import { useResize } from '../hooks/useListener';
+
+import tabProps from './props';
+import TTabNavBar from './tab-nav-bar';
+import TTabNavItem from './tab-nav-item';
+import TTabPanel from './tab-panel';
+import { TdTabsProps } from './type';
 
 // 子组件
-import TTabPanel from './tab-panel';
-import TTabNavItem from './tab-nav-item';
-import TTabNavBar from './tab-nav-bar';
 
 // hooks
-import { useResize } from '../hooks/useListener';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import useDragSort from '../hooks/useDragSort';
-import isFunction from 'lodash/isFunction';
 
 const { calculateCanToLeft, calculateCanToRight, calcScrollLeft, scrollToLeft, scrollToRight, moveActiveTabIntoView } =
   tabBase;

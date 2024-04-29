@@ -1,9 +1,10 @@
-import { computed, defineComponent, onBeforeUnmount, onMounted, ref } from 'vue';
 import { BacktopIcon as TdBackTopIcon } from 'tdesign-icons-vue-next';
+import { computed, defineComponent, onBeforeUnmount, onMounted, ref } from 'vue';
 
-import { scrollTo } from '../utils/dom';
 import { useChildSlots, usePrefixClass, useContent, useConfig } from '../hooks';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import { scrollTo } from '../utils/dom';
+
 import props from './props';
 
 import type { TdBackTopProps } from './type';

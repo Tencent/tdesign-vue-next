@@ -1,14 +1,16 @@
-import { defineComponent, ref, onMounted, computed, onUnmounted, watch, toRefs } from 'vue';
-import omit from 'lodash/omit';
 import isFunction from 'lodash/isFunction';
+import omit from 'lodash/omit';
 import { ImageErrorIcon, ImageIcon } from 'tdesign-icons-vue-next';
+import { defineComponent, ref, onMounted, computed, onUnmounted, watch, toRefs } from 'vue';
+
 import observe from '../_common/js/utils/observe';
 import { useConfig } from '../config-provider/useConfig';
 import { useTNodeDefault, useTNodeJSX } from '../hooks/tnode';
-import { TdImageProps } from './type';
-import props from './props';
-import Space from '../space';
 import { useImagePreviewUrl } from '../hooks/useImagePreviewUrl';
+import Space from '../space';
+
+import props from './props';
+import { TdImageProps } from './type';
 
 export default defineComponent({
   name: 'TImage',

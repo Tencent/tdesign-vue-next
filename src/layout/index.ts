@@ -1,9 +1,10 @@
-import _Layout from './layout';
-import _Header from './header';
-import _Footer from './footer';
+import withInstall from '../utils/withInstall';
+
 import _Aside from './aside';
 import _Content from './content';
-import withInstall from '../utils/withInstall';
+import _Footer from './footer';
+import _Header from './header';
+import _Layout from './layout';
 import { TdHeaderProps, TdFooterProps, TdAsideProps } from './type';
 
 import './style';

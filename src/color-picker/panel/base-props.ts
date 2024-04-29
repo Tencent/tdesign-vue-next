@@ -1,4 +1,5 @@
 import { PropType } from 'vue';
+
 import { Color } from '../utils';
 
 export default {

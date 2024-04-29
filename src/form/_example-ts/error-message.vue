@@ -84,7 +84,6 @@
   </t-space>
 </template>
 <script lang="ts" setup>
-import { ref, reactive, computed } from 'vue';
 import {
   MessagePlugin,
   FormProps,
@@ -94,6 +93,7 @@ import {
   FormItemProps,
   ButtonProps,
 } from 'tdesign-vue-next';
+import { ref, reactive, computed } from 'vue';
 const formData: FormProps['data'] = reactive({
   account: '',
   password: '',

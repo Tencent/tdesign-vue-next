@@ -1,28 +1,33 @@
-import { defineComponent, provide, computed, toRefs, watch, ref, nextTick, PropType } from 'vue';
-import picker from 'lodash/pick';
-import isArray from 'lodash/isArray';
-import isFunction from 'lodash/isFunction';
-import debounce from 'lodash/debounce';
 import cloneDeep from 'lodash/cloneDeep';
+import debounce from 'lodash/debounce';
 import get from 'lodash/get';
 import intersection from 'lodash/intersection';
+import isArray from 'lodash/isArray';
+import isFunction from 'lodash/isFunction';
+import picker from 'lodash/pick';
+import { defineComponent, provide, computed, toRefs, watch, ref, nextTick, PropType } from 'vue';
+
+// eslint-disable-next-line import/order
 import FakeArrow from '../common-components/fake-arrow';
-import SelectInput from '../select-input';
-import SelectPanel from './select-panel';
-import props from './props';
+
 // hooks
 import { useFormDisabled } from '../form/hooks';
-import useDefaultValue from '../hooks/useDefaultValue';
-import useVModel from '../hooks/useVModel';
 import { useTNodeJSX } from '../hooks/tnode';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import useDefaultValue from '../hooks/useDefaultValue';
+import useVModel from '../hooks/useVModel';
+import SelectInput from '../select-input';
+import { SelectInputValueDisplayOptions } from '../select-input/useSingle';
+
 import { selectInjectKey, getSingleContent, getMultipleContent } from './helper';
-import { useSelectOptions } from './hooks/useSelectOptions';
 import useKeyboardControl from './hooks/useKeyboardControl';
+import { useSelectOptions } from './hooks/useSelectOptions';
+import props from './props';
+import SelectPanel from './select-panel';
+
+import type { TdSelectProps, SelectValue } from './type';
 import type { PopupVisibleChangeContext } from '../popup';
 import type { SelectInputValueChangeContext } from '../select-input';
-import type { TdSelectProps, SelectValue } from './type';
-import { SelectInputValueDisplayOptions } from '../select-input/useSingle';
 
 export default defineComponent({
   name: 'TSelect',

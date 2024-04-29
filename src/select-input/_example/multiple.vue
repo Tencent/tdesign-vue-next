@@ -44,8 +44,8 @@
   </t-space>
 </template>
 <script setup>
-import { computed, ref } from 'vue';
 import { ChevronDownIcon } from 'tdesign-icons-vue-next';
+import { computed, ref } from 'vue';
 
 const OPTIONS = [
   // 全选

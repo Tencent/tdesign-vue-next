@@ -1,5 +1,6 @@
-import _Affix from './affix';
 import withInstall from '../utils/withInstall';
+
+import _Affix from './affix';
 import { TdAffixProps } from './type';
 
 import './style';

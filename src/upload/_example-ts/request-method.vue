@@ -17,8 +17,8 @@
   </t-space>
 </template>
 <script lang="ts" setup>
-import { ref, computed } from 'vue';
 import { UploadInstanceFunctions, UploadProps, RadioGroupProps } from 'tdesign-vue-next';
+import { ref, computed } from 'vue';
 const files = ref<UploadProps['value']>([]);
 const uploadRef = ref<UploadInstanceFunctions>();
 const uploadMethod = ref<RadioGroupProps['value']>('requestSuccessMethod');

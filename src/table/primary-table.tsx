@@ -1,27 +1,29 @@
-import { computed, defineComponent, toRefs, h, ref, onMounted, getCurrentInstance } from 'vue';
 import get from 'lodash/get';
 import omit from 'lodash/omit';
-import baseTableProps from './base-table-props';
-import primaryTableProps from './primary-table-props';
-import BaseTable from './base-table';
+import { computed, defineComponent, toRefs, h, ref, onMounted, getCurrentInstance } from 'vue';
+
 import { useTNodeJSX } from '../hooks/tnode';
-import useColumnController from './hooks/useColumnController';
-import useRowExpand from './hooks/useRowExpand';
-import useTableHeader, { renderTitle } from './hooks/useTableHeader';
-import useRowSelect from './hooks/useRowSelect';
-import { TdPrimaryTableProps, PrimaryTableCol, TableRowData, PrimaryTableCellParams } from './type';
-import useSorter from './hooks/useSorter';
-import useFilter from './hooks/useFilter';
-import useDragSort from './hooks/useDragSort';
-import useAsyncLoading from './hooks/useAsyncLoading';
-import EditableCell, { EditableCellProps } from './editable-cell';
-import { PageInfo } from '../pagination';
-import useClassName from './hooks/useClassName';
 import { useConfig } from '../hooks/useConfig';
-import useEditableRow from './hooks/useEditableRow';
-import useStyle from './hooks/useStyle';
 import { ScrollToElementParams } from '../hooks/useVirtualScrollNew';
+import { PageInfo } from '../pagination';
+
+import BaseTable from './base-table';
+import baseTableProps from './base-table-props';
+import EditableCell, { EditableCellProps } from './editable-cell';
+import useAsyncLoading from './hooks/useAsyncLoading';
+import useClassName from './hooks/useClassName';
+import useColumnController from './hooks/useColumnController';
+import useDragSort from './hooks/useDragSort';
+import useEditableRow from './hooks/useEditableRow';
+import useFilter from './hooks/useFilter';
+import useRowExpand from './hooks/useRowExpand';
+import useRowSelect from './hooks/useRowSelect';
+import useSorter from './hooks/useSorter';
+import useStyle from './hooks/useStyle';
+import useTableHeader, { renderTitle } from './hooks/useTableHeader';
 import { BaseTableProps } from './interface';
+import primaryTableProps from './primary-table-props';
+import { TdPrimaryTableProps, PrimaryTableCol, TableRowData, PrimaryTableCellParams } from './type';
 
 export { BASE_TABLE_ALL_EVENTS } from './base-table';
 

@@ -1,14 +1,15 @@
-import { defineComponent, toRefs, computed, ref, onMounted, nextTick, watch } from 'vue';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
+import { defineComponent, toRefs, computed, ref, onMounted, nextTick, watch } from 'vue';
 
+import log from '../../_common/js/log';
 import { DEFAULT_STEPS, DEFAULT_FORMAT } from '../../_common/js/time-picker/const';
-import { panelProps } from './props';
-import SinglePanel from './single-panel';
 import TButton from '../../button/button';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 import { TimePickerValue, TimeRangeValue } from '../type';
-import log from '../../_common/js/log';
+
+import { panelProps } from './props';
+import SinglePanel from './single-panel';
 
 dayjs.extend(customParseFormat);
 

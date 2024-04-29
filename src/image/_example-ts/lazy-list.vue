@@ -16,9 +16,9 @@
 </template>
 
 <script lang="tsx" setup>
-import { ref } from 'vue';
-import { ButtonProps } from 'tdesign-vue-next';
 import { RefreshIcon } from 'tdesign-icons-vue-next';
+import { ButtonProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const loadingCount = ref(0);
 const list = ref(
   Array.from({

@@ -1,4 +1,3 @@
-import { defineComponent, computed } from 'vue';
 import isObject from 'lodash/isObject';
 import {
   ChevronLeftIcon as TdChevronLeftIcon,
@@ -7,11 +6,13 @@ import {
   ChevronUpIcon as TdChevronUpIcon,
   ChevronDownIcon as TdChevronDownIcon,
 } from 'tdesign-icons-vue-next';
+import { defineComponent, computed } from 'vue';
 
-import props from './pagination-mini-props';
+import TButton from '../button';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import TButton from '../button';
+
+import props from './pagination-mini-props';
 
 export default defineComponent({
   name: 'TPaginationMini',

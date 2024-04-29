@@ -14,8 +14,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
 import { BrowseIcon } from 'tdesign-icons-vue-next';
+import { ref } from 'vue';
 
 const img = 'https://tdesign.gtimg.com/demo/demo-image-1.png';
 

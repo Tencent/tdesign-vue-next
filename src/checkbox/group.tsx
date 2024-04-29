@@ -1,15 +1,17 @@
-import { defineComponent, provide, computed, watchEffect, ref, toRefs } from 'vue';
 import intersection from 'lodash/intersection';
 import isObject from 'lodash/isObject';
 import isUndefined from 'lodash/isUndefined';
+import { defineComponent, provide, computed, watchEffect, ref, toRefs } from 'vue';
+
+import { useChildComponentSlots } from '../hooks/slot';
+import { useTNodeJSX } from '../hooks/tnode';
+import { usePrefixClass } from '../hooks/useConfig';
+import useVModel from '../hooks/useVModel';
+
 import Checkbox from './checkbox';
 import props from './checkbox-group-props';
-import { CheckboxOptionObj, TdCheckboxProps, CheckboxGroupValue } from './type';
 import { CheckboxGroupInjectionKey } from './constants';
-import useVModel from '../hooks/useVModel';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
-import { useChildComponentSlots } from '../hooks/slot';
+import { CheckboxOptionObj, TdCheckboxProps, CheckboxGroupValue } from './type';
 
 export default defineComponent({
   name: 'TCheckboxGroup',

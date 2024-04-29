@@ -33,9 +33,8 @@
   </t-space>
 </template>
 <script setup lang="jsx">
-import { ref } from 'vue';
-
 import { CloseIcon, CheckIcon } from 'tdesign-icons-vue-next';
+import { ref } from 'vue';
 
 const checked = ref(true);
 const renderChecked = ref(true);

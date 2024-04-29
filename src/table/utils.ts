@@ -1,9 +1,11 @@
-import isFunction from 'lodash/isFunction';
 import get from 'lodash/get';
+import isFunction from 'lodash/isFunction';
 import isObject from 'lodash/isObject';
-import { CellData, RowClassNameParams, TableColumnClassName, TableRowData, TdBaseTableProps } from './type';
-import { ClassName, HTMLElementAttributes } from '../common';
+
 import { AffixProps } from '../affix';
+import { ClassName, HTMLElementAttributes } from '../common';
+
+import { CellData, RowClassNameParams, TableColumnClassName, TableRowData, TdBaseTableProps } from './type';
 
 export function toString(obj: any): string {
   return Object.prototype.toString.call(obj).slice(8, -1).toLowerCase();

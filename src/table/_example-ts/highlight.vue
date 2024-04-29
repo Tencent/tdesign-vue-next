@@ -30,8 +30,8 @@ export default {
 </script>
 
 <script lang="tsx" setup>
-import { ref, watch } from 'vue';
 import { TableProps } from 'tdesign-vue-next';
+import { ref, watch } from 'vue';
 const activeRowType = ref<TableProps['activeRowType']>('single');
 const hover = ref(false);
 const tableData: TableProps['data'] = getTableData();

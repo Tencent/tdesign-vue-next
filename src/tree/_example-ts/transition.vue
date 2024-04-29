@@ -27,8 +27,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
 import { TreeProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const initialData = [
   {
     value: 't1',

@@ -1,12 +1,14 @@
 import { defineComponent, ref, toRefs } from 'vue';
+
 import useVModel from '../hooks/useVModel';
-import { renderTNodeJSXDefault } from '../utils/render-tnode';
-import props from './props';
 import { Popup as TPopup } from '../popup';
-import ColorPanel from './panel';
-import DefaultTrigger from './trigger';
-import { TdColorContext } from './interfaces';
+import { renderTNodeJSXDefault } from '../utils/render-tnode';
+
 import { useBaseClassName } from './hooks';
+import { TdColorContext } from './interfaces';
+import ColorPanel from './panel';
+import props from './props';
+import DefaultTrigger from './trigger';
 
 export default defineComponent({
   name: 'TColorPicker',

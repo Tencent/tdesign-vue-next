@@ -30,8 +30,8 @@
   </t-space>
 </template>
 <script lang="tsx" setup>
-import { ref } from 'vue';
 import { TagInputProps, CollapseProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const currentItem = ref<number[]>([1]);
 const tags1 = ref(['Vue', 'React']);
 const tags2 = ref<TagInputProps['value']>(['Vue', 'React']);

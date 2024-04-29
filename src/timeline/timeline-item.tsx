@@ -1,10 +1,12 @@
-import { defineComponent, inject } from 'vue';
 import omit from 'lodash/omit';
-import props from './timeline-item-props';
-import { usePrefixClass } from '../hooks/useConfig';
+import { defineComponent, inject } from 'vue';
+
 import { useContent, useTNodeJSX } from '../hooks/tnode';
-import { TimelineInjectKey, DEFAULT_PROVIDER } from './hooks';
+import { usePrefixClass } from '../hooks/useConfig';
 import Loading from '../loading';
+
+import { TimelineInjectKey, DEFAULT_PROVIDER } from './hooks';
+import props from './timeline-item-props';
 
 const DEFAULT_THEME = ['default', 'primary', 'success', 'warning', 'error'];
 

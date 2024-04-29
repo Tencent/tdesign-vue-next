@@ -1,13 +1,14 @@
-import { defineComponent, VNode, inject, ref, computed, getCurrentInstance, onMounted, onBeforeUpdate } from 'vue';
+import isFunction from 'lodash/isFunction';
 import { ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
+import { defineComponent, VNode, inject, ref, computed, getCurrentInstance, onMounted, onBeforeUpdate } from 'vue';
 
-import props from './breadcrumb-item-props';
-import Tooltip from '../tooltip/index';
-import { isTextEllipsis } from '../utils/dom';
+import { useTNodeJSX, useContent } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useTNodeJSX, useContent } from '../hooks/tnode';
-import isFunction from 'lodash/isFunction';
+import Tooltip from '../tooltip/index';
+import { isTextEllipsis } from '../utils/dom';
+
+import props from './breadcrumb-item-props';
 
 interface LocalTBreadcrumb {
   separator: (() => void) | string;

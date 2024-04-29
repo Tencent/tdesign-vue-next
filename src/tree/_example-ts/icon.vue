@@ -19,9 +19,9 @@
 </template>
 
 <script lang="tsx" setup>
-import { ref } from 'vue';
-import { TreeOptionData, TreeProps } from 'tdesign-vue-next';
 import { Icon } from 'tdesign-icons-vue-next';
+import { TreeOptionData, TreeProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const items = ref<TreeProps['data']>([
   {
     label: '1',

@@ -26,8 +26,8 @@
   </t-space>
 </template>
 <script lang="tsx" setup>
-import { ref } from 'vue';
 import { SliderProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const value1 = ref(12);
 const value2 = ref([30, 70]);
 const layout: SliderProps['layout'] = 'vertical';

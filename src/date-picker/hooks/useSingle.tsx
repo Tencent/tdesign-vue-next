@@ -1,13 +1,8 @@
-import { ref, computed, watch } from 'vue';
-import { CalendarIcon as TdCalendarIcon } from 'tdesign-icons-vue-next';
 import dayjs from 'dayjs';
 import omit from 'lodash/omit';
+import { CalendarIcon as TdCalendarIcon } from 'tdesign-icons-vue-next';
+import { ref, computed, watch } from 'vue';
 
-import { useTNodeJSX } from '../../hooks/tnode';
-import { useFormDisabled } from '../../form/hooks';
-import { usePrefixClass } from '../../hooks/useConfig';
-import { useGlobalIcon } from '../../hooks/useGlobalIcon';
-import { TdDatePickerProps, DateValue } from '../type';
 import {
   isValidDate,
   formatDate,
@@ -15,6 +10,12 @@ import {
   getDefaultFormat,
   parseToDayjs,
 } from '../../_common/js/date-picker/format';
+import { useFormDisabled } from '../../form/hooks';
+import { useTNodeJSX } from '../../hooks/tnode';
+import { usePrefixClass } from '../../hooks/useConfig';
+import { useGlobalIcon } from '../../hooks/useGlobalIcon';
+import { TdDatePickerProps, DateValue } from '../type';
+
 import useSingleValue from './useSingleValue';
 
 export default function useSingle(props: TdDatePickerProps) {

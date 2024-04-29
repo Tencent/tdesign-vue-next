@@ -1,11 +1,10 @@
-import { computed, defineComponent, ref, watch, toRefs, onMounted, reactive, nextTick } from 'vue';
-import debounce from 'lodash/debounce';
-import range from 'lodash/range';
-import padStart from 'lodash/padStart';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
+import debounce from 'lodash/debounce';
+import padStart from 'lodash/padStart';
+import range from 'lodash/range';
+import { computed, defineComponent, ref, watch, toRefs, onMounted, reactive, nextTick } from 'vue';
 
-import { panelColProps } from './props';
 import {
   EPickerCols,
   TWELVE_HOUR_FORMAT,
@@ -16,6 +15,8 @@ import {
 } from '../../_common/js/time-picker/const';
 import { closestLookup } from '../../_common/js/time-picker/utils';
 import { useCommonClassName, useConfig, usePrefixClass } from '../../hooks/useConfig';
+
+import { panelColProps } from './props';
 
 dayjs.extend(customParseFormat);
 

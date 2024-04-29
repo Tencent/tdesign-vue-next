@@ -21,8 +21,8 @@
   </t-select-input>
 </template>
 <script setup>
-import { ref } from 'vue';
 import { SearchIcon } from 'tdesign-icons-vue-next';
+import { ref } from 'vue';
 
 const OPTIONS = ['Student A', 'Student B', 'Student C', 'Student D', 'Student E', 'Student F'];
 

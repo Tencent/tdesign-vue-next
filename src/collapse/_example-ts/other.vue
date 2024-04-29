@@ -30,8 +30,8 @@
 </template>
 
 <script lang="tsx" setup>
-import { ref } from 'vue';
 import { CollapseProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const disabled = ref(false);
 const borderless = ref(false);
 const showArrow = ref<CollapseProps['expandIcon']>(true);

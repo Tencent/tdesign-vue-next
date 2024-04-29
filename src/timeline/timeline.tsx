@@ -1,10 +1,12 @@
 import { defineComponent, provide, computed } from 'vue';
-import TimeLineProps from './props';
-import { TimelineInjectKey, DefaultAlign } from './hooks';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useChildComponentSlots } from '../hooks/slot';
-import TimelineItem from './timeline-item';
+
 import log from '../_common/js/log';
+import { useChildComponentSlots } from '../hooks/slot';
+import { usePrefixClass } from '../hooks/useConfig';
+
+import { TimelineInjectKey, DefaultAlign } from './hooks';
+import TimeLineProps from './props';
+import TimelineItem from './timeline-item';
 
 export default defineComponent({
   name: 'TTimeline',

@@ -1,13 +1,14 @@
-import { defineComponent, ref, computed, watch, isVNode, onMounted, cloneVNode } from 'vue';
 import { ChevronLeftIcon as TdChevronLeftIcon, ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
+import { defineComponent, ref, computed, watch, isVNode, onMounted, cloneVNode } from 'vue';
 
+import { useChildComponentSlots } from '../hooks';
+import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useChildComponentSlots } from '../hooks';
+
 import props from './props';
-import { SwiperNavigation, SwiperChangeSource } from './type';
 import TSwiperItem from './swiper-item';
-import { useTNodeJSX } from '../hooks/tnode';
+import { SwiperNavigation, SwiperChangeSource } from './type';
 
 const defaultNavigation: SwiperNavigation = {
   placement: 'inside',

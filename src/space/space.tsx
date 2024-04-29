@@ -1,12 +1,14 @@
-import { defineComponent, computed, CSSProperties, Fragment } from 'vue';
-import props from './props';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
-import { useChildSlots } from '../hooks/slot';
+import isArray from 'lodash/isArray';
 import isNumber from 'lodash/isNumber';
 import isString from 'lodash/isString';
-import isArray from 'lodash/isArray';
+import { defineComponent, computed, CSSProperties, Fragment } from 'vue';
+
 import { getFlexGapPolyFill } from '../_common/js/utils/helper';
+import { useChildSlots } from '../hooks/slot';
+import { useTNodeJSX } from '../hooks/tnode';
+import { usePrefixClass } from '../hooks/useConfig';
+
+import props from './props';
 
 const sizeMap = { small: '8px', medium: '16px', large: '24px' };
 const defaultNeedPolyfill = getFlexGapPolyFill();

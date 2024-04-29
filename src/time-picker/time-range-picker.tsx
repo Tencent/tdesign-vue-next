@@ -1,24 +1,25 @@
-import { defineComponent, ref, toRefs, watch, computed } from 'vue';
 import dayjs from 'dayjs';
-import isArray from 'lodash/isArray';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
+import isArray from 'lodash/isArray';
 import { TimeIcon as TdTimeIcon } from 'tdesign-icons-vue-next';
-
-import { RangeInputPopup, RangeInputPosition } from '../range-input';
-import TimePickerPanel from './panel/time-picker-panel';
+import { defineComponent, ref, toRefs, watch, computed } from 'vue';
 
 import { TIME_PICKER_EMPTY } from '../_common/js/time-picker/const';
+// eslint-disable-next-line import/order
 import { formatInputValue, validateInputValue } from '../_common/js/time-picker/utils';
 
 // interfaces
-import props from './time-range-picker-props';
-import { TimeRangeValue } from './interface';
-import { TimeRangePickerPartial } from './type';
 // hooks
-import useVModel from '../hooks/useVModel';
+import { useFormDisabled } from '../form/hooks';
 import { useCommonClassName, useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useFormDisabled } from '../form/hooks';
+import useVModel from '../hooks/useVModel';
+import { RangeInputPopup, RangeInputPosition } from '../range-input';
+
+import { TimeRangeValue } from './interface';
+import TimePickerPanel from './panel/time-picker-panel';
+import props from './time-range-picker-props';
+import { TimeRangePickerPartial } from './type';
 
 dayjs.extend(customParseFormat);
 

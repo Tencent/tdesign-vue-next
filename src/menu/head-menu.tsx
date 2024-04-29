@@ -1,3 +1,6 @@
+import isArray from 'lodash/isArray';
+import isFunction from 'lodash/isFunction';
+import { EllipsisIcon } from 'tdesign-icons-vue-next';
 import {
   defineComponent,
   computed,
@@ -13,21 +16,18 @@ import {
   Component,
   getCurrentInstance,
 } from 'vue';
-import { EllipsisIcon } from 'tdesign-icons-vue-next';
-import isFunction from 'lodash/isFunction';
-import isArray from 'lodash/isArray';
 
 import log from '../_common/js/log/log';
-import props from './head-menu-props';
-import { MenuValue } from './type';
-import { TdMenuInterface, TdOpenType } from './const';
-import { Tabs, TabPanel } from '../tabs';
-import Submenu from './submenu';
-import VMenu from './v-menu';
-
 import { usePrefixClass } from '../hooks/useConfig';
-import useVModel from '../hooks/useVModel';
 import useDefaultValue from '../hooks/useDefaultValue';
+import useVModel from '../hooks/useVModel';
+import { Tabs, TabPanel } from '../tabs';
+
+import { TdMenuInterface, TdOpenType } from './const';
+import props from './head-menu-props';
+import Submenu from './submenu';
+import { MenuValue } from './type';
+import VMenu from './v-menu';
 
 export default defineComponent({
   name: 'THeadMenu',

@@ -1,6 +1,7 @@
+import withInstall from '../utils/withInstall';
+
 import _RangeInput from './range-input';
 import _RangeInputPopup from './range-input-popup';
-import withInstall from '../utils/withInstall';
 import { TdRangeInputProps, TdRangeInputPopupProps } from './type';
 
 import './style';

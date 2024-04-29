@@ -1,10 +1,12 @@
-import { defineComponent, h, VNodeChild, onMounted, onUnmounted, inject, watch } from 'vue';
-import { ANCHOR_SHARP_REGEXP } from './utils';
-import props from './anchor-item-props';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import { AnchorInjectionKey } from './constants';
 import isFunction from 'lodash/isFunction';
 import isString from 'lodash/isString';
+import { defineComponent, h, VNodeChild, onMounted, onUnmounted, inject, watch } from 'vue';
+
+import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+
+import props from './anchor-item-props';
+import { AnchorInjectionKey } from './constants';
+import { ANCHOR_SHARP_REGEXP } from './utils';
 
 const localProps = {
   ...props,

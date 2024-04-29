@@ -3,13 +3,15 @@
  */
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-undef */
-import { ComponentPublicInstance, VNode } from 'vue';
-import raf from 'raf';
-import isString from 'lodash/isString';
-import isFunction from 'lodash/isFunction';
 import isArray from 'lodash/isArray';
-import { easeInOutCubic, EasingFunction } from './easing';
+import isFunction from 'lodash/isFunction';
+import isString from 'lodash/isString';
+import raf from 'raf';
+import { ComponentPublicInstance, VNode } from 'vue';
+
 import { ScrollContainer, ScrollContainerElement } from '../common';
+
+import { easeInOutCubic, EasingFunction } from './easing';
 
 export const isServer = typeof window === 'undefined';
 const trim = (str: string): string => (str || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');

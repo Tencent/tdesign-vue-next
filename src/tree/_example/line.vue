@@ -41,8 +41,8 @@
 </template>
 
 <script setup lang="jsx">
-import { ref } from 'vue';
 import { Icon } from 'tdesign-icons-vue-next';
+import { ref } from 'vue';
 const showLine = ref(true);
 const showIcon = ref(true);
 const items = ref([

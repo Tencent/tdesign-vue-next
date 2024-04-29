@@ -7,9 +7,9 @@ import {
   useRipple,
   getCreateElement,
 } from './adapt';
-import { TypeTreeItemProps } from './tree-types';
 import useItemState from './hooks/useItemState';
 import useTreeItem from './hooks/useTreeItem';
+import { TypeTreeItemProps } from './tree-types';
 
 export const treeItemProps = {
   stateId: {

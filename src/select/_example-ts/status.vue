@@ -8,8 +8,8 @@
   </t-space>
 </template>
 <script lang="ts" setup>
-import { ref } from 'vue';
 import { SelectProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const options: SelectProps['options'] = [
   {
     label: '架构云',

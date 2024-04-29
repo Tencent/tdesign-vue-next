@@ -1,12 +1,14 @@
-import { SetupContext, computed, h } from 'vue';
-import isString from 'lodash/isString';
 import isFunction from 'lodash/isFunction';
-import { BaseTableCol, PrimaryTableCol, TableRowData, TdBaseTableProps } from '../type';
-import { getThRowspanAndColspan, getThList } from './useMultiHeader';
-import useClassName from './useClassName';
+import isString from 'lodash/isString';
+import { SetupContext, computed, h } from 'vue';
+
 import { TNodeReturnValue } from '../../common';
-import { BaseTableColumns } from '../interface';
 import TEllipsis from '../ellipsis';
+import { BaseTableColumns } from '../interface';
+import { BaseTableCol, PrimaryTableCol, TableRowData, TdBaseTableProps } from '../type';
+
+import useClassName from './useClassName';
+import { getThRowspanAndColspan, getThList } from './useMultiHeader';
 
 // 渲染表头的通用方法
 export function renderTitle(slots: SetupContext['slots'], col: BaseTableColumns[0], index: number) {

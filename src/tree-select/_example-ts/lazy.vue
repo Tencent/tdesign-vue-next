@@ -10,8 +10,8 @@
   />
 </template>
 <script lang="ts" setup>
-import { ref } from 'vue';
 import { TreeNodeModel } from 'tdesign-vue-next';
+import { ref } from 'vue';
 interface TreeNode {
   label: string;
   value: string;

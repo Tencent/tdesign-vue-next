@@ -1,11 +1,12 @@
-import isFunction from 'lodash/isFunction';
-import isBoolean from 'lodash/isBoolean';
-import { computed, nextTick } from 'vue';
 import dayjs from 'dayjs';
+import isBoolean from 'lodash/isBoolean';
+import isFunction from 'lodash/isFunction';
+import { computed, nextTick } from 'vue';
+
+import { useConfig } from '../../hooks/useConfig';
 import { COMPONENT_NAME } from '../const';
 import { CalendarState } from '../interface';
 import { TdCalendarProps, ControllerOptions } from '../type';
-import { useConfig } from '../../hooks/useConfig';
 
 const getDefaultControllerConfigData = (visible = true): Record<string, any> => ({
   visible, // 是否显示（全部控件）

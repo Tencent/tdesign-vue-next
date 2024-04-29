@@ -20,8 +20,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
 import { PaginationMiniProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const layout = ref<PaginationMiniProps['layout']>('vertical');
 const size = ref<PaginationMiniProps['size']>('medium');
 const tips = ref<PaginationMiniProps['tips']>({

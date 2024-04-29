@@ -1,23 +1,24 @@
-import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, ref, Transition, watch, Teleport } from 'vue';
 import {
   CloseIcon as TdCloseIcon,
   InfoCircleFilledIcon as TdInfoCircleFilledIcon,
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
+import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, ref, Transition, watch, Teleport } from 'vue';
 
-import { DialogCloseContext } from './type';
-import props from './props';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
-import { useAction, useSameTarget } from './hooks';
-import { useTNodeJSX, useContent } from '../hooks/tnode';
-import useDestroyOnClose from '../hooks/useDestroyOnClose';
 import { getScrollbarWidth } from '../_common/js/utils/getScrollbarWidth';
+import { useTNodeJSX, useContent } from '../hooks/tnode';
+import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import useDestroyOnClose from '../hooks/useDestroyOnClose';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import usePopupManager from '../hooks/usePopupManager';
+import useTeleport from '../hooks/useTeleport';
+
+import { useAction, useSameTarget } from './hooks';
+import props from './props';
+import { DialogCloseContext } from './type';
 
 import type { TdDialogProps } from './type';
-import useTeleport from '../hooks/useTeleport';
-import usePopupManager from '../hooks/usePopupManager';
 
 function GetCSSValue(v: string | number) {
   return Number.isNaN(Number(v)) ? v : `${Number(v)}px`;

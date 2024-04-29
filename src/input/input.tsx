@@ -1,19 +1,21 @@
-import { defineComponent, computed } from 'vue';
+import isUndefined from 'lodash/isUndefined';
 import {
   BrowseIcon as TdBrowseIcon,
   BrowseOffIcon as TdBrowseOffIcon,
   CloseCircleFilledIcon as TdCloseCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
-import props from './props';
+import { defineComponent, computed } from 'vue';
+
+import { PlainObject } from '../common';
 import { useFormDisabled } from '../form/hooks';
+import { useTNodeJSX } from '../hooks/tnode';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useTNodeJSX } from '../hooks/tnode';
+
+import props from './props';
 import useInput from './useInput';
 import useInputEventHandler from './useInputEventHandler';
 import useInputWidth from './useInputWidth';
-import isUndefined from 'lodash/isUndefined';
-import { PlainObject } from '../common';
 
 function getValidAttrs(obj: PlainObject): PlainObject {
   const newObj: PlainObject = {};

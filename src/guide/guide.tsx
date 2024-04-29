@@ -1,16 +1,18 @@
-import { defineComponent, computed, nextTick, onMounted, ref, toRefs, watch, h, Teleport } from 'vue';
 import isFunction from 'lodash/isFunction';
-import props from './props';
-import { GuideCrossProps } from './interface';
-import { TdGuideProps, GuideStep } from './type';
-import { scrollToParentVisibleArea, getRelativePosition, getTargetElm, scrollToElm } from './utils';
+import { defineComponent, computed, nextTick, onMounted, ref, toRefs, watch, h, Teleport } from 'vue';
+
 import setStyle from '../_common/js/utils/set-style';
-import { addClass, removeClass, isFixed, getWindowScroll } from '../utils/dom';
-import useVModel from '../hooks/useVModel';
+import Button from '../button';
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass, useConfig } from '../hooks/useConfig';
-import Button from '../button';
+import useVModel from '../hooks/useVModel';
 import Popup, { PopupProps } from '../popup';
+import { addClass, removeClass, isFixed, getWindowScroll } from '../utils/dom';
+
+import { GuideCrossProps } from './interface';
+import props from './props';
+import { TdGuideProps, GuideStep } from './type';
+import { scrollToParentVisibleArea, getRelativePosition, getTargetElm, scrollToElm } from './utils';
 
 export default defineComponent({
   name: 'TGuide',

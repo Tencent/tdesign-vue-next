@@ -25,8 +25,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
 import { TagInputProps, TagInputDragSortContext } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const tags1 = ref(['Vue', 'React', 'Angular']);
 const tags2 = ref(['Vue', 'React', 'Angular', 'Miniprogram']);
 const onTagInputEnter: TagInputProps['onEnter'] = (val, context) => {

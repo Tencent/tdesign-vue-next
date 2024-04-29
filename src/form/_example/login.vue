@@ -24,9 +24,9 @@
   </div>
 </template>
 <script setup>
-import { reactive } from 'vue';
-import { MessagePlugin } from 'tdesign-vue-next';
 import { DesktopIcon, LockOnIcon } from 'tdesign-icons-vue-next';
+import { MessagePlugin } from 'tdesign-vue-next';
+import { reactive } from 'vue';
 
 const formData = reactive({
   account: '',

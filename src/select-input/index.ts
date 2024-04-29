@@ -1,5 +1,6 @@
-import _SelectInput from './select-input';
 import withInstall from '../utils/withInstall';
+
+import _SelectInput from './select-input';
 import { TdSelectInputProps } from './type';
 
 import './style';

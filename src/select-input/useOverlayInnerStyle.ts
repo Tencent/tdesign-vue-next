@@ -1,9 +1,11 @@
-import { ref, toRefs, computed, CSSProperties } from 'vue';
-import isObject from 'lodash/isObject';
 import isFunction from 'lodash/isFunction';
-import { TdSelectInputProps } from './type';
-import { TdPopupProps, PopupVisibleChangeContext } from '../popup';
+import isObject from 'lodash/isObject';
+import { ref, toRefs, computed, CSSProperties } from 'vue';
+
 import { useFormDisabled } from '../form/hooks';
+import { TdPopupProps, PopupVisibleChangeContext } from '../popup';
+
+import { TdSelectInputProps } from './type';
 
 export type overlayInnerStyleProps = Pick<
   TdSelectInputProps,

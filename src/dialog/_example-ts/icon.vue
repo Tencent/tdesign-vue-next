@@ -45,8 +45,8 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { ref } from 'vue';
 import { DialogProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const visible1 = ref(false);
 const visible2 = ref(false);
 const visible3 = ref(false);

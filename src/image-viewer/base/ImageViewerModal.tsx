@@ -1,11 +1,13 @@
 import { computed, defineComponent, PropType } from 'vue';
+
 import TDialog from '../../dialog';
+import { useTNodeJSX } from '../../hooks/tnode';
+import { usePrefixClass } from '../../hooks/useConfig';
+import props from '../props';
+import { ImageInfo, TdImageViewerProps } from '../type';
+
 import TImageItem from './ImageItem';
 import TImageViewerUtils from './ImageViewerUtils';
-import { usePrefixClass } from '../../hooks/useConfig';
-import { useTNodeJSX } from '../../hooks/tnode';
-import { ImageInfo, TdImageViewerProps } from '../type';
-import props from '../props';
 
 export default defineComponent({
   name: 'TImageViewerModal',

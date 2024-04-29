@@ -1,12 +1,14 @@
+import { onUpdated } from 'vue';
+
 import { onMounted, reactive, TypeCreateElement, usePrefixClass, useLazyLoad, TypeVNode } from '../adapt';
 import { TypeTreeItemState } from '../tree-types';
+
+import useDraggable from './useDraggable';
 import useItemEvents from './useItemEvents';
 import useRenderIcon from './useRenderIcon';
 import useRenderLabel from './useRenderLabel';
 import useRenderLine from './useRenderLine';
 import useRenderOperations from './useRenderOperations';
-import useDraggable from './useDraggable';
-import { onUpdated } from 'vue';
 
 export default function useTreeItem(state: TypeTreeItemState) {
   const { treeScope, treeItemRef } = state;

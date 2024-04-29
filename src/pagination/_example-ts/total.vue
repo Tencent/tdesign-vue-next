@@ -3,8 +3,8 @@
 </template>
 
 <script lang="tsx" setup>
-import { ref } from 'vue';
 import { PaginationProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const current = ref(12);
 const pageSize = ref(10);
 const total = ref(685);

@@ -1,11 +1,13 @@
-import { defineComponent, computed, toRefs, ref } from 'vue';
-import { StarFilledIcon } from 'tdesign-icons-vue-next';
-import useVModel from '../hooks/useVModel';
-import props from './props';
-import { useConfig } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
-import Tooltip from '../tooltip/index';
 import isArray from 'lodash/isArray';
+import { StarFilledIcon } from 'tdesign-icons-vue-next';
+import { defineComponent, computed, toRefs, ref } from 'vue';
+
+import { useTNodeJSX } from '../hooks/tnode';
+import { useConfig } from '../hooks/useConfig';
+import useVModel from '../hooks/useVModel';
+import Tooltip from '../tooltip/index';
+
+import props from './props';
 
 export default defineComponent({
   name: 'TRate',

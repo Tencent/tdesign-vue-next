@@ -1,14 +1,16 @@
 import { defineComponent, ref, computed, inject, onMounted, onBeforeUnmount } from 'vue';
 
-import props from './option-props';
+// eslint-disable-next-line import/order
 import Checkbox from '../checkbox/index';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
-import useRipple from '../hooks/useRipple';
 import { useContent } from '../hooks/tnode';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import useRipple from '../hooks/useRipple';
+
 import { selectInjectKey, getNewMultipleValue } from './helper';
+import props from './option-props';
 import { SelectValue } from './type';
 
 export default defineComponent({

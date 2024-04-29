@@ -45,8 +45,8 @@
 </template>
 
 <script setup lang="jsx">
-import { ref } from 'vue';
 import { RefreshIcon, ImageErrorIcon } from 'tdesign-icons-vue-next';
+import { ref } from 'vue';
 
 const loadingCount = ref(0);
 const errorCount = ref(0);

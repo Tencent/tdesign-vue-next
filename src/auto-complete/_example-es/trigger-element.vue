@@ -8,8 +8,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
 import { AutoCompleteProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const value = ref('');
 const timer = ref(null);
 const options = ref<AutoCompleteProps['options']>([

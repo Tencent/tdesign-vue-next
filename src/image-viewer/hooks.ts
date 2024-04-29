@@ -1,5 +1,7 @@
-import { positiveSubtract, positiveAdd } from '../_common/js/input-number/number';
 import { ref, watch } from 'vue';
+
+import { positiveSubtract, positiveAdd } from '../_common/js/input-number/number';
+
 import { ImageScale } from './type';
 
 interface InitTransform {

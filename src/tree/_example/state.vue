@@ -29,8 +29,8 @@
 </template>
 
 <script setup lang="jsx">
-import { ref } from 'vue';
 import { Icon } from 'tdesign-icons-vue-next';
+import { ref } from 'vue';
 const tree = ref();
 const index = ref(2);
 const items = ref([

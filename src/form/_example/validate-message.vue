@@ -23,8 +23,8 @@
   </t-form>
 </template>
 <script setup>
-import { ref, onMounted, reactive } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
+import { ref, onMounted, reactive } from 'vue';
 
 const formData = reactive({
   account: '',

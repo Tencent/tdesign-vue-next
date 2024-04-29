@@ -60,8 +60,8 @@
   </t-space>
 </template>
 <script setup>
-import { ref } from 'vue';
 import { ControlPlatformIcon } from 'tdesign-icons-vue-next';
+import { ref } from 'vue';
 
 const options = [
   { label: 'tdesign-vue', value: 1 },

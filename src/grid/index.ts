@@ -1,6 +1,7 @@
-import _Row from './row';
-import _Col from './col';
 import withInstall from '../utils/withInstall';
+
+import _Col from './col';
+import _Row from './row';
 import { TdRowProps, TdColProps } from './type';
 
 import './style';

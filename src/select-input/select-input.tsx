@@ -1,12 +1,14 @@
 import { computed, defineComponent, onBeforeUnmount, onMounted, PropType, ref, SetupContext, toRefs, watch } from 'vue';
+
+import { useTNodeJSX } from '../hooks';
+import { usePrefixClass } from '../hooks/useConfig';
 import Popup, { PopupInstanceFunctions, PopupProps, PopupVisibleChangeContext } from '../popup';
+
 import props from './props';
 import { TdSelectInputProps } from './type';
-import useSingle, { SelectInputValueDisplayOptions } from './useSingle';
 import useMultiple from './useMultiple';
 import useOverlayInnerStyle from './useOverlayInnerStyle';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks';
+import useSingle, { SelectInputValueDisplayOptions } from './useSingle';
 
 const useComponentClassName = () => {
   return {

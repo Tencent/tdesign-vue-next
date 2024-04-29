@@ -1,11 +1,13 @@
 import { defineComponent, computed, toRefs } from 'vue';
-import props from './check-tag-props';
+
+import { ENTER_REG, SPACE_REG } from '../_common/js/common';
+import { useContent } from '../hooks/tnode';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import useVModel from '../hooks/useVModel';
-import { useContent } from '../hooks/tnode';
+
+import props from './check-tag-props';
 import Tag from './tag';
 import { TdCheckTagProps, TdTagProps } from './type';
-import { ENTER_REG, SPACE_REG } from '../_common/js/common';
 
 export default defineComponent({
   name: 'TCheckTag',

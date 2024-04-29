@@ -9,15 +9,17 @@ import {
   watchEffect,
   provide,
 } from 'vue';
-import { ANCHOR_SHARP_REGEXP, ANCHOR_CONTAINER, getOffsetTop } from './utils';
-import { isServer, on, off, getScroll, scrollTo, getScrollContainer as utilsGetScrollContainer } from '../utils/dom';
-import props from './props';
-import { useTNodeJSX } from '../hooks/tnode';
-import { SlotReturnValue } from '../common';
+
 import Affix from '../affix';
-import { TdAnchorProps } from './type';
+import { SlotReturnValue } from '../common';
+import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { isServer, on, off, getScroll, scrollTo, getScrollContainer as utilsGetScrollContainer } from '../utils/dom';
+
 import { AnchorInjectionKey } from './constants';
+import props from './props';
+import { TdAnchorProps } from './type';
+import { ANCHOR_SHARP_REGEXP, ANCHOR_CONTAINER, getOffsetTop } from './utils';
 
 export interface Anchor extends ComponentPublicInstance {
   scrollContainer: ANCHOR_CONTAINER;

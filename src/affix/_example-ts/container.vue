@@ -18,8 +18,8 @@
 </template>
 
 <script lang="tsx" setup>
-import { ref } from 'vue';
 import { AffixProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const affixed = ref(false);
 const affixContainerRef = ref(null);
 const getContainer: AffixProps['container'] = () => affixContainerRef.value;

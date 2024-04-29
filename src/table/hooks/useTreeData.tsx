@@ -1,10 +1,15 @@
-import { SetupContext, ref, watch, toRefs, onUnmounted, computed, h, shallowRef } from 'vue';
+import get from 'lodash/get';
 import {
   AddRectangleIcon as TdAddRectangleIcon,
   MinusRectangleIcon as TdMinusRectangleIcon,
 } from 'tdesign-icons-vue-next';
-import get from 'lodash/get';
+import { SetupContext, ref, watch, toRefs, onUnmounted, computed, h, shallowRef } from 'vue';
+
 import TableTreeStore, { SwapParams } from '../../_common/js/table/tree-store';
+import { useTNodeDefault } from '../../hooks';
+import { useConfig } from '../../hooks/useConfig';
+import { useGlobalIcon } from '../../hooks/useGlobalIcon';
+import { renderCell } from '../tr';
 import {
   TdEnhancedTableProps,
   PrimaryTableCol,
@@ -13,11 +18,8 @@ import {
   TableRowState,
   PrimaryTableCellParams,
 } from '../type';
+
 import useClassName from './useClassName';
-import { renderCell } from '../tr';
-import { useConfig } from '../../hooks/useConfig';
-import { useGlobalIcon } from '../../hooks/useGlobalIcon';
-import { useTNodeDefault } from '../../hooks';
 import useTreeDataExpand from './useTreeDataExpand';
 
 export default function useTreeData(props: TdEnhancedTableProps, context: SetupContext) {

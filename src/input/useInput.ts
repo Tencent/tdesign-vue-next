@@ -1,8 +1,10 @@
 import { ref, computed, watch, nextTick, toRefs, inject } from 'vue';
-import { InputValue, TdInputProps } from './type';
+
 import { FormItemInjectionKey } from '../form/const';
-import useVModel from '../hooks/useVModel';
 import { useFormDisabled } from '../form/hooks';
+import useVModel from '../hooks/useVModel';
+
+import { InputValue, TdInputProps } from './type';
 import useLengthLimit from './useLengthLimit';
 
 export function getOutputValue(val: InputValue, type: TdInputProps['type']) {

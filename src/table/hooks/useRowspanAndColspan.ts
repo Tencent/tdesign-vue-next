@@ -1,5 +1,6 @@
-import { ref, watch, Ref } from 'vue';
 import get from 'lodash/get';
+import { ref, watch, Ref } from 'vue';
+
 import log from '../../_common/js/log';
 import { BaseTableCellParams, BaseTableCol, TableRowData, TableRowspanAndColspanFunc } from '../type';
 

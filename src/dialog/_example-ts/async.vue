@@ -20,8 +20,8 @@
   </t-space>
 </template>
 <script lang="ts" setup>
-import { ref } from 'vue';
 import { DialogPlugin, DialogProps, ButtonProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const visible = ref(false);
 const loading = ref(false);
 const close: DialogProps['onClose'] = () => {

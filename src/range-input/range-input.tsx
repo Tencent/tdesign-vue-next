@@ -1,17 +1,18 @@
-import { defineComponent, ref, toRefs, computed, Fragment } from 'vue';
+import isArray from 'lodash/isArray';
 import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+import { defineComponent, ref, toRefs, computed, Fragment } from 'vue';
 
+import { useFormDisabled } from '../form/hooks';
+import { useTNodeJSX } from '../hooks/tnode';
+import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import useVModel from '../hooks/useVModel';
 import Input from '../input';
+
 import props from './props';
 import { RangeInputValue, RangeInputPosition } from './type';
 
 // hooks
-import useVModel from '../hooks/useVModel';
-import { useFormDisabled } from '../form/hooks';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
-import isArray from 'lodash/isArray';
 
 function calcArrayValue(value: unknown | Array<unknown>) {
   if (isArray(value)) {

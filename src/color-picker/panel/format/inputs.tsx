@@ -1,9 +1,11 @@
-import { computed, defineComponent, PropType, reactive, watch } from 'vue';
 import throttle from 'lodash/throttle';
-import props from '../../props';
-import { Color } from '../../utils';
+import { computed, defineComponent, PropType, reactive, watch } from 'vue';
+
 import TInput from '../../../input';
 import TInputNumber from '../../../input-number';
+import props from '../../props';
+import { Color } from '../../utils';
+
 import { FORMAT_INPUT_CONFIG } from './config';
 
 export default defineComponent({

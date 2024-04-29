@@ -1,4 +1,7 @@
 import { computed, InjectionKey } from 'vue';
+
+import { usePrefixClass, useTNodeJSX } from '../hooks';
+
 import { FormItemValidateResult } from './form-item';
 import {
   AllValidateResult,
@@ -10,7 +13,6 @@ import {
   ValidateResultType,
   ValidateTriggerType,
 } from './type';
-import { usePrefixClass, useTNodeJSX } from '../hooks';
 
 // 允许 Form 统一控制的表单
 export const FORM_CONTROL_COMPONENTS = [

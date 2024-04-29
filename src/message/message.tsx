@@ -1,4 +1,4 @@
-import { defineComponent, h, onBeforeMount, onMounted, computed, ref } from 'vue';
+import isFunction from 'lodash/isFunction';
 import {
   InfoCircleFilledIcon as TdInfoCircleFilledIcon,
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
@@ -6,15 +6,16 @@ import {
   HelpCircleFilledIcon as TdHelpCircleFilledIcon,
   CloseIcon as TdCloseIcon,
 } from 'tdesign-icons-vue-next';
+import { defineComponent, h, onBeforeMount, onMounted, computed, ref } from 'vue';
 
-import TLoading from '../loading';
-import { THEME_LIST } from './const';
-import props from './props';
+import { useTNodeJSX, useContent } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import TLoading from '../loading';
+
 import { fadeIn, fadeOut } from './animation';
-import { useTNodeJSX, useContent } from '../hooks/tnode';
-import isFunction from 'lodash/isFunction';
+import { THEME_LIST } from './const';
+import props from './props';
 
 export default defineComponent({
   name: 'TMessage',

@@ -1,6 +1,7 @@
 import { defineComponent, computed, provide, ref, Ref } from 'vue';
-import { usePrefixClass } from '../hooks/useConfig';
+
 import { useTNodeJSX } from '../hooks/tnode';
+import { usePrefixClass } from '../hooks/useConfig';
 
 export type LayoutProvideType = {
   hasSide: Ref<boolean>;

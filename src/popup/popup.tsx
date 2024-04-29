@@ -1,7 +1,7 @@
 import { createPopper, Placement } from '@popperjs/core';
+import debounce from 'lodash/debounce';
 import isFunction from 'lodash/isFunction';
 import isObject from 'lodash/isObject';
-import debounce from 'lodash/debounce';
 import isString from 'lodash/isString';
 import {
   computed,
@@ -17,11 +17,13 @@ import {
   Transition,
   watch,
 } from 'vue';
+
+import setStyle from '../_common/js/utils/set-style';
 import { useContent, useTNodeJSX } from '../hooks';
 import { useCommonClassName, usePrefixClass } from '../hooks/useConfig';
 import useVModel from '../hooks/useVModel';
 import { off, on, once } from '../utils/dom';
-import setStyle from '../_common/js/utils/set-style';
+
 import Container from './container';
 import props from './props';
 import { PopupTriggerEvent, TdPopupProps } from './type';

@@ -1,7 +1,11 @@
-import { computed, SetupContext, toRefs, h } from 'vue';
-import { ChevronRightCircleIcon as TdChevronRightCircleIcon } from 'tdesign-icons-vue-next';
 import get from 'lodash/get';
+import { ChevronRightCircleIcon as TdChevronRightCircleIcon } from 'tdesign-icons-vue-next';
+import { computed, SetupContext, toRefs, h } from 'vue';
 
+import { useTNodeJSX } from '../../hooks/tnode';
+import { useConfig } from '../../hooks/useConfig';
+import useDefaultValue from '../../hooks/useDefaultValue';
+import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 import {
   TdPrimaryTableProps,
   PrimaryTableCol,
@@ -10,11 +14,8 @@ import {
   TableExpandedRowParams,
   RowEventContext,
 } from '../type';
+
 import useClassName from './useClassName';
-import { useTNodeJSX } from '../../hooks/tnode';
-import useDefaultValue from '../../hooks/useDefaultValue';
-import { useConfig } from '../../hooks/useConfig';
-import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 
 export default function useRowExpand(props: TdPrimaryTableProps, context: SetupContext) {
   const { expandedRowKeys } = toRefs(props);

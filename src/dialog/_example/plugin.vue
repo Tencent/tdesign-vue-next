@@ -8,8 +8,8 @@
   </t-space>
 </template>
 <script>
-import { defineComponent } from 'vue';
 import { DialogPlugin } from 'tdesign-vue-next';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   data() {

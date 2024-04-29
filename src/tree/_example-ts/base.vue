@@ -5,8 +5,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
 import { TreeProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const items = ref<TreeProps['data']>([
   {
     label: '第一段',

@@ -1,5 +1,5 @@
-import { scrollToParentVisibleArea } from './getScrollParent';
 import getRelativePosition from './getRelativePosition';
+import { scrollToParentVisibleArea } from './getScrollParent';
 import getTargetElm from './getTargetElm';
 import scrollToElm from './scrollToElm';
 

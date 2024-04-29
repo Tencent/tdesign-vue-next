@@ -13,8 +13,8 @@
   </t-space>
 </template>
 <script lang="tsx" setup>
-import { ref } from 'vue';
 import { BreadcrumbItemProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const count = ref(0);
 const onClickItem: BreadcrumbItemProps['onClick'] = () => {
   count.value += 1;

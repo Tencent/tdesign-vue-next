@@ -1,21 +1,22 @@
-import { computed, defineComponent, ref, toRefs, Teleport, watch, Transition, nextTick } from 'vue';
 import { ChevronLeftIcon, ChevronDownIcon, CloseIcon } from 'tdesign-icons-vue-next';
+import { computed, defineComponent, ref, toRefs, Teleport, watch, Transition, nextTick } from 'vue';
 
-import props from './props';
-import TImageViewerIcon from './base/ImageModalIcon';
-import TImageViewerUtils from './base/ImageViewerUtils';
-import TImageItem from './base/ImageItem';
-import TImageViewerModal from './base/ImageViewerModal';
 import { useTNodeJSX } from '../hooks/tnode';
-import useVModel from '../hooks/useVModel';
-import useDefaultValue from '../hooks/useDefaultValue';
 import { usePrefixClass } from '../hooks/useConfig';
-import { TdImageViewerProps } from './type';
-import { useMirror, useRotate, useScale } from './hooks';
-import { formatImages, getOverlay } from './utils';
-import { EVENT_CODE } from './const';
-import Image from '../image';
+import useDefaultValue from '../hooks/useDefaultValue';
 import usePopupManager from '../hooks/usePopupManager';
+import useVModel from '../hooks/useVModel';
+import Image from '../image';
+
+import TImageItem from './base/ImageItem';
+import TImageViewerIcon from './base/ImageModalIcon';
+import TImageViewerModal from './base/ImageViewerModal';
+import TImageViewerUtils from './base/ImageViewerUtils';
+import { EVENT_CODE } from './const';
+import { useMirror, useRotate, useScale } from './hooks';
+import props from './props';
+import { TdImageViewerProps } from './type';
+import { formatImages, getOverlay } from './utils';
 
 export default defineComponent({
   name: 'TImageViewer',

@@ -18,8 +18,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
 import { DrawerProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const visible = ref(false);
 const mode = ref<DrawerProps['mode']>('push');
 const placement = ref<DrawerProps['placement']>('right');

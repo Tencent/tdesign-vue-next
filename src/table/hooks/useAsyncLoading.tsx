@@ -1,10 +1,12 @@
 import isString from 'lodash/isString';
 import { computed } from 'vue';
+
 import { useTNodeJSX } from '../../hooks/tnode';
-import { TdPrimaryTableProps } from '../type';
-import Loading from '../../loading';
-import useClassName from './useClassName';
 import { useConfig } from '../../hooks/useConfig';
+import Loading from '../../loading';
+import { TdPrimaryTableProps } from '../type';
+
+import useClassName from './useClassName';
 
 export default function useAsyncLoading(props: TdPrimaryTableProps) {
   const renderTNode = useTNodeJSX();

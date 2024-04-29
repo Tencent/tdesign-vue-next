@@ -34,8 +34,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
 import { TreeInstanceFunctions, TreeProps, ButtonProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const treeItems = [
   {
     value: '1',

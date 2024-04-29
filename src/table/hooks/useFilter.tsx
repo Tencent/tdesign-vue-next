@@ -1,13 +1,15 @@
-import { toRefs, ref, watch, computed, SetupContext, h } from 'vue';
-import useClassName from './useClassName';
-import TButton from '../../button';
-import { TdPrimaryTableProps, PrimaryTableCol, TableRowData, FilterValue, TableFilterChangeContext } from '../type';
-import useDefaultValue from '../../hooks/useDefaultValue';
-import { useTNodeDefault } from '../../hooks/tnode';
-import TableFilterController from '../filter-controller';
-import { useConfig } from '../../hooks/useConfig';
 import isFunction from 'lodash/isFunction';
+import { toRefs, ref, watch, computed, SetupContext, h } from 'vue';
+
 import { getColumnsResetValue } from '../../_common/js/table/utils';
+import TButton from '../../button';
+import { useTNodeDefault } from '../../hooks/tnode';
+import { useConfig } from '../../hooks/useConfig';
+import useDefaultValue from '../../hooks/useDefaultValue';
+import TableFilterController from '../filter-controller';
+import { TdPrimaryTableProps, PrimaryTableCol, TableRowData, FilterValue, TableFilterChangeContext } from '../type';
+
+import useClassName from './useClassName';
 import { renderTitle } from './useTableHeader';
 
 function isFilterValueExist(value: any) {

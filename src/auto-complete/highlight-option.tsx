@@ -1,7 +1,8 @@
-import { computed, defineComponent } from 'vue';
-import { usePrefixClass } from '../hooks/useConfig';
-import isString from 'lodash/isString';
 import escapeRegExp from 'lodash/escapeRegExp';
+import isString from 'lodash/isString';
+import { computed, defineComponent } from 'vue';
+
+import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'HighlightOption',

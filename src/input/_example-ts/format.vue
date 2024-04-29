@@ -2,8 +2,8 @@
   <t-input v-model="input" :status="inputStatus" :format="format" placeholder="请输入数字" :tips="tips" />
 </template>
 <script lang="ts" setup>
-import { ref, computed } from 'vue';
 import { InputProps } from 'tdesign-vue-next';
+import { ref, computed } from 'vue';
 const input = ref('');
 const inputStatus = computed<InputProps['status']>(() => {
   if (isNaN(+input.value)) {

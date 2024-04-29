@@ -1,14 +1,14 @@
-import { defineComponent, createElementVNode, PropType, h } from 'vue';
+import isArray from 'lodash/isArray';
+import isFunction from 'lodash/isFunction';
+import isString from 'lodash/isString';
 import { ChevronRightIcon as TdChevronRightIcon, ChevronLeftIcon as TdChevronLeftIcon } from 'tdesign-icons-vue-next';
+import { defineComponent, createElementVNode, PropType, h } from 'vue';
 
 import Button from '../../button';
 import { TNode } from '../../common';
 import { usePrefixClass } from '../../hooks/useConfig';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 import props from '../props';
-import isFunction from 'lodash/isFunction';
-import isString from 'lodash/isString';
-import isArray from 'lodash/isArray';
 
 export default defineComponent({
   name: 'TTransferOperations',

@@ -32,9 +32,9 @@
   </div>
 </template>
 <script setup>
-import { ref } from 'vue';
 import { CloudUploadIcon } from 'tdesign-icons-vue-next';
 import { MessagePlugin } from 'tdesign-vue-next';
+import { ref } from 'vue';
 
 const files = ref([]);
 const uploadRef = ref();

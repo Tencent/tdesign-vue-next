@@ -1,7 +1,7 @@
-import { ComponentPublicInstance } from 'vue';
 import cloneDeep from 'lodash/cloneDeep';
-import isUndefined from 'lodash/isUndefined';
 import isArray from 'lodash/isArray';
+import isUndefined from 'lodash/isUndefined';
+import { ComponentPublicInstance } from 'vue';
 
 import { TransferListOptionBase, TransferItemOption, TdTransferProps, TransferValue, DataOption } from './interface';
 

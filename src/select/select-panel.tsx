@@ -1,16 +1,16 @@
-import { computed, defineComponent, inject, Slots, ref } from 'vue';
 import omit from 'lodash/omit';
-import { Styles } from '../common';
+import { computed, defineComponent, inject, Slots, ref } from 'vue';
 
-import { SelectOption, SelectOptionGroup, TdOptionProps } from './type';
+import { Styles } from '../common';
+import { useTNodeJSX, useTNodeDefault } from '../hooks/tnode';
+import { useConfig, usePrefixClass } from '../hooks/useConfig';
+
+import { selectInjectKey } from './helper';
+import { usePanelVirtualScroll } from './hooks/usePanelVirtualScroll';
 import Option from './option';
 import OptionGroup from './optionGroup';
 import TdSelectProps from './props';
-
-import { useTNodeJSX, useTNodeDefault } from '../hooks/tnode';
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
-import { usePanelVirtualScroll } from './hooks/usePanelVirtualScroll';
-import { selectInjectKey } from './helper';
+import { SelectOption, SelectOptionGroup, TdOptionProps } from './type';
 
 export default defineComponent({
   name: 'TSelectPanel',

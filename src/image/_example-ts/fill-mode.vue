@@ -8,8 +8,8 @@
 </template>
 
 <script lang="ts" setup>
-import { onBeforeMount, ref } from 'vue';
 import { ImageProps } from 'tdesign-vue-next';
+import { onBeforeMount, ref } from 'vue';
 const mode = ['fill', 'contain', 'cover', 'none', 'scale-down'];
 const asyncImageUrl = ref<ImageProps['src']>('');
 onBeforeMount(() => {

@@ -1,10 +1,11 @@
 /** 超出省略显示 */
-import { defineComponent, PropType, ref, computed } from 'vue';
 import debounce from 'lodash/debounce';
+import { defineComponent, PropType, ref, computed } from 'vue';
+
 import { AttachNode, TNode } from '../common';
-import { renderContent } from '../utils/render-tnode';
-import { isTextEllipsis } from '../utils/dom';
 import TTooltip, { TooltipProps } from '../tooltip';
+import { isTextEllipsis } from '../utils/dom';
+import { renderContent } from '../utils/render-tnode';
 
 export interface EllipsisProps {
   content: string | TNode;

@@ -1,15 +1,16 @@
 // 表格 行拖拽 + 列拖拽功能
-import { SetupContext, computed, toRefs, ref, watch, h, ComputedRef } from 'vue';
-import Sortable, { SortableEvent, SortableOptions, MoveEvent } from 'sortablejs';
 import isFunction from 'lodash/isFunction';
-import { TableRowData, TdPrimaryTableProps, DragSortContext, PrimaryTableCol } from '../type';
-import useClassName from './useClassName';
+import Sortable, { SortableEvent, SortableOptions, MoveEvent } from 'sortablejs';
+import { SetupContext, computed, toRefs, ref, watch, h, ComputedRef } from 'vue';
+
 import log from '../../_common/js/log';
-import { hasClass } from '../../utils/dom';
-import swapDragArrayElement from '../../_common/js/utils/swapDragArrayElement';
-import { BaseTableColumns } from '../interface';
 import { getColumnDataByKey, getColumnIndexByKey } from '../../_common/js/table/utils';
-import { SimplePageInfo } from '../interface';
+import swapDragArrayElement from '../../_common/js/utils/swapDragArrayElement';
+import { hasClass } from '../../utils/dom';
+import { BaseTableColumns, SimplePageInfo } from '../interface';
+import { TableRowData, TdPrimaryTableProps, DragSortContext, PrimaryTableCol } from '../type';
+
+import useClassName from './useClassName';
 
 function removeNode(node: HTMLElement) {
   if (node.parentElement !== null) {

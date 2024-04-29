@@ -1,11 +1,11 @@
 import { ref, watch, ComputedRef, Ref } from 'vue';
-import { usePrefixClass } from '../../hooks/useConfig';
 
+import { usePrefixClass } from '../../hooks/useConfig';
 import { getNewMultipleValue } from '../helper';
 
-import type { SelectOption, TdOptionProps, SelectValue } from '../type';
 import type { ChangeHandler } from '../../hooks/useVModel';
 import type { PopupVisibleChangeContext } from '../../popup';
+import type { SelectOption, TdOptionProps, SelectValue } from '../type';
 
 export type useKeyboardControlType = {
   displayOptions: ComputedRef<SelectOption[]>;

@@ -13,8 +13,8 @@
   </t-space>
 </template>
 <script lang="ts" setup>
-import { ref } from 'vue';
 import { ButtonProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const loading1 = ref(false);
 const loading2 = ref(false);
 const customLoading = ref({

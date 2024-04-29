@@ -5,8 +5,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
 import { DialogPlugin } from 'tdesign-vue-next';
+import { ref } from 'vue';
 
 const count = ref(0);
 const showDialog = () => {

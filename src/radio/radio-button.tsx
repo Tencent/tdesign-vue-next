@@ -1,10 +1,11 @@
 import { computed, defineComponent, provide, reactive } from 'vue';
-import props from './props';
-import Radio from './radio';
-import { omit } from '../utils/helper';
-import { RadioButtonInjectionKey } from './constants';
 
 import { useContent } from '../hooks/tnode';
+import { omit } from '../utils/helper';
+
+import { RadioButtonInjectionKey } from './constants';
+import props from './props';
+import Radio from './radio';
 
 export default defineComponent({
   name: 'TRadioButton',

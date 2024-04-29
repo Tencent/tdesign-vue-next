@@ -1,5 +1,8 @@
-import upperFirst from 'lodash/upperFirst';
 import isFunction from 'lodash/isFunction';
+import upperFirst from 'lodash/upperFirst';
+
+import { renderTNodeJSX } from '../utils/render-tnode';
+
 import {
   defineComponent,
   TreeNode,
@@ -13,16 +16,15 @@ import {
   getScopedSlots,
   TypeStyles,
 } from './adapt';
-import props from './props';
-import { TreeNodeValue, TreeNodeState, TypeTreeNodeModel } from './tree-types';
+import useDragHandle from './hooks/useDragHandle';
+import useTreeAction from './hooks/useTreeAction';
+import useTreeNodes from './hooks/useTreeNodes';
+import useTreeScroll from './hooks/useTreeScroll';
+import useTreeState from './hooks/useTreeState';
 import useTreeStore from './hooks/useTreeStore';
 import useTreeStyles from './hooks/useTreeStyles';
-import useTreeState from './hooks/useTreeState';
-import useTreeAction from './hooks/useTreeAction';
-import useTreeScroll from './hooks/useTreeScroll';
-import useTreeNodes from './hooks/useTreeNodes';
-import useDragHandle from './hooks/useDragHandle';
-import { renderTNodeJSX } from '../utils/render-tnode';
+import props from './props';
+import { TreeNodeValue, TreeNodeState, TypeTreeNodeModel } from './tree-types';
 import { getNode } from './util';
 
 // 2022.11.02 tabliang 备注

@@ -1,9 +1,10 @@
-import { SetupContext, computed, toRefs, ref, watch } from 'vue';
-import isFunction from 'lodash/isFunction';
-import { SortInfo, TdPrimaryTableProps, PrimaryTableCol, TableRowData } from '../type';
-import SorterButton from '../sorter-button';
-import useDefaultValue from '../../hooks/useDefaultValue';
 import isArray from 'lodash/isArray';
+import isFunction from 'lodash/isFunction';
+import { SetupContext, computed, toRefs, ref, watch } from 'vue';
+
+import useDefaultValue from '../../hooks/useDefaultValue';
+import SorterButton from '../sorter-button';
+import { SortInfo, TdPrimaryTableProps, PrimaryTableCol, TableRowData } from '../type';
 
 export type SortMap = Record<string, SortInfo & { index: number }>;
 

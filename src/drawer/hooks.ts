@@ -1,5 +1,7 @@
 import { computed, ref } from 'vue';
+
 import { Styles } from '../common';
+
 import type { TdDrawerProps } from './type';
 
 export const useDrag = (props: TdDrawerProps) => {

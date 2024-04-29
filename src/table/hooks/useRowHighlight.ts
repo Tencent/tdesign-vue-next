@@ -1,9 +1,6 @@
-import { ref, Ref, toRefs } from 'vue';
 import get from 'lodash/get';
-import useDefaultValue from '../../hooks/useDefaultValue';
-import { BaseTableProps } from '../interface';
-import { RowEventContext, TableRowData } from '../type';
-import { on, off } from '../../utils/dom';
+import { ref, Ref, toRefs } from 'vue';
+
 import {
   ARROW_DOWN_REG,
   ARROW_UP_REG,
@@ -13,6 +10,10 @@ import {
   CLEAR_REG,
   ALL_REG,
 } from '../../_common/js/common';
+import useDefaultValue from '../../hooks/useDefaultValue';
+import { on, off } from '../../utils/dom';
+import { BaseTableProps } from '../interface';
+import { RowEventContext, TableRowData } from '../type';
 
 /**
  * 行高亮功能，支持键盘操作

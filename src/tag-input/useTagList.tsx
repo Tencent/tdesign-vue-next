@@ -1,11 +1,13 @@
 import { ref, toRefs } from 'vue';
-import { TagInputValue, TagInputChangeContext } from './type';
-import { TagInputProps } from './interface';
+
+import { useTNodeJSX } from '../hooks/tnode';
+import { usePrefixClass } from '../hooks/useConfig';
+import useVModel from '../hooks/useVModel';
 import { InputValue } from '../input';
 import Tag from '../tag';
-import useVModel from '../hooks/useVModel';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
+
+import { TagInputProps } from './interface';
+import { TagInputValue, TagInputChangeContext } from './type';
 
 export type ChangeParams = [TagInputChangeContext];
 

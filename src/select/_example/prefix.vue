@@ -6,8 +6,8 @@
   </t-select>
 </template>
 <script setup>
-import { ref } from 'vue';
 import { Icon } from 'tdesign-icons-vue-next';
+import { ref } from 'vue';
 
 const options = [
   { label: '选项一', value: '1' },

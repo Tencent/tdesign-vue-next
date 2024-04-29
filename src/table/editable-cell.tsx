@@ -1,9 +1,20 @@
-import { computed, defineComponent, onMounted, PropType, ref, SetupContext, toRefs, watch } from 'vue';
-import get from 'lodash/get';
-import set from 'lodash/set';
-import isFunction from 'lodash/isFunction';
 import cloneDeep from 'lodash/cloneDeep';
+import get from 'lodash/get';
+import isFunction from 'lodash/isFunction';
+import isObject from 'lodash/isObject';
+import set from 'lodash/set';
 import { Edit1Icon as TdEdit1Icon } from 'tdesign-icons-vue-next';
+import { computed, defineComponent, onMounted, PropType, ref, SetupContext, toRefs, watch } from 'vue';
+
+import log from '../_common/js/log';
+import { validate } from '../form/form-model';
+import { AllValidateResult } from '../form/type';
+import { usePrefixClass } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import { on, off } from '../utils/dom';
+
+import { TableClassName } from './hooks/useClassName';
+import { renderCell } from './tr';
 import {
   TableRowData,
   PrimaryTableCol,
@@ -12,15 +23,6 @@ import {
   TdBaseTableProps,
   TableEditableCellPropsParams,
 } from './type';
-import { TableClassName } from './hooks/useClassName';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { renderCell } from './tr';
-import { validate } from '../form/form-model';
-import log from '../_common/js/log';
-import { AllValidateResult } from '../form/type';
-import { on, off } from '../utils/dom';
-import isObject from 'lodash/isObject';
-import { usePrefixClass } from '../hooks/useConfig';
 
 export interface OnEditableChangeContext<T> extends PrimaryTableRowEditContext<T> {
   isEdit: boolean;

@@ -1,8 +1,10 @@
 import { defineComponent, ref, computed, Ref, CSSProperties } from 'vue';
+
+import { usePrefixClass } from '../hooks/useConfig';
+
+import { DEFAULT_Z_INDEX, PLACEMENT_OFFSET, DISTANCE } from './const';
 import Notification from './notification';
 import { TdNotificationProps, NotificationOptions } from './type';
-import { DEFAULT_Z_INDEX, PLACEMENT_OFFSET, DISTANCE } from './const';
-import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   props: {

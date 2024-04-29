@@ -10,8 +10,8 @@
   />
 </template>
 <script lang="ts" setup>
-import { ref } from 'vue';
 import { TextareaProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const value = ref('');
 const onKeypress: TextareaProps['onKeypress'] = (value, e) => {
   console.log('onKeypress: ', value, e);

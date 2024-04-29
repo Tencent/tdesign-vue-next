@@ -13,8 +13,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
 import { LoadingPlugin, ButtonProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
 
 const content = ref(null);
 const attachLoading = ref(false);

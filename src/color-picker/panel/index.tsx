@@ -1,26 +1,28 @@
+import cloneDeep from 'lodash/cloneDeep';
 import { defineComponent, ref, toRefs, watch, computed } from 'vue';
+
 import { useCommonClassName, useConfig } from '../../hooks/useConfig';
-import props from '../props';
+import useDefaultValue from '../../hooks/useDefaultValue';
+import useVModel from '../../hooks/useVModel';
 import {
   DEFAULT_COLOR,
   DEFAULT_LINEAR_GRADIENT,
   TD_COLOR_USED_COLORS_MAX_SIZE,
   DEFAULT_SYSTEM_SWATCH_COLORS,
 } from '../const';
-import PanelHeader from './header';
-import LinearGradient from './linear-gradient';
-import SaturationPanel from './saturation';
-import HueSlider from './hue';
+import { useBaseClassName } from '../hooks';
+import { TdColorModes } from '../interfaces';
+import props from '../props';
+import { TdColorPickerProps, ColorPickerChangeTrigger } from '../type';
+import { Color, getColorObject, GradientColorPoint } from '../utils';
+
 import AlphaSlider from './alpha';
 import FormatPanel from './format';
+import PanelHeader from './header';
+import HueSlider from './hue';
+import LinearGradient from './linear-gradient';
+import SaturationPanel from './saturation';
 import SwatchesPanel from './swatches';
-import { Color, getColorObject, GradientColorPoint } from '../utils';
-import { TdColorPickerProps, ColorPickerChangeTrigger } from '../type';
-import { TdColorModes } from '../interfaces';
-import { useBaseClassName } from '../hooks';
-import useVModel from '../../hooks/useVModel';
-import useDefaultValue from '../../hooks/useDefaultValue';
-import cloneDeep from 'lodash/cloneDeep';
 
 export default defineComponent({
   name: 'ColorPanel',

@@ -1,9 +1,11 @@
-import { App, Plugin, createApp, defineComponent, h, reactive } from 'vue';
 import merge from 'lodash/merge';
-import LoadingComponent from './loading';
-import { getAttach, removeClass, addClass } from '../utils/dom';
-import { TdLoadingProps, LoadingInstance, LoadingMethod } from './type';
+import { App, Plugin, createApp, defineComponent, h, reactive } from 'vue';
+
 import { usePrefixClass } from '../hooks/useConfig';
+import { getAttach, removeClass, addClass } from '../utils/dom';
+
+import LoadingComponent from './loading';
+import { TdLoadingProps, LoadingInstance, LoadingMethod } from './type';
 
 let fullScreenLoadingInstance: LoadingInstance = null;
 

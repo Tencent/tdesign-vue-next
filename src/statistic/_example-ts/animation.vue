@@ -21,8 +21,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
 import { StatisticInstanceFunctions } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const start = ref(false);
 const value = ref(56.32);
 const refUp = ref<StatisticInstanceFunctions>();

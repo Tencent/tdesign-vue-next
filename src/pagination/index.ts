@@ -1,6 +1,7 @@
+import withInstall from '../utils/withInstall';
+
 import _Pagination from './pagination';
 import _PaginationMini from './pagination-mini';
-import withInstall from '../utils/withInstall';
 import { TdPaginationProps, TdPaginationMiniProps } from './type';
 
 import './style';

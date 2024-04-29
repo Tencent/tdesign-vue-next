@@ -1,18 +1,19 @@
-import { defineComponent, computed } from 'vue';
 import omit from 'lodash/omit';
-import Panel from './components/Panel';
-import SelectInput from '../select-input';
-import FakeArrow from '../common-components/fake-arrow';
-import props from './props';
+import { defineComponent, computed } from 'vue';
 
-import { useCascaderContext } from './hooks';
-import { CascaderValue, TdSelectInputProps, TdCascaderProps } from './interface';
-import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import FakeArrow from '../common-components/fake-arrow';
+import { useFormDisabled } from '../form/hooks';
 import { useTNodeJSX } from '../hooks/tnode';
+import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import SelectInput from '../select-input';
+
+import Panel from './components/Panel';
+import { getFakeArrowIconClass } from './core/className';
 import { closeIconClickEffect, handleRemoveTagEffect } from './core/effect';
 import { getPanels, getSingleContent, getMultipleContent } from './core/helper';
-import { getFakeArrowIconClass } from './core/className';
-import { useFormDisabled } from '../form/hooks';
+import { useCascaderContext } from './hooks';
+import { CascaderValue, TdSelectInputProps, TdCascaderProps } from './interface';
+import props from './props';
 
 export default defineComponent({
   name: 'TCascader',

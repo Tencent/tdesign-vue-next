@@ -1,7 +1,8 @@
 import { Ref, computed } from 'vue';
+
+import { Styles } from '../../common';
 import useVirtualScroll from '../../hooks/useVirtualScrollNew';
 import { TdListProps } from '../type';
-import { Styles } from '../../common';
 
 export const useListVirtualScroll = (
   scroll: TdListProps['scroll'],

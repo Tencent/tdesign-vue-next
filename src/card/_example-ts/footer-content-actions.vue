@@ -13,8 +13,8 @@
   </t-card>
 </template>
 <script lang="tsx" setup>
-import { MessagePlugin, DropdownProps, CardProps } from 'tdesign-vue-next';
 import { MoreIcon } from 'tdesign-icons-vue-next';
+import { MessagePlugin, DropdownProps, CardProps } from 'tdesign-vue-next';
 const clickHandler: DropdownProps['onClick'] = (data) => {
   MessagePlugin.success(`选中【${data.content}】`);
 };

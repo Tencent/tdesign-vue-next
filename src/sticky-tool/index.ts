@@ -1,6 +1,7 @@
-import _StickyTool from './sticky-tool';
-import _StickyItem from './sticky-item';
 import withInstall from '../utils/withInstall';
+
+import _StickyItem from './sticky-item';
+import _StickyTool from './sticky-tool';
 import { TdStickyToolProps, TdStickyItemProps } from './type';
 
 import './style';

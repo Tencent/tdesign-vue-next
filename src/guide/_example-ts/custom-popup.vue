@@ -38,9 +38,10 @@
 </template>
 
 <script lang="ts" setup>
-import MyPopup from './my-popup.vue';
-import { ref } from 'vue';
 import { GuideProps, ButtonProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
+
+import MyPopup from './my-popup.vue';
 const visible = ref(false);
 const current = ref(-1);
 const steps: GuideProps['steps'] = [

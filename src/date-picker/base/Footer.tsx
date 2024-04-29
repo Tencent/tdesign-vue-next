@@ -1,6 +1,7 @@
 import { defineComponent, computed } from 'vue';
-import { useConfig, usePrefixClass } from '../../hooks/useConfig';
+
 import TButton from '../../button';
+import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 
 export default defineComponent({
   name: 'TDatePickerTable',

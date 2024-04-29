@@ -1,5 +1,6 @@
 import isFunction from 'lodash/isFunction';
 import isString from 'lodash/isString';
+
 import { AttachNode } from '../../common';
 
 export default function getTargetElm(elm: AttachNode): HTMLElement {

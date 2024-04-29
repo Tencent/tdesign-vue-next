@@ -5,8 +5,8 @@
   ></t-list>
 </template>
 <script lang="ts" setup>
-import { ref } from 'vue';
 import { ListItemMetaProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const list = [];
 const imageUrl: ListItemMetaProps['image'] = 'https://tdesign.gtimg.com/site/avatar.jpg';
 for (let i = 0; i < 3000; i++) {

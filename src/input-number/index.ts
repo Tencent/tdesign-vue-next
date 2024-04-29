@@ -1,5 +1,6 @@
-import _InputNumber from './input-number';
 import withInstall from '../utils/withInstall';
+
+import _InputNumber from './input-number';
 import { TdInputNumberProps } from './type';
 
 import './style';

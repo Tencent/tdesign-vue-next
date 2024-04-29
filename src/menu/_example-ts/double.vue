@@ -140,8 +140,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
 import { HeadMenuProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const expanded = ref<HeadMenuProps['defaultExpanded']>(['1']);
 const expanded2 = ref<HeadMenuProps['defaultExpanded']>(['1']);
 </script>

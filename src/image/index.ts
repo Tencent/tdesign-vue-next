@@ -1,5 +1,6 @@
-import _Image from './image';
 import withInstall from '../utils/withInstall';
+
+import _Image from './image';
 import { TdImageProps } from './type';
 
 import './style';

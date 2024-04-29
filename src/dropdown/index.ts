@@ -1,7 +1,8 @@
-import _DropdownItem from './dropdown-item';
-import _Dropdown from './dropdown';
-import _DropdownMenu from './dropdown-menu';
 import withInstall from '../utils/withInstall';
+
+import _Dropdown from './dropdown';
+import _DropdownItem from './dropdown-item';
+import _DropdownMenu from './dropdown-menu';
 import { TdDropdownProps, TdDropdownItemProps } from './type';
 
 import './style';

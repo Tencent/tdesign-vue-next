@@ -1,21 +1,22 @@
-import { defineComponent, toRefs, PropType, ref, computed, h } from 'vue';
 import {
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
+import { defineComponent, toRefs, PropType, ref, computed, h } from 'vue';
+
 import { abridgeName, getFileSizeText } from '../../_common/js/upload/utils';
-import { TdUploadProps, UploadFile } from '../type';
 import Button from '../../button';
-import { CommonDisplayFileProps } from '../interface';
-import { commonProps } from '../constants';
-import useCommonClassName from '../../hooks/useCommonClassName';
-import TLoading from '../../loading';
-import useDrag, { UploadDragEvents } from '../hooks/useDrag';
-import useGlobalIcon from '../../hooks/useGlobalIcon';
-import ImageViewer, { ImageViewerProps } from '../../image-viewer';
-import { useTNodeJSX } from '../../hooks';
 import { UploadConfig } from '../../config-provider';
+import { useTNodeJSX } from '../../hooks';
+import useCommonClassName from '../../hooks/useCommonClassName';
+import useGlobalIcon from '../../hooks/useGlobalIcon';
 import Image from '../../image';
+import ImageViewer, { ImageViewerProps } from '../../image-viewer';
+import TLoading from '../../loading';
+import { commonProps } from '../constants';
+import useDrag, { UploadDragEvents } from '../hooks/useDrag';
+import { CommonDisplayFileProps } from '../interface';
+import { TdUploadProps, UploadFile } from '../type';
 
 export interface DraggerProps extends CommonDisplayFileProps {
   trigger?: TdUploadProps['trigger'];

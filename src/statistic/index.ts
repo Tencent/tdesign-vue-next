@@ -1,5 +1,6 @@
-import _Statistic from './statistic';
 import withInstall from '../utils/withInstall';
+
+import _Statistic from './statistic';
 import { TdStatisticProps } from './type';
 
 import './style';

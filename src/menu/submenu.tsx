@@ -1,3 +1,4 @@
+import isFunction from 'lodash/isFunction';
 import {
   defineComponent,
   computed,
@@ -13,16 +14,17 @@ import {
   nextTick,
   Transition,
 } from 'vue';
-import props from './submenu-props';
-import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
-import { TdMenuInterface, TdSubMenuInterface, TdMenuItem } from './const';
+
 import FakeArrow from '../common-components/fake-arrow';
-import useRipple from '../hooks/useRipple';
-import { usePrefixClass } from '../hooks/useConfig';
-import { Popup, PopupPlacement } from '../popup';
-import isFunction from 'lodash/isFunction';
-import { TdSubmenuProps } from './type';
 import useCollapseAnimation from '../hooks/useCollapseAnimation';
+import { usePrefixClass } from '../hooks/useConfig';
+import useRipple from '../hooks/useRipple';
+import { Popup, PopupPlacement } from '../popup';
+import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
+
+import { TdMenuInterface, TdSubMenuInterface, TdMenuItem } from './const';
+import props from './submenu-props';
+import { TdSubmenuProps } from './type';
 
 export default defineComponent({
   name: 'TSubmenu',

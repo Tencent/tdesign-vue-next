@@ -47,8 +47,8 @@
 </template>
 
 <script lang="tsx" setup>
-import { ref } from 'vue';
 import { CheckTagGroupOption, CheckTagGroupProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const STYLE_B_UNCHECKED_PROPS: CheckTagGroupProps['uncheckedProps'] = {
   theme: 'default',
   variant: 'outline',

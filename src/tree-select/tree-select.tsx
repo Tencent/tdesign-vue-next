@@ -1,26 +1,27 @@
-import { defineComponent, ref, computed, watch, onMounted, toRefs } from 'vue';
 import isArray from 'lodash/isArray';
-import isEmpty from 'lodash/isEmpty';
 import isBoolean from 'lodash/isBoolean';
+import isEmpty from 'lodash/isEmpty';
 import isFunction from 'lodash/isFunction';
 import isNil from 'lodash/isNil';
+import { defineComponent, ref, computed, watch, onMounted, toRefs } from 'vue';
 
-import Tree, { TreeProps, TreeNodeModel, TreeNodeValue } from '../tree';
-import SelectInput, { TdSelectInputProps } from '../select-input';
-import FakeArrow from '../common-components/fake-arrow';
-import { PopupVisibleChangeContext } from '../popup';
-
-import { INodeOptions } from './interface';
-import { TreeSelectValue, TdTreeSelectProps, TreeSelectValueChangeTrigger } from './type';
 import { TreeOptionData } from '../common';
-import props from './props';
+// eslint-disable-next-line import/order
+import FakeArrow from '../common-components/fake-arrow';
 
 // hooks
-import { usePrefixClass, useConfig } from '../hooks/useConfig';
 import { useFormDisabled } from '../form/hooks';
 import { useTNodeJSX, useTNodeDefault } from '../hooks/tnode';
-import useVModel from '../hooks/useVModel';
+import { usePrefixClass, useConfig } from '../hooks/useConfig';
 import useDefaultValue from '../hooks/useDefaultValue';
+import useVModel from '../hooks/useVModel';
+import { PopupVisibleChangeContext } from '../popup';
+import SelectInput, { TdSelectInputProps } from '../select-input';
+import Tree, { TreeProps, TreeNodeModel, TreeNodeValue } from '../tree';
+
+import { INodeOptions } from './interface';
+import props from './props';
+import { TreeSelectValue, TdTreeSelectProps, TreeSelectValueChangeTrigger } from './type';
 
 export default defineComponent({
   name: 'TTreeSelect',

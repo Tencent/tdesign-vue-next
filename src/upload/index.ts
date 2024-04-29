@@ -1,5 +1,6 @@
-import _Upload from './upload';
 import withInstall from '../utils/withInstall';
+
+import _Upload from './upload';
 
 import './style';
 

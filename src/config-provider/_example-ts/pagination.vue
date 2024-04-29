@@ -7,8 +7,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
 import { GlobalConfigProvider } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const current = ref(1);
 const globalConfig: GlobalConfigProvider = {
   pagination: {

@@ -9,8 +9,8 @@
   </t-space>
 </template>
 <script lang="tsx" setup>
-import { ref } from 'vue';
 import { SelectProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const options = ref<SelectProps['options']>([]);
 for (let i = 1; i < 15; i++) {
   options.value.push({

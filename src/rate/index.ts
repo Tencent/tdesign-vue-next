@@ -1,5 +1,6 @@
-import _Rate from './rate';
 import withInstall from '../utils/withInstall';
+
+import _Rate from './rate';
 
 import './style';
 

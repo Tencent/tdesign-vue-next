@@ -39,12 +39,12 @@
 </template>
 
 <script lang="ts" setup>
+import { TreeInstanceFunctions, TreeProps, TypeTreeNodeModel } from 'tdesign-vue-next';
 import { ref } from 'vue'; // 预期规则:
 // 默认父节点被禁用，所有子节点一并呈现禁用状态
 // checkStrictly = true 时，父节点禁用状态不影响子节点禁用状态。
 // 父节点操作选中，不影响被禁用的子节点的原始选中状态。
 // 子节点被禁用且未选中，父节点半选状态再次点击可切换为未选中状态。
-import { TreeInstanceFunctions, TreeProps, TypeTreeNodeModel } from 'tdesign-vue-next';
 const tree = ref<TreeInstanceFunctions>();
 const checkable = ref(true);
 const activable = ref(false);

@@ -56,8 +56,8 @@
   </t-form>
 </template>
 <script lang="ts" setup>
-import { ref, computed, watch, reactive } from 'vue';
 import { MessagePlugin, FormProps, RadioGroupProps, CheckboxGroupProps, TabsProps } from 'tdesign-vue-next';
+import { ref, computed, watch, reactive } from 'vue';
 let id = 0;
 const getId = () => {
   return ++id;

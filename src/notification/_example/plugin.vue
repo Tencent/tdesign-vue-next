@@ -75,8 +75,8 @@
 </template>
 
 <script setup lang="jsx">
-import { NotifyPlugin, Link } from 'tdesign-vue-next';
 import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+import { NotifyPlugin, Link } from 'tdesign-vue-next';
 
 // you can define close icon to be anything
 const closeBtn = () => {

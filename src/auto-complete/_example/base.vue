@@ -30,8 +30,8 @@
 </template>
 
 <script setup lang="jsx">
-import { ref } from 'vue';
 import { SearchIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+import { ref } from 'vue';
 
 const value = ref('');
 const value2 = ref('');

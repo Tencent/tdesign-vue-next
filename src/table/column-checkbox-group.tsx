@@ -1,6 +1,7 @@
-import { computed, defineComponent, PropType, toRefs } from 'vue';
-import Checkbox, { CheckboxGroup, CheckboxGroupChangeContext, CheckboxGroupProps, CheckboxProps } from '../checkbox';
 import intersection from 'lodash/intersection';
+import { computed, defineComponent, PropType, toRefs } from 'vue';
+
+import Checkbox, { CheckboxGroup, CheckboxGroupChangeContext, CheckboxGroupProps, CheckboxProps } from '../checkbox';
 import { usePrefixClass } from '../hooks';
 
 export type ColumnCheckboxGroupProps = Pick<CheckboxGroupProps, 'value' | 'onChange' | 'options'> & {

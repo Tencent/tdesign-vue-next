@@ -1,5 +1,6 @@
-import _Switch from './switch';
 import withInstall from '../utils/withInstall';
+
+import _Switch from './switch';
 import { TdSwitchProps } from './type';
 
 import './style';

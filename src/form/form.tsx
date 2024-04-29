@@ -1,10 +1,17 @@
-import { computed, defineComponent, provide, reactive, ref, toRefs } from 'vue';
-import isEmpty from 'lodash/isEmpty';
-import isBoolean from 'lodash/isBoolean';
 import isArray from 'lodash/isArray';
+import isBoolean from 'lodash/isBoolean';
+import isEmpty from 'lodash/isEmpty';
 import isFunction from 'lodash/isFunction';
+import { computed, defineComponent, provide, reactive, ref, toRefs } from 'vue';
+
+import { FormResetEvent, FormSubmitEvent } from '../common';
+import { usePrefixClass, useTNodeJSX } from '../hooks';
 import { requestSubmit } from '../utils/dom';
+
+import { FormInjectionKey, FormItemContext, useCLASSNAMES } from './const';
 import { FormItemValidateResult, getFormItemClassName } from './form-item';
+import { FormDisabledProvider } from './hooks';
+import props from './props';
 import {
   Data,
   FormResetParams,
@@ -14,12 +21,6 @@ import {
   TdFormProps,
   ValidateResultList,
 } from './type';
-import props from './props';
-import { FormInjectionKey, FormItemContext, useCLASSNAMES } from './const';
-import { FormResetEvent, FormSubmitEvent } from '../common';
-
-import { FormDisabledProvider } from './hooks';
-import { usePrefixClass, useTNodeJSX } from '../hooks';
 
 type Result = FormValidateResult<TdFormProps['data']>;
 

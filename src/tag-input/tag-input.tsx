@@ -1,18 +1,20 @@
-import { defineComponent, computed, toRefs, ref, nextTick, reactive, watch } from 'vue';
+import isArray from 'lodash/isArray';
 import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-import TInput, { InputProps, StrInputProps, TdInputProps } from '../input';
-import { TdTagInputProps } from './type';
-import props from './props';
-import { renderTNodeJSX } from '../utils/render-tnode';
+import { defineComponent, computed, toRefs, ref, nextTick, reactive, watch } from 'vue';
+
 import { useConfig } from '../config-provider/useConfig';
 import { usePrefixClass } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import useTagScroll from './hooks/useTagScroll';
-import useTagList from './useTagList';
-import useHover from './hooks/useHover';
 import useDefault from '../hooks/useDefaultValue';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import TInput, { InputProps, StrInputProps, TdInputProps } from '../input';
+import { renderTNodeJSX } from '../utils/render-tnode';
+
 import useDragSorter from './hooks/useDragSorter';
-import isArray from 'lodash/isArray';
+import useHover from './hooks/useHover';
+import useTagScroll from './hooks/useTagScroll';
+import props from './props';
+import { TdTagInputProps } from './type';
+import useTagList from './useTagList';
 
 const useComponentClassName = () => {
   return {

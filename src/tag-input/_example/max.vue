@@ -3,8 +3,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
+import { ref } from 'vue';
 
 const tags = ref([]);
 const onEnter = (value, { inputValue }) => {

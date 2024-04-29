@@ -1,12 +1,12 @@
-import { reactive, watch } from 'vue';
 import dayjs from 'dayjs';
+import isArray from 'lodash/isArray';
+import { reactive, watch } from 'vue';
 
 import { useConfig } from '../../hooks/useConfig';
 import { COMPONENT_NAME } from '../const';
-import { createDefaultCurDate } from '../utils';
-import { TdCalendarProps } from '../type';
 import { CalendarState } from '../interface';
-import isArray from 'lodash/isArray';
+import { TdCalendarProps } from '../type';
+import { createDefaultCurDate } from '../utils';
 
 export function useState(props: TdCalendarProps) {
   const { globalConfig } = useConfig(COMPONENT_NAME);

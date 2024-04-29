@@ -1,21 +1,22 @@
-import { computed, defineComponent, ref, toRefs, watch } from 'vue';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { TimeIcon as TdTimeIcon } from 'tdesign-icons-vue-next';
+import { computed, defineComponent, ref, toRefs, watch } from 'vue';
 
-import TimePickerPanel from './panel/time-picker-panel';
-import TSelectInput, { SelectInputBlurContext } from '../select-input';
+// eslint-disable-next-line import/order
 import { formatInputValue, validateInputValue } from '../_common/js/time-picker/utils';
 
-import type { InputProps } from '../input';
-
-import props from './props';
-
 // hooks
-import useVModel from '../hooks/useVModel';
 import { useFormDisabled } from '../form/hooks';
 import { useCommonClassName, useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import useVModel from '../hooks/useVModel';
+import TSelectInput, { SelectInputBlurContext } from '../select-input';
+
+import TimePickerPanel from './panel/time-picker-panel';
+import props from './props';
+
+import type { InputProps } from '../input';
 
 dayjs.extend(customParseFormat);
 

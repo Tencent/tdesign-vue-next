@@ -23,7 +23,6 @@
 
 <script lang="tsx" setup>
 import dayjs from 'dayjs';
-import { ref, computed } from 'vue';
 import {
   Input,
   Select,
@@ -34,6 +33,7 @@ import {
   PrimaryTableValidateContext,
   BaseTableCol,
 } from 'tdesign-vue-next';
+import { ref, computed } from 'vue';
 const initData = new Array(5).fill(null).map((_, i) => ({
   key: String(i + 1),
   firstName: ['贾明', '张三', '王芳'][i % 3],

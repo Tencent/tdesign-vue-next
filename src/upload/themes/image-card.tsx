@@ -1,21 +1,22 @@
-import { defineComponent, PropType, toRefs, computed } from 'vue';
 import {
   BrowseIcon as TdBrowseIcon,
   DeleteIcon as TdDeleteIcon,
   AddIcon as TdAddIcon,
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
-import Loading from '../../loading';
-import useGlobalIcon from '../../hooks/useGlobalIcon';
-import ImageViewer, { ImageViewerProps } from '../../image-viewer';
-import { CommonDisplayFileProps } from '../interface';
-import { commonProps } from '../constants';
-import { TdUploadProps, UploadFile } from '../type';
+import { defineComponent, PropType, toRefs, computed } from 'vue';
+
 import { abridgeName } from '../../_common/js/upload/utils';
 import { UploadConfig } from '../../config-provider';
 import { useTNodeJSX } from '../../hooks';
-import Link from '../../link';
+import useGlobalIcon from '../../hooks/useGlobalIcon';
 import Image from '../../image';
+import ImageViewer, { ImageViewerProps } from '../../image-viewer';
+import Link from '../../link';
+import Loading from '../../loading';
+import { commonProps } from '../constants';
+import { CommonDisplayFileProps } from '../interface';
+import { TdUploadProps, UploadFile } from '../type';
 
 export interface ImageCardUploadProps extends CommonDisplayFileProps {
   multiple: TdUploadProps['multiple'];

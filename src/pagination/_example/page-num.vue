@@ -12,8 +12,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
+import { ref } from 'vue';
 
 const pageSizeOptions = [
   { label: '每页 10 条', value: 10 },

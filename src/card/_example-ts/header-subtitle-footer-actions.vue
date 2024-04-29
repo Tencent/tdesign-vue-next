@@ -33,8 +33,8 @@
   </t-card>
 </template>
 <script lang="tsx" setup>
-import { MessagePlugin, CardProps, DropdownProps } from 'tdesign-vue-next';
 import { ThumbUpIcon, ChatIcon, ShareIcon, MoreIcon } from 'tdesign-icons-vue-next';
+import { MessagePlugin, CardProps, DropdownProps } from 'tdesign-vue-next';
 const title: CardProps['title'] = '标题';
 const subtitle: CardProps['subtitle'] = '副标题';
 const cover: CardProps['cover'] = 'https://tdesign.gtimg.com/site/source/card-demo.png';

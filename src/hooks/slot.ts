@@ -1,3 +1,4 @@
+import isArray from 'lodash/isArray';
 import {
   Slots,
   VNode,
@@ -10,7 +11,6 @@ import {
   RendererElement,
   VNodeChild,
 } from 'vue';
-import isArray from 'lodash/isArray';
 
 /**
  * 渲染default slot，获取子组件VNode。处理多种子组件创建场景

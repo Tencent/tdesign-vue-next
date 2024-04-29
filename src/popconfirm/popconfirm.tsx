@@ -1,16 +1,17 @@
-import { defineComponent, computed, toRefs } from 'vue';
 import {
   InfoCircleFilledIcon as TdInfoCircleFilledIcon,
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
+import { defineComponent, computed, toRefs } from 'vue';
 
+import { useAction } from '../dialog/hooks';
+import { useContent, useTNodeJSX, useTNodeDefault } from '../hooks/tnode';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import Popup, { PopupProps, PopupVisibleChangeContext } from '../popup/index';
-import props from './props';
-import { useContent, useTNodeJSX, useTNodeDefault } from '../hooks/tnode';
 import useVModel from '../hooks/useVModel';
-import { useAction } from '../dialog/hooks';
+import Popup, { PopupProps, PopupVisibleChangeContext } from '../popup/index';
+
+import props from './props';
 
 import type { PopconfirmVisibleChangeContext } from './type';
 import type { TdDialogProps } from '../dialog/type';

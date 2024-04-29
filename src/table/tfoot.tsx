@@ -1,15 +1,17 @@
-import { SetupContext, h, defineComponent, PropType, toRefs } from 'vue';
-import isString from 'lodash/isString';
-import isFunction from 'lodash/isFunction';
 import get from 'lodash/get';
-import { BaseTableCellParams, RowspanColspan, TableRowData, TdBaseTableProps } from './type';
-import { formatRowAttributes, formatRowClassNames } from './utils';
-import { getColumnFixedStyles } from './hooks/useFixed';
+import isFunction from 'lodash/isFunction';
+import isString from 'lodash/isString';
+import { SetupContext, h, defineComponent, PropType, toRefs } from 'vue';
+
+import { Styles } from '../common';
 import { useTNodeJSX } from '../hooks/tnode';
+
+import useClassName from './hooks/useClassName';
+import { getColumnFixedStyles } from './hooks/useFixed';
 import useRowspanAndColspan, { getCellKey } from './hooks/useRowspanAndColspan';
 import { RowAndColFixedPosition } from './interface';
-import useClassName from './hooks/useClassName';
-import { Styles } from '../common';
+import { BaseTableCellParams, RowspanColspan, TableRowData, TdBaseTableProps } from './type';
+import { formatRowAttributes, formatRowClassNames } from './utils';
 
 export interface TFootProps {
   rowKey: string;

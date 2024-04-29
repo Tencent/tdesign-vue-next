@@ -1,9 +1,9 @@
+import withInstall from '../utils/withInstall';
+
+import _TimePickerPanel from './panel/time-picker-panel';
 import _TimePicker from './time-picker';
 import _TimeRangePicker from './time-range-picker';
-import _TimePickerPanel from './panel/time-picker-panel';
 import { TdTimePickerProps, TdTimeRangePickerProps } from './type';
-
-import withInstall from '../utils/withInstall';
 
 import './style';
 

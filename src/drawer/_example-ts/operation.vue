@@ -21,8 +21,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
 import { DrawerProps, ButtonProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const visible = ref(false);
 const handleClick: ButtonProps['onClick'] = () => {
   visible.value = true;

@@ -1,17 +1,19 @@
-import { defineComponent, computed, ref, onMounted, watch, toRefs } from 'vue';
+import isFunction from 'lodash/isFunction';
+import isNumber from 'lodash/isNumber';
 import {
   ArrowTriangleDownFilledIcon as TDArrowTriangleDownFilledIcon,
   ArrowTriangleUpFilledIcon as TDArrowTriangleUpFilledIcon,
 } from 'tdesign-icons-vue-next';
-import isNumber from 'lodash/isNumber';
-import isFunction from 'lodash/isFunction';
-import props from './props';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useTNodeJSX } from '../hooks/tnode';
-import Skeleton from '../skeleton';
+import { defineComponent, computed, ref, onMounted, watch, toRefs } from 'vue';
+
 import Tween from '../_common/js/statistic/tween';
 import { COLOR_MAP } from '../_common/js/statistic/utils';
+import { useTNodeJSX } from '../hooks/tnode';
+import { usePrefixClass } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import Skeleton from '../skeleton';
+
+import props from './props';
 
 export default defineComponent({
   name: 'TStatistic',

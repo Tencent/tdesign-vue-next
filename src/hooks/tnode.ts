@@ -1,7 +1,8 @@
-import { h, getCurrentInstance, ComponentInternalInstance, VNode } from 'vue';
-import isFunction from 'lodash/isFunction';
 import camelCase from 'lodash/camelCase';
+import isFunction from 'lodash/isFunction';
 import kebabCase from 'lodash/kebabCase';
+import { h, getCurrentInstance, ComponentInternalInstance, VNode } from 'vue';
+
 import { getDefaultNode, getParams, OptionsType, JSXRenderContext, getSlotFirst } from '../utils/render-tnode';
 
 // 兼容处理插槽名称，同时支持驼峰命名和中划线命名，示例：value-display 和 valueDisplay

@@ -18,9 +18,9 @@
 
 <script lang="tsx" setup>
 import merge from 'lodash/merge';
-import enConfig from 'tdesign-vue-next/es/locale/en_US';
-import { TableProps, GlobalConfigProvider } from 'tdesign-vue-next';
 import { ChevronRightIcon, CaretDownSmallIcon /** , ChevronDownIcon */ } from 'tdesign-icons-vue-next';
+import { TableProps, GlobalConfigProvider } from 'tdesign-vue-next';
+import enConfig from 'tdesign-vue-next/es/locale/en_US';
 const columns: TableProps['columns'] = [
   {
     colKey: 'type',

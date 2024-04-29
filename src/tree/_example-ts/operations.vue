@@ -67,7 +67,6 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
 import {
   TreeInstanceFunctions,
   TreeProps,
@@ -78,6 +77,7 @@ import {
   TreeNodeValue,
   TypeTreeNodeModel,
 } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const tree = ref<TreeInstanceFunctions>();
 const index = ref(2);
 const activeId = ref('');

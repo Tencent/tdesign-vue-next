@@ -12,8 +12,8 @@
   </t-space>
 </template>
 <script lang="ts" setup>
-import { ref } from 'vue';
 import { ColorPickerPanelProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const color = ref('#0052d9');
 const systemColors = ref<ColorPickerPanelProps['swatchColors']>(['red', 'green', 'yellow', 'blue', 'purple']);
 </script>

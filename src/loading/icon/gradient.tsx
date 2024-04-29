@@ -1,4 +1,5 @@
 import { defineComponent, onMounted, getCurrentInstance, nextTick } from 'vue';
+
 import circleAdapter from '../../_common/js/loading/circle-adapter';
 import { usePrefixClass } from '../../hooks/useConfig';
 

@@ -11,8 +11,8 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { ref } from 'vue';
 import { TransferProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const list = [];
 for (let i = 0; i < 20; i++) {
   list.push({

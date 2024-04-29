@@ -1,15 +1,17 @@
+import isString from 'lodash/isString';
+import isUndefined from 'lodash/isUndefined';
 import { defineComponent, inject, toRefs, computed, ref } from 'vue';
+
+import { useFormDisabled } from '../form/hooks';
+import { useContent } from '../hooks/tnode';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import useVModel from '../hooks/useVModel';
 import { omit } from '../utils/helper';
-import props from './props';
+
 import { RadioGroupInjectionKey, RadioButtonInjectionKey } from './constants';
+import props from './props';
 
 // hooks
-import { useFormDisabled } from '../form/hooks';
-import useVModel from '../hooks/useVModel';
-import { useContent } from '../hooks/tnode';
-import isUndefined from 'lodash/isUndefined';
-import isString from 'lodash/isString';
 
 function getValidAttrs(obj: Record<string, any>): Record<string, any> {
   const newObj = {};

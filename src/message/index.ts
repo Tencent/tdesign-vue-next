@@ -1,5 +1,6 @@
-import _Message from './message';
 import withInstall from '../utils/withInstall';
+
+import _Message from './message';
 import { TdMessageProps } from './type';
 
 import './style';

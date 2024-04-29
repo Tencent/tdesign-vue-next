@@ -19,8 +19,8 @@
   </t-select-input>
 </template>
 <script lang="tsx" setup>
-import { ref } from 'vue';
 import { SelectInputProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const options = [
   {
     label: 'tdesign-vue',

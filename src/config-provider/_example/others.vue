@@ -91,8 +91,8 @@
 </template>
 
 <script setup lang="jsx">
-import { ErrorIcon, ChevronRightIcon, CloseIcon, CloseCircleIcon } from 'tdesign-icons-vue-next';
 import merge from 'lodash/merge';
+import { ErrorIcon, ChevronRightIcon, CloseIcon, CloseCircleIcon } from 'tdesign-icons-vue-next';
 import enConfig from 'tdesign-vue-next/es/locale/en_US';
 
 const transferList = [];

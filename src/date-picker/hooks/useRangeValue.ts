@@ -1,8 +1,6 @@
-import { ref, toRefs, watchEffect, computed } from 'vue';
-import useVModel from '../../hooks/useVModel';
 import isArray from 'lodash/isArray';
+import { ref, toRefs, watchEffect, computed } from 'vue';
 
-import { TdDateRangePickerProps } from '../type';
 import {
   isValidDate,
   formatDate,
@@ -11,6 +9,8 @@ import {
   initYearMonthTime,
 } from '../../_common/js/date-picker/format';
 import { extractTimeFormat } from '../../_common/js/date-picker/utils';
+import useVModel from '../../hooks/useVModel';
+import { TdDateRangePickerProps } from '../type';
 
 export const PARTIAL_MAP = { first: 'start', second: 'end' };
 

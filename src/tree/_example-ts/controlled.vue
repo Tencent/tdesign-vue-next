@@ -54,8 +54,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed, nextTick } from 'vue';
 import { TreeProps, InputProps, ButtonProps } from 'tdesign-vue-next';
+import { ref, computed, nextTick } from 'vue';
 const syncProps = ref(false);
 const checkable = ref(true);
 const activable = ref(false);

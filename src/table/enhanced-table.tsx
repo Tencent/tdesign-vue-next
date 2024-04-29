@@ -1,8 +1,16 @@
+import get from 'lodash/get';
 import { defineComponent, SetupContext, computed, ref, getCurrentInstance } from 'vue';
+
+import log from '../_common/js/log';
+import { ComponentScrollToElementParams } from '../common';
+import { usePrefixClass } from '../hooks';
+
 import baseTableProps from './base-table-props';
-import primaryTableProps from './primary-table-props';
 import enhancedTableProps from './enhanced-table-props';
+import useTreeData from './hooks/useTreeData';
+import useTreeSelect from './hooks/useTreeSelect';
 import PrimaryTable from './primary-table';
+import primaryTableProps from './primary-table-props';
 import {
   TdEnhancedTableProps,
   PrimaryTableCol,
@@ -11,12 +19,6 @@ import {
   TdPrimaryTableProps,
   TableRowState,
 } from './type';
-import useTreeData from './hooks/useTreeData';
-import useTreeSelect from './hooks/useTreeSelect';
-import get from 'lodash/get';
-import { ComponentScrollToElementParams } from '../common';
-import log from '../_common/js/log';
-import { usePrefixClass } from '../hooks';
 
 export default defineComponent({
   name: 'TEnhancedTable',

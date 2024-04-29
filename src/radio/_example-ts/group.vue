@@ -22,8 +22,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
 import { RadioGroupProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const options: RadioGroupProps['options'] = [
   {
     value: '1',

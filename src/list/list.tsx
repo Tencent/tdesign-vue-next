@@ -1,14 +1,16 @@
-import { defineComponent, VNodeChild, computed, ref } from 'vue';
 import isString from 'lodash/isString';
 import omit from 'lodash/omit';
+import { defineComponent, VNodeChild, computed, ref } from 'vue';
+
 import { useTNodeJSX } from '../hooks/tnode';
-import TLoading from '../loading';
-import TListItem from './list-item';
-import props from './props';
-import { LOAD_MORE, LOADING } from './const';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import TLoading from '../loading';
+
+import { LOAD_MORE, LOADING } from './const';
 import { useListItems } from './hooks/useListItems';
 import { useListVirtualScroll } from './hooks/useListVirtualScroll';
+import TListItem from './list-item';
+import props from './props';
 
 import type { TdListProps } from './type';
 

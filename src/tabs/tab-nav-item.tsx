@@ -1,12 +1,14 @@
-import { computed, defineComponent, ref, PropType } from 'vue';
 import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
+import { computed, defineComponent, ref, PropType } from 'vue';
+
+import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import useRipple from '../hooks/useRipple';
+
 import tabProps from './props';
 import tabPanelProps from './tab-panel-props';
 
 // hooks
-import useRipple from '../hooks/useRipple';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
 
 export default defineComponent({
   name: 'TTabNavItem',

@@ -1,17 +1,19 @@
-import { computed, defineComponent } from 'vue';
 import { UploadIcon } from 'tdesign-icons-vue-next';
+import { computed, defineComponent } from 'vue';
+
+import Button from '../button';
+import { useFormDisabled } from '../form/hooks';
+import { useContent, useTNodeJSX } from '../hooks/tnode';
+
+import { UploadDragEvents } from './hooks/useDrag';
+import useUpload from './hooks/useUpload';
+import { CommonDisplayFileProps, UploadProps } from './interface';
 import props from './props';
-import NormalFile from './themes/normal-file';
+import CustomFile from './themes/custom-file';
 import DraggerFile from './themes/dragger-file';
 import ImageCard from './themes/image-card';
 import MultipleFlowList from './themes/multiple-flow-list';
-import useUpload from './hooks/useUpload';
-import Button from '../button';
-import { CommonDisplayFileProps, UploadProps } from './interface';
-import { UploadDragEvents } from './hooks/useDrag';
-import CustomFile from './themes/custom-file';
-import { useContent, useTNodeJSX } from '../hooks/tnode';
-import { useFormDisabled } from '../form/hooks';
+import NormalFile from './themes/normal-file';
 
 export default defineComponent({
   name: 'TUpload',

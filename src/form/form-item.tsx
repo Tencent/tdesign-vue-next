@@ -1,3 +1,17 @@
+import cloneDeep from 'lodash/cloneDeep';
+import lodashGet from 'lodash/get';
+import isArray from 'lodash/isArray';
+import isBoolean from 'lodash/isBoolean';
+import isNil from 'lodash/isNil';
+import isNumber from 'lodash/isNumber';
+import isString from 'lodash/isString';
+import lodashSet from 'lodash/set';
+import {
+  CheckCircleFilledIcon as TdCheckCircleFilledIcon,
+  CloseCircleFilledIcon as TdCloseCircleFilledIcon,
+  ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
+  GlobalIconType,
+} from 'tdesign-icons-vue-next';
 import {
   computed,
   defineComponent,
@@ -12,32 +26,11 @@ import {
   VNode,
   watch,
 } from 'vue';
-import {
-  CheckCircleFilledIcon as TdCheckCircleFilledIcon,
-  CloseCircleFilledIcon as TdCloseCircleFilledIcon,
-  ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
-  GlobalIconType,
-} from 'tdesign-icons-vue-next';
-import isArray from 'lodash/isArray';
-import isNumber from 'lodash/isNumber';
-import isString from 'lodash/isString';
-import isBoolean from 'lodash/isBoolean';
-import cloneDeep from 'lodash/cloneDeep';
-import lodashGet from 'lodash/get';
-import lodashSet from 'lodash/set';
-import isNil from 'lodash/isNil';
 
-import { validate } from './form-model';
-import {
-  AllValidateResult,
-  Data,
-  FormErrorMessage,
-  FormItemValidateMessage,
-  FormRule,
-  ValidateTriggerType,
-  ValueType,
-} from './type';
-import props from './form-item-props';
+import { useConfig, usePrefixClass, useTNodeJSX } from '../hooks';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import template from '../utils/string-template';
+
 import {
   AnalysisValidateResult,
   ErrorListType,
@@ -48,10 +41,17 @@ import {
   useCLASSNAMES,
   ValidateStatus,
 } from './const';
-
-import { useConfig, usePrefixClass, useTNodeJSX } from '../hooks';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import template from '../utils/string-template';
+import props from './form-item-props';
+import { validate } from './form-model';
+import {
+  AllValidateResult,
+  Data,
+  FormErrorMessage,
+  FormItemValidateMessage,
+  FormRule,
+  ValidateTriggerType,
+  ValueType,
+} from './type';
 
 export type FormItemValidateResult<T extends Data = Data> = { [key in keyof T]: boolean | AllValidateResult[] };
 

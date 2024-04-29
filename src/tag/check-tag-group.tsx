@@ -1,10 +1,12 @@
-import { computed, defineComponent, toRefs, h } from 'vue';
-import { usePrefixClass } from '../hooks/useConfig';
-import props from './check-tag-group-props';
-import CheckTag from './check-tag';
-import useVModel from '../hooks/useVModel';
-import { CheckTagGroupOption, CheckTagGroupValue, TdCheckTagProps } from './type';
 import isFunction from 'lodash/isFunction';
+import { computed, defineComponent, toRefs, h } from 'vue';
+
+import { usePrefixClass } from '../hooks/useConfig';
+import useVModel from '../hooks/useVModel';
+
+import CheckTag from './check-tag';
+import props from './check-tag-group-props';
+import { CheckTagGroupOption, CheckTagGroupValue, TdCheckTagProps } from './type';
 
 export default defineComponent({
   name: 'TCheckTagGroup',

@@ -1,4 +1,3 @@
-import { defineComponent, toRefs, computed } from 'vue';
 import {
   CloseIcon as TdCloseIcon,
   TimeFilledIcon as TdTimeFilledIcon,
@@ -6,15 +5,17 @@ import {
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
   CloseCircleFilledIcon as TdCloseCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
-import TLoading from '../../loading';
-import Link from '../../link';
-import { useTNodeJSX } from '../../hooks/tnode';
-import { UploadFile } from '../type';
+import { defineComponent, toRefs, computed } from 'vue';
+
 import { abridgeName } from '../../_common/js/upload/utils';
-import { useGlobalIcon } from '../../hooks/useGlobalIcon';
-import { CommonDisplayFileProps } from '../interface';
-import { commonProps } from '../constants';
 import { UploadConfig } from '../../config-provider';
+import { useTNodeJSX } from '../../hooks/tnode';
+import { useGlobalIcon } from '../../hooks/useGlobalIcon';
+import Link from '../../link';
+import TLoading from '../../loading';
+import { commonProps } from '../constants';
+import { CommonDisplayFileProps } from '../interface';
+import { UploadFile } from '../type';
 
 export interface NormalFileProps extends CommonDisplayFileProps {
   multiple: boolean;

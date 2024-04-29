@@ -13,8 +13,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
 import { TreeProps, SwitchProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const data1 = [
   {
     value: 't1',

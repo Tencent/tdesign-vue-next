@@ -1,12 +1,13 @@
-import { computed, defineComponent, h, inject } from 'vue';
 import isFunction from 'lodash/isFunction';
 import { CheckIcon as TdCheckIcon, CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
+import { computed, defineComponent, h, inject } from 'vue';
 
-import props from './step-item-props';
 import { SlotReturnValue } from '../common';
+import { useTNodeJSX, useContent } from '../hooks';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useTNodeJSX, useContent } from '../hooks';
+
+import props from './step-item-props';
 
 export default defineComponent({
   name: 'TStepItem',

@@ -1,10 +1,12 @@
-import { defineComponent, h, VNodeChild } from 'vue';
-import isString from 'lodash/isString';
-import isNumber from 'lodash/isNumber';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
-import props from './props';
 import isFunction from 'lodash/isFunction';
+import isNumber from 'lodash/isNumber';
+import isString from 'lodash/isString';
+import { defineComponent, h, VNodeChild } from 'vue';
+
+import { useTNodeJSX } from '../hooks/tnode';
+import { usePrefixClass } from '../hooks/useConfig';
+
+import props from './props';
 
 export default defineComponent({
   name: 'TInputAdornment',

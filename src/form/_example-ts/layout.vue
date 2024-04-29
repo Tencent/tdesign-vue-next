@@ -25,8 +25,8 @@
   </t-space>
 </template>
 <script lang="ts" setup>
-import { reactive } from 'vue';
 import { MessagePlugin, FormProps } from 'tdesign-vue-next';
+import { reactive } from 'vue';
 const formData: FormProps['data'] = reactive({
   layout: 'inline',
   name: '',

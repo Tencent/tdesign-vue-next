@@ -1,13 +1,16 @@
 import isBoolean from 'lodash/isBoolean';
+import isEmpty from 'lodash/isEmpty';
+import isNumber from 'lodash/isNumber';
+// eslint-disable-next-line import/order
 import isObject from 'lodash/isObject';
 // https://github.com/validatorjs/validator.js
 
 import isDate from 'validator/lib/isDate';
 import isEmail from 'validator/lib/isEmail';
-import isEmpty from 'lodash/isEmpty';
 import isURL from 'validator/lib/isURL';
-import isNumber from 'lodash/isNumber';
+
 import { getCharacterLength } from '../_common/js/utils/helper';
+
 import {
   CustomValidator,
   FormRule,

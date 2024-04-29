@@ -1,11 +1,13 @@
-import { defineComponent } from 'vue';
 import { FileCopyIcon as TdFileCopyIcon } from 'tdesign-icons-vue-next';
-import { copyText } from '../utils/clipboard';
-import Message from '../message/plugin';
-import props from './anchor-target-props';
-import Popup from '../popup';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import { defineComponent } from 'vue';
+
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import Message from '../message/plugin';
+import Popup from '../popup';
+import { copyText } from '../utils/clipboard';
+
+import props from './anchor-target-props';
 
 export default defineComponent({
   name: 'TAnchorTarget',

@@ -8,6 +8,7 @@
 
 <script setup lang="jsx">
 import { compile } from 'vue/dist/vue.esm-bundler.js';
+
 import configList from './props.json';
 
 const renderCode = '<t-button>确定</t-button>';

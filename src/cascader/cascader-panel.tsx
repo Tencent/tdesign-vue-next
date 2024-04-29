@@ -1,8 +1,8 @@
 import { defineComponent } from 'vue';
-import Panel from './components/Panel';
-import props from './props';
 
+import Panel from './components/Panel';
 import { useCascaderContext } from './hooks';
+import props from './props';
 
 export default defineComponent({
   name: 'TCascaderPanel',

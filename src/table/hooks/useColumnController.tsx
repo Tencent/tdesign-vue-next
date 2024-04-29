@@ -1,22 +1,24 @@
 /**
  * 自定义显示列控制器，即列配置
  */
-import { computed, ref, SetupContext, toRefs, watch, h } from 'vue';
-import { SettingIcon as TdSettingIcon } from 'tdesign-icons-vue-next';
-// import intersection from 'lodash/intersection';
-import { CheckboxGroupValue, CheckboxOptionObj, CheckboxGroupChangeContext } from '../../checkbox';
-import { DialogPlugin } from '../../dialog/plugin';
-import { renderTitle } from './useTableHeader';
-import { PrimaryTableCol, TdPrimaryTableProps } from '../type';
-import { useConfig } from '../../hooks/useConfig';
-import { useGlobalIcon } from '../../hooks/useGlobalIcon';
-import useDefaultValue from '../../hooks/useDefaultValue';
-import { getCurrentRowByKey } from '../utils';
-import { DialogInstance } from '../../dialog';
-import TButton from '../../button';
-import ColumnCheckboxGroup from '../column-checkbox-group';
 import isFunction from 'lodash/isFunction';
+import { SettingIcon as TdSettingIcon } from 'tdesign-icons-vue-next';
+import { computed, ref, SetupContext, toRefs, watch, h } from 'vue';
+
+// import intersection from 'lodash/intersection';
+import TButton from '../../button';
+import { CheckboxGroupValue, CheckboxOptionObj, CheckboxGroupChangeContext } from '../../checkbox';
+import { DialogInstance } from '../../dialog';
+import { DialogPlugin } from '../../dialog/plugin';
 import { useTNodeJSX } from '../../hooks';
+import { useConfig } from '../../hooks/useConfig';
+import useDefaultValue from '../../hooks/useDefaultValue';
+import { useGlobalIcon } from '../../hooks/useGlobalIcon';
+import ColumnCheckboxGroup from '../column-checkbox-group';
+import { PrimaryTableCol, TdPrimaryTableProps } from '../type';
+import { getCurrentRowByKey } from '../utils';
+
+import { renderTitle } from './useTableHeader';
 
 export function getColumnKeys(columns: PrimaryTableCol[], keys = new Set<string>()) {
   for (let i = 0, len = columns.length; i < len; i++) {

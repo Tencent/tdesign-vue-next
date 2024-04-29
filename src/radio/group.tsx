@@ -1,3 +1,8 @@
+import isFunction from 'lodash/isFunction';
+import isNil from 'lodash/isNil';
+import isNumber from 'lodash/isNumber';
+import isString from 'lodash/isString';
+import throttle from 'lodash/throttle';
 import {
   VNode,
   defineComponent,
@@ -12,23 +17,20 @@ import {
   toRefs,
   onUnmounted,
 } from 'vue';
-import isString from 'lodash/isString';
-import isNumber from 'lodash/isNumber';
-import isNil from 'lodash/isNil';
-import throttle from 'lodash/throttle';
 
+import { useTNodeDefault } from '../hooks/tnode';
+import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import useResizeObserver from '../hooks/useResizeObserver';
+import useVModel from '../hooks/useVModel';
+import { useMutationObserver } from '../watermark/hooks';
+
+import { RadioGroupInjectionKey } from './constants';
+import Radio from './radio';
 import props from './radio-group-props';
 import { RadioOptionObj, RadioOption } from './type';
-import Radio from './radio';
-import { RadioGroupInjectionKey } from './constants';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import useVModel from '../hooks/useVModel';
-import { useTNodeDefault } from '../hooks/tnode';
 import useKeyboard from './useKeyboard';
-import isFunction from 'lodash/isFunction';
-import { useMutationObserver } from '../watermark/hooks';
+
 import type { UseMutationObserverReturn } from '../watermark/hooks';
-import useResizeObserver from '../hooks/useResizeObserver';
 
 export default defineComponent({
   name: 'TRadioGroup',

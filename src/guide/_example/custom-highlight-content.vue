@@ -39,6 +39,7 @@
 
 <script setup>
 import { ref } from 'vue';
+
 import HighlightContent from './highlight-content.vue';
 
 const visible = ref(false);

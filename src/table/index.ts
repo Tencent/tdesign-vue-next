@@ -1,9 +1,11 @@
 import cloneDeep from 'lodash/cloneDeep';
-import _BaseTable from './base-table';
-import _PrimaryTable from './primary-table';
-import _EnhancedTable from './enhanced-table';
-import withInstall from '../utils/withInstall';
+
 import { InfinityScroll } from '../common';
+import withInstall from '../utils/withInstall';
+
+import _BaseTable from './base-table';
+import _EnhancedTable from './enhanced-table';
+import _PrimaryTable from './primary-table';
 import { BaseTableInstanceFunctions, EnhancedTableInstanceFunctions, PrimaryTableInstanceFunctions } from './type';
 
 import './style';

@@ -1,17 +1,19 @@
-import { defineComponent, SetupContext } from 'vue';
 import {
   AddIcon as TdAddIcon,
   RemoveIcon as TdRemoveIcon,
   ChevronDownIcon as TdChevronDownIcon,
   ChevronUpIcon as TdChevronUpIcon,
 } from 'tdesign-icons-vue-next';
+import { defineComponent, SetupContext } from 'vue';
+
 import TButton from '../button';
-import TInput from '../input';
-import props from './props';
+import { useTNodeJSX } from '../hooks';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import TInput from '../input';
+
+import props from './props';
 import { TdInputNumberProps } from './type';
 import useInputNumber from './useInputNumber';
-import { useTNodeJSX } from '../hooks';
 
 export default defineComponent({
   name: 'TInputNumber',

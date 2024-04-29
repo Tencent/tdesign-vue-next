@@ -30,8 +30,8 @@
   </t-space>
 </template>
 <script lang="ts" setup>
-import { ref } from 'vue';
 import { UploadProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const files = ref<UploadProps['value']>([]);
 const ABRIDGE_NAME: UploadProps['abridgeName'] = [10, 7];
 const disabled = ref(false);

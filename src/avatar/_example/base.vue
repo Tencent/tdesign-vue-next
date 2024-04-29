@@ -6,8 +6,8 @@
   </t-space>
 </template>
 <script setup lang="jsx">
-import { computed } from 'vue';
 import { UserIcon } from 'tdesign-icons-vue-next';
+import { computed } from 'vue';
 
 const icon = computed(() => () => <UserIcon />);
 const image = 'https://tdesign.gtimg.com/site/avatar.jpg';

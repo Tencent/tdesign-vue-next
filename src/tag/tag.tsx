@@ -1,13 +1,14 @@
-import { computed, defineComponent, h, VNode } from 'vue';
+import isString from 'lodash/isString';
 import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
 import tinycolor from 'tinycolor2';
+import { computed, defineComponent, h, VNode } from 'vue';
 
-import props from './props';
+import { Styles } from '../common';
+import { useTNodeJSX, useContent } from '../hooks/tnode';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useTNodeJSX, useContent } from '../hooks/tnode';
-import { Styles } from '../common';
-import isString from 'lodash/isString';
+
+import props from './props';
 
 export default defineComponent({
   name: 'TTag',

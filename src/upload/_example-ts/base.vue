@@ -93,7 +93,6 @@
   </t-space>
 </template>
 <script lang="ts" setup>
-import { ref, watch } from 'vue';
 import {
   MessagePlugin,
   UploadInstanceFunctions,
@@ -101,6 +100,7 @@ import {
   UploadSelectChangeContext,
   ButtonProps,
 } from 'tdesign-vue-next';
+import { ref, watch } from 'vue';
 // import { CloseIcon } from 'tdesign-icons-vue-next';
 
 const uploadRef1 = ref<UploadInstanceFunctions>();

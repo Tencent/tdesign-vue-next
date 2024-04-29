@@ -1,12 +1,15 @@
-import { defineComponent, PropType, ref, watch } from 'vue';
 import upperCase from 'lodash/upperCase';
-import { TdColorPickerProps } from '../../type';
-import props from '../../props';
-import { FORMATS } from '../../const';
-import { Color } from '../../utils';
+import { defineComponent, PropType, ref, watch } from 'vue';
+
 import { Select as TSelect, Option as TOption } from '../../../select';
-import FormatInputs from './inputs';
+import { FORMATS } from '../../const';
 import { useBaseClassName } from '../../hooks';
+import props from '../../props';
+import { TdColorPickerProps } from '../../type';
+import { Color } from '../../utils';
+
+import FormatInputs from './inputs';
+
 import type { TdSelectInputProps } from '../../../select-input/type';
 
 export default defineComponent({

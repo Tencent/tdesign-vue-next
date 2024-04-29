@@ -1,11 +1,12 @@
-import { computed, VNode, Ref } from 'vue';
 import cloneDeep from 'lodash/cloneDeep';
-import { SliderMarks } from '../type';
-import { TNode } from '../../common';
-import log from '../../_common/js/log/log';
-import { getStopStyle } from '../util/common';
-import TSliderMark from '../slider-mark';
 import isArray from 'lodash/isArray';
+import { computed, VNode, Ref } from 'vue';
+
+import log from '../../_common/js/log/log';
+import { TNode } from '../../common';
+import TSliderMark from '../slider-mark';
+import { SliderMarks } from '../type';
+import { getStopStyle } from '../util/common';
 
 interface MarkItem {
   point: number;

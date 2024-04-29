@@ -1,13 +1,14 @@
+import isArray from 'lodash/isArray';
 import { ComponentPublicInstance, defineComponent, provide, Ref, toRefs } from 'vue';
-import TTabPanel from './tab-panel';
-import TTabNav from './tab-nav';
-import { TabValue, TdTabsProps } from './type';
-import props from './props';
 
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
 import useVModel from '../hooks/useVModel';
-import isArray from 'lodash/isArray';
+
+import props from './props';
+import TTabNav from './tab-nav';
+import TTabPanel from './tab-panel';
+import { TabValue, TdTabsProps } from './type';
 
 export interface InjectTabs {
   value: Ref<TabValue>;

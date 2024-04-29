@@ -59,8 +59,8 @@
   </div>
 </template>
 <script setup lang="jsx">
-import { computed, ref } from 'vue';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+import { computed, ref } from 'vue';
 
 const placement = ref('top-right');
 const bordered = ref(true);

@@ -15,8 +15,8 @@
   </t-space>
 </template>
 <script setup>
-import { ref } from 'vue';
 import { SearchIcon } from 'tdesign-icons-vue-next';
+import { ref } from 'vue';
 
 const input = ref('有默认值');
 const onEnter = () => {

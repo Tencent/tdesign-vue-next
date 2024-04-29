@@ -1,3 +1,4 @@
+import isFunction from 'lodash/isFunction';
 import {
   PropType,
   defineComponent,
@@ -9,13 +10,13 @@ import {
   watchEffect,
   inject,
 } from 'vue';
-import TTooltip from '../tooltip/index';
-import { TdSliderProps } from './type';
 
 import { usePrefixClass } from '../hooks/useConfig';
+import TTooltip from '../tooltip/index';
+
 import { useSliderTooltip } from './hooks/useSliderTooltip';
+import { TdSliderProps } from './type';
 import { sliderPropsInjectKey } from './util/constants';
-import isFunction from 'lodash/isFunction';
 
 export default defineComponent({
   name: 'TSliderButton',

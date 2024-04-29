@@ -1,17 +1,19 @@
-import { defineComponent, computed, PropType, toRefs } from 'vue';
 import camelCase from 'lodash/camelCase';
 import get from 'lodash/get';
 import pick from 'lodash/pick';
-import TrElement, { ROW_LISTENERS, TABLE_PROPS } from './tr';
-import { useConfig } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
-import useClassName from './hooks/useClassName';
-import baseTableProps from './base-table-props';
+import { defineComponent, computed, PropType, toRefs } from 'vue';
+
 import { TNodeReturnValue } from '../common';
+import { useTNodeJSX } from '../hooks/tnode';
+import { useConfig } from '../hooks/useConfig';
+import { VirtualScrollConfig } from '../hooks/useVirtualScrollNew';
+
+import baseTableProps from './base-table-props';
+import useClassName from './hooks/useClassName';
 import useRowspanAndColspan from './hooks/useRowspanAndColspan';
 import { BaseTableProps, RowAndColFixedPosition } from './interface';
+import TrElement, { ROW_LISTENERS, TABLE_PROPS } from './tr';
 import { TdBaseTableProps } from './type';
-import { VirtualScrollConfig } from '../hooks/useVirtualScrollNew';
 
 export const ROW_AND_TD_LISTENERS = ROW_LISTENERS.concat('cell-click');
 export interface TableBodyProps extends BaseTableProps {

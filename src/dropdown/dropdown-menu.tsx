@@ -1,14 +1,15 @@
-import { defineComponent, ref, onMounted, h, reactive } from 'vue';
+import isFunction from 'lodash/isFunction';
 import { ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
-import DropdownItem from './dropdown-item';
+import { defineComponent, ref, onMounted, h, reactive } from 'vue';
 
-import { DropdownOption } from './type';
-import DropdownProps from './props';
+import { TNode } from '../common';
 import TDivider from '../divider';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { TNode } from '../common';
-import isFunction from 'lodash/isFunction';
+
+import DropdownItem from './dropdown-item';
+import DropdownProps from './props';
+import { DropdownOption } from './type';
 
 export default defineComponent({
   name: 'TDropdownMenu',

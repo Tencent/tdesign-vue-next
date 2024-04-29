@@ -1,6 +1,7 @@
+import withInstall from '../utils/withInstall';
+
 import _Swiper from './swiper';
 import _SwiperItem from './swiper-item';
-import withInstall from '../utils/withInstall';
 import { TdSwiperProps } from './type';
 
 import './style';

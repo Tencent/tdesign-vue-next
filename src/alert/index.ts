@@ -1,5 +1,6 @@
-import _Alert from './alert';
 import withInstall from '../utils/withInstall';
+
+import _Alert from './alert';
 import { TdAlertProps } from './type';
 
 import './style';

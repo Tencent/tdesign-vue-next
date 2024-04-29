@@ -1,16 +1,17 @@
-import { defineComponent, h, onBeforeMount, onMounted, ref } from 'vue';
+import isFunction from 'lodash/isFunction';
 import {
   InfoCircleFilledIcon as TdInfoCircleFilledIcon,
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
   CloseIcon as TdCloseIcon,
 } from 'tdesign-icons-vue-next';
-import isFunction from 'lodash/isFunction';
+import { defineComponent, h, onBeforeMount, onMounted, ref } from 'vue';
 
 import { useTNodeJSX, useContent } from '../hooks/tnode';
-import props from './props';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
+
 import { fadeIn, fadeOut } from './animate';
+import props from './props';
 
 export default defineComponent({
   name: 'TNotification',

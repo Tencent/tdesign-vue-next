@@ -1,9 +1,18 @@
-import { defineComponent, computed, toRefs } from 'vue';
+import isFunction from 'lodash/isFunction';
 import pick from 'lodash/pick';
+import { defineComponent, computed, toRefs } from 'vue';
+
+import { TNode } from '../common';
+import { useFormDisabled } from '../form/hooks';
+import { usePrefixClass } from '../hooks/useConfig';
+import useDefaultValue from '../hooks/useDefaultValue';
+import useVModel from '../hooks/useVModel';
+import { PageInfo, TdPaginationProps } from '../pagination/type';
+
 import TransferList from './components/transfer-list';
 import TransferOperations from './components/transfer-operations';
 import { TransferListType, CheckedOptions, TransferValue, EmptyType, TargetParams, SearchEvent } from './interface';
-
+import props from './props';
 import {
   getTransferListOption,
   getDataValues,
@@ -13,16 +22,8 @@ import {
   SOURCE,
   TARGET,
 } from './utils';
-import { PageInfo, TdPaginationProps } from '../pagination/type';
-import props from './props';
-import { TNode } from '../common';
-import useVModel from '../hooks/useVModel';
-import useDefaultValue from '../hooks/useDefaultValue';
 
 // hooks
-import { useFormDisabled } from '../form/hooks';
-import { usePrefixClass } from '../hooks/useConfig';
-import isFunction from 'lodash/isFunction';
 
 export default defineComponent({
   name: TRANSFER_NAME,

@@ -11,8 +11,8 @@
   </t-space>
 </template>
 <script setup lang="jsx">
-import { MessagePlugin } from 'tdesign-vue-next';
 import { DiscountIcon } from 'tdesign-icons-vue-next';
+import { MessagePlugin } from 'tdesign-vue-next';
 
 const options = [
   {

@@ -19,8 +19,8 @@
   </t-space>
 </template>
 <script lang="tsx" setup>
-import { ref } from 'vue';
 import { ButtonProps, NotificationProps } from 'tdesign-vue-next';
+import { ref } from 'vue';
 const visible = ref(true);
 const remind: ButtonProps['onClick'] = () => {
   visible.value = false;
