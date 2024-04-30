@@ -1,5 +1,6 @@
-import { ImageIcon, ZoomInIcon, ZoomOutIcon, DownloadIcon, MirrorIcon, RotationIcon } from 'tdesign-icons-vue-next';
 import { computed, defineComponent, PropType } from 'vue';
+
+import { ImageIcon, ZoomInIcon, ZoomOutIcon, DownloadIcon, MirrorIcon, RotationIcon } from 'tdesign-icons-vue-next';
 
 import { largeNumberToFixed } from '../../_common/js/input-number/large-number';
 import { useImagePreviewUrl } from '../../hooks';

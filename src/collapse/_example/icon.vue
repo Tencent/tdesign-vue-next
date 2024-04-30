@@ -32,8 +32,9 @@
 </template>
 
 <script setup lang="jsx">
-import { StarIcon, LogoGithubIcon } from 'tdesign-icons-vue-next';
 import { ref } from 'vue';
+
+import { StarIcon, LogoGithubIcon } from 'tdesign-icons-vue-next';
 
 const direction = ref('left');
 const onlyIcon = ref(false);

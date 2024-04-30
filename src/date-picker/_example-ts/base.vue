@@ -12,9 +12,10 @@
 </template>
 
 <script lang="ts" setup>
+import { ref } from 'vue';
+
 import { Dayjs } from 'dayjs';
 import { DateValue, DatePickerTriggerSource } from 'tdesign-vue-next';
-import { ref } from 'vue';
 const date = ref('');
 const date2 = ref('');
 function handleChange(

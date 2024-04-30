@@ -1,5 +1,6 @@
-import omit from 'lodash/omit';
 import { defineComponent, computed } from 'vue';
+
+import omit from 'lodash/omit';
 
 import FakeArrow from '../common-components/fake-arrow';
 import { useFormDisabled } from '../form/hooks';

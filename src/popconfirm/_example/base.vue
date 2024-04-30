@@ -17,8 +17,9 @@
 </template>
 
 <script setup lang="jsx">
-import { MessagePlugin } from 'tdesign-vue-next';
 import { ref } from 'vue';
+
+import { MessagePlugin } from 'tdesign-vue-next';
 
 const visible = ref(false);
 

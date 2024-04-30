@@ -1,5 +1,6 @@
-import isFunction from 'lodash/isFunction';
 import { computed, defineComponent, toRefs, h } from 'vue';
+
+import isFunction from 'lodash/isFunction';
 
 import { usePrefixClass } from '../hooks/useConfig';
 import useVModel from '../hooks/useVModel';

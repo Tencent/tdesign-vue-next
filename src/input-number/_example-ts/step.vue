@@ -3,8 +3,9 @@
 </template>
 
 <script lang="ts" setup>
-import { InputNumberProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+
+import { InputNumberProps } from 'tdesign-vue-next';
 const value = ref(3.2);
 const onChange: InputNumberProps['onChange'] = (ev) => {
   console.info(ev);

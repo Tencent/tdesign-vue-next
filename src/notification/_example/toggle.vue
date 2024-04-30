@@ -4,8 +4,9 @@
   </t-space>
 </template>
 <script setup>
-import { NotifyPlugin } from 'tdesign-vue-next';
 import { ref } from 'vue';
+
+import { NotifyPlugin } from 'tdesign-vue-next';
 
 const notification = ref(null);
 const toggle = () => {

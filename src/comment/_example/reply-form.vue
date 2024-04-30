@@ -10,8 +10,9 @@
 </template>
 
 <script setup>
-import { NotifyPlugin } from 'tdesign-vue-next';
 import { ref } from 'vue';
+
+import { NotifyPlugin } from 'tdesign-vue-next';
 
 const replyData = ref('');
 

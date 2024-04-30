@@ -1,4 +1,3 @@
-import isArray from 'lodash/isArray';
 import {
   defineComponent,
   getCurrentInstance,
@@ -14,6 +13,8 @@ import {
   ComponentInternalInstance,
   Comment,
 } from 'vue';
+
+import isArray from 'lodash/isArray';
 
 import useResizeObserver from '../hooks/useResizeObserver';
 import { getSSRAttach, getAttach } from '../utils/dom';

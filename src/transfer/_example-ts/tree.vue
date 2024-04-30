@@ -13,8 +13,9 @@
   </t-transfer>
 </template>
 <script lang="ts" setup>
-import { TransferProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+
+import { TransferProps } from 'tdesign-vue-next';
 
 // support using keys to rename data attributes, keys should be defined in transfer
 const keys: TransferProps['keys'] = {

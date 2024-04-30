@@ -19,8 +19,9 @@
 </template>
 
 <script setup lang="jsx">
-import { Icon } from 'tdesign-icons-vue-next';
 import { ref } from 'vue';
+
+import { Icon } from 'tdesign-icons-vue-next';
 const items = ref([
   {
     label: '1',

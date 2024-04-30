@@ -46,10 +46,11 @@
 </template>
 
 <script setup lang="jsx">
+import { ref, watch } from 'vue';
+
 import cloneDeep from 'lodash/cloneDeep';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { EnhancedTable as TEnhancedTable, MessagePlugin } from 'tdesign-vue-next';
-import { ref, watch } from 'vue';
 
 const statusNameListMap = {
   0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },

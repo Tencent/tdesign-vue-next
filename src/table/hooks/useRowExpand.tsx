@@ -1,6 +1,7 @@
+import { computed, SetupContext, toRefs, h } from 'vue';
+
 import get from 'lodash/get';
 import { ChevronRightCircleIcon as TdChevronRightCircleIcon } from 'tdesign-icons-vue-next';
-import { computed, SetupContext, toRefs, h } from 'vue';
 
 import { useTNodeJSX } from '../../hooks/tnode';
 import { useConfig } from '../../hooks/useConfig';

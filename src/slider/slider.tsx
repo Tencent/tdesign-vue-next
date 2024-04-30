@@ -1,5 +1,3 @@
-import isArray from 'lodash/isArray';
-import isNumber from 'lodash/isNumber';
 import {
   defineComponent,
   VNode,
@@ -12,6 +10,9 @@ import {
   watch,
   toRefs,
 } from 'vue';
+
+import isArray from 'lodash/isArray';
+import isNumber from 'lodash/isNumber';
 
 import { useFormDisabled } from '../form/hooks';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';

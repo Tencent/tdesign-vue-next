@@ -1,5 +1,6 @@
-import isObject from 'lodash/isObject';
 import { computed } from 'vue';
+
+import isObject from 'lodash/isObject';
 
 import { useConfig } from '../../hooks/useConfig';
 import { COMPONENT_NAME } from '../const';

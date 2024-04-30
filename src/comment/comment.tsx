@@ -1,6 +1,7 @@
+import { defineComponent, computed } from 'vue';
+
 import isArray from 'lodash/isArray';
 import isString from 'lodash/isString';
-import { defineComponent, computed } from 'vue';
 
 import Button from '../button';
 import { useTNodeJSX } from '../hooks/tnode';

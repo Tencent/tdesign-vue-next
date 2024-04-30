@@ -1,8 +1,9 @@
+import { defineComponent, toRefs, PropType, ref, computed, h } from 'vue';
+
 import {
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
-import { defineComponent, toRefs, PropType, ref, computed, h } from 'vue';
 
 import { abridgeName, getFileSizeText } from '../../_common/js/upload/utils';
 import Button from '../../button';

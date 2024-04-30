@@ -1,5 +1,6 @@
-import kebabCase from 'lodash/kebabCase';
 import { ref, Ref, getCurrentInstance } from 'vue';
+
+import kebabCase from 'lodash/kebabCase';
 
 import { ChangeHandler } from './useVModel';
 

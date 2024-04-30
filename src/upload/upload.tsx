@@ -1,5 +1,6 @@
-import { UploadIcon } from 'tdesign-icons-vue-next';
 import { computed, defineComponent } from 'vue';
+
+import { UploadIcon } from 'tdesign-icons-vue-next';
 
 import Button from '../button';
 import { useFormDisabled } from '../form/hooks';

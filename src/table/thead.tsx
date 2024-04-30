@@ -1,5 +1,6 @@
-import isFunction from 'lodash/isFunction';
 import { defineComponent, computed, SetupContext, PropType, ref, Ref, h, CSSProperties } from 'vue';
+
+import isFunction from 'lodash/isFunction';
 
 import { AttachNode } from '../common';
 

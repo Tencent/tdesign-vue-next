@@ -6,8 +6,9 @@
 </template>
 
 <script setup>
-import dayjs from 'dayjs';
 import { ref } from 'vue';
+
+import dayjs from 'dayjs';
 
 const presets = ref({
   最近7天: [dayjs().subtract(6, 'day').toDate(), dayjs().toDate()],

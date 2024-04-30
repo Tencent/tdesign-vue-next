@@ -1,5 +1,6 @@
-import { DeleteIcon as TdDeleteIcon, AddIcon as TdAddIcon } from 'tdesign-icons-vue-next';
 import { computed, defineComponent, PropType, ref } from 'vue';
+
+import { DeleteIcon as TdDeleteIcon, AddIcon as TdAddIcon } from 'tdesign-icons-vue-next';
 
 import { useCommonClassName } from '../../hooks/useConfig';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';

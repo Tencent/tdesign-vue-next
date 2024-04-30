@@ -21,9 +21,10 @@
   </t-select-input>
 </template>
 <script lang="ts" setup>
+import { ref } from 'vue';
+
 import { SearchIcon } from 'tdesign-icons-vue-next';
 import { SelectInputProps } from 'tdesign-vue-next';
-import { ref } from 'vue';
 const OPTIONS = ['Student A', 'Student B', 'Student C', 'Student D', 'Student E', 'Student F'];
 const popupVisible = ref(false);
 const selectValue = ref<SelectInputProps['value']>();

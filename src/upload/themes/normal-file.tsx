@@ -1,3 +1,5 @@
+import { defineComponent, toRefs, computed } from 'vue';
+
 import {
   CloseIcon as TdCloseIcon,
   TimeFilledIcon as TdTimeFilledIcon,
@@ -5,7 +7,6 @@ import {
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
   CloseCircleFilledIcon as TdCloseCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
-import { defineComponent, toRefs, computed } from 'vue';
 
 import { abridgeName } from '../../_common/js/upload/utils';
 import { UploadConfig } from '../../config-provider';

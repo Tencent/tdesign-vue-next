@@ -1,6 +1,7 @@
+import { computed, VNode, Ref } from 'vue';
+
 import cloneDeep from 'lodash/cloneDeep';
 import isArray from 'lodash/isArray';
-import { computed, VNode, Ref } from 'vue';
 
 import log from '../../_common/js/log/log';
 import { TNode } from '../../common';

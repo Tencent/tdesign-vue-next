@@ -20,8 +20,9 @@
   </t-space>
 </template>
 <script setup>
-import { DialogPlugin } from 'tdesign-vue-next';
 import { ref } from 'vue';
+
+import { DialogPlugin } from 'tdesign-vue-next';
 
 const visible = ref(false);
 const loading = ref(false);

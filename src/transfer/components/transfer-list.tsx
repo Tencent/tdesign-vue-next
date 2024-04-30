@@ -1,7 +1,8 @@
+import { defineComponent, VNode, PropType, ref, computed, watch, toRefs } from 'vue';
+
 import cloneDeep from 'lodash/cloneDeep';
 import filter from 'lodash/filter';
 import isString from 'lodash/isString';
-import { defineComponent, VNode, PropType, ref, computed, watch, toRefs } from 'vue';
 
 import { Checkbox as TCheckbox, CheckboxGroup as TCheckboxGroup, CheckboxProps } from '../../checkbox';
 import { useTNodeDefault } from '../../hooks/tnode';

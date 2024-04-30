@@ -12,8 +12,9 @@
   </t-space>
 </template>
 <script setup>
-import get from 'lodash/get';
 import { computed, getCurrentInstance } from 'vue';
+
+import get from 'lodash/get';
 
 const { appContext } = getCurrentInstance();
 const path = computed(() => get(appContext, '$route.path', ''));

@@ -1,6 +1,7 @@
+import { computed, ref, watch, onBeforeUnmount } from 'vue';
+
 import debounce from 'lodash/debounce';
 import isBoolean from 'lodash/isBoolean';
-import { computed, ref, watch, onBeforeUnmount } from 'vue';
 
 import { AffixProps } from '../../affix';
 import { on, off } from '../../utils/dom';

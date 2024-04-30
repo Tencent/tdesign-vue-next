@@ -14,8 +14,9 @@
 </template>
 
 <script lang="ts" setup>
-import { StepsProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+
+import { StepsProps } from 'tdesign-vue-next';
 const steps: StepsProps['options'] = [
   {
     title: '已完成的步骤',

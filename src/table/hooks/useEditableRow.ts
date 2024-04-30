@@ -1,8 +1,9 @@
+import { ref, computed, watch, toRefs } from 'vue';
+
 import cloneDeep from 'lodash/cloneDeep';
 import get from 'lodash/get';
 import isFunction from 'lodash/isFunction';
 import set from 'lodash/set';
-import { ref, computed, watch, toRefs } from 'vue';
 
 import { getEditableKeysMap } from '../../_common/js/table/utils';
 import { validate } from '../../form/form-model';

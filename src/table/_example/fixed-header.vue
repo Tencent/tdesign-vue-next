@@ -32,8 +32,9 @@
   </div>
 </template>
 <script setup lang="jsx">
-import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { ref } from 'vue';
+
+import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
 const data = [];
 const statusNameListMap = {

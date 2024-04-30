@@ -1,6 +1,7 @@
+import { computed, defineComponent } from 'vue';
+
 import escapeRegExp from 'lodash/escapeRegExp';
 import isString from 'lodash/isString';
-import { computed, defineComponent } from 'vue';
 
 import { usePrefixClass } from '../hooks/useConfig';
 

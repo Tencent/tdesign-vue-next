@@ -23,9 +23,10 @@
  * msg.then(instance => instance.close())
  *
  */
+import { App, createApp, nextTick, Plugin, ComponentPublicInstance } from 'vue';
+
 import isObject from 'lodash/isObject';
 import isString from 'lodash/isString';
-import { App, createApp, nextTick, Plugin, ComponentPublicInstance } from 'vue';
 
 import { AttachNodeReturnValue } from '../common';
 import { getAttach } from '../utils/dom';

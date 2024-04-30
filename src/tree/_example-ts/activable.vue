@@ -27,8 +27,9 @@
 </template>
 
 <script lang="ts" setup>
-import { TreeProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+
+import { TreeProps } from 'tdesign-vue-next';
 const activable = ref(true);
 const activeMultiple = ref(false);
 const expandOnClickNode = ref(false);

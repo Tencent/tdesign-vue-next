@@ -1,5 +1,6 @@
-import isString from 'lodash/isString';
 import { defineComponent, computed } from 'vue';
+
+import isString from 'lodash/isString';
 
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';

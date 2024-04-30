@@ -25,8 +25,9 @@
   </div>
 </template>
 <script setup>
-import { ChevronDownIcon } from 'tdesign-icons-vue-next';
 import { computed, ref } from 'vue';
+
+import { ChevronDownIcon } from 'tdesign-icons-vue-next';
 
 const OPTIONS = [
   // 全选

@@ -1,6 +1,7 @@
+import { defineComponent, ref, computed, provide, watchEffect, watch, onMounted, toRefs } from 'vue';
+
 import isArray from 'lodash/isArray';
 import isNumber from 'lodash/isNumber';
-import { defineComponent, ref, computed, provide, watchEffect, watch, onMounted, toRefs } from 'vue';
 
 import log from '../_common/js/log/log';
 import { usePrefixClass } from '../hooks/useConfig';

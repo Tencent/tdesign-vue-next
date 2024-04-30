@@ -67,6 +67,8 @@
 </template>
 
 <script setup lang="jsx">
+import { ref, watch, computed } from 'vue';
+
 import {
   ChevronRightCircleIcon,
   ChevronRightIcon,
@@ -74,7 +76,6 @@ import {
   ErrorCircleFilledIcon,
   CloseCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
-import { ref, watch, computed } from 'vue';
 
 const statusNameListMap = {
   0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },

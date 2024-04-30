@@ -1,5 +1,6 @@
-import { ImageErrorIcon } from 'tdesign-icons-vue-next';
 import { computed, defineComponent, PropType, ref, toRefs, watch } from 'vue';
+
+import { ImageErrorIcon } from 'tdesign-icons-vue-next';
 
 import { usePrefixClass, useConfig } from '../../hooks/useConfig';
 import { useImagePreviewUrl } from '../../hooks/useImagePreviewUrl';

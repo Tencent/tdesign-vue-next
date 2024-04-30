@@ -53,8 +53,9 @@
 </template>
 
 <script lang="ts" setup>
-import { HeadMenuProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+
+import { HeadMenuProps } from 'tdesign-vue-next';
 const menu1Value = ref('item2');
 const menu2Value = ref('item1');
 const changeHandler: HeadMenuProps['onChange'] = (active) => {

@@ -1,5 +1,6 @@
-import { ChevronDownIcon as TdChevronDownIcon } from 'tdesign-icons-vue-next';
 import { computed, defineComponent, PropType } from 'vue';
+
+import { ChevronDownIcon as TdChevronDownIcon } from 'tdesign-icons-vue-next';
 
 import { TNode } from '../common';
 import { TableConfig } from '../config-provider';

@@ -1,7 +1,8 @@
+import { SetupContext, h, defineComponent, PropType, toRefs } from 'vue';
+
 import get from 'lodash/get';
 import isFunction from 'lodash/isFunction';
 import isString from 'lodash/isString';
-import { SetupContext, h, defineComponent, PropType, toRefs } from 'vue';
 
 import { Styles } from '../common';
 import { useTNodeJSX } from '../hooks/tnode';

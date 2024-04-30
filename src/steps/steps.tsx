@@ -1,5 +1,6 @@
-import isObject from 'lodash/isObject';
 import { computed, defineComponent, provide, reactive, ref, toRefs, VNode } from 'vue';
+
+import isObject from 'lodash/isObject';
 
 import { useChildComponentSlots } from '../hooks';
 import { usePrefixClass } from '../hooks/useConfig';

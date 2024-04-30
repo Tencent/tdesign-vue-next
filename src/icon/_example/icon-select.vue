@@ -14,8 +14,9 @@
   </t-select>
 </template>
 <script setup>
-import { manifest } from 'tdesign-icons-vue-next';
 import { ref } from 'vue';
+
+import { manifest } from 'tdesign-icons-vue-next';
 // 获取全部图标的列表
 const options = ref(manifest);
 const value = ref('add');

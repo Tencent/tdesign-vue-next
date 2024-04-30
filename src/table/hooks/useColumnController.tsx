@@ -1,9 +1,10 @@
 /**
  * 自定义显示列控制器，即列配置
  */
+import { computed, ref, SetupContext, toRefs, watch, h } from 'vue';
+
 import isFunction from 'lodash/isFunction';
 import { SettingIcon as TdSettingIcon } from 'tdesign-icons-vue-next';
-import { computed, ref, SetupContext, toRefs, watch, h } from 'vue';
 
 // import intersection from 'lodash/intersection';
 import TButton from '../../button';

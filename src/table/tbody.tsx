@@ -1,7 +1,8 @@
+import { defineComponent, computed, PropType, toRefs } from 'vue';
+
 import camelCase from 'lodash/camelCase';
 import get from 'lodash/get';
 import pick from 'lodash/pick';
-import { defineComponent, computed, PropType, toRefs } from 'vue';
 
 import { TNodeReturnValue } from '../common';
 import { useTNodeJSX } from '../hooks/tnode';

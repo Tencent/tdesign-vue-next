@@ -58,8 +58,9 @@
   </t-form>
 </template>
 <script setup>
-import { MessagePlugin } from 'tdesign-vue-next';
 import { ref, reactive, computed } from 'vue';
+
+import { MessagePlugin } from 'tdesign-vue-next';
 
 const form = ref(null);
 const formData = reactive({

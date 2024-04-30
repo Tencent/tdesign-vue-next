@@ -12,8 +12,9 @@
 </template>
 
 <script lang="ts" setup>
-import { MessagePlugin, PaginationProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+
+import { MessagePlugin, PaginationProps } from 'tdesign-vue-next';
 const pageSizeOptions: PaginationProps['pageSizeOptions'] = [
   {
     label: '每页 10 条',

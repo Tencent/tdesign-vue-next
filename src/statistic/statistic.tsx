@@ -1,10 +1,11 @@
+import { defineComponent, computed, ref, onMounted, watch, toRefs } from 'vue';
+
 import isFunction from 'lodash/isFunction';
 import isNumber from 'lodash/isNumber';
 import {
   ArrowTriangleDownFilledIcon as TDArrowTriangleDownFilledIcon,
   ArrowTriangleUpFilledIcon as TDArrowTriangleUpFilledIcon,
 } from 'tdesign-icons-vue-next';
-import { defineComponent, computed, ref, onMounted, watch, toRefs } from 'vue';
 
 import Tween from '../_common/js/statistic/tween';
 import { COLOR_MAP } from '../_common/js/statistic/utils';

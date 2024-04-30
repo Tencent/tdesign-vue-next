@@ -1,6 +1,7 @@
+import { defineComponent, VNodeChild, computed, ref } from 'vue';
+
 import isString from 'lodash/isString';
 import omit from 'lodash/omit';
-import { defineComponent, VNodeChild, computed, ref } from 'vue';
 
 import { useTNodeJSX } from '../hooks/tnode';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';

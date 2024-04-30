@@ -23,8 +23,9 @@
 </template>
 
 <script lang="ts" setup>
-import { RadioGroupProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+
+import { RadioGroupProps } from 'tdesign-vue-next';
 const visible = ref(false);
 const placement = ref<RadioGroupProps['defaultValue']>('right');
 </script>

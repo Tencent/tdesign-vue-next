@@ -28,9 +28,10 @@
 </template>
 
 <script lang="ts" setup>
+import { ref } from 'vue';
+
 import { BrowseIcon } from 'tdesign-icons-vue-next';
 import { ImageInfo } from 'tdesign-vue-next';
-import { ref } from 'vue';
 const visible1 = ref(false);
 const visible2 = ref(false);
 const onOpen1 = () => (visible1.value = true);

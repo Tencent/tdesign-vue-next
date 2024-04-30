@@ -27,8 +27,9 @@
   </t-space>
 </template>
 <script lang="tsx" setup>
-import { SelectProps } from 'tdesign-vue-next';
 import { ref, computed } from 'vue';
+
+import { SelectProps } from 'tdesign-vue-next';
 const options = [
   {
     label: '用户一',

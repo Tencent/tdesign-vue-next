@@ -59,9 +59,10 @@
   </div>
 </template>
 <script lang="tsx" setup>
+import { computed, ref } from 'vue';
+
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { TableColumnController, TableProps } from 'tdesign-vue-next';
-import { computed, ref } from 'vue';
 const placement = ref<TableColumnController['placement']>('top-right');
 const bordered = ref(true);
 const customText = ref(false);

@@ -1,8 +1,9 @@
+import { defineComponent, computed, toRefs } from 'vue';
+
 import {
   InfoCircleFilledIcon as TdInfoCircleFilledIcon,
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
-import { defineComponent, computed, toRefs } from 'vue';
 
 import { useAction } from '../dialog/hooks';
 import { useContent, useTNodeJSX, useTNodeDefault } from '../hooks/tnode';

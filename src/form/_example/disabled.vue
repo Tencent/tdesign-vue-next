@@ -87,8 +87,9 @@
   </t-space>
 </template>
 <script setup>
-import { MessagePlugin } from 'tdesign-vue-next';
 import { ref, reactive } from 'vue';
+
+import { MessagePlugin } from 'tdesign-vue-next';
 
 const formDisabled = ref(true);
 const formData = reactive({

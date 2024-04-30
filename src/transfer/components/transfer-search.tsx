@@ -1,5 +1,6 @@
-import { SearchIcon as TdSearchIcon } from 'tdesign-icons-vue-next';
 import { defineComponent, PropType } from 'vue';
+
+import { SearchIcon as TdSearchIcon } from 'tdesign-icons-vue-next';
 
 import { usePrefixClass } from '../../hooks/useConfig';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';

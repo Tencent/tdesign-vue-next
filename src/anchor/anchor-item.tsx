@@ -1,6 +1,7 @@
+import { defineComponent, h, VNodeChild, onMounted, onUnmounted, inject, watch } from 'vue';
+
 import isFunction from 'lodash/isFunction';
 import isString from 'lodash/isString';
-import { defineComponent, h, VNodeChild, onMounted, onUnmounted, inject, watch } from 'vue';
 
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 

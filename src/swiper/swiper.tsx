@@ -1,5 +1,6 @@
-import { ChevronLeftIcon as TdChevronLeftIcon, ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
 import { defineComponent, ref, computed, watch, isVNode, onMounted, cloneVNode } from 'vue';
+
+import { ChevronLeftIcon as TdChevronLeftIcon, ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
 
 import { useChildComponentSlots } from '../hooks';
 import { useTNodeJSX } from '../hooks/tnode';

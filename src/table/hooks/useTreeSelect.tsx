@@ -1,6 +1,7 @@
+import { computed, toRefs, ref, Ref, watch } from 'vue';
+
 import get from 'lodash/get';
 import intersection from 'lodash/intersection';
-import { computed, toRefs, ref, Ref, watch } from 'vue';
 
 import { KeysType, TableTreeDataMap, TreeDataMapType } from '../../_common/js/table/tree-store';
 import useDefaultValue from '../../hooks/useDefaultValue';

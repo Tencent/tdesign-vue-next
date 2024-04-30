@@ -1,5 +1,6 @@
-import upperCase from 'lodash/upperCase';
 import { defineComponent, PropType, ref, watch } from 'vue';
+
+import upperCase from 'lodash/upperCase';
 
 import { Select as TSelect, Option as TOption } from '../../../select';
 import { FORMATS } from '../../const';

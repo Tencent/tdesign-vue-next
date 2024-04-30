@@ -1,5 +1,6 @@
-import get from 'lodash/get';
 import { ref, Ref, toRefs } from 'vue';
+
+import get from 'lodash/get';
 
 import {
   ARROW_DOWN_REG,

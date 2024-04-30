@@ -32,9 +32,10 @@
 </template>
 
 <script lang="tsx" setup>
+import { ref } from 'vue';
+
 import { StarIcon, LogoGithubIcon } from 'tdesign-icons-vue-next';
 import { CollapseProps, CollapsePanelProps } from 'tdesign-vue-next';
-import { ref } from 'vue';
 const direction = ref<CollapseProps['expandIconPlacement']>('left');
 const onlyIcon = ref(false);
 const renderStarIcon: CollapsePanelProps['expandIcon'] = () => {

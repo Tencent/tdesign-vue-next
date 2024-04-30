@@ -1,5 +1,6 @@
-import pickBy from 'lodash/pickBy';
 import { computed, defineComponent } from 'vue';
+
+import pickBy from 'lodash/pickBy';
 
 import { usePrefixClass } from '../hooks/useConfig';
 

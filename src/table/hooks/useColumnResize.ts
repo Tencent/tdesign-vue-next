@@ -5,8 +5,9 @@
  * - 当表格内容没有超出时，即没有出现横向滚动条时，此时认为表格有足够的列宽呈现内容，修改宽度为相邻宽度调整
  * - 当表格内容超出，出现横向滚动条时，会自动调整当前列宽和表格总列宽，不影响相邻列宽
  */
-import isNumber from 'lodash/isNumber';
 import { ref, Ref, reactive, onMounted } from 'vue';
+
+import isNumber from 'lodash/isNumber';
 
 import { on, off } from '../../utils/dom';
 import { BaseTableCol, TableRowData, TdBaseTableProps } from '../type';

@@ -1,9 +1,10 @@
+import { SetupContext, ref, watch, toRefs, onUnmounted, computed, h, shallowRef } from 'vue';
+
 import get from 'lodash/get';
 import {
   AddRectangleIcon as TdAddRectangleIcon,
   MinusRectangleIcon as TdMinusRectangleIcon,
 } from 'tdesign-icons-vue-next';
-import { SetupContext, ref, watch, toRefs, onUnmounted, computed, h, shallowRef } from 'vue';
 
 import TableTreeStore, { SwapParams } from '../../_common/js/table/tree-store';
 import { useTNodeDefault } from '../../hooks';

@@ -1,5 +1,6 @@
-import omit from 'lodash/omit';
 import { App, createApp, ref, Plugin, defineComponent, h, onMounted, nextTick } from 'vue';
+
+import omit from 'lodash/omit';
 
 import { getAttach } from '../utils/dom';
 

@@ -1,7 +1,8 @@
+import { computed, defineComponent, ref, toRefs, watch } from 'vue';
+
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { TimeIcon as TdTimeIcon } from 'tdesign-icons-vue-next';
-import { computed, defineComponent, ref, toRefs, watch } from 'vue';
 
 // eslint-disable-next-line import/order
 import { formatInputValue, validateInputValue } from '../_common/js/time-picker/utils';

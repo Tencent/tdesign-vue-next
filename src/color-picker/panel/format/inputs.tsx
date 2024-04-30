@@ -1,5 +1,6 @@
-import throttle from 'lodash/throttle';
 import { computed, defineComponent, PropType, reactive, watch } from 'vue';
+
+import throttle from 'lodash/throttle';
 
 import TInput from '../../../input';
 import TInputNumber from '../../../input-number';

@@ -1,7 +1,8 @@
+import { defineComponent, PropType, ref, h } from 'vue';
+
 import isEmpty from 'lodash/isEmpty';
 import isFunction from 'lodash/isFunction';
 import { FilterIcon as TdFilterIcon } from 'tdesign-icons-vue-next';
-import { defineComponent, PropType, ref, h } from 'vue';
 
 import TButton from '../button';
 import { CheckboxGroup } from '../checkbox';

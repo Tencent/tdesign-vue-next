@@ -1,5 +1,6 @@
-import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
 import { onBeforeUnmount, onMounted, computed, defineComponent, nextTick, onUpdated, ref, watch, Teleport } from 'vue';
+
+import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
 
 import { getScrollbarWidth } from '../_common/js/utils/getScrollbarWidth';
 import { useAction } from '../dialog/hooks';

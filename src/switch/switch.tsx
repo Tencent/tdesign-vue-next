@@ -1,7 +1,8 @@
+import { defineComponent, h, VNodeChild, computed, watch, toRefs } from 'vue';
+
 import isArray from 'lodash/isArray';
 import isFunction from 'lodash/isFunction';
 import isString from 'lodash/isString';
-import { defineComponent, h, VNodeChild, computed, watch, toRefs } from 'vue';
 
 import { TNodeReturnValue } from '../common';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';

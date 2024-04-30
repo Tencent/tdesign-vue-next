@@ -1,7 +1,8 @@
+import { computed, defineComponent, h, VNode } from 'vue';
+
 import isString from 'lodash/isString';
 import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
 import tinycolor from 'tinycolor2';
-import { computed, defineComponent, h, VNode } from 'vue';
 
 import { Styles } from '../common';
 import { useTNodeJSX, useContent } from '../hooks/tnode';

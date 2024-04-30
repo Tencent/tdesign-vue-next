@@ -1,5 +1,6 @@
-import isString from 'lodash/isString';
 import { computed } from 'vue';
+
+import isString from 'lodash/isString';
 
 import { useTNodeJSX } from '../../hooks/tnode';
 import { useConfig } from '../../hooks/useConfig';

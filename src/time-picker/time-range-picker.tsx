@@ -1,8 +1,9 @@
+import { defineComponent, ref, toRefs, watch, computed } from 'vue';
+
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import isArray from 'lodash/isArray';
 import { TimeIcon as TdTimeIcon } from 'tdesign-icons-vue-next';
-import { defineComponent, ref, toRefs, watch, computed } from 'vue';
 
 import { TIME_PICKER_EMPTY } from '../_common/js/time-picker/const';
 // eslint-disable-next-line import/order

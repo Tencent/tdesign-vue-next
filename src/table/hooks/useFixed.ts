@@ -1,7 +1,3 @@
-import debounce from 'lodash/debounce';
-import get from 'lodash/get';
-import pick from 'lodash/pick';
-import xorWith from 'lodash/xorWith';
 import {
   ref,
   reactive,
@@ -14,6 +10,11 @@ import {
   onBeforeUnmount,
   Ref,
 } from 'vue';
+
+import debounce from 'lodash/debounce';
+import get from 'lodash/get';
+import pick from 'lodash/pick';
+import xorWith from 'lodash/xorWith';
 
 import log from '../../_common/js/log';
 import { getScrollbarWidthWithCSS } from '../../_common/js/utils/getScrollbarWidth';

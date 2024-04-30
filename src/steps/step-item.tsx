@@ -1,6 +1,7 @@
+import { computed, defineComponent, h, inject } from 'vue';
+
 import isFunction from 'lodash/isFunction';
 import { CheckIcon as TdCheckIcon, CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
-import { computed, defineComponent, h, inject } from 'vue';
 
 import { SlotReturnValue } from '../common';
 import { useTNodeJSX, useContent } from '../hooks';

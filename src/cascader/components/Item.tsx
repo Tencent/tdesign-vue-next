@@ -1,5 +1,6 @@
-import { ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
 import { defineComponent, PropType, computed, ref } from 'vue';
+
+import { ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
 
 import Checkbox from '../../checkbox/index';
 import { usePrefixClass, useCommonClassName } from '../../hooks/useConfig';

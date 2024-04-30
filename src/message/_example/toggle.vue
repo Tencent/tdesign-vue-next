@@ -5,8 +5,9 @@
 </template>
 
 <script setup>
-import { MessagePlugin } from 'tdesign-vue-next';
 import { ref } from 'vue';
+
+import { MessagePlugin } from 'tdesign-vue-next';
 
 const msg = ref(null);
 

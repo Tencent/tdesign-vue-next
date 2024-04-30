@@ -9,8 +9,9 @@
   />
 </template>
 <script lang="ts" setup>
-import { TreeSelectProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+
+import { TreeSelectProps } from 'tdesign-vue-next';
 const options: TreeSelectProps['data'] = [
   {
     name: '广东省',

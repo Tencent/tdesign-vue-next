@@ -13,8 +13,9 @@
 </template>
 
 <script setup>
-import { LoadingPlugin } from 'tdesign-vue-next';
 import { ref } from 'vue';
+
+import { LoadingPlugin } from 'tdesign-vue-next';
 
 const content = ref(null);
 const attachLoading = ref(false);

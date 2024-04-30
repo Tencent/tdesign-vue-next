@@ -51,8 +51,9 @@
 </template>
 
 <script lang="ts" setup>
-import { UploadProps, CheckboxProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+
+import { UploadProps, CheckboxProps } from 'tdesign-vue-next';
 const autoUpload = ref(false);
 const showImageFileName = ref(true);
 const showUploadButton = ref<CheckboxProps['value']>(true);

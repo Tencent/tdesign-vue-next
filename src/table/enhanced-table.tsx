@@ -1,5 +1,6 @@
-import get from 'lodash/get';
 import { defineComponent, SetupContext, computed, ref, getCurrentInstance } from 'vue';
+
+import get from 'lodash/get';
 
 import log from '../_common/js/log';
 import { ComponentScrollToElementParams } from '../common';

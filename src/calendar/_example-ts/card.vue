@@ -16,8 +16,9 @@
 </template>
 
 <script lang="tsx" setup>
-import { CalendarProps, CalendarInstanceFunctions } from 'tdesign-vue-next';
 import { ref } from 'vue';
+
+import { CalendarProps, CalendarInstanceFunctions } from 'tdesign-vue-next';
 const options = [
   {
     value: 'full',

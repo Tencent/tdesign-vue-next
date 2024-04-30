@@ -1,5 +1,6 @@
-import merge from 'lodash/merge';
 import { App, Plugin, createApp, defineComponent, h, reactive } from 'vue';
+
+import merge from 'lodash/merge';
 
 import { usePrefixClass } from '../hooks/useConfig';
 import { getAttach, removeClass, addClass } from '../utils/dom';

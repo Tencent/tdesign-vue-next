@@ -1,3 +1,5 @@
+import { computed, defineComponent, toRefs, PropType, ref } from 'vue';
+
 import isFunction from 'lodash/isFunction';
 import isObject from 'lodash/isObject';
 import {
@@ -13,7 +15,6 @@ import {
   FileIcon,
   VideoIcon,
 } from 'tdesign-icons-vue-next';
-import { computed, defineComponent, toRefs, PropType, ref } from 'vue';
 
 import {
   abridgeName,

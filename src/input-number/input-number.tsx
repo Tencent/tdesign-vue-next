@@ -1,10 +1,11 @@
+import { defineComponent, SetupContext } from 'vue';
+
 import {
   AddIcon as TdAddIcon,
   RemoveIcon as TdRemoveIcon,
   ChevronDownIcon as TdChevronDownIcon,
   ChevronUpIcon as TdChevronUpIcon,
 } from 'tdesign-icons-vue-next';
-import { defineComponent, SetupContext } from 'vue';
 
 import TButton from '../button';
 import { useTNodeJSX } from '../hooks';

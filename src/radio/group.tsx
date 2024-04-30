@@ -1,8 +1,3 @@
-import isFunction from 'lodash/isFunction';
-import isNil from 'lodash/isNil';
-import isNumber from 'lodash/isNumber';
-import isString from 'lodash/isString';
-import throttle from 'lodash/throttle';
 import {
   VNode,
   defineComponent,
@@ -17,6 +12,12 @@ import {
   toRefs,
   onUnmounted,
 } from 'vue';
+
+import isFunction from 'lodash/isFunction';
+import isNil from 'lodash/isNil';
+import isNumber from 'lodash/isNumber';
+import isString from 'lodash/isString';
+import throttle from 'lodash/throttle';
 
 import { useTNodeDefault } from '../hooks/tnode';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';

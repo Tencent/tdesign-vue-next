@@ -33,8 +33,9 @@
   </t-space>
 </template>
 <script lang="ts" setup>
-import { InputProps } from 'tdesign-vue-next';
 import { ref, computed } from 'vue';
+
+import { InputProps } from 'tdesign-vue-next';
 const input1 = ref('');
 const input2 = ref('');
 const input3 = ref('');

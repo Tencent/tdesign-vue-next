@@ -67,6 +67,8 @@
 </template>
 
 <script lang="tsx" setup>
+import { ref, watch, computed } from 'vue';
+
 import {
   ChevronRightCircleIcon,
   ChevronRightIcon,
@@ -75,7 +77,6 @@ import {
   CloseCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
 import { TableProps, TableRowData } from 'tdesign-vue-next';
-import { ref, watch, computed } from 'vue';
 const statusNameListMap = {
   0: {
     label: '审批通过',

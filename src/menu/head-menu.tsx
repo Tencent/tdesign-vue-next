@@ -1,6 +1,3 @@
-import isArray from 'lodash/isArray';
-import isFunction from 'lodash/isFunction';
-import { EllipsisIcon } from 'tdesign-icons-vue-next';
 import {
   defineComponent,
   computed,
@@ -16,6 +13,10 @@ import {
   Component,
   getCurrentInstance,
 } from 'vue';
+
+import isArray from 'lodash/isArray';
+import isFunction from 'lodash/isFunction';
+import { EllipsisIcon } from 'tdesign-icons-vue-next';
 
 import log from '../_common/js/log/log';
 import { usePrefixClass } from '../hooks/useConfig';

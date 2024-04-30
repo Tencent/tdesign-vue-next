@@ -1,7 +1,8 @@
+import { defineComponent, computed, CSSProperties, Fragment } from 'vue';
+
 import isArray from 'lodash/isArray';
 import isNumber from 'lodash/isNumber';
 import isString from 'lodash/isString';
-import { defineComponent, computed, CSSProperties, Fragment } from 'vue';
 
 import { getFlexGapPolyFill } from '../_common/js/utils/helper';
 import { useChildSlots } from '../hooks/slot';

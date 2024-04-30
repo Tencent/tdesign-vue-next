@@ -14,8 +14,9 @@
   </t-space>
 </template>
 <script lang="ts" setup>
-import { TimePickerPanelProps, InputProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+
+import { TimePickerPanelProps, InputProps } from 'tdesign-vue-next';
 const value = ref<TimePickerPanelProps['value']>('11:11:11');
 const usage = ref('single');
 const inputValue = ref<InputProps['value']>('');

@@ -1,6 +1,7 @@
+import { defineComponent, VNode, inject, ref, computed, getCurrentInstance, onMounted, onBeforeUpdate } from 'vue';
+
 import isFunction from 'lodash/isFunction';
 import { ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
-import { defineComponent, VNode, inject, ref, computed, getCurrentInstance, onMounted, onBeforeUpdate } from 'vue';
 
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';

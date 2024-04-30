@@ -1,7 +1,8 @@
+import { computed, defineComponent, SetupContext, ref, nextTick, PropType, watch, onMounted, toRefs } from 'vue';
+
 import get from 'lodash/get';
 import isFunction from 'lodash/isFunction';
 import pick from 'lodash/pick';
-import { computed, defineComponent, SetupContext, ref, nextTick, PropType, watch, onMounted, toRefs } from 'vue';
 
 import log from '../_common/js/log';
 import { getIEVersion } from '../_common/js/utils/helper';

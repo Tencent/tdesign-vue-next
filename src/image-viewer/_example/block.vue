@@ -28,8 +28,9 @@
 </template>
 
 <script setup>
-import { BrowseIcon } from 'tdesign-icons-vue-next';
 import { ref } from 'vue';
+
+import { BrowseIcon } from 'tdesign-icons-vue-next';
 
 const visible1 = ref(false);
 const visible2 = ref(false);

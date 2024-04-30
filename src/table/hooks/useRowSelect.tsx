@@ -1,10 +1,11 @@
 /**
  * 行选中相关功能：单选 + 多选
  */
+import { computed, toRefs, h, ref, watch } from 'vue';
+
 import get from 'lodash/get';
 import intersection from 'lodash/intersection';
 import isFunction from 'lodash/isFunction';
-import { computed, toRefs, h, ref, watch } from 'vue';
 
 import log from '../../_common/js/log';
 import { isRowSelectedDisabled } from '../../_common/js/table/utils';

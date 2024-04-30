@@ -82,8 +82,9 @@
   </t-space>
 </template>
 <script lang="jsx" setup>
-import { MessagePlugin } from 'tdesign-vue-next';
 import { ref, onMounted } from 'vue';
+
+import { MessagePlugin } from 'tdesign-vue-next';
 
 const INITIAL_DATA = {
   fail: '',

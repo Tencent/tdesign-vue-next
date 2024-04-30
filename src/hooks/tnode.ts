@@ -1,7 +1,8 @@
+import { h, getCurrentInstance, ComponentInternalInstance, VNode } from 'vue';
+
 import camelCase from 'lodash/camelCase';
 import isFunction from 'lodash/isFunction';
 import kebabCase from 'lodash/kebabCase';
-import { h, getCurrentInstance, ComponentInternalInstance, VNode } from 'vue';
 
 import { getDefaultNode, getParams, OptionsType, JSXRenderContext, getSlotFirst } from '../utils/render-tnode';
 

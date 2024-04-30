@@ -1,7 +1,8 @@
+import { computed, ComputedRef, VNode, getCurrentInstance, Slots, Component } from 'vue';
+
 import camelCase from 'lodash/camelCase';
 import isArray from 'lodash/isArray';
 import isString from 'lodash/isString';
-import { computed, ComputedRef, VNode, getCurrentInstance, Slots, Component } from 'vue';
 
 import { useChildComponentSlots } from '../../hooks/slot';
 

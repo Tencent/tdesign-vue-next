@@ -1,5 +1,6 @@
-import isFunction from 'lodash/isFunction';
 import { defineComponent, computed, nextTick, onMounted, ref, toRefs, watch, h, Teleport } from 'vue';
+
+import isFunction from 'lodash/isFunction';
 
 import setStyle from '../_common/js/utils/set-style';
 import Button from '../button';

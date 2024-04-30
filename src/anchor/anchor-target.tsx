@@ -1,5 +1,6 @@
-import { FileCopyIcon as TdFileCopyIcon } from 'tdesign-icons-vue-next';
 import { defineComponent } from 'vue';
+
+import { FileCopyIcon as TdFileCopyIcon } from 'tdesign-icons-vue-next';
 
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';

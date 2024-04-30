@@ -38,8 +38,9 @@
 </template>
 
 <script lang="ts" setup>
-import { GuideProps, ButtonProps, GuideStep } from 'tdesign-vue-next';
 import { ref } from 'vue';
+
+import { GuideProps, ButtonProps, GuideStep } from 'tdesign-vue-next';
 
 import HighlightContent from './highlight-content.vue';
 const visible = ref(false);

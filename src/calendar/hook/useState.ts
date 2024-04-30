@@ -1,6 +1,7 @@
+import { reactive, watch } from 'vue';
+
 import dayjs from 'dayjs';
 import isArray from 'lodash/isArray';
-import { reactive, watch } from 'vue';
 
 import { useConfig } from '../../hooks/useConfig';
 import { COMPONENT_NAME } from '../const';

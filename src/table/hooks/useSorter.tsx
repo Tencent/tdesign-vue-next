@@ -1,6 +1,7 @@
+import { SetupContext, computed, toRefs, ref, watch } from 'vue';
+
 import isArray from 'lodash/isArray';
 import isFunction from 'lodash/isFunction';
-import { SetupContext, computed, toRefs, ref, watch } from 'vue';
 
 import useDefaultValue from '../../hooks/useDefaultValue';
 import SorterButton from '../sorter-button';

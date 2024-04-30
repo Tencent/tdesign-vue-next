@@ -1,6 +1,7 @@
+import { defineComponent, computed, toRefs, ref, nextTick, reactive, watch } from 'vue';
+
 import isArray from 'lodash/isArray';
 import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-import { defineComponent, computed, toRefs, ref, nextTick, reactive, watch } from 'vue';
 
 import { useConfig } from '../config-provider/useConfig';
 import { usePrefixClass } from '../hooks/useConfig';

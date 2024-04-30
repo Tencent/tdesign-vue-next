@@ -1,3 +1,5 @@
+import { defineComponent, provide, computed, toRefs, watch, ref, nextTick, PropType } from 'vue';
+
 import cloneDeep from 'lodash/cloneDeep';
 import debounce from 'lodash/debounce';
 import get from 'lodash/get';
@@ -5,7 +7,6 @@ import intersection from 'lodash/intersection';
 import isArray from 'lodash/isArray';
 import isFunction from 'lodash/isFunction';
 import picker from 'lodash/pick';
-import { defineComponent, provide, computed, toRefs, watch, ref, nextTick, PropType } from 'vue';
 
 // eslint-disable-next-line import/order
 import FakeArrow from '../common-components/fake-arrow';

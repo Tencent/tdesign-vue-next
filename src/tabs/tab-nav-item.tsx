@@ -1,5 +1,6 @@
-import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
 import { computed, defineComponent, ref, PropType } from 'vue';
+
+import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
 
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';

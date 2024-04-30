@@ -1,6 +1,7 @@
+import { SetupContext, computed, h } from 'vue';
+
 import isFunction from 'lodash/isFunction';
 import isString from 'lodash/isString';
-import { SetupContext, computed, h } from 'vue';
 
 import { TNodeReturnValue } from '../../common';
 import TEllipsis from '../ellipsis';

@@ -35,9 +35,10 @@
   </div>
 </template>
 <script lang="tsx" setup>
+import { ref } from 'vue';
+
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { TableProps, TableRowData } from 'tdesign-vue-next';
-import { ref } from 'vue';
 const data: TableProps['data'] = [];
 const statusNameListMap = {
   0: {

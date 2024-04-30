@@ -27,8 +27,9 @@
 </template>
 
 <script lang="tsx" setup>
-import { CollapseProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+
+import { CollapseProps } from 'tdesign-vue-next';
 const currentItem = ref([]);
 const handlePanelChange: CollapseProps['onChange'] = (val) => {
   console.log(val);

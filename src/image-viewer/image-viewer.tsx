@@ -1,5 +1,6 @@
-import { ChevronLeftIcon, ChevronDownIcon, CloseIcon } from 'tdesign-icons-vue-next';
 import { computed, defineComponent, ref, toRefs, Teleport, watch, Transition, nextTick } from 'vue';
+
+import { ChevronLeftIcon, ChevronDownIcon, CloseIcon } from 'tdesign-icons-vue-next';
 
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';

@@ -65,6 +65,8 @@
   </t-form>
 </template>
 <script lang="ts" setup>
+import { ref, reactive, computed } from 'vue';
+
 import {
   MessagePlugin,
   FormInstanceFunctions,
@@ -73,7 +75,6 @@ import {
   AutoCompleteProps,
   ButtonProps,
 } from 'tdesign-vue-next';
-import { ref, reactive, computed } from 'vue';
 const form = ref<FormInstanceFunctions>(null);
 const formData: FormProps['data'] = reactive({
   account: '',

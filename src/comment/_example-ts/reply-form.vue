@@ -10,8 +10,9 @@
 </template>
 
 <script lang="tsx" setup>
-import { NotifyPlugin, ButtonProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+
+import { NotifyPlugin, ButtonProps } from 'tdesign-vue-next';
 const replyData = ref('');
 const submitReply: ButtonProps['onClick'] = () => {
   NotifyPlugin.info({

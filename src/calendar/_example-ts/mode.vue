@@ -12,8 +12,9 @@
 </template>
 
 <script lang="tsx" setup>
-import { CalendarProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+
+import { CalendarProps } from 'tdesign-vue-next';
 const options = [
   {
     value: 'month',

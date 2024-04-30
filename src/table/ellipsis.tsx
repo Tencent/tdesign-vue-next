@@ -1,6 +1,7 @@
 /** 超出省略显示 */
-import debounce from 'lodash/debounce';
 import { defineComponent, PropType, ref, computed } from 'vue';
+
+import debounce from 'lodash/debounce';
 
 import { AttachNode, TNode } from '../common';
 import TTooltip, { TooltipProps } from '../tooltip';

@@ -52,9 +52,10 @@
   </section>
 </template>
 <script lang="tsx" setup>
+import { ref } from 'vue';
+
 import { UploadIcon } from 'tdesign-icons-vue-next';
 import { UploadFile, UploadProps } from 'tdesign-vue-next';
-import { ref } from 'vue';
 const files = ref<UploadProps['files']>([]);
 const handleChange: UploadProps['onChange'] = (files) => {
   console.log(files);

@@ -1,3 +1,5 @@
+import { defineComponent, computed } from 'vue';
+
 import isObject from 'lodash/isObject';
 import {
   ChevronLeftIcon as TdChevronLeftIcon,
@@ -6,7 +8,6 @@ import {
   ChevronUpIcon as TdChevronUpIcon,
   ChevronDownIcon as TdChevronDownIcon,
 } from 'tdesign-icons-vue-next';
-import { defineComponent, computed } from 'vue';
 
 import TButton from '../button';
 import { usePrefixClass } from '../hooks/useConfig';

@@ -46,6 +46,8 @@
 </template>
 
 <script lang="tsx" setup>
+import { ref, watch } from 'vue';
+
 import cloneDeep from 'lodash/cloneDeep';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import {
@@ -55,7 +57,6 @@ import {
   ButtonProps,
   AllTableInstanceFunctions,
 } from 'tdesign-vue-next';
-import { ref, watch } from 'vue';
 interface TableData {
   key: string;
   applicant: string;

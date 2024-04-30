@@ -1,10 +1,11 @@
+import { defineComponent, PropType, toRefs, computed } from 'vue';
+
 import {
   BrowseIcon as TdBrowseIcon,
   DeleteIcon as TdDeleteIcon,
   AddIcon as TdAddIcon,
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
-import { defineComponent, PropType, toRefs, computed } from 'vue';
 
 import { abridgeName } from '../../_common/js/upload/utils';
 import { UploadConfig } from '../../config-provider';

@@ -1,5 +1,6 @@
-import omit from 'lodash/omit';
 import { computed, defineComponent, inject, Slots, ref } from 'vue';
+
+import omit from 'lodash/omit';
 
 import { Styles } from '../common';
 import { useTNodeJSX, useTNodeDefault } from '../hooks/tnode';

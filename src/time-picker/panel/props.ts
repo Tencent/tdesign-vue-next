@@ -1,6 +1,7 @@
+import { PropType } from 'vue';
+
 import dayjs from 'dayjs';
 import isBoolean from 'lodash/isBoolean';
-import { PropType } from 'vue';
 
 import { EPickerCols } from '../../_common/js/time-picker/const';
 import * as Props from '../props';

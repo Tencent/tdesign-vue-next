@@ -1,11 +1,11 @@
+import type { Directive, DirectiveBinding } from 'vue';
+
 import isEqual from 'lodash/isEqual';
 import isObject from 'lodash/isObject';
 import mapKeys from 'lodash/mapKeys';
 
 import produceLoading from './plugin';
 import { TdLoadingProps } from './type';
-
-import type { Directive, DirectiveBinding } from 'vue';
 
 const INSTANCE_KEY = Symbol('TdLoading');
 

@@ -1,4 +1,3 @@
-import isFunction from 'lodash/isFunction';
 import {
   PropType,
   defineComponent,
@@ -10,6 +9,8 @@ import {
   watchEffect,
   inject,
 } from 'vue';
+
+import isFunction from 'lodash/isFunction';
 
 import { usePrefixClass } from '../hooks/useConfig';
 import TTooltip from '../tooltip/index';

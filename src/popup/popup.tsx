@@ -1,8 +1,3 @@
-import { createPopper, Placement } from '@popperjs/core';
-import debounce from 'lodash/debounce';
-import isFunction from 'lodash/isFunction';
-import isObject from 'lodash/isObject';
-import isString from 'lodash/isString';
 import {
   computed,
   defineComponent,
@@ -17,6 +12,12 @@ import {
   Transition,
   watch,
 } from 'vue';
+
+import { createPopper, Placement } from '@popperjs/core';
+import debounce from 'lodash/debounce';
+import isFunction from 'lodash/isFunction';
+import isObject from 'lodash/isObject';
+import isString from 'lodash/isString';
 
 import setStyle from '../_common/js/utils/set-style';
 import { useContent, useTNodeJSX } from '../hooks';

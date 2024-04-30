@@ -18,8 +18,9 @@
 </template>
 
 <script lang="tsx" setup>
-import { TabsProps, TabPanelProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+
+import { TabsProps, TabPanelProps } from 'tdesign-vue-next';
 const tabList: TabsProps['list'] = [
   {
     label: '选项卡一',

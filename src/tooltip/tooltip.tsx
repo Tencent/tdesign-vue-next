@@ -1,6 +1,7 @@
+import { computed, defineComponent, onMounted, ref, toRefs, watch, getCurrentInstance } from 'vue';
+
 import isFunction from 'lodash/isFunction';
 import omit from 'lodash/omit';
-import { computed, defineComponent, onMounted, ref, toRefs, watch, getCurrentInstance } from 'vue';
 
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';

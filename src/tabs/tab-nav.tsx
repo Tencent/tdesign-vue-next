@@ -1,3 +1,5 @@
+import { h, defineComponent, Transition, ref, computed, watch, onMounted, nextTick } from 'vue';
+
 import debounce from 'lodash/debounce';
 import isFunction from 'lodash/isFunction';
 import {
@@ -5,7 +7,6 @@ import {
   ChevronRightIcon as TdChevronRightIcon,
   AddIcon as TdAddIcon,
 } from 'tdesign-icons-vue-next';
-import { h, defineComponent, Transition, ref, computed, watch, onMounted, nextTick } from 'vue';
 
 import tabBase from '../_common/js/tabs/base';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';

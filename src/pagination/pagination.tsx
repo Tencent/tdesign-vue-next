@@ -1,3 +1,5 @@
+import { defineComponent, computed, ref, watch, toRefs, getCurrentInstance } from 'vue';
+
 import isNaN from 'lodash/isNaN';
 import isObject from 'lodash/isObject';
 import {
@@ -9,7 +11,6 @@ import {
   ChevronRightDoubleIcon as TdChevronRightDoubleIcon,
   EllipsisIcon as TdEllipsisIcon,
 } from 'tdesign-icons-vue-next';
-import { defineComponent, computed, ref, watch, toRefs, getCurrentInstance } from 'vue';
 
 import { useTNodeJSX } from '../hooks/tnode';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';

@@ -1,6 +1,7 @@
+import { computed, defineComponent, toRefs, h, ref, onMounted, getCurrentInstance } from 'vue';
+
 import get from 'lodash/get';
 import omit from 'lodash/omit';
-import { computed, defineComponent, toRefs, h, ref, onMounted, getCurrentInstance } from 'vue';
 
 import { useTNodeJSX } from '../hooks/tnode';
 import { useConfig } from '../hooks/useConfig';

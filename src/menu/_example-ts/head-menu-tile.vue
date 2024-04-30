@@ -34,8 +34,9 @@
 </template>
 
 <script lang="ts" setup>
-import { HeadMenuProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+
+import { HeadMenuProps } from 'tdesign-vue-next';
 const menus = [
   {
     title: '菜单1',

@@ -1,5 +1,3 @@
-import isUndefined from 'lodash/isUndefined';
-import merge from 'lodash/merge';
 import {
   defineComponent,
   computed,
@@ -12,6 +10,9 @@ import {
   StyleValue,
   CSSProperties,
 } from 'vue';
+
+import isUndefined from 'lodash/isUndefined';
+import merge from 'lodash/merge';
 
 import { getCharacterLength } from '../_common/js/utils/helper';
 import setStyle from '../_common/js/utils/set-style';

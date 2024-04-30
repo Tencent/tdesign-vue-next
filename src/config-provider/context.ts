@@ -1,7 +1,8 @@
+import { InjectionKey, ComputedRef } from 'vue';
+
 import isArray from 'lodash/isArray';
 import merge from 'lodash/merge';
 import _mergeWith from 'lodash/mergeWith';
-import { InjectionKey, ComputedRef } from 'vue';
 
 import defaultConfig from '../_common/js/global-config/default-config';
 import defaultZhLocale from '../_common/js/global-config/locale/zh_CN';

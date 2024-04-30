@@ -1,7 +1,8 @@
+import { defineComponent, ref, onMounted, computed, onUnmounted, watch, toRefs } from 'vue';
+
 import isFunction from 'lodash/isFunction';
 import omit from 'lodash/omit';
 import { ImageErrorIcon, ImageIcon } from 'tdesign-icons-vue-next';
-import { defineComponent, ref, onMounted, computed, onUnmounted, watch, toRefs } from 'vue';
 
 import observe from '../_common/js/utils/observe';
 import { useConfig } from '../config-provider/useConfig';

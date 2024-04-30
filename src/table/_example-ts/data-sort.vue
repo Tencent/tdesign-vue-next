@@ -26,6 +26,8 @@
 </template>
 
 <script lang="tsx" setup>
+import { watch, ref } from 'vue';
+
 import {
   CheckCircleFilledIcon,
   CaretDownSmallIcon,
@@ -33,7 +35,6 @@ import {
   CloseCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
 import { TableProps, GlobalConfigProvider } from 'tdesign-vue-next';
-import { watch, ref } from 'vue';
 const statusNameListMap = {
   0: {
     label: '审批通过',

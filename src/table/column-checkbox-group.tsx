@@ -1,5 +1,6 @@
-import intersection from 'lodash/intersection';
 import { computed, defineComponent, PropType, toRefs } from 'vue';
+
+import intersection from 'lodash/intersection';
 
 import Checkbox, { CheckboxGroup, CheckboxGroupChangeContext, CheckboxGroupProps, CheckboxProps } from '../checkbox';
 import { usePrefixClass } from '../hooks';

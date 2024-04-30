@@ -1,5 +1,6 @@
-import omit from 'lodash/omit';
 import { defineComponent, inject } from 'vue';
+
+import omit from 'lodash/omit';
 
 import { useContent, useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';

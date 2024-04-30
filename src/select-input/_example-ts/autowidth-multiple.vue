@@ -25,9 +25,10 @@
   </div>
 </template>
 <script lang="ts" setup>
+import { computed, ref } from 'vue';
+
 import { ChevronDownIcon } from 'tdesign-icons-vue-next';
 import { CheckboxGroupProps, CheckboxGroupValue, SelectInputProps } from 'tdesign-vue-next';
-import { computed, ref } from 'vue';
 interface CustomOptionInfo {
   label: string;
   value?: number;

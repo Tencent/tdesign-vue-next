@@ -1,5 +1,6 @@
-import isArray from 'lodash/isArray';
 import { defineComponent, PropType, computed } from 'vue';
+
+import isArray from 'lodash/isArray';
 
 import { parseToDayjs } from '../../_common/js/date-picker/format';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';

@@ -1,3 +1,5 @@
+import { defineComponent, VNode, computed, CSSProperties } from 'vue';
+
 import isObject from 'lodash/isObject';
 import isString from 'lodash/isString';
 import {
@@ -8,7 +10,6 @@ import {
   CheckIcon as TdCheckIcon,
   ErrorIcon as TdErrorIcon,
 } from 'tdesign-icons-vue-next';
-import { defineComponent, VNode, computed, CSSProperties } from 'vue';
 
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';

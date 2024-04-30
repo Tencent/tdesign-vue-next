@@ -1,10 +1,11 @@
+import { defineComponent, h, onBeforeMount, onMounted, ref } from 'vue';
+
 import isFunction from 'lodash/isFunction';
 import {
   InfoCircleFilledIcon as TdInfoCircleFilledIcon,
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
   CloseIcon as TdCloseIcon,
 } from 'tdesign-icons-vue-next';
-import { defineComponent, h, onBeforeMount, onMounted, ref } from 'vue';
 
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';

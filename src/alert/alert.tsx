@@ -1,3 +1,5 @@
+import { defineComponent, VNode, ref, onMounted, onBeforeUnmount } from 'vue';
+
 import isArray from 'lodash/isArray';
 import isString from 'lodash/isString';
 import {
@@ -7,7 +9,6 @@ import {
   HelpCircleFilledIcon as TdHelpCircleFilledIcon,
   InfoCircleFilledIcon as TdInfoCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
-import { defineComponent, VNode, ref, onMounted, onBeforeUnmount } from 'vue';
 
 import { SlotReturnValue } from '../common';
 import { useIcon } from '../hooks/icon';

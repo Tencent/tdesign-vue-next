@@ -1,5 +1,6 @@
-import isArray from 'lodash/isArray';
 import { ref, toRefs, watchEffect, computed } from 'vue';
+
+import isArray from 'lodash/isArray';
 
 import {
   isValidDate,

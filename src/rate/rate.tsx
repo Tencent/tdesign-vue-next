@@ -1,6 +1,7 @@
+import { defineComponent, computed, toRefs, ref } from 'vue';
+
 import isArray from 'lodash/isArray';
 import { StarFilledIcon } from 'tdesign-icons-vue-next';
-import { defineComponent, computed, toRefs, ref } from 'vue';
 
 import { useTNodeJSX } from '../hooks/tnode';
 import { useConfig } from '../hooks/useConfig';

@@ -1,7 +1,8 @@
+import { defineComponent, ref, computed } from 'vue';
+
 import isArray from 'lodash/isArray';
 import isNumber from 'lodash/isNumber';
 import omit from 'lodash/omit';
-import { defineComponent, ref, computed } from 'vue';
 
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';

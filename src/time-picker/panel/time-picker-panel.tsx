@@ -1,6 +1,7 @@
+import { defineComponent, toRefs, computed, ref, onMounted, nextTick, watch } from 'vue';
+
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
-import { defineComponent, toRefs, computed, ref, onMounted, nextTick, watch } from 'vue';
 
 import log from '../../_common/js/log';
 import { DEFAULT_STEPS, DEFAULT_FORMAT } from '../../_common/js/time-picker/const';

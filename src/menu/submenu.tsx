@@ -1,4 +1,3 @@
-import isFunction from 'lodash/isFunction';
 import {
   defineComponent,
   computed,
@@ -14,6 +13,8 @@ import {
   nextTick,
   Transition,
 } from 'vue';
+
+import isFunction from 'lodash/isFunction';
 
 import FakeArrow from '../common-components/fake-arrow';
 import useCollapseAnimation from '../hooks/useCollapseAnimation';

@@ -1,5 +1,6 @@
-import merge from 'lodash/merge';
 import { ref, computed, toRefs } from 'vue';
+
+import merge from 'lodash/merge';
 
 import {
   getFilesAndErrors,

@@ -18,8 +18,9 @@
 </template>
 
 <script lang="ts" setup>
-import { ListProps, ListItemMetaProps } from 'tdesign-vue-next';
 import { ref, computed } from 'vue';
+
+import { ListProps, ListItemMetaProps } from 'tdesign-vue-next';
 const listCount = ref(3);
 const asyncLoadingRadio = ref('load-more');
 const loadMore: ListProps['onLoadMore'] = () => {

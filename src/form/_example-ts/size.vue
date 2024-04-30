@@ -40,8 +40,9 @@
   </t-space>
 </template>
 <script lang="ts" setup>
-import { MessagePlugin, FormProps, CheckboxGroupProps } from 'tdesign-vue-next';
 import { ref, reactive } from 'vue';
+
+import { MessagePlugin, FormProps, CheckboxGroupProps } from 'tdesign-vue-next';
 const formData: FormProps['data'] = reactive({
   name: 'TDesign',
   tel: '12345678910',

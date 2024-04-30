@@ -1,5 +1,6 @@
-import isArray from 'lodash/isArray';
 import { ComponentPublicInstance, defineComponent, provide, Ref, toRefs } from 'vue';
+
+import isArray from 'lodash/isArray';
 
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';

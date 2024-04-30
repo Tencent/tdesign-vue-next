@@ -1,6 +1,7 @@
+import { defineComponent, ref, onMounted, h, reactive } from 'vue';
+
 import isFunction from 'lodash/isFunction';
 import { ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
-import { defineComponent, ref, onMounted, h, reactive } from 'vue';
 
 import { TNode } from '../common';
 import TDivider from '../divider';

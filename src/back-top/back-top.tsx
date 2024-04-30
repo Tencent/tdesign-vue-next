@@ -1,5 +1,6 @@
-import { BacktopIcon as TdBackTopIcon } from 'tdesign-icons-vue-next';
 import { computed, defineComponent, onBeforeUnmount, onMounted, ref } from 'vue';
+
+import { BacktopIcon as TdBackTopIcon } from 'tdesign-icons-vue-next';
 
 import { useChildSlots, usePrefixClass, useContent, useConfig } from '../hooks';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';

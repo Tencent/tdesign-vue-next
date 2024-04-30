@@ -12,8 +12,9 @@
 </template>
 
 <script lang="ts" setup>
-import { TreeOptionData, TreeProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+
+import { TreeOptionData, TreeProps } from 'tdesign-vue-next';
 const treeData = [
   {
     label: '1',

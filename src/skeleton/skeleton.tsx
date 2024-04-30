@@ -1,7 +1,8 @@
+import { h, defineComponent, ref, watch } from 'vue';
+
 import isArray from 'lodash/isArray';
 import isFunction from 'lodash/isFunction';
 import isNumber from 'lodash/isNumber';
-import { h, defineComponent, ref, watch } from 'vue';
 
 import { useContent } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';

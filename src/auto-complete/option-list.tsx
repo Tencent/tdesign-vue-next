@@ -1,7 +1,8 @@
+import { ref, computed, defineComponent, PropType, h, watch, onBeforeUnmount } from 'vue';
+
 import escapeRegExp from 'lodash/escapeRegExp';
 import isFunction from 'lodash/isFunction';
 import isString from 'lodash/isString';
-import { ref, computed, defineComponent, PropType, h, watch, onBeforeUnmount } from 'vue';
 
 import { ARROW_UP_REG, ARROW_DOWN_REG, ENTER_REG } from '../_common/js/common';
 import log from '../_common/js/log';

@@ -15,8 +15,9 @@
   </t-tree-select>
 </template>
 <script setup lang="jsx">
-import { Icon } from 'tdesign-icons-vue-next';
 import { ref, computed } from 'vue';
+
+import { Icon } from 'tdesign-icons-vue-next';
 
 const options = [
   {

@@ -17,8 +17,9 @@
   </t-space>
 </template>
 <script lang="ts" setup>
-import { SelectProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+
+import { SelectProps } from 'tdesign-vue-next';
 const options: SelectProps['options'] = [
   {
     label: '已选择的选项',

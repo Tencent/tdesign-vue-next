@@ -28,8 +28,9 @@
 </template>
 
 <script lang="ts" setup>
-import { TextareaProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+
+import { TextareaProps } from 'tdesign-vue-next';
 interface Option {
   label: string;
   value: string;

@@ -1,5 +1,6 @@
-import isFunction from 'lodash/isFunction';
 import { toRefs, ref, watch, computed, SetupContext, h } from 'vue';
+
+import isFunction from 'lodash/isFunction';
 
 import { getColumnsResetValue } from '../../_common/js/table/utils';
 import TButton from '../../button';

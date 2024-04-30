@@ -1,6 +1,7 @@
+import { ref, watch, nextTick, onMounted, onBeforeUnmount, defineComponent, onActivated, onDeactivated } from 'vue';
+
 import isFunction from 'lodash/isFunction';
 import isUndefined from 'lodash/isUndefined';
-import { ref, watch, nextTick, onMounted, onBeforeUnmount, defineComponent, onActivated, onDeactivated } from 'vue';
 
 import { ScrollContainerElement } from '../common';
 import { useTNodeJSX } from '../hooks/tnode';

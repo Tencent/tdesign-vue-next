@@ -21,8 +21,9 @@
   </t-space>
 </template>
 <script setup lang="jsx">
-import { TipsIcon, UserIcon, HeartIcon, HomeIcon } from 'tdesign-icons-vue-next';
 import { ref } from 'vue';
+
+import { TipsIcon, UserIcon, HeartIcon, HomeIcon } from 'tdesign-icons-vue-next';
 
 const color = 'var(--td-brand-color)';
 

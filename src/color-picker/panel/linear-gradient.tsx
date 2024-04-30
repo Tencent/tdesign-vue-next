@@ -1,5 +1,6 @@
-import cloneDeep from 'lodash/cloneDeep';
 import { defineComponent, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue';
+
+import cloneDeep from 'lodash/cloneDeep';
 
 import { useCommonClassName } from '../../hooks/useConfig';
 import { InputNumber as TInputNumber } from '../../input-number';

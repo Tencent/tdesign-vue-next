@@ -28,8 +28,9 @@
 </template>
 
 <script lang="ts" setup>
-import { InputNumberProps } from 'tdesign-vue-next';
 import { ref, computed } from 'vue';
+
+import { InputNumberProps } from 'tdesign-vue-next';
 const value1 = ref('');
 const value2 = ref(100);
 const decimalValue = ref(3.41);

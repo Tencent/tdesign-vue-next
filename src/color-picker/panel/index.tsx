@@ -1,5 +1,6 @@
-import cloneDeep from 'lodash/cloneDeep';
 import { defineComponent, ref, toRefs, watch, computed } from 'vue';
+
+import cloneDeep from 'lodash/cloneDeep';
 
 import { useCommonClassName, useConfig } from '../../hooks/useConfig';
 import useDefaultValue from '../../hooks/useDefaultValue';

@@ -75,8 +75,9 @@
   </t-space>
 </template>
 <script lang="tsx" setup>
-import { Tag, CheckboxGroupProps, SelectInputProps } from 'tdesign-vue-next';
 import { computed, ref } from 'vue';
+
+import { Tag, CheckboxGroupProps, SelectInputProps } from 'tdesign-vue-next';
 interface CustomOptionInfo {
   label: string;
   value?: number;

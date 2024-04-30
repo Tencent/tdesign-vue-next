@@ -1,8 +1,9 @@
+import { ref } from 'vue';
+
 import isArray from 'lodash/isArray';
 import isNumber from 'lodash/isNumber';
 import isObject from 'lodash/isObject';
 import isUndefined from 'lodash/isUndefined';
-import { ref } from 'vue';
 
 import { useListener } from '../hooks/useListener';
 import { isServer } from '../utils/dom';

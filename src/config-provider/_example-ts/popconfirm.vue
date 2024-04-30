@@ -26,8 +26,9 @@
 </template>
 
 <script lang="ts" setup>
-import { GlobalConfigProvider } from 'tdesign-vue-next';
 import { ref } from 'vue';
+
+import { GlobalConfigProvider } from 'tdesign-vue-next';
 const drawerVisible = ref(false);
 const globalConfig: GlobalConfigProvider = {
   popconfirm: {

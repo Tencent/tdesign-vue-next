@@ -1,6 +1,7 @@
+import { VNode, Slots, h, ComponentOptions } from 'vue';
+
 import isFunction from 'lodash/isFunction';
 import isString from 'lodash/isString';
-import { VNode, Slots, h, ComponentOptions } from 'vue';
 
 import { ItemsType, TdDescriptionItem } from '../interface';
 import { TdDescriptionItemProps } from '../type';

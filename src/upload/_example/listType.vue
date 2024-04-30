@@ -21,8 +21,9 @@
   </section>
 </template>
 <script setup>
-import { UploadIcon } from 'tdesign-icons-vue-next';
 import { ref } from 'vue';
+
+import { UploadIcon } from 'tdesign-icons-vue-next';
 
 const files = ref([]);
 

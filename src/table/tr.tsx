@@ -1,8 +1,3 @@
-import get from 'lodash/get';
-import isFunction from 'lodash/isFunction';
-import isString from 'lodash/isString';
-import pick from 'lodash/pick';
-import upperFirst from 'lodash/upperFirst';
 import {
   defineComponent,
   PropType,
@@ -16,6 +11,12 @@ import {
   nextTick,
   onMounted,
 } from 'vue';
+
+import get from 'lodash/get';
+import isFunction from 'lodash/isFunction';
+import isString from 'lodash/isString';
+import pick from 'lodash/pick';
+import upperFirst from 'lodash/upperFirst';
 
 import { PaginationProps } from '..';
 import { AttachNode, SlotReturnValue } from '../common';

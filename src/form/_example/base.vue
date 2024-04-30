@@ -36,8 +36,9 @@
   </t-form>
 </template>
 <script setup>
-import { MessagePlugin } from 'tdesign-vue-next';
 import { ref, reactive } from 'vue';
+
+import { MessagePlugin } from 'tdesign-vue-next';
 
 const FORM_RULES = { name: [{ required: true, message: '姓名必填' }] };
 
