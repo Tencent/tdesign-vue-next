@@ -40,7 +40,7 @@ const SIZING_PROPS = [
 ];
 
 function calculateNodeStyling(targetElement: HTMLTextAreaElement) {
-  if (typeof window === 'undefined') return;
+  if (typeof window === 'undefined' || !targetElement) return;
 
   const style = window.getComputedStyle(targetElement);
 
