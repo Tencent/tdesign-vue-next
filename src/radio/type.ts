@@ -58,7 +58,7 @@ export interface TdRadioProps {
    */
   onChange?: (checked: boolean, context: { e: Event }) => void;
   /**
-   * 点击时出发，一般用于外层阻止冒泡场景
+   * 点击时触发，一般用于外层阻止冒泡场景
    */
   onClick?: (context: { e: MouseEvent }) => void;
 }

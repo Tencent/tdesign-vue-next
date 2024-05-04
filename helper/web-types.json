@@ -12892,7 +12892,7 @@
               },
               {
                 "name": "click",
-                "description": "trigger on click\n\n点击时出发，一般用于外层阻止冒泡场景",
+                "description": "trigger on click\n\n点击时触发，一般用于外层阻止冒泡场景",
                 "doc-url": "https://tdesign.tencent.com/vue-next/components/radio?tab=api#radio-events"
               }
             ]
@@ -13001,7 +13001,7 @@
               },
               {
                 "name": "click",
-                "description": "trigger on click\n\n点击时出发，一般用于外层阻止冒泡场景",
+                "description": "trigger on click\n\n点击时触发，一般用于外层阻止冒泡场景",
                 "doc-url": "https://tdesign.tencent.com/vue-next/components/radio?tab=api#radio-events"
               }
             ]
