@@ -20,6 +20,11 @@ export default {
     type: Boolean,
     default: undefined,
   },
+  /** 是否整个表单只读 */
+  readonly: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 表单错误信息配置，示例：`{ idcard: '请输入正确的身份证号码', max: '字符长度不能超过 ${max}' }` */
   errorMessage: {
     type: Object as PropType<TdFormProps['errorMessage']>,
