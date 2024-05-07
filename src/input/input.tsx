@@ -5,7 +5,7 @@ import {
   CloseCircleFilledIcon as TdCloseCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
 import props from './props';
-import { useFormDisabled } from '../form/hooks';
+import { useFormDisabled, useFormReadonly } from '../form/hooks';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useTNodeJSX } from '../hooks/tnode';
@@ -53,6 +53,7 @@ export default defineComponent({
       CloseCircleFilledIcon: TdCloseCircleFilledIcon,
     });
     const disabled = useFormDisabled();
+    const readonly = useFormReadonly();
     const COMPONENT_NAME = usePrefixClass('input');
     const INPUT_WRAP_CLASS = usePrefixClass('input__wrap');
     const INPUT_TIPS_CLASS = usePrefixClass('input__tips');
@@ -83,13 +84,13 @@ export default defineComponent({
       getValidAttrs({
         autofocus: props.autofocus,
         disabled: disabled.value,
-        readonly: props.readonly,
+        readonly: readonly.value,
         placeholder: tPlaceholder.value,
         maxlength: (!props.allowInputOverMax && props.maxlength) || undefined,
         name: props.name || undefined,
         type: renderType.value,
         autocomplete: props.autocomplete ?? (globalConfig.value.autocomplete || undefined),
-        unselectable: props.readonly ? 'on' : undefined,
+        unselectable: readonly.value ? 'on' : undefined,
       }),
     );
 
