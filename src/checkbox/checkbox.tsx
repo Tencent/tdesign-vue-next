@@ -8,6 +8,7 @@ import { CheckboxGroupInjectionKey } from './constants';
 import useCheckboxLazyLoad from './hooks/useCheckboxLazyLoad';
 import useKeyboardEvent from './hooks/useKeyboardEvent';
 import { useDisabled } from '../hooks/useDisabled';
+import { useReadonly } from '../hooks/useReadonly';
 
 export default defineComponent({
   name: 'TCheckbox',
@@ -84,6 +85,17 @@ export default defineComponent({
       return checkboxGroupData?.value.disabled;
     });
     const isDisabled = useDisabled({ beforeDisabled, afterDisabled });
+    //  Checkbox.readonly > CheckboxGroup.readonly > Form.readonly
+    const beforeReadonly = computed(() => {
+      if (!props.checkAll && !tChecked.value && checkboxGroupData?.value.maxExceeded) {
+        return true;
+      }
+      return null;
+    });
+    const afterReadonly = computed(() => {
+      return checkboxGroupData?.value.readonly;
+    });
+    const isReadonly = useReadonly({ beforeReadonly, afterReadonly });
 
     const tIndeterminate = ref(false);
     watch(
@@ -113,7 +125,7 @@ export default defineComponent({
     );
 
     const handleChange = (e: Event) => {
-      if (props.readonly) return;
+      if (isReadonly.value) return;
       const checked = !tChecked.value;
       setInnerChecked(checked, { e });
       if (checkboxGroupData?.value.handleCheckboxChange) {
@@ -148,7 +160,7 @@ export default defineComponent({
                   tabindex="-1"
                   class={`${COMPONENT_NAME.value}__former`}
                   disabled={isDisabled.value}
-                  readonly={props.readonly}
+                  readonly={isReadonly.value}
                   indeterminate={tIndeterminate.value}
                   name={tName.value}
                   value={props.value ? props.value : undefined}
