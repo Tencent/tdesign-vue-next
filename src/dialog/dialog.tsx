@@ -181,26 +181,30 @@ export default defineComponent({
     watch(
       () => props.visible,
       (value) => {
-        if (value) {
-          if ((isModal.value && !props.showInAttachedElement) || isFullScreen.value) {
-            if (props.preventScrollThrough) {
-              document.body.appendChild(styleEl.value);
-            }
-
-            nextTick(() => {
-              if (mousePosition && dialogEle.value) {
-                dialogEle.value.style.transformOrigin = `${mousePosition.x - dialogEle.value.offsetLeft}px ${
-                  mousePosition.y - dialogEle.value.offsetTop
-                }px`;
+        nextTick(() => {
+          if (value) {
+            if ((isModal.value && !props.showInAttachedElement) || isFullScreen.value) {
+              if (props.preventScrollThrough) {
+                document.body.appendChild(styleEl.value);
               }
-            });
+              () => {
+                if (mousePosition && dialogEle.value) {
+                  dialogEle.value.style.transformOrigin = `${mousePosition.x - dialogEle.value.offsetLeft}px ${
+                    mousePosition.y - dialogEle.value.offsetTop
+                  }px`;
+                }
+              };
+            }
+            // 清除鼠标焦点 避免entry事件多次触发（按钮弹出弹窗 不移除焦点 立即按Entry按键 会造成弹窗关闭再弹出）
+            (document.activeElement as HTMLElement)?.blur();
+          } else {
+            clearStyleFunc();
           }
-          // 清除鼠标焦点 避免entry事件多次触发（按钮弹出弹窗 不移除焦点 立即按Entry按键 会造成弹窗关闭再弹出）
-          (document.activeElement as HTMLElement)?.blur();
-        } else {
-          clearStyleFunc();
-        }
-        addKeyboardEvent(value);
+          addKeyboardEvent(value);
+        });
+      },
+      {
+        immediate: true,
       },
     );
 
