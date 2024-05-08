@@ -10,7 +10,7 @@ allowInputOverMax | Boolean | false | 超出 `maxlength` 或 `maxcharacter` 之�
 autoWidth | Boolean | false | 宽度随内容自适应 | N
 autocomplete | String | undefined | 是否开启自动填充功能，HTML5 原生属性，[点击查看详情](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) | N
 autofocus | Boolean | false | 自动聚焦 | N
-borderless | Boolean | false | 【开发中】无边框模式 | N
+borderless | Boolean | false | 无边框模式 | N
 clearable | Boolean | false | 是否可清空 | N
 disabled | Boolean | - | 是否禁用输入框 | N
 format | Function | - | 指定输入框展示值的格式。注意 `type=number` 时请勿使用，此功能建议更为使用 `InputNumber` 组件。TS 类型：`InputFormatType` `type InputFormatType = (value: string) => string`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/input/type.ts) | N
