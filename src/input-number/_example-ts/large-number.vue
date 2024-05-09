@@ -11,6 +11,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+
 import { InputNumberProps } from 'tdesign-vue-next';
 const value1 = ref('19999999999999999.977');
 const value2 = ref('0.8975527383412673418');

@@ -1,8 +1,9 @@
 import { defineComponent } from 'vue';
-import props from './footer-props';
 
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
+
+import props from './footer-props';
 
 export default defineComponent({
   name: 'TFooter',

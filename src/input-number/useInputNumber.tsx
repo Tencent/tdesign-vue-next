@@ -1,8 +1,5 @@
 import { computed, ref, toRefs, watch } from 'vue';
-import useCommonClassName from '../hooks/useCommonClassName';
-import useVModel from '../hooks/useVModel';
-import { InputNumberValue, TdInputNumberProps } from './type';
-// 计算逻辑，统一到 common 中，方便各框架复用（如超过 16 位的大数处理）
+
 import {
   canAddNumber,
   canInputNumber,
@@ -15,7 +12,12 @@ import {
   largeNumberToFixed,
 } from '../_common/js/input-number/number';
 import { useFormDisabled } from '../form/hooks';
+import useCommonClassName from '../hooks/useCommonClassName';
+import useVModel from '../hooks/useVModel';
 import { StrInputProps } from '../input';
+
+import { InputNumberValue, TdInputNumberProps } from './type';
+// 计算逻辑，统一到 common 中，方便各框架复用（如超过 16 位的大数处理）
 
 /**
  * 独立一个组件 Hook 方便用户直接使用相关逻辑 自定义任何样式的数字输入框

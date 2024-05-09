@@ -29,6 +29,7 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
+
 import { TabsProps } from 'tdesign-vue-next';
 const value1 = ref<TabsProps['value']>('first');
 const value2 = ref<TabsProps['value']>('first');

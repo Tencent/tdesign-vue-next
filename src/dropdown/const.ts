@@ -1,4 +1,5 @@
 import { InjectionKey } from 'vue';
+
 import { DropdownOption } from './type';
 
 export const injectKey: InjectionKey<{

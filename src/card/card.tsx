@@ -1,10 +1,12 @@
 import { defineComponent, computed } from 'vue';
 
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
-import TLoading from '../loading';
-import props from './props';
 import isString from 'lodash/isString';
+
+import { useTNodeJSX } from '../hooks/tnode';
+import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import TLoading from '../loading';
+
+import props from './props';
 import { TdCardProps } from './type';
 
 export default defineComponent({

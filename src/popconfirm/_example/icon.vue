@@ -30,6 +30,7 @@
 </template>
 <script setup lang="jsx">
 import { ref } from 'vue';
+
 import { BrowseIcon } from 'tdesign-icons-vue-next';
 
 const visible1 = ref(false);

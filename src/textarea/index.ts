@@ -1,5 +1,6 @@
-import _Textarea from './textarea';
 import withInstall from '../utils/withInstall';
+
+import _Textarea from './textarea';
 import { TdTextareaProps } from './type';
 
 import './style';

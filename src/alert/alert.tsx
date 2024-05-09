@@ -1,4 +1,7 @@
 import { defineComponent, VNode, ref, onMounted, onBeforeUnmount } from 'vue';
+
+import isArray from 'lodash/isArray';
+import isString from 'lodash/isString';
 import {
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
   CloseIcon as TdCloseIcon,
@@ -6,17 +9,15 @@ import {
   HelpCircleFilledIcon as TdHelpCircleFilledIcon,
   InfoCircleFilledIcon as TdInfoCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
-import isString from 'lodash/isString';
-import isArray from 'lodash/isArray';
 
-import { on, off, addClass } from '../utils/dom';
-import props from './props';
 import { SlotReturnValue } from '../common';
 import { useIcon } from '../hooks/icon';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
-
 import { useTNodeJSX } from '../hooks/tnode';
+import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import { on, off, addClass } from '../utils/dom';
+
+import props from './props';
 
 export default defineComponent({
   name: 'TAlert',

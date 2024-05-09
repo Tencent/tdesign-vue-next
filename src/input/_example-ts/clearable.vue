@@ -3,6 +3,7 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
+
 import { InputProps } from 'tdesign-vue-next';
 const value = ref('Hello TDesign');
 const onClear: InputProps['onClear'] = () => {

@@ -1,8 +1,9 @@
+import { TreeOptionData } from '../common';
+import withInstall from '../utils/withInstall';
+
 import _Cascader from './cascader';
 import _CascaderPanel from './cascader-panel';
-import withInstall from '../utils/withInstall';
 import { TdCascaderProps } from './type';
-import { TreeOptionData } from '../common';
 
 import './style';
 

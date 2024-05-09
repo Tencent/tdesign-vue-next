@@ -1,5 +1,6 @@
-import _Watermark from './watermark';
 import withInstall from '../utils/withInstall';
+
+import _Watermark from './watermark';
 
 export * from './type';
 

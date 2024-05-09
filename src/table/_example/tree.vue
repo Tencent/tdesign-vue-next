@@ -56,7 +56,7 @@
 </template>
 <script setup lang="jsx">
 import { ref, reactive, computed /** , onMounted */ } from 'vue';
-import { EnhancedTable as TEnhancedTable, MessagePlugin, Loading } from 'tdesign-vue-next';
+
 import {
   ChevronRightIcon,
   ChevronDownIcon,
@@ -64,6 +64,7 @@ import {
   AddRectangleIcon,
   MinusRectangleIcon,
 } from 'tdesign-icons-vue-next';
+import { EnhancedTable as TEnhancedTable, MessagePlugin, Loading } from 'tdesign-vue-next';
 
 const TOTAL = 5;
 

@@ -19,6 +19,7 @@
 
 <script lang="tsx" setup>
 import { ref } from 'vue';
+
 import { TabsProps, TabPanelProps } from 'tdesign-vue-next';
 const tabList: TabsProps['list'] = [
   {

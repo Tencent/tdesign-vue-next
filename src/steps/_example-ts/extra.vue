@@ -27,6 +27,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+
 import { StepsProps } from 'tdesign-vue-next';
 const current = ref<StepsProps['current']>(0);
 </script>

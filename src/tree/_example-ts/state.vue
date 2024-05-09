@@ -30,8 +30,9 @@
 
 <script lang="tsx" setup>
 import { ref } from 'vue';
-import { TreeInstanceFunctions, TreeProps, TypeTreeNodeModel } from 'tdesign-vue-next';
+
 import { Icon } from 'tdesign-icons-vue-next';
+import { TreeInstanceFunctions, TreeProps, TypeTreeNodeModel } from 'tdesign-vue-next';
 const tree = ref<TreeInstanceFunctions>();
 const index = ref(2);
 const items = ref<TreeProps['data']>([

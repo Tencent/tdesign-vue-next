@@ -16,6 +16,7 @@
 </template>
 <script setup>
 import { ref } from 'vue';
+
 import { SearchIcon } from 'tdesign-icons-vue-next';
 
 const input = ref('有默认值');

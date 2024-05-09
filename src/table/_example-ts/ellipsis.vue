@@ -24,13 +24,14 @@
 
 <script lang="tsx" setup>
 import { ref } from 'vue';
-import { MessagePlugin, TableProps } from 'tdesign-vue-next';
+
 import {
   FileCopyIcon,
   ErrorCircleFilledIcon,
   CheckCircleFilledIcon,
   CloseCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
+import { MessagePlugin, TableProps } from 'tdesign-vue-next';
 const statusNameListMap = {
   0: {
     label: '审批通过',

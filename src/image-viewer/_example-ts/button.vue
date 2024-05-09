@@ -11,6 +11,7 @@
 
 <script lang="tsx" setup>
 import { ref } from 'vue';
+
 import { ImageViewerProps } from 'tdesign-vue-next';
 const visible = ref(false);
 const trigger: ImageViewerProps['trigger'] = (

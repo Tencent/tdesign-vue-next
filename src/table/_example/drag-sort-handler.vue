@@ -22,6 +22,7 @@
 
 <script lang="jsx" setup>
 import { ref } from 'vue';
+
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon, MoveIcon } from 'tdesign-icons-vue-next';
 
 // 拖拽排序场景中：调整某个元素的顺序

@@ -1,5 +1,7 @@
 import { defineComponent, PropType, computed } from 'vue';
+
 import TDateFooter from '../base/Footer';
+
 import type { TdDatePickerProps, TdDateRangePickerProps } from '../type';
 
 export default defineComponent({

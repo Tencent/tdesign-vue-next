@@ -1,5 +1,6 @@
-import _Calendar from './calendar';
 import withInstall from '../utils/withInstall';
+
+import _Calendar from './calendar';
 import { TdCalendarProps } from './type';
 
 import './style';

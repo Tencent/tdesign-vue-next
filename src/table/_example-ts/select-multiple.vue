@@ -29,8 +29,9 @@
 
 <script lang="tsx" setup>
 import { ref } from 'vue';
-import { TableProps } from 'tdesign-vue-next';
+
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+import { TableProps } from 'tdesign-vue-next';
 const selectOnRowClick = ref(true);
 const statusNameListMap = {
   0: {

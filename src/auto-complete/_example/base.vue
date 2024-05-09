@@ -31,6 +31,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue';
+
 import { SearchIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
 const value = ref('');

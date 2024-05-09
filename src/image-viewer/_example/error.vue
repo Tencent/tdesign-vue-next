@@ -26,6 +26,7 @@
 
 <script setup lang="js">
 import { reactive } from 'vue';
+
 import { BrowseIcon, ImageErrorIcon } from 'tdesign-icons-vue-next';
 
 const visible = reactive([false, false, false, false]);

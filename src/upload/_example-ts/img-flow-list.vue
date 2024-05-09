@@ -52,6 +52,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+
 import { UploadProps, CheckboxProps } from 'tdesign-vue-next';
 const autoUpload = ref(false);
 const showImageFileName = ref(true);

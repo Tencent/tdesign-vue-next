@@ -56,6 +56,14 @@
 </template>
 <script lang="tsx" setup>
 import { ref, reactive, computed /** , onMounted */ } from 'vue';
+
+import {
+  ChevronRightIcon,
+  ChevronDownIcon,
+  MoveIcon,
+  AddRectangleIcon,
+  MinusRectangleIcon,
+} from 'tdesign-icons-vue-next';
 import {
   EnhancedTable as TEnhancedTable,
   MessagePlugin,
@@ -66,13 +74,6 @@ import {
   TableTreeNodeExpandOptions,
   TableRowData,
 } from 'tdesign-vue-next';
-import {
-  ChevronRightIcon,
-  ChevronDownIcon,
-  MoveIcon,
-  AddRectangleIcon,
-  MinusRectangleIcon,
-} from 'tdesign-icons-vue-next';
 interface TableData {
   id: number;
   key: string;

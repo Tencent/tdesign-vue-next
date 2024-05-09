@@ -1,6 +1,7 @@
+import withInstall from '../utils/withInstall';
+
 import _Slider from './slider';
 import _SliderButton from './slider-button';
-import withInstall from '../utils/withInstall';
 import { TdSliderProps } from './type';
 
 import './style';

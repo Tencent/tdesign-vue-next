@@ -38,9 +38,11 @@
 </template>
 
 <script lang="ts" setup>
-import DialogBody from './dialog-body.vue';
 import { ref } from 'vue';
+
 import { GuideProps, ButtonProps } from 'tdesign-vue-next';
+
+import DialogBody from './dialog-body.vue';
 const visible = ref(false);
 const current = ref(-1);
 const steps: GuideProps['steps'] = [

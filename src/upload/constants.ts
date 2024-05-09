@@ -1,4 +1,5 @@
 import { PropType } from 'vue';
+
 import { CommonDisplayFileProps } from './interface';
 
 export const commonProps = {

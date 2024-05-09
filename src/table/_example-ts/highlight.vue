@@ -31,6 +31,7 @@ export default {
 
 <script lang="tsx" setup>
 import { ref, watch } from 'vue';
+
 import { TableProps } from 'tdesign-vue-next';
 const activeRowType = ref<TableProps['activeRowType']>('single');
 const hover = ref(false);

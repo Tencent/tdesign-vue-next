@@ -8,6 +8,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+
 import { GlobalConfigProvider } from 'tdesign-vue-next';
 const current = ref(1);
 const globalConfig: GlobalConfigProvider = {

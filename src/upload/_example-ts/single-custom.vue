@@ -21,6 +21,7 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
+
 import { MessagePlugin, UploadProps } from 'tdesign-vue-next';
 const files = ref<UploadProps['value']>([]);
 const handleFail: UploadProps['onFail'] = ({ file }) => {

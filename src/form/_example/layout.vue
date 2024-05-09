@@ -26,6 +26,7 @@
 </template>
 <script setup>
 import { reactive } from 'vue';
+
 import { MessagePlugin } from 'tdesign-vue-next';
 
 const formData = reactive({

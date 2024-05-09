@@ -22,6 +22,7 @@
 </template>
 <script setup>
 import { ref } from 'vue';
+
 import { SearchIcon } from 'tdesign-icons-vue-next';
 
 const OPTIONS = ['Student A', 'Student B', 'Student C', 'Student D', 'Student E', 'Student F'];

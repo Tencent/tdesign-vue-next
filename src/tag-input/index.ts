@@ -1,5 +1,6 @@
-import _TagInput from './tag-input';
 import withInstall from '../utils/withInstall';
+
+import _TagInput from './tag-input';
 import { TdTagInputProps } from './type';
 
 import './style';

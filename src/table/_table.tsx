@@ -1,4 +1,5 @@
 import { defineComponent } from 'vue';
+
 import baseTableProps from './base-table-props';
 import primaryTableProps from './primary-table-props';
 

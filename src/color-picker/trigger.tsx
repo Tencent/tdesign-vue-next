@@ -1,9 +1,11 @@
 import { defineComponent, PropType, ref, watch } from 'vue';
-import TInput from '../input';
-import { Color } from './utils';
-import { TdColorPickerProps } from './type';
-import { useBaseClassName } from './hooks';
+
 import { useCommonClassName } from '../hooks/useConfig';
+import TInput from '../input';
+
+import { useBaseClassName } from './hooks';
+import { TdColorPickerProps } from './type';
+import { Color } from './utils';
 
 export default defineComponent({
   name: 'DefaultTrigger',

@@ -6,6 +6,7 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
+
 import { ListItemMetaProps } from 'tdesign-vue-next';
 const list = [];
 const imageUrl: ListItemMetaProps['image'] = 'https://tdesign.gtimg.com/site/avatar.jpg';

@@ -1,5 +1,6 @@
-import _Tooltip from './tooltip';
 import withInstall from '../utils/withInstall';
+
+import _Tooltip from './tooltip';
 import { TdTooltipProps } from './type';
 
 import './style';

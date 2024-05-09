@@ -1,5 +1,5 @@
-import isString from 'lodash/isString';
 import isArray from 'lodash/isArray';
+import isString from 'lodash/isString';
 
 import { TdImageViewerProps, ImageInfo } from './type';
 

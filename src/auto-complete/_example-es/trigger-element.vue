@@ -9,6 +9,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+
 import { AutoCompleteProps } from 'tdesign-vue-next';
 const value = ref('');
 const timer = ref(null);

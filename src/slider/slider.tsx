@@ -10,20 +10,24 @@ import {
   watch,
   toRefs,
 } from 'vue';
+
+import isArray from 'lodash/isArray';
+import isNumber from 'lodash/isNumber';
+
+import { useFormDisabled } from '../form/hooks';
+import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import useVModel from '../hooks/useVModel';
+
+import { useSliderInput } from './hooks/useSliderInput';
+import { useSliderMark } from './hooks/useSliderMark';
 import props from './props';
 import TSliderButton from './slider-button';
+// eslint-disable-next-line import/order
 import { SliderValue } from './type';
 // hooks
-import { useFormDisabled } from '../form/hooks';
-import isArray from 'lodash/isArray';
 
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import { useSliderMark } from './hooks/useSliderMark';
-import { useSliderInput } from './hooks/useSliderInput';
 import { formatSliderValue, getStopStyle } from './util/common';
 import { sliderPropsInjectKey } from './util/constants';
-import useVModel from '../hooks/useVModel';
-import isNumber from 'lodash/isNumber';
 
 interface SliderButtonType {
   setPosition: (param: number) => {};

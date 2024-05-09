@@ -1,4 +1,5 @@
 import { DirectiveBinding } from 'vue';
+
 import { getAttach } from './dom';
 
 // Set code to be same as Vue2.

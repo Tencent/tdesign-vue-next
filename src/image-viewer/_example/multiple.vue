@@ -35,6 +35,7 @@
 
 <script setup>
 import { ref } from 'vue';
+
 import { BrowseIcon } from 'tdesign-icons-vue-next';
 
 const visible = ref(false);

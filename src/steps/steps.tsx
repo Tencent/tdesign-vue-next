@@ -1,13 +1,15 @@
 import { computed, defineComponent, provide, reactive, ref, toRefs, VNode } from 'vue';
-import isObject from 'lodash/isObject';
-import props from './props';
-import stepItemProps from './step-item-props';
-import { TdStepItemProps } from './type';
-import StepItem from './step-item';
 
+import isObject from 'lodash/isObject';
+
+import { useChildComponentSlots } from '../hooks';
 import { usePrefixClass } from '../hooks/useConfig';
 import useVModel from '../hooks/useVModel';
-import { useChildComponentSlots } from '../hooks';
+
+import props from './props';
+import StepItem from './step-item';
+import stepItemProps from './step-item-props';
+import { TdStepItemProps } from './type';
 
 export default defineComponent({
   name: 'TSteps',

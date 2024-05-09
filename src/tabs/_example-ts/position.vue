@@ -24,6 +24,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+
 import { TabsProps } from 'tdesign-vue-next';
 const value = ref<TabsProps['value']>('first');
 const placement = ref<TabsProps['placement']>('top');

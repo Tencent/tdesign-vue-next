@@ -1,6 +1,7 @@
 import { ref, watch, TypeCreateElement, privateKey, TypeVNode } from '../adapt';
-import { TypeTreeRow, TypeTreeNode, TypeTreeState } from '../tree-types';
 import TreeItem from '../tree-item';
+import { TypeTreeRow, TypeTreeNode, TypeTreeState } from '../tree-types';
+
 import useTreeEvents from './useTreeEvents';
 
 // tree 节点列表渲染

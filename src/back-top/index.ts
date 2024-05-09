@@ -1,4 +1,5 @@
 import withInstall from '../utils/withInstall';
+
 import _BackTop from './back-top';
 import { TdBackTopProps } from './type';
 

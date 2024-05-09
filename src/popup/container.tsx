@@ -13,10 +13,13 @@ import {
   ComponentInternalInstance,
   Comment,
 } from 'vue';
-import props from './props';
-import useResizeObserver from '../hooks/useResizeObserver';
+
 import isArray from 'lodash/isArray';
+
+import useResizeObserver from '../hooks/useResizeObserver';
 import { getSSRAttach, getAttach } from '../utils/dom';
+
+import props from './props';
 
 function filterEmpty(children: VNode[] = []) {
   const vnodes: VNode[] = [];

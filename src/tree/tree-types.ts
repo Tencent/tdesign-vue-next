@@ -1,3 +1,5 @@
+import { TreeStore } from '../_common/js/tree/tree-store';
+
 import {
   TypeRef,
   TypeToRefs,
@@ -14,8 +16,6 @@ import {
   TypeTreeInstance as AdaptTypeTreeInstance,
   TypeSetupContext,
 } from './adapt';
-import { TreeStore } from '../_common/js/tree/tree-store';
-
 import { TdTreeProps, TreeNodeModel, TreeNodeValue, TreeNodeState } from './type';
 
 // 在这个文件做统一的类型梳理

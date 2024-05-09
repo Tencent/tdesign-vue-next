@@ -10,7 +10,7 @@
   </t-space>
 </template>
 <script lang="tsx" setup>
-import { InputProps } from 'tdesign-vue-next';
 import { LockOnIcon } from 'tdesign-icons-vue-next';
+import { InputProps } from 'tdesign-vue-next';
 const renderPrefixIcon: InputProps['prefixIcon'] = () => <LockOnIcon />;
 </script>

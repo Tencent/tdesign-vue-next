@@ -1,6 +1,7 @@
+import withInstall from '../utils/withInstall';
+
 import _Input from './input';
 import _InputGroup from './input-group';
-import withInstall from '../utils/withInstall';
 import { InputValue, TdInputProps } from './type';
 
 import './style';

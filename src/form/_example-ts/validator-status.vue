@@ -83,6 +83,7 @@
 </template>
 <script lang="tsx" setup>
 import { ref, onMounted } from 'vue';
+
 import { MessagePlugin, FormProps, FormInstanceFunctions, ButtonProps, FormItemProps } from 'tdesign-vue-next';
 const INITIAL_DATA = {
   fail: '',

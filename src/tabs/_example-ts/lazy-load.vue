@@ -16,6 +16,7 @@
 
 <script lang="tsx" setup>
 import { ref } from 'vue';
+
 import { TabPanelProps } from 'tdesign-vue-next';
 const value = ref(1);
 const panelRender: TabPanelProps['panel'] = () => {

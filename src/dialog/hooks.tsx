@@ -1,12 +1,15 @@
 import { getCurrentInstance } from 'vue';
-import isString from 'lodash/isString';
+
 import isObject from 'lodash/isObject';
+import isString from 'lodash/isString';
 import omit from 'lodash/omit';
-import { useTNodeJSX } from '../hooks/tnode';
+
 import TButton, { ButtonProps } from '../button';
 import { PopconfirmConfig, DialogConfig, DrawerConfig } from '../config-provider';
-import type { ClassName } from '../common';
+import { useTNodeJSX } from '../hooks/tnode';
+
 import type { TdDialogProps } from './type';
+import type { ClassName } from '../common';
 
 export interface MixinsConfirmBtn {
   theme?: MixinsThemeType;

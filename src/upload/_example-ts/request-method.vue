@@ -18,6 +18,7 @@
 </template>
 <script lang="ts" setup>
 import { ref, computed } from 'vue';
+
 import { UploadInstanceFunctions, UploadProps, RadioGroupProps } from 'tdesign-vue-next';
 const files = ref<UploadProps['value']>([]);
 const uploadRef = ref<UploadInstanceFunctions>();

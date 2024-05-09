@@ -1,11 +1,13 @@
 import { defineComponent, computed } from 'vue';
-import props from './props';
 
-import { usePrefixClass } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
-import Button from '../button';
-import isString from 'lodash/isString';
 import isArray from 'lodash/isArray';
+import isString from 'lodash/isString';
+
+import Button from '../button';
+import { useTNodeJSX } from '../hooks/tnode';
+import { usePrefixClass } from '../hooks/useConfig';
+
+import props from './props';
 
 export default defineComponent({
   name: 'TComment',

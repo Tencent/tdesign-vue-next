@@ -18,8 +18,8 @@
   </t-space>
 </template>
 <script lang="tsx" setup>
-import { ButtonProps } from 'tdesign-vue-next';
 import { AddIcon, CloudUploadIcon, SearchIcon, CloudDownloadIcon, DiscountIcon } from 'tdesign-icons-vue-next';
+import { ButtonProps } from 'tdesign-vue-next';
 const renderIcon: ButtonProps['icon'] = () => {
   return <SearchIcon />;
 };

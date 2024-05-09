@@ -12,6 +12,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+
 import { MessagePlugin, PaginationProps } from 'tdesign-vue-next';
 const current = ref(1);
 const pageSize = ref(20);

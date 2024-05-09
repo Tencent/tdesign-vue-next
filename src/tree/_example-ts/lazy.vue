@@ -24,6 +24,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+
 import { TreeOptionData, TreeProps } from 'tdesign-vue-next';
 const checkable = ref(true);
 const checkStrictly = ref(false);

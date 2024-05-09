@@ -1,5 +1,6 @@
-import _Link from './link';
 import withInstall from '../utils/withInstall';
+
+import _Link from './link';
 import { TdLinkProps } from './type';
 
 import './style';

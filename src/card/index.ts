@@ -1,5 +1,6 @@
-import _Card from './card';
 import withInstall from '../utils/withInstall';
+
+import _Card from './card';
 import { TdCardProps } from './type';
 
 import './style';

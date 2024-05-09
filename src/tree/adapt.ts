@@ -2,15 +2,17 @@
 // 除此文件之外的其他组件文件，可从 vue2 项目直接复制到 vue3 项目进行维护
 import * as Vue from 'vue';
 import { Ref, SetupContext, ToRefs, VNode, PropType, ComponentPublicInstance, UnwrapNestedRefs } from 'vue';
+
+import { TreeStore } from '../_common/js/tree/tree-store';
+import { TypeTreeEventState as TreeEventState } from '../_common/js/tree/types';
 import { CheckboxProps } from '../checkbox';
 import { ClassName, TScroll, Styles, TNode, TreeOptionData, TNodeReturnValue } from '../common';
-import { TypeTreeEventState as TreeEventState } from '../_common/js/tree/types';
-import { TdTreeProps, TreeInstanceFunctions } from './type';
-import { VirtualScrollConfig } from '../hooks/useVirtualScrollNew';
-import tdWithInstall from '../utils/withInstall';
-import tdUseVModel from '../hooks/useVModel';
 import tdUseDefaultValue from '../hooks/useDefaultValue';
-import { TreeStore } from '../_common/js/tree/tree-store';
+import { VirtualScrollConfig } from '../hooks/useVirtualScrollNew';
+import tdUseVModel from '../hooks/useVModel';
+import tdWithInstall from '../utils/withInstall';
+
+import { TdTreeProps, TreeInstanceFunctions } from './type';
 
 export { ref, reactive, computed, watch, onMounted, toRefs, defineComponent, TransitionGroup } from 'vue';
 export { CaretRightSmallIcon as TdCaretRightSmallIcon } from 'tdesign-icons-vue-next';

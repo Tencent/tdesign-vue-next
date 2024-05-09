@@ -44,8 +44,9 @@
 </template>
 <script lang="tsx" setup>
 import { nextTick, ref } from 'vue';
-import { InputInstanceFunctions, TagProps, InputProps } from 'tdesign-vue-next';
+
 import { AddIcon } from 'tdesign-icons-vue-next';
+import { InputInstanceFunctions, TagProps, InputProps } from 'tdesign-vue-next';
 const inputVisible = ref(false);
 const tags = ref([
   {

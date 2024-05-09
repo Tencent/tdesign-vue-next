@@ -12,6 +12,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+
 import { RadioGroupProps } from 'tdesign-vue-next';
 const columnOptions: RadioGroupProps['options'] = [2, 3, 4];
 const column = ref(2);

@@ -31,6 +31,7 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
+
 import { UploadProps } from 'tdesign-vue-next';
 const files = ref<UploadProps['value']>([]);
 const ABRIDGE_NAME: UploadProps['abridgeName'] = [10, 7];

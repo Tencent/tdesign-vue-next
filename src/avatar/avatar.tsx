@@ -1,9 +1,11 @@
 import { computed, defineComponent, inject, nextTick, onMounted, onUpdated, ref } from 'vue';
+
+import { useContent, useTNodeJSX } from '../hooks/tnode';
+import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import Image, { ImageProps } from '../image';
+
 import props from './props';
 import { TdAvatarProps } from './type';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import { useContent, useTNodeJSX } from '../hooks/tnode';
-import Image, { ImageProps } from '../image';
 
 export default defineComponent({
   name: 'TAvatar',

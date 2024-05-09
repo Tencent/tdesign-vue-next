@@ -1,4 +1,7 @@
 import { defineComponent, VNode, computed, CSSProperties } from 'vue';
+
+import isObject from 'lodash/isObject';
+import isString from 'lodash/isString';
 import {
   CloseCircleFilledIcon as TdCloseCircleFilledIcon,
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
@@ -8,14 +11,13 @@ import {
   ErrorIcon as TdErrorIcon,
 } from 'tdesign-icons-vue-next';
 
-import { getBackgroundColor } from '../utils/helper';
-import { PRO_THEME, CIRCLE_SIZE, CIRCLE_SIZE_PX, STATUS_ICON, CIRCLE_FONT_SIZE_RATIO } from './constants';
-import props from './props';
+import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useTNodeJSX } from '../hooks/tnode';
-import isObject from 'lodash/isObject';
-import isString from 'lodash/isString';
+import { getBackgroundColor } from '../utils/helper';
+
+import { PRO_THEME, CIRCLE_SIZE, CIRCLE_SIZE_PX, STATUS_ICON, CIRCLE_FONT_SIZE_RATIO } from './constants';
+import props from './props';
 
 export default defineComponent({
   name: 'TProgress',

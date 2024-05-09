@@ -48,6 +48,7 @@
 
 <script setup>
 import { ref } from 'vue';
+
 import { BrowseIcon, EllipsisIcon } from 'tdesign-icons-vue-next';
 
 const img3 = 'https://tdesign.gtimg.com/demo/demo-image-3.png';

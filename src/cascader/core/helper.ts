@@ -1,7 +1,8 @@
-import isNumber from 'lodash/isNumber';
-import isObject from 'lodash/isObject';
 import isArray from 'lodash/isArray';
 import isEmpty from 'lodash/isEmpty';
+import isNumber from 'lodash/isNumber';
+import isObject from 'lodash/isObject';
+
 import {
   TreeNode,
   CascaderContextType,

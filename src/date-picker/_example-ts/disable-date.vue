@@ -37,8 +37,9 @@
 </template>
 
 <script lang="ts" setup>
-import dayjs from 'dayjs';
 import { ref, computed } from 'vue';
+
+import dayjs from 'dayjs';
 import { DatePickerProps } from 'tdesign-vue-next';
 const pickDate = ref();
 const timePickerProps = computed<DatePickerProps['timePickerProps']>(() => {

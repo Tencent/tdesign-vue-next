@@ -9,6 +9,7 @@
 
 <script lang="ts" setup>
 import { ref, computed, onMounted } from 'vue';
+
 import { MessageProps, ButtonProps } from 'tdesign-vue-next';
 const status1 = ref<MessageProps['theme']>('loading');
 const status2 = ref<MessageProps['theme']>('loading');

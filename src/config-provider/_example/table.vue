@@ -17,8 +17,8 @@
 </template>
 
 <script setup lang="jsx">
-import { ChevronRightIcon, CaretDownSmallIcon /** , ChevronDownIcon */ } from 'tdesign-icons-vue-next';
 import merge from 'lodash/merge';
+import { ChevronRightIcon, CaretDownSmallIcon /** , ChevronDownIcon */ } from 'tdesign-icons-vue-next';
 import enConfig from 'tdesign-vue-next/es/locale/en_US';
 
 const columns = [

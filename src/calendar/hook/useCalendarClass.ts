@@ -1,9 +1,9 @@
 import { computed } from 'vue';
 
 import { usePrefixClass } from '../../hooks/useConfig';
+import { COMPONENT_NAME } from '../const';
 import { CalendarState } from '../interface';
 import { TdCalendarProps } from '../type';
-import { COMPONENT_NAME } from '../const';
 
 export function useCalendarClass(props: TdCalendarProps, state: CalendarState) {
   const prefixClass = usePrefixClass(COMPONENT_NAME);

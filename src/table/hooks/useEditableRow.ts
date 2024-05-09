@@ -1,11 +1,14 @@
 import { ref, computed, watch, toRefs } from 'vue';
+
+import cloneDeep from 'lodash/cloneDeep';
 import get from 'lodash/get';
-import set from 'lodash/set';
 import isFunction from 'lodash/isFunction';
-import { PrimaryTableProps } from '../interface';
+import set from 'lodash/set';
+
 import { getEditableKeysMap } from '../../_common/js/table/utils';
 import { validate } from '../../form/form-model';
-import cloneDeep from 'lodash/cloneDeep';
+import { OnEditableChangeContext } from '../editable-cell';
+import { PrimaryTableProps } from '../interface';
 import {
   PrimaryTableRowEditContext,
   TableRowData,
@@ -14,8 +17,8 @@ import {
   ErrorListObjectType,
   PrimaryTableCellParams,
 } from '../type';
+
 import { getCellKey } from './useRowspanAndColspan';
-import { OnEditableChangeContext } from '../editable-cell';
 
 export interface TablePromiseErrorData {
   errors: ErrorListObjectType<TableRowData>[];

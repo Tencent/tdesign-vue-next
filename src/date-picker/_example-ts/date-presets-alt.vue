@@ -6,8 +6,9 @@
 </template>
 
 <script lang="ts" setup>
-import dayjs from 'dayjs';
 import { ref } from 'vue';
+
+import dayjs from 'dayjs';
 import { DateRangePickerProps } from 'tdesign-vue-next';
 const presets = ref<DateRangePickerProps['presets']>({
   最近7天: [dayjs().subtract(6, 'day').toDate(), dayjs().toDate()],

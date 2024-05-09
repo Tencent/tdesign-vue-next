@@ -1,5 +1,6 @@
-import _Dialog from './dialog';
 import withInstall from '../utils/withInstall';
+
+import _Dialog from './dialog';
 import { TdDialogProps } from './type';
 
 import './style';

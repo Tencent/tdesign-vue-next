@@ -1,14 +1,16 @@
 import { computed, ref, defineComponent, toRefs, nextTick } from 'vue';
-import props from './props';
-import { TdAutoCompleteProps } from './type';
+
+import { ClassName } from '../common';
+import { useConfig } from '../config-provider/useConfig';
+import { useContent, useTNodeJSX } from '../hooks';
+import useCommonClassName from '../hooks/useCommonClassName';
+import useVModel from '../hooks/useVModel';
 import Input, { InputProps, StrInputProps } from '../input';
 import Popup, { PopupProps } from '../popup';
-import useCommonClassName from '../hooks/useCommonClassName';
+
 import AutoCompleteOptionList from './option-list';
-import useVModel from '../hooks/useVModel';
-import { useConfig } from '../config-provider/useConfig';
-import { ClassName } from '../common';
-import { useContent, useTNodeJSX } from '../hooks';
+import props from './props';
+import { TdAutoCompleteProps } from './type';
 
 export default defineComponent({
   name: 'TAutoComplete',

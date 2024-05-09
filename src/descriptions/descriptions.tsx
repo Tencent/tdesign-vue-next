@@ -1,17 +1,18 @@
-import isNil from 'lodash/isNil';
-import isArray from 'lodash/isArray';
 import { defineComponent, provide, ref } from 'vue';
 
-import { useTNodeJSX } from '../hooks/tnode';
+import isArray from 'lodash/isArray';
+import isNil from 'lodash/isNil';
+
 import { useChildComponentSlots } from '../hooks/slot';
+import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
-import props from './props';
 import { descriptionsKey } from './const';
-import { TdDescriptionsProps } from './type';
 import DescriptionsRow from './descriptions-row';
-import { renderCustomNode, itemTypeIsProps } from './utils';
 import { ItemsType, TdDescriptionItem } from './interface';
+import props from './props';
+import { TdDescriptionsProps } from './type';
+import { renderCustomNode, itemTypeIsProps } from './utils';
 
 /**
  * 实现思路

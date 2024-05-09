@@ -1,5 +1,6 @@
-import _Comment from './comment';
 import withInstall from '../utils/withInstall';
+
+import _Comment from './comment';
 import { TdCommentProps } from './type';
 
 import './style';

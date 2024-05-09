@@ -1,9 +1,10 @@
 import { h, ComponentPublicInstance, VNode, isVNode } from 'vue';
+
+import camelCase from 'lodash/camelCase';
 import isEmpty from 'lodash/isEmpty';
-import isString from 'lodash/isString';
 import isFunction from 'lodash/isFunction';
 import isObject from 'lodash/isObject';
-import camelCase from 'lodash/camelCase';
+import isString from 'lodash/isString';
 import kebabCase from 'lodash/kebabCase';
 
 export interface JSXRenderContext {

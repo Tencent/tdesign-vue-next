@@ -1,8 +1,10 @@
 import { computed, defineComponent, ref } from 'vue';
+
+import { usePrefixClass } from '../hooks/useConfig';
+
 import { PLACEMENT_OFFSET } from './const';
 import TMessage from './message';
 import { MessageOptions } from './type';
-import { usePrefixClass } from '../hooks/useConfig';
 
 export const DEFAULT_Z_INDEX = 6000;
 

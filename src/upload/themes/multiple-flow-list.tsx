@@ -1,4 +1,7 @@
 import { computed, defineComponent, toRefs, PropType, ref } from 'vue';
+
+import isFunction from 'lodash/isFunction';
+import isObject from 'lodash/isObject';
 import {
   BrowseIcon as TdBrowseIcon,
   DeleteIcon as TdDeleteIcon,
@@ -12,15 +15,7 @@ import {
   FileIcon,
   VideoIcon,
 } from 'tdesign-icons-vue-next';
-import isFunction from 'lodash/isFunction';
-import isObject from 'lodash/isObject';
-import useGlobalIcon from '../../hooks/useGlobalIcon';
-import ImageViewer, { ImageViewerProps } from '../../image-viewer';
-import { CommonDisplayFileProps } from '../interface';
-import { commonProps } from '../constants';
-import TButton from '../../button';
-import { UploadFile, TdUploadProps } from '../type';
-import useDrag, { UploadDragEvents } from '../hooks/useDrag';
+
 import {
   abridgeName,
   returnFileSize,
@@ -31,11 +26,18 @@ import {
   FILE_PPT_REGEXP,
   VIDEO_REGEXP,
 } from '../../_common/js/upload/utils';
-import TLoading from '../../loading';
-import { useTNodeJSX } from '../../hooks';
-import Link from '../../link';
+import TButton from '../../button';
 import { UploadConfig } from '../../config-provider';
+import { useTNodeJSX } from '../../hooks';
+import useGlobalIcon from '../../hooks/useGlobalIcon';
 import Image from '../../image';
+import ImageViewer, { ImageViewerProps } from '../../image-viewer';
+import Link from '../../link';
+import TLoading from '../../loading';
+import { commonProps } from '../constants';
+import useDrag, { UploadDragEvents } from '../hooks/useDrag';
+import { CommonDisplayFileProps } from '../interface';
+import { UploadFile, TdUploadProps } from '../type';
 
 export interface ImageFlowListProps extends CommonDisplayFileProps {
   uploadFiles?: (toFiles?: UploadFile[]) => void;

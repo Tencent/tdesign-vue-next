@@ -1,4 +1,5 @@
 import { App } from 'vue';
+
 import * as components from './components';
 
 export function install(app: App, config?: Record<string, unknown>): void {

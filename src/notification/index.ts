@@ -1,5 +1,6 @@
-import _Notification from './notification';
 import withInstall from '../utils/withInstall';
+
+import _Notification from './notification';
 import { TdNotificationProps } from './type';
 
 import './style';

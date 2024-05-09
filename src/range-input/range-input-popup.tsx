@@ -1,9 +1,11 @@
 import { defineComponent, computed } from 'vue';
-import Popup from '../popup';
+
 import { usePrefixClass } from '../hooks/useConfig';
+import Popup from '../popup';
+import useOverlayInnerStyle from '../select-input/useOverlayInnerStyle';
+
 import RangeInput from './range-input';
 import props from './range-input-popup-props';
-import useOverlayInnerStyle from '../select-input/useOverlayInnerStyle';
 import { TdRangeInputPopupProps } from './type';
 
 export default defineComponent({

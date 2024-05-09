@@ -11,24 +11,27 @@ import {
   nextTick,
   onMounted,
 } from 'vue';
+
+import get from 'lodash/get';
 import isFunction from 'lodash/isFunction';
-import upperFirst from 'lodash/upperFirst';
 import isString from 'lodash/isString';
 import pick from 'lodash/pick';
-import get from 'lodash/get';
-import { formatClassNames, formatRowAttributes, formatRowClassNames } from './utils';
-import { getRowFixedStyles, getColumnFixedStyles } from './hooks/useFixed';
-import useClassName from './hooks/useClassName';
-import TEllipsis from './ellipsis';
-import { BaseTableCellParams, TableRowData, RowspanColspan, TdPrimaryTableProps, TdBaseTableProps } from './type';
-import baseTableProps from './base-table-props';
-import useLazyLoad from './hooks/useLazyLoad';
-import { RowAndColFixedPosition } from './interface';
-import { getCellKey, SkipSpansValue } from './hooks/useRowspanAndColspan';
-import { TooltipProps } from '../tooltip';
+import upperFirst from 'lodash/upperFirst';
+
 import { PaginationProps } from '..';
-import { VirtualScrollConfig } from '../hooks/useVirtualScrollNew';
 import { AttachNode, SlotReturnValue } from '../common';
+import { VirtualScrollConfig } from '../hooks/useVirtualScrollNew';
+import { TooltipProps } from '../tooltip';
+
+import baseTableProps from './base-table-props';
+import TEllipsis from './ellipsis';
+import useClassName from './hooks/useClassName';
+import { getRowFixedStyles, getColumnFixedStyles } from './hooks/useFixed';
+import useLazyLoad from './hooks/useLazyLoad';
+import { getCellKey, SkipSpansValue } from './hooks/useRowspanAndColspan';
+import { RowAndColFixedPosition } from './interface';
+import { BaseTableCellParams, TableRowData, RowspanColspan, TdPrimaryTableProps, TdBaseTableProps } from './type';
+import { formatClassNames, formatRowAttributes, formatRowClassNames } from './utils';
 
 export interface RenderTdExtra {
   rowAndColFixedPosition: RowAndColFixedPosition;

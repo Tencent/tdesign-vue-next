@@ -22,8 +22,9 @@
 </template>
 <script lang="tsx" setup>
 import { ref } from 'vue';
-import { TimelineProps } from 'tdesign-vue-next';
+
 import { TipsIcon, UserIcon, HeartIcon, HomeIcon } from 'tdesign-icons-vue-next';
+import { TimelineProps } from 'tdesign-vue-next';
 const color = 'var(--td-brand-color)';
 const dot = ref<TimelineProps['theme']>('default');
 const options = [

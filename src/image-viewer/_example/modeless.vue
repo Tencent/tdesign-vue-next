@@ -15,6 +15,7 @@
 
 <script setup>
 import { ref } from 'vue';
+
 import { BrowseIcon } from 'tdesign-icons-vue-next';
 
 const img = 'https://tdesign.gtimg.com/demo/demo-image-1.png';

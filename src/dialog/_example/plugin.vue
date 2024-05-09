@@ -9,6 +9,7 @@
 </template>
 <script>
 import { defineComponent } from 'vue';
+
 import { DialogPlugin } from 'tdesign-vue-next';
 
 export default defineComponent({

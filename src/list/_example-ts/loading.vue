@@ -19,6 +19,7 @@
 
 <script lang="ts" setup>
 import { ref, computed } from 'vue';
+
 import { ListProps, ListItemMetaProps } from 'tdesign-vue-next';
 const listCount = ref(3);
 const asyncLoadingRadio = ref('load-more');

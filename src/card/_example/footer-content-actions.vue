@@ -13,8 +13,8 @@
   </t-card>
 </template>
 <script setup lang="jsx">
-import { MessagePlugin } from 'tdesign-vue-next';
 import { MoreIcon } from 'tdesign-icons-vue-next';
+import { MessagePlugin } from 'tdesign-vue-next';
 
 const clickHandler = (data) => {
   MessagePlugin.success(`选中【${data.content}】`);

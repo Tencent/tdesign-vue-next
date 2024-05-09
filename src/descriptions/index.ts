@@ -1,6 +1,7 @@
+import withInstall from '../utils/withInstall';
+
 import _Descriptions from './descriptions';
 import _DescriptionsItem from './descriptions-item';
-import withInstall from '../utils/withInstall';
 import { TdDescriptionsProps, TdDescriptionItemProps } from './type';
 
 import './style';

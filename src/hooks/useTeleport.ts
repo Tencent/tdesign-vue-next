@@ -1,7 +1,9 @@
-import { getSSRAttach, getAttach } from '../utils/dom';
 import { computed, Ref, onMounted, ref, watch } from 'vue';
-import { AttachNode } from '../common';
+
 import isFunction from 'lodash/isFunction';
+
+import { AttachNode } from '../common';
+import { getSSRAttach, getAttach } from '../utils/dom';
 
 /**
  * @description 返回挂载的节点, 用于teleport

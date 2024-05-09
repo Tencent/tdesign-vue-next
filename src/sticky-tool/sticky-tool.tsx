@@ -1,11 +1,12 @@
 import { computed, defineComponent, VNode } from 'vue';
-import props from './props';
+
 import isObject from 'lodash/isObject';
-import StickyItem from './sticky-item';
 
-import { usePrefixClass } from '../hooks/useConfig';
 import { useChildComponentSlots } from '../hooks';
+import { usePrefixClass } from '../hooks/useConfig';
 
+import props from './props';
+import StickyItem from './sticky-item';
 import stickyItemProps from './sticky-item-props';
 
 import type { TdStickyItemProps } from './type';

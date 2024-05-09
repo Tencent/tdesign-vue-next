@@ -16,6 +16,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+
 import { TabsProps } from 'tdesign-vue-next';
 const value = ref('22');
 const theme = ref<TabsProps['theme']>('normal');

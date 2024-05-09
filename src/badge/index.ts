@@ -1,5 +1,6 @@
-import _Badge from './badge';
 import withInstall from '../utils/withInstall';
+
+import _Badge from './badge';
 import { TdBadgeProps } from './type';
 
 import './style';

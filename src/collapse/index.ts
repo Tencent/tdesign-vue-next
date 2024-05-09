@@ -1,6 +1,7 @@
+import withInstall from '../utils/withInstall';
+
 import _Collapse from './collapse';
 import _CollapsePanel from './collapse-panel';
-import withInstall from '../utils/withInstall';
 import { TdCollapseProps, TdCollapsePanelProps } from './type';
 
 import './style';

@@ -1,6 +1,9 @@
 import { App, Plugin, createApp, nextTick, ComponentPublicInstance } from 'vue';
-import NotificationList from './notificationList';
+
+import { AttachNodeReturnValue } from '../common';
 import { getAttach } from '../utils/dom';
+
+import NotificationList from './notificationList';
 import {
   NotificationOptions,
   NotificationInstance,
@@ -12,7 +15,7 @@ import {
   NotificationCloseMethod,
   NotificationCloseAllMethod,
 } from './type';
-import { AttachNodeReturnValue } from '../common';
+
 import './style';
 
 let seed = 0;

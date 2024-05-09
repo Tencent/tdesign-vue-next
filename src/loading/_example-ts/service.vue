@@ -14,6 +14,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+
 import { LoadingPlugin, ButtonProps } from 'tdesign-vue-next';
 
 const content = ref(null);

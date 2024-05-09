@@ -54,6 +54,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+
 import { HeadMenuProps } from 'tdesign-vue-next';
 const menu1Value = ref('item2');
 const menu2Value = ref('item1');

@@ -91,6 +91,7 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
+
 import { MessagePlugin, UploadProps, UploadInstanceFunctions, ButtonProps } from 'tdesign-vue-next';
 const file1 = ref<UploadProps['value']>([]);
 const file2 = ref<UploadProps['value']>([

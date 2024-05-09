@@ -24,8 +24,14 @@
  *
  */
 import { App, createApp, nextTick, Plugin, ComponentPublicInstance } from 'vue';
-import MessageList, { DEFAULT_Z_INDEX } from './messageList';
+
+import isObject from 'lodash/isObject';
+import isString from 'lodash/isString';
+
+import { AttachNodeReturnValue } from '../common';
 import { getAttach } from '../utils/dom';
+
+import MessageList, { DEFAULT_Z_INDEX } from './messageList';
 import {
   MessageOptions,
   MessageMethod,
@@ -39,9 +45,6 @@ import {
   MessageCloseMethod,
   MessageCloseAllMethod,
 } from './type';
-import { AttachNodeReturnValue } from '../common';
-import isObject from 'lodash/isObject';
-import isString from 'lodash/isString';
 
 // 存储不同 attach 和 不同 placement 消息列表实例
 const instanceMap: Map<AttachNodeReturnValue, Record<string, ComponentPublicInstance>> = new Map();

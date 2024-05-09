@@ -22,6 +22,7 @@
 </template>
 <script setup>
 import { ref } from 'vue';
+
 import { UploadIcon } from 'tdesign-icons-vue-next';
 
 const files = ref([]);

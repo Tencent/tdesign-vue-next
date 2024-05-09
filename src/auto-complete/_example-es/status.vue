@@ -58,6 +58,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+
 import { AutoCompleteProps } from 'tdesign-vue-next';
 const value1 = ref('第一个默认联想词');
 const value2 = ref('第一个默认联想词');

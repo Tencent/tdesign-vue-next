@@ -1,7 +1,9 @@
 import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, reactive, ref } from 'vue';
+
 import { SATURATION_PANEL_DEFAULT_HEIGHT, SATURATION_PANEL_DEFAULT_WIDTH } from '../const';
-import { Draggable, Coordinate } from '../utils';
 import { useBaseClassName } from '../hooks';
+import { Draggable, Coordinate } from '../utils';
+
 import baseProps from './base-props';
 
 export default defineComponent({

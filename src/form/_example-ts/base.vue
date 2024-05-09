@@ -37,6 +37,7 @@
 </template>
 <script lang="ts" setup>
 import { ref, reactive } from 'vue';
+
 import { MessagePlugin, FormProps, FormInstanceFunctions, CheckboxGroupProps, InputProps } from 'tdesign-vue-next';
 const FORM_RULES: FormProps['rules'] = {
   name: [

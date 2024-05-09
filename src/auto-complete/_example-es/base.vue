@@ -31,8 +31,9 @@
 
 <script lang="tsx" setup>
 import { ref } from 'vue';
-import { AutoCompleteProps } from 'tdesign-vue-next';
+
 import { SearchIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+import { AutoCompleteProps } from 'tdesign-vue-next';
 const value = ref('');
 const value2 = ref('');
 const options = ref<AutoCompleteProps<string>['options']>(['第一个默认联想词', '第二个默认联想词', '第三个默认联想词']);

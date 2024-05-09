@@ -1,8 +1,10 @@
 import { computed, defineComponent, PropType, ref, toRefs, watch } from 'vue';
+
 import { ImageErrorIcon } from 'tdesign-icons-vue-next';
+
 import { usePrefixClass, useConfig } from '../../hooks/useConfig';
-import { useDrag } from '../hooks';
 import { useImagePreviewUrl } from '../../hooks/useImagePreviewUrl';
+import { useDrag } from '../hooks';
 
 export default defineComponent({
   name: 'TImageItem',

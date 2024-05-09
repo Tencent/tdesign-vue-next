@@ -20,6 +20,7 @@
 
 <script setup lang="jsx">
 import { ref, computed } from 'vue';
+
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
 const statusNameListMap = {

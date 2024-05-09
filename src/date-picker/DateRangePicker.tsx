@@ -1,16 +1,9 @@
 import { defineComponent, computed, ref, watch } from 'vue';
+
 import dayjs from 'dayjs';
-import { useFormDisabled } from '../form/hooks';
-import { usePrefixClass } from '../hooks/useConfig';
-import isFunction from 'lodash/isFunction';
 import isArray from 'lodash/isArray';
+import isFunction from 'lodash/isFunction';
 
-import props from './date-range-picker-props';
-import { DateValue, DateRangePickerPartial } from './type';
-
-import { RangeInputPopup as TRangeInputPopup } from '../range-input';
-import TRangePanel from './panel/RangePanel';
-import useRange from './hooks/useRange';
 import {
   parseToDayjs,
   formatTime,
@@ -20,6 +13,14 @@ import {
   initYearMonthTime,
 } from '../_common/js/date-picker/format';
 import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-picker/utils';
+import { useFormDisabled } from '../form/hooks';
+import { usePrefixClass } from '../hooks/useConfig';
+import { RangeInputPopup as TRangeInputPopup } from '../range-input';
+
+import props from './date-range-picker-props';
+import useRange from './hooks/useRange';
+import TRangePanel from './panel/RangePanel';
+import { DateValue, DateRangePickerPartial } from './type';
 
 export default defineComponent({
   name: 'TDateRangePicker',

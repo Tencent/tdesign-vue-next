@@ -1,4 +1,5 @@
 import { toRefs, watchEffect, ref, computed } from 'vue';
+
 import {
   formatDate,
   formatTime,
@@ -6,9 +7,9 @@ import {
   getDefaultFormat,
   parseToDayjs,
 } from '../../_common/js/date-picker/format';
+import { extractTimeFormat } from '../../_common/js/date-picker/utils';
 import useVModel from '../../hooks/useVModel';
 import { TdDatePickerProps } from '../type';
-import { extractTimeFormat } from '../../_common/js/date-picker/utils';
 
 export default function useSingleValue(props: TdDatePickerProps) {
   const { value: valueFromProps, modelValue } = toRefs(props);

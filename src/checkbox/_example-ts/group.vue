@@ -22,6 +22,7 @@
 
 <script lang="tsx" setup>
 import { ref, computed } from 'vue';
+
 import { CheckboxGroupProps, CheckboxProps } from 'tdesign-vue-next';
 const options1: CheckboxGroupProps['options'] = [
   {

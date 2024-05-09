@@ -27,6 +27,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+
 import { GlobalConfigProvider } from 'tdesign-vue-next';
 const drawerVisible = ref(false);
 const globalConfig: GlobalConfigProvider = {

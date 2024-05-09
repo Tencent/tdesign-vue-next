@@ -1,6 +1,7 @@
+import withInstall from '../utils/withInstall';
+
 import _AutoComplete from './auto-complete';
 import _HighlightOption from './highlight-option';
-import withInstall from '../utils/withInstall';
 import { AutoCompleteOption, TdAutoCompleteProps } from './type';
 
 import './style';

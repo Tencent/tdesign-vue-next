@@ -51,7 +51,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ListItemMetaProps } from 'tdesign-vue-next';
 import { EditIcon, DownloadIcon } from 'tdesign-icons-vue-next';
+import { ListItemMetaProps } from 'tdesign-vue-next';
 const avatarUrl: ListItemMetaProps['image'] = 'https://tdesign.gtimg.com/site/avatar.jpg';
 </script>

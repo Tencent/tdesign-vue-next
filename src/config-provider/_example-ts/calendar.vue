@@ -6,8 +6,8 @@
 
 <script lang="ts" setup>
 import merge from 'lodash/merge';
-import enConfig from 'tdesign-vue-next/es/locale/en_US';
 import { GlobalConfigProvider } from 'tdesign-vue-next';
+import enConfig from 'tdesign-vue-next/es/locale/en_US';
 const MONTHS = [
   'January',
   'February',

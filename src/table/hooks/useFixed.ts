@@ -10,17 +10,19 @@ import {
   onBeforeUnmount,
   Ref,
 } from 'vue';
-import get from 'lodash/get';
+
 import debounce from 'lodash/debounce';
+import get from 'lodash/get';
+import pick from 'lodash/pick';
 import xorWith from 'lodash/xorWith';
+
 import log from '../../_common/js/log';
-import { ClassName, Styles } from '../../common';
-import { BaseTableCol, BaseTableInstanceFunctions, TableRowData, TdBaseTableProps } from '../type';
 import { getScrollbarWidthWithCSS } from '../../_common/js/utils/getScrollbarWidth';
+import { getIEVersion } from '../../_common/js/utils/helper';
+import { ClassName, Styles } from '../../common';
 import { on, off } from '../../utils/dom';
 import { FixedColumnInfo, TableRowFixedClasses, RowAndColFixedPosition, TableColFixedClasses } from '../interface';
-import { getIEVersion } from '../../_common/js/utils/helper';
-import pick from 'lodash/pick';
+import { BaseTableCol, BaseTableInstanceFunctions, TableRowData, TdBaseTableProps } from '../type';
 
 // 固定列相关类名处理
 export function getColumnFixedStyles(

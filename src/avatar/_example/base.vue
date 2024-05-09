@@ -7,6 +7,7 @@
 </template>
 <script setup lang="jsx">
 import { computed } from 'vue';
+
 import { UserIcon } from 'tdesign-icons-vue-next';
 
 const icon = computed(() => () => <UserIcon />);

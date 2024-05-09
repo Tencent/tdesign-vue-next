@@ -1,5 +1,6 @@
-import _Space from './space';
 import withInstall from '../utils/withInstall';
+
+import _Space from './space';
 import { TdSpaceProps } from './type';
 
 import './style';
