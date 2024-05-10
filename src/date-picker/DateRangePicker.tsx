@@ -1,6 +1,6 @@
 import { defineComponent, computed, ref, watch } from 'vue';
 import dayjs from 'dayjs';
-import { useFormDisabled } from '../form/hooks';
+import { useDisabled } from '../hooks/useDisabled';
 import { usePrefixClass } from '../hooks/useConfig';
 import isFunction from 'lodash/isFunction';
 import isArray from 'lodash/isArray';
@@ -47,7 +47,7 @@ export default defineComponent({
       onChange,
     } = useRange(props);
 
-    const disabled = useFormDisabled();
+    const disabled = useDisabled();
 
     const formatRef = computed(() =>
       getDefaultFormat({
@@ -109,7 +109,8 @@ export default defineComponent({
         isHoverCell.value = false;
         isFirstValueSelected.value = false;
         inputValue.value = formatDate(value.value, {
-          format: formatRef.value.format,
+          format: formatRef.value.valueType,
+          targetFormat: formatRef.value.format,
         });
       }
     });
