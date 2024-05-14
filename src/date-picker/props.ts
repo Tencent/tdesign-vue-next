@@ -22,7 +22,10 @@ export default {
     type: [Object, Array, Function] as PropType<TdDatePickerProps['disableDate']>,
   },
   /** 是否禁用组件 */
-  disabled: Boolean,
+  disabled: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 是否显示时间选择 */
   enableTimePicker: Boolean,
   /** 第一天从星期几开始 */

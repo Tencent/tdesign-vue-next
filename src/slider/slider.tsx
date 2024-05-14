@@ -10,20 +10,20 @@ import {
   watch,
   toRefs,
 } from 'vue';
+import isNumber from 'lodash/isNumber';
+import isArray from 'lodash/isArray';
 import props from './props';
 import TSliderButton from './slider-button';
 import { SliderValue } from './type';
-// hooks
-import { useFormDisabled } from '../form/hooks';
-import isArray from 'lodash/isArray';
 
+// hooks
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useSliderMark } from './hooks/useSliderMark';
 import { useSliderInput } from './hooks/useSliderInput';
 import { formatSliderValue, getStopStyle } from './util/common';
 import { sliderPropsInjectKey } from './util/constants';
 import useVModel from '../hooks/useVModel';
-import isNumber from 'lodash/isNumber';
+import { useDisabled } from '../hooks/useDisabled';
 
 interface SliderButtonType {
   setPosition: (param: number) => {};
@@ -37,7 +37,7 @@ export default defineComponent({
   props: { ...props },
 
   setup(props) {
-    const disabled = useFormDisabled();
+    const disabled = useDisabled();
     const COMPONENT_NAME = usePrefixClass('slider');
     const { STATUS } = useCommonClassName();
     const { value, modelValue } = toRefs(props) as any;

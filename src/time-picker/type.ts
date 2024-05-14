@@ -33,7 +33,10 @@ export interface TdTimePickerProps {
   /**
    * 是否禁用组件
    */
-  disabled?: boolean;
+  disabled?: {
+    type: Boolean;
+    default: undefined;
+  };
   /**
    * 用于格式化时间，[详细文档](https://day.js.org/docs/en/display/format)
    * @default HH:mm:ss

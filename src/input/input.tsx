@@ -5,7 +5,7 @@ import {
   CloseCircleFilledIcon as TdCloseCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
 import props from './props';
-import { useFormDisabled } from '../form/hooks';
+import { useDisabled } from '../hooks/useDisabled';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useTNodeJSX } from '../hooks/tnode';
@@ -52,7 +52,7 @@ export default defineComponent({
       BrowseOffIcon: TdBrowseOffIcon,
       CloseCircleFilledIcon: TdCloseCircleFilledIcon,
     });
-    const disabled = useFormDisabled();
+    const disabled = useDisabled();
     const COMPONENT_NAME = usePrefixClass('input');
     const INPUT_WRAP_CLASS = usePrefixClass('input__wrap');
     const INPUT_TIPS_CLASS = usePrefixClass('input__tips');
@@ -175,7 +175,7 @@ export default defineComponent({
         }
       }
 
-      const classes = [
+      const classes = computed(() => [
         COMPONENT_NAME.value,
         props.inputClass,
         {
@@ -190,20 +190,20 @@ export default defineComponent({
           [`${COMPONENT_NAME.value}--borderless`]: props.borderless,
           [`${COMPONENT_NAME.value}--focused`]: focused.value,
         },
-      ];
+      ]);
 
       const tips = renderTNodeJSX('tips');
 
-      const tipsClasses = [
+      const tipsClasses = computed(() => [
         INPUT_TIPS_CLASS.value,
         `${classPrefix.value}-tips`,
         `${classPrefix.value}-is-${tStatus.value || 'default'}`,
-      ];
+      ]);
 
       return (
         <div class={wrapClasses.value} v-show={props.type !== 'hidden'}>
           <div
-            class={classes}
+            class={classes.value}
             onClick={inputHandle.onRootClick}
             onMouseenter={inputEventHandler.onInputMouseenter}
             onMouseleave={inputEventHandler.onInputMouseleave}
@@ -253,7 +253,7 @@ export default defineComponent({
               </span>
             ) : null}
           </div>
-          {tips && <div class={tipsClasses}>{tips}</div>}
+          {tips && <div class={tipsClasses.value}>{tips}</div>}
         </div>
       );
     };

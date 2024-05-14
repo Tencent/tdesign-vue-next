@@ -25,7 +25,10 @@ export default {
     type: Function as PropType<TdCascaderProps['collapsedItems']>,
   },
   /** 是否禁用组件 */
-  disabled: Boolean,
+  disabled: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 无匹配选项时的内容，默认全局配置为 '暂无数据' */
   empty: {
     type: [String, Function] as PropType<TdCascaderProps['empty']>,

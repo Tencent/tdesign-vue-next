@@ -15,7 +15,10 @@ export default {
   /** 是否可清空 */
   clearable: Boolean,
   /** 是否禁用范围输入框 */
-  disabled: Boolean,
+  disabled: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 指定输入框展示值的格式 */
   format: {
     type: [Array, Function] as PropType<TdRangeInputProps['format']>,
