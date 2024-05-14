@@ -78,11 +78,11 @@ export default {
   /** 范围输入框的值 */
   value: {
     type: Array as PropType<TdRangeInputProps['value']>,
-    default: undefined,
+    default: undefined as TdRangeInputProps['value'],
   },
   modelValue: {
     type: Array as PropType<TdRangeInputProps['value']>,
-    default: undefined,
+    default: undefined as TdRangeInputProps['value'],
   },
   /** 范围输入框的值，非受控属性 */
   defaultValue: {

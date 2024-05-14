@@ -406,6 +406,7 @@ export default defineComponent({
       <div class={COMPONENT_NAME.value}>
         <TRangeInputPopup
           disabled={disabled.value}
+          label={props.label}
           status={props.status}
           tips={props.tips || slots.tips}
           inputValue={inputValue.value as string[]}
