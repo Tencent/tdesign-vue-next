@@ -175,7 +175,7 @@ export default defineComponent({
         }
       }
 
-      const classes = computed(() => [
+      const classes = [
         COMPONENT_NAME.value,
         props.inputClass,
         {
@@ -190,20 +190,20 @@ export default defineComponent({
           [`${COMPONENT_NAME.value}--borderless`]: props.borderless,
           [`${COMPONENT_NAME.value}--focused`]: focused.value,
         },
-      ]);
+      ];
 
       const tips = renderTNodeJSX('tips');
 
-      const tipsClasses = computed(() => [
+      const tipsClasses = [
         INPUT_TIPS_CLASS.value,
         `${classPrefix.value}-tips`,
         `${classPrefix.value}-is-${tStatus.value || 'default'}`,
-      ]);
+      ];
 
       return (
         <div class={wrapClasses.value} v-show={props.type !== 'hidden'}>
           <div
-            class={classes.value}
+            class={classes}
             onClick={inputHandle.onRootClick}
             onMouseenter={inputEventHandler.onInputMouseenter}
             onMouseleave={inputEventHandler.onInputMouseleave}
@@ -253,7 +253,7 @@ export default defineComponent({
               </span>
             ) : null}
           </div>
-          {tips && <div class={tipsClasses.value}>{tips}</div>}
+          {tips && <div class={tipsClasses}>{tips}</div>}
         </div>
       );
     };

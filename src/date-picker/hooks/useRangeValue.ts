@@ -23,7 +23,6 @@ export default function useRangeValue(props: TdDateRangePickerProps) {
     getDefaultFormat({
       mode: props.mode,
       format: props.format,
-      valueType: props.valueType,
       enableTimePicker: props.enableTimePicker,
     }),
   );
@@ -71,8 +70,7 @@ export default function useRangeValue(props: TdDateRangePickerProps) {
     if (!isValidDate(value.value, formatRef.value.format)) return;
 
     cacheValue.value = formatDate(value.value, {
-      format: formatRef.value.valueType,
-      targetFormat: formatRef.value.format,
+      format: formatRef.value.format,
     });
     time.value = formatTime(
       value.value,

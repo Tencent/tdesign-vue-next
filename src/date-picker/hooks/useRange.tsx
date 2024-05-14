@@ -148,8 +148,7 @@ export default function useRange(props: TdDateRangePickerProps) {
       if (!isValidDate(value, formatRef.value.format)) return;
 
       inputValue.value = formatDate(value, {
-        format: formatRef.value.valueType,
-        targetFormat: formatRef.value.format,
+        format: formatRef.value.format,
       });
     },
     {
