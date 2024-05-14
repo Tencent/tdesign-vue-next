@@ -1,11 +1,13 @@
 :: BASE_DOC ::
 
 ## API
+
 ### TimePicker Props
 
-名称 | 类型 | 默认值 | 说明 | 必传
+名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
 allowInput | Boolean | false | 是否允许直接输入时间 | N
+borderless | Boolean | false | 无边框模式 | N
 clearable | Boolean | false | 是否允许清除选中值 | N
 disableTime | Function | - | 禁用时间项的配置函数。TS 类型：`(h: number, m: number, s: number, ms: number) => Partial<{ hour: Array<number>, minute: Array<number>, second: Array<number>, millisecond: Array<number>  }>` | N
 disabled | Boolean | - | 是否禁用组件 | N
@@ -41,9 +43,10 @@ input | `(context: { value: TimePickerValue; e: InputEvent })` | 当输入框内
 open | `(context: { e: MouseEvent })` | 面板打开时触发
 pick | `(value: TimePickerValue, context: { e: MouseEvent })` | 面板选中值后触发
 
+
 ### TimeRangePicker Props
 
-名称 | 类型 | 默认值 | 说明 | 必传
+名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
 allowInput | Boolean | false | 是否允许直接输入时间 | N
 clearable | Boolean | false | 是否允许清除选中值 | N

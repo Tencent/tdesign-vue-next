@@ -17,6 +17,11 @@ export interface TdTimePickerProps {
    */
   allowInput?: boolean;
   /**
+   * 无边框模式
+   * @default false
+   */
+  borderless?: boolean;
+  /**
    * 是否允许清除选中值
    * @default false
    */

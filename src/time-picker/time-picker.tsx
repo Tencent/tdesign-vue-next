@@ -95,6 +95,7 @@ export default defineComponent({
         <TSelectInput
           onFocus={props.onFocus}
           onClear={handleClear}
+          borderless={props.borderless}
           disabled={disabled.value}
           clearable={props.clearable}
           allowInput={allowInput.value}
