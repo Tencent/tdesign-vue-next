@@ -28,7 +28,6 @@ exports[`TreeSelect > :props > :clearable 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -112,7 +111,6 @@ exports[`TreeSelect > :props > :defaultValue 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -217,7 +215,6 @@ exports[`TreeSelect > :props > :empty string 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -267,7 +264,6 @@ exports[`TreeSelect > :props > :filterable 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -380,7 +376,6 @@ exports[`TreeSelect > :props > :loadingText 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -432,7 +427,6 @@ exports[`TreeSelect > :props > :max 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -484,7 +478,6 @@ exports[`TreeSelect > :props > :minCollapsedNum 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -568,7 +561,6 @@ exports[`TreeSelect > :props > :multiple 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -620,7 +612,6 @@ exports[`TreeSelect > :props > :placeholder 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -672,7 +663,6 @@ exports[`TreeSelect > :props > :popupProps 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -724,7 +714,6 @@ exports[`TreeSelect > :props > :size 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -776,7 +765,6 @@ exports[`TreeSelect > :props > :treeProps 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -828,7 +816,6 @@ exports[`TreeSelect > :props > :value 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -880,7 +867,6 @@ exports[`TreeSelect > :props > :valueType 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -964,7 +950,6 @@ exports[`TreeSelect > <slot> > <collapsedItems> 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -1016,7 +1001,6 @@ exports[`TreeSelect > <slot> > <empty> 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -1140,7 +1124,6 @@ exports[`TreeSelect > <slot> > <prefixIcon> 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -1203,7 +1186,6 @@ exports[`TreeSelect > <slot> > <valueDisplay> 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -1287,7 +1269,6 @@ exports[`TreeSelect > function > :collapsedItems 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -1339,7 +1320,6 @@ exports[`TreeSelect > function > :empty 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -1463,7 +1443,6 @@ exports[`TreeSelect > function > :prefixIcon 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -1524,7 +1503,6 @@ exports[`TreeSelect > function > :valueDisplay 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
