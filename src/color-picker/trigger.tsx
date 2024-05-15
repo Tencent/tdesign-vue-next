@@ -97,6 +97,7 @@ export default defineComponent({
     };
     return (
       <TInput
+        borderless={this.borderless}
         clearable={this.clearable}
         size={this.size}
         v-slots={inputSlots}
