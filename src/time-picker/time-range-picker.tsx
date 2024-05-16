@@ -163,6 +163,7 @@ export default defineComponent({
             activeIndex: currentPanelIdx.value,
             ...props.rangeInputProps,
           }}
+          label={props.label}
           status={props.status}
           tips={props.tips}
           panel={() => (
