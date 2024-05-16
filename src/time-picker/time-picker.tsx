@@ -13,7 +13,7 @@ import props from './props';
 
 // hooks
 import useVModel from '../hooks/useVModel';
-import { useFormDisabled } from '../form/hooks';
+import { useDisabled } from '../hooks/useDisabled';
 import { useCommonClassName, useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { TdTimePickerProps } from './type';
@@ -38,7 +38,7 @@ export default defineComponent({
     const { value, modelValue } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
 
-    const disabled = useFormDisabled();
+    const disabled = useDisabled();
     const { allowInput, format } = toRefs(props);
 
     const inputClasses = computed(() => [

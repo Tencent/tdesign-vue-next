@@ -21,13 +21,13 @@ import { getCharacterLength } from '../_common/js/utils/helper';
 
 // hooks
 import useVModel from '../hooks/useVModel';
-import { useFormDisabled } from '../form/hooks';
+import { useDisabled } from '../hooks/useDisabled';
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import useLengthLimit from '../input/useLengthLimit';
 
 import props from './props';
 import type { TextareaValue, TdTextareaProps } from './type';
-import useLengthLimit from '../input/useLengthLimit';
 
 function getValidAttrs(obj: object): object {
   const newObj = {};
@@ -52,7 +52,7 @@ export default defineComponent({
 
     const { value, modelValue } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
-    const disabled = useFormDisabled();
+    const disabled = useDisabled();
     const textareaStyle = ref<CSSProperties>({});
 
     const refTextareaElem = ref<HTMLTextAreaElement>();

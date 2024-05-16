@@ -18,7 +18,7 @@ import { TimeRangePickerPartial } from './type';
 import useVModel from '../hooks/useVModel';
 import { useCommonClassName, useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useFormDisabled } from '../form/hooks';
+import { useDisabled } from '../hooks/useDisabled';
 
 dayjs.extend(customParseFormat);
 
@@ -33,7 +33,7 @@ export default defineComponent({
     const { STATUS } = useCommonClassName();
     const { TimeIcon } = useGlobalIcon({ TimeIcon: TdTimeIcon });
 
-    const disabled = useFormDisabled();
+    const disabled = useDisabled();
     const currentPanelIdx = ref(undefined);
     const currentValue = ref<Array<string>>(TIME_PICKER_EMPTY);
     const isShowPanel = ref(false);
