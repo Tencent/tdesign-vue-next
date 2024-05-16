@@ -1,7 +1,7 @@
 import { computed, ref, defineComponent, toRefs, nextTick } from 'vue';
 import props from './props';
 import { TdAutoCompleteProps } from './type';
-import Input, { InputProps, StrInputProps } from '../input';
+import TInput, { InputProps, StrInputProps } from '../input';
 import Popup, { PopupProps } from '../popup';
 import useCommonClassName from '../hooks/useCommonClassName';
 import AutoCompleteOptionList from './option-list';
@@ -105,7 +105,8 @@ export default defineComponent({
     return () => {
       // 触发元素
       const triggerNode = renderContent('default', 'triggerElement') || (
-        <Input
+        <TInput
+          borderless={props.borderless}
           placeholder={props.placeholder ?? global.value.placeholder}
           tips={props.tips}
           status={props.status}

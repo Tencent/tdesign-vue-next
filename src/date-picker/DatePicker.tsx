@@ -255,8 +255,10 @@ export default defineComponent({
     return () => (
       <div class={COMPONENT_NAME.value}>
         <TSelectInput
+          borderless={props.borderless}
           disabled={disabled.value}
           value={inputValue.value}
+          label={props.label}
           status={props.status}
           tips={props.tips}
           clearable={props.clearable}
