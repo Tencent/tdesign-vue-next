@@ -30,6 +30,10 @@ export default {
     type: Boolean,
     default: true,
   },
+  /** 左侧文本 */
+  label: {
+    type: [String, Function] as PropType<TdTimeRangePickerProps['label']>,
+  },
   /** 占位符，值为数组表示可分别为开始日期和结束日期设置占位符 */
   placeholder: {
     type: [String, Array] as PropType<TdTimeRangePickerProps['placeholder']>,

@@ -55,6 +55,10 @@ export interface TdTimePickerProps {
    */
   inputProps?: InputProps;
   /**
+   * 左侧文本
+   */
+  label?: string | TNode;
+  /**
    * 占位符
    */
   placeholder?: string;
@@ -172,6 +176,10 @@ export interface TdTimeRangePickerProps {
    * @default true
    */
   hideDisabledTime?: boolean;
+  /**
+   * 左侧文本
+   */
+  label?: string | TNode;
   /**
    * 占位符，值为数组表示可分别为开始日期和结束日期设置占位符
    */

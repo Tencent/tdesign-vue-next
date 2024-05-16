@@ -34,6 +34,10 @@ export default {
   inputProps: {
     type: Object as PropType<TdTimePickerProps['inputProps']>,
   },
+  /** 左侧文本 */
+  label: {
+    type: [String, Function] as PropType<TdTimePickerProps['label']>,
+  },
   /** 占位符 */
   placeholder: {
     type: String,
