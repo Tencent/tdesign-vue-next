@@ -107,7 +107,7 @@ export default defineComponent({
           disabled={disabled.value}
           clearable={props.clearable}
           allowInput={allowInput.value}
-          className={inputClasses.value}
+          class={inputClasses.value}
           suffixIcon={() => <TimeIcon />}
           popupVisible={isShowPanel.value}
           onInputChange={handleInputChange}
