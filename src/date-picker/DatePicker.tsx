@@ -4,7 +4,7 @@ import isFunction from 'lodash/isFunction';
 
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass, useConfig } from '../hooks/useConfig';
-import { useFormDisabled } from '../form/hooks';
+import { useDisabled } from '../hooks/useDisabled';
 import useSingle from './hooks/useSingle';
 import { parseToDayjs, getDefaultFormat, formatTime, formatDate } from '../_common/js/date-picker/format';
 import { subtractMonth, addMonth, extractTimeObj, covertToDate } from '../_common/js/date-picker/utils';
@@ -41,7 +41,7 @@ export default defineComponent({
       onChange,
     } = useSingle(props);
 
-    const disabled = useFormDisabled();
+    const disabled = useDisabled();
     const renderTNodeJSX = useTNodeJSX();
     const { globalConfig } = useConfig('datePicker');
 
@@ -255,8 +255,10 @@ export default defineComponent({
     return () => (
       <div class={COMPONENT_NAME.value}>
         <TSelectInput
+          borderless={props.borderless}
           disabled={disabled.value}
           value={inputValue.value}
+          label={props.label}
           status={props.status}
           tips={props.tips}
           clearable={props.clearable}

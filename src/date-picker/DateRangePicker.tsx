@@ -1,6 +1,6 @@
 import { defineComponent, computed, ref, watch } from 'vue';
 import dayjs from 'dayjs';
-import { useFormDisabled } from '../form/hooks';
+import { useDisabled } from '../hooks/useDisabled';
 import { usePrefixClass } from '../hooks/useConfig';
 import isFunction from 'lodash/isFunction';
 import isArray from 'lodash/isArray';
@@ -47,7 +47,7 @@ export default defineComponent({
       onChange,
     } = useRange(props);
 
-    const disabled = useFormDisabled();
+    const disabled = useDisabled();
 
     const formatRef = computed(() =>
       getDefaultFormat({
@@ -406,6 +406,7 @@ export default defineComponent({
       <div class={COMPONENT_NAME.value}>
         <TRangeInputPopup
           disabled={disabled.value}
+          label={props.label}
           status={props.status}
           tips={props.tips || slots.tips}
           inputValue={inputValue.value as string[]}

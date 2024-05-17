@@ -47,8 +47,8 @@
         "value": "PUT"
       },
       {
-        "label": "OPTION",
-        "value": "OPTION"
+        "label": "OPTIONS",
+        "value": "OPTIONS"
       },
       {
         "label": "PATCH",
@@ -67,8 +67,8 @@
         "value": "put"
       },
       {
-        "label": "option",
-        "value": "option"
+        "label": "options",
+        "value": "options"
       },
       {
         "label": "patch",

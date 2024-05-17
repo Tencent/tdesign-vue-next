@@ -172,6 +172,10 @@ export interface TdRangeInputPopupProps {
    */
   defaultInputValue?: RangeInputValue;
   /**
+   * 左侧文本
+   */
+  label?: string | TNode;
+  /**
    * 下拉框内容，可完全自定义
    */
   panel?: string | TNode;

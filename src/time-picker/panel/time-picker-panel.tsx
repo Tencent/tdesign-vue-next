@@ -1,6 +1,7 @@
 import { defineComponent, toRefs, computed, ref, onMounted, nextTick, watch } from 'vue';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
+import isUndefined from 'lodash/isUndefined';
 
 import { DEFAULT_STEPS, DEFAULT_FORMAT } from '../../_common/js/time-picker/const';
 import { panelProps } from './props';
@@ -67,6 +68,31 @@ export default defineComponent({
       }
     };
 
+    const renderFooter = () => {
+      if (!isUndefined(props.presets))
+        return Object.keys(props.presets || []).map((key: string) => (
+          <TButton
+            key={key}
+            theme="primary"
+            size="small"
+            variant="text"
+            onClick={() => handlePresetClick(props.presets[key])}
+          >
+            {key}
+          </TButton>
+        ));
+      return !showNowTimeBtn.value ? (
+        <TButton
+          theme="primary"
+          variant="text"
+          size="small"
+          onClick={() => props.onChange?.(dayjs().format(props.format))}
+        >
+          {globalConfig.value.now}
+        </TButton>
+      ) : null;
+    };
+
     // 渲染后执行update 使面板滚动至当前时间位置
     onMounted(() => {
       panelColUpdate();
@@ -105,28 +131,7 @@ export default defineComponent({
             >
               {globalConfig.value.confirm}
             </TButton>
-            {!showNowTimeBtn.value ? (
-              <TButton
-                theme="primary"
-                variant="text"
-                size="small"
-                onClick={() => props.onChange?.(dayjs().format(props.format))}
-              >
-                {globalConfig.value.now}
-              </TButton>
-            ) : null}
-            {props.presets &&
-              Object.keys(props.presets).map((key: string) => (
-                <TButton
-                  key={key}
-                  theme="primary"
-                  size="small"
-                  variant="text"
-                  onClick={() => handlePresetClick(props.presets[key])}
-                >
-                  {key}
-                </TButton>
-              ))}
+            {renderFooter()}
           </div>
         ) : null}
       </div>

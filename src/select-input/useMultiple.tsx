@@ -6,7 +6,7 @@ import TagInput, { TagInputValue, TagInputProps } from '../tag-input';
 import Loading from '../loading';
 import useDefault from '../hooks/useDefaultValue';
 import { usePrefixClass } from '../hooks/useConfig';
-import { useFormDisabled } from '../form/hooks';
+import { useDisabled } from '../hooks/useDisabled';
 import { PopupInstanceFunctions } from '../popup';
 
 export interface RenderSelectMultipleParams {
@@ -37,7 +37,7 @@ export default function useMultiple(
     props.onInputChange,
     'inputValue',
   );
-  const disable = useFormDisabled();
+  const disable = useDisabled();
 
   const iKeys = computed<SelectInputKeys>(() => ({ ...DEFAULT_KEYS, ...props.keys }));
   const tags = computed<TagInputValue>(() => {

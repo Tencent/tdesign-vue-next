@@ -4,7 +4,7 @@ import props from './option-props';
 import Checkbox from '../checkbox/index';
 
 // hooks
-import { useFormDisabled } from '../form/hooks';
+import { useDisabled } from '../hooks/useDisabled';
 import useRipple from '../hooks/useRipple';
 import { useContent } from '../hooks/tnode';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
@@ -30,7 +30,7 @@ export default defineComponent({
 
   setup(props, context) {
     const selectProvider = inject(selectInjectKey);
-    const formDisabled = useFormDisabled();
+    const formDisabled = useDisabled();
 
     const isReachMax = computed(
       () =>

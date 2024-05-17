@@ -4,7 +4,7 @@ import isFunction from 'lodash/isFunction';
 import isString from 'lodash/isString';
 
 import TreeStore from '../_common/js/tree/tree-store';
-import { useFormDisabled } from '../form/hooks';
+import { useDisabled } from '../hooks/useDisabled';
 import useVModel from '../hooks/useVModel';
 import useDefaultValue from '../hooks/useDefaultValue';
 import { getTreeValue, getCascaderValue, isEmptyValues, isValueInvalid } from './core/helper';
@@ -89,7 +89,7 @@ export const useContext = (
 
 // 内聚组件核心的副作用与状态处理
 export const useCascaderContext = (props: TdCascaderProps) => {
-  const disabled = useFormDisabled();
+  const disabled = useDisabled();
   const { value, modelValue, popupVisible } = toRefs(props);
   const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
   const [innerPopupVisible, setPopupVisible] = useDefaultValue(

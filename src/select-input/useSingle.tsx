@@ -6,7 +6,7 @@ import Loading from '../loading';
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
 import useDefaultValue from '../hooks/useDefaultValue';
-import { useFormDisabled } from '../form/hooks';
+import { useDisabled } from '../hooks/useDisabled';
 import { PopupInstanceFunctions } from '../popup';
 import { TdSelectInputProps } from './type';
 import { SelectInputCommonProperties } from './interface';
@@ -58,7 +58,7 @@ export default function useSingle(
     'inputValue',
   );
   const renderTNode = useTNodeJSX();
-  const disable = useFormDisabled();
+  const disable = useDisabled();
 
   const commonInputProps = computed<SelectInputCommonProperties>(() => ({
     ...pick(props, COMMON_PROPERTIES),

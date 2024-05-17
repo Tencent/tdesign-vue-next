@@ -1,5 +1,7 @@
 import { defineComponent, computed, toRefs } from 'vue';
 import pick from 'lodash/pick';
+import isFunction from 'lodash/isFunction';
+
 import TransferList from './components/transfer-list';
 import TransferOperations from './components/transfer-operations';
 import { TransferListType, CheckedOptions, TransferValue, EmptyType, TargetParams, SearchEvent } from './interface';
@@ -16,20 +18,19 @@ import {
 import { PageInfo, TdPaginationProps } from '../pagination/type';
 import props from './props';
 import { TNode } from '../common';
-import useVModel from '../hooks/useVModel';
-import useDefaultValue from '../hooks/useDefaultValue';
 
 // hooks
-import { useFormDisabled } from '../form/hooks';
+import useVModel from '../hooks/useVModel';
+import useDefaultValue from '../hooks/useDefaultValue';
+import { useDisabled } from '../hooks/useDisabled';
 import { usePrefixClass } from '../hooks/useConfig';
-import isFunction from 'lodash/isFunction';
 
 export default defineComponent({
   name: TRANSFER_NAME,
   props: { ...props },
 
   setup(props, { slots }) {
-    const disabled = useFormDisabled();
+    const disabled = useDisabled();
     const classPrefix = usePrefixClass();
     const { value, modelValue, checked } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
@@ -119,8 +120,15 @@ export default defineComponent({
         newTargetValue = oldTargetValue.filter((v) => !selfCheckedValue.includes(v));
       } else if (props.targetSort === 'original') {
         // 按照原始顺序
+        const remainValue = transferData.value.reduce((acc, data) => {
+          if (oldTargetValue.includes(data.value) && data.disabled) {
+            return acc.concat(data.value);
+          }
+          return acc;
+        }, []);
         newTargetValue = getDataValues(transferData.value, oldTargetValue.concat(selfCheckedValue), {
           isTreeMode: isTreeMode.value,
+          remainValue,
         });
       } else if (props.targetSort === 'unshift') {
         newTargetValue = selfCheckedValue.concat(oldTargetValue);
