@@ -19,7 +19,7 @@ import isArray from 'lodash/isArray';
 
 import log from '../_common/js/log/log';
 import props from './head-menu-props';
-import { MenuValue } from './type';
+import { MenuValue } from '@td/intel/menu/type';
 import { TdMenuInterface, TdOpenType } from './const';
 import { Tabs, TabPanel } from '../tabs';
 import Submenu from './submenu';

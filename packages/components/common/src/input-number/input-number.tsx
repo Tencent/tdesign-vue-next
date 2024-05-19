@@ -9,7 +9,7 @@ import TButton from '../button';
 import TInput from '../input';
 import props from '@td/intel/input-number/props';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { TdInputNumberProps } from './type';
+import { TdInputNumberProps } from '@td/intel/input-number/type';
 import useInputNumber from './useInputNumber';
 import { useTNodeJSX } from '../hooks';
 

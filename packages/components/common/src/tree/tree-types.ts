@@ -16,12 +16,12 @@ import {
 } from './adapt';
 import { TreeStore } from '../_common/js/tree/tree-store';
 
-import { TdTreeProps, TreeNodeModel, TreeNodeValue, TreeNodeState } from './type';
+import { TdTreeProps, TreeNodeModel, TreeNodeValue, TreeNodeState } from '@td/intel/tree/type';
 
 // 在这个文件做统一的类型梳理
 // 所有类型，接口，都用 Type 作为名称前缀
 
-export * from './type';
+export * from '@td/intel/tree/type';
 
 export type TreeProps = AdaptTreeProps;
 export type TypeTreeInstance = AdaptTypeTreeInstance;

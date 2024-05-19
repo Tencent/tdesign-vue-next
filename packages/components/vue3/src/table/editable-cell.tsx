@@ -11,7 +11,7 @@ import {
   PrimaryTableRowValidateContext,
   TdBaseTableProps,
   TableEditableCellPropsParams,
-} from './type';
+} from '@td/intel/../../vue3/src/table/type';
 import { TableClassName } from './hooks/useClassName';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { renderCell } from './tr';

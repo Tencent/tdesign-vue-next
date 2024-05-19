@@ -1,10 +1,10 @@
 import _InputNumber from './input-number';
 import withInstall from '../utils/withInstall';
-import { TdInputNumberProps } from './type';
+import { TdInputNumberProps } from '@td/intel/input-number/type';
 
 import './style';
 
-export * from './type';
+export * from '@td/intel/input-number/type';
 export type InputNumberProps = TdInputNumberProps;
 
 export const InputNumber = withInstall(_InputNumber);

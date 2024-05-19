@@ -9,7 +9,7 @@ import {
   TdFormProps,
   ValidateResultType,
   ValidateTriggerType,
-} from './type';
+} from '@td/intel/form/type';
 import { usePrefixClass, useTNodeJSX } from '../hooks';
 
 // 允许 Form 统一控制的表单

@@ -5,7 +5,7 @@ import { useTNodeJSX } from '../hooks/tnode';
 import TLoading from '../loading';
 import props from '@td/intel/card/props';
 import isString from 'lodash/isString';
-import { TdCardProps } from './type';
+import { TdCardProps } from '@td/intel/card/type';
 
 export default defineComponent({
   name: 'TCard',

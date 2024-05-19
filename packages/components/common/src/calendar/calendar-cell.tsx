@@ -7,7 +7,7 @@ import { useContent } from '../hooks/tnode';
 import { useCalendarCellClass } from './hook';
 
 // 组件相关的自定义类型
-import { CalendarCell } from './type';
+import { CalendarCell } from '@td/intel/calendar/type';
 
 const clickTypeEmitEventMap = {
   click: 'click',

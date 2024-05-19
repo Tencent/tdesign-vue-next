@@ -2,11 +2,11 @@ import _DropdownItem from './dropdown-item';
 import _Dropdown from './dropdown';
 import _DropdownMenu from './dropdown-menu';
 import withInstall from '../utils/withInstall';
-import { TdDropdownProps, TdDropdownItemProps } from './type';
+import { TdDropdownProps, TdDropdownItemProps } from '@td/intel/dropdown/type';
 
 import './style';
 
-export * from './type';
+export * from '@td/intel/dropdown/type';
 export type DropdownProps = TdDropdownProps;
 export type DropdownItemProps = TdDropdownItemProps;
 export type DropdownMenuProps = TdDropdownProps;

@@ -3,7 +3,7 @@ import { usePrefixClass } from '../hooks/useConfig';
 import props from './check-tag-group-props';
 import CheckTag from './check-tag';
 import useVModel from '../hooks/useVModel';
-import { CheckTagGroupOption, CheckTagGroupValue, TdCheckTagProps } from './type';
+import { CheckTagGroupOption, CheckTagGroupValue, TdCheckTagProps } from '@td/intel/tag/type';
 import isFunction from 'lodash/isFunction';
 
 export default defineComponent({

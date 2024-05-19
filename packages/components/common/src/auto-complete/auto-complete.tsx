@@ -1,6 +1,6 @@
 import { computed, ref, defineComponent, toRefs, nextTick } from 'vue';
 import props from '@td/intel/auto-complete/props';
-import { TdAutoCompleteProps } from './type';
+import { TdAutoCompleteProps } from '@td/intel/auto-complete/type';
 import Input, { InputProps, StrInputProps } from '../input';
 import Popup, { PopupProps } from '../popup';
 import useCommonClassName from '../hooks/useCommonClassName';

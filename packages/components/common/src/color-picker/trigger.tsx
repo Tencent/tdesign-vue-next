@@ -1,7 +1,7 @@
 import { defineComponent, PropType, ref, watch } from 'vue';
 import TInput from '../input';
 import { Color } from './utils';
-import { TdColorPickerProps } from './type';
+import { TdColorPickerProps } from '@td/intel/color-picker/type';
 import { useBaseClassName } from './hooks';
 import { useCommonClassName } from '../hooks/useConfig';
 

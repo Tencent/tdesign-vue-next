@@ -10,7 +10,7 @@ import {
   DragSortContext,
   TdPrimaryTableProps,
   TableRowState,
-} from './type';
+} from '@td/intel/../../vue3/src/table/type';
 import useTreeData from './hooks/useTreeData';
 import useTreeSelect from './hooks/useTreeSelect';
 import get from 'lodash/get';

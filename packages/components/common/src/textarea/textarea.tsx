@@ -26,7 +26,7 @@ import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 import props from '@td/intel/textarea/props';
-import type { TextareaValue, TdTextareaProps } from './type';
+import type { TextareaValue, TdTextareaProps } from '@td/intel/textarea/type';
 import useLengthLimit from '../input/useLengthLimit';
 
 function getValidAttrs(obj: object): object {

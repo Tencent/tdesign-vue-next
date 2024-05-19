@@ -1,10 +1,10 @@
 import _Skeleton from './skeleton';
 import withInstall from '../utils/withInstall';
-import { TdSkeletonProps } from './type';
+import { TdSkeletonProps } from '@td/intel/skeleton/type';
 
 import './style';
 
-export * from './type';
+export * from '@td/intel/skeleton/type';
 export type SkeletonProps = TdSkeletonProps;
 
 export const Skeleton = withInstall<typeof _Skeleton>(_Skeleton);

@@ -22,7 +22,7 @@ import { CheckTag as TCheckTag } from '../tag';
 import CalendarCellItem from './calendar-cell';
 
 // 组件相关类型
-import { CalendarCell } from './type';
+import { CalendarCell } from '@td/intel/calendar/type';
 import { CalendarRange, YearMonthOption, ModeOption, CellEventOption } from './interface';
 
 // 组件逻辑

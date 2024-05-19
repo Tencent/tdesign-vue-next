@@ -10,7 +10,7 @@ import {
   PrimaryTableInstanceFunctions,
   PrimaryTableCol,
   BaseTableInstanceFunctions,
-} from './type';
+} from '@td/intel/../../vue3/src/table/type';
 
 export interface BaseTableProps extends TdBaseTableProps {
   /**

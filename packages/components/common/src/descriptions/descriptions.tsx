@@ -8,7 +8,7 @@ import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 import props from '@td/intel/descriptions/props';
 import { descriptionsKey } from './const';
-import { TdDescriptionsProps } from './type';
+import { TdDescriptionsProps } from '@td/intel/descriptions/type';
 import DescriptionsRow from './descriptions-row';
 import { renderCustomNode, itemTypeIsProps } from './utils';
 import { ItemsType, TdDescriptionItem } from './interface';

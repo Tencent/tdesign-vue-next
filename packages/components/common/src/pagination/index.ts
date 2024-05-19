@@ -1,11 +1,11 @@
 import _Pagination from './pagination';
 import _PaginationMini from './pagination-mini';
 import withInstall from '../utils/withInstall';
-import { TdPaginationProps, TdPaginationMiniProps } from './type';
+import { TdPaginationProps, TdPaginationMiniProps } from '@td/intel/pagination/type';
 
 import './style';
 
-export * from './type';
+export * from '@td/intel/pagination/type';
 export type PaginationProps = TdPaginationProps;
 export type PaginationMiniProps = TdPaginationMiniProps;
 

@@ -21,7 +21,7 @@ import { useSelectOptions } from './hooks/useSelectOptions';
 import useKeyboardControl from './hooks/useKeyboardControl';
 import type { PopupVisibleChangeContext } from '../popup';
 import type { SelectInputValueChangeContext } from '../select-input';
-import type { TdSelectProps, SelectValue } from './type';
+import type { TdSelectProps, SelectValue } from '@td/intel/select/type';
 import { SelectInputValueDisplayOptions } from '../select-input/useSingle';
 
 export default defineComponent({

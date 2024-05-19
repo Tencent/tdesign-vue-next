@@ -9,7 +9,7 @@ import {
   TdDateRangePickerPanelProps,
   DatePickerYearChangeTrigger,
   DatePickerMonthChangeTrigger,
-} from './type';
+} from '@td/intel/date-picker/type';
 
 import TRangePanel from './panel/RangePanel';
 import useRangeValue from './hooks/useRangeValue';

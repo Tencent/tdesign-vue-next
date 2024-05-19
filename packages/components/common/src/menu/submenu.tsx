@@ -21,7 +21,7 @@ import useRipple from '../hooks/useRipple';
 import { usePrefixClass } from '../hooks/useConfig';
 import { Popup, PopupPlacement } from '../popup';
 import isFunction from 'lodash/isFunction';
-import { TdSubmenuProps } from './type';
+import { TdSubmenuProps } from '@td/intel/menu/type';
 import useCollapseAnimation from '../hooks/useCollapseAnimation';
 
 export default defineComponent({

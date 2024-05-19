@@ -1,7 +1,7 @@
 import { ComponentPublicInstance, defineComponent, provide, Ref, toRefs } from 'vue';
 import TTabPanel from './tab-panel';
 import TTabNav from './tab-nav';
-import { TabValue, TdTabsProps } from './type';
+import { TabValue, TdTabsProps } from '@td/intel/tabs/type';
 import props from '@td/intel/tabs/props';
 
 import { useTNodeJSX } from '../hooks/tnode';

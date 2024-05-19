@@ -10,7 +10,7 @@ import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfi
 import { useListItems } from './hooks/useListItems';
 import { useListVirtualScroll } from './hooks/useListVirtualScroll';
 
-import type { TdListProps } from './type';
+import type { TdListProps } from '@td/intel/list/type';
 
 export default defineComponent({
   name: 'TList',

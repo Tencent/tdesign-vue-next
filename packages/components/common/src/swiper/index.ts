@@ -1,11 +1,11 @@
 import _Swiper from './swiper';
 import _SwiperItem from './swiper-item';
 import withInstall from '../utils/withInstall';
-import { TdSwiperProps } from './type';
+import { TdSwiperProps } from '@td/intel/swiper/type';
 
 import './style';
 
-export * from './type';
+export * from '@td/intel/swiper/type';
 export type SwiperProps = TdSwiperProps;
 
 export const Swiper = withInstall(_Swiper);

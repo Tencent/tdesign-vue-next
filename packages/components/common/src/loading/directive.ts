@@ -2,7 +2,7 @@ import type { Directive, DirectiveBinding } from 'vue';
 import isObject from 'lodash/isObject';
 import mapKeys from 'lodash/mapKeys';
 import isEqual from 'lodash/isEqual';
-import { TdLoadingProps } from './type';
+import { TdLoadingProps } from '@td/intel/loading/type';
 import produceLoading from './plugin';
 
 const INSTANCE_KEY = Symbol('TdLoading');

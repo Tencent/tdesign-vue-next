@@ -1,10 +1,10 @@
 import withInstall from '../utils/withInstall';
 import _BackTop from './back-top';
-import { TdBackTopProps } from './type';
+import { TdBackTopProps } from '@td/intel/back-top/type';
 
 import './style';
 
-export * from './type';
+export * from '@td/intel/back-top/type';
 
 export type BackTopProps = TdBackTopProps;
 

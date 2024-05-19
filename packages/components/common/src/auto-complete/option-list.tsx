@@ -2,7 +2,7 @@ import { ref, computed, defineComponent, PropType, h, watch, onBeforeUnmount } f
 import isFunction from 'lodash/isFunction';
 import HighlightOption from './highlight-option';
 import { CommonClassNameType } from '../hooks/useCommonClassName';
-import { AutoCompleteOptionObj, TdAutoCompleteProps } from './type';
+import { AutoCompleteOptionObj, TdAutoCompleteProps } from '@td/intel/auto-complete/type';
 import log from '../_common/js/log';
 import { usePrefixClass } from '../hooks/useConfig';
 import { on, off } from '../utils/dom';

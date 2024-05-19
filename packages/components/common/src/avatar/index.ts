@@ -1,11 +1,11 @@
 import _Avatar from './avatar';
 import _AvatarGroup from './group';
 import withInstall from '../utils/withInstall';
-import { TdAvatarProps, TdAvatarGroupProps } from './type';
+import { TdAvatarProps, TdAvatarGroupProps } from '@td/intel/avatar/type';
 
 import './style';
 
-export * from './type';
+export * from '@td/intel/avatar/type';
 
 export type AvatarProps = TdAvatarProps;
 export type AvatarGroupProps = TdAvatarGroupProps;

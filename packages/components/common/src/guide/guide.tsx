@@ -2,7 +2,7 @@ import { defineComponent, computed, nextTick, onMounted, ref, toRefs, watch, h, 
 import isFunction from 'lodash/isFunction';
 import props from '@td/intel/guide/props';
 import { GuideCrossProps } from './interface';
-import { TdGuideProps, GuideStep } from './type';
+import { TdGuideProps, GuideStep } from '@td/intel/guide/type';
 import { scrollToParentVisibleArea, getRelativePosition, getTargetElm, scrollToElm } from './utils';
 import setStyle from '../_common/js/utils/set-style';
 import { addClass, removeClass, isFixed, getWindowScroll } from '../utils/dom';

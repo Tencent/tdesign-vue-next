@@ -1,11 +1,11 @@
 import _Tabs from './tabs';
 import _TabPanel from './tab-panel';
 import withInstall from '../utils/withInstall';
-import { TdTabsProps, TdTabPanelProps } from './type';
+import { TdTabsProps, TdTabPanelProps } from '@td/intel/tabs/type';
 
 import './style';
 
-export * from './type';
+export * from '@td/intel/tabs/type';
 export type TabsProps = TdTabsProps;
 export type TabPanelProps = TdTabPanelProps;
 

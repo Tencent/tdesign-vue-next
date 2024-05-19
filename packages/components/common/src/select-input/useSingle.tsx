@@ -8,7 +8,7 @@ import { usePrefixClass } from '../hooks/useConfig';
 import useDefaultValue from '../hooks/useDefaultValue';
 import { useFormDisabled } from '../form/hooks';
 import { PopupInstanceFunctions } from '../popup';
-import { TdSelectInputProps } from './type';
+import { TdSelectInputProps } from '@td/intel/select-input/type';
 import { SelectInputCommonProperties } from './interface';
 
 // single 和 multiple 共有特性

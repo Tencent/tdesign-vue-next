@@ -9,7 +9,7 @@ import useRipple from '../hooks/useRipple';
 import { useContent } from '../hooks/tnode';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { selectInjectKey, getNewMultipleValue } from './helper';
-import { SelectValue } from './type';
+import { SelectValue } from '@td/intel/select/type';
 
 export default defineComponent({
   name: 'TOption',

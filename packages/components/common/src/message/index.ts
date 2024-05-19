@@ -1,10 +1,10 @@
 import _Message from './message';
 import withInstall from '../utils/withInstall';
-import { TdMessageProps } from './type';
+import { TdMessageProps } from '@td/intel/message/type';
 
 import './style';
 
-export * from './type';
+export * from '@td/intel/message/type';
 export * from './plugin';
 export type MessageProps = TdMessageProps;
 

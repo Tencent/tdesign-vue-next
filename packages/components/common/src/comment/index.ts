@@ -1,10 +1,10 @@
 import _Comment from './comment';
 import withInstall from '../utils/withInstall';
-import { TdCommentProps } from './type';
+import { TdCommentProps } from '@td/intel/comment/type';
 
 import './style';
 
-export * from './type';
+export * from '@td/intel/comment/type';
 export type CommentProps = TdCommentProps;
 
 export const Comment = withInstall(_Comment);

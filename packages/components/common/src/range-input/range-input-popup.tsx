@@ -4,7 +4,7 @@ import { usePrefixClass } from '../hooks/useConfig';
 import RangeInput from './range-input';
 import props from './range-input-popup-props';
 import useOverlayInnerStyle from '../select-input/useOverlayInnerStyle';
-import { TdRangeInputPopupProps } from './type';
+import { TdRangeInputPopupProps } from '@td/intel/range-input/type';
 
 export default defineComponent({
   name: 'TRangeInputPopup',

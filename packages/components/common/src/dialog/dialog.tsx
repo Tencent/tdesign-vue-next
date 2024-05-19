@@ -6,7 +6,7 @@ import {
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
 
-import { DialogCloseContext } from './type';
+import { DialogCloseContext } from '@td/intel/dialog/type';
 import props from '@td/intel/dialog/props';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
@@ -15,7 +15,7 @@ import { useTNodeJSX, useContent } from '../hooks/tnode';
 import useDestroyOnClose from '../hooks/useDestroyOnClose';
 import { getScrollbarWidth } from '../_common/js/utils/getScrollbarWidth';
 
-import type { TdDialogProps } from './type';
+import type { TdDialogProps } from '@td/intel/dialog/type';
 import useTeleport from '../hooks/useTeleport';
 import usePopupManager from '../hooks/usePopupManager';
 

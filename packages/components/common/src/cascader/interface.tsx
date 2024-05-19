@@ -1,10 +1,10 @@
-import { TdCascaderProps, CascaderValue, CascaderChangeSource } from './type';
+import { TdCascaderProps, CascaderValue, CascaderChangeSource } from '@td/intel/cascader/type';
 import { TdSelectInputProps } from '../select-input/type';
 import TreeStore from '../_common/js/tree/tree-store';
 import TreeNode from '../_common/js/tree/tree-node';
 import { TreeNodeModel, TreeNodeValue } from '../_common/js/tree/types';
 
-export * from './type';
+export * from '@td/intel/cascader/type';
 export interface CascaderContextType
   extends Pick<
     TdCascaderProps,

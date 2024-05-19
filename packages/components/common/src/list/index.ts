@@ -2,11 +2,11 @@ import _List from './list';
 import _ListItem from './list-item';
 import _ListItemMeta from './list-item-meta';
 import withInstall from '../utils/withInstall';
-import { TdListProps, TdListItemProps, TdListItemMetaProps } from './type';
+import { TdListProps, TdListItemProps, TdListItemMetaProps } from '@td/intel/list/type';
 
 import './style';
 
-export * from './type';
+export * from '@td/intel/list/type';
 export type ListProps = TdListProps;
 export type ListItemProps = TdListItemProps;
 export type ListItemMetaProps = TdListItemMetaProps;

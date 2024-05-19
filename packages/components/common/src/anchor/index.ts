@@ -2,11 +2,11 @@ import _Anchor from './anchor';
 import _AnchorItem from './anchor-item';
 import _AnchorTarget from './anchor-target';
 import withInstall from '../utils/withInstall';
-import { TdAnchorProps, TdAnchorTargetProps, TdAnchorItemProps } from './type';
+import { TdAnchorProps, TdAnchorTargetProps, TdAnchorItemProps } from '@td/intel/anchor/type';
 
 import './style';
 
-export * from './type';
+export * from '@td/intel/anchor/type';
 export type AnchorProps = TdAnchorProps;
 export type AnchorTargetProps = TdAnchorTargetProps;
 export type AnchorItemProps = TdAnchorItemProps;

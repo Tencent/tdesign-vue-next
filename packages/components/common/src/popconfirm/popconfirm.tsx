@@ -12,7 +12,7 @@ import { useContent, useTNodeJSX, useTNodeDefault } from '../hooks/tnode';
 import useVModel from '../hooks/useVModel';
 import { useAction } from '../dialog/hooks';
 
-import type { PopconfirmVisibleChangeContext } from './type';
+import type { PopconfirmVisibleChangeContext } from '@td/intel/popconfirm/type';
 import type { TdDialogProps } from '../dialog/type';
 export default defineComponent({
   name: 'TPopconfirm',

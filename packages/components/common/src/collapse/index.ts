@@ -1,11 +1,11 @@
 import _Collapse from './collapse';
 import _CollapsePanel from './collapse-panel';
 import withInstall from '../utils/withInstall';
-import { TdCollapseProps, TdCollapsePanelProps } from './type';
+import { TdCollapseProps, TdCollapsePanelProps } from '@td/intel/collapse/type';
 
 import './style';
 
-export * from './type';
+export * from '@td/intel/collapse/type';
 
 export type CollapseProps = TdCollapseProps;
 export type CollapsePanelProps = TdCollapsePanelProps;

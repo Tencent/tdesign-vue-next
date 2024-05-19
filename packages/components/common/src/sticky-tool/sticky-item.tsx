@@ -6,7 +6,7 @@ import type { Styles } from '../common';
 import Popup from '../popup';
 import { useTNodeJSX } from '../hooks';
 
-import type { TdStickyItemProps } from './type';
+import type { TdStickyItemProps } from '@td/intel/sticky-tool/type';
 import type { TdPopupProps } from '../popup/type';
 
 export default defineComponent({

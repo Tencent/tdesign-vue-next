@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import { SizeEnum } from '../common';
 
-import { CalendarValue, CalendarCell, WeekDay, TdCalendarProps } from './type';
+import { CalendarValue, CalendarCell, WeekDay, TdCalendarProps } from '@td/intel/calendar/type';
 
 /**
  * 日历组件的state定义

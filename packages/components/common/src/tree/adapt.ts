@@ -5,7 +5,7 @@ import { Ref, SetupContext, ToRefs, VNode, PropType, ComponentPublicInstance, Un
 import { CheckboxProps } from '../checkbox';
 import { ClassName, TScroll, Styles, TNode, TreeOptionData, TNodeReturnValue } from '../common';
 import { TypeTreeEventState as TreeEventState } from '../_common/js/tree/types';
-import { TdTreeProps, TreeInstanceFunctions } from './type';
+import { TdTreeProps, TreeInstanceFunctions } from '@td/intel/tree/type';
 import { VirtualScrollConfig } from '../hooks/useVirtualScrollNew';
 import tdWithInstall from '../utils/withInstall';
 import tdUseVModel from '../hooks/useVModel';

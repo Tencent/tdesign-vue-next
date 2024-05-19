@@ -2,11 +2,11 @@ import _Radio from './radio';
 import _Group from './group';
 import _RadioButton from './radio-button';
 import withInstall from '../utils/withInstall';
-import { TdRadioProps, TdRadioGroupProps } from './type';
+import { TdRadioProps, TdRadioGroupProps } from '@td/intel/radio/type';
 
 import './style';
 
-export * from './type';
+export * from '@td/intel/radio/type';
 export type RadioProps = TdRadioProps;
 export type RadioGroupProps = TdRadioGroupProps;
 

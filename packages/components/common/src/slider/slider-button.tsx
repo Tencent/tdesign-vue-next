@@ -10,7 +10,7 @@ import {
   inject,
 } from 'vue';
 import TTooltip from '../tooltip/index';
-import { TdSliderProps } from './type';
+import { TdSliderProps } from '@td/intel/slider/type';
 
 import { usePrefixClass } from '../hooks/useConfig';
 import { useSliderTooltip } from './hooks/useSliderTooltip';

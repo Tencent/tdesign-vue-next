@@ -10,7 +10,7 @@ import { useTNodeJSX } from '../hooks/tnode';
 import useVModel from '../hooks/useVModel';
 import useDefaultValue from '../hooks/useDefaultValue';
 import { usePrefixClass } from '../hooks/useConfig';
-import { TdImageViewerProps } from './type';
+import { TdImageViewerProps } from '@td/intel/image-viewer/type';
 import { useMirror, useRotate, useScale } from './hooks';
 import { formatImages, getOverlay } from './utils';
 import { EVENT_CODE } from './const';

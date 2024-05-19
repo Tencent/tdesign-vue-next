@@ -12,7 +12,7 @@ import {
 } from 'vue';
 import props from '@td/intel/slider/props';
 import TSliderButton from './slider-button';
-import { SliderValue } from './type';
+import { SliderValue } from '@td/intel/slider/type';
 // hooks
 import { useFormDisabled } from '../form/hooks';
 import isArray from 'lodash/isArray';

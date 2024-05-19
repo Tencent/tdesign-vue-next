@@ -1,11 +1,11 @@
 import _AutoComplete from './auto-complete';
 import _HighlightOption from './highlight-option';
 import withInstall from '../utils/withInstall';
-import { AutoCompleteOption, TdAutoCompleteProps } from './type';
+import { AutoCompleteOption, TdAutoCompleteProps } from '@td/intel/auto-complete/type';
 
 import './style';
 
-export * from './type';
+export * from '@td/intel/auto-complete/type';
 export type AutoCompleteProps<T extends AutoCompleteOption = AutoCompleteOption> = TdAutoCompleteProps<T>;
 
 export const AutoComplete = withInstall(_AutoComplete);

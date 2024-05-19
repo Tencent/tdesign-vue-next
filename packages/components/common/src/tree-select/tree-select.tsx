@@ -11,7 +11,7 @@ import FakeArrow from '../common-components/fake-arrow';
 import { PopupVisibleChangeContext } from '../popup';
 
 import { INodeOptions } from './interface';
-import { TreeSelectValue, TdTreeSelectProps, TreeSelectValueChangeTrigger } from './type';
+import { TreeSelectValue, TdTreeSelectProps, TreeSelectValueChangeTrigger } from '@td/intel/tree-select/type';
 import { TreeOptionData } from '../common';
 import props from '@td/intel/tree-select/props';
 

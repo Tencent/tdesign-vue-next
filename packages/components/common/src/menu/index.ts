@@ -4,11 +4,11 @@ import _Submenu from './submenu';
 import _MenuItem from './menu-item';
 import _MenuGroup from './menu-group';
 import withInstall from '../utils/withInstall';
-import { TdMenuProps, TdHeadMenuProps, TdSubmenuProps, TdMenuItemProps } from './type';
+import { TdMenuProps, TdHeadMenuProps, TdSubmenuProps, TdMenuItemProps } from '@td/intel/menu/type';
 
 import './style';
 
-export * from './type';
+export * from '@td/intel/menu/type';
 export type MenuProps = TdMenuProps;
 export type HeadMenuProps = TdHeadMenuProps;
 export type SubmenuProps = TdSubmenuProps;

@@ -22,7 +22,7 @@ import TFoot from './tfoot';
 import { getAffixProps } from './utils';
 import { Styles, ComponentScrollToElementParams } from '../common';
 import { getIEVersion } from '../_common/js/utils/helper';
-import { BaseTableInstanceFunctions } from './type';
+import { BaseTableInstanceFunctions } from '@td/intel/../../vue3/src/table/type';
 import log from '../_common/js/log';
 import { useRowHighlight } from './hooks/useRowHighlight';
 import useHoverKeyboardEvent from './hooks/useHoverKeyboardEvent';

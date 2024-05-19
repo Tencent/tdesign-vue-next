@@ -1,11 +1,11 @@
 import { vLoading } from './directive';
 import _Loading from './loading';
 import withInstall from '../utils/withInstall';
-import { TdLoadingProps } from './type';
+import { TdLoadingProps } from '@td/intel/loading/type';
 
 import './style';
 
-export * from './type';
+export * from '@td/intel/loading/type';
 export * from './plugin';
 
 export type LoadingProps = TdLoadingProps;

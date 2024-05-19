@@ -3,7 +3,7 @@ import _mergeWith from 'lodash/mergeWith';
 import merge from 'lodash/merge';
 import defaultConfig from '../_common/js/global-config/default-config';
 import defaultZhLocale from '../_common/js/global-config/locale/zh_CN';
-import { GlobalConfigProvider } from './type';
+import { GlobalConfigProvider } from '@td/intel/config-provider/type';
 import isArray from 'lodash/isArray';
 
 export enum EAnimationType {

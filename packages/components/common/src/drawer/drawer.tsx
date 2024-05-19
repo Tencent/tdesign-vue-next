@@ -5,11 +5,11 @@ import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { isServer } from '../utils/dom';
 import { getScrollbarWidth } from '../_common/js/utils/getScrollbarWidth';
 import props from '@td/intel/drawer/props';
-import { DrawerCloseContext } from './type';
+import { DrawerCloseContext } from '@td/intel/drawer/type';
 import { useAction } from '../dialog/hooks';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import { useDrag } from './hooks';
-import type { TdDrawerProps } from './type';
+import type { TdDrawerProps } from '@td/intel/drawer/type';
 import useTeleport from '../hooks/useTeleport';
 
 let key = 1;

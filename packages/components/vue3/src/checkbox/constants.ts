@@ -1,5 +1,5 @@
 import { ComputedRef, InjectionKey } from 'vue';
-import { TdCheckboxGroupProps, TdCheckboxProps } from './type';
+import { TdCheckboxGroupProps, TdCheckboxProps } from '@td/intel/../../vue3/src/checkbox/type';
 
 export interface CheckboxGroupInjectData {
   name?: string;

@@ -12,8 +12,8 @@ import props from '@td/intel/date-picker/props';
 import TSelectInput from '../select-input';
 import TSinglePanel from './panel/SinglePanel';
 
-import type { TdDatePickerProps } from './type';
-import type { DateValue } from './type';
+import type { TdDatePickerProps } from '@td/intel/date-picker/type';
+import type { DateValue } from '@td/intel/date-picker/type';
 import isDate from 'lodash/isDate';
 
 export default defineComponent({

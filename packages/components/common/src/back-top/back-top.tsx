@@ -6,7 +6,7 @@ import { useChildSlots, usePrefixClass, useContent, useConfig } from '../hooks';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import props from '@td/intel/back-top/props';
 
-import type { TdBackTopProps } from './type';
+import type { TdBackTopProps } from '@td/intel/back-top/type';
 
 export default defineComponent({
   name: 'TBackTop',

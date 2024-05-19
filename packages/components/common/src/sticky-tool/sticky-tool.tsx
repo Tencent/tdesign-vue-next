@@ -8,7 +8,7 @@ import { useChildComponentSlots } from '../hooks';
 
 import stickyItemProps from './sticky-item-props';
 
-import type { TdStickyItemProps } from './type';
+import type { TdStickyItemProps } from '@td/intel/sticky-tool/type';
 import type { Styles } from '../common';
 
 export default defineComponent({

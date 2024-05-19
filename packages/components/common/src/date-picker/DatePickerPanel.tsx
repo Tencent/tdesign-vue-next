@@ -9,7 +9,7 @@ import type {
   TdDatePickerPanelProps,
   DatePickerYearChangeTrigger,
   DatePickerMonthChangeTrigger,
-} from './type';
+} from '@td/intel/date-picker/type';
 
 import datePickerPanelProps from './date-picker-panel-props';
 import datePickerProps from '@td/intel/date-picker/props';

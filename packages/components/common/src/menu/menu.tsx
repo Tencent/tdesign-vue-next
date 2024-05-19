@@ -1,6 +1,6 @@
 import { defineComponent, ref, computed, provide, watchEffect, watch, onMounted, toRefs } from 'vue';
 import props from '@td/intel/menu/props';
-import { MenuValue } from './type';
+import { MenuValue } from '@td/intel/menu/type';
 import { TdMenuInterface, TdOpenType } from './const';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import VMenu from './v-menu';

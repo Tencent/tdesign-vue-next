@@ -1,6 +1,6 @@
 import _Guide from './guide';
 import withInstall from '../utils/withInstall';
-import { TdGuideProps, GuideStep } from './type';
+import { TdGuideProps, GuideStep } from '@td/intel/guide/type';
 
 import './style';
 
@@ -10,7 +10,7 @@ import './style';
  */
 export type TdGuideStepProps = GuideStep;
 
-export * from './type';
+export * from '@td/intel/guide/type';
 export type GuideProps = TdGuideProps;
 
 export const Guide = withInstall(_Guide);

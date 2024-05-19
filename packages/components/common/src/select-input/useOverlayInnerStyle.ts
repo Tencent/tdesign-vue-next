@@ -1,7 +1,7 @@
 import { ref, toRefs, computed, CSSProperties } from 'vue';
 import isObject from 'lodash/isObject';
 import isFunction from 'lodash/isFunction';
-import { TdSelectInputProps } from './type';
+import { TdSelectInputProps } from '@td/intel/select-input/type';
 import { TdPopupProps, PopupVisibleChangeContext } from '../popup';
 import { useFormDisabled } from '../form/hooks';
 

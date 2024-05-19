@@ -1,10 +1,10 @@
 import _TagInput from './tag-input';
 import withInstall from '../utils/withInstall';
-import { TdTagInputProps } from './type';
+import { TdTagInputProps } from '@td/intel/tag-input/type';
 
 import './style';
 
-export * from './type';
+export * from '@td/intel/tag-input/type';
 export type TagInputProps = TdTagInputProps;
 
 export const TagInput = withInstall(_TagInput);

@@ -1,6 +1,6 @@
 import { InjectionKey, ComputedRef } from 'vue';
 import cloneDeep from 'lodash/cloneDeep';
-import { TdSelectProps, TdOptionProps, SelectValue, SelectOption } from './type';
+import { TdSelectProps, TdOptionProps, SelectValue, SelectOption } from '@td/intel/select/type';
 
 export const selectInjectKey: InjectionKey<
   ComputedRef<{

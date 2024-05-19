@@ -2,7 +2,7 @@ import { defineComponent, ref, onMounted, h, reactive } from 'vue';
 import { ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
 import DropdownItem from './dropdown-item';
 
-import { DropdownOption } from './type';
+import { DropdownOption } from '@td/intel/dropdown/type';
 import DropdownProps from '@td/intel/dropdown/props';
 import TDivider from '../divider';
 import { usePrefixClass } from '../hooks/useConfig';

@@ -1,7 +1,7 @@
 import { computed, defineComponent, onBeforeUnmount, onMounted, PropType, ref, SetupContext, toRefs, watch } from 'vue';
 import Popup, { PopupInstanceFunctions, PopupProps, PopupVisibleChangeContext } from '../popup';
 import props from '@td/intel/select-input/props';
-import { TdSelectInputProps } from './type';
+import { TdSelectInputProps } from '@td/intel/select-input/type';
 import useSingle, { SelectInputValueDisplayOptions } from './useSingle';
 import useMultiple from './useMultiple';
 import useOverlayInnerStyle from './useOverlayInnerStyle';

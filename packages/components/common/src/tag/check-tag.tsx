@@ -4,7 +4,7 @@ import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import useVModel from '../hooks/useVModel';
 import { useContent } from '../hooks/tnode';
 import Tag from './tag';
-import { TdCheckTagProps, TdTagProps } from './type';
+import { TdCheckTagProps, TdTagProps } from '@td/intel/tag/type';
 import { ENTER_REG, SPACE_REG } from '../_common/js/common';
 
 export default defineComponent({

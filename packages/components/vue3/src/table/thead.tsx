@@ -2,7 +2,7 @@ import { defineComponent, computed, SetupContext, PropType, ref, Ref, h, CSSProp
 import isFunction from 'lodash/isFunction';
 import { getColumnFixedStyles } from './hooks/useFixed';
 import useClassName from './hooks/useClassName';
-import { BaseTableCol, TableRowData, TdBaseTableProps } from './type';
+import { BaseTableCol, TableRowData, TdBaseTableProps } from '@td/intel/../../vue3/src/table/type';
 import { renderTitle } from './hooks/useTableHeader';
 import TEllipsis from './ellipsis';
 import { formatClassNames } from './utils';

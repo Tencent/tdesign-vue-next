@@ -5,7 +5,7 @@ import { ImageErrorIcon, ImageIcon } from 'tdesign-icons-vue-next';
 import observe from '../_common/js/utils/observe';
 import { useConfig } from '../config-provider/useConfig';
 import { useTNodeDefault, useTNodeJSX } from '../hooks/tnode';
-import { TdImageProps } from './type';
+import { TdImageProps } from '@td/intel/image/type';
 import props from '@td/intel/image/props';
 import Space from '../space';
 import { useImagePreviewUrl } from '../hooks/useImagePreviewUrl';

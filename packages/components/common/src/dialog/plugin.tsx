@@ -1,7 +1,7 @@
 import { App, createApp, ref, Plugin, defineComponent, h, onMounted, nextTick } from 'vue';
 import DialogComponent from './dialog';
 import { getAttach } from '../utils/dom';
-import { DialogOptions, DialogMethod, DialogConfirmMethod, DialogAlertMethod, DialogInstance } from './type';
+import { DialogOptions, DialogMethod, DialogConfirmMethod, DialogAlertMethod, DialogInstance } from '@td/intel/dialog/type';
 import omit from 'lodash/omit';
 
 const createDialog: DialogMethod = (props: DialogOptions) => {

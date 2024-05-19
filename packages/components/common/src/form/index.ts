@@ -1,11 +1,11 @@
 import _Form from './form';
 import _FormItem from './form-item';
 import withInstall from '../utils/withInstall';
-import { TdFormProps, TdFormItemProps, Data } from './type';
+import { TdFormProps, TdFormItemProps, Data } from '@td/intel/form/type';
 
 import './style';
 
-export * from './type';
+export * from '@td/intel/form/type';
 export type FormProps<FormData extends Data = Data> = TdFormProps<FormData>;
 export type FormItemProps = TdFormItemProps;
 

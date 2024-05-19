@@ -3,7 +3,7 @@ import omit from 'lodash/omit';
 import isArray from 'lodash/isArray';
 import Popup, { PopupVisibleChangeContext } from '../popup/index';
 import DropdownMenu from './dropdown-menu';
-import { DropdownOption, TdDropdownProps } from './type';
+import { DropdownOption, TdDropdownProps } from '@td/intel/dropdown/type';
 import props from '@td/intel/dropdown/props';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';

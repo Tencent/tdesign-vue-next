@@ -1,7 +1,7 @@
 import { defineComponent, reactive, provide, toRefs } from 'vue';
 import props from '@td/intel/breadcrumb/props';
 import BreadcrumbItem from './breadcrumb-item';
-import { TdBreadcrumbItemProps } from './type';
+import { TdBreadcrumbItemProps } from '@td/intel/breadcrumb/type';
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
 

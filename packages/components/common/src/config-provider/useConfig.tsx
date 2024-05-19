@@ -4,14 +4,14 @@ import cloneDeep from 'lodash/cloneDeep';
 import isString from 'lodash/isString';
 
 import { defaultGlobalConfig, configProviderInjectKey, mergeWith } from './context';
-import { GlobalConfigProvider } from './type';
+import { GlobalConfigProvider } from '@td/intel/config-provider/type';
 import type { ConfigProviderProps } from './config-provider';
 
 // 这是为了解决在非component里调用useConfig hook时发出的警告
 // https://github.com/Tencent/tdesign-vue-next/issues/2025
 const globalConfigCopy = ref<GlobalConfigProvider>();
 
-export * from './type';
+export * from '@td/intel/config-provider/type';
 
 /**
  * component globalConfig

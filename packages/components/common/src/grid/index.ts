@@ -1,11 +1,11 @@
 import _Row from './row';
 import _Col from './col';
 import withInstall from '../utils/withInstall';
-import { TdRowProps, TdColProps } from './type';
+import { TdRowProps, TdColProps } from '@td/intel/grid/type';
 
 import './style';
 
-export * from './type';
+export * from '@td/intel/grid/type';
 export type ColProps = TdColProps;
 export type RowProps = TdRowProps;
 

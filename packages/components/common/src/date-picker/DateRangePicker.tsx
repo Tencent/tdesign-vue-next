@@ -6,7 +6,7 @@ import isFunction from 'lodash/isFunction';
 import isArray from 'lodash/isArray';
 
 import props from './date-range-picker-props';
-import { DateValue, DateRangePickerPartial } from './type';
+import { DateValue, DateRangePickerPartial } from '@td/intel/date-picker/type';
 
 import { RangeInputPopup as TRangeInputPopup } from '../range-input';
 import TRangePanel from './panel/RangePanel';

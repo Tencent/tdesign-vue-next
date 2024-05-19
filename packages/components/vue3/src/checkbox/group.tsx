@@ -4,7 +4,7 @@ import isObject from 'lodash/isObject';
 import isUndefined from 'lodash/isUndefined';
 import Checkbox from './checkbox';
 import props from './checkbox-group-props';
-import { CheckboxOptionObj, TdCheckboxProps, CheckboxGroupValue } from './type';
+import { CheckboxOptionObj, TdCheckboxProps, CheckboxGroupValue } from '@td/intel/../../vue3/src/checkbox/type';
 import { CheckboxGroupInjectionKey } from './constants';
 import useVModel from '../hooks/useVModel';
 import { usePrefixClass } from '../hooks/useConfig';

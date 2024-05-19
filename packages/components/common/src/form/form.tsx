@@ -13,7 +13,7 @@ import {
   FormValidateResult,
   TdFormProps,
   ValidateResultList,
-} from './type';
+} from '@td/intel/form/type';
 import props from '@td/intel/form/props';
 import { FormInjectionKey, FormItemContext, useCLASSNAMES } from './const';
 import { FormResetEvent, FormSubmitEvent } from '../common';

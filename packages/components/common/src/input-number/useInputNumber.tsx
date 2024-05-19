@@ -1,7 +1,7 @@
 import { computed, ref, toRefs, watch } from 'vue';
 import useCommonClassName from '../hooks/useCommonClassName';
 import useVModel from '../hooks/useVModel';
-import { InputNumberValue, TdInputNumberProps } from './type';
+import { InputNumberValue, TdInputNumberProps } from '@td/intel/input-number/type';
 // 计算逻辑，统一到 common 中，方便各框架复用（如超过 16 位的大数处理）
 import {
   canAddNumber,

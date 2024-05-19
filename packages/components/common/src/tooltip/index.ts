@@ -1,10 +1,10 @@
 import _Tooltip from './tooltip';
 import withInstall from '../utils/withInstall';
-import { TdTooltipProps } from './type';
+import { TdTooltipProps } from '@td/intel/tooltip/type';
 
 import './style';
 
-export * from './type';
+export * from '@td/intel/tooltip/type';
 export type TooltipProps = TdTooltipProps;
 
 export const Tooltip = withInstall(_Tooltip);

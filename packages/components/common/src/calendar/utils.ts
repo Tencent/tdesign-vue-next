@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 
-import { TdCalendarProps, CalendarCell } from './type';
+import { TdCalendarProps, CalendarCell } from '@td/intel/calendar/type';
 import { CalendarState } from './interface';
 
 // 组件的一些常量

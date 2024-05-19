@@ -1,5 +1,5 @@
 import { ref, Slot } from 'vue';
-import type { TdMenuItemProps } from './type';
+import type { TdMenuItemProps } from '@td/intel/menu/type';
 type MenuValue = string | number;
 type MenuNode = MenuValue | VMenuData;
 

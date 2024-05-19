@@ -12,7 +12,7 @@ import { formatInputValue, validateInputValue } from '../_common/js/time-picker/
 // interfaces
 import props from './time-range-picker-props';
 import { TimeRangeValue } from './interface';
-import { TimeRangePickerPartial } from './type';
+import { TimeRangePickerPartial } from '@td/intel/time-picker/type';
 // hooks
 import useVModel from '../hooks/useVModel';
 import { useCommonClassName, useConfig, usePrefixClass } from '../hooks/useConfig';

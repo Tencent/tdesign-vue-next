@@ -1,10 +1,10 @@
 import _Popup from './popup';
 import withInstall from '../utils/withInstall';
-import { TdPopupProps } from './type';
+import { TdPopupProps } from '@td/intel/../../vue3/src/popup/type';
 
 import './style';
 
-export * from './type';
+export * from '@td/intel/../../vue3/src/popup/type';
 export type PopupProps = TdPopupProps;
 
 export const Popup = withInstall(_Popup);

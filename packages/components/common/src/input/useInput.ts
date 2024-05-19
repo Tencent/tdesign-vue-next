@@ -1,5 +1,5 @@
 import { ref, computed, watch, nextTick, toRefs, inject } from 'vue';
-import { InputValue, TdInputProps } from './type';
+import { InputValue, TdInputProps } from '@td/intel/input/type';
 import { FormItemInjectionKey } from '../form/const';
 import useVModel from '../hooks/useVModel';
 import { useFormDisabled } from '../form/hooks';

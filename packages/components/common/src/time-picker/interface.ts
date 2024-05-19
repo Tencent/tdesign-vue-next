@@ -1,12 +1,12 @@
 /* eslint-disable no-undef */
 
 import dayjs from 'dayjs';
-import { TdTimePickerProps, TdTimeRangePickerProps } from './type';
+import { TdTimePickerProps, TdTimeRangePickerProps } from '@td/intel/time-picker/type';
 
 export type TimePickerProps = TdTimePickerProps;
 export type TimeRangePickerProps = TdTimeRangePickerProps;
 
-export * from './type';
+export * from '@td/intel/time-picker/type';
 
 // 输入类型
 export type TimeInputType = 'hour' | 'minute' | 'second' | 'meridiem';

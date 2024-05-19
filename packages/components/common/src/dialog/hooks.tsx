@@ -6,7 +6,7 @@ import { useTNodeJSX } from '../hooks/tnode';
 import TButton, { ButtonProps } from '../button';
 import { PopconfirmConfig, DialogConfig, DrawerConfig } from '../config-provider';
 import type { ClassName } from '../common';
-import type { TdDialogProps } from './type';
+import type { TdDialogProps } from '@td/intel/dialog/type';
 
 export interface MixinsConfirmBtn {
   theme?: MixinsThemeType;

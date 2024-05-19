@@ -5,7 +5,7 @@ import {
   ChevronRightIcon as TdChevronRightIcon,
   AddIcon as TdAddIcon,
 } from 'tdesign-icons-vue-next';
-import { TdTabsProps } from './type';
+import { TdTabsProps } from '@td/intel/tabs/type';
 import tabProps from '@td/intel/tabs/props';
 import tabBase from '../_common/js/tabs/base';
 

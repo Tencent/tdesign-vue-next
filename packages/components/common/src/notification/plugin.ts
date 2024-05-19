@@ -11,7 +11,7 @@ import {
   NotificationSuccessMethod,
   NotificationCloseMethod,
   NotificationCloseAllMethod,
-} from './type';
+} from '@td/intel/notification/type';
 import { AttachNodeReturnValue } from '../common';
 import './style';
 

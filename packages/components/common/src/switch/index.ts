@@ -1,10 +1,10 @@
 import _Switch from './switch';
 import withInstall from '../utils/withInstall';
-import { TdSwitchProps } from './type';
+import { TdSwitchProps } from '@td/intel/switch/type';
 
 import './style';
 
-export * from './type';
+export * from '@td/intel/switch/type';
 export type SwitchProps = TdSwitchProps;
 
 export const Switch = withInstall(_Switch);

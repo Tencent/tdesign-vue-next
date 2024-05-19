@@ -4,11 +4,11 @@ import _Footer from './footer';
 import _Aside from './aside';
 import _Content from './content';
 import withInstall from '../utils/withInstall';
-import { TdHeaderProps, TdFooterProps, TdAsideProps } from './type';
+import { TdHeaderProps, TdFooterProps, TdAsideProps } from '@td/intel/layout/type';
 
 import './style';
 
-export * from './type';
+export * from '@td/intel/layout/type';
 export type HeaderProps = TdHeaderProps;
 export type FooterProps = TdFooterProps;
 export type AsideProps = TdAsideProps;

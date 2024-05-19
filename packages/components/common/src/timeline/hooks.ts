@@ -1,5 +1,5 @@
 import { InjectionKey, ComputedRef, computed } from 'vue';
-import { TdTimelineProps } from './type';
+import { TdTimelineProps } from '@td/intel/timeline/type';
 
 export const DefaultAlign = {
   vertical: ['left', 'right'],

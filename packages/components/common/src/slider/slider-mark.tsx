@@ -1,5 +1,5 @@
 import { defineComponent, PropType } from 'vue';
-import { TdSliderProps } from './type';
+import { TdSliderProps } from '@td/intel/slider/type';
 import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({

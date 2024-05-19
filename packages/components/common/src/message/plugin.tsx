@@ -38,7 +38,7 @@ import {
   MessageQuestionMethod,
   MessageCloseMethod,
   MessageCloseAllMethod,
-} from './type';
+} from '@td/intel/message/type';
 import { AttachNodeReturnValue } from '../common';
 import isObject from 'lodash/isObject';
 import isString from 'lodash/isString';

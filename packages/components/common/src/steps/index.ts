@@ -1,11 +1,11 @@
 import _Steps from './steps';
 import _StepItem from './step-item';
 import withInstall from '../utils/withInstall';
-import { TdStepsProps, TdStepItemProps } from './type';
+import { TdStepsProps, TdStepItemProps } from '@td/intel/steps/type';
 
 import './style';
 
-export * from './type';
+export * from '@td/intel/steps/type';
 export type StepsProps = TdStepsProps;
 export type StepItemProps = TdStepItemProps;
 

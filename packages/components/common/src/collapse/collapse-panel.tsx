@@ -1,7 +1,7 @@
 import { defineComponent, ref, computed, inject, Ref, toRefs, Transition } from 'vue';
 import props from './collapse-panel-props';
 import FakeArrow from '../common-components/fake-arrow';
-import { CollapseValue, TdCollapsePanelProps } from './type';
+import { CollapseValue, TdCollapsePanelProps } from '@td/intel/collapse/type';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
 import useCollapseAnimation from '../hooks/useCollapseAnimation';

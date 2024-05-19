@@ -1,11 +1,11 @@
 import _RangeInput from './range-input';
 import _RangeInputPopup from './range-input-popup';
 import withInstall from '../utils/withInstall';
-import { TdRangeInputProps, TdRangeInputPopupProps } from './type';
+import { TdRangeInputProps, TdRangeInputPopupProps } from '@td/intel/range-input/type';
 
 import './style';
 
-export * from './type';
+export * from '@td/intel/range-input/type';
 
 export type RangeInputProps = TdRangeInputProps;
 export type RangeInputPopupProps = TdRangeInputPopupProps;

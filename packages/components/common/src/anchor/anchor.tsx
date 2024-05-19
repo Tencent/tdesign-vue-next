@@ -15,7 +15,7 @@ import props from '@td/intel/anchor/props';
 import { useTNodeJSX } from '../hooks/tnode';
 import { SlotReturnValue } from '../common';
 import Affix from '../affix';
-import { TdAnchorProps } from './type';
+import { TdAnchorProps } from '@td/intel/anchor/type';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { AnchorInjectionKey } from './constants';
 

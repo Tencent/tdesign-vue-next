@@ -10,7 +10,7 @@ import baseTableProps from './base-table-props';
 import { TNodeReturnValue } from '../common';
 import useRowspanAndColspan from './hooks/useRowspanAndColspan';
 import { BaseTableProps, RowAndColFixedPosition } from './interface';
-import { TdBaseTableProps } from './type';
+import { TdBaseTableProps } from '@td/intel/../../vue3/src/table/type';
 import { VirtualScrollConfig } from '../hooks/useVirtualScrollNew';
 
 export const ROW_AND_TD_LISTENERS = ROW_LISTENERS.concat('cell-click');

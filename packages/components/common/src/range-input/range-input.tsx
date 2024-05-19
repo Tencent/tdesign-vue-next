@@ -3,7 +3,7 @@ import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-
 
 import Input from '../input';
 import props from '@td/intel/range-input/props';
-import { RangeInputValue, RangeInputPosition } from './type';
+import { RangeInputValue, RangeInputPosition } from '@td/intel/range-input/type';
 
 // hooks
 import useVModel from '../hooks/useVModel';
