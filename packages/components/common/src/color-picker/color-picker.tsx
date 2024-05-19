@@ -1,7 +1,7 @@
 import { defineComponent, ref, toRefs } from 'vue';
 import useVModel from '../hooks/useVModel';
 import { renderTNodeJSXDefault } from '../utils/render-tnode';
-import props from './props';
+import props from '@td/intel/color-picker/props';
 import { Popup as TPopup } from '../popup';
 import ColorPanel from './panel';
 import DefaultTrigger from './trigger';

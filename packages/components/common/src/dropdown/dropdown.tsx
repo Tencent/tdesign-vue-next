@@ -4,7 +4,7 @@ import isArray from 'lodash/isArray';
 import Popup, { PopupVisibleChangeContext } from '../popup/index';
 import DropdownMenu from './dropdown-menu';
 import { DropdownOption, TdDropdownProps } from './type';
-import props from './props';
+import props from '@td/intel/dropdown/props';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
 import useDropdownOptions from './hooks/useDropdownOptions';

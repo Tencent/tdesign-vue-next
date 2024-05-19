@@ -1,5 +1,5 @@
 import { computed, ref, defineComponent, toRefs, nextTick } from 'vue';
-import props from './props';
+import props from '@td/intel/auto-complete/props';
 import { TdAutoCompleteProps } from './type';
 import Input, { InputProps, StrInputProps } from '../input';
 import Popup, { PopupProps } from '../popup';

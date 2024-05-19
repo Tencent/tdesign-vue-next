@@ -3,7 +3,7 @@ import isFunction from 'lodash/isFunction';
 import isUndefined from 'lodash/isUndefined';
 
 import { on, off, getScrollContainer } from '../utils/dom';
-import props from './props';
+import props from '@td/intel/affix/props';
 import { ScrollContainerElement } from '../common';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';

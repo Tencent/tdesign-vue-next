@@ -2,7 +2,7 @@ import { ComponentPublicInstance, defineComponent, provide, Ref, toRefs } from '
 import TTabPanel from './tab-panel';
 import TTabNav from './tab-nav';
 import { TabValue, TdTabsProps } from './type';
-import props from './props';
+import props from '@td/intel/tabs/props';
 
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';

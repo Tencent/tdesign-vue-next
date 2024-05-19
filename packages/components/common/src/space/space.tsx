@@ -1,5 +1,5 @@
 import { defineComponent, computed, CSSProperties, Fragment } from 'vue';
-import props from './props';
+import props from '@td/intel/space/props';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
 import { useChildSlots } from '../hooks/slot';

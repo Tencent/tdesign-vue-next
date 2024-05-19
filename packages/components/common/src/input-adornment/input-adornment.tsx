@@ -3,7 +3,7 @@ import isString from 'lodash/isString';
 import isNumber from 'lodash/isNumber';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
-import props from './props';
+import props from '@td/intel/input-adornment/props';
 import isFunction from 'lodash/isFunction';
 
 export default defineComponent({

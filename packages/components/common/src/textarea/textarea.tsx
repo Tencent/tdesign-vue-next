@@ -25,7 +25,7 @@ import { useFormDisabled } from '../form/hooks';
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
-import props from './props';
+import props from '@td/intel/textarea/props';
 import type { TextareaValue, TdTextareaProps } from './type';
 import useLengthLimit from '../input/useLengthLimit';
 

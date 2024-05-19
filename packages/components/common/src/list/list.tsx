@@ -4,7 +4,7 @@ import omit from 'lodash/omit';
 import { useTNodeJSX } from '../hooks/tnode';
 import TLoading from '../loading';
 import TListItem from './list-item';
-import props from './props';
+import props from '@td/intel/list/props';
 import { LOAD_MORE, LOADING } from './const';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useListItems } from './hooks/useListItems';

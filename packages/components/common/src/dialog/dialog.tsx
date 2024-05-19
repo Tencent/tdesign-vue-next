@@ -7,7 +7,7 @@ import {
 } from 'tdesign-icons-vue-next';
 
 import { DialogCloseContext } from './type';
-import props from './props';
+import props from '@td/intel/dialog/props';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useAction, useSameTarget } from './hooks';

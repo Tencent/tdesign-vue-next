@@ -2,7 +2,7 @@ import { computed, defineComponent } from 'vue';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useContent, useTNodeJSX } from '../hooks/tnode';
 import { useDisabled } from '../hooks/useDisabled';
-import props from './props';
+import props from '@td/intel/link/props';
 
 export default defineComponent({
   name: 'TLink',

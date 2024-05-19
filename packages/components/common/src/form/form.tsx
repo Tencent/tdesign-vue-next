@@ -14,7 +14,7 @@ import {
   TdFormProps,
   ValidateResultList,
 } from './type';
-import props from './props';
+import props from '@td/intel/form/props';
 import { FormInjectionKey, FormItemContext, useCLASSNAMES } from './const';
 import { FormResetEvent, FormSubmitEvent } from '../common';
 

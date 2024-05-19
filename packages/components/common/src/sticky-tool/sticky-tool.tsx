@@ -1,5 +1,5 @@
 import { computed, defineComponent, VNode } from 'vue';
-import props from './props';
+import props from '@td/intel/sticky-tool/props';
 import isObject from 'lodash/isObject';
 import StickyItem from './sticky-item';
 

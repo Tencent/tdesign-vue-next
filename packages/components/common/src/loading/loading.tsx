@@ -2,7 +2,7 @@ import { defineComponent, ref, computed, watch, onMounted, toRefs, CSSProperties
 import GradientIcon from './icon/gradient';
 import { addClass, removeClass } from '../utils/dom';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
-import props from './props';
+import props from '@td/intel/loading/props';
 
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import useTeleport from '../hooks/useTeleport';

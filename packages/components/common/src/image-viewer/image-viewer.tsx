@@ -1,7 +1,7 @@
 import { computed, defineComponent, ref, toRefs, Teleport, watch, Transition, nextTick } from 'vue';
 import { ChevronLeftIcon, ChevronDownIcon, CloseIcon } from 'tdesign-icons-vue-next';
 
-import props from './props';
+import props from '@td/intel/image-viewer/props';
 import TImageViewerIcon from './base/ImageModalIcon';
 import TImageViewerUtils from './base/ImageViewerUtils';
 import TImageItem from './base/ImageItem';

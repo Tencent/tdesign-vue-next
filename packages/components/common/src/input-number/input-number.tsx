@@ -7,7 +7,7 @@ import {
 } from 'tdesign-icons-vue-next';
 import TButton from '../button';
 import TInput from '../input';
-import props from './props';
+import props from '@td/intel/input-number/props';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { TdInputNumberProps } from './type';
 import useInputNumber from './useInputNumber';

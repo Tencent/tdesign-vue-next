@@ -5,7 +5,7 @@ import remove from 'lodash/remove';
 import isFunction from 'lodash/isFunction';
 import isArray from 'lodash/isArray';
 
-import props from './props';
+import props from '@td/intel/calendar/props';
 import * as utils from './utils';
 import { useConfig } from '../hooks/useConfig';
 import { useContent } from '../hooks/tnode';

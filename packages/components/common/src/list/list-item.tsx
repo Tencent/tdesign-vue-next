@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue';
-import props from './props';
+import props from '@td/intel/list/props';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
 

@@ -4,7 +4,7 @@ import {
   BrowseOffIcon as TdBrowseOffIcon,
   CloseCircleFilledIcon as TdCloseCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
-import props from './props';
+import props from '@td/intel/input/props';
 import { useFormDisabled } from '../form/hooks';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';

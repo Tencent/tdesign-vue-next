@@ -8,7 +8,7 @@ import { useFormDisabled } from '../form/hooks';
 import useSingle from './hooks/useSingle';
 import { parseToDayjs, getDefaultFormat, formatTime, formatDate } from '../_common/js/date-picker/format';
 import { subtractMonth, addMonth, extractTimeObj, covertToDate } from '../_common/js/date-picker/utils';
-import props from './props';
+import props from '@td/intel/date-picker/props';
 import TSelectInput from '../select-input';
 import TSinglePanel from './panel/SinglePanel';
 

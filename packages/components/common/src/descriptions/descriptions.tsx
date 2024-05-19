@@ -6,7 +6,7 @@ import { useTNodeJSX } from '../hooks/tnode';
 import { useChildComponentSlots } from '../hooks/slot';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
-import props from './props';
+import props from '@td/intel/descriptions/props';
 import { descriptionsKey } from './const';
 import { TdDescriptionsProps } from './type';
 import DescriptionsRow from './descriptions-row';

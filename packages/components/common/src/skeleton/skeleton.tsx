@@ -1,7 +1,7 @@
 import { h, defineComponent, ref, watch } from 'vue';
 import isNumber from 'lodash/isNumber';
 import isFunction from 'lodash/isFunction';
-import props from './props';
+import props from '@td/intel/skeleton/props';
 import { SkeletonRowCol, SkeletonRowColObj, TdSkeletonProps } from './type';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useContent } from '../hooks/tnode';

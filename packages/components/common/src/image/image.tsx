@@ -6,7 +6,7 @@ import observe from '../_common/js/utils/observe';
 import { useConfig } from '../config-provider/useConfig';
 import { useTNodeDefault, useTNodeJSX } from '../hooks/tnode';
 import { TdImageProps } from './type';
-import props from './props';
+import props from '@td/intel/image/props';
 import Space from '../space';
 import { useImagePreviewUrl } from '../hooks/useImagePreviewUrl';
 

@@ -10,7 +10,7 @@ import isString from 'lodash/isString';
 import isArray from 'lodash/isArray';
 
 import { on, off, addClass } from '../utils/dom';
-import props from './props';
+import props from '@td/intel/alert/props';
 import { SlotReturnValue } from '../common';
 import { useIcon } from '../hooks/icon';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';

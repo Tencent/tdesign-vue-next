@@ -1,6 +1,6 @@
 import { computed, defineComponent } from 'vue';
 import { UploadIcon } from 'tdesign-icons-vue-next';
-import props from './props';
+import props from '@td/intel/upload/props';
 import NormalFile from './themes/normal-file';
 import DraggerFile from './themes/dragger-file';
 import ImageCard from './themes/image-card';

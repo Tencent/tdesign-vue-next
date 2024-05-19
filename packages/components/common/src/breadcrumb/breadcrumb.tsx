@@ -1,5 +1,5 @@
 import { defineComponent, reactive, provide, toRefs } from 'vue';
-import props from './props';
+import props from '@td/intel/breadcrumb/props';
 import BreadcrumbItem from './breadcrumb-item';
 import { TdBreadcrumbItemProps } from './type';
 import { useTNodeJSX } from '../hooks/tnode';

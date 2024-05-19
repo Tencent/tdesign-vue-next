@@ -9,7 +9,7 @@ import { formatInputValue, validateInputValue } from '../_common/js/time-picker/
 
 import type { InputProps } from '../input';
 
-import props from './props';
+import props from '@td/intel/time-picker/props';
 
 // hooks
 import useVModel from '../hooks/useVModel';

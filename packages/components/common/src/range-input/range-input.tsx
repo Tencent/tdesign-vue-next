@@ -2,7 +2,7 @@ import { defineComponent, ref, toRefs, computed, Fragment } from 'vue';
 import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
 import Input from '../input';
-import props from './props';
+import props from '@td/intel/range-input/props';
 import { RangeInputValue, RangeInputPosition } from './type';
 
 // hooks

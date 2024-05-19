@@ -3,7 +3,7 @@ import omit from 'lodash/omit';
 import Panel from './components/Panel';
 import SelectInput from '../select-input';
 import FakeArrow from '../common-components/fake-arrow';
-import props from './props';
+import props from '@td/intel/cascader/props';
 
 import { useCascaderContext } from './hooks';
 import { CascaderValue, TdSelectInputProps, TdCascaderProps } from './interface';

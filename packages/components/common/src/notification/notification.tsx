@@ -7,7 +7,7 @@ import {
 import isFunction from 'lodash/isFunction';
 
 import { useTNodeJSX, useContent } from '../hooks/tnode';
-import props from './props';
+import props from '@td/intel/notification/props';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { fadeIn, fadeOut } from './animate';

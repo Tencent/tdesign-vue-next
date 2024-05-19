@@ -1,6 +1,6 @@
 import { computed, defineComponent, provide, reactive, ref, toRefs, VNode } from 'vue';
 import isObject from 'lodash/isObject';
-import props from './props';
+import props from '@td/intel/steps/props';
 import stepItemProps from './step-item-props';
 import { TdStepItemProps } from './type';
 import StepItem from './step-item';

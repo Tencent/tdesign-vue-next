@@ -13,7 +13,7 @@ import {
   getScopedSlots,
   TypeStyles,
 } from './adapt';
-import props from './props';
+import props from '@td/intel/tree/props';
 import { TreeNodeValue, TreeNodeState, TypeTreeNodeModel } from './tree-types';
 import useTreeStore from './hooks/useTreeStore';
 import useTreeStyles from './hooks/useTreeStyles';

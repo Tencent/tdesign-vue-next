@@ -1,6 +1,6 @@
 import { computed, defineComponent, h, ref } from 'vue';
 import TLoading from '../loading';
-import props from './props';
+import props from '@td/intel/button/props';
 import useRipple from '../hooks/useRipple';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useTNodeJSX, useContent } from '../hooks/tnode';

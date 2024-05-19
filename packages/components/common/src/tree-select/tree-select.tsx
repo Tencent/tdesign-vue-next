@@ -13,7 +13,7 @@ import { PopupVisibleChangeContext } from '../popup';
 import { INodeOptions } from './interface';
 import { TreeSelectValue, TdTreeSelectProps, TreeSelectValueChangeTrigger } from './type';
 import { TreeOptionData } from '../common';
-import props from './props';
+import props from '@td/intel/tree-select/props';
 
 // hooks
 import { usePrefixClass, useConfig } from '../hooks/useConfig';

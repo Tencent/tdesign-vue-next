@@ -1,7 +1,7 @@
 import { defineComponent, inject, toRefs, computed, ref } from 'vue';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { omit } from '../utils/helper';
-import props from './props';
+import props from '@td/intel/radio/props';
 import { RadioGroupInjectionKey, RadioButtonInjectionKey } from './constants';
 
 // hooks

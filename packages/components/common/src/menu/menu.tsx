@@ -1,5 +1,5 @@
 import { defineComponent, ref, computed, provide, watchEffect, watch, onMounted, toRefs } from 'vue';
-import props from './props';
+import props from '@td/intel/menu/props';
 import { MenuValue } from './type';
 import { TdMenuInterface, TdOpenType } from './const';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';

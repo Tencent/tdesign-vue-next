@@ -9,7 +9,7 @@ import intersection from 'lodash/intersection';
 import FakeArrow from '../common-components/fake-arrow';
 import SelectInput from '../select-input';
 import SelectPanel from './select-panel';
-import props from './props';
+import props from '@td/intel/select/props';
 // hooks
 import { useFormDisabled } from '../form/hooks';
 import useDefaultValue from '../hooks/useDefaultValue';

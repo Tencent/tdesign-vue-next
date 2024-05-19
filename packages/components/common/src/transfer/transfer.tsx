@@ -14,7 +14,7 @@ import {
   TARGET,
 } from './utils';
 import { PageInfo, TdPaginationProps } from '../pagination/type';
-import props from './props';
+import props from '@td/intel/transfer/props';
 import { TNode } from '../common';
 import useVModel from '../hooks/useVModel';
 import useDefaultValue from '../hooks/useDefaultValue';

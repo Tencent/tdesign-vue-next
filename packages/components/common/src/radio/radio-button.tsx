@@ -1,5 +1,5 @@
 import { computed, defineComponent, provide, reactive } from 'vue';
-import props from './props';
+import props from '@td/intel/radio/props';
 import Radio from './radio';
 import { omit } from '../utils/helper';
 import { RadioButtonInjectionKey } from './constants';

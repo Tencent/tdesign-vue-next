@@ -1,6 +1,6 @@
 import { defineComponent, computed, nextTick, onMounted, ref, toRefs, watch, h, Teleport } from 'vue';
 import isFunction from 'lodash/isFunction';
-import props from './props';
+import props from '@td/intel/guide/props';
 import { GuideCrossProps } from './interface';
 import { TdGuideProps, GuideStep } from './type';
 import { scrollToParentVisibleArea, getRelativePosition, getTargetElm, scrollToElm } from './utils';

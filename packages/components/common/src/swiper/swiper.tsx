@@ -4,7 +4,7 @@ import { ChevronLeftIcon as TdChevronLeftIcon, ChevronRightIcon as TdChevronRigh
 import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useChildComponentSlots } from '../hooks';
-import props from './props';
+import props from '@td/intel/swiper/props';
 import { SwiperNavigation, SwiperChangeSource } from './type';
 import TSwiperItem from './swiper-item';
 import { useTNodeJSX } from '../hooks/tnode';

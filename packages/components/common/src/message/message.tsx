@@ -9,7 +9,7 @@ import {
 
 import TLoading from '../loading';
 import { THEME_LIST } from './const';
-import props from './props';
+import props from '@td/intel/message/props';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { fadeIn, fadeOut } from './animation';

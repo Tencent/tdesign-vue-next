@@ -2,7 +2,7 @@ import { defineComponent, computed, toRefs, ref, nextTick, reactive, watch } fro
 import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import TInput, { InputProps, StrInputProps, TdInputProps } from '../input';
 import { TdTagInputProps } from './type';
-import props from './props';
+import props from '@td/intel/tag-input/props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { useConfig } from '../config-provider/useConfig';
 import { usePrefixClass } from '../hooks/useConfig';

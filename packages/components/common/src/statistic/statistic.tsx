@@ -5,7 +5,7 @@ import {
 } from 'tdesign-icons-vue-next';
 import isNumber from 'lodash/isNumber';
 import isFunction from 'lodash/isFunction';
-import props from './props';
+import props from '@td/intel/statistic/props';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useTNodeJSX } from '../hooks/tnode';

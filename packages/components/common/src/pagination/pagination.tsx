@@ -15,7 +15,7 @@ import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import TInputNumber from '../input-number';
 import { Select } from '../select';
 import TInputAdornment from '../input-adornment';
-import props from './props';
+import props from '@td/intel/pagination/props';
 import usePaginationClasses from './usePaginationClasses';
 import useMoreAction from './useMoreAction';
 import useVModel from '../hooks/useVModel';

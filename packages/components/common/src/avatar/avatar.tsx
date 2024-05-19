@@ -1,5 +1,5 @@
 import { computed, defineComponent, inject, nextTick, onMounted, onUpdated, ref } from 'vue';
-import props from './props';
+import props from '@td/intel/avatar/props';
 import { TdAvatarProps } from './type';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useContent, useTNodeJSX } from '../hooks/tnode';
