@@ -13,7 +13,7 @@ import {
   ComponentInternalInstance,
   Comment,
 } from 'vue';
-import props from '@td/intel/../../vue3/src/popup/props';
+import props from '@td/intel/popup/props';
 import useResizeObserver from '../hooks/useResizeObserver';
 import { isArray } from 'lodash-es';
 import { getSSRAttach, getAttach } from '../utils/dom';

@@ -1,7 +1,7 @@
 import { computed, defineComponent, SetupContext, ref, nextTick, PropType, watch, onMounted, toRefs } from 'vue';
 import { pick } from 'lodash-es';
 import { get } from 'lodash-es';
-import props from '@td/intel/../../vue3/src/table/base-table-props';
+import props from '@td/intel/table/base-table-props';
 import useTableHeader from './hooks/useTableHeader';
 import useColumnResize from './hooks/useColumnResize';
 import useFixed from './hooks/useFixed';
@@ -22,7 +22,7 @@ import TFoot from './tfoot';
 import { getAffixProps } from './utils';
 import { Styles, ComponentScrollToElementParams } from '../common';
 import { getIEVersion } from '../_common/js/utils/helper';
-import { BaseTableInstanceFunctions } from '@td/intel/../../vue3/src/table/type';
+import { BaseTableInstanceFunctions } from '@td/intel/table/type';
 import log from '../_common/js/log';
 import { useRowHighlight } from './hooks/useRowHighlight';
 import useHoverKeyboardEvent from './hooks/useHoverKeyboardEvent';

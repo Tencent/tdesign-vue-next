@@ -2,7 +2,7 @@ import { SetupContext, h, defineComponent, PropType, toRefs } from 'vue';
 import { isString } from 'lodash-es';
 import { isFunction } from 'lodash-es';
 import { get } from 'lodash-es';
-import { BaseTableCellParams, RowspanColspan, TableRowData, TdBaseTableProps } from '@td/intel/../../vue3/src/table/type';
+import { BaseTableCellParams, RowspanColspan, TableRowData, TdBaseTableProps } from '@td/intel/table/type';
 import { formatRowAttributes, formatRowClassNames } from './utils';
 import { getColumnFixedStyles } from './hooks/useFixed';
 import { useTNodeJSX } from '../hooks/tnode';

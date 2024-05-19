@@ -23,8 +23,8 @@ import useVModel from '../hooks/useVModel';
 import { off, on, once } from '../utils/dom';
 import setStyle from '../_common/js/utils/set-style';
 import Container from './container';
-import props from '@td/intel/../../vue3/src/popup/props';
-import { PopupTriggerEvent, TdPopupProps } from '@td/intel/../../vue3/src/popup/type';
+import props from '@td/intel/popup/props';
+import { PopupTriggerEvent, TdPopupProps } from '@td/intel/popup/type';
 
 const POPUP_ATTR_NAME = 'data-td-popup';
 const POPUP_PARENT_ATTR_NAME = 'data-td-popup-parent';

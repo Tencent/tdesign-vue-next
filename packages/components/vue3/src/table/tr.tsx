@@ -20,8 +20,8 @@ import { formatClassNames, formatRowAttributes, formatRowClassNames } from './ut
 import { getRowFixedStyles, getColumnFixedStyles } from './hooks/useFixed';
 import useClassName from './hooks/useClassName';
 import TEllipsis from './ellipsis';
-import { BaseTableCellParams, TableRowData, RowspanColspan, TdPrimaryTableProps, TdBaseTableProps } from '@td/intel/../../vue3/src/table/type';
-import baseTableProps from '@td/intel/../../vue3/src/table/base-table-props';
+import { BaseTableCellParams, TableRowData, RowspanColspan, TdPrimaryTableProps, TdBaseTableProps } from '@td/intel/table/type';
+import baseTableProps from '@td/intel/table/base-table-props';
 import useLazyLoad from './hooks/useLazyLoad';
 import { RowAndColFixedPosition } from './interface';
 import { getCellKey, SkipSpansValue } from './hooks/useRowspanAndColspan';

@@ -4,11 +4,11 @@ import _PrimaryTable from './primary-table';
 import _EnhancedTable from './enhanced-table';
 import withInstall from '../utils/withInstall';
 import { InfinityScroll } from '../common';
-import { BaseTableInstanceFunctions, EnhancedTableInstanceFunctions, PrimaryTableInstanceFunctions } from '@td/intel/../../vue3/src/table/type';
+import { BaseTableInstanceFunctions, EnhancedTableInstanceFunctions, PrimaryTableInstanceFunctions } from '@td/intel/table/type';
 
 import './style';
 
-export * from '@td/intel/../../vue3/src/table/type';
+export * from '@td/intel/table/type';
 export * from './interface';
 
 export type AllTableInstanceFunctions = EnhancedTableInstanceFunctions &

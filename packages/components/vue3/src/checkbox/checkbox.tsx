@@ -1,5 +1,5 @@
 import { defineComponent, ref, toRefs, inject, watch, computed } from 'vue';
-import props from '@td/intel/../../vue3/src/checkbox/props';
+import props from '@td/intel/checkbox/props';
 import useVModel from '../hooks/useVModel';
 import useRipple from '../hooks/useRipple';
 import { useContent } from '../hooks/tnode';

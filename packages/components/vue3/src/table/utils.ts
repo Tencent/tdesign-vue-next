@@ -1,7 +1,7 @@
 import { isFunction } from 'lodash-es';
 import { get } from 'lodash-es';
 import { isObject } from 'lodash-es';
-import { CellData, RowClassNameParams, TableColumnClassName, TableRowData, TdBaseTableProps } from '@td/intel/../../vue3/src/table/type';
+import { CellData, RowClassNameParams, TableColumnClassName, TableRowData, TdBaseTableProps } from '@td/intel/table/type';
 import { ClassName, HTMLElementAttributes } from '../common';
 import { AffixProps } from '../affix';
 

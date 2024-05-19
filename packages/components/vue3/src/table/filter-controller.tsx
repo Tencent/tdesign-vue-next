@@ -7,7 +7,7 @@ import { RadioGroup } from '../radio';
 import Input from '../input';
 import TButton from '../button';
 import { useTNodeDefault } from '../hooks/tnode';
-import { PrimaryTableCol, FilterValue } from '@td/intel/../../vue3/src/table/type';
+import { PrimaryTableCol, FilterValue } from '@td/intel/table/type';
 import { useConfig } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { AttachNode } from '../common';

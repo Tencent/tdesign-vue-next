@@ -1,7 +1,7 @@
 import { defineComponent, SetupContext, computed, ref, getCurrentInstance } from 'vue';
-import baseTableProps from '@td/intel/../../vue3/src/table/base-table-props';
-import primaryTableProps from '@td/intel/../../vue3/src/table/primary-table-props';
-import enhancedTableProps from '@td/intel/../../vue3/src/table/enhanced-table-props';
+import baseTableProps from '@td/intel/table/base-table-props';
+import primaryTableProps from '@td/intel/table/primary-table-props';
+import enhancedTableProps from '@td/intel/table/enhanced-table-props';
 import PrimaryTable from './primary-table';
 import {
   TdEnhancedTableProps,
@@ -10,7 +10,7 @@ import {
   DragSortContext,
   TdPrimaryTableProps,
   TableRowState,
-} from '@td/intel/../../vue3/src/table/type';
+} from '@td/intel/table/type';
 import useTreeData from './hooks/useTreeData';
 import useTreeSelect from './hooks/useTreeSelect';
 import { get } from 'lodash-es';
