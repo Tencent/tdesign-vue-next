@@ -1,5 +1,5 @@
 import _Drawer from './drawer';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@td/adapter-utils';
 import { TdDrawerProps } from '@td/intel/drawer/type';
 
 import './style';

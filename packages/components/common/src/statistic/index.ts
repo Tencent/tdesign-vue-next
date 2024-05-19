@@ -1,5 +1,5 @@
 import _Statistic from './statistic';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@td/adapter-utils';
 import { TdStatisticProps } from '@td/intel/statistic/type';
 
 import './style';

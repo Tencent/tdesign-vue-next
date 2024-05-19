@@ -1,7 +1,7 @@
 import _Radio from './radio';
 import _Group from './group';
 import _RadioButton from './radio-button';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@td/adapter-utils';
 import { TdRadioProps, TdRadioGroupProps } from '@td/intel/radio/type';
 
 import './style';

@@ -1,5 +1,5 @@
 import _Link from './link';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@td/adapter-utils';
 import { TdLinkProps } from '@td/intel/link/type';
 
 import './style';

@@ -1,5 +1,5 @@
 import _Image from './image';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@td/adapter-utils';
 import { TdImageProps } from '@td/intel/image/type';
 
 import './style';

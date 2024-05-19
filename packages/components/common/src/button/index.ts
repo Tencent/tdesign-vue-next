@@ -1,5 +1,5 @@
 import _Button from './button';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@td/adapter-utils';
 import { TdButtonProps } from '@td/intel/button/type';
 
 import './style';

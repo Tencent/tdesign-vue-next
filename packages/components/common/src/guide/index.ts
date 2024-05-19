@@ -1,5 +1,5 @@
 import _Guide from './guide';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@td/adapter-utils';
 import { TdGuideProps, GuideStep } from '@td/intel/guide/type';
 
 import './style';

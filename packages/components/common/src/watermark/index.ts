@@ -1,5 +1,5 @@
 import _Watermark from './watermark';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@td/adapter-utils';
 
 export * from '@td/intel/watermark/type';
 

@@ -1,6 +1,6 @@
 import _Form from './form';
 import _FormItem from './form-item';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@td/adapter-utils';
 import { TdFormProps, TdFormItemProps, Data } from '@td/intel/form/type';
 
 import './style';

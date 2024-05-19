@@ -3,7 +3,7 @@ import _TimeRangePicker from './time-range-picker';
 import _TimePickerPanel from './panel/time-picker-panel';
 import { TdTimePickerProps, TdTimeRangePickerProps } from '@td/intel/time-picker/type';
 
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@td/adapter-utils';
 
 import './style';
 

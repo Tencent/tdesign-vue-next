@@ -1,7 +1,7 @@
 import _Tag from './tag';
 import _CheckTag from './check-tag';
 import _CheckTagGroup from './check-tag-group';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@td/adapter-utils';
 import { TdTagProps, TdCheckTagProps, TdCheckTagGroupProps } from '@td/intel/tag/type';
 
 import './style';

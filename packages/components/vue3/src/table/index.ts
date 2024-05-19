@@ -2,7 +2,7 @@ import { cloneDeep } from 'lodash-es';
 import _BaseTable from './base-table';
 import _PrimaryTable from './primary-table';
 import _EnhancedTable from './enhanced-table';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@td/adapter-utils';
 import { InfinityScroll } from '../common';
 import { BaseTableInstanceFunctions, EnhancedTableInstanceFunctions, PrimaryTableInstanceFunctions } from '@td/intel/table/type';
 

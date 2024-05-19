@@ -1,5 +1,5 @@
 import _Textarea from './textarea';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@td/adapter-utils';
 import { TdTextareaProps } from '@td/intel/textarea/type';
 
 import './style';

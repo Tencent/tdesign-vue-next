@@ -1,5 +1,5 @@
 import _Space from './space';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@td/adapter-utils';
 import { TdSpaceProps } from '@td/intel/space/type';
 
 import './style';

@@ -1,6 +1,6 @@
 import _ColorPickerPanel from './color-picker-panel';
 import _ColorPicker from './color-picker';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@td/adapter-utils';
 import { TdColorPickerProps } from '@td/intel/color-picker/type';
 
 import './style';

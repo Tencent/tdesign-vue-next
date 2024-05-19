@@ -1,6 +1,6 @@
 import _Steps from './steps';
 import _StepItem from './step-item';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@td/adapter-utils';
 import { TdStepsProps, TdStepItemProps } from '@td/intel/steps/type';
 
 import './style';

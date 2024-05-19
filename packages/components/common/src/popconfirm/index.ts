@@ -1,5 +1,5 @@
 import _Popconfirm from './popconfirm';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@td/adapter-utils';
 import { TdPopconfirmProps } from '@td/intel/popconfirm/type';
 
 import './style';

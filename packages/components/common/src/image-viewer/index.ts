@@ -1,5 +1,5 @@
 import _ImageViewer from './image-viewer';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@td/adapter-utils';
 import { TdImageViewerProps } from '@td/intel/image-viewer/type';
 
 import './style';

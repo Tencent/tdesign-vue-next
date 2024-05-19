@@ -1,5 +1,5 @@
 import _Alert from './alert';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@td/adapter-utils';
 import { TdAlertProps } from '@td/intel/alert/type';
 
 import './style';

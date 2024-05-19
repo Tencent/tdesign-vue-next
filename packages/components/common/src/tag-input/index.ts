@@ -1,5 +1,5 @@
 import _TagInput from './tag-input';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@td/adapter-utils';
 import { TdTagInputProps } from '@td/intel/tag-input/type';
 
 import './style';

@@ -1,7 +1,7 @@
 import _DropdownItem from './dropdown-item';
 import _Dropdown from './dropdown';
 import _DropdownMenu from './dropdown-menu';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@td/adapter-utils';
 import { TdDropdownProps, TdDropdownItemProps } from '@td/intel/dropdown/type';
 
 import './style';

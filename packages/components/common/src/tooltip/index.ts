@@ -1,5 +1,5 @@
 import _Tooltip from './tooltip';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@td/adapter-utils';
 import { TdTooltipProps } from '@td/intel/tooltip/type';
 
 import './style';

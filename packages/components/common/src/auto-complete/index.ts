@@ -1,6 +1,6 @@
 import _AutoComplete from './auto-complete';
 import _HighlightOption from './highlight-option';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@td/adapter-utils';
 import { AutoCompleteOption, TdAutoCompleteProps } from '@td/intel/auto-complete/type';
 
 import './style';

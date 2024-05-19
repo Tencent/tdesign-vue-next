@@ -1,5 +1,5 @@
 import _Popup from './popup';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@td/adapter-utils';
 import { TdPopupProps } from '@td/intel/popup/type';
 
 import './style';

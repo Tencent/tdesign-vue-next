@@ -1,6 +1,6 @@
 import _Input from './input';
 import _InputGroup from './input-group';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@td/adapter-utils';
 import { InputValue, TdInputProps } from '@td/intel/input/type';
 
 import './style';
