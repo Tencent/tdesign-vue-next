@@ -1,5 +1,5 @@
 import { isBoolean } from 'lodash-es';
-import { computed, ref, watch, onBeforeUnmount } from 'vue';
+import { computed, ref, watch, onBeforeUnmount } from '@td/adapter-vue';
 import { TdBaseTableProps } from '../type';
 import { on, off } from '../../utils/dom';
 import { AffixProps } from '../../affix';

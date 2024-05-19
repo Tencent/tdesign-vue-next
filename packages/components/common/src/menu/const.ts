@@ -1,4 +1,4 @@
-import { Ref, VNodeNormalizedChildren } from 'vue';
+import { Ref, VNodeNormalizedChildren } from '@td/adapter-vue';
 import { MenuValue } from '@td/intel/menu/type';
 import VMenu from './v-menu';
 

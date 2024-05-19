@@ -1,4 +1,4 @@
-import { defineComponent, PropType, toRefs } from 'vue';
+import { defineComponent, PropType, toRefs } from '@td/adapter-vue';
 import useDrag, { UploadDragEvents } from '../hooks/useDrag';
 import { CommonDisplayFileProps } from '../interface';
 import { commonProps } from '../constants';

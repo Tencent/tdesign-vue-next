@@ -1,4 +1,4 @@
-import { computed, defineComponent, toRefs, PropType, ref } from 'vue';
+import { computed, defineComponent, toRefs, PropType, ref } from '@td/adapter-vue';
 import {
   BrowseIcon as TdBrowseIcon,
   DeleteIcon as TdDeleteIcon,

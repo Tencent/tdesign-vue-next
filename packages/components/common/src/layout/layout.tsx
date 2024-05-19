@@ -1,4 +1,4 @@
-import { defineComponent, computed, provide, ref, Ref } from 'vue';
+import { defineComponent, computed, provide, ref, Ref } from '@td/adapter-vue';
 import { usePrefixClass } from '@td/adapter-hooks';
 import { useTNodeJSX } from '@td/adapter-hooks';
 

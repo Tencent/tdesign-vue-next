@@ -1,4 +1,4 @@
-import { defineComponent, computed } from 'vue';
+import { defineComponent, computed } from '@td/adapter-vue';
 import { usePrefixClass } from '@td/adapter-hooks';
 import { useTNodeJSX } from '@td/adapter-hooks';
 import inputGroupProps from '@td/intel/input/input-group-props';

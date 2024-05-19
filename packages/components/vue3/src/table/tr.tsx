@@ -10,7 +10,7 @@ import {
   onUpdated,
   nextTick,
   onMounted,
-} from 'vue';
+} from '@td/adapter-vue';
 import { isFunction } from 'lodash-es';
 import { upperFirst } from 'lodash-es';
 import { isString } from 'lodash-es';

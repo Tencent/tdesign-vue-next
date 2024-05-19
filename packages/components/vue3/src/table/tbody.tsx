@@ -1,4 +1,4 @@
-import { defineComponent, computed, PropType, toRefs } from 'vue';
+import { defineComponent, computed, PropType, toRefs } from '@td/adapter-vue';
 import { camelCase } from 'lodash-es';
 import { get } from 'lodash-es';
 import { pick } from 'lodash-es';

@@ -1,4 +1,4 @@
-import { defineComponent, computed, SetupContext, PropType, ref, Ref, h, CSSProperties } from 'vue';
+import { defineComponent, computed, SetupContext, PropType, ref, Ref, h, CSSProperties } from '@td/adapter-vue';
 import { isFunction } from 'lodash-es';
 import { getColumnFixedStyles } from './hooks/useFixed';
 import useClassName from './hooks/useClassName';

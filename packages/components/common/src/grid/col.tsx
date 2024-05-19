@@ -1,4 +1,4 @@
-import { computed, defineComponent, inject } from 'vue';
+import { computed, defineComponent, inject } from '@td/adapter-vue';
 import props from '@td/intel/grid/col-props';
 
 import { RowProviderType, useRowSize, parseFlex, calcColPadding, getColClasses } from './common';

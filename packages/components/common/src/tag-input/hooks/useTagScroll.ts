@@ -4,7 +4,7 @@
  */
 
 import { isFunction } from 'lodash-es';
-import { onMounted, onUnmounted, ref, toRefs } from 'vue';
+import { onMounted, onUnmounted, ref, toRefs } from '@td/adapter-vue';
 import { TdTagInputProps } from '../type';
 
 export default function useTagScroll(props: TdTagInputProps) {

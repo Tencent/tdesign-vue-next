@@ -1,4 +1,4 @@
-import { defineComponent, computed, CSSProperties, Fragment } from 'vue';
+import { defineComponent, computed, CSSProperties, Fragment } from '@td/adapter-vue';
 import props from '@td/intel/space/props';
 import { usePrefixClass } from '@td/adapter-hooks';
 import { useTNodeJSX } from '@td/adapter-hooks';

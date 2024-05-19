@@ -1,4 +1,4 @@
-import { Ref, reactive, computed, toRefs, watch, nextTick } from 'vue';
+import { Ref, reactive, computed, toRefs, watch, nextTick } from '@td/adapter-vue';
 import { isEqual } from 'lodash-es';
 import { isFunction } from 'lodash-es';
 import { isString } from 'lodash-es';

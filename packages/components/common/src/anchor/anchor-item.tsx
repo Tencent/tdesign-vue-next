@@ -1,4 +1,4 @@
-import { defineComponent, h, VNodeChild, onMounted, onUnmounted, inject, watch } from 'vue';
+import { defineComponent, h, VNodeChild, onMounted, onUnmounted, inject, watch } from '@td/adapter-vue';
 import { ANCHOR_SHARP_REGEXP } from './utils';
 import props from '@td/intel/anchor/anchor-item-props';
 import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';

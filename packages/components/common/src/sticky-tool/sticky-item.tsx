@@ -1,4 +1,4 @@
-import { computed, defineComponent, PropType } from 'vue';
+import { computed, defineComponent, PropType } from '@td/adapter-vue';
 import baseProps from '@td/intel/sticky-tool/sticky-item-props';
 import TdStickyToolProps from '@td/intel/sticky-tool/props';
 import { usePrefixClass } from '@td/adapter-hooks';

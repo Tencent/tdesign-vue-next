@@ -1,4 +1,4 @@
-import { defineComponent, ref, toRefs, computed, Fragment } from 'vue';
+import { defineComponent, ref, toRefs, computed, Fragment } from '@td/adapter-vue';
 import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
 import Input from '../input';

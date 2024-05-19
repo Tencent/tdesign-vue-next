@@ -1,4 +1,4 @@
-import { onBeforeUnmount, onMounted, Ref, ref, watch } from 'vue';
+import { onBeforeUnmount, onMounted, Ref, ref, watch } from '@td/adapter-vue';
 import observe from '../../_common/js/utils/observe';
 
 export function useCheckboxLazyLoad(labelRef: Ref<HTMLElement>, lazyLoad: Ref<boolean>) {

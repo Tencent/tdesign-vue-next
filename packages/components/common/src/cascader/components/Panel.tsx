@@ -1,4 +1,4 @@
-import { defineComponent, PropType, computed, h } from 'vue';
+import { defineComponent, PropType, computed, h } from '@td/adapter-vue';
 
 import Item from './Item';
 import { TreeNode, CascaderContextType } from '../interface';

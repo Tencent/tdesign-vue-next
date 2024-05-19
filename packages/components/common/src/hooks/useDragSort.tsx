@@ -1,4 +1,4 @@
-import { onUnmounted } from 'vue';
+import { onUnmounted } from '@td/adapter-vue';
 
 const traversalTabNavs = (tabNavs: HTMLCollection, fn: { (itemNode: any): void; (tabNav: HTMLDivElement): void }) => {
   for (const itemNode of tabNavs) {

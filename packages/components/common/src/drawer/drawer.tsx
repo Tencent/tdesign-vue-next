@@ -1,4 +1,4 @@
-import { onBeforeUnmount, onMounted, computed, defineComponent, nextTick, onUpdated, ref, watch, Teleport } from 'vue';
+import { onBeforeUnmount, onMounted, computed, defineComponent, nextTick, onUpdated, ref, watch, Teleport } from '@td/adapter-vue';
 import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
 import { useConfig, usePrefixClass } from '@td/adapter-hooks';
 import { useGlobalIcon } from '@td/adapter-hooks';

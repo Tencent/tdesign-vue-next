@@ -1,4 +1,4 @@
-import { defineComponent, h, VNodeChild, computed, watch, toRefs } from 'vue';
+import { defineComponent, h, VNodeChild, computed, watch, toRefs } from '@td/adapter-vue';
 import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
 import TLoading from '../loading';
 import props from '@td/intel/switch/props';

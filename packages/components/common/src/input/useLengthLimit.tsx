@@ -1,4 +1,4 @@
-import { computed, ComputedRef, onMounted, watch } from 'vue';
+import { computed, ComputedRef, onMounted, watch } from '@td/adapter-vue';
 import { TdInputProps } from '@td/intel/input/type';
 import log from '../_common/js/log';
 import { getCharacterLength, getUnicodeLength, limitUnicodeMaxLength } from '../_common/js/utils/helper';

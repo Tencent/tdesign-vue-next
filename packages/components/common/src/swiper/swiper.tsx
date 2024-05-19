@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed, watch, isVNode, onMounted, cloneVNode } from 'vue';
+import { defineComponent, ref, computed, watch, isVNode, onMounted, cloneVNode } from '@td/adapter-vue';
 import { ChevronLeftIcon as TdChevronLeftIcon, ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
 
 import { usePrefixClass } from '@td/adapter-hooks';

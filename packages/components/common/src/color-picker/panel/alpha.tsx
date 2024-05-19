@@ -1,4 +1,4 @@
-import { computed, defineComponent, PropType } from 'vue';
+import { computed, defineComponent, PropType } from '@td/adapter-vue';
 import ColorSlider from './slider';
 import { Color } from '../utils';
 import { useBaseClassName } from '../hooks';

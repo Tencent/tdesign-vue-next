@@ -1,4 +1,4 @@
-import { h, ComponentPublicInstance, VNode, isVNode } from 'vue';
+import { h, ComponentPublicInstance, VNode, isVNode } from '@td/adapter-vue';
 import { isEmpty } from 'lodash-es';
 import { isString } from 'lodash-es';
 import { isFunction } from 'lodash-es';

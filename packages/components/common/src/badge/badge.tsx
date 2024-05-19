@@ -1,4 +1,4 @@
-import { defineComponent, computed } from 'vue';
+import { defineComponent, computed } from '@td/adapter-vue';
 import props from '@td/intel/badge/props';
 import { useContent, useTNodeJSX } from '@td/adapter-hooks';
 import { usePrefixClass } from '@td/adapter-hooks';

@@ -12,7 +12,7 @@ import {
   reactive,
   nextTick,
   Transition,
-} from 'vue';
+} from '@td/adapter-vue';
 import props from '@td/intel/menu/submenu-props';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import { TdMenuInterface, TdSubMenuInterface, TdMenuItem } from './const';

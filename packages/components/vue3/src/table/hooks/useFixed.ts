@@ -9,7 +9,7 @@ import {
   ComputedRef,
   onBeforeUnmount,
   Ref,
-} from 'vue';
+} from '@td/adapter-vue';
 import { get } from 'lodash-es';
 import { debounce } from 'lodash-es';
 import { xorWith } from 'lodash-es';

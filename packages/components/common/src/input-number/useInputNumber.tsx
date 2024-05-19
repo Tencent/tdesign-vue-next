@@ -1,4 +1,4 @@
-import { computed, ref, toRefs, watch } from 'vue';
+import { computed, ref, toRefs, watch } from '@td/adapter-vue';
 import { useCommonClassName } from '@td/adapter-hooks';
 import { useVModel } from '@td/adapter-hooks';
 import { InputNumberValue, TdInputNumberProps } from '@td/intel/input-number/type';

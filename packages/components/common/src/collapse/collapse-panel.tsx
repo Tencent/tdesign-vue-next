@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed, inject, Ref, toRefs, Transition } from 'vue';
+import { defineComponent, ref, computed, inject, Ref, toRefs, Transition } from '@td/adapter-vue';
 import props from '@td/intel/collapse/collapse-panel-props';
 import FakeArrow from '../common-components/fake-arrow';
 import { CollapseValue, TdCollapsePanelProps } from '@td/intel/collapse/type';

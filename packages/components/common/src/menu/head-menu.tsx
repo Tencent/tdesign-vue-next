@@ -12,7 +12,7 @@ import {
   VNode,
   Component,
   getCurrentInstance,
-} from 'vue';
+} from '@td/adapter-vue';
 import { EllipsisIcon } from 'tdesign-icons-vue-next';
 import { isFunction } from 'lodash-es';
 import { isArray } from 'lodash-es';

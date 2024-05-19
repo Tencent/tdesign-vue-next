@@ -1,4 +1,4 @@
-import { ComputedRef, InjectionKey } from 'vue';
+import { ComputedRef, InjectionKey } from '@td/adapter-vue';
 import { TdCheckboxGroupProps, TdCheckboxProps } from '@td/intel/checkbox/type';
 
 export interface CheckboxGroupInjectData {

@@ -1,4 +1,4 @@
-import { defineComponent, ref, PropType } from 'vue';
+import { defineComponent, ref, PropType } from '@td/adapter-vue';
 import { TdDropdownProps } from '../dropdown/type';
 
 import dropdownItemProps from '@td/intel/dropdown/dropdown-item-props';

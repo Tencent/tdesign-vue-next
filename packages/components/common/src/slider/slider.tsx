@@ -9,7 +9,7 @@ import {
   onMounted,
   watch,
   toRefs,
-} from 'vue';
+} from '@td/adapter-vue';
 import props from '@td/intel/slider/props';
 import TSliderButton from './slider-button';
 import { SliderValue } from '@td/intel/slider/type';

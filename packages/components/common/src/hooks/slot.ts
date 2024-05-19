@@ -9,7 +9,7 @@ import {
   VNodeArrayChildren,
   RendererElement,
   VNodeChild,
-} from 'vue';
+} from '@td/adapter-vue';
 import { isArray } from 'lodash-es';
 
 /**

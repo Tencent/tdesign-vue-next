@@ -1,4 +1,4 @@
-import { Ref, computed } from 'vue';
+import { Ref, computed } from '@td/adapter-vue';
 import useVirtualScroll from '../../hooks/useVirtualScrollNew';
 import { TdListProps } from '../type';
 import { Styles } from '../../common';

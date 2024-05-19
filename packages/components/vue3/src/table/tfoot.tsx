@@ -1,4 +1,4 @@
-import { SetupContext, h, defineComponent, PropType, toRefs } from 'vue';
+import { SetupContext, h, defineComponent, PropType, toRefs } from '@td/adapter-vue';
 import { isString } from 'lodash-es';
 import { isFunction } from 'lodash-es';
 import { get } from 'lodash-es';

@@ -1,4 +1,4 @@
-import { InjectionKey, ComputedRef } from 'vue';
+import { InjectionKey, ComputedRef } from '@td/adapter-vue';
 import _mergeWith from 'lodash/mergeWith';
 import { merge } from 'lodash-es';
 import defaultConfig from '../_common/js/global-config/default-config';

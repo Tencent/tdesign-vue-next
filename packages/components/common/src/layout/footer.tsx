@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { defineComponent } from '@td/adapter-vue';
 import props from '@td/intel/layout/footer-props';
 
 import { useTNodeJSX } from '@td/adapter-hooks';

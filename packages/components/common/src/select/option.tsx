@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed, inject, onMounted, onBeforeUnmount } from 'vue';
+import { defineComponent, ref, computed, inject, onMounted, onBeforeUnmount } from '@td/adapter-vue';
 
 import props from '@td/intel/select/option-props';
 import Checkbox from '../checkbox/index';

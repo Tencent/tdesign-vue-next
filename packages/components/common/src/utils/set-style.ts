@@ -1,4 +1,4 @@
-import { CSSProperties } from 'vue';
+import { CSSProperties } from '@td/adapter-vue';
 
 /**
  * 用于为el节点增加styles ,migrate from tdesign-vue repo

@@ -1,4 +1,4 @@
-import { Ref, computed, onMounted, onBeforeUnmount } from 'vue';
+import { Ref, computed, onMounted, onBeforeUnmount } from '@td/adapter-vue';
 import useVirtualScroll from '../../hooks/useVirtualScroll';
 import { TdSelectProps } from '../type';
 import { Styles } from '../../common';

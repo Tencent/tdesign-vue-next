@@ -1,4 +1,4 @@
-import { computed, defineComponent, VNode } from 'vue';
+import { computed, defineComponent, VNode } from '@td/adapter-vue';
 import props from '@td/intel/sticky-tool/props';
 import { isObject } from 'lodash-es';
 import StickyItem from './sticky-item';

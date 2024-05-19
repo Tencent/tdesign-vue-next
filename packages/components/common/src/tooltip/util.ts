@@ -1,4 +1,4 @@
-import { onMounted, onUnmounted, ref } from 'vue';
+import { onMounted, onUnmounted, ref } from '@td/adapter-vue';
 import { isServer } from '../utils/dom';
 
 export const useMouse = () => {

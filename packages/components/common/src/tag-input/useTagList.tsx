@@ -1,4 +1,4 @@
-import { ref, toRefs } from 'vue';
+import { ref, toRefs } from '@td/adapter-vue';
 import { TagInputValue, TagInputChangeContext } from '@td/intel/tag-input/type';
 import { TagInputProps } from './interface';
 import { InputValue } from '../input';

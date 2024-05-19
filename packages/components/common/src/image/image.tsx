@@ -1,4 +1,4 @@
-import { defineComponent, ref, onMounted, computed, onUnmounted, watch, toRefs } from 'vue';
+import { defineComponent, ref, onMounted, computed, onUnmounted, watch, toRefs } from '@td/adapter-vue';
 import { omit } from 'lodash-es';
 import { isFunction } from 'lodash-es';
 import { ImageErrorIcon, ImageIcon } from 'tdesign-icons-vue-next';

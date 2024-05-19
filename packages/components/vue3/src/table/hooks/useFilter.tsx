@@ -1,4 +1,4 @@
-import { toRefs, ref, watch, computed, SetupContext, h } from 'vue';
+import { toRefs, ref, watch, computed, SetupContext, h } from '@td/adapter-vue';
 import useClassName from './useClassName';
 import TButton from '../../button';
 import { TdPrimaryTableProps, PrimaryTableCol, TableRowData, FilterValue, TableFilterChangeContext } from '../type';

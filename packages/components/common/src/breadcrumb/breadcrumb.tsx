@@ -1,4 +1,4 @@
-import { defineComponent, reactive, provide, toRefs } from 'vue';
+import { defineComponent, reactive, provide, toRefs } from '@td/adapter-vue';
 import props from '@td/intel/breadcrumb/props';
 import BreadcrumbItem from './breadcrumb-item';
 import { TdBreadcrumbItemProps } from '@td/intel/breadcrumb/type';

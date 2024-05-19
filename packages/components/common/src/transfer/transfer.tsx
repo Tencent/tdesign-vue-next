@@ -1,4 +1,4 @@
-import { defineComponent, computed, toRefs } from 'vue';
+import { defineComponent, computed, toRefs } from '@td/adapter-vue';
 import { pick } from 'lodash-es';
 import TransferList from './components/transfer-list';
 import TransferOperations from './components/transfer-operations';

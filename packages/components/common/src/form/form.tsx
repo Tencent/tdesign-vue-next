@@ -1,4 +1,4 @@
-import { computed, defineComponent, provide, reactive, ref, toRefs } from 'vue';
+import { computed, defineComponent, provide, reactive, ref, toRefs } from '@td/adapter-vue';
 import { isEmpty } from 'lodash-es';
 import { isBoolean } from 'lodash-es';
 import { isArray } from 'lodash-es';

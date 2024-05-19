@@ -1,4 +1,4 @@
-import { computed, defineComponent, PropType } from 'vue';
+import { computed, defineComponent, PropType } from '@td/adapter-vue';
 import { ImageIcon, ZoomInIcon, ZoomOutIcon, DownloadIcon, MirrorIcon, RotationIcon } from 'tdesign-icons-vue-next';
 import TImageViewerIcon from './ImageModalIcon';
 import TToolTip from '../../tooltip';

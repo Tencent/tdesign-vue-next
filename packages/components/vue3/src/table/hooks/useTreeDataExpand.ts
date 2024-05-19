@@ -1,4 +1,4 @@
-import { ComputedRef, nextTick, ref, Ref, toRefs, watch } from 'vue';
+import { ComputedRef, nextTick, ref, Ref, toRefs, watch } from '@td/adapter-vue';
 import { TdEnhancedTableProps, TableRowData } from '../type';
 import useDefaultValue from '../../hooks/useDefaultValue';
 import TableTreeStore, { diffExpandedTreeNode, getUniqueRowValue } from '../../_common/js/table/tree-store';

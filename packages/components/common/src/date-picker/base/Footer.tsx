@@ -1,4 +1,4 @@
-import { defineComponent, computed } from 'vue';
+import { defineComponent, computed } from '@td/adapter-vue';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 import TButton from '../../button';
 

@@ -1,4 +1,4 @@
-import { toRefs, watchEffect, ref, computed } from 'vue';
+import { toRefs, watchEffect, ref, computed } from '@td/adapter-vue';
 import {
   formatDate,
   formatTime,

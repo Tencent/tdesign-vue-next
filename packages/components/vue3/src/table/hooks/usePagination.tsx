@@ -1,4 +1,4 @@
-import { ref, SetupContext, toRefs, watch } from 'vue';
+import { ref, SetupContext, toRefs, watch } from '@td/adapter-vue';
 import { useConfig } from '../../hooks/useConfig';
 import Pagination, { PageInfo, PaginationProps } from '../../pagination';
 import { TdBaseTableProps, TableRowData } from '../type';

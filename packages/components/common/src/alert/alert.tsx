@@ -1,4 +1,4 @@
-import { defineComponent, VNode, ref, onMounted, onBeforeUnmount } from 'vue';
+import { defineComponent, VNode, ref, onMounted, onBeforeUnmount } from '@td/adapter-vue';
 import {
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
   CloseIcon as TdCloseIcon,

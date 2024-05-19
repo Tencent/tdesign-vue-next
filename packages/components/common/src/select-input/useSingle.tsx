@@ -1,4 +1,4 @@
-import { SetupContext, ref, computed, toRefs, Ref } from 'vue';
+import { SetupContext, ref, computed, toRefs, Ref } from '@td/adapter-vue';
 import { isObject } from 'lodash-es';
 import { pick } from 'lodash-es';
 import Input, { StrInputProps } from '../input';

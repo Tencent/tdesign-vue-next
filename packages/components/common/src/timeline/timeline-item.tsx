@@ -1,4 +1,4 @@
-import { defineComponent, inject } from 'vue';
+import { defineComponent, inject } from '@td/adapter-vue';
 import { omit } from 'lodash-es';
 import props from '@td/intel/timeline/timeline-item-props';
 import { usePrefixClass } from '@td/adapter-hooks';

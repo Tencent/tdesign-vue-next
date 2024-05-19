@@ -1,4 +1,4 @@
-import { h, getCurrentInstance, ComponentInternalInstance, VNode } from 'vue';
+import { h, getCurrentInstance, ComponentInternalInstance, VNode } from '@td/adapter-vue';
 import { isFunction } from 'lodash-es';
 import { camelCase } from 'lodash-es';
 import { kebabCase } from 'lodash-es';

@@ -1,4 +1,4 @@
-import { defineComponent, PropType, ref, watch } from 'vue';
+import { defineComponent, PropType, ref, watch } from '@td/adapter-vue';
 import TInput from '../input';
 import { Color } from './utils';
 import { TdColorPickerProps } from '@td/intel/color-picker/type';

@@ -1,4 +1,4 @@
-import { computed, defineComponent, h, ref } from 'vue';
+import { computed, defineComponent, h, ref } from '@td/adapter-vue';
 import TLoading from '../loading';
 import props from '@td/intel/button/props';
 import { useRipple } from '@td/adapter-hooks';

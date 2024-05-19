@@ -1,6 +1,6 @@
 import { isNil } from 'lodash-es';
 import { isArray } from 'lodash-es';
-import { defineComponent, provide, ref } from 'vue';
+import { defineComponent, provide, ref } from '@td/adapter-vue';
 
 import { useTNodeJSX } from '@td/adapter-hooks';
 import { useChildComponentSlots } from '@td/adapter-hooks';

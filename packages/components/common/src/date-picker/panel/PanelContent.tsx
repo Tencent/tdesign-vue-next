@@ -1,4 +1,4 @@
-import { defineComponent, PropType } from 'vue';
+import { defineComponent, PropType } from '@td/adapter-vue';
 import { usePrefixClass } from '../../hooks/useConfig';
 import type { TdDatePickerProps } from '../type';
 

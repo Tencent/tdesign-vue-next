@@ -1,4 +1,4 @@
-import { defineComponent, inject, computed } from 'vue';
+import { defineComponent, inject, computed } from '@td/adapter-vue';
 import { useTNodeJSX } from '@td/adapter-hooks';
 import props from '@td/intel/select/option-group-props';
 import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';

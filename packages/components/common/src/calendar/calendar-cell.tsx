@@ -1,4 +1,4 @@
-import { computed, defineComponent } from 'vue';
+import { computed, defineComponent } from '@td/adapter-vue';
 import dayjs from 'dayjs';
 
 import { useCommonClassName } from '@td/adapter-hooks';

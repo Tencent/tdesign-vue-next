@@ -1,4 +1,4 @@
-import { computed, defineComponent, onBeforeUnmount, onMounted, ref } from 'vue';
+import { computed, defineComponent, onBeforeUnmount, onMounted, ref } from '@td/adapter-vue';
 import { BacktopIcon as TdBackTopIcon } from 'tdesign-icons-vue-next';
 
 import { scrollTo } from '../utils/dom';

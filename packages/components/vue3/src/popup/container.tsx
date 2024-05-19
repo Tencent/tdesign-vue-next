@@ -12,7 +12,7 @@ import {
   onUpdated,
   ComponentInternalInstance,
   Comment,
-} from 'vue';
+} from '@td/adapter-vue';
 import props from '@td/intel/popup/props';
 import { useResizeObserver } from '@td/adapter-hooks';
 import { isArray } from 'lodash-es';

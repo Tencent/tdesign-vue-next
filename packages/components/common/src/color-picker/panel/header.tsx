@@ -1,4 +1,4 @@
-import { defineComponent, PropType, ref, watch } from 'vue';
+import { defineComponent, PropType, ref, watch } from '@td/adapter-vue';
 
 import props from '../props';
 import { COLOR_MODES } from '../const';

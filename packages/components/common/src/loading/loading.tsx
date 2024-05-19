@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed, watch, onMounted, toRefs, CSSProperties, Teleport } from 'vue';
+import { defineComponent, ref, computed, watch, onMounted, toRefs, CSSProperties, Teleport } from '@td/adapter-vue';
 import GradientIcon from './icon/gradient';
 import { addClass, removeClass } from '../utils/dom';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';

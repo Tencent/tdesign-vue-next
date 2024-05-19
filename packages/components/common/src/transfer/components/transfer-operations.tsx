@@ -1,4 +1,4 @@
-import { defineComponent, createElementVNode, PropType, h } from 'vue';
+import { defineComponent, createElementVNode, PropType, h } from '@td/adapter-vue';
 import { ChevronRightIcon as TdChevronRightIcon, ChevronLeftIcon as TdChevronLeftIcon } from 'tdesign-icons-vue-next';
 
 import Button from '../../button';

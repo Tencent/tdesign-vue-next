@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { defineComponent } from '@td/adapter-vue';
 import baseTableProps from '@td/intel/table/base-table-props';
 import primaryTableProps from '@td/intel/table/primary-table-props';
 

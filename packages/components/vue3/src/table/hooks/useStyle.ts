@@ -1,4 +1,4 @@
-import { computed, toRefs } from 'vue';
+import { computed, toRefs } from '@td/adapter-vue';
 import { TdBaseTableProps } from '../type';
 import useClassName from './useClassName';
 import useCommonClassName from '../../hooks/useCommonClassName';

@@ -1,4 +1,4 @@
-import { ComputedRef, ref, Ref, watch } from 'vue';
+import { ComputedRef, ref, Ref, watch } from '@td/adapter-vue';
 import { getFileUrlByFileRaw } from '../_common/js/upload/utils';
 
 export function useImagePreviewUrl(imgUrl: Ref<string | File> | ComputedRef<string | File>) {

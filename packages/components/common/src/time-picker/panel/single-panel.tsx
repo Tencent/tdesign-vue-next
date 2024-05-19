@@ -1,4 +1,4 @@
-import { computed, defineComponent, ref, watch, toRefs, onMounted, reactive, nextTick } from 'vue';
+import { computed, defineComponent, ref, watch, toRefs, onMounted, reactive, nextTick } from '@td/adapter-vue';
 import { debounce } from 'lodash-es';
 import { range } from 'lodash-es';
 import { padStart } from 'lodash-es';

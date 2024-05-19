@@ -1,4 +1,4 @@
-import { defineComponent, VNodeChild, computed, ref } from 'vue';
+import { defineComponent, VNodeChild, computed, ref } from '@td/adapter-vue';
 import { isString } from 'lodash-es';
 import { omit } from 'lodash-es';
 import { useTNodeJSX } from '@td/adapter-hooks';

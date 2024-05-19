@@ -1,4 +1,4 @@
-import { computed } from 'vue';
+import { computed } from '@td/adapter-vue';
 import { useConfig } from '../config-provider/useConfig';
 
 export function usePrefixClass(componentName?: string) {

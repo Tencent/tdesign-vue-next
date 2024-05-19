@@ -1,4 +1,4 @@
-import { onBeforeMount, onMounted, Ref } from 'vue';
+import { onBeforeMount, onMounted, Ref } from '@td/adapter-vue';
 import { isString } from 'lodash-es';
 import { off, on } from '../utils/dom';
 import { CHECKED_CODE_REG } from '../_common/js/common';

@@ -1,4 +1,4 @@
-import { defineComponent, computed } from 'vue';
+import { defineComponent, computed } from '@td/adapter-vue';
 import { usePrefixClass } from '../../hooks/useConfig';
 import { extractTimeObj } from '../../_common/js/date-picker/utils';
 import { Dayjs } from 'dayjs';

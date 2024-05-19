@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed } from 'vue';
+import { defineComponent, ref, computed } from '@td/adapter-vue';
 import { omit } from 'lodash-es';
 import { isArray } from 'lodash-es';
 import Popup, { PopupVisibleChangeContext } from '../popup/index';

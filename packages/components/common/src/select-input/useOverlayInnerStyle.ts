@@ -1,4 +1,4 @@
-import { ref, toRefs, computed, CSSProperties } from 'vue';
+import { ref, toRefs, computed, CSSProperties } from '@td/adapter-vue';
 import { isObject } from 'lodash-es';
 import { isFunction } from 'lodash-es';
 import { TdSelectInputProps } from '@td/intel/select-input/type';

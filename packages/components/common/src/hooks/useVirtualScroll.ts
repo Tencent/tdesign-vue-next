@@ -5,7 +5,7 @@
  * 2. 表格高度发生变化时，底部也会出现奇怪的高度
  * 3. 无法直接定位滚动到某个元素，进而无法实现 Select 组件直接滚动到选中项
  */
-import { ref, toRefs, reactive, onMounted, computed, watch, nextTick } from 'vue';
+import { ref, toRefs, reactive, onMounted, computed, watch, nextTick } from '@td/adapter-vue';
 
 // 虚拟滚动Hooks的完整实现，只所以封装成hooks，主要是为了方便跟其他组件搭配使用，比如说表格或者下拉框
 const useVirtualScroll = ({

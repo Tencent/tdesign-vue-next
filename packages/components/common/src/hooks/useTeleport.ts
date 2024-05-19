@@ -1,5 +1,5 @@
 import { getSSRAttach, getAttach } from '../utils/dom';
-import { computed, Ref, onMounted, ref, watch } from 'vue';
+import { computed, Ref, onMounted, ref, watch } from '@td/adapter-vue';
 import { AttachNode } from '../common';
 import { isFunction } from 'lodash-es';
 

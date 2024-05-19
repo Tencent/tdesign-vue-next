@@ -1,4 +1,4 @@
-import { defineComponent, inject, PropType } from 'vue';
+import { defineComponent, inject, PropType } from '@td/adapter-vue';
 
 import { LayoutEnum } from '../common';
 import { usePrefixClass } from '@td/adapter-hooks';

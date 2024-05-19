@@ -1,4 +1,4 @@
-import { computed, defineComponent, ref } from 'vue';
+import { computed, defineComponent, ref } from '@td/adapter-vue';
 import { PLACEMENT_OFFSET } from './const';
 import TMessage from './message';
 import { MessageOptions } from '@td/intel/message/type';

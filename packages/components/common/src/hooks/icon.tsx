@@ -1,5 +1,5 @@
 import { isFunction } from 'lodash-es';
-import { getCurrentInstance, h } from 'vue';
+import { getCurrentInstance, h } from '@td/adapter-vue';
 
 /**
  * 渲染icon，用于icon、close等渲染图标的场景

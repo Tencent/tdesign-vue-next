@@ -1,4 +1,4 @@
-import { defineComponent, PropType, computed, VNode, nextTick, ref, watch, onMounted } from 'vue';
+import { defineComponent, PropType, computed, VNode, nextTick, ref, watch, onMounted } from '@td/adapter-vue';
 import { firstUpperCase } from '../utils/helper';
 import tabProps from '@td/intel/tabs/props';
 

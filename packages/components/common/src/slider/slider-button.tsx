@@ -8,7 +8,7 @@ import {
   nextTick,
   watchEffect,
   inject,
-} from 'vue';
+} from '@td/adapter-vue';
 import TTooltip from '../tooltip/index';
 import { TdSliderProps } from '@td/intel/slider/type';
 

@@ -1,4 +1,4 @@
-import { computed, ref } from 'vue';
+import { computed, ref } from '@td/adapter-vue';
 import { Styles } from '../common';
 import type { TdDrawerProps } from '@td/intel/drawer/type';
 

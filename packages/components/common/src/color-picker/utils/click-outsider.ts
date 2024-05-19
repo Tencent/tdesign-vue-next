@@ -1,4 +1,4 @@
-import { ComponentPublicInstance, VNode } from 'vue';
+import { ComponentPublicInstance, VNode } from '@td/adapter-vue';
 import { usePrefixClass } from '../../hooks/useConfig';
 import { isServer, on } from '../../utils/dom';
 

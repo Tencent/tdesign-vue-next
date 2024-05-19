@@ -1,4 +1,4 @@
-import { computed, defineComponent, ref, toRefs, Teleport, watch, Transition, nextTick } from 'vue';
+import { computed, defineComponent, ref, toRefs, Teleport, watch, Transition, nextTick } from '@td/adapter-vue';
 import { ChevronLeftIcon, ChevronDownIcon, CloseIcon } from 'tdesign-icons-vue-next';
 
 import props from '@td/intel/image-viewer/props';

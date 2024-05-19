@@ -1,7 +1,7 @@
 /**
  * 自定义显示列控制器，即列配置
  */
-import { computed, ref, SetupContext, toRefs, watch, h } from 'vue';
+import { computed, ref, SetupContext, toRefs, watch, h } from '@td/adapter-vue';
 import { SettingIcon as TdSettingIcon } from 'tdesign-icons-vue-next';
 // import { intersection } from 'lodash-es';
 import { CheckboxGroupValue, CheckboxOptionObj, CheckboxGroupChangeContext } from '../../checkbox';

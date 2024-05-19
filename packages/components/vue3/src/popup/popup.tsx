@@ -16,7 +16,7 @@ import {
   toRefs,
   Transition,
   watch,
-} from 'vue';
+} from '@td/adapter-vue';
 import { useContent, useTNodeJSX } from '../hooks';
 import { useCommonClassName, usePrefixClass } from '@td/adapter-hooks';
 import { useVModel } from '@td/adapter-hooks';

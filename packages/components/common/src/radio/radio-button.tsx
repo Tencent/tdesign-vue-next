@@ -1,4 +1,4 @@
-import { computed, defineComponent, provide, reactive } from 'vue';
+import { computed, defineComponent, provide, reactive } from '@td/adapter-vue';
 import props from '@td/intel/radio/props';
 import Radio from './radio';
 import { omit } from '../utils/helper';

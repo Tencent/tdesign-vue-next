@@ -1,4 +1,4 @@
-import { defineComponent, h, VNodeChild } from 'vue';
+import { defineComponent, h, VNodeChild } from '@td/adapter-vue';
 import { isString } from 'lodash-es';
 import { isNumber } from 'lodash-es';
 import { usePrefixClass } from '@td/adapter-hooks';

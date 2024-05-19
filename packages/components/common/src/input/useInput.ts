@@ -1,4 +1,4 @@
-import { ref, computed, watch, nextTick, toRefs, inject } from 'vue';
+import { ref, computed, watch, nextTick, toRefs, inject } from '@td/adapter-vue';
 import { InputValue, TdInputProps } from '@td/intel/input/type';
 import { FormItemInjectionKey } from '../form/const';
 import { useVModel } from '@td/adapter-hooks';

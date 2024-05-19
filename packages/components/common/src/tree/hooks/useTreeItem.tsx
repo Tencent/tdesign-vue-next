@@ -6,7 +6,7 @@ import useRenderLabel from './useRenderLabel';
 import useRenderLine from './useRenderLine';
 import useRenderOperations from './useRenderOperations';
 import useDraggable from './useDraggable';
-import { onUpdated } from 'vue';
+import { onUpdated } from '@td/adapter-vue';
 
 export default function useTreeItem(state: TypeTreeItemState) {
   const { treeScope, treeItemRef } = state;

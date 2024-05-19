@@ -1,4 +1,4 @@
-import { defineComponent, computed, watch } from 'vue';
+import { defineComponent, computed, watch } from '@td/adapter-vue';
 // 通用库
 import dayjs from 'dayjs';
 import { remove } from 'lodash-es';

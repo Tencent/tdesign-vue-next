@@ -1,4 +1,4 @@
-import { toRefs, Ref, ref, computed } from 'vue';
+import { toRefs, Ref, ref, computed } from '@td/adapter-vue';
 import { get } from 'lodash-es';
 import { BaseTableProps } from '../interface';
 import { on, off } from '../../utils/dom';

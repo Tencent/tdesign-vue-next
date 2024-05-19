@@ -1,4 +1,4 @@
-import { defineComponent, h, onBeforeMount, onMounted, ref } from 'vue';
+import { defineComponent, h, onBeforeMount, onMounted, ref } from '@td/adapter-vue';
 import {
   InfoCircleFilledIcon as TdInfoCircleFilledIcon,
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,

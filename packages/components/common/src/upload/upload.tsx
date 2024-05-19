@@ -1,4 +1,4 @@
-import { computed, defineComponent } from 'vue';
+import { computed, defineComponent } from '@td/adapter-vue';
 import { UploadIcon } from 'tdesign-icons-vue-next';
 import props from '@td/intel/upload/props';
 import NormalFile from './themes/normal-file';

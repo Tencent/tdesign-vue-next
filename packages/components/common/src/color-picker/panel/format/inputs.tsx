@@ -1,4 +1,4 @@
-import { computed, defineComponent, PropType, reactive, watch } from 'vue';
+import { computed, defineComponent, PropType, reactive, watch } from '@td/adapter-vue';
 import { throttle } from 'lodash-es';
 import props from '../../props';
 import { Color } from '../../utils';

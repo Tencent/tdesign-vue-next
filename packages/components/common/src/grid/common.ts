@@ -1,4 +1,4 @@
-import { ref } from 'vue';
+import { ref } from '@td/adapter-vue';
 import { isUndefined } from 'lodash-es';
 import { isNumber } from 'lodash-es';
 import { isObject } from 'lodash-es';

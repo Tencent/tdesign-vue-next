@@ -1,4 +1,4 @@
-import { defineComponent, SetupContext } from 'vue';
+import { defineComponent, SetupContext } from '@td/adapter-vue';
 import {
   AddIcon as TdAddIcon,
   RemoveIcon as TdRemoveIcon,

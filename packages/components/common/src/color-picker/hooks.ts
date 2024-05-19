@@ -1,4 +1,4 @@
-import { computed } from 'vue';
+import { computed } from '@td/adapter-vue';
 import { usePrefixClass } from '@td/adapter-hooks';
 
 const BASE_COMPONENT_NAME = 'color-picker';

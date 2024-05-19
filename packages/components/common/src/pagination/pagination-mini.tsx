@@ -1,4 +1,4 @@
-import { defineComponent, computed } from 'vue';
+import { defineComponent, computed } from '@td/adapter-vue';
 import { isObject } from 'lodash-es';
 import {
   ChevronLeftIcon as TdChevronLeftIcon,

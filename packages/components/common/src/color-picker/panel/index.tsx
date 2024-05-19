@@ -1,4 +1,4 @@
-import { defineComponent, ref, toRefs, watch, computed } from 'vue';
+import { defineComponent, ref, toRefs, watch, computed } from '@td/adapter-vue';
 import { useCommonClassName, useConfig } from '../../hooks/useConfig';
 import props from '../props';
 import {

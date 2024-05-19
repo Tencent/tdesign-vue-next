@@ -5,7 +5,7 @@
  * 2. 支持滚动到特定元素，方便 Select 等组件展开时直接定位到选中元素
  * 3. 支持数据变化不重置，方便支持树形结构虚拟滚动
  */
-import { ref, computed, watch, Ref } from 'vue';
+import { ref, computed, watch, Ref } from '@td/adapter-vue';
 import { TScroll } from '../common';
 import useResizeObserver from './useResizeObserver';
 import { max } from 'lodash-es';

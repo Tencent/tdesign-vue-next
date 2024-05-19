@@ -1,4 +1,4 @@
-import { defineComponent, PropType } from 'vue';
+import { defineComponent, PropType } from '@td/adapter-vue';
 import { GlobalConfigProvider } from '@td/intel/config-provider/type';
 import { useTNodeJSX } from '@td/adapter-hooks';
 import { provideConfig } from './useConfig';

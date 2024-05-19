@@ -1,4 +1,4 @@
-import { defineComponent, computed, ref } from 'vue';
+import { defineComponent, computed, ref } from '@td/adapter-vue';
 import dayjs from 'dayjs';
 
 import dateRangePickerPanelProps from '@td/intel/date-picker/date-range-picker-panel-props';

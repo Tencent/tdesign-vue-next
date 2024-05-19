@@ -1,5 +1,5 @@
 // https://github.dev/arco-design/arco-design-vue
-import { onMounted, onBeforeUnmount, readonly, Ref, ref, watch } from 'vue';
+import { onMounted, onBeforeUnmount, readonly, Ref, ref, watch } from '@td/adapter-vue';
 export type PopupType = 'popup' | 'dialog' | 'message';
 
 const POPUP_BASE_Z_INDEX = 1000;

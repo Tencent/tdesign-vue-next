@@ -1,4 +1,4 @@
-import { defineComponent, ref, toRefs, inject, watch, computed } from 'vue';
+import { defineComponent, ref, toRefs, inject, watch, computed } from '@td/adapter-vue';
 import props from '@td/intel/checkbox/props';
 import { useVModel } from '@td/adapter-hooks';
 import { useRipple } from '@td/adapter-hooks';

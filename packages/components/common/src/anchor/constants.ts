@@ -1,4 +1,4 @@
-import { InjectionKey } from 'vue';
+import { InjectionKey } from '@td/adapter-vue';
 
 export const AnchorInjectionKey: InjectionKey<{
   registerLink: (link: string) => void;

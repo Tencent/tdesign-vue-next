@@ -1,4 +1,4 @@
-import { defineComponent, computed } from 'vue';
+import { defineComponent, computed } from '@td/adapter-vue';
 import { omit } from 'lodash-es';
 import Panel from './components/Panel';
 import SelectInput from '../select-input';

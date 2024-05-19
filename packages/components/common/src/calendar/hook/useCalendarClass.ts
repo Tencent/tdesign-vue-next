@@ -1,4 +1,4 @@
-import { computed } from 'vue';
+import { computed } from '@td/adapter-vue';
 
 import { usePrefixClass } from '../../hooks/useConfig';
 import { CalendarState } from '../interface';

@@ -1,4 +1,4 @@
-import { defineComponent, computed, toRefs } from 'vue';
+import { defineComponent, computed, toRefs } from '@td/adapter-vue';
 import {
   InfoCircleFilledIcon as TdInfoCircleFilledIcon,
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,

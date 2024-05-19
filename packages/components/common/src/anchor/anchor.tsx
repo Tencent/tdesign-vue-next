@@ -8,7 +8,7 @@ import {
   onUnmounted,
   watchEffect,
   provide,
-} from 'vue';
+} from '@td/adapter-vue';
 import { ANCHOR_SHARP_REGEXP, ANCHOR_CONTAINER, getOffsetTop } from './utils';
 import { isServer, on, off, getScroll, scrollTo, getScrollContainer as utilsGetScrollContainer } from '../utils/dom';
 import props from '@td/intel/anchor/props';

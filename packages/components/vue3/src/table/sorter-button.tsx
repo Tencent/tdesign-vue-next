@@ -1,4 +1,4 @@
-import { computed, defineComponent, PropType } from 'vue';
+import { computed, defineComponent, PropType } from '@td/adapter-vue';
 import { ChevronDownIcon as TdChevronDownIcon } from 'tdesign-icons-vue-next';
 import useClassName from './hooks/useClassName';
 import { SortType } from '@td/intel/table/type';

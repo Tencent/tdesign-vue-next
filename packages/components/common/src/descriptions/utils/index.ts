@@ -1,4 +1,4 @@
-import { VNode, Slots, h, ComponentOptions } from 'vue';
+import { VNode, Slots, h, ComponentOptions } from '@td/adapter-vue';
 import { isFunction } from 'lodash-es';
 import { isString } from 'lodash-es';
 

@@ -1,4 +1,4 @@
-import { computed, defineComponent, onBeforeUnmount, onMounted, PropType, reactive, ref } from 'vue';
+import { computed, defineComponent, onBeforeUnmount, onMounted, PropType, reactive, ref } from '@td/adapter-vue';
 import { SLIDER_DEFAULT_WIDTH } from '../const';
 import { Draggable, Coordinate } from '../utils';
 import { useBaseClassName } from '../hooks';

@@ -1,4 +1,4 @@
-import { defineComponent, computed, ref, watch } from 'vue';
+import { defineComponent, computed, ref, watch } from '@td/adapter-vue';
 import dayjs from 'dayjs';
 import { useFormDisabled } from '../form/hooks';
 import { usePrefixClass } from '@td/adapter-hooks';

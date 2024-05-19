@@ -1,4 +1,4 @@
-import { defineComponent, computed, ref, onMounted, watch, toRefs } from 'vue';
+import { defineComponent, computed, ref, onMounted, watch, toRefs } from '@td/adapter-vue';
 import {
   ArrowTriangleDownFilledIcon as TDArrowTriangleDownFilledIcon,
   ArrowTriangleUpFilledIcon as TDArrowTriangleUpFilledIcon,

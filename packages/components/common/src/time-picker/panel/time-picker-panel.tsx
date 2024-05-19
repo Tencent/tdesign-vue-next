@@ -1,4 +1,4 @@
-import { defineComponent, toRefs, computed, ref, onMounted, nextTick, watch } from 'vue';
+import { defineComponent, toRefs, computed, ref, onMounted, nextTick, watch } from '@td/adapter-vue';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 

@@ -1,4 +1,4 @@
-import { defineComponent, ref, onMounted, h, reactive } from 'vue';
+import { defineComponent, ref, onMounted, h, reactive } from '@td/adapter-vue';
 import { ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
 import DropdownItem from './dropdown-item';
 

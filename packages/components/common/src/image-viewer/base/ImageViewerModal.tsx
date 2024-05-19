@@ -1,4 +1,4 @@
-import { computed, defineComponent, PropType } from 'vue';
+import { computed, defineComponent, PropType } from '@td/adapter-vue';
 import TDialog from '../../dialog';
 import TImageItem from './ImageItem';
 import TImageViewerUtils from './ImageViewerUtils';

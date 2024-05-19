@@ -1,5 +1,5 @@
 import { isString } from 'lodash-es';
-import { computed } from 'vue';
+import { computed } from '@td/adapter-vue';
 import { useTNodeJSX } from '../../hooks/tnode';
 import { TdPrimaryTableProps } from '../type';
 import Loading from '../../loading';

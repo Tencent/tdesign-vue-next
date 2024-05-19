@@ -1,4 +1,4 @@
-import { defineComponent, PropType, computed } from 'vue';
+import { defineComponent, PropType, computed } from '@td/adapter-vue';
 import TDateFooter from '../base/Footer';
 import type { TdDatePickerProps, TdDateRangePickerProps } from '../type';
 

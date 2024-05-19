@@ -1,4 +1,4 @@
-import { defineComponent, computed, toRefs } from 'vue';
+import { defineComponent, computed, toRefs } from '@td/adapter-vue';
 import props from '@td/intel/tag/check-tag-props';
 import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
 import { useVModel } from '@td/adapter-hooks';

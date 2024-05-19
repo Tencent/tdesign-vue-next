@@ -1,4 +1,4 @@
-import { computed, defineComponent, PropType, toRefs } from 'vue';
+import { computed, defineComponent, PropType, toRefs } from '@td/adapter-vue';
 import Checkbox, { CheckboxGroup, CheckboxGroupChangeContext, CheckboxGroupProps, CheckboxProps } from '../checkbox';
 import { intersection } from 'lodash-es';
 import { usePrefixClass } from '../hooks';

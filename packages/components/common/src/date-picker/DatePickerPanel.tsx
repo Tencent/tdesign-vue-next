@@ -1,4 +1,4 @@
-import { defineComponent, computed } from 'vue';
+import { defineComponent, computed } from '@td/adapter-vue';
 import dayjs from 'dayjs';
 import { isFunction } from 'lodash-es';
 import useSingleValue from './hooks/useSingleValue';

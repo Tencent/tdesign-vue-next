@@ -1,4 +1,4 @@
-import { InjectionKey, ComputedRef, computed } from 'vue';
+import { InjectionKey, ComputedRef, computed } from '@td/adapter-vue';
 import { TdTimelineProps } from '@td/intel/timeline/type';
 
 export const DefaultAlign = {

@@ -1,4 +1,4 @@
-import { defineComponent, VNode, PropType, ref, computed, watch, toRefs } from 'vue';
+import { defineComponent, VNode, PropType, ref, computed, watch, toRefs } from '@td/adapter-vue';
 import {
   EmptyType,
   SearchEvent,

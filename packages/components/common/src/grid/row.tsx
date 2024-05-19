@@ -1,4 +1,4 @@
-import { defineComponent, provide, computed, toRefs, reactive } from 'vue';
+import { defineComponent, provide, computed, toRefs, reactive } from '@td/adapter-vue';
 import props from '@td/intel/grid/row-props';
 import { useRowSize, calcRowStyle, getRowClasses, RowProviderType } from './common';
 import { usePrefixClass } from '@td/adapter-hooks';

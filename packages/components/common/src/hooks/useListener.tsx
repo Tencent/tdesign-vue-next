@@ -1,4 +1,4 @@
-import { onBeforeUnmount, onMounted } from 'vue';
+import { onBeforeUnmount, onMounted } from '@td/adapter-vue';
 
 /**
  * 用于订阅Listener事件

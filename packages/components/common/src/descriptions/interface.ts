@@ -1,4 +1,4 @@
-import type { VNode } from 'vue';
+import type { VNode } from '@td/adapter-vue';
 import { TdDescriptionItemProps } from '@td/intel/descriptions/type';
 
 export enum ItemsType {

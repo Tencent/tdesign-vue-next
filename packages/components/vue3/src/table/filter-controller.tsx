@@ -1,4 +1,4 @@
-import { defineComponent, PropType, ref, h } from 'vue';
+import { defineComponent, PropType, ref, h } from '@td/adapter-vue';
 import { FilterIcon as TdFilterIcon } from 'tdesign-icons-vue-next';
 import { isEmpty } from 'lodash-es';
 import Popup, { PopupProps } from '../popup';

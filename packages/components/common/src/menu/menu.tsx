@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed, provide, watchEffect, watch, onMounted, toRefs } from 'vue';
+import { defineComponent, ref, computed, provide, watchEffect, watch, onMounted, toRefs } from '@td/adapter-vue';
 import props from '@td/intel/menu/props';
 import { MenuValue } from '@td/intel/menu/type';
 import { TdMenuInterface, TdOpenType } from './const';

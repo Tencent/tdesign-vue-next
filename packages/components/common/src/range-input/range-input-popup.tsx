@@ -1,4 +1,4 @@
-import { defineComponent, computed } from 'vue';
+import { defineComponent, computed } from '@td/adapter-vue';
 import Popup from '../popup';
 import { usePrefixClass } from '@td/adapter-hooks';
 import RangeInput from './range-input';

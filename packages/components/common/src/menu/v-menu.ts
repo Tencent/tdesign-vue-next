@@ -1,4 +1,4 @@
-import { ref, Slot } from 'vue';
+import { ref, Slot } from '@td/adapter-vue';
 import type { TdMenuItemProps } from '@td/intel/menu/type';
 type MenuValue = string | number;
 type MenuNode = MenuValue | VMenuData;

@@ -1,4 +1,4 @@
-import { ComponentPublicInstance } from 'vue';
+import { ComponentPublicInstance } from '@td/adapter-vue';
 import { isFunction } from 'lodash-es';
 import { isString } from 'lodash-es';
 

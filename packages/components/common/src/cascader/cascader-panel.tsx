@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { defineComponent } from '@td/adapter-vue';
 import Panel from './components/Panel';
 import props from '@td/intel/cascader/props';
 

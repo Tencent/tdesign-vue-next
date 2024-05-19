@@ -1,4 +1,4 @@
-import { defineComponent, computed, nextTick, onMounted, ref, toRefs, watch, h, Teleport } from 'vue';
+import { defineComponent, computed, nextTick, onMounted, ref, toRefs, watch, h, Teleport } from '@td/adapter-vue';
 import { isFunction } from 'lodash-es';
 import props from '@td/intel/guide/props';
 import { GuideCrossProps } from './interface';

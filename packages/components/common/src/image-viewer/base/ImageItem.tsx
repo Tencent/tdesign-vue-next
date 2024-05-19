@@ -1,4 +1,4 @@
-import { computed, defineComponent, PropType, ref, toRefs, watch } from 'vue';
+import { computed, defineComponent, PropType, ref, toRefs, watch } from '@td/adapter-vue';
 import { ImageErrorIcon } from 'tdesign-icons-vue-next';
 import { usePrefixClass, useConfig } from '../../hooks/useConfig';
 import { useDrag } from '../hooks';

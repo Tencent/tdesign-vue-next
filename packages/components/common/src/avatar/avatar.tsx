@@ -1,4 +1,4 @@
-import { computed, defineComponent, inject, nextTick, onMounted, onUpdated, ref } from 'vue';
+import { computed, defineComponent, inject, nextTick, onMounted, onUpdated, ref } from '@td/adapter-vue';
 import props from '@td/intel/avatar/props';
 import { TdAvatarProps } from '@td/intel/avatar/type';
 import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';

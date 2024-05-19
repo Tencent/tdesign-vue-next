@@ -1,4 +1,4 @@
-import { Ref } from 'vue';
+import { Ref } from '@td/adapter-vue';
 import { TdTagInputProps } from '@td/intel/tag-input/type';
 
 interface DragSortContext<T> {

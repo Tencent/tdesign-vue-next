@@ -1,4 +1,4 @@
-import { defineComponent, ref, toRefs } from 'vue';
+import { defineComponent, ref, toRefs } from '@td/adapter-vue';
 import { useVModel } from '@td/adapter-hooks';
 import { renderTNodeJSXDefault } from '../utils/render-tnode';
 import props from '@td/intel/color-picker/props';

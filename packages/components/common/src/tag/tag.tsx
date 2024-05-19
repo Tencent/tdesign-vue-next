@@ -1,4 +1,4 @@
-import { computed, defineComponent, h, VNode } from 'vue';
+import { computed, defineComponent, h, VNode } from '@td/adapter-vue';
 import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
 import tinycolor from 'tinycolor2';
 

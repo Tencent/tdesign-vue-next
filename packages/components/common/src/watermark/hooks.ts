@@ -1,5 +1,5 @@
-import type { ComponentPublicInstance, Ref } from 'vue';
-import { unref, watch, getCurrentScope, onScopeDispose } from 'vue';
+import type { ComponentPublicInstance, Ref } from '@td/adapter-vue';
+import { unref, watch, getCurrentScope, onScopeDispose } from '@td/adapter-vue';
 
 export const defaultWindow = typeof window !== 'undefined' ? window : undefined;
 export interface ConfigurableWindow {

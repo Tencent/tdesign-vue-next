@@ -1,4 +1,4 @@
-import { reactive, watch } from 'vue';
+import { reactive, watch } from '@td/adapter-vue';
 import dayjs from 'dayjs';
 
 import { useConfig } from '../../hooks/useConfig';

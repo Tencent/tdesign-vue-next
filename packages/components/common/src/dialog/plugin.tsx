@@ -1,4 +1,4 @@
-import { App, createApp, ref, Plugin, defineComponent, h, onMounted, nextTick } from 'vue';
+import { App, createApp, ref, Plugin, defineComponent, h, onMounted, nextTick } from '@td/adapter-vue';
 import DialogComponent from './dialog';
 import { getAttach } from '../utils/dom';
 import { DialogOptions, DialogMethod, DialogConfirmMethod, DialogAlertMethod, DialogInstance } from '@td/intel/dialog/type';

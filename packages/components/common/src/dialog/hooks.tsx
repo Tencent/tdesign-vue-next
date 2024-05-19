@@ -1,4 +1,4 @@
-import { getCurrentInstance } from 'vue';
+import { getCurrentInstance } from '@td/adapter-vue';
 import { isString } from 'lodash-es';
 import { isObject } from 'lodash-es';
 import { omit } from 'lodash-es';

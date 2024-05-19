@@ -1,4 +1,4 @@
-import { defineComponent, toRefs, computed } from 'vue';
+import { defineComponent, toRefs, computed } from '@td/adapter-vue';
 import {
   CloseIcon as TdCloseIcon,
   TimeFilledIcon as TdTimeFilledIcon,

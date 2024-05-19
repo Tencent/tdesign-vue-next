@@ -1,4 +1,4 @@
-import { defineComponent, onMounted, getCurrentInstance, nextTick } from 'vue';
+import { defineComponent, onMounted, getCurrentInstance, nextTick } from '@td/adapter-vue';
 import circleAdapter from '../../_common/js/loading/circle-adapter';
 import { usePrefixClass } from '../../hooks/useConfig';
 

@@ -1,4 +1,4 @@
-import { SetupContext, ref, watch, toRefs, onUnmounted, computed, h, shallowRef } from 'vue';
+import { SetupContext, ref, watch, toRefs, onUnmounted, computed, h, shallowRef } from '@td/adapter-vue';
 import {
   AddRectangleIcon as TdAddRectangleIcon,
   MinusRectangleIcon as TdMinusRectangleIcon,

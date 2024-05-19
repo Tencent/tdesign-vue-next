@@ -1,4 +1,4 @@
-import { computed, defineComponent, SetupContext, ref, nextTick, PropType, watch, onMounted, toRefs } from 'vue';
+import { computed, defineComponent, SetupContext, ref, nextTick, PropType, watch, onMounted, toRefs } from '@td/adapter-vue';
 import { pick } from 'lodash-es';
 import { get } from 'lodash-es';
 import props from '@td/intel/table/base-table-props';

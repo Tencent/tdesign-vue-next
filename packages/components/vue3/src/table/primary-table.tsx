@@ -1,4 +1,4 @@
-import { computed, defineComponent, toRefs, h, ref, onMounted, getCurrentInstance } from 'vue';
+import { computed, defineComponent, toRefs, h, ref, onMounted, getCurrentInstance } from '@td/adapter-vue';
 import { get } from 'lodash-es';
 import { omit } from 'lodash-es';
 import baseTableProps from '@td/intel/table/base-table-props';

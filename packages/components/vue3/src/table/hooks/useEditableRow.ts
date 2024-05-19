@@ -1,4 +1,4 @@
-import { ref, computed, watch, toRefs } from 'vue';
+import { ref, computed, watch, toRefs } from '@td/adapter-vue';
 import { get } from 'lodash-es';
 import { set } from 'lodash-es';
 import { isFunction } from 'lodash-es';

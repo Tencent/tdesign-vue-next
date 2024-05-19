@@ -1,4 +1,4 @@
-import { defineComponent, SetupContext, computed, ref, getCurrentInstance } from 'vue';
+import { defineComponent, SetupContext, computed, ref, getCurrentInstance } from '@td/adapter-vue';
 import baseTableProps from '@td/intel/table/base-table-props';
 import primaryTableProps from '@td/intel/table/primary-table-props';
 import enhancedTableProps from '@td/intel/table/enhanced-table-props';

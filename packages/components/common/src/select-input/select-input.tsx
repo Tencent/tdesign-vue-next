@@ -1,4 +1,4 @@
-import { computed, defineComponent, onBeforeUnmount, onMounted, PropType, ref, SetupContext, toRefs, watch } from 'vue';
+import { computed, defineComponent, onBeforeUnmount, onMounted, PropType, ref, SetupContext, toRefs, watch } from '@td/adapter-vue';
 import Popup, { PopupInstanceFunctions, PopupProps, PopupVisibleChangeContext } from '../popup';
 import props from '@td/intel/select-input/props';
 import { TdSelectInputProps } from '@td/intel/select-input/type';

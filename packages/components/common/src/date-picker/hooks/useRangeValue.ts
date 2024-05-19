@@ -1,4 +1,4 @@
-import { ref, toRefs, watchEffect, computed } from 'vue';
+import { ref, toRefs, watchEffect, computed } from '@td/adapter-vue';
 import useVModel from '../../hooks/useVModel';
 import { isArray } from 'lodash-es';
 

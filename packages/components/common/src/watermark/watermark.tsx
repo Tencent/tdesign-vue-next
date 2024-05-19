@@ -1,4 +1,4 @@
-import { computed, onMounted, defineComponent, watch, ref, reactive } from 'vue';
+import { computed, onMounted, defineComponent, watch, ref, reactive } from '@td/adapter-vue';
 import props from '@td/intel/watermark/props';
 import generateBase64Url from '../_common/js/watermark/generateBase64Url';
 import randomMovingStyle from '../_common/js/watermark/randomMovingStyle';

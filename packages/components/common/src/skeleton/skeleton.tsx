@@ -1,4 +1,4 @@
-import { h, defineComponent, ref, watch } from 'vue';
+import { h, defineComponent, ref, watch } from '@td/adapter-vue';
 import { isNumber } from 'lodash-es';
 import { isFunction } from 'lodash-es';
 import props from '@td/intel/skeleton/props';

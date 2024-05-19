@@ -1,4 +1,4 @@
-import { Ref } from 'vue';
+import { Ref } from '@td/adapter-vue';
 import { TdInputProps } from '@td/intel/input/type';
 import { getOutputValue } from './useInput';
 

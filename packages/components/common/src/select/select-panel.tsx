@@ -1,4 +1,4 @@
-import { computed, defineComponent, inject, Slots, ref } from 'vue';
+import { computed, defineComponent, inject, Slots, ref } from '@td/adapter-vue';
 import { omit } from 'lodash-es';
 import { Styles } from '../common';
 

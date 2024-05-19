@@ -1,4 +1,4 @@
-import { defineComponent, inject, toRefs, computed, ref } from 'vue';
+import { defineComponent, inject, toRefs, computed, ref } from '@td/adapter-vue';
 import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
 import { omit } from '../utils/helper';
 import props from '@td/intel/radio/props';

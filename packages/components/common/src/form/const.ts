@@ -1,4 +1,4 @@
-import { computed, InjectionKey } from 'vue';
+import { computed, InjectionKey } from '@td/adapter-vue';
 import { FormItemValidateResult } from './form-item';
 import {
   AllValidateResult,

@@ -1,4 +1,4 @@
-import { computed } from 'vue';
+import { computed } from '@td/adapter-vue';
 
 import { CellColHeader, CalendarState } from '../interface';
 import { TdCalendarProps, WeekDay } from '../type';

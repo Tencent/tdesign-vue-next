@@ -1,4 +1,4 @@
-import { defineComponent, PropType, ref, computed } from 'vue';
+import { defineComponent, PropType, ref, computed } from '@td/adapter-vue';
 import { PaginationMini, JumperTrigger } from '../../pagination';
 import TSelect from '../../select';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';

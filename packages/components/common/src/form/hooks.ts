@@ -1,4 +1,4 @@
-import { Ref, inject, computed, getCurrentInstance } from 'vue';
+import { Ref, inject, computed, getCurrentInstance } from '@td/adapter-vue';
 import { TdFormProps } from '@td/intel/form/type';
 
 export interface FormDisabledProvider {

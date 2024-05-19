@@ -1,4 +1,4 @@
-import { defineComponent, computed, toRefs, ref } from 'vue';
+import { defineComponent, computed, toRefs, ref } from '@td/adapter-vue';
 import { StarFilledIcon } from 'tdesign-icons-vue-next';
 import { useVModel } from '@td/adapter-hooks';
 import props from '@td/intel/rate/props';

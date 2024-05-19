@@ -1,4 +1,4 @@
-import { ref } from 'vue';
+import { ref } from '@td/adapter-vue';
 
 export interface UseHoverParams {
   readonly: boolean;

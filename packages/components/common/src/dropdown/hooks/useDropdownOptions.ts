@@ -1,4 +1,4 @@
-import { computed, ComputedRef, VNode, getCurrentInstance, Slots, Component } from 'vue';
+import { computed, ComputedRef, VNode, getCurrentInstance, Slots, Component } from '@td/adapter-vue';
 import { isString } from 'lodash-es';
 import { isArray } from 'lodash-es';
 import { camelCase } from 'lodash-es';

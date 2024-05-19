@@ -1,4 +1,4 @@
-import { computed, Ref } from 'vue';
+import { computed, Ref } from '@td/adapter-vue';
 import { getIEVersion } from '../_common/js/utils/helper';
 import { useCommonClassName } from '@td/adapter-hooks';
 import { TdPaginationProps } from '@td/intel/pagination/type';

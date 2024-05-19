@@ -1,4 +1,4 @@
-import { VNode } from 'vue';
+import { VNode } from '@td/adapter-vue';
 import { ClassName } from '../../common';
 
 export interface ProgressProps {

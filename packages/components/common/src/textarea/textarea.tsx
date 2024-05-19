@@ -9,7 +9,7 @@ import {
   inject,
   StyleValue,
   CSSProperties,
-} from 'vue';
+} from '@td/adapter-vue';
 import { merge } from 'lodash-es';
 import { isUndefined } from 'lodash-es';
 

@@ -1,4 +1,4 @@
-import { computed, ref, Ref } from 'vue';
+import { computed, ref, Ref } from '@td/adapter-vue';
 import { TdPaginationProps } from '@td/intel/pagination/type';
 
 export default function useMoreAction(props: TdPaginationProps, pageCount: Ref<number>, innerCurrent: Ref<number>) {

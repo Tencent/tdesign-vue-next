@@ -1,4 +1,4 @@
-import { computed, defineComponent, h, inject } from 'vue';
+import { computed, defineComponent, h, inject } from '@td/adapter-vue';
 import { isFunction } from 'lodash-es';
 import { CheckIcon as TdCheckIcon, CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
 

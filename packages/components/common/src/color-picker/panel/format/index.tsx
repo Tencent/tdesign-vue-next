@@ -1,4 +1,4 @@
-import { defineComponent, PropType, ref, watch } from 'vue';
+import { defineComponent, PropType, ref, watch } from '@td/adapter-vue';
 import { upperCase } from 'lodash-es';
 import { TdColorPickerProps } from '../../type';
 import props from '../../props';

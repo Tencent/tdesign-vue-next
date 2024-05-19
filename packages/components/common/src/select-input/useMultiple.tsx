@@ -1,4 +1,4 @@
-import { SetupContext, computed, ref, toRefs, Ref } from 'vue';
+import { SetupContext, computed, ref, toRefs, Ref } from '@td/adapter-vue';
 import { isObject } from 'lodash-es';
 import { TdSelectInputProps, SelectInputChangeContext, SelectInputKeys } from '@td/intel/select-input/type';
 import { SelectInputCommonProperties } from './interface';

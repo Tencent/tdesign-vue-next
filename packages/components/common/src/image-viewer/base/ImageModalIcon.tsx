@@ -1,4 +1,4 @@
-import { computed, defineComponent, PropType } from 'vue';
+import { computed, defineComponent, PropType } from '@td/adapter-vue';
 import { usePrefixClass } from '../../hooks/useConfig';
 import { TNode } from '../../common';
 import { useTNodeJSX } from '../../hooks/tnode';

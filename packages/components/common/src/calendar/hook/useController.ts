@@ -1,6 +1,6 @@
 import { isFunction } from 'lodash-es';
 import { isBoolean } from 'lodash-es';
-import { computed, nextTick } from 'vue';
+import { computed, nextTick } from '@td/adapter-vue';
 import dayjs from 'dayjs';
 import { COMPONENT_NAME } from '../const';
 import { CalendarState } from '../interface';

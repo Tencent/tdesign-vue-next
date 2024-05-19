@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { defineComponent } from '@td/adapter-vue';
 import { FileCopyIcon as TdFileCopyIcon } from 'tdesign-icons-vue-next';
 import { copyText } from '../utils/clipboard';
 import Message from '../message/plugin';

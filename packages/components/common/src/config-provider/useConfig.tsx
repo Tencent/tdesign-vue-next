@@ -1,4 +1,4 @@
-import { computed, h, inject, getCurrentInstance, ref, provide } from 'vue';
+import { computed, h, inject, getCurrentInstance, ref, provide } from '@td/adapter-vue';
 import { isFunction } from 'lodash-es';
 import { cloneDeep } from 'lodash-es';
 import { isString } from 'lodash-es';

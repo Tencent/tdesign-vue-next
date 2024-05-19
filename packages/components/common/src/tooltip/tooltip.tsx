@@ -1,4 +1,4 @@
-import { computed, defineComponent, onMounted, ref, toRefs, watch, getCurrentInstance } from 'vue';
+import { computed, defineComponent, onMounted, ref, toRefs, watch, getCurrentInstance } from '@td/adapter-vue';
 import { isFunction } from 'lodash-es';
 import { omit } from 'lodash-es';
 import props from '@td/intel/tooltip/props';

@@ -1,4 +1,4 @@
-import { SetupContext, computed, toRefs, ref, watch } from 'vue';
+import { SetupContext, computed, toRefs, ref, watch } from '@td/adapter-vue';
 import { isFunction } from 'lodash-es';
 import { SortInfo, TdPrimaryTableProps, PrimaryTableCol, TableRowData } from '../type';
 import SorterButton from '../sorter-button';

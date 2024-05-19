@@ -1,4 +1,4 @@
-import { ref, watch, ComputedRef, Ref } from 'vue';
+import { ref, watch, ComputedRef, Ref } from '@td/adapter-vue';
 import { usePrefixClass } from '../../hooks/useConfig';
 
 import { getNewMultipleValue } from '../helper';

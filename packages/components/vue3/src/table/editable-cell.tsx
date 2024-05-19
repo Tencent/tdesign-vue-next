@@ -1,4 +1,4 @@
-import { computed, defineComponent, onMounted, PropType, ref, SetupContext, toRefs, watch } from 'vue';
+import { computed, defineComponent, onMounted, PropType, ref, SetupContext, toRefs, watch } from '@td/adapter-vue';
 import { get } from 'lodash-es';
 import { set } from 'lodash-es';
 import { isFunction } from 'lodash-es';

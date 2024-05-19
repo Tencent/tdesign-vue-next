@@ -1,4 +1,4 @@
-import { PropType } from 'vue';
+import { PropType } from '@td/adapter-vue';
 import { CommonDisplayFileProps } from './interface';
 
 export const commonProps = {

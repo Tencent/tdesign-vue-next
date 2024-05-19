@@ -1,4 +1,4 @@
-import { defineComponent, computed, toRefs, ref, nextTick, reactive, watch } from 'vue';
+import { defineComponent, computed, toRefs, ref, nextTick, reactive, watch } from '@td/adapter-vue';
 import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import TInput, { InputProps, StrInputProps, TdInputProps } from '../input';
 import { TdTagInputProps } from '@td/intel/tag-input/type';

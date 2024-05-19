@@ -1,4 +1,4 @@
-import { ref, ComputedRef, Ref } from 'vue';
+import { ref, ComputedRef, Ref } from '@td/adapter-vue';
 import type { TransferValue } from '../type';
 import type { TransferItemOption } from '../interface';
 export default function useDragSort(

@@ -1,4 +1,4 @@
-import { defineComponent, toRefs, PropType, ref, computed, h } from 'vue';
+import { defineComponent, toRefs, PropType, ref, computed, h } from '@td/adapter-vue';
 import {
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,

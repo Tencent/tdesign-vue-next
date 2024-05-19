@@ -1,4 +1,4 @@
-import { defineComponent, VNode, computed, CSSProperties } from 'vue';
+import { defineComponent, VNode, computed, CSSProperties } from '@td/adapter-vue';
 import {
   CloseCircleFilledIcon as TdCloseCircleFilledIcon,
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,

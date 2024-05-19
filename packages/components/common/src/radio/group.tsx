@@ -11,7 +11,7 @@ import {
   nextTick,
   toRefs,
   onUnmounted,
-} from 'vue';
+} from '@td/adapter-vue';
 import { isString } from 'lodash-es';
 import { isNumber } from 'lodash-es';
 import { isNil } from 'lodash-es';

@@ -1,4 +1,4 @@
-import { defineComponent, provide, computed, watchEffect, ref, toRefs } from 'vue';
+import { defineComponent, provide, computed, watchEffect, ref, toRefs } from '@td/adapter-vue';
 import { intersection } from 'lodash-es';
 import { isObject } from 'lodash-es';
 import { isUndefined } from 'lodash-es';

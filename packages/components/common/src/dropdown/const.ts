@@ -1,4 +1,4 @@
-import { InjectionKey } from 'vue';
+import { InjectionKey } from '@td/adapter-vue';
 import { DropdownOption } from '@td/intel/dropdown/type';
 
 export const injectKey: InjectionKey<{

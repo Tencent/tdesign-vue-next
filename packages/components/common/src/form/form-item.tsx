@@ -11,7 +11,7 @@ import {
   toRefs,
   VNode,
   watch,
-} from 'vue';
+} from '@td/adapter-vue';
 import {
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
   CloseCircleFilledIcon as TdCloseCircleFilledIcon,

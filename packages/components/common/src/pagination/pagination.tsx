@@ -1,4 +1,4 @@
-import { defineComponent, computed, ref, watch, toRefs, getCurrentInstance } from 'vue';
+import { defineComponent, computed, ref, watch, toRefs, getCurrentInstance } from '@td/adapter-vue';
 import { isNaN } from 'lodash-es';
 import {
   PageFirstIcon as TdPageFirstIcon,

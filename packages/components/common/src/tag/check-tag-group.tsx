@@ -1,4 +1,4 @@
-import { computed, defineComponent, toRefs, h } from 'vue';
+import { computed, defineComponent, toRefs, h } from '@td/adapter-vue';
 import { usePrefixClass } from '@td/adapter-hooks';
 import props from '@td/intel/tag/check-tag-group-props';
 import CheckTag from './check-tag';

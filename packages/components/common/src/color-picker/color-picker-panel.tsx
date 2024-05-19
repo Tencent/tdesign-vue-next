@@ -1,4 +1,4 @@
-import { computed, defineComponent } from 'vue';
+import { computed, defineComponent } from '@td/adapter-vue';
 import props from '@td/intel/color-picker/props';
 import ColorPanel from './panel';
 import { usePrefixClass } from '@td/adapter-hooks';

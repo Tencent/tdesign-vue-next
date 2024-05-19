@@ -1,4 +1,4 @@
-import { ref, computed, toRefs } from 'vue';
+import { ref, computed, toRefs } from '@td/adapter-vue';
 import { merge } from 'lodash-es';
 import { SizeLimitObj, TdUploadProps, UploadChangeContext, UploadFile, UploadRemoveContext } from '../type';
 import {

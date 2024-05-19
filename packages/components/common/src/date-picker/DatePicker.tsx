@@ -1,4 +1,4 @@
-import { defineComponent, computed, watch } from 'vue';
+import { defineComponent, computed, watch } from '@td/adapter-vue';
 import dayjs from 'dayjs';
 import { isFunction } from 'lodash-es';
 

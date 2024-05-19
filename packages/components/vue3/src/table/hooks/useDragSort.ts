@@ -1,5 +1,5 @@
 // 表格 行拖拽 + 列拖拽功能
-import { SetupContext, computed, toRefs, ref, watch, h, ComputedRef } from 'vue';
+import { SetupContext, computed, toRefs, ref, watch, h, ComputedRef } from '@td/adapter-vue';
 import Sortable, { SortableEvent, SortableOptions, MoveEvent } from 'sortablejs';
 import { isFunction } from 'lodash-es';
 import { TableRowData, TdPrimaryTableProps, DragSortContext, PrimaryTableCol } from '../type';

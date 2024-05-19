@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { defineComponent } from '@td/adapter-vue';
 import props from '@td/intel/list/list-item-meta-props';
 import { usePrefixClass } from '@td/adapter-hooks';
 import { useContent, useTNodeJSX } from '@td/adapter-hooks';

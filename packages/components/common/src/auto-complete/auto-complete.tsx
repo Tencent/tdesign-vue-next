@@ -1,4 +1,4 @@
-import { computed, ref, defineComponent, toRefs, nextTick } from 'vue';
+import { computed, ref, defineComponent, toRefs, nextTick } from '@td/adapter-vue';
 import props from '@td/intel/auto-complete/props';
 import { TdAutoCompleteProps } from '@td/intel/auto-complete/type';
 import Input, { InputProps, StrInputProps } from '../input';

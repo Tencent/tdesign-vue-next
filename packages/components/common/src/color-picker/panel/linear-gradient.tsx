@@ -1,4 +1,4 @@
-import { defineComponent, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue';
+import { defineComponent, onBeforeUnmount, onMounted, reactive, ref, watch } from '@td/adapter-vue';
 import { cloneDeep } from 'lodash-es';
 import { GRADIENT_SLIDER_DEFAULT_WIDTH } from '../const';
 import { genGradientPoint, gradientColors2string, GradientColorPoint } from '../utils';

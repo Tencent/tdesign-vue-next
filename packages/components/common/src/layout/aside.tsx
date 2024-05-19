@@ -1,4 +1,4 @@
-import { defineComponent, onMounted, onUnmounted, inject } from 'vue';
+import { defineComponent, onMounted, onUnmounted, inject } from '@td/adapter-vue';
 import props from '@td/intel/layout/aside-props';
 import { LayoutProvideType } from './layout';
 import { usePrefixClass } from '@td/adapter-hooks';

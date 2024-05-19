@@ -1,4 +1,4 @@
-import type { Directive, DirectiveBinding } from 'vue';
+import type { Directive, DirectiveBinding } from '@td/adapter-vue';
 import { isObject } from 'lodash-es';
 import { mapKeys } from 'lodash-es';
 import { isEqual } from 'lodash-es';

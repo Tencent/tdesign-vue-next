@@ -1,5 +1,5 @@
 import { TooltipProps } from '@src/tooltip';
-import { ref, computed, ComputedRef, Ref } from 'vue';
+import { ref, computed, ComputedRef, Ref } from '@td/adapter-vue';
 import { TdSliderProps } from '../type';
 import { formatLabel } from '../util/common';
 import { useTNodeJSX } from '../../hooks';

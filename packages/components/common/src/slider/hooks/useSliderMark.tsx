@@ -1,4 +1,4 @@
-import { computed, VNode, Ref } from 'vue';
+import { computed, VNode, Ref } from '@td/adapter-vue';
 import { cloneDeep } from 'lodash-es';
 import { SliderMarks } from '../type';
 import { TNode } from '../../common';

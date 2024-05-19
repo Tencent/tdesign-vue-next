@@ -1,4 +1,4 @@
-import { computed, toRefs, ref, Ref, watch } from 'vue';
+import { computed, toRefs, ref, Ref, watch } from '@td/adapter-vue';
 import { get } from 'lodash-es';
 import { intersection } from 'lodash-es';
 import { TdEnhancedTableProps, TdPrimaryTableProps, TableRowData, PrimaryTableCol } from '../type';

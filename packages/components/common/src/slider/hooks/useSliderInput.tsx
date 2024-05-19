@@ -1,4 +1,4 @@
-import { computed, Ref } from 'vue';
+import { computed, Ref } from '@td/adapter-vue';
 import { omit } from 'lodash-es';
 import { TdSliderProps } from '../type';
 import InputNumber, { InputNumberProps, ChangeContext } from '../../input-number';

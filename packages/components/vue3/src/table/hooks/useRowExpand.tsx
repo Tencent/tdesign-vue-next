@@ -1,4 +1,4 @@
-import { computed, SetupContext, toRefs, h } from 'vue';
+import { computed, SetupContext, toRefs, h } from '@td/adapter-vue';
 import { ChevronRightCircleIcon as TdChevronRightCircleIcon } from 'tdesign-icons-vue-next';
 import { get } from 'lodash-es';
 

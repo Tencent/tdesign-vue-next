@@ -1,4 +1,4 @@
-import { ref, watch, nextTick, onMounted, onBeforeUnmount, defineComponent, onActivated, onDeactivated } from 'vue';
+import { ref, watch, nextTick, onMounted, onBeforeUnmount, defineComponent, onActivated, onDeactivated } from '@td/adapter-vue';
 import { isFunction } from 'lodash-es';
 import { isUndefined } from 'lodash-es';
 

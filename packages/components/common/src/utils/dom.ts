@@ -3,7 +3,7 @@
  */
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-undef */
-import { ComponentPublicInstance, VNode } from 'vue';
+import { ComponentPublicInstance, VNode } from '@td/adapter-vue';
 import raf from 'raf';
 import { isString } from 'lodash-es';
 import { isFunction } from 'lodash-es';

@@ -1,4 +1,4 @@
-import { defineComponent, provide, RendererNode } from 'vue';
+import { defineComponent, provide, RendererNode } from '@td/adapter-vue';
 import props from '@td/intel/avatar/avatar-group-props';
 import Avatar from './avatar';
 import { useTNodeJSX } from '@td/adapter-hooks';
