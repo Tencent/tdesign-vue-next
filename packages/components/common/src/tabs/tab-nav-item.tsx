@@ -1,6 +1,6 @@
 import { computed, defineComponent, ref, PropType } from 'vue';
 import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
-import tabProps from './props';
+import tabProps from '@td/intel/tabs/props';
 import tabPanelProps from './tab-panel-props';
 
 // hooks

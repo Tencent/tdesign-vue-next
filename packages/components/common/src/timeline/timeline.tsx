@@ -1,5 +1,5 @@
 import { defineComponent, provide, computed } from 'vue';
-import TimeLineProps from './props';
+import TimeLineProps from '@td/intel/timeline/props';
 import { TimelineInjectKey, DefaultAlign } from './hooks';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useChildComponentSlots } from '../hooks/slot';

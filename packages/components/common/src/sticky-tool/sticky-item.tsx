@@ -1,6 +1,6 @@
 import { computed, defineComponent, PropType } from 'vue';
 import baseProps from './sticky-item-props';
-import TdStickyToolProps from './props';
+import TdStickyToolProps from '@td/intel/sticky-tool/props';
 import { usePrefixClass } from '../hooks/useConfig';
 import type { Styles } from '../common';
 import Popup from '../popup';

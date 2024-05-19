@@ -1,6 +1,6 @@
 import { defineComponent, PropType, computed, VNode, nextTick, ref, watch, onMounted } from 'vue';
 import { firstUpperCase } from '../utils/helper';
-import tabProps from './props';
+import tabProps from '@td/intel/tabs/props';
 
 // hooks
 import { usePrefixClass } from '../hooks/useConfig';

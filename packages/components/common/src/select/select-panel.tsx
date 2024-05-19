@@ -5,7 +5,7 @@ import { Styles } from '../common';
 import { SelectOption, SelectOptionGroup, TdOptionProps } from './type';
 import Option from './option';
 import OptionGroup from './optionGroup';
-import TdSelectProps from './props';
+import TdSelectProps from '@td/intel/select/props';
 
 import { useTNodeJSX, useTNodeDefault } from '../hooks/tnode';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';

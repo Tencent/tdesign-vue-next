@@ -12,7 +12,7 @@ import type {
 } from './type';
 
 import datePickerPanelProps from './date-picker-panel-props';
-import datePickerProps from './props';
+import datePickerProps from '@td/intel/date-picker/props';
 
 import TSinglePanel from './panel/SinglePanel';
 
