@@ -1,1 +1,1 @@
-import '../../_common/style/web/components/affix/_index.less';
+import '@td/shared/_common/style/web/components/affix/_index.less';

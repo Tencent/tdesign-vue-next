@@ -1,1 +1,1 @@
-import '../../_common/style/web/components/card/_index.less';
+import '@td/shared/_common/style/web/components/card/_index.less';
