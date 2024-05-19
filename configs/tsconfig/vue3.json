@@ -21,10 +21,10 @@
         "packages/adapter/utils/vue3/*"
       ],
       "@td/intel": [
-        "packages/intel/vue3"
+        "packages/intel/vue3/src"
       ],
       "@td/intel/*": [
-        "packages/intel/vue3/*"
+        "packages/intel/vue3/src/*"
       ],
       "@td/component": [
         "packages/components/vue3"

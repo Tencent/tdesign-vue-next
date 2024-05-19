@@ -68,5 +68,8 @@
     "tags": "helper/tags.json",
     "attributes": "helper/attributes.json"
   },
-  "web-types": "helper/web-types.json"
+  "web-types": "helper/web-types.json",
+  "devDependencies": {
+    "@td/ts-config": "workspace:^"
+  }
 }

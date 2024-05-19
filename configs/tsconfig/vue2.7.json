@@ -21,13 +21,16 @@
         "packages/adapter/utils/vue2.7/*"
       ],
       "@td/intel": [
-        "packages/intel/vue2.7"
+        "packages/intel/vue2.7/src"
+      ],
+      "@td/intel/*": [
+        "packages/intel/vue2.7/src/*"
       ],
       "@td/component": [
         "packages/components/vue2.7"
       ],
-      "@td/intel/*": [
-        "packages/intel/vue2.7/*"
+      "@td/shared/*": [
+        "packages/shared/*"
       ]
     }
   }
