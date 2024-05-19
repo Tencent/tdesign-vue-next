@@ -1,0 +1,279 @@
+.position-center(@direction) {
+  position: absolute;
+  & when(@direction = x) {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  & when(@direction = y) {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.swiper-arrow(@direction, @size: medium) {
+  @arrowWidth: "swiper-arrow-width-@{size}";
+  @arrowHeight: "swiper-arrow-height-@{size}";
+  @arrowPosition: "swiper-arrow-left-@{size}";
+  & when(@size = medium) {
+    .@{prefix}-swiper__arrow-@{direction} {
+      .position-center(y);
+
+      display: flex;
+      width: @@arrowWidth;
+      height: @@arrowHeight;
+      justify-content: center;
+      align-items: center;
+      z-index: @swiper-navigation-z-index-default;
+      background-color: transparent;
+      color: @swiper-navigation-item-bg-hover;
+      transition: @anim-duration-base linear;
+      cursor: pointer;
+      & when(@direction = left) {
+        left: @@arrowPosition;
+      }
+      & when(@direction = right) {
+        right: @@arrowPosition;
+      }
+
+      &:hover {
+        color: @swiper-navigation-item-bg-active;
+        background-color: @swiper-navigation-item-bg;
+        border-radius: @border-radius-default;
+        transition: @anim-duration-base linear;
+      }
+
+      &:active {
+        background-color: @swiper-arrow-active;
+        transition: @anim-duration-base linear;
+      }
+    }
+  }
+  & when(@size = large) {
+    .@{prefix}-swiper__arrow-@{direction} {
+      width: @@arrowWidth;
+      height: @@arrowHeight;
+      & when(@direction = left) {
+        left: @@arrowPosition;
+      }
+      & when(@direction = right) {
+        right: @@arrowPosition;
+      }
+    }
+  }
+  & when(@size = small) {
+    .@{prefix}-swiper__arrow-@{direction} {
+      width: @@arrowWidth;
+      height: @@arrowHeight;
+      & when(@direction = left) {
+        left: @@arrowPosition;
+      }
+      & when(@direction = right) {
+        right: @@arrowPosition;
+      }
+    }
+  }
+}
+
+.swiper-arrow-fraction(@direction, @width) {
+  .@{prefix}-swiper__arrow-@{direction} {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: @swiper-navigation-z-index-default;
+    background-color: transparent;
+    color: @swiper-navigation-arrow-color-fraction;
+    width: @@width;
+    height: @@width;
+    cursor: pointer;
+
+    &:hover {
+      color: @swiper-navigation-item-outside-bg-hover;
+    }
+
+    &:active {
+      color: @swiper-navigation-item-outside-bg-active;
+    }
+  }
+}
+
+.swiper-navigation-fraction(@size: medium) {
+  @fractionLineHeight: "swiper-navigation-line-height-fraction-@{size}";
+  @fractionFontSize: "swiper-navigation-font-size-fraction-@{size}";
+  .position-center(x);
+
+  top: auto;
+  right: auto;
+  bottom: calc(0px - calc(@@fractionLineHeight + 12px));
+  height: @@fractionLineHeight;
+  line-height: @@fractionLineHeight;
+
+  .swiper-arrow-fraction(left, @fractionLineHeight);
+  .swiper-arrow-fraction(right, @fractionLineHeight);
+
+  .@{prefix}-swiper__navigation-text-fraction {
+    display: inline-block;
+    font-size: @@fractionFontSize;
+    color: @swiper-navigation-text-color-fraction;
+    margin: 0;
+  }
+}
+
+.swiper-navigation-item(@type, @position: inside, @direction: horizontal, @size: medium) {
+  & when(@position = inside) {
+    & when(@type = bars), (@type = dots-bar) {
+      .@{prefix}-swiper__navigation-item {
+        @itemWidth: "swiper-navigation-item-width-bars-@{size}";
+        @itemHeight: "swiper-navigation-item-height-bars-@{size}";
+        @itemWidthActive: "swiper-navigation-item-width-bars-@{size}-active";
+        @itemMargin: "swiper-navigation-item-margin-@{size}";
+
+        cursor: pointer;
+        & when(@type = dots-bar) {
+          span {
+            border-radius: calc(@@itemHeight / 2);
+          }
+        }
+        & when(@direction = horizontal) {
+          margin: 0 0 0 @@itemMargin;
+          padding: @@itemMargin * 3 0;
+          width: @@itemWidth;
+          height: auto;
+
+          span {
+            width: 100%;
+            height: @@itemHeight;
+          }
+
+          &:nth-child(1) {
+            margin-left: 0;
+          }
+        }
+        & when(@direction = vertical) {
+          margin: @@itemMargin 0 0 0;
+          padding: 0 @@itemMargin * 3;
+          width: auto;
+          height: @@itemWidth;
+
+          span {
+            width: @@itemHeight;
+            height: 100%;
+          }
+
+          &:nth-child(1) {
+            margin-top: 0;
+          }
+        }
+
+        span {
+          background: @swiper-navigation-item-bg;
+
+          &:hover {
+            background-color: @swiper-navigation-item-bg-hover;
+          }
+
+          &:active {
+            background-color: @swiper-navigation-item-bg-active;
+          }
+        }
+
+        &.@{prefix}-is-active {
+          & when(@direction = horizontal) {
+            width: @@itemWidthActive;
+          }
+          & when(@direction = vertical) {
+            height: @@itemWidthActive;
+          }
+
+          span {
+            background-color: @swiper-navigation-item-bg-active;
+          }
+        }
+      }
+    }
+    & when(@type = dots) {
+      .@{prefix}-swiper__navigation-item {
+        @itemWidth: "swiper-navigation-item-dot-size";
+        @itemHeight: "swiper-navigation-item-dot-size";
+        @itemWidthActive: "swiper-navigation-item-width-bars-@{size}-active";
+        @itemMargin: "swiper-navigation-item-margin-@{size}";
+
+        cursor: pointer;
+
+        span {
+          border-radius: 50%;
+        }
+        & when(@direction = horizontal) {
+          margin: 0 0 0 @@itemMargin;
+          padding: @@itemMargin * 3 0;
+          width: @@itemWidth;
+          height: auto;
+
+          span {
+            width: 100%;
+            height: @@itemHeight;
+          }
+
+          &:nth-child(1) {
+            margin-left: 0;
+          }
+        }
+        & when(@direction = vertical) {
+          margin: @@itemMargin 0 0 0;
+          padding: 0 @@itemMargin * 3;
+          width: auto;
+          max-height: @@itemWidth;
+
+          span {
+            width: @@itemHeight;
+            height: 100%;
+          }
+
+          &:nth-child(1) {
+            margin-top: 0;
+          }
+        }
+
+        span {
+          background: @swiper-navigation-item-bg;
+
+          &:hover {
+            background-color: @swiper-navigation-item-bg-hover;
+          }
+
+          &:active {
+            background-color: @swiper-navigation-item-bg-active;
+          }
+        }
+
+        &.@{prefix}-is-active {
+          span {
+            background-color: @swiper-navigation-item-bg-active;
+          }
+        }
+      }
+    }
+  }
+
+  & when(@position = outside) {
+    & when(@type = bars) {
+      .@{prefix}-swiper__navigation-item {
+        span {
+          background-color: @swiper-navigation-item-bg-outside;
+
+          &:hover {
+            background-color: @swiper-navigation-item-outside-bg-hover;
+          }
+
+          &:active {
+            background-color: @swiper-navigation-item-outside-bg-active;
+          }
+        }
+      }
+      .@{prefix}-is-active {
+        span {
+          background-color: @swiper-navigation-item-outside-bg-active;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "name": "allowUncheck",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "disabled",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  }
+]

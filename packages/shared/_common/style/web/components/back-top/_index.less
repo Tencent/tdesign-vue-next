@@ -1,0 +1,83 @@
+// 组件允许单个组件打包，因此默认引入公共基础样式
+
+@import "../../base.less";
+
+@import "./_var.less";
+
+@import "./_mixin.less";
+
+.@{prefix-block} {
+  position: fixed;
+  z-index: @z-index-back-top;
+  overflow: hidden;
+  outline: none;
+  border-color: transparent;
+  background-color: transparent;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  border-width: .5px;
+  border-style: solid;
+  transition:
+    background @anim-duration-base linear,
+    border @anim-duration-base linear,
+    color @anim-duration-base linear,
+    opacity @anim-duration-base linear,
+    visibility @anim-duration-base linear;
+  touch-action: manipulation;
+  box-shadow: @back-top-box-shadow;
+  visibility: hidden;
+  opacity: 0;
+  color: @back-top-text-color;
+
+  &__text {
+    font: @font-body-small;
+    text-align: center;
+    margin-top: @comp-margin-xxs;
+  }
+
+  &__icon {
+    font-size: @font-headline-small;
+  }
+
+  &.t-size-m {
+    .@{prefix-block}__icon {
+      margin-top: 2px;
+    }
+  }
+}
+
+.@{prefix-block}--show {
+  visibility: visible;
+  opacity: 1;
+}
+
+@themes: light, primary, dark;
+
+each(@themes, {
+  .@{prefix-block}--theme-@{value} {
+    .back-top-theme("@{value}");
+  }
+});
+
+@m: medium;
+@s: small;
+@sizes: s, m;
+
+each(@sizes, {
+  .@{prefix-block}.@{prefix}-size-@{value} {
+    .back-top-size(@@value)
+  }
+});
+
+@shapes: circle, square;
+
+each(@shapes, {
+  .@{prefix-block}--@{value} {
+    .back-top-shape("@{value}")
+  }
+})

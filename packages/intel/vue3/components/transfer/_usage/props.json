@@ -1,0 +1,58 @@
+[
+  {
+    "name": "direction",
+    "type": "enum",
+    "defaultValue": "both",
+    "options": [
+      {
+        "label": "left",
+        "value": "left"
+      },
+      {
+        "label": "right",
+        "value": "right"
+      },
+      {
+        "label": "both",
+        "value": "both"
+      }
+    ]
+  },
+  {
+    "name": "disabled",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "search",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "showCheckAll",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "targetSort",
+    "type": "enum",
+    "defaultValue": "original",
+    "options": [
+      {
+        "label": "original",
+        "value": "original"
+      },
+      {
+        "label": "push",
+        "value": "push"
+      },
+      {
+        "label": "unshift",
+        "value": "unshift"
+      }
+    ]
+  }
+]

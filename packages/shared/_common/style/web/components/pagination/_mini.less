@@ -1,0 +1,41 @@
+// 组件允许单个组件打包，因此默认引入公共基础样式
+
+@import "../../base.less";
+
+@import "./_var.less";
+
+@import "../../mixins/_reset.less";
+
+.@{prefix}-pagination-mini {
+  .reset;
+
+  &--outline {
+    .@{prefix}-pagination-mini__prev {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .@{prefix}-pagination-mini__current {
+      border-radius: 0;
+      position: relative;
+      margin-left: -1px;
+
+      &:hover {
+        z-index: 1;
+      }
+    }
+
+    .@{prefix}-pagination-mini__next {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      position: relative;
+      margin-left: -1px;
+
+      &:hover {
+        z-index: 1;
+      }
+    }
+  }
+}

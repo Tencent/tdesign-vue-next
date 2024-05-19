@@ -1,0 +1,71 @@
+@import "../../base.less";
+
+@import "./_var.less";
+
+.@{prefix}-divider {
+  display: flex;
+  align-items: center;
+  border-style: solid;
+  border-width: 0;
+  color: @divider-text-color;
+  font-size: @font-size-s;
+  border-color: @divider-color;
+  margin: 10px 0;
+
+  &::before,
+  &::after {
+    display: block;
+    flex: 1;
+    box-sizing: border-box;
+    height: 1px;
+    border-color: inherit;
+    border-style: inherit;
+    border-width: 2px 0 0;
+  }
+
+  &::before {
+    content: "";
+  }
+
+  &--hairline {
+    &::before,
+    &::after {
+      transform: scaleY(.5);
+    }
+  }
+
+  &--dashed {
+    border-style: dashed;
+  }
+
+  //文本位置
+  &--content-center,
+  &--content-left,
+  &--content-right {
+    &::before {
+      margin-right: 10px;
+    }
+
+    &::after {
+      content: "";
+      margin-left: 10px;
+    }
+  }
+
+  &-vertical {
+    border-left: 1px solid @divider-color;
+    margin: 0 @spacer;
+  }
+
+  &--content-left {
+    &::before {
+      max-width: 10%;
+    }
+  }
+
+  &--content-right {
+    &::after {
+      max-width: 10%;
+    }
+  }
+}

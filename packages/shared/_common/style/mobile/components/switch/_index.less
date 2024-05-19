@@ -1,0 +1,85 @@
+@import "../../base.less";
+
+@import "./_var.less";
+
+@import "../../mixins/_index.less";
+
+.@{prefix}-switch {
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
+  font-size: @switch-font-size;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  border: 0;
+
+  &__text {
+    text-align: right;
+    line-height: @switch-text-height;
+    vertical-align: middle;
+    margin: @switch-text-margin;
+    color: @switch-text-color;
+  }
+
+  &__node {
+    display: inline-block;
+    position: relative;
+    width: @switch-width;
+    height: @switch-height;
+    line-height: @switch-height;
+    border-radius: @switch-border-radius;
+    vertical-align: middle;
+    border: 0;
+    background-color: @switch-background-color;
+    cursor: pointer;
+    user-select: none;
+    transition: all .3s ease-in-out;
+
+    &::after {
+      content: "";
+      width: @switch-node-width;
+      height: @switch-node-height;
+      border: 0;
+      border-radius: 100%;
+      background-color: @switch-node-background-color;
+      box-shadow: @switch-node-box-shadow;
+      position: absolute;
+      left: 2px;
+      top: 2px;
+      cursor: pointer;
+      transition: left .3s ease-in-out, width .3s ease-in-out;
+    }
+  }
+
+  &.@{prefix}-is-checked {
+    .@{prefix}-switch__node {
+      background-color: @switch-checked-background-color;
+
+      &::after {
+        left: @switch-checked-translate-x;
+      }
+    }
+  }
+
+  &.@{prefix}-is-disabled {
+    .@{prefix}-switch__text {
+      color: @switch-text-color-disabled;
+    }
+
+    .@{prefix}-switch__node {
+      cursor: not-allowed;
+      background-color: @switch-background-color-disbaled;
+
+      &::after {
+        cursor: not-allowed;
+      }
+    }
+
+    &.@{prefix}-is-checked {
+      .@{prefix}-switch__node {
+        background-color: @switch-checked-background-color-disabled;
+      }
+    }
+  }
+}

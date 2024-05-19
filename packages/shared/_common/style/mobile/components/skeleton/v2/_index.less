@@ -1,0 +1,108 @@
+@import "../../../base.less";
+
+@import "./_var.less";
+
+.@{prefix}-skeleton {
+  box-sizing: border-box;
+
+  &__row {
+    display: flex;
+    margin-bottom: @skeleton-row-spacing; // 骨架屏行间距
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__row:only-child,
+  &__row:last-child {
+    margin-bottom: 0;
+  }
+
+  &__col {
+    background-color: @skeleton-bg-color; // 骨架屏背景颜色
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:first-child:last-child,
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &--type {
+    &-text {
+      width: 100%;
+      height: @skeleton-text-height; // 'text'类型骨架屏列高
+      border-radius: @skeleton-text-border-radius; // 'text'类型骨架屏列圆角
+    }
+
+    &-rect {
+      width: 100%;
+      height: @skeleton-rect-height; // 'rect'类型骨架屏列高
+      border-radius: @skeleton-rect-border-radius; // rect'类型骨架屏列圆角
+    }
+
+    &-circle {
+      width: @skeleton-circle-height; // 'circle'类型骨架屏列宽
+      height: @skeleton-circle-height; // 'circle'类型骨架屏列高
+      border-radius: var(
+        --td-skeleton-circle-border-radius,
+        @skeleton-circle-border-radius
+      ); // 'circle'类型骨架屏列圆角
+
+      flex-shrink: 0;
+    }
+  }
+
+  &--animation {
+    &-gradient {
+      position: relative;
+      overflow-x: hidden;
+
+      &::after {
+        content: " ";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0%),
+          @skeleton-animation-gradient,
+          rgba(255, 255, 255, 0%)
+        );
+        animation: t-skeleton--gradient 1.5s linear 2s infinite;
+      }
+    }
+
+    &-flashed {
+      animation: t-skeleton--flashed 2s linear 2s infinite;
+    }
+  }
+
+  @keyframes t-skeleton--gradient {
+    0% {
+      transform: translateX(-100%) skewX(-15deg);
+    }
+
+    100% {
+      transform: translateX(100%) skewX(-15deg);
+    }
+  }
+
+  @keyframes t-skeleton--flashed {
+    0% {
+      opacity: 1;
+    }
+
+    50% {
+      background-color: @skeleton-animation-flashed;
+      opacity: .3;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+}

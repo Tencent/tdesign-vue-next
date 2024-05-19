@@ -1,0 +1,110 @@
+// 组件允许单个组件打包，因此默认引入公共基础样式
+@import "../../base.less";
+
+@import "./_var.less";
+
+@import "./_mixin.less";
+
+@import "../../mixins/_reset.less";
+
+.@{prefix}-skeleton {
+  .reset;
+
+  &__row {
+    display: flex;
+    margin-bottom: @comp-margin-l;
+    align-items: center;
+  }
+
+  &__row:only-child,
+  &__row:last-child {
+    margin-bottom: 0;
+  }
+
+  &__col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: @bg-color-secondarycontainer;
+    color: @text-color-disabled;
+    margin-right: @comp-margin-l;
+
+    &:first-child:last-child,
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &--type {
+    &-text {
+      width: 100%;
+      height: @skeleton-type-text-height;
+      border-radius: @skeleton-border-radius-square;
+    }
+
+    &-rect {
+      width: @skeleton-rect-width-default;
+      height: @skeleton-rect-height-default;
+      border-radius: @skeleton-border-radius-square;
+    }
+
+    &-circle {
+      width: @skeleton-base-height-default;
+      height: @skeleton-base-height-default;
+      border-radius: @skeleton-border-radius-circle;
+      flex-shrink: 0;
+    }
+  }
+
+  &--animation {
+    &-gradient {
+      position: relative;
+      overflow-x: hidden;
+
+      &::after {
+        content: " ";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0%),
+          @skeleton-animation-gradient,
+          rgba(255, 255, 255, 0%)
+        );
+        animation: t-skeleton--gradient 1.5s linear 2s infinite;
+      }
+    }
+
+    &-flashed {
+      animation: t-skeleton--flashed 2s linear 2s infinite;
+    }
+  }
+
+  @keyframes t-skeleton--gradient {
+    0% {
+      transform: translateX(-100%) skewX(-15deg);
+    }
+
+    100% {
+      transform: translateX(100%) skewX(-15deg);
+    }
+  }
+
+  @keyframes t-skeleton--flashed {
+    0% {
+      opacity: 1;
+    }
+
+    50% {
+      background-color: @skeleton-animation-flashed;
+      opacity: .3;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+}

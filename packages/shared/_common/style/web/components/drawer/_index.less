@@ -1,0 +1,213 @@
+// 组件允许单个组件打包，因此默认引入公共基础样式
+@import "../../base.less";
+
+@import "./_var.less";
+
+@import "./_mixin.less";
+
+@import "./_animate.less";
+
+@import "../../mixins/_reset.less";
+
+.@{prefix}-drawer {
+  .reset;
+
+  @root: ~".@{prefix}-drawer";
+
+  position: fixed;
+  z-index: 1500;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  outline: none;
+
+  &--lock {
+    overflow: hidden;
+  }
+
+  &--attach {
+    position: absolute;
+  }
+
+  &--left,
+  &--right {
+    top: 0;
+  }
+
+  &--left {
+    left: 0;
+  }
+
+  &--right {
+    right: 0;
+  }
+
+  &--top,
+  &--bottom {
+    left: 0;
+  }
+
+  &--top {
+    top: 0;
+  }
+
+  &--bottom {
+    bottom: 0;
+  }
+
+  &__mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: @drawer-mask;
+    transition: opacity @drawer-default-duration @drawer-default-timing-function;
+    opacity: 0;
+  }
+
+  &__content-wrapper {
+    display: flex;
+    flex-direction: column;
+    background: @drawer-bg-color;
+    // 这里之所以设置了宽度为 300，高度为 300 是为了在 UI 静态展示的时候有一个默认值，
+    // 实际上如果是纵向的，宽度是 js 代码设置，高度是 100%，如果是横向的，高度是 js 代码设置，宽度是 100%
+    width: 16px;
+    height: 16px;
+    font-size: @drawer-body-text-font-size;
+    color: @drawer-body-text-color;
+    box-shadow: @dialog-box-shadow;
+    overflow: hidden;
+    pointer-events: auto;
+    transition: transform @drawer-slow-duration @drawer-default-timing-function,
+      visibility @drawer-slow-duration @drawer-default-timing-function;
+    position: relative;
+  }
+
+  @{root}__content-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+
+    &--left,
+    &--right {
+      top: 0;
+    }
+
+    &--left {
+      left: 0;
+      transform: translateX(-100%);
+    }
+
+    &--right {
+      right: 0;
+      transform: translateX(100%);
+    }
+
+    &--top,
+    &--bottom {
+      left: 0;
+    }
+
+    &--top {
+      top: 0;
+      transform: translateY(-100%);
+    }
+
+    &--bottom {
+      bottom: 0;
+      transform: translateY(100%);
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    min-height: @drawer-header-height;
+    padding: @drawer-header-padding;
+    font: @drawer-header-font-size;
+    color: @drawer-header-text-color;
+    border-bottom: 1px solid @drawer-border-color;
+    border-radius: @drawer-header-border-radius;
+    box-sizing: border-box;
+  }
+
+  &__body {
+    padding: @drawer-body-padding;
+    overflow: auto;
+    flex: 1;
+  }
+
+  &__footer {
+    width: 100%;
+    padding: @drawer-footer-padding;
+    text-align: @drawer-footer-text-align;
+    border-top: 1px solid @drawer-border-color;
+    background-color: @drawer-bg-color;
+    box-sizing: border-box;
+
+    .@{prefix}-button {
+      margin-left: @drawer-footer-btn-margin-left;
+    }
+
+    .@{prefix}-button:first-child {
+      margin-left: 0;
+    }
+  }
+
+  &__close-btn {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: @drawer-close-btn-size;
+    height: @drawer-close-btn-size;
+    top: calc((@drawer-header-height - @drawer-close-btn-size) / 2);
+    right: @drawer-close-btn-position-right;
+    color: @drawer-close-btn-color;
+    background-color: @drawer-close-btn-bg-color;
+    border-radius: @border-radius-default;
+    cursor: pointer;
+    transition: background-color @anim-duration-base;
+
+    &:hover {
+      background-color: @dialog-close-btn-bg-hover;
+    }
+
+    &:active {
+      background-color: @dialog-close-btn-bg-active;
+    }
+
+    .t-icon {
+      font-size: @drawer-icon-size;
+      vertical-align: unset;
+    }
+  }
+
+  &--open {
+    width: 100%;
+    height: 100%;
+    pointer-events: auto;
+
+    > @{root}__content-wrapper {
+      visibility: visible;
+    }
+
+    > @{root}__mask {
+      opacity: 1;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  // 需要在 t-drawer--open 后面，优先级才比 open 高
+  &--without-mask {
+    pointer-events: none;
+  }
+}
+
+[tabindex="-1"]:focus {
+  outline: none !important; /* stylelint-disable-line */
+}

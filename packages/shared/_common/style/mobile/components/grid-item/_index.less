@@ -1,0 +1,53 @@
+@import "../../base.less";
+
+@import "./_var.less";
+
+@import "../../mixins/_index.less";
+
+.@{prefix}-grid-item {
+  display: flex;
+  box-sizing: border-box;
+  padding-top: @grid-item-padding-top;
+  padding-bottom: @grid-item-padding-bottom;
+  background-color: @grid-item-bg-color;
+
+  &__image-box {
+    box-sizing: border-box;
+  }
+
+  &__image {
+    display: block;
+  }
+
+  &__title {
+    color: @grid-item-title-color;
+    font-size: @grid-item-title-font-size;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+  }
+
+  &__description {
+    color: @grid-item-description-color;
+    font-size: @grid-item-description-font-size;
+  }
+
+  &--hover:active {
+    background-color: @grid-item-hover-bg-color;
+  }
+
+  &--bordered {
+    position: relative;
+
+    &::after {
+      .hairline-right(@grid-item-border-color);
+    }
+  }
+
+  &.@{prefix}-is-large {
+    .@{prefix}-grid-item__title {
+      font-size: 14px;
+    }
+  }
+}

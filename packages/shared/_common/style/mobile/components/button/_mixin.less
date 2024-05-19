@@ -1,0 +1,39 @@
+@import "./_var.less";
+
+.button() {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  white-space: nowrap;
+  text-align: center;
+  background-image: none;
+  cursor: pointer;
+  transition: all .3s;
+  user-select: none;
+  touch-action: manipulation;
+  font-size: @btn-font-default;
+  height: @btn-height-default;
+  background-color: transparent;
+  outline: none;
+  // padding-left: @btn-padding-horizontal;
+  // padding-right: @btn-padding-horizontal;
+  border: 0;
+  // border-radius: @btn-border-radius;
+  overflow: hidden;
+}
+
+.button-size(@height, @font-size, @icon-zise, @padding-horizontal, @border-width: @btn-border-width) {
+  height: @height;
+  font-size: @font-size;
+  padding-left: @padding-horizontal - @border-width;
+  padding-right: @padding-horizontal - @border-width;
+
+  .@{prefix}-icon {
+    font-size: @icon-zise;
+  }
+
+  .@{prefix}-loading {
+    font-size: @btn-loading-size;
+  }
+}

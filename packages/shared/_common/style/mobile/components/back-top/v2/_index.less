@@ -1,0 +1,96 @@
+@import "../../../base.less";
+
+@import "./_var.less";
+
+.@{backtop} {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: height .2s;
+  height: auto;
+
+  &--fixed {
+    position: fixed;
+    right: @back-top-fixed-right;
+    bottom: @back-top-fixed-bottom;
+  }
+
+  &--round,
+  &--round-dark {
+    width: @back-top-round-width;
+    height: @back-top-round-width;
+    border-radius: @back-top-round-border-radius;
+
+    &::after {
+      border-radius: @back-top-round-border-radius;
+    }
+  }
+
+  &--round,
+  &--half-round {
+    color: @back-top-round-color;
+    background-color: @back-top-round-bg-color;
+  }
+
+  &--round-dark,
+  &--half-round-dark {
+    color: @back-top-round-dark-color;
+    background-color: @back-top-round-dark-bg-color;
+  }
+
+  &--half-round,
+  &--half-round-dark {
+    width: @back-top-half-round-width;
+    height: @back-top-half-round-height;
+    border-radius: @back-top-half-round-border-radius 0 0 @back-top-half-round-border-radius;
+    flex-direction: row;
+    right: 0;
+
+    &::after {
+      border-radius: @back-top-half-round-border-radius 0 0 @back-top-half-round-border-radius;
+    }
+  }
+
+  &--round,
+  &--half-round {
+    &::after {
+      .hairline(@back-top-round-border-color);
+    }
+  }
+
+  &--round-dark,
+  &--half-round-dark {
+    &::after {
+      .hairline(@back-top-round-dark-border-color);
+    }
+  }
+
+  &__text--round,
+  &__text--round-dark,
+  &__text--half-round,
+  &__text--half-round-dark {
+    font-size: @back-top-text-font-size;
+    line-height: @back-top-text-line-height;
+  }
+
+  &__text--half-round,
+  &__text--half-round-dark {
+    width: 2em;
+  }
+
+  &__icon:not(:empty) + &__text--half-round,
+  &__icon:not(:empty) + &__text--half-round-dark {
+    margin-left: 2px;
+  }
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: @back-top-icon-font-size;
+  }
+}

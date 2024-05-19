@@ -1,0 +1,49 @@
+// 间距
+@popover-padding: var(--td-popover-padding, 12px);
+@popover-content-line-height: 24px;
+@popover-arrow-width: 8px;
+@popover-arrow-height: 8px;
+@popover-content-arrow-spacer: 16px;
+@popover-content-margin: 8px;
+
+@popover-content-font-size: @font-size-m;
+
+@shadow-inset-top: inset 0 .5px 0 #5e5e5e;
+@shadow-inset-right: inset .5px 0 0 #5e5e5e;
+@shadow-inset-bottom: inset 0 -.5px 0 #5e5e5e;
+@shadow-inset-left: inset -.5px 0 0 #5e5e5e;
+
+@shadow-inset: @shadow-inset-top, @shadow-inset-right, @shadow-inset-bottom, @shadow-inset-left;
+
+// 阴影
+@popover-shadow: @shadow-3;
+@popover-top-arrow-shadow: @shadow-inset-left, @shadow-inset-bottom;
+@popover-left-arrow-shadow: @shadow-inset-left, @shadow-inset-top;
+@popover-bottom-arrow-shadow: @shadow-inset-top, @shadow-inset-right;
+@popover-right-arrow-shadow: @shadow-inset-right, @shadow-inset-bottom;
+
+// 动画
+@popover-flow: ~"@{prefix}-popover--animation";
+@popover-flow-duration: @anim-duration-base;
+@popover-flow-fn: @anim-time-fn-ease-in;
+@popover-flow-transition-enter: opacity @popover-flow-duration linear;
+@popover-flow-transition-leave: opacity @popover-flow-duration @anim-time-fn-ease-out, visibility @popover-flow-duration @popover-flow-fn;
+
+// 主题颜色
+@popover-dark-color: #fff;
+@popover-dark-bg-color: @font-gray-1;
+
+@popover-light-color: @text-color-primary;
+@popover-light-bg-color: @bg-color-container;
+
+@popover-brand-color: @brand-color-7;
+@popover-brand-bg-color: @brand-color-1;
+
+@popover-success-color: @success-color-5;
+@popover-success-bg-color: @success-color-1;
+
+@popover-warning-color: @warning-color-5;
+@popover-warning-bg-color: @warning-color-1;
+
+@popover-error-color: @error-color-6;
+@popover-error-bg-color: @error-color-1;

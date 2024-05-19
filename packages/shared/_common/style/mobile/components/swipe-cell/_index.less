@@ -1,0 +1,57 @@
+@import "../../base.less";
+
+@import "./_var.less";
+.@{prefix}-swipe-cell {
+  background: @swipe-cell-background-color;
+  border-bottom: 1px solid @swipe-cell-border-color;
+  overflow: hidden;
+
+  &__wrapper {
+    position: relative;
+    transform: translate3d(0, 0, 0);
+
+    &.moving {
+      transition: all .6s cubic-bezier(.18, .89, .32, 1);
+    }
+  }
+
+  &__left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    transform: translate3d(-100%, 0, 0);
+    text-align: left;
+    background: @swipe-cell-right-menu-background-color;
+
+    & > div {
+      height: 100%;
+    }
+
+    & > button {
+      height: 100%;
+      border-radius: 0;
+    }
+  }
+
+  &__right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    transform: translate3d(100%, 0, 0);
+    text-align: right;
+    background: @swipe-cell-right-menu-background-color;
+
+    & > div {
+      height: 100%;
+    }
+
+    & > button {
+      height: 100%;
+      border-radius: 0;
+    }
+  }
+}

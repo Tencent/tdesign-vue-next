@@ -1,0 +1,125 @@
+@import "../../../base.less";
+
+@import "./_var.less";
+
+.@{prefix}-navbar {
+  &--fixed {
+    .@{prefix}-navbar__content {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 5001;
+    }
+  }
+
+  &--visible {
+    display: "";
+  }
+
+  &--visible-animation {
+    opacity: 1;
+    transition: opacity .3s cubic-bezier(.645, .045, .355, 1);
+  }
+
+  &--hide-animation {
+    opacity: 0;
+    transition: opacity .3s cubic-bezier(.645, .045, .355, 1);
+  }
+
+  &--hide {
+    display: none;
+  }
+
+  &__placeholder {
+    height: @navbar-height;
+    padding-top: @navbar-padding-top;
+    position: relative;
+    visibility: hidden;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    height: @navbar-height;
+    padding-top: @navbar-padding-top;
+    color: @navbar-color;
+    background-color: @navbar-bg-color;
+  }
+
+  &__left,
+  &__right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    box-sizing: border-box;
+  }
+
+  &__left {
+    left: 0;
+    display: flex;
+    align-items: center;
+    margin-left: @spacer-1;
+
+    &-arrow {
+      font-size: @navbar-left-arrow-size;
+    }
+  }
+
+  &__capsule {
+    position: relative;
+    box-sizing: border-box;
+    width: @navbar-capsule-width;
+    height: @navbar-capsule-height;
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      transform: scale(.5);
+      transform-origin: 0 0;
+      box-sizing: border-box;
+      border-radius: calc(@navbar-capsule-border-radius * 2);
+      border: 1px solid @navbar-capsule-border-color;
+    }
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &__center {
+    font-size: 18px;
+    text-align: center;
+    height: @navbar-height;
+    line-height: @navbar-height;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    &-title {
+      font-size: @navbar-title-font-size;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      font-weight: @navbar-title-font-weight;
+    }
+  }
+
+  &__right {
+    position: absolute;
+    right: 0;
+    box-sizing: border-box;
+    // width: @navbar-right;
+    display: flex;
+    align-items: center;
+    margin-right: @spacer-1;
+  }
+}

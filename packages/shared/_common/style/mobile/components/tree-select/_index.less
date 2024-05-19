@@ -1,0 +1,43 @@
+@import "../../base.less";
+
+@import "./_var.less";
+
+.@{prefix}-tree-select {
+  display: flex;
+  background-color: @tree-bg-color;
+
+  &__column {
+    width: @tree-colum-width;
+
+    &--left {
+      background: @tree-root-bg-color;
+    }
+
+    &--right {
+      flex: 1;
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      height: 0;
+      color: transparent;
+    }
+  }
+
+  &__item {
+    height: @tree-item-height;
+    line-height: @tree-item-height;
+    font-size: @tree-item-font-size;
+    padding-left: 16px;
+
+    &--active {
+      font-weight: 600;
+      color: @tree-item-active-color;
+    }
+  }
+
+  &-column {
+    width: 100%;
+  }
+}

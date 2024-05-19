@@ -1,0 +1,36 @@
+@import "../../base.less";
+
+@import "./_var.less";
+
+@import "../../mixins/_index.less";
+
+.@{prefix}-cell-group {
+  &__container {
+    background-color: @cell-group-background-color;
+  }
+
+  &__title {
+    padding: @cell-group-padding;
+    color: @cell-group-color;
+    background-color: @cell-group-background-color;
+    font-size: @cell-group-font-size;
+    line-height: @cell-group-line-height;
+  }
+
+  .@{prefix}-cell--bordered::after {
+    margin-left: 16px;
+  }
+}
+
+.border--top-bottom {
+  position: relative;
+
+  &::before {
+    z-index: 1;
+    .hairline-top();
+  }
+
+  &::after {
+    .hairline-bottom();
+  }
+}

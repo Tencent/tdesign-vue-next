@@ -1,0 +1,128 @@
+@import "../../base.less";
+
+@import "./_var.less";
+
+.@{prefix}-collapse {
+  &__title {
+    font-size: @collapse-content-font-size;
+    padding: @collapse-content-padding;
+    padding-top: @collapse-content-padding * 2;
+    color: #999;
+  }
+}
+
+.@{prefix}-collapse-panel {
+  height: @collapse-header-height;
+  overflow: hidden;
+  transition: height 200ms ease-in-out;
+  box-shadow: @collapse-shadow-bottom;
+  background-color: #fff;
+
+  &--active {
+    height: auto;
+  }
+
+  &--disabled {
+    pointer-events: none;
+
+    .@{prefix}-collapse-panel__content,
+    .@{prefix}-collapse-panel__header {
+      opacity: .3;
+    }
+  }
+
+  &__header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: @collapse-horizontal-padding;
+    height: @collapse-header-height;
+    color: @collapse-header-text-color;
+  }
+
+  &__header::before {
+    content: "";
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+    right: 0;
+    background: @gray-color-3;
+  }
+
+  &__header-right {
+    display: inline-flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  // &__header-extra {
+  // }
+
+  &__header-icon {
+    // 增大热区
+    height: 100%;
+    padding-left: 8px;
+    width: 25px;
+    padding-right: 8px;
+    color: rgba(0, 0, 0, 40%);
+  }
+
+  &__title {
+    font-size: @collapse-title-font-size;
+  }
+
+  &__extra {
+    font-size: @collapse-extra-font-size;
+  }
+
+  &__body {
+    box-shadow: @collapse-shadow-bottom;
+  }
+
+  &__content {
+    color: @collapse-content-text-color;
+    font-size: @collapse-content-font-size;
+    padding: @collapse-content-padding 0;
+    line-height: @collapse-content-line-height;
+  }
+
+  &__content:not(&-list__item) {
+    box-shadow: @collapse-shadow-bottom;
+  }
+
+  &-list__item:not(:last-child) {
+    padding-bottom: 0;
+  }
+
+  &-list__label {
+    display: inline-block;
+    color: @collapse-content-text-color;
+    font-size: @collapse-content-font-size;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+  }
+
+  &-list__label + &-list__content {
+    display: inline;
+    margin-left: 12px;
+    vertical-align: middle;
+  }
+
+  &-list__content {
+    color: @collapse-list-content-text-color;
+    font-size: @collapse-content-font-size;
+  }
+
+  &__body {
+    padding: 0 @collapse-horizontal-padding;
+  }
+
+  &__body-slot {
+    padding-top: @collapse-content-padding;
+    padding-bottom: @collapse-content-padding;
+  }
+}

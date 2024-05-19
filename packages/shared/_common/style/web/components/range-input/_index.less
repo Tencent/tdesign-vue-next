@@ -1,0 +1,147 @@
+@import "../../base.less";
+
+@import "./_mixin.less";
+
+@import "./_var.less";
+
+@import "../../mixins/_reset.less";
+
+.@{prefix}-range-input {
+  .reset;
+
+  width: 100%;
+  position: relative;
+  font: @range-input-font;
+  height: @range-input-height-default;
+  .range-input-base();
+
+  // 输入框状态
+  .range-input-status(success);
+  .range-input-status(warning);
+  .range-input-status(error);
+  .range-input-disabled();
+
+  // 输入框的前置、后置图标
+  .range-input-fix-position(prefix);
+  .range-input-fix-position(suffix);
+
+  // 输入框大小
+  &.@{prefix}-size-l {
+    height: @range-input-height-l;
+    font: @range-input-font-l;
+    padding-top: @comp-paddingTB-xs;
+    padding-bottom: @comp-paddingTB-xs;
+
+    .@{prefix}-input {
+      padding: 0 @comp-margin-s;
+    }
+  }
+
+  &.@{prefix}-size-s {
+    padding: @comp-paddingTB-xxs @comp-margin-xs;
+    height: @range-input-height-s;
+    font: @range-input-font-s;
+  }
+
+  &.@{prefix}-is-focused {
+    z-index: 1;
+    border-color: @range-input-border-color-default-focus;
+    box-shadow: @range-input-box-shadow-focus;
+  }
+
+  &__inner {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: @range-input-inner-gap;
+
+    .@{prefix}-input__wrap {
+      height: 100%;
+      border-radius: @border-radius-small;
+    }
+
+    .@{prefix}-input {
+      padding: @range-input-inner-padding;
+      height: 100%;
+      border: 0;
+      box-shadow: none;
+      font-size: inherit;
+      border-radius: @border-radius-small;
+
+      &:hover {
+        background-color: @bg-color-container-hover;
+      }
+
+      &__inner {
+        width: 100%;
+        height: 100%;
+        line-height: 1;
+      }
+
+      &.@{prefix}-is-focused {
+        background-color: @bg-color-component;
+      }
+    }
+  }
+
+  // 底部的额外消息
+  &__extra {
+    font: @range-input-extra-font;
+    color: @range-input-extra-color-default;
+  }
+
+  // 输入框后面的状态图标
+  &__status {
+    position: absolute;
+    right: @range-input-status-position-right;
+    top: 0;
+  }
+
+  &.@{prefix}-range-input--suffix .@{prefix}-input__clear {
+    opacity: 0;
+    visibility: hidden;
+    transition: @range-input-inner-transition;
+  }
+
+  &.@{prefix}-range-input--suffix:hover .@{prefix}-input__clear {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .@{prefix}-range-input__suffix-clear {
+    cursor: pointer;
+  }
+}
+
+.@{prefix}-range-input__prefix,
+.@{prefix}-range-input__suffix {
+  > .t-icon {
+    transition: color @anim-duration-base linear;
+    font-size: @range-input-inner-icon-font-size;
+    color: @text-color-placeholder;
+    flex-shrink: 0;
+  }
+}
+
+.@{prefix}-range-input-popup {
+  width: 100%;
+
+  &--visible {
+    .@{prefix}-range-input {
+      border-color: @range-input-border-color-default-hover;
+      box-shadow: @range-input-box-shadow-focus;
+
+      // 只有time-picker、date-picker特殊使用的suffix icon需要改变颜色 若后续有新增组件继续扩展这个枚举
+      .t-icon-time,
+      .t-icon-calendar {
+        color: @range-input-border-color-default-focus;
+      }
+
+      .@{prefix}-input {
+        &.@{prefix}-is-focused {
+          background-color: @bg-color-component;
+        }
+      }
+    }
+  }
+}

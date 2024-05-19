@@ -1,0 +1,49 @@
+.t-table-fixed-before() {
+  &::before {
+    z-index: -1;
+    background-color: inherit;
+  }
+}
+
+.t-table-fixed-after() {
+  &::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    content: "";
+    transition: box-shadow .3s;
+    pointer-events: none;
+    z-index: -2;
+  }
+}
+
+.t-table-cell-fixed-before-after() {
+  .@{prefix}-table__cell--fixed-left-last {
+    .t-table-fixed-before();
+    .t-table-fixed-after();
+
+    &::after {
+      right: 0;
+      transform: translateX(100%);
+    }
+  }
+
+  .@{prefix}-table__cell--fixed-right-first {
+    .t-table-fixed-before();
+    .t-table-fixed-after();
+
+    &::after {
+      left: 0;
+      transform: translateX(-100%);
+    }
+  }
+}
+
+.t-table-vertical-align(@pos) {
+  &.@{prefix}-vertical-align-@{pos} {
+    th,
+    td {
+      vertical-align: @pos;
+    }
+  }
+}

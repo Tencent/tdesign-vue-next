@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dialog</title>
+    <link rel="stylesheet/less" type="text/css" href="../../index.less">
+      <style>
+        .demo-wrap__name {
+          font-size: 36px;
+          line-height: 60px;
+          border-bottom: 1px solid #ddd;
+          background-color: #f2f2f2;
+          padding: 0 40px 10px;
+        }
+
+        .demo-wrap__info {
+          font-size: 14px;
+          color: #999;
+          line-height: initial;
+        }
+
+        .demo-item {
+          background-color: #f9f9f9;
+        }
+
+        .demo-item + .demo-item {
+          border-top: 1px solid #ddd;
+        }
+
+        .demo-item__title {
+          font-size: 16px;
+          color: #333;
+          line-height: 16px;
+          font-weight: bold;
+          padding: 20px 40px;
+        }
+
+        .demo-item__content {
+          padding: 0 20px 20px;
+        }
+
+        .demo-item__content .t-dialog {
+          position: relative;
+          top: unset;
+          transform: unset;
+          width: 320px;
+          margin: 0 auto 24px;
+          left: unset;
+          right: unset;
+        }
+      </style>
+</head>
+<!--
+  注意：此处ontouchstart事件可以激活移动端的CSS选择器:active ，主要用于按钮的触摸效果，设计组件需要带上
+-->
+<body ontouchstart>
+  <div class="demo-wrap">
+
+    <div class="demo-wrap__name">
+      <h1 class="">Dialog</h1>
+      <p class="demo-wrap__info">开发者：peunzhang</p>
+      <p class="demo-wrap__info">创建日期：2020-6-6</p>
+      <p class="demo-wrap__info">说明：对话框</p>
+    </div>
+    <div class="demo-item">
+      <h2 class="demo-item__title">反馈类对话框</h2>
+      <div class="demo-item__content">
+        <!-- 反馈类对话框 [[ -->
+        <div class="t-dialog">
+          <div class="t-dialog__header">
+            <div class="t-dialog__title">弹窗标题</div>
+          </div>
+          <div class="t-dialog__body">
+            告知当前状态、信息和解决方法
+          </div>
+          <div class="t-dialog__footer">
+            <a href="javascript:" class="t-dialog__btn t-dialog__btn--primary">我知道了</a>
+          </div>
+        </div>
+
+        <div class="t-dialog">
+          <div class="t-dialog__header">
+            <div class="t-dialog__title">最大高度样式</div>
+          </div>
+          <div class="t-dialog__body">
+            告知当前状态、信息和解决方法。告知当前状态、信息和解决方法。告知当前状态、信息和解决方法。告知当前状态、信息和解决方法。告知当前状态、信息和解决方法。告知当前状态、信息和解决方法。告知当前状态、信息和解决方法。告知当前状态、信息和解决方法。告知当前状态、信息和解决方法。告知当前状态、信息和解决方法。告知当前状态、信息和解决方法。告知当前状态、信息和解决方法。告知当前状态、信息和解决方法。告知当前状态、信息和解决方法。告知当前状态、信息和解决方法。告知当前状态、信息和解决方法。告知当前状态、信息和解决方法。告知当前状态、信息和解决方法。告知当前状态、信息和解决方法。告知当前状态、信息和解决方法。告知当前状态、信息和解决方法。告知当前状态、信息和解决方法。告知当前状态、信息和解决方法。告知当前状态、信息和解决方法。告知当前状态、信息和解决方法。告知当前状态、信息和解决方法。
+          </div>
+          <div class="t-dialog__footer">
+            <a href="javascript:" class="t-dialog__btn t-dialog__btn--primary">我知道了</a>
+          </div>
+        </div>
+
+        <div class="t-dialog">
+          <div class="t-dialog__body">
+            告知当前状态、信息和解决方法，等内容。描述文案尽可能控制在三行内
+          </div>
+          <div class="t-dialog__footer">
+            <a href="javascript:" class="t-dialog__btn t-dialog__btn--primary">我知道了</a>
+          </div>
+        </div>
+
+        <div class="t-dialog">
+          <div class="t-dialog__body">
+            最小高度样式，文案上下居中
+          </div>
+          <div class="t-dialog__footer">
+            <a href="javascript:" class="t-dialog__btn t-dialog__btn--primary">我知道了</a>
+          </div>
+        </div>
+        <!-- 反馈类对话框 ]] -->
+      </div>
+    </div>
+    <div class="demo-item">
+      <h2 class="demo-item__title">
+        确认类对话框</h2>
+      <div class="demo-item__content">
+        <!-- 确认类对话框 [[ -->
+        <div class="t-dialog">
+          <div class="t-dialog__header">
+            <div class="t-dialog__title">弹窗标题</div>
+          </div>
+          <div class="t-dialog__body">
+            告知当前状态、信息和解决方法，等内容。描述文案尽可能控制在三行内
+          </div>
+          <div class="t-dialog__footer">
+            <a href="javascript:" class="t-dialog__btn t-dialog__btn--default">辅助操作</a>
+            <a href="javascript:" class="t-dialog__btn t-dialog__btn--primary">主操作</a>
+          </div>
+        </div>
+
+        <div class="t-dialog">
+          <div class="t-dialog__header">
+            <div class="t-dialog__title">弹窗标题</div>
+          </div>
+          <div class="t-dialog__body">
+            告知当前状态、信息和解决方法，等内容。描述文案尽可能控制在三行内
+          </div>
+          <div class="t-dialog__footer">
+            <a href="javascript:" class="t-dialog__btn t-dialog__btn--default">辅助操作</a>
+            <a href="javascript:" class="t-dialog__btn t-dialog__btn--error">警告操作</a>
+          </div>
+        </div>
+        <!-- 确认类对话框 ]] -->
+      </div>
+    </div>
+    <div class="demo-item">
+      <h2 class="demo-item__title">输入对话框</h2>
+      <div class="demo-item__content">
+        <!-- 输入对话框 [[ -->
+        <div class="t-dialog">
+          <div class="t-dialog__header">
+            <div class="t-dialog__title">弹窗标题</div>
+          </div>
+          <div class="t-dialog__body">
+            <input class="t-dialog__input" type="text" placeholder="输入框提示文字">
+          </div>
+          <div class="t-dialog__footer">
+            <a href="javascript:" class="t-dialog__btn t-dialog__btn--default">辅助操作</a>
+            <a href="javascript:" class="t-dialog__btn t-dialog__btn--primary">主操作</a>
+          </div>
+        </div>
+
+        <div class="t-dialog">
+          <div class="t-dialog__header">
+            <div class="t-dialog__title">弹窗标题</div>
+          </div>
+          <div class="t-dialog__body">
+            <div class="t-dialog__text">有文本且有输入框，可以给文本标签添加类名：t-dialog__text</div>
+            <input class="t-dialog__input" type="text" placeholder="输入框提示文字">
+          </div>
+          <div class="t-dialog__footer">
+            <a href="javascript:" class="t-dialog__btn t-dialog__btn--default">辅助操作</a>
+            <a href="javascript:" class="t-dialog__btn t-dialog__btn--primary">主操作</a>
+          </div>
+        </div>
+        <!-- 输入对话框 ]] -->
+      </div>
+    </div>
+
+  </div>
+
+
+</body>
+</html>

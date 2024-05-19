@@ -1,0 +1,107 @@
+@import "../../../base.less";
+
+@import "./_var.less";
+
+.@{message} {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: @message-align;
+  min-height: @message-height;
+  align-items: center;
+  z-index: @message-z-index;
+  padding: @message-verticle-padding @message-horizontal-padding;
+  box-sizing: border-box;
+  border-radius: @message-border-radius;
+  line-height: 1em;
+  background-color: @message-bg-color;
+  box-shadow: @message-box-shadow;
+
+  &__text {
+    display: inline-block;
+    color: @message-content-font-color;
+    font-size: @message-content-font-size;
+    line-height: @message-content-height;
+  }
+
+  &__text-wrap {
+    flex: 1 1 auto;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__text-nowrap {
+    word-break: keep-all;
+    white-space: nowrap;
+  }
+
+  &__close-wrap {
+    display: flex;
+    align-items: center;
+  }
+
+  &--info {
+    color: @message-info-color;
+  }
+
+  &--success {
+    color: @message-success-color;
+  }
+
+  &--warning {
+    color: @message-warning-color;
+  }
+
+  &--error {
+    color: @message-error-color;
+  }
+
+  &__icon--left,
+  &__icon--right {
+    font-size: @message-icon-size;
+  }
+
+  &__icon--left:not(:empty) {
+    margin-right: @spacer;
+  }
+
+  &__icon--right {
+    color: @message-close-icon-color;
+  }
+
+  &__icon--right:not(:empty),
+  &__link {
+    flex: 0 0 auto;
+    margin-left: @spacer;
+  }
+}
+
+.message-enter-active {
+  animation: messageEnter .5s;
+}
+
+.message-leave-active {
+  animation: messageOut .2s;
+}
+
+@keyframes messageEnter {
+  from {
+    transform: translate3d(0, -@message-height, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes messageOut {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, -@message-height, 0);
+  }
+}

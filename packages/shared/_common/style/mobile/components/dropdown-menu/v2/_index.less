@@ -1,0 +1,46 @@
+@import "../../../base.less";
+
+@import "./_var.less";
+
+.@{dropdownMenu} {
+  position: relative;
+  display: flex;
+  height: 48px;
+  background: @dropdown-menu-bg-color;
+  .border(bottom);
+
+  &__item {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    padding: 0 @spacer;
+    position: relative;
+    overflow: hidden;
+    color: @dropdown-menu-color;
+
+    &--active {
+      color: @dropdown-menu-active-color;
+    }
+
+    &--disabled {
+      color: @dropdown-menu-disabled-color;
+    }
+  }
+
+  &__icon {
+    font-size: @dropdown-menu-icon-size;
+    transition: transform 240ms ease;
+
+    &--active {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: @dropdown-menu-font-size;
+  }
+}

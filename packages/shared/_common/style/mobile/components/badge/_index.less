@@ -1,0 +1,89 @@
+// 组件允许单个组件打包，因此默认引入公共基础样式
+
+@import "../../base.less";
+
+@import "./_var.less";
+
+@import "./_mixin.less";
+
+// <name> 替换为组件名
+.@{prefix}-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+
+  &__inner {
+    display: inline-block;
+    z-index: 100;
+    font-size: @badge-font-size;
+    color: @badge-text-color;
+    background-color: @badge-color;
+    min-width: @badge-height;
+    height: @badge-height;
+    padding: 0 4px;
+    text-align: center;
+    line-height: @badge-height;
+    font-weight: @badge-font-weight;
+  }
+
+  &--has-children {
+    transform: translate(50%, -50%);
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  &--dot {
+    height: @badge-dot-height;
+    min-width: @badge-dot-height;
+    border-radius: @radius-circle;
+    padding: 0;
+  }
+
+  &--small {
+    transform: translate(50%, -50%) scale(.75);
+  }
+
+  &--circle {
+    border-radius: @badge-circle-border-radius;
+  }
+
+  &--round {
+    border-radius: @badge-round-border-radius;
+  }
+
+  // 绸带外层样式，用于定位
+  &__ribbon--outer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+  }
+
+  &--ribbon {
+    transform: rotate(45deg);
+    padding: 0;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      bottom: 0;
+      left: -@badge-height;
+      border-bottom: @badge-height solid @badge-color;
+      border-left: @badge-height solid transparent;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      bottom: 0;
+      right: -@badge-height;
+      border-bottom: @badge-height solid @badge-color;
+      border-right: @badge-height solid transparent;
+    }
+  }
+}

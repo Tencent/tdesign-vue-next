@@ -1,0 +1,75 @@
+[
+  {
+    "name": "disabled",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "underline",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "theme",
+    "type": "enum",
+    "defaultValue": "default",
+    "options": [
+      {
+        "label": "default",
+        "value": "default"
+      },
+      {
+        "label": "primary",
+        "value": "primary"
+      },
+      {
+        "label": "danger",
+        "value": "danger"
+      },
+      {
+        "label": "warning",
+        "value": "warning"
+      },
+      {
+        "label": "success",
+        "value": "success"
+      }
+    ]
+  },
+  {
+    "name": "hover",
+    "type": "enum",
+    "defaultValue": "underline",
+    "options": [
+      {
+        "label": "underline",
+        "value": "underline"
+      },
+      {
+        "label": "color",
+        "value": "color"
+      }
+    ]
+  },
+  {
+    "name": "size",
+    "type": "enum",
+    "defaultValue": "medium",
+    "options": [
+      {
+        "label": "small",
+        "value": "small"
+      },
+      {
+        "label": "medium",
+        "value": "medium"
+      },
+      {
+        "label": "large",
+        "value": "large"
+      }
+    ]
+  }
+]

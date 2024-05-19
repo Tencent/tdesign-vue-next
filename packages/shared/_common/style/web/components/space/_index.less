@@ -1,0 +1,65 @@
+@import "../../base.less";
+
+@import "./_var.less";
+
+.@{prefix}-space {
+  display: inline-flex;
+
+  .@{prefix}-space-item {
+    width: inherit;
+  }
+
+  &-align-start {
+    align-items: flex-start;
+  }
+
+  &-align-end {
+    align-items: flex-end;
+  }
+
+  &-align-baseline {
+    align-items: baseline;
+  }
+
+  &-align-center {
+    align-items: center;
+  }
+
+  &-vertical {
+    flex-direction: column;
+
+    .@{prefix}-space-item-separator {
+      width: 100%;
+    }
+  }
+}
+
+.@{prefix}-space.@{prefix}-space--break-line {
+  flex-wrap: wrap;
+}
+
+.@{prefix}-space {
+  &.@{prefix}-space--polyfill {
+    display: flex;
+
+    &.@{prefix}-space-horizontal,
+    &.@{prefix}-space--break-line {
+      margin-left: calc(-1 * var(--td-space-column-gap, 0));
+    }
+
+    &.@{prefix}-space-vertical,
+    &.@{prefix}-space--break-line {
+      margin-top: calc(-1 * var(--td-space-row-gap, 0));
+    }
+  }
+
+  &.@{prefix}-space--polyfill.@{prefix}-space-horizontal > *,
+  &.@{prefix}-space--polyfill.@{prefix}-space--break-line > * {
+    margin-left: var(--td-space-column-gap);
+  }
+
+  &.@{prefix}-space--polyfill.@{prefix}-space-vertical > *,
+  &.@{prefix}-space--polyfill.@{prefix}-space--break-line > * {
+    margin-top: var(--td-space-row-gap);
+  }
+}

@@ -1,0 +1,336 @@
+@import "../../base.less";
+
+@import "./_var.less";
+
+@import "./_mixin.less";
+
+@import "../../mixins/_reset.less";
+
+.@{prefix}-calendar {
+  .reset;
+
+  border: 1px solid @calendar-border-color;
+  background-color: @calendar-bg;
+  border-radius: @border-radius-large;
+  .@{prefix}-is-disabled {
+
+    &.@{prefix}-calendar__table-body-cell {
+      &:hover {
+        cursor: not-allowed;
+      }
+    }
+
+    .@{prefix}-calendar__table-body-cell-display {
+      color: @calendar-body-cell-display-disabled-color;
+
+      &:hover {
+        box-shadow: none;
+      }
+    }
+  }
+
+  &--full {
+    min-width: @calendar-full-min-width;
+    padding: @calendar-full-padding;
+
+    .@{prefix}-calendar__control {
+      padding: @calendar-control-padding;
+    }
+
+    .@{prefix}-calendar__title {
+      font: @font-title-large;
+      flex: 1;
+    }
+
+    .@{prefix}-calendar__panel {
+      position: relative;
+      margin-top: @calendar-panel-margin-top;
+
+      &-title {
+        font: @calendar-head-title-font;
+        color: @calendar-title-color;
+        position: absolute;
+      }
+    }
+
+    .@{prefix}-calendar__table {
+      &-head-cell,
+      &-body-cell {
+        margin-right: @calendar-table-margin-right;
+        position: relative;
+      }
+
+      &-body-cell {
+        border-top: @calendar-border-size solid @calendar-body-cell-border-color;
+        padding: @calendar-body-cell-padding;
+        height: @calendar-body-cell-height;
+        line-height: @calendar-body-line-height;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-start;
+        margin-left: @calendar-body-cell-margin-left;
+        transition-duration: @calendar-transition-duration;
+        transition-property: @calendar-transition-property;
+        transition-timing-function: @calendar-transition-timing-function;
+
+        &-content {
+          padding: @calendar-body-cell-content-padding;
+          width: 100%;
+          box-sizing: border-box;
+        }
+
+        &.@{prefix}-is-checked {
+          background-color: @calendar-body-cell-check-bg-color;
+
+          &:hover {
+            background-color: @calendar-body-cell-check-bg-color;
+          }
+        }
+
+        &--now {
+          border-top: @calendar-border-size solid @calendar-highlight-color;
+          .@{prefix}-calendar__table-body-cell-display {
+            color: @calendar-body-cell-display-now-color;
+          }
+        }
+      }
+    }
+
+    .@{prefix}-calendar__footer {
+      height: @calendar-footer-height;
+      padding: @calendar-footer-padding;
+      border-top: 1px solid @calendar-border-color;
+    }
+  }
+
+  &--card {
+    width: @calendar-card-width;
+    border-radius: @border-radius-medium;
+    padding: @calendar-card-pannel-padding;
+    .@{prefix}-calendar__control {
+      padding: @calendar-card-calendar-control-padding;
+
+      &-section {
+        width: 100%;
+        justify-content: flex-start;
+
+        &-cell {
+          &:last-child {
+            flex: 1;
+            text-align: right;
+            display: block;
+          }
+        }
+      }
+    }
+
+    .@{prefix}-calendar__panel {
+
+      &.@{prefix}-calendar__panel--month {
+        height: @calendar-card-calendar-panel-height-month;
+        margin-top: @calendar-card-pannel-margin-top;
+      }
+
+      &.@{prefix}-calendar__panel--year {
+        height: @calendar-card-calendar-panel-height-year;
+        margin-top: @calendar-card-pannel-margin-top;
+        .@{prefix}-calendar__table {
+          &-body {
+            &-cell {
+              &-display {
+                min-width: @calendar-card-cell-value-size-year;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .@{prefix}-calendar__table {
+      width: @calendar-card-table-size;
+      height: @calendar-card-table-size;
+      display: flex;
+      flex-direction: column;
+      justify-self: start;
+      align-items: flex-start;
+
+      &-head,
+      &-body {
+        &-row {
+          flex: @calendar-body-row-flex;
+          background: @calendar-card-head-row-bg;
+        }
+
+        &-cell {
+          width: @calendar-card-cell-size;
+          height: @calendar-card-cell-size;
+          justify-content: center;
+          font: @calendar-card-body-cell-font;
+          box-sizing: border-box;
+
+          &-display {
+            width: @calendar-card-cell-value-size;
+            line-height: @calendar-card-cell-value-size;
+          }
+        }
+      }
+
+      &-body {
+        display: flex;
+        flex-direction: column;
+        justify-self: center;
+        align-items: center;
+        flex: 1;
+
+        &-cell {
+          justify-content: center;
+          align-items: center;
+
+          &:hover {
+            background-color: @calendar-bg;
+          }
+
+          &-display {
+            font: @calendar-card-body-cell-display-font;
+            padding-top: @calendar-card-body-cell-display-padding;
+            padding-bottom: @calendar-card-body-cell-display-padding;
+            text-align: center;
+            border-radius: @calendar-card-body-cell-display-border-radius;
+            transition: all @calendar-transition-duration @calendar-transition-timing-function;
+
+            &:hover {
+              box-shadow: inset 0 0 0 1px @calendar-highlight-color;
+              transition: box-shadow @calendar-transition-duration @calendar-transition-timing-function;
+            }
+          }
+
+          &--now {
+            .@{prefix}-calendar__table-body-cell-display {
+              color: @calendar-highlight-color;
+              background-color: @calendar-body-cell-check-bg-color;
+              position: relative;
+            }
+          }
+        }
+      }
+    }
+
+    .@{prefix}-is-checked {
+      .@{prefix}-calendar__table-body-cell-display {
+        background: @calendar-card-cell-value-check-bg;
+        border-radius: @calendar-card-body-cell-display-border-radius;
+        color: @calendar-card-cell-value-check-color;
+      }
+    }
+
+    .@{prefix}-calendar__footer {
+      height: @calendar-card-footer-height;
+      padding: @calendar-card-footer-padding;
+      border-top: 1px solid @calendar-border-color;
+    }
+  }
+
+  &__control {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    &-section {
+      height: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &-cell {
+        height: @calendar-section-height;
+        margin-right: @calendar-control-section-cell-margin-right;
+        display: flex;
+
+        .@{prefix}-radio-group {
+          vertical-align: bottom;
+        }
+
+        .@{prefix}-select {
+          display: inline;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  &__panel {
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  &__table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    height: 100%;
+
+    &-head,
+    &-body {
+      width: 100%;
+
+      &-row {
+        width: 100%;
+        display: flex;
+      }
+
+      &-cell {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        font: @calendar-table-cell-font;
+        color: @calendar-cell-font-color;
+        cursor: default;
+        padding: @calendar-table-cell-padding;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+    &-head {
+      margin-bottom: @calendar-head-margin-bottom;
+      display: block;
+
+      &-row {
+        padding-bottom: @calendar-header-row-padding;
+        background: @calendar-head-bg-color;
+      }
+
+      &-cell {
+        height: @calendar-head-cell-height;
+        font: @calendar-head-cell-font;
+        color: @calendar-head-cell-color;
+      }
+    }
+
+    &-body {
+      &-cell {
+        cursor: pointer;
+
+        &:hover {
+          background-color: @calendar-body-cell-hover-bg-color;
+          transition: background-color @calendar-transition-duration @calendar-transition-timing-function;
+        }
+
+        &-display {
+          font: @calendar-body-cell-display-font;
+          color: @calendar-title-color;
+        }
+      }
+    }
+  }
+}

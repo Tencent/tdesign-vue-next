@@ -1,0 +1,102 @@
+[
+  {
+    "name": "closable",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "disabled",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "shape",
+    "type": "enum",
+    "defaultValue": "square",
+    "options": [
+      {
+        "label": "square",
+        "value": "square"
+      },
+      {
+        "label": "round",
+        "value": "round"
+      },
+      {
+        "label": "mark",
+        "value": "mark"
+      }
+    ]
+  },
+  {
+    "name": "size",
+    "type": "enum",
+    "defaultValue": "medium",
+    "options": [
+      {
+        "label": "small",
+        "value": "small"
+      },
+      {
+        "label": "medium",
+        "value": "medium"
+      },
+      {
+        "label": "large",
+        "value": "large"
+      }
+    ]
+  },
+  {
+    "name": "theme",
+    "type": "enum",
+    "defaultValue": "default",
+    "options": [
+      {
+        "label": "default",
+        "value": "default"
+      },
+      {
+        "label": "primary",
+        "value": "primary"
+      },
+      {
+        "label": "warning",
+        "value": "warning"
+      },
+      {
+        "label": "danger",
+        "value": "danger"
+      },
+      {
+        "label": "success",
+        "value": "success"
+      }
+    ]
+  },
+  {
+    "name": "variant",
+    "type": "enum",
+    "defaultValue": "dark",
+    "options": [
+      {
+        "label": "dark",
+        "value": "dark"
+      },
+      {
+        "label": "light",
+        "value": "light"
+      },
+      {
+        "label": "outline",
+        "value": "outline"
+      },
+      {
+        "label": "light-outline",
+        "value": "light-outline"
+      }
+    ]
+  }
+]

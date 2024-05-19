@@ -1,0 +1,119 @@
+@import "../../../base.less";
+
+@import "./_var.less";
+
+.@{cascader} {
+  display: flex;
+  flex-direction: column;
+  background-color: @cascader-bg-color;
+  color: @cascader-title-color;
+  border-radius: 12px 12px 0 0;
+
+  --td-radio-icon-checked-color: @cascader-active-color;
+  --td-tab-item-active-color: @cascader-active-color;
+  --td-tab-track-color: @cascader-active-color;
+
+  &__close-btn {
+    right: 16px;
+    top: 12px;
+    position: absolute;
+  }
+
+  &__title {
+    position: relative;
+    font-weight: 700;
+    text-align: center;
+    line-height: 48px;
+    height: 48px;
+    font-size: @cascder-title-font-size;
+  }
+
+  &__content {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__options {
+    width: 100vw;
+    height: @cascader-options-height;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &-title {
+      margin-top: 20px;
+      color: @cascader-options-title-color;
+      font-size: 14px;
+      line-height: 22px;
+      padding-left: 16px;
+    }
+
+    &-content {
+      flex: 1;
+      height: 100%;
+      overflow: auto;
+      padding-left: 16px;
+    }
+
+    &-container {
+      display: flex;
+      transition: all ease .3s;
+    }
+  }
+
+  &__step {
+    display: flex;
+    align-items: center;
+    height: @cascader-step-height;
+
+    &s {
+      padding: 0 16px 5px;
+      .border(bottom, @cascader-border-color);
+    }
+
+    &-dot {
+      position: relative;
+      width: @cascader-step-dot-size;
+      height: @cascader-step-dot-size;
+      border-radius: 50%;
+      border: 1px solid @cascader-active-color;
+      box-sizing: border-box;
+
+      &:not(.@{cascader}__step-dot--last)::after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: calc(@cascader-step-dot-size + 7px);
+        height: 18px;
+        width: 1px;
+        background: @cascader-active-color;
+        transform: translateX(-50%);
+      }
+
+      &--active {
+        background: @cascader-active-color;
+        border-color: @cascader-active-color;
+      }
+    }
+
+    &-label {
+      padding-left: 16px;
+      font-size: 16px;
+
+      &--active {
+        color: @cascader-active-color;
+        font-weight: 600;
+      }
+    }
+
+    &-arrow {
+      color: @cascader-step-arrow-color;
+      margin-left: auto;
+    }
+  }
+}

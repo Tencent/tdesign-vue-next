@@ -1,0 +1,94 @@
+@import "../../../base.less";
+
+@import "./_var.less";
+
+/** dropdown-item */
+.@{item} {
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  bottom: 0;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    z-index: 11600;
+    overflow: hidden;
+  }
+
+  &__popup-host {
+    // 为了解决虚拟节点偶尔出现的问题
+    display: block;
+    width: 100%;
+    height: max-content;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  &__body {
+    flex: 1;
+    background: @dropdown-menu-bg-color;
+    overflow: auto;
+    max-height: @dropdown-body-max-height;
+
+    &--tree {
+      display: flex;
+      overflow: hidden;
+    }
+
+    &--multi {
+      padding-top: @spacer;
+      padding-bottom: @spacer;
+      overflow-y: auto;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    background: @dropdown-menu-bg-color;
+    position: relative;
+    padding: 16px;
+    .border(top, @component-border);
+
+    &-btn {
+      flex: 1;
+    }
+
+    &-btn + &-btn {
+      margin-left: 16px;
+    }
+  }
+
+  &__radio,
+  &__checkbox {
+    width: 100%;
+    overflow: scroll;
+    box-sizing: border-box;
+  }
+
+  &__checkbox {
+    &-group {
+      display: grid;
+      padding: 16px;
+      grid-gap: 12px;
+    }
+  }
+
+  /** 树形结构 */
+  &__tree {
+    &-item {
+      height: @tree-item-height;
+      line-height: @tree-item-height;
+      font-size: @tree-item-font-size;
+      padding-left: 16px;
+
+      &--active {
+        color: @tree-item-active-color;
+      }
+    }
+  }
+}

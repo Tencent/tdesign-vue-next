@@ -1,0 +1,237 @@
+@import "../../../base.less";
+
+@import "./_var.less";
+
+.@{prefix}-tabs {
+  position: relative;
+  font-size: @tab-font-size;
+  background: @tab-nav-bg-color;
+
+  &__wrapper {
+    display: flex;
+    //overflow: hidden;
+    background: @tab-nav-bg-color;
+
+    &--card {
+      background: @bg-color-secondarycontainer;
+
+      --td-tab-border-color: transparent;
+    }
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    color: @tab-item-color;
+    padding: 0 16px;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+
+    &--active {
+      font-weight: 600;
+      color: @tab-item-active-color;
+    }
+
+    &--disabled {
+      color: @tab-item-disabled-color;
+      cursor: not-allowed;
+    }
+
+    &--evenly {
+      flex: 1;
+    }
+
+    &--top,
+    &--bottom {
+      height: @tab-item-height;
+    }
+
+    &-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &--tag {
+        //width: 100%;
+        text-align: center;
+        padding: 0 16px;
+        line-height: @tab-item-tag-height;
+        border-radius: calc(@tab-item-tag-height / 2);
+        background-color: @tab-item-tag-bg;
+      }
+
+      &--active&--tag {
+        background-color: @tab-item-tag-active-bg;
+      }
+    }
+
+    &--tag:not(&--evenly) {
+      padding: 0 4px;
+
+      &:first-child {
+        margin-left: 8px;
+      }
+
+      &:last-child {
+        padding-right: 12px;
+      }
+    }
+
+    &--tag {
+      padding: 0 8px;
+    }
+
+    &--card {
+      &.@{item}--active {
+        background-color: @bg-color-container;
+        border-radius: 9px 9px 0 0;
+
+        &:first-child {
+          border-top-left-radius: 0;
+        }
+
+        &:last-child {
+          border-top-right-radius: 0;
+        }
+      }
+
+      &.@{item}--pre {
+        border-bottom-right-radius: 9px;
+      }
+    }
+
+    &-prefix,
+    &-suffix {
+      position: absolute;
+      bottom: 0;
+      width: 18px;
+      height: 18px;
+      background: @bg-color-container;
+
+      &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: @bg-color-secondarycontainer;
+      }
+    }
+
+    &-prefix {
+      right: 0;
+
+      &::after {
+        border-bottom-right-radius: 9px;
+      }
+    }
+
+    &-suffix {
+      left: 0;
+
+      &::after {
+        border-bottom-left-radius: 9px;
+      }
+    }
+  }
+
+  &__icon {
+    font-size: @tab-icon-size;
+    margin-right: 2px;
+  }
+
+  &__content {
+    overflow: hidden;
+  }
+
+  &__nav {
+    position: relative;
+    user-select: none;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  &__track {
+    position: absolute;
+    font-weight: 600;
+    z-index: 1;
+    transition-duration: .3s;
+    background-color: @tab-track-color;
+
+    &--top,
+    &--bottom {
+      left: 0;
+      bottom: .5px;
+      width: @tab-track-width;
+      height: @tab-track-thickness;
+      border-radius: @tab-track-radius;
+    }
+  }
+
+  &__scroll {
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &--card {
+      background: @bg-color-secondarycontainer;
+
+      --td-tab-border-color: transparent;
+    }
+
+    &--top,
+    &--bottom {
+      height: @tab-item-height;
+      position: relative;
+    }
+
+    &--top {
+      .border(bottom, @tab-border-color);
+    }
+  }
+
+  &__content-inner {
+    display: block;
+  }
+
+  &--top,
+  &--bottom {
+    flex-wrap: wrap;
+
+    .@{prefix}-tabs__content {
+      width: 100%;
+
+      &--animated .@{prefix}-tabs__content-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        will-change: left;
+        transition-property: transform;
+      }
+    }
+  }
+
+  &--bottom {
+    flex-direction: column-reverse;
+  }
+}
+
+&.@{prefix}-size-m {
+  font-size: @tab-font-medium;
+}
+
+&.@{prefix}-size-l {
+  font-size: @tab-font-large;
+}

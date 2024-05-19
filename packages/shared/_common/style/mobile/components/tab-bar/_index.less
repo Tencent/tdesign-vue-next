@@ -1,0 +1,174 @@
+// 组件允许单个组件打包，因此默认引入公共基础样式
+
+@import "../../base.less";
+
+@import "./_var.less";
+
+@import "../../mixins/_index.less";
+
+@tab-bar-cls: ~"@{prefix}-tab-bar";
+
+.@{tab-bar-cls} {
+  width: 100%;
+  height: @tab-bar-height;
+  box-sizing: border-box;
+  background-color: @tab-bar-bg-color;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  position: relative;
+
+  .@{tab-bar-cls}-item:first-child {
+    &::before {
+      border: unset;
+    }
+  }
+
+  &--bordered {
+    &::before {
+      .hairline-top(@color: @tab-bar-border-color);
+    }
+
+    &::after {
+      .hairline-bottom(@color: @tab-bar-border-color);
+    }
+  }
+
+  &--fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+.@{tab-bar-cls}-item {
+  height: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  box-sizing: border-box;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+
+  &.@{prefix}-no-border::before {
+    border: unset;
+  }
+
+  &::before {
+    .hairline-left(@color: @tab-bar-border-color);
+  }
+
+  &__content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: @tab-bar-color;
+
+    &.@{prefix}-is-checked {
+
+      .@{tab-bar-cls}-item__text,
+      .@{tab-bar-cls}-item__icon {
+        color: @tab-bar-active-color;
+      }
+
+      .@{tab-bar-cls}-item__icon-menu {
+        background-color: @tab-bar-active-color;
+      }
+    }
+
+    .@{tab-bar-cls}-item__icon {
+      font-size: 24px;
+      line-height: 1;
+      .@{prefix}-badge {
+        display: block;
+      }
+    }
+
+    .@{tab-bar-cls}-item__text {
+      font-size: 10px;
+      line-height: 18px;
+    }
+
+    &.@{tab-bar-cls}-item--onlytext {
+      .@{tab-bar-cls}-item__text {
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+      }
+    }
+  }
+
+  &__icon-menu {
+    width: 8px;
+    height: 1px;
+    background-color: #666;
+    position: relative;
+    margin-right: 4px;
+
+    &::before,
+    &::after {
+      display: block;
+      content: "";
+      position: absolute;
+      left: 0;
+      background-color: inherit;
+      width: inherit;
+      height: inherit;
+    }
+
+    &::before {
+      top: -4px;
+    }
+
+    &::after {
+      bottom: -4px;
+    }
+  }
+
+  &__spread {
+    position: absolute;
+    top: 0;
+    left: 7%;
+    width: 86%;
+    background-color: @tab-bar-bg-color;
+    transform: translate3d(0, calc(-100% - 16px), 0);
+    color: @tab-bar-color;
+
+    &::before {
+      display: block;
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border: 8px solid transparent;
+      border-top: 8px solid @tab-bar-bg-color;
+      transform: translate3d(-50%, 16px, 0);
+    }
+
+    &-item {
+      width: 100%;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+.spread-enter-active,
+.spread-leave-active {
+  transition-property: opacity, transform;
+  transition-duration: .3s;
+  transition-timing-function: ease;
+}
+
+.spread-enter-from,
+.spread-leave-to {
+  transform: translate3d(0, -100%, 0);
+  opacity: 0;
+}

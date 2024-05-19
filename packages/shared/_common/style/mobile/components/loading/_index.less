@@ -1,0 +1,155 @@
+@import "../../base.less";
+
+@import "./_var.less";
+
+@import "../../mixins/_index.less";
+
+.@{loading} {
+  display: flex;
+  align-items: center;
+  position: relative;
+  color: @loading-color;
+  font-size: @loading-size;
+
+  &--inherit-color {
+    color: inherit;
+  }
+
+  &--vertical {
+    flex-direction: column;
+
+    .@{prefix}-loading__text {
+      margin-left: 0;
+      margin-top: 8px;
+    }
+  }
+
+  &__bar {
+    pointer-events: none;
+  }
+
+  &__text {
+    color: @loading-text-color;
+    line-height: 20px;
+    margin-left: 6px;
+    font-size: @loading-text-font-size;
+
+    &--only {
+      margin-left: 0;
+    }
+  }
+
+  &__gradient {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+
+    &-conic {
+      width: 100%;
+      height: 100%;
+      background: conic-gradient(from 90deg at 50% 50%, #fff 0deg, currentColor 360deg);
+      border-radius: 50%;
+      /* stylelint-disable-next-line */
+      mask: radial-gradient(transparent calc(50% ~"-" .5px), #fff 50%);
+
+      /* stylelint-disable-next-line */
+      -webkit-mask: radial-gradient(transparent calc(50% ~"-" .5px), #fff 50%);
+    }
+  }
+
+  &__spinner {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    max-width: 100%;
+    height: 20px;
+    max-height: 100%;
+    vertical-align: middle;
+    animation: t-rotate .8s linear
+      infinite;
+    animation-timing-function: steps(12);
+
+    &--line {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      &::before {
+        display: block;
+        width: 2px;
+        height: 25%;
+        margin: 0 auto;
+        background-color: @loading-line-bg-color;
+        border-radius: 40%;
+        content: " ";
+      }
+    }
+  }
+
+  &__dot {
+    width: 20%;
+    height: 20%;
+    border-radius: 50%;
+    background-color: currentColor;
+    animation-duration: 1.8s;
+    animation-name: dotting;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+
+    &--paused {
+      animation-play-state: paused;
+    }
+
+    &s {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      animation: none;
+    }
+  }
+}
+
+.generate-spinner(@n, @i: 1) when (@i =< @n) {
+  .@{prefix}-loading__spinner--line-@{i} {
+    transform: rotate(@i * 30deg);
+    opacity: 1 - (.75 / 12) * (@i - 1);
+  }
+  .generate-spinner(@n, (@i + 1));
+}
+.generate-spinner(12);
+
+@keyframes t-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dotting {
+  0% {
+    opacity: .15;
+  }
+
+  1% {
+    opacity: .8;
+  }
+
+  33% {
+    opacity: .8;
+  }
+
+  34% {
+    opacity: .15;
+  }
+
+  100% {
+    opacity: .15;
+  }
+}

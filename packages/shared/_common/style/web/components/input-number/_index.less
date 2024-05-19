@@ -1,0 +1,357 @@
+// 组件允许单个组件打包，因此默认引入公共基础样式
+
+@import "../../base.less";
+
+@import "./_var.less";
+
+@import "./_mixin.less";
+
+@import "../../utilities/_animation.less";
+
+@import "../../mixins/_reset.less";
+
+@inputCls: ~"@{prefix}-input";
+@inputNumberCls: ~"@{prefix}-input-number";
+
+.@{inputNumberCls} {
+  .reset;
+
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 @input-number-button-width;
+  user-select: none;
+  width: @input-number-width;
+
+  &:not(&--column) {
+    > .@{prefix}-input-number__decrease + .@{prefix}-input__wrap {
+      margin-left: @comp-margin-xs;
+    }
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    appearance: none;
+  }
+
+  input[type="number"] {
+    appearance: textfield;
+  }
+
+  > .@{prefix}-input__tips {
+    position: absolute;
+    left: 0;
+  }
+
+  // 输入框和右置内容之间需要间距
+  input + .@{prefix}-input__suffix {
+    margin-left: @input-number-padding-horizontal-default;
+  }
+
+  .@{prefix}-input__prefix {
+    margin-right: @input-number-padding-horizontal-default;
+  }
+
+  .@{inputCls} {
+    color: @input-number-inner-color;
+  }
+
+  // autoWidth适配
+  &.@{inputNumberCls}--auto-width {
+    width: auto;
+
+    &.@{prefix}-is-controls-right {
+      min-width: auto;
+      width: auto;
+    }
+
+    .@{prefix}-input__inner {
+      min-width: 42px;
+    }
+  }
+
+  & &__decrease,
+  & &__increase {
+    width: @input-number-button-width;
+    height: @input-number-button-height;
+    position: absolute;
+    top: 0;
+    border: 1px solid @input-number-button-border-color;
+    box-sizing: border-box;
+    border-radius: @border-radius-default;
+    background-color: @input-number-button-bg-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    cursor: pointer;
+    transition: all @anim-time-fn-easing @anim-duration-base;
+
+    &:hover {
+      color: @input-number-button-color-hover;
+      border-color: @input-number-button-color-hover;
+
+      .t-icon {
+        color: @input-number-button-color-hover;
+      }
+    }
+
+    &:active {
+      color: @input-number-button-color-hover;
+      background-color: @bg-color-container-hover;
+    }
+
+    .t-icon {
+      position: relative;
+      z-index: 1;
+      font-size: @input-number-font-size;
+      color: @text-color-secondary;
+    }
+
+    &.@{prefix}-is-disabled {
+      color: @input-number-button-color-disabled;
+      cursor: no-drop;
+      background-color: @input-number-button-bg-color-disabled;
+
+      .t-icon {
+        color: @input-number-button-color-disabled;
+      }
+
+      &:hover {
+        border-color: @input-number-button-border-color;
+
+        .t-icon {
+          color: @input-number-button-color-disabled;
+        }
+      }
+
+      &::placeholder {
+        color: @input-number-inner-color-disabled;
+      }
+    }
+  }
+
+  & &__decrease {
+    left: 0;
+  }
+
+  & &__increase {
+    right: -8px;
+  }
+}
+
+.@{inputNumberCls}.@{prefix}-is-disabled {
+  .@{inputCls} {
+    cursor: no-drop;
+    background-color: @input-number-bg-color-disabled;
+    color: @input-number-inner-color-disabled;
+
+    &:hover,
+    &:focus,
+    &:active {
+      border-color: @input-number-button-border-color;
+    }
+  }
+
+  .@{inputNumberCls}__decrease,
+  .@{inputNumberCls}__increase {
+    color: @input-number-button-color-disabled;
+    cursor: no-drop;
+    background-color: @input-number-button-bg-color-disabled;
+
+    .t-icon {
+      color: @text-color-secondary;
+    }
+  }
+}
+
+.@{inputNumberCls}.@{prefix}-size-s {
+  width: @input-number-width-s;
+  padding: 0 @input-number-button-width-s;
+
+  .@{inputCls} {
+    font-size: @font-size-s;
+    height: @input-number-inner-height-s;
+    line-height: @input-number-inner-height-s;
+  }
+
+  .@{inputNumberCls}__decrease,
+  .@{inputNumberCls}__increase {
+    font-size: @input-number-font-size-s;
+    width: @input-number-button-width-s;
+    height: @input-number-button-height-s;
+  }
+}
+
+.@{inputNumberCls}.@{prefix}-size-l {
+  width: @input-number-width-l;
+  padding: 0 @input-number-button-width-l;
+
+  .@{inputCls} {
+    height: @input-number-inner-height-l;
+    line-height: @input-number-inner-height-l;
+  }
+
+  .@{inputNumberCls}__decrease,
+  .@{inputNumberCls}__increase {
+    font-size: @input-number-font-size-l;
+    width: @input-number-button-width-l;
+    height: @input-number-button-height-l;
+  }
+
+  &.@{prefix}-is-controls-right {
+    .@{inputCls} {
+      height: @input-number-inner-height-l;
+      line-height: @input-number-inner-height-l;
+      padding-right: calc(@input-number-right-button-width-l + @input-number-padding-horizontal-default);
+    }
+
+    .@{inputNumberCls}__decrease,
+    .@{inputNumberCls}__increase {
+      width: @input-number-right-button-width-l;
+      font-size: @input-number-right-font-size-l;
+    }
+  }
+
+  .@{prefix}-input--prefix {
+    font: @font-body-large;
+    padding: 0 @comp-paddingLR-m;
+  }
+}
+
+.@{inputNumberCls}.@{inputNumberCls}--normal {
+  padding: 0;
+  border-radius: @border-radius-default;
+
+  &.@{prefix}-is-disabled {
+    cursor: no-drop;
+    color: @input-number-button-color-disabled;
+
+    &:hover {
+      .@{inputCls} {
+        border-color: @input-number-button-border-color;
+      }
+    }
+
+    &::placeholder {
+      color: @input-number-inner-color-disabled;
+    }
+
+    .@{inputCls}:focus {
+      box-shadow: none;
+    }
+  }
+}
+.@{inputNumberCls}.@{prefix}-is-controls-right {
+  width: @input-number-right-width;
+  padding: 0;
+
+  &:hover {
+    .@{inputNumberCls}__decrease,
+    .@{inputNumberCls}__increase {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .@{inputCls} {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding-right: calc(@input-number-right-button-width + @input-number-padding-horizontal-default);
+    border-radius: @border-radius-default;
+  }
+
+  .@{inputNumberCls}__decrease,
+  .@{inputNumberCls}__increase {
+    width: @input-number-right-button-width;
+    height: @input-number-button-column-height;
+    border: 0;
+    left: initial;
+    top: initial;
+    right: 1px;
+    border-radius: 0;
+    background: @input-number-right-button-bg-color;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 2;
+
+    .t-icon {
+      font-size: @input-number-right-font-size;
+    }
+
+    &:hover {
+      background: @input-number-right-button-hover-bg-color;
+
+      .t-icon {
+        color: @text-color-primary;
+      }
+    }
+
+    &.@{prefix}-is-disabled {
+      color: @input-number-button-color-disabled;
+      cursor: no-drop;
+      background-color: @input-number-button-bg-color-disabled;
+
+      .t-icon {
+        color: @input-number-button-color-disabled;
+      }
+
+      &:hover {
+        border-color: @input-number-button-border-color;
+
+        .t-icon {
+          color: @input-number-button-color-disabled;
+        }
+      }
+
+      &::placeholder {
+        color: @input-number-inner-color-disabled;
+      }
+    }
+  }
+
+  .@{inputNumberCls}__increase {
+    top: 1px;
+    border-top-right-radius: calc(@border-radius-default - 1px);
+  }
+
+  .@{inputNumberCls}__decrease {
+    top: calc(@input-number-button-column-height + 3px);
+    border-bottom-right-radius: calc(@border-radius-default - 1px);
+  }
+
+  &.@{prefix}-size-l {
+    width: @input-number-right-width-l;
+
+    .@{inputNumberCls}__increase,
+    .@{inputNumberCls}__decrease {
+      height: @input-number-button-column-height-l;
+    }
+    .@{inputNumberCls}__decrease {
+      top: calc(@input-number-button-column-height-l + 3px);
+    }
+  }
+
+  &.@{prefix}-size-s {
+    width: @input-number-right-width-s;
+
+    .@{inputNumberCls}__increase,
+    .@{inputNumberCls}__decrease {
+      height: @input-number-button-column-height-s;
+    }
+    .@{inputNumberCls}__decrease {
+      top: calc(@input-number-button-column-height-s + 3px);
+    }
+  }
+}
+
+.@{inputNumberCls}--row {
+  .@{prefix}-input__wrap {
+    width: initial;
+    margin-right: @comp-margin-xs;
+  }
+  .@{prefix}-input-number__increase {
+    right: 0;
+  }
+}

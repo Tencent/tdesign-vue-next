@@ -1,0 +1,60 @@
+// Vitest Snapshot v1
+
+exports[`Textarea > $attrs > textarea attrs should pass to textarea element 1`] = `
+<div
+  class="t-textarea"
+  maxlength="20"
+>
+  <textarea
+    class="t-textarea__inner"
+    maxlength="20"
+    name="description"
+    placeholder="please text"
+    unselectable="off"
+  />
+</div>
+`;
+
+exports[`Textarea > :props > :disabled 1`] = `
+<div
+  class="t-textarea t-is-disabled"
+>
+  <textarea
+    class="t-textarea__inner t-is-disabled"
+    disabled="disabled"
+    unselectable="off"
+  />
+</div>
+`;
+
+exports[`Textarea > :props > :maxlength 1`] = `
+<div
+  class="t-textarea"
+>
+  <textarea
+    class="t-textarea__inner"
+    unselectable="off"
+  />
+  <div
+    class="t-textarea__info_wrapper t-textarea__info_wrapper_align"
+  >
+    <span
+      class="t-textarea__limit"
+    >
+      0/10
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Textarea > :props > :readonly 1`] = `
+<div
+  class="t-textarea t-is-readonly"
+>
+  <textarea
+    class="t-textarea__inner"
+    readonly="readonly"
+    unselectable="on"
+  />
+</div>
+`;

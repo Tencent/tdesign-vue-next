@@ -1,0 +1,101 @@
+// Vitest Snapshot v1
+
+exports[`Submenu > props > :disabled 1`] = `
+<li
+  class="t-submenu t-is-disabled"
+/>
+`;
+
+exports[`Submenu > props > :name 1`] = `
+<li
+  class="t-submenu"
+  name="1"
+/>
+`;
+
+exports[`Submenu > slot > <default> 1`] = `
+<li
+  class="t-submenu"
+>
+  <div
+    class="t-menu__item t-menu__item-spacer t-menu__item-spacer--right"
+  >
+    <span
+      class="t-menu__content"
+    />
+    <svg
+      class="t-fake-arrow"
+      fill="none"
+      height="16"
+      style="transform: rotate(0deg);"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+        stroke="black"
+        stroke-opacity="0.9"
+        stroke-width="1.3"
+      />
+    </svg>
+  </div>
+  <transition-stub
+    name="t-slide-down"
+  >
+    <ul
+      class="t-menu__sub"
+      style="--padding-left: 44px; display: none;"
+    >
+      <div />
+    </ul>
+  </transition-stub>
+</li>
+`;
+
+exports[`Submenu > slot > <icon> 1`] = `
+<li
+  class="t-submenu"
+>
+  <div
+    class="t-menu__item t-menu__item-spacer t-menu__item-spacer--right"
+  >
+    <div />
+    <span
+      class="t-menu__content"
+    />
+  </div>
+  <transition-stub
+    name="t-slide-down"
+  >
+    <ul
+      class="t-menu__sub"
+      style="--padding-left: 44px; display: none;"
+    />
+  </transition-stub>
+</li>
+`;
+
+exports[`Submenu > slot > <title> 1`] = `
+<li
+  class="t-submenu"
+>
+  <div
+    class="t-menu__item t-menu__item-spacer t-menu__item-spacer--right"
+  >
+    <span
+      class="t-menu__content"
+    >
+      <div />
+    </span>
+  </div>
+  <transition-stub
+    name="t-slide-down"
+  >
+    <ul
+      class="t-menu__sub"
+      style="--padding-left: 44px; display: none;"
+    />
+  </transition-stub>
+</li>
+`;

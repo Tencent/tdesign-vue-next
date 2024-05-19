@@ -1,0 +1,76 @@
+@import "../../../base.less";
+
+@import "./_var.less";
+
+@import "../../../utilities/_transition.less";
+
+.@{popup} {
+  position: fixed;
+  z-index: 11500;
+  max-height: 100vh;
+  transition: all 300ms ease;
+  background-color: @popup-bg-color;
+  box-sizing: border-box;
+
+  &__content {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    line-height: 1;
+  }
+
+  &--top {
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-bottom-left-radius: @popup-border-radius;
+    border-bottom-right-radius: @popup-border-radius;
+  }
+
+  &--bottom {
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    border-top-left-radius: @popup-border-radius;
+    border-top-right-radius: @popup-border-radius;
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  &--left {
+    top: 0;
+    left: 0;
+    height: 100vh;
+  }
+
+  &--right {
+    top: 0;
+    right: 0;
+    height: 100vh;
+  }
+
+  &--center {
+    top: 50%;
+    left: 50%;
+    transform: scale(1) translate3d(-50%, -50%, 0);
+    border-radius: @popup-border-radius;
+  }
+
+  &.@{prefix}-dialog-enter,
+  &.@{prefix}-dialog-leave-to {
+    &.@{popup}--center {
+      transform: scale(.6) translate3d(-50%, -50%, 0);
+      opacity: 0;
+    }
+  }
+
+  &-overflow-hidden {
+    overflow: hidden;
+  }
+}

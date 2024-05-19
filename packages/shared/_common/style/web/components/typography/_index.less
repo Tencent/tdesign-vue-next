@@ -1,0 +1,117 @@
+@import "../../base.less";
+
+@import "./_var.less";
+
+.@{prefix}-typography {
+  color: @typography-text-primary-color;
+  font: @font-body-medium;
+  margin: @comp-margin-m 0;
+
+  // 标题
+  h1& {
+    font: @typography-h1-font;
+    margin-top: @comp-margin-xxxxl;
+    margin-bottom: @comp-margin-l;
+  }
+
+  h2& {
+    font: @typography-h2-font;
+    margin-top: @comp-margin-xxxl;
+    margin-bottom: @comp-margin-l;
+  }
+
+  h3& {
+    font: @typography-h3-font;
+    margin-top: @comp-margin-xxl;
+    margin-bottom: @comp-margin-m;
+  }
+
+  h4& {
+    font: @typography-h4-font;
+    margin-top: @comp-margin-xl;
+    margin-bottom: @comp-margin-m;
+  }
+
+  h5& {
+    font: @typography-h5-font;
+    margin-top: @comp-margin-l;
+    margin-bottom: @comp-margin-m;
+  }
+
+  h6& {
+    font: @typography-h6-font;
+  }
+
+  // 加粗样式
+  strong {
+    font-weight: @typography-text-strong;
+  }
+
+  // 标记样式
+  mark {
+    background-color: @typography-text-mark-color;
+  }
+
+  // 代码样式
+  code {
+    border-radius: @border-radius-default;
+    border: 1px solid @component-border;
+    margin: 0 @comp-margin-xs;
+    background-color: @bg-color-secondarycontainer;
+    padding: 1px @comp-paddingLR-s;
+    transition: background-color .2s;
+    white-space: nowrap;
+
+    &:hover {
+      border-radius: @border-radius-default;
+      border: 1px solid @component-border;
+      background-color: @bg-color-secondarycontainer-hover;
+    }
+  }
+
+  // 键盘样式
+  kbd {
+    border-radius: @border-radius-default;
+    border: 1px solid @component-border;
+    margin: 0 @comp-margin-xs;
+    background-color: @bg-color-secondarycontainer;
+    padding: 1px @comp-paddingLR-s;
+  }
+
+  // 不可选样式
+  &--disabled {
+    color: @typography-text-disabled-color;
+    cursor: not-allowed;
+  }
+
+  // 主题样式
+  &--success {
+    color: @typography-text-success-color;
+  }
+
+  &--warning {
+    color: @typography-text-warning-color;
+  }
+
+  &--error {
+    color: @typography-text-error-color;
+  }
+
+  &--secondary {
+    color: @typography-text-secondary-color;
+  }
+
+  &-ellipsis-symbol,
+  .t-icon-copy {
+    color: @typography-icon-color;
+    cursor: pointer;
+
+    &:hover {
+      color: @typography-icon-color-hover;
+    }
+  }
+
+  .t-icon-checked {
+    color: @success-color;
+  }
+}

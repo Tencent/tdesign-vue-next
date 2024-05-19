@@ -1,0 +1,181 @@
+// 组件允许单个组件打包，因此默认引入公共基础样式
+
+@import "../../base.less";
+
+@import "./_var.less";
+
+@import "./_mixin.less";
+
+@import "../../mixins/_layout.less";
+
+@import "../../mixins/_reset.less";
+
+.@{prefix}-time-picker,
+.@{prefix}-time-range-picker {
+  width: @time-picker-width;
+  background: @time-picker-background-color-common;
+  display: inline-block;
+  position: relative;
+  font: @time-picker-font;
+  color: @time-picker-input-text-color;
+  .reset;
+
+  &.@{prefix}-is-disabled {
+    cursor: not-allowed;
+  }
+
+  & > *:focus,
+  & > *:active {
+    outline: 0;
+  }
+
+  &__group {
+    position: relative;
+
+    &.active {
+      border: @time-picker-input-border-active;
+      box-shadow: @time-picker-input-shadow-active;
+
+      & + .@{prefix}-time-picker__icon-wrap > .@{prefix}-time-picker__icon-clear {
+        display: block;
+      }
+    }
+
+    &-text {
+      color: @time-picker-input-text-color;
+    }
+
+    input {
+      cursor: pointer;
+    }
+  }
+}
+
+.@{prefix}-time-range-picker {
+  width: auto;
+}
+
+.@{prefix}-time-picker__panel {
+  width: @time-picker-panel-width;
+  background: @time-picker-background-color-common;
+  border-radius: @border-radius-default;
+  display: inline-block;
+  position: relative;
+  font: @time-picker-font;
+
+  --timePickerPanelOffsetTop: 15;
+  --timePickerPanelOffsetBottom: 21;
+
+  &-body {
+    width: 100%;
+    height: @time-picker-panel-body-height;
+    position: relative;
+    user-select: none;
+    // margin: @time-picker-panel-body-margin;
+
+    &-active-mask {
+      position: absolute;
+      top: 50%;
+      height: @time-picker-panel-item-height;
+      width: 100%;
+      display: flex;
+
+      > div {
+        flex: 1;
+        transform: translateY(
+          calc(0px - (calc(@time-picker-panel-item-height + @time-picker-panel-item-margin-vertical) /2))
+        );
+        height: @time-picker-panel-item-height;
+        background-color: @time-picker-panel-item-background-color-current;
+        margin: @time-picker-panel-item-margin;
+        border-radius: @time-picker-panel-item-border-radius;
+      }
+    }
+    .flex-center;
+
+    &-scroll {
+      flex: 1;
+      height: 100%;
+      overflow-y: scroll;
+      text-align: center;
+      position: relative;
+      .list-style-none();
+
+      &::-webkit-scrollbar {
+        width: 0; // 不展示滚动
+      }
+
+      &::after,
+      &::before {
+        display: block;
+        height: 50%;
+        content: "";
+      }
+
+      &::before {
+        height: calc(50% - var(--timePickerPanelOffsetTop, 0) * 1px);
+      }
+
+      &::after {
+        height: calc(50% - var(--timePickerPanelOffsetBottom, 0) * 1px);
+      }
+
+      &:last-child {
+        border-right: 0;
+      }
+
+      &-item {
+        height: @time-picker-panel-item-height;
+        font: @time-picker-font;
+        line-height: @time-picker-panel-item-height;
+        color: @time-picker-panel-item-color;
+        margin: @time-picker-panel-item-margin;
+        border-radius: @time-picker-panel-item-border-radius;
+        text-align: center;
+        cursor: pointer;
+        transition: @anim-duration-base linear;
+
+        &:not(&.@{prefix}-is-current):not(&.@{prefix}-is-disabled):hover {
+          color: @time-picker-panel-item-color-hover;
+        }
+
+        &:not(&.@{prefix}-is-current):not(&.@{prefix}-is-disabled):active {
+          background-color: @time-picker-panel-item-background-color-active;
+        }
+
+        &.@{prefix}-is-disabled {
+          color: @text-color-disabled;
+          cursor: not-allowed;
+        }
+
+        &.@{prefix}-is-hidden {
+          display: none;
+          cursor: not-allowed;
+        }
+
+        &.@{prefix}-is-current {
+          color: @time-picker-panel-item-color-current;
+        }
+      }
+    }
+  }
+}
+
+.@{prefix}-time-picker__panel-section {
+  &-body {
+    padding: @time-picker-panel-section-padding;
+  }
+
+  &-footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse; // 确定按钮一定有 此刻按钮不一定有
+    align-items: center;
+    background-color: @time-picker-background-color-common;
+    position: relative;
+    border-top: 1px solid @border-level-1-color;
+    box-sizing: border-box;
+    padding: @time-picker-panel-footer-padding;
+  }
+}

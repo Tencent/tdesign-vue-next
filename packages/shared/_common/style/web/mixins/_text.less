@@ -1,0 +1,29 @@
+@tips-text-default: @text-color-placeholder;
+@tips-text-error: @error-color;
+@tips-text-warning: @warning-color;
+@tips-text-success: @success-color;
+
+.text-ellipsis() {
+  white-space: nowrap;
+  word-wrap: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text-ellipsis-multi-line(@line: 2) {
+  overflow: hidden;
+
+  /* stylelint-disable-next-line */
+  display: -webkit-box;
+  -webkit-line-clamp: @line;
+
+  /* stylelint-disable-next-line */
+  -webkit-box-orient: vertical;
+}
+
+.tips-text-status(@status) {
+  .@{prefix}-tips.@{prefix}-is-@{status} {
+    color: @@tipsColor;
+    @tipsColor: "tips-text-@{status}";
+  }
+}

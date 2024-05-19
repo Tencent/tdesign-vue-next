@@ -1,0 +1,17 @@
+.message() {
+  width: fit-content;
+  outline: 0;
+  border-radius: @msg-border-radius;
+  background-color: @msg-color-block;
+  box-shadow: @msg-shadow;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  color: @msg-color-text;
+  .message-size(@msg-font-default, @msg-padding-vertical-default, @msg-padding-horizontal-default);
+}
+
+.message-size(@font-size, @padding-vertical, @padding-horizontal) {
+  font: @font-size;
+  padding: @padding-vertical @padding-horizontal;
+}

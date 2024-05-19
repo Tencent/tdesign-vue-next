@@ -1,0 +1,289 @@
+// 组件允许单个组件打包，因此默认引入公共基础样式
+
+@import "../../base.less";
+
+@import "./_var.less";
+
+@import "./_mixin.less";
+
+@import "../../mixins/_reset.less";
+
+/* Swiper */
+.@{prefix}-swiper {
+  .reset;
+
+  position: relative;
+
+  &__wrap {
+    display: block;
+    position: relative;
+    height: 100%;
+  }
+
+  &__content {
+    position: relative;
+    z-index: @swiper-z-index-default;
+    overflow: hidden;
+  }
+
+  &__container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    z-index: @swiper-z-index-default;
+
+    &__item {
+      flex: 0 0 auto;
+      width: 100%;
+      height: 100%;
+      display: inline-block;
+    }
+  }
+}
+
+.@{prefix}-swiper__arrow {
+  display: flex;
+  align-items: center;
+
+  svg.t-icon {
+    width: @swiper-arrow-size-base * 2.5;
+    height: @swiper-arrow-size-base * 2.5;
+
+    &::before {
+      font-size: @swiper-arrow-icon-font-size-medium;
+    }
+  }
+}
+
+.@{prefix}-swiper__arrow--default {
+  .swiper-arrow(left);
+  .swiper-arrow(right);
+}
+
+// 卡片模式
+.@{prefix}-swiper-card {
+  .@{prefix}-swiper__container {
+    display: block;
+    .@{prefix}-is-active {
+      z-index: 2;
+    }
+  }
+  .@{prefix}-swiper__card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 41.5%;
+    height: 100%;
+    z-index: 0;
+  }
+}
+
+// fade模式
+.@{prefix}-swiper-fade {
+  .@{prefix}-swiper__container {
+    display: block;
+  }
+  .@{prefix}-swiper__fade {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+// 导航器，horizontal默认
+.@{prefix}-swiper__navigation {
+  .position-center(x);
+
+  display: flex;
+  flex-direction: row;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  z-index: @swiper-navigation-z-index-default;
+
+  > li {
+    flex: 1 0 auto;
+    list-style-type: none;
+    display: flex;
+  }
+  .@{prefix}-swiper__arrow {
+    svg.@{prefix}-icon {
+      width: @swiper-arrow-width-small;
+      height: @swiper-arrow-width-small;
+    }
+  }
+}
+
+// 条状
+.@{prefix}-swiper__navigation-bars {
+  .swiper-navigation-item(bars, inside, horizontal);
+}
+
+// 点条式
+.@{prefix}-swiper__navigation-dots-bar {
+  .swiper-navigation-item(dots-bar, inside, horizontal);
+}
+
+// 点式
+.@{prefix}-swiper__navigation-dots {
+  .swiper-navigation-item(dots, inside, horizontal);
+}
+
+// 分式
+.@{prefix}-swiper__navigation--fraction {
+  .swiper-navigation-fraction(medium);
+}
+
+// vertical模式
+.@{prefix}-swiper--vertical {
+  .@{prefix}-swiper__container {
+    flex-direction: column;
+  }
+  .@{prefix}-swiper__navigation {
+    .position-center(y);
+
+    left: auto;
+    right: 0;
+    bottom: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .@{prefix}-swiper__navigation-bars {
+    .swiper-navigation-item(bars, inside, vertical);
+  }
+  // 点条式
+  .@{prefix}-swiper__navigation-dots-bar {
+    .swiper-navigation-item(dots-bar, inside, vertical);
+  }
+  // 点式
+  .@{prefix}-swiper__navigation-dots {
+    .swiper-navigation-item(dots, inside, vertical);
+  }
+}
+
+// outside模式
+.@{prefix}-swiper--outside {
+
+  .@{prefix}-swiper__navigation {
+    bottom: -@swiper-navigation-item-margin-medium * 6;
+  }
+
+  .@{prefix}-swiper__navigation--fraction {
+    .swiper-navigation-fraction();
+  }
+
+  .@{prefix}-swiper__navigation-bars {
+    .swiper-navigation-item(bars, outside, horizontal);
+  }
+
+  &.@{prefix}-swiper--vertical {
+    .@{prefix}-swiper__navigation {
+      bottom: auto;
+      right: -@swiper-navigation-item-margin-medium * 6;
+    }
+
+    .@{prefix}-swiper__navigation--fraction {
+      .swiper-navigation-fraction();
+    }
+
+    .@{prefix}-swiper__navigation-bars {
+      .swiper-navigation-item(bars, outside, vertical);
+    }
+  }
+}
+
+// inside模式
+.@{prefix}-swiper--inside {
+  .@{prefix}-swiper__navigation {
+    bottom: 0;
+  }
+  .@{prefix}-swiper__navigation--fraction {
+    .swiper-navigation-fraction();
+  }
+}
+
+// large尺寸
+.@{prefix}-swiper--large {
+  .@{prefix}-swiper__arrow {
+    i.t-icon {
+      &::before {
+        font-size: @swiper-arrow-icon-font-size-large;
+      }
+    }
+  }
+  .@{prefix}-swiper__arrow--default {
+    .swiper-arrow(left, large);
+    .swiper-arrow(right,large);
+  }
+  .@{prefix}-swiper__navigation-bars {
+    .swiper-navigation-item(bars, inside, horizontal,large);
+  }
+  .@{prefix}-swiper__navigation--fraction {
+    .swiper-navigation-fraction(large);
+  }
+  &.@{prefix}-swiper--outside {
+    .@{prefix}-swiper__navigation {
+      bottom: -@swiper-navigation-item-margin-large * 6;
+    }
+    .@{prefix}-swiper__navigation-bars {
+      .swiper-navigation-item(bars, outside, horizontal,large);
+    }
+  }
+  &.@{prefix}-swiper--vertical {
+    .@{prefix}-swiper__navigation-bars {
+      .swiper-navigation-item(bars, inside, vertical,large);
+    }
+    &.@{prefix}-swiper--outside {
+      .@{prefix}-swiper__navigation {
+        right: -@swiper-navigation-item-margin-large * 6;
+      }
+      .@{prefix}-swiper__navigation-bars {
+        .swiper-navigation-item(bars, outside, vertical,large);
+      }
+    }
+  }
+}
+
+// small尺寸
+.@{prefix}-swiper--small {
+  .@{prefix}-swiper__arrow {
+    i.t-icon {
+      &::before {
+        font-size: @swiper-arrow-icon-font-size-small;
+      }
+    }
+  }
+  .@{prefix}-swiper__arrow--default {
+    .swiper-arrow(left, small);
+    .swiper-arrow(right,small);
+  }
+  .@{prefix}-swiper__navigation-bars {
+    .swiper-navigation-item(bars, inside, horizontal,small);
+  }
+  .@{prefix}-swiper__navigation--fraction {
+    .swiper-navigation-fraction(small);
+  }
+  &.@{prefix}-swiper--outside {
+    .@{prefix}-swiper__navigation {
+      bottom: -@swiper-navigation-item-margin-small * 6;
+    }
+    .@{prefix}-swiper__navigation-bars {
+      .swiper-navigation-item(bars, outside, horizontal,small);
+    }
+  }
+  &.@{prefix}-swiper--vertical {
+    .@{prefix}-swiper__navigation-bars {
+      .swiper-navigation-item(bars, inside, vertical,small);
+    }
+    &.@{prefix}-swiper--outside {
+      .@{prefix}-swiper__navigation {
+        right: -@swiper-navigation-item-margin-small * 6;
+      }
+      .@{prefix}-swiper__navigation-bars {
+        .swiper-navigation-item(bars, outside, vertical,small);
+      }
+    }
+  }
+}

@@ -1,0 +1,110 @@
+@import "../../base.less";
+
+@import "./_var.less";
+
+@import "../../mixins/_index.less";
+
+.@{prefix}-cell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  padding: @cell-vertical-padding @cell-vertical-padding @cell-vertical-padding @cell-horizontal-padding;
+  background: @cell-background-color;
+  font-size: @cell-font-size;
+  line-height: @cell-line-height;
+
+  &__title {
+    flex: 1 1 auto;
+    color: @text-color-primary;
+  }
+
+  &__description {
+    color: @text-color-placeholder;
+    font-size: @cell-summary-font-size;
+    line-height: 22px;
+    margin-top: @spacer;
+  }
+
+  &__note {
+    flex: 1;
+    text-align: right;
+    overflow: hidden;
+    color: @text-color-placeholder;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  &__image {
+    display: block;
+    height: 56px;
+    width: 56px;
+  }
+
+  &__left-icon {
+    flex-shrink: 0;
+    color: @text-color-primary;
+    line-height: 24px;
+    margin-right: @spacer;
+    font-size: 24px;
+    align-self: flex-start;
+
+    & > .@{prefix}-icon {
+      float: left;
+    }
+  }
+
+  &__right-icon {
+    color: @text-color-placeholder;
+    line-height: 24px;
+    margin-left: @spacer;
+    font-size: 24px;
+
+    & > .@{prefix}-icon {
+      float: right;
+    }
+  }
+
+  &--hover {
+    cursor: pointer;
+
+    &:active {
+      background-color: @cell-hover-color;
+    }
+  }
+
+  &--bordered {
+    &::after {
+      left: @cell-horizontal-padding;
+      .hairline-bottom(@cell-border-color);
+    }
+  }
+
+  &__left {
+    text-align: left;
+
+    .@{prefix}-right-icon {
+      float: left;
+    }
+  }
+
+  &--middle {
+    align-items: center;
+  }
+
+  &--top {
+    align-items: flex-start;
+  }
+
+  &--bottom {
+    align-items: flex-end;
+  }
+
+  &--required {
+    font-size: @cell-font-size;
+    color: @cell-required-color;
+    vertical-align: middle;
+  }
+}

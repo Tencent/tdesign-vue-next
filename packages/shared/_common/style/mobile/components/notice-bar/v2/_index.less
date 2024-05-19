@@ -1,0 +1,89 @@
+@import "../../../base.less";
+
+@import "./_var.less";
+
+.@{notice-bar} {
+  display: flex;
+  align-items: flex-start;
+  padding: @notice-bar-vertical-padding @notice-bar-horizontal-padding;
+  font-size: @notice-bar-font-size;
+
+  &__content-wrap {
+    flex: 1;
+    overflow-x: hidden;
+    line-height: @notice-bar-line-height;
+    color: @notice-bar-font-color;
+  }
+
+  &__content {
+    white-space: nowrap;
+  }
+
+  &__content-wrapable {
+    white-space: normal;
+  }
+
+  &__content--vertical {
+    --td-swiper-border-radius: 0;
+
+    height: @notice-bar-line-height;
+    line-height: @notice-bar-line-height;
+
+    &-item {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  &__prefix-icon {
+    color: inherit;
+  }
+
+  &__prefix-icon:not(:empty) {
+    display: inherit;
+    padding-right: @spacer;
+  }
+
+  &__suffix-icon {
+    color: @notice-bar-suffix-icon-color;
+  }
+
+  &__prefix-icon,
+  &__suffix-icon {
+    font-size: @notice-bar-icon-font-size;
+  }
+
+  &__operation {
+    display: inline-flex;
+    vertical-align: top;
+    color: @notice-bar-operation-font-color;
+    font-weight: 700;
+  }
+
+  &__suffix-icon:not(:empty) {
+    display: inherit;
+    padding-left: @spacer;
+  }
+
+  // theme
+  &--info {
+    color: @notice-bar-info-color;
+    background-color: @notice-bar-info-bg-color;
+  }
+
+  &--success {
+    color: @notice-bar-success-color;
+    background-color: @notice-bar-success-bg-color;
+  }
+
+  &--warning {
+    color: @notice-bar-warning-color;
+    background-color: @notice-bar-warning-bg-color;
+  }
+
+  &--error {
+    color: @notice-bar-error-color;
+    background-color: @notice-bar-error-bg-color;
+  }
+}

@@ -1,0 +1,85 @@
+@import "../../base.less";
+
+@import "./_var.less";
+
+@import "../../mixins/_reset.less";
+
+.@{prefix}-select-input {
+  .reset;
+
+  width: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/** 宽度自适应场景，多选，预留图标的位置。带标签和不带标签的布局不同，故而间距不同 */
+.@{prefix}-select-input--multiple {
+  .@{prefix}-input--auto-width.@{prefix}-tag-input__with-suffix-icon {
+    &.@{prefix}-tag-input--with-tag {
+      .@{prefix}-input {
+        padding-right: @comp-paddingLR-xl;
+      }
+      .@{prefix}-input.@{prefix}-size-l {
+        padding-right: calc(@comp-paddingLR-xl + @comp-paddingLR-s);
+      }
+    }
+    &.@{prefix}-is-empty {
+      .@{prefix}-input {
+        padding-right: @comp-paddingLR-s;
+      }
+      .@{prefix}-input.@{prefix}-size-l {
+        padding-right: @comp-paddingLR-m;
+      }
+    }
+  }
+}
+
+/** 无边框模式 */
+.@{prefix}-select-input--borderless {
+  .@{prefix}-input {
+    box-shadow: none;
+    border: 1px solid transparent;
+    background: transparent;
+    transition: all @anim-duration-base linear;
+
+    &:hover:not(.@{prefix}-input--focused) {
+      border-color: @component-border;
+      background-color: @select-input-focus-bg;
+      border-radius: @select-input-border-radius;
+    }
+  }
+
+  .@{prefix}-input--focused {
+    border-color: @brand-color;
+    box-shadow: @select-input-shadow;
+    background-color: @bg-color-specialcomponent;
+  }
+
+  /** 无边框模式的多选 */
+  &.@{prefix}-select-input--multiple:not(.@{prefix}-select-input--empty) {
+
+    &.@{prefix}-select-input--popup-visible {
+      input {
+        display: inline-block;
+      }
+      .@{prefix}-input {
+        background-color: @select-input-focus-bg;
+      }
+    }
+  }
+}
+
+// TODO 兼容vue2，透传到popup的attrs表现与vue3不一致，popup实现布局与vue3不同，待同步
+.@{prefix}-select-input--borderless {
+  &.@{prefix}-tag-input {
+    border: 0;
+    box-shadow: none;
+    background: transparent;
+    transition: background-color @anim-duration-base linear;
+
+    &:hover {
+      background-color: @select-input-focus-bg;
+      border-radius: @select-input-border-radius;
+    }
+  }
+}

@@ -1,0 +1,140 @@
+// Vitest Snapshot v1
+
+exports[`DatePicker > :mode 1`] = `
+<div
+  class="t-date-picker"
+>
+  <div
+    class="t-select-input t-select-input--empty"
+  >
+    <div
+      class="t-input__wrap"
+    >
+      <div
+        class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      >
+        <div
+          class="t-input__prefix"
+        />
+        <input
+          autocomplete=""
+          class="t-input__inner"
+          placeholder="请选择年份"
+          readonly="readonly"
+          type="text"
+          unselectable="on"
+        />
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
+          <svg
+            class="t-icon t-icon-calendar"
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="M6 4V1.5h2V4h8V1.5h2V4h4v18H2V4h4zM4 6v3h16V6H4zm16 5H4v9h16v-9z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DatePicker > :range 1`] = `
+<div
+  class="t-date-picker"
+  range="true"
+>
+  <div
+    class="t-select-input"
+  >
+    <div
+      class="t-input__wrap"
+    >
+      <div
+        class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      >
+        <div
+          class="t-input__prefix"
+        />
+        <input
+          autocomplete=""
+          class="t-input__inner"
+          placeholder="请选择日期"
+          readonly="readonly"
+          type="text"
+          unselectable="on"
+        />
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
+          <svg
+            class="t-icon t-icon-calendar"
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="M6 4V1.5h2V4h8V1.5h2V4h4v18H2V4h4zM4 6v3h16V6H4zm16 5H4v9h16v-9z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DatePicker > :value 1`] = `
+<div
+  class="t-date-picker"
+>
+  <div
+    class="t-select-input"
+  >
+    <div
+      class="t-input__wrap"
+    >
+      <div
+        class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      >
+        <div
+          class="t-input__prefix"
+        />
+        <input
+          autocomplete=""
+          class="t-input__inner"
+          placeholder="请选择日期"
+          readonly="readonly"
+          type="text"
+          unselectable="on"
+        />
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
+          <svg
+            class="t-icon t-icon-calendar"
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="M6 4V1.5h2V4h8V1.5h2V4h4v18H2V4h4zM4 6v3h16V6H4zm16 5H4v9h16v-9z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

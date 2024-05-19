@@ -1,0 +1,217 @@
+// 组件允许单个组件打包，因此默认引入公共基础样式
+@import "../../base.less";
+
+@import "./_var.less";
+
+@import "./_mixin.less";
+
+@import "../../mixins/_reset.less";
+
+.@{prefix}-notification {
+  .reset;
+  .notification;
+
+  &__icon {
+    width: @notification-icon-width;
+    text-align: center;
+    margin-right: @notification-icon-margin-right;
+
+    .t-icon {
+      font-size: @notification-icon-font-size;
+    }
+  }
+
+  // icon theme
+  .t-icon.@{prefix}-is-info {
+    color: @notification-icon-info-color;
+  }
+
+  .t-icon.@{prefix}-is-success {
+    color: @notification-icon-success-color;
+  }
+
+  .t-icon.@{prefix}-is-warning {
+    color: @notification-icon-warning-color;
+  }
+
+  .t-icon.@{prefix}-is-error {
+    color: @notification-icon-error-color;
+  }
+
+  &__main {
+    flex: 1;
+  }
+
+  &__title__wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font: @notification-title-font;
+    color: @notification-title-color;
+  }
+
+  .t-icon-close {
+    cursor: pointer;
+    font-size: @notification-icon-close-font-size;
+    border-radius: @border-radius-default;
+    color: @notification-close-icon-color;
+
+    &:hover {
+      background: @notification-close-bg-color-hover;
+    }
+
+    &:active {
+      background: @notification-close-bg-color-active;
+    }
+  }
+
+  &__content {
+    font: @notification-content-font;
+    color: @notification-content-color;
+    margin-top: @notification-content-margin-top;
+    max-height: @notification-content-max-height;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    // 需要排查兼容性
+    // 暂时没找到其他方案，先ignore
+
+    /* stylelint-disable-next-line */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+
+    /* stylelint-disable-next-line */
+    -webkit-box-orient: vertical;
+  }
+
+  &__detail {
+    margin-top: @notification-detail-margin-top;
+    text-align: right;
+    font: @notification-detail-font;
+  }
+
+  &__detail-item {
+    cursor: pointer;
+  }
+
+  &__detail-item:hover {
+    color: @notification-detail-item-color-hover;
+    background: @notification-detail-item-bg-color-hover;
+  }
+
+  &__detail-item:active {
+    color: @notification-detail-item-color-active;
+    background: @notification-detail-item-bg-color-active;
+  }
+
+  &__detail-item + &__detail-item {
+    margin-left: @notification-detail-item-margin-left;
+  }
+
+  &__detail-item.t-is-active {
+    color: @notification-detail-item-is-active-color;
+  }
+
+  // animation
+  &__show--top-left {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  &__show--top-left > & {
+    animation-duration: .3s;
+    animation-name: slidein-top-left;
+
+    @keyframes slidein-top-left {
+      from {
+        opacity: 0;
+        transform: translate3d(-100%, 0, 0);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+  }
+
+  &__show--top-right {
+    position: fixed;
+    top: 0;
+    right: 0;
+  }
+
+  &__show--top-right > & {
+    animation-duration: .3s;
+    animation-name: slidein-top-right;
+
+    @keyframes slidein-top-right {
+      from {
+        opacity: 0;
+        transform: translate3d(100%, 0, 0);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+  }
+
+  &__show--bottom-left {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  &__show--bottom-left > & {
+    animation-duration: .3s;
+    animation-name: slidein-bottom-left;
+
+    @keyframes slidein-bottom-left {
+      from {
+        opacity: 0;
+        transform: translate3d(-100%, 0, 0);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+  }
+
+  &__show--bottom-right {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  &__show--bottom-right > & {
+    animation-duration: .3s;
+    animation-name: slidein-bottom-right;
+
+    @keyframes slidein-bottom-right {
+      from {
+        opacity: 0;
+        transform: translate3d(100%, 0, 0);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+  }
+
+  &-list__show {
+    position: fixed;
+  }
+}

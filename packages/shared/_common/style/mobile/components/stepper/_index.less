@@ -1,0 +1,87 @@
+@import "../../base.less";
+
+@import "./_var.less";
+
+.@{prefix}-stepper {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  padding: @stepper-padding;
+  font-size: @stepper-font-size;
+  line-height: @stepper-line-height;
+
+  &__minus,
+  &__plus {
+    width: @stepper-button-width;
+    height: @stepper-button-height;
+    position: relative;
+    font-size: 24px;
+    color: @stepper-icon-color;
+
+    &.@{prefix}-is-disabled {
+      color: @stepper-icon-color-disabled;
+    }
+  }
+
+  &__icon {
+    display: block;
+  }
+
+  &__input {
+    display: inline-block;
+    width: @stepper-input-width;
+    height: @stepper-input-height;
+    font-size: @stepper-input-font-size;
+    color: @stepper-input-color;
+    text-align: center;
+    border: 0;
+    vertical-align: top;
+    background: 0;
+    box-sizing: border-box;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    &:disabled {
+      color: @stepper-color-disabled;
+    }
+  }
+
+  &__pure {
+    width: auto;
+    display: inline-flex;
+    .@{prefix}-stepper__minus,
+    .@{prefix}-stepper__plus,
+    .@{prefix}-stepper__input {
+      border-radius: @stepper-pure-border;
+      background-color: @stepper-pure-background-color;
+    }
+    .@{prefix}-stepper__input {
+      width: @stepper-pure-input-width;
+      margin: @stepper-pure-input-margin;
+      font-size: @stepper-pure-input-font-size;
+    }
+    .@{prefix}-stepper__minus,
+    .@{prefix}-stepper__plus {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+  }
+  .@{prefix}-stepper__label {
+    white-space: nowrap;
+  }
+
+  &.@{prefix}-is-disabled {
+    .@{prefix}-stepper__minus,
+    .@{prefix}-stepper__plus {
+      color: @stepper-icon-color-disabled;
+    }
+
+    .@{prefix}-stepper__input {
+      color: @stepper-color-disabled;
+    }
+  }
+}

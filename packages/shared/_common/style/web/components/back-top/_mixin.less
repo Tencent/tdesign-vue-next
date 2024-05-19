@@ -1,0 +1,41 @@
+@prefix-block: e("@{prefix}-back-top");
+
+.back-top-attr(@attr, @modify, @isTarget: false, @target: '') {
+  @value: if((boolean(@isTarget)), e("back-top-@{target}-@{attr}-@{modify}"), e("back-top-@{attr}-@{modify}"));
+
+  @{attr}: @@value;
+}
+
+.back-top-bg-color(@theme, @isHover) {
+  @bg-color: if((boolean(@isHover)), e("back-top-bg-color-@{theme}-hover"), e("back-top-bg-color-@{theme}"));
+
+  background-color: @@bg-color;
+}
+
+.back-top-theme(@theme) {
+  .back-top-attr(border-color, @theme);
+  .back-top-bg-color(@theme, false);
+
+  &:hover {
+    .back-top-attr(border-color, "@{theme}-hover");
+    .back-top-bg-color(@theme, true);
+  }
+  .@{prefix-block}__text {
+    .back-top-attr(color, @theme, true, "text");
+  }
+  .@{prefix-block}__icon {
+    .back-top-attr(color, @theme, true, "icon");
+  }
+}
+
+.back-top-size(@size) {
+  .back-top-attr(width, @size);
+  .back-top-attr(height, @size);
+  .@{prefix-block}__text {
+    .back-top-attr(display, @size, true, "text");
+  }
+}
+
+.back-top-shape(@shape) {
+  .back-top-attr(border-radius, @shape);
+}

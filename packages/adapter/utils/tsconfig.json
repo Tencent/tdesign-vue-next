@@ -1,0 +1,3 @@
+{
+  "extends": "@td/ts-config/vue3.json"
+}

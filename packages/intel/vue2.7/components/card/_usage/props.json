@@ -1,0 +1,66 @@
+[
+  {
+    "name": "bordered",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "headerBordered",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "hoverShadow",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "loading",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "shadow",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "size",
+    "type": "enum",
+    "defaultValue": "medium",
+    "options": [
+      {
+        "label": "medium",
+        "value": "medium"
+      },
+      {
+        "label": "small",
+        "value": "small"
+      }
+    ]
+  },
+  {
+    "name": "theme",
+    "type": "enum",
+    "defaultValue": "normal",
+    "options": [
+      {
+        "label": "normal",
+        "value": "normal"
+      },
+      {
+        "label": "poster1",
+        "value": "poster1"
+      },
+      {
+        "label": "poster2",
+        "value": "poster2"
+      }
+    ]
+  }
+]

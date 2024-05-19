@@ -1,0 +1,135 @@
+@import "../../../base.less";
+
+@import "./_var.less";
+
+@stepper: ~"@{prefix}-stepper";
+
+.@{stepper} {
+  display: flex;
+  align-items: center;
+  color: @stepper-input-color;
+
+  &__minus,
+  &__plus {
+    padding: 4px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__input,
+  &__minus-icon,
+  &__plus-icon {
+    color: inherit;
+    font-size: inherit;
+  }
+
+  &__input--normal,
+  &__input--filled,
+  &__input--outline {
+    height: inherit;
+    box-sizing: border-box;
+  }
+
+  &--small {
+    height: @stepper-small-height;
+    font-size: @stepper-small-font-size;
+  }
+
+  &--medium {
+    height: @stepper-medium-height;
+    font-size: @stepper-medium-font-size;
+  }
+
+  &--large {
+    height: @stepper-large-height;
+    font-size: @stepper-large-font-size;
+  }
+
+  &__input {
+    text-align: center;
+    border: 0;
+    vertical-align: top;
+    background: 0;
+    height: inherit;
+    min-height: inherit;
+  }
+
+  &__input--normal,
+  &__input--filled {
+    margin: 0 4px;
+  }
+
+  &__input--small {
+    width: @stepper-small-input-width;
+  }
+
+  &__input--medium {
+    height: @stepper-medium-height;
+    width: @stepper-medium-input-width;
+  }
+
+  &__input--large {
+    width: @stepper-large-input-width;
+  }
+
+  &__icon--small {
+    width: @stepper-small-height;
+    height: @stepper-small-height;
+    font-size: @stepper-small-icon-size;
+  }
+
+  &__icon--medium {
+    width: @stepper-medium-height;
+    height: @stepper-medium-height;
+    font-size: @stepper-medium-icon-size;
+  }
+
+  &__icon--large {
+    width: @stepper-large-height;
+    height: @stepper-large-height;
+    font-size: @stepper-large-icon-size;
+  }
+
+  &__minus--outline,
+  &__plus--outline {
+    border: @stepper-border-width solid @stepper-border-color;
+  }
+
+  &__input--outline {
+    padding: 0 4px;
+    border: none;
+    border-top: @stepper-border-width solid @stepper-border-color;
+    border-bottom: @stepper-border-width solid @stepper-border-color;
+  }
+
+  &__minus--outline,
+  &__minus--filled {
+    border-radius: @stepper-border-radius 0 0 @stepper-border-radius;
+  }
+
+  &__plus--outline,
+  &__plus--filled {
+    border-radius: 0 @stepper-border-radius @stepper-border-radius 0;
+  }
+
+  &__minus--filled,
+  &__plus--filled {
+    background-color: @bg-color-secondarycontainer;
+  }
+
+  &__input--filled {
+    background-color: @bg-color-secondarycontainer;
+  }
+
+  &--normal-disabled {
+    color: @stepper-input-disabled-color;
+  }
+
+  &--filled-disabled,
+  &--outline-disabled {
+    color: @stepper-input-disabled-color;
+    background-color: @stepper-input-disabled-bg;
+  }
+}

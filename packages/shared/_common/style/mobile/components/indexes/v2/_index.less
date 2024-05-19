@@ -1,0 +1,55 @@
+@import "../../../base.less";
+
+@import "./_var.less";
+
+.@{prefix}-indexes {
+  position: relative;
+  height: 100vh;
+  overflow-y: scroll;
+
+  &__sidebar {
+    position: fixed;
+    right: @indexes-sidebar-right;
+    width: @indexes-sidebar-item-size;
+    color: @indexes-sidebar-color;
+    font-size: @indexes-sidebar-font-size;
+    line-height: @indexes-sidebar-line-height;
+    display: flex;
+    flex-flow: column nowrap;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+
+    &-item {
+      border-radius: 50%;
+      position: relative;
+      text-align: center;
+
+      &--active {
+        background-color: @indexes-sidebar-active-bg-color;
+        color: @indexes-sidebar-active-color;
+      }
+    }
+
+    &-item + &-item {
+      margin-top: 2px;
+    }
+
+    &-tips {
+      width: @indexes-sidebar-tips-size;
+      height: @indexes-sidebar-tips-size;
+      line-height: @indexes-sidebar-tips-size;
+      text-align: center;
+      font-size: @indexes-sidebar-tips-font-size;
+      font-weight: 700;
+      color: @indexes-sidebar-tips-color;
+      background-color: @indexes-sidebar-tips-bg-color;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      bottom: 0;
+      transform: translateY(-50%);
+      right: @indexes-sidebar-tips-right;
+    }
+  }
+}

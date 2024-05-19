@@ -1,0 +1,21 @@
+{
+  "name": "@td/adapter-vue2.7",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@td/adapter-utils": "workspace:^",
+    "lodash-es": "^4.17.21"
+  },
+  "devDependencies": {
+    "@td/ts-config": "workspace:^",
+    "@types/lodash-es": "^4.17.12",
+    "vue": "~2.7.16"
+  }
+}

@@ -1,0 +1,32 @@
+@prefix: t;
+
+.@{prefix}-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1em;
+}
+
+.@{prefix}-icon::before {
+  font-family: unset;
+}
+
+.@{prefix}-icon-loading {
+  animation: t-spin 1s linear infinite;
+}
+
+.@{prefix}-icon {
+  fill: currentcolor;
+
+  &.@{prefix}-size-s {
+    font-size: 14px;
+  }
+
+  &.@{prefix}-size-m {
+    font-size: 16px;
+  }
+
+  &.@{prefix}-size-l {
+    font-size: 18px;
+  }
+}

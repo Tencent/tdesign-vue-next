@@ -1,0 +1,89 @@
+@border: 1px solid @table-border-color;
+
+@table-fixed-column-z-index: 30;
+@table-fixed-header-z-index: 50;
+@table-fixed-footer-z-index: 50;
+@table-fixed-row-z-index: 70;
+@table-fixed-header-virtual-scroll-z-index: @table-fixed-header-z-index + 1;
+@table-fixed-footer-virtual-scroll-z-index: @table-fixed-footer-z-index + 1;
+@table-right-scrollbar-divider: @table-fixed-row-z-index + 1;
+@table-loading-z-index: @table-right-scrollbar-divider + 1;
+
+/** 吸顶表头 Affix 组件，zIndex: 1000。宽度拖拽辅助线层级需高于表头 */
+@table-resize-line-z-index: 1001;
+
+@table-cell-padding: @table-td-padding-vertical @table-td-padding-horizontal;
+
+// Color
+@bg-color-container-hover: #f3f3f3;
+@bg-color-secondarycontainer-hover: #383838;
+@text-line-height-base: 24px;
+@font-body-medium: 14px;
+
+@comp-paddingLR-xl: 20px;
+@comp-paddingLR-l: 16px;
+@comp-paddingLR-m: 15px;
+@comp-paddingLR-s: 8px;
+@comp-paddingTB-xl: 16px;
+@comp-paddingTB-l: 16px;
+@comp-paddingTB-m: 15px;
+@comp-paddingTB-s: 8px;
+@comp-margin-xxl: 24px;
+@comp-margin-xl: 20px;
+@comp-margin-l: 16px;
+@comp-margin-m: 15px;
+@comp-margin-s: 8px;
+@comp-margin-xs: 4px;
+@comp-margin-xxs: 2px;
+@scroll-track-color: #fff;
+@border-radius-default: 0;
+@border-radius-circle: 50%;
+@table-header-bg-color: @bg-color-container;
+@table-bg: @bg-color-container;
+@table--text-color: @text-color-primary;
+@table-head-text-color: @text-color-placeholder;
+@table-border-color: @component-border;
+@table-link-text-color: @text-color-link;
+@table-action-bg-color: @bg-color-container-hover;
+@table-highlight-bg-color: @bg-color-secondarycontainer;
+@table-highlight-bg-color--hover: @bg-color-secondarycontainer-hover;
+@table-highlight-dark-bg-color: @bg-color-container-hover;
+@table-row-disabled-color: @text-color-disabled;
+@table-icon-default-color: @text-color-placeholder;
+@table-icon-active-color: @brand-color;
+@table-filter-icon-default-color: @text-color-primary;
+@table-color-empty: @text-color-disabled;
+@table-fixed-cell-border-color: @component-border;
+@table-sort-bg-color: @bg-color-secondarycontainer;
+
+// Size
+@table-line-height: 22px;
+@table-font: @font-body-medium;
+@table-loading-size: @table-icon-size;
+@table-padding-horizontal: @comp-paddingLR-l;
+@table-padding-normal: @comp-paddingTB-m @comp-paddingLR-l;
+@table-padding-small: @comp-paddingTB-s @comp-paddingLR-s;
+@table-padding-large: @comp-paddingTB-l @comp-paddingLR-xl;
+@table-td-padding-vertical-top: 13px;
+@table-td-padding-vertical-bottom: 11px;
+@table-td-padding-vertical: 8px;
+@table-td-padding-horizontal: 16px;
+@table-td-editalbe-icon-margin: @comp-margin-s;
+@table-pagination-padding-normal: @comp-paddingTB-l @comp-paddingLR-l;
+
+// Safari 13-14 有 bug: box-shadow 第三个值 spread-radius 为负值，且相对于容器宽度占比较大时，会显示为黑块
+// https://bugs.webkit.org/show_bug.cgi?id=209930
+// https://medium.com/@andrea.verlicchi/inset-box-shadow-rendering-bug-on-safari-ios-13-4-6bf4256a1ee0
+@table-fixed-cell-box-shadow-spread-radius: -10px;
+@table-fixed-cell-border-width: 4px;
+@table-fixed-cell-border-width-light: 2px;
+@table-fixed-cell-border: @table-fixed-cell-border-width solid
+  @table-fixed-cell-border-color;
+@table-fixed-cell-border-light: @table-fixed-cell-border-width-light solid
+  @table-fixed-cell-border-color;
+
+@table-controller-trigger-padding: @comp-paddingTB-l 0;
+@table-default-pagination-padding: @comp-paddingTB-l @comp-paddingLR-l;
+@table-icon-size: @font-size-l;
+@table-double-sort-icon-space: @comp-margin-xxs;
+@table-filter-icon-margin-left: @comp-margin-s;

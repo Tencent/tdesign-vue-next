@@ -1,0 +1,60 @@
+// 组件允许单个组件打包，因此默认引入公共基础样式
+
+@import "../../base.less";
+
+@import "./_var.less";
+
+.@{statistic-cls} {
+  display: inline-block;
+  font-size: @font-size-base;
+  line-height: @text-line-height-base;
+  color: @statistic-text-color;
+
+  &-title {
+    font-size: @statistic-title-font-size;
+    margin-bottom: @statistic-title-margin-bottom;
+  }
+
+  &-content {
+    display: inline-block;
+    color: @statistic-value-text-color;
+    text-align: left;
+    white-space: nowrap;
+
+    &-value {
+      font-size: @statistic-value-font-size;
+      line-height: @statistic-value-line-height;
+      font-family: @statistic-font-family;
+    }
+
+    &-unit {
+      font-size: @statistic-unit-font-size;
+      margin-left: @statistic-unit-margin-left;
+      font-family: @statistic-font-family;
+    }
+
+    &-suffix {
+      display: inline-flex;
+      align-items: center;
+      font-size: @statistic-suffix-font-size;
+      margin-left: @statistic-suffix-margin-left;
+    }
+
+    &-prefix {
+      display: inline-flex;
+      align-items: center;
+      font-size: @statistic-prefix-font-size;
+      margin-right: @statistic-prefix-margin-right;
+      .@{prefix}-icon {
+        font-size: @statistic-prefix-font-size;
+      }
+    }
+  }
+
+  &-extra {
+    margin-top: @statistic-extra-margin-top;
+    .@{prefix}-space .@{prefix}-space-item {
+      display: flex;
+    }
+  }
+}

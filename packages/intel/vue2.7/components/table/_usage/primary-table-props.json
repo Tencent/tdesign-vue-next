@@ -1,0 +1,38 @@
+[
+  {
+    "name": "columnControllerVisible",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "expandIcon",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "expandOnRowClick",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "hideSortTips",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "multipleSort",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "sortOnRowDraggable",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  }
+]

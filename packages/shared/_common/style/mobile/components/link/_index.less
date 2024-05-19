@@ -1,0 +1,82 @@
+@import "../../base.less";
+
+@import "./_var.less";
+
+.link-size(@size) {
+  @contentFontSize: "link-content-@{size}-font-size";
+  @contentLineHeight: "link-content-@{size}-line-height";
+  @iconSize: "link-icon-@{size}-font-size";
+
+  .@{link}--@{size} {
+    .@{link}__content {
+      font-size: @@contentFontSize;
+      line-height: @@contentLineHeight;
+    }
+    .@{link}__prefix-icon,
+    .@{link}__suffix-icon {
+      font-size: @@iconSize;
+    }
+  }
+}
+
+.link-theme(@theme) {
+  @color: "link-@{theme}-color";
+  @activeColor: "link-@{theme}-active-color";
+  @disabledColor: "link-@{theme}-disabled-color";
+
+  .@{link}--@{theme} {
+    color: @@color;
+
+    &.@{link}--underline::after {
+      border-color: @@color;
+    }
+
+    &.@{link}--disabled {
+      color: @@disabledColor;
+    }
+
+    &.@{link}--hover {
+      color: @@activeColor;
+
+      &.@{link}--underline::after {
+        border-color: @@activeColor;
+      }
+    }
+  }
+}
+
+.link-size(small);
+.link-size(medium);
+.link-size(large);
+
+.link-theme(primary);
+.link-theme(success);
+.link-theme(warning);
+.link-theme(default);
+.link-theme(danger);
+
+.@{link} {
+  position: relative;
+  display: flex;
+  align-items: center;
+  box-sizing: content-box;
+
+  &--underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 0;
+    bottom: 0;
+    opacity: 1;
+    border-bottom: 1px solid rgb(205, 11, 231);
+  }
+
+  &__prefix-icon:not(:empty) + &__content:not(:empty) {
+    padding-left: 4px;
+  }
+
+  &__content:not(:empty) + &__suffix-icon:not(:empty) {
+    padding-left: 4px;
+  }
+}

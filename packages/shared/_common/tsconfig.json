@@ -1,0 +1,21 @@
+﻿{
+  "compilerOptions": {
+    "jsx": "react",
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "module": "esnext",
+    "target": "esnext",
+    "declaration": true,
+    "lib": ["esnext", "dom"],
+    "importHelpers": true,
+    "baseUrl": "./",
+    "allowJs": true,
+    "checkJs": true,
+    "downlevelIteration": true,
+    "esModuleInterop": true
+  },
+  "include": ["js"],
+  "exclude": ["node_modules"],
+  "types": ["jest"],
+  "compileOnSave": false
+}

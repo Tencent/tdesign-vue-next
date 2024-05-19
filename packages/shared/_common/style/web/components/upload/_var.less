@@ -1,0 +1,162 @@
+// 组件变量
+// 名称可按如下规则定义：
+// <component>-[type]-[attrtype]-<attr>-[status]
+
+// component:组件名，如button，
+// type: 组件类型，如 button 的次要按钮（line）
+// attrtype: 属性的具体应用场景。如颜色，用于背景（bg）、文本（text）、边框（border）等
+// attr: 属性名称，如color、height、radius等
+// status: 表示组件状态或尺寸，如 hover、disabled、s、l 等
+
+// 如：@button-line-bg-color-hover
+// 如：@button-line-height-s
+
+// higher than image
+@upload-z-index: 2;
+
+// 颜色
+@upload-text-disabled-color: @text-color-disabled;
+@upload-icon-check-circle-filled-color: @success-color;
+@upload-icon-error-circle-filled-color: @error-color;
+@upload-icon-loading-color: @brand-color;
+@upload-icon-time-filled-color: @text-color-placeholder;
+@upload-highlight-color: @text-color-brand;
+@upload-icon-add-color: @text-color-primary;
+@upload-file-name-color: @text-color-secondary;
+@upload-small-color: @text-color-placeholder;
+@upload-placeholder-color: @text-color-placeholder;
+@upload-icon-color: @text-color-placeholder;
+@upload-icon-disabled-color: @text-color-disabled;
+@upload-icon-color-hover: @text-color-secondary;
+@upload-list-file-icon-color: @brand-color;
+@upload-list-item-error-color: @error-color;
+@upload-list-control-color-hover: @error-color;
+@upload-card-item-error-icon-warning-color: @error-color;
+@upload-card-item-status-color: @error-color;
+@upload-card-item-bg-color: @bg-color-page;
+@upload-card-item-bg-border-color-hover: @brand-color;
+@upload-card-name-color: @text-color-primary;
+@upload-card-box-bg-color: @bg-color-page;
+@upload-card-container-bg-color: @bg-color-secondarycontainer;
+@upload-card-status-color: @text-color-disabled;
+@upload-card-mask-color: @bg-color-container;
+@upload-card-mask-bg-color: @mask-active;
+@upload-card-mask-text-color: @text-color-anti;
+@upload-dragger-color: @text-color-secondary;
+@upload-dragger-bg-color-active: @bg-color-container-active;
+@upload-dragger-border-color-active: @brand-color;
+@upload-dragger-border-color-hover: @brand-color;
+@upload-dragger-error-border-color: @error-color;
+@upload-dragger-error-border-color-hover: @error-color;
+@upload-dragger-text-color: @text-color-primary;
+@upload-dragger-img-wrap-bg-color: @bg-color-secondarycontainer;
+@upload-dragger-progress-info-button-bg-color-hover: transparent;
+@upload-single-display-text-color: @text-color-secondary;
+@upload-single-progress-color: @brand-color;
+@upload-single-input-delete-color: @brand-color;
+@upload-flow-empty-color: @text-color-placeholder;
+@upload-flow-table-th-color: @text-color-placeholder;
+@upload-flow-table-th-bg-color: @bg-color-container;
+@upload-flow-table-td-color: @text-color-primary;
+@upload-flow-button-color: @text-color-placeholder;
+@upload-flow-button-color-hover: @text-color-secondary;
+@upload-tips-error-color: @error-color;
+@upload-tips-warn-color: @warning-color;
+
+// 背景
+@upload-card-mask-opacity-disabled: .3;
+
+// 图标
+@upload-list-file-thumbnail-icon: @comp-size-s;
+@upload-list-file-icon-font-size: @comp-size-xl;
+@upload-card-item-icon-add-font-size: @comp-size-m;
+@upload-dragger-progress-icon-font-size: @comp-size-xxxs;
+
+// 字体
+@upload-list-item-font-size: @font-body-medium;
+@upload-card-font: @font-body-small;
+@upload-card-status-font: @font-body-small;
+@upload-dragger-font: @font-body-medium;
+@upload-dragger-text-font: @font-body-medium;
+@upload-small-font: @font-body-small;
+@upload-single-display-text-font: @font-body-small;
+@upload-single-input-delete-font: @font-body-medium;
+@upload-flow-table-th-font-weight: normal;
+
+// 尺寸
+@upload-img-size: 110px;
+@upload-list-file-width: 100px;
+@upload-list-file-height: 100px;
+@upload-list-item-width: 496px;
+@upload-list-item-height: 124px;
+@upload-list-name-max-width: 200px;
+@upload-card-mask-divider-height: @comp-size-xxxs;
+@upload-dragger-width: 336px;
+@upload-dragger-height: 144px;
+@upload-dragger-img-wrap-width: 110px;
+@upload-dragger-img-wrap-height: 110px;
+@upload-flow-image-flow-width: 498px;
+@upload-flow-max-width: 960px;
+@upload-flow-min-width: 498px;
+@upload-flow-empty-height: 184px;
+@upload-icon-size-mini: calc(@font-size-base + 2px);
+@upload-icon-size: calc(@font-size-base + 2px);
+@upload-icon-size-large: @comp-size-xs;
+@upload-list-file-thumbnail-size: @comp-size-xxl;
+
+// 边框
+@upload-card-item-bg-border: 1px dashed @component-border;
+@upload-list-item-border: 1px solid @component-border;
+@upload-list-item-border-radius: @border-radius-default;
+@upload-card-box-border: 1px dashed @component-border;
+@upload-card-box-border-radius: @border-radius-default;
+@upload-card-content-border: 1px solid @component-border;
+@upload-dragger-border: 1px dashed @component-border;
+@upload-dragger-border-radius: @border-radius-small;
+@upload-flow-table-border: 1px dashed @component-border;
+@upload-flow-table-tr-border-top: 1px solid @component-border;
+@upload-flow-table-th-border: 1px solid @component-border;
+@upload-flow-card-area-border: 1px dashed @component-border;
+@upload-card-contariner-border: 1px dashed @component-border;
+
+// 位置
+@upload-dragger-btns-bottom: @comp-margin-l;
+@upload-flow-table-th-text-align: left;
+
+// 间距
+@upload-list-file-margin-right: @comp-margin-m;  //待删除
+@upload-list-item-padding: @comp-paddingTB-m @comp-paddingLR-m;  //?
+@upload-list-item-inner-padding: @comp-paddingLR-s;
+@upload-list-item-margin-top: @comp-margin-m; //?
+@upload-single-name-margin-right: @comp-margin-s;
+@upload-single-name-margin-bottom: @comp-margin-s;
+@upload-single-percent-margin-left: @comp-margin-xs;
+@upload-single-input-delete-margin-left: @comp-margin-l;
+@upload-single-file-input-trigger-margin-left: @comp-margin-l; //?
+@upload-card-item-space: @comp-margin-s;
+@upload-card-item-error-icon-warning-margin-bottom: @comp-margin-s;
+@upload-card-icon-loading-margin-bottom: @comp-margin-s; //?
+@upload-card-name-margin-top: @comp-margin-s;
+@upload-card-container-icon-add-margin-bottom: @comp-margin-s;
+@upload-card-content-padding: @comp-paddingTB-s @comp-paddingLR-s;
+@upload-card-status-wrap-svg-margin-bottom: @comp-margin-s;  //?
+@upload-dragger-padding: @comp-margin-l;
+@upload-dragger-img-wrap-margin-right: @comp-margin-l;
+@upload-dragger-progress-info-single-display-text-margin-bottom: @comp-margin-s;
+@upload-dragger-progress-cancel-margin: @comp-margin-l;
+@upload-flow-placeholder-margin-left: @comp-margin-l;
+@upload-flow-bottom-margin-top: @comp-margin-xxl;
+@upload-flow-button-margin-left: @comp-margin-s;
+@upload-flow-table-margin-top: @comp-margin-xxl;
+@upload-flow-status-icon-margin-right: @comp-margin-s;
+@upload-flow-table-td-th-padding: @comp-paddingTB-m @comp-paddingLR-l;
+@upload-flow-card-area-padding: @comp-paddingTB-m @comp-paddingLR-m;
+@upload-flow-card-area-margin-top: @comp-margin-xxl;
+@upload-display-text-margin-top: @comp-margin-s;
+@upload-icon-clear-circle-filled-margin-top: @comp-margin-xxs;
+@upload-tips-margin-top: @comp-margin-s;
+@upload-card-mask-divider-margin: 0 @comp-margin-l;
+
+// 圆角
+@upload-dragger-img-wrap-border-radius: @border-radius-default;
+@upload-card-img-wrap-border-radius: @border-radius-default;

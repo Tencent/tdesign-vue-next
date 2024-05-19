@@ -1,0 +1,55 @@
+@import "../../base.less";
+
+@import "./_var.less";
+
+.@{prefix}-rate {
+  display: inline-flex;
+  align-items: center;
+
+  &--list {
+    display: inline-flex;
+  }
+
+  &--item {
+    position: relative;
+    margin-right: @rate-space;
+  }
+
+  &--icon,
+  &--placeholder,
+  &--icon-left,
+  &--icon-right {
+    color: @rate-bg-color-default;
+    font-size: @rate-icon-size;
+    position: relative;
+  }
+
+  &--placeholder {
+    position: absolute;
+  }
+
+  .@{prefix}-icon {
+    display: block;
+  }
+
+  &--icon-left {
+    position: absolute;
+    left: 0;
+    width: 50%;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  &-full &--icon,
+  &-full &--icon-left,
+  &-full &--icon-right,
+  &-half &--icon-left {
+    color: @rate-bg-color-selected;
+  }
+
+  &--text {
+    font-size: @rate-text-font-size;
+    color: @rate-text-color;
+    margin-left: @rate-text-margin-left;
+  }
+}

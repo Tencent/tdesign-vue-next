@@ -1,0 +1,95 @@
+[
+  {
+    "name": "animation",
+    "type": "enum",
+    "defaultValue": "slide",
+    "options": [
+      {
+        "label": "slide",
+        "value": "slide"
+      },
+      {
+        "label": "fade",
+        "value": "fade"
+      }
+    ]
+  },
+  {
+    "name": "autoplay",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "direction",
+    "type": "enum",
+    "defaultValue": "horizontal",
+    "options": [
+      {
+        "label": "horizontal",
+        "value": "horizontal"
+      },
+      {
+        "label": "vertical",
+        "value": "vertical"
+      }
+    ]
+  },
+  {
+    "name": "loop",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "stopOnHover",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "theme",
+    "type": "enum",
+    "defaultValue": "light",
+    "options": [
+      {
+        "label": "light",
+        "value": "light"
+      },
+      {
+        "label": "dark",
+        "value": "dark"
+      }
+    ]
+  },
+  {
+    "name": "trigger",
+    "type": "enum",
+    "defaultValue": "hover",
+    "options": [
+      {
+        "label": "hover",
+        "value": "hover"
+      },
+      {
+        "label": "click",
+        "value": "click"
+      }
+    ]
+  },
+  {
+    "name": "type",
+    "type": "enum",
+    "defaultValue": "default",
+    "options": [
+      {
+        "label": "default",
+        "value": "default"
+      },
+      {
+        "label": "card",
+        "value": "card"
+      }
+    ]
+  }
+]

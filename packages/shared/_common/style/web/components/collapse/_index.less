@@ -1,0 +1,124 @@
+// 组件允许单个组件打包，因此默认引入公共基础样式
+
+@import "../../base.less";
+
+@import "./_var.less";
+
+@import "./_mixin.less";
+
+@import "../../mixins/_reset.less";
+
+.@{collapse-cls} {
+  .reset;
+
+  border: @collapse-border-size;
+  border-bottom: 0;
+  background: @bg-color-container;
+
+  &.@{prefix}--border-less {
+    border: none;
+
+    .@{collapse-panel-cls} {
+      &__header {
+        border-bottom: none;
+      }
+
+      &__body {
+        background: @bg-color-container;
+        border: none;
+      }
+    }
+  }
+}
+
+.@{collapse-panel-cls} {
+  &__icon {
+    transition: all @anim-duration-base @anim-time-fn-easing;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > .t-fake-arrow {
+      transform: rotate(-90deg);
+      transition: all @anim-duration-base @anim-time-fn-easing;
+    }
+
+    &--left {
+      margin-right: @collapse-panel-header-icon-margin;
+    }
+
+    &--right {
+      margin-left: @collapse-panel-header-icon-margin;
+    }
+
+    &--active > .t-fake-arrow {
+      transform: rotate(0);
+    }
+
+    &:hover {
+      background-color: @bg-color-container-hover;
+      border-radius: @border-radius-small;
+    }
+  }
+
+  &__wrapper {
+    overflow: hidden;
+
+    .@{collapse-panel-cls}__header {
+      padding: @collapse-panel-header-padding;
+      border-bottom: @collapse-border-size;
+      font: @collapse-panel-header-text;
+      display: flex;
+      align-items: center;
+
+      &--blank {
+        flex: 1;
+      }
+
+      &.@{prefix}-is-clickable {
+        cursor: pointer;
+      }
+
+      &-left,
+      &-right,
+      &-right-content {
+        display: flex;
+      }
+    }
+
+    .@{collapse-panel-cls}__body {
+      border-bottom: @collapse-border-size;
+      background: @bg-color-secondarycontainer;
+      overflow: inherit;
+      // 处理react收起时重复border问题
+      &--collapsed {
+        border: none;
+      }
+    }
+    .@{collapse-panel-cls}__content {
+      padding: @collapse-panel-content-padding;
+      color: @collapse-panel-content-text-color;
+    }
+  }
+
+  &.@{prefix}-is-disabled {
+    .@{collapse-panel-cls}__header {
+      cursor: not-allowed;
+      color: @text-color-disabled;
+    }
+
+    .@{collapse-panel-cls}__icon {
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .@{collapse-panel-cls}__body {
+      background: @bg-color-component-disabled;
+    }
+
+    .@{collapse-panel-cls}__content {
+      color: @text-color-disabled;
+    }
+  }
+}

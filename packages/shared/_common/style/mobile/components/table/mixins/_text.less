@@ -1,0 +1,17 @@
+.text-ellipsis() {
+  white-space: nowrap;
+  word-wrap: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text-ellipsis-multi-line(@line: 2) {
+  overflow: hidden;
+
+  /* stylelint-disable-next-line */
+  display: -webkit-box;
+  -webkit-line-clamp: @line;
+
+  /* stylelint-disable-next-line */
+  -webkit-box-orient: vertical;
+}

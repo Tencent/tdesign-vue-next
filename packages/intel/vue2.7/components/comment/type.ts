@@ -1,0 +1,38 @@
+/**
+ * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
+ * updated at 2021-11-19 10:44:26
+ */
+
+import type { TNode } from '@td/shared/interface';
+import type { AvatarProps } from '../avatar';
+
+export interface TdCommentProps {
+  /**
+   * 操作
+   */
+  actions?: Array<TNode>;
+  /**
+   * 作者
+   */
+  author?: string | TNode;
+  /**
+   * 头像
+   */
+  avatar?: string | AvatarProps | TNode;
+  /**
+   * 内容
+   */
+  content?: string | TNode;
+  /**
+   * 时间
+   */
+  datetime?: string | TNode;
+  /**
+   * 引用
+   */
+  quote?: string | TNode;
+  /**
+   * 回复
+   */
+  reply?: string | TNode;
+};

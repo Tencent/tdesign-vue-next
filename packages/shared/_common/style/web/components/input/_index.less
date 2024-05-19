@@ -1,0 +1,334 @@
+// 组件允许单个组件打包，因此默认引入公共基础样式
+
+@import "../../base.less";
+
+@import "./_var.less";
+
+@import "./_mixin.less";
+
+@import "../../mixins/_text.less";
+
+@import "../../mixins/_reset.less";
+
+@import "../../utilities/_tips.less";
+
+.@{prefix}-input {
+  .reset;
+
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  height: @input-height-default;
+  .input-base();
+
+  &--focused {
+    border-color: @input-border-color-default-focus;
+    box-shadow: @input-box-shadow-focus;
+    z-index: 1;
+  }
+
+  :focus-visible {
+    outline: none;
+  }
+
+  // 真正的输入框
+  &__inner {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0;
+    max-width: 100%;
+    min-width: 0;
+    color: @input-text-color-default;
+    font: inherit;
+    background-color: transparent;
+    box-sizing: border-box;
+    .text-ellipsis();
+
+    &::placeholder {
+      color: @input-placeholder-color;
+    }
+
+    &:placeholder-shown {
+      text-overflow: ellipsis;
+      width: 100%;
+    }
+
+    // 隐藏Edge浏览器默认的密码框样式
+    &[type="password"]::-ms-reveal {
+      display: none;
+    }
+
+    &[type="search"]::-webkit-search-decoration,
+    &[type="search"]::-webkit-search-cancel-button,
+    &[type="search"]::-webkit-search-results-button,
+    &[type="search"]::-webkit-search-results-decoration {
+      appearance: none;
+    }
+
+    &.@{prefix}-input--soft-hidden {
+      width: 0;
+    }
+  }
+  // 底部的额外消息
+  &__extra {
+    font: @input-extra-font;
+    color: @input-extra-color-default;
+  }
+
+  // 输入框后面的状态图标
+  &__status {
+    position: absolute;
+    right: @input-status-position-right;
+    top: 0;
+  }
+
+  &.@{prefix}-input--suffix > span.@{prefix}-input__clear {
+    opacity: 0;
+    visibility: hidden;
+    transition: @input-inner-transition;
+  }
+
+  &.@{prefix}-input--suffix:hover > span.@{prefix}-input__clear {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  // 输入框状态
+  .input-status(success);
+  .input-status(warning);
+  .input-status(error);
+  .input-readonly();
+  .input-disabled();
+
+  // 输入框的前置、后置图标
+  .input-fix-position(prefix);
+  .input-fix-position(suffix);
+
+  .@{prefix}-input__suffix-clear {
+    cursor: pointer;
+  }
+
+  // 输入框大小
+  &.@{prefix}-size-l {
+    height: @input-height-l;
+    font: @input-font-l;
+    padding: @input-padding-l;
+  }
+
+  &.@{prefix}-size-s {
+    height: @input-height-s;
+    font: @input-font-s;
+  }
+
+  .@{prefix}-input__prefix,
+  .@{prefix}-input__suffix {
+    > .t-icon {
+      font-size: @input-inner-icon-font-size;
+    }
+  }
+
+  .@{prefix}-input__prefix {
+    > .t-icon {
+      font-size: @icon-default;
+      color: @input-inner-prefix-icon-color;
+    }
+
+    &:not(:empty) {
+      margin-right: @comp-margin-s;
+    }
+  }
+
+  .@{prefix}-input__suffix {
+    > .t-icon {
+      color: @input-inner-suffix-icon-color;
+      transition: all @anim-duration-base linear;
+
+      &:hover {
+        color: @input-inner-suffix-icon-color-hover;
+        transition: all @anim-duration-base linear;
+      }
+    }
+
+    &:not(:empty) {
+      margin-left: @comp-margin-s;
+    }
+  }
+
+  // 输入框被聚焦
+  &.@{prefix}-is-focused {
+    .@{prefix}-input__prefix {
+      > .t-icon {
+        color: @input-border-color-default-focus;
+      }
+    }
+    .@{prefix}-input__suffix {
+      // 只有time-picker、date-picker特殊使用的suffix icon需要改变颜色 若后续有新增组件继续扩展这个枚举
+      > .t-icon-time,
+      .t-icon-calendar {
+        color: @input-border-color-default-focus;
+      }
+    }
+  }
+}
+
+.@{prefix}-input-group {
+  position: relative;
+  display: inline-flex;
+  align-items: stretch;
+
+  .@{prefix}-input__wrap {
+    border-radius: 0;
+
+    &:first-child {
+      border-radius: @input-border-radius 0 0 @input-border-radius;
+    }
+
+    &:last-child {
+      border-radius: 0 @border-radius-default @border-radius-default 0;
+    }
+  }
+
+  .@{prefix}-button,
+  .@{prefix}-select {
+    border-radius: 0;
+
+    &:not(:first-child) {
+      margin-left: @input-group-first-child-margin-left;
+    }
+  }
+  .@{prefix}-input__wrap {
+    &:not(:first-child) {
+      .@{prefix}-input {
+        margin-left: @input-group-first-child-margin-left;
+      }
+    }
+
+    &:first-child {
+      .@{prefix}-input {
+        border-radius: @input-border-radius 0 0 @input-border-radius;
+      }
+    }
+
+    &:last-child {
+      .@{prefix}-input {
+        border-radius: 0 @input-border-radius @input-border-radius 0;
+      }
+    }
+  }
+
+  .@{prefix}-button,
+  .@{prefix}-select {
+    &:first-child {
+      border-radius: @input-border-radius 0 0 @input-border-radius;
+    }
+
+    &:last-child {
+      border-radius: 0 @input-border-radius @input-border-radius 0;
+    }
+  }
+
+  &--separate {
+    .@{prefix}-input__wrap + .@{prefix}-input__wrap {
+      margin-left: @input-margin-distance-default;
+    }
+
+    .@{prefix}-button,
+    .@{prefix}-select {
+      border-radius: @input-border-radius;
+
+      &:first-child {
+        border-radius: @input-border-radius 0 0 @input-border-radius;
+      }
+
+      &:last-child {
+        border-radius: 0 @input-border-radius @input-border-radius 0;
+      }
+    }
+
+    .@{prefix}-input__wrap {
+      .@{prefix}-input {
+        border-radius: @input-border-radius;
+
+        &:first-child {
+          border-radius: @input-border-radius;
+        }
+
+        &:last-child {
+          border-radius: @input-border-radius;
+        }
+      }
+    }
+  }
+
+  .@{prefix}-input__inner,
+  .@{prefix}-button,
+  .@{prefix}-select {
+    position: relative;
+    z-index: 0;
+
+    &:hover,
+    &:focus,
+    &:active {
+      z-index: 1;
+    }
+  }
+}
+
+.@{prefix}-input__wrap {
+  width: 100%;
+}
+
+.@{prefix}-input__tips {
+  height: auto;
+  min-height: @input-tips-min-height;
+  font: @input-tips-font;
+  position: absolute;
+}
+
+.@{prefix}-input__tips--default {
+  color: @input-text-color-tips;
+}
+
+.@{prefix}-input__tips--success {
+  color: @input-text-color-success;
+}
+
+.@{prefix}-input__tips--warning {
+  color: @input-text-color-warning;
+}
+
+.@{prefix}-input__tips--error {
+  color: @input-text-color-error;
+}
+
+.@{prefix}-align-center > .@{prefix}-input__inner {
+  text-align: center;
+}
+
+.@{prefix}-align-right > .@{prefix}-input__inner {
+  text-align: right;
+}
+
+.@{prefix}-input__input-pre {
+  position: absolute;
+  visibility: hidden;
+  white-space: pre;
+  display: block;
+}
+
+.@{prefix}-input--auto-width {
+  width: fit-content;
+  min-width: 60px;
+}
+
+// 字数限制数字
+.@{prefix}-input__limit-number {
+  font: @input-font;
+  color: @input-limit-color;
+  background: @input-bg-color-default;
+
+  &.@{prefix}-is-disabled {
+    background: @input-bg-color-disabled;
+  }
+}

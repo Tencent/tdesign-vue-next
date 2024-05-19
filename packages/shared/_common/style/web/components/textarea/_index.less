@@ -1,0 +1,106 @@
+// 组件允许单个组件打包，因此默认引入公共基础样式
+@import "../../base.less";
+
+@import "./_var.less";
+
+@import "./_mixin.less";
+
+@import "../../mixins/_reset.less";
+
+.@{prefix}-textarea {
+
+  .reset;
+
+  position: relative;
+  width: 100%;
+
+  &__inner {
+    display: flex;
+    width: 100%;
+    height: @textarea-height;
+    min-height: @textarea-height;
+    border: 1px solid @textarea-border-color;
+    border-radius: @textarea-border-radius;
+    padding: @textarea-padding;
+    background-color: @textarea-bg-color-default;
+    font: @textarea-font;
+    color: @textarea-text-color;
+    resize: vertical;
+    outline: none;
+    transition: all @anim-time-fn-easing @anim-duration-base, height 0s;
+    box-sizing: border-box;
+
+    &:hover {
+      border-color: @textarea-border-color-hover;
+    }
+
+    &:focus {
+      border-color: @textarea-border-color-focus;
+      box-shadow: 0 0 0 2px @textarea-box-shadow-color-focus;
+    }
+
+    &::placeholder {
+      color: @textarea-placeholder-color;
+    }
+
+    .textarea-status(success);
+    .textarea-status(warning);
+    .textarea-status(error);
+  }
+
+  &__info_wrapper {
+    display: flex;
+    column-gap: @textarea-tips-gap;
+    justify-content: space-between;
+  }
+
+  &__info_wrapper_align {
+    justify-content: end;
+  }
+
+  &__limit {
+    font: @textarea-tips-font;
+    color: @textarea-limit-color;
+  }
+
+  .@{prefix}-is-disabled {
+    color: @textarea-color-text-disabled;
+    background-color: @textarea-bg-color-disabled;
+    cursor: not-allowed;
+
+    &:hover {
+      border-color: @textarea-border-color;
+    }
+
+    &::placeholder {
+      color: @textarea-color-text-disabled;
+    }
+  }
+
+  .@{prefix}-resize-none {
+    resize: none;
+  }
+}
+
+.@{prefix}-textarea__tips {
+  height: auto;
+  min-height: @textarea-tips-min-height;
+  font: @textarea-tips-font;
+  display: inline-block;
+}
+
+.@{prefix}-textarea__tips--normal {
+  color: @textarea-text-color-tips;
+}
+
+.@{prefix}-textarea__tips--success {
+  color: @textarea-text-color-success;
+}
+
+.@{prefix}-textarea__tips--warning {
+  color: @textarea-text-color-warning;
+}
+
+.@{prefix}-textarea__tips--error {
+  color: @textarea-text-color-error;
+}

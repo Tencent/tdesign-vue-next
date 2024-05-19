@@ -1,0 +1,105 @@
+@import "../../../base.less";
+
+@import "./_var.less";
+
+.count-down-size(@size) {
+  .@{countdown} {
+    @defaultFontSize: "countdown-@{size}-default-font-size";
+    @roundFontSize: "countdown-@{size}-round-font-size";
+    @squareFontSize: "countdown-@{size}-square-font-size";
+    @width: "countdown-@{size}-bg-width";
+    @height: "countdown-@{size}-bg-width";
+    @dotMargin: "countdown-@{size}-no-unit-margin";
+    @dotFontSize: "countdown-@{size}-no-unit-font-size";
+    @textMargin: "countdown-@{size}-unit-margin";
+    @textFontSize: "countdown-@{size}-unit-font-size";
+
+    &--@{size} {
+      &.@{countdown}--default {
+        font-size: @@defaultFontSize;
+      }
+
+      &.@{countdown}--round {
+        > .@{item} {
+          font-size: @@roundFontSize;
+        }
+      }
+
+      &.@{countdown}--square {
+        > .@{item} {
+          font-size: @@squareFontSize;
+        }
+      }
+
+      &.@{countdown}--round,
+      &.@{countdown}--square {
+        > .@{item} {
+          width: @@width;
+          height: @@height;
+        }
+      }
+
+      &.@{countdown}--round,
+      &.@{countdown}--square {
+        > .@{split}--dot {
+          margin: 0 @@dotMargin;
+          font-size: @@dotFontSize;
+          font-weight: 700;
+        }
+
+        > .@{split}--text {
+          margin: 0 @@textMargin;
+          font-size: @@textFontSize;
+        }
+      }
+    }
+  }
+}
+
+.count-down-size(small);
+.count-down-size(medium);
+.count-down-size(large);
+
+.@{countdown} {
+  font-family: "DIN Alternate", "Courier New", Courier, monospace;
+
+  .@{item},
+  .@{split} {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &--square,
+  &--round {
+    > .@{split}--dot {
+      color: @countdown-no-unit-color;
+    }
+
+    > .@{split}--text {
+      color: @countdown-unit-color;
+    }
+  }
+
+  &--default {
+    color: @countdown-default-text-color;
+  }
+
+  &--square {
+    color: @countdown-text-color;
+
+    > .@{item} {
+      border-radius: @countdown-square-border-radius;
+      background: @countdown-bg-color;
+    }
+  }
+
+  &--round {
+    color: @countdown-text-color;
+
+    > .@{item} {
+      border-radius: @countdown-round-border-radius;
+      background: @countdown-bg-color;
+    }
+  }
+}

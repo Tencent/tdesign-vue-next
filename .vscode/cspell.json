@@ -1,0 +1,28 @@
+{
+  // words - list of words to be always considered correct
+  "words": [
+    "tdesign",
+    "prismjs",
+    "swiper",
+    "antfu",
+    "popconfirm",
+    "Cascader",
+    "borderless",
+    "Iconfont",
+    "popperjs",
+    "sortablejs",
+    "tdesign",
+    "popconfirm",
+    "cascader",
+    "tnode",
+    "backtop",
+    "wechat",
+    "miniprogram",
+    "nuxt"
+  ],
+  
+  // flagWords - list of words to be always considered incorrect
+  // This is useful for offensive words and common spelling errors.
+  // For example "hte" should be "the"
+  "flagWords": []
+}

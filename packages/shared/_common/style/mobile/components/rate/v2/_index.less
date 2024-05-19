@@ -1,0 +1,136 @@
+@import "../../../base.less";
+
+@import "./_var.less";
+
+.@{prefix}-rate {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  &__wrapper {
+    line-height: 1em;
+    display: inline-flex;
+  }
+
+  &--disabled {
+    .@{prefix}-rate__icon {
+      &-left {
+        &--selected {
+          color: @rate-disabled-selected-color;
+        }
+
+        &--unselected {
+          color: @rate-disabled-unselected-color;
+        }
+      }
+
+      &--selected {
+        color: @rate-disabled-selected-color;
+
+        &-half {
+          background: linear-gradient(
+            to right,
+            @rate-disabled-selected-color 0%,
+            @rate-disabled-selected-color 50%,
+            @rate-disabled-unselected-color 51%,
+            @rate-disabled-unselected-color 100%
+          );
+        }
+      }
+
+      &--unselected {
+        color: @rate-disabled-unselected-color;
+      }
+    }
+  }
+
+  &__icon {
+    display: block;
+    width: 1em;
+    transition: transform .3s ease;
+    position: relative;
+
+    &-left {
+      position: absolute;
+      width: 50%;
+      overflow: hidden;
+      top: 0;
+      left: 0;
+
+      &--selected {
+        color: @rate-selected-color;
+      }
+
+      &--unselected {
+        color: @rate-unselected-color;
+      }
+    }
+
+    &--current {
+      transform: scale(@rate-icon-scale);
+    }
+
+    &--selected {
+      color: @rate-selected-color;
+
+      &-half {
+        color: transparent;
+        background: linear-gradient(
+          to right,
+          @rate-selected-color 0%,
+          @rate-selected-color 50%,
+          @rate-unselected-color 51%,
+          @rate-unselected-color 100%
+        );
+        background-clip: text;
+      }
+    }
+
+    &--unselected {
+      color: @rate-unselected-color;
+    }
+  }
+
+  &__text {
+    font-size: @rate-text-font-size;
+    color: @rate-text-color;
+    margin-left: 16px;
+    vertical-align: middle;
+
+    &--active {
+      color: @rate-text-active-color;
+      font-weight: @rate-text-active-font-weight;
+    }
+  }
+
+  &__tips {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    bottom: calc(100% + 8px);
+    padding: 4px;
+    border-radius: 6px;
+    box-shadow: @shadow-1;
+    background-color: @bg-color-container;
+    transform: translateX(-50%);
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 32px;
+      border-radius: 3px;
+
+      &--active {
+        background-color: @bg-color-secondarycontainer;
+      }
+    }
+
+    &-text {
+      text-align: center;
+      font-size: 12px;
+      line-height: 20px;
+    }
+  }
+}

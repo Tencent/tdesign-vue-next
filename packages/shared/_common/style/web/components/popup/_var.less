@@ -1,0 +1,31 @@
+// 颜色
+@popup-bg: @bg-color-container;
+@arrow-bg: @bg-color-container;
+@popup-text-color: @text-color-primary;
+
+// 间距
+@popup-padding: @comp-paddingTB-xs @comp-paddingLR-s;
+@popup-content-line-height: @text-line-height-base;
+@popup-arrow-width: 8px;
+@popup-arrow-height: 8px;
+@popup-content-arrow-spacer: @comp-margin-l;
+@popup-content-margin: @comp-margin-s;
+
+// 箭头位置偏移量
+@popup-arrow-position: @popup-arrow-width;
+@popup-content-font-size: @font-size-base;
+
+// 阴影
+@popup-shadow: @shadow-2-inset;
+@popup-top-arrow-shadow: @shadow-inset-left, @shadow-inset-bottom;
+@popup-left-arrow-shadow: @shadow-inset-left, @shadow-inset-top;
+@popup-bottom-arrow-shadow: @shadow-inset-top, @shadow-inset-right;
+@popup-right-arrow-shadow: @shadow-inset-right, @shadow-inset-bottom;
+
+// 动画
+@popup-flow: ~"@{prefix}-popup--animation";
+@popup-flow-duration: @anim-duration-base;
+@popup-flow-fn: @anim-time-fn-ease-in;
+@popup-flow-transition-enter: opacity @popup-flow-duration linear;
+@popup-flow-transition-leave: opacity @popup-flow-duration @anim-time-fn-ease-out,
+  visibility @popup-flow-duration @popup-flow-fn;

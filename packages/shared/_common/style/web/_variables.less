@@ -1,0 +1,383 @@
+// 公共前缀
+@prefix: t;
+
+// 颜色色板
+
+@brand-color-1: var(--td-brand-color-1);
+@brand-color-2: var(--td-brand-color-2);
+@brand-color-3: var(--td-brand-color-3);
+@brand-color-4: var(--td-brand-color-4);
+@brand-color-5: var(--td-brand-color-5);
+@brand-color-6: var(--td-brand-color-6);
+@brand-color-7: var(--td-brand-color-7);
+@brand-color-8: var(--td-brand-color-8);
+@brand-color-9: var(--td-brand-color-9);
+@brand-color-10: var(--td-brand-color-10);
+
+@warning-color-1: var(--td-warning-color-1);
+@warning-color-2: var(--td-warning-color-2);
+@warning-color-3: var(--td-warning-color-3);
+@warning-color-4: var(--td-warning-color-4);
+@warning-color-5: var(--td-warning-color-5);
+@warning-color-6: var(--td-warning-color-6);
+@warning-color-7: var(--td-warning-color-7);
+@warning-color-8: var(--td-warning-color-8);
+@warning-color-9: var(--td-warning-color-9);
+@warning-color-10: var(--td-warning-color-10);
+
+@error-color-1: var(--td-error-color-1);
+@error-color-2: var(--td-error-color-2);
+@error-color-3: var(--td-error-color-3);
+@error-color-4: var(--td-error-color-4);
+@error-color-5: var(--td-error-color-5);
+@error-color-6: var(--td-error-color-6);
+@error-color-7: var(--td-error-color-7);
+@error-color-8: var(--td-error-color-8);
+@error-color-9: var(--td-error-color-9);
+@error-color-10: var(--td-error-color-10);
+
+@success-color-1: var(--td-success-color-1);
+@success-color-2: var(--td-success-color-2);
+@success-color-3: var(--td-success-color-3);
+@success-color-4: var(--td-success-color-4);
+@success-color-5: var(--td-success-color-5);
+@success-color-6: var(--td-success-color-6);
+@success-color-7: var(--td-success-color-7);
+@success-color-8: var(--td-success-color-8);
+@success-color-9: var(--td-success-color-9);
+@success-color-10: var(--td-success-color-10);
+
+@gray-color-1: var(--td-gray-color-1);
+@gray-color-2: var(--td-gray-color-2);
+@gray-color-3: var(--td-gray-color-3);
+@gray-color-4: var(--td-gray-color-4);
+@gray-color-5: var(--td-gray-color-5);
+@gray-color-6: var(--td-gray-color-6);
+@gray-color-7: var(--td-gray-color-7);
+@gray-color-8: var(--td-gray-color-8);
+@gray-color-9: var(--td-gray-color-9);
+@gray-color-10: var(--td-gray-color-10);
+@gray-color-11: var(--td-gray-color-11);
+@gray-color-12: var(--td-gray-color-12);
+@gray-color-13: var(--td-gray-color-13);
+@gray-color-14: var(--td-gray-color-14);
+
+// 文字 & 图标 颜色
+@font-white-1: var(--td-font-white-1);
+@font-white-2: var(--td-font-white-2);
+@font-white-3: var(--td-font-white-3);
+@font-white-4: var(--td-font-white-4);
+
+@font-gray-1: var(--td-font-gray-1);
+@font-gray-2: var(--td-font-gray-2);
+@font-gray-3: var(--td-font-gray-3);
+@font-gray-4: var(--td-font-gray-4);
+
+// 基础颜色
+@brand-color: var(--td-brand-color); // 色彩-品牌-可操作
+@warning-color: var(--td-warning-color); // 色彩-功能-警告
+@error-color: var(--td-error-color); // 色彩-功能-失败
+@success-color: var(--td-success-color); // 色彩-功能-成功
+
+// 基础颜色的扩展 用于 hover / 聚焦 / 禁用 / 点击 等状态
+@brand-color-hover: var(--td-brand-color-hover); // hover态
+@brand-color-focus: var(--td-brand-color-focus); // focus态，包括鼠标和键盘
+@brand-color-active: var(--td-brand-color-active); // 点击态
+@brand-color-disabled: var(--td-brand-color-disabled); // 禁用态
+@brand-color-light: var(--td-brand-color-light); // 浅色的选中态
+@brand-color-light-hover: var(--td-brand-color-light-hover);
+
+// 警告色扩展
+@warning-color-hover: var(--td-warning-color-hover);
+@warning-color-focus: var(--td-warning-color-focus);
+@warning-color-active: var(--td-warning-color-active);
+@warning-color-disabled: var(--td-warning-color-disabled);
+@warning-color-light: var(--td-warning-color-light);
+@warning-color-light-hover: var(--td-warning-color-light-hover);
+
+// 失败/错误色扩展
+@error-color-hover: var(--td-error-color-hover);
+@error-color-focus: var(--td-error-color-focus);
+@error-color-active: var(--td-error-color-active);
+@error-color-disabled: var(--td-error-color-disabled);
+@error-color-light: var(--td-error-color-light);
+@error-color-light-hover: var(--td-error-color-light-hover);
+
+// 成功色扩展
+@success-color-hover: var(--td-success-color-hover);
+@success-color-focus: var(--td-success-color-focus);
+@success-color-active: var(--td-success-color-active);
+@success-color-disabled: var(--td-success-color-disabled);
+@success-color-light: var(--td-success-color-light);
+@success-color-light-hover: var(--td-success-color-light-hover);
+
+// 遮罩
+@mask-active: var(--td-mask-active); // 遮罩-弹出
+@mask-disabled: var(--td-mask-disabled); // 遮罩-禁用
+
+// 背景色
+@bg-color-page: var(--td-bg-color-page); // 色彩 - page
+@bg-color-container: var(--td-bg-color-container); // 色彩 - 容器
+@bg-color-container-hover: var(
+  --td-bg-color-container-hover
+); // 色彩 - 容器 - hover
+@bg-color-container-active: var(
+  --td-bg-color-container-active
+); // 色彩 - 容器 - active
+@bg-color-container-select: var(
+  --td-bg-color-container-select
+); // 色彩 - 容器 - select
+
+@bg-color-secondarycontainer: var(
+  --td-bg-color-secondarycontainer
+); // 色彩 - 次级容器
+@bg-color-secondarycontainer-hover: var(
+  --td-bg-color-secondarycontainer-hover
+); // 色彩 - 次级容器 - hover
+@bg-color-secondarycontainer-active: var(
+  --td-bg-color-secondarycontainer-active
+); // 色彩 - 次级容器 - active
+
+@bg-color-component: var(--td-bg-color-component); // 色彩  - 组件
+@bg-color-component-hover: var(
+  --td-bg-color-component-hover
+); // 色彩 - 组件 - hover
+@bg-color-component-active: var(
+  --td-bg-color-component-active
+); // 色彩 - 组件 - active
+
+@bg-color-secondarycomponent: var(
+  --td-bg-color-secondarycomponent
+); // 色彩 - 次级组件
+@bg-color-secondarycomponent-hover: var(
+  --td-bg-color-secondarycomponent-hover
+); // 色彩 - 次级组件 - hover
+@bg-color-secondarycomponent-active: var(
+  --td-bg-color-secondarycomponent-active
+); // 色彩 - 次级组件 - active
+
+@bg-color-component-disabled: var(
+  --td-bg-color-component-disabled
+); // 色彩 - 组件 - disabled
+
+// TODO: 考虑是否在组件内部做判断，不增加额外变量
+// 特殊组件背景色，目前只用于 button、input 组件多主题场景，浅色主题下固定为白色，深色主题下为 transparent 适配背景颜色
+@bg-color-specialcomponent: var(--td-bg-color-specialcomponent);
+
+// 文本颜色
+@text-color-primary: var(--td-text-color-primary); // 色彩-文字-主要
+@text-color-secondary: var(--td-text-color-secondary); // 色彩-文字-次要
+@text-color-placeholder: var(
+  --td-text-color-placeholder
+); // 色彩-文字-占位符/说明
+@text-color-disabled: var(--td-text-color-disabled); // 色彩-文字-禁用
+@text-color-anti: var(--td-text-color-anti); // 色彩-文字-反色
+@text-color-brand: var(--td-text-color-brand); // 色彩-文字-品牌
+@text-color-link: var(--td-text-color-link); // 色彩-文字-链接
+
+// 分割线
+@border-level-1-color: var(--td-border-level-1-color);
+@component-stroke: var(--td-component-stroke);
+// 边框
+@border-level-2-color: var(--td-border-level-2-color);
+@component-border: var(--td-component-border);
+
+// shadow
+
+// 基础/下层 投影 hover 使用的组件包括：表格 /
+@shadow-1: var(--td-shadow-1);
+// 中层投影 下拉 使用的组件包括：下拉菜单 / 气泡确认框 / 选择器 /
+@shadow-2: var(--td-shadow-2);
+// 上层投影（警示/弹窗）使用的组件包括：全局提示 / 消息通知
+@shadow-3: var(--td-shadow-3);
+
+// 内投影 用于弹窗类组件（气泡确认框 / 全局提示 / 消息通知）的内描边
+@shadow-inset-top: var(--td-shadow-inset-top);
+@shadow-inset-right: var(--td-shadow-inset-right);
+@shadow-inset-bottom: var(--td-shadow-inset-bottom);
+@shadow-inset-left: var(--td-shadow-inset-left);
+@shadow-inset: @shadow-inset-top, @shadow-inset-right, @shadow-inset-bottom,
+  @shadow-inset-left;
+
+// 融合阴影
+@shadow-2-inset: @shadow-2, @shadow-inset;
+@shadow-3-inset: @shadow-3, @shadow-inset;
+
+@size-1: var(--td-size-1);
+@size-2: var(--td-size-2);
+@size-3: var(--td-size-3);
+@size-4: var(--td-size-4);
+@size-5: var(--td-size-5);
+@size-6: var(--td-size-6);
+@size-7: var(--td-size-7);
+@size-8: var(--td-size-8);
+@size-9: var(--td-size-9);
+@size-10: var(--td-size-10);
+@size-11: var(--td-size-11);
+@size-12: var(--td-size-12);
+@size-13: var(--td-size-13);
+@size-14: var(--td-size-14);
+@size-15: var(--td-size-15);
+@size-16: var(--td-size-16);
+
+// component 组件尺寸高度相关 token
+@comp-size-xxxs: var(--td-comp-size-xxxs);
+@comp-size-xxs: var(--td-comp-size-xxs);
+@comp-size-xs: var(--td-comp-size-xs);
+@comp-size-s: var(--td-comp-size-s);
+@comp-size-m: var(--td-comp-size-m);
+@comp-size-l: var(--td-comp-size-l);
+@comp-size-xl: var(--td-comp-size-xl);
+@comp-size-xxl: var(--td-comp-size-xxl);
+@comp-size-xxxl: var(--td-comp-size-xxxl);
+@comp-size-xxxxl: var(--td-comp-size-xxxxl);
+@comp-size-xxxxxl: var(--td-comp-size-xxxxxl);
+
+// popup 弹出层整体边距 token
+@pop-padding-s: var(--td-pop-padding-s);
+@pop-padding-m: var(--td-pop-padding-m);
+@pop-padding-l: var(--td-pop-padding-l);
+@pop-padding-xl: var(--td-pop-padding-xl);
+@pop-padding-xxl: var(--td-pop-padding-xxl);
+
+// component 组件左右边距 token
+@comp-paddingLR-xxs: var(--td-comp-paddingLR-xxs);
+@comp-paddingLR-xs: var(--td-comp-paddingLR-xs);
+@comp-paddingLR-s: var(--td-comp-paddingLR-s);
+@comp-paddingLR-m: var(--td-comp-paddingLR-m);
+@comp-paddingLR-l: var(--td-comp-paddingLR-l);
+@comp-paddingLR-xl: var(--td-comp-paddingLR-xl);
+@comp-paddingLR-xxl: var(--td-comp-paddingLR-xxl);
+
+// component 组件上下边距 token
+@comp-paddingTB-xxs: var(--td-comp-paddingTB-xxs);
+@comp-paddingTB-xs: var(--td-comp-paddingTB-xs);
+@comp-paddingTB-s: var(--td-comp-paddingTB-s);
+@comp-paddingTB-m: var(--td-comp-paddingTB-m);
+@comp-paddingTB-l: var(--td-comp-paddingTB-l);
+@comp-paddingTB-xl: var(--td-comp-paddingTB-xl);
+@comp-paddingTB-xxl: var(--td-comp-paddingTB-xxl);
+
+// component 组件间距 token
+@comp-margin-xxs: var(--td-comp-margin-xxs);
+@comp-margin-xs: var(--td-comp-margin-xs);
+@comp-margin-s: var(--td-comp-margin-s);
+@comp-margin-m: var(--td-comp-margin-m);
+@comp-margin-l: var(--td-comp-margin-l);
+@comp-margin-xl: var(--td-comp-margin-xl);
+@comp-margin-xxl: var(--td-comp-margin-xxl);
+@comp-margin-xxxl: var(--td-comp-margin-xxxl);
+@comp-margin-xxxxl: var(--td-comp-margin-xxxxl);
+
+// Spacer 【deprecated】
+@spacer: 8px;
+@spacer-s: @spacer * .5; // 间距-4
+@spacer-m: @spacer * .75; // 间距-6
+@spacer-l: @spacer * 1.5; // 间距-12
+@spacer-1: @spacer; // 间距-8
+@spacer-2: @spacer * 2; // 间距-16
+@spacer-3: @spacer * 3; // 间距-24
+@spacer-4: @spacer * 4; // 间距-32
+@spacer-5: @spacer * 5; // 间距-大-40
+@spacer-6: @spacer * 6; // 间距-大-48
+@spacer-7: @spacer * 7; // 间距-大-48
+@spacer-8: @spacer * 8; // 间距-大-48
+@spacer-9: @spacer * 9; // 间距-大-48
+@spacer-10: @spacer * 10; // 间距-大-80
+
+@text-line-height-s: var(--td-line-height-body-small);
+@text-line-height-base: var(--td-line-height-body-medium);
+@text-line-height-l: var(--td-line-height-body-large);
+@text-line-height-xl: var(--td-line-height-title-large);
+@text-line-height-xxl: var(--td-line-height-headline-large);
+
+// Font
+@font-size: 10px;
+@font-size-s: var(--td-font-size-body-small);
+@font-size-base: var(--td-font-size-body-medium);
+@font-size-l: var(--td-font-size-body-large);
+@font-size-xl: var(--td-font-size-title-large);
+@font-size-xxl: var(--td-font-size-headline-large);
+
+@font-family: var(--td-font-family); // 字体-磅数-常规
+@font-family-medium: var(--td-font-family-medium); // 字体-磅数-粗体
+
+// 使用以下与Design Token对应的font token开发组件对应字体、行高
+@font-link-small: var(--td-font-link-small);
+@font-link-medium: var(--td-font-link-medium);
+@font-link-large: var(--td-font-link-large);
+@font-mark-small: var(--td-font-mark-small);
+@font-mark-medium: var(--td-font-mark-medium);
+@font-body-small: var(--td-font-body-small);
+@font-body-medium: var(--td-font-body-medium);
+@font-body-large: var(--td-font-body-large);
+@font-title-small: var(--td-font-title-small);
+@font-title-medium: var(--td-font-title-medium);
+@font-title-large: var(--td-font-title-large);
+@font-headline-small: var(--td-font-headline-small);
+@font-headline-medium: var(--td-font-headline-medium);
+@font-headline-large: var(--td-font-headline-large);
+@font-display-medium: var(--td-font-display-medium);
+@font-display-large: var(--td-font-display-large);
+
+// Border Radius
+@border-radius-small: var(--td-radius-small); // 圆角-2
+@border-radius-default: var(--td-radius-default); // 圆角-3
+@border-radius-medium: var(--td-radius-medium); // 圆角-6
+@border-radius-large: var(--td-radius-large); // 圆角-9
+@border-radius-extraLarge: var(--td-radius-extraLarge); // 圆角-12
+@border-radius-round: var(--td-radius-round); // 圆角-999
+@border-radius-circle: var(--td-radius-circle); // 圆角-全圆角
+
+// 表单相关
+@form-height: 30px;
+@form-text-color: @text-color-primary;
+@form-bg-color: @bg-color-container;
+@form-border-color: @border-level-2-color;
+
+// 图标尺寸
+@icon-default: 16px;
+@icon-l: 24px;
+
+// 滚动条颜色
+@scrollbar-color: var(--td-scrollbar-color);
+// 滚动条悬浮颜色
+@scrollbar-hover-color: var(--td-scrollbar-hover-color);
+// 滚动条轨道颜色
+@scroll-track-color: var(--td-scroll-track-color);
+
+// 响应式断点
+@screen-xs: 320px;
+@screen-xs-min: @screen-xs;
+@screen-sm: 768px;
+@screen-sm-min: @screen-sm;
+@screen-md: 992px;
+@screen-md-min: @screen-md;
+@screen-lg: 1200px;
+@screen-lg-min: @screen-lg;
+@screen-xl: 1400px;
+@screen-xl-min: @screen-xl;
+@screen-xxl: 1880px;
+@screen-xxl-min: @screen-xxl;
+
+// 动画
+@anim-time-fn-easing: cubic-bezier(.38, 0, .24, 1);
+@anim-time-fn-ease-out: cubic-bezier(0, 0, .15, 1);
+@anim-time-fn-ease-in: cubic-bezier(.82, 0, 1, .9);
+@anim-duration-base: .2s;
+@anim-duration-moderate: .24s;
+@anim-duration-slow: .28s;
+
+// 统一管理各组件层级关系
+@z-index-back-top: 300;
+@z-index-affix: 500;
+@z-index-drawer: 1500;
+@z-index-dialog: 2500;
+@z-index-image-viewer: 3000;
+@z-index-loading: 3500;
+@z-index-message: 5000;
+@z-index-Popup: 5500;
+@z-index-Tooltip: 5600;
+@z-index-Notification: 6000;
+@z-index-dragging: 6500;
+@z-index-guide: 999999;

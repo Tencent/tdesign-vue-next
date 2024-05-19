@@ -1,0 +1,80 @@
+// 组件允许单个组件打包，因此默认引入公共基础样式
+
+@import "../../base.less";
+
+@import "./_var.less";
+
+@import "../../mixins/_reset.less";
+
+.@{prefix}-input-adornment {
+  .reset;
+
+  display: flex;
+
+  &__prepend,
+  &__append {
+    .@{prefix}-input,
+    .@{prefix}-textarea__inner {
+      background-color: transparent;
+    }
+  }
+
+  &__prepend {
+    background-color: @bg-color-secondarycontainer;
+    color: @text-color-primary;
+    word-break: keep-all;
+    margin-right: -1px;
+  }
+
+  &__append {
+    background-color: @bg-color-secondarycontainer;
+    color: @text-color-primary;
+    word-break: keep-all;
+    margin-left: -1px;
+  }
+
+  &__text {
+    display: inline-flex;
+    height: 100%;
+    align-items: center;
+    box-sizing: border-box;
+    white-space: nowrap;
+    padding: @input-adornment-item-padding;
+    border: 1px solid @input-adornment-border-color-default;
+  }
+
+  // 调整首位元素修改圆角
+  > :first-child {
+    border-radius: @border-radius-default 0 0 @border-radius-default;
+
+    .@{prefix}-input,
+    .@{prefix}-input-adornment__text,
+    .@{prefix}-textarea__inner {
+      border-radius: @border-radius-default 0 0 @border-radius-default;
+    }
+  }
+
+  // // 调整末尾元素修改圆角
+  > :last-child {
+    border-radius: 0 @border-radius-default @border-radius-default 0;
+
+    .@{prefix}-input,
+    .@{prefix}-input-adornment__text,
+    .@{prefix}-textarea__inner {
+      border-radius: 0 @border-radius-default @border-radius-default 0;
+    }
+  }
+
+  // 调整非末尾元素层级
+  > :not(:last-child):hover {
+    z-index: 2;
+  }
+
+  // 调整非首尾元素圆角
+  > :not(:first-child):not(:last-child) {
+    .@{prefix}-input,
+    .@{prefix}-textarea__inner {
+      border-radius: 0;
+    }
+  }
+}

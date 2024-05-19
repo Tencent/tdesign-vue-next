@@ -1,0 +1,155 @@
+.@{d-prefix}-demo-item__body h4 {
+  margin-bottom: 15px;
+}
+
+.@{d-prefix}-demo-upload {
+  margin: 10px 0;
+  padding: 26px 31px;
+
+  &__column {
+    flex-direction: column;
+  }
+
+  &-tip {
+    color: rgba(0, 0, 0, 30%);
+    font-size: @font-size-s;
+    margin-top: 12px;
+  }
+}
+
+.@{d-prefix}-demo-upload-multiple {
+  padding: 30px;
+  background-color: @bg-color-container;
+  margin: 10px 0;
+
+  &-header {
+    display: flex;
+    align-items: center;
+    font-size: @font-size-s;
+    color: #999;
+    margin-bottom: 20px;
+
+    & .t-button {
+      margin-right: 10px;
+      color: rgba(0, 0, 0, 90%);
+    }
+  }
+}
+
+.@{d-prefix}-demo-upload-table {
+  border: 1px dashed #f0f0f0;
+  border-radius: @border-radius-small @border-radius-small 0 0;
+  font-size: @font-size-base;
+  min-height: 252px;
+  overflow-y: auto;
+
+  &--empty,
+  &--draging {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: @font-size-base;
+    height: 210px;
+  }
+
+  &-header {
+    border-bottom: 1px dashed #f0f0f0;
+  }
+
+  &-header,
+  &-item {
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &-header {
+    & div {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      padding-left: 16px;
+    }
+
+    & div:not(:last-of-type) {
+      border-right: 1px dashed #f0f0f0;
+    }
+  }
+
+  &-item + &-item {
+    border-top: 1px dashed #f0f0f0;
+  }
+
+  &-item {
+    & div {
+      display: flex;
+      height: 100%;
+      padding-left: 16px;
+      align-items: center;
+      overflow: hidden;
+    }
+  }
+
+  &-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 284px;
+  }
+
+  &__name {
+    flex: 3;
+
+    & span {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &__size {
+    flex: 2;
+  }
+
+  &__status {
+    flex: 3;
+
+    &--success .t-icon {
+      color: @success-color;
+    }
+
+    &--fail .t-icon {
+      color: @error-color;
+    }
+
+    &--loading .t-icon {
+      color: @brand-color;
+    }
+
+    &--pending .t-icon {
+      color: #ddd;
+    }
+
+    & .t-icon {
+      margin-right: 5px;
+    }
+  }
+
+  &__operator {
+    flex: 2;
+    font-size: @font-size-base;
+    justify-content: center;
+  }
+}
+
+.@{d-prefix}-demo-upload-bottom {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+
+  & .t-button {
+    margin-left: 10px;
+  }
+}

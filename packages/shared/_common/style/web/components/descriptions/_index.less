@@ -1,0 +1,52 @@
+@import "../../base.less";
+
+@import "./_var.less";
+
+@import "./_mixin.less";
+
+@import "../../mixins/_reset.less";
+
+.@{prefix}-descriptions {
+  .reset;
+
+  @root: ~".@{prefix}-descriptions";
+
+  &__header {
+    color: @text-color-primary;
+    font: @font-title-medium;
+    margin-bottom: @descriptions-header-margin;
+    font-weight: 600;
+  }
+
+  &__body {
+    border-collapse: collapse;
+    font: @font-body-medium;
+    width: 100%;
+
+    .generate-padding(l, @descriptions-padding-l);
+    .generate-padding(m, @descriptions-padding-m);
+    .generate-padding(s, @descriptions-padding-s);
+
+    & @{root}__label {
+      color: @text-color-placeholder;
+    }
+
+    &--border {
+      > tbody {
+        > tr {
+          > td {
+            border: @descriptions-td-border;
+          }
+        }
+      }
+
+      @{root}__label {
+        background-color: @bg-color-secondarycontainer;
+
+        &:hover {
+          background-color: @bg-color-container-hover;
+        }
+      }
+    }
+  }
+}

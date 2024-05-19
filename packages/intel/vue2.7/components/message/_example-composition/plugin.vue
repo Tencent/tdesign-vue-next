@@ -1,0 +1,92 @@
+<template>
+  <t-space direction="vertical" size="large">
+    <!--
+      - 组件实例，关闭某一条信息
+      - 组件实例：MessageInstance = this.$message(options)
+      - 组件实例：MessageInstance = MessagePlugin(options)
+      - 组件实例方法-关闭提示信息：MessageInstance.close()
+    -->
+
+    <t-space direction="vertical">
+      <p>插件调用</p>
+      <t-space>
+        <t-button theme="primary" variant="outline" @click="$message.info('用户表示普通操作信息提示')">消息</t-button>
+        <t-button
+          theme="success"
+          variant="outline"
+          @click="
+            $message.success({
+              content: '用户表示操作顺利达成，自定义 className 和 style',
+              duration: 2000,
+              className: 'test_class',
+              style: { width: '600px' },
+            })
+          "
+        >
+          成功
+        </t-button>
+        <t-button theme="warning" variant="outline" @click="$message('warning', '用户表示操作引起一定后果')">
+          警示
+        </t-button>
+        <t-button
+          theme="danger"
+          variant="outline"
+          @click="$message('error', { content: '用户表示操作引起严重的后果', duration: 4000 })"
+        >
+          失败
+        </t-button>
+        <t-button theme="primary" variant="outline" @click="$message.question('用于帮助用户操作的信息提示', 5000)">
+          询问
+        </t-button>
+        <!-- 0 表示永远不自动消失 -->
+        <t-button theme="primary" variant="outline" @click="$message.loading('用于表示操作正在生效的过程中', 0)">
+          加载中
+        </t-button>
+        <t-button theme="default" variant="outline" @click="$message.closeAll()">关闭所有</t-button>
+        <t-button theme="default" variant="outline" @click="$message.config({ placement: 'left' })">
+          设置默认位置
+        </t-button>
+      </t-space>
+    </t-space>
+
+    <t-space direction="vertical">
+      <p>函数式调用</p>
+      <t-space>
+        <t-button theme="primary" variant="outline" @click="MessagePlugin.info('用户表示普通操作信息提示')">
+          消息
+        </t-button>
+        <t-button theme="success" variant="outline" @click="MessagePlugin('success', '用户表示操作顺利达成')">
+          成功
+        </t-button>
+        <t-button
+          theme="warning"
+          variant="outline"
+          @click="MessagePlugin('warning', { content: '用户表示操作引起一定后果' })"
+        >
+          警示
+        </t-button>
+        <t-button theme="danger" variant="outline" @click="MessagePlugin.error({ content: content })">失败</t-button>
+        <t-button theme="primary" variant="outline" @click="MessagePlugin.question('用于帮助用户操作的信息提示')">
+          询问
+        </t-button>
+        <t-button theme="primary" variant="outline" @click="MessagePlugin.loading('用于表示操作正在生效的过程中')">
+          加载中
+        </t-button>
+        <t-button theme="default" variant="outline" @click="MessagePlugin.closeAll()">关闭所有</t-button>
+        <t-button theme="default" variant="outline" @click="$message.config({ placement: 'right' })">
+          设置默认位置
+        </t-button>
+      </t-space>
+    </t-space>
+  </t-space>
+</template>
+
+<script setup lang="jsx">
+import { MessagePlugin } from 'tdesign-vue';
+
+const content = () => (
+    <div>
+      操作有误，<a href="#">前往查看</a>
+    </div>
+);
+</script>

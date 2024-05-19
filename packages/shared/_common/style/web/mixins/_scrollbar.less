@@ -1,0 +1,40 @@
+@import "../_variables.less";
+
+.scrollbar(@size: 6px, @borderSize: 0px) {
+  // Firefox 等浏览器标准支持的滚动条样式设置
+  scrollbar-color: @scrollbar-color transparent;
+  scrollbar-width: thin;
+  // Safari/Chrome 中滚动条样式设置
+  &::-webkit-scrollbar {
+    width: @size;
+    height: @size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border: @borderSize solid transparent;
+    background-clip: content-box;
+    background-color: @scrollbar-color;
+    border-radius: @size * 2 - 1px;
+  }
+
+  // 滚动条比较窄，吸底时，实际操作点击选中比较困难，因此，增加滚动条需要悬浮态，引导用户使用和滚动
+  &::-webkit-scrollbar-thumb:vertical:hover,
+  &::-webkit-scrollbar-thumb:horizontal:hover {
+    background-color: @scrollbar-hover-color;
+  }
+}
+
+.hideScrollbar() {
+  /* firefox */
+  scrollbar-width: none;
+  overflow: -moz-scrollbars-none;
+
+  /* IE 10+ */
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    /* Chrome Safari */
+    display: none;
+    width: 0 !important;
+  }
+}

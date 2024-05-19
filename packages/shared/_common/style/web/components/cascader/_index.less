@@ -1,0 +1,207 @@
+// 组件允许单个组件打包，因此默认引入公共基础样式
+
+@import "../../base.less";
+
+@import "./_var.less";
+
+@import "../../mixins/_text.less";
+
+@import "../../mixins/_reset.less";
+
+.@{prefix}-cascader {
+  .@{prefix}-fake-arrow {
+    color: @cascader-icon-color;
+
+    &--active {
+      color: @cascader-icon-color-select;
+    }
+  }
+
+  &__popup {
+    .@{prefix}-popup__content {
+      padding: 0;
+      box-shadow: @shadow-2;
+      border-radius: @cascader-popup-border-radius;
+      border: @cascader-popup-border;
+      overflow: hidden;
+    }
+  }
+
+  &__panel {
+    display: flex;
+    height: 100%;
+
+    &.@{prefix}-cascader--normal {
+      height: @cascader-panel-height-normal;
+    }
+
+    &.@{prefix}-cascader--multiple {
+      height: @cascader-panel-height-multiple;
+    }
+
+    &--empty {
+      width: 100%;
+      height: @cascader-item-height-default;
+      line-height: @cascader-item-height-default;
+      color: @cascader-color-empty;
+      margin: @cascader-menu-padding;
+      text-align: center;
+      padding-left: 0;
+
+      &:hover {
+        background: none;
+        cursor: default;
+      }
+    }
+  }
+
+  &__menu {
+    width: (@cascader-width-s - 2px);
+    overflow: auto;
+    box-sizing: content-box;
+    padding: @cascader-menu-padding;
+    background: @bg-color-container;
+
+    &.@{prefix}-size-l {
+      padding: @cascader-menu-padding-l;
+    }
+
+    &.@{prefix}-size-s {
+      padding: @cascader-menu-padding-s;
+    }
+
+    &--segment {
+      border-right: 1px solid @cascader-menu-segment-color;
+    }
+
+    &--filter {
+      width: auto;
+      min-width: (@cascader-width-s - 2px);
+    }
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: @cascader-item-height-default;
+    font: @cascader-font;
+    color: @cascader-dark-color;
+    padding: @cascader-item-padding;
+    border-radius: @cascader-item-border-radius;
+    margin-top: @cascader-item-margin-top;
+    transition: background-color @anim-duration-base @anim-time-fn-ease-in;
+    list-style: none;
+
+    &.@{prefix}-size-s {
+      height: @cascader-item-height-s;
+      font: @cascader-font-s;
+      padding: @cascader-item-padding-s;
+    }
+
+    &.@{prefix}-size-l {
+      height: @cascader-item-height-l;
+      font: @cascader-font-l;
+      padding: @cascader-item-padding-l;
+    }
+
+    &.@{prefix}-is-disabled {
+      color: @cascader-item-color-disabled;
+      background-color: transparent;
+      cursor: not-allowed;
+    }
+
+    &-icon {
+      &.t-icon {
+        position: absolute;
+        height: 100%;
+        right: 0;
+        top: 0;
+        background: transparent;
+        margin: 0 8px;
+        font-size: 16px;
+        color: @cascader-icon-color;
+      }
+
+      &.@{prefix}-loading {
+        display: flex;
+        color: @cascader-highlight-color;
+      }
+    }
+
+    &.@{prefix}-is-expanded {
+      background: @cascader-item-background-color-expanded;
+      color: @cascader-highlight-color;
+
+      .t-icon-chevron-right {
+        color: @cascader-highlight-color;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    & .@{prefix}-checkbox {
+      max-width: 100%;
+
+      .@{prefix}-checkbox__input {
+        flex-shrink: 0;
+      }
+
+      & .@{prefix}-checkbox__label {
+        display: block;
+        white-space: nowrap;
+        .text-ellipsis();
+
+        .@{prefix}-cascader__item__label--filter {
+          color: @cascader-highlight-color;
+        }
+      }
+    }
+
+    &--with-icon {
+      padding: @cascader-item-padding-with-icon;
+    }
+
+    &--leaf {
+      .@{prefix}-checkbox {
+        width: 100%;
+      }
+    }
+
+    &-label {
+      display: block;
+      position: relative;
+      white-space: nowrap;
+      padding: 0;
+
+      &--ellipsis {
+        .text-ellipsis();
+      }
+
+      &--filter {
+        color: @cascader-highlight-color;
+      }
+    }
+
+    &:hover:not(.@{prefix}-is-expanded):not(.@{prefix}-is-disabled) {
+      background: @cascader-item-color-hover;
+      cursor: pointer;
+    }
+
+    &.@{prefix}-is-selected {
+      color: @cascader-item-color-selected;
+
+      & .@{prefix}-checkbox__label {
+        color: @cascader-item-color-selected;
+      }
+    }
+
+    --ripple-color: @bg-color-container-active;
+  }
+}

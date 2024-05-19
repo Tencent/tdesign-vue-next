@@ -1,0 +1,34 @@
+{
+  "extends": "./default.json",
+  "compilerOptions": {
+    "paths": {
+      "@adapter/vue": [
+        "packages/adapter/vue/vue2.7"
+      ],
+      "@adapter/vue/*": [
+        "packages/adapter/vue/vue2.7/*"
+      ],
+      "@adapter/hooks": [
+        "packages/adapter/hooks/vue2.7"
+      ],
+      "@adapter/hooks/*": [
+        "packages/adapter/hooks/vue2.7/*"
+      ],
+      "@adapter/utils": [
+        "packages/adapter/utils/vue2.7"
+      ],
+      "@adapter/utils/*": [
+        "packages/adapter/utils/vue2.7/*"
+      ],
+      "@td/intel": [
+        "packages/intel/vue2.7"
+      ],
+      "@td/component": [
+        "packages/components/vue2.7"
+      ],
+      "@td/intel/*": [
+        "packages/intel/vue2.7/*"
+      ]
+    }
+  }
+}

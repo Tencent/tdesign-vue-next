@@ -1,0 +1,432 @@
+// Vitest Snapshot v1
+
+exports[`List > :props > :asyncLoading is a function, () => VNode. 1`] = `
+<div
+  class="t-list t-size-m"
+>
+  <ul
+    class="t-list__inner"
+  />
+  <div
+    class="t-list__load"
+  >
+    <p>
+      This is a loading
+    </p>
+  </div>
+</div>
+`;
+
+exports[`List > :props > :asyncLoading is a string 1`] = `
+<div
+  class="t-list t-size-m"
+>
+  <ul
+    class="t-list__inner"
+  >
+    text
+  </ul>
+  <div
+    class="t-list__load"
+  >
+    <div
+      class="t-loading--center t-size-m t-loading t-is-loading"
+    >
+      <svg
+        class="t-loading__gradient t-icon-loading"
+        height="1em"
+        size="medium"
+        version="1.1"
+        viewBox="0 0 12 12"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <foreignobject
+          height="12"
+          width="12"
+          x="0"
+          y="0"
+        >
+          <div
+            class="t-loading__gradient-conic"
+          />
+        </foreignobject>
+      </svg>
+      <div
+        class="t-loading__text"
+      >
+        正在加载中，请稍后
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`List > :props > :asyncLoading is load-more 1`] = `
+<div
+  class="t-list t-size-m"
+>
+  <ul
+    class="t-list__inner"
+  >
+    text
+  </ul>
+  <div
+    class="t-list__load"
+  >
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`List > :props > :footer is a function, () => VNode. 1`] = `
+<div
+  class="t-list t-size-m"
+>
+  <ul
+    class="t-list__inner"
+  />
+  <div
+    class="t-list__footer"
+  >
+    <p>
+      This is a footer
+    </p>
+  </div>
+  <div
+    class="t-list__load"
+  />
+</div>
+`;
+
+exports[`List > :props > :footer is a string 1`] = `
+<div
+  class="t-list t-size-m"
+>
+  <ul
+    class="t-list__inner"
+  >
+    text
+  </ul>
+  <div
+    class="t-list__footer"
+  >
+    footer
+  </div>
+  <div
+    class="t-list__load"
+  />
+</div>
+`;
+
+exports[`List > :props > :header is a function, () => VNode. 1`] = `
+<div
+  class="t-list t-size-m"
+>
+  <div
+    class="t-list__header"
+  >
+    <p>
+      This is a header
+    </p>
+  </div>
+  <ul
+    class="t-list__inner"
+  />
+  <div
+    class="t-list__load"
+  />
+</div>
+`;
+
+exports[`List > :props > :header is a string 1`] = `
+<div
+  class="t-list t-size-m"
+>
+  <div
+    class="t-list__header"
+  >
+    header
+  </div>
+  <ul
+    class="t-list__inner"
+  >
+    text
+  </ul>
+  <div
+    class="t-list__load"
+  />
+</div>
+`;
+
+exports[`List > :props > :layout 1`] = `
+<div
+  class="t-list t-size-m"
+>
+  <ul
+    class="t-list__inner"
+  >
+    text
+  </ul>
+  <div
+    class="t-list__load"
+  />
+</div>
+`;
+
+exports[`List > :props > :size 1`] = `
+<div
+  class="t-list t-size-l"
+>
+  <ul
+    class="t-list__inner"
+  >
+    text
+  </ul>
+  <div
+    class="t-list__load"
+  />
+</div>
+`;
+
+exports[`List > :props > :split 1`] = `
+<div
+  class="t-list t-size-m t-list--split"
+>
+  <ul
+    class="t-list__inner"
+  >
+    text
+  </ul>
+  <div
+    class="t-list__load"
+  />
+</div>
+`;
+
+exports[`List > :props > :stripe 1`] = `
+<div
+  class="t-list t-size-m"
+>
+  <ul
+    class="t-list__inner"
+  >
+    text
+  </ul>
+  <div
+    class="t-list__load"
+  />
+</div>
+`;
+
+exports[`ListItem > :props > :action 1`] = `
+<li
+  class="t-list-item"
+>
+  <div
+    class="t-list-item-main"
+  >
+    <div
+      class="t-list-item__content"
+    >
+      text
+    </div>
+    <li
+      class="t-list-item__action"
+    >
+      action
+    </li>
+  </div>
+</li>
+`;
+
+exports[`ListItem > :props > :action is a function, () => VNode. 1`] = `
+<li
+  class="t-list-item"
+>
+  <div
+    class="t-list-item-main"
+  >
+    <div
+      class="t-list-item__content"
+    />
+    <li
+      class="t-list-item__action"
+    >
+      <p>
+        This is a action
+      </p>
+    </li>
+  </div>
+</li>
+`;
+
+exports[`ListItem > :props > :content 1`] = `
+<li
+  class="t-list-item"
+>
+  <div
+    class="t-list-item-main"
+  >
+    <div
+      class="t-list-item__content"
+    >
+      text
+    </div>
+  </div>
+</li>
+`;
+
+exports[`ListItem > :props > :content is a function, () => VNode. 1`] = `
+<li
+  class="t-list-item"
+>
+  <div
+    class="t-list-item-main"
+  >
+    <div
+      class="t-list-item__content"
+    >
+      <p>
+        This is a content
+      </p>
+    </div>
+  </div>
+</li>
+`;
+
+exports[`ListItem > :props > :default 1`] = `
+<li
+  class="t-list-item"
+>
+  <div
+    class="t-list-item-main"
+  >
+    <div
+      class="t-list-item__content"
+    >
+      default
+    </div>
+  </div>
+</li>
+`;
+
+exports[`ListItem > :props > :default is a function, () => VNode. 1`] = `
+<li
+  class="t-list-item"
+>
+  <div
+    class="t-list-item-main"
+  >
+    <div
+      class="t-list-item__content"
+    >
+      <p>
+        default
+      </p>
+    </div>
+  </div>
+</li>
+`;
+
+exports[`ListItemMeta > :props > :description 1`] = `
+<div
+  class="t-list-item__meta"
+>
+  <div
+    class="t-list-item__meta-content"
+  >
+    <p
+      class="t-list-item__meta-description"
+    >
+      description
+    </p>
+  </div>
+</div>
+`;
+
+exports[`ListItemMeta > :props > :description is a function, () => VNode. 1`] = `
+<div
+  class="t-list-item__meta"
+>
+  <div
+    class="t-list-item__meta-content"
+  >
+    <p
+      class="t-list-item__meta-description"
+    >
+      <p>
+        description
+      </p>
+    </p>
+  </div>
+</div>
+`;
+
+exports[`ListItemMeta > :props > :image 1`] = `
+<div
+  class="t-list-item__meta"
+>
+  <div
+    class="t-list-item__meta-avatar"
+  >
+    <img
+      src="image"
+    />
+  </div>
+  <div
+    class="t-list-item__meta-content"
+  />
+</div>
+`;
+
+exports[`ListItemMeta > :props > :image is a function, () => VNode. 1`] = `
+<div
+  class="t-list-item__meta"
+>
+  <div
+    class="t-list-item__meta-avatar"
+  >
+    <p>
+      image
+    </p>
+  </div>
+  <div
+    class="t-list-item__meta-content"
+  />
+</div>
+`;
+
+exports[`ListItemMeta > :props > :title 1`] = `
+<div
+  class="t-list-item__meta"
+>
+  <div
+    class="t-list-item__meta-content"
+  >
+    <h3
+      class="t-list-item__meta-title"
+    >
+      title
+    </h3>
+  </div>
+</div>
+`;
+
+exports[`ListItemMeta > :props > :title is a function, () => VNode. 1`] = `
+<div
+  class="t-list-item__meta"
+>
+  <div
+    class="t-list-item__meta-content"
+  >
+    <h3
+      class="t-list-item__meta-title"
+    >
+      <p>
+        title
+      </p>
+    </h3>
+  </div>
+</div>
+`;

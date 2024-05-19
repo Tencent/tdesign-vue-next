@@ -1,0 +1,78 @@
+// 组件允许单个组件打包，因此默认引入公共基础样式
+
+@import "../../base.less";
+
+@import "./_var.less";
+
+@import "./_mixin.less";
+
+@import "../../mixins/_reset.less";
+
+// <name> 替换为组件名
+.@{prefix}-message {
+  .reset;
+  .message;
+
+  @{msg-icon-selector} {
+    color: @msg-primary-color;
+    margin-right: @msg-icon-margin-right;
+    flex-shrink: 0;
+    font-size: @msg-icon-size;
+  }
+
+  &.@{prefix}-is-success {
+
+    @{msg-icon-selector} {
+      color: @msg-success-color;
+    }
+  }
+
+  &.@{prefix}-is-warning {
+
+    @{msg-icon-selector} {
+      color: @msg-warning-color;
+    }
+  }
+
+  &.@{prefix}-is-error {
+
+    @{msg-icon-selector} {
+      color: @msg-error-color;
+    }
+  }
+
+  &.@{prefix}-is-closable {
+
+    .@{prefix}-message__close {
+      display: inline-flex;
+      margin-right: 0;
+      margin-left: @msg-close-icon-margin-left;
+      cursor: pointer;
+      color: @msg-close-icon-color;
+
+      .t-icon-close {
+        font-size: @msg-close-size;
+        border-radius: @border-radius-default;
+        transition: all @anim-duration-base linear;
+
+        &:hover {
+          background: @msg-close-bg-color-hover;
+        }
+
+        &:active {
+          background: @msg-close-bg-color-active;
+        }
+      }
+    }
+  }
+}
+
+.@{prefix}-message__list {
+  position: fixed;
+  z-index: 6000;
+
+  .@{prefix}-message {
+    margin-bottom: @msg-list-margin-bottom;
+    word-break: break-all;
+  }
+}

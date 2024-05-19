@@ -1,0 +1,72 @@
+// 组件允许单个组件打包，因此默认引入公共基础样式
+
+@import "../../base.less";
+
+@import "./_var.less";
+
+@import "./_mixin.less";
+
+@import "../../mixins/_reset.less";
+
+// Badge
+.@{prefix}-badge {
+  .reset;
+
+  position: relative;
+  display: inline-block;
+
+  &--dot,
+  &--circle,
+  &--round {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: @badge-text-color;
+    text-align: center;
+    font: @badge-font;
+    transform: translate(50%, -50%);
+    transform-origin: 100% 0;
+    box-sizing: content-box;
+  }
+
+  &--static {
+    position: static;
+    display: inline-block;
+    transform: none;
+  }
+
+  &--dot {
+    right: 1px;
+    margin-top: 1px;
+    width: @badge-dot-size;
+    height: @badge-dot-size;
+    border-radius: @border-radius-circle;
+    background-color: @badge-color;
+  }
+
+  &--circle,
+  &--round {
+    padding-right: @badge-padding;
+    padding-left: @badge-padding;
+    min-width: @badge-min-width;
+    height: @badge-height;
+    background-color: @badge-color;
+    line-height: @badge-height;
+
+    &.t-size-s {
+      padding-right: @badge-padding-s;
+      padding-left: @badge-padding-s;
+      min-width: @badge-min-width;
+      height: @badge-height-s;
+      line-height: @badge-height-s;
+    }
+  }
+
+  &--circle {
+    border-radius: @badge-shape-circle;
+  }
+
+  &--round {
+    border-radius: @badge-shape-round;
+  }
+}

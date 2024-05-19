@@ -1,0 +1,42 @@
+@progress-line-stroke-width: 6px; // line 进度条线宽
+@progress-stroke-plump-width: 20px; // plump 进度条线宽
+@progress-stroke-circle-width: 6px; // circle 进度条线宽
+@progress-line-icon-font-size: calc(@font-size-base + 2px);
+@progress-circle-icon-font-size: 48px;
+@progress-plump-label-font-size: @font-size-s;
+@progress-circle-width: 112px;
+@progress-circle-label-font-size: 20px;
+@progress-circle-label-line-height: 28px;
+@progress-circle-label-font-weight: 700;
+@progress-info-spacer: @spacer; // 间距
+@progress-inner-transition: all @anim-duration-base @anim-time-fn-easing;
+
+@progress-track-bg-color: var(--td-progress-track-bg-color, @bg-color-component); // 进度条背景色值(未完成部分进度)
+@progress-inner-bg-color: var(--td-progress-inner-bg-color, @brand-color); // 进度条已完成进度色值(默认状态)
+@progress-inner-bg-color-success: var(
+  --td-progress-inner-bg-color-success,
+  @success-color
+); // 进度条已完成进度色值(success 状态)
+@progress-inner-bg-color-error: var(
+  --td-progress-inner-bg-color-error,
+  @error-color
+); // 进度条已完成进度色值(error 状态)
+@progress-inner-bg-color-warning: var(
+  --td-progress-inner-bg-color-warning,
+  @warning-color
+); // 进度条已完成进度色值(warning 状态)
+@progress-inner-bg-color-active: var(
+  --td-progress-inner-bg-color-active,
+  @bg-color-container
+); // 进度条已完成进度色值(active 状态)
+@progress-info-dark-color: var(
+  --td-progress-info-dark-color,
+  @text-color-primary
+); // 进度条深色label字体颜色(在进度条外或未完成进度灰色色块里显示的色值)
+@progress-info-light-color: var(
+  --td-progress-info-light-color,
+  @font-white-1
+); // 进度条浅色label字体颜色(在进度条色块内显示的色值)
+@progress-circle-inner-bg-color: var(--td-progress-circle-inner-bg-color, @font-white-1); // 环境进度条内圆背景色
+
+@progress: ~"@{prefix}-progress";

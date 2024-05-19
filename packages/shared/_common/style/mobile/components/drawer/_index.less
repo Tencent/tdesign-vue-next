@@ -1,0 +1,28 @@
+@import "../../base.less";
+
+@import "./_var.less";
+
+.@{prefix}-drawer {
+  &__sidebar {
+    width: calc(100vw * .7);
+    height: 100%;
+    background: #fff;
+    padding-left: 16px;
+  }
+
+  &__sidebar-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e6e6e6;
+  }
+
+  &__sidebar-item-title {
+    padding: 12px 0;
+    flex: 1;
+  }
+
+  &__sidebar-item-icon {
+    font-size: 18px;
+    margin-right: 10px;
+  }
+}

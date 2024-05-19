@@ -1,0 +1,28 @@
+@timeline-primary-color: @brand-color;
+@timeline-default-color: @component-border;
+@timeline-warning-color: @warning-color;
+@timeline-error-color: @error-color;
+@timeline-success-color: @success-color;
+
+@timeline-content-font: @font-size-l;
+
+@timeline-label-font: @font-size-base;
+@timeline-label-font-color: @text-color-secondary;
+
+// margin & padding
+@timeline-content-padding-left: @comp-margin-l;
+@timeline-content-padding-right: @comp-margin-l;
+@timeline-content-padding-bottom: @comp-margin-l;
+@timeline-wrapper-width-size: 8px;  //not suggested modified
+@timeline-wrapper-top: 8px;
+@timeline-wrapper-item-dot-size: (@timeline-wrapper-width-size - 4px);
+@timeline-wrapper-tail-padding-bottom: @comp-size-s;
+@timeline-wrapper-tail-height: calc(100% - (@timeline-wrapper-width-size * 2 + @timeline-wrapper-top));
+@timeline-item-alternate-margin: calc(50% - (@timeline-wrapper-width-size / 2));
+
+@timeline-horizontal-wrapper-height-size: 8px;  //not suggested modified
+@timeline-horizontal-item-padding: @timeline-horizontal-wrapper-height-size;
+@timeline-horizontal-wrapper-left: calc(@timeline-horizontal-wrapper-height-size + @comp-margin-s);
+@timeline-horizontal-wrapper-tail-width-size: calc(100% - @timeline-horizontal-wrapper-left);
+@timeline-horizontal-wrapper-item-dot-size: (@timeline-horizontal-wrapper-height-size - 4px);
+@timeline-horizontal-content-padding: @comp-margin-l;

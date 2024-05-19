@@ -1,0 +1,115 @@
+// 组件允许单个组件打包，因此默认引入公共基础样式
+
+@import "../../base.less";
+
+@import "./_var.less";
+
+.@{prefix}-progress {
+  &__inner {
+    display: flex;
+    align-items: center;
+    min-height: @progress-stroke-width-8;
+  }
+
+  &__bar {
+    position: relative;
+    flex: 1;
+    height: @progress-stroke-width;
+    background: @progress-default-track-color;
+
+    &-percent {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      background: @progress-default;
+      transition: all .3s ease-out;
+    }
+  }
+
+  &__label {
+    display: inline-block;
+    width: 42px;
+    text-align: right;
+    margin-left: 16px;
+    font-size: @progress-font-size;
+    color: @progress-text-color;
+    line-height: @progress-text-height;
+  }
+}
+
+//进度条状态
+.@{prefix}-progress--status--active {
+  .@{prefix}-progress {
+    &__bar {
+      &-percent {
+        &::before {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          z-index: 1;
+          content: "";
+          animation: progress-active-animation 2s cubic-bezier(.23, .99, .86, .2) infinite;
+          background: @progress-inner-bg-color-active;
+          opacity: .2;
+        }
+      }
+    }
+  }
+}
+
+.@{prefix}-progress--status--success {
+  .@{prefix}-progress {
+    &__bar {
+      &-percent {
+        background: @progress-success;
+      }
+    }
+  }
+}
+
+.@{prefix}-progress--status--warning {
+  .@{prefix}-progress {
+    &__bar {
+      &-percent {
+        background: @progress-warning;
+      }
+    }
+
+    &__label {
+      color: @progress-warning;
+    }
+  }
+}
+
+.@{prefix}-progress--status--error {
+  .@{prefix}-progress {
+    &__bar {
+      &-percent {
+        background: @progress-error;
+      }
+    }
+
+    &__label {
+      color: @progress-error;
+    }
+  }
+}
+
+@keyframes progress-active-animation {
+  0% {
+    width: 0;
+    opacity: .1;
+  }
+
+  35% {
+    width: 50%;
+    opacity: .4;
+  }
+
+  100% {
+    width: 100%;
+    opacity: 0;
+  }
+}

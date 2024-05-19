@@ -1,0 +1,81 @@
+@import "../../base.less";
+
+@import "./_var.less";
+
+@import "./_mixin.less";
+
+@import "../../mixins/_reset.less";
+
+.@{prefix}-avatar {
+  .reset;
+
+  position: relative;
+  display: inline-flex;
+  background: @avatar-bg-color;
+  color: @avatar-text-color;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: middle;
+  justify-content: center;
+  align-items: center;
+  box-sizing: content-box;
+  .avatar-size(@avatar-size-medium,@avatar-font-medium,@avatar-icon-medium);
+
+  &--circle {
+    border-radius: @avatar-border-radius-circle;
+  }
+
+  &--round {
+    border-radius: @avatar-border-radius-round;
+  }
+
+  &.@{prefix}-size-s {
+    .avatar-size(@avatar-size-small,@avatar-font-small,@avatar-icon-small);
+  }
+
+  &.@{prefix}-size-l {
+    .avatar-size(@avatar-size-large,@avatar-font-large,@avatar-icon-large);
+  }
+
+  // 保证 Image 不会超出 Avatar
+  > .@{prefix}-image__wrapper {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.@{prefix}-avatar-group {
+  display: inline-flex;
+  align-items: center;
+
+  .@{prefix}-avatar {
+    border: 2px solid @avatar-border-color;
+  }
+
+  &.@{prefix}-avatar--offset-right {
+
+    & .@{prefix}-avatar {
+      &:not(:last-child) {
+        .avatar-group-offset-right(@avatar-group-offset-medium);
+
+        &.@{prefix}-size-s {
+          .avatar-group-offset-right(@avatar-group-offset-small);
+        }
+
+        &.@{prefix}-size-l {
+          .avatar-group-offset-right(@avatar-group-offset-large);
+        }
+      }
+    }
+  }
+
+  &.@{prefix}-avatar--offset-left {
+    .generate-z-index(@avatar-group-init-zIndex);
+
+    & .@{prefix}-avatar {
+      &:not(:first-child) {
+        .avatar-group-size--left();
+      }
+    }
+  }
+}

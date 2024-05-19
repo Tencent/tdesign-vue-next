@@ -1,0 +1,11 @@
+.generate-padding(@size, @padding) {
+  &.@{prefix}-size-@{size} {
+    > tbody {
+      > tr {
+        > td {
+          padding: @padding;
+        }
+      }
+    }
+  }
+}

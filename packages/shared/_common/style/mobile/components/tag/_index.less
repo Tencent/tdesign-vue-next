@@ -1,0 +1,187 @@
+// 组件允许单个组件打包，因此默认引入公共基础样式
+
+@import "../../base.less";
+
+@import "./_var.less";
+
+@themes: primary, success, warning, default, danger;
+
+.genVariant(@variant) {
+  @themes: default, primary, success, warning, danger;
+  each(@themes, {
+    @theme-color: "tag-@{value}-color";
+    @theme-light-color: "tag-@{value}-light-color";
+
+    &.@{prefix}-tag--@{value} {
+      color: if(@variant = dark, @font-white-1, @@theme-color);
+      border-color: if(@variant = light, @@theme-light-color, @@theme-color);
+      background-color: if(@variant = dark, @@theme-color, @@theme-light-color);
+    }
+  });
+}
+
+.@{prefix}-tag {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  border-radius: @tag-square-border-radius;
+  font-size: @tag-medium-font-size;
+  user-select: none;
+  vertical-align: middle;
+
+  &__text {
+    word-wrap: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__icon,
+  &__icon-close {
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon:not(:empty) + &__text:not(:empty),
+  &__text:not(:empty) + &__icon-close:not(:empty) {
+    margin-left: calc(@spacer / 2);
+  }
+
+  &.@{prefix}-tag {
+    &--small {
+      height: @tag-small-height;
+      line-height: @tag-small-height;
+      padding: 0 @tag-small-padding;
+      font-size: @tag-small-font-size;
+
+      .@{prefix}-icon,
+      .@{prefix}-icon-close {
+        font-size: @tag-small-icon-size;
+      }
+
+      .@{prefix}-tag__icon:not(:empty) + .@{prefix}-tag__text:not(:empty),
+      .@{prefix}-tag__text:not(:empty) + .@{prefix}-tag__icon-close:not(:empty) {
+        margin-left: 4rpx;
+      }
+    }
+
+    &--medium {
+      height: @tag-medium-height;
+      line-height: @tag-medium-height;
+      padding: 0 @tag-medium-padding;
+      font-size: @tag-medium-font-size;
+
+      .@{prefix}-icon,
+      .@{prefix}-icon-close {
+        font-size: @tag-medium-icon-size;
+      }
+    }
+
+    &--large {
+      height: @tag-large-height;
+      line-height: @tag-large-height;
+      padding: 0 @tag-large-padding;
+      font-size: @tag-large-font-size;
+
+      .@{prefix}-icon,
+      .@{prefix}-icon-close {
+        font-size: @tag-large-icon-size;
+      }
+    }
+
+    &--extra-large {
+      height: @tag-extra-large-height;
+      line-height: @tag-extra-large-height;
+      padding: 0 @tag-extra-large-padding;
+      font-size: @tag-extra-large-font-size;
+
+      .@{prefix}-icon,
+      .@{prefix}-icon-close {
+        font-size: @tag-extra-large-icon-size;
+      }
+    }
+  }
+
+  &.@{prefix}-tag {
+    &--square {
+      border-radius: @tag-square-border-radius;
+    }
+
+    &--round {
+      border-radius: @tag-round-border-radius;
+    }
+
+    &--mark {
+      border-radius: 0 @tag-mark-border-radius @tag-mark-border-radius 0;
+    }
+  }
+
+  &--dark {
+    .genVariant(dark);
+    &.@{prefix}-tag--default {
+      color: @tag-default-font-color;
+    }
+  }
+
+  &--outline {
+    .genVariant(outline);
+    &.@{prefix}-tag--default {
+      color: @tag-default-font-color;
+    }
+    each(@themes, {
+      &.@{prefix}-tag--@{value} {
+        background-color: @tag-outline-bg-color;
+      }
+    });
+  }
+
+  &--light {
+    .genVariant(light);
+    &.@{prefix}-tag--default {
+      color: @tag-default-font-color;
+    }
+  }
+
+  &--light-outline {
+    .genVariant(light-outline);
+    &.@{prefix}-tag--default {
+      color: @tag-default-font-color;
+      border-color: @component-border;
+    }
+  }
+
+  &.@{prefix}-tag--checkable {
+    cursor: pointer;
+    color: @tag-default-font-color;
+    background-color: @tag-default-background-color;
+    border-color: @tag-default-border-color;
+
+    &.@{prefix}-tag--checked {
+      color: @color-white;
+      background-color: @tag-primary-color;
+      border-color: @tag-primary-color;
+    }
+
+    &.@{prefix}-tag--checked.@{prefix}-tag--disabled {
+      color: @color-white;
+      background-color: @brand-color-disabled;
+    }
+
+    &.@{prefix}-tag--disabled {
+      cursor: not-allowed;
+      color: @tag-disabled-color;
+      background-color: @tag-disabled-background-color;
+      border-color: @tag-disabled-border-color;
+    }
+  }
+
+  &.@{prefix}-tag--closable {
+    &.@{prefix}-tag--disabled {
+      cursor: not-allowed;
+      color: @tag-disabled-color;
+      background-color: @tag-disabled-background-color;
+      border-color: @tag-disabled-border-color;
+    }
+  }
+}

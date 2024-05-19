@@ -1,0 +1,81 @@
+[
+  {
+    "name": "mode",
+    "type": "enum",
+    "defaultValue": "same",
+    "options": [
+      {
+        "label": "alternate",
+        "value": "alternate"
+      },
+      {
+        "label": "same",
+        "value": "same"
+      }
+    ]
+  },
+  {
+    "name": "labelAlign",
+    "type": "enum",
+    "defaultValue": "left",
+    "options": [
+      {
+        "label": "left",
+        "value": "left"
+      },
+      {
+        "label": "right",
+        "value": "right"
+      },
+      {
+        "label": "alternate",
+        "value": "alternate"
+      },
+      {
+        "label": "top",
+        "value": "top"
+      },
+      {
+        "label": "bottom",
+        "value": "bottom"
+      }
+    ]
+  },
+
+  {
+    "name": "layout",
+    "type": "enum",
+    "defaultValue": "vertical",
+    "options": [
+      {
+        "label": "horizontal",
+        "value": "horizontal"
+      },
+      {
+        "label": "vertical",
+        "value": "vertical"
+      }
+    ]
+  },
+  {
+    "name": "reverse",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "theme",
+    "type": "enum",
+    "defaultValue": "default",
+    "options": [
+      {
+        "label": "default",
+        "value": "default"
+      },
+      {
+        "label": "dot",
+        "value": "dot"
+      }
+    ]
+  }
+]

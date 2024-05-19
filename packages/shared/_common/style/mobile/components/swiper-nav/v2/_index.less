@@ -1,0 +1,154 @@
+@import "../../../base.less";
+
+@import "./_var.less";
+
+.@{prefix}-swiper-nav {
+  &__dots,
+  &__dots-bar {
+    display: flex;
+    flex-direction: row;
+
+    &-item {
+      width: @swiper-nav-dot-size;
+      height: @swiper-nav-dot-size;
+      background: @swiper-nav-dot-color;
+      border-radius: 50%;
+      margin: 0 5px;
+      transition: all .4s ease-in;
+
+      &--vertical {
+        margin: 5px 0;
+      }
+
+      &--active {
+        background-color: @swiper-nav-dot-active-color;
+      }
+    }
+  }
+
+  &__dots-bar {
+    &-item {
+      &--vertical&--active {
+        width: @swiper-nav-dot-size;
+        height: @swiper-nav-dots-bar-active-width;
+      }
+
+      &--active {
+        width: @swiper-nav-dots-bar-active-width;
+        border-radius: calc(@swiper-nav-dot-size / 2);
+        background-color: @swiper-nav-dot-active-color;
+      }
+    }
+  }
+
+  &--left {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &--right {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &--top-left {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+  }
+
+  &--top {
+    position: absolute;
+    left: 50%;
+    top: 12px;
+    transform: translateX(-50%);
+  }
+
+  &--top-right {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+  }
+
+  &--bottom-left {
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+  }
+
+  &--bottom {
+    position: absolute;
+    left: 50%;
+    bottom: 12px;
+    transform: translateX(-50%);
+  }
+
+  &--bottom-right {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+  }
+
+  &--vertical {
+    flex-direction: column;
+  }
+
+  &__fraction {
+    padding: 0 8px;
+    height: @swiper-nav-fraction-height;
+    line-height: @swiper-nav-fraction-height;
+    border-radius: calc(@swiper-nav-fraction-height / 2);
+    background: @swiper-nav-fraction-bg-color;
+    color: @swiper-nav-fraction-color;
+    font-size: @swiper-nav-fraction-font-size;
+  }
+
+  &__btn {
+    &--prev,
+    &--next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: @swiper-nav-btn-size;
+      height: @swiper-nav-btn-size;
+      border-radius: 50%;
+      background: @swiper-nav-btn-bg-color;
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 6px;
+        height: 6px;
+        border-color: @swiper-nav-btn-color;
+        border-style: solid;
+      }
+    }
+
+    &--prev {
+      left: 15px;
+
+      &::after {
+        margin-left: 2px;
+        border-width: 1px 0 0 1px;
+        transform: translate(-50%, -50%) rotateZ(-45deg);
+      }
+    }
+
+    &--next {
+      right: 15px;
+
+      &::after {
+        margin-left: -2px;
+        border-width: 1px 1px 0 0;
+        transform: translate(-50%, -50%) rotateZ(45deg);
+      }
+    }
+  }
+}

@@ -1,0 +1,177 @@
+// 组件允许单个组件打包，因此默认引入公共基础样式
+
+@import "../../base.less";
+
+@import "./_var.less";
+
+@import "./_mixin.less";
+
+@import "../../mixins/_reset.less";
+
+/* Alert */
+.@{prefix}-alert {
+  .reset;
+
+  display: flex;
+  align-items: flex-start;
+  padding: @alert-padding;
+  opacity: 1;
+  transition: opacity .2s;
+  border-radius: @border-radius-medium;
+
+  &.@{prefix}-is-hidden {
+    /* 隐藏 */
+    display: none;
+  }
+
+  &--closing {
+    opacity: 0;
+  }
+
+  &--info {
+    background-color: @alert-info-bg-color;
+
+    .@{prefix}-alert__icon {
+      color: @alert-info-icon-color;
+    }
+
+    .@{prefix}-alert__swiper-trigger-wrap {
+      color: @alert-info-trigger-color;
+    }
+
+    .@{prefix}-alert__swiper-trigger--active {
+      color: @alert-info-trigger-active-color;
+    }
+  }
+
+  &--success {
+    background-color: @alert-success-bg-color;
+
+    .@{prefix}-alert__icon {
+      color: @alert-success-icon-color;
+    }
+
+    .@{prefix}-alert__swiper-trigger-wrap {
+      color: @alert-success-trigger-color;
+    }
+
+    .@{prefix}-alert__swiper-trigger--active {
+      color: @alert-success-trigger-active-color;
+    }
+  }
+
+  &--warning {
+    background-color: @alert-warning-bg-color;
+
+    .@{prefix}-alert__icon {
+      color: @alert-warning-icon-color;
+    }
+
+    .@{prefix}-alert__swiper-trigger-wrap {
+      color: @alert-warning-trigger-color;
+    }
+
+    .@{prefix}-alert__swiper-trigger--active {
+      color: @alert-warning-trigger-active-color;
+    }
+  }
+
+  &--error {
+    background-color: @alert-error-bg-color;
+
+    .@{prefix}-alert__icon {
+      color: @alert-error-icon-color;
+    }
+
+    .@{prefix}-alert__swiper-trigger-wrap {
+      color: @alert-error-trigger-color;
+    }
+
+    .@{prefix}-alert__swiper-trigger--active {
+      color: @alert-error-trigger-active-color;
+    }
+  }
+}
+
+.@{prefix}-alert__icon {
+  font-size: @alert-icon-size;
+  display: inherit;
+}
+
+.@{prefix}-alert__icon,
+.@{prefix}-alert__close {
+  flex: 0 0 auto;
+  line-height: @text-line-height-s;
+}
+
+.@{prefix}-alert__content {
+  flex: 1 1 0;
+  font-size: @alert-font-size;
+  line-height: @alert-line-height;
+  overflow: hidden;
+}
+
+.@{prefix}-alert__title,
+.@{prefix}-alert__message {
+  width: 100%;
+  display: flex;
+}
+
+.@{prefix}-alert__title {
+  color: @alert-title-color;
+  font-weight: bold;
+
+  + .@{prefix}-alert__message {
+    margin-top: @alert-description-margin-top;
+  }
+}
+
+.@{prefix}-alert__description {
+  color: @alert-description-color;
+  flex: 0 1 auto;
+  transition: height @anim-duration-base;
+}
+
+.@{prefix}-alert__operation {
+  flex: 0 0 auto;
+  padding: @alert-operation-padding;
+  color: @brand-color;
+  cursor: pointer;
+  transition: color @anim-duration-base;
+
+  &:hover {
+    color: @brand-color-hover;
+  }
+
+  &:active {
+    color: @brand-color-active;
+  }
+}
+
+.@{prefix}-alert__icon + .@{prefix}-alert__content {
+  margin-left: @alert-margin-left;
+}
+
+.@{prefix}-alert__collapse {
+  margin-top: @alert-collapse-margin-top;
+  color: @brand-color;
+  cursor: pointer;
+}
+
+.@{prefix}-alert__close {
+  display: inline-flex;
+  align-items: center;
+  margin-left: @alert-close-margin-left;
+  color: @alert-close-color;
+  cursor: pointer;
+  transition: color @anim-duration-base;
+
+  &:hover {
+    color: @alert-close-color-hover;
+  }
+
+  > .t-icon {
+    font-size: @alert-close-size;
+    padding: @alert-close-padding;
+  }
+}

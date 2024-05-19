@@ -1,0 +1,55 @@
+@import "./_float.less";
+
+@import "./_animation.less";
+
+@import "../_variables.less";
+
+.hotspot-expanded {
+  &.relative {
+    position: relative;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    transform: scale(1.5);
+  }
+}
+
+.border(@position: bottom, @border-color: @component-border) {
+  position: relative;
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: if(@position = top, 0, unset);
+    bottom: if(@position = bottom, 0, unset);
+    left: if(@position = left, 0, unset);
+    right: if(@position = right, 0, unset);
+    background-color: @border-color;
+  }
+}
+
+.border(@position: bottom, @border-color: @gray-color-1) when(@position = bottom) , (@position = top) {
+  &::after {
+    height: 1px;
+    left: 0;
+    right: 0;
+    transform: scaleY(.5);
+  }
+}
+
+.border(@position: bottom, @border-color: @gray-color-1) when(@position = left),(@position = right) {
+  &::after {
+    width: 1px;
+    top: 0;
+    bottom: 0;
+    transform: scaleX(.5);
+  }
+}

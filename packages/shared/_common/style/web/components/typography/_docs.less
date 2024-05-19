@@ -1,0 +1,15 @@
+// TDesign 站点中有代码code元素的相关样式 为正常展示需要覆盖为typography样式
+div[name="DEMO"] *:not(pre) > .t-typography code {
+  border-radius: @border-radius-default;
+  border: 1px solid @component-border;
+  margin: 0 @comp-margin-xs;
+  background-color: @bg-color-secondarycontainer;
+  padding: 0 @comp-paddingLR-s;
+  font: @font-body-medium;
+  color: @text-color-primary;
+  transition: background-color .2s;
+
+  &:hover {
+    background-color: @bg-color-secondarycontainer-hover;
+  }
+}

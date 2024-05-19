@@ -1,0 +1,14 @@
+@tag-input-height-s: @comp-size-xs;
+@tag-input-height-default: @comp-size-m;
+@tag-input-height-l: @comp-size-xl;
+
+@tag-input-padding-default: calc(@comp-margin-xs - 1px);
+
+@tag-input-clear-icon-padding-m: calc(@comp-paddingLR-xxl + @comp-paddingLR-xxs);
+@tag-input-clear-icon-padding-l: calc(@comp-paddingLR-xxl + @comp-paddingLR-xs);
+
+.t-input-suffix-icon(@distance) {
+  .@{prefix}-input__suffix-icon {
+    right: @distance;
+  }
+}

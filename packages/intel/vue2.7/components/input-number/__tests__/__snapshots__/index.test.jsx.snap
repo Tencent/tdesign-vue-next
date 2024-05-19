@@ -1,0 +1,957 @@
+// Vitest Snapshot v1
+
+exports[`InputNumber > :props > :defaultValue, default value 6 1`] = `
+<div
+  class="t-input-number t-size-m t-input-number--row"
+>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-button--shape-square t-input-number__decrease"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-remove t-size-m"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M4 11h16v2H4v-2z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-align-center"
+    >
+      <input
+        autocomplete="off"
+        class="t-input__inner"
+        placeholder="请输入"
+        type="text"
+        unselectable="off"
+      />
+    </div>
+  </div>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-button--shape-square t-input-number__increase"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-add t-size-m"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M13 4v7h7v2h-7v7h-2v-7H4v-2h7V4h2z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`InputNumber > :props > :disabled, function can not be call 1`] = `
+<div
+  class="t-input-number t-size-m t-is-disabled t-input-number--row"
+>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-is-disabled t-button--shape-square t-input-number__decrease t-is-disabled"
+    disabled="disabled"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-remove t-size-m"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M4 11h16v2H4v-2z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-is-disabled t-align-center"
+    >
+      <input
+        autocomplete="off"
+        class="t-input__inner"
+        disabled="disabled"
+        placeholder="请输入"
+        title=""
+        type="text"
+        unselectable="off"
+      />
+    </div>
+  </div>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-is-disabled t-button--shape-square t-input-number__increase t-is-disabled"
+    disabled="disabled"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-add t-size-m"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M13 4v7h7v2h-7v7h-2v-7H4v-2h7V4h2z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`InputNumber > :props > :format, with 6% 1`] = `
+<div
+  class="t-input-number t-size-m t-input-number--row"
+>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-button--shape-square t-input-number__decrease"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-remove t-size-m"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M4 11h16v2H4v-2z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-align-center"
+    >
+      <input
+        autocomplete="off"
+        class="t-input__inner"
+        placeholder="请输入"
+        type="text"
+        unselectable="off"
+      />
+    </div>
+  </div>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-button--shape-square t-input-number__increase"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-add t-size-m"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M13 4v7h7v2h-7v7h-2v-7H4v-2h7V4h2z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`InputNumber > :props > :max, value 6 < max 10 1`] = `
+<div
+  class="t-input-number t-size-m t-input-number--row"
+>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-button--shape-square t-input-number__decrease"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-remove t-size-m"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M4 11h16v2H4v-2z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-align-center"
+    >
+      <input
+        autocomplete="off"
+        class="t-input__inner"
+        placeholder="请输入"
+        type="text"
+        unselectable="off"
+      />
+    </div>
+  </div>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-button--shape-square t-input-number__increase"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-add t-size-m"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M13 4v7h7v2h-7v7h-2v-7H4v-2h7V4h2z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`InputNumber > :props > :max, value 16 > max 10 1`] = `
+<div
+  class="t-input-number t-size-m t-input-number--row"
+>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-button--shape-square t-input-number__decrease"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-remove t-size-m"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M4 11h16v2H4v-2z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-is-error t-align-center"
+    >
+      <input
+        autocomplete="off"
+        class="t-input__inner"
+        placeholder="请输入"
+        type="text"
+        unselectable="off"
+      />
+    </div>
+  </div>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-button--shape-square t-input-number__increase t-is-disabled"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-add t-size-m"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M13 4v7h7v2h-7v7h-2v-7H4v-2h7V4h2z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`InputNumber > :props > :min, value -1 < min 1 1`] = `
+<div
+  class="t-input-number t-size-m t-input-number--row"
+>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-button--shape-square t-input-number__decrease t-is-disabled"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-remove t-size-m"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M4 11h16v2H4v-2z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-is-error t-align-center"
+    >
+      <input
+        autocomplete="off"
+        class="t-input__inner"
+        placeholder="请输入"
+        type="text"
+        unselectable="off"
+      />
+    </div>
+  </div>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-button--shape-square t-input-number__increase"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-add t-size-m"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M13 4v7h7v2h-7v7h-2v-7H4v-2h7V4h2z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`InputNumber > :props > :min, value 6 > min 1 1`] = `
+<div
+  class="t-input-number t-size-m t-input-number--row"
+>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-button--shape-square t-input-number__decrease"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-remove t-size-m"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M4 11h16v2H4v-2z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-align-center"
+    >
+      <input
+        autocomplete="off"
+        class="t-input__inner"
+        placeholder="请输入"
+        type="text"
+        unselectable="off"
+      />
+    </div>
+  </div>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-button--shape-square t-input-number__increase"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-add t-size-m"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M13 4v7h7v2h-7v7h-2v-7H4v-2h7V4h2z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`InputNumber > :props > :mode, without class t-is-controls-right 1`] = `
+<div
+  class="t-input-number t-size-m t-input-number--row"
+>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-button--shape-square t-input-number__decrease"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-remove t-size-m"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M4 11h16v2H4v-2z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-align-center"
+    >
+      <input
+        autocomplete="off"
+        class="t-input__inner"
+        placeholder="请输入"
+        type="text"
+        unselectable="off"
+      />
+    </div>
+  </div>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-button--shape-square t-input-number__increase"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-add t-size-m"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M13 4v7h7v2h-7v7h-2v-7H4v-2h7V4h2z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`InputNumber > :props > :mode:column, with class t-is-controls-right 1`] = `
+<div
+  class="t-input-number t-size-m t-is-controls-right t-input-number--column"
+>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-button--shape-square t-input-number__decrease"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-chevron-down t-size-m"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M17.5 8.09l-5.5 5.5-5.5-5.5L5.09 9.5 12 16.41l6.91-6.91-1.41-1.41z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input"
+    >
+      <input
+        autocomplete="off"
+        class="t-input__inner"
+        placeholder="请输入"
+        type="text"
+        unselectable="off"
+      />
+    </div>
+  </div>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-button--shape-square t-input-number__increase"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-chevron-up t-size-m"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M17.5 15.91l-5.5-5.5-5.5 5.5-1.41-1.41L12 7.59l6.91 6.91-1.41 1.41z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`InputNumber > :props > :mode:row, without class t-is-controls-right 1`] = `
+<div
+  class="t-input-number t-size-m t-input-number--row"
+>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-button--shape-square t-input-number__decrease"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-remove t-size-m"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M4 11h16v2H4v-2z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-align-center"
+    >
+      <input
+        autocomplete="off"
+        class="t-input__inner"
+        placeholder="请输入"
+        type="text"
+        unselectable="off"
+      />
+    </div>
+  </div>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-button--shape-square t-input-number__increase"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-add t-size-m"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M13 4v7h7v2h-7v7h-2v-7H4v-2h7V4h2z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`InputNumber > :props > :size:large, with class t-size-l 1`] = `
+<div
+  class="t-input-number t-size-l t-input-number--row"
+>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-button--shape-square t-input-number__decrease"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-remove t-size-l"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M4 11h16v2H4v-2z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-align-center"
+    >
+      <input
+        autocomplete="off"
+        class="t-input__inner"
+        placeholder="请输入"
+        type="text"
+        unselectable="off"
+      />
+    </div>
+  </div>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-button--shape-square t-input-number__increase"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-add t-size-l"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M13 4v7h7v2h-7v7h-2v-7H4v-2h7V4h2z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`InputNumber > :props > :size:medium, with class t-size-m 1`] = `
+<div
+  class="t-input-number t-size-m t-input-number--row"
+>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-button--shape-square t-input-number__decrease"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-remove t-size-m"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M4 11h16v2H4v-2z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-align-center"
+    >
+      <input
+        autocomplete="off"
+        class="t-input__inner"
+        placeholder="请输入"
+        type="text"
+        unselectable="off"
+      />
+    </div>
+  </div>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-button--shape-square t-input-number__increase"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-add t-size-m"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M13 4v7h7v2h-7v7h-2v-7H4v-2h7V4h2z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`InputNumber > :props > :size:small, with class t-size-s 1`] = `
+<div
+  class="t-input-number t-size-s t-input-number--row"
+>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-button--shape-square t-input-number__decrease"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-remove t-size-s"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M4 11h16v2H4v-2z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-align-center"
+    >
+      <input
+        autocomplete="off"
+        class="t-input__inner"
+        placeholder="请输入"
+        type="text"
+        unselectable="off"
+      />
+    </div>
+  </div>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-button--shape-square t-input-number__increase"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-add t-size-s"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M13 4v7h7v2h-7v7h-2v-7H4v-2h7V4h2z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`InputNumber > :props > :step, 2 1`] = `
+<div
+  class="t-input-number t-size-m t-input-number--row"
+>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-button--shape-square t-input-number__decrease"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-remove t-size-m"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M4 11h16v2H4v-2z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-align-center"
+    >
+      <input
+        autocomplete="off"
+        class="t-input__inner"
+        placeholder="请输入"
+        type="text"
+        unselectable="off"
+      />
+    </div>
+  </div>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-button--shape-square t-input-number__increase"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-add t-size-m"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M13 4v7h7v2h-7v7h-2v-7H4v-2h7V4h2z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`InputNumber > :props > :value, 6 1`] = `
+<div
+  class="t-input-number t-size-m t-input-number--row"
+>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-button--shape-square t-input-number__decrease"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-remove t-size-m"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M4 11h16v2H4v-2z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-align-center"
+    >
+      <input
+        autocomplete="off"
+        class="t-input__inner"
+        placeholder="请输入"
+        type="text"
+        unselectable="off"
+      />
+    </div>
+  </div>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-button--shape-square t-input-number__increase"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-add t-size-m"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M13 4v7h7v2h-7v7h-2v-7H4v-2h7V4h2z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`InputNumber > :props > :value, 6.55 1`] = `
+<div
+  class="t-input-number t-size-m t-input-number--row"
+>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-button--shape-square t-input-number__decrease"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-remove t-size-m"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M4 11h16v2H4v-2z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-align-center"
+    >
+      <input
+        autocomplete="off"
+        class="t-input__inner"
+        placeholder="请输入"
+        type="text"
+        unselectable="off"
+      />
+    </div>
+  </div>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-button--shape-square t-input-number__increase"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-add t-size-m"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M13 4v7h7v2h-7v7h-2v-7H4v-2h7V4h2z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`InputNumber > :props > class, with class t-input-number 1`] = `
+<div
+  class="t-input-number t-size-m t-input-number--row"
+>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-button--shape-square t-input-number__decrease"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-remove t-size-m"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M4 11h16v2H4v-2z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-align-center"
+    >
+      <input
+        autocomplete="off"
+        class="t-input__inner"
+        placeholder="请输入"
+        type="text"
+        unselectable="off"
+      />
+    </div>
+  </div>
+  <button
+    class="t-button t-button--variant-outline t-button--theme-default t-button--shape-square t-input-number__increase"
+    type="button"
+  >
+    <svg
+      class="t-icon t-icon-add t-size-m"
+      fill="none"
+      height="1em"
+      viewBox="0 0 24 24"
+      width="1em"
+    >
+      <path
+        d="M13 4v7h7v2h-7v7h-2v-7H4v-2h7V4h2z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;

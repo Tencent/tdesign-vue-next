@@ -1,0 +1,293 @@
+@import "../../base.less";
+
+@import "./_var.less";
+
+@import "./_mixin.less";
+
+@import "../../mixins/_layout.less";
+
+@import "../../mixins/_reset.less";
+
+@import "./_mini.less";
+
+.@{prefix}-pagination {
+  .reset;
+
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  white-space: nowrap;
+  color: @pagination-text-color;
+  user-select: none;
+
+  &.@{prefix}-is-disabled {
+    color: @pagination-text-color-disabled;
+  }
+
+  // 数据统计
+  &__total {
+    font: @pagination-font-default;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  // 选择框
+  .@{prefix}-select__wrap {
+    width: auto;
+  }
+
+  &__select {
+    flex-shrink: 0;
+    margin-right: @pagination-select-margin;
+    height: @pagination-height-default;
+    font-size: @font-size-base;
+    color: @pagination-text-color;
+  }
+
+  // 前进 后退按钮
+  &__btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    cursor: pointer;
+    color: @pagination-text-color;
+    border-radius: @pagination-border-radius-base;
+    font: @pagination-btn-font-size;
+    .pagination-btn(@pagination-height-default);
+
+    &.@{prefix}-is-disabled {
+      cursor: not-allowed;
+    }
+
+    &-prev {
+      margin-right: @pagination-btn-margin;
+    }
+
+    &-next {
+      margin-left: @pagination-btn-margin;
+    }
+
+    // 极简版
+    & + .@{prefix}-pagination__select {
+      margin-right: 0;
+    }
+  }
+
+  &__pager {
+    flex-shrink: 0;
+    display: inline-flex;
+    vertical-align: middle;
+
+    .list-style-none();
+
+    li:not(:last-child) {
+      margin-right: @pagination-pager-margin;
+    }
+  }
+
+  &__number {
+    display: inline-block;
+    border: 1px solid @pagination-border-color;
+    text-align: center;
+    border-radius: @pagination-border-radius-base;
+    cursor: pointer;
+    background-color: @pagination-bg-color-default;
+    box-sizing: border-box;
+
+    .pagination-number--size(
+      @pagination-height-default; @pagination-font-default;
+      @pagination-padding-horizontal-default; calc(@pagination-height-default - 2px);
+    );
+
+    &:hover {
+      color: @pagination-bg-color-hover;
+      border-color: @pagination-bg-color-hover;
+      transition: @pagination-hover-transition;
+    }
+
+    &:active {
+      .pagination-number--color(
+        @pagination-bg-color-active; @pagination-text-color-active;
+      );
+    }
+
+    &.@{prefix}-is-current {
+      .pagination-number--color(
+        @pagination-bg-color-current; @pagination-text-color-active
+      );
+
+      &.@{prefix}-is-disabled,
+      &.@{prefix}-is-disabled:hover,
+      &.@{prefix}-is-disabled:active {
+        .pagination-number--color(
+          @pagination-bg-color-current-disabled; @pagination-text-color-active
+        );
+      }
+    }
+
+    &.@{prefix}-is-disabled {
+      cursor: auto;
+      background-color: @pagination-bg-color-disabled;
+      color: @pagination-text-color-disabled;
+
+      &:hover,
+      &:active {
+        background-color: @pagination-bg-color-disabled;
+        color: @pagination-text-color-disabled;
+        border-color: @pagination-border-color;
+      }
+    }
+
+    // 更多
+    &--more {
+      border: 0 none;
+      padding: 0;
+
+      &:hover {
+        color: @pagination-text-color-btn;
+        background-color: @pagination-bg-color-btn-hover;
+        transition: @pagination-hover-transition;
+      }
+
+      &:active {
+        color: @pagination-text-color-btn;
+        background-color: @pagination-bg-color-btn-active;
+      }
+
+      &.@{prefix}-is-disabled,
+      &.@{prefix}-is-disabled:hover,
+      &.@{prefix}-is-disabled:active {
+        background: none;
+      }
+
+      .t-icon-more {
+        transform: rotate(90deg);
+        color: @pagination-icon-color-disabled;
+      }
+    }
+  }
+
+  // 跳转输入框
+  &__jump {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    margin-left: @pagination-jump-margin;
+    font-size: @pagination-font-default;
+    gap: @comp-margin-s;
+    background-color: @bg-color-secondarycontainer;
+    height: @pagination-jump-height;
+    padding-left: @pagination-jump-padding-left;
+    border-radius: @border-radius-default;
+  }
+
+  .@{prefix}-input-adornment__append {
+    border: none;
+    height: @pagination-jump-inner-height;
+    color: @text-color-secondary;
+    background-color: transparent;
+
+    .@{prefix}-input-adornment__text {
+      border: none;
+    }
+  }
+
+  .@{prefix}-input-number {
+    width: @pagination-input-width;
+
+    .@{prefix}-input {
+      height: @pagination-jump-inner-height;
+      border-radius: @border-radius-default;
+    }
+
+    .@{prefix}-input__inner {
+      text-align: center;
+    }
+  }
+
+  // 迷你尺寸
+  &.@{prefix}-size-s {
+    font: @pagination-font-s;
+
+    .@{prefix}-pagination__jump {
+      height: @pagination-jump-height-small;
+    }
+
+    .@{prefix}-input-adornment__append {
+      height: @pagination-jump-inner-height-small;
+      font: @pagination-font-s;
+    }
+
+    .@{prefix}-input-number {
+      width: 48px;
+
+      .@{prefix}-input {
+        height: @pagination-jump-inner-height-small;
+      }
+    }
+
+    .@{prefix}-pagination {
+      &__total {
+        font: @pagination-font-s;
+      }
+
+      &__select {
+        height: @pagination-height-s;
+        font-size: @font-size-s;
+      }
+
+      &__number {
+        border: 0 none;
+
+        &:hover:not(&.@{prefix}-is-current) {
+          color: @pagination-text-color-btn;
+          background-color: @pagination-bg-color-btn-hover;
+          transition: @pagination-hover-transition;
+        }
+
+        &:active:not(&.@{prefix}-is-current) {
+          color: @pagination-text-color-btn;
+          background-color: @pagination-bg-color-btn-active;
+        }
+
+        .pagination-number--size(
+          @pagination-height-s; @pagination-font-s;
+          @pagination-padding-horizontal-s; @pagination-height-s;
+        );
+
+        &.@{prefix}-is-disabled {
+          background: none;
+          color: @pagination-icon-color-disabled;
+        }
+
+        &.@{prefix}-is-current {
+          &.@{prefix}-is-disabled {
+            .pagination-number--color(
+              @pagination-bg-color-current-disabled;
+              @pagination-text-color-active
+            );
+          }
+        }
+      }
+
+      &__btn {
+        border: 0 none;
+        background: none;
+
+        .pagination-btn(@pagination-height-s);
+      }
+    }
+  }
+}
+
+/** IE 兼容 **/
+.@{prefix}-pagination-ie {
+  /** 在 IE11 以下浏览器，input autoWidth 计算无法依赖 observer，因而加上最小宽度，避免分页信息出现 0 的情况 */
+  .@{prefix}-select .@{prefix}-input__inner {
+    min-width: 54px;
+  }
+}

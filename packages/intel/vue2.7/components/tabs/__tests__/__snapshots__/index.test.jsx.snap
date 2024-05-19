@@ -1,0 +1,603 @@
+// Vitest Snapshot v1
+
+exports[`Tabs > :props > :addable 1`] = `
+<div
+  class="t-tabs"
+>
+  <div
+    class="t-tabs__header t-is-top"
+  >
+    <div
+      class="t-tabs__nav"
+      style="min-height: 48px;"
+    >
+      <div
+        class="t-tabs__operations t-tabs__operations--left"
+      >
+        <transition-stub
+          appear="true"
+          mode="out-in"
+          name="fade"
+        />
+      </div>
+      <div
+        class="t-tabs__operations t-tabs__operations--right"
+      >
+        <transition-stub
+          appear="true"
+          mode="out-in"
+          name="fade"
+        />
+        <div
+          class="t-tabs__add-btn t-tabs__btn t-size-m"
+        >
+          <svg
+            class="t-icon t-icon-add"
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="M13 4v7h7v2h-7v7h-2v-7H4v-2h7V4h2z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        class="t-tabs__nav-container t-is-top"
+      >
+        <div
+          class="t-tabs__nav-scroll"
+        >
+          <div
+            class="t-tabs__nav-wrap t-is-smooth"
+            style="transform: translate(0px, 0);"
+          >
+            <div
+              class="t-tabs__bar t-is-top"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="t-tabs__content"
+  />
+</div>
+`;
+
+exports[`Tabs > :props > :defaultValue 1`] = `
+<div
+  class="t-tabs"
+>
+  <div
+    class="t-tabs__header t-is-top"
+  >
+    <div
+      class="t-tabs__nav"
+    >
+      <div
+        class="t-tabs__operations t-tabs__operations--left"
+      >
+        <transition-stub
+          appear="true"
+          mode="out-in"
+          name="fade"
+        />
+      </div>
+      <div
+        class="t-tabs__operations t-tabs__operations--right"
+      >
+        <transition-stub
+          appear="true"
+          mode="out-in"
+          name="fade"
+        />
+      </div>
+      <div
+        class="t-tabs__nav-container t-is-top"
+      >
+        <div
+          class="t-tabs__nav-scroll"
+        >
+          <div
+            class="t-tabs__nav-wrap t-is-smooth"
+            style="transform: translate(0px, 0);"
+          >
+            <div
+              class="t-tabs__bar t-is-top"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="t-tabs__content"
+  />
+</div>
+`;
+
+exports[`Tabs > :props > :disabled 1`] = `
+<div
+  class="t-tabs"
+>
+  <div
+    class="t-tabs__header t-is-top"
+  >
+    <div
+      class="t-tabs__nav"
+    >
+      <div
+        class="t-tabs__operations t-tabs__operations--left"
+      >
+        <transition-stub
+          appear="true"
+          mode="out-in"
+          name="fade"
+        />
+      </div>
+      <div
+        class="t-tabs__operations t-tabs__operations--right"
+      >
+        <transition-stub
+          appear="true"
+          mode="out-in"
+          name="fade"
+        />
+      </div>
+      <div
+        class="t-tabs__nav-container t-is-top"
+      >
+        <div
+          class="t-tabs__nav-scroll"
+        >
+          <div
+            class="t-tabs__nav-wrap t-is-smooth"
+            style="transform: translate(0px, 0);"
+          >
+            <div
+              class="t-tabs__bar t-is-top"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="t-tabs__content"
+  />
+</div>
+`;
+
+exports[`Tabs > :props > :placement 1`] = `
+<div
+  class="t-tabs"
+>
+  <div
+    class="t-tabs__header t-is-left"
+  >
+    <div
+      class="t-tabs__nav"
+    >
+      <div
+        class="t-tabs__operations t-tabs__operations--left"
+      >
+        <transition-stub
+          appear="true"
+          mode="out-in"
+          name="fade"
+        />
+      </div>
+      <div
+        class="t-tabs__operations t-tabs__operations--right"
+      >
+        <transition-stub
+          appear="true"
+          mode="out-in"
+          name="fade"
+        />
+      </div>
+      <div
+        class="t-tabs__nav-container t-is-left"
+      >
+        <div
+          class="t-tabs__nav-scroll"
+        >
+          <div
+            class="t-tabs__nav-wrap t-is-smooth t-is-vertical"
+          >
+            <div
+              class="t-tabs__bar t-is-left"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="t-tabs__content"
+  />
+</div>
+`;
+
+exports[`Tabs > :props > :size 1`] = `
+<div
+  class="t-tabs"
+>
+  <div
+    class="t-tabs__header t-is-top"
+  >
+    <div
+      class="t-tabs__nav"
+    >
+      <div
+        class="t-tabs__operations t-tabs__operations--left"
+      >
+        <transition-stub
+          appear="true"
+          mode="out-in"
+          name="fade"
+        />
+      </div>
+      <div
+        class="t-tabs__operations t-tabs__operations--right"
+      >
+        <transition-stub
+          appear="true"
+          mode="out-in"
+          name="fade"
+        />
+      </div>
+      <div
+        class="t-tabs__nav-container t-is-top"
+      >
+        <div
+          class="t-tabs__nav-scroll"
+        >
+          <div
+            class="t-tabs__nav-wrap t-is-smooth"
+            style="transform: translate(0px, 0);"
+          >
+            <div
+              class="t-tabs__bar t-is-top"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="t-tabs__content"
+  />
+</div>
+`;
+
+exports[`Tabs > :props > :theme 1`] = `
+<div
+  class="t-tabs"
+>
+  <div
+    class="t-tabs__header t-is-top"
+  >
+    <div
+      class="t-tabs__nav"
+    >
+      <div
+        class="t-tabs__operations t-tabs__operations--left"
+      >
+        <transition-stub
+          appear="true"
+          mode="out-in"
+          name="fade"
+        />
+      </div>
+      <div
+        class="t-tabs__operations t-tabs__operations--right"
+      >
+        <transition-stub
+          appear="true"
+          mode="out-in"
+          name="fade"
+        />
+      </div>
+      <div
+        class="t-tabs__nav-container t-tabs__nav--card t-is-top"
+      >
+        <div
+          class="t-tabs__nav-scroll"
+        >
+          <div
+            class="t-tabs__nav-wrap t-is-smooth"
+            style="transform: translate(0px, 0);"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="t-tabs__content"
+  />
+</div>
+`;
+
+exports[`Tabs > :props > :value 1`] = `
+<div
+  class="t-tabs"
+>
+  <div
+    class="t-tabs__header t-is-top"
+  >
+    <div
+      class="t-tabs__nav"
+    >
+      <div
+        class="t-tabs__operations t-tabs__operations--left"
+      >
+        <transition-stub
+          appear="true"
+          mode="out-in"
+          name="fade"
+        />
+      </div>
+      <div
+        class="t-tabs__operations t-tabs__operations--right"
+      >
+        <transition-stub
+          appear="true"
+          mode="out-in"
+          name="fade"
+        />
+      </div>
+      <div
+        class="t-tabs__nav-container t-is-top"
+      >
+        <div
+          class="t-tabs__nav-scroll"
+        >
+          <div
+            class="t-tabs__nav-wrap t-is-smooth"
+            style="transform: translate(0px, 0);"
+          >
+            <div
+              class="t-tabs__bar t-is-top"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="t-tabs__content"
+  />
+</div>
+`;
+
+exports[`Tabs > additional function > no valid panel 1`] = `
+<div
+  class="t-tabs"
+>
+  <div
+    class="t-tabs__header t-is-top"
+  >
+    <div
+      class="t-tabs__nav"
+    >
+      <div
+        class="t-tabs__operations t-tabs__operations--left"
+      >
+        <transition-stub
+          appear="true"
+          mode="out-in"
+          name="fade"
+        />
+      </div>
+      <div
+        class="t-tabs__operations t-tabs__operations--right"
+      >
+        <transition-stub
+          appear="true"
+          mode="out-in"
+          name="fade"
+        />
+      </div>
+      <div
+        class="t-tabs__nav-container t-is-top"
+      >
+        <div
+          class="t-tabs__nav-scroll"
+        >
+          <div
+            class="t-tabs__nav-wrap t-is-smooth"
+            style="transform: translate(0px, 0);"
+          >
+            <div
+              class="t-tabs__bar t-is-top"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="t-tabs__content"
+  >
+    123
+  </div>
+</div>
+`;
+
+exports[`Tabs > additional function > panel default slot:function | panel slot:function 1`] = `
+<div
+  class="t-tabs"
+>
+  <div
+    class="t-tabs__header t-is-top"
+  >
+    <div
+      class="t-tabs__nav"
+    >
+      <div
+        class="t-tabs__operations t-tabs__operations--left"
+      >
+        <transition-stub
+          appear="true"
+          mode="out-in"
+          name="fade"
+        />
+      </div>
+      <div
+        class="t-tabs__operations t-tabs__operations--right"
+      >
+        <transition-stub
+          appear="true"
+          mode="out-in"
+          name="fade"
+        />
+      </div>
+      <div
+        class="t-tabs__nav-container t-is-top"
+      >
+        <div
+          class="t-tabs__nav-scroll"
+        >
+          <div
+            class="t-tabs__nav-wrap t-is-smooth"
+            style="transform: translate(0px, 0);"
+          >
+            <div
+              class="t-tabs__bar t-is-top"
+            />
+            <div
+              class="t-tabs__nav-item t-size-m"
+            >
+              <div
+                class="t-tabs__nav-item-wrapper"
+              >
+                <span
+                  class="t-tabs__nav-item-text-wrapper"
+                >
+                  1
+                </span>
+              </div>
+            </div>
+            <div
+              class="t-tabs__nav-item t-is-active t-size-m"
+            >
+              <div
+                class="t-tabs__nav-item-wrapper t-is-active"
+              >
+                <span
+                  class="t-tabs__nav-item-text-wrapper"
+                >
+                  2
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="t-tabs__content"
+  >
+    <!---->
+    <div
+      class="t-tab-panel"
+    >
+      <span>
+        2
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tabs > additional function > panel:default && panel:panel 1`] = `
+<div
+  class="t-tabs"
+>
+  <div
+    class="t-tabs__header t-is-top"
+  >
+    <div
+      class="t-tabs__nav"
+    >
+      <div
+        class="t-tabs__operations t-tabs__operations--left"
+      >
+        <transition-stub
+          appear="true"
+          mode="out-in"
+          name="fade"
+        />
+      </div>
+      <div
+        class="t-tabs__operations t-tabs__operations--right"
+      >
+        <transition-stub
+          appear="true"
+          mode="out-in"
+          name="fade"
+        />
+      </div>
+      <div
+        class="t-tabs__nav-container t-is-top"
+      >
+        <div
+          class="t-tabs__nav-scroll"
+        >
+          <div
+            class="t-tabs__nav-wrap t-is-smooth"
+            style="transform: translate(0px, 0);"
+          >
+            <div
+              class="t-tabs__bar t-is-top"
+            />
+            <div
+              class="t-tabs__nav-item t-size-m"
+            >
+              <div
+                class="t-tabs__nav-item-wrapper"
+              >
+                <span
+                  class="t-tabs__nav-item-text-wrapper"
+                >
+                  1
+                </span>
+              </div>
+            </div>
+            <div
+              class="t-tabs__nav-item t-is-active t-size-m"
+            >
+              <div
+                class="t-tabs__nav-item-wrapper t-is-active"
+              >
+                <span
+                  class="t-tabs__nav-item-text-wrapper"
+                >
+                  2
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="t-tabs__content"
+  >
+    <!---->
+    <div
+      class="t-tab-panel"
+    >
+      2
+    </div>
+  </div>
+</div>
+`;

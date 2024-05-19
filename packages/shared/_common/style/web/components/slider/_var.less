@@ -1,0 +1,50 @@
+@slider-background: @bg-color-secondarycomponent;
+@slider-background-current: @brand-color;
+@slider-text: @text-color-primary;
+@slider-control-bar-background: #fff; // 滑块背景色不随默认/暗色模式切换改变，固定为白色，故不使用背景色 token
+@slider-control-bar-border: @brand-color;
+
+@slider-background-hover: @bg-color-secondarycomponent-hover;
+@slider-control-bar-background-hover: @gray-color-1; // 滑块背景色不随默认/暗色模式切换改变，hover 后颜色固定为 @gray-color-1
+
+@slider-background-disabled: @bg-color-component-disabled;
+@slider-background-current-disabled: @brand-color-disabled;
+@slider-control-bar-border-disabled: @brand-color-disabled;
+@slider-text-disabled: @text-color-disabled;
+@slider-shadow: @shadow-1;
+@slider-input-shadow: 0 0 0px 2px @brand-color-focus;
+@slider-center-line-background: rgba(0, 0, 0, 90%);
+
+// 尺寸
+@slider-input-width: 80px;
+@slider-row-input-width: 120px;
+@slider-rail-track-step-size: @size-2;
+@slider-height: calc(@comp-paddingTB-xs * 2 + @slider-rail-track-step-size);
+@slider-control-bar-size: @comp-size-xxxs;
+@slider-vertical-height: 100%;
+@slider-vertical-mark-width: 18px;
+@slider-stop-width: 1px;
+@slider-stop-height: @size-2;
+@slider-center-line-width: @size-4;
+@slider-center-line-height: 1px;
+
+// 边距
+@slider-input-margin-left: @comp-margin-xxl;
+@slider-input-vertical-padding-top: @comp-paddingTB-l;
+@slider-input-vertical-margin-left: 0px;
+@slider-padding: @comp-paddingTB-xs 0;
+@slider-vertical-padding: 0;
+@slider-vertical-handle-margin-top: -6px;
+@slider-vertical-handle-margin-left: -5px;
+@slider-vertical-text-margin-top: 0;
+@slider-vertical-text-margin-left: @comp-margin-xxs;
+@slider-center-line-margin: 0 @comp-margin-s;
+
+// 字体
+@slider-text-font: @font-body-small;
+
+// 边框
+@slider-border-radius: @border-radius-round;
+
+// 定位
+@slider-text-top: calc(@slider-rail-track-step-size + @comp-paddingTB-xs + 2px);

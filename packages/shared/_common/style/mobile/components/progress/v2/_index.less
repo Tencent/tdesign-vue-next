@@ -1,0 +1,221 @@
+@import "../../../base.less";
+
+@import "./_var.less";
+
+// 进度条基本样式
+.@{progress} {
+  &__inner {
+    position: relative;
+    height: 100%;
+    background: @progress-inner-bg-color;
+    border-radius: @radius-round;
+    transition: @progress-inner-transition;
+  }
+
+  &__bar {
+    width: 100%;
+    height: @progress-line-stroke-width;
+    overflow: hidden;
+    background: @progress-track-bg-color;
+    border-radius: @radius-round;
+  }
+
+  &__info {
+    margin-left: @progress-info-spacer;
+    color: @progress-info-dark-color;
+    white-space: nowrap;
+    display: inline-flex;
+  }
+}
+
+//标准进度条
+.@{progress}--thin {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .@{progress}__icon {
+    font-size: @progress-line-icon-font-size;
+  }
+}
+
+//条形进度条 百分比内置
+.@{progress}--plump {
+  height: @progress-stroke-plump-width;
+  border-radius: calc(@progress-stroke-plump-width / 2);
+  display: flex;
+  align-items: center;
+
+  .@{progress}__info {
+    font-size: @progress-plump-label-font-size;
+  }
+}
+
+.@{progress}--over-ten {
+  .@{progress}__info {
+    position: absolute;
+    top: 50%;
+    right: @progress-info-spacer;
+    color: @progress-info-light-color;
+    transform: translateY(-50%);
+  }
+}
+
+.@{progress}--under-ten {
+  .@{progress}__info,
+  .@{progress}__inner {
+    display: inline-block;
+  }
+
+  .@{progress}__info {
+    vertical-align: top;
+  }
+}
+
+// 环形
+.@{progress}__canvas--circle {
+  position: relative;
+  width: @progress-circle-width;
+  height: @progress-circle-width;
+  border-radius: @radius-circle;
+
+  .@{progress}__canvas--inner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - @progress-stroke-circle-width*2);
+    height: calc(100% - @progress-stroke-circle-width*2);
+    border-radius: @radius-circle;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: @progress-circle-inner-bg-color;
+  }
+
+  .@{progress}__info {
+    margin: 0;
+    font-size: @progress-circle-label-font-size;
+    font-weight: @progress-circle-label-font-weight;
+    line-height: @progress-circle-label-line-height;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* stylelint-disable-next-line */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .@{progress}__icon {
+    font-size: @progress-circle-icon-font-size;
+  }
+}
+
+// 环形 for mobile
+.@{prefix}-progress--circle {
+  position: relative;
+
+  .@{prefix}-progress__info {
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    margin: 0;
+    font-size: @progress-circle-label-font-size;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+    transform: translate(-50%, -50%);
+  }
+
+  .@{prefix}-progress__circle-outer {
+    stroke: @progress-track-bg-color;
+  }
+
+  .@{prefix}-progress__circle-inner {
+    stroke: @progress-inner-bg-color;
+    transition: @progress-inner-transition;
+  }
+
+  .@{prefix}-progress__icon {
+    font-size: @progress-circle-icon-font-size;
+  }
+}
+
+//进度条状态
+.@{progress}--status-active {
+  .@{progress}__inner {
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      content: "";
+      animation: progress-active-animation 2s cubic-bezier(.23, .99, .86, .2) infinite;
+      background: @progress-inner-bg-color-active;
+      opacity: .2;
+    }
+  }
+}
+
+.@{progress}--status-success {
+  .@{progress}__inner {
+    background: @progress-inner-bg-color-success;
+  }
+
+  .@{prefix}-progress__circle-inner {
+    stroke: @success-color;
+  }
+
+  .@{progress}__icon {
+    color: @success-color;
+  }
+}
+
+.@{progress}--status-warning {
+  .@{progress}__inner {
+    background: @progress-inner-bg-color-warning;
+  }
+
+  .@{prefix}-progress__circle-inner {
+    stroke: @warning-color;
+  }
+
+  .@{progress}__icon {
+    color: @warning-color;
+  }
+}
+
+.@{progress}--status-error {
+  .@{progress}__inner {
+    background: @progress-inner-bg-color-error;
+  }
+
+  .@{prefix}-progress__circle-inner {
+    stroke: @error-color;
+  }
+  .@{progress}__icon {
+    color: @error-color;
+  }
+}
+
+@keyframes progress-active-animation {
+  0% {
+    width: 0;
+    opacity: .1;
+  }
+
+  35% {
+    width: 50%;
+    opacity: .4;
+  }
+
+  100% {
+    width: 100%;
+    opacity: 0;
+  }
+}

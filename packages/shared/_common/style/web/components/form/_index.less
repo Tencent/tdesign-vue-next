@@ -1,0 +1,165 @@
+// 组件允许单个组件打包，因此默认引入公共基础样式
+
+@import "../../base.less";
+
+@import "./_var.less";
+
+@import "./_mixin.less";
+
+@import "../../mixins/_reset.less";
+
+.@{prefix}-form {
+  .reset;
+
+  font: @form-font;
+
+  &:not(.@{prefix}-form-inline) {
+
+    .@{prefix}-form__item {
+      &:last-of-type {
+        margin: 0;
+      }
+    }
+  }
+
+  &__item {
+    margin-bottom: @form-item-margin-bottom;
+
+    // 文档流撑开内容补足剩余的 4px
+    &.@{prefix}-form__item-with-help {
+      margin-bottom: @form-item-with-help-margin-bottom;
+    }
+
+    // 绝对定位布局需要重设底部间距
+    &.@{prefix}-form__item-with-extra {
+      margin-bottom: @form-item-margin-bottom;
+    }
+  }
+
+  &__label {
+    float: left;
+    padding-right: @form-label-padding-right;
+    vertical-align: middle;
+    line-height: @form-item-control-height;
+    color: @form-color-label;
+    box-sizing: border-box;
+    white-space: nowrap;
+
+    &--top {
+      float: none;
+      min-height: @form-item-control-height;
+    }
+
+    &--left {
+      text-align: left;
+    }
+
+    &--right {
+      text-align: right;
+    }
+
+    &--required {
+      label::before {
+        display: inline-block;
+        margin-right: @form-label-margin-right-required;
+        color: @form-color-error;
+        line-height: @form-label-line-height;
+        content: "*";
+      }
+    }
+
+    &--colon {
+      label::after {
+        content: ":";
+        position: relative;
+        margin: @form-label-margin-colon;
+      }
+    }
+  }
+
+  &__controls {
+    min-height: @form-item-control-height;
+    display: flow-root;
+    position: relative;
+
+    &-content {
+      display: flex;
+      align-items: center;
+      min-height: @form-item-control-height;
+    }
+
+    // formItem 嵌套情况无间距
+    .@{prefix}-form__item {
+      margin-bottom: 0;
+      margin-right: @form-item-margin-right-inline;
+    }
+  }
+
+  &__controls.@{prefix}-is-success {
+    .input-status-icon(success);
+    .input-status-extra(success);
+  }
+
+  &__controls.@{prefix}-form--success-border {
+    // 输入框状态
+    .input-status(success);
+  }
+
+  &__status {
+    display: flex;
+    margin: @form-status-margin;
+
+    > .t-icon {
+      font-size: @form-status-icon-size;
+    }
+
+    &-without-icon {
+      width: 25px;
+      height: 25px;
+    }
+
+    button {
+      width: @form-status-button-width;
+    }
+
+    button + button {
+      margin-left: @form-status-button-margin;
+    }
+  }
+}
+
+.@{prefix}-form-inline {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: @form-item-row-gap;
+
+  .@{prefix}-form__item {
+    margin: 0;
+    min-width: 200px;
+    display: inline-block;
+    margin-right: @form-item-margin-right-inline;
+  }
+}
+
+.@{prefix}-input__extra,
+.@{prefix}-input__help {
+  margin: 0;
+  width: 100%;
+  height: auto;
+  min-height: @form-item-help-line-height;
+  font: @form-item-help-font;
+  color: @form-color-extra;
+}
+
+.@{prefix}-input__extra {
+  position: absolute;
+  bottom: calc(0px - @form-item-help-line-height);
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 输入框状态
+.input-status(warning);
+.input-status(error);

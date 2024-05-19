@@ -1,0 +1,159 @@
+// 组件允许单个组件打包，因此默认引入公共基础样式
+
+@import "../../base.less";
+
+@import "./_var.less";
+
+.@{prefix}-tabs {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &__nav {
+    width: 100%;
+    position: relative;
+    overflow: auto;
+    user-select: none;
+    white-space: nowrap;
+    background-color: @tab-nav-bg-color;
+
+    &-wrap {
+      display: flex;
+      position: relative;
+      min-width: 100%;
+      width: fit-content;
+    }
+
+    &-item {
+      flex: 1;
+      text-align: center;
+      color: @tab-nav-text-color;
+      font-size: @tab-nav-font-size;
+      height: @tab-nav-height;
+      line-height: @tab-nav-height;
+      position: relative;
+      padding: @tab-nav-item-padding;
+      display: inline-block;
+
+      &.@{prefix}-is-active {
+        color: @tab-nav-active-color;
+        font-family: @font-family-medium;
+        font-weight: 700;
+      }
+
+      &.@{prefix}-is-disabled {
+        color: @tab-nav-disabled-color;
+        cursor: not-allowed;
+      }
+
+      &::after {
+        content: "";
+        width: 100%;
+        height: 1px;
+        transform: scaleY(.5);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: @tab-line-color;
+      }
+    }
+
+    &-line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      width: @tab-line-width;
+      height: @tab-line-height;
+      background-color: @tab-line-active-color;
+      transition: all .3s cubic-bezier(.645, .045, .355, 1);
+    }
+
+    &.@{prefix}-is-scrollable {
+
+      .@{prefix}-tabs__nav-item {
+        flex: 1 0 auto;
+      }
+
+      .@{prefix}-tabs__nav-container {
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+      }
+    }
+  }
+
+  &.@{prefix}-size-l &__nav-item {
+    transition: font-size .24s ease;
+
+    &.@{prefix}-is-active {
+      font-size: @tab-nav-large-font-size;
+    }
+  }
+
+  &.@{prefix}-is-left,
+  &.@{prefix}-is-right {
+    flex-direction: row;
+    .@{prefix}-tabs__content {
+      flex: 1;
+    }
+
+    .@{prefix}-tabs__nav {
+      width: initial;
+      background-color: @tab-nav-horizontal-bg-color;
+
+      &-wrap {
+        flex-direction: column;
+      }
+
+      &-line {
+        top: 0;
+        left: 0;
+        width: @tab-line-height;
+        height: @tab-nav-horizontal-item-height;
+      }
+
+      &-item {
+        display: block;
+        flex: 1 0 auto;
+        width: @tab-nav-horizontal-item-width;
+        height: @tab-nav-horizontal-item-height;
+        line-height: @tab-nav-horizontal-item-height;
+        padding: @tab-nav-horizontal-item-padding;
+
+        &::after {
+          content: none;
+        }
+
+        &.@{prefix}-is-active {
+          background-color: @tab-nav-bg-color;
+        }
+      }
+    }
+  }
+  &.@{prefix}-is-bottom {
+    flex-flow: column-reverse;
+    .@{prefix}-tabs__nav-line {
+      top: 0;
+    }
+    .@{prefix}-tabs__nav-item::after {
+      top: 0;
+    }
+  }
+  &.@{prefix}-is-right {
+    flex-flow: row-reverse;
+    .@{prefix}-tabs__nav-line {
+      left: auto;
+      right: 0;
+    }
+  }
+
+  &__content {
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__panel {
+    background-color: @tab-panel-bg-color;
+  }
+}

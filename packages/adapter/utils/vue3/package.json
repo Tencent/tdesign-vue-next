@@ -1,0 +1,22 @@
+{
+  "name": "@td/adapter-utils-vue3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/lodash": "^4.14.202",
+    "@types/raf": "^3.4.3"
+  },
+  "dependencies": {
+    "@td/shared": "workspace:^",
+    "lodash": "^4.17.21",
+    "raf": "^3.4.1",
+    "vue": "^3.4.15"
+  }
+}

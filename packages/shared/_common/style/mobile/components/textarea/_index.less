@@ -1,0 +1,63 @@
+@import "../../base.less";
+
+@import "./_var.less";
+
+@import "../../mixins/_index.less";
+
+&.@{prefix}-textarea {
+  position: relative;
+  background-color: @textarea-background-color;
+
+  &__name:not(:empty) {
+    position: relative;
+    padding: @textarea-vertical-padding @textarea-horizontal-padding;
+    font-size: @textarea-font-size;
+    color: @textarea-text-color;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    &::after {
+      .hairline-bottom();
+
+      left: @textarea-horizontal-padding;
+    }
+  }
+
+  &__wrapper {
+    padding: @textarea-vertical-padding @textarea-horizontal-padding;
+    font-size: @textarea-font-size;
+    color: @textarea-text-color;
+
+    textarea {
+      display: block;
+      box-sizing: border-box;
+      width: 100%;
+      min-height: @textarea-height;
+      text-align: left;
+      border: 0;
+      background-color: transparent;
+      color: inherit;
+      resize: none;
+      outline: none;
+      font-size: @textarea-font-size;
+      line-height: @textarea-line-height;
+    }
+
+    textarea::placeholder {
+      color: @textarea-placeholder-text-color;
+    }
+  }
+
+  &-is-disabled {
+    color: @textarea-disabled-text-color;
+  }
+
+  &__count:not(:empty) {
+    margin-top: 8px;
+    text-align: right;
+    color: @textarea-counter-color;
+    font-size: @textarea-counter-font-size;
+    line-height: @textarea-counter-line-height;
+  }
+}

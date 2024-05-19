@@ -1,0 +1,240 @@
+// 组件允许单个组件打包，因此默认引入公共基础样式
+
+@import "../../base.less";
+
+@import "./_var.less";
+
+@import "./_mixin.less";
+
+@import "../../mixins/_reset.less";
+
+.@{prefix}-slider__input-container {
+  display: flex;
+  align-items: center;
+  margin-left: @slider-input-margin-left;
+
+  &.is-vertical {
+    padding-top: @slider-input-vertical-padding-top;
+    margin-left: @slider-input-vertical-margin-left;
+  }
+
+  .@{prefix}-slider__center-line {
+    width: @slider-center-line-width;
+    height: @slider-center-line-height;
+    background: @slider-center-line-background;
+    margin: @slider-center-line-margin;
+  }
+}
+
+.@{prefix}-slider {
+  .reset;
+
+  height: @slider-height;
+  width: 100%;
+  position: relative;
+  padding: @slider-padding;
+
+  &__container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.is-vertical {
+      height: 100%;
+      flex-direction: column;
+    }
+  }
+
+  &__rail {
+    position: absolute;
+    width: 100%;
+    height: @slider-rail-track-step-size;
+    background-color: @slider-background;
+    transition: @anim-duration-base linear;
+    border-radius: @slider-border-radius;
+
+    &:hover {
+      background-color: @slider-background-hover;
+    }
+  }
+
+  &__track {
+    position: absolute;
+    height: @slider-rail-track-step-size;
+    background-color: @slider-background-current;
+    right: auto;
+    border-radius: @slider-border-radius;
+  }
+
+  &__step {
+    position: absolute;
+    width: 100%;
+    height: @slider-rail-track-step-size;
+    cursor: pointer;
+  }
+
+  &__button {
+    width: @slider-control-bar-size;
+    height: @slider-control-bar-size;
+    border: 2px solid @slider-control-bar-border;
+    background-color: @slider-control-bar-background;
+    border-radius: @border-radius-circle;
+    transition: .2s;
+    user-select: none;
+    box-sizing: border-box;
+    box-shadow: @slider-shadow;
+
+    &--dragging {
+      box-shadow: @slider-input-shadow;
+    }
+
+    &:hover {
+      background-color: @slider-control-bar-background-hover;
+    }
+  }
+
+  &__button-wrapper {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    text-align: center;
+    user-select: none;
+    line-height: normal;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  &__stop {
+    position: absolute;
+    width: @slider-stop-width;
+    height: @slider-stop-height;
+    background-color: @slider-background;
+    top: 4px;
+  }
+
+  &__mark {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 100%;
+  }
+
+  &__mark-text {
+    position: absolute;
+    display: inline-block;
+    font: @slider-text-font;
+    color: @slider-text;
+    top: @slider-text-top;
+    transform: translateX(-50%);
+    cursor: pointer;
+
+    &:first-child {
+      transform: translateX(0%);
+    }
+
+    &:last-child {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+.@{prefix}-slider--vertical {
+  height: @slider-vertical-height;
+  padding: @slider-vertical-padding;
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  .@{prefix}-slider__rail {
+    width: @slider-rail-track-step-size;
+    height: 100%;
+  }
+
+  .@{prefix}-slider__track {
+    width: @slider-rail-track-step-size;
+    top: auto;
+  }
+
+  .@{prefix}-slider__step {
+    width: @slider-rail-track-step-size;
+    height: 100%;
+  }
+
+  .@{prefix}-slider__handle {
+    margin-top: @slider-vertical-handle-margin-top;
+    margin-left: @slider-vertical-handle-margin-left;
+    top: auto;
+    transform: translateY(50%);
+  }
+
+  .@{prefix}-slider__mark {
+    top: 0;
+    left: 12px;
+    width: @slider-vertical-mark-width;
+    height: 100%;
+  }
+
+  .@{prefix}-slider__stop {
+    width: @slider-stop-height;
+    height: @slider-stop-width;
+    left: 4px;
+    background-color: @slider-background;
+  }
+
+  .@{prefix}-slider__mark-text {
+    transform: translateY(-50%);
+    margin-top: @slider-vertical-text-margin-top;
+    margin-left: @slider-vertical-text-margin-left;
+  }
+
+  .@{prefix}-slider__button-wrapper {
+    top: auto;
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    background-color: transparent;
+    text-align: center;
+    user-select: none;
+    line-height: normal;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.@{prefix}-is-disabled {
+  cursor: not-allowed;
+
+  .@{prefix}-slider__track {
+    background-color: @slider-background-current-disabled;
+  }
+
+  .@{prefix}-slider__rail {
+    background-color: @slider-background-disabled;
+  }
+
+  .@{prefix}-slider__handle {
+    border: 2px solid @slider-background-current-disabled;
+  }
+
+  .@{prefix}-slider__button {
+    border-color: @slider-control-bar-border-disabled;
+    outline: none;
+  }
+
+  .@{prefix}-slider__mark-text {
+    color: @slider-text-disabled;
+    cursor: not-allowed;
+  }
+
+  .@{prefix}-slider__button-wrapper {
+    cursor: not-allowed;
+  }
+}

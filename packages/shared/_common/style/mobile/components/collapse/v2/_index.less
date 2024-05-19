@@ -1,0 +1,85 @@
+@import "../../../base.less";
+
+@import "./_var.less";
+
+@cell: ~"@{prefix}-cell";
+
+// collapse
+
+.@{prefix}-collapse {
+  position: relative;
+
+  &--card {
+    margin: 0 16px;
+    border-radius: @radius-large;
+    overflow: hidden;
+  }
+}
+
+// collapse panel
+
+.@{prefix}-collapse-panel {
+  .border(bottom, @collapse-border-color);
+
+  background-color: @collapse-panel-bg-color;
+  overflow: hidden;
+  transition: height ease 240ms;
+
+  &--top {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  &__header {
+    position: relative;
+    color: @collapse-header-text-color;
+
+    &--top {
+      .border(top, @collapse-border-color);
+    }
+
+    &--bottom {
+      .border(bottom, @collapse-border-color);
+    }
+
+    &::after {
+      display: none;
+      left: 16px;
+    }
+
+    &--expanded {
+      &::after {
+        display: block;
+      }
+    }
+
+    .@{cell}__title {
+      font-size: @collapse-title-font-size;
+    }
+
+    .@{cell}__note {
+      font-size: @collapse-extra-font-size;
+    }
+
+    .@{cell}__right-icon {
+      color: @collapse-icon-color;
+    }
+  }
+
+  &--disabled {
+    pointer-events: none;
+
+    .@{cell}__title,
+    .@{cell}__note,
+    .@{cell}__right-icon {
+      color: @collapse-header-text-disabled-color;
+    }
+  }
+
+  &__content {
+    color: @collapse-content-text-color;
+    font-size: @collapse-content-font-size;
+    padding: @collapse-content-padding;
+    line-height: @collapse-content-line-height;
+  }
+}

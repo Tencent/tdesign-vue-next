@@ -1,0 +1,159 @@
+.step-item-basic {
+
+  .@{prefix}-step {
+    flex: 1;
+    vertical-align: top;
+    position: relative;
+
+    &__inner {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &-icon {
+      vertical-align: top;
+      font-size: @font-size-base;
+      position: relative;
+      color: @text-color-disabled;
+
+      &__number {
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: @step-connector-default-icon-width;
+        height: @step-connector-default-icon-width;
+        text-align: center;
+        border: 1px solid @text-color-disabled;
+        border-radius: 50%;
+        color: @text-color-disabled;
+      }
+    }
+
+    &__inner__icon {
+      .@{prefix}-step-icon__number {
+        width: @step-horizontal-icon-width;
+        height: @step-horizontal-icon-width;
+        font-size: @step-connector-default-icon-width;
+      }
+    }
+
+    &-content {
+      text-align: center;
+    }
+
+    &-title {
+      position: relative;
+      color: @text-color-primary;
+      text-align: center;
+      line-height: 22px;
+      font-size: @font-size-base;
+      margin-bottom: 4px;
+      font-weight: bold;
+    }
+
+    &-description {
+      color: @text-color-placeholder;
+      line-height: 20px;
+      font-size: @font-size-s;
+      margin-bottom: @spacer;
+    }
+  }
+}
+
+// 连接线
+.connector-default(@direction; @isReverse:false) {
+  & when (@direction = horizontal) {
+
+    .@{prefix}-step:not(:last-child) {
+
+      .@{prefix}-step__inner:after {
+        content: "";
+        display: block;
+        height: 1px;
+        background-color: @text-color-disabled;
+        position: absolute;
+        width: calc(100% - @step-connector-default-icon-width);
+        left: calc(50% + @step-connector-default-icon-width / 2);
+        top: (@step-connector-default-icon-width / 2);
+      }
+      .@{prefix}-step__inner__icon:after {
+        width: calc(100% - @step-horizontal-icon-width);
+        left: calc(50% + @step-horizontal-icon-width / 2);
+        top: (@step-horizontal-icon-width / 2);
+      }
+    }
+
+    .@{prefix}-step--finish:not(:last-child),
+    .@{prefix}-step--default:not(:last-child) {
+
+      .@{prefix}-step__inner:after {
+        background-color: @brand-color-5;
+      }
+    }
+  }
+  & when(@direction = vertical) {
+
+    .@{prefix}-step:not(:last-child) {
+
+      .@{prefix}-step__inner:after {
+        content: "";
+        display: block;
+        height: calc(100% - @step-connector-default-icon-width);
+        width: 1px;
+        background-color: @gray-color-5;
+        position: absolute;
+        left: (@step-connector-default-icon-width / 2);
+        top: @step-connector-default-icon-width;
+      }
+    }
+
+    .@{prefix}-step--finish:not(:last-child),
+    .@{prefix}-step--default:not(:last-child) {
+
+      .@{prefix}-step__inner:after {
+        background-color: @brand-color;
+      }
+    }
+  }
+}
+
+.default-number-status(@anchor-status) {
+  & when(@anchor-status = default) {
+
+    .@{prefix}-step-icon__number {
+      border-color: @brand-color;
+      color: @brand-color;
+    }
+  };
+  & when(@anchor-status = finish) {
+
+    .@{prefix}-step-icon__number {
+      border-color: @brand-color;
+      color: @brand-color;
+    }
+  };
+  & when(@anchor-status = process) {
+    .@{prefix}-step-icon__number {
+      background-color: @brand-color;
+      color: #fff;
+      border-color: @brand-color;
+    }
+    .@{prefix}-step-title {
+      color: @brand-color-8;
+    }
+  };
+  & when(@anchor-status = error) {
+
+    .@{prefix}-step-icon__number {
+      color: @error-color-6;
+      border-color: @error-color-6;
+    }
+    .@{prefix}-step-title {
+      color: @error-color-6;
+    }
+  };
+}

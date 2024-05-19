@@ -1,0 +1,268 @@
+@import "../../base.less";
+
+@import "./_var.less";
+
+@import "../../mixins/_text.less";
+
+@import "../../mixins/_reset.less";
+
+@import "../../mixins/_scrollbar.less";
+
+// select
+.@{prefix}-select__wrap {
+  width: 100%;
+}
+
+// dropdown
+.@{prefix}-select__dropdown {
+  .@{prefix}-popup__content {
+    .scrollbar(8px, 2px);
+
+    margin: @select-dropdown-margin;
+    padding: 0; // 展开动画 如果有padding会直接生长 需要移动到内部
+    max-height: @select-dropdown-max-height;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    box-shadow: @select-dropdown-shadow;
+  }
+
+  &-inner {
+    // 嵌套无需 padding
+    .@{prefix}-select__list .@{prefix}-select__list {
+      padding: 0;
+    }
+
+    .@{prefix}-select__list,
+    .@{prefix}-tree {
+      padding: @select-dropdown-padding;
+    }
+
+    &--size-s {
+      .@{prefix}-select__list,
+      .@{prefix}-tree {
+        padding: @select-dropdown-padding-s;
+      }
+    }
+
+    &--size-l {
+      .@{prefix}-select__list,
+      .@{prefix}-tree {
+        padding: @select-dropdown-padding-l;
+      }
+    }
+  }
+}
+
+// 抹平 ul li 自带样式
+.@{prefix}-select__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.@{prefix}-select__dropdown.@{prefix}-popup {
+  padding: @select-dropdown-popup-padding;
+}
+// empty
+.@{prefix}-select__empty.@{prefix}-size-s {
+  line-height: @select-height-s;
+}
+
+.@{prefix}-select__empty {
+  text-align: center;
+  color: @select-color-empty;
+  line-height: @select-height-default;
+  padding: @select-empty-padding;
+}
+
+.@{prefix}-select__empty.@{prefix}-size-l {
+  line-height: @select-height-l;
+}
+
+// loading tips
+.@{prefix}-select__loading-tips.@{prefix}-size-s {
+  line-height: @select-height-s;
+}
+
+.@{prefix}-select__loading-tips {
+  text-align: center;
+  line-height: @select-height-default;
+  color: @select-color-empty;
+}
+
+.@{prefix}-select__loading-tips.@{prefix}-size-l {
+  line-height: @select-height-l;
+}
+
+// option group
+.@{prefix}-select-option-group + .@{prefix}-select-option-group {
+  padding-top: @select-optiongroup-border-padding;
+  margin-top: @select-optiongroup-border-margin;
+}
+
+.@{prefix}-select-option-group__divider + .@{prefix}-select-option-group__divider {
+  position: relative;
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 1px;
+    padding: @select-option-padding-default;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    background-color: @select-optiongroup-border-color;
+    background-clip: content-box;
+  }
+}
+
+.@{prefix}-select-option-group__header {
+  ul&,
+  & {
+    color: @select-option-group-header-color;
+    display: block;
+    height: @select-option-height-default;
+    line-height: @select-option-height-default;
+    padding: @select-option-padding-default;
+    box-sizing: border-box;
+    .text-ellipsis();
+  }
+}
+
+.@{prefix}-select-option-group__header.@{prefix}-size-l {
+  height: @select-option-height-l;
+  line-height: @select-option-height-l;
+  padding: @select-option-padding-l;
+}
+
+.@{prefix}-select-option-group__header.@{prefix}-size-s {
+  height: @select-option-height-s;
+  line-height: @select-option-height-s;
+  padding: @select-option-padding-s;
+}
+
+// option
+.@{prefix}-select-option {
+  display: flex;
+  align-items: center;
+  border-radius: @select-option-border-radius;
+  height: @select-option-height-default;
+  font: @font-body-medium;
+  cursor: pointer;
+  padding: @select-option-padding-default;
+  color: @select-option-color;
+  transition: background-color @anim-duration-base @anim-time-fn-easing;
+  box-sizing: border-box;
+
+  span {
+    position: relative;
+    .text-ellipsis();
+  }
+
+  &:not(.@{prefix}-is-disabled):not(.@{prefix}-is-selected):hover {
+    background-color: @select-option-bg-color-hover;
+
+    .@{prefix}-checkbox__label {
+      color: @select-option-checkbox-label-color-hover;
+    }
+
+    .@{prefix}-checkbox__input {
+      border-color: @select-option-checkbox-input-color-hover;
+    }
+  }
+
+  .@{prefix}-checkbox__label {
+    color: @select-option-color;
+    flex: 1;
+    .text-ellipsis();
+  }
+
+  .@{prefix}-checkbox {
+    width: 100%;
+  }
+
+  --ripple-color: @bg-color-container-active;
+}
+
+.@{prefix}-select-option.@{prefix}-is-disabled {
+  cursor: not-allowed;
+  color: @select-color-disabled;
+  background: @select-bg-color;
+
+  &:hover,
+  :active {
+    background: @select-bg-color;
+  }
+}
+
+.@{prefix}-select-option.@{prefix}-size-l {
+  height: @select-option-height-l;
+  padding: @select-option-padding-l;
+  font: @select-font-l;
+}
+.@{prefix}-select-option.@{prefix}-size-m {
+  font: @select-font-m;
+}
+.@{prefix}-select-option.@{prefix}-size-s {
+  height: @select-option-height-s;
+  padding: @select-option-padding-s;
+  font: @select-font-s;
+}
+
+.@{prefix}-select-option.@{prefix}-is-selected {
+  color: @select-selected-color;
+  background-color: @select-selected-bg-color;
+  transition: all @anim-duration-base linear;
+
+  .@{prefix}-checkbox__label {
+    color: @select-selected-color;
+  }
+
+  &:hover {
+    background-color: @select-selected-bg-color-hover;
+  }
+}
+
+/** 规范 CSS 类名为 --hover */
+.@{prefix}-select-option.@{prefix}-select-option__hover,
+.@{prefix}-select-option.@{prefix}-select-option--hover {
+  &:not(.@{prefix}-is-disabled)&:not(.@{prefix}-is-selected) {
+    background-color: @select-option-bg-color-hover;
+    .@{prefix}-checkbox__input {
+      border-color: @select-option-checkbox-input-color-hover;
+    }
+  }
+  .@{prefix}-checkbox__label {
+    color: @select-option-checkbox-label-color-hover;
+  }
+}
+
+.@{prefix}-select-option + .@{prefix}-select-option {
+  margin-top: @select-options-margin-top;
+}
+
+.@{prefix}-select {
+  &.@{prefix}-select-input--borderless {
+    .@{prefix}-select__right-icon {
+      position: relative;
+      margin: 0;
+    }
+  }
+
+  .@{prefix}-fake-arrow {
+    color: @select-placeholder-color;
+
+    &--active {
+      color: @select-border-color-active;
+    }
+  }
+}
+
+.@{prefix}-is-selected.@{prefix}-select-option__hover {
+  background-color: @brand-color-light-hover;
+
+  .@{prefix}-checkbox__label {
+    color: @select-selected-color;
+  }
+}

@@ -1,0 +1,30 @@
+.breadcrumb() {
+  font: @breadcrumb-font-base;
+  display: flex;
+  align-items: center;
+}
+
+.v-inlineblock() {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.t-overflow() {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.color-change() {
+  animation: @anim-duration-base linear changeColor;
+}
+
+@keyframes changeColor {
+  from {
+    color: @brand-color-hover;
+  }
+
+  to {
+    color: @brand-color-active;
+  }
+}

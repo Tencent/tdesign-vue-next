@@ -1,0 +1,113 @@
+@import "./_variables.less";
+
+@import "./mixins/_index.less";
+
+@import "./utilities/_index.less";
+
+@import "./components/_docs.less";
+
+@d-prefix: tdesign;
+
+/* 用于重构稿演示相关的样式 公共部分 */
+
+.tdesign-demo-wrap__name {
+  font-size: 36px;
+  margin-bottom: 40px;
+  line-height: 60px;
+  border-bottom: 1px solid #ddd;
+  background-color: #f9f9f9;
+  padding: 0 40px 10px;
+}
+
+.tdesign-demo-wrap__info {
+  font-size: 14px;
+  color: #999;
+  line-height: initial;
+}
+
+.tdesign-demo-item {
+  margin: 0 40px;
+
+  > p {
+    color: #333;
+    font-size: 14px;
+    line-height: 2;
+  }
+}
+
+.tdesign-demo-item + .tdesign-demo-item {
+  margin-top: 30px;
+  border-top: 1px solid #ddd;
+  padding-top: 30px;
+}
+
+.tdesign-demo-item__title {
+  font-size: 22px;
+  height: 30px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.tdesign-demo-item__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  min-height: 204px;
+  padding: 40px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  overflow: auto;
+}
+
+.tdesign-demo-item__body + .tdesign-demo-item__body {
+  margin-top: 20px;
+}
+
+.tdesign-demo-block {
+  margin-bottom: 10px;
+
+  &__title {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+}
+
+.tdesign-demo-block-line {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.tdesign-demo-divide {
+  height: 0;
+  margin: 5px 0;
+}
+
+.tdesign-demo-block-line + .tdesign-demo-block-line {
+  margin-left: 16px;
+}
+
+// 竖排展示 demo 行间距 16px
+.tdesign-demo-block-column {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  column-gap: 16px;
+}
+
+// 竖排展示 demo 行间距 32px
+.tdesign-demo-block-column-large {
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+  column-gap: 32px;
+}
+
+// 横排排展示 demo 列间距 16px
+.tdesign-demo-block-row {
+  display: flex;
+  column-gap: 16px;
+  row-gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}

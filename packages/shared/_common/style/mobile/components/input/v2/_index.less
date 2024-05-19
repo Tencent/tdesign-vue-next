@@ -1,0 +1,181 @@
+@import "../../../base.less";
+
+@import "./_var.less";
+
+.@{prefix}-input {
+  background-color: @input-bg-color;
+  display: flex;
+  flex: 1;
+  padding: @input-vertical-padding;
+
+  &--center {
+    align-items: center;
+  }
+
+  &--border {
+    .border(bottom, @input-border-color);
+
+    &::after {
+      left: @input-border-left-space;
+      right: @input-border-right-space;
+    }
+  }
+
+  &--layout-vertical {
+    flex-direction: column;
+  }
+
+  &__wrap--prefix {
+    display: flex;
+  }
+
+  &__icon--prefix {
+    font-size: 24px;
+    color: @input-prefix-icon-color;
+  }
+
+  &__label:not(:empty) {
+    font-size: @font-size-m;
+    line-height: 24px;
+    color: @input-label-text-color;
+    margin-right: @spacer-2;
+
+    .@{prefix}-input--layout-horizontal & {
+      min-width: 2em;
+      max-width: var(--td-input-label-width, 5em);
+    }
+
+    .@{prefix}-input--layout-vertical & {
+      width: var(--td-input-label-width, 100%);
+      font-size: @font-size-base;
+      padding-bottom: 8px;
+    }
+  }
+
+  &__icon--prefix:not(:empty) + &__label:not(:empty) {
+    padding-left: 4px;
+  }
+
+  &__label:not(:empty) + &__wrap {
+    margin-left: @spacer-2;
+  }
+
+  &__icon--prefix:not(:empty) + &__label:empty {
+    margin-right: @spacer-2;
+  }
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex: 1;
+    flex-shrink: 1;
+
+    .@{prefix}-input__content {
+      display: flex;
+      align-items: center;
+      line-height: 24px;
+      font-size: @font-size-m;
+    }
+
+    &--clearable-icon,
+    &--suffix-icon,
+    &--suffix {
+      flex: 0 0 auto;
+      padding-left: @spacer-1;
+
+      &:empty {
+        display: none;
+      }
+    }
+
+    &--clearable-icon,
+    &--suffix-icon {
+      font-size: 24px;
+      color: @input-suffix-icon-color;
+    }
+
+    &--suffix {
+      font-size: @font-size-m;
+      color: @input-suffix-text-color;
+    }
+  }
+
+  &__icon--prefix,
+  &__tips,
+  &__wrap--clearable-icon,
+  &__wrap--suffix-icon,
+  &__wrap--suffix {
+    display: flex;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &__control {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0; // for flex-shrink in field__button
+    min-height: 24px;
+    margin: 0;
+    padding: 0;
+    color: @input-default-text-color;
+    line-height: inherit;
+    background-color: transparent;
+    border: 0;
+    outline: none;
+    resize: none;
+    font-size: inherit;
+
+    &--disabled {
+      color: @input-disabled-text-color;
+      cursor: not-allowed;
+      opacity: 1;
+      -webkit-text-fill-color: currentColor; // fix disabled color in iOS
+    }
+
+    &--read-only {
+      cursor: default;
+    }
+  }
+
+  &--left {
+    text-align: left;
+  }
+
+  &--right {
+    text-align: right;
+  }
+
+  &--center {
+    text-align: center;
+  }
+
+  &__placeholder {
+    color: @input-placeholder-text-color;
+    font-size: @font-size-m;
+  }
+
+  &__tips {
+    font-size: @font-size-s;
+    line-height: 20px;
+    padding-top: 4px;
+  }
+}
+
+.input-status(@status) {
+  @tipsColor: "input-@{status}-tips-color";
+
+  .@{prefix}-input--@{status} + .@{prefix}-input__tips {
+    color: @@tipsColor;
+  }
+}
+
+// status
+.input-status(default);
+.input-status(success);
+.input-status(warning);
+.input-status(error);

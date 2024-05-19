@@ -1,0 +1,8 @@
+## 构建产物
+lib
+public
+dist
+static
+site
+!.github
+**/*/*.test.js

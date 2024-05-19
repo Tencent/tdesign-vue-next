@@ -1,0 +1,30 @@
+@textarea-vertical-padding: 16px; // 文本框垂直方向间距
+@textarea-horizontal-padding: 16px; // 文本框水平方向间距
+@textarea-padding: var(--td-textarea-padding, @textarea-vertical-padding @textarea-horizontal-padding);
+@textarea-text-line-height: 24px; // 输入框文本行高
+@textarea-indicator-text-line-height: 20px; // 计数器文本行高
+@textarea-indicator-text-padding-top: @spacer; // 计数器文本顶部间距
+@textarea-indicator-text-align: right; // 计数器文本对齐方式
+@textarea-border-width: 1px; // 文本框边框大小
+@textarea-indicator-text-font-size: @spacer-1; // 计数器文本大小
+@textarea-label-width: var(--td-textarea-label-width, 64px);
+@textarea-label-font-size: @font-size-base; // 标签文本大小
+@textarea-text-font-size: @font-size-m; // 输入框文本大小
+@textarea-placeholder-font-size: @font-size-m; // 占位符文本大小
+
+// 文本框背景颜色
+@textarea-background-color: var(--td-textarea-background-color, @bg-color-container);
+// 占位符文本颜色
+@textarea-placeholder-color: var(--td-textarea-placeholder-color, @text-color-placeholder);
+// 输入框文本颜色
+@textarea-text-color: var(--td-textarea-text-color, @text-color-primary);
+// 标签文本颜色
+@textarea-label-color: var(--td-textarea-label-color, @text-color-primary);
+// 计数器文本颜色
+@textarea-indicator-text-color: var(--td-textarea-indicator-text-color, @text-color-placeholder);
+// 文本框圆角大小
+@textarea-border-radius: var(--td-textarea-border-radius, @radius-default);
+// 文本框边框颜色
+@textarea-border-color: var(--td-textarea-border-color, rgba(220, 220, 220, 1));
+// 文本框禁用状态时的输入文本颜色
+@textarea-disabled-text-color: var(--td-textarea-disabled-text-color, @text-color-disabled);
