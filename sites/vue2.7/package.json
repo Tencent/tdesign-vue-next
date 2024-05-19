@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@td/adapter-vue": "workspace:^",
-    "@td/components": "workspace:^",
     "@td/intel-vue2.7": "workspace:^",
     "@td/shared": "workspace:^",
     "lodash-es": "^4.17.21",
