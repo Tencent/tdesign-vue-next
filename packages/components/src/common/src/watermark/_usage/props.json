@@ -1,0 +1,20 @@
+[
+  {
+    "name": "movable",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "isRepeat",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "removable",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  }
+]

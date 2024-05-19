@@ -1,0 +1,93 @@
+[
+  {
+    "name": "colon",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "disabled",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "labelAlign",
+    "type": "enum",
+    "defaultValue": "right",
+    "options": [
+      {
+        "label": "left",
+        "value": "left"
+      },
+      {
+        "label": "right",
+        "value": "right"
+      },
+      {
+        "label": "top",
+        "value": "top"
+      }
+    ]
+  },
+  {
+    "name": "layout",
+    "type": "enum",
+    "defaultValue": "vertical",
+    "options": [
+      {
+        "label": "vertical",
+        "value": "vertical"
+      },
+      {
+        "label": "inline",
+        "value": "inline"
+      }
+    ]
+  },
+  {
+    "name": "preventSubmitDefault",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "requiredMark",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "resetType",
+    "type": "enum",
+    "defaultValue": "empty",
+    "options": [
+      {
+        "label": "empty",
+        "value": "empty"
+      },
+      {
+        "label": "initial",
+        "value": "initial"
+      }
+    ]
+  },
+  {
+    "name": "showErrorMessage",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "statusIcon",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "submitWithWarningMessage",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  }
+]

@@ -1,0 +1,3 @@
+<template>
+  <t-calendar />
+</template>

@@ -1,0 +1,63 @@
+[
+  {
+    "name": "placement",
+    "type": "enum",
+    "defaultValue": "right-bottom",
+    "options": [
+      {
+        "label": "right-top",
+        "value": "right-top"
+      },
+      {
+        "label": "right-center",
+        "value": "right-center"
+      },
+      {
+        "label": "right-bottom",
+        "value": "right-bottom"
+      },
+      {
+        "label": "left-top",
+        "value": "left-top"
+      },
+      {
+        "label": "left-center",
+        "value": "left-center"
+      },
+      {
+        "label": "left-bottom",
+        "value": "left-bottom"
+      }
+    ]
+  },
+  {
+    "name": "shape",
+    "type": "enum",
+    "defaultValue": "square",
+    "options": [
+      {
+        "label": "square",
+        "value": "square"
+      },
+      {
+        "label": "round",
+        "value": "round"
+      }
+    ]
+  },
+  {
+    "name": "type",
+    "type": "enum",
+    "defaultValue": "normal",
+    "options": [
+      {
+        "label": "normal",
+        "value": "normal"
+      },
+      {
+        "label": "compact",
+        "value": "compact"
+      }
+    ]
+  }
+]
