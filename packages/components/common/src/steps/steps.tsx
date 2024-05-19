@@ -5,8 +5,8 @@ import stepItemProps from '@td/intel/steps/step-item-props';
 import { TdStepItemProps } from '@td/intel/steps/type';
 import StepItem from './step-item';
 
-import { usePrefixClass } from '../hooks/useConfig';
-import useVModel from '../hooks/useVModel';
+import { usePrefixClass } from '@td/adapter-hooks';
+import { useVModel } from '@td/adapter-hooks';
 import { useChildComponentSlots } from '../hooks';
 
 export default defineComponent({

@@ -18,8 +18,8 @@ import {
   watch,
 } from 'vue';
 import { useContent, useTNodeJSX } from '../hooks';
-import { useCommonClassName, usePrefixClass } from '../hooks/useConfig';
-import useVModel from '../hooks/useVModel';
+import { useCommonClassName, usePrefixClass } from '@td/adapter-hooks';
+import { useVModel } from '@td/adapter-hooks';
 import { off, on, once } from '../utils/dom';
 import setStyle from '../_common/js/utils/set-style';
 import Container from './container';

@@ -2,8 +2,8 @@ import { computed, defineComponent, inject } from 'vue';
 import props from '@td/intel/grid/col-props';
 
 import { RowProviderType, useRowSize, parseFlex, calcColPadding, getColClasses } from './common';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
+import { usePrefixClass } from '@td/adapter-hooks';
+import { useTNodeJSX } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'TCol',

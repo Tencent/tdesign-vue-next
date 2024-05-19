@@ -4,9 +4,9 @@ import TTabNav from './tab-nav';
 import { TabValue, TdTabsProps } from '@td/intel/tabs/type';
 import props from '@td/intel/tabs/props';
 
-import { useTNodeJSX } from '../hooks/tnode';
-import { usePrefixClass } from '../hooks/useConfig';
-import useVModel from '../hooks/useVModel';
+import { useTNodeJSX } from '@td/adapter-hooks';
+import { usePrefixClass } from '@td/adapter-hooks';
+import { useVModel } from '@td/adapter-hooks';
 import { isArray } from 'lodash-es';
 
 export interface InjectTabs {

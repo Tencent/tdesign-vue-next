@@ -5,8 +5,8 @@ import Popup, { PopupVisibleChangeContext } from '../popup/index';
 import DropdownMenu from './dropdown-menu';
 import { DropdownOption, TdDropdownProps } from '@td/intel/dropdown/type';
 import props from '@td/intel/dropdown/props';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
+import { usePrefixClass } from '@td/adapter-hooks';
+import { useTNodeJSX } from '@td/adapter-hooks';
 import useDropdownOptions from './hooks/useDropdownOptions';
 import { isNumber } from 'lodash-es';
 

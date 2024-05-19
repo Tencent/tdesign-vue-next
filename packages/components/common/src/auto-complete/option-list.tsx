@@ -1,10 +1,10 @@
 import { ref, computed, defineComponent, PropType, h, watch, onBeforeUnmount } from 'vue';
 import { isFunction } from 'lodash-es';
 import HighlightOption from './highlight-option';
-import { CommonClassNameType } from '../hooks/useCommonClassName';
+import { CommonClassNameType } from '@td/adapter-hooks';
 import { AutoCompleteOptionObj, TdAutoCompleteProps } from '@td/intel/auto-complete/type';
 import log from '../_common/js/log';
-import { usePrefixClass } from '../hooks/useConfig';
+import { usePrefixClass } from '@td/adapter-hooks';
 import { on, off } from '../utils/dom';
 import { isString } from 'lodash-es';
 import { escapeRegExp } from 'lodash-es';

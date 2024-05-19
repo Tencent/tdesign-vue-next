@@ -2,7 +2,7 @@ import { computed, defineComponent, ref } from 'vue';
 import { PLACEMENT_OFFSET } from './const';
 import TMessage from './message';
 import { MessageOptions } from '@td/intel/message/type';
-import { usePrefixClass } from '../hooks/useConfig';
+import { usePrefixClass } from '@td/adapter-hooks';
 
 export const DEFAULT_Z_INDEX = 6000;
 

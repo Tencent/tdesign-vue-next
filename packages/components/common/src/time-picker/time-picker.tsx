@@ -12,10 +12,10 @@ import type { InputProps } from '../input';
 import props from '@td/intel/time-picker/props';
 
 // hooks
-import useVModel from '../hooks/useVModel';
+import { useVModel } from '@td/adapter-hooks';
 import { useFormDisabled } from '../form/hooks';
-import { useCommonClassName, useConfig, usePrefixClass } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import { useCommonClassName, useConfig, usePrefixClass } from '@td/adapter-hooks';
+import { useGlobalIcon } from '@td/adapter-hooks';
 
 dayjs.extend(customParseFormat);
 

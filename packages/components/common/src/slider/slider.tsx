@@ -17,12 +17,12 @@ import { SliderValue } from '@td/intel/slider/type';
 import { useFormDisabled } from '../form/hooks';
 import { isArray } from 'lodash-es';
 
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
 import { useSliderMark } from './hooks/useSliderMark';
 import { useSliderInput } from './hooks/useSliderInput';
 import { formatSliderValue, getStopStyle } from './util/common';
 import { sliderPropsInjectKey } from './util/constants';
-import useVModel from '../hooks/useVModel';
+import { useVModel } from '@td/adapter-hooks';
 import { isNumber } from 'lodash-es';
 
 interface SliderButtonType {

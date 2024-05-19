@@ -50,7 +50,7 @@ import {
 } from './const';
 
 import { useConfig, usePrefixClass, useTNodeJSX } from '../hooks';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import { useGlobalIcon } from '@td/adapter-hooks';
 import template from '../utils/string-template';
 
 export type FormItemValidateResult<T extends Data = Data> = { [key in keyof T]: boolean | AllValidateResult[] };

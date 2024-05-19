@@ -3,9 +3,9 @@ import { TagInputValue, TagInputChangeContext } from '@td/intel/tag-input/type';
 import { TagInputProps } from './interface';
 import { InputValue } from '../input';
 import Tag from '../tag';
-import useVModel from '../hooks/useVModel';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
+import { useVModel } from '@td/adapter-hooks';
+import { usePrefixClass } from '@td/adapter-hooks';
+import { useTNodeJSX } from '@td/adapter-hooks';
 
 export type ChangeParams = [TagInputChangeContext];
 

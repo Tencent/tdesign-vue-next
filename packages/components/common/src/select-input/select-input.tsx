@@ -5,7 +5,7 @@ import { TdSelectInputProps } from '@td/intel/select-input/type';
 import useSingle, { SelectInputValueDisplayOptions } from './useSingle';
 import useMultiple from './useMultiple';
 import useOverlayInnerStyle from './useOverlayInnerStyle';
-import { usePrefixClass } from '../hooks/useConfig';
+import { usePrefixClass } from '@td/adapter-hooks';
 import { useTNodeJSX } from '../hooks';
 
 const useComponentClassName = () => {

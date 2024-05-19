@@ -1,13 +1,13 @@
 import { defineComponent, ref, toRefs, inject, watch, computed } from 'vue';
 import props from '@td/intel/checkbox/props';
-import useVModel from '../hooks/useVModel';
-import useRipple from '../hooks/useRipple';
-import { useContent } from '../hooks/tnode';
-import { useCommonClassName, usePrefixClass } from '../hooks/useConfig';
+import { useVModel } from '@td/adapter-hooks';
+import { useRipple } from '@td/adapter-hooks';
+import { useContent } from '@td/adapter-hooks';
+import { useCommonClassName, usePrefixClass } from '@td/adapter-hooks';
 import { CheckboxGroupInjectionKey } from './constants';
 import useCheckboxLazyLoad from './hooks/useCheckboxLazyLoad';
 import useKeyboardEvent from './hooks/useKeyboardEvent';
-import { useDisabled } from '../hooks/useDisabled';
+import { useDisabled } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'TCheckbox',

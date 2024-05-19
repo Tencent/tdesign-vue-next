@@ -1,10 +1,10 @@
 import { computed, defineComponent, h, ref } from 'vue';
 import TLoading from '../loading';
 import props from '@td/intel/button/props';
-import useRipple from '../hooks/useRipple';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import { useTNodeJSX, useContent } from '../hooks/tnode';
-import { useDisabled } from '../hooks/useDisabled';
+import { useRipple } from '@td/adapter-hooks';
+import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
+import { useTNodeJSX, useContent } from '@td/adapter-hooks';
+import { useDisabled } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'TButton',

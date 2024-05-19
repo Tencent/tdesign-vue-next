@@ -5,12 +5,12 @@ import { TdTagInputProps } from '@td/intel/tag-input/type';
 import props from '@td/intel/tag-input/props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { useConfig } from '../config-provider/useConfig';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import { usePrefixClass } from '@td/adapter-hooks';
+import { useGlobalIcon } from '@td/adapter-hooks';
 import useTagScroll from './hooks/useTagScroll';
 import useTagList from './useTagList';
 import useHover from './hooks/useHover';
-import useDefault from '../hooks/useDefaultValue';
+import { useDefault } from '@td/adapter-hooks';
 import useDragSorter from './hooks/useDragSorter';
 import { isArray } from 'lodash-es';
 

@@ -1,7 +1,7 @@
 import { defineComponent, computed } from 'vue';
 
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
+import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
+import { useTNodeJSX } from '@td/adapter-hooks';
 import TLoading from '../loading';
 import props from '@td/intel/card/props';
 import { isString } from 'lodash-es';

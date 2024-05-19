@@ -4,8 +4,8 @@ import { TdSelectInputProps, SelectInputChangeContext, SelectInputKeys } from '@
 import { SelectInputCommonProperties } from './interface';
 import TagInput, { TagInputValue, TagInputProps } from '../tag-input';
 import Loading from '../loading';
-import useDefault from '../hooks/useDefaultValue';
-import { usePrefixClass } from '../hooks/useConfig';
+import { useDefault } from '@td/adapter-hooks';
+import { usePrefixClass } from '@td/adapter-hooks';
 import { useFormDisabled } from '../form/hooks';
 import { PopupInstanceFunctions } from '../popup';
 

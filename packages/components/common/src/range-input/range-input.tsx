@@ -6,11 +6,11 @@ import props from '@td/intel/range-input/props';
 import { RangeInputValue, RangeInputPosition } from '@td/intel/range-input/type';
 
 // hooks
-import useVModel from '../hooks/useVModel';
+import { useVModel } from '@td/adapter-hooks';
 import { useFormDisabled } from '../form/hooks';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
+import { useGlobalIcon } from '@td/adapter-hooks';
+import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
+import { useTNodeJSX } from '@td/adapter-hooks';
 import { isArray } from 'lodash-es';
 
 function calcArrayValue(value: unknown | Array<unknown>) {

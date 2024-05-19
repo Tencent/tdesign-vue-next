@@ -8,16 +8,16 @@ import {
 
 import { DialogCloseContext } from '@td/intel/dialog/type';
 import props from '@td/intel/dialog/props';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import { useGlobalIcon } from '@td/adapter-hooks';
+import { useConfig, usePrefixClass } from '@td/adapter-hooks';
 import { useAction, useSameTarget } from './hooks';
-import { useTNodeJSX, useContent } from '../hooks/tnode';
-import useDestroyOnClose from '../hooks/useDestroyOnClose';
+import { useTNodeJSX, useContent } from '@td/adapter-hooks';
+import { useDestroyOnClose } from '@td/adapter-hooks';
 import { getScrollbarWidth } from '../_common/js/utils/getScrollbarWidth';
 
 import type { TdDialogProps } from '@td/intel/dialog/type';
-import useTeleport from '../hooks/useTeleport';
-import usePopupManager from '../hooks/usePopupManager';
+import { useTeleport } from '@td/adapter-hooks';
+import { usePopupManager } from '@td/adapter-hooks';
 
 function GetCSSValue(v: string | number) {
   return Number.isNaN(Number(v)) ? v : `${Number(v)}px`;

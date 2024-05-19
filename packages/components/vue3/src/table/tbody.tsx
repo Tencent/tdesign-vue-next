@@ -3,15 +3,15 @@ import { camelCase } from 'lodash-es';
 import { get } from 'lodash-es';
 import { pick } from 'lodash-es';
 import TrElement, { ROW_LISTENERS, TABLE_PROPS } from './tr';
-import { useConfig } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
+import { useConfig } from '@td/adapter-hooks';
+import { useTNodeJSX } from '@td/adapter-hooks';
 import useClassName from './hooks/useClassName';
 import baseTableProps from '@td/intel/table/base-table-props';
 import { TNodeReturnValue } from '../common';
 import useRowspanAndColspan from './hooks/useRowspanAndColspan';
 import { BaseTableProps, RowAndColFixedPosition } from './interface';
 import { TdBaseTableProps } from '@td/intel/table/type';
-import { VirtualScrollConfig } from '../hooks/useVirtualScrollNew';
+import { VirtualScrollConfig } from '@td/adapter-hooks';
 
 export const ROW_AND_TD_LISTENERS = ROW_LISTENERS.concat('cell-click');
 export interface TableBodyProps extends BaseTableProps {

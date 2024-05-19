@@ -1,5 +1,5 @@
 import { defineComponent, ref, toRefs } from 'vue';
-import useVModel from '../hooks/useVModel';
+import { useVModel } from '@td/adapter-hooks';
 import { renderTNodeJSXDefault } from '../utils/render-tnode';
 import props from '@td/intel/color-picker/props';
 import { Popup as TPopup } from '../popup';

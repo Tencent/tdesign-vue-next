@@ -1,8 +1,8 @@
 import { computed, defineComponent, inject, ref, watch } from 'vue';
 import props from '@td/intel/tabs/tab-panel-props';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import useDestroyOnClose from '../hooks/useDestroyOnClose';
-import { useContent } from '../hooks/tnode';
+import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
+import { useDestroyOnClose } from '@td/adapter-hooks';
+import { useContent } from '@td/adapter-hooks';
 
 import type { InjectTabs } from './tabs';
 

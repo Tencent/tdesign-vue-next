@@ -4,7 +4,7 @@ import Radio from './radio';
 import { omit } from '../utils/helper';
 import { RadioButtonInjectionKey } from './constants';
 
-import { useContent } from '../hooks/tnode';
+import { useContent } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'TRadioButton',

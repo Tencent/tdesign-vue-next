@@ -1,8 +1,8 @@
 import { computed, defineComponent, toRefs, h } from 'vue';
-import { usePrefixClass } from '../hooks/useConfig';
+import { usePrefixClass } from '@td/adapter-hooks';
 import props from '@td/intel/tag/check-tag-group-props';
 import CheckTag from './check-tag';
-import useVModel from '../hooks/useVModel';
+import { useVModel } from '@td/adapter-hooks';
 import { CheckTagGroupOption, CheckTagGroupValue, TdCheckTagProps } from '@td/intel/tag/type';
 import { isFunction } from 'lodash-es';
 

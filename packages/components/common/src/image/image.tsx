@@ -4,11 +4,11 @@ import { isFunction } from 'lodash-es';
 import { ImageErrorIcon, ImageIcon } from 'tdesign-icons-vue-next';
 import observe from '../_common/js/utils/observe';
 import { useConfig } from '../config-provider/useConfig';
-import { useTNodeDefault, useTNodeJSX } from '../hooks/tnode';
+import { useTNodeDefault, useTNodeJSX } from '@td/adapter-hooks';
 import { TdImageProps } from '@td/intel/image/type';
 import props from '@td/intel/image/props';
 import Space from '../space';
-import { useImagePreviewUrl } from '../hooks/useImagePreviewUrl';
+import { useImagePreviewUrl } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'TImage',

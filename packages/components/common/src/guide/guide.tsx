@@ -6,9 +6,9 @@ import { TdGuideProps, GuideStep } from '@td/intel/guide/type';
 import { scrollToParentVisibleArea, getRelativePosition, getTargetElm, scrollToElm } from './utils';
 import setStyle from '../_common/js/utils/set-style';
 import { addClass, removeClass, isFixed, getWindowScroll } from '../utils/dom';
-import useVModel from '../hooks/useVModel';
-import { useTNodeJSX } from '../hooks/tnode';
-import { usePrefixClass, useConfig } from '../hooks/useConfig';
+import { useVModel } from '@td/adapter-hooks';
+import { useTNodeJSX } from '@td/adapter-hooks';
+import { usePrefixClass, useConfig } from '@td/adapter-hooks';
 import Button from '../button';
 import Popup, { PopupProps } from '../popup';
 

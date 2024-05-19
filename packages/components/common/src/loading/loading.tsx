@@ -4,8 +4,8 @@ import { addClass, removeClass } from '../utils/dom';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import props from '@td/intel/loading/props';
 
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import useTeleport from '../hooks/useTeleport';
+import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
+import { useTeleport } from '@td/adapter-hooks';
 
 const useComponentClassName = () => {
   return {

@@ -3,9 +3,9 @@ import { ChevronDownIcon as TdChevronDownIcon } from 'tdesign-icons-vue-next';
 import useClassName from './hooks/useClassName';
 import { SortType } from '@td/intel/table/type';
 import Tooltip, { TooltipProps } from '../tooltip';
-import { useConfig } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useTNodeDefault } from '../hooks/tnode';
+import { useConfig } from '@td/adapter-hooks';
+import { useGlobalIcon } from '@td/adapter-hooks';
+import { useTNodeDefault } from '@td/adapter-hooks';
 import { TNode } from '../common';
 import { TableConfig } from '../config-provider';
 

@@ -5,9 +5,9 @@ import Checkbox from '../checkbox/index';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
-import useRipple from '../hooks/useRipple';
-import { useContent } from '../hooks/tnode';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { useRipple } from '@td/adapter-hooks';
+import { useContent } from '@td/adapter-hooks';
+import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
 import { selectInjectKey, getNewMultipleValue } from './helper';
 import { SelectValue } from '@td/intel/select/type';
 

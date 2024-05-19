@@ -4,8 +4,8 @@ import { copyText } from '../utils/clipboard';
 import Message from '../message/plugin';
 import props from '@td/intel/anchor/anchor-target-props';
 import Popup from '../popup';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import { useGlobalIcon } from '@td/adapter-hooks';
+import { useConfig, usePrefixClass } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'TAnchorTarget',

@@ -16,11 +16,11 @@ import { TreeOptionData } from '../common';
 import props from '@td/intel/tree-select/props';
 
 // hooks
-import { usePrefixClass, useConfig } from '../hooks/useConfig';
+import { usePrefixClass, useConfig } from '@td/adapter-hooks';
 import { useFormDisabled } from '../form/hooks';
-import { useTNodeJSX, useTNodeDefault } from '../hooks/tnode';
-import useVModel from '../hooks/useVModel';
-import useDefaultValue from '../hooks/useDefaultValue';
+import { useTNodeJSX, useTNodeDefault } from '@td/adapter-hooks';
+import { useVModel } from '@td/adapter-hooks';
+import { useDefaultValue } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'TTreeSelect',

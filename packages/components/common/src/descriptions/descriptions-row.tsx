@@ -1,7 +1,7 @@
 import { defineComponent, inject, PropType } from 'vue';
 
 import { LayoutEnum } from '../common';
-import { usePrefixClass } from '../hooks/useConfig';
+import { usePrefixClass } from '@td/adapter-hooks';
 
 import { descriptionsKey } from './const';
 import { ItemsType, TdDescriptionItem } from './interface';

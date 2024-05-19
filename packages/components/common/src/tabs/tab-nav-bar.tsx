@@ -3,7 +3,7 @@ import { firstUpperCase } from '../utils/helper';
 import tabProps from '@td/intel/tabs/props';
 
 // hooks
-import { usePrefixClass } from '../hooks/useConfig';
+import { usePrefixClass } from '@td/adapter-hooks';
 
 export default defineComponent({
   props: {

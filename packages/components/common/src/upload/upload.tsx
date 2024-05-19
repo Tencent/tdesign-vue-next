@@ -10,7 +10,7 @@ import Button from '../button';
 import { CommonDisplayFileProps, UploadProps } from './interface';
 import { UploadDragEvents } from './hooks/useDrag';
 import CustomFile from './themes/custom-file';
-import { useContent, useTNodeJSX } from '../hooks/tnode';
+import { useContent, useTNodeJSX } from '@td/adapter-hooks';
 import { useFormDisabled } from '../form/hooks';
 
 export default defineComponent({

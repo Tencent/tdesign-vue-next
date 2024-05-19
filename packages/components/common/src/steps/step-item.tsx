@@ -4,8 +4,8 @@ import { CheckIcon as TdCheckIcon, CloseIcon as TdCloseIcon } from 'tdesign-icon
 
 import props from '@td/intel/steps/step-item-props';
 import { SlotReturnValue } from '../common';
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import { useConfig, usePrefixClass } from '@td/adapter-hooks';
+import { useGlobalIcon } from '@td/adapter-hooks';
 import { useTNodeJSX, useContent } from '../hooks';
 
 export default defineComponent({

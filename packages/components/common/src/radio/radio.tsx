@@ -1,13 +1,13 @@
 import { defineComponent, inject, toRefs, computed, ref } from 'vue';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
 import { omit } from '../utils/helper';
 import props from '@td/intel/radio/props';
 import { RadioGroupInjectionKey, RadioButtonInjectionKey } from './constants';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
-import useVModel from '../hooks/useVModel';
-import { useContent } from '../hooks/tnode';
+import { useVModel } from '@td/adapter-hooks';
+import { useContent } from '@td/adapter-hooks';
 import { isUndefined } from 'lodash-es';
 import { isString } from 'lodash-es';
 

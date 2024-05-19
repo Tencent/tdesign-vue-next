@@ -5,9 +5,9 @@ import { TdMenuInterface, TdOpenType } from './const';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import VMenu from './v-menu';
 import log from '../_common/js/log/log';
-import { usePrefixClass } from '../hooks/useConfig';
-import useVModel from '../hooks/useVModel';
-import useDefaultValue from '../hooks/useDefaultValue';
+import { usePrefixClass } from '@td/adapter-hooks';
+import { useVModel } from '@td/adapter-hooks';
+import { useDefaultValue } from '@td/adapter-hooks';
 import { isNumber } from 'lodash-es';
 import { isArray } from 'lodash-es';
 

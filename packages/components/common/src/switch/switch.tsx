@@ -1,12 +1,12 @@
 import { defineComponent, h, VNodeChild, computed, watch, toRefs } from 'vue';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
 import TLoading from '../loading';
 import props from '@td/intel/switch/props';
 import { TNodeReturnValue } from '../common';
 
 // hooks
-import { useDisabled } from '../hooks/useDisabled';
-import useVModel from '../hooks/useVModel';
+import { useDisabled } from '@td/adapter-hooks';
+import { useVModel } from '@td/adapter-hooks';
 import { isFunction } from 'lodash-es';
 import { isString } from 'lodash-es';
 import { isArray } from 'lodash-es';

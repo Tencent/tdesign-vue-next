@@ -11,9 +11,9 @@ import {
 import { getBackgroundColor } from '../utils/helper';
 import { PRO_THEME, CIRCLE_SIZE, CIRCLE_SIZE_PX, STATUS_ICON, CIRCLE_FONT_SIZE_RATIO } from './constants';
 import props from '@td/intel/progress/props';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useTNodeJSX } from '../hooks/tnode';
+import { usePrefixClass } from '@td/adapter-hooks';
+import { useGlobalIcon } from '@td/adapter-hooks';
+import { useTNodeJSX } from '@td/adapter-hooks';
 import { isObject } from 'lodash-es';
 import { isString } from 'lodash-es';
 

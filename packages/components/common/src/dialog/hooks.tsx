@@ -2,7 +2,7 @@ import { getCurrentInstance } from 'vue';
 import { isString } from 'lodash-es';
 import { isObject } from 'lodash-es';
 import { omit } from 'lodash-es';
-import { useTNodeJSX } from '../hooks/tnode';
+import { useTNodeJSX } from '@td/adapter-hooks';
 import TButton, { ButtonProps } from '../button';
 import { PopconfirmConfig, DialogConfig, DrawerConfig } from '../config-provider';
 import type { ClassName } from '../common';

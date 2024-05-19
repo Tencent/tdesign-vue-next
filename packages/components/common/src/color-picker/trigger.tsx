@@ -3,7 +3,7 @@ import TInput from '../input';
 import { Color } from './utils';
 import { TdColorPickerProps } from '@td/intel/color-picker/type';
 import { useBaseClassName } from './hooks';
-import { useCommonClassName } from '../hooks/useConfig';
+import { useCommonClassName } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'DefaultTrigger',

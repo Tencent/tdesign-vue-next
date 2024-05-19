@@ -3,7 +3,7 @@ import { BacktopIcon as TdBackTopIcon } from 'tdesign-icons-vue-next';
 
 import { scrollTo } from '../utils/dom';
 import { useChildSlots, usePrefixClass, useContent, useConfig } from '../hooks';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import { useGlobalIcon } from '@td/adapter-hooks';
 import props from '@td/intel/back-top/props';
 
 import type { TdBackTopProps } from '@td/intel/back-top/type';

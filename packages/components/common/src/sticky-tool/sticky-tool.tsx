@@ -3,7 +3,7 @@ import props from '@td/intel/sticky-tool/props';
 import { isObject } from 'lodash-es';
 import StickyItem from './sticky-item';
 
-import { usePrefixClass } from '../hooks/useConfig';
+import { usePrefixClass } from '@td/adapter-hooks';
 import { useChildComponentSlots } from '../hooks';
 
 import stickyItemProps from '@td/intel/sticky-tool/sticky-item-props';

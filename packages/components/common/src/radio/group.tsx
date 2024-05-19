@@ -21,14 +21,14 @@ import props from '@td/intel/radio/radio-group-props';
 import { RadioOptionObj, RadioOption } from '@td/intel/radio/type';
 import Radio from './radio';
 import { RadioGroupInjectionKey } from './constants';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import useVModel from '../hooks/useVModel';
-import { useTNodeDefault } from '../hooks/tnode';
+import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
+import { useVModel } from '@td/adapter-hooks';
+import { useTNodeDefault } from '@td/adapter-hooks';
 import useKeyboard from './useKeyboard';
 import { isFunction } from 'lodash-es';
 import { useMutationObserver } from '../watermark/hooks';
 import type { UseMutationObserverReturn } from '../watermark/hooks';
-import useResizeObserver from '../hooks/useResizeObserver';
+import { useResizeObserver } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'TRadioGroup',

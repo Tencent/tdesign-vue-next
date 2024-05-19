@@ -17,12 +17,12 @@ import props from '@td/intel/menu/submenu-props';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import { TdMenuInterface, TdSubMenuInterface, TdMenuItem } from './const';
 import FakeArrow from '../common-components/fake-arrow';
-import useRipple from '../hooks/useRipple';
-import { usePrefixClass } from '../hooks/useConfig';
+import { useRipple } from '@td/adapter-hooks';
+import { usePrefixClass } from '@td/adapter-hooks';
 import { Popup, PopupPlacement } from '../popup';
 import { isFunction } from 'lodash-es';
 import { TdSubmenuProps } from '@td/intel/menu/type';
-import useCollapseAnimation from '../hooks/useCollapseAnimation';
+import { useCollapseAnimation } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'TSubmenu',

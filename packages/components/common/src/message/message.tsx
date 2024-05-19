@@ -10,10 +10,10 @@ import {
 import TLoading from '../loading';
 import { THEME_LIST } from './const';
 import props from '@td/intel/message/props';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import { usePrefixClass } from '@td/adapter-hooks';
+import { useGlobalIcon } from '@td/adapter-hooks';
 import { fadeIn, fadeOut } from './animation';
-import { useTNodeJSX, useContent } from '../hooks/tnode';
+import { useTNodeJSX, useContent } from '@td/adapter-hooks';
 import { isFunction } from 'lodash-es';
 
 export default defineComponent({

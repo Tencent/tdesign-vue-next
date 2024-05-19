@@ -14,7 +14,7 @@ import {
   Comment,
 } from 'vue';
 import props from '@td/intel/popup/props';
-import useResizeObserver from '../hooks/useResizeObserver';
+import { useResizeObserver } from '@td/adapter-hooks';
 import { isArray } from 'lodash-es';
 import { getSSRAttach, getAttach } from '../utils/dom';
 

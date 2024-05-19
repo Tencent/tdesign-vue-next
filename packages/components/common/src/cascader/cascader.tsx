@@ -7,8 +7,8 @@ import props from '@td/intel/cascader/props';
 
 import { useCascaderContext } from './hooks';
 import { CascaderValue, TdSelectInputProps, TdCascaderProps } from './interface';
-import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
+import { useConfig, usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
+import { useTNodeJSX } from '@td/adapter-hooks';
 import { closeIconClickEffect, handleRemoveTagEffect } from './core/effect';
 import { getPanels, getSingleContent, getMultipleContent } from './core/helper';
 import { getFakeArrowIconClass } from './core/className';

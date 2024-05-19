@@ -9,8 +9,8 @@ import {
 } from 'tdesign-icons-vue-next';
 
 import props from '@td/intel/pagination/pagination-mini-props';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import { usePrefixClass } from '@td/adapter-hooks';
+import { useGlobalIcon } from '@td/adapter-hooks';
 import TButton from '../button';
 
 export default defineComponent({

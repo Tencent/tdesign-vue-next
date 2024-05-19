@@ -1,7 +1,7 @@
 import { ref, computed, watch, nextTick, toRefs, inject } from 'vue';
 import { InputValue, TdInputProps } from '@td/intel/input/type';
 import { FormItemInjectionKey } from '../form/const';
-import useVModel from '../hooks/useVModel';
+import { useVModel } from '@td/adapter-hooks';
 import { useFormDisabled } from '../form/hooks';
 import useLengthLimit from './useLengthLimit';
 

@@ -4,9 +4,9 @@ import { ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
 import props from '@td/intel/breadcrumb/breadcrumb-item-props';
 import Tooltip from '../tooltip/index';
 import { isNodeOverflow } from '../utils/dom';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useTNodeJSX } from '../hooks/tnode';
+import { usePrefixClass } from '@td/adapter-hooks';
+import { useGlobalIcon } from '@td/adapter-hooks';
+import { useTNodeJSX } from '@td/adapter-hooks';
 import { isFunction } from 'lodash-es';
 
 interface LocalTBreadcrumb {

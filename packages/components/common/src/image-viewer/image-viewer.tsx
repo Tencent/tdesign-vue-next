@@ -6,16 +6,16 @@ import TImageViewerIcon from './base/ImageModalIcon';
 import TImageViewerUtils from './base/ImageViewerUtils';
 import TImageItem from './base/ImageItem';
 import TImageViewerModal from './base/ImageViewerModal';
-import { useTNodeJSX } from '../hooks/tnode';
-import useVModel from '../hooks/useVModel';
-import useDefaultValue from '../hooks/useDefaultValue';
-import { usePrefixClass } from '../hooks/useConfig';
+import { useTNodeJSX } from '@td/adapter-hooks';
+import { useVModel } from '@td/adapter-hooks';
+import { useDefaultValue } from '@td/adapter-hooks';
+import { usePrefixClass } from '@td/adapter-hooks';
 import { TdImageViewerProps } from '@td/intel/image-viewer/type';
 import { useMirror, useRotate, useScale } from './hooks';
 import { formatImages, getOverlay } from './utils';
 import { EVENT_CODE } from './const';
 import Image from '../image';
-import usePopupManager from '../hooks/usePopupManager';
+import { usePopupManager } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'TImageViewer',

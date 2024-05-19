@@ -2,9 +2,9 @@ import { defineComponent, ref, computed, inject, Ref, toRefs, Transition } from 
 import props from '@td/intel/collapse/collapse-panel-props';
 import FakeArrow from '../common-components/fake-arrow';
 import { CollapseValue, TdCollapsePanelProps } from '@td/intel/collapse/type';
-import { useTNodeJSX, useContent } from '../hooks/tnode';
-import { usePrefixClass } from '../hooks/useConfig';
-import useCollapseAnimation from '../hooks/useCollapseAnimation';
+import { useTNodeJSX, useContent } from '@td/adapter-hooks';
+import { usePrefixClass } from '@td/adapter-hooks';
+import { useCollapseAnimation } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'TCollapsePanel',

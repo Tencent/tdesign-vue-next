@@ -15,10 +15,10 @@ import TTabNavItem from './tab-nav-item';
 import TTabNavBar from './tab-nav-bar';
 
 // hooks
-import { useResize } from '../hooks/useListener';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import useDragSort from '../hooks/useDragSort';
+import { useResize } from '@td/adapter-hooks';
+import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
+import { useGlobalIcon } from '@td/adapter-hooks';
+import { useDragSort } from '@td/adapter-hooks';
 import { isFunction } from 'lodash-es';
 
 const { calculateCanToLeft, calculateCanToRight, calcScrollLeft, scrollToLeft, scrollToRight, moveActiveTabIntoView } =

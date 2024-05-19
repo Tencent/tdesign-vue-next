@@ -1,8 +1,8 @@
 import { defineComponent, provide, RendererNode } from 'vue';
 import props from '@td/intel/avatar/avatar-group-props';
 import Avatar from './avatar';
-import { useTNodeJSX } from '../hooks/tnode';
-import { usePrefixClass } from '../hooks/useConfig';
+import { useTNodeJSX } from '@td/adapter-hooks';
+import { usePrefixClass } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'TAvatarGroup',

@@ -20,10 +20,10 @@ import setStyle from '../_common/js/utils/set-style';
 import { getCharacterLength } from '../_common/js/utils/helper';
 
 // hooks
-import useVModel from '../hooks/useVModel';
+import { useVModel } from '@td/adapter-hooks';
 import { useFormDisabled } from '../form/hooks';
-import { useTNodeJSX } from '../hooks/tnode';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { useTNodeJSX } from '@td/adapter-hooks';
+import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
 
 import props from '@td/intel/textarea/props';
 import type { TextareaValue, TdTextareaProps } from '@td/intel/textarea/type';

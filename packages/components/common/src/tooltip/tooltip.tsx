@@ -4,10 +4,10 @@ import { omit } from 'lodash-es';
 import props from '@td/intel/tooltip/props';
 import popupProps from '../popup/props';
 import Popup, { PopupVisibleChangeContext } from '../popup';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useTNodeJSX, useContent } from '../hooks/tnode';
+import { usePrefixClass } from '@td/adapter-hooks';
+import { useTNodeJSX, useContent } from '@td/adapter-hooks';
 import { useMouse } from './util';
-import useVModel from '../hooks/useVModel';
+import { useVModel } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'TTooltip',

@@ -4,9 +4,9 @@ import tabProps from '@td/intel/tabs/props';
 import tabPanelProps from '@td/intel/tabs/tab-panel-props';
 
 // hooks
-import useRipple from '../hooks/useRipple';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import { useRipple } from '@td/adapter-hooks';
+import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
+import { useGlobalIcon } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'TTabNavItem',

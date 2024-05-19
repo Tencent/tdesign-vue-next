@@ -1,8 +1,8 @@
 import { defineComponent, computed, CSSProperties, Fragment } from 'vue';
 import props from '@td/intel/space/props';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
-import { useChildSlots } from '../hooks/slot';
+import { usePrefixClass } from '@td/adapter-hooks';
+import { useTNodeJSX } from '@td/adapter-hooks';
+import { useChildSlots } from '@td/adapter-hooks';
 import { isNumber } from 'lodash-es';
 import { isString } from 'lodash-es';
 import { isArray } from 'lodash-es';

@@ -3,8 +3,8 @@ import { isNumber } from 'lodash-es';
 import { isFunction } from 'lodash-es';
 import props from '@td/intel/skeleton/props';
 import { SkeletonRowCol, SkeletonRowColObj, TdSkeletonProps } from '@td/intel/skeleton/type';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useContent } from '../hooks/tnode';
+import { usePrefixClass } from '@td/adapter-hooks';
+import { useContent } from '@td/adapter-hooks';
 import { isArray } from 'lodash-es';
 
 const ThemeMap: Record<TdSkeletonProps['theme'], SkeletonRowCol> = {

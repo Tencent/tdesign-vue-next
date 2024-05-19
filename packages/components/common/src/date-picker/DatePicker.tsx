@@ -2,8 +2,8 @@ import { defineComponent, computed, watch } from 'vue';
 import dayjs from 'dayjs';
 import { isFunction } from 'lodash-es';
 
-import { useTNodeJSX } from '../hooks/tnode';
-import { usePrefixClass, useConfig } from '../hooks/useConfig';
+import { useTNodeJSX } from '@td/adapter-hooks';
+import { usePrefixClass, useConfig } from '@td/adapter-hooks';
 import { useFormDisabled } from '../form/hooks';
 import useSingle from './hooks/useSingle';
 import { parseToDayjs, getDefaultFormat, formatTime, formatDate } from '../_common/js/date-picker/format';

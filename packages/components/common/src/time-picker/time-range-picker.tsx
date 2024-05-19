@@ -14,9 +14,9 @@ import props from '@td/intel/time-picker/time-range-picker-props';
 import { TimeRangeValue } from './interface';
 import { TimeRangePickerPartial } from '@td/intel/time-picker/type';
 // hooks
-import useVModel from '../hooks/useVModel';
-import { useCommonClassName, useConfig, usePrefixClass } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import { useVModel } from '@td/adapter-hooks';
+import { useCommonClassName, useConfig, usePrefixClass } from '@td/adapter-hooks';
+import { useGlobalIcon } from '@td/adapter-hooks';
 import { useFormDisabled } from '../form/hooks';
 
 dayjs.extend(customParseFormat);

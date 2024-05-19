@@ -5,8 +5,8 @@ import { isUndefined } from 'lodash-es';
 import { on, off, getScrollContainer } from '../utils/dom';
 import props from '@td/intel/affix/props';
 import { ScrollContainerElement } from '../common';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
+import { usePrefixClass } from '@td/adapter-hooks';
+import { useTNodeJSX } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'TAffix',

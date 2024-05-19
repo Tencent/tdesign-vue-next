@@ -5,8 +5,8 @@ import { isString } from 'lodash-es';
 
 import TreeStore from '../_common/js/tree/tree-store';
 import { useFormDisabled } from '../form/hooks';
-import useVModel from '../hooks/useVModel';
-import useDefaultValue from '../hooks/useDefaultValue';
+import { useVModel } from '@td/adapter-hooks';
+import { useDefaultValue } from '@td/adapter-hooks';
 import { getTreeValue, getCascaderValue, isEmptyValues, isValueInvalid } from './core/helper';
 import { treeNodesEffect, treeStoreExpendEffect } from './core/effect';
 

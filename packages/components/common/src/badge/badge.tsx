@@ -1,7 +1,7 @@
 import { defineComponent, computed } from 'vue';
 import props from '@td/intel/badge/props';
-import { useContent, useTNodeJSX } from '../hooks/tnode';
-import { usePrefixClass } from '../hooks/useConfig';
+import { useContent, useTNodeJSX } from '@td/adapter-hooks';
+import { usePrefixClass } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'TBadge',

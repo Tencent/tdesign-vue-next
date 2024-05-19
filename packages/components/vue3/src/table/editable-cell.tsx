@@ -13,14 +13,14 @@ import {
   TableEditableCellPropsParams,
 } from '@td/intel/table/type';
 import { TableClassName } from './hooks/useClassName';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import { useGlobalIcon } from '@td/adapter-hooks';
 import { renderCell } from './tr';
 import { validate } from '../form/form-model';
 import log from '../_common/js/log';
 import { AllValidateResult } from '../form/type';
 import { on, off } from '../utils/dom';
 import { isObject } from 'lodash-es';
-import { usePrefixClass } from '../hooks/useConfig';
+import { usePrefixClass } from '@td/adapter-hooks';
 
 export interface OnEditableChangeContext<T> extends PrimaryTableRowEditContext<T> {
   isEdit: boolean;

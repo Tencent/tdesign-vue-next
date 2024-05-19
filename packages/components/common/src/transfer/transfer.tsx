@@ -16,12 +16,12 @@ import {
 import { PageInfo, TdPaginationProps } from '../pagination/type';
 import props from '@td/intel/transfer/props';
 import { TNode } from '../common';
-import useVModel from '../hooks/useVModel';
-import useDefaultValue from '../hooks/useDefaultValue';
+import { useVModel } from '@td/adapter-hooks';
+import { useDefaultValue } from '@td/adapter-hooks';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
-import { usePrefixClass } from '../hooks/useConfig';
+import { usePrefixClass } from '@td/adapter-hooks';
 import { isFunction } from 'lodash-es';
 
 export default defineComponent({

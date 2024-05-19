@@ -7,8 +7,8 @@ import Option from './option';
 import OptionGroup from './optionGroup';
 import TdSelectProps from '@td/intel/select/props';
 
-import { useTNodeJSX, useTNodeDefault } from '../hooks/tnode';
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import { useTNodeJSX, useTNodeDefault } from '@td/adapter-hooks';
+import { useConfig, usePrefixClass } from '@td/adapter-hooks';
 import { usePanelVirtualScroll } from './hooks/usePanelVirtualScroll';
 import { selectInjectKey } from './helper';
 

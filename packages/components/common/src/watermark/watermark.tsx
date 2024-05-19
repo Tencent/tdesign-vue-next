@@ -3,9 +3,9 @@ import props from '@td/intel/watermark/props';
 import generateBase64Url from '../_common/js/watermark/generateBase64Url';
 import randomMovingStyle from '../_common/js/watermark/randomMovingStyle';
 import injectStyle from '../_common/js/utils/injectStyle';
-import { usePrefixClass } from '../hooks/useConfig';
+import { usePrefixClass } from '@td/adapter-hooks';
 import { useMutationObserver } from './hooks';
-import { useContent } from '../hooks/tnode';
+import { useContent } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'TWatermark',

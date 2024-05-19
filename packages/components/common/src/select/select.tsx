@@ -12,10 +12,10 @@ import SelectPanel from './select-panel';
 import props from '@td/intel/select/props';
 // hooks
 import { useFormDisabled } from '../form/hooks';
-import useDefaultValue from '../hooks/useDefaultValue';
-import useVModel from '../hooks/useVModel';
-import { useTNodeJSX } from '../hooks/tnode';
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import { useDefaultValue } from '@td/adapter-hooks';
+import { useVModel } from '@td/adapter-hooks';
+import { useTNodeJSX } from '@td/adapter-hooks';
+import { useConfig, usePrefixClass } from '@td/adapter-hooks';
 import { selectInjectKey, getSingleContent, getMultipleContent } from './helper';
 import { useSelectOptions } from './hooks/useSelectOptions';
 import useKeyboardControl from './hooks/useKeyboardControl';

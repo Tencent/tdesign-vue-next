@@ -1,7 +1,7 @@
 import { computed, defineComponent, PropType } from 'vue';
 import baseProps from '@td/intel/sticky-tool/sticky-item-props';
 import TdStickyToolProps from '@td/intel/sticky-tool/props';
-import { usePrefixClass } from '../hooks/useConfig';
+import { usePrefixClass } from '@td/adapter-hooks';
 import type { Styles } from '../common';
 import Popup from '../popup';
 import { useTNodeJSX } from '../hooks';

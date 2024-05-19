@@ -1,8 +1,8 @@
 import { defineComponent, computed } from 'vue';
 import props from '@td/intel/comment/props';
 
-import { usePrefixClass } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
+import { usePrefixClass } from '@td/adapter-hooks';
+import { useTNodeJSX } from '@td/adapter-hooks';
 import Button from '../button';
 import { isString } from 'lodash-es';
 import { isArray } from 'lodash-es';

@@ -1,6 +1,6 @@
 import { defineComponent, PropType } from 'vue';
 import { GlobalConfigProvider } from '@td/intel/config-provider/type';
-import { useTNodeJSX } from '../hooks/tnode';
+import { useTNodeJSX } from '@td/adapter-hooks';
 import { provideConfig } from './useConfig';
 
 export const configProviderProps = {

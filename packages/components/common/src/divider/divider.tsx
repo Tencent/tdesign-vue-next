@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue';
 import props from '@td/intel/divider/props';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useContent } from '../hooks/tnode';
+import { usePrefixClass } from '@td/adapter-hooks';
+import { useContent } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'TDivider',

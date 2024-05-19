@@ -10,17 +10,17 @@ import {
   EllipsisIcon as TdEllipsisIcon,
 } from 'tdesign-icons-vue-next';
 import { TdPaginationProps } from '../pagination/type';
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import { useConfig, usePrefixClass } from '@td/adapter-hooks';
+import { useGlobalIcon } from '@td/adapter-hooks';
 import TInputNumber from '../input-number';
 import { Select } from '../select';
 import TInputAdornment from '../input-adornment';
 import props from '@td/intel/pagination/props';
 import usePaginationClasses from './usePaginationClasses';
 import useMoreAction from './useMoreAction';
-import useVModel from '../hooks/useVModel';
-import useDefaultValue from '../hooks/useDefaultValue';
-import { useTNodeJSX } from '../hooks/tnode';
+import { useVModel } from '@td/adapter-hooks';
+import { useDefaultValue } from '@td/adapter-hooks';
+import { useTNodeJSX } from '@td/adapter-hooks';
 import { isObject } from 'lodash-es';
 
 const min = 1;

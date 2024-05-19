@@ -1,5 +1,5 @@
 import { computed, defineComponent } from 'vue';
-import { usePrefixClass } from '../hooks/useConfig';
+import { usePrefixClass } from '@td/adapter-hooks';
 import { isString } from 'lodash-es';
 import { escapeRegExp } from 'lodash-es';
 

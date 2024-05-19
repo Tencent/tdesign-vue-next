@@ -12,11 +12,11 @@ import { isArray } from 'lodash-es';
 import { on, off, addClass } from '../utils/dom';
 import props from '@td/intel/alert/props';
 import { SlotReturnValue } from '../common';
-import { useIcon } from '../hooks/icon';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import { useIcon } from '@td/adapter-hooks';
+import { useGlobalIcon } from '@td/adapter-hooks';
+import { useConfig, usePrefixClass } from '@td/adapter-hooks';
 
-import { useTNodeJSX } from '../hooks/tnode';
+import { useTNodeJSX } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'TAlert',

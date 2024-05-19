@@ -3,9 +3,9 @@ import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
 import tinycolor from 'tinycolor2';
 
 import props from '@td/intel/tag/props';
-import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useTNodeJSX, useContent } from '../hooks/tnode';
+import { useConfig, usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
+import { useGlobalIcon } from '@td/adapter-hooks';
+import { useTNodeJSX, useContent } from '@td/adapter-hooks';
 import { Styles } from '../common';
 import { isString } from 'lodash-es';
 

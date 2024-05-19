@@ -4,8 +4,8 @@ import TPanelContent from './PanelContent';
 import TExtraContent from './ExtraContent';
 import { TdDateRangePickerProps } from '../type';
 import { getDefaultFormat, parseToDayjs } from '../../_common/js/date-picker/format';
-import useTableData from '../hooks/useTableData';
-import useDisableDate from '../hooks/useDisableDate';
+import { useTableData } from '@td/adapter-hooks';
+import { useDisableDate } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'TRangePanel',

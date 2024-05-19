@@ -6,7 +6,7 @@ import { isArray } from 'lodash-es';
 
 import { TdColProps, TdRowProps } from '@td/intel/grid/type';
 import { calcSize } from '../utils/responsive';
-import { useListener } from '../hooks/useListener';
+import { useListener } from '@td/adapter-hooks';
 import { isServer } from '../utils/dom';
 
 export interface RowProviderType {

@@ -6,10 +6,10 @@ import {
 } from 'tdesign-icons-vue-next';
 import { isFunction } from 'lodash-es';
 
-import { useTNodeJSX, useContent } from '../hooks/tnode';
+import { useTNodeJSX, useContent } from '@td/adapter-hooks';
 import props from '@td/intel/notification/props';
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import { useConfig, usePrefixClass } from '@td/adapter-hooks';
+import { useGlobalIcon } from '@td/adapter-hooks';
 import { fadeIn, fadeOut } from './animate';
 
 export default defineComponent({

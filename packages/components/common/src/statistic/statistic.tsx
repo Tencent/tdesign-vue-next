@@ -6,9 +6,9 @@ import {
 import { isNumber } from 'lodash-es';
 import { isFunction } from 'lodash-es';
 import props from '@td/intel/statistic/props';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useTNodeJSX } from '../hooks/tnode';
+import { usePrefixClass } from '@td/adapter-hooks';
+import { useGlobalIcon } from '@td/adapter-hooks';
+import { useTNodeJSX } from '@td/adapter-hooks';
 import Skeleton from '../skeleton';
 import Tween from '../_common/js/statistic/tween';
 import { COLOR_MAP } from '../_common/js/statistic/utils';

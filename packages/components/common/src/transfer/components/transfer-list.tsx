@@ -18,7 +18,7 @@ import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 import { isString } from 'lodash-es';
 import { filter } from 'lodash-es';
 import { cloneDeep } from 'lodash-es';
-import useDragSort from '../hooks/useDragSort';
+import { useDragSort } from '@td/adapter-hooks';
 
 const props = {
   checkboxProps: {
