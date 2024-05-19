@@ -1,4 +1,3 @@
-import { nextTick } from 'node:process';
 import { createApp, pluginInstall } from '@td/adapter-vue';
 import { createPopper } from '@popperjs/core';
 import { getAttach } from '@td/adapter-utils';

@@ -1,10 +1,10 @@
-import { defineComponent, computed, provide, ref, Ref } from '@td/adapter-vue';
-import { usePrefixClass } from '@td/adapter-hooks';
-import { useTNodeJSX } from '@td/adapter-hooks';
+import type { Ref } from '@td/adapter-vue';
+import { computed, defineComponent, provide, ref } from '@td/adapter-vue';
+import { usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 
-export type LayoutProvideType = {
+export interface LayoutProvideType {
   hasSide: Ref<boolean>;
-};
+}
 
 export default defineComponent({
   name: 'TLayout',

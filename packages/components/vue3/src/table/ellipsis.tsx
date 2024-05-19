@@ -1,10 +1,12 @@
 /** 超出省略显示 */
-import { defineComponent, PropType, ref, computed } from '@td/adapter-vue';
+import type { PropType } from '@td/adapter-vue';
+import { computed, defineComponent, ref } from '@td/adapter-vue';
 import { debounce } from 'lodash-es';
-import { AttachNode, TNode } from '../common';
+import type { AttachNode, TNode } from '../common';
 import { renderContent } from '../utils/render-tnode';
 import { isNodeOverflow } from '../utils/dom';
-import TTooltip, { TooltipProps } from '../tooltip';
+import type { TooltipProps } from '../tooltip';
+import TTooltip from '../tooltip';
 
 export interface EllipsisProps {
   content: string | TNode;
@@ -62,12 +64,16 @@ export default defineComponent({
 
     // 当表格数据量大时，不希望默认渲染全量的 Tooltip，期望在用户 mouseenter 的时候再显示
     const onTriggerMouseenter = () => {
-      if (!root.value) return;
+      if (!root.value) {
+        return;
+      }
       isOverflow.value = isNodeOverflow(root.value);
     };
 
     const onTriggerMouseleave = () => {
-      if (!root.value) return;
+      if (!root.value) {
+        return;
+      }
       isOverflow.value = isNodeOverflow(root.value);
     };
 

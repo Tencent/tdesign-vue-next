@@ -1,6 +1,6 @@
-import _Badge from './badge';
 import { withInstall } from '@td/adapter-utils';
-import { TdBadgeProps } from '@td/intel/badge/type';
+import type { TdBadgeProps } from '@td/intel/badge/type';
+import _Badge from './badge';
 
 import './style';
 

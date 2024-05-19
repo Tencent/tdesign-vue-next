@@ -1,32 +1,25 @@
-import { Ref, reactive, computed, toRefs, watch, nextTick } from '@td/adapter-vue';
-import { isEqual } from 'lodash-es';
-import { isFunction } from 'lodash-es';
-import { isString } from 'lodash-es';
+import type { Ref } from '@td/adapter-vue';
+import { computed, nextTick, reactive, toRefs, watch } from '@td/adapter-vue';
+import { isEqual, isFunction, isString } from 'lodash-es';
 
+import { useDefaultValue, useVModel } from '@td/adapter-hooks';
 import TreeStore from '../_common/js/tree/tree-store';
 import { useFormDisabled } from '../form/hooks';
-import { useVModel } from '@td/adapter-hooks';
-import { useDefaultValue } from '@td/adapter-hooks';
-import { getTreeValue, getCascaderValue, isEmptyValues, isValueInvalid } from './core/helper';
+import { getCascaderValue, getTreeValue, isEmptyValues, isValueInvalid } from './core/helper';
 import { treeNodesEffect, treeStoreExpendEffect } from './core/effect';
 
-import {
-  TreeNode,
-  TreeNodeValue,
-  TdCascaderProps,
-  TreeNodeModel,
+import type {
   CascaderChangeSource,
   CascaderValue,
+  TdCascaderProps,
+  TreeNode,
+  TreeNodeModel,
+  TreeNodeValue,
   TreeOptionData,
 } from './interface';
 
 // 全局状态
-export const useContext = (
-  props: TdCascaderProps,
-  setInnerValue: TdCascaderProps['onChange'],
-  innerPopupVisible: Ref<TdCascaderProps['popupVisible']>,
-  setPopupVisible: TdCascaderProps['onPopupVisibleChange'],
-) => {
+export function useContext(props: TdCascaderProps, setInnerValue: TdCascaderProps['onChange'], innerPopupVisible: Ref<TdCascaderProps['popupVisible']>, setPopupVisible: TdCascaderProps['onPopupVisibleChange']) {
   const statusContext = reactive({
     treeStore: null,
     inputVal: null,
@@ -72,7 +65,9 @@ export const useContext = (
           statusContext.treeNodes = nodes;
         },
         setValue: (val: CascaderValue, source: CascaderChangeSource, node?: TreeNodeModel) => {
-          if (isEqual(val, statusContext.scopeVal)) return;
+          if (isEqual(val, statusContext.scopeVal)) {
+            return;
+          }
           setInnerValue(val, { source, node });
         },
         setVisible: setPopupVisible,
@@ -85,10 +80,10 @@ export const useContext = (
       };
     }),
   };
-};
+}
 
 // 内聚组件核心的副作用与状态处理
-export const useCascaderContext = (props: TdCascaderProps) => {
+export function useCascaderContext(props: TdCascaderProps) {
   const disabled = useFormDisabled();
   const { value, modelValue, popupVisible } = toRefs(props);
   const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
@@ -124,7 +119,9 @@ export const useCascaderContext = (props: TdCascaderProps) => {
       const { options, keys = {}, checkStrictly, lazy, load, valueMode } = props;
       const { treeStore } = statusContext;
 
-      if (!options.length && !treeStore) return;
+      if (!options.length && !treeStore) {
+        return;
+      }
 
       if (!treeStore) {
         const store = new TreeStore({
@@ -171,7 +168,9 @@ export const useCascaderContext = (props: TdCascaderProps) => {
     },
     () => {
       const { treeStore } = statusContext;
-      if (!treeStore) return;
+      if (!treeStore) {
+        return;
+      }
       const { checkStrictly, lazy, load, valueMode } = props;
       const treeProps = {
         checkStrictly,
@@ -201,7 +200,9 @@ export const useCascaderContext = (props: TdCascaderProps) => {
         statusContext.scopeVal = getCascaderValue(innerValue.value, valueType, multiple);
       }
 
-      if (!statusContext.treeStore) return;
+      if (!statusContext.treeStore) {
+        return;
+      }
       updateExpend();
       updatedTreeNodes();
     },
@@ -240,4 +241,4 @@ export const useCascaderContext = (props: TdCascaderProps) => {
     innerValue,
     getCascaderItems,
   };
-};
+}

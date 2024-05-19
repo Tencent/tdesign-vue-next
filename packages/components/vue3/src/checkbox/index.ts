@@ -1,7 +1,7 @@
+import { withInstall } from '@td/adapter-utils';
+import type { TdCheckboxGroupProps, TdCheckboxProps } from '@td/intel/checkbox/type';
 import _Checkbox from './checkbox';
 import _Group from './group';
-import { withInstall } from '@td/adapter-utils';
-import { TdCheckboxProps, TdCheckboxGroupProps } from '@td/intel/checkbox/type';
 
 import './style';
 

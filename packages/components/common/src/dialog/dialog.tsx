@@ -1,30 +1,23 @@
-import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, ref, Transition, watch, Teleport } from '@td/adapter-vue';
+import { Teleport, Transition, computed, defineComponent, nextTick, onBeforeUnmount, onMounted, ref, watch } from '@td/adapter-vue';
 import {
-  CloseIcon as TdCloseIcon,
-  InfoCircleFilledIcon as TdInfoCircleFilledIcon,
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
+  CloseIcon as TdCloseIcon,
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
+  InfoCircleFilledIcon as TdInfoCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
 
-import { DialogCloseContext } from '@td/intel/dialog/type';
+import type { DialogCloseContext, TdDialogProps } from '@td/intel/dialog/type';
 import props from '@td/intel/dialog/props';
-import { useGlobalIcon } from '@td/adapter-hooks';
-import { useConfig, usePrefixClass } from '@td/adapter-hooks';
-import { useAction, useSameTarget } from './hooks';
-import { useTNodeJSX, useContent } from '@td/adapter-hooks';
-import { useDestroyOnClose } from '@td/adapter-hooks';
+import { useConfig, useContent, useDestroyOnClose, useGlobalIcon, usePopupManager, usePrefixClass, useTNodeJSX, useTeleport } from '@td/adapter-hooks';
 import { getScrollbarWidth } from '../_common/js/utils/getScrollbarWidth';
-
-import type { TdDialogProps } from '@td/intel/dialog/type';
-import { useTeleport } from '@td/adapter-hooks';
-import { usePopupManager } from '@td/adapter-hooks';
+import { useAction, useSameTarget } from './hooks';
 
 function GetCSSValue(v: string | number) {
   return Number.isNaN(Number(v)) ? v : `${Number(v)}px`;
 }
 
 let mousePosition: { x: number; y: number } | null;
-const getClickPosition = (e: MouseEvent) => {
+function getClickPosition(e: MouseEvent) {
   mousePosition = {
     x: e.clientX,
     y: e.clientY,
@@ -32,7 +25,7 @@ const getClickPosition = (e: MouseEvent) => {
   setTimeout(() => {
     mousePosition = null;
   }, 100);
-};
+}
 
 if (typeof window !== 'undefined' && window.document && window.document.documentElement) {
   document.documentElement.addEventListener('click', getClickPosition, true);
@@ -49,17 +42,27 @@ function InitDragEvent(dragBox: HTMLElement) {
     const dialogW = target.offsetWidth;
     const dialogH = target.offsetHeight;
     // 如果弹出框超出屏幕范围 不能进行拖拽
-    if (dialogW > windowInnerWidth || dialogH > windowInnerHeight) return;
+    if (dialogW > windowInnerWidth || dialogH > windowInnerHeight) {
+      return;
+    }
     function mouseMoverHandler(documentEvent: MouseEvent) {
       // 用鼠标的位置减去鼠标相对元素的位置，得到元素的位置
       let left = documentEvent.clientX - disX;
       let top = documentEvent.clientY - disY;
       // 临界判断
       // 拖拽上左边界限制
-      if (left < 0) left = 0;
-      if (top < 0) top = 0;
-      if (windowInnerWidth - target.offsetWidth - left < 0) left = windowInnerWidth - target.offsetWidth;
-      if (windowInnerHeight - target.offsetHeight - top < 0) top = windowInnerHeight - target.offsetHeight;
+      if (left < 0) {
+        left = 0;
+      }
+      if (top < 0) {
+        top = 0;
+      }
+      if (windowInnerWidth - target.offsetWidth - left < 0) {
+        left = windowInnerWidth - target.offsetWidth;
+      }
+      if (windowInnerHeight - target.offsetHeight - top < 0) {
+        top = windowInnerHeight - target.offsetHeight;
+      }
       target.style.position = 'absolute';
       target.style.left = `${left}px`;
       target.style.top = `${top}px`;
@@ -135,8 +138,12 @@ export default defineComponent({
       !props.showOverlay && `${classPrefix.value}-is-hidden`,
     ]);
     const positionClass = computed(() => {
-      if (isNormal.value) return [];
-      if (isFullScreen.value) return [`${COMPONENT_NAME.value}__position_fullscreen`];
+      if (isNormal.value) {
+        return [];
+      }
+      if (isFullScreen.value) {
+        return [`${COMPONENT_NAME.value}__position_fullscreen`];
+      }
 
       return [
         `${COMPONENT_NAME.value}__position`,
@@ -146,7 +153,9 @@ export default defineComponent({
     });
     const wrapClass = computed(() => [!isNormal.value && `${COMPONENT_NAME.value}__wrap`]);
     const positionStyle = computed(() => {
-      if (isFullScreen.value) return {}; // 全屏模式，top属性不生效
+      if (isFullScreen.value) {
+        return {};
+      } // 全屏模式，top属性不生效
 
       // 此处获取定位方式 top 优先级较高 存在时 默认使用top定位
       const { top } = props;
@@ -227,7 +236,9 @@ export default defineComponent({
     // 回车出发确认事件
     const keyboardEnterEvent = (e: KeyboardEvent) => {
       const eventSrc = e.target as HTMLElement;
-      if (eventSrc.tagName.toLowerCase() === 'input') return; // 若是input触发 则不执行
+      if (eventSrc.tagName.toLowerCase() === 'input') {
+        return;
+      } // 若是input触发 则不执行
       const { code } = e;
       if ((code === 'Enter' || code === 'NumpadEnter') && isLastDialog()) {
         props.onConfirm?.({ e });
@@ -326,8 +337,8 @@ export default defineComponent({
         ? [`${COMPONENT_NAME.value}__close`, `${COMPONENT_NAME.value}__close--fullscreen`]
         : `${COMPONENT_NAME.value}__close`;
 
-      const bodyClassName =
-        props.theme === 'default' ? [`${COMPONENT_NAME.value}__body`] : [`${COMPONENT_NAME.value}__body__icon`];
+      const bodyClassName
+        = props.theme === 'default' ? [`${COMPONENT_NAME.value}__body`] : [`${COMPONENT_NAME.value}__body__icon`];
 
       const footerContent = renderTNodeJSX('footer', defaultFooter);
 
@@ -342,7 +353,9 @@ export default defineComponent({
         : `${COMPONENT_NAME.value}__footer`;
 
       const onStopDown = (e: MouseEvent) => {
-        if (isModeLess.value && props.draggable) e.stopPropagation();
+        if (isModeLess.value && props.draggable) {
+          e.stopPropagation();
+        }
       };
 
       return (
@@ -368,11 +381,13 @@ export default defineComponent({
                   {renderTNodeJSX('header', defaultHeader)}
                 </div>
 
-                {props.closeBtn ? (
-                  <span class={closeClassName} onClick={closeBtnAction}>
-                    {renderTNodeJSX('closeBtn', defaultCloseBtn)}
-                  </span>
-                ) : null}
+                {props.closeBtn
+                  ? (
+                    <span class={closeClassName} onClick={closeBtnAction}>
+                      {renderTNodeJSX('closeBtn', defaultCloseBtn)}
+                    </span>
+                    )
+                  : null}
               </div>
               <div class={bodyClassName} onMousedown={onStopDown}>
                 {body}

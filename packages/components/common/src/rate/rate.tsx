@@ -1,11 +1,9 @@
-import { defineComponent, computed, toRefs, ref } from '@td/adapter-vue';
+import { computed, defineComponent, ref, toRefs } from '@td/adapter-vue';
 import { StarFilledIcon } from 'tdesign-icons-vue-next';
-import { useVModel } from '@td/adapter-hooks';
+import { useConfig, useTNodeJSX, useVModel } from '@td/adapter-hooks';
 import props from '@td/intel/rate/props';
-import { useConfig } from '@td/adapter-hooks';
-import { useTNodeJSX } from '@td/adapter-hooks';
-import Tooltip from '../tooltip/index';
 import { isArray } from 'lodash-es';
+import Tooltip from '../tooltip/index';
 
 export default defineComponent({
   name: 'TRate',
@@ -47,32 +45,48 @@ export default defineComponent({
         const { clientX } = event;
         const starMiddle = width * (index - 0.5) + props.gap * (index - 1);
 
-        if (clientX - left >= starMiddle) return index;
-        if (clientX - left < starMiddle) return index - 0.5;
+        if (clientX - left >= starMiddle) {
+          return index;
+        }
+        if (clientX - left < starMiddle) {
+          return index - 0.5;
+        }
       }
 
       return index;
     };
 
     const mouseEnterHandler = (event: MouseEvent, index: number) => {
-      if (props.disabled) return;
+      if (props.disabled) {
+        return;
+      }
       hoverValue.value = getStarValue(event, index);
     };
 
     const mouseLeaveHandler = () => {
-      if (props.disabled) return;
+      if (props.disabled) {
+        return;
+      }
       hoverValue.value = undefined;
     };
 
     const clickHandler = (event: MouseEvent, index: number) => {
-      if (props.disabled) return;
+      if (props.disabled) {
+        return;
+      }
       setStarValue(getStarValue(event, index));
     };
 
     const getStarCls = (index: number) => {
-      if (props.allowHalf && index + 0.5 === displayValue.value) return `${classPrefix.value}-rate__item--half`;
-      if (index >= displayValue.value) return '';
-      if (index < displayValue.value) return `${classPrefix.value}-rate__item--full`;
+      if (props.allowHalf && index + 0.5 === displayValue.value) {
+        return `${classPrefix.value}-rate__item--half`;
+      }
+      if (index >= displayValue.value) {
+        return '';
+      }
+      if (index < displayValue.value) {
+        return `${classPrefix.value}-rate__item--full`;
+      }
     };
 
     const { classPrefix } = useConfig('classPrefix');
@@ -85,30 +99,32 @@ export default defineComponent({
               <li
                 key={index}
                 class={[`${classPrefix.value}-rate__item`, getStarCls(index)]}
-                onClick={(event) => clickHandler(event, index + 1)}
+                onClick={event => clickHandler(event, index + 1)}
                 onMousemove={(event: MouseEvent) => {
                   return mouseEnterHandler(event, index + 1);
                 }}
               >
-                {props.showText ? (
-                  <Tooltip key={index} content={displayText.value}>
-                    <div class={`${classPrefix.value}-rate__star-top`}>
-                      <RateIcon size={props.size} color={activeColor} />
-                    </div>
-                    <div class={`${classPrefix.value}-rate__star-bottom`}>
-                      <RateIcon size={props.size} color={defaultColor} />
-                    </div>
-                  </Tooltip>
-                ) : (
-                  <>
-                    <div class={`${classPrefix.value}-rate__star-top`}>
-                      <RateIcon size={props.size} color={activeColor} />
-                    </div>
-                    <div class={`${classPrefix.value}-rate__star-bottom`}>
-                      <RateIcon size={props.size} color={defaultColor} />
-                    </div>
-                  </>
-                )}
+                {props.showText
+                  ? (
+                    <Tooltip key={index} content={displayText.value}>
+                      <div class={`${classPrefix.value}-rate__star-top`}>
+                        <RateIcon size={props.size} color={activeColor} />
+                      </div>
+                      <div class={`${classPrefix.value}-rate__star-bottom`}>
+                        <RateIcon size={props.size} color={defaultColor} />
+                      </div>
+                    </Tooltip>
+                    )
+                  : (
+                    <>
+                      <div class={`${classPrefix.value}-rate__star-top`}>
+                        <RateIcon size={props.size} color={activeColor} />
+                      </div>
+                      <div class={`${classPrefix.value}-rate__star-bottom`}>
+                        <RateIcon size={props.size} color={defaultColor} />
+                      </div>
+                    </>
+                    )}
               </li>
             ))}
           </ul>

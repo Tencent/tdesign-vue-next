@@ -1,21 +1,23 @@
-import {
-  PropType,
-  defineComponent,
+import type {
   ComponentPublicInstance,
-  ref,
-  computed,
-  reactive,
-  nextTick,
-  watchEffect,
-  inject,
+  PropType,
 } from '@td/adapter-vue';
-import TTooltip from '../tooltip/index';
-import { TdSliderProps } from '@td/intel/slider/type';
-
+import {
+  computed,
+  defineComponent,
+  inject,
+  nextTick,
+  reactive,
+  ref,
+  watchEffect,
+} from '@td/adapter-vue';
+import type { TdSliderProps } from '@td/intel/slider/type';
 import { usePrefixClass } from '@td/adapter-hooks';
+import { isFunction } from 'lodash-es';
+import TTooltip from '../tooltip/index';
+
 import { useSliderTooltip } from './hooks/useSliderTooltip';
 import { sliderPropsInjectKey } from './util/constants';
-import { isFunction } from 'lodash-es';
 
 export default defineComponent({
   name: 'TSliderButton',
@@ -100,7 +102,7 @@ export default defineComponent({
       const steps = Math.round(newPos / perStepLen);
       let value = steps * perStepLen * rangeDiff.value * 0.01;
       value += parentProps.min;
-      value = Number(parseFloat(`${value}`).toFixed(parentProps.precision));
+      value = Number(Number.parseFloat(`${value}`).toFixed(parentProps.precision));
       ctx.emit('input', value);
       nextTick(() => {
         tooltipRef.value && tooltipRef.value.updatePopper?.();
@@ -131,7 +133,7 @@ export default defineComponent({
       } else {
         slideButtonProps.startX = clientX;
       }
-      slideButtonProps.startPos = parseFloat(currentPos.value);
+      slideButtonProps.startPos = Number.parseFloat(currentPos.value);
       slideButtonProps.newPos = slideButtonProps.startPos;
     };
 
@@ -197,7 +199,7 @@ export default defineComponent({
       if (state === 'sub') {
         stepLength = -stepLength;
       }
-      slideButtonProps.newPos = parseFloat(currentPos.value) + stepLength;
+      slideButtonProps.newPos = Number.parseFloat(currentPos.value) + stepLength;
       setPosition(slideButtonProps.newPos);
     };
 

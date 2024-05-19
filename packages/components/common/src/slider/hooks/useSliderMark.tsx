@@ -1,11 +1,11 @@
-import { computed, VNode, Ref } from '@td/adapter-vue';
-import { cloneDeep } from 'lodash-es';
-import { SliderMarks } from '../type';
-import { TNode } from '../../common';
+import type { Ref, VNode } from '@td/adapter-vue';
+import { computed } from '@td/adapter-vue';
+import { cloneDeep, isArray } from 'lodash-es';
+import type { SliderMarks } from '../type';
+import type { TNode } from '../../common';
 import log from '../../_common/js/log/log';
 import { getStopStyle } from '../util/common';
 import TSliderMark from '../slider-mark';
-import { isArray } from 'lodash-es';
 
 interface MarkItem {
   point: number;
@@ -24,7 +24,7 @@ interface useSliderMarkProps {
 /**
  * 聚合管理刻度值渲染逻辑
  */
-export const useSliderMark = (config: Ref<useSliderMarkProps>) => {
+export function useSliderMark(config: Ref<useSliderMarkProps>) {
   const name = config.value.prefixName;
   const markList = computed(() => {
     const markProps = config.value;
@@ -51,9 +51,9 @@ export const useSliderMark = (config: Ref<useSliderMarkProps>) => {
       });
     } else {
       Object.keys(markProps.marks)
-        .map(parseFloat)
+        .map(Number.parseFloat)
         .sort((a, b) => a - b)
-        .filter((point) => point <= markProps.max && point >= markProps.min)
+        .filter(point => point <= markProps.max && point >= markProps.min)
         .forEach((point) => {
           const item: MarkItem = {
             point,
@@ -67,13 +67,17 @@ export const useSliderMark = (config: Ref<useSliderMarkProps>) => {
   });
 
   const renderMask = (onChangeFn?: (point: number) => void): VNode => {
-    if (!markList.value.length) return null;
+    if (!markList.value.length) {
+      return null;
+    }
 
     return (
       <div>
         <div class={`${name}__stops`}>
           {markList.value.map((item, index) => {
-            if (item.position === 0 || item.position === 100) return null;
+            if (item.position === 0 || item.position === 100) {
+              return null;
+            }
             return (
               <div
                 class={`${name}__stop ${name}__mark-stop`}
@@ -99,4 +103,4 @@ export const useSliderMark = (config: Ref<useSliderMarkProps>) => {
   };
 
   return renderMask;
-};
+}

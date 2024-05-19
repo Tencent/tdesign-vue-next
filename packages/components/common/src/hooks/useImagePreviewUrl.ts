@@ -1,4 +1,5 @@
-import { ComputedRef, ref, Ref, watch } from '@td/adapter-vue';
+import type { ComputedRef, Ref } from '@td/adapter-vue';
+import { ref, watch } from '@td/adapter-vue';
 import { getFileUrlByFileRaw } from '../_common/js/upload/utils';
 
 export function useImagePreviewUrl(imgUrl: Ref<string | File> | ComputedRef<string | File>) {
@@ -7,7 +8,9 @@ export function useImagePreviewUrl(imgUrl: Ref<string | File> | ComputedRef<stri
   watch(
     [imgUrl],
     ([imgUrl], [preImgUrl]) => {
-      if (preImgUrl === imgUrl) return;
+      if (preImgUrl === imgUrl) {
+        return;
+      }
       if (typeof imgUrl === 'string') {
         previewUrl.value = imgUrl;
         return;

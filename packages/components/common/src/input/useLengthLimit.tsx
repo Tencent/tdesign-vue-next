@@ -1,9 +1,9 @@
-import { computed, ComputedRef, onMounted, watch } from '@td/adapter-vue';
-import { TdInputProps } from '@td/intel/input/type';
+import type { ComputedRef } from '@td/adapter-vue';
+import { computed, onMounted, watch } from '@td/adapter-vue';
+import type { TdInputProps } from '@td/intel/input/type';
+import { isNumber, isObject } from 'lodash-es';
 import log from '../_common/js/log';
 import { getCharacterLength, getUnicodeLength, limitUnicodeMaxLength } from '../_common/js/utils/helper';
-import { isNumber } from 'lodash-es';
-import { isObject } from 'lodash-es';
 
 export interface UseLengthLimitParams {
   value: string;
@@ -18,7 +18,9 @@ export default function useLengthLimit(params: ComputedRef<UseLengthLimitParams>
   // 文本超出数量限制时，是否允许继续输入
   const getValueByLimitNumber = (inputValue: string) => {
     const { allowInputOverMax, maxlength, maxcharacter } = params.value;
-    if (!(maxlength || maxcharacter) || allowInputOverMax || !inputValue) return inputValue;
+    if (!(maxlength || maxcharacter) || allowInputOverMax || !inputValue) {
+      return inputValue;
+    }
     if (maxlength) {
       // input value could be unicode 😊
       return limitUnicodeMaxLength(inputValue, maxlength);
@@ -33,7 +35,9 @@ export default function useLengthLimit(params: ComputedRef<UseLengthLimitParams>
 
   const limitNumber = computed(() => {
     const { maxlength, maxcharacter, value } = params.value;
-    if (isNumber(value)) return String(value);
+    if (isNumber(value)) {
+      return String(value);
+    }
     if (maxlength && maxcharacter) {
       log.warn('Input', 'Pick one of maxlength and maxcharacter please.');
     }

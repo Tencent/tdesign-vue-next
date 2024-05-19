@@ -1,6 +1,6 @@
-import _Comment from './comment';
 import { withInstall } from '@td/adapter-utils';
-import { TdCommentProps } from '@td/intel/comment/type';
+import type { TdCommentProps } from '@td/intel/comment/type';
+import _Comment from './comment';
 
 import './style';
 

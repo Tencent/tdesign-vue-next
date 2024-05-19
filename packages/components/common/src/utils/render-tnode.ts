@@ -1,10 +1,6 @@
-import { h, ComponentPublicInstance, VNode, isVNode } from '@td/adapter-vue';
-import { isEmpty } from 'lodash-es';
-import { isString } from 'lodash-es';
-import { isFunction } from 'lodash-es';
-import { isObject } from 'lodash-es';
-import { camelCase } from 'lodash-es';
-import { kebabCase } from 'lodash-es';
+import type { ComponentPublicInstance, VNode } from '@td/adapter-vue';
+import { h, isVNode } from '@td/adapter-vue';
+import { camelCase, isEmpty, isFunction, isObject, isString, kebabCase } from 'lodash-es';
 
 export interface JSXRenderContext {
   defaultNode?: VNode | string;
@@ -39,10 +35,14 @@ export function getSlotFirst(options?: OptionsType) {
 export function handleSlots(instance: ComponentPublicInstance, params: Record<string, any>, name: string) {
   // 检查是否存在 驼峰命名 的插槽
   let node = instance.$slots[camelCase(name)]?.(params);
-  if (node) return node;
+  if (node) {
+    return node;
+  }
   // 检查是否存在 中划线命名 的插槽
   node = instance.$slots[kebabCase(name)]?.(params);
-  if (node) return node;
+  if (node) {
+    return node;
+  }
   return null;
 }
 
@@ -55,7 +55,7 @@ export function handleSlots(instance: ComponentPublicInstance, params: Record<st
  * @example renderTNodeJSX(this, 'closeBtn', <close-icon />)。 当属性值为 true 时则渲染 <close-icon />
  * @example renderTNodeJSX(this, 'closeBtn', { defaultNode: <close-icon />, params })。 params 为渲染节点时所需的参数
  */
-export const renderTNodeJSX = (instance: ComponentPublicInstance, name: string, options?: OptionsType) => {
+export function renderTNodeJSX(instance: ComponentPublicInstance, name: string, options?: OptionsType) {
   // assemble params && defaultNode
   const params = getParams(options);
   const defaultNode = getDefaultNode(options);
@@ -74,20 +74,24 @@ export const renderTNodeJSX = (instance: ComponentPublicInstance, name: string, 
   // }
 
   // propsNode 为 false 不渲染
-  if (propsNode === false || propsNode === null) return;
+  if (propsNode === false || propsNode === null) {
+    return;
+  }
   if (propsNode === true && defaultNode) {
     return handleSlots(instance, params, name) || defaultNode;
   }
 
   // 同名 props 和 slot 优先处理 props
-  if (isFunction(propsNode)) return propsNode(h, params);
+  if (isFunction(propsNode)) {
+    return propsNode(h, params);
+  }
   const isPropsEmpty = [undefined, params, ''].includes(propsNode);
   // Props 为空，但插槽存在
   if (isPropsEmpty && (instance.$slots[camelCase(name)] || instance.$slots[kebabCase(name)])) {
     return handleSlots(instance, params, name);
   }
   return propsNode;
-};
+}
 
 /**
  * 通过JSX的方式渲染 TNode，props 和 插槽同时处理。与 renderTNodeJSX 区别在于 属性值为 undefined 时会渲染默认节点
@@ -97,10 +101,10 @@ export const renderTNodeJSX = (instance: ComponentPublicInstance, name: string, 
  * @example renderTNodeJSX(this, 'closeBtn', <close-icon />)。this.closeBtn 为空时，则兜底渲染 <close-icon />
  * @example renderTNodeJSX(this, 'closeBtn', { defaultNode: <close-icon />, params }) 。params 为渲染节点时所需的参数
  */
-export const renderTNodeJSXDefault = (vm: ComponentPublicInstance, name: string, options?: OptionsType) => {
+export function renderTNodeJSXDefault(vm: ComponentPublicInstance, name: string, options?: OptionsType) {
   const defaultNode = getDefaultNode(options);
   return renderTNodeJSX(vm, name, options) || defaultNode;
-};
+}
 
 /**
  * 用于处理相同名称的 TNode 渲染
@@ -112,7 +116,7 @@ export const renderTNodeJSXDefault = (vm: ComponentPublicInstance, name: string,
  * @example renderContent(this, 'default', 'content', '我是默认内容')
  * @example renderContent(this, 'default', 'content', { defaultNode: '我是默认内容', params })
  */
-export const renderContent = (vm: ComponentPublicInstance, name1: string, name2: string, options?: OptionsType) => {
+export function renderContent(vm: ComponentPublicInstance, name1: string, name2: string, options?: OptionsType) {
   const params = getParams(options);
   const defaultNode = getDefaultNode(options);
 
@@ -123,4 +127,4 @@ export const renderContent = (vm: ComponentPublicInstance, name1: string, name2:
 
   const res = isEmpty(node1) ? node2 : node1;
   return isEmpty(res) ? defaultNode : res;
-};
+}

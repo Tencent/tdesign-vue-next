@@ -1,4 +1,5 @@
-import { defineComponent, PropType, computed, CSSProperties } from '@td/adapter-vue';
+import type { CSSProperties, PropType } from '@td/adapter-vue';
+import { computed, defineComponent } from '@td/adapter-vue';
 import { usePrefixClass } from '@td/adapter-hooks';
 
 // 统一使用的翻转箭头组件

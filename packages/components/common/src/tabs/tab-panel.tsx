@@ -1,8 +1,6 @@
 import { computed, defineComponent, inject, ref, watch } from '@td/adapter-vue';
 import props from '@td/intel/tabs/tab-panel-props';
-import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
-import { useDestroyOnClose } from '@td/adapter-hooks';
-import { useContent } from '@td/adapter-hooks';
+import { useCommonClassName, useContent, useDestroyOnClose, usePrefixClass } from '@td/adapter-hooks';
 
 import type { InjectTabs } from './tabs';
 
@@ -43,7 +41,9 @@ export default defineComponent({
       },
     ]);
     return () => {
-      if (!isMount.value) return null;
+      if (!isMount.value) {
+        return null;
+      }
       return <div class={tabPanelClass.value}>{renderTNodeContent('default', 'panel')}</div>;
     };
   },

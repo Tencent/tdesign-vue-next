@@ -1,10 +1,9 @@
-import { defineComponent, provide, computed } from '@td/adapter-vue';
+import { computed, defineComponent, provide } from '@td/adapter-vue';
 import TimeLineProps from '@td/intel/timeline/props';
-import { TimelineInjectKey, DefaultAlign } from './hooks';
-import { usePrefixClass } from '@td/adapter-hooks';
-import { useChildComponentSlots } from '@td/adapter-hooks';
-import TimelineItem from './timeline-item';
+import { useChildComponentSlots, usePrefixClass } from '@td/adapter-hooks';
 import log from '../_common/js/log';
+import TimelineItem from './timeline-item';
+import { DefaultAlign, TimelineInjectKey } from './hooks';
 
 export default defineComponent({
   name: 'TTimeline',
@@ -49,7 +48,9 @@ export default defineComponent({
     return () => {
       const getChildComponentSlots = useChildComponentSlots();
       let timelineItems = getChildComponentSlots('TTimelineItem');
-      if (props.reverse) timelineItems = timelineItems.reverse();
+      if (props.reverse) {
+        timelineItems = timelineItems.reverse();
+      }
       return (
         <ul
           class={[
@@ -69,7 +70,8 @@ export default defineComponent({
               index={index}
               class={{ [`${COMPONENT_NAME.value}-item--last`]: index === timelineItems.length - 1 }}
               v-slots={item.children}
-            ></TimelineItem>
+            >
+            </TimelineItem>
           ))}
         </ul>
       );

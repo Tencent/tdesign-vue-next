@@ -1,11 +1,13 @@
 import { computed, toRefs } from '@td/adapter-vue';
-import { TdBaseTableProps } from '../type';
-import useClassName from './useClassName';
+import type { TdBaseTableProps } from '../type';
 import useCommonClassName from '../../hooks/useCommonClassName';
 import { useConfig } from '../../hooks/useConfig';
+import useClassName from './useClassName';
 
 export function formatCSSUnit(unit: string | number) {
-  if (!unit) return unit;
+  if (!unit) {
+    return unit;
+  }
   return isNaN(Number(unit)) ? unit : `${unit}px`;
 }
 

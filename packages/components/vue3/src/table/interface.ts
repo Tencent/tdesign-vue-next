@@ -1,16 +1,16 @@
-import { TNodeReturnValue } from '../common';
-import {
-  TdBaseTableProps,
+import type {
+  BaseTableCol,
+  BaseTableInstanceFunctions,
+  PrimaryTableCol,
+  PrimaryTableInstanceFunctions,
+  RowspanColspan,
   TableExpandedRowParams,
   TableRowData,
-  TdPrimaryTableProps,
+  TdBaseTableProps,
   TdEnhancedTableProps,
-  RowspanColspan,
-  BaseTableCol,
-  PrimaryTableInstanceFunctions,
-  PrimaryTableCol,
-  BaseTableInstanceFunctions,
+  TdPrimaryTableProps,
 } from '@td/intel/table/type';
+import type { TNodeReturnValue } from '../common';
 
 export interface BaseTableProps extends TdBaseTableProps {
   /**

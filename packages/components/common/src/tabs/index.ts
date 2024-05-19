@@ -1,7 +1,7 @@
+import { withInstall } from '@td/adapter-utils';
+import type { TdTabPanelProps, TdTabsProps } from '@td/intel/tabs/type';
 import _Tabs from './tabs';
 import _TabPanel from './tab-panel';
-import { withInstall } from '@td/adapter-utils';
-import { TdTabsProps, TdTabPanelProps } from '@td/intel/tabs/type';
 
 import './style';
 

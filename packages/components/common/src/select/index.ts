@@ -1,8 +1,8 @@
+import { withInstall } from '@td/adapter-utils';
+import type { SelectOption, TdOptionGroupProps, TdOptionProps, TdSelectProps } from '@td/intel/select/type';
 import _Select from './select';
 import _Option from './option';
 import _OptionGroup from './optionGroup';
-import { withInstall } from '@td/adapter-utils';
-import { TdSelectProps, TdOptionProps, TdOptionGroupProps, SelectOption } from '@td/intel/select/type';
 
 import './style';
 

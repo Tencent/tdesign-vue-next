@@ -1,15 +1,13 @@
-import { defineComponent, h, VNodeChild, computed, watch, toRefs } from '@td/adapter-vue';
-import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
-import TLoading from '../loading';
+import type { VNodeChild } from '@td/adapter-vue';
+import { computed, defineComponent, h, toRefs, watch } from '@td/adapter-vue';
+import { useCommonClassName, usePrefixClass, useVModel } from '@td/adapter-hooks';
 import props from '@td/intel/switch/props';
-import { TNodeReturnValue } from '../common';
 
 // hooks
 import { useDisabled } from '@td/adapter-hooks';
-import { useVModel } from '@td/adapter-hooks';
-import { isFunction } from 'lodash-es';
-import { isString } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { isArray, isFunction, isString } from 'lodash-es';
+import type { TNodeReturnValue } from '../common';
+import TLoading from '../loading';
 
 export default defineComponent({
   name: 'TSwitch',
@@ -100,7 +98,9 @@ export default defineComponent({
       }
       if (isArray(props.label) && props.label.length) {
         const label = innerValue.value === activeValue.value ? props.label[0] : props.label[1];
-        if (!label) return;
+        if (!label) {
+          return;
+        }
         if (isString(label)) {
           return label;
         }

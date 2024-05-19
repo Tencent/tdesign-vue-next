@@ -1,10 +1,10 @@
+import { withInstall } from '@td/adapter-utils';
+import type { TdAsideProps, TdFooterProps, TdHeaderProps } from '@td/intel/layout/type';
 import _Layout from './layout';
 import _Header from './header';
 import _Footer from './footer';
 import _Aside from './aside';
 import _Content from './content';
-import { withInstall } from '@td/adapter-utils';
-import { TdHeaderProps, TdFooterProps, TdAsideProps } from '@td/intel/layout/type';
 
 import './style';
 

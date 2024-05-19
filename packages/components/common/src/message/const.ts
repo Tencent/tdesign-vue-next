@@ -3,27 +3,27 @@ export const THEME_LIST: string[] = ['info', 'success', 'warning', 'error', 'que
 const DISTANCE = '32px';
 
 export const PLACEMENT_OFFSET = {
-  top: {
+  'top': {
     top: DISTANCE,
     left: '50%',
     transform: 'translateX(-50%)',
   },
-  center: {
+  'center': {
     left: '50%',
     top: '50%',
     transform: 'translateX(-50%) translateY(-50%)',
   },
-  left: {
+  'left': {
     left: DISTANCE,
     top: '50%',
     transform: 'translateY(-50%)',
   },
-  bottom: {
+  'bottom': {
     bottom: DISTANCE,
     left: '50%',
     transform: 'translateX(-50%)',
   },
-  right: {
+  'right': {
     right: DISTANCE,
     top: '50%',
     transform: 'translateY(-50%)',

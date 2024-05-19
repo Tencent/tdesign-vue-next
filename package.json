@@ -1,32 +1,26 @@
 {
   "name": "tdesign-vue-next",
   "purename": "tdesign",
+  "type": "module",
   "version": "1.9.3",
   "title": "tdesign-vue-next",
   "description": "TDesign Component for vue-next",
+  "author": "tdesign",
+  "license": "MIT",
+  "homepage": "https://github.com/Tencent/tdesign-vue-next/blob/develop/README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tencent/tdesign-vue-next.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Tencent/tdesign-vue-next/issues"
+  },
   "keywords": [
     "vue",
     "vue3",
     "vue-next",
     "tdesign",
     "typescript"
-  ],
-  "main": "cjs/index-lib.js",
-  "module": "es/index.mjs",
-  "typings": "es/index.d.ts",
-  "unpkg": "dist/tdesign.min.js",
-  "jsdelivr": "dist/tdesign.min.js",
-  "files": [
-    "es",
-    "esm",
-    "cjs",
-    "lib",
-    "dist",
-    "LICENSE",
-    "README.md",
-    "CHANGELOG.md",
-    "global.d.ts",
-    "helper"
   ],
   "sideEffects": [
     "*.vue",
@@ -36,27 +30,42 @@
     "es/**/style/**",
     "esm/**/style/**"
   ],
+  "main": "cjs/index-lib.js",
+  "module": "es/index.mjs",
+  "typings": "es/index.d.ts",
+  "unpkg": "dist/tdesign.min.js",
+  "jsdelivr": "dist/tdesign.min.js",
+  "files": [
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "cjs",
+    "dist",
+    "es",
+    "esm",
+    "global.d.ts",
+    "helper",
+    "lib"
+  ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Tencent/tdesign-vue-next.git"
-  },
-  "homepage": "https://github.com/Tencent/tdesign-vue-next/blob/develop/README.md",
-  "bugs": {
-    "url": "https://github.com/Tencent/tdesign-vue-next/issues"
-  },
   "scripts": {
     "init": "git submodule init && git submodule update",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
-  "author": "tdesign",
-  "license": "MIT",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-git"
     }
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.11.6",
+    "@td/ts-config": "workspace:^",
+    "eslint": "^9.3.0",
+    "eslint-plugin-format": "^0.1.0"
   },
   "lint-staged": {
     "*.{vue,js,jsx,ts,tsx}": [
@@ -68,11 +77,5 @@
     "tags": "helper/tags.json",
     "attributes": "helper/attributes.json"
   },
-  "web-types": "helper/web-types.json",
-  "devDependencies": {
-    "@antfu/eslint-config": "^2.11.6",
-    "@td/ts-config": "workspace:^",
-    "eslint": "^7.4.0",
-    "eslint-plugin-format": "^0.1.0"
-  }
+  "web-types": "helper/web-types.json"
 }

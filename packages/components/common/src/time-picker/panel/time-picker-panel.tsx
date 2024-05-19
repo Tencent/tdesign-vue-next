@@ -1,14 +1,14 @@
-import { defineComponent, toRefs, computed, ref, onMounted, nextTick, watch } from '@td/adapter-vue';
+import { computed, defineComponent, nextTick, onMounted, ref, toRefs, watch } from '@td/adapter-vue';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 
-import { DEFAULT_STEPS, DEFAULT_FORMAT } from '../../_common/js/time-picker/const';
-import { panelProps } from './props';
-import SinglePanel from './single-panel';
+import { DEFAULT_FORMAT, DEFAULT_STEPS } from '../../_common/js/time-picker/const';
 import TButton from '../../button/button';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
-import { TimePickerValue, TimeRangeValue } from '../type';
+import type { TimePickerValue, TimeRangeValue } from '../type';
 import log from '../../_common/js/log';
+import SinglePanel from './single-panel';
+import { panelProps } from './props';
 
 dayjs.extend(customParseFormat);
 
@@ -28,7 +28,7 @@ export default defineComponent({
     const { steps, isFooterDisplay, isShowPanel } = toRefs(props);
     const triggerScroll = ref(false);
     const panelRef = ref();
-    const showNowTimeBtn = computed(() => !!steps.value.filter((step) => Number(step) > 1).length);
+    const showNowTimeBtn = computed(() => !!steps.value.filter(step => Number(step) > 1).length);
 
     const defaultValue = computed(() => {
       const isStepsSet = showNowTimeBtn.value;
@@ -94,29 +94,32 @@ export default defineComponent({
             isShowPanel={props.isShowPanel}
           />
         </div>
-        {isFooterDisplay.value ? (
-          <div class={`${COMPONENT_NAME.value}-section-footer`}>
-            <TButton
-              theme="primary"
-              variant="base"
-              disabled={!props.value}
-              onClick={() => props.handleConfirmClick?.(defaultValue.value)}
-              size="small"
-            >
-              {globalConfig.value.confirm}
-            </TButton>
-            {!showNowTimeBtn.value ? (
+        {isFooterDisplay.value
+          ? (
+            <div class={`${COMPONENT_NAME.value}-section-footer`}>
               <TButton
                 theme="primary"
-                variant="text"
+                variant="base"
+                disabled={!props.value}
+                onClick={() => props.handleConfirmClick?.(defaultValue.value)}
                 size="small"
-                onClick={() => props.onChange?.(dayjs().format(props.format))}
               >
-                {globalConfig.value.now}
+                {globalConfig.value.confirm}
               </TButton>
-            ) : null}
-            {props.presets &&
-              Object.keys(props.presets).map((key: string) => (
+              {!showNowTimeBtn.value
+                ? (
+                  <TButton
+                    theme="primary"
+                    variant="text"
+                    size="small"
+                    onClick={() => props.onChange?.(dayjs().format(props.format))}
+                  >
+                    {globalConfig.value.now}
+                  </TButton>
+                  )
+                : null}
+              {props.presets
+              && Object.keys(props.presets).map((key: string) => (
                 <TButton
                   key={key}
                   theme="primary"
@@ -127,8 +130,9 @@ export default defineComponent({
                   {key}
                 </TButton>
               ))}
-          </div>
-        ) : null}
+            </div>
+            )
+          : null}
       </div>
     );
   },

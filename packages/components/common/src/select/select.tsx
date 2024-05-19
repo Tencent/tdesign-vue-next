@@ -1,28 +1,24 @@
-import { defineComponent, provide, computed, toRefs, watch, ref, nextTick, PropType } from '@td/adapter-vue';
+import type { PropType } from '@td/adapter-vue';
+import { computed, defineComponent, nextTick, provide, ref, toRefs, watch } from '@td/adapter-vue';
 import picker from 'lodash/pick';
-import { isArray } from 'lodash-es';
-import { isFunction } from 'lodash-es';
-import { debounce } from 'lodash-es';
-import { cloneDeep } from 'lodash-es';
-import { get } from 'lodash-es';
-import { intersection } from 'lodash-es';
-import FakeArrow from '../common-components/fake-arrow';
-import SelectInput from '../select-input';
-import SelectPanel from './select-panel';
+import { cloneDeep, debounce, get, intersection, isArray, isFunction } from 'lodash-es';
 import props from '@td/intel/select/props';
 // hooks
-import { useFormDisabled } from '../form/hooks';
 import { useDefaultValue } from '@td/adapter-hooks';
 import { useVModel } from '@td/adapter-hooks';
 import { useTNodeJSX } from '@td/adapter-hooks';
 import { useConfig, usePrefixClass } from '@td/adapter-hooks';
-import { selectInjectKey, getSingleContent, getMultipleContent } from './helper';
-import { useSelectOptions } from './hooks/useSelectOptions';
-import useKeyboardControl from './hooks/useKeyboardControl';
+import type { SelectValue, TdSelectProps } from '@td/intel/select/type';
 import type { PopupVisibleChangeContext } from '../popup';
 import type { SelectInputValueChangeContext } from '../select-input';
-import type { TdSelectProps, SelectValue } from '@td/intel/select/type';
-import { SelectInputValueDisplayOptions } from '../select-input/useSingle';
+import { useFormDisabled } from '../form/hooks';
+import FakeArrow from '../common-components/fake-arrow';
+import SelectInput from '../select-input';
+import type { SelectInputValueDisplayOptions } from '../select-input/useSingle';
+import useKeyboardControl from './hooks/useKeyboardControl';
+import { useSelectOptions } from './hooks/useSelectOptions';
+import { getMultipleContent, getSingleContent, selectInjectKey } from './helper';
+import SelectPanel from './select-panel';
 
 export default defineComponent({
   name: 'TSelect',
@@ -66,7 +62,7 @@ export default defineComponent({
       if (props.valueType === 'object') {
         return !props.multiple
           ? orgValue.value[keys.value.value]
-          : (orgValue.value as SelectValue[]).map((option) => option[keys.value.value]);
+          : (orgValue.value as SelectValue[]).map(option => option[keys.value.value]);
       }
       return orgValue.value;
     });
@@ -84,9 +80,11 @@ export default defineComponent({
             [label]: get(option, label),
           };
         };
-        newVal = props.multiple ? (newVal as SelectValue[]).map((val) => getOption(val)) : getOption(newVal);
+        newVal = props.multiple ? (newVal as SelectValue[]).map(val => getOption(val)) : getOption(newVal);
       }
-      if (newVal === orgValue.value) return;
+      if (newVal === orgValue.value) {
+        return;
+      }
       setOrgValue(newVal, {
         selectedOptions: getSelectedOptions(newVal),
         ...context,
@@ -104,9 +102,9 @@ export default defineComponent({
 
     const placeholderText = computed(
       () =>
-        ((!props.multiple && innerPopupVisible.value && getSingleContent(innerValue.value, optionsMap)) ||
-          props.placeholder) ??
-        t(globalConfig.value.placeholder),
+        ((!props.multiple && innerPopupVisible.value && getSingleContent(innerValue.value, optionsMap))
+        || props.placeholder)
+        ?? t(globalConfig.value.placeholder),
     );
 
     // selectInput 展示值
@@ -118,9 +116,9 @@ export default defineComponent({
 
     // valueDisplayParams参数
     const valueDisplayParams = computed(() => {
-      const val =
-        props.multiple && isArray(innerValue.value)
-          ? (innerValue.value as SelectValue[]).map((value) => ({
+      const val
+        = props.multiple && isArray(innerValue.value)
+          ? (innerValue.value as SelectValue[]).map(value => ({
               value,
               label: optionsMap.value.get(value)?.label,
             }))
@@ -159,7 +157,9 @@ export default defineComponent({
     };
 
     const handleCreate = () => {
-      if (!innerInputValue.value) return;
+      if (!innerInputValue.value) {
+        return;
+      }
       props.onCreate?.(innerInputValue.value);
       setInputValue('');
     };
@@ -178,8 +178,12 @@ export default defineComponent({
 
     const getSelectedOptions = (selectValue: SelectValue[] | SelectValue = innerValue.value) => {
       return optionsList.value.filter((option) => {
-        if (option.checkAll) return;
-        if (isArray(selectValue)) return selectValue.includes(option.value);
+        if (option.checkAll) {
+          return;
+        }
+        if (isArray(selectValue)) {
+          return selectValue.includes(option.value);
+        }
         return selectValue === option.value;
       });
     };
@@ -200,14 +204,16 @@ export default defineComponent({
     });
 
     const onCheckAllChange = (checked: boolean) => {
-      if (!props.multiple) return;
-      const value = checked ? optionalList.value.map((option) => option.value) : [];
+      if (!props.multiple) {
+        return;
+      }
+      const value = checked ? optionalList.value.map(option => option.value) : [];
       setInnerValue(value, { selectedOptions: getSelectedOptions(value), trigger: checked ? 'check' : 'clear' });
     };
 
     // 已选的长度
     const intersectionLen = computed<number>(() => {
-      const values = optionalList.value.map((item) => item.value);
+      const values = optionalList.value.map(item => item.value);
       const n = intersection(innerValue.value, values);
       return n.length;
     });
@@ -270,7 +276,9 @@ export default defineComponent({
     const handlerPopupVisibleChange = (visible: boolean, context: PopupVisibleChangeContext) => {
       setInnerPopupVisible(visible, context);
       // 在通过点击选择器打开弹窗时 清空此前的输入内容 避免在关闭时就清空引起的闪烁问题
-      if (visible && context.trigger === 'trigger-element-click') setInputValue('');
+      if (visible && context.trigger === 'trigger-element-click') {
+        setInputValue('');
+      }
     };
 
     const addCache = (val: SelectValue) => {
@@ -323,14 +331,14 @@ export default defineComponent({
         if (firstSelectedNode && content) {
           const { paddingBottom } = getComputedStyle(firstSelectedNode);
           const { marginBottom } = getComputedStyle(content);
-          const elementBottomHeight = parseInt(paddingBottom, 10) + parseInt(marginBottom, 10);
+          const elementBottomHeight = Number.parseInt(paddingBottom, 10) + Number.parseInt(marginBottom, 10);
           // 小于0时不需要特殊处理，会被设为0
-          const updateValue =
-            firstSelectedNode.offsetTop -
-            content.offsetTop -
-            (content.clientHeight - firstSelectedNode.clientHeight) +
-            elementBottomHeight;
-          // eslint-disable-next-line no-param-reassign
+          const updateValue
+            = firstSelectedNode.offsetTop
+            - content.offsetTop
+            - (content.clientHeight - firstSelectedNode.clientHeight)
+            + elementBottomHeight;
+
           content.scrollTop = updateValue;
         }
       });
@@ -402,8 +410,7 @@ export default defineComponent({
             valueDisplay={() =>
               renderTNodeJSX('valueDisplay', {
                 params: valueDisplayParams.value,
-              })
-            }
+              })}
             onPopupVisibleChange={handlerPopupVisibleChange}
             onInputChange={handlerInputChange}
             onClear={({ e }) => {

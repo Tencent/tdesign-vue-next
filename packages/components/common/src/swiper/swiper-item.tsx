@@ -1,4 +1,4 @@
-import { defineComponent, computed } from '@td/adapter-vue';
+import { computed, defineComponent } from '@td/adapter-vue';
 import props from '@td/intel/swiper/props';
 import { usePrefixClass } from '@td/adapter-hooks';
 
@@ -34,7 +34,9 @@ export default defineComponent({
     const prefix = usePrefixClass();
     const active = computed(() => props.index === props.currentIndex);
     const disposeIndex = computed(() => {
-      if (props.type !== 'card') return 0;
+      if (props.type !== 'card') {
+        return 0;
+      }
       if (props.currentIndex === 0 && props.index === props.swiperItemLength - 1) {
         return -1;
       }
@@ -50,7 +52,9 @@ export default defineComponent({
       return props.index;
     });
     const translateX = computed(() => {
-      if (props.type !== 'card') return 0;
+      if (props.type !== 'card') {
+        return 0;
+      }
       const wrapWidth = props.getWrapAttribute('offsetWidth') || 0;
       const translateIndex = !active.value && props.swiperItemLength > 2 ? disposeIndex.value : props.index;
       const inStage = Math.abs(translateIndex - props.currentIndex) <= 1;
@@ -63,7 +67,9 @@ export default defineComponent({
       return ((2 + itemWidth * (CARD_SCALE - 1)) * wrapWidth) / 2;
     });
     const zIndex = computed(() => {
-      if (props.type !== 'card') return 0;
+      if (props.type !== 'card') {
+        return 0;
+      }
       const translateIndex = !active.value && props.swiperItemLength > 2 ? disposeIndex.value : props.index;
       const isActivity = translateIndex === props.currentIndex;
       const inStage = Math.round(Math.abs(translateIndex - props.currentIndex)) <= 1;

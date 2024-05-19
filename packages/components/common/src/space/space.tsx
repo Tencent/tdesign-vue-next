@@ -1,11 +1,8 @@
-import { defineComponent, computed, CSSProperties, Fragment } from '@td/adapter-vue';
+import type { CSSProperties } from '@td/adapter-vue';
+import { Fragment, computed, defineComponent } from '@td/adapter-vue';
 import props from '@td/intel/space/props';
-import { usePrefixClass } from '@td/adapter-hooks';
-import { useTNodeJSX } from '@td/adapter-hooks';
-import { useChildSlots } from '@td/adapter-hooks';
-import { isNumber } from 'lodash-es';
-import { isString } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { useChildSlots, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
+import { isArray, isNumber, isString } from 'lodash-es';
 import { getFlexGapPolyFill } from '../_common/js/utils/helper';
 
 const sizeMap = { small: '8px', medium: '16px', large: '24px' };
@@ -32,8 +29,12 @@ export default defineComponent({
       if (isArray(props.size)) {
         renderGap = props.size
           .map((s) => {
-            if (isNumber(s)) return `${s}px`;
-            if (isString(s)) return sizeMap[s] || s;
+            if (isNumber(s)) {
+              return `${s}px`;
+            }
+            if (isString(s)) {
+              return sizeMap[s] || s;
+            }
             return s;
           })
           .join(' ');

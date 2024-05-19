@@ -1,11 +1,9 @@
-import { defineComponent, computed } from '@td/adapter-vue';
+import { computed, defineComponent } from '@td/adapter-vue';
 import props from '@td/intel/comment/props';
 
-import { usePrefixClass } from '@td/adapter-hooks';
-import { useTNodeJSX } from '@td/adapter-hooks';
+import { usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
+import { isArray, isString } from 'lodash-es';
 import Button from '../button';
-import { isString } from 'lodash-es';
-import { isArray } from 'lodash-es';
 
 export default defineComponent({
   name: 'TComment',
@@ -28,11 +26,13 @@ export default defineComponent({
 
       const quoteDom = quote ? <div class={`${COMPONENT_NAME.value}__quote`}>{quote}</div> : null;
 
-      const avatarDom = avatar ? (
-        <div class={`${COMPONENT_NAME.value}__avatar`}>
-          {isString(avatar) ? <img src={avatar} alt="" class={`${COMPONENT_NAME.value}__avatar-image`} /> : avatar}
-        </div>
-      ) : null;
+      const avatarDom = avatar
+        ? (
+          <div class={`${COMPONENT_NAME.value}__avatar`}>
+            {isString(avatar) ? <img src={avatar} alt="" class={`${COMPONENT_NAME.value}__avatar-image`} /> : avatar}
+          </div>
+          )
+        : null;
 
       const authorDatetimeDom = showAuthorDatetime.value && (
         <div class={`${COMPONENT_NAME.value}__author`}>
@@ -42,7 +42,9 @@ export default defineComponent({
       );
 
       const renderActions = () => {
-        if (!actions || !actions.length) return null;
+        if (!actions || !actions.length) {
+          return null;
+        }
         return (
           <div class={`${COMPONENT_NAME.value}__actions`}>
             {(isArray(actions) ? actions : [actions]).map((action, index) => (

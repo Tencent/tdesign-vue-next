@@ -1,6 +1,8 @@
-import { computed, defineComponent, PropType, toRefs } from '@td/adapter-vue';
-import Checkbox, { CheckboxGroup, CheckboxGroupChangeContext, CheckboxGroupProps, CheckboxProps } from '../checkbox';
+import type { PropType } from '@td/adapter-vue';
+import { computed, defineComponent, toRefs } from '@td/adapter-vue';
 import { intersection } from 'lodash-es';
+import type { CheckboxGroupChangeContext, CheckboxGroupProps, CheckboxProps } from '../checkbox';
+import Checkbox, { CheckboxGroup } from '../checkbox';
 import { usePrefixClass } from '../hooks';
 
 export type ColumnCheckboxGroupProps = Pick<CheckboxGroupProps, 'value' | 'onChange' | 'options'> & {
@@ -32,7 +34,9 @@ export default defineComponent({
       const allCheckedKeys: CheckboxGroupProps['value'] = [];
       options.value.forEach((option) => {
         if (typeof option === 'object') {
-          if (option.disabled) return;
+          if (option.disabled) {
+            return;
+          }
           if (option.value) {
             allCheckedKeys.push(option.value);
           } else if (typeof option.label === 'string') {
@@ -68,7 +72,7 @@ export default defineComponent({
         const newKeys = [...new Set(value.value.concat(allCheckedColumnKeys.value))];
         props.onChange?.(newKeys, changeParams);
       } else {
-        const newKeys = value.value.filter((val) => !allCheckedColumnKeys.value.includes(val));
+        const newKeys = value.value.filter(val => !allCheckedColumnKeys.value.includes(val));
         props.onChange?.(newKeys, { ...changeParams, type: 'uncheck' });
       }
     };

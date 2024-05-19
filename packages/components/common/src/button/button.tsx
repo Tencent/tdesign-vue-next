@@ -1,10 +1,7 @@
 import { computed, defineComponent, h, ref } from '@td/adapter-vue';
-import TLoading from '../loading';
 import props from '@td/intel/button/props';
-import { useRipple } from '@td/adapter-hooks';
-import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
-import { useTNodeJSX, useContent } from '@td/adapter-hooks';
-import { useDisabled } from '@td/adapter-hooks';
+import { useCommonClassName, useContent, useDisabled, usePrefixClass, useRipple, useTNodeJSX } from '@td/adapter-hooks';
+import TLoading from '../loading';
 
 export default defineComponent({
   name: 'TButton',
@@ -22,8 +19,12 @@ export default defineComponent({
 
     const mergeTheme = computed(() => {
       const { theme, variant } = props;
-      if (theme) return theme;
-      if (variant === 'base') return 'primary';
+      if (theme) {
+        return theme;
+      }
+      if (variant === 'base') {
+        return 'primary';
+      }
       return 'default';
     });
 
@@ -45,10 +46,12 @@ export default defineComponent({
       let buttonContent = renderContent('default', 'content');
       const icon = props.loading ? <TLoading inheritColor={true} /> : renderTNodeJSX('icon');
       const iconOnly = icon && !buttonContent;
-      const suffix =
-        props.suffix || slots.suffix ? (
-          <span className={`${COMPONENT_NAME.value}__suffix`}>{renderTNodeJSX('suffix')}</span>
-        ) : null;
+      const suffix
+        = props.suffix || slots.suffix
+          ? (
+            <span className={`${COMPONENT_NAME.value}__suffix`}>{renderTNodeJSX('suffix')}</span>
+            )
+          : null;
 
       buttonContent = buttonContent ? <span class={`${COMPONENT_NAME.value}__text`}>{buttonContent}</span> : '';
       if (icon) {
@@ -59,7 +62,9 @@ export default defineComponent({
       }
 
       const renderTag = () => {
-        if (!props.tag && props.href) return 'a';
+        if (!props.tag && props.href) {
+          return 'a';
+        }
         return props.tag || 'button';
       };
 

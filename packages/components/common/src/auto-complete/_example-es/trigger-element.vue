@@ -1,15 +1,7 @@
-<template>
-  <div>
-    <!-- 下拉浮层默认触发方式为 focus，如果期望更为其他，可以设置 :popupProps="{ trigger: 'click' }" -->
-    <t-auto-complete v-model="value" :options="options" highlight-keyword @change="onChange">
-      <t-textarea v-model="value" placeholder="自定义联想词触发元素"></t-textarea>
-    </t-auto-complete>
-  </div>
-</template>
-
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { AutoCompleteProps } from 'tdesign-vue-next';
+import type { AutoCompleteProps } from 'tdesign-vue-next';
+
 const value = ref('');
 const timer = ref(null);
 const options = ref<AutoCompleteProps['options']>([
@@ -29,3 +21,12 @@ function onChange(value: string) {
   }, 200);
 }
 </script>
+
+<template>
+  <div>
+    <!-- 下拉浮层默认触发方式为 focus，如果期望更为其他，可以设置 :popupProps="{ trigger: 'click' }" -->
+    <t-auto-complete v-model="value" :options="options" highlight-keyword @change="onChange">
+      <t-textarea v-model="value" placeholder="自定义联想词触发元素" />
+    </t-auto-complete>
+  </div>
+</template>

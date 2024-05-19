@@ -1,6 +1,6 @@
-import RadioGroup from './radio';
-import RadioButton from './radio-button';
-import { RadioValue } from '@td/intel/radio/type';
+import type { RadioValue } from '@td/intel/radio/type';
+import type RadioGroup from './radio';
+import type RadioButton from './radio-button';
 
 export type RadioButtonInstance = InstanceType<typeof RadioButton>;
 export type RadioGroupInstance = InstanceType<typeof RadioGroup> & {

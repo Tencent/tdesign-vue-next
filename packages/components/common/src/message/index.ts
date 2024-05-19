@@ -1,6 +1,6 @@
-import _Message from './message';
 import { withInstall } from '@td/adapter-utils';
-import { TdMessageProps } from '@td/intel/message/type';
+import type { TdMessageProps } from '@td/intel/message/type';
+import _Message from './message';
 
 import './style';
 

@@ -1,4 +1,5 @@
-import { ref, onMounted, computed, nextTick, Ref, UnwrapRef } from '@td/adapter-vue';
+import type { Ref, UnwrapRef } from '@td/adapter-vue';
+import { computed, nextTick, onMounted, ref } from '@td/adapter-vue';
 import observe from '../_common/js/utils/observe';
 import { isServer } from '../utils/dom';
 
@@ -17,7 +18,7 @@ export default function useLazyLoad(
   const isInit = ref(false);
   const hasLazyLoadHolder = computed(() => params?.type === 'lazy' && !isInit.value);
 
-  const requestAnimationFrame = (!isServer && window.requestAnimationFrame) || ((cb) => setTimeout(cb, 16.6));
+  const requestAnimationFrame = (!isServer && window.requestAnimationFrame) || (cb => setTimeout(cb, 16.6));
 
   const init = () => {
     if (!isInit.value) {
@@ -28,7 +29,9 @@ export default function useLazyLoad(
   };
 
   onMounted(() => {
-    if (params?.type !== 'lazy') return;
+    if (params?.type !== 'lazy') {
+      return;
+    }
     nextTick(() => {
       const bufferSize = Math.max(10, params.bufferSize || 10);
       const height = tRowHeight.value * bufferSize;

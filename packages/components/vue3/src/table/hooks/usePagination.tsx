@@ -1,7 +1,9 @@
-import { ref, SetupContext, toRefs, watch } from '@td/adapter-vue';
+import type { SetupContext } from '@td/adapter-vue';
+import { ref, toRefs, watch } from '@td/adapter-vue';
 import { useConfig } from '../../hooks/useConfig';
-import Pagination, { PageInfo, PaginationProps } from '../../pagination';
-import { TdBaseTableProps, TableRowData } from '../type';
+import type { PageInfo, PaginationProps } from '../../pagination';
+import Pagination from '../../pagination';
+import type { TableRowData, TdBaseTableProps } from '../type';
 
 // 分页功能包含：远程数据排序受控、远程数据排序非受控、本地数据排序受控、本地数据排序非受控 等 4 类功能
 export default function usePagination(props: TdBaseTableProps, context: SetupContext) {
@@ -30,7 +32,9 @@ export default function usePagination(props: TdBaseTableProps, context: SetupCon
   watch(
     () => [pagination.value?.current, pagination.value?.pageSize, data.value.length, disableDataPage],
     () => {
-      if (!pagination.value || !pagination.value.current) return;
+      if (!pagination.value || !pagination.value.current) {
+        return;
+      }
       const { current, pageSize } = pagination.value;
       innerPagination.value = { current, pageSize };
       updateDataSourceAndPaginate(pagination.value.current, pagination.value.pageSize);
@@ -42,10 +46,14 @@ export default function usePagination(props: TdBaseTableProps, context: SetupCon
   watch(
     [data],
     () => {
-      if (!pagination.value || !pagination.value.defaultCurrent) return;
+      if (!pagination.value || !pagination.value.defaultCurrent) {
+        return;
+      }
       const isControlled = Boolean(pagination.value.current);
       // 存在受控属性时，立即返回不再执行后续内容
-      if (isControlled) return;
+      if (isControlled) {
+        return;
+      }
       updateDataSourceAndPaginate(
         innerPagination.value.current ?? pagination.value.defaultCurrent,
         innerPagination.value.pageSize ?? pagination.value.defaultPageSize,
@@ -55,7 +63,9 @@ export default function usePagination(props: TdBaseTableProps, context: SetupCon
   );
 
   const renderPagination = () => {
-    if (!props.pagination) return null;
+    if (!props.pagination) {
+      return null;
+    }
     const paginationProps = { ...props.pagination };
     // Vue3，两个 onChange 事件绑定，会成为数组，因为需提前移除外部 onChange
     delete paginationProps.onChange;

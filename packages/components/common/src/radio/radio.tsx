@@ -1,15 +1,12 @@
-import { defineComponent, inject, toRefs, computed, ref } from '@td/adapter-vue';
-import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
-import { omit } from '../utils/helper';
+import { computed, defineComponent, inject, ref, toRefs } from '@td/adapter-vue';
+import { useCommonClassName, useContent, usePrefixClass, useVModel } from '@td/adapter-hooks';
 import props from '@td/intel/radio/props';
-import { RadioGroupInjectionKey, RadioButtonInjectionKey } from './constants';
+import { isString, isUndefined } from 'lodash-es';
+import { omit } from '../utils/helper';
+import { useFormDisabled } from '../form/hooks';
+import { RadioButtonInjectionKey, RadioGroupInjectionKey } from './constants';
 
 // hooks
-import { useFormDisabled } from '../form/hooks';
-import { useVModel } from '@td/adapter-hooks';
-import { useContent } from '@td/adapter-hooks';
-import { isUndefined } from 'lodash-es';
-import { isString } from 'lodash-es';
 
 function getValidAttrs(obj: Record<string, any>): Record<string, any> {
   const newObj = {};
@@ -48,10 +45,14 @@ export default defineComponent({
     };
 
     const onLabelClick = (e: MouseEvent) => {
-      if (disabled.value || props.readonly) return;
+      if (disabled.value || props.readonly) {
+        return;
+      }
       props.onClick?.({ e });
 
-      if (radioChecked.value && !allowUncheck.value) return;
+      if (radioChecked.value && !allowUncheck.value) {
+        return;
+      }
 
       if (radioGroup) {
         const value = radioChecked.value && allowUncheck.value ? undefined : props.value;
@@ -73,7 +74,7 @@ export default defineComponent({
     );
     const wrapperAttrs = computed(() => {
       const events = [...Object.keys(inputEvents.value), 'input', 'change'].map(
-        (str) => `on${str[0].toUpperCase()}${str.slice(1)}`,
+        str => `on${str[0].toUpperCase()}${str.slice(1)}`,
       );
       return omit(attrs, events);
     });

@@ -1,13 +1,11 @@
 import type { Directive, DirectiveBinding } from '@td/adapter-vue';
-import { isObject } from 'lodash-es';
-import { mapKeys } from 'lodash-es';
-import { isEqual } from 'lodash-es';
-import { TdLoadingProps } from '@td/intel/loading/type';
+import { isEqual, isObject, mapKeys } from 'lodash-es';
+import type { TdLoadingProps } from '@td/intel/loading/type';
 import produceLoading from './plugin';
 
 const INSTANCE_KEY = Symbol('TdLoading');
 
-const createInstance = (el: HTMLElement, binding: DirectiveBinding) => {
+function createInstance(el: HTMLElement, binding: DirectiveBinding) {
   const { fullscreen, inheritColor } = binding.modifiers;
   const options: TdLoadingProps = {
     attach: () => el,
@@ -26,7 +24,7 @@ const createInstance = (el: HTMLElement, binding: DirectiveBinding) => {
     options,
     instance: produceLoading(options),
   };
-};
+}
 
 export const vLoading: Directive = {
   mounted(el, binding) {

@@ -1,11 +1,11 @@
-import { defineComponent, PropType, computed } from '@td/adapter-vue';
+import type { PropType } from '@td/adapter-vue';
+import { computed, defineComponent } from '@td/adapter-vue';
+import { useDisableDate, useTableData } from '@td/adapter-hooks';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
+import type { TdDateRangePickerProps } from '../type';
+import { getDefaultFormat, parseToDayjs } from '../../_common/js/date-picker/format';
 import TPanelContent from './PanelContent';
 import TExtraContent from './ExtraContent';
-import { TdDateRangePickerProps } from '../type';
-import { getDefaultFormat, parseToDayjs } from '../../_common/js/date-picker/format';
-import { useTableData } from '@td/adapter-hooks';
-import { useDisableDate } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'TRangePanel',
@@ -143,65 +143,71 @@ export default defineComponent({
             [`${COMPONENT_NAME.value}--direction-row`]: ['left', 'right'].includes(props.presetsPlacement),
           },
         ]}
-        onClick={(e) => props.onClick?.({ e })}
+        onClick={e => props.onClick?.({ e })}
       >
-        {['top', 'left'].includes(props.presetsPlacement) ? (
-          <TExtraContent
-            presets={props.presets}
-            selectedValue={props.value[props.activeIndex]}
-            enableTimePicker={props.enableTimePicker}
-            onPresetClick={props.onPresetClick}
-            onConfirmClick={props.onConfirmClick}
-            presetsPlacement={props.presetsPlacement}
-          />
-        ) : null}
-        <div class={`${COMPONENT_NAME.value}-content-wrapper`}>
-          {!props.enableTimePicker ? (
-            [
-              <TPanelContent
-                key="startPanel"
-                partial="start"
-                year={props.year[0]}
-                month={props.month[0]}
-                time={props.time[0]}
-                value={props.value}
-                tableData={startTableData.value}
-                {...panelContentProps.value}
-              />,
-              <TPanelContent
-                key="endPanel"
-                partial="end"
-                year={props.year[1]}
-                month={props.month[1]}
-                time={props.time[1]}
-                value={props.value}
-                tableData={endTableData.value}
-                {...panelContentProps.value}
-              />,
-            ]
-          ) : (
-            <TPanelContent
-              key="start"
-              partial={props.activeIndex ? 'end' : 'start'}
-              year={props.activeIndex ? props.year[1] : props.year[0]}
-              month={props.activeIndex ? props.month[1] : props.month[0]}
-              time={props.activeIndex ? props.time[1] : props.time[0]}
-              value={props.value}
-              tableData={props.activeIndex ? endTableData.value : startTableData.value}
-              {...panelContentProps.value}
+        {['top', 'left'].includes(props.presetsPlacement)
+          ? (
+            <TExtraContent
+              presets={props.presets}
+              selectedValue={props.value[props.activeIndex]}
+              enableTimePicker={props.enableTimePicker}
+              onPresetClick={props.onPresetClick}
+              onConfirmClick={props.onConfirmClick}
+              presetsPlacement={props.presetsPlacement}
             />
-          )}
+            )
+          : null}
+        <div class={`${COMPONENT_NAME.value}-content-wrapper`}>
+          {!props.enableTimePicker
+            ? (
+                [
+                  <TPanelContent
+                    key="startPanel"
+                    partial="start"
+                    year={props.year[0]}
+                    month={props.month[0]}
+                    time={props.time[0]}
+                    value={props.value}
+                    tableData={startTableData.value}
+                    {...panelContentProps.value}
+                  />,
+                  <TPanelContent
+                    key="endPanel"
+                    partial="end"
+                    year={props.year[1]}
+                    month={props.month[1]}
+                    time={props.time[1]}
+                    value={props.value}
+                    tableData={endTableData.value}
+                    {...panelContentProps.value}
+                  />,
+                ]
+              )
+            : (
+              <TPanelContent
+                key="start"
+                partial={props.activeIndex ? 'end' : 'start'}
+                year={props.activeIndex ? props.year[1] : props.year[0]}
+                month={props.activeIndex ? props.month[1] : props.month[0]}
+                time={props.activeIndex ? props.time[1] : props.time[0]}
+                value={props.value}
+                tableData={props.activeIndex ? endTableData.value : startTableData.value}
+                {...panelContentProps.value}
+              />
+              )}
         </div>
-        {['bottom', 'right'].includes(props.presetsPlacement) ? (
-          <TExtraContent
-            presets={props.presets}
-            selectedValue={props.value[props.activeIndex]}
-            enableTimePicker={props.enableTimePicker}
-            onPresetClick={props.onPresetClick}
-            onConfirmClick={props.onConfirmClick}
-            presetsPlacement={props.presetsPlacement}
-          />
-        ) : null}
+        {['bottom', 'right'].includes(props.presetsPlacement)
+          ? (
+            <TExtraContent
+              presets={props.presets}
+              selectedValue={props.value[props.activeIndex]}
+              enableTimePicker={props.enableTimePicker}
+              onPresetClick={props.onPresetClick}
+              onConfirmClick={props.onConfirmClick}
+              presetsPlacement={props.presetsPlacement}
+            />
+            )
+          : null}
       </div>
     );
   },

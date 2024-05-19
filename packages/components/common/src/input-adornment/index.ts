@@ -1,6 +1,6 @@
-import _InputAdornment from './input-adornment';
 import { withInstall } from '@td/adapter-utils';
-import { TdInputAdornmentProps } from '@td/intel/input-adornment/type';
+import type { TdInputAdornmentProps } from '@td/intel/input-adornment/type';
+import _InputAdornment from './input-adornment';
 
 import './style';
 

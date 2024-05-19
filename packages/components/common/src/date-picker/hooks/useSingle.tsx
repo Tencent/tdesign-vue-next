@@ -1,4 +1,4 @@
-import { ref, computed, watch } from '@td/adapter-vue';
+import { computed, ref, watch } from '@td/adapter-vue';
 import { CalendarIcon as TdCalendarIcon } from 'tdesign-icons-vue-next';
 import dayjs from 'dayjs';
 import { omit } from 'lodash-es';
@@ -7,12 +7,12 @@ import { useTNodeJSX } from '../../hooks/tnode';
 import { useFormDisabled } from '../../form/hooks';
 import { usePrefixClass } from '../../hooks/useConfig';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';
-import { TdDatePickerProps, DateValue } from '../type';
+import type { DateValue, TdDatePickerProps } from '../type';
 import {
-  isValidDate,
   formatDate,
   formatTime,
   getDefaultFormat,
+  isValidDate,
   parseToDayjs,
 } from '../../_common/js/date-picker/format';
 import useSingleValue from './useSingleValue';
@@ -72,7 +72,9 @@ export default function useSingle(props: TdDatePickerProps) {
       inputValue.value = val;
 
       // 跳过不符合格式化的输入框内容
-      if (!isValidDate(val, formatRef.value.format)) return;
+      if (!isValidDate(val, formatRef.value.format)) {
+        return;
+      }
       cacheValue.value = val;
       const newMonth = parseToDayjs(val, formatRef.value.format).month();
       const newYear = parseToDayjs(val, formatRef.value.format).year();
@@ -88,7 +90,9 @@ export default function useSingle(props: TdDatePickerProps) {
         return;
       }
 
-      if (!isValidDate(val, formatRef.value.format) && !isValidDate(value.value, formatRef.value.format)) return;
+      if (!isValidDate(val, formatRef.value.format) && !isValidDate(value.value, formatRef.value.format)) {
+        return;
+      }
 
       popupVisible.value = false;
       if (isValidDate(val, formatRef.value.format)) {
@@ -116,7 +120,9 @@ export default function useSingle(props: TdDatePickerProps) {
     overlayInnerStyle: props.popupProps?.overlayInnerStyle ?? { width: 'auto' },
     overlayClassName: [props.popupProps?.overlayClassName, `${COMPONENT_NAME.value}__panel-container`],
     onVisibleChange: (visible: boolean, context: any) => {
-      if (disabled.value) return;
+      if (disabled.value) {
+        return;
+      }
       // 这里劫持了进一步向 popup 传递的 onVisibleChange 事件，为了保证可以在 Datepicker 中使用 popupProps.onVisibleChange，故此处理
       props.popupProps?.onVisibleChange?.(visible, context);
       props.popupProps?.['on-visible-change']?.(visible, context);
@@ -134,7 +140,9 @@ export default function useSingle(props: TdDatePickerProps) {
       inputValue.value = '';
       return;
     }
-    if (!isValidDate(value, formatRef.value.format)) return;
+    if (!isValidDate(value, formatRef.value.format)) {
+      return;
+    }
 
     inputValue.value = formatDate(value, {
       format: formatRef.value.format,

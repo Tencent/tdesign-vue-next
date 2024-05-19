@@ -1,14 +1,21 @@
 import {
-  defineComponent, ref, toRefs, inject, watch, onBeforeUnmount, computed, nextTick,
-}  from '@td/adapter-vue'
+  computed,
+  defineComponent,
+  inject,
+  nextTick,
+  onBeforeUnmount,
+  ref,
+  toRefs,
+  watch,
+} from '@td/adapter-vue';
 import props from '@td/intel/components/checkbox/props';
 import {
-  useVModel,
-  useElementLazyRender,
-  useTNodeJSX,
-  useDisabled,
   useCommonClassName,
+  useDisabled,
+  useElementLazyRender,
   usePrefixClass,
+  useTNodeJSX,
+  useVModel,
 } from '@td/adapter-hooks';
 import { CheckboxGroupInjectionKey } from './constants';
 import { getCheckboxStore } from './store';
@@ -37,10 +44,16 @@ export default defineComponent({
     const labelRef = ref<HTMLElement>();
     const { STATUS } = useCommonClassName();
     const checkboxGroupExist = ref(false);
-    const renderTNodeJSX = useTNodeJSX()
+    const renderTNodeJSX = useTNodeJSX();
 
     const {
-      checked, indeterminate, disabled, value, lazyLoad, label, data,
+      checked,
+      indeterminate,
+      disabled,
+      value,
+      lazyLoad,
+      label,
+      data,
     } = toRefs(props);
     const [innerChecked, setInnerChecked] = useVModel(
       checked,
@@ -172,7 +185,9 @@ export default defineComponent({
     watch(
       [data, label, storeKey],
       () => {
-        if (!storeKey.value) return;
+        if (!storeKey.value) {
+          return;
+        }
         if (!tChecked.value && checkboxStore.value?.parentChecked?.includes(props.value)) {
           tChecked.value = true;
         }
@@ -186,7 +201,9 @@ export default defineComponent({
     });
 
     const handleChange = (e: Event) => {
-      if (props.readonly) return;
+      if (props.readonly) {
+        return;
+      }
       const checked = !tChecked.value;
       setInnerChecked(checked, { e });
       if (checkboxGroupData?.value.onCheckedChange) {
@@ -201,7 +218,9 @@ export default defineComponent({
 
     const handleLabelClick = (e: MouseEvent) => {
       // 在tree等组件中使用  阻止label触发checked 与expand冲突
-      if (props.stopLabelTrigger) e.preventDefault();
+      if (props.stopLabelTrigger) {
+        e.preventDefault();
+      }
     };
 
     const { showElement: showCheckbox } = useElementLazyRender(labelRef, lazyLoad);
@@ -227,27 +246,28 @@ export default defineComponent({
           {!showCheckbox.value
             ? null
             : [
-                <input
-                  type="checkbox"
-                  class={`${COMPONENT_NAME.value}__former`}
-                  disabled={disabled}
-                  readonly={props.readonly}
-                  indeterminate={tIndeterminate.value}
-                  name={tName.value || props.name || undefined}
-                  value={value.value ? value.value : undefined}
-                  checked={tChecked.value}
-                  onChange={handleChange}
-                  key="input"
-                  tabindex="-1"
-                ></input>,
-                <span class={`${COMPONENT_NAME.value}__input`} key="input-span"></span>,
-                <span class={`${COMPONENT_NAME.value}__label`} key="label" onClick={handleLabelClick}>
-                  {renderTNodeJSX('default', { params: slotsPrams })
-                    || renderTNodeJSX('label', { params: slotsPrams, slotFirst: checkboxGroupExist.value })}
-                </span>,
-            ]}
+              <input
+                type="checkbox"
+                class={`${COMPONENT_NAME.value}__former`}
+                disabled={disabled}
+                readonly={props.readonly}
+                indeterminate={tIndeterminate.value}
+                name={tName.value || props.name || undefined}
+                value={value.value ? value.value : undefined}
+                checked={tChecked.value}
+                onChange={handleChange}
+                key="input"
+                tabindex="-1"
+              >
+              </input>,
+              <span class={`${COMPONENT_NAME.value}__input`} key="input-span"></span>,
+              <span class={`${COMPONENT_NAME.value}__label`} key="label" onClick={handleLabelClick}>
+                {renderTNodeJSX('default', { params: slotsPrams })
+                || renderTNodeJSX('label', { params: slotsPrams, slotFirst: checkboxGroupExist.value })}
+              </span>,
+              ]}
         </label>
       );
-    }
+    };
   },
 });

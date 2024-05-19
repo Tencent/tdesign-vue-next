@@ -1,8 +1,8 @@
+import { withInstall } from '@td/adapter-utils';
+import type { TdListItemMetaProps, TdListItemProps, TdListProps } from '@td/intel/list/type';
 import _List from './list';
 import _ListItem from './list-item';
 import _ListItemMeta from './list-item-meta';
-import { withInstall } from '@td/adapter-utils';
-import { TdListProps, TdListItemProps, TdListItemMetaProps } from '@td/intel/list/type';
 
 import './style';
 

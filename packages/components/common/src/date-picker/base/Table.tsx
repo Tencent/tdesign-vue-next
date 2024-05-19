@@ -1,9 +1,10 @@
-import { defineComponent, PropType, computed } from '@td/adapter-vue';
-import TDatePickerCell from './Cell';
+import type { PropType } from '@td/adapter-vue';
+import { computed, defineComponent } from '@td/adapter-vue';
+import { isArray } from 'lodash-es';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 import type { TdDatePickerProps } from '../type';
 import { parseToDayjs } from '../../_common/js/date-picker/format';
-import { isArray } from 'lodash-es';
+import TDatePickerCell from './Cell';
 
 export default defineComponent({
   name: 'TDatePickerTable',
@@ -35,7 +36,9 @@ export default defineComponent({
         wi = (wi + len + 1) % len;
       }
 
-      if (props.mode === 'week') weekArr.unshift(globalConfig.value.weekAbbreviation);
+      if (props.mode === 'week') {
+        weekArr.unshift(globalConfig.value.weekAbbreviation);
+      }
 
       return weekArr;
     });
@@ -44,11 +47,15 @@ export default defineComponent({
 
     // 高亮周区间
     const weekRowClass = (value: any, format: string, targetValue: Date) => {
-      if (props.mode !== 'week' || !value) return {};
+      if (props.mode !== 'week' || !value) {
+        return {};
+      }
 
       if (isArray(value)) {
-        if (!value.length) return {};
-        const [startObj, endObj] = value.map((v) => v && parseToDayjs(v, format));
+        if (!value.length) {
+          return {};
+        }
+        const [startObj, endObj] = value.map(v => v && parseToDayjs(v, format));
         const startYear = startObj && startObj.year();
         const startWeek = startObj?.locale?.(dayjsLocale)?.week?.();
         const endYear = endObj && endObj.year();
@@ -57,10 +64,10 @@ export default defineComponent({
         const targetObj = parseToDayjs(targetValue, format);
         const targetYear = targetObj.year();
         const targetWeek = targetObj.week();
-        const isActive =
-          (targetYear === startYear && targetWeek === startWeek) || (targetYear === endYear && targetWeek === endWeek);
-        const isRange =
-          targetYear >= startYear && targetYear <= endYear && targetWeek > startWeek && targetWeek < endWeek;
+        const isActive
+          = (targetYear === startYear && targetWeek === startWeek) || (targetYear === endYear && targetWeek === endWeek);
+        const isRange
+          = targetYear >= startYear && targetYear <= endYear && targetWeek > startWeek && targetWeek < endWeek;
         return {
           // 同年同周
           [`${COMPONENT_NAME.value}-${props.mode}-row--active`]: isActive,
@@ -70,8 +77,8 @@ export default defineComponent({
 
       return {
         [`${COMPONENT_NAME.value}-${props.mode}-row--active`]:
-          parseToDayjs(value, format).locale(dayjsLocale).week() ===
-          parseToDayjs(targetValue, format).locale(dayjsLocale).week(),
+          parseToDayjs(value, format).locale(dayjsLocale).week()
+          === parseToDayjs(targetValue, format).locale(dayjsLocale).week(),
       };
     };
 

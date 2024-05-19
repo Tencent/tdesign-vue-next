@@ -1,7 +1,7 @@
+import { withInstall } from '@td/adapter-utils';
+import type { AutoCompleteOption, TdAutoCompleteProps } from '@td/intel/auto-complete/type';
 import _AutoComplete from './auto-complete';
 import _HighlightOption from './highlight-option';
-import { withInstall } from '@td/adapter-utils';
-import { AutoCompleteOption, TdAutoCompleteProps } from '@td/intel/auto-complete/type';
 
 import './style';
 

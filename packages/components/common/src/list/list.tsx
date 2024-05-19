@@ -1,16 +1,14 @@
-import { defineComponent, VNodeChild, computed, ref } from '@td/adapter-vue';
-import { isString } from 'lodash-es';
-import { omit } from 'lodash-es';
-import { useTNodeJSX } from '@td/adapter-hooks';
+import type { VNodeChild } from '@td/adapter-vue';
+import { computed, defineComponent, ref } from '@td/adapter-vue';
+import { isString, omit } from 'lodash-es';
+import { useCommonClassName, useConfig, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
+import props from '@td/intel/list/props';
+import type { TdListProps } from '@td/intel/list/type';
 import TLoading from '../loading';
 import TListItem from './list-item';
-import props from '@td/intel/list/props';
-import { LOAD_MORE, LOADING } from './const';
-import { useConfig, usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
+import { LOADING, LOAD_MORE } from './const';
 import { useListItems } from './hooks/useListItems';
 import { useListVirtualScroll } from './hooks/useListVirtualScroll';
-
-import type { TdListProps } from '@td/intel/list/type';
 
 export default defineComponent({
   name: 'TList',
@@ -51,20 +49,22 @@ export default defineComponent({
       return (
         <>
           {propsHeaderContent ? <div class={`${COMPONENT_NAME.value}__header`}>{propsHeaderContent}</div> : null}
-          {isVirtualScroll ? (
-            <>
-              <div style={cursorStyle.value}></div>
-              <ul class={`${COMPONENT_NAME.value}__inner`} style={listStyle.value}>
-                {virtualConfig.visibleData.value.map((item) => (
-                  <>
-                    <TListItem v-slots={item.slots} {...omit(item, 'slots')}></TListItem>
-                  </>
-                ))}
-              </ul>
-            </>
-          ) : (
-            <ul class={`${COMPONENT_NAME.value}__inner`}>{renderTNodeJSX('default')}</ul>
-          )}
+          {isVirtualScroll
+            ? (
+              <>
+                <div style={cursorStyle.value}></div>
+                <ul class={`${COMPONENT_NAME.value}__inner`} style={listStyle.value}>
+                  {virtualConfig.visibleData.value.map(item => (
+                    <>
+                      <TListItem v-slots={item.slots} {...omit(item, 'slots')}></TListItem>
+                    </>
+                  ))}
+                </ul>
+              </>
+              )
+            : (
+              <ul class={`${COMPONENT_NAME.value}__inner`}>{renderTNodeJSX('default')}</ul>
+              )}
           {propsFooterContent ? <div class={`${COMPONENT_NAME.value}__footer`}>{propsFooterContent}</div> : null}
         </>
       );
@@ -75,7 +75,9 @@ export default defineComponent({
     const handleScroll = (e: WheelEvent) => {
       const listElement = e.target as HTMLElement;
       const { scrollTop, scrollHeight, clientHeight } = listElement;
-      if (isVirtualScroll.value) onInnerVirtualScroll(e);
+      if (isVirtualScroll.value) {
+        onInnerVirtualScroll(e);
+      }
       props.onScroll?.({
         e,
         scrollTop,
@@ -109,7 +111,9 @@ export default defineComponent({
     };
 
     const handleLoadMore = (e: MouseEvent) => {
-      if (isString(props.asyncLoading) && props.asyncLoading !== LOAD_MORE) return;
+      if (isString(props.asyncLoading) && props.asyncLoading !== LOAD_MORE) {
+        return;
+      }
       props.onLoadMore?.({ e });
     };
     /** loading加载相关逻辑 end */

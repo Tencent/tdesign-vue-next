@@ -1,6 +1,6 @@
 import { defineComponent } from '@td/adapter-vue';
-import Panel from './components/Panel';
 import props from '@td/intel/cascader/props';
+import Panel from './components/Panel';
 
 import { useCascaderContext } from './hooks';
 

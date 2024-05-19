@@ -1,6 +1,6 @@
-import { Ref, VNodeNormalizedChildren } from '@td/adapter-vue';
-import { MenuValue } from '@td/intel/menu/type';
-import VMenu from './v-menu';
+import type { Ref, VNodeNormalizedChildren } from '@td/adapter-vue';
+import type { MenuValue } from '@td/intel/menu/type';
+import type VMenu from './v-menu';
 
 export interface TdMenuItem {
   value: MenuValue;

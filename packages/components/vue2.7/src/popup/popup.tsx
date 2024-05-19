@@ -1,5 +1,4 @@
 import {
-  H,
   computed,
   defineComponent,
   getCurrentInstance,
@@ -25,7 +24,6 @@ import {
 import props from '@td/intel/components/popup/props';
 import type {
   PopupTriggerEvent,
-  PopupVisibleChangeContext,
 } from '@td/intel/components/popup/type';
 import type { InjectionKey } from '@td/adapter-vue';
 import Container from './container';

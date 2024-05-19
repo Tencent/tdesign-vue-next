@@ -1,9 +1,10 @@
-import { defineComponent, PropType, ref, watch } from '@td/adapter-vue';
+import type { PropType } from '@td/adapter-vue';
+import { defineComponent, ref, watch } from '@td/adapter-vue';
 
 import props from '../props';
 import { COLOR_MODES } from '../const';
-import { RadioGroup as TRadioGroup, RadioButton as TRadioButton } from '../../radio';
-import { TdColorModes } from '../interfaces';
+import { RadioButton as TRadioButton, RadioGroup as TRadioGroup } from '../../radio';
+import type { TdColorModes } from '../interfaces';
 import { useBaseClassName } from '../hooks';
 
 export default defineComponent({
@@ -30,7 +31,7 @@ export default defineComponent({
     const handleModeChange = (v: string) => props.onModeChange(v);
     watch(
       () => props.mode,
-      (v) => (modeValue.value = v),
+      v => (modeValue.value = v),
     );
     return {
       baseClassName,
@@ -46,22 +47,24 @@ export default defineComponent({
     return (
       <div class={`${baseClassName}__head`}>
         <div class={`${baseClassName}__mode`}>
-          {this.colorModes?.length === 1 ? (
-            COLOR_MODES[this.colorModes[0]]
-          ) : (
-            <TRadioGroup
-              variant="default-filled"
-              size="small"
-              v-model={this.modeValue}
-              onChange={this.handleModeChange}
-            >
-              {Object.keys(COLOR_MODES).map((key) => (
-                <TRadioButton key={key} value={key}>
-                  {COLOR_MODES[key]}
-                </TRadioButton>
-              ))}
-            </TRadioGroup>
-          )}
+          {this.colorModes?.length === 1
+            ? (
+                COLOR_MODES[this.colorModes[0]]
+              )
+            : (
+              <TRadioGroup
+                variant="default-filled"
+                size="small"
+                v-model={this.modeValue}
+                onChange={this.handleModeChange}
+              >
+                {Object.keys(COLOR_MODES).map(key => (
+                  <TRadioButton key={key} value={key}>
+                    {COLOR_MODES[key]}
+                  </TRadioButton>
+                ))}
+              </TRadioGroup>
+              )}
         </div>
       </div>
     );

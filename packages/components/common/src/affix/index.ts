@@ -1,6 +1,6 @@
-import _Affix from './affix';
 import { withInstall } from '@td/adapter-utils';
-import { TdAffixProps } from '@td/intel/affix/type';
+import type { TdAffixProps } from '@td/intel/affix/type';
+import _Affix from './affix';
 
 import './style';
 

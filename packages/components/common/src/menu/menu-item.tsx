@@ -1,11 +1,10 @@
-import { defineComponent, computed, inject, onMounted, ref, toRefs, getCurrentInstance } from '@td/adapter-vue';
+import { computed, defineComponent, getCurrentInstance, inject, onMounted, ref, toRefs } from '@td/adapter-vue';
 import props from '@td/intel/menu/menu-item-props';
-import { TdMenuInterface, TdSubMenuInterface } from './const';
+import { usePrefixClass, useRipple } from '@td/adapter-hooks';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import { emitEvent } from '../utils/event';
-import { useRipple } from '@td/adapter-hooks';
-import { usePrefixClass } from '@td/adapter-hooks';
 import Tooltip from '../tooltip';
+import type { TdMenuInterface, TdSubMenuInterface } from './const';
 
 export default defineComponent({
   name: 'TMenuItem',
@@ -49,7 +48,9 @@ export default defineComponent({
   methods: {
     handleClick(e: MouseEvent) {
       e.stopPropagation();
-      if (this.disabled) return;
+      if (this.disabled) {
+        return;
+      }
       this.menu.select(this.value);
       emitEvent(this, 'click', { e, value: this.value });
       if (this.to || (this.routerLink && this.href)) {
@@ -60,8 +61,8 @@ export default defineComponent({
           // https://github.com/vuejs/vue-router/issues/2872
           // 当前path和目标path相同时，会抛出NavigationDuplicated的错误
           if (
-            err.name !== 'NavigationDuplicated' &&
-            !err.message.includes('Avoided redundant navigation to current location')
+            err.name !== 'NavigationDuplicated'
+            && !err.message.includes('Avoided redundant navigation to current location')
           ) {
             throw err;
           }
@@ -76,27 +77,31 @@ export default defineComponent({
     const liContent = (
       <li ref="itemRef" class={this.classes} onClick={this.handleClick}>
         {renderTNodeJSX(this, 'icon')}
-        {this.routerLink ? (
-          <a
-            href={this.href ? this.href : this.to ? router?.resolve(this.to).href : ''}
-            target={this.target}
-            class={`${this.classPrefix}-menu__item-link`}
-            onClick={(e) => e.preventDefault()}
-          >
-            <span class={`${this.classPrefix}-menu__content`}>{renderContent(this, 'default', 'content')}</span>
-          </a>
-        ) : this.href ? (
-          <a
-            href={this.href}
-            target={this.target}
-            class={`${this.classPrefix}-menu__item-link`}
-            onClick={(e) => this.disabled && e.preventDefault()}
-          >
-            <span class={`${this.classPrefix}-menu__content`}>{renderContent(this, 'default', 'content')}</span>
-          </a>
-        ) : (
-          <span class={`${this.classPrefix}-menu__content`}>{renderContent(this, 'default', 'content')}</span>
-        )}
+        {this.routerLink
+          ? (
+            <a
+              href={this.href ? this.href : this.to ? router?.resolve(this.to).href : ''}
+              target={this.target}
+              class={`${this.classPrefix}-menu__item-link`}
+              onClick={e => e.preventDefault()}
+            >
+              <span class={`${this.classPrefix}-menu__content`}>{renderContent(this, 'default', 'content')}</span>
+            </a>
+            )
+          : this.href
+            ? (
+              <a
+                href={this.href}
+                target={this.target}
+                class={`${this.classPrefix}-menu__item-link`}
+                onClick={e => this.disabled && e.preventDefault()}
+              >
+                <span class={`${this.classPrefix}-menu__content`}>{renderContent(this, 'default', 'content')}</span>
+              </a>
+              )
+            : (
+              <span class={`${this.classPrefix}-menu__content`}>{renderContent(this, 'default', 'content')}</span>
+              )}
       </li>
     );
 

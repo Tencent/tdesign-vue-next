@@ -1,15 +1,10 @@
-import { defineComponent, provide, computed, watchEffect, ref, toRefs } from '@td/adapter-vue';
-import { intersection } from 'lodash-es';
-import { isObject } from 'lodash-es';
-import { isUndefined } from 'lodash-es';
-import Checkbox from './checkbox';
+import { computed, defineComponent, provide, ref, toRefs, watchEffect } from '@td/adapter-vue';
+import { intersection, isObject, isUndefined } from 'lodash-es';
 import props from '@td/intel/checkbox/checkbox-group-props';
-import { CheckboxOptionObj, TdCheckboxProps, CheckboxGroupValue } from '@td/intel/checkbox/type';
+import type { CheckboxGroupValue, CheckboxOptionObj, TdCheckboxProps } from '@td/intel/checkbox/type';
+import { useChildComponentSlots, usePrefixClass, useTNodeJSX, useVModel } from '@td/adapter-hooks';
+import Checkbox from './checkbox';
 import { CheckboxGroupInjectionKey } from './constants';
-import { useVModel } from '@td/adapter-hooks';
-import { usePrefixClass } from '@td/adapter-hooks';
-import { useTNodeJSX } from '@td/adapter-hooks';
-import { useChildComponentSlots } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'TCheckboxGroup',
@@ -27,14 +22,16 @@ export default defineComponent({
     const optionList = ref<Array<CheckboxOptionObj>>([]);
 
     const intersectionLen = computed<number>(() => {
-      if (!isArray(innerValue.value)) return 0;
-      const values = optionList.value.map((item) => item.value);
+      if (!isArray(innerValue.value)) {
+        return 0;
+      }
+      const values = optionList.value.map(item => item.value);
       const n = intersection(innerValue.value, values);
       return n.length;
     });
 
     const isCheckAll = computed<boolean>(() => {
-      const optionItems = optionList.value.filter((item) => !item.disabled && !item.checkAll).map((t) => t.value);
+      const optionItems = optionList.value.filter(item => !item.disabled && !item.checkAll).map(t => t.value);
       const intersectionValues = intersection(optionItems, innerValue.value);
       return intersectionValues.length === optionItems.length;
     });
@@ -46,7 +43,9 @@ export default defineComponent({
     const maxExceeded = computed<boolean>(() => !isUndefined(props.max) && innerValue.value.length === props.max);
 
     watchEffect(() => {
-      if (!props.options) return [];
+      if (!props.options) {
+        return [];
+      }
       optionList.value = props.options.map((item) => {
         return isObject(item) ? item : { label: String(item), value: item };
       });
@@ -56,10 +55,16 @@ export default defineComponent({
       const val = new Set<TdCheckboxProps['value']>();
       for (let i = 0, len = optionList.value.length; i < len; i++) {
         const item = optionList.value[i];
-        if (item.checkAll) continue;
-        if (item.disabled) continue;
+        if (item.checkAll) {
+          continue;
+        }
+        if (item.disabled) {
+          continue;
+        }
         val.add(item.value);
-        if (maxExceeded.value) break;
+        if (maxExceeded.value) {
+          break;
+        }
       }
       return [...val];
     };
@@ -111,7 +116,9 @@ export default defineComponent({
       const arr: Array<CheckboxOptionObj> = [];
       nodes?.forEach((node) => {
         const option = node.props as CheckboxOptionObj;
-        if (!option) return;
+        if (!option) {
+          return;
+        }
         if (option['check-all'] === '' || option['check-all'] === true) {
           option.checkAll = true;
         }
@@ -145,7 +152,8 @@ export default defineComponent({
             index={index}
             checked={innerValue.value?.includes(option.value)}
             data={option}
-          ></Checkbox>
+          >
+          </Checkbox>
         ));
       } else {
         const nodes = renderTNodeJSX('default');

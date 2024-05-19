@@ -1,17 +1,17 @@
-import { ref, computed, toRefs } from '@td/adapter-vue';
+import { computed, ref, toRefs } from '@td/adapter-vue';
 import { merge } from 'lodash-es';
-import { SizeLimitObj, TdUploadProps, UploadChangeContext, UploadFile, UploadRemoveContext } from '../type';
+import type { SizeLimitObj, TdUploadProps, UploadChangeContext, UploadFile, UploadRemoveContext } from '../type';
 import {
-  getFilesAndErrors,
-  validateFile,
-  upload,
-  getTriggerTextField,
-  getDisplayFiles,
   formatToUploadFile,
+  getDisplayFiles,
+  getFilesAndErrors,
+  getTriggerTextField,
+  upload,
+  validateFile,
 } from '../../_common/js/upload/main';
 import { getFileList } from '../../_common/js/upload/utils';
 import useVModel from '../../hooks/useVModel';
-import { InnerProgressContext, OnResponseErrorContext, SuccessContext } from '../../_common/js/upload/types';
+import type { InnerProgressContext, OnResponseErrorContext, SuccessContext } from '../../_common/js/upload/types';
 import { useConfig } from '../../hooks/useConfig';
 
 export type ValidateParams = Parameters<TdUploadProps['onValidate']>[0];
@@ -62,7 +62,7 @@ export default function useUpload(props: TdUploadProps) {
   const uploadFilePercent = (params: { file: UploadFile; percent: number }) => {
     const { file, percent } = params;
     const operationUploadFiles = autoUpload.value ? toUploadFiles : uploadValue;
-    const index = operationUploadFiles.value.findIndex((item) => file.raw === item.raw);
+    const index = operationUploadFiles.value.findIndex(item => file.raw === item.raw);
     operationUploadFiles.value[index] = { ...operationUploadFiles.value[index], percent };
   };
 
@@ -73,7 +73,9 @@ export default function useUpload(props: TdUploadProps) {
   };
 
   const onResponseError = (p: OnResponseErrorContext) => {
-    if (!p || !p.files || !p.files[0]) return;
+    if (!p || !p.files || !p.files[0]) {
+      return;
+    }
     const { response, event, files } = p;
     updateFilesProgress();
     props.onOneFileFail?.({
@@ -128,7 +130,9 @@ export default function useUpload(props: TdUploadProps) {
 
   const handleNotAutoUpload = (toFiles: UploadFile[]) => {
     const tmpFiles = props.multiple && !isBatchUpload.value ? uploadValue.value.concat(toFiles) : toFiles;
-    if (!tmpFiles.length) return;
+    if (!tmpFiles.length) {
+      return;
+    }
     setUploadValue(tmpFiles, {
       trigger: 'add',
       index: uploadValue.value.length,
@@ -139,12 +143,14 @@ export default function useUpload(props: TdUploadProps) {
   };
 
   const onFileChange = (files: File[]) => {
-    if (disabled.value) return;
+    if (disabled.value) {
+      return;
+    }
     const params = { currentSelectedFiles: formatToUploadFile([...files], props.format) };
     props.onSelectChange?.([...files], params);
     validateFile({
       uploadValue: uploadValue.value,
-      // @ts-ignore
+      // @ts-expect-error
       files: [...files],
       allowUploadDuplicateFile: props.allowUploadDuplicateFile,
       max: props.multiple ? props.max : 0,
@@ -165,7 +171,9 @@ export default function useUpload(props: TdUploadProps) {
       if (args.lengthOverLimit) {
         const params: ValidateParams = { type: 'FILES_OVER_LENGTH_LIMIT', files: args.files };
         props.onValidate?.(params);
-        if (!args.files.length) return;
+        if (!args.files.length) {
+          return;
+        }
       }
       // 过滤相同的文件名
       if (args.hasSameNameFile) {
@@ -173,7 +181,7 @@ export default function useUpload(props: TdUploadProps) {
         props.onValidate?.(params);
       }
       // 文件大小校验结果处理（已过滤超出限制的文件）
-      if (args.fileValidateList instanceof Array) {
+      if (Array.isArray(args.fileValidateList)) {
         const { sizeLimitErrors, beforeUploadErrorFiles, toFiles } = getFilesAndErrors(
           args.fileValidateList,
           getSizeLimitError,
@@ -184,7 +192,7 @@ export default function useUpload(props: TdUploadProps) {
         // 文件大小处理
         if (sizeLimitErrors[0]) {
           sizeOverLimitMessage.value = sizeLimitErrors[0].file.response.error;
-          props.onValidate?.({ type: 'FILE_OVER_SIZE_LIMIT', files: sizeLimitErrors.map((t) => t.file) });
+          props.onValidate?.({ type: 'FILE_OVER_SIZE_LIMIT', files: sizeLimitErrors.map(t => t.file) });
         } else {
           sizeOverLimitMessage.value = '';
           // 自定义方法 beforeUpload 拦截的文件
@@ -224,9 +232,11 @@ export default function useUpload(props: TdUploadProps) {
    * @param toFiles 本地上传的文件列表
    */
   function uploadFiles(toFiles?: UploadFile[]) {
-    const notUploadedFiles = uploadValue.value.filter((t) => t.status !== 'success');
+    const notUploadedFiles = uploadValue.value.filter(t => t.status !== 'success');
     const files = autoUpload.value ? toFiles || toUploadFiles.value : notUploadedFiles;
-    if (!files || !files.length) return;
+    if (!files || !files.length) {
+      return;
+    }
     uploading.value = true;
     xhrReq.value = [];
     upload({
@@ -251,7 +261,9 @@ export default function useUpload(props: TdUploadProps) {
       onResponseSuccess,
       onResponseError,
       setXhrObject: (xhr) => {
-        if (xhr.files[0]?.raw && xhrReq.value.find((item) => item.files[0]?.raw === xhr.files[0].raw)) return;
+        if (xhr.files[0]?.raw && xhrReq.value.find(item => item.files[0]?.raw === xhr.files[0].raw)) {
+          return;
+        }
         xhrReq.value = xhrReq.value.concat(xhr);
       },
     }).then(
@@ -269,9 +281,9 @@ export default function useUpload(props: TdUploadProps) {
             currentFiles: files,
             file: files[0],
             // 只有全部请求完成后，才会存在该字段
-            results: list?.map((t) => t.data),
+            results: list?.map(t => t.data),
             // 单文件单请求有一个 response，多文件多请求有多个 response
-            response: data.response || list.map((t) => t.data.response),
+            response: data.response || list.map(t => t.data.response),
             XMLHttpRequest: data.XMLHttpRequest,
           });
         } else if (failedFiles?.[0]) {
@@ -313,7 +325,7 @@ export default function useUpload(props: TdUploadProps) {
       setUploadValue([...uploadValue.value], changePrams);
     } else {
       // autoUpload 场景下， p.index < uploadValue.length 表示移除已经上传成功的文件；反之表示移除待上传列表文件
-      // eslint-disable-next-line
+
       if (p.index < uploadValue.value.length) {
         uploadValue.value.splice(p.index, 1);
         setUploadValue([...uploadValue.value], changePrams);
@@ -327,7 +339,9 @@ export default function useUpload(props: TdUploadProps) {
   }
 
   const triggerUpload = (e?: MouseEvent) => {
-    if (disabled.value || !inputRef.value) return;
+    if (disabled.value || !inputRef.value) {
+      return;
+    }
     e?.stopPropagation?.();
     (inputRef.value as HTMLInputElement).click();
   };

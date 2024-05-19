@@ -1,7 +1,7 @@
+import { withInstall } from '@td/adapter-utils';
+import type { TdSwiperProps } from '@td/intel/swiper/type';
 import _Swiper from './swiper';
 import _SwiperItem from './swiper-item';
-import { withInstall } from '@td/adapter-utils';
-import { TdSwiperProps } from '@td/intel/swiper/type';
 
 import './style';
 

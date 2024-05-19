@@ -1,18 +1,20 @@
-import { defineComponent, PropType, toRefs, computed } from '@td/adapter-vue';
+import type { PropType } from '@td/adapter-vue';
+import { computed, defineComponent, toRefs } from '@td/adapter-vue';
 import {
+  AddIcon as TdAddIcon,
   BrowseIcon as TdBrowseIcon,
   DeleteIcon as TdDeleteIcon,
-  AddIcon as TdAddIcon,
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
 import Loading from '../../loading';
 import useGlobalIcon from '../../hooks/useGlobalIcon';
-import ImageViewer, { ImageViewerProps } from '../../image-viewer';
-import { CommonDisplayFileProps } from '../interface';
+import type { ImageViewerProps } from '../../image-viewer';
+import ImageViewer from '../../image-viewer';
+import type { CommonDisplayFileProps } from '../interface';
 import { commonProps } from '../constants';
-import { TdUploadProps, UploadFile } from '../type';
+import type { TdUploadProps, UploadFile } from '../type';
 import { abridgeName } from '../../_common/js/upload/utils';
-import { UploadConfig } from '../../config-provider';
+import type { UploadConfig } from '../../config-provider';
 import { useTNodeJSX } from '../../hooks';
 import Link from '../../link';
 import Image from '../../image';
@@ -68,7 +70,7 @@ export default defineComponent({
         <div class={`${classPrefix.value}-upload__card-content ${classPrefix.value}-upload__card-box`}>
           <Image class={`${classPrefix.value}-upload__card-image`} src={file.url || file.raw} error="" />
           <div class={`${classPrefix.value}-upload__card-mask`}>
-            <span class={`${classPrefix.value}-upload__card-mask-item`} onClick={(e) => e.stopPropagation()}>
+            <span class={`${classPrefix.value}-upload__card-mask-item`} onClick={e => e.stopPropagation()}>
               <ImageViewer
                 images={displayFiles.value.map((t: UploadFile) => t.url || t.raw)}
                 defaultIndex={index}
@@ -83,12 +85,13 @@ export default defineComponent({
                   );
                 }}
                 {...(props.imageViewerProps as ImageViewerProps)}
-              ></ImageViewer>
+              >
+              </ImageViewer>
             </span>
             {!props.disabled && (
               <>
                 <span class={`${classPrefix.value}-upload__card-mask-item-divider`} />
-                <span class={`${classPrefix.value}-upload__card-mask-item`} onClick={(e) => e.stopPropagation()}>
+                <span class={`${classPrefix.value}-upload__card-mask-item`} onClick={e => e.stopPropagation()}>
                   <DeleteIcon onClick={({ e }: { e: MouseEvent }) => props?.onRemove?.({ e, file, index })} />
                 </span>
               </>
@@ -116,7 +119,7 @@ export default defineComponent({
           <ErrorCircleFilledIcon />
           <p>{file.response?.error || locale.value?.progress?.failText}</p>
           <div class={`${classPrefix.value}-upload__card-mask`}>
-            <span class={`${classPrefix.value}-upload__card-mask-item`} onClick={(e) => e.stopPropagation()}>
+            <span class={`${classPrefix.value}-upload__card-mask-item`} onClick={e => e.stopPropagation()}>
               <DeleteIcon onClick={({ e }: { e: MouseEvent }) => props?.onRemove?.({ e, file, index })} />
             </span>
           </div>
@@ -139,7 +142,9 @@ export default defineComponent({
           files: displayFiles.value,
         },
       });
-      if (customList) return customList;
+      if (customList) {
+        return customList;
+      }
 
       const cardItemClasses = `${classPrefix.value}-upload__card-item ${classPrefix.value}-is-background`;
       return (
@@ -155,14 +160,16 @@ export default defineComponent({
                   {file.status === 'progress' && renderProgressFile(file, loadCard)}
                   {file.status === 'fail' && renderFailFile(file, index, loadCard)}
                   {!['progress', 'fail'].includes(file.status) && renderMainContent(file, index)}
-                  {Boolean(fileName && props.showImageFileName) &&
-                    (file.url ? (
+                  {Boolean(fileName && props.showImageFileName)
+                  && (file.url
+                    ? (
                       <Link href={file.url} class={fileNameClassName} target="_blank" hover="color" size="small">
                         {fileName}
                       </Link>
-                    ) : (
+                      )
+                    : (
                       <span class={fileNameClassName}>{fileName}</span>
-                    ))}
+                      ))}
                 </li>
               );
             })}

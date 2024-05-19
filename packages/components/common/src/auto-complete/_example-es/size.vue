@@ -1,3 +1,11 @@
+<script lang="ts" setup>
+import { ref } from 'vue';
+
+const value1 = ref('');
+const value2 = ref('');
+const value3 = ref('');
+</script>
+
 <template>
   <t-space direction="vertical">
     <t-auto-complete
@@ -21,10 +29,3 @@
     />
   </t-space>
 </template>
-
-<script lang="ts" setup>
-import { ref } from 'vue';
-const value1 = ref('');
-const value2 = ref('');
-const value3 = ref('');
-</script>

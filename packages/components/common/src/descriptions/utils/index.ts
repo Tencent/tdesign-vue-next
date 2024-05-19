@@ -1,9 +1,10 @@
-import { VNode, Slots, h, ComponentOptions } from '@td/adapter-vue';
-import { isFunction } from 'lodash-es';
-import { isString } from 'lodash-es';
+import type { ComponentOptions, Slots, VNode } from '@td/adapter-vue';
+import { h } from '@td/adapter-vue';
+import { isFunction, isString } from 'lodash-es';
 
-import { ItemsType, TdDescriptionItem } from '../interface';
-import { TdDescriptionItemProps } from '../type';
+import type { TdDescriptionItem } from '../interface';
+import { ItemsType } from '../interface';
+import type { TdDescriptionItemProps } from '../type';
 
 /**
  * ! 处理 node string / <div> / () => <div> / Component
@@ -37,12 +38,16 @@ export function renderCustomNode(node: string | ((...args: any[]) => any) | Comp
  */
 export function renderVNodeTNode(node: VNode, name1: string, name2?: string) {
   const prop = node.props?.[name1];
-  if (prop) return prop;
+  if (prop) {
+    return prop;
+  }
 
   const children = node.children as Slots;
   const slot = children?.[name1] || children?.[name2];
 
-  if (slot) return slot?.();
+  if (slot) {
+    return slot?.();
+  }
 
   return null;
 }

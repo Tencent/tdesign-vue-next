@@ -1,27 +1,26 @@
-import { computed, defineComponent, toRefs, h, ref, onMounted, getCurrentInstance } from '@td/adapter-vue';
-import { get } from 'lodash-es';
-import { omit } from 'lodash-es';
+import { computed, defineComponent, getCurrentInstance, h, onMounted, ref, toRefs } from '@td/adapter-vue';
+import { get, omit } from 'lodash-es';
 import baseTableProps from '@td/intel/table/base-table-props';
 import primaryTableProps from '@td/intel/table/primary-table-props';
+import { useConfig, useTNodeJSX } from '@td/adapter-hooks';
+import type { PrimaryTableCellParams, PrimaryTableCol, TableRowData, TdPrimaryTableProps } from '@td/intel/table/type';
+import type { ScrollToElementParams } from '@td/adapter-hooks';
+import type { PageInfo } from '../pagination';
 import BaseTable from './base-table';
-import { useTNodeJSX } from '@td/adapter-hooks';
 import useColumnController from './hooks/useColumnController';
 import useRowExpand from './hooks/useRowExpand';
 import useTableHeader, { renderTitle } from './hooks/useTableHeader';
 import useRowSelect from './hooks/useRowSelect';
-import { TdPrimaryTableProps, PrimaryTableCol, TableRowData, PrimaryTableCellParams } from '@td/intel/table/type';
 import useSorter from './hooks/useSorter';
 import useFilter from './hooks/useFilter';
 import useDragSort from './hooks/useDragSort';
 import useAsyncLoading from './hooks/useAsyncLoading';
-import EditableCell, { EditableCellProps } from './editable-cell';
-import { PageInfo } from '../pagination';
+import type { EditableCellProps } from './editable-cell';
+import EditableCell from './editable-cell';
 import useClassName from './hooks/useClassName';
-import { useConfig } from '@td/adapter-hooks';
 import useEditableRow from './hooks/useEditableRow';
 import useStyle from './hooks/useStyle';
-import { ScrollToElementParams } from '@td/adapter-hooks';
-import { BaseTableProps } from './interface';
+import type { BaseTableProps } from './interface';
 
 export { BASE_TABLE_ALL_EVENTS } from './base-table';
 
@@ -88,8 +87,8 @@ export default defineComponent({
     const primaryTableRef = ref(null);
     const showElement = ref(false);
 
-    const { classPrefix, tableDraggableClasses, tableBaseClass, tableSelectedClasses, tableSortClasses } =
-      useClassName();
+    const { classPrefix, tableDraggableClasses, tableBaseClass, tableSelectedClasses, tableSortClasses }
+      = useClassName();
     const { globalConfig } = useConfig('table', props.locale);
     const { sizeClassNames } = useStyle(props);
     const tableSize = computed(() => props.size ?? globalConfig.value.size);
@@ -97,8 +96,8 @@ export default defineComponent({
     const { tDisplayColumns, renderColumnController } = useColumnController(props, context);
 
     // 展开/收起行功能
-    const { showExpandedRow, showExpandIconColumn, getExpandColumn, renderExpandedRow, onInnerExpandRowClick } =
-      useRowExpand(props, context);
+    const { showExpandedRow, showExpandIconColumn, getExpandColumn, renderExpandedRow, onInnerExpandRowClick }
+      = useRowExpand(props, context);
 
     // 排序功能
     const { renderSortIcon } = useSorter(props, context);
@@ -173,7 +172,7 @@ export default defineComponent({
     // 如果想给 TR 添加类名，请在这里补充，不要透传更多额外 Props 到 BaseTable
     const tRowClassNames = computed(() => {
       const tClassNames = [props.rowClassName, selectedRowClassNames.value];
-      return tClassNames.filter((v) => v);
+      return tClassNames.filter(v => v);
     });
 
     // 如果想给 TR 添加属性，请在这里补充，不要透传更多额外 Props 到 BaseTable
@@ -182,7 +181,7 @@ export default defineComponent({
       if (isRowHandlerDraggable.value || isRowDraggable.value) {
         tAttributes.push(({ row }) => ({ 'data-id': get(row, props.rowKey || 'id') }));
       }
-      return tAttributes.filter((v) => v);
+      return tAttributes.filter(v => v);
     });
 
     // 多个 Hook 共用 primaryTableRef
@@ -225,21 +224,22 @@ export default defineComponent({
         // 自定义列显示控制
         const isDisplayColumn = item.children?.length || tDisplayColumns.value?.includes(item.colKey);
         if (
-          !isDisplayColumn &&
-          (props.columnController || props.displayColumns || props.defaultDisplayColumns) &&
-          !parentDisplay
-        )
+          !isDisplayColumn
+          && (props.columnController || props.displayColumns || props.defaultDisplayColumns)
+          && !parentDisplay
+        ) {
           continue;
+        }
         item = formatToRowSelectColumn(item);
         const { sort } = props;
         if (item.sorter && props.showSortColumnBgColor) {
-          const sorts = sort instanceof Array ? sort : [sort];
+          const sorts = Array.isArray(sort) ? sort : [sort];
           const sortedColumn = sorts.find(
-            (sort) => sort && sort.sortBy === item.colKey && sort.descending !== undefined,
+            sort => sort && sort.sortBy === item.colKey && sort.descending !== undefined,
           );
           if (sortedColumn) {
-            item.className =
-              item.className instanceof Array
+            item.className
+              = Array.isArray(item.className)
                 ? item.className.concat(tableSortClasses.sortColumn)
                 : [item.className, tableSortClasses.sortColumn];
           }
@@ -251,7 +251,7 @@ export default defineComponent({
           item.title = (h, p) => {
             const sortIcon = item.sorter ? renderSortIcon(p) : null;
             const filterIcon = item.filter ? renderFilterIcon(p) : null;
-            // @ts-ignore 注意：此处 Vue2 和 Vue3 有所不同
+            // @ts-expect-error 注意：此处 Vue2 和 Vue3 有所不同
             const attach = primaryTableRef.value?.tableContentRef;
             return renderTitleWidthIcon(
               [titleContent, sortIcon, filterIcon],
@@ -380,29 +380,37 @@ export default defineComponent({
         condition: boolean,
         extra?: { reverse?: boolean },
       ) => {
-        if (!condition) return props[api];
+        if (!condition) {
+          return props[api];
+        }
         const innerNode = renderInnerNode(h);
         const propsNode = renderTNode(api);
-        if (innerNode && !propsNode) return () => innerNode;
-        if (propsNode && !innerNode) return () => propsNode;
+        if (innerNode && !propsNode) {
+          return () => innerNode;
+        }
+        if (propsNode && !innerNode) {
+          return () => propsNode;
+        }
         if (innerNode && propsNode) {
           return () =>
-            extra?.reverse ? (
-              <div>
-                {innerNode}
-                {propsNode}
-              </div>
-            ) : (
-              <div>
-                {propsNode}
-                {innerNode}
-              </div>
-            );
+            extra?.reverse
+              ? (
+                <div>
+                  {innerNode}
+                  {propsNode}
+                </div>
+                )
+              : (
+                <div>
+                  {propsNode}
+                  {innerNode}
+                </div>
+                );
         }
         return null;
       };
       const isColumnController = !!(columnController.value && Object.keys(columnController.value).length);
-      // @ts-ignore
+      // @ts-expect-error
       const placement = isColumnController ? columnController.value.placement || 'top-right' : '';
       const isBottomController = isColumnController && placement?.indexOf('bottom') !== -1;
       const topContent = formatNode('topContent', renderColumnController, isColumnController && !isBottomController);

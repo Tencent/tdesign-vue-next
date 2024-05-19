@@ -1,13 +1,12 @@
-import { ComponentPublicInstance, defineComponent, provide, Ref, toRefs } from '@td/adapter-vue';
-import TTabPanel from './tab-panel';
-import TTabNav from './tab-nav';
-import { TabValue, TdTabsProps } from '@td/intel/tabs/type';
+import type { ComponentPublicInstance, Ref } from '@td/adapter-vue';
+import { defineComponent, provide, toRefs } from '@td/adapter-vue';
+import type { TabValue, TdTabsProps } from '@td/intel/tabs/type';
 import props from '@td/intel/tabs/props';
 
-import { useTNodeJSX } from '@td/adapter-hooks';
-import { usePrefixClass } from '@td/adapter-hooks';
-import { useVModel } from '@td/adapter-hooks';
+import { usePrefixClass, useTNodeJSX, useVModel } from '@td/adapter-hooks';
 import { isArray } from 'lodash-es';
+import TTabNav from './tab-nav';
+import TTabPanel from './tab-panel';
 
 export interface InjectTabs {
   value: Ref<TabValue>;
@@ -42,12 +41,16 @@ export default defineComponent({
     // render
     const getSlotPanels = () => {
       const content = renderTNodeJSX('default');
-      if (!content) return [];
+      if (!content) {
+        return [];
+      }
 
       const flatContent = (ct: any) => {
         return ct
           .map((item: ComponentPublicInstance) => {
-            if (item.children && isArray(item.children)) return flatContent(item.children);
+            if (item.children && isArray(item.children)) {
+              return flatContent(item.children);
+            }
             return item;
           })
           .flat()
@@ -103,7 +106,7 @@ export default defineComponent({
     const renderContent = () => {
       const panels = getSlotPanels();
       if (props.list?.length) {
-        return props.list.map((item) => <TTabPanel {...item} onRemove={onTabRemove} />);
+        return props.list.map(item => <TTabPanel {...item} onRemove={onTabRemove} />);
       }
       if (panels && panels.length) {
         return <div class={[`${classPrefix.value}-tabs__content`]}>{panels}</div>;

@@ -1,8 +1,8 @@
-import { ComponentPublicInstance } from '@td/adapter-vue';
-import { isFunction } from 'lodash-es';
-import { isString } from 'lodash-es';
+import type { ComponentPublicInstance } from '@td/adapter-vue';
+import { isFunction, isString } from 'lodash-es';
 
 import { getPropsApiByEvent } from './helper';
+
 export type EmitEventName = { event: string; method: string } | string;
 
 /**

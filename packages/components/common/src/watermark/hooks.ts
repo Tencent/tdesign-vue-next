@@ -1,11 +1,11 @@
 import type { ComponentPublicInstance, Ref } from '@td/adapter-vue';
-import { unref, watch, getCurrentScope, onScopeDispose } from '@td/adapter-vue';
+import { getCurrentScope, onScopeDispose, unref, watch } from '@td/adapter-vue';
 
 export const defaultWindow = typeof window !== 'undefined' ? window : undefined;
 export interface ConfigurableWindow {
   window?: Window;
 }
-// eslint-disable-next-line no-undef
+
 export interface MutationObserverOptions extends MutationObserverInit, ConfigurableWindow {}
 export type MaybeRef<T> = T | Ref<T>;
 export type VueInstance = ComponentPublicInstance;
@@ -31,7 +31,7 @@ export function tryOnScopeDispose(fn: Fn) {
 
 export function useMutationObserver(
   target: MaybeElementRef,
-  // eslint-disable-next-line no-undef
+
   callback: MutationCallback,
   options: MutationObserverOptions = {},
 ) {

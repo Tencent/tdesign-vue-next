@@ -1,34 +1,33 @@
-import {
-  defineComponent,
+import type {
   PropType,
   SetupContext,
-  h,
+} from '@td/adapter-vue';
+import {
   computed,
-  ref,
-  reactive,
-  toRefs,
-  onUpdated,
+  defineComponent,
+  h,
   nextTick,
   onMounted,
+  onUpdated,
+  reactive,
+  ref,
+  toRefs,
 } from '@td/adapter-vue';
-import { isFunction } from 'lodash-es';
-import { upperFirst } from 'lodash-es';
-import { isString } from 'lodash-es';
-import { pick } from 'lodash-es';
-import { get } from 'lodash-es';
+import { get, isFunction, isString, pick, upperFirst } from 'lodash-es';
+import type { BaseTableCellParams, RowspanColspan, TableRowData, TdBaseTableProps, TdPrimaryTableProps } from '@td/intel/table/type';
+import baseTableProps from '@td/intel/table/base-table-props';
+import type { VirtualScrollConfig } from '@td/adapter-hooks';
+import type { TooltipProps } from '../tooltip';
+import type { PaginationProps } from '..';
+import type { AttachNode, SlotReturnValue } from '../common';
 import { formatClassNames, formatRowAttributes, formatRowClassNames } from './utils';
-import { getRowFixedStyles, getColumnFixedStyles } from './hooks/useFixed';
+import { getColumnFixedStyles, getRowFixedStyles } from './hooks/useFixed';
 import useClassName from './hooks/useClassName';
 import TEllipsis from './ellipsis';
-import { BaseTableCellParams, TableRowData, RowspanColspan, TdPrimaryTableProps, TdBaseTableProps } from '@td/intel/table/type';
-import baseTableProps from '@td/intel/table/base-table-props';
 import useLazyLoad from './hooks/useLazyLoad';
-import { RowAndColFixedPosition } from './interface';
-import { getCellKey, SkipSpansValue } from './hooks/useRowspanAndColspan';
-import { TooltipProps } from '../tooltip';
-import { PaginationProps } from '..';
-import { VirtualScrollConfig } from '@td/adapter-hooks';
-import { AttachNode, SlotReturnValue } from '../common';
+import type { RowAndColFixedPosition } from './interface';
+import type { SkipSpansValue } from './hooks/useRowspanAndColspan';
+import { getCellKey } from './hooks/useRowspanAndColspan';
 
 export interface RenderTdExtra {
   rowAndColFixedPosition: RowAndColFixedPosition;
@@ -122,13 +121,19 @@ export function renderCell(
   }
   const r = get(row, col.colKey);
   // 0 和 false 属于正常可用之，不能使用兜底逻辑 cellEmptyContent
-  if (![undefined, '', null].includes(r)) return r;
+  if (![undefined, '', null].includes(r)) {
+    return r;
+  }
   // cellEmptyContent 作为空数据兜底显示，用户可自定义
   if (extra?.cellEmptyContent) {
     return isFunction(extra.cellEmptyContent) ? extra.cellEmptyContent(h, params) : extra.cellEmptyContent;
   }
-  if (slots.cellEmptyContent) return slots.cellEmptyContent(params);
-  if (slots['cell-empty-content']) return slots['cell-empty-content'](params);
+  if (slots.cellEmptyContent) {
+    return slots.cellEmptyContent(params);
+  }
+  if (slots['cell-empty-content']) {
+    return slots['cell-empty-content'](params);
+  }
   return r;
 }
 
@@ -149,9 +154,9 @@ export default defineComponent({
     active: Boolean,
     isHover: Boolean,
     ...pick(baseTableProps, TABLE_PROPS),
-    // eslint-disable-next-line
+
     tableElm: {},
-    // eslint-disable-next-line
+
     tableContentElm: {},
   },
 
@@ -196,7 +201,7 @@ export default defineComponent({
           [`${props.classPrefix}-table__row--active`]: active.value,
           [`${props.classPrefix}-table__row--hover`]: isHover.value,
         },
-      ].filter((v) => v);
+      ].filter(v => v);
     });
 
     const { hasLazyLoadHolder, tRowHeight } = useLazyLoad(
@@ -331,7 +336,9 @@ export default defineComponent({
           spanState = skipSpansMap.get(cellKey) || {};
           spanState?.rowspan > 1 && (cellSpans.rowspan = spanState.rowspan);
           spanState?.colspan > 1 && (cellSpans.colspan = spanState.colspan);
-          if (spanState.skipped) return null;
+          if (spanState.skipped) {
+            return null;
+          }
         }
         return renderTd(params, {
           dataLength,

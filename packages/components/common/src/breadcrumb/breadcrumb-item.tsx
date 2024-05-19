@@ -1,13 +1,12 @@
-import { defineComponent, VNode, inject, ref, computed, getCurrentInstance, onMounted, onBeforeUpdate } from '@td/adapter-vue';
+import type { VNode } from '@td/adapter-vue';
+import { computed, defineComponent, getCurrentInstance, inject, onBeforeUpdate, onMounted, ref } from '@td/adapter-vue';
 import { ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
 
 import props from '@td/intel/breadcrumb/breadcrumb-item-props';
-import Tooltip from '../tooltip/index';
-import { isNodeOverflow } from '../utils/dom';
-import { usePrefixClass } from '@td/adapter-hooks';
-import { useGlobalIcon } from '@td/adapter-hooks';
-import { useTNodeJSX } from '@td/adapter-hooks';
+import { useGlobalIcon, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import { isFunction } from 'lodash-es';
+import { isNodeOverflow } from '../utils/dom';
+import Tooltip from '../tooltip/index';
 
 interface LocalTBreadcrumb {
   separator: (() => void) | string;
@@ -74,13 +73,14 @@ export default defineComponent({
       }
     };
     const bindEvent = (e: MouseEvent) => {
-      if (!props.disabled)
+      if (!props.disabled) {
         if (props.target === '_blank') {
           props.href ? window.open(props.href) : window.open(props.to as string);
         } else {
           e.preventDefault();
           handleClick();
         }
+      }
     };
 
     return () => {
@@ -97,7 +97,6 @@ export default defineComponent({
         onClick: (e: MouseEvent) => {
           if (props.disabled) {
             e.stopPropagation();
-            return;
           }
         },
       };

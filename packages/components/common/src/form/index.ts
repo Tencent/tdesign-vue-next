@@ -1,7 +1,7 @@
+import { withInstall } from '@td/adapter-utils';
+import type { Data, TdFormItemProps, TdFormProps } from '@td/intel/form/type';
 import _Form from './form';
 import _FormItem from './form-item';
-import { withInstall } from '@td/adapter-utils';
-import { TdFormProps, TdFormItemProps, Data } from '@td/intel/form/type';
 
 import './style';
 

@@ -1,10 +1,9 @@
-import { InjectionKey, ComputedRef } from '@td/adapter-vue';
+import type { ComputedRef, InjectionKey } from '@td/adapter-vue';
 import _mergeWith from 'lodash/mergeWith';
-import { merge } from 'lodash-es';
+import { isArray, merge } from 'lodash-es';
+import type { GlobalConfigProvider } from '@td/intel/config-provider/type';
 import defaultConfig from '../_common/js/global-config/default-config';
 import defaultZhLocale from '../_common/js/global-config/locale/zh_CN';
-import { GlobalConfigProvider } from '@td/intel/config-provider/type';
-import { isArray } from 'lodash-es';
 
 export enum EAnimationType {
   ripple = 'ripple',
@@ -18,9 +17,10 @@ export type Locale = typeof defaultZhLocale;
 
 export const configProviderInjectKey: InjectionKey<ComputedRef<GlobalConfigProvider>> = Symbol('configProvide');
 
-export const mergeWith = (defaultGlobalConfig: GlobalConfigProvider, injectConfig: GlobalConfigProvider) =>
-  _mergeWith(defaultGlobalConfig, injectConfig, (objValue, srcValue) => {
+export function mergeWith(defaultGlobalConfig: GlobalConfigProvider, injectConfig: GlobalConfigProvider) {
+  return _mergeWith(defaultGlobalConfig, injectConfig, (objValue, srcValue) => {
     if (isArray(objValue)) {
       return srcValue;
     }
   });
+}

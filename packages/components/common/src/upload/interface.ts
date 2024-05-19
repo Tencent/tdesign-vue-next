@@ -1,7 +1,7 @@
-import { TdUploadProps, UploadRemoveContext } from '@td/intel/upload/type';
-import { GlobalConfigProvider } from '../config-provider/type';
-import { TNode } from '../common';
-import { ImageViewerProps } from '../image-viewer';
+import type { TdUploadProps, UploadRemoveContext } from '@td/intel/upload/type';
+import type { GlobalConfigProvider } from '../config-provider/type';
+import type { TNode } from '../common';
+import type { ImageViewerProps } from '../image-viewer';
 
 export interface CommonDisplayFileProps {
   files: TdUploadProps['files'];

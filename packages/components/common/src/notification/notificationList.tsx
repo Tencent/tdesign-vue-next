@@ -1,8 +1,9 @@
-import { defineComponent, ref, computed, Ref, CSSProperties } from '@td/adapter-vue';
-import Notification from './notification';
-import { TdNotificationProps, NotificationOptions } from '@td/intel/notification/type';
-import { DEFAULT_Z_INDEX, PLACEMENT_OFFSET, DISTANCE } from './const';
+import type { CSSProperties, Ref } from '@td/adapter-vue';
+import { computed, defineComponent, ref } from '@td/adapter-vue';
+import type { NotificationOptions, TdNotificationProps } from '@td/intel/notification/type';
 import { usePrefixClass } from '@td/adapter-hooks';
+import Notification from './notification';
+import { DEFAULT_Z_INDEX, DISTANCE, PLACEMENT_OFFSET } from './const';
 
 export default defineComponent({
   props: {
@@ -10,7 +11,7 @@ export default defineComponent({
       type: String,
       default: 'top-right',
       validator(v: string): boolean {
-        return ['top-left', 'top-right', 'bottom-left', 'bottom-right'].indexOf(v) > -1;
+        return ['top-left', 'top-right', 'bottom-left', 'bottom-right'].includes(v);
       },
     },
   },
@@ -41,7 +42,9 @@ export default defineComponent({
     };
 
     const getOffset = (val: string | number) => {
-      if (!val) return;
+      if (!val) {
+        return;
+      }
       return isNaN(Number(val)) ? val : `${val}px`;
     };
 
@@ -54,7 +57,9 @@ export default defineComponent({
         styles.left = getOffset(item.offset[0]);
         styles.top = getOffset(item.offset[1]);
       }
-      if (item.zIndex) styles['z-index'] = item.zIndex;
+      if (item.zIndex) {
+        styles['z-index'] = item.zIndex;
+      }
       return styles;
     };
 
@@ -84,7 +89,9 @@ export default defineComponent({
     expose({ add, remove, removeAll, list, notificationList });
 
     return () => {
-      if (!list.value.length) return;
+      if (!list.value.length) {
+        return;
+      }
 
       return (
         <div class={`${COMPONENT_NAME.value}__show`} style={styles.value}>

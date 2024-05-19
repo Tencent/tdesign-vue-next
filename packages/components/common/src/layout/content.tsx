@@ -1,6 +1,5 @@
 import { defineComponent } from '@td/adapter-vue';
-import { usePrefixClass } from '@td/adapter-hooks';
-import { useTNodeJSX } from '@td/adapter-hooks';
+import { usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'TContent',

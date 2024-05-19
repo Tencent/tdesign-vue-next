@@ -1,7 +1,6 @@
-import { defineComponent, computed } from '@td/adapter-vue';
+import { computed, defineComponent } from '@td/adapter-vue';
 import props from '@td/intel/badge/props';
-import { useContent, useTNodeJSX } from '@td/adapter-hooks';
-import { usePrefixClass } from '@td/adapter-hooks';
+import { useContent, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'TBadge',
@@ -23,7 +22,9 @@ export default defineComponent({
     });
 
     const getOffset = () => {
-      if (!props.offset) return {};
+      if (!props.offset) {
+        return {};
+      }
       let [xOffset, yOffset]: Array<string | number> = props.offset;
       xOffset = Number.isNaN(Number(xOffset)) ? xOffset : `${xOffset}px`;
       yOffset = Number.isNaN(Number(yOffset)) ? yOffset : `${yOffset}px`;
@@ -62,11 +63,13 @@ export default defineComponent({
     return () => (
       <div class={COMPONENT_NAME.value} {...attrs}>
         {renderContent('default', 'content')}
-        {isHidden.value ? null : (
-          <sup class={badgeClassNames.value} style={inlineStyle.value}>
-            {props.dot ? null : displayCount.value}
-          </sup>
-        )}
+        {isHidden.value
+          ? null
+          : (
+            <sup class={badgeClassNames.value} style={inlineStyle.value}>
+              {props.dot ? null : displayCount.value}
+            </sup>
+            )}
       </div>
     );
   },

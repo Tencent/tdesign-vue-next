@@ -1,13 +1,21 @@
 import {
-  defineComponent, provide, computed, watchEffect, ref, toRefs, watch, nextTick, onMounted, getCurrentInstance,
-}  from '@td/adapter-vue'
-import type { VNode } from "@td/adapter-vue";
-import { intersection, isObject, isUndefined, isArray }  from 'lodash-es';
-import Checkbox from './checkbox';
+  computed,
+  defineComponent,
+  nextTick,
+  onMounted,
+  provide,
+  ref,
+  toRefs,
+  watch,
+  watchEffect,
+} from '@td/adapter-vue';
+import type { VNode } from '@td/adapter-vue';
+import { intersection, isArray, isObject, isUndefined } from 'lodash-es';
 import props from '@td/intel/components/checkbox/checkbox-group-props';
-import type { CheckboxOptionObj, TdCheckboxProps, CheckboxGroupValue } from '@td/intel/components/checkbox/type';
+import type { CheckboxGroupValue, CheckboxOptionObj, TdCheckboxProps } from '@td/intel/components/checkbox/type';
+import { useChildComponentSlots, usePrefixClass, useVModel } from '@td/adapter-hooks';
 import { CheckboxGroupInjectionKey } from './constants';
-import { usePrefixClass, useVModel, useChildComponentSlots } from '@td/adapter-hooks';
+import Checkbox from './checkbox';
 import { createCheckboxStore } from './store';
 
 export default defineComponent({
@@ -26,14 +34,16 @@ export default defineComponent({
     const optionList = ref<Array<CheckboxOptionObj>>([]);
 
     const intersectionLen = computed<number>(() => {
-      if (!isArray(innerValue.value)) return 0;
-      const values = optionList.value.map((item) => item.value);
+      if (!isArray(innerValue.value)) {
+        return 0;
+      }
+      const values = optionList.value.map(item => item.value);
       const n = intersection(innerValue.value, values);
       return n.length;
     });
 
     const isCheckAll = computed<boolean>(() => {
-      const optionItems = optionList.value.filter((item) => !item.disabled && !item.checkAll).map((t) => t.value);
+      const optionItems = optionList.value.filter(item => !item.disabled && !item.checkAll).map(t => t.value);
       const intersectionValues = intersection(optionItems, innerValue.value);
       return intersectionValues.length === optionItems.length;
     });
@@ -67,18 +77,26 @@ export default defineComponent({
     });
 
     watchEffect(() => {
-      if (!props.options) return [];
-      optionList.value = props.options.map((item) => (isObject(item) ? item : { label: String(item), value: item }));
+      if (!props.options) {
+        return [];
+      }
+      optionList.value = props.options.map(item => (isObject(item) ? item : { label: String(item), value: item }));
     });
 
     const getAllCheckboxValue = (): CheckboxGroupValue => {
       const val = new Set<TdCheckboxProps['value']>();
       for (let i = 0, len = optionList.value.length; i < len; i++) {
         const item = optionList.value[i];
-        if (item.checkAll) continue;
-        if (item.disabled) continue;
+        if (item.checkAll) {
+          continue;
+        }
+        if (item.disabled) {
+          continue;
+        }
         val.add(item.value);
-        if (maxExceeded.value) break;
+        if (maxExceeded.value) {
+          break;
+        }
       }
       return [...val];
     };
@@ -130,7 +148,9 @@ export default defineComponent({
       const arr: Array<CheckboxOptionObj> = [];
       nodes?.forEach((node) => {
         const option = node.componentOptions.propsData as CheckboxOptionObj;
-        if (!option) return;
+        if (!option) {
+          return;
+        }
         if (option['check-all'] === '' || option['check-all'] === true) {
           option.checkAll = true;
         }
@@ -178,7 +198,9 @@ export default defineComponent({
     });
 
     const addStoreKeyToCheckbox = (nodes: VNode[]) => {
-      if (!nodes) return;
+      if (!nodes) {
+        return;
+      }
       for (let i = 0, len = nodes.length; i < len; i++) {
         const vNode = nodes[i];
         if (vNode.componentOptions && /TCheckbox/.test(vNode.tag)) {
@@ -196,7 +218,7 @@ export default defineComponent({
       if (options?.value?.length) {
         children = optionList.value?.map((option, index) => (
           <Checkbox
-            // @ts-ignore
+            // @ts-expect-error
             key={option.value ?? index}
             lazyLoad={props.lazyLoad}
             {...option}
@@ -205,7 +227,8 @@ export default defineComponent({
             checked={innerValue.value?.includes(option.value) || false}
             storeKey={storeKey}
             scopedSlots={slots}
-          ></Checkbox>
+          >
+          </Checkbox>
         ));
       } else {
         const nodes = slots.default?.(null);
@@ -213,12 +236,12 @@ export default defineComponent({
         addStoreKeyToCheckbox(nodes);
         children = nodes;
       }
-      
+
       return (
         <div class={COMPONENT_NAME.value} role="group" aria-label="checkbox-group">
           {children}
         </div>
       );
-    }
-  }
+    };
+  },
 });

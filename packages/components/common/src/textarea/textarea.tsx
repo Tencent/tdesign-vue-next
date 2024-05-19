@@ -1,33 +1,33 @@
+import type {
+  CSSProperties,
+  StyleValue,
+} from '@td/adapter-vue';
 import {
-  defineComponent,
   computed,
-  watch,
-  ref,
+  defineComponent,
+  inject,
   nextTick,
   onMounted,
+  ref,
   toRefs,
-  inject,
-  StyleValue,
-  CSSProperties,
+  watch,
 } from '@td/adapter-vue';
-import { merge } from 'lodash-es';
-import { isUndefined } from 'lodash-es';
-
-import { omit } from '../utils/helper';
-import calcTextareaHeight from './calcTextareaHeight';
-import { FormItemInjectionKey } from '../form/const';
-import setStyle from '../_common/js/utils/set-style';
-import { getCharacterLength } from '../_common/js/utils/helper';
+import { isUndefined, merge } from 'lodash-es';
 
 // hooks
 import { useVModel } from '@td/adapter-hooks';
-import { useFormDisabled } from '../form/hooks';
 import { useTNodeJSX } from '@td/adapter-hooks';
-import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
+import { useCommonClassName, usePrefixClass } from '@td/adapter-hooks';
 
 import props from '@td/intel/textarea/props';
-import type { TextareaValue, TdTextareaProps } from '@td/intel/textarea/type';
+import type { TdTextareaProps, TextareaValue } from '@td/intel/textarea/type';
+import { useFormDisabled } from '../form/hooks';
+import { getCharacterLength } from '../_common/js/utils/helper';
+import setStyle from '../_common/js/utils/set-style';
+import { FormItemInjectionKey } from '../form/const';
+import { omit } from '../utils/helper';
 import useLengthLimit from '../input/useLengthLimit';
+import calcTextareaHeight from './calcTextareaHeight';
 
 function getValidAttrs(obj: object): object {
   const newObj = {};
@@ -114,7 +114,9 @@ export default defineComponent({
     };
 
     const eventDeal = (name: 'keydown' | 'keyup' | 'keypress' | 'change', e: KeyboardEvent | FocusEvent) => {
-      if (disabled.value) return;
+      if (disabled.value) {
+        return;
+      }
       const eventName = `on${name[0].toUpperCase()}${name.slice(1)}`;
       props[eventName]?.(innerValue.value, { e });
     };
@@ -131,7 +133,9 @@ export default defineComponent({
 
     const emitFocus = (e: FocusEvent) => {
       adjustTextareaHeight();
-      if (disabled.value) return;
+      if (disabled.value) {
+        return;
+      }
       focused.value = true;
       props.onFocus?.(innerValue.value, { e });
     };
@@ -189,7 +193,9 @@ export default defineComponent({
     );
 
     watch(refTextareaElem, (el) => {
-      if (!el) return;
+      if (!el) {
+        return;
+      }
       adjustTextareaHeight();
     });
 
@@ -249,14 +255,16 @@ export default defineComponent({
         <div class={`${TEXTAREA_TIPS_CLASS.value} ${name.value}__tips--${props.status || 'normal'}`}>{tips}</div>
       );
 
-      const limitText =
-        (props.maxcharacter && (
+      const limitText
+        = (props.maxcharacter && (
           <span class={TEXTAREA_LIMIT.value}>{`${characterNumber.value}/${props.maxcharacter}`}</span>
-        )) ||
-        (!props.maxcharacter && props.maxlength && (
-          <span class={TEXTAREA_LIMIT.value}>{`${innerValue.value ? String(innerValue.value)?.length : 0}/${
+        ))
+        || (!props.maxcharacter && props.maxlength && (
+          <span class={TEXTAREA_LIMIT.value}>
+            {`${innerValue.value ? String(innerValue.value)?.length : 0}/${
             props.maxlength
-          }`}</span>
+          }`}
+          </span>
         ));
 
       return (
@@ -270,20 +278,23 @@ export default defineComponent({
             class={classes.value}
             {...inputEvents}
             {...inputAttrs.value}
-          ></textarea>
-          {textTips || limitText ? (
-            <div
-              class={[
+          >
+          </textarea>
+          {textTips || limitText
+            ? (
+              <div
+                class={[
                 `${name.value}__info_wrapper`,
                 {
                   [`${name.value}__info_wrapper_align`]: !textTips,
                 },
-              ]}
-            >
-              {textTips}
-              {limitText}
-            </div>
-          ) : null}
+                ]}
+              >
+                {textTips}
+                {limitText}
+              </div>
+              )
+            : null}
         </div>
       );
     };

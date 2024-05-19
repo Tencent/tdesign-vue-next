@@ -20,7 +20,9 @@ export function useResize(listener: () => void, observer?: HTMLElement) {
   let resizeObserver: ResizeObserver = null;
 
   onMounted(() => {
-    if (!window.ResizeObserver || !observer) return;
+    if (!window.ResizeObserver || !observer) {
+      return;
+    }
     resizeObserver = new window.ResizeObserver(listener);
     resizeObserver.observe(observer);
   });

@@ -1,7 +1,7 @@
+import { withInstall } from '@td/adapter-utils';
+import type { TdSliderProps } from '@td/intel/slider/type';
 import _Slider from './slider';
 import _SliderButton from './slider-button';
-import { withInstall } from '@td/adapter-utils';
-import { TdSliderProps } from '@td/intel/slider/type';
 
 import './style';
 

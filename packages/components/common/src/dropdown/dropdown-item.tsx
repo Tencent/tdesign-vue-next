@@ -1,10 +1,9 @@
-import { defineComponent, ref, PropType } from '@td/adapter-vue';
-import { TdDropdownProps } from '../dropdown/type';
+import type { PropType } from '@td/adapter-vue';
+import { defineComponent, ref } from '@td/adapter-vue';
 
 import dropdownItemProps from '@td/intel/dropdown/dropdown-item-props';
-import { useRipple } from '@td/adapter-hooks';
-import { useContent, useTNodeJSX } from '@td/adapter-hooks';
-import { usePrefixClass } from '@td/adapter-hooks';
+import { useContent, usePrefixClass, useRipple, useTNodeJSX } from '@td/adapter-hooks';
+import type { TdDropdownProps } from '../dropdown/type';
 import { pxCompat } from '../utils/helper';
 
 export default defineComponent({
@@ -31,7 +30,9 @@ export default defineComponent({
     const prefixIcon = renderTNodeJSX('prefixIcon');
     const dropdownItemClass = usePrefixClass('dropdown__item');
     const handleItemClick = (e: MouseEvent) => {
-      if (props.disabled) return;
+      if (props.disabled) {
+        return;
+      }
       props.onClick?.(props.value, {
         e,
       });

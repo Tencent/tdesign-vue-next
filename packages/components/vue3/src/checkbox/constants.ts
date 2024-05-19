@@ -1,5 +1,5 @@
-import { ComputedRef, InjectionKey } from '@td/adapter-vue';
-import { TdCheckboxGroupProps, TdCheckboxProps } from '@td/intel/checkbox/type';
+import type { ComputedRef, InjectionKey } from '@td/adapter-vue';
+import type { TdCheckboxGroupProps, TdCheckboxProps } from '@td/intel/checkbox/type';
 
 export interface CheckboxGroupInjectData {
   name?: string;
@@ -12,5 +12,5 @@ export interface CheckboxGroupInjectData {
   onCheckedChange: (p: { checked: boolean; checkAll: boolean; e: Event; option: TdCheckboxProps }) => void;
 }
 
-export const CheckboxGroupInjectionKey: InjectionKey<ComputedRef<CheckboxGroupInjectData>> =
-  Symbol('CheckboxGroupProvide');
+export const CheckboxGroupInjectionKey: InjectionKey<ComputedRef<CheckboxGroupInjectData>>
+  = Symbol('CheckboxGroupProvide');

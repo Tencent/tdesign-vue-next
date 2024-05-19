@@ -1,12 +1,12 @@
 import { reactive, watch } from '@td/adapter-vue';
 import dayjs from 'dayjs';
 
+import { isArray } from 'lodash-es';
 import { useConfig } from '../../hooks/useConfig';
 import { COMPONENT_NAME } from '../const';
 import { createDefaultCurDate } from '../utils';
-import { TdCalendarProps } from '../type';
-import { CalendarState } from '../interface';
-import { isArray } from 'lodash-es';
+import type { TdCalendarProps } from '../type';
+import type { CalendarState } from '../interface';
 
 export function useState(props: TdCalendarProps) {
   const { globalConfig } = useConfig(COMPONENT_NAME);
@@ -26,18 +26,18 @@ export function useState(props: TdCalendarProps) {
     const curDate = createDefaultCurDate();
     state.curDate = curDate;
     state.curSelectedYear = curDate.year();
-    state.curSelectedMonth = parseInt(curDate.format('M'), 10);
+    state.curSelectedMonth = Number.parseInt(curDate.format('M'), 10);
   }
 
   function setCurSelectedYear(year?: TdCalendarProps['year']) {
-    const curSelectedYear = year ? parseInt(`${year}`, 10) : createDefaultCurDate().year();
+    const curSelectedYear = year ? Number.parseInt(`${year}`, 10) : createDefaultCurDate().year();
     if (!isNaN(curSelectedYear) && curSelectedYear > 0) {
       state.curSelectedYear = curSelectedYear;
     }
   }
 
   function setCurSelectedMonth(month?: TdCalendarProps['month']) {
-    const curSelectedMonth = month ? parseInt(`${month}`, 10) : parseInt(createDefaultCurDate().format('M'), 10);
+    const curSelectedMonth = month ? Number.parseInt(`${month}`, 10) : Number.parseInt(createDefaultCurDate().format('M'), 10);
     if (!isNaN(curSelectedMonth) && curSelectedMonth > 0 && curSelectedMonth <= 12) {
       state.curSelectedMonth = curSelectedMonth;
     }
@@ -53,7 +53,7 @@ export function useState(props: TdCalendarProps) {
 
   function setCurrentDateList(value?: TdCalendarProps['value']): void {
     if (isArray(value)) {
-      state.curDateList = value && value.length ? value.map((item) => dayjs(item)) : [createDefaultCurDate()];
+      state.curDateList = value && value.length ? value.map(item => dayjs(item)) : [createDefaultCurDate()];
     } else {
       state.curDateList = value ? [dayjs(value)] : [createDefaultCurDate()];
     }
@@ -116,8 +116,12 @@ export function useState(props: TdCalendarProps) {
   watch(
     () => props.theme,
     (v: TdCalendarProps['theme']) => {
-      if (v === 'card') state.controlSize = 'small';
-      if (v === 'full') state.controlSize = 'medium';
+      if (v === 'card') {
+        state.controlSize = 'small';
+      }
+      if (v === 'full') {
+        state.controlSize = 'medium';
+      }
     },
     { immediate: true },
   );

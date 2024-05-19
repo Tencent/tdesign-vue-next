@@ -1,11 +1,14 @@
-import { onBeforeUnmount, onMounted, Ref, ref, watch } from '@td/adapter-vue';
+import type { Ref } from '@td/adapter-vue';
+import { onBeforeUnmount, onMounted, ref, watch } from '@td/adapter-vue';
 import observe from '../../_common/js/utils/observe';
 
 export function useCheckboxLazyLoad(labelRef: Ref<HTMLElement>, lazyLoad: Ref<boolean>) {
   const ioObserver = ref<IntersectionObserver>();
   const showCheckbox = ref(true);
   const handleLazyLoad = () => {
-    if (!lazyLoad.value) return;
+    if (!lazyLoad.value) {
+      return;
+    }
     showCheckbox.value = false;
     const io = observe(
       labelRef.value,
@@ -23,7 +26,9 @@ export function useCheckboxLazyLoad(labelRef: Ref<HTMLElement>, lazyLoad: Ref<bo
   watch([lazyLoad, labelRef], handleLazyLoad);
 
   onBeforeUnmount(() => {
-    if (!lazyLoad.value) return;
+    if (!lazyLoad.value) {
+      return;
+    }
     ioObserver.value.unobserve(labelRef.value);
   });
 

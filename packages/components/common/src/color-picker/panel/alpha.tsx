@@ -1,7 +1,8 @@
-import { computed, defineComponent, PropType } from '@td/adapter-vue';
-import ColorSlider from './slider';
-import { Color } from '../utils';
+import type { PropType } from '@td/adapter-vue';
+import { computed, defineComponent } from '@td/adapter-vue';
+import type { Color } from '../utils';
 import { useBaseClassName } from '../hooks';
+import ColorSlider from './slider';
 
 export default defineComponent({
   name: 'AlphaSlider',

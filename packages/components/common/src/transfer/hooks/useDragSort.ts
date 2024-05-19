@@ -1,6 +1,8 @@
-import { ref, ComputedRef, Ref } from '@td/adapter-vue';
+import type { ComputedRef, Ref } from '@td/adapter-vue';
+import { ref } from '@td/adapter-vue';
 import type { TransferValue } from '../type';
 import type { TransferItemOption } from '../interface';
+
 export default function useDragSort(
   currentValue: Ref<Array<TransferValue>>,
   curPageData: ComputedRef<TransferItemOption[]>,

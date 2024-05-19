@@ -1,5 +1,5 @@
-import _Rate from './rate';
 import { withInstall } from '@td/adapter-utils';
+import _Rate from './rate';
 
 import './style';
 

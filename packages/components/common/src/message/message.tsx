@@ -1,20 +1,18 @@
-import { defineComponent, h, onBeforeMount, onMounted, computed, ref } from '@td/adapter-vue';
+import { computed, defineComponent, h, onBeforeMount, onMounted, ref } from '@td/adapter-vue';
 import {
-  InfoCircleFilledIcon as TdInfoCircleFilledIcon,
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
+  CloseIcon as TdCloseIcon,
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
   HelpCircleFilledIcon as TdHelpCircleFilledIcon,
-  CloseIcon as TdCloseIcon,
+  InfoCircleFilledIcon as TdInfoCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
 
-import TLoading from '../loading';
-import { THEME_LIST } from './const';
 import props from '@td/intel/message/props';
-import { usePrefixClass } from '@td/adapter-hooks';
-import { useGlobalIcon } from '@td/adapter-hooks';
-import { fadeIn, fadeOut } from './animation';
-import { useTNodeJSX, useContent } from '@td/adapter-hooks';
+import { useContent, useGlobalIcon, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import { isFunction } from 'lodash-es';
+import TLoading from '../loading';
+import { fadeIn, fadeOut } from './animation';
+import { THEME_LIST } from './const';
 
 export default defineComponent({
   name: 'TMessage',
@@ -24,8 +22,8 @@ export default defineComponent({
   },
   setup(props, { slots, expose }) {
     const COMPONENT_NAME = usePrefixClass('message');
-    const { InfoCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon, HelpCircleFilledIcon, CloseIcon } =
-      useGlobalIcon({
+    const { InfoCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon, HelpCircleFilledIcon, CloseIcon }
+      = useGlobalIcon({
         InfoCircleFilledIcon: TdInfoCircleFilledIcon,
         CheckCircleFilledIcon: TdCheckCircleFilledIcon,
         ErrorCircleFilledIcon: TdErrorCircleFilledIcon,
@@ -42,7 +40,7 @@ export default defineComponent({
 
     const classes = computed(() => {
       const status = {};
-      THEME_LIST.forEach((t) => (status[`${classPrefix.value}-is-${t}`] = props.theme === t));
+      THEME_LIST.forEach(t => (status[`${classPrefix.value}-is-${t}`] = props.theme === t));
       return [
         COMPONENT_NAME.value,
         status,
@@ -87,8 +85,12 @@ export default defineComponent({
     };
 
     const renderIcon = () => {
-      if (props.icon === false) return;
-      if (isFunction(props.icon)) return props.icon(h);
+      if (props.icon === false) {
+        return;
+      }
+      if (isFunction(props.icon)) {
+        return props.icon(h);
+      }
       if (slots.icon) {
         return slots.icon(null);
       }

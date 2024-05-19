@@ -1,14 +1,14 @@
-import { ref, toRefs, watchEffect, computed } from '@td/adapter-vue';
-import useVModel from '../../hooks/useVModel';
+import { computed, ref, toRefs, watchEffect } from '@td/adapter-vue';
 import { isArray } from 'lodash-es';
+import useVModel from '../../hooks/useVModel';
 
-import { TdDateRangePickerProps } from '../type';
+import type { TdDateRangePickerProps } from '../type';
 import {
-  isValidDate,
   formatDate,
   formatTime,
   getDefaultFormat,
   initYearMonthTime,
+  isValidDate,
 } from '../../_common/js/date-picker/format';
 import { extractTimeFormat } from '../../_common/js/date-picker/utils';
 
@@ -28,8 +28,9 @@ export default function useRangeValue(props: TdDateRangePickerProps) {
   );
 
   if (props.enableTimePicker) {
-    if (!extractTimeFormat(formatRef.value.format))
+    if (!extractTimeFormat(formatRef.value.format)) {
       console.error(`format: ${formatRef.value.format} 不规范，包含时间选择必须要有时间格式化 HH:mm:ss`);
+    }
   }
 
   // warning invalid value
@@ -67,7 +68,9 @@ export default function useRangeValue(props: TdDateRangePickerProps) {
       cacheValue.value = [];
       return;
     }
-    if (!isValidDate(value.value, formatRef.value.format)) return;
+    if (!isValidDate(value.value, formatRef.value.format)) {
+      return;
+    }
 
     cacheValue.value = formatDate(value.value, {
       format: formatRef.value.format,

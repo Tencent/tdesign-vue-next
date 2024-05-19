@@ -1,6 +1,6 @@
-import _Dialog from './dialog';
 import { withInstall } from '@td/adapter-utils';
-import { TdDialogProps } from '@td/intel/dialog/type';
+import type { TdDialogProps } from '@td/intel/dialog/type';
+import _Dialog from './dialog';
 
 import './style';
 

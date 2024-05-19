@@ -1,20 +1,21 @@
-import { computed, SetupContext, toRefs, h } from '@td/adapter-vue';
+import type { SetupContext, h } from '@td/adapter-vue';
+import { computed, toRefs } from '@td/adapter-vue';
 import { ChevronRightCircleIcon as TdChevronRightCircleIcon } from 'tdesign-icons-vue-next';
 import { get } from 'lodash-es';
 
-import {
-  TdPrimaryTableProps,
-  PrimaryTableCol,
-  TableRowData,
+import type {
   PrimaryTableCellParams,
-  TableExpandedRowParams,
+  PrimaryTableCol,
   RowEventContext,
+  TableExpandedRowParams,
+  TableRowData,
+  TdPrimaryTableProps,
 } from '../type';
-import useClassName from './useClassName';
 import { useTNodeJSX } from '../../hooks/tnode';
 import useDefaultValue from '../../hooks/useDefaultValue';
 import { useConfig } from '../../hooks/useConfig';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';
+import useClassName from './useClassName';
 
 export default function useRowExpand(props: TdPrimaryTableProps, context: SetupContext) {
   const { expandedRowKeys } = toRefs(props);
@@ -45,7 +46,7 @@ export default function useRowExpand(props: TdPrimaryTableProps, context: SetupC
     const newKeys = [...tExpandedRowKeys.value];
     index !== -1 ? newKeys.splice(index, 1) : newKeys.push(currentId);
     setTExpandedRowKeys(newKeys, {
-      expandedRowData: props.data.filter((t) => newKeys.includes(get(t, props.rowKey || 'id'))),
+      expandedRowData: props.data.filter(t => newKeys.includes(get(t, props.rowKey || 'id'))),
       currentRowData: row,
     });
   };
@@ -58,7 +59,9 @@ export default function useRowExpand(props: TdPrimaryTableProps, context: SetupC
       defaultNode: t(globalConfig.value.expandIcon) || <ChevronRightCircleIcon />,
       params: { row, index: rowIndex },
     });
-    if (!icon) return null;
+    if (!icon) {
+      return null;
+    }
     const classes = [
       tableExpandClasses.iconBox,
       tableExpandClasses[expanded ? 'expanded' : 'collapsed'],
@@ -87,8 +90,10 @@ export default function useRowExpand(props: TdPrimaryTableProps, context: SetupC
     p: TableExpandedRowParams<TableRowData> & { tableWidth: number; isWidthOverflow: boolean },
   ) => {
     const rowId = get(p.row, props.rowKey || 'id');
-    if (!tExpandedRowKeys.value || !tExpandedRowKeys.value.includes(rowId)) return null;
-    const isFixedLeft = p.isWidthOverflow && props.columns.find((item) => item.fixed === 'left');
+    if (!tExpandedRowKeys.value || !tExpandedRowKeys.value.includes(rowId)) {
+      return null;
+    }
+    const isFixedLeft = p.isWidthOverflow && props.columns.find(item => item.fixed === 'left');
     return (
       <tr key={`expand_${rowId}`} class={[tableExpandClasses.row, { [tableFullRowClasses.base]: isFixedLeft }]}>
         <td colspan={p.columns.length}>

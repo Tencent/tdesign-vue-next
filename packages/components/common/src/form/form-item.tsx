@@ -1,3 +1,6 @@
+import type {
+  VNode,
+} from '@td/adapter-vue';
 import {
   computed,
   defineComponent,
@@ -9,26 +12,21 @@ import {
   reactive,
   ref,
   toRefs,
-  VNode,
   watch,
 } from '@td/adapter-vue';
+import type {
+  GlobalIconType,
+} from 'tdesign-icons-vue-next';
 import {
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
   CloseCircleFilledIcon as TdCloseCircleFilledIcon,
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
-  GlobalIconType,
 } from 'tdesign-icons-vue-next';
-import { isArray } from 'lodash-es';
-import { isNumber } from 'lodash-es';
-import { isString } from 'lodash-es';
-import { isBoolean } from 'lodash-es';
-import { cloneDeep } from 'lodash-es';
+import { cloneDeep, isArray, isBoolean, isNil, isNumber, isString } from 'lodash-es';
 import lodashGet from 'lodash/get';
 import lodashSet from 'lodash/set';
-import { isNil } from 'lodash-es';
 
-import { validate } from './form-model';
-import {
+import type {
   AllValidateResult,
   Data,
   FormErrorMessage,
@@ -38,25 +36,30 @@ import {
   ValueType,
 } from '@td/intel/form/type';
 import props from '@td/intel/form/form-item-props';
+
+import { useGlobalIcon } from '@td/adapter-hooks';
+import { useConfig, usePrefixClass, useTNodeJSX } from '../hooks';
+import template from '../utils/string-template';
 import {
+  FormInjectionKey,
+  FormItemInjectionKey,
+  ValidateStatus,
+  useCLASSNAMES,
+} from './const';
+import type {
   AnalysisValidateResult,
   ErrorListType,
-  FormInjectionKey,
   FormItemContext,
-  FormItemInjectionKey,
   SuccessListType,
-  useCLASSNAMES,
-  ValidateStatus,
 } from './const';
-
-import { useConfig, usePrefixClass, useTNodeJSX } from '../hooks';
-import { useGlobalIcon } from '@td/adapter-hooks';
-import template from '../utils/string-template';
+import { validate } from './form-model';
 
 export type FormItemValidateResult<T extends Data = Data> = { [key in keyof T]: boolean | AllValidateResult[] };
 
 export function getFormItemClassName(componentName: string, name?: string) {
-  if (!name) return '';
+  if (!name) {
+    return '';
+  }
   return `${componentName}__${name}`.replace(/(\[|\]\.)/g, '_');
 }
 
@@ -80,7 +83,7 @@ export default defineComponent({
 
     const needRequiredMark = computed(() => {
       const requiredMark = props.requiredMark ?? form?.requiredMark ?? globalConfig.value.requiredMark;
-      const isRequired = innerRules.value.filter((rule) => rule.required).length > 0;
+      const isRequired = innerRules.value.filter(rule => rule.required).length > 0;
       return requiredMark ?? isRequired;
     });
 
@@ -102,7 +105,9 @@ export default defineComponent({
     ]);
 
     const renderLabel = () => {
-      if (Number(labelWidth.value) === 0) return;
+      if (Number(labelWidth.value) === 0) {
+        return;
+      }
 
       let labelStyle = {};
       if (labelWidth.value && labelAlign.value !== 'top') {
@@ -133,8 +138,8 @@ export default defineComponent({
       }
       if (list?.[0]) {
         const type = list[0].type || 'error';
-        const icon =
-          {
+        const icon
+          = {
             error: CloseCircleFilledIcon,
             warning: ErrorCircleFilledIcon,
           }[type] || CheckCircleFilledIcon;
@@ -144,26 +149,38 @@ export default defineComponent({
     };
     const renderSuffixIcon = () => {
       const { statusIcon } = props;
-      if (statusIcon === false) return;
+      if (statusIcon === false) {
+        return;
+      }
 
       let resultIcon = renderContent('statusIcon', { defaultNode: getDefaultIcon() });
-      if (resultIcon) return <span class={CLASS_NAMES.value.status}>{resultIcon}</span>;
-      if (resultIcon === false) return;
+      if (resultIcon) {
+        return <span class={CLASS_NAMES.value.status}>{resultIcon}</span>;
+      }
+      if (resultIcon === false) {
+        return;
+      }
 
       resultIcon = form?.renderContent('statusIcon', { defaultNode: getDefaultIcon(), params: props });
-      if (resultIcon) return resultIcon;
+      if (resultIcon) {
+        return resultIcon;
+      }
     };
     /** Suffix Icon END */
 
     /** Content Style */
     const errorClasses = computed(() => {
-      if (!showErrorMessage.value) return '';
+      if (!showErrorMessage.value) {
+        return '';
+      }
       if (verifyStatus.value === ValidateStatus.SUCCESS) {
         return props.successBorder
           ? [CLASS_NAMES.value.success, CLASS_NAMES.value.successBorder].join(' ')
           : CLASS_NAMES.value.success;
       }
-      if (!errorList.value.length) return;
+      if (!errorList.value.length) {
+        return;
+      }
       const type = errorList.value[0].type || 'error';
       return type === 'error' ? CLASS_NAMES.value.error : CLASS_NAMES.value.warning;
     });
@@ -209,10 +226,15 @@ export default defineComponent({
       return emptyValue;
     };
     const resetField = async (resetType: 'initial' | 'empty' | undefined = form?.resetType) => {
-      if (!props.name) return;
+      if (!props.name) {
+        return;
+      }
 
-      if (resetType === 'empty') lodashSet(form?.data, props.name, getEmptyValue());
-      else if (resetType === 'initial') lodashSet(form?.data, props.name, initialValue.value);
+      if (resetType === 'empty') {
+        lodashSet(form?.data, props.name, getEmptyValue());
+      } else if (resetType === 'initial') {
+        lodashSet(form?.data, props.name, initialValue.value);
+      }
 
       await nextTick();
       if (resetValidating.value) {
@@ -224,8 +246,12 @@ export default defineComponent({
 
     const errorMessages = computed<FormErrorMessage>(() => form?.errorMessage ?? globalConfig.value.errorMessage);
     const innerRules = computed<FormRule[]>(() => {
-      if (props.rules?.length) return props.rules;
-      if (!props.name) return [];
+      if (props.rules?.length) {
+        return props.rules;
+      }
+      if (!props.name) {
+        return [];
+      }
       const index = `${props.name}`.lastIndexOf('.') || -1;
       const pRuleName = `${props.name}`.slice(index + 1);
       return lodashGet(form?.rules, props.name) || lodashGet(form?.rules, pRuleName) || [];
@@ -239,17 +265,17 @@ export default defineComponent({
         resultList: [],
         allowSetValue: false,
       };
-      result.rules =
-        trigger === 'all'
+      result.rules
+        = trigger === 'all'
           ? innerRules.value
-          : innerRules.value.filter((item) => (item.trigger || 'change') === trigger);
+          : innerRules.value.filter(item => (item.trigger || 'change') === trigger);
       if (innerRules.value.length && !result.rules?.length) {
         return result;
       }
       result.allowSetValue = true;
       result.resultList = await validate(value.value, result.rules);
       result.errorList = result.resultList
-        .filter((item) => item.result !== true)
+        .filter(item => item.result !== true)
         .map((item: ErrorListType) => {
           Object.keys(item).forEach((key) => {
             if (!item.message && errorMessages.value[key]) {
@@ -264,7 +290,7 @@ export default defineComponent({
         });
       // 仅有自定义校验方法才会存在 successList
       result.successList = result.resultList.filter(
-        (item) => item.result === true && item.message && item.type === 'success',
+        item => item.result === true && item.message && item.type === 'success',
       ) as SuccessListType[];
 
       return result;
@@ -311,12 +337,14 @@ export default defineComponent({
     };
 
     const setValidateMessage = (validateMessage: FormItemValidateMessage[]) => {
-      if (!validateMessage && !isArray(validateMessage)) return;
+      if (!validateMessage && !isArray(validateMessage)) {
+        return;
+      }
       if (validateMessage.length === 0) {
         errorList.value = [];
         verifyStatus.value = ValidateStatus.SUCCESS;
       }
-      errorList.value = validateMessage.map((item) => ({ ...item, result: false }));
+      errorList.value = validateMessage.map(item => ({ ...item, result: false }));
       verifyStatus.value = ValidateStatus.FAIL;
     };
 
@@ -338,7 +366,9 @@ export default defineComponent({
     });
 
     onBeforeUnmount(() => {
-      if (form) form.children = form?.children.filter((ctx) => ctx !== context);
+      if (form) {
+        form.children = form?.children.filter(ctx => ctx !== context);
+      }
     });
 
     watch(
@@ -358,8 +388,12 @@ export default defineComponent({
 
     const freeShowErrorMessage = ref<boolean>(undefined);
     const showErrorMessage = computed(() => {
-      if (isBoolean(freeShowErrorMessage.value)) return freeShowErrorMessage.value;
-      if (isBoolean(props.showErrorMessage)) return props.showErrorMessage;
+      if (isBoolean(freeShowErrorMessage.value)) {
+        return freeShowErrorMessage.value;
+      }
+      if (isBoolean(props.showErrorMessage)) {
+        return props.showErrorMessage;
+      }
       return form?.showErrorMessage;
     });
 
@@ -373,7 +407,9 @@ export default defineComponent({
     ]);
     const helpNode = computed<VNode>(() => {
       const help = renderContent('help');
-      if (help) return <div class={CLASS_NAMES.value.help}>{help}</div>;
+      if (help) {
+        return <div class={CLASS_NAMES.value.help}>{help}</div>;
+      }
       return null;
     });
     const extraNode = computed<VNode>(() => {
@@ -394,7 +430,9 @@ export default defineComponent({
 
     const tipsNode = computed<VNode>(() => {
       const tmpTips = renderContent('tips');
-      if (!tmpTips) return null;
+      if (!tmpTips) {
+        return null;
+      }
       const tmpClasses = [
         `${formItemClassPrefix.value}-tips`,
         `${classPrefix.value}-tips`,

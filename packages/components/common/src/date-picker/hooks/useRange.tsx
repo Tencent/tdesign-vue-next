@@ -1,13 +1,13 @@
-import { ref, computed, watch } from '@td/adapter-vue';
+import { computed, ref, watch } from '@td/adapter-vue';
 import { CalendarIcon as TdCalendarIcon } from 'tdesign-icons-vue-next';
 import { omit } from 'lodash-es';
 
 import { useTNodeJSX } from '../../hooks/tnode';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';
-import { usePrefixClass, useConfig } from '../../hooks/useConfig';
+import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 
-import { TdDateRangePickerProps, DateValue } from '../type';
-import { isValidDate, formatDate, getDefaultFormat, parseToDayjs } from '../../_common/js/date-picker/format';
+import type { DateValue, TdDateRangePickerProps } from '../type';
+import { formatDate, getDefaultFormat, isValidDate, parseToDayjs } from '../../_common/js/date-picker/format';
 import useRangeValue from './useRangeValue';
 
 export const PARTIAL_MAP = { first: 'start', second: 'end' };
@@ -74,7 +74,9 @@ export default function useRange(props: TdDateRangePickerProps) {
       inputValue.value = newVal;
 
       // 跳过不符合格式化的输入框内容
-      if (!isValidDate(newVal, formatRef.value.format)) return;
+      if (!isValidDate(newVal, formatRef.value.format)) {
+        return;
+      }
       cacheValue.value = newVal;
       const newYear: Array<number> = [];
       const newMonth: Array<number> = [];
@@ -89,7 +91,9 @@ export default function useRange(props: TdDateRangePickerProps) {
       time.value = newTime;
     },
     onEnter: (newVal: string[]) => {
-      if (!isValidDate(newVal, formatRef.value.format) && !isValidDate(value.value, formatRef.value.format)) return;
+      if (!isValidDate(newVal, formatRef.value.format) && !isValidDate(value.value, formatRef.value.format)) {
+        return;
+      }
 
       popupVisible.value = false;
       if (isValidDate(newVal, formatRef.value.format)) {
@@ -100,7 +104,7 @@ export default function useRange(props: TdDateRangePickerProps) {
             autoSwap: true,
           }) as DateValue[],
           {
-            dayjsValue: newVal.map((v) => parseToDayjs(v, formatRef.value.format)),
+            dayjsValue: newVal.map(v => parseToDayjs(v, formatRef.value.format)),
             trigger: 'enter',
           },
         );
@@ -145,7 +149,9 @@ export default function useRange(props: TdDateRangePickerProps) {
         inputValue.value = [];
         return;
       }
-      if (!isValidDate(value, formatRef.value.format)) return;
+      if (!isValidDate(value, formatRef.value.format)) {
+        return;
+      }
 
       inputValue.value = formatDate(value, {
         format: formatRef.value.format,
@@ -164,7 +170,9 @@ export default function useRange(props: TdDateRangePickerProps) {
         isMountedRef.value = true;
         return;
       }
-      if (!popupVisible.value) return;
+      if (!popupVisible.value) {
+        return;
+      }
       const indexMap = { 0: 'first', 1: 'second' };
       inputRef.value?.focus?.({ position: indexMap[index] });
     },

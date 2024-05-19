@@ -1,21 +1,18 @@
-import { isBoolean } from 'lodash-es';
-import { isObject } from 'lodash-es';
+import { isBoolean, isEmpty, isNumber, isObject } from 'lodash-es';
 // https://github.com/validatorjs/validator.js
 
 import isDate from 'validator/lib/isDate';
 import isEmail from 'validator/lib/isEmail';
-import { isEmpty } from 'lodash-es';
 import isURL from 'validator/lib/isURL';
-import { isNumber } from 'lodash-es';
-import { getCharacterLength } from '../_common/js/utils/helper';
-import {
+import type {
+  AllValidateResult,
+  CustomValidateResolveType,
   CustomValidator,
   FormRule,
-  ValueType,
-  AllValidateResult,
   ValidateResultType,
-  CustomValidateResolveType,
+  ValueType,
 } from '@td/intel/form/type';
+import { getCharacterLength } from '../_common/js/utils/helper';
 
 // `{} / [] / '' / undefined / null` 等内容被认为是空； 0 和 false 被认为是正常数据，部分数据的值就是 0 或者 false
 export function isValueEmpty(val: ValueType): boolean {
@@ -41,7 +38,7 @@ const VALIDATE_MAP = {
   len: (val: ValueType, num: number): boolean => getCharacterLength(String(val)) === num,
   number: (val: ValueType): boolean => isNumber(val),
   enum: (val: ValueType, strs: Array<string>): boolean => strs.includes(val),
-  idcard: (val: ValueType): boolean => /^(\d{18,18}|\d{15,15}|\d{17,17}x)$/i.test(val),
+  idcard: (val: ValueType): boolean => /^(\d{18}|\d{15}|\d{17}x)$/i.test(val),
   telnumber: (val: ValueType): boolean => /^1[3-9]\d{9}$/.test(val),
   pattern: (val: ValueType, regexp: RegExp): boolean => regexp.test(val),
   // 自定义校验规则，可能是异步校验
@@ -92,7 +89,7 @@ export async function validateOneRule(value: ValueType, rule: FormRule): Promise
 
 // 单个数据进行全规则校验，校验成功也可能会有 message
 export async function validate(value: ValueType, rules: Array<FormRule>): Promise<AllValidateResult[]> {
-  const all = rules.map((rule) => validateOneRule(value, rule));
+  const all = rules.map(rule => validateOneRule(value, rule));
   const r = await Promise.all(all);
   return r;
 }

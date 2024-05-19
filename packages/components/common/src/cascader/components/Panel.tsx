@@ -1,13 +1,14 @@
-import { defineComponent, PropType, computed, h } from '@td/adapter-vue';
+import type { PropType } from '@td/adapter-vue';
+import { computed, defineComponent, h } from '@td/adapter-vue';
 
-import Item from './Item';
-import { TreeNode, CascaderContextType } from '../interface';
+import type { CascaderContextType, TreeNode } from '../interface';
 import CascaderProps from '../props';
-import { usePrefixClass, useConfig } from '../../hooks/useConfig';
+import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 import { useTNodeDefault } from '../../hooks/tnode';
 import { getDefaultNode } from '../../utils/render-tnode';
 import { getPanels } from '../core/helper';
 import { expendClickEffect, valueChangeEffect } from '../core/effect';
+import Item from './Item';
 
 export default defineComponent({
   name: 'TCascaderSubPanel',
@@ -39,8 +40,8 @@ export default defineComponent({
       const optionChild = node.data.content
         ? getDefaultNode(node.data.content(h))
         : renderTNodeJSXDefault('option', {
-            params: { item: node.data, index },
-          });
+          params: { item: node.data, index },
+        });
       return (
         <Item
           key={node.value}
@@ -81,8 +82,8 @@ export default defineComponent({
       return inputVal
         ? renderList(treeNodes, true)
         : panels.value.map((treeNodes, index: number) =>
-            renderList(treeNodes, false, index !== panels.value.length - 1, index),
-          );
+          renderList(treeNodes, false, index !== panels.value.length - 1, index),
+        );
     };
 
     return () => {
@@ -96,9 +97,9 @@ export default defineComponent({
         content = panels.value.length
           ? renderPanels()
           : renderTNodeJSXDefault(
-              'empty',
-              <div class={`${COMPONENT_NAME.value}__panel--empty`}>{globalConfig.value.empty}</div>,
-            );
+            'empty',
+            <div class={`${COMPONENT_NAME.value}__panel--empty`}>{globalConfig.value.empty}</div>,
+          );
       }
       return (
         <div

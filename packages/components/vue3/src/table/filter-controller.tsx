@@ -1,18 +1,17 @@
-import { defineComponent, PropType, ref, h } from '@td/adapter-vue';
+import type { PropType } from '@td/adapter-vue';
+import { defineComponent, h, ref } from '@td/adapter-vue';
 import { FilterIcon as TdFilterIcon } from 'tdesign-icons-vue-next';
-import { isEmpty } from 'lodash-es';
-import Popup, { PopupProps } from '../popup';
+import { isEmpty, isFunction } from 'lodash-es';
+import { useConfig, useGlobalIcon, useTNodeDefault } from '@td/adapter-hooks';
+import type { FilterValue, PrimaryTableCol } from '@td/intel/table/type';
+import type { PopupProps } from '../popup';
+import Popup from '../popup';
 import { CheckboxGroup } from '../checkbox';
 import { RadioGroup } from '../radio';
 import Input from '../input';
 import TButton from '../button';
-import { useTNodeDefault } from '@td/adapter-hooks';
-import { PrimaryTableCol, FilterValue } from '@td/intel/table/type';
-import { useConfig } from '@td/adapter-hooks';
-import { useGlobalIcon } from '@td/adapter-hooks';
-import { AttachNode } from '../common';
-import { isFunction } from 'lodash-es';
-import { TableConfig } from '../config-provider';
+import type { AttachNode } from '../common';
+import type { TableConfig } from '../config-provider';
 
 export interface TableFilterControllerProps {
   locale: TableConfig;
@@ -50,7 +49,7 @@ export default defineComponent({
     innerFilterValue: Object as PropType<TableFilterControllerProps['innerFilterValue']>,
     tableFilterClasses: Object as PropType<TableFilterControllerProps['tableFilterClasses']>,
     isFocusClass: String,
-    // eslint-disable-next-line
+
     primaryTableElement: {},
     popupProps: Object as PropType<TableFilterControllerProps['popupProps']>,
     attach: [String, Function] as PropType<TableFilterControllerProps['attach']>,
@@ -72,7 +71,9 @@ export default defineComponent({
     };
 
     const renderComponent = (column: PrimaryTableCol, filterComponentProps: any, component: any) => {
-      if (!component) return null;
+      if (!component) {
+        return null;
+      }
       const isVueComponent = !!component.setup;
       if (isFunction(column.filter.component) && !isVueComponent) {
         return column.filter.component((v: any, b: any) => {
@@ -89,7 +90,8 @@ export default defineComponent({
           style={filter.style}
           {...filter.attrs}
           {...filterComponentProps}
-        ></component>
+        >
+        </component>
       );
     };
 
@@ -100,13 +102,15 @@ export default defineComponent({
         return;
       }
       const { innerFilterValue = {} } = props;
-      const component =
-        {
+      const component
+        = {
           single: RadioGroup,
           multiple: CheckboxGroup,
           input: Input,
         }[column.filter.type] || column.filter.component;
-      if (!component && !column.filter.component) return;
+      if (!component && !column.filter.component) {
+        return;
+      }
       const filterComponentProps: { [key: string]: any } = {
         options: ['single', 'multiple'].includes(column.filter.type) ? column.filter?.list : undefined,
         ...(column.filter?.props || {}),
@@ -126,7 +130,9 @@ export default defineComponent({
       // 允许自定义触发确认搜索的事件
       if (column.filter.confirmEvents) {
         column.filter.confirmEvents.forEach((event) => {
-          if (event === 'onChange') return;
+          if (event === 'onChange') {
+            return;
+          }
           filterComponentProps[event] = () => {
             context.emit('confirm', column);
             filterPopupVisible.value = false;
@@ -141,7 +147,9 @@ export default defineComponent({
     };
 
     const getBottomButtons = (column: PrimaryTableCol) => {
-      if (!column.filter.showConfirmAndReset) return;
+      if (!column.filter.showConfirmAndReset) {
+        return;
+      }
       return (
         <div class={props.tableFilterClasses.bottomButtons}>
           <TButton
@@ -190,7 +198,9 @@ export default defineComponent({
   render() {
     const { column, popupProps, FilterIcon } = this as any;
 
-    if (!column.filter || (column.filter && !Object.keys(column.filter).length)) return null;
+    if (!column.filter || (column.filter && !Object.keys(column.filter).length)) {
+      return null;
+    }
     const defaultFilterIcon = this.t(this.globalConfig.filterIcon) || <FilterIcon />;
     const filterValue = this.tFilterValue?.[column.colKey];
     const isObjectTrue = typeof filterValue === 'object' && !isEmpty(filterValue);

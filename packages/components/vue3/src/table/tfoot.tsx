@@ -1,15 +1,14 @@
-import { SetupContext, h, defineComponent, PropType, toRefs } from '@td/adapter-vue';
-import { isString } from 'lodash-es';
-import { isFunction } from 'lodash-es';
-import { get } from 'lodash-es';
-import { BaseTableCellParams, RowspanColspan, TableRowData, TdBaseTableProps } from '@td/intel/table/type';
+import type { PropType, SetupContext } from '@td/adapter-vue';
+import { defineComponent, h, toRefs } from '@td/adapter-vue';
+import { get, isFunction, isString } from 'lodash-es';
+import type { BaseTableCellParams, RowspanColspan, TableRowData, TdBaseTableProps } from '@td/intel/table/type';
+import { useTNodeJSX } from '@td/adapter-hooks';
+import type { Styles } from '../common';
 import { formatRowAttributes, formatRowClassNames } from './utils';
 import { getColumnFixedStyles } from './hooks/useFixed';
-import { useTNodeJSX } from '@td/adapter-hooks';
 import useRowspanAndColspan, { getCellKey } from './hooks/useRowspanAndColspan';
-import { RowAndColFixedPosition } from './interface';
+import type { RowAndColFixedPosition } from './interface';
 import useClassName from './hooks/useClassName';
-import { Styles } from '../common';
 
 export interface TFootProps {
   rowKey: string;
@@ -47,7 +46,6 @@ export default defineComponent({
     virtualScroll: Boolean,
   },
 
-  // eslint-disable-next-line
   setup(props: TFootProps, context: SetupContext) {
     const renderTNode = useTNodeJSX();
     const classnames = useClassName();
@@ -73,7 +71,9 @@ export default defineComponent({
   },
 
   render() {
-    if (!this.columns) return null;
+    if (!this.columns) {
+      return null;
+    }
     // 虚拟滚动情况下，不使用 sticky 定位，外部通过 affix 实现 footer
     const theadClasses = [this.tableFooterClasses.footer, { [this.tableFooterClasses.fixed]: this.isFixedHeader }];
     const footerDomList = this.footData?.map((row, rowIndex) => {
@@ -95,7 +95,9 @@ export default defineComponent({
               spanState = this.skipSpansMap.get(cellKey) || {};
               spanState?.rowspan > 1 && (cellSpans.rowspan = spanState.rowspan);
               spanState?.colspan > 1 && (cellSpans.colspan = spanState.colspan);
-              if (spanState.skipped) return null;
+              if (spanState.skipped) {
+                return null;
+              }
             }
             const tdStyles = getColumnFixedStyles(
               col,
@@ -123,7 +125,9 @@ export default defineComponent({
     });
     const footerSummary = this.renderTNode('footerSummary');
     // 都不存在，则不需要渲染 footer
-    if (!footerSummary && (!this.footData || !this.footData.length)) return null;
+    if (!footerSummary && (!this.footData || !this.footData.length)) {
+      return null;
+    }
     return (
       // 虚拟滚动下，不显示 footer，但预留元素，用于高度计算
       <tfoot ref="tFooterRef" class={theadClasses} style={{ visibility: this.virtualScroll ? 'hidden' : 'visible' }}>

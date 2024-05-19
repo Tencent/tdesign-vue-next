@@ -1,19 +1,18 @@
-import { defineComponent, computed, toRefs } from '@td/adapter-vue';
+import { computed, defineComponent, toRefs } from '@td/adapter-vue';
 import {
-  InfoCircleFilledIcon as TdInfoCircleFilledIcon,
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
+  InfoCircleFilledIcon as TdInfoCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
 
-import { useConfig, usePrefixClass } from '@td/adapter-hooks';
-import { useGlobalIcon } from '@td/adapter-hooks';
-import Popup, { PopupProps, PopupVisibleChangeContext } from '../popup/index';
+import { useConfig, useContent, useGlobalIcon, usePrefixClass, useTNodeDefault, useTNodeJSX, useVModel } from '@td/adapter-hooks';
 import props from '@td/intel/popconfirm/props';
-import { useContent, useTNodeJSX, useTNodeDefault } from '@td/adapter-hooks';
-import { useVModel } from '@td/adapter-hooks';
+import type { PopconfirmVisibleChangeContext } from '@td/intel/popconfirm/type';
+import type { PopupProps, PopupVisibleChangeContext } from '../popup/index';
+import Popup from '../popup/index';
 import { useAction } from '../dialog/hooks';
 
-import type { PopconfirmVisibleChangeContext } from '@td/intel/popconfirm/type';
 import type { TdDialogProps } from '../dialog/type';
+
 export default defineComponent({
   name: 'TPopconfirm',
   props,

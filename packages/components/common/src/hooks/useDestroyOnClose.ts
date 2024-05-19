@@ -1,4 +1,4 @@
-import { ref, provide, onUpdated } from '@td/adapter-vue';
+import { onUpdated, provide, ref } from '@td/adapter-vue';
 
 export const TDisplayNoneElementRefresh = 't-display-none-element-refresh';
 

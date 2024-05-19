@@ -1,5 +1,5 @@
-import { VNode } from '@td/adapter-vue';
-import { ClassName } from '../../common';
+import type { VNode } from '@td/adapter-vue';
+import type { ClassName } from '../../common';
 
 export interface ProgressProps {
   theme?: string;

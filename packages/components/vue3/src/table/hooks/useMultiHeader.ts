@@ -1,9 +1,10 @@
 /**
  * 多级表头相关逻辑
- ** */
+ *
+ */
 
-import { RowspanColspan } from '../type';
-import { BaseTableColumns, ThRowspanAndColspan } from '../interface';
+import type { RowspanColspan } from '../type';
+import type { BaseTableColumns, ThRowspanAndColspan } from '../interface';
 
 // 获取节点深度，即表头总层级
 export function getNodeDepth(columns: BaseTableColumns, depthMap: Map<any, number>, depth = 1): number {

@@ -3,19 +3,17 @@ import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { TimeIcon as TdTimeIcon } from 'tdesign-icons-vue-next';
 
-import TimePickerPanel from './panel/time-picker-panel';
-import TSelectInput, { SelectInputBlurContext } from '../select-input';
+import props from '@td/intel/time-picker/props';
+import { useCommonClassName, useConfig, useGlobalIcon, usePrefixClass, useVModel } from '@td/adapter-hooks';
+import type { SelectInputBlurContext } from '../select-input';
+import TSelectInput from '../select-input';
 import { formatInputValue, validateInputValue } from '../_common/js/time-picker/utils';
 
 import type { InputProps } from '../input';
 
-import props from '@td/intel/time-picker/props';
-
 // hooks
-import { useVModel } from '@td/adapter-hooks';
 import { useFormDisabled } from '../form/hooks';
-import { useCommonClassName, useConfig, usePrefixClass } from '@td/adapter-hooks';
-import { useGlobalIcon } from '@td/adapter-hooks';
+import TimePickerPanel from './panel/time-picker-panel';
 
 dayjs.extend(customParseFormat);
 
@@ -74,7 +72,9 @@ export default defineComponent({
 
     const handleClickConfirm = () => {
       const isValidTime = validateInputValue(currentValue.value, format.value);
-      if (isValidTime) setInnerValue(currentValue.value);
+      if (isValidTime) {
+        setInnerValue(currentValue.value);
+      }
       isShowPanel.value = false;
     };
 

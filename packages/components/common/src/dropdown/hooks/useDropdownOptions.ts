@@ -1,13 +1,14 @@
-import { computed, ComputedRef, VNode, getCurrentInstance, Slots, Component } from '@td/adapter-vue';
-import { isString } from 'lodash-es';
-import { isArray } from 'lodash-es';
-import { camelCase } from 'lodash-es';
+import type { Component, ComputedRef, Slots, VNode } from '@td/adapter-vue';
+import { computed, getCurrentInstance } from '@td/adapter-vue';
+import { camelCase, isArray, isString } from 'lodash-es';
 
 import { useChildComponentSlots } from '../../hooks/slot';
 import type { DropdownOption, TdDropdownProps } from '../type';
 
-export const getOptionsFromChildren = (menuNode: VNode | VNode[]): DropdownOption[] => {
-  if (!menuNode) return [];
+export function getOptionsFromChildren(menuNode: VNode | VNode[]): DropdownOption[] {
+  if (!menuNode) {
+    return [];
+  }
 
   // 处理内部嵌套场景
   if (menuNode[0]?.type?.name === 'TDropdownMenu') {
@@ -42,9 +43,9 @@ export const getOptionsFromChildren = (menuNode: VNode | VNode[]): DropdownOptio
         const itemProps = Object.keys(item.props || {}).reduce((props, propName) => {
           // 处理 TDropdownItem 的 boolean attribute
           if (
-            item.props[propName] === '' &&
-            (item.type as Component)?.name === 'TDropdownItem' &&
-            ['active', 'divider', 'disabled'].includes(propName)
+            item.props[propName] === ''
+            && (item.type as Component)?.name === 'TDropdownItem'
+            && ['active', 'divider', 'disabled'].includes(propName)
           ) {
             props[camelCase(propName)] = true;
           } else {
@@ -60,23 +61,27 @@ export const getOptionsFromChildren = (menuNode: VNode | VNode[]): DropdownOptio
           children: childrenCtx?.length > 0 ? getOptionsFromChildren(childrenCtx) : null,
         };
       })
-      .filter((v) => !!v.content);
+      .filter(v => !!v.content);
   }
 
   // 处理v-if的场景
-  if (isArray(menuNode[0]?.children)) return getOptionsFromChildren(menuNode[0]?.children);
+  if (isArray(menuNode[0]?.children)) {
+    return getOptionsFromChildren(menuNode[0]?.children);
+  }
 
   return [];
-};
+}
 
 export default function useDropdownOptions(props: TdDropdownProps): ComputedRef<DropdownOption[]> {
   const getChildComponentSlots = useChildComponentSlots();
   const instance = getCurrentInstance();
-  const menuSlot =
-    (getChildComponentSlots('DropdownMenu')?.[0]?.children as Slots)?.default?.() || instance.slots?.dropdown?.();
+  const menuSlot
+    = (getChildComponentSlots('DropdownMenu')?.[0]?.children as Slots)?.default?.() || instance.slots?.dropdown?.();
 
   const dropdownOptions = computed(() => {
-    if (props.options && props.options.length > 0) return props.options;
+    if (props.options && props.options.length > 0) {
+      return props.options;
+    }
 
     return getOptionsFromChildren(menuSlot);
   });

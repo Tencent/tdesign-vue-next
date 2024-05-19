@@ -1,21 +1,19 @@
-import { defineComponent, VNode, computed, CSSProperties } from '@td/adapter-vue';
+import type { CSSProperties, VNode } from '@td/adapter-vue';
+import { computed, defineComponent } from '@td/adapter-vue';
 import {
-  CloseCircleFilledIcon as TdCloseCircleFilledIcon,
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
-  ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
-  CloseIcon as TdCloseIcon,
   CheckIcon as TdCheckIcon,
+  CloseCircleFilledIcon as TdCloseCircleFilledIcon,
+  CloseIcon as TdCloseIcon,
+  ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
   ErrorIcon as TdErrorIcon,
 } from 'tdesign-icons-vue-next';
 
-import { getBackgroundColor } from '../utils/helper';
-import { PRO_THEME, CIRCLE_SIZE, CIRCLE_SIZE_PX, STATUS_ICON, CIRCLE_FONT_SIZE_RATIO } from './constants';
 import props from '@td/intel/progress/props';
-import { usePrefixClass } from '@td/adapter-hooks';
-import { useGlobalIcon } from '@td/adapter-hooks';
-import { useTNodeJSX } from '@td/adapter-hooks';
-import { isObject } from 'lodash-es';
-import { isString } from 'lodash-es';
+import { useGlobalIcon, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
+import { isObject, isString } from 'lodash-es';
+import { getBackgroundColor } from '../utils/helper';
+import { CIRCLE_FONT_SIZE_RATIO, CIRCLE_SIZE, CIRCLE_SIZE_PX, PRO_THEME, STATUS_ICON } from './constants';
 
 export default defineComponent({
   name: 'TProgress',
@@ -23,8 +21,8 @@ export default defineComponent({
   setup(props) {
     const renderTNodeJSX = useTNodeJSX();
     const COMPONENT_NAME = usePrefixClass('progress');
-    const { CloseCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon, CloseIcon, CheckIcon, ErrorIcon } =
-      useGlobalIcon({
+    const { CloseCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon, CloseIcon, CheckIcon, ErrorIcon }
+      = useGlobalIcon({
         CloseCircleFilledIcon: TdCloseCircleFilledIcon,
         CheckCircleFilledIcon: TdCheckCircleFilledIcon,
         ErrorCircleFilledIcon: TdErrorCircleFilledIcon,
@@ -169,8 +167,8 @@ export default defineComponent({
       );
       // 进度大于 10 ，进度百分比显示在内部；进度百分比小于 10 进度显示在外部
       const PLUMP_SEPARATE = 10;
-      const separateClasses =
-        props.percentage > PLUMP_SEPARATE ? `${COMPONENT_NAME.value}--over-ten` : `${COMPONENT_NAME.value}--under-ten`;
+      const separateClasses
+        = props.percentage > PLUMP_SEPARATE ? `${COMPONENT_NAME.value}--over-ten` : `${COMPONENT_NAME.value}--under-ten`;
       return (
         <div class={COMPONENT_NAME.value}>
           {props.theme === PRO_THEME.LINE && (

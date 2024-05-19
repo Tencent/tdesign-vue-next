@@ -1,9 +1,10 @@
-import { defineComponent, PropType, ref, watch } from '@td/adapter-vue';
+import type { PropType } from '@td/adapter-vue';
+import { defineComponent, ref, watch } from '@td/adapter-vue';
+import type { TdColorPickerProps } from '@td/intel/color-picker/type';
+import { useCommonClassName } from '@td/adapter-hooks';
 import TInput from '../input';
 import { Color } from './utils';
-import { TdColorPickerProps } from '@td/intel/color-picker/type';
 import { useBaseClassName } from './hooks';
-import { useCommonClassName } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'DefaultTrigger',
@@ -86,7 +87,8 @@ export default defineComponent({
               style={{
                 background: this.value,
               }}
-            ></span>
+            >
+            </span>
           </div>
         );
       },

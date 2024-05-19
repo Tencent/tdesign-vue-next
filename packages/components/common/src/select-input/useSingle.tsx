@@ -1,15 +1,14 @@
-import { SetupContext, ref, computed, toRefs, Ref } from '@td/adapter-vue';
-import { isObject } from 'lodash-es';
-import { pick } from 'lodash-es';
-import Input, { StrInputProps } from '../input';
+import type { Ref, SetupContext } from '@td/adapter-vue';
+import { computed, ref, toRefs } from '@td/adapter-vue';
+import { isObject, pick } from 'lodash-es';
+import { useDefaultValue, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
+import type { TdSelectInputProps } from '@td/intel/select-input/type';
+import type { StrInputProps } from '../input';
+import Input from '../input';
 import Loading from '../loading';
-import { useTNodeJSX } from '@td/adapter-hooks';
-import { usePrefixClass } from '@td/adapter-hooks';
-import { useDefaultValue } from '@td/adapter-hooks';
 import { useFormDisabled } from '../form/hooks';
-import { PopupInstanceFunctions } from '../popup';
-import { TdSelectInputProps } from '@td/intel/select-input/type';
-import { SelectInputCommonProperties } from './interface';
+import type { PopupInstanceFunctions } from '../popup';
+import type { SelectInputCommonProperties } from './interface';
 
 // single 和 multiple 共有特性
 const COMMON_PROPERTIES = [
@@ -95,7 +94,6 @@ export default function useSingle(
       ...props.inputProps,
     };
 
-    // eslint-disable-next-line
     const { tips, ...slots } = context.slots;
 
     const inputClassProps = popupVisible
@@ -108,14 +106,18 @@ export default function useSingle(
 
     const onFocus: StrInputProps['onFocus'] = (val, context) => {
       const overlayState = popupRef.value?.getOverlayState();
-      if (isSingleFocus.value || overlayState?.hover) return;
+      if (isSingleFocus.value || overlayState?.hover) {
+        return;
+      }
       isSingleFocus.value = true;
       props.onFocus?.(value.value, { ...context, inputValue: val });
     };
 
     const onBlur: StrInputProps['onBlur'] = (val, context) => {
       const overlayState = popupRef.value?.getOverlayState();
-      if (overlayState?.hover) return;
+      if (overlayState?.hover) {
+        return;
+      }
       isSingleFocus.value = false;
       props.onBlur?.(value.value, { ...context, inputValue: val });
     };
@@ -150,8 +152,8 @@ export default function useSingle(
 
     if (singleValueDisplay) {
       if (
-        (props.valueDisplayOptions?.usePlaceholder && !value.value) ||
-        (props.valueDisplayOptions?.useInputDisplay && popupVisible)
+        (props.valueDisplayOptions?.usePlaceholder && !value.value)
+        || (props.valueDisplayOptions?.useInputDisplay && popupVisible)
       ) {
         return [label];
       }
@@ -161,13 +163,14 @@ export default function useSingle(
 
   const renderInputDisplay = (singleValueDisplay: any, displayedValue: any, popupVisible: boolean) => {
     // 使用valueDisplay插槽时，如用户传入useInputDisplay使用自带输入回显实现，未传则认为用户自行实现。
-    if (singleValueDisplay)
+    if (singleValueDisplay) {
       if (
-        !props.valueDisplayOptions?.useInputDisplay ||
-        (props.valueDisplayOptions?.useInputDisplay && !popupVisible)
+        !props.valueDisplayOptions?.useInputDisplay
+        || (props.valueDisplayOptions?.useInputDisplay && !popupVisible)
       ) {
         return undefined;
       }
+    }
     return displayedValue;
   };
 

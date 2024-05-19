@@ -1,16 +1,15 @@
-import { defineComponent, computed, nextTick, onMounted, ref, toRefs, watch, h, Teleport } from '@td/adapter-vue';
+import { Teleport, computed, defineComponent, h, nextTick, onMounted, ref, toRefs, watch } from '@td/adapter-vue';
 import { isFunction } from 'lodash-es';
 import props from '@td/intel/guide/props';
-import { GuideCrossProps } from './interface';
-import { TdGuideProps, GuideStep } from '@td/intel/guide/type';
-import { scrollToParentVisibleArea, getRelativePosition, getTargetElm, scrollToElm } from './utils';
+import type { GuideStep, TdGuideProps } from '@td/intel/guide/type';
+import { useConfig, usePrefixClass, useTNodeJSX, useVModel } from '@td/adapter-hooks';
+import { addClass, getWindowScroll, isFixed, removeClass } from '../utils/dom';
 import setStyle from '../_common/js/utils/set-style';
-import { addClass, removeClass, isFixed, getWindowScroll } from '../utils/dom';
-import { useVModel } from '@td/adapter-hooks';
-import { useTNodeJSX } from '@td/adapter-hooks';
-import { usePrefixClass, useConfig } from '@td/adapter-hooks';
 import Button from '../button';
-import Popup, { PopupProps } from '../popup';
+import type { PopupProps } from '../popup';
+import Popup from '../popup';
+import { getRelativePosition, getTargetElm, scrollToElm, scrollToParentVisibleArea } from './utils';
+import type { GuideCrossProps } from './interface';
 
 export default defineComponent({
   name: 'TGuide',
@@ -71,14 +70,16 @@ export default defineComponent({
       } else if (context.slots['highlight-content']) {
         // 支持插槽
         node = context.slots['highlight-content'](hWithParams());
-      } else if (!!highlightContent) {
+      } else if (highlightContent) {
         // 支持组件
         node = <node />;
       }
 
       // 给自定义元素添加类名
       if (node) {
-        if (!node.props) node.props = {};
+        if (!node.props) {
+          node.props = {};
+        }
         node.props.class = node.props.class || '';
       }
       return node;
@@ -89,7 +90,7 @@ export default defineComponent({
     //
     const popupVisible = ref(false);
     const hWithParams = (params: Record<string, any> = { currentStepInfo: currentStepInfo.value }) => {
-      const newH = new Function('return ' + h.toString())();
+      const newH = new Function(`return ${h.toString()}`)();
       return Object.assign({}, newH, params);
     };
 
@@ -143,7 +144,9 @@ export default defineComponent({
     const showPopupGuide = () => {
       nextTick(() => {
         currentHighlightLayerElm.value = getTargetElm(currentStepInfo.value.element);
-        if (!currentHighlightLayerElm.value) return;
+        if (!currentHighlightLayerElm.value) {
+          return;
+        }
         scrollToParentVisibleArea(currentHighlightLayerElm.value);
         setHighlightLayerPosition(highlightLayerRef.value);
         setHighlightLayerPosition(referenceLayerRef.value, true);

@@ -1,28 +1,29 @@
-import {
-  defineComponent,
-  computed,
-  inject,
-  ref,
-  provide,
-  onMounted,
-  getCurrentInstance,
-  watch,
+import type {
   Slots,
-  toRefs,
-  reactive,
-  nextTick,
+} from '@td/adapter-vue';
+import {
   Transition,
+  computed,
+  defineComponent,
+  getCurrentInstance,
+  inject,
+  nextTick,
+  onMounted,
+  provide,
+  reactive,
+  ref,
+  toRefs,
+  watch,
 } from '@td/adapter-vue';
 import props from '@td/intel/menu/submenu-props';
-import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
-import { TdMenuInterface, TdSubMenuInterface, TdMenuItem } from './const';
-import FakeArrow from '../common-components/fake-arrow';
-import { useRipple } from '@td/adapter-hooks';
-import { usePrefixClass } from '@td/adapter-hooks';
-import { Popup, PopupPlacement } from '../popup';
+import { useCollapseAnimation, usePrefixClass, useRipple } from '@td/adapter-hooks';
 import { isFunction } from 'lodash-es';
-import { TdSubmenuProps } from '@td/intel/menu/type';
-import { useCollapseAnimation } from '@td/adapter-hooks';
+import type { TdSubmenuProps } from '@td/intel/menu/type';
+import type { PopupPlacement } from '../popup';
+import { Popup } from '../popup';
+import FakeArrow from '../common-components/fake-arrow';
+import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
+import type { TdMenuInterface, TdMenuItem, TdSubMenuInterface } from './const';
 
 export default defineComponent({
   name: 'TSubmenu',
@@ -37,7 +38,7 @@ export default defineComponent({
     const mode = computed(() => ctx.attrs.expandType || menu.mode.value);
 
     const menuItems = ref([]); // 因composition-api的缺陷，不用reactive， 详见：https://github.com/vuejs/composition-api/issues/637
-    const isActive = computed(() => activeValues.value.indexOf(props.value) > -1);
+    const isActive = computed(() => activeValues.value.includes(props.value));
     const popupVisible = ref(false);
     const isCursorInPopup = ref(false);
     const rippleColor = computed(() => (theme.value === 'light' ? '#E7E7E7' : '#383838'));
@@ -106,7 +107,9 @@ export default defineComponent({
 
     // methods
     const handleMouseEnter = () => {
-      if (props.disabled) return;
+      if (props.disabled) {
+        return;
+      }
       setTimeout(() => {
         if (!popupVisible.value) {
           open(props.value);
@@ -122,7 +125,9 @@ export default defineComponent({
 
     const targetInPopup = (el: HTMLElement) => el?.classList.contains(`${classPrefix.value}-menu__popup`);
     const loopInPopup = (el: HTMLElement): boolean => {
-      if (!el) return false;
+      if (!el) {
+        return false;
+      }
       return targetInPopup(el) || loopInPopup(el.parentElement);
     };
 
@@ -130,7 +135,9 @@ export default defineComponent({
       setTimeout(() => {
         const inPopup = targetInPopup(e.relatedTarget as HTMLElement);
 
-        if (isCursorInPopup.value || inPopup) return;
+        if (isCursorInPopup.value || inPopup) {
+          return;
+        }
         popupVisible.value = false;
       }, 0);
     };
@@ -139,7 +146,9 @@ export default defineComponent({
       const { toElement, relatedTarget } = e;
       let target = toElement || relatedTarget;
 
-      if (target === subPopupRef.value) return;
+      if (target === subPopupRef.value) {
+        return;
+      }
 
       const isSubmenu = (el: Element) => el === submenuRef.value;
       while (target !== null && target !== document && !isSubmenu(target)) {
@@ -159,7 +168,9 @@ export default defineComponent({
     };
 
     const handleSubmenuItemClick = () => {
-      if (props.disabled) return;
+      if (props.disabled) {
+        return;
+      }
       open(props.value);
     };
 
@@ -184,7 +195,9 @@ export default defineComponent({
         },
         closeParentPopup: (e: MouseEvent) => {
           const related = e.relatedTarget as HTMLElement;
-          if (loopInPopup(related)) return;
+          if (loopInPopup(related)) {
+            return;
+          }
           handleMouseLeavePopup(e);
         },
       }),
@@ -348,7 +361,7 @@ export default defineComponent({
         <span class={[`${this.classPrefix}-menu__content`]}>{renderTNodeJSX(this, 'title', { silent: true })}</span>,
         <FakeArrow
           overlayClassName={/menu/i.test(this.$parent.$options.name) ? this.arrowClass : null}
-          overlayStyle={{ transform: `rotate(${needRotate ? -90 : 0}deg)`, 'margin-left': 'auto' }}
+          overlayStyle={{ 'transform': `rotate(${needRotate ? -90 : 0}deg)`, 'margin-left': 'auto' }}
         />,
       ];
 

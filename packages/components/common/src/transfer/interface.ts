@@ -1,4 +1,4 @@
-import { DataOption, TransferValue, TransferListType, SearchContext, TdTransferProps } from '@td/intel/transfer/type';
+import type { DataOption, SearchContext, TdTransferProps, TransferListType, TransferValue } from '@td/intel/transfer/type';
 
 export * from '@td/intel/transfer/type';
 

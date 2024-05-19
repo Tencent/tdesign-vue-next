@@ -1,9 +1,9 @@
+import { withInstall } from '@td/adapter-utils';
+import type { TdDatePickerPanelProps, TdDatePickerProps, TdDateRangePickerPanelProps, TdDateRangePickerProps } from '@td/intel/date-picker/type';
 import _DatePicker from './DatePicker';
 import _DatePickerPanel from './DatePickerPanel';
 import _DateRangePicker from './DateRangePicker';
 import _DateRangePickerPanel from './DateRangePickerPanel';
-import { withInstall } from '@td/adapter-utils';
-import { TdDatePickerProps, TdDateRangePickerProps, TdDatePickerPanelProps, TdDateRangePickerPanelProps } from '@td/intel/date-picker/type';
 
 import './style';
 
@@ -15,7 +15,7 @@ export interface DatePickerPanelProps extends TdDatePickerPanelProps, Pick<TdDat
 export type DateRangePickerProps = TdDateRangePickerProps;
 export interface DateRangePickerPanelProps
   extends TdDateRangePickerPanelProps,
-    Pick<TdDateRangePickerProps, 'modelValue'> {}
+  Pick<TdDateRangePickerProps, 'modelValue'> {}
 
 export const DatePicker = withInstall(_DatePicker);
 export const DatePickerPanel = withInstall(_DatePickerPanel);

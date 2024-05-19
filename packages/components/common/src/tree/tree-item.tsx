@@ -1,13 +1,15 @@
-import {
-  TypePropType,
-  defineComponent,
+import type {
   TypeCreateElement,
-  ref,
-  TreeItemDefinition,
-  useRipple,
-  getCreateElement,
+  TypePropType,
 } from './adapt';
-import { TypeTreeItemProps } from './tree-types';
+import {
+  TreeItemDefinition,
+  defineComponent,
+  getCreateElement,
+  ref,
+  useRipple,
+} from './adapt';
+import type { TypeTreeItemProps } from './tree-types';
 import useItemState from './hooks/useItemState';
 import useTreeItem from './hooks/useTreeItem';
 

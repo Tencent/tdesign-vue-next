@@ -12,13 +12,17 @@ export default function useHover(props: UseHoverParams) {
   const isHover = ref<boolean>(false);
 
   const addHover = (context: { e: MouseEvent }) => {
-    if (readonly || disabled) return;
+    if (readonly || disabled) {
+      return;
+    }
     isHover.value = true;
     onMouseenter?.(context);
   };
 
   const cancelHover = (context: { e: MouseEvent }) => {
-    if (readonly || disabled) return;
+    if (readonly || disabled) {
+      return;
+    }
     isHover.value = false;
     onMouseleave?.(context);
   };

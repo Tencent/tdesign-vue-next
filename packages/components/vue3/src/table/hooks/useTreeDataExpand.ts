@@ -1,8 +1,10 @@
-import { ComputedRef, nextTick, ref, Ref, toRefs, watch } from '@td/adapter-vue';
-import { TdEnhancedTableProps, TableRowData } from '../type';
+import type { ComputedRef, Ref } from '@td/adapter-vue';
+import { nextTick, ref, toRefs, watch } from '@td/adapter-vue';
+import type { TableRowData, TdEnhancedTableProps } from '../type';
 import useDefaultValue from '../../hooks/useDefaultValue';
-import TableTreeStore, { diffExpandedTreeNode, getUniqueRowValue } from '../../_common/js/table/tree-store';
-import { TableTreeExpandType } from '../interface';
+import type TableTreeStore from '../../_common/js/table/tree-store';
+import { diffExpandedTreeNode, getUniqueRowValue } from '../../_common/js/table/tree-store';
+import type { TableTreeExpandType } from '../interface';
 
 export function useTreeDataExpand(
   props: TdEnhancedTableProps,
@@ -36,7 +38,7 @@ export function useTreeDataExpand(
   function expandAll(type: 'expand-all' | 'default-expand-all' = 'expand-all', list?: TableRowData[]) {
     const newData = list || data.value;
     dataSource.value = store.value.expandAll(newData, rowDataKeys.value);
-    const expandedNode = dataSource.value.map((t) => getUniqueRowValue(t, rowDataKeys.value.rowKey));
+    const expandedNode = dataSource.value.map(t => getUniqueRowValue(t, rowDataKeys.value.rowKey));
     setTExpandedTreeNode(expandedNode, {
       row: undefined,
       rowState: undefined,
@@ -110,7 +112,9 @@ export function useTreeDataExpand(
   }
 
   watch([tExpandedTreeNode, data], ([tExpandedTreeNode], [oldExpandedTreeNode]) => {
-    if (!store.value.treeDataMap.size || !data.value.length) return;
+    if (!store.value.treeDataMap.size || !data.value.length) {
+      return;
+    }
     if (changedExpandTreeNode.value.type === 'user-reaction-change') {
       const { row, rowIndex } = changedExpandTreeNode.value || {};
       dataSource.value = [...store.value.toggleExpandData({ row, rowIndex }, [...dataSource.value], rowDataKeys.value)];

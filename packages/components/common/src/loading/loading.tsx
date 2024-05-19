@@ -1,13 +1,13 @@
-import { defineComponent, ref, computed, watch, onMounted, toRefs, CSSProperties, Teleport } from '@td/adapter-vue';
-import GradientIcon from './icon/gradient';
-import { addClass, removeClass } from '../utils/dom';
-import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
+import type { CSSProperties } from '@td/adapter-vue';
+import { Teleport, computed, defineComponent, onMounted, ref, toRefs, watch } from '@td/adapter-vue';
 import props from '@td/intel/loading/props';
 
-import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
-import { useTeleport } from '@td/adapter-hooks';
+import { useCommonClassName, usePrefixClass, useTeleport } from '@td/adapter-hooks';
+import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
+import { addClass, removeClass } from '../utils/dom';
+import GradientIcon from './icon/gradient';
 
-const useComponentClassName = () => {
+function useComponentClassName() {
   return {
     name: usePrefixClass('loading'),
     centerClass: usePrefixClass('loading--center'),
@@ -18,7 +18,7 @@ const useComponentClassName = () => {
     fullClass: usePrefixClass('loading--full'),
     inheritColorClass: usePrefixClass('loading--inherit-color'),
   };
-};
+}
 
 export default defineComponent({
   name: 'TLoading',
@@ -27,8 +27,8 @@ export default defineComponent({
   setup(props, { slots }) {
     const delayShowLoading = ref(false);
 
-    const { name, centerClass, fullscreenClass, lockClass, overlayClass, relativeClass, fullClass, inheritColorClass } =
-      useComponentClassName();
+    const { name, centerClass, fullscreenClass, lockClass, overlayClass, relativeClass, fullClass, inheritColorClass }
+      = useComponentClassName();
 
     const classPrefix = usePrefixClass();
     const { SIZE } = useCommonClassName();
@@ -127,7 +127,9 @@ export default defineComponent({
 
     // full screen loading
     if (this.fullscreen) {
-      if (!this.showFullScreenLoading || !this.loading) return null;
+      if (!this.showFullScreenLoading || !this.loading) {
+        return null;
+      }
       return (
         <Teleport disabled={!this.attach || !this.teleportElement} to={this.teleportElement}>
           <div class={fullScreenClasses} style={this.styles} {...this.$attrs}>
@@ -157,7 +159,9 @@ export default defineComponent({
 
     // transfer parent node
     if (this.attach) {
-      if (!this.showAttachedLoading || !this.loading) return null;
+      if (!this.showAttachedLoading || !this.loading) {
+        return null;
+      }
       return (
         <Teleport disabled={!this.attach || !this.teleportElement} to={this.teleportElement}>
           <div class={attachClasses} style={this.styles} {...this.$attrs}>
@@ -169,11 +173,13 @@ export default defineComponent({
     }
 
     // Normal Loading without overlay or content
-    return this.loading ? (
-      <div class={normalClasses} style={this.styles} {...this.$attrs}>
-        {indicator}
-        {text}
-      </div>
-    ) : null;
+    return this.loading
+      ? (
+        <div class={normalClasses} style={this.styles} {...this.$attrs}>
+          {indicator}
+          {text}
+        </div>
+        )
+      : null;
   },
 });

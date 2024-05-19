@@ -5,7 +5,7 @@ import { useResizeObserver } from '@td/adapter-hooks';
 import { getAttach, removeDom } from '@td/adapter-utils';
 import type { TdPopupProps } from '@td/intel/components/popup/type';
 
-import type { ComponentInternalInstance, PropType } from '@td/adapter-vue';
+import type { PropType } from '@td/adapter-vue';
 
 function isRectChanged(rect1?: DOMRectReadOnly, rect2?: DOMRectReadOnly) {
   if (!rect1 && !rect2) {

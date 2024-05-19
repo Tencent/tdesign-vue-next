@@ -42,8 +42,10 @@ export type ImageEvent = Event;
 
 /**
  * 通用全局类型
- * */
-export type PlainObject = { [key: string]: any };
+ */
+export interface PlainObject {
+  [key: string]: any;
+}
 
 export type OptionData = {
   label?: string;

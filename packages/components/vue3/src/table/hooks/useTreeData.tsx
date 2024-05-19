@@ -1,23 +1,25 @@
-import { SetupContext, ref, watch, toRefs, onUnmounted, computed, h, shallowRef } from '@td/adapter-vue';
+import type { SetupContext } from '@td/adapter-vue';
+import { computed, h, onUnmounted, ref, shallowRef, toRefs, watch } from '@td/adapter-vue';
 import {
   AddRectangleIcon as TdAddRectangleIcon,
   MinusRectangleIcon as TdMinusRectangleIcon,
 } from 'tdesign-icons-vue-next';
 import { get } from 'lodash-es';
-import TableTreeStore, { SwapParams } from '../../_common/js/table/tree-store';
-import {
-  TdEnhancedTableProps,
+import type { SwapParams } from '../../_common/js/table/tree-store';
+import TableTreeStore from '../../_common/js/table/tree-store';
+import type {
+  PrimaryTableCellParams,
   PrimaryTableCol,
   TableRowData,
-  TableRowValue,
   TableRowState,
-  PrimaryTableCellParams,
+  TableRowValue,
+  TdEnhancedTableProps,
 } from '../type';
-import useClassName from './useClassName';
 import { renderCell } from '../tr';
 import { useConfig } from '../../hooks/useConfig';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 import { useTNodeDefault } from '../../hooks';
+import useClassName from './useClassName';
 import useTreeDataExpand from './useTreeDataExpand';
 
 export default function useTreeData(props: TdEnhancedTableProps, context: SetupContext) {
@@ -49,10 +51,12 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
     onExpandFoldIconClick,
   } = useTreeDataExpand(props, { store, dataSource, rowDataKeys });
 
-  const checkedColumn = computed(() => columns.value.find((col) => col.colKey === 'row-select'));
+  const checkedColumn = computed(() => columns.value.find(col => col.colKey === 'row-select'));
 
   watch(checkedColumn, (column) => {
-    if (!store.value) return;
+    if (!store.value) {
+      return;
+    }
     store.value.updateDisabledState(dataSource.value, column, rowDataKeys.value);
   });
 
@@ -92,7 +96,9 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
   // });
 
   onUnmounted(() => {
-    if (!props.tree) return;
+    if (!props.tree) {
+      return;
+    }
     store.value.treeDataMap?.clear();
     store.value = null;
   });
@@ -119,7 +125,9 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
   }
 
   function getTreeNodeStyle(level: number) {
-    if (level === undefined) return;
+    if (level === undefined) {
+      return;
+    }
     const indent = props.tree?.indent === undefined ? 24 : props.tree?.indent;
     // 默认 1px 是为了临界省略
     return indent ? { paddingLeft: `${level * indent || 1}px` } : {};
@@ -150,8 +158,8 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
     let treeNodeColumnIndex = props.tree?.treeNodeColumnIndex || 0;
     // type 存在，则表示表格内部渲染的特殊列，比如：展开行按钮、复选框、单选按钮等，不能作为树结点列。因此树结点展开列向后顺移
     while (
-      columns[treeNodeColumnIndex]?.type ||
-      columns[treeNodeColumnIndex]?.colKey === '__EXPAND_ROW_ICON_COLUMN__'
+      columns[treeNodeColumnIndex]?.type
+      || columns[treeNodeColumnIndex]?.colKey === '__EXPAND_ROW_ICON_COLUMN__'
     ) {
       treeNodeColumnIndex += 1;
     }
@@ -159,7 +167,9 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
   }
 
   function formatTreeColumn(col: PrimaryTableCol): PrimaryTableCol {
-    if (!props.tree || col.colKey !== treeNodeCol.value.colKey) return col;
+    if (!props.tree || col.colKey !== treeNodeCol.value.colKey) {
+      return col;
+    }
     const newCol = { ...treeNodeCol.value };
     newCol.cell = (h, p) => {
       const cellInfo = renderCell({ ...p, col: { ...treeNodeCol.value } }, context.slots, {
@@ -169,7 +179,7 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
       const colStyle = getTreeNodeStyle(currentState?.level);
       const classes = { [tableTreeClasses.inlineCol]: !!col.ellipsis };
       const childrenNodes = get(p.row, rowDataKeys.value.childrenKey);
-      if ((childrenNodes && childrenNodes instanceof Array) || childrenNodes === true) {
+      if ((childrenNodes && Array.isArray(childrenNodes)) || childrenNodes === true) {
         const iconNode = store.value.treeDataMap.get(get(p.row, rowDataKeys.value.rowKey))?.expanded
           ? foldIcon(p)
           : expandIcon(p);

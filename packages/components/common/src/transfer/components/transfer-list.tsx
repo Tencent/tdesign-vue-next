@@ -1,24 +1,25 @@
-import { defineComponent, VNode, PropType, ref, computed, watch, toRefs } from '@td/adapter-vue';
-import {
+import type { PropType, VNode } from '@td/adapter-vue';
+import { computed, defineComponent, ref, toRefs, watch } from '@td/adapter-vue';
+import { cloneDeep, filter, isString } from 'lodash-es';
+import { useDragSort } from '@td/adapter-hooks';
+import type {
   EmptyType,
   SearchEvent,
   SearchOption,
-  TransferValue,
   TdTransferProps,
-  TransferListType,
   TransferItemOption,
+  TransferListType,
+  TransferValue,
 } from '../interface';
-import { PageInfo, TdPaginationProps, Pagination } from '../../pagination';
-import { Checkbox as TCheckbox, CheckboxGroup as TCheckboxGroup, CheckboxProps } from '../../checkbox';
-import { getLefCount, getDataValues, TARGET } from '../utils';
-import Search from './transfer-search';
+import type { PageInfo, TdPaginationProps } from '../../pagination';
+import { Pagination } from '../../pagination';
+import type { CheckboxProps } from '../../checkbox';
+import { Checkbox as TCheckbox, CheckboxGroup as TCheckboxGroup } from '../../checkbox';
+import { TARGET, getDataValues, getLefCount } from '../utils';
 import { useTNodeDefault } from '../../hooks/tnode';
 
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
-import { isString } from 'lodash-es';
-import { filter } from 'lodash-es';
-import { cloneDeep } from 'lodash-es';
-import { useDragSort } from '@td/adapter-hooks';
+import Search from './transfer-search';
 
 const props = {
   checkboxProps: {
@@ -98,11 +99,11 @@ export default defineComponent({
     });
 
     const filteredData = computed(() => {
-      const isTreeData = props.dataSource.some((item) => item.children && item.children.length);
+      const isTreeData = props.dataSource.some(item => item.children && item.children.length);
       if (!isTreeData) {
         return props.dataSource.filter((item: TransferItemOption) => {
           const label = item && item.label.toString();
-          return label.toLowerCase().indexOf(filterValue.value.toLowerCase()) > -1;
+          return label.toLowerCase().includes(filterValue.value.toLowerCase());
         });
       } else {
         return filteredTreeData(props.dataSource, filterValue.value);
@@ -115,8 +116,12 @@ export default defineComponent({
 
     const curPageData = computed(() => {
       let pageData = filteredData.value;
-      if (!props.pagination) return pageData;
-      if (pageSize.value === 0) return pageData;
+      if (!props.pagination) {
+        return pageData;
+      }
+      if (pageSize.value === 0) {
+        return pageData;
+      }
       const startIndex = (currentPage.value - 1) * pageSize.value;
       const endIndex = currentPage.value * pageSize.value;
       pageData = pageData.slice(startIndex, endIndex);
@@ -148,9 +153,9 @@ export default defineComponent({
       const allValue = getDataValues(props.dataSource, [], { isTreeMode: props.isTreeMode, include: false });
 
       return (
-        props.checkedValue.length > 0 &&
-        (props.isTreeMode
-          ? allValue.every((item) => props.checkedValue.includes(item))
+        props.checkedValue.length > 0
+        && (props.isTreeMode
+          ? allValue.every(item => props.checkedValue.includes(item))
           : (props.search ? filteredData.value : props.dataSource).every(
               (item: TransferItemOption) => item.disabled || props.checkedValue.includes(item.value),
             ))
@@ -319,9 +324,11 @@ export default defineComponent({
       );
     };
     const renderFooter = () => {
-      const defaultNode = isString(props.footer) ? (
-        <div class={`${classPrefix.value}-transfer__footer`}>{props.footer}</div>
-      ) : null;
+      const defaultNode = isString(props.footer)
+        ? (
+          <div class={`${classPrefix.value}-transfer__footer`}>{props.footer}</div>
+          )
+        : null;
       return renderTNodeJSX('footer', {
         defaultNode,
         params: {

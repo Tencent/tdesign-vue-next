@@ -1,15 +1,16 @@
 import { pick } from 'lodash-es';
 import { TreeStore } from '../../_common/js/tree/tree-store';
-import { watch, TypeRef } from '../adapt';
-import {
-  TreeProps,
-  TypeValueMode,
+import type { TypeRef } from '../adapt';
+import { watch } from '../adapt';
+import type {
   TreeNodeValue,
+  TreeProps,
   TypeEventState,
-  TypeTreeNodeModel,
-  TypeTreeNode,
   TypeTNodeValue,
+  TypeTreeNode,
+  TypeTreeNodeModel,
   TypeTreeState,
+  TypeValueMode,
 } from '../tree-types';
 
 export default function useTreeStore(state: TypeTreeState) {
@@ -55,7 +56,9 @@ export default function useTreeStore(state: TypeTreeState) {
 
   const updateExpanded = () => {
     const { expandParent } = props;
-    if (!Array.isArray(tExpanded.value)) return;
+    if (!Array.isArray(tExpanded.value)) {
+      return;
+    }
     // 初始化展开状态
     // 校验是否自动展开父节点
     const expandedMap = new Map();
@@ -84,8 +87,12 @@ export default function useTreeStore(state: TypeTreeState) {
   // 所以在 update 之后检查，如果之前 filter 有变更，则检查路径节点是否需要展开
   // 如果 filter 属性被清空，则重置为开启搜索之前的结果
   const expandFilterPath = () => {
-    if (!props.allowFoldNodeOnFilter) return;
-    if (!filterChanged) return;
+    if (!props.allowFoldNodeOnFilter) {
+      return;
+    }
+    if (!filterChanged) {
+      return;
+    }
     // 确保 filter 属性未变更时，不会重复检查展开状态
     filterChanged = false;
 
@@ -114,7 +121,9 @@ export default function useTreeStore(state: TypeTreeState) {
   // 这个方法监听 filter 属性，仅在 allowFoldNodeOnFilter 属性为 true 时生效
   // 仅在 filter 属性发生变更时开启检查开关，避免其他操作也触发展开状态的重置
   const checkFilterExpand = (newFilter: null | Function, previousFilter: null | Function) => {
-    if (!props.allowFoldNodeOnFilter) return;
+    if (!props.allowFoldNodeOnFilter) {
+      return;
+    }
     filterChanged = newFilter !== previousFilter;
   };
 

@@ -1,13 +1,13 @@
-import { computed, defineComponent, provide, reactive, ref, toRefs, VNode } from '@td/adapter-vue';
+import type { VNode } from '@td/adapter-vue';
+import { computed, defineComponent, provide, reactive, ref, toRefs } from '@td/adapter-vue';
 import { isObject } from 'lodash-es';
 import props from '@td/intel/steps/props';
 import stepItemProps from '@td/intel/steps/step-item-props';
-import { TdStepItemProps } from '@td/intel/steps/type';
-import StepItem from './step-item';
+import type { TdStepItemProps } from '@td/intel/steps/type';
 
-import { usePrefixClass } from '@td/adapter-hooks';
-import { useVModel } from '@td/adapter-hooks';
+import { usePrefixClass, useVModel } from '@td/adapter-hooks';
 import { useChildComponentSlots } from '../hooks';
+import StepItem from './step-item';
 
 export default defineComponent({
   name: 'TSteps',
@@ -37,10 +37,16 @@ export default defineComponent({
     const indexMap = ref({});
 
     const handleStatus = (itemProps: TdStepItemProps, index: number) => {
-      if (itemProps.status && itemProps.status !== 'default') return itemProps.status;
-      if (innerCurrent.value === 'FINISH') return 'finish';
+      if (itemProps.status && itemProps.status !== 'default') {
+        return itemProps.status;
+      }
+      if (innerCurrent.value === 'FINISH') {
+        return 'finish';
+      }
       // value 不存在时，使用 index 进行区分每一个步骤
-      if (itemProps.value === undefined && index < innerCurrent.value) return 'finish';
+      if (itemProps.value === undefined && index < innerCurrent.value) {
+        return 'finish';
+      }
       // value 存在，找匹配位置
       if (itemProps.value !== undefined) {
         const matchIndex = indexMap.value[innerCurrent.value];
@@ -48,11 +54,17 @@ export default defineComponent({
           console.warn('TDesign Steps Warn: The current `value` is not exist.');
           return 'default';
         }
-        if (props.sequence === 'positive' && index < matchIndex) return 'finish';
-        if (props.sequence === 'reverse' && index > matchIndex) return 'finish';
+        if (props.sequence === 'positive' && index < matchIndex) {
+          return 'finish';
+        }
+        if (props.sequence === 'reverse' && index > matchIndex) {
+          return 'finish';
+        }
       }
       const key = itemProps.value === undefined ? index : itemProps.value;
-      if (key === innerCurrent.value) return 'process';
+      if (key === innerCurrent.value) {
+        return 'process';
+      }
       return 'default';
     };
 
@@ -63,7 +75,9 @@ export default defineComponent({
       nodes?.forEach((node) => {
         const option = node?.props || {};
         const children = node?.children;
-        if (!option && !children) return;
+        if (!option && !children) {
+          return;
+        }
         if (children && isObject(children)) {
           for (const key in children) {
             if (key in stepItemProps && !option[key]) {
@@ -85,7 +99,9 @@ export default defineComponent({
       }
 
       (options || []).forEach((item, index) => {
-        if (item.value !== undefined) indexMap.value[item.value] = index;
+        if (item.value !== undefined) {
+          indexMap.value[item.value] = index;
+        }
       });
       return options;
     };

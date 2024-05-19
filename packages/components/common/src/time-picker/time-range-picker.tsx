@@ -1,23 +1,22 @@
-import { defineComponent, ref, toRefs, watch, computed } from '@td/adapter-vue';
+import { computed, defineComponent, ref, toRefs, watch } from '@td/adapter-vue';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { TimeIcon as TdTimeIcon } from 'tdesign-icons-vue-next';
 
-import { RangeInputPopup, RangeInputPosition } from '../range-input';
-import TimePickerPanel from './panel/time-picker-panel';
-
-import { TIME_PICKER_EMPTY } from '../_common/js/time-picker/const';
-import { formatInputValue, validateInputValue } from '../_common/js/time-picker/utils';
-
 // interfaces
 import props from '@td/intel/time-picker/time-range-picker-props';
-import { TimeRangeValue } from './interface';
-import { TimeRangePickerPartial } from '@td/intel/time-picker/type';
+import type { TimeRangePickerPartial } from '@td/intel/time-picker/type';
 // hooks
 import { useVModel } from '@td/adapter-hooks';
 import { useCommonClassName, useConfig, usePrefixClass } from '@td/adapter-hooks';
 import { useGlobalIcon } from '@td/adapter-hooks';
+import { formatInputValue, validateInputValue } from '../_common/js/time-picker/utils';
+import { TIME_PICKER_EMPTY } from '../_common/js/time-picker/const';
+import { RangeInputPopup } from '../range-input';
+import type { RangeInputPosition } from '../range-input';
 import { useFormDisabled } from '../form/hooks';
+import type { TimeRangeValue } from './interface';
+import TimePickerPanel from './panel/time-picker-panel';
 
 dayjs.extend(customParseFormat);
 
@@ -97,8 +96,10 @@ export default defineComponent({
     };
 
     const handleClickConfirm = () => {
-      const isValidTime = !currentValue.value.find((v) => !validateInputValue(v, format.value));
-      if (isValidTime) setInnerValue(currentValue.value);
+      const isValidTime = !currentValue.value.find(v => !validateInputValue(v, format.value));
+      if (isValidTime) {
+        setInnerValue(currentValue.value);
+      }
       isShowPanel.value = false;
     };
 
@@ -123,7 +124,9 @@ export default defineComponent({
       () => isShowPanel.value,
       () => {
         currentValue.value = isShowPanel.value ? innerValue.value ?? TIME_PICKER_EMPTY : TIME_PICKER_EMPTY;
-        if (!isShowPanel.value) currentPanelIdx.value = undefined;
+        if (!isShowPanel.value) {
+          currentPanelIdx.value = undefined;
+        }
       },
     );
 

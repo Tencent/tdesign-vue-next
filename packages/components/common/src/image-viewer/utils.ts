@@ -1,7 +1,6 @@
-import { isString } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { isArray, isString } from 'lodash-es';
 
-import { TdImageViewerProps, ImageInfo } from '@td/intel/image-viewer/type';
+import type { ImageInfo, TdImageViewerProps } from '@td/intel/image-viewer/type';
 
 export const downloadFile = function (imgSrc: string) {
   const image = new Image();
@@ -32,12 +31,14 @@ export const downloadFile = function (imgSrc: string) {
   image.src = imgSrc;
 };
 
-const isImageInfo = (image: string | File | ImageInfo): image is ImageInfo => {
+function isImageInfo(image: string | File | ImageInfo): image is ImageInfo {
   return !!image && !isString(image) && !(image instanceof File);
-};
+}
 
-export const formatImages = (images: TdImageViewerProps['images']): ImageInfo[] => {
-  if (!isArray(images)) return [];
+export function formatImages(images: TdImageViewerProps['images']): ImageInfo[] {
+  if (!isArray(images)) {
+    return [];
+  }
   return images.map((item) => {
     if (isImageInfo(item)) {
       return {
@@ -52,11 +53,11 @@ export const formatImages = (images: TdImageViewerProps['images']): ImageInfo[] 
       download: true,
     };
   });
-};
+}
 
-export const getOverlay = (props: TdImageViewerProps) => {
+export function getOverlay(props: TdImageViewerProps) {
   if (props.showOverlay !== undefined) {
     return props.showOverlay;
   }
   return props.mode === 'modal';
-};
+}

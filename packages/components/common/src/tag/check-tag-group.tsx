@@ -1,10 +1,9 @@
-import { computed, defineComponent, toRefs, h } from '@td/adapter-vue';
-import { usePrefixClass } from '@td/adapter-hooks';
+import { computed, defineComponent, h, toRefs } from '@td/adapter-vue';
+import { usePrefixClass, useVModel } from '@td/adapter-hooks';
 import props from '@td/intel/tag/check-tag-group-props';
-import CheckTag from './check-tag';
-import { useVModel } from '@td/adapter-hooks';
-import { CheckTagGroupOption, CheckTagGroupValue, TdCheckTagProps } from '@td/intel/tag/type';
+import type { CheckTagGroupOption, CheckTagGroupValue, TdCheckTagProps } from '@td/intel/tag/type';
 import { isFunction } from 'lodash-es';
+import CheckTag from './check-tag';
 
 export default defineComponent({
   name: 'TCheckTagGroup',
@@ -29,27 +28,35 @@ export default defineComponent({
       } else {
         let newValue: CheckTagGroupValue = [];
         if (props.multiple) {
-          newValue = innerValue.value.filter((t) => t !== value);
+          newValue = innerValue.value.filter(t => t !== value);
         }
         setInnerValue(newValue, { e: ctx.e, type: 'uncheck', value });
       }
     };
 
     const getTagContent = (option: CheckTagGroupOption) => {
-      if (context.slots.option) return context.slots.option(option);
-      if (context.slots.label) return context.slots.label(option);
+      if (context.slots.option) {
+        return context.slots.option(option);
+      }
+      if (context.slots.label) {
+        return context.slots.label(option);
+      }
       if (option.label) {
         return isFunction(option.label) ? option.label(h) : option.label;
       }
-      if (option.content && isFunction(option.content)) return option.content(h);
-      if (option.default && isFunction(option.default)) return option.default(h);
+      if (option.content && isFunction(option.content)) {
+        return option.content(h);
+      }
+      if (option.default && isFunction(option.default)) {
+        return option.default(h);
+      }
       return option.value;
     };
 
     return () => {
       return (
         <div class={checkTagGroupClasses.value}>
-          {(options.value || []).map((option) => (
+          {(options.value || []).map(option => (
             <CheckTag
               key={option.value}
               value={option.value}

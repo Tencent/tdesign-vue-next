@@ -1,26 +1,22 @@
-import { computed, defineComponent, onMounted, PropType, ref, SetupContext, toRefs, watch } from '@td/adapter-vue';
-import { get } from 'lodash-es';
-import { set } from 'lodash-es';
-import { isFunction } from 'lodash-es';
-import { cloneDeep } from 'lodash-es';
+import type { PropType, SetupContext } from '@td/adapter-vue';
+import { computed, defineComponent, onMounted, ref, toRefs, watch } from '@td/adapter-vue';
+import { cloneDeep, get, isFunction, isObject, set } from 'lodash-es';
 import { Edit1Icon as TdEdit1Icon } from 'tdesign-icons-vue-next';
-import {
-  TableRowData,
+import type {
   PrimaryTableCol,
   PrimaryTableRowEditContext,
   PrimaryTableRowValidateContext,
-  TdBaseTableProps,
   TableEditableCellPropsParams,
+  TableRowData,
+  TdBaseTableProps,
 } from '@td/intel/table/type';
-import { TableClassName } from './hooks/useClassName';
-import { useGlobalIcon } from '@td/adapter-hooks';
-import { renderCell } from './tr';
+import { useGlobalIcon, usePrefixClass } from '@td/adapter-hooks';
 import { validate } from '../form/form-model';
 import log from '../_common/js/log';
-import { AllValidateResult } from '../form/type';
-import { on, off } from '../utils/dom';
-import { isObject } from 'lodash-es';
-import { usePrefixClass } from '@td/adapter-hooks';
+import type { AllValidateResult } from '../form/type';
+import { off, on } from '../utils/dom';
+import { renderCell } from './tr';
+import type { TableClassName } from './hooks/useClassName';
 
 export interface OnEditableChangeContext<T> extends PrimaryTableRowEditContext<T> {
   isEdit: boolean;
@@ -152,16 +148,18 @@ export default defineComponent({
       const { edit } = col.value;
       return isFunction(edit.props)
         ? edit.props({
-            ...cellParams.value,
-            editedRow: currentRow.value,
-            updateEditedCellValue,
-          })
+          ...cellParams.value,
+          editedRow: currentRow.value,
+          updateEditedCellValue,
+        })
         : { ...edit.props };
     });
 
     const componentProps = computed(() => {
       const { edit } = col.value;
-      if (!edit) return {};
+      if (!edit) {
+        return {};
+      }
       const tmpProps = { ...editProps.value };
       // for removing warn: runtime-core.esm-bundler.js:38 [Vue warn]: Invalid prop: type check failed for prop "onChange". Expected Function, got Array
       delete tmpProps.onChange;
@@ -174,7 +172,9 @@ export default defineComponent({
 
     const isAbortEditOnChange = computed(() => {
       const { edit } = col.value;
-      if (!edit) return false;
+      if (!edit) {
+        return false;
+      }
       return Boolean(edit.abortEditOnEvent?.includes('onChange'));
     });
 
@@ -197,7 +197,7 @@ export default defineComponent({
           return;
         }
         validate(editValue.value, rules).then((result) => {
-          const list = result?.filter((t) => !t.result);
+          const list = result?.filter(t => !t.result);
           params.result[0].errorList = list;
           props.onValidate?.(params);
           if (!list || !list.length) {
@@ -220,7 +220,9 @@ export default defineComponent({
 
     const updateAndSaveAbort = (outsideAbortEvent: Function, eventName: string, ...args: any) => {
       validateEdit('self').then((result) => {
-        if (result !== true) return;
+        if (result !== true) {
+          return;
+        }
         const oldValue = get(row.value, col.value.colKey);
         // 相同的值无需触发变化
         if (!isSame(editValue.value, oldValue)) {
@@ -249,13 +251,19 @@ export default defineComponent({
     const listeners = computed<{ [key: string]: Function }>(() => {
       const { edit } = col.value;
       const isCellEditable = props.editable === undefined;
-      if (!isEdit.value || !isCellEditable) return;
-      if (!edit?.abortEditOnEvent?.length) return {};
+      if (!isEdit.value || !isCellEditable) {
+        return;
+      }
+      if (!edit?.abortEditOnEvent?.length) {
+        return {};
+      }
       // 自定义退出编辑态的事件
       const tListeners = {};
       const outsideAbortEvent = edit?.onEdited;
       edit.abortEditOnEvent.forEach((itemEvent) => {
-        if (itemEvent === 'onChange') return;
+        if (itemEvent === 'onChange') {
+          return;
+        }
         tListeners[itemEvent] = (...args: any) => {
           updateAndSaveAbort(
             outsideAbortEvent,
@@ -305,12 +313,18 @@ export default defineComponent({
     };
 
     const documentClickHandler = (e: MouseEvent) => {
-      if (!col.value.edit || !col.value.edit.component) return;
-      if (!isEdit.value) return;
-      // @ts-ignore some browser is also only support e.path
+      if (!col.value.edit || !col.value.edit.component) {
+        return;
+      }
+      if (!isEdit.value) {
+        return;
+      }
+      // @ts-expect-error some browser is also only support e.path
       const path = e.composedPath?.() || e.path || [];
       const node = path.find((node: HTMLElement) => node.classList?.contains(`${classPrefix.value}-popup__content`));
-      if (node) return;
+      if (node) {
+        return;
+      }
       const outsideAbortEvent = col.value.edit.onEdited;
       updateAndSaveAbort(outsideAbortEvent, '', {
         ...cellParams.value,
@@ -355,7 +369,9 @@ export default defineComponent({
       isEdit,
       (isEdit) => {
         const isCellEditable = props.editable === undefined;
-        if (!col.value.edit || !col.value.edit.component || !isCellEditable) return;
+        if (!col.value.edit || !col.value.edit.component || !isCellEditable) {
+          return;
+        }
         if (isEdit) {
           on(document, 'click', documentClickHandler);
         } else {

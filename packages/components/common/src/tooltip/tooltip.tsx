@@ -1,13 +1,11 @@
-import { computed, defineComponent, onMounted, ref, toRefs, watch, getCurrentInstance } from '@td/adapter-vue';
-import { isFunction } from 'lodash-es';
-import { omit } from 'lodash-es';
+import { computed, defineComponent, getCurrentInstance, onMounted, ref, toRefs, watch } from '@td/adapter-vue';
+import { isFunction, omit } from 'lodash-es';
 import props from '@td/intel/tooltip/props';
+import { useContent, usePrefixClass, useTNodeJSX, useVModel } from '@td/adapter-hooks';
 import popupProps from '../popup/props';
-import Popup, { PopupVisibleChangeContext } from '../popup';
-import { usePrefixClass } from '@td/adapter-hooks';
-import { useTNodeJSX, useContent } from '@td/adapter-hooks';
+import type { PopupVisibleChangeContext } from '../popup';
+import Popup from '../popup';
 import { useMouse } from './util';
-import { useVModel } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'TTooltip',
@@ -47,7 +45,9 @@ export default defineComponent({
 
     const onTipVisibleChange = (val: boolean, ctx?: PopupVisibleChangeContext) => {
       // 因 props={this.getPopupProps()} 已经透传 onVisibleChange props，此处不再需要使用 emitEvent
-      if (timer.value && ctx?.trigger !== 'document') return;
+      if (timer.value && ctx?.trigger !== 'document') {
+        return;
+      }
       if (val) {
         offsetX.value = x.value;
       }

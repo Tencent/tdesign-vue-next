@@ -1,16 +1,13 @@
-import { Ref, computed } from '@td/adapter-vue';
+import type { Ref } from '@td/adapter-vue';
+import { computed } from '@td/adapter-vue';
 import useVirtualScroll from '../../hooks/useVirtualScrollNew';
-import { TdListProps } from '../type';
-import { Styles } from '../../common';
+import type { TdListProps } from '../type';
+import type { Styles } from '../../common';
 
-export const useListVirtualScroll = (
-  scroll: TdListProps['scroll'],
-  listRef: Ref<HTMLElement>,
-  listItems: Ref<any[]>,
-) => {
+export function useListVirtualScroll(scroll: TdListProps['scroll'], listRef: Ref<HTMLElement>, listItems: Ref<any[]>) {
   const virtualScrollParams = computed(() => ({
     data: listItems.value,
-    scroll: scroll,
+    scroll,
   }));
   const virtualConfig = useVirtualScroll(listRef, virtualScrollParams);
   const isVirtualScroll = computed(() => virtualConfig.isVirtualScroll.value);
@@ -30,11 +27,11 @@ export const useListVirtualScroll = (
   const cursorStyle = computed(
     () =>
       ({
-        position: 'absolute',
-        width: '1px',
-        height: '1px',
-        transition: 'transform 0.2s',
-        transform: `translate(0, ${virtualConfig.scrollHeight.value}px)`,
+        'position': 'absolute',
+        'width': '1px',
+        'height': '1px',
+        'transition': 'transform 0.2s',
+        'transform': `translate(0, ${virtualConfig.scrollHeight.value}px)`,
         '-ms-transform': `translate(0, ${virtualConfig.scrollHeight.value}px)`,
         '-moz-transform': `translate(0, ${virtualConfig.scrollHeight.value}px)`,
         '-webkit-transform': `translate(0, ${virtualConfig.scrollHeight.value}px)`,
@@ -44,7 +41,7 @@ export const useListVirtualScroll = (
   const listStyle = computed(
     () =>
       ({
-        transform: `translate(0, ${virtualConfig.translateY.value}px)`,
+        'transform': `translate(0, ${virtualConfig.translateY.value}px)`,
         '-ms-transform': `translate(0, ${virtualConfig.translateY.value}px)`,
         '-moz-transform': `translate(0, ${virtualConfig.translateY.value}px)`,
         '-webkit-transform': `translate(0, ${virtualConfig.translateY.value}px)`,
@@ -58,4 +55,4 @@ export const useListVirtualScroll = (
     isVirtualScroll,
     onInnerVirtualScroll,
   };
-};
+}

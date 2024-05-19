@@ -1,7 +1,7 @@
+import { withInstall } from '@td/adapter-utils';
+import type { TdColProps, TdRowProps } from '@td/intel/grid/type';
 import _Row from './row';
 import _Col from './col';
-import { withInstall } from '@td/adapter-utils';
-import { TdRowProps, TdColProps } from '@td/intel/grid/type';
 
 import './style';
 

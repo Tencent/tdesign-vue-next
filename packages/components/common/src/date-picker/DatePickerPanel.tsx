@@ -1,18 +1,18 @@
-import { defineComponent, computed } from '@td/adapter-vue';
+import { computed, defineComponent } from '@td/adapter-vue';
 import dayjs from 'dayjs';
 import { isFunction } from 'lodash-es';
-import useSingleValue from './hooks/useSingleValue';
-import { formatDate, getDefaultFormat, parseToDayjs } from '../_common/js/date-picker/format';
-import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-picker/utils';
 import type {
+  DatePickerMonthChangeTrigger,
+  DatePickerYearChangeTrigger,
   DateValue,
   TdDatePickerPanelProps,
-  DatePickerYearChangeTrigger,
-  DatePickerMonthChangeTrigger,
 } from '@td/intel/date-picker/type';
 
 import datePickerPanelProps from '@td/intel/date-picker/date-picker-panel-props';
 import datePickerProps from '@td/intel/date-picker/props';
+import { addMonth, extractTimeObj, subtractMonth } from '../_common/js/date-picker/utils';
+import { formatDate, getDefaultFormat, parseToDayjs } from '../_common/js/date-picker/format';
+import useSingleValue from './hooks/useSingleValue';
 
 import TSinglePanel from './panel/SinglePanel';
 
@@ -115,8 +115,12 @@ export default defineComponent({
 
       // am pm 12小时制转化 24小时制
       let nextHours = hours;
-      if (/am/i.test(meridiem) && nextHours === 12) nextHours -= 12;
-      if (/pm/i.test(meridiem) && nextHours < 12) nextHours += 12;
+      if (/am/i.test(meridiem) && nextHours === 12) {
+        nextHours -= 12;
+      }
+      if (/pm/i.test(meridiem) && nextHours < 12) {
+        nextHours += 12;
+      }
       const currentDate = !dayjs(cacheValue.value as string, formatRef.value.format).isValid()
         ? dayjs()
         : dayjs(cacheValue.value as string, formatRef.value.format);

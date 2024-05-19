@@ -1,6 +1,7 @@
-import { ref, Ref, getCurrentInstance } from '@td/adapter-vue';
+import type { Ref } from '@td/adapter-vue';
+import { getCurrentInstance, ref } from '@td/adapter-vue';
 import { kebabCase } from 'lodash-es';
-import { ChangeHandler } from './useVModel';
+import type { ChangeHandler } from './useVModel';
 
 export default function useDefaultValue<T, P extends any[]>(
   value: Ref<T>,
@@ -12,9 +13,9 @@ export default function useDefaultValue<T, P extends any[]>(
   const internalValue: Ref<T> = ref();
 
   const vProps = vnode.props || {};
-  const isVMP =
-    Object.prototype.hasOwnProperty.call(vProps, propsName) ||
-    Object.prototype.hasOwnProperty.call(vProps, kebabCase(propsName));
+  const isVMP
+    = Object.prototype.hasOwnProperty.call(vProps, propsName)
+    || Object.prototype.hasOwnProperty.call(vProps, kebabCase(propsName));
 
   if (isVMP) {
     return [

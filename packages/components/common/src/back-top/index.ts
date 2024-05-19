@@ -1,6 +1,6 @@
 import { withInstall } from '@td/adapter-utils';
+import type { TdBackTopProps } from '@td/intel/back-top/type';
 import _BackTop from './back-top';
-import { TdBackTopProps } from '@td/intel/back-top/type';
 
 import './style';
 

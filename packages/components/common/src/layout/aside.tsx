@@ -1,8 +1,7 @@
-import { defineComponent, onMounted, onUnmounted, inject } from '@td/adapter-vue';
+import { defineComponent, inject, onMounted, onUnmounted } from '@td/adapter-vue';
 import props from '@td/intel/layout/aside-props';
-import { LayoutProvideType } from './layout';
-import { usePrefixClass } from '@td/adapter-hooks';
-import { useTNodeJSX } from '@td/adapter-hooks';
+import { usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
+import type { LayoutProvideType } from './layout';
 
 export default defineComponent({
   name: 'TAside',
@@ -13,7 +12,9 @@ export default defineComponent({
     const { hasSide } = inject<LayoutProvideType>('layout', Object.create(null));
     const COMPONENT_NAME = usePrefixClass('layout__sider');
     const renderTNodeJSX = useTNodeJSX();
-    if (!hasSide) return;
+    if (!hasSide) {
+      return;
+    }
 
     onMounted(() => {
       hasSide.value = true;

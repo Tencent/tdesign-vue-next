@@ -1,41 +1,41 @@
 import dayjs from 'dayjs';
 
-import { TdCalendarProps, CalendarCell } from '@td/intel/calendar/type';
-import { CalendarState } from './interface';
+import type { CalendarCell, TdCalendarProps } from '@td/intel/calendar/type';
+import type { CalendarState } from './interface';
 
 // 组件的一些常量
-import { FIRST_MONTH_OF_YEAR, LAST_MONTH_OF_YEAR, DAY_CN_MAP } from './const';
+import { DAY_CN_MAP, FIRST_MONTH_OF_YEAR, LAST_MONTH_OF_YEAR } from './const';
 
 /**
  * 获取一个日期是周几（1~7）
  */
-export const getDay = (dt: Date): number => {
+export function getDay(dt: Date): number {
   let day = dayjs(dt).day();
   if (day === 0) {
     day = 7;
   }
   return day;
-};
+}
 
 /**
  * 获取星期的中文
  * @param num 星期（1~7）
  */
-export const getDayCn = (num: number): string => {
+export function getDayCn(num: number): string {
   let re = '';
   const numStr = num.toString();
   if (numStr in DAY_CN_MAP) {
     re = DAY_CN_MAP[numStr];
   }
   return re;
-};
+}
 
 /**
  * 获取一个日期在日历上的列下标
  * @param firstDayOfWeek 周起始日（1~7）
  * @param dt
  */
-export const getCellColIndex = (firstDayOfWeek: number, dt: Date): number => {
+export function getCellColIndex(firstDayOfWeek: number, dt: Date): number {
   let re = 0;
   const day = getDay(dt);
   if (day >= firstDayOfWeek) {
@@ -44,20 +44,20 @@ export const getCellColIndex = (firstDayOfWeek: number, dt: Date): number => {
     re = 7 - firstDayOfWeek + day;
   }
   return re;
-};
+}
 /**
  * 返回日期+天数（天数可以负数）
  */
-export const addDate = (dt: Date, days: number) => {
+export function addDate(dt: Date, days: number) {
   const d = new Date(dt);
   d.setDate(d.getDate() + days);
   return d;
-};
+}
 
 /**
  * 创建月历单元格数据
  */
-export const createYearCellsData = (props: TdCalendarProps, state: CalendarState): CalendarCell[] => {
+export function createYearCellsData(props: TdCalendarProps, state: CalendarState): CalendarCell[] {
   const { curSelectedYear: year, curDate, curDateList } = state;
   const { format, multiple } = props;
 
@@ -65,8 +65,8 @@ export const createYearCellsData = (props: TdCalendarProps, state: CalendarState
   for (let num = FIRST_MONTH_OF_YEAR; num <= LAST_MONTH_OF_YEAR; num++) {
     const date = new Date(year, num - 1);
     const isCurrent = multiple
-      ? !!curDateList.find((item) => item.year() === year && parseInt(item.format('M'), 10) === num)
-      : curDate.year() === year && parseInt(curDate.format('M'), 10) === num;
+      ? !!curDateList.find(item => item.year() === year && Number.parseInt(item.format('M'), 10) === num)
+      : curDate.year() === year && Number.parseInt(curDate.format('M'), 10) === num;
     monthsArr.push({
       mode: 'year',
       isCurrent,
@@ -79,12 +79,12 @@ export const createYearCellsData = (props: TdCalendarProps, state: CalendarState
   }
 
   return monthsArr;
-};
+}
 
 /**
  * 创建日历单元格数据
  */
-export const createMonthCellsData = (props: TdCalendarProps, state: CalendarState): CalendarCell[][] => {
+export function createMonthCellsData(props: TdCalendarProps, state: CalendarState): CalendarCell[][] {
   const {
     curSelectedYear: year,
     curSelectedMonth: month,
@@ -122,7 +122,7 @@ export const createMonthCellsData = (props: TdCalendarProps, state: CalendarStat
   };
 
   const judgeIsCurrent = (date: Date) => {
-    const isCurrent = multiple ? !!curDateList.find((item) => item.isSame(dayjs(date))) : curDate.isSame(dayjs(date));
+    const isCurrent = multiple ? !!curDateList.find(item => item.isSame(dayjs(date))) : curDate.isSame(dayjs(date));
     return isCurrent;
   };
 
@@ -157,7 +157,7 @@ export const createMonthCellsData = (props: TdCalendarProps, state: CalendarStat
   }
 
   return daysArr;
-};
+}
 
 /**
  * 根据当前时间创建一个默认日期

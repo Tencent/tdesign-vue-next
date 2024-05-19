@@ -1,4 +1,4 @@
-import { InjectionKey } from '@td/adapter-vue';
+import type { InjectionKey } from '@td/adapter-vue';
 
 type SliderPropsInjectKey = InjectionKey<{
   max: number;

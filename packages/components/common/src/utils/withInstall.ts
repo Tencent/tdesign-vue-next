@@ -1,4 +1,4 @@
-import { App, Plugin, Component, Directive } from '@td/adapter-vue';
+import type { App, Component, Directive, Plugin } from '@td/adapter-vue';
 
 function withInstall<T>(
   comp: T,

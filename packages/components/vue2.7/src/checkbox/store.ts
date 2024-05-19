@@ -6,9 +6,9 @@ export interface CheckboxStoreData {
   checked: CheckboxGroupValue;
 }
 
-type ObserverMap = {
+interface ObserverMap {
   [key: string]: (val: ObserverListenerParams) => void;
-};
+}
 
 export interface UpdateCheckedData {
   checked: CheckboxStoreData['checked'];
@@ -23,7 +23,7 @@ export interface UpdateCheckboxData {
   checkboxName: string;
 }
 
-export type ObserverListenerParams = {
+export interface ObserverListenerParams {
   type: 'checked' | 'checkbox';
   parentIsCheckAll?: boolean;
   parentChecked?: CheckboxStoreData['checked'];
@@ -31,7 +31,7 @@ export type ObserverListenerParams = {
   parentMaxExceeded?: boolean;
   parentDisabled?: boolean;
   checkboxName?: string;
-};
+}
 
 class CheckboxStore {
   observerMap: ObserverMap = {};
@@ -45,7 +45,10 @@ class CheckboxStore {
   }
 
   updateChecked({
-    checked, isCheckAll, oldChecked, indeterminate,
+    checked,
+isCheckAll,
+oldChecked,
+indeterminate,
   }: UpdateCheckedData) {
     this.parentChecked = checked;
     const changedChecked = oldChecked ? getChangedChecked(checked, oldChecked) : checked;

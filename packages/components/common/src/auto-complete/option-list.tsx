@@ -1,14 +1,12 @@
-import { ref, computed, defineComponent, PropType, h, watch, onBeforeUnmount } from '@td/adapter-vue';
-import { isFunction } from 'lodash-es';
-import HighlightOption from './highlight-option';
-import { CommonClassNameType } from '@td/adapter-hooks';
-import { AutoCompleteOptionObj, TdAutoCompleteProps } from '@td/intel/auto-complete/type';
+import type { PropType } from '@td/adapter-vue';
+import { computed, defineComponent, h, onBeforeUnmount, ref, watch } from '@td/adapter-vue';
+import { escapeRegExp, isFunction, isString } from 'lodash-es';
+import type { CommonClassNameType, usePrefixClass } from '@td/adapter-hooks';
+import type { AutoCompleteOptionObj, TdAutoCompleteProps } from '@td/intel/auto-complete/type';
 import log from '../_common/js/log';
-import { usePrefixClass } from '@td/adapter-hooks';
-import { on, off } from '../utils/dom';
-import { isString } from 'lodash-es';
-import { escapeRegExp } from 'lodash-es';
-import { ARROW_UP_REG, ARROW_DOWN_REG, ENTER_REG } from '../_common/js/common';
+import { off, on } from '../utils/dom';
+import { ARROW_DOWN_REG, ARROW_UP_REG, ENTER_REG } from '../_common/js/common';
+import HighlightOption from './highlight-option';
 
 export default defineComponent({
   name: 'AutoCompleteOptionList',
@@ -62,11 +60,11 @@ export default defineComponent({
       });
       // 自定义过滤规则
       if (props.filter) {
-        options = options.filter((option) => props.filter(props.value, option));
+        options = options.filter(option => props.filter(props.value, option));
       } else if (props.filterable) {
         // 默认过滤规则
         const regExp = new RegExp(escapeRegExp(props.value), 'i');
-        options = options.filter((item) => regExp.test(item.text));
+        options = options.filter(item => regExp.test(item.text));
       }
       return options;
     });
@@ -84,11 +82,11 @@ export default defineComponent({
     // 键盘事件，上下选择
     const onKeyInnerPress = (e: KeyboardEvent) => {
       if (ARROW_UP_REG.test(e.code) || ARROW_UP_REG.test(e.key)) {
-        const index = tOptions.value.findIndex((item) => item.text === active.value);
+        const index = tOptions.value.findIndex(item => item.text === active.value);
         const newIndex = index - 1 < 0 ? tOptions.value.length - 1 : index - 1;
         active.value = tOptions.value[newIndex]?.text;
       } else if (ARROW_DOWN_REG.test(e.code) || ARROW_DOWN_REG.test(e.key)) {
-        const index = tOptions.value.findIndex((item) => item.text === active.value);
+        const index = tOptions.value.findIndex(item => item.text === active.value);
         const newIndex = index + 1 >= tOptions.value.length ? 0 : index + 1;
         active.value = tOptions.value[newIndex]?.text;
       } else if (ENTER_REG.test(e.code) || ENTER_REG.test(e.key)) {
@@ -138,7 +136,9 @@ export default defineComponent({
     });
 
     return () => {
-      if (!tOptions.value.length) return null;
+      if (!tOptions.value.length) {
+        return null;
+      }
       return (
         <ul class={classes.value}>
           {tOptions.value.map((item) => {
@@ -155,11 +155,13 @@ export default defineComponent({
             const content = labelNode || item.text;
             return (
               <li key={item.text} class={cls} title={item.text} onClick={onOptionClick}>
-                {isString(content) && props.highlightKeyword ? (
-                  <HighlightOption content={content} keyword={props.value} />
-                ) : (
-                  content
-                )}
+                {isString(content) && props.highlightKeyword
+                  ? (
+                    <HighlightOption content={content} keyword={props.value} />
+                    )
+                  : (
+                      content
+                    )}
               </li>
             );
           })}

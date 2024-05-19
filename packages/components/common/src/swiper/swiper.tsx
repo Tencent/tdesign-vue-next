@@ -1,13 +1,11 @@
-import { defineComponent, ref, computed, watch, isVNode, onMounted, cloneVNode } from '@td/adapter-vue';
+import { cloneVNode, computed, defineComponent, isVNode, onMounted, ref, watch } from '@td/adapter-vue';
 import { ChevronLeftIcon as TdChevronLeftIcon, ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
 
-import { usePrefixClass } from '@td/adapter-hooks';
-import { useGlobalIcon } from '@td/adapter-hooks';
-import { useChildComponentSlots } from '../hooks';
+import { useGlobalIcon, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import props from '@td/intel/swiper/props';
-import { SwiperNavigation, SwiperChangeSource } from '@td/intel/swiper/type';
+import type { SwiperChangeSource, SwiperNavigation } from '@td/intel/swiper/type';
+import { useChildComponentSlots } from '../hooks';
 import TSwiperItem from './swiper-item';
-import { useTNodeJSX } from '@td/adapter-hooks';
 
 const defaultNavigation: SwiperNavigation = {
   placement: 'inside',
@@ -147,8 +145,8 @@ export default defineComponent({
         }
         if (currentIndex.value === 0) {
           if (
-            (swiperItemLength.value > 2 && index === swiperItemLength.value - 1) ||
-            (swiperItemLength.value === 2 && index === 0)
+            (swiperItemLength.value > 2 && index === swiperItemLength.value - 1)
+            || (swiperItemLength.value === 2 && index === 0)
           ) {
             targetIndex = -1;
             navActiveIndex.value = swiperItemLength.value - 1;
@@ -209,14 +207,18 @@ export default defineComponent({
       }
     };
     const goNext = (context: { source: SwiperChangeSource }) => {
-      if (isSwitching.value) return;
+      if (isSwitching.value) {
+        return;
+      }
       if (props.type === 'card') {
         return swiperTo(currentIndex.value + 1 >= swiperItemLength.value ? 0 : currentIndex.value + 1, context);
       }
       return swiperTo(currentIndex.value + 1, context);
     };
     const goPrevious = (context: { source: SwiperChangeSource }) => {
-      if (isSwitching.value) return;
+      if (isSwitching.value) {
+        return;
+      }
       if (currentIndex.value - 1 < 0) {
         if (props.animation === 'slide' && swiperItemLength.value === 2) {
           return swiperTo(0, context);
@@ -236,7 +238,9 @@ export default defineComponent({
             <ChevronLeftIcon />
           </div>
           <div class={`${prefix.value}-swiper__navigation-text-fraction`}>
-            {fractionIndex}/{swiperItemLength.value}
+            {fractionIndex}
+            /
+            {swiperItemLength.value}
           </div>
           <div class={`${prefix.value}-swiper__arrow-right`} onClick={() => goNext({ source: 'click' })}>
             <ChevronRightIcon />
@@ -245,7 +249,9 @@ export default defineComponent({
       );
     };
     const renderArrow = () => {
-      if (!showArrow.value) return null;
+      if (!showArrow.value) {
+        return null;
+      }
       return (
         <div class={[`${prefix.value}-swiper__arrow`, `${prefix.value}-swiper__arrow--default`]}>
           <div class={`${prefix.value}-swiper__arrow-left`} onClick={() => goPrevious({ source: 'click' })}>
@@ -258,9 +264,13 @@ export default defineComponent({
       );
     };
     const renderNavigation = () => {
-      if (isVNode(props.navigation)) return props.navigation;
+      if (isVNode(props.navigation)) {
+        return props.navigation;
+      }
       const navigationSlot = renderTNodeJSX('navigation');
-      if (navigationSlot && isVNode(navigationSlot?.[0])) return navigationSlot;
+      if (navigationSlot && isVNode(navigationSlot?.[0])) {
+        return navigationSlot;
+      }
 
       if (navigationConfig.value.type === 'fraction') {
         return (
@@ -313,7 +323,9 @@ export default defineComponent({
       () => isSwitching.value,
       () => {
         if (isSwitching.value) {
-          if (swiperSwitchingTimer) clearTimeout(swiperSwitchingTimer);
+          if (swiperSwitchingTimer) {
+            clearTimeout(swiperSwitchingTimer);
+          }
           swiperSwitchingTimer = setTimeout(() => {
             isSwitching.value = false;
             swiperSwitchingTimer = 0;

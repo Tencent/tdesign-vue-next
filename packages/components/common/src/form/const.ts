@@ -1,6 +1,6 @@
-import { computed, InjectionKey } from '@td/adapter-vue';
-import { FormItemValidateResult } from './form-item';
-import {
+import type { InjectionKey } from '@td/adapter-vue';
+import { computed } from '@td/adapter-vue';
+import type {
   AllValidateResult,
   Data,
   FormItemValidateMessage,
@@ -10,7 +10,9 @@ import {
   ValidateResultType,
   ValidateTriggerType,
 } from '@td/intel/form/type';
-import { usePrefixClass, useTNodeJSX } from '../hooks';
+import type { useTNodeJSX } from '../hooks';
+import { usePrefixClass } from '../hooks';
+import type { FormItemValidateResult } from './form-item';
 
 // 允许 Form 统一控制的表单
 export const FORM_CONTROL_COMPONENTS = [
@@ -33,7 +35,7 @@ export const FORM_CONTROL_COMPONENTS = [
   'TSlider',
 ];
 
-export const useCLASSNAMES = () => {
+export function useCLASSNAMES() {
   const classPrefix = usePrefixClass();
 
   return computed(() => {
@@ -60,7 +62,7 @@ export const useCLASSNAMES = () => {
       warning: `${is}-warning`,
     };
   });
-};
+}
 
 export const enum ValidateStatus {
   TO_BE_VALIDATED = 'not',
@@ -70,18 +72,18 @@ export const enum ValidateStatus {
 
 export type ErrorListType =
   | {
-      result: false;
-      message: string;
-      type: 'error' | 'warning';
-    }
+    result: false;
+    message: string;
+    type: 'error' | 'warning';
+  }
   | ValidateResultType;
 
 export type SuccessListType =
   | {
-      result: true;
-      message: string;
-      type: 'success';
-    }
+    result: true;
+    message: string;
+    type: 'success';
+  }
   | ValidateResultType;
 
 export interface AnalysisValidateResult {

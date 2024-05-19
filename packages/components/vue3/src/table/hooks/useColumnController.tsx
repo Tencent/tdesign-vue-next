@@ -1,22 +1,23 @@
 /**
  * 自定义显示列控制器，即列配置
  */
-import { computed, ref, SetupContext, toRefs, watch, h } from '@td/adapter-vue';
+import type { SetupContext } from '@td/adapter-vue';
+import { computed, h, ref, toRefs, watch } from '@td/adapter-vue';
 import { SettingIcon as TdSettingIcon } from 'tdesign-icons-vue-next';
 // import { intersection } from 'lodash-es';
-import { CheckboxGroupValue, CheckboxOptionObj, CheckboxGroupChangeContext } from '../../checkbox';
+import { isFunction } from 'lodash-es';
+import type { CheckboxGroupChangeContext, CheckboxGroupValue, CheckboxOptionObj } from '../../checkbox';
 import { DialogPlugin } from '../../dialog/plugin';
-import { renderTitle } from './useTableHeader';
-import { PrimaryTableCol, TdPrimaryTableProps } from '../type';
+import type { PrimaryTableCol, TdPrimaryTableProps } from '../type';
 import { useConfig } from '../../hooks/useConfig';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 import useDefaultValue from '../../hooks/useDefaultValue';
 import { getCurrentRowByKey } from '../utils';
-import { DialogInstance } from '../../dialog';
+import type { DialogInstance } from '../../dialog';
 import TButton from '../../button';
 import ColumnCheckboxGroup from '../column-checkbox-group';
-import { isFunction } from 'lodash-es';
 import { useTNodeJSX } from '../../hooks';
+import { renderTitle } from './useTableHeader';
 
 export function getColumnKeys(columns: PrimaryTableCol[], keys = new Set<string>()) {
   for (let i = 0, len = columns.length; i < len; i++) {
@@ -44,7 +45,7 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
   const renderTNodeJSX = useTNodeJSX();
 
   const enabledColKeys = computed(() => {
-    const arr = (columnController.value?.fields || [...getColumnKeys(columns.value)] || []).filter((v) => v);
+    const arr = (columnController.value?.fields || [...getColumnKeys(columns.value)] || []).filter(v => v);
     return new Set(arr);
   });
 
@@ -88,7 +89,9 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
   // 列配置分组
   function getCheckboxGroupOptions(columns: PrimaryTableCol[]) {
     const groupColumns = columnController.value?.groupColumns;
-    if (!groupColumns?.length) return [];
+    if (!groupColumns?.length) {
+      return [];
+    }
     const groupList: CheckboxGroupOptionsType[] = [];
     const loop = (columns: PrimaryTableCol[]) => {
       for (let i = 0, len = columns.length; i < len; i++) {
@@ -96,7 +99,9 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
         const oneItem = getOneColumnItem(column, i);
         for (let j = 0, len1 = groupColumns.length; j < len1; j++) {
           const groupInfo = groupColumns[j];
-          if (!groupInfo.columns.includes(column.colKey)) continue;
+          if (!groupInfo.columns.includes(column.colKey)) {
+            continue;
+          }
           if (groupList[j]?.options?.length) {
             groupList[j].options.push(oneItem);
           } else {
@@ -113,7 +118,9 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
   }
 
   function getCheckboxOptions(columns: PrimaryTableCol[], arr: CheckboxOptionObj[] = []) {
-    if (columnController.value?.groupColumns?.length) return [];
+    if (columnController.value?.groupColumns?.length) {
+      return [];
+    }
     for (let i = 0, len = columns.length; i < len; i++) {
       const item = columns[i];
       if (item.children?.length) {
@@ -237,7 +244,9 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
   watch(
     [columnControllerVisible],
     ([visible]) => {
-      if (visible === undefined) return;
+      if (visible === undefined) {
+        return;
+      }
       if (dialogInstance.value) {
         visible ? dialogInstance.value.show() : dialogInstance.value.hide();
       } else {
@@ -250,7 +259,9 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
   const renderColumnController = () => {
     const isColumnController = !!(columnController.value && Object.keys(columnController.value).length);
     const placement = isColumnController ? columnController.value.placement || 'top-right' : '';
-    if (isColumnController && columnController.value.hideTriggerButton) return null;
+    if (isColumnController && columnController.value.hideTriggerButton) {
+      return null;
+    }
     const classes = [
       `${classPrefix.value}-table__column-controller-trigger`,
       { [`${classPrefix.value}-align-${placement}`]: !!placement },
@@ -266,7 +277,8 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
             icon: () => <SettingIcon />,
           }}
           {...props.columnController?.buttonProps}
-        ></TButton>
+        >
+        </TButton>
       </div>
     );
   };

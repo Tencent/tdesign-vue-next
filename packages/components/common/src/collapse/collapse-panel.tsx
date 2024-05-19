@@ -1,10 +1,9 @@
-import { defineComponent, ref, computed, inject, Ref, toRefs, Transition } from '@td/adapter-vue';
+import type { Ref } from '@td/adapter-vue';
+import { Transition, computed, defineComponent, inject, ref, toRefs } from '@td/adapter-vue';
 import props from '@td/intel/collapse/collapse-panel-props';
+import type { CollapseValue, TdCollapsePanelProps } from '@td/intel/collapse/type';
+import { useCollapseAnimation, useContent, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import FakeArrow from '../common-components/fake-arrow';
-import { CollapseValue, TdCollapsePanelProps } from '@td/intel/collapse/type';
-import { useTNodeJSX, useContent } from '@td/adapter-hooks';
-import { usePrefixClass } from '@td/adapter-hooks';
-import { useCollapseAnimation } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'TCollapsePanel',
@@ -35,7 +34,7 @@ export default defineComponent({
     const iconRef = ref<HTMLElement>();
     const isDisabled = computed(() => disabled.value || disableAll.value);
     const isActive = computed(() =>
-      collapseValue.value instanceof Array
+      Array.isArray(collapseValue.value)
         ? collapseValue.value.includes(innerValue)
         : collapseValue.value === innerValue,
     );
@@ -104,11 +103,13 @@ export default defineComponent({
       );
     };
     const renderBodyDestroyOnCollapse = () => {
-      return isActive.value ? (
-        <div class={`${componentName.value}__body`}>
-          <div class={`${componentName.value}__content`}>{renderContent('default', 'content')}</div>
-        </div>
-      ) : null;
+      return isActive.value
+        ? (
+          <div class={`${componentName.value}__body`}>
+            <div class={`${componentName.value}__content`}>{renderContent('default', 'content')}</div>
+          </div>
+          )
+        : null;
     };
     const renderBody = () => {
       return destroyOnCollapse.value ? renderBodyDestroyOnCollapse() : renderBodyByNormal();

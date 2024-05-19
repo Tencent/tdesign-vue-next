@@ -1,7 +1,7 @@
 import { onMounted, onUnmounted, ref } from '@td/adapter-vue';
 import { isServer } from '../utils/dom';
 
-export const useMouse = () => {
+export function useMouse() {
   const x = ref(0);
   const y = ref(0);
 
@@ -22,4 +22,4 @@ export const useMouse = () => {
     x,
     y,
   };
-};
+}

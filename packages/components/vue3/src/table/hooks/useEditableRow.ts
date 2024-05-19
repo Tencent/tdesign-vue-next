@@ -1,21 +1,18 @@
-import { ref, computed, watch, toRefs } from '@td/adapter-vue';
-import { get } from 'lodash-es';
-import { set } from 'lodash-es';
-import { isFunction } from 'lodash-es';
-import { PrimaryTableProps } from '../interface';
+import { computed, ref, toRefs, watch } from '@td/adapter-vue';
+import { cloneDeep, get, isFunction, set } from 'lodash-es';
+import type { PrimaryTableProps } from '../interface';
 import { getEditableKeysMap } from '../../_common/js/table/utils';
 import { validate } from '../../form/form-model';
-import { cloneDeep } from 'lodash-es';
-import {
-  PrimaryTableRowEditContext,
-  TableRowData,
-  TableErrorListMap,
-  PrimaryTableInstanceFunctions,
+import type {
   ErrorListObjectType,
   PrimaryTableCellParams,
+  PrimaryTableInstanceFunctions,
+  PrimaryTableRowEditContext,
+  TableErrorListMap,
+  TableRowData,
 } from '../type';
+import type { OnEditableChangeContext } from '../editable-cell';
 import { getCellKey } from './useRowspanAndColspan';
-import { OnEditableChangeContext } from '../editable-cell';
 
 export interface TablePromiseErrorData {
   errors: ErrorListObjectType<TableRowData>[];
@@ -51,9 +48,11 @@ export default function useRowEdit(props: PrimaryTableProps) {
   // 校验一行的数据
   const validateOneRowData = (rowValue: any) => {
     const rowRules = cellRuleMap.get(rowValue);
-    if (!rowRules) return;
+    if (!rowRules) {
+      return;
+    }
     const list = rowRules.map(
-      (item) =>
+      item =>
         new Promise<ErrorListObjectType<TableRowData>>((resolve) => {
           const { editedRow, col } = item;
           const rules = isFunction(col.edit.rules) ? col.edit.rules(item) : col.edit.rules;
@@ -62,14 +61,14 @@ export default function useRowEdit(props: PrimaryTableProps) {
             return;
           }
           validate(get(editedRow, col.colKey), rules).then((r) => {
-            resolve({ ...item, errorList: r.filter((t) => !t.result) });
+            resolve({ ...item, errorList: r.filter(t => !t.result) });
           });
         }),
     );
     return new Promise<TablePromiseErrorData>((resolve, reject) => {
       Promise.all(list).then((errors) => {
         resolve({
-          errors: errors.filter((t) => t.errorList?.length),
+          errors: errors.filter(t => t.errorList?.length),
           errorMap: getErrorListMapByErrors(errors),
         });
       }, reject);
@@ -94,12 +93,14 @@ export default function useRowEdit(props: PrimaryTableProps) {
   // 校验可编辑单元格
   const validateTableCellData = (): Promise<{ result: TableErrorListMap }> => {
     const cellKeys = Object.keys(editingCells.value);
-    const promiseList = cellKeys.map((cellKey) => editingCells.value[cellKey].validateEdit('parent'));
+    const promiseList = cellKeys.map(cellKey => editingCells.value[cellKey].validateEdit('parent'));
     return new Promise((resolve, reject) => {
       Promise.all(promiseList).then((arr) => {
         const allErrorListMap: TableErrorListMap = {};
         arr.forEach((result, index) => {
-          if (result === true) return;
+          if (result === true) {
+            return;
+          }
           allErrorListMap[cellKeys[index]] = result;
         });
         props.onValidate?.({ result: allErrorListMap });
@@ -150,7 +151,7 @@ export default function useRowEdit(props: PrimaryTableProps) {
       const rowValue = get(context.row, props.rowKey || 'id');
       const rules = cellRuleMap.get(rowValue);
       if (rules) {
-        const index = rules.findIndex((t) => t.col.colKey === context.col.colKey);
+        const index = rules.findIndex(t => t.col.colKey === context.col.colKey);
         if (index === -1) {
           rules.push(context);
         } else {
@@ -170,7 +171,7 @@ export default function useRowEdit(props: PrimaryTableProps) {
   const onPrimaryTableCellEditChange = (params: OnEditableChangeContext<TableRowData>) => {
     const cellKey = getCellKey(params.row, props.rowKey, params.col.colKey, params.colIndex);
     if (params.isEdit) {
-      // @ts-ignore
+      // @ts-expect-error
       editingCells.value[cellKey] = params;
     } else {
       delete editingCells.value[cellKey];

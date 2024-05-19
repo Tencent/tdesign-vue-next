@@ -1,13 +1,14 @@
-import { defineComponent, PropType, ref, watch } from '@td/adapter-vue';
+import type { PropType } from '@td/adapter-vue';
+import { defineComponent, ref, watch } from '@td/adapter-vue';
 import { upperCase } from 'lodash-es';
-import { TdColorPickerProps } from '../../type';
+import type { TdColorPickerProps } from '../../type';
 import props from '../../props';
 import { FORMATS } from '../../const';
-import { Color } from '../../utils';
-import { Select as TSelect, Option as TOption } from '../../../select';
-import FormatInputs from './inputs';
+import type { Color } from '../../utils';
+import { Option as TOption, Select as TSelect } from '../../../select';
 import { useBaseClassName } from '../../hooks';
 import type { TdSelectInputProps } from '../../../select-input/type';
+import FormatInputs from './inputs';
 
 export default defineComponent({
   name: 'FormatPanel',
@@ -77,7 +78,7 @@ export default defineComponent({
             v-model={this.formatModel}
             onChange={handleModeChange}
           >
-            {formats.map((item) => (
+            {formats.map(item => (
               <TOption key={item} value={item} label={upperCase(item)} style={{ fontSize: '12px' }} />
             ))}
           </TSelect>

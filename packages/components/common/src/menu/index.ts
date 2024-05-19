@@ -1,10 +1,10 @@
+import { withInstall } from '@td/adapter-utils';
+import type { TdHeadMenuProps, TdMenuItemProps, TdMenuProps, TdSubmenuProps } from '@td/intel/menu/type';
 import _Menu from './menu';
 import _HeadMenu from './head-menu';
 import _Submenu from './submenu';
 import _MenuItem from './menu-item';
 import _MenuGroup from './menu-group';
-import { withInstall } from '@td/adapter-utils';
-import { TdMenuProps, TdHeadMenuProps, TdSubmenuProps, TdMenuItemProps } from '@td/intel/menu/type';
 
 import './style';
 

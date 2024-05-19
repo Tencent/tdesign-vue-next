@@ -3,10 +3,9 @@ import { isFunction } from 'lodash-es';
 import { CheckIcon as TdCheckIcon, CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
 
 import props from '@td/intel/steps/step-item-props';
-import { SlotReturnValue } from '../common';
-import { useConfig, usePrefixClass } from '@td/adapter-hooks';
-import { useGlobalIcon } from '@td/adapter-hooks';
-import { useTNodeJSX, useContent } from '../hooks';
+import { useConfig, useGlobalIcon, usePrefixClass } from '@td/adapter-hooks';
+import type { SlotReturnValue } from '../common';
+import { useContent, useTNodeJSX } from '../hooks';
 
 export default defineComponent({
   name: 'TStepItem',
@@ -24,7 +23,9 @@ export default defineComponent({
 
     // when props.value is undefined
     const onStepClick = (e: MouseEvent) => {
-      if (!canClick.value) return;
+      if (!canClick.value) {
+        return;
+      }
       const val = props.value === undefined ? props.index : props.value;
       stepsState.setCurrent(val, stepsState.current, { e });
     };

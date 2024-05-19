@@ -1,13 +1,13 @@
-import { toRefs, watchEffect, ref, computed } from '@td/adapter-vue';
+import { computed, ref, toRefs, watchEffect } from '@td/adapter-vue';
 import {
   formatDate,
   formatTime,
-  isValidDate,
   getDefaultFormat,
+  isValidDate,
   parseToDayjs,
 } from '../../_common/js/date-picker/format';
 import useVModel from '../../hooks/useVModel';
-import { TdDatePickerProps } from '../type';
+import type { TdDatePickerProps } from '../type';
 import { extractTimeFormat } from '../../_common/js/date-picker/utils';
 
 export default function useSingleValue(props: TdDatePickerProps) {
@@ -23,8 +23,9 @@ export default function useSingleValue(props: TdDatePickerProps) {
   );
 
   if (props.enableTimePicker) {
-    if (!extractTimeFormat(formatRef.value.format))
+    if (!extractTimeFormat(formatRef.value.format)) {
       console.error(`format: ${formatRef.value.format} 不规范，包含时间选择必须要有时间格式化 HH:mm:ss`);
+    }
   }
 
   const time = ref(formatTime(value.value, formatRef.value.format, formatRef.value.timeFormat, props.defaultTime));
@@ -38,7 +39,9 @@ export default function useSingleValue(props: TdDatePickerProps) {
       cacheValue.value = '';
       return;
     }
-    if (!isValidDate(value.value, formatRef.value.format)) return;
+    if (!isValidDate(value.value, formatRef.value.format)) {
+      return;
+    }
 
     cacheValue.value = formatDate(value.value, {
       format: formatRef.value.format,

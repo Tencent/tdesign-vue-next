@@ -1,4 +1,5 @@
-import { defineComponent, VNode, ref, onMounted, onBeforeUnmount } from '@td/adapter-vue';
+import type { VNode } from '@td/adapter-vue';
+import { defineComponent, onBeforeUnmount, onMounted, ref } from '@td/adapter-vue';
 import {
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
   CloseIcon as TdCloseIcon,
@@ -6,25 +7,21 @@ import {
   HelpCircleFilledIcon as TdHelpCircleFilledIcon,
   InfoCircleFilledIcon as TdInfoCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
-import { isString } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { isArray, isString } from 'lodash-es';
 
-import { on, off, addClass } from '../utils/dom';
 import props from '@td/intel/alert/props';
-import { SlotReturnValue } from '../common';
-import { useIcon } from '@td/adapter-hooks';
-import { useGlobalIcon } from '@td/adapter-hooks';
-import { useConfig, usePrefixClass } from '@td/adapter-hooks';
+import { useConfig, useGlobalIcon, useIcon, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 
-import { useTNodeJSX } from '@td/adapter-hooks';
+import type { SlotReturnValue } from '../common';
+import { addClass, off, on } from '../utils/dom';
 
 export default defineComponent({
   name: 'TAlert',
   props,
   setup(props) {
     const { globalConfig, classPrefix } = useConfig('alert');
-    const { CheckCircleFilledIcon, CloseIcon, ErrorCircleFilledIcon, HelpCircleFilledIcon, InfoCircleFilledIcon } =
-      useGlobalIcon({
+    const { CheckCircleFilledIcon, CloseIcon, ErrorCircleFilledIcon, HelpCircleFilledIcon, InfoCircleFilledIcon }
+      = useGlobalIcon({
         CheckCircleFilledIcon: TdCheckCircleFilledIcon,
         CloseIcon: TdCloseIcon,
         ErrorCircleFilledIcon: TdErrorCircleFilledIcon,
@@ -68,16 +65,25 @@ export default defineComponent({
       } else {
         closeContent = renderIconTNode('close');
       }
-      return closeContent ? (
-        <div class={`${COMPONENT_NAME.value}__close`} onClick={handleClose}>
-          {closeContent}
-        </div>
-      ) : null;
+      return closeContent
+        ? (
+          <div class={`${COMPONENT_NAME.value}__close`} onClick={handleClose}>
+            {closeContent}
+          </div>
+          )
+        : null;
     };
 
     const renderTitle = () => {
       const titleContent = renderTNodeJSX('title');
-      return titleContent ? <div class={`${COMPONENT_NAME.value}__title`}> {titleContent}</div> : null;
+      return titleContent
+        ? (
+          <div class={`${COMPONENT_NAME.value}__title`}>
+            {' '}
+            {titleContent}
+          </div>
+          )
+        : null;
     };
 
     const renderMessage = () => {
@@ -106,26 +112,28 @@ export default defineComponent({
         height && (descriptionRef.value.style.height = `${descHeight.value}px`);
       } else if (hasCollapse) {
         // 展开
-        height &&
-          (descriptionRef.value.style.height = `${height * (contentLength - props.maxLine) + descHeight.value}px`);
+        height
+        && (descriptionRef.value.style.height = `${height * (contentLength - props.maxLine) + descHeight.value}px`);
       }
 
       // 如果需要折叠，则元素之间补<br/>；否则不补
       return (
         <div class={`${COMPONENT_NAME.value}__description`} ref={descriptionRef}>
           {hasCollapse
-            ? (messageContent as Array<string | VNode>).map((content) => <div>{content}</div>)
+            ? (messageContent as Array<string | VNode>).map(content => <div>{content}</div>)
             : messageContent}
-          {hasCollapse ? (
-            <div
-              class={`${COMPONENT_NAME.value}__collapse`}
-              onClick={() => {
-                collapsed.value = !collapsed.value;
-              }}
-            >
-              {collapsed.value ? globalConfig.value.expandText : globalConfig.value.collapseText}
-            </div>
-          ) : null}
+          {hasCollapse
+            ? (
+              <div
+                class={`${COMPONENT_NAME.value}__collapse`}
+                onClick={() => {
+                  collapsed.value = !collapsed.value;
+                }}
+              >
+                {collapsed.value ? globalConfig.value.expandText : globalConfig.value.collapseText}
+              </div>
+              )
+            : null}
         </div>
       );
     };

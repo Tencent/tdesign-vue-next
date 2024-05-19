@@ -1,15 +1,13 @@
 import { defineComponent, h, onBeforeMount, onMounted, ref } from '@td/adapter-vue';
 import {
-  InfoCircleFilledIcon as TdInfoCircleFilledIcon,
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
   CloseIcon as TdCloseIcon,
+  InfoCircleFilledIcon as TdInfoCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
 import { isFunction } from 'lodash-es';
 
-import { useTNodeJSX, useContent } from '@td/adapter-hooks';
+import { useConfig, useContent, useGlobalIcon, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import props from '@td/intel/notification/props';
-import { useConfig, usePrefixClass } from '@td/adapter-hooks';
-import { useGlobalIcon } from '@td/adapter-hooks';
 import { fadeIn, fadeOut } from './animate';
 
 export default defineComponent({
@@ -40,19 +38,23 @@ export default defineComponent({
 
     const renderIcon = () => {
       let iconContent;
-      if (props.icon === false) return null;
+      if (props.icon === false) {
+        return null;
+      }
       if (isFunction(props.icon)) {
         iconContent = props.icon(h);
       } else if (slots.icon) {
         iconContent = slots.icon(null);
       } else if (props.theme) {
-        const iconType =
-          props.theme === 'success' ? (
-            <CheckCircleFilledIcon class={`${classPrefix.value}-is-${props.theme}`} />
-          ) : (
-            <InfoCircleFilledIcon class={`${classPrefix.value}-is-${props.theme}`} />
-          );
-        iconContent = <div class={`t-notification__icon`}>{iconType}</div>;
+        const iconType
+          = props.theme === 'success'
+            ? (
+              <CheckCircleFilledIcon class={`${classPrefix.value}-is-${props.theme}`} />
+              )
+            : (
+              <InfoCircleFilledIcon class={`${classPrefix.value}-is-${props.theme}`} />
+              );
+        iconContent = <div class="t-notification__icon">{iconType}</div>;
       }
       return iconContent;
     };

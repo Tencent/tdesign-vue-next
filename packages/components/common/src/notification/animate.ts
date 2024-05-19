@@ -13,21 +13,29 @@ const ANIMATION_OPTION = {
   easing: 'linear',
 };
 
-const fadeIn = (dom: HTMLElement, placement: string) => {
-  if (!dom) return;
+function fadeIn(dom: HTMLElement, placement: string) {
+  if (!dom) {
+    return;
+  }
   const offsetHeight = dom?.offsetHeight || 0;
   const offsetWidth = dom?.offsetWidth || 0;
   const keyframes: Array<Keyframe> | null = getFadeInKeyframes(placement, offsetWidth, offsetHeight);
-  if (!keyframes) return;
+  if (!keyframes) {
+    return;
+  }
   dom.animate && dom.animate(keyframes, ANIMATION_OPTION);
-};
+}
 
-const fadeOut = (dom: HTMLElement, placement: string, onFinish: Function) => {
-  if (!dom) return;
+function fadeOut(dom: HTMLElement, placement: string, onFinish: Function) {
+  if (!dom) {
+    return;
+  }
   const offsetHeight = dom?.offsetHeight || 0;
   const offsetWidth = dom?.offsetWidth || 0;
   const keyframes: Array<Keyframe> | null = getFadeOutKeyframes(placement, offsetWidth, offsetHeight);
-  if (!keyframes) return onFinish();
+  if (!keyframes) {
+    return onFinish();
+  }
 
   const animate = dom.animate && dom.animate(keyframes, ANIMATION_OPTION);
   if (animate) {
@@ -38,10 +46,12 @@ const fadeOut = (dom: HTMLElement, placement: string, onFinish: Function) => {
     dom.style.display = 'none';
     onFinish();
   }
-};
+}
 
-const getFadeInKeyframes = (placement: string, offsetWidth: Number, offsetHeight: Number): Array<Keyframe> | null => {
-  if (!PLACEMENT_LIST.includes(placement)) return null;
+function getFadeInKeyframes(placement: string, offsetWidth: number, offsetHeight: number): Array<Keyframe> | null {
+  if (!PLACEMENT_LIST.includes(placement)) {
+    return null;
+  }
   if (placement === 'top-right') {
     return [
       { opacity: 0, transform: `translateX(${offsetWidth}px)` },
@@ -66,10 +76,12 @@ const getFadeInKeyframes = (placement: string, offsetWidth: Number, offsetHeight
       { opacity: 1, transform: `translateX(0px)` },
     ];
   }
-};
+}
 
-const getFadeOutKeyframes = (placement: string, offsetWidth: Number, offsetHeight: Number): Array<Keyframe> | null => {
-  if (!PLACEMENT_LIST.includes(placement)) return null;
+function getFadeOutKeyframes(placement: string, offsetWidth: number, offsetHeight: number): Array<Keyframe> | null {
+  if (!PLACEMENT_LIST.includes(placement)) {
+    return null;
+  }
   if (placement === 'top-right') {
     return [
       { opacity: 1, transform: `translateX(0px)` },
@@ -94,6 +106,6 @@ const getFadeOutKeyframes = (placement: string, offsetWidth: Number, offsetHeigh
       { opacity: 0, transform: `translateX(-${offsetWidth}px)` },
     ];
   }
-};
+}
 
 export { fadeIn, fadeOut };

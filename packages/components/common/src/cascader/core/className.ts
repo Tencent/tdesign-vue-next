@@ -1,4 +1,4 @@
-import { CascaderContextType, TreeNode, TreeNodeValue } from '../interface';
+import type { CascaderContextType, TreeNode, TreeNodeValue } from '../interface';
 
 /**
  * icon Class
@@ -34,8 +34,8 @@ export function getNodeStatusClass(
   cascaderContext: CascaderContextType,
 ) {
   const { checkStrictly, multiple, value, max } = cascaderContext;
-  const expandedActive =
-    (!checkStrictly && node.expanded && (multiple ? !node.isLeaf() : true)) || (checkStrictly && node.expanded);
+  const expandedActive
+    = (!checkStrictly && node.expanded && (multiple ? !node.isLeaf() : true)) || (checkStrictly && node.expanded);
 
   const isLeaf = node.isLeaf();
 

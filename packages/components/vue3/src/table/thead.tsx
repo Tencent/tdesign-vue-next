@@ -1,13 +1,14 @@
-import { defineComponent, computed, SetupContext, PropType, ref, Ref, h, CSSProperties } from '@td/adapter-vue';
+import type { CSSProperties, PropType, Ref, SetupContext } from '@td/adapter-vue';
+import { computed, defineComponent, h, ref } from '@td/adapter-vue';
 import { isFunction } from 'lodash-es';
+import type { BaseTableCol, TableRowData, TdBaseTableProps } from '@td/intel/table/type';
+import type { AttachNode } from '../common';
 import { getColumnFixedStyles } from './hooks/useFixed';
 import useClassName from './hooks/useClassName';
-import { BaseTableCol, TableRowData, TdBaseTableProps } from '@td/intel/table/type';
 import { renderTitle } from './hooks/useTableHeader';
 import TEllipsis from './ellipsis';
 import { formatClassNames } from './utils';
-import { RowAndColFixedPosition, BaseTableColumns, ThRowspanAndColspan } from './interface';
-import { AttachNode } from '../common';
+import type { BaseTableColumns, RowAndColFixedPosition, ThRowspanAndColspan } from './interface';
 
 export interface TheadProps {
   classPrefix: string;
@@ -34,7 +35,7 @@ export interface TheadProps {
     onColumnMouseover: (e: MouseEvent, col: BaseTableCol<TableRowData>) => void;
     onColumnMousedown: (e: MouseEvent, col: BaseTableCol<TableRowData>, index: number) => void;
   };
-  resizable?: Boolean;
+  resizable?: boolean;
   attach?: AttachNode;
   showColumnShadow?: { left: boolean; right: boolean };
 }
@@ -123,7 +124,9 @@ export default defineComponent({
       return this.thList.map((row, rowIndex) => {
         const thRow = row.map((col: BaseTableColumns[0], index: number) => {
           // 因合并单行表头，跳过
-          if (this.colspanSkipMap[col.colKey]) return null;
+          if (this.colspanSkipMap[col.colKey]) {
+            return null;
+          }
           const rowspanAndColspan = thRowspanAndColspan.get(col);
           if (index === 0 && rowspanAndColspan.rowspan > 1) {
             for (let j = rowIndex + 1; j < rowIndex + rowspanAndColspan.rowspan; j++) {
@@ -158,8 +161,8 @@ export default defineComponent({
           const width = withoutChildren && thWidthList?.[col.colKey] ? `${thWidthList?.[col.colKey]}px` : undefined;
           const styles = { ...(thStyles.style || {}), width };
           const innerTh = renderTitle(this.slots, col, index);
-          const resizeColumnListener =
-            this.resizable || !canDragSort
+          const resizeColumnListener
+            = this.resizable || !canDragSort
               ? {
                   onMousedown: (e: MouseEvent) => {
                     if (this.resizable) {
@@ -195,20 +198,22 @@ export default defineComponent({
               {...resizeColumnListener}
             >
               <div class={this.tableBaseClass.thCellInner}>
-                {isEllipsis ? (
-                  <TEllipsis
-                    placement="bottom"
-                    attach={this.attach || (this.theadRef ? () => this.getTableNode(this.theadRef) : undefined)}
-                    tooltipContent={content && (() => content)}
-                    tooltipProps={typeof col.ellipsisTitle === 'object' ? col.ellipsisTitle : undefined}
-                    overlayClassName={this.ellipsisOverlayClassName}
-                    classPrefix={this.classPrefix}
-                  >
-                    {innerTh}
-                  </TEllipsis>
-                ) : (
-                  innerTh
-                )}
+                {isEllipsis
+                  ? (
+                    <TEllipsis
+                      placement="bottom"
+                      attach={this.attach || (this.theadRef ? () => this.getTableNode(this.theadRef) : undefined)}
+                      tooltipContent={content && (() => content)}
+                      tooltipProps={typeof col.ellipsisTitle === 'object' ? col.ellipsisTitle : undefined}
+                      overlayClassName={this.ellipsisOverlayClassName}
+                      classPrefix={this.classPrefix}
+                    >
+                      {innerTh}
+                    </TEllipsis>
+                    )
+                  : (
+                      innerTh
+                    )}
               </div>
             </th>
           );

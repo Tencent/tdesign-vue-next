@@ -1,11 +1,9 @@
 import { ref, toRefs } from '@td/adapter-vue';
-import { TagInputValue, TagInputChangeContext } from '@td/intel/tag-input/type';
-import { TagInputProps } from './interface';
-import { InputValue } from '../input';
+import type { TagInputChangeContext, TagInputValue } from '@td/intel/tag-input/type';
+import { usePrefixClass, useTNodeJSX, useVModel } from '@td/adapter-hooks';
 import Tag from '../tag';
-import { useVModel } from '@td/adapter-hooks';
-import { usePrefixClass } from '@td/adapter-hooks';
-import { useTNodeJSX } from '@td/adapter-hooks';
+import type { InputValue } from '../input';
+import type { TagInputProps } from './interface';
 
 export type ChangeParams = [TagInputChangeContext];
 
@@ -13,8 +11,8 @@ export type ChangeParams = [TagInputChangeContext];
 export default function useTagList(props: TagInputProps) {
   const renderTNode = useTNodeJSX();
   const classPrefix = usePrefixClass();
-  const { value, modelValue, onRemove, max, minCollapsedNum, size, disabled, readonly, tagProps, getDragProps } =
-    toRefs(props);
+  const { value, modelValue, onRemove, max, minCollapsedNum, size, disabled, readonly, tagProps, getDragProps }
+    = toRefs(props);
   // handle controlled property and uncontrolled property
   const [tagValue, setTagValue] = useVModel(value, modelValue, props.defaultValue || [], props.onChange);
   const oldInputValue = ref<InputValue>();
@@ -37,7 +35,7 @@ export default function useTagList(props: TagInputProps) {
     const isLimitExceeded = max && tagValue.value?.length >= max.value;
     let newValue: TagInputValue = tagValue.value;
     if (!isLimitExceeded && valueStr) {
-      newValue = tagValue.value instanceof Array ? tagValue.value.concat(String(valueStr)) : [valueStr];
+      newValue = Array.isArray(tagValue.value) ? tagValue.value.concat(String(valueStr)) : [valueStr];
       setTagValue(newValue, {
         trigger: 'enter',
         index: newValue.length - 1,
@@ -50,13 +48,17 @@ export default function useTagList(props: TagInputProps) {
 
   // 按下回退键，删除标签
   const onInputBackspaceKeyUp = (value: InputValue) => {
-    if (!tagValue.value || !tagValue.value.length) return;
+    if (!tagValue.value || !tagValue.value.length) {
+      return;
+    }
     oldInputValue.value = value;
   };
   // 按下回退键，删除标签
   const onInputBackspaceKeyDown = (value: InputValue, context: { e: KeyboardEvent }) => {
     const { e } = context;
-    if (!tagValue.value || !tagValue.value.length || e.key === 'Process') return;
+    if (!tagValue.value || !tagValue.value.length || e.key === 'Process') {
+      return;
+    }
     // 回车键删除，输入框值为空时，才允许 Backspace 删除标签
     const isDelete = /(Backspace|NumpadDelete)/i.test(e.code) || /(Backspace|NumpadDelete)/i.test(e.key);
     if (!value && isDelete) {
@@ -75,21 +77,21 @@ export default function useTagList(props: TagInputProps) {
     const list = displayNode
       ? [displayNode]
       : newList?.map?.((item, index) => {
-          const tagContent = renderTNode('tag', { params: { value: item } });
-          return (
-            <Tag
-              key={`${item}${index}`}
-              size={size.value}
-              disabled={disabled.value}
-              onClose={(context: { e: MouseEvent }) => onClose({ e: context.e, index })}
-              closable={!readonly.value && !disabled.value}
-              {...getDragProps.value?.(index, item)}
-              {...tagProps.value}
-            >
-              {tagContent ?? item}
-            </Tag>
-          );
-        }) || [];
+        const tagContent = renderTNode('tag', { params: { value: item } });
+        return (
+          <Tag
+            key={`${item}${index}`}
+            size={size.value}
+            disabled={disabled.value}
+            onClose={(context: { e: MouseEvent }) => onClose({ e: context.e, index })}
+            closable={!readonly.value && !disabled.value}
+            {...getDragProps.value?.(index, item)}
+            {...tagProps.value}
+          >
+            {tagContent ?? item}
+          </Tag>
+        );
+      }) || [];
     if (![null, undefined, ''].includes(label)) {
       list.unshift(
         <div class={`${classPrefix.value}-tag-input__prefix`} key="label">
@@ -112,7 +114,8 @@ export default function useTagList(props: TagInputProps) {
       list.push(
         more ?? (
           <Tag key="more" size={size.value}>
-            +{len}
+            +
+            {len}
           </Tag>
         ),
       );

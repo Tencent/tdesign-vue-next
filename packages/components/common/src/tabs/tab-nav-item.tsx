@@ -1,11 +1,12 @@
-import { computed, defineComponent, ref, PropType } from '@td/adapter-vue';
+import type { PropType } from '@td/adapter-vue';
+import { computed, defineComponent, ref } from '@td/adapter-vue';
 import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
 import tabProps from '@td/intel/tabs/props';
 import tabPanelProps from '@td/intel/tabs/tab-panel-props';
 
 // hooks
 import { useRipple } from '@td/adapter-hooks';
-import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
+import { useCommonClassName, usePrefixClass } from '@td/adapter-hooks';
 import { useGlobalIcon } from '@td/adapter-hooks';
 
 export default defineComponent({
@@ -43,7 +44,9 @@ export default defineComponent({
       props.onRemove({ e, value: props.value, index: props.index });
     };
     const onClickNav = (e: MouseEvent) => {
-      if (props.disabled) return;
+      if (props.disabled) {
+        return;
+      }
       props.onClick(e);
     };
 

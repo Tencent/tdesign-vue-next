@@ -1,7 +1,6 @@
-import { defineComponent, inject, computed } from '@td/adapter-vue';
-import { useTNodeJSX } from '@td/adapter-hooks';
+import { computed, defineComponent, inject } from '@td/adapter-vue';
+import { useCommonClassName, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import props from '@td/intel/select/option-group-props';
-import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
 import { selectInjectKey } from './helper';
 
 export default defineComponent({

@@ -1,6 +1,7 @@
 import { useResizeObserver } from '@td/adapter-hooks';
-import { onMounted, Ref, ref, watch, nextTick, onBeforeUnmount, toRefs } from '@td/adapter-vue';
-import { InputValue, TdInputProps } from '@td/intel/input/type';
+import type { Ref } from '@td/adapter-vue';
+import { nextTick, onBeforeUnmount, onMounted, ref, toRefs, watch } from '@td/adapter-vue';
+import type { InputValue, TdInputProps } from '@td/intel/input/type';
 
 const ANIMATION_TIME = 100;
 
@@ -14,7 +15,9 @@ export default function useInputWidth(
   const observerTimer = ref(null);
 
   const updateInputWidth = () => {
-    if (!inputPreRef.value || !inputRef.value) return;
+    if (!inputPreRef.value || !inputRef.value) {
+      return;
+    }
     const { width } = inputPreRef.value.getBoundingClientRect();
     inputRef.value.style.width = `${width || 0}px`;
   };
@@ -36,7 +39,9 @@ export default function useInputWidth(
     watch(
       [innerValue, placeholder],
       () => {
-        if (!autoWidth.value) return;
+        if (!autoWidth.value) {
+          return;
+        }
         nextTick(() => {
           updateInputWidth();
         });

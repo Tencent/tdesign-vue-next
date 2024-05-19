@@ -1,17 +1,15 @@
-import { defineComponent, computed, PropType, toRefs } from '@td/adapter-vue';
-import { camelCase } from 'lodash-es';
-import { get } from 'lodash-es';
-import { pick } from 'lodash-es';
-import TrElement, { ROW_LISTENERS, TABLE_PROPS } from './tr';
-import { useConfig } from '@td/adapter-hooks';
-import { useTNodeJSX } from '@td/adapter-hooks';
-import useClassName from './hooks/useClassName';
+import type { PropType } from '@td/adapter-vue';
+import { computed, defineComponent, toRefs } from '@td/adapter-vue';
+import { camelCase, get, pick } from 'lodash-es';
+import type { VirtualScrollConfig } from '@td/adapter-hooks';
+import { useConfig, useTNodeJSX } from '@td/adapter-hooks';
 import baseTableProps from '@td/intel/table/base-table-props';
-import { TNodeReturnValue } from '../common';
+import type { TdBaseTableProps } from '@td/intel/table/type';
+import type { TNodeReturnValue } from '../common';
+import TrElement, { ROW_LISTENERS, TABLE_PROPS } from './tr';
+import useClassName from './hooks/useClassName';
 import useRowspanAndColspan from './hooks/useRowspanAndColspan';
-import { BaseTableProps, RowAndColFixedPosition } from './interface';
-import { TdBaseTableProps } from '@td/intel/table/type';
-import { VirtualScrollConfig } from '@td/adapter-hooks';
+import type { BaseTableProps, RowAndColFixedPosition } from './interface';
 
 export const ROW_AND_TD_LISTENERS = ROW_LISTENERS.concat('cell-click');
 export interface TableBodyProps extends BaseTableProps {
@@ -70,12 +68,12 @@ export default defineComponent({
     ellipsisOverlayClassName: String,
     rowAndColFixedPosition: Map as PropType<TableBodyProps['rowAndColFixedPosition']>,
     showColumnShadow: Object as PropType<TableBodyProps['showColumnShadow']>,
-    // eslint-disable-next-line
+
     tableElm: {},
     tableWidth: Number,
     isWidthOverflow: Boolean,
     virtualConfig: Object as PropType<VirtualScrollConfig>,
-    // eslint-disable-next-line
+
     tableContentElm: {},
     handleRowMounted: Function as PropType<TableBodyProps['handleRowMounted']>,
     renderExpandedRow: Function as PropType<TableBodyProps['renderExpandedRow']>,
@@ -86,7 +84,6 @@ export default defineComponent({
     ...pick(baseTableProps, extendTableProps),
   },
 
-  // eslint-disable-next-line
   setup(props: TableBodyProps) {
     const renderTNode = useTNodeJSX();
     const { data, columns, rowKey, rowspanAndColspan } = toRefs(props);
@@ -127,8 +124,10 @@ export default defineComponent({
     const getFullRow = (columnLength: number, type: 'first-full-row' | 'last-full-row') => {
       const tType = camelCase(type);
       const fullRowNode = this.renderTNode(tType);
-      if (['', null, undefined, false].includes(fullRowNode)) return null;
-      const isFixedToLeft = this.isWidthOverflow && this.columns.find((col) => col.fixed === 'left');
+      if (['', null, undefined, false].includes(fullRowNode)) {
+        return null;
+      }
+      const isFixedToLeft = this.isWidthOverflow && this.columns.find(col => col.fixed === 'left');
       const classes = [this.tableFullRowClasses.base, this.tableFullRowClasses[tType]];
       const tableWidth = this.bordered ? this.tableWidth - 2 : this.tableWidth;
       /** innerFullRow 和 innerFullElement 同时存在，是为了保证 固定列时，当前行不随内容进行横向滚动 */
@@ -187,7 +186,8 @@ export default defineComponent({
           key={get(row, this.rowKey || 'id') || rowIndex}
           {...trProps}
           onRowMounted={this.handleRowMounted}
-        ></TrElement>
+        >
+        </TrElement>
       );
       trNodeList.push(trNode);
 
@@ -213,7 +213,7 @@ export default defineComponent({
     const translate = `translateY(${this.virtualConfig?.translateY.value}px)`;
     const posStyle = this.virtualConfig?.isVirtualScroll.value
       ? {
-          transform: translate,
+          'transform': translate,
           '-ms-transform': translate,
           '-moz-transform': translate,
           '-webkit-transform': translate,

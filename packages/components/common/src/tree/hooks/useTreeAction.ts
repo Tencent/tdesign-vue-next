@@ -1,11 +1,11 @@
 import { usePrefixClass } from '../adapt';
-import {
+import type {
   TreeNodeValue,
-  TypeTreeState,
-  TypeTargetNode,
-  TypeExpandEventContext,
   TypeActiveEventContext,
   TypeChangeEventContext,
+  TypeExpandEventContext,
+  TypeTargetNode,
+  TypeTreeState,
 } from '../tree-types';
 import { getNode, pathMatchClass } from '../util';
 

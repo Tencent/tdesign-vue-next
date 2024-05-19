@@ -1,11 +1,10 @@
-import { defineComponent, computed } from '@td/adapter-vue';
+import { computed, defineComponent } from '@td/adapter-vue';
 
-import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
-import { useTNodeJSX } from '@td/adapter-hooks';
-import TLoading from '../loading';
+import { useCommonClassName, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import props from '@td/intel/card/props';
 import { isString } from 'lodash-es';
-import { TdCardProps } from '@td/intel/card/type';
+import type { TdCardProps } from '@td/intel/card/type';
+import TLoading from '../loading';
 
 export default defineComponent({
   name: 'TCard',
@@ -18,10 +17,18 @@ export default defineComponent({
     const baseCls = computed(() => {
       const defaultClass = [COMPONENT_NAME.value];
 
-      if (props.size === 'small') defaultClass.push(`${SIZE.value[props.size]}`);
-      if (props.bordered) defaultClass.push(`${COMPONENT_NAME.value}--bordered`);
-      if (props.shadow) defaultClass.push(`${COMPONENT_NAME.value}--shadow`);
-      if (props.hoverShadow) defaultClass.push(`${COMPONENT_NAME.value}--shadow-hover`);
+      if (props.size === 'small') {
+        defaultClass.push(`${SIZE.value[props.size]}`);
+      }
+      if (props.bordered) {
+        defaultClass.push(`${COMPONENT_NAME.value}--bordered`);
+      }
+      if (props.shadow) {
+        defaultClass.push(`${COMPONENT_NAME.value}--shadow`);
+      }
+      if (props.hoverShadow) {
+        defaultClass.push(`${COMPONENT_NAME.value}--shadow-hover`);
+      }
 
       return defaultClass;
     });
@@ -64,13 +71,13 @@ export default defineComponent({
     // 是否展示头部区域
     const isHeaderRender = computed(
       () =>
-        showHeader.value ||
-        showTitle.value ||
-        showSubtitle.value ||
-        showDescription.value ||
-        showAvatar.value ||
-        (showStatus.value && isPoster2.value) ||
-        (showActions.value && !isPoster2.value),
+        showHeader.value
+        || showTitle.value
+        || showSubtitle.value
+        || showDescription.value
+        || showAvatar.value
+        || (showStatus.value && isPoster2.value)
+        || (showActions.value && !isPoster2.value),
     );
 
     // 是否展示底部区域
@@ -78,7 +85,9 @@ export default defineComponent({
 
     // 头部区域渲染逻辑
     const renderHeader = () => {
-      if (showHeader.value) return <div class={headerCls.value}>{renderTNodeJSX('header')}</div>;
+      if (showHeader.value) {
+        return <div class={headerCls.value}>{renderTNodeJSX('header')}</div>;
+      }
       return (
         <div class={headerCls.value}>
           <div class={headerWrapperCls.value}>

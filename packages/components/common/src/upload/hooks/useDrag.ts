@@ -1,6 +1,7 @@
-import { Ref, ref } from '@td/adapter-vue';
+import type { Ref } from '@td/adapter-vue';
+import { ref } from '@td/adapter-vue';
 import { getFileList } from '../../_common/js/upload/utils';
-import { TdUploadProps } from '../type';
+import type { TdUploadProps } from '../type';
 
 export interface UploadDragEvents {
   onDragFileChange?: (files: File[]) => void;
@@ -33,7 +34,9 @@ export default function useDrag(props: UploadDragEvents, accept: Ref<string>) {
   };
 
   const handleDragleave = (event: DragEvent) => {
-    if (event.target !== target.value) return;
+    if (event.target !== target.value) {
+      return;
+    }
     event.preventDefault();
     props.onDragleave?.({ e: event });
     dragActive.value = false;

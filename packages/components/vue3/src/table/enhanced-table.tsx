@@ -1,22 +1,23 @@
-import { defineComponent, SetupContext, computed, ref, getCurrentInstance } from '@td/adapter-vue';
+import type { SetupContext } from '@td/adapter-vue';
+import { computed, defineComponent, getCurrentInstance, ref } from '@td/adapter-vue';
 import baseTableProps from '@td/intel/table/base-table-props';
 import primaryTableProps from '@td/intel/table/primary-table-props';
 import enhancedTableProps from '@td/intel/table/enhanced-table-props';
-import PrimaryTable from './primary-table';
-import {
-  TdEnhancedTableProps,
+import type {
+  DragSortContext,
   PrimaryTableCol,
   TableRowData,
-  DragSortContext,
-  TdPrimaryTableProps,
   TableRowState,
+  TdEnhancedTableProps,
+  TdPrimaryTableProps,
 } from '@td/intel/table/type';
-import useTreeData from './hooks/useTreeData';
-import useTreeSelect from './hooks/useTreeSelect';
 import { get } from 'lodash-es';
-import { ComponentScrollToElementParams } from '../common';
+import type { ComponentScrollToElementParams } from '../common';
 import log from '../_common/js/log';
 import { usePrefixClass } from '../hooks';
+import useTreeSelect from './hooks/useTreeSelect';
+import useTreeData from './hooks/useTreeData';
+import PrimaryTable from './primary-table';
 
 export default defineComponent({
   name: 'TEnhancedTable',
@@ -29,8 +30,8 @@ export default defineComponent({
 
   setup(props: TdEnhancedTableProps, context: SetupContext) {
     const primaryTableRef = ref(null);
-    const { store, dataSource, formatTreeColumn, swapData, onExpandFoldIconClick, ...treeInstanceFunctions } =
-      useTreeData(props, context);
+    const { store, dataSource, formatTreeColumn, swapData, onExpandFoldIconClick, ...treeInstanceFunctions }
+      = useTreeData(props, context);
     const classPrefix = usePrefixClass();
 
     const treeDataMap = ref(store.value.treeDataMap);
@@ -61,7 +62,9 @@ export default defineComponent({
     });
 
     const onDragSortChange = (params: DragSortContext<TableRowData>) => {
-      if (props.beforeDragSort && !props.beforeDragSort(params)) return;
+      if (props.beforeDragSort && !props.beforeDragSort(params)) {
+        return;
+      }
       swapData({
         current: params.current,
         target: params.target,
@@ -85,8 +88,12 @@ export default defineComponent({
     };
 
     const getScrollRowIndex = (rowStateData: TableRowState, key: string | number): number => {
-      if (!rowStateData) return -1;
-      if (rowStateData.rowIndex >= 0) return rowStateData.rowIndex;
+      if (!rowStateData) {
+        return -1;
+      }
+      if (rowStateData.rowIndex >= 0) {
+        return rowStateData.rowIndex;
+      }
       if (rowStateData.rowIndex < 0) {
         return getScrollRowIndex(rowStateData.parent, key);
       }
@@ -144,14 +151,16 @@ export default defineComponent({
         rowClassName: ({ row }) => {
           const rowValue = get(row, props.rowKey || 'id');
           const rowState = treeDataMap.value.get(rowValue);
-          if (!rowState) return [props.rowClassName];
+          if (!rowState) {
+            return [props.rowClassName];
+          }
           return [`${classPrefix.value}-table-tr--level-${rowState.level}`, props.rowClassName];
         },
       };
       if (props.tree?.expandTreeNodeOnClick) {
         enhancedProps.onRowClick = onEnhancedTableRowClick;
       }
-      // @ts-ignore ref 顺序很重要，如果移动到 v-slots 前面，会让 EnhancedTable 所有实例方法失效，勿动
+      // @ts-expect-error ref 顺序很重要，如果移动到 v-slots 前面，会让 EnhancedTable 所有实例方法失效，勿动
       return <PrimaryTable v-slots={context.slots} {...enhancedProps} ref={primaryTableRef} />;
     };
   },

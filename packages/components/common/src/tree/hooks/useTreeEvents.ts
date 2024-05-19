@@ -1,5 +1,5 @@
-import { TreeProps, TypeTreeState, TypeEventState } from '../tree-types';
-import { getMark, emitEvent } from '../util';
+import type { TreeProps, TypeEventState, TypeTreeState } from '../tree-types';
+import { emitEvent, getMark } from '../util';
 import useTreeAction from './useTreeAction';
 
 // tree 组件一般事件处理
@@ -10,7 +10,9 @@ export default function useTreeEvents(state: TypeTreeState) {
 
   const handleClick = (evtState: TypeEventState) => {
     const { mouseEvent, event, node } = evtState;
-    if (!node || !mouseEvent) return;
+    if (!node || !mouseEvent) {
+      return;
+    }
 
     // 用于向内部方法传递事件对象
     treeState.mouseEvent = mouseEvent;
@@ -23,7 +25,7 @@ export default function useTreeEvents(state: TypeTreeState) {
     ['trigger', 'ignore'].forEach((markName) => {
       const mark = getMark(markName, event.target as HTMLElement, event.currentTarget as HTMLElement);
       const markValue = mark?.value || '';
-      if (markValue.indexOf('expand') >= 0) {
+      if (markValue.includes('expand')) {
         // 路径节点包含了 trigger="expand" ignore="expand"
         if (markName === 'trigger') {
           shouldExpand = true;
@@ -31,7 +33,7 @@ export default function useTreeEvents(state: TypeTreeState) {
           shouldExpand = false;
         }
       }
-      if (markValue.indexOf('active') >= 0) {
+      if (markValue.includes('active')) {
         // 路径节点包含了 trigger="active" ignore="active"
         if (markName === 'ignore') {
           shouldActive = false;

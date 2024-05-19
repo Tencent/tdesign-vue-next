@@ -1,7 +1,6 @@
 import { defineComponent } from '@td/adapter-vue';
 import props from '@td/intel/list/list-item-meta-props';
-import { usePrefixClass } from '@td/adapter-hooks';
-import { useContent, useTNodeJSX } from '@td/adapter-hooks';
+import { useContent, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import { isString } from 'lodash-es';
 
 export default defineComponent({
@@ -17,7 +16,9 @@ export default defineComponent({
         console.warn('`avatar` is going to be deprecated, please use `image` instead');
       }
       const thumbnail = renderContent('avatar', 'image');
-      if (!thumbnail) return;
+      if (!thumbnail) {
+        return;
+      }
       if (isString(thumbnail)) {
         return (
           <div class={`${COMPONENT_NAME.value}-avatar`}>

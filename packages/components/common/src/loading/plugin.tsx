@@ -1,9 +1,10 @@
-import { App, Plugin, createApp, defineComponent, h, reactive } from '@td/adapter-vue';
+import type { App, Plugin } from '@td/adapter-vue';
+import { createApp, defineComponent, h, reactive } from '@td/adapter-vue';
 import { merge } from 'lodash-es';
-import LoadingComponent from './loading';
-import { getAttach, removeClass, addClass } from '../utils/dom';
-import { TdLoadingProps, LoadingInstance, LoadingMethod } from '@td/intel/loading/type';
+import type { LoadingInstance, LoadingMethod, TdLoadingProps } from '@td/intel/loading/type';
 import { usePrefixClass } from '@td/adapter-hooks';
+import { addClass, getAttach, removeClass } from '../utils/dom';
+import LoadingComponent from './loading';
 
 let fullScreenLoadingInstance: LoadingInstance = null;
 
@@ -97,7 +98,6 @@ export type LoadingPluginType = Plugin & LoadingMethod;
 export const LoadingPlugin: LoadingPluginType = produceLoading as LoadingPluginType;
 
 LoadingPlugin.install = (app: App) => {
-  // eslint-disable-next-line no-param-reassign
   app.config.globalProperties.$loading = produceLoading;
 };
 

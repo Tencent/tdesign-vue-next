@@ -1,28 +1,24 @@
-import { h, defineComponent, Transition, ref, computed, watch, onMounted, nextTick } from '@td/adapter-vue';
-import { debounce } from 'lodash-es';
+import { Transition, computed, defineComponent, h, nextTick, onMounted, ref, watch } from '@td/adapter-vue';
+import { debounce, isFunction } from 'lodash-es';
 import {
+  AddIcon as TdAddIcon,
   ChevronLeftIcon as TdChevronLeftIcon,
   ChevronRightIcon as TdChevronRightIcon,
-  AddIcon as TdAddIcon,
 } from 'tdesign-icons-vue-next';
-import { TdTabsProps } from '@td/intel/tabs/type';
+import type { TdTabsProps } from '@td/intel/tabs/type';
 import tabProps from '@td/intel/tabs/props';
+import { useCommonClassName, useDragSort, useGlobalIcon, usePrefixClass, useResize } from '@td/adapter-hooks';
 import tabBase from '../_common/js/tabs/base';
 
 // 子组件
-import TTabPanel from './tab-panel';
+import type TTabPanel from './tab-panel';
 import TTabNavItem from './tab-nav-item';
 import TTabNavBar from './tab-nav-bar';
 
 // hooks
-import { useResize } from '@td/adapter-hooks';
-import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
-import { useGlobalIcon } from '@td/adapter-hooks';
-import { useDragSort } from '@td/adapter-hooks';
-import { isFunction } from 'lodash-es';
 
-const { calculateCanToLeft, calculateCanToRight, calcScrollLeft, scrollToLeft, scrollToRight, moveActiveTabIntoView } =
-  tabBase;
+const { calculateCanToLeft, calculateCanToRight, calcScrollLeft, scrollToLeft, scrollToRight, moveActiveTabIntoView }
+  = tabBase;
 
 export default defineComponent({
   name: 'TTabNav',
@@ -84,7 +80,9 @@ export default defineComponent({
 
     // style
     const wrapTransformStyle = computed(() => {
-      if (isVerticalPlacement.value) return {};
+      if (isVerticalPlacement.value) {
+        return {};
+      }
       return {
         transform: `translate3d(${-scrollLeft.value}px, 0, 0)`,
       };
@@ -161,7 +159,9 @@ export default defineComponent({
 
     // calculate scroll left after mounted
     const calculateMountedScrollLeft = () => {
-      if (isVerticalPlacement.value) return;
+      if (isVerticalPlacement.value) {
+        return;
+      }
       nextTick(() => {
         const container = navsContainerRef.value;
         const activeTabEl = activeTabRef.value;
@@ -170,11 +170,12 @@ export default defineComponent({
 
         const activeElIndex = Array.prototype.indexOf.call(navsWrapRef.value.children, activeTabEl); // index of the active tab
 
-        const isRightBtnShow =
-          navs.value.length - activeElIndex >= Math.round((containerWidth - activeTabWidth) / activeTabWidth) ? 1 : 0; // calculate whether the right btn is display or not
+        const isRightBtnShow
+          = navs.value.length - activeElIndex >= Math.round((containerWidth - activeTabWidth) / activeTabWidth) ? 1 : 0; // calculate whether the right btn is display or not
         const totalWidthBeforeActiveTab = activeTabEl?.offsetLeft;
-        if (totalWidthBeforeActiveTab > containerWidth - activeTabWidth)
+        if (totalWidthBeforeActiveTab > containerWidth - activeTabWidth) {
           scrollLeft.value = totalWidthBeforeActiveTab - isRightBtnShow * activeTabWidth;
+        }
       });
     };
 
@@ -211,7 +212,9 @@ export default defineComponent({
       props.onRemove({ e, value, index });
     };
     const setActiveTab = (ref: any) => {
-      if (!ref?.$el) return;
+      if (!ref?.$el) {
+        return;
+      }
       if (ref?.value === props.value && activeTabRef.value !== ref.$el) {
         activeTabRef.value = ref.$el;
         scrollLeft.value = moveActiveTabIntoView(
@@ -271,11 +274,13 @@ export default defineComponent({
           class={[`${componentName.value}__operations`, `${componentName.value}__operations--left`]}
         >
           <Transition name="fade" mode="out-in" appear>
-            {canToLeft.value ? (
-              <div ref={toLeftBtnRef} class={leftIconClass.value} onClick={() => handleScroll('left')}>
-                <ChevronLeftIcon />
-              </div>
-            ) : null}
+            {canToLeft.value
+              ? (
+                <div ref={toLeftBtnRef} class={leftIconClass.value} onClick={() => handleScroll('left')}>
+                  <ChevronLeftIcon />
+                </div>
+                )
+              : null}
           </Transition>
         </div>,
         <div
@@ -283,17 +288,21 @@ export default defineComponent({
           class={[`${componentName.value}__operations`, `${componentName.value}__operations--right`]}
         >
           <Transition name="fade" mode="out-in" appear>
-            {canToRight.value ? (
-              <div ref={toRightBtnRef} class={rightIconClass.value} onClick={() => handleScroll('right')}>
-                <ChevronRightIcon></ChevronRightIcon>
-              </div>
-            ) : null}
+            {canToRight.value
+              ? (
+                <div ref={toRightBtnRef} class={rightIconClass.value} onClick={() => handleScroll('right')}>
+                  <ChevronRightIcon></ChevronRightIcon>
+                </div>
+                )
+              : null}
           </Transition>
-          {props.addable ? (
-            <div class={addIconClass.value} onClick={handleAddTab}>
-              <AddIcon></AddIcon>
-            </div>
-          ) : null}
+          {props.addable
+            ? (
+              <div class={addIconClass.value} onClick={handleAddTab}>
+                <AddIcon></AddIcon>
+              </div>
+              )
+            : null}
           {props.action}
         </div>,
       ];

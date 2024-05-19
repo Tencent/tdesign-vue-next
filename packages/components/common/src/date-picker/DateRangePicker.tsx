@@ -1,25 +1,24 @@
-import { defineComponent, computed, ref, watch } from '@td/adapter-vue';
+import { computed, defineComponent, ref, watch } from '@td/adapter-vue';
 import dayjs from 'dayjs';
-import { useFormDisabled } from '../form/hooks';
 import { usePrefixClass } from '@td/adapter-hooks';
-import { isFunction } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { isArray, isFunction } from 'lodash-es';
 
 import props from '@td/intel/date-picker/date-range-picker-props';
-import { DateValue, DateRangePickerPartial } from '@td/intel/date-picker/type';
+import type { DateRangePickerPartial, DateValue } from '@td/intel/date-picker/type';
+import { useFormDisabled } from '../form/hooks';
 
 import { RangeInputPopup as TRangeInputPopup } from '../range-input';
-import TRangePanel from './panel/RangePanel';
-import useRange from './hooks/useRange';
 import {
-  parseToDayjs,
-  formatTime,
   formatDate,
-  isValidDate,
+  formatTime,
   getDefaultFormat,
   initYearMonthTime,
+  isValidDate,
+  parseToDayjs,
 } from '../_common/js/date-picker/format';
-import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-picker/utils';
+import { addMonth, extractTimeObj, subtractMonth } from '../_common/js/date-picker/utils';
+import useRange from './hooks/useRange';
+import TRangePanel from './panel/RangePanel';
 
 export default defineComponent({
   name: 'TDateRangePicker',
@@ -99,10 +98,14 @@ export default defineComponent({
           }
         } else {
           year.value = value.value.map((v: string) => parseToDayjs(v, formatRef.value.format).year());
-          if (year.value.length === 1) year.value = [year.value[0], year.value[0]];
+          if (year.value.length === 1) {
+            year.value = [year.value[0], year.value[0]];
+          }
 
           month.value = value.value.map((v: string) => parseToDayjs(v, formatRef.value.format).month());
-          if (month.value.length === 1) month.value = [month.value[0], Math.min(month.value[0] + 1, 11)];
+          if (month.value.length === 1) {
+            month.value = [month.value[0], Math.min(month.value[0] + 1, 11)];
+          }
         }
       } else {
         activeIndex.value = 0;
@@ -151,23 +154,29 @@ export default defineComponent({
         const isAdditional = dayjs(date).month() !== month.value[partialIndex];
         if (isAdditional) {
           // 保证左侧时间小于右侧
-          if (activeIndex.value === 0) month.value = [dayjs(date).month(), Math.min(dayjs(date).month() + 1, 11)];
-          if (activeIndex.value === 1) month.value = [Math.max(dayjs(date).month() - 1, 0), dayjs(date).month()];
+          if (activeIndex.value === 0) {
+            month.value = [dayjs(date).month(), Math.min(dayjs(date).month() + 1, 11)];
+          }
+          if (activeIndex.value === 1) {
+            month.value = [Math.max(dayjs(date).month() - 1, 0), dayjs(date).month()];
+          }
         }
       }
 
       // 有时间选择器走 confirm 逻辑
-      if (props.enableTimePicker) return;
+      if (props.enableTimePicker) {
+        return;
+      }
 
       // 确保两端都是有效值
-      const notValidIndex = nextValue.findIndex((v) => !v || !isValidDate(v, formatRef.value.format));
+      const notValidIndex = nextValue.findIndex(v => !v || !isValidDate(v, formatRef.value.format));
 
       // 当两端都有有效值时更改 value
       if (notValidIndex === -1 && nextValue.length === 2) {
         // 二次修改时当其中一侧不符合上次区间规范时，清空另一侧数据
         if (
-          !isFirstValueSelected.value &&
-          parseToDayjs(nextValue[0], formatRef.value.format).isAfter(parseToDayjs(nextValue[1], formatRef.value.format))
+          !isFirstValueSelected.value
+          && parseToDayjs(nextValue[0], formatRef.value.format).isAfter(parseToDayjs(nextValue[1], formatRef.value.format))
         ) {
           nextValue[activeIndex.value ? 0 : 1] = '';
           cacheValue.value = nextValue;
@@ -180,7 +189,7 @@ export default defineComponent({
               autoSwap: true,
             }) as DateValue[],
             {
-              dayjsValue: nextValue.map((v) => parseToDayjs(v, formatRef.value.format)),
+              dayjsValue: nextValue.map(v => parseToDayjs(v, formatRef.value.format)),
               trigger: 'pick',
             },
           );
@@ -190,7 +199,9 @@ export default defineComponent({
       // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
       if (!isFirstValueSelected.value) {
         let nextIndex = notValidIndex;
-        if (nextIndex === -1) nextIndex = activeIndex.value ? 0 : 1;
+        if (nextIndex === -1) {
+          nextIndex = activeIndex.value ? 0 : 1;
+        }
         activeIndex.value = nextIndex;
         isFirstValueSelected.value = true;
       } else {
@@ -253,8 +264,12 @@ export default defineComponent({
         : dayjs(changedInputValue, formatRef.value.format);
       // am pm 12小时制转化 24小时制
       let nextHours = hours;
-      if (/am/i.test(meridiem) && nextHours === 12) nextHours -= 12;
-      if (/pm/i.test(meridiem) && nextHours < 12) nextHours += 12;
+      if (/am/i.test(meridiem) && nextHours === 12) {
+        nextHours -= 12;
+      }
+      if (/pm/i.test(meridiem) && nextHours < 12) {
+        nextHours += 12;
+      }
 
       const nextDate = currentDate.hour(nextHours).minute(minutes).second(seconds).millisecond(milliseconds).toDate();
       nextInputValue[activeIndex.value] = nextDate;
@@ -276,21 +291,21 @@ export default defineComponent({
     function onConfirmClick({ e }: { e: MouseEvent }) {
       const nextValue = [...(inputValue.value as string[])];
 
-      const notValidIndex = nextValue.findIndex((v) => !v || !isValidDate(v, formatRef.value.format));
+      const notValidIndex = nextValue.findIndex(v => !v || !isValidDate(v, formatRef.value.format));
 
       // 当两端都有有效值时更改 value
       if (notValidIndex === -1 && nextValue.length === 2) {
         // 二次修改时当其中一侧不符合上次区间规范时，清空另一侧数据
         if (
-          !isFirstValueSelected.value &&
-          parseToDayjs(nextValue[0], formatRef.value.format).isAfter(parseToDayjs(nextValue[1], formatRef.value.format))
+          !isFirstValueSelected.value
+          && parseToDayjs(nextValue[0], formatRef.value.format).isAfter(parseToDayjs(nextValue[1], formatRef.value.format))
         ) {
           nextValue[activeIndex.value ? 0 : 1] = '';
           cacheValue.value = nextValue;
           inputValue.value = nextValue;
         } else {
           props?.onConfirm?.({
-            date: nextValue.map((v) => dayjs(v).toDate()),
+            date: nextValue.map(v => dayjs(v).toDate()),
             e,
             partial: activeIndex.value ? 'end' : 'start',
           });
@@ -301,7 +316,7 @@ export default defineComponent({
               autoSwap: true,
             }) as DateValue[],
             {
-              dayjsValue: nextValue.map((v) => parseToDayjs(v, formatRef.value.format)),
+              dayjsValue: nextValue.map(v => parseToDayjs(v, formatRef.value.format)),
               trigger: 'confirm',
             },
           );
@@ -311,7 +326,9 @@ export default defineComponent({
       // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
       if (!isFirstValueSelected.value || nextValue.length === 1) {
         let nextIndex = notValidIndex;
-        if (nextIndex === -1) nextIndex = activeIndex.value ? 0 : 1;
+        if (nextIndex === -1) {
+          nextIndex = activeIndex.value ? 0 : 1;
+        }
         activeIndex.value = nextIndex;
         isFirstValueSelected.value = true;
       } else if (nextValue.length === 2) {
@@ -335,7 +352,7 @@ export default defineComponent({
             autoSwap: true,
           }) as DateValue[],
           {
-            dayjsValue: presetValue.map((p) => parseToDayjs(p, formatRef.value.format)),
+            dayjsValue: presetValue.map(p => parseToDayjs(p, formatRef.value.format)),
             trigger: 'preset',
           },
         );
@@ -346,27 +363,39 @@ export default defineComponent({
 
     function onYearChange(nextVal: number, { partial }: { partial: DateRangePickerPartial }) {
       let partialIndex = partial === 'start' ? 0 : 1;
-      if (props.enableTimePicker) partialIndex = activeIndex.value;
+      if (props.enableTimePicker) {
+        partialIndex = activeIndex.value;
+      }
 
       const nextYear = [...year.value];
       nextYear[partialIndex] = nextVal;
       // 保证左侧时间不大于右侧
-      if (partialIndex === 0) nextYear[1] = Math.max(nextYear[0], nextYear[1]);
-      if (partialIndex === 1) nextYear[0] = Math.min(nextYear[0], nextYear[1]);
+      if (partialIndex === 0) {
+        nextYear[1] = Math.max(nextYear[0], nextYear[1]);
+      }
+      if (partialIndex === 1) {
+        nextYear[0] = Math.min(nextYear[0], nextYear[1]);
+      }
 
       year.value = nextYear;
     }
 
     function onMonthChange(nextVal: number, { partial }: { partial: DateRangePickerPartial }) {
       let partialIndex = partial === 'start' ? 0 : 1;
-      if (props.enableTimePicker) partialIndex = activeIndex.value;
+      if (props.enableTimePicker) {
+        partialIndex = activeIndex.value;
+      }
 
       const nextMonth = [...month.value];
       nextMonth[partialIndex] = nextVal;
       // 保证左侧时间不大于右侧
       if (year.value[0] === year.value[1]) {
-        if (partialIndex === 0) nextMonth[1] = Math.max(nextMonth[0], nextMonth[1]);
-        if (partialIndex === 1) nextMonth[0] = Math.min(nextMonth[0], nextMonth[1]);
+        if (partialIndex === 0) {
+          nextMonth[1] = Math.max(nextMonth[0], nextMonth[1]);
+        }
+        if (partialIndex === 1) {
+          nextMonth[0] = Math.min(nextMonth[0], nextMonth[1]);
+        }
       }
 
       month.value = nextMonth;

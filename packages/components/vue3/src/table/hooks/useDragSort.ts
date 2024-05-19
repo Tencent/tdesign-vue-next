@@ -1,15 +1,16 @@
 // 表格 行拖拽 + 列拖拽功能
-import { SetupContext, computed, toRefs, ref, watch, h, ComputedRef } from '@td/adapter-vue';
-import Sortable, { SortableEvent, SortableOptions, MoveEvent } from 'sortablejs';
+import type { ComputedRef, SetupContext } from '@td/adapter-vue';
+import { computed, h, ref, toRefs, watch } from '@td/adapter-vue';
+import type { MoveEvent, SortableEvent, SortableOptions } from 'sortablejs';
+import Sortable from 'sortablejs';
 import { isFunction } from 'lodash-es';
-import { TableRowData, TdPrimaryTableProps, DragSortContext, PrimaryTableCol } from '../type';
-import useClassName from './useClassName';
+import type { DragSortContext, PrimaryTableCol, TableRowData, TdPrimaryTableProps } from '../type';
 import log from '../../_common/js/log';
 import { hasClass } from '../../utils/dom';
 import swapDragArrayElement from '../../_common/js/utils/swapDragArrayElement';
-import { BaseTableColumns } from '../interface';
+import type { BaseTableColumns, SimplePageInfo } from '../interface';
 import { getColumnDataByKey, getColumnIndexByKey } from '../../_common/js/table/utils';
-import { SimplePageInfo } from '../interface';
+import useClassName from './useClassName';
 
 function removeNode(node: HTMLElement) {
   if (node.parentElement !== null) {
@@ -34,8 +35,8 @@ export default function useDragSort(
   const { tableDraggableClasses, tableBaseClass, tableFullRowClasses, tableExpandClasses } = useClassName();
   const columns = ref<PrimaryTableCol[]>(props.columns || []);
   const primaryTableRef = ref(null);
-  // @ts-ignore 判断是否有拖拽列
-  const dragCol = computed(() => columns.value.find((item) => item.colKey === 'drag'));
+  // @ts-expect-error 判断是否有拖拽列
+  const dragCol = computed(() => columns.value.find(item => item.colKey === 'drag'));
   // 行拖拽判断条件
   const isRowDraggable = computed(
     () => sortOnRowDraggable.value || ['row', 'row-handler-col'].includes(dragSort.value),
@@ -48,7 +49,7 @@ export default function useDragSort(
   const isColDraggable = computed(() => ['col', 'row-handler-col'].includes(dragSort.value));
 
   if (props.sortOnRowDraggable) {
-    log.error('Table', "`sortOnRowDraggable` is going to be deprecated, use dragSort='row' instead.");
+    log.error('Table', '`sortOnRowDraggable` is going to be deprecated, use dragSort=\'row\' instead.');
   }
 
   // 本地分页的表格，index 不同，需加上分页计数
@@ -64,7 +65,9 @@ export default function useDragSort(
 
   // 行拖拽排序
   const registerRowDragEvent = (element: HTMLDivElement): void => {
-    if (!isRowHandlerDraggable.value && !isRowDraggable.value) return;
+    if (!isRowHandlerDraggable.value && !isRowDraggable.value) {
+      return;
+    }
     const dragContainer = element?.querySelector('tbody');
     if (!dragContainer) {
       console.error('tbody does not exist.');
@@ -79,15 +82,17 @@ export default function useDragSort(
       filter: `.${tableFullRowClasses.base},.${tableExpandClasses.row}`,
       onMove: (evt: MoveEvent) => !hasClass(evt.related, tableFullRowClasses.base),
       onEnd(evt: SortableEvent) {
-        if (evt.newIndex === evt.oldIndex) return;
+        if (evt.newIndex === evt.oldIndex) {
+          return;
+        }
         // 处理受控：拖拽列表恢复原始排序
         removeNode(evt.item);
         insertNodeAt(evt.from, evt.item, evt.oldIndex);
         let { oldIndex: currentIndex, newIndex: targetIndex } = evt;
         if (
-          (isFunction(props.firstFullRow) && props.firstFullRow(h)) ||
-          context.slots.firstFullRow ||
-          context.slots['first-full-row']
+          (isFunction(props.firstFullRow) && props.firstFullRow(h))
+          || context.slots.firstFullRow
+          || context.slots['first-full-row']
         ) {
           currentIndex -= 1;
           targetIndex -= 1;
@@ -113,7 +118,9 @@ export default function useDragSort(
       ...props.dragSortOptions,
     };
 
-    if (!dragContainer) return;
+    if (!dragContainer) {
+      return;
+    }
     if (isRowDraggable.value) {
       new Sortable(dragContainer, { ...baseOptions });
     } else {
@@ -136,7 +143,9 @@ export default function useDragSort(
       // 存在类名：t-table__th--drag-sort 的列才允许拖拽调整顺序（注意：添加 draggable 之后，固定列的表头 和 吸顶表头 位置顺序会错位，暂时注释）
       // draggable: `th.${tableDraggableClasses.dragSortTh}`,
       onEnd: (evt: SortableEvent) => {
-        if (evt.newIndex === evt.oldIndex) return;
+        if (evt.newIndex === evt.oldIndex) {
+          return;
+        }
         if (recover) {
           // 处理受控：拖拽列表恢复原始排序，等待外部数据 data 变化，更新最终顺序
           removeNode(evt.item);
@@ -174,13 +183,17 @@ export default function useDragSort(
       },
       ...props.dragSortOptions,
     };
-    if (!container) return;
+    if (!container) {
+      return;
+    }
     new Sortable(container, options);
   };
 
   // 列拖拽排序：涉及到多级表头、自定义显示列 等综合场景
   const registerColDragEvent = (tableElement: HTMLElement) => {
-    if (!isColDraggable.value || !tableElement) return;
+    if (!isColDraggable.value || !tableElement) {
+      return;
+    }
     const trList = tableElement.querySelectorAll('thead > tr');
     if (trList.length <= 1) {
       const [container] = trList;
@@ -198,7 +211,7 @@ export default function useDragSort(
   }
 
   function setDragSortColumns(val: BaseTableColumns) {
-    // @ts-ignore
+    // @ts-expect-error
     columns.value = val;
   }
 
@@ -209,7 +222,9 @@ export default function useDragSort(
 
   function register(val: any, params: any) {
     const primaryTableCmp = val as any;
-    if (!val || !primaryTableCmp.$el || !params.showElement) return;
+    if (!val || !primaryTableCmp.$el || !params.showElement) {
+      return;
+    }
     // register after table tr rendered
     const timerA = setTimeout(() => {
       registerRowDragEvent(primaryTableCmp.$el);

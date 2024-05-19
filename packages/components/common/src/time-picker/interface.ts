@@ -1,7 +1,5 @@
-/* eslint-disable no-undef */
-
-import dayjs from 'dayjs';
-import { TdTimePickerProps, TdTimeRangePickerProps } from '@td/intel/time-picker/type';
+import type dayjs from 'dayjs';
+import type { TdTimePickerProps, TdTimeRangePickerProps } from '@td/intel/time-picker/type';
 
 export type TimePickerProps = TdTimePickerProps;
 export type TimeRangePickerProps = TdTimeRangePickerProps;

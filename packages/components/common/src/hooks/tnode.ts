@@ -1,8 +1,8 @@
-import { h, getCurrentInstance, ComponentInternalInstance, VNode } from '@td/adapter-vue';
-import { isFunction } from 'lodash-es';
-import { camelCase } from 'lodash-es';
-import { kebabCase } from 'lodash-es';
-import { getDefaultNode, getParams, OptionsType, JSXRenderContext, getSlotFirst } from '../utils/render-tnode';
+import type { ComponentInternalInstance, VNode } from '@td/adapter-vue';
+import { getCurrentInstance, h } from '@td/adapter-vue';
+import { camelCase, isFunction, kebabCase } from 'lodash-es';
+import type { JSXRenderContext, OptionsType } from '../utils/render-tnode';
+import { getDefaultNode, getParams, getSlotFirst } from '../utils/render-tnode';
 
 // 兼容处理插槽名称，同时支持驼峰命名和中划线命名，示例：value-display 和 valueDisplay
 function handleSlots(instance: ComponentInternalInstance, name: string, params: Record<string, any>) {
@@ -15,10 +15,14 @@ function handleSlots(instance: ComponentInternalInstance, name: string, params: 
 
   // 检查是否存在 驼峰命名 的插槽（过滤注释节点）
   let node = instance.slots[camelCase(name)]?.(params);
-  if (node && node.filter((t) => t.type.toString() !== 'Symbol(v-cmt)').length) return node;
+  if (node && node.filter(t => t.type.toString() !== 'Symbol(v-cmt)').length) {
+    return node;
+  }
   // 检查是否存在 中划线命名 的插槽
   node = instance.slots[kebabCase(name)]?.(params);
-  if (node && node.filter((t) => t.type.toString() !== 'Symbol(v-cmt)').length) return node;
+  if (node && node.filter(t => t.type.toString() !== 'Symbol(v-cmt)').length) {
+    return node;
+  }
   return null;
 }
 
@@ -26,9 +30,11 @@ function handleSlots(instance: ComponentInternalInstance, name: string, params: 
  * 是否为空节点，需要过滤掉注释节点。注释节点也会被认为是空节点
  */
 function isEmptyNode(node: any) {
-  if ([undefined, null, ''].includes(node)) return true;
-  const innerNodes = node instanceof Array ? node : [node];
-  const r = innerNodes.filter((node) => node?.type?.toString() !== 'Symbol(Comment)');
+  if ([undefined, null, ''].includes(node)) {
+    return true;
+  }
+  const innerNodes = Array.isArray(node) ? node : [node];
+  const r = innerNodes.filter(node => node?.type?.toString() !== 'Symbol(Comment)');
   return !r.length;
 }
 
@@ -44,7 +50,7 @@ function isEmptyNode(node: any) {
  * @example renderTNodeJSX('closeBtn', <close-icon />)。 当属性值为 true 时则渲染 <close-icon />
  * @example renderTNodeJSX('closeBtn', { defaultNode: <close-icon />, params })。 params 为渲染节点时所需的参数
  */
-export const useTNodeJSX = () => {
+export function useTNodeJSX() {
   const instance = getCurrentInstance();
   return function (name: string, options?: OptionsType) {
     // assemble params && defaultNode
@@ -65,20 +71,24 @@ export const useTNodeJSX = () => {
     //   log.warn('', `Both slots.${name} and props.${name} exist, props.${name} is preferred`);
     // }
     // propsNode 为 false 不渲染
-    if (propsNode === false || propsNode === null) return;
+    if (propsNode === false || propsNode === null) {
+      return;
+    }
     if (propsNode === true) {
       return handleSlots(instance, name, params) || defaultNode;
     }
 
     // 同名 props 和 slot 优先处理 props
-    if (isFunction(propsNode)) return propsNode(h, params);
+    if (isFunction(propsNode)) {
+      return propsNode(h, params);
+    }
     const isPropsEmpty = [undefined, params, ''].includes(propsNode);
     if ((isPropsEmpty || slotFirst) && (instance.slots[camelCase(name)] || instance.slots[kebabCase(name)])) {
       return handleSlots(instance, name, params);
     }
     return propsNode;
   };
-};
+}
 
 /**
  * 在setup中，通过JSX的方式 TNode，props 和 插槽同时处理。与 renderTNodeJSX 区别在于属性值为 undefined 时会渲染默认节点
@@ -89,13 +99,13 @@ export const useTNodeJSX = () => {
  * @example renderTNodeJSXDefault('closeBtn', <close-icon />) closeBtn 为空时，则兜底渲染 <close-icon />
  * @example renderTNodeJSXDefault('closeBtn', { defaultNode: <close-icon />, params }) 。params 为渲染节点时所需的参数
  */
-export const useTNodeDefault = () => {
+export function useTNodeDefault() {
   const renderTNodeJSX = useTNodeJSX();
   return function (name: string, options?: VNode | JSXRenderContext) {
     const defaultNode = getDefaultNode(options);
     return renderTNodeJSX(name, options) || defaultNode;
   };
-};
+}
 
 /**
  * 在setup中，用于处理相同名称的 TNode 渲染
@@ -108,7 +118,7 @@ export const useTNodeDefault = () => {
  * @example renderContent('default', 'content', '我是默认内容')
  * @example renderContent('default', 'content', { defaultNode: '我是默认内容', params })
  */
-export const useContent = () => {
+export function useContent() {
   const renderTNodeJSX = useTNodeJSX();
   return function (name1: string, name2: string, options?: VNode | JSXRenderContext) {
     // assemble params && defaultNode
@@ -123,4 +133,4 @@ export const useContent = () => {
     const res = isEmptyNode(node1) ? node2 : node1;
     return isEmptyNode(res) ? defaultNode : res;
   };
-};
+}

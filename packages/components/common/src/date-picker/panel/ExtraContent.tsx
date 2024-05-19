@@ -1,4 +1,5 @@
-import { defineComponent, PropType, computed } from '@td/adapter-vue';
+import type { PropType } from '@td/adapter-vue';
+import { computed, defineComponent } from '@td/adapter-vue';
 import TDateFooter from '../base/Footer';
 import type { TdDatePickerProps, TdDateRangePickerProps } from '../type';
 
@@ -16,15 +17,17 @@ export default defineComponent({
     const showPanelFooter = computed(() => props.enableTimePicker || props.presets);
 
     return () =>
-      showPanelFooter.value ? (
-        <TDateFooter
-          presets={props.presets}
-          onPresetClick={props.onPresetClick}
-          enableTimePicker={props.enableTimePicker}
-          onConfirmClick={props.onConfirmClick}
-          presetsPlacement={props.presetsPlacement}
-          selectedValue={props.selectedValue}
-        />
-      ) : null;
+      showPanelFooter.value
+        ? (
+          <TDateFooter
+            presets={props.presets}
+            onPresetClick={props.onPresetClick}
+            enableTimePicker={props.enableTimePicker}
+            onConfirmClick={props.onConfirmClick}
+            presetsPlacement={props.presetsPlacement}
+            selectedValue={props.selectedValue}
+          />
+          )
+        : null;
   },
 });

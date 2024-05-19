@@ -1,14 +1,14 @@
 import { isString } from 'lodash-es';
-import { TNode } from '../../common';
+import type { TNode } from '../../common';
 /**
  * 计算刻度区间值停止坐标
  * @param position 刻度坐标值 ;
  * @param isVertical 是否垂直方向
  * @returns {string} style内联样式值
  */
-export const getStopStyle = (position: number, isVertical: boolean) => {
+export function getStopStyle(position: number, isVertical: boolean) {
   return isVertical ? { top: `calc(${100 - position}% - 1px)` } : { left: `${position}%` };
-};
+}
 
 /**
  * 格式化返回slider初始值
@@ -16,32 +16,32 @@ export const getStopStyle = (position: number, isVertical: boolean) => {
  * @param type 第一个滑块or第二个滑块值
  * @returns {number}
  */
-export const formatSliderValue = (val: number | number[], type: 'first' | 'second') => {
+export function formatSliderValue(val: number | number[], type: 'first' | 'second') {
   if (type === 'first') {
-    if (val instanceof Array) {
+    if (Array.isArray(val)) {
       return val[0];
     }
     return val;
   }
-  if (val instanceof Array) {
+  if (Array.isArray(val)) {
     return val[1];
   }
   return 0;
-};
+}
 
 /**
  * 格式化label参数
  * @param label slider传入的label属性
  * @param val slider传入的value
  */
-export const formatLabel = (label: TNode | string, val: number) => {
+export function formatLabel(label: TNode | string, val: number) {
   if (Boolean(label) === false) {
     return String(val);
   }
   if (isString(label)) {
     let text = String(val);
     try {
-      const rule = /\${value}%/g;
+      const rule = /\$\{value\}%/g;
       const enableToReplace = rule.test(label);
       if (enableToReplace) {
         text = label.replace(rule, String(val));
@@ -55,4 +55,4 @@ export const formatLabel = (label: TNode | string, val: number) => {
     return text;
   }
   return label;
-};
+}

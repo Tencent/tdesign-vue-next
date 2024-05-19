@@ -1,30 +1,29 @@
-import { createPopper, Placement } from '@popperjs/core';
-import { isFunction } from 'lodash-es';
-import { isObject } from 'lodash-es';
-import { debounce } from 'lodash-es';
-import { isString } from 'lodash-es';
+import type { Placement } from '@popperjs/core';
+import { createPopper } from '@popperjs/core';
+import { debounce, isFunction, isObject, isString } from 'lodash-es';
+import type {
+  InjectionKey,
+  Ref,
+} from '@td/adapter-vue';
 import {
+  Transition,
   computed,
   defineComponent,
   inject,
-  InjectionKey,
   nextTick,
   onUnmounted,
   provide,
   ref,
-  Ref,
   toRefs,
-  Transition,
   watch,
 } from '@td/adapter-vue';
+import { useCommonClassName, usePrefixClass, useVModel } from '@td/adapter-hooks';
+import props from '@td/intel/popup/props';
+import type { PopupTriggerEvent, TdPopupProps } from '@td/intel/popup/type';
 import { useContent, useTNodeJSX } from '../hooks';
-import { useCommonClassName, usePrefixClass } from '@td/adapter-hooks';
-import { useVModel } from '@td/adapter-hooks';
 import { off, on, once } from '../utils/dom';
 import setStyle from '../_common/js/utils/set-style';
 import Container from './container';
-import props from '@td/intel/popup/props';
-import { PopupTriggerEvent, TdPopupProps } from '@td/intel/popup/type';
 
 const POPUP_ATTR_NAME = 'data-td-popup';
 const POPUP_PARENT_ATTR_NAME = 'data-td-popup-parent';
@@ -37,7 +36,9 @@ function getPopperTree(id: number | string, upwards?: boolean): Element[] {
   const list = [] as any;
   const selectors = [POPUP_PARENT_ATTR_NAME, POPUP_ATTR_NAME];
 
-  if (!id) return list;
+  if (!id) {
+    return list;
+  }
   if (upwards) {
     selectors.unshift(selectors.pop());
   }
@@ -71,14 +72,16 @@ function attachListeners(elm: Ref<Element>) {
   const offs: Array<() => void> = [];
   return {
     add<K extends keyof HTMLElementEventMap>(type: K, listener: (ev: HTMLElementEventMap[K]) => void) {
-      if (!type) return;
+      if (!type) {
+        return;
+      }
       on(elm.value, type, listener);
       offs.push(() => {
         off(elm.value, type, listener);
       });
     },
     clean() {
-      offs.forEach((handler) => handler?.());
+      offs.forEach(handler => handler?.());
       offs.length = 0;
     },
   };
@@ -140,20 +143,24 @@ export default defineComponent({
     watch(
       () => [props.trigger, triggerEl.value],
       () => {
-        if (!triggerEl.value) return;
+        if (!triggerEl.value) {
+          return;
+        }
         trigger.clean();
 
         trigger.add(
           (
             {
-              hover: 'mouseenter',
-              focus: 'focusin',
+              'hover': 'mouseenter',
+              'focus': 'focusin',
               'context-menu': 'contextmenu',
-              click: 'click',
+              'click': 'click',
             } as any
           )[props.trigger],
           (ev: MouseEvent) => {
-            if (props.disabled) return;
+            if (props.disabled) {
+              return;
+            }
 
             if (ev.type === 'contextmenu') {
               ev.preventDefault();
@@ -234,7 +241,9 @@ export default defineComponent({
     function getOverlayStyle() {
       const { overlayStyle } = props;
 
-      if (!triggerEl.value || !overlayEl.value) return;
+      if (!triggerEl.value || !overlayEl.value) {
+        return;
+      }
       if (isFunction(overlayStyle)) {
         return overlayStyle(triggerEl.value, overlayEl.value);
       }
@@ -246,7 +255,9 @@ export default defineComponent({
     function updateOverlayInnerStyle() {
       const { overlayInnerStyle } = props;
 
-      if (!triggerEl.value || !overlayEl.value) return;
+      if (!triggerEl.value || !overlayEl.value) {
+        return;
+      }
       if (isFunction(overlayInnerStyle)) {
         setStyle(overlayEl.value, overlayInnerStyle(triggerEl.value, overlayEl.value));
       } else if (isObject(overlayInnerStyle)) {
@@ -255,7 +266,9 @@ export default defineComponent({
     }
 
     function updatePopper() {
-      if (!popperEl.value || !visible.value) return;
+      if (!popperEl.value || !visible.value) {
+        return;
+      }
       if (popper) {
         const rect = triggerEl.value.getBoundingClientRect();
         let parent = triggerEl.value;
@@ -344,10 +357,10 @@ export default defineComponent({
       }
 
       // ignore upwards
-      const activedPopper = getPopperTree(id).find((el) => el.contains(ev.target as Node));
+      const activedPopper = getPopperTree(id).find(el => el.contains(ev.target as Node));
       if (
-        activedPopper &&
-        getPopperTree(activedPopper.getAttribute(POPUP_PARENT_ATTR_NAME), true).some((el) => el === popperEl.value)
+        activedPopper
+        && getPopperTree(activedPopper.getAttribute(POPUP_PARENT_ATTR_NAME), true).includes(popperEl.value)
       ) {
         return;
       }
@@ -357,7 +370,9 @@ export default defineComponent({
 
     function onMouseLeave(ev: MouseEvent) {
       isOverlayHover.value = false;
-      if (props.trigger !== 'hover' || triggerEl.value.contains(ev.target as Node)) return;
+      if (props.trigger !== 'hover' || triggerEl.value.contains(ev.target as Node)) {
+        return;
+      }
 
       const isCursorOverlaps = getPopperTree(id).some((el) => {
         const rect = el.getBoundingClientRect();
@@ -387,7 +402,7 @@ export default defineComponent({
       const { scrollTop, clientHeight, scrollHeight } = e.target as HTMLDivElement;
 
       // 防止多次触发添加截流
-      const debounceOnScrollBottom = debounce((e) => props.onScrollToBottom?.({ e }), 100);
+      const debounceOnScrollBottom = debounce(e => props.onScrollToBottom?.({ e }), 100);
 
       // windows 下 scrollTop 会出现小数，这里取整
       if (clientHeight + Math.floor(scrollTop) === scrollHeight) {
@@ -409,23 +424,24 @@ export default defineComponent({
       const content = renderTNodeJSX('content');
       const hidePopup = props.hideEmptyPopup && ['', undefined, null].includes(content);
 
-      const overlay =
-        visible.value || !props.destroyOnClose ? (
-          <div
-            {...{
-              [POPUP_ATTR_NAME]: id,
-              [POPUP_PARENT_ATTR_NAME]: parent?.id,
-            }}
-            class={[prefixCls.value, props.overlayClassName]}
-            ref={(ref: HTMLElement) => (popperEl.value = ref)}
-            style={[{ zIndex: props.zIndex }, getOverlayStyle(), hidePopup && { visibility: 'hidden' }]}
-            vShow={visible.value}
-            onClick={onOverlayClick}
-            onMouseenter={onMouseenter}
-            onMouseleave={onMouseLeave}
-          >
+      const overlay
+        = visible.value || !props.destroyOnClose
+          ? (
             <div
-              class={[
+              {...{
+                [POPUP_ATTR_NAME]: id,
+                [POPUP_PARENT_ATTR_NAME]: parent?.id,
+              }}
+              class={[prefixCls.value, props.overlayClassName]}
+              ref={(ref: HTMLElement) => (popperEl.value = ref)}
+              style={[{ zIndex: props.zIndex }, getOverlayStyle(), hidePopup && { visibility: 'hidden' }]}
+              vShow={visible.value}
+              onClick={onOverlayClick}
+              onMouseenter={onMouseenter}
+              onMouseleave={onMouseLeave}
+            >
+              <div
+                class={[
                 `${prefixCls.value}__content`,
                 {
                   [`${prefixCls.value}__content--text`]: isString(props.content),
@@ -433,20 +449,21 @@ export default defineComponent({
                   [commonCls.value.disabled]: props.disabled,
                 },
                 props.overlayInnerClassName,
-              ]}
-              ref={overlayEl}
-              onScroll={handleOnScroll}
-            >
-              {content}
-              {props.showArrow && <div class={`${prefixCls.value}__arrow`} />}
+                ]}
+                ref={overlayEl}
+                onScroll={handleOnScroll}
+              >
+                {content}
+                {props.showArrow && <div class={`${prefixCls.value}__arrow`} />}
+              </div>
             </div>
-          </div>
-        ) : null;
+            )
+          : null;
 
       return (
         <Container
           ref={(ref: any) => (containerRef.value = ref)}
-          forwardRef={(ref) => (triggerEl.value = ref)}
+          forwardRef={ref => (triggerEl.value = ref)}
           onContentMounted={() => {
             if (visible.value) {
               updatePopper();

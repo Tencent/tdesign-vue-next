@@ -1,5 +1,6 @@
-import { usePrefixClass, TypeCreateElement, TypeVNode } from '../adapt';
-import { TypeTreeItemState } from '../tree-types';
+import type { TypeCreateElement, TypeVNode } from '../adapt';
+import { usePrefixClass } from '../adapt';
+import type { TypeTreeItemState } from '../tree-types';
 import { getTNode } from '../util';
 
 // 渲染节点操作区域

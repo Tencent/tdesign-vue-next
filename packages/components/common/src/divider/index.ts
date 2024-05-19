@@ -1,6 +1,6 @@
-import _Divider from './divider';
 import { withInstall } from '@td/adapter-utils';
-import { TdDividerProps } from '@td/intel/divider/type';
+import type { TdDividerProps } from '@td/intel/divider/type';
+import _Divider from './divider';
 
 import './style';
 

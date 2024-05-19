@@ -1,11 +1,11 @@
 import { computed } from '@td/adapter-vue';
 
-import { CellColHeader, CalendarState } from '../interface';
-import { TdCalendarProps, WeekDay } from '../type';
+import { isObject } from 'lodash-es';
+import type { CalendarState, CellColHeader } from '../interface';
+import type { TdCalendarProps, WeekDay } from '../type';
 import { useConfig } from '../../hooks/useConfig';
 import { COMPONENT_NAME } from '../const';
 import * as utils from '../utils';
-import { isObject } from 'lodash-es';
 
 export function useColHeaders(props: TdCalendarProps, state: CalendarState) {
   const { t, globalConfig } = useConfig(COMPONENT_NAME);

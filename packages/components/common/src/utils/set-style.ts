@@ -1,4 +1,4 @@
-import { CSSProperties } from '@td/adapter-vue';
+import type { CSSProperties } from '@td/adapter-vue';
 
 /**
  * 用于为el节点增加styles ,migrate from tdesign-vue repo
@@ -8,7 +8,6 @@ import { CSSProperties } from '@td/adapter-vue';
 function setStyle(el: HTMLElement, styles: CSSProperties): void {
   const keys = Object.keys(styles);
   keys.forEach((key) => {
-    // eslint-disable-next-line no-param-reassign
     el.style[key] = styles[key];
   });
 }

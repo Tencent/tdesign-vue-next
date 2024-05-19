@@ -1,16 +1,12 @@
-import { onBeforeUnmount, onMounted, computed, defineComponent, nextTick, onUpdated, ref, watch, Teleport } from '@td/adapter-vue';
+import { Teleport, computed, defineComponent, nextTick, onBeforeUnmount, onMounted, onUpdated, ref, watch } from '@td/adapter-vue';
 import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
-import { useConfig, usePrefixClass } from '@td/adapter-hooks';
-import { useGlobalIcon } from '@td/adapter-hooks';
+import { useConfig, useContent, useGlobalIcon, usePrefixClass, useTNodeJSX, useTeleport } from '@td/adapter-hooks';
+import props from '@td/intel/drawer/props';
+import type { DrawerCloseContext, TdDrawerProps } from '@td/intel/drawer/type';
 import { isServer } from '../utils/dom';
 import { getScrollbarWidth } from '../_common/js/utils/getScrollbarWidth';
-import props from '@td/intel/drawer/props';
-import { DrawerCloseContext } from '@td/intel/drawer/type';
 import { useAction } from '../dialog/hooks';
-import { useTNodeJSX, useContent } from '@td/adapter-hooks';
 import { useDrag } from './hooks';
-import type { TdDrawerProps } from '@td/intel/drawer/type';
-import { useTeleport } from '@td/adapter-hooks';
 
 let key = 1;
 
@@ -56,7 +52,9 @@ export default defineComponent({
     });
 
     const sizeValue = computed(() => {
-      if (draggedSizeValue.value) return draggedSizeValue.value;
+      if (draggedSizeValue.value) {
+        return draggedSizeValue.value;
+      }
 
       const size = props.size ?? globalConfig.value.size;
       const defaultSize = isNaN(Number(size)) ? size : `${size}px`;
@@ -114,16 +112,24 @@ export default defineComponent({
     };
 
     const handlePushMode = () => {
-      if (props.mode !== 'push') return;
+      if (props.mode !== 'push') {
+        return;
+      }
       nextTick(() => {
-        if (!parentNode.value) return;
+        if (!parentNode.value) {
+          return;
+        }
         parentNode.value.style.cssText = 'transition: margin 300ms cubic-bezier(0.7, 0.3, 0.1, 1) 0s;';
       });
     };
     // push 动画效果处理
     const updatePushMode = () => {
-      if (!parentNode.value) return;
-      if (props.mode !== 'push' || !parentNode.value) return;
+      if (!parentNode.value) {
+        return;
+      }
+      if (props.mode !== 'push' || !parentNode.value) {
+        return;
+      }
       const marginStr = {
         left: `margin: 0 0 0 ${sizeValue.value}`,
         right: `margin: 0 0 0 -${sizeValue.value}`,
@@ -169,7 +175,9 @@ export default defineComponent({
     watch(
       () => props.visible,
       (value) => {
-        if (isServer) return;
+        if (isServer) {
+          return;
+        }
         if (value) {
           if (!props.showInAttachedElement && props.preventScrollThrough) {
             styleEl.value && document.head.appendChild(styleEl.value);
@@ -249,7 +257,9 @@ export default defineComponent({
     });
 
     return () => {
-      if (destroyOnCloseVisible.value) return;
+      if (destroyOnCloseVisible.value) {
+        return;
+      }
       const body = renderContent('body', 'default');
       const headerContent = renderTNodeJSX('header');
       const defaultFooter = getDefaultFooter();

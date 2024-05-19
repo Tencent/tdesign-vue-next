@@ -1,18 +1,16 @@
 /**
  * Thanks to https://spothero.com/static/main/uniform/docs-js/module-DOMUtils.html
  */
-/* eslint-disable no-param-reassign */
-/* eslint-disable no-undef */
-import { ComponentPublicInstance, VNode } from '@td/adapter-vue';
+
+import type { ComponentPublicInstance, VNode } from '@td/adapter-vue';
 import raf from 'raf';
-import { isString } from 'lodash-es';
-import { isFunction } from 'lodash-es';
-import { isArray } from 'lodash-es';
-import { easeInOutCubic, EasingFunction } from './easing';
-import { ScrollContainer, ScrollContainerElement } from '../common';
+import { isArray, isFunction, isString } from 'lodash-es';
+import type { ScrollContainer, ScrollContainerElement } from '../common';
+import type { EasingFunction } from './easing';
+import { easeInOutCubic } from './easing';
 
 export const isServer = typeof window === 'undefined';
-const trim = (str: string): string => (str || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');
+const trim = (str: string): string => (str || '').replace(/^\s+|\s+$/g, '');
 
 export const on = ((): any => {
   if (!isServer && document.addEventListener) {
@@ -70,22 +68,30 @@ export function once(
 }
 
 export function hasClass(el: Element, cls: string): any {
-  if (!el || !cls) return false;
-  if (cls.indexOf(' ') !== -1) throw new Error('className should not contain space.');
+  if (!el || !cls) {
+    return false;
+  }
+  if (cls.includes(' ')) {
+    throw new Error('className should not contain space.');
+  }
   if (el.classList) {
     return el.classList.contains(cls);
   }
-  return ` ${el.className} `.indexOf(` ${cls} `) > -1;
+  return ` ${el.className} `.includes(` ${cls} `);
 }
 
 export function addClass(el: Element, cls: string): any {
-  if (!el) return;
+  if (!el) {
+    return;
+  }
   let curClass = el.className;
   const classes = (cls || '').split(' ');
 
   for (let i = 0, j = classes.length; i < j; i++) {
     const clsName = classes[i];
-    if (!clsName) continue;
+    if (!clsName) {
+      continue;
+    }
 
     if (el.classList) {
       el.classList.add(clsName);
@@ -99,13 +105,17 @@ export function addClass(el: Element, cls: string): any {
 }
 
 export function removeClass(el: Element, cls: string): any {
-  if (!el || !cls) return;
+  if (!el || !cls) {
+    return;
+  }
   const classes = cls.split(' ');
   let curClass = ` ${el.className} `;
 
   for (let i = 0, j = classes.length; i < j; i++) {
     const clsName = classes[i];
-    if (!clsName) continue;
+    if (!clsName) {
+      continue;
+    }
 
     if (el.classList) {
       el.classList.remove(clsName);
@@ -118,7 +128,7 @@ export function removeClass(el: Element, cls: string): any {
   }
 }
 
-export const getAttach = (node: any, triggerNode?: any): HTMLElement | Element => {
+export function getAttach(node: any, triggerNode?: any): HTMLElement | Element {
   const attachNode = isFunction(node) ? node(triggerNode) : node;
   if (!attachNode) {
     return document.body;
@@ -130,20 +140,22 @@ export const getAttach = (node: any, triggerNode?: any): HTMLElement | Element =
     return attachNode;
   }
   return document.body;
-};
+}
 
-export const getSSRAttach = () => {
-  if (process.env.NODE_ENV === 'test-snap') return 'body';
-};
+export function getSSRAttach() {
+  if (process.env.NODE_ENV === 'test-snap') {
+    return 'body';
+  }
+}
 
 /**
  * 获取滚动容器
  * 因为document不存在scroll等属性, 因此排除document
  * window | HTMLElement
- * @param {ScrollContainerElement} [container='body']
+ * @param {ScrollContainerElement} [container]
  * @returns {ScrollContainer}
  */
-export const getScrollContainer = (container: ScrollContainer = 'body'): ScrollContainerElement => {
+export function getScrollContainer(container: ScrollContainer = 'body'): ScrollContainerElement {
   if (isString(container)) {
     return document.querySelector(container) as HTMLElement;
   }
@@ -151,7 +163,7 @@ export const getScrollContainer = (container: ScrollContainer = 'body'): ScrollC
     return container();
   }
   return container;
-};
+}
 
 /**
  * 返回是否window对象
@@ -239,10 +251,10 @@ function containerDom(parent: VNode | Element | Iterable<any> | ArrayLike<any>, 
   }
   return false;
 }
-export const clickOut = (els: VNode | Element | Iterable<any> | ArrayLike<any>, cb: () => void): void => {
+export function clickOut(els: VNode | Element | Iterable<any> | ArrayLike<any>, cb: () => void): void {
   on(document, 'click', (event: { target: Element }) => {
     if (isArray(els)) {
-      const isFlag = Array.from(els).every((item) => containerDom(item, event.target) === false);
+      const isFlag = Array.from(els).every(item => containerDom(item, event.target) === false);
       return isFlag && cb && cb();
     }
     if (containerDom(els, event.target)) {
@@ -250,20 +262,20 @@ export const clickOut = (els: VNode | Element | Iterable<any> | ArrayLike<any>, 
     }
     return cb && cb();
   });
-};
+}
 
 // 用于判断节点内容是否溢出
-export const isNodeOverflow = (
-  ele: ComponentPublicInstance | Element | ComponentPublicInstance[] | Element[],
-): boolean => {
+export function isNodeOverflow(ele: ComponentPublicInstance | Element | ComponentPublicInstance[] | Element[]): boolean {
   const { clientWidth = 0, scrollWidth = 0 } = ele as Element & { clientWidth: number; scrollWidth: number };
   return scrollWidth > clientWidth;
-};
+}
 
 // 将子元素selected滚动到父元素parentEle的可视范围内
-export const scrollSelectedIntoView = (parentEle: HTMLElement, selected: HTMLElement) => {
+export function scrollSelectedIntoView(parentEle: HTMLElement, selected: HTMLElement) {
   // 服务端不处理
-  if (isServer) return;
+  if (isServer) {
+    return;
+  }
   // selected不存在或selected父元素不为parentEle则不处理
   if (!selected || selected.offsetParent !== parentEle) {
     parentEle.scrollTop = 0;
@@ -280,11 +292,11 @@ export const scrollSelectedIntoView = (parentEle: HTMLElement, selected: HTMLEle
     // selected元素未滚动到，则将其向上滚动到可视范围底部
     parentEle.scrollTop = selectedBottom - parentEle.clientHeight;
   }
-};
+}
 
-export const requestSubmit = (target: HTMLFormElement) => {
+export function requestSubmit(target: HTMLFormElement) {
   if (!(target instanceof HTMLFormElement)) {
-    throw new Error('target must be HTMLFormElement');
+    throw new TypeError('target must be HTMLFormElement');
   }
   const submitter = document.createElement('input');
   submitter.type = 'submit';
@@ -292,7 +304,7 @@ export const requestSubmit = (target: HTMLFormElement) => {
   target.appendChild(submitter);
   submitter.click();
   target.removeChild(submitter);
-};
+}
 
 /**
  * 检查元素是否在父元素视图
@@ -306,10 +318,10 @@ export function elementInViewport(elm: HTMLElement, parent?: HTMLElement): boole
   if (parent) {
     const parentRect = parent.getBoundingClientRect();
     return (
-      rect.top >= parentRect.top &&
-      rect.left >= parentRect.left &&
-      rect.bottom <= parentRect.bottom &&
-      rect.right <= parentRect.right
+      rect.top >= parentRect.top
+      && rect.left >= parentRect.left
+      && rect.bottom <= parentRect.bottom
+      && rect.right <= parentRect.right
     );
   }
   return rect.top >= 0 && rect.left >= 0 && rect.bottom + 80 <= window.innerHeight && rect.right <= window.innerWidth;

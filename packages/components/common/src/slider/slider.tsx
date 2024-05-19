@@ -1,29 +1,29 @@
-import {
-  defineComponent,
+import type {
   VNode,
-  ref,
-  reactive,
-  provide,
+} from '@td/adapter-vue';
+import {
   computed,
+  defineComponent,
   onBeforeUnmount,
   onMounted,
-  watch,
+  provide,
+  reactive,
+  ref,
   toRefs,
+  watch,
 } from '@td/adapter-vue';
 import props from '@td/intel/slider/props';
-import TSliderButton from './slider-button';
-import { SliderValue } from '@td/intel/slider/type';
-// hooks
+import type { SliderValue } from '@td/intel/slider/type';
+import { isArray, isNumber } from 'lodash-es';
+import { useCommonClassName, usePrefixClass, useVModel } from '@td/adapter-hooks';
 import { useFormDisabled } from '../form/hooks';
-import { isArray } from 'lodash-es';
+import TSliderButton from './slider-button';
+// hooks
 
-import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
 import { useSliderMark } from './hooks/useSliderMark';
 import { useSliderInput } from './hooks/useSliderInput';
 import { formatSliderValue, getStopStyle } from './util/common';
 import { sliderPropsInjectKey } from './util/constants';
-import { useVModel } from '@td/adapter-hooks';
-import { isNumber } from 'lodash-es';
 
 interface SliderButtonType {
   setPosition: (param: number) => {};
@@ -72,7 +72,7 @@ export default defineComponent({
     });
     const sliderRailClass = computed(() => [
       `${COMPONENT_NAME.value}__rail`,
-      { 'show-input': props.inputNumberProps, disabled: disabled.value },
+      { 'show-input': props.inputNumberProps, 'disabled': disabled.value },
     ]);
     const runwayStyle = computed(() => {
       return vertical.value ? { height: '100%' } : {};
@@ -104,7 +104,9 @@ export default defineComponent({
       return Math.max(firstValue.value, secondValue.value);
     });
     const steps = computed(() => {
-      if (!props.showStep || props.min > props.max) return [];
+      if (!props.showStep || props.min > props.max) {
+        return [];
+      }
       if (props.step === 0) {
         console.warn('[Element Warn][Slider]step should not be 0.');
         return [];
@@ -117,13 +119,13 @@ export default defineComponent({
       }
       if (props.range) {
         const r = result.filter(
-          (step) =>
-            step < (100 * (minValue.value - props.min)) / rangeDiff.value ||
-            props.step > (100 * (maxValue.value - props.max)) / rangeDiff.value,
+          step =>
+            step < (100 * (minValue.value - props.min)) / rangeDiff.value
+            || props.step > (100 * (maxValue.value - props.max)) / rangeDiff.value,
         );
         return r;
       }
-      return result.filter((step) => step > (100 * (firstValue.value - props.min)) / rangeDiff.value);
+      return result.filter(step => step > (100 * (firstValue.value - props.min)) / rangeDiff.value);
     });
     const precision = computed(() => {
       const precisions = [props.min, props.max, props.step].map((item) => {
@@ -246,7 +248,9 @@ export default defineComponent({
       if (disabled.value || dragging.value) {
         return;
       }
-      if (!sliderRef.value) return;
+      if (!sliderRef.value) {
+        return;
+      }
       resetSize();
       let value = 0;
       if (vertical.value) {
@@ -279,7 +283,9 @@ export default defineComponent({
     watch(
       () => sliderValue.value,
       (newVal) => {
-        if (dragging.value === true) return;
+        if (dragging.value === true) {
+          return;
+        }
         if (isArray(newVal) && props.range) {
           [firstValue.value, secondValue.value] = newVal;
         } else {
@@ -435,7 +441,9 @@ export default defineComponent({
             {props.showStep && (
               <div class={`${COMPONENT_NAME.value}__stops`}>
                 {steps.value.map((item: any, key) => {
-                  if (item.position === 0 || item.position === 100) return null;
+                  if (item.position === 0 || item.position === 100) {
+                    return null;
+                  }
                   return (
                     <div class={`${COMPONENT_NAME.value}__stop`} key={key} style={getStopStyle(item, vertical.value)} />
                   );

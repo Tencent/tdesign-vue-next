@@ -1,14 +1,12 @@
-import { defineComponent, ref, computed } from '@td/adapter-vue';
-import { omit } from 'lodash-es';
-import { isArray } from 'lodash-es';
-import Popup, { PopupVisibleChangeContext } from '../popup/index';
-import DropdownMenu from './dropdown-menu';
-import { DropdownOption, TdDropdownProps } from '@td/intel/dropdown/type';
+import { computed, defineComponent, ref } from '@td/adapter-vue';
+import { isArray, isNumber, omit } from 'lodash-es';
+import type { DropdownOption, TdDropdownProps } from '@td/intel/dropdown/type';
 import props from '@td/intel/dropdown/props';
-import { usePrefixClass } from '@td/adapter-hooks';
-import { useTNodeJSX } from '@td/adapter-hooks';
+import { usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
+import Popup from '../popup/index';
+import type { PopupVisibleChangeContext } from '../popup/index';
+import DropdownMenu from './dropdown-menu';
 import useDropdownOptions from './hooks/useDropdownOptions';
-import { isNumber } from 'lodash-es';
 
 export default defineComponent({
   name: 'TDropdown',
@@ -21,8 +19,12 @@ export default defineComponent({
 
     const manualCloseTimeout = computed(() => {
       const delay = props.popupProps?.delay;
-      if (isNumber(delay)) return delay + 10;
-      if (isArray(delay)) return delay[1] + 10 ?? delay[0] + 10;
+      if (isNumber(delay)) {
+        return delay + 10;
+      }
+      if (isArray(delay)) {
+        return delay[1] + 10 ?? delay[0] + 10;
+      }
       return 160;
     });
 

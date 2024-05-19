@@ -1,14 +1,15 @@
 import { camelCase } from 'lodash-es';
-import { TypeVNode, TypeSetupContext, isVueNext } from './adapt';
-import {
+import type { TypeSetupContext, TypeVNode } from './adapt';
+import { isVueNext } from './adapt';
+import type {
   TreeProps,
-  TypeTreeStore,
-  TypeTreeNode,
-  TypeMark,
-  TypeLineModel,
-  TypeTNodeProp,
   TypeGetTNodeOption,
+  TypeLineModel,
+  TypeMark,
+  TypeTNodeProp,
   TypeTargetNode,
+  TypeTreeNode,
+  TypeTreeStore,
 } from './tree-types';
 
 export function emitEvent<T extends any[]>(props: TreeProps, context: TypeSetupContext, evtName: string, ...args: T) {
@@ -47,7 +48,7 @@ export function getParentMarks(name: string, element?: HTMLElement, root?: HTMLE
       };
       return mark;
     })
-    .filter((mark) => mark.value);
+    .filter(mark => mark.value);
 }
 
 export function getMark(name: string, element?: HTMLElement, root?: HTMLElement): TypeMark {
@@ -58,7 +59,7 @@ export function getMark(name: string, element?: HTMLElement, root?: HTMLElement)
 
 export function pathMatchClass(name: string, element?: HTMLElement, root?: HTMLElement): boolean {
   const list = getParentsToRoot(element, root);
-  const rs = list.some((el) => el.classList.contains(name));
+  const rs = list.some(el => el.classList.contains(name));
   return rs;
 }
 

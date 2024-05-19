@@ -1,33 +1,32 @@
-import {
-  defineComponent,
-  computed,
-  provide,
-  ref,
-  reactive,
-  watch,
-  onMounted,
-  watchEffect,
-  toRefs,
-  h,
-  VNode,
+import type {
   Component,
+  VNode,
+} from '@td/adapter-vue';
+import {
+  computed,
+  defineComponent,
   getCurrentInstance,
+  h,
+  onMounted,
+  provide,
+  reactive,
+  ref,
+  toRefs,
+  watch,
+  watchEffect,
 } from '@td/adapter-vue';
 import { EllipsisIcon } from 'tdesign-icons-vue-next';
-import { isFunction } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { isArray, isFunction } from 'lodash-es';
 
-import log from '../_common/js/log/log';
 import props from '@td/intel/menu/head-menu-props';
-import { MenuValue } from '@td/intel/menu/type';
-import { TdMenuInterface, TdOpenType } from './const';
-import { Tabs, TabPanel } from '../tabs';
-import Submenu from './submenu';
-import VMenu from './v-menu';
+import type { MenuValue } from '@td/intel/menu/type';
 
-import { usePrefixClass } from '@td/adapter-hooks';
-import { useVModel } from '@td/adapter-hooks';
-import { useDefaultValue } from '@td/adapter-hooks';
+import { useDefaultValue, usePrefixClass, useVModel } from '@td/adapter-hooks';
+import { TabPanel, Tabs } from '../tabs';
+import log from '../_common/js/log/log';
+import VMenu from './v-menu';
+import Submenu from './submenu';
+import type { TdMenuInterface, TdOpenType } from './const';
 
 export default defineComponent({
   name: 'THeadMenu',
@@ -125,7 +124,7 @@ export default defineComponent({
     });
 
     const handleClickSubMenuItem = (value: MenuValue) => {
-      const activeMenuItem = submenu.find((v) => v.value === value);
+      const activeMenuItem = submenu.find(v => v.value === value);
       activeMenuItem.onClick?.({ value });
       const { to, href, replace } = activeMenuItem;
       if (href) {
@@ -138,16 +137,16 @@ export default defineComponent({
     };
     // setup返回的render函数中无法访问methods属性中的类容，移动此方法到setup中
     const renderNormalSubmenu = () => {
-      if (submenu.length === 0) return null;
+      if (submenu.length === 0) {
+        return null;
+      }
       return (
         <ul class={[`${classPrefix.value}-head-menu__submenu`, `${classPrefix.value}-submenu`]}>
-          {
-            <Tabs value={activeValue.value} onChange={handleTabChange}>
-              {submenu.map((item) => (
-                <TabPanel value={item.value} label={item.vnode()[0]?.children} />
-              ))}
-            </Tabs>
-          }
+          <Tabs value={activeValue.value} onChange={handleTabChange}>
+            {submenu.map(item => (
+              <TabPanel value={item.value} label={item.vnode()[0]?.children} />
+            ))}
+          </Tabs>
         </ul>
       );
     };
@@ -188,7 +187,7 @@ export default defineComponent({
 
       if (menuRef.value && innerRef.value) {
         const validNodes = Array.from(menuRef.value.childNodes ?? []).filter(
-          (item) => item.nodeName !== '#text' || item.nodeValue,
+          item => item.nodeName !== '#text' || item.nodeValue,
         ) as HTMLElement[];
 
         const menuWidth = calcMenuWidth();

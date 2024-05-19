@@ -1,9 +1,4 @@
-import { camelCase } from 'lodash-es';
-import { isUndefined } from 'lodash-es';
-import { isNull } from 'lodash-es';
-import { isArray } from 'lodash-es';
-import { isNumber } from 'lodash-es';
-import { isString } from 'lodash-es';
+import { camelCase, isArray, isNull, isNumber, isString, isUndefined } from 'lodash-es';
 
 export function omit(obj: object, fields: string[]): object {
   const shallowCopy = {
@@ -40,8 +35,13 @@ export function firstUpperCase(str: string): string {
   return str.toLowerCase().replace(/( |^)[a-z]/g, (char: string) => char.toUpperCase());
 }
 
-export type Gradients = { [percent: string]: string };
-export type FromTo = { from: string; to: string };
+export interface Gradients {
+  [percent: string]: string;
+}
+export interface FromTo {
+  from: string;
+  to: string;
+}
 export type LinearGradient = { direction?: string } & (Gradients | FromTo);
 export function getBackgroundColor(color: string | string[] | LinearGradient): string {
   if (isString(color)) {
@@ -56,7 +56,7 @@ export function getBackgroundColor(color: string | string[] | LinearGradient): s
   const { from, to, direction = 'to right', ...rest } = color;
   let keys = Object.keys(rest);
   if (keys.length) {
-    keys = keys.sort((a, b) => parseFloat(a.substr(0, a.length - 1)) - parseFloat(b.substr(0, b.length - 1)));
+    keys = keys.sort((a, b) => Number.parseFloat(a.substr(0, a.length - 1)) - Number.parseFloat(b.substr(0, b.length - 1)));
     const tempArr = keys.map((key: any) => `${rest[key]} ${key}`);
     return `linear-gradient(${direction}, ${tempArr.join(',')})`;
   }

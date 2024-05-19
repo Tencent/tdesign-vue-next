@@ -1,6 +1,6 @@
-import _Calendar from './calendar';
 import { withInstall } from '@td/adapter-utils';
-import { TdCalendarProps } from '@td/intel/calendar/type';
+import type { TdCalendarProps } from '@td/intel/calendar/type';
+import _Calendar from './calendar';
 
 import './style';
 

@@ -1,14 +1,16 @@
-import {
+import type {
+  Component,
+  RendererElement,
+  RendererNode,
   Slots,
   VNode,
-  Component,
-  getCurrentInstance,
-  Fragment,
-  Comment,
-  RendererNode,
   VNodeArrayChildren,
-  RendererElement,
   VNodeChild,
+} from '@td/adapter-vue';
+import {
+  Comment,
+  Fragment,
+  getCurrentInstance,
 } from '@td/adapter-vue';
 import { isArray } from 'lodash-es';
 
@@ -32,10 +34,14 @@ export function useChildComponentSlots() {
     // 满足基于基础组件封装场景，递归找到子组件
     const childList: VNode[] = [];
     const getChildren = (content: VNode[]) => {
-      if (!isArray(content)) return;
+      if (!isArray(content)) {
+        return;
+      }
       content.forEach((item: VNode) => {
         if (item.children && isArray(item.children)) {
-          if (item.type !== Fragment) return;
+          if (item.type !== Fragment) {
+            return;
+          }
           getChildren(item.children as VNode[]);
         } else {
           childList.push(item);
@@ -65,8 +71,8 @@ export function useChildSlots(): () => (
         [key: string]: any;
       }
     >
-  | VNodeArrayChildren
-  | VNodeChild
+    | VNodeArrayChildren
+    | VNodeChild
 )[] {
   const instance = getCurrentInstance();
   return () => {
@@ -81,7 +87,9 @@ export function useChildSlots(): () => (
         return item.type !== Comment;
       })
       .map((item) => {
-        if (item.children && isArray(item.children) && item.type === Fragment) return item.children;
+        if (item.children && isArray(item.children) && item.type === Fragment) {
+          return item.children;
+        }
         return item;
       })
       .flat();

@@ -1,10 +1,10 @@
-import { defineComponent, h, VNodeChild, onMounted, onUnmounted, inject, watch } from '@td/adapter-vue';
-import { ANCHOR_SHARP_REGEXP } from './utils';
+import type { VNodeChild } from '@td/adapter-vue';
+import { defineComponent, h, inject, onMounted, onUnmounted, watch } from '@td/adapter-vue';
 import props from '@td/intel/anchor/anchor-item-props';
-import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
+import { useCommonClassName, usePrefixClass } from '@td/adapter-hooks';
+import { isFunction, isString } from 'lodash-es';
 import { AnchorInjectionKey } from './constants';
-import { isFunction } from 'lodash-es';
-import { isString } from 'lodash-es';
+import { ANCHOR_SHARP_REGEXP } from './utils';
 
 const localProps = {
   ...props,
@@ -32,7 +32,9 @@ export default defineComponent({
     };
     const unregister = () => {
       const { href } = props;
-      if (!href) return;
+      if (!href) {
+        return;
+      }
       anchor.unregisterLink(href);
     };
     const handleClick = (e: MouseEvent) => {

@@ -1,14 +1,15 @@
-import { ref, onMounted, onUnmounted, Ref } from '@td/adapter-vue';
+import type { Ref } from '@td/adapter-vue';
+import { onMounted, onUnmounted, ref } from '@td/adapter-vue';
+import setStyle from '../utils/set-style';
 import useKeepAnimation from './useKeepAnimation';
 import { usePrefixClass } from './useConfig';
-import setStyle from '../utils/set-style';
 
 const period = 200;
 const noneRippleBg = 'rgba(0, 0, 0, 0)';
 const defaultRippleColor = 'rgba(0, 0, 0, 0.35)';
 
 // 设置动画颜色 get the ripple animation color
-const getRippleColor = (el: HTMLElement, fixedRippleColor?: string) => {
+function getRippleColor(el: HTMLElement, fixedRippleColor?: string) {
   // get fixed color from params
   if (fixedRippleColor) {
     return fixedRippleColor;
@@ -24,7 +25,7 @@ const getRippleColor = (el: HTMLElement, fixedRippleColor?: string) => {
     return cssVariable;
   }
   return defaultRippleColor;
-};
+}
 
 /**
  * 斜八角动画hooks 支持三种方式使用
@@ -45,19 +46,22 @@ export default function useRipple(el: Ref<HTMLElement>, fixedRippleColor?: Ref<s
   const handleAddRipple = (e: MouseEvent) => {
     const dom = el.value;
     const rippleColor = getRippleColor(dom, fixedRippleColor?.value);
-    if (e.button !== 0 || !el || !keepRipple) return;
+    if (e.button !== 0 || !el || !keepRipple) {
+      return;
+    }
 
     if (
-      dom.classList.contains(`${classPrefix.value}-is-active`) ||
-      dom.classList.contains(`${classPrefix.value}-is-disabled`) ||
-      dom.classList.contains(`${classPrefix.value}-is-checked`) ||
-      dom.classList.contains(`${classPrefix.value}-is-loading`)
-    )
+      dom.classList.contains(`${classPrefix.value}-is-active`)
+      || dom.classList.contains(`${classPrefix.value}-is-disabled`)
+      || dom.classList.contains(`${classPrefix.value}-is-checked`)
+      || dom.classList.contains(`${classPrefix.value}-is-loading`)
+    ) {
       return;
+    }
 
     const elStyle = getComputedStyle(dom);
 
-    const elBorder = parseInt(elStyle.borderWidth, 10);
+    const elBorder = Number.parseInt(elStyle.borderWidth, 10);
     const border = elBorder > 0 ? elBorder : 0;
     const width = dom.offsetWidth;
     const height = dom.offsetHeight;
@@ -106,7 +110,6 @@ export default function useRipple(el: Ref<HTMLElement>, fixedRippleColor?: Ref<s
     // fix position
     const initPosition = dom.style.position ? dom.style.position : getComputedStyle(dom).position;
     if (initPosition === '' || initPosition === 'static') {
-      // eslint-disable-next-line no-param-reassign
       dom.style.position = 'relative';
     }
     rippleContainer.value.insertBefore(ripple, rippleContainer.value.firstChild);
@@ -118,14 +121,18 @@ export default function useRipple(el: Ref<HTMLElement>, fixedRippleColor?: Ref<s
     const handleClearRipple = () => {
       ripple.style.backgroundColor = noneRippleBg;
 
-      if (!el.value) return;
+      if (!el.value) {
+        return;
+      }
 
       el.value.removeEventListener('pointerup', handleClearRipple, false);
       el.value.removeEventListener('pointerleave', handleClearRipple, false);
 
       setTimeout(() => {
         ripple.remove();
-        if (rippleContainer.value.children.length === 0) rippleContainer.value.remove();
+        if (rippleContainer.value.children.length === 0) {
+          rippleContainer.value.remove();
+        }
       }, period * 2 + 100);
     };
     el.value.addEventListener('pointerup', handleClearRipple, false);
@@ -134,7 +141,9 @@ export default function useRipple(el: Ref<HTMLElement>, fixedRippleColor?: Ref<s
 
   onMounted(() => {
     const dom = el?.value;
-    if (!dom) return;
+    if (!dom) {
+      return;
+    }
 
     rippleContainer.value = document.createElement('div');
 

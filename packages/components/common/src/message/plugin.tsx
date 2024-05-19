@@ -23,25 +23,25 @@
  * msg.then(instance => instance.close())
  *
  */
-import { App, createApp, nextTick, Plugin, ComponentPublicInstance } from '@td/adapter-vue';
-import MessageList, { DEFAULT_Z_INDEX } from './messageList';
-import { getAttach } from '../utils/dom';
-import {
-  MessageOptions,
-  MessageMethod,
-  MessageInstance,
-  MessageInfoMethod,
-  MessageErrorMethod,
-  MessageWarningMethod,
-  MessageSuccessMethod,
-  MessageLoadingMethod,
-  MessageQuestionMethod,
-  MessageCloseMethod,
+import type { App, ComponentPublicInstance, Plugin } from '@td/adapter-vue';
+import { createApp, nextTick } from '@td/adapter-vue';
+import type {
   MessageCloseAllMethod,
+  MessageCloseMethod,
+  MessageErrorMethod,
+  MessageInfoMethod,
+  MessageInstance,
+  MessageLoadingMethod,
+  MessageMethod,
+  MessageOptions,
+  MessageQuestionMethod,
+  MessageSuccessMethod,
+  MessageWarningMethod,
 } from '@td/intel/message/type';
-import { AttachNodeReturnValue } from '../common';
-import { isObject } from 'lodash-es';
-import { isString } from 'lodash-es';
+import { isObject, isString } from 'lodash-es';
+import type { AttachNodeReturnValue } from '../common';
+import { getAttach } from '../utils/dom';
+import MessageList, { DEFAULT_Z_INDEX } from './messageList';
 
 // 存储不同 attach 和 不同 placement 消息列表实例
 const instanceMap: Map<AttachNodeReturnValue, Record<string, ComponentPublicInstance>> = new Map();
@@ -58,7 +58,7 @@ function handleParams(params: MessageOptions): MessageOptions {
   return options;
 }
 
-const MessageFunction = (props: MessageOptions): Promise<MessageInstance> => {
+function MessageFunction(props: MessageOptions): Promise<MessageInstance> {
   const options = handleParams(props);
   const { attach, placement } = options;
   const attachDom = getAttach(attach);
@@ -86,16 +86,16 @@ const MessageFunction = (props: MessageOptions): Promise<MessageInstance> => {
     const ins = instanceMap.get(attachDom)[placement];
     nextTick(() => {
       const msg: Array<MessageInstance> = ins.messageList;
-      resolve(msg?.find((mg) => mg.$?.vnode?.key === mgKey));
+      resolve(msg?.find(mg => mg.$?.vnode?.key === mgKey));
     });
   });
-};
+}
 
 const showThemeMessage: MessageMethod = (theme, params, duration) => {
   let options: MessageOptions = { theme };
   if (isString(params)) {
     options.content = params;
-  } else if (isObject(params) && !(params instanceof Array)) {
+  } else if (isObject(params) && !(Array.isArray(params))) {
     options = { ...options, ...params };
   }
   (duration || duration === 0) && (options.duration = duration);
@@ -123,7 +123,7 @@ const extraApi: ExtraApi = {
   question: (params, duration) => showThemeMessage('question', params, duration),
   loading: (params, duration) => showThemeMessage('loading', params, duration),
   close: (promise) => {
-    promise.then((instance) => instance?.close());
+    promise.then(instance => instance?.close());
   },
   closeAll: () => {
     if (instanceMap instanceof Map) {

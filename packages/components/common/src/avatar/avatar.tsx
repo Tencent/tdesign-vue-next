@@ -1,9 +1,9 @@
 import { computed, defineComponent, inject, nextTick, onMounted, onUpdated, ref } from '@td/adapter-vue';
 import props from '@td/intel/avatar/props';
-import { TdAvatarProps } from '@td/intel/avatar/type';
-import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
-import { useContent, useTNodeJSX } from '@td/adapter-hooks';
-import Image, { ImageProps } from '../image';
+import type { TdAvatarProps } from '@td/intel/avatar/type';
+import { useCommonClassName, useContent, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
+import type { ImageProps } from '../image';
+import Image from '../image';
 
 export default defineComponent({
   name: 'TAvatar',
@@ -27,8 +27,8 @@ export default defineComponent({
     const customAvatarSize = computed(() => {
       return isCustomSize.value
         ? {
-            width: sizeValue.value,
-            height: sizeValue.value,
+            'width': sizeValue.value,
+            'height': sizeValue.value,
             'font-size': `${Number.parseInt(sizeValue.value, 10) / 2}px`,
           }
         : {};
@@ -59,8 +59,8 @@ export default defineComponent({
       const avatarWidth = $avatar?.offsetWidth;
       const avatarChildWidth = $avatarChild?.offsetWidth;
       if (gap.value * 2 < avatarWidth) {
-        scale.value =
-          avatarChildWidth > avatarWidth - gap.value * 2
+        scale.value
+          = avatarChildWidth > avatarWidth - gap.value * 2
             ? `scale(${(avatarWidth - gap.value * 2) / avatarChildWidth})`
             : 'scale(1)';
       }
@@ -109,7 +109,8 @@ export default defineComponent({
             alt={alt}
             onError={handleImgLoadError}
             {...props.imageProps}
-          ></Image>
+          >
+          </Image>
         );
       }
       return (

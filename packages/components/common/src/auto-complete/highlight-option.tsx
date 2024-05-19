@@ -1,7 +1,6 @@
 import { computed, defineComponent } from '@td/adapter-vue';
 import { usePrefixClass } from '@td/adapter-hooks';
-import { isString } from 'lodash-es';
-import { escapeRegExp } from 'lodash-es';
+import { escapeRegExp, isString } from 'lodash-es';
 
 export default defineComponent({
   name: 'HighlightOption',
@@ -17,8 +16,12 @@ export default defineComponent({
     const classPrefix = usePrefixClass();
     const words = computed<{ list: string[]; keyword?: string }>(() => {
       const { content, keyword } = props;
-      if (!content) return { list: [] };
-      if (!isString(content) || !keyword) return { list: [content] };
+      if (!content) {
+        return { list: [] };
+      }
+      if (!isString(content) || !keyword) {
+        return { list: [content] };
+      }
       const regExp = new RegExp(escapeRegExp(keyword), 'i');
       const splitKeyword = content.match(regExp)?.[0];
       return {
@@ -32,7 +35,9 @@ export default defineComponent({
       return (
         <div class={`${classPrefix.value}-select-option__highlight-item`}>
           {list.map((item, index) => {
-            if (!index) return item;
+            if (!index) {
+              return item;
+            }
             return [
               <b class={`${classPrefix.value}-is-highlight`} key={item + keyword}>
                 {keyword}

@@ -1,5 +1,6 @@
-import { ref, toRefs, TypeSetupContext } from '../adapt';
-import { TypeTreeItemProps, TypeTreeItemState } from '../tree-types';
+import type { TypeSetupContext } from '../adapt';
+import { ref, toRefs } from '../adapt';
+import type { TypeTreeItemProps, TypeTreeItemState } from '../tree-types';
 
 // 提供公共对象
 export default function useItemState(props: TypeTreeItemProps, context: TypeSetupContext) {

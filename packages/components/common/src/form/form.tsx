@@ -1,11 +1,6 @@
 import { computed, defineComponent, provide, reactive, ref, toRefs } from '@td/adapter-vue';
-import { isEmpty } from 'lodash-es';
-import { isBoolean } from 'lodash-es';
-import { isArray } from 'lodash-es';
-import { isFunction } from 'lodash-es';
-import { requestSubmit } from '../utils/dom';
-import { FormItemValidateResult, getFormItemClassName } from './form-item';
-import {
+import { isArray, isBoolean, isEmpty, isFunction } from 'lodash-es';
+import type {
   Data,
   FormResetParams,
   FormValidateMessage,
@@ -15,11 +10,15 @@ import {
   ValidateResultList,
 } from '@td/intel/form/type';
 import props from '@td/intel/form/props';
-import { FormInjectionKey, FormItemContext, useCLASSNAMES } from './const';
-import { FormResetEvent, FormSubmitEvent } from '../common';
-
-import { FormDisabledProvider } from './hooks';
+import { requestSubmit } from '../utils/dom';
+import type { FormResetEvent, FormSubmitEvent } from '../common';
 import { usePrefixClass, useTNodeJSX } from '../hooks';
+import type { FormItemValidateResult } from './form-item';
+import { getFormItemClassName } from './form-item';
+import type { FormItemContext } from './const';
+import { FormInjectionKey, useCLASSNAMES } from './const';
+
+import type { FormDisabledProvider } from './hooks';
 
 type Result = FormValidateResult<TdFormProps['data']>;
 
@@ -38,8 +37,8 @@ export default defineComponent({
     const formRef = ref<HTMLFormElement>(null);
     const children = ref<FormItemContext[]>([]);
 
-    const { showErrorMessage, labelWidth, labelAlign, data, colon, requiredMark, rules, errorMessage, resetType } =
-      toRefs(props);
+    const { showErrorMessage, labelWidth, labelAlign, data, colon, requiredMark, rules, errorMessage, resetType }
+      = toRefs(props);
     provide(
       FormInjectionKey,
       reactive({
@@ -67,15 +66,19 @@ export default defineComponent({
     const FORM_ITEM_CLASS_PREFIX = usePrefixClass('form-item');
 
     const getFirstError = (result: Result) => {
-      if (isBoolean(result)) return '';
+      if (isBoolean(result)) {
+        return '';
+      }
       const [firstKey] = Object.keys(result);
       if (props.scrollToFirstError) {
         const tmpClassName = getFormItemClassName(FORM_ITEM_CLASS_PREFIX.value, firstKey);
         scrollTo(tmpClassName);
       }
       const resArr = result[firstKey] as ValidateResultList;
-      if (!isArray(resArr)) return '';
-      return resArr.filter((item) => !item.result)[0].message;
+      if (!isArray(resArr)) {
+        return '';
+      }
+      return resArr.filter(item => !item.result)[0].message;
     };
     // 校验不通过时，滚动到第一个错误表单
     const scrollTo = (selector: string) => {
@@ -87,8 +90,10 @@ export default defineComponent({
     };
 
     const needValidate = (name: string | number, fields: string[] | undefined) => {
-      if (!fields || !isArray(fields)) return true;
-      return fields.indexOf(`${name}`) !== -1;
+      if (!fields || !isArray(fields)) {
+        return true;
+      }
+      return fields.includes(`${name}`);
     };
     const formatValidateResult = <T extends Data>(validateResultList: FormItemValidateResult<T>[]) => {
       const result = validateResultList.reduce((r, err) => Object.assign(r || {}, err), {});
@@ -102,8 +107,8 @@ export default defineComponent({
     const validate = async (param?: FormValidateParams): Promise<Result> => {
       const { fields, trigger = 'all', showErrorMessage } = param || {};
       const list = children.value
-        .filter((child) => isFunction(child.validate) && needValidate(String(child.name), fields))
-        .map((child) => child.validate(trigger, showErrorMessage));
+        .filter(child => isFunction(child.validate) && needValidate(String(child.name), fields))
+        .map(child => child.validate(trigger, showErrorMessage));
       const arr = await Promise.all(list);
       const result = formatValidateResult(arr);
       const firstError = getFirstError(result);
@@ -116,8 +121,8 @@ export default defineComponent({
     const validateOnly = async (params?: Omit<FormValidateParams, 'showErrorMessage'>) => {
       const { fields, trigger = 'all' } = params || {};
       const list = children.value
-        .filter((child) => isFunction(child.validateOnly) && needValidate(String(child.name), fields))
-        .map((child) => child.validateOnly(trigger));
+        .filter(child => isFunction(child.validateOnly) && needValidate(String(child.name), fields))
+        .map(child => child.validateOnly(trigger));
       const arr = await Promise.all(list);
       return formatValidateResult(arr);
     };
@@ -145,10 +150,10 @@ export default defineComponent({
       }
       children.value
         .filter(
-          (child) =>
+          child =>
             isFunction(child.resetField) && needValidate(String(child.name), resetParams.value?.fields as string[]),
         )
-        .forEach((child) => child.resetField(resetParams.value?.type));
+        .forEach(child => child.resetField(resetParams.value?.type));
       resetParams.value = undefined;
       props.onReset?.({ e });
     };
@@ -166,17 +171,19 @@ export default defineComponent({
     };
     const setValidateMessage = (validateMessage: FormValidateMessage<FormData>) => {
       const keys = Object.keys(validateMessage);
-      if (!keys.length) return;
+      if (!keys.length) {
+        return;
+      }
       const list = children.value
-        .filter((child) => isFunction(child.setValidateMessage) && keys.includes(`${child.name}`))
-        .map((child) => child.setValidateMessage(validateMessage[child.name]));
+        .filter(child => isFunction(child.setValidateMessage) && keys.includes(`${child.name}`))
+        .map(child => child.setValidateMessage(validateMessage[child.name]));
       Promise.all(list);
     };
 
     expose({ validate, submit, reset, clearValidate, setValidateMessage, validateOnly });
 
     return () => (
-      <form ref={formRef} class={formClass.value} onSubmit={(e) => onSubmit(e)} onReset={(e) => onReset(e)}>
+      <form ref={formRef} class={formClass.value} onSubmit={e => onSubmit(e)} onReset={e => onReset(e)}>
         {renderContent('default')}
       </form>
     );

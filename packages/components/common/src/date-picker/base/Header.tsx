@@ -1,5 +1,7 @@
-import { defineComponent, PropType, ref, computed } from '@td/adapter-vue';
-import { PaginationMini, JumperTrigger } from '../../pagination';
+import type { PropType } from '@td/adapter-vue';
+import { computed, defineComponent, ref } from '@td/adapter-vue';
+import type { JumperTrigger } from '../../pagination';
+import { PaginationMini } from '../../pagination';
 import TSelect from '../../select';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 import type { TdDatePickerProps } from '../type';
@@ -28,8 +30,8 @@ export default defineComponent({
     // 年份选择展示区间
     const nearestYear = computed(
       () =>
-        yearOptions.value.find((option) => option.value - props.year <= 9 && option.value - props.year >= 0)?.value ||
-        props.year,
+        yearOptions.value.find(option => option.value - props.year <= 9 && option.value - props.year >= 0)?.value
+        || props.year,
     );
 
     const monthOptions = computed(() =>

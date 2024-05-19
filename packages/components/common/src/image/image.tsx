@@ -1,14 +1,12 @@
-import { defineComponent, ref, onMounted, computed, onUnmounted, watch, toRefs } from '@td/adapter-vue';
-import { omit } from 'lodash-es';
-import { isFunction } from 'lodash-es';
+import { computed, defineComponent, onMounted, onUnmounted, ref, toRefs, watch } from '@td/adapter-vue';
+import { isFunction, omit } from 'lodash-es';
 import { ImageErrorIcon, ImageIcon } from 'tdesign-icons-vue-next';
-import observe from '../_common/js/utils/observe';
-import { useConfig } from '../config-provider/useConfig';
-import { useTNodeDefault, useTNodeJSX } from '@td/adapter-hooks';
-import { TdImageProps } from '@td/intel/image/type';
+import { useImagePreviewUrl, useTNodeDefault, useTNodeJSX } from '@td/adapter-hooks';
+import type { TdImageProps } from '@td/intel/image/type';
 import props from '@td/intel/image/props';
 import Space from '../space';
-import { useImagePreviewUrl } from '@td/adapter-hooks';
+import { useConfig } from '../config-provider/useConfig';
+import observe from '../_common/js/utils/observe';
 
 export default defineComponent({
   name: 'TImage',
@@ -25,12 +23,14 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
 
     onMounted(() => {
-      //在nuxt3中img的onload事件会失效
+      // 在nuxt3中img的onload事件会失效
       if (imgRef.value?.complete && !props.lazy) {
         triggerHandleLoad();
       }
 
-      if (!props.lazy || !divRef.value) return;
+      if (!props.lazy || !divRef.value) {
+        return;
+      }
 
       const ioObserver = observe(divRef.value, null, handleLoadImage, 0);
       io = ioObserver;
@@ -49,7 +49,9 @@ export default defineComponent({
       ([src, globalConfig]) => {
         const { replaceImageSrc } = globalConfig || {};
         const tmpUrl = isFunction(replaceImageSrc) ? replaceImageSrc(props) : src;
-        if (tmpUrl === imageStrSrc.value && imageStrSrc.value) return;
+        if (tmpUrl === imageStrSrc.value && imageStrSrc.value) {
+          return;
+        }
         imageStrSrc.value = tmpUrl;
       },
       { immediate: true },
@@ -109,18 +111,24 @@ export default defineComponent({
 
     const renderPlaceholder = () => {
       const placeholder = renderTNodeJSX('placeholder');
-      if (!placeholder) return null;
+      if (!placeholder) {
+        return null;
+      }
       return <div class={`${classPrefix.value}-image__placeholder`}>{placeholder}</div>;
     };
 
     const renderGalleryShadow = () => {
-      if (!props.gallery) return null;
+      if (!props.gallery) {
+        return null;
+      }
       return <div class={`${classPrefix.value}-image__gallery-shadow`} />;
     };
 
     const renderOverlay = () => {
       const overlayContent = renderTNodDefault('overlayContent');
-      if (!overlayContent) return null;
+      if (!overlayContent) {
+        return null;
+      }
       return (
         <div
           class={[
@@ -195,8 +203,8 @@ export default defineComponent({
           {renderGalleryShadow()}
 
           {(hasError.value || !shouldLoad.value) && <div class={`${classPrefix.value}-image`} />}
-          {!(hasError.value || !shouldLoad.value) &&
-            (props.srcset && Object.keys(props.srcset).length ? renderImageSrcset() : renderImage())}
+          {!(hasError.value || !shouldLoad.value)
+          && (props.srcset && Object.keys(props.srcset).length ? renderImageSrcset() : renderImage())}
           {!(hasError.value || !shouldLoad.value) && !isLoaded.value && (
             <div class={`${classPrefix.value}-image__loading`}>
               {renderTNodeJSX('loading') || (

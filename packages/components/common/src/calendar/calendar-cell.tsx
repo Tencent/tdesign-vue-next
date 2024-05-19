@@ -1,13 +1,12 @@
 import { computed, defineComponent } from '@td/adapter-vue';
 import dayjs from 'dayjs';
 
-import { useCommonClassName } from '@td/adapter-hooks';
-import { useContent } from '@td/adapter-hooks';
+import { useCommonClassName, useContent } from '@td/adapter-hooks';
 
+import type { CalendarCell } from '@td/intel/calendar/type';
 import { useCalendarCellClass } from './hook';
 
 // 组件相关的自定义类型
-import { CalendarCell } from '@td/intel/calendar/type';
 
 const clickTypeEmitEventMap = {
   click: 'click',
@@ -60,8 +59,8 @@ export default defineComponent({
     const cellCls = computed(() => {
       const { mode, date, formattedDate, isCurrent } = props.item;
       const now = new Date();
-      const isNow =
-        mode === 'year'
+      const isNow
+        = mode === 'year'
           ? now.getMonth() === date.getMonth() && now.getFullYear() === date.getFullYear()
           : formattedDate === dayjs().format('YYYY-MM-DD');
       return [
@@ -74,7 +73,9 @@ export default defineComponent({
       ];
     });
     const clickCell = (e: MouseEvent): void => {
-      if (disabled.value) return;
+      if (disabled.value) {
+        return;
+      }
       const emitName = clickTypeEmitEventMap[e.type];
       emit(emitName, e);
     };
@@ -83,10 +84,10 @@ export default defineComponent({
       <>
         <div class={cls.tableBodyCellDisplay.value}>{valueDisplay.value}</div>
         <div class={cls.tableBodyCellCsontent.value}>
-          {allowSlot.value &&
-            renderContent('cellAppend', undefined, {
-              params: { ...props.item },
-            })}
+          {allowSlot.value
+          && renderContent('cellAppend', undefined, {
+            params: { ...props.item },
+          })}
         </div>
       </>
     );

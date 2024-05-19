@@ -1,6 +1,6 @@
-import { InjectionKey, ComputedRef } from '@td/adapter-vue';
+import type { ComputedRef, InjectionKey } from '@td/adapter-vue';
 import { cloneDeep } from 'lodash-es';
-import { TdSelectProps, TdOptionProps, SelectValue, SelectOption } from '@td/intel/select/type';
+import type { SelectOption, SelectValue, TdOptionProps, TdSelectProps } from '@td/intel/select/type';
 
 export const selectInjectKey: InjectionKey<
   ComputedRef<{
@@ -23,18 +23,12 @@ export const selectInjectKey: InjectionKey<
   }>
 > = Symbol('selectProvide');
 
-export const getSingleContent = (
-  value: TdSelectProps['value'],
-  optionsMap: ComputedRef<Map<SelectValue<SelectOption>, TdOptionProps>>,
-): string => {
+export function getSingleContent(value: TdSelectProps['value'], optionsMap: ComputedRef<Map<SelectValue<SelectOption>, TdOptionProps>>): string {
   const option = optionsMap.value.get(value);
   return option?.label || value?.toString();
-};
+}
 
-export const getMultipleContent = (
-  value: SelectValue[],
-  optionsMap: ComputedRef<Map<SelectValue<SelectOption>, TdOptionProps>>,
-) => {
+export function getMultipleContent(value: SelectValue[], optionsMap: ComputedRef<Map<SelectValue<SelectOption>, TdOptionProps>>) {
   const res = [];
   for (const iterator of value) {
     const resLabel = getSingleContent(iterator, optionsMap);
@@ -43,9 +37,9 @@ export const getMultipleContent = (
     }
   }
   return res;
-};
+}
 
-export const getNewMultipleValue = (innerValue: SelectValue[], optionValue: SelectValue) => {
+export function getNewMultipleValue(innerValue: SelectValue[], optionValue: SelectValue) {
   const value = cloneDeep(innerValue) as SelectValue[];
   const valueIndex = value.indexOf(optionValue);
   if (valueIndex < 0) {
@@ -57,4 +51,4 @@ export const getNewMultipleValue = (innerValue: SelectValue[], optionValue: Sele
     value,
     isCheck: valueIndex < 0,
   };
-};
+}

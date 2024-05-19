@@ -1,8 +1,8 @@
-import { defineComponent, provide, computed, toRefs, reactive } from '@td/adapter-vue';
+import { computed, defineComponent, provide, reactive, toRefs } from '@td/adapter-vue';
 import props from '@td/intel/grid/row-props';
-import { useRowSize, calcRowStyle, getRowClasses, RowProviderType } from './common';
-import { usePrefixClass } from '@td/adapter-hooks';
-import { useTNodeJSX } from '@td/adapter-hooks';
+import { usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
+import type { RowProviderType } from './common';
+import { calcRowStyle, getRowClasses, useRowSize } from './common';
 
 export default defineComponent({
   name: 'TRow',

@@ -1,7 +1,7 @@
+import { withInstall } from '@td/adapter-utils';
+import type { TdAvatarGroupProps, TdAvatarProps } from '@td/intel/avatar/type';
 import _Avatar from './avatar';
 import _AvatarGroup from './group';
-import { withInstall } from '@td/adapter-utils';
-import { TdAvatarProps, TdAvatarGroupProps } from '@td/intel/avatar/type';
 
 import './style';
 

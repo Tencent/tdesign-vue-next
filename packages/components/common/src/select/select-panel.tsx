@@ -1,14 +1,14 @@
-import { computed, defineComponent, inject, Slots, ref } from '@td/adapter-vue';
+import type { Slots } from '@td/adapter-vue';
+import { computed, defineComponent, inject, ref } from '@td/adapter-vue';
 import { omit } from 'lodash-es';
-import { Styles } from '../common';
 
-import { SelectOption, SelectOptionGroup, TdOptionProps } from '@td/intel/select/type';
-import Option from './option';
-import OptionGroup from './optionGroup';
+import type { SelectOption, SelectOptionGroup, TdOptionProps } from '@td/intel/select/type';
 import TdSelectProps from '@td/intel/select/props';
 
-import { useTNodeJSX, useTNodeDefault } from '@td/adapter-hooks';
-import { useConfig, usePrefixClass } from '@td/adapter-hooks';
+import { useConfig, usePrefixClass, useTNodeDefault, useTNodeJSX } from '@td/adapter-hooks';
+import type { Styles } from '../common';
+import OptionGroup from './optionGroup';
+import Option from './option';
 import { usePanelVirtualScroll } from './hooks/usePanelVirtualScroll';
 import { selectInjectKey } from './helper';
 
@@ -123,17 +123,17 @@ export default defineComponent({
         {/* create option */}
         {showCreateOption.value && renderCreateOption()}
         {/* loading状态 */}
-        {props.loading &&
-          renderDefaultTNode('loadingText', {
-            defaultNode: <div class={`${COMPONENT_NAME.value}__loading-tips`}>{t(globalConfig.value.loadingText)}</div>,
-          })}
+        {props.loading
+        && renderDefaultTNode('loadingText', {
+          defaultNode: <div class={`${COMPONENT_NAME.value}__loading-tips`}>{t(globalConfig.value.loadingText)}</div>,
+        })}
         {/* 空状态 */}
-        {!props.loading &&
-          isEmpty.value &&
-          !showCreateOption.value &&
-          renderDefaultTNode('empty', {
-            defaultNode: <div class={`${COMPONENT_NAME.value}__empty`}>{t(globalConfig.value.empty)}</div>,
-          })}
+        {!props.loading
+        && isEmpty.value
+        && !showCreateOption.value
+        && renderDefaultTNode('empty', {
+          defaultNode: <div class={`${COMPONENT_NAME.value}__empty`}>{t(globalConfig.value.empty)}</div>,
+        })}
         {!isEmpty.value && !props.loading && renderOptionsContent(options)}
       </div>
     );
@@ -148,21 +148,23 @@ export default defineComponent({
     };
   },
   render() {
-    return this.isVirtual ? (
-      <>
-        {this.renderTNodeJSX('panelTopContent')}
-        <div>
-          <div style={this.cursorStyle}></div>
-          {this.renderPanel(this.visibleData, this.panelStyle)}
-        </div>
-        {this.renderTNodeJSX('panelBottomContent')}
-      </>
-    ) : (
-      <>
-        {this.renderTNodeJSX('panelTopContent')}
-        {this.renderPanel(this.displayOptions)}
-        {this.renderTNodeJSX('panelBottomContent')}
-      </>
-    );
+    return this.isVirtual
+      ? (
+        <>
+          {this.renderTNodeJSX('panelTopContent')}
+          <div>
+            <div style={this.cursorStyle}></div>
+            {this.renderPanel(this.visibleData, this.panelStyle)}
+          </div>
+          {this.renderTNodeJSX('panelBottomContent')}
+        </>
+        )
+      : (
+        <>
+          {this.renderTNodeJSX('panelTopContent')}
+          {this.renderPanel(this.displayOptions)}
+          {this.renderTNodeJSX('panelBottomContent')}
+        </>
+        );
   },
 });

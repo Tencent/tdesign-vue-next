@@ -1,13 +1,9 @@
-import { defineComponent, ref, toRefs, inject, watch, computed } from '@td/adapter-vue';
+import { computed, defineComponent, inject, ref, toRefs, watch } from '@td/adapter-vue';
 import props from '@td/intel/checkbox/props';
-import { useVModel } from '@td/adapter-hooks';
-import { useRipple } from '@td/adapter-hooks';
-import { useContent } from '@td/adapter-hooks';
-import { useCommonClassName, usePrefixClass } from '@td/adapter-hooks';
+import { useCommonClassName, useContent, useDisabled, usePrefixClass, useRipple, useVModel } from '@td/adapter-hooks';
 import { CheckboxGroupInjectionKey } from './constants';
 import useCheckboxLazyLoad from './hooks/useCheckboxLazyLoad';
 import useKeyboardEvent from './hooks/useKeyboardEvent';
-import { useDisabled } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'TCheckbox',
@@ -58,7 +54,9 @@ export default defineComponent({
     const tChecked = ref(false);
     const getChecked = () => {
       const { value, checkAll } = props;
-      if (checkAll) return checkboxGroupData?.value.isCheckAll;
+      if (checkAll) {
+        return checkboxGroupData?.value.isCheckAll;
+      }
       return checkboxGroupData?.value ? checkboxGroupData.value.checkedValues.includes(value) : innerChecked.value;
     };
     watch(
@@ -113,7 +111,9 @@ export default defineComponent({
     );
 
     const handleChange = (e: Event) => {
-      if (props.readonly) return;
+      if (props.readonly) {
+        return;
+      }
       const checked = !tChecked.value;
       setInnerChecked(checked, { e });
       if (checkboxGroupData?.value.handleCheckboxChange) {
@@ -125,7 +125,9 @@ export default defineComponent({
 
     const handleLabelClick = (e: MouseEvent) => {
       // 在tree等组件中使用  阻止label触发checked 与expand冲突
-      if (props.stopLabelTrigger) e.preventDefault();
+      if (props.stopLabelTrigger) {
+        e.preventDefault();
+      }
     };
 
     const { showCheckbox } = useCheckboxLazyLoad(labelRef, lazyLoad);
@@ -143,23 +145,24 @@ export default defineComponent({
           {!showCheckbox.value
             ? null
             : [
-                <input
-                  type="checkbox"
-                  tabindex="-1"
-                  class={`${COMPONENT_NAME.value}__former`}
-                  disabled={isDisabled.value}
-                  readonly={props.readonly}
-                  indeterminate={tIndeterminate.value}
-                  name={tName.value}
-                  value={props.value ? props.value : undefined}
-                  checked={tChecked.value}
-                  onChange={handleChange}
-                  key="input"
-                ></input>,
-                <span class={`${COMPONENT_NAME.value}__input`} key="input-span"></span>,
-                <span class={`${COMPONENT_NAME.value}__label`} key="label" onClick={handleLabelClick}>
-                  {renderContent('default', 'label')}
-                </span>,
+              <input
+                type="checkbox"
+                tabindex="-1"
+                class={`${COMPONENT_NAME.value}__former`}
+                disabled={isDisabled.value}
+                readonly={props.readonly}
+                indeterminate={tIndeterminate.value}
+                name={tName.value}
+                value={props.value ? props.value : undefined}
+                checked={tChecked.value}
+                onChange={handleChange}
+                key="input"
+              >
+              </input>,
+              <span class={`${COMPONENT_NAME.value}__input`} key="input-span"></span>,
+              <span class={`${COMPONENT_NAME.value}__label`} key="label" onClick={handleLabelClick}>
+                {renderContent('default', 'label')}
+              </span>,
               ]}
         </label>
       );

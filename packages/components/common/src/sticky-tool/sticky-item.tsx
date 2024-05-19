@@ -1,12 +1,13 @@
-import { computed, defineComponent, PropType } from '@td/adapter-vue';
+import type { PropType } from '@td/adapter-vue';
+import { computed, defineComponent } from '@td/adapter-vue';
 import baseProps from '@td/intel/sticky-tool/sticky-item-props';
 import TdStickyToolProps from '@td/intel/sticky-tool/props';
 import { usePrefixClass } from '@td/adapter-hooks';
+import type { TdStickyItemProps } from '@td/intel/sticky-tool/type';
 import type { Styles } from '../common';
 import Popup from '../popup';
 import { useTNodeJSX } from '../hooks';
 
-import type { TdStickyItemProps } from '@td/intel/sticky-tool/type';
 import type { TdPopupProps } from '../popup/type';
 
 export default defineComponent({
@@ -34,7 +35,7 @@ export default defineComponent({
       return [`${COMPONENT_NAME.value}__label`];
     });
     const popupPlacement = computed(() => {
-      return props.placement.indexOf('right') !== -1 ? 'left' : 'right';
+      return props.placement.includes('right') ? 'left' : 'right';
     });
     const styles = computed(() => {
       const styles: Styles = {};
@@ -46,12 +47,12 @@ export default defineComponent({
     });
     const handleClickItem = (e: MouseEvent) => {
       const item: TdStickyItemProps = {};
-      Object.keys(baseProps).forEach((i) => (item[i] = props[i]));
+      Object.keys(baseProps).forEach(i => (item[i] = props[i]));
       props.onClick({ e, item });
     };
     const handleHoverItem = (e: MouseEvent) => {
       const item: TdStickyItemProps = {};
-      Object.keys(baseProps).forEach((i) => (item[i] = props[i]));
+      Object.keys(baseProps).forEach(i => (item[i] = props[i]));
       props.onHover({ e, item });
     };
     const renderTNodeJSX = useTNodeJSX();

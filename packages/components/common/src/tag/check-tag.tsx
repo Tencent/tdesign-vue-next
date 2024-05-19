@@ -1,11 +1,9 @@
-import { defineComponent, computed, toRefs } from '@td/adapter-vue';
+import { computed, defineComponent, toRefs } from '@td/adapter-vue';
 import props from '@td/intel/tag/check-tag-props';
-import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
-import { useVModel } from '@td/adapter-hooks';
-import { useContent } from '@td/adapter-hooks';
-import Tag from './tag';
-import { TdCheckTagProps, TdTagProps } from '@td/intel/tag/type';
+import { useCommonClassName, useContent, usePrefixClass, useVModel } from '@td/adapter-hooks';
+import type { TdCheckTagProps, TdTagProps } from '@td/intel/tag/type';
 import { ENTER_REG, SPACE_REG } from '../_common/js/common';
+import Tag from './tag';
 
 export default defineComponent({
   name: 'TCheckTag',

@@ -6,7 +6,9 @@ export function useCheckboxLazyLoad(labelRef: Ref<HTMLElement>, lazyLoad: Ref<bo
   const ioObserver = ref<IntersectionObserver>();
   const showCheckbox = ref(true);
   const handleLazyLoad = () => {
-    if (!lazyLoad.value) return;
+    if (!lazyLoad.value) {
+      return;
+    }
     showCheckbox.value = false;
     const io = observe(
       labelRef.value,
@@ -24,7 +26,9 @@ export function useCheckboxLazyLoad(labelRef: Ref<HTMLElement>, lazyLoad: Ref<bo
   watch([lazyLoad], handleLazyLoad);
 
   onBeforeUnmount(() => {
-    if (!lazyLoad.value) return;
+    if (!lazyLoad.value) {
+      return;
+    }
     ioObserver.value.unobserve(labelRef.value);
   });
 

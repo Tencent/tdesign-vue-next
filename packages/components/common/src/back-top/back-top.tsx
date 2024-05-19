@@ -1,12 +1,12 @@
 import { computed, defineComponent, onBeforeUnmount, onMounted, ref } from '@td/adapter-vue';
 import { BacktopIcon as TdBackTopIcon } from 'tdesign-icons-vue-next';
 
-import { scrollTo } from '../utils/dom';
-import { useChildSlots, usePrefixClass, useContent, useConfig } from '../hooks';
 import { useGlobalIcon } from '@td/adapter-hooks';
 import props from '@td/intel/back-top/props';
 
 import type { TdBackTopProps } from '@td/intel/back-top/type';
+import { useChildSlots, useConfig, useContent, usePrefixClass } from '../hooks';
+import { scrollTo } from '../utils/dom';
 
 export default defineComponent({
   name: 'TBackTop',
@@ -70,7 +70,9 @@ export default defineComponent({
       const { theme, shape, size, target, duration, offset, container } = props;
       const getChild = useChildSlots();
       let children = getChild();
-      if (children.length < 1) children = null;
+      if (children.length < 1) {
+        children = null;
+      }
       const cls = computed(() => {
         return {
           [componentName.value]: true,
@@ -83,16 +85,24 @@ export default defineComponent({
       });
       const defaultContent = (
         <>
-          <BacktopIcon class={`${componentName.value}__icon`} size={'24'} />
+          <BacktopIcon class={`${componentName.value}__icon`} size="24" />
           <span class={`${componentName.value}__text`}>TOP</span>
         </>
       );
       const getBackTo = () => {
-        if (target === container) return 0;
-        if (target === 'body') return 0;
-        if (!target) return 0;
+        if (target === container) {
+          return 0;
+        }
+        if (target === 'body') {
+          return 0;
+        }
+        if (!target) {
+          return 0;
+        }
         const targetNode = getContainer(target);
-        if (!targetNode) return 0;
+        if (!targetNode) {
+          return 0;
+        }
         const y = (targetNode as HTMLElement).getBoundingClientRect().y;
         return y;
       };

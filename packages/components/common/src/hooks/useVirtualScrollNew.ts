@@ -5,13 +5,11 @@
  * 2. 支持滚动到特定元素，方便 Select 等组件展开时直接定位到选中元素
  * 3. 支持数据变化不重置，方便支持树形结构虚拟滚动
  */
-import { ref, computed, watch, Ref } from '@td/adapter-vue';
-import { TScroll } from '../common';
+import type { Ref } from '@td/adapter-vue';
+import { computed, ref, watch } from '@td/adapter-vue';
+import { max, min, sum, throttle } from 'lodash-es';
+import type { TScroll } from '../common';
 import useResizeObserver from './useResizeObserver';
-import { max } from 'lodash-es';
-import { min } from 'lodash-es';
-import { sum } from 'lodash-es';
-import { throttle } from 'lodash-es';
 
 export type UseVirtualScrollParams = Ref<{
   /** 列数据 */
@@ -29,7 +27,7 @@ export interface ScrollToElementParams {
   behavior?: 'auto' | 'smooth';
 }
 
-const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtualScrollParams) => {
+function useVirtualScroll(container: Ref<HTMLElement | null>, params: UseVirtualScrollParams) {
   /** 注意测试：数据长度为空；数据长度小于表格高度等情况。即期望只有数据量达到一定程度才允许开启虚拟滚动 */
   const visibleData = ref<any[]>([]);
   // 用于显示表格列
@@ -46,7 +44,9 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
   // 设置初始值
   const tScroll = computed(() => {
     const { scroll } = params.value;
-    if (!scroll) return {};
+    if (!scroll) {
+      return {};
+    }
     return {
       bufferSize: scroll.bufferSize || 10,
       isFixedRowHeight: scroll.isFixedRowHeight ?? false,
@@ -94,8 +94,8 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
       }
       // 获取最后一个可视范围内的元素
       if (
-        visibleEnd === -1 &&
-        (totalHeight > containerHeight.value + scrollTop || i === params.value.data.length - 1)
+        visibleEnd === -1
+        && (totalHeight > containerHeight.value + scrollTop || i === params.value.data.length - 1)
       ) {
         visibleEnd = i;
       }
@@ -130,7 +130,9 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
 
   // 固定高度场景，不需要通过行渲染获取高度（仅非固定高度场景需要）
   const handleRowMounted = (rowData: any) => {
-    if (!isVirtualScroll.value || !rowData || tScroll.value.isFixedRowHeight || !container.value) return;
+    if (!isVirtualScroll.value || !rowData || tScroll.value.isFixedRowHeight || !container.value) {
+      return;
+    }
     const trHeight = rowData.ref.value?.getBoundingClientRect().height;
     const rowIndex = rowData.data.VIRTUAL_SCROLL_INDEX;
 
@@ -143,7 +145,9 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
   };
 
   const handleScroll = () => {
-    if (!isVirtualScroll.value) return;
+    if (!isVirtualScroll.value) {
+      return;
+    }
     updateVisibleData();
   };
 
@@ -199,7 +203,9 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
   watch(
     () => [[...params.value.data], tScroll.value, isVirtualScroll.value, container.value],
     () => {
-      if (!isVirtualScroll.value || !container.value) return;
+      if (!isVirtualScroll.value || !container.value) {
+        return;
+      }
       const { data } = params.value;
       addIndexToData(data);
 
@@ -242,7 +248,7 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
     handleRowMounted,
     scrollToElement,
   };
-};
+}
 
 export type VirtualScrollConfig = ReturnType<typeof useVirtualScroll>;
 

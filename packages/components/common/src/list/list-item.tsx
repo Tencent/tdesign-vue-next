@@ -1,7 +1,6 @@
 import { defineComponent } from '@td/adapter-vue';
 import props from '@td/intel/list/props';
-import { usePrefixClass } from '@td/adapter-hooks';
-import { useTNodeJSX } from '@td/adapter-hooks';
+import { usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'TListItem',

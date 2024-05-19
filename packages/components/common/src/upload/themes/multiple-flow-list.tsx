@@ -1,40 +1,42 @@
-import { computed, defineComponent, toRefs, PropType, ref } from '@td/adapter-vue';
+import type { PropType } from '@td/adapter-vue';
+import { computed, defineComponent, ref, toRefs } from '@td/adapter-vue';
 import {
+  FileExcelIcon,
+  FileIcon,
+  FilePdfIcon,
+  FilePowerpointIcon,
+  FileWordIcon,
   BrowseIcon as TdBrowseIcon,
-  DeleteIcon as TdDeleteIcon,
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
+  DeleteIcon as TdDeleteIcon,
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
   TimeFilledIcon as TdTimeFilledIcon,
-  FileExcelIcon,
-  FilePdfIcon,
-  FileWordIcon,
-  FilePowerpointIcon,
-  FileIcon,
   VideoIcon,
 } from 'tdesign-icons-vue-next';
-import { isFunction } from 'lodash-es';
-import { isObject } from 'lodash-es';
+import { isFunction, isObject } from 'lodash-es';
 import useGlobalIcon from '../../hooks/useGlobalIcon';
-import ImageViewer, { ImageViewerProps } from '../../image-viewer';
-import { CommonDisplayFileProps } from '../interface';
+import type { ImageViewerProps } from '../../image-viewer';
+import ImageViewer from '../../image-viewer';
+import type { CommonDisplayFileProps } from '../interface';
 import { commonProps } from '../constants';
 import TButton from '../../button';
-import { UploadFile, TdUploadProps } from '../type';
-import useDrag, { UploadDragEvents } from '../hooks/useDrag';
+import type { TdUploadProps, UploadFile } from '../type';
+import type { UploadDragEvents } from '../hooks/useDrag';
+import useDrag from '../hooks/useDrag';
 import {
+  FILE_EXCEL_REGEXP,
+  FILE_PDF_REGEXP,
+  FILE_PPT_REGEXP,
+  FILE_WORD_REGEXP,
+  IMAGE_REGEXP,
+  VIDEO_REGEXP,
   abridgeName,
   returnFileSize,
-  IMAGE_REGEXP,
-  FILE_PDF_REGEXP,
-  FILE_EXCEL_REGEXP,
-  FILE_WORD_REGEXP,
-  FILE_PPT_REGEXP,
-  VIDEO_REGEXP,
 } from '../../_common/js/upload/utils';
 import TLoading from '../../loading';
 import { useTNodeJSX } from '../../hooks';
 import Link from '../../link';
-import { UploadConfig } from '../../config-provider';
+import type { UploadConfig } from '../../config-provider';
 import Image from '../../image';
 
 export interface ImageFlowListProps extends CommonDisplayFileProps {
@@ -90,7 +92,9 @@ export default defineComponent({
     const previewIndex = ref(0);
 
     const uploadText = computed(() => {
-      if (uploading.value) return `${locale.value.progress.uploadingText}`;
+      if (uploading.value) {
+        return `${locale.value.progress.uploadingText}`;
+      }
       return locale.value.triggerUploadText.normal;
     });
 
@@ -211,24 +215,28 @@ export default defineComponent({
           content={locale.value?.triggerUploadText?.delete}
           class={`${uploadPrefix.value}__delete`}
           onClick={(e: MouseEvent) => props.onRemove({ e, index, file })}
-        ></TButton>
+        >
+        </TButton>
       </td>
     );
 
     // batchUpload action col
     const renderBatchActionCol = (index: number) =>
       // 第一行数据才需要合并单元格
-      index === 0 ? (
-        <td rowSpan={displayFiles.value.length} class={`${uploadPrefix.value}__flow-table__batch-row`}>
-          <TButton
-            theme="primary"
-            variant="text"
-            content={locale.value?.triggerUploadText?.delete}
-            class={`${uploadPrefix.value}__delete`}
-            onClick={(e: MouseEvent) => props.onRemove({ e, index: -1, file: undefined })}
-          ></TButton>
-        </td>
-      ) : null;
+      index === 0
+        ? (
+          <td rowSpan={displayFiles.value.length} class={`${uploadPrefix.value}__flow-table__batch-row`}>
+            <TButton
+              theme="primary"
+              variant="text"
+              content={locale.value?.triggerUploadText?.delete}
+              class={`${uploadPrefix.value}__delete`}
+              onClick={(e: MouseEvent) => props.onRemove({ e, index: -1, file: undefined })}
+            >
+            </TButton>
+          </td>
+          )
+        : null;
 
     const getFileThumbnailIcon = (fileType: string) => {
       if (FILE_PDF_REGEXP.test(fileType)) {
@@ -250,7 +258,9 @@ export default defineComponent({
     };
 
     const renderFileThumbnail = (file: UploadFile) => {
-      if (!file || (!file.raw && file.url)) return null;
+      if (!file || (!file.raw && file.url)) {
+        return null;
+      }
       const fileType = file.raw.type;
       const className = `${uploadPrefix.value}__file-thumbnail`;
       if (IMAGE_REGEXP.test(fileType)) {
@@ -287,7 +297,9 @@ export default defineComponent({
           dragEvents: innerDragEvents.value,
         },
       });
-      if (customList || props.fileListDisplay) return customList;
+      if (customList || props.fileListDisplay) {
+        return customList;
+      }
       return (
         <table class={`${uploadPrefix.value}__flow-table`} {...innerDragEvents.value}>
           <thead>
@@ -307,26 +319,30 @@ export default defineComponent({
             {displayFiles.value.map((file, index) => {
               // 合并操作出现条件为：当前为合并上传模式且列表内没有待上传文件
               const showBatchUploadAction = props.isBatchUpload;
-              const deleteNode =
-                showBatchUploadAction && displayFiles.value.every((item) => item.status === 'success' || !item.status)
+              const deleteNode
+                = showBatchUploadAction && displayFiles.value.every(item => item.status === 'success' || !item.status)
                   ? renderBatchActionCol(index)
                   : renderNormalActionCol(file, index);
               const fileName = props.abridgeName?.length ? abridgeName(file.name, ...props.abridgeName) : file.name;
-              const thumbnailNode = props.showThumbnail ? (
-                <div class={`${uploadPrefix.value}__file-info`}>
-                  {renderFileThumbnail(file)}
-                  {fileName}
-                </div>
-              ) : (
-                fileName
-              );
-              const fileNameNode = file.url ? (
-                <Link href={file.url} target="_blank" hover="color">
-                  {thumbnailNode}
-                </Link>
-              ) : (
-                thumbnailNode
-              );
+              const thumbnailNode = props.showThumbnail
+                ? (
+                  <div class={`${uploadPrefix.value}__file-info`}>
+                    {renderFileThumbnail(file)}
+                    {fileName}
+                  </div>
+                  )
+                : (
+                    fileName
+                  );
+              const fileNameNode = file.url
+                ? (
+                  <Link href={file.url} target="_blank" hover="color">
+                    {thumbnailNode}
+                  </Link>
+                  )
+                : (
+                    thumbnailNode
+                  );
               return (
                 <tr key={file.name + index + file.size}>
                   <td class={`${uploadPrefix.value}__file-name`} key={file.name + file.url}>
@@ -357,7 +373,9 @@ export default defineComponent({
           dragEvents: innerDragEvents.value,
         },
       });
-      if (customList || props.fileListDisplay) return customList;
+      if (customList || props.fileListDisplay) {
+        return customList;
+      }
       return (
         <ul class={`${uploadPrefix.value}__card clearfix`}>
           {props.displayFiles.map((file, index) => renderImgItem(file, index))}
@@ -388,47 +406,54 @@ export default defineComponent({
             </div>
           )}
 
-          {props.theme === 'file-flow' &&
-            (displayFiles.value.length ? (
-              renderFileList()
-            ) : (
+          {props.theme === 'file-flow'
+          && (displayFiles.value.length
+            ? (
+                renderFileList()
+              )
+            : (
               <div class={cardClassName} {...innerDragEvents.value}>
                 {renderEmpty()}
               </div>
-            ))}
+              ))}
 
           {!props.autoUpload && (props.uploadButton !== null || props.cancelUploadButton !== null) && (
             <div class={`${uploadPrefix.value}__flow-bottom`}>
-              {props.cancelUploadButton !== null &&
-                (hasCancelUploadTNode ? (
-                  renderTNodeJSX('cancelUploadButton', {
-                    params: {
-                      disabled: cancelUploadDisabled,
-                      cancelUploadText: locale.value?.cancelUploadText,
-                      cancelUpload: props.cancelUpload,
-                    },
-                  })
-                ) : (
+              {props.cancelUploadButton !== null
+              && (hasCancelUploadTNode
+                ? (
+                    renderTNodeJSX('cancelUploadButton', {
+                      params: {
+                        disabled: cancelUploadDisabled,
+                        cancelUploadText: locale.value?.cancelUploadText,
+                        cancelUpload: props.cancelUpload,
+                      },
+                    })
+                  )
+                : (
                   <TButton
                     theme="default"
                     disabled={cancelUploadDisabled}
                     content={locale.value?.cancelUploadText}
                     class={`${uploadPrefix.value}__cancel`}
-                    onClick={(e) => props.cancelUpload?.({ e })}
+                    onClick={e => props.cancelUpload?.({ e })}
                     {...(isObject(props.cancelUploadButton) ? props.cancelUploadButton : {})}
-                  ></TButton>
-                ))}
-              {props.uploadButton !== null &&
-                (hasUploadButtonTNode ? (
-                  renderTNodeJSX('uploadButton', {
-                    params: {
-                      disabled: uploadButtonDisabled,
-                      uploading: uploading.value,
-                      uploadText: uploadText.value,
-                      uploadFiles: props.uploadFiles,
-                    },
-                  })
-                ) : (
+                  >
+                  </TButton>
+                  ))}
+              {props.uploadButton !== null
+              && (hasUploadButtonTNode
+                ? (
+                    renderTNodeJSX('uploadButton', {
+                      params: {
+                        disabled: uploadButtonDisabled,
+                        uploading: uploading.value,
+                        uploadText: uploadText.value,
+                        uploadFiles: props.uploadFiles,
+                      },
+                    })
+                  )
+                : (
                   <TButton
                     disabled={uploadButtonDisabled}
                     theme="primary"
@@ -437,21 +462,23 @@ export default defineComponent({
                     content={uploadText.value}
                     onClick={() => props.uploadFiles?.()}
                     {...(isObject(props.uploadButton) ? props.uploadButton : {})}
-                  ></TButton>
-                ))}
+                  >
+                  </TButton>
+                  ))}
             </div>
           )}
 
           <ImageViewer
-            images={currentPreviewFile.value.map((t) => t.url || t.raw)}
+            images={currentPreviewFile.value.map(t => t.url || t.raw)}
             visible={!!currentPreviewFile.value.length}
             onClose={() => {
               currentPreviewFile.value = [];
             }}
             index={previewIndex.value}
-            onIndexChange={(val) => (previewIndex.value = val)}
+            onIndexChange={val => (previewIndex.value = val)}
             {...(props.imageViewerProps as ImageViewerProps)}
-          ></ImageViewer>
+          >
+          </ImageViewer>
         </div>
       );
     };

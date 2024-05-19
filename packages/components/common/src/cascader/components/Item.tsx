@@ -1,4 +1,5 @@
-import { defineComponent, PropType, computed, ref } from '@td/adapter-vue';
+import type { PropType } from '@td/adapter-vue';
+import { computed, defineComponent, ref } from '@td/adapter-vue';
 import { ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
 
 import { getFullPathLabel } from '../core/helper';
@@ -7,8 +8,8 @@ import { getCascaderItemClass, getCascaderItemIconClass } from '../core/classNam
 import Checkbox from '../../checkbox/index';
 import TLoading from '../../loading';
 
-import { CascaderContextType, TreeNodeValue, TreeNode, TdCascaderProps } from '../interface';
-import { usePrefixClass, useCommonClassName } from '../../hooks/useConfig';
+import type { CascaderContextType, TdCascaderProps, TreeNode, TreeNodeValue } from '../interface';
+import { useCommonClassName, usePrefixClass } from '../../hooks/useConfig';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 import useRipple from '../../hooks/useRipple';
 
@@ -58,7 +59,9 @@ export default defineComponent({
         const doms = [];
         for (let index = 0; index < texts.length; index++) {
           doms.push(<span key={index}>{texts[index]}</span>);
-          if (index === texts.length - 1) break;
+          if (index === texts.length - 1) {
+            break;
+          }
           doms.push(
             <span key={`${index}filter`} class={`${COMPONENT_NAME.value}-label--filter`}>
               {inputVal}
@@ -112,16 +115,18 @@ export default defineComponent({
       const { cascaderContext, node, optionChild } = props;
       return (
         <li ref={liRef} class={itemClass.value} onClick={props.onClick} onMouseenter={props.onMouseenter}>
-          {optionChild ||
-            (cascaderContext.multiple
-              ? RenderCheckBox(node, cascaderContext)
-              : RenderLabelContent(node, cascaderContext))}
-          {node.children &&
-            (node.loading ? (
+          {optionChild
+          || (cascaderContext.multiple
+            ? RenderCheckBox(node, cascaderContext)
+            : RenderLabelContent(node, cascaderContext))}
+          {node.children
+          && (node.loading
+            ? (
               <TLoading class={iconClass.value} size="small" />
-            ) : (
+              )
+            : (
               <ChevronRightIcon class={iconClass.value} />
-            ))}
+              ))}
         </li>
       );
     };

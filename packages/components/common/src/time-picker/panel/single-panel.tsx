@@ -1,21 +1,19 @@
-import { computed, defineComponent, ref, watch, toRefs, onMounted, reactive, nextTick } from '@td/adapter-vue';
-import { debounce } from 'lodash-es';
-import { range } from 'lodash-es';
-import { padStart } from 'lodash-es';
+import { computed, defineComponent, nextTick, onMounted, reactive, ref, toRefs, watch } from '@td/adapter-vue';
+import { debounce, padStart, range } from 'lodash-es';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 
-import { panelColProps } from './props';
 import {
-  EPickerCols,
-  TWELVE_HOUR_FORMAT,
-  TIME_FORMAT,
   AM,
-  PM,
+  EPickerCols,
   MERIDIEM_LIST,
+  PM,
+  TIME_FORMAT,
+  TWELVE_HOUR_FORMAT,
 } from '../../_common/js/time-picker/const';
 import { closestLookup } from '../../_common/js/time-picker/utils';
 import { useCommonClassName, useConfig, usePrefixClass } from '../../hooks/useConfig';
+import { panelColProps } from './props';
 
 dayjs.extend(customParseFormat);
 
@@ -51,11 +49,15 @@ export default defineComponent({
     const colsRef = reactive({ 0: null, 1: null, 2: null, 3: null, 4: null, 5: null });
 
     const dayjsValue = computed(() => {
-      const isStepsSet = !!steps.value.filter((step) => Number(step) > 1).length;
+      const isStepsSet = !!steps.value.filter(step => Number(step) > 1).length;
 
-      if (value.value) return dayjs(value.value, format.value);
+      if (value.value) {
+        return dayjs(value.value, format.value);
+      }
 
-      if (isStepsSet) return dayjs().hour(0).minute(0).second(0);
+      if (isStepsSet) {
+        return dayjs().hour(0).minute(0).second(0);
+      }
 
       return dayjs();
     });
@@ -64,7 +66,9 @@ export default defineComponent({
     watch(
       () => dayjsValue.value,
       () => {
-        if (dayjsValue.value && value.value) updateTimeScrollPos(true);
+        if (dayjsValue.value && value.value) {
+          updateTimeScrollPos(true);
+        }
       },
     );
 
@@ -91,7 +95,7 @@ export default defineComponent({
         secondCol && second,
         milliSecondCol && milliSecond,
         endCol && meridiem,
-      ].filter((v) => !!v);
+      ].filter(v => !!v);
 
       cols.value = renderCol;
     });
@@ -106,8 +110,8 @@ export default defineComponent({
         };
       }
       return {
-        offsetHeight: parseFloat(getComputedStyle(maskDom).height),
-        margin: parseFloat(getComputedStyle(maskDom).marginTop),
+        offsetHeight: Number.parseFloat(getComputedStyle(maskDom).height),
+        margin: Number.parseFloat(getComputedStyle(maskDom).marginTop),
       };
     };
 
@@ -135,25 +139,30 @@ export default defineComponent({
         const colIdx = timeArr.indexOf(col);
         const colStep = steps.value[colIdx] || 1;
 
-        if (col === EPickerCols.hour)
-          count = TWELVE_HOUR_FORMAT.test(format.value) ? 11 : 23; // 小时最大为23 12小时制最大为11
-        else if (col === EPickerCols.milliSecond) count = 999; // 毫秒最大为999
-        else count = 59;
+        if (col === EPickerCols.hour) {
+          count = TWELVE_HOUR_FORMAT.test(format.value) ? 11 : 23;
+        } // 小时最大为23 12小时制最大为11
+        else if (col === EPickerCols.milliSecond) {
+          count = 999;
+        } // 毫秒最大为999
+        else {
+          count = 59;
+        }
 
-        const colList = range(0, count + 1, Number(colStep)).map((v) => padStart(String(v), 2, '0')) || [];
+        const colList = range(0, count + 1, Number(colStep)).map(v => padStart(String(v), 2, '0')) || [];
         return props.hideDisabledTime && !!props.disableTime
           ? colList.filter((t) => {
-              const params: [number, number, number, number] = [
-                dayjsValue.value.hour(),
-                dayjsValue.value.minute(),
-                dayjsValue.value.second(),
-                dayjsValue.value.millisecond(),
-              ];
-              params[colIdx] = Number(t);
-              return !props
-                .disableTime?.(...params, { partial: position.value || 'start' })
-                ?.[col]?.includes(Number(t));
-            })
+            const params: [number, number, number, number] = [
+              dayjsValue.value.hour(),
+              dayjsValue.value.minute(),
+              dayjsValue.value.second(),
+              dayjsValue.value.millisecond(),
+            ];
+            params[colIdx] = Number(t);
+            return !props
+              .disableTime?.(...params, { partial: position.value || 'start' })
+              ?.[col]?.includes(Number(t));
+          })
           : colList;
       }
       // meridiem column
@@ -161,9 +170,9 @@ export default defineComponent({
     };
 
     const getScrollDistance = (col: EPickerCols, time: number | string) => {
-      if (col === EPickerCols.hour && /[h]{1}/.test(format.value))
-        // eslint-disable-next-line no-param-reassign
-        (time as number) %= 12; // 一定是数字，直接cast
+      if (col === EPickerCols.hour && /h/.test(format.value)) {
+        (time as number) %= 12;
+      } // 一定是数字，直接cast
 
       const itemIdx = getColList(col).indexOf(padStart(String(time), 2, '0'));
       const { offsetHeight, margin } = getItemHeight();
@@ -175,7 +184,9 @@ export default defineComponent({
     const handleScroll = (col: EPickerCols, idx: number, e: MouseEvent) => {
       let val: number | string;
       let formattedVal: string;
-      if (!props.isShowPanel) return;
+      if (!props.isShowPanel) {
+        return;
+      }
 
       const scrollTop = (colsRef[idx]?.scrollTop || 0) + panelOffset.top;
       const { offsetHeight, margin } = getItemHeight();
@@ -184,12 +195,18 @@ export default defineComponent({
 
       const meridiem = MERIDIEM_LIST[Math.min(colStep - 1, 1)].toLowerCase(); // 处理PM、AM与am、pm
 
-      if (Number.isNaN(colStep)) colStep = 1;
+      if (Number.isNaN(colStep)) {
+        colStep = 1;
+      }
       if (timeArr.includes(col)) {
         // hour、minute、 second and milliSecond
         let max = 59;
-        if (col === EPickerCols.hour) max = /[h]{1}/.test(format.value) ? 11 : 23; // 小时最大为23 12小时制最大为11
-        else if (col === EPickerCols.milliSecond) max = 999; // 毫秒最大为999
+        if (col === EPickerCols.hour) {
+          max = /h/.test(format.value) ? 11 : 23;
+        } // 小时最大为23 12小时制最大为11
+        else if (col === EPickerCols.milliSecond) {
+          max = 999;
+        } // 毫秒最大为999
 
         const colIdx = timeArr.indexOf(col);
         const availableArr = range(0, max + 1, Number(steps.value[colIdx]) || 1);
@@ -198,22 +215,30 @@ export default defineComponent({
           Number(getColList(col)[Math.min(colStep - 1, max + 1, availableArr.length - 1)]),
           Number(steps.value[colIdx]) || 1,
         );
-        if (Number.isNaN(val)) val = availableArr[availableArr.length - 1];
+        if (Number.isNaN(val)) {
+          val = availableArr[availableArr.length - 1];
+        }
         if (col === EPickerCols.hour && cols.value.includes(EPickerCols.meridiem) && dayjsValue.value.hour() >= 12) {
           // 如果是十二小时制需要再判断
           val = Number(val) + 12;
         }
       }
       // meridiem columns
-      else val = meridiem;
+      else {
+        val = meridiem;
+      }
 
       const distance = getScrollDistance(col, val);
-      if (!dayjs(dayjsValue.value).isValid() || (value.value && !dayjs(value.value, format.value, true).isValid()))
+      if (!dayjs(dayjsValue.value).isValid() || (value.value && !dayjs(value.value, format.value, true).isValid())) {
         return;
+      }
 
       if (timeArr.includes(col)) {
-        if (timeItemCanUsed(col, val)) formattedVal = dayjsValue.value[col]?.(val).format(format.value);
-        else formattedVal = dayjsValue.value.format(format.value);
+        if (timeItemCanUsed(col, val)) {
+          formattedVal = dayjsValue.value[col]?.(val).format(format.value);
+        } else {
+          formattedVal = dayjsValue.value.format(format.value);
+        }
       } else {
         const currentHour = dayjsValue.value.hour();
         if (meridiem === AM && currentHour >= 12) {
@@ -224,12 +249,16 @@ export default defineComponent({
           formattedVal = dayjsValue.value.format(format.value);
         }
       }
-      if (formattedVal !== value.value) props.onChange?.(formattedVal, e);
+      if (formattedVal !== value.value) {
+        props.onChange?.(formattedVal, e);
+      }
 
       if (distance !== scrollTop) {
         const scrollCtrl = colsRef[cols.value.indexOf(col)];
 
-        if (!scrollCtrl || scrollCtrl.scrollTop === distance) return;
+        if (!scrollCtrl || scrollCtrl.scrollTop === distance) {
+          return;
+        }
 
         scrollCtrl.scrollTo?.({
           top: distance,
@@ -246,7 +275,9 @@ export default defineComponent({
     ) => {
       const distance = getScrollDistance(col, time);
       const scrollCtrl = colsRef[idx];
-      if (!scrollCtrl || scrollCtrl.scrollTop === distance || !timeItemCanUsed(col, time)) return;
+      if (!scrollCtrl || scrollCtrl.scrollTop === distance || !timeItemCanUsed(col, time)) {
+        return;
+      }
 
       scrollCtrl.scrollTo?.({
         top: distance,
@@ -255,14 +286,15 @@ export default defineComponent({
     };
 
     const handleTimeItemClick = (col: EPickerCols, el: string | number, idx: number, e: MouseEvent) => {
-      if (!timeItemCanUsed(col, el)) return;
+      if (!timeItemCanUsed(col, el)) {
+        return;
+      }
       if (timeArr.includes(col)) {
         if (
-          col === EPickerCols.hour &&
-          dayjsValue.value.format('a') === PM &&
-          cols.value.includes(EPickerCols.meridiem)
+          col === EPickerCols.hour
+          && dayjsValue.value.format('a') === PM
+          && cols.value.includes(EPickerCols.meridiem)
         ) {
-          // eslint-disable-next-line no-param-reassign
           el = Number(el) + 12;
         }
         scrollToTime(col, el, idx, 'smooth');
@@ -279,7 +311,7 @@ export default defineComponent({
     // update each columns scroll distance
     const updateTimeScrollPos = (isAutoScroll = false) => {
       const behavior = value.value && !isAutoScroll ? 'smooth' : 'auto';
-      const isStepsSet = !!steps.value.filter((step) => Number(step) > 1).length;
+      const isStepsSet = !!steps.value.filter(step => Number(step) > 1).length;
       nextTick(() => {
         cols.value.forEach((col: EPickerCols, idx: number) => {
           if (!isStepsSet || (isStepsSet && value.value)) {
@@ -307,7 +339,7 @@ export default defineComponent({
         return currentMeridiem === colItem;
       }
       colVal = dayjsValue.value[col]?.();
-      if (col === EPickerCols.hour && /[h]{1}/.test(format.value)) {
+      if (col === EPickerCols.hour && /h/.test(format.value)) {
         colVal %= 12;
       }
       return colVal === Number(colItem);
@@ -325,11 +357,11 @@ export default defineComponent({
         {cols.value.map?.((col, idx) => (
           <ul
             key={`${col}_${idx}`}
-            ref={(el) => (colsRef[idx] = el)}
+            ref={el => (colsRef[idx] = el)}
             class={`${COMPONENT_NAME.value}-body-scroll`}
-            onScroll={debounce((e) => handleScroll(col, idx, e), 50)}
+            onScroll={debounce(e => handleScroll(col, idx, e), 50)}
           >
-            {getColList(col).map((el) => (
+            {getColList(col).map(el => (
               <li
                 key={el}
                 class={[
@@ -339,9 +371,9 @@ export default defineComponent({
                     [STATUS.value.current]: isCurrent(col, el),
                   },
                 ]}
-                onClick={(e) => handleTimeItemClick(col, el, idx, e)}
+                onClick={e => handleTimeItemClick(col, el, idx, e)}
               >
-                {/* eslint-disable-next-line no-nested-ternary */}
+                { }
                 {timeArr.includes(col)
                   ? TWELVE_HOUR_FORMAT.test(format.value) && col === EPickerCols.hour && el === '00'
                     ? '12'

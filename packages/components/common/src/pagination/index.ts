@@ -1,7 +1,7 @@
+import { withInstall } from '@td/adapter-utils';
+import type { TdPaginationMiniProps, TdPaginationProps } from '@td/intel/pagination/type';
 import _Pagination from './pagination';
 import _PaginationMini from './pagination-mini';
-import { withInstall } from '@td/adapter-utils';
-import { TdPaginationProps, TdPaginationMiniProps } from '@td/intel/pagination/type';
 
 import './style';
 

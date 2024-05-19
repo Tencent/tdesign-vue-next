@@ -1,7 +1,8 @@
-import { defineComponent, PropType } from '@td/adapter-vue';
+import type { PropType } from '@td/adapter-vue';
+import { defineComponent } from '@td/adapter-vue';
 import { SearchIcon as TdSearchIcon } from 'tdesign-icons-vue-next';
 
-import { SearchOption } from '../interface';
+import type { SearchOption } from '../interface';
 import TInput from '../../input';
 import { usePrefixClass } from '../../hooks/useConfig';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';

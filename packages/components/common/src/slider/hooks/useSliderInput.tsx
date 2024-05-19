@@ -1,8 +1,9 @@
-import { computed, Ref } from '@td/adapter-vue';
-import { omit } from 'lodash-es';
-import { TdSliderProps } from '../type';
-import InputNumber, { InputNumberProps, ChangeContext } from '../../input-number';
-import { isBoolean } from 'lodash-es';
+import type { Ref } from '@td/adapter-vue';
+import { computed } from '@td/adapter-vue';
+import { isBoolean, omit } from 'lodash-es';
+import type { TdSliderProps } from '../type';
+import type { ChangeContext, InputNumberProps } from '../../input-number';
+import InputNumber from '../../input-number';
 
 interface useSliderInputProps {
   inputNumberProps: boolean | TdSliderProps['inputNumberProps'];
@@ -17,7 +18,7 @@ interface useSliderInputProps {
 /**
  * 聚合管理inputNumber渲染逻辑
  */
-export const useSliderInput = (config: Ref<useSliderInputProps>) => {
+export function useSliderInput(config: Ref<useSliderInputProps>) {
   const name = config.value.prefixName;
 
   /** 根据传入属性缓存计算inputNumber props */
@@ -71,4 +72,4 @@ export const useSliderInput = (config: Ref<useSliderInputProps>) => {
   };
 
   return renderInputNumber;
-};
+}

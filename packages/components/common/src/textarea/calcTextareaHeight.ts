@@ -2,7 +2,7 @@
  * Thanks to https://github.com/ElemeFE/element/blob/dev/packages/input/src/calcTextareaHeight.js
  */
 
-import { CSSProperties } from '@td/adapter-vue';
+import type { CSSProperties } from '@td/adapter-vue';
 
 type RowsType = number | null;
 
@@ -40,22 +40,24 @@ const SIZING_PROPS = [
 ];
 
 function calculateNodeStyling(targetElement: HTMLTextAreaElement) {
-  if (typeof window === 'undefined') return;
+  if (typeof window === 'undefined') {
+    return;
+  }
 
   const style = window.getComputedStyle(targetElement);
 
-  const boxSizing =
-    style.getPropertyValue('box-sizing') ||
-    style.getPropertyValue('-moz-box-sizing') ||
-    style.getPropertyValue('-webkit-box-sizing');
+  const boxSizing
+    = style.getPropertyValue('box-sizing')
+    || style.getPropertyValue('-moz-box-sizing')
+    || style.getPropertyValue('-webkit-box-sizing');
 
-  const paddingSize =
-    parseFloat(style.getPropertyValue('padding-bottom')) + parseFloat(style.getPropertyValue('padding-top'));
+  const paddingSize
+    = Number.parseFloat(style.getPropertyValue('padding-bottom')) + Number.parseFloat(style.getPropertyValue('padding-top'));
 
-  const borderSize =
-    parseFloat(style.getPropertyValue('border-bottom-width')) + parseFloat(style.getPropertyValue('border-top-width'));
+  const borderSize
+    = Number.parseFloat(style.getPropertyValue('border-bottom-width')) + Number.parseFloat(style.getPropertyValue('border-top-width'));
 
-  const sizingStyle = SIZING_PROPS.map((name) => `${name}:${style.getPropertyValue(name)}`).join(';');
+  const sizingStyle = SIZING_PROPS.map(name => `${name}:${style.getPropertyValue(name)}`).join(';');
 
   return {
     sizingStyle,

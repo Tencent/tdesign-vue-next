@@ -1,12 +1,20 @@
-import { defineComponent, ref, toRefs, watch, computed } from '@td/adapter-vue';
+import { computed, defineComponent, ref, toRefs, watch } from '@td/adapter-vue';
+import { cloneDeep } from 'lodash-es';
 import { useCommonClassName, useConfig } from '../../hooks/useConfig';
 import props from '../props';
 import {
   DEFAULT_COLOR,
   DEFAULT_LINEAR_GRADIENT,
-  TD_COLOR_USED_COLORS_MAX_SIZE,
   DEFAULT_SYSTEM_SWATCH_COLORS,
+  TD_COLOR_USED_COLORS_MAX_SIZE,
 } from '../const';
+import type { GradientColorPoint } from '../utils';
+import { Color, getColorObject } from '../utils';
+import type { ColorPickerChangeTrigger, TdColorPickerProps } from '../type';
+import type { TdColorModes } from '../interfaces';
+import { useBaseClassName } from '../hooks';
+import useVModel from '../../hooks/useVModel';
+import useDefaultValue from '../../hooks/useDefaultValue';
 import PanelHeader from './header';
 import LinearGradient from './linear-gradient';
 import SaturationPanel from './saturation';
@@ -14,13 +22,6 @@ import HueSlider from './hue';
 import AlphaSlider from './alpha';
 import FormatPanel from './format';
 import SwatchesPanel from './swatches';
-import { Color, getColorObject, GradientColorPoint } from '../utils';
-import { TdColorPickerProps, ColorPickerChangeTrigger } from '../type';
-import { TdColorModes } from '../interfaces';
-import { useBaseClassName } from '../hooks';
-import useVModel from '../../hooks/useVModel';
-import useDefaultValue from '../../hooks/useDefaultValue';
-import { cloneDeep } from 'lodash-es';
 
 export default defineComponent({
   name: 'ColorPanel',
@@ -301,25 +302,29 @@ export default defineComponent({
       return (
         <>
           <div class={`${baseClassName}__swatches-wrap`}>
-            {showUsedColors ? (
-              <SwatchesPanel
-                {...baseProps}
-                title={t(globalConfig.recentColorTitle)}
-                editable
-                colors={this.recentlyUsedColors as string[]}
-                handleAddColor={this.addRecentlyUsedColor}
-                onSetColor={(color: string) => this.handleSetColor('used', color)}
-                onChange={this.handleRecentlyUsedColorsChange}
-              />
-            ) : null}
-            {showSystemColors ? (
-              <SwatchesPanel
-                {...baseProps}
-                title={t(globalConfig.swatchColorTitle)}
-                colors={systemColors}
-                onSetColor={(color: string) => this.handleSetColor('system', color)}
-              />
-            ) : null}
+            {showUsedColors
+              ? (
+                <SwatchesPanel
+                  {...baseProps}
+                  title={t(globalConfig.recentColorTitle)}
+                  editable
+                  colors={this.recentlyUsedColors as string[]}
+                  handleAddColor={this.addRecentlyUsedColor}
+                  onSetColor={(color: string) => this.handleSetColor('used', color)}
+                  onChange={this.handleRecentlyUsedColorsChange}
+                />
+                )
+              : null}
+            {showSystemColors
+              ? (
+                <SwatchesPanel
+                  {...baseProps}
+                  title={t(globalConfig.swatchColorTitle)}
+                  colors={systemColors}
+                  onSetColor={(color: string) => this.handleSetColor('system', color)}
+                />
+                )
+              : null}
           </div>
         </>
       );
@@ -329,13 +334,15 @@ export default defineComponent({
       <div class={[`${baseClassName}__panel`, this.disabled ? statusClassNames.disabled : false]}>
         <PanelHeader {...this.$props} mode={this.mode} onModeChange={this.handleModeChange} />
         <div class={[`${baseClassName}__body`]}>
-          {isGradient ? (
-            <LinearGradient
-              {...baseProps}
-              onChange={this.handleGradientChange}
-              enableMultipleGradient={this.enableMultipleGradient}
-            />
-          ) : null}
+          {isGradient
+            ? (
+              <LinearGradient
+                {...baseProps}
+                onChange={this.handleGradientChange}
+                enableMultipleGradient={this.enableMultipleGradient}
+              />
+              )
+            : null}
 
           <SaturationPanel {...baseProps} onChange={this.handleSatAndValueChange} />
 
@@ -345,16 +352,18 @@ export default defineComponent({
               {this.enableAlpha ? <AlphaSlider {...baseProps} onChange={this.handleAlphaChange} /> : null}
             </div>
 
-            {showPrimaryColorPreview ? (
-              <div class={[`${baseClassName}__sliders-preview`, `${baseClassName}--bg-alpha`]}>
-                <span
-                  class={`${baseClassName}__sliders-preview-inner`}
-                  style={{
-                    background: isGradient ? this.color.linearGradient : this.color.rgba,
-                  }}
-                />
-              </div>
-            ) : null}
+            {showPrimaryColorPreview
+              ? (
+                <div class={[`${baseClassName}__sliders-preview`, `${baseClassName}--bg-alpha`]}>
+                  <span
+                    class={`${baseClassName}__sliders-preview-inner`}
+                    style={{
+                      background: isGradient ? this.color.linearGradient : this.color.rgba,
+                    }}
+                  />
+                </div>
+                )
+              : null}
           </div>
 
           <FormatPanel

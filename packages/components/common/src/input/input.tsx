@@ -1,19 +1,17 @@
-import { defineComponent, computed } from '@td/adapter-vue';
+import { computed, defineComponent } from '@td/adapter-vue';
 import {
   BrowseIcon as TdBrowseIcon,
   BrowseOffIcon as TdBrowseOffIcon,
   CloseCircleFilledIcon as TdCloseCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
 import props from '@td/intel/input/props';
+import { useCommonClassName, useConfig, useGlobalIcon, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
+import { isUndefined } from 'lodash-es';
 import { useFormDisabled } from '../form/hooks';
-import { useConfig, usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
-import { useGlobalIcon } from '@td/adapter-hooks';
-import { useTNodeJSX } from '@td/adapter-hooks';
+import type { PlainObject } from '../common';
 import useInput from './useInput';
 import useInputEventHandler from './useInputEventHandler';
 import useInputWidth from './useInputWidth';
-import { isUndefined } from 'lodash-es';
-import { PlainObject } from '../common';
 
 function getValidAttrs(obj: PlainObject): PlainObject {
   const newObj: PlainObject = {};
@@ -117,28 +115,32 @@ export default defineComponent({
       let passwordIcon = renderTNodeJSX('passwordIcon');
       const label = renderTNodeJSX('label', { silent: true });
       const suffix = renderTNodeJSX('suffix');
-      const limitNode =
-        limitNumber.value && props.showLimitNumber ? (
-          <div
-            class={[
+      const limitNode
+        = limitNumber.value && props.showLimitNumber
+          ? (
+            <div
+              class={[
               `${classPrefix.value}-input__limit-number`,
               {
                 [`${classPrefix.value}-is-disabled`]: disabled.value,
               },
-            ]}
-          >
-            {limitNumber.value}
-          </div>
-        ) : null;
+              ]}
+            >
+              {limitNumber.value}
+            </div>
+            )
+          : null;
 
       const labelContent = label ? <div class={`${COMPONENT_NAME.value}__prefix`}>{label}</div> : null;
-      const suffixContent =
-        suffix || limitNode ? (
-          <div class={`${COMPONENT_NAME.value}__suffix`}>
-            {suffix}
-            {limitNode}
-          </div>
-        ) : null;
+      const suffixContent
+        = suffix || limitNode
+          ? (
+            <div class={`${COMPONENT_NAME.value}__suffix`}>
+              {suffix}
+              {limitNode}
+            </div>
+            )
+          : null;
 
       if (props.type === 'password') {
         if (renderType.value === 'password') {
@@ -208,11 +210,13 @@ export default defineComponent({
             onMouseleave={inputEventHandler.onInputMouseleave}
             onWheel={inputEventHandler.onHandleMousewheel}
           >
-            {prefixIcon ? (
-              <span class={[`${COMPONENT_NAME.value}__prefix`, `${COMPONENT_NAME.value}__prefix-icon`]}>
-                {prefixIcon}
-              </span>
-            ) : null}
+            {prefixIcon
+              ? (
+                <span class={[`${COMPONENT_NAME.value}__prefix`, `${COMPONENT_NAME.value}__prefix-icon`]}>
+                  {prefixIcon}
+                </span>
+                )
+              : null}
             {labelContent}
             {/* input element must exist, or other select components can not focus by keyboard operation */}
             <input
@@ -229,28 +233,32 @@ export default defineComponent({
               </span>
             )}
             {suffixContent}
-            {passwordIcon ? (
-              <span
-                class={[
+            {passwordIcon
+              ? (
+                <span
+                  class={[
                   `${COMPONENT_NAME.value}__suffix`,
                   `${COMPONENT_NAME.value}__suffix-icon`,
                   `${COMPONENT_NAME.value}__clear`,
-                ]}
-              >
-                {passwordIcon}
-              </span>
-            ) : null}
-            {suffixIcon ? (
-              <span
-                class={[
+                  ]}
+                >
+                  {passwordIcon}
+                </span>
+                )
+              : null}
+            {suffixIcon
+              ? (
+                <span
+                  class={[
                   `${COMPONENT_NAME.value}__suffix`,
                   `${COMPONENT_NAME.value}__suffix-icon`,
                   { [`${COMPONENT_NAME.value}__clear`]: showClear.value },
-                ]}
-              >
-                {suffixIcon}
-              </span>
-            ) : null}
+                  ]}
+                >
+                  {suffixIcon}
+                </span>
+                )
+              : null}
           </div>
           {tips && <div class={tipsClasses}>{tips}</div>}
         </div>

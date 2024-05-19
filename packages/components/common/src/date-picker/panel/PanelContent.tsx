@@ -1,4 +1,5 @@
-import { defineComponent, PropType } from '@td/adapter-vue';
+import type { PropType } from '@td/adapter-vue';
+import { defineComponent } from '@td/adapter-vue';
 import { usePrefixClass } from '../../hooks/useConfig';
 import type { TdDatePickerProps } from '../type';
 
@@ -54,8 +55,7 @@ export default defineComponent({
             onMonthChange={(val: number) => props.onMonthChange?.(val, { partial: props.partial })}
             onYearChange={(val: number) => props.onYearChange?.(val, { partial: props.partial })}
             onJumperClick={({ trigger }: { trigger: string }) =>
-              props.onJumperClick?.({ trigger, partial: props.partial })
-            }
+              props.onJumperClick?.({ trigger, partial: props.partial })}
           />
 
           <TDateTable
@@ -66,8 +66,7 @@ export default defineComponent({
             format={props.format}
             firstDayOfWeek={props.firstDayOfWeek}
             onCellClick={(date: Date, { e }: { e: MouseEvent }) =>
-              props.onCellClick?.(date, { e, partial: props.partial })
-            }
+              props.onCellClick?.(date, { e, partial: props.partial })}
             onCellMouseEnter={(date: Date) => props.onCellMouseEnter?.(date, { partial: props.partial })}
             onCellMouseLeave={props.onCellMouseLeave}
           />

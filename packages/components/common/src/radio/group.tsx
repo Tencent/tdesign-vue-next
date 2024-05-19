@@ -1,34 +1,29 @@
-import {
+import type {
   VNode,
+} from '@td/adapter-vue';
+import {
+  computed,
   defineComponent,
   h,
+  nextTick,
+  onMounted,
+  onUnmounted,
   provide,
   reactive,
   ref,
-  computed,
-  onMounted,
-  watch,
-  nextTick,
   toRefs,
-  onUnmounted,
+  watch,
 } from '@td/adapter-vue';
-import { isString } from 'lodash-es';
-import { isNumber } from 'lodash-es';
-import { isNil } from 'lodash-es';
-import { throttle } from 'lodash-es';
+import { isFunction, isNil, isNumber, isString, throttle } from 'lodash-es';
 
 import props from '@td/intel/radio/radio-group-props';
-import { RadioOptionObj, RadioOption } from '@td/intel/radio/type';
-import Radio from './radio';
-import { RadioGroupInjectionKey } from './constants';
-import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
-import { useVModel } from '@td/adapter-hooks';
-import { useTNodeDefault } from '@td/adapter-hooks';
-import useKeyboard from './useKeyboard';
-import { isFunction } from 'lodash-es';
+import type { RadioOption, RadioOptionObj } from '@td/intel/radio/type';
+import { useCommonClassName, usePrefixClass, useResizeObserver, useTNodeDefault, useVModel } from '@td/adapter-hooks';
 import { useMutationObserver } from '../watermark/hooks';
 import type { UseMutationObserverReturn } from '../watermark/hooks';
-import { useResizeObserver } from '@td/adapter-hooks';
+import useKeyboard from './useKeyboard';
+import { RadioGroupInjectionKey } from './constants';
+import Radio from './radio';
 
 export default defineComponent({
   name: 'TRadioGroup',
@@ -47,7 +42,7 @@ export default defineComponent({
 
     const checkedClassName = computed(() => `.${radioBtnName.value}.${STATUS.value.checked}`);
 
-    const barStyle = ref({ width: '0px', height: '0px', left: '0px', top: '0px', 'transition-property': 'none' });
+    const barStyle = ref({ 'width': '0px', 'height': '0px', 'left': '0px', 'top': '0px', 'transition-property': 'none' });
 
     const calcDefaultBarStyle = () => {
       const div = document.createElement('div');
@@ -68,7 +63,9 @@ export default defineComponent({
     };
 
     const calcBarStyle = (disableAnimation = false) => {
-      if (props.variant === 'outline') return;
+      if (props.variant === 'outline') {
+        return;
+      }
 
       const checkedRadio: HTMLElement = radioGroupRef.value.querySelector(checkedClassName.value);
 
@@ -76,10 +73,10 @@ export default defineComponent({
       if (!checkedRadio) {
         barStyle.value = {
           'transition-property': transitionProperty,
-          width: '0px',
-          height: '9px',
-          left: '0px',
-          top: '0px',
+          'width': '0px',
+          'height': '9px',
+          'left': '0px',
+          'top': '0px',
         };
         return;
       }
@@ -91,10 +88,10 @@ export default defineComponent({
       } else {
         barStyle.value = {
           'transition-property': transitionProperty,
-          width: `${offsetWidth}px`,
-          height: `${offsetHeight}px`,
-          left: `${offsetLeft}px`,
-          top: `${offsetTop}px`,
+          'width': `${offsetWidth}px`,
+          'height': `${offsetHeight}px`,
+          'left': `${offsetLeft}px`,
+          'top': `${offsetTop}px`,
         };
       }
     };
@@ -158,8 +155,9 @@ export default defineComponent({
     const radioGroupName = usePrefixClass('radio-group');
     const renderSlot = useTNodeDefault();
     const renderBlock = (): VNode => {
-      if (props.variant.includes('filled') && !isNil(innerValue.value))
+      if (props.variant.includes('filled') && !isNil(innerValue.value)) {
         return <div style={barStyle.value} class={`${radioGroupName.value}__bg-block`} />;
+      }
     };
     const renderOptions = (): VNode[] => {
       return props.options?.map((option: RadioOption) => {

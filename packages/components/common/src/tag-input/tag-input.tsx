@@ -1,26 +1,25 @@
-import { defineComponent, computed, toRefs, ref, nextTick, reactive, watch } from '@td/adapter-vue';
+import { computed, defineComponent, nextTick, reactive, ref, toRefs, watch } from '@td/adapter-vue';
 import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-import TInput, { InputProps, StrInputProps, TdInputProps } from '../input';
-import { TdTagInputProps } from '@td/intel/tag-input/type';
+import type { TdTagInputProps } from '@td/intel/tag-input/type';
 import props from '@td/intel/tag-input/props';
+import { useDefault, useGlobalIcon, usePrefixClass } from '@td/adapter-hooks';
+import { isArray } from 'lodash-es';
+import type { InputProps, StrInputProps, TdInputProps } from '../input';
+import TInput from '../input';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { useConfig } from '../config-provider/useConfig';
-import { usePrefixClass } from '@td/adapter-hooks';
-import { useGlobalIcon } from '@td/adapter-hooks';
 import useTagScroll from './hooks/useTagScroll';
 import useTagList from './useTagList';
 import useHover from './hooks/useHover';
-import { useDefault } from '@td/adapter-hooks';
 import useDragSorter from './hooks/useDragSorter';
-import { isArray } from 'lodash-es';
 
-const useComponentClassName = () => {
+function useComponentClassName() {
   return {
     NAME_CLASS: usePrefixClass('tag-input'),
     CLEAR_CLASS: usePrefixClass('tag-input__suffix-clear'),
     BREAK_LINE_CLASS: usePrefixClass('tag-input--break-line'),
   };
-};
+}
 
 export default defineComponent({
   name: 'TTagInput',
@@ -58,12 +57,12 @@ export default defineComponent({
         targetClassNameRegExp: new RegExp(`^${classPrefix.value}-tag`),
       },
     });
-    const { scrollToRight, onWheel, scrollToRightOnEnter, scrollToLeftOnLeave, tagInputRef, isScrollable } =
-      useTagScroll(props);
+    const { scrollToRight, onWheel, scrollToRightOnEnter, scrollToLeftOnLeave, tagInputRef, isScrollable }
+      = useTagScroll(props);
     // handle tag add and remove
     // 需要响应式，为了尽量的和 react 版本做法相同，这里进行响应式处理
-    const { tagValue, onInnerEnter, onInputBackspaceKeyUp, onInputBackspaceKeyDown, clearAll, renderLabel, onClose } =
-      useTagList(
+    const { tagValue, onInnerEnter, onInputBackspaceKeyUp, onInputBackspaceKeyDown, clearAll, renderLabel, onClose }
+      = useTagList(
         reactive({
           ...toRefs(props),
           getDragProps,
@@ -86,11 +85,11 @@ export default defineComponent({
 
     const showClearIcon = computed(() =>
       Boolean(
-        !readonly.value &&
-          !disabled.value &&
-          clearable.value &&
-          isHover.value &&
-          (tagValue.value?.length || tInputValue.value),
+        !readonly.value
+        && !disabled.value
+        && clearable.value
+        && isHover.value
+        && (tagValue.value?.length || tInputValue.value),
       ),
     );
 
@@ -116,7 +115,9 @@ export default defineComponent({
     };
 
     const onClick: TdInputProps['onClick'] = (ctx) => {
-      if (disabled.value) return;
+      if (disabled.value) {
+        return;
+      }
       isFocused.value = true;
       tagInputRef.value.focus();
       props.onClick?.(ctx);
@@ -147,7 +148,9 @@ export default defineComponent({
     };
 
     const onInnerFocus: InputProps['onFocus'] = (inputValue: string, context: { e: MouseEvent }) => {
-      if (isFocused.value) return;
+      if (isFocused.value) {
+        return;
+      }
       isFocused.value = true;
       props.onFocus?.(tagValue.value, { e: context.e, inputValue });
     };
@@ -165,11 +168,16 @@ export default defineComponent({
     watch(
       () => isScrollable.value,
       (v) => {
-        if (props.excessTagsDisplayType !== 'scroll') return;
+        if (props.excessTagsDisplayType !== 'scroll') {
+          return;
+        }
         const scrollElementClass = `${classPrefix.value}-input__prefix`;
         const scrollElement = tagInputRef.value.$el.querySelector(`.${scrollElementClass}`);
-        if (v) scrollElement.classList.add(`${scrollElementClass}--scrollable`);
-        else scrollElement.classList.remove(`${scrollElementClass}--scrollable`);
+        if (v) {
+          scrollElement.classList.add(`${scrollElementClass}--scrollable`);
+        } else {
+          scrollElement.classList.remove(`${scrollElementClass}--scrollable`);
+        }
       },
     );
     return {
@@ -212,11 +220,13 @@ export default defineComponent({
 
   render() {
     const { CloseCircleFilledIcon } = this;
-    const suffixIconNode = this.showClearIcon ? (
-      <CloseCircleFilledIcon class={this.CLEAR_CLASS} onClick={this.onClearClick} />
-    ) : (
-      renderTNodeJSX(this, 'suffixIcon')
-    );
+    const suffixIconNode = this.showClearIcon
+      ? (
+        <CloseCircleFilledIcon class={this.CLEAR_CLASS} onClick={this.onClearClick} />
+        )
+      : (
+          renderTNodeJSX(this, 'suffixIcon')
+        );
     const prefixIconNode = renderTNodeJSX(this, 'prefixIcon');
     const suffixClass = `${this.classPrefix}-tag-input__with-suffix-icon`;
     if (suffixIconNode && !this.classes.includes(suffixClass)) {

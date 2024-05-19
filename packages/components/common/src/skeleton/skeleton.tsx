@@ -1,19 +1,16 @@
-import { h, defineComponent, ref, watch } from '@td/adapter-vue';
-import { isNumber } from 'lodash-es';
-import { isFunction } from 'lodash-es';
+import { defineComponent, h, ref, watch } from '@td/adapter-vue';
+import { isArray, isFunction, isNumber } from 'lodash-es';
 import props from '@td/intel/skeleton/props';
-import { SkeletonRowCol, SkeletonRowColObj, TdSkeletonProps } from '@td/intel/skeleton/type';
-import { usePrefixClass } from '@td/adapter-hooks';
-import { useContent } from '@td/adapter-hooks';
-import { isArray } from 'lodash-es';
+import type { SkeletonRowCol, SkeletonRowColObj, TdSkeletonProps } from '@td/intel/skeleton/type';
+import { useContent, usePrefixClass } from '@td/adapter-hooks';
 
 const ThemeMap: Record<TdSkeletonProps['theme'], SkeletonRowCol> = {
-  text: [1],
-  avatar: [{ type: 'circle', size: '56px' }],
-  paragraph: [1, 1, { width: '70%' }],
+  'text': [1],
+  'avatar': [{ type: 'circle', size: '56px' }],
+  'paragraph': [1, 1, { width: '70%' }],
   'avatar-text': [[{ type: 'circle' }, { type: 'text', height: '32px' }]],
-  tab: [{ height: '30px' }, { height: '200px' }],
-  article: [
+  'tab': [{ height: '30px' }, { height: '200px' }],
+  'article': [
     { type: 'rect', height: '30px', width: '100%' },
     { type: 'rect', height: '200px', width: '100%' },
     [
@@ -36,7 +33,7 @@ const ThemeMap: Record<TdSkeletonProps['theme'], SkeletonRowCol> = {
   ],
 };
 
-const getColItemStyle = (obj: SkeletonRowColObj) => {
+function getColItemStyle(obj: SkeletonRowColObj) {
   const styleName = ['width', 'height', 'marginRight', 'marginLeft', 'margin', 'size', 'background', 'backgroundColor'];
   const style = Object.create(null);
   styleName.forEach((name) => {
@@ -50,7 +47,7 @@ const getColItemStyle = (obj: SkeletonRowColObj) => {
     }
   });
   return style;
-};
+}
 
 export default defineComponent({
   name: 'TSkeleton',
@@ -67,7 +64,7 @@ export default defineComponent({
       { [`${COMPONENT_NAME.value}--animation-${props.animation}`]: props.animation },
     ];
 
-    const renderCols = (_cols: Number | SkeletonRowColObj | Array<SkeletonRowColObj>) => {
+    const renderCols = (_cols: number | SkeletonRowColObj | Array<SkeletonRowColObj>) => {
       let cols: Array<SkeletonRowColObj> = [];
       if (isArray(_cols)) {
         cols = _cols;
@@ -76,7 +73,7 @@ export default defineComponent({
       } else {
         cols = [_cols as SkeletonRowColObj];
       }
-      return cols.map((obj) => (
+      return cols.map(obj => (
         <div class={getColItemClass(obj)} style={getColItemStyle(obj)}>
           {isFunction(obj.content) ? obj.content(h) : obj.content}
         </div>
@@ -88,7 +85,7 @@ export default defineComponent({
 
       const getBlockClass = () => [`${COMPONENT_NAME.value}__row`];
 
-      return rowCol.map((item) => <div class={getBlockClass()}>{renderCols(item)}</div>);
+      return rowCol.map(item => <div class={getBlockClass()}>{renderCols(item)}</div>);
     };
 
     watch(

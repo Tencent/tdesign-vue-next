@@ -1,6 +1,6 @@
-import _Card from './card';
 import { withInstall } from '@td/adapter-utils';
-import { TdCardProps } from '@td/intel/card/type';
+import type { TdCardProps } from '@td/intel/card/type';
+import _Card from './card';
 
 import './style';
 

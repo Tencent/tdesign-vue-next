@@ -1,8 +1,9 @@
 import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, reactive, ref } from '@td/adapter-vue';
-import { SATURATION_PANEL_DEFAULT_HEIGHT, SATURATION_PANEL_DEFAULT_WIDTH } from '../const';
-import { Draggable, Coordinate } from '../utils';
-import { useBaseClassName } from '../hooks';
 import baseProps from '@td/intel/color-picker/panel/base-props';
+import { SATURATION_PANEL_DEFAULT_HEIGHT, SATURATION_PANEL_DEFAULT_WIDTH } from '../const';
+import type { Coordinate } from '../utils';
+import { Draggable } from '../utils';
+import { useBaseClassName } from '../hooks';
 
 export default defineComponent({
   name: 'SaturationPanel',

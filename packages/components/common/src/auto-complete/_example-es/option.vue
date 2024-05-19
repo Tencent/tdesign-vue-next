@@ -1,36 +1,8 @@
-<template>
-  <t-space direction="vertical" class="t-demo-autocomplete-option">
-    <!-- 使用 options 自定义下拉选项 -->
-    <t-auto-complete
-      v-model="value1"
-      :options="options1"
-      :popup-props="{ overlayClassName: 't-demo-autocomplete-option-list' }"
-      placeholder="使用属性自定义联想词选项内容"
-    />
-
-    <!-- 使用插槽自定义下拉选项 -->
-    <t-auto-complete
-      v-model="value2"
-      :options="options2"
-      :popup-props="{ overlayClassName: 't-demo-autocomplete-option-list' }"
-      placeholder="使用插槽自定义联想词选项内容"
-    >
-      <template #option="{ option }">
-        <div class="custom-option">
-          <img :src="option.avatar" />
-          <div class="custom-option__main">
-            <t-highlight-option :content="option.text" :keyword="value2" />
-            <small class="description">{{ option.description }}</small>
-          </div>
-        </div>
-      </template>
-    </t-auto-complete>
-  </t-space>
-</template>
-
 <script lang="tsx" setup>
-import { ref, computed } from 'vue';
-import { HighlightOption as THighlightOption, AutoCompleteProps } from 'tdesign-vue-next';
+import { computed, ref } from 'vue';
+import type { AutoCompleteProps } from 'tdesign-vue-next';
+import { HighlightOption as THighlightOption } from 'tdesign-vue-next';
+
 const TEXTS = ['第一个默认联想词', '第二个默认联想词', '第三个默认联想词'];
 const value1 = ref('');
 const value2 = ref('');
@@ -52,7 +24,7 @@ const options2 = ref<AutoCompleteProps['options']>([
   },
 ]);
 const options1 = computed<AutoCompleteProps['options']>(() =>
-  TEXTS.map((text) => ({
+  TEXTS.map(text => ({
     text,
     label: () => (
       <div class="custom-option">
@@ -66,6 +38,36 @@ const options1 = computed<AutoCompleteProps['options']>(() =>
   })),
 );
 </script>
+
+<template>
+  <t-space direction="vertical" class="t-demo-autocomplete-option">
+    <!-- 使用 options 自定义下拉选项 -->
+    <t-auto-complete
+      v-model="value1"
+      :options="options1"
+      :popup-props="{ overlayClassName: 't-demo-autocomplete-option-list' }"
+      placeholder="使用属性自定义联想词选项内容"
+    />
+
+    <!-- 使用插槽自定义下拉选项 -->
+    <t-auto-complete
+      v-model="value2"
+      :options="options2"
+      :popup-props="{ overlayClassName: 't-demo-autocomplete-option-list' }"
+      placeholder="使用插槽自定义联想词选项内容"
+    >
+      <template #option="{ option }">
+        <div class="custom-option">
+          <img :src="option.avatar">
+          <div class="custom-option__main">
+            <THighlightOption :content="option.text" :keyword="value2" />
+            <small class="description">{{ option.description }}</small>
+          </div>
+        </div>
+      </template>
+    </t-auto-complete>
+  </t-space>
+</template>
 
 <style>
 .t-demo-autocomplete-option-list .t-select-option {

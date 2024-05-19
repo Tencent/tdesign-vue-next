@@ -1,26 +1,23 @@
-import { defineComponent, ref, computed, watch, onMounted, toRefs } from '@td/adapter-vue';
-import { isArray } from 'lodash-es';
-import { isEmpty } from 'lodash-es';
-import { isBoolean } from 'lodash-es';
-import { isFunction } from 'lodash-es';
-import { isNil } from 'lodash-es';
+import { computed, defineComponent, onMounted, ref, toRefs, watch } from '@td/adapter-vue';
+import { isArray, isBoolean, isEmpty, isFunction, isNil } from 'lodash-es';
 
-import Tree, { TreeProps, TreeNodeModel, TreeNodeValue } from '../tree';
-import SelectInput, { TdSelectInputProps } from '../select-input';
-import FakeArrow from '../common-components/fake-arrow';
-import { PopupVisibleChangeContext } from '../popup';
-
-import { INodeOptions } from './interface';
-import { TreeSelectValue, TdTreeSelectProps, TreeSelectValueChangeTrigger } from '@td/intel/tree-select/type';
-import { TreeOptionData } from '../common';
+import type { TdTreeSelectProps, TreeSelectValue, TreeSelectValueChangeTrigger } from '@td/intel/tree-select/type';
 import props from '@td/intel/tree-select/props';
 
 // hooks
-import { usePrefixClass, useConfig } from '@td/adapter-hooks';
-import { useFormDisabled } from '../form/hooks';
-import { useTNodeJSX, useTNodeDefault } from '@td/adapter-hooks';
+import { useConfig, usePrefixClass } from '@td/adapter-hooks';
+import { useTNodeDefault, useTNodeJSX } from '@td/adapter-hooks';
 import { useVModel } from '@td/adapter-hooks';
 import { useDefaultValue } from '@td/adapter-hooks';
+import { useFormDisabled } from '../form/hooks';
+import type { TreeOptionData } from '../common';
+import type { PopupVisibleChangeContext } from '../popup';
+import SelectInput from '../select-input';
+import type { TdSelectInputProps } from '../select-input';
+import Tree from '../tree';
+import type { TreeNodeModel, TreeNodeValue, TreeProps } from '../tree';
+import FakeArrow from '../common-components/fake-arrow';
+import type { INodeOptions } from './interface';
 
 export default defineComponent({
   name: 'TTreeSelect',
@@ -89,7 +86,7 @@ export default defineComponent({
             return filter;
           }
         }
-        return node.data[realLabel.value].indexOf(value) >= 0;
+        return node.data[realLabel.value].includes(value);
       };
     });
     const tDisabled = computed(() => {
@@ -118,11 +115,11 @@ export default defineComponent({
       if (props.multiple) {
         if (isObjectValue.value) {
           return isArray(treeSelectValue.value)
-            ? (treeSelectValue.value as Array<TreeSelectValue>).map((item) => (item as INodeOptions).value)
+            ? (treeSelectValue.value as Array<TreeSelectValue>).map(item => (item as INodeOptions).value)
             : [];
         }
         return isArray(treeSelectValue.value)
-          ? (treeSelectValue.value as Array<TreeSelectValue>).map((item) => item as TreeNodeValue)
+          ? (treeSelectValue.value as Array<TreeSelectValue>).map(item => item as TreeNodeValue)
           : [];
       }
       return [];
@@ -130,10 +127,10 @@ export default defineComponent({
 
     const multiLimitDisabled = computed(() => {
       return (
-        props.multiple &&
-        !!props.max &&
-        isArray(treeSelectValue.value) &&
-        props.max <= (treeSelectValue.value as Array<TreeSelectValue>).length
+        props.multiple
+        && !!props.max
+        && isArray(treeSelectValue.value)
+        && props.max <= (treeSelectValue.value as Array<TreeSelectValue>).length
       );
     });
 
@@ -165,7 +162,7 @@ export default defineComponent({
       }
       if (isObjectValue.value) {
         actived.value = isArray(treeSelectValue.value)
-          ? (treeSelectValue.value as Array<TreeSelectValue>).map((item) => (item as INodeOptions).value)
+          ? (treeSelectValue.value as Array<TreeSelectValue>).map(item => (item as INodeOptions).value)
           : [(treeSelectValue.value as INodeOptions).value];
       } else {
         (actived.value as TreeSelectValue) = isArray(treeSelectValue.value)
@@ -199,7 +196,7 @@ export default defineComponent({
     ) => {
       let current: TreeSelectValue = valueParam;
       if (isObjectValue.value) {
-        current = valueParam.map((nodeValue) => getTreeNode(props.data, nodeValue));
+        current = valueParam.map(nodeValue => getTreeNode(props.data, nodeValue));
       }
       change(current, context.node, 'check');
     };
@@ -260,7 +257,9 @@ export default defineComponent({
     const handlePopupVisibleChange = (visible: boolean, context: PopupVisibleChangeContext) => {
       setInnerVisible(visible, context);
       // 在通过点击选择器打开弹窗时 清空此前的输入内容 避免在关闭时就清空引起的闪烁问题
-      if (visible && context.trigger === 'trigger-element-click') setInnerInputValue('');
+      if (visible && context.trigger === 'trigger-element-click') {
+        setInnerInputValue('');
+      }
     };
     const changeNodeInfo = async () => {
       await treeSelectValue.value;
@@ -447,8 +446,7 @@ export default defineComponent({
               : {
                   value: nodeInfo.value || { [realLabel.value]: '', [realValue.value]: undefined },
                 },
-          })
-        }
+          })}
         v-slots={{
           suffix: slots.suffix,
           panel: () => (

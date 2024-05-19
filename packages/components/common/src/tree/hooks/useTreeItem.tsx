@@ -1,12 +1,13 @@
-import { onMounted, reactive, TypeCreateElement, usePrefixClass, useLazyLoad, TypeVNode } from '../adapt';
-import { TypeTreeItemState } from '../tree-types';
+import { onUpdated } from '@td/adapter-vue';
+import type { TypeCreateElement, TypeVNode } from '../adapt';
+import { onMounted, reactive, useLazyLoad, usePrefixClass } from '../adapt';
+import type { TypeTreeItemState } from '../tree-types';
 import useItemEvents from './useItemEvents';
 import useRenderIcon from './useRenderIcon';
 import useRenderLabel from './useRenderLabel';
 import useRenderLine from './useRenderLine';
 import useRenderOperations from './useRenderOperations';
 import useDraggable from './useDraggable';
-import { onUpdated } from '@td/adapter-vue';
 
 export default function useTreeItem(state: TypeTreeItemState) {
   const { treeScope, treeItemRef } = state;
@@ -19,8 +20,8 @@ export default function useTreeItem(state: TypeTreeItemState) {
   const { renderLabel } = useRenderLabel(state);
   const { renderLine } = useRenderLine(state);
   const { renderOperations } = useRenderOperations(state);
-  const { dragStates, handleDragStart, handleDragEnd, handleDragOver, handleDragLeave, handleDrop } =
-    useDraggable(state);
+  const { dragStates, handleDragStart, handleDragEnd, handleDragOver, handleDragLeave, handleDrop }
+    = useDraggable(state);
 
   const { hasLazyLoadHolder, tRowHeight } = useLazyLoad(
     treeContentRef,
@@ -124,7 +125,9 @@ export default function useTreeItem(state: TypeTreeItemState) {
 
   const renderItemNode = (h: TypeCreateElement) => {
     const { node, props } = state;
-    if (!node) return null;
+    if (!node) {
+      return null;
+    }
 
     const { level, value } = node;
     const styles = getItemStyles();

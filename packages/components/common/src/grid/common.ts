@@ -1,12 +1,9 @@
 import { ref } from '@td/adapter-vue';
-import { isUndefined } from 'lodash-es';
-import { isNumber } from 'lodash-es';
-import { isObject } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { isArray, isNumber, isObject, isUndefined } from 'lodash-es';
 
-import { TdColProps, TdRowProps } from '@td/intel/grid/type';
-import { calcSize } from '../utils/responsive';
+import type { TdColProps, TdRowProps } from '@td/intel/grid/type';
 import { useListener } from '@td/adapter-hooks';
+import { calcSize } from '../utils/responsive';
 import { isServer } from '../utils/dom';
 
 export interface RowProviderType {
@@ -187,10 +184,10 @@ export function getColClasses(name: string, props: TdColProps) {
     return {
       ...acc,
       [`${name}-${currSize}-${sizeObject.span}`]: !isUndefined(sizeObject.span),
-      [`${name}-${currSize}-order-${sizeObject.order}`]: parseInt(sizeObject.order, 10) >= 0,
-      [`${name}-${currSize}-offset-${sizeObject.offset}`]: parseInt(sizeObject.offset, 10) >= 0,
-      [`${name}-${currSize}-push-${sizeObject.push}`]: parseInt(sizeObject.push, 10) >= 0,
-      [`${name}-${currSize}-pull-${sizeObject.pull}`]: parseInt(sizeObject.pull, 10) >= 0,
+      [`${name}-${currSize}-order-${sizeObject.order}`]: Number.parseInt(sizeObject.order, 10) >= 0,
+      [`${name}-${currSize}-offset-${sizeObject.offset}`]: Number.parseInt(sizeObject.offset, 10) >= 0,
+      [`${name}-${currSize}-push-${sizeObject.push}`]: Number.parseInt(sizeObject.push, 10) >= 0,
+      [`${name}-${currSize}-pull-${sizeObject.pull}`]: Number.parseInt(sizeObject.pull, 10) >= 0,
     };
   }, {});
 

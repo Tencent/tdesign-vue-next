@@ -1,4 +1,4 @@
-import { DirectiveBinding } from '@td/adapter-vue';
+import type { DirectiveBinding } from '@td/adapter-vue';
 import { getAttach } from './dom';
 
 // Set code to be same as Vue2.
@@ -7,7 +7,9 @@ import { getAttach } from './dom';
  */
 const TransferDom = {
   mounted(el: HTMLElement, binding: DirectiveBinding) {
-    if (!binding.value) return;
+    if (!binding.value) {
+      return;
+    }
     const parentNode = getAttach(binding.value);
     parentNode?.appendChild(el);
   },

@@ -1,5 +1,6 @@
-import { InjectionKey, ComputedRef, computed } from '@td/adapter-vue';
-import { TdTimelineProps } from '@td/intel/timeline/type';
+import type { ComputedRef, InjectionKey } from '@td/adapter-vue';
+import { computed } from '@td/adapter-vue';
+import type { TdTimelineProps } from '@td/intel/timeline/type';
 
 export const DefaultAlign = {
   vertical: ['left', 'right'],

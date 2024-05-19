@@ -1,14 +1,17 @@
-import { computed, defineComponent, onBeforeUnmount, onMounted, PropType, ref, SetupContext, toRefs, watch } from '@td/adapter-vue';
-import Popup, { PopupInstanceFunctions, PopupProps, PopupVisibleChangeContext } from '../popup';
+import type { PropType, SetupContext } from '@td/adapter-vue';
+import { computed, defineComponent, onBeforeUnmount, onMounted, ref, toRefs, watch } from '@td/adapter-vue';
 import props from '@td/intel/select-input/props';
-import { TdSelectInputProps } from '@td/intel/select-input/type';
-import useSingle, { SelectInputValueDisplayOptions } from './useSingle';
+import type { TdSelectInputProps } from '@td/intel/select-input/type';
+import { usePrefixClass } from '@td/adapter-hooks';
+import type { PopupInstanceFunctions, PopupProps, PopupVisibleChangeContext } from '../popup';
+import Popup from '../popup';
+import { useTNodeJSX } from '../hooks';
+import type { SelectInputValueDisplayOptions } from './useSingle';
+import useSingle from './useSingle';
 import useMultiple from './useMultiple';
 import useOverlayInnerStyle from './useOverlayInnerStyle';
-import { usePrefixClass } from '@td/adapter-hooks';
-import { useTNodeJSX } from '../hooks';
 
-const useComponentClassName = () => {
+function useComponentClassName() {
   return {
     NAME_CLASS: usePrefixClass('select-input'),
     BASE_CLASS_BORDERLESS: usePrefixClass('select-input--borderless'),
@@ -16,7 +19,7 @@ const useComponentClassName = () => {
     BASE_CLASS_POPUP_VISIBLE: usePrefixClass('select-input--popup-visible'),
     BASE_CLASS_EMPTY: usePrefixClass('select-input--empty'),
   };
-};
+}
 
 export default defineComponent({
   name: 'TSelectInput',
@@ -28,15 +31,15 @@ export default defineComponent({
      * 自定义值呈现的选项
      * useInputDisplay 表示在使用时仍然使用组件自带的输入回显实现，
      * usePlaceholder 表示在使用时仍然使用自带的占位符实现
-     * */
+     */
     valueDisplayOptions: {
       type: Object as PropType<SelectInputValueDisplayOptions>,
     },
   },
 
   setup(props: TdSelectInputProps & { valueDisplayOptions: SelectInputValueDisplayOptions }, context: SetupContext) {
-    const { NAME_CLASS, BASE_CLASS_BORDERLESS, BASE_CLASS_MULTIPLE, BASE_CLASS_POPUP_VISIBLE, BASE_CLASS_EMPTY } =
-      useComponentClassName();
+    const { NAME_CLASS, BASE_CLASS_BORDERLESS, BASE_CLASS_MULTIPLE, BASE_CLASS_POPUP_VISIBLE, BASE_CLASS_EMPTY }
+      = useComponentClassName();
     const classPrefix = usePrefixClass();
     const renderTNodeJSX = useTNodeJSX();
 
@@ -58,7 +61,7 @@ export default defineComponent({
         [BASE_CLASS_MULTIPLE.value]: multiple.value,
         [BASE_CLASS_BORDERLESS.value]: borderless.value,
         [BASE_CLASS_POPUP_VISIBLE.value]: popupVisible.value ?? innerPopupVisible.value,
-        [BASE_CLASS_EMPTY.value]: value.value instanceof Array ? !value.value.length : !value.value,
+        [BASE_CLASS_EMPTY.value]: Array.isArray(value.value) ? !value.value.length : !value.value,
       },
     ]);
 
@@ -71,7 +74,9 @@ export default defineComponent({
     };
 
     watch([isFocus], ([isFocus]) => {
-      if (popupVisible.value) return;
+      if (popupVisible.value) {
+        return;
+      }
       if (isFocus) {
         selectInputRef.value.addEventListener('keydown', addKeyboardEventListener);
       } else {
@@ -92,8 +97,12 @@ export default defineComponent({
     const onOverlayClick: PopupProps['onOverlayClick'] = (ctx) => {
       ctx.e?.stopPropagation();
       // do not set focus if target can be focused
-      if ((ctx.e.target as HTMLElement).tabIndex >= 0) return;
-      if (props.multiple) tagInputRef.value?.focus();
+      if ((ctx.e.target as HTMLElement).tabIndex >= 0) {
+        return;
+      }
+      if (props.multiple) {
+        tagInputRef.value?.focus();
+      }
     };
 
     return {
@@ -136,11 +145,11 @@ export default defineComponent({
       >
         {this.multiple
           ? this.renderSelectMultiple({
-              commonInputProps: this.commonInputProps,
-              onInnerClear: this.onInnerClear,
-              popupVisible: visibleProps.visible,
-              allowInput: this.allowInput,
-            })
+            commonInputProps: this.commonInputProps,
+            onInnerClear: this.onInnerClear,
+            popupVisible: visibleProps.visible,
+            allowInput: this.allowInput,
+          })
           : this.renderSelectSingle(visibleProps.visible)}
       </Popup>
     );

@@ -1,5 +1,6 @@
-import { ref, watch, TypeCreateElement, privateKey, TypeVNode } from '../adapt';
-import { TypeTreeRow, TypeTreeNode, TypeTreeState } from '../tree-types';
+import type { TypeCreateElement, TypeVNode } from '../adapt';
+import { privateKey, ref, watch } from '../adapt';
+import type { TypeTreeNode, TypeTreeRow, TypeTreeState } from '../tree-types';
 import TreeItem from '../tree-item';
 import useTreeEvents from './useTreeEvents';
 
@@ -17,7 +18,9 @@ export default function useTreeNodes(state: TypeTreeState) {
 
   const refreshVisibleNodes = () => {
     const isVirtual = virtualConfig?.isVirtualScroll.value;
-    if (isVirtual) return;
+    if (isVirtual) {
+      return;
+    }
     // 非虚拟滚动，渲染可视节点
     const list: TypeTreeNode[] = [];
     // 非虚拟滚动，缓存曾经展示过的节点
@@ -46,7 +49,9 @@ export default function useTreeNodes(state: TypeTreeState) {
 
   const refreshVirtualNodes = () => {
     const isVirtual = virtualConfig?.isVirtualScroll.value;
-    if (!isVirtual) return;
+    if (!isVirtual) {
+      return;
+    }
     // 虚拟滚动只渲染可见节点
     const list = virtualConfig.visibleData.value;
     nodes.value = list;

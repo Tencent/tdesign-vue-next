@@ -1,12 +1,11 @@
 import { getCurrentInstance } from '@td/adapter-vue';
-import { isString } from 'lodash-es';
-import { isObject } from 'lodash-es';
-import { omit } from 'lodash-es';
+import { isObject, isString, omit } from 'lodash-es';
 import { useTNodeJSX } from '@td/adapter-hooks';
-import TButton, { ButtonProps } from '../button';
-import { PopconfirmConfig, DialogConfig, DrawerConfig } from '../config-provider';
-import type { ClassName } from '../common';
 import type { TdDialogProps } from '@td/intel/dialog/type';
+import type { ButtonProps } from '../button';
+import TButton from '../button';
+import type { DialogConfig, DrawerConfig, PopconfirmConfig } from '../config-provider';
+import type { ClassName } from '../common';
 
 export interface MixinsConfirmBtn {
   theme?: MixinsThemeType;
@@ -92,7 +91,9 @@ export function useAction(action: BtnAction) {
   };
   const getConfirmBtn = (options: MixinsConfirmBtn) => {
     const { confirmBtn, className, confirmLoading } = options;
-    if (confirmBtn === null) return null;
+    if (confirmBtn === null) {
+      return null;
+    }
     if (confirmBtn && instance.slots.confirmBtn) {
       console.warn('Both $props.confirmBtn and $scopedSlots.confirmBtn exist, $props.confirmBtn is preferred.');
     }
@@ -114,7 +115,9 @@ export function useAction(action: BtnAction) {
   };
   const getCancelBtn = (options: MixinsCancelBtn) => {
     const { cancelBtn, className } = options;
-    if (cancelBtn === null) return null;
+    if (cancelBtn === null) {
+      return null;
+    }
     if (cancelBtn && instance.slots.cancelBtn) {
       console.warn('Both $props.cancelBtn and $scopedSlots.cancelBtn exist, $props.cancelBtn is preferred.');
     }

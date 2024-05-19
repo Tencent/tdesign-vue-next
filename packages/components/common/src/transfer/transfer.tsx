@@ -1,28 +1,25 @@
-import { defineComponent, computed, toRefs } from '@td/adapter-vue';
-import { pick } from 'lodash-es';
+import { computed, defineComponent, toRefs } from '@td/adapter-vue';
+import { isFunction, pick } from 'lodash-es';
+import props from '@td/intel/transfer/props';
+import { useDefaultValue, usePrefixClass, useVModel } from '@td/adapter-hooks';
+import type { PageInfo, TdPaginationProps } from '../pagination/type';
+import type { TNode } from '../common';
+import { useFormDisabled } from '../form/hooks';
 import TransferList from './components/transfer-list';
 import TransferOperations from './components/transfer-operations';
-import { TransferListType, CheckedOptions, TransferValue, EmptyType, TargetParams, SearchEvent } from './interface';
+import type { CheckedOptions, EmptyType, SearchEvent, TargetParams, TransferListType, TransferValue } from './interface';
 
 import {
-  getTransferListOption,
-  getDataValues,
-  getTransferData,
-  filterTransferData,
-  TRANSFER_NAME,
   SOURCE,
   TARGET,
+  TRANSFER_NAME,
+  filterTransferData,
+  getDataValues,
+  getTransferData,
+  getTransferListOption,
 } from './utils';
-import { PageInfo, TdPaginationProps } from '../pagination/type';
-import props from '@td/intel/transfer/props';
-import { TNode } from '../common';
-import { useVModel } from '@td/adapter-hooks';
-import { useDefaultValue } from '@td/adapter-hooks';
 
 // hooks
-import { useFormDisabled } from '../form/hooks';
-import { usePrefixClass } from '@td/adapter-hooks';
-import { isFunction } from 'lodash-es';
 
 export default defineComponent({
   name: TRANSFER_NAME,
@@ -33,7 +30,7 @@ export default defineComponent({
     const classPrefix = usePrefixClass();
     const { value, modelValue, checked } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
-    // @ts-ignore TODO
+    // @ts-expect-error TODO
     const [innerChecked] = useDefaultValue(checked, props.defaultChecked, props.onCheckedChange, 'checked');
     const valueList = computed(() => innerValue.value);
 
@@ -116,7 +113,7 @@ export default defineComponent({
       const selfCheckedValue = toDirection === TARGET ? checkedValue.value[SOURCE] : checkedValue.value[TARGET];
       // target->source
       if (toDirection === SOURCE) {
-        newTargetValue = oldTargetValue.filter((v) => !selfCheckedValue.includes(v));
+        newTargetValue = oldTargetValue.filter(v => !selfCheckedValue.includes(v));
       } else if (props.targetSort === 'original') {
         // 按照原始顺序
         newTargetValue = getDataValues(transferData.value, oldTargetValue.concat(selfCheckedValue), {

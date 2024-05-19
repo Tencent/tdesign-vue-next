@@ -1,8 +1,8 @@
 import { computed, defineComponent, ref } from '@td/adapter-vue';
+import type { MessageOptions } from '@td/intel/message/type';
+import { usePrefixClass } from '@td/adapter-hooks';
 import { PLACEMENT_OFFSET } from './const';
 import TMessage from './message';
-import { MessageOptions } from '@td/intel/message/type';
-import { usePrefixClass } from '@td/adapter-hooks';
 
 export const DEFAULT_Z_INDEX = 6000;
 
@@ -51,7 +51,9 @@ export const MessageList = defineComponent({
     };
 
     const getOffset = (val: string | number) => {
-      if (!val) return;
+      if (!val) {
+        return;
+      }
       return isNaN(Number(val)) ? val : `${val}px`;
     };
 
@@ -92,7 +94,9 @@ export const MessageList = defineComponent({
     expose({ add, removeAll, list, messageList });
 
     return () => {
-      if (!list.value.length) return;
+      if (!list.value.length) {
+        return;
+      }
 
       return (
         <div class={COMPONENT_NAME.value} style={styles.value}>

@@ -1,12 +1,9 @@
-import { isNumber } from 'lodash-es';
-import { isObject } from 'lodash-es';
-import { isArray } from 'lodash-es';
-import { isEmpty } from 'lodash-es';
-import {
-  TreeNode,
+import { isArray, isEmpty, isNumber, isObject } from 'lodash-es';
+import type {
   CascaderContextType,
-  TdCascaderProps,
   CascaderValue,
+  TdCascaderProps,
+  TreeNode,
   TreeNodeValue,
   TreeOptionData,
 } from '../interface';
@@ -19,9 +16,13 @@ import {
  */
 export function getSingleContent(cascaderContext: CascaderContextType): string {
   const { value, multiple, treeStore, showAllLevels } = cascaderContext;
-  if (multiple || (value !== 0 && !value)) return '';
+  if (multiple || (value !== 0 && !value)) {
+    return '';
+  }
 
-  if (isArray(value)) return '';
+  if (isArray(value)) {
+    return '';
+  }
   const node = treeStore && treeStore.getNodes(value as TreeNodeValue | TreeNode);
   if (!(node && node.length)) {
     return value as string;
@@ -41,18 +42,24 @@ export function getSingleContent(cascaderContext: CascaderContextType): string {
 export function getMultipleContent(cascaderContext: CascaderContextType) {
   const { value, multiple, treeStore, showAllLevels } = cascaderContext;
 
-  if (!multiple) return [];
-  if (multiple && !isArray(value)) return [];
+  if (!multiple) {
+    return [];
+  }
+  if (multiple && !isArray(value)) {
+    return [];
+  }
 
   const node = treeStore && treeStore.getNodes(value as TreeNodeValue | TreeNode);
-  if (!node) return [];
+  if (!node) {
+    return [];
+  }
 
   return (value as TreeNodeValue[])
     .map((item: TreeNodeValue) => {
       const node = treeStore.getNodes(item);
       return showAllLevels ? getFullPathLabel(node[0]) : node[0]?.label;
     })
-    .filter((item) => !!item);
+    .filter(item => !!item);
 }
 
 /**
@@ -89,11 +96,11 @@ export function getFullPathLabel(node: TreeNode, separator = '/') {
  * @param value
  * @returns
  */
-export const getTreeValue = (value: CascaderContextType['value']) => {
+export function getTreeValue(value: CascaderContextType['value']) {
   let treeValue: TreeNodeValue[] = [];
   if (isArray(value)) {
     if (value.length > 0 && isObject(value[0])) {
-      treeValue = (value as TreeOptionData[]).map((val) => val.value);
+      treeValue = (value as TreeOptionData[]).map(val => val.value);
     } else if (value.length) {
       treeValue = value as TreeNodeValue[];
     }
@@ -105,7 +112,7 @@ export const getTreeValue = (value: CascaderContextType['value']) => {
     }
   }
   return treeValue;
-};
+}
 
 /**
  * 按数据类型计算通用数值
@@ -114,7 +121,7 @@ export const getTreeValue = (value: CascaderContextType['value']) => {
  * @param multiple
  * @returns
  */
-export const getCascaderValue = (value: CascaderValue, valueType: TdCascaderProps['valueType'], multiple: boolean) => {
+export function getCascaderValue(value: CascaderValue, valueType: TdCascaderProps['valueType'], multiple: boolean) {
   if (valueType === 'single') {
     return value;
   }
@@ -122,7 +129,7 @@ export const getCascaderValue = (value: CascaderValue, valueType: TdCascaderProp
     return (value as Array<CascaderValue>).map((item: TreeNodeValue[]) => item[item.length - 1]);
   }
   return value[(value as Array<CascaderValue>).length - 1];
-};
+}
 
 /**
  * 空值校验
@@ -131,7 +138,9 @@ export const getCascaderValue = (value: CascaderValue, valueType: TdCascaderProp
  * @returns
  */
 export function isEmptyValues(value: unknown): boolean {
-  if (isNumber(value) && !isNaN(value)) return false;
+  if (isNumber(value) && !isNaN(value)) {
+    return false;
+  }
   return isEmpty(value);
 }
 

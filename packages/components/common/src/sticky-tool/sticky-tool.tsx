@@ -1,15 +1,16 @@
-import { computed, defineComponent, VNode } from '@td/adapter-vue';
+import type { VNode } from '@td/adapter-vue';
+import { computed, defineComponent } from '@td/adapter-vue';
 import props from '@td/intel/sticky-tool/props';
 import { isObject } from 'lodash-es';
-import StickyItem from './sticky-item';
 
 import { usePrefixClass } from '@td/adapter-hooks';
-import { useChildComponentSlots } from '../hooks';
 
 import stickyItemProps from '@td/intel/sticky-tool/sticky-item-props';
 
 import type { TdStickyItemProps } from '@td/intel/sticky-tool/type';
+import { useChildComponentSlots } from '../hooks';
 import type { Styles } from '../common';
+import StickyItem from './sticky-item';
 
 export default defineComponent({
   name: 'TStickyTool',
@@ -21,7 +22,9 @@ export default defineComponent({
     });
     const styles = computed(() => {
       const styles = getOffset();
-      if (props.width) styles.width = typeof props.width === 'number' ? `${props.width}px` : props.width;
+      if (props.width) {
+        styles.width = typeof props.width === 'number' ? `${props.width}px` : props.width;
+      }
       return styles;
     });
 
@@ -42,7 +45,9 @@ export default defineComponent({
       nodes?.forEach((node) => {
         const list = node?.props || {};
         const children = node?.children;
-        if (!list && !children) return;
+        if (!list && !children) {
+          return;
+        }
         if (children && isObject(children)) {
           for (const key in children) {
             if (key in stickyItemProps && !list[key]) {

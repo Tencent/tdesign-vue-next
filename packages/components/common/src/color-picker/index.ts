@@ -1,7 +1,7 @@
+import { withInstall } from '@td/adapter-utils';
+import type { TdColorPickerProps } from '@td/intel/color-picker/type';
 import _ColorPickerPanel from './color-picker-panel';
 import _ColorPicker from './color-picker';
-import { withInstall } from '@td/adapter-utils';
-import { TdColorPickerProps } from '@td/intel/color-picker/type';
 
 import './style';
 

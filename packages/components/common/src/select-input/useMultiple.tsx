@@ -1,13 +1,14 @@
-import { SetupContext, computed, ref, toRefs, Ref } from '@td/adapter-vue';
+import type { Ref, SetupContext } from '@td/adapter-vue';
+import { computed, ref, toRefs } from '@td/adapter-vue';
 import { isObject } from 'lodash-es';
-import { TdSelectInputProps, SelectInputChangeContext, SelectInputKeys } from '@td/intel/select-input/type';
-import { SelectInputCommonProperties } from './interface';
-import TagInput, { TagInputValue, TagInputProps } from '../tag-input';
+import type { SelectInputChangeContext, SelectInputKeys, TdSelectInputProps } from '@td/intel/select-input/type';
+import { useDefault, usePrefixClass } from '@td/adapter-hooks';
+import type { TagInputProps, TagInputValue } from '../tag-input';
+import TagInput from '../tag-input';
 import Loading from '../loading';
-import { useDefault } from '@td/adapter-hooks';
-import { usePrefixClass } from '@td/adapter-hooks';
 import { useFormDisabled } from '../form/hooks';
-import { PopupInstanceFunctions } from '../popup';
+import type { PopupInstanceFunctions } from '../popup';
+import type { SelectInputCommonProperties } from './interface';
 
 export interface RenderSelectMultipleParams {
   commonInputProps: SelectInputCommonProperties;
@@ -41,10 +42,10 @@ export default function useMultiple(
 
   const iKeys = computed<SelectInputKeys>(() => ({ ...DEFAULT_KEYS, ...props.keys }));
   const tags = computed<TagInputValue>(() => {
-    if (!(props.value instanceof Array)) {
+    if (!(Array.isArray(props.value))) {
       return isObject(props.value) ? [props.value[iKeys.value.label]] : [props.value];
     }
-    return props.value.map((item) => (isObject(item) ? item[iKeys.value.label] : item));
+    return props.value.map(item => (isObject(item) ? item[iKeys.value.label] : item));
   });
 
   const tPlaceholder = computed<string>(() => (!tags.value || !tags.value.length ? props.placeholder : ''));
@@ -58,7 +59,9 @@ export default function useMultiple(
   };
 
   const onInputChange: TagInputProps['onInputChange'] = (val, ctx) => {
-    if (ctx.trigger === 'enter' || ctx.trigger === 'blur') return;
+    if (ctx.trigger === 'enter' || ctx.trigger === 'blur') {
+      return;
+    }
     setTInputValue(val, { trigger: ctx.trigger, e: ctx.e });
   };
 
@@ -69,14 +72,18 @@ export default function useMultiple(
    */
   const onBlur: TagInputProps['onBlur'] = (val, ctx) => {
     const overlayState = popupRef.value?.getOverlayState();
-    if (overlayState?.hover) return;
+    if (overlayState?.hover) {
+      return;
+    }
     isMultipleFocus.value = false;
     props.onBlur?.(props.value, { ...ctx, tagInputValue: val });
   };
 
   const onFocus: TagInputProps['onFocus'] = (val, ctx) => {
     const overlayState = popupRef.value?.getOverlayState();
-    if (isMultipleFocus.value || overlayState?.hover) return;
+    if (isMultipleFocus.value || overlayState?.hover) {
+      return;
+    }
     isMultipleFocus.value = true;
     const params = { ...ctx, tagInputValue: val };
     props.onFocus?.(props.value, params);
@@ -112,7 +119,6 @@ export default function useMultiple(
       ...props.tagInputProps,
     };
 
-    // eslint-disable-next-line
     const { tips, ...slots } = context.slots;
     return (
       <TagInput

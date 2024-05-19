@@ -1,9 +1,9 @@
-import { SetupContext, computed, toRefs, ref, watch } from '@td/adapter-vue';
-import { isFunction } from 'lodash-es';
-import { SortInfo, TdPrimaryTableProps, PrimaryTableCol, TableRowData } from '../type';
+import type { SetupContext } from '@td/adapter-vue';
+import { computed, ref, toRefs, watch } from '@td/adapter-vue';
+import { isArray, isFunction } from 'lodash-es';
+import type { PrimaryTableCol, SortInfo, TableRowData, TdPrimaryTableProps } from '../type';
 import SorterButton from '../sorter-button';
 import useDefaultValue from '../../hooks/useDefaultValue';
-import { isArray } from 'lodash-es';
 
 export type SortMap = Record<string, SortInfo & { index: number }>;
 
@@ -18,7 +18,9 @@ export default function useSorter(props: TdPrimaryTableProps, { slots }: SetupCo
 
   const sortArray = computed<Array<SortInfo>>(() => {
     const sort = tSortInfo.value;
-    if (!sort) return [];
+    if (!sort) {
+      return [];
+    }
     return isArray(sort) ? sort : [sort];
   });
 
@@ -35,7 +37,6 @@ export default function useSorter(props: TdPrimaryTableProps, { slots }: SetupCo
     for (let i = 0, len = columns.length; i < len; i++) {
       const col = columns[i];
       if (isFunction(col.sorter)) {
-        // eslint-disable-next-line no-param-reassign
         map[col.colKey] = col.sorter;
       }
       // 多级表头中的排序功能
@@ -48,17 +49,19 @@ export default function useSorter(props: TdPrimaryTableProps, { slots }: SetupCo
 
   function handleDataSort(sortInfo: SortInfo | Array<SortInfo>) {
     const sort = sortInfo;
-    if (!Object.keys(sorterFuncMap.value).length) return;
+    if (!Object.keys(sorterFuncMap.value).length) {
+      return;
+    }
     if (!originalData.value) {
       originalData.value = tData.value;
     }
-    const isEmptyArraySort = !sort || (sort instanceof Array && !sort.length);
-    const isEmptyObjectSort = !(sort instanceof Array) && !sort?.sortBy;
+    const isEmptyArraySort = !sort || (Array.isArray(sort) && !sort.length);
+    const isEmptyObjectSort = !(Array.isArray(sort)) && !sort?.sortBy;
     if (isEmptyArraySort || isEmptyObjectSort) {
       setTData(originalData.value, { trigger: 'sort' });
       return originalData.value;
     }
-    const formatedSort = sort instanceof Array ? sort : [sort];
+    const formatedSort = Array.isArray(sort) ? sort : [sort];
     // data 为受控属性，data.slice() 浅拷贝，防止 sort 导致原数据变异
     const newData: TableRowData[] = tData.value.slice().sort((a: TableRowData, b: TableRowData) => {
       let sortResult = 0;
@@ -75,7 +78,9 @@ export default function useSorter(props: TdPrimaryTableProps, { slots }: SetupCo
       return sortResult;
     });
     // Data 变化返回的是数据引用，为避免死循环，特此检测排序数据前后是否相同，如果相同则不再触发事件
-    if (JSON.stringify(newData) === JSON.stringify(tData.value)) return;
+    if (JSON.stringify(newData) === JSON.stringify(tData.value)) {
+      return;
+    }
     setTData(newData, { trigger: 'sort' });
     return newData;
   }
@@ -86,7 +91,7 @@ export default function useSorter(props: TdPrimaryTableProps, { slots }: SetupCo
       sortInfo = getMultipleNextSort(col, p);
     } else {
       // 如果此次调用之前开启了multipleSort，tSortInfo可能为数组，尝试取数组中第一个排序字段的参数
-      const sort = tSortInfo.value instanceof Array ? tSortInfo.value[0] : tSortInfo.value;
+      const sort = Array.isArray(tSortInfo.value) ? tSortInfo.value[0] : tSortInfo.value;
       sortInfo = getSingleNextSort(col, sort, p);
     }
     // 本地数据 data 排序，需同时抛出 data-change
@@ -99,7 +104,9 @@ export default function useSorter(props: TdPrimaryTableProps, { slots }: SetupCo
   }
 
   function getSortOrder(descending: boolean) {
-    if (descending === undefined) return;
+    if (descending === undefined) {
+      return;
+    }
     return descending ? 'desc' : 'asc';
   }
 
@@ -132,7 +139,9 @@ export default function useSorter(props: TdPrimaryTableProps, { slots }: SetupCo
   }
 
   function renderSortIcon({ col }: { col: PrimaryTableCol<TableRowData>; colIndex: number }) {
-    if (!col.sorter) return null;
+    if (!col.sorter) {
+      return null;
+    }
     const sorterButtonsProps = {
       sortType: col.sortType,
       sortOrder: getSortOrder(sortMap.value[col.colKey]?.descending),
@@ -152,12 +161,16 @@ export default function useSorter(props: TdPrimaryTableProps, { slots }: SetupCo
   const isSortInfoSame = (a: SortInfo | SortInfo[], b: SortInfo | SortInfo[]) => {
     const tmpSortInfo = isArray(a) ? a : [a];
     const tmpInnerSortInfo = isArray(b) ? b : [b];
-    if (tmpSortInfo.length && !b) return false;
+    if (tmpSortInfo.length && !b) {
+      return false;
+    }
     // eslint-disable-next-line
     for (let i = 0, len = tmpSortInfo.length; i < len; i++) {
       const item = tmpSortInfo[i];
-      const result = tmpInnerSortInfo.find((t) => t.sortBy === item.sortBy);
-      if (!result) return false;
+      const result = tmpInnerSortInfo.find(t => t.sortBy === item.sortBy);
+      if (!result) {
+        return false;
+      }
       return item.descending === result.descending;
     }
   };
@@ -169,7 +182,9 @@ export default function useSorter(props: TdPrimaryTableProps, { slots }: SetupCo
   watch(
     () => [tSortInfo, props.data],
     () => {
-      if (!tSortInfo.value || !Object.keys(tSortInfo.value).length || !tData.value.length) return;
+      if (!tSortInfo.value || !Object.keys(tSortInfo.value).length || !tData.value.length) {
+        return;
+      }
       // isSortInfoSame 的两个参数顺序不可变
       if (!isSortInfoSame(tSortInfo.value, innerSort.value)) {
         handleDataSort(tSortInfo.value);

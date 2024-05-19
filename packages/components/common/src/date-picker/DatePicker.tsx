@@ -1,20 +1,16 @@
-import { defineComponent, computed, watch } from '@td/adapter-vue';
+import { computed, defineComponent, watch } from '@td/adapter-vue';
 import dayjs from 'dayjs';
-import { isFunction } from 'lodash-es';
+import { isDate, isFunction } from 'lodash-es';
 
-import { useTNodeJSX } from '@td/adapter-hooks';
-import { usePrefixClass, useConfig } from '@td/adapter-hooks';
-import { useFormDisabled } from '../form/hooks';
-import useSingle from './hooks/useSingle';
-import { parseToDayjs, getDefaultFormat, formatTime, formatDate } from '../_common/js/date-picker/format';
-import { subtractMonth, addMonth, extractTimeObj, covertToDate } from '../_common/js/date-picker/utils';
+import { useConfig, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import props from '@td/intel/date-picker/props';
+import type { DateValue, TdDatePickerProps } from '@td/intel/date-picker/type';
+import { useFormDisabled } from '../form/hooks';
+import { formatDate, formatTime, getDefaultFormat, parseToDayjs } from '../_common/js/date-picker/format';
+import { addMonth, covertToDate, extractTimeObj, subtractMonth } from '../_common/js/date-picker/utils';
 import TSelectInput from '../select-input';
+import useSingle from './hooks/useSingle';
 import TSinglePanel from './panel/SinglePanel';
-
-import type { TdDatePickerProps } from '@td/intel/date-picker/type';
-import type { DateValue } from '@td/intel/date-picker/type';
-import { isDate } from 'lodash-es';
 
 export default defineComponent({
   name: 'TDatePicker',
@@ -61,9 +57,9 @@ export default defineComponent({
     });
 
     watch(popupVisible, (visible) => {
-      const dateValue =
+      const dateValue
         // Date 属性不再 parse，避免 dayjs 处理成 Invalid
-        value.value && !isDate(value.value)
+        = value.value && !isDate(value.value)
           ? covertToDate(value.value as string, formatRef.value?.valueType)
           : value.value;
 
@@ -160,8 +156,12 @@ export default defineComponent({
 
       // am pm 12小时制转化 24小时制
       let nextHours = hours;
-      if (/am/i.test(meridiem) && nextHours === 12) nextHours -= 12;
-      if (/pm/i.test(meridiem) && nextHours < 12) nextHours += 12;
+      if (/am/i.test(meridiem) && nextHours === 12) {
+        nextHours -= 12;
+      }
+      if (/pm/i.test(meridiem) && nextHours < 12) {
+        nextHours += 12;
+      }
       const currentDate = !dayjs(inputValue.value as string, formatRef.value.format).isValid()
         ? dayjs()
         : dayjs(inputValue.value as string, formatRef.value.format);

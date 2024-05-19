@@ -8,7 +8,7 @@ const BASE_COMPONENT_NAME = 'color-picker';
  * @param className
  * @returns
  */
-export const useBaseClassName = (className?: string) => {
+export function useBaseClassName(className?: string) {
   const baseClassName = usePrefixClass(BASE_COMPONENT_NAME);
   return computed(() => (className ? `${baseClassName.value}-${className}` : baseClassName.value));
-};
+}

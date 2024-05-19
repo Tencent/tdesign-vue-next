@@ -1,6 +1,6 @@
-import _Button from './button';
 import { withInstall } from '@td/adapter-utils';
-import { TdButtonProps } from '@td/intel/button/type';
+import type { TdButtonProps } from '@td/intel/button/type';
+import _Button from './button';
 
 import './style';
 

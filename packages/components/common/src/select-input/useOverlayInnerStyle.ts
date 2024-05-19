@@ -1,8 +1,8 @@
-import { ref, toRefs, computed, CSSProperties } from '@td/adapter-vue';
-import { isObject } from 'lodash-es';
-import { isFunction } from 'lodash-es';
-import { TdSelectInputProps } from '@td/intel/select-input/type';
-import { TdPopupProps, PopupVisibleChangeContext } from '../popup';
+import type { CSSProperties } from '@td/adapter-vue';
+import { computed, ref, toRefs } from '@td/adapter-vue';
+import { isFunction, isObject } from 'lodash-es';
+import type { TdSelectInputProps } from '@td/intel/select-input/type';
+import type { PopupVisibleChangeContext, TdPopupProps } from '../popup';
 import { useFormDisabled } from '../form/hooks';
 
 export type overlayInnerStyleProps = Pick<
@@ -22,15 +22,15 @@ export default function useOverlayInnerStyle(props: overlayInnerStyleProps) {
 
   const matchWidthFunc = (triggerElement: HTMLElement, popupElement: HTMLElement) => {
     const SCROLLBAR_WIDTH = popupElement.scrollHeight > popupElement.offsetHeight ? RESERVE_WIDTH : 0;
-    const width =
-      popupElement.offsetWidth + SCROLLBAR_WIDTH >= triggerElement.offsetWidth
+    const width
+      = popupElement.offsetWidth + SCROLLBAR_WIDTH >= triggerElement.offsetWidth
         ? popupElement.offsetWidth
         : triggerElement.offsetWidth;
     let otherOverlayInnerStyle: CSSProperties = {};
     if (
-      popupProps.value &&
-      typeof popupProps.value.overlayInnerStyle === 'object' &&
-      !popupProps.value.overlayInnerStyle.width
+      popupProps.value
+      && typeof popupProps.value.overlayInnerStyle === 'object'
+      && !popupProps.value.overlayInnerStyle.width
     ) {
       otherOverlayInnerStyle = popupProps.value.overlayInnerStyle;
     }
@@ -41,7 +41,9 @@ export default function useOverlayInnerStyle(props: overlayInnerStyleProps) {
   };
 
   const onInnerPopupVisibleChange = (visible: boolean, ctx: PopupVisibleChangeContext) => {
-    if (disable.value || props.readonly) return;
+    if (disable.value || props.readonly) {
+      return;
+    }
     // 如果点击触发元素（输入框）且为可输入状态，则继续显示下拉框
     const newVisible = ctx.trigger === 'trigger-element-click' && props.allowInput ? true : visible;
     // 重复点击触发元素时，下拉框展示状态不变，不重复触发事件

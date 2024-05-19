@@ -1,5 +1,5 @@
-import _Upload from './upload';
 import { withInstall } from '@td/adapter-utils';
+import _Upload from './upload';
 
 import './style';
 

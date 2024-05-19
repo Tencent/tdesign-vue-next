@@ -1,27 +1,22 @@
-import { defineComponent, computed, ref, watch, toRefs, getCurrentInstance } from '@td/adapter-vue';
-import { isNaN } from 'lodash-es';
+import { computed, defineComponent, getCurrentInstance, ref, toRefs, watch } from '@td/adapter-vue';
+import { isNaN, isObject } from 'lodash-es';
 import {
+  ChevronLeftDoubleIcon as TdChevronLeftDoubleIcon,
+  ChevronLeftIcon as TdChevronLeftIcon,
+  ChevronRightDoubleIcon as TdChevronRightDoubleIcon,
+  ChevronRightIcon as TdChevronRightIcon,
+  EllipsisIcon as TdEllipsisIcon,
   PageFirstIcon as TdPageFirstIcon,
   PageLastIcon as TdPageLastIcon,
-  ChevronLeftIcon as TdChevronLeftIcon,
-  ChevronRightIcon as TdChevronRightIcon,
-  ChevronLeftDoubleIcon as TdChevronLeftDoubleIcon,
-  ChevronRightDoubleIcon as TdChevronRightDoubleIcon,
-  EllipsisIcon as TdEllipsisIcon,
 } from 'tdesign-icons-vue-next';
-import { TdPaginationProps } from '../pagination/type';
-import { useConfig, usePrefixClass } from '@td/adapter-hooks';
-import { useGlobalIcon } from '@td/adapter-hooks';
+import { useConfig, useDefaultValue, useGlobalIcon, usePrefixClass, useTNodeJSX, useVModel } from '@td/adapter-hooks';
+import props from '@td/intel/pagination/props';
+import type { TdPaginationProps } from '../pagination/type';
 import TInputNumber from '../input-number';
 import { Select } from '../select';
 import TInputAdornment from '../input-adornment';
-import props from '@td/intel/pagination/props';
 import usePaginationClasses from './usePaginationClasses';
 import useMoreAction from './useMoreAction';
-import { useVModel } from '@td/adapter-hooks';
-import { useDefaultValue } from '@td/adapter-hooks';
-import { useTNodeJSX } from '@td/adapter-hooks';
-import { isObject } from 'lodash-es';
 
 const min = 1;
 
@@ -83,7 +78,7 @@ export default defineComponent({
 
     const sizeOptions = computed<Array<{ label: string; value: number }>>(() => {
       const pageSizeOptions = props.pageSizeOptions as TdPaginationProps['pageSizeOptions'];
-      const options = pageSizeOptions.map((option) =>
+      const options = pageSizeOptions.map(option =>
         isObject(option)
           ? option
           : {
@@ -139,12 +134,14 @@ export default defineComponent({
     watch(
       () => pageCount.value,
       () => {
-        if (innerCurrent.value > pageCount.value) innerCurrent.value = 1;
+        if (innerCurrent.value > pageCount.value) {
+          innerCurrent.value = 1;
+        }
       },
     );
     watch(
       () => innerCurrent.value,
-      (val) => (jumpIndex.value = val),
+      val => (jumpIndex.value = val),
     );
 
     const toPage: (pageIndex: number, isTriggerChange?: boolean) => void = (pageIndex, isTriggerChange) => {
@@ -190,7 +187,7 @@ export default defineComponent({
       if (props.disabled) {
         return;
       }
-      const pageSize: number = parseInt(e, 10);
+      const pageSize: number = Number.parseInt(e, 10);
       let pageCount = 1;
       if (pageSize > 0) {
         pageCount = Math.max(Math.ceil(props.total / pageSize), 1);
@@ -204,8 +201,8 @@ export default defineComponent({
 
       /**
        * 分页大小变化事件
-       * @param {Number} pageSize 分页大小
-       * @param {Number} index 当前页
+       * @param {number} pageSize 分页大小
+       * @param {number} index 当前页
        */
       const pageInfo = {
         current: isIndexChange ? pageCount : innerCurrent.value,
@@ -221,14 +218,18 @@ export default defineComponent({
 
     const onJumperChange = (val: number) => {
       const currentIndex = Math.trunc(+val);
-      if (isNaN(currentIndex)) return;
+      if (isNaN(currentIndex)) {
+        return;
+      }
       jumpIndex.value = currentIndex;
       toPage(currentIndex);
     };
 
     return () => {
       const { total, pageSizeOptions, size, disabled, showPageSize } = props;
-      if (pageCount.value < 1) return null;
+      if (pageCount.value < 1) {
+        return null;
+      }
 
       const Jumper = (
         <div class={CLASS_MAP.jumperClass.value}>
@@ -271,87 +272,103 @@ export default defineComponent({
             />
           )}
           {/* 首页按钮 */}
-          {props.showFirstAndLastPageBtn ? (
-            <div
-              class={CLASS_MAP.preBtnClass.value}
-              onClick={() => toPage(1)}
-              disabled={props.disabled || props.current === min}
-            >
-              <PageFirstIcon />
-            </div>
-          ) : null}
+          {props.showFirstAndLastPageBtn
+            ? (
+              <div
+                class={CLASS_MAP.preBtnClass.value}
+                onClick={() => toPage(1)}
+                disabled={props.disabled || props.current === min}
+              >
+                <PageFirstIcon />
+              </div>
+              )
+            : null}
           {/* 向前按钮 */}
-          {props.showPreviousAndNextBtn ? (
-            <div
-              class={CLASS_MAP.preBtnClass.value}
-              onClick={() => handlePageChange('prevPage')}
-              disabled={disabled || innerCurrent.value === min}
-            >
-              <ChevronLeftIcon />
-            </div>
-          ) : null}
+          {props.showPreviousAndNextBtn
+            ? (
+              <div
+                class={CLASS_MAP.preBtnClass.value}
+                onClick={() => handlePageChange('prevPage')}
+                disabled={disabled || innerCurrent.value === min}
+              >
+                <ChevronLeftIcon />
+              </div>
+              )
+            : null}
           {/* 常规版 */}
-          {props.showPageNumber && props.theme === 'default' ? (
-            <ul class={CLASS_MAP.btnWrapClass.value}>
-              {isFolded.value && isMidEllipsis.value && (
-                <li class={CLASS_MAP.getButtonClass(1)} onClick={() => toPage(min)}>
-                  {min}
-                </li>
-              )}
-              {isFolded.value && isPrevMoreShow.value && isMidEllipsis.value ? (
-                <li
-                  class={CLASS_MAP.btnMoreClass.value}
-                  onClick={() => handlePageChange('prevMorePage')}
-                  onMouseOver={() => (prevMore.value = true)}
-                  onMouseOut={() => (prevMore.value = false)}
-                >
-                  {prevMore.value ? <ChevronLeftDoubleIcon /> : <EllipsisIcon />}
-                </li>
-              ) : null}
-              {pages.value.map((i) => (
-                <li class={CLASS_MAP.getButtonClass(i)} key={i} onClick={() => toPage(i)}>
-                  {i}
-                </li>
-              ))}
-              {isFolded.value && isNextMoreShow.value && isMidEllipsis.value ? (
-                <li
-                  class={CLASS_MAP.btnMoreClass.value}
-                  onClick={() => handlePageChange('nextMorePage')}
-                  onMouseOver={() => (nextMore.value = true)}
-                  onMouseOut={() => (nextMore.value = false)}
-                >
-                  {nextMore.value ? <ChevronRightDoubleIcon /> : <EllipsisIcon />}
-                </li>
-              ) : null}
-              {isFolded.value && isMidEllipsis.value ? (
-                <li class={CLASS_MAP.getButtonClass(pageCount.value)} onClick={() => toPage(pageCount.value)}>
-                  {pageCount.value}
-                </li>
-              ) : null}
-            </ul>
-          ) : null}
+          {props.showPageNumber && props.theme === 'default'
+            ? (
+              <ul class={CLASS_MAP.btnWrapClass.value}>
+                {isFolded.value && isMidEllipsis.value && (
+                  <li class={CLASS_MAP.getButtonClass(1)} onClick={() => toPage(min)}>
+                    {min}
+                  </li>
+                )}
+                {isFolded.value && isPrevMoreShow.value && isMidEllipsis.value
+                  ? (
+                    <li
+                      class={CLASS_MAP.btnMoreClass.value}
+                      onClick={() => handlePageChange('prevMorePage')}
+                      onMouseOver={() => (prevMore.value = true)}
+                      onMouseOut={() => (prevMore.value = false)}
+                    >
+                      {prevMore.value ? <ChevronLeftDoubleIcon /> : <EllipsisIcon />}
+                    </li>
+                    )
+                  : null}
+                {pages.value.map(i => (
+                  <li class={CLASS_MAP.getButtonClass(i)} key={i} onClick={() => toPage(i)}>
+                    {i}
+                  </li>
+                ))}
+                {isFolded.value && isNextMoreShow.value && isMidEllipsis.value
+                  ? (
+                    <li
+                      class={CLASS_MAP.btnMoreClass.value}
+                      onClick={() => handlePageChange('nextMorePage')}
+                      onMouseOver={() => (nextMore.value = true)}
+                      onMouseOut={() => (nextMore.value = false)}
+                    >
+                      {nextMore.value ? <ChevronRightDoubleIcon /> : <EllipsisIcon />}
+                    </li>
+                    )
+                  : null}
+                {isFolded.value && isMidEllipsis.value
+                  ? (
+                    <li class={CLASS_MAP.getButtonClass(pageCount.value)} onClick={() => toPage(pageCount.value)}>
+                      {pageCount.value}
+                    </li>
+                    )
+                  : null}
+              </ul>
+              )
+            : null}
           {/* 极简版 */}
           {props.theme === 'simple' && Jumper}
           {/* 向后按钮 */}
-          {props.showPreviousAndNextBtn ? (
-            <div
-              class={CLASS_MAP.nextBtnClass.value}
-              onClick={() => handlePageChange('nextPage')}
-              disabled={disabled || innerCurrent.value === pageCount.value}
-            >
-              <ChevronRightIcon />
-            </div>
-          ) : null}
+          {props.showPreviousAndNextBtn
+            ? (
+              <div
+                class={CLASS_MAP.nextBtnClass.value}
+                onClick={() => handlePageChange('nextPage')}
+                disabled={disabled || innerCurrent.value === pageCount.value}
+              >
+                <ChevronRightIcon />
+              </div>
+              )
+            : null}
           {/* 尾页按钮 */}
-          {props.showFirstAndLastPageBtn ? (
-            <div
-              class={CLASS_MAP.nextBtnClass.value}
-              onClick={() => toPage(pageCount.value)}
-              disabled={disabled || innerCurrent.value === pageCount.value}
-            >
-              <PageLastIcon />
-            </div>
-          ) : null}
+          {props.showFirstAndLastPageBtn
+            ? (
+              <div
+                class={CLASS_MAP.nextBtnClass.value}
+                onClick={() => toPage(pageCount.value)}
+                disabled={disabled || innerCurrent.value === pageCount.value}
+              >
+                <PageLastIcon />
+              </div>
+              )
+            : null}
           {/* 快速跳转 */}
           {props.theme === 'default' && props.showJumper && Jumper}
         </div>

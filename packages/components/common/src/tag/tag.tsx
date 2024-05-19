@@ -1,13 +1,12 @@
-import { computed, defineComponent, h, VNode } from '@td/adapter-vue';
+import type { VNode } from '@td/adapter-vue';
+import { computed, defineComponent, h } from '@td/adapter-vue';
 import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
 import tinycolor from 'tinycolor2';
 
 import props from '@td/intel/tag/props';
-import { useConfig, usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
-import { useGlobalIcon } from '@td/adapter-hooks';
-import { useTNodeJSX, useContent } from '@td/adapter-hooks';
-import { Styles } from '../common';
+import { useCommonClassName, useConfig, useContent, useGlobalIcon, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import { isString } from 'lodash-es';
+import type { Styles } from '../common';
 
 export default defineComponent({
   name: 'TTag',
@@ -50,7 +49,9 @@ export default defineComponent({
 
     const getTagColorStyle = () => {
       const { color, variant } = props;
-      if (!color) return {};
+      if (!color) {
+        return {};
+      }
 
       const luminance = tinycolor(color).getLuminance();
 
@@ -76,12 +77,16 @@ export default defineComponent({
     };
 
     const handleClick = (e: MouseEvent) => {
-      if (props.disabled) return;
+      if (props.disabled) {
+        return;
+      }
       props.onClick?.({ e });
     };
 
     const getCloseIcon = () => {
-      if (!props.closable) return null;
+      if (!props.closable) {
+        return null;
+      }
       const iconClassName = `${COMPONENT_NAME.value}__icon-close`;
       if (tagGlobalConfig.value.closeIcon) {
         return h(tagGlobalConfig.value.closeIcon(h) as VNode, { class: iconClassName });
@@ -111,13 +116,15 @@ export default defineComponent({
       return (
         <div class={tagClass.value} style={tagStyle.value} onClick={handleClick}>
           {icon}
-          {props.maxWidth ? (
-            <span class={{ [`${COMPONENT_NAME.value}--text`]: props.maxWidth }} title={titleAttribute}>
-              {tagContent}
-            </span>
-          ) : (
-            tagContent
-          )}
+          {props.maxWidth
+            ? (
+              <span class={{ [`${COMPONENT_NAME.value}--text`]: props.maxWidth }} title={titleAttribute}>
+                {tagContent}
+              </span>
+              )
+            : (
+                tagContent
+              )}
           {!props.disabled && closeIcon}
         </div>
       );

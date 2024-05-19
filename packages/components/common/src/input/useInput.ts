@@ -1,7 +1,7 @@
-import { ref, computed, watch, nextTick, toRefs, inject } from '@td/adapter-vue';
-import { InputValue, TdInputProps } from '@td/intel/input/type';
-import { FormItemInjectionKey } from '../form/const';
+import { computed, inject, nextTick, ref, toRefs, watch } from '@td/adapter-vue';
+import type { InputValue, TdInputProps } from '@td/intel/input/type';
 import { useVModel } from '@td/adapter-hooks';
+import { FormItemInjectionKey } from '../form/const';
 import { useFormDisabled } from '../form/hooks';
 import useLengthLimit from './useLengthLimit';
 
@@ -44,8 +44,8 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
 
   const showClear = computed(() => {
     return (
-      ((innerValue.value && !disabled.value && props.clearable && !props.readonly) || props.showClearIconOnEmpty) &&
-      isHover.value
+      ((innerValue.value && !disabled.value && props.clearable && !props.readonly) || props.showClearIconOnEmpty)
+      && isHover.value
     );
   });
 
@@ -60,9 +60,13 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
   };
 
   const emitFocus = (e: FocusEvent) => {
-    if (isHover.value && focused.value) return;
+    if (isHover.value && focused.value) {
+      return;
+    }
     inputValue.value = innerValue.value;
-    if (props.disabled) return;
+    if (props.disabled) {
+      return;
+    }
     focused.value = true;
     props.onFocus?.(innerValue.value, { e });
   };
@@ -84,7 +88,9 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
 
   const setInputElValue = (v: InputValue = '') => {
     const inputEl = inputRef.value as HTMLInputElement;
-    if (!inputEl) return;
+    if (!inputEl) {
+      return;
+    }
     const sV = String(v);
     if (!inputEl.value) {
       return;
@@ -121,7 +127,9 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
 
   const isClearIcon = () => {
     let tmp = innerClickElement.value;
-    if (!tmp || !tmp.tagName || !clearIconRef.value?.$el || !['path', 'svg'].includes(tmp.tagName)) return false;
+    if (!tmp || !tmp.tagName || !clearIconRef.value?.$el || !['path', 'svg'].includes(tmp.tagName)) {
+      return false;
+    }
     while (tmp) {
       if (clearIconRef.value?.$el === tmp) {
         return true;
@@ -135,8 +143,8 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
   const formatAndEmitBlur = (e: FocusEvent) => {
     if (!isClearIcon()) {
       if (props.format) {
-        inputValue.value =
-          typeof innerValue.value === 'number' || props.type === 'number'
+        inputValue.value
+          = typeof innerValue.value === 'number' || props.type === 'number'
             ? innerValue.value
             : props.format(innerValue.value);
       }

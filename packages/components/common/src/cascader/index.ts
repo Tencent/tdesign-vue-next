@@ -1,8 +1,8 @@
-import _Cascader from './cascader';
-import _CascaderPanel from './cascader-panel';
 import { withInstall } from '@td/adapter-utils';
-import { TdCascaderProps } from '@td/intel/cascader/type';
-import { TreeOptionData } from '../common';
+import type { TdCascaderProps } from '@td/intel/cascader/type';
+import type { TreeOptionData } from '../common';
+import _CascaderPanel from './cascader-panel';
+import _Cascader from './cascader';
 
 import './style';
 

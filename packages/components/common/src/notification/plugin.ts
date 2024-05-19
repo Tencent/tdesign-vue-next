@@ -1,25 +1,26 @@
-import { App, Plugin, createApp, nextTick, ComponentPublicInstance } from '@td/adapter-vue';
-import NotificationList from './notificationList';
-import { getAttach } from '../utils/dom';
-import {
-  NotificationOptions,
+import type { App, ComponentPublicInstance, Plugin } from '@td/adapter-vue';
+import { createApp, nextTick } from '@td/adapter-vue';
+import type {
+  NotificationCloseAllMethod,
+  NotificationCloseMethod,
+  NotificationErrorMethod,
+  NotificationInfoMethod,
   NotificationInstance,
   NotificationMethod,
-  NotificationInfoMethod,
-  NotificationWarningMethod,
-  NotificationErrorMethod,
+  NotificationOptions,
   NotificationSuccessMethod,
-  NotificationCloseMethod,
-  NotificationCloseAllMethod,
+  NotificationWarningMethod,
 } from '@td/intel/notification/type';
-import { AttachNodeReturnValue } from '../common';
+import { getAttach } from '../utils/dom';
+import type { AttachNodeReturnValue } from '../common';
+import NotificationList from './notificationList';
 import './style';
 
 let seed = 0;
 // 存储不同 attach 和 不同 placement 消息列表实例
 const instanceMap: Map<AttachNodeReturnValue, Record<string, ComponentPublicInstance>> = new Map();
 
-const NotificationFunction = (options: NotificationOptions): Promise<NotificationInstance> => {
+function NotificationFunction(options: NotificationOptions): Promise<NotificationInstance> {
   seed += 1;
   const hackOptions = {
     placement: 'top-right',
@@ -55,10 +56,10 @@ const NotificationFunction = (options: NotificationOptions): Promise<Notificatio
     const ins = instanceMap.get(attachEl)[hackOptions.placement];
     nextTick(() => {
       const notificationList: NotificationInstance[] = ins.notificationList;
-      resolve(notificationList?.find((notify) => notify.$?.vnode?.key === hackOptions.id));
+      resolve(notificationList?.find(notify => notify.$?.vnode?.key === hackOptions.id));
     });
   });
-};
+}
 
 const showThemeNotification: NotificationMethod = (theme, options) => {
   const hackOptions = { ...options, theme };
@@ -75,12 +76,12 @@ interface ExtraApi {
 }
 
 const extraApi: ExtraApi = {
-  info: (options) => showThemeNotification('info', options),
-  success: (options) => showThemeNotification('success', options),
-  warning: (options) => showThemeNotification('warning', options),
-  error: (options) => showThemeNotification('error', options),
+  info: options => showThemeNotification('info', options),
+  success: options => showThemeNotification('success', options),
+  warning: options => showThemeNotification('warning', options),
+  error: options => showThemeNotification('error', options),
   close: (promise) => {
-    promise.then((instance) => instance.close());
+    promise.then(instance => instance.close());
   },
   closeAll: () => {
     instanceMap.forEach((attach) => {

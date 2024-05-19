@@ -1,4 +1,4 @@
-import { getElmCssPropValue, isFixed, getWindowScroll } from '../../utils/dom';
+import { getElmCssPropValue, getWindowScroll, isFixed } from '../../utils/dom';
 
 /**
  * 获取元素相对于另一个元素的位置（或者说相对于 body）
@@ -11,8 +11,8 @@ export default function getRelativePosition(elm: HTMLElement, relativeElm: HTMLE
   const relativeElmPosition = getElmCssPropValue(relativeElm, 'position');
 
   if (
-    (relativeElm.tagName.toLowerCase() !== 'body' && relativeElmPosition === 'relative') ||
-    relativeElmPosition === 'sticky'
+    (relativeElm.tagName.toLowerCase() !== 'body' && relativeElmPosition === 'relative')
+    || relativeElmPosition === 'sticky'
   ) {
     return {
       top: elmTop - relElmTop,

@@ -1,5 +1,7 @@
 // https://github.dev/arco-design/arco-design-vue
-import { onMounted, onBeforeUnmount, readonly, Ref, ref, watch } from '@td/adapter-vue';
+import type { Ref } from '@td/adapter-vue';
+import { onBeforeUnmount, onMounted, readonly, ref, watch } from '@td/adapter-vue';
+
 export type PopupType = 'popup' | 'dialog' | 'message';
 
 const POPUP_BASE_Z_INDEX = 1000;
@@ -14,8 +16,8 @@ class PopupManager {
   };
 
   private getNextZIndex = (type: PopupType) => {
-    const current =
-      type === 'message'
+    const current
+      = type === 'message'
         ? Array.from(this.popupStack.message).pop() || MESSAGE_BASE_Z_INDEX
         : Array.from(this.popupStack.popup).pop() || POPUP_BASE_Z_INDEX;
     return current + Z_INDEX_STEP;

@@ -1,8 +1,9 @@
-import { App, createApp, ref, Plugin, defineComponent, h, onMounted, nextTick } from '@td/adapter-vue';
-import DialogComponent from './dialog';
-import { getAttach } from '../utils/dom';
-import { DialogOptions, DialogMethod, DialogConfirmMethod, DialogAlertMethod, DialogInstance } from '@td/intel/dialog/type';
+import type { App, Plugin } from '@td/adapter-vue';
+import { createApp, defineComponent, h, nextTick, onMounted, ref } from '@td/adapter-vue';
+import type { DialogAlertMethod, DialogConfirmMethod, DialogInstance, DialogMethod, DialogOptions } from '@td/intel/dialog/type';
 import { omit } from 'lodash-es';
+import { getAttach } from '../utils/dom';
+import DialogComponent from './dialog';
 
 const createDialog: DialogMethod = (props: DialogOptions) => {
   const options = { ...props };
@@ -15,7 +16,7 @@ const createDialog: DialogMethod = (props: DialogOptions) => {
   const updateClassNameStyle = (className: string, style: DialogOptions['style']) => {
     if (className) {
       if (preClassName && preClassName !== className) {
-        wrapper.firstElementChild.classList.remove(...preClassName.split(' ').map((name) => name.trim()));
+        wrapper.firstElementChild.classList.remove(...preClassName.split(' ').map(name => name.trim()));
       }
       className.split(' ').forEach((name) => {
         wrapper.firstElementChild.classList.add(name.trim());
@@ -53,9 +54,9 @@ const createDialog: DialogMethod = (props: DialogOptions) => {
       });
 
       return () => {
-        const onClose =
-          options.onClose ||
-          function () {
+        const onClose
+          = options.onClose
+          || function () {
             visible.value = false;
           };
         delete options.className;

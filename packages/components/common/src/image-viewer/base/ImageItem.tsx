@@ -1,6 +1,7 @@
-import { computed, defineComponent, PropType, ref, toRefs, watch } from '@td/adapter-vue';
+import type { PropType } from '@td/adapter-vue';
+import { computed, defineComponent, ref, toRefs, watch } from '@td/adapter-vue';
 import { ImageErrorIcon } from 'tdesign-icons-vue-next';
-import { usePrefixClass, useConfig } from '../../hooks/useConfig';
+import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 import { useDrag } from '../hooks';
 import { useImagePreviewUrl } from '../../hooks/useImagePreviewUrl';
 

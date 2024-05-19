@@ -1,4 +1,4 @@
-import { ComponentPublicInstance, VNode } from '@td/adapter-vue';
+import type { ComponentPublicInstance, VNode } from '@td/adapter-vue';
 import { usePrefixClass } from '../../hooks/useConfig';
 import { isServer, on } from '../../utils/dom';
 
@@ -28,7 +28,7 @@ if (!isServer && window.document) {
 
 type NodeElement = HTMLElement | VNode | ComponentPublicInstance;
 
-const createDocumentHandler = (elements: HTMLElement[], handler: Handler, includePopup = true) => {
+function createDocumentHandler(elements: HTMLElement[], handler: Handler, includePopup = true) {
   const POPUP_SELECTOR = usePrefixClass('popup');
   return (e: MouseEvent) => {
     if (includePopup) {
@@ -53,7 +53,7 @@ const createDocumentHandler = (elements: HTMLElement[], handler: Handler, includ
     }
     handler();
   };
-};
+}
 
 /**
  * 元素外面点击
@@ -68,11 +68,11 @@ const createDocumentHandler = (elements: HTMLElement[], handler: Handler, includ
  *
  *  onBeforeUnmount(() => removeClickOutsider);
  */
-export const useClickOutsider = () => {
+export function useClickOutsider() {
   uid++;
   const clickOutsiderId = uid;
   const addClickOutsider = (els: NodeElement[], handler: Handler) => {
-    const elements = Array.from(new Set(els.filter((el) => el))).map((el: any) => {
+    const elements = Array.from(new Set(els.filter(el => el))).map((el: any) => {
       const node = (el.el || el.$el || el) as HTMLElement;
       return node;
     });
@@ -91,4 +91,4 @@ export const useClickOutsider = () => {
     addClickOutsider,
     removeClickOutsider,
   };
-};
+}

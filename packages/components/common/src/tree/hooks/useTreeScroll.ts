@@ -1,5 +1,6 @@
-import { computed, onMounted, TypeRef, useVirtualScroll, TypeScroll, TreeNode } from '../adapt';
-import { TypeTreeState, TypeTimer } from '../tree-types';
+import type { TreeNode, TypeRef, TypeScroll } from '../adapt';
+import { computed, onMounted, useVirtualScroll } from '../adapt';
+import type { TypeTimer, TypeTreeState } from '../tree-types';
 
 // tree 虚拟滚动整合
 export default function useTreeScroll(state: TypeTreeState) {

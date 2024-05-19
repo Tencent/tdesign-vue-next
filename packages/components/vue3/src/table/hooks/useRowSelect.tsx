@@ -1,12 +1,11 @@
 /**
  * 行选中相关功能：单选 + 多选
  */
-import { computed, toRefs, h, ref, watch } from '@td/adapter-vue';
-import { intersection } from 'lodash-es';
-import { get } from 'lodash-es';
-import { isFunction } from 'lodash-es';
+import type { h } from '@td/adapter-vue';
+import { computed, ref, toRefs, watch } from '@td/adapter-vue';
+import { get, intersection, isFunction } from 'lodash-es';
 import useDefaultValue from '../../hooks/useDefaultValue';
-import {
+import type {
   ActiveRowActionContext,
   PrimaryTableCellParams,
   PrimaryTableCol,
@@ -15,10 +14,10 @@ import {
   TdPrimaryTableProps,
 } from '../type';
 import { isRowSelectedDisabled } from '../../_common/js/table/utils';
-import { TableClassName } from './useClassName';
 import Checkbox from '../../checkbox';
 import Radio from '../../radio';
 import log from '../../_common/js/log';
+import type { TableClassName } from './useClassName';
 
 export default function useRowSelect(
   props: TdPrimaryTableProps,
@@ -44,14 +43,18 @@ export default function useRowSelect(
   const intersectionKeys = computed(() =>
     intersection(
       tSelectedRowKeys.value,
-      canSelectedRows.value.map((t) => get(t, props.rowKey || 'id')),
+      canSelectedRows.value.map(t => get(t, props.rowKey || 'id')),
     ),
   );
 
   const allowUncheck = computed(() => {
-    if (props.rowSelectionAllowUncheck) return true;
+    if (props.rowSelectionAllowUncheck) {
+      return true;
+    }
     const singleSelectCol = selectionType.value === 'single';
-    if (!singleSelectCol || !selectColumn.value || !('allowUncheck' in selectColumn.value?.checkProps)) return false;
+    if (!singleSelectCol || !selectColumn.value || !('allowUncheck' in selectColumn.value?.checkProps)) {
+      return false;
+    }
     return selectColumn.value.checkProps.allowUncheck;
   });
 
@@ -78,12 +81,12 @@ export default function useRowSelect(
 
   function getSelectedHeader() {
     return () => {
-      const isIndeterminate =
-        intersectionKeys.value.length > 0 && intersectionKeys.value.length < canSelectedRows.value.length;
-      const isChecked =
-        intersectionKeys.value.length !== 0 &&
-        canSelectedRows.value.length !== 0 &&
-        intersectionKeys.value.length === canSelectedRows.value.length;
+      const isIndeterminate
+        = intersectionKeys.value.length > 0 && intersectionKeys.value.length < canSelectedRows.value.length;
+      const isChecked
+        = intersectionKeys.value.length !== 0
+        && canSelectedRows.value.length !== 0
+        && intersectionKeys.value.length === canSelectedRows.value.length;
       return (
         <Checkbox
           checked={isChecked}
@@ -124,7 +127,9 @@ export default function useRowSelect(
       },
       onChange: () => handleSelectChange(row),
     };
-    if (column.type === 'single') return <Radio {...selectBoxProps} />;
+    if (column.type === 'single') {
+      return <Radio {...selectBoxProps} />;
+    }
     if (column.type === 'multiple') {
       const isIndeterminate = props.indeterminateSelectedRowKeys?.length
         ? props.indeterminateSelectedRowKeys.includes(get(row, props.rowKey))
@@ -149,7 +154,7 @@ export default function useRowSelect(
       return;
     }
     setTSelectedRowKeys(selectedRowKeys, {
-      selectedRowData: selectedRowKeys.map((t) => selectedRowDataMap.value.get(t)),
+      selectedRowData: selectedRowKeys.map(t => selectedRowDataMap.value.get(t)),
       currentRowKey: id,
       currentRowData: row,
       type: isExisted ? 'uncheck' : 'check',
@@ -158,11 +163,11 @@ export default function useRowSelect(
 
   function handleSelectAll(checked: boolean) {
     const reRowKey = props.rowKey || 'id';
-    const canSelectedRowKeys = canSelectedRows.value.map((record) => get(record, reRowKey));
-    const disabledSelectedRowKeys = selectedRowKeys.value?.filter((id) => !canSelectedRowKeys.includes(id)) || [];
+    const canSelectedRowKeys = canSelectedRows.value.map(record => get(record, reRowKey));
+    const disabledSelectedRowKeys = selectedRowKeys.value?.filter(id => !canSelectedRowKeys.includes(id)) || [];
     const allIds = checked ? [...disabledSelectedRowKeys, ...canSelectedRowKeys] : [...disabledSelectedRowKeys];
     setTSelectedRowKeys(allIds, {
-      selectedRowData: checked ? allIds.map((t) => selectedRowDataMap.value.get(t)) : [],
+      selectedRowData: checked ? allIds.map(t => selectedRowDataMap.value.get(t)) : [],
       type: checked ? 'check' : 'uncheck',
       currentRowKey: 'CHECK_ALL_BOX',
     });
@@ -170,7 +175,9 @@ export default function useRowSelect(
 
   function formatToRowSelectColumn(col: PrimaryTableCol) {
     const isSelection = ['multiple', 'single'].includes(col.type);
-    if (!isSelection) return col;
+    if (!isSelection) {
+      return col;
+    }
     return {
       ...col,
       width: col.width || 64,
@@ -181,7 +188,7 @@ export default function useRowSelect(
   }
 
   const onInnerSelectRowClick: TdPrimaryTableProps['onRowClick'] = ({ row, index }) => {
-    const selectedColIndex = props.columns.findIndex((item) => item.colKey === 'row-select');
+    const selectedColIndex = props.columns.findIndex(item => item.colKey === 'row-select');
     let disabled = false;
     if (selectedColIndex !== -1) {
       disabled = getRowSelectDisabledData({
@@ -191,7 +198,9 @@ export default function useRowSelect(
         colIndex: selectedColIndex,
       })?.disabled;
     }
-    if (disabled) return;
+    if (disabled) {
+      return;
+    }
     handleSelectChange(row);
   };
 
@@ -218,7 +227,9 @@ export default function useRowSelect(
   };
 
   const handleRowSelectWithAreaSelection = ({ activeRowList, action }: ActiveRowActionContext<TableRowData>) => {
-    if (!showRowSelect.value) return;
+    if (!showRowSelect.value) {
+      return;
+    }
 
     if (action === 'clear') {
       clearAllSelectedRowKeys();
@@ -246,12 +257,14 @@ export default function useRowSelect(
           colIndex: undefined,
         }).disabled,
     );
-    if (!validAreaSelection.length) return;
+    if (!validAreaSelection.length) {
+      return;
+    }
 
     const areaSelectionKeys = validAreaSelection.map(({ row }) => get(row, props.rowKey));
     const intersectionKeys = intersection(tSelectedRowKeys.value, areaSelectionKeys);
     const toCheck = intersectionKeys.length !== areaSelectionKeys.length;
-    const clearedKeys = tSelectedRowKeys.value.filter((key) => !areaSelectionKeys.includes(key));
+    const clearedKeys = tSelectedRowKeys.value.filter(key => !areaSelectionKeys.includes(key));
     const newSelectedRowKeys = toCheck ? [...new Set(tSelectedRowKeys.value.concat(areaSelectionKeys))] : clearedKeys;
 
     const currentRowData = action === 'space-one-selection' ? activeRowList[0].row : undefined;

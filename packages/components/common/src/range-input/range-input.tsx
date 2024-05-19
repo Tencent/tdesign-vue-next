@@ -1,17 +1,17 @@
-import { defineComponent, ref, toRefs, computed, Fragment } from '@td/adapter-vue';
+import { Fragment, computed, defineComponent, ref, toRefs } from '@td/adapter-vue';
 import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
-import Input from '../input';
 import props from '@td/intel/range-input/props';
-import { RangeInputValue, RangeInputPosition } from '@td/intel/range-input/type';
+import type { RangeInputPosition, RangeInputValue } from '@td/intel/range-input/type';
 
 // hooks
 import { useVModel } from '@td/adapter-hooks';
-import { useFormDisabled } from '../form/hooks';
 import { useGlobalIcon } from '@td/adapter-hooks';
-import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
+import { useCommonClassName, usePrefixClass } from '@td/adapter-hooks';
 import { useTNodeJSX } from '@td/adapter-hooks';
 import { isArray } from 'lodash-es';
+import { useFormDisabled } from '../form/hooks';
+import Input from '../input';
 
 function calcArrayValue(value: unknown | Array<unknown>) {
   if (isArray(value)) {
@@ -145,23 +145,19 @@ export default defineComponent({
                 handleEnter([val, innerValue.value?.[1]], { e, position: 'first' } as {
                   e: any;
                   position: RangeInputPosition;
-                })
-              }
+                })}
               onFocus={(val, { e }) =>
                 handleFocus([val, innerValue.value?.[1]], { e, position: 'first' } as {
                   e: any;
                   position: RangeInputPosition;
-                })
-              }
+                })}
               onBlur={(val, { e }) =>
                 handleBlur([val, innerValue.value?.[1]], { e, position: 'first' } as {
                   e: any;
                   position: RangeInputPosition;
-                })
-              }
+                })}
               onChange={(val, { e }) =>
-                setInnerValue([val, innerValue.value?.[1]], { e, position: 'first', trigger: 'input' })
-              }
+                setInnerValue([val, innerValue.value?.[1]], { e, position: 'first', trigger: 'input' })}
               {...inputProps.value[0]}
             />
 
@@ -184,33 +180,31 @@ export default defineComponent({
                 handleEnter([innerValue.value?.[0], val], { e, position: 'second' } as {
                   e: any;
                   position: RangeInputPosition;
-                })
-              }
+                })}
               onFocus={(val, { e }) =>
                 handleFocus([innerValue.value?.[0], val], { e, position: 'second' } as {
                   e: any;
                   position: RangeInputPosition;
-                })
-              }
+                })}
               onBlur={(val, { e }) =>
                 handleBlur([innerValue.value?.[0], val], { e, position: 'second' } as {
                   e: any;
                   position: RangeInputPosition;
-                })
-              }
+                })}
               onChange={(val, { e }) =>
-                setInnerValue([innerValue.value?.[0], val], { e, position: 'second', trigger: 'input' })
-              }
+                setInnerValue([innerValue.value?.[0], val], { e, position: 'second', trigger: 'input' })}
               {...inputProps.value[1]}
             />
             {suffixContent ? <div class={`${COMPONENT_NAME.value}__suffix`}>{suffixContent}</div> : null}
             {suffixIconContent && (
               <span class={`${COMPONENT_NAME.value}__suffix ${COMPONENT_NAME.value}__suffix-icon`}>
-                {isShowClearIcon.value ? (
-                  <CloseCircleFilledIcon class={`${COMPONENT_NAME.value}__suffix-clear`} onClick={handleClear} />
-                ) : (
-                  suffixIconContent
-                )}
+                {isShowClearIcon.value
+                  ? (
+                    <CloseCircleFilledIcon class={`${COMPONENT_NAME.value}__suffix-clear`} onClick={handleClear} />
+                    )
+                  : (
+                      suffixIconContent
+                    )}
               </span>
             )}
           </div>

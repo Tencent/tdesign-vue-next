@@ -1,9 +1,10 @@
-import { defineComponent, PropType, computed, VNode, nextTick, ref, watch, onMounted } from '@td/adapter-vue';
-import { firstUpperCase } from '../utils/helper';
+import type { PropType, VNode } from '@td/adapter-vue';
+import { computed, defineComponent, nextTick, onMounted, ref, watch } from '@td/adapter-vue';
 import tabProps from '@td/intel/tabs/props';
 
 // hooks
 import { usePrefixClass } from '@td/adapter-hooks';
+import { firstUpperCase } from '../utils/helper';
 
 export default defineComponent({
   props: {
@@ -31,7 +32,9 @@ export default defineComponent({
         }
         offset += props.navs[i]?.el?.[`client${firstUpperCase(sizePropName)}`] || 0;
       }
-      if (!props.navs[i]) return {};
+      if (!props.navs[i]) {
+        return {};
+      }
       return {
         [offsetPropName]: `${offset}px`,
         [sizePropName]: `${props.navs[i].el?.[`client${firstUpperCase(sizePropName)}`] || 0}px`,

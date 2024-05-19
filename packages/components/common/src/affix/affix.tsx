@@ -1,12 +1,10 @@
-import { ref, watch, nextTick, onMounted, onBeforeUnmount, defineComponent, onActivated, onDeactivated } from '@td/adapter-vue';
-import { isFunction } from 'lodash-es';
-import { isUndefined } from 'lodash-es';
+import { defineComponent, nextTick, onActivated, onBeforeUnmount, onDeactivated, onMounted, ref, watch } from '@td/adapter-vue';
+import { isFunction, isUndefined } from 'lodash-es';
 
-import { on, off, getScrollContainer } from '../utils/dom';
 import props from '@td/intel/affix/props';
-import { ScrollContainerElement } from '../common';
-import { usePrefixClass } from '@td/adapter-hooks';
-import { useTNodeJSX } from '@td/adapter-hooks';
+import { usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
+import type { ScrollContainerElement } from '../common';
+import { getScrollContainer, off, on } from '../utils/dom';
 
 export default defineComponent({
   name: 'TAffix',
@@ -44,9 +42,9 @@ export default defineComponent({
           let fixedTop: number | false; // 0 -1 false 都有具体的意义
           const calcTop = wrapToTop - containerTop; // 节点顶部到 container 顶部的距离
 
-          const containerHeight =
-            scrollContainer.value[scrollContainer.value instanceof Window ? 'innerHeight' : 'clientHeight'] -
-            wrapHeight;
+          const containerHeight
+            = scrollContainer.value[scrollContainer.value instanceof Window ? 'innerHeight' : 'clientHeight']
+            - wrapHeight;
           const calcBottom = containerTop + containerHeight - props.offsetBottom; // 计算 bottom 相对应的 top 值
 
           if (!isUndefined(props.offsetTop) && calcTop <= props.offsetTop) {
@@ -84,7 +82,9 @@ export default defineComponent({
             }
 
             context.emit('fixedChange', affixed, { top: Number(fixedTop) });
-            if (isFunction(props.onFixedChange)) props.onFixedChange(affixed, { top: Number(fixedTop) });
+            if (isFunction(props.onFixedChange)) {
+              props.onFixedChange(affixed, { top: Number(fixedTop) });
+            }
           }
 
           ticking.value = false;
@@ -95,7 +95,9 @@ export default defineComponent({
 
     const bindScroll = async () => {
       await nextTick();
-      if (binded.value) return;
+      if (binded.value) {
+        return;
+      }
       scrollContainer.value = getScrollContainer(props.container);
       on(scrollContainer.value, 'scroll', handleScroll);
       on(window, 'resize', handleScroll);
@@ -103,7 +105,9 @@ export default defineComponent({
     };
 
     const unbindScroll = () => {
-      if (!scrollContainer.value || !binded.value) return;
+      if (!scrollContainer.value || !binded.value) {
+        return;
+      }
       off(scrollContainer.value, 'scroll', handleScroll);
       off(window, 'resize', handleScroll);
       if (rAFId) {

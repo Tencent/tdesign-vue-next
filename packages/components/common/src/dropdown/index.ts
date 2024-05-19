@@ -1,8 +1,8 @@
+import { withInstall } from '@td/adapter-utils';
+import type { TdDropdownItemProps, TdDropdownProps } from '@td/intel/dropdown/type';
 import _DropdownItem from './dropdown-item';
 import _Dropdown from './dropdown';
 import _DropdownMenu from './dropdown-menu';
-import { withInstall } from '@td/adapter-utils';
-import { TdDropdownProps, TdDropdownItemProps } from '@td/intel/dropdown/type';
 
 import './style';
 

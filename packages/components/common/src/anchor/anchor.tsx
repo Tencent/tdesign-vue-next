@@ -1,22 +1,24 @@
+import type {
+  ComponentPublicInstance,
+} from '@td/adapter-vue';
 import {
   defineComponent,
   nextTick,
-  ComponentPublicInstance,
-  ref,
-  reactive,
   onMounted,
   onUnmounted,
-  watchEffect,
   provide,
+  reactive,
+  ref,
+  watchEffect,
 } from '@td/adapter-vue';
-import { ANCHOR_SHARP_REGEXP, ANCHOR_CONTAINER, getOffsetTop } from './utils';
-import { isServer, on, off, getScroll, scrollTo, getScrollContainer as utilsGetScrollContainer } from '../utils/dom';
 import props from '@td/intel/anchor/props';
-import { useTNodeJSX } from '@td/adapter-hooks';
-import { SlotReturnValue } from '../common';
+import { useCommonClassName, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
+import type { TdAnchorProps } from '@td/intel/anchor/type';
+import type { SlotReturnValue } from '../common';
 import Affix from '../affix';
-import { TdAnchorProps } from '@td/intel/anchor/type';
-import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
+import { getScroll, isServer, off, on, scrollTo, getScrollContainer as utilsGetScrollContainer } from '../utils/dom';
+import { ANCHOR_SHARP_REGEXP, getOffsetTop } from './utils';
+import type { ANCHOR_CONTAINER } from './utils';
 import { AnchorInjectionKey } from './constants';
 
 export interface Anchor extends ComponentPublicInstance {
@@ -59,7 +61,9 @@ export default defineComponent({
      * 监听滚动事件
      */
     const handleScroll = () => {
-      if (handleScrollLock.value) return;
+      if (handleScrollLock.value) {
+        return;
+      }
       const { bounds, targetOffset } = props;
       const filters: { top: number; link: string }[] = [];
       let active = '';
@@ -106,7 +110,7 @@ export default defineComponent({
      * @param {string} link
      */
     const registerLink = (link: string) => {
-      if (!ANCHOR_SHARP_REGEXP.test(link) || links.value.indexOf(link) !== -1) {
+      if (!ANCHOR_SHARP_REGEXP.test(link) || links.value.includes(link)) {
         return;
       }
       links.value.push(link);
@@ -117,7 +121,7 @@ export default defineComponent({
      * @param {string} link
      */
     const unregisterLink = (link: string) => {
-      links.value = links.value.filter((each) => each !== link);
+      links.value = links.value.filter(each => each !== link);
     };
     /**
      * 设置当前激活状态锚点
@@ -165,7 +169,9 @@ export default defineComponent({
     const handleScrollTo = async (link: string): Promise<void> => {
       const anchor = getAnchorTarget(link);
       setCurrentActiveLink(link);
-      if (!anchor) return;
+      if (!anchor) {
+        return;
+      }
       handleScrollLock.value = true;
       const { targetOffset } = props;
       const scrollTop = getScroll(scrollContainer.value);
@@ -188,7 +194,9 @@ export default defineComponent({
       }
     });
     onUnmounted(() => {
-      if (!scrollContainer.value) return;
+      if (!scrollContainer.value) {
+        return;
+      }
       off(scrollContainer.value, 'scroll', handleScroll);
     });
     watchEffect(() => {

@@ -1,7 +1,5 @@
 import { computed, defineComponent } from '@td/adapter-vue';
-import { useConfig, usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
-import { useContent, useTNodeJSX } from '@td/adapter-hooks';
-import { useDisabled } from '@td/adapter-hooks';
+import { useCommonClassName, useConfig, useContent, useDisabled, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import props from '@td/intel/link/props';
 
 export default defineComponent({
@@ -28,7 +26,9 @@ export default defineComponent({
     ]);
     // 禁用时 无点击事件
     const handleClick = (event: MouseEvent) => {
-      if (!isDisabled.value) emit('click', event);
+      if (!isDisabled.value) {
+        emit('click', event);
+      }
     };
     return () => {
       const linkContent = renderContent('default', 'content');

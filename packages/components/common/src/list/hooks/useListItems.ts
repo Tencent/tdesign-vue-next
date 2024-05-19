@@ -3,7 +3,7 @@ import { isArray } from 'lodash-es';
 
 import { useChildComponentSlots } from '../../hooks/slot';
 
-export const useListItems = () => {
+export function useListItems() {
   const getChildComponentSlots = useChildComponentSlots();
 
   const listItems = computed(() => {
@@ -25,4 +25,4 @@ export const useListItems = () => {
   return {
     listItems,
   };
-};
+}

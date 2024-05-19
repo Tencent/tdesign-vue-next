@@ -1,4 +1,4 @@
-import { defineComponent, computed } from '@td/adapter-vue';
+import { computed, defineComponent } from '@td/adapter-vue';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 import TButton from '../../button';
 
@@ -21,23 +21,20 @@ export default defineComponent({
 
     return () => (
       <div class={footerClass.value}>
-        {
-          <div class={presetsClass.value}>
-            {props.presets &&
-              Object.keys(props.presets).map((key: string) => (
-                <TButton
-                  key={key}
-                  size="small"
-                  variant="text"
-                  onClick={(e: MouseEvent) =>
-                    props.onPresetClick?.(props.presets[key], { e, preset: { [key]: props.presets[key] } })
-                  }
-                >
-                  {key}
-                </TButton>
-              ))}
-          </div>
-        }
+        <div class={presetsClass.value}>
+          {props.presets
+          && Object.keys(props.presets).map((key: string) => (
+            <TButton
+              key={key}
+              size="small"
+              variant="text"
+              onClick={(e: MouseEvent) =>
+                props.onPresetClick?.(props.presets[key], { e, preset: { [key]: props.presets[key] } })}
+            >
+              {key}
+            </TButton>
+          ))}
+        </div>
         {props.enableTimePicker && (
           <TButton
             disabled={!props.selectedValue}

@@ -1,4 +1,5 @@
-import { ref, Ref, getCurrentInstance } from '@td/adapter-vue';
+import type { Ref } from '@td/adapter-vue';
+import { getCurrentInstance, ref } from '@td/adapter-vue';
 import { kebabCase } from 'lodash-es';
 
 export type ChangeHandler<T, P extends any[]> = (value: T, ...args: P) => void;
@@ -14,12 +15,12 @@ export default function useVModel<T, P extends any[]>(
   const internalValue: Ref<T> = ref();
 
   const vProps = vnode.props || {};
-  const isVM =
-    Object.prototype.hasOwnProperty.call(vProps, 'modelValue') ||
-    Object.prototype.hasOwnProperty.call(vProps, 'model-value');
-  const isVMP =
-    Object.prototype.hasOwnProperty.call(vProps, propName) ||
-    Object.prototype.hasOwnProperty.call(vProps, kebabCase(propName));
+  const isVM
+    = Object.prototype.hasOwnProperty.call(vProps, 'modelValue')
+    || Object.prototype.hasOwnProperty.call(vProps, 'model-value');
+  const isVMP
+    = Object.prototype.hasOwnProperty.call(vProps, propName)
+    || Object.prototype.hasOwnProperty.call(vProps, kebabCase(propName));
 
   if (isVM) {
     return [

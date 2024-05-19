@@ -1,7 +1,8 @@
-import { ref, watch, Ref } from '@td/adapter-vue';
+import type { Ref } from '@td/adapter-vue';
+import { ref, watch } from '@td/adapter-vue';
 import { get } from 'lodash-es';
 import log from '../../_common/js/log';
-import { BaseTableCellParams, BaseTableCol, TableRowData, TableRowspanAndColspanFunc } from '../type';
+import type { BaseTableCellParams, BaseTableCol, TableRowData, TableRowspanAndColspanFunc } from '../type';
 
 export interface SkipSpansValue {
   colspan?: number;
@@ -28,13 +29,17 @@ export default function useRowspanAndColspan(
   // 计算单元格是否跳过渲染
   const onTrRowspanOrColspan = (params: BaseTableCellParams<TableRowData>, skipSpansValue: SkipSpansValue) => {
     const { rowIndex, colIndex } = params;
-    if (!skipSpansValue.rowspan && !skipSpansValue.colspan) return;
+    if (!skipSpansValue.rowspan && !skipSpansValue.colspan) {
+      return;
+    }
     const maxRowIndex = rowIndex + (skipSpansValue.rowspan || 1);
     const maxColIndex = colIndex + (skipSpansValue.colspan || 1);
     for (let i = rowIndex; i < maxRowIndex; i++) {
       for (let j = colIndex; j < maxColIndex; j++) {
         if (i !== rowIndex || j !== colIndex) {
-          if (!data.value[i] || !columns.value[j]) return;
+          if (!data.value[i] || !columns.value[j]) {
+            return;
+          }
           const cellKey = getCellKey(data.value[i], rowKey.value, columns.value[j].colKey, j);
           const state = skipSpansMap.value.get(cellKey) || {};
           state.skipped = true;
@@ -51,7 +56,9 @@ export default function useRowspanAndColspan(
     rowspanAndColspan: TableRowspanAndColspanFunc<TableRowData>,
   ) => {
     skipSpansMap.value?.clear();
-    if (!data || !rowspanAndColspan) return;
+    if (!data || !rowspanAndColspan) {
+      return;
+    }
     for (let i = 0, len = data.length; i < len; i++) {
       const row = data[i];
       for (let j = 0, colLen = columns.length; j < colLen; j++) {

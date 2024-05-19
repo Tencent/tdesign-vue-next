@@ -1,10 +1,9 @@
 import { computed, defineComponent, provide, reactive } from '@td/adapter-vue';
 import props from '@td/intel/radio/props';
-import Radio from './radio';
-import { omit } from '../utils/helper';
-import { RadioButtonInjectionKey } from './constants';
-
 import { useContent } from '@td/adapter-hooks';
+import { omit } from '../utils/helper';
+import Radio from './radio';
+import { RadioButtonInjectionKey } from './constants';
 
 export default defineComponent({
   name: 'TRadioButton',
@@ -19,7 +18,7 @@ export default defineComponent({
         ...props,
         ...omit(
           attrs,
-          Object.keys(attrs).filter((key) => key.startsWith('on')),
+          Object.keys(attrs).filter(key => key.startsWith('on')),
         ),
       };
 

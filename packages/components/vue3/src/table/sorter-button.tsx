@@ -1,13 +1,13 @@
-import { computed, defineComponent, PropType } from '@td/adapter-vue';
+import type { PropType } from '@td/adapter-vue';
+import { computed, defineComponent } from '@td/adapter-vue';
 import { ChevronDownIcon as TdChevronDownIcon } from 'tdesign-icons-vue-next';
+import type { SortType } from '@td/intel/table/type';
+import { useConfig, useGlobalIcon, useTNodeDefault } from '@td/adapter-hooks';
+import type { TooltipProps } from '../tooltip';
+import Tooltip from '../tooltip';
+import type { TNode } from '../common';
+import type { TableConfig } from '../config-provider';
 import useClassName from './hooks/useClassName';
-import { SortType } from '@td/intel/table/type';
-import Tooltip, { TooltipProps } from '../tooltip';
-import { useConfig } from '@td/adapter-hooks';
-import { useGlobalIcon } from '@td/adapter-hooks';
-import { useTNodeDefault } from '@td/adapter-hooks';
-import { TNode } from '../common';
-import { TableConfig } from '../config-provider';
 
 type SortTypeEnums = Array<'desc' | 'asc'>;
 
@@ -55,7 +55,7 @@ export default defineComponent({
         { [negativeRotate180]: direction === 'asc' },
       ];
       return (
-        <span class={sortClassName} onClick={(e) => onSortIconClick(e, direction)}>
+        <span class={sortClassName} onClick={e => onSortIconClick(e, direction)}>
           {icon}
         </span>
       );
@@ -82,7 +82,9 @@ export default defineComponent({
       const activeClass = direction === this.sortOrder ? tableSortClasses.iconActive : tableSortClasses.iconDefault;
       const cancelTips = this.globalConfig.sortCancelOperationText;
       const tips = direction === this.sortOrder ? cancelTips : tooltips[direction];
-      if (this.hideSortTips ?? this.globalConfig.hideSortTips) return this.getSortIcon(direction, activeClass);
+      if (this.hideSortTips ?? this.globalConfig.hideSortTips) {
+        return this.getSortIcon(direction, activeClass);
+      }
       return (
         <Tooltip
           content={tips}

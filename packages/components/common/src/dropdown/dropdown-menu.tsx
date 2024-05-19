@@ -1,14 +1,13 @@
-import { defineComponent, ref, onMounted, h, reactive } from '@td/adapter-vue';
+import { defineComponent, h, onMounted, reactive, ref } from '@td/adapter-vue';
 import { ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
-import DropdownItem from './dropdown-item';
 
-import { DropdownOption } from '@td/intel/dropdown/type';
+import type { DropdownOption } from '@td/intel/dropdown/type';
 import DropdownProps from '@td/intel/dropdown/props';
-import TDivider from '../divider';
-import { usePrefixClass } from '@td/adapter-hooks';
-import { useGlobalIcon } from '@td/adapter-hooks';
-import { TNode } from '../common';
+import { useGlobalIcon, usePrefixClass } from '@td/adapter-hooks';
 import { isFunction } from 'lodash-es';
+import type { TNode } from '../common';
+import TDivider from '../divider';
+import DropdownItem from './dropdown-item';
 
 export default defineComponent({
   name: 'TDropdownMenu',
@@ -36,8 +35,10 @@ export default defineComponent({
 
     onMounted(() => {
       if (menuRef.value) {
-        const menuHeight = parseInt(window?.getComputedStyle(menuRef.value).height, 10);
-        if (menuHeight >= props.maxHeight) isOverMaxHeight.value = true;
+        const menuHeight = Number.parseInt(window?.getComputedStyle(menuRef.value).height, 10);
+        if (menuHeight >= props.maxHeight) {
+          isOverMaxHeight.value = true;
+        }
       }
     });
 

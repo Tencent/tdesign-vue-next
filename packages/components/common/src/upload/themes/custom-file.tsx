@@ -1,9 +1,11 @@
-import { defineComponent, PropType, toRefs } from '@td/adapter-vue';
-import useDrag, { UploadDragEvents } from '../hooks/useDrag';
-import { CommonDisplayFileProps } from '../interface';
+import type { PropType } from '@td/adapter-vue';
+import { defineComponent, toRefs } from '@td/adapter-vue';
+import type { UploadDragEvents } from '../hooks/useDrag';
+import useDrag from '../hooks/useDrag';
+import type { CommonDisplayFileProps } from '../interface';
 import { commonProps } from '../constants';
 import { useContent } from '../../hooks/tnode';
-import { TdUploadProps } from '../type';
+import type { TdUploadProps } from '../type';
 
 export interface CustomFileProps extends CommonDisplayFileProps {
   dragEvents: UploadDragEvents;
@@ -56,13 +58,15 @@ export default defineComponent({
 
     return () => (
       <>
-        {props.draggable ? (
-          renderDragContent()
-        ) : (
-          <div class={`${classPrefix.value}-upload__trigger`} onClick={props.triggerUpload}>
-            {props.childrenNode?.({ files: displayFiles.value }) || slots.default?.()}
-          </div>
-        )}
+        {props.draggable
+          ? (
+              renderDragContent()
+            )
+          : (
+            <div class={`${classPrefix.value}-upload__trigger`} onClick={props.triggerUpload}>
+              {props.childrenNode?.({ files: displayFiles.value }) || slots.default?.()}
+            </div>
+            )}
       </>
     );
   },

@@ -1,4 +1,5 @@
-import { onBeforeMount, onMounted, Ref } from '@td/adapter-vue';
+import type { Ref } from '@td/adapter-vue';
+import { onBeforeMount, onMounted } from '@td/adapter-vue';
 import { isString } from 'lodash-es';
 import { off, on } from '../utils/dom';
 import { CHECKED_CODE_REG } from '../_common/js/common';
@@ -13,7 +14,9 @@ export default function useKeyboard(
     if (isCheckedCode) {
       e.preventDefault();
       const inputNode = (e.target as HTMLElement).querySelector('input');
-      if (!inputNode) return;
+      if (!inputNode) {
+        return;
+      }
 
       const data = inputNode.dataset;
       if (inputNode.checked && data.allowUncheck) {
@@ -24,7 +27,7 @@ export default function useKeyboard(
         // Boolean
         value = (isString(value) && { true: true, false: false }[value]) || value;
         // String
-        value = isString(value) && value[0] === "'" ? value.replace(/'/g, '') : value;
+        value = isString(value) && value[0] === '\'' ? value.replace(/'/g, '') : value;
         setInnerValue(value, { e });
       }
     }

@@ -1,18 +1,19 @@
-import { toRefs, ref, watch, computed, SetupContext, h } from '@td/adapter-vue';
-import useClassName from './useClassName';
+import type { SetupContext } from '@td/adapter-vue';
+import { computed, h, ref, toRefs, watch } from '@td/adapter-vue';
+import { isFunction } from 'lodash-es';
 import TButton from '../../button';
-import { TdPrimaryTableProps, PrimaryTableCol, TableRowData, FilterValue, TableFilterChangeContext } from '../type';
+import type { FilterValue, PrimaryTableCol, TableFilterChangeContext, TableRowData, TdPrimaryTableProps } from '../type';
 import useDefaultValue from '../../hooks/useDefaultValue';
 import { useTNodeDefault } from '../../hooks/tnode';
 import TableFilterController from '../filter-controller';
 import { useConfig } from '../../hooks/useConfig';
-import { isFunction } from 'lodash-es';
 import { getColumnsResetValue } from '../../_common/js/table/utils';
+import useClassName from './useClassName';
 import { renderTitle } from './useTableHeader';
 
 function isFilterValueExist(value: any) {
-  const isArrayTrue = value instanceof Array && value.length;
-  const isObject = typeof value === 'object' && !(value instanceof Array);
+  const isArrayTrue = Array.isArray(value) && value.length;
+  const isObject = typeof value === 'object' && !(Array.isArray(value));
   const isObjectTrue = isObject && Object.keys(value).length;
   return isArrayTrue || isObjectTrue || !['null', '', 'undefined'].includes(String(value));
 }
@@ -58,7 +59,9 @@ export default function useFilter(props: TdPrimaryTableProps, context: SetupCont
   });
 
   function renderFirstFilterRow() {
-    if (hasEmptyCondition.value) return null;
+    if (hasEmptyCondition.value) {
+      return null;
+    }
     const defaultNode = (
       <div class={tableFilterClasses.result}>
         <span>
@@ -75,7 +78,9 @@ export default function useFilter(props: TdPrimaryTableProps, context: SetupCont
       </div>
     );
     const filterContent = renderTNode('filterRow');
-    if ((props.filterRow && !filterContent) || props.filterRow === null) return null;
+    if ((props.filterRow && !filterContent) || props.filterRow === null) {
+      return null;
+    }
     return <div class={tableFilterClasses.inner}>{filterContent || defaultNode}</div>;
   }
 
@@ -85,11 +90,11 @@ export default function useFilter(props: TdPrimaryTableProps, context: SetupCont
     const columns: Array<PrimaryTableCol> = [];
     getAllColumns(props.columns, columns);
     columns
-      .filter((col) => col.filter)
+      .filter(col => col.filter)
       .forEach((col, index) => {
         let value = tFilterValue.value[col.colKey];
         if (col.filter.list && !['null'].includes(String(value))) {
-          const formattedValue = value instanceof Array ? value : [value];
+          const formattedValue = Array.isArray(value) ? value : [value];
           const label: string[] = [];
           col.filter.list.forEach((option) => {
             if (formattedValue.includes(option.value)) {
@@ -106,7 +111,7 @@ export default function useFilter(props: TdPrimaryTableProps, context: SetupCont
       });
     return arr.join('；');
   }
-  //递归拿到所有的 column
+  // 递归拿到所有的 column
   function getAllColumns(col: Array<PrimaryTableCol>, columns: Array<PrimaryTableCol>) {
     col.forEach((column) => {
       if (column.children) {
@@ -140,13 +145,13 @@ export default function useFilter(props: TdPrimaryTableProps, context: SetupCont
     const filterValue: FilterValue = {
       ...tFilterValue.value,
       [column.colKey]:
-        column.filter.resetValue ??
-        {
+        column.filter.resetValue
+        ?? {
           single: '',
           multiple: [],
           input: '',
-        }[column.filter.type] ??
-        '',
+        }[column.filter.type]
+        ?? '',
     };
     emitFilterChange(filterValue, 'reset', column);
   }
@@ -180,7 +185,8 @@ export default function useFilter(props: TdPrimaryTableProps, context: SetupCont
         onInnerFilterChange={onInnerFilterChange}
         primaryTableElement={primaryTableRef.value?.$el}
         onVisibleChange={onPopupVisibleChange}
-      ></TableFilterController>
+      >
+      </TableFilterController>
     );
   }
 

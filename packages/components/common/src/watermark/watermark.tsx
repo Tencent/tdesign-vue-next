@@ -1,11 +1,10 @@
-import { computed, onMounted, defineComponent, watch, ref, reactive } from '@td/adapter-vue';
+import { computed, defineComponent, onMounted, reactive, ref, watch } from '@td/adapter-vue';
 import props from '@td/intel/watermark/props';
+import { useContent, usePrefixClass } from '@td/adapter-hooks';
 import generateBase64Url from '../_common/js/watermark/generateBase64Url';
 import randomMovingStyle from '../_common/js/watermark/randomMovingStyle';
 import injectStyle from '../_common/js/utils/injectStyle';
-import { usePrefixClass } from '@td/adapter-hooks';
 import { useMutationObserver } from './hooks';
-import { useContent } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'TWatermark',
@@ -72,7 +71,9 @@ export default defineComponent({
       useMutationObserver(
         parent.value,
         (mutations) => {
-          if (props.removable) return;
+          if (props.removable) {
+            return;
+          }
           mutations.forEach((mutation) => {
             if (mutation.type === 'childList') {
               const removeNodes = mutation.removedNodes;

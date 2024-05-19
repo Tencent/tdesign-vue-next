@@ -1,9 +1,10 @@
-import { toRefs, Ref, ref, computed } from '@td/adapter-vue';
+import type { Ref } from '@td/adapter-vue';
+import { computed, ref, toRefs } from '@td/adapter-vue';
 import { get } from 'lodash-es';
-import { BaseTableProps } from '../interface';
-import { on, off } from '../../utils/dom';
+import type { BaseTableProps } from '../interface';
+import { off, on } from '../../utils/dom';
 import { ALL_REG, ARROW_DOWN_REG, ARROW_UP_REG, CLEAR_REG, ESCAPE_REG, SPACE_REG } from '../../_common/js/common';
-import { RowEventContext, TableRowData } from '../type';
+import type { RowEventContext, TableRowData } from '../type';
 
 /**
  * 需要进行表格行操作时，则需要键盘操作的悬浮效果来表达当前的哪一行
@@ -16,8 +17,12 @@ export function useHoverKeyboardEvent(props: BaseTableProps, tableRef: Ref<HTMLD
 
   // 单行高亮场景，不需要键盘悬浮效果
   const needKeyboardRowHover = computed(() => {
-    if (activeRowType.value === 'single') return false;
-    if (activeRowType.value === 'multiple') return true;
+    if (activeRowType.value === 'single') {
+      return false;
+    }
+    if (activeRowType.value === 'multiple') {
+      return true;
+    }
     return hover.value || keyboardRowHover.value;
   });
 
@@ -39,7 +44,9 @@ export function useHoverKeyboardEvent(props: BaseTableProps, tableRef: Ref<HTMLD
   };
 
   const keyboardDownListener = (e: KeyboardEvent) => {
-    if (!needKeyboardRowHover.value) return;
+    if (!needKeyboardRowHover.value) {
+      return;
+    }
     const code = e.code || e.key?.trim();
     if (ARROW_DOWN_REG.test(code)) {
       e.preventDefault();

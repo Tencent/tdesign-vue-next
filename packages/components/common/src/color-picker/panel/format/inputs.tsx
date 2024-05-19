@@ -1,4 +1,5 @@
-import { computed, defineComponent, PropType, reactive, watch } from '@td/adapter-vue';
+import type { PropType } from '@td/adapter-vue';
+import { computed, defineComponent, reactive, watch } from '@td/adapter-vue';
 import { throttle } from 'lodash-es';
 import props from '../../props';
 import { Color } from '../../utils';
@@ -121,35 +122,37 @@ export default defineComponent({
                 flex: config.flex || 1,
               }}
             >
-              {config.type === 'input' ? (
-                <TInput
-                  {...inputProps}
-                  align="center"
-                  size="small"
-                  disabled={this.disabled}
-                  v-model={this.modelValue[config.key]}
-                  maxlength={this.format === 'HEX' ? 9 : undefined}
-                  title={this.modelValue[config.key]}
-                  onBlur={(v: string) => this.handleChange(config.key, v)}
-                  onEnter={(v: string) => this.handleChange(config.key, v)}
-                />
-              ) : (
-                <TInputNumber
-                  {...inputProps}
-                  align="center"
-                  size="small"
-                  disabled={this.disabled}
-                  v-model={this.modelValue[config.key]}
-                  title={this.modelValue[config.key]}
-                  min={config.min}
-                  max={config.max}
-                  step={1}
-                  format={config.format}
-                  theme="normal"
-                  onBlur={(v: number) => this.handleChange(config.key, v)}
-                  onEnter={(v: number) => this.handleChange(config.key, v)}
-                />
-              )}
+              {config.type === 'input'
+                ? (
+                  <TInput
+                    {...inputProps}
+                    align="center"
+                    size="small"
+                    disabled={this.disabled}
+                    v-model={this.modelValue[config.key]}
+                    maxlength={this.format === 'HEX' ? 9 : undefined}
+                    title={this.modelValue[config.key]}
+                    onBlur={(v: string) => this.handleChange(config.key, v)}
+                    onEnter={(v: string) => this.handleChange(config.key, v)}
+                  />
+                  )
+                : (
+                  <TInputNumber
+                    {...inputProps}
+                    align="center"
+                    size="small"
+                    disabled={this.disabled}
+                    v-model={this.modelValue[config.key]}
+                    title={this.modelValue[config.key]}
+                    min={config.min}
+                    max={config.max}
+                    step={1}
+                    format={config.format}
+                    theme="normal"
+                    onBlur={(v: number) => this.handleChange(config.key, v)}
+                    onEnter={(v: number) => this.handleChange(config.key, v)}
+                  />
+                  )}
             </div>
           );
         })}

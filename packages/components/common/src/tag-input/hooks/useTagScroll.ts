@@ -5,7 +5,7 @@
 
 import { isFunction } from 'lodash-es';
 import { onMounted, onUnmounted, ref, toRefs } from '@td/adapter-vue';
-import { TdTagInputProps } from '../type';
+import type { TdTagInputProps } from '../type';
 
 export default function useTagScroll(props: TdTagInputProps) {
   const tagInputRef = ref();
@@ -26,7 +26,9 @@ export default function useTagScroll(props: TdTagInputProps) {
   };
 
   const scrollTo = (distance: number) => {
-    if (!isFunction(scrollElement.value?.scroll)) return;
+    if (!isFunction(scrollElement.value?.scroll)) {
+      return;
+    }
     scrollElement.value.scroll({ left: distance, behavior: 'smooth' });
   };
 
@@ -44,8 +46,12 @@ export default function useTagScroll(props: TdTagInputProps) {
 
   // TODO：MAC 电脑横向滚动，Windows 纵向滚动。当前只处理了横向滚动
   const onWheel = ({ e }: { e: WheelEvent }) => {
-    if (readonly.value || disabled.value) return;
-    if (!scrollElement.value) return;
+    if (readonly.value || disabled.value) {
+      return;
+    }
+    if (!scrollElement.value) {
+      return;
+    }
     if (e.deltaX > 0) {
       const distance = Math.min(scrollElement.value.scrollLeft + 120, scrollDistance.value);
       scrollTo(distance);
@@ -57,7 +63,9 @@ export default function useTagScroll(props: TdTagInputProps) {
 
   // 鼠标 hover，自动滑动到最右侧，以便输入新标签
   const scrollToRightOnEnter = () => {
-    if (excessTagsDisplayType.value !== 'scroll') return;
+    if (excessTagsDisplayType.value !== 'scroll') {
+      return;
+    }
     // 一闪而过的 mousenter 不需要执行
     mouseEnterTimer.value = setTimeout(() => {
       scrollToRight();
@@ -66,7 +74,9 @@ export default function useTagScroll(props: TdTagInputProps) {
   };
 
   const scrollToLeftOnLeave = () => {
-    if (excessTagsDisplayType.value !== 'scroll') return;
+    if (excessTagsDisplayType.value !== 'scroll') {
+      return;
+    }
     isScrollable.value = false; // 离开焦点不可滚动
     scrollTo(0);
     clearTimeout(mouseEnterTimer.value);
@@ -74,7 +84,9 @@ export default function useTagScroll(props: TdTagInputProps) {
 
   const init = () => {
     const element = tagInputRef.value?.$el;
-    if (!element) return;
+    if (!element) {
+      return;
+    }
     updateScrollElement(element);
   };
 

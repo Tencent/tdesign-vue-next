@@ -1,15 +1,12 @@
-import { defineComponent, ref, computed, provide, watchEffect, watch, onMounted, toRefs } from '@td/adapter-vue';
+import { computed, defineComponent, onMounted, provide, ref, toRefs, watch, watchEffect } from '@td/adapter-vue';
 import props from '@td/intel/menu/props';
-import { MenuValue } from '@td/intel/menu/type';
-import { TdMenuInterface, TdOpenType } from './const';
+import type { MenuValue } from '@td/intel/menu/type';
+import { useDefaultValue, usePrefixClass, useVModel } from '@td/adapter-hooks';
+import { isArray, isNumber } from 'lodash-es';
+import log from '../_common/js/log/log';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import VMenu from './v-menu';
-import log from '../_common/js/log/log';
-import { usePrefixClass } from '@td/adapter-hooks';
-import { useVModel } from '@td/adapter-hooks';
-import { useDefaultValue } from '@td/adapter-hooks';
-import { isNumber } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import type { TdMenuInterface, TdOpenType } from './const';
 
 export default defineComponent({
   name: 'TMenu',
@@ -36,7 +33,9 @@ export default defineComponent({
     const expandWidth = computed(() => {
       const { width } = props;
       const format = (val: string | number) => (isNumber(val) ? `${val}px` : val);
-      if (isArray(width)) return width.map((item) => format(item));
+      if (isArray(width)) {
+        return width.map(item => format(item));
+      }
 
       return [format(width), '64px'];
     });
@@ -75,7 +74,7 @@ export default defineComponent({
         if (mode.value === 'normal') {
           setExpand(vMenu.expand(value));
         } else if (type === 'add') {
-          if (expandValues.value.indexOf(value) === -1) {
+          if (!expandValues.value.includes(value)) {
             // 可能初始expanded里包含了该value
             setExpand([...expandValues.value, value]);
           }

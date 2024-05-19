@@ -1,8 +1,7 @@
 import { defineComponent } from '@td/adapter-vue';
 import props from '@td/intel/layout/header-props';
 
-import { useTNodeJSX } from '@td/adapter-hooks';
-import { usePrefixClass } from '@td/adapter-hooks';
+import { usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'THeader',

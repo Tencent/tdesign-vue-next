@@ -1,6 +1,7 @@
-import { TooltipProps } from '@src/tooltip';
-import { ref, computed, ComputedRef, Ref } from '@td/adapter-vue';
-import { TdSliderProps } from '../type';
+import type { TooltipProps } from '@src/tooltip';
+import type { ComputedRef, Ref } from '@td/adapter-vue';
+import { computed, ref } from '@td/adapter-vue';
+import type { TdSliderProps } from '../type';
 import { formatLabel } from '../util/common';
 import { useTNodeJSX } from '../../hooks';
 
@@ -29,7 +30,7 @@ export interface TooltipConfig {
  * @param vertical 是否垂直展示
  * @returns
  */
-export const useSliderTooltip = (tooltipConfig: Ref<TooltipConfig>) => {
+export function useSliderTooltip(tooltipConfig: Ref<TooltipConfig>) {
   const tooltipRef = ref();
   const showTooltip = computed({
     get() {
@@ -42,7 +43,9 @@ export const useSliderTooltip = (tooltipConfig: Ref<TooltipConfig>) => {
   const normalizeProps = ref<TooltipProps & { overlayClassName: string }>({ ...initialProps });
   /** 开关显示tooltip */
   const toggleTooltip = (toState: boolean) => {
-    if (!showTooltip.value) return;
+    if (!showTooltip.value) {
+      return;
+    }
     normalizeProps.value.visible = toState;
   };
 
@@ -77,7 +80,7 @@ export const useSliderTooltip = (tooltipConfig: Ref<TooltipConfig>) => {
       if (tooltipProps.content) {
         content = tooltipProps.content;
       }
-      // @ts-ignore
+      // @ts-expect-error
       return { ...normalizeProps.value, ...tooltipProps, content };
     }
     return { ...normalizeProps.value, placement, content };
@@ -89,4 +92,4 @@ export const useSliderTooltip = (tooltipConfig: Ref<TooltipConfig>) => {
     toggleTooltip,
     showTooltip,
   };
-};
+}

@@ -1,15 +1,15 @@
-import { defineComponent, ref, computed, inject, onMounted, onBeforeUnmount } from '@td/adapter-vue';
+import { computed, defineComponent, inject, onBeforeUnmount, onMounted, ref } from '@td/adapter-vue';
 
 import props from '@td/intel/select/option-props';
-import Checkbox from '../checkbox/index';
 
 // hooks
-import { useFormDisabled } from '../form/hooks';
 import { useRipple } from '@td/adapter-hooks';
 import { useContent } from '@td/adapter-hooks';
-import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
-import { selectInjectKey, getNewMultipleValue } from './helper';
-import { SelectValue } from '@td/intel/select/type';
+import { useCommonClassName, usePrefixClass } from '@td/adapter-hooks';
+import type { SelectValue } from '@td/intel/select/type';
+import { useFormDisabled } from '../form/hooks';
+import Checkbox from '../checkbox/index';
+import { getNewMultipleValue, selectInjectKey } from './helper';
 
 export default defineComponent({
   name: 'TOption',
@@ -34,13 +34,13 @@ export default defineComponent({
 
     const isReachMax = computed(
       () =>
-        selectProvider.value.max !== 0 &&
-        selectProvider.value.max <= (selectProvider.value.selectValue as SelectValue[]).length,
+        selectProvider.value.max !== 0
+        && selectProvider.value.max <= (selectProvider.value.selectValue as SelectValue[]).length,
     );
     const disabled = computed(
       () =>
-        formDisabled.value ||
-        (props.multiple && isReachMax.value && !isSelected.value && !selectProvider.value.isCheckAll),
+        formDisabled.value
+        || (props.multiple && isReachMax.value && !isSelected.value && !selectProvider.value.isCheckAll),
     );
 
     const renderContent = useContent();
@@ -52,14 +52,18 @@ export default defineComponent({
     const isHover = ref(false);
 
     const isSelected = computed(() => {
-      if (selectProvider.value.isCheckAll && !props.disabled) return true;
+      if (selectProvider.value.isCheckAll && !props.disabled) {
+        return true;
+      }
       return !props.multiple
         ? selectProvider.value.selectValue === props.value
         : (selectProvider.value.selectValue as SelectValue[]).includes(props.value);
     });
 
     const isIndeterminate = computed(() => {
-      if (!props.checkAll) return false;
+      if (!props.checkAll) {
+        return false;
+      }
       return selectProvider.value.indeterminate;
     });
 
@@ -77,7 +81,9 @@ export default defineComponent({
     const labelText = computed(() => props.label || props.value);
 
     const handleClick = (e: MouseEvent | KeyboardEvent) => {
-      if (props.disabled || disabled.value) return;
+      if (props.disabled || disabled.value) {
+        return;
+      }
       if (props.multiple) {
         handleCheckboxClick(!isSelected.value, { e });
         e.preventDefault();
@@ -101,7 +107,7 @@ export default defineComponent({
       const selectedOptions = selectProvider.value.getSelectedOptions(props.value);
       selectProvider.value.handleValueChange(props.value, {
         option: selectedOptions?.[0],
-        selectedOptions: selectedOptions,
+        selectedOptions,
         trigger: 'check',
         e,
       });
@@ -117,7 +123,7 @@ export default defineComponent({
       const selectedOptions = selectProvider.value.getSelectedOptions(newValue.value);
 
       selectProvider.value.handleValueChange(newValue.value, {
-        option: selectedOptions.find((v) => v.value === props.value),
+        option: selectedOptions.find(v => v.value === props.value),
         selectedOptions,
         trigger: val ? 'check' : 'uncheck',
         e: context.e,
@@ -158,18 +164,20 @@ export default defineComponent({
           onMouseleave={() => (isHover.value = false)}
           onClick={handleClick}
         >
-          {selectProvider && props.multiple ? (
-            <Checkbox
-              checked={isSelected.value}
-              disabled={disabled.value}
-              onChange={handleCheckboxClick}
-              indeterminate={isIndeterminate.value}
-            >
-              {optionChild}
-            </Checkbox>
-          ) : (
-            <span>{optionChild}</span>
-          )}
+          {selectProvider && props.multiple
+            ? (
+              <Checkbox
+                checked={isSelected.value}
+                disabled={disabled.value}
+                onChange={handleCheckboxClick}
+                indeterminate={isIndeterminate.value}
+              >
+                {optionChild}
+              </Checkbox>
+              )
+            : (
+              <span>{optionChild}</span>
+              )}
         </li>
       );
     };

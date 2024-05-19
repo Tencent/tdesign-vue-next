@@ -1,11 +1,12 @@
-import { computed, defineComponent, PropType, ref } from '@td/adapter-vue';
-import { DeleteIcon as TdDeleteIcon, AddIcon as TdAddIcon } from 'tdesign-icons-vue-next';
+import type { PropType } from '@td/adapter-vue';
+import { computed, defineComponent, ref } from '@td/adapter-vue';
+import { AddIcon as TdAddIcon, DeleteIcon as TdDeleteIcon } from 'tdesign-icons-vue-next';
 
+import baseProps from '@td/intel/color-picker/panel/base-props';
 import { Color } from '../utils';
 import { useBaseClassName } from '../hooks';
 import { useCommonClassName } from '../../hooks/useConfig';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';
-import baseProps from '@td/intel/color-picker/panel/base-props';
 
 export default defineComponent({
   name: 'SwatchesPanel',
@@ -53,7 +54,7 @@ export default defineComponent({
     };
 
     const selectedColorIndex = computed(() => {
-      return props.colors.findIndex((color) => isEqualCurrentColor(color));
+      return props.colors.findIndex(color => isEqualCurrentColor(color));
     });
 
     /**
@@ -98,11 +99,13 @@ export default defineComponent({
           <span role="button" class={`${baseClassName}__icon`} onClick={() => this.handleAddColor()}>
             <AddIcon />
           </span>
-          {this.colors.length > 0 ? (
-            <span role="button" class={`${baseClassName}__icon`} onClick={() => this.handleRemoveColor()}>
-              <DeleteIcon />
-            </span>
-          ) : null}
+          {this.colors.length > 0
+            ? (
+              <span role="button" class={`${baseClassName}__icon`} onClick={() => this.handleRemoveColor()}>
+                <DeleteIcon />
+              </span>
+              )
+            : null}
         </div>
       );
     };
@@ -136,7 +139,8 @@ export default defineComponent({
                     style={{
                       background: color,
                     }}
-                  ></span>
+                  >
+                  </span>
                 </div>
               </li>
             );

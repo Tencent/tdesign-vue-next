@@ -1,14 +1,11 @@
-import { defineComponent, computed, ref, onMounted, watch, toRefs } from '@td/adapter-vue';
+import { computed, defineComponent, onMounted, ref, toRefs, watch } from '@td/adapter-vue';
 import {
   ArrowTriangleDownFilledIcon as TDArrowTriangleDownFilledIcon,
   ArrowTriangleUpFilledIcon as TDArrowTriangleUpFilledIcon,
 } from 'tdesign-icons-vue-next';
-import { isNumber } from 'lodash-es';
-import { isFunction } from 'lodash-es';
+import { isFunction, isNumber } from 'lodash-es';
 import props from '@td/intel/statistic/props';
-import { usePrefixClass } from '@td/adapter-hooks';
-import { useGlobalIcon } from '@td/adapter-hooks';
-import { useTNodeJSX } from '@td/adapter-hooks';
+import { useGlobalIcon, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import Skeleton from '../skeleton';
 import Tween from '../_common/js/statistic/tween';
 import { COLOR_MAP } from '../_common/js/statistic/utils';

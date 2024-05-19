@@ -5,7 +5,7 @@
  * @returns 替换后的字符串
  */
 function template<T>(str: string, vars: T): string {
-  return str.replace(/\${(.*?)}/g, (_, prop: string) => vars[prop.trim()] || '');
+  return str.replace(/\$\{(.*?)\}/g, (_, prop: string) => vars[prop.trim()] || '');
 }
 
 export default template;

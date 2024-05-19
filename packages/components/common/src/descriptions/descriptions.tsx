@@ -1,17 +1,15 @@
-import { isNil } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { isArray, isNil } from 'lodash-es';
 import { defineComponent, provide, ref } from '@td/adapter-vue';
 
-import { useTNodeJSX } from '@td/adapter-hooks';
-import { useChildComponentSlots } from '@td/adapter-hooks';
-import { usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
+import { useChildComponentSlots, useCommonClassName, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 
 import props from '@td/intel/descriptions/props';
+import type { TdDescriptionsProps } from '@td/intel/descriptions/type';
 import { descriptionsKey } from './const';
-import { TdDescriptionsProps } from '@td/intel/descriptions/type';
 import DescriptionsRow from './descriptions-row';
-import { renderCustomNode, itemTypeIsProps } from './utils';
-import { ItemsType, TdDescriptionItem } from './interface';
+import { itemTypeIsProps, renderCustomNode } from './utils';
+import type { TdDescriptionItem } from './interface';
+import { ItemsType } from './interface';
 
 /**
  * 实现思路
@@ -55,7 +53,7 @@ export default defineComponent({
          * ! 这里要支持 label: string / <div></div> / () =>  <div></div>
          * ! 暂时没有这样一个全局的方法，所以先在组件内部写一个临时方法，无论之后是有了更好的处理方式要删除掉，还是其它组件也需要时再放到公共方法里面，都是可行的
          */
-        items = props.items.map((item) => ({
+        items = props.items.map(item => ({
           label: renderCustomNode(item.label),
           content: renderCustomNode(item.content),
           span: item.span || 1,
@@ -126,7 +124,7 @@ export default defineComponent({
       return (
         <table class={tableClass}>
           <tbody>
-            {getRows().map((row) => (
+            {getRows().map(row => (
               <DescriptionsRow item-type={itemsType.value} row={row} />
             ))}
           </tbody>

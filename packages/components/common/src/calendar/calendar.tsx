@@ -1,29 +1,26 @@
-import { defineComponent, computed, watch } from '@td/adapter-vue';
+import { computed, defineComponent, watch } from '@td/adapter-vue';
 // 通用库
 import dayjs from 'dayjs';
-import { remove } from 'lodash-es';
-import { isFunction } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { isArray, isFunction, remove } from 'lodash-es';
 
 import props from '@td/intel/calendar/props';
-import * as utils from './utils';
-import { useConfig } from '@td/adapter-hooks';
-import { useContent } from '@td/adapter-hooks';
-import { useState, useCalendarClass, userController, useColHeaders } from './hook';
-
-// 组件的一些常量
-import { COMPONENT_NAME, MIN_YEAR, FIRST_MONTH_OF_YEAR, LAST_MONTH_OF_YEAR, DEFAULT_YEAR_CELL_NUMINROW } from './const';
-
-// 子组件
+import { useConfig, useContent } from '@td/adapter-hooks';
+import type { CalendarCell } from '@td/intel/calendar/type';
 import { Select as TSelect } from '../select';
-import { RadioGroup as TRadioGroup, RadioButton as TRadioButton } from '../radio';
+import { RadioButton as TRadioButton, RadioGroup as TRadioGroup } from '../radio';
 import { Button as TButton } from '../button';
 import { CheckTag as TCheckTag } from '../tag';
+import * as utils from './utils';
+import { useCalendarClass, useColHeaders, useState, userController } from './hook';
+
+// 组件的一些常量
+import { COMPONENT_NAME, DEFAULT_YEAR_CELL_NUMINROW, FIRST_MONTH_OF_YEAR, LAST_MONTH_OF_YEAR, MIN_YEAR } from './const';
+
+// 子组件
 import CalendarCellItem from './calendar-cell';
 
 // 组件相关类型
-import { CalendarCell } from '@td/intel/calendar/type';
-import { CalendarRange, YearMonthOption, ModeOption, CellEventOption } from './interface';
+import type { CalendarRange, CellEventOption, ModeOption, YearMonthOption } from './interface';
 
 // 组件逻辑
 export default defineComponent({
@@ -67,10 +64,10 @@ export default defineComponent({
         const beginYear = dayjs(rangeFromTo.value.from).year();
         const endYear = dayjs(rangeFromTo.value.to).year();
         if (year === beginYear) {
-          const beginMon = parseInt(dayjs(rangeFromTo.value.from).format('M'), 10);
+          const beginMon = Number.parseInt(dayjs(rangeFromTo.value.from).format('M'), 10);
           disabled = month < beginMon;
         } else if (year === endYear) {
-          const endMon = parseInt(dayjs(rangeFromTo.value.to).format('M'), 10);
+          const endMon = Number.parseInt(dayjs(rangeFromTo.value.to).format('M'), 10);
           disabled = month > endMon;
         }
       }
@@ -81,14 +78,14 @@ export default defineComponent({
       if (rangeFromTo.value?.from && rangeFromTo.value?.to) {
         const beginYear = dayjs(rangeFromTo.value.from).year();
         const endYear = dayjs(rangeFromTo.value.to).year();
-        const beginMon = parseInt(dayjs(rangeFromTo.value.from).format('M'), 10);
+        const beginMon = Number.parseInt(dayjs(rangeFromTo.value.from).format('M'), 10);
         if (checkMonthAndYearSelectedDisabled(state.curSelectedYear, state.curSelectedMonth)) {
-          state.curSelectedMonth =
-            state.curSelectedYear === beginYear
+          state.curSelectedMonth
+            = state.curSelectedYear === beginYear
               ? beginMon
               : state.curSelectedYear === endYear
-              ? 1
-              : state.curSelectedMonth;
+                ? 1
+                : state.curSelectedMonth;
         }
       }
     }
@@ -182,9 +179,9 @@ export default defineComponent({
       }),
       isVisible: computed<boolean>(() => {
         return (
-          props.theme === 'full' &&
-          controller.checkControllerVisible('current') &&
-          controller.checkControllerVisible('weekend')
+          props.theme === 'full'
+          && controller.checkControllerVisible('current')
+          && controller.checkControllerVisible('weekend')
         );
       }),
       isDisabled: computed<boolean>(() => {
@@ -227,7 +224,8 @@ export default defineComponent({
                   {...controller.configData.value.year.selectProps}
                   disabled={dateSelect.isYearSelectDisabled.value}
                   options={dateSelect.yearSelectOptionList.value}
-                ></TSelect>
+                >
+                </TSelect>
               </div>
             )}
             {dateSelect.isMonthSelectVisible.value && (
@@ -239,7 +237,8 @@ export default defineComponent({
                   {...controller.configData.value.month.selectProps}
                   disabled={dateSelect.isMonthSelectDisabled.value}
                   options={dateSelect.monthSelectOptionList.value}
-                ></TSelect>
+                >
+                </TSelect>
               </div>
             )}
             {modeSelect.isVisible.value && (
@@ -252,7 +251,7 @@ export default defineComponent({
                   disabled={modeSelect.isDisabled.value}
                   onChange={controller.emitControllerChange}
                 >
-                  {modeSelect.optionList.value.map((item) => (
+                  {modeSelect.optionList.value.map(item => (
                     <TRadioButton key={item.value} value={item.value}>
                       {item.label}
                     </TRadioButton>
@@ -312,8 +311,8 @@ export default defineComponent({
     const clickCell = (e: MouseEvent, cellData: CalendarCell): void => {
       const d = dayjs(cellData.date);
       if (props.multiple) {
-        if (state.curDateList.find((item) => item.isSame(d))) {
-          state.curDateList = remove(state.curDateList, (item) => !item.isSame(d));
+        if (state.curDateList.find(item => item.isSame(d))) {
+          state.curDateList = remove(state.curDateList, item => !item.isSame(d));
         } else {
           state.curDateList.push(d);
         }
@@ -348,9 +347,9 @@ export default defineComponent({
                       {isArray(props.week)
                         ? props.week[index]
                         : renderContent('week', undefined, {
-                            defaultNode: <span>{item.display}</span>,
-                            params: { day: item.num },
-                          })}
+                          defaultNode: <span>{item.display}</span>,
+                          params: { day: item.num },
+                        })}
                     </th>
                   ),
               )}
@@ -376,7 +375,8 @@ export default defineComponent({
                         onDblclick={(e: MouseEvent) => doubleClickCell(e, item)}
                         onRightclick={(e: MouseEvent) => rightClickCell(e, item)}
                         v-slots={{ ...slots }}
-                      ></CalendarCellItem>
+                      >
+                      </CalendarCellItem>
                     ),
                 )}
               </tr>
@@ -421,7 +421,8 @@ export default defineComponent({
                     onDblclick={(e: MouseEvent) => doubleClickCell(e, item)}
                     onRightclick={(e: MouseEvent) => rightClickCell(e, item)}
                     v-slots={{ ...slots }}
-                  ></CalendarCellItem>
+                  >
+                  </CalendarCellItem>
                 ))}
               </tr>
             ))}

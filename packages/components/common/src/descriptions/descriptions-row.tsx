@@ -1,11 +1,12 @@
-import { defineComponent, inject, PropType } from '@td/adapter-vue';
+import type { PropType } from '@td/adapter-vue';
+import { defineComponent, inject } from '@td/adapter-vue';
 
-import { LayoutEnum } from '../common';
 import { usePrefixClass } from '@td/adapter-hooks';
+import type { LayoutEnum } from '../common';
 
 import { descriptionsKey } from './const';
-import { ItemsType, TdDescriptionItem } from './interface';
-import { renderVNodeTNode, itemTypeIsProps } from './utils';
+import type { ItemsType, TdDescriptionItem } from './interface';
+import { itemTypeIsProps, renderVNodeTNode } from './utils';
 
 export default defineComponent({
   name: 'TDescriptionsRow',
@@ -66,7 +67,7 @@ export default defineComponent({
 
     const hh = () => (
       <tr>
-        {props.row.map((node) => (
+        {props.row.map(node => (
           <>
             {label(node)}
             {content(node)}
@@ -77,14 +78,14 @@ export default defineComponent({
 
     const hv = () => (
       <>
-        <tr>{props.row.map((node) => label(node, 'vertical'))}</tr>
-        <tr>{props.row.map((node) => content(node, 'vertical'))}</tr>
+        <tr>{props.row.map(node => label(node, 'vertical'))}</tr>
+        <tr>{props.row.map(node => content(node, 'vertical'))}</tr>
       </>
     );
 
     const vh = () => (
       <>
-        {props.row.map((node) => (
+        {props.row.map(node => (
           <tr>
             {label(node)}
             {content(node)}
@@ -95,7 +96,7 @@ export default defineComponent({
 
     const vv = () => (
       <>
-        {props.row.map((node) => (
+        {props.row.map(node => (
           <>
             <tr>{label(node)}</tr>
             <tr>{content(node)}</tr>
@@ -111,8 +112,8 @@ export default defineComponent({
             ? hh()
             : hv()
           : descriptionsProps.itemLayout === 'horizontal'
-          ? vh()
-          : vv()}
+            ? vh()
+            : vv()}
       </>
     );
   },

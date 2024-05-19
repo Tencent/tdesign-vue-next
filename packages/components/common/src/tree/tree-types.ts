@@ -1,22 +1,21 @@
-import {
-  TypeRef,
-  TypeToRefs,
-  TypeVNode,
-  TreeNode,
-  TypeVirtualScrollConfig,
-  TypeTNode,
-  TypeTreeOptionData,
-  TypeScroll,
-  TypeTreeEventState,
-  TypeVModel,
-  TypeCreateElement,
+import type { TdTreeProps, TreeNodeModel, TreeNodeState, TreeNodeValue } from '@td/intel/tree/type';
+import type { TreeStore } from '../_common/js/tree/tree-store';
+import type {
   TreeProps as AdaptTreeProps,
   TypeTreeInstance as AdaptTypeTreeInstance,
+  TreeNode,
+  TypeCreateElement,
+  TypeRef,
+  TypeScroll,
   TypeSetupContext,
+  TypeTNode,
+  TypeToRefs,
+  TypeTreeEventState,
+  TypeTreeOptionData,
+  TypeVModel,
+  TypeVNode,
+  TypeVirtualScrollConfig,
 } from './adapt';
-import { TreeStore } from '../_common/js/tree/tree-store';
-
-import { TdTreeProps, TreeNodeModel, TreeNodeValue, TreeNodeState } from '@td/intel/tree/type';
 
 // 在这个文件做统一的类型梳理
 // 所有类型，接口，都用 Type 作为名称前缀

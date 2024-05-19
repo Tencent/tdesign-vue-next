@@ -1,6 +1,6 @@
-import _Transfer from './transfer';
 import { withInstall } from '@td/adapter-utils';
-import { TdTransferProps } from '@td/intel/transfer/type';
+import type { TdTransferProps } from '@td/intel/transfer/type';
+import _Transfer from './transfer';
 
 import './style';
 

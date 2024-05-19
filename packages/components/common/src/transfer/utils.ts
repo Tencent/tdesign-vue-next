@@ -1,9 +1,7 @@
-import { ComponentPublicInstance } from '@td/adapter-vue';
-import { cloneDeep } from 'lodash-es';
-import { isUndefined } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import type { ComponentPublicInstance } from '@td/adapter-vue';
+import { cloneDeep, isArray, isUndefined } from 'lodash-es';
 
-import { TransferListOptionBase, TransferItemOption, TdTransferProps, TransferValue, DataOption } from './interface';
+import type { DataOption, TdTransferProps, TransferItemOption, TransferListOptionBase, TransferValue } from './interface';
 
 export { emitEvent } from '../utils/event';
 
@@ -75,11 +73,13 @@ function getDataValues(
   }
   return data
     .filter((item) => {
-      if (!item) return false;
+      if (!item) {
+        return false;
+      }
       const isInclude = filterValues.includes(item.value);
       return ((include && isInclude) || (!include && !isInclude)) && !item.disabled;
     })
-    .map((item) => item.value);
+    .map(item => item.value);
 }
 
 function getTransferData(
@@ -120,14 +120,16 @@ function isAllNodeValid(data: TransferItemOption, filterValues: Array<TransferVa
 }
 
 function isTreeNodeValid(data: TransferItemOption, filterValues: Array<TransferValue>, needMatch: boolean): boolean {
-  if (!data) return !needMatch;
+  if (!data) {
+    return !needMatch;
+  }
 
   if (filterValues.includes(data.value)) {
     return needMatch;
   }
 
   if (data.children?.length) {
-    return data.children.some((item) => isTreeNodeValid(item, filterValues, needMatch));
+    return data.children.some(item => isTreeNodeValid(item, filterValues, needMatch));
   }
   return !needMatch;
 }
@@ -173,7 +175,7 @@ function filterTransferData(
   if (!isTreeMode) {
     if (needMatch) {
       // 正向过滤。要保持filterValues顺序
-      return filterValues.map((value) => data.find((item) => item.value === value)).filter((item) => !!item);
+      return filterValues.map(value => data.find(item => item.value === value)).filter(item => !!item);
     }
     // 反向过滤
     return data.filter((item) => {

@@ -1,18 +1,17 @@
-import { defineComponent, computed } from '@td/adapter-vue';
+import { computed, defineComponent } from '@td/adapter-vue';
 import { omit } from 'lodash-es';
-import Panel from './components/Panel';
+import props from '@td/intel/cascader/props';
+import { useCommonClassName, useConfig, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import SelectInput from '../select-input';
 import FakeArrow from '../common-components/fake-arrow';
-import props from '@td/intel/cascader/props';
+import { useFormDisabled } from '../form/hooks';
+import Panel from './components/Panel';
 
 import { useCascaderContext } from './hooks';
-import { CascaderValue, TdSelectInputProps, TdCascaderProps } from './interface';
-import { useConfig, usePrefixClass, useCommonClassName } from '@td/adapter-hooks';
-import { useTNodeJSX } from '@td/adapter-hooks';
+import type { CascaderValue, TdCascaderProps, TdSelectInputProps } from './interface';
 import { closeIconClickEffect, handleRemoveTagEffect } from './core/effect';
-import { getPanels, getSingleContent, getMultipleContent } from './core/helper';
+import { getMultipleContent, getPanels, getSingleContent } from './core/helper';
 import { getFakeArrowIconClass } from './core/className';
-import { useFormDisabled } from '../form/hooks';
 
 export default defineComponent({
   name: 'TCascader',
@@ -40,8 +39,8 @@ export default defineComponent({
 
     const inputPlaceholder = computed(
       () =>
-        (cascaderContext.value.visible && !props.multiple && getSingleContent(cascaderContext.value)) ||
-        (props.placeholder ?? globalConfig.value.placeholder),
+        (cascaderContext.value.visible && !props.multiple && getSingleContent(cascaderContext.value))
+        || (props.placeholder ?? globalConfig.value.placeholder),
     );
 
     const renderSuffixIcon = () => {
@@ -56,9 +55,9 @@ export default defineComponent({
     };
 
     const valueDisplayParams = computed(() => {
-      const arrayValue = innerValue.value instanceof Array ? innerValue.value : [innerValue.value];
-      const displayValue =
-        props.multiple && props.minCollapsedNum ? arrayValue.slice(0, props.minCollapsedNum) : innerValue.value;
+      const arrayValue = Array.isArray(innerValue.value) ? innerValue.value : [innerValue.value];
+      const displayValue
+        = props.multiple && props.minCollapsedNum ? arrayValue.slice(0, props.minCollapsedNum) : innerValue.value;
       const options = getCascaderItems(arrayValue);
       return {
         value: innerValue.value,
@@ -78,8 +77,12 @@ export default defineComponent({
 
     const renderLabel = () => {
       const label = renderTNodeJSX('label');
-      if (props.multiple) return label;
-      if (!label) return null;
+      if (props.multiple) {
+        return label;
+      }
+      if (!label) {
+        return null;
+      }
       return <div class={`${classPrefix.value}-tag-input__prefix`}>{label}</div>;
     };
 
@@ -128,19 +131,25 @@ export default defineComponent({
           }}
           tagProps={{ ...(props.tagProps as TdCascaderProps['tagProps']) }}
           onInputChange={(value, ctx) => {
-            if (!isFilterable.value) return;
+            if (!isFilterable.value) {
+              return;
+            }
             setInputVal(`${value}`);
             (props?.selectInputProps as TdSelectInputProps)?.onInputChange?.(value, ctx);
           }}
           onTagChange={(val: CascaderValue, ctx) => {
             // 按 enter 键不处理
-            if (ctx.trigger === 'enter') return;
+            if (ctx.trigger === 'enter') {
+              return;
+            }
             handleRemoveTagEffect(cascaderContext.value, ctx.index, props.onRemove);
-            // @ts-ignore TODO: fix bug
+            // @ts-expect-error TODO: fix bug
             (props?.selectInputProps as TdSelectInputProps)?.onTagChange?.(val, ctx);
           }}
           onPopupVisibleChange={(val: boolean, context) => {
-            if (disabled.value) return;
+            if (disabled.value) {
+              return;
+            }
             setVisible(val, context);
             (props?.selectInputProps as TdSelectInputProps)?.onPopupVisibleChange?.(val, context);
           }}

@@ -1,7 +1,7 @@
+import { withInstall } from '@td/adapter-utils';
+import type { TdBreadcrumbItemProps, TdBreadcrumbProps } from '@td/intel/breadcrumb/type';
 import _Breadcrumb from './breadcrumb';
 import _BreadcrumbItem from './breadcrumb-item';
-import { withInstall } from '@td/adapter-utils';
-import { TdBreadcrumbProps, TdBreadcrumbItemProps } from '@td/intel/breadcrumb/type';
 
 import './style';
 

@@ -1,5 +1,5 @@
-import { TreeNode } from '../adapt';
-import { TreeProps, TypDragEventState, TypeTreeState, TypeDragHandle } from '../tree-types';
+import type { TreeNode } from '../adapt';
+import type { TreeProps, TypDragEventState, TypeDragHandle, TypeTreeState } from '../tree-types';
 import { emitEvent } from '../util';
 
 export default function useDragHandle(state: TypeTreeState) {
@@ -48,7 +48,9 @@ export default function useDragHandle(state: TypeTreeState) {
 
   const handleDrop = (state: TypDragEventState) => {
     const { dragEvent, node, dropPosition } = state;
-    if (node.value === dragNode.value || node.getParents().some((_node) => _node.value === dragNode.value)) return;
+    if (node.value === dragNode.value || node.getParents().some(_node => _node.value === dragNode.value)) {
+      return;
+    }
 
     const nodes = store.getNodes() as TreeNode[];
     nodes.some((_node) => {

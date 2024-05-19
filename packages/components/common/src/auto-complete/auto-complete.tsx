@@ -1,14 +1,15 @@
-import { computed, ref, defineComponent, toRefs, nextTick } from '@td/adapter-vue';
+import { computed, defineComponent, nextTick, ref, toRefs } from '@td/adapter-vue';
 import props from '@td/intel/auto-complete/props';
-import { TdAutoCompleteProps } from '@td/intel/auto-complete/type';
-import Input, { InputProps, StrInputProps } from '../input';
-import Popup, { PopupProps } from '../popup';
-import { useCommonClassName } from '@td/adapter-hooks';
-import AutoCompleteOptionList from './option-list';
-import { useVModel } from '@td/adapter-hooks';
+import type { TdAutoCompleteProps } from '@td/intel/auto-complete/type';
+import { useCommonClassName, useVModel } from '@td/adapter-hooks';
+import type { InputProps, StrInputProps } from '../input';
+import Input from '../input';
+import type { PopupProps } from '../popup';
+import Popup from '../popup';
 import { useConfig } from '../config-provider/useConfig';
-import { ClassName } from '../common';
+import type { ClassName } from '../common';
 import { useContent, useTNodeJSX } from '../hooks';
+import AutoCompleteOptionList from './option-list';
 
 export default defineComponent({
   name: 'TAutoComplete',
@@ -28,8 +29,8 @@ export default defineComponent({
 
     const getOverlayStyle = (trigger: HTMLElement, popupElement: HTMLElement) => {
       const triggerWidth = trigger.getBoundingClientRect().width || trigger.offsetWidth || trigger.clientWidth;
-      const popupWidth =
-        popupElement.getBoundingClientRect().width || popupElement.offsetWidth || popupElement.clientWidth;
+      const popupWidth
+        = popupElement.getBoundingClientRect().width || popupElement.offsetWidth || popupElement.clientWidth;
       return {
         width: triggerWidth >= popupWidth ? `${triggerWidth}px` : 'auto',
         ...props.popupProps?.overlayInnerStyle,
@@ -90,7 +91,9 @@ export default defineComponent({
     };
 
     const onInnerSelect: TdAutoCompleteProps['onSelect'] = (value, context) => {
-      if (props.readonly || props.disabled) return;
+      if (props.readonly || props.disabled) {
+        return;
+      }
       popupVisible.value = false;
       setTValue(value, context);
       props.onSelect?.(value, context);
@@ -142,13 +145,15 @@ export default defineComponent({
       );
       const topContent = renderTNodeJSX('panelTopContent');
       const bottomContent = renderTNodeJSX('panelBottomContent');
-      const panelContent = Boolean(topContent || props.options?.length || bottomContent) ? (
-        <div class={`${classPrefix.value}-autocomplete__panel`}>
-          {topContent}
-          {listContent}
-          {bottomContent}
-        </div>
-      ) : null;
+      const panelContent = topContent || props.options?.length || bottomContent
+        ? (
+          <div class={`${classPrefix.value}-autocomplete__panel`}>
+            {topContent}
+            {listContent}
+            {bottomContent}
+          </div>
+          )
+        : null;
       const popupProps = {
         ...props.popupProps,
         overlayInnerStyle: getOverlayStyle,

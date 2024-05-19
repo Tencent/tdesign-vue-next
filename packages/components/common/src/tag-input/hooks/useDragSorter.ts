@@ -1,5 +1,5 @@
-import { ref, reactive } from '@td/adapter-vue';
-import { DragSortProps, DragSortInnerProps } from '../interface';
+import { reactive, ref } from '@td/adapter-vue';
+import type { DragSortInnerProps, DragSortProps } from '../interface';
 
 export default function useDragSorter<T>(props: DragSortProps<T>): DragSortInnerProps {
   const { sortOnDraggable, onDragSort, onDragOverCheck } = props;
@@ -10,14 +10,18 @@ export default function useDragSorter<T>(props: DragSortProps<T>): DragSortInner
 
   const onDragOver = (e: DragEvent, index: number, record: T) => {
     e.preventDefault();
-    if (draggingIndex.value === index || draggingIndex.value === -1) return;
+    if (draggingIndex.value === index || draggingIndex.value === -1) {
+      return;
+    }
     const target = e.target as HTMLElement;
     if (onDragOverCheck?.targetClassNameRegExp && !onDragOverCheck?.targetClassNameRegExp.test(target.className)) {
       return;
     }
 
     if (onDragOverCheck?.x && target) {
-      if (!startInfo.nodeWidth) return;
+      if (!startInfo.nodeWidth) {
+        return;
+      }
 
       const { x, width } = target.getBoundingClientRect();
       const targetNodeMiddleX = x + width / 2;
@@ -31,7 +35,9 @@ export default function useDragSorter<T>(props: DragSortProps<T>): DragSortInner
         overlap = draggingNodeRight > targetNodeMiddleX;
       }
 
-      if (!overlap) return;
+      if (!overlap) {
+        return;
+      }
     }
 
     onDragSort?.({

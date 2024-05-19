@@ -1,8 +1,11 @@
-import { computed, TypeStyles, usePrefixClass } from '../adapt';
-import { TypeTreeState } from '../tree-types';
+import type { TypeStyles } from '../adapt';
+import { computed, usePrefixClass } from '../adapt';
+import type { TypeTreeState } from '../tree-types';
 
 export function formatCSSUnit(unit: string | number) {
-  if (!unit) return unit;
+  if (!unit) {
+    return unit;
+  }
   return isNaN(Number(unit)) ? unit : `${unit}px`;
 }
 
@@ -74,7 +77,7 @@ export default function useTreeStyles(state: TypeTreeState) {
     const translateY = isVirtual ? virtualConfig?.translateY.value : 0;
     const translate = `translate(0, ${translateY}px)`;
     return {
-      transform: translate,
+      'transform': translate,
       '-ms-transform': translate,
       '-moz-transform': translate,
       '-webkit-transform': translate,

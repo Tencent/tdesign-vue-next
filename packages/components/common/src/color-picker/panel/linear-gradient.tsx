@@ -1,11 +1,12 @@
 import { defineComponent, onBeforeUnmount, onMounted, reactive, ref, watch } from '@td/adapter-vue';
 import { cloneDeep } from 'lodash-es';
+import baseProps from '@td/intel/color-picker/panel/base-props';
 import { GRADIENT_SLIDER_DEFAULT_WIDTH } from '../const';
-import { genGradientPoint, gradientColors2string, GradientColorPoint } from '../utils';
+import type { GradientColorPoint } from '../utils';
+import { genGradientPoint, gradientColors2string } from '../utils';
 import { InputNumber as TInputNumber } from '../../input-number';
 import { useBaseClassName } from '../hooks';
 import { useCommonClassName } from '../../hooks/useConfig';
-import baseProps from '@td/intel/color-picker/panel/base-props';
 
 const DELETE_KEYS: string[] = ['delete', 'backspace'];
 
@@ -29,19 +30,19 @@ export default defineComponent({
       left: 0,
       width: GRADIENT_SLIDER_DEFAULT_WIDTH,
     });
-    const isDragging = ref<Boolean>(false);
-    const isMoved = ref<Boolean>(false);
+    const isDragging = ref<boolean>(false);
+    const isMoved = ref<boolean>(false);
     const degree = ref(props.color.gradientDegree);
     const selectedId = ref(props.color.gradientSelectedId);
     const colors = ref<GradientColorPoint[]>(cloneDeep(props.color.gradientColors));
 
     watch(
       () => props.color.gradientDegree,
-      (value) => (degree.value = value),
+      value => (degree.value = value),
     );
     watch(
       () => props.color.gradientSelectedId,
-      (value) => (selectedId.value = value),
+      value => (selectedId.value = value),
     );
     watch(
       () => props.color.gradientColors,
@@ -94,7 +95,7 @@ export default defineComponent({
      * @returns
      */
     const updateActiveThumbLeft = (left: number) => {
-      const index = colors.value.findIndex((c) => c.id === selectedId.value);
+      const index = colors.value.findIndex(c => c.id === selectedId.value);
       if (index === -1) {
         return;
       }
@@ -159,13 +160,12 @@ export default defineComponent({
         return;
       }
       const points = colors.value;
-      let pos = points.findIndex((c) => c.id === selectedId.value);
+      let pos = points.findIndex(c => c.id === selectedId.value);
       const { length } = points;
       // 必须保证有两个点
       if (DELETE_KEYS.includes(e.key.toLocaleLowerCase()) && length > 2 && pos >= 0 && pos <= length - 1) {
         points.splice(pos, 1);
         if (!points[pos]) {
-          // eslint-disable-next-line no-nested-ternary
           pos = points[pos + 1] ? pos + 1 : points[pos - 1] ? pos - 1 : 0;
         }
         const current = points[pos];
@@ -282,7 +282,8 @@ export default defineComponent({
             style={{
               background: linearGradient,
             }}
-          ></span>
+          >
+          </span>
         </div>
       </div>
     );

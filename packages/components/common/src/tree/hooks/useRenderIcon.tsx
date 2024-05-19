@@ -1,5 +1,6 @@
-import { usePrefixClass, useGlobalIcon, TypeCreateElement, TLoading, TdCaretRightSmallIcon } from '../adapt';
-import { TypeTreeItemState } from '../tree-types';
+import type { TypeCreateElement } from '../adapt';
+import { TLoading, TdCaretRightSmallIcon, useGlobalIcon, usePrefixClass } from '../adapt';
+import type { TypeTreeItemState } from '../tree-types';
 import { getTNode } from '../util';
 
 // 渲染节点图标

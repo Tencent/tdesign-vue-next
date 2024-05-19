@@ -1,16 +1,14 @@
 // 在这个文件，解决 vue2/vue3 tree 组件依赖的差异问题
 // 除此文件之外的其他组件文件，可从 vue2 项目直接复制到 vue3 项目进行维护
 import * as Vue from '@td/adapter-vue';
-import { Ref, SetupContext, ToRefs, VNode, PropType, ComponentPublicInstance, UnwrapNestedRefs } from '@td/adapter-vue';
-import { CheckboxProps } from '../checkbox';
-import { ClassName, TScroll, Styles, TNode, TreeOptionData, TNodeReturnValue } from '../common';
-import { TypeTreeEventState as TreeEventState } from '../_common/js/tree/types';
-import { TdTreeProps, TreeInstanceFunctions } from '@td/intel/tree/type';
-import { VirtualScrollConfig } from '@td/adapter-hooks';
+import type { ComponentPublicInstance, PropType, Ref, SetupContext, ToRefs, UnwrapNestedRefs, VNode } from '@td/adapter-vue';
+import type { TdTreeProps, TreeInstanceFunctions } from '@td/intel/tree/type';
+import type { VirtualScrollConfig, tdUseDefaultValue, tdUseVModel } from '@td/adapter-hooks';
+import type { CheckboxProps } from '../checkbox';
+import type { ClassName, Styles, TNode, TNodeReturnValue, TScroll, TreeOptionData } from '../common';
+import type { TypeTreeEventState as TreeEventState } from '../_common/js/tree/types';
 import tdWithInstall from '../utils/withInstall';
-import { tdUseVModel } from '@td/adapter-hooks';
-import { tdUseDefaultValue } from '@td/adapter-hooks';
-import { TreeStore } from '../_common/js/tree/tree-store';
+import type { TreeStore } from '../_common/js/tree/tree-store';
 
 export { ref, reactive, computed, watch, onMounted, toRefs, defineComponent, TransitionGroup } from '@td/adapter-vue';
 export { CaretRightSmallIcon as TdCaretRightSmallIcon } from 'tdesign-icons-vue-next';

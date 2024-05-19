@@ -1,5 +1,6 @@
-import { ref, TypeRef, TreeNode, useVModel, toRefs, TypeSetupContext } from '../adapt';
-import { TreeProps, TypeTreeStore, TypeTreeState } from '../tree-types';
+import type { TreeNode, TypeRef, TypeSetupContext } from '../adapt';
+import { ref, toRefs, useVModel } from '../adapt';
+import type { TreeProps, TypeTreeState, TypeTreeStore } from '../tree-types';
 
 // 提供公共对象
 export default function useTreeState(props: TreeProps, context: TypeSetupContext) {

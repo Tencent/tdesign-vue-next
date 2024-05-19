@@ -1,20 +1,20 @@
-import { defineComponent, toRefs, computed } from '@td/adapter-vue';
+import { computed, defineComponent, toRefs } from '@td/adapter-vue';
 import {
-  CloseIcon as TdCloseIcon,
-  TimeFilledIcon as TdTimeFilledIcon,
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
-  ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
   CloseCircleFilledIcon as TdCloseCircleFilledIcon,
+  CloseIcon as TdCloseIcon,
+  ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
+  TimeFilledIcon as TdTimeFilledIcon,
 } from 'tdesign-icons-vue-next';
 import TLoading from '../../loading';
 import Link from '../../link';
 import { useTNodeJSX } from '../../hooks/tnode';
-import { UploadFile } from '../type';
+import type { UploadFile } from '../type';
 import { abridgeName } from '../../_common/js/upload/utils';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';
-import { CommonDisplayFileProps } from '../interface';
+import type { CommonDisplayFileProps } from '../interface';
 import { commonProps } from '../constants';
-import { UploadConfig } from '../../config-provider';
+import type { UploadConfig } from '../../config-provider';
 
 export interface NormalFileProps extends CommonDisplayFileProps {
   multiple: boolean;
@@ -33,8 +33,8 @@ const NormalFile = defineComponent({
 
     const locale = computed(() => props.locale as UploadConfig);
 
-    const { CloseIcon, TimeFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon, CloseCircleFilledIcon } =
-      useGlobalIcon({
+    const { CloseIcon, TimeFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon, CloseCircleFilledIcon }
+      = useGlobalIcon({
         CloseIcon: TdCloseIcon,
         TimeFilledIcon: TdTimeFilledIcon,
         CheckCircleFilledIcon: TdCheckCircleFilledIcon,
@@ -49,13 +49,20 @@ const NormalFile = defineComponent({
     const renderProgress = (percent: number) => (
       <div class={`${uploadPrefix}__single-progress`}>
         <TLoading />
-        {props.showUploadProgress && <span class={`${uploadPrefix}__single-percent`}>{percent || 0}%</span>}
+        {props.showUploadProgress && (
+          <span class={`${uploadPrefix}__single-percent`}>
+            {percent || 0}
+            %
+          </span>
+        )}
       </div>
     );
 
     // 文本型预览
     const renderFilePreviewAsText = (files: UploadFile[]) => {
-      if (theme.value !== 'file') return null;
+      if (theme.value !== 'file') {
+        return null;
+      }
       if (!props.multiple && files[0]?.status === 'fail' && props.autoUpload) {
         return null;
       }
@@ -66,13 +73,15 @@ const NormalFile = defineComponent({
             class={`${uploadPrefix}__single-display-text ${uploadPrefix}__display-text--margin`}
             key={file.name + index + file.percent + file.status}
           >
-            {file.url ? (
-              <Link href={file.url} target="_blank" hover="color" size="small" class={`${uploadPrefix}__single-name`}>
-                {fileName}
-              </Link>
-            ) : (
-              <span class={`${uploadPrefix}__single-name`}>{fileName}</span>
-            )}
+            {file.url
+              ? (
+                <Link href={file.url} target="_blank" hover="color" size="small" class={`${uploadPrefix}__single-name`}>
+                  {fileName}
+                </Link>
+                )
+              : (
+                <span class={`${uploadPrefix}__single-name`}>{fileName}</span>
+                )}
             {file.status === 'fail' && (
               <div class={`${uploadPrefix}__flow-status ${uploadPrefix}__file-fail`}>
                 <ErrorCircleFilledIcon />
@@ -97,15 +106,17 @@ const NormalFile = defineComponent({
 
     // 输入框型预览
     const renderFilePreviewAsInput = () => {
-      if (theme.value !== 'file-input') return;
+      if (theme.value !== 'file-input') {
+        return;
+      }
       const file: UploadFile = props.displayFiles[0] || [];
       const inputTextClass = [
         `${classPrefix.value}-input__inner`,
         { [`${uploadPrefix}__placeholder`]: !props.displayFiles[0] },
       ];
       const disabledClass = disabled.value ? `${classPrefix.value}-is-disabled` : '';
-      const fileName =
-        props.abridgeName?.length && file?.name ? abridgeName(file.name, ...props.abridgeName) : file?.name;
+      const fileName
+        = props.abridgeName?.length && file?.name ? abridgeName(file.name, ...props.abridgeName) : file?.name;
       return (
         <div class={`${uploadPrefix}__single-input-preview ${classPrefix.value}-input ${disabledClass}`}>
           <div class={inputTextClass}>
@@ -166,11 +177,13 @@ const NormalFile = defineComponent({
           {fileListDisplay === null ? null : fileListDisplay || renderFilePreviewAsText(displayFiles)}
 
           {/* 单文件上传失败要显示失败的原因 */}
-          {!props.multiple && displayFiles[0]?.status === 'fail' && theme.value === 'file' ? (
-            <small class={[props.errorClasses, props.placeholderClass]}>
-              {displayFiles[0].response?.error || locale.value.progress.failText}
-            </small>
-          ) : null}
+          {!props.multiple && displayFiles[0]?.status === 'fail' && theme.value === 'file'
+            ? (
+              <small class={[props.errorClasses, props.placeholderClass]}>
+                {displayFiles[0].response?.error || locale.value.progress.failText}
+              </small>
+              )
+            : null}
         </div>
       );
     };

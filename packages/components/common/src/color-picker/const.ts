@@ -1,4 +1,4 @@
-import { TdColorPickerProps } from '.';
+import type { TdColorPickerProps } from '.';
 
 export * from '../_common/js/color-picker/constants';
 

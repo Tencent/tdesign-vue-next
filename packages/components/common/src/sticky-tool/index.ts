@@ -1,7 +1,7 @@
+import { withInstall } from '@td/adapter-utils';
+import type { TdStickyItemProps, TdStickyToolProps } from '@td/intel/sticky-tool/type';
 import _StickyTool from './sticky-tool';
 import _StickyItem from './sticky-item';
-import { withInstall } from '@td/adapter-utils';
-import { TdStickyToolProps, TdStickyItemProps } from '@td/intel/sticky-tool/type';
 
 import './style';
 

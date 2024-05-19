@@ -1,13 +1,14 @@
-import { ref, watch, ComputedRef, Ref } from '@td/adapter-vue';
+import type { ComputedRef, Ref } from '@td/adapter-vue';
+import { ref, watch } from '@td/adapter-vue';
 import { usePrefixClass } from '../../hooks/useConfig';
 
 import { getNewMultipleValue } from '../helper';
 
-import type { SelectOption, TdOptionProps, SelectValue } from '../type';
+import type { SelectOption, SelectValue, TdOptionProps } from '../type';
 import type { ChangeHandler } from '../../hooks/useVModel';
 import type { PopupVisibleChangeContext } from '../../popup';
 
-export type useKeyboardControlType = {
+export interface useKeyboardControlType {
   displayOptions: ComputedRef<SelectOption[]>;
   optionsList: ComputedRef<TdOptionProps[]>;
   innerPopupVisible: Ref<boolean>;
@@ -20,7 +21,7 @@ export type useKeyboardControlType = {
   popupContentRef: ComputedRef<HTMLElement>;
   multiple: boolean;
   max: number;
-};
+}
 
 // 统一处理键盘控制的hooks
 export default function useKeyboardControl({
@@ -73,14 +74,18 @@ export default function useKeyboardControl({
         hoverIndex.value = newIndex;
         break;
       case 'Enter':
-        if (hoverIndex.value === -1) break;
+        if (hoverIndex.value === -1) {
+          break;
+        }
 
-        let finalOptions =
-          selectPanelRef.value.isVirtual && isFilterable.value && virtualFilteredOptions.value.length
+        let finalOptions
+          = selectPanelRef.value.isVirtual && isFilterable.value && virtualFilteredOptions.value.length
             ? virtualFilteredOptions.value
             : filteredOptions.value;
 
-        if (!finalOptions.length) finalOptions = optionsList.value;
+        if (!finalOptions.length) {
+          finalOptions = optionsList.value;
+        }
         if (!innerPopupVisible.value) {
           setInnerPopupVisible(true, { e });
           break;
@@ -96,16 +101,22 @@ export default function useKeyboardControl({
           });
           setInnerPopupVisible(false, { e });
         } else {
-          if (hoverIndex.value === -1) return;
+          if (hoverIndex.value === -1) {
+            return;
+          }
           const optionValue = finalOptions[hoverIndex.value]?.value;
 
-          if (!optionValue) return;
+          if (!optionValue) {
+            return;
+          }
           const newValue = getNewMultipleValue(innerValue.value, optionValue);
 
-          if (max > 0 && newValue.value.length > max) return; // 如果已选达到最大值 则不处理
+          if (max > 0 && newValue.value.length > max) {
+            return;
+          } // 如果已选达到最大值 则不处理
           const selectedOptions = getSelectedOptions(newValue.value);
           setInnerValue(newValue.value, {
-            option: selectedOptions.find((v) => v.value == optionValue),
+            option: selectedOptions.find(v => v.value == optionValue),
             selectedOptions,
             trigger: newValue.isCheck ? 'check' : 'uncheck',
             e,

@@ -14,33 +14,39 @@ const ANIMATION_OPTION = {
 };
 
 function fadeIn(dom: HTMLElement, placement: string) {
-  if (!dom) return;
+  if (!dom) {
+    return;
+  }
   const offsetWidth = dom?.offsetWidth || 0;
   const offsetHeight = dom?.offsetHeight || 0;
   const fadeInKeyframes: Array<Keyframe> | null = getFadeInKeyframes(placement, offsetWidth, offsetHeight);
-  if (!fadeInKeyframes) return;
+  if (!fadeInKeyframes) {
+    return;
+  }
   const styleAfterFadeIn = fadeInKeyframes[fadeInKeyframes.length - 1];
   setDomStyleAfterAnimation(dom, styleAfterFadeIn);
   dom.animate && dom.animate(fadeInKeyframes, ANIMATION_OPTION);
 }
 
 function fadeOut(dom: HTMLElement, placement: string, onFinish: Function) {
-  if (!dom) return;
+  if (!dom) {
+    return;
+  }
   const offsetHeight = dom?.offsetHeight || 0;
   const fadeOutKeyframes: Array<Keyframe> | null = getFadeOutKeyframes(placement, offsetHeight);
-  if (!fadeOutKeyframes) return onFinish();
+  if (!fadeOutKeyframes) {
+    return onFinish();
+  }
   const styleAfterFadeOut = fadeOutKeyframes[fadeOutKeyframes.length - 1];
   setDomStyleAfterAnimation(dom, styleAfterFadeOut);
 
   const animation = dom.animate && dom.animate(fadeOutKeyframes, ANIMATION_OPTION);
   if (animation) {
     animation.onfinish = () => {
-      // eslint-disable-next-line no-param-reassign
       dom.style.display = 'none';
       onFinish();
     };
   } else {
-    // eslint-disable-next-line no-param-reassign
     dom.style.display = 'none';
     onFinish();
   }
@@ -50,13 +56,15 @@ function setDomStyleAfterAnimation(dom: HTMLElement, styleAfterAnimation: Keyfra
   const keys = Object.keys(styleAfterAnimation);
   for (let i = 0; i < keys.length; i += 1) {
     const key = keys[i];
-    // eslint-disable-next-line no-param-reassign
+
     dom.style[key] = styleAfterAnimation[key];
   }
 }
 
-function getFadeInKeyframes(placement: string, offsetWidth: Number, offsetHeight: Number): Array<Keyframe> | null {
-  if (!PLACEMENT_LIST.includes(placement)) return null;
+function getFadeInKeyframes(placement: string, offsetWidth: number, offsetHeight: number): Array<Keyframe> | null {
+  if (!PLACEMENT_LIST.includes(placement)) {
+    return null;
+  }
   if (['top-left', 'left', 'bottom-left'].includes(placement)) {
     return [
       { opacity: 0, marginLeft: `-${offsetWidth}px` },
@@ -83,8 +91,10 @@ function getFadeInKeyframes(placement: string, offsetWidth: Number, offsetHeight
   }
 }
 
-function getFadeOutKeyframes(placement: string, offsetHeight: Number): Array<Keyframe> | null {
-  if (!PLACEMENT_LIST.includes(placement)) return null;
+function getFadeOutKeyframes(placement: string, offsetHeight: number): Array<Keyframe> | null {
+  if (!PLACEMENT_LIST.includes(placement)) {
+    return null;
+  }
   if (['bottom-left', 'bottom', 'bottom-right'].includes(placement)) {
     const marginOffset = `${offsetHeight}px`;
     return [

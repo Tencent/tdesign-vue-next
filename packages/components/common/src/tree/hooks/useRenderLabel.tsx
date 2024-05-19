@@ -1,6 +1,7 @@
 import { isBoolean } from 'lodash-es';
-import { usePrefixClass, TypeCreateElement, computed, TCheckBox, TypeVNode } from '../adapt';
-import { TypeTreeItemState } from '../tree-types';
+import type { TypeCreateElement, TypeVNode } from '../adapt';
+import { TCheckBox, computed, usePrefixClass } from '../adapt';
+import type { TypeTreeItemState } from '../tree-types';
 import { getTNode } from '../util';
 import useItemEvents from './useItemEvents';
 
@@ -79,15 +80,17 @@ export default function useRenderLabel(state: TypeTreeItemState) {
     } else {
       const inner = <span style="position: relative">{labelNode}</span>;
       // 使用key是为了避免元素复用，从而顺利移除ripple指令
-      labelNode = node.isActivable() ? (
-        <span key="1" ref="label" class={labelClasses} title={node.label}>
-          {inner}
-        </span>
-      ) : (
-        <span key="2" class={labelClasses} title={node.label}>
-          {inner}
-        </span>
-      );
+      labelNode = node.isActivable()
+        ? (
+          <span key="1" ref="label" class={labelClasses} title={node.label}>
+            {inner}
+          </span>
+          )
+        : (
+          <span key="2" class={labelClasses} title={node.label}>
+            {inner}
+          </span>
+          );
     }
 
     return labelNode;

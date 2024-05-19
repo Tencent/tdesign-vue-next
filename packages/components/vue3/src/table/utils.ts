@@ -1,9 +1,7 @@
-import { isFunction } from 'lodash-es';
-import { get } from 'lodash-es';
-import { isObject } from 'lodash-es';
-import { CellData, RowClassNameParams, TableColumnClassName, TableRowData, TdBaseTableProps } from '@td/intel/table/type';
-import { ClassName, HTMLElementAttributes } from '../common';
-import { AffixProps } from '../affix';
+import { get, isFunction, isObject } from 'lodash-es';
+import type { CellData, RowClassNameParams, TableColumnClassName, TableRowData, TdBaseTableProps } from '@td/intel/table/type';
+import type { ClassName, HTMLElementAttributes } from '../common';
+import type { AffixProps } from '../affix';
 
 export function toString(obj: any): string {
   return Object.prototype.toString.call(obj).slice(8, -1).toLowerCase();
@@ -29,15 +27,19 @@ export interface FormatRowAttributesParams {
 
 // 行属性
 export function formatRowAttributes(attributes: TdBaseTableProps['rowAttributes'], params: FormatRowAttributesParams) {
-  if (!attributes) return undefined;
-  const attrList = attributes instanceof Array ? attributes : [attributes];
+  if (!attributes) {
+    return undefined;
+  }
+  const attrList = Array.isArray(attributes) ? attributes : [attributes];
   let result: HTMLElementAttributes = {};
   for (let i = 0; i < attrList.length; i++) {
     const attrItem = attrList[i];
-    if (!attrItem) continue;
+    if (!attrItem) {
+      continue;
+    }
     const attrProperty = isFunction(attrItem) ? attrItem(params) : attrItem;
-    result =
-      attrProperty instanceof Array ? formatRowAttributes(attrProperty, params) : Object.assign(result, attrProperty);
+    result
+      = Array.isArray(attrProperty) ? formatRowAttributes(attrProperty, params) : Object.assign(result, attrProperty);
   }
   return result;
 }
@@ -48,20 +50,20 @@ export function formatRowClassNames(
   params: RowClassNameParams<TableRowData>,
   rowKey: string,
 ) {
-  const rowClassList = rowClassNames instanceof Array ? rowClassNames : [rowClassNames];
+  const rowClassList = Array.isArray(rowClassNames) ? rowClassNames : [rowClassNames];
   const { row, rowIndex } = params;
   // 自定义行类名
   let customClasses: ClassName = [];
   for (let i = 0, len = rowClassList.length; i < len; i++) {
     const rName = rowClassList[i];
     let tClass = isFunction(rName) ? rName(params) : rName;
-    if (isObject(tClass) && !(tClass instanceof Array)) {
+    if (isObject(tClass) && !(Array.isArray(tClass))) {
       // 根据下标设置行类名
       tClass[rowIndex] && (tClass = tClass[rowIndex]);
       // 根据行唯一标识设置行类名
       const rowId = get(row, rowKey || 'id');
       tClass[rowId] && (tClass = tClass[rowId]);
-    } else if (tClass instanceof Array) {
+    } else if (Array.isArray(tClass)) {
       tClass = formatRowClassNames(tClass, params, rowKey);
     }
     customClasses = customClasses.concat(tClass);
@@ -73,7 +75,7 @@ export function formatClassNames(
   classNames: TableColumnClassName<TableRowData> | TableColumnClassName<TableRowData>[],
   params: CellData<TableRowData>,
 ) {
-  const classes = classNames instanceof Array ? classNames : [classNames];
+  const classes = Array.isArray(classNames) ? classNames : [classNames];
   const arr: any[] = [];
   for (let i = 0, len = classes.length; i < len; i++) {
     const cls = classes[i];
@@ -90,9 +92,13 @@ export const INNER_PRE_NAME = '@@inner-';
 
 // 多级表头，列配置场景，获取 currentRow
 export function getCurrentRowByKey<T extends { colKey?: string; children?: any[] }>(columns: T[], key: string): T {
-  if (!columns || !key) return;
-  const col = columns?.find((t) => t.colKey === key);
-  if (col) return col;
+  if (!columns || !key) {
+    return;
+  }
+  const col = columns?.find(t => t.colKey === key);
+  if (col) {
+    return col;
+  }
   for (let i = 0, len = columns.length; i < len; i++) {
     if (columns[i]?.children?.length) {
       return getCurrentRowByKey(columns[i]?.children, key);
@@ -102,7 +108,11 @@ export function getCurrentRowByKey<T extends { colKey?: string; children?: any[]
 
 /** 透传 Affix 组件全部特性 */
 export function getAffixProps(mainAffixProps: boolean | AffixProps, subAffixProps?: AffixProps) {
-  if (typeof mainAffixProps === 'object') return mainAffixProps;
-  if (typeof subAffixProps === 'object') return subAffixProps;
+  if (typeof mainAffixProps === 'object') {
+    return mainAffixProps;
+  }
+  if (typeof subAffixProps === 'object') {
+    return subAffixProps;
+  }
   return {};
 }

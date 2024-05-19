@@ -1,10 +1,8 @@
-import { computed, h, inject, getCurrentInstance, ref, provide } from '@td/adapter-vue';
-import { isFunction } from 'lodash-es';
-import { cloneDeep } from 'lodash-es';
-import { isString } from 'lodash-es';
+import { computed, getCurrentInstance, h, inject, provide, ref } from '@td/adapter-vue';
+import { cloneDeep, isFunction, isString } from 'lodash-es';
 
-import { defaultGlobalConfig, configProviderInjectKey, mergeWith } from './context';
-import { GlobalConfigProvider } from '@td/intel/config-provider/type';
+import type { GlobalConfigProvider } from '@td/intel/config-provider/type';
+import { configProviderInjectKey, defaultGlobalConfig, mergeWith } from './context';
 import type { ConfigProviderProps } from './config-provider';
 
 // 这是为了解决在非component里调用useConfig hook时发出的警告
@@ -35,7 +33,9 @@ export function useConfig<T extends keyof GlobalConfigProvider>(
   const t = function <T>(pattern: T, ...args: any[]) {
     const [data] = args;
     if (isString(pattern)) {
-      if (!data) return pattern;
+      if (!data) {
+        return pattern;
+      }
       const regular = /\{\s*([\w-]+)\s*\}/g;
       const translated = pattern.replace(regular, (match, key) => {
         if (data) {
@@ -47,7 +47,9 @@ export function useConfig<T extends keyof GlobalConfigProvider>(
     }
     if (isFunction(pattern)) {
       // 重要：组件的渲染必须存在参数 h，不能移除
-      if (!args.length) return pattern(h);
+      if (!args.length) {
+        return pattern(h);
+      }
       return pattern(...args);
     }
     return '';
@@ -66,7 +68,7 @@ export function useConfig<T extends keyof GlobalConfigProvider>(
  * @param {ConfigProviderProps} props
  * @returns {ComputedRef<GlobalConfigProvider>}
  */
-export const provideConfig = (props: ConfigProviderProps) => {
+export function provideConfig(props: ConfigProviderProps) {
   const defaultData = cloneDeep(defaultGlobalConfig);
   const mergedGlobalConfig = computed(() => mergeWith(defaultData, props.globalConfig));
 
@@ -77,4 +79,4 @@ export const provideConfig = (props: ConfigProviderProps) => {
   }
 
   return mergedGlobalConfig;
-};
+}

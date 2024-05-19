@@ -1,6 +1,6 @@
-import _Link from './link';
 import { withInstall } from '@td/adapter-utils';
-import { TdLinkProps } from '@td/intel/link/type';
+import type { TdLinkProps } from '@td/intel/link/type';
+import _Link from './link';
 
 import './style';
 

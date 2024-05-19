@@ -1,5 +1,7 @@
-import { ref, Slot } from '@td/adapter-vue';
+import type { Slot } from '@td/adapter-vue';
+import { ref } from '@td/adapter-vue';
 import type { TdMenuItemProps } from '@td/intel/menu/type';
+
 type MenuValue = string | number;
 type MenuNode = MenuValue | VMenuData;
 
@@ -16,35 +18,51 @@ interface VMenuItem extends TdMenuItemProps {
   vnode?: Slot;
 }
 
-const getTreePaths = (node: VMenuData, val: MenuValue, ans: MenuValue[]): MenuValue[] => {
-  if (!node) return;
+function getTreePaths(node: VMenuData, val: MenuValue, ans: MenuValue[]): MenuValue[] {
+  if (!node) {
+    return;
+  }
   for (let i = 0; i < node.children.length; ++i) {
     const child = node.children[i];
-    if (child.value === val) return [...ans, node.value];
+    if (child.value === val) {
+      return [...ans, node.value];
+    }
     const target = getTreePaths(child, val, [...ans, node.value]);
-    if (target) return target;
+    if (target) {
+      return target;
+    }
   }
-};
+}
 
-const getTreeSameParentNodes = (node: VMenuData, val: MenuValue): VMenuData[] => {
-  if (!node) return [];
+function getTreeSameParentNodes(node: VMenuData, val: MenuValue): VMenuData[] {
+  if (!node) {
+    return [];
+  }
   for (let i = 0; i < node.children.length; ++i) {
     const child = node.children[i];
-    if (child.value === val) return node.children;
+    if (child.value === val) {
+      return node.children;
+    }
     const target = getTreeSameParentNodes(child, val);
-    if (target) return target;
+    if (target) {
+      return target;
+    }
   }
-};
+}
 
-const DFS = (root: VMenuData, val: MenuValue): VMenuData => {
-  if (root.value === val) return root;
+function DFS(root: VMenuData, val: MenuValue): VMenuData {
+  if (root.value === val) {
+    return root;
+  }
   if (root.children.length > 0) {
     for (let i = 0, len = root.children.length; i < len; i++) {
       const res = DFS(root.children[i], val);
-      if (res) return res;
+      if (res) {
+        return res;
+      }
     }
   }
-};
+}
 
 export default class VMenu {
   data: VMenuData = null;
@@ -87,7 +105,7 @@ export default class VMenu {
       node.parent = this.data;
     } else if (this.data.children.length > 0) {
       const pNode = DFS(this.data, parent);
-      if (pNode && !pNode.children.some((child) => child.value === node.value)) {
+      if (pNode && !pNode.children.some(child => child.value === node.value)) {
         pNode.children.push(node);
       } else {
         this.cache.add(node);
@@ -101,7 +119,7 @@ export default class VMenu {
     const activeValues = getTreePaths(this.data, val, []) || [];
 
     activeValues.push(val);
-    return activeValues.filter((val) => val != null);
+    return activeValues.filter(val => val != null);
   }
 
   expand(val: MenuValue) {
@@ -118,7 +136,7 @@ export default class VMenu {
 
     const sameParentNodes = getTreeSameParentNodes(this.data, val) || [];
     const sameLevelSubmenuValues = new Set(
-      sameParentNodes.filter((node) => node.children?.length > 0 && node.value !== val).map((child) => child.value),
+      sameParentNodes.filter(node => node.children?.length > 0 && node.value !== val).map(child => child.value),
     );
 
     this.expandValues.forEach((val) => {

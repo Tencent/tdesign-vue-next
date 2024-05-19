@@ -1,7 +1,7 @@
-import { defineComponent, computed } from '@td/adapter-vue';
+import { computed, defineComponent } from '@td/adapter-vue';
+import { Dayjs } from 'dayjs';
 import { usePrefixClass } from '../../hooks/useConfig';
 import { extractTimeObj } from '../../_common/js/date-picker/utils';
-import { Dayjs } from 'dayjs';
 
 export default defineComponent({
   name: 'TDatePickerCell',
@@ -47,13 +47,19 @@ export default defineComponent({
     ]);
 
     function handleClick(e: MouseEvent) {
-      if (props.disabled) return;
+      if (props.disabled) {
+        return;
+      }
       if (props.time) {
         const { hours, minutes, seconds, milliseconds, meridiem } = extractTimeObj(props.time);
         // am pm 12小时制转化 24小时制
         let nextHours = hours;
-        if (/am/i.test(meridiem) && nextHours === 12) nextHours -= 12;
-        if (/pm/i.test(meridiem) && nextHours < 12) nextHours += 12;
+        if (/am/i.test(meridiem) && nextHours === 12) {
+          nextHours -= 12;
+        }
+        if (/pm/i.test(meridiem) && nextHours < 12) {
+          nextHours += 12;
+        }
         props.value.setHours(nextHours);
         props.value.setMinutes(minutes);
         props.value.setSeconds(seconds);
@@ -63,13 +69,19 @@ export default defineComponent({
     }
 
     function handleMouseEnter() {
-      if (props.disabled) return;
+      if (props.disabled) {
+        return;
+      }
       if (props.time) {
         const { hours, minutes, seconds, milliseconds, meridiem } = extractTimeObj(props.time);
         // am pm 12小时制转化 24小时制
         let nextHours = hours;
-        if (/am/i.test(meridiem) && nextHours === 12) nextHours -= 12;
-        if (/pm/i.test(meridiem) && nextHours < 12) nextHours += 12;
+        if (/am/i.test(meridiem) && nextHours === 12) {
+          nextHours -= 12;
+        }
+        if (/pm/i.test(meridiem) && nextHours < 12) {
+          nextHours += 12;
+        }
         props.value.setHours(nextHours);
         props.value.setMinutes(minutes);
         props.value.setSeconds(seconds);

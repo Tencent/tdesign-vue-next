@@ -1,7 +1,7 @@
+import { withInstall } from '@td/adapter-utils';
+import type { TdDescriptionItemProps, TdDescriptionsProps } from '@td/intel/descriptions/type';
 import _Descriptions from './descriptions';
 import _DescriptionsItem from './descriptions-item';
-import { withInstall } from '@td/adapter-utils';
-import { TdDescriptionsProps, TdDescriptionItemProps } from '@td/intel/descriptions/type';
 
 import './style';
 

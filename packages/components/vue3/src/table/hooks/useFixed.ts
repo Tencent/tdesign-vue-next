@@ -1,26 +1,25 @@
-import {
-  ref,
-  reactive,
-  watch,
-  toRefs,
-  SetupContext,
-  onMounted,
-  computed,
+import type {
   ComputedRef,
-  onBeforeUnmount,
   Ref,
+  SetupContext,
 } from '@td/adapter-vue';
-import { get } from 'lodash-es';
-import { debounce } from 'lodash-es';
-import { xorWith } from 'lodash-es';
+import {
+  computed,
+  onBeforeUnmount,
+  onMounted,
+  reactive,
+  ref,
+  toRefs,
+  watch,
+} from '@td/adapter-vue';
+import { debounce, get, pick, xorWith } from 'lodash-es';
 import log from '../../_common/js/log';
-import { ClassName, Styles } from '../../common';
-import { BaseTableCol, BaseTableInstanceFunctions, TableRowData, TdBaseTableProps } from '../type';
+import type { ClassName, Styles } from '../../common';
+import type { BaseTableCol, BaseTableInstanceFunctions, TableRowData, TdBaseTableProps } from '../type';
 import { getScrollbarWidthWithCSS } from '../../_common/js/utils/getScrollbarWidth';
-import { on, off } from '../../utils/dom';
-import { FixedColumnInfo, TableRowFixedClasses, RowAndColFixedPosition, TableColFixedClasses } from '../interface';
+import { off, on } from '../../utils/dom';
+import type { FixedColumnInfo, RowAndColFixedPosition, TableColFixedClasses, TableRowFixedClasses } from '../interface';
 import { getIEVersion } from '../../_common/js/utils/helper';
-import { pick } from 'lodash-es';
 
 // 固定列相关类名处理
 export function getColumnFixedStyles(
@@ -30,7 +29,9 @@ export function getColumnFixedStyles(
   tableColFixedClasses: TableColFixedClasses,
 ): { style?: Styles; classes?: ClassName } {
   const fixedPos = rowAndColFixedPosition?.get(col.colKey || index);
-  if (!fixedPos) return {};
+  if (!fixedPos) {
+    return {};
+  }
   const thClasses = {
     [tableColFixedClasses.left]: col.fixed === 'left',
     [tableColFixedClasses.right]: col.fixed === 'right',
@@ -56,7 +57,9 @@ export function getRowFixedStyles(
   rowAndColFixedPosition: RowAndColFixedPosition,
   tableRowFixedClasses: TableRowFixedClasses,
 ): { style: Styles; classes: ClassName } {
-  if (!fixedRows || !fixedRows.length) return { style: undefined, classes: undefined };
+  if (!fixedRows || !fixedRows.length) {
+    return { style: undefined, classes: undefined };
+  }
   const fixedTop = rowIndex < fixedRows[0];
   const fixedBottom = rowIndex > rowLength - 1 - fixedRows[1];
   const firstFixedBottomRow = rowLength - fixedRows[1];
@@ -127,10 +130,10 @@ export default function useFixed(
   const notNeedThWidthList = computed(
     () =>
       !(
-        props.headerAffixedTop ||
-        props.footerAffixedBottom ||
-        props.horizontalScrollAffixedBottom ||
-        props.scroll?.type === 'virtual'
+        props.headerAffixedTop
+        || props.footerAffixedBottom
+        || props.horizontalScrollAffixedBottom
+        || props.scroll?.type === 'virtual'
       ),
   );
 
@@ -165,7 +168,6 @@ export default function useFixed(
       if (levelNodes[level]) {
         levelNodes[level].push(columnInfo);
       } else {
-        // eslint-disable-next-line no-param-reassign
         levelNodes[level] = [columnInfo];
       }
     }
@@ -182,7 +184,9 @@ export default function useFixed(
   ) => {
     for (let i = 0, len = columns.length; i < len; i++) {
       const col = columns[i];
-      if (col.fixed === 'right') return;
+      if (col.fixed === 'right') {
+        return;
+      }
       const colInfo = initialColumnMap.get(col.colKey || i);
       let lastColIndex = i - 1;
       while (lastColIndex >= 0 && columns[lastColIndex].fixed !== 'left') {
@@ -209,7 +213,9 @@ export default function useFixed(
   ) => {
     for (let i = columns.length - 1; i >= 0; i--) {
       const col = columns[i];
-      if (col.fixed === 'left') return;
+      if (col.fixed === 'left') {
+        return;
+      }
       const colInfo = initialColumnMap.get(col.colKey || i);
       let lastColIndex = i + 1;
       while (lastColIndex < columns.length && columns[lastColIndex].fixed !== 'right') {
@@ -231,7 +237,9 @@ export default function useFixed(
 
   // 获取固定列位置信息。先获取节点宽度，再计算
   const setFixedColPosition = (trList: HTMLCollection, initialColumnMap: RowAndColFixedPosition) => {
-    if (!trList) return;
+    if (!trList) {
+      return;
+    }
     for (let i = 0, len = trList.length; i < len; i++) {
       const thList = trList[i].children;
       for (let j = 0, thLen = thList.length; j < thLen; j++) {
@@ -289,7 +297,9 @@ export default function useFixed(
 
   const updateRowAndColFixedPosition = (tableContentElm: HTMLElement, initialColumnMap: RowAndColFixedPosition) => {
     rowAndColFixedPosition.value.clear();
-    if (!tableContentElm) return;
+    if (!tableContentElm) {
+      return;
+    }
     const thead = tableContentElm.querySelector('thead');
     // 处理固定列
     thead && setFixedColPosition(thead.children, initialColumnMap);
@@ -303,14 +313,20 @@ export default function useFixed(
 
   let shadowLastScrollLeft: number;
   const updateColumnFixedShadow = (target: HTMLElement, extra?: { skipScrollLimit?: boolean }) => {
-    if (!isFixedColumn.value || !target) return;
+    if (!isFixedColumn.value || !target) {
+      return;
+    }
     const { scrollLeft } = target;
     // 只有左右滚动，需要更新固定列阴影
-    if (shadowLastScrollLeft === scrollLeft && (!extra || !extra.skipScrollLimit)) return;
+    if (shadowLastScrollLeft === scrollLeft && (!extra || !extra.skipScrollLimit)) {
+      return;
+    }
     shadowLastScrollLeft = scrollLeft;
     const isShowRight = target.clientWidth + scrollLeft < target.scrollWidth;
     const isShowLeft = scrollLeft > 0;
-    if (showColumnShadow.left === isShowLeft && showColumnShadow.right === isShowRight) return;
+    if (showColumnShadow.left === isShowLeft && showColumnShadow.right === isShowRight) {
+      return;
+    }
     showColumnShadow.left = isShowLeft && isFixedLeftColumn.value;
     showColumnShadow.right = isShowRight && isFixedRightColumn.value;
   };
@@ -353,7 +369,9 @@ export default function useFixed(
 
   const updateFixedHeader = () => {
     const timer = setTimeout(() => {
-      if (!tableContentRef.value) return;
+      if (!tableContentRef.value) {
+        return;
+      }
       isFixedHeader.value = tableContentRef.value.scrollHeight > tableContentRef.value.clientHeight;
       isWidthOverflow.value = tableContentRef.value.scrollWidth > tableContentRef.value.clientWidth;
       const pos = tableContentRef.value.getBoundingClientRect();
@@ -366,13 +384,17 @@ export default function useFixed(
   };
 
   const setTableElmWidth = (width: number) => {
-    if (tableElmWidth.value === width) return;
+    if (tableElmWidth.value === width) {
+      return;
+    }
     tableElmWidth.value = width;
   };
 
   const updateTableWidth = () => {
     const rect = tableContentRef.value?.getBoundingClientRect();
-    if (!rect) return;
+    if (!rect) {
+      return;
+    }
     // 存在纵向滚动条，且固定表头时，需去除滚动条宽度
     const reduceWidth = isFixedHeader.value ? scrollbarWidth.value : 0;
     tableWidth.value = rect.width - reduceWidth - (props.bordered ? 1 : 0);
@@ -404,7 +426,9 @@ export default function useFixed(
 
   const updateThWidthList = (trList: HTMLCollection | { [colKey: string]: number }) => {
     if (trList instanceof HTMLCollection) {
-      if (columnResizable.value) return;
+      if (columnResizable.value) {
+        return;
+      }
       thWidthList.value = calculateThWidthList(trList);
     } else {
       thWidthList.value = thWidthList.value || {};
@@ -418,9 +442,13 @@ export default function useFixed(
   const updateThWidthListHandler = () => {
     const timer = setTimeout(() => {
       updateTableWidth();
-      if (notNeedThWidthList.value) return;
+      if (notNeedThWidthList.value) {
+        return;
+      }
       const thead = tableContentRef.value?.querySelector('thead');
-      if (!thead) return;
+      if (!thead) {
+        return;
+      }
       updateThWidthList(thead.children);
       clearTimeout(timer);
     }, 0);
@@ -504,8 +532,8 @@ export default function useFixed(
   );
 
   watch([finalColumns], ([finalColumns], [preFinalColumns]) => {
-    const finalColKeys = finalColumns.map((t) => t.colKey);
-    const preColKeys = preFinalColumns.map((t) => t.colKey);
+    const finalColKeys = finalColumns.map(t => t.colKey);
+    const preColKeys = preFinalColumns.map(t => t.colKey);
     if (finalColKeys.length < preColKeys.length) {
       const reduceKeys = xorWith(preColKeys, finalColKeys);
       const thWidthList = getThWidthList('calculate');
@@ -541,9 +569,13 @@ export default function useFixed(
 
   let resizeObserver: ResizeObserver = null;
   function addTableResizeObserver(tableElement: HTMLDivElement) {
-    if (typeof window === 'undefined') return;
+    if (typeof window === 'undefined') {
+      return;
+    }
     // IE 11 以下使用 window resize；IE 11 以上使用 ResizeObserver
-    if (getIEVersion() < 11 || typeof window.ResizeObserver === 'undefined') return;
+    if (getIEVersion() < 11 || typeof window.ResizeObserver === 'undefined') {
+      return;
+    }
     off(window, 'resize', onResize);
     resizeObserver = new window.ResizeObserver(() => {
       const timer = setTimeout(() => {

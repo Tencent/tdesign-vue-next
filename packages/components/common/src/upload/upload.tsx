@@ -1,17 +1,17 @@
 import { computed, defineComponent } from '@td/adapter-vue';
 import { UploadIcon } from 'tdesign-icons-vue-next';
 import props from '@td/intel/upload/props';
+import { useContent, useTNodeJSX } from '@td/adapter-hooks';
+import Button from '../button';
+import { useFormDisabled } from '../form/hooks';
 import NormalFile from './themes/normal-file';
 import DraggerFile from './themes/dragger-file';
 import ImageCard from './themes/image-card';
 import MultipleFlowList from './themes/multiple-flow-list';
 import useUpload from './hooks/useUpload';
-import Button from '../button';
-import { CommonDisplayFileProps, UploadProps } from './interface';
-import { UploadDragEvents } from './hooks/useDrag';
+import type { CommonDisplayFileProps, UploadProps } from './interface';
+import type { UploadDragEvents } from './hooks/useDrag';
 import CustomFile from './themes/custom-file';
-import { useContent, useTNodeJSX } from '@td/adapter-hooks';
-import { useFormDisabled } from '../form/hooks';
 
 export default defineComponent({
   name: 'TUpload',
@@ -99,7 +99,7 @@ export default defineComponent({
       fileListDisplay: props.fileListDisplay,
       onRemove: onInnerRemove,
       uploadPastedFiles: props.uploadPastedFiles,
-      onPasteFileChange: onPasteFileChange,
+      onPasteFileChange,
       imageViewerProps: props.imageViewerProps,
     }));
 
@@ -122,7 +122,7 @@ export default defineComponent({
         {...commonDisplayFileProps.value}
         multiple={props.multiple}
         v-slots={{
-          fileListDisplay: slots.fileListDisplay,
+          'fileListDisplay': slots.fileListDisplay,
           'file-list-display': slots['file-list-display'],
         }}
       >
@@ -142,7 +142,7 @@ export default defineComponent({
         uploadFiles={uploadFiles}
         onCancelUpload={props.onCancelUpload}
         v-slots={{
-          fileListDisplay: slots.fileListDisplay,
+          'fileListDisplay': slots.fileListDisplay,
           'file-list-display': slots['file-list-display'],
         }}
       />
@@ -160,7 +160,7 @@ export default defineComponent({
         onPreview={props.onPreview}
         showImageFileName={props.showImageFileName}
         v-slots={{
-          fileListDisplay: slots.fileListDisplay,
+          'fileListDisplay': slots.fileListDisplay,
           'file-list-display': slots['file-list-display'],
         }}
       />
@@ -180,11 +180,11 @@ export default defineComponent({
         uploadButton={props.uploadButton}
         cancelUploadButton={props.cancelUploadButton}
         v-slots={{
-          fileListDisplay: slots.fileListDisplay,
+          'fileListDisplay': slots.fileListDisplay,
           'file-list-display': slots['file-list-display'],
-          uploadButton: slots.uploadButton,
+          'uploadButton': slots.uploadButton,
           'upload-button': slots['upload-button'],
-          cancelUploadButton: slots.cancelUploadButton,
+          'cancelUploadButton': slots.cancelUploadButton,
           'cancel-upload-button': slots['cancel-upload-button'],
         }}
       >
@@ -204,9 +204,9 @@ export default defineComponent({
         trigger={props.trigger}
         childrenNode={slots.default}
         v-slots={{
-          dragContent: slots.dragContent,
+          'dragContent': slots.dragContent,
           'drag-content': slots['drag-content'],
-          trigger: slots.trigger,
+          'trigger': slots.trigger,
         }}
       >
         {renderTrigger()}

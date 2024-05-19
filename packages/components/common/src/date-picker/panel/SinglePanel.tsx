@@ -1,11 +1,11 @@
-import { defineComponent, PropType, computed } from '@td/adapter-vue';
+import type { PropType } from '@td/adapter-vue';
+import { computed, defineComponent } from '@td/adapter-vue';
+import { useDisableDate, useTableData } from '@td/adapter-hooks';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
+import type { TdDatePickerProps } from '../type';
+import { getDefaultFormat, parseToDayjs } from '../../_common/js/date-picker/format';
 import TPanelContent from './PanelContent';
 import TExtraContent from './ExtraContent';
-import { TdDatePickerProps } from '../type';
-import { getDefaultFormat, parseToDayjs } from '../../_common/js/date-picker/format';
-import { useTableData } from '@td/adapter-hooks';
-import { useDisableDate } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'TSinglePanel',
@@ -108,7 +108,7 @@ export default defineComponent({
             [`${COMPONENT_NAME.value}--direction-row`]: ['left', 'right'].includes(props.presetsPlacement),
           },
         ]}
-        onClick={(e) => props.onPanelClick?.({ e })}
+        onClick={e => props.onPanelClick?.({ e })}
       >
         {['top', 'left'].includes(props.presetsPlacement) ? <TExtraContent {...extraProps.value} /> : null}
         <TPanelContent {...panelContentProps.value} />

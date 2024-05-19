@@ -1,8 +1,8 @@
 import { computed } from '@td/adapter-vue';
 
 import { usePrefixClass } from '../../hooks/useConfig';
-import { CalendarState } from '../interface';
-import { TdCalendarProps } from '../type';
+import type { CalendarState } from '../interface';
+import type { TdCalendarProps } from '../type';
 import { COMPONENT_NAME } from '../const';
 
 export function useCalendarClass(props: TdCalendarProps, state: CalendarState) {

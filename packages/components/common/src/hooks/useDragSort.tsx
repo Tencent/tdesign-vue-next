@@ -1,14 +1,14 @@
 import { onUnmounted } from '@td/adapter-vue';
 
-const traversalTabNavs = (tabNavs: HTMLCollection, fn: { (itemNode: any): void; (tabNav: HTMLDivElement): void }) => {
+function traversalTabNavs(tabNavs: HTMLCollection, fn: { (itemNode: any): void; (tabNav: HTMLDivElement): void }) {
   for (const itemNode of tabNavs) {
     if (itemNode.getAttribute('draggable')) {
       fn(itemNode);
     }
   }
-};
+}
 
-const handleTarget = (target: EventTarget, tabNavs: HTMLCollection): any => {
+function handleTarget(target: EventTarget, tabNavs: HTMLCollection): any {
   let resultTarget;
   traversalTabNavs(tabNavs, (itemNode) => {
     if (itemNode.contains(target)) {
@@ -16,7 +16,7 @@ const handleTarget = (target: EventTarget, tabNavs: HTMLCollection): any => {
     }
   });
   return resultTarget;
-};
+}
 
 export default function useDragSort(props: any) {
   let navsWrap: HTMLDivElement = null;

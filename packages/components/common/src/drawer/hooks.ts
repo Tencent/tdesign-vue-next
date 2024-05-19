@@ -1,8 +1,8 @@
 import { computed, ref } from '@td/adapter-vue';
-import { Styles } from '../common';
 import type { TdDrawerProps } from '@td/intel/drawer/type';
+import type { Styles } from '../common';
 
-export const useDrag = (props: TdDrawerProps) => {
+export function useDrag(props: TdDrawerProps) {
   // 以下为拖拽改变抽屉大小相关 可以抽成hooks
   const isSizeDragging = ref(false);
   const draggedSizeValue = ref<string>(null);
@@ -69,4 +69,4 @@ export const useDrag = (props: TdDrawerProps) => {
   });
 
   return { draggedSizeValue, enableDrag, draggableLineStyles };
-};
+}

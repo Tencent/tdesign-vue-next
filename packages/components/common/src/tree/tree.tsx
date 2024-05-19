@@ -1,20 +1,22 @@
-import { upperFirst } from 'lodash-es';
-import { isFunction } from 'lodash-es';
-import {
-  defineComponent,
+import { isFunction, upperFirst } from 'lodash-es';
+import props from '@td/intel/tree/props';
+import { renderTNodeJSX } from '../utils/render-tnode';
+import type {
   TreeNode,
-  useConfig,
-  usePrefixClass,
-  TypeTreeOptionData,
-  TypeTNodeReturnValue,
   TypeCreateElement,
+  TypeStyles,
+  TypeTNodeReturnValue,
+  TypeTreeOptionData,
+} from './adapt';
+import {
   TransitionGroup,
+  defineComponent,
   getCreateElement,
   getScopedSlots,
-  TypeStyles,
+  useConfig,
+  usePrefixClass,
 } from './adapt';
-import props from '@td/intel/tree/props';
-import { TreeNodeValue, TreeNodeState, TypeTreeNodeModel } from './tree-types';
+import type { TreeNodeState, TreeNodeValue, TypeTreeNodeModel } from './tree-types';
 import useTreeStore from './hooks/useTreeStore';
 import useTreeStyles from './hooks/useTreeStyles';
 import useTreeState from './hooks/useTreeState';
@@ -22,7 +24,6 @@ import useTreeAction from './hooks/useTreeAction';
 import useTreeScroll from './hooks/useTreeScroll';
 import useTreeNodes from './hooks/useTreeNodes';
 import useDragHandle from './hooks/useDragHandle';
-import { renderTNodeJSX } from '../utils/render-tnode';
 import { getNode } from './util';
 
 // 2022.11.02 tabliang 备注
@@ -207,7 +208,9 @@ export default defineComponent({
       let list: TreeNode[] = [];
       if (value) {
         const node = this.store.getNode(value);
-        if (!node) return [];
+        if (!node) {
+          return [];
+        }
         list = this.store.getNodes(value);
       } else {
         list = this.store.getNodes();
@@ -308,8 +311,8 @@ export default defineComponent({
       );
     }
 
-    const topValue =
-      (allNodes.value?.filter((node) => node.visible).length ?? 0) * (refProps.scroll.value?.rowHeight ?? 34);
+    const topValue
+      = (allNodes.value?.filter(node => node.visible).length ?? 0) * (refProps.scroll.value?.rowHeight ?? 34);
     const placeholderStyles: TypeStyles = {
       width: '1px',
       height: '1px',

@@ -1,6 +1,6 @@
-import _Notification from './notification';
 import { withInstall } from '@td/adapter-utils';
-import { TdNotificationProps } from '@td/intel/notification/type';
+import type { TdNotificationProps } from '@td/intel/notification/type';
+import _Notification from './notification';
 
 import './style';
 
