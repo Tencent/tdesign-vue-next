@@ -1,6 +1,6 @@
 import { ref, computed, watch } from 'vue';
 import { CalendarIcon as TdCalendarIcon } from 'tdesign-icons-vue-next';
-import omit from 'lodash/omit';
+import { omit } from 'lodash-es';
 
 import { useTNodeJSX } from '../../hooks/tnode';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';

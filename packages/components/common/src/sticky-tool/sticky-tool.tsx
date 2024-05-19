@@ -1,6 +1,6 @@
 import { computed, defineComponent, VNode } from 'vue';
 import props from '@td/intel/sticky-tool/props';
-import isObject from 'lodash/isObject';
+import { isObject } from 'lodash-es';
 import StickyItem from './sticky-item';
 
 import { usePrefixClass } from '../hooks/useConfig';

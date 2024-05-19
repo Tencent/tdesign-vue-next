@@ -1,8 +1,8 @@
 import { ref } from 'vue';
-import isUndefined from 'lodash/isUndefined';
-import isNumber from 'lodash/isNumber';
-import isObject from 'lodash/isObject';
-import isArray from 'lodash/isArray';
+import { isUndefined } from 'lodash-es';
+import { isNumber } from 'lodash-es';
+import { isObject } from 'lodash-es';
+import { isArray } from 'lodash-es';
 
 import { TdColProps, TdRowProps } from '@td/intel/grid/type';
 import { calcSize } from '../utils/responsive';

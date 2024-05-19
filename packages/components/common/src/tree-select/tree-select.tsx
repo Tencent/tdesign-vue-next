@@ -1,9 +1,9 @@
 import { defineComponent, ref, computed, watch, onMounted, toRefs } from 'vue';
-import isArray from 'lodash/isArray';
-import isEmpty from 'lodash/isEmpty';
-import isBoolean from 'lodash/isBoolean';
-import isFunction from 'lodash/isFunction';
-import isNil from 'lodash/isNil';
+import { isArray } from 'lodash-es';
+import { isEmpty } from 'lodash-es';
+import { isBoolean } from 'lodash-es';
+import { isFunction } from 'lodash-es';
+import { isNil } from 'lodash-es';
 
 import Tree, { TreeProps, TreeNodeModel, TreeNodeValue } from '../tree';
 import SelectInput, { TdSelectInputProps } from '../select-input';

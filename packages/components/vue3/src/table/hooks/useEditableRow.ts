@@ -1,11 +1,11 @@
 import { ref, computed, watch, toRefs } from 'vue';
-import get from 'lodash/get';
-import set from 'lodash/set';
-import isFunction from 'lodash/isFunction';
+import { get } from 'lodash-es';
+import { set } from 'lodash-es';
+import { isFunction } from 'lodash-es';
 import { PrimaryTableProps } from '../interface';
 import { getEditableKeysMap } from '../../_common/js/table/utils';
 import { validate } from '../../form/form-model';
-import cloneDeep from 'lodash/cloneDeep';
+import { cloneDeep } from 'lodash-es';
 import {
   PrimaryTableRowEditContext,
   TableRowData,

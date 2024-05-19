@@ -14,7 +14,7 @@ import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { fadeIn, fadeOut } from './animation';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
-import isFunction from 'lodash/isFunction';
+import { isFunction } from 'lodash-es';
 
 export default defineComponent({
   name: 'TMessage',

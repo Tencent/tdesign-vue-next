@@ -2,7 +2,7 @@ import { App, createApp, ref, Plugin, defineComponent, h, onMounted, nextTick } 
 import DialogComponent from './dialog';
 import { getAttach } from '../utils/dom';
 import { DialogOptions, DialogMethod, DialogConfirmMethod, DialogAlertMethod, DialogInstance } from '@td/intel/dialog/type';
-import omit from 'lodash/omit';
+import { omit } from 'lodash-es';
 
 const createDialog: DialogMethod = (props: DialogOptions) => {
   const options = { ...props };

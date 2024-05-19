@@ -15,7 +15,7 @@ import TSliderButton from './slider-button';
 import { SliderValue } from '@td/intel/slider/type';
 // hooks
 import { useFormDisabled } from '../form/hooks';
-import isArray from 'lodash/isArray';
+import { isArray } from 'lodash-es';
 
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useSliderMark } from './hooks/useSliderMark';
@@ -23,7 +23,7 @@ import { useSliderInput } from './hooks/useSliderInput';
 import { formatSliderValue, getStopStyle } from './util/common';
 import { sliderPropsInjectKey } from './util/constants';
 import useVModel from '../hooks/useVModel';
-import isNumber from 'lodash/isNumber';
+import { isNumber } from 'lodash-es';
 
 interface SliderButtonType {
   setPosition: (param: number) => {};

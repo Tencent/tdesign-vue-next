@@ -1,9 +1,9 @@
 import { defineComponent, computed, watch } from 'vue';
 // 通用库
 import dayjs from 'dayjs';
-import remove from 'lodash/remove';
-import isFunction from 'lodash/isFunction';
-import isArray from 'lodash/isArray';
+import { remove } from 'lodash-es';
+import { isFunction } from 'lodash-es';
+import { isArray } from 'lodash-es';
 
 import props from '@td/intel/calendar/props';
 import * as utils from './utils';

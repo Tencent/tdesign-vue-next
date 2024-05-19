@@ -5,7 +5,7 @@ import props from '@td/intel/rate/props';
 import { useConfig } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
 import Tooltip from '../tooltip/index';
-import isArray from 'lodash/isArray';
+import { isArray } from 'lodash-es';
 
 export default defineComponent({
   name: 'TRate',

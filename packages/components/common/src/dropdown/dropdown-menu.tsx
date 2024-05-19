@@ -8,7 +8,7 @@ import TDivider from '../divider';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { TNode } from '../common';
-import isFunction from 'lodash/isFunction';
+import { isFunction } from 'lodash-es';
 
 export default defineComponent({
   name: 'TDropdownMenu',

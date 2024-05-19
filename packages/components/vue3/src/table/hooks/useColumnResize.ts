@@ -6,7 +6,7 @@
  * - 当表格内容超出，出现横向滚动条时，会自动调整当前列宽和表格总列宽，不影响相邻列宽
  */
 import { ref, Ref, reactive, onMounted } from 'vue';
-import isNumber from 'lodash/isNumber';
+import { isNumber } from 'lodash-es';
 import { BaseTableCol, TableRowData, TdBaseTableProps } from '../type';
 import { on, off } from '../../utils/dom';
 

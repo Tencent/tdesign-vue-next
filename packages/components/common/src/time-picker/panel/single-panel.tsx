@@ -1,7 +1,7 @@
 import { computed, defineComponent, ref, watch, toRefs, onMounted, reactive, nextTick } from 'vue';
-import debounce from 'lodash/debounce';
-import range from 'lodash/range';
-import padStart from 'lodash/padStart';
+import { debounce } from 'lodash-es';
+import { range } from 'lodash-es';
+import { padStart } from 'lodash-es';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 

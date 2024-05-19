@@ -1,6 +1,6 @@
 import { computed, defineComponent, SetupContext, ref, nextTick, PropType, watch, onMounted, toRefs } from 'vue';
-import pick from 'lodash/pick';
-import get from 'lodash/get';
+import { pick } from 'lodash-es';
+import { get } from 'lodash-es';
 import props from './base-table-props';
 import useTableHeader from './hooks/useTableHeader';
 import useColumnResize from './hooks/useColumnResize';
@@ -27,7 +27,7 @@ import log from '../_common/js/log';
 import { useRowHighlight } from './hooks/useRowHighlight';
 import useHoverKeyboardEvent from './hooks/useHoverKeyboardEvent';
 import useElementLazyRender from '../hooks/useElementLazyRender';
-import isFunction from 'lodash/isFunction';
+import { isFunction } from 'lodash-es';
 
 export const BASE_TABLE_EVENTS = ['page-change', 'cell-click', 'scroll', 'scrollX', 'scrollY'];
 export const BASE_TABLE_ALL_EVENTS = ROW_LISTENERS.map((t) => `row-${t}`).concat(BASE_TABLE_EVENTS);

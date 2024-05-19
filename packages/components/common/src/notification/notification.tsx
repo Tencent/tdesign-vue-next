@@ -4,7 +4,7 @@ import {
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
   CloseIcon as TdCloseIcon,
 } from 'tdesign-icons-vue-next';
-import isFunction from 'lodash/isFunction';
+import { isFunction } from 'lodash-es';
 
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import props from '@td/intel/notification/props';

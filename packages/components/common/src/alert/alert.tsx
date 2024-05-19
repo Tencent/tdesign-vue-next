@@ -6,8 +6,8 @@ import {
   HelpCircleFilledIcon as TdHelpCircleFilledIcon,
   InfoCircleFilledIcon as TdInfoCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
-import isString from 'lodash/isString';
-import isArray from 'lodash/isArray';
+import { isString } from 'lodash-es';
+import { isArray } from 'lodash-es';
 
 import { on, off, addClass } from '../utils/dom';
 import props from '@td/intel/alert/props';

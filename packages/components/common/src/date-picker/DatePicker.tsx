@@ -1,6 +1,6 @@
 import { defineComponent, computed, watch } from 'vue';
 import dayjs from 'dayjs';
-import isFunction from 'lodash/isFunction';
+import { isFunction } from 'lodash-es';
 
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass, useConfig } from '../hooks/useConfig';
@@ -14,7 +14,7 @@ import TSinglePanel from './panel/SinglePanel';
 
 import type { TdDatePickerProps } from '@td/intel/date-picker/type';
 import type { DateValue } from '@td/intel/date-picker/type';
-import isDate from 'lodash/isDate';
+import { isDate } from 'lodash-es';
 
 export default defineComponent({
   name: 'TDatePicker',

@@ -6,7 +6,7 @@ import useDefaultValue from '../../hooks/useDefaultValue';
 import { useTNodeDefault } from '../../hooks/tnode';
 import TableFilterController from '../filter-controller';
 import { useConfig } from '../../hooks/useConfig';
-import isFunction from 'lodash/isFunction';
+import { isFunction } from 'lodash-es';
 import { getColumnsResetValue } from '../../_common/js/table/utils';
 import { renderTitle } from './useTableHeader';
 

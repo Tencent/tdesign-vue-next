@@ -1,5 +1,5 @@
 import { defineComponent, computed, toRefs } from 'vue';
-import pick from 'lodash/pick';
+import { pick } from 'lodash-es';
 import TransferList from './components/transfer-list';
 import TransferOperations from './components/transfer-operations';
 import { TransferListType, CheckedOptions, TransferValue, EmptyType, TargetParams, SearchEvent } from './interface';
@@ -22,7 +22,7 @@ import useDefaultValue from '../hooks/useDefaultValue';
 // hooks
 import { useFormDisabled } from '../form/hooks';
 import { usePrefixClass } from '../hooks/useConfig';
-import isFunction from 'lodash/isFunction';
+import { isFunction } from 'lodash-es';
 
 export default defineComponent({
   name: TRANSFER_NAME,

@@ -1,5 +1,5 @@
 import { defineComponent, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue';
-import cloneDeep from 'lodash/cloneDeep';
+import { cloneDeep } from 'lodash-es';
 import { GRADIENT_SLIDER_DEFAULT_WIDTH } from '../const';
 import { genGradientPoint, gradientColors2string, GradientColorPoint } from '../utils';
 import { InputNumber as TInputNumber } from '../../input-number';

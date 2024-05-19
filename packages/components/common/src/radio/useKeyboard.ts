@@ -1,5 +1,5 @@
 import { onBeforeMount, onMounted, Ref } from 'vue';
-import isString from 'lodash/isString';
+import { isString } from 'lodash-es';
 import { off, on } from '../utils/dom';
 import { CHECKED_CODE_REG } from '../_common/js/common';
 

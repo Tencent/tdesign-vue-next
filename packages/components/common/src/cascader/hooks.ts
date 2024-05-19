@@ -1,7 +1,7 @@
 import { Ref, reactive, computed, toRefs, watch, nextTick } from 'vue';
-import isEqual from 'lodash/isEqual';
-import isFunction from 'lodash/isFunction';
-import isString from 'lodash/isString';
+import { isEqual } from 'lodash-es';
+import { isFunction } from 'lodash-es';
+import { isString } from 'lodash-es';
 
 import TreeStore from '../_common/js/tree/tree-store';
 import { useFormDisabled } from '../form/hooks';

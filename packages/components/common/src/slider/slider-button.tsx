@@ -15,7 +15,7 @@ import { TdSliderProps } from '@td/intel/slider/type';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useSliderTooltip } from './hooks/useSliderTooltip';
 import { sliderPropsInjectKey } from './util/constants';
-import isFunction from 'lodash/isFunction';
+import { isFunction } from 'lodash-es';
 
 export default defineComponent({
   name: 'TSliderButton',

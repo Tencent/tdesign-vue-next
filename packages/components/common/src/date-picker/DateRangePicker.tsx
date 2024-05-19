@@ -2,8 +2,8 @@ import { defineComponent, computed, ref, watch } from 'vue';
 import dayjs from 'dayjs';
 import { useFormDisabled } from '../form/hooks';
 import { usePrefixClass } from '../hooks/useConfig';
-import isFunction from 'lodash/isFunction';
-import isArray from 'lodash/isArray';
+import { isFunction } from 'lodash-es';
+import { isArray } from 'lodash-es';
 
 import props from './date-range-picker-props';
 import { DateValue, DateRangePickerPartial } from '@td/intel/date-picker/type';

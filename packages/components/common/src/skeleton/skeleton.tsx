@@ -1,11 +1,11 @@
 import { h, defineComponent, ref, watch } from 'vue';
-import isNumber from 'lodash/isNumber';
-import isFunction from 'lodash/isFunction';
+import { isNumber } from 'lodash-es';
+import { isFunction } from 'lodash-es';
 import props from '@td/intel/skeleton/props';
 import { SkeletonRowCol, SkeletonRowColObj, TdSkeletonProps } from '@td/intel/skeleton/type';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useContent } from '../hooks/tnode';
-import isArray from 'lodash/isArray';
+import { isArray } from 'lodash-es';
 
 const ThemeMap: Record<TdSkeletonProps['theme'], SkeletonRowCol> = {
   text: [1],
