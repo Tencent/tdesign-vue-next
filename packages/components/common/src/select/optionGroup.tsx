@@ -1,6 +1,6 @@
 import { defineComponent, inject, computed } from 'vue';
 import { useTNodeJSX } from '../hooks/tnode';
-import props from './option-group-props';
+import props from '@td/intel/select/option-group-props';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { selectInjectKey } from './helper';
 

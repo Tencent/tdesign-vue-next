@@ -1,7 +1,7 @@
 import { defineComponent, ref, PropType } from 'vue';
 import { TdDropdownProps } from '../dropdown/type';
 
-import dropdownItemProps from './dropdown-item-props';
+import dropdownItemProps from '@td/intel/dropdown/dropdown-item-props';
 import useRipple from '../hooks/useRipple';
 import { useContent, useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';

@@ -18,7 +18,7 @@ import { isFunction } from 'lodash-es';
 import { isArray } from 'lodash-es';
 
 import log from '../_common/js/log/log';
-import props from './head-menu-props';
+import props from '@td/intel/menu/head-menu-props';
 import { MenuValue } from '@td/intel/menu/type';
 import { TdMenuInterface, TdOpenType } from './const';
 import { Tabs, TabPanel } from '../tabs';

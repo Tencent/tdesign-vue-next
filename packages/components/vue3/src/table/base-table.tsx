@@ -1,7 +1,7 @@
 import { computed, defineComponent, SetupContext, ref, nextTick, PropType, watch, onMounted, toRefs } from 'vue';
 import { pick } from 'lodash-es';
 import { get } from 'lodash-es';
-import props from './base-table-props';
+import props from '@td/intel/../../vue3/src/table/base-table-props';
 import useTableHeader from './hooks/useTableHeader';
 import useColumnResize from './hooks/useColumnResize';
 import useFixed from './hooks/useFixed';

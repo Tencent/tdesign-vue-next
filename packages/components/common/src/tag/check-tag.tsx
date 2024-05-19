@@ -1,5 +1,5 @@
 import { defineComponent, computed, toRefs } from 'vue';
-import props from './check-tag-props';
+import props from '@td/intel/tag/check-tag-props';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import useVModel from '../hooks/useVModel';
 import { useContent } from '../hooks/tnode';

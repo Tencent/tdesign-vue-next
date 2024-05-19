@@ -17,7 +17,7 @@ import { isNumber } from 'lodash-es';
 import { isNil } from 'lodash-es';
 import { throttle } from 'lodash-es';
 
-import props from './radio-group-props';
+import props from '@td/intel/radio/radio-group-props';
 import { RadioOptionObj, RadioOption } from '@td/intel/radio/type';
 import Radio from './radio';
 import { RadioGroupInjectionKey } from './constants';

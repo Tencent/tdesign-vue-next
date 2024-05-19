@@ -6,7 +6,7 @@ import StickyItem from './sticky-item';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useChildComponentSlots } from '../hooks';
 
-import stickyItemProps from './sticky-item-props';
+import stickyItemProps from '@td/intel/sticky-tool/sticky-item-props';
 
 import type { TdStickyItemProps } from '@td/intel/sticky-tool/type';
 import type { Styles } from '../common';

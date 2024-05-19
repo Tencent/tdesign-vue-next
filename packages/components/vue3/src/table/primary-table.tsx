@@ -1,8 +1,8 @@
 import { computed, defineComponent, toRefs, h, ref, onMounted, getCurrentInstance } from 'vue';
 import { get } from 'lodash-es';
 import { omit } from 'lodash-es';
-import baseTableProps from './base-table-props';
-import primaryTableProps from './primary-table-props';
+import baseTableProps from '@td/intel/../../vue3/src/table/base-table-props';
+import primaryTableProps from '@td/intel/../../vue3/src/table/primary-table-props';
 import BaseTable from './base-table';
 import { useTNodeJSX } from '../hooks/tnode';
 import useColumnController from './hooks/useColumnController';

@@ -37,7 +37,7 @@ import {
   ValidateTriggerType,
   ValueType,
 } from '@td/intel/form/type';
-import props from './form-item-props';
+import props from '@td/intel/form/form-item-props';
 import {
   AnalysisValidateResult,
   ErrorListType,

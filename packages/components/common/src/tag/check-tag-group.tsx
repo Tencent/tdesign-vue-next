@@ -1,6 +1,6 @@
 import { computed, defineComponent, toRefs, h } from 'vue';
 import { usePrefixClass } from '../hooks/useConfig';
-import props from './check-tag-group-props';
+import props from '@td/intel/tag/check-tag-group-props';
 import CheckTag from './check-tag';
 import useVModel from '../hooks/useVModel';
 import { CheckTagGroupOption, CheckTagGroupValue, TdCheckTagProps } from '@td/intel/tag/type';

@@ -11,7 +11,7 @@ import type {
   DatePickerMonthChangeTrigger,
 } from '@td/intel/date-picker/type';
 
-import datePickerPanelProps from './date-picker-panel-props';
+import datePickerPanelProps from '@td/intel/date-picker/date-picker-panel-props';
 import datePickerProps from '@td/intel/date-picker/props';
 
 import TSinglePanel from './panel/SinglePanel';

@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue';
-import props from './menu-group-props';
+import props from '@td/intel/menu/menu-group-props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { usePrefixClass } from '../hooks/useConfig';
 

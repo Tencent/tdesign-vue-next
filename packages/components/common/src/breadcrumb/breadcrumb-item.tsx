@@ -1,7 +1,7 @@
 import { defineComponent, VNode, inject, ref, computed, getCurrentInstance, onMounted, onBeforeUpdate } from 'vue';
 import { ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
 
-import props from './breadcrumb-item-props';
+import props from '@td/intel/breadcrumb/breadcrumb-item-props';
 import Tooltip from '../tooltip/index';
 import { isNodeOverflow } from '../utils/dom';
 import { usePrefixClass } from '../hooks/useConfig';

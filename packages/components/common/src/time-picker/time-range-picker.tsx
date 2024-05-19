@@ -10,7 +10,7 @@ import { TIME_PICKER_EMPTY } from '../_common/js/time-picker/const';
 import { formatInputValue, validateInputValue } from '../_common/js/time-picker/utils';
 
 // interfaces
-import props from './time-range-picker-props';
+import props from '@td/intel/time-picker/time-range-picker-props';
 import { TimeRangeValue } from './interface';
 import { TimeRangePickerPartial } from '@td/intel/time-picker/type';
 // hooks

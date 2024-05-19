@@ -1,7 +1,7 @@
 import { defineComponent, computed } from 'vue';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
-import inputGroupProps from './input-group-props';
+import inputGroupProps from '@td/intel/input/input-group-props';
 
 export default defineComponent({
   name: 'TInputGroup',

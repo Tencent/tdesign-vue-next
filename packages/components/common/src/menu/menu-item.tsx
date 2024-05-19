@@ -1,5 +1,5 @@
 import { defineComponent, computed, inject, onMounted, ref, toRefs, getCurrentInstance } from 'vue';
-import props from './menu-item-props';
+import props from '@td/intel/menu/menu-item-props';
 import { TdMenuInterface, TdSubMenuInterface } from './const';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import { emitEvent } from '../utils/event';

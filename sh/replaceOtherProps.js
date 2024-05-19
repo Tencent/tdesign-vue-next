@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 // 定义源文本的正则表达式
-const src_regex = /import ((\w+)Props|props) from '\.\/(\w+-?\w*)';/g;
+const src_regex = /import ((\w+)Props|props) from '\.\/([\w-]+)';/g;
 
 // 定义要搜索的目录
 const dirs = ['packages/components/common/src', 'packages/components/vue3/src'];

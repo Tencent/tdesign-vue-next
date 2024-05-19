@@ -1,5 +1,5 @@
 import { defineComponent, provide, RendererNode } from 'vue';
-import props from './avatar-group-props';
+import props from '@td/intel/avatar/avatar-group-props';
 import Avatar from './avatar';
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';

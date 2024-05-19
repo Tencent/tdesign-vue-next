@@ -1,5 +1,5 @@
 import { computed, defineComponent, inject, ref, watch } from 'vue';
-import props from './tab-panel-props';
+import props from '@td/intel/tabs/tab-panel-props';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import useDestroyOnClose from '../hooks/useDestroyOnClose';
 import { useContent } from '../hooks/tnode';

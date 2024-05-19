@@ -2,7 +2,7 @@ import { computed, defineComponent, h, inject } from 'vue';
 import { isFunction } from 'lodash-es';
 import { CheckIcon as TdCheckIcon, CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
 
-import props from './step-item-props';
+import props from '@td/intel/steps/step-item-props';
 import { SlotReturnValue } from '../common';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';

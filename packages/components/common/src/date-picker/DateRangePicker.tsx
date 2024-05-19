@@ -5,7 +5,7 @@ import { usePrefixClass } from '../hooks/useConfig';
 import { isFunction } from 'lodash-es';
 import { isArray } from 'lodash-es';
 
-import props from './date-range-picker-props';
+import props from '@td/intel/date-picker/date-range-picker-props';
 import { DateValue, DateRangePickerPartial } from '@td/intel/date-picker/type';
 
 import { RangeInputPopup as TRangeInputPopup } from '../range-input';

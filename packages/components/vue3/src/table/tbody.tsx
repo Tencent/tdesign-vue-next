@@ -6,7 +6,7 @@ import TrElement, { ROW_LISTENERS, TABLE_PROPS } from './tr';
 import { useConfig } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
 import useClassName from './hooks/useClassName';
-import baseTableProps from './base-table-props';
+import baseTableProps from '@td/intel/../../vue3/src/table/base-table-props';
 import { TNodeReturnValue } from '../common';
 import useRowspanAndColspan from './hooks/useRowspanAndColspan';
 import { BaseTableProps, RowAndColFixedPosition } from './interface';

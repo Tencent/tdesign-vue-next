@@ -1,7 +1,7 @@
 import { defineComponent, SetupContext, computed, ref, getCurrentInstance } from 'vue';
-import baseTableProps from './base-table-props';
-import primaryTableProps from './primary-table-props';
-import enhancedTableProps from './enhanced-table-props';
+import baseTableProps from '@td/intel/../../vue3/src/table/base-table-props';
+import primaryTableProps from '@td/intel/../../vue3/src/table/primary-table-props';
+import enhancedTableProps from '@td/intel/../../vue3/src/table/enhanced-table-props';
 import PrimaryTable from './primary-table';
 import {
   TdEnhancedTableProps,

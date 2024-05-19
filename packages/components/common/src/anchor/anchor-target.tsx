@@ -2,7 +2,7 @@ import { defineComponent } from 'vue';
 import { FileCopyIcon as TdFileCopyIcon } from 'tdesign-icons-vue-next';
 import { copyText } from '../utils/clipboard';
 import Message from '../message/plugin';
-import props from './anchor-target-props';
+import props from '@td/intel/anchor/anchor-target-props';
 import Popup from '../popup';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';

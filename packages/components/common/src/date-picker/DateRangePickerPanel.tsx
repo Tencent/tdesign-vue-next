@@ -1,8 +1,8 @@
 import { defineComponent, computed, ref } from 'vue';
 import dayjs from 'dayjs';
 
-import dateRangePickerPanelProps from './date-range-picker-panel-props';
-import dateRangePickerProps from './date-range-picker-props';
+import dateRangePickerPanelProps from '@td/intel/date-picker/date-range-picker-panel-props';
+import dateRangePickerProps from '@td/intel/date-picker/date-range-picker-props';
 import {
   DateValue,
   DateRangePickerPartial,

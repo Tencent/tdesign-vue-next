@@ -1,6 +1,6 @@
 import { defineComponent, h, VNodeChild, onMounted, onUnmounted, inject, watch } from 'vue';
 import { ANCHOR_SHARP_REGEXP } from './utils';
-import props from './anchor-item-props';
+import props from '@td/intel/anchor/anchor-item-props';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { AnchorInjectionKey } from './constants';
 import { isFunction } from 'lodash-es';
