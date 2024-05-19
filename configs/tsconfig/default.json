@@ -18,9 +18,10 @@
     "suppressImplicitAnyIndexErrors": false,
     "allowJs": true,
     "lib": [
-      "ES2020",
+      "ESNext",
       "DOM",
-      "DOM.Iterable"
+      "DOM.Iterable",
+      "scripthost"
     ],
     "baseUrl": "../../"
   },
