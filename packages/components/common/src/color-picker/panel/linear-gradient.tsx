@@ -5,7 +5,7 @@ import { genGradientPoint, gradientColors2string, GradientColorPoint } from '../
 import { InputNumber as TInputNumber } from '../../input-number';
 import { useBaseClassName } from '../hooks';
 import { useCommonClassName } from '../../hooks/useConfig';
-import baseProps from './base-props';
+import baseProps from '@td/intel/color-picker/panel/base-props';
 
 const DELETE_KEYS: string[] = ['delete', 'backspace'];
 

@@ -2,7 +2,7 @@ import { computed, defineComponent, onBeforeUnmount, onMounted, PropType, reacti
 import { SLIDER_DEFAULT_WIDTH } from '../const';
 import { Draggable, Coordinate } from '../utils';
 import { useBaseClassName } from '../hooks';
-import baseProps from './base-props';
+import baseProps from '@td/intel/color-picker/panel/base-props';
 
 export default defineComponent({
   name: 'ColorSlider',

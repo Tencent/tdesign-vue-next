@@ -1,5 +1,5 @@
 import { computed, defineComponent, inject } from 'vue';
-import props from './col-props';
+import props from '@td/intel/grid/col-props';
 
 import { RowProviderType, useRowSize, parseFlex, calcColPadding, getColClasses } from './common';
 import { usePrefixClass } from '../hooks/useConfig';

@@ -13,7 +13,7 @@ import {
   nextTick,
   Transition,
 } from 'vue';
-import props from './submenu-props';
+import props from '@td/intel/menu/submenu-props';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import { TdMenuInterface, TdSubMenuInterface, TdMenuItem } from './const';
 import FakeArrow from '../common-components/fake-arrow';

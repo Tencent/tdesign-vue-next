@@ -5,7 +5,7 @@ import { Color } from '../utils';
 import { useBaseClassName } from '../hooks';
 import { useCommonClassName } from '../../hooks/useConfig';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';
-import baseProps from './base-props';
+import baseProps from '@td/intel/color-picker/panel/base-props';
 
 export default defineComponent({
   name: 'SwatchesPanel',

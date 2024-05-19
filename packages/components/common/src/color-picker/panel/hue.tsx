@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue';
 import ColorSlider from './slider';
 import { useBaseClassName } from '../hooks';
-import baseProps from './base-props';
+import baseProps from '@td/intel/color-picker/panel/base-props';
 
 export default defineComponent({
   name: 'HueSlider',

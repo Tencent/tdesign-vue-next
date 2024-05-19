@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue';
-import props from './footer-props';
+import props from '@td/intel/layout/footer-props';
 
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';

@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue';
-import props from './header-props';
+import props from '@td/intel/layout/header-props';
 
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';

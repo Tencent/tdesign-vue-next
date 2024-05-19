@@ -2,7 +2,7 @@ import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, reacti
 import { SATURATION_PANEL_DEFAULT_HEIGHT, SATURATION_PANEL_DEFAULT_WIDTH } from '../const';
 import { Draggable, Coordinate } from '../utils';
 import { useBaseClassName } from '../hooks';
-import baseProps from './base-props';
+import baseProps from '@td/intel/color-picker/panel/base-props';
 
 export default defineComponent({
   name: 'SaturationPanel',
