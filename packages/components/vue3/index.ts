@@ -1,6 +1,6 @@
 import type { App } from '@td/adapter-vue';
-import * as VUE3 from './src/vue3';
-import * as COMMON from './src/common';
+import * as COMMON from '@td/components-common';
+import * as VUE3 from './src';
 
 export function install(app: App, config?: Record<string, unknown>): void {
   const components = { ...COMMON, ...VUE3 };
@@ -9,8 +9,8 @@ export function install(app: App, config?: Record<string, unknown>): void {
   });
 }
 
-export * from './src/common';
-export * from './src/vue3';
+export * from '@td/components-common';
+export * from './src';
 
 export default {
   install,

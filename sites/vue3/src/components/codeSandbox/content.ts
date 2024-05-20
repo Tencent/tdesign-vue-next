@@ -1,4 +1,4 @@
-import orgPkg from "@td/components/package.json";
+import orgPkg from '@td/components-vue3/package.json';
 
 export const htmlContent = `
   <div id="app"></div>
@@ -48,28 +48,28 @@ export const viteConfigContent = `
 
 export const packageJSONContent = JSON.stringify(
   {
-    name: "tdesign-vue-next-demo",
-    version: "0.0.0",
+    name: 'tdesign-vue-next-demo',
+    version: '0.0.0',
     private: true,
     scripts: {
-      dev: "vite",
-      build: "vite build",
-      serve: "vite preview",
+      dev: 'vite',
+      build: 'vite build',
+      serve: 'vite preview',
     },
     dependencies: {
-      vue: orgPkg.devDependencies.vue,
-      less: orgPkg.devDependencies.less,
-      "tdesign-vue-next": orgPkg.version,
-      "tdesign-icons-vue-next": orgPkg.dependencies["tdesign-icons-vue-next"],
+      'vue': orgPkg.devDependencies.vue,
+      'less': orgPkg.devDependencies.less,
+      'tdesign-vue-next': orgPkg.version,
+      'tdesign-icons-vue-next': orgPkg.dependencies['tdesign-icons-vue-next'],
     },
     devDependencies: {
-      vite: orgPkg.devDependencies.vite,
-      "@vue/compiler-sfc": orgPkg.devDependencies["@vue/compiler-sfc"],
-      "@vitejs/plugin-vue": orgPkg.devDependencies["@vitejs/plugin-vue"],
-      "@vitejs/plugin-vue-jsx":
-        orgPkg.devDependencies["@vitejs/plugin-vue-jsx"],
+      'vite': orgPkg.devDependencies.vite,
+      '@vue/compiler-sfc': orgPkg.devDependencies['@vue/compiler-sfc'],
+      '@vitejs/plugin-vue': orgPkg.devDependencies['@vitejs/plugin-vue'],
+      '@vitejs/plugin-vue-jsx':
+        orgPkg.devDependencies['@vitejs/plugin-vue-jsx'],
     },
   },
   null,
-  2
+  2,
 );

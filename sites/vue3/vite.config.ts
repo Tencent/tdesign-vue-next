@@ -15,7 +15,7 @@ function resolveAlias(vueVersion: number) {
     '@adapter/vue': getRootPath(`packages/adapter/vue/vue${vueVersion}`),
     '@adapter/hooks': getRootPath(`packages/adapter/hooks/vue${vueVersion}`),
     '@adapter/utils': getRootPath(`packages/adapter/utils/vue${vueVersion}`),
-    '@td/intel': getRootPath(`packages/intel/vue${vueVersion}`),
+    '@td/intel': getRootPath(`packages/intel/vue${vueVersion}/src`),
     '@td/component': getRootPath(`packages/components/vue${vueVersion}`),
     'tdesign-vue-next/es': getRootPath(`packages/components/src`),
     'tdesign-vue-next': getRootPath(`packages/components/vue${vueVersion}`),

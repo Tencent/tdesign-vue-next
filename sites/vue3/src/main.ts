@@ -1,5 +1,6 @@
 import { createApp } from 'vue';
-import TDesign from '@td/components/vue3';
+import TDesign from '@td/components-vue3';
+import { registerLocaleChange } from 'tdesign-site-components';
 import App from './App.vue';
 import router from './routes';
 
@@ -21,8 +22,6 @@ import 'tdesign-site-components/lib/styles/prism-theme-dark.less';
 import 'tdesign-icons-view';
 
 import 'tdesign-theme-generator';
-
-import { registerLocaleChange } from 'tdesign-site-components';
 
 registerLocaleChange();
 

@@ -53,6 +53,7 @@
   "scripts": {
     "init": "git submodule init && git submodule update",
     "prepare": "husky install",
+    "dev": "pnpm run -r dev",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
