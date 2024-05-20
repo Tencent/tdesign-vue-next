@@ -176,6 +176,7 @@ export default defineComponent({
         props.fixedRows,
         props.rowAndColFixedPosition,
         tableRowFixedClasses,
+        props.virtualConfig.isVirtualScroll.value ? props.virtualConfig.translateY.value : 0,
       ),
     );
 
@@ -342,30 +343,11 @@ export default defineComponent({
         });
       });
 
-      const style = {
-        ...trStyles.value?.style,
-      };
-      // 针对虚拟滚动场景，需要对固定行的定位进行调整，计算其偏移量
-      if (
-        props.fixedRows?.[0] !== undefined &&
-        props.rowIndex < props.fixedRows[0] &&
-        props.virtualConfig.isVirtualScroll.value
-      ) {
-        style['top'] = `calc(${trStyles.value?.style.top} - ${props.virtualConfig.translateY.value}px)`;
-      }
-      if (
-        props.fixedRows?.[1] !== undefined &&
-        props.rowIndex > props.dataLength - 1 - props.fixedRows[1] &&
-        props.virtualConfig.isVirtualScroll.value
-      ) {
-        style['bottom'] = `calc(${trStyles.value?.style.bottom} + ${props.virtualConfig.translateY.value}px)`;
-      }
-
       return (
         <tr
           ref={trRef}
           {...trAttributes.value}
-          style={style}
+          style={trStyles.value?.style}
           class={classes.value}
           {...getTrListeners(row, props.rowIndex)}
         >

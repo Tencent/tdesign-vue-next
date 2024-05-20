@@ -55,6 +55,8 @@ export function getRowFixedStyles(
   fixedRows: TdBaseTableProps['fixedRows'],
   rowAndColFixedPosition: RowAndColFixedPosition,
   tableRowFixedClasses: TableRowFixedClasses,
+  // 和虚拟滚动搭配使用时，需要增加 style 的偏移量
+  virtualTranslateY = 0,
 ): { style: Styles; classes: ClassName } {
   if (!fixedRows || !fixedRows.length) return { style: undefined, classes: undefined };
   const fixedTop = rowIndex < fixedRows[0];
@@ -68,8 +70,8 @@ export function getRowFixedStyles(
     [tableRowFixedClasses.withoutBorderBottom]: rowIndex === firstFixedBottomRow - 1,
   };
   const rowStyles = {
-    top: fixedTop ? `${fixedPos.top}px` : undefined,
-    bottom: fixedBottom ? `${fixedPos.bottom}px` : undefined,
+    top: fixedTop ? `${fixedPos.top - virtualTranslateY}px` : undefined,
+    bottom: fixedBottom ? `${fixedPos.bottom + virtualTranslateY}px` : undefined,
   };
   return {
     style: rowStyles,

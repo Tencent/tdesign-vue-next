@@ -207,7 +207,8 @@ export default defineComponent({
     // 虚拟滚动相关数据
     const virtualScrollParams = computed(() => ({
       data: props.data,
-      scroll: props.scroll,
+      // 传递 fixedRows 的配置
+      scroll: { ...props.scroll, fixedRows: props.fixedRows },
     }));
     const virtualConfig = useVirtualScrollNew(tableContentRef, virtualScrollParams);
 

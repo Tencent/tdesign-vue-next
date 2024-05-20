@@ -96,11 +96,6 @@ export default defineComponent({
 
     const tbodyClasses = computed(() => [tableBaseClass.body]);
 
-    const fixedTopData = computed(() => (props.fixedRows?.[0] ? data.value.slice(0, props.fixedRows[0]) : []));
-    const fixedBottomData = computed(() =>
-      props.fixedRows?.[1] ? data.value.slice(data.value.length - props.fixedRows[1]) : [],
-    );
-
     return {
       t,
       globalConfig,
@@ -109,8 +104,6 @@ export default defineComponent({
       tbodyClasses,
       tableBaseClass,
       skipSpansMap,
-      fixedTopData,
-      fixedBottomData,
     };
   },
 
@@ -168,35 +161,7 @@ export default defineComponent({
       'attach',
     ];
 
-    // 需要合并虚拟滚动的数据已经首尾固定行列的数据
-    const getVirtualRenderData = () => {
-      if (!this.fixedRows?.[0] && !this.fixedRows?.[1]) {
-        return this.virtualConfig.visibleData.value;
-      }
-
-      let fixedStartData = this.fixedTopData.map((item, index) => ({ ...item, VIRTUAL_SCROLL_INDEX: index }));
-      const visibleStart = this.virtualConfig.visibleData.value[0]?.['VIRTUAL_SCROLL_INDEX'] ?? 0;
-      if (this.fixedRows?.[0] && visibleStart < this.fixedRows[0]) {
-        fixedStartData = fixedStartData.slice(0, visibleStart);
-      }
-
-      let fixedEndData = this.fixedBottomData.map((item, index) => ({
-        ...item,
-        VIRTUAL_SCROLL_INDEX: this.data.length - this.fixedBottomData.length + index,
-      }));
-      const visibleEnd =
-        this.virtualConfig.visibleData.value[this.virtualConfig.visibleData.value.length - 1]?.[
-          'VIRTUAL_SCROLL_INDEX'
-        ] ?? 0;
-      const bottomStartIndex = visibleEnd - this.data.length + 1 + (this.fixedRows?.[1] ?? 0);
-      if (this.fixedRows?.[1] && bottomStartIndex > 0) {
-        fixedEndData = fixedEndData.slice(bottomStartIndex);
-      }
-
-      return fixedStartData.concat(this.virtualConfig.visibleData.value, ...fixedEndData);
-    };
-
-    const renderData = this.virtualConfig.isVirtualScroll.value ? getVirtualRenderData() : this.data;
+    const renderData = this.virtualConfig.isVirtualScroll.value ? this.virtualConfig.visibleData.value : this.data;
 
     renderData?.forEach((row, rowIndex) => {
       const rowKey = this.rowKey || 'id';
