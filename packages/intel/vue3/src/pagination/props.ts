@@ -5,7 +5,7 @@
  * */
 
 import { TdPaginationProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';;
 
 export default {
   /** 当前页 */

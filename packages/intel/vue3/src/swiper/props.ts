@@ -6,7 +6,7 @@
  * */
 
 import { TdSwiperProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';;
 
 export default {
   /** 轮播切换动画效果类型：滑动、淡入淡出等 */

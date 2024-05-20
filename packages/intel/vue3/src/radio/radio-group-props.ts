@@ -1,11 +1,11 @@
-
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdRadioGroupProps } from '../radio/type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdRadioGroupProps } from '../radio/type';
+
+;
 
 export default {
   /** 是否允许取消选中 */
@@ -26,7 +26,9 @@ export default {
     type: String as PropType<TdRadioGroupProps['size']>,
     default: 'medium' as TdRadioGroupProps['size'],
     validator(val: TdRadioGroupProps['size']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['small', 'medium', 'large'].includes(val);
     },
   },
@@ -48,7 +50,9 @@ export default {
     type: String as PropType<TdRadioGroupProps['variant']>,
     default: 'outline' as TdRadioGroupProps['variant'],
     validator(val: TdRadioGroupProps['variant']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['outline', 'primary-filled', 'default-filled'].includes(val);
     },
   },

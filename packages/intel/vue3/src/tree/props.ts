@@ -1,11 +1,11 @@
-
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdTreeProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdTreeProps } from './type';
+
+;
 
 export default {
   /** 节点是否可高亮 */
@@ -147,7 +147,9 @@ export default {
     type: String as PropType<TdTreeProps['valueMode']>,
     default: 'onlyLeaf' as TdTreeProps['valueMode'],
     validator(val: TdTreeProps['valueMode']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['onlyLeaf', 'parentFirst', 'all'].includes(val);
     },
   },

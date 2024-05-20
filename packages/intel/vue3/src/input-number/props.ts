@@ -5,7 +5,7 @@
  * */
 
 import { TdInputNumberProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';;
 
 export default {
   /** 文本内容位置，居左/居中/居右 */

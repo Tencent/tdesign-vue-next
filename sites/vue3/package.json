@@ -4,12 +4,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --force",
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@td/components-vue3": "workspace:^",
     "@td/intel-vue3": "workspace:^",
     "@td/shared": "workspace:^",
     "codesandbox": "^2.2.3",
@@ -18,6 +17,7 @@
     "semver": "^7.6.0",
     "tdesign-icons-vue-next": "^0.2.2",
     "tdesign-theme-generator": "^1.0.15",
+    "tdesign-vue-next": "workspace:^",
     "vue": "^3.4.15",
     "vue-router": "^4.2.5"
   },

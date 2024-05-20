@@ -1,11 +1,9 @@
-
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdTooltipProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdTooltipProps } from './type';
 
 export default {
   /** 【议案讨论中】延迟出现提示，用于异步加载提示信息需要延迟显示的业务场景下 */
@@ -36,7 +34,9 @@ export default {
     type: String as PropType<TdTooltipProps['theme']>,
     default: 'default' as TdTooltipProps['theme'],
     validator(val: TdTooltipProps['theme']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['default', 'primary', 'success', 'danger', 'warning', 'light'].includes(val);
     },
   },

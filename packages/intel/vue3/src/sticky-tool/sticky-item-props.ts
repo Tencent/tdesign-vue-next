@@ -5,7 +5,7 @@
  * */
 
 import { TdStickyItemProps } from '../sticky-tool/type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';;
 
 export default {
   /** 图标 */

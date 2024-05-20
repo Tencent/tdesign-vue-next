@@ -1,11 +1,11 @@
-
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdAutoCompleteProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdAutoCompleteProps } from './type';
+
+;
 
 export default {
   /** 自动获取焦点 */
@@ -64,7 +64,9 @@ export default {
     type: String as PropType<TdAutoCompleteProps['size']>,
     default: 'medium' as TdAutoCompleteProps['size'],
     validator(val: TdAutoCompleteProps['size']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['small', 'medium', 'large'].includes(val);
     },
   },
@@ -73,7 +75,9 @@ export default {
     type: String as PropType<TdAutoCompleteProps['status']>,
     default: 'default' as TdAutoCompleteProps['status'],
     validator(val: TdAutoCompleteProps['status']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['default', 'success', 'warning', 'error'].includes(val);
     },
   },

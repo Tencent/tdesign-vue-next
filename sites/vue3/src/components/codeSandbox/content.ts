@@ -1,4 +1,4 @@
-import orgPkg from '@td/components-vue3/package.json';
+import orgPkg from 'tdesign-vue-next/package.json';
 
 export const htmlContent = `
   <div id="app"></div>

@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import TDesign from '@td/components-vue3';
+import TDesign from 'tdesign-vue-next';
 import { registerLocaleChange } from 'tdesign-site-components';
 import App from './App.vue';
 import router from './routes';

@@ -1,11 +1,11 @@
-
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdDropdownProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdDropdownProps } from './type';
+
+;
 
 export default {
   /** 多层级操作时，子层级展开方向 */
@@ -13,7 +13,9 @@ export default {
     type: String as PropType<TdDropdownProps['direction']>,
     default: 'right' as TdDropdownProps['direction'],
     validator(val: TdDropdownProps['direction']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['left', 'right'].includes(val);
     },
   },
@@ -57,7 +59,9 @@ export default {
     type: String as PropType<TdDropdownProps['placement']>,
     default: 'bottom-left' as TdDropdownProps['placement'],
     validator(val: TdDropdownProps['placement']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return [
         'top',
         'left',
@@ -83,7 +87,9 @@ export default {
     type: String as PropType<TdDropdownProps['trigger']>,
     default: 'hover' as TdDropdownProps['trigger'],
     validator(val: TdDropdownProps['trigger']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['hover', 'click', 'focus', 'context-menu'].includes(val);
     },
   },

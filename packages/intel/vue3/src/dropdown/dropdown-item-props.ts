@@ -1,11 +1,11 @@
-
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdDropdownItemProps } from '../dropdown/type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdDropdownItemProps } from '../dropdown/type';
+
+;
 
 export default {
   /** 是否高亮当前操作项 */
@@ -28,7 +28,9 @@ export default {
     type: String as PropType<TdDropdownItemProps['theme']>,
     default: 'default' as TdDropdownItemProps['theme'],
     validator(val: TdDropdownItemProps['theme']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['default', 'success', 'warning', 'error'].includes(val);
     },
   },

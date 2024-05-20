@@ -1,11 +1,11 @@
-
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdCalendarProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdCalendarProps } from './type';
+
+;
 
 export default {
   /** 单元格插槽 */
@@ -30,7 +30,9 @@ export default {
   firstDayOfWeek: {
     type: Number,
     validator(val: TdCalendarProps['firstDayOfWeek']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return [1, 2, 3, 4, 5, 6, 7].includes(val);
     },
   },
@@ -53,7 +55,9 @@ export default {
     type: String as PropType<TdCalendarProps['mode']>,
     default: 'month' as TdCalendarProps['mode'],
     validator(val: TdCalendarProps['mode']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['month', 'year'].includes(val);
     },
   },
@@ -74,7 +78,9 @@ export default {
     type: String as PropType<TdCalendarProps['theme']>,
     default: 'full' as TdCalendarProps['theme'],
     validator(val: TdCalendarProps['theme']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['full', 'card'].includes(val);
     },
   },

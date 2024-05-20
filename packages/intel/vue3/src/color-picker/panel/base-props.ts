@@ -1,4 +1,4 @@
-import type { PropType } from '@td/adapter-vue';
+import type { PropType } from 'vue';
 import type { Color } from '@td/shared/_common/js/color-picker';
 
 export default {

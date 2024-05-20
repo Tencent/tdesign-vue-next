@@ -4,7 +4,7 @@
 
 import type { SizeEnum, TNode } from '@td/shared/interface';
 import type { InputProps } from '../input';
-import { Popup } from '@td/components';
+import type { TdPopupProps as PopupProps } from '../popup/type';
 import type { TextareaProps } from '../textarea';
 
 export interface TdAutoCompleteProps<T extends AutoCompleteOption = AutoCompleteOption> {

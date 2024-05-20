@@ -5,7 +5,7 @@
  * */
 
 import { TdPaginationMiniProps } from '../pagination/type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';;
 
 export default {
   /** 按钮禁用配置 */

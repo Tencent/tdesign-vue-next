@@ -9,13 +9,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "@td/adapter-vue": "workspace:^",
-    "@td/shared": "workspace:^"
-  },
   "devDependencies": {
+    "@td/adapter-vue": "workspace:^",
+    "@td/shared": "workspace:^",
     "@td/ts-config": "workspace:^",
-    "tdesign-icons-vue-next": "^0.2.2",
-    "vue": "^3.4.15"
+    "tdesign-icons-vue-next": "^0.2.2"
   }
 }

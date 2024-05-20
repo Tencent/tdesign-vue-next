@@ -5,7 +5,7 @@
  * */
 
 import { TdGuideProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';;
 
 export default {
   /** 用于自定义渲染计数部分 */

@@ -5,7 +5,7 @@
  * */
 
 import { TdFormProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';;
 
 export default {
   /** 是否在表单标签字段右侧显示冒号 */

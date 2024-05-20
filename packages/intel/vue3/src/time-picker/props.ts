@@ -1,11 +1,11 @@
-
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdTimePickerProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdTimePickerProps } from './type';
+
+;
 
 export default {
   /** 是否允许直接输入时间 */
@@ -50,7 +50,9 @@ export default {
     type: String as PropType<TdTimePickerProps['size']>,
     default: 'medium' as TdTimePickerProps['size'],
     validator(val: TdTimePickerProps['size']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['small', 'medium', 'large'].includes(val);
     },
   },
@@ -59,7 +61,9 @@ export default {
     type: String as PropType<TdTimePickerProps['status']>,
     default: 'default' as TdTimePickerProps['status'],
     validator(val: TdTimePickerProps['status']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['default', 'success', 'warning', 'error'].includes(val);
     },
   },

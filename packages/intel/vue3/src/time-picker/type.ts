@@ -4,7 +4,7 @@
 
 import type { TNode } from '@td/shared/interface';
 import type { InputProps } from '../input';
-import { Popup } from '@td/components';
+import type { TdPopupProps as PopupProps } from '../popup/type';
 import type { SelectInputBlurContext } from '../select-input';
 import type { RangeInputProps } from '../range-input';
 

@@ -1,11 +1,9 @@
-
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdTreeSelectProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdTreeSelectProps } from './type';
 
 export default {
   /** 宽度随内容自适应 */
@@ -14,8 +12,10 @@ export default {
   borderless: Boolean,
   /** 是否允许清空 */
   clearable: Boolean,
-  /** 多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。
-   `value` 表示当前存在的所有标签，`collapsedSelectedItems` 表示折叠的标签，`count` 表示折叠的数量，`onClose` 表示移除标签的事件回调 */
+  /**
+    多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。
+   `value` 表示当前存在的所有标签，`collapsedSelectedItems` 表示折叠的标签，`count` 表示折叠的数量，`onClose` 表示移除标签的事件回调
+   */
   collapsedItems: {
     type: Function as PropType<TdTreeSelectProps['collapsedItems']>,
   },
@@ -102,7 +102,9 @@ export default {
     type: String as PropType<TdTreeSelectProps['size']>,
     default: 'medium' as TdTreeSelectProps['size'],
     validator(val: TdTreeSelectProps['size']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['small', 'medium', 'large'].includes(val);
     },
   },
@@ -144,7 +146,9 @@ export default {
     type: String as PropType<TdTreeSelectProps['valueType']>,
     default: 'value' as TdTreeSelectProps['valueType'],
     validator(val: TdTreeSelectProps['valueType']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['value', 'object'].includes(val);
     },
   },

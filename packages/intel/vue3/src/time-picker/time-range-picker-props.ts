@@ -5,7 +5,7 @@
  * */
 
 import { TdTimeRangePickerProps } from '../time-picker/type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';;
 
 export default {
   /** 是否允许直接输入时间 */
