@@ -4,6 +4,7 @@
   "title": "tdesign-vue-next",
   "description": "TDesign Component for vue-next",
   "main": "index.ts",
+  "module": "index.ts",
   "dependencies": {
     "@td/adapter-vue": "workspace:^",
     "@td/components-common": "workspace:^",

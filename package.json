@@ -1,8 +1,8 @@
 {
-  "name": "tdesign-vue-next",
-  "purename": "tdesign",
   "type": "module",
   "version": "1.9.5",
+  "private": true,
+  "purename": "tdesign",
   "title": "tdesign-vue-next",
   "description": "TDesign Component for vue-next",
   "author": "tdesign",

@@ -1,11 +1,5 @@
-<template>
-  <t-config-provider :global-config="globalConfig">
-    <t-calendar />
-  </t-config-provider>
-</template>
-
 <script setup>
-import merge from 'lodash/merge';
+import { merge } from 'lodash-es';
 import enConfig from 'tdesign-vue-next/es/locale/en_US';
 
 const MONTHS = [
@@ -82,3 +76,9 @@ const globalConfig = merge({}, enConfig, {
   },
 });
 </script>
+
+<template>
+  <t-config-provider :global-config="globalConfig">
+    <t-calendar />
+  </t-config-provider>
+</template>
