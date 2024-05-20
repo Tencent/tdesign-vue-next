@@ -8,10 +8,10 @@ import {
   getTriggerTextField,
   upload,
   validateFile,
-} from '../../_common/js/upload/main';
-import { getFileList } from '../../_common/js/upload/utils';
+} from '@td/shared/_common/js/upload/main';
+import { getFileList } from '@td/shared/_common/js/upload/utils';
 import useVModel from '../../hooks/useVModel';
-import type { InnerProgressContext, OnResponseErrorContext, SuccessContext } from '../../_common/js/upload/types';
+import type { InnerProgressContext, OnResponseErrorContext, SuccessContext } from '@td/shared/_common/js/upload/types';
 import { useConfig } from '../../hooks/useConfig';
 
 export type ValidateParams = Parameters<TdUploadProps['onValidate']>[0];

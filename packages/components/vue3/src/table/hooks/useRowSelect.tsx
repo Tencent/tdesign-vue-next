@@ -13,10 +13,10 @@ import type {
   TableRowData,
   TdPrimaryTableProps,
 } from '../type';
-import { isRowSelectedDisabled } from '../../_common/js/table/utils';
+import { isRowSelectedDisabled } from '@td/shared/_common/js/table/utils';
 import Checkbox from '../../checkbox';
 import Radio from '../../radio';
-import log from '../../_common/js/log';
+import log from '@td/shared/_common/js/log';
 import type { TableClassName } from './useClassName';
 
 export default function useRowSelect(

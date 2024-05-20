@@ -32,7 +32,7 @@ import {
   VIDEO_REGEXP,
   abridgeName,
   returnFileSize,
-} from '../../_common/js/upload/utils';
+} from '@td/shared/_common/js/upload/utils';
 import TLoading from '../../loading';
 import { useTNodeJSX } from '../../hooks';
 import Link from '../../link';

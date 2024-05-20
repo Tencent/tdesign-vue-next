@@ -13,7 +13,7 @@ import ImageViewer from '../../image-viewer';
 import type { CommonDisplayFileProps } from '../interface';
 import { commonProps } from '../constants';
 import type { TdUploadProps, UploadFile } from '../type';
-import { abridgeName } from '../../_common/js/upload/utils';
+import { abridgeName } from '@td/shared/_common/js/upload/utils';
 import type { UploadConfig } from '../../config-provider';
 import { useTNodeJSX } from '../../hooks';
 import Link from '../../link';

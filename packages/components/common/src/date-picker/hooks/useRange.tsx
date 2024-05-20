@@ -7,7 +7,7 @@ import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 
 import type { DateValue, TdDateRangePickerProps } from '../type';
-import { formatDate, getDefaultFormat, isValidDate, parseToDayjs } from '../../_common/js/date-picker/format';
+import { formatDate, getDefaultFormat, isValidDate, parseToDayjs } from '@td/shared/_common/js/date-picker/format';
 import useRangeValue from './useRangeValue';
 
 export const PARTIAL_MAP = { first: 'start', second: 'end' };

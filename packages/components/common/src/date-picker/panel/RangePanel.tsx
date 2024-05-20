@@ -3,7 +3,7 @@ import { computed, defineComponent } from '@td/adapter-vue';
 import { useDisableDate, useTableData } from '@td/adapter-hooks';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 import type { TdDateRangePickerProps } from '../type';
-import { getDefaultFormat, parseToDayjs } from '../../_common/js/date-picker/format';
+import { getDefaultFormat, parseToDayjs } from '@td/shared/_common/js/date-picker/format';
 import TPanelContent from './PanelContent';
 import TExtraContent from './ExtraContent';
 

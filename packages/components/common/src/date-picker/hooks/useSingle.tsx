@@ -14,7 +14,7 @@ import {
   getDefaultFormat,
   isValidDate,
   parseToDayjs,
-} from '../../_common/js/date-picker/format';
+} from '@td/shared/_common/js/date-picker/format';
 import useSingleValue from './useSingleValue';
 
 export default function useSingle(props: TdDatePickerProps) {

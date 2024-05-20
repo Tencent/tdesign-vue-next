@@ -10,8 +10,8 @@ import {
   PM,
   TIME_FORMAT,
   TWELVE_HOUR_FORMAT,
-} from '../../_common/js/time-picker/const';
-import { closestLookup } from '../../_common/js/time-picker/utils';
+} from '@td/shared/_common/js/time-picker/const';
+import { closestLookup } from '@td/shared/_common/js/time-picker/utils';
 import { useCommonClassName, useConfig, usePrefixClass } from '../../hooks/useConfig';
 import { panelColProps } from './props';
 

@@ -1,7 +1,7 @@
 import { computed, defineComponent } from '@td/adapter-vue';
 import { Dayjs } from 'dayjs';
 import { usePrefixClass } from '../../hooks/useConfig';
-import { extractTimeObj } from '../../_common/js/date-picker/utils';
+import { extractTimeObj } from '@td/shared/_common/js/date-picker/utils';
 
 export default defineComponent({
   name: 'TDatePickerCell',

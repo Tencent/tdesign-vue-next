@@ -3,7 +3,7 @@ import { PropType } from 'vue';
 import dayjs from 'dayjs';
 
 import * as Props from '../props';
-import { EPickerCols } from '../../_common/js/time-picker/const';
+import { EPickerCols } from '@td/shared/_common/js/time-picker/const';
 import { TdTimePickerProps, TdTimeRangePickerProps } from '../type';
 
 // 布尔类型

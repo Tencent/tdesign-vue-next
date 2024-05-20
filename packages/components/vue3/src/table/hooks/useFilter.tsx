@@ -7,7 +7,7 @@ import useDefaultValue from '../../hooks/useDefaultValue';
 import { useTNodeDefault } from '../../hooks/tnode';
 import TableFilterController from '../filter-controller';
 import { useConfig } from '../../hooks/useConfig';
-import { getColumnsResetValue } from '../../_common/js/table/utils';
+import { getColumnsResetValue } from '@td/shared/_common/js/table/utils';
 import useClassName from './useClassName';
 import { renderTitle } from './useTableHeader';
 

@@ -13,7 +13,7 @@ import {
   ESCAPE_REG,
   SHIFT_REG,
   SPACE_REG,
-} from '../../_common/js/common';
+} from '@td/shared/_common/js/common';
 
 /**
  * 行高亮功能，支持键盘操作

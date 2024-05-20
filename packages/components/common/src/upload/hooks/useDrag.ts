@@ -1,6 +1,6 @@
 import type { Ref } from '@td/adapter-vue';
 import { ref } from '@td/adapter-vue';
-import { getFileList } from '../../_common/js/upload/utils';
+import { getFileList } from '@td/shared/_common/js/upload/utils';
 import type { TdUploadProps } from '../type';
 
 export interface UploadDragEvents {

@@ -6,7 +6,7 @@ import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 import { downloadFile } from '../utils';
 import { useImagePreviewUrl } from '../../hooks';
 import type { ImageInfo } from '../type';
-import { largeNumberToFixed } from '../../_common/js/input-number/large-number';
+import { largeNumberToFixed } from '@td/shared/_common/js/input-number/large-number';
 import TImageViewerIcon from './ImageModalIcon';
 
 export default defineComponent({

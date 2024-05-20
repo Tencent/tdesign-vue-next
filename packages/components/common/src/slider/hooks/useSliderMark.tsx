@@ -3,7 +3,7 @@ import { computed } from '@td/adapter-vue';
 import { cloneDeep, isArray } from 'lodash-es';
 import type { SliderMarks } from '../type';
 import type { TNode } from '../../common';
-import log from '../../_common/js/log/log';
+import log from '@td/shared/_common/js/log/log';
 import { getStopStyle } from '../util/common';
 import TSliderMark from '../slider-mark';
 

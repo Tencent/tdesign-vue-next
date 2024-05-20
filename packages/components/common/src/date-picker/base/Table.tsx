@@ -3,7 +3,7 @@ import { computed, defineComponent } from '@td/adapter-vue';
 import { isArray } from 'lodash-es';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 import type { TdDatePickerProps } from '../type';
-import { parseToDayjs } from '../../_common/js/date-picker/format';
+import { parseToDayjs } from '@td/shared/_common/js/date-picker/format';
 import TDatePickerCell from './Cell';
 
 export default defineComponent({

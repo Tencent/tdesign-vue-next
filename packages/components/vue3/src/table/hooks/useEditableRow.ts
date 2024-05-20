@@ -1,7 +1,7 @@
 import { computed, ref, toRefs, watch } from '@td/adapter-vue';
 import { cloneDeep, get, isFunction, set } from 'lodash-es';
 import type { PrimaryTableProps } from '../interface';
-import { getEditableKeysMap } from '../../_common/js/table/utils';
+import { getEditableKeysMap } from '@td/shared/_common/js/table/utils';
 import { validate } from '../../form/form-model';
 import type {
   ErrorListObjectType,

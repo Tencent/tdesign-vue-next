@@ -5,10 +5,10 @@ import {
   getDefaultFormat,
   isValidDate,
   parseToDayjs,
-} from '../../_common/js/date-picker/format';
+} from '@td/shared/_common/js/date-picker/format';
 import useVModel from '../../hooks/useVModel';
 import type { TdDatePickerProps } from '../type';
-import { extractTimeFormat } from '../../_common/js/date-picker/utils';
+import { extractTimeFormat } from '@td/shared/_common/js/date-picker/utils';
 
 export default function useSingleValue(props: TdDatePickerProps) {
   const { value: valueFromProps, modelValue } = toRefs(props);
