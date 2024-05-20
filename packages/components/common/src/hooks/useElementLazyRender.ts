@@ -1,6 +1,6 @@
 import type { Ref } from '@td/adapter-vue';
 import { onBeforeUnmount, onMounted, ref, watch } from '@td/adapter-vue';
-import observe from '../_common/js/utils/observe';
+import observe from '@td/shared/_common/js/utils/observe';
 
 export function useElementLazyRender(labelRef: Ref<HTMLElement>, lazyLoad: Ref<boolean>) {
   const ioObserver = ref<IntersectionObserver>();

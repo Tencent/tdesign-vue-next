@@ -5,9 +5,6 @@ import { isArray, isFunction } from 'lodash-es';
 
 import props from '@td/intel/date-picker/date-range-picker-props';
 import type { DateRangePickerPartial, DateValue } from '@td/intel/date-picker/type';
-import { useFormDisabled } from '../form/hooks';
-
-import { RangeInputPopup as TRangeInputPopup } from '../range-input';
 import {
   formatDate,
   formatTime,
@@ -15,8 +12,11 @@ import {
   initYearMonthTime,
   isValidDate,
   parseToDayjs,
-} from '../_common/js/date-picker/format';
-import { addMonth, extractTimeObj, subtractMonth } from '../_common/js/date-picker/utils';
+} from '@td/shared/_common/js/date-picker/format';
+import { addMonth, extractTimeObj, subtractMonth } from '@td/shared/_common/js/date-picker/utils';
+import { useFormDisabled } from '../form/hooks';
+
+import { RangeInputPopup as TRangeInputPopup } from '../range-input';
 import useRange from './hooks/useRange';
 import TRangePanel from './panel/RangePanel';
 

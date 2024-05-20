@@ -2,8 +2,8 @@ import type { ComputedRef } from '@td/adapter-vue';
 import { computed, onMounted, watch } from '@td/adapter-vue';
 import type { TdInputProps } from '@td/intel/input/type';
 import { isNumber, isObject } from 'lodash-es';
-import log from '../_common/js/log';
-import { getCharacterLength, getUnicodeLength, limitUnicodeMaxLength } from '../_common/js/utils/helper';
+import log from '@td/shared/_common/js/log';
+import { getCharacterLength, getUnicodeLength, limitUnicodeMaxLength } from '@td/shared/_common/js/utils/helper';
 
 export interface UseLengthLimitParams {
   value: string;

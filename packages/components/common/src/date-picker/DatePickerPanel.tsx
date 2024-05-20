@@ -10,8 +10,8 @@ import type {
 
 import datePickerPanelProps from '@td/intel/date-picker/date-picker-panel-props';
 import datePickerProps from '@td/intel/date-picker/props';
-import { addMonth, extractTimeObj, subtractMonth } from '../_common/js/date-picker/utils';
-import { formatDate, getDefaultFormat, parseToDayjs } from '../_common/js/date-picker/format';
+import { addMonth, extractTimeObj, subtractMonth } from '@td/shared/_common/js/date-picker/utils';
+import { formatDate, getDefaultFormat, parseToDayjs } from '@td/shared/_common/js/date-picker/format';
 import useSingleValue from './hooks/useSingleValue';
 
 import TSinglePanel from './panel/SinglePanel';

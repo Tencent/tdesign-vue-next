@@ -6,7 +6,7 @@ import type { TdImageProps } from '@td/intel/image/type';
 import props from '@td/intel/image/props';
 import Space from '../space';
 import { useConfig } from '../config-provider/useConfig';
-import observe from '../_common/js/utils/observe';
+import observe from '@td/shared/_common/js/utils/observe';
 
 export default defineComponent({
   name: 'TImage',

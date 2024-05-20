@@ -21,9 +21,9 @@ import { useCommonClassName, usePrefixClass } from '@td/adapter-hooks';
 
 import props from '@td/intel/textarea/props';
 import type { TdTextareaProps, TextareaValue } from '@td/intel/textarea/type';
+import { getCharacterLength } from '@td/shared/_common/js/utils/helper';
+import setStyle from '@td/shared/_common/js/utils/set-style';
 import { useFormDisabled } from '../form/hooks';
-import { getCharacterLength } from '../_common/js/utils/helper';
-import setStyle from '../_common/js/utils/set-style';
 import { FormItemInjectionKey } from '../form/const';
 import { omit } from '../utils/helper';
 import useLengthLimit from '../input/useLengthLimit';

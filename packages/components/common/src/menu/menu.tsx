@@ -3,7 +3,7 @@ import props from '@td/intel/menu/props';
 import type { MenuValue } from '@td/intel/menu/type';
 import { useDefaultValue, usePrefixClass, useVModel } from '@td/adapter-hooks';
 import { isArray, isNumber } from 'lodash-es';
-import log from '../_common/js/log/log';
+import log from '@td/shared/_common/js/log/log';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import VMenu from './v-menu';
 import type { TdMenuInterface, TdOpenType } from './const';

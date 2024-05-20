@@ -12,8 +12,8 @@ import type {
 } from '@td/intel/date-picker/type';
 
 import { isArray, isFunction } from 'lodash-es';
-import { formatDate, getDefaultFormat, parseToDayjs } from '../_common/js/date-picker/format';
-import { addMonth, extractTimeObj, subtractMonth } from '../_common/js/date-picker/utils';
+import { formatDate, getDefaultFormat, parseToDayjs } from '@td/shared/_common/js/date-picker/format';
+import { addMonth, extractTimeObj, subtractMonth } from '@td/shared/_common/js/date-picker/utils';
 import TRangePanel from './panel/RangePanel';
 import useRangeValue from './hooks/useRangeValue';
 

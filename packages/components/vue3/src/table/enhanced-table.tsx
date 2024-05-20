@@ -12,8 +12,8 @@ import type {
   TdPrimaryTableProps,
 } from '@td/intel/table/type';
 import { get } from 'lodash-es';
+import log from '@td/shared/_common/js/log';
 import type { ComponentScrollToElementParams } from '../common';
-import log from '../_common/js/log';
 import { usePrefixClass } from '../hooks';
 import useTreeSelect from './hooks/useTreeSelect';
 import useTreeData from './hooks/useTreeData';

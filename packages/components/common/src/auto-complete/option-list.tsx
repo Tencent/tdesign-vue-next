@@ -3,9 +3,9 @@ import { computed, defineComponent, h, onBeforeUnmount, ref, watch } from '@td/a
 import { escapeRegExp, isFunction, isString } from 'lodash-es';
 import type { CommonClassNameType, usePrefixClass } from '@td/adapter-hooks';
 import type { AutoCompleteOptionObj, TdAutoCompleteProps } from '@td/intel/auto-complete/type';
-import log from '../_common/js/log';
+import log from '@td/shared/_common/js/log';
 import { off, on } from '../utils/dom';
-import { ARROW_DOWN_REG, ARROW_UP_REG, ENTER_REG } from '../_common/js/common';
+import { ARROW_DOWN_REG, ARROW_UP_REG, ENTER_REG } from '@td/shared/_common/js/common';
 import HighlightOption from './highlight-option';
 
 export default defineComponent({

@@ -22,8 +22,8 @@ import props from '@td/intel/menu/head-menu-props';
 import type { MenuValue } from '@td/intel/menu/type';
 
 import { useDefaultValue, usePrefixClass, useVModel } from '@td/adapter-hooks';
+import log from '@td/shared/_common/js/log/log';
 import { TabPanel, Tabs } from '../tabs';
-import log from '../_common/js/log/log';
 import VMenu from './v-menu';
 import Submenu from './submenu';
 import type { TdMenuInterface, TdOpenType } from './const';

@@ -9,7 +9,7 @@ import {
 import type { DialogCloseContext, TdDialogProps } from '@td/intel/dialog/type';
 import props from '@td/intel/dialog/props';
 import { useConfig, useContent, useDestroyOnClose, useGlobalIcon, usePopupManager, usePrefixClass, useTNodeJSX, useTeleport } from '@td/adapter-hooks';
-import { getScrollbarWidth } from '../_common/js/utils/getScrollbarWidth';
+import { getScrollbarWidth } from '@td/shared/_common/js/utils/getScrollbarWidth';
 import { useAction, useSameTarget } from './hooks';
 
 function GetCSSValue(v: string | number) {

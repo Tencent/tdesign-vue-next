@@ -4,7 +4,7 @@ import props from '@td/intel/guide/props';
 import type { GuideStep, TdGuideProps } from '@td/intel/guide/type';
 import { useConfig, usePrefixClass, useTNodeJSX, useVModel } from '@td/adapter-hooks';
 import { addClass, getWindowScroll, isFixed, removeClass } from '../utils/dom';
-import setStyle from '../_common/js/utils/set-style';
+import setStyle from '@td/shared/_common/js/utils/set-style';
 import Button from '../button';
 import type { PopupProps } from '../popup';
 import Popup from '../popup';

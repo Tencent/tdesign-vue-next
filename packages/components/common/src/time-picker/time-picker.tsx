@@ -7,7 +7,7 @@ import props from '@td/intel/time-picker/props';
 import { useCommonClassName, useConfig, useGlobalIcon, usePrefixClass, useVModel } from '@td/adapter-hooks';
 import type { SelectInputBlurContext } from '../select-input';
 import TSelectInput from '../select-input';
-import { formatInputValue, validateInputValue } from '../_common/js/time-picker/utils';
+import { formatInputValue, validateInputValue } from '@td/shared/_common/js/time-picker/utils';
 
 import type { InputProps } from '../input';
 
