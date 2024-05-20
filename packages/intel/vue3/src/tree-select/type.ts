@@ -1,17 +1,13 @@
-
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { InputProps } from '../input';
-import { PopupProps } from '../popup';
-import { SelectInputProps } from '../select-input';
-import { TagProps } from '../tag';
-import { TreeProps, TreeNodeModel } from '../tree';
-import { SelectInputValueChangeContext } from '../select-input';
-import { PopupVisibleChangeContext } from '../popup';
-import { TNode, TreeOptionData, TreeKeysType } from '../common';
+import type { TNode, TreeKeysType, TreeOptionData } from '@td/shared/interface';
+import type { InputProps } from '../input';
+import type { PopupProps, PopupVisibleChangeContext } from '../popup';
+import type { SelectInputProps, SelectInputValueChangeContext } from '../select-input';
+import type { TagProps } from '../tag';
+import type { TreeNodeModel, TreeProps } from '../tree';
 
 export interface TdTreeSelectProps<
   DataOption extends TreeOptionData = TreeOptionData,

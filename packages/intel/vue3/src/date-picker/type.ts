@@ -3,12 +3,12 @@
  */
 
 import type { Dayjs } from 'dayjs';
+import type { SizeEnum, TNode } from '@td/shared/interface';
 import type { InputProps } from '../input';
 import type { PopupProps } from '../popup';
 import type { SelectInputProps } from '../select-input';
 import type { TimePickerProps } from '../time-picker';
 import type { RangeInputProps } from '../range-input';
-import type { SizeEnum, TNode } from '../common';
 
 export interface TdDatePickerProps {
   /**

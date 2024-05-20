@@ -2,6 +2,7 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  */
 
+import type { SizeEnum, TNode, TreeKeysType, TreeOptionData } from '@td/shared/interface';
 import type { CheckboxProps } from '../checkbox';
 import type { InputProps } from '../input';
 import type { PopupProps, PopupVisibleChangeContext } from '../popup';
@@ -9,7 +10,6 @@ import type { SelectInputBlurContext, SelectInputProps } from '../select-input';
 import type { TagInputProps } from '../tag-input';
 import type { TagProps } from '../tag';
 import type { TreeNodeModel } from '../tree';
-import type { SizeEnum, TNode, TreeKeysType, TreeOptionData } from '../common';
 
 export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOptionData> {
   /**

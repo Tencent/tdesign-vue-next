@@ -3,6 +3,18 @@
  */
 
 import type { SortableEvent, SortableOptions } from 'sortablejs';
+import type {
+  AttachNode,
+  ClassName,
+  ComponentScrollToElementParams,
+  ComponentType,
+  HTMLElementAttributes,
+  OptionData,
+  SizeEnum,
+  Styles,
+  TNode,
+  TScroll,
+} from '@td/shared/interface';
 import type { AffixProps } from '../affix';
 import type { LoadingProps } from '../loading';
 import type { TableConfig } from '../config-provider';
@@ -15,18 +27,6 @@ import type { InputProps } from '../input';
 import type { ButtonProps } from '../button';
 import type { DialogProps } from '../dialog';
 import type { AllValidateResult, FormRule } from '../form';
-import type {
-  AttachNode,
-  ClassName,
-  ComponentScrollToElementParams,
-  ComponentType,
-  HTMLElementAttributes,
-  OptionData,
-  SizeEnum,
-  Styles,
-  TNode,
-  TScroll,
-} from '../common';
 
 export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
   /**

@@ -1,11 +1,9 @@
-
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { ComponentPublicInstance } from 'vue';
-import { TNode, AttachNode } from '../common';
+import type { ComponentPublicInstance } from 'vue';
+import type { AttachNode, TNode } from '@td/shared/interface';
 
 export interface TdNotificationProps {
   /**

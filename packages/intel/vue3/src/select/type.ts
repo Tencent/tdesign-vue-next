@@ -2,12 +2,12 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  */
 
+import type { InfinityScroll, KeysType, PlainObject, SizeEnum, TNode } from '@td/shared/interface';
 import type { InputProps } from '../input';
 import type { PopupProps, PopupVisibleChangeContext } from '../popup';
 import type { SelectInputProps, SelectInputValueChangeContext } from '../select-input';
 import type { TagInputProps } from '../tag-input';
 import type { TagProps } from '../tag';
-import type { InfinityScroll, KeysType, PlainObject, SizeEnum, TNode } from '../common';
 
 export interface TdSelectProps<T extends SelectOption = SelectOption> {
   /**

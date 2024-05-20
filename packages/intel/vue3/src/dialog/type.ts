@@ -2,8 +2,8 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  */
 
+import type { AttachNode, Styles, TNode } from '@td/shared/interface';
 import type { ButtonProps } from '../button';
-import type { AttachNode, Styles, TNode } from '../common';
 
 export interface TdDialogProps {
   /**

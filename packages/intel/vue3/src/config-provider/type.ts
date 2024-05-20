@@ -3,12 +3,12 @@
  */
 
 import type { GlobalIconConfig } from 'tdesign-icons-vue-next';
+import type { SizeEnum, TNode } from '@td/shared/interface';
 import type { CalendarController } from '../calendar';
 import type { ButtonProps } from '../button';
 import type { FormErrorMessage } from '../form';
 import type { MessageOptions } from '../message';
 import type { ImageProps } from '../image';
-import type { SizeEnum, TNode } from '../common';
 
 export interface GlobalConfigProvider {
   /**

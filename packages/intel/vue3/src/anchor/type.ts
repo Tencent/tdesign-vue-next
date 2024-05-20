@@ -3,8 +3,8 @@
  * updated at 2021-12-12 19:17:30
  */
 
+import type { ScrollContainer, TNode } from '@td/shared/interface';
 import type { AffixProps } from '../affix';
-import type { ScrollContainer, TNode } from '../common';
 
 export interface TdAnchorProps {
   /**

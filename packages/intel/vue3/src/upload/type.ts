@@ -2,10 +2,10 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  */
 
+import type { PlainObject, TNode, UploadDisplayDragEvents } from '@td/shared/interface';
 import type { ImageViewerProps } from '../image-viewer';
 import type { UploadConfig } from '../config-provider/type';
 import type { ButtonProps } from '../button';
-import type { PlainObject, TNode, UploadDisplayDragEvents } from '../common';
 
 export interface TdUploadProps<T extends UploadFile = UploadFile> {
   /**
