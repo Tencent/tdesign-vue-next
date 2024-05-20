@@ -2,7 +2,7 @@ import { computed, defineComponent, nextTick, ref, toRefs } from '@td/adapter-vu
 import props from '@td/intel/auto-complete/props';
 import type { TdAutoCompleteProps } from '@td/intel/auto-complete/type';
 import { useCommonClassName, useContent, useTNodeJSX, useVModel } from '@td/adapter-hooks';
-import { Input } from '@td/components-common';
+import { Input } from '../input';
 import { Popup } from '@td/components';
 import type { ClassName } from '@td/shared/interface';
 import type { InputProps, StrInputProps } from '../input';

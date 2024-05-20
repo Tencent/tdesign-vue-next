@@ -4,14 +4,12 @@ import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-
 import props from '@td/intel/range-input/props';
 import type { RangeInputPosition, RangeInputValue } from '@td/intel/range-input/type';
 
-// hooks
-import { useVModel } from '@td/adapter-hooks';
-import { useGlobalIcon } from '@td/adapter-hooks';
-import { useCommonClassName, usePrefixClass } from '@td/adapter-hooks';
-import { useTNodeJSX } from '@td/adapter-hooks';
+import { useCommonClassName, useGlobalIcon, usePrefixClass, useTNodeJSX, useVModel } from '@td/adapter-hooks';
 import { isArray } from 'lodash-es';
+import { Input } from '../input';
 import { useFormDisabled } from '../form/hooks';
-import { Input } from '@td/components-common';;
+
+;
 
 function calcArrayValue(value: unknown | Array<unknown>) {
   if (isArray(value)) {

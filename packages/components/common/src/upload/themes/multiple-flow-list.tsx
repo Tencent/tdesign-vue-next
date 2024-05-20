@@ -25,16 +25,16 @@ import {
   abridgeName,
   returnFileSize,
 } from '@td/shared/_common/js/upload/utils';
+import { useTNodeJSX } from '@td/adapter-hooks';
 import useGlobalIcon from '../../hooks/useGlobalIcon';
 import type { ImageViewerProps } from '../../image-viewer';
 import ImageViewer from '../../image-viewer';
 import type { CommonDisplayFileProps } from '../interface';
 import { commonProps } from '../constants';
-import { Button as TButton } from '@td/components-common';
+import { Button as TButton } from '../../button';
 import type { UploadDragEvents } from '../hooks/useDrag';
 import useDrag from '../hooks/useDrag';
 import TLoading from '../../loading';
-import { useTNodeJSX } from '@td/adapter-hooks';
 import Link from '../../link';
 import type { UploadConfig } from '../../config-provider';
 import Image from '../../image';

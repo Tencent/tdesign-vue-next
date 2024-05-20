@@ -3,7 +3,7 @@ import props from '@td/intel/menu/menu-item-props';
 import { usePrefixClass, useRipple } from '@td/adapter-hooks';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import { emitEvent } from '../utils/event';
-import { Tooltip } from '@td/components-common';
+import { Tooltip } from '../tooltip';
 import type { TdMenuInterface, TdSubMenuInterface } from './const';
 
 export default defineComponent({

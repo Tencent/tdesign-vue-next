@@ -39,7 +39,7 @@ export * from './src/select-input';
 export * from './src/textarea';
 export * from './src/transfer';
 export * from './src/time-picker';
-export * from './src/tree-select';
+// export * from './src/tree-select';
 export * from './src/color-picker';
 export * from './src/range-input';
 
@@ -59,7 +59,7 @@ export * from './src/swiper';
 export * from './src/tag';
 export * from './src/timeline';
 export * from './src/tooltip';
-export * from './src/tree';
+// export * from './src/tree';
 export * from './src/collapse';
 export * from './src/watermark';
 export * from './src/rate';

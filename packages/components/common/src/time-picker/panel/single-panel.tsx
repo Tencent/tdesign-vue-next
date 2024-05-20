@@ -12,8 +12,8 @@ import {
   TWELVE_HOUR_FORMAT,
 } from '@td/shared/_common/js/time-picker/const';
 import { closestLookup } from '@td/shared/_common/js/time-picker/utils';
-import { useCommonClassName, useConfig, usePrefixClass } from '../../hooks/useConfig';
-import { panelColProps } from './props';
+import { useCommonClassName, useConfig, usePrefixClass } from '@td/adapter-hooks';
+import { panelColProps } from '@td/intel/time-picker/panel/props';
 
 dayjs.extend(customParseFormat);
 

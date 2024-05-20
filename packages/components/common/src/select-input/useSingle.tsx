@@ -4,7 +4,7 @@ import { isObject, pick } from 'lodash-es';
 import { useDefaultValue, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import type { TdSelectInputProps } from '@td/intel/select-input/type';
 import type { StrInputProps } from '../input';
-import { Input } from '@td/components-common';;
+import { Input } from '../input';;
 import Loading from '../loading';
 import { useFormDisabled } from '../form/hooks';
 import type { PopupInstanceFunctions } from '../popup';

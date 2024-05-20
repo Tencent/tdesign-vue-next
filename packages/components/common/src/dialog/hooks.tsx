@@ -4,7 +4,7 @@ import { useTNodeJSX } from '@td/adapter-hooks';
 import type { TdDialogProps } from '@td/intel/dialog/type';
 import type { ClassName } from '@td/shared/interface';
 import type { ButtonProps } from '../button';
-import { Button as TButton } from '@td/components-common';
+import { Button as TButton } from '../button';
 import type { DialogConfig, DrawerConfig, PopconfirmConfig } from '../config-provider';
 
 export interface MixinsConfirmBtn {

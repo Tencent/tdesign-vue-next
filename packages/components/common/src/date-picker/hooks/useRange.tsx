@@ -4,8 +4,7 @@ import { omit } from 'lodash-es';
 
 import type { DateValue, TdDateRangePickerProps } from '@td/intel/date-picker/type';
 import { formatDate, getDefaultFormat, isValidDate, parseToDayjs } from '@td/shared/_common/js/date-picker/format';
-import { useGlobalIcon, useTNodeJSX } from '@td/adapter-hooks';
-import { useConfig, usePrefixClass } from '../../hooks/useConfig';
+import { useConfig, useGlobalIcon, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 
 import useRangeValue from './useRangeValue';
 

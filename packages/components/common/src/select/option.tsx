@@ -2,13 +2,10 @@ import { computed, defineComponent, inject, onBeforeUnmount, onMounted, ref } fr
 
 import props from '@td/intel/select/option-props';
 
-// hooks
-import { useRipple } from '@td/adapter-hooks';
-import { useContent } from '@td/adapter-hooks';
-import { useCommonClassName, usePrefixClass } from '@td/adapter-hooks';
+import { useCommonClassName, useContent, usePrefixClass, useRipple } from '@td/adapter-hooks';
 import type { SelectValue } from '@td/intel/select/type';
+import { Checkbox } from '@td/components';
 import { useFormDisabled } from '../form/hooks';
-import Checkbox from '../checkbox/index';
 import { getNewMultipleValue, selectInjectKey } from './helper';
 
 export default defineComponent({

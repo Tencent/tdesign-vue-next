@@ -1,11 +1,9 @@
-
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdCardProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdCardProps } from './type';
 
 export default {
   /** 卡片操作区 */
@@ -65,7 +63,9 @@ export default {
     type: String as PropType<TdCardProps['size']>,
     default: 'medium' as TdCardProps['size'],
     validator(val: TdCardProps['size']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['medium', 'small'].includes(val);
     },
   },
@@ -83,7 +83,9 @@ export default {
     type: String as PropType<TdCardProps['theme']>,
     default: 'normal' as TdCardProps['theme'],
     validator(val: TdCardProps['theme']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['normal', 'poster1', 'poster2'].includes(val);
     },
   },

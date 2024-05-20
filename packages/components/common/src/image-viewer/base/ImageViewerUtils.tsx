@@ -4,7 +4,7 @@ import { DownloadIcon, ImageIcon, MirrorIcon, RotationIcon, ZoomInIcon, ZoomOutI
 import type { ImageInfo } from '@td/intel/image-viewer/type';
 import { largeNumberToFixed } from '@td/shared/_common/js/input-number/large-number';
 import TToolTip from '../../tooltip';
-import { useConfig, usePrefixClass } from '../../hooks/useConfig';
+import { useConfig, usePrefixClass } from '@td/adapter-hooks';
 import { downloadFile } from '../utils';
 import { useImagePreviewUrl } from '../../hooks';
 import TImageViewerIcon from './ImageModalIcon';

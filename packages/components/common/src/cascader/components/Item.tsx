@@ -2,15 +2,14 @@ import type { PropType } from '@td/adapter-vue';
 import { computed, defineComponent, ref } from '@td/adapter-vue';
 import { ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
 
+import { useCommonClassName, useGlobalIcon, usePrefixClass } from '@td/adapter-hooks';
+import { Checkbox } from '@td/components';
 import { getFullPathLabel } from '../core/helper';
 import { getCascaderItemClass, getCascaderItemIconClass } from '../core/className';
 
-import Checkbox from '../../checkbox/index';
 import TLoading from '../../loading';
 
 import type { CascaderContextType, TdCascaderProps, TreeNode, TreeNodeValue } from '../interface';
-import { useCommonClassName, usePrefixClass } from '../../hooks/useConfig';
-import { useGlobalIcon } from '@td/adapter-hooks';
 import useRipple from '../../hooks/useRipple';
 
 const props = {

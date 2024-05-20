@@ -1,7 +1,9 @@
 import type { PropType, VNode } from '@td/adapter-vue';
 import { computed, defineComponent, ref, toRefs, watch } from '@td/adapter-vue';
 import { cloneDeep, filter, isString } from 'lodash-es';
-import { useDragSort } from '@td/adapter-hooks';
+import { useConfig, useDragSort, usePrefixClass, useTNodeDefault } from '@td/adapter-hooks';
+import type { CheckboxProps } from '@td/components';
+import { Checkbox as TCheckbox, CheckboxGroup as TCheckboxGroup } from '@td/components';
 import type {
   EmptyType,
   SearchEvent,
@@ -13,12 +15,8 @@ import type {
 } from '../interface';
 import type { PageInfo, TdPaginationProps } from '../../pagination';
 import { Pagination } from '../../pagination';
-import type { CheckboxProps } from '../../checkbox';
-import { Checkbox as TCheckbox, CheckboxGroup as TCheckboxGroup } from '../../checkbox';
 import { TARGET, getDataValues, getLefCount } from '../utils';
-import { useTNodeDefault } from '@td/adapter-hooks';
 
-import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 import Search from './transfer-search';
 
 const props = {

@@ -5,7 +5,7 @@ import { AddIcon as TdAddIcon, DeleteIcon as TdDeleteIcon } from 'tdesign-icons-
 import baseProps from '@td/intel/color-picker/panel/base-props';
 import { useBaseClassName, useGlobalIcon } from '@td/adapter-hooks';
 import { Color } from '../utils';
-import { useCommonClassName } from '../../hooks/useConfig';
+import { useCommonClassName } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'SwatchesPanel',

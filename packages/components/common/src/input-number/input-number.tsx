@@ -7,11 +7,10 @@ import {
   RemoveIcon as TdRemoveIcon,
 } from 'tdesign-icons-vue-next';
 import props from '@td/intel/input-number/props';
-import { useGlobalIcon } from '@td/adapter-hooks';
+import { useGlobalIcon, useTNodeJSX } from '@td/adapter-hooks';
 import type { TdInputNumberProps } from '@td/intel/input-number/type';
 import TInput from '../input';
-import { Button as TButton } from '@td/components-common';
-import { useTNodeJSX } from '@td/adapter-hooks';
+import { Button as TButton } from '../button';
 import useInputNumber from './useInputNumber';
 
 export default defineComponent({

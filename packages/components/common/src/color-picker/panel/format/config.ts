@@ -1,4 +1,4 @@
-import type { TdColorPickerProps } from '../../type';
+import type { TdColorPickerProps } from '@td/intel/color-picker/type';
 
 export interface FormatInput {
   key: string;

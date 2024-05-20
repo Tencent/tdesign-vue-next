@@ -1,11 +1,9 @@
-
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdInputProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdInputProps } from './type';
 
 export default {
   /** 文本内容位置，居左/居中/居右 */
@@ -13,7 +11,9 @@ export default {
     type: String as PropType<TdInputProps['align']>,
     default: 'left' as TdInputProps['align'],
     validator(val: TdInputProps['align']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['left', 'center', 'right'].includes(val);
     },
   },
@@ -79,7 +79,9 @@ export default {
     type: String as PropType<TdInputProps['size']>,
     default: 'medium' as TdInputProps['size'],
     validator(val: TdInputProps['size']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['small', 'medium', 'large'].includes(val);
     },
   },
@@ -88,7 +90,9 @@ export default {
     type: String as PropType<TdInputProps['status']>,
     default: undefined as TdInputProps['status'],
     validator(val: TdInputProps['status']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['default', 'success', 'warning', 'error'].includes(val);
     },
   },
@@ -109,7 +113,9 @@ export default {
     type: String as PropType<TdInputProps['type']>,
     default: 'text' as TdInputProps['type'],
     validator(val: TdInputProps['type']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['text', 'number', 'url', 'tel', 'password', 'search', 'submit', 'hidden'].includes(val);
     },
   },
