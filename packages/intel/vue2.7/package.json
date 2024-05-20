@@ -1,0 +1,21 @@
+{
+  "name": "@td/intel-vue2.7",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@td/ts-config": "workspace:^",
+    "vue": "~2.7.16"
+  },
+  "dependencies": {
+    "@td/adapter-vue": "workspace:^",
+    "@td/shared": "workspace:^",
+    "tdesign-icons-vue": "^0.2.2"
+  }
+}

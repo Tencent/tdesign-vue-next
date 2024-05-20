@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Default",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "jsx": "preserve",
+    "jsxImportSource": "vue",
+    "noImplicitThis": true,
+    "strict": true,
+    "verbatimModuleSyntax": true,
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "suppressImplicitAnyIndexErrors": false,
+    "allowJs": true,
+    "lib": [
+      "ESNext",
+      "DOM",
+      "DOM.Iterable",
+      "scripthost"
+    ],
+    "baseUrl": "../../"
+  },
+  "exclude": ["node_modules"]
+}

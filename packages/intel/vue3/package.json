@@ -1,0 +1,19 @@
+{
+  "name": "@td/intel-vue3",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@td/adapter-vue": "workspace:^",
+    "@td/shared": "workspace:^",
+    "@td/ts-config": "workspace:^",
+    "tdesign-icons-vue-next": "^0.2.2",
+    "tdesign-vue-next": "workspace:^"
+  }
+}

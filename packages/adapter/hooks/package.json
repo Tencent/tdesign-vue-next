@@ -1,0 +1,22 @@
+{
+  "name": "@td/adapter-hooks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@td/adapter-utils": "workspace:^",
+    "@td/adapter-vue": "workspace:^",
+    "@td/shared": "workspace:^",
+    "lodash-es": "^4.17.21"
+  },
+  "devDependencies": {
+    "@td/ts-config": "workspace:^",
+    "@types/lodash-es": "^4.17.12"
+  }
+}

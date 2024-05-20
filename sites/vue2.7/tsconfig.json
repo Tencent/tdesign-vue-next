@@ -1,0 +1,12 @@
+{
+  "extends": "@td/ts-config/vue2.7.json",
+  "compilerOptions": {
+    "paths": {
+      "@/*": [
+        "./*"
+      ],
+    }
+  },
+  "files": ["declarations.d.ts"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
+}

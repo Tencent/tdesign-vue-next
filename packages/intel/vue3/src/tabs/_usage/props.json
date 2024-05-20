@@ -1,0 +1,67 @@
+[
+  {
+    "name": "addable",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "disabled",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "placement",
+    "type": "enum",
+    "defaultValue": "top",
+    "options": [
+      {
+        "label": "left",
+        "value": "left"
+      },
+      {
+        "label": "top",
+        "value": "top"
+      },
+      {
+        "label": "bottom",
+        "value": "bottom"
+      },
+      {
+        "label": "right",
+        "value": "right"
+      }
+    ]
+  },
+  {
+    "name": "size",
+    "type": "enum",
+    "defaultValue": "medium",
+    "options": [
+      {
+        "label": "medium",
+        "value": "medium"
+      },
+      {
+        "label": "large",
+        "value": "large"
+      }
+    ]
+  },
+  {
+    "name": "theme",
+    "type": "enum",
+    "defaultValue": "normal",
+    "options": [
+      {
+        "label": "normal",
+        "value": "normal"
+      },
+      {
+        "label": "card",
+        "value": "card"
+      }
+    ]
+  }
+]

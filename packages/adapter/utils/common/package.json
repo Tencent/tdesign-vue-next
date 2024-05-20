@@ -1,0 +1,24 @@
+{
+  "name": "@td/adapter-utils-common",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/lodash": "^4.14.202",
+    "@types/node": "^20.11.16",
+    "@types/raf": "^3.4.3",
+    "vue": "^2.7.16"
+  },
+  "dependencies": {
+    "@td/adapter-vue": "workspace:^",
+    "@td/shared": "workspace:^",
+    "lodash": "^4.17.21",
+    "raf": "^3.4.1"
+  }
+}

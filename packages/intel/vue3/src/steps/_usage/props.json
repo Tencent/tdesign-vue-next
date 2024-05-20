@@ -1,0 +1,72 @@
+[
+  {
+    "name": "layout",
+    "type": "enum",
+    "defaultValue": "horizontal",
+    "options": [
+      {
+        "label": "horizontal",
+        "value": "horizontal"
+      },
+      {
+        "label": "vertical",
+        "value": "vertical"
+      }
+    ]
+  },
+  {
+    "name": "readonly",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "separator",
+    "type": "enum",
+    "defaultValue": "line",
+    "options": [
+      {
+        "label": "line",
+        "value": "line"
+      },
+      {
+        "label": "dashed",
+        "value": "dashed"
+      },
+      {
+        "label": "arrow",
+        "value": "arrow"
+      }
+    ]
+  },
+  {
+    "name": "sequence",
+    "type": "enum",
+    "defaultValue": "positive",
+    "options": [
+      {
+        "label": "positive",
+        "value": "positive"
+      },
+      {
+        "label": "reverse",
+        "value": "reverse"
+      }
+    ]
+  },
+  {
+    "name": "theme",
+    "type": "enum",
+    "defaultValue": "default",
+    "options": [
+      {
+        "label": "default",
+        "value": "default"
+      },
+      {
+        "label": "dot",
+        "value": "dot"
+      }
+    ]
+  }
+]

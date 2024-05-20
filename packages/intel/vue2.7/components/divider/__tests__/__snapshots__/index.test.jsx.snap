@@ -1,0 +1,37 @@
+// Vitest Snapshot v1
+
+exports[`Divider > :props > :align 1`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-left"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    TDesign
+  </span>
+</div>
+`;
+
+exports[`Divider > :props > :dashed 1`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--dashed"
+/>
+`;
+
+exports[`Divider > :props > :layout 1`] = `
+<div
+  class="t-divider t-divider--vertical"
+/>
+`;
+
+exports[`Divider > <slot> > default 1`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    TDesign
+  </span>
+</div>
+`;

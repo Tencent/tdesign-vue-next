@@ -1,0 +1,41 @@
+[
+  {
+    "name": "disabled",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "inputNumberProps",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "label",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "layout",
+    "type": "enum",
+    "defaultValue": "horizontal",
+    "options": [
+      {
+        "label": "vertical",
+        "value": "vertical"
+      },
+      {
+        "label": "horizontal",
+        "value": "horizontal"
+      }
+    ]
+  },
+  {
+    "name": "range",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  }
+]

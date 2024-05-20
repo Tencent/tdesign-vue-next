@@ -1,0 +1,89 @@
+// Vitest Snapshot v1
+
+exports[`Form > @event > validate 1`] = `
+{
+  "firstError": "姓名必填",
+  "validateResult": {
+    "age": [
+      {
+        "message": "age必填",
+        "required": true,
+        "result": false,
+      },
+    ],
+    "name": [
+      {
+        "message": "姓名必填",
+        "required": true,
+        "result": false,
+      },
+    ],
+  },
+}
+`;
+
+exports[`Form > @event > validate 2`] = `
+{
+  "firstError": "姓名必填",
+  "validateResult": {
+    "age": [
+      {
+        "message": "age必填",
+        "required": true,
+        "result": false,
+      },
+    ],
+    "name": [
+      {
+        "message": "姓名必填",
+        "required": true,
+        "result": false,
+      },
+    ],
+  },
+}
+`;
+
+exports[`Form > @event > validate 3`] = `
+{
+  "firstError": "姓名必填",
+  "validateResult": {
+    "age": [
+      {
+        "message": "age必填",
+        "required": true,
+        "result": false,
+      },
+    ],
+    "name": [
+      {
+        "message": "姓名必填",
+        "required": true,
+        "result": false,
+      },
+    ],
+  },
+}
+`;
+
+exports[`Form > @event > validate 4`] = `
+{
+  "firstError": "姓名必填",
+  "validateResult": {
+    "age": [
+      {
+        "message": "age必填",
+        "required": true,
+        "result": false,
+      },
+    ],
+    "name": [
+      {
+        "message": "姓名必填",
+        "required": true,
+        "result": false,
+      },
+    ],
+  },
+}
+`;

@@ -1,0 +1,66 @@
+[
+  {
+    "name": "autoWidth",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "clearable",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "disabled",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "dragSort",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "excessTagsDisplayType",
+    "type": "enum",
+    "defaultValue": "scroll",
+    "options": [
+      {
+        "label": "scroll",
+        "value": "scroll"
+      },
+      {
+        "label": "break-line",
+        "value": "break-line"
+      }
+    ]
+  },
+  {
+    "name": "readonly",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "size",
+    "type": "enum",
+    "defaultValue": "medium",
+    "options": [
+      {
+        "label": "small",
+        "value": "small"
+      },
+      {
+        "label": "medium",
+        "value": "medium"
+      },
+      {
+        "label": "large",
+        "value": "large"
+      }
+    ]
+  }
+]

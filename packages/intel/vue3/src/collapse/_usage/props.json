@@ -1,0 +1,53 @@
+[
+  {
+    "name": "borderless",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "defaultExpandAll",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "disabled",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "expandIcon",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "expandIconPlacement",
+    "type": "enum",
+    "defaultValue": "left",
+    "options": [
+      {
+        "label": "left",
+        "value": "left"
+      },
+      {
+        "label": "right",
+        "value": "right"
+      }
+    ]
+  },
+  {
+    "name": "expandMutex",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "expandOnRowClick",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  }
+]

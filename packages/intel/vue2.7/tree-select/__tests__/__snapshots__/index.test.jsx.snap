@@ -1,0 +1,1193 @@
+// Vitest Snapshot v1
+
+exports[`TreeSelect > :props > :clearable 1`] = `
+<div
+  class="t-select-input t-select-input--empty t-tree-select"
+>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <div
+        class="t-input__prefix"
+      />
+      <input
+        autocomplete=""
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly="readonly"
+        type="text"
+        unselectable="on"
+      />
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TreeSelect > :props > :defaultValue 1`] = `
+<div
+  class="t-select-input t-select-input--multiple t-tree-select"
+>
+  <div
+    class="t-input__wrap t-tag-input t-tag-input--break-line t-tag-input--with-tag t-tag-input__with-suffix-icon"
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <div
+        class="t-input__prefix"
+      >
+        <div
+          class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close"
+        >
+          <span
+            class="t-tag--text"
+            style="max-width: 300px;"
+          >
+            深圳市
+          </span>
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="M7.05 5.64L12 10.59l4.95-4.95 1.41 1.41L13.41 12l4.95 4.95-1.41 1.41L12 13.41l-4.95 4.95-1.41-1.41L10.59 12 5.64 7.05l1.41-1.41z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <div
+          class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close"
+        >
+          <span
+            class="t-tag--text"
+            style="max-width: 300px;"
+          >
+            广州市
+          </span>
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="M7.05 5.64L12 10.59l4.95-4.95 1.41 1.41L13.41 12l4.95 4.95-1.41 1.41L12 13.41l-4.95 4.95-1.41-1.41L10.59 12 5.64 7.05l1.41-1.41z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+      </div>
+      <input
+        autocomplete=""
+        class="t-input__inner t-input--soft-hidden"
+        placeholder=""
+        readonly="readonly"
+        type="text"
+        unselectable="on"
+      />
+      <span
+        class="t-input__input-pre"
+      />
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TreeSelect > :props > :disabled 1`] = `
+<div
+  class="t-select-input t-select-input--empty t-tree-select"
+>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-is-disabled t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <div
+        class="t-input__prefix"
+      />
+      <input
+        autocomplete=""
+        class="t-input__inner"
+        disabled="disabled"
+        placeholder="请选择"
+        readonly="readonly"
+        type="text"
+        unselectable="on"
+      />
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow t-fake-arrow--disable"
+          disabled="disabled"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TreeSelect > :props > :empty string 1`] = `
+<div
+  class="t-select-input t-select-input--empty t-tree-select"
+>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <div
+        class="t-input__prefix"
+      />
+      <input
+        autocomplete=""
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly="readonly"
+        type="text"
+        unselectable="on"
+      />
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TreeSelect > :props > :filterable 1`] = `
+<div
+  class="t-select-input t-select-input--empty t-tree-select"
+>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-input--prefix t-input--suffix"
+    >
+      <div
+        class="t-input__prefix"
+      />
+      <input
+        autocomplete=""
+        class="t-input__inner"
+        placeholder="请选择"
+        type="text"
+        unselectable="off"
+      />
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TreeSelect > :props > :loading 1`] = `
+<div
+  class="t-select-input t-select-input--empty t-tree-select"
+>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <div
+        class="t-input__prefix"
+      />
+      <input
+        autocomplete=""
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly="readonly"
+        type="text"
+        unselectable="on"
+      />
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <div
+          class="t-loading--center t-size-s t-loading"
+        >
+          <svg
+            class="t-loading__gradient t-icon-loading"
+            height="1em"
+            size="small"
+            version="1.1"
+            viewBox="0 0 12 12"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <foreignobject
+              height="12"
+              width="12"
+              x="0"
+              y="0"
+            >
+              <div
+                class="t-loading__gradient-conic"
+              />
+            </foreignobject>
+          </svg>
+        </div>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TreeSelect > :props > :loadingText 1`] = `
+<div
+  class="t-select-input t-select-input--empty t-tree-select"
+>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <div
+        class="t-input__prefix"
+      />
+      <input
+        autocomplete=""
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly="readonly"
+        type="text"
+        unselectable="on"
+      />
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TreeSelect > :props > :max 1`] = `
+<div
+  class="t-select-input t-select-input--empty t-tree-select"
+>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <div
+        class="t-input__prefix"
+      />
+      <input
+        autocomplete=""
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly="readonly"
+        type="text"
+        unselectable="on"
+      />
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TreeSelect > :props > :minCollapsedNum 1`] = `
+<div
+  class="t-select-input t-select-input--empty t-tree-select"
+>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <div
+        class="t-input__prefix"
+      />
+      <input
+        autocomplete=""
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly="readonly"
+        type="text"
+        unselectable="on"
+      />
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TreeSelect > :props > :multiple 1`] = `
+<div
+  class="t-select-input t-select-input--multiple t-tree-select"
+>
+  <div
+    class="t-input__wrap t-tag-input t-tag-input--break-line t-tag-input--with-tag t-tag-input__with-suffix-icon"
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <div
+        class="t-input__prefix"
+      >
+        <div
+          class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close"
+        >
+          <span
+            class="t-tag--text"
+            style="max-width: 300px;"
+          />
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="M7.05 5.64L12 10.59l4.95-4.95 1.41 1.41L13.41 12l4.95 4.95-1.41 1.41L12 13.41l-4.95 4.95-1.41-1.41L10.59 12 5.64 7.05l1.41-1.41z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+      </div>
+      <input
+        autocomplete=""
+        class="t-input__inner t-input--soft-hidden"
+        placeholder=""
+        readonly="readonly"
+        type="text"
+        unselectable="on"
+      />
+      <span
+        class="t-input__input-pre"
+      />
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TreeSelect > :props > :placeholder 1`] = `
+<div
+  class="t-select-input t-select-input--empty t-tree-select"
+>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <div
+        class="t-input__prefix"
+      />
+      <input
+        autocomplete=""
+        class="t-input__inner"
+        placeholder="please select address"
+        readonly="readonly"
+        type="text"
+        unselectable="on"
+      />
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TreeSelect > :props > :popupProps 1`] = `
+<div
+  class="t-select-input t-select-input--empty t-tree-select"
+>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <div
+        class="t-input__prefix"
+      />
+      <input
+        autocomplete=""
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly="readonly"
+        type="text"
+        unselectable="on"
+      />
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TreeSelect > :props > :size 1`] = `
+<div
+  class="t-select-input t-select-input--empty t-tree-select"
+>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-size-l t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <div
+        class="t-input__prefix"
+      />
+      <input
+        autocomplete=""
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly="readonly"
+        type="text"
+        unselectable="on"
+      />
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TreeSelect > :props > :treeProps 1`] = `
+<div
+  class="t-select-input t-select-input--empty t-tree-select"
+>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <div
+        class="t-input__prefix"
+      />
+      <input
+        autocomplete=""
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly="readonly"
+        type="text"
+        unselectable="on"
+      />
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TreeSelect > :props > :value 1`] = `
+<div
+  class="t-select-input t-tree-select"
+>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <div
+        class="t-input__prefix"
+      />
+      <input
+        autocomplete=""
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly="readonly"
+        type="text"
+        unselectable="on"
+      />
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TreeSelect > :props > :valueType 1`] = `
+<div
+  class="t-select-input t-tree-select"
+>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <div
+        class="t-input__prefix"
+      />
+      <input
+        autocomplete=""
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly="readonly"
+        type="text"
+        unselectable="on"
+      />
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TreeSelect > <slot> > <collapsedItems> 1`] = `
+<div
+  class="t-select-input t-select-input--empty t-tree-select"
+>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <div
+        class="t-input__prefix"
+      />
+      <input
+        autocomplete=""
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly="readonly"
+        type="text"
+        unselectable="on"
+      />
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TreeSelect > <slot> > <empty> 1`] = `
+<div
+  class="t-select-input t-select-input--empty t-tree-select"
+>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <div
+        class="t-input__prefix"
+      />
+      <input
+        autocomplete=""
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly="readonly"
+        type="text"
+        unselectable="on"
+      />
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TreeSelect > <slot> > <loadingText> 1`] = `
+<div
+  class="t-select-input t-select-input--empty t-tree-select"
+>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <div
+        class="t-input__prefix"
+      />
+      <input
+        autocomplete=""
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly="readonly"
+        type="text"
+        unselectable="on"
+      />
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <div
+          class="t-loading--center t-size-s t-loading"
+        >
+          <svg
+            class="t-loading__gradient t-icon-loading"
+            height="1em"
+            size="small"
+            version="1.1"
+            viewBox="0 0 12 12"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <foreignobject
+              height="12"
+              width="12"
+              x="0"
+              y="0"
+            >
+              <div
+                class="t-loading__gradient-conic"
+              />
+            </foreignobject>
+          </svg>
+        </div>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TreeSelect > <slot> > <prefixIcon> 1`] = `
+<div
+  class="t-select-input t-select-input--empty t-tree-select"
+>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <div
+        class="t-input__prefix"
+      >
+        <div>
+          <i>
+            icon
+          </i>
+        </div>
+      </div>
+      <input
+        autocomplete=""
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly="readonly"
+        type="text"
+        unselectable="on"
+      />
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TreeSelect > function > :collapsedItems 1`] = `
+<div
+  class="t-select-input t-select-input--empty t-tree-select"
+>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <div
+        class="t-input__prefix"
+      />
+      <input
+        autocomplete=""
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly="readonly"
+        type="text"
+        unselectable="on"
+      />
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TreeSelect > function > :empty 1`] = `
+<div
+  class="t-select-input t-select-input--empty t-tree-select"
+>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <div
+        class="t-input__prefix"
+      />
+      <input
+        autocomplete=""
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly="readonly"
+        type="text"
+        unselectable="on"
+      />
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TreeSelect > function > :loadingText 1`] = `
+<div
+  class="t-select-input t-select-input--empty t-tree-select"
+>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <div
+        class="t-input__prefix"
+      />
+      <input
+        autocomplete=""
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly="readonly"
+        type="text"
+        unselectable="on"
+      />
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <div
+          class="t-loading--center t-size-s t-loading"
+        >
+          <svg
+            class="t-loading__gradient t-icon-loading"
+            height="1em"
+            size="small"
+            version="1.1"
+            viewBox="0 0 12 12"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <foreignobject
+              height="12"
+              width="12"
+              x="0"
+              y="0"
+            >
+              <div
+                class="t-loading__gradient-conic"
+              />
+            </foreignobject>
+          </svg>
+        </div>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TreeSelect > function > :prefixIcon 1`] = `
+<div
+  class="t-select-input t-select-input--empty t-tree-select"
+>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <div
+        class="t-input__prefix"
+      >
+        <div>
+          <i>
+            icon
+          </i>
+        </div>
+      </div>
+      <input
+        autocomplete=""
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly="readonly"
+        type="text"
+        unselectable="on"
+      />
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</div>
+`;

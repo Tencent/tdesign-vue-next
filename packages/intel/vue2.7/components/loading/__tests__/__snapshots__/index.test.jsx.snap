@@ -1,0 +1,28 @@
+// Vitest Snapshot v1
+
+exports[`Loading > <slot> > <indicator> 1`] = `
+<div
+  class="t-loading--center t-size-m t-loading"
+>
+  <svg
+    class="t-loading__gradient t-icon-loading"
+    height="1em"
+    size="medium"
+    version="1.1"
+    viewBox="0 0 12 12"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <foreignobject
+      height="12"
+      width="12"
+      x="0"
+      y="0"
+    >
+      <div
+        class="t-loading__gradient-conic"
+      />
+    </foreignobject>
+  </svg>
+</div>
+`;

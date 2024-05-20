@@ -1,0 +1,140 @@
+[
+  {
+    "name": "allowUploadDuplicateFile",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "autoUpload",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "disabled",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "draggable",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "isBatchUpload",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "method",
+    "type": "enum",
+    "defaultValue": "POST",
+    "options": [
+      {
+        "label": "POST",
+        "value": "POST"
+      },
+      {
+        "label": "GET",
+        "value": "GET"
+      },
+      {
+        "label": "PUT",
+        "value": "PUT"
+      },
+      {
+        "label": "OPTION",
+        "value": "OPTION"
+      },
+      {
+        "label": "PATCH",
+        "value": "PATCH"
+      },
+      {
+        "label": "post",
+        "value": "post"
+      },
+      {
+        "label": "get",
+        "value": "get"
+      },
+      {
+        "label": "put",
+        "value": "put"
+      },
+      {
+        "label": "option",
+        "value": "option"
+      },
+      {
+        "label": "patch",
+        "value": "patch"
+      }
+    ]
+  },
+  {
+    "name": "multiple",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "showUploadProgress",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "theme",
+    "type": "enum",
+    "defaultValue": "file",
+    "options": [
+      {
+        "label": "custom",
+        "value": "custom"
+      },
+      {
+        "label": "file",
+        "value": "file"
+      },
+      {
+        "label": "file-input",
+        "value": "file-input"
+      },
+      {
+        "label": "file-flow",
+        "value": "file-flow"
+      },
+      {
+        "label": "image",
+        "value": "image"
+      },
+      {
+        "label": "image-flow",
+        "value": "image-flow"
+      }
+    ]
+  },
+  {
+    "name": "uploadAllFilesInOneRequest",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "useMockProgress",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "withCredentials",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  }
+]

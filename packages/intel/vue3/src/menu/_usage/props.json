@@ -1,0 +1,44 @@
+[
+  {
+    "name": "collapsed",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "expandMutex",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "expandType",
+    "type": "enum",
+    "defaultValue": "normal",
+    "options": [
+      {
+        "label": "normal",
+        "value": "normal"
+      },
+      {
+        "label": "popup",
+        "value": "popup"
+      }
+    ]
+  },
+  {
+    "name": "theme",
+    "type": "enum",
+    "defaultValue": "light",
+    "options": [
+      {
+        "label": "light",
+        "value": "light"
+      },
+      {
+        "label": "dark",
+        "value": "dark"
+      }
+    ]
+  }
+]

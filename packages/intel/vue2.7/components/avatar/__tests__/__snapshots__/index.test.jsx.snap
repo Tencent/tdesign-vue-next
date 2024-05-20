@@ -1,0 +1,288 @@
+// Vitest Snapshot v1
+
+exports[`Avatar > :props > :icon 1`] = `<div />`;
+
+exports[`Avatar > :props > :image 1`] = `
+<div
+  class="t-avatar t-avatar--circle"
+>
+  <div
+    class="t-image__wrapper t-image__wrapper--shape-square"
+  >
+    <img
+      alt=""
+      class="t-image t-image--fit-fill t-image--position-center"
+      src="https://tdesign.gtimg.com/site/avatar.jpg"
+    />
+    <div
+      class="t-image__loading"
+    >
+       
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Avatar > :props > :shape 1`] = `
+<div>
+  <div
+    class="t-avatar t-avatar--round"
+  >
+    <span>
+      W
+    </span>
+  </div>
+  <div
+    class="t-avatar t-avatar--circle"
+  >
+    <span>
+      W
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Avatar > :props > :size 1`] = `
+<div>
+  <div
+    class="t-avatar t-size-s t-avatar--circle"
+  >
+    <span>
+      Avatar
+    </span>
+  </div>
+  <div
+    class="t-avatar t-size-m t-avatar--circle"
+  >
+    <span>
+      W
+    </span>
+  </div>
+  <div
+    class="t-avatar t-size-l t-avatar--circle"
+  >
+    <span>
+      W
+    </span>
+  </div>
+  <div
+    class="t-avatar t-avatar--circle"
+    style="width: 80px; height: 80px; font-size: 40px;"
+  >
+    <span>
+      Avatar
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Avatar > <slot> > <icon> 1`] = `
+<div
+  class="t-avatar t-avatar--circle t-avatar__icon"
+>
+  <div />
+</div>
+`;
+
+exports[`AvatarGroup > :props > :cascading 1`] = `
+<div>
+  <div
+    class="t-avatar-group t-avatar--offset-right"
+  >
+    <div
+      class="t-avatar t-size-m t-avatar--circle"
+    >
+      <span>
+        W
+      </span>
+    </div>
+    <div
+      class="t-avatar t-size-m t-avatar--circle"
+    >
+      <span>
+        W
+      </span>
+    </div>
+  </div>
+  <div
+    class="t-avatar-group t-avatar--offset-left"
+  >
+    <div
+      class="t-avatar t-size-m t-avatar--circle"
+    >
+      <span>
+        W
+      </span>
+    </div>
+    <div
+      class="t-avatar t-size-m t-avatar--circle"
+    >
+      <span>
+        W
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AvatarGroup > :props > :collapseAvatar 1`] = `
+<div>
+  <div
+    class="t-avatar-group t-avatar--offset-right"
+  >
+    <div
+      class="t-avatar t-size-m t-avatar--circle"
+    >
+      <span>
+        W
+      </span>
+    </div>
+    <div
+      class="t-avatar t-size-m t-avatar--circle"
+    >
+      <span>
+        W
+      </span>
+    </div>
+  </div>
+  <div
+    class="t-avatar-group t-avatar--offset-left"
+  >
+    <div
+      class="t-avatar t-size-m t-avatar--circle"
+    >
+      <span>
+        W
+      </span>
+    </div>
+    <div
+      class="t-avatar t-size-m t-avatar--circle"
+    >
+      <span>
+        W
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AvatarGroup > :props > :max 1`] = `
+<div>
+  <div
+    class="t-avatar-group t-avatar--offset-right"
+  >
+    <div
+      class="t-avatar t-size-m t-avatar--circle"
+    >
+      <span>
+        W
+      </span>
+    </div>
+    <div
+      class="t-avatar t-size-m t-avatar--circle"
+    >
+      <span>
+        W
+      </span>
+    </div>
+    <div
+      class="t-avatar t-size-m t-avatar--circle t-avatar__collapse"
+    >
+      <span>
+        +1
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AvatarGroup > :props > :placement 1`] = `
+<div>
+  <div
+    class="t-avatar-group t-avatar--offset-right"
+    placement="bottom"
+  >
+    <div
+      class="t-avatar t-size-m t-avatar--circle"
+    >
+      <span>
+        W
+      </span>
+    </div>
+    <div
+      class="t-avatar t-size-m t-avatar--circle"
+    >
+      <span>
+        W
+      </span>
+    </div>
+    <div
+      class="t-avatar t-size-m t-avatar--circle t-avatar__collapse"
+    >
+      <span>
+        +1
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AvatarGroup > :props > :popupProps 1`] = `
+<div>
+  <div
+    class="t-avatar-group t-avatar--offset-right"
+  >
+    <div
+      class="t-avatar t-size-m t-avatar--circle"
+    >
+      <span>
+        W
+      </span>
+    </div>
+    <div
+      class="t-avatar t-size-m t-avatar--circle"
+    >
+      <span>
+        W
+      </span>
+    </div>
+    <div
+      class="t-avatar t-size-m t-avatar--circle t-avatar__collapse"
+    >
+      <span>
+        +1
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AvatarGroup > :props > :size 1`] = `
+<div>
+  <div
+    class="t-avatar-group t-avatar--offset-right"
+  >
+    <div
+      class="t-avatar t-size-s t-avatar--circle"
+    >
+      <span>
+        W
+      </span>
+    </div>
+    <div
+      class="t-avatar t-size-s t-avatar--circle"
+    >
+      <span>
+        W
+      </span>
+    </div>
+    <div
+      class="t-avatar t-size-s t-avatar--circle"
+    >
+      <span>
+        W
+      </span>
+    </div>
+  </div>
+</div>
+`;
