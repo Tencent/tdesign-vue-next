@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdCheckboxGroupProps } from '../checkbox/type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdCheckboxGroupProps } from '../checkbox/type';
 
 export default {
   /** 是否禁用组件，默认为 false。优先级：Form.disabled < CheckboxGroup.disabled < Checkbox.disabled */

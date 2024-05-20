@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="jsx">
-/* eslint-disable */
+
 import { ref, onMounted } from 'vue';
 import configJson from './props.json';
 

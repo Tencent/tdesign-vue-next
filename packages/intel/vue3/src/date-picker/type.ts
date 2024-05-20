@@ -1,16 +1,14 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { InputProps } from '../input';
-import { PopupProps } from '../popup';
-import { SelectInputProps } from '../select-input';
-import { TimePickerProps } from '../time-picker';
-import { Dayjs } from 'dayjs';
-import { RangeInputProps } from '../range-input';
-import { TNode, SizeEnum } from '../common';
+import type { Dayjs } from 'dayjs';
+import type { InputProps } from '../input';
+import type { PopupProps } from '../popup';
+import type { SelectInputProps } from '../select-input';
+import type { TimePickerProps } from '../time-picker';
+import type { RangeInputProps } from '../range-input';
+import type { SizeEnum, TNode } from '../common';
 
 export interface TdDatePickerProps {
   /**

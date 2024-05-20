@@ -1,14 +1,12 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { CheckboxProps } from '../checkbox';
-import { PaginationProps, PageInfo } from '../pagination';
-import { InputProps } from '../input';
-import { TreeProps } from '../tree';
-import { TNode, KeysType } from '../common';
+import type { CheckboxProps } from '../checkbox';
+import type { PageInfo, PaginationProps } from '../pagination';
+import type { InputProps } from '../input';
+import type { TreeProps } from '../tree';
+import type { KeysType, TNode } from '../common';
 
 export interface TdTransferProps<T extends DataOption = DataOption> {
   /**

@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdImageProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdImageProps } from './type';
 
 export default {
   /** 图片描述 */
@@ -27,7 +25,9 @@ export default {
     type: String as PropType<TdImageProps['fit']>,
     default: 'fill' as TdImageProps['fit'],
     validator(val: TdImageProps['fit']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['contain', 'cover', 'fill', 'none', 'scale-down'].includes(val);
     },
   },
@@ -48,7 +48,9 @@ export default {
     type: String as PropType<TdImageProps['overlayTrigger']>,
     default: 'always' as TdImageProps['overlayTrigger'],
     validator(val: TdImageProps['overlayTrigger']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['always', 'hover'].includes(val);
     },
   },
@@ -66,7 +68,9 @@ export default {
     type: String as PropType<TdImageProps['referrerpolicy']>,
     default: 'strict-origin-when-cross-origin' as TdImageProps['referrerpolicy'],
     validator(val: TdImageProps['referrerpolicy']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return [
         'no-referrer',
         'no-referrer-when-downgrade',
@@ -84,7 +88,9 @@ export default {
     type: String as PropType<TdImageProps['shape']>,
     default: 'square' as TdImageProps['shape'],
     validator(val: TdImageProps['shape']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['circle', 'round', 'square'].includes(val);
     },
   },

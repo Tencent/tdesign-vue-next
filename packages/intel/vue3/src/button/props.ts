@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdButtonProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdButtonProps } from './type';
 
 export default {
   /** 是否为块级元素 */
@@ -41,7 +39,9 @@ export default {
     type: String as PropType<TdButtonProps['shape']>,
     default: 'rectangle' as TdButtonProps['shape'],
     validator(val: TdButtonProps['shape']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['rectangle', 'square', 'round', 'circle'].includes(val);
     },
   },
@@ -50,7 +50,9 @@ export default {
     type: String as PropType<TdButtonProps['size']>,
     default: 'medium' as TdButtonProps['size'],
     validator(val: TdButtonProps['size']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['extra-small', 'small', 'medium', 'large'].includes(val);
     },
   },
@@ -62,7 +64,9 @@ export default {
   tag: {
     type: String as PropType<TdButtonProps['tag']>,
     validator(val: TdButtonProps['tag']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['button', 'a', 'div'].includes(val);
     },
   },
@@ -70,7 +74,9 @@ export default {
   theme: {
     type: String as PropType<TdButtonProps['theme']>,
     validator(val: TdButtonProps['theme']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['default', 'primary', 'danger', 'warning', 'success'].includes(val);
     },
   },
@@ -79,7 +85,9 @@ export default {
     type: String as PropType<TdButtonProps['type']>,
     default: 'button' as TdButtonProps['type'],
     validator(val: TdButtonProps['type']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['submit', 'reset', 'button'].includes(val);
     },
   },
@@ -88,7 +96,9 @@ export default {
     type: String as PropType<TdButtonProps['variant']>,
     default: 'base' as TdButtonProps['variant'],
     validator(val: TdButtonProps['variant']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['base', 'outline', 'dashed', 'text'].includes(val);
     },
   },

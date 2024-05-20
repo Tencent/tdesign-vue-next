@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdMenuProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdMenuProps } from './type';
 
 export default {
   /** 是否收起菜单 */
@@ -27,7 +25,9 @@ export default {
     type: String as PropType<TdMenuProps['expandType']>,
     default: 'normal' as TdMenuProps['expandType'],
     validator(val: TdMenuProps['expandType']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['normal', 'popup'].includes(val);
     },
   },
@@ -44,7 +44,9 @@ export default {
     type: String as PropType<TdMenuProps['theme']>,
     default: 'light' as TdMenuProps['theme'],
     validator(val: TdMenuProps['theme']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['light', 'dark'].includes(val);
     },
   },

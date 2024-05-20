@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdCheckboxProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdCheckboxProps } from './type';
 
 export default {
   /** 用于标识是否为「全选选项」。单独使用无效，需在 CheckboxGroup 中使用 */

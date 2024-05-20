@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdEnhancedTableProps } from '../table/type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdEnhancedTableProps } from '../table/type';
 
 export default {
   /** 树形结构中，拖拽排序前控制，返回值为 `true` 则继续排序；返回值为 `false` 则中止排序还原数据 */

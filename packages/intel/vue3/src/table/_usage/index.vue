@@ -1,17 +1,8 @@
 <!-- 该脚本为自动生成，如有需要请在 /script/generate-usage/index.js 中调整 -->
-<template>
-  <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" @panel-change="onPanelChange">
-    <template #baseTable="{ configProps }"
-      ><t-base-table v-bind="configProps" row-key="index" :data="data" :columns="columns"></t-base-table
-    ></template>
-  </base-usage>
-</template>
-
 <script setup lang="jsx">
-/* eslint-disable */
-import { ref, onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
+import { CheckCircleFilledIcon, CloseCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
 import baseConfigJson from './base-table-props.json';
-import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
 const statusNameListMap = {
   0: { label: '审批通过', theme: 'success', icon: <CheckCircleFilledIcon /> },
@@ -62,7 +53,15 @@ const usageCodeMap = {
 const usageCode = ref(`<template>${usageCodeMap[panelList[0].value].trim()}</template>`);
 
 function onPanelChange(panel) {
-  configList.value = panelList.find((item) => item.value === panel).config;
+  configList.value = panelList.find(item => item.value === panel).config;
   usageCode.value = `<template>${usageCodeMap[panel].trim()}</template>`;
 }
 </script>
+
+<template>
+  <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" @panel-change="onPanelChange">
+    <template #baseTable="{ configProps }">
+      <t-base-table v-bind="configProps" row-key="index" :data="data" :columns="columns" />
+    </template>
+  </base-usage>
+</template>

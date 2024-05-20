@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdSelectProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdSelectProps } from './type';
 
 export default {
   /** 宽度随内容自适应 */
@@ -127,7 +125,9 @@ export default {
     type: String as PropType<TdSelectProps['size']>,
     default: 'medium' as TdSelectProps['size'],
     validator(val: TdSelectProps['size']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['small', 'medium', 'large'].includes(val);
     },
   },
@@ -136,7 +136,9 @@ export default {
     type: String as PropType<TdSelectProps['status']>,
     default: 'default' as TdSelectProps['status'],
     validator(val: TdSelectProps['status']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['default', 'success', 'warning', 'error'].includes(val);
     },
   },
@@ -183,7 +185,9 @@ export default {
     type: String as PropType<TdSelectProps['valueType']>,
     default: 'value' as TdSelectProps['valueType'],
     validator(val: TdSelectProps['valueType']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['value', 'object'].includes(val);
     },
   },

@@ -1,18 +1,18 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdDescriptionItemProps } from '../descriptions/type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdDescriptionItemProps } from '../descriptions/type';
 
 export default {
   /** 内容垂直对齐方式，DescriptionItem.align 优先级高于 Descriptions.align */
   align: {
     type: String as PropType<TdDescriptionItemProps['align']>,
     validator(val: TdDescriptionItemProps['align']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['top', 'middle', 'bottom'].includes(val);
     },
   },

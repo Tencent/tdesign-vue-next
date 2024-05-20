@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdColProps } from '../grid/type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdColProps } from '../grid/type';
 
 export default {
   /** flex 布局填充。CSS 属性 flex 值。示例：2 / 3 / '100px' / 'auto' / '1 1 200px' */

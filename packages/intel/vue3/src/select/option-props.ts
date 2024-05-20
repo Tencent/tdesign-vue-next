@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdOptionProps } from '../select/type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdOptionProps } from '../select/type';
 
 export default {
   /** 当前选项是否为全选，全选可以在顶部，也可以在底部。点击当前选项会选中禁用态除外的全部选项，即使是分组选择器也会选中全部选项 */

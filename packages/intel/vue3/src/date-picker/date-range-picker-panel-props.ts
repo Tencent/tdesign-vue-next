@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdDateRangePickerPanelProps } from '../date-picker/type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdDateRangePickerPanelProps } from '../date-picker/type';
 
 export default {
   /** 时间选择器默认值，当 value/defaultValue 未设置值时有效 */

@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdBreadcrumbProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdBreadcrumbProps } from './type';
 
 export default {
   /** 单项最大宽度，超出后会以省略号形式呈现 */
@@ -26,7 +24,9 @@ export default {
     type: String as PropType<TdBreadcrumbProps['theme']>,
     default: 'light' as TdBreadcrumbProps['theme'],
     validator(val: TdBreadcrumbProps['theme']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['light'].includes(val);
     },
   },

@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdDateRangePickerProps } from '../date-picker/type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdDateRangePickerProps } from '../date-picker/type';
 
 export default {
   /** 是否允许输入日期 */
@@ -31,7 +29,9 @@ export default {
   firstDayOfWeek: {
     type: Number,
     validator(val: TdDateRangePickerProps['firstDayOfWeek']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return [1, 2, 3, 4, 5, 6, 7].includes(val);
     },
   },
@@ -45,7 +45,9 @@ export default {
     type: String as PropType<TdDateRangePickerProps['mode']>,
     default: 'date' as TdDateRangePickerProps['mode'],
     validator(val: TdDateRangePickerProps['mode']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['year', 'quarter', 'month', 'week', 'date'].includes(val);
     },
   },
@@ -75,7 +77,9 @@ export default {
     type: String as PropType<TdDateRangePickerProps['presetsPlacement']>,
     default: 'bottom' as TdDateRangePickerProps['presetsPlacement'],
     validator(val: TdDateRangePickerProps['presetsPlacement']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['left', 'top', 'right', 'bottom'].includes(val);
     },
   },
@@ -93,7 +97,9 @@ export default {
     type: String as PropType<TdDateRangePickerProps['size']>,
     default: 'medium' as TdDateRangePickerProps['size'],
     validator(val: TdDateRangePickerProps['size']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['small', 'medium', 'large'].includes(val);
     },
   },
@@ -102,7 +108,9 @@ export default {
     type: String as PropType<TdDateRangePickerProps['status']>,
     default: 'default' as TdDateRangePickerProps['status'],
     validator(val: TdDateRangePickerProps['status']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['default', 'success', 'warning', 'error'].includes(val);
     },
   },
@@ -136,7 +144,9 @@ export default {
   valueType: {
     type: String as PropType<TdDateRangePickerProps['valueType']>,
     validator(val: TdDateRangePickerProps['valueType']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return [
         'time-stamp',
         'Date',

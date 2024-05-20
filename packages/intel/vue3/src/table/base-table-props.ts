@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdBaseTableProps } from '../table/type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdBaseTableProps } from '../table/type';
 
 export default {
   /** 高亮行，支持鼠标键盘操作(Shift)连续高亮行，可用于处理行选中等批量操作，模拟操作系统区域选择行为 */
@@ -182,7 +180,9 @@ export default {
   size: {
     type: String as PropType<TdBaseTableProps['size']>,
     validator(val: TdBaseTableProps['size']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['small', 'medium', 'large'].includes(val);
     },
   },
@@ -198,7 +198,9 @@ export default {
     type: String as PropType<TdBaseTableProps['tableLayout']>,
     default: 'fixed' as TdBaseTableProps['tableLayout'],
     validator(val: TdBaseTableProps['tableLayout']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['auto', 'fixed'].includes(val);
     },
   },
@@ -211,7 +213,9 @@ export default {
     type: String as PropType<TdBaseTableProps['verticalAlign']>,
     default: 'middle' as TdBaseTableProps['verticalAlign'],
     validator(val: TdBaseTableProps['verticalAlign']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['top', 'middle', 'bottom'].includes(val);
     },
   },

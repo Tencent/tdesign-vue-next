@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdMenuItemProps } from '../menu/type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdMenuItemProps } from '../menu/type';
 
 export default {
   /** 菜单项内容 */
@@ -42,7 +40,9 @@ export default {
     type: String as PropType<TdMenuItemProps['target']>,
     default: '_self' as TdMenuItemProps['target'],
     validator(val: TdMenuItemProps['target']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['_blank', '_self', '_parent', '_top'].includes(val);
     },
   },

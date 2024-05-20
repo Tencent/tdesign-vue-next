@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdStepItemProps } from '../steps/type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdStepItemProps } from '../steps/type';
 
 export default {
   /** 步骤描述 */
@@ -31,7 +29,9 @@ export default {
     type: String as PropType<TdStepItemProps['status']>,
     default: 'default' as TdStepItemProps['status'],
     validator(val: TdStepItemProps['status']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['default', 'process', 'finish', 'error'].includes(val);
     },
   },

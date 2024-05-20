@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdSwitchProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdSwitchProps } from './type';
 
 export default {
   /** 用于自定义开关的值，[打开时的值，关闭时的值]。默认为 [true, false]。示例：[1, 0]、['open', 'close'] */
@@ -29,7 +27,9 @@ export default {
     type: String as PropType<TdSwitchProps['size']>,
     default: 'medium' as TdSwitchProps['size'],
     validator(val: TdSwitchProps['size']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['small', 'medium', 'large'].includes(val);
     },
   },

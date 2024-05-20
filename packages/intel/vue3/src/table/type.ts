@@ -1,35 +1,31 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { AffixProps } from '../affix';
-import { LoadingProps } from '../loading';
-import { TableConfig } from '../config-provider';
-import { PaginationProps, PageInfo } from '../pagination';
-import { TooltipProps } from '../tooltip';
-import { CheckboxGroupValue } from '../checkbox';
-import { SortableEvent, SortableOptions } from 'sortablejs';
-import { CheckboxProps } from '../checkbox';
-import { RadioProps } from '../radio';
-import { PopupProps } from '../popup';
-import { InputProps } from '../input';
-import { ButtonProps } from '../button';
-import { CheckboxGroupProps } from '../checkbox';
-import { DialogProps } from '../dialog';
-import { FormRule, AllValidateResult } from '../form';
-import {
-  TNode,
+import type { SortableEvent, SortableOptions } from 'sortablejs';
+import type { AffixProps } from '../affix';
+import type { LoadingProps } from '../loading';
+import type { TableConfig } from '../config-provider';
+import type { PageInfo, PaginationProps } from '../pagination';
+import type { TooltipProps } from '../tooltip';
+import type { CheckboxGroupProps, CheckboxGroupValue, CheckboxProps } from '../checkbox';
+import type { RadioProps } from '../radio';
+import type { PopupProps } from '../popup';
+import type { InputProps } from '../input';
+import type { ButtonProps } from '../button';
+import type { DialogProps } from '../dialog';
+import type { AllValidateResult, FormRule } from '../form';
+import type {
+  AttachNode,
+  ClassName,
+  ComponentScrollToElementParams,
+  ComponentType,
+  HTMLElementAttributes,
   OptionData,
   SizeEnum,
-  ClassName,
   Styles,
-  AttachNode,
-  HTMLElementAttributes,
-  ComponentType,
+  TNode,
   TScroll,
-  ComponentScrollToElementParams,
 } from '../common';
 
 export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
@@ -1118,7 +1114,9 @@ export interface TableExpandedRowParams<T> {
   columns: PrimaryTableCol<T>[] | BaseTableCol<T>[];
 }
 
-export type FilterValue = { [key: string]: any };
+export interface FilterValue {
+  [key: string]: any;
+}
 
 export type TableSort = SortInfo | Array<SortInfo>;
 
@@ -1183,7 +1181,10 @@ export interface TableFilterChangeContext<T> {
 
 export type PrimaryTableRowEditContext<T> = PrimaryTableCellParams<T> & { value: any; editedRow: T };
 
-export type PrimaryTableRowValidateContext<T> = { result: TableRowValidateResult<T>[]; trigger: TableValidateTrigger };
+export interface PrimaryTableRowValidateContext<T> {
+  result: TableRowValidateResult<T>[];
+  trigger: TableValidateTrigger;
+}
 
 export type TableValidateTrigger = 'self' | 'parent';
 
@@ -1205,7 +1206,9 @@ export interface PrimaryTableValidateContext {
   result: TableErrorListMap;
 }
 
-export type TableErrorListMap = { [key: string]: AllValidateResult[] };
+export interface TableErrorListMap {
+  [key: string]: AllValidateResult[];
+}
 
 export type ErrorListObjectType<T> = PrimaryTableRowEditContext<T> & { errorList: AllValidateResult[] };
 

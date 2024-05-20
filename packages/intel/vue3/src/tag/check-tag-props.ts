@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdCheckTagProps } from '../tag/type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdCheckTagProps } from '../tag/type';
 
 export default {
   /** 标签选中的状态，默认风格（theme=default）才有选中态 */
@@ -38,7 +36,9 @@ export default {
     type: String as PropType<TdCheckTagProps['size']>,
     default: 'medium' as TdCheckTagProps['size'],
     validator(val: TdCheckTagProps['size']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['small', 'medium', 'large'].includes(val);
     },
   },

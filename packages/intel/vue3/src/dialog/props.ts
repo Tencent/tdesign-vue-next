@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdDialogProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdDialogProps } from './type';
 
 export default {
   /** 对话框挂载的节点。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body */
@@ -69,7 +67,9 @@ export default {
     type: String as PropType<TdDialogProps['mode']>,
     default: 'modal' as TdDialogProps['mode'],
     validator(val: TdDialogProps['mode']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['modal', 'modeless', 'normal', 'full-screen'].includes(val);
     },
   },
@@ -78,7 +78,9 @@ export default {
     type: String as PropType<TdDialogProps['placement']>,
     default: 'top' as TdDialogProps['placement'],
     validator(val: TdDialogProps['placement']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['top', 'center'].includes(val);
     },
   },
@@ -99,7 +101,9 @@ export default {
     type: String as PropType<TdDialogProps['theme']>,
     default: 'default' as TdDialogProps['theme'],
     validator(val: TdDialogProps['theme']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['default', 'info', 'warning', 'danger', 'success'].includes(val);
     },
   },

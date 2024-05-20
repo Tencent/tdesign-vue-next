@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdAvatarGroupProps } from '../avatar/type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdAvatarGroupProps } from '../avatar/type';
 
 export default {
   /** 图片之间的层叠关系，可选值：左侧图片在上和右侧图片在上 */
@@ -13,7 +11,9 @@ export default {
     type: String as PropType<TdAvatarGroupProps['cascading']>,
     default: 'right-up' as TdAvatarGroupProps['cascading'],
     validator(val: TdAvatarGroupProps['cascading']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['left-up', 'right-up'].includes(val);
     },
   },

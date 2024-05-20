@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdPrimaryTableProps } from '../table/type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdPrimaryTableProps } from '../table/type';
 
 export default {
   /** 异步加载状态。值为 `loading` 显示默认文字 “正在加载中，请稍后”，值为 `loading-more` 显示“点击加载更多”，值为其他，表示完全自定义异步加载区域内容 */
@@ -44,7 +42,9 @@ export default {
   dragSort: {
     type: String as PropType<TdPrimaryTableProps['dragSort']>,
     validator(val: TdPrimaryTableProps['dragSort']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['row', 'row-handler', 'col', 'row-handler-col', 'drag-col'].includes(val);
     },
   },
@@ -117,7 +117,9 @@ export default {
   rowSelectionType: {
     type: String as PropType<TdPrimaryTableProps['rowSelectionType']>,
     validator(val: TdPrimaryTableProps['rowSelectionType']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['single', 'multiple'].includes(val);
     },
   },

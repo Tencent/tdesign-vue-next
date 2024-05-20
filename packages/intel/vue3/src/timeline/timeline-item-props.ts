@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdTimelineItemProps } from '../timeline/type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdTimelineItemProps } from '../timeline/type';
 
 export default {
   /** 描述内容 */
@@ -29,7 +27,9 @@ export default {
   labelAlign: {
     type: String as PropType<TdTimelineItemProps['labelAlign']>,
     validator(val: TdTimelineItemProps['labelAlign']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['left', 'right', 'top', 'bottom'].includes(val);
     },
   },

@@ -1,16 +1,14 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { GlobalIconConfig } from 'tdesign-icons-vue-next';
-import { CalendarController } from '../calendar';
-import { ButtonProps } from '../button';
-import { FormErrorMessage } from '../form';
-import { MessageOptions } from '../message';
-import { ImageProps } from '../image';
-import { TNode, SizeEnum } from '../common';
+import type { GlobalIconConfig } from 'tdesign-icons-vue-next';
+import type { CalendarController } from '../calendar';
+import type { ButtonProps } from '../button';
+import type { FormErrorMessage } from '../form';
+import type { MessageOptions } from '../message';
+import type { ImageProps } from '../image';
+import type { SizeEnum, TNode } from '../common';
 
 export interface GlobalConfigProvider {
   /**

@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdTagProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdTagProps } from './type';
 
 export default {
   /** 标签是否可关闭 */
@@ -39,7 +37,9 @@ export default {
     type: String as PropType<TdTagProps['shape']>,
     default: 'square' as TdTagProps['shape'],
     validator(val: TdTagProps['shape']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['square', 'round', 'mark'].includes(val);
     },
   },
@@ -48,7 +48,9 @@ export default {
     type: String as PropType<TdTagProps['size']>,
     default: 'medium' as TdTagProps['size'],
     validator(val: TdTagProps['size']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['small', 'medium', 'large'].includes(val);
     },
   },
@@ -57,7 +59,9 @@ export default {
     type: String as PropType<TdTagProps['theme']>,
     default: 'default' as TdTagProps['theme'],
     validator(val: TdTagProps['theme']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['default', 'primary', 'warning', 'danger', 'success'].includes(val);
     },
   },
@@ -66,7 +70,9 @@ export default {
     type: String as PropType<TdTagProps['variant']>,
     default: 'dark' as TdTagProps['variant'],
     validator(val: TdTagProps['variant']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['dark', 'light', 'outline', 'light-outline'].includes(val);
     },
   },

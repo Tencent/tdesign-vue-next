@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdStatisticProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdStatisticProps } from './type';
 
 export default {
   /** 动画效果控制，`duration` 指动画的过渡时间`单位：毫秒`，`valueFrom` 指动画的起始数值。`{ duration, valueFrom }` */
@@ -18,7 +16,9 @@ export default {
   color: {
     type: String as PropType<TdStatisticProps['color']>,
     validator(val: TdStatisticProps['color']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['black', 'blue', 'red', 'orange', 'green'].includes(val);
     },
   },
@@ -57,7 +57,9 @@ export default {
   trend: {
     type: String as PropType<TdStatisticProps['trend']>,
     validator(val: TdStatisticProps['trend']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['increase', 'decrease'].includes(val);
     },
   },
@@ -66,7 +68,9 @@ export default {
     type: String as PropType<TdStatisticProps['trendPlacement']>,
     default: 'left' as TdStatisticProps['trendPlacement'],
     validator(val: TdStatisticProps['trendPlacement']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['left', 'right'].includes(val);
     },
   },

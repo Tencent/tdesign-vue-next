@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdTagInputProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdTagInputProps } from './type';
 
 export default {
   /** 宽度随内容自适应 */
@@ -25,7 +23,9 @@ export default {
     type: String as PropType<TdTagInputProps['excessTagsDisplayType']>,
     default: 'break-line' as TdTagInputProps['excessTagsDisplayType'],
     validator(val: TdTagInputProps['excessTagsDisplayType']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['scroll', 'break-line'].includes(val);
     },
   },
@@ -72,7 +72,9 @@ export default {
     type: String as PropType<TdTagInputProps['size']>,
     default: 'medium' as TdTagInputProps['size'],
     validator(val: TdTagInputProps['size']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['small', 'medium', 'large'].includes(val);
     },
   },
@@ -80,7 +82,9 @@ export default {
   status: {
     type: String as PropType<TdTagInputProps['status']>,
     validator(val: TdTagInputProps['status']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['default', 'success', 'warning', 'error'].includes(val);
     },
   },

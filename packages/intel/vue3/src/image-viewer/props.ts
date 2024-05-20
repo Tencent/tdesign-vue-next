@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdImageViewerProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdImageViewerProps } from './type';
 
 export default {
   /** 是否展示关闭按钮，值为 `true` 显示默认关闭按钮；值为 `false` 则不显示关闭按钮；也可以完全自定义关闭按钮 */
@@ -49,7 +47,9 @@ export default {
     type: String as PropType<TdImageViewerProps['mode']>,
     default: 'modal' as TdImageViewerProps['mode'],
     validator(val: TdImageViewerProps['mode']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['modal', 'modeless'].includes(val);
     },
   },

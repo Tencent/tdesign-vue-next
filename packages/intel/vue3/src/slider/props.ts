@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdSliderProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdSliderProps } from './type';
 
 export default {
   /** 是否禁用组件 */
@@ -25,7 +23,9 @@ export default {
     type: String as PropType<TdSliderProps['layout']>,
     default: 'horizontal' as TdSliderProps['layout'],
     validator(val: TdSliderProps['layout']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['vertical', 'horizontal'].includes(val);
     },
   },

@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdRangeInputProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdRangeInputProps } from './type';
 
 export default {
   /** 输入框高亮状态序号 */
@@ -50,7 +48,9 @@ export default {
     type: String as PropType<TdRangeInputProps['size']>,
     default: 'medium' as TdRangeInputProps['size'],
     validator(val: TdRangeInputProps['size']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['small', 'medium', 'large'].includes(val);
     },
   },
@@ -59,7 +59,9 @@ export default {
     type: String as PropType<TdRangeInputProps['status']>,
     default: 'default' as TdRangeInputProps['status'],
     validator(val: TdRangeInputProps['status']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['default', 'success', 'warning', 'error'].includes(val);
     },
   },

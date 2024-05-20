@@ -1,14 +1,11 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { InputProps, InputValue, InputFormatType } from '../input';
-import { PopupProps } from '../popup';
-import { RangeInputProps } from '../range-input';
-import { PopupVisibleChangeContext } from '../popup';
-import { TNode } from '../common';
+import type { InputFormatType, InputProps, InputValue } from '../input';
+import type { PopupProps, PopupVisibleChangeContext } from '../popup';
+import type { RangeInputProps } from '../range-input';
+import type { TNode } from '../common';
 
 export interface TdRangeInputProps {
   /**
@@ -215,8 +212,8 @@ export type RangeInputValue = Array<InputValue>;
 
 export type RangeInputPosition = 'first' | 'second' | 'all';
 
-export type RangeInputValueChangeContext = {
+export interface RangeInputValueChangeContext {
   e?: InputEvent | MouseEvent;
   trigger?: 'input' | 'clear';
   position?: RangeInputPosition;
-};
+}

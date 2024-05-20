@@ -1,18 +1,15 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { CheckboxProps } from '../checkbox';
-import { InputProps } from '../input';
-import { PopupProps } from '../popup';
-import { SelectInputProps, SelectInputBlurContext } from '../select-input';
-import { TagInputProps } from '../tag-input';
-import { TagProps } from '../tag';
-import { TreeNodeModel } from '../tree';
-import { PopupVisibleChangeContext } from '../popup';
-import { TNode, TreeOptionData, SizeEnum, TreeKeysType } from '../common';
+import type { CheckboxProps } from '../checkbox';
+import type { InputProps } from '../input';
+import type { PopupProps, PopupVisibleChangeContext } from '../popup';
+import type { SelectInputBlurContext, SelectInputProps } from '../select-input';
+import type { TagInputProps } from '../tag-input';
+import type { TagProps } from '../tag';
+import type { TreeNodeModel } from '../tree';
+import type { SizeEnum, TNode, TreeKeysType, TreeOptionData } from '../common';
 
 export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOptionData> {
   /**
@@ -209,11 +206,11 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
   valueDisplay?:
     | string
     | TNode<{
-        value: CascaderValue<CascaderOption>;
-        onClose: (index: number) => void;
-        displayValue?: CascaderValue<CascaderOption>;
-        selectedOptions: CascaderOption[];
-      }>;
+      value: CascaderValue<CascaderOption>;
+      onClose: (index: number) => void;
+      displayValue?: CascaderValue<CascaderOption>;
+      selectedOptions: CascaderOption[];
+    }>;
   /**
    * 选中值模式。all 表示父节点和子节点全部会出现在选中值里面；parentFirst 表示当子节点全部选中时，仅父节点在选中值里面；onlyLeaf 表示无论什么情况，选中值仅呈现叶子节点
    * @default onlyLeaf

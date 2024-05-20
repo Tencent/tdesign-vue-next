@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdDatePickerProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdDatePickerProps } from './type';
 
 export default {
   /** 是否允许输入日期 */
@@ -29,7 +27,9 @@ export default {
   firstDayOfWeek: {
     type: Number,
     validator(val: TdDatePickerProps['firstDayOfWeek']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return [1, 2, 3, 4, 5, 6, 7].includes(val);
     },
   },
@@ -47,7 +47,9 @@ export default {
     type: String as PropType<TdDatePickerProps['mode']>,
     default: 'date' as TdDatePickerProps['mode'],
     validator(val: TdDatePickerProps['mode']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['year', 'quarter', 'month', 'week', 'date'].includes(val);
     },
   },
@@ -73,7 +75,9 @@ export default {
     type: String as PropType<TdDatePickerProps['presetsPlacement']>,
     default: 'bottom' as TdDatePickerProps['presetsPlacement'],
     validator(val: TdDatePickerProps['presetsPlacement']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['left', 'top', 'right', 'bottom'].includes(val);
     },
   },
@@ -86,7 +90,9 @@ export default {
     type: String as PropType<TdDatePickerProps['size']>,
     default: 'medium' as TdDatePickerProps['size'],
     validator(val: TdDatePickerProps['size']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['small', 'medium', 'large'].includes(val);
     },
   },
@@ -95,7 +101,9 @@ export default {
     type: String as PropType<TdDatePickerProps['status']>,
     default: 'default' as TdDatePickerProps['status'],
     validator(val: TdDatePickerProps['status']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['default', 'success', 'warning', 'error'].includes(val);
     },
   },

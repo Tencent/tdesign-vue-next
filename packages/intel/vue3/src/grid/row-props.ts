@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdRowProps } from '../grid/type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdRowProps } from '../grid/type';
 
 export default {
   /** 纵向对齐方式，CSS 属性 `align-items` 值。其中 `top` 和 `start` 等效；`middle` 和 `center` 等效；`bottom` 和 `end` 等效 */
@@ -13,7 +11,9 @@ export default {
     type: String as PropType<TdRowProps['align']>,
     default: 'top' as TdRowProps['align'],
     validator(val: TdRowProps['align']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['start', 'end', 'center', 'stretch', 'baseline', 'top', 'middle', 'bottom'].includes(val);
     },
   },
@@ -27,7 +27,9 @@ export default {
     type: String as PropType<TdRowProps['justify']>,
     default: 'start' as TdRowProps['justify'],
     validator(val: TdRowProps['justify']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['start', 'end', 'center', 'space-around', 'space-between'].includes(val);
     },
   },

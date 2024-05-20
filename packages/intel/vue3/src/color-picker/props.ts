@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdColorPickerProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdColorPickerProps } from './type';
 
 export default {
   /** 是否可清空 */
@@ -34,7 +32,9 @@ export default {
     type: String as PropType<TdColorPickerProps['format']>,
     default: 'RGB' as TdColorPickerProps['format'],
     validator(val: TdColorPickerProps['format']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['RGB', 'RGBA', 'HSL', 'HSLA', 'HSB', 'HSV', 'HSVA', 'HEX', 'CMYK', 'CSS'].includes(val);
     },
   },
@@ -72,7 +72,9 @@ export default {
     type: String as PropType<TdColorPickerProps['size']>,
     default: 'medium' as TdColorPickerProps['size'],
     validator(val: TdColorPickerProps['size']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['small', 'medium', 'large'].includes(val);
     },
   },

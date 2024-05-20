@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdTransferProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdTransferProps } from './type';
 
 export default {
   /** 用于控制复选框属性 */
@@ -32,7 +30,9 @@ export default {
     type: String as PropType<TdTransferProps['direction']>,
     default: 'both' as TdTransferProps['direction'],
     validator(val: TdTransferProps['direction']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['left', 'right', 'both'].includes(val);
     },
   },
@@ -78,7 +78,9 @@ export default {
     type: String as PropType<TdTransferProps['targetSort']>,
     default: 'original' as TdTransferProps['targetSort'],
     validator(val: TdTransferProps['targetSort']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['original', 'push', 'unshift'].includes(val);
     },
   },

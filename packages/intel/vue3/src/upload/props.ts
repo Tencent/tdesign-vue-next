@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdUploadProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdUploadProps } from './type';
 
 export default {
   /** 文件名过长时，需要省略中间的文本，保留首尾文本。示例：[10, 7]，表示首尾分别保留的文本长度 */
@@ -114,7 +112,9 @@ export default {
     type: String as PropType<TdUploadProps['method']>,
     default: 'POST' as TdUploadProps['method'],
     validator(val: TdUploadProps['method']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['POST', 'GET', 'PUT', 'OPTION', 'PATCH', 'post', 'get', 'put', 'option', 'patch'].includes(val);
     },
   },
@@ -158,7 +158,9 @@ export default {
   status: {
     type: String as PropType<TdUploadProps['status']>,
     validator(val: TdUploadProps['status']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['default', 'success', 'warning', 'error'].includes(val);
     },
   },
@@ -167,7 +169,9 @@ export default {
     type: String as PropType<TdUploadProps['theme']>,
     default: 'file' as TdUploadProps['theme'],
     validator(val: TdUploadProps['theme']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['custom', 'file', 'file-input', 'file-flow', 'image', 'image-flow'].includes(val);
     },
   },

@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdAvatarProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdAvatarProps } from './type';
 
 export default {
   /** 头像替换文本，仅当图片加载失败时有效 */
@@ -41,7 +39,9 @@ export default {
     type: String as PropType<TdAvatarProps['shape']>,
     default: 'circle' as TdAvatarProps['shape'],
     validator(val: TdAvatarProps['shape']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['circle', 'round'].includes(val);
     },
   },

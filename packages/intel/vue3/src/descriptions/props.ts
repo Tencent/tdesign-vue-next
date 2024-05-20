@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdDescriptionsProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdDescriptionsProps } from './type';
 
 export default {
   /** 是否带边框 */
@@ -26,7 +24,9 @@ export default {
     type: String as PropType<TdDescriptionsProps['itemLayout']>,
     default: 'horizontal' as TdDescriptionsProps['itemLayout'],
     validator(val: TdDescriptionsProps['itemLayout']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['horizontal', 'vertical'].includes(val);
     },
   },
@@ -43,7 +43,9 @@ export default {
     type: String as PropType<TdDescriptionsProps['layout']>,
     default: 'horizontal' as TdDescriptionsProps['layout'],
     validator(val: TdDescriptionsProps['layout']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['horizontal', 'vertical'].includes(val);
     },
   },
@@ -52,7 +54,9 @@ export default {
     type: String as PropType<TdDescriptionsProps['size']>,
     default: 'medium' as TdDescriptionsProps['size'],
     validator(val: TdDescriptionsProps['size']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['small', 'medium', 'large'].includes(val);
     },
   },

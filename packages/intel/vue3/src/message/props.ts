@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdMessageProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdMessageProps } from './type';
 
 export default {
   /** 关闭按钮，可以自定义。值为 true 显示默认关闭按钮，值为 false 不显示关闭按钮。值类型为 string 则直接显示值，如：“关闭”。也可以完全自定义按钮 */
@@ -32,7 +30,9 @@ export default {
     type: String as PropType<TdMessageProps['theme']>,
     default: 'info' as TdMessageProps['theme'],
     validator(val: TdMessageProps['theme']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['info', 'success', 'warning', 'error', 'question', 'loading'].includes(val);
     },
   },

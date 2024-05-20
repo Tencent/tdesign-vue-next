@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdBreadcrumbItemProps } from '../breadcrumb/type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdBreadcrumbItemProps } from '../breadcrumb/type';
 
 export default {
   /** 子元素 */
@@ -43,7 +41,9 @@ export default {
     type: String as PropType<TdBreadcrumbItemProps['target']>,
     default: '_self' as TdBreadcrumbItemProps['target'],
     validator(val: TdBreadcrumbItemProps['target']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['_blank', '_self', '_parent', '_top'].includes(val);
     },
   },

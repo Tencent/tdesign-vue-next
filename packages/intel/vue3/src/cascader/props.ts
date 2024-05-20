@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdCascaderProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdCascaderProps } from './type';
 
 export default {
   /** 自动聚焦 */
@@ -117,7 +115,9 @@ export default {
     type: String as PropType<TdCascaderProps['size']>,
     default: 'medium' as TdCascaderProps['size'],
     validator(val: TdCascaderProps['size']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['large', 'medium', 'small'].includes(val);
     },
   },
@@ -126,7 +126,9 @@ export default {
     type: String as PropType<TdCascaderProps['status']>,
     default: 'default' as TdCascaderProps['status'],
     validator(val: TdCascaderProps['status']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['default', 'success', 'warning', 'error'].includes(val);
     },
   },
@@ -155,7 +157,9 @@ export default {
     type: String as PropType<TdCascaderProps['trigger']>,
     default: 'click' as TdCascaderProps['trigger'],
     validator(val: TdCascaderProps['trigger']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['click', 'hover'].includes(val);
     },
   },
@@ -182,7 +186,9 @@ export default {
     type: String as PropType<TdCascaderProps['valueMode']>,
     default: 'onlyLeaf' as TdCascaderProps['valueMode'],
     validator(val: TdCascaderProps['valueMode']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['onlyLeaf', 'parentFirst', 'all'].includes(val);
     },
   },
@@ -191,7 +197,9 @@ export default {
     type: String as PropType<TdCascaderProps['valueType']>,
     default: 'single' as TdCascaderProps['valueType'],
     validator(val: TdCascaderProps['valueType']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['single', 'full'].includes(val);
     },
   },

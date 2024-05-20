@@ -1,12 +1,10 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * updated at 2021-12-12 19:17:30
- * */
+ */
 
-import { TdLoadingProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdLoadingProps } from './type';
 
 export default {
   /** 挂载元素，默认挂载到组件本身所在的位置。仅全屏加载模式下有效。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body */

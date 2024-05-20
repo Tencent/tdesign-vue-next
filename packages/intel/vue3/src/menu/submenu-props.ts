@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdSubmenuProps } from '../menu/type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdSubmenuProps } from '../menu/type';
 
 export default {
   /** 菜单项内容 */

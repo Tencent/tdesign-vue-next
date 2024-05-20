@@ -1,18 +1,18 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdSpaceProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdSpaceProps } from './type';
 
 export default {
   /** 对齐方式 */
   align: {
     type: String as PropType<TdSpaceProps['align']>,
     validator(val: TdSpaceProps['align']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['start', 'end', 'center', 'baseline'].includes(val);
     },
   },
@@ -23,7 +23,9 @@ export default {
     type: String as PropType<TdSpaceProps['direction']>,
     default: 'horizontal' as TdSpaceProps['direction'],
     validator(val: TdSpaceProps['direction']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['vertical', 'horizontal'].includes(val);
     },
   },

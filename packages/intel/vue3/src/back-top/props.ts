@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdBackTopProps } from './type';
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
+import type { TdBackTopProps } from './type';
 
 export default {
   /** 监听滚动的容器。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body */
@@ -36,7 +34,9 @@ export default {
     type: String as PropType<TdBackTopProps['shape']>,
     default: 'square' as TdBackTopProps['shape'],
     validator(val: TdBackTopProps['shape']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['circle', 'square'].includes(val);
     },
   },
@@ -45,7 +45,9 @@ export default {
     type: String as PropType<TdBackTopProps['size']>,
     default: 'medium' as TdBackTopProps['size'],
     validator(val: TdBackTopProps['size']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['medium', 'small'].includes(val);
     },
   },
@@ -59,7 +61,9 @@ export default {
     type: String as PropType<TdBackTopProps['theme']>,
     default: 'light' as TdBackTopProps['theme'],
     validator(val: TdBackTopProps['theme']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['light', 'primary', 'dark'].includes(val);
     },
   },
