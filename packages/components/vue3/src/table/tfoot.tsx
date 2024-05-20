@@ -3,7 +3,7 @@ import { defineComponent, h, toRefs } from '@td/adapter-vue';
 import { get, isFunction, isString } from 'lodash-es';
 import type { BaseTableCellParams, RowspanColspan, TableRowData, TdBaseTableProps } from '@td/intel/table/type';
 import { useTNodeJSX } from '@td/adapter-hooks';
-import type { Styles } from '../common';
+import type { Styles } from '@td/shared/interface';
 import { formatRowAttributes, formatRowClassNames } from './utils';
 import { getColumnFixedStyles } from './hooks/useFixed';
 import useRowspanAndColspan, { getCellKey } from './hooks/useRowspanAndColspan';

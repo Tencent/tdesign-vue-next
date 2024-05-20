@@ -5,7 +5,7 @@ import { useGlobalIcon } from '@td/adapter-hooks';
 import props from '@td/intel/back-top/props';
 
 import type { TdBackTopProps } from '@td/intel/back-top/type';
-import { useChildSlots, useConfig, useContent, usePrefixClass } from '../hooks';
+import { useChildSlots, useConfig, useContent, usePrefixClass } from '@td/adapter-hooks';
 import { scrollTo } from '../utils/dom';
 
 export default defineComponent({

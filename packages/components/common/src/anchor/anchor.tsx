@@ -14,7 +14,7 @@ import {
 import props from '@td/intel/anchor/props';
 import { useCommonClassName, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import type { TdAnchorProps } from '@td/intel/anchor/type';
-import type { SlotReturnValue } from '../common';
+import type { SlotReturnValue } from '@td/shared/interface';
 import Affix from '../affix';
 import { getScroll, isServer, off, on, scrollTo, getScrollContainer as utilsGetScrollContainer } from '../utils/dom';
 import { ANCHOR_SHARP_REGEXP, getOffsetTop } from './utils';

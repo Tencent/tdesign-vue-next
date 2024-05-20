@@ -11,8 +11,8 @@ import type {
 } from '@td/intel/form/type';
 import props from '@td/intel/form/props';
 import { requestSubmit } from '../utils/dom';
-import type { FormResetEvent, FormSubmitEvent } from '../common';
-import { usePrefixClass, useTNodeJSX } from '../hooks';
+import type { FormResetEvent, FormSubmitEvent } from '@td/shared/interface';
+import { usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import type { FormItemValidateResult } from './form-item';
 import { getFormItemClassName } from './form-item';
 import type { FormItemContext } from './const';

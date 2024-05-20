@@ -1,6 +1,6 @@
 import { computed, ref } from '@td/adapter-vue';
 import type { TdDrawerProps } from '@td/intel/drawer/type';
-import type { Styles } from '../common';
+import type { Styles } from '@td/shared/interface';
 
 export function useDrag(props: TdDrawerProps) {
   // 以下为拖拽改变抽屉大小相关 可以抽成hooks

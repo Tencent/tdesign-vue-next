@@ -6,7 +6,7 @@ import type { SelectOption, SelectOptionGroup, TdOptionProps } from '@td/intel/s
 import TdSelectProps from '@td/intel/select/props';
 
 import { useConfig, usePrefixClass, useTNodeDefault, useTNodeJSX } from '@td/adapter-hooks';
-import type { Styles } from '../common';
+import type { Styles } from '@td/shared/interface';
 import OptionGroup from './optionGroup';
 import Option from './option';
 import { usePanelVirtualScroll } from './hooks/usePanelVirtualScroll';

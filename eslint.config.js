@@ -23,7 +23,6 @@ export default antfu({
     'tsconfig.json',
     'packages/shared/_common',
     'snapshot*',
-    '_common',
     'script/test/cypress',
     'temp*',
     '_site',
@@ -32,7 +31,9 @@ export default antfu({
     'lib',
     'dist',
     'cjs',
-    'usage',
+    '**/_example/*.vue',
+    '**/_example-ts',
+    '**/_usage',
   ],
   rules: {
     // https://eslint.org/docs/latest/rules/curly

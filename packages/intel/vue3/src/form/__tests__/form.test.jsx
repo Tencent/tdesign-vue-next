@@ -6,7 +6,7 @@ import isObject from 'lodash/isObject';
 import omit from 'lodash/omit';
 import { FormItem, Form } from '../index.ts';
 import { Input, InputNumber } from '@/src/index.ts';
-import { useFormDisabled } from '../hooks';
+import { useFormDisabled } from '@td/adapter-hooks';
 
 const delay = (time = 0) =>
   new Promise((res, rej) => {

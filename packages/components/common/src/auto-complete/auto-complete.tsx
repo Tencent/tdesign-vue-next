@@ -7,8 +7,8 @@ import Input from '../input';
 import type { PopupProps } from '../popup';
 import Popup from '../popup';
 import { useConfig } from '../config-provider/useConfig';
-import type { ClassName } from '../common';
-import { useContent, useTNodeJSX } from '../hooks';
+import type { ClassName } from '@td/shared/interface';
+import { useContent, useTNodeJSX } from '@td/adapter-hooks';
 import AutoCompleteOptionList from './option-list';
 
 export default defineComponent({

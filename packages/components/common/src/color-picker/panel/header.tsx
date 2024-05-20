@@ -2,10 +2,10 @@ import type { PropType } from '@td/adapter-vue';
 import { defineComponent, ref, watch } from '@td/adapter-vue';
 
 import props from '@td/intel/color-picker/props';
+import { useBaseClassName } from '@td/adapter-hooks';
 import { COLOR_MODES } from '../const';
 import { RadioButton as TRadioButton, RadioGroup as TRadioGroup } from '../../radio';
 import type { TdColorModes } from '../interfaces';
-import { useBaseClassName } from '../hooks';
 
 export default defineComponent({
   name: 'PanelHeader',

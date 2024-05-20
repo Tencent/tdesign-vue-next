@@ -10,8 +10,8 @@ import type {
   ValidateResultType,
   ValidateTriggerType,
 } from '@td/intel/form/type';
-import type { useTNodeJSX } from '../hooks';
-import { usePrefixClass } from '../hooks';
+import type { useTNodeJSX } from '@td/adapter-hooks';
+import { usePrefixClass } from '@td/adapter-hooks';
 import type { FormItemValidateResult } from './form-item';
 
 // 允许 Form 统一控制的表单

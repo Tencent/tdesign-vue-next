@@ -8,7 +8,7 @@ import props from '@td/intel/input/props';
 import { useCommonClassName, useConfig, useGlobalIcon, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import { isUndefined } from 'lodash-es';
 import { useFormDisabled } from '../form/hooks';
-import type { PlainObject } from '../common';
+import type { PlainObject } from '@td/shared/interface';
 import useInput from './useInput';
 import useInputEventHandler from './useInputEventHandler';
 import useInputWidth from './useInputWidth';

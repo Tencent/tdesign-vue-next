@@ -8,6 +8,11 @@
     "@td/adapter-hooks": "workspace:^",
     "@td/adapter-utils": "workspace:^",
     "@td/adapter-vue": "workspace:^",
-    "@td/components-common": "workspace:^"
+    "@td/components-common": "workspace:^",
+    "@td/shared": "workspace:^",
+    "lodash-es": "^4.17.21"
+  },
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.12"
   }
 }

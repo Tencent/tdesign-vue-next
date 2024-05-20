@@ -3,8 +3,8 @@ import { computed, defineComponent, ref } from '@td/adapter-vue';
 import { AddIcon as TdAddIcon, DeleteIcon as TdDeleteIcon } from 'tdesign-icons-vue-next';
 
 import baseProps from '@td/intel/color-picker/panel/base-props';
+import { useBaseClassName } from '@td/adapter-hooks';
 import { Color } from '../utils';
-import { useBaseClassName } from '../hooks';
 import { useCommonClassName } from '../../hooks/useConfig';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 

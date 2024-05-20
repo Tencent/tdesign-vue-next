@@ -38,7 +38,7 @@ import type {
 import props from '@td/intel/form/form-item-props';
 
 import { useGlobalIcon } from '@td/adapter-hooks';
-import { useConfig, usePrefixClass, useTNodeJSX } from '../hooks';
+import { useConfig, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import template from '../utils/string-template';
 import {
   FormInjectionKey,

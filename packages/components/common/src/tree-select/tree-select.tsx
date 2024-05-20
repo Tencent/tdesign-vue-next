@@ -10,7 +10,7 @@ import { useTNodeDefault, useTNodeJSX } from '@td/adapter-hooks';
 import { useVModel } from '@td/adapter-hooks';
 import { useDefaultValue } from '@td/adapter-hooks';
 import { useFormDisabled } from '../form/hooks';
-import type { TreeOptionData } from '../common';
+import type { TreeOptionData } from '@td/shared/interface';
 import type { PopupVisibleChangeContext } from '../popup';
 import SelectInput from '../select-input';
 import type { TdSelectInputProps } from '../select-input';

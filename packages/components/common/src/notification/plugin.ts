@@ -12,7 +12,7 @@ import type {
   NotificationWarningMethod,
 } from '@td/intel/notification/type';
 import { getAttach } from '../utils/dom';
-import type { AttachNodeReturnValue } from '../common';
+import type { AttachNodeReturnValue } from '@td/shared/interface';
 import NotificationList from './notificationList';
 import './style';
 

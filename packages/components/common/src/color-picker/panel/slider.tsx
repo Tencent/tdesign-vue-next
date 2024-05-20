@@ -1,10 +1,10 @@
 import type { PropType } from '@td/adapter-vue';
 import { computed, defineComponent, onBeforeUnmount, onMounted, reactive, ref } from '@td/adapter-vue';
 import baseProps from '@td/intel/color-picker/panel/base-props';
+import { useBaseClassName } from '@td/adapter-hooks';
 import { SLIDER_DEFAULT_WIDTH } from '../const';
 import type { Coordinate } from '../utils';
 import { Draggable } from '../utils';
-import { useBaseClassName } from '../hooks';
 
 export default defineComponent({
   name: 'ColorSlider',

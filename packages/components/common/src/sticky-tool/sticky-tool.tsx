@@ -8,8 +8,8 @@ import { usePrefixClass } from '@td/adapter-hooks';
 import stickyItemProps from '@td/intel/sticky-tool/sticky-item-props';
 
 import type { TdStickyItemProps } from '@td/intel/sticky-tool/type';
-import { useChildComponentSlots } from '../hooks';
-import type { Styles } from '../common';
+import { useChildComponentSlots } from '@td/adapter-hooks';
+import type { Styles } from '@td/shared/interface';
 import StickyItem from './sticky-item';
 
 export default defineComponent({

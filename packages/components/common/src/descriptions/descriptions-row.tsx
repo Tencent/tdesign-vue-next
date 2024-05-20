@@ -2,7 +2,7 @@ import type { PropType } from '@td/adapter-vue';
 import { defineComponent, inject } from '@td/adapter-vue';
 
 import { usePrefixClass } from '@td/adapter-hooks';
-import type { LayoutEnum } from '../common';
+import type { LayoutEnum } from '@td/shared/interface';
 
 import { descriptionsKey } from './const';
 import type { ItemsType, TdDescriptionItem } from './interface';

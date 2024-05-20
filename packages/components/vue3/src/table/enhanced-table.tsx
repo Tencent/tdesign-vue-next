@@ -13,8 +13,8 @@ import type {
 } from '@td/intel/table/type';
 import { get } from 'lodash-es';
 import log from '@td/shared/_common/js/log';
-import type { ComponentScrollToElementParams } from '../common';
-import { usePrefixClass } from '../hooks';
+import { usePrefixClass } from '@td/adapter-hooks';
+import type { ComponentScrollToElementParams } from '@td/shared/interface';
 import useTreeSelect from './hooks/useTreeSelect';
 import useTreeData from './hooks/useTreeData';
 import PrimaryTable from './primary-table';

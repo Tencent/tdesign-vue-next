@@ -7,7 +7,7 @@ import type { VirtualScrollConfig, tdUseDefaultValue, tdUseVModel } from '@td/ad
 import type { TypeTreeEventState as TreeEventState } from '@td/shared/_common/js/tree/types';
 import type { TreeStore } from '@td/shared/_common/js/tree/tree-store';
 import type { CheckboxProps } from '../checkbox';
-import type { ClassName, Styles, TNode, TNodeReturnValue, TScroll, TreeOptionData } from '../common';
+import type { ClassName, Styles, TNode, TNodeReturnValue, TScroll, TreeOptionData } from '@td/shared/interface';
 import tdWithInstall from '../utils/withInstall';
 
 export { ref, reactive, computed, watch, onMounted, toRefs, defineComponent, TransitionGroup } from '@td/adapter-vue';

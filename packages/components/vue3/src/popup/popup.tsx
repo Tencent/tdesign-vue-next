@@ -17,11 +17,10 @@ import {
   toRefs,
   watch,
 } from '@td/adapter-vue';
-import { useCommonClassName, usePrefixClass, useVModel } from '@td/adapter-hooks';
+import { useCommonClassName, useContent, usePrefixClass, useTNodeJSX, useVModel } from '@td/adapter-hooks';
 import props from '@td/intel/popup/props';
 import type { PopupTriggerEvent, TdPopupProps } from '@td/intel/popup/type';
 import setStyle from '@td/shared/_common/js/utils/set-style';
-import { useContent, useTNodeJSX } from '../hooks';
 import { off, on, once } from '../utils/dom';
 import Container from './container';
 

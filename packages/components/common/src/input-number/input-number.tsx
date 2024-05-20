@@ -11,7 +11,7 @@ import { useGlobalIcon } from '@td/adapter-hooks';
 import type { TdInputNumberProps } from '@td/intel/input-number/type';
 import TInput from '../input';
 import TButton from '../button';
-import { useTNodeJSX } from '../hooks';
+import { useTNodeJSX } from '@td/adapter-hooks';
 import useInputNumber from './useInputNumber';
 
 export default defineComponent({

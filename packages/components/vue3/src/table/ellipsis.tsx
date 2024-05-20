@@ -2,7 +2,7 @@
 import type { PropType } from '@td/adapter-vue';
 import { computed, defineComponent, ref } from '@td/adapter-vue';
 import { debounce } from 'lodash-es';
-import type { AttachNode, TNode } from '../common';
+import type { AttachNode, TNode } from '@td/shared/interface';
 import { renderContent } from '../utils/render-tnode';
 import { isNodeOverflow } from '../utils/dom';
 import type { TooltipProps } from '../tooltip';
