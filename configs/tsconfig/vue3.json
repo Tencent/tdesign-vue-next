@@ -28,9 +28,6 @@
       ],
       "@td/components": [
         "packages/components/vue3"
-      ],
-      "@td/shared/*": [
-        "packages/shared/*"
       ]
     }
   }

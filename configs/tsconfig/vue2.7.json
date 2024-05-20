@@ -28,9 +28,6 @@
       ],
       "@td/components": [
         "packages/components/vue2.7"
-      ],
-      "@td/shared/*": [
-        "packages/shared/*"
       ]
     }
   }

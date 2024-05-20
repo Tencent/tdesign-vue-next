@@ -3,9 +3,14 @@
   "version": "1.9.3",
   "title": "tdesign-vue-next",
   "description": "TDesign Component for vue-next",
+  "main": "index.ts",
   "dependencies": {
     "@td/adapter-vue": "workspace:^",
     "@td/components-common": "workspace:^",
     "@td/components-vue3": "workspace:^"
+  },
+  "devDependencies": {
+    "less": "^4.2.0",
+    "vue": "^3.4.27"
   }
 }
