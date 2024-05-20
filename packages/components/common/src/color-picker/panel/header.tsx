@@ -1,7 +1,7 @@
 import type { PropType } from '@td/adapter-vue';
 import { defineComponent, ref, watch } from '@td/adapter-vue';
 
-import props from '../props';
+import props from '@td/intel/color-picker/props';
 import { COLOR_MODES } from '../const';
 import { RadioButton as TRadioButton, RadioGroup as TRadioGroup } from '../../radio';
 import type { TdColorModes } from '../interfaces';

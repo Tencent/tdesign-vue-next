@@ -1,7 +1,7 @@
 import { computed, defineComponent, ref, toRefs, watch } from '@td/adapter-vue';
 import { cloneDeep } from 'lodash-es';
+import props from '@td/intel/color-picker/props';
 import { useCommonClassName, useConfig } from '../../hooks/useConfig';
-import props from '../props';
 import {
   DEFAULT_COLOR,
   DEFAULT_LINEAR_GRADIENT,

@@ -3,11 +3,11 @@ import { defineComponent, h } from '@td/adapter-vue';
 import { ChevronLeftIcon as TdChevronLeftIcon, ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
 
 import { isArray, isFunction, isString } from 'lodash-es';
+import props from '@td/intel/transfer/props';
 import Button from '../../button';
 import type { TNode } from '../../common';
 import { usePrefixClass } from '../../hooks/useConfig';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';
-import props from '../props';
 
 export default defineComponent({
   name: 'TTransferOperations',
