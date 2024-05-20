@@ -1,11 +1,11 @@
-
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdStickyItemProps } from '../sticky-tool/type';
-import type { PropType } from 'vue';;
+import type { PropType } from 'vue';
+import type { TdStickyItemProps } from '../sticky-tool/type';
+
+;
 
 export default {
   /** 图标 */
@@ -29,7 +29,9 @@ export default {
     type: String as PropType<TdStickyItemProps['trigger']>,
     default: 'hover' as TdStickyItemProps['trigger'],
     validator(val: TdStickyItemProps['trigger']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['hover', 'click'].includes(val);
     },
   },

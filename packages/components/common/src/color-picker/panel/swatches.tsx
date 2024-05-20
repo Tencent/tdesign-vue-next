@@ -3,9 +3,9 @@ import { computed, defineComponent, ref } from '@td/adapter-vue';
 import { AddIcon as TdAddIcon, DeleteIcon as TdDeleteIcon } from 'tdesign-icons-vue-next';
 
 import baseProps from '@td/intel/color-picker/panel/base-props';
-import { useBaseClassName, useGlobalIcon } from '@td/adapter-hooks';
+import { useCommonClassName, useGlobalIcon } from '@td/adapter-hooks';
+import { useBaseClassName } from '../hooks';
 import { Color } from '../utils';
-import { useCommonClassName } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'SwatchesPanel',

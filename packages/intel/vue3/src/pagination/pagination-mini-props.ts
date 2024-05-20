@@ -1,11 +1,11 @@
-
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdPaginationMiniProps } from '../pagination/type';
-import type { PropType } from 'vue';;
+import type { PropType } from 'vue';
+import type { TdPaginationMiniProps } from '../pagination/type';
+
+;
 
 export default {
   /** 按钮禁用配置 */
@@ -17,7 +17,9 @@ export default {
     type: String as PropType<TdPaginationMiniProps['layout']>,
     default: 'horizontal' as TdPaginationMiniProps['layout'],
     validator(val: TdPaginationMiniProps['layout']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['horizontal', 'vertical'].includes(val);
     },
   },
@@ -31,7 +33,9 @@ export default {
     type: String as PropType<TdPaginationMiniProps['size']>,
     default: 'medium' as TdPaginationMiniProps['size'],
     validator(val: TdPaginationMiniProps['size']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['small', 'medium', 'large'].includes(val);
     },
   },
@@ -44,7 +48,9 @@ export default {
     type: String as PropType<TdPaginationMiniProps['variant']>,
     default: 'text' as TdPaginationMiniProps['variant'],
     validator(val: TdPaginationMiniProps['variant']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['text', 'outline'].includes(val);
     },
   },

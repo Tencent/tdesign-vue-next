@@ -1,11 +1,11 @@
-
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdStickyToolProps } from './type';
-import type { PropType } from 'vue';;
+import type { PropType } from 'vue';
+import type { TdStickyToolProps } from './type';
+
+;
 
 export default {
   /** 列表 */
@@ -22,7 +22,9 @@ export default {
     type: String as PropType<TdStickyToolProps['placement']>,
     default: 'right-bottom' as TdStickyToolProps['placement'],
     validator(val: TdStickyToolProps['placement']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['right-top', 'right-center', 'right-bottom', 'left-top', 'left-center', 'left-bottom'].includes(val);
     },
   },
@@ -35,7 +37,9 @@ export default {
     type: String as PropType<TdStickyToolProps['shape']>,
     default: 'square' as TdStickyToolProps['shape'],
     validator(val: TdStickyToolProps['shape']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['square', 'round'].includes(val);
     },
   },
@@ -44,7 +48,9 @@ export default {
     type: String as PropType<TdStickyToolProps['type']>,
     default: 'normal' as TdStickyToolProps['type'],
     validator(val: TdStickyToolProps['type']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['normal', 'compact'].includes(val);
     },
   },

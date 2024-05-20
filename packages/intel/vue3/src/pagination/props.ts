@@ -1,11 +1,11 @@
-
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdPaginationProps } from './type';
-import type { PropType } from 'vue';;
+import type { PropType } from 'vue';
+import type { TdPaginationProps } from './type';
+
+;
 
 export default {
   /** 当前页 */
@@ -39,7 +39,9 @@ export default {
     type: String as PropType<TdPaginationProps['pageEllipsisMode']>,
     default: 'mid' as TdPaginationProps['pageEllipsisMode'],
     validator(val: TdPaginationProps['pageEllipsisMode']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['mid', 'both-ends'].includes(val);
     },
   },
@@ -86,7 +88,9 @@ export default {
     type: String as PropType<TdPaginationProps['size']>,
     default: 'medium' as TdPaginationProps['size'],
     validator(val: TdPaginationProps['size']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['small', 'medium'].includes(val);
     },
   },
@@ -95,7 +99,9 @@ export default {
     type: String as PropType<TdPaginationProps['theme']>,
     default: 'default' as TdPaginationProps['theme'],
     validator(val: TdPaginationProps['theme']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['default', 'simple'].includes(val);
     },
   },

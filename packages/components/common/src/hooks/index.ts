@@ -1,4 +1,3 @@
-export * from './icon';
 export * from './slot';
 export * from './tnode';
 export * from './useConfig';

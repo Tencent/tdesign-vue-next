@@ -1,12 +1,12 @@
-
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * updated at 2021-12-12 19:17:30
- * */
+ */
 
-import { TdSwiperProps } from './type';
-import type { PropType } from 'vue';;
+import type { PropType } from 'vue';
+import type { TdSwiperProps } from './type';
+
+;
 
 export default {
   /** 轮播切换动画效果类型：滑动、淡入淡出等 */
@@ -14,7 +14,9 @@ export default {
     type: String as PropType<TdSwiperProps['animation']>,
     default: 'slide' as TdSwiperProps['animation'],
     validator(val: TdSwiperProps['animation']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['slide', 'fade'].includes(val);
     },
   },
@@ -38,7 +40,9 @@ export default {
     type: String as PropType<TdSwiperProps['direction']>,
     default: 'horizontal' as TdSwiperProps['direction'],
     validator(val: TdSwiperProps['direction']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['horizontal', 'vertical'].includes(val);
     },
   },
@@ -75,7 +79,9 @@ export default {
     type: String as PropType<TdSwiperProps['theme']>,
     default: 'light' as TdSwiperProps['theme'],
     validator(val: TdSwiperProps['theme']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['light', 'dark'].includes(val);
     },
   },
@@ -84,7 +90,9 @@ export default {
     type: String as PropType<TdSwiperProps['trigger']>,
     default: 'hover' as TdSwiperProps['trigger'],
     validator(val: TdSwiperProps['trigger']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['hover', 'click'].includes(val);
     },
   },
@@ -93,7 +101,9 @@ export default {
     type: String as PropType<TdSwiperProps['type']>,
     default: 'default' as TdSwiperProps['type'],
     validator(val: TdSwiperProps['type']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['default', 'card'].includes(val);
     },
   },

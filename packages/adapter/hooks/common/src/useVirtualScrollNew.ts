@@ -9,7 +9,7 @@ import type { Ref } from '@td/adapter-vue';
 import { computed, ref, watch } from '@td/adapter-vue';
 import { max, min, sum, throttle } from 'lodash-es';
 import type { TScroll } from '@td/shared/interface';
-import useResizeObserver from './useResizeObserver';
+import { useResizeObserver } from './useResizeObserver';
 
 export type UseVirtualScrollParams = Ref<{
   /** 列数据 */
@@ -27,7 +27,7 @@ export interface ScrollToElementParams {
   behavior?: 'auto' | 'smooth';
 }
 
-function useVirtualScroll(container: Ref<HTMLElement | null>, params: UseVirtualScrollParams) {
+export function useVirtualScroll(container: Ref<HTMLElement | null>, params: UseVirtualScrollParams) {
   /** 注意测试：数据长度为空；数据长度小于表格高度等情况。即期望只有数据量达到一定程度才允许开启虚拟滚动 */
   const visibleData = ref<any[]>([]);
   // 用于显示表格列
@@ -251,5 +251,3 @@ function useVirtualScroll(container: Ref<HTMLElement | null>, params: UseVirtual
 }
 
 export type VirtualScrollConfig = ReturnType<typeof useVirtualScroll>;
-
-export default useVirtualScroll;

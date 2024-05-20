@@ -1,7 +1,8 @@
 import { defineComponent, onBeforeUnmount, onMounted, reactive, ref, watch } from '@td/adapter-vue';
 import { cloneDeep } from 'lodash-es';
 import baseProps from '@td/intel/color-picker/panel/base-props';
-import { useBaseClassName, useCommonClassName } from '@td/adapter-hooks';
+import { useCommonClassName } from '@td/adapter-hooks';
+import { useBaseClassName } from '../hooks';
 import { GRADIENT_SLIDER_DEFAULT_WIDTH } from '../const';
 import type { GradientColorPoint } from '../utils';
 import { genGradientPoint, gradientColors2string } from '../utils';

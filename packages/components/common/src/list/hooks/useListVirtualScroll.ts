@@ -1,8 +1,8 @@
 import type { Ref } from '@td/adapter-vue';
 import { computed } from '@td/adapter-vue';
 import type { TdListProps } from '@td/intel/list/type';
-import useVirtualScroll from '../../hooks/useVirtualScrollNew';
-import type { Styles } from '../../common';
+import type { Styles } from '@td/shared/interface';
+import { useVirtualScroll } from '@td/adapter-hooks';
 
 export function useListVirtualScroll(scroll: TdListProps['scroll'], listRef: Ref<HTMLElement>, listItems: Ref<any[]>) {
   const virtualScrollParams = computed(() => ({

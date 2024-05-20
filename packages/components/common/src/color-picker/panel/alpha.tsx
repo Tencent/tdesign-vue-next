@@ -1,6 +1,6 @@
 import type { PropType } from '@td/adapter-vue';
 import { computed, defineComponent } from '@td/adapter-vue';
-import { useBaseClassName } from '@td/adapter-hooks';
+import { useBaseClassName } from '../hooks';
 import type { Color } from '../utils';
 import ColorSlider from './slider';
 

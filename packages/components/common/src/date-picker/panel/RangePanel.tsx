@@ -1,9 +1,10 @@
 import type { PropType } from '@td/adapter-vue';
 import { computed, defineComponent } from '@td/adapter-vue';
-import { useDisableDate, useTableData } from '@td/adapter-hooks';
+import { useConfig, usePrefixClass } from '@td/adapter-hooks';
 import type { TdDateRangePickerProps } from '@td/intel/date-picker/type';
 import { getDefaultFormat, parseToDayjs } from '@td/shared/_common/js/date-picker/format';
-import { useConfig, usePrefixClass } from '@td/adapter-hooks';
+import useDisableDate from '../hooks/useDisableDate';
+import useTableData from '../hooks/useTableData';
 import TPanelContent from './PanelContent';
 import TExtraContent from './ExtraContent';
 

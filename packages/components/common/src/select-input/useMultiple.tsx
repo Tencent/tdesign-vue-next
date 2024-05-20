@@ -2,7 +2,7 @@ import type { Ref, SetupContext } from '@td/adapter-vue';
 import { computed, ref, toRefs } from '@td/adapter-vue';
 import { isObject } from 'lodash-es';
 import type { SelectInputChangeContext, SelectInputKeys, TdSelectInputProps } from '@td/intel/select-input/type';
-import { useDefault, usePrefixClass } from '@td/adapter-hooks';
+import { useDefaultValue, usePrefixClass } from '@td/adapter-hooks';
 import type { TagInputProps, TagInputValue } from '../tag-input';
 import TagInput from '../tag-input';
 import Loading from '../loading';
@@ -32,7 +32,7 @@ export default function useMultiple(
   const classPrefix = usePrefixClass();
   const tagInputRef = ref();
   const isMultipleFocus = ref(props.autofocus);
-  const [tInputValue, setTInputValue] = useDefault(
+  const [tInputValue, setTInputValue] = useDefaultValue(
     inputValue,
     props.defaultInputValue,
     props.onInputChange,

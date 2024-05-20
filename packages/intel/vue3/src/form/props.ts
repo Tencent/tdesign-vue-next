@@ -1,11 +1,9 @@
-
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdFormProps } from './type';
-import type { PropType } from 'vue';;
+import type { PropType } from 'vue';
+import type { TdFormProps } from './type';
 
 export default {
   /** 是否在表单标签字段右侧显示冒号 */
@@ -33,7 +31,9 @@ export default {
     type: String as PropType<TdFormProps['labelAlign']>,
     default: 'right' as TdFormProps['labelAlign'],
     validator(val: TdFormProps['labelAlign']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['left', 'right', 'top'].includes(val);
     },
   },
@@ -47,7 +47,9 @@ export default {
     type: String as PropType<TdFormProps['layout']>,
     default: 'vertical' as TdFormProps['layout'],
     validator(val: TdFormProps['layout']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['vertical', 'inline'].includes(val);
     },
   },
@@ -66,7 +68,9 @@ export default {
     type: String as PropType<TdFormProps['resetType']>,
     default: 'empty' as TdFormProps['resetType'],
     validator(val: TdFormProps['resetType']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['empty', 'initial'].includes(val);
     },
   },
@@ -78,7 +82,9 @@ export default {
   scrollToFirstError: {
     type: String as PropType<TdFormProps['scrollToFirstError']>,
     validator(val: TdFormProps['scrollToFirstError']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['', 'smooth', 'auto'].includes(val);
     },
   },

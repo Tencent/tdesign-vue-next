@@ -3,7 +3,8 @@ import type { PropType } from '@td/adapter-vue';
 import { computed, defineComponent, ref } from '@td/adapter-vue';
 import { debounce } from 'lodash-es';
 import type { AttachNode, TNode } from '@td/shared/interface';
-import { isNodeOverflow, renderContent } from '@td/adapter-utils';
+import { isNodeOverflow } from '@td/adapter-utils';
+import { useContent } from '@td/adapter-hooks';
 import type { TooltipProps } from '@td/components-common';
 import { Tooltip } from '@td/components-common';
 
@@ -91,7 +92,9 @@ export default defineComponent({
   },
 
   render() {
-    const cellNode = renderContent(this, 'default', 'content');
+    // vue23:todo
+    const renderContent = useContent();
+    const cellNode = renderContent('default', 'content');
     const ellipsisContent = (
       <div ref="root" class={this.ellipsisClasses} onMouseenter={this.onMouseAround} onMouseleave={this.onMouseAround}>
         {cellNode}

@@ -1,11 +1,9 @@
-
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdDrawerProps } from './type';
-import type { PropType } from 'vue';;
+import type { PropType } from 'vue';
+import type { TdDrawerProps } from './type';
 
 export default {
   /** 抽屉挂载的节点，默认挂在组件本身的位置。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body */
@@ -62,7 +60,9 @@ export default {
     type: String as PropType<TdDrawerProps['mode']>,
     default: 'overlay' as TdDrawerProps['mode'],
     validator(val: TdDrawerProps['mode']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['overlay', 'push'].includes(val);
     },
   },
@@ -71,7 +71,9 @@ export default {
     type: String as PropType<TdDrawerProps['placement']>,
     default: 'right' as TdDrawerProps['placement'],
     validator(val: TdDrawerProps['placement']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['left', 'right', 'top', 'bottom'].includes(val);
     },
   },

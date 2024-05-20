@@ -2,7 +2,7 @@ import { computed, defineComponent, ref, toRefs, watch } from '@td/adapter-vue';
 import { cloneDeep } from 'lodash-es';
 import props from '@td/intel/color-picker/props';
 import type { ColorPickerChangeTrigger, TdColorPickerProps } from '@td/intel/color-picker/type';
-import { useBaseClassName } from '@td/adapter-hooks';
+import { useBaseClassName } from '../hooks';
 import { useCommonClassName, useConfig } from '@td/adapter-hooks';
 import {
   DEFAULT_COLOR,

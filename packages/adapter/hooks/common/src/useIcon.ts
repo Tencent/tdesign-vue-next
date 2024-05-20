@@ -20,7 +20,9 @@ export function useIcon() {
       iconContent = instance.slots[iconType] && instance.slots[iconType](null)[0];
     } else if (defaultIcons) {
       const Component = defaultIcons[instance.props.theme as string];
-      iconContent = <Component></Component>;
+      // iconContent = <Component></Component>;
+      // vue23:!todo
+      iconContent = h(Component);
     }
     return iconContent;
   };

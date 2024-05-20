@@ -1,18 +1,20 @@
-
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdInputNumberProps } from './type';
-import type { PropType } from 'vue';;
+import type { PropType } from 'vue';
+import type { TdInputNumberProps } from './type';
+
+;
 
 export default {
   /** 文本内容位置，居左/居中/居右 */
   align: {
     type: String as PropType<TdInputNumberProps['align']>,
     validator(val: TdInputNumberProps['align']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['left', 'center', 'right'].includes(val);
     },
   },
@@ -66,7 +68,9 @@ export default {
     type: String as PropType<TdInputNumberProps['size']>,
     default: 'medium' as TdInputNumberProps['size'],
     validator(val: TdInputNumberProps['size']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['small', 'medium', 'large'].includes(val);
     },
   },
@@ -75,7 +79,9 @@ export default {
     type: String as PropType<TdInputNumberProps['status']>,
     default: 'default' as TdInputNumberProps['status'],
     validator(val: TdInputNumberProps['status']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['default', 'success', 'warning', 'error'].includes(val);
     },
   },
@@ -93,7 +99,9 @@ export default {
     type: String as PropType<TdInputNumberProps['theme']>,
     default: 'row' as TdInputNumberProps['theme'],
     validator(val: TdInputNumberProps['theme']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['column', 'row', 'normal'].includes(val);
     },
   },
