@@ -13,7 +13,7 @@ const HIDDEN_TEXTAREA_STYLE = `
   max-height:none !important;
   height:0 !important;
   visibility:hidden !important;
-  overflow:hidden !important;
+  overflow-y:hidden !important;
   position:absolute !important;
   z-index:-1000 !important;
   top:0 !important;
@@ -40,7 +40,7 @@ const SIZING_PROPS = [
 ];
 
 function calculateNodeStyling(targetElement: HTMLTextAreaElement) {
-  if (typeof window === 'undefined') {
+  if (typeof window === 'undefined' || !targetElement) {
     return;
   }
 

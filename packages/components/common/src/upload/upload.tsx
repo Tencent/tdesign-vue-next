@@ -1,9 +1,8 @@
 import { computed, defineComponent } from '@td/adapter-vue';
 import { UploadIcon } from 'tdesign-icons-vue-next';
 import props from '@td/intel/upload/props';
-import { useContent, useTNodeJSX } from '@td/adapter-hooks';
+import { useContent, useDisabled, useTNodeJSX } from '@td/adapter-hooks';
 import Button from '../button';
-import { useFormDisabled } from '../form/hooks';
 import NormalFile from './themes/normal-file';
 import DraggerFile from './themes/dragger-file';
 import ImageCard from './themes/image-card';
@@ -43,7 +42,11 @@ export default defineComponent({
       cancelUpload,
       uploadFilePercent,
     } = useUpload(props);
-    const disabled = useFormDisabled();
+    const disabled = useDisabled();
+
+    const triggerUploadButtonText = computed(
+      () => props.triggerButtonProps?.default || props.triggerButtonProps?.content || triggerUploadText.value,
+    );
 
     expose({
       upload: inputRef.value,
@@ -59,13 +62,13 @@ export default defineComponent({
         if (props.theme === 'file-input') {
           return (
             <Button disabled={disabled.value} variant="outline" {...props.triggerButtonProps}>
-              {triggerUploadText.value}
+              {triggerUploadButtonText.value}
             </Button>
           );
         }
         return (
           <Button disabled={disabled.value} variant="outline" icon={() => <UploadIcon />} {...props.triggerButtonProps}>
-            {triggerUploadText.value}
+            {triggerUploadButtonText.value}
           </Button>
         );
       };

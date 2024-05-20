@@ -152,7 +152,8 @@ export default function useRange(props: TdDateRangePickerProps) {
       }
 
       inputValue.value = formatDate(value, {
-        format: formatRef.value.format,
+        format: formatRef.value.valueType,
+        targetFormat: formatRef.value.format,
       });
     },
     {

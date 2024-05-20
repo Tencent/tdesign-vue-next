@@ -7,8 +7,7 @@ export interface FormDisabledProvider {
 }
 
 /**
- * 用于实现 form 的全局禁用状态hook
- * @returns
+ * @deprecated use src/hooks/useDisabled instead
  */
 export function useFormDisabled(extend?: Ref<boolean>) {
   const ctx = getCurrentInstance();

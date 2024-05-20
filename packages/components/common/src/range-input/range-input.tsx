@@ -4,12 +4,9 @@ import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-
 import props from '@td/intel/range-input/props';
 import type { RangeInputPosition, RangeInputValue } from '@td/intel/range-input/type';
 
-import { useCommonClassName, useGlobalIcon, usePrefixClass, useTNodeJSX, useVModel } from '@td/adapter-hooks';
+import { useCommonClassName, useDisabled, useGlobalIcon, usePrefixClass, useTNodeJSX, useVModel } from '@td/adapter-hooks';
 import { isArray } from 'lodash-es';
 import { Input } from '../input';
-import { useFormDisabled } from '../form/hooks';
-
-;
 
 function calcArrayValue(value: unknown | Array<unknown>) {
   if (isArray(value)) {
@@ -28,7 +25,7 @@ export default defineComponent({
     const { value, modelValue } = toRefs(props);
     const { STATUS, SIZE } = useCommonClassName();
     const classPrefix = usePrefixClass();
-    const disabled = useFormDisabled();
+    const disabled = useDisabled();
     const COMPONENT_NAME = usePrefixClass('range-input');
     const { CloseCircleFilledIcon } = useGlobalIcon({ CloseCircleFilledIcon: TdCloseCircleFilledIcon });
     const renderTNodeJSX = useTNodeJSX();

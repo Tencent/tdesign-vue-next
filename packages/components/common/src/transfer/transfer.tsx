@@ -1,10 +1,9 @@
 import { computed, defineComponent, toRefs } from '@td/adapter-vue';
 import { isFunction, pick } from 'lodash-es';
 import props from '@td/intel/transfer/props';
-import { useDefaultValue, usePrefixClass, useVModel } from '@td/adapter-hooks';
+import { useDefaultValue, useDisabled, usePrefixClass, useVModel } from '@td/adapter-hooks';
 import type { TNode } from '@td/shared/interface';
 import type { PageInfo, TdPaginationProps } from '../pagination/type';
-import { useFormDisabled } from '../form/hooks';
 import TransferList from './components/transfer-list';
 import TransferOperations from './components/transfer-operations';
 import type { CheckedOptions, EmptyType, SearchEvent, TargetParams, TransferListType, TransferValue } from './interface';
@@ -19,14 +18,12 @@ import {
   getTransferListOption,
 } from './utils';
 
-// hooks
-
 export default defineComponent({
   name: TRANSFER_NAME,
   props: { ...props },
 
   setup(props, { slots }) {
-    const disabled = useFormDisabled();
+    const disabled = useDisabled();
     const classPrefix = usePrefixClass();
     const { value, modelValue, checked } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
@@ -116,8 +113,15 @@ export default defineComponent({
         newTargetValue = oldTargetValue.filter(v => !selfCheckedValue.includes(v));
       } else if (props.targetSort === 'original') {
         // 按照原始顺序
+        const remainValue = transferData.value.reduce((acc, data) => {
+          if (oldTargetValue.includes(data.value) && data.disabled) {
+            return acc.concat(data.value);
+          }
+          return acc;
+        }, []);
         newTargetValue = getDataValues(transferData.value, oldTargetValue.concat(selfCheckedValue), {
           isTreeMode: isTreeMode.value,
+          remainValue,
         });
       } else if (props.targetSort === 'unshift') {
         newTargetValue = selfCheckedValue.concat(oldTargetValue);

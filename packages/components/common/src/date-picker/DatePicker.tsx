@@ -2,12 +2,11 @@ import { computed, defineComponent, watch } from '@td/adapter-vue';
 import dayjs from 'dayjs';
 import { isDate, isFunction } from 'lodash-es';
 
-import { useConfig, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
+import { useConfig, useDisabled, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import props from '@td/intel/date-picker/props';
 import type { DateValue, TdDatePickerProps } from '@td/intel/date-picker/type';
 import { formatDate, formatTime, getDefaultFormat, parseToDayjs } from '@td/shared/_common/js/date-picker/format';
 import { addMonth, covertToDate, extractTimeObj, subtractMonth } from '@td/shared/_common/js/date-picker/utils';
-import { useFormDisabled } from '../form/hooks';
 import TSelectInput from '../select-input';
 import useSingle from './hooks/useSingle';
 import TSinglePanel from './panel/SinglePanel';
@@ -37,7 +36,7 @@ export default defineComponent({
       onChange,
     } = useSingle(props);
 
-    const disabled = useFormDisabled();
+    const disabled = useDisabled();
     const renderTNodeJSX = useTNodeJSX();
     const { globalConfig } = useConfig('datePicker');
 
@@ -58,21 +57,23 @@ export default defineComponent({
 
     watch(popupVisible, (visible) => {
       const dateValue
-        // Date 属性不再 parse，避免 dayjs 处理成 Invalid
-        = value.value && !isDate(value.value)
+        // Date 属性、季度和周不再 parse，避免 dayjs 处理成 Invalid
+        = value.value && !isDate(value.value) && !['week', 'quarter'].includes(props.mode)
           ? covertToDate(value.value as string, formatRef.value?.valueType)
           : value.value;
 
       cacheValue.value = formatDate(dateValue, {
-        format: formatRef.value.format,
+        format: formatRef.value.valueType,
+        targetFormat: formatRef.value.format,
       });
       inputValue.value = formatDate(dateValue, {
-        format: formatRef.value.format,
+        format: formatRef.value.valueType,
+        targetFormat: formatRef.value.format,
       });
 
       // 面板展开重置数据
       if (visible) {
-        year.value = parseToDayjs(value.value, formatRef.value.format).year();
+        year.value = parseToDayjs(value.value, formatRef.value.valueType).year();
         month.value = parseToDayjs(value.value, formatRef.value.format).month();
         time.value = formatTime(value.value, formatRef.value.format, formatRef.value.timeFormat, props.defaultTime);
       } else {
@@ -255,8 +256,10 @@ export default defineComponent({
     return () => (
       <div class={COMPONENT_NAME.value}>
         <TSelectInput
+          borderless={props.borderless}
           disabled={disabled.value}
           value={inputValue.value}
+          label={props.label}
           status={props.status}
           tips={props.tips}
           clearable={props.clearable}

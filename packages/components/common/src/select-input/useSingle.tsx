@@ -1,12 +1,11 @@
 import type { Ref, SetupContext } from '@td/adapter-vue';
 import { computed, ref, toRefs } from '@td/adapter-vue';
 import { isObject, pick } from 'lodash-es';
-import { useDefaultValue, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
+import { useDefaultValue, useDisabled, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import type { TdSelectInputProps } from '@td/intel/select-input/type';
 import type { StrInputProps } from '../input';
-import { Input } from '../input';;
+import { Input } from '../input';
 import Loading from '../loading';
-import { useFormDisabled } from '../form/hooks';
 import type { PopupInstanceFunctions } from '../popup';
 import type { SelectInputCommonProperties } from './interface';
 
@@ -57,7 +56,7 @@ export default function useSingle(
     'inputValue',
   );
   const renderTNode = useTNodeJSX();
-  const disable = useFormDisabled();
+  const disable = useDisabled();
 
   const commonInputProps = computed<SelectInputCommonProperties>(() => ({
     ...pick(props, COMMON_PROPERTIES),

@@ -11,16 +11,13 @@ import {
   isValidDate,
   parseToDayjs,
 } from '@td/shared/_common/js/date-picker/format';
-import { useTNodeJSX } from '@td/adapter-hooks';
-import { useFormDisabled } from '../../form/hooks';
-import { usePrefixClass } from '@td/adapter-hooks';
-import { useGlobalIcon } from '@td/adapter-hooks';
+import { useDisabled, useGlobalIcon, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import useSingleValue from './useSingleValue';
 
 export default function useSingle(props: TdDatePickerProps) {
   const COMPONENT_NAME = usePrefixClass('date-picker');
   const { CalendarIcon } = useGlobalIcon({ CalendarIcon: TdCalendarIcon });
-  const disabled = useFormDisabled();
+  const disabled = useDisabled();
   const renderTNodeJSX = useTNodeJSX();
 
   const inputRef = ref();

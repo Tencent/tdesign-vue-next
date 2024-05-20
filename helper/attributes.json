@@ -4874,11 +4874,11 @@
   },
   "t-radio/click": {
     "type": "event",
-    "description": "trigger on click\n\n点击时出发，一般用于外层阻止冒泡场景\n\n[docs](https://tdesign.tencent.com/vue-next/components/radio?tab=api#radio-events)"
+    "description": "trigger on click\n\n点击时触发，一般用于外层阻止冒泡场景\n\n[docs](https://tdesign.tencent.com/vue-next/components/radio?tab=api#radio-events)"
   },
   "t-radio-button/click": {
     "type": "event",
-    "description": "trigger on click\n\n点击时出发，一般用于外层阻止冒泡场景\n\n[docs](https://tdesign.tencent.com/vue-next/components/radio?tab=api#radio-events)"
+    "description": "trigger on click\n\n点击时触发，一般用于外层阻止冒泡场景\n\n[docs](https://tdesign.tencent.com/vue-next/components/radio?tab=api#radio-events)"
   },
   "t-radio-group/allow-uncheck": {
     "type": "Boolean",

@@ -249,6 +249,7 @@ export default defineComponent({
         v-slots={{
           suffix: this.$slots.suffix,
         }}
+        borderless={this.borderless}
         readonly={readonly}
         showInput={!readonly || !this.tagValue || !this.tagValue?.length}
         value={this.tInputValue}

@@ -1,10 +1,9 @@
 import { computed, defineComponent } from '@td/adapter-vue';
 import { omit } from 'lodash-es';
 import props from '@td/intel/cascader/props';
-import { useCommonClassName, useConfig, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
+import { useCommonClassName, useConfig, useDisabled, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import SelectInput from '../select-input';
 import FakeArrow from '../common-components/fake-arrow';
-import { useFormDisabled } from '../form/hooks';
 import Panel from './components/Panel';
 
 import { useCascaderContext } from './hooks';
@@ -19,7 +18,8 @@ export default defineComponent({
   props: { ...props },
 
   setup(props, { slots }) {
-    const disabled = useFormDisabled();
+    const disabled = useDisabled();
+
     const COMPONENT_NAME = usePrefixClass('cascader');
     const classPrefix = usePrefixClass();
     const { STATUS } = useCommonClassName();

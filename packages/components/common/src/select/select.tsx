@@ -3,11 +3,7 @@ import { computed, defineComponent, nextTick, provide, ref, toRefs, watch } from
 import picker from 'lodash/pick';
 import { cloneDeep, debounce, get, intersection, isArray, isFunction } from 'lodash-es';
 import props from '@td/intel/select/props';
-// hooks
-import { useDefaultValue } from '@td/adapter-hooks';
-import { useVModel } from '@td/adapter-hooks';
-import { useTNodeJSX } from '@td/adapter-hooks';
-import { useConfig, usePrefixClass } from '@td/adapter-hooks';
+import { useConfig, useDefaultValue, useDisabled, usePrefixClass, useTNodeJSX, useVModel } from '@td/adapter-hooks';
 import type { SelectValue, TdSelectProps } from '@td/intel/select/type';
 import type { PopupVisibleChangeContext } from '../popup';
 import type { SelectInputValueChangeContext } from '../select-input';
@@ -33,7 +29,7 @@ export default defineComponent({
   },
   setup(props: TdSelectProps & { valueDisplayOptions: SelectInputValueDisplayOptions }, { slots }) {
     const classPrefix = usePrefixClass();
-    const disabled = useFormDisabled();
+    const disabled = useDisabled();
     const renderTNodeJSX = useTNodeJSX();
     const COMPONENT_NAME = usePrefixClass('select');
     const { globalConfig, t } = useConfig('select');
@@ -263,7 +259,7 @@ export default defineComponent({
 
     const handlerInputChange = (value: string, context: SelectInputValueChangeContext) => {
       if (value) {
-        setInnerPopupVisible(true, { e: context.e as KeyboardEvent });
+        !innerPopupVisible.value && setInnerPopupVisible(true, { e: context.e as KeyboardEvent });
       }
       setInputValue(value);
       handleSearch(`${value}`, { e: context.e as KeyboardEvent });

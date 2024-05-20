@@ -43,9 +43,9 @@ export default defineComponent({
       if (!width) {
         return;
       }
-      const left = Math.round((props.value / props.maxValue) * width);
+      const left = Math.round((props.value / props.maxValue) * 100);
       return {
-        left: `${left}px`,
+        left: `${left}%`,
         color: props.color.rgb,
       };
     });

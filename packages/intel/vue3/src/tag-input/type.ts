@@ -2,7 +2,7 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  */
 
-import type { TNode } from '@td/shared/interface';
+import type { SizeEnum, TNode } from '@td/shared/interface';
 import type { InputProps } from '../input';
 import type { TagProps } from '../tag';
 
@@ -12,6 +12,11 @@ export interface TdTagInputProps {
    * @default false
    */
   autoWidth?: boolean;
+  /**
+   * 无边框模式
+   * @default false
+   */
+  borderless?: boolean;
   /**
    * 是否可清空
    * @default false
@@ -81,10 +86,10 @@ export interface TdTagInputProps {
    */
   readonly?: boolean;
   /**
-   * 尺寸
+   * 组件尺寸
    * @default medium
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: SizeEnum;
   /**
    * 输入框状态
    */

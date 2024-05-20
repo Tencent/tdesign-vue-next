@@ -171,7 +171,7 @@ export function useVirtualScroll(container: Ref<HTMLElement | null>, params: Use
   };
 
   const updateScrollTop = ({ index, top = 0, behavior }: ScrollToElementParams) => {
-    const scrollTop = sum(trHeightList.slice(0, index)) - top;
+    const scrollTop = sum(trHeightList.slice(0, index + 1)) - top;
     container.value.scrollTo({
       top: scrollTop,
       behavior: behavior || 'auto',

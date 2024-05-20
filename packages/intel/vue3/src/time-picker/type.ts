@@ -5,7 +5,7 @@
 import type { TNode } from '@td/shared/interface';
 import type { InputProps } from '../input';
 import type { TdPopupProps as PopupProps } from '../popup/type';
-import type { SelectInputBlurContext } from '../select-input';
+import type { SelectInputBlurContext, SelectInputProps } from '../select-input';
 import type { RangeInputProps } from '../range-input';
 
 export interface TdTimePickerProps {
@@ -14,6 +14,11 @@ export interface TdTimePickerProps {
    * @default false
    */
   allowInput?: boolean;
+  /**
+   * 无边框模式
+   * @default false
+   */
+  borderless?: boolean;
   /**
    * 是否允许清除选中值
    * @default false
@@ -31,7 +36,10 @@ export interface TdTimePickerProps {
   /**
    * 是否禁用组件
    */
-  disabled?: boolean;
+  disabled?: {
+    type: boolean;
+    default: undefined;
+  };
   /**
    * 用于格式化时间，[详细文档](https://day.js.org/docs/en/display/format)
    * @default HH:mm:ss
@@ -47,6 +55,10 @@ export interface TdTimePickerProps {
    */
   inputProps?: InputProps;
   /**
+   * 左侧文本
+   */
+  label?: string | TNode;
+  /**
    * 占位符
    */
   placeholder?: string;
@@ -58,6 +70,10 @@ export interface TdTimePickerProps {
    * 预设快捷时间选择，示例：`{ '前一小时': '11:00:00' }`
    */
   presets?: PresetTime;
+  /**
+   * 透传 SelectInput 筛选器输入框组件的全部属性
+   */
+  selectInputProps?: SelectInputProps;
   /**
    * 尺寸
    * @default medium
@@ -92,6 +108,10 @@ export interface TdTimePickerProps {
    * @default ''
    */
   modelValue?: TimePickerValue;
+  /**
+   * 自定义选中项呈现的内容
+   */
+  valueDisplay?: string | TNode<{ value: TimePickerValue }>;
   /**
    * 当输入框失去焦点时触发，value 表示组件当前有效值
    */
@@ -156,6 +176,10 @@ export interface TdTimeRangePickerProps {
    * @default true
    */
   hideDisabledTime?: boolean;
+  /**
+   * 左侧文本
+   */
+  label?: string | TNode;
   /**
    * 占位符，值为数组表示可分别为开始日期和结束日期设置占位符
    */

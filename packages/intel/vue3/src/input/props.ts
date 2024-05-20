@@ -33,7 +33,10 @@ export default {
   /** 是否可清空 */
   clearable: Boolean,
   /** 是否禁用输入框 */
-  disabled: Boolean,
+  disabled: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 指定输入框展示值的格式。注意 `type=number` 时请勿使用，此功能建议更为使用 `InputNumber` 组件 */
   format: {
     type: Function as PropType<TdInputProps['format']>,

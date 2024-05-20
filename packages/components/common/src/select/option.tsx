@@ -2,10 +2,9 @@ import { computed, defineComponent, inject, onBeforeUnmount, onMounted, ref } fr
 
 import props from '@td/intel/select/option-props';
 
-import { useCommonClassName, useContent, usePrefixClass, useRipple } from '@td/adapter-hooks';
+import { useCommonClassName, useContent, useDisabled, usePrefixClass, useRipple } from '@td/adapter-hooks';
 import type { SelectValue } from '@td/intel/select/type';
 import { Checkbox } from '@td/components';
-import { useFormDisabled } from '../form/hooks';
 import { getNewMultipleValue, selectInjectKey } from './helper';
 
 export default defineComponent({
@@ -27,7 +26,7 @@ export default defineComponent({
 
   setup(props, context) {
     const selectProvider = inject(selectInjectKey);
-    const formDisabled = useFormDisabled();
+    const formDisabled = useDisabled();
 
     const isReachMax = computed(
       () =>

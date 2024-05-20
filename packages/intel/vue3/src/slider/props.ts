@@ -7,7 +7,10 @@ import type { TdSliderProps } from './type';
 
 export default {
   /** 是否禁用组件 */
-  disabled: Boolean,
+  disabled: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 用于控制数字输入框组件，值为 false 表示不显示数字输入框；值为 true 表示呈现默认数字输入框；值类型为 Object 表示透传属性到数字输入框组件 */
   inputNumberProps: {
     type: [Boolean, Object] as PropType<TdSliderProps['inputNumberProps']>,

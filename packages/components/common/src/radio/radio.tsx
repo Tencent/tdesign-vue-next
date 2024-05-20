@@ -1,12 +1,9 @@
 import { computed, defineComponent, inject, ref, toRefs } from '@td/adapter-vue';
-import { useCommonClassName, useContent, usePrefixClass, useVModel } from '@td/adapter-hooks';
+import { useCommonClassName, useContent, useDisabled, usePrefixClass, useVModel } from '@td/adapter-hooks';
 import props from '@td/intel/radio/props';
 import { isString, isUndefined } from 'lodash-es';
 import { omit } from '../utils/helper';
-import { useFormDisabled } from '../form/hooks';
 import { RadioButtonInjectionKey, RadioGroupInjectionKey } from './constants';
-
-// hooks
 
 function getValidAttrs(obj: Record<string, any>): Record<string, any> {
   const newObj = {};
@@ -44,8 +41,12 @@ export default defineComponent({
       e.stopPropagation();
     };
 
+    // extend radioGroup disabled props
+    const groupDisabled = computed(() => radioGroup?.disabled);
+    const isDisabled = useDisabled({ afterDisabled: groupDisabled });
+
     const onLabelClick = (e: MouseEvent) => {
-      if (disabled.value || props.readonly) {
+      if (isDisabled.value || props.readonly) {
         return;
       }
       props.onClick?.({ e });
@@ -80,15 +81,11 @@ export default defineComponent({
     });
     /** Event END */
 
-    // extend radioGroup disabled props
-    const groupDisabled = computed(() => radioGroup?.disabled);
-    const disabled = useFormDisabled(groupDisabled);
-
     // attribute
     const inputProps = computed(() => ({
       name: radioGroup ? radioGroup.name : props.name,
       checked: radioChecked.value,
-      disabled: disabled.value,
+      disabled: isDisabled.value,
       readonly: props.readonly,
       value: props.value,
     }));
@@ -115,7 +112,7 @@ export default defineComponent({
         ref={inputRef}
         class={inputClass.value}
         {...wrapperAttrs.value}
-        tabindex={disabled.value ? undefined : '0'}
+        tabindex={isDisabled.value ? undefined : '0'}
         onClick={onLabelClick}
       >
         <input

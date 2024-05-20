@@ -1,5 +1,5 @@
 import { computed, ref, toRefs, watch } from '@td/adapter-vue';
-import { useCommonClassName, useVModel } from '@td/adapter-hooks';
+import { useCommonClassName, useDisabled, useVModel } from '@td/adapter-hooks';
 import type { InputNumberValue, TdInputNumberProps } from '@td/intel/input-number/type';
 // 计算逻辑，统一到 common 中，方便各框架复用（如超过 16 位的大数处理）
 import {
@@ -13,7 +13,6 @@ import {
   getStepValue,
   largeNumberToFixed,
 } from '@td/shared/_common/js/input-number/number';
-import { useFormDisabled } from '../form/hooks';
 import type { StrInputProps } from '../input';
 
 /**
@@ -27,7 +26,7 @@ export default function useInputNumber(props: TdInputNumberProps) {
   const inputRef = ref();
   const userInput = ref('');
 
-  const tDisabled = useFormDisabled();
+  const tDisabled = useDisabled();
 
   const isError = ref<'exceed-maximum' | 'below-minimum'>();
 

@@ -1,8 +1,7 @@
 import { computed, inject, nextTick, ref, toRefs, watch } from '@td/adapter-vue';
 import type { InputValue, TdInputProps } from '@td/intel/input/type';
-import { useVModel } from '@td/adapter-hooks';
+import { useDisabled, useVModel } from '@td/adapter-hooks';
 import { FormItemInjectionKey } from '../form/const';
-import { useFormDisabled } from '../form/hooks';
 import useLengthLimit from './useLengthLimit';
 
 export function getOutputValue(val: InputValue, type: TdInputProps['type']) {
@@ -24,7 +23,7 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
   const compositionValue = ref<InputValue>();
   const clearIconRef = ref(null);
   const innerClickElement = ref();
-  const disabled = useFormDisabled();
+  const disabled = useDisabled();
   const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
 
   const isHover = ref(false);

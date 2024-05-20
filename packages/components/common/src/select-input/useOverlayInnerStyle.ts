@@ -1,5 +1,6 @@
 import type { CSSProperties } from '@td/adapter-vue';
 import { computed, ref, toRefs } from '@td/adapter-vue';
+import { useDisabled } from '@td/adapter-hooks';
 import { isFunction, isObject } from 'lodash-es';
 import type { TdSelectInputProps } from '@td/intel/select-input/type';
 import type { PopupVisibleChangeContext, TdPopupProps } from '../popup';
@@ -18,7 +19,7 @@ const RESERVE_WIDTH = 0;
 export default function useOverlayInnerStyle(props: overlayInnerStyleProps) {
   const { popupProps, autoWidth } = toRefs(props);
   const innerPopupVisible = ref(false);
-  const disable = useFormDisabled();
+  const disable = useDisabled();
 
   const matchWidthFunc = (triggerElement: HTMLElement, popupElement: HTMLElement) => {
     const SCROLLBAR_WIDTH = popupElement.scrollHeight > popupElement.offsetHeight ? RESERVE_WIDTH : 0;

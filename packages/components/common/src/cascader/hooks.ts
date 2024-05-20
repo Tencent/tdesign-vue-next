@@ -2,9 +2,8 @@ import type { Ref } from '@td/adapter-vue';
 import { computed, nextTick, reactive, toRefs, watch } from '@td/adapter-vue';
 import { isEqual, isFunction, isString } from 'lodash-es';
 
-import { useDefaultValue, useVModel } from '@td/adapter-hooks';
+import { useDefaultValue, useDisabled, useVModel } from '@td/adapter-hooks';
 import TreeStore from '@td/shared/_common/js/tree/tree-store';
-import { useFormDisabled } from '../form/hooks';
 import { getCascaderValue, getTreeValue, isEmptyValues, isValueInvalid } from './core/helper';
 import { treeNodesEffect, treeStoreExpendEffect } from './core/effect';
 
@@ -84,7 +83,7 @@ export function useContext(props: TdCascaderProps, setInnerValue: TdCascaderProp
 
 // 内聚组件核心的副作用与状态处理
 export function useCascaderContext(props: TdCascaderProps) {
-  const disabled = useFormDisabled();
+  const disabled = useDisabled();
   const { value, modelValue, popupVisible } = toRefs(props);
   const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
   const [innerPopupVisible, setPopupVisible] = useDefaultValue(

@@ -39,6 +39,7 @@ export default {
   /** 禁用全部操作：搜索、选中、移动、分页等。[源列表, 目标列表]，示例：[true, false] 或者 true */
   disabled: {
     type: [Boolean, Array] as PropType<TdTransferProps['disabled']>,
+    default: undefined,
   },
   /** 列表为空时呈现的内容。值类型为数组，则表示分别控制源列表和目标列表数据为空的呈现内容 */
   empty: {

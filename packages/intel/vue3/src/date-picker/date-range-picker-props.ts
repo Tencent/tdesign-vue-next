@@ -40,6 +40,10 @@ export default {
     type: String,
     default: '',
   },
+  /** 左侧文本 */
+  label: {
+    type: [String, Function] as PropType<TdDateRangePickerProps['label']>,
+  },
   /** 选择器模式 */
   mode: {
     type: String as PropType<TdDateRangePickerProps['mode']>,

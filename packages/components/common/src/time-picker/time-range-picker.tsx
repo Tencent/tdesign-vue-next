@@ -1,20 +1,16 @@
 import { computed, defineComponent, ref, toRefs, watch } from '@td/adapter-vue';
 import dayjs from 'dayjs';
+import isArray from 'lodash/isArray';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { TimeIcon as TdTimeIcon } from 'tdesign-icons-vue-next';
 
-// interfaces
 import props from '@td/intel/time-picker/time-range-picker-props';
 import type { TimeRangePickerPartial } from '@td/intel/time-picker/type';
-// hooks
-import { useVModel } from '@td/adapter-hooks';
-import { useCommonClassName, useConfig, usePrefixClass } from '@td/adapter-hooks';
-import { useGlobalIcon } from '@td/adapter-hooks';
+import { useCommonClassName, useConfig, useDisabled, useGlobalIcon, usePrefixClass, useVModel } from '@td/adapter-hooks';
 import { formatInputValue, validateInputValue } from '@td/shared/_common/js/time-picker/utils';
 import { TIME_PICKER_EMPTY } from '@td/shared/_common/js/time-picker/const';
 import { RangeInputPopup } from '../range-input';
 import type { RangeInputPosition } from '../range-input';
-import { useFormDisabled } from '../form/hooks';
 import type { TimeRangeValue } from './interface';
 import TimePickerPanel from './panel/time-picker-panel';
 
@@ -31,7 +27,7 @@ export default defineComponent({
     const { STATUS } = useCommonClassName();
     const { TimeIcon } = useGlobalIcon({ TimeIcon: TdTimeIcon });
 
-    const disabled = useFormDisabled();
+    const disabled = useDisabled();
     const currentPanelIdx = ref(undefined);
     const currentValue = ref<Array<string>>(TIME_PICKER_EMPTY);
     const isShowPanel = ref(false);
@@ -65,8 +61,10 @@ export default defineComponent({
       currentPanelIdx.value = position === 'first' ? 0 : 1;
     };
 
-    const handleTimeChange = (newValue: string, e: MouseEvent) => {
-      if (currentPanelIdx.value === 0) {
+    const handleTimeChange = (newValue: string | string[], e: MouseEvent) => {
+      if (isArray(newValue)) {
+        currentValue.value = newValue;
+      } else if (currentPanelIdx.value === 0) {
         currentValue.value = [newValue, currentValue.value[1] ?? newValue];
       } else {
         currentValue.value = [currentValue.value[0] ?? newValue, newValue];
@@ -107,10 +105,13 @@ export default defineComponent({
       props.onFocus?.({ value, e, position: position === 'first' ? 'start' : 'end' });
     };
 
-    const handleOnPick = (pickValue: string, e: MouseEvent) => {
+    const handleOnPick = (pickValue: string | string[], e: MouseEvent) => {
       let pickedRangeValue = [];
       let context;
-      if (currentPanelIdx.value === 0) {
+      if (isArray(pickValue)) {
+        pickedRangeValue = pickValue;
+        context = { e };
+      } else if (currentPanelIdx.value === 0) {
         pickedRangeValue = [pickValue, currentValue.value[1] ?? pickValue];
         context = { e, position: 'start' as TimeRangePickerPartial };
       } else {
@@ -160,6 +161,7 @@ export default defineComponent({
             activeIndex: currentPanelIdx.value,
             ...props.rangeInputProps,
           }}
+          label={props.label}
           status={props.status}
           tips={props.tips}
           panel={() => (

@@ -1,15 +1,20 @@
-import { computed, defineComponent } from '@td/adapter-vue';
+import { computed, defineComponent, PropType } from '@td/adapter-vue';
 import { usePrefixClass } from '@td/adapter-hooks';
 import { escapeRegExp, isString } from 'lodash-es';
+
+export interface HighlightOptionProps {
+  content: string;
+  keyword: string;
+}
 
 export default defineComponent({
   name: 'HighlightOption',
 
   props: {
     /** 联想词 */
-    content: String,
+    content: String as PropType<HighlightOptionProps['content']>,
     /** 搜索词 */
-    keyword: String,
+    keyword: String as PropType<HighlightOptionProps['keyword']>,
   },
 
   setup(props) {

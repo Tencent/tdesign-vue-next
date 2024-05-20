@@ -13,6 +13,11 @@ export interface TdAutoCompleteProps<T extends AutoCompleteOption = AutoComplete
    */
   autofocus?: boolean;
   /**
+   * 无边框模式
+   * @default false
+   */
+  borderless?: boolean;
+  /**
    * 是否允许清空
    */
   clearable?: boolean;
@@ -143,9 +148,4 @@ export interface AutoCompleteOptionObj {
   label?: string | TNode;
   text?: string;
   [key: string]: any;
-}
-
-export interface HighlightOptionProps {
-  content: string;
-  keyword: string;
 }

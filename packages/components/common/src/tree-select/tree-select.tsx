@@ -4,12 +4,7 @@ import { isArray, isBoolean, isEmpty, isFunction, isNil } from 'lodash-es';
 import type { TdTreeSelectProps, TreeSelectValue, TreeSelectValueChangeTrigger } from '@td/intel/tree-select/type';
 import props from '@td/intel/tree-select/props';
 
-// hooks
-import { useConfig, usePrefixClass } from '@td/adapter-hooks';
-import { useTNodeDefault, useTNodeJSX } from '@td/adapter-hooks';
-import { useVModel } from '@td/adapter-hooks';
-import { useDefaultValue } from '@td/adapter-hooks';
-import { useFormDisabled } from '../form/hooks';
+import { useConfig, useDefaultValue, useDisabled, usePrefixClass, useTNodeDefault, useTNodeJSX, useVModel } from '@td/adapter-hooks';
 import type { TreeOptionData } from '@td/shared/interface';
 import type { PopupVisibleChangeContext } from '../popup';
 import SelectInput from '../select-input';
@@ -27,7 +22,7 @@ export default defineComponent({
     const renderDefaultTNode = useTNodeDefault();
     const classPrefix = usePrefixClass();
     const { globalConfig } = useConfig('treeSelect');
-    const formDisabled = useFormDisabled();
+    const formDisabled = useDisabled();
 
     // ref
     const treeRef = ref(null);

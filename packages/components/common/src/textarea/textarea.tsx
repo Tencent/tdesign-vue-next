@@ -14,10 +14,7 @@ import {
 } from '@td/adapter-vue';
 import { isUndefined, merge } from 'lodash-es';
 
-// hooks
-import { useVModel } from '@td/adapter-hooks';
-import { useTNodeJSX } from '@td/adapter-hooks';
-import { useCommonClassName, usePrefixClass } from '@td/adapter-hooks';
+import { useCommonClassName, useDisabled, usePrefixClass, useTNodeJSX, useVModel } from '@td/adapter-hooks';
 
 import props from '@td/intel/textarea/props';
 import type { TdTextareaProps, TextareaValue } from '@td/intel/textarea/type';
@@ -52,7 +49,7 @@ export default defineComponent({
 
     const { value, modelValue } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
-    const disabled = useFormDisabled();
+    const disabled = useDisabled();
     const textareaStyle = ref<CSSProperties>({});
 
     const refTextareaElem = ref<HTMLTextAreaElement>();

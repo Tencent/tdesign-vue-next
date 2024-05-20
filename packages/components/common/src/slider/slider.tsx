@@ -15,10 +15,8 @@ import {
 import props from '@td/intel/slider/props';
 import type { SliderValue } from '@td/intel/slider/type';
 import { isArray, isNumber } from 'lodash-es';
-import { useCommonClassName, usePrefixClass, useVModel } from '@td/adapter-hooks';
-import { useFormDisabled } from '../form/hooks';
+import { useCommonClassName, useDisabled, usePrefixClass, useVModel } from '@td/adapter-hooks';
 import TSliderButton from './slider-button';
-// hooks
 
 import { useSliderMark } from './hooks/useSliderMark';
 import { useSliderInput } from './hooks/useSliderInput';
@@ -37,7 +35,7 @@ export default defineComponent({
   props: { ...props },
 
   setup(props) {
-    const disabled = useFormDisabled();
+    const disabled = useDisabled();
     const COMPONENT_NAME = usePrefixClass('slider');
     const { STATUS } = useCommonClassName();
     const { value, modelValue } = toRefs(props) as any;

@@ -5,9 +5,8 @@ import {
   CloseCircleFilledIcon as TdCloseCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
 import props from '@td/intel/input/props';
-import { useCommonClassName, useConfig, useGlobalIcon, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
+import { useCommonClassName, useConfig, useDisabled, useGlobalIcon, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import { isUndefined } from 'lodash-es';
-import { useFormDisabled } from '../form/hooks';
 import type { PlainObject } from '@td/shared/interface';
 import useInput from './useInput';
 import useInputEventHandler from './useInputEventHandler';
@@ -50,7 +49,7 @@ export default defineComponent({
       BrowseOffIcon: TdBrowseOffIcon,
       CloseCircleFilledIcon: TdCloseCircleFilledIcon,
     });
-    const disabled = useFormDisabled();
+    const disabled = useDisabled();
     const COMPONENT_NAME = usePrefixClass('input');
     const INPUT_WRAP_CLASS = usePrefixClass('input__wrap');
     const INPUT_TIPS_CLASS = usePrefixClass('input__tips');
@@ -189,6 +188,7 @@ export default defineComponent({
           [`${classPrefix.value}-is-readonly`]: props.readonly,
           [`${COMPONENT_NAME.value}--prefix`]: prefixIcon || labelContent,
           [`${COMPONENT_NAME.value}--suffix`]: suffixIcon || suffixContent,
+          [`${COMPONENT_NAME.value}--borderless`]: props.borderless,
           [`${COMPONENT_NAME.value}--focused`]: focused.value,
         },
       ];
