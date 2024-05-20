@@ -6,11 +6,11 @@ import {
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
   TimeFilledIcon as TdTimeFilledIcon,
 } from 'tdesign-icons-vue-next';
+import type { UploadFile } from '@td/intel/upload/type';
+import { abridgeName } from '@td/shared/_common/js/upload/utils';
 import TLoading from '../../loading';
 import Link from '../../link';
 import { useTNodeJSX } from '../../hooks/tnode';
-import type { UploadFile } from '../type';
-import { abridgeName } from '@td/shared/_common/js/upload/utils';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 import type { CommonDisplayFileProps } from '../interface';
 import { commonProps } from '../constants';

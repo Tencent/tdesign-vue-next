@@ -6,14 +6,14 @@ import {
   DeleteIcon as TdDeleteIcon,
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
+import type { TdUploadProps, UploadFile } from '@td/intel/upload/type';
+import { abridgeName } from '@td/shared/_common/js/upload/utils';
 import Loading from '../../loading';
 import useGlobalIcon from '../../hooks/useGlobalIcon';
 import type { ImageViewerProps } from '../../image-viewer';
 import ImageViewer from '../../image-viewer';
 import type { CommonDisplayFileProps } from '../interface';
 import { commonProps } from '../constants';
-import type { TdUploadProps, UploadFile } from '../type';
-import { abridgeName } from '@td/shared/_common/js/upload/utils';
 import type { UploadConfig } from '../../config-provider';
 import { useTNodeJSX } from '../../hooks';
 import Link from '../../link';

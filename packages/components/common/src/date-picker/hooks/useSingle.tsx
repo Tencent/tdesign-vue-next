@@ -3,11 +3,7 @@ import { CalendarIcon as TdCalendarIcon } from 'tdesign-icons-vue-next';
 import dayjs from 'dayjs';
 import { omit } from 'lodash-es';
 
-import { useTNodeJSX } from '../../hooks/tnode';
-import { useFormDisabled } from '../../form/hooks';
-import { usePrefixClass } from '../../hooks/useConfig';
-import { useGlobalIcon } from '../../hooks/useGlobalIcon';
-import type { DateValue, TdDatePickerProps } from '../type';
+import type { DateValue, TdDatePickerProps } from '@td/intel/date-picker/type';
 import {
   formatDate,
   formatTime,
@@ -15,6 +11,10 @@ import {
   isValidDate,
   parseToDayjs,
 } from '@td/shared/_common/js/date-picker/format';
+import { useTNodeJSX } from '../../hooks/tnode';
+import { useFormDisabled } from '../../form/hooks';
+import { usePrefixClass } from '../../hooks/useConfig';
+import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 import useSingleValue from './useSingleValue';
 
 export default function useSingle(props: TdDatePickerProps) {

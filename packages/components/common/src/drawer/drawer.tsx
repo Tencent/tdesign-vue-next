@@ -3,8 +3,8 @@ import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
 import { useConfig, useContent, useGlobalIcon, usePrefixClass, useTNodeJSX, useTeleport } from '@td/adapter-hooks';
 import props from '@td/intel/drawer/props';
 import type { DrawerCloseContext, TdDrawerProps } from '@td/intel/drawer/type';
-import { isServer } from '../utils/dom';
 import { getScrollbarWidth } from '@td/shared/_common/js/utils/getScrollbarWidth';
+import { isServer } from '../utils/dom';
 import { useAction } from '../dialog/hooks';
 import { useDrag } from './hooks';
 

@@ -1,8 +1,7 @@
 import { computed, ref, toRefs, watchEffect } from '@td/adapter-vue';
 import { isArray } from 'lodash-es';
-import useVModel from '../../hooks/useVModel';
 
-import type { TdDateRangePickerProps } from '../type';
+import type { TdDateRangePickerProps } from '@td/intel/date-picker/type';
 import {
   formatDate,
   formatTime,
@@ -11,6 +10,7 @@ import {
   isValidDate,
 } from '@td/shared/_common/js/date-picker/format';
 import { extractTimeFormat } from '@td/shared/_common/js/date-picker/utils';
+import useVModel from '../../hooks/useVModel';
 
 export const PARTIAL_MAP = { first: 'start', second: 'end' };
 

@@ -1,10 +1,10 @@
 import type { Ref } from '@td/adapter-vue';
 import { computed, ref, toRefs } from '@td/adapter-vue';
 import { get } from 'lodash-es';
+import { ALL_REG, ARROW_DOWN_REG, ARROW_UP_REG, CLEAR_REG, ESCAPE_REG, SPACE_REG } from '@td/shared/_common/js/common';
+import type { RowEventContext, TableRowData } from '@td/intel/table/type';
 import type { BaseTableProps } from '../interface';
 import { off, on } from '../../utils/dom';
-import { ALL_REG, ARROW_DOWN_REG, ARROW_UP_REG, CLEAR_REG, ESCAPE_REG, SPACE_REG } from '@td/shared/_common/js/common';
-import type { RowEventContext, TableRowData } from '../type';
 
 /**
  * 需要进行表格行操作时，则需要键盘操作的悬浮效果来表达当前的哪一行

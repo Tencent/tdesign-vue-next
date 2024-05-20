@@ -4,7 +4,6 @@
 import type { h } from '@td/adapter-vue';
 import { computed, ref, toRefs, watch } from '@td/adapter-vue';
 import { get, intersection, isFunction } from 'lodash-es';
-import useDefaultValue from '../../hooks/useDefaultValue';
 import type {
   ActiveRowActionContext,
   PrimaryTableCellParams,
@@ -12,11 +11,12 @@ import type {
   RowClassNameParams,
   TableRowData,
   TdPrimaryTableProps,
-} from '../type';
+} from '@td/intel/table/type';
 import { isRowSelectedDisabled } from '@td/shared/_common/js/table/utils';
+import log from '@td/shared/_common/js/log';
+import useDefaultValue from '../../hooks/useDefaultValue';
 import Checkbox from '../../checkbox';
 import Radio from '../../radio';
-import log from '@td/shared/_common/js/log';
 import type { TableClassName } from './useClassName';
 
 export default function useRowSelect(

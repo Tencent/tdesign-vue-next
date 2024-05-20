@@ -1,5 +1,5 @@
 import { computed, toRefs } from '@td/adapter-vue';
-import type { TdBaseTableProps } from '../type';
+import type { TdBaseTableProps } from '@td/intel/table/type';
 import useCommonClassName from '../../hooks/useCommonClassName';
 import { useConfig } from '../../hooks/useConfig';
 import useClassName from './useClassName';

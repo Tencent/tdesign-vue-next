@@ -1,12 +1,12 @@
 import type { PropType } from '@td/adapter-vue';
 import { computed, defineComponent } from '@td/adapter-vue';
 import { DownloadIcon, ImageIcon, MirrorIcon, RotationIcon, ZoomInIcon, ZoomOutIcon } from 'tdesign-icons-vue-next';
+import type { ImageInfo } from '@td/intel/image-viewer/type';
+import { largeNumberToFixed } from '@td/shared/_common/js/input-number/large-number';
 import TToolTip from '../../tooltip';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 import { downloadFile } from '../utils';
 import { useImagePreviewUrl } from '../../hooks';
-import type { ImageInfo } from '../type';
-import { largeNumberToFixed } from '@td/shared/_common/js/input-number/large-number';
 import TImageViewerIcon from './ImageModalIcon';
 
 export default defineComponent({

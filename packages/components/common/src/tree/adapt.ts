@@ -4,11 +4,11 @@ import * as Vue from '@td/adapter-vue';
 import type { ComponentPublicInstance, PropType, Ref, SetupContext, ToRefs, UnwrapNestedRefs, VNode } from '@td/adapter-vue';
 import type { TdTreeProps, TreeInstanceFunctions } from '@td/intel/tree/type';
 import type { VirtualScrollConfig, tdUseDefaultValue, tdUseVModel } from '@td/adapter-hooks';
+import type { TypeTreeEventState as TreeEventState } from '@td/shared/_common/js/tree/types';
+import type { TreeStore } from '@td/shared/_common/js/tree/tree-store';
 import type { CheckboxProps } from '../checkbox';
 import type { ClassName, Styles, TNode, TNodeReturnValue, TScroll, TreeOptionData } from '../common';
-import type { TypeTreeEventState as TreeEventState } from '@td/shared/_common/js/tree/types';
 import tdWithInstall from '../utils/withInstall';
-import type { TreeStore } from '@td/shared/_common/js/tree/tree-store';
 
 export { ref, reactive, computed, watch, onMounted, toRefs, defineComponent, TransitionGroup } from '@td/adapter-vue';
 export { CaretRightSmallIcon as TdCaretRightSmallIcon } from 'tdesign-icons-vue-next';

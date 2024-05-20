@@ -2,12 +2,12 @@ import { computed, ref, watch } from '@td/adapter-vue';
 import { CalendarIcon as TdCalendarIcon } from 'tdesign-icons-vue-next';
 import { omit } from 'lodash-es';
 
+import type { DateValue, TdDateRangePickerProps } from '@td/intel/date-picker/type';
+import { formatDate, getDefaultFormat, isValidDate, parseToDayjs } from '@td/shared/_common/js/date-picker/format';
 import { useTNodeJSX } from '../../hooks/tnode';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 
-import type { DateValue, TdDateRangePickerProps } from '../type';
-import { formatDate, getDefaultFormat, isValidDate, parseToDayjs } from '@td/shared/_common/js/date-picker/format';
 import useRangeValue from './useRangeValue';
 
 export const PARTIAL_MAP = { first: 'start', second: 'end' };

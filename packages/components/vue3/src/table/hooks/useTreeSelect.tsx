@@ -1,7 +1,7 @@
 import type { Ref } from '@td/adapter-vue';
 import { computed, ref, toRefs, watch } from '@td/adapter-vue';
 import { get, intersection } from 'lodash-es';
-import type { PrimaryTableCol, TableRowData, TdEnhancedTableProps, TdPrimaryTableProps } from '../type';
+import type { PrimaryTableCol, TableRowData, TdEnhancedTableProps, TdPrimaryTableProps } from '@td/intel/table/type';
 import type { KeysType, TableTreeDataMap, TreeDataMapType } from '@td/shared/_common/js/table/tree-store';
 import useDefaultValue from '../../hooks/useDefaultValue';
 

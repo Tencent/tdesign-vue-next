@@ -1,7 +1,7 @@
 import { isString } from 'lodash-es';
 import { computed } from '@td/adapter-vue';
+import type { TdPrimaryTableProps } from '@td/intel/table/type';
 import { useTNodeJSX } from '../../hooks/tnode';
-import type { TdPrimaryTableProps } from '../type';
 import Loading from '../../loading';
 import { useConfig } from '../../hooks/useConfig';
 import useClassName from './useClassName';

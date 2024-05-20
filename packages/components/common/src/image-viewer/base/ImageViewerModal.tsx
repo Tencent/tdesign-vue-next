@@ -1,10 +1,10 @@
 import type { PropType } from '@td/adapter-vue';
 import { computed, defineComponent } from '@td/adapter-vue';
 import props from '@td/intel/image-viewer/props';
+import type { ImageInfo, TdImageViewerProps } from '@td/intel/image-viewer/type';
 import TDialog from '../../dialog';
 import { usePrefixClass } from '../../hooks/useConfig';
 import { useTNodeJSX } from '../../hooks/tnode';
-import type { ImageInfo, TdImageViewerProps } from '../type';
 import TImageViewerUtils from './ImageViewerUtils';
 import TImageItem from './ImageItem';
 

@@ -1,6 +1,6 @@
 import { computed, ref, toRefs } from '@td/adapter-vue';
 import { merge } from 'lodash-es';
-import type { SizeLimitObj, TdUploadProps, UploadChangeContext, UploadFile, UploadRemoveContext } from '../type';
+import type { SizeLimitObj, TdUploadProps, UploadChangeContext, UploadFile, UploadRemoveContext } from '@td/intel/upload/type';
 import {
   formatToUploadFile,
   getDisplayFiles,
@@ -10,8 +10,8 @@ import {
   validateFile,
 } from '@td/shared/_common/js/upload/main';
 import { getFileList } from '@td/shared/_common/js/upload/utils';
-import useVModel from '../../hooks/useVModel';
 import type { InnerProgressContext, OnResponseErrorContext, SuccessContext } from '@td/shared/_common/js/upload/types';
+import useVModel from '../../hooks/useVModel';
 import { useConfig } from '../../hooks/useConfig';
 
 export type ValidateParams = Parameters<TdUploadProps['onValidate']>[0];

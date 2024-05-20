@@ -1,7 +1,7 @@
 import type { Ref } from '@td/adapter-vue';
 import { computed } from '@td/adapter-vue';
+import type { TdListProps } from '@td/intel/list/type';
 import useVirtualScroll from '../../hooks/useVirtualScrollNew';
-import type { TdListProps } from '../type';
 import type { Styles } from '../../common';
 
 export function useListVirtualScroll(scroll: TdListProps['scroll'], listRef: Ref<HTMLElement>, listItems: Ref<any[]>) {

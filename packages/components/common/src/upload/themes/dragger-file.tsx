@@ -5,7 +5,7 @@ import {
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
 import { abridgeName, getFileSizeText } from '@td/shared/_common/js/upload/utils';
-import type { TdUploadProps, UploadFile } from '../type';
+import type { TdUploadProps, UploadFile } from '@td/intel/upload/type';
 import Button from '../../button';
 import type { CommonDisplayFileProps } from '../interface';
 import { commonProps } from '../constants';

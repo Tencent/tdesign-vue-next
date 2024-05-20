@@ -6,9 +6,9 @@ import {
   isValidDate,
   parseToDayjs,
 } from '@td/shared/_common/js/date-picker/format';
-import useVModel from '../../hooks/useVModel';
-import type { TdDatePickerProps } from '../type';
+import type { TdDatePickerProps } from '@td/intel/date-picker/type';
 import { extractTimeFormat } from '@td/shared/_common/js/date-picker/utils';
+import useVModel from '../../hooks/useVModel';
 
 export default function useSingleValue(props: TdDatePickerProps) {
   const { value: valueFromProps, modelValue } = toRefs(props);

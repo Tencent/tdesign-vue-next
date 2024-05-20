@@ -14,15 +14,7 @@ import {
   VideoIcon,
 } from 'tdesign-icons-vue-next';
 import { isFunction, isObject } from 'lodash-es';
-import useGlobalIcon from '../../hooks/useGlobalIcon';
-import type { ImageViewerProps } from '../../image-viewer';
-import ImageViewer from '../../image-viewer';
-import type { CommonDisplayFileProps } from '../interface';
-import { commonProps } from '../constants';
-import TButton from '../../button';
-import type { TdUploadProps, UploadFile } from '../type';
-import type { UploadDragEvents } from '../hooks/useDrag';
-import useDrag from '../hooks/useDrag';
+import type { TdUploadProps, UploadFile } from '@td/intel/upload/type';
 import {
   FILE_EXCEL_REGEXP,
   FILE_PDF_REGEXP,
@@ -33,6 +25,14 @@ import {
   abridgeName,
   returnFileSize,
 } from '@td/shared/_common/js/upload/utils';
+import useGlobalIcon from '../../hooks/useGlobalIcon';
+import type { ImageViewerProps } from '../../image-viewer';
+import ImageViewer from '../../image-viewer';
+import type { CommonDisplayFileProps } from '../interface';
+import { commonProps } from '../constants';
+import TButton from '../../button';
+import type { UploadDragEvents } from '../hooks/useDrag';
+import useDrag from '../hooks/useDrag';
 import TLoading from '../../loading';
 import { useTNodeJSX } from '../../hooks';
 import Link from '../../link';

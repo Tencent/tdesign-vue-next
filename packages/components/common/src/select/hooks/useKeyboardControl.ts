@@ -1,10 +1,10 @@
 import type { ComputedRef, Ref } from '@td/adapter-vue';
 import { ref, watch } from '@td/adapter-vue';
+import type { SelectOption, SelectValue, TdOptionProps } from '@td/intel/select/type';
 import { usePrefixClass } from '../../hooks/useConfig';
 
 import { getNewMultipleValue } from '../helper';
 
-import type { SelectOption, SelectValue, TdOptionProps } from '../type';
 import type { ChangeHandler } from '../../hooks/useVModel';
 import type { PopupVisibleChangeContext } from '../../popup';
 

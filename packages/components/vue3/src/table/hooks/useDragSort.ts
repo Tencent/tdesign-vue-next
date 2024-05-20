@@ -4,12 +4,12 @@ import { computed, h, ref, toRefs, watch } from '@td/adapter-vue';
 import type { MoveEvent, SortableEvent, SortableOptions } from 'sortablejs';
 import Sortable from 'sortablejs';
 import { isFunction } from 'lodash-es';
-import type { DragSortContext, PrimaryTableCol, TableRowData, TdPrimaryTableProps } from '../type';
+import type { DragSortContext, PrimaryTableCol, TableRowData, TdPrimaryTableProps } from '@td/intel/table/type';
 import log from '@td/shared/_common/js/log';
-import { hasClass } from '../../utils/dom';
 import swapDragArrayElement from '@td/shared/_common/js/utils/swapDragArrayElement';
-import type { BaseTableColumns, SimplePageInfo } from '../interface';
 import { getColumnDataByKey, getColumnIndexByKey } from '@td/shared/_common/js/table/utils';
+import { hasClass } from '../../utils/dom';
+import type { BaseTableColumns, SimplePageInfo } from '../interface';
 import useClassName from './useClassName';
 
 function removeNode(node: HTMLElement) {

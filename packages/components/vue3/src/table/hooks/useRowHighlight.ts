@@ -1,10 +1,7 @@
 import type { Ref } from '@td/adapter-vue';
 import { ref, toRefs } from '@td/adapter-vue';
 import { get } from 'lodash-es';
-import useDefaultValue from '../../hooks/useDefaultValue';
-import type { BaseTableProps } from '../interface';
-import type { RowEventContext, TableRowData } from '../type';
-import { off, on } from '../../utils/dom';
+import type { RowEventContext, TableRowData } from '@td/intel/table/type';
 import {
   ALL_REG,
   ARROW_DOWN_REG,
@@ -14,6 +11,9 @@ import {
   SHIFT_REG,
   SPACE_REG,
 } from '@td/shared/_common/js/common';
+import useDefaultValue from '../../hooks/useDefaultValue';
+import type { BaseTableProps } from '../interface';
+import { off, on } from '../../utils/dom';
 
 /**
  * 行高亮功能，支持键盘操作

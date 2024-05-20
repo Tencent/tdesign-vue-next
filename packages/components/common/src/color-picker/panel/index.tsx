@@ -1,6 +1,7 @@
 import { computed, defineComponent, ref, toRefs, watch } from '@td/adapter-vue';
 import { cloneDeep } from 'lodash-es';
 import props from '@td/intel/color-picker/props';
+import type { ColorPickerChangeTrigger, TdColorPickerProps } from '@td/intel/color-picker/type';
 import { useCommonClassName, useConfig } from '../../hooks/useConfig';
 import {
   DEFAULT_COLOR,
@@ -10,7 +11,6 @@ import {
 } from '../const';
 import type { GradientColorPoint } from '../utils';
 import { Color, getColorObject } from '../utils';
-import type { ColorPickerChangeTrigger, TdColorPickerProps } from '../type';
 import type { TdColorModes } from '../interfaces';
 import { useBaseClassName } from '../hooks';
 import useVModel from '../../hooks/useVModel';

@@ -1,9 +1,9 @@
 import type { Ref, VNode } from '@td/adapter-vue';
 import { computed } from '@td/adapter-vue';
 import { cloneDeep, isArray } from 'lodash-es';
-import type { SliderMarks } from '../type';
-import type { TNode } from '../../common';
+import type { SliderMarks } from '@td/intel/slider/type';
 import log from '@td/shared/_common/js/log/log';
+import type { TNode } from '../../common';
 import { getStopStyle } from '../util/common';
 import TSliderMark from '../slider-mark';
 
