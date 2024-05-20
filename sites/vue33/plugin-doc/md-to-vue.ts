@@ -1,11 +1,14 @@
-/* eslint-disable */
-import fs from 'fs';
-import path from 'path';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
 import matter from 'gray-matter';
-import { compileUsage, getGitTimestamp } from '../../src/_common/docs/compile';
 import camelCase from 'camelcase';
 
-import testCoverage from '../test-coverage';
+import { compileUsage, getGitTimestamp } from '../../node_modules/@td/shared/_common/docs/compile';
+import testCoverage from './test-coverage';
+
+// import { compileUsage, getGitTimestamp } from '@td/shared/_common/docs/compile';
+// ! zhangpaopao 因为 common/_common 为 cjs 的，所以无法通过 ESM 加载
+// 问题来了，为啥 path 可以呢？ 因为 path 是本地文件，而 workspace 是 node_models(依赖)
 
 const DEFAULT_TABS = [
   { tab: 'demo', name: '示例' },
@@ -195,7 +198,8 @@ async function customRender({ source, file, md }) {
     const usageObj = compileUsage({
       componentName,
       usage: pageData.usage,
-      demoPath: path.posix.resolve(__dirname, `../../src/${componentName}/_usage/index.vue`).replace(/\\/g, '/'),
+      // ! zhangpaopao 直接走的 node_modules
+      demoPath: path.posix.resolve(__dirname, '../../', `node_modules/@td/intel-vue3/components/${componentName}/_usage/index.vue`).replace(/\\/g, '/'),
     });
     if (usageObj) {
       mdSegment.usage = usageObj;
@@ -220,12 +224,13 @@ async function customRender({ source, file, md }) {
   }
 
   // 设计指南内容 不展示 design Tab 则不解析
-  if (pageData.isComponent && pageData.tdDocTabs.some((item) => item.tab === 'design')) {
-    const designDocPath = path.resolve(__dirname, `../../src/_common/docs/web/design/${componentName}.md`);
+  if (pageData.isComponent && pageData.tdDocTabs.some(item => item.tab === 'design')) {
+    // ! zhangpaopao 直接走的 node_modules
+    const designDocPath = path.resolve(__dirname, '../../', `node_modules/@td/shared/_common/docs/web/design/${componentName}.md`);
 
     if (fs.existsSync(designDocPath)) {
-      const designDocLastUpdated =
-        (await getGitTimestamp(designDocPath)) || Math.round(fs.statSync(designDocPath).mtimeMs);
+      const designDocLastUpdated
+        = (await getGitTimestamp(designDocPath)) || Math.round(fs.statSync(designDocPath).mtimeMs);
       mdSegment.designDocLastUpdated = designDocLastUpdated;
 
       const designMd = fs.readFileSync(designDocPath, 'utf-8');

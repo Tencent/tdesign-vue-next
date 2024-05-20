@@ -9,10 +9,9 @@ export default () =>
     plugins: [
       vue({
         include: [/\.md$/],
-        ssr: false,
         template: {
           compilerOptions: {
-            isCustomElement: (tag) => tag.startsWith('td-'),
+            isCustomElement: tag => tag.startsWith('td-'),
           },
         },
       }),
@@ -21,7 +20,7 @@ export default () =>
     markdown: {
       anchor: {
         tabIndex: false,
-        config: (anchor) => ({
+        config: anchor => ({
           permalink: anchor.permalink.linkInsideHeader({ symbol: '' }),
         }),
       },

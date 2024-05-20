@@ -1,5 +1,4 @@
-/* eslint-disable */
-import path from 'path';
+import * as path from 'node:path';
 
 export default function renderDemo(md, container) {
   md.use(container, 'demo', {
@@ -8,22 +7,23 @@ export default function renderDemo(md, container) {
     },
     render(tokens, idx) {
       if (tokens[idx].nesting === 1) {
-        const match = tokens[idx].info.trim().match(/^demo\s+([\\/.\w-]+)(\s+(.+?))?(\s+--dev)?$/);
+        const match = tokens[idx].info
+          .trim()
+          .match(/^demo\s+([\\/.\w-]+)(\s+(.+?))?(\s+--dev)?$/);
         const [, demoPath, componentName = ''] = match;
-        const demoPathOnlyLetters = demoPath.replace(/[^a-zA-Z\d]/g, '');
+        const demoPathOnlyLetters = demoPath.replace(/[^a-z\d]/gi, '');
         const demoName = path.basename(demoPath);
         const demoDefName = `Demo${demoPathOnlyLetters}`;
         const demoCodeDefName = `Demo${demoPathOnlyLetters}Code`;
         const demoTSCodeDefName = `Demo${demoPathOnlyLetters}TsCode`; // ts示例
-
         const tpl = `
           <td-doc-demo component-name="${componentName.trim()}" demo-name="${demoName}" language="markup" languages="JavaScript,TypeScript" :data-JavaScript="${demoCodeDefName}" :data-TypeScript="${demoTSCodeDefName}">
             <div slot="action">
-              <Stackblitz demo-name="${demoName}" component-name="${componentName}" :code=${demoCodeDefName} />
-              <CodeSandbox demo-name="${demoName}" component-name="${componentName}" :code=${demoCodeDefName} />
+              <Stackblitz demo-name="${demoName}" component-name="${componentName}" />
+              <CodeSandbox demo-name="${demoName}" component-name="${componentName}" />
             </div>
             <div class="tdesign-demo-item__body">
-              <${demoDefName} />  
+              <${demoDefName} />
             </div>
           </td-doc-demo>
         `;
