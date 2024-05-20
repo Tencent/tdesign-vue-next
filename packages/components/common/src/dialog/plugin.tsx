@@ -2,7 +2,7 @@ import type { App, Plugin } from '@td/adapter-vue';
 import { createApp, defineComponent, h, nextTick, onMounted, ref } from '@td/adapter-vue';
 import type { DialogAlertMethod, DialogConfirmMethod, DialogInstance, DialogMethod, DialogOptions } from '@td/intel/dialog/type';
 import { omit } from 'lodash-es';
-import { getAttach } from '../utils/dom';
+import { getAttach } from '@td/adapter-utils';
 import DialogComponent from './dialog';
 
 const createDialog: DialogMethod = (props: DialogOptions) => {

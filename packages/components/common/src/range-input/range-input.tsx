@@ -11,7 +11,7 @@ import { useCommonClassName, usePrefixClass } from '@td/adapter-hooks';
 import { useTNodeJSX } from '@td/adapter-hooks';
 import { isArray } from 'lodash-es';
 import { useFormDisabled } from '../form/hooks';
-import Input from '../input';
+import { Input } from '@td/components-common';;
 
 function calcArrayValue(value: unknown | Array<unknown>) {
   if (isArray(value)) {

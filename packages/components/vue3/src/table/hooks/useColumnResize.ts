@@ -9,7 +9,7 @@ import type { Ref } from '@td/adapter-vue';
 import { onMounted, reactive, ref } from '@td/adapter-vue';
 import { isNumber } from 'lodash-es';
 import type { BaseTableCol, TableRowData, TdBaseTableProps } from '@td/intel/table/type';
-import { off, on } from '../../utils/dom';
+import { off, on } from '@td/adapter-utils';
 
 const DEFAULT_MIN_WIDTH = 80;
 const DEFAULT_MAX_WIDTH = 600;

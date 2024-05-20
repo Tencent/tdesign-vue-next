@@ -2,9 +2,9 @@ import { computed, defineComponent, getCurrentInstance, onMounted, ref, toRefs, 
 import { isFunction, omit } from 'lodash-es';
 import props from '@td/intel/tooltip/props';
 import { useContent, usePrefixClass, useTNodeJSX, useVModel } from '@td/adapter-hooks';
+import { Popup } from '@td/components';
 import popupProps from '../popup/props';
 import type { PopupVisibleChangeContext } from '../popup';
-import Popup from '../popup';
 import { useMouse } from './util';
 
 export default defineComponent({

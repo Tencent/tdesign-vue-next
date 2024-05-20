@@ -6,7 +6,7 @@ import props from '@td/intel/back-top/props';
 
 import type { TdBackTopProps } from '@td/intel/back-top/type';
 import { useChildSlots, useConfig, useContent, usePrefixClass } from '@td/adapter-hooks';
-import { scrollTo } from '../utils/dom';
+import { scrollTo } from '@td/adapter-utils';
 
 export default defineComponent({
   name: 'TBackTop',

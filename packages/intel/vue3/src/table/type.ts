@@ -15,9 +15,9 @@ import type {
   TNode,
   TScroll,
 } from '@td/shared/interface';
+import type { TableConfig } from '@td/components-common';
 import type { AffixProps } from '../affix';
 import type { LoadingProps } from '../loading';
-import type { TableConfig } from '../config-provider';
 import type { PageInfo, PaginationProps } from '../pagination';
 import type { TooltipProps } from '../tooltip';
 import type { CheckboxGroupProps, CheckboxGroupValue, CheckboxProps } from '../checkbox';

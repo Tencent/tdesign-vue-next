@@ -3,8 +3,8 @@
  */
 
 import type { SizeEnum, TNode } from '@td/shared/interface';
+import { Popup } from '@td/components';
 import type { InputProps } from '../input';
-import type { PopupProps } from '../popup';
 import type { SelectInputProps } from '../select-input';
 
 export interface TdColorPickerProps {

@@ -9,14 +9,14 @@ import type { TdUploadProps, UploadFile } from '@td/intel/upload/type';
 import Button from '../../button';
 import type { CommonDisplayFileProps } from '../interface';
 import { commonProps } from '../constants';
-import useCommonClassName from '../../hooks/useCommonClassName';
+import { useCommonClassName } from '@td/adapter-hooks';
 import TLoading from '../../loading';
 import type { UploadDragEvents } from '../hooks/useDrag';
 import useDrag from '../hooks/useDrag';
 import useGlobalIcon from '../../hooks/useGlobalIcon';
 import type { ImageViewerProps } from '../../image-viewer';
 import ImageViewer from '../../image-viewer';
-import { useTNodeJSX } from '../../hooks';
+import { useTNodeJSX } from '@td/adapter-hooks';
 import type { UploadConfig } from '../../config-provider';
 import Image from '../../image';
 

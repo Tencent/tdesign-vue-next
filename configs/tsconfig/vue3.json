@@ -26,7 +26,7 @@
       "@td/intel/*": [
         "packages/intel/vue3/src/*"
       ],
-      "@td/component": [
+      "@td/components": [
         "packages/components/vue3"
       ],
       "@td/shared/*": [

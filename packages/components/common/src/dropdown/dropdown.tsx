@@ -3,7 +3,7 @@ import { isArray, isNumber, omit } from 'lodash-es';
 import type { DropdownOption, TdDropdownProps } from '@td/intel/dropdown/type';
 import props from '@td/intel/dropdown/props';
 import { usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
-import Popup from '../popup/index';
+import Popup from '@td/components/popup';
 import type { PopupVisibleChangeContext } from '../popup/index';
 import DropdownMenu from './dropdown-menu';
 import useDropdownOptions from './hooks/useDropdownOptions';

@@ -11,9 +11,9 @@ import {
   SHIFT_REG,
   SPACE_REG,
 } from '@td/shared/_common/js/common';
-import useDefaultValue from '../../hooks/useDefaultValue';
+import { off, on } from '@td/adapter-utils';
+import { useDefaultValue } from '@td/adapter-hooks';
 import type { BaseTableProps } from '../interface';
-import { off, on } from '../../utils/dom';
 
 /**
  * 行高亮功能，支持键盘操作

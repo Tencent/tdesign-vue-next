@@ -11,7 +11,7 @@ import type {
   NotificationSuccessMethod,
   NotificationWarningMethod,
 } from '@td/intel/notification/type';
-import { getAttach } from '../utils/dom';
+import { getAttach } from '@td/adapter-utils';
 import type { AttachNodeReturnValue } from '@td/shared/interface';
 import NotificationList from './notificationList';
 import './style';

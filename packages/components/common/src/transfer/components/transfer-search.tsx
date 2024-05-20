@@ -2,10 +2,10 @@ import type { PropType } from '@td/adapter-vue';
 import { defineComponent } from '@td/adapter-vue';
 import { SearchIcon as TdSearchIcon } from 'tdesign-icons-vue-next';
 
+import { useGlobalIcon } from '@td/adapter-hooks';
 import type { SearchOption } from '../interface';
 import TInput from '../../input';
-import { usePrefixClass } from '../../hooks/useConfig';
-import { useGlobalIcon } from '../../hooks/useGlobalIcon';
+import { usePrefixClass } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'TTransferSearch',

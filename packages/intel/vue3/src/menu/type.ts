@@ -3,7 +3,7 @@
  */
 
 import type { TNode } from '@td/shared/interface';
-import type { PopupProps } from '../popup';
+import { Popup } from '@td/components';
 
 export interface TdMenuProps {
   /**

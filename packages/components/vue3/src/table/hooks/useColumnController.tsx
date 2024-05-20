@@ -7,16 +7,12 @@ import { SettingIcon as TdSettingIcon } from 'tdesign-icons-vue-next';
 // import { intersection } from 'lodash-es';
 import { isFunction } from 'lodash-es';
 import type { PrimaryTableCol, TdPrimaryTableProps } from '@td/intel/table/type';
+import { useConfig, useDefaultValue, useGlobalIcon, useTNodeJSX } from '@td/adapter-hooks';
+import { DialogPlugin, Button as TButton } from '@td/components-common';
+import type { DialogInstance } from '@td/components-common';
 import type { CheckboxGroupChangeContext, CheckboxGroupValue, CheckboxOptionObj } from '../../checkbox';
-import { DialogPlugin } from '../../dialog/plugin';
-import { useConfig } from '../../hooks/useConfig';
-import { useGlobalIcon } from '../../hooks/useGlobalIcon';
-import useDefaultValue from '../../hooks/useDefaultValue';
 import { getCurrentRowByKey } from '../utils';
-import type { DialogInstance } from '../../dialog';
-import TButton from '../../button';
 import ColumnCheckboxGroup from '../column-checkbox-group';
-import { useTNodeJSX } from '../../hooks';
 import { renderTitle } from './useTableHeader';
 
 export function getColumnKeys(columns: PrimaryTableCol[], keys = new Set<string>()) {

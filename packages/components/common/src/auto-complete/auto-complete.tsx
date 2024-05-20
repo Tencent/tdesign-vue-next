@@ -1,15 +1,15 @@
 import { computed, defineComponent, nextTick, ref, toRefs } from '@td/adapter-vue';
 import props from '@td/intel/auto-complete/props';
 import type { TdAutoCompleteProps } from '@td/intel/auto-complete/type';
-import { useCommonClassName, useVModel } from '@td/adapter-hooks';
-import type { InputProps, StrInputProps } from '../input';
-import Input from '../input';
-import type { PopupProps } from '../popup';
-import Popup from '../popup';
-import { useConfig } from '../config-provider/useConfig';
+import { useCommonClassName, useContent, useTNodeJSX, useVModel } from '@td/adapter-hooks';
+import { Input } from '@td/components-common';
+import { Popup } from '@td/components';
 import type { ClassName } from '@td/shared/interface';
-import { useContent, useTNodeJSX } from '@td/adapter-hooks';
+import type { InputProps, StrInputProps } from '../input';
+import { useConfig } from '../config-provider/useConfig';
 import AutoCompleteOptionList from './option-list';
+
+;
 
 export default defineComponent({
   name: 'TAutoComplete',

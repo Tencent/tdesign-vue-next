@@ -1,4 +1,4 @@
-import { elementInViewport, getWindowSize, scrollTo } from '../../utils/dom';
+import { elementInViewport, getWindowSize, scrollTo } from '@td/adapter-utils';
 
 export default function scrollToElm(elm: HTMLElement) {
   const rect = elm.getBoundingClientRect();

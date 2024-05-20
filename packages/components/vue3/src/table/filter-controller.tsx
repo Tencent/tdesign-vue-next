@@ -5,13 +5,12 @@ import { isEmpty, isFunction } from 'lodash-es';
 import { useConfig, useGlobalIcon, useTNodeDefault } from '@td/adapter-hooks';
 import type { FilterValue, PrimaryTableCol } from '@td/intel/table/type';
 import type { AttachNode } from '@td/shared/interface';
-import type { PopupProps } from '../popup';
-import Popup from '../popup';
+import { Input, RadioGroup, Button as TButton } from '@td/components-common';
+import type { TableConfig } from '@td/components-common';
+import { Popup } from '@td/components';
 import { CheckboxGroup } from '../checkbox';
-import { RadioGroup } from '../radio';
-import Input from '../input';
-import TButton from '../button';
-import type { TableConfig } from '../config-provider';
+
+;
 
 export interface TableFilterControllerProps {
   locale: TableConfig;

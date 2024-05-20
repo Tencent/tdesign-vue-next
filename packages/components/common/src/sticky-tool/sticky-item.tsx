@@ -2,11 +2,10 @@ import type { PropType } from '@td/adapter-vue';
 import { computed, defineComponent } from '@td/adapter-vue';
 import baseProps from '@td/intel/sticky-tool/sticky-item-props';
 import TdStickyToolProps from '@td/intel/sticky-tool/props';
-import { usePrefixClass } from '@td/adapter-hooks';
+import { usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import type { TdStickyItemProps } from '@td/intel/sticky-tool/type';
 import type { Styles } from '@td/shared/interface';
-import Popup from '../popup';
-import { useTNodeJSX } from '@td/adapter-hooks';
+import { Popup } from '@td/components';
 
 import type { TdPopupProps } from '../popup/type';
 

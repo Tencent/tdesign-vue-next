@@ -3,8 +3,8 @@
  */
 
 import type { TNode } from '@td/shared/interface';
+import { Popup } from '@td/components';
 import type { ImageProps } from '../image';
-import type { PopupProps } from '../popup';
 
 export interface TdAvatarProps {
   /**

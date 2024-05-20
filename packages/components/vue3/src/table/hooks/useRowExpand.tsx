@@ -11,10 +11,9 @@ import type {
   TableRowData,
   TdPrimaryTableProps,
 } from '@td/intel/table/type';
-import { useTNodeJSX } from '../../hooks/tnode';
-import useDefaultValue from '../../hooks/useDefaultValue';
-import { useConfig } from '../../hooks/useConfig';
-import { useGlobalIcon } from '../../hooks/useGlobalIcon';
+import { useConfig, useDefaultValue } from '@td/adapter-hooks';
+import { useTNodeJSX } from '@td/adapter-hooks';
+import { useGlobalIcon } from '@td/adapter-hooks';
 import useClassName from './useClassName';
 
 export default function useRowExpand(props: TdPrimaryTableProps, context: SetupContext) {

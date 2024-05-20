@@ -4,9 +4,8 @@ import { ChevronDownIcon as TdChevronDownIcon } from 'tdesign-icons-vue-next';
 import type { SortType } from '@td/intel/table/type';
 import { useConfig, useGlobalIcon, useTNodeDefault } from '@td/adapter-hooks';
 import type { TNode } from '@td/shared/interface';
-import type { TooltipProps } from '../tooltip';
-import Tooltip from '../tooltip';
-import type { TableConfig } from '../config-provider';
+import type { TableConfig, TooltipProps } from '@td/components-common';
+import { Tooltip } from '@td/components-common';
 import useClassName from './hooks/useClassName';
 
 type SortTypeEnums = Array<'desc' | 'asc'>;

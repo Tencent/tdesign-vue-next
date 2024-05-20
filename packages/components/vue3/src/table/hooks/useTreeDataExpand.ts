@@ -3,7 +3,7 @@ import { nextTick, ref, toRefs, watch } from '@td/adapter-vue';
 import type { TableRowData, TdEnhancedTableProps } from '@td/intel/table/type';
 import type TableTreeStore from '@td/shared/_common/js/table/tree-store';
 import { diffExpandedTreeNode, getUniqueRowValue } from '@td/shared/_common/js/table/tree-store';
-import useDefaultValue from '../../hooks/useDefaultValue';
+import { useDefaultValue } from '@td/adapter-hooks';
 import type { TableTreeExpandType } from '../interface';
 
 export function useTreeDataExpand(

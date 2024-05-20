@@ -6,7 +6,7 @@ import type { GlobalIconConfig } from 'tdesign-icons-vue';
 // import type { CalendarController } from '../calendar/type';
 import type { TNode } from '@td/shared/interface';
 import type { TdButtonProps } from '../button/type';
-// import type { FormErrorMessage } from '../form/type';
+// import type { FormErrorMessage } from '@td/intel/form/type';
 import type { MessageOptions } from '../message/type';
 import type { TdImageProps } from '../image/type';
 

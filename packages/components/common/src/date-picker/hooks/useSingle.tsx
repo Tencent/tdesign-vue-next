@@ -11,10 +11,10 @@ import {
   isValidDate,
   parseToDayjs,
 } from '@td/shared/_common/js/date-picker/format';
-import { useTNodeJSX } from '../../hooks/tnode';
+import { useTNodeJSX } from '@td/adapter-hooks';
 import { useFormDisabled } from '../../form/hooks';
-import { usePrefixClass } from '../../hooks/useConfig';
-import { useGlobalIcon } from '../../hooks/useGlobalIcon';
+import { usePrefixClass } from '@td/adapter-hooks';
+import { useGlobalIcon } from '@td/adapter-hooks';
 import useSingleValue from './useSingleValue';
 
 export default function useSingle(props: TdDatePickerProps) {

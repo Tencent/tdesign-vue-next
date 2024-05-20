@@ -14,9 +14,9 @@ import type {
 } from '@td/intel/table/type';
 import { isRowSelectedDisabled } from '@td/shared/_common/js/table/utils';
 import log from '@td/shared/_common/js/log';
-import useDefaultValue from '../../hooks/useDefaultValue';
+import { useDefaultValue } from '@td/adapter-hooks';
+import { Radio } from '@td/components-common';
 import Checkbox from '../../checkbox';
-import Radio from '../../radio';
 import type { TableClassName } from './useClassName';
 
 export default function useRowSelect(

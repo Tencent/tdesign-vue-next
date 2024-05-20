@@ -3,7 +3,7 @@
  */
 
 import type { PropType } from 'vue';
-import type { TdFormItemProps } from '../form/type';
+import type { TdFormItemProps } from '@td/intel/form/type';
 
 export default {
   /** label 原生属性 */

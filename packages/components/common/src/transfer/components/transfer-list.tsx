@@ -16,7 +16,7 @@ import { Pagination } from '../../pagination';
 import type { CheckboxProps } from '../../checkbox';
 import { Checkbox as TCheckbox, CheckboxGroup as TCheckboxGroup } from '../../checkbox';
 import { TARGET, getDataValues, getLefCount } from '../utils';
-import { useTNodeDefault } from '../../hooks/tnode';
+import { useTNodeDefault } from '@td/adapter-hooks';
 
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 import Search from './transfer-search';

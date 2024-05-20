@@ -4,7 +4,7 @@ import { computed, defineComponent, h } from '@td/adapter-vue';
 import type { CascaderContextType, TreeNode } from '../interface';
 import CascaderProps from '../props';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
-import { useTNodeDefault } from '../../hooks/tnode';
+import { useTNodeDefault } from '@td/adapter-hooks';
 import { getDefaultNode } from '../../utils/render-tnode';
 import { getPanels } from '../core/helper';
 import { expendClickEffect, valueChangeEffect } from '../core/effect';

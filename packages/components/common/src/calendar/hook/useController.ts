@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 import type { ControllerOptions, TdCalendarProps } from '@td/intel/calendar/type';
 import { COMPONENT_NAME } from '../const';
 import type { CalendarState } from '../interface';
-import { useConfig } from '../../hooks/useConfig';
+import { useConfig } from '@td/adapter-hooks';
 
 function getDefaultControllerConfigData(visible = true): Record<string, any> {
   return {

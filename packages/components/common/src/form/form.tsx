@@ -10,7 +10,7 @@ import type {
   ValidateResultList,
 } from '@td/intel/form/type';
 import props from '@td/intel/form/props';
-import { requestSubmit } from '../utils/dom';
+import { requestSubmit } from '@td/adapter-utils';
 import type { FormResetEvent, FormSubmitEvent } from '@td/shared/interface';
 import { usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import type { FormItemValidateResult } from './form-item';

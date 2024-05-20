@@ -1,11 +1,9 @@
-
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * */
+ */
 
-import { TdFormItemProps } from '../form/type';
-import { PropType } from 'vue';
+import type { TdFormItemProps } from '@td/intel/form/type';
+import type { PropType } from 'vue';
 
 export default {
   /** label 原生属性 */
@@ -26,7 +24,9 @@ export default {
   labelAlign: {
     type: String as PropType<TdFormItemProps['labelAlign']>,
     validator(val: TdFormItemProps['labelAlign']): boolean {
-      if (!val) return true;
+      if (!val) {
+        return true;
+      }
       return ['left', 'right', 'top'].includes(val);
     },
   },

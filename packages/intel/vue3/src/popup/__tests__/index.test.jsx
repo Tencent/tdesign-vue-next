@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { describe, it, beforeEach, afterEach, expect, vi } from 'vitest';
-import { usePrefixClass } from '../../hooks/useConfig';
-import Popup from '../popup';
+import { usePrefixClass } from '@td/adapter-hooks';
+import { Popup } from '@td/components';
 
 const POPUPClASS = `.${usePrefixClass('popup').value}`;
 describe('Popup', () => {

@@ -18,7 +18,7 @@ import type { BaseTableCellParams, RowspanColspan, TableRowData, TdBaseTableProp
 import baseTableProps from '@td/intel/table/base-table-props';
 import type { VirtualScrollConfig } from '@td/adapter-hooks';
 import type { AttachNode, SlotReturnValue } from '@td/shared/interface';
-import type { TooltipProps } from '../tooltip';
+import type { TooltipProps } from '@td/components-common';
 import type { PaginationProps } from '..';
 import { formatClassNames, formatRowAttributes, formatRowClassNames } from './utils';
 import { getColumnFixedStyles, getRowFixedStyles } from './hooks/useFixed';

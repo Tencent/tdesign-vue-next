@@ -4,7 +4,7 @@ import { useConfig, useContent, useGlobalIcon, usePrefixClass, useTNodeJSX, useT
 import props from '@td/intel/drawer/props';
 import type { DrawerCloseContext, TdDrawerProps } from '@td/intel/drawer/type';
 import { getScrollbarWidth } from '@td/shared/_common/js/utils/getScrollbarWidth';
-import { isServer } from '../utils/dom';
+import { isServer } from '@td/adapter-utils';
 import { useAction } from '../dialog/hooks';
 import { useDrag } from './hooks';
 

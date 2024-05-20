@@ -10,7 +10,7 @@ import TLoading from '../../loading';
 
 import type { CascaderContextType, TdCascaderProps, TreeNode, TreeNodeValue } from '../interface';
 import { useCommonClassName, usePrefixClass } from '../../hooks/useConfig';
-import { useGlobalIcon } from '../../hooks/useGlobalIcon';
+import { useGlobalIcon } from '@td/adapter-hooks';
 import useRipple from '../../hooks/useRipple';
 
 const props = {

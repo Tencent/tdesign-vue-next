@@ -1,7 +1,7 @@
 import { computed } from '@td/adapter-vue';
 
 import type { TdCalendarProps } from '@td/intel/calendar/type';
-import { usePrefixClass } from '../../hooks/useConfig';
+import { usePrefixClass } from '@td/adapter-hooks';
 import type { CalendarState } from '../interface';
 import { COMPONENT_NAME } from '../const';
 

@@ -1,7 +1,7 @@
 import type { Ref, UnwrapRef } from '@td/adapter-vue';
 import { computed, nextTick, onMounted, ref } from '@td/adapter-vue';
 import observe from '@td/shared/_common/js/utils/observe';
-import { isServer } from '../../utils/dom';
+import { isServer } from '@td/adapter-utils';
 
 export type UseLazyLoadParams = UnwrapRef<{
   type: 'lazy' | 'virtual';

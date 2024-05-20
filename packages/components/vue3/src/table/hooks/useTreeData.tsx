@@ -15,10 +15,8 @@ import type {
   TableRowValue,
   TdEnhancedTableProps,
 } from '@td/intel/table/type';
+import { useConfig, useGlobalIcon, useTNodeDefault } from '@td/adapter-hooks';
 import { renderCell } from '../tr';
-import { useConfig } from '../../hooks/useConfig';
-import { useGlobalIcon } from '../../hooks/useGlobalIcon';
-import { useTNodeDefault } from '../../hooks';
 import useClassName from './useClassName';
 import useTreeDataExpand from './useTreeDataExpand';
 

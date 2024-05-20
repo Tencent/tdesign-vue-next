@@ -26,7 +26,7 @@ import type { TdPopupProps } from '@td/intel/components/popup/type';
 import type { TdInputProps } from '../input/type';
 import type { TdButtonProps } from '../button/type';
 import type { TdDialogProps } from '../dialog/type';
-import type { AllValidateResult, FormRule } from '../form/type';
+import type { AllValidateResult, FormRule } from '@td/intel/form/type';
 
 export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
   /**

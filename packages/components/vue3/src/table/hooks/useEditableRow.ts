@@ -9,8 +9,8 @@ import type {
   TableErrorListMap,
   TableRowData,
 } from '@td/intel/table/type';
+import { validate } from '@td/components-common';
 import type { PrimaryTableProps } from '../interface';
-import { validate } from '../../form/form-model';
 import type { OnEditableChangeContext } from '../editable-cell';
 import { getCellKey } from './useRowspanAndColspan';
 

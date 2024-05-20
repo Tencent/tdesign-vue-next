@@ -3,7 +3,7 @@ import { computed, ref, toRefs, watch } from '@td/adapter-vue';
 import { isArray, isFunction } from 'lodash-es';
 import type { PrimaryTableCol, SortInfo, TableRowData, TdPrimaryTableProps } from '@td/intel/table/type';
 import SorterButton from '../sorter-button';
-import useDefaultValue from '../../hooks/useDefaultValue';
+import { useDefaultValue } from '@td/adapter-hooks';
 
 export type SortMap = Record<string, SortInfo & { index: number }>;
 

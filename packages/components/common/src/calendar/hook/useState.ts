@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 
 import { isArray } from 'lodash-es';
 import type { TdCalendarProps } from '@td/intel/calendar/type';
-import { useConfig } from '../../hooks/useConfig';
+import { useConfig } from '@td/adapter-hooks';
 import { COMPONENT_NAME } from '../const';
 import { createDefaultCurDate } from '../utils';
 import type { CalendarState } from '../interface';

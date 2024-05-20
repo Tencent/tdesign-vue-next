@@ -2,7 +2,7 @@ import type { PropType } from '@td/adapter-vue';
 import { defineComponent } from '@td/adapter-vue';
 import type { TdDatePickerProps } from '@td/intel/date-picker/type';
 import { getDefaultFormat } from '@td/shared/_common/js/date-picker/format';
-import { usePrefixClass } from '../../hooks/useConfig';
+import { usePrefixClass } from '@td/adapter-hooks';
 
 import TDateHeader from '../base/Header';
 import TDateTable from '../base/Table';

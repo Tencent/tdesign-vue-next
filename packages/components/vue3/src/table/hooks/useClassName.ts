@@ -1,4 +1,4 @@
-import { usePrefixClass } from '../../hooks/useConfig';
+import { usePrefixClass } from '@td/adapter-hooks';
 
 export default function useClassName() {
   const classPrefix = usePrefixClass();

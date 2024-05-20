@@ -5,7 +5,7 @@
 import type { Dayjs } from 'dayjs';
 import type { SizeEnum, TNode } from '@td/shared/interface';
 import type { InputProps } from '../input';
-import type { PopupProps } from '../popup';
+import { Popup } from '@td/components';
 import type { SelectInputProps } from '../select-input';
 import type { TimePickerProps } from '../time-picker';
 import type { RangeInputProps } from '../range-input';

@@ -3,10 +3,9 @@ import type { PropType } from '@td/adapter-vue';
 import { computed, defineComponent, ref } from '@td/adapter-vue';
 import { debounce } from 'lodash-es';
 import type { AttachNode, TNode } from '@td/shared/interface';
-import { renderContent } from '../utils/render-tnode';
-import { isNodeOverflow } from '../utils/dom';
-import type { TooltipProps } from '../tooltip';
-import TTooltip from '../tooltip';
+import { isNodeOverflow, renderContent } from '@td/adapter-utils';
+import type { TooltipProps } from '@td/components-common';
+import { Tooltip } from '@td/components-common';
 
 export interface EllipsisProps {
   content: string | TNode;
@@ -112,7 +111,7 @@ export default defineComponent({
           : this.innerEllipsisClassName,
         ...tooltipProps,
       };
-      content = <TTooltip {...rProps}>{ellipsisContent}</TTooltip>;
+      content = <Tooltip {...rProps}>{ellipsisContent}</Tooltip>;
     } else {
       content = ellipsisContent;
     }

@@ -1,0 +1,11 @@
+{
+  "name": "tdesign-vue-next",
+  "version": "1.9.3",
+  "title": "tdesign-vue-next",
+  "description": "TDesign Component for vue-next",
+  "dependencies": {
+    "@td/adapter-vue": "workspace:^",
+    "@td/components-common": "workspace:^",
+    "@td/components-vue3": "workspace:^"
+  }
+}

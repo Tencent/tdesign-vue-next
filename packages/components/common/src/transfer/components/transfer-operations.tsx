@@ -4,10 +4,10 @@ import { ChevronLeftIcon as TdChevronLeftIcon, ChevronRightIcon as TdChevronRigh
 
 import { isArray, isFunction, isString } from 'lodash-es';
 import props from '@td/intel/transfer/props';
+import { useGlobalIcon } from '@td/adapter-hooks';
 import Button from '../../button';
 import type { TNode } from '../../common';
-import { usePrefixClass } from '../../hooks/useConfig';
-import { useGlobalIcon } from '../../hooks/useGlobalIcon';
+import { usePrefixClass } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'TTransferOperations',

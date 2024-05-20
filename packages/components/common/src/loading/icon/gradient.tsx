@@ -1,6 +1,6 @@
 import { defineComponent, getCurrentInstance, nextTick, onMounted } from '@td/adapter-vue';
 import circleAdapter from '@td/shared/_common/js/loading/circle-adapter';
-import { usePrefixClass } from '../../hooks/useConfig';
+import { usePrefixClass } from '@td/adapter-hooks';
 
 export default defineComponent({
   name: 'TLoadingGradient',

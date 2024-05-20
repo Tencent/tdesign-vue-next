@@ -10,7 +10,7 @@ import {
 
 import props from '@td/intel/pagination/pagination-mini-props';
 import { useGlobalIcon, usePrefixClass } from '@td/adapter-hooks';
-import TButton from '../button';
+import { Button as TButton } from '@td/components-common';
 
 export default defineComponent({
   name: 'TPaginationMini',

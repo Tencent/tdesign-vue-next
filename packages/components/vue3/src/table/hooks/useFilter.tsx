@@ -3,11 +3,9 @@ import { computed, h, ref, toRefs, watch } from '@td/adapter-vue';
 import { isFunction } from 'lodash-es';
 import type { FilterValue, PrimaryTableCol, TableFilterChangeContext, TableRowData, TdPrimaryTableProps } from '@td/intel/table/type';
 import { getColumnsResetValue } from '@td/shared/_common/js/table/utils';
-import TButton from '../../button';
-import useDefaultValue from '../../hooks/useDefaultValue';
-import { useTNodeDefault } from '../../hooks/tnode';
+import { useConfig, useDefaultValue, useTNodeDefault } from '@td/adapter-hooks';
+import { Button as TButton } from '@td/components-common';
 import TableFilterController from '../filter-controller';
-import { useConfig } from '../../hooks/useConfig';
 import useClassName from './useClassName';
 import { renderTitle } from './useTableHeader';
 

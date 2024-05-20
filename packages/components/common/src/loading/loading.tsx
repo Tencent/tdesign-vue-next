@@ -4,7 +4,7 @@ import props from '@td/intel/loading/props';
 
 import { useCommonClassName, usePrefixClass, useTeleport } from '@td/adapter-hooks';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
-import { addClass, removeClass } from '../utils/dom';
+import { addClass, removeClass } from '@td/adapter-utils';
 import GradientIcon from './icon/gradient';
 
 function useComponentClassName() {

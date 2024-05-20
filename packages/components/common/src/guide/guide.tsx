@@ -4,10 +4,9 @@ import props from '@td/intel/guide/props';
 import type { GuideStep, TdGuideProps } from '@td/intel/guide/type';
 import { useConfig, usePrefixClass, useTNodeJSX, useVModel } from '@td/adapter-hooks';
 import setStyle from '@td/shared/_common/js/utils/set-style';
-import { addClass, getWindowScroll, isFixed, removeClass } from '../utils/dom';
+import { addClass, getWindowScroll, isFixed, removeClass } from '@td/adapter-utils';
+import { Popup } from '@td/components';
 import Button from '../button';
-import type { PopupProps } from '../popup';
-import Popup from '../popup';
 import { getRelativePosition, getTargetElm, scrollToElm, scrollToParentVisibleArea } from './utils';
 import type { GuideCrossProps } from './interface';
 
