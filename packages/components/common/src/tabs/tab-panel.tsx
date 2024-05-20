@@ -1,6 +1,6 @@
 import { computed, defineComponent, inject, ref, watch } from '@td/adapter-vue';
 import props from '@td/intel/tabs/tab-panel-props';
-import { useCommonClassName, useContent, useDestroyOnClose, usePrefixClass } from '@td/adapter-hooks';
+import { useCommonClassName, useContent, usePrefixClass } from '@td/adapter-hooks';
 
 import type { InjectTabs } from './tabs';
 
@@ -14,7 +14,8 @@ export default defineComponent({
     const { STATUS } = useCommonClassName();
     const renderTNodeContent = useContent();
 
-    useDestroyOnClose();
+    // vue23:todo 已经不需要使用了
+    // useDestroyOnClose();
 
     const tabs = inject<InjectTabs>('tabs');
     const isActive = computed(() => props.value === tabs.value.value);

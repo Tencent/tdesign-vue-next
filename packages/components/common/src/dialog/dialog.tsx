@@ -8,7 +8,7 @@ import {
 
 import type { DialogCloseContext, TdDialogProps } from '@td/intel/dialog/type';
 import props from '@td/intel/dialog/props';
-import { useConfig, useContent, useDestroyOnClose, useGlobalIcon, usePopupManager, usePrefixClass, useTNodeJSX, useTeleport } from '@td/adapter-hooks';
+import { useConfig, useContent, useGlobalIcon, usePopupManager, usePrefixClass, useTNodeJSX, useTeleport } from '@td/adapter-hooks';
 import { getScrollbarWidth } from '@td/shared/_common/js/utils/getScrollbarWidth';
 import { useAction, useSameTarget } from './hooks';
 
@@ -121,7 +121,8 @@ export default defineComponent({
     const { getConfirmBtn, getCancelBtn } = useAction({ confirmBtnAction, cancelBtnAction });
     // teleport容器
     const teleportElement = useTeleport(() => props.attach);
-    useDestroyOnClose();
+    // vue23:todo 已经不需要使用了
+    // useDestroyOnClose();
     const timer = ref();
     const styleEl = ref();
     // 是否模态形式的对话框

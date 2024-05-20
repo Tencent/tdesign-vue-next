@@ -14,3 +14,4 @@ export * from './src/useImagePreviewUrl';
 export * from './src/usePopupManager';
 export * from './src/useElementLazyRender';
 export * from './src/useLazyLoad';
+export * from './src/useDragSort';
