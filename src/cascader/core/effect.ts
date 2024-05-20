@@ -134,8 +134,6 @@ export function handleRemoveTagEffect(
   const res = newValue.splice(index, 1);
   const node = treeStore.getNodes(res[0])[0];
 
-  setValue(newValue, 'uncheck', node.getModel());
-
   const checked = node.setChecked(!node.isChecked());
   // 处理不同数据类型
   const resValue =

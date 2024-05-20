@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 import omit from 'lodash/omit';
 
 import { useTNodeJSX } from '../../hooks/tnode';
-import { useFormDisabled } from '../../form/hooks';
+import { useDisabled } from '../../hooks/useDisabled';
 import { usePrefixClass } from '../../hooks/useConfig';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 import { TdDatePickerProps, DateValue } from '../type';
@@ -20,7 +20,7 @@ import useSingleValue from './useSingleValue';
 export default function useSingle(props: TdDatePickerProps) {
   const COMPONENT_NAME = usePrefixClass('date-picker');
   const { CalendarIcon } = useGlobalIcon({ CalendarIcon: TdCalendarIcon });
-  const disabled = useFormDisabled();
+  const disabled = useDisabled();
   const renderTNodeJSX = useTNodeJSX();
 
   const inputRef = ref();

@@ -10,6 +10,8 @@ import { PropType } from 'vue';
 export default {
   /** 是否允许输入日期 */
   allowInput: Boolean,
+  /** 无边框模式 */
+  borderless: Boolean,
   /** 是否显示清除按钮 */
   clearable: Boolean,
   /** 时间选择器默认值，当 value/defaultValue 未设置值时有效 */
@@ -22,7 +24,10 @@ export default {
     type: [Object, Array, Function] as PropType<TdDatePickerProps['disableDate']>,
   },
   /** 是否禁用组件 */
-  disabled: Boolean,
+  disabled: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 是否显示时间选择 */
   enableTimePicker: Boolean,
   /** 第一天从星期几开始 */
@@ -41,6 +46,10 @@ export default {
   /** 透传给输入框（Input）组件的参数 */
   inputProps: {
     type: Object as PropType<TdDatePickerProps['inputProps']>,
+  },
+  /** 左侧文本 */
+  label: {
+    type: [String, Function] as PropType<TdDatePickerProps['label']>,
   },
   /** 选择器模式 */
   mode: {

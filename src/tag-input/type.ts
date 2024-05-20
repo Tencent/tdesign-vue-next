@@ -6,7 +6,7 @@
 
 import { InputProps } from '../input';
 import { TagProps } from '../tag';
-import { TNode } from '../common';
+import { TNode, SizeEnum } from '../common';
 
 export interface TdTagInputProps {
   /**
@@ -14,6 +14,11 @@ export interface TdTagInputProps {
    * @default false
    */
   autoWidth?: boolean;
+  /**
+   * 无边框模式
+   * @default false
+   */
+  borderless?: boolean;
   /**
    * 是否可清空
    * @default false
@@ -83,10 +88,10 @@ export interface TdTagInputProps {
    */
   readonly?: boolean;
   /**
-   * 尺寸
+   * 组件尺寸
    * @default medium
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: SizeEnum;
   /**
    * 输入框状态
    */

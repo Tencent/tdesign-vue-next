@@ -23,11 +23,11 @@ export function useDisabled(context?: DisabledContext) {
   const formDisabled = inject<FormDisabledProvider>('formDisabled', Object.create(null));
 
   return computed(() => {
-    if (isBoolean(context?.beforeDisabled.value)) return context.beforeDisabled.value;
+    if (isBoolean(context?.beforeDisabled?.value)) return context.beforeDisabled.value;
     // Component
     if (isBoolean(componentDisabled.value)) return componentDisabled.value;
     // ComponentGroup
-    if (isBoolean(context?.afterDisabled.value)) return context.afterDisabled.value;
+    if (isBoolean(context?.afterDisabled?.value)) return context.afterDisabled.value;
     // Form
     if (isBoolean(formDisabled.disabled?.value)) return formDisabled.disabled.value;
 

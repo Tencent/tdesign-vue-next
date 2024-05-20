@@ -31,6 +31,12 @@
     "options": []
   },
   {
+    "name": "borderless",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
     "name": "clearable",
     "type": "Boolean",
     "defaultValue": false,

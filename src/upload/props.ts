@@ -50,7 +50,10 @@ export default {
     type: [String, Function] as PropType<TdUploadProps['default']>,
   },
   /** 是否禁用 */
-  disabled: Boolean,
+  disabled: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 用于自定义拖拽区域，`theme=custom` 且 `draggable=true` 时有效 */
   dragContent: {
     type: [String, Function] as PropType<TdUploadProps['dragContent']>,

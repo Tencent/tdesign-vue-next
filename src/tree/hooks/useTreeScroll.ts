@@ -59,7 +59,7 @@ export default function useTreeScroll(state: TypeTreeState) {
     const isVirtual = virtualConfig?.isVirtualScroll.value;
     const target = (e.target || e.srcElement) as HTMLElement;
     const top = target.scrollTop;
-    // 排除横向滚动出发的纵向虚拟滚动计算
+    // 排除横向滚动触发的纵向虚拟滚动计算
     if (lastScrollY !== top) {
       if (isVirtual) {
         virtualConfig.handleScroll();
