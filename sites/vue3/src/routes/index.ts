@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import config from '../site.config';
-import TdesignComponents from './components/components.jsx';
+import TDesignComponents from '../components/components.jsx';
+import config from './site.config';
 
 const { docs, enDocs } = config;
 
@@ -15,8 +15,12 @@ function getDocsRoutes(docs, type) {
       children = item.children.sort((a, b) => {
         const nameA = a.name.toUpperCase();
         const nameB = b.name.toUpperCase();
-        if (nameA < nameB) return -1;
-        if (nameA > nameB) return 1;
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
         return 0;
       });
     }
@@ -34,7 +38,7 @@ const routes = [
   {
     path: '/vue-next/',
     redirect: '/vue-next/overview',
-    component: TdesignComponents,
+    component: TDesignComponents,
     children: [...getDocsRoutes(docs), ...getDocsRoutes(enDocs)],
   },
   {
@@ -48,12 +52,12 @@ const routes = [
   {
     name: 'demosComponent',
     path: '/vue-next/demos/:componentName/',
-    component: () => import('./components/demo-page.vue'),
+    component: () => import('../components/demo-page.vue'),
   },
   {
     name: 'demos',
     path: '/vue-next/demos/:componentName/:demoName',
-    component: () => import('./components/demo-page.vue'),
+    component: () => import('../components/demo-page.vue'),
   },
 ];
 
@@ -71,7 +75,6 @@ const router = createRouter(routerConfig);
 
 router.beforeEach((to, from, next) => {
   if (typeof NProgress !== 'undefined') {
-    // eslint-disable-next-line no-undef
     NProgress.start();
   }
   next();
@@ -79,7 +82,6 @@ router.beforeEach((to, from, next) => {
 
 router.afterEach(() => {
   if (typeof NProgress !== 'undefined') {
-    // eslint-disable-next-line no-undef
     NProgress.done();
   }
   document.querySelector('td-stats')?.track?.();

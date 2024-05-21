@@ -1,5 +1,4 @@
-/* eslint-disable */
-import path from 'path';
+import path from 'node:path';
 
 export default function renderDemo(md, container) {
   md.use(container, 'demo', {
@@ -10,7 +9,7 @@ export default function renderDemo(md, container) {
       if (tokens[idx].nesting === 1) {
         const match = tokens[idx].info.trim().match(/^demo\s+([\\/.\w-]+)(\s+(.+?))?(\s+--dev)?$/);
         const [, demoPath, componentName = ''] = match;
-        const demoPathOnlyLetters = demoPath.replace(/[^a-zA-Z\d]/g, '');
+        const demoPathOnlyLetters = demoPath.replace(/[^a-z\d]/gi, '');
         const demoName = path.basename(demoPath);
         const demoDefName = `Demo${demoPathOnlyLetters}`;
         const demoCodeDefName = `Demo${demoPathOnlyLetters}Code`;

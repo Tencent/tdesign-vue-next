@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   affix: {
     statements: '87.9%',
     branches: '68.42%',

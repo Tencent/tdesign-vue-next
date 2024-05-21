@@ -1,4 +1,4 @@
-import orgPkg from '../../../../package.json';
+import orgPkg from 'tdesign-vue-next/package.json';
 
 export const htmlContent = `
   <div id="app"></div>
@@ -42,13 +42,6 @@ export const styleContent = `
   }
 `;
 
-export const stackblitzRc = `
-  {
-    "installDependencies": false,
-    "startCommand": "turbo && turbo dev"
-  }
-`;
-
 export const viteConfigContent = `
   import { defineConfig } from 'vite';
   import vue from '@vitejs/plugin-vue';
@@ -70,13 +63,13 @@ export const packageJSONContent = JSON.stringify(
       serve: 'vite preview',
     },
     dependencies: {
-      vue: orgPkg.devDependencies.vue,
-      less: orgPkg.devDependencies.less,
+      'vue': orgPkg.devDependencies.vue,
+      'less': orgPkg.devDependencies.less,
       'tdesign-vue-next': orgPkg.version,
       'tdesign-icons-vue-next': orgPkg.dependencies['tdesign-icons-vue-next'],
     },
     devDependencies: {
-      vite: orgPkg.devDependencies.vite,
+      'vite': orgPkg.devDependencies.vite,
       '@vue/compiler-sfc': orgPkg.devDependencies['@vue/compiler-sfc'],
       '@vitejs/plugin-vue': orgPkg.devDependencies['@vitejs/plugin-vue'],
       '@vitejs/plugin-vue-jsx': orgPkg.devDependencies['@vitejs/plugin-vue-jsx'],

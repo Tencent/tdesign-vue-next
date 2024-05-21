@@ -1,17 +1,6 @@
-<template>
-  <component :is="demo" v-if="demo"></component>
-  <ul v-else class="empty-demo">
-    <li v-for="demoName in demoList[componentName]" :key="demoName">
-      <router-link :to="{ path: `/vue-next/demos/${componentName}/${demoName}` }">
-        <t-button theme="default" variant="text">{{ demoName }}</t-button>
-      </router-link>
-    </li>
-  </ul>
-</template>
-
 <script>
-const demoVueReq = import.meta.globEager('../../../src/**/_example/*.vue');
-const demoJsxReq = import.meta.globEager('../../../src/**/_example/*.jsx');
+const demoVueReq = import.meta.globEager('@td/intel/**/_example/*.vue');
+const demoJsxReq = import.meta.globEager('@td/intel/**/_example/*.jsx');
 
 const demoReq = { ...demoVueReq, ...demoJsxReq };
 const demoObject = {};
@@ -44,7 +33,9 @@ export default {
   },
   watch: {
     $route(v) {
-      if (v.name !== 'demos') return;
+      if (v.name !== 'demos') {
+        return;
+      }
       this.renderDemo();
     },
   },
@@ -63,6 +54,19 @@ export default {
   },
 };
 </script>
+
+<template>
+  <component :is="demo" v-if="demo" />
+  <ul v-else class="empty-demo">
+    <li v-for="demoName in demoList[componentName]" :key="demoName">
+      <router-link :to="{ path: `/vue-next/demos/${componentName}/${demoName}` }">
+        <t-button theme="default" variant="text">
+          {{ demoName }}
+        </t-button>
+      </router-link>
+    </li>
+  </ul>
+</template>
 
 <style scoped>
 .empty-demo {

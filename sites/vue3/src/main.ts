@@ -1,5 +1,6 @@
 import { createApp } from 'vue';
 import TDesign from 'tdesign-vue-next';
+import { registerLocaleChange } from 'tdesign-site-components';
 import App from './app.vue';
 import router from './routes';
 
@@ -8,8 +9,13 @@ import CodeSandbox from './components/codeSandbox/index.vue';
 import BaseUsage from './components/base-usage.vue';
 
 // import tdesign style
-import 'tdesign-vue-next/style/index.js';
-import '@common/style/web/docs.less';
+// import 'tdesign-vue-next/style/index.js';
+// import '@common/style/web/docs.less';
+
+// vue23:!tod 先临时替换成这样
+import '@td/shared/_common/style/web/_global.less';
+import '@td/shared/_common/style/web/theme/_index.less';
+import '@td/shared/_common/style/web/docs.less';
 
 // import site webComponents
 import 'tdesign-site-components';
@@ -20,8 +26,6 @@ import 'tdesign-site-components/lib/styles/prism-theme-dark.less';
 import 'tdesign-icons-view';
 
 import 'tdesign-theme-generator';
-
-import { registerLocaleChange } from 'tdesign-site-components';
 
 registerLocaleChange();
 

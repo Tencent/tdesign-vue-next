@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue';
 import semver from 'semver';
-import siteConfig from '../../site.config';
-import packageJson from '@/package.json';
+import packageJson from 'tdesign-vue-next/package.json';
+import siteConfig from '../routes/site.config';
 
 const { docs, enDocs } = JSON.parse(JSON.stringify(siteConfig).replace(/component:.+/g, ''));
 
@@ -18,7 +18,9 @@ function getVersions(versions = []) {
   const versionMap = new Map();
 
   versions.forEach((v) => {
-    if (v.includes('alpha') || v.includes('patch')) return false;
+    if (v.includes('alpha') || v.includes('patch')) {
+      return false;
+    }
     const nums = v.split('.');
     versionMap.set(`${nums[0]}.${nums[1]}`, v);
   });
@@ -51,7 +53,9 @@ export default defineComponent({
     this.$refs.tdHeader.framework = 'vue-next';
     this.$refs.tdDocAside.routerList = docsMap[this.lang];
     this.$refs.tdDocAside.onchange = ({ detail }) => {
-      if (this.$route.path === detail) return;
+      if (this.$route.path === detail) {
+        return;
+      }
       this.loaded = false;
       this.$router.push(detail);
       window.scrollTo(0, 0);
@@ -63,13 +67,15 @@ export default defineComponent({
   methods: {
     initHistoryVersions() {
       fetch(registryUrl)
-        .then((res) => res.json())
+        .then(res => res.json())
         .then((res) => {
           const options = [];
           const versions = getVersions(Object.keys(res.versions));
           versions.forEach((v) => {
             const nums = v.split('.');
-            if (nums[0] === '0' && nums[1] < 6) return false;
+            if (nums[0] === '0' && nums[1] < 6) {
+              return false;
+            }
             options.unshift({ label: v, value: v.replace(/\./g, '_') });
           });
           this.options.push(...options);
@@ -86,7 +92,9 @@ export default defineComponent({
       });
     },
     changeVersion(version) {
-      if (version === currentVersion) return;
+      if (version === currentVersion) {
+        return;
+      }
       const historyUrl = `//${version}-tdesign-vue-next.surge.sh`;
       window.open(historyUrl, '_blank');
       this.$nextTick(() => {
