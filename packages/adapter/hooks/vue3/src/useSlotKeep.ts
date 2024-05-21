@@ -1,8 +1,3 @@
-import {
-  Comment,
-  Fragment,
-  getCurrentInstance,
-} from '@td/adapter-vue';
 import type {
   Component,
   RendererElement,
@@ -11,6 +6,11 @@ import type {
   VNode,
   VNodeArrayChildren,
   VNodeChild,
+} from '@td/adapter-vue';
+import {
+  Comment,
+  Fragment,
+  getCurrentInstance,
 } from '@td/adapter-vue';
 import { isArray } from 'lodash-es';
 
@@ -27,7 +27,7 @@ export function useChildComponentSlots() {
   const instance = getCurrentInstance();
   return (childComponentName: string, slots?: Slots): VNode[] => {
     if (!slots) {
-      slots = instance?.slots;
+      slots = instance.slots;
     }
     const content = slots?.default?.() || [];
 
@@ -50,7 +50,7 @@ export function useChildComponentSlots() {
       return childList;
     };
 
-    return getChildren(content)?.filter((item: VNode) =>
+    return getChildren(content).filter((item: VNode) =>
       (item.type as Component).name?.endsWith(childComponentName),
     ) as VNode[];
   };

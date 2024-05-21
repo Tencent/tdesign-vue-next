@@ -1,18 +1,18 @@
-import type { Ref } from '@td/adapter-vue';
 import { getCurrentInstance, ref } from '@td/adapter-vue';
+import type { Ref } from '@td/adapter-vue';
 import { kebabCase } from 'lodash-es';
 import type { ChangeHandler } from './useVModel';
 
-export default function useDefaultValue<T, P extends any[]>(
+function useDefaultValueVue3<T, P extends any[]>(
   value: Ref<T>,
   defaultValue: T,
   onChange: ChangeHandler<T, P>,
   propsName: string,
 ): [Ref<T>, ChangeHandler<T, P>] {
-  const { emit, vnode } = getCurrentInstance();
-  const internalValue: Ref<T> = ref();
+  const instance = getCurrentInstance();
+  const internalValue = ref();
 
-  const vProps = vnode.props || {};
+  const vProps = instance?.vnode.props || {};
   const isVMP
     = Object.prototype.hasOwnProperty.call(vProps, propsName)
     || Object.prototype.hasOwnProperty.call(vProps, kebabCase(propsName));
@@ -21,7 +21,7 @@ export default function useDefaultValue<T, P extends any[]>(
     return [
       value,
       (newValue, ...args) => {
-        emit(`update:${propsName}`, newValue);
+        instance?.emit(`update:${propsName}`, newValue);
         onChange?.(newValue, ...args);
       },
     ];
@@ -35,4 +35,14 @@ export default function useDefaultValue<T, P extends any[]>(
       onChange?.(newValue, ...args);
     },
   ];
+}
+
+export function useDefaultValue<T, P extends any[]>(
+  value: Ref<T>,
+  defaultValue: T,
+  onChange: ChangeHandler<T, P>,
+  propsName: string,
+  eventName: string = 'change',
+): [Ref<T>, ChangeHandler<T, P>] {
+  return useDefaultValueVue3<T, P>(value, defaultValue, onChange, propsName);
 }
