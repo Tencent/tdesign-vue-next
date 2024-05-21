@@ -1,5 +1,6 @@
 import { camelCase, isArray, isNull, isNumber, isString, isUndefined } from 'lodash-es';
 
+// vue23:! 是不是直接用 lodash 就成了？
 export function omit(obj: object, fields: string[]): object {
   const shallowCopy = {
     ...obj,
