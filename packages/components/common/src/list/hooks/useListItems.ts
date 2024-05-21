@@ -1,7 +1,7 @@
 import { computed } from '@td/adapter-vue';
 import { isArray } from 'lodash-es';
 
-import { useChildComponentSlots } from '../../hooks/slot';
+import { useChildComponentSlots } from '@td/adapter-hooks';
 
 export function useListItems() {
   const getChildComponentSlots = useChildComponentSlots();

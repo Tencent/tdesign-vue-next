@@ -8,7 +8,7 @@ import {
 } from '@td/shared/_common/js/date-picker/format';
 import type { TdDatePickerProps } from '@td/intel/date-picker/type';
 import { extractTimeFormat } from '@td/shared/_common/js/date-picker/utils';
-import useVModel from '../../hooks/useVModel';
+import { useVModel } from '@td/adapter-hooks';
 
 export default function useSingleValue(props: TdDatePickerProps) {
   const { value: valueFromProps, modelValue } = toRefs(props);

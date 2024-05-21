@@ -1,8 +1,6 @@
 import { computed, defineComponent, getCurrentInstance, inject, onMounted, ref, toRefs } from '@td/adapter-vue';
 import props from '@td/intel/menu/menu-item-props';
-import { usePrefixClass, useRipple } from '@td/adapter-hooks';
-import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
-import { emitEvent } from '../utils/event';
+import { useContent, useEmitEvent, usePrefixClass, useRipple, useTNodeJSX } from '@td/adapter-hooks';
 import { Tooltip } from '../tooltip';
 import type { TdMenuInterface, TdSubMenuInterface } from './const';
 
@@ -52,7 +50,10 @@ export default defineComponent({
         return;
       }
       this.menu.select(this.value);
-      emitEvent(this, 'click', { e, value: this.value });
+
+      // vue23:todo
+      const emitEvent = useEmitEvent();
+      emitEvent('click', { e, value: this.value });
       if (this.to || (this.routerLink && this.href)) {
         const router = this.router || this.$router;
         const methods: string = this.replace ? 'replace' : 'push';
@@ -73,10 +74,11 @@ export default defineComponent({
   },
   render() {
     const router = this.router || this.$router;
-
+    const renderTNodeJSX = useTNodeJSX();
+    const renderContent = useContent();
     const liContent = (
       <li ref="itemRef" class={this.classes} onClick={this.handleClick}>
-        {renderTNodeJSX(this, 'icon')}
+        {renderTNodeJSX('icon')}
         {this.routerLink
           ? (
             <a
@@ -85,7 +87,7 @@ export default defineComponent({
               class={`${this.classPrefix}-menu__item-link`}
               onClick={e => e.preventDefault()}
             >
-              <span class={`${this.classPrefix}-menu__content`}>{renderContent(this, 'default', 'content')}</span>
+              <span class={`${this.classPrefix}-menu__content`}>{renderContent('default', 'content')}</span>
             </a>
             )
           : this.href
@@ -96,11 +98,11 @@ export default defineComponent({
                 class={`${this.classPrefix}-menu__item-link`}
                 onClick={e => this.disabled && e.preventDefault()}
               >
-                <span class={`${this.classPrefix}-menu__content`}>{renderContent(this, 'default', 'content')}</span>
+                <span class={`${this.classPrefix}-menu__content`}>{renderContent('default', 'content')}</span>
               </a>
               )
             : (
-              <span class={`${this.classPrefix}-menu__content`}>{renderContent(this, 'default', 'content')}</span>
+              <span class={`${this.classPrefix}-menu__content`}>{renderContent('default', 'content')}</span>
               )}
       </li>
     );
@@ -110,7 +112,7 @@ export default defineComponent({
     // 菜单收起，且只有本身为一级菜单才需要显示 tooltip
     if (this.collapsed && /tmenu/i.test(node?.type.name)) {
       return (
-        <Tooltip content={() => renderContent(this, 'default', 'content')} placement="right">
+        <Tooltip content={() => renderContent('default', 'content')} placement="right">
           {liContent}
         </Tooltip>
       );

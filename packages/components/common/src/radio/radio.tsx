@@ -2,7 +2,7 @@ import { computed, defineComponent, inject, ref, toRefs } from '@td/adapter-vue'
 import { useCommonClassName, useContent, useDisabled, usePrefixClass, useVModel } from '@td/adapter-hooks';
 import props from '@td/intel/radio/props';
 import { isString, isUndefined } from 'lodash-es';
-import { omit } from '../utils/helper';
+import { omit } from 'lodash-es';
 import { RadioButtonInjectionKey, RadioGroupInjectionKey } from './constants';
 
 function getValidAttrs(obj: Record<string, any>): Record<string, any> {

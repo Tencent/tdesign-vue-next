@@ -1,17 +1,21 @@
-import Vue from 'vue';
-import {
-  InfoCircleFilledIcon as TdInfoCircleFilledIcon,
-  ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
+import type Vue from 'vue';
+import type {
   GlobalIconType,
 } from 'tdesign-icons-vue';
+import {
+  ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
+  InfoCircleFilledIcon as TdInfoCircleFilledIcon,
+} from 'tdesign-icons-vue';
+import { useEmitEvent } from '@td/adapter-hooks';
 import mixins from '../utils/mixins';
-import getConfigReceiverMixins, { PopconfirmConfig, getGlobalIconMixins } from '../config-provider/config-receiver';
-import Popup, { PopupProps } from '../popup/index';
-import props from './props';
-import { renderTNodeJSX, renderContent, renderTNodeJSXDefault } from '../utils/render-tnode';
-import { PopconfirmVisibleChangeContext, TdPopconfirmProps } from './type';
-import { emitEvent } from '../utils/event';
+import type { PopconfirmConfig } from '../config-provider/config-receiver';
+import getConfigReceiverMixins, { getGlobalIconMixins } from '../config-provider/config-receiver';
+import type { PopupProps } from '../popup/index';
+import Popup from '../popup/index';
+import { renderContent, renderTNodeJSX, renderTNodeJSXDefault } from '../utils/render-tnode';
 import ActionMixin from '../dialog/actions';
+import props from './props';
+import type { PopconfirmVisibleChangeContext, TdPopconfirmProps } from './type';
 
 export default mixins(
   ActionMixin,

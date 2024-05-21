@@ -2,9 +2,8 @@ import type { PropType, VNode } from '@td/adapter-vue';
 import { computed, defineComponent, nextTick, onMounted, ref, watch } from '@td/adapter-vue';
 import tabProps from '@td/intel/tabs/props';
 
-// hooks
 import { usePrefixClass } from '@td/adapter-hooks';
-import { firstUpperCase } from '../utils/helper';
+import { firstUpperCase } from '@td/adapter-utils';
 
 export default defineComponent({
   props: {

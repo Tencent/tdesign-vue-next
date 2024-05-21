@@ -1,10 +1,9 @@
 import { computed, defineComponent, onMounted, provide, ref, toRefs, watch, watchEffect } from '@td/adapter-vue';
 import props from '@td/intel/menu/props';
 import type { MenuValue } from '@td/intel/menu/type';
-import { useDefaultValue, usePrefixClass, useVModel } from '@td/adapter-hooks';
+import { useContent, useDefaultValue, usePrefixClass, useTNodeJSX, useVModel } from '@td/adapter-hooks';
 import { isArray, isNumber } from 'lodash-es';
 import log from '@td/shared/_common/js/log/log';
-import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import VMenu from './v-menu';
 import type { TdMenuInterface, TdOpenType } from './const';
 
@@ -125,13 +124,15 @@ export default defineComponent({
     };
   },
   render() {
-    const operations = renderContent(this, 'operations', 'options');
-    const logo = renderTNodeJSX(this, 'logo');
+    const renderTNodeJSX = useTNodeJSX();
+    const renderContent = useContent();
+    const operations = renderContent('operations', 'options');
+    const logo = renderTNodeJSX('logo');
     return (
       <div class={this.menuClass} style={this.styles}>
         <div class={`${this.classPrefix}-default-menu__inner`}>
           {logo && <div class={`${this.classPrefix}-menu__logo`}>{logo}</div>}
-          <ul class={this.innerClasses}>{renderContent(this, 'default', 'content')}</ul>
+          <ul class={this.innerClasses}>{renderContent('default', 'content')}</ul>
           {operations && <div class={`${this.classPrefix}-menu__operations`}>{operations}</div>}
         </div>
       </div>

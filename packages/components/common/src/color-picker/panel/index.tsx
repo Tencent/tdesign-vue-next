@@ -13,7 +13,7 @@ import {
 import type { GradientColorPoint } from '../utils';
 import { Color, getColorObject } from '../utils';
 import type { TdColorModes } from '../interfaces';
-import useVModel from '../../hooks/useVModel';
+import { useVModel } from '@td/adapter-hooks';
 import { useDefaultValue } from '@td/adapter-hooks';
 import PanelHeader from './header';
 import LinearGradient from './linear-gradient';

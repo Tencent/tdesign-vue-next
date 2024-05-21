@@ -3,8 +3,6 @@ import { cloneDeep, isArray, isUndefined } from 'lodash-es';
 
 import type { DataOption, TdTransferProps, TransferItemOption, TransferListOptionBase, TransferValue } from './interface';
 
-export { emitEvent } from '../utils/event';
-
 export const TRANSFER_NAME = 'TTransfer';
 
 export const SOURCE = 'source';

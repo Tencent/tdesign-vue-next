@@ -2,8 +2,7 @@ import type { CSSProperties } from '@td/adapter-vue';
 import { Teleport, computed, defineComponent, onMounted, ref, toRefs, watch } from '@td/adapter-vue';
 import props from '@td/intel/loading/props';
 
-import { useCommonClassName, usePrefixClass, useTeleport } from '@td/adapter-hooks';
-import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
+import { useCommonClassName, useContent, usePrefixClass, useTNodeJSX, useTeleport } from '@td/adapter-hooks';
 import { addClass, removeClass } from '@td/adapter-utils';
 import GradientIcon from './icon/gradient';
 
@@ -120,10 +119,12 @@ export default defineComponent({
   },
   render() {
     const { fullScreenClasses, baseClasses, withContentClasses, attachClasses, normalClasses } = this.classes;
-
+    // vue23:!todo
+    const renderContent = useContent();
+    const renderTNodeJSX = useTNodeJSX();
     const defaultIndicator = <GradientIcon size={this.size} />;
-    const indicator = this.loading && renderTNodeJSX(this, 'indicator', defaultIndicator);
-    const text = this.showText && <div class={`${this.classPrefix}-loading__text`}>{renderTNodeJSX(this, 'text')}</div>;
+    const indicator = this.loading && renderTNodeJSX('indicator', defaultIndicator);
+    const text = this.showText && <div class={`${this.classPrefix}-loading__text`}>{renderTNodeJSX('text')}</div>;
 
     // full screen loading
     if (this.fullscreen) {
@@ -146,7 +147,7 @@ export default defineComponent({
     if (this.hasContent) {
       return (
         <div class={this.relativeClass} {...this.$attrs}>
-          {renderContent(this, 'default', 'content')}
+          {renderContent('default', 'content')}
           {this.showWrapLoading && (
             <div class={withContentClasses} style={this.styles}>
               {indicator}

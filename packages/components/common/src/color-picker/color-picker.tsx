@@ -1,8 +1,7 @@
 import { defineComponent, ref, toRefs } from '@td/adapter-vue';
-import { useVModel } from '@td/adapter-hooks';
+import { useTNodeDefault, useVModel } from '@td/adapter-hooks';
 import props from '@td/intel/color-picker/props';
 import { Popup as TPopup } from '@td/components';
-import { renderTNodeJSXDefault } from '../utils/render-tnode';
 import ColorPanel from './panel';
 import DefaultTrigger from './trigger';
 import type { TdColorContext } from './interfaces';
@@ -40,6 +39,8 @@ export default defineComponent({
       );
     };
 
+    const renderTNodeJSXDefault = useTNodeDefault();
+
     return {
       baseClassName,
       innerValue,
@@ -48,6 +49,7 @@ export default defineComponent({
       renderPopupContent,
       setVisible,
       setInnerValue,
+      renderTNodeJSXDefault,
     };
   },
   render() {
@@ -76,8 +78,7 @@ export default defineComponent({
     return (
       <TPopup {...popProps} content={this.renderPopupContent}>
         <div class={`${baseClassName}__trigger`} onClick={() => this.setVisible(!this.visible)} ref="refTrigger">
-          {renderTNodeJSXDefault(
-            this,
+          {this.renderTNodeJSXDefault(
             'default',
             <DefaultTrigger
               borderless={this.borderless}

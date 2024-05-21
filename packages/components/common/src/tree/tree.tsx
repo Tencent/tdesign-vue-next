@@ -1,6 +1,6 @@
 import { isFunction, upperFirst } from 'lodash-es';
 import props from '@td/intel/tree/props';
-import { renderTNodeJSX } from '../utils/render-tnode';
+import { useTNodeJSX } from '@td/adapter-hooks';
 import type {
   TreeNode,
   TypeCreateElement,
@@ -261,6 +261,7 @@ export default defineComponent({
     } = this;
 
     const createElement = getCreateElement(h);
+    const renderTNodeJSX = useTNodeJSX();
 
     const { scope, allNodes, refProps } = state;
     // 更新 scopedSlots
@@ -276,7 +277,7 @@ export default defineComponent({
     let emptyNode: TypeTNodeReturnValue = null;
     if (nodesEmpty) {
       const useLocale = !this.empty && !this.$slots.empty;
-      const emptyContent = useLocale ? this.t(this.global.empty) : renderTNodeJSX(this, 'empty');
+      const emptyContent = useLocale ? this.t(this.global.empty) : renderTNodeJSX('empty');
       emptyNode = <div class={`${cname}__empty`}>{emptyContent}</div>;
     } else if (treeNodeViews.length <= 0) {
       // 数据切换时，有闪现的缓存节点呈现

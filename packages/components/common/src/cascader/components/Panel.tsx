@@ -1,10 +1,9 @@
 import type { PropType } from '@td/adapter-vue';
 import { computed, defineComponent, h } from '@td/adapter-vue';
 
-import { useConfig, usePrefixClass, useTNodeDefault } from '@td/adapter-hooks';
+import { getDefaultNode, useConfig, usePrefixClass, useTNodeDefault } from '@td/adapter-hooks';
 import CascaderProps from '@td/intel/cascader/props';
 import type { CascaderContextType, TreeNode } from '../interface';
-import { getDefaultNode } from '../../utils/render-tnode';
 import { getPanels } from '../core/helper';
 import { expendClickEffect, valueChangeEffect } from '../core/effect';
 import Item from './Item';

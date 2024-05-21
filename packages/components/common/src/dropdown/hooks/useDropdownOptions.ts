@@ -3,7 +3,7 @@ import { computed, getCurrentInstance } from '@td/adapter-vue';
 import { camelCase, isArray, isString } from 'lodash-es';
 
 import type { DropdownOption, TdDropdownProps } from '@td/intel/dropdown/type';
-import { useChildComponentSlots } from '../../hooks/slot';
+import { useChildComponentSlots } from '@td/adapter-hooks';
 
 export function getOptionsFromChildren(menuNode: VNode | VNode[]): DropdownOption[] {
   if (!menuNode) {

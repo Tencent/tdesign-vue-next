@@ -16,13 +16,12 @@ import {
   watch,
 } from '@td/adapter-vue';
 import props from '@td/intel/menu/submenu-props';
-import { useCollapseAnimation, usePrefixClass, useRipple } from '@td/adapter-hooks';
+import { useCollapseAnimation, useContent, usePrefixClass, useRipple, useTNodeJSX } from '@td/adapter-hooks';
 import { isFunction } from 'lodash-es';
 import type { TdSubmenuProps } from '@td/intel/menu/type';
 import { Popup } from '@td/components';
 import type { PopupPlacement } from '@td/components';
 import FakeArrow from '../common-components/fake-arrow';
-import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import type { TdMenuInterface, TdMenuItem, TdSubMenuInterface } from './const';
 
 export default defineComponent({
@@ -55,6 +54,8 @@ export default defineComponent({
     const submenuRef = ref<HTMLElement>();
     const transitionClass = usePrefixClass('slide-down');
     useRipple(submenuRef, rippleColor);
+    const renderTNodeJSX = useTNodeJSX();
+    const renderContent = useContent();
 
     const classes = computed(() => [
       `${classPrefix.value}-submenu`,
@@ -246,6 +247,8 @@ export default defineComponent({
       handleMouseLeave,
       handleMouseLeavePopup,
       handleSubmenuItemClick,
+      renderTNodeJSX,
+      renderContent,
     };
   },
   methods: {
@@ -265,7 +268,7 @@ export default defineComponent({
           onMouseenter={this.handleEnterPopup}
           onMouseleave={this.handleMouseLeavePopup}
         >
-          <ul class={`${this.classPrefix}-menu__popup-wrapper`}>{renderContent(this, 'default', 'content')}</ul>
+          <ul class={`${this.classPrefix}-menu__popup-wrapper`}>{this.renderContent('default', 'content')}</ul>
         </div>
       );
       const slots = {
@@ -290,20 +293,20 @@ export default defineComponent({
       return realPopup;
     },
     renderHeadSubmenu() {
-      const icon = renderTNodeJSX(this, 'icon');
+      const icon = this.renderTNodeJSX('icon');
       const normalSubmenu = [
         <div ref="submenuRef" class={this.submenuClass} onClick={this.handleSubmenuItemClick}>
           {icon}
-          <span class={[`${this.classPrefix}-menu__content`]}>{renderTNodeJSX(this, 'title', { silent: true })}</span>
+          <span class={[`${this.classPrefix}-menu__content`]}>{this.renderTNodeJSX('title', { silent: true })}</span>
         </div>,
-        <ul style="opacity: 0; width: 0; height: 0; overflow: hidden">{renderContent(this, 'default', 'content')}</ul>,
+        <ul style="opacity: 0; width: 0; height: 0; overflow: hidden">{this.renderContent('default', 'content')}</ul>,
       ];
 
       const needRotate = this.mode === 'popup' && this.isNested;
 
       const triggerElement = [
         icon,
-        <span class={[`${this.classPrefix}-menu__content`]}>{renderTNodeJSX(this, 'title', { silent: true })}</span>,
+        <span class={[`${this.classPrefix}-menu__content`]}>{this.renderTNodeJSX('title', { silent: true })}</span>,
         <FakeArrow
           overlayClassName={/menu/i.test(this.$parent.$options.name) ? this.arrowClass : null}
           overlayStyle={{ transform: `rotate(${needRotate ? -90 : 0}deg)` }}
@@ -314,8 +317,8 @@ export default defineComponent({
     },
     renderSubmenu() {
       const hasContent = this.$slots.content || this.$slots.default;
-      const icon = renderTNodeJSX(this, 'icon');
-      const child = renderContent(this, 'default', 'content');
+      const icon = this.renderTNodeJSX('icon');
+      const child = this.renderContent('default', 'content');
       let { parent } = getCurrentInstance();
       let paddingLeft = 44;
 
@@ -333,7 +336,7 @@ export default defineComponent({
       const normalSubmenu = [
         <div ref="submenuRef" class={this.submenuClass} onClick={this.handleSubmenuItemClick}>
           {icon}
-          <span class={[`${this.classPrefix}-menu__content`]}>{renderTNodeJSX(this, 'title', { silent: true })}</span>
+          <span class={[`${this.classPrefix}-menu__content`]}>{this.renderTNodeJSX('title', { silent: true })}</span>
           {hasContent && (
             <FakeArrow
               overlayClassName={this.arrowClass}
@@ -358,7 +361,7 @@ export default defineComponent({
 
       const triggerElement = [
         icon,
-        <span class={[`${this.classPrefix}-menu__content`]}>{renderTNodeJSX(this, 'title', { silent: true })}</span>,
+        <span class={[`${this.classPrefix}-menu__content`]}>{this.renderTNodeJSX('title', { silent: true })}</span>,
         <FakeArrow
           overlayClassName={/menu/i.test(this.$parent.$options.name) ? this.arrowClass : null}
           overlayStyle={{ 'transform': `rotate(${needRotate ? -90 : 0}deg)`, 'margin-left': 'auto' }}

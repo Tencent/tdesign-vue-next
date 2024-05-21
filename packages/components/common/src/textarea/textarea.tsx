@@ -12,7 +12,7 @@ import {
   toRefs,
   watch,
 } from '@td/adapter-vue';
-import { isUndefined, merge } from 'lodash-es';
+import { isUndefined, merge, omit } from 'lodash-es';
 
 import { useCommonClassName, useDisabled, usePrefixClass, useTNodeJSX, useVModel } from '@td/adapter-hooks';
 
@@ -22,7 +22,6 @@ import { getCharacterLength } from '@td/shared/_common/js/utils/helper';
 import setStyle from '@td/shared/_common/js/utils/set-style';
 import { useFormDisabled } from '../form/hooks';
 import { FormItemInjectionKey } from '../form/const';
-import { omit } from '../utils/helper';
 import useLengthLimit from '../input/useLengthLimit';
 import calcTextareaHeight from './calcTextareaHeight';
 

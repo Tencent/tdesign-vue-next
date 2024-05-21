@@ -3,7 +3,7 @@ import { computed, ref } from '@td/adapter-vue';
 import { get, isArray, isFunction } from 'lodash-es';
 
 import type { SelectOption, SelectOptionGroup, SelectValue, TdOptionProps, TdSelectProps } from '@td/intel/select/type';
-import { useChildComponentSlots } from '../../hooks/slot';
+import { useChildComponentSlots } from '@td/adapter-hooks';
 import type { KeysType } from '../../common';
 
 type UniOption = (TdOptionProps | SelectOptionGroup) & {

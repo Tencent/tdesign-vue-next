@@ -12,7 +12,7 @@ import {
 import props from '@td/intel/progress/props';
 import { useGlobalIcon, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import { isObject, isString } from 'lodash-es';
-import { getBackgroundColor } from '../utils/helper';
+import { getBackgroundColor } from '@td/adapter-utils';
 import { CIRCLE_FONT_SIZE_RATIO, CIRCLE_SIZE, CIRCLE_SIZE_PX, PRO_THEME, STATUS_ICON } from './constants';
 
 export default defineComponent({

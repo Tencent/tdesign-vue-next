@@ -2,11 +2,10 @@ import { computed, defineComponent, nextTick, reactive, ref, toRefs, watch } fro
 import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import type { TdTagInputProps } from '@td/intel/tag-input/type';
 import props from '@td/intel/tag-input/props';
-import { useDefaultValue, useGlobalIcon, usePrefixClass } from '@td/adapter-hooks';
+import { useDefaultValue, useGlobalIcon, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import { isArray } from 'lodash-es';
 import type { InputProps, StrInputProps, TdInputProps } from '../input';
 import TInput from '../input';
-import { renderTNodeJSX } from '../utils/render-tnode';
 import { useConfig } from '../config-provider/useConfig';
 import useTagScroll from './hooks/useTagScroll';
 import useTagList from './useTagList';
@@ -220,27 +219,29 @@ export default defineComponent({
 
   render() {
     const { CloseCircleFilledIcon } = this;
+    const renderTNodeJSX = useTNodeJSX();
+
     const suffixIconNode = this.showClearIcon
       ? (
         <CloseCircleFilledIcon class={this.CLEAR_CLASS} onClick={this.onClearClick} />
         )
       : (
-          renderTNodeJSX(this, 'suffixIcon')
+          renderTNodeJSX('suffixIcon')
         );
-    const prefixIconNode = renderTNodeJSX(this, 'prefixIcon');
+    const prefixIconNode = renderTNodeJSX('prefixIcon');
     const suffixClass = `${this.classPrefix}-tag-input__with-suffix-icon`;
     if (suffixIconNode && !this.classes.includes(suffixClass)) {
       this.classes.push(suffixClass);
     }
     // 自定义 Tag 节点
-    const displayNode = renderTNodeJSX(this, 'valueDisplay', {
+    const displayNode = renderTNodeJSX('valueDisplay', {
       params: {
         value: this.tagValue,
         onClose: (index: number) => this.onClose({ index }),
       },
     });
     // 左侧文本
-    const label = renderTNodeJSX(this, 'label', { silent: true });
+    const label = renderTNodeJSX('label', { silent: true });
     const inputProps = this.inputProps as TdTagInputProps['inputProps'];
     const readonly = this.readonly || inputProps?.readonly;
     return (

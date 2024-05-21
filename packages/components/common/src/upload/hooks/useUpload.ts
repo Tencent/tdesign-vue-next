@@ -12,7 +12,7 @@ import {
 import { getFileList } from '@td/shared/_common/js/upload/utils';
 import type { InnerProgressContext, OnResponseErrorContext, SuccessContext } from '@td/shared/_common/js/upload/types';
 import { useConfig } from '@td/adapter-hooks';
-import useVModel from '../../hooks/useVModel';
+import { useVModel } from '@td/adapter-hooks';
 
 export type ValidateParams = Parameters<TdUploadProps['onValidate']>[0];
 

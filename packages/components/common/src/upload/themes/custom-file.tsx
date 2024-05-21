@@ -1,11 +1,11 @@
 import type { PropType } from '@td/adapter-vue';
 import { defineComponent, toRefs } from '@td/adapter-vue';
 import type { TdUploadProps } from '@td/intel/upload/type';
+import { useContent } from '@td/adapter-hooks';
 import type { UploadDragEvents } from '../hooks/useDrag';
 import useDrag from '../hooks/useDrag';
 import type { CommonDisplayFileProps } from '../interface';
 import { commonProps } from '../constants';
-import { useContent } from '../../hooks/tnode';
 
 export interface CustomFileProps extends CommonDisplayFileProps {
   dragEvents: UploadDragEvents;
