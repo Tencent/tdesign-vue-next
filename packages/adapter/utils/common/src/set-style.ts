@@ -7,8 +7,7 @@ import type { CSSProperties } from '@td/adapter-vue';
  */
 export function setStyle(el: HTMLElement, styles: CSSProperties): void {
   const keys = Object.keys(styles);
-  keys.forEach((key:string) => {
-    // eslint-disable-next-line no-param-reassign
+  keys.forEach((key: string) => {
     el.style[key] = styles[key];
   });
 }

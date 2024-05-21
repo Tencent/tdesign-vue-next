@@ -1,4 +1,4 @@
-export const calcSize = (width: number) => {
+export function calcSize(width: number) {
   let size = 'xs';
   if (width < 768) {
     size = 'xs';
@@ -14,4 +14,4 @@ export const calcSize = (width: number) => {
     size = 'xxl';
   }
   return size;
-};
+}

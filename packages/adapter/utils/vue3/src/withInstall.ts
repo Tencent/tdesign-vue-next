@@ -1,4 +1,4 @@
-import type { App, Plugin, Component, Directive } from 'vue';
+import type { App, Component, Directive, Plugin } from 'vue';
 
 export function withInstall<T>(
   comp: T,
