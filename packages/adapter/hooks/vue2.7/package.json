@@ -2,20 +2,20 @@
   "name": "@td/adapter-hooks-vue2.7",
   "version": "1.0.0",
   "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@td/adapter-vue": "workspace:^",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.202",
     "@td/ts-config": "workspace:^",
+    "@types/lodash": "^4.14.202",
     "vue": "~2.7.16"
   }
 }
