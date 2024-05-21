@@ -1,5 +1,4 @@
 import { defineComponent, PropType, computed, VNode, nextTick, ref, watch, onMounted } from 'vue';
-import { firstUpperCase } from '../utils/helper';
 import tabProps from './props';
 
 // hooks
@@ -29,12 +28,12 @@ export default defineComponent({
         if (props.navs[i].props.value === props.value) {
           break;
         }
-        offset += props.navs[i]?.el?.[`client${firstUpperCase(sizePropName)}`] || 0;
+        offset += props.navs[i]?.el?.getBoundingClientRect()?.[sizePropName] || 0;
       }
       if (!props.navs[i]) return {};
       return {
         [offsetPropName]: `${offset}px`,
-        [sizePropName]: `${props.navs[i].el?.[`client${firstUpperCase(sizePropName)}`] || 0}px`,
+        [sizePropName]: `${props.navs[i].el?.getBoundingClientRect()?.[sizePropName] || 0}px`,
       };
     };
 
