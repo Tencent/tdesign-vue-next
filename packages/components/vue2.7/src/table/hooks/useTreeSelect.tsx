@@ -13,7 +13,7 @@ import type {
   TableRowData,
   TdEnhancedTableProps,
   TdPrimaryTableProps,
-} from '@td/intel/components/table/type';
+} from '@td/intel/table/type';
 
 export interface GetChildrenDataReturnValue {
   allChildren: Array<any>;

@@ -8,7 +8,7 @@ import {
   toRefs,
   watch,
 } from '@td/adapter-vue';
-import props from '@td/intel/components/checkbox/props';
+import props from '@td/intel/checkbox/props';
 import {
   useCommonClassName,
   useDisabled,

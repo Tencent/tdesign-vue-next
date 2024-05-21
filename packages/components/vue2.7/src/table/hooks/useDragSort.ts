@@ -16,9 +16,9 @@ import type {
   PrimaryTableCol,
   TableRowData,
   TdPrimaryTableProps,
-} from '@td/intel/components/table/type';
+} from '@td/intel/table/type';
 import { hasClass } from '@td/adapter-utils';
-import type { TdPaginationProps as PaginationProps } from '@td/intel/components/pagination/type';
+import type { TdPaginationProps as PaginationProps } from '@td/intel/pagination/type';
 import type { SimplePageInfo } from '../interface';
 import useClassName from './useClassName';
 

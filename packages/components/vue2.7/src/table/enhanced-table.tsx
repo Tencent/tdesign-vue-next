@@ -12,13 +12,13 @@ import type {
   TableRowState,
   TdEnhancedTableProps,
   TdPrimaryTableProps,
-} from '@td/intel/components/table/type';
+} from '@td/intel/table/type';
 import { usePrefixClass } from '@td/adapter-hooks';
 import type { ComponentScrollToElementParams } from '@td/shared/interface';
 import log from '@td/shared/_common/js/log';
-import baseTableProps from '@td/intel/components/table/base-table-props';
-import primaryTableProps from '@td/intel/components/table/primary-table-props';
-import enhancedTableProps from '@td/intel/components/table/enhanced-table-props';
+import baseTableProps from '@td/intel/table/base-table-props';
+import primaryTableProps from '@td/intel/table/primary-table-props';
+import enhancedTableProps from '@td/intel/table/enhanced-table-props';
 import PrimaryTable, { BASE_TABLE_ALL_EVENTS } from './primary-table';
 import useTreeData from './hooks/useTreeData';
 import useTreeSelect from './hooks/useTreeSelect';

@@ -19,7 +19,7 @@ import type {
   RowClassNameParams,
   TableRowData,
   TdPrimaryTableProps,
-} from '@td/intel/components/table/type';
+} from '@td/intel/table/type';
 import { Checkbox, Radio } from '@td/component';
 import type { ClassName } from '@td/shared/interface';
 import type { TableClassName } from './useClassName';

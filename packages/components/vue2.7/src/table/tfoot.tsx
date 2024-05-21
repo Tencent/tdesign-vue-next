@@ -9,7 +9,7 @@ import type {
   RowspanColspan,
   TableRowData,
   TdBaseTableProps,
-} from '@td/intel/components/table/type';
+} from '@td/intel/table/type';
 import { useTNodeJSX } from '@td/adapter-hooks';
 import type { Styles } from '@td/shared/interface';
 import type { RowAndColFixedPosition } from './interface';

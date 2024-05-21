@@ -5,9 +5,9 @@ import type {
   TableColumnClassName,
   TableRowData,
   TdBaseTableProps,
-} from '@td/intel/components/table/type';
+} from '@td/intel/table/type';
 import type { ClassName, HTMLElementAttributes } from '@td/shared/interface';
-import type { TdAffixProps as AffixProps } from '@td/intel/components/affix/type';
+import type { TdAffixProps as AffixProps } from '@td/intel/affix/type';
 
 export function toString(obj: any): string {
   return Object.prototype.toString.call(obj).slice(8, -1).toLowerCase();

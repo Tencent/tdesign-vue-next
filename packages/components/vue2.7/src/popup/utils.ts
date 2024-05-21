@@ -3,7 +3,7 @@ import { off, on } from '@td/adapter-utils';
 import type {
   PopupTriggerEvent,
   TdPopupProps,
-} from '@td/intel/components/popup/type';
+} from '@td/intel/popup/type';
 import type { Placement } from '@popperjs/core';
 
 import type { Ref } from '@td/adapter-vue';

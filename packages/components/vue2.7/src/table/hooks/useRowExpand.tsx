@@ -13,7 +13,7 @@ import type {
   TableExpandedRowParams,
   TableRowData,
   TdPrimaryTableProps,
-} from '@td/intel/components/table/type';
+} from '@td/intel/table/type';
 import useClassName from './useClassName';
 
 export default function useRowExpand(props: TdPrimaryTableProps, context: SetupContext) {

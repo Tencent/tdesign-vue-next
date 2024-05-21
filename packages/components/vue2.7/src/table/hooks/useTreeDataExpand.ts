@@ -7,7 +7,7 @@ import { nextTick, ref, toRefs, watch } from '@td/adapter-vue';
 import { useDefaultValue } from '@td/adapter-hooks';
 import type TableTreeStore from '@td/shared/_common/js/table/tree-store';
 import { diffExpandedTreeNode, getUniqueRowValue } from '@td/shared/_common/js/table/tree-store';
-import type { TableRowData, TdEnhancedTableProps } from '@td/intel/components/table/type';
+import type { TableRowData, TdEnhancedTableProps } from '@td/intel/table/type';
 import type { TableTreeExpandType } from '../interface';
 
 export function useTreeDataExpand(

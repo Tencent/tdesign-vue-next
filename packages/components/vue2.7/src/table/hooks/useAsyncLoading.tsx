@@ -3,7 +3,7 @@ import type { CreateElement, SetupContext } from '@td/adapter-vue';
 import { computed } from '@td/adapter-vue';
 import { useConfig, useTNodeJSX } from '@td/adapter-hooks';
 import { Loading } from '@td/component';
-import type { TdPrimaryTableProps } from '@td/intel/components/table/type';
+import type { TdPrimaryTableProps } from '@td/intel/table/type';
 import useClassName from './useClassName';
 
 export default function useAsyncLoading(props: TdPrimaryTableProps, context: SetupContext) {

@@ -1,8 +1,8 @@
-import { ref, computed } from '@td/adapter-vue';
+import { computed, ref } from '@td/adapter-vue';
 
 export function useCommonClassName() {
   // ! 应该从 useConfig 中导入的
-  const classPrefix = ref('t')
+  const classPrefix = ref('t');
 
   return {
     SIZE: computed(() => ({
@@ -37,8 +37,8 @@ export function useCommonClassName() {
 export type CommonClassNameType = ReturnType<typeof useCommonClassName>;
 
 export function usePrefixClass(componentName?: string) {
-    // ! 应该从 useConfig 中导入的
-    const classPrefix = ref('t')
+  // ! 应该从 useConfig 中导入的
+  const classPrefix = ref('t');
 
   return computed(() => {
     return componentName ? `${classPrefix.value}-${componentName}` : classPrefix.value;

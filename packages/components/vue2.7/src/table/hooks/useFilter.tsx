@@ -14,7 +14,7 @@ import type {
   TableFilterChangeContext,
   TableRowData,
   TdPrimaryTableProps,
-} from '@td/intel/components/table/type';
+} from '@td/intel/table/type';
 import TableFilterController from '../filter-controller';
 import useClassName from './useClassName';
 import { renderTitle } from './useTableHeader';

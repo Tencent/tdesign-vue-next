@@ -14,9 +14,9 @@ import {
 } from '@td/adapter-hooks';
 import { off, on, once } from '@td/adapter-utils';
 
-import props from '@td/intel/components/popup/props';
+import props from '@td/intel/popup/props';
 
-import type { PopupTriggerEvent } from '@td/intel/components/popup/type';
+import type { PopupTriggerEvent } from '@td/intel/popup/type';
 import { getTriggerType } from './utils';
 
 export default defineComponent({

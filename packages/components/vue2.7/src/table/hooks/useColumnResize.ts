@@ -12,7 +12,7 @@ import {
   ref,
 } from '@td/adapter-vue';
 import { isNumber } from 'lodash-es';
-import type { BaseTableCol, TableRowData, TdBaseTableProps } from '@td/intel/components/table/type';
+import type { BaseTableCol, TableRowData, TdBaseTableProps } from '@td/intel/table/type';
 import { off, on } from '@td/adapter-utils';
 
 const DEFAULT_MIN_WIDTH = 80;

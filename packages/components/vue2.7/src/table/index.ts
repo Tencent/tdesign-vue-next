@@ -5,7 +5,7 @@ import _EnhancedTable from './enhanced-table';
 
 import './style';
 
-export * from '@td/intel/components/table/type';
+export * from '@td/intel/table/type';
 export * from './interface';
 
 export const BaseTable = withInstall(_BaseTable);

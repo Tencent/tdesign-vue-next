@@ -1,5 +1,5 @@
 import { withInstall } from '@td/adapter-utils';
-import type { TdCheckboxGroupProps, TdCheckboxProps } from '@td/intel/components/checkbox/type';
+import type { TdCheckboxGroupProps, TdCheckboxProps } from '@td/intel/checkbox/type';
 import _CheckboxGroup from './group';
 import _Checkbox from './checkbox';
 
@@ -7,7 +7,7 @@ import './style';
 
 export type CheckboxProps = TdCheckboxProps;
 export type CheckboxGroupProps = TdCheckboxGroupProps;
-export * from '@td/intel/components/checkbox/type';
+export * from '@td/intel/checkbox/type';
 
 export const Checkbox = withInstall(_Checkbox);
 

@@ -5,9 +5,9 @@ import {
   watch,
 } from '@td/adapter-vue';
 import { debounce } from 'lodash-es';
-import type { TdBaseTableProps } from '@td/intel/components/table/type';
+import type { TdBaseTableProps } from '@td/intel/table/type';
 import { off, on } from '@td/adapter-utils';
-import type { TdAffixProps as AffixProps } from '@td/intel/components/affix/type';
+import type { TdAffixProps as AffixProps } from '@td/intel/affix/type';
 
 /**
  * 1. 表头吸顶（普通表头吸顶 和 虚拟滚动表头吸顶）

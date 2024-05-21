@@ -1,4 +1,4 @@
-import type { CheckboxGroupValue, TdCheckboxProps } from '@td/intel/components/checkbox/type';
+import type { CheckboxGroupValue, TdCheckboxProps } from '@td/intel/checkbox/type';
 
 export type CheckboxValue = TdCheckboxProps['value'];
 

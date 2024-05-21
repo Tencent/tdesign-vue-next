@@ -11,8 +11,8 @@ import {
 } from '@td/adapter-vue';
 import type { VNode } from '@td/adapter-vue';
 import { intersection, isArray, isObject, isUndefined } from 'lodash-es';
-import props from '@td/intel/components/checkbox/checkbox-group-props';
-import type { CheckboxGroupValue, CheckboxOptionObj, TdCheckboxProps } from '@td/intel/components/checkbox/type';
+import props from '@td/intel/checkbox/checkbox-group-props';
+import type { CheckboxGroupValue, CheckboxOptionObj, TdCheckboxProps } from '@td/intel/checkbox/type';
 import { useChildComponentSlots, usePrefixClass, useVModel } from '@td/adapter-hooks';
 import { CheckboxGroupInjectionKey } from './constants';
 import Checkbox from './checkbox';

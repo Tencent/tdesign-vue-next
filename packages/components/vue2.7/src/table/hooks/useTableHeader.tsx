@@ -8,7 +8,7 @@ import type {
   PrimaryTableCol,
   TableRowData,
   TdBaseTableProps,
-} from '@td/intel/components/table/type';
+} from '@td/intel/table/type';
 import type { BaseTableColumns } from '../interface';
 import TEllipsis from '../ellipsis';
 import { getThList, getThRowspanAndColspan } from './useMultiHeader';

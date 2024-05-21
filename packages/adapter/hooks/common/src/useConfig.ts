@@ -1,7 +1,7 @@
 import { H, computed, getCurrentInstance, inject, provide, ref } from '@td/adapter-vue';
 import { mergeWith as _mergeWith, cloneDeep, isArray, isFunction, isString, merge } from 'lodash-es';
 
-import type { GlobalConfigProvider } from '@td/intel/components/config-provider/type';
+import type { GlobalConfigProvider } from '@td/intel/config-provider/type';
 
 import defaultConfig from '@td/shared/_common/js/global-config/default-config';
 import defaultZhLocale from '@td/shared/_common/js/global-config/locale/zh_CN';

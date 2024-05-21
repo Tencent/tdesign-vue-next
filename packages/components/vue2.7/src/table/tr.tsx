@@ -16,12 +16,12 @@ import type {
   TableRowData,
   TdBaseTableProps,
   TdPrimaryTableProps,
-} from '@td/intel/components/table/type';
+} from '@td/intel/table/type';
 import type { AttachNode } from '@td/shared/interface';
-import baseTableProps from '@td/intel/components/table/base-table-props';
+import baseTableProps from '@td/intel/table/base-table-props';
 import type { VirtualScrollConfig } from '@td/adapter-hooks';
 import { useLazyLoad } from '@td/adapter-hooks';
-import type { TdPaginationProps as PaginationProps } from '@td/intel/components/pagination/type';
+import type { TdPaginationProps as PaginationProps } from '@td/intel/pagination/type';
 import { formatClassNames, formatRowAttributes, formatRowClassNames } from './utils';
 import { getColumnFixedStyles, getRowFixedStyles } from './hooks/useFixed';
 import type { RowAndColFixedPosition } from './interface';

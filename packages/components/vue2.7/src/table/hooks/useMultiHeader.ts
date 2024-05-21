@@ -3,7 +3,7 @@
  *
  */
 
-import type { RowspanColspan } from '@td/intel/components/table/type';
+import type { RowspanColspan } from '@td/intel/table/type';
 import type { BaseTableColumns, ThRowspanAndColspan } from '../interface';
 
 // 获取节点深度，即表头总层级

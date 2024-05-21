@@ -13,8 +13,8 @@ import type {
   PrimaryTableRowValidateContext,
   TableErrorListMap,
   TableRowData,
-} from '@td/intel/components/table/type';
-import type { AllValidateResult } from '@td/intel/components/form/type';
+} from '@td/intel/table/type';
+import type { AllValidateResult } from '@td/intel/form/type';
 import type { PrimaryTableProps } from '../interface';
 import { validate } from '../../../common/form/form-model';
 import type { OnEditableChangeContext } from '../editable-cell';

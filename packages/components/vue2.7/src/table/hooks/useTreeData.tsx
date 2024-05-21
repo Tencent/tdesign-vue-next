@@ -16,7 +16,7 @@ import type {
   TableRowState,
   TableRowValue,
   TdEnhancedTableProps,
-} from '@td/intel/components/table/type';
+} from '@td/intel/table/type';
 import { renderCell } from '../tr';
 import useClassName from './useClassName';
 import useTreeDataExpand from './useTreeDataExpand';
