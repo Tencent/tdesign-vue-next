@@ -1,18 +1,22 @@
-const fs = require('fs');
-const path = require('path');
-const { execSync } = require('child_process');
+const fs = require('node:fs');
+const path = require('node:path');
+const { execSync } = require('node:child_process');
 
-const packages = fs
-  .readdirSync(path.resolve(__dirname, 'src'), { withFileTypes: true })
-  .filter((dirent) => dirent.isDirectory())
-  .map((dirent) => dirent.name);
+const packages = [
+  ...Array.from(fs
+    .readdirSync(path.resolve(__dirname, 'packages/components/common/src'), { withFileTypes: true })),
+  ...Array.from(fs
+    .readdirSync(path.resolve(__dirname, 'packages/components/vue3/src'), { withFileTypes: true })),
+]
+  .filter(dirent => dirent.isDirectory())
+  .map(dirent => dirent.name);
 
 // precomputed scope
 const scopeComplete = execSync('git status --porcelain || true')
   .toString()
   .trim()
   .split('\n')
-  .find((r) => r.indexOf('M  ') !== -1)
+  .find(r => r.includes('M  '))
   ?.replace(/(\/)/g, '%%')
   ?.match(/src%%((\w|-)*)/)?.[1];
 

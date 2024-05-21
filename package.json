@@ -1,5 +1,4 @@
 {
-  "type": "module",
   "version": "1.9.5",
   "private": true,
   "purename": "tdesign",
@@ -66,11 +65,12 @@
     "@antfu/eslint-config": "^2.11.6",
     "@td/ts-config": "workspace:^",
     "eslint": "^9.3.0",
-    "eslint-plugin-format": "^0.1.0"
+    "eslint-plugin-format": "^0.1.0",
+    "husky": "^8.0.1",
+    "typescript": "^5.4.5"
   },
   "lint-staged": {
     "*.{vue,js,jsx,ts,tsx}": [
-      "prettier --write --cache",
       "eslint --fix --cache"
     ]
   },
