@@ -6,19 +6,19 @@
  */
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
-import { Image } from '..';
+import { Image } from 'tdesign-vue-next';
+import { simulateImageEvent } from 'tdesign-vue-next/test/utils';
 import { getOverlayImageMount } from './mount';
-import { simulateImageEvent } from '@test/utils';
 
-describe('Image Component', () => {
+describe('image Component', () => {
   it('props.alt works fine', () => {
-    const wrapper = mount(<Image alt={'text image load failed'} src={'https://www.error.img.com'}></Image>).find('img');
+    const wrapper = mount(<Image alt="text image load failed" src="https://www.error.img.com"></Image>).find('img');
     expect(wrapper.attributes('alt')).toBe('text image load failed');
   });
 
   it('props.error works fine', async () => {
     const wrapper = mount(
-      <Image error={() => <span class="custom-node">TNode</span>} src={'https://this.is.an.error.img.com'}></Image>,
+      <Image error={() => <span class="custom-node">TNode</span>} src="https://this.is.an.error.img.com"></Image>,
     );
     const imgDom = wrapper.find('img').element;
     simulateImageEvent(imgDom, 'error');
@@ -30,8 +30,9 @@ describe('Image Component', () => {
     const wrapper = mount(
       <Image
         v-slots={{ error: () => <span class="custom-node">TNode</span> }}
-        src={'https://this.is.an.error.img.com'}
-      ></Image>,
+        src="https://this.is.an.error.img.com"
+      >
+      </Image>,
     );
     const imgDom = wrapper.find('img').element;
     simulateImageEvent(imgDom, 'error');
@@ -154,7 +155,8 @@ describe('Image Component', () => {
           'image/avif': 'https://tdesign.gtimg.com/img/tdesign-image.avif',
           'image/webp': 'https://tdesign.gtimg.com/img/tdesign-image.webp',
         }}
-      ></Image>,
+      >
+      </Image>,
     );
     const domWrapper = wrapper.find('picture > source');
     expect(domWrapper.attributes('srcset')).toBe('https://tdesign.gtimg.com/img/tdesign-image.avif');
@@ -164,7 +166,7 @@ describe('Image Component', () => {
 
   it('events.error works fine', async () => {
     const onErrorFn = vi.fn();
-    const wrapper = mount(<Image src={'https://load-failed-img.png'} onError={onErrorFn}></Image>);
+    const wrapper = mount(<Image src="https://load-failed-img.png" onError={onErrorFn}></Image>);
     const imgDom = wrapper.find('img').element;
     simulateImageEvent(imgDom, 'error');
     await wrapper.vm.$nextTick();
@@ -176,7 +178,7 @@ describe('Image Component', () => {
 
   it('events.load works fine', async () => {
     const onLoadFn1 = vi.fn();
-    const wrapper = mount(<Image src={'https://tdesign.gtimg.com/demo/demo-image-1.png'} onLoad={onLoadFn1}></Image>);
+    const wrapper = mount(<Image src="https://tdesign.gtimg.com/demo/demo-image-1.png" onLoad={onLoadFn1}></Image>);
     await wrapper.vm.$nextTick();
     const imgDom1 = wrapper.find('img').element;
     simulateImageEvent(imgDom1, 'load');

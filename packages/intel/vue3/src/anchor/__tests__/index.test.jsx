@@ -1,9 +1,9 @@
 import { mount } from '@vue/test-utils';
-import { Anchor, AnchorItem, AnchorTarget } from '@/src/anchor/index.ts';
+import { Anchor, AnchorItem, AnchorTarget } from 'tdesign-vue-next';
 
-describe('Anchor', () => {
+describe('anchor', () => {
   describe(':base', () => {
-    it('render', () => {
+    it('render:href', () => {
       const wrapper = mount({
         render() {
           return (
@@ -19,14 +19,14 @@ describe('Anchor', () => {
       const AnchorItemList = wrapper.findAllComponents(AnchorItem);
       expect(AnchorItemList.length).toBe(3);
     });
-    it('render', () => {
+    it('render:id', () => {
       const wrapper = mount({
         render() {
           return (
             <Anchor>
-              <AnchorTarget id={`#anchor-target-1`}></AnchorTarget>
-              <AnchorTarget id={`#anchor-target-2`}></AnchorTarget>
-              <AnchorTarget id={`#anchor-target-3`}></AnchorTarget>
+              <AnchorTarget id="#anchor-target-1"></AnchorTarget>
+              <AnchorTarget id="#anchor-target-2"></AnchorTarget>
+              <AnchorTarget id="#anchor-target-3"></AnchorTarget>
             </Anchor>
           );
         },

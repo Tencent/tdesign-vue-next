@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { expect, it, vi } from 'vitest';
 import MockDate from 'mockdate';
-import Calendar from '@/src/calendar/index.ts';
+import Calendar from 'tdesign-vue-next'
 
 // 固定时间，当使用 new Date() 时，返回固定时间，防止“当前时间”的副作用影响，导致 snapshot 变更，mockdate 插件见 https://github.com/boblauer/MockDate
 MockDate.set('2020-12-28');

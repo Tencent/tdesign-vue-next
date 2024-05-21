@@ -1,4 +1,4 @@
-import Button from '@/src/button/index';
+import { Button } from 'tdesign-vue-next';
 import 'tdesign-vue-next/style/index.js';
 
 describe('<base />', () => {

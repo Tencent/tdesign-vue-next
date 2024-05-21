@@ -1,9 +1,9 @@
 import { mount } from '@vue/test-utils';
-import { it, expect } from 'vitest';
-import { ThumbUpIcon, ChartIcon } from 'tdesign-icons-vue-next';
-import Comment from '@/src/comment/index.ts';
+import { expect, it } from 'vitest';
+import { ChartIcon, ThumbUpIcon } from 'tdesign-icons-vue-next';
+import { Comment } from 'tdesign-vue-next';
 
-describe('Comment', () => {
+describe('comment', () => {
   describe(':props', () => {
     it(':author', () => {
       const wrapper = mount(() => (

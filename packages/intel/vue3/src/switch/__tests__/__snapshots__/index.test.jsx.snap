@@ -1,4 +1,4 @@
-// Vitest Snapshot v1
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Switch > :props > :customValue 1`] = `
 <div
@@ -207,6 +207,188 @@ exports[`Switch > <slot> > <label> 1`] = `
 `;
 
 exports[`Switch > @event > Event passthrough: change 1`] = `
+<div
+  class="t-switch t-size-m"
+  disabled="false"
+>
+  <span
+    class="t-switch__handle"
+  >
+    <!---->
+  </span>
+  <div
+    class="t-switch__content t-size-m"
+  >
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`switch > :props > :customValue 1`] = `
+<div
+  class="t-switch t-size-m"
+  disabled="false"
+>
+  <span
+    class="t-switch__handle"
+  >
+    <!---->
+  </span>
+  <div
+    class="t-switch__content t-size-m"
+  >
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`switch > :props > :defaultValue 1`] = `
+<div
+  class="t-switch t-size-m"
+  disabled="false"
+>
+  <span
+    class="t-switch__handle"
+  >
+    <!---->
+  </span>
+  <div
+    class="t-switch__content t-size-m"
+  >
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`switch > :props > :disabled 1`] = `
+<div
+  class="t-switch t-size-m t-is-disabled"
+  disabled="true"
+>
+  <span
+    class="t-switch__handle t-is-disabled"
+  >
+    <!---->
+  </span>
+  <div
+    class="t-switch__content t-size-m t-is-disabled"
+  >
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`switch > :props > :label 1`] = `
+<div
+  class="t-switch t-size-m"
+  disabled="false"
+>
+  <span
+    class="t-switch__handle"
+  >
+    <!---->
+  </span>
+  <div
+    class="t-switch__content t-size-m"
+  >
+    close
+  </div>
+</div>
+`;
+
+exports[`switch > :props > :modelValue 1`] = `
+<div
+  class="t-switch t-size-m"
+  disabled="false"
+>
+  <span
+    class="t-switch__handle"
+  >
+    <!---->
+  </span>
+  <div
+    class="t-switch__content t-size-m"
+  >
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`switch > :props > :onChange 1`] = `
+<div
+  class="t-switch t-size-m"
+  disabled="false"
+>
+  <span
+    class="t-switch__handle"
+  >
+    <!---->
+  </span>
+  <div
+    class="t-switch__content t-size-m"
+  >
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`switch > :props > :size 1`] = `
+<div
+  class="t-switch t-size-s"
+  disabled="false"
+>
+  <span
+    class="t-switch__handle"
+  >
+    <!---->
+  </span>
+  <div
+    class="t-switch__content t-size-s"
+  >
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`switch > :props > :value 1`] = `
+<div
+  class="t-switch t-size-m"
+  disabled="false"
+>
+  <span
+    class="t-switch__handle"
+  >
+    <!---->
+  </span>
+  <div
+    class="t-switch__content t-size-m"
+  >
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`switch > <slot> > <label> 1`] = `
+<div
+  class="t-switch t-size-m"
+  disabled="false"
+>
+  <span
+    class="t-switch__handle"
+  >
+    <!---->
+  </span>
+  <div
+    class="t-switch__content t-size-m"
+  >
+    
+    TDesign
+    
+  </div>
+</div>
+`;
+
+exports[`switch > @event > event passthrough: change 1`] = `
 <div
   class="t-switch t-size-m"
   disabled="false"

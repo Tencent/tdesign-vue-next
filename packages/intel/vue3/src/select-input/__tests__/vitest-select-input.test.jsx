@@ -6,7 +6,7 @@
  */
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
-import { SelectInput } from '..';
+import { SelectInput } from  'tdesign-vue-next'
 import { getSelectInputMultipleMount } from './mount';
 
 describe('SelectInput Component', () => {

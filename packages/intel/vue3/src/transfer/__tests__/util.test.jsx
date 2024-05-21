@@ -1,6 +1,6 @@
-import { getDataValues, cloneTreeWithFilter, getLefCount } from '@/src/transfer/utils';
+import { cloneTreeWithFilter, getDataValues, getLefCount } from '@td/components-common/src/transfer/utils';
 
-describe('Transfer', () => {
+describe('transfer', () => {
   describe('utils', () => {
     describe('getDataValues', () => {
       it('isTreeMode:false', async () => {

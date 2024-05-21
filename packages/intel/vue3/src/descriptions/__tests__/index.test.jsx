@@ -1,7 +1,7 @@
-import { it, expect } from 'vitest';
+import { expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
+import Descriptions, { DescriptionsItem } from 'tdesign-vue-next';
 import { getDescriptionsMount } from './mount';
-import Descriptions, { DescriptionsItem } from '@/src/descriptions/index.ts';
 import CustomComp from './custom-comp.vue';
 
 const sizeList = ['small', 'medium', 'large'];
@@ -10,7 +10,7 @@ const layout = {
   V: 'vertical',
 };
 
-describe('Descriptions', () => {
+describe('descriptions', () => {
   describe(':props', () => {
     it(':bordered', () => {
       const wrapper = getDescriptionsMount({ bordered: true });

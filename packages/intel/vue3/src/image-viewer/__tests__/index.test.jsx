@@ -1,10 +1,10 @@
 import { mount } from '@vue/test-utils';
 import { expect, it } from 'vitest';
-import { ImageViewer } from '@/src/image-viewer/index.ts';
-import { Button } from '@/src/button/index.ts';
+import { Button } from 'tdesign-vue-next';
+import { ImageViewer } from 'tdesign-vue-next'
 
 // every component needs four parts: props/events/slots/functions.
-describe('Image-viewer', () => {
+describe('image-viewer', () => {
   // test props api
   describe(':props', () => {
     it('trigger', () => {

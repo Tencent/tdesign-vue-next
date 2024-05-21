@@ -1,5 +1,5 @@
-import * as path from 'path';
-import { resolveConfig, basePlugin } from '../../script/vite.base.config';
+import * as path from 'node:path';
+import { basePlugin, resolveConfig } from '../../script/vite.base.config';
 
 // 单元测试相关配置
 const testConfig = {

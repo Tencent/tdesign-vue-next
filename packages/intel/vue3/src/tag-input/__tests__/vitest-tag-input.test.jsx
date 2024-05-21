@@ -6,11 +6,11 @@
  */
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
-import { TagInput } from '..';
-import { getTagInputValueMount, getTagInputDefaultMount } from './mount';
-import { simulateInputChange, simulateInputEnter } from '@test/utils';
+import { TagInput } from 'tdesign-vue-next';
+import { simulateInputChange, simulateInputEnter } from 'tdesign-vue-next/test/utils';
+import { getTagInputDefaultMount, getTagInputValueMount } from './mount';
 
-describe('TagInput Component', () => {
+describe('tagInput Component', () => {
   it('props.clearable: empty TagInput does not need clearIcon', async () => {
     const wrapper = mount(<TagInput clearable={true}></TagInput>);
     wrapper.find('.t-input').trigger('mouseenter');
@@ -70,14 +70,14 @@ describe('TagInput Component', () => {
   it('slots.collapsedItems works fine', () => {
     const wrapper = getTagInputValueMount(TagInput, {
       'v-slots': { collapsedItems: () => <span class="custom-node">TNode</span> },
-      minCollapsedNum: 3,
+      'minCollapsedNum': 3,
     });
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
   it('slots.collapsed-items works fine', () => {
     const wrapper = getTagInputValueMount(TagInput, {
       'v-slots': { 'collapsed-items': () => <span class="custom-node">TNode</span> },
-      minCollapsedNum: 3,
+      'minCollapsedNum': 3,
     });
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
@@ -129,7 +129,7 @@ describe('TagInput Component', () => {
   });
 
   it(`props.inputValue is equal to input value text`, () => {
-    const wrapper = mount(<TagInput inputValue={'input value text'}></TagInput>);
+    const wrapper = mount(<TagInput inputValue="input value text"></TagInput>);
     const domWrapper = wrapper.find('input');
     expect(domWrapper.element.value).toBe('input value text');
   });
@@ -170,7 +170,7 @@ describe('TagInput Component', () => {
   });
 
   it('props.placeholder works fine', () => {
-    const wrapper = mount(<TagInput placeholder={'This is TagInput placeholder'}></TagInput>).find('input');
+    const wrapper = mount(<TagInput placeholder="This is TagInput placeholder"></TagInput>).find('input');
     expect(wrapper.attributes('placeholder')).toBe('This is TagInput placeholder');
   });
 
@@ -264,7 +264,7 @@ describe('TagInput Component', () => {
   it('slots.tag works fine', () => {
     const wrapper = getTagInputValueMount(TagInput, {
       'v-slots': { tag: () => <span class="custom-node">TNode</span> },
-      value: ['tdesign-vue'],
+      'value': ['tdesign-vue'],
     });
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
@@ -277,7 +277,7 @@ describe('TagInput Component', () => {
   });
   it('slots.tag: a function with params', () => {
     const fn = vi.fn();
-    getTagInputValueMount(TagInput, { 'v-slots': { tag: fn }, value: ['tdesign-vue'] });
+    getTagInputValueMount(TagInput, { 'v-slots': { tag: fn }, 'value': ['tdesign-vue'] });
 
     expect(fn).toHaveBeenCalled();
     expect(fn.mock.calls[0][0].value).toBe('tdesign-vue');
@@ -289,7 +289,7 @@ describe('TagInput Component', () => {
   });
 
   it('props.tips is equal this is a tip', () => {
-    const wrapper = mount(<TagInput tips={'this is a tip'}></TagInput>);
+    const wrapper = mount(<TagInput tips="this is a tip"></TagInput>);
     expect(wrapper.findAll('.t-input__tips').length).toBe(1);
   });
 

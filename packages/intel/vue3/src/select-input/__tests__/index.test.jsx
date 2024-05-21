@@ -1,9 +1,9 @@
-import SelectInput from '@/src/select-input/select-input.tsx';
 import { mount } from '@vue/test-utils';
 import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { expect, it, vi } from 'vitest';
+import { SelectInput } from 'tdesign-vue-next';
 
-describe('SelectInput', () => {
+describe('selectInput', () => {
   describe(':props', () => {
     it('', () => {
       const wrapper = mount(SelectInput, {
@@ -61,7 +61,7 @@ describe('SelectInput', () => {
       const placeholder = '请选择';
       const wrapper = mount(SelectInput, {
         props: {
-          placeholder: placeholder,
+          placeholder,
           value: 'tdesign',
         },
       });
@@ -83,9 +83,9 @@ describe('SelectInput', () => {
       const text = 'TDesign';
       const wrapper = mount(SelectInput, {
         props: {
-          allowInput: true,
-          inputValue: 'inputValue',
-          value: 'tdesign',
+          'allowInput': true,
+          'inputValue': 'inputValue',
+          'value': 'tdesign',
           'on-input-change': (e) => {
             wrapper.setProps({ inputValue: e });
           },
@@ -130,9 +130,9 @@ describe('SelectInput', () => {
 
       const wrapper = mount(SelectInput, {
         props: {
-          allowInput: true,
-          value: 'tdesign',
-          inputValue: 'inputValue',
+          'allowInput': true,
+          'value': 'tdesign',
+          'inputValue': 'inputValue',
           'on-input-change': (e) => {
             wrapper.setProps({ inputValue: e });
           },
@@ -151,9 +151,9 @@ describe('SelectInput', () => {
       const onClear = vi.fn();
       const wrapper = mount(SelectInput, {
         props: {
-          allowInput: true,
-          clearable: true,
-          value: { label: 'tdesign-vue', value: 1 },
+          'allowInput': true,
+          'clearable': true,
+          'value': { label: 'tdesign-vue', value: 1 },
           'on-clear': onClear,
         },
       });
@@ -169,8 +169,8 @@ describe('SelectInput', () => {
       const onEnter = vi.fn();
       const wrapper = mount(SelectInput, {
         props: {
-          allowInput: true,
-          value: { label: 'tdesign-vue', value: 1 },
+          'allowInput': true,
+          'value': { label: 'tdesign-vue', value: 1 },
           'on-enter': onEnter,
         },
       });
@@ -202,7 +202,7 @@ describe('SelectInput', () => {
   });
 
   describe(':slot', () => {
-    test('panel', async () => {
+    it('panel', async () => {
       const text = 'panel';
       const slots = {
         panel: () => (

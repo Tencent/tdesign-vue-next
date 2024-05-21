@@ -1,9 +1,9 @@
 import { mount } from '@vue/test-utils';
-import Tree from '@/src/tree/index.ts';
+import { Tree } from 'tdesign-vue-next';
 import { delay } from './kit';
 import { ref } from './adapt';
 
-describe('Tree:expand', () => {
+describe('tree:expand', () => {
   vi.useRealTimers();
   describe('props.expandAll', () => {
     it('expandAll 设置为 true, 初始化之后所有节点应当为展开状态', () => {

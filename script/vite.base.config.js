@@ -1,8 +1,8 @@
-import * as path from 'path';
+import * as path from 'node:path';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 
-const isCustomElement = (tag) => tag.startsWith('td-') || tag.startsWith('tdesign-theme');
+const isCustomElement = tag => tag.startsWith('td-') || tag.startsWith('tdesign-theme');
 
 export const resolveConfig = {
   alias: {

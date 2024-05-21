@@ -6,11 +6,11 @@
  */
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
-import { Upload } from '..';
-import { mockDelay, simulateFileChange, getFakeFileList, simulateDragFileChange } from '@test/utils';
+import { Upload } from 'tdesign-vue-next';
+import { getFakeFileList, mockDelay, simulateDragFileChange, simulateFileChange } from 'tdesign-vue-next/test/utils';
 import { getUploadServer } from './request';
 
-describe('Upload Component', () => {
+describe('upload Component', () => {
   const server = getUploadServer();
 
   beforeAll(() => {
@@ -27,7 +27,7 @@ describe('Upload Component', () => {
 
   it('props.abridgeName: props.abridgeName works fine if theme=file-input', () => {
     const wrapper = mount(
-      <Upload theme={'file-input'} files={[{ name: 'this_is_a_long_name.png' }]} abridgeName={[8, 6]}></Upload>,
+      <Upload theme="file-input" files={[{ name: 'this_is_a_long_name.png' }]} abridgeName={[8, 6]}></Upload>,
     );
     expect(wrapper.find('.t-upload__single-input-text').text()).toBe('this_is_…me.png');
   });
@@ -35,24 +35,25 @@ describe('Upload Component', () => {
   it('props.abridgeName: props.abridgeName works fine if theme=file and file url exists', () => {
     const wrapper = mount(
       <Upload
-        theme={'file'}
+        theme="file"
         files={[{ name: 'this_is_a_long_name.png', url: 'https://xxx.png' }]}
         abridgeName={[8, 6]}
-      ></Upload>,
+      >
+      </Upload>,
     );
     expect(wrapper.find('.t-upload__single-name').text()).toBe('this_is_…me.png');
   });
 
   it('props.abridgeName: props.abridgeName works fine if theme=file and file url does not exist', () => {
     const wrapper = mount(
-      <Upload theme={'file'} files={[{ name: 'this_is_a_long_name.png' }]} abridgeName={[8, 6]}></Upload>,
+      <Upload theme="file" files={[{ name: 'this_is_a_long_name.png' }]} abridgeName={[8, 6]}></Upload>,
     );
     expect(wrapper.find('.t-upload__single-name').text()).toBe('this_is_…me.png');
   });
 
   it('props.abridgeName: props.abridgeName works fine if theme=image', () => {
     const wrapper = mount(
-      <Upload theme={'image'} files={[{ name: 'this_is_a_long_name.png' }]} abridgeName={[8, 6]}></Upload>,
+      <Upload theme="image" files={[{ name: 'this_is_a_long_name.png' }]} abridgeName={[8, 6]}></Upload>,
     );
     expect(wrapper.find('.t-upload__card-name').text()).toBe('this_is_…me.png');
   });
@@ -60,11 +61,12 @@ describe('Upload Component', () => {
   it('props.abridgeName: props.abridgeName works fine if theme=file&draggable=true', () => {
     const wrapper = mount(
       <Upload
-        theme={'file'}
+        theme="file"
         draggable={true}
         files={[{ name: 'this_is_a_long_name.png' }]}
         abridgeName={[8, 6]}
-      ></Upload>,
+      >
+      </Upload>,
     );
     expect(wrapper.find('.t-upload__single-name').text()).toBe('this_is_…me.png');
   });
@@ -72,12 +74,13 @@ describe('Upload Component', () => {
   it('props.abridgeName: props.abridgeName works fine if theme=image&draggable=true', () => {
     const wrapper = mount(
       <Upload
-        theme={'image'}
+        theme="image"
         draggable={true}
-        status={'success'}
+        status="success"
         files={[{ name: 'this_is_a_long_name.png', url: 'https://wwww.png' }]}
         abridgeName={[8, 6]}
-      ></Upload>,
+      >
+      </Upload>,
     );
     expect(wrapper.find('.t-upload__single-name').text()).toBe('this_is_…me.png');
   });
@@ -85,10 +88,11 @@ describe('Upload Component', () => {
   it('props.abridgeName: props.abridgeName works fine if theme=image-flow', () => {
     const wrapper = mount(
       <Upload
-        theme={'image-flow'}
+        theme="image-flow"
         files={[{ name: 'this_is_a_long_name.jpg', url: 'https://xxx.jpg' }]}
         abridgeName={[8, 6]}
-      ></Upload>,
+      >
+      </Upload>,
     );
     expect(wrapper.find('.t-upload__card-name').text()).toBe('this_is_…me.jpg');
   });
@@ -96,17 +100,18 @@ describe('Upload Component', () => {
   it('props.abridgeName: props.abridgeName works fine if theme=file-flow and file url exists', () => {
     const wrapper = mount(
       <Upload
-        theme={'file-flow'}
+        theme="file-flow"
         files={[{ name: 'this_is_a_long_name.jpg', url: 'https://xxx.jpg' }]}
         abridgeName={[8, 6]}
-      ></Upload>,
+      >
+      </Upload>,
     );
     expect(wrapper.find('.t-upload__file-name > a').text()).toBe('this_is_…me.jpg');
   });
 
   it('props.abridgeName: props.abridgeName works fine if theme=file-flow and file url does not exist', () => {
     const wrapper = mount(
-      <Upload theme={'file-flow'} files={[{ name: 'this_is_a_long_name.jpg' }]} abridgeName={[8, 6]}></Upload>,
+      <Upload theme="file-flow" files={[{ name: 'this_is_a_long_name.jpg' }]} abridgeName={[8, 6]}></Upload>,
     );
     expect(wrapper.find('.t-upload__file-name').text()).toBe('this_is_…me.jpg');
   });
@@ -121,10 +126,11 @@ describe('Upload Component', () => {
     const onChangeFn = vi.fn();
     const wrapper = mount(
       <Upload
-        action={'https://tdesign.test.com/upload/image_success'}
+        action="https://tdesign.test.com/upload/image_success"
         onSelectChange={onSelectChangeFn}
         onChange={onChangeFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     const inputDom = wrapper.find('input').element;
     const fileList = simulateFileChange(inputDom);
@@ -163,10 +169,11 @@ describe('Upload Component', () => {
     const wrapper = mount(
       <Upload
         files={[{ name: 'file-name.txt', url: 'https://tdesign.gtimg.com/site/source/figma-pc.png' }]}
-        action={'https://tdesign.test.com/upload/file_success'}
+        action="https://tdesign.test.com/upload/file_success"
         allowUploadDuplicateFile={false}
         onValidate={onValidateFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     const inputDom = wrapper.find('input').element;
     const fileList = simulateFileChange(inputDom);
@@ -181,10 +188,11 @@ describe('Upload Component', () => {
     const wrapper = mount(
       <Upload
         files={[{ name: 'file-name.txt', url: 'https://tdesign.gtimg.com/site/source/figma-pc.png' }]}
-        action={'https://tdesign.test.com/upload/file_success'}
+        action="https://tdesign.test.com/upload/file_success"
         allowUploadDuplicateFile={true}
         onValidate={onValidateFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     const inputDom = wrapper.find('input').element;
     simulateFileChange(inputDom);
@@ -197,9 +205,10 @@ describe('Upload Component', () => {
     const wrapper = mount(
       <Upload
         autoUpload={false}
-        action={'https://tdesign.test.com/upload/file_success'}
+        action="https://tdesign.test.com/upload/file_success"
         onChange={onChangeFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     const inputDom = wrapper.find('input').element;
     const fileList = simulateFileChange(inputDom);
@@ -217,17 +226,18 @@ describe('Upload Component', () => {
     const onRemoveFn1 = vi.fn();
     const wrapper = mount(
       <Upload
-        theme={'file-flow'}
+        theme="file-flow"
         autoUpload={false}
         files={[
           { name: 'file1.txt', status: 'waiting', uploadTime: '2023-01-27', lastModified: 1674830942522 },
           { name: 'file2.txt', status: 'success', uploadTime: '2023-01-27', lastModified: 1674831204354 },
           { name: 'file3.txt', status: 'fail', uploadTime: '2023-01-27', lastModified: 1674831204354 },
         ]}
-        action={'https://tdesign.test.com/upload/file_success'}
+        action="https://tdesign.test.com/upload/file_success"
         onChange={onChangeFn1}
         onRemove={onRemoveFn1}
-      ></Upload>,
+      >
+      </Upload>,
     );
     wrapper.find('.t-upload__continue').trigger('click');
     await wrapper.vm.$nextTick();
@@ -247,13 +257,14 @@ describe('Upload Component', () => {
     const onSuccessFn = vi.fn();
     const wrapper = mount(
       <Upload
-        theme={'image'}
+        theme="image"
         autoUpload={false}
         draggable={true}
-        action={'https://tdesign.test.com/upload/image_success'}
+        action="https://tdesign.test.com/upload/image_success"
         files={[{ url: 'https://image.png', status: 'waiting' }]}
         onSuccess={onSuccessFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     wrapper.find('.t-upload__dragger-upload-btn').trigger('click');
     await mockDelay(0);
@@ -273,10 +284,11 @@ describe('Upload Component', () => {
       <Upload
         autoUpload={false}
         beforeAllFilesUpload={() => false}
-        action={'https://tdesign.test.com/upload/file_success'}
+        action="https://tdesign.test.com/upload/file_success"
         onChange={onChangeFn}
         onValidate={onValidateFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     const inputDom = wrapper.find('input').element;
     const fileList = simulateFileChange(inputDom, 'file', 3);
@@ -284,7 +296,7 @@ describe('Upload Component', () => {
     expect(onChangeFn).not.toHaveBeenCalled();
     expect(onValidateFn).toHaveBeenCalled();
     expect(onValidateFn.mock.calls[0][0].type).toBe('BEFORE_ALL_FILES_UPLOAD');
-    expect(onValidateFn.mock.calls[0][0].files.map((t) => t.raw)).toEqual(fileList);
+    expect(onValidateFn.mock.calls[0][0].files.map(t => t.raw)).toEqual(fileList);
   });
 
   it('props.beforeUpload: beforeUpload can skip all files to upload, just like beforeAllFilesUpload', async () => {
@@ -294,10 +306,11 @@ describe('Upload Component', () => {
       <Upload
         autoUpload={false}
         beforeUpload={() => false}
-        action={'https://tdesign.test.com/upload/file_success'}
+        action="https://tdesign.test.com/upload/file_success"
         onChange={onChangeFn}
         onValidate={onValidateFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     const inputDom = wrapper.find('input').element;
     const fileList = simulateFileChange(inputDom, 'file', 3);
@@ -305,7 +318,7 @@ describe('Upload Component', () => {
     expect(onChangeFn).not.toHaveBeenCalled();
     expect(onValidateFn).toHaveBeenCalled();
     expect(onValidateFn.mock.calls[0][0].type).toBe('CUSTOM_BEFORE_UPLOAD');
-    expect(onValidateFn.mock.calls[0][0].files.map((t) => t.raw)).toEqual(fileList);
+    expect(onValidateFn.mock.calls[0][0].files.map(t => t.raw)).toEqual(fileList);
   });
 
   it('props.beforeUpload: beforeUpload can skip some of files to upload', async () => {
@@ -314,11 +327,12 @@ describe('Upload Component', () => {
     const wrapper = mount(
       <Upload
         autoUpload={false}
-        beforeUpload={(file) => file.name === 'file-name1.txt'}
-        action={'https://tdesign.test.com/upload/file_success'}
+        beforeUpload={file => file.name === 'file-name1.txt'}
+        action="https://tdesign.test.com/upload/file_success"
         onChange={onChangeFn}
         onValidate={onValidateFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     const inputDom = wrapper.find('input').element;
     const fileList = simulateFileChange(inputDom, 'file', 3);
@@ -327,7 +341,7 @@ describe('Upload Component', () => {
     expect(onChangeFn.mock.calls[0][0][0].raw).toEqual(fileList[1]);
     expect(onValidateFn).toHaveBeenCalled();
     expect(onValidateFn.mock.calls[0][0].type).toBe('CUSTOM_BEFORE_UPLOAD');
-    expect(onValidateFn.mock.calls[0][0].files.map((t) => t.raw)).toEqual([fileList[0], fileList[2]]);
+    expect(onValidateFn.mock.calls[0][0].files.map(t => t.raw)).toEqual([fileList[0], fileList[2]]);
   });
 
   it('props.data: upload request can send extra data', async () => {
@@ -335,9 +349,10 @@ describe('Upload Component', () => {
     const wrapper = mount(
       <Upload
         data={{ file_name: 'custom-file-name.excel' }}
-        action={'https://tdesign.test.com/upload/fail/status_error'}
+        action="https://tdesign.test.com/upload/fail/status_error"
         onFail={onFailFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     const inputDom = wrapper.find('input').element;
     const fileList = simulateFileChange(inputDom);
@@ -354,8 +369,9 @@ describe('Upload Component', () => {
     const wrapper = mount(
       <Upload
         default={() => <span class="custom-node">TNode</span>}
-        action={'https://cdc.cdn-go.cn/tdc/latest/menu.json'}
-      ></Upload>,
+        action="https://cdc.cdn-go.cn/tdc/latest/menu.json"
+      >
+      </Upload>,
     );
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
@@ -364,30 +380,32 @@ describe('Upload Component', () => {
     const wrapper = mount(
       <Upload
         v-slots={{ default: () => <span class="custom-node">TNode</span> }}
-        action={'https://cdc.cdn-go.cn/tdc/latest/menu.json'}
-      ></Upload>,
+        action="https://cdc.cdn-go.cn/tdc/latest/menu.json"
+      >
+      </Upload>,
     );
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
 
   it('props.disabled works fine. `".t-input.t-is-disabled"` should exist', () => {
-    const wrapper = mount(<Upload theme={'file-input'} disabled={true}></Upload>);
+    const wrapper = mount(<Upload theme="file-input" disabled={true}></Upload>);
     expect(wrapper.find('.t-input.t-is-disabled').exists()).toBeTruthy();
   });
 
   it('props.disabled works fine. `".t-upload__trigger .t-button.t-is-disabled"` should exist', () => {
-    const wrapper = mount(<Upload theme={'file-input'} disabled={true}></Upload>);
+    const wrapper = mount(<Upload theme="file-input" disabled={true}></Upload>);
     expect(wrapper.find('.t-upload__trigger .t-button.t-is-disabled').exists()).toBeTruthy();
   });
 
   it('props.disabled works fine. `{".t-upload__delete":false}` should exist', () => {
     const wrapper = mount(
       <Upload
-        theme={'file-flow'}
+        theme="file-flow"
         disabled={true}
         multiple={true}
         files={[{ name: 'file1.txt', status: 'success' }]}
-      ></Upload>,
+      >
+      </Upload>,
     );
     expect(wrapper.find('.t-upload__delete').exists()).toBeFalsy();
   });
@@ -395,11 +413,12 @@ describe('Upload Component', () => {
   it('props.disabled works fine. `{".t-upload__delete":false}` should exist', () => {
     const wrapper = mount(
       <Upload
-        theme={'image-flow'}
+        theme="image-flow"
         disabled={true}
         multiple={true}
         files={[{ name: 'file1.txt', status: 'success' }]}
-      ></Upload>,
+      >
+      </Upload>,
     );
     expect(wrapper.find('.t-upload__delete').exists()).toBeFalsy();
   });
@@ -414,14 +433,14 @@ describe('Upload Component', () => {
   });
 
   it('props.disabled: disabled upload can not remove file', async () => {
-    const wrapper = mount(<Upload theme={'file'} files={[{ name: 'file1.txt' }]} disabled={true}></Upload>);
+    const wrapper = mount(<Upload theme="file" files={[{ name: 'file1.txt' }]} disabled={true}></Upload>);
     await wrapper.vm.$nextTick();
     expect(wrapper.find('.t-upload__icon-delete').exists()).toBeFalsy();
   });
 
   it('props.disabled: disabled upload can not remove image', async () => {
     const wrapper = mount(
-      <Upload theme={'image'} files={[{ name: 'img1.txt', url: 'https://img1.png' }]} disabled={true}></Upload>,
+      <Upload theme="image" files={[{ name: 'img1.txt', url: 'https://img1.png' }]} disabled={true}></Upload>,
     );
     await wrapper.vm.$nextTick();
     expect(wrapper.find('.t-upload__icon-delete').exists()).toBeFalsy();
@@ -431,10 +450,11 @@ describe('Upload Component', () => {
     const wrapper = mount(
       <Upload
         dragContent={() => <span class="custom-node">TNode</span>}
-        theme={'custom'}
+        theme="custom"
         draggable={true}
-        action={'https://tdesign.test.com/upload/file_success'}
-      ></Upload>,
+        action="https://tdesign.test.com/upload/file_success"
+      >
+      </Upload>,
     );
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
@@ -443,10 +463,11 @@ describe('Upload Component', () => {
     const wrapper = mount(
       <Upload
         v-slots={{ dragContent: () => <span class="custom-node">TNode</span> }}
-        theme={'custom'}
+        theme="custom"
         draggable={true}
-        action={'https://tdesign.test.com/upload/file_success'}
-      ></Upload>,
+        action="https://tdesign.test.com/upload/file_success"
+      >
+      </Upload>,
     );
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
@@ -454,10 +475,11 @@ describe('Upload Component', () => {
     const wrapper = mount(
       <Upload
         v-slots={{ 'drag-content': () => <span class="custom-node">TNode</span> }}
-        theme={'custom'}
+        theme="custom"
         draggable={true}
-        action={'https://tdesign.test.com/upload/file_success'}
-      ></Upload>,
+        action="https://tdesign.test.com/upload/file_success"
+      >
+      </Upload>,
     );
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
@@ -465,10 +487,11 @@ describe('Upload Component', () => {
   it('props.draggable: theme=image & draggable=true, success file render fine', () => {
     const wrapper = mount(
       <Upload
-        theme={'image'}
+        theme="image"
         draggable={true}
         files={[{ url: 'https://tdesign.gtimg.com/demo/demo-image-1.png', name: 'image1.png', status: 'success' }]}
-      ></Upload>,
+      >
+      </Upload>,
     );
     expect(wrapper.findAll('.t-icon-check-circle-filled').length).toBe(1);
     const attrDom = wrapper.find('.t-upload__dragger-img-wrap img');
@@ -479,7 +502,7 @@ describe('Upload Component', () => {
   it('props.draggable: theme=image & draggable=true, success file render fine with file.response.url', () => {
     const wrapper = mount(
       <Upload
-        theme={'image'}
+        theme="image"
         draggable={true}
         files={[
           {
@@ -488,7 +511,8 @@ describe('Upload Component', () => {
             status: 'success',
           },
         ]}
-      ></Upload>,
+      >
+      </Upload>,
     );
     expect(wrapper.findAll('.t-icon-check-circle-filled').length).toBe(1);
     const attrDom = wrapper.find('.t-upload__dragger-img-wrap img');
@@ -499,10 +523,11 @@ describe('Upload Component', () => {
   it('props.draggable: theme=image & draggable=true, fail file render fine', () => {
     const wrapper = mount(
       <Upload
-        theme={'image'}
+        theme="image"
         draggable={true}
         files={[{ url: 'https://image4.png', name: 'image4.png', status: 'fail' }]}
-      ></Upload>,
+      >
+      </Upload>,
     );
     expect(wrapper.findAll('.t-icon-error-circle-filled').length).toBe(1);
     expect(wrapper.element).toMatchSnapshot();
@@ -511,10 +536,11 @@ describe('Upload Component', () => {
   it('props.draggable: theme=image & draggable=true, progress file render fine', () => {
     const wrapper = mount(
       <Upload
-        theme={'image'}
+        theme="image"
         draggable={true}
         files={[{ url: 'https://image2.png', name: 'image2.png', status: 'progress', percent: 80 }]}
-      ></Upload>,
+      >
+      </Upload>,
     );
     expect(wrapper.find('.t-upload__single-percent').text()).toBe('80%');
     expect(wrapper.element).toMatchSnapshot();
@@ -523,10 +549,11 @@ describe('Upload Component', () => {
   it('props.draggable: theme=image & draggable=true, waiting file render fine', () => {
     const wrapper = mount(
       <Upload
-        theme={'image'}
+        theme="image"
         draggable={true}
         files={[{ url: 'https://image3.png', name: 'image3.png', status: 'waiting' }]}
-      ></Upload>,
+      >
+      </Upload>,
     );
     expect(wrapper.findAll('.t-upload__dragger-progress-cancel').length).toBe(1);
     expect(wrapper.element).toMatchSnapshot();
@@ -535,11 +562,12 @@ describe('Upload Component', () => {
   it('props.draggable: theme=image & draggable=true & autoUpload=false, waiting file render fine', () => {
     const wrapper = mount(
       <Upload
-        theme={'image'}
+        theme="image"
         draggable={true}
         autoUpload={false}
         files={[{ url: 'https://image3.png', name: 'image3.png', status: 'waiting' }]}
-      ></Upload>,
+      >
+      </Upload>,
     );
     expect(wrapper.findAll('.t-upload__dragger-progress-cancel').length).toBe(1);
   });
@@ -549,13 +577,14 @@ describe('Upload Component', () => {
     const onRemoveFn = vi.fn();
     const wrapper = mount(
       <Upload
-        theme={'image'}
+        theme="image"
         draggable={true}
         autoUpload={false}
         files={[{ url: 'https://image3.png', name: 'image3.png', status: 'waiting' }]}
         onCancelUpload={onCancelUploadFn}
         onRemove={onRemoveFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     wrapper.find('.t-upload__dragger-progress-cancel').trigger('click');
     await wrapper.vm.$nextTick();
@@ -576,9 +605,10 @@ describe('Upload Component', () => {
       <Upload
         fileListDisplay={() => <span class="custom-node">TNode</span>}
         files={fileList}
-        theme={'file'}
-        action={'https://tdesign.test.com/upload/file_success'}
-      ></Upload>,
+        theme="file"
+        action="https://tdesign.test.com/upload/file_success"
+      >
+      </Upload>,
     );
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
@@ -589,9 +619,10 @@ describe('Upload Component', () => {
       <Upload
         v-slots={{ fileListDisplay: () => <span class="custom-node">TNode</span> }}
         files={fileList}
-        theme={'file'}
-        action={'https://tdesign.test.com/upload/file_success'}
-      ></Upload>,
+        theme="file"
+        action="https://tdesign.test.com/upload/file_success"
+      >
+      </Upload>,
     );
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
@@ -601,9 +632,10 @@ describe('Upload Component', () => {
       <Upload
         v-slots={{ 'file-list-display': () => <span class="custom-node">TNode</span> }}
         files={fileList}
-        theme={'file'}
-        action={'https://tdesign.test.com/upload/file_success'}
-      ></Upload>,
+        theme="file"
+        action="https://tdesign.test.com/upload/file_success"
+      >
+      </Upload>,
     );
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
@@ -615,9 +647,10 @@ describe('Upload Component', () => {
       <Upload
         fileListDisplay={fn}
         files={fileList}
-        theme={'file'}
-        action={'https://tdesign.test.com/upload/file_success'}
-      ></Upload>,
+        theme="file"
+        action="https://tdesign.test.com/upload/file_success"
+      >
+      </Upload>,
     );
     expect(fn).toHaveBeenCalled();
     expect(fn.mock.calls[0][1].files).toEqual(fileList);
@@ -629,9 +662,10 @@ describe('Upload Component', () => {
       <Upload
         v-slots={{ fileListDisplay: fn }}
         files={fileList}
-        theme={'file'}
-        action={'https://tdesign.test.com/upload/file_success'}
-      ></Upload>,
+        theme="file"
+        action="https://tdesign.test.com/upload/file_success"
+      >
+      </Upload>,
     );
 
     expect(fn).toHaveBeenCalled();
@@ -644,11 +678,12 @@ describe('Upload Component', () => {
       <Upload
         fileListDisplay={() => <span class="custom-node">TNode</span>}
         files={fileList}
-        theme={'image-flow'}
+        theme="image-flow"
         multiple={true}
         draggable={true}
-        action={'https://tdesign.test.com/upload/file_success'}
-      ></Upload>,
+        action="https://tdesign.test.com/upload/file_success"
+      >
+      </Upload>,
     );
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
@@ -659,11 +694,12 @@ describe('Upload Component', () => {
       <Upload
         v-slots={{ fileListDisplay: () => <span class="custom-node">TNode</span> }}
         files={fileList}
-        theme={'image-flow'}
+        theme="image-flow"
         multiple={true}
         draggable={true}
-        action={'https://tdesign.test.com/upload/file_success'}
-      ></Upload>,
+        action="https://tdesign.test.com/upload/file_success"
+      >
+      </Upload>,
     );
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
@@ -673,11 +709,12 @@ describe('Upload Component', () => {
       <Upload
         v-slots={{ 'file-list-display': () => <span class="custom-node">TNode</span> }}
         files={fileList}
-        theme={'image-flow'}
+        theme="image-flow"
         multiple={true}
         draggable={true}
-        action={'https://tdesign.test.com/upload/file_success'}
-      ></Upload>,
+        action="https://tdesign.test.com/upload/file_success"
+      >
+      </Upload>,
     );
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
@@ -689,11 +726,12 @@ describe('Upload Component', () => {
       <Upload
         fileListDisplay={fn}
         files={fileList}
-        theme={'image-flow'}
+        theme="image-flow"
         multiple={true}
         draggable={true}
-        action={'https://tdesign.test.com/upload/file_success'}
-      ></Upload>,
+        action="https://tdesign.test.com/upload/file_success"
+      >
+      </Upload>,
     );
     expect(fn).toHaveBeenCalled();
     expect(fn.mock.calls[0][1].files).toEqual(fileList);
@@ -705,11 +743,12 @@ describe('Upload Component', () => {
       <Upload
         v-slots={{ fileListDisplay: fn }}
         files={fileList}
-        theme={'image-flow'}
+        theme="image-flow"
         multiple={true}
         draggable={true}
-        action={'https://tdesign.test.com/upload/file_success'}
-      ></Upload>,
+        action="https://tdesign.test.com/upload/file_success"
+      >
+      </Upload>,
     );
 
     expect(fn).toHaveBeenCalled();
@@ -722,11 +761,12 @@ describe('Upload Component', () => {
       <Upload
         fileListDisplay={() => <span class="custom-node">TNode</span>}
         files={fileList}
-        theme={'file-flow'}
+        theme="file-flow"
         multiple={true}
         draggable={true}
-        action={'https://tdesign.test.com/upload/file_success'}
-      ></Upload>,
+        action="https://tdesign.test.com/upload/file_success"
+      >
+      </Upload>,
     );
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
@@ -737,11 +777,12 @@ describe('Upload Component', () => {
       <Upload
         v-slots={{ fileListDisplay: () => <span class="custom-node">TNode</span> }}
         files={fileList}
-        theme={'file-flow'}
+        theme="file-flow"
         multiple={true}
         draggable={true}
-        action={'https://tdesign.test.com/upload/file_success'}
-      ></Upload>,
+        action="https://tdesign.test.com/upload/file_success"
+      >
+      </Upload>,
     );
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
@@ -751,11 +792,12 @@ describe('Upload Component', () => {
       <Upload
         v-slots={{ 'file-list-display': () => <span class="custom-node">TNode</span> }}
         files={fileList}
-        theme={'file-flow'}
+        theme="file-flow"
         multiple={true}
         draggable={true}
-        action={'https://tdesign.test.com/upload/file_success'}
-      ></Upload>,
+        action="https://tdesign.test.com/upload/file_success"
+      >
+      </Upload>,
     );
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
@@ -767,11 +809,12 @@ describe('Upload Component', () => {
       <Upload
         fileListDisplay={fn}
         files={fileList}
-        theme={'file-flow'}
+        theme="file-flow"
         multiple={true}
         draggable={true}
-        action={'https://tdesign.test.com/upload/file_success'}
-      ></Upload>,
+        action="https://tdesign.test.com/upload/file_success"
+      >
+      </Upload>,
     );
     expect(fn).toHaveBeenCalled();
     expect(fn.mock.calls[0][1].files).toEqual(fileList);
@@ -783,11 +826,12 @@ describe('Upload Component', () => {
       <Upload
         v-slots={{ fileListDisplay: fn }}
         files={fileList}
-        theme={'file-flow'}
+        theme="file-flow"
         multiple={true}
         draggable={true}
-        action={'https://tdesign.test.com/upload/file_success'}
-      ></Upload>,
+        action="https://tdesign.test.com/upload/file_success"
+      >
+      </Upload>,
     );
 
     expect(fn).toHaveBeenCalled();
@@ -798,10 +842,11 @@ describe('Upload Component', () => {
     const wrapper = mount(
       <Upload
         fileListDisplay={() => <span class="custom-node">TNode</span>}
-        theme={'file'}
+        theme="file"
         draggable={true}
         files={[{ name: 'file1.txt', status: 'waiting', uploadTime: 1674897038406 }]}
-      ></Upload>,
+      >
+      </Upload>,
     );
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
@@ -810,10 +855,11 @@ describe('Upload Component', () => {
     const wrapper = mount(
       <Upload
         v-slots={{ fileListDisplay: () => <span class="custom-node">TNode</span> }}
-        theme={'file'}
+        theme="file"
         draggable={true}
         files={[{ name: 'file1.txt', status: 'waiting', uploadTime: 1674897038406 }]}
-      ></Upload>,
+      >
+      </Upload>,
     );
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
@@ -821,10 +867,11 @@ describe('Upload Component', () => {
     const wrapper = mount(
       <Upload
         v-slots={{ 'file-list-display': () => <span class="custom-node">TNode</span> }}
-        theme={'file'}
+        theme="file"
         draggable={true}
         files={[{ name: 'file1.txt', status: 'waiting', uploadTime: 1674897038406 }]}
-      ></Upload>,
+      >
+      </Upload>,
     );
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
@@ -834,10 +881,11 @@ describe('Upload Component', () => {
     mount(
       <Upload
         fileListDisplay={fn}
-        theme={'file'}
+        theme="file"
         draggable={true}
         files={[{ name: 'file1.txt', status: 'waiting', uploadTime: 1674897038406 }]}
-      ></Upload>,
+      >
+      </Upload>,
     );
     expect(fn).toHaveBeenCalled();
     expect(fn.mock.calls[0][1].files).toEqual([{ name: 'file1.txt', status: 'waiting', uploadTime: 1674897038406 }]);
@@ -847,10 +895,11 @@ describe('Upload Component', () => {
     mount(
       <Upload
         v-slots={{ fileListDisplay: fn }}
-        theme={'file'}
+        theme="file"
         draggable={true}
         files={[{ name: 'file1.txt', status: 'waiting', uploadTime: 1674897038406 }]}
-      ></Upload>,
+      >
+      </Upload>,
     );
 
     expect(fn).toHaveBeenCalled();
@@ -861,10 +910,11 @@ describe('Upload Component', () => {
     const wrapper = mount(
       <Upload
         fileListDisplay={() => <span class="custom-node">TNode</span>}
-        theme={'image'}
+        theme="image"
         draggable={true}
         files={[{ url: 'https://img1.txt', status: 'waiting', uploadTime: 1674897038406 }]}
-      ></Upload>,
+      >
+      </Upload>,
     );
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
@@ -873,10 +923,11 @@ describe('Upload Component', () => {
     const wrapper = mount(
       <Upload
         v-slots={{ fileListDisplay: () => <span class="custom-node">TNode</span> }}
-        theme={'image'}
+        theme="image"
         draggable={true}
         files={[{ url: 'https://img1.txt', status: 'waiting', uploadTime: 1674897038406 }]}
-      ></Upload>,
+      >
+      </Upload>,
     );
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
@@ -884,10 +935,11 @@ describe('Upload Component', () => {
     const wrapper = mount(
       <Upload
         v-slots={{ 'file-list-display': () => <span class="custom-node">TNode</span> }}
-        theme={'image'}
+        theme="image"
         draggable={true}
         files={[{ url: 'https://img1.txt', status: 'waiting', uploadTime: 1674897038406 }]}
-      ></Upload>,
+      >
+      </Upload>,
     );
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
@@ -897,10 +949,11 @@ describe('Upload Component', () => {
     mount(
       <Upload
         fileListDisplay={fn}
-        theme={'image'}
+        theme="image"
         draggable={true}
         files={[{ url: 'https://img1.txt', status: 'waiting', uploadTime: 1674897038406 }]}
-      ></Upload>,
+      >
+      </Upload>,
     );
     expect(fn).toHaveBeenCalled();
     expect(fn.mock.calls[0][1].files).toEqual([
@@ -912,10 +965,11 @@ describe('Upload Component', () => {
     mount(
       <Upload
         v-slots={{ fileListDisplay: fn }}
-        theme={'image'}
+        theme="image"
         draggable={true}
         files={[{ url: 'https://img1.txt', status: 'waiting', uploadTime: 1674897038406 }]}
-      ></Upload>,
+      >
+      </Upload>,
     );
 
     expect(fn).toHaveBeenCalled();
@@ -928,10 +982,11 @@ describe('Upload Component', () => {
     const onSelectChangeFn = vi.fn();
     const wrapper = mount(
       <Upload
-        format={(fileRaw) => ({ field_custom: 'a new file field', name: 'another name', raw: fileRaw })}
-        action={'https://tdesign.test.com/upload/file_success'}
+        format={fileRaw => ({ field_custom: 'a new file field', name: 'another name', raw: fileRaw })}
+        action="https://tdesign.test.com/upload/file_success"
         onSelectChange={onSelectChangeFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     const inputDom = wrapper.find('input').element;
     const fileList = simulateFileChange(inputDom);
@@ -947,10 +1002,11 @@ describe('Upload Component', () => {
     const onFailFn = vi.fn();
     const wrapper = mount(
       <Upload
-        formatRequest={(requestData) => ({ requestData, more_field: 'more custom field' })}
-        action={'https://tdesign.test.com/upload/fail/status_error'}
+        formatRequest={requestData => ({ requestData, more_field: 'more custom field' })}
+        action="https://tdesign.test.com/upload/fail/status_error"
         onFail={onFailFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     const inputDom = wrapper.find('input').element;
     const fileList = simulateFileChange(inputDom);
@@ -967,14 +1023,15 @@ describe('Upload Component', () => {
     const onChangeFn = vi.fn();
     const wrapper = mount(
       <Upload
-        formatResponse={(response) => ({
+        formatResponse={response => ({
           responseData: { ret: response.ret, data: response.data },
           url: response.data.url,
           extra_field: 'extra value',
         })}
-        action={'https://tdesign.test.com/upload/file_success'}
+        action="https://tdesign.test.com/upload/file_success"
         onChange={onChangeFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     const inputDom = wrapper.find('input').element;
     simulateFileChange(inputDom);
@@ -994,10 +1051,11 @@ describe('Upload Component', () => {
     const onFailFn = vi.fn();
     const wrapper = mount(
       <Upload
-        action={'https://tdesign.test.com/upload/fail/response_error'}
-        formatResponse={(response) => ({ error: response.error, name: response.name })}
+        action="https://tdesign.test.com/upload/fail/response_error"
+        formatResponse={response => ({ error: response.error, name: response.name })}
         onFail={onFailFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     const inputDom = wrapper.find('input').element;
     const fileList = simulateFileChange(inputDom);
@@ -1016,9 +1074,10 @@ describe('Upload Component', () => {
     const wrapper = mount(
       <Upload
         headers={{ 'XML-HTTP-REQUEST': 'tdesign_token' }}
-        action={'https://tdesign.test.com/upload/fail/status_error'}
+        action="https://tdesign.test.com/upload/fail/status_error"
         onFail={onFailFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     const inputDom = wrapper.find('input').element;
     simulateFileChange(inputDom);
@@ -1029,7 +1088,7 @@ describe('Upload Component', () => {
 
   it(`props.inputAttributes is equal to { webkitdirectory: 'webkitdirectory' }`, () => {
     const wrapper = mount(
-      <Upload inputAttributes={{ webkitdirectory: 'webkitdirectory' }} theme={'file-input'}></Upload>,
+      <Upload inputAttributes={{ webkitdirectory: 'webkitdirectory' }} theme="file-input"></Upload>,
     );
     const domWrapper = wrapper.find('input');
     expect(domWrapper.attributes('webkitdirectory')).toBe('webkitdirectory');
@@ -1042,10 +1101,11 @@ describe('Upload Component', () => {
         isBatchUpload={true}
         autoUpload={false}
         multiple={true}
-        action={'https://tdesign.test.com/upload/file_success'}
+        action="https://tdesign.test.com/upload/file_success"
         files={[{ url: 'https://file.txt', name: 'file.txt' }]}
         onChange={onChangeFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     const inputDom = wrapper.find('input').element;
     simulateFileChange(inputDom, 'file', 3);
@@ -1058,10 +1118,11 @@ describe('Upload Component', () => {
     const wrapper = mount(
       <Upload
         locale={{ progress: { uploadingText: 'uploading' } }}
-        theme={'file-flow'}
+        theme="file-flow"
         files={[{ url: 'https://tdesign.gtimg.com/demo/demo-image-1.png', status: 'progress', percent: 80 }]}
-        action={'https://tdesign.test.com/upload/file_success'}
-      ></Upload>,
+        action="https://tdesign.test.com/upload/file_success"
+      >
+      </Upload>,
     );
     expect(wrapper.find('.t-upload__file-flow-progress').text()).toBe('uploading 80%');
   });
@@ -1070,10 +1131,11 @@ describe('Upload Component', () => {
     const wrapper = mount(
       <Upload
         locale={{ progress: { uploadingText: 'uploading' } }}
-        theme={'image'}
+        theme="image"
         files={[{ url: 'https://tdesign.gtimg.com/demo/demo-image-1.png', status: 'progress', percent: 80 }]}
-        action={'https://tdesign.test.com/upload/file_success'}
-      ></Upload>,
+        action="https://tdesign.test.com/upload/file_success"
+      >
+      </Upload>,
     );
     expect(wrapper.find('.t-upload__image-progress').text()).toBe('uploading 80%');
   });
@@ -1081,14 +1143,15 @@ describe('Upload Component', () => {
   it('props.max: can not show image add trigger if count of image is over than max', () => {
     const wrapper = mount(
       <Upload
-        theme={'image'}
+        theme="image"
         max={2}
         files={[
           { url: 'xxxx.url', name: 'file1.txt' },
           { url: 'yyyy.url', name: 'file2.txt' },
         ]}
         multiple={true}
-      ></Upload>,
+      >
+      </Upload>,
     );
     expect(wrapper.find('.t-upload__image-add').exists()).toBeFalsy();
   });
@@ -1105,7 +1168,8 @@ describe('Upload Component', () => {
           { url: 'yyyy.url', name: 'file2.txt' },
         ]}
         onChange={onChangeFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     const inputDom = wrapper.find('input').element;
     simulateFileChange(inputDom, 'file', 1);
@@ -1129,10 +1193,11 @@ describe('Upload Component', () => {
     const onFailFn = vi.fn();
     const wrapper = mount(
       <Upload
-        name={'file_name'}
-        action={'https://tdesign.test.com/upload/fail/status_error'}
+        name="file_name"
+        action="https://tdesign.test.com/upload/fail/status_error"
         onFail={onFailFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     const inputDom = wrapper.find('input').element;
     const fileList = simulateFileChange(inputDom);
@@ -1145,22 +1210,22 @@ describe('Upload Component', () => {
   });
 
   it('props.placeholder: theme=file works fine', () => {
-    const wrapper = mount(<Upload theme={'file'} placeholder={'this is placeholder'}></Upload>);
+    const wrapper = mount(<Upload theme="file" placeholder="this is placeholder"></Upload>);
     expect(wrapper.find('.t-upload__placeholder').text()).toBe('this is placeholder');
   });
 
   it('props.placeholder: theme=file-input works fine', () => {
-    const wrapper = mount(<Upload theme={'file-input'} placeholder={'this is placeholder'}></Upload>);
+    const wrapper = mount(<Upload theme="file-input" placeholder="this is placeholder"></Upload>);
     expect(wrapper.find('.t-upload__placeholder').text()).toBe('this is placeholder');
   });
 
   it('props.placeholder: theme=image-flow works fine', () => {
-    const wrapper = mount(<Upload theme={'image-flow'} placeholder={'this is placeholder'}></Upload>);
+    const wrapper = mount(<Upload theme="image-flow" placeholder="this is placeholder"></Upload>);
     expect(wrapper.find('.t-upload__placeholder').text()).toBe('this is placeholder');
   });
 
   it('props.placeholder: theme=file-flow works fine', () => {
-    const wrapper = mount(<Upload theme={'file-flow'} placeholder={'this is placeholder'}></Upload>);
+    const wrapper = mount(<Upload theme="file-flow" placeholder="this is placeholder"></Upload>);
     expect(wrapper.find('.t-upload__placeholder').text()).toBe('this is placeholder');
   });
 
@@ -1168,14 +1233,14 @@ describe('Upload Component', () => {
     const onChangeFn = vi.fn();
     const wrapper = mount(
       <Upload
-        theme={'image-flow'}
+        theme="image-flow"
         multiple={true}
         files={[]}
         requestMethod={() =>
-          Promise.resolve({ status: 'success', response: { url: 'https://tdesign.gtimg.com/demo/demo-image-1.png' } })
-        }
+          Promise.resolve({ status: 'success', response: { url: 'https://tdesign.gtimg.com/demo/demo-image-1.png' } })}
         onChange={onChangeFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     const inputDom = wrapper.find('input').element;
     const fileList = simulateFileChange(inputDom, 'image');
@@ -1189,25 +1254,26 @@ describe('Upload Component', () => {
     const onFailFn = vi.fn();
     const wrapper = mount(
       <Upload
-        theme={'file-flow'}
+        theme="file-flow"
         multiple={true}
         files={[]}
         requestMethod={() => Promise.resolve({ status: 'fail', error: 'upload failed' })}
         onFail={onFailFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     const inputDom = wrapper.find('input').element;
     const fileList = simulateFileChange(inputDom);
     await mockDelay(0);
     expect(onFailFn).toHaveBeenCalled();
-    expect(onFailFn.mock.calls[0][0].failedFiles.map((t) => t.raw)).toEqual(fileList);
-    expect(onFailFn.mock.calls[0][0].currentFiles.map((t) => t.raw)).toEqual(fileList);
+    expect(onFailFn.mock.calls[0][0].failedFiles.map(t => t.raw)).toEqual(fileList);
+    expect(onFailFn.mock.calls[0][0].currentFiles.map(t => t.raw)).toEqual(fileList);
   });
 
   it('props.showUploadProgress works fine. `{".t-upload__file-flow-progress":{"text":"上传中"}}` should exist', () => {
     const wrapper = mount(
       <Upload
-        theme={'file-flow'}
+        theme="file-flow"
         showUploadProgress={false}
         files={[
           {
@@ -1217,8 +1283,9 @@ describe('Upload Component', () => {
             url: 'https://tdesign.gtimg.com/demo/demo-image-1.png',
           },
         ]}
-        action={'https://tdesign.test.com/upload/file_success'}
-      ></Upload>,
+        action="https://tdesign.test.com/upload/file_success"
+      >
+      </Upload>,
     );
     expect(wrapper.find('.t-upload__file-flow-progress').text()).toBe('上传中');
   });
@@ -1226,7 +1293,7 @@ describe('Upload Component', () => {
   it('props.showUploadProgress works fine. `{".t-upload__image-progress":{"text":"上传中"}}` should exist', () => {
     const wrapper = mount(
       <Upload
-        theme={'image'}
+        theme="image"
         showUploadProgress={false}
         files={[
           {
@@ -1236,8 +1303,9 @@ describe('Upload Component', () => {
             url: 'https://tdesign.gtimg.com/demo/demo-image-1.png',
           },
         ]}
-        action={'https://tdesign.test.com/upload/file_success'}
-      ></Upload>,
+        action="https://tdesign.test.com/upload/file_success"
+      >
+      </Upload>,
     );
     expect(wrapper.find('.t-upload__image-progress').text()).toBe('上传中');
   });
@@ -1248,9 +1316,10 @@ describe('Upload Component', () => {
       <Upload
         sizeLimit={{ size: 23, unit: 'B' }}
         multiple={true}
-        action={'https://tdesign.test.com/upload/file_success'}
+        action="https://tdesign.test.com/upload/file_success"
         onValidate={onValidateFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     const inputDom = wrapper.find('input').element;
     simulateFileChange(inputDom, 'file', 5);
@@ -1266,9 +1335,10 @@ describe('Upload Component', () => {
       <Upload
         sizeLimit={{ size: 23, unit: 'B', message: 'image size can not over than {sizeLimit}' }}
         multiple={true}
-        action={'https://tdesign.test.com/upload/file_success'}
+        action="https://tdesign.test.com/upload/file_success"
         onValidate={onValidateFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     const inputDom = wrapper.find('input').element;
     simulateFileChange(inputDom, 'file', 5);
@@ -1284,9 +1354,10 @@ describe('Upload Component', () => {
       <Upload
         sizeLimit={0.023}
         multiple={true}
-        action={'https://tdesign.test.com/upload/file_success'}
+        action="https://tdesign.test.com/upload/file_success"
         onValidate={onValidateFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     const inputDom = wrapper.find('input').element;
     simulateFileChange(inputDom, 'file', 5);
@@ -1307,9 +1378,10 @@ describe('Upload Component', () => {
       const wrapper = mount(
         <Upload
           status={item}
-          tips={'upload tips text'}
-          action={'https://tdesign.test.com/upload/file_success'}
-        ></Upload>,
+          tips="upload tips text"
+          action="https://tdesign.test.com/upload/file_success"
+        >
+        </Upload>,
       );
       expect(wrapper.find(statusExpectedDom[index]).exists()).toBeTruthy();
     });
@@ -1323,50 +1395,52 @@ describe('Upload Component', () => {
           { url: 'yyyy.url', name: 'file2.txt' },
         ]}
         multiple={true}
-        theme={'image'}
-      ></Upload>,
+        theme="image"
+      >
+      </Upload>,
     );
     expect(wrapper.find('.t-upload__image-add').exists()).toBeTruthy();
   });
 
   it('props.theme: theme=file and file status is fail works fine', () => {
     const wrapper = mount(
-      <Upload theme={'file'} autoUpload={false} files={[{ name: 'file1.txt', status: 'fail' }]}></Upload>,
+      <Upload theme="file" autoUpload={false} files={[{ name: 'file1.txt', status: 'fail' }]}></Upload>,
     );
     expect(wrapper.find('.t-icon-error-circle-filled').exists()).toBeTruthy();
   });
 
   it('props.theme: theme=file-input and file status is progress works fine', () => {
-    const wrapper = mount(<Upload theme={'file-input'} files={[{ name: 'file1.txt', status: 'progress' }]}></Upload>);
+    const wrapper = mount(<Upload theme="file-input" files={[{ name: 'file1.txt', status: 'progress' }]}></Upload>);
     expect(wrapper.find('.t-upload__single-progress').exists()).toBeTruthy();
   });
 
   it('props.theme: theme=file-input and file status is waiting works fine', () => {
-    const wrapper = mount(<Upload theme={'file-input'} files={[{ name: 'file1.txt', status: 'waiting' }]}></Upload>);
+    const wrapper = mount(<Upload theme="file-input" files={[{ name: 'file1.txt', status: 'waiting' }]}></Upload>);
     expect(wrapper.find('.t-upload__file-waiting.t-icon-time-filled').exists()).toBeTruthy();
   });
 
   it('props.theme: theme=file-input and file status is fail works fine', () => {
-    const wrapper = mount(<Upload theme={'file-input'} files={[{ name: 'file1.txt', status: 'fail' }]}></Upload>);
+    const wrapper = mount(<Upload theme="file-input" files={[{ name: 'file1.txt', status: 'fail' }]}></Upload>);
     expect(wrapper.find('.t-icon-error-circle-filled').exists()).toBeTruthy();
   });
 
   it('props.theme: theme=file-input and file status is success works fine', () => {
-    const wrapper = mount(<Upload theme={'file-input'} files={[{ name: 'file1.txt', status: 'success' }]}></Upload>);
+    const wrapper = mount(<Upload theme="file-input" files={[{ name: 'file1.txt', status: 'success' }]}></Upload>);
     expect(wrapper.find('.t-icon-check-circle-filled').exists()).toBeTruthy();
   });
 
   it('props.theme: theme=file-flow works fine', () => {
     const wrapper = mount(
       <Upload
-        theme={'file-flow'}
+        theme="file-flow"
         files={[
           { name: 'file1.txt', status: 'success' },
           { name: 'file2.txt', status: 'waiting' },
           { name: 'file3.txt', status: 'fail' },
           { name: 'file4.txt', status: 'progress', percent: 90 },
         ]}
-      ></Upload>,
+      >
+      </Upload>,
     );
     expect(wrapper.findAll('.t-upload__flow-table tbody > tr').length).toBe(4);
     expect(wrapper.element).toMatchSnapshot();
@@ -1375,7 +1449,7 @@ describe('Upload Component', () => {
   it('props.theme: theme=image-flow works fine', () => {
     const wrapper = mount(
       <Upload
-        theme={'image-flow'}
+        theme="image-flow"
         files={[
           { url: '', status: 'success', name: 'img.txt' },
           { url: 'https://img1.txt', status: 'success', name: 'img1.txt' },
@@ -1383,7 +1457,8 @@ describe('Upload Component', () => {
           { url: 'https://img3.txt', status: 'fail', name: 'img3.txt' },
           { url: 'https://img4.txt', status: 'progress', percent: 90, name: 'img4.txt' },
         ]}
-      ></Upload>,
+      >
+      </Upload>,
     );
     expect(wrapper.findAll('.t-upload__card-item').length).toBe(5);
     expect(wrapper.element).toMatchSnapshot();
@@ -1393,8 +1468,9 @@ describe('Upload Component', () => {
     const wrapper = mount(
       <Upload
         tips={() => <span class="custom-node">TNode</span>}
-        action={'https://tdesign.test.com/upload/file_success'}
-      ></Upload>,
+        action="https://tdesign.test.com/upload/file_success"
+      >
+      </Upload>,
     );
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
     expect(wrapper.find('.t-upload__tips').exists()).toBeTruthy();
@@ -1404,28 +1480,29 @@ describe('Upload Component', () => {
     const wrapper = mount(
       <Upload
         v-slots={{ tips: () => <span class="custom-node">TNode</span> }}
-        action={'https://tdesign.test.com/upload/file_success'}
-      ></Upload>,
+        action="https://tdesign.test.com/upload/file_success"
+      >
+      </Upload>,
     );
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
     expect(wrapper.find('.t-upload__tips').exists()).toBeTruthy();
   });
 
   it('props.trigger: theme = file, trigger works fine', () => {
-    const wrapper = mount(<Upload trigger={() => <span class="custom-node">TNode</span>} theme={'file'}></Upload>);
+    const wrapper = mount(<Upload trigger={() => <span class="custom-node">TNode</span>} theme="file"></Upload>);
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
 
   it('props.trigger: theme = file, trigger works fine', () => {
     const wrapper = mount(
-      <Upload v-slots={{ trigger: () => <span class="custom-node">TNode</span> }} theme={'file'}></Upload>,
+      <Upload v-slots={{ trigger: () => <span class="custom-node">TNode</span> }} theme="file"></Upload>,
     );
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
 
   it('props.trigger: theme = custom & draggable = true, trigger works fine', () => {
     const wrapper = mount(
-      <Upload trigger={() => <span class="custom-node">TNode</span>} theme={'custom'} draggable={true}></Upload>,
+      <Upload trigger={() => <span class="custom-node">TNode</span>} theme="custom" draggable={true}></Upload>,
     );
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
@@ -1434,23 +1511,24 @@ describe('Upload Component', () => {
     const wrapper = mount(
       <Upload
         v-slots={{ trigger: () => <span class="custom-node">TNode</span> }}
-        theme={'custom'}
+        theme="custom"
         draggable={true}
-      ></Upload>,
+      >
+      </Upload>,
     );
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
 
   it('props.trigger: a function with params, props.trigger: theme = custom & draggable = true, trigger works fine', () => {
     const fn = vi.fn();
-    mount(<Upload trigger={fn} theme={'custom'} draggable={true}></Upload>);
+    mount(<Upload trigger={fn} theme="custom" draggable={true}></Upload>);
     expect(fn).toHaveBeenCalled();
     expect(fn.mock.calls[0][1].dragActive).toBe(false);
     expect(fn.mock.calls[0][1].files).toEqual([]);
   });
   it('slots.trigger: a function with params, props.trigger: theme = custom & draggable = true, trigger works fine', () => {
     const fn = vi.fn();
-    mount(<Upload v-slots={{ trigger: fn }} theme={'custom'} draggable={true}></Upload>);
+    mount(<Upload v-slots={{ trigger: fn }} theme="custom" draggable={true}></Upload>);
 
     expect(fn).toHaveBeenCalled();
     expect(fn.mock.calls[0][0].dragActive).toBe(false);
@@ -1458,13 +1536,13 @@ describe('Upload Component', () => {
   });
 
   it('props.trigger: theme = custom, trigger works fine', () => {
-    const wrapper = mount(<Upload trigger={() => <span class="custom-node">TNode</span>} theme={'custom'}></Upload>);
+    const wrapper = mount(<Upload trigger={() => <span class="custom-node">TNode</span>} theme="custom"></Upload>);
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
 
   it('props.trigger: theme = custom, trigger works fine', () => {
     const wrapper = mount(
-      <Upload v-slots={{ trigger: () => <span class="custom-node">TNode</span> }} theme={'custom'}></Upload>,
+      <Upload v-slots={{ trigger: () => <span class="custom-node">TNode</span> }} theme="custom"></Upload>,
     );
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
@@ -1473,10 +1551,11 @@ describe('Upload Component', () => {
     const wrapper = mount(
       <Upload
         trigger={() => <span class="custom-node">TNode</span>}
-        theme={'custom'}
+        theme="custom"
         draggable={true}
         files={[{ name: 'file-name.txt', status: 'progress' }]}
-      ></Upload>,
+      >
+      </Upload>,
     );
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
@@ -1485,10 +1564,11 @@ describe('Upload Component', () => {
     const wrapper = mount(
       <Upload
         v-slots={{ trigger: () => <span class="custom-node">TNode</span> }}
-        theme={'custom'}
+        theme="custom"
         draggable={true}
         files={[{ name: 'file-name.txt', status: 'progress' }]}
-      ></Upload>,
+      >
+      </Upload>,
     );
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
@@ -1498,10 +1578,11 @@ describe('Upload Component', () => {
     mount(
       <Upload
         trigger={fn}
-        theme={'custom'}
+        theme="custom"
         draggable={true}
         files={[{ name: 'file-name.txt', status: 'progress' }]}
-      ></Upload>,
+      >
+      </Upload>,
     );
     expect(fn).toHaveBeenCalled();
     expect(fn.mock.calls[0][1].dragActive).toBe(false);
@@ -1512,10 +1593,11 @@ describe('Upload Component', () => {
     mount(
       <Upload
         v-slots={{ trigger: fn }}
-        theme={'custom'}
+        theme="custom"
         draggable={true}
         files={[{ name: 'file-name.txt', status: 'progress' }]}
-      ></Upload>,
+      >
+      </Upload>,
     );
 
     expect(fn).toHaveBeenCalled();
@@ -1527,8 +1609,9 @@ describe('Upload Component', () => {
     const wrapper = mount(
       <Upload
         triggerButtonProps={{ theme: 'warning' }}
-        action={'https://tdesign.test.com/upload/file_success'}
-      ></Upload>,
+        action="https://tdesign.test.com/upload/file_success"
+      >
+      </Upload>,
     );
     expect(wrapper.findAll('.t-button--theme-warning').length).toBe(1);
   });
@@ -1538,9 +1621,10 @@ describe('Upload Component', () => {
     const wrapper = mount(
       <Upload
         withCredentials={true}
-        action={'https://tdesign.test.com/upload/fail/status_error'}
+        action="https://tdesign.test.com/upload/fail/status_error"
         onFail={onFailFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     const inputDom = wrapper.find('input').element;
     simulateFileChange(inputDom);
@@ -1554,14 +1638,15 @@ describe('Upload Component', () => {
     const onCancelUploadFn = vi.fn();
     const wrapper = mount(
       <Upload
-        theme={'file'}
+        theme="file"
         draggable={true}
         autoUpload={true}
-        action={'https://tdesign.test.com/upload/file_success'}
+        action="https://tdesign.test.com/upload/file_success"
         files={[{ name: 'xxx.txt', status: 'progress' }]}
         onChange={onChangeFn}
         onCancelUpload={onCancelUploadFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     wrapper.find('.t-upload__dragger-progress-cancel').trigger('click');
     await wrapper.vm.$nextTick();
@@ -1572,7 +1657,7 @@ describe('Upload Component', () => {
   it('events.change: can trigger change if autoUpload is false for image', async () => {
     const onChangeFn = vi.fn();
     const wrapper = mount(
-      <Upload theme={'image'} draggable={true} autoUpload={false} files={[]} onChange={onChangeFn}></Upload>,
+      <Upload theme="image" draggable={true} autoUpload={false} files={[]} onChange={onChangeFn}></Upload>,
     );
     const inputDom = wrapper.find('input').element;
     const fileList = simulateFileChange(inputDom, 'image', 1);
@@ -1588,13 +1673,14 @@ describe('Upload Component', () => {
     const onChangeFn = vi.fn();
     const wrapper = mount(
       <Upload
-        theme={'image-flow'}
+        theme="image-flow"
         draggable={true}
         autoUpload={false}
         multiple={true}
         files={[{ url: 'https://image1.png', status: 'success' }]}
         onChange={onChangeFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     const inputDom = wrapper.find('input').element;
     const fileList = simulateFileChange(inputDom, 'image', 1);
@@ -1605,14 +1691,14 @@ describe('Upload Component', () => {
     expect(onChangeFn.mock.calls[0][1].trigger).toBe('add');
     expect(onChangeFn.mock.calls[0][1].index).toBe(1);
     expect(onChangeFn.mock.calls[0][1].file.raw).toEqual(fileList[0]);
-    expect(onChangeFn.mock.calls[0][1].files.map((t) => t.raw)).toEqual(fileList);
+    expect(onChangeFn.mock.calls[0][1].files.map(t => t.raw)).toEqual(fileList);
   });
 
   it('events.dragenter: drag image enter, trigger onDragenter event', async () => {
     const onDragenterFn = vi.fn();
     const onDragleaveFn2 = vi.fn();
     const wrapper = mount(
-      <Upload theme={'image'} draggable={true} onDragenter={onDragenterFn} onDragleave={onDragleaveFn2}></Upload>,
+      <Upload theme="image" draggable={true} onDragenter={onDragenterFn} onDragleave={onDragleaveFn2}></Upload>,
     );
     const tUploadDraggerDom = wrapper.find('.t-upload__dragger').element;
     const files = simulateDragFileChange(tUploadDraggerDom, 'dragEnter', 'image');
@@ -1635,7 +1721,7 @@ describe('Upload Component', () => {
     const onDragenterFn = vi.fn();
     const onDragleaveFn2 = vi.fn();
     const wrapper = mount(
-      <Upload theme={'file'} draggable={true} onDragenter={onDragenterFn} onDragleave={onDragleaveFn2}></Upload>,
+      <Upload theme="file" draggable={true} onDragenter={onDragenterFn} onDragleave={onDragleaveFn2}></Upload>,
     );
     const tUploadDraggerDom = wrapper.find('.t-upload__dragger').element;
     const files = simulateDragFileChange(tUploadDraggerDom, 'dragEnter');
@@ -1658,11 +1744,12 @@ describe('Upload Component', () => {
     const onDragleaveFn1 = vi.fn();
     const wrapper = mount(
       <Upload
-        theme={'image'}
+        theme="image"
         draggable={true}
-        action={'https://tdesign.test.com/upload/file_success'}
+        action="https://tdesign.test.com/upload/file_success"
         onDragleave={onDragleaveFn1}
-      ></Upload>,
+      >
+      </Upload>,
     );
     const tUploadDraggerDom = wrapper.find('.t-upload__dragger').element;
     simulateDragFileChange(tUploadDraggerDom, 'dragEnter');
@@ -1677,11 +1764,12 @@ describe('Upload Component', () => {
     const onDropFn = vi.fn();
     const wrapper = mount(
       <Upload
-        theme={'image'}
+        theme="image"
         draggable={true}
-        action={'https://tdesign.test.com/upload/file_success'}
+        action="https://tdesign.test.com/upload/file_success"
         onDrop={onDropFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     const tUploadDraggerDom = wrapper.find('.t-upload__dragger').element;
     const files = simulateDragFileChange(tUploadDraggerDom, 'drop', 'image');
@@ -1695,11 +1783,12 @@ describe('Upload Component', () => {
     const onDropFn = vi.fn();
     const wrapper = mount(
       <Upload
-        theme={'file'}
+        theme="file"
         draggable={true}
-        action={'https://tdesign.test.com/upload/file_success'}
+        action="https://tdesign.test.com/upload/file_success"
         onDrop={onDropFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     const tUploadDraggerDom = wrapper.find('.t-upload__dragger').element;
     const files = simulateDragFileChange(tUploadDraggerDom, 'drop');
@@ -1712,7 +1801,7 @@ describe('Upload Component', () => {
   it('events.fail works fine', async () => {
     const onFailFn = vi.fn();
     const wrapper = mount(
-      <Upload action={'https://tdesign.test.com/upload/fail/status_error'} onFail={onFailFn}></Upload>,
+      <Upload action="https://tdesign.test.com/upload/fail/status_error" onFail={onFailFn}></Upload>,
     );
     const inputDom = wrapper.find('input').element;
     const fileList = simulateFileChange(inputDom);
@@ -1726,9 +1815,10 @@ describe('Upload Component', () => {
     const wrapper = mount(
       <Upload
         files={[{ url: 'https://tdesign.gtimg.com/demo/demo-image-1.png', name: 'demo-image-1.png' }]}
-        theme={'image'}
+        theme="image"
         onPreview={onPreviewFn1}
-      ></Upload>,
+      >
+      </Upload>,
     );
     wrapper.find('.t-upload__card-item').trigger('mouseenter');
     await wrapper.vm.$nextTick();
@@ -1736,7 +1826,7 @@ describe('Upload Component', () => {
     await mockDelay(300);
     const attrDom1 = document.querySelector('.t-image-viewer__modal-image');
     expect(attrDom1.getAttribute('src')).toBe('https://tdesign.gtimg.com/demo/demo-image-1.png');
-    document.querySelectorAll('.t-image-viewer').forEach((node) => node.remove());
+    document.querySelectorAll('.t-image-viewer').forEach(node => node.remove());
     expect(onPreviewFn1).toHaveBeenCalled();
     expect(onPreviewFn1.mock.calls[0][0].file).toEqual({
       url: 'https://tdesign.gtimg.com/demo/demo-image-1.png',
@@ -1754,10 +1844,11 @@ describe('Upload Component', () => {
           { url: 'https://tdesign.gtimg.com/demo/demo-image-1.png', name: 'demo-image-1.png' },
           { url: 'https://tdesign.gtimg.com/site/avatar.jpg', name: 'avatar.jpg' },
         ]}
-        theme={'image'}
+        theme="image"
         multiple={true}
         onPreview={onPreviewFn1}
-      ></Upload>,
+      >
+      </Upload>,
     );
     wrapper.find('.t-upload__card-item:last-child').trigger('mouseenter');
     await wrapper.vm.$nextTick();
@@ -1765,7 +1856,7 @@ describe('Upload Component', () => {
     await mockDelay(300);
     const attrDom1 = document.querySelector('.t-image-viewer__modal-image');
     expect(attrDom1.getAttribute('src')).toBe('https://tdesign.gtimg.com/site/avatar.jpg');
-    document.querySelectorAll('.t-image-viewer').forEach((node) => node.remove());
+    document.querySelectorAll('.t-image-viewer').forEach(node => node.remove());
     expect(onPreviewFn1).toHaveBeenCalled();
     expect(onPreviewFn1.mock.calls[0][0].file).toEqual({
       url: 'https://tdesign.gtimg.com/site/avatar.jpg',
@@ -1783,10 +1874,11 @@ describe('Upload Component', () => {
           { url: 'https://tdesign.gtimg.com/demo/demo-image-1.png', name: 'demo-image-1.png' },
           { url: 'https://tdesign.gtimg.com/site/avatar.jpg', name: 'avatar.jpg' },
         ]}
-        theme={'image-flow'}
+        theme="image-flow"
         multiple={true}
         onPreview={onPreviewFn1}
-      ></Upload>,
+      >
+      </Upload>,
     );
     wrapper.find('.t-upload__card-item:nth-child(2)').trigger('mouseenter');
     await wrapper.vm.$nextTick();
@@ -1794,7 +1886,7 @@ describe('Upload Component', () => {
     await mockDelay(300);
     const attrDom1 = document.querySelector('.t-image-viewer__modal-image');
     expect(attrDom1.getAttribute('src')).toBe('https://tdesign.gtimg.com/site/avatar.jpg');
-    document.querySelectorAll('.t-image-viewer').forEach((node) => node.remove());
+    document.querySelectorAll('.t-image-viewer').forEach(node => node.remove());
     expect(onPreviewFn1).toHaveBeenCalled();
     expect(onPreviewFn1.mock.calls[0][0].file).toEqual({
       url: 'https://tdesign.gtimg.com/site/avatar.jpg',
@@ -1812,7 +1904,8 @@ describe('Upload Component', () => {
         files={[{ name: 'file1.txt', url: 'https://xxx1.txt' }]}
         onChange={onChangeFn}
         onRemove={onRemoveFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     wrapper.find('.t-upload__icon-delete').trigger('click');
     await wrapper.vm.$nextTick();
@@ -1838,7 +1931,8 @@ describe('Upload Component', () => {
         ]}
         onChange={onChangeFn}
         onRemove={onRemoveFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     wrapper.find('.t-upload__single-display-text .t-upload__icon-delete').trigger('click');
     await wrapper.vm.$nextTick();
@@ -1861,12 +1955,13 @@ describe('Upload Component', () => {
     const onRemoveFn = vi.fn();
     const wrapper = mount(
       <Upload
-        theme={'image'}
+        theme="image"
         multiple={true}
         files={[{ name: 'image1.png', status: 'fail' }]}
         onChange={onChangeFn}
         onRemove={onRemoveFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     wrapper.find('.t-upload__card-mask-item .t-icon-delete').trigger('click');
     await wrapper.vm.$nextTick();
@@ -1886,12 +1981,13 @@ describe('Upload Component', () => {
     const onRemoveFn = vi.fn();
     const wrapper = mount(
       <Upload
-        theme={'image'}
+        theme="image"
         multiple={true}
         files={[{ url: 'https://image1.png', status: 'success' }]}
         onChange={onChangeFn}
         onRemove={onRemoveFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     wrapper.find('.t-upload__card-mask-item .t-icon-delete').trigger('click');
     await wrapper.vm.$nextTick();
@@ -1911,11 +2007,12 @@ describe('Upload Component', () => {
     const onRemoveFn = vi.fn();
     const wrapper = mount(
       <Upload
-        theme={'file-input'}
+        theme="file-input"
         files={[{ name: 'file.txt', status: 'success' }]}
         onChange={onChangeFn}
         onRemove={onRemoveFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     wrapper.find('.t-upload__single-input-clear').trigger('click');
     await wrapper.vm.$nextTick();
@@ -1930,12 +2027,13 @@ describe('Upload Component', () => {
     const onRemoveFn = vi.fn();
     const wrapper = mount(
       <Upload
-        theme={'file-flow'}
+        theme="file-flow"
         multiple={true}
         files={[{ name: 'file1.txt', url: 'https://xxx1.txt' }]}
         onChange={onChangeFn}
         onRemove={onRemoveFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     wrapper.find('.t-upload__delete').trigger('click');
     await wrapper.vm.$nextTick();
@@ -1953,12 +2051,13 @@ describe('Upload Component', () => {
     const onRemoveFn = vi.fn();
     const wrapper = mount(
       <Upload
-        theme={'image-flow'}
+        theme="image-flow"
         multiple={true}
         files={[{ name: 'file1.txt', url: 'https://xxx1.txt' }]}
         onChange={onChangeFn}
         onRemove={onRemoveFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     wrapper.find('.t-upload__delete').trigger('click');
     await wrapper.vm.$nextTick();
@@ -1976,7 +2075,7 @@ describe('Upload Component', () => {
     const onRemoveFn = vi.fn();
     const wrapper = mount(
       <Upload
-        theme={'file-flow'}
+        theme="file-flow"
         multiple={true}
         isBatchUpload={true}
         files={[
@@ -1985,7 +2084,8 @@ describe('Upload Component', () => {
         ]}
         onChange={onChangeFn}
         onRemove={onRemoveFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     wrapper.find('.t-upload__delete').trigger('click');
     await wrapper.vm.$nextTick();
@@ -2003,12 +2103,13 @@ describe('Upload Component', () => {
     const onRemoveFn = vi.fn();
     const wrapper = mount(
       <Upload
-        theme={'image'}
+        theme="image"
         draggable={true}
         files={[{ url: 'https://www.image.png', status: 'success' }]}
         onChange={onChangeFn}
         onRemove={onRemoveFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     wrapper.find('.t-upload__dragger-delete-btn').trigger('click');
     await wrapper.vm.$nextTick();
@@ -2026,7 +2127,7 @@ describe('Upload Component', () => {
     const onRemoveFn = vi.fn();
     const wrapper = mount(
       <Upload
-        theme={'file'}
+        theme="file"
         multiple={true}
         autoUpload={false}
         files={[
@@ -2036,7 +2137,8 @@ describe('Upload Component', () => {
         ]}
         onChange={onChangeFn}
         onRemove={onRemoveFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     wrapper.find('.t-upload__single-display-text:last-child .t-upload__icon-delete').trigger('click');
     await wrapper.vm.$nextTick();
@@ -2053,7 +2155,7 @@ describe('Upload Component', () => {
     const onRemoveFn = vi.fn();
     const wrapper = mount(
       <Upload
-        theme={'file-flow'}
+        theme="file-flow"
         multiple={true}
         autoUpload={true}
         files={[
@@ -2064,7 +2166,8 @@ describe('Upload Component', () => {
         ]}
         onChange={onChangeFn}
         onRemove={onRemoveFn}
-      ></Upload>,
+      >
+      </Upload>,
     );
     wrapper.find('.t-upload__flow-table tbody tr:nth-child(2) .t-upload__delete').trigger('click');
     await wrapper.vm.$nextTick();
@@ -2085,14 +2188,15 @@ describe('Upload Component', () => {
     const onRemoveFn1 = vi.fn();
     const wrapper = mount(
       <Upload
-        theme={'file-flow'}
+        theme="file-flow"
         multiple={true}
         autoUpload={true}
         files={[{ name: 'file1.txt' }, { name: 'file2.txt', status: 'success' }]}
-        action={'https://tdesign.test.com/upload/fail/status_error'}
+        action="https://tdesign.test.com/upload/fail/status_error"
         onChange={onChangeFn1}
         onRemove={onRemoveFn1}
-      ></Upload>,
+      >
+      </Upload>,
     );
     const inputDom = wrapper.find('input').element;
     simulateFileChange(inputDom);

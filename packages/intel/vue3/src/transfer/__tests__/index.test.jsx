@@ -1,7 +1,7 @@
-import { ref, nextTick } from 'vue';
+import { nextTick, ref } from 'vue';
 import { mount } from '@vue/test-utils';
-import { describe, expect, vi, it } from 'vitest';
-import Transfer from '@/src/transfer/index.ts';
+import { describe, expect, it, vi } from 'vitest';
+import { Transfer } from 'tdesign-vue-next';
 
 const data = [];
 (() => {
@@ -22,9 +22,9 @@ const pagination = {
 const checkedValue = ['1', '2', '5'];
 const targetValue = ['1'];
 
-describe('Transfer', () => {
+describe('transfer', () => {
   // test for props
-  describe('Props', () => {
+  describe('props', () => {
     it(':data', () => {
       const wrapper = mount(() => <Transfer data={data} />);
       const transfer = wrapper.find('.t-transfer');

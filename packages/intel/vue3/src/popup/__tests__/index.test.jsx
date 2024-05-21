@@ -1,10 +1,10 @@
 import { mount } from '@vue/test-utils';
-import { describe, it, beforeEach, afterEach, expect, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { usePrefixClass } from '@td/adapter-hooks';
-import type { TdPopupProps as PopupProps } from '../popup/type';
+import { Popup } from 'tdesign-vue-next';
 
 const POPUPClASS = `.${usePrefixClass('popup').value}`;
-describe('Popup', () => {
+describe('popup', () => {
   beforeEach(() => {
     // create teleport target
     const el = document.createElement('div');

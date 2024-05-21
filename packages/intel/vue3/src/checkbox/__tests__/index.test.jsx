@@ -1,9 +1,9 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, it, vi } from 'vitest';
 import { ref } from 'vue';
-import Checkbox, { CheckboxGroup } from '@/src/checkbox/index.ts';
+import Checkbox, { CheckboxGroup } from 'tdesign-vue-next';
 
-describe('Checkbox', () => {
+describe('checkbox', () => {
   describe(':props', () => {
     it(':checked', () => {
       const checked = ref(true);
@@ -65,7 +65,7 @@ describe('Checkbox', () => {
   });
 });
 
-describe('CheckboxGroup', () => {
+describe('checkboxGroup', () => {
   describe(':props', () => {
     it('', () => {
       const wrapper = mount(() => (

@@ -1,16 +1,16 @@
 import { nextTick, ref } from 'vue';
 import { mount } from '@vue/test-utils';
 import { expect, it, vi } from 'vitest';
-import Textarea from '@/src/textarea/index.ts';
+import { Textarea } from 'tdesign-vue-next';
 
 const statusList = ['success', 'warning', 'error'];
 
-describe('Textarea', () => {
+describe('textarea', () => {
   describe(':props', () => {
     it(':value', () => {
       const wrapper = mount({
         render() {
-          return <Textarea value={'text'} />;
+          return <Textarea value="text" />;
         },
       });
       const textareaElem = wrapper.find('textarea');
@@ -20,7 +20,7 @@ describe('Textarea', () => {
     it(':value(controlled)', async () => {
       const wrapper = mount({
         render() {
-          return <Textarea value={'text'} />;
+          return <Textarea value="text" />;
         },
       });
       const textareaElem = wrapper.find('textarea');
@@ -32,7 +32,7 @@ describe('Textarea', () => {
     it(':default-value', async () => {
       const wrapper = mount({
         render() {
-          return <Textarea default-value={'text'} />;
+          return <Textarea default-value="text" />;
         },
       });
       const textareaElem = wrapper.find('textarea');

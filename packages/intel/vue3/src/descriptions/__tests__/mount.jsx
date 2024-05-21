@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Descriptions, { DescriptionsItem } from '@/src/descriptions/index.ts';
+import Descriptions, { DescriptionsItem } from 'tdesign-vue-next';
 
 export function getDescriptionsMount(props = {}, slots = {}) {
   return mount({

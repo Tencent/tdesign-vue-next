@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
-import Switch from '@/src/switch/index.ts';
+import { Switch } from 'tdesign-vue-next';
 
-describe('Switch', () => {
+describe('switch', () => {
   describe(':props', () => {
     it('', () => {
       const wrapper = mount({
@@ -47,7 +47,7 @@ describe('Switch', () => {
     it(':size', () => {
       const wrapper = mount({
         render() {
-          return <Switch size={'small'} />;
+          return <Switch size="small" />;
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -88,7 +88,7 @@ describe('Switch', () => {
   });
 
   describe('@event', () => {
-    it('Event passthrough: change', () => {
+    it('event passthrough: change', () => {
       const fn = vi.fn();
       const wrapper = mount({
         render() {
@@ -110,7 +110,8 @@ describe('Switch', () => {
               v-slots={{
                 label: () => 'TDesign',
               }}
-            ></Switch>
+            >
+            </Switch>
           );
         },
       });

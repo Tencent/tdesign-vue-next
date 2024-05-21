@@ -6,9 +6,9 @@
  */
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
-import { Tag, CheckTag } from '..';
+import { CheckTag, Tag } from 'tdesign-vue-next';
 
-describe('Tag Component', () => {
+describe('tag Component', () => {
   it('props.closable: Tag contains element `.t-tag__icon-close`', () => {
     // closable default value is false
     const wrapper = mount(<Tag></Tag>);
@@ -61,7 +61,7 @@ describe('Tag Component', () => {
   });
 
   it(`props.maxWidth is equal to 150px`, () => {
-    const wrapper = mount(<Tag maxWidth={'150px'} content={'This is a long long long long long tag'}></Tag>);
+    const wrapper = mount(<Tag maxWidth="150px" content="This is a long long long long long tag"></Tag>);
     const domWrapper = wrapper.findComponent(Tag);
     expect(domWrapper.element.style.maxWidth).toBe('150px');
     const domWrapper1 = wrapper.find('.t-tag--text');
@@ -127,7 +127,7 @@ describe('Tag Component', () => {
   });
 });
 
-describe('CheckTag Component', () => {
+describe('checkTag Component', () => {
   it('props.content works fine', () => {
     const wrapper = mount(<CheckTag content={() => <span class="custom-node">TNode</span>}></CheckTag>);
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();

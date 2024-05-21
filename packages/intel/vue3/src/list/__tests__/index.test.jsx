@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils';
-import { describe, expect, vi, it } from 'vitest';
-import { List, ListItem, ListItemMeta } from '@/src/list/index.ts';
+import { describe, expect, it, vi } from 'vitest';
+import { List, ListItem, ListItemMeta } from 'tdesign-vue-next';
 
-describe('List', () => {
+describe('list', () => {
   describe(':props', () => {
     it(':size', () => {
       const sizeList = ['small', 'medium', 'large'];
@@ -65,7 +65,7 @@ describe('List', () => {
   });
 });
 
-describe('ListItem', () => {
+describe('listItem', () => {
   describe(':props', () => {
     it(':action', () => {
       const slots = {
@@ -189,7 +189,7 @@ describe('ListItem', () => {
   });
 });
 
-describe('ListItemMeta', () => {
+describe('listItemMeta', () => {
   describe(':props', () => {
     it(':description', () => {
       const wrapper = mount(() => (

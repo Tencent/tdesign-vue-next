@@ -6,14 +6,14 @@
  */
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
-import { Guide } from '..';
+import { Guide } from  'tdesign-vue-next'
 import {
   getGuideDefaultMount,
   getGuideMultipleStepsMount,
   getCustomGuideStepMount,
   getCustomMultipleGuideStepMount,
 } from './mount';
-import { mockDelay } from '@test/utils';
+import { mockDelay } from 'tdesign-vue-next/test/utils';
 
 describe('Guide Component', () => {
   afterEach(() => {

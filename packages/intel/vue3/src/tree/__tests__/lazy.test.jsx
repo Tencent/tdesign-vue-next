@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils';
-import Tree from '@/src/tree/index.ts';
+import { Tree } from 'tdesign-vue-next';
 import { delay, step } from './kit';
 
-describe('Tree:lazy-load', () => {
+describe('tree:lazy-load', () => {
   vi.useRealTimers();
   describe('props.load', () => {
     it('可以定义 load 方法延迟加载数据', async () => {
@@ -56,7 +56,8 @@ describe('Tree:lazy-load', () => {
                 onLoad={this.onLoad}
                 lazy={false}
                 transition={false}
-              ></Tree>
+              >
+              </Tree>
             );
           },
         });
@@ -123,7 +124,8 @@ describe('Tree:lazy-load', () => {
                 checkable
                 lazy={false}
                 transition={false}
-              ></Tree>
+              >
+              </Tree>
             );
           },
         });
@@ -193,7 +195,8 @@ describe('Tree:lazy-load', () => {
                 checkStrictly
                 lazy={false}
                 transition={false}
-              ></Tree>
+              >
+              </Tree>
             );
           },
         });
@@ -265,7 +268,8 @@ describe('Tree:lazy-load', () => {
               onLoad={this.onLoad}
               lazy={true}
               transition={false}
-            ></Tree>
+            >
+            </Tree>
           );
         },
       });
@@ -347,8 +351,9 @@ describe('Tree:lazy-load', () => {
               lazy={true}
               checkable={true}
               transition={false}
-              valueMode={'all'}
-            ></Tree>
+              valueMode="all"
+            >
+            </Tree>
           );
         },
       });
@@ -420,8 +425,9 @@ describe('Tree:lazy-load', () => {
               checkable={true}
               checkStrictly={true}
               transition={false}
-              valueMode={'all'}
-            ></Tree>
+              valueMode="all"
+            >
+            </Tree>
           );
         },
       });

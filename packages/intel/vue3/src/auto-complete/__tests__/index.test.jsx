@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils';
-import { AutoComplete } from '@/src/auto-complete/index.ts';
+import { AutoComplete } from 'tdesign-vue-next';
 
 const options = ['第一个默认联想词', '第二个默认联想词', '第三个默认联想词'];
-describe('Anchor', () => {
+describe('anchor', () => {
   describe(':base', () => {
     it('render', async () => {
       const wrapper = mount({
@@ -23,7 +23,7 @@ describe('Anchor', () => {
     it('render', async () => {
       const wrapper = mount({
         render() {
-          return <AutoComplete value={'默认联想词'} popupProps={{ visible: false }} options={options}></AutoComplete>;
+          return <AutoComplete value="默认联想词" popupProps={{ visible: false }} options={options}></AutoComplete>;
         },
       });
 
@@ -38,7 +38,7 @@ describe('Anchor', () => {
     it('render', () => {
       const wrapper = mount({
         render() {
-          return <AutoComplete disabled value={'默认联想词'} options={options}></AutoComplete>;
+          return <AutoComplete disabled value="默认联想词" options={options}></AutoComplete>;
         },
       });
       const inputDom = wrapper.find('.t-input');
@@ -50,7 +50,7 @@ describe('Anchor', () => {
     it('render', async () => {
       const wrapper = mount({
         render() {
-          return <AutoComplete placeholder={'请输入关键词搜索'} options={options}></AutoComplete>;
+          return <AutoComplete placeholder="请输入关键词搜索" options={options}></AutoComplete>;
         },
       });
 

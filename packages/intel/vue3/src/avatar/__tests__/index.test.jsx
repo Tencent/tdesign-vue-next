@@ -1,11 +1,11 @@
 import { mount } from '@vue/test-utils';
-import { it, expect, vi } from 'vitest';
+import { expect, it, vi } from 'vitest';
 import { nextTick } from 'vue';
-import Avatar, { AvatarGroup } from '@/src/avatar/index.ts';
+import Avatar, { AvatarGroup } from 'tdesign-vue-next';
 import { UserIcon } from 'tdesign-icons-vue-next';
 
 // every component needs four parts: props/events/slots/functions.
-describe('Avatar', () => {
+describe('avatar', () => {
   // test props api
   describe(':props', () => {
     it(':image', () => {
@@ -72,7 +72,7 @@ describe('Avatar', () => {
   });
 });
 
-describe('Avatar Events', () => {
+describe('avatar Events', () => {
   it(':event:error', async () => {
     const fn = vi.fn();
     const wrapper = mount(() => <Avatar image="http://123.png" onError={fn} />);
@@ -83,7 +83,7 @@ describe('Avatar Events', () => {
   });
 });
 
-describe('AvatarGroup', () => {
+describe('avatarGroup', () => {
   describe(':props', () => {
     it(':cascading', () => {
       const wrapper = mount({

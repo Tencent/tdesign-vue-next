@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils';
-import { Menu } from '@/src/menu';
+import { Menu } from 'tdesign-vue-next';
 
 // every component needs four parts: props/events/slots/functions.
-describe('Menu', () => {
+describe('menu', () => {
   // test props api
   describe('props', () => {
     it(':theme', () => {
@@ -17,7 +17,7 @@ describe('Menu', () => {
     it(':theme', () => {
       const wrapper = mount({
         render() {
-          return <Menu theme={'light'}></Menu>;
+          return <Menu theme="light"></Menu>;
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -26,7 +26,7 @@ describe('Menu', () => {
     it(':active', () => {
       const wrapper = mount({
         render() {
-          return <Menu value={'2-1'}></Menu>;
+          return <Menu value="2-1"></Menu>;
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -35,7 +35,7 @@ describe('Menu', () => {
     it(':width', () => {
       const wrapper = mount({
         render() {
-          return <Menu width={'256px'}></Menu>;
+          return <Menu width="256px"></Menu>;
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -44,7 +44,7 @@ describe('Menu', () => {
     it(':height', () => {
       const wrapper = mount({
         render() {
-          return <Menu height={'750px'}></Menu>;
+          return <Menu height="750px"></Menu>;
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -62,7 +62,7 @@ describe('Menu', () => {
     it(':collapsedWidth', () => {
       const wrapper = mount({
         render() {
-          return <Menu collapsedWidth={'100px'}></Menu>;
+          return <Menu collapsedWidth="100px"></Menu>;
         },
       });
       expect(wrapper.element).toMatchSnapshot();

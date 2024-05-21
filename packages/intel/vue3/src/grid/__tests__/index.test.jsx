@@ -1,11 +1,11 @@
 import { mount } from '@vue/test-utils';
-import { it, expect, describe } from 'vitest';
-import { Row, Col } from '@/src/grid/index.ts';
+import { describe, expect, it } from 'vitest';
+import { Col, Row } from 'tdesign-vue-next';
 
 const alignList = ['start', 'end', 'center', 'stretch', 'baseline', 'top', 'middle', 'bottom'];
 const justifyList = ['start', 'end', 'center', 'space-around', 'space-between'];
 
-describe('Grid', () => {
+describe('grid', () => {
   describe('row:props', () => {
     it('', () => {
       const wrapper = mount(() => (
@@ -237,13 +237,13 @@ describe('Grid', () => {
   });
 
   describe('@event', () => {
-    test('_______', () => {
+    it('_______', () => {
       expect(true).toEqual(true);
     });
   });
 
   describe('<slot>', () => {
-    test('_______', () => {
+    it('_______', () => {
       expect(true).toEqual(true);
     });
   });

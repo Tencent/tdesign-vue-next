@@ -5,9 +5,9 @@
  */
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
-import { Link } from '..';
+import { Link } from 'tdesign-vue-next';
 
-describe('Link Component', () => {
+describe('link Component', () => {
   it('props.content works fine', () => {
     const wrapper = mount(<Link content={() => <span class="custom-node">TNode</span>}></Link>);
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
@@ -55,7 +55,7 @@ describe('Link Component', () => {
   });
 
   it('props.href works fine', () => {
-    const wrapper = mount(<Link href={'https://tdesign.tencent.com/'}>Text</Link>);
+    const wrapper = mount(<Link href="https://tdesign.tencent.com/">Text</Link>);
     expect(wrapper.attributes('href')).toBe('https://tdesign.tencent.com/');
     expect(wrapper.element).toMatchSnapshot();
   });
@@ -103,7 +103,7 @@ describe('Link Component', () => {
   });
 
   it('props.target works fine', () => {
-    const wrapper = mount(<Link target={'_blank'}>Text</Link>);
+    const wrapper = mount(<Link target="_blank">Text</Link>);
     expect(wrapper.attributes('target')).toBe('_blank');
     expect(wrapper.element).toMatchSnapshot();
   });
@@ -128,7 +128,7 @@ describe('Link Component', () => {
     expect(wrapper3.classes('t-is-underline')).toBeFalsy();
   });
 
-  it('Link Event: click', async () => {
+  it('link Event: click', async () => {
     const fn = vi.fn();
     const wrapper = mount(<Link onClick={fn}></Link>);
     wrapper.findComponent(Link).trigger('click');

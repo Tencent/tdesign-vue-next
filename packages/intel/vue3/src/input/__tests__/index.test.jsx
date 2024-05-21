@@ -1,14 +1,14 @@
 import { nextTick, ref } from 'vue';
 import { mount } from '@vue/test-utils';
-import { vi, it, expect } from 'vitest';
-import { CloseCircleFilledIcon, AppIcon, ScanIcon } from 'tdesign-icons-vue-next';
-import Input from '@/src/input/index.ts';
+import { expect, it, vi } from 'vitest';
+import { AppIcon, CloseCircleFilledIcon, ScanIcon } from 'tdesign-icons-vue-next';
+import { Input } from 'tdesign-vue-next';
 
 const alignList = ['left', 'center', 'right'];
 const sizeList = ['small', 'large'];
 const statusList = ['success', 'warning', 'error'];
 
-describe('Input', () => {
+describe('input', () => {
   describe(':props', () => {
     it('', () => {
       const wrapper = mount(() => <Input />);

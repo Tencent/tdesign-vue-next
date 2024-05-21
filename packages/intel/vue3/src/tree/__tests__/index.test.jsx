@@ -1,6 +1,6 @@
 /* eslint-disable vue/one-component-per-file */
 import { mount } from '@vue/test-utils';
-import Tree from '@/src/tree/index.ts';
+import Tree from 'tdesign-vue-next'
 import { defineComponent } from './adapt';
 import { delay } from './kit';
 

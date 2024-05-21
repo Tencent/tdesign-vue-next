@@ -1,10 +1,10 @@
 import { mount } from '@vue/test-utils';
-import Rate from '@/src/rate/index.ts';
+import { Rate } from 'tdesign-vue-next';
 import { expect } from 'vitest';
 import { LogoGithubIcon } from 'tdesign-icons-vue-next';
 
 // every component needs four parts: props/events/slots/functions.
-describe('Rate', () => {
+describe('rate', () => {
   // test props api
   describe(':props', () => {
     it('', () => {
@@ -18,7 +18,7 @@ describe('Rate', () => {
     it(':value', async () => {
       const wrapper = mount(Rate, {
         props: {
-          value: 0,
+          'value': 0,
           'onUpdate:value': (e) => {
             wrapper.setProps({ value: e });
           },
@@ -73,8 +73,8 @@ describe('Rate', () => {
     it(':disabled', async () => {
       const wrapper = mount(Rate, {
         props: {
-          value: 0,
-          disabled: true,
+          'value': 0,
+          'disabled': true,
           'onUpdate:value': (e) => {
             wrapper.setProps({ value: e });
           },
@@ -143,7 +143,7 @@ describe('Rate', () => {
     it(':icon', async () => {
       const wrapper = mount(Rate, {
         slots: {
-          icon: (e) => <LogoGithubIcon {...e} />,
+          icon: e => <LogoGithubIcon {...e} />,
         },
       });
       expect(wrapper.findComponent(LogoGithubIcon).exists()).toBe(true);

@@ -1,16 +1,16 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, it, vi } from 'vitest';
 import {
-  CloseIcon,
   AppIcon,
   CheckCircleFilledIcon,
+  CloseIcon,
   ErrorCircleFilledIcon,
   InfoCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
 import { nextTick } from 'vue';
-import { Alert } from '@/src/alert/index.ts';
+import { Alert } from 'tdesign-vue-next';
 
-describe('Alert', () => {
+describe('alert', () => {
   describe(':props', () => {
     it(':default', () => {
       const wrapper = mount(() => <Alert>text</Alert>);

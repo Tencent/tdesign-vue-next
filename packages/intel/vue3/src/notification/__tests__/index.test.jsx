@@ -2,9 +2,9 @@ import { mount } from '@vue/test-utils';
 import { describe, expect, it, vi } from 'vitest';
 import { InfoCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { nextTick } from 'vue';
-import { Notification, NotifyPlugin } from '@/src/notification/index.ts';
+import { Notification, NotifyPlugin } from 'tdesign-vue-next';
 
-describe('Notification', () => {
+describe('notification', () => {
   describe(':base', () => {
     it('render', () => {
       const wrapper = mount({
@@ -74,7 +74,7 @@ describe('Notification', () => {
   });
 
   describe(':theme', () => {
-    ['info', 'success', 'warning', 'error'].map((item) =>
+    ['info', 'success', 'warning', 'error'].map(item =>
       it(item, () => {
         const wrapper = mount({
           render() {
@@ -119,7 +119,7 @@ describe('Notification', () => {
       expect(fn).toBeCalled();
     });
 
-    ['top-left', 'top-right', 'bottom-left', 'bottom-right'].map((item) =>
+    ['top-left', 'top-right', 'bottom-left', 'bottom-right'].map(item =>
       it(item, async () => {
         await NotifyPlugin.info({
           title: '标题',
@@ -134,7 +134,7 @@ describe('Notification', () => {
       }),
     );
 
-    ['info', 'success', 'warning', 'error'].map((item) =>
+    ['info', 'success', 'warning', 'error'].map(item =>
       it(item, async () => {
         await NotifyPlugin[item]({
           title: '标题',

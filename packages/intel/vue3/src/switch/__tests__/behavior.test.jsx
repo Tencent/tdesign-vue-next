@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
-import Switch from '@/src/switch/index.ts';
+import { Switch } from 'tdesign-vue-next';
 
 describe('switch', () => {
   describe('behavior test', () => {
@@ -39,7 +39,7 @@ describe('switch', () => {
         };
         const wrapper = mount({
           render() {
-            return <Switch customValue={customValue} defaultValue={'a'} onChange={onChangeFn} />;
+            return <Switch customValue={customValue} defaultValue="a" onChange={onChangeFn} />;
           },
         });
         await wrapper.trigger('click');

@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils';
-import Tree from '@/src/tree/index.ts';
+import { Tree } from 'tdesign-vue-next';
 import { delay } from './kit';
 
-describe('Tree:disabled', () => {
+describe('tree:disabled', () => {
   vi.useRealTimers();
   describe('props.disabled', () => {
     it('树被禁用时，呈现禁用状态，无法选中', async () => {
@@ -119,7 +119,7 @@ describe('Tree:disabled', () => {
     });
   });
 
-  describe('TreeNode.disabled', () => {
+  describe('treeNode.disabled', () => {
     it('节点数据可初始化禁用状态', async () => {
       const data = [
         {

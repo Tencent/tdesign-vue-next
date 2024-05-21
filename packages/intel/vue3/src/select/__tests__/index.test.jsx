@@ -1,7 +1,7 @@
 import { ref } from 'vue';
 import { mount } from '@vue/test-utils';
-import { vi, describe, it, expect } from 'vitest';
-import { Select, OptionGroup, Option } from '@/src/select/index.ts';
+import { describe, expect, it, vi } from 'vitest';
+import { Option, OptionGroup, Select } from 'tdesign-vue-next';
 import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
 const options = [
@@ -17,7 +17,7 @@ const options = [
   },
 ];
 
-describe('Select', () => {
+describe('select', () => {
   describe(':base', () => {
     it(':render single', async () => {
       const wrapper = mount({
@@ -204,7 +204,7 @@ describe('Select', () => {
   });
 });
 
-describe('Select Option', () => {
+describe('select Option', () => {
   // test props api
   describe(':props', () => {
     it(':value', () => {
@@ -213,7 +213,7 @@ describe('Select Option', () => {
         render() {
           return (
             <Select v-model={value}>
-              <Option value={'1'} label={'1'}></Option>
+              <Option value="1" label="1"></Option>
             </Select>
           );
         },
@@ -226,7 +226,7 @@ describe('Select Option', () => {
         render() {
           return (
             <Select v-model={value}>
-              <Option value={'1'} label={'1'}></Option>
+              <Option value="1" label="1"></Option>
             </Select>
           );
         },
@@ -239,7 +239,7 @@ describe('Select Option', () => {
         render() {
           return (
             <Select v-model={value}>
-              <Option value={'1'} label={'1'} disabled={true}></Option>
+              <Option value="1" label="1" disabled={true}></Option>
             </Select>
           );
         },
@@ -249,7 +249,7 @@ describe('Select Option', () => {
   });
 });
 
-describe('Select OptionGroup', () => {
+describe('select OptionGroup', () => {
   // test props api
   describe(':props', () => {
     it(':value', () => {
@@ -258,11 +258,11 @@ describe('Select OptionGroup', () => {
         render() {
           return (
             <Select v-model={value}>
-              <OptionGroup label={'num'}>
-                <Option value={'1'} label={'1'}></Option>
+              <OptionGroup label="num">
+                <Option value="1" label="1"></Option>
               </OptionGroup>
-              <OptionGroup label={'abc'}>
-                <Option value={'a'} label={'a'}></Option>
+              <OptionGroup label="abc">
+                <Option value="a" label="a"></Option>
               </OptionGroup>
             </Select>
           );

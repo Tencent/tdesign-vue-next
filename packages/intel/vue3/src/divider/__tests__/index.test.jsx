@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils';
-import Divider from '@/src/divider/index.ts';
+import { Divider } from 'tdesign-vue-next';
 
 // every component needs four parts: props/events/slots/functions.
-describe('Divider', () => {
+describe('divider', () => {
   // test props api
   describe(':props', () => {
     it(':layout', () => {

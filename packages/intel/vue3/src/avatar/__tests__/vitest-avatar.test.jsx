@@ -6,13 +6,13 @@
  */
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
-import { Avatar, AvatarGroup } from '..';
+import { Avatar, AvatarGroup } from 'tdesign-vue-next';
+import { mockDelay, simulateImageEvent } from 'tdesign-vue-next/test/utils';
 import { getAvatarGroupDefaultMount } from './mount';
-import { mockDelay, simulateImageEvent } from '@test/utils';
 
-describe('Avatar Component', () => {
+describe('avatar Component', () => {
   it('props.alt works fine', () => {
-    const wrapper = mount(<Avatar alt={'Avatar'} image={'https://tdesign.gtimg.com/site/avatar.jpg'}></Avatar>).find(
+    const wrapper = mount(<Avatar alt="Avatar" image="https://tdesign.gtimg.com/site/avatar.jpg"></Avatar>).find(
       'img',
     );
     expect(wrapper.attributes('alt')).toBe('Avatar');
@@ -43,7 +43,7 @@ describe('Avatar Component', () => {
   });
 
   it('props.hideOnLoadFailed works fine', async () => {
-    const wrapper = mount(<Avatar image={'https://this.is.an.error.path.jpg'} hideOnLoadFailed={true}></Avatar>);
+    const wrapper = mount(<Avatar image="https://this.is.an.error.path.jpg" hideOnLoadFailed={true}></Avatar>);
     const imgDom = wrapper.find('img').element;
     simulateImageEvent(imgDom, 'error');
     await mockDelay(300);
@@ -63,7 +63,7 @@ describe('Avatar Component', () => {
   });
 
   it(`props.image is equal to https://tdesign.tencent.com/`, () => {
-    const wrapper = mount(<Avatar image={'https://tdesign.tencent.com/'}></Avatar>);
+    const wrapper = mount(<Avatar image="https://tdesign.tencent.com/"></Avatar>);
     const domWrapper = wrapper.find('img');
     expect(domWrapper.attributes('src')).toBe('https://tdesign.tencent.com/');
   });
@@ -87,7 +87,7 @@ describe('Avatar Component', () => {
   });
 
   it(`props.size is equal to 120px`, () => {
-    const wrapper = mount(<Avatar size={'120px'}></Avatar>);
+    const wrapper = mount(<Avatar size="120px"></Avatar>);
     const domWrapper = wrapper.findComponent(Avatar);
     expect(domWrapper.element.style.width).toBe('120px');
     expect(domWrapper.element.style.height).toBe('120px');
@@ -96,7 +96,7 @@ describe('Avatar Component', () => {
 
   it('events.error works fine', async () => {
     const onErrorFn = vi.fn();
-    const wrapper = mount(<Avatar image={'https://this.is.an.error.path.jpg'} onError={onErrorFn}></Avatar>);
+    const wrapper = mount(<Avatar image="https://this.is.an.error.path.jpg" onError={onErrorFn}></Avatar>);
     const imgDom = wrapper.find('img').element;
     simulateImageEvent(imgDom, 'error');
     await mockDelay(300);
@@ -105,7 +105,7 @@ describe('Avatar Component', () => {
   });
 });
 
-describe('AvatarGroup Component', () => {
+describe('avatarGroup Component', () => {
   const cascadingClassNameList = ['t-avatar--offset-left', 't-avatar--offset-right'];
   ['left-up', 'right-up'].forEach((item, index) => {
     it(`props.cascading is equal to ${item}`, () => {
@@ -127,7 +127,7 @@ describe('AvatarGroup Component', () => {
   it('slots.collapseAvatar works fine', () => {
     const wrapper = getAvatarGroupDefaultMount(AvatarGroup, {
       'v-slots': { collapseAvatar: () => <span class="custom-node">TNode</span> },
-      max: 3,
+      'max': 3,
     });
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
     expect(wrapper.element).toMatchSnapshot();
@@ -135,7 +135,7 @@ describe('AvatarGroup Component', () => {
   it('slots.collapse-avatar works fine', () => {
     const wrapper = getAvatarGroupDefaultMount(AvatarGroup, {
       'v-slots': { 'collapse-avatar': () => <span class="custom-node">TNode</span> },
-      max: 3,
+      'max': 3,
     });
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
     expect(wrapper.element).toMatchSnapshot();

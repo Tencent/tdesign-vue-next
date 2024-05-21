@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
-import { Table, BaseTable, PrimaryTable, EnhancedTable } from '@/src/table/index.ts';
+import { BaseTable, EnhancedTable, PrimaryTable, Table } from 'tdesign-vue-next';
 
-const data = new Array(5).fill(null).map((item, index) => ({
+const data = Array.from({ length: 5 }).fill(null).map((item, index) => ({
   id: index + 100,
   index: index + 100,
   instance: `JQTest${index + 1}`,
@@ -60,7 +60,8 @@ TABLES.forEach((TTable) => {
                 rowAttributes={{ 'data-level': 'level-1' }}
                 data={data}
                 columns={SIMPLE_COLUMNS}
-              ></TTable>
+              >
+              </TTable>
             );
           },
         });
@@ -199,7 +200,8 @@ TABLES.forEach((TTable) => {
                 data={[]}
                 empty={() => <div class="render-function-class">{emptyText}</div>}
                 columns={SIMPLE_COLUMNS}
-              ></TTable>
+              >
+              </TTable>
             );
           },
         });
@@ -218,7 +220,8 @@ TABLES.forEach((TTable) => {
                 data={[]}
                 v-slots={{ empty: () => <div class="slots-empty-class">{emptyText}</div> }}
                 columns={SIMPLE_COLUMNS}
-              ></TTable>
+              >
+              </TTable>
             );
           },
         });
@@ -239,7 +242,8 @@ TABLES.forEach((TTable) => {
                 rowKey="index"
                 data={data}
                 columns={SIMPLE_COLUMNS}
-              ></TTable>
+              >
+              </TTable>
             );
           },
         });
@@ -255,7 +259,8 @@ TABLES.forEach((TTable) => {
                 rowKey="index"
                 data={data}
                 columns={SIMPLE_COLUMNS}
-              ></TTable>
+              >
+              </TTable>
             );
           },
         });
@@ -273,7 +278,8 @@ TABLES.forEach((TTable) => {
                 rowKey="index"
                 data={data}
                 columns={SIMPLE_COLUMNS}
-              ></TTable>
+              >
+              </TTable>
             );
           },
         });
@@ -291,7 +297,8 @@ TABLES.forEach((TTable) => {
                 rowKey="index"
                 data={data}
                 columns={SIMPLE_COLUMNS}
-              ></TTable>
+              >
+              </TTable>
             );
           },
         });
@@ -311,7 +318,8 @@ TABLES.forEach((TTable) => {
                 rowKey="index"
                 data={data}
                 columns={SIMPLE_COLUMNS}
-              ></TTable>
+              >
+              </TTable>
             );
           },
         });
@@ -326,7 +334,8 @@ TABLES.forEach((TTable) => {
                 rowKey="index"
                 data={data}
                 columns={SIMPLE_COLUMNS}
-              ></TTable>
+              >
+              </TTable>
             );
           },
         });
@@ -343,7 +352,8 @@ TABLES.forEach((TTable) => {
                 rowKey="index"
                 data={data}
                 columns={SIMPLE_COLUMNS}
-              ></TTable>
+              >
+              </TTable>
             );
           },
         });
@@ -360,7 +370,8 @@ TABLES.forEach((TTable) => {
                 rowKey="index"
                 data={data}
                 columns={SIMPLE_COLUMNS}
-              ></TTable>
+              >
+              </TTable>
             );
           },
         });
@@ -405,7 +416,8 @@ TABLES.forEach((TTable) => {
                 columns={SIMPLE_COLUMNS}
                 loading={() => 'function loading'}
                 loadingProps={{ indicator: false }}
-              ></TTable>
+              >
+              </TTable>
             );
           },
         });
@@ -425,7 +437,8 @@ TABLES.forEach((TTable) => {
                 data={[]}
                 columns={SIMPLE_COLUMNS}
                 v-slots={{ loading: () => <span>slots loading</span> }}
-              ></TTable>
+              >
+              </TTable>
             );
           },
         });
@@ -446,7 +459,8 @@ TABLES.forEach((TTable) => {
                 data={[]}
                 columns={SIMPLE_COLUMNS}
                 v-slots={{ loading: () => <span>slots loading</span> }}
-              ></TTable>
+              >
+              </TTable>
             );
           },
         });
@@ -517,7 +531,8 @@ TABLES.forEach((TTable) => {
                 rowKey="index"
                 data={data}
                 columns={SIMPLE_COLUMNS}
-              ></TTable>
+              >
+              </TTable>
             );
           },
         });
@@ -535,7 +550,8 @@ TABLES.forEach((TTable) => {
                 rowKey="index"
                 data={data}
                 columns={SIMPLE_COLUMNS}
-              ></TTable>
+              >
+              </TTable>
             );
           },
         });
@@ -553,7 +569,8 @@ TABLES.forEach((TTable) => {
                 rowKey="index"
                 data={data}
                 columns={SIMPLE_COLUMNS}
-              ></TTable>
+              >
+              </TTable>
             );
           },
         });

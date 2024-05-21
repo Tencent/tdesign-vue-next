@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
-import Statistic from '@/src/statistic/index.ts';
+import { Statistic } from 'tdesign-vue-next';
 
-describe('Statistic', () => {
+describe('statistic', () => {
   describe(':props', () => {
     it('title', () => {
       const wrapper = mount({

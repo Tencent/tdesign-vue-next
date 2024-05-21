@@ -2,10 +2,9 @@ import { mount } from '@vue/test-utils';
 import { describe, expect, it, vi } from 'vitest';
 import { nextTick, ref } from 'vue';
 import { AppIcon } from 'tdesign-icons-vue-next';
-import Steps from '../steps';
-import StepItem from '../step-item';
+import { StepItem, Steps } from 'tdesign-vue-next';
 
-describe('Steps', () => {
+describe('steps', () => {
   it('', () => {
     const wrapper = mount(() => (
       <Steps>

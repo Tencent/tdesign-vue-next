@@ -5,7 +5,7 @@
  */
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
-import { Radio, RadioGroup } from '..';
+import { Radio, RadioGroup } from  'tdesign-vue-next'
 import { getRadioGroupKidsMount, getRadioGroupDefaultMount } from './mount';
 
 describe('Radio Component', () => {

@@ -2,11 +2,11 @@ import { mount } from '@vue/test-utils';
 import { describe, expect, it, vi } from 'vitest';
 import { nextTick, ref } from 'vue';
 import { CloseIcon } from 'tdesign-icons-vue-next';
-import Drawer from '@/src/drawer/index.ts';
+import { Drawer } from 'tdesign-vue-next';
 
 const text = '这是一段内容';
 
-describe('Drawer', () => {
+describe('drawer', () => {
   describe(':props', () => {
     it(':attach', async () => {
       const visible = ref(true);

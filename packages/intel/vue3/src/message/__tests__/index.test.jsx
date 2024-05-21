@@ -1,11 +1,11 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, it, vi } from 'vitest';
 import { CloseIcon, InfoCircleFilledIcon } from 'tdesign-icons-vue-next';
-import { Message } from '@/src/message/index.ts';
+import { Message } from 'tdesign-vue-next';
 
 const text = '这是一条Message信息';
 
-describe('Message', () => {
+describe('message', () => {
   describe(':props', () => {
     it('', () => {
       const wrapper = mount(() => <Message content={text} />);

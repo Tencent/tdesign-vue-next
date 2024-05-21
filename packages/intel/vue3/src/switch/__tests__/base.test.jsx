@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 import { describe, expect, it } from 'vitest';
-import Switch from '@/src/switch/index.ts';
+import { Switch } from 'tdesign-vue-next';
 
 describe('switch', () => {
   describe('ui render test', () => {
@@ -58,7 +58,7 @@ describe('switch', () => {
         expect(text === 'close').toBe(true);
       });
       it('label={TNode<value>} works find', () => {
-        const label = (val) => (val ? <span id="switch_open">open</span> : <span id="switch_close">close</span>);
+        const label = val => (val ? <span id="switch_open">open</span> : <span id="switch_close">close</span>);
         const wrapper = mount({
           render() {
             return <Switch disabled label={label} />;
@@ -118,7 +118,7 @@ describe('switch', () => {
       it('size={large} works find', () => {
         const wrapper = mount({
           render() {
-            return <Switch size={'large'} />;
+            return <Switch size="large" />;
           },
         });
         const ele = wrapper.find('.t-switch');
@@ -128,7 +128,7 @@ describe('switch', () => {
       it('size={small} works find', () => {
         const wrapper = mount({
           render() {
-            return <Switch size={'small'} />;
+            return <Switch size="small" />;
           },
         });
         const ele = wrapper.find('.t-switch');

@@ -5,10 +5,10 @@
  * If you need to modify this file, contact PMC first please.
  */
 import { mount } from '@vue/test-utils';
-import { Timeline, TimelineItem } from '..';
+import { Timeline, TimelineItem } from 'tdesign-vue-next';
 import { getTimelineDefaultMount, getTimelineItemMount } from './mount';
 
-describe('Timeline Component', () => {
+describe('timeline Component', () => {
   const labelAlignClassNameMap = {
     left: 't-timeline-left',
     alternate: 't-timeline-alternate',
@@ -62,7 +62,7 @@ describe('Timeline Component', () => {
   });
 });
 
-describe('TimelineItem Component', () => {
+describe('timelineItem Component', () => {
   it('props.content works fine', () => {
     const wrapper = mount(<TimelineItem content={() => <span class="custom-node">TNode</span>}></TimelineItem>);
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
@@ -105,7 +105,7 @@ describe('TimelineItem Component', () => {
   });
 
   it(`props.dotColor is equal to yellowgreen`, () => {
-    const wrapper = mount(<TimelineItem dotColor={'yellowgreen'}></TimelineItem>);
+    const wrapper = mount(<TimelineItem dotColor="yellowgreen"></TimelineItem>);
     const domWrapper = wrapper.find('.t-timeline-item__dot');
     expect(domWrapper.element.style.borderColor).toBe('yellowgreen');
   });

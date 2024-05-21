@@ -1,9 +1,9 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, it, vi } from 'vitest';
 import { AppIcon } from 'tdesign-icons-vue-next';
-import Icon from '@/src/icon/index.ts';
+import { Icon } from 'tdesign-vue-next';
 
-describe('Icon', () => {
+describe('icon', () => {
   describe(':props', () => {
     it('', () => {
       const wrapper = mount(() => <Icon name="app" />);

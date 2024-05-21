@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { Radio } from '..';
+import { Radio } from  'tdesign-vue-next'
 
 // options 写法
 export function getRadioGroupDefaultMount(RadioGroup, props, events) {

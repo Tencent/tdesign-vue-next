@@ -1,9 +1,9 @@
 import { mount } from '@vue/test-utils';
-import { it, expect } from 'vitest';
-import Card from '@/src/card';
+import { expect, it } from 'vitest';
+import { Card } from 'tdesign-vue-next';
 
 // every component needs four parts: props/events/slots/functions.
-describe('Card', () => {
+describe('card', () => {
   // test props api
   describe(':props', () => {
     it('', () => {

@@ -1,9 +1,9 @@
 import { mount } from '@vue/test-utils';
-import Tree from '@/src/tree/index.ts';
+import { Tree } from 'tdesign-vue-next';
 import { defineComponent } from './adapt';
 import { delay } from './kit';
 
-describe('Tree:filter', () => {
+describe('tree:filter', () => {
   vi.useRealTimers();
   describe(':props.filter', () => {
     it('数据可过滤展示', async () => {
@@ -33,7 +33,7 @@ describe('Tree:filter', () => {
             };
           },
           created() {
-            this.filter = (node) => node.value.indexOf('2') >= 0;
+            this.filter = node => node.value.includes('2');
           },
           // 使用 template 写法是为了 vue2, vue3 统一测试用例
           template: [
@@ -62,7 +62,7 @@ describe('Tree:filter', () => {
       expect(t1d2.classes('t-tree__item--visible')).toBe(true);
 
       await wrapper.setData({
-        filter: (node) => node.value.indexOf('1.1') >= 0,
+        filter: node => node.value.includes('1.1'),
       });
 
       await delay(10);
@@ -74,7 +74,7 @@ describe('Tree:filter', () => {
       expect(t1d2.classes('t-tree__item--visible')).toBe(false);
 
       await wrapper.setData({
-        filter: (node) => node.value.indexOf('1.3') >= 0,
+        filter: node => node.value.includes('1.3'),
       });
       await delay(10);
 

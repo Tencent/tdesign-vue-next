@@ -2,21 +2,20 @@ import { nextTick, ref } from 'vue';
 import { mount } from '@vue/test-utils';
 import { expect, vi } from 'vitest';
 import { CheckCircleFilledIcon, CloseCircleFilledIcon, InfoCircleIcon } from 'tdesign-icons-vue-next';
-import isObject from 'lodash/isObject';
-import omit from 'lodash/omit';
-import { FormItem, Form } from '../index.ts';
-import { Input, InputNumber } from '@/src/index.ts';
+import { isObject, omit } from 'lodash-es';
+import { Form, FormItem, Input, InputNumber } from 'tdesign-vue-next';
 import { useFormDisabled } from '@td/adapter-hooks';
 
-const delay = (time = 0) =>
-  new Promise((res, rej) => {
+function delay(time = 0) {
+  return new Promise((res, rej) => {
     setTimeout(() => {
       res();
     }, time);
   });
+}
 
 // every component needs four parts: props/events/slots/functions.
-describe('Form', () => {
+describe('form', () => {
   // test props api
   describe(':props', () => {
     let wrapper = null;
@@ -473,8 +472,8 @@ describe('Form', () => {
         expectToSuccess(res);
       });
       it('validator', async () => {
-        const isNumber = (val) => typeof val === 'number';
-        rules.value = { name: [{ validator: (val) => isNumber(val) }] };
+        const isNumber = val => typeof val === 'number';
+        rules.value = { name: [{ validator: val => isNumber(val) }] };
         formData.value.name = 'string';
         let res = await validate();
         expectToFailure(res);

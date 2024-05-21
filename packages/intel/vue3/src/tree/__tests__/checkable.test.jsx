@@ -1,9 +1,9 @@
 import { mount } from '@vue/test-utils';
-import Tree from '@/src/tree/index.ts';
+import { Tree } from 'tdesign-vue-next';
 import { delay } from './kit';
 import { ref } from './adapt';
 
-describe('Tree:checkable', () => {
+describe('tree:checkable', () => {
   vi.useRealTimers();
   describe('props.checkable', () => {
     it('默认不显示复选框', () => {
@@ -306,7 +306,8 @@ describe('Tree:checkable', () => {
               checkable
               valueMode="parentFirst"
               onChange={onChange}
-            ></Tree>
+            >
+            </Tree>
           );
         },
       });

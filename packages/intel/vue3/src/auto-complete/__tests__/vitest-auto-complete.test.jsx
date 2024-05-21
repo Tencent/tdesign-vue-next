@@ -6,11 +6,11 @@
  */
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
-import { AutoComplete } from '..';
+import { AutoComplete } from 'tdesign-vue-next';
+import { simulateKeydownEvent } from 'tdesign-vue-next/test/utils';
 import { getNormalAutoCompleteMount, getOptionSlotAutoCompleteMount } from './mount';
-import { simulateKeydownEvent } from '@test/utils';
 
-describe('AutoComplete Component', () => {
+describe('autoComplete Component', () => {
   it(`props.autofocus is equal to false`, () => {
     const wrapper = mount(<AutoComplete autofocus={false}></AutoComplete>);
     const domWrapper = wrapper.find('input');
@@ -83,8 +83,8 @@ describe('AutoComplete Component', () => {
     const tSelectOptionDom = document.querySelectorAll('.t-select-option');
     expect(tSelectOptionDom.length).toBe(1);
     // remove nodes from document to avoid influencing following test cases
-    tSelectOptionDom.forEach((node) => node.remove());
-    document.querySelectorAll('.t-popup').forEach((node) => node.remove());
+    tSelectOptionDom.forEach(node => node.remove());
+    document.querySelectorAll('.t-popup').forEach(node => node.remove());
   });
 
   it('props.filterable works fine', async () => {
@@ -94,8 +94,8 @@ describe('AutoComplete Component', () => {
     const tSelectOptionDom = document.querySelectorAll('.t-select-option');
     expect(tSelectOptionDom.length).toBe(1);
     // remove nodes from document to avoid influencing following test cases
-    tSelectOptionDom.forEach((node) => node.remove());
-    document.querySelectorAll('.t-popup').forEach((node) => node.remove());
+    tSelectOptionDom.forEach(node => node.remove());
+    document.querySelectorAll('.t-popup').forEach(node => node.remove());
   });
 
   it('props.highlightKeyword works fine', async () => {
@@ -105,8 +105,8 @@ describe('AutoComplete Component', () => {
     const tSelectOptionDom = document.querySelectorAll('.t-select-option');
     expect(tSelectOptionDom.length).toBe(1);
     // remove nodes from document to avoid influencing following test cases
-    tSelectOptionDom.forEach((node) => node.remove());
-    document.querySelectorAll('.t-popup').forEach((node) => node.remove());
+    tSelectOptionDom.forEach(node => node.remove());
+    document.querySelectorAll('.t-popup').forEach(node => node.remove());
   });
 
   it('props.options: option.label could be defined to any element', async () => {
@@ -117,7 +117,7 @@ describe('AutoComplete Component', () => {
     expect(customNodeDom).toBeDefined();
     // remove node in document to avoid influencing following test cases
     customNodeDom.remove();
-    document.querySelectorAll('.t-select-option').forEach((node) => node.remove());
+    document.querySelectorAll('.t-select-option').forEach(node => node.remove());
   });
   it('props.options: 5 options should exist', async () => {
     const wrapper = getNormalAutoCompleteMount(AutoComplete);
@@ -126,7 +126,7 @@ describe('AutoComplete Component', () => {
     const tSelectOptionDom = document.querySelectorAll('.t-select-option');
     expect(tSelectOptionDom.length).toBe(5);
     // remove nodes from document to avoid influencing following test cases
-    tSelectOptionDom.forEach((node) => node.remove());
+    tSelectOptionDom.forEach(node => node.remove());
   });
   it('props.options: expect empty options with no panel', async () => {
     const wrapper = mount(<AutoComplete popupProps={{ overlayClassName: 'empty-options-class-name' }}></AutoComplete>);
@@ -137,7 +137,7 @@ describe('AutoComplete Component', () => {
     );
     expect(emptyOptionsClassNameTAutocompletePanelDom.length).toBe(0);
     // remove nodes from document to avoid influencing following test cases
-    emptyOptionsClassNameTAutocompletePanelDom.forEach((node) => node.remove());
+    emptyOptionsClassNameTAutocompletePanelDom.forEach(node => node.remove());
   });
   it('props.options: define one option', async () => {
     const wrapper = getOptionSlotAutoCompleteMount(AutoComplete, {
@@ -151,7 +151,7 @@ describe('AutoComplete Component', () => {
     expect(optionSlotClassNameCustomSlotOptionDom.textContent).toBe('First Keyword');
     // remove nodes from document to avoid influencing following test cases
     optionSlotClassNameCustomSlotOptionDom.remove();
-    document.querySelectorAll('.t-select-option').forEach((node) => node.remove());
+    document.querySelectorAll('.t-select-option').forEach(node => node.remove());
   });
 
   it('props.panelBottomContent works fine', async () => {
@@ -405,7 +405,7 @@ describe('AutoComplete Component', () => {
     await wrapper.vm.$nextTick();
     document.querySelector('.select-event-class-name .t-select-option').click();
     await wrapper.vm.$nextTick();
-    document.querySelectorAll('.t-select-option').forEach((node) => node.remove());
+    document.querySelectorAll('.t-select-option').forEach(node => node.remove());
     expect(onSelectFn1).toHaveBeenCalled(1);
     expect(onSelectFn1.mock.calls[0][0]).toBe('FirstKeyword');
     expect(onSelectFn1.mock.calls[0][1].e.type).toBe('click');
@@ -438,7 +438,7 @@ describe('AutoComplete Component', () => {
     expect(domWrapper5.classList.contains('t-select-option--hover')).toBeTruthy();
     simulateKeydownEvent(document, 'Enter');
     await wrapper.vm.$nextTick();
-    document.querySelectorAll('.t-select-option').forEach((node) => node.remove());
+    document.querySelectorAll('.t-select-option').forEach(node => node.remove());
     expect(onSelectFn6).toHaveBeenCalled(1);
     expect(onSelectFn6.mock.calls[0][0]).toBe('FirstKeyword');
     expect(onSelectFn6.mock.calls[0][1].e.type).toBe('keydown');

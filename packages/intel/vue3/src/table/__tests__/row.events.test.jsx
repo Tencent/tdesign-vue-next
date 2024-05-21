@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
-import { Table, BaseTable, PrimaryTable, EnhancedTable } from '@/src/table/index.ts';
+import { BaseTable, EnhancedTable, PrimaryTable, Table } from 'tdesign-vue-next';
 
-const data = new Array(5).fill(null).map((item, index) => ({
+const data = Array.from({ length: 5 }).fill(null).map((item, index) => ({
   id: index + 100,
   index: index + 100,
   instance: `JQTest${index + 1}`,
@@ -21,7 +21,7 @@ const TABLES = [Table, BaseTable, PrimaryTable, EnhancedTable];
 
 TABLES.forEach((TTable) => {
   describe(TTable.name, () => {
-    it('Events.onCellClick', async () => {
+    it('events.onCellClick', async () => {
       const fn = vi.fn();
       const wrapper = mount({
         render() {
@@ -33,7 +33,7 @@ TABLES.forEach((TTable) => {
       expect(fn).toHaveBeenCalled();
     });
 
-    it('Events.onRowClick', async () => {
+    it('events.onRowClick', async () => {
       const fn = vi.fn();
       const wrapper = mount({
         render() {
@@ -45,7 +45,7 @@ TABLES.forEach((TTable) => {
       expect(fn).toHaveBeenCalled();
     });
 
-    it('Events.onRowDblclick', async () => {
+    it('events.onRowDblclick', async () => {
       const fn = vi.fn();
       const wrapper = mount({
         render() {
@@ -57,7 +57,7 @@ TABLES.forEach((TTable) => {
       expect(fn).toHaveBeenCalled();
     });
 
-    it('Events.onRowMouseup', async () => {
+    it('events.onRowMouseup', async () => {
       const fn = vi.fn();
       const wrapper = mount({
         render() {
@@ -69,7 +69,7 @@ TABLES.forEach((TTable) => {
       expect(fn).toHaveBeenCalled();
     });
 
-    it('Events.onRowMousedown', async () => {
+    it('events.onRowMousedown', async () => {
       const fn = vi.fn();
       const wrapper = mount({
         render() {
@@ -81,7 +81,7 @@ TABLES.forEach((TTable) => {
       expect(fn).toHaveBeenCalled();
     });
 
-    it('Events.onRowMouseenter', async () => {
+    it('events.onRowMouseenter', async () => {
       const fn = vi.fn();
       const wrapper = mount({
         render() {
@@ -93,7 +93,7 @@ TABLES.forEach((TTable) => {
       expect(fn).toHaveBeenCalled();
     });
 
-    it('Events.onRowMouseleave', async () => {
+    it('events.onRowMouseleave', async () => {
       const fn = vi.fn();
       const wrapper = mount({
         render() {
@@ -105,7 +105,7 @@ TABLES.forEach((TTable) => {
       expect(fn).toHaveBeenCalled();
     });
 
-    it('Events.onRowMouseover', async () => {
+    it('events.onRowMouseover', async () => {
       const fn = vi.fn();
       const wrapper = mount({
         render() {

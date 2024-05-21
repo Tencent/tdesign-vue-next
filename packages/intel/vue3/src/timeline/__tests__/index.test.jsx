@@ -1,8 +1,7 @@
 import { mount } from '@vue/test-utils';
-import { Timeline, TimelineItem } from '@/src/timeline/index.ts';
-import Loading from '@/src/loading/index.ts';
+import Loading, { Timeline, TimelineItem } from 'tdesign-vue-next';
 
-describe('TimeLine', () => {
+describe('timeLine', () => {
   describe(':base', () => {
     it('render', () => {
       const wrapper = mount({
@@ -24,7 +23,7 @@ describe('TimeLine', () => {
   });
 
   describe(':layout', () => {
-    ['vertical', 'horizontal'].map((item) =>
+    ['vertical', 'horizontal'].map(item =>
       it(item, () => {
         const wrapper = mount({
           render() {
@@ -41,7 +40,7 @@ describe('TimeLine', () => {
   });
 
   describe(':labelAlign', () => {
-    ['left', 'right', 'alternate', 'top', 'bottom'].map((item) =>
+    ['left', 'right', 'alternate', 'top', 'bottom'].map(item =>
       it(item, () => {
         const wrapper = mount({
           render() {
@@ -58,7 +57,7 @@ describe('TimeLine', () => {
   });
 
   describe(':mode', () => {
-    ['alternate', 'same'].map((item) =>
+    ['alternate', 'same'].map(item =>
       it(item, () => {
         const wrapper = mount({
           render() {
@@ -97,7 +96,7 @@ describe('TimeLine', () => {
   });
 
   describe(':theme', () => {
-    ['default', 'dot'].map((item) =>
+    ['default', 'dot'].map(item =>
       it(item, () => {
         const wrapper = mount({
           render() {

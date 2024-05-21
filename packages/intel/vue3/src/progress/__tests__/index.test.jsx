@@ -1,11 +1,8 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
-import { Progress } from '@/src/progress/index.ts';
-import { PRO_THEME, CIRCLE_SIZE } from '@/src/progress/constants.ts';
+import { Progress } from 'tdesign-vue-next';
 
-const STATUS_TEXT = ['success', 'error', 'warning', 'active'];
-
-describe('Progress', () => {
+describe('progress', () => {
   describe(':props', () => {
     it('', () => {
       const wrapper = mount(() => <Progress percentage={30} />);

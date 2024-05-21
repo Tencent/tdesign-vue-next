@@ -1,15 +1,15 @@
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
-import Pagination from '@/src/pagination/index.ts';
-import { Select } from '@/src/select';
-import { Input } from '@/src/input';
+import { Pagination } from 'tdesign-vue-next';
+import { Select } from 'tdesign-vue-next'
+import { Input } from 'tdesign-vue-next'
 
 const defaultPaginationProps = {
   total: 100,
   pageSize: 2,
 };
 
-describe('Pagination', () => {
+describe('pagination', () => {
   describe(':props', () => {
     it(':current', async () => {
       const wrapper = mount(Pagination, {

@@ -1,9 +1,9 @@
 import { mount } from '@vue/test-utils';
-import { it, expect } from 'vitest';
-import Badge from '@/src/badge/index.ts';
+import { expect, it } from 'vitest';
+import { Badge } from 'tdesign-vue-next';
 
 // every component needs four parts: props/events/slots/functions.
-describe('Badge', () => {
+describe('badge', () => {
   // test props api
   describe(':props', () => {
     it(':color', () => {

@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Cascader from '@/src/cascader/index.ts';
+import { Cascader } from 'tdesign-vue-next';
 
 const options = [
   {
@@ -36,7 +36,7 @@ const options = [
   },
 ];
 
-describe('Cascader', () => {
+describe('cascader', () => {
   describe(':base', () => {
     it(':render single', async () => {
       const wrapper = mount({
@@ -98,7 +98,7 @@ describe('Cascader', () => {
     it(':single', async () => {
       const wrapper = mount({
         render() {
-          return <Cascader value={'1.1'} options={options} popupProps={{ visible: false }}></Cascader>;
+          return <Cascader value="1.1" options={options} popupProps={{ visible: false }}></Cascader>;
         },
       });
       await wrapper.setProps({ popupProps: { visible: true } });
@@ -147,7 +147,7 @@ describe('Cascader', () => {
   });
 
   describe(':size', () => {
-    ['small', 'large'].map((item) =>
+    ['small', 'large'].map(item =>
       it(item, async () => {
         const wrapper = mount({
           render() {

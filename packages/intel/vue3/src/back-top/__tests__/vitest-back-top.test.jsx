@@ -6,7 +6,7 @@
  */
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
-import { BackTop } from '..';
+import { BackTop } from  'tdesign-vue-next'
 
 describe('BackTop Component', () => {
   it('props.content works fine', () => {

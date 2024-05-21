@@ -1,9 +1,9 @@
 import { mount } from '@vue/test-utils';
-import Tree from '@/src/tree/index.ts';
+import { Tree } from 'tdesign-vue-next';
 import { delay } from './kit';
 import { ref } from './adapt';
 
-describe('Tree:activable', () => {
+describe('tree:activable', () => {
   vi.useRealTimers();
   describe('props.activable', () => {
     it('设置 activable 为 true, 节点可以具有激活态', async () => {
@@ -190,7 +190,7 @@ describe('Tree:activable', () => {
         },
         methods: {
           onActive(vals) {
-            const actived = vals.filter((val) => val !== 't1');
+            const actived = vals.filter(val => val !== 't1');
             this.actived = actived;
           },
         },
@@ -204,7 +204,8 @@ describe('Tree:activable', () => {
               onActive={this.onActive}
               expand-all
               transition={false}
-            ></Tree>
+            >
+            </Tree>
           );
         },
       });

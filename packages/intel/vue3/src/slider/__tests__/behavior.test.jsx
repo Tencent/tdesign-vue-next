@@ -1,19 +1,18 @@
 import { mount } from '@vue/test-utils';
-import { vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import { nextTick } from 'vue';
-import { describe, expect, it } from 'vitest';
-import Slider from '@/src/slider/index.ts';
+import { Slider } from 'tdesign-vue-next';
 
 const inputNumberPropsInitData = {
   decimalPlaces: 0,
-  format: (val) => `${val}%`,
+  format: val => `${val}%`,
   placeholder: '',
   theme: 'column',
 };
 
 // every component needs four parts: props/events/slots/functions.
-describe('Slider', () => {
+describe('slider', () => {
   // test prop inputNumberProps
   describe('behavior for props.inputNumberProps', () => {
     it('inputNumberProps: prop value can cover by slider props', async () => {

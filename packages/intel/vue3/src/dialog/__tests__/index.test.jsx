@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { mount } from '@vue/test-utils';
 import { describe, expect, it, vi } from 'vitest';
-import { ref, nextTick } from 'vue';
+import { nextTick, ref } from 'vue';
 import { CloseIcon } from 'tdesign-icons-vue-next';
-import Dialog from '../index';
+import { Dialog } from 'tdesign-vue-next';
 
-describe('Dialog', () => {
+describe('dialog', () => {
   describe(':props', () => {
     it('', async () => {
       const visible = ref(true);

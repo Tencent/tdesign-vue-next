@@ -1,10 +1,10 @@
 import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 import { vi } from 'vitest';
-import { Tabs, TabPanel } from '@/src/tabs/index.ts';
+import { TabPanel, Tabs } from 'tdesign-vue-next';
 
 // every component needs four parts: props/events/slots/functions.
-describe('Tabs', () => {
+describe('tabs', () => {
   // test props api
   describe(':props', () => {
     it('', () => {
@@ -18,7 +18,7 @@ describe('Tabs', () => {
     it(':theme', () => {
       const wrapper = mount({
         render() {
-          return <Tabs theme={'card'} />;
+          return <Tabs theme="card" />;
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -34,7 +34,7 @@ describe('Tabs', () => {
     it(':size', () => {
       const wrapper = mount({
         render() {
-          return <Tabs size={'large'} />;
+          return <Tabs size="large" />;
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -42,7 +42,7 @@ describe('Tabs', () => {
     it(':placement', () => {
       const wrapper = mount({
         render() {
-          return <Tabs placement={'left'} />;
+          return <Tabs placement="left" />;
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -79,7 +79,7 @@ describe('Tabs', () => {
       const fn = vi.fn();
       const wrapper = mount({
         render() {
-          return <Tabs theme={'card'} addable={true} onAdd={fn} />;
+          return <Tabs theme="card" addable={true} onAdd={fn} />;
         },
       });
       const tabs = wrapper.findComponent(Tabs);
@@ -94,10 +94,10 @@ describe('Tabs', () => {
         render() {
           return (
             <Tabs onChange={fn} value={2}>
-              <TabPanel value={1} label={'1'}>
+              <TabPanel value={1} label="1">
                 1
               </TabPanel>
-              <TabPanel value={2} label={'2'}>
+              <TabPanel value={2} label="2">
                 2
               </TabPanel>
             </Tabs>
@@ -115,11 +115,11 @@ describe('Tabs', () => {
       const wrapper = mount({
         render() {
           return (
-            <Tabs theme={'card'} onRemove={fn} value={2}>
-              <TabPanel value={1} label={'1'} removable={true}>
+            <Tabs theme="card" onRemove={fn} value={2}>
+              <TabPanel value={1} label="1" removable={true}>
                 1
               </TabPanel>
-              <TabPanel value={2} label={'2'} removable={true}>
+              <TabPanel value={2} label="2" removable={true}>
                 2
               </TabPanel>
             </Tabs>

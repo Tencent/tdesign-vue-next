@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { Avatar } from '..';
+import { Avatar } from 'tdesign-vue-next';
 
 // Avatar 数量变化会影响测试用例结果
 export function getAvatarGroupDefaultMount(AvatarGroup, props, events) {

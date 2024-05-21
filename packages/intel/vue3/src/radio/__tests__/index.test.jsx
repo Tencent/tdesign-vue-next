@@ -1,10 +1,10 @@
 import { mount } from '@vue/test-utils';
-import { it, expect, describe, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { nextTick, ref } from 'vue';
-import Radio, { RadioGroup } from '@/src/radio/index.ts';
+import Radio, { RadioGroup } from 'tdesign-vue-next';
 
 // every component needs four parts: props/events/slots/functions.
-describe('Radio', () => {
+describe('radio', () => {
   // test props api
   describe(':props', () => {
     it(':checked', () => {
@@ -74,7 +74,7 @@ describe('Radio', () => {
   });
 });
 
-describe('RadioGroup', () => {
+describe('radioGroup', () => {
   describe(':props', () => {
     it(':disabled', () => {
       const wrapper = mount(() => (

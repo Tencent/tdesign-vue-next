@@ -1,9 +1,9 @@
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
-import Watermark from '@/src/watermark/index.ts';
+import { Watermark } from 'tdesign-vue-next';
 
 // every component needs four parts: props/events/slots/functions.
-describe('Watermark', () => {
+describe('watermark', () => {
   // test props api
   describe(':props', () => {
     HTMLCanvasElement.prototype.getContext = vi.fn();

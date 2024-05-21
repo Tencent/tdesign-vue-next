@@ -5,7 +5,7 @@
  */
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
-import { Button } from '..';
+import { Button } from  'tdesign-vue-next'
 
 describe('Button Component', () => {
   it('props.block works fine', () => {

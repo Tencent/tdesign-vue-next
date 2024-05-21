@@ -1,16 +1,16 @@
 import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 import { beforeEach, expect, it, vi } from 'vitest';
-import { Affix } from '@/src/affix/index.ts';
+import { Affix } from 'tdesign-vue-next';
 
-describe('Affix', () => {
-  test('_______', () => {
+describe('affix', () => {
+  it('_______', () => {
     expect(true).toEqual(true);
   });
 
-  vi.spyOn(window, 'requestAnimationFrame').mockImplementation((cb) => cb());
+  vi.spyOn(window, 'requestAnimationFrame').mockImplementation(cb => cb());
 
-  describe('Test the state of the container under the window', () => {
+  describe('test the state of the container under the window', () => {
     const offsetTop = 10;
     const slotWidth = 100;
     const slotHeight = 20;
@@ -32,32 +32,32 @@ describe('Affix', () => {
       height: slotHeight,
     }));
 
-    it('Test get container', async () => {
+    it('test get container', async () => {
       await nextTick();
       expect(wrapper.vm.scrollContainer).toBe(window);
     });
 
-    it('Test the scrolling state', async () => {
+    it('test the scrolling state', async () => {
       // 模拟滚动触发
       window.dispatchEvent(new CustomEvent('scroll'));
       expect(wrapper.find('.t-affix').classes()).toContain('t-affix');
     });
 
-    it('Test the position in the scroll state', () => {
+    it('test the position in the scroll state', () => {
       // 模拟滚动触发
       window.dispatchEvent(new CustomEvent('scroll'));
       const style = wrapper.find('.t-affix').attributes('style');
       expect(style).toBe(`top: ${offsetTop}px; width: ${slotWidth}px; height: ${slotHeight}px;`);
     });
 
-    it('Test the generation of placeholder nodes', () => {
+    it('test the generation of placeholder nodes', () => {
       // 模拟滚动触发
       window.dispatchEvent(new CustomEvent('scroll'));
       expect(wrapper.html()).toContain(`<div style="width: ${slotWidth}px; height: ${slotHeight}px;"></div>`);
     });
   });
 
-  describe('Test the specified container', () => {
+  describe('test the specified container', () => {
     const offsetTop = 10;
     const slotWidth = 100;
     const slotHeight = 20;
@@ -82,7 +82,7 @@ describe('Affix', () => {
 
     const affixWrapper = wrapper.findComponent(Affix);
 
-    it('Test get container', async () => {
+    it('test get container', async () => {
       await nextTick();
       expect(affixWrapper.vm.scrollContainer).toBe(wrapper.vm.container());
     });
@@ -95,7 +95,7 @@ describe('Affix', () => {
       }));
     });
 
-    it('Test the scrolling state', async () => {
+    it('test the scrolling state', async () => {
       // 模拟容器滚动
       wrapper.vm.container().dispatchEvent(new CustomEvent('scroll'));
       expect(affixWrapper.find('.t-affix').classes()).toContain('t-affix');
@@ -110,7 +110,7 @@ describe('Affix', () => {
       }));
     });
 
-    it('Test the positioning after opening the binding window sliding event', () => {
+    it('test the positioning after opening the binding window sliding event', () => {
       // 模拟滚动触发
       window.dispatchEvent(new CustomEvent('scroll'));
 

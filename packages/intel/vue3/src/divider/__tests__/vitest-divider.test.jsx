@@ -4,9 +4,9 @@
  * If you need to modify this file, contact PMC first please.
  */
 import { mount } from '@vue/test-utils';
-import { Divider } from '..';
+import { Divider } from 'tdesign-vue-next';
 
-describe('Divider Component', () => {
+describe('divider Component', () => {
   ['left', 'right', 'center'].forEach((item) => {
     it(`props.align is equal to ${item}`, () => {
       const wrapper = mount(<Divider align={item}>Text</Divider>);

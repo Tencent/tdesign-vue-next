@@ -10,7 +10,7 @@ import PWA from './configs/pwaConfig';
 const workspaceRoot = searchForWorkspaceRoot(process.cwd());
 const getRootPath = (...args: string[]) => path.posix.resolve(workspaceRoot, ...args);
 
-function resolveAlias(vueVersion: number) {
+export function resolveAlias(vueVersion: number) {
   return {
     '@adapter/vue': getRootPath(`packages/adapter/vue/vue${vueVersion}`),
     '@adapter/hooks': getRootPath(`packages/adapter/hooks/vue${vueVersion}`),

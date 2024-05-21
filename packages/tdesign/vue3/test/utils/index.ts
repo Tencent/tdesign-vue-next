@@ -1,6 +1,6 @@
-const path = require('node:path');
-const fs = require('node:fs');
-const clc = require('cli-color');
+import * as path from 'node:path';
+import * as fs from 'node:fs';
+import * as clc from 'cli-color';
 
 function deleteFolderRecursive(path) {
   if (fs.existsSync(path)) {
