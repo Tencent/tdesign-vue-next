@@ -20,11 +20,14 @@ npm i tdesign-vue-next
 ```html
 <!-- vue 3 -->
 <script src="https://unpkg.com/vue@next"></script>
-<link rel="stylesheet" href="https://unpkg.com/tdesign-vue-next/dist/tdesign.min.css" />
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/tdesign-vue-next/dist/tdesign.min.css"
+/>
 <script src="https://unpkg.com/tdesign-vue-next/dist/tdesign.min.js"></script>
 ...
 <script>
-	Vue.createApp({}).use(TDesign).mount('#app');
+  Vue.createApp({}).use(TDesign).mount('#app');
 </script>
 ```
 
@@ -91,7 +94,7 @@ npm install -D unplugin-vue-components unplugin-auto-import
 ```js
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
-import type { TdesignResolver } from 'unplugin-vue-components/resolvers';
+import { TDesignResolver } from 'unplugin-vue-components/resolvers';
 export default {
   plugins: [
     // ...
@@ -118,12 +121,12 @@ const { TDesignResolver } = require('unplugin-vue-components/resolvers');
 module.exports = {
   // ...
   plugins: [
-    AutoImport({
+    AutoImport.default({
       resolvers: [TDesignResolver({
         library: 'vue-next'
       })],
     }),
-    Components({
+    Components.default({
       resolvers: [TDesignResolver({
         library: 'vue-next'
       })],
@@ -134,15 +137,30 @@ module.exports = {
 
 > `TDesignResolver` 支持的配置，可以点击此[链接](https://github.com/antfu/unplugin-vue-components/blob/main/src/core/resolvers/tdesign.ts#L4)。
 
-### Nuxt3使用
+### Nuxt 3 中使用
+
+在 nuxt 3 中，可以安装 nuxt module `@tdesign-vue-next/nuxt`
+
+```bash
+npm install tdesign-vue-next
+npm install -D @tdesign-vue-next/nuxt
+```
+
+它可以满足各种自动引入组件的需求，您也可以通过配置在 nuxt config 中 `tdesign` 来调整具体配置，可配置的内容可参考文档 [@tdesign-vue-next/nuxt](https://www.npmjs.com/package/@tdesign-vue-next/nuxt)
+
 ```js
 export default defineNuxtConfig({
   // ... 其他配置
   modules: [
     // ...
-    'tdesign-vue-next/es/nuxt',
+    '@tdesign-vue-next/nuxt',
   ],
-})
+  // 其他 @tdesign-vue-next/nuxt 的相关配置
+  // tdesign: {
+  //   resolveIcons: true
+  //   ...
+  // }
+});
 ```
 
 ## 编辑器提示
@@ -160,7 +178,6 @@ export default defineNuxtConfig({
 | [<img src="https://tdesign.gtimg.com/docs/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/> IE / Edge | [<img src="https://tdesign.gtimg.com/docs/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Firefox | [<img src="https://tdesign.gtimg.com/docs/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Chrome | [<img src="https://tdesign.gtimg.com/docs/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Safari |
 | --- | --- | --- | --- |
 | Edge >=84 | Firefox >=83 | Chrome >=84 | Safari >=14.1 |
-
 
 详情参见[桌面端组件库浏览器兼容性说明](https://github.com/Tencent/tdesign/wiki/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E7%BB%84%E4%BB%B6%E5%BA%93%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7%E8%AF%B4%E6%98%8E)
 
