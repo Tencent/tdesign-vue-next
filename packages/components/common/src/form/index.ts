@@ -8,7 +8,7 @@ import './style';
 export * from '@td/intel/form/type';
 
 // vue23:todo 临时加一个
-export * from './form-model';
+// export * from './form-model';
 
 export type FormProps<FormData extends Data = Data> = TdFormProps<FormData>;
 export type FormItemProps = TdFormItemProps;
