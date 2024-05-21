@@ -3,7 +3,6 @@ import { computed, defineComponent, nextTick, onMounted, ref, watch } from '@td/
 import tabProps from '@td/intel/tabs/props';
 
 import { usePrefixClass } from '@td/adapter-hooks';
-import { firstUpperCase } from '@td/adapter-utils';
 
 export default defineComponent({
   props: {
@@ -29,14 +28,14 @@ export default defineComponent({
         if (props.navs[i].props.value === props.value) {
           break;
         }
-        offset += props.navs[i]?.el?.[`client${firstUpperCase(sizePropName)}`] || 0;
+        offset += props.navs[i]?.el?.getBoundingClientRect()?.[sizePropName] || 0;
       }
       if (!props.navs[i]) {
         return {};
       }
       return {
         [offsetPropName]: `${offset}px`,
-        [sizePropName]: `${props.navs[i].el?.[`client${firstUpperCase(sizePropName)}`] || 0}px`,
+        [sizePropName]: `${props.navs[i].el?.getBoundingClientRect()?.[sizePropName] || 0}px`,
       };
     };
 
