@@ -1,4 +1,5 @@
 import * as path from 'node:path';
+import * as process from 'node:process';
 import { searchForWorkspaceRoot } from 'vite';
 import { basePlugin } from '../../../../../script/vite.base.config';
 // import { resolveAlias } from '../../../../../sites/vue3/vite.config';
@@ -25,7 +26,7 @@ const testConfig = {
        [`${getRootPath('packages/intel/vue3/src')}/**/__tests__/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}`],
   globals: true,
   environment: 'jsdom',
-  testTimeout: 5000,
+  testTimeout: 1000,
   setupFiles: process.env.NODE_ENV === 'test-snap' ? path.resolve(__dirname, './test-setup.js') : '',
   transformMode: {
     web: [/\.[jt]sx$/],

@@ -55,6 +55,11 @@ export default defineComponent({
       return iconContent ? <div class={`${COMPONENT_NAME.value}__icon`}>{iconContent}</div> : null;
     };
 
+    const handleClose = (e: MouseEvent) => {
+      props.onClose?.({ e });
+      addClass(alertRef.value!, `${COMPONENT_NAME.value}--closing`);
+    };
+
     const renderClose = () => {
       const { close } = props;
       let closeContent = null;
@@ -84,16 +89,6 @@ export default defineComponent({
           </div>
           )
         : null;
-    };
-
-    const renderMessage = () => {
-      const operationContent = renderTNodeJSX('operation');
-      return (
-        <div class={`${COMPONENT_NAME.value}__message`}>
-          {renderDescription()}
-          {operationContent ? <div class={`${COMPONENT_NAME.value}__operation`}>{operationContent}</div> : null}
-        </div>
-      );
     };
 
     const renderDescription = () => {
@@ -137,6 +132,17 @@ export default defineComponent({
         </div>
       );
     };
+
+    const renderMessage = () => {
+      const operationContent = renderTNodeJSX('operation');
+      return (
+        <div class={`${COMPONENT_NAME.value}__message`}>
+          {renderDescription()}
+          {operationContent ? <div class={`${COMPONENT_NAME.value}__operation`}>{operationContent}</div> : null}
+        </div>
+      );
+    };
+
     const renderContent = () => {
       return (
         <div class={`${COMPONENT_NAME.value}__content`}>
@@ -144,10 +150,6 @@ export default defineComponent({
           {renderMessage()}
         </div>
       );
-    };
-    const handleClose = (e: MouseEvent) => {
-      props.onClose?.({ e });
-      addClass(alertRef.value, `${COMPONENT_NAME.value}--closing`);
     };
 
     const handleCloseEnd = (e: TransitionEvent) => {
@@ -161,8 +163,9 @@ export default defineComponent({
 
     onMounted(() => {
       on(alertRef.value, 'transitionend', handleCloseEnd);
-      descHeight.value = descriptionRef.value.offsetHeight;
+      descHeight.value = descriptionRef.value?.offsetHeight || 0;
     });
+
     onBeforeUnmount(() => {
       off(alertRef.value, 'transitionend', handleCloseEnd);
     });
