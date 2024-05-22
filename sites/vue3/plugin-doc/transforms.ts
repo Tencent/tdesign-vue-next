@@ -1,5 +1,5 @@
-import path from 'path';
-import fs from 'fs';
+import path from 'node:path';
+import fs from 'node:fs';
 
 import mdToVue from './md-to-vue';
 
@@ -18,8 +18,8 @@ export default {
 
     // 统一换成 common 公共文档内容
     if (fileName && source.includes(':: BASE_DOC ::')) {
-      const localeDocPath = path.resolve(__dirname, `../../src/_common/docs/web/api/${fileName}`);
-      const defaultDocPath = path.resolve(__dirname, `../../src/_common/docs/web/api/${componentName}.md`);
+      const localeDocPath = path.resolve(__dirname, `../../../packages/shared/_common/docs/web/api/${fileName}`);
+      const defaultDocPath = path.resolve(__dirname, `../../../packages/shared/_common/docs/web/api/${componentName}.md`);
       let baseDoc = '';
       if (fs.existsSync(localeDocPath)) {
         // 优先载入语言版本
@@ -51,7 +51,7 @@ export default {
     });
     source.replace(/:::\s*demo\s+([\\/.\w-]+)/g, (demoStr, relativeDemoPath) => {
       const tsDemoPath = `_example-ts/${relativeDemoPath.split('/')?.[1]}`;
-      const demoPathOnlyLetters = relativeDemoPath.replace(/[^a-zA-Z\d]/g, '');
+      const demoPathOnlyLetters = relativeDemoPath.replace(/[^a-z\d]/gi, '');
       const demoDefName = `Demo${demoPathOnlyLetters}`;
 
       const demoCodeDefName = `Demo${demoPathOnlyLetters}Code`;
@@ -59,18 +59,19 @@ export default {
 
       demoImports[demoDefName] = `import ${demoDefName} from './${relativeDemoPath}.vue'`;
       demoCodesImports[demoCodeDefName] = `import ${demoCodeDefName} from './${relativeDemoPath}.vue?raw'`;
-      if (fs.existsSync(path.resolve(resourceDir, `${tsDemoPath}.vue`)))
+      if (fs.existsSync(path.resolve(resourceDir, `${tsDemoPath}.vue`))) {
         demoCodesImports[demoTsCodeDefName] = `import ${demoTsCodeDefName} from './${tsDemoPath}.vue?raw'`;
+      }
     });
 
     return source;
   },
   render({ source, file, md }) {
     const demoDefsStr = Object.keys(demoImports)
-      .map((key) => demoImports[key])
+      .map(key => demoImports[key])
       .join(';\n');
     const demoCodesDefsStr = Object.keys(demoCodesImports)
-      .map((key) => demoCodesImports[key])
+      .map(key => demoCodesImports[key])
       .join(';\n');
     const demoInstallStr = Object.keys(demoImports).join(',');
     const demoCodeInstallStr = Object.keys(demoCodesImports).join(',');
