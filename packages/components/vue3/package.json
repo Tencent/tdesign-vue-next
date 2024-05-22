@@ -14,6 +14,6 @@
   },
   "devDependencies": {
     "@types/lodash-es": "^4.17.12",
-    "vue": "^3.4.27"
+    "vue": "3.3.9"
   }
 }

@@ -18,7 +18,7 @@
     "tdesign-icons-vue-next": "^0.2.2",
     "tdesign-theme-generator": "^1.0.15",
     "tdesign-vue-next": "workspace:^",
-    "vue": "^3.4.15",
+    "vue": "3.3.9",
     "vue-router": "^4.2.5"
   },
   "devDependencies": {

@@ -11,6 +11,6 @@
   },
   "dependencies": {
     "@td/shared": "workspace:^",
-    "vue": "^3.4.15"
+    "vue": "3.3.9"
   }
 }
