@@ -66,7 +66,8 @@ export default defineComponent({
       if (visible) {
         isSelected.value = false;
         cacheValue.value = formatDate(value.value || [], {
-          format: formatRef.value.format,
+          format: formatRef.value.valueType,
+          targetFormat: formatRef.value.format,
         }) as string[];
         time.value = formatTime(
           value.value || [dayjs().format(formatRef.value.timeFormat), dayjs().format(formatRef.value.timeFormat)],
@@ -88,7 +89,7 @@ export default defineComponent({
         } else if (value.value.length === 2 && !props.enableTimePicker) {
           // 确保右侧面板月份比左侧大 避免两侧面板月份一致
           const nextMonth = value.value.map((v: string) => parseToDayjs(v, formatRef.value.format).month());
-          year.value = value.value.map((v: string) => parseToDayjs(v, formatRef.value.format).year());
+          year.value = value.value.map((v: string) => parseToDayjs(v, formatRef.value.valueType).year());
           if (year.value[0] === year.value[1] && nextMonth[0] === nextMonth[1]) {
             nextMonth[0] === 11 ? (nextMonth[0] -= 1) : (nextMonth[1] += 1);
           }
@@ -109,7 +110,8 @@ export default defineComponent({
         isHoverCell.value = false;
         isFirstValueSelected.value = false;
         inputValue.value = formatDate(value.value, {
-          format: formatRef.value.format,
+          format: formatRef.value.valueType,
+          targetFormat: formatRef.value.format,
         });
       }
     });

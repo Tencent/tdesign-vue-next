@@ -68,15 +68,17 @@ export default defineComponent({
           : value.value;
 
       cacheValue.value = formatDate(dateValue, {
-        format: formatRef.value.format,
+        format: formatRef.value.valueType,
+        targetFormat: formatRef.value.format,
       });
       inputValue.value = formatDate(dateValue, {
-        format: formatRef.value.format,
+        format: formatRef.value.valueType,
+        targetFormat: formatRef.value.format,
       });
 
       // 面板展开重置数据
       if (visible) {
-        year.value = parseToDayjs(value.value, formatRef.value.format).year();
+        year.value = parseToDayjs(value.value, formatRef.value.valueType).year();
         month.value = parseToDayjs(value.value, formatRef.value.format).month();
         time.value = formatTime(value.value, formatRef.value.format, formatRef.value.timeFormat, props.defaultTime);
       } else {
