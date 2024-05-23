@@ -41,8 +41,16 @@ export default {
   plugins: [
     ...basePlugin,
     {
-      transform(code, id) {
-        console.log(code, id);
+      transform(code: string, id: string) {
+        if (id.endsWith('packages/adapter/vue/vue3/index.ts')) {
+          return;
+        }
+        const REG = /import (.+)? from "vue";/g;
+        code = code.replace(REG, ($0, $1) => {
+          return `import ${$1} from "@td/adapter-vue";`;
+        });
+
+        return code;
       },
     },
   ],

@@ -67,6 +67,7 @@
     "eslint": "^9.3.0",
     "eslint-plugin-format": "^0.1.0",
     "husky": "^8.0.1",
+    "rimraf": "^5.0.7",
     "typescript": "^5.4.5"
   },
   "lint-staged": {
