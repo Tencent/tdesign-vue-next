@@ -1,9 +1,9 @@
-import { nextTick, ref } from 'vue';
+import { nextTick, ref } from '@td/adapter-vue';
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
-import Swiper, { SwiperItem } from 'tdesign-vue-next'
+import Swiper, { SwiperItem } from 'tdesign-vue-next';
 
-describe('Swiper', () => {
+describe('swiper', () => {
   describe(':props', () => {
     it('', () => {
       const wrapper = mount({
@@ -21,7 +21,7 @@ describe('Swiper', () => {
       const wrapper = mount({
         render() {
           return (
-            <Swiper animation={'fade'}>
+            <Swiper animation="fade">
               <SwiperItem>1</SwiperItem>
             </Swiper>
           );
@@ -58,7 +58,7 @@ describe('Swiper', () => {
       const wrapper = mount({
         render() {
           return (
-            <Swiper direction={'vertical'}>
+            <Swiper direction="vertical">
               <SwiperItem>1</SwiperItem>
               <SwiperItem>2</SwiperItem>
             </Swiper>
@@ -143,7 +143,7 @@ describe('Swiper', () => {
       const wrapper = mount({
         render() {
           return (
-            <Swiper theme={'dark'}>
+            <Swiper theme="dark">
               <SwiperItem>1</SwiperItem>
               <SwiperItem>2</SwiperItem>
             </Swiper>
@@ -156,7 +156,7 @@ describe('Swiper', () => {
       const wrapper = mount({
         render() {
           return (
-            <Swiper type={'card'}>
+            <Swiper type="card">
               <SwiperItem>1</SwiperItem>
               <SwiperItem>2</SwiperItem>
             </Swiper>

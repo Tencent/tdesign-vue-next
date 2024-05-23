@@ -1,7 +1,7 @@
-import { mount, shallowMount } from '@vue/test-utils';
-import { nextTick, template } from 'vue';
-import { expect, vi } from 'vitest';
-import { Button, Dropdown, DropdownItem, DropdownMenu } from 'tdesign-vue-next';
+import { mount } from '@vue/test-utils';
+import { nextTick } from '@td/adapter-vue';
+import { expect } from 'vitest';
+import { Dropdown } from 'tdesign-vue-next';
 
 // every component needs four parts: props/events/slots/functions.
 describe('dropdown', () => {

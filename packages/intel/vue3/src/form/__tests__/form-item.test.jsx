@@ -1,4 +1,3 @@
-import { ref } from 'vue';
 import { mount } from '@vue/test-utils';
 import { expect } from 'vitest';
 import { CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';

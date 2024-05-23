@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
-import { ref } from 'vue';
-import { Submenu } from 'tdesign-vue-next'
+import { ref } from '@td/adapter-vue';
+import { Submenu } from 'tdesign-vue-next';
 
 const Menu = {
   theme: ref('light'),
@@ -10,7 +10,7 @@ const Menu = {
 };
 
 // every component needs four parts: props/events/slots/functions.
-describe('Submenu', () => {
+describe('submenu', () => {
   // test props api
   describe('props', () => {
     it(':name', () => {

@@ -1,4 +1,4 @@
-import { nextTick, ref } from 'vue';
+import { nextTick, ref } from '@td/adapter-vue';
 import { mount } from '@vue/test-utils';
 import { expect, it, vi } from 'vitest';
 import { AppIcon, CloseCircleFilledIcon, ScanIcon } from 'tdesign-icons-vue-next';

@@ -1,9 +1,9 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, it, vi } from 'vitest';
-import { nextTick, ref } from 'vue';
-import { InputNumber } from 'tdesign-vue-next'
+import { nextTick, ref } from '@td/adapter-vue';
+import { InputNumber } from 'tdesign-vue-next';
 
-describe('InputNumber', () => {
+describe('inputNumber', () => {
   describe(':props', () => {
     it(':align', () => {
       const alignList = ['center', 'right'];

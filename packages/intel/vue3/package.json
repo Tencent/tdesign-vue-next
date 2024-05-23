@@ -14,6 +14,7 @@
     "@types/lodash-es": "^4.17.12",
     "@vue/test-utils": "^2.4.6",
     "lodash-es": "^4.17.21",
+    "mockdate": "^3.0.5",
     "tdesign-icons-vue-next": "^0.2.2",
     "tdesign-vue-next": "workspace:^",
     "vitest": "^1.6.0"

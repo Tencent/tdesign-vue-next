@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { ref } from 'vue';
+import { ref } from '@td/adapter-vue';
 import { Submenu } from '@/src/menu';
 
 const Menu = {
@@ -10,7 +10,7 @@ const Menu = {
 };
 
 // every component needs four parts: props/events/slots/functions.
-describe('Submenu', () => {
+describe('submenu', () => {
   // test props api
   describe('props', () => {
     it(':name', () => {

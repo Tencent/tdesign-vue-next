@@ -1,4 +1,4 @@
-import { ref } from 'vue';
+import { ref } from '@td/adapter-vue';
 import { mount } from '@vue/test-utils';
 import { describe, expect, it, vi } from 'vitest';
 import { Option, OptionGroup, Select } from 'tdesign-vue-next';

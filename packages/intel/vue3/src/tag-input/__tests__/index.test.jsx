@@ -1,10 +1,10 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, it, vi } from 'vitest';
-import { CloseCircleFilledIcon, AppIcon, CloseIcon } from 'tdesign-icons-vue-next';
-import { nextTick, ref } from 'vue';
-import TagInput from 'tdesign-vue-next'
+import { AppIcon, CloseCircleFilledIcon, CloseIcon } from 'tdesign-icons-vue-next';
+import { nextTick, ref } from '@td/adapter-vue';
+import TagInput from 'tdesign-vue-next';
 
-describe('TagInput', () => {
+describe('tagInput', () => {
   describe(':props', () => {
     it(':value', () => {
       const tags = ref(['Vue', 'React']);

@@ -1,11 +1,11 @@
-import { ref } from 'vue';
+import { ref } from '@td/adapter-vue';
 import { mount } from '@vue/test-utils';
 import { expect, vi } from 'vitest';
 import { Collapse, CollapsePanel } from '../index';
 
-describe('Collapse', () => {
+describe('collapse', () => {
   describe(':props', () => {
-    test(':borderless', async () => {
+    it(':borderless', async () => {
       const borderless = ref(false);
       const wrapper = mount({
         setup() {
@@ -26,7 +26,7 @@ describe('Collapse', () => {
       expect(wrapper.classes()).toContain('t--border-less');
     });
 
-    test(':defaultExpandAll', async () => {
+    it(':defaultExpandAll', async () => {
       const defaultExpandAll = ref(false);
       const wrapper = mount({
         setup() {
@@ -45,7 +45,7 @@ describe('Collapse', () => {
       });
     });
 
-    test(':disabled', async () => {
+    it(':disabled', async () => {
       const disabled = ref(false);
       const handleChange = vi.fn();
       const wrapper = mount({
@@ -70,7 +70,7 @@ describe('Collapse', () => {
       expect(handleChange).toHaveBeenCalledTimes(1);
     });
 
-    test(':expandIcon', async () => {
+    it(':expandIcon', async () => {
       const expandIcon = ref(true);
       const wrapper = mount({
         setup() {
@@ -90,7 +90,7 @@ describe('Collapse', () => {
       expect(panel.find('.t-collapse-panel__header svg').exists()).toBeFalsy();
     });
 
-    test(':expandIconPlacement', async () => {
+    it(':expandIconPlacement', async () => {
       const expandIconPlacement = ref('left');
       const wrapper = mount({
         setup() {
@@ -114,7 +114,7 @@ describe('Collapse', () => {
       );
     });
 
-    test(':expandMutex', async () => {
+    it(':expandMutex', async () => {
       const val = ref([]);
       const wrapper = mount({
         setup() {
@@ -140,7 +140,7 @@ describe('Collapse', () => {
       expect(val.value).toContain('2');
     });
 
-    test(':expandOnRowClick', async () => {
+    it(':expandOnRowClick', async () => {
       const expandOnRowClick = ref(true);
       const handleChange = vi.fn();
       const wrapper = mount({
@@ -167,7 +167,7 @@ describe('Collapse', () => {
       expect(handleChange).toHaveBeenCalledTimes(2);
     });
 
-    test(':defaultValue', async () => {
+    it(':defaultValue', async () => {
       const wrapper = mount({
         setup() {
           return () => (
@@ -188,7 +188,7 @@ describe('Collapse', () => {
   });
 
   describe('@event', () => {
-    test('change', async () => {
+    it('change', async () => {
       const handleChange = vi.fn();
       const wrapper = mount({
         setup() {
@@ -207,9 +207,9 @@ describe('Collapse', () => {
   });
 });
 
-describe('CollapsePanel', () => {
+describe('collapsePanel', () => {
   describe(':props', () => {
-    test(':default、content、header、headerRightContent', async () => {
+    it(':default、content、header、headerRightContent', async () => {
       const wrapper = mount({
         setup() {
           return () => (
@@ -228,7 +228,7 @@ describe('CollapsePanel', () => {
       expect(panel2.find('.t-collapse-panel__content').text()).toBe('内容2');
     });
 
-    test(':destroyOnCollapse', async () => {
+    it(':destroyOnCollapse', async () => {
       const destroyOnCollapse = ref(false);
       const wrapper = mount({
         setup() {
@@ -256,7 +256,7 @@ describe('CollapsePanel', () => {
       expect(panel.find('.t-collapse-panel__content').exists()).toBeFalsy();
     });
 
-    test(':disabled', async () => {
+    it(':disabled', async () => {
       const disabled = ref(false);
       const handleChange = vi.fn();
       const wrapper = mount({
@@ -281,7 +281,7 @@ describe('CollapsePanel', () => {
       expect(handleChange).toHaveBeenCalledTimes(1);
     });
 
-    test(':expandIcon', async () => {
+    it(':expandIcon', async () => {
       const expandIcon = ref(true);
       const wrapper = mount({
         setup() {
@@ -301,7 +301,7 @@ describe('CollapsePanel', () => {
       expect(panel.find('.t-collapse-panel__header svg').exists()).toBeFalsy();
     });
 
-    test(':value', async () => {
+    it(':value', async () => {
       const handleChange = vi.fn();
       const wrapper = mount({
         setup() {
@@ -320,7 +320,7 @@ describe('CollapsePanel', () => {
   });
 
   describe('<slot>', () => {
-    test('default', () => {
+    it('default', () => {
       const wrapper = mount({
         setup() {
           return () => (
@@ -339,7 +339,7 @@ describe('CollapsePanel', () => {
       expect(panel.find('.t-collapse-panel__content > div').html()).toBe('<div>内容</div>');
     });
 
-    test('header', () => {
+    it('header', () => {
       const wrapper = mount({
         setup() {
           return () => (
@@ -358,7 +358,7 @@ describe('CollapsePanel', () => {
       expect(panel.find('.t-collapse-panel__header > h4').html()).toBe('<h4>标题</h4>');
     });
 
-    test('headerRightContent', () => {
+    it('headerRightContent', () => {
       const wrapper = mount({
         setup() {
           return () => (
@@ -377,7 +377,7 @@ describe('CollapsePanel', () => {
       expect(panel.find('.t-collapse-panel__header > div > span').html()).toBe('<span>操作</span>');
     });
 
-    test('content', () => {
+    it('content', () => {
       const wrapper = mount({
         setup() {
           return () => (

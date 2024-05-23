@@ -1,4 +1,4 @@
-import { ref } from 'vue';
+import { ref } from '@td/adapter-vue';
 import { mount } from '@vue/test-utils';
 import { expect, vi } from 'vitest';
 import { Collapse, CollapsePanel } from 'tdesign-vue-next';

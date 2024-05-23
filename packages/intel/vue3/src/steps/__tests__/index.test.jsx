@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, it, vi } from 'vitest';
-import { nextTick, ref } from 'vue';
+import { nextTick, ref } from '@td/adapter-vue';
 import { AppIcon } from 'tdesign-icons-vue-next';
 import { StepItem, Steps } from 'tdesign-vue-next';
 

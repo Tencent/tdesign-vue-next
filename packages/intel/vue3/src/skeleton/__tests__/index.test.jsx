@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { expect, it } from 'vitest';
-import { nextTick, ref } from 'vue';
+import { nextTick, ref } from '@td/adapter-vue';
 import { Skeleton } from 'tdesign-vue-next';
 
 // every component needs four parts: props/events/slots/functions.

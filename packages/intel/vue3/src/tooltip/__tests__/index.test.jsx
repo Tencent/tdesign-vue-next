@@ -1,12 +1,12 @@
 import { mount } from '@vue/test-utils';
 import { expect, it } from 'vitest';
-import { nextTick, ref } from 'vue';
-import Tooltip from 'tdesign-vue-next'
+import { nextTick, ref } from '@td/adapter-vue';
+import Tooltip from 'tdesign-vue-next';
 
 const text = '这是一段内容';
 const tootipClass = '.t-popup';
 
-describe('Tooltip', () => {
+describe('tooltip', () => {
   it('', async () => {
     const wrapper = mount(() => (
       <Tooltip content={text} defaultVisible>

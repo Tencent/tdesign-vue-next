@@ -1,10 +1,10 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
-import { nextTick, ref } from 'vue';
-import { ColorPickerPanel, ColorPicker } from 'tdesign-vue-next'
+import { nextTick, ref } from '@td/adapter-vue';
+import { ColorPicker, ColorPickerPanel } from 'tdesign-vue-next';
 
 // every component needs four parts: props/events/slots/functions.
-describe('ColorPickerPanel', () => {
+describe('colorPickerPanel', () => {
   describe(':props', () => {
     it(':colorModes', () => {
       const modes = ref(['monochrome']);
@@ -60,7 +60,7 @@ describe('ColorPickerPanel', () => {
   });
 });
 
-describe('ColorPicker', () => {
+describe('colorPicker', () => {
   // test props api
   describe(':props', () => {
     it('', () => {
