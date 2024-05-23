@@ -23,11 +23,11 @@ export function useReadonly(context?: ReadonlyContext) {
   const formReadonly = inject<FormReadonlyProvider>('formReadonly', Object.create(null));
 
   return computed(() => {
-    if (isBoolean(context?.beforeReadonly.value)) return context.beforeReadonly.value;
+    if (isBoolean(context?.beforeReadonly?.value)) return context.beforeReadonly.value;
     // Component
-    if (isBoolean(componentReadonly.value)) return componentReadonly.value;
+    if (isBoolean(componentReadonly?.value)) return componentReadonly.value;
     // ComponentGroup
-    if (isBoolean(context?.afterReadonly.value)) return context.afterReadonly.value;
+    if (isBoolean(context?.afterReadonly?.value)) return context.afterReadonly.value;
     // Form
     if (isBoolean(formReadonly.readonly?.value)) return formReadonly.readonly.value;
 

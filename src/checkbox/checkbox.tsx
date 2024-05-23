@@ -85,17 +85,12 @@ export default defineComponent({
       return checkboxGroupData?.value.disabled;
     });
     const isDisabled = useDisabled({ beforeDisabled, afterDisabled });
+
     //  Checkbox.readonly > CheckboxGroup.readonly > Form.readonly
-    const beforeReadonly = computed(() => {
-      if (!props.checkAll && !tChecked.value && checkboxGroupData?.value.maxExceeded) {
-        return true;
-      }
-      return null;
-    });
     const afterReadonly = computed(() => {
       return checkboxGroupData?.value.readonly;
     });
-    const isReadonly = useReadonly({ beforeReadonly, afterReadonly });
+    const isReadonly = useReadonly({ afterReadonly });
 
     const tIndeterminate = ref(false);
     watch(
