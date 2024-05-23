@@ -1,7 +1,7 @@
 /* eslint-disable no-template-curly-in-string */
 
 import { mount } from '@vue/test-utils';
-import { nextTick } from 'vue';
+import { nextTick } from '@td/adapter-vue';
 import { describe, expect, it } from 'vitest';
 import { Slider } from 'tdesign-vue-next';
 import { formatLabel } from '@td/components-common/src/slider/util/common.ts';

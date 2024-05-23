@@ -7,7 +7,7 @@ import {
   ErrorCircleFilledIcon,
   InfoCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
-import { nextTick } from 'vue';
+import { nextTick } from '@td/adapter-vue';
 import { Alert } from 'tdesign-vue-next';
 
 describe('alert', () => {

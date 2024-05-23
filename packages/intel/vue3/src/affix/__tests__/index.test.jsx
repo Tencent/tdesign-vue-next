@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { nextTick } from 'vue';
+import { nextTick } from '@td/adapter-vue';
 import { beforeEach, expect, it, vi } from 'vitest';
 import { Affix } from 'tdesign-vue-next';
 

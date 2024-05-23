@@ -38,6 +38,13 @@ const testConfig = {
 
 export default {
   resolve: { alias: resolveAlias(3) },
-  plugins: basePlugin,
+  plugins: [
+    ...basePlugin,
+    {
+      transform(code, id) {
+        console.log(code, id);
+      },
+    },
+  ],
   test: testConfig,
 };

@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, it, vi } from 'vitest';
 
-import { nextTick } from 'vue';
+import { nextTick } from '@td/adapter-vue';
 import { Slider } from 'tdesign-vue-next';
 
 const inputNumberPropsInitData = {

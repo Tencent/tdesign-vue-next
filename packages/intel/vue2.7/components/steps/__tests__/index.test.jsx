@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { nextTick } from 'vue';
+import { nextTick } from '@td/adapter-vue';
 import { AppIcon } from 'tdesign-icons-vue';
 import Steps, { StepItem } from '@/src/steps/index.ts';
 

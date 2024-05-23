@@ -1,9 +1,9 @@
 import { mount } from '@vue/test-utils';
 import { CloseCircleFilledIcon } from 'tdesign-icons-vue';
-import { nextTick } from 'vue';
+import { nextTick } from '@td/adapter-vue';
 import TagInput from '@/src/tag-input/index.ts';
 
-describe('TagInput', () => {
+describe('tagInput', () => {
   const tags = ['Vue', 'React'];
   describe(':props', () => {
     it(':value', () => {

@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, it, vi } from 'vitest';
 import { InfoCircleFilledIcon } from 'tdesign-icons-vue-next';
-import { nextTick } from 'vue';
+import { nextTick } from '@td/adapter-vue';
 import { Notification, NotifyPlugin } from 'tdesign-vue-next';
 
 describe('notification', () => {

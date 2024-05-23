@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { expect, it, vi } from 'vitest';
-import { nextTick } from 'vue';
+import { nextTick } from '@td/adapter-vue';
 import { Image } from 'tdesign-vue-next';
 
 const src = 'https://tdesign.gtimg.com/demo/demo-image-1.png';

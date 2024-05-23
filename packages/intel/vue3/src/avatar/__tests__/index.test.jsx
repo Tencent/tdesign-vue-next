@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { expect, it, vi } from 'vitest';
-import { nextTick } from 'vue';
+import { nextTick } from '@td/adapter-vue';
 import Avatar, { AvatarGroup } from 'tdesign-vue-next';
 import { UserIcon } from 'tdesign-icons-vue-next';
 

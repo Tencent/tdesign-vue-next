@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { nextTick } from 'vue';
+import { nextTick } from '@td/adapter-vue';
 import { CloseIcon } from 'tdesign-icons-vue';
 import Drawer from '@/src/drawer/index.ts';
 

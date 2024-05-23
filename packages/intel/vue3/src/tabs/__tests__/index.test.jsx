@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { nextTick } from 'vue';
+import { nextTick } from '@td/adapter-vue';
 import { vi } from 'vitest';
 import { TabPanel, Tabs } from 'tdesign-vue-next';
 

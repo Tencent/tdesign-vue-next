@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import MockDate from 'mockdate';
-import { nextTick } from 'vue';
+import { nextTick } from '@td/adapter-vue';
 import { BrowseIcon, LockOnIcon } from 'tdesign-icons-vue';
 import dayjs from 'dayjs';
 import DatePicker from '@/src/date-picker/index.ts';

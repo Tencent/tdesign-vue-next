@@ -1,4 +1,4 @@
-import { nextTick } from 'vue';
+import { nextTick } from '@td/adapter-vue';
 import { mount } from '@vue/test-utils';
 
 import { ImageViewer } from '../index';
