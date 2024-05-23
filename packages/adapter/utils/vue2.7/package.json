@@ -1,6 +1,6 @@
 {
   "name": "@td/adapter-utils-vue2.7",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "author": "",
   "license": "ISC",
@@ -10,13 +10,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@td/adapter-vue": "workspace:^",
     "@td/shared": "workspace:^",
-    "lodash-es": "^4.17.21",
-    "raf": "^3.4.1"
+    "lodash-es": "^4.17.21"
   },
   "devDependencies": {
-    "@types/lodash-es": "^4.17.12",
-    "@types/raf": "^3.4.3",
-    "vue": "~2.7.16"
+    "@types/lodash-es": "^4.17.12"
   }
 }

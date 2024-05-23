@@ -1,16 +1,18 @@
 {
-  "name": "@td/adapter-hooks-vue3",
+  "name": "@td/adapter-hooks-common",
   "version": "0.0.1",
   "description": "",
   "author": "",
   "license": "ISC",
   "keywords": [],
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@td/adapter-utils": "workspace:^",
     "@td/adapter-vue": "workspace:^",
+    "@td/shared": "workspace:^",
     "lodash-es": "^4.17.21"
   },
   "devDependencies": {

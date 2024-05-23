@@ -61,5 +61,8 @@ export default defineConfig(({ mode }) => {
         isCustomElement,
       }),
     ],
+    optimizeDeps: {
+      include: ['prismjs', 'prismjs/components/prism-bash.js'],
+    },
   };
 });

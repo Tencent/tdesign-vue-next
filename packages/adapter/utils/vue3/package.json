@@ -1,6 +1,6 @@
 {
   "name": "@td/adapter-utils-vue3",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "author": "",
   "license": "ISC",
@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@td/shared": "workspace:^",
-    "vue": "3.3.9"
+    "@td/adapter-vue": "workspace:^",
+    "@td/shared": "workspace:^"
   }
 }

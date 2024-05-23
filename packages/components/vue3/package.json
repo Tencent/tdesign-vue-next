@@ -1,19 +1,19 @@
 {
   "name": "@td/components-vue3",
-  "purename": "tdesign",
   "version": "1.9.3",
   "title": "tdesign-vue-next",
   "description": "TDesign Component for vue-next",
   "dependencies": {
+    "@popperjs/core": "^2.11.8",
     "@td/adapter-hooks": "workspace:^",
     "@td/adapter-utils": "workspace:^",
     "@td/adapter-vue": "workspace:^",
     "@td/components-common": "workspace:^",
     "@td/shared": "workspace:^",
-    "lodash-es": "^4.17.21"
+    "lodash-es": "^4.17.21",
+    "sortablejs": "^1.15.2"
   },
   "devDependencies": {
-    "@types/lodash-es": "^4.17.12",
-    "vue": "3.3.9"
+    "@types/lodash-es": "^4.17.12"
   }
 }

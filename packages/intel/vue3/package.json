@@ -1,14 +1,10 @@
 {
   "name": "@td/intel-vue3",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "author": "",
   "license": "ISC",
   "keywords": [],
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "devDependencies": {
     "@td/adapter-hooks": "workspace:^",
     "@td/adapter-vue": "workspace:^",
@@ -19,6 +15,7 @@
     "@vue/test-utils": "^2.4.6",
     "lodash-es": "^4.17.21",
     "tdesign-icons-vue-next": "^0.2.2",
-    "tdesign-vue-next": "workspace:^"
+    "tdesign-vue-next": "workspace:^",
+    "vitest": "^1.6.0"
   }
 }
