@@ -207,7 +207,8 @@ export default defineComponent({
     // 虚拟滚动相关数据
     const virtualScrollParams = computed(() => ({
       data: props.data,
-      scroll: props.scroll,
+      // 传递 fixedRows 的配置
+      scroll: { ...props.scroll, fixedRows: props.fixedRows },
     }));
     const virtualConfig = useVirtualScrollNew(tableContentRef, virtualScrollParams);
 
@@ -600,13 +601,12 @@ export default defineComponent({
       '-moz-transform': translate,
       '-webkit-transform': translate,
     };
-    const { virtualConfig } = this;
     const tableBodyProps = {
       classPrefix: this.classPrefix,
       ellipsisOverlayClassName: this.tableSize !== 'medium' ? this.sizeClassNames[this.tableSize] : '',
       rowAndColFixedPosition,
       showColumnShadow: this.showColumnShadow,
-      data: virtualConfig.isVirtualScroll.value ? virtualConfig.visibleData.value : data,
+      data: data,
       virtualConfig: this.virtualConfig,
       columns: this.spansAndLeafNodes.leafColumns,
       tableElm: this.tableRef,

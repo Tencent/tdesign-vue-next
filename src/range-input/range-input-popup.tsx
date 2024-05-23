@@ -42,6 +42,7 @@ export default defineComponent({
               value: props.inputValue,
               onChange: props.onInputChange,
               disabled: props.disabled,
+              label: props.label,
               status: props.status,
               tips: props.tips,
               ...props.rangeInputProps,

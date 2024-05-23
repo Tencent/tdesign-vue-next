@@ -14,7 +14,7 @@ import {
   formatUnCompleteNumber,
   largeNumberToFixed,
 } from '../_common/js/input-number/number';
-import { useFormDisabled } from '../form/hooks';
+import { useDisabled } from '../hooks/useDisabled';
 import { StrInputProps } from '../input';
 
 /**
@@ -28,7 +28,7 @@ export default function useInputNumber(props: TdInputNumberProps) {
   const inputRef = ref();
   const userInput = ref('');
 
-  const tDisabled = useFormDisabled();
+  const tDisabled = useDisabled();
 
   const isError = ref<'exceed-maximum' | 'below-minimum'>();
 

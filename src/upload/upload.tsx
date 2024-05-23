@@ -5,13 +5,14 @@ import NormalFile from './themes/normal-file';
 import DraggerFile from './themes/dragger-file';
 import ImageCard from './themes/image-card';
 import MultipleFlowList from './themes/multiple-flow-list';
-import useUpload from './hooks/useUpload';
 import Button from '../button';
 import { CommonDisplayFileProps, UploadProps } from './interface';
-import { UploadDragEvents } from './hooks/useDrag';
 import CustomFile from './themes/custom-file';
+
+import { UploadDragEvents } from './hooks/useDrag';
+import useUpload from './hooks/useUpload';
 import { useContent, useTNodeJSX } from '../hooks/tnode';
-import { useFormDisabled } from '../form/hooks';
+import { useDisabled } from '../hooks/useDisabled';
 
 export default defineComponent({
   name: 'TUpload',
@@ -43,7 +44,7 @@ export default defineComponent({
       cancelUpload,
       uploadFilePercent,
     } = useUpload(props);
-    const disabled = useFormDisabled();
+    const disabled = useDisabled();
 
     const triggerUploadButtonText = computed(
       () => props.triggerButtonProps?.default || props.triggerButtonProps?.content || triggerUploadText.value,

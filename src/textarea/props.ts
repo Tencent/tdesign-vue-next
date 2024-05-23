@@ -20,7 +20,10 @@ export default {
     default: false as TdTextareaProps['autosize'],
   },
   /** 是否禁用文本框 */
-  disabled: Boolean,
+  disabled: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 用户最多可以输入的字符个数，一个中文汉字表示两个字符长度 */
   maxcharacter: {
     type: Number,

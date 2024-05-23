@@ -23,7 +23,10 @@ export default {
   /** 是否允许用户创建新条目，需配合 filterable 使用 */
   creatable: Boolean,
   /** 是否禁用组件 */
-  disabled: Boolean,
+  disabled: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 当下拉列表为空时显示的内容 */
   empty: {
     type: [String, Function] as PropType<TdSelectProps['empty']>,
