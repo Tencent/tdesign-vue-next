@@ -250,14 +250,40 @@ export const clickOut = (els: VNode | Element | Iterable<any> | ArrayLike<any>, 
   });
 };
 
-// 用于判断节点内容是否溢出
-export const isTextEllipsis = (
-  ele: ComponentPublicInstance | Element | ComponentPublicInstance[] | Element[],
-): boolean => {
-  const { clientWidth = 0, scrollWidth = 0 } = ele as Element & { clientWidth: number; scrollWidth: number };
-  // css text ellipsis will take effect when scrollWidth >= clientWidth
-  return scrollWidth >= clientWidth;
-};
+/**
+ * 检查文本是否被省略显示。
+ * @param {HTMLElement} cellChild - 需要检查的HTML元素。
+ * @param {number} EPSILON - 判断精度的阈值，默认为0.001。
+ * @returns {boolean} 如果文本被省略显示，则返回true，否则返回false。
+ *
+ * Thanks to https://github.com/element-plus/element-plus/blob/dev/packages/components/table/src/table-body/events-helper.ts
+ */
+export function isTextEllipsis(cellChild: HTMLElement, EPSILON = 0.001) {
+  const range = document.createRange();
+  range.setStart(cellChild, 0);
+  range.setEnd(cellChild, cellChild.childNodes.length);
+
+  const rangeRect = range.getBoundingClientRect();
+  let rangeWidth = rangeRect.width;
+  let rangeHeight = rangeRect.height;
+
+  if (rangeWidth - Math.floor(rangeWidth) < EPSILON) {
+    rangeWidth = Math.floor(rangeWidth);
+  }
+  if (rangeHeight - Math.floor(rangeHeight) < EPSILON) {
+    rangeHeight = Math.floor(rangeHeight);
+  }
+
+  const { top, left, right, bottom } = getPadding(cellChild);
+  const horizontalPadding = left + right;
+  const verticalPadding = top + bottom;
+
+  return (
+    rangeWidth + horizontalPadding > cellChild.offsetWidth ||
+    rangeHeight + verticalPadding > cellChild.offsetHeight ||
+    cellChild.scrollWidth > cellChild.offsetWidth
+  );
+}
 
 interface Padding {
   left: number;
