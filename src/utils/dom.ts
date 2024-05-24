@@ -1,9 +1,7 @@
 /**
  * Thanks to https://spothero.com/static/main/uniform/docs-js/module-DOMUtils.html
  */
-/* eslint-disable no-param-reassign */
-/* eslint-disable no-undef */
-import { ComponentPublicInstance, VNode } from 'vue';
+import { VNode } from 'vue';
 import raf from 'raf';
 import isString from 'lodash/isString';
 import isFunction from 'lodash/isFunction';
@@ -260,6 +258,43 @@ export const isTextEllipsis = (
   // css text ellipsis will take effect when scrollWidth >= clientWidth
   return scrollWidth >= clientWidth;
 };
+
+interface Padding {
+  left: number;
+  right: number;
+  top: number;
+  bottom: number;
+}
+
+/**
+ * 获取指定HTMLElement元素的填充（padding）信息。
+ * @param el - 需要获取填充信息的HTMLElement对象。
+ * @returns 一个对象，包含元素的左、右、上、下填充值（以像素为单位）。
+ * @throws 如果传入的不是有效的HTMLElement对象，将抛出错误。
+ * @throws 如果无法获取元素的计算样式，将抛出错误。
+ */
+export function getPadding(el: HTMLElement): Padding {
+  // 检查传入的参数是否为HTMLElement实例
+  if (!(el instanceof HTMLElement)) {
+    throw new Error('Invalid argument: Expected a valid HTMLElement.');
+  }
+
+  try {
+    const style = window.getComputedStyle(el, null);
+    if (style === null) {
+      throw new Error('Unable to get computed style for element.');
+    }
+    const parseValue = (value: string) => Number.parseInt(value, 10) || 0;
+    const paddings = ['paddingLeft', 'paddingRight', 'paddingTop', 'paddingBottom'];
+    return paddings.reduce((acc, padding) => {
+      acc[padding] = parseValue(style[padding]);
+      return acc;
+    }, {} as Padding);
+  } catch (error) {
+    console.error('Failed to get padding:', error);
+    return { left: 0, right: 0, top: 0, bottom: 0 };
+  }
+}
 
 // 将子元素selected滚动到父元素parentEle的可视范围内
 export const scrollSelectedIntoView = (parentEle: HTMLElement, selected: HTMLElement) => {
