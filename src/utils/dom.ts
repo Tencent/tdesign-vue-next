@@ -258,10 +258,15 @@ export const clickOut = (els: VNode | Element | Iterable<any> | ArrayLike<any>, 
  *
  * Thanks to https://github.com/element-plus/element-plus/blob/dev/packages/components/table/src/table-body/events-helper.ts
  */
-export function isTextEllipsis(cellChild: HTMLElement, EPSILON = 0.001) {
+export function isTextEllipsis(cellChild: HTMLElement, EPSILON = 0.001): boolean {
+  if (!cellChild) return false;
+
   const range = document.createRange();
   range.setStart(cellChild, 0);
   range.setEnd(cellChild, cellChild.childNodes.length);
+
+  range.setStartBefore(document.body.firstChild);
+  range.setEndAfter(document.body.lastChild);
 
   const rangeRect = range.getBoundingClientRect();
   let rangeWidth = rangeRect.width;
