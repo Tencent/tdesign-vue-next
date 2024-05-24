@@ -258,20 +258,19 @@ export const clickOut = (els: VNode | Element | Iterable<any> | ArrayLike<any>, 
  *
  * Thanks to https://github.com/element-plus/element-plus/blob/dev/packages/components/table/src/table-body/events-helper.ts
  */
-export function isTextEllipsis(cellChild: HTMLElement, EPSILON = 0.001): boolean {
-  if (!cellChild) return false;
+export function isTextEllipsis(cellChild: HTMLElement, EPSILON = 0.001) {
+  if (!(cellChild instanceof HTMLElement)) return false;
 
   const range = document.createRange();
-  range.setStart(cellChild, 0);
-  range.setEnd(cellChild, cellChild.childNodes.length);
+  range.selectNodeContents(cellChild);
 
-  range.setStartBefore(document.body.firstChild);
-  range.setEndAfter(document.body.lastChild);
+  if (!range.getBoundingClientRect) return false;
 
   const rangeRect = range.getBoundingClientRect();
   let rangeWidth = rangeRect.width;
   let rangeHeight = rangeRect.height;
 
+  // 考虑浮点数误差
   if (rangeWidth - Math.floor(rangeWidth) < EPSILON) {
     rangeWidth = Math.floor(rangeWidth);
   }
@@ -279,10 +278,12 @@ export function isTextEllipsis(cellChild: HTMLElement, EPSILON = 0.001): boolean
     rangeHeight = Math.floor(rangeHeight);
   }
 
+  // 获取元素的内边距
   const { top, left, right, bottom } = getPadding(cellChild);
   const horizontalPadding = left + right;
   const verticalPadding = top + bottom;
 
+  // 检查文本是否溢出
   return (
     rangeWidth + horizontalPadding > cellChild.offsetWidth ||
     rangeHeight + verticalPadding > cellChild.offsetHeight ||
