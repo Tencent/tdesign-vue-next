@@ -1,22 +1,7 @@
 import { computed, ref } from 'vue';
 import { Styles } from '../common';
+import { getSizeDraggable, calcMoveSize } from '../_common/js/drawer/utils';
 import type { TdDrawerProps } from './type';
-
-function getSizeDraggable(sizeDraggable: TdDrawerProps['sizeDraggable'], limit: { max: number; min: number }) {
-  if (typeof sizeDraggable === 'boolean') {
-    return {
-      allowSizeDraggable: sizeDraggable,
-      max: limit.max,
-      min: limit.min,
-    };
-  }
-
-  return {
-    allowSizeDraggable: true,
-    max: sizeDraggable.max,
-    min: sizeDraggable.min,
-  };
-}
 
 export const useDrag = (props: TdDrawerProps) => {
   // 以下为拖拽改变抽屉大小相关 可以抽成hooks
@@ -52,24 +37,16 @@ export const useDrag = (props: TdDrawerProps) => {
     // 不支持拖拽就直接返回
     if (!allowSizeDraggable || !isSizeDragging.value) return;
 
-    let moveSize: number | undefined;
-    switch (props.placement) {
-      case 'right':
-        moveSize = Math.min(Math.max(maxWidth - x, limitMin), limitMax);
-        break;
-      case 'left':
-        moveSize = Math.min(Math.max(x, limitMin), limitMax);
-        break;
-      case 'top':
-        moveSize = Math.min(Math.max(y, limitMin), limitMax);
-        break;
-      case 'bottom':
-        moveSize = Math.min(Math.max(maxHeight - y, limitMin), limitMax);
-        break;
-      default:
-        // 参数缺失直接返回
-        return;
-    }
+    const moveSize = calcMoveSize(props.placement, {
+      x,
+      y,
+      maxWidth,
+      maxHeight,
+      max: limitMax,
+      min: limitMin,
+    });
+
+    if (typeof moveSize === 'undefined') return;
 
     draggedSizeValue.value = `${moveSize}px`;
     props.onSizeDragEnd?.({
