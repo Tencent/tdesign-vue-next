@@ -114,6 +114,7 @@ export default function useKeyboardControl({
             trigger: newValue.isCheck ? 'check' : 'uncheck',
             e,
           });
+          filteredOptions.value = [];
         }
         break;
       case 'Escape':
