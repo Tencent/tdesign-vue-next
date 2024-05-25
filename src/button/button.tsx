@@ -5,6 +5,7 @@ import useRipple from '../hooks/useRipple';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import { useDisabled } from '../hooks/useDisabled';
+import { TdButtonProps } from './type'
 
 export default defineComponent({
   name: 'TButton',
@@ -43,7 +44,8 @@ export default defineComponent({
 
     return () => {
       let buttonContent = renderContent('default', 'content');
-      const icon = props.loading ? <TLoading inheritColor={true} /> : renderTNodeJSX('icon');
+      const icon = props.loading ? <TLoading {...(props.loadingProps as TdButtonProps['loadingProps'])} /> 
+        : renderTNodeJSX('icon');
       const iconOnly = icon && !buttonContent;
       const suffix =
         props.suffix || slots.suffix ? (
