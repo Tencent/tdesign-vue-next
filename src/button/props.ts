@@ -36,8 +36,8 @@ export default {
   },
   /** 是否显示为加载状态 */
   loading: Boolean,
-   /** 透传加载组件(Loading)全部属性 */
-   loadingProps: {
+  /** 透传加载组件(Loading)全部属性 */
+  loadingProps: {
     type: Object as PropType<TdButtonProps['loadingProps']>,
   },
   /** 按钮形状，有 4 种：长方形、正方形、圆角长方形、圆形 */

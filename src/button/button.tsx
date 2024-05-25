@@ -45,7 +45,7 @@ export default defineComponent({
     return () => {
       let buttonContent = renderContent('default', 'content');
       const icon = props.loading ? (
-        <TLoading {...(props.loadingProps as TdButtonProps['loadingProps'])} />
+        <TLoading {...{ inheritColor: true, ...(props.loadingProps as TdButtonProps['loadingProps']) }} />
       ) : (
         renderTNodeJSX('icon')
       );
