@@ -49,7 +49,7 @@ export default defineComponent({
   setup(props) {
     const root = ref();
 
-    // 用于判断师傅需要渲染 Tooltop
+    // 用于判断是否需要渲染 Tooltop
     const flag = ref(false);
     const isOverflow = ref(false);
 
