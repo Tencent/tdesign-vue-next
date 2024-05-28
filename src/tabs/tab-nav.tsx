@@ -7,7 +7,7 @@ import {
 } from 'tdesign-icons-vue-next';
 import { TdTabsProps } from './type';
 import tabProps from './props';
-import { calcMaxOffset, calcValidOffset, calculateOffset } from '../_common/js/tabs/base';
+import { calcMaxOffset, calcValidOffset, calculateOffset, calcPrevOrNextOffset } from '../_common/js/tabs/base';
 
 // 子组件
 import TTabPanel from './tab-panel';
@@ -140,13 +140,12 @@ export default defineComponent({
       ];
     });
 
-    const handleScroll = (direction: 'left' | 'right') => {
-      const navsContainerWidth = navsContainerRef.value.offsetWidth;
-      if (direction === 'left') {
-        scrollLeft.value = calcValidOffset(scrollLeft.value - navsContainerWidth, maxScrollLeft.value);
-      } else {
-        scrollLeft.value = calcValidOffset(scrollLeft.value + navsContainerWidth, maxScrollLeft.value);
-      }
+    const setOffset = (offset: number) => {
+      scrollLeft.value = calcValidOffset(offset, maxScrollLeft.value);
+    };
+
+    const handleScroll = (action: 'prev' | 'next') => {
+      setOffset(calcPrevOrNextOffset(getRefs(), scrollLeft.value, action));
     };
 
     const handleWheel = (event: WheelEvent) => {
@@ -156,15 +155,15 @@ export default defineComponent({
       const { deltaX, deltaY } = event;
 
       if (Math.abs(deltaX) > Math.abs(deltaY)) {
-        scrollLeft.value = calcValidOffset(scrollLeft.value + deltaX, maxScrollLeft.value);
+        setOffset(scrollLeft.value + deltaX);
       } else {
-        scrollLeft.value = calcValidOffset(scrollLeft.value + deltaY, maxScrollLeft.value);
+        setOffset(scrollLeft.value + deltaY);
       }
     };
 
     const handleActiveTabScroll = () => {
       setTimeout(() => {
-        scrollLeft.value = calcValidOffset(calculateOffset(getRefs(), scrollLeft.value, 'auto'), maxScrollLeft.value);
+        setOffset(calculateOffset(getRefs(), scrollLeft.value, 'auto'));
       }, 0);
     };
 
@@ -252,7 +251,7 @@ export default defineComponent({
         >
           <Transition name="fade" mode="out-in" appear>
             {canToLeft.value ? (
-              <div class={leftIconClass.value} onClick={() => handleScroll('left')}>
+              <div class={leftIconClass.value} onClick={() => handleScroll('prev')}>
                 <ChevronLeftIcon />
               </div>
             ) : null}
@@ -264,7 +263,7 @@ export default defineComponent({
         >
           <Transition name="fade" mode="out-in" appear>
             {canToRight.value ? (
-              <div ref={toRightBtnRef} class={rightIconClass.value} onClick={() => handleScroll('right')}>
+              <div ref={toRightBtnRef} class={rightIconClass.value} onClick={() => handleScroll('next')}>
                 <ChevronRightIcon></ChevronRightIcon>
               </div>
             ) : null}
