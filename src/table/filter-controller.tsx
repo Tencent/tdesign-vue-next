@@ -94,7 +94,7 @@ export default defineComponent({
     };
 
     const getFilterContent = (column: PrimaryTableCol) => {
-      const types = ['single', 'multiple', 'input', 'custom'];
+      const types = ['single', 'multiple', 'input'];
       if (column.filter?.type && !types.includes(column.filter.type)) {
         console.error(`TDesign Table Error: column.filter.type must be the following: ${JSON.stringify(types)}`);
         return;
