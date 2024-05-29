@@ -1,6 +1,7 @@
 import { TdSelectInputProps } from './type';
 
 export interface SelectInputCommonProperties {
+  size?: TdSelectInputProps['size'];
   status?: TdSelectInputProps['status'];
   tips?: TdSelectInputProps['tips'];
   clearable?: TdSelectInputProps['clearable'];
