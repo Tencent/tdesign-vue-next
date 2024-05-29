@@ -8,9 +8,9 @@ import { computed, h, ref, toRefs, watch,
 import type { MoveEvent, SortableEvent, SortableOptions } from 'sortablejs';
 import Sortable from 'sortablejs';
 import { get, isFunction } from 'lodash-es';
-import log from '@td/shared/_common/js/log';
-import swapDragArrayElement from '@td/shared/_common/js/utils/swapDragArrayElement';
-import { getColumnDataByKey, getColumnIndexByKey } from '@td/shared/_common/js/table/utils';
+import log from '@td/common/js/log';
+import swapDragArrayElement from '@td/common/js/utils/swapDragArrayElement';
+import { getColumnDataByKey, getColumnIndexByKey } from '@td/common/js/table/utils';
 import type {
   DragSortContext,
   PrimaryTableCol,

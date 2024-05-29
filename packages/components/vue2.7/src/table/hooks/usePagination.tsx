@@ -4,7 +4,7 @@ import type {
   SetupContext,
 } from '@td/adapter-vue';
 import { computed, ref, toRefs, watch } from '@td/adapter-vue';
-import log from '@td/shared/_common/js/log';
+import log from '@td/common/js/log';
 import { useConfig } from '@td/adapter-hooks';
 import type { TableRowData, TdBaseTableProps } from '@td/intel/table/type';
 import type { PageInfo, TdPaginationProps as PaginationProps } from '@td/intel/pagination/type';

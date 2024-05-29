@@ -3,8 +3,8 @@ import { computed, defineComponent, h, onBeforeUnmount, ref, watch } from '@td/a
 import { escapeRegExp, isFunction, isString } from 'lodash-es';
 import type { CommonClassNameType, usePrefixClass } from '@td/adapter-hooks';
 import type { AutoCompleteOptionObj, TdAutoCompleteProps } from '@td/intel/auto-complete/type';
-import log from '@td/shared/_common/js/log';
-import { ARROW_DOWN_REG, ARROW_UP_REG, ENTER_REG } from '@td/shared/_common/js/common';
+import log from '@td/common/js/log';
+import { ARROW_DOWN_REG, ARROW_UP_REG, ENTER_REG } from '@td/common/js/common';
 import { off, on } from '@td/utils';
 import HighlightOption from './highlight-option';
 

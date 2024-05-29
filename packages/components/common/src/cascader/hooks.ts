@@ -3,7 +3,7 @@ import { computed, nextTick, reactive, toRefs, watch } from '@td/adapter-vue';
 import { isEqual, isFunction, isString } from 'lodash-es';
 
 import { useDefaultValue, useDisabled, useVModel } from '@td/adapter-hooks';
-import TreeStore from '@td/shared/_common/js/tree/tree-store';
+import TreeStore from '@td/common/js/tree/tree-store';
 import { getCascaderValue, getTreeValue, isEmptyValues, isValueInvalid } from './core/helper';
 import { treeNodesEffect, treeStoreExpendEffect } from './core/effect';
 

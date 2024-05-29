@@ -1,1 +1,1 @@
-export * from '@td/shared/_common/js/color-picker';
+export * from '@td/common/js/color-picker';

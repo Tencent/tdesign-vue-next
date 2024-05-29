@@ -2,7 +2,7 @@ import type { PropType } from '@td/adapter-vue';
 import { computed, defineComponent } from '@td/adapter-vue';
 import { isArray } from 'lodash-es';
 import type { TdDatePickerProps } from '@td/intel/date-picker/type';
-import { parseToDayjs } from '@td/shared/_common/js/date-picker/format';
+import { parseToDayjs } from '@td/common/js/date-picker/format';
 import { useConfig, usePrefixClass } from '@td/adapter-hooks';
 import TDatePickerCell from './Cell';
 

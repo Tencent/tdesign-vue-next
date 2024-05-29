@@ -9,8 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@td/intel-vue3": "workspace:^",
-    "@td/shared": "workspace:^",
+    "@td/common": "workspace:tdesign-common@^",
     "codesandbox": "^2.2.3",
     "dayjs": "^1.11.10",
     "lodash-es": "^4.17.21",

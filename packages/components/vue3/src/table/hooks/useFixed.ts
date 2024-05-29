@@ -13,10 +13,10 @@ import {
   watch,
 } from '@td/adapter-vue';
 import { debounce, get, pick, xorWith } from 'lodash-es';
-import log from '@td/shared/_common/js/log';
+import log from '@td/common/js/log';
 import type { BaseTableCol, BaseTableInstanceFunctions, TableRowData, TdBaseTableProps } from '@td/intel/table/type';
-import { getScrollbarWidthWithCSS } from '@td/shared/_common/js/utils/getScrollbarWidth';
-import { getIEVersion } from '@td/shared/_common/js/utils/helper';
+import { getScrollbarWidthWithCSS } from '@td/common/js/utils/getScrollbarWidth';
+import { getIEVersion } from '@td/common/js/utils/helper';
 import type { ClassName, Styles } from '../../common';
 import { off, on } from '@td/utils';
 import type { FixedColumnInfo, RowAndColFixedPosition, TableColFixedClasses, TableRowFixedClasses } from '../interface';

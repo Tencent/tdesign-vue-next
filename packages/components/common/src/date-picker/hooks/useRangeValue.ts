@@ -8,8 +8,8 @@ import {
   getDefaultFormat,
   initYearMonthTime,
   isValidDate,
-} from '@td/shared/_common/js/date-picker/format';
-import { extractTimeFormat } from '@td/shared/_common/js/date-picker/utils';
+} from '@td/common/js/date-picker/format';
+import { extractTimeFormat } from '@td/common/js/date-picker/utils';
 import { useVModel } from '@td/adapter-hooks';
 
 export const PARTIAL_MAP = { first: 'start', second: 'end' };

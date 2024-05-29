@@ -1,6 +1,6 @@
 import type { Ref, UnwrapRef } from '@td/adapter-vue';
 import { computed, nextTick, onMounted, ref } from '@td/adapter-vue';
-import observe from '@td/shared/_common/js/utils/observe';
+import observe from '@td/common/js/utils/observe';
 import { isServer } from '@td/utils';
 
 export type UseLazyLoadParams = UnwrapRef<{

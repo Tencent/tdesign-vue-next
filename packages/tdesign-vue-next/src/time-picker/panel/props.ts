@@ -2,7 +2,7 @@ import { isBoolean } from 'lodash-es';
 import type { PropType } from 'vue';
 import type dayjs from 'dayjs';
 
-import { EPickerCols } from '@td/shared/_common/js/time-picker/const';
+import { EPickerCols } from '@td/common/js/time-picker/const';
 import * as Props from '../props';
 import type { TdTimePickerProps, TdTimeRangePickerProps } from '../type';
 

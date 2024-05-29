@@ -1,1 +1,1 @@
-import '@td/shared/_common/style/web/components/statistic/_index.less';
+import '@td/common/style/web/components/statistic/_index.less';

@@ -13,9 +13,9 @@ import BaseUsage from './components/base-usage.vue';
 // import '@common/style/web/docs.less';
 
 // vue23:!tod 先临时替换成这样
-import '@td/shared/_common/style/web/_global.less';
-import '@td/shared/_common/style/web/theme/_index.less';
-import '@td/shared/_common/style/web/docs.less';
+import '@td/common/style/web/_global.less';
+import '@td/common/style/web/theme/_index.less';
+import '@td/common/style/web/docs.less';
 
 // import site webComponents
 import 'tdesign-site-components';

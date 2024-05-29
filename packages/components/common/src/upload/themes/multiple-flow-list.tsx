@@ -24,7 +24,7 @@ import {
   VIDEO_REGEXP,
   abridgeName,
   returnFileSize,
-} from '@td/shared/_common/js/upload/utils';
+} from '@td/common/js/upload/utils';
 import { useTNodeJSX } from '@td/adapter-hooks';
 import useGlobalIcon from '../../hooks/useGlobalIcon';
 import type { ImageViewerProps } from '../../image-viewer';

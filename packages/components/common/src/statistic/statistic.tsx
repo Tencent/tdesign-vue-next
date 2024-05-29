@@ -6,8 +6,8 @@ import {
 import { isFunction, isNumber } from 'lodash-es';
 import props from '@td/intel/statistic/props';
 import { useGlobalIcon, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
-import Tween from '@td/shared/_common/js/statistic/tween';
-import { COLOR_MAP } from '@td/shared/_common/js/statistic/utils';
+import Tween from '@td/common/js/statistic/tween';
+import { COLOR_MAP } from '@td/common/js/statistic/utils';
 import Skeleton from '../skeleton';
 
 export default defineComponent({

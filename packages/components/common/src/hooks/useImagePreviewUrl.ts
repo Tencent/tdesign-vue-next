@@ -1,6 +1,6 @@
 import type { ComputedRef, Ref } from '@td/adapter-vue';
 import { ref, watch } from '@td/adapter-vue';
-import { getFileUrlByFileRaw } from '@td/shared/_common/js/upload/utils';
+import { getFileUrlByFileRaw } from '@td/common/js/upload/utils';
 
 export function useImagePreviewUrl(imgUrl: Ref<string | File> | ComputedRef<string | File>) {
   const previewUrl = ref('');

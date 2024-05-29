@@ -8,9 +8,9 @@ import {
   getTriggerTextField,
   upload,
   validateFile,
-} from '@td/shared/_common/js/upload/main';
-import { getFileList } from '@td/shared/_common/js/upload/utils';
-import type { InnerProgressContext, OnResponseErrorContext, SuccessContext } from '@td/shared/_common/js/upload/types';
+} from '@td/common/js/upload/main';
+import { getFileList } from '@td/common/js/upload/utils';
+import type { InnerProgressContext, OnResponseErrorContext, SuccessContext } from '@td/common/js/upload/types';
 import { useConfig } from '@td/adapter-hooks';
 import { useVModel } from '@td/adapter-hooks';
 

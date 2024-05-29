@@ -12,7 +12,7 @@ import type {
   TdPrimaryTableProps,
 } from '@td/intel/table/type';
 import { get } from 'lodash-es';
-import log from '@td/shared/_common/js/log';
+import log from '@td/common/js/log';
 import { usePrefixClass } from '@td/adapter-hooks';
 import type { ComponentScrollToElementParams } from '@td/shared/interface';
 import useTreeSelect from './hooks/useTreeSelect';

@@ -3,7 +3,7 @@ import { isFunction } from 'lodash-es';
 import props from '@td/intel/guide/props';
 import type { GuideStep, TdGuideProps } from '@td/intel/guide/type';
 import { useConfig, usePrefixClass, useTNodeJSX, useVModel } from '@td/adapter-hooks';
-import setStyle from '@td/shared/_common/js/utils/set-style';
+import setStyle from '@td/common/js/utils/set-style';
 import { addClass, getWindowScroll, isFixed, removeClass } from '@td/utils';
 import { Popup } from '@td/components';
 import Button from '../button';

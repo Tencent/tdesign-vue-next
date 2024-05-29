@@ -3,9 +3,9 @@ import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import isUndefined from 'lodash/isUndefined';
 
-import { DEFAULT_FORMAT, DEFAULT_STEPS } from '@td/shared/_common/js/time-picker/const';
+import { DEFAULT_FORMAT, DEFAULT_STEPS } from '@td/common/js/time-picker/const';
 import type { TimePickerValue, TimeRangeValue } from '@td/intel/time-picker/type';
-import log from '@td/shared/_common/js/log';
+import log from '@td/common/js/log';
 import { useConfig, usePrefixClass } from '@td/adapter-hooks';
 import { panelProps } from '@td/intel/time-picker/panel/props';
 import TButton from '../../button/button';

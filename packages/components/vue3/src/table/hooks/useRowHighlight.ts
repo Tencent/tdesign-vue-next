@@ -10,7 +10,7 @@ import {
   ESCAPE_REG,
   SHIFT_REG,
   SPACE_REG,
-} from '@td/shared/_common/js/common';
+} from '@td/common/js/common';
 import { off, on } from '@td/utils';
 import { useDefaultValue } from '@td/adapter-hooks';
 import type { BaseTableProps } from '../interface';

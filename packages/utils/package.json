@@ -7,7 +7,6 @@
   "keywords": [],
   "main": "index.ts",
   "dependencies": {
-    "@td/shared": "workspace:^",
     "lodash-es": "^4.17.21",
     "raf": "^3.4.1"
   },

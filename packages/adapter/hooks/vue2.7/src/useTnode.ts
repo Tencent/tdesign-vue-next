@@ -4,7 +4,7 @@ import type { SetupContext, VNode } from '@td/adapter-vue';
 import { camelCase, isEmpty, isFunction, kebabCase } from 'lodash-es';
 import { getDefaultNode, getParams } from './useRenderTNode';
 import type { JSXRenderContext, OptionsType } from './useRenderTNode';
-// import log from '@td/shared/_common/js/log';
+// import log from '@td/common/js/log';
 
 // 兼容处理插槽名称，同时支持驼峰命名和中划线命名，示例：value-display 和 valueDisplay
 function handleSlots(slots: SetupContext['slots'], name: string, params: Record<string, any>) {

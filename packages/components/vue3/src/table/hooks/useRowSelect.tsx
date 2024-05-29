@@ -12,8 +12,8 @@ import type {
   TableRowData,
   TdPrimaryTableProps,
 } from '@td/intel/table/type';
-import { isRowSelectedDisabled } from '@td/shared/_common/js/table/utils';
-import log from '@td/shared/_common/js/log';
+import { isRowSelectedDisabled } from '@td/common/js/table/utils';
+import log from '@td/common/js/log';
 import { useDefaultValue } from '@td/adapter-hooks';
 import { Radio } from '@td/components-common';
 import Checkbox from '../../checkbox';

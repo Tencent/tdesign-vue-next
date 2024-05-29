@@ -12,8 +12,8 @@ import {
   initYearMonthTime,
   isValidDate,
   parseToDayjs,
-} from '@td/shared/_common/js/date-picker/format';
-import { addMonth, extractTimeObj, subtractMonth } from '@td/shared/_common/js/date-picker/utils';
+} from '@td/common/js/date-picker/format';
+import { addMonth, extractTimeObj, subtractMonth } from '@td/common/js/date-picker/utils';
 
 import { RangeInputPopup as TRangeInputPopup } from '../range-input';
 import useRange from './hooks/useRange';

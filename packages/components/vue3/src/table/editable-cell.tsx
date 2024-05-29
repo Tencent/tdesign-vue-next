@@ -11,7 +11,7 @@ import type {
   TdBaseTableProps,
 } from '@td/intel/table/type';
 import { useGlobalIcon, usePrefixClass } from '@td/adapter-hooks';
-import log from '@td/shared/_common/js/log';
+import log from '@td/common/js/log';
 import { validate } from '@td/components-common/src/form/form-model';
 import type { AllValidateResult } from '@td/intel/form/type';
 import { off, on } from '@td/utils';

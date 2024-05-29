@@ -2,7 +2,7 @@ import { computed, defineComponent, toRefs } from '@td/adapter-vue';
 import props from '@td/intel/tag/check-tag-props';
 import { useCommonClassName, useContent, usePrefixClass, useVModel } from '@td/adapter-hooks';
 import type { TdCheckTagProps, TdTagProps } from '@td/intel/tag/type';
-import { ENTER_REG, SPACE_REG } from '@td/shared/_common/js/common';
+import { ENTER_REG, SPACE_REG } from '@td/common/js/common';
 import Tag from './tag';
 
 export default defineComponent({

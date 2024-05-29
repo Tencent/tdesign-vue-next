@@ -9,8 +9,8 @@ import {
   watch,
 } from '@td/adapter-vue';
 import { get, isFunction, pick } from 'lodash-es';
-import log from '@td/shared/_common/js/log';
-import { getIEVersion } from '@td/shared/_common/js/utils/helper';
+import log from '@td/common/js/log';
+import { getIEVersion } from '@td/common/js/utils/helper';
 import type { ComponentScrollToElementParams, Styles } from '@td/shared/interface';
 import type { BaseTableCol, TableRowData } from '@td/intel/table/type';
 import props from '@td/intel/table/base-table-props';

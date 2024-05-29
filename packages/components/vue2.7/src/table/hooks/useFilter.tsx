@@ -7,7 +7,7 @@ import { computed, ref, toRefs, watch,
 import { isFunction } from 'lodash-es';
 import { useConfig, useDefaultValue, useTNodeDefault } from '@td/adapter-hooks';
 import { Button as TButton } from '@td/component';
-import { getColumnsResetValue } from '@td/shared/_common/js/table/utils';
+import { getColumnsResetValue } from '@td/common/js/table/utils';
 import type {
   FilterValue,
   PrimaryTableCol,

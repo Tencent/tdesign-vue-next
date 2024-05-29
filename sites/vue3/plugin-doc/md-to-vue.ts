@@ -3,7 +3,7 @@ import path from 'node:path';
 import matter from 'gray-matter';
 import camelCase from 'camelcase';
 
-// import { compileUsage, getGitTimestamp } from '@td/shared/_common/docs/compile';
+// import { compileUsage, getGitTimestamp } from '@td/common/docs/compile';
 // ! zhangpaopao 因为 common/_common 为 cjs 的，所以无法通过 ESM 加载
 // 问题来了，为啥 path 可以呢？ 因为 path 是本地文件，而 workspace 是 node_models(依赖)
 

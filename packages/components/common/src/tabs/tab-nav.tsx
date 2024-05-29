@@ -8,7 +8,7 @@ import {
 import type { TdTabsProps } from '@td/intel/tabs/type';
 import tabProps from '@td/intel/tabs/props';
 import { useCommonClassName, useDragSort, useGlobalIcon, usePrefixClass, useResize } from '@td/adapter-hooks';
-import tabBase from '@td/shared/_common/js/tabs/base';
+import tabBase from '@td/common/js/tabs/base';
 
 // 子组件
 import type TTabPanel from './tab-panel';

@@ -7,8 +7,8 @@ import { computed, onUnmounted, ref, shallowRef, toRefs, watch,
 import { AddRectangleIcon as TdAddRectangleIcon, MinusRectangleIcon as TdMinusRectangleIcon } from 'tdesign-icons-vue';
 import { get } from 'lodash-es';
 import { useConfig, useGlobalIcon, useTNodeDefault } from '@td/adapter-hooks';
-import type { SwapParams } from '@td/shared/_common/js/table/tree-store';
-import TableTreeStore from '@td/shared/_common/js/table/tree-store';
+import type { SwapParams } from '@td/common/js/table/tree-store';
+import TableTreeStore from '@td/common/js/table/tree-store';
 import type {
   PrimaryTableCellParams,
   PrimaryTableCol,

@@ -12,7 +12,7 @@ import {
   getMaxOrMinValidateResult,
   getStepValue,
   largeNumberToFixed,
-} from '@td/shared/_common/js/input-number/number';
+} from '@td/common/js/input-number/number';
 import type { StrInputProps } from '../input';
 
 /**

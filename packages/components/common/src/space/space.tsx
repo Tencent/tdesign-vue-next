@@ -3,7 +3,7 @@ import { Fragment, computed, defineComponent } from '@td/adapter-vue';
 import props from '@td/intel/space/props';
 import { useChildSlots, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import { isArray, isNumber, isString } from 'lodash-es';
-import { getFlexGapPolyFill } from '@td/shared/_common/js/utils/helper';
+import { getFlexGapPolyFill } from '@td/common/js/utils/helper';
 
 const sizeMap = { small: '8px', medium: '16px', large: '24px' };
 const defaultNeedPolyfill = getFlexGapPolyFill();

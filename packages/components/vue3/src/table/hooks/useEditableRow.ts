@@ -1,6 +1,6 @@
 import { computed, ref, toRefs, watch } from '@td/adapter-vue';
 import { cloneDeep, get, isFunction, set } from 'lodash-es';
-import { getEditableKeysMap } from '@td/shared/_common/js/table/utils';
+import { getEditableKeysMap } from '@td/common/js/table/utils';
 import type {
   ErrorListObjectType,
   PrimaryTableCellParams,

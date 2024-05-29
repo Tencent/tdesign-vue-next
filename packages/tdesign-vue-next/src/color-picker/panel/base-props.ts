@@ -1,5 +1,5 @@
 import type { PropType } from 'vue';
-import type { Color } from '@td/shared/_common/js/color-picker';
+import type { Color } from '@td/common/js/color-picker';
 
 export default {
   /** 是否禁用组件 */

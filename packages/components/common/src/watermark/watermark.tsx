@@ -1,9 +1,9 @@
 import { computed, defineComponent, onMounted, reactive, ref, watch } from '@td/adapter-vue';
 import props from '@td/intel/watermark/props';
 import { useContent, usePrefixClass } from '@td/adapter-hooks';
-import generateBase64Url from '@td/shared/_common/js/watermark/generateBase64Url';
-import randomMovingStyle from '@td/shared/_common/js/watermark/randomMovingStyle';
-import injectStyle from '@td/shared/_common/js/utils/injectStyle';
+import generateBase64Url from '@td/common/js/watermark/generateBase64Url';
+import randomMovingStyle from '@td/common/js/watermark/randomMovingStyle';
+import injectStyle from '@td/common/js/utils/injectStyle';
 import { useMutationObserver } from './hooks';
 
 export default defineComponent({

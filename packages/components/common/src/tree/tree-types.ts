@@ -1,5 +1,5 @@
 import type { TdTreeProps, TreeNodeModel, TreeNodeState, TreeNodeValue } from '@td/intel/tree/type';
-import type { TreeStore } from '@td/shared/_common/js/tree/tree-store';
+import type { TreeStore } from '@td/common/js/tree/tree-store';
 import type {
   TreeProps as AdaptTreeProps,
   TypeTreeInstance as AdaptTypeTreeInstance,

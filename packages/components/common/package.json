@@ -9,7 +9,7 @@
     "@popperjs/core": "^2.11.8",
     "@td/adapter-hooks": "workspace:^",
     "@td/adapter-vue": "workspace:^",
-    "@td/shared": "workspace:^",
+    "@td/common": "workspace:tdesign-common@^",
     "@td/utils": "workspace:^",
     "clipboard": "^2.0.11",
     "dayjs": "^1.11.10",

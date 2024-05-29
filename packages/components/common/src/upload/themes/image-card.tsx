@@ -7,7 +7,7 @@ import {
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
 import type { TdUploadProps, UploadFile } from '@td/intel/upload/type';
-import { abridgeName } from '@td/shared/_common/js/upload/utils';
+import { abridgeName } from '@td/common/js/upload/utils';
 import { useTNodeJSX } from '@td/adapter-hooks';
 import { Loading } from '../../loading';
 import useGlobalIcon from '../../hooks/useGlobalIcon';

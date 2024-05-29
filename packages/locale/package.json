@@ -4,6 +4,6 @@
   "title": "",
   "description": "",
   "dependencies": {
-    "@td/shared": "workspace:^"
+    "@td/common": "workspace:tdesign-common@^"
   }
 }

@@ -1,5 +1,5 @@
 import { pick } from 'lodash-es';
-import { TreeStore } from '@td/shared/_common/js/tree/tree-store';
+import { TreeStore } from '@td/common/js/tree/tree-store';
 import type { TypeRef } from '../adapt';
 import { watch } from '../adapt';
 import type {

@@ -1,4 +1,4 @@
-import { flagActive, getMonths, getQuarters, getWeeks, getYears } from '@td/shared/_common/js/date-picker/utils';
+import { flagActive, getMonths, getQuarters, getWeeks, getYears } from '@td/common/js/date-picker/utils';
 import { useConfig } from '@td/adapter-hooks';
 
 export default function useTableData(props: any) {

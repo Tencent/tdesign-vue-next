@@ -1,2 +1,2 @@
-import '@td/shared/_common/style/web/_global.less';
-import '@td/shared/_common/style/web/theme/_index.less';
+import '@td/common/style/web/_global.less';
+import '@td/common/style/web/theme/_index.less';

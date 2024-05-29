@@ -18,8 +18,8 @@ import { useCommonClassName, useDisabled, usePrefixClass, useTNodeJSX, useVModel
 
 import props from '@td/intel/textarea/props';
 import type { TdTextareaProps, TextareaValue } from '@td/intel/textarea/type';
-import { getCharacterLength } from '@td/shared/_common/js/utils/helper';
-import setStyle from '@td/shared/_common/js/utils/set-style';
+import { getCharacterLength } from '@td/common/js/utils/helper';
+import setStyle from '@td/common/js/utils/set-style';
 import { useFormDisabled } from '../form/hooks';
 import { FormItemInjectionKey } from '../form/const';
 import useLengthLimit from '../input/useLengthLimit';

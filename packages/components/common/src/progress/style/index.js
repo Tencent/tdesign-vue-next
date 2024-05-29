@@ -1,1 +1,1 @@
-import '@td/shared/_common/style/web/components/progress/_index.less';
+import '@td/common/style/web/components/progress/_index.less';

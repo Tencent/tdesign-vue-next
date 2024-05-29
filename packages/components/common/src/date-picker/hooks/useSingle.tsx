@@ -10,7 +10,7 @@ import {
   getDefaultFormat,
   isValidDate,
   parseToDayjs,
-} from '@td/shared/_common/js/date-picker/format';
+} from '@td/common/js/date-picker/format';
 import { useDisabled, useGlobalIcon, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import useSingleValue from './useSingleValue';
 

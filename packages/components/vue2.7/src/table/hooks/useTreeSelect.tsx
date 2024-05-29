@@ -6,7 +6,7 @@ import {
   watch,
 } from '@td/adapter-vue';
 import { get, intersection } from 'lodash-es';
-import type { KeysType, TableTreeDataMap, TreeDataMapType } from '@td/shared/_common/js/table/tree-store';
+import type { KeysType, TableTreeDataMap, TreeDataMapType } from '@td/common/js/table/tree-store';
 import { useDefaultValue } from '@td/adapter-hooks';
 import type {
   PrimaryTableCol,
