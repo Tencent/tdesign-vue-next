@@ -1,5 +1,5 @@
 {
-  "extends": "./default.json",
+  "extends": "./base.json",
   "compilerOptions": {
     "paths": {
       "@adapter/vue": [
