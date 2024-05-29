@@ -1,9 +1,0 @@
-{
-  "name": "@td/adapter-utils",
-  "version": "0.0.1",
-  "description": "",
-  "author": "",
-  "license": "ISC",
-  "keywords": [],
-  "main": "index.ts"
-}
