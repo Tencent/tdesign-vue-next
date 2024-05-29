@@ -18,7 +18,7 @@ import { getFormItemClassName } from './form-item';
 import type { FormItemContext } from './const';
 import { FormInjectionKey, useCLASSNAMES } from './const';
 
-import type { FormDisabledProvider } from './hooks';
+import type { FormDisabledProvider, FormReadonlyProvider } from './hooks';
 
 type Result = FormValidateResult<TdFormProps['data']>;
 
@@ -29,9 +29,12 @@ export default defineComponent({
 
   setup(props, { expose }) {
     const renderContent = useTNodeJSX();
-    const { disabled } = toRefs(props);
+    const { disabled, readonly } = toRefs(props);
     provide<FormDisabledProvider>('formDisabled', {
       disabled,
+    });
+    provide<FormReadonlyProvider>('formReadonly', {
+      readonly,
     });
 
     const formRef = ref<HTMLFormElement>(null);

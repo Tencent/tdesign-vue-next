@@ -125,7 +125,12 @@ export default defineComponent({
       return (
         <div class={itemClass} {...attrs} onClick={!props.disabled && props.onClick}>
           {isCutOff.value ? <Tooltip content={() => content}>{itemContent}</Tooltip> : itemContent}
-          <span class={separatorClass.value}>
+          <span
+            class={separatorClass.value}
+            style={{
+              textOverflow: isCutOff.value ? 'ellipsis' : 'clip',
+            }}
+          >
             {isFunction(separatorContent) ? separatorContent() : separatorContent}
           </span>
         </div>

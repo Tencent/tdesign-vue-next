@@ -8,6 +8,8 @@ import props from '@td/intel/input/props';
 import { useCommonClassName, useConfig, useDisabled, useGlobalIcon, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import { isUndefined } from 'lodash-es';
 import type { PlainObject } from '@td/shared/interface';
+import { useReadonly } from '../hooks/useReadonly';
+
 import useInput from './useInput';
 import useInputEventHandler from './useInputEventHandler';
 import useInputWidth from './useInputWidth';
@@ -49,7 +51,9 @@ export default defineComponent({
       BrowseOffIcon: TdBrowseOffIcon,
       CloseCircleFilledIcon: TdCloseCircleFilledIcon,
     });
+    const readonly = useReadonly();
     const disabled = useDisabled();
+
     const COMPONENT_NAME = usePrefixClass('input');
     const INPUT_WRAP_CLASS = usePrefixClass('input__wrap');
     const INPUT_TIPS_CLASS = usePrefixClass('input__tips');
@@ -80,13 +84,13 @@ export default defineComponent({
       getValidAttrs({
         autofocus: props.autofocus,
         disabled: disabled.value,
-        readonly: props.readonly,
+        readonly: readonly.value,
         placeholder: tPlaceholder.value,
         maxlength: (!props.allowInputOverMax && props.maxlength) || undefined,
         name: props.name || undefined,
         type: renderType.value,
         autocomplete: props.autocomplete ?? (globalConfig.value.autocomplete || undefined),
-        unselectable: props.readonly ? 'on' : undefined,
+        unselectable: readonly.value ? 'on' : undefined,
       }),
     );
 
@@ -185,7 +189,7 @@ export default defineComponent({
           [STATUS.value.focused]: disabled.value ? false : focused.value,
           [`${classPrefix.value}-is-${tStatus.value}`]: tStatus.value && tStatus.value !== 'default',
           [`${classPrefix.value}-align-${props.align}`]: props.align !== 'left',
-          [`${classPrefix.value}-is-readonly`]: props.readonly,
+          [`${classPrefix.value}-is-readonly`]: readonly.value,
           [`${COMPONENT_NAME.value}--prefix`]: prefixIcon || labelContent,
           [`${COMPONENT_NAME.value}--suffix`]: suffixIcon || suffixContent,
           [`${COMPONENT_NAME.value}--borderless`]: props.borderless,

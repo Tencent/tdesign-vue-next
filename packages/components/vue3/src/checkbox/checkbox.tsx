@@ -1,6 +1,7 @@
 import { computed, defineComponent, inject, ref, toRefs, watch } from '@td/adapter-vue';
 import props from '@td/intel/checkbox/props';
 import { useCommonClassName, useContent, useDisabled, usePrefixClass, useRipple, useVModel } from '@td/adapter-hooks';
+import { useReadonly } from '../hooks/useReadonly';
 import { CheckboxGroupInjectionKey } from './constants';
 import useCheckboxLazyLoad from './hooks/useCheckboxLazyLoad';
 import useKeyboardEvent from './hooks/useKeyboardEvent';
@@ -83,6 +84,12 @@ export default defineComponent({
     });
     const isDisabled = useDisabled({ beforeDisabled, afterDisabled });
 
+    //  Checkbox.readonly > CheckboxGroup.readonly > Form.readonly
+    const afterReadonly = computed(() => {
+      return checkboxGroupData?.value.readonly;
+    });
+    const isReadonly = useReadonly({ afterReadonly });
+
     const tIndeterminate = ref(false);
     watch(
       () => [props.checkAll, props.indeterminate, checkboxGroupData?.value.indeterminate],
@@ -111,7 +118,7 @@ export default defineComponent({
     );
 
     const handleChange = (e: Event) => {
-      if (props.readonly) {
+      if (isReadonly.value) {
         return;
       }
       const checked = !tChecked.value;
@@ -150,7 +157,7 @@ export default defineComponent({
                 tabindex="-1"
                 class={`${COMPONENT_NAME.value}__former`}
                 disabled={isDisabled.value}
-                readonly={props.readonly}
+                readonly={isReadonly.value}
                 indeterminate={tIndeterminate.value}
                 name={tName.value}
                 value={props.value ? props.value : undefined}

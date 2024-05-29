@@ -139,7 +139,12 @@ export default defineComponent({
       </div>,
     ];
     return (
-      <div class={this.listClass} onScroll={this.handleScroll} ref="listRef">
+      <div
+        class={this.listClass}
+        onScroll={this.handleScroll}
+        ref="listRef"
+        style={this.isVirtualScroll ? 'position:relative' : undefined}
+      >
         {listContent}
       </div>
     );

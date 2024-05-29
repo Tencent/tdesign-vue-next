@@ -50,6 +50,10 @@ export interface TdFormProps<FormData extends Data = Data> {
    */
   preventSubmitDefault?: boolean;
   /**
+   * 是否整个表单只读
+   */
+  readonly?: boolean;
+  /**
    * 是否显示必填符号（*），默认显示
    */
   requiredMark?: boolean;

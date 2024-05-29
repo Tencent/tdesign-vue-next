@@ -1,6 +1,6 @@
 /** 超出省略显示 */
 import type { PropType } from '@td/adapter-vue';
-import { computed, defineComponent, ref } from '@td/adapter-vue';
+import { computed, defineComponent, onMounted, ref } from '@td/adapter-vue';
 import { debounce } from 'lodash-es';
 import type { AttachNode, TNode } from '@td/shared/interface';
 import { isTextEllipsis } from '@td/adapter-utils';
@@ -50,6 +50,9 @@ export default defineComponent({
 
   setup(props) {
     const root = ref();
+
+    // 用于判断是否需要渲染 Tooltop
+    const flag = ref(false);
     const isOverflow = ref(false);
 
     const ellipsisClasses = computed(() => [
@@ -62,12 +65,17 @@ export default defineComponent({
       props.overlayClassName,
     ]);
 
-    // 当表格数据量大时，不希望默认渲染全量的 Tooltip，期望在用户 mouseenter 的时候再显示
+    onMounted(() => {
+      isOverflow.value = isTextEllipsis(root.value);
+    });
+
+    // 当表格数据量大时，不希望默认渲染全量的 Tooltip，期望在用户 mouseenter 的时候再显示，通过 flag 判断
     const onTriggerMouseenter = () => {
       if (!root.value) {
         return;
       }
       isOverflow.value = isTextEllipsis(root.value);
+      flag.value = true;
     };
 
     const onTriggerMouseleave = () => {
@@ -75,6 +83,7 @@ export default defineComponent({
         return;
       }
       isOverflow.value = isTextEllipsis(root.value);
+      flag.value = false;
     };
 
     // 使用 debounce 有两个原因：1. 避免 safari/firefox 等浏览器不显示省略浮层；2. 避免省略列快速滚动时，出现一堆的省略浮层
@@ -83,6 +92,7 @@ export default defineComponent({
     }, 80);
 
     return {
+      flag,
       root,
       isOverflow,
       ellipsisClasses,
@@ -96,13 +106,21 @@ export default defineComponent({
     const renderContent = useContent();
     const cellNode = renderContent('default', 'content');
     const ellipsisContent = (
-      <div ref="root" class={this.ellipsisClasses} onMouseenter={this.onMouseAround} onMouseleave={this.onMouseAround}>
+      <div
+        ref="root"
+        class={this.ellipsisClasses}
+        onMouseenter={this.onMouseAround}
+        onMouseleave={this.onMouseAround}
+        style={{
+          textOverflow: this.isOverflow ? 'ellipsis' : 'clip',
+        }}
+      >
         {cellNode}
       </div>
     );
     let content = null;
     const tooltipProps = this.tooltipProps as EllipsisProps['tooltipProps'];
-    if (this.isOverflow) {
+    if (this.isOverflow && this.flag) {
       const rProps = {
         content: (this.tooltipContent as string) || (() => cellNode),
         destroyOnClose: true,

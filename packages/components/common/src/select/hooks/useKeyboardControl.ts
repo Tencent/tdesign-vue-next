@@ -15,6 +15,7 @@ export interface useKeyboardControlType {
   setInnerPopupVisible: ChangeHandler<boolean, [context: PopupVisibleChangeContext]>;
   selectPanelRef: Ref<{ isVirtual: boolean; innerRef: HTMLDivElement }>;
   isFilterable: ComputedRef<boolean>;
+  isRemoteSearch: ComputedRef<boolean>;
   getSelectedOptions: (selectValue?: SelectValue[] | SelectValue) => TdOptionProps[];
   setInnerValue: Function;
   innerValue: Ref<SelectValue[]>;
@@ -31,6 +32,7 @@ export default function useKeyboardControl({
   setInnerPopupVisible,
   selectPanelRef,
   isFilterable,
+  isRemoteSearch,
   getSelectedOptions,
   setInnerValue,
   innerValue,
@@ -81,6 +83,8 @@ export default function useKeyboardControl({
         let finalOptions
           = selectPanelRef.value.isVirtual && isFilterable.value && virtualFilteredOptions.value.length
             ? virtualFilteredOptions.value
+            : isRemoteSearch.value
+            ? optionsList.value
             : filteredOptions.value;
 
         if (!finalOptions.length) {
@@ -121,6 +125,7 @@ export default function useKeyboardControl({
             trigger: newValue.isCheck ? 'check' : 'uncheck',
             e,
           });
+          filteredOptions.value = [];
         }
         break;
       case 'Escape':

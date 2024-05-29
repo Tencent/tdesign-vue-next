@@ -267,9 +267,8 @@ export function clickOut(els: VNode | Element | Iterable<any> | ArrayLike<any>, 
 // 用于判断节点内容是否溢出
 export function isTextEllipsis(ele: ComponentPublicInstance | Element | ComponentPublicInstance[] | Element[]): boolean {
   const { clientWidth = 0, scrollWidth = 0 } = ele as Element & { clientWidth: number; scrollWidth: number };
-  // css text ellipsis will take effect when scrollWidth >= clientWidth
-  return scrollWidth >= clientWidth;
-}
+  return scrollWidth > clientWidth;
+};
 
 // 将子元素selected滚动到父元素parentEle的可视范围内
 export function scrollSelectedIntoView(parentEle: HTMLElement, selected: HTMLElement) {

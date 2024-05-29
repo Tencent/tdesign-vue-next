@@ -72,7 +72,10 @@ export default {
     type: Function as PropType<TdInputProps['prefixIcon']>,
   },
   /** 只读状态 */
-  readonly: Boolean,
+  readonly: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 输入框内容为空时，悬浮状态是否显示清空按钮，默认不显示 */
   showClearIconOnEmpty: Boolean,
   /** 是否在输入框右侧显示字数统计 */

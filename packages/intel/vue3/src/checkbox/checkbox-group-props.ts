@@ -11,6 +11,11 @@ export default {
     type: Boolean,
     default: undefined,
   },
+  /** 是否禁用组件，默认为 false。优先级：Form.readonly < CheckboxGroup.readonly < Checkbox.readonly */
+  readonly: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 是否启用懒加载。子组件 Checkbox 数据量大时建议开启；加载复杂内容或大量图片时建议开启 */
   lazyLoad: Boolean,
   /** 支持最多选中的数量 */

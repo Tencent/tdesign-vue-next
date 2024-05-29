@@ -136,6 +136,10 @@ export default defineComponent({
       return Boolean(props.filterable || globalConfig.value.filterable || isFunction(props.filter));
     });
 
+    const isRemoteSearch = computed(() => {
+      return Boolean((props.filterable || globalConfig.value.filterable) && isFunction(props.onSearch));
+    });
+
     // 移除tag
     const removeTag = (index: number, e?: MouseEvent) => {
       e && e.stopPropagation();
@@ -189,6 +193,7 @@ export default defineComponent({
       setInnerPopupVisible,
       selectPanelRef,
       isFilterable,
+      isRemoteSearch,
       getSelectedOptions,
       setInnerValue,
       innerValue,

@@ -6,6 +6,7 @@ export interface CheckboxGroupInjectData {
   isCheckAll: boolean;
   maxExceeded: boolean;
   disabled: boolean;
+  readonly: boolean;
   indeterminate: boolean;
   checkedValues: TdCheckboxGroupProps['value'];
   handleCheckboxChange: (data: { checked: boolean; e: Event; option: TdCheckboxProps }) => void;

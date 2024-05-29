@@ -1,6 +1,7 @@
 import { computed, defineComponent, h, ref } from '@td/adapter-vue';
 import props from '@td/intel/button/props';
 import { useCommonClassName, useContent, useDisabled, usePrefixClass, useRipple, useTNodeJSX } from '@td/adapter-hooks';
+import type { TdButtonProps } from '@td/intel/button/type';
 import TLoading from '../loading';
 
 export default defineComponent({
@@ -44,7 +45,13 @@ export default defineComponent({
 
     return () => {
       let buttonContent = renderContent('default', 'content');
-      const icon = props.loading ? <TLoading inheritColor={true} /> : renderTNodeJSX('icon');
+      const icon = props.loading
+        ? (
+          <TLoading {...{ inheritColor: true, ...(props.loadingProps as TdButtonProps['loadingProps']) }} />
+          )
+        : (
+            renderTNodeJSX('icon')
+          );
       const iconOnly = icon && !buttonContent;
       const suffix
         = props.suffix || slots.suffix
