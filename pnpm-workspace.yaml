@@ -1,5 +1,5 @@
 packages:
-  - "sites/*"
-  - "packages/**"
-  - "configs/*"
-  - "libs/*"
+  - 'sites/*'
+  - 'packages/**'
+  - 'configs/*'
+  - 'internal/*'

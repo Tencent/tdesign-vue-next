@@ -1,15 +1,15 @@
 {
   "name": "@td/libs-vue-babel-preset-jsx",
+  "type": "module",
   "version": "0.0.1",
   "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@babel/helper-module-imports": "^7.22.15",
     "@babel/plugin-syntax-jsx": "^7.23.3",
