@@ -19,6 +19,7 @@ const COMMON_PROPERTIES = [
   'label',
   'placeholder',
   'readonly',
+  'prefixIcon',
   'suffix',
   'suffixIcon',
   'onPaste',
