@@ -1,8 +1,8 @@
 {
-  "name": "@td/components-locale",
+  "name": "@td/locale",
   "version": "1.9.3",
-  "title": "tdesign-vue-next",
-  "description": "TDesign Component for vue-next",
+  "title": "",
+  "description": "",
   "dependencies": {
     "@td/shared": "workspace:^"
   }
