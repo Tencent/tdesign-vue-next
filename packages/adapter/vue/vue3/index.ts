@@ -42,3 +42,6 @@ export {
 };
 
 export default Vue;
+
+// utils
+export * from './utils';
