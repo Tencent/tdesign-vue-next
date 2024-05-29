@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdDatePickerPanelProps, TdDatePickerProps, TdDateRangePickerPanelProps, TdDateRangePickerProps } from '@td/intel/date-picker/type';
 import _DatePicker from './DatePicker';
 import _DatePickerPanel from './DatePickerPanel';

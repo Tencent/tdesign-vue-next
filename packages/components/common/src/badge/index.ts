@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdBadgeProps } from '@td/intel/badge/type';
 import _Badge from './badge';
 

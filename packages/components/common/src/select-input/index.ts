@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdSelectInputProps } from '@td/intel/select-input/type';
 import _SelectInput from './select-input';
 

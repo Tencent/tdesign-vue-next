@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdCascaderProps } from '@td/intel/cascader/type';
 import type { TreeOptionData } from '@td/shared/interface';
 import _CascaderPanel from './cascader-panel';

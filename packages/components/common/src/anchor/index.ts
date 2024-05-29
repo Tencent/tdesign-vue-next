@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdAnchorItemProps, TdAnchorProps, TdAnchorTargetProps } from '@td/intel/anchor/type';
 import _Anchor from './anchor';
 import _AnchorItem from './anchor-item';

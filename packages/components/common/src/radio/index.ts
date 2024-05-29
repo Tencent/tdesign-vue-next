@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdRadioGroupProps, TdRadioProps } from '@td/intel/radio/type';
 import _Radio from './radio';
 import _Group from './group';

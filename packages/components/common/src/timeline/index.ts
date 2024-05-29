@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdTimelineProps } from '@td/intel/timeline/type';
 import _Timeline from './timeline';
 import _TimelineItem from './timeline-item';

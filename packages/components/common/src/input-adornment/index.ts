@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdInputAdornmentProps } from '@td/intel/input-adornment/type';
 import _InputAdornment from './input-adornment';
 

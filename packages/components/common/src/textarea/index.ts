@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdTextareaProps } from '@td/intel/textarea/type';
 import _Textarea from './textarea';
 

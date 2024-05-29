@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdColProps, TdRowProps } from '@td/intel/grid/type';
 import _Row from './row';
 import _Col from './col';

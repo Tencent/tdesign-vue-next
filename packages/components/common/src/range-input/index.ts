@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdRangeInputPopupProps, TdRangeInputProps } from '@td/intel/range-input/type';
 import _RangeInput from './range-input';
 import _RangeInputPopup from './range-input-popup';

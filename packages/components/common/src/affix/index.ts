@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdAffixProps } from '@td/intel/affix/type';
 import _Affix from './affix';
 

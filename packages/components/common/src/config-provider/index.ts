@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import _ConfigProvider from './config-provider';
 
 export * from '@td/intel/config-provider/type';

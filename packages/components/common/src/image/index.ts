@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdImageProps } from '@td/intel/image/type';
 import _Image from './image';
 

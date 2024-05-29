@@ -1,5 +1,5 @@
 import { cloneDeep } from 'lodash-es';
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { BaseTableInstanceFunctions, EnhancedTableInstanceFunctions, PrimaryTableInstanceFunctions } from '@td/intel/table/type';
 import type { InfinityScroll } from '@td/shared/interface';
 import _BaseTable from './base-table';

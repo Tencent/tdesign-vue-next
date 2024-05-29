@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdStickyItemProps, TdStickyToolProps } from '@td/intel/sticky-tool/type';
 import _StickyTool from './sticky-tool';
 import _StickyItem from './sticky-item';

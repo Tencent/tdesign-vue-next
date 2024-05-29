@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdNotificationProps } from '@td/intel/notification/type';
 import _Notification from './notification';
 

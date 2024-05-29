@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdTooltipProps } from '@td/intel/tooltip/type';
 import _Tooltip from './tooltip';
 

@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdMessageProps } from '@td/intel/message/type';
 import _Message from './message';
 

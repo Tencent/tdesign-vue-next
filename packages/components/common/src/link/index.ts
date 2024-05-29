@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdLinkProps } from '@td/intel/link/type';
 import _Link from './link';
 

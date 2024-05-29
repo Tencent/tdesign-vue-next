@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import _BaseTable from './base-table';
 import _PrimaryTable from './primary-table';
 import _EnhancedTable from './enhanced-table';

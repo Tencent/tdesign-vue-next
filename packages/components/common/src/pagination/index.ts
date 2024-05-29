@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdPaginationMiniProps, TdPaginationProps } from '@td/intel/pagination/type';
 import _Pagination from './pagination';
 import _PaginationMini from './pagination-mini';

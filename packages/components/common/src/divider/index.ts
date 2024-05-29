@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdDividerProps } from '@td/intel/divider/type';
 import _Divider from './divider';
 

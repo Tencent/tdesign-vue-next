@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdSpaceProps } from '@td/intel/space/type';
 import _Space from './space';
 

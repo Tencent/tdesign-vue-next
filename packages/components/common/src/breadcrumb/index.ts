@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdBreadcrumbItemProps, TdBreadcrumbProps } from '@td/intel/breadcrumb/type';
 import _Breadcrumb from './breadcrumb';
 import _BreadcrumbItem from './breadcrumb-item';

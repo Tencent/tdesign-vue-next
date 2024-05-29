@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdCalendarProps } from '@td/intel/calendar/type';
 import _Calendar from './calendar';
 

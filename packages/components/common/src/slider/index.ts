@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdSliderProps } from '@td/intel/slider/type';
 import _Slider from './slider';
 import _SliderButton from './slider-button';

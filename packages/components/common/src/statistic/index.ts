@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdStatisticProps } from '@td/intel/statistic/type';
 import _Statistic from './statistic';
 

@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdLoadingProps } from '@td/intel/loading/type';
 import { vLoading } from './directive';
 import _Loading from './loading';

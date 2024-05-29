@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { Data, TdFormItemProps, TdFormProps } from '@td/intel/form/type';
 import _Form from './form';
 import _FormItem from './form-item';

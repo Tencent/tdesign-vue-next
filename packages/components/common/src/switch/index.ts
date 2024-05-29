@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdSwitchProps } from '@td/intel/switch/type';
 import _Switch from './switch';
 

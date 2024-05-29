@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { InputValue, TdInputProps } from '@td/intel/input/type';
 import _Input from './input';
 import _InputGroup from './input-group';

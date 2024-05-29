@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdCardProps } from '@td/intel/card/type';
 import _Card from './card';
 

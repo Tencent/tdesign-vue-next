@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdCommentProps } from '@td/intel/comment/type';
 import _Comment from './comment';
 

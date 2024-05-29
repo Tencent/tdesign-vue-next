@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdAlertProps } from '@td/intel/alert/type';
 import _Alert from './alert';
 

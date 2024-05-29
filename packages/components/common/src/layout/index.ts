@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdAsideProps, TdFooterProps, TdHeaderProps } from '@td/intel/layout/type';
 import _Layout from './layout';
 import _Header from './header';

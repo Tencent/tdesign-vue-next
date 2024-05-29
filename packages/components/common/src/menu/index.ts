@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdHeadMenuProps, TdMenuItemProps, TdMenuProps, TdSubmenuProps } from '@td/intel/menu/type';
 import _Menu from './menu';
 import _HeadMenu from './head-menu';

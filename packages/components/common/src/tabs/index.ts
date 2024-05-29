@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdTabPanelProps, TdTabsProps } from '@td/intel/tabs/type';
 import _Tabs from './tabs';
 import _TabPanel from './tab-panel';

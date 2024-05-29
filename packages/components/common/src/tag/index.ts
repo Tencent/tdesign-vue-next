@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdCheckTagGroupProps, TdCheckTagProps, TdTagProps } from '@td/intel/tag/type';
 import _Tag from './tag';
 import _CheckTag from './check-tag';

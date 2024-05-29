@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdDrawerProps } from '@td/intel/drawer/type';
 import _Drawer from './drawer';
 

@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdDescriptionItemProps, TdDescriptionsProps } from '@td/intel/descriptions/type';
 import _Descriptions from './descriptions';
 import _DescriptionsItem from './descriptions-item';

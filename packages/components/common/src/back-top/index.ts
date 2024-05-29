@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdBackTopProps } from '@td/intel/back-top/type';
 import _BackTop from './back-top';
 

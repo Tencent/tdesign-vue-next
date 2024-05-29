@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdButtonProps } from '@td/intel/button/type';
 import _Button from './button';
 

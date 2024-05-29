@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdPopupProps } from '@td/intel/popup/type';
 import _Popup from './popup';
 

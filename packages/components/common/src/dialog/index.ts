@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdDialogProps } from '@td/intel/dialog/type';
 import _Dialog from './dialog';
 

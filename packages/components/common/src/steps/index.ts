@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdStepItemProps, TdStepsProps } from '@td/intel/steps/type';
 import _Steps from './steps';
 import _StepItem from './step-item';

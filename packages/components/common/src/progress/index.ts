@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdProgressProps } from '@td/intel/progress/type';
 import _Progress from './progress';
 

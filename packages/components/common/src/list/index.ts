@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdListItemMetaProps, TdListItemProps, TdListProps } from '@td/intel/list/type';
 import _List from './list';
 import _ListItem from './list-item';

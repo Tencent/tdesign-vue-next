@@ -1,4 +1,4 @@
-import { withInstall } from '@td/adapter-utils';
+import { withInstall } from '@td/adapter-vue';
 import type { TdTransferProps } from '@td/intel/transfer/type';
 import _Transfer from './transfer';
 
