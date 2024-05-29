@@ -25,6 +25,7 @@ const COMMON_PROPERTIES = [
   'onPaste',
   'onMouseenter',
   'onMouseleave',
+  'size',
 ];
 
 const DEFAULT_KEYS = {
