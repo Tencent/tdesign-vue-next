@@ -1,10 +1,10 @@
 import type dayjs from 'dayjs';
-import type { TdTimePickerProps, TdTimeRangePickerProps } from '@td/intel/time-picker/type';
+import type { TdTimePickerProps, TdTimeRangePickerProps } from '@td/components/time-picker/type';
 
 export type TimePickerProps = TdTimePickerProps;
 export type TimeRangePickerProps = TdTimeRangePickerProps;
 
-export * from '@td/intel/time-picker/type';
+export * from '@td/components/time-picker/type';
 
 // 输入类型
 export type TimeInputType = 'hour' | 'minute' | 'second' | 'meridiem';

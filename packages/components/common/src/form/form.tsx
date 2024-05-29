@@ -8,8 +8,8 @@ import type {
   FormValidateResult,
   TdFormProps,
   ValidateResultList,
-} from '@td/intel/form/type';
-import props from '@td/intel/form/props';
+} from '@td/components/form/type';
+import props from '@td/components/form/props';
 import { requestSubmit } from '@td/utils';
 import type { FormResetEvent, FormSubmitEvent } from '@td/types';
 import { usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';

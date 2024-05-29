@@ -1,7 +1,7 @@
 import { useResizeObserver } from '@td/adapter-hooks';
 import type { Ref } from '@td/adapter-vue';
 import { nextTick, onBeforeUnmount, onMounted, ref, toRefs, watch } from '@td/adapter-vue';
-import type { InputValue, TdInputProps } from '@td/intel/input/type';
+import type { InputValue, TdInputProps } from '@td/components/input/type';
 
 const ANIMATION_TIME = 100;
 

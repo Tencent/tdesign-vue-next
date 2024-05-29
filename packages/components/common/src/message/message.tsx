@@ -7,7 +7,7 @@ import {
   InfoCircleFilledIcon as TdInfoCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
 
-import props from '@td/intel/message/props';
+import props from '@td/components/message/props';
 import { useContent, useGlobalIcon, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import { isFunction } from 'lodash-es';
 import TLoading from '../loading';

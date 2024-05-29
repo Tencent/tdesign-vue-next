@@ -1,6 +1,6 @@
 import type { PropType } from '@td/adapter-vue';
 import { computed, defineComponent, onBeforeUnmount, onMounted, reactive, ref } from '@td/adapter-vue';
-import baseProps from '@td/intel/color-picker/panel/base-props';
+import baseProps from '@td/components/color-picker/panel/base-props';
 import { useBaseClassName } from '../hooks';
 import { SLIDER_DEFAULT_WIDTH } from '../const';
 import type { Coordinate } from '../utils';

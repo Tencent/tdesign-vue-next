@@ -6,9 +6,9 @@ import {
   ChevronUpIcon as TdChevronUpIcon,
   RemoveIcon as TdRemoveIcon,
 } from 'tdesign-icons-vue-next';
-import props from '@td/intel/input-number/props';
+import props from '@td/components/input-number/props';
 import { useGlobalIcon, useTNodeJSX } from '@td/adapter-hooks';
-import type { TdInputNumberProps } from '@td/intel/input-number/type';
+import type { TdInputNumberProps } from '@td/components/input-number/type';
 import TInput from '../input';
 import { Button as TButton } from '../button';
 import useInputNumber from './useInputNumber';

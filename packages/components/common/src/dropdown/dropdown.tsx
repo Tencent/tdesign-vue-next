@@ -1,7 +1,7 @@
 import { computed, defineComponent, ref } from '@td/adapter-vue';
 import { isArray, isNumber, omit } from 'lodash-es';
-import type { DropdownOption, TdDropdownProps } from '@td/intel/dropdown/type';
-import props from '@td/intel/dropdown/props';
+import type { DropdownOption, TdDropdownProps } from '@td/components/dropdown/type';
+import props from '@td/components/dropdown/props';
 import { usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import { Popup } from '@td/components';
 import type { PopupVisibleChangeContext } from '@td/components';

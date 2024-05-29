@@ -9,11 +9,11 @@ import {
 } from '@td/adapter-vue';
 import { get, omit } from 'lodash-es';
 import { useConfig, useTNodeJSX } from '@td/adapter-hooks';
-import type { PrimaryTableCol, TableRowData, TdPrimaryTableProps } from '@td/intel/table/type';
+import type { PrimaryTableCol, TableRowData, TdPrimaryTableProps } from '@td/components/table/type';
 import type { ComponentScrollToElementParams } from '@td/types';
-import baseTableProps from '@td/intel/table/base-table-props';
-import primaryTableProps from '@td/intel/table/primary-table-props';
-import type { PageInfo, TdPaginationProps as PaginationProps } from '@td/intel/pagination/type';
+import baseTableProps from '@td/components/table/base-table-props';
+import primaryTableProps from '@td/components/table/primary-table-props';
+import type { PageInfo, TdPaginationProps as PaginationProps } from '@td/components/pagination/type';
 import type { TableListeners } from './base-table';
 import BaseTable, { BASE_TABLE_ALL_EVENTS } from './base-table';
 import useColumnController from './hooks/useColumnController';

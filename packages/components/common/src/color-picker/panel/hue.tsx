@@ -1,5 +1,5 @@
 import { defineComponent } from '@td/adapter-vue';
-import baseProps from '@td/intel/color-picker/panel/base-props';
+import baseProps from '@td/components/color-picker/panel/base-props';
 import { useBaseClassName } from '../hooks';
 import ColorSlider from './slider';
 

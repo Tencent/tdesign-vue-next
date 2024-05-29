@@ -1,10 +1,10 @@
 import type { PropType } from '@td/adapter-vue';
 import { defineComponent, ref } from '@td/adapter-vue';
 
-import dropdownItemProps from '@td/intel/dropdown/dropdown-item-props';
+import dropdownItemProps from '@td/components/dropdown/dropdown-item-props';
 import { useContent, usePrefixClass, useRipple, useTNodeJSX } from '@td/adapter-hooks';
 import { pxCompat } from '@td/utils';
-import type { TdDropdownProps } from '@td/intel/dropdown/type';
+import type { TdDropdownProps } from '@td/components/dropdown/type';
 
 export default defineComponent({
   name: 'TDropdownItem',

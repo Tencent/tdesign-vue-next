@@ -1,6 +1,6 @@
 import type { ComputedRef, InjectionKey } from '@td/adapter-vue';
 import { mergeWith as _mergeWith, isArray, merge } from 'lodash-es';
-import type { GlobalConfigProvider } from '@td/intel/config-provider/type';
+import type { GlobalConfigProvider } from '@td/components/config-provider/type';
 import defaultConfig from '@td/common/js/global-config/default-config';
 import defaultZhLocale from '@td/common/js/global-config/locale/zh_CN';
 

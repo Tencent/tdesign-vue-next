@@ -2,7 +2,7 @@ import type { VNode } from '@td/adapter-vue';
 import { computed, defineComponent, getCurrentInstance, inject, onBeforeUpdate, onMounted, ref } from '@td/adapter-vue';
 import { ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
 
-import props from '@td/intel/breadcrumb/breadcrumb-item-props';
+import props from '@td/components/breadcrumb/breadcrumb-item-props';
 import { useContent, useGlobalIcon, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import { isFunction } from 'lodash-es';
 import { isTextEllipsis } from '@td/utils';

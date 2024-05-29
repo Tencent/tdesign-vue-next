@@ -1,11 +1,11 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdCheckboxGroupProps, TdCheckboxProps } from '@td/intel/checkbox/type';
+import type { TdCheckboxGroupProps, TdCheckboxProps } from '@td/components/checkbox/type';
 import _Checkbox from './checkbox';
 import _Group from './group';
 
 import './style';
 
-export * from '@td/intel/checkbox/type';
+export * from '@td/components/checkbox/type';
 export type CheckboxProps = TdCheckboxProps;
 export type CheckboxGroupProps = TdCheckboxGroupProps;
 

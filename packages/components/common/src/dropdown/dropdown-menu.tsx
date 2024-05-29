@@ -1,8 +1,8 @@
 import { defineComponent, h, onMounted, reactive, ref } from '@td/adapter-vue';
 import { ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
 
-import type { DropdownOption } from '@td/intel/dropdown/type';
-import DropdownProps from '@td/intel/dropdown/props';
+import type { DropdownOption } from '@td/components/dropdown/type';
+import DropdownProps from '@td/components/dropdown/props';
 import { useGlobalIcon, usePrefixClass } from '@td/adapter-hooks';
 import { isFunction } from 'lodash-es';
 import type { TNode } from '@td/types';

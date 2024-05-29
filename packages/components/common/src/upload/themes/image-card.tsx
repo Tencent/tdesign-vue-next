@@ -6,7 +6,7 @@ import {
   DeleteIcon as TdDeleteIcon,
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
-import type { TdUploadProps, UploadFile } from '@td/intel/upload/type';
+import type { TdUploadProps, UploadFile } from '@td/components/upload/type';
 import { abridgeName } from '@td/common/js/upload/utils';
 import { useTNodeJSX } from '@td/adapter-hooks';
 import { Loading } from '../../loading';

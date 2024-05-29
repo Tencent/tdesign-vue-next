@@ -1,5 +1,5 @@
 import { computed, ref } from '@td/adapter-vue';
-import type { TdDrawerProps } from '@td/intel/drawer/type';
+import type { TdDrawerProps } from '@td/components/drawer/type';
 import type { Styles } from '@td/types';
 
 export function useDrag(props: TdDrawerProps) {

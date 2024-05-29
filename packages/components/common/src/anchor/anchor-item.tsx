@@ -1,6 +1,6 @@
 import type { VNodeChild } from '@td/adapter-vue';
 import { defineComponent, h, inject, onMounted, onUnmounted, watch } from '@td/adapter-vue';
-import props from '@td/intel/anchor/anchor-item-props';
+import props from '@td/components/anchor/anchor-item-props';
 import { useCommonClassName, usePrefixClass } from '@td/adapter-hooks';
 import { isFunction, isString } from 'lodash-es';
 import { AnchorInjectionKey } from './constants';

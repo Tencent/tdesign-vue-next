@@ -10,7 +10,7 @@ import type {
   TableExpandedRowParams,
   TableRowData,
   TdPrimaryTableProps,
-} from '@td/intel/table/type';
+} from '@td/components/table/type';
 import { useConfig, useDefaultValue } from '@td/adapter-hooks';
 import { useTNodeJSX } from '@td/adapter-hooks';
 import { useGlobalIcon } from '@td/adapter-hooks';

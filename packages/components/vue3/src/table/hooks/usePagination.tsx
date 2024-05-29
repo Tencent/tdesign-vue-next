@@ -1,8 +1,8 @@
 import type { SetupContext } from '@td/adapter-vue';
 import { ref, toRefs, watch } from '@td/adapter-vue';
-import type { TableRowData, TdBaseTableProps } from '@td/intel/table/type';
+import type { TableRowData, TdBaseTableProps } from '@td/components/table/type';
 import { useConfig } from '@td/adapter-hooks';
-import type { PageInfo, TdPaginationProps as PaginationProps } from '@td/intel/pagination/type';
+import type { PageInfo, TdPaginationProps as PaginationProps } from '@td/components/pagination/type';
 import { Pagination } from '@td/components-common';
 
 // 分页功能包含：远程数据排序受控、远程数据排序非受控、本地数据排序受控、本地数据排序非受控 等 4 类功能

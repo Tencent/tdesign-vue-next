@@ -1,5 +1,5 @@
 import { computed, defineComponent, getCurrentInstance, inject, onMounted, ref, toRefs } from '@td/adapter-vue';
-import props from '@td/intel/menu/menu-item-props';
+import props from '@td/components/menu/menu-item-props';
 import { useContent, useEmitEvent, usePrefixClass, useRipple, useTNodeJSX } from '@td/adapter-hooks';
 import { Tooltip } from '../tooltip';
 import type { TdMenuInterface, TdSubMenuInterface } from './const';

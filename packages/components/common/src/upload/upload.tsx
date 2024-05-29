@@ -1,6 +1,6 @@
 import { computed, defineComponent } from '@td/adapter-vue';
 import { UploadIcon } from 'tdesign-icons-vue-next';
-import props from '@td/intel/upload/props';
+import props from '@td/components/upload/props';
 import { useContent, useDisabled, useTNodeJSX } from '@td/adapter-hooks';
 import Button from '../button';
 import NormalFile from './themes/normal-file';

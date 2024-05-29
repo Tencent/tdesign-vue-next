@@ -1,5 +1,5 @@
 import { defineComponent } from '@td/adapter-vue';
-import props from '@td/intel/layout/header-props';
+import props from '@td/components/layout/header-props';
 
 import { usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 

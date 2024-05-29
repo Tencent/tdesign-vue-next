@@ -1,6 +1,6 @@
 import { computed, defineComponent, onMounted, provide, ref, toRefs, watch, watchEffect } from '@td/adapter-vue';
-import props from '@td/intel/menu/props';
-import type { MenuValue } from '@td/intel/menu/type';
+import props from '@td/components/menu/props';
+import type { MenuValue } from '@td/components/menu/type';
 import { useContent, useDefaultValue, usePrefixClass, useTNodeJSX, useVModel } from '@td/adapter-hooks';
 import { isArray, isNumber } from 'lodash-es';
 import log from '@td/common/js/log/log';

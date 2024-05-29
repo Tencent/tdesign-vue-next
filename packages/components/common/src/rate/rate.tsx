@@ -1,7 +1,7 @@
 import { computed, defineComponent, ref, toRefs } from '@td/adapter-vue';
 import { StarFilledIcon } from 'tdesign-icons-vue-next';
 import { useConfig, useTNodeJSX, useVModel } from '@td/adapter-hooks';
-import props from '@td/intel/rate/props';
+import props from '@td/components/rate/props';
 import { isArray } from 'lodash-es';
 import Tooltip from '../tooltip/index';
 

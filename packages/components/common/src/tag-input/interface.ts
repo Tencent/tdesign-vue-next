@@ -1,5 +1,5 @@
 import type { Ref } from '@td/adapter-vue';
-import type { TdTagInputProps } from '@td/intel/tag-input/type';
+import type { TdTagInputProps } from '@td/components/tag-input/type';
 
 interface DragSortContext<T> {
   currentIndex: number;

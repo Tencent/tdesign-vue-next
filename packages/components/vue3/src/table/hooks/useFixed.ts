@@ -14,7 +14,7 @@ import {
 } from '@td/adapter-vue';
 import { debounce, get, pick, xorWith } from 'lodash-es';
 import log from '@td/common/js/log';
-import type { BaseTableCol, BaseTableInstanceFunctions, TableRowData, TdBaseTableProps } from '@td/intel/table/type';
+import type { BaseTableCol, BaseTableInstanceFunctions, TableRowData, TdBaseTableProps } from '@td/components/table/type';
 import { getScrollbarWidthWithCSS } from '@td/common/js/utils/getScrollbarWidth';
 import { getIEVersion } from '@td/common/js/utils/helper';
 import type { ClassName, Styles } from '../../common';

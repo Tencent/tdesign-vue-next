@@ -1,9 +1,9 @@
 import { computed, defineComponent } from '@td/adapter-vue';
 
 import { useCommonClassName, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
-import props from '@td/intel/card/props';
+import props from '@td/components/card/props';
 import { isString } from 'lodash-es';
-import type { TdCardProps } from '@td/intel/card/type';
+import type { TdCardProps } from '@td/components/card/type';
 import TLoading from '../loading';
 
 export default defineComponent({

@@ -1,6 +1,6 @@
 import { computed, defineComponent } from '@td/adapter-vue';
 import { omit } from 'lodash-es';
-import props from '@td/intel/cascader/props';
+import props from '@td/components/cascader/props';
 import { useCommonClassName, useConfig, useDisabled, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import SelectInput from '../select-input';
 import FakeArrow from '../common-components/fake-arrow';

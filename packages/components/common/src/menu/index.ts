@@ -1,5 +1,5 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdHeadMenuProps, TdMenuItemProps, TdMenuProps, TdSubmenuProps } from '@td/intel/menu/type';
+import type { TdHeadMenuProps, TdMenuItemProps, TdMenuProps, TdSubmenuProps } from '@td/components/menu/type';
 import _Menu from './menu';
 import _HeadMenu from './head-menu';
 import _Submenu from './submenu';
@@ -8,7 +8,7 @@ import _MenuGroup from './menu-group';
 
 import './style';
 
-export * from '@td/intel/menu/type';
+export * from '@td/components/menu/type';
 export type MenuProps = TdMenuProps;
 export type HeadMenuProps = TdHeadMenuProps;
 export type SubmenuProps = TdSubmenuProps;

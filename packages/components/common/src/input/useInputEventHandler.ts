@@ -1,5 +1,5 @@
 import type { Ref } from '@td/adapter-vue';
-import type { TdInputProps } from '@td/intel/input/type';
+import type { TdInputProps } from '@td/components/input/type';
 import { getOutputValue } from './useInput';
 
 export default function useInputEventHandler(props: TdInputProps, isHover: Ref<boolean>) {

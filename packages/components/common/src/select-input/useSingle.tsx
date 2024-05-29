@@ -2,7 +2,7 @@ import type { Ref, SetupContext } from '@td/adapter-vue';
 import { computed, ref, toRefs } from '@td/adapter-vue';
 import { isObject, pick } from 'lodash-es';
 import { useDefaultValue, useDisabled, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
-import type { TdSelectInputProps } from '@td/intel/select-input/type';
+import type { TdSelectInputProps } from '@td/components/select-input/type';
 import type { StrInputProps } from '../input';
 import { Input } from '../input';
 import Loading from '../loading';

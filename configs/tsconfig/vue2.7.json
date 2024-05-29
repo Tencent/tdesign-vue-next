@@ -20,14 +20,11 @@
       "@adapter/utils/*": [
         "packages/adapter/utils/vue2.7/*"
       ],
-      "@td/intel": [
-        "packages/intel/vue2.7/src"
-      ],
-      "@td/intel/*": [
-        "packages/intel/vue2.7/src/*"
-      ],
       "@td/components": [
-        "packages/components/vue2.7"
+        "packages/tdesign-vue"
+      ],
+      "@td/components/*": [
+        "packages/tdesign-vue/src/*"
       ]
     }
   }

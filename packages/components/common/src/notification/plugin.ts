@@ -10,7 +10,7 @@ import type {
   NotificationOptions,
   NotificationSuccessMethod,
   NotificationWarningMethod,
-} from '@td/intel/notification/type';
+} from '@td/components/notification/type';
 import { getAttach } from '@td/utils';
 import type { AttachNodeReturnValue } from '@td/types';
 import NotificationList from './notificationList';

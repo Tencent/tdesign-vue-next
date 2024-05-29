@@ -1,9 +1,9 @@
 import { Teleport, Transition, computed, defineComponent, nextTick, ref, toRefs, watch } from '@td/adapter-vue';
 import { ChevronDownIcon, ChevronLeftIcon, CloseIcon } from 'tdesign-icons-vue-next';
 
-import props from '@td/intel/image-viewer/props';
+import props from '@td/components/image-viewer/props';
 import { useDefaultValue, usePopupManager, usePrefixClass, useTNodeJSX, useVModel } from '@td/adapter-hooks';
-import type { TdImageViewerProps } from '@td/intel/image-viewer/type';
+import type { TdImageViewerProps } from '@td/components/image-viewer/type';
 import Image from '../image';
 import TImageViewerIcon from './base/ImageModalIcon';
 import TImageViewerUtils from './base/ImageViewerUtils';

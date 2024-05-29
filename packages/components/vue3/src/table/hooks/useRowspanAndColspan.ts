@@ -2,7 +2,7 @@ import type { Ref } from '@td/adapter-vue';
 import { ref, watch } from '@td/adapter-vue';
 import { get } from 'lodash-es';
 import log from '@td/common/js/log';
-import type { BaseTableCellParams, BaseTableCol, TableRowData, TableRowspanAndColspanFunc } from '@td/intel/table/type';
+import type { BaseTableCellParams, BaseTableCol, TableRowData, TableRowspanAndColspanFunc } from '@td/components/table/type';
 
 export interface SkipSpansValue {
   colspan?: number;

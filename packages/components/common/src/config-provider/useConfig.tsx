@@ -1,7 +1,7 @@
 import { computed, getCurrentInstance, h, inject, provide, ref } from '@td/adapter-vue';
 import { cloneDeep, isFunction, isString } from 'lodash-es';
 
-import type { GlobalConfigProvider } from '@td/intel/config-provider/type';
+import type { GlobalConfigProvider } from '@td/components/config-provider/type';
 import { configProviderInjectKey, defaultGlobalConfig, mergeWith } from './context';
 import type { ConfigProviderProps } from './config-provider';
 
@@ -9,7 +9,7 @@ import type { ConfigProviderProps } from './config-provider';
 // https://github.com/Tencent/tdesign-vue-next/issues/2025
 const globalConfigCopy = ref<GlobalConfigProvider>();
 
-export * from '@td/intel/config-provider/type';
+export * from '@td/components/config-provider/type';
 
 /**
  * component globalConfig

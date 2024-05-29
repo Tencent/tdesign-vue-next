@@ -1,11 +1,11 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdPaginationMiniProps, TdPaginationProps } from '@td/intel/pagination/type';
+import type { TdPaginationMiniProps, TdPaginationProps } from '@td/components/pagination/type';
 import _Pagination from './pagination';
 import _PaginationMini from './pagination-mini';
 
 import './style';
 
-export * from '@td/intel/pagination/type';
+export * from '@td/components/pagination/type';
 export type PaginationProps = TdPaginationProps;
 export type PaginationMiniProps = TdPaginationMiniProps;
 

@@ -1,9 +1,9 @@
 import type { PropType } from '@td/adapter-vue';
 import { defineComponent, ref, watch } from '@td/adapter-vue';
 import { upperCase } from 'lodash-es';
-import props from '@td/intel/color-picker/props';
-import type { TdColorPickerProps } from '@td/intel/color-picker/type';
-import type { TdSelectInputProps } from '@td/intel/select-input/type';
+import props from '@td/components/color-picker/props';
+import type { TdColorPickerProps } from '@td/components/color-picker/type';
+import type { TdSelectInputProps } from '@td/components/select-input/type';
 import { FORMATS } from '../../const';
 import type { Color } from '../../utils';
 import { Option as TOption, Select as TSelect } from '../../../select';

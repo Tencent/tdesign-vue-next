@@ -2,8 +2,8 @@ import type { Slots } from '@td/adapter-vue';
 import { computed, defineComponent, inject, ref } from '@td/adapter-vue';
 import { omit } from 'lodash-es';
 
-import type { SelectOption, SelectOptionGroup, TdOptionProps } from '@td/intel/select/type';
-import TdSelectProps from '@td/intel/select/props';
+import type { SelectOption, SelectOptionGroup, TdOptionProps } from '@td/components/select/type';
+import TdSelectProps from '@td/components/select/props';
 
 import { useConfig, usePrefixClass, useTNodeDefault, useTNodeJSX } from '@td/adapter-hooks';
 import type { Styles } from '@td/types';

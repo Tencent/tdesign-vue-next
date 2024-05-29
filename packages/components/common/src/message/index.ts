@@ -1,10 +1,10 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdMessageProps } from '@td/intel/message/type';
+import type { TdMessageProps } from '@td/components/message/type';
 import _Message from './message';
 
 import './style';
 
-export * from '@td/intel/message/type';
+export * from '@td/components/message/type';
 export * from './plugin';
 export type MessageProps = TdMessageProps;
 

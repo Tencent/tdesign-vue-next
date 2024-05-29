@@ -1,9 +1,9 @@
 import type { VNode } from '@td/adapter-vue';
 import { computed, defineComponent, provide, reactive, ref, toRefs } from '@td/adapter-vue';
 import { isObject } from 'lodash-es';
-import props from '@td/intel/steps/props';
-import stepItemProps from '@td/intel/steps/step-item-props';
-import type { TdStepItemProps } from '@td/intel/steps/type';
+import props from '@td/components/steps/props';
+import stepItemProps from '@td/components/steps/step-item-props';
+import type { TdStepItemProps } from '@td/components/steps/type';
 
 import { usePrefixClass, useVModel } from '@td/adapter-hooks';
 import { useChildComponentSlots } from '@td/adapter-hooks';

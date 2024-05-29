@@ -1,7 +1,7 @@
 import type { VNodeChild } from '@td/adapter-vue';
 import { computed, defineComponent, h, toRefs, watch } from '@td/adapter-vue';
 import { useCommonClassName, usePrefixClass, useVModel } from '@td/adapter-hooks';
-import props from '@td/intel/switch/props';
+import props from '@td/components/switch/props';
 
 // hooks
 import { useDisabled } from '@td/adapter-hooks';

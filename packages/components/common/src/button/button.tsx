@@ -1,7 +1,7 @@
 import { computed, defineComponent, h, ref } from '@td/adapter-vue';
-import props from '@td/intel/button/props';
+import props from '@td/components/button/props';
 import { useCommonClassName, useContent, useDisabled, usePrefixClass, useRipple, useTNodeJSX } from '@td/adapter-hooks';
-import type { TdButtonProps } from '@td/intel/button/type';
+import type { TdButtonProps } from '@td/components/button/type';
 import TLoading from '../loading';
 
 export default defineComponent({

@@ -1,4 +1,4 @@
-import type { RadioValue } from '@td/intel/radio/type';
+import type { RadioValue } from '@td/components/radio/type';
 import type RadioGroup from './radio';
 import type RadioButton from './radio-button';
 

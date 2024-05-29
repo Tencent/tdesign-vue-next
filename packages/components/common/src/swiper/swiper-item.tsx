@@ -1,5 +1,5 @@
 import { computed, defineComponent } from '@td/adapter-vue';
-import props from '@td/intel/swiper/props';
+import props from '@td/components/swiper/props';
 import { usePrefixClass } from '@td/adapter-hooks';
 
 const swiperItemProps = {

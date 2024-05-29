@@ -5,8 +5,8 @@ import {
   ChevronLeftIcon as TdChevronLeftIcon,
   ChevronRightIcon as TdChevronRightIcon,
 } from 'tdesign-icons-vue-next';
-import type { TdTabsProps } from '@td/intel/tabs/type';
-import tabProps from '@td/intel/tabs/props';
+import type { TdTabsProps } from '@td/components/tabs/type';
+import tabProps from '@td/components/tabs/props';
 import { useCommonClassName, useDragSort, useGlobalIcon, usePrefixClass, useResize } from '@td/adapter-hooks';
 import tabBase from '@td/common/js/tabs/base';
 

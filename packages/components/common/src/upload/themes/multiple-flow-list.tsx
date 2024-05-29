@@ -14,7 +14,7 @@ import {
   VideoIcon,
 } from 'tdesign-icons-vue-next';
 import { isFunction, isObject } from 'lodash-es';
-import type { TdUploadProps, UploadFile } from '@td/intel/upload/type';
+import type { TdUploadProps, UploadFile } from '@td/components/upload/type';
 import {
   FILE_EXCEL_REGEXP,
   FILE_PDF_REGEXP,

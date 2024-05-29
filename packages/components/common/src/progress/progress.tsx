@@ -9,7 +9,7 @@ import {
   ErrorIcon as TdErrorIcon,
 } from 'tdesign-icons-vue-next';
 
-import props from '@td/intel/progress/props';
+import props from '@td/components/progress/props';
 import { useGlobalIcon, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import { isObject, isString } from 'lodash-es';
 import { getBackgroundColor } from '@td/utils';

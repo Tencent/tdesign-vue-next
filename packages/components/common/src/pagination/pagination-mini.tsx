@@ -8,7 +8,7 @@ import {
   RoundIcon as TdRoundIcon,
 } from 'tdesign-icons-vue-next';
 
-import props from '@td/intel/pagination/pagination-mini-props';
+import props from '@td/components/pagination/pagination-mini-props';
 import { useGlobalIcon, usePrefixClass } from '@td/adapter-hooks';
 import { Button as TButton } from '../button';
 

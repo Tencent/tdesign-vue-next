@@ -3,8 +3,8 @@ import dayjs from 'dayjs';
 import { isDate, isFunction } from 'lodash-es';
 
 import { useConfig, useDisabled, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
-import props from '@td/intel/date-picker/props';
-import type { DateValue, TdDatePickerProps } from '@td/intel/date-picker/type';
+import props from '@td/components/date-picker/props';
+import type { DateValue, TdDatePickerProps } from '@td/components/date-picker/type';
 import { formatDate, formatTime, getDefaultFormat, parseToDayjs } from '@td/common/js/date-picker/format';
 import { addMonth, covertToDate, extractTimeObj, subtractMonth } from '@td/common/js/date-picker/utils';
 import TSelectInput from '../select-input';

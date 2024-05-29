@@ -3,8 +3,8 @@ import { defineComponent, provide, ref } from '@td/adapter-vue';
 
 import { useChildComponentSlots, useCommonClassName, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 
-import props from '@td/intel/descriptions/props';
-import type { TdDescriptionsProps } from '@td/intel/descriptions/type';
+import props from '@td/components/descriptions/props';
+import type { TdDescriptionsProps } from '@td/components/descriptions/type';
 import { descriptionsKey } from './const';
 import DescriptionsRow from './descriptions-row';
 import { itemTypeIsProps, renderCustomNode } from './utils';

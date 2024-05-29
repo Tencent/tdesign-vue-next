@@ -1,5 +1,5 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdAsideProps, TdFooterProps, TdHeaderProps } from '@td/intel/layout/type';
+import type { TdAsideProps, TdFooterProps, TdHeaderProps } from '@td/components/layout/type';
 import _Layout from './layout';
 import _Header from './header';
 import _Footer from './footer';
@@ -8,7 +8,7 @@ import _Content from './content';
 
 import './style';
 
-export * from '@td/intel/layout/type';
+export * from '@td/components/layout/type';
 export type HeaderProps = TdHeaderProps;
 export type FooterProps = TdFooterProps;
 export type AsideProps = TdAsideProps;

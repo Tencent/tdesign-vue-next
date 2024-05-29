@@ -1,5 +1,5 @@
 import { computed, defineComponent, provide, reactive } from '@td/adapter-vue';
-import props from '@td/intel/radio/props';
+import props from '@td/components/radio/props';
 import { useContent } from '@td/adapter-hooks';
 import { omit } from 'lodash-es';
 import Radio from './radio';

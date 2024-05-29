@@ -1,7 +1,7 @@
 import { defineComponent, nextTick, onActivated, onBeforeUnmount, onDeactivated, onMounted, ref, watch } from '@td/adapter-vue';
 import { isFunction, isUndefined } from 'lodash-es';
 
-import props from '@td/intel/affix/props';
+import props from '@td/components/affix/props';
 import { usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import type { ScrollContainerElement } from '@td/types';
 import { getScrollContainer, off, on } from '@td/utils';

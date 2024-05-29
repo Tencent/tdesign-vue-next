@@ -1,5 +1,5 @@
 import { computed, defineComponent, provide, reactive, toRefs } from '@td/adapter-vue';
-import props from '@td/intel/grid/row-props';
+import props from '@td/components/grid/row-props';
 import { usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import type { RowProviderType } from './common';
 import { calcRowStyle, getRowClasses, useRowSize } from './common';

@@ -7,7 +7,7 @@ import type {
   BaseTableCol,
   TableRowData,
   TableRowspanAndColspanFunc,
-} from '@td/intel/table/type';
+} from '@td/components/table/type';
 
 export interface SkipSpansValue {
   colspan?: number;

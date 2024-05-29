@@ -1,6 +1,6 @@
 import type { CSSProperties } from '@td/adapter-vue';
 import { Fragment, computed, defineComponent } from '@td/adapter-vue';
-import props from '@td/intel/space/props';
+import props from '@td/components/space/props';
 import { useChildSlots, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import { isArray, isNumber, isString } from 'lodash-es';
 import { getFlexGapPolyFill } from '@td/common/js/utils/helper';

@@ -2,7 +2,7 @@ import { computed, ref, watch } from '@td/adapter-vue';
 import { CalendarIcon as TdCalendarIcon } from 'tdesign-icons-vue-next';
 import { omit } from 'lodash-es';
 
-import type { DateValue, TdDateRangePickerProps } from '@td/intel/date-picker/type';
+import type { DateValue, TdDateRangePickerProps } from '@td/components/date-picker/type';
 import { formatDate, getDefaultFormat, isValidDate, parseToDayjs } from '@td/common/js/date-picker/format';
 import { useConfig, useGlobalIcon, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 

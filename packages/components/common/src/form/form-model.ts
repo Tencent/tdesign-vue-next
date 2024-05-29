@@ -11,7 +11,7 @@ import type {
   FormRule,
   ValidateResultType,
   ValueType,
-} from '@td/intel/form/type';
+} from '@td/components/form/type';
 import { getCharacterLength } from '@td/common/js/utils/helper';
 
 // `{} / [] / '' / undefined / null` 等内容被认为是空； 0 和 false 被认为是正常数据，部分数据的值就是 0 或者 false

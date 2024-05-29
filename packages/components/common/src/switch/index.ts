@@ -1,10 +1,10 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdSwitchProps } from '@td/intel/switch/type';
+import type { TdSwitchProps } from '@td/components/switch/type';
 import _Switch from './switch';
 
 import './style';
 
-export * from '@td/intel/switch/type';
+export * from '@td/components/switch/type';
 export type SwitchProps = TdSwitchProps;
 
 export const Switch = withInstall(_Switch);

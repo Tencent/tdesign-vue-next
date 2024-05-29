@@ -1,8 +1,8 @@
 import { Fragment, computed, defineComponent, ref, toRefs } from '@td/adapter-vue';
 import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
-import props from '@td/intel/range-input/props';
-import type { RangeInputPosition, RangeInputValue } from '@td/intel/range-input/type';
+import props from '@td/components/range-input/props';
+import type { RangeInputPosition, RangeInputValue } from '@td/components/range-input/type';
 
 import { useCommonClassName, useDisabled, useGlobalIcon, usePrefixClass, useTNodeJSX, useVModel } from '@td/adapter-hooks';
 import { isArray } from 'lodash-es';

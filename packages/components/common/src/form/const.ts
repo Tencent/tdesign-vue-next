@@ -9,7 +9,7 @@ import type {
   TdFormProps,
   ValidateResultType,
   ValidateTriggerType,
-} from '@td/intel/form/type';
+} from '@td/components/form/type';
 import type { useTNodeJSX } from '@td/adapter-hooks';
 import { usePrefixClass } from '@td/adapter-hooks';
 import type { FormItemValidateResult } from './form-item';

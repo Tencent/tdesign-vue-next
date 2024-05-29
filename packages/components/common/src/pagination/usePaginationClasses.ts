@@ -1,7 +1,7 @@
 import type { Ref } from '@td/adapter-vue';
 import { computed } from '@td/adapter-vue';
 import { useCommonClassName } from '@td/adapter-hooks';
-import type { TdPaginationProps } from '@td/intel/pagination/type';
+import type { TdPaginationProps } from '@td/components/pagination/type';
 import { getIEVersion } from '@td/common/js/utils/helper';
 
 export default function usePaginationClasses(

@@ -2,7 +2,7 @@ import type { ComponentOptions, Slots, VNode } from '@td/adapter-vue';
 import { h } from '@td/adapter-vue';
 import { isFunction, isString } from 'lodash-es';
 
-import type { TdDescriptionItemProps } from '@td/intel/descriptions/type';
+import type { TdDescriptionItemProps } from '@td/components/descriptions/type';
 import type { TdDescriptionItem } from '../interface';
 import { ItemsType } from '../interface';
 

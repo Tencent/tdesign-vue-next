@@ -12,8 +12,8 @@ import {
   toRefs,
   watch,
 } from '@td/adapter-vue';
-import props from '@td/intel/slider/props';
-import type { SliderValue } from '@td/intel/slider/type';
+import props from '@td/components/slider/props';
+import type { SliderValue } from '@td/components/slider/type';
 import { isArray, isNumber } from 'lodash-es';
 import { useCommonClassName, useDisabled, usePrefixClass, useVModel } from '@td/adapter-hooks';
 import TSliderButton from './slider-button';

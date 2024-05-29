@@ -1,5 +1,5 @@
 import { defineComponent } from '@td/adapter-vue';
-import props from '@td/intel/divider/props';
+import props from '@td/components/divider/props';
 import { useContent, usePrefixClass } from '@td/adapter-hooks';
 
 export default defineComponent({

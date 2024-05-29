@@ -1,4 +1,4 @@
-import type { GuideStep } from '@td/intel/guide/type';
+import type { GuideStep } from '@td/components/guide/type';
 
 export type GuideCrossProps = Pick<
   GuideStep,

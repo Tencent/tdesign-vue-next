@@ -3,10 +3,10 @@ import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { TimeIcon as TdTimeIcon } from 'tdesign-icons-vue-next';
 
-import props from '@td/intel/time-picker/props';
+import props from '@td/components/time-picker/props';
 import { useCommonClassName, useConfig, useGlobalIcon, usePrefixClass, useTNodeJSX, useVModel } from '@td/adapter-hooks';
 import { formatInputValue, validateInputValue } from '@td/common/js/time-picker/utils';
-import type { TdTimePickerProps } from '@td/intel/time-picker/type';
+import type { TdTimePickerProps } from '@td/components/time-picker/type';
 import type { SelectInputBlurContext } from '../select-input';
 import TSelectInput from '../select-input';
 

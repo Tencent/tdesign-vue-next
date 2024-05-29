@@ -1,8 +1,8 @@
 import { computed, defineComponent, onMounted, ref, toRefs, watch } from '@td/adapter-vue';
 import { isArray, isBoolean, isEmpty, isFunction, isNil } from 'lodash-es';
 
-import type { TdTreeSelectProps, TreeSelectValue, TreeSelectValueChangeTrigger } from '@td/intel/tree-select/type';
-import props from '@td/intel/tree-select/props';
+import type { TdTreeSelectProps, TreeSelectValue, TreeSelectValueChangeTrigger } from '@td/components/tree-select/type';
+import props from '@td/components/tree-select/props';
 
 import { useConfig, useDefaultValue, useDisabled, usePrefixClass, useTNodeDefault, useTNodeJSX, useVModel } from '@td/adapter-hooks';
 import type { TreeOptionData } from '@td/types';

@@ -1,7 +1,7 @@
 import type { Ref } from '@td/adapter-vue';
 import { Transition, computed, defineComponent, inject, ref, toRefs } from '@td/adapter-vue';
-import props from '@td/intel/collapse/collapse-panel-props';
-import type { CollapseValue, TdCollapsePanelProps } from '@td/intel/collapse/type';
+import props from '@td/components/collapse/collapse-panel-props';
+import type { CollapseValue, TdCollapsePanelProps } from '@td/components/collapse/type';
 import { useCollapseAnimation, useContent, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import FakeArrow from '../common-components/fake-arrow';
 

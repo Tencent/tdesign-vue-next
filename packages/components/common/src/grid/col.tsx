@@ -1,5 +1,5 @@
 import { computed, defineComponent, inject } from '@td/adapter-vue';
-import props from '@td/intel/grid/col-props';
+import props from '@td/components/grid/col-props';
 
 import { usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import type { RowProviderType } from './common';

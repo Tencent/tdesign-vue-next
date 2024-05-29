@@ -1,12 +1,12 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdRadioGroupProps, TdRadioProps } from '@td/intel/radio/type';
+import type { TdRadioGroupProps, TdRadioProps } from '@td/components/radio/type';
 import _Radio from './radio';
 import _Group from './group';
 import _RadioButton from './radio-button';
 
 import './style';
 
-export * from '@td/intel/radio/type';
+export * from '@td/components/radio/type';
 export type RadioProps = TdRadioProps;
 export type RadioGroupProps = TdRadioGroupProps;
 

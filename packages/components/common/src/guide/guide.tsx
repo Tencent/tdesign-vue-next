@@ -1,7 +1,7 @@
 import { Teleport, computed, defineComponent, h, nextTick, onMounted, ref, toRefs, watch } from '@td/adapter-vue';
 import { isFunction } from 'lodash-es';
-import props from '@td/intel/guide/props';
-import type { GuideStep, TdGuideProps } from '@td/intel/guide/type';
+import props from '@td/components/guide/props';
+import type { GuideStep, TdGuideProps } from '@td/components/guide/type';
 import { useConfig, usePrefixClass, useTNodeJSX, useVModel } from '@td/adapter-hooks';
 import setStyle from '@td/common/js/utils/set-style';
 import { addClass, getWindowScroll, isFixed, removeClass } from '@td/utils';

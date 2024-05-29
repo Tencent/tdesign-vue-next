@@ -1,5 +1,5 @@
 import { computed, defineComponent } from '@td/adapter-vue';
-import props from '@td/intel/comment/props';
+import props from '@td/components/comment/props';
 
 import { usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import { isArray, isString } from 'lodash-es';

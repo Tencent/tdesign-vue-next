@@ -1,7 +1,7 @@
 import { computed, defineComponent, h, toRefs } from '@td/adapter-vue';
 import { usePrefixClass, useVModel } from '@td/adapter-hooks';
-import props from '@td/intel/tag/check-tag-group-props';
-import type { CheckTagGroupOption, CheckTagGroupValue, TdCheckTagProps } from '@td/intel/tag/type';
+import props from '@td/components/tag/check-tag-group-props';
+import type { CheckTagGroupOption, CheckTagGroupValue, TdCheckTagProps } from '@td/components/tag/type';
 import { isFunction } from 'lodash-es';
 import CheckTag from './check-tag';
 

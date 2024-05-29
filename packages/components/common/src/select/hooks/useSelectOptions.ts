@@ -2,7 +2,7 @@ import type { Ref, Slots, VNode } from '@td/adapter-vue';
 import { computed, ref } from '@td/adapter-vue';
 import { get, isArray, isFunction } from 'lodash-es';
 
-import type { SelectOption, SelectOptionGroup, SelectValue, TdOptionProps, TdSelectProps } from '@td/intel/select/type';
+import type { SelectOption, SelectOptionGroup, SelectValue, TdOptionProps, TdSelectProps } from '@td/components/select/type';
 import { useChildComponentSlots } from '@td/adapter-hooks';
 import type { KeysType } from '../../common';
 

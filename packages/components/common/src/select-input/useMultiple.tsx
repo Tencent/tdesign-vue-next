@@ -1,7 +1,7 @@
 import type { Ref, SetupContext } from '@td/adapter-vue';
 import { computed, ref, toRefs } from '@td/adapter-vue';
 import { isObject } from 'lodash-es';
-import type { SelectInputChangeContext, SelectInputKeys, TdSelectInputProps } from '@td/intel/select-input/type';
+import type { SelectInputChangeContext, SelectInputKeys, TdSelectInputProps } from '@td/components/select-input/type';
 import { useDefaultValue, useDisabled, usePrefixClass } from '@td/adapter-hooks';
 import type { TagInputProps, TagInputValue } from '../tag-input';
 import TagInput from '../tag-input';

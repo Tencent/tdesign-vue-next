@@ -2,7 +2,7 @@ import type { VNodeChild } from '@td/adapter-vue';
 import { defineComponent, h } from '@td/adapter-vue';
 import { isFunction, isNumber, isString } from 'lodash-es';
 import { usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
-import props from '@td/intel/input-adornment/props';
+import props from '@td/components/input-adornment/props';
 
 export default defineComponent({
   name: 'TInputAdornment',

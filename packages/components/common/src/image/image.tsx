@@ -2,8 +2,8 @@ import { computed, defineComponent, onMounted, onUnmounted, ref, toRefs, watch }
 import { isFunction, omit } from 'lodash-es';
 import { ImageErrorIcon, ImageIcon } from 'tdesign-icons-vue-next';
 import { useImagePreviewUrl, useTNodeDefault, useTNodeJSX } from '@td/adapter-hooks';
-import type { TdImageProps } from '@td/intel/image/type';
-import props from '@td/intel/image/props';
+import type { TdImageProps } from '@td/components/image/type';
+import props from '@td/components/image/props';
 import observe from '@td/common/js/utils/observe';
 import Space from '../space';
 import { useConfig } from '../config-provider/useConfig';

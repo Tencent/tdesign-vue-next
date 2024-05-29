@@ -1,7 +1,7 @@
 import type { PropType, SetupContext } from '@td/adapter-vue';
 import { computed, defineComponent, onBeforeUnmount, onMounted, ref, toRefs, watch } from '@td/adapter-vue';
-import props from '@td/intel/select-input/props';
-import type { TdSelectInputProps } from '@td/intel/select-input/type';
+import props from '@td/components/select-input/props';
+import type { TdSelectInputProps } from '@td/components/select-input/type';
 import { usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import { Popup } from '@td/components';
 import type { PopupInstanceFunctions, PopupProps, PopupVisibleChangeContext } from '../popup';

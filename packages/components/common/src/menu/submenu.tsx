@@ -15,10 +15,10 @@ import {
   toRefs,
   watch,
 } from '@td/adapter-vue';
-import props from '@td/intel/menu/submenu-props';
+import props from '@td/components/menu/submenu-props';
 import { useCollapseAnimation, useContent, usePrefixClass, useRipple, useTNodeJSX } from '@td/adapter-hooks';
 import { isFunction } from 'lodash-es';
-import type { TdSubmenuProps } from '@td/intel/menu/type';
+import type { TdSubmenuProps } from '@td/components/menu/type';
 import { Popup } from '@td/components';
 import type { PopupPlacement } from '@td/components';
 import FakeArrow from '../common-components/fake-arrow';

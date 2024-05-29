@@ -1,9 +1,9 @@
 import { computed, defineComponent, inject, onBeforeUnmount, onMounted, ref } from '@td/adapter-vue';
 
-import props from '@td/intel/select/option-props';
+import props from '@td/components/select/option-props';
 
 import { useCommonClassName, useContent, useDisabled, usePrefixClass, useRipple } from '@td/adapter-hooks';
-import type { SelectValue } from '@td/intel/select/type';
+import type { SelectValue } from '@td/components/select/type';
 import { Checkbox } from '@td/components';
 import { getNewMultipleValue, selectInjectKey } from './helper';
 

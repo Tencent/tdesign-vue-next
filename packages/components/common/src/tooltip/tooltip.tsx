@@ -1,10 +1,10 @@
 import { computed, defineComponent, getCurrentInstance, onMounted, ref, toRefs, watch } from '@td/adapter-vue';
 import { isFunction, omit } from 'lodash-es';
-import props from '@td/intel/tooltip/props';
+import props from '@td/components/tooltip/props';
 import { useContent, usePrefixClass, useTNodeJSX, useVModel } from '@td/adapter-hooks';
 import { Popup } from '@td/components';
-import popupProps from '@td/intel/popup/props';
-import type { PopupVisibleChangeContext } from '@td/intel/popup/type';
+import popupProps from '@td/components/popup/props';
+import type { PopupVisibleChangeContext } from '@td/components/popup/type';
 import { useMouse } from './util';
 
 export default defineComponent({

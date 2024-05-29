@@ -1,7 +1,7 @@
 import { computed, defineComponent, provide, ref, toRefs, watchEffect } from '@td/adapter-vue';
 import { intersection, isObject, isUndefined } from 'lodash-es';
-import props from '@td/intel/checkbox/checkbox-group-props';
-import type { CheckboxGroupValue, CheckboxOptionObj, TdCheckboxProps } from '@td/intel/checkbox/type';
+import props from '@td/components/checkbox/checkbox-group-props';
+import type { CheckboxGroupValue, CheckboxOptionObj, TdCheckboxProps } from '@td/components/checkbox/type';
 import { useChildComponentSlots, usePrefixClass, useTNodeJSX, useVModel } from '@td/adapter-hooks';
 import Checkbox from './checkbox';
 import { CheckboxGroupInjectionKey } from './constants';

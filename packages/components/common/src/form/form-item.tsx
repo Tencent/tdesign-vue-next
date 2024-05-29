@@ -34,8 +34,8 @@ import type {
   FormRule,
   ValidateTriggerType,
   ValueType,
-} from '@td/intel/form/type';
-import props from '@td/intel/form/form-item-props';
+} from '@td/components/form/type';
+import props from '@td/components/form/form-item-props';
 
 import { useGlobalIcon } from '@td/adapter-hooks';
 import { useConfig, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';

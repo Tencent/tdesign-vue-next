@@ -11,7 +11,7 @@ import type {
   RowClassNameParams,
   TableRowData,
   TdPrimaryTableProps,
-} from '@td/intel/table/type';
+} from '@td/components/table/type';
 import { isRowSelectedDisabled } from '@td/common/js/table/utils';
 import log from '@td/common/js/log';
 import { useDefaultValue } from '@td/adapter-hooks';

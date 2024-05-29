@@ -9,7 +9,7 @@ import {
 } from 'tdesign-icons-vue-next';
 import { isArray, isString } from 'lodash-es';
 
-import props from '@td/intel/alert/props';
+import props from '@td/components/alert/props';
 import { useConfig, useGlobalIcon, useIcon, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 
 import type { SlotReturnValue } from '@td/types';

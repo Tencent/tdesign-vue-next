@@ -1,7 +1,7 @@
 import type { Ref } from '@td/adapter-vue';
 import { computed } from '@td/adapter-vue';
 import { isBoolean, omit } from 'lodash-es';
-import type { TdSliderProps } from '@td/intel/slider/type';
+import type { TdSliderProps } from '@td/components/slider/type';
 import type { ChangeContext, InputNumberProps } from '../../input-number';
 import InputNumber from '../../input-number';
 

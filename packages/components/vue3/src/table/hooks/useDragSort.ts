@@ -4,7 +4,7 @@ import { computed, h, ref, toRefs, watch } from '@td/adapter-vue';
 import type { MoveEvent, SortableEvent, SortableOptions } from 'sortablejs';
 import Sortable from 'sortablejs';
 import { isFunction } from 'lodash-es';
-import type { DragSortContext, PrimaryTableCol, TableRowData, TdPrimaryTableProps } from '@td/intel/table/type';
+import type { DragSortContext, PrimaryTableCol, TableRowData, TdPrimaryTableProps } from '@td/components/table/type';
 import log from '@td/common/js/log';
 import swapDragArrayElement from '@td/common/js/utils/swapDragArrayElement';
 import { getColumnDataByKey, getColumnIndexByKey } from '@td/common/js/table/utils';

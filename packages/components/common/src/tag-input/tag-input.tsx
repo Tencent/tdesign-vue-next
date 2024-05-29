@@ -1,7 +1,7 @@
 import { computed, defineComponent, nextTick, reactive, ref, toRefs, watch } from '@td/adapter-vue';
 import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-import type { TdTagInputProps } from '@td/intel/tag-input/type';
-import props from '@td/intel/tag-input/props';
+import type { TdTagInputProps } from '@td/components/tag-input/type';
+import props from '@td/components/tag-input/props';
 import { useDefaultValue, useGlobalIcon, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import { isArray } from 'lodash-es';
 import type { InputProps, StrInputProps, TdInputProps } from '../input';

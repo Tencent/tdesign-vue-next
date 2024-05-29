@@ -6,7 +6,7 @@ import {
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
   TimeFilledIcon as TdTimeFilledIcon,
 } from 'tdesign-icons-vue-next';
-import type { UploadFile } from '@td/intel/upload/type';
+import type { UploadFile } from '@td/components/upload/type';
 import { abridgeName } from '@td/common/js/upload/utils';
 import { useGlobalIcon } from '@td/adapter-hooks';
 import TLoading from '../../loading';

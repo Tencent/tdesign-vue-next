@@ -6,7 +6,7 @@ import { computed, h, ref, toRefs, watch } from '@td/adapter-vue';
 import { SettingIcon as TdSettingIcon } from 'tdesign-icons-vue-next';
 // import { intersection } from 'lodash-es';
 import { isFunction } from 'lodash-es';
-import type { PrimaryTableCol, TdPrimaryTableProps } from '@td/intel/table/type';
+import type { PrimaryTableCol, TdPrimaryTableProps } from '@td/components/table/type';
 import { useConfig, useDefaultValue, useGlobalIcon, useTNodeJSX } from '@td/adapter-hooks';
 import { DialogPlugin, Button as TButton } from '@td/components-common';
 import type { DialogInstance } from '@td/components-common';

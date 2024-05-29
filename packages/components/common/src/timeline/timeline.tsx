@@ -1,5 +1,5 @@
 import { computed, defineComponent, provide } from '@td/adapter-vue';
-import TimeLineProps from '@td/intel/timeline/props';
+import TimeLineProps from '@td/components/timeline/props';
 import { useChildComponentSlots, usePrefixClass } from '@td/adapter-hooks';
 import log from '@td/common/js/log';
 import TimelineItem from './timeline-item';

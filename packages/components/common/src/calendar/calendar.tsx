@@ -3,9 +3,9 @@ import { computed, defineComponent, watch } from '@td/adapter-vue';
 import dayjs from 'dayjs';
 import { isArray, isFunction, remove } from 'lodash-es';
 
-import props from '@td/intel/calendar/props';
+import props from '@td/components/calendar/props';
 import { useConfig, useContent } from '@td/adapter-hooks';
-import type { CalendarCell } from '@td/intel/calendar/type';
+import type { CalendarCell } from '@td/components/calendar/type';
 import { Select as TSelect } from '../select';
 import { RadioButton as TRadioButton, RadioGroup as TRadioGroup } from '../radio';
 import { Button as TButton } from '../button';

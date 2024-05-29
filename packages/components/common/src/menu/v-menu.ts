@@ -1,6 +1,6 @@
 import type { Slot } from '@td/adapter-vue';
 import { ref } from '@td/adapter-vue';
-import type { TdMenuItemProps } from '@td/intel/menu/type';
+import type { TdMenuItemProps } from '@td/components/menu/type';
 
 type MenuValue = string | number;
 type MenuNode = MenuValue | VMenuData;

@@ -18,8 +18,8 @@ import {
 import { EllipsisIcon } from 'tdesign-icons-vue-next';
 import { isArray, isFunction } from 'lodash-es';
 
-import props from '@td/intel/menu/head-menu-props';
-import type { MenuValue } from '@td/intel/menu/type';
+import props from '@td/components/menu/head-menu-props';
+import type { MenuValue } from '@td/components/menu/type';
 
 import { useDefaultValue, usePrefixClass, useVModel } from '@td/adapter-hooks';
 import log from '@td/common/js/log/log';

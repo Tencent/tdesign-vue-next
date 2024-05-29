@@ -1,8 +1,8 @@
-import type { TdTreeSelectProps } from '@td/intel/tree-select/type';
+import type { TdTreeSelectProps } from '@td/components/tree-select/type';
 
 export type TreeSelectProps = TdTreeSelectProps;
 
-export * from '@td/intel/tree-select/type';
+export * from '@td/components/tree-select/type';
 export interface IRemoveOptions<DataOption> {
   value: string | number;
   data: DataOption;

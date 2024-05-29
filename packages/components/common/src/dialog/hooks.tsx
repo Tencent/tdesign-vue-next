@@ -1,7 +1,7 @@
 import { getCurrentInstance } from '@td/adapter-vue';
 import { isObject, isString, omit } from 'lodash-es';
 import { useTNodeJSX } from '@td/adapter-hooks';
-import type { TdDialogProps } from '@td/intel/dialog/type';
+import type { TdDialogProps } from '@td/components/dialog/type';
 import type { ClassName } from '@td/types';
 import type { ButtonProps } from '../button';
 import { Button as TButton } from '../button';

@@ -1,5 +1,5 @@
 import { defineComponent } from '@td/adapter-vue';
-import props from '@td/intel/list/list-item-meta-props';
+import props from '@td/components/list/list-item-meta-props';
 import { useContent, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import { isString } from 'lodash-es';
 

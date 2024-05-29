@@ -1,5 +1,5 @@
 import { computed, defineComponent, inject, ref, watch } from '@td/adapter-vue';
-import props from '@td/intel/tabs/tab-panel-props';
+import props from '@td/components/tabs/tab-panel-props';
 import { useCommonClassName, useContent, usePrefixClass } from '@td/adapter-hooks';
 
 import type { InjectTabs } from './tabs';

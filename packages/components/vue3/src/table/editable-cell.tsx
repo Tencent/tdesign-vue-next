@@ -9,11 +9,11 @@ import type {
   TableEditableCellPropsParams,
   TableRowData,
   TdBaseTableProps,
-} from '@td/intel/table/type';
+} from '@td/components/table/type';
 import { useGlobalIcon, usePrefixClass } from '@td/adapter-hooks';
 import log from '@td/common/js/log';
 import { validate } from '@td/components-common/src/form/form-model';
-import type { AllValidateResult } from '@td/intel/form/type';
+import type { AllValidateResult } from '@td/components/form/type';
 import { off, on } from '@td/utils';
 import { renderCell } from './tr';
 import type { TableClassName } from './hooks/useClassName';

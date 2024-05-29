@@ -1,7 +1,7 @@
 import { computed } from '@td/adapter-vue';
 
 import { isObject } from 'lodash-es';
-import type { TdCalendarProps, WeekDay } from '@td/intel/calendar/type';
+import type { TdCalendarProps, WeekDay } from '@td/components/calendar/type';
 import type { CalendarState, CellColHeader } from '../interface';
 import { useConfig } from '@td/adapter-hooks';
 import { COMPONENT_NAME } from '../const';

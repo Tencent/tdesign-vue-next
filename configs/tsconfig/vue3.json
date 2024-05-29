@@ -20,14 +20,11 @@
       "@adapter/utils/*": [
         "packages/adapter/utils/vue3/*"
       ],
-      "@td/intel": [
-        "packages/intel/vue3/src"
-      ],
-      "@td/intel/*": [
-        "packages/intel/vue3/src/*"
-      ],
       "@td/components": [
-        "packages/components/vue3"
+        "packages/tdesign-vue-next"
+      ],
+      "@td/components/*": [
+        "packages/tdesign-vue-next/src/*"
       ]
     }
   }

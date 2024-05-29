@@ -16,8 +16,8 @@ import {
 } from '@td/adapter-vue';
 import { isFunction, isNil, isNumber, isString, throttle } from 'lodash-es';
 
-import props from '@td/intel/radio/radio-group-props';
-import type { RadioOption, RadioOptionObj } from '@td/intel/radio/type';
+import props from '@td/components/radio/radio-group-props';
+import type { RadioOption, RadioOptionObj } from '@td/components/radio/type';
 import { useCommonClassName, usePrefixClass, useResizeObserver, useTNodeDefault, useVModel } from '@td/adapter-hooks';
 import { useMutationObserver } from '../watermark/hooks';
 import type { UseMutationObserverReturn } from '../watermark/hooks';

@@ -3,7 +3,7 @@ import { defineComponent, h } from '@td/adapter-vue';
 import { ChevronLeftIcon as TdChevronLeftIcon, ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
 
 import { isArray, isFunction, isString } from 'lodash-es';
-import props from '@td/intel/transfer/props';
+import props from '@td/components/transfer/props';
 import { useGlobalIcon } from '@td/adapter-hooks';
 import Button from '../../button';
 import type { TNode } from '../../common';

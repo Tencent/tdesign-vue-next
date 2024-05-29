@@ -1,7 +1,7 @@
 import type { Ref } from '@td/adapter-vue';
 import { computed, getCurrentInstance, inject } from '@td/adapter-vue';
 import { isBoolean } from 'lodash-es';
-import type { TdFormProps } from '@td/intel/form/type';
+import type { TdFormProps } from '@td/components/form/type';
 
 export interface FormDisabledProvider {
   disabled: Ref<TdFormProps['disabled']>;

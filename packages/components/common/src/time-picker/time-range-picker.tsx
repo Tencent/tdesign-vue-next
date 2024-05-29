@@ -4,8 +4,8 @@ import isArray from 'lodash/isArray';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { TimeIcon as TdTimeIcon } from 'tdesign-icons-vue-next';
 
-import props from '@td/intel/time-picker/time-range-picker-props';
-import type { TimeRangePickerPartial } from '@td/intel/time-picker/type';
+import props from '@td/components/time-picker/time-range-picker-props';
+import type { TimeRangePickerPartial } from '@td/components/time-picker/type';
 import { useCommonClassName, useConfig, useDisabled, useGlobalIcon, usePrefixClass, useVModel } from '@td/adapter-hooks';
 import { formatInputValue, validateInputValue } from '@td/common/js/time-picker/utils';
 import { TIME_PICKER_EMPTY } from '@td/common/js/time-picker/const';

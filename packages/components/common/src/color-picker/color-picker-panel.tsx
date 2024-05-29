@@ -1,5 +1,5 @@
 import { computed, defineComponent } from '@td/adapter-vue';
-import props from '@td/intel/color-picker/props';
+import props from '@td/components/color-picker/props';
 import { usePrefixClass } from '@td/adapter-hooks';
 import { pickBy } from 'lodash-es';
 import ColorPanel from './panel';

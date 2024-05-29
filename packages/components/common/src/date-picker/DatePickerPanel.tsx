@@ -6,10 +6,10 @@ import type {
   DatePickerYearChangeTrigger,
   DateValue,
   TdDatePickerPanelProps,
-} from '@td/intel/date-picker/type';
+} from '@td/components/date-picker/type';
 
-import datePickerPanelProps from '@td/intel/date-picker/date-picker-panel-props';
-import datePickerProps from '@td/intel/date-picker/props';
+import datePickerPanelProps from '@td/components/date-picker/date-picker-panel-props';
+import datePickerProps from '@td/components/date-picker/props';
 import { addMonth, extractTimeObj, subtractMonth } from '@td/common/js/date-picker/utils';
 import { formatDate, getDefaultFormat, parseToDayjs } from '@td/common/js/date-picker/format';
 import useSingleValue from './hooks/useSingleValue';

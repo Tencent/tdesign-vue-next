@@ -2,7 +2,7 @@ import type { PropType } from '@td/adapter-vue';
 import { computed, defineComponent, ref } from '@td/adapter-vue';
 import { AddIcon as TdAddIcon, DeleteIcon as TdDeleteIcon } from 'tdesign-icons-vue-next';
 
-import baseProps from '@td/intel/color-picker/panel/base-props';
+import baseProps from '@td/components/color-picker/panel/base-props';
 import { useCommonClassName, useGlobalIcon } from '@td/adapter-hooks';
 import { useBaseClassName } from '../hooks';
 import { Color } from '../utils';

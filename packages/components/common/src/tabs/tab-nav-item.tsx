@@ -1,8 +1,8 @@
 import type { PropType } from '@td/adapter-vue';
 import { computed, defineComponent, ref } from '@td/adapter-vue';
 import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
-import tabProps from '@td/intel/tabs/props';
-import tabPanelProps from '@td/intel/tabs/tab-panel-props';
+import tabProps from '@td/components/tabs/props';
+import tabPanelProps from '@td/components/tabs/tab-panel-props';
 
 // hooks
 import { useRipple } from '@td/adapter-hooks';

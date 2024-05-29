@@ -1,5 +1,5 @@
 import { get, isFunction, isObject } from 'lodash-es';
-import type { CellData, RowClassNameParams, TableColumnClassName, TableRowData, TdBaseTableProps } from '@td/intel/table/type';
+import type { CellData, RowClassNameParams, TableColumnClassName, TableRowData, TdBaseTableProps } from '@td/components/table/type';
 import type { ClassName, HTMLElementAttributes } from '@td/types';
 import type { AffixProps } from '../affix';
 

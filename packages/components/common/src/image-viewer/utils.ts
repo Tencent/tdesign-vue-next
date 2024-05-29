@@ -1,6 +1,6 @@
 import { isArray, isString } from 'lodash-es';
 
-import type { ImageInfo, TdImageViewerProps } from '@td/intel/image-viewer/type';
+import type { ImageInfo, TdImageViewerProps } from '@td/components/image-viewer/type';
 
 export const downloadFile = function (imgSrc: string) {
   const image = new Image();

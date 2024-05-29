@@ -1,5 +1,5 @@
 import { computed, defineComponent, onMounted, reactive, ref, watch } from '@td/adapter-vue';
-import props from '@td/intel/watermark/props';
+import props from '@td/components/watermark/props';
 import { useContent, usePrefixClass } from '@td/adapter-hooks';
 import generateBase64Url from '@td/common/js/watermark/generateBase64Url';
 import randomMovingStyle from '@td/common/js/watermark/randomMovingStyle';

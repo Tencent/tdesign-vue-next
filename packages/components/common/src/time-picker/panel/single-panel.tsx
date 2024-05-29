@@ -13,7 +13,7 @@ import {
 } from '@td/common/js/time-picker/const';
 import { closestLookup } from '@td/common/js/time-picker/utils';
 import { useCommonClassName, useConfig, usePrefixClass } from '@td/adapter-hooks';
-import { panelColProps } from '@td/intel/time-picker/panel/props';
+import { panelColProps } from '@td/components/time-picker/panel/props';
 
 dayjs.extend(customParseFormat);
 

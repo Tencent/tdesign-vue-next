@@ -1,5 +1,5 @@
 import { computed, defineComponent, ref } from '@td/adapter-vue';
-import type { MessageOptions } from '@td/intel/message/type';
+import type { MessageOptions } from '@td/components/message/type';
 import { usePrefixClass } from '@td/adapter-hooks';
 import { PLACEMENT_OFFSET } from './const';
 import TMessage from './message';

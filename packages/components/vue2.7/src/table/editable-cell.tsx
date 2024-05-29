@@ -16,10 +16,10 @@ import type {
   TableEditableCellPropsParams,
   TableRowData,
   TdBaseTableProps,
-} from '@td/intel/table/type';
+} from '@td/components/table/type';
 import { useGlobalIcon, usePrefixClass } from '@td/adapter-hooks';
 import log from '@td/common/js/log';
-import type { AllValidateResult } from '@td/intel/form/type';
+import type { AllValidateResult } from '@td/components/form/type';
 import { off, on } from '@td/utils';
 import { validate } from '../../common/form/form-model';
 import { renderCell } from './tr';

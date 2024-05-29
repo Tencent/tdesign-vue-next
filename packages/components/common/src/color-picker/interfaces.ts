@@ -1,4 +1,4 @@
-import type { ColorObject, ColorPickerChangeTrigger } from '@td/intel/color-picker/type';
+import type { ColorObject, ColorPickerChangeTrigger } from '@td/components/color-picker/type';
 
 // color modes
 export type TdColorModes = 'monochrome' | 'linear-gradient';

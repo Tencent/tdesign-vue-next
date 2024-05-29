@@ -11,9 +11,9 @@ import {
   ref,
   watchEffect,
 } from '@td/adapter-vue';
-import props from '@td/intel/anchor/props';
+import props from '@td/components/anchor/props';
 import { useCommonClassName, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
-import type { TdAnchorProps } from '@td/intel/anchor/type';
+import type { TdAnchorProps } from '@td/components/anchor/type';
 import type { SlotReturnValue } from '@td/types';
 import { getScroll, isServer, off, on, scrollTo, getScrollContainer as utilsGetScrollContainer } from '@td/utils';
 import Affix from '../affix';

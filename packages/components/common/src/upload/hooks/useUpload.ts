@@ -1,6 +1,6 @@
 import { computed, ref, toRefs } from '@td/adapter-vue';
 import { merge } from 'lodash-es';
-import type { SizeLimitObj, TdUploadProps, UploadChangeContext, UploadFile, UploadRemoveContext } from '@td/intel/upload/type';
+import type { SizeLimitObj, TdUploadProps, UploadChangeContext, UploadFile, UploadRemoveContext } from '@td/components/upload/type';
 import {
   formatToUploadFile,
   getDisplayFiles,

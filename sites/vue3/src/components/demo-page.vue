@@ -1,6 +1,6 @@
 <script>
-const demoVueReq = import.meta.globEager('@td/intel/**/_example/*.vue');
-const demoJsxReq = import.meta.globEager('@td/intel/**/_example/*.jsx');
+const demoVueReq = import.meta.globEager('@td/components/**/_example/*.vue');
+const demoJsxReq = import.meta.globEager('@td/components/**/_example/*.jsx');
 
 const demoReq = { ...demoVueReq, ...demoJsxReq };
 const demoObject = {};

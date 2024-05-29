@@ -9,13 +9,17 @@
   },
   "dependencies": {
     "@td/adapter-vue": "workspace:^",
+    "@td/common": "workspace:tdesign-common@^",
     "@td/components-common": "workspace:^",
-    "@td/components-vue3": "workspace:^"
+    "@td/components-vue3": "workspace:^",
+    "lodash-es": "^4.17.21"
   },
   "devDependencies": {
     "@types/cli-color": "^2.0.6",
     "cli-color": "^2.0.4",
     "vite": "^5.0.12",
-    "vitest": "^1.6.0"
+    "vitest": "^1.6.0",
+    "@types/lodash-es": "^4.17.12"
+    
   }
 }

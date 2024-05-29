@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@td/adapter-vue": "workspace:^",
+    "@td/common": "workspace:tdesign-common@^",
     "@td/utils": "workspace:^",
     "lodash-es": "^4.17.21"
   },

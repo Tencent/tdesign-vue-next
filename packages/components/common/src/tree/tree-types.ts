@@ -1,4 +1,4 @@
-import type { TdTreeProps, TreeNodeModel, TreeNodeState, TreeNodeValue } from '@td/intel/tree/type';
+import type { TdTreeProps, TreeNodeModel, TreeNodeState, TreeNodeValue } from '@td/components/tree/type';
 import type { TreeStore } from '@td/common/js/tree/tree-store';
 import type {
   TreeProps as AdaptTreeProps,
@@ -20,7 +20,7 @@ import type {
 // 在这个文件做统一的类型梳理
 // 所有类型，接口，都用 Type 作为名称前缀
 
-export * from '@td/intel/tree/type';
+export * from '@td/components/tree/type';
 
 export type TreeProps = AdaptTreeProps;
 export type TypeTreeInstance = AdaptTypeTreeInstance;

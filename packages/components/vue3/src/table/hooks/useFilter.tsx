@@ -1,7 +1,7 @@
 import type { SetupContext } from '@td/adapter-vue';
 import { computed, h, ref, toRefs, watch } from '@td/adapter-vue';
 import { isFunction } from 'lodash-es';
-import type { FilterValue, PrimaryTableCol, TableFilterChangeContext, TableRowData, TdPrimaryTableProps } from '@td/intel/table/type';
+import type { FilterValue, PrimaryTableCol, TableFilterChangeContext, TableRowData, TdPrimaryTableProps } from '@td/components/table/type';
 import { getColumnsResetValue } from '@td/common/js/table/utils';
 import { useConfig, useDefaultValue, useTNodeDefault } from '@td/adapter-hooks';
 import { Button as TButton } from '@td/components-common';

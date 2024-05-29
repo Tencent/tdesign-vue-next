@@ -6,8 +6,8 @@ import {
   InfoCircleFilledIcon as TdInfoCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
 
-import type { DialogCloseContext, TdDialogProps } from '@td/intel/dialog/type';
-import props from '@td/intel/dialog/props';
+import type { DialogCloseContext, TdDialogProps } from '@td/components/dialog/type';
+import props from '@td/components/dialog/props';
 import { useConfig, useContent, useGlobalIcon, usePopupManager, usePrefixClass, useTNodeJSX, useTeleport } from '@td/adapter-hooks';
 import { getScrollbarWidth } from '@td/common/js/utils/getScrollbarWidth';
 import { useAction, useSameTarget } from './hooks';

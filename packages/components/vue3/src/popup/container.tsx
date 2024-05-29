@@ -15,7 +15,7 @@ import {
   ref,
   watch,
 } from '@td/adapter-vue';
-import props from '@td/intel/popup/props';
+import props from '@td/components/popup/props';
 import { useResizeObserver } from '@td/adapter-hooks';
 import { isArray } from 'lodash-es';
 import { getAttach, getSSRAttach } from '@td/utils';

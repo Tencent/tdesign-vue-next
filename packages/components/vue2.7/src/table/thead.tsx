@@ -5,7 +5,7 @@ import {
   ref,
 } from '@td/adapter-vue';
 import { isFunction } from 'lodash-es';
-import type { BaseTableCol, TableRowData, TdBaseTableProps } from '@td/intel/table/type';
+import type { BaseTableCol, TableRowData, TdBaseTableProps } from '@td/components/table/type';
 import type { AttachNode } from '@td/types';
 import { getColumnFixedStyles } from './hooks/useFixed';
 import type { BaseTableColumns, RowAndColFixedPosition, ThRowspanAndColspan } from './interface';

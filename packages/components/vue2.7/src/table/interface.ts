@@ -7,7 +7,7 @@ import type {
   TdBaseTableProps,
   TdEnhancedTableProps,
   TdPrimaryTableProps,
-} from '@td/intel/table/type';
+} from '@td/components/table/type';
 
 export interface BaseTableProps extends TdBaseTableProps {
   /**

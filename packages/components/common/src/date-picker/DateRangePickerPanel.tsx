@@ -1,15 +1,15 @@
 import { computed, defineComponent, ref } from '@td/adapter-vue';
 import dayjs from 'dayjs';
 
-import dateRangePickerPanelProps from '@td/intel/date-picker/date-range-picker-panel-props';
-import dateRangePickerProps from '@td/intel/date-picker/date-range-picker-props';
+import dateRangePickerPanelProps from '@td/components/date-picker/date-range-picker-panel-props';
+import dateRangePickerProps from '@td/components/date-picker/date-range-picker-props';
 import type {
   DatePickerMonthChangeTrigger,
   DatePickerYearChangeTrigger,
   DateRangePickerPartial,
   DateValue,
   TdDateRangePickerPanelProps,
-} from '@td/intel/date-picker/type';
+} from '@td/components/date-picker/type';
 
 import { isArray, isFunction } from 'lodash-es';
 import { formatDate, getDefaultFormat, parseToDayjs } from '@td/common/js/date-picker/format';

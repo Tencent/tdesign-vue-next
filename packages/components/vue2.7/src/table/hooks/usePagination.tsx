@@ -6,8 +6,8 @@ import type {
 import { computed, ref, toRefs, watch } from '@td/adapter-vue';
 import log from '@td/common/js/log';
 import { useConfig } from '@td/adapter-hooks';
-import type { TableRowData, TdBaseTableProps } from '@td/intel/table/type';
-import type { PageInfo, TdPaginationProps as PaginationProps } from '@td/intel/pagination/type';
+import type { TableRowData, TdBaseTableProps } from '@td/components/table/type';
+import type { PageInfo, TdPaginationProps as PaginationProps } from '@td/components/pagination/type';
 import Pagination from '@td/component';
 
 const DEFAULT_PAGE_SIZE = 10;

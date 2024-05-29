@@ -11,14 +11,15 @@ const workspaceRoot = searchForWorkspaceRoot(process.cwd());
 const getRootPath = (...args: string[]) => path.posix.resolve(workspaceRoot, ...args);
 
 export function resolveAlias(vueVersion: number) {
-  return {
-    '@adapter/vue': getRootPath(`packages/adapter/vue/vue${vueVersion}`),
-    '@adapter/hooks': getRootPath(`packages/adapter/hooks/vue${vueVersion}`),
-    '@adapter/utils': getRootPath(`packages/adapter/utils/vue${vueVersion}`),
-    '@td/intel': getRootPath(`packages/intel/vue${vueVersion}/src`),
-    '@td/components': getRootPath(`packages/components/vue${vueVersion}`),
-    'tdesign-vue-next/es/locale': getRootPath(`packages/components/locale/src`),
-  };
+  return [
+    { find: '@', replacement: path.resolve(__dirname) },
+    { find: '@adapter/vue', replacement: getRootPath(`packages/adapter/vue/vue${vueVersion}`) },
+    { find: '@adapter/hooks', replacement: getRootPath(`packages/adapter/hooks/vue${vueVersion}`) },
+    { find: '@adapter/utils', replacement: getRootPath(`packages/adapter/utils/vue${vueVersion}`) },
+    { find: /^@td\/components\/(.+)/, replacement: getRootPath(`packages/tdesign-vue${vueVersion === 3 ? '-next' : ''}/src/$1`) },
+    { find: /^@td\/components$/, replacement: getRootPath(`packages/tdesign-vue${vueVersion === 3 ? '-next' : ''}`) },
+    { find: 'tdesign-vue-next/es/locale', replacement: getRootPath(`packages/components/locale/src`) },
+  ];
 }
 
 const publicPathMap = {
@@ -34,10 +35,7 @@ export default defineConfig(({ mode }) => {
   return {
     base: publicPathMap[mode],
     resolve: {
-      alias: {
-        '@': path.resolve(__dirname),
-        ...resolveAlias(3),
-      },
+      alias: resolveAlias(3),
     },
     server: {
       host: '0.0.0.0',

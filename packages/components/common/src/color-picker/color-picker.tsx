@@ -1,6 +1,6 @@
 import { defineComponent, ref, toRefs } from '@td/adapter-vue';
 import { useTNodeDefault, useVModel } from '@td/adapter-hooks';
-import props from '@td/intel/color-picker/props';
+import props from '@td/components/color-picker/props';
 import { Popup as TPopup } from '@td/components';
 import ColorPanel from './panel';
 import DefaultTrigger from './trigger';

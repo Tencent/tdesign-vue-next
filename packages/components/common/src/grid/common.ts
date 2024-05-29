@@ -1,7 +1,7 @@
 import { ref } from '@td/adapter-vue';
 import { isArray, isNumber, isObject, isUndefined } from 'lodash-es';
 
-import type { TdColProps, TdRowProps } from '@td/intel/grid/type';
+import type { TdColProps, TdRowProps } from '@td/components/grid/type';
 import { useListener } from '@td/adapter-hooks';
 import { isServer } from '@td/utils';
 import { calcSize } from '../utils/responsive';

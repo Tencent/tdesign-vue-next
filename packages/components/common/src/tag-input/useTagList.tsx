@@ -1,5 +1,5 @@
 import { ref, toRefs } from '@td/adapter-vue';
-import type { TagInputChangeContext, TagInputValue } from '@td/intel/tag-input/type';
+import type { TagInputChangeContext, TagInputValue } from '@td/components/tag-input/type';
 import { usePrefixClass, useTNodeJSX, useVModel } from '@td/adapter-hooks';
 import Tag from '../tag';
 import type { InputValue } from '../input';

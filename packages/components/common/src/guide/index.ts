@@ -1,5 +1,5 @@
 import { withInstall } from '@td/adapter-vue';
-import type { GuideStep, TdGuideProps } from '@td/intel/guide/type';
+import type { GuideStep, TdGuideProps } from '@td/components/guide/type';
 import _Guide from './guide';
 
 import './style';
@@ -10,7 +10,7 @@ import './style';
  */
 export type TdGuideStepProps = GuideStep;
 
-export * from '@td/intel/guide/type';
+export * from '@td/components/guide/type';
 export type GuideProps = TdGuideProps;
 
 export const Guide = withInstall(_Guide);

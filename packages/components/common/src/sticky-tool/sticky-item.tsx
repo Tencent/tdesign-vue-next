@@ -1,9 +1,9 @@
 import type { PropType } from '@td/adapter-vue';
 import { computed, defineComponent } from '@td/adapter-vue';
-import baseProps from '@td/intel/sticky-tool/sticky-item-props';
-import TdStickyToolProps from '@td/intel/sticky-tool/props';
+import baseProps from '@td/components/sticky-tool/sticky-item-props';
+import TdStickyToolProps from '@td/components/sticky-tool/props';
 import { usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
-import type { TdStickyItemProps } from '@td/intel/sticky-tool/type';
+import type { TdStickyItemProps } from '@td/components/sticky-tool/type';
 import type { Styles } from '@td/types';
 import { Popup } from '@td/components';
 

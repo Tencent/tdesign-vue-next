@@ -3,7 +3,7 @@ import _Rate from './rate';
 
 import './style';
 
-export * from '@td/intel/rate/type';
+export * from '@td/components/rate/type';
 
 export const Rate = withInstall(_Rate);
 

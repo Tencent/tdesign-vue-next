@@ -3,8 +3,8 @@ import dayjs from 'dayjs';
 import { useDisabled, usePrefixClass } from '@td/adapter-hooks';
 import { isArray, isFunction } from 'lodash-es';
 
-import props from '@td/intel/date-picker/date-range-picker-props';
-import type { DateRangePickerPartial, DateValue } from '@td/intel/date-picker/type';
+import props from '@td/components/date-picker/date-range-picker-props';
+import type { DateRangePickerPartial, DateValue } from '@td/components/date-picker/type';
 import {
   formatDate,
   formatTime,

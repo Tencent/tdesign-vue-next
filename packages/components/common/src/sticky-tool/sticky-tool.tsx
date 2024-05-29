@@ -1,13 +1,13 @@
 import type { VNode } from '@td/adapter-vue';
 import { computed, defineComponent } from '@td/adapter-vue';
-import props from '@td/intel/sticky-tool/props';
+import props from '@td/components/sticky-tool/props';
 import { isObject } from 'lodash-es';
 
 import { usePrefixClass } from '@td/adapter-hooks';
 
-import stickyItemProps from '@td/intel/sticky-tool/sticky-item-props';
+import stickyItemProps from '@td/components/sticky-tool/sticky-item-props';
 
-import type { TdStickyItemProps } from '@td/intel/sticky-tool/type';
+import type { TdStickyItemProps } from '@td/components/sticky-tool/type';
 import { useChildComponentSlots } from '@td/adapter-hooks';
 import type { Styles } from '@td/types';
 import StickyItem from './sticky-item';

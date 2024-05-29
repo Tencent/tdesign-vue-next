@@ -1,5 +1,5 @@
 import { defineComponent } from '@td/adapter-vue';
-import props from '@td/intel/descriptions/description-item-props';
+import props from '@td/components/descriptions/description-item-props';
 
 export default defineComponent({
   name: 'TDescriptionsItem',

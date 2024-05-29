@@ -1,6 +1,6 @@
 import type { PropType } from '@td/adapter-vue';
 import { defineComponent } from '@td/adapter-vue';
-import type { TdDatePickerProps } from '@td/intel/date-picker/type';
+import type { TdDatePickerProps } from '@td/components/date-picker/type';
 import { getDefaultFormat } from '@td/common/js/date-picker/format';
 import { usePrefixClass } from '@td/adapter-hooks';
 

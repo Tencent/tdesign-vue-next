@@ -1,11 +1,11 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdTabPanelProps, TdTabsProps } from '@td/intel/tabs/type';
+import type { TdTabPanelProps, TdTabsProps } from '@td/components/tabs/type';
 import _Tabs from './tabs';
 import _TabPanel from './tab-panel';
 
 import './style';
 
-export * from '@td/intel/tabs/type';
+export * from '@td/components/tabs/type';
 export type TabsProps = TdTabsProps;
 export type TabPanelProps = TdTabPanelProps;
 

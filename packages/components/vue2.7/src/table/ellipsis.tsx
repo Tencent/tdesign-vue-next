@@ -9,7 +9,7 @@ import { debounce } from 'lodash-es';
 import type { AttachNode, TNode } from '@td/types';
 import { useContent } from '@td/adapter-hooks';
 import { isNodeOverflow } from '@td/utils';
-import type { TdTooltipProps as TooltipProps } from '@td/intel/tooltip/type';
+import type { TdTooltipProps as TooltipProps } from '@td/components/tooltip/type';
 import { Tooltip as TTooltip } from '@td/component';
 
 export interface EllipsisProps {

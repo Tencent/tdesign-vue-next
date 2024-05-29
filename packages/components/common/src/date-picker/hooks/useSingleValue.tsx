@@ -6,7 +6,7 @@ import {
   isValidDate,
   parseToDayjs,
 } from '@td/common/js/date-picker/format';
-import type { TdDatePickerProps } from '@td/intel/date-picker/type';
+import type { TdDatePickerProps } from '@td/components/date-picker/type';
 import { extractTimeFormat } from '@td/common/js/date-picker/utils';
 import { useVModel } from '@td/adapter-hooks';
 

@@ -1,5 +1,5 @@
 import { isFunction, upperFirst } from 'lodash-es';
-import props from '@td/intel/tree/props';
+import props from '@td/components/tree/props';
 import { useTNodeJSX } from '@td/adapter-hooks';
 import type {
   TreeNode,

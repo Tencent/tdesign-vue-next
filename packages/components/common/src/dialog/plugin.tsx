@@ -1,6 +1,6 @@
 import type { App, Plugin } from '@td/adapter-vue';
 import { createApp, defineComponent, h, nextTick, onMounted, ref } from '@td/adapter-vue';
-import type { DialogAlertMethod, DialogConfirmMethod, DialogInstance, DialogMethod, DialogOptions } from '@td/intel/dialog/type';
+import type { DialogAlertMethod, DialogConfirmMethod, DialogInstance, DialogMethod, DialogOptions } from '@td/components/dialog/type';
 import { omit } from 'lodash-es';
 import { getAttach } from '@td/utils';
 import DialogComponent from './dialog';

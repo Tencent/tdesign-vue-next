@@ -21,10 +21,10 @@ import {
   useTNodeJSX,
   useVModel,
 } from '@td/adapter-hooks';
-import props from '@td/intel/popup/props';
+import props from '@td/components/popup/props';
 import type {
   PopupTriggerEvent,
-} from '@td/intel/popup/type';
+} from '@td/components/popup/type';
 import type { InjectionKey } from '@td/adapter-vue';
 import Container from './container';
 import {

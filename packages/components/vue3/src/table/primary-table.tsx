@@ -1,9 +1,9 @@
 import { computed, defineComponent, getCurrentInstance, h, onMounted, ref, toRefs } from '@td/adapter-vue';
 import { get, omit } from 'lodash-es';
-import baseTableProps from '@td/intel/table/base-table-props';
-import primaryTableProps from '@td/intel/table/primary-table-props';
+import baseTableProps from '@td/components/table/base-table-props';
+import primaryTableProps from '@td/components/table/primary-table-props';
 import { useConfig, useTNodeJSX } from '@td/adapter-hooks';
-import type { PrimaryTableCellParams, PrimaryTableCol, TableRowData, TdPrimaryTableProps } from '@td/intel/table/type';
+import type { PrimaryTableCellParams, PrimaryTableCol, TableRowData, TdPrimaryTableProps } from '@td/components/table/type';
 import type { ScrollToElementParams } from '@td/adapter-hooks';
 import type { PageInfo } from '../pagination';
 import BaseTable from './base-table';

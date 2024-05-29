@@ -16,8 +16,8 @@ import { isUndefined, merge, omit } from 'lodash-es';
 
 import { useCommonClassName, useDisabled, usePrefixClass, useTNodeJSX, useVModel } from '@td/adapter-hooks';
 
-import props from '@td/intel/textarea/props';
-import type { TdTextareaProps, TextareaValue } from '@td/intel/textarea/type';
+import props from '@td/components/textarea/props';
+import type { TdTextareaProps, TextareaValue } from '@td/components/textarea/type';
 import { getCharacterLength } from '@td/common/js/utils/helper';
 import setStyle from '@td/common/js/utils/set-style';
 import { useFormDisabled } from '../form/hooks';

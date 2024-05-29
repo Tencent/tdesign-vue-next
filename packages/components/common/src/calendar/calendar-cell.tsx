@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 
 import { useCommonClassName, useContent } from '@td/adapter-hooks';
 
-import type { CalendarCell } from '@td/intel/calendar/type';
+import type { CalendarCell } from '@td/components/calendar/type';
 import { useCalendarCellClass } from './hook';
 
 // 组件相关的自定义类型

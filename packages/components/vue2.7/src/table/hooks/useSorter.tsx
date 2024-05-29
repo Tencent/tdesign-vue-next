@@ -14,7 +14,7 @@ import type {
   SortInfo,
   TableRowData,
   TdPrimaryTableProps,
-} from '@td/intel/table/type';
+} from '@td/components/table/type';
 import { useDefaultValue } from '@td/adapter-hooks';
 import SorterButton from '../sorter-button';
 

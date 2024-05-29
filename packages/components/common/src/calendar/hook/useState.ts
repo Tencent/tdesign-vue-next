@@ -2,7 +2,7 @@ import { reactive, watch } from '@td/adapter-vue';
 import dayjs from 'dayjs';
 
 import { isArray } from 'lodash-es';
-import type { TdCalendarProps } from '@td/intel/calendar/type';
+import type { TdCalendarProps } from '@td/components/calendar/type';
 import { useConfig } from '@td/adapter-hooks';
 import { COMPONENT_NAME } from '../const';
 import { createDefaultCurDate } from '../utils';

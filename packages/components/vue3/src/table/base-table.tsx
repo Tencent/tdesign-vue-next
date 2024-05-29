@@ -1,9 +1,9 @@
 import type { PropType, SetupContext } from '@td/adapter-vue';
 import { computed, defineComponent, nextTick, onMounted, ref, toRefs, watch } from '@td/adapter-vue';
 import { get, isFunction, pick } from 'lodash-es';
-import props from '@td/intel/table/base-table-props';
+import props from '@td/components/table/base-table-props';
 import { useConfig, useElementLazyRender, useTNodeJSX, useVirtualScroll } from '@td/adapter-hooks';
-import type { BaseTableInstanceFunctions } from '@td/intel/table/type';
+import type { BaseTableInstanceFunctions } from '@td/components/table/type';
 import { getIEVersion } from '@td/common/js/utils/helper';
 import log from '@td/common/js/log';
 import type { ComponentScrollToElementParams, Styles } from '@td/types';

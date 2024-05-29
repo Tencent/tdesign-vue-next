@@ -2,7 +2,7 @@
 // 除此文件之外的其他组件文件，可从 vue2 项目直接复制到 vue3 项目进行维护
 import * as Vue from '@td/adapter-vue';
 import type { ComponentPublicInstance, PropType, Ref, SetupContext, ToRefs, UnwrapNestedRefs, VNode } from '@td/adapter-vue';
-import type { TdTreeProps, TreeInstanceFunctions } from '@td/intel/tree/type';
+import type { TdTreeProps, TreeInstanceFunctions } from '@td/components/tree/type';
 import type { VirtualScrollConfig, useDefaultValue as tdUseDefaultValue, useVModel as tdUseVModel } from '@td/adapter-hooks';
 import type { TypeTreeEventState as TreeEventState } from '@td/common/js/tree/types';
 import type { TreeStore } from '@td/common/js/tree/tree-store';

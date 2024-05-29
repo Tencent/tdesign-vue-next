@@ -1,6 +1,6 @@
 import type { Directive, DirectiveBinding } from '@td/adapter-vue';
 import { isEqual, isObject, mapKeys } from 'lodash-es';
-import type { TdLoadingProps } from '@td/intel/loading/type';
+import type { TdLoadingProps } from '@td/components/loading/type';
 import produceLoading from './plugin';
 
 const INSTANCE_KEY = Symbol('TdLoading');

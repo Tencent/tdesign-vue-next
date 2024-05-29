@@ -1,11 +1,11 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdStickyItemProps, TdStickyToolProps } from '@td/intel/sticky-tool/type';
+import type { TdStickyItemProps, TdStickyToolProps } from '@td/components/sticky-tool/type';
 import _StickyTool from './sticky-tool';
 import _StickyItem from './sticky-item';
 
 import './style';
 
-export * from '@td/intel/sticky-tool/type';
+export * from '@td/components/sticky-tool/type';
 
 export type StickyToolProps = TdStickyToolProps;
 export type StickyItemProps = TdStickyItemProps;

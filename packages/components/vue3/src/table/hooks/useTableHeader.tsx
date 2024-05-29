@@ -1,7 +1,7 @@
 import type { SetupContext } from '@td/adapter-vue';
 import { computed, h } from '@td/adapter-vue';
 import { isFunction, isString } from 'lodash-es';
-import type { BaseTableCol, PrimaryTableCol, TableRowData, TdBaseTableProps } from '@td/intel/table/type';
+import type { BaseTableCol, PrimaryTableCol, TableRowData, TdBaseTableProps } from '@td/components/table/type';
 import type { TNodeReturnValue } from '../../common';
 import type { BaseTableColumns } from '../interface';
 import TEllipsis from '../ellipsis';

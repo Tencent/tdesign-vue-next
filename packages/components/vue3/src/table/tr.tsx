@@ -14,8 +14,8 @@ import {
   toRefs,
 } from '@td/adapter-vue';
 import { get, isFunction, isString, pick, upperFirst } from 'lodash-es';
-import type { BaseTableCellParams, RowspanColspan, TableRowData, TdBaseTableProps, TdPrimaryTableProps } from '@td/intel/table/type';
-import baseTableProps from '@td/intel/table/base-table-props';
+import type { BaseTableCellParams, RowspanColspan, TableRowData, TdBaseTableProps, TdPrimaryTableProps } from '@td/components/table/type';
+import baseTableProps from '@td/components/table/base-table-props';
 import type { VirtualScrollConfig } from '@td/adapter-hooks';
 import type { AttachNode, SlotReturnValue } from '@td/types';
 import type { TooltipProps } from '@td/components-common';

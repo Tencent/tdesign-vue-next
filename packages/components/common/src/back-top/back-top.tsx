@@ -2,9 +2,9 @@ import { computed, defineComponent, onBeforeUnmount, onMounted, ref } from '@td/
 import { BacktopIcon as TdBackTopIcon } from 'tdesign-icons-vue-next';
 
 import { useChildSlots, useConfig, useContent, useGlobalIcon, usePrefixClass } from '@td/adapter-hooks';
-import props from '@td/intel/back-top/props';
+import props from '@td/components/back-top/props';
 
-import type { TdBackTopProps } from '@td/intel/back-top/type';
+import type { TdBackTopProps } from '@td/components/back-top/type';
 import { scrollTo } from '@td/utils';
 
 export default defineComponent({

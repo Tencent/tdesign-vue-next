@@ -1,7 +1,7 @@
 import { defineComponent, h, ref, watch } from '@td/adapter-vue';
 import { isArray, isFunction, isNumber } from 'lodash-es';
-import props from '@td/intel/skeleton/props';
-import type { SkeletonRowCol, SkeletonRowColObj, TdSkeletonProps } from '@td/intel/skeleton/type';
+import props from '@td/components/skeleton/props';
+import type { SkeletonRowCol, SkeletonRowColObj, TdSkeletonProps } from '@td/components/skeleton/type';
 import { useContent, usePrefixClass } from '@td/adapter-hooks';
 
 const ThemeMap: Record<TdSkeletonProps['theme'], SkeletonRowCol> = {

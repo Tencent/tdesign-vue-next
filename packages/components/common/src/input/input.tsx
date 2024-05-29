@@ -4,7 +4,7 @@ import {
   BrowseOffIcon as TdBrowseOffIcon,
   CloseCircleFilledIcon as TdCloseCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
-import props from '@td/intel/input/props';
+import props from '@td/components/input/props';
 import { useCommonClassName, useConfig, useDisabled, useGlobalIcon, usePrefixClass, useReadonly, useTNodeJSX } from '@td/adapter-hooks';
 import { isUndefined } from 'lodash-es';
 import type { PlainObject } from '@td/types';

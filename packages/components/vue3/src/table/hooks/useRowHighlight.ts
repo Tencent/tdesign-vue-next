@@ -1,7 +1,7 @@
 import type { Ref } from '@td/adapter-vue';
 import { ref, toRefs } from '@td/adapter-vue';
 import { get } from 'lodash-es';
-import type { RowEventContext, TableRowData } from '@td/intel/table/type';
+import type { RowEventContext, TableRowData } from '@td/components/table/type';
 import {
   ALL_REG,
   ARROW_DOWN_REG,

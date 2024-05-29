@@ -1,6 +1,6 @@
 import { computed, defineComponent, provide, toRefs } from '@td/adapter-vue';
-import props from '@td/intel/collapse/props';
-import type { CollapsePanelValue, CollapseValue, TdCollapseProps } from '@td/intel/collapse/type';
+import props from '@td/components/collapse/props';
+import type { CollapsePanelValue, CollapseValue, TdCollapseProps } from '@td/components/collapse/type';
 import { usePrefixClass, useTNodeJSX, useVModel } from '@td/adapter-hooks';
 
 export default defineComponent({

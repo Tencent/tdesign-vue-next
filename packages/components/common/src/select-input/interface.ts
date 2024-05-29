@@ -1,4 +1,4 @@
-import type { TdSelectInputProps } from '@td/intel/select-input/type';
+import type { TdSelectInputProps } from '@td/components/select-input/type';
 
 export interface SelectInputCommonProperties {
   status?: TdSelectInputProps['status'];

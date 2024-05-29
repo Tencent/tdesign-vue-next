@@ -5,11 +5,11 @@ import {
 } from 'tdesign-icons-vue-next';
 
 import { useConfig, useContent, useGlobalIcon, usePrefixClass, useTNodeDefault, useTNodeJSX, useVModel } from '@td/adapter-hooks';
-import props from '@td/intel/popconfirm/props';
-import type { PopconfirmVisibleChangeContext } from '@td/intel/popconfirm/type';
+import props from '@td/components/popconfirm/props';
+import type { PopconfirmVisibleChangeContext } from '@td/components/popconfirm/type';
 import { Popup } from '@td/components';
 import type { PopupProps, PopupVisibleChangeContext } from '@td/components';
-import type { TdDialogProps } from '@td/intel/dialog/type';
+import type { TdDialogProps } from '@td/components/dialog/type';
 import { useAction } from '../dialog/hooks';
 
 export default defineComponent({

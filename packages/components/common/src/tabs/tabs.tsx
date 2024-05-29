@@ -1,7 +1,7 @@
 import type { ComponentPublicInstance, Ref } from '@td/adapter-vue';
 import { defineComponent, provide, toRefs } from '@td/adapter-vue';
-import type { TabValue, TdTabsProps } from '@td/intel/tabs/type';
-import props from '@td/intel/tabs/props';
+import type { TabValue, TdTabsProps } from '@td/components/tabs/type';
+import props from '@td/components/tabs/props';
 
 import { usePrefixClass, useTNodeJSX, useVModel } from '@td/adapter-hooks';
 import { isArray } from 'lodash-es';

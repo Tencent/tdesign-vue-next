@@ -10,7 +10,7 @@ import {
   PageLastIcon as TdPageLastIcon,
 } from 'tdesign-icons-vue-next';
 import { useConfig, useDefaultValue, useGlobalIcon, usePrefixClass, useTNodeJSX, useVModel } from '@td/adapter-hooks';
-import props from '@td/intel/pagination/props';
+import props from '@td/components/pagination/props';
 import type { TdPaginationProps } from '../pagination/type';
 import TInputNumber from '../input-number';
 import { Select } from '../select';

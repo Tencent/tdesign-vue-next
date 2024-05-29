@@ -14,7 +14,7 @@ import type {
   TableRowState,
   TableRowValue,
   TdEnhancedTableProps,
-} from '@td/intel/table/type';
+} from '@td/components/table/type';
 import { useConfig, useGlobalIcon, useTNodeDefault } from '@td/adapter-hooks';
 import { renderCell } from '../tr';
 import useClassName from './useClassName';

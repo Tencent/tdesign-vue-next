@@ -3,7 +3,7 @@ import { createPopper } from '@popperjs/core';
 import { getAttach } from '@td/utils';
 
 import type { TNode } from '@td/types';
-import type { TdPopupProps } from '@td/intel/popup/type';
+import type { TdPopupProps } from '@td/components/popup/type';
 import type { App, Plugin } from '@td/adapter-vue';
 import type { Instance } from '@popperjs/core';
 import popupOverlayComponent from './overlay';

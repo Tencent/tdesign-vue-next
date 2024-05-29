@@ -6,8 +6,8 @@ import type {
 import { computed, defineComponent, toRefs } from '@td/adapter-vue';
 import { camelCase, get, pick } from 'lodash-es';
 import { useConfig, useTNodeJSX } from '@td/adapter-hooks';
-import type { TdBaseTableProps } from '@td/intel/table/type';
-import baseTableProps from '@td/intel/table/base-table-props';
+import type { TdBaseTableProps } from '@td/components/table/type';
+import baseTableProps from '@td/components/table/base-table-props';
 import type { VirtualScrollConfig } from '@td/adapter-hooks';
 import type { TrProps } from './tr';
 import TrElement, { ROW_LISTENERS, TABLE_PROPS } from './tr';

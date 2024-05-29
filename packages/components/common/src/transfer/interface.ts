@@ -1,6 +1,6 @@
-import type { DataOption, SearchContext, TdTransferProps, TransferListType, TransferValue } from '@td/intel/transfer/type';
+import type { DataOption, SearchContext, TdTransferProps, TransferListType, TransferValue } from '@td/components/transfer/type';
 
-export * from '@td/intel/transfer/type';
+export * from '@td/components/transfer/type';
 
 export type TransferProps = TdTransferProps;
 

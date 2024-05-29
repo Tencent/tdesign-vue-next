@@ -4,7 +4,7 @@ import {
   ArrowTriangleUpFilledIcon as TDArrowTriangleUpFilledIcon,
 } from 'tdesign-icons-vue-next';
 import { isFunction, isNumber } from 'lodash-es';
-import props from '@td/intel/statistic/props';
+import props from '@td/components/statistic/props';
 import { useGlobalIcon, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import Tween from '@td/common/js/statistic/tween';
 import { COLOR_MAP } from '@td/common/js/statistic/utils';

@@ -37,7 +37,7 @@ import type {
   MessageQuestionMethod,
   MessageSuccessMethod,
   MessageWarningMethod,
-} from '@td/intel/message/type';
+} from '@td/components/message/type';
 import { isObject, isString } from 'lodash-es';
 import type { AttachNodeReturnValue } from '@td/types';
 import { getAttach } from '@td/utils';

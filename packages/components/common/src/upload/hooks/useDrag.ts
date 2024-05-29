@@ -1,7 +1,7 @@
 import type { Ref } from '@td/adapter-vue';
 import { ref } from '@td/adapter-vue';
 import { getFileList } from '@td/common/js/upload/utils';
-import type { TdUploadProps } from '@td/intel/upload/type';
+import type { TdUploadProps } from '@td/components/upload/type';
 
 export interface UploadDragEvents {
   onDragFileChange?: (files: File[]) => void;

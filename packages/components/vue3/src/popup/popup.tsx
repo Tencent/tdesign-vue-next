@@ -18,8 +18,8 @@ import {
   watch,
 } from '@td/adapter-vue';
 import { useCommonClassName, useContent, usePrefixClass, useTNodeJSX, useVModel } from '@td/adapter-hooks';
-import props from '@td/intel/popup/props';
-import type { PopupTriggerEvent, TdPopupProps } from '@td/intel/popup/type';
+import props from '@td/components/popup/props';
+import type { PopupTriggerEvent, TdPopupProps } from '@td/components/popup/type';
 import setStyle from '@td/common/js/utils/set-style';
 import { off, on, once } from '@td/utils';
 import Container from './container';

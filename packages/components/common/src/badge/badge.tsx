@@ -1,5 +1,5 @@
 import { computed, defineComponent } from '@td/adapter-vue';
-import props from '@td/intel/badge/props';
+import props from '@td/components/badge/props';
 import { useContent, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 
 export default defineComponent({

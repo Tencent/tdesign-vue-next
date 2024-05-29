@@ -1,6 +1,6 @@
 import type { CSSProperties } from '@td/adapter-vue';
 import { Teleport, computed, defineComponent, onMounted, ref, toRefs, watch } from '@td/adapter-vue';
-import props from '@td/intel/loading/props';
+import props from '@td/components/loading/props';
 
 import { useCommonClassName, useContent, usePrefixClass, useTNodeJSX, useTeleport } from '@td/adapter-hooks';
 import { addClass, removeClass } from '@td/utils';

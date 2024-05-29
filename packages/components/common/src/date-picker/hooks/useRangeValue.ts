@@ -1,7 +1,7 @@
 import { computed, ref, toRefs, watchEffect } from '@td/adapter-vue';
 import { isArray } from 'lodash-es';
 
-import type { TdDateRangePickerProps } from '@td/intel/date-picker/type';
+import type { TdDateRangePickerProps } from '@td/components/date-picker/type';
 import {
   formatDate,
   formatTime,

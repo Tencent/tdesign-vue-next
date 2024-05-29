@@ -1,6 +1,6 @@
 import { computed, defineComponent, inject, nextTick, onMounted, onUpdated, ref } from '@td/adapter-vue';
-import props from '@td/intel/avatar/props';
-import type { TdAvatarProps } from '@td/intel/avatar/type';
+import props from '@td/components/avatar/props';
+import type { TdAvatarProps } from '@td/components/avatar/type';
 import { useCommonClassName, useContent, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import type { ImageProps } from '../image';
 import Image from '../image';

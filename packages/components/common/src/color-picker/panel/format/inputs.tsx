@@ -1,7 +1,7 @@
 import type { PropType } from '@td/adapter-vue';
 import { computed, defineComponent, reactive, watch } from '@td/adapter-vue';
 import { throttle } from 'lodash-es';
-import props from '@td/intel/color-picker/props';
+import props from '@td/components/color-picker/props';
 import { Color } from '../../utils';
 import TInput from '../../../input';
 import TInputNumber from '../../../input-number';

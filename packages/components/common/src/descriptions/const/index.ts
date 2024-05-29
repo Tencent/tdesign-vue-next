@@ -1,4 +1,4 @@
 import type { InjectionKey } from '@td/adapter-vue';
-import type { TdDescriptionsProps } from '@td/intel/descriptions/type';
+import type { TdDescriptionsProps } from '@td/components/descriptions/type';
 
 export const descriptionsKey: InjectionKey<TdDescriptionsProps> = Symbol('TDescriptions');

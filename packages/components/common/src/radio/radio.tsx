@@ -1,6 +1,6 @@
 import { computed, defineComponent, inject, ref, toRefs } from '@td/adapter-vue';
 import { useCommonClassName, useContent, useDisabled, usePrefixClass, useVModel } from '@td/adapter-hooks';
-import props from '@td/intel/radio/props';
+import props from '@td/components/radio/props';
 import { isString, isUndefined } from 'lodash-es';
 import { omit } from 'lodash-es';
 import { RadioButtonInjectionKey, RadioGroupInjectionKey } from './constants';

@@ -1,6 +1,6 @@
 import { computed, defineComponent } from '@td/adapter-vue';
 import { useCommonClassName, useConfig, useContent, useDisabled, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
-import props from '@td/intel/link/props';
+import props from '@td/components/link/props';
 
 export default defineComponent({
   name: 'TLink',

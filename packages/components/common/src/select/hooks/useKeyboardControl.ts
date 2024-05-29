@@ -1,6 +1,6 @@
 import type { ComputedRef, Ref } from '@td/adapter-vue';
 import { ref, watch } from '@td/adapter-vue';
-import type { SelectOption, SelectValue, TdOptionProps } from '@td/intel/select/type';
+import type { SelectOption, SelectValue, TdOptionProps } from '@td/components/select/type';
 import { usePrefixClass } from '@td/adapter-hooks';
 
 import { getNewMultipleValue } from '../helper';

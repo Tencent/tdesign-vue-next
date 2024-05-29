@@ -1,5 +1,5 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdTransferProps } from '@td/intel/transfer/type';
+import type { TdTransferProps } from '@td/components/transfer/type';
 import _Transfer from './transfer';
 
 import './style';

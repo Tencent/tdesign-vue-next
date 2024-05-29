@@ -11,7 +11,7 @@ import {
   ref,
   watchEffect,
 } from '@td/adapter-vue';
-import type { TdSliderProps } from '@td/intel/slider/type';
+import type { TdSliderProps } from '@td/components/slider/type';
 import { usePrefixClass } from '@td/adapter-hooks';
 import { isFunction } from 'lodash-es';
 import TTooltip from '../tooltip/index';

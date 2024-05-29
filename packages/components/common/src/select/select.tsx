@@ -1,9 +1,9 @@
 import type { PropType } from '@td/adapter-vue';
 import { computed, defineComponent, nextTick, provide, ref, toRefs, watch } from '@td/adapter-vue';
 import { cloneDeep, debounce, get, intersection, isArray, isFunction, pick as picker } from 'lodash-es';
-import props from '@td/intel/select/props';
+import props from '@td/components/select/props';
 import { useConfig, useDefaultValue, useDisabled, usePrefixClass, useTNodeJSX, useVModel } from '@td/adapter-hooks';
-import type { SelectValue, TdSelectProps } from '@td/intel/select/type';
+import type { SelectValue, TdSelectProps } from '@td/components/select/type';
 import type { PopupVisibleChangeContext } from '../popup';
 import type { SelectInputValueChangeContext } from '../select-input';
 import FakeArrow from '../common-components/fake-arrow';

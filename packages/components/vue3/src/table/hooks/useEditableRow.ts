@@ -8,7 +8,7 @@ import type {
   PrimaryTableRowEditContext,
   TableErrorListMap,
   TableRowData,
-} from '@td/intel/table/type';
+} from '@td/components/table/type';
 import { validate } from '@td/components-common/src/form/form-model';
 import type { PrimaryTableProps } from '../interface';
 import type { OnEditableChangeContext } from '../editable-cell';

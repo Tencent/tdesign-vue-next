@@ -1,7 +1,7 @@
 import type { App, Plugin } from '@td/adapter-vue';
 import { createApp, defineComponent, h, reactive } from '@td/adapter-vue';
 import { merge } from 'lodash-es';
-import type { LoadingInstance, LoadingMethod, TdLoadingProps } from '@td/intel/loading/type';
+import type { LoadingInstance, LoadingMethod, TdLoadingProps } from '@td/components/loading/type';
 import { usePrefixClass } from '@td/adapter-hooks';
 import { addClass, getAttach, removeClass } from '@td/utils';
 import LoadingComponent from './loading';

@@ -1,5 +1,5 @@
 import { defineComponent, inject, onMounted, onUnmounted } from '@td/adapter-vue';
-import props from '@td/intel/layout/aside-props';
+import props from '@td/components/layout/aside-props';
 import { usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import type { LayoutProvideType } from './layout';
 
