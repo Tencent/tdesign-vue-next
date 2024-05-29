@@ -57,7 +57,7 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.11.6",
+    "@antfu/eslint-config": "^2.19.1",
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.0.3",
     "@td/ts-config": "workspace:^",
