@@ -2,7 +2,7 @@ import { ref, computed, watch, nextTick, toRefs, inject } from 'vue';
 import { InputValue, TdInputProps } from './type';
 import { FormItemInjectionKey } from '../form/const';
 import useVModel from '../hooks/useVModel';
-import { useFormDisabled } from '../form/hooks';
+import { useDisabled } from '../hooks/useDisabled';
 import useLengthLimit from './useLengthLimit';
 
 export function getOutputValue(val: InputValue, type: TdInputProps['type']) {
@@ -24,7 +24,7 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
   const compositionValue = ref<InputValue>();
   const clearIconRef = ref(null);
   const innerClickElement = ref();
-  const disabled = useFormDisabled();
+  const disabled = useDisabled();
   const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
 
   const isHover = ref(false);
@@ -133,7 +133,6 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
 
   const formItem = inject(FormItemInjectionKey, undefined);
   const formatAndEmitBlur = (e: FocusEvent) => {
-    if (isHover.value) return;
     if (!isClearIcon()) {
       if (props.format) {
         inputValue.value =

@@ -3,10 +3,10 @@ import { ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
 
 import props from './breadcrumb-item-props';
 import Tooltip from '../tooltip/index';
-import { isNodeOverflow } from '../utils/dom';
+import { isTextEllipsis } from '../utils/dom';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useTNodeJSX } from '../hooks/tnode';
+import { useTNodeJSX, useContent } from '../hooks/tnode';
 import isFunction from 'lodash/isFunction';
 
 interface LocalTBreadcrumb {
@@ -31,7 +31,10 @@ export default defineComponent({
   props: {
     ...props,
   },
-  setup(props, { slots, attrs }) {
+  setup(props, { attrs }) {
+    const renderContent = useContent();
+    const renderTNodeJSX = useTNodeJSX();
+
     const breadcrumbText = ref<HTMLElement>();
     const localTBreadcrumb = inject('tBreadcrumb', localTBreadcrumbOrigin);
     const themeClassName = ref(localTBreadcrumb?.theme);
@@ -51,10 +54,10 @@ export default defineComponent({
     });
 
     onMounted(() => {
-      isCutOff.value = isNodeOverflow(breadcrumbText.value);
+      isCutOff.value = isTextEllipsis(breadcrumbText.value);
     });
     onBeforeUpdate(() => {
-      isCutOff.value = isNodeOverflow(breadcrumbText.value);
+      isCutOff.value = isTextEllipsis(breadcrumbText.value);
     });
 
     const separatorPropContent = localTBreadcrumb?.separator;
@@ -84,8 +87,6 @@ export default defineComponent({
     };
 
     return () => {
-      const renderTNodeJSX = useTNodeJSX();
-
       const itemClass = [COMPONENT_NAME.value, themeClassName.value];
       const textClass = [textFlowClass.value];
 
@@ -101,11 +102,14 @@ export default defineComponent({
           }
         },
       };
+
+      const content = renderContent('default', 'content');
+
       const textContent = (
         <span {...{ class: maxLengthClass.value, style: maxWithStyle.value }}>
           {renderTNodeJSX('icon')}
           <span ref={breadcrumbText} class={`${maxLengthClass.value}-text`}>
-            {renderTNodeJSX('default')}
+            {content}
           </span>
         </span>
       );
@@ -120,9 +124,14 @@ export default defineComponent({
         );
       }
       return (
-        <div class={itemClass} {...attrs}>
-          {isCutOff.value ? <Tooltip content={() => slots?.default()}>{itemContent}</Tooltip> : itemContent}
-          <span class={separatorClass.value}>
+        <div class={itemClass} {...attrs} onClick={!props.disabled && props.onClick}>
+          {isCutOff.value ? <Tooltip content={() => content}>{itemContent}</Tooltip> : itemContent}
+          <span
+            class={separatorClass.value}
+            style={{
+              textOverflow: isCutOff.value ? 'ellipsis' : 'clip',
+            }}
+          >
             {isFunction(separatorContent) ? separatorContent() : separatorContent}
           </span>
         </div>

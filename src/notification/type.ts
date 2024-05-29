@@ -4,6 +4,7 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
+import { ComponentPublicInstance } from 'vue';
 import { TNode, AttachNode } from '../common';
 
 export interface TdNotificationProps {
@@ -78,7 +79,7 @@ export type NotificationThemeList = 'info' | 'success' | 'warning' | 'error';
 
 export type NotificationPlacementList = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 
-export interface NotificationInstance {
+export interface NotificationInstance extends ComponentPublicInstance {
   close: () => void;
 }
 

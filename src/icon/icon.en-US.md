@@ -54,7 +54,7 @@ You can get all the name of icon by import manifest from the bundle `import { ma
 
 #### the usage of full import needs network. What if my project is in a no-network scenario?
 
-if your project is in a no-network scenario, please use on-demand loading of icons. For example,`<t-icon name="add" />` should be changed to `<AddIcon />`
+if your project is in a **no-network scenario**, please use **on-demand loading** of icons. For example,`<t-icon name="add" />` should be changed to `<AddIcon />`
 ### All Icons
 
 <td-icons-view />

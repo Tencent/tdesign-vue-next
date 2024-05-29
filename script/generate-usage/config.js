@@ -1,5 +1,11 @@
 /* eslint-disable */
 module.exports = {
+  'auto-complete': {
+    panelStr: `const panelList = [{label: 'AutoComplete', value: 'AutoComplete'}];`,
+    render: {
+      AutoComplete: `<t-auto-complete v-bind="configProps" :options="['第一个联想词', '第二个联想词', '第三个联想词']" />`,
+    },
+  },
   button: {
     panelStr: `const panelList = [{label: 'button', value: 'button'}];`,
     render: {

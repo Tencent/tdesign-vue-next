@@ -129,7 +129,7 @@ const sortChange: TableProps['onSortChange'] = (val) => {
   request(val);
 };
 
-// 排序、分页、过滤等发生变化时会出发 change 事件
+// 排序、分页、过滤等发生变化时会触发 change 事件
 const onChange: TableProps['onChange'] = (info, context) => {
   console.log('change', info, context);
 };

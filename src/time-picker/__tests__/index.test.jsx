@@ -48,6 +48,17 @@ describe('TimePicker', () => {
       expect(wrapper.find('.t-input__inner').attributes('placeholder')).toBe(placeholder);
     });
 
+    it('label works fine', async () => {
+      const label = '左侧文本';
+      const wrapper = mount({
+        render() {
+          return <TimePicker label={label}></TimePicker>;
+        },
+      });
+
+      expect(wrapper.find('.t-input__prefix').text()).toBe(label);
+    });
+
     it('disabled works fine', async () => {
       const wrapper = mount({
         render() {

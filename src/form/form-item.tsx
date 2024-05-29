@@ -115,7 +115,7 @@ export default defineComponent({
 
       return (
         <div class={labelClasses.value} style={labelStyle}>
-          <label for={props.for}>{renderContent('label')}</label>
+          <label for={props.for || null}>{renderContent('label')}</label>
         </div>
       );
     };

@@ -284,7 +284,8 @@
       "replace",
       "router",
       "target",
-      "to"
+      "to",
+      "click"
     ],
     "description": "BreadcrumbItem\n\n面包屑项\n\n[docs](https://tdesign.tencent.com/vue-next/components/breadcrumb-item)"
   },
@@ -449,6 +450,7 @@
       "lazy-load",
       "name",
       "readonly",
+      "title",
       "value",
       "change"
     ],
@@ -644,7 +646,7 @@
     ],
     "description": "DateRangePickerPanel\n\n日期范围选择器面板\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-range-picker-panel)"
   },
-  "t-description-item": {
+  "t-descriptions-item": {
     "attributes": [
       "align",
       "content",
@@ -652,7 +654,7 @@
       "label",
       "span"
     ],
-    "description": "DescriptionItem\n\n描述项\n\n[docs](https://tdesign.tencent.com/vue-next/components/description-item)"
+    "description": "DescriptionsItem\n\n描述项\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions-item)"
   },
   "t-descriptions": {
     "attributes": [
@@ -683,6 +685,7 @@
       "confirm-on-enter",
       "default",
       "destroy-on-close",
+      "dialog-class-name",
       "draggable",
       "footer",
       "header",
@@ -749,7 +752,8 @@
       "close-btn-click",
       "confirm",
       "esc-keydown",
-      "overlay-click"
+      "overlay-click",
+      "size-drag-end"
     ],
     "description": "Drawer\n\n模态抽屉\n\n[docs](https://tdesign.tencent.com/vue-next/components/drawer)"
   },

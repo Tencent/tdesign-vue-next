@@ -147,7 +147,7 @@ export default defineComponent({
     };
 
     const columnLength = this.columns.length;
-    const dataLength = this.data.length;
+    const dataLength = this.data?.length;
     const trNodeList: TNodeReturnValue[] = [];
 
     const properties = [
@@ -160,7 +160,10 @@ export default defineComponent({
       'pagination',
       'attach',
     ];
-    this.data?.forEach((row, rowIndex) => {
+
+    const renderData = this.virtualConfig.isVirtualScroll.value ? this.virtualConfig.visibleData.value : this.data;
+
+    renderData?.forEach((row, rowIndex) => {
       const rowKey = this.rowKey || 'id';
       const rowValue = get(row, rowKey);
       const trProps = {

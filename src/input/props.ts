@@ -33,7 +33,10 @@ export default {
   /** 是否可清空 */
   clearable: Boolean,
   /** 是否禁用输入框 */
-  disabled: Boolean,
+  disabled: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 指定输入框展示值的格式。注意 `type=number` 时请勿使用，此功能建议更为使用 `InputNumber` 组件 */
   format: {
     type: Function as PropType<TdInputProps['format']>,
@@ -69,7 +72,10 @@ export default {
     type: Function as PropType<TdInputProps['prefixIcon']>,
   },
   /** 只读状态 */
-  readonly: Boolean,
+  readonly: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 输入框内容为空时，悬浮状态是否显示清空按钮，默认不显示 */
   showClearIconOnEmpty: Boolean,
   /** 是否在输入框右侧显示字数统计 */

@@ -224,7 +224,7 @@ export default defineComponent({
         props.confirmOnEnter && document.removeEventListener('keydown', keyboardEnterEvent);
       }
     };
-    // 回车出发确认事件
+    // 回车触发确认事件
     const keyboardEnterEvent = (e: KeyboardEvent) => {
       const eventSrc = e.target as HTMLElement;
       if (eventSrc.tagName.toLowerCase() === 'input') return; // 若是input触发 则不执行

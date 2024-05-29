@@ -80,6 +80,7 @@ export default defineComponent({
             this,
             'default',
             <DefaultTrigger
+              borderless={this.borderless}
               color={this.innerValue}
               disabled={this.disabled}
               clearable={this.clearable}

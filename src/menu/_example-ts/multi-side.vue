@@ -1,13 +1,6 @@
 <template>
   <div class="box">
-    <t-menu
-      v-model:expanded="expanded"
-      theme="light"
-      default-value="3-2"
-      expand-mutex
-      height="550px"
-      :collapsed="collapsed"
-    >
+    <t-menu v-model:expanded="expanded" theme="light" default-value="3-2" expand-mutex :collapsed="collapsed">
       <t-submenu value="3">
         <template #icon>
           <t-icon name="mail" />

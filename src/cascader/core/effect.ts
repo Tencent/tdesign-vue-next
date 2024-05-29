@@ -3,7 +3,7 @@ import isFunction from 'lodash/isFunction';
 import isArray from 'lodash/isArray';
 import cloneDeep from 'lodash/cloneDeep';
 import { TreeNode, CascaderContextType, TdCascaderProps, TreeNodeValue, TreeNodeModel } from '../interface';
-import { getFullPathLabel, getTreeValue } from './helper';
+import { getFullPathLabel, getTreeValue, isEmptyValues } from './helper';
 
 /**
  * 点击item的副作用
@@ -134,8 +134,6 @@ export function handleRemoveTagEffect(
   const res = newValue.splice(index, 1);
   const node = treeStore.getNodes(res[0])[0];
 
-  setValue(newValue, 'uncheck', node.getModel());
-
   const checked = node.setChecked(!node.isChecked());
   // 处理不同数据类型
   const resValue =
@@ -204,7 +202,7 @@ export const treeStoreExpendEffect = (
   if (isArray(treeValue) && expend.length === 0) {
     const expandedMap = new Map();
     const [val] = treeValue;
-    if (val) {
+    if (!isEmptyValues(val)) {
       expandedMap.set(val, true);
       const node = treeStore.getNode(val);
       if (!node) {

@@ -13,7 +13,7 @@ autoUpload | Boolean | true | 是否在选择文件后自动发起请求上传�
 beforeAllFilesUpload | Function | - | 如果是自动上传模式 `autoUpload=true`，表示全部文件上传之前的钩子函数，函数参数为上传的文件，函数返回值决定是否继续上传，若返回值为 `false` 则终止上传。<br/>如果是非自动上传模式 `autoUpload=false`，则函数返回值为 `false` 时表示本次选中的文件不会加入到文件列表中，即不触发 `onChange` 事件。TS 类型：`(file: UploadFile[]) => boolean \| Promise<boolean>` | N
 beforeUpload | Function | - | 如果是自动上传模式 `autoUpload=true`，表示单个文件上传之前的钩子函数，若函数返回值为 `false` 则表示不上传当前文件。<br/>如果是非自动上传模式 `autoUpload=false`，函数返回值为 `false` 时表示从上传文件中剔除当前文件。TS 类型：`(file: UploadFile) => boolean \| Promise<boolean>` | N
 cancelUploadButton | Object / Slot / Function | - | 批量文件/图片上传，`autoUpload=false` 场景下，透传“取消上传”按钮属性。TS 类型：`null \| ButtonProps \| TNode<{ disabled: boolean; cancelUploadText: string; cancelUpload: (ctx: { e: MouseEvent }) => void }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-data | Object | - | 上传请求所需的额外字段，默认字段有 `file`，表示文件信息。可以添加额外的文件名字段，如：`{file_name: "custom-file-name.txt"}`。`autoUpload=true` 时有效。也可以使用 `formatRequest` 完全自定义上传请求的字段。TS 类型：`Record<string, any> \| ((files: UploadFile[]) => Record<string, any>)` | N
+data | Object / Function | - | 上传请求所需的额外字段，默认字段有 `file`，表示文件信息。可以添加额外的文件名字段，如：`{file_name: "custom-file-name.txt"}`。`autoUpload=true` 时有效。也可以使用 `formatRequest` 完全自定义上传请求的字段。TS 类型：`Record<string, any> \| ((files: UploadFile[]) => Record<string, any>)` | N
 default | String / Slot / Function | - | 非拖拽场景，指触发上传的元素，如：“选择文件”。如果是拖拽场景，则是指拖拽区域。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 disabled | Boolean | - | 是否禁用 | N
 dragContent | String / Slot / Function | - | 用于自定义拖拽区域，`theme=custom` 且 `draggable=true` 时有效。TS 类型：`TNode \| TNode<TriggerContext>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
@@ -30,7 +30,7 @@ inputAttributes | Object | - | 用于添加属性到 HTML 元素 `input`。TS �
 isBatchUpload | Boolean | false | 多个文件是否作为一个独立文件包，整体替换，整体删除。不允许追加文件，只允许替换文件。`theme=file-flow` 时有效 | N
 locale | Object | - | 上传组件文本语言配置，支持自定义配置组件中的全部文本。优先级高于全局配置中语言。TS 类型：`UploadConfig` `import { UploadConfig } from '../config-provider/type'`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts) | N
 max | Number | 0 | 用于控制文件上传数量，值为 0 则不限制。注意，单文件上传场景，请勿设置 `max` 属性 | N
-method | String | POST | HTTP 请求类型。可选项：POST/GET/PUT/OPTION/PATCH/post/get/put/option/patch | N
+method | String | POST | HTTP 请求类型。可选项：POST/GET/PUT/OPTIONS/PATCH/post/get/put/options/patch | N
 mockProgressDuration | Number | - | 模拟进度间隔时间，单位：毫秒，默认：300。由于原始的上传请求，小文件上传进度只有 0 和 100，故而新增模拟进度，每间隔 `mockProgressDuration` 毫秒刷新一次模拟进度。小文件设置小一点，大文件设置大一点。注意：当 `useMockProgress` 为真时，当前设置有效 | N
 multiple | Boolean | false | 支持多文件上传 | N
 name | String | file | 文件上传时的名称 | N
