@@ -23,7 +23,10 @@ export default {
     type: Function as PropType<TdSelectInputProps['collapsedItems']>,
   },
   /** 是否禁用 */
-  disabled: Boolean,
+  disabled: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 透传 Input 输入框组件全部属性 */
   inputProps: {
     type: Object as PropType<TdSelectInputProps['inputProps']>,
