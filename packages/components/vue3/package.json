@@ -6,7 +6,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "@td/adapter-hooks": "workspace:^",
-    "@td/adapter-utils": "workspace:^",
+    "@td/utils": "workspace:^",
     "@td/adapter-vue": "workspace:^",
     "@td/components-common": "workspace:^",
     "@td/shared": "workspace:^",

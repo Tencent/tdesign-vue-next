@@ -11,7 +11,7 @@ import {
   SHIFT_REG,
   SPACE_REG,
 } from '@td/shared/_common/js/common';
-import { off, on } from '@td/adapter-utils';
+import { off, on } from '@td/utils';
 import { useDefaultValue } from '@td/adapter-hooks';
 import type { BaseTableProps } from '../interface';
 

@@ -5,7 +5,7 @@ import type { CommonClassNameType, usePrefixClass } from '@td/adapter-hooks';
 import type { AutoCompleteOptionObj, TdAutoCompleteProps } from '@td/intel/auto-complete/type';
 import log from '@td/shared/_common/js/log';
 import { ARROW_DOWN_REG, ARROW_UP_REG, ENTER_REG } from '@td/shared/_common/js/common';
-import { off, on } from '@td/adapter-utils';
+import { off, on } from '@td/utils';
 import HighlightOption from './highlight-option';
 
 export default defineComponent({

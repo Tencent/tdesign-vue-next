@@ -21,7 +21,7 @@ import { useCommonClassName, useContent, usePrefixClass, useTNodeJSX, useVModel 
 import props from '@td/intel/popup/props';
 import type { PopupTriggerEvent, TdPopupProps } from '@td/intel/popup/type';
 import setStyle from '@td/shared/_common/js/utils/set-style';
-import { off, on, once } from '@td/adapter-utils';
+import { off, on, once } from '@td/utils';
 import Container from './container';
 
 const POPUP_ATTR_NAME = 'data-td-popup';

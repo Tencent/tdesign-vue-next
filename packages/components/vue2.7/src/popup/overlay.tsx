@@ -12,7 +12,7 @@ import {
   usePrefixClass,
   useTNodeJSX,
 } from '@td/adapter-hooks';
-import { off, on, once } from '@td/adapter-utils';
+import { off, on, once } from '@td/utils';
 
 import props from '@td/intel/popup/props';
 

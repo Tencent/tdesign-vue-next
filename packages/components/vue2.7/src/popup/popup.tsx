@@ -13,7 +13,7 @@ import {
 import { createPopper } from '@popperjs/core';
 import type { Instance } from '@popperjs/core';
 import { debounce } from 'lodash-es';
-import { getIEVersion, off, on, once, setStyle } from '@td/adapter-utils';
+import { getIEVersion, off, on, once, setStyle } from '@td/utils';
 import {
   useCommonClassName,
   useContent,

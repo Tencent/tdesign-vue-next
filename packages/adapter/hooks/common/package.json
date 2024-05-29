@@ -10,9 +10,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@td/adapter-utils": "workspace:^",
     "@td/adapter-vue": "workspace:^",
     "@td/shared": "workspace:^",
+    "@td/utils": "workspace:^",
     "lodash-es": "^4.17.21"
   },
   "devDependencies": {

@@ -7,7 +7,7 @@
   "keywords": [],
   "main": "index.ts",
   "dependencies": {
-    "@td/adapter-utils": "workspace:^",
+    "@td/utils": "workspace:^",
     "lodash-es": "^4.17.21"
   },
   "devDependencies": {

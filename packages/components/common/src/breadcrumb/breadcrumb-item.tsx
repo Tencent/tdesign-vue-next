@@ -3,9 +3,9 @@ import { computed, defineComponent, getCurrentInstance, inject, onBeforeUpdate, 
 import { ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
 
 import props from '@td/intel/breadcrumb/breadcrumb-item-props';
-import { useGlobalIcon, usePrefixClass, useTNodeJSX, useContent } from '@td/adapter-hooks';
+import { useContent, useGlobalIcon, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import { isFunction } from 'lodash-es';
-import { isTextEllipsis } from '@td/adapter-utils';
+import { isTextEllipsis } from '@td/utils';
 import Tooltip from '../tooltip/index';
 
 interface LocalTBreadcrumb {

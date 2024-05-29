@@ -18,7 +18,7 @@ import { getScrollbarWidthWithCSS } from '@td/shared/_common/js/utils/getScrollb
 import { getIEVersion } from '@td/shared/_common/js/utils/helper';
 import type { ClassName, Styles } from '@td/shared/interface';
 import type { BaseTableCol, TableRowData, TdBaseTableProps } from '@td/intel/table/type';
-import { off, on } from '@td/adapter-utils';
+import { off, on } from '@td/utils';
 import type { FixedColumnInfo, RowAndColFixedPosition, TableColFixedClasses, TableRowFixedClasses } from '../interface';
 
 // 固定列相关类名处理

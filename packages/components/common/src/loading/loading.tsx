@@ -3,7 +3,7 @@ import { Teleport, computed, defineComponent, onMounted, ref, toRefs, watch } fr
 import props from '@td/intel/loading/props';
 
 import { useCommonClassName, useContent, usePrefixClass, useTNodeJSX, useTeleport } from '@td/adapter-hooks';
-import { addClass, removeClass } from '@td/adapter-utils';
+import { addClass, removeClass } from '@td/utils';
 import GradientIcon from './icon/gradient';
 
 function useComponentClassName() {

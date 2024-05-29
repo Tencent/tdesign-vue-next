@@ -18,7 +18,7 @@ import {
 import props from '@td/intel/popup/props';
 import { useResizeObserver } from '@td/adapter-hooks';
 import { isArray } from 'lodash-es';
-import { getAttach, getSSRAttach } from '@td/adapter-utils';
+import { getAttach, getSSRAttach } from '@td/utils';
 
 function filterEmpty(children: VNode[] = []) {
   const vnodes: VNode[] = [];

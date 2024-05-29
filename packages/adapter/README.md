@@ -9,5 +9,5 @@
 ## @td/adapter-hooks
 用于导出所有的 hooks
 
-## @td/adapter-utils
+## @td/utils
 用于导出所有的 utils

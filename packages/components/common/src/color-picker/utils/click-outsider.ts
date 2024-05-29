@@ -1,5 +1,5 @@
 import type { ComponentPublicInstance, VNode } from '@td/adapter-vue';
-import { isServer, on } from '@td/adapter-utils';
+import { isServer, on } from '@td/utils';
 import { usePrefixClass } from '@td/adapter-hooks';
 
 type Handler = (...args: unknown[]) => unknown;

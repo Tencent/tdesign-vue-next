@@ -6,7 +6,7 @@ import {
 } from '@td/adapter-vue';
 import { debounce } from 'lodash-es';
 import type { TdBaseTableProps } from '@td/intel/table/type';
-import { off, on } from '@td/adapter-utils';
+import { off, on } from '@td/utils';
 import type { TdAffixProps as AffixProps } from '@td/intel/affix/type';
 
 /**

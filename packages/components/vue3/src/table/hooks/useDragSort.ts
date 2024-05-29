@@ -8,7 +8,7 @@ import type { DragSortContext, PrimaryTableCol, TableRowData, TdPrimaryTableProp
 import log from '@td/shared/_common/js/log';
 import swapDragArrayElement from '@td/shared/_common/js/utils/swapDragArrayElement';
 import { getColumnDataByKey, getColumnIndexByKey } from '@td/shared/_common/js/table/utils';
-import { hasClass } from '@td/adapter-utils';
+import { hasClass } from '@td/utils';
 import type { BaseTableColumns, SimplePageInfo } from '../interface';
 import useClassName from './useClassName';
 

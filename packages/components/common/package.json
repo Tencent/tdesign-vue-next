@@ -8,9 +8,9 @@
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "@td/adapter-hooks": "workspace:^",
-    "@td/adapter-utils": "workspace:^",
     "@td/adapter-vue": "workspace:^",
     "@td/shared": "workspace:^",
+    "@td/utils": "workspace:^",
     "clipboard": "^2.0.11",
     "dayjs": "^1.11.10",
     "lodash-es": "^4.17.21",

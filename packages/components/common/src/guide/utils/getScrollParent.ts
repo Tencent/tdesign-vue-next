@@ -1,4 +1,4 @@
-import { elementInViewport } from '@td/adapter-utils';
+import { elementInViewport } from '@td/utils';
 
 export function getScrollParent(element: HTMLElement) {
   let style = window.getComputedStyle(element);

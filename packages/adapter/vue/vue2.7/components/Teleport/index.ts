@@ -1,4 +1,4 @@
-import { getAttach } from '@td/adapter-utils';
+import { getAttach } from '@td/utils';
 import { H, defineComponent, getCurrentInstance, onBeforeUnmount, onMounted, ref, watch } from '../../index';
 import type { PropType } from '../../index';
 

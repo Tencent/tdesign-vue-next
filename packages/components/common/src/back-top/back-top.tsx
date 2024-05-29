@@ -1,12 +1,11 @@
 import { computed, defineComponent, onBeforeUnmount, onMounted, ref } from '@td/adapter-vue';
 import { BacktopIcon as TdBackTopIcon } from 'tdesign-icons-vue-next';
 
-import { useGlobalIcon } from '@td/adapter-hooks';
+import { useChildSlots, useConfig, useContent, useGlobalIcon, usePrefixClass } from '@td/adapter-hooks';
 import props from '@td/intel/back-top/props';
 
 import type { TdBackTopProps } from '@td/intel/back-top/type';
-import { useChildSlots, useConfig, useContent, usePrefixClass } from '@td/adapter-hooks';
-import { scrollTo } from '@td/adapter-utils';
+import { scrollTo } from '@td/utils';
 
 export default defineComponent({
   name: 'TBackTop',

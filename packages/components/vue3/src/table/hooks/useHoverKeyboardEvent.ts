@@ -3,7 +3,7 @@ import { computed, ref, toRefs } from '@td/adapter-vue';
 import { get } from 'lodash-es';
 import { ALL_REG, ARROW_DOWN_REG, ARROW_UP_REG, CLEAR_REG, ESCAPE_REG, SPACE_REG } from '@td/shared/_common/js/common';
 import type { RowEventContext, TableRowData } from '@td/intel/table/type';
-import { off, on } from '@td/adapter-utils';
+import { off, on } from '@td/utils';
 import type { BaseTableProps } from '../interface';
 
 /**

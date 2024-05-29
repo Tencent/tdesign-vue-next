@@ -2,7 +2,7 @@ import type { Ref } from '@td/adapter-vue';
 import { onBeforeMount, onMounted } from '@td/adapter-vue';
 import { isString } from 'lodash-es';
 import { CHECKED_CODE_REG } from '@td/shared/_common/js/common';
-import { off, on } from '@td/adapter-utils';
+import { off, on } from '@td/utils';
 
 /** 键盘操作 */
 export default function useKeyboard(

@@ -1,7 +1,7 @@
 import { debounce, isBoolean } from 'lodash-es';
 import { computed, onBeforeUnmount, ref, watch } from '@td/adapter-vue';
 import type { TdBaseTableProps } from '@td/intel/table/type';
-import { off, on } from '@td/adapter-utils';
+import { off, on } from '@td/utils';
 import type { AffixProps } from '../../affix';
 
 /**

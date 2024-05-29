@@ -13,7 +13,7 @@ import props from '@td/intel/alert/props';
 import { useConfig, useGlobalIcon, useIcon, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 
 import type { SlotReturnValue } from '@td/shared/interface';
-import { addClass, off, on } from '@td/adapter-utils';
+import { addClass, off, on } from '@td/utils';
 
 export default defineComponent({
   name: 'TAlert',

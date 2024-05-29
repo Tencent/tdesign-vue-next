@@ -3,7 +3,7 @@ import { defineComponent, ref } from '@td/adapter-vue';
 
 import dropdownItemProps from '@td/intel/dropdown/dropdown-item-props';
 import { useContent, usePrefixClass, useRipple, useTNodeJSX } from '@td/adapter-hooks';
-import { pxCompat } from '@td/adapter-utils';
+import { pxCompat } from '@td/utils';
 import type { TdDropdownProps } from '@td/intel/dropdown/type';
 
 export default defineComponent({

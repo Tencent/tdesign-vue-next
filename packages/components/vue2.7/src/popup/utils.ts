@@ -1,4 +1,4 @@
-import { off, on } from '@td/adapter-utils';
+import { off, on } from '@td/utils';
 
 import type {
   PopupTriggerEvent,

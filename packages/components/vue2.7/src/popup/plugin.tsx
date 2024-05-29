@@ -1,6 +1,6 @@
 import { createApp, pluginInstall } from '@td/adapter-vue';
 import { createPopper } from '@popperjs/core';
-import { getAttach } from '@td/adapter-utils';
+import { getAttach } from '@td/utils';
 
 import type { TNode } from '@td/shared/interface';
 import type { TdPopupProps } from '@td/intel/popup/type';

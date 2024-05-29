@@ -2,7 +2,7 @@ import Vue, { defineComponent, getCurrentInstance, onBeforeUnmount, onMounted, o
 import raf from 'raf';
 import { isFunction } from 'lodash-es';
 import { useResizeObserver } from '@td/adapter-hooks';
-import { getAttach, removeDom } from '@td/adapter-utils';
+import { getAttach, removeDom } from '@td/utils';
 import type { TdPopupProps } from '@td/intel/popup/type';
 
 import type { PropType } from '@td/adapter-vue';

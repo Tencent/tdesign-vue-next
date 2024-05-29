@@ -40,7 +40,7 @@ import type {
 } from '@td/intel/message/type';
 import { isObject, isString } from 'lodash-es';
 import type { AttachNodeReturnValue } from '@td/shared/interface';
-import { getAttach } from '@td/adapter-utils';
+import { getAttach } from '@td/utils';
 import MessageList, { DEFAULT_Z_INDEX } from './messageList';
 
 // 存储不同 attach 和 不同 placement 消息列表实例

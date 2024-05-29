@@ -1,5 +1,5 @@
 import { onMounted, onUnmounted, ref } from '@td/adapter-vue';
-import { isServer } from '@td/adapter-utils';
+import { isServer } from '@td/utils';
 
 export function useMouse() {
   const x = ref(0);
