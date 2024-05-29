@@ -2,7 +2,7 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  */
 
-import type { TNode } from '@td/shared/interface';
+import type { TNode } from '@td/types';
 import type { InputProps } from '../input';
 import type { PopupProps, PopupVisibleChangeContext } from '../popup';
 import type { TagInputChangeContext, TagInputProps, TagInputValue } from '../tag-input';

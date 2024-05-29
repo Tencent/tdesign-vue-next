@@ -12,7 +12,7 @@ import { isArray, isString } from 'lodash-es';
 import props from '@td/intel/alert/props';
 import { useConfig, useGlobalIcon, useIcon, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 
-import type { SlotReturnValue } from '@td/shared/interface';
+import type { SlotReturnValue } from '@td/types';
 import { addClass, off, on } from '@td/utils';
 
 export default defineComponent({

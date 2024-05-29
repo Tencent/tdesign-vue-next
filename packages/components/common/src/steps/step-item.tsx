@@ -4,7 +4,7 @@ import { CheckIcon as TdCheckIcon, CloseIcon as TdCloseIcon } from 'tdesign-icon
 
 import props from '@td/intel/steps/step-item-props';
 import { useConfig, useContent, useGlobalIcon, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
-import type { SlotReturnValue } from '@td/shared/interface';
+import type { SlotReturnValue } from '@td/types';
 
 export default defineComponent({
   name: 'TStepItem',

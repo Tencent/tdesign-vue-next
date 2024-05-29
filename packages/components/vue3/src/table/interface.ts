@@ -10,7 +10,7 @@ import type {
   TdEnhancedTableProps,
   TdPrimaryTableProps,
 } from '@td/intel/table/type';
-import type { TNodeReturnValue } from '@td/shared/interface';
+import type { TNodeReturnValue } from '@td/types';
 
 export interface BaseTableProps extends TdBaseTableProps {
   /**

@@ -5,7 +5,7 @@
 import raf from 'raf';
 import { isFunction, isString } from 'lodash-es';
 import type { ComponentPublicInstance } from '@td/adapter-vue';
-import type { ScrollContainer, ScrollContainerElement } from '@td/shared/interface';
+import type { ScrollContainer, ScrollContainerElement } from '@td/types';
 import { easeInOutCubic } from './easing';
 import type { EasingFunction } from './easing';
 

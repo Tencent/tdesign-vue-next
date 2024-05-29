@@ -6,7 +6,7 @@ import {
   ref,
 } from '@td/adapter-vue';
 import { debounce } from 'lodash-es';
-import type { AttachNode, TNode } from '@td/shared/interface';
+import type { AttachNode, TNode } from '@td/types';
 import { useContent } from '@td/adapter-hooks';
 import { isNodeOverflow } from '@td/utils';
 import type { TdTooltipProps as TooltipProps } from '@td/intel/tooltip/type';

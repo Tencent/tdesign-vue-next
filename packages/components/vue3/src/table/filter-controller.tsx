@@ -4,7 +4,7 @@ import { FilterIcon as TdFilterIcon } from 'tdesign-icons-vue-next';
 import { isEmpty, isFunction } from 'lodash-es';
 import { useConfig, useGlobalIcon, useTNodeDefault } from '@td/adapter-hooks';
 import type { FilterValue, PrimaryTableCol } from '@td/intel/table/type';
-import type { AttachNode } from '@td/shared/interface';
+import type { AttachNode } from '@td/types';
 import { Input, RadioGroup, Button as TButton } from '@td/components-common';
 import type { TableConfig } from '@td/components-common';
 import { Popup } from '@td/components';

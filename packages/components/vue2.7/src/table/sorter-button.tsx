@@ -3,7 +3,7 @@ import { computed, defineComponent } from '@td/adapter-vue';
 import { ChevronDownIcon as TdChevronDownIcon } from 'tdesign-icons-vue';
 import type { SortType } from '@td/intel/table/type';
 import { useConfig, useGlobalIcon, useTNodeDefault } from '@td/adapter-hooks';
-import type { TNode } from '@td/shared/interface';
+import type { TNode } from '@td/types';
 import type { TdTooltipProps as TooltipProps } from '@td/intel/tooltip/type';
 import { Tooltip } from '@td/component';
 import type { TableConfig } from '@td/intel/config-provider/type';

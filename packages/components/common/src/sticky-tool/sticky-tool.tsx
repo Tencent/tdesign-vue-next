@@ -9,7 +9,7 @@ import stickyItemProps from '@td/intel/sticky-tool/sticky-item-props';
 
 import type { TdStickyItemProps } from '@td/intel/sticky-tool/type';
 import { useChildComponentSlots } from '@td/adapter-hooks';
-import type { Styles } from '@td/shared/interface';
+import type { Styles } from '@td/types';
 import StickyItem from './sticky-item';
 
 export default defineComponent({

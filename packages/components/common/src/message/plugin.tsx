@@ -39,7 +39,7 @@ import type {
   MessageWarningMethod,
 } from '@td/intel/message/type';
 import { isObject, isString } from 'lodash-es';
-import type { AttachNodeReturnValue } from '@td/shared/interface';
+import type { AttachNodeReturnValue } from '@td/types';
 import { getAttach } from '@td/utils';
 import MessageList, { DEFAULT_Z_INDEX } from './messageList';
 

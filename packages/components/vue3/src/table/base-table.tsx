@@ -6,7 +6,7 @@ import { useConfig, useElementLazyRender, useTNodeJSX, useVirtualScroll } from '
 import type { BaseTableInstanceFunctions } from '@td/intel/table/type';
 import { getIEVersion } from '@td/common/js/utils/helper';
 import log from '@td/common/js/log';
-import type { ComponentScrollToElementParams, Styles } from '@td/shared/interface';
+import type { ComponentScrollToElementParams, Styles } from '@td/types';
 import { Affix, Loading } from '@td/components-common';
 import useTableHeader from './hooks/useTableHeader';
 import useColumnResize from './hooks/useColumnResize';

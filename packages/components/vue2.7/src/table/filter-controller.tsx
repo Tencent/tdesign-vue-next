@@ -8,7 +8,7 @@ import { escapeRegExp, isEmpty, isFunction, isObject, lowerFirst } from 'lodash-
 import { useConfig, useGlobalIcon, useTNodeDefault } from '@td/adapter-hooks';
 import type { FilterValue, PrimaryTableCol } from '@td/intel/table/type';
 import log from '@td/common/js/log';
-import type { AttachNode } from '@td/shared/interface';
+import type { AttachNode } from '@td/types';
 import { CheckboxGroup, Input, Popup, RadioGroup, Button as TButton } from '@td/component';
 import type { TableConfig } from '@td/intel/config-provider/type';
 import type { TdPopupProps as PopupProps } from '@td/intel/popup/type';

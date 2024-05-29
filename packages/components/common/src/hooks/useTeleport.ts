@@ -1,7 +1,7 @@
 import type { Ref } from '@td/adapter-vue';
 import { computed, onMounted, ref, watch } from '@td/adapter-vue';
 import { isFunction } from 'lodash-es';
-import type { AttachNode } from '@td/shared/interface';
+import type { AttachNode } from '@td/types';
 import { getAttach, getSSRAttach } from '@td/utils';
 
 /**

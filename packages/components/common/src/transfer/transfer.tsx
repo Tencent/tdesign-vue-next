@@ -2,7 +2,7 @@ import { computed, defineComponent, toRefs } from '@td/adapter-vue';
 import { isFunction, pick } from 'lodash-es';
 import props from '@td/intel/transfer/props';
 import { useDefaultValue, useDisabled, usePrefixClass, useVModel } from '@td/adapter-hooks';
-import type { TNode } from '@td/shared/interface';
+import type { TNode } from '@td/types';
 import type { PageInfo, TdPaginationProps } from '../pagination/type';
 import TransferList from './components/transfer-list';
 import TransferOperations from './components/transfer-operations';

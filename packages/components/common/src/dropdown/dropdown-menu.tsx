@@ -5,7 +5,7 @@ import type { DropdownOption } from '@td/intel/dropdown/type';
 import DropdownProps from '@td/intel/dropdown/props';
 import { useGlobalIcon, usePrefixClass } from '@td/adapter-hooks';
 import { isFunction } from 'lodash-es';
-import type { TNode } from '@td/shared/interface';
+import type { TNode } from '@td/types';
 import TDivider from '../divider';
 import DropdownItem from './dropdown-item';
 

@@ -8,7 +8,7 @@
 import type { Ref } from '@td/adapter-vue';
 import { computed, ref, watch } from '@td/adapter-vue';
 import { max, min, sum, throttle } from 'lodash-es';
-import type { TScroll } from '@td/shared/interface';
+import type { TScroll } from '@td/types';
 import { useResizeObserver } from './useResizeObserver';
 
 export type UseVirtualScrollParams = Ref<{

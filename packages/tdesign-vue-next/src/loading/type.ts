@@ -3,7 +3,7 @@
  * updated at 2021-12-12 19:17:30
  */
 
-import type { AttachNode, TNode } from '@td/shared/interface';
+import type { AttachNode, TNode } from '@td/types';
 
 export interface TdLoadingProps {
   /**

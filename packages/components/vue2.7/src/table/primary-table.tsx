@@ -10,7 +10,7 @@ import {
 import { get, omit } from 'lodash-es';
 import { useConfig, useTNodeJSX } from '@td/adapter-hooks';
 import type { PrimaryTableCol, TableRowData, TdPrimaryTableProps } from '@td/intel/table/type';
-import type { ComponentScrollToElementParams } from '@td/shared/interface';
+import type { ComponentScrollToElementParams } from '@td/types';
 import baseTableProps from '@td/intel/table/base-table-props';
 import primaryTableProps from '@td/intel/table/primary-table-props';
 import type { PageInfo, TdPaginationProps as PaginationProps } from '@td/intel/pagination/type';

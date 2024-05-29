@@ -14,7 +14,7 @@ import type {
   TdPrimaryTableProps,
 } from '@td/intel/table/type';
 import { usePrefixClass } from '@td/adapter-hooks';
-import type { ComponentScrollToElementParams } from '@td/shared/interface';
+import type { ComponentScrollToElementParams } from '@td/types';
 import log from '@td/common/js/log';
 import baseTableProps from '@td/intel/table/base-table-props';
 import primaryTableProps from '@td/intel/table/primary-table-props';

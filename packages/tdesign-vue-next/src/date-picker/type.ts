@@ -3,7 +3,7 @@
  */
 
 import type { Dayjs } from 'dayjs';
-import type { SizeEnum, TNode } from '@td/shared/interface';
+import type { SizeEnum, TNode } from '@td/types';
 import type { InputProps } from '../input';
 import type { TdPopupProps as PopupProps } from '../popup/type';
 import type { SelectInputProps } from '../select-input';

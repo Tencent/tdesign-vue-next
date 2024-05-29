@@ -14,7 +14,7 @@ import type {
   Styles,
   TNode,
   TScroll,
-} from '@td/shared/interface';
+} from '@td/types';
 import type { TableConfig } from '@td/components-common';
 import type { AffixProps } from '../affix';
 import type { LoadingProps } from '../loading';

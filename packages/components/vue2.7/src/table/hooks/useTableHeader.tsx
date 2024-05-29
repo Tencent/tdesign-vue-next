@@ -1,7 +1,7 @@
 import type { CreateElement, SetupContext } from '@td/adapter-vue';
 import { computed } from '@td/adapter-vue';
 import { isFunction, isString } from 'lodash-es';
-import type { TNodeReturnValue } from '@td/shared/interface';
+import type { TNodeReturnValue } from '@td/types';
 import log from '@td/common/js/log';
 import type {
   BaseTableCol,

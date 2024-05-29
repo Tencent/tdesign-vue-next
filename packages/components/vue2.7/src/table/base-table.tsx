@@ -11,7 +11,7 @@ import {
 import { get, isFunction, pick } from 'lodash-es';
 import log from '@td/common/js/log';
 import { getIEVersion } from '@td/common/js/utils/helper';
-import type { ComponentScrollToElementParams, Styles } from '@td/shared/interface';
+import type { ComponentScrollToElementParams, Styles } from '@td/types';
 import type { BaseTableCol, TableRowData } from '@td/intel/table/type';
 import props from '@td/intel/table/base-table-props';
 import { useConfig, useElementLazyRender, useTNodeJSX, useVirtualScroll } from '@td/adapter-hooks';

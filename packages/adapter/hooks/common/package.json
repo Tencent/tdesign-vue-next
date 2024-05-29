@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "@td/ts-config": "workspace:^",
+    "@td/types": "workspace:^",
     "@types/lodash-es": "^4.17.12"
   }
 }

@@ -3,7 +3,7 @@
  * updated at 2021-12-12 19:17:30
  */
 
-import type { TNode } from '@td/shared/interface';
+import type { TNode } from '@td/types';
 import type { AvatarProps } from '../avatar';
 
 export interface TdCommentProps {

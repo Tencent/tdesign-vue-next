@@ -1,6 +1,6 @@
 import type dayjs from 'dayjs';
 import type { CalendarCell, CalendarValue, TdCalendarProps, WeekDay } from '@td/intel/calendar/type';
-import type { SizeEnum } from '@td/shared/interface';
+import type { SizeEnum } from '@td/types';
 
 /**
  * 日历组件的state定义

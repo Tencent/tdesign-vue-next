@@ -1,5 +1,5 @@
 import type { TdUploadProps, UploadRemoveContext } from '@td/intel/upload/type';
-import type { TNode } from '@td/shared/interface';
+import type { TNode } from '@td/types';
 import type { GlobalConfigProvider } from '../config-provider/type';
 import type { ImageViewerProps } from '../image-viewer';
 

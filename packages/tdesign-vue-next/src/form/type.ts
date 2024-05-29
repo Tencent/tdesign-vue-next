@@ -4,7 +4,7 @@
 
 import type { IsEmailOptions } from 'validator/es/lib/isEmail';
 import type { IsURLOptions } from 'validator/es/lib/isURL';
-import type { FormResetEvent, FormSubmitEvent, TNode } from '@td/shared/interface';
+import type { FormResetEvent, FormSubmitEvent, TNode } from '@td/types';
 
 export interface TdFormProps<FormData extends Data = Data> {
   /**

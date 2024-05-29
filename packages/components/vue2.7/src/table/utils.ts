@@ -6,7 +6,7 @@ import type {
   TableRowData,
   TdBaseTableProps,
 } from '@td/intel/table/type';
-import type { ClassName, HTMLElementAttributes } from '@td/shared/interface';
+import type { ClassName, HTMLElementAttributes } from '@td/types';
 import type { TdAffixProps as AffixProps } from '@td/intel/affix/type';
 
 export function toString(obj: any): string {

@@ -6,7 +6,7 @@ import props from '@td/intel/switch/props';
 // hooks
 import { useDisabled } from '@td/adapter-hooks';
 import { isArray, isFunction, isString } from 'lodash-es';
-import type { TNodeReturnValue } from '@td/shared/interface';
+import type { TNodeReturnValue } from '@td/types';
 import TLoading from '../loading';
 
 export default defineComponent({

@@ -17,7 +17,7 @@ import type {
   TdBaseTableProps,
   TdPrimaryTableProps,
 } from '@td/intel/table/type';
-import type { AttachNode } from '@td/shared/interface';
+import type { AttachNode } from '@td/types';
 import baseTableProps from '@td/intel/table/base-table-props';
 import type { VirtualScrollConfig } from '@td/adapter-hooks';
 import { useLazyLoad } from '@td/adapter-hooks';

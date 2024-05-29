@@ -2,7 +2,7 @@ import { createApp, pluginInstall } from '@td/adapter-vue';
 import { createPopper } from '@popperjs/core';
 import { getAttach } from '@td/utils';
 
-import type { TNode } from '@td/shared/interface';
+import type { TNode } from '@td/types';
 import type { TdPopupProps } from '@td/intel/popup/type';
 import type { App, Plugin } from '@td/adapter-vue';
 import type { Instance } from '@popperjs/core';

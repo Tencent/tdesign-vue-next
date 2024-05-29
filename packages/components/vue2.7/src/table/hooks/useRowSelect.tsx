@@ -21,7 +21,7 @@ import type {
   TdPrimaryTableProps,
 } from '@td/intel/table/type';
 import { Checkbox, Radio } from '@td/component';
-import type { ClassName } from '@td/shared/interface';
+import type { ClassName } from '@td/types';
 import type { TableClassName } from './useClassName';
 
 export default function useRowSelect(

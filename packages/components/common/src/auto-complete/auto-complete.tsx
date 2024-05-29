@@ -4,7 +4,7 @@ import type { TdAutoCompleteProps } from '@td/intel/auto-complete/type';
 import { useCommonClassName, useContent, useTNodeJSX, useVModel } from '@td/adapter-hooks';
 import { Input as TInput } from '../input';
 import { Popup } from '@td/components';
-import type { ClassName } from '@td/shared/interface';
+import type { ClassName } from '@td/types';
 import type { InputProps, StrInputProps } from '../input';
 
 import { useConfig } from '../config-provider/useConfig';

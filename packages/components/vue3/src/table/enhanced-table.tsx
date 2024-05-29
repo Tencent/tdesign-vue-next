@@ -14,7 +14,7 @@ import type {
 import { get } from 'lodash-es';
 import log from '@td/common/js/log';
 import { usePrefixClass } from '@td/adapter-hooks';
-import type { ComponentScrollToElementParams } from '@td/shared/interface';
+import type { ComponentScrollToElementParams } from '@td/types';
 import useTreeSelect from './hooks/useTreeSelect';
 import useTreeData from './hooks/useTreeData';
 import PrimaryTable from './primary-table';

@@ -6,7 +6,7 @@ import type { TdTreeProps, TreeInstanceFunctions } from '@td/intel/tree/type';
 import type { VirtualScrollConfig, useDefaultValue as tdUseDefaultValue, useVModel as tdUseVModel } from '@td/adapter-hooks';
 import type { TypeTreeEventState as TreeEventState } from '@td/common/js/tree/types';
 import type { TreeStore } from '@td/common/js/tree/tree-store';
-import type { ClassName, Styles, TNode, TNodeReturnValue, TScroll, TreeOptionData } from '@td/shared/interface';
+import type { ClassName, Styles, TNode, TNodeReturnValue, TScroll, TreeOptionData } from '@td/types';
 import type { CheckboxProps } from '@td/components';
 import tdWithInstall from '../utils/withInstall';
 

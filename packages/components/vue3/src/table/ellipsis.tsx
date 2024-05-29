@@ -2,7 +2,7 @@
 import type { PropType } from '@td/adapter-vue';
 import { computed, defineComponent, onMounted, ref } from '@td/adapter-vue';
 import { debounce } from 'lodash-es';
-import type { AttachNode, TNode } from '@td/shared/interface';
+import type { AttachNode, TNode } from '@td/types';
 import { isTextEllipsis } from '@td/utils';
 import { useContent } from '@td/adapter-hooks';
 import type { TooltipProps } from '@td/components-common';

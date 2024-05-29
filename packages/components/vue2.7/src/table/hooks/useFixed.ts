@@ -16,7 +16,7 @@ import { debounce, get, pick, xorWith } from 'lodash-es';
 import log from '@td/common/js/log';
 import { getScrollbarWidthWithCSS } from '@td/common/js/utils/getScrollbarWidth';
 import { getIEVersion } from '@td/common/js/utils/helper';
-import type { ClassName, Styles } from '@td/shared/interface';
+import type { ClassName, Styles } from '@td/types';
 import type { BaseTableCol, TableRowData, TdBaseTableProps } from '@td/intel/table/type';
 import { off, on } from '@td/utils';
 import type { FixedColumnInfo, RowAndColFixedPosition, TableColFixedClasses, TableRowFixedClasses } from '../interface';

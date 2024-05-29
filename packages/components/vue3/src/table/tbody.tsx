@@ -5,7 +5,7 @@ import type { VirtualScrollConfig } from '@td/adapter-hooks';
 import { useConfig, useTNodeJSX } from '@td/adapter-hooks';
 import baseTableProps from '@td/intel/table/base-table-props';
 import type { TdBaseTableProps } from '@td/intel/table/type';
-import type { TNodeReturnValue } from '@td/shared/interface';
+import type { TNodeReturnValue } from '@td/types';
 import TrElement, { ROW_LISTENERS, TABLE_PROPS } from './tr';
 import useClassName from './hooks/useClassName';
 import useRowspanAndColspan from './hooks/useRowspanAndColspan';

@@ -3,7 +3,7 @@
  */
 
 import type { ComponentPublicInstance } from 'vue';
-import type { AttachNode, TNode } from '@td/shared/interface';
+import type { AttachNode, TNode } from '@td/types';
 
 export interface TdNotificationProps {
   /**

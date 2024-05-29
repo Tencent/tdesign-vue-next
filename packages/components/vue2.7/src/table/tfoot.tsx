@@ -11,7 +11,7 @@ import type {
   TdBaseTableProps,
 } from '@td/intel/table/type';
 import { useTNodeJSX } from '@td/adapter-hooks';
-import type { Styles } from '@td/shared/interface';
+import type { Styles } from '@td/types';
 import type { RowAndColFixedPosition } from './interface';
 import { formatRowAttributes, formatRowClassNames } from './utils';
 import { getColumnFixedStyles } from './hooks/useFixed';

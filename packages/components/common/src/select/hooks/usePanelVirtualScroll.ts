@@ -1,7 +1,7 @@
 import type { Ref } from '@td/adapter-vue';
 import { computed, onBeforeUnmount, onMounted } from '@td/adapter-vue';
 import type { TdSelectProps } from '@td/intel/select/type';
-import type { Styles } from '@td/shared/interface';
+import type { Styles } from '@td/types';
 import useVirtualScroll from '../../hooks/useVirtualScroll';
 
 export function usePanelVirtualScroll(props: {

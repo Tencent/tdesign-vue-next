@@ -5,7 +5,7 @@ import type { TdTreeSelectProps, TreeSelectValue, TreeSelectValueChangeTrigger }
 import props from '@td/intel/tree-select/props';
 
 import { useConfig, useDefaultValue, useDisabled, usePrefixClass, useTNodeDefault, useTNodeJSX, useVModel } from '@td/adapter-hooks';
-import type { TreeOptionData } from '@td/shared/interface';
+import type { TreeOptionData } from '@td/types';
 import type { PopupVisibleChangeContext } from '../popup';
 import SelectInput from '../select-input';
 import type { TdSelectInputProps } from '../select-input';

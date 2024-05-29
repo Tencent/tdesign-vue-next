@@ -6,7 +6,7 @@ import tinycolor from 'tinycolor2';
 import props from '@td/intel/tag/props';
 import { useCommonClassName, useConfig, useContent, useGlobalIcon, usePrefixClass, useTNodeJSX } from '@td/adapter-hooks';
 import { isString } from 'lodash-es';
-import type { Styles } from '@td/shared/interface';
+import type { Styles } from '@td/types';
 
 export default defineComponent({
   name: 'TTag',
