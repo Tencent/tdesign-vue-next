@@ -16,3 +16,4 @@ export * from './src/useElementLazyRender';
 export * from './src/useLazyLoad';
 export * from './src/useDragSort';
 export * from './src/useIcon';
+export * from './src/useReadonly';

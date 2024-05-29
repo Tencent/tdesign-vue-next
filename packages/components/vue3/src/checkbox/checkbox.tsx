@@ -1,7 +1,7 @@
 import { computed, defineComponent, inject, ref, toRefs, watch } from '@td/adapter-vue';
 import props from '@td/intel/checkbox/props';
 import { useCommonClassName, useContent, useDisabled, usePrefixClass, useRipple, useVModel } from '@td/adapter-hooks';
-import { useReadonly } from '../hooks/useReadonly';
+import { useReadonly } from '@td/adapter-hooks';
 import { CheckboxGroupInjectionKey } from './constants';
 import useCheckboxLazyLoad from './hooks/useCheckboxLazyLoad';
 import useKeyboardEvent from './hooks/useKeyboardEvent';
