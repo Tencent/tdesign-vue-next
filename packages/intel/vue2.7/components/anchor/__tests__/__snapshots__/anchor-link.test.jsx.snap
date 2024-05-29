@@ -1,5 +1,0 @@
-// Vitest Snapshot v1
-
-exports[`AnchorItem > <slot> > test slot 1`] = `"<div id=\\"title\\"> this is title slot </div>"`;
-
-exports[`AnchorItem > <slot> > test slot 2`] = `"<div id=\\"default\\"> this is children content </div>"`;
