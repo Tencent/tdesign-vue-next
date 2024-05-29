@@ -21,7 +21,7 @@ export default antfu({
   },
   ignores: [
     'tsconfig.json',
-    'packages/shared/_common',
+    'packages/common/**',
     'snapshot*',
     'script/test/cypress',
     'temp*',
