@@ -1,4 +1,4 @@
-import { computed, onMounted, defineComponent, watch, ref, reactive } from 'vue';
+import { computed, onMounted, defineComponent, watch, ref, reactive, shallowRef } from 'vue';
 import props from './props';
 import generateBase64Url from '../_common/js/watermark/generateBase64Url';
 import randomMovingStyle from '../_common/js/watermark/randomMovingStyle';
@@ -6,15 +6,15 @@ import injectStyle from '../_common/js/utils/injectStyle';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useMutationObserver } from './hooks';
 import { useContent } from '../hooks/tnode';
+import setStyle from '../_common/js/utils/set-style';
 
 export default defineComponent({
   name: 'TWatermark',
   props,
   setup(props) {
     const backgroundImage = ref('');
-    const watermarkRef = ref<HTMLElement>();
-    const watermarkContentRef = ref<HTMLElement>();
-    const parent = ref<HTMLElement>();
+    const watermarkRef = shallowRef<HTMLElement>();
+    const watermarkContentRef = shallowRef<HTMLElement>();
 
     const offset = reactive(props.offset || []);
 
@@ -58,35 +58,56 @@ export default defineComponent({
       offsetTop: offsetTop.value,
     }));
 
+    const removeWaterMark = () => {
+      if (!watermarkContentRef.value) return;
+      watermarkContentRef.value.remove();
+      watermarkContentRef.value = null;
+    };
+
     const injectWaterMark = () => {
       generateBase64Url(bgImageOptions.value, (base64Url) => {
+        removeWaterMark();
+
         backgroundImage.value = base64Url;
+        watermarkContentRef.value = document.createElement('div');
+        setStyle(watermarkContentRef.value, {
+          zIndex: props.zIndex,
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          top: 0,
+          bottom: 0,
+          width: '100%',
+          height: '100%',
+          backgroundSize: `${gapX.value + props.width}px`,
+          pointerEvents: 'none',
+          backgroundRepeat: backgroundRepeat.value,
+          backgroundImage: `url('${backgroundImage.value}')`,
+          animation: props.movable ? `watermark infinite ${(props.moveInterval * 4) / 60}s` : 'none',
+        });
+        watermarkRef.value?.append(watermarkContentRef.value);
       });
-      const keyframesStyle = randomMovingStyle();
-      injectStyle(keyframesStyle);
+
+      if (props.movable) {
+        const keyframesStyle = randomMovingStyle();
+        injectStyle(keyframesStyle);
+      }
     };
 
     onMounted(() => {
       injectWaterMark();
-      parent.value = watermarkRef.value.parentElement;
       useMutationObserver(
-        parent.value,
+        watermarkRef.value,
         (mutations) => {
-          if (props.removable) return;
-          mutations.forEach((mutation) => {
-            if (mutation.type === 'childList') {
-              const removeNodes = mutation.removedNodes;
-              removeNodes.forEach((node) => {
-                const element = node as HTMLElement;
-                if (element === watermarkRef.value) {
-                  parent.value.appendChild(element);
-                }
-                if (element === watermarkContentRef.value) {
-                  watermarkRef.value.appendChild(element);
-                }
-              });
+          if (props.removable || !watermarkContentRef.value) return;
+          for (const mutation of mutations) {
+            const isRemoved = Array.from(mutation.removedNodes).includes(watermarkContentRef.value);
+            const isModified = mutation.type === 'attributes' && watermarkContentRef.value === mutation.target;
+            if (isRemoved || isModified) {
+              injectWaterMark();
+              break;
             }
-          });
+          }
         },
         {
           attributes: true,
@@ -97,7 +118,7 @@ export default defineComponent({
       );
     });
 
-    watch(() => props.watermarkContent, injectWaterMark, { deep: true });
+    watch(() => props, injectWaterMark, { deep: true, flush: 'post' });
 
     return {
       gapX,
@@ -121,24 +142,6 @@ export default defineComponent({
         ref="watermarkRef"
       >
         {renderContent('default', 'content')}
-        <div
-          ref="watermarkContentRef"
-          style={{
-            zIndex: this.zIndex,
-            position: 'absolute',
-            left: 0,
-            right: 0,
-            top: 0,
-            bottom: 0,
-            width: '100%',
-            height: '100%',
-            backgroundSize: `${this.gapX + this.width}px`,
-            pointerEvents: 'none',
-            backgroundRepeat: this.backgroundRepeat,
-            backgroundImage: `url('${this.backgroundImage}')`,
-            animation: this.movable ? `watermark infinite ${(this.moveInterval * 4) / 60}s` : 'none',
-          }}
-        />
       </div>
     );
   },
