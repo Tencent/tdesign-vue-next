@@ -1,10 +1,10 @@
 import { withInstall } from '@td/adapter-vue';
 import type { SelectOption, TdOptionGroupProps, TdOptionProps, TdSelectProps } from '@td/components/select/type';
-import _Select from './select';
-import _Option from './option';
-import _OptionGroup from './optionGroup';
+import _Select from '@td/components-common/src/select/select';
+import _Option from '@td/components-common/src/select/option';
+import _OptionGroup from '@td/components-common/src/select/optionGroup';
 
-import './style';
+import '@td/components-common/src/select/style';
 
 export * from '@td/components/select/type';
 export type SelectProps<T = SelectOption> = TdSelectProps<T>;

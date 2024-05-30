@@ -1,13 +1,13 @@
 import { withInstall } from '@td/adapter-vue';
 import type { TdMessageProps } from '@td/components/message/type';
-import _Message from './message';
+import _Message from '@td/components-common/src/message/message';
 
-import './style';
+import '@td/components-common/src/message/style';
 
 export * from '@td/components/message/type';
-export * from './plugin';
+export * from '@td/components-common/src/message/plugin';
 export type MessageProps = TdMessageProps;
 
 export const Message = withInstall(_Message);
-export { default as MessagePlugin } from './plugin';
+export { default as MessagePlugin } from '@td/components-common/src/message/plugin';
 export default Message;

@@ -1,8 +1,8 @@
 import { withInstall } from '@td/adapter-vue';
 import type { TdCalendarProps } from '@td/components/calendar/type';
-import _Calendar from './calendar';
+import _Calendar from '@td/components-common/src/calendar/calendar';
 
-import './style';
+import '@td/components-common/src/calendar/style';
 
 export * from '@td/components/calendar/type';
 export type CalendarProps = TdCalendarProps;

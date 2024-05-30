@@ -1,8 +1,8 @@
 import { withInstall } from '@td/adapter-vue';
 import type { TdPopconfirmProps } from '@td/components/popconfirm/type';
-import _Popconfirm from './popconfirm';
+import _Popconfirm from '@td/components-common/src/popconfirm/popconfirm';
 
-import './style';
+import '@td/components-common/src/popconfirm/style';
 
 export * from '@td/components/popconfirm/type';
 export type PopconfirmProps = TdPopconfirmProps;

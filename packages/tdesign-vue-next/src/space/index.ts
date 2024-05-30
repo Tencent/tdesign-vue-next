@@ -1,8 +1,8 @@
 import { withInstall } from '@td/adapter-vue';
 import type { TdSpaceProps } from '@td/components/space/type';
-import _Space from './space';
+import _Space from '@td/components-common/src/space/space';
 
-import './style';
+import '@td/components-common/src/space/style';
 
 export * from '@td/components/space/type';
 

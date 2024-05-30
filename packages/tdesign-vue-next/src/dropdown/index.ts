@@ -1,10 +1,10 @@
 import { withInstall } from '@td/adapter-vue';
 import type { TdDropdownItemProps, TdDropdownProps } from '@td/components/dropdown/type';
-import _DropdownItem from './dropdown-item';
-import _Dropdown from './dropdown';
-import _DropdownMenu from './dropdown-menu';
+import _DropdownItem from '@td/components-common/src/dropdown/dropdown-item';
+import _Dropdown from '@td/components-common/src/dropdown/dropdown';
+import _DropdownMenu from '@td/components-common/src/dropdown/dropdown-menu';
 
-import './style';
+import '@td/components-common/src/dropdown/style';
 
 export * from '@td/components/dropdown/type';
 export type DropdownProps = TdDropdownProps;

@@ -1,10 +1,10 @@
 import type { TdTimePickerProps, TdTimeRangePickerProps } from '@td/components/time-picker/type';
 import { withInstall } from '@td/adapter-vue';
-import _TimePicker from './time-picker';
-import _TimeRangePicker from './time-range-picker';
-import _TimePickerPanel from './panel/time-picker-panel';
+import _TimePicker from '@td/components-common/src/time-picker/time-picker';
+import _TimeRangePicker from '@td/components-common/src/time-picker/time-range-picker';
+import _TimePickerPanel from '@td/components-common/src/time-picker/panel/time-picker-panel';
 
-import './style';
+import '@td/components-common/src/time-picker/style';
 
 export * from '@td/components/time-picker/type';
 export type TimePickerProps = TdTimePickerProps;

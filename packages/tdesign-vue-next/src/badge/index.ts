@@ -1,8 +1,8 @@
 import { withInstall } from '@td/adapter-vue';
 import type { TdBadgeProps } from '@td/components/badge/type';
-import _Badge from './badge';
+import _Badge from '@td/components-common/src/badge/badge';
 
-import './style';
+import '@td/components-common/src/badge/style';
 
 export * from '@td/components/badge/type';
 export type BadgeProps = TdBadgeProps;

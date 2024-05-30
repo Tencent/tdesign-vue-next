@@ -2,14 +2,14 @@ import { cloneDeep } from 'lodash-es';
 import { withInstall } from '@td/adapter-vue';
 import type { BaseTableInstanceFunctions, EnhancedTableInstanceFunctions, PrimaryTableInstanceFunctions } from '@td/components/table/type';
 import type { InfinityScroll } from '@td/types';
-import _BaseTable from './base-table';
-import _PrimaryTable from './primary-table';
-import _EnhancedTable from './enhanced-table';
+import _BaseTable from '@td/components-vue3/src/table/base-table';
+import _PrimaryTable from '@td/components-vue3/src/table/primary-table';
+import _EnhancedTable from '@td/components-vue3/src/table/enhanced-table';
 
-import './style';
+import '@td/components-vue3/src/table/style';
 
 export * from '@td/components/table/type';
-export * from './interface';
+export * from '@td/components-vue3/src/table/interface';
 
 export type AllTableInstanceFunctions = EnhancedTableInstanceFunctions &
   PrimaryTableInstanceFunctions &

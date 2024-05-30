@@ -1,8 +1,8 @@
 import { withInstall } from '@td/adapter-vue';
 import type { TdInputAdornmentProps } from '@td/components/input-adornment/type';
-import _InputAdornment from './input-adornment';
+import _InputAdornment from '@td/components-common/src/input-adornment/input-adornment';
 
-import './style';
+import '@td/components-common/src/input-adornment/style';
 
 export * from '@td/components/input-adornment/type';
 

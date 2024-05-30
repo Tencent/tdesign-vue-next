@@ -1,12 +1,12 @@
 import { withInstall } from '@td/adapter-vue';
 import type { TdHeadMenuProps, TdMenuItemProps, TdMenuProps, TdSubmenuProps } from '@td/components/menu/type';
-import _Menu from './menu';
-import _HeadMenu from './head-menu';
-import _Submenu from './submenu';
-import _MenuItem from './menu-item';
-import _MenuGroup from './menu-group';
+import _Menu from '@td/components-common/src/menu/menu';
+import _HeadMenu from '@td/components-common/src/menu/head-menu';
+import _Submenu from '@td/components-common/src/menu/submenu';
+import _MenuItem from '@td/components-common/src/menu/menu-item';
+import _MenuGroup from '@td/components-common/src/menu/menu-group';
 
-import './style';
+import '@td/components-common/src/menu/style';
 
 export * from '@td/components/menu/type';
 export type MenuProps = TdMenuProps;

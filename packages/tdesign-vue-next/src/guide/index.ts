@@ -1,8 +1,8 @@
 import { withInstall } from '@td/adapter-vue';
 import type { GuideStep, TdGuideProps } from '@td/components/guide/type';
-import _Guide from './guide';
+import _Guide from '@td/components-common/src/guide/guide';
 
-import './style';
+import '@td/components-common/src/guide/style';
 
 /**
  * TdGuideStepProps is going to be deprecated, use GuideStep instead

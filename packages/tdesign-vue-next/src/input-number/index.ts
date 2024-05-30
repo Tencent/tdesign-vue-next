@@ -1,8 +1,8 @@
 import { withInstall } from '@td/adapter-vue';
 import type { TdInputNumberProps } from '@td/components/input-number/type';
-import _InputNumber from './input-number';
+import _InputNumber from '@td/components-common/src/input-number/input-number';
 
-import './style';
+import '@td/components-common/src/input-number/style';
 
 export * from '@td/components/input-number/type';
 export type InputNumberProps = TdInputNumberProps;

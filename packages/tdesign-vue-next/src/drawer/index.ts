@@ -1,8 +1,8 @@
 import { withInstall } from '@td/adapter-vue';
 import type { TdDrawerProps } from '@td/components/drawer/type';
-import _Drawer from './drawer';
+import _Drawer from '@td/components-common/src/drawer/drawer';
 
-import './style';
+import '@td/components-common/src/drawer/style';
 
 export * from '@td/components/drawer/type';
 export type DrawerProps = TdDrawerProps;

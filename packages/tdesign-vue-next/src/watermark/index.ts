@@ -1,5 +1,5 @@
 import { withInstall } from '@td/adapter-vue';
-import _Watermark from './watermark';
+import _Watermark from '@td/components-common/src/watermark/watermark';
 
 export * from '@td/components/watermark/type';
 

@@ -1,9 +1,9 @@
-import _TdTree from './tree';
-import { withInstall } from './adapt';
+import _TdTree from '@td/components-common/src/tree/tree';
+import { withInstall } from '@td/components-common/src/tree/adapt';
 
-import './style';
+import '@td/components-common/src/tree/style';
 
 export const Tree = withInstall(_TdTree);
 
-export * from './tree-types';
+export * from '@td/components-common/src/tree/tree-types';
 export default Tree;

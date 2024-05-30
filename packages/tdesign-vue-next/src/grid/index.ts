@@ -1,9 +1,9 @@
 import { withInstall } from '@td/adapter-vue';
 import type { TdColProps, TdRowProps } from '@td/components/grid/type';
-import _Row from './row';
-import _Col from './col';
+import _Row from '@td/components-common/src/grid/row';
+import _Col from '@td/components-common/src/grid/col';
 
-import './style';
+import '@td/components-common/src/grid/style';
 
 export * from '@td/components/grid/type';
 export type ColProps = TdColProps;

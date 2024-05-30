@@ -1,12 +1,12 @@
 import { withInstall } from '@td/adapter-vue';
 import type { TdDialogProps } from '@td/components/dialog/type';
-import _Dialog from './dialog';
+import _Dialog from '@td/components-common/src/dialog/dialog';
 
-import './style';
+import '@td/components-common/src/dialog/style';
 
 export * from '@td/components/dialog/type';
 export type DialogProps = TdDialogProps;
 
 export const Dialog = withInstall(_Dialog);
-export { default as DialogPlugin } from './plugin';
+export { default as DialogPlugin } from '@td/components-common/src/dialog/plugin';
 export default Dialog;

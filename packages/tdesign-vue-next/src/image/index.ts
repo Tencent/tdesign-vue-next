@@ -1,8 +1,8 @@
 import { withInstall } from '@td/adapter-vue';
 import type { TdImageProps } from '@td/components/image/type';
-import _Image from './image';
+import _Image from '@td/components-common/src/image/image';
 
-import './style';
+import '@td/components-common/src/image/style';
 
 export type ImageProps = TdImageProps;
 export * from '@td/components/image/type';

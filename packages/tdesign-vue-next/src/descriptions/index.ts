@@ -1,9 +1,9 @@
 import { withInstall } from '@td/adapter-vue';
 import type { TdDescriptionItemProps, TdDescriptionsProps } from '@td/components/descriptions/type';
-import _Descriptions from './descriptions';
-import _DescriptionsItem from './descriptions-item';
+import _Descriptions from '@td/components-common/src/descriptions/descriptions';
+import _DescriptionsItem from '@td/components-common/src/descriptions/descriptions-item';
 
-import './style';
+import '@td/components-common/src/descriptions/style';
 
 export * from '@td/components/descriptions/type';
 export type DescriptionsProps = TdDescriptionsProps;

@@ -1,7 +1,7 @@
 import { withInstall } from '@td/adapter-vue';
-import _Rate from './rate';
+import _Rate from '@td/components-common/src/rate/rate';
 
-import './style';
+import '@td/components-common/src/rate/style';
 
 export * from '@td/components/rate/type';
 
