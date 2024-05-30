@@ -1,10 +1,10 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdButtonProps } from '@td/components/button/type';
+import type { TdButtonProps } from './type';
 import _Button from '@td/components-common/src/button/button';
 
 import '@td/components-common/src/button/style';
 
-export * from '@td/components/button/type';
+export * from './type';
 export type ButtonProps = TdButtonProps;
 
 export const Button = withInstall(_Button);

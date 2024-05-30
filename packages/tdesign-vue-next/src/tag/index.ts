@@ -1,12 +1,12 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdCheckTagGroupProps, TdCheckTagProps, TdTagProps } from '@td/components/tag/type';
+import type { TdCheckTagGroupProps, TdCheckTagProps, TdTagProps } from './type';
 import _Tag from '@td/components-common/src/tag/tag';
 import _CheckTag from '@td/components-common/src/tag/check-tag';
 import _CheckTagGroup from '@td/components-common/src/tag/check-tag-group';
 
 import '@td/components-common/src/tag/style';
 
-export * from '@td/components/tag/type';
+export * from './type';
 export type TagProps = TdTagProps;
 export type CheckTagProps = TdCheckTagProps;
 export type CheckTagGroupProps = TdCheckTagGroupProps;

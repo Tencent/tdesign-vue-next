@@ -1,11 +1,11 @@
 import { withInstall } from '@td/adapter-vue';
-import type { InputValue, TdInputProps } from '@td/components/input/type';
+import type { InputValue, TdInputProps } from './type';
 import _Input from '@td/components-common/src/input/input';
 import _InputGroup from '@td/components-common/src/input/input-group';
 
 import '@td/components-common/src/input/style';
 
-export * from '@td/components/input/type';
+export * from './type';
 export type InputProps<T = InputValue> = TdInputProps<T>;
 export type InputBlurEventParams = Parameters<InputProps['onBlur']>;
 export type InputFocusEventParams = Parameters<InputProps['onFocus']>;

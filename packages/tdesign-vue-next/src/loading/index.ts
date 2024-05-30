@@ -1,11 +1,11 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdLoadingProps } from '@td/components/loading/type';
+import type { TdLoadingProps } from './type';
 import { vLoading } from '@td/components-common/src/loading/directive';
 import _Loading from '@td/components-common/src/loading/loading';
 
 import '@td/components-common/src/loading/style';
 
-export * from '@td/components/loading/type';
+export * from './type';
 export * from '@td/components-common/src/loading/plugin';
 
 export type LoadingProps = TdLoadingProps;

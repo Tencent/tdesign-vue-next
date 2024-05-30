@@ -1,11 +1,11 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdTimelineProps } from '@td/components/timeline/type';
+import type { TdTimelineProps } from './type';
 import _Timeline from '@td/components-common/src/timeline/timeline';
 import _TimelineItem from '@td/components-common/src/timeline/timeline-item';
 
 import '@td/components-common/src/timeline/style';
 
-export * from '@td/components/timeline/type';
+export * from './type';
 
 export type TimelineProps = TdTimelineProps;
 

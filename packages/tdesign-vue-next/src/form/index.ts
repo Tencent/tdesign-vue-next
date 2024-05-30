@@ -1,11 +1,11 @@
 import { withInstall } from '@td/adapter-vue';
-import type { Data, TdFormItemProps, TdFormProps } from '@td/components/form/type';
+import type { Data, TdFormItemProps, TdFormProps } from './type';
 import _Form from '@td/components-common/src/form/form';
 import _FormItem from '@td/components-common/src/form/form-item';
 
 import '@td/components-common/src/form/style';
 
-export * from '@td/components/form/type';
+export * from './type';
 
 // vue23:todo 临时加一个
 // export * from '@td/components-common/src/form/form-model';

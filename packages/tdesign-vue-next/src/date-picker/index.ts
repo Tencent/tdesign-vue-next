@@ -1,5 +1,5 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdDatePickerPanelProps, TdDatePickerProps, TdDateRangePickerPanelProps, TdDateRangePickerProps } from '@td/components/date-picker/type';
+import type { TdDatePickerPanelProps, TdDatePickerProps, TdDateRangePickerPanelProps, TdDateRangePickerProps } from './type';
 import _DatePicker from '@td/components-common/src/date-picker/DatePicker';
 import _DatePickerPanel from '@td/components-common/src/date-picker/DatePickerPanel';
 import _DateRangePicker from '@td/components-common/src/date-picker/DateRangePicker';
@@ -7,7 +7,7 @@ import _DateRangePickerPanel from '@td/components-common/src/date-picker/DateRan
 
 import '@td/components-common/src/date-picker/style';
 
-export * from '@td/components/date-picker/type';
+export * from './type';
 export type DatePickerProps = TdDatePickerProps;
 
 export interface DatePickerPanelProps extends TdDatePickerPanelProps, Pick<TdDatePickerProps, 'modelValue'> {}

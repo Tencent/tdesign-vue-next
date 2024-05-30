@@ -1,11 +1,11 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdAvatarGroupProps, TdAvatarProps } from '@td/components/avatar/type';
+import type { TdAvatarGroupProps, TdAvatarProps } from './type';
 import _Avatar from '@td/components-common/src/avatar/avatar';
 import _AvatarGroup from '@td/components-common/src/avatar/group';
 
 import '@td/components-common/src/avatar/style';
 
-export * from '@td/components/avatar/type';
+export * from './type';
 
 export type AvatarProps = TdAvatarProps;
 export type AvatarGroupProps = TdAvatarGroupProps;

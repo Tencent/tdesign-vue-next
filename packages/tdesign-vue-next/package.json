@@ -15,11 +15,11 @@
     "lodash-es": "^4.17.21"
   },
   "devDependencies": {
+    "@td/types": "workspace:^",
     "@types/cli-color": "^2.0.6",
+    "@types/lodash-es": "^4.17.12",
     "cli-color": "^2.0.4",
     "vite": "^5.0.12",
-    "vitest": "^1.6.0",
-    "@types/lodash-es": "^4.17.12"
-    
+    "vitest": "^1.6.0"
   }
 }
