@@ -1,4 +1,4 @@
-export { MessagePlugin } from './src/message';
-export { NotifyPlugin } from './src/notification';
-export { DialogPlugin } from './src/dialog';
-export { LoadingPlugin } from './src/loading';
+export { MessagePlugin } from './message';
+export { NotifyPlugin } from './notification';
+export { DialogPlugin } from './dialog';
+export { LoadingPlugin } from './loading';
