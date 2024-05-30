@@ -1,6 +1,6 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdCardProps } from './type';
 import _Card from '@td/components-common/src/card/card';
+import type { TdCardProps } from './type';
 
 import '@td/components-common/src/card/style';
 

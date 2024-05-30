@@ -1,7 +1,7 @@
 import { withInstall } from '@td/adapter-vue';
-import type { InputValue, TdInputProps } from './type';
 import _Input from '@td/components-common/src/input/input';
 import _InputGroup from '@td/components-common/src/input/input-group';
+import type { InputValue, TdInputProps } from './type';
 
 import '@td/components-common/src/input/style';
 

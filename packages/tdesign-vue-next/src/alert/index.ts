@@ -1,6 +1,6 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdAlertProps } from './type';
 import _Alert from '@td/components-common/src/alert/alert';
+import type { TdAlertProps } from './type';
 
 import '@td/components-common/src/alert/style';
 

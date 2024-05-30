@@ -1,7 +1,7 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdStepItemProps, TdStepsProps } from './type';
 import _Steps from '@td/components-common/src/steps/steps';
 import _StepItem from '@td/components-common/src/steps/step-item';
+import type { TdStepItemProps, TdStepsProps } from './type';
 
 import '@td/components-common/src/steps/style';
 

@@ -1,6 +1,6 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdBackTopProps } from './type';
 import _BackTop from '@td/components-common/src/back-top/back-top';
+import type { TdBackTopProps } from './type';
 
 import '@td/components-common/src/back-top/style';
 

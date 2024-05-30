@@ -1,7 +1,7 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdColorPickerProps } from './type';
 import _ColorPickerPanel from '@td/components-common/src/color-picker/color-picker-panel';
 import _ColorPicker from '@td/components-common/src/color-picker/color-picker';
+import type { TdColorPickerProps } from './type';
 
 import '@td/components-common/src/color-picker/style';
 

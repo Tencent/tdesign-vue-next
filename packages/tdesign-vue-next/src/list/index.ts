@@ -1,8 +1,8 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdListItemMetaProps, TdListItemProps, TdListProps } from './type';
 import _List from '@td/components-common/src/list/list';
 import _ListItem from '@td/components-common/src/list/list-item';
 import _ListItemMeta from '@td/components-common/src/list/list-item-meta';
+import type { TdListItemMetaProps, TdListItemProps, TdListProps } from './type';
 
 import '@td/components-common/src/list/style';
 

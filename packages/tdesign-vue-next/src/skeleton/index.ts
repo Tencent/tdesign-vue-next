@@ -1,6 +1,6 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdSkeletonProps } from './type';
 import _Skeleton from '@td/components-common/src/skeleton/skeleton';
+import type { TdSkeletonProps } from './type';
 
 import '@td/components-common/src/skeleton/style';
 

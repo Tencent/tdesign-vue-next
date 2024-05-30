@@ -1,6 +1,6 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdImageViewerProps } from './type';
 import _ImageViewer from '@td/components-common/src/image-viewer/image-viewer';
+import type { TdImageViewerProps } from './type';
 
 import '@td/components-common/src/image-viewer/style';
 

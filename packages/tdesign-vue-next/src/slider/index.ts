@@ -1,7 +1,7 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdSliderProps } from './type';
 import _Slider from '@td/components-common/src/slider/slider';
 import _SliderButton from '@td/components-common/src/slider/slider-button';
+import type { TdSliderProps } from './type';
 
 import '@td/components-common/src/slider/style';
 

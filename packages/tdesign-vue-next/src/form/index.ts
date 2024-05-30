@@ -1,7 +1,7 @@
 import { withInstall } from '@td/adapter-vue';
-import type { Data, TdFormItemProps, TdFormProps } from './type';
 import _Form from '@td/components-common/src/form/form';
 import _FormItem from '@td/components-common/src/form/form-item';
+import type { Data, TdFormItemProps, TdFormProps } from './type';
 
 import '@td/components-common/src/form/style';
 

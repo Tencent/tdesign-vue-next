@@ -1,7 +1,7 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdColProps, TdRowProps } from './type';
 import _Row from '@td/components-common/src/grid/row';
 import _Col from '@td/components-common/src/grid/col';
+import type { TdColProps, TdRowProps } from './type';
 
 import '@td/components-common/src/grid/style';
 

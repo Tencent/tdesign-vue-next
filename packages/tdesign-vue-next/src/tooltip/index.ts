@@ -1,6 +1,6 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdTooltipProps } from './type';
 import _Tooltip from '@td/components-common/src/tooltip/tooltip';
+import type { TdTooltipProps } from './type';
 
 import '@td/components-common/src/tooltip/style';
 

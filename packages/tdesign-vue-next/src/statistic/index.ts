@@ -1,6 +1,6 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdStatisticProps } from './type';
 import _Statistic from '@td/components-common/src/statistic/statistic';
+import type { TdStatisticProps } from './type';
 
 import '@td/components-common/src/statistic/style';
 

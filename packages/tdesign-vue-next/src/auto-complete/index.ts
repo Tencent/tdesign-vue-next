@@ -1,7 +1,7 @@
 import { withInstall } from '@td/adapter-vue';
-import type { AutoCompleteOption, TdAutoCompleteProps } from './type';
 import _AutoComplete from '@td/components-common/src/auto-complete/auto-complete';
 import _HighlightOption from '@td/components-common/src/auto-complete/highlight-option';
+import type { AutoCompleteOption, TdAutoCompleteProps } from './type';
 
 import '@td/components-common/src/auto-complete/style';
 

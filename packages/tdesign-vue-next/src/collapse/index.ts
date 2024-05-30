@@ -1,7 +1,7 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdCollapsePanelProps, TdCollapseProps } from './type';
 import _Collapse from '@td/components-common/src/collapse/collapse';
 import _CollapsePanel from '@td/components-common/src/collapse/collapse-panel';
+import type { TdCollapsePanelProps, TdCollapseProps } from './type';
 
 import '@td/components-common/src/collapse/style';
 

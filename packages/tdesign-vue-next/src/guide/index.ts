@@ -1,6 +1,6 @@
 import { withInstall } from '@td/adapter-vue';
-import type { GuideStep, TdGuideProps } from './type';
 import _Guide from '@td/components-common/src/guide/guide';
+import type { GuideStep, TdGuideProps } from './type';
 
 import '@td/components-common/src/guide/style';
 

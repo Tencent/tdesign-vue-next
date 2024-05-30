@@ -1,6 +1,6 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdLinkProps } from './type';
 import _Link from '@td/components-common/src/link/link';
+import type { TdLinkProps } from './type';
 
 import '@td/components-common/src/link/style';
 

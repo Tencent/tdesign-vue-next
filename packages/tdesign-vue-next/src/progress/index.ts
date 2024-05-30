@@ -1,6 +1,6 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdProgressProps } from './type';
 import _Progress from '@td/components-common/src/progress/progress';
+import type { TdProgressProps } from './type';
 
 import '@td/components-common/src/progress/style';
 

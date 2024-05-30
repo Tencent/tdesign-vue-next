@@ -1,6 +1,6 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdCommentProps } from './type';
 import _Comment from '@td/components-common/src/comment/comment';
+import type { TdCommentProps } from './type';
 
 import '@td/components-common/src/comment/style';
 

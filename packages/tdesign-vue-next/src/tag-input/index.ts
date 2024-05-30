@@ -1,6 +1,6 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdTagInputProps } from './type';
 import _TagInput from '@td/components-common/src/tag-input/tag-input';
+import type { TdTagInputProps } from './type';
 
 import '@td/components-common/src/tag-input/style';
 

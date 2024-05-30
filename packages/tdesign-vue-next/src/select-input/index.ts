@@ -1,6 +1,6 @@
 import { withInstall } from '@td/adapter-vue';
-import type { TdSelectInputProps } from './type';
 import _SelectInput from '@td/components-common/src/select-input/select-input';
+import type { TdSelectInputProps } from './type';
 
 import '@td/components-common/src/select-input/style';
 
