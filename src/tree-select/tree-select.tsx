@@ -25,7 +25,7 @@ import useDefaultValue from '../hooks/useDefaultValue';
 export default defineComponent({
   name: 'TTreeSelect',
   props,
-  setup(props: TdTreeSelectProps, { slots }) {
+  setup(props: TdTreeSelectProps, { slots, expose }) {
     const renderTNodeJSX = useTNodeJSX();
     const renderDefaultTNode = useTNodeDefault();
     const classPrefix = usePrefixClass();
@@ -381,6 +381,10 @@ export default defineComponent({
         }}
       />
     );
+
+    expose({
+      treeRef,
+    });
 
     return () => (
       <SelectInput
