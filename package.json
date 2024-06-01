@@ -142,7 +142,7 @@
     "cz-git": "^1.7.0",
     "czg": "^1.7.0",
     "dom-parser": "^0.1.6",
-    "esbuild": "^0.14.54",
+    "esbuild": "^0.21.4",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.27.5",
