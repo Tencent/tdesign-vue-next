@@ -65,10 +65,20 @@ export default defineComponent({
 
       const svgElement = container.querySelector('svg');
       if (svgElement) {
-        const viewBox = svgElement.getAttribute('viewBox');
-        if (viewBox) {
-          container.style.width = `${viewBox.split(' ')[2]}px`;
-          container.style.height = `${viewBox.split(' ')[3]}px`;
+        const svgViewBox = svgElement.getAttribute('viewBox');
+        if (svgViewBox) {
+          const viewBoxValues = svgViewBox
+            .split(/[\s\,]/)
+            .filter(function (v) {
+              return v;
+            })
+            .map(parseFloat);
+
+          // svg viewbox x(0) and y(1) offset, width(2) and height(3),eg
+          const svgViewBoxWidth = viewBoxValues[2];
+          const svgViewBoxHeight = viewBoxValues[3];
+          container.style.width = `${svgViewBoxWidth}px`;
+          container.style.height = `${svgViewBoxHeight}px`;
         } else {
           const bbox = svgElement.getBBox();
           const calculatedViewBox = `${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`;
