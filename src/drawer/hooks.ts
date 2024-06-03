@@ -1,5 +1,6 @@
 import { computed, ref } from 'vue';
 import { Styles } from '../common';
+import { getSizeDraggable, calcMoveSize } from '../_common/js/drawer/utils';
 import type { TdDrawerProps } from './type';
 
 export const useDrag = (props: TdDrawerProps) => {
@@ -27,25 +28,31 @@ export const useDrag = (props: TdDrawerProps) => {
     const maxWidth = document.documentElement.clientWidth;
     const offsetHeight = 8;
     const offsetWidth = 8;
+    // x 轴方向使用最大宽度，y轴方向使用最大高度
+    const max = props.placement === 'left' || props.placement === 'right' ? maxWidth : maxHeight;
+    // x 轴方向使用默认最小宽度，y轴方向使用默认最小高度
+    const min = props.placement === 'left' || props.placement === 'right' ? offsetWidth : offsetHeight;
+    const { allowSizeDraggable, max: limitMax, min: limitMin } = getSizeDraggable(props.sizeDraggable, { max, min });
 
-    if (isSizeDragging.value && props.sizeDraggable) {
-      if (props.placement === 'right') {
-        const moveLeft = Math.min(Math.max(maxWidth - x + offsetWidth, offsetWidth), maxWidth);
-        draggedSizeValue.value = `${moveLeft}px`;
-      }
-      if (props.placement === 'left') {
-        const moveRight = Math.min(Math.max(x + offsetWidth, offsetWidth), maxWidth);
-        draggedSizeValue.value = `${moveRight}px`;
-      }
-      if (props.placement === 'top') {
-        const moveBottom = Math.min(Math.max(y + offsetHeight, offsetHeight), maxHeight);
-        draggedSizeValue.value = `${moveBottom}px`;
-      }
-      if (props.placement === 'bottom') {
-        const moveTop = Math.min(Math.max(maxHeight - y + offsetHeight, offsetHeight), maxHeight);
-        draggedSizeValue.value = `${moveTop}px`;
-      }
-    }
+    // 不支持拖拽就直接返回
+    if (!allowSizeDraggable || !isSizeDragging.value) return;
+
+    const moveSize = calcMoveSize(props.placement, {
+      x,
+      y,
+      maxWidth,
+      maxHeight,
+      max: limitMax,
+      min: limitMin,
+    });
+
+    if (typeof moveSize === 'undefined') return;
+
+    draggedSizeValue.value = `${moveSize}px`;
+    props.onSizeDragEnd?.({
+      e,
+      size: moveSize,
+    });
   };
 
   const draggableLineStyles = computed(() => {

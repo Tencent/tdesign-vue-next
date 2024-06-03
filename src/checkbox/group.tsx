@@ -33,9 +33,22 @@ export default defineComponent({
       return n.length;
     });
 
+    /**
+     * 计算是否所有选项都被选中。
+     * 此函数不接受参数，但依赖于外部的 `optionList` 和 `innerValue` 变量。
+     *
+     * @returns {boolean} 如果所有符合条件的选项都被选中，则返回 `true`；否则返回 `false`。
+     */
     const isCheckAll = computed<boolean>(() => {
-      const optionItems = optionList.value.filter((item) => !item.disabled && !item.checkAll).map((t) => t.value);
+      // 筛选出非禁用、非只读且不设置为“全选”的选项，并提取其值
+      const optionItems = optionList.value
+        .filter((item) => !item.disabled && !item.readonly && !item.checkAll)
+        .map((t) => t.value);
+
+      // 计算当前选中值与筛选后的选项值的交集
       const intersectionValues = intersection(optionItems, innerValue.value);
+
+      // 判断交集的长度是否等于所有选项值的长度，以确定是否所有选项都被选中
       return intersectionValues.length === optionItems.length;
     });
 
@@ -52,16 +65,32 @@ export default defineComponent({
       });
     });
 
+    /**
+     * 获取所有复选框的值。
+     * 此函数遍历 `optionList` 中的项，忽略被标记为 `checkAll`、`disabled` 或 `readonly` 的项，
+     * 并收集非这些状态的项的值到一个 Set 集合中。如果达到最大限制 `maxExceeded`，则停止遍历。
+     *
+     * @returns {CheckboxGroupValue} 返回一个数组，包含所有非 `checkAll`、`disabled`、`readonly` 状态复选框的值。
+     */
     const getAllCheckboxValue = (): CheckboxGroupValue => {
       const val = new Set<TdCheckboxProps['value']>();
+
+      // 遍历选项列表，忽略特定状态的项，并收集有效值
       for (let i = 0, len = optionList.value.length; i < len; i++) {
         const item = optionList.value[i];
+
+        // 如果项被标记为检查所有、禁用或只读，则跳过当前循环迭代
         if (item.checkAll) continue;
         if (item.disabled) continue;
-        val.add(item.value);
+        if (item.readonly) continue;
+
+        val.add(item.value); // 添加非排除状态项的值到集合中
+
+        // 如果已达到最大限制，则终止循环
         if (maxExceeded.value) break;
       }
-      return [...val];
+
+      return [...val]; // 从 Set 集合转换为数组并返回
     };
 
     const onCheckAllChange = (checked: boolean, context: { e: Event; source?: 't-checkbox' }) => {
@@ -128,6 +157,7 @@ export default defineComponent({
         checkedValues: innerValue.value || [],
         maxExceeded: maxExceeded.value,
         disabled: props.disabled,
+        readonly: props.readonly,
         indeterminate: indeterminate.value,
         handleCheckboxChange,
         onCheckedChange,
