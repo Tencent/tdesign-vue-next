@@ -3,7 +3,7 @@ name: Auto Release
 on:
   pull_request:
     branches: [develop]
-    types: [opened, synchronize, reopened, closed]
+    types: [opened, synchronize, reopened]
     paths:
       - "package.json"
   issue_comment:
@@ -19,7 +19,7 @@ jobs:
     steps:
       - run: echo "The head of this PR starts with 'release/'"
       - uses: actions/checkout@v3
-      - uses: 94dreamer/auto-release@develop
+      - uses: TDesignOteam/tdesign-changelog-action@main
         id: changelog
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
