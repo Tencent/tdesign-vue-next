@@ -60,4 +60,8 @@ export default {
   title: {
     type: [String, Function] as PropType<TdDescriptionsProps['title']>,
   },
+  mode: {
+    type: String as PropType<TdDescriptionsProps['mode']>,
+    default: 'fixed' as TdDescriptionsProps['mode'],
+  },
 };

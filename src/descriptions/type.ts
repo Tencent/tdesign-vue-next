@@ -52,6 +52,8 @@ export interface TdDescriptionsProps {
    * 描述列表的标题
    */
   title?: string | TNode;
+
+  mode?: 'fixed' | 'auto';
 }
 
 export interface TdDescriptionItemProps {
