@@ -1,5 +1,6 @@
 import { it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
+import { nextTick } from 'vue';
 import { getDescriptionsMount } from './mount';
 import Descriptions, { DescriptionsItem } from '@/src/descriptions/index.ts';
 import CustomComp from './custom-comp.vue';
@@ -29,6 +30,19 @@ describe('Descriptions', () => {
         const body = wrapper.find('.t-descriptions__body');
         expect(body.classes()).toContain(`t-size-${size.slice(0, 1)}`);
       });
+    });
+
+    it(':mode:fixed', async () => {
+      const wrapper = getDescriptionsMount({ mode: 'fixed', style: { width: '400px' } });
+      const body = wrapper.find('.t-descriptions__body');
+      expect(body.classes()).toContain('t-descriptions__body--fixed');
+
+      // todo: need test td width, but don't know how to test
+      // const labels = wrapper.findAll('.t-descriptions');
+      // const contents = wrapper.findAll('.t-descriptions__content');
+      // await nextTick();
+      // expect(getComputedStyle(labels[0].element, null).width).toBe('100px');
+      // expect(getComputedStyle(contents[0].element, null).width).toBe('100px');
     });
 
     it(':layout:horizontal', () => {
