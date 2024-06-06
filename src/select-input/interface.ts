@@ -1,6 +1,7 @@
 import { TdSelectInputProps } from './type';
 
 export interface SelectInputCommonProperties {
+  autofocus?: TdSelectInputProps['autofocus'];
   size?: TdSelectInputProps['size'];
   status?: TdSelectInputProps['status'];
   tips?: TdSelectInputProps['tips'];
