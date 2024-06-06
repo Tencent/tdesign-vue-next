@@ -20,6 +20,7 @@ import {
   initYearMonthTime,
 } from '../_common/js/date-picker/format';
 import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-picker/utils';
+import { dateCorrection } from './utils';
 
 export default defineComponent({
   name: 'TDateRangePicker',
@@ -207,48 +208,14 @@ export default defineComponent({
 
       let nextYear = [...year.value];
       nextYear[partialIndex] = next.getFullYear();
-      const nextMonth = [...month.value];
+      let nextMonth = [...month.value];
       nextMonth[partialIndex] = next.getMonth();
       const onlyYearSelect = ['year', 'quarter', 'month'].includes(props.mode);
 
-      // 保证左侧时间不大于右侧
-      if (partialIndex === 0) {
-        if (nextYear[1] <= nextYear[0]) {
-          if (onlyYearSelect) nextYear[1] = nextYear[0] + 1;
-          else {
-            // eslint-disable-next-line prefer-destructuring
-            nextYear[1] = nextYear[0];
-            if (nextMonth[1] <= nextMonth[0]) {
-              nextMonth[1] = nextMonth[0] + 1;
-              if (nextMonth[1] === 12) {
-                // 处理跨年的边界场景
-                nextMonth[1] = 0;
-                nextYear = [nextYear[0], nextYear[1] + 1];
-              }
-            }
-          }
-        }
-      }
-
-      // 保证左侧时间不大于右侧
-      if (partialIndex === 1) {
-        if (nextYear[0] >= nextYear[1]) {
-          // 年/季度/月份场景下，头部只有年选择器，直接 - 1
-          if (onlyYearSelect) nextYear[0] = nextYear[1] - 1;
-          else {
-            // eslint-disable-next-line prefer-destructuring
-            nextYear[0] = nextYear[1];
-            if (nextMonth[0] >= nextMonth[1]) {
-              nextMonth[0] = nextMonth[1] - 1;
-              if (nextMonth[0] === -1) {
-                // 处理跨年的边界场景
-                nextMonth[0] = 11;
-                nextYear = [nextYear[0] - 1, nextYear[1]];
-              }
-            }
-          }
-        }
-      }
+      // 头部日期切换修正
+      const correctedDate = dateCorrection(partialIndex, nextYear, nextMonth, onlyYearSelect);
+      nextYear = correctedDate.nextYear;
+      nextMonth = correctedDate.nextMonth;
 
       year.value = nextYear;
       month.value = nextMonth;
@@ -360,46 +327,16 @@ export default defineComponent({
       let partialIndex = partial === 'start' ? 0 : 1;
       if (props.enableTimePicker) partialIndex = activeIndex.value;
 
-      const nextYear = [...year.value];
-      const nextMonth = [...month.value];
+      let nextYear = [...year.value];
+      let nextMonth = [...month.value];
 
       nextYear[partialIndex] = nextVal;
       const onlyYearSelect = ['year', 'quarter', 'month'].includes(props.mode);
 
-      // 保证左侧时间不大于右侧
-      if (partialIndex === 0) {
-        if (nextYear[1] <= nextYear[0]) {
-          if (onlyYearSelect) nextYear[1] = nextYear[0] + 1;
-          else {
-            // 日期，周选择场景，还有月份选择器，需要再处理月份选择器的边界问题
-            // eslint-disable-next-line prefer-destructuring
-            nextYear[1] = nextYear[0];
-            nextMonth[1] = nextMonth[0] + 1;
-            if (nextMonth[1] === 12) {
-              // 处理跨年的边界场景
-              nextMonth[1] = 0;
-              nextYear[1] += 1;
-            }
-          }
-        }
-      }
-      if (partialIndex === 1) {
-        if (nextYear[0] >= nextYear[1]) {
-          // 年/季度/月份场景下，头部只有年选择器，直接 - 1
-          if (onlyYearSelect) nextYear[0] = nextYear[1] - 1;
-          else {
-            // 日期，周选择场景，还有月份选择器，需要再处理月份选择器的边界问题
-            // eslint-disable-next-line prefer-destructuring
-            nextYear[0] = nextYear[1];
-            nextMonth[0] = nextMonth[1] - 1;
-            if (nextMonth[0] === -1) {
-              // 处理跨年的边界场景
-              nextMonth[0] = 11;
-              nextYear[0] -= 1;
-            }
-          }
-        }
-      }
+      // 头部日期切换修正
+      const correctedDate = dateCorrection(partialIndex, nextYear, nextMonth, onlyYearSelect);
+      nextYear = correctedDate.nextYear;
+      nextMonth = correctedDate.nextMonth;
 
       year.value = nextYear;
       if (!onlyYearSelect) month.value = nextMonth;
