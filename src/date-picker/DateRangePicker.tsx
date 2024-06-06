@@ -239,7 +239,7 @@ export default defineComponent({
             // eslint-disable-next-line prefer-destructuring
             nextYear[0] = nextYear[1];
             if (nextMonth[0] >= nextMonth[1]) {
-              nextMonth[0] -= 1;
+              nextMonth[0] = nextMonth[1] - 1;
               if (nextMonth[0] === -1) {
                 // 处理跨年的边界场景
                 nextMonth[0] = 11;
