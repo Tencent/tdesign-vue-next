@@ -5,6 +5,35 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.9.6 `2024-06-06` 
+### 🚀 Features
+- `Form`: 新增 `readonly` 属性，支持配置表单只读 @xiaojueshi ([#4176](https://github.com/Tencent/tdesign-vue-next/pull/4176))
+- `Button`: 新增 `loadingProps` API @novlan1 ([#4219](https://github.com/Tencent/tdesign-vue-next/pull/4219))
+- `Breadcrumb`: 优化展示文字 `overflow` 展示 `tooltip` 的判断条件 @xiaojueshi ([#4220](https://github.com/Tencent/tdesign-vue-next/pull/4220))
+- `Table`: 优化展示文字 `overflow` 展示 `tooltip` 的判断条件 @xiaojueshi ([#4220](https://github.com/Tencent/tdesign-vue-next/pull/4220))
+- `SelectInput`: 新增 `size` 属性 @1379255913 ([#4229](https://github.com/Tencent/tdesign-vue-next/pull/4229))
+- `Watermark`: 增强水印防篡改能力 @oljc ([#4233](https://github.com/Tencent/tdesign-vue-next/pull/4233))
+- `Tabs`: 支持通过滚轮或者触摸板进行滚动操作 @oljc ([#4222](https://github.com/Tencent/tdesign-vue-next/pull/4222))
+- `DatePicker`: 优化日期区间选择器头部区间的变化逻辑，选择后左侧区间大于右侧区间，则默认调整为左侧区间始终比右侧区间小  @uyarn ([#4263](https://github.com/Tencent/tdesign-vue-next/pull/4263))
+- `Input`: 新增 `spellCheck` 是否开启拼写检查 @liweijie0812 ([#4265](https://github.com/Tencent/tdesign-vue-next/pull/4265))
+- `TreeSelect`:  对外暴露 `treeRef` @novlan1 ([#4235](https://github.com/Tencent/tdesign-vue-next/pull/4235))
+- `ImageViewer`: 支持原生 `svg` 渲染 @josonyang ([#4249](https://github.com/Tencent/tdesign-vue-next/pull/4249))
+- `Drawer`: 增加拖拽时的最大最小限制，增加 `onSizeDragEnd` 回调函数 @ZWkang ([#4009](https://github.com/Tencent/tdesign-vue-next/pull/4009))
+
+### 🐞 Bug Fixes
+
+- `Cascader`: 
+  - 修复`prefixIcon`、`suffix` 和 `suffixIcon` 的 `slot` 功能缺失的问题 @1379255913 ([#4229](https://github.com/Tencent/tdesign-vue-next/pull/4229))
+  - 修复 `autofocus` 功能失效的问题 @uyarn ([#4266](https://github.com/Tencent/tdesign-vue-next/pull/4266))
+- `Tabs`:  修复滑块定位问题 @ZTH520 ([#4207](https://github.com/Tencent/tdesign-vue-next/pull/4207))
+- `List`: 修复开启虚拟滚动的异常问题 @uyarn ([#4208](https://github.com/Tencent/tdesign-vue-next/pull/4208))
+- `Table`: 修正固定行和虚拟滚动的组合使用场景 @Cat1007 ([#4145](https://github.com/Tencent/tdesign-vue-next/pull/4145))
+- `Select`:  修复远程搜索配合过滤，输入筛选条件后，使用键盘选择异常的问题 @ZTH520 ([#4218](https://github.com/Tencent/tdesign-vue-next/pull/4218))
+- `Table`: 修复`filter.type`的告警逻辑问题 @uyarn ([#4226](https://github.com/Tencent/tdesign-vue-next/pull/4226))
+- `InputNumber`: 修复 `allowInputOverLimit=false` 大小值判断时，`value` 为 `undefined` 时，会出现显示 Infinity 的问题 @HaixingOoO  @uyarn ([#4262](https://github.com/Tencent/tdesign-vue-next/pull/4262))
+- `DatePicker`: 修复在指定 `format` 和 `valueType` 下，年份解析错误问题 @Ericleungs ([#4161](https://github.com/Tencent/tdesign-vue-next/pull/4161))
+
+
 ## 🌈 1.9.5 `2024-05-16` 
 ### 🚀 Features
 
