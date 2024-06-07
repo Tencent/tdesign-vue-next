@@ -26,6 +26,7 @@ const COMMON_PROPERTIES = [
   'onMouseenter',
   'onMouseleave',
   'size',
+  'autofocus',
 ];
 
 const DEFAULT_KEYS = {

@@ -32,7 +32,7 @@ export interface TdInputProps<T = InputValue> {
    */
   autofocus?: boolean;
   /**
-   * 【开发中】无边框模式
+   * 无边框模式
    * @default false
    */
   borderless?: boolean;
@@ -62,7 +62,7 @@ export interface TdInputProps<T = InputValue> {
    */
   maxcharacter?: number;
   /**
-   * 用户最多可以输入的文本长度，一个中文等于一个计数长度。值为空，则表示不限制输入长度。`maxcharacter` 和 `maxlength` 二选一使用
+   * 用户最多可以输入的文本长度，一个中文等于一个计数长度。默认为空，不限制输入长度。`maxcharacter` 和 `maxlength` 二选一使用
    */
   maxlength?: string | number;
   /**
@@ -80,7 +80,6 @@ export interface TdInputProps<T = InputValue> {
   prefixIcon?: TNode;
   /**
    * 只读状态
-   * @default false
    */
   readonly?: boolean;
   /**
@@ -98,6 +97,11 @@ export interface TdInputProps<T = InputValue> {
    * @default medium
    */
   size?: SizeEnum;
+  /**
+   * 是否开启拼写检查，HTML5 原生属性，[点击查看详情](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/spellcheck)
+   * @default false
+   */
+  spellCheck?: boolean;
   /**
    * 输入框状态。默认情况会由组件内部根据实际情况呈现，如果文本过长引起的状态变化
    */
