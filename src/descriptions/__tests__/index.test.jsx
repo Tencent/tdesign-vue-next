@@ -32,7 +32,7 @@ describe('Descriptions', () => {
       });
     });
 
-    it(':mode:fixed', async () => {
+    it(':tableLayout:fixed', async () => {
       const wrapper = getDescriptionsMount({ mode: 'fixed', style: { width: '400px' } });
       const body = wrapper.find('.t-descriptions__body');
       expect(body.classes()).toContain('t-descriptions__body--fixed');
