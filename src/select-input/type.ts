@@ -9,7 +9,7 @@ import { PopupProps } from '../popup';
 import { TagInputProps, TagInputValue, TagInputChangeContext } from '../tag-input';
 import { TagProps } from '../tag';
 import { PopupVisibleChangeContext } from '../popup';
-import { TNode } from '../common';
+import { TNode, SizeEnum } from '../common';
 
 export interface TdSelectInputProps {
   /**
@@ -107,6 +107,10 @@ export interface TdSelectInputProps {
    */
   defaultPopupVisible?: boolean;
   /**
+   * 组件前置图标
+   */
+  prefixIcon?: TNode;
+  /**
    * 只读状态，值为真会隐藏输入框，且无法打开下拉框
    * @default false
    */
@@ -116,6 +120,11 @@ export interface TdSelectInputProps {
    * @default false
    */
   reserveKeyword?: boolean;
+  /**
+   * 组件尺寸
+   * @default medium
+   */
+  size?: SizeEnum;
   /**
    * 输入框状态
    * @default default
@@ -196,12 +205,6 @@ export interface TdSelectInputProps {
    * 值变化时触发，参数 `context.trigger` 表示数据变化的触发来源；`context.index` 指当前变化项的下标；`context.item` 指当前变化项；`context.e` 表示事件参数
    */
   onTagChange?: (value: TagInputValue, context: SelectInputChangeContext) => void;
-}
-
-export interface SelectInputKeys {
-  label?: string;
-  value?: string;
-  children?: string;
 }
 
 export interface SelectInputKeys {

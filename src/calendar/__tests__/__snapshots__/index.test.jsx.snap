@@ -41,6 +41,7 @@ exports[`Calendar > :props > :cell 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -101,6 +102,7 @@ exports[`Calendar > :props > :cell 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -557,6 +559,7 @@ exports[`Calendar > :props > :cell 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -617,6 +620,7 @@ exports[`Calendar > :props > :cell 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -1152,6 +1156,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -1212,6 +1217,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -2053,6 +2059,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -2113,6 +2120,7 @@ exports[`Calendar > :props > :cellAppend 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -3701,6 +3709,7 @@ exports[`Calendar > :props > :controllerConfig 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -3761,6 +3770,7 @@ exports[`Calendar > :props > :controllerConfig 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -4611,6 +4621,7 @@ exports[`Calendar > :props > :fillWithZero 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -4671,6 +4682,7 @@ exports[`Calendar > :props > :fillWithZero 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -5512,6 +5524,7 @@ exports[`Calendar > :props > :fillWithZero 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -5572,6 +5585,7 @@ exports[`Calendar > :props > :fillWithZero 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -6418,6 +6432,7 @@ exports[`Calendar > :props > :firstDayOfWeek 1`] = `
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
+                  spellcheck="false"
                   type="text"
                   unselectable="on"
                 />
@@ -6478,6 +6493,7 @@ exports[`Calendar > :props > :firstDayOfWeek 1`] = `
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
+                  spellcheck="false"
                   type="text"
                   unselectable="on"
                 />
@@ -7440,6 +7456,7 @@ exports[`Calendar > :props > :format 1`] = `
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
+                  spellcheck="false"
                   type="text"
                   unselectable="on"
                 />
@@ -7500,6 +7517,7 @@ exports[`Calendar > :props > :format 1`] = `
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
+                  spellcheck="false"
                   type="text"
                   unselectable="on"
                 />
@@ -8348,6 +8366,7 @@ exports[`Calendar > :props > :head 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -8408,6 +8427,7 @@ exports[`Calendar > :props > :head 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -9251,6 +9271,7 @@ exports[`Calendar > :props > :head 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -9311,6 +9332,7 @@ exports[`Calendar > :props > :head 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -10161,6 +10183,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -10221,6 +10244,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -11062,6 +11086,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -11122,6 +11147,7 @@ exports[`Calendar > :props > :isShowWeekendDefault 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -11810,6 +11836,7 @@ exports[`Calendar > :props > :mode 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -11870,6 +11897,7 @@ exports[`Calendar > :props > :mode 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -12711,6 +12739,7 @@ exports[`Calendar > :props > :mode 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -13119,6 +13148,7 @@ exports[`Calendar > :props > :multiple 1`] = `
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
+                  spellcheck="false"
                   type="text"
                   unselectable="on"
                 />
@@ -13179,6 +13209,7 @@ exports[`Calendar > :props > :multiple 1`] = `
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
+                  spellcheck="false"
                   type="text"
                   unselectable="on"
                 />
@@ -14027,6 +14058,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -14087,6 +14119,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -14928,6 +14961,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -14988,6 +15022,7 @@ exports[`Calendar > :props > :preventCellContextmenu 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -15834,6 +15869,7 @@ exports[`Calendar > :props > :range 1`] = `
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
+                  spellcheck="false"
                   type="text"
                   unselectable="on"
                 />
@@ -15894,6 +15930,7 @@ exports[`Calendar > :props > :range 1`] = `
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
+                  spellcheck="false"
                   type="text"
                   unselectable="on"
                 />
@@ -16742,6 +16779,7 @@ exports[`Calendar > :props > :theme 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -16802,6 +16840,7 @@ exports[`Calendar > :props > :theme 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -17611,6 +17650,7 @@ exports[`Calendar > :props > :theme 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -17671,6 +17711,7 @@ exports[`Calendar > :props > :theme 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -18517,6 +18558,7 @@ exports[`Calendar > :props > :value 1`] = `
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
+                  spellcheck="false"
                   type="text"
                   unselectable="on"
                 />
@@ -18577,6 +18619,7 @@ exports[`Calendar > :props > :value 1`] = `
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
+                  spellcheck="false"
                   type="text"
                   unselectable="on"
                 />
@@ -19425,6 +19468,7 @@ exports[`Calendar > :props > :week 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -19485,6 +19529,7 @@ exports[`Calendar > :props > :week 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -20312,6 +20357,7 @@ exports[`Calendar > :props > :week 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -20372,6 +20418,7 @@ exports[`Calendar > :props > :week 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -21222,6 +21269,7 @@ exports[`Calendar > :props > :year:month 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -21282,6 +21330,7 @@ exports[`Calendar > :props > :year:month 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -22123,6 +22172,7 @@ exports[`Calendar > :props > :year:month 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -22183,6 +22233,7 @@ exports[`Calendar > :props > :year:month 1`] = `
                     class="t-input__inner"
                     placeholder="请选择"
                     readonly=""
+                    spellcheck="false"
                     type="text"
                     unselectable="on"
                   />
@@ -23029,6 +23080,7 @@ exports[`Calendar > <slot> > <cell> 1`] = `
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
+                  spellcheck="false"
                   type="text"
                   unselectable="on"
                 />
@@ -23089,6 +23141,7 @@ exports[`Calendar > <slot> > <cell> 1`] = `
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
+                  spellcheck="false"
                   type="text"
                   unselectable="on"
                 />
@@ -23688,6 +23741,7 @@ exports[`Calendar > <slot> > <cellAppend> 1`] = `
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
+                  spellcheck="false"
                   type="text"
                   unselectable="on"
                 />
@@ -23748,6 +23802,7 @@ exports[`Calendar > <slot> > <cellAppend> 1`] = `
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
+                  spellcheck="false"
                   type="text"
                   unselectable="on"
                 />
@@ -24737,6 +24792,7 @@ exports[`Calendar > <slot> > <head> 1`] = `
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
+                  spellcheck="false"
                   type="text"
                   unselectable="on"
                 />
@@ -24797,6 +24853,7 @@ exports[`Calendar > <slot> > <head> 1`] = `
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
+                  spellcheck="false"
                   type="text"
                   unselectable="on"
                 />
@@ -25641,6 +25698,7 @@ exports[`Calendar > <slot> > <week> 1`] = `
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
+                  spellcheck="false"
                   type="text"
                   unselectable="on"
                 />
@@ -25701,6 +25759,7 @@ exports[`Calendar > <slot> > <week> 1`] = `
                   class="t-input__inner"
                   placeholder="请选择"
                   readonly=""
+                  spellcheck="false"
                   type="text"
                   unselectable="on"
                 />

@@ -257,8 +257,7 @@ export const isTextEllipsis = (
   ele: ComponentPublicInstance | Element | ComponentPublicInstance[] | Element[],
 ): boolean => {
   const { clientWidth = 0, scrollWidth = 0 } = ele as Element & { clientWidth: number; scrollWidth: number };
-  // css text ellipsis will take effect when scrollWidth >= clientWidth
-  return scrollWidth >= clientWidth;
+  return scrollWidth > clientWidth;
 };
 
 // 将子元素selected滚动到父元素parentEle的可视范围内
