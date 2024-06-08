@@ -36,6 +36,11 @@ export interface TdTabsProps {
    */
   placement?: 'left' | 'top' | 'bottom' | 'right';
   /**
+   * Tab较多的时候，选中滑块滚动最终停留的位置
+   * @default auto
+   */
+  scrollPosition?: 'auto' | 'start' | 'center' | 'end';
+  /**
    * 组件尺寸
    * @default medium
    */

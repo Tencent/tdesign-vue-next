@@ -1,6 +1,7 @@
 :: BASE_DOC ::
 
 ## API
+
 ### Tabs Props
 
 name | type | default | description | required
@@ -11,6 +12,7 @@ disabled | Boolean | false | \- | N
 dragSort | Boolean | false | \- | N
 list | Array | - | Typescript：`Array<TdTabPanelProps>` | N
 placement | String | top | options: left/top/bottom/right | N
+scrollPosition | String | auto | The final position where the tab item stops scrolling after being selected.。options: auto/start/center/end | N
 size | String | medium | options: medium/large | N
 theme | String | normal | options: normal/card | N
 value | String / Number | - | `v-model` and `v-model:value` is supported。Typescript：`TabValue` `type TabValue = string \| number`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tabs/type.ts) | N
@@ -28,6 +30,7 @@ add | `(context: { e: MouseEvent })` | \-
 change | `(value: TabValue)` | \-
 drag-sort | `(context: TabsDragSortContext)` | trigger on drag sort。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tabs/type.ts)。<br/>`interface TabsDragSortContext { currentIndex: number; current: TabValue; targetIndex: number; target: TabValue }`<br/>
 remove | `(options: { value: TabValue; index: number; e: MouseEvent })` | \-
+
 
 ### TabPanel Props
 

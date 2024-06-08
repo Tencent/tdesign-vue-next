@@ -33,6 +33,7 @@ export default defineComponent({
     action: Array,
     value: tabProps.value,
     placement: tabProps.placement,
+    scrollPosition: tabProps.scrollPosition,
     size: tabProps.size,
     disabled: tabProps.disabled,
     addable: tabProps.addable,
@@ -163,7 +164,7 @@ export default defineComponent({
 
     const handleActiveTabScroll = () => {
       setTimeout(() => {
-        setOffset(calculateOffset(getRefs(), scrollLeft.value, 'auto'));
+        setOffset(calculateOffset(getRefs(), scrollLeft.value, props.scrollPosition));
       }, 0);
     };
 
@@ -175,6 +176,7 @@ export default defineComponent({
 
     // watch
     watch([() => props.placement, () => props.panels], getMaxScrollLeft);
+    watch([() => props.scrollPosition], handleActiveTabScroll);
 
     // life times
     useResize(debounce(getMaxScrollLeft), navsContainerRef.value);
