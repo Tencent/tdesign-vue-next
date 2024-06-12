@@ -536,6 +536,11 @@ export default function useFixed(
       updateFixedStatus();
       updateColumnFixedShadow(tableContentRef.value, { skipScrollLimit: true });
     }
+
+    // auto 布局下，同步表头列宽，避免 affix 表头列宽不对齐
+    if (tableLayout.value === 'auto') {
+      updateThWidthList(getThWidthList('calculate'));
+    }
   };
 
   const onResize = debounce(() => {
