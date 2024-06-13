@@ -23,7 +23,7 @@ export default defineComponent({
     const { globalConfig } = useConfig('datePicker');
 
     const yearOptions = ref(initOptions(props.year));
-    const showMonthPicker = props.mode === 'date' || props.mode === 'week';
+    const showMonthPicker = computed(() => props.mode === 'date' || props.mode === 'week');
 
     // 年份选择展示区间
     const nearestYear = computed(
@@ -133,7 +133,7 @@ export default defineComponent({
     return () => (
       <div class={COMPONENT_NAME.value}>
         <div class={`${COMPONENT_NAME.value}-controller`}>
-          {showMonthPicker && (
+          {showMonthPicker.value && (
             <TSelect
               class={`${COMPONENT_NAME.value}-controller-month`}
               value={props.month}
