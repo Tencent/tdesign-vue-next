@@ -49,27 +49,30 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('date-range-picker__panel');
     const { globalConfig } = useConfig('datePicker');
 
-    const { format } = getDefaultFormat({
-      mode: props.mode,
-      format: props.format,
-      enableTimePicker: props.enableTimePicker,
-    });
+    const format = computed(
+      () =>
+        getDefaultFormat({
+          mode: props.mode,
+          format: props.format,
+          enableTimePicker: props.enableTimePicker,
+        })?.format,
+    );
 
     // 是否隐藏预选状态,只有 value 有值的时候需要隐藏
     const hidePreselection = !props.panelPreselection && props.value.length === 2;
 
     const disableDateOptions = computed(() =>
       useDisableDate({
-        format,
+        format: format.value,
         mode: props.mode,
         disableDate: props.disableDate,
         start:
           props.isFirstValueSelected && props.activeIndex === 1
-            ? new Date(parseToDayjs(props.value[0], format, 'start').toDate().setHours(0, 0, 0))
+            ? new Date(parseToDayjs(props.value[0], format.value, 'start').toDate().setHours(0, 0, 0))
             : undefined,
         end:
           props.isFirstValueSelected && props.activeIndex === 0
-            ? new Date(parseToDayjs(props.value[1], format).toDate().setHours(23, 59, 59))
+            ? new Date(parseToDayjs(props.value[1], format.value).toDate().setHours(23, 59, 59))
             : undefined,
       }),
     );
@@ -77,15 +80,15 @@ export default defineComponent({
     const startTableData = computed(() =>
       useTableData({
         isRange: true,
-        start: props.value[0] ? parseToDayjs(props.value[0] as string, format).toDate() : undefined,
-        end: props.value[1] ? parseToDayjs(props.value[1] as string, format).toDate() : undefined,
+        start: props.value[0] ? parseToDayjs(props.value[0] as string, format.value).toDate() : undefined,
+        end: props.value[1] ? parseToDayjs(props.value[1] as string, format.value).toDate() : undefined,
         hoverStart:
           !hidePreselection && props.hoverValue[0]
-            ? parseToDayjs(props.hoverValue[0] as string, format).toDate()
+            ? parseToDayjs(props.hoverValue[0] as string, format.value).toDate()
             : undefined,
         hoverEnd:
           !hidePreselection && props.hoverValue[1]
-            ? parseToDayjs(props.hoverValue[1] as string, format).toDate()
+            ? parseToDayjs(props.hoverValue[1] as string, format.value).toDate()
             : undefined,
         year: props.year[0],
         month: props.month[0],
@@ -99,15 +102,15 @@ export default defineComponent({
     const endTableData = computed(() =>
       useTableData({
         isRange: true,
-        start: props.value[0] ? parseToDayjs(props.value[0] as string, format).toDate() : undefined,
-        end: props.value[1] ? parseToDayjs(props.value[1] as string, format).toDate() : undefined,
+        start: props.value[0] ? parseToDayjs(props.value[0] as string, format.value).toDate() : undefined,
+        end: props.value[1] ? parseToDayjs(props.value[1] as string, format.value).toDate() : undefined,
         hoverStart:
           !hidePreselection && props.hoverValue[0]
-            ? parseToDayjs(props.hoverValue[0] as string, format).toDate()
+            ? parseToDayjs(props.hoverValue[0] as string, format.value).toDate()
             : undefined,
         hoverEnd:
           !hidePreselection && props.hoverValue[1]
-            ? parseToDayjs(props.hoverValue[1] as string, format).toDate()
+            ? parseToDayjs(props.hoverValue[1] as string, format.value).toDate()
             : undefined,
         year: props.year[1],
         month: props.month[1],
@@ -119,7 +122,7 @@ export default defineComponent({
     );
 
     const panelContentProps = computed(() => ({
-      format,
+      format: format.value,
       mode: props.mode,
       firstDayOfWeek: props.firstDayOfWeek || globalConfig.value.firstDayOfWeek,
 
