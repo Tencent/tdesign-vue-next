@@ -1,4 +1,4 @@
-import { defineComponent, PropType, ref, computed } from 'vue';
+import { defineComponent, PropType, ref, computed, watch } from 'vue';
 import { PaginationMini, JumperTrigger } from '../../pagination';
 import TSelect from '../../select';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
@@ -129,6 +129,13 @@ export default defineComponent({
       const options = loadMoreYear(lastYear, 'add');
       yearOptions.value = [...yearOptions.value, ...options];
     }
+
+    watch(
+      () => props.mode,
+      () => {
+        yearOptions.value = initOptions(props.year);
+      },
+    );
 
     return () => (
       <div class={COMPONENT_NAME.value}>
