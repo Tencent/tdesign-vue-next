@@ -212,10 +212,11 @@ export default defineComponent({
         previous: innerCurrent.value,
         pageSize,
       };
-      props.onChange?.(pageInfo);
       setInnerPageSize(pageSize, pageInfo);
       if (isIndexChange) {
-        toPage(pageCount, false);
+        toPage(pageCount, true);
+      } else {
+        props.onChange?.(pageInfo);
       }
     };
 

@@ -15,11 +15,15 @@ export default {
   /** 输入框的值 */
   inputValue: {
     type: Array as PropType<TdRangeInputPopupProps['inputValue']>,
-    default: undefined,
+    default: undefined as TdRangeInputPopupProps['inputValue'],
   },
   /** 输入框的值，非受控属性 */
   defaultInputValue: {
     type: Array as PropType<TdRangeInputPopupProps['defaultInputValue']>,
+  },
+  /** 左侧文本 */
+  label: {
+    type: [String, Function] as PropType<TdRangeInputPopupProps['label']>,
   },
   /** 下拉框内容，可完全自定义 */
   panel: {

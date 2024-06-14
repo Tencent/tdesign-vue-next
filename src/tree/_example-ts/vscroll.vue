@@ -63,8 +63,8 @@
 </template>
 
 <script lang="ts" setup>
-import { TreeProps, TreeInstanceFunctions, TreeOptionData, TypeTreeNodeModel } from 'tdesign-vue-next';
 import { ref, computed } from 'vue';
+import { TreeProps, TreeInstanceFunctions, TreeOptionData, TypeTreeNodeModel } from 'tdesign-vue-next';
 const allLevels = [5, 5, 5];
 function createTreeData() {
   let cacheIndex = 0;

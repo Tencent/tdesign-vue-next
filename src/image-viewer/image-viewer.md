@@ -1,6 +1,13 @@
 :: BASE_DOC ::
 
-## API### ImageViewer Props
+### 支持SVG原生查看
+
+开启 `isSvg` 配置，可将SVG插入Shadow不受外部样式干扰，可以支持到SVG内的链接等交互，有些SVG图片背景会是完全透明，使用时再展示的盒子处理即可
+
+{{ svg }}
+
+## API
+### ImageViewer Props
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
@@ -9,7 +16,7 @@ closeOnEscKeydown | Boolean | true | 按下 ESC 时是否触发图片预览器�
 closeOnOverlay | Boolean | - | 是否在点击遮罩层时，触发预览关闭 | N
 draggable | Boolean | undefined | 是否允许拖拽调整位置。`mode=modal` 时，默认不允许拖拽；`mode=modeless` 时，默认允许拖拽 | N
 imageScale | Object | - |  图片缩放相关配置。`imageScale.max` 缩放的最大比例；`imageScale.min` 缩放的最小比例；`imageScale.step` 缩放的步长速度；`imageScale.defaultScale` 默认的缩放比例。TS 类型：`ImageScale` `interface ImageScale { max: number; min: number; step: number; defaultScale?: number; }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/image-viewer/type.ts) | N
-images | Array | [] | 图片数组。`mainImage` 表示主图，必传；`thumbnail` 表示缩略图，如果不存在，则使用主图显示；`download` 是否允许下载图片，默认允许下载。示例: `['img_url_1', 'img_url_2']`，`[{ thumbnail: 'small_image_url', mainImage: 'big_image_url', download: false }]`。TS 类型：`Array<string \| File \| ImageInfo>` `interface ImageInfo { mainImage: string \| File; thumbnail?: string \| File; download?: boolean }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/image-viewer/type.ts) | N
+images | Array | [] | 图片数组。`mainImage` 表示主图，必传；`thumbnail` 表示缩略图，如果不存在，则使用主图显示；`download` 是否允许下载图片，默认允许下载。示例: `['img_url_1', 'img_url_2']`，`[{ thumbnail: 'small_image_url', mainImage: 'big_image_url', download: false }]`。TS 类型：`Array<string \| File \| ImageInfo>` `interface ImageInfo { mainImage: string \| File; thumbnail?: string \| File; download?: boolean; isSvg?: boolean }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/image-viewer/type.ts) | N
 index | Number | 0 | 当前预览图片所在的下标。支持语法糖 `v-model:index` | N
 defaultIndex | Number | 0 | 当前预览图片所在的下标。非受控属性 | N
 mode | String | modal | 模态预览（modal）和非模态预览（modeless)。可选项：modal/modeless | N

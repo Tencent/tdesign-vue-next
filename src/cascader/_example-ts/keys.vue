@@ -17,8 +17,8 @@
 </template>
 
 <script lang="tsx" setup>
-import { CascaderProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { CascaderProps } from 'tdesign-vue-next';
 const options: CascaderProps['options'] = [
   {
     name: '选项一',

@@ -137,7 +137,7 @@ const extraApi: ExtraApi = {
   },
 };
 
-const MessagePlugin: MessagePluginType = showThemeMessage as MessagePluginType;
+export const MessagePlugin: MessagePluginType = showThemeMessage as MessagePluginType;
 
 MessagePlugin.install = (app: App): void => {
   app.config.globalProperties.$message = showThemeMessage;

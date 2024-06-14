@@ -15,6 +15,11 @@ export interface TdAutoCompleteProps<T extends AutoCompleteOption = AutoComplete
    */
   autofocus?: boolean;
   /**
+   * 无边框模式
+   * @default false
+   */
+  borderless?: boolean;
+  /**
    * 是否允许清空
    */
   clearable?: boolean;

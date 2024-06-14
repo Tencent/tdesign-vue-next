@@ -1,5 +1,5 @@
 <template>
-  <t-menu theme="light" default-value="item2" :collapsed="collapsed" height="550px" @change="changeHandler">
+  <t-menu theme="light" default-value="item2" :collapsed="collapsed" @change="changeHandler">
     <template #logo>
       <img :width="collapsed ? 35 : 136" :src="iconUrl" alt="logo" />
     </template>
@@ -63,8 +63,8 @@
 </template>
 
 <script lang="ts" setup>
-import { MenuProps, ButtonProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { MenuProps, ButtonProps } from 'tdesign-vue-next';
 const collapsed = ref(true);
 const iconUrl = ref('https://oteam-tdesign-1258344706.cos.ap-guangzhou.myqcloud.com/site/logo%402x.png');
 const changeCollapsed: ButtonProps['onClick'] = () => {

@@ -134,15 +134,30 @@ module.exports = {
 
 > `TDesignResolver` 支持的配置，可以点击此[链接](https://github.com/antfu/unplugin-vue-components/blob/main/src/core/resolvers/tdesign.ts#L4)。
 
-### Nuxt3使用
+### Nuxt 3 中使用
+
+在 nuxt 3 中，可以安装 nuxt module `@tdesign-vue-next/nuxt`
+
+```bash
+npm install tdesign-vue-next
+npm install -D @tdesign-vue-next/nuxt
+```
+
+它可以满足各种自动引入组件的需求，您也可以通过配置在 nuxt config 中 `tdesign` 来调整具体配置，可配置的内容可参考文档 [@tdesign-vue-next/nuxt](https://www.npmjs.com/package/@tdesign-vue-next/nuxt)
+
 ```js
 export default defineNuxtConfig({
   // ... 其他配置
   modules: [
     // ...
-    'tdesign-vue-next/es/nuxt',
+    '@tdesign-vue-next/nuxt',
   ],
-})
+  // 其他 @tdesign-vue-next/nuxt 的相关配置
+  // tdesign: {
+  //   resolveIcons: true
+  //   ...
+  // }
+});
 ```
 
 ## 编辑器提示

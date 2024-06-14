@@ -67,8 +67,8 @@
 </template>
 
 <script lang="tsx" setup>
-import { TableProps, TableRowData } from 'tdesign-vue-next';
 import { ref, watch, computed } from 'vue';
+import { TableProps, TableRowData } from 'tdesign-vue-next';
 import {
   ChevronRightCircleIcon,
   ChevronRightIcon,

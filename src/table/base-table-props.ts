@@ -178,10 +178,9 @@ export default {
     type: Boolean,
     default: true,
   },
-  /** 表格尺寸 */
+  /** 表格尺寸，支持全局配置 `GlobalConfigProvider`，默认全局配置值为 `medium` */
   size: {
     type: String as PropType<TdBaseTableProps['size']>,
-    default: 'medium' as TdBaseTableProps['size'],
     validator(val: TdBaseTableProps['size']): boolean {
       if (!val) return true;
       return ['small', 'medium', 'large'].includes(val);

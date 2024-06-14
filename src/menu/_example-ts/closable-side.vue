@@ -1,5 +1,5 @@
 <template>
-  <t-menu theme="light" default-value="2-1" :collapsed="collapsed" height="550px">
+  <t-menu theme="light" default-value="2-1" :collapsed="collapsed">
     <template #logo>
       <span>LOGO</span>
     </template>
@@ -41,8 +41,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ButtonProps } from 'tdesign-vue-next';
 import { ref, computed } from 'vue';
+import { ButtonProps } from 'tdesign-vue-next';
 const collapsed = ref(false);
 const iconName = computed(() => (collapsed.value ? 'chevron-right' : 'chevron-left'));
 const changeCollapsed: ButtonProps['onClick'] = () => {

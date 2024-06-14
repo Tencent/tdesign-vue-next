@@ -1,10 +1,12 @@
 import { computed, defineComponent, h, VNode } from 'vue';
 import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
+import tinycolor from 'tinycolor2';
 
 import props from './props';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
+import { Styles } from '../common';
 import isString from 'lodash/isString';
 
 export default defineComponent({
@@ -33,14 +35,45 @@ export default defineComponent({
       ];
     });
 
-    const tagStyle = computed<Record<string, string>>(() => {
+    const tagStyle = computed<Styles>(() => {
       const { maxWidth } = props;
+
+      const styles = getTagColorStyle();
+
       return props.maxWidth
         ? {
             maxWidth: isNaN(Number(maxWidth)) ? String(maxWidth) : `${maxWidth}px`,
+            ...styles,
           }
-        : {};
+        : styles;
     });
+
+    const getTagColorStyle = () => {
+      const { color, variant } = props;
+      if (!color) return {};
+
+      const luminance = tinycolor(color).getLuminance();
+
+      const style: Styles = {
+        color: luminance > 0.5 ? 'black' : 'white',
+      };
+
+      if (variant === 'outline' || variant === 'light-outline') {
+        style.borderColor = color;
+      }
+      if (variant !== 'outline') {
+        const getLightestShade = () => {
+          const { r, g, b } = tinycolor(color).toRgb();
+          // alpha 0.1  is designed by @wen1kang
+          return `rgba(${r}, ${g}, ${b}, 0.1)`;
+        };
+        style.backgroundColor = variant === 'dark' ? color : getLightestShade();
+      }
+      if (variant !== 'dark') {
+        style.color = color;
+      }
+      return style;
+    };
 
     const handleClick = (e: MouseEvent) => {
       if (props.disabled) return;

@@ -2,7 +2,7 @@ import { TooltipProps } from '@src/tooltip';
 import { ref, computed, ComputedRef, Ref } from 'vue';
 import { TdSliderProps } from '../type';
 import { formatLabel } from '../util/common';
-import { useTNodeDefault } from '../../hooks';
+import { useTNodeJSX } from '../../hooks';
 
 const initialProps: TooltipProps & { overlayClassName: string } = {
   visible: false,
@@ -46,7 +46,7 @@ export const useSliderTooltip = (tooltipConfig: Ref<TooltipConfig>) => {
     normalizeProps.value.visible = toState;
   };
 
-  const renderTNodeJSX = useTNodeDefault();
+  const renderTNodeJSX = useTNodeJSX();
 
   /** 合并最终tooltip属性，以外部同名属性覆盖初始化属性 */
   const validProps = computed(() => {
@@ -54,7 +54,7 @@ export const useSliderTooltip = (tooltipConfig: Ref<TooltipConfig>) => {
     const placement = vertical ? 'right' : 'top';
 
     let content = (() => {
-      if (typeof label === 'boolean') {
+      if (label === true) {
         return String(value);
       }
       if (typeof label === 'string') {

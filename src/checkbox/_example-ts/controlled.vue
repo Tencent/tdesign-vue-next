@@ -13,8 +13,8 @@
 </template>
 
 <script lang="tsx" setup>
-import { CheckboxGroupProps, CheckboxProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { CheckboxGroupProps, CheckboxProps } from 'tdesign-vue-next';
 const options: CheckboxGroupProps['options'] = [
   {
     label: '全选',

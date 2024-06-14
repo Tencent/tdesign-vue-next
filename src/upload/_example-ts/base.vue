@@ -106,8 +106,8 @@ import {
 const uploadRef1 = ref<UploadInstanceFunctions>();
 const uploadRef2 = ref<UploadInstanceFunctions>();
 const uploadRef3 = ref<UploadInstanceFunctions>();
-const files1 = ref([]);
-const files2 = ref([
+const files1 = ref<UploadProps['value']>([]);
+const files2 = ref<UploadProps['value']>([
   {
     name: '这是一个默认文件',
     status: 'success',
@@ -115,7 +115,7 @@ const files2 = ref([
     size: 1000,
   },
 ]);
-const files3 = ref([]);
+const files3 = ref<UploadProps['value']>([]);
 const multiple = ref(false);
 const uploadInOneRequest = ref(false);
 const autoUpload = ref(true);

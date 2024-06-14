@@ -17,7 +17,7 @@ import props from './props';
 
 // hooks
 import { usePrefixClass, useConfig } from '../hooks/useConfig';
-import { useFormDisabled } from '../form/hooks';
+import { useDisabled } from '../hooks/useDisabled';
 import { useTNodeJSX, useTNodeDefault } from '../hooks/tnode';
 import useVModel from '../hooks/useVModel';
 import useDefaultValue from '../hooks/useDefaultValue';
@@ -25,12 +25,12 @@ import useDefaultValue from '../hooks/useDefaultValue';
 export default defineComponent({
   name: 'TTreeSelect',
   props,
-  setup(props: TdTreeSelectProps, { slots }) {
+  setup(props: TdTreeSelectProps, { slots, expose }) {
     const renderTNodeJSX = useTNodeJSX();
     const renderDefaultTNode = useTNodeDefault();
     const classPrefix = usePrefixClass();
     const { globalConfig } = useConfig('treeSelect');
-    const formDisabled = useFormDisabled();
+    const formDisabled = useDisabled();
 
     // ref
     const treeRef = ref(null);
@@ -381,6 +381,10 @@ export default defineComponent({
         }}
       />
     );
+
+    expose({
+      treeRef,
+    });
 
     return () => (
       <SelectInput

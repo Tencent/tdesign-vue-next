@@ -8,7 +8,7 @@ import { TNode } from '../common';
 
 export interface TdTabsProps {
   /**
-   * 【开发中】选项卡右侧的操作区域
+   * 选项卡右侧的操作区域
    */
   action?: string | TNode;
   /**
@@ -35,6 +35,11 @@ export interface TdTabsProps {
    * @default top
    */
   placement?: 'left' | 'top' | 'bottom' | 'right';
+  /**
+   * Tab较多的时候，选中滑块滚动最终停留的位置
+   * @default auto
+   */
+  scrollPosition?: 'auto' | 'start' | 'center' | 'end';
   /**
    * 组件尺寸
    * @default medium

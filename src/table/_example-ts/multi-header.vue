@@ -34,8 +34,8 @@
   </div>
 </template>
 <script lang="tsx" setup>
-import { TableProps } from 'tdesign-vue-next';
 import { computed, ref } from 'vue';
+import { TableProps } from 'tdesign-vue-next';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 const statusNameListMap = {
   0: {
@@ -237,6 +237,5 @@ const onDataChange: TableProps['onDataChange'] = (val) => {
 const onFilterChange: TableProps['onFilterChange'] = (filterValue) => {
   data.value = initialData.filter((t) => !filterValue.property || filterValue.property === t.property);
 };
-
 const filterRowMethod: TableProps['filterRow'] = () => null;
 </script>

@@ -32,8 +32,8 @@
   </div>
 </template>
 <script lang="tsx" setup>
-import { TableProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { TableProps, TableRowData } from 'tdesign-vue-next';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 const data: TableProps['data'] = [];
 const statusNameListMap = {
@@ -116,4 +116,8 @@ const columns = ref<TableProps['columns']>([
     foot: '-',
   },
 ]);
+
+const rehandleClickOp = (context: TableRowData) => {
+  console.log(context);
+};
 </script>

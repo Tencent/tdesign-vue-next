@@ -29,8 +29,8 @@
   </div>
 </template>
 <script lang="tsx" setup>
-import { TableProps, RowClassNameParams, TableRowData } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { TableProps, RowClassNameParams, TableRowData } from 'tdesign-vue-next';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 const data: TableProps['data'] = [];
 const statusNameListMap = {

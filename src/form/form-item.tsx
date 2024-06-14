@@ -26,7 +26,6 @@ import cloneDeep from 'lodash/cloneDeep';
 import lodashGet from 'lodash/get';
 import lodashSet from 'lodash/set';
 import isNil from 'lodash/isNil';
-import lodashTemplate from 'lodash/template';
 
 import { validate } from './form-model';
 import {
@@ -52,6 +51,7 @@ import {
 
 import { useConfig, usePrefixClass, useTNodeJSX } from '../hooks';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import template from '../utils/string-template';
 
 export type FormItemValidateResult<T extends Data = Data> = { [key in keyof T]: boolean | AllValidateResult[] };
 
@@ -115,7 +115,7 @@ export default defineComponent({
 
       return (
         <div class={labelClasses.value} style={labelStyle}>
-          <label for={props.for}>{renderContent('label')}</label>
+          <label for={props.for || null}>{renderContent('label')}</label>
         </div>
       );
     };
@@ -253,9 +253,8 @@ export default defineComponent({
         .map((item: ErrorListType) => {
           Object.keys(item).forEach((key) => {
             if (!item.message && errorMessages.value[key]) {
-              const compiled = lodashTemplate(errorMessages.value[key]);
               const name = isString(props.label) ? props.label : props.name;
-              item.message = compiled({
+              item.message = template(errorMessages.value[key], {
                 name,
                 validate: item[key],
               });

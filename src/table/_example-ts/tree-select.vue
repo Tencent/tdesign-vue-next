@@ -46,6 +46,7 @@
 </template>
 
 <script lang="tsx" setup>
+import cloneDeep from 'lodash/cloneDeep';
 import { ref, watch } from 'vue';
 import {
   EnhancedTable as TEnhancedTable,
@@ -54,9 +55,7 @@ import {
   ButtonProps,
   AllTableInstanceFunctions,
 } from 'tdesign-vue-next';
-import cloneDeep from 'lodash/cloneDeep';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-
 interface TableData {
   key: string;
   applicant: string;
@@ -68,7 +67,6 @@ interface TableData {
   createTime: string;
   childrenList?: TableData[];
 }
-
 const statusNameListMap = {
   0: {
     label: '审批通过',

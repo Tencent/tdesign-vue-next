@@ -7,6 +7,7 @@
       :on-overlay-click="() => (visible = false)"
       :placement="placement"
       :size-draggable="true"
+      :on-size-drag-end="handleSizeDrag"
       @cancel="visible = false"
     >
       <p>抽屉的内容</p>
@@ -28,4 +29,8 @@ import { ref } from 'vue';
 
 const visible = ref(false);
 const placement = ref('right');
+
+function handleSizeDrag({ size }) {
+  console.log('size drag size: ', size);
+}
 </script>

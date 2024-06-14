@@ -30,6 +30,11 @@ export default {
     type: Boolean,
     default: undefined,
   },
+  /** 是否组件只读。如果父组件存在 CheckboxGroup，默认值由 CheckboxGroup.disabled 控制。优先级：Checkbox.readonly > CheckboxGroup.readonly > Form.readonly */
+  readonly: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 是否为半选 */
   indeterminate: Boolean,
   /** 主文案 */
@@ -43,8 +48,6 @@ export default {
     type: String,
     default: '',
   },
-  /** 只读状态 */
-  readonly: Boolean,
   /** 多选框的值 */
   value: {
     type: [String, Number, Boolean] as PropType<TdCheckboxProps['value']>,

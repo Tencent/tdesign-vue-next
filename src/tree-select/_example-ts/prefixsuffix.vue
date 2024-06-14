@@ -17,23 +17,20 @@
   </t-tree-select>
 </template>
 <script lang="tsx" setup>
-import { PopupTriggerEvent, PopupTriggerSource, TreeNodeModel, TreeSelectProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { PopupTriggerEvent, PopupTriggerSource, TreeNodeModel, TreeSelectProps } from 'tdesign-vue-next';
 import { Icon } from 'tdesign-icons-vue-next';
-
 interface TreeSelectPopupVisibleContext<T> {
   e?: PopupTriggerEvent | Event;
   node?: TreeNodeModel<T>;
   trigger?: PopupTriggerSource | 'clear';
 }
-
 interface Option {
   label: string;
   value: string;
   disabled?: boolean;
   children?: Option[];
 }
-
 const options: TreeSelectProps['data'] = [
   {
     label: '广东省',

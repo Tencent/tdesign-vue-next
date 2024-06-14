@@ -3,17 +3,17 @@
 const deselectCurrent = (): (() => void) => {
   const selection = document.getSelection();
   if (!selection.rangeCount) {
-    return function () {};
+    return function () { };
   }
   let active = document.activeElement as any;
 
-  const ranges = [];
+  const ranges: Range[] = [];
   for (let i = 0; i < selection.rangeCount; i++) {
     ranges.push(selection.getRangeAt(i));
   }
 
   switch (
-    active.tagName.toUpperCase() // .toUpperCase handles XHTML
+  active.tagName.toUpperCase() // .toUpperCase handles XHTML
   ) {
     case 'INPUT':
     case 'TEXTAREA':

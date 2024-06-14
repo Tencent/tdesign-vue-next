@@ -10,7 +10,7 @@ import { ButtonProps } from '../button';
 import { FormErrorMessage } from '../form';
 import { MessageOptions } from '../message';
 import { ImageProps } from '../image';
-import { TNode } from '../common';
+import { TNode, SizeEnum } from '../common';
 
 export interface GlobalConfigProvider {
   /**
@@ -576,6 +576,11 @@ export interface TableConfig {
    * @default ''
    */
   selectAllText?: string;
+  /**
+   * 全局表格尺寸配置
+   * @default medium
+   */
+  size?: SizeEnum;
   /**
    * 语言配置，'点击升序' 描述文本
    * @default ''

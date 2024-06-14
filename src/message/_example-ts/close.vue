@@ -22,8 +22,8 @@
 </template>
 
 <script lang="tsx" setup>
-import { MessageProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { MessageProps } from 'tdesign-vue-next';
 const isShowMsg = ref(true);
 const closableMsg = ref(true);
 const closableMsg1 = ref(true);

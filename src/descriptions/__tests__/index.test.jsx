@@ -1,5 +1,6 @@
 import { it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
+import { nextTick } from 'vue';
 import { getDescriptionsMount } from './mount';
 import Descriptions, { DescriptionsItem } from '@/src/descriptions/index.ts';
 import CustomComp from './custom-comp.vue';
@@ -29,6 +30,19 @@ describe('Descriptions', () => {
         const body = wrapper.find('.t-descriptions__body');
         expect(body.classes()).toContain(`t-size-${size.slice(0, 1)}`);
       });
+    });
+
+    it(':tableLayout:fixed', async () => {
+      const wrapper = getDescriptionsMount({ tableLayout: 'fixed', style: { width: '400px' } });
+      const body = wrapper.find('.t-descriptions__body');
+      expect(body.classes()).toContain('t-descriptions__body--fixed');
+
+      // todo: need test td width, but don't know how to test
+      // const labels = wrapper.findAll('.t-descriptions');
+      // const contents = wrapper.findAll('.t-descriptions__content');
+      // await nextTick();
+      // expect(getComputedStyle(labels[0].element, null).width).toBe('100px');
+      // expect(getComputedStyle(contents[0].element, null).width).toBe('100px');
     });
 
     it(':layout:horizontal', () => {
@@ -155,6 +169,26 @@ describe('Descriptions', () => {
       const firstTr = tbody.findAll('tr')[0];
       // 检查第 1 个 tr 元素中是否只有 4 个 td 元素
       expect(firstTr.findAll('td')).toHaveLength(4);
+    });
+
+    it(':items:undefined:null', () => {
+      const items = [
+        { label: undefined, content: 'TDesign' },
+        { label: 'Telephone Number', content: null },
+      ];
+      const wrapper = mount({
+        render() {
+          return <Descriptions items={items} />;
+        },
+      });
+
+      const tbody = wrapper.find('tbody');
+      const firstTr = tbody.findAll('tr')[0];
+      // 检查 第 1 个 td 是否为空
+      expect(firstTr.findAll('td')[0].text()).toBe('');
+
+      // 检查 第 4 个 td 是否为空
+      expect(firstTr.findAll('td')[3].text()).toBe('');
     });
   });
 

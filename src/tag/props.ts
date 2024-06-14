@@ -10,6 +10,11 @@ import { PropType } from 'vue';
 export default {
   /** 标签是否可关闭 */
   closable: Boolean,
+  /** 自定义颜色 */
+  color: {
+    type: String,
+    default: '',
+  },
   /** 组件子元素 */
   content: {
     type: [String, Function] as PropType<TdTagProps['content']>,

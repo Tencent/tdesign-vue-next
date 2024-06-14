@@ -50,3 +50,5 @@ export const vLoading: Directive = {
     el[INSTANCE_KEY]?.instance.hide();
   },
 };
+
+export default vLoading;

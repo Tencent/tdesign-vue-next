@@ -6,7 +6,7 @@
       :key="item.value"
       :style="{
         width: '100%',
-        height: '100%',
+        height: `${item.value === 'slider' ? '100%' : 'auto'}`, // slider vertical 布局时，高度通过百分比获取，需要容器指定 height
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',

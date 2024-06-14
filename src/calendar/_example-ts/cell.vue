@@ -20,9 +20,8 @@
 </template>
 
 <script lang="tsx" setup>
-import { CalendarCell } from 'tdesign-vue-next';
-
 import dayjs from 'dayjs';
+import { CalendarCell } from 'tdesign-vue-next';
 const dataList = [
   {
     value: 'error',

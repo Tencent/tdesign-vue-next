@@ -5,6 +5,7 @@
  * */
 
 import { TNode, SizeEnum } from '../common';
+import { LoadingProps } from '../loading';
 
 export interface TdButtonProps {
   /**
@@ -43,6 +44,10 @@ export interface TdButtonProps {
    * @default false
    */
   loading?: boolean;
+   /**
+   * 透传加载组件全部属性
+   */
+   loadingProps?: Partial<LoadingProps>;
   /**
    * 按钮形状，有 4 种：长方形、正方形、圆角长方形、圆形
    * @default rectangle

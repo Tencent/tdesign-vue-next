@@ -43,14 +43,12 @@ function copy(text: string, options?: Options): boolean {
     mark.style.all = 'unset';
     // prevents scrolling to the end of the page
     mark.style.position = 'fixed';
-    mark.style.top = 0;
+    mark.style.top = '0';
     mark.style.clip = 'rect(0, 0, 0, 0)';
     // used to preserve spaces and line breaks
     mark.style.whiteSpace = 'pre';
     // do not inherit user-select (it may be `none`)
     mark.style.webkitUserSelect = 'text';
-    mark.style.MozUserSelect = 'text';
-    mark.style.msUserSelect = 'text';
     mark.style.userSelect = 'text';
     mark.addEventListener('copy', function (e) {
       e.stopPropagation();
