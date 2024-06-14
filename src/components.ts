@@ -65,7 +65,7 @@ export * from './tree';
 export * from './collapse';
 export * from './watermark';
 export * from './rate';
-
+export * from './typography';
 // 消息提醒
 
 export * from './alert';
