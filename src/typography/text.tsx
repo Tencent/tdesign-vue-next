@@ -4,7 +4,7 @@ import props from './text-props';
 import { TdTextProps } from './type';
 import copy from './utils/copy-to-clipboard';
 import { CopyIcon } from 'tdesign-icons-vue-next';
-import { TdParagraphProps, TooltipProps, TypographyEllipsis } from '..';
+import { TooltipProps, TypographyEllipsis } from '..';
 import Ellipsis from './ellipsis';
 import { useTNodeJSX } from '../hooks/tnode';
 export default defineComponent({
