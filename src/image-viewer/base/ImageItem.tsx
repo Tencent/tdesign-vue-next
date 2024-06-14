@@ -42,6 +42,9 @@ export default defineComponent({
     const resetStatus = () => {
       error.value = false;
       loaded.value = false;
+      if (isSvg.value) {
+        createSvgShadow(mainImagePreviewUrl.value);
+      }
     };
 
     const createSvgShadow = async (url: string) => {
