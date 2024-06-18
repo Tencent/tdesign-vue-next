@@ -442,6 +442,9 @@ export default function useFixed(
   const getThWidthList = (type?: 'default' | 'calculate') => {
     if (type === 'calculate') {
       const trList = tableContentRef.value?.querySelector('thead')?.children;
+      if (!trList) {
+        return {};
+      }
       return calculateThWidthList(trList);
     }
     return thWidthList.value || {};
