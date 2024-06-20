@@ -1,4 +1,4 @@
-import { computed, Slots, VNode, Ref, ref } from 'vue';
+import { computed, Slots, Ref, ref } from 'vue';
 import isArray from 'lodash/isArray';
 import get from 'lodash/get';
 import isFunction from 'lodash/isFunction';
