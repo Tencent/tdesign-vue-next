@@ -1,11 +1,5 @@
 :: BASE_DOC ::
 
-### Support native SVG
-
-Insert SVG into Shadow DOM to avoid interference from external styles, enabling support for interactions such as links within the SVG
-
-{{ svg }}
-
 ## API
 ### ImageViewer Props
 
