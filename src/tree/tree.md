@@ -1,13 +1,15 @@
 :: BASE_DOC ::
 
 ## API
+
 ### Tree Props
 
-名称 | 类型 | 默认值 | 说明 | 必传
+名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
 activable | Boolean | false | 节点是否可高亮 | N
 activeMultiple | Boolean | false | 是否允许多个节点同时高亮 | N
 actived | Array | - | 高亮的节点值。支持语法糖 `v-model:actived`。TS 类型：`Array<TreeNodeValue>` | N
+allowDrop | Function | - | 判断节点是否可以执行 drop 操作，泛型 `T` 表示树节点 TS 类型。TS 类型：`(context: { e: DragEvent; dragNode: TreeNodeModel<T>; dropNode: TreeNodeModel<T>; dropPosition: number; }) => boolean` | N
 allowFoldNodeOnFilter | Boolean | false | 是否允许在过滤时节点折叠节点 | N
 checkProps | Object | - | 透传属性到 checkbox 组件。参考 checkbox 组件 API。TS 类型：`CheckboxProps`，[Checkbox API Documents](./checkbox?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tree/type.ts) | N
 checkStrictly | Boolean | false | 父子节点选中状态不再关联，可各自选中或取消 | N
@@ -88,7 +90,7 @@ setItem | `(value: TreeNodeValue, options: TreeNodeState)` | \- | 必需。设�
 
 ### TreeNodeState
 
-名称 | 类型 | 默认值 | 说明 | 必传
+名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
 activable | Boolean | false | 节点是否允许被激活 | N
 actived | Boolean | false | 节点是否被激活 | N
@@ -106,7 +108,7 @@ visible | Boolean | false | 节点是否可视 | N
 
 ### TreeNodeModel
 
-名称 | 类型 | 默认值 | 说明 | 必传
+名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
 actived | Boolean | - | 必需。当前节点是否处于高亮激活态 | Y
 checked | Boolean | - | 必需。当前节点是否被选中 | Y
@@ -139,7 +141,7 @@ setData | `(data: T)` | \- | 必需。设置节点数据，数据变化可自动
 
 ### TScroll
 
-名称 | 类型 | 默认值 | 说明 | 必传
+名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
 bufferSize | Number | 20 | 表示除可视区域外，额外渲染的行数，避免快速滚动过程中，新出现的内容来不及渲染从而出现空白 | N
 isFixedRowHeight | Boolean | false | 表示每行内容是否同一个固定高度，仅在 `scroll.type` 为 `virtual` 时有效，该属性设置为 `true` 时，可用于简化虚拟滚动内部计算逻辑，提升性能，此时则需要明确指定 `scroll.rowHeight` 属性的值 | N
