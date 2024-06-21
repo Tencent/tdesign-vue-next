@@ -19,7 +19,7 @@ jobs:
     steps:
       - run: echo "The head of this PR starts with 'release/'"
       - uses: actions/checkout@v3
-      - uses: 94dreamer/auto-release@develop
+      - uses: TDesignOteam/tdesign-changelog-action@main
         id: changelog
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

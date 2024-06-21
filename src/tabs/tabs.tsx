@@ -78,6 +78,7 @@ export default defineComponent({
         size: props.size,
         disabled: props.disabled,
         placement: props.placement,
+        scrollPosition: props.scrollPosition,
         addable: props.addable,
         panels: panelsData,
         dragSort: props.dragSort,

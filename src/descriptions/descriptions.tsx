@@ -121,6 +121,7 @@ export default defineComponent({
       const tableClass = [
         `${COMPONENT_NAME.value}__body`,
         SIZE.value[props.size],
+        { [`${COMPONENT_NAME.value}__body--fixed`]: props.tableLayout === 'fixed' },
         { [`${COMPONENT_NAME.value}__body--border`]: props.bordered },
       ];
       return (

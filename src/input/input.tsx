@@ -93,6 +93,7 @@ export default defineComponent({
         type: renderType.value,
         autocomplete: props.autocomplete ?? (globalConfig.value.autocomplete || undefined),
         unselectable: readonly.value ? 'on' : undefined,
+        spellcheck: props.spellCheck,
       }),
     );
 

@@ -442,6 +442,9 @@ export default function useFixed(
   const getThWidthList = (type?: 'default' | 'calculate') => {
     if (type === 'calculate') {
       const trList = tableContentRef.value?.querySelector('thead')?.children;
+      if (!trList) {
+        return {};
+      }
       return calculateThWidthList(trList);
     }
     return thWidthList.value || {};
@@ -535,6 +538,11 @@ export default function useFixed(
     if (isFixedColumn.value || isFixedHeader.value) {
       updateFixedStatus();
       updateColumnFixedShadow(tableContentRef.value, { skipScrollLimit: true });
+    }
+
+    // auto 布局下，同步表头列宽，避免 affix 表头列宽不对齐
+    if (tableLayout.value === 'auto') {
+      updateThWidthList(getThWidthList('calculate'));
     }
   };
 

@@ -1,6 +1,7 @@
 :: BASE_DOC ::
 
-## API### ImageViewer Props
+## API
+### ImageViewer Props
 
 name | type | default | description | required
 -- | -- | -- | -- | --
@@ -9,7 +10,7 @@ closeOnEscKeydown | Boolean | true | trigger image viewer close event on `ESC` k
 closeOnOverlay | Boolean | - | \- | N
 draggable | Boolean | undefined | \- | N
 imageScale | Object | - | Typescript：`ImageScale` `interface ImageScale { max: number; min: number; step: number; defaultScale?: number; }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/image-viewer/type.ts) | N
-images | Array | [] | Typescript：`Array<string \| File \| ImageInfo>` `interface ImageInfo { mainImage: string \| File; thumbnail?: string \| File; download?: boolean }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/image-viewer/type.ts) | N
+images | Array | [] | Typescript：`Array<string \| File \| ImageInfo>` `interface ImageInfo { mainImage: string \| File; thumbnail?: string \| File; download?: boolean; isSvg?: boolean }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/image-viewer/type.ts) | N
 index | Number | 0 | `v-model:index` is supported | N
 defaultIndex | Number | 0 | uncontrolled property | N
 mode | String | modal | options: modal/modeless | N

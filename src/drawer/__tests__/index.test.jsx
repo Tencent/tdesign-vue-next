@@ -6,6 +6,26 @@ import Drawer from '@/src/drawer/index.ts';
 
 const text = '这是一段内容';
 
+// 事件兼容问题，使其支持 x, y 值
+class FakeMouseEvent extends MouseEvent {
+  constructor(type, values) {
+    const { x, y, ...mouseValues } = values;
+    super(type, mouseValues);
+
+    Object.assign(this, {
+      x: x || 0,
+      y: y || 0,
+    });
+  }
+}
+
+// 模拟拖拽事件
+function moveElement(element, x, y) {
+  element.dispatchEvent(new FakeMouseEvent('mousedown', {}));
+  window.document.dispatchEvent(new FakeMouseEvent('mousemove', { x, y }));
+  window.document.dispatchEvent(new FakeMouseEvent('mouseup', { x, y }));
+}
+
 describe('Drawer', () => {
   describe(':props', () => {
     it(':attach', async () => {
@@ -116,6 +136,68 @@ describe('Drawer', () => {
       await nextTick();
       const content = wrapper.find('.t-drawer__content-wrapper');
       expect(getComputedStyle(content.element.lastChild, null).cursor).toBe('col-resize');
+    });
+
+    it(':sizeDraggable value', async () => {
+      const visible = ref(true);
+      const sizeDraggableValue = {
+        min: 100,
+        max: 300,
+      };
+      const placement = ref('left');
+      function updatePlacement(placementVal) {
+        placement.value = placementVal;
+      }
+
+      const wrapper = mount(() => (
+        <Drawer
+          visible={visible.value}
+          placement={placement.value}
+          size={`200`}
+          body={text}
+          sizeDraggable={sizeDraggableValue}
+        />
+      ));
+      const content = wrapper.find('.t-drawer__content-wrapper');
+      moveElement(content.element.lastChild, 400, 100);
+      await nextTick();
+      expect(getComputedStyle(content.element, null).width).toBe('300px');
+      updatePlacement('right');
+      await nextTick();
+      moveElement(content.element.lastChild, -300, 80);
+      await nextTick();
+      expect(getComputedStyle(content.element, null).width).toBe('300px');
+
+      updatePlacement('top');
+      await nextTick();
+      moveElement(content.element.lastChild, 80, 300);
+      await nextTick();
+      expect(getComputedStyle(content.element, null).height).toBe('300px');
+
+      updatePlacement('bottom');
+      await nextTick();
+      moveElement(content.element.lastChild, 80, -300);
+      await nextTick();
+      expect(getComputedStyle(content.element, null).height).toBe('300px');
+    });
+
+    it(':sizeDragEnd event', async () => {
+      const visible = ref(true);
+      const sizeDragEnd = vi.fn();
+      const wrapper = mount(() => (
+        <Drawer
+          sizeDraggable
+          visible={visible.value}
+          placement={`left`}
+          size={`200`}
+          body={text}
+          onSizeDragEnd={sizeDragEnd}
+        />
+      ));
+      const content = wrapper.find('.t-drawer__content-wrapper');
+      moveElement(content.element.lastChild, 400, 100);
+      await nextTick();
+      expect(sizeDragEnd).toBeCalled();
     });
 
     it(':zIndex', async () => {

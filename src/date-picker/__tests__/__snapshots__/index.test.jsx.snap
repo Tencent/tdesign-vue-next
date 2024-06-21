@@ -20,6 +20,7 @@ exports[`DatePicker > :mode 1`] = `
           class="t-input__inner"
           placeholder="请选择年份"
           readonly=""
+          spellcheck="false"
           type="text"
           unselectable="on"
         />
@@ -81,6 +82,7 @@ exports[`DatePicker > :range 1`] = `
               class="t-input__inner"
               placeholder="请选择日期"
               readonly=""
+              spellcheck="false"
               type="text"
               unselectable="on"
             />
@@ -108,6 +110,7 @@ exports[`DatePicker > :range 1`] = `
               class="t-input__inner"
               placeholder="请选择日期"
               readonly=""
+              spellcheck="false"
               type="text"
               unselectable="on"
             />
@@ -165,6 +168,7 @@ exports[`DatePicker > :value 1`] = `
           class="t-input__inner"
           placeholder="请选择日期"
           readonly=""
+          spellcheck="false"
           type="text"
           unselectable="on"
         />

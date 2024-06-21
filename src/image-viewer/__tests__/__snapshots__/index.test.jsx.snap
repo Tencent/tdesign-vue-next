@@ -438,6 +438,7 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
         src="https://tdesign.gtimg.com/demo/demo-image-2.png"
         style="transform: rotate(0deg) scale(1); display: none;"
       />
+      <!---->
     </div>
   </div>
 </div>
@@ -881,6 +882,7 @@ exports[`Image-viewer > :props > images, index, visible 1`] = `
         src="https://tdesign.gtimg.com/demo/demo-image-2.png"
         style="transform: rotate(0deg) scale(1); display: none;"
       />
+      <!---->
     </div>
   </div>
 </div>

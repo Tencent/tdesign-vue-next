@@ -47,6 +47,10 @@ export default defineComponent({
     );
 
     const renderSuffixIcon = () => {
+      if (props.suffixIcon || slots.suffixIcon) {
+        return renderTNodeJSX('suffixIcon');
+      }
+
       const { visible, disabled } = cascaderContext.value;
       return (
         <FakeArrow
@@ -114,6 +118,8 @@ export default defineComponent({
           borderless={props.borderless}
           label={renderLabel}
           valueDisplay={renderValueDisplay}
+          prefixIcon={props.prefixIcon}
+          suffix={props.suffix}
           suffixIcon={() => renderSuffixIcon()}
           popupProps={{
             ...(props.popupProps as TdCascaderProps['popupProps']),
@@ -167,8 +173,8 @@ export default defineComponent({
           }}
           v-slots={{
             label: slots.label,
-            suffix: props.suffix,
-            prefixIcon: props.prefixIcon,
+            suffix: slots.suffix,
+            prefixIcon: slots.prefixIcon,
             panel: () => (
               <Panel
                 option={props.option}

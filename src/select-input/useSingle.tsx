@@ -19,11 +19,14 @@ const COMMON_PROPERTIES = [
   'label',
   'placeholder',
   'readonly',
+  'prefixIcon',
   'suffix',
   'suffixIcon',
   'onPaste',
   'onMouseenter',
   'onMouseleave',
+  'size',
+  'autofocus',
 ];
 
 const DEFAULT_KEYS = {
