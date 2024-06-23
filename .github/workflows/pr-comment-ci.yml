@@ -1,0 +1,88 @@
+name: PR_COMMENT_CI
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      next_action: ${{ steps.get-action.outputs.next_action }}
+    if: ${{ github.event.issue.pull_request }}
+    steps:
+       - uses: actions/checkout@v4
+         with:
+          fetch-depth: 1
+       - uses: actions/github-script@v7
+         id: get-action
+         with:
+          script: |
+            let next_action = ''
+            const fs = require('fs')
+            const CODEOWNERS = fs.readFileSync('.github/CODEOWNERS', 'utf8')
+            if (CODEOWNERS.includes(`@${context.payload.comment.user.login}`)) {
+              
+              const body = context.payload.comment.body
+              core.info(`body: ${body}`)
+              if (body.startsWith('/update-common')) {
+                next_action='update-common'
+              }
+              if (body.startsWith('/update-snapshot')) {
+                next_action='update-snapshot'
+              }  
+            } else {
+               core.warning('You are not collaborator');
+            }
+            core.info(`next_action: ${next_action}`)
+            core.setOutput('next_action', next_action)
+  
+  update-common:
+    needs: check
+    runs-on: ubuntu-latest
+    if: ${{ needs.check.outputs.next_action == 'update-common' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
+      - name: gh checkout pr
+        env:
+          GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+        run: gh pr checkout ${{ github.event.issue.number }}
+      - run: git submodule update --remote --merge
+      - name: Commit Common
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+        run: |
+          git add .
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -m "chore: update common"
+          git push
+  
+  update-snapshot:
+    needs: check
+    runs-on: ubuntu-latest
+    if: ${{ needs.check.outputs.next_action == 'update-snapshot' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
+      - name: gh checkout pr
+        env:
+          GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+        run: gh pr checkout ${{ github.event.issue.number }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install
+      - run: npm run test:update
+      - name: Commit Snapshot
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+        run: |
+          git add .
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -m "chore: update snapshot"
+          git push
