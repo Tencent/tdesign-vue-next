@@ -1,8 +1,9 @@
 import { computed, onMounted, TypeRef, useVirtualScroll, TypeScroll, TreeNode } from '../adapt';
 import get from 'lodash/get';
 import { TypeTreeState, TypeTimer } from '../tree-types';
-import type { ComponentScrollToElementParams } from '../../common';
 import log from '../../_common/js/log';
+
+import type { ComponentScrollToElementParams } from '../../common';
 
 // tree 虚拟滚动整合
 export default function useTreeScroll(state: TypeTreeState) {
