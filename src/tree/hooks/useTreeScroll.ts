@@ -87,6 +87,7 @@ export default function useTreeScroll(state: TypeTreeState) {
       );
       if (index < 0) {
         log.error('Tree', `${params.key} does not exist in data, check \`key\` or \`data\` please.`);
+        return;
       }
     }
     virtualConfig.scrollToElement({ ...params, index: index - 1 });
