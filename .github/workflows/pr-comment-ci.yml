@@ -18,15 +18,21 @@ jobs:
          id: get-action
          with:
           script: |
-            let next_action = ''
+            const user = context.payload.comment.user.login
+            core.debug(`user: ${user}`)
+
             const fs = require('fs')
             const CODEOWNERS = fs.readFileSync('.github/CODEOWNERS', 'utf8')
-            const isReviewer = false;
+            core.debug(`CODEOWNERS: ${CODEOWNERS}`)
+
+            let isReviewer = false;
             CODEOWNERS.match(/@\w+/g).forEach((owner) => {
-              if (owner === `@${context.payload.comment.user.login}`) {
+              if (owner === `@${user}`) {
                 isReviewer = true
               }
             })
+
+            let next_action = ''  
             if (isReviewer) {
               const body = context.payload.comment.body
               core.info(`body: ${body}`)
