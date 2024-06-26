@@ -23,6 +23,7 @@ export default defineComponent({
     const { transform, mouseDownHandler } = useDrag({ translateX: 0, translateY: 0 });
     const { globalConfig } = useConfig('imageViewer');
     const errorText = globalConfig.value.errorText;
+    const svgElRef = ref<HTMLDivElement>();
 
     const imgStyle = computed(() => ({
       transform: `rotate(${props.rotate}deg) scale(${props.scale})`,
@@ -42,6 +43,9 @@ export default defineComponent({
     const resetStatus = () => {
       error.value = false;
       loaded.value = false;
+      if (isSvg.value) {
+        createSvgShadow(mainImagePreviewUrl.value);
+      }
     };
 
     const createSvgShadow = async (url: string) => {
@@ -52,7 +56,7 @@ export default defineComponent({
       }
       const svgText = await response.text();
 
-      const element = document.querySelector('[data-alt="svg"]');
+      const element = svgElRef.value;
       element.innerHTML = '';
       element.classList?.add(`${classPrefix.value}-image-viewer__modal-image-svg`);
       const shadowRoot = element.attachShadow({ mode: 'closed' });
@@ -149,6 +153,7 @@ export default defineComponent({
 
           {!error.value && mainImagePreviewUrl.value && isSvg.value && (
             <div
+              ref={svgElRef}
               class={`${classPrefix.value}-image-viewer__modal-image`}
               onMousedown={(event: MouseEvent) => {
                 event.stopPropagation();

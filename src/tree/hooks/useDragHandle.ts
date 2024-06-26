@@ -1,5 +1,6 @@
 import { TreeNode } from '../adapt';
 import { TreeProps, TypDragEventState, TypeTreeState, TypeDragHandle } from '../tree-types';
+import { DragPosition } from './useDraggable';
 import { emitEvent } from '../util';
 
 export default function useDragHandle(state: TypeTreeState) {
@@ -50,12 +51,21 @@ export default function useDragHandle(state: TypeTreeState) {
     const { dragEvent, node, dropPosition } = state;
     if (node.value === dragNode.value || node.getParents().some((_node) => _node.value === dragNode.value)) return;
 
+    const ctx = {
+      dropNode: node.getModel(),
+      dragNode: dragNode.getModel(),
+      dropPosition,
+      e: dragEvent,
+    };
+
+    if (props.allowDrop(ctx) === false) return;
+
     const nodes = store.getNodes() as TreeNode[];
     nodes.some((_node) => {
       if (_node.value === node.value) {
-        if (dropPosition === 0) {
+        if (dropPosition === DragPosition.Inside) {
           dragNode.appendTo(store, _node);
-        } else if (dropPosition < 0) {
+        } else if (dropPosition === DragPosition.Before) {
           node.insertBefore(dragNode);
         } else {
           node.insertAfter(dragNode);
@@ -64,12 +74,7 @@ export default function useDragHandle(state: TypeTreeState) {
       }
       return false;
     });
-    const ctx = {
-      dropNode: node.getModel(),
-      dragNode: dragNode.getModel(),
-      dropPosition,
-      e: dragEvent,
-    };
+
     emitEvent<Parameters<TreeProps['onDrop']>>(props, context, 'drop', ctx);
   };
 

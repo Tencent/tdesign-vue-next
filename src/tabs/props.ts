@@ -31,6 +31,15 @@ export default {
       return ['left', 'top', 'bottom', 'right'].includes(val);
     },
   },
+  /** Tab较多的时候，选中滑块滚动最终停留的位置 */
+  scrollPosition: {
+    type: String as PropType<TdTabsProps['scrollPosition']>,
+    default: 'auto' as TdTabsProps['scrollPosition'],
+    validator(val: TdTabsProps['scrollPosition']): boolean {
+      if (!val) return true;
+      return ['auto', 'start', 'center', 'end'].includes(val);
+    },
+  },
   /** 组件尺寸 */
   size: {
     type: String as PropType<TdTabsProps['size']>,
