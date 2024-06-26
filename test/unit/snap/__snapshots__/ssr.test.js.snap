@@ -1,6 +1,6 @@
 // Vitest Snapshot v1
 
-exports[`ssr snapshot test > ssr test ./src/affix/_example/base.vue 1`] = `"<div class=\\"t-space t-space-horizontal\\" style=\\"gap:16px;\\"><!--[--><!--[--><div class=\\"t-space-item\\"><div><div style=\\"\\"><!--[--><button class=\\"t-button t-button--variant-base t-button--theme-primary\\" type=\\"button\\" href tabindex=\\"0\\"><span class=\\"t-button__text\\"><!--[-->固钉<!--]--></span></button><!--]--></div></div></div><!----><!--]--><!--]--></div>"`;
+exports[`ssr snapshot test > ssr test ./src/affix/_example/base.vue 1`] = `"<div class=\\"t-space t-space-horizontal\\" style=\\"gap:16px;\\"><!--[--><!--[--><div class=\\"t-space-item\\"><div><div style=\\"\\"><!--[--><button class=\\"t-button t-button--variant-base t-button--theme-primary\\" type=\\"button\\" href tabindex=\\"0\\"><span class=\\"t-button__text\\"><!--[-->固钉1<!--]--></span></button><!--]--></div></div></div><!----><!--]--><!--]--></div>"`;
 
 exports[`ssr snapshot test > ssr test ./src/affix/_example/container.vue 1`] = `"<div class=\\"affix-container\\" data-v-8141d1d6><div class=\\"affix-container-demo1\\" data-v-8141d1d6><div class=\\"background\\" data-v-8141d1d6><div data-v-8141d1d6><div style=\\"\\"><!--[--><button class=\\"t-button t-button--variant-base t-button--theme-primary\\" type=\\"button\\" href tabindex=\\"0\\" data-v-8141d1d6><span class=\\"t-button__text\\"><!--[-->affixed :false<!--]--></span></button><!--]--></div></div></div></div></div>"`;
 
