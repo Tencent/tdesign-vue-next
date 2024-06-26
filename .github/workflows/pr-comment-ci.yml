@@ -54,12 +54,10 @@ jobs:
     if: ${{ needs.check.outputs.next_action == 'update-common' }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          submodules: 'recursive'
       - name: gh checkout pr
         env:
           GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
-        run: gh pr checkout ${{ github.event.issue.number }}
+        run: gh pr checkout ${{ github.event.issue.number }} --recurse-submodules
       - run: git submodule update --remote --merge
       - name: Commit Common
         env:
@@ -77,12 +75,10 @@ jobs:
     if: ${{ needs.check.outputs.next_action == 'update-snapshot' }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          submodules: 'recursive'
       - name: gh checkout pr
         env:
           GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
-        run: gh pr checkout ${{ github.event.issue.number }}
+        run: gh pr checkout ${{ github.event.issue.number }} --recurse-submodules
       - uses: actions/setup-node@v4
         with:
           node-version: 20
