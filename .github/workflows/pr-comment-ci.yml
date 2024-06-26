@@ -81,7 +81,7 @@ jobs:
         run: gh pr checkout ${{ github.event.issue.number }} --recurse-submodules
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 18
       - run: npm install
       - run: npm run test:update
       - name: Commit Snapshot
