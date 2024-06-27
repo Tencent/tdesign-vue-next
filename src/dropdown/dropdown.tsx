@@ -22,7 +22,7 @@ export default defineComponent({
     const manualCloseTimeout = computed(() => {
       const delay = props.popupProps?.delay;
       if (isNumber(delay)) return delay + 10;
-      if (isArray(delay)) return delay[1] + 10 ?? delay[0] + 10;
+      if (isArray(delay)) return (delay[1] ?? delay[0]) + 10;
       return 160;
     });
 

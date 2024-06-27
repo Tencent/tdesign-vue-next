@@ -1,11 +1,5 @@
 :: BASE_DOC ::
 
-### 支持SVG原生查看
-
-开启 `isSvg` 配置，可将SVG插入Shadow不受外部样式干扰，可以支持到SVG内的链接等交互，有些SVG图片背景会是完全透明，使用时再展示的盒子处理即可
-
-{{ svg }}
-
 ## API
 ### ImageViewer Props
 

@@ -8,6 +8,12 @@ export interface TypeDragStates {
   dropPosition: number;
 }
 
+export enum DragPosition {
+  Before = -1,
+  Inside = 0,
+  After = 1,
+}
+
 type TypeDrag = 'dragStart' | 'dragOver' | 'dragLeave' | 'dragEnd' | 'drop';
 
 export default function useDraggable(state: TypeTreeItemState) {
@@ -15,7 +21,7 @@ export default function useDraggable(state: TypeTreeItemState) {
   const dragStates = reactive({
     isDragOver: false,
     isDragging: false,
-    dropPosition: 0,
+    dropPosition: DragPosition.Inside,
   });
 
   const updateDropPosition = (dragEvent: DragEvent) => {
@@ -29,11 +35,11 @@ export default function useDraggable(state: TypeTreeItemState) {
     const diff = pageY - offsetY;
 
     if (diff < gapHeight) {
-      dragStates.dropPosition = -1;
+      dragStates.dropPosition = DragPosition.Before;
     } else if (diff < rect.height - gapHeight) {
-      dragStates.dropPosition = 0;
+      dragStates.dropPosition = DragPosition.Inside;
     } else {
-      dragStates.dropPosition = 1;
+      dragStates.dropPosition = DragPosition.After;
     }
   };
 
@@ -45,13 +51,13 @@ export default function useDraggable(state: TypeTreeItemState) {
     switch (status) {
       case 'dragStart':
         dragStates.isDragging = true;
-        dragStates.dropPosition = 0;
+        dragStates.dropPosition = DragPosition.Inside;
         drag.handleDragStart?.({ node, dragEvent });
         break;
       case 'dragEnd':
         dragStates.isDragging = false;
         dragStates.isDragOver = false;
-        dragStates.dropPosition = 0;
+        dragStates.dropPosition = DragPosition.Inside;
         throttleUpdateDropPosition.cancel();
         drag.handleDragEnd?.({ node, dragEvent });
         break;
@@ -62,7 +68,7 @@ export default function useDraggable(state: TypeTreeItemState) {
         break;
       case 'dragLeave':
         dragStates.isDragOver = false;
-        dragStates.dropPosition = 0;
+        dragStates.dropPosition = DragPosition.Inside;
         throttleUpdateDropPosition.cancel();
         drag.handleDragLeave?.({ node, dragEvent });
         break;

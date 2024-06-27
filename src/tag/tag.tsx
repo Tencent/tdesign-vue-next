@@ -111,13 +111,9 @@ export default defineComponent({
       return (
         <div class={tagClass.value} style={tagStyle.value} onClick={handleClick}>
           {icon}
-          {props.maxWidth ? (
-            <span class={{ [`${COMPONENT_NAME.value}--text`]: props.maxWidth }} title={titleAttribute}>
-              {tagContent}
-            </span>
-          ) : (
-            tagContent
-          )}
+          <span class={`${COMPONENT_NAME.value}--text`} title={titleAttribute}>
+            {tagContent}
+          </span>
           {!props.disabled && closeIcon}
         </div>
       );
