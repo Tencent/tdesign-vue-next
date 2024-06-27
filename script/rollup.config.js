@@ -268,6 +268,20 @@ const resetCss = {
   plugins: [postcss({ extract: true })],
 };
 
+// 单独导出 plugin 相关组件的样式，支持修改前缀的情况使用
+const pluginCss = {
+  inputList: [
+    'src/_common/style/web/components/dialog.less',
+    'src/_common/style/web/components/message.less',
+    'src/_common/style/web/components/notification.less',
+    'src/_common/style/web/components/loading.less',
+  ],
+  output: {
+    file: 'dist/plugin.css',
+  },
+  plugins: [postcss({ extract: true })],
+};
+
 export default [
   cssConfig,
   esConfig,
@@ -277,5 +291,6 @@ export default [
   umdConfig,
   umdMinConfig,
   resetCss,
+  pluginCss,
   deleteEmptyJSConfig,
 ];
