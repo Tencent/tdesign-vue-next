@@ -77,7 +77,6 @@ export default defineComponent({
     const onTriggerMouseleave = () => {
       if (!root.value) return;
       isOverflow.value = isTextEllipsis(root.value);
-      flag.value = false;
     };
 
     // 使用 debounce 有两个原因：1. 避免 safari/firefox 等浏览器不显示省略浮层；2. 避免省略列快速滚动时，出现一堆的省略浮层
