@@ -54,12 +54,7 @@ export const useTNodeJSX = () => {
 
     // 处理 props 类型的Node
     let propsNode;
-    if (name.includes('.')) {
-      const [name1, name2] = name.split('.');
-      if (Object.keys(instance.props).includes(name1)) {
-        propsNode = instance.props[name1][name2];
-      }
-    } else if (Object.keys(instance.props).includes(name)) {
+    if (Object.keys(instance.props).includes(name)) {
       propsNode = instance.props[name];
     }
 
