@@ -268,14 +268,9 @@ const resetCss = {
   plugins: [postcss({ extract: true })],
 };
 
-// 单独导出 plugin 相关组件的样式，支持修改前缀的情况使用
+// 单独导出 plugin 相关组件的样式，支持修改前缀的但因为上下文暂时无法获取的情况使用
 const pluginCss = {
-  inputList: [
-    'src/_common/style/web/components/dialog.less',
-    'src/_common/style/web/components/message.less',
-    'src/_common/style/web/components/notification.less',
-    'src/_common/style/web/components/loading.less',
-  ],
+  input: 'src/_common/style/web/_plugin.less',
   output: {
     file: 'dist/plugin.css',
   },
