@@ -271,4 +271,44 @@ describe('Select OptionGroup', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
   });
+
+  describe(':base', () => {
+    it('v-for and option works fine', async () => {
+      const Comp = {
+        components: {
+          TSelect: Select,
+          TOptionGroup: OptionGroup,
+          TOption: Option,
+        },
+        template: `
+          <t-select>
+            <t-option-group label='test'>
+              <t-option v-for='i in ["1", "2"]' :key='i' :label='i' :value='i'></t-option>
+              <t-option key='3' label='3'></t-option>
+            </t-option-group>
+            <t-option-group label='test'>
+              <t-option v-for='i in ["4", "5", "6"]' :key='i' :label='i' :value='i'></t-option>
+            </t-option-group>
+            <t-option-group label='test'>
+              <t-option key='7' label='7'></t-option>
+              <t-option key='8' label='8'></t-option>
+              <t-option key='9' label='9'></t-option>
+            </t-option-group>
+          </t-select>
+        `,
+      };
+
+      const wrapper = mount(Comp);
+      await wrapper.setProps({ popupProps: { visible: true } });
+
+      const panelNode = document.querySelector('.t-select__list');
+      const groupNode = document.querySelectorAll('.t-select-option-group');
+      expect(groupNode.length).toBe(3);
+      groupNode.forEach((item) => {
+        const option = item.querySelectorAll('.t-select-option');
+        expect(option.length).toBe(3);
+      });
+      panelNode.parentNode.removeChild(panelNode);
+    });
+  });
 });

@@ -1,4 +1,4 @@
-import { computed, Slots, VNode, Ref, ref } from 'vue';
+import { computed, Slots, Ref, ref } from 'vue';
 import isArray from 'lodash/isArray';
 import get from 'lodash/get';
 import isFunction from 'lodash/isFunction';
@@ -54,9 +54,9 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inpu
           ...group.props,
           children: [] as TdOptionProps[],
         };
-        const res = (group.children as Slots).default();
-        if (!(isArray(res) && !!res[0]?.children)) continue;
-        for (const child of res?.[0]?.children as VNode[]) {
+        const res = getChildComponentSlots('Option', group.children as Slots);
+        if (!isArray(res)) continue;
+        for (const child of res) {
           groupOption.children.push({
             ...child.props,
             slots: child.children,

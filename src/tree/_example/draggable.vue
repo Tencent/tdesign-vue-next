@@ -7,6 +7,7 @@
       transition
       expand-all
       draggable
+      :allow-drop="handleAllowDrop"
       @drag-start="handleDragStart"
       @drag-end="handleDragEnd"
       @drag-over="handleDragOver"
@@ -69,7 +70,7 @@ const items = ref([
       },
       {
         value: '2.2',
-        label: '2.2',
+        label: '2.2 不允许拖放为 2.2 的子节点',
       },
     ],
   },
@@ -88,5 +89,11 @@ const handleDragLeave = (ctx) => {
 };
 const handleDrop = (ctx) => {
   console.log('handleDrop', ctx);
+};
+const handleAllowDrop = (ctx) => {
+  const { dropNode, dropPosition } = ctx;
+  if (dropNode.value === '2.2' && dropPosition === 0) {
+    return false;
+  }
 };
 </script>
