@@ -32,6 +32,8 @@ export default function useInputNumber(props: TdInputNumberProps) {
 
   const tDisabled = useDisabled();
 
+  const isReadonly = useReadonly();
+
   const isError = ref<'exceed-maximum' | 'below-minimum'>();
 
   const disabledReduce = computed(
@@ -263,8 +265,6 @@ export default function useInputNumber(props: TdInputNumberProps) {
     onEnter: handleEnter,
     onClick: focus,
   };
-
-  const isReadonly = useReadonly();
 
   return {
     classPrefix,
