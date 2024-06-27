@@ -44,15 +44,18 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('date-picker__panel');
     const { globalConfig } = useConfig('datePicker');
 
-    const { format } = getDefaultFormat({
-      mode: props.mode,
-      format: props.format,
-      enableTimePicker: props.enableTimePicker,
-    });
+    const format = computed(
+      () =>
+        getDefaultFormat({
+          mode: props.mode,
+          format: props.format,
+          enableTimePicker: props.enableTimePicker,
+        })?.format,
+    );
 
     const disableDateOptions = computed(() =>
       useDisableDate({
-        format,
+        format: format.value,
         mode: props.mode,
         disableDate: props.disableDate,
       }),
@@ -63,14 +66,14 @@ export default defineComponent({
         year: props.year,
         month: props.month,
         mode: props.mode,
-        start: props.value ? parseToDayjs(props.value, format).toDate() : undefined,
+        start: props.value ? parseToDayjs(props.value, format.value).toDate() : undefined,
         firstDayOfWeek: props.firstDayOfWeek || globalConfig.value.firstDayOfWeek,
         ...disableDateOptions.value,
       }),
     );
 
     const panelContentProps = computed(() => ({
-      format,
+      format: format.value,
       value: props.value,
       mode: props.mode,
       year: props.year,
