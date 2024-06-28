@@ -55,6 +55,15 @@ export interface TdDialogProps {
    */
   destroyOnClose?: boolean;
   /**
+   * 弹框元素类名，示例：'t-class-dialog-first t-class-dialog-second'
+   * @default ''
+   */
+  dialogClassName?: string;
+  /**
+   * 作用于对话框本身的样式
+   */
+  dialogStyle?: Styles;
+  /**
    * 对话框是否可以拖拽（仅在非模态对话框时有效）
    * @default false
    */
