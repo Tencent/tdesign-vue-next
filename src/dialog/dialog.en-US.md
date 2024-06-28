@@ -55,6 +55,8 @@ confirmBtn | String / Object / Slot / Function | - | TypeScript: `string \| Butt
 confirmLoading | Boolean | undefined | confirm button loading status | N
 confirmOnEnter | Boolean | - | confirm on enter | N
 default | String / Slot / Function | - | TypeScript: `string \| TNode`. [see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+dialogClassName | String | - | \- | N
+dialogStyle | Object | - | Styles that apply to the dialog box itself。Typescript：`Styles`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 destroyOnClose | Boolean | false | \- | N
 draggable | Boolean | false | \- | N
 footer | Boolean / Slot / Function | true | TypeScript: `boolean \| TNode`. [see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N

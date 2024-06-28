@@ -5,6 +5,32 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.9.7 `2024-06-28` 
+### 🚀 Features
+- `Tree`: 
+  - 新增 `allowDrop` API，支持拖放限制的能力 @TabSpace ([#4312](https://github.com/Tencent/tdesign-vue-next/pull/4312))
+  - `ScrollTo` 支持 `key` 属性，支持通过节点唯一值滚动到指定节点，详见示例代码 @uyarn ([#4334](https://github.com/Tencent/tdesign-vue-next/pull/4334))
+- `Descriptions`:  新增 `tableLayout` 属性 @zhangpaopao0609 ([#4257](https://github.com/Tencent/tdesign-vue-next/pull/4257))
+- `Tabs`: 新增 `scrollPosition` 选中滑块滚动最终停留位置 @oljc ([#4269](https://github.com/Tencent/tdesign-vue-next/pull/4269))
+- `Dialog`: 新增 `dialogStyle` 和 `dialogClassName` API，作用于弹窗本身，方便对弹窗本身样式进行调整 @uyarn ([#4347](https://github.com/Tencent/tdesign-vue-next/pull/4347))
+- `Plugin`: 单独导出涉及 `Plugin` 相关组件的样式，支持修改前缀的部分场景使用 @uyarn ([#4343](https://github.com/Tencent/tdesign-vue-next/pull/4343))
+- `InputNumber`: 支持 `Form` 组件的 `readonly` API  @xiaojueshi ([#4321](https://github.com/Tencent/tdesign-vue-next/pull/4321))
+### 🐞 Bug Fixes
+- `Select`: 
+  - 修复键盘上下键选中选项后 `onEnter` 事件获取的 `context.value` 错误的问题 @1379255913 ([#4303](https://github.com/Tencent/tdesign-vue-next/pull/4303))
+  - 修复`Option`在`OptionGroup`中必须使用 `v-for` 才可以使用的缺陷 @1379255913 ([#4318](https://github.com/Tencent/tdesign-vue-next/pull/4318))
+- `DatePicker`: 
+  - 修复切换 `mode`时，日期选择器切换头部显示错误的问题 @wilonjiang ([#4292](https://github.com/Tencent/tdesign-vue-next/pull/4292))
+  - 修复切换 `mode` 时，`format` 未匹配导致组件解析失败的问题 @wilonjiang ([#4292](https://github.com/Tencent/tdesign-vue-next/pull/4292))
+- `Table`: 
+  - 修正 `tableLayout: auto` 和固定表头搭配使用的列宽不同步问题 @Cat1007 ([#4285](https://github.com/Tencent/tdesign-vue-next/pull/4285))
+  - 删除 `ellipsis.tsx` 中不必要的标志重置 @xiaojueshi ([#4349](https://github.com/Tencent/tdesign-vue-next/pull/4349))
+- `Tree`: 
+  - 修复组件没有暴露`scrollTo`方法的问题，保留`scrollToElement`方法 @uyarn ([#4334](https://github.com/Tencent/tdesign-vue-next/pull/4334))
+  - 修复通过`scrollTo` 指定滚动节点，多次滚动节点位置异常的问题 @uyarn ([#4334](https://github.com/Tencent/tdesign-vue-next/pull/4334))
+- `Pagination`: 选择器更改时内部当前值未修改 @betavs ([#4284](https://github.com/Tencent/tdesign-vue-next/pull/4284))
+- `Cascader`:  修复无 `children` 选项点击时不会显示之前的列表 @1379255913 ([#4301](https://github.com/Tencent/tdesign-vue-next/pull/4301))
+
 ## 🌈 1.9.6 `2024-06-06` 
 ### 🚀 Features
 - `Form`: 新增 `readonly` 属性，支持配置表单只读 @xiaojueshi ([#4176](https://github.com/Tencent/tdesign-vue-next/pull/4176))

@@ -58,7 +58,7 @@ export default function useDragHandle(state: TypeTreeState) {
       e: dragEvent,
     };
 
-    if (props.allowDrop(ctx) === false) return;
+    if (props.allowDrop?.(ctx) === false) return;
 
     const nodes = store.getNodes() as TreeNode[];
     nodes.some((_node) => {
