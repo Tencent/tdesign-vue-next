@@ -5,6 +5,9 @@
     clearable
     placeholder="请选择"
     :popup-visible="popupVisible"
+    :tree-props="{
+      checkStrictly: true,
+    }"
     @popup-visible-change="onVisibleChange"
   />
 </template>

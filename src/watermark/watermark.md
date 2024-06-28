@@ -14,7 +14,7 @@ lineSpace | Number | 16 | 行间距，只作用在多行（`content` 配置为�
 movable | Boolean | false | 水印是否可移动 | N
 moveInterval | Number | 3000 | 水印发生运动位移的间隙，单位：毫秒 | N
 offset | Array | - | 水印在画布上绘制的水平和垂直偏移量，正常情况下水印绘制在中间位置，即 `offset = [gapX / 2, gapY / 2]`。TS 类型：`Array<number>` | N
-removable | Boolean | true | 水印是否可被删除，默认会开启水印节点防删 | N
+removable | Boolean | true | 水印是否可被删除 | N
 rotate | Number | -22 | 水印旋转的角度，单位 ° | N
 watermarkContent | Object / Array | - | 水印内容，需要显示多行情况下可配置为数组。TS 类型：`WatermarkText\|WatermarkImage\|Array<WatermarkText\|WatermarkImage>` | N
 width | Number | - | 水印宽度 | N
