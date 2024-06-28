@@ -63,7 +63,10 @@ export default {
     default: undefined,
   },
   /** 只读状态 */
-  readonly: Boolean,
+  readonly: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 组件尺寸 */
   size: {
     type: String as PropType<TdInputNumberProps['size']>,
