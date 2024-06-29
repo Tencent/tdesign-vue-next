@@ -47,7 +47,7 @@ const items = ref([
         label: '第二段',
       },
       {
-        label: '第二段22233',
+        label: '第二段',
       },
     ],
   },
