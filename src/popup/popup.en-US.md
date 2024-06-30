@@ -1,5 +1,14 @@
 :: BASE_DOC ::
 
+### Use Popup through plugin 
+
+Use Popup through the plugin method, which is used to render the Popup in an existing node scenario. No matter how it is invoked, it will only be mounted on one node, to reduce the rendering nodes of Popup on the page.
+
+- `PopupPlugin(triggerElement, content, popupProps)`
+
+{{ plugin }}
+
+
 ## API
 ### Popup Props
 
