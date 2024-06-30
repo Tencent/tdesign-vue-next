@@ -10,7 +10,7 @@ autoWidth | Boolean | false | \- | N
 borderless | Boolean | false | \- | N
 clearable | Boolean | false | \- | N
 collapsedItems | Slot / Function | - | Typescript：`TNode<{ value: TagInputValue; collapsedSelectedItems: TagInputValue; count: number; onClose: (context: { index: number,  e?: MouseEvent }) => void }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-disabled | Boolean | - | \- | N
+disabled | Boolean | undefined | \- | N
 dragSort | Boolean | false | \- | N
 excessTagsDisplayType | String | break-line | options: scroll/break-line | N
 inputProps | Object | - | Typescript：`InputProps`，[Input API Documents](./input?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag-input/type.ts) | N
