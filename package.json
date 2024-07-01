@@ -182,7 +182,7 @@
     "tdesign-theme-generator": "^1.0.11",
     "typescript": "~4.8.4",
     "vite": "^2.9.16",
-    "vite-plugin-pwa": "^0.12.8",
+    "vite-plugin-pwa": "^0.20.0",
     "vite-plugin-tdoc": "^2.0.4",
     "vitest": "^0.14.2",
     "vitest-fetch-mock": "^0.1.0",
