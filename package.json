@@ -188,7 +188,7 @@
     "vitest-fetch-mock": "^0.1.0",
     "vue": "3.3.9",
     "vue-router": "^4.2.4",
-    "workbox-precaching": "^6.6.0"
+    "workbox-precaching": "^7.1.0"
   },
   "config": {
     "commitizen": {
