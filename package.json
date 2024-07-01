@@ -90,7 +90,7 @@
     "@types/sortablejs": "^1.15.1",
     "@types/tinycolor2": "^1.4.3",
     "@types/validator": "^13.7.17",
-    "dayjs": "1.11.10",
+    "dayjs": "1.11.11",
     "lodash": "^4.17.21",
     "mitt": "^3.0.1",
     "sortablejs": "^1.15.0",
