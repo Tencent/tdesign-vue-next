@@ -117,7 +117,7 @@
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-replace": "^4.0.0",
     "@rollup/plugin-url": "^7.0.0",
-    "@testing-library/dom": "^8.20.1",
+    "@testing-library/dom": "^10.2.0",
     "@types/babel__traverse": "~7.18.5",
     "@types/node": "18.8.0",
     "@types/raf": "^3.4.0",
