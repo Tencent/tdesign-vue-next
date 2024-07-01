@@ -16,7 +16,10 @@ import throttle from 'lodash/throttle';
 export type UseVirtualScrollParams = Ref<{
   /** 列数据 */
   data: { [key: string]: any }[];
-  scroll: TScroll;
+  scroll: TScroll & {
+    /** 固定行（冻结行），示例：[M, N]，表示冻结头 M 行和尾 N 行。M 和 N 值为 0 时，表示不冻结行 */
+    fixedRows?: Array<number>;
+  };
 }>;
 
 export interface ScrollToElementParams {
@@ -53,6 +56,7 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
       rowHeight: scroll.rowHeight || 47,
       threshold: scroll.threshold || 100,
       type: scroll.type,
+      fixedRows: scroll.fixedRows ?? [0, 0],
     };
   });
 
@@ -65,6 +69,7 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
   // 一次循环遍历中计算可视范围的相关信息，减少大数据量时的遍历开销
   function getVisibleRangeConfig() {
     const scrollTop = container.value?.scrollTop ?? 0;
+    const fixedStart = tScroll.value.fixedRows[0];
 
     // 记录前置 buffer 的高度
     const prevBufferHeightList: number[] = [];
@@ -110,10 +115,13 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
     const startIndex = max([visibleStart - tScroll.value.bufferSize, 0]);
     const endIndex = min([visibleEnd + tScroll.value.bufferSize, params.value.data.length]);
 
+    // 以 sticky 定位渲染的固定行，会占据高度，影响整体高度
+    const stickyHeight = sum(trHeightList.slice(0, Math.min(startIndex, fixedStart)));
+
     return {
       startIndex,
       endIndex,
-      translateY: hiddenHeight,
+      translateY: hiddenHeight - stickyHeight,
     };
   }
 
@@ -121,9 +129,22 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
     // 计算前后的buffer偏移后的渲染数据
     const { startIndex, endIndex, translateY: translateYValue } = getVisibleRangeConfig();
 
+    // 需要考虑固定行的情况
+    const fixedRows = tScroll.value.fixedRows;
+    const [fixedStart, fixedEnd] = fixedRows;
+    let fixedStartData = fixedStart ? params.value.data.slice(0, fixedStart) : [];
+    if (fixedStart && startIndex < fixedStart) {
+      fixedStartData = fixedStartData.slice(0, startIndex);
+    }
+    let fixedEndData = fixedEnd ? params.value.data.slice(params.value.data.length - fixedEnd) : [];
+    const bottomStartIndex = endIndex - params.value.data.length + 1 + (fixedEnd ?? 0);
+    if (fixedEnd && bottomStartIndex > 0) {
+      fixedEndData = fixedEndData.slice(bottomStartIndex);
+    }
+
     if (startAndEndIndex.value.join() !== [startIndex, endIndex].join() && startIndex >= 0) {
       translateY.value = translateYValue;
-      visibleData.value = params.value.data.slice(startIndex, endIndex);
+      visibleData.value = fixedStartData.concat(params.value.data.slice(startIndex, endIndex), fixedEndData);
       startAndEndIndex.value = [startIndex, endIndex];
     }
   }, 100);
@@ -131,7 +152,7 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
   // 固定高度场景，不需要通过行渲染获取高度（仅非固定高度场景需要）
   const handleRowMounted = (rowData: any) => {
     if (!isVirtualScroll.value || !rowData || tScroll.value.isFixedRowHeight || !container.value) return;
-    const trHeight = rowData.ref.value?.getBoundingClientRect().height;
+    const trHeight = rowData.ref.value?.getBoundingClientRect().height || tScroll.value.rowHeight;
     const rowIndex = rowData.data.VIRTUAL_SCROLL_INDEX;
 
     if (trHeightList[rowIndex] !== trHeight) {
@@ -168,6 +189,7 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
 
   const updateScrollTop = ({ index, top = 0, behavior }: ScrollToElementParams) => {
     const scrollTop = sum(trHeightList.slice(0, index + 1)) - top;
+
     container.value.scrollTo({
       top: scrollTop,
       behavior: behavior || 'auto',

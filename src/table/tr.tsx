@@ -176,6 +176,7 @@ export default defineComponent({
         props.fixedRows,
         props.rowAndColFixedPosition,
         tableRowFixedClasses,
+        props.virtualConfig.isVirtualScroll.value ? props.virtualConfig.translateY.value : 0,
       ),
     );
 
@@ -341,6 +342,7 @@ export default defineComponent({
           cellEmptyContent: props.cellEmptyContent,
         });
       });
+
       return (
         <tr
           ref={trRef}

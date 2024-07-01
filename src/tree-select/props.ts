@@ -25,7 +25,10 @@ export default {
     default: (): TdTreeSelectProps['data'] => [],
   },
   /** 是否禁用组件 */
-  disabled: Boolean,
+  disabled: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 当下拉列表为空时显示的内容 */
   empty: {
     type: [String, Function] as PropType<TdTreeSelectProps['empty']>,

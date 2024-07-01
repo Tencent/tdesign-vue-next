@@ -1,5 +1,9 @@
 import { computed, onMounted, TypeRef, useVirtualScroll, TypeScroll, TreeNode } from '../adapt';
+import get from 'lodash/get';
 import { TypeTreeState, TypeTimer } from '../tree-types';
+import log from '../../_common/js/log';
+
+import type { ComponentScrollToElementParams } from '../../common';
 
 // tree 虚拟滚动整合
 export default function useTreeScroll(state: TypeTreeState) {
@@ -72,11 +76,28 @@ export default function useTreeScroll(state: TypeTreeState) {
     emitScrollEvent(e);
   };
 
+  const handleScrollTo = (params: ComponentScrollToElementParams) => {
+    let index = params.index;
+    if (!index && index !== 0) {
+      if (!params.key) {
+        log.error('Tree', 'scrollToElement: one of `index` or `key` must exist.');
+        return;
+      }
+      index = allNodes.value?.findIndex((item) =>
+        [get(item.data, 'key'), get(item.data, 'value')].includes(params.key),
+      );
+      if (index < 0) {
+        log.error('Tree', `${params.key} does not exist in data, check \`key\` or \`data\` please.`);
+        return;
+      }
+    }
+    virtualConfig.scrollToElement({ ...params, index: index - 1 });
+  };
   return {
     // 虚拟滚动相关
     treeContentRef,
     onInnerVirtualScroll,
     virtualConfig,
-    scrollToElement: virtualConfig.scrollToElement,
+    scrollToElement: handleScrollTo,
   };
 }

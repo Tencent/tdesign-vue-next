@@ -29,7 +29,10 @@ export default {
     default: undefined,
   },
   /** 禁用组件 */
-  disabled: Boolean,
+  disabled: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 格式化输入框展示值。第二个事件参数 `context.fixedNumber` 表示处理过小数位数 `decimalPlaces` 的数字 */
   format: {
     type: Function as PropType<TdInputNumberProps['format']>,
@@ -60,7 +63,10 @@ export default {
     default: undefined,
   },
   /** 只读状态 */
-  readonly: Boolean,
+  readonly: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 组件尺寸 */
   size: {
     type: String as PropType<TdInputNumberProps['size']>,

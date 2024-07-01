@@ -28,6 +28,7 @@ import { useRowHighlight } from './hooks/useRowHighlight';
 import useHoverKeyboardEvent from './hooks/useHoverKeyboardEvent';
 import useElementLazyRender from '../hooks/useElementLazyRender';
 import isFunction from 'lodash/isFunction';
+import throttle from 'lodash/throttle';
 
 export const BASE_TABLE_EVENTS = ['page-change', 'cell-click', 'scroll', 'scrollX', 'scrollY'];
 export const BASE_TABLE_ALL_EVENTS = ROW_LISTENERS.map((t) => `row-${t}`).concat(BASE_TABLE_EVENTS);
@@ -204,10 +205,15 @@ export default defineComponent({
       });
     };
 
+    const syncThWidthList = throttle(() => {
+      updateThWidthList(getThWidthList('calculate'));
+    });
+
     // 虚拟滚动相关数据
     const virtualScrollParams = computed(() => ({
       data: props.data,
-      scroll: props.scroll,
+      // 传递 fixedRows 的配置
+      scroll: { ...props.scroll, fixedRows: props.fixedRows },
     }));
     const virtualConfig = useVirtualScrollNew(tableContentRef, virtualScrollParams);
 
@@ -224,6 +230,9 @@ export default defineComponent({
       }
       lastScrollY = top;
       emitScrollEvent(e);
+      if (props.tableLayout === 'auto') {
+        syncThWidthList();
+      }
     };
 
     // used for top margin
@@ -249,6 +258,10 @@ export default defineComponent({
 
     watch(tableContentRef, () => {
       setTableContentRef(tableContentRef.value);
+      // auto 布局下，初始化表头列宽，避免 affix 表头列宽不对齐
+      if (props.tableLayout === 'auto') {
+        syncThWidthList();
+      }
     });
 
     // 应该有多种情况下需要更新 foot 高度
@@ -600,13 +613,12 @@ export default defineComponent({
       '-moz-transform': translate,
       '-webkit-transform': translate,
     };
-    const { virtualConfig } = this;
     const tableBodyProps = {
       classPrefix: this.classPrefix,
       ellipsisOverlayClassName: this.tableSize !== 'medium' ? this.sizeClassNames[this.tableSize] : '',
       rowAndColFixedPosition,
       showColumnShadow: this.showColumnShadow,
-      data: virtualConfig.isVirtualScroll.value ? virtualConfig.visibleData.value : data,
+      data: data,
       virtualConfig: this.virtualConfig,
       columns: this.spansAndLeafNodes.leafColumns,
       tableElm: this.tableRef,

@@ -10,6 +10,8 @@ import { PropType } from 'vue';
 export default {
   /** 自动获取焦点 */
   autofocus: Boolean,
+  /** 无边框模式 */
+  borderless: Boolean,
   /** 是否允许清空 */
   clearable: Boolean,
   /** 触发显示联想词下拉框的元素，同 `triggerElement` */

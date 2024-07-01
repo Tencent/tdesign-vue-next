@@ -11,7 +11,7 @@ import SelectInput from '../select-input';
 import SelectPanel from './select-panel';
 import props from './props';
 // hooks
-import { useFormDisabled } from '../form/hooks';
+import { useDisabled } from '../hooks/useDisabled';
 import useDefaultValue from '../hooks/useDefaultValue';
 import useVModel from '../hooks/useVModel';
 import { useTNodeJSX } from '../hooks/tnode';
@@ -37,7 +37,7 @@ export default defineComponent({
   },
   setup(props: TdSelectProps & { valueDisplayOptions: SelectInputValueDisplayOptions }, { slots }) {
     const classPrefix = usePrefixClass();
-    const disabled = useFormDisabled();
+    const disabled = useDisabled();
     const renderTNodeJSX = useTNodeJSX();
     const COMPONENT_NAME = usePrefixClass('select');
     const { globalConfig, t } = useConfig('select');
@@ -144,6 +144,10 @@ export default defineComponent({
       return Boolean(props.filterable || globalConfig.value.filterable || isFunction(props.filter));
     });
 
+    const isRemoteSearch = computed(() => {
+      return Boolean((props.filterable || globalConfig.value.filterable) && isFunction(props.onSearch));
+    });
+
     // 移除tag
     const removeTag = (index: number, e?: MouseEvent) => {
       e && e.stopPropagation();
@@ -191,6 +195,7 @@ export default defineComponent({
       setInnerPopupVisible,
       selectPanelRef,
       isFilterable,
+      isRemoteSearch,
       getSelectedOptions,
       setInnerValue,
       innerValue,
@@ -416,8 +421,11 @@ export default defineComponent({
               props.onClear?.({ e });
             }}
             onEnter={(inputValue, { e }) => {
-              props.onEnter?.({ inputValue: `${innerInputValue.value}`, e, value: innerValue.value });
-              handleCreate();
+              // onEnter和handleKeyDown的Enter事件同时触发，需要通过setTimeout设置先后
+              setTimeout(() => {
+                props.onEnter?.({ inputValue: `${innerInputValue.value}`, e, value: innerValue.value });
+                handleCreate();
+              }, 0);
             }}
             onBlur={(inputValue, { e }) => {
               props.onBlur?.({ e, value: innerValue.value });
