@@ -8,7 +8,6 @@ exports[`AvatarGroup > :props > :placement 1`] = `
   >
     
     
-    
     <div
       class="t-avatar t-avatar--circle"
     >
@@ -36,7 +35,6 @@ exports[`AvatarGroup > :props > :placement 1`] = `
         
       </span>
     </div>
-    
     
     
   </div>
@@ -50,7 +48,6 @@ exports[`AvatarGroup > :props > :popupProps 1`] = `
   >
     
     
-    
     <div
       class="t-avatar t-avatar--circle"
     >
@@ -78,7 +75,6 @@ exports[`AvatarGroup > :props > :popupProps 1`] = `
         
       </span>
     </div>
-    
     
     
   </div>
