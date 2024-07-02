@@ -71,7 +71,10 @@ export default {
     type: Function as PropType<TdTagInputProps['prefixIcon']>,
   },
   /** 只读状态，值为真会隐藏标签移除按钮和输入框 */
-  readonly: Boolean,
+  readonly: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 组件尺寸 */
   size: {
     type: String as PropType<TdTagInputProps['size']>,

@@ -21,7 +21,7 @@ max | Number | - | 最大允许输入的标签数量 | N
 minCollapsedNum | Number | 0 | 最小折叠数量，用于标签数量过多的情况下折叠选中项，超出该数值的选中项折叠。值为 0 则表示不折叠 | N
 placeholder | String | undefined | 占位符 | N
 prefixIcon | Slot / Function | - | 组件前置图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-readonly | Boolean | false | 只读状态，值为真会隐藏标签移除按钮和输入框 | N
+readonly | Boolean | undefined | 只读状态，值为真会隐藏标签移除按钮和输入框 | N
 size | String | medium | 组件尺寸。可选项：small/medium/large。TS 类型：`SizeEnum`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 status | String | - | 输入框状态。可选项：default/success/warning/error | N
 suffix | String / Slot / Function | - | 后置图标前的后置内容。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
