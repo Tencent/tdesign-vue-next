@@ -97,6 +97,14 @@ export const docs = [
         component: () => import('tdesign-vue-next/link/link.md'),
         componentEn: () => import('tdesign-vue-next/link/link.en-US.md'),
       },
+      {
+        title: 'Typography 排版',
+        titleEn: 'Typography',
+        name: 'typography',
+        path: '/vue-next/components/typography',
+        component: () => import('tdesign-vue-next/typography/typography.md'),
+        componentEn: () => import('tdesign-vue-next/typography/typography.en-US.md'),
+      },
     ],
   },
   {
