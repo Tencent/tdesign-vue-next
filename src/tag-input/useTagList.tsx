@@ -7,6 +7,7 @@ import useVModel from '../hooks/useVModel';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
 import { useDisabled } from '../hooks/useDisabled';
+import { useReadonly } from '../hooks/useReadonly';
 
 export type ChangeParams = [TagInputChangeContext];
 
@@ -14,12 +15,13 @@ export type ChangeParams = [TagInputChangeContext];
 export default function useTagList(props: TagInputProps) {
   const renderTNode = useTNodeJSX();
   const classPrefix = usePrefixClass();
-  const { value, modelValue, onRemove, max, minCollapsedNum, size, readonly, tagProps, getDragProps } = toRefs(props);
+  const { value, modelValue, onRemove, max, minCollapsedNum, size, tagProps, getDragProps } = toRefs(props);
   // handle controlled property and uncontrolled property
   const [tagValue, setTagValue] = useVModel(value, modelValue, props.defaultValue || [], props.onChange);
   const oldInputValue = ref<InputValue>();
 
   const isDisabled = useDisabled();
+  const isReadonly = useReadonly();
 
   // 点击标签关闭按钮，删除标签
   const onClose = (p: { e?: MouseEvent; index: number }) => {
@@ -84,7 +86,7 @@ export default function useTagList(props: TagInputProps) {
               size={size.value}
               disabled={isDisabled.value}
               onClose={(context: { e: MouseEvent }) => onClose({ e: context.e, index })}
-              closable={!readonly.value && !isDisabled.value}
+              closable={!isReadonly.value && !isDisabled.value}
               {...getDragProps.value?.(index, item)}
               {...tagProps.value}
             >
