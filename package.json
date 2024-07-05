@@ -94,7 +94,7 @@
     "lodash": "^4.17.21",
     "mitt": "^3.0.1",
     "sortablejs": "^1.15.0",
-    "tdesign-icons-vue-next": "^0.2.0",
+    "tdesign-icons-vue-next": "^0.2.4",
     "tinycolor2": "^1.6.0",
     "validator": "^13.9.0"
   },
