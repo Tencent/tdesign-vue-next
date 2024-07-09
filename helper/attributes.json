@@ -566,11 +566,11 @@
   },
   "t-base-table/footer-affixed-bottom": {
     "type": "Boolean|Object",
-    "description": "affix foot to viewport bottom\n\n表尾吸底。使用此向功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，则表示相对于整个窗口吸底。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixedBottom.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props)"
+    "description": "affix foot to viewport bottom\n\n表尾吸底。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，则表示相对于整个窗口吸底。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixedBottom.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props)"
   },
   "t-table/footer-affixed-bottom": {
     "type": "Boolean|Object",
-    "description": "affix foot to viewport bottom\n\n表尾吸底。使用此向功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，则表示相对于整个窗口吸底。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixedBottom.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props)"
+    "description": "affix foot to viewport bottom\n\n表尾吸底。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，则表示相对于整个窗口吸底。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixedBottom.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props)"
   },
   "t-base-table/footer-summary": {
     "type": "String|TNode",
