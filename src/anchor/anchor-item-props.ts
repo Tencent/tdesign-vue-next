@@ -28,4 +28,9 @@ export default {
     type: [String, Function] as PropType<TdAnchorItemProps['title']>,
     default: '',
   },
+  /** 禁用点击锚点链接后自动滚动到目标元素，滚动行为由用户或浏览器处理（如scroll-behavior: smooth） */
+  disableScroll: {
+    type: Boolean,
+    default: false,
+  },
 };
