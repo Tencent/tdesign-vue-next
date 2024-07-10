@@ -288,7 +288,7 @@ export default defineComponent({
         if (!isEmpty(props.data)) {
           const node = treeRef.value.getItem(nodeValue);
           if (node) {
-            return { label: node.data[realLabel.value], value: node.data[realValue.value] };
+            return { ...node.data, label: node.data[realLabel.value], value: node.data[realValue.value] };
           }
         }
         return { label: nodeValue, value: nodeValue };
@@ -307,7 +307,7 @@ export default defineComponent({
           if (!isEmpty(props.data)) {
             const node = treeRef.value.getItem(nodeValue);
             if (node) {
-              return { label: node.data[realLabel.value], value: node.data[realValue.value] };
+              return { ...node.data, label: node.data[realLabel.value], value: node.data[realValue.value] };
             }
           }
           return { label: nodeValue, value: nodeValue };
@@ -322,7 +322,7 @@ export default defineComponent({
     const getTreeNode = (data: Array<TreeOptionData>, targetValue: TreeSelectValue): TreeSelectValue | null => {
       for (let i = 0, len = data.length; i < len; i++) {
         if (data[i][realValue.value] === targetValue) {
-          return { label: data[i][realLabel.value], value: data[i][realValue.value] };
+          return { ...data[i], label: data[i][realLabel.value], value: data[i][realValue.value] };
         }
         if (data[i]?.[realChildren.value]) {
           const result = getTreeNode(data[i]?.[realChildren.value], targetValue);
