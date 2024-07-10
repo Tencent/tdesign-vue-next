@@ -1,6 +1,7 @@
 :: BASE_DOC ::
 
 ## API
+
 ### Watermark Props
 
 name | type | default | description | required

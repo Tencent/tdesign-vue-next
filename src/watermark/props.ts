@@ -46,7 +46,7 @@ export default {
   offset: {
     type: Array as PropType<TdWatermarkProps['offset']>,
   },
-  /** 水印是否可被删除，默认会开启水印节点防删 */
+  /** 水印是否可被删除 */
   removable: {
     type: Boolean,
     default: true,

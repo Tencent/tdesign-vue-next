@@ -53,10 +53,10 @@ export default defineComponent({
           <TInput
             ref={inputRef}
             disabled={p.tDisabled.value}
-            readonly={props.readonly}
+            readonly={p.isReadonly.value}
             autocomplete="off"
             placeholder={props.placeholder}
-            unselectable={props.readonly ? 'on' : 'off'}
+            unselectable={p.isReadonly.value ? 'on' : 'off'}
             autoWidth={props.autoWidth}
             align={props.align || (props.theme === 'row' ? 'center' : undefined)}
             status={status}

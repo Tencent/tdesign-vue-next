@@ -19,7 +19,10 @@ export default {
     type: Function as PropType<TdTagInputProps['collapsedItems']>,
   },
   /** 是否禁用标签输入框 */
-  disabled: Boolean,
+  disabled: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 拖拽调整标签顺序 */
   dragSort: Boolean,
   /** 标签超出时的呈现方式，有两种：横向滚动显示 和 换行显示 */
@@ -68,7 +71,10 @@ export default {
     type: Function as PropType<TdTagInputProps['prefixIcon']>,
   },
   /** 只读状态，值为真会隐藏标签移除按钮和输入框 */
-  readonly: Boolean,
+  readonly: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 组件尺寸 */
   size: {
     type: String as PropType<TdTagInputProps['size']>,

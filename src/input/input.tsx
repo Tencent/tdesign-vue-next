@@ -145,14 +145,11 @@ export default defineComponent({
         ) : null;
 
       if (props.type === 'password') {
+        const passwordClass = [{ [`${COMPONENT_NAME.value}__suffix-clear`]: !disabled.value }];
         if (renderType.value === 'password') {
-          suffixIcon = (
-            <BrowseOffIcon class={`${COMPONENT_NAME.value}__suffix-clear`} onClick={inputHandle.emitPassword} />
-          );
+          suffixIcon = <BrowseOffIcon class={passwordClass} onClick={inputHandle.emitPassword} />;
         } else if (renderType.value === 'text') {
-          suffixIcon = (
-            <BrowseIcon class={`${COMPONENT_NAME.value}__suffix-clear`} onClick={inputHandle.emitPassword} />
-          );
+          suffixIcon = <BrowseIcon class={passwordClass} onClick={inputHandle.emitPassword} />;
         }
       }
 
