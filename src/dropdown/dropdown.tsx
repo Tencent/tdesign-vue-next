@@ -69,7 +69,11 @@ export default defineComponent({
           {...popupParams}
           v-slots={{
             content: () => (
-              <DropdownMenu {...omit(props, 'onClick')} options={options.value} onClick={handleMenuClick} />
+              <>
+                {renderTNodeJSX('panelTopContent')}
+                <DropdownMenu {...omit(props, 'onClick')} options={options.value} onClick={handleMenuClick} />
+                {renderTNodeJSX('panelBottomContent')}
+              </>
             ),
           }}
         >
