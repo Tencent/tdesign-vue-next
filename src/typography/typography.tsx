@@ -6,9 +6,9 @@ export default defineComponent({
   name: 'TTypography',
 
   setup() {
-    const readerTNodeJSX = useTNodeJSX();
+    const renderTNodeJSX = useTNodeJSX();
     return () => {
-      return <Text>{readerTNodeJSX('default')}</Text>;
+      return <Text>{renderTNodeJSX('default')}</Text>;
     };
   },
 });
