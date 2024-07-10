@@ -5,9 +5,9 @@
   <t-typography-text disabled>disabled</t-typography-text>
   <t-typography-text theme="success">success</t-typography-text>
   <t-typography-paragraph theme="success">success</t-typography-paragraph>
-  <t-typography-text :ellipsis="ellipsis"
-    >ellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsis</t-typography-text
-  >
+  <t-typography-text :ellipsis="ellipsis">
+    ellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsis
+  </t-typography-text>
 </template>
 
 <script setup>
