@@ -106,7 +106,6 @@ exports[`AvatarGroup Component > props.collapseAvatar works fine 1`] = `
 >
   
   
-  
   <div
     class="t-avatar t-avatar--circle"
   >
@@ -201,7 +200,6 @@ exports[`AvatarGroup Component > props.collapseAvatar works fine 1`] = `
   </div>
   
   
-  
 </div>
 `;
 
@@ -210,7 +208,6 @@ exports[`AvatarGroup Component > slots.collapse-avatar works fine 1`] = `
   class="t-avatar-group t-avatar--offset-right"
   v-slots="[object Object]"
 >
-  
   
   
   <div
@@ -301,7 +298,6 @@ exports[`AvatarGroup Component > slots.collapse-avatar works fine 1`] = `
       
     </span>
   </div>
-  
   
   
 </div>
@@ -314,7 +310,6 @@ exports[`AvatarGroup Component > slots.collapseAvatar works fine 1`] = `
 >
   
   
-  
   <div
     class="t-avatar t-avatar--circle"
   >
@@ -403,7 +398,6 @@ exports[`AvatarGroup Component > slots.collapseAvatar works fine 1`] = `
       
     </span>
   </div>
-  
   
   
 </div>
