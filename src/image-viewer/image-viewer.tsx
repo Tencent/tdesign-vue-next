@@ -33,7 +33,6 @@ export default defineComponent({
     const [visibleValue, setVisibleValue] = useVModel(visible, modelValue, props.defaultVisible, () => {}, 'visible');
     const animationEnd = ref(true);
     const animationTimer = ref();
-
     // teleport容器
     const teleportElement = useTeleport(() => props.attach);
 
