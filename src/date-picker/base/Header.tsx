@@ -1,4 +1,4 @@
-import { defineComponent, PropType, ref, computed } from 'vue';
+import { defineComponent, PropType, ref, computed, watch } from 'vue';
 import { PaginationMini, JumperTrigger } from '../../pagination';
 import TSelect from '../../select';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
@@ -23,7 +23,7 @@ export default defineComponent({
     const { globalConfig } = useConfig('datePicker');
 
     const yearOptions = ref(initOptions(props.year));
-    const showMonthPicker = props.mode === 'date' || props.mode === 'week';
+    const showMonthPicker = computed(() => props.mode === 'date' || props.mode === 'week');
 
     // 年份选择展示区间
     const nearestYear = computed(
@@ -130,10 +130,17 @@ export default defineComponent({
       yearOptions.value = [...yearOptions.value, ...options];
     }
 
+    watch(
+      () => props.mode,
+      () => {
+        yearOptions.value = initOptions(props.year);
+      },
+    );
+
     return () => (
       <div class={COMPONENT_NAME.value}>
         <div class={`${COMPONENT_NAME.value}-controller`}>
-          {showMonthPicker && (
+          {showMonthPicker.value && (
             <TSelect
               class={`${COMPONENT_NAME.value}-controller-month`}
               value={props.month}

@@ -421,8 +421,11 @@ export default defineComponent({
               props.onClear?.({ e });
             }}
             onEnter={(inputValue, { e }) => {
-              props.onEnter?.({ inputValue: `${innerInputValue.value}`, e, value: innerValue.value });
-              handleCreate();
+              // onEnter和handleKeyDown的Enter事件同时触发，需要通过setTimeout设置先后
+              setTimeout(() => {
+                props.onEnter?.({ inputValue: `${innerInputValue.value}`, e, value: innerValue.value });
+                handleCreate();
+              }, 0);
             }}
             onBlur={(inputValue, { e }) => {
               props.onBlur?.({ e, value: innerValue.value });

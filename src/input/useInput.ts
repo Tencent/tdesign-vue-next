@@ -78,6 +78,7 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
   };
 
   const emitPassword = () => {
+    if (disabled.value) return;
     const toggleType = renderType.value === 'password' ? 'text' : 'password';
     renderType.value = toggleType;
   };

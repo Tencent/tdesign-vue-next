@@ -44,8 +44,8 @@ export const styleContent = `
 
 export const stackblitzRc = `
   {
-    "installDependencies": false,
-    "startCommand": "turbo && turbo dev"
+    "installDependencies": true,
+    "startCommand": "npm run dev"
   }
 `;
 

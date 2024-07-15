@@ -13,6 +13,8 @@ import useHover from './hooks/useHover';
 import useDefault from '../hooks/useDefaultValue';
 import useDragSorter from './hooks/useDragSorter';
 import isArray from 'lodash/isArray';
+import { useDisabled } from '../hooks/useDisabled';
+import { useReadonly } from '../hooks/useReadonly';
 
 const useComponentClassName = () => {
   return {
@@ -31,6 +33,9 @@ export default defineComponent({
     const { NAME_CLASS, CLEAR_CLASS, BREAK_LINE_CLASS } = useComponentClassName();
     const { CloseCircleFilledIcon } = useGlobalIcon({ CloseCircleFilledIcon: TdCloseCircleFilledIcon });
 
+    const isDisabled = useDisabled();
+    const isReadonly = useReadonly();
+
     const { inputValue, inputProps } = toRefs(props);
     const [tInputValue, setTInputValue] = useDefault(
       inputValue,
@@ -38,10 +43,10 @@ export default defineComponent({
       props.onInputChange,
       'inputValue',
     );
-    const { excessTagsDisplayType, readonly, disabled, clearable, placeholder } = toRefs(props);
+    const { excessTagsDisplayType, clearable, placeholder } = toRefs(props);
     const { isHover, addHover, cancelHover } = useHover({
-      readonly: props.readonly,
-      disabled: props.disabled,
+      readonly: isReadonly.value,
+      disabled: isDisabled.value,
       onMouseenter: props.onMouseenter,
       onMouseleave: props.onMouseleave,
     });
@@ -86,8 +91,8 @@ export default defineComponent({
 
     const showClearIcon = computed(() =>
       Boolean(
-        !readonly.value &&
-          !disabled.value &&
+        !isReadonly.value &&
+          !isDisabled.value &&
           clearable.value &&
           isHover.value &&
           (tagValue.value?.length || tInputValue.value),
@@ -116,7 +121,7 @@ export default defineComponent({
     };
 
     const onClick: TdInputProps['onClick'] = (ctx) => {
-      if (disabled.value) return;
+      if (isDisabled.value) return;
       isFocused.value = true;
       tagInputRef.value.focus();
       props.onClick?.(ctx);
@@ -207,6 +212,8 @@ export default defineComponent({
       onInputCompositionstart,
       onInputCompositionend,
       classes,
+      isDisabled,
+      isReadonly,
     };
   },
 
@@ -232,7 +239,7 @@ export default defineComponent({
     // 左侧文本
     const label = renderTNodeJSX(this, 'label', { silent: true });
     const inputProps = this.inputProps as TdTagInputProps['inputProps'];
-    const readonly = this.readonly || inputProps?.readonly;
+    const readonly = this.isReadonly || inputProps?.readonly;
     return (
       <TInput
         ref="tagInputRef"
@@ -245,7 +252,7 @@ export default defineComponent({
         value={this.tInputValue}
         autoWidth={true} // 控制input_inner的宽度 设置为true让内部input不会提前换行
         size={this.size}
-        disabled={this.disabled}
+        disabled={this.isDisabled}
         label={() => this.renderLabel({ displayNode, label })}
         class={this.classes}
         tips={this.tips}
