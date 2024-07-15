@@ -11,7 +11,6 @@ closeBtn | Boolean / Slot / Function | true | 是否展示关闭按钮，值为 
 closeOnEscKeydown | Boolean | true | 按下 ESC 时是否触发图片预览器关闭事件 | N
 closeOnOverlay | Boolean | - | 是否在点击遮罩层时，触发预览关闭 | N
 draggable | Boolean | undefined | 是否允许拖拽调整位置。`mode=modal` 时，默认不允许拖拽；`mode=modeless` 时，默认允许拖拽 | N
-imageReferrerpolicy | String | - | 图片预览中的 `<img>` 标签的原生属性，[MDN 定义](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy)。可选项：no-referrer/no-referrer-when-downgrade/origin/origin-when-cross-origin/same-origin/strict-origin/strict-origin-when-cross-origin/unsafe-url | N
 imageScale | Object | - |  图片缩放相关配置。`imageScale.max` 缩放的最大比例；`imageScale.min` 缩放的最小比例；`imageScale.step` 缩放的步长速度; `imageScale.defaultScale` 默认的缩放比例。TS 类型：`ImageScale` `interface ImageScale { max: number; min: number; step: number; defaultScale?: number; }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/image-viewer/type.ts) | N
 images | Array | [] | 图片数组。`mainImage` 表示主图，必传；`thumbnail` 表示缩略图，如果不存在，则使用主图显示；`download` 是否允许下载图片，默认允许下载。示例: `['img_url_1', 'img_url_2']`，`[{ thumbnail: 'small_image_url', mainImage: 'big_image_url', download: false }]`。TS 类型：`Array<string \| File \| ImageInfo>` `interface ImageInfo { mainImage: string \| File; thumbnail?: string \| File; download?: boolean; isSvg?: boolean }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/image-viewer/type.ts) | N
 index | Number | 0 | 当前预览图片所在的下标。支持语法糖 `v-model:index` | N
