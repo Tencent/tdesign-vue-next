@@ -11,7 +11,6 @@ closeBtn | Boolean / Slot / Function | true | Typescript：`boolean \| TNode`。
 closeOnEscKeydown | Boolean | true | trigger image viewer close event on `ESC` keydown | N
 closeOnOverlay | Boolean | - | \- | N
 draggable | Boolean | undefined | \- | N
-imageReferrerpolicy | String | - | attribute of `<img>`, [MDN Definition](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy)。options: no-referrer/no-referrer-when-downgrade/origin/origin-when-cross-origin/same-origin/strict-origin/strict-origin-when-cross-origin/unsafe-url | N
 imageScale | Object | - | Typescript：`ImageScale` `interface ImageScale { max: number; min: number; step: number; defaultScale?: number; }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/image-viewer/type.ts) | N
 images | Array | [] | Typescript：`Array<string \| File \| ImageInfo>` `interface ImageInfo { mainImage: string \| File; thumbnail?: string \| File; download?: boolean; isSvg?: boolean }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/image-viewer/type.ts) | N
 index | Number | 0 | `v-model:index` is supported | N
