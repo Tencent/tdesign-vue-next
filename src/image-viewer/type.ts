@@ -4,9 +4,14 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
-import { TNode } from '../common';
+import { AttachNode, TNode } from '../common';
 
 export interface TdImageViewerProps {
+  /**
+   * 制定挂载节点。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body
+   * @default 'body'
+   */
+  attach?: AttachNode;
   /**
    * 是否展示关闭按钮，值为 `true` 显示默认关闭按钮；值为 `false` 则不显示关闭按钮；也可以完全自定义关闭按钮
    * @default true
@@ -25,6 +30,18 @@ export interface TdImageViewerProps {
    * 是否允许拖拽调整位置。`mode=modal` 时，默认不允许拖拽；`mode=modeless` 时，默认允许拖拽
    */
   draggable?: boolean;
+  /**
+   * 图片预览中的 `<img>` 标签的原生属性，[MDN 定义](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy)
+   */
+  imageReferrerpolicy?:
+    | 'no-referrer'
+    | 'no-referrer-when-downgrade'
+    | 'origin'
+    | 'origin-when-cross-origin'
+    | 'same-origin'
+    | 'strict-origin'
+    | 'strict-origin-when-cross-origin'
+    | 'unsafe-url';
   /**
    *  图片缩放相关配置。`imageScale.max` 缩放的最大比例；`imageScale.min` 缩放的最小比例；`imageScale.step` 缩放的步长速度; `imageScale.defaultScale` 默认的缩放比例
    */

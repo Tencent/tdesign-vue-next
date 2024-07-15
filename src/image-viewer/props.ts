@@ -4,10 +4,15 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
-import { TdImageViewerProps } from './type';
 import { PropType } from 'vue';
+import { TdImageViewerProps } from './type';
 
 export default {
+  /** 制定挂载节点。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body */
+  attach: {
+    type: [String, Function] as PropType<TdImageViewerProps['attach']>,
+    default: 'body' as TdImageViewerProps['attach'],
+  },
   /** 是否展示关闭按钮，值为 `true` 显示默认关闭按钮；值为 `false` 则不显示关闭按钮；也可以完全自定义关闭按钮 */
   closeBtn: {
     type: [Boolean, Function] as PropType<TdImageViewerProps['closeBtn']>,
@@ -25,7 +30,24 @@ export default {
     type: Boolean,
     default: undefined,
   },
-  /**  图片缩放相关配置。`imageScale.max` 缩放的最大比例；`imageScale.min` 缩放的最小比例；`imageScale.step` 缩放的步长速度；`imageScale.defaultScale` 默认的缩放比例 */
+  /** 图片预览中的 `<img>` 标签的原生属性，[MDN 定义](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) */
+  imageReferrerpolicy: {
+    type: String as PropType<TdImageViewerProps['imageReferrerpolicy']>,
+    validator(val: TdImageViewerProps['imageReferrerpolicy']): boolean {
+      if (!val) return true;
+      return [
+        'no-referrer',
+        'no-referrer-when-downgrade',
+        'origin',
+        'origin-when-cross-origin',
+        'same-origin',
+        'strict-origin',
+        'strict-origin-when-cross-origin',
+        'unsafe-url',
+      ].includes(val);
+    },
+  },
+  /**  图片缩放相关配置。`imageScale.max` 缩放的最大比例；`imageScale.min` 缩放的最小比例；`imageScale.step` 缩放的步长速度; `imageScale.defaultScale` 默认的缩放比例 */
   imageScale: {
     type: Object as PropType<TdImageViewerProps['imageScale']>,
   },
