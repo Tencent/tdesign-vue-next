@@ -222,6 +222,9 @@ export default defineComponent({
           ...item.data,
           value,
         };
+        if (itemData.children !== true) {
+          delete itemData.children;
+        }
         nodeMap[value] = itemData;
         const parent = item.getParent();
         if (!parent) {
