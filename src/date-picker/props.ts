@@ -60,6 +60,11 @@ export default {
       return ['year', 'quarter', 'month', 'week', 'date'].includes(val);
     },
   },
+  /** 决定在日期时间选择器的场景下是否需要点击确认按钮才完成选择动作，默认为`true` */
+  needConfirm: {
+    type: Boolean,
+    default: true,
+  },
   /** 占位符 */
   placeholder: {
     type: [String, Array] as PropType<TdDatePickerProps['placeholder']>,
