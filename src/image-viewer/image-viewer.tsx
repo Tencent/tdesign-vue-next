@@ -5,6 +5,7 @@ import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
 import useDefaultValue from '../hooks/useDefaultValue';
 import usePopupManager from '../hooks/usePopupManager';
+import useTeleport from '../hooks/useTeleport';
 import useVModel from '../hooks/useVModel';
 import Image from '../image';
 import TImageItem from './base/ImageItem';
@@ -32,6 +33,8 @@ export default defineComponent({
     const [visibleValue, setVisibleValue] = useVModel(visible, modelValue, props.defaultVisible, () => {}, 'visible');
     const animationEnd = ref(true);
     const animationTimer = ref();
+    // teleport容器
+    const teleportElement = useTeleport(() => props.attach);
 
     const wrapClass = computed(() => [
       COMPONENT_NAME.value,
@@ -248,7 +251,7 @@ export default defineComponent({
       return (
         <>
           {renderTNodeJSX('trigger', { params: { open: openHandler } })}
-          <Teleport to="body">
+          <Teleport disabled={!props.attach || !teleportElement.value} to={teleportElement.value}>
             <Transition>
               {(visibleValue.value || !animationEnd.value) && (
                 <div
