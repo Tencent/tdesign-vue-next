@@ -8,6 +8,10 @@ export default defineComponent({
     enableTimePicker: Boolean,
     presetsPlacement: String,
     presets: Object,
+    needConfirm: {
+      type: Boolean,
+      default: true,
+    },
     selectedValue: [Date, String, Number],
     onPresetClick: Function,
     onConfirmClick: Function,
@@ -38,7 +42,7 @@ export default defineComponent({
               ))}
           </div>
         }
-        {props.enableTimePicker && (
+        {props.enableTimePicker && props.needConfirm && (
           <TButton
             disabled={!props.selectedValue}
             size="small"

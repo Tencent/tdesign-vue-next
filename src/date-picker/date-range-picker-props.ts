@@ -10,6 +10,8 @@ import { PropType } from 'vue';
 export default {
   /** 是否允许输入日期 */
   allowInput: Boolean,
+  /** 无边框模式 */
+  borderless: Boolean,
   /** 默认的日期选择交互是根据点击前后日期的顺序来决定并且会加以限制。比如：用户先点击开始时间输入框，选择了一个日期例如2020-05-15，紧接着交互会自动将焦点跳到结束日期输入框，等待用户选择结束时间。此时用户只能选择大于2020-05-15的日期（之前的日期会被灰态禁止点击，限制用户的点击）。当该值传递`true`时，则取消该限制。 */
   cancelRangeSelectLimit: Boolean,
   /** 是否显示清除按钮 */
@@ -55,6 +57,11 @@ export default {
       if (!val) return true;
       return ['year', 'quarter', 'month', 'week', 'date'].includes(val);
     },
+  },
+  /** 决定在日期时间区间选择器的场景下是否需要点击确认按钮才完成选择动作，默认为 `true` */
+  needConfirm: {
+    type: Boolean,
+    default: true,
   },
   /** 在开始日期选中之前，面板是否显示预选状态，即是否高亮预选日期 */
   panelPreselection: {
