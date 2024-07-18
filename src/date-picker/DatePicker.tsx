@@ -61,48 +61,51 @@ export default defineComponent({
     });
 
     watch(popupVisible, (visible) => {
+      // 如果不需要确认，直接保存当前值
+      if (!props.needConfirm && props.enableTimePicker && !visible) {
+        const nextValue = formatDate(inputValue.value, {
+          format: formatRef.value.format,
+        });
+        if (nextValue) {
+          onChange?.(
+            formatDate(inputValue.value, {
+              format: formatRef.value.format,
+              targetFormat: formatRef.value.valueType,
+            }) as DateValue,
+            {
+              dayjsValue: parseToDayjs(inputValue.value as string, formatRef.value.format),
+              trigger: 'confirm',
+            },
+          );
+        } else {
+          inputValue.value = formatDate(value.value, {
+            format: formatRef.value.format,
+          });
+        }
+      }
+
+      // 格式化 input 值
+      const dateValue =
+        // Date 属性、季度和周不再 parse，避免 dayjs 处理成 Invalid
+        value.value && !isDate(value.value) && !['week', 'quarter'].includes(props.mode)
+          ? covertToDate(value.value as string, formatRef.value?.valueType)
+          : value.value;
+
+      cacheValue.value = formatDate(dateValue, {
+        format: formatRef.value.valueType,
+        targetFormat: formatRef.value.format,
+      });
+      inputValue.value = formatDate(dateValue, {
+        format: formatRef.value.valueType,
+        targetFormat: formatRef.value.format,
+      });
+
       // 面板展开重置数据
       if (visible) {
-        const dateValue =
-          // Date 属性、季度和周不再 parse，避免 dayjs 处理成 Invalid
-          value.value && !isDate(value.value) && !['week', 'quarter'].includes(props.mode)
-            ? covertToDate(value.value as string, formatRef.value?.valueType)
-            : value.value;
-
-        cacheValue.value = formatDate(dateValue, {
-          format: formatRef.value.valueType,
-          targetFormat: formatRef.value.format,
-        });
-        inputValue.value = formatDate(dateValue, {
-          format: formatRef.value.valueType,
-          targetFormat: formatRef.value.format,
-        });
         year.value = parseToDayjs(value.value, formatRef.value.valueType).year();
         month.value = parseToDayjs(value.value, formatRef.value.format).month();
         time.value = formatTime(value.value, formatRef.value.format, formatRef.value.timeFormat, props.defaultTime);
       } else {
-        // 如果不需要确认，直接保存当前值
-        if (!props.needConfirm && props.enableTimePicker) {
-          const nextValue = formatDate(inputValue.value, {
-            format: formatRef.value.format,
-          });
-          if (nextValue) {
-            onChange?.(
-              formatDate(inputValue.value, {
-                format: formatRef.value.format,
-                targetFormat: formatRef.value.valueType,
-              }) as DateValue,
-              {
-                dayjsValue: parseToDayjs(inputValue.value as string, formatRef.value.format),
-                trigger: 'confirm',
-              },
-            );
-          } else {
-            inputValue.value = formatDate(value.value, {
-              format: formatRef.value.format,
-            });
-          }
-        }
         isHoverCell.value = false;
       }
     });
