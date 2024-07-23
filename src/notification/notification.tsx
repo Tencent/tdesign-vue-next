@@ -52,7 +52,7 @@ export default defineComponent({
           ) : (
             <InfoCircleFilledIcon class={`${classPrefix.value}-is-${props.theme}`} />
           );
-        iconContent = <div class={`t-notification__icon`}>{iconType}</div>;
+        iconContent = <div class={`${classPrefix.value}-notification__icon`}>{iconType}</div>;
       }
       return iconContent;
     };
