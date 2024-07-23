@@ -95,6 +95,7 @@ export default defineComponent({
         spellcheck: props.spellCheck,
         // 不要传给 input 原生元素 maxlength，浏览器默认行为会按照 unicode 进行限制，与 maxLength API 违背
         // https://github.com/Tencent/tdesign-vue-next/issues/4413
+        // 参见： https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/maxlength，提到了字符串长度的计算方法，就是 str.length
       }),
     );
 
