@@ -14,7 +14,7 @@ labelAlign | String | right | options: left/right/top | N
 labelWidth | String / Number | '100px' | \- | N
 layout | String | vertical | options: vertical/inline | N
 preventSubmitDefault | Boolean | true | \- | N
-readonly | Boolean | - | \- | N
+readonly | Boolean | undefined | Whether the entire form is read-only (* input, checkbox, TagInput, and InputNumber are only supported for the time being) | N
 requiredMark | Boolean | true | \- | N
 resetType | String | empty | options: empty/initial | N
 rules | Object | - | Typescript：`FormRules<FormData>` `type FormRules<T extends Data = any> = { [field in keyof T]?: Array<FormRule> }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/form/type.ts) | N

@@ -1,28 +1,28 @@
-import upperFirst from 'lodash/upperFirst';
 import isFunction from 'lodash/isFunction';
+import upperFirst from 'lodash/upperFirst';
+import { renderTNodeJSX } from '../utils/render-tnode';
 import {
   defineComponent,
-  TreeNode,
-  useConfig,
-  usePrefixClass,
-  TypeTreeOptionData,
-  TypeTNodeReturnValue,
-  TypeCreateElement,
-  TransitionGroup,
   getCreateElement,
   getScopedSlots,
+  TransitionGroup,
+  TreeNode,
+  TypeCreateElement,
   TypeStyles,
+  TypeTNodeReturnValue,
+  TypeTreeOptionData,
+  useConfig,
+  usePrefixClass,
 } from './adapt';
-import props from './props';
-import { TreeNodeValue, TreeNodeState, TypeTreeNodeModel } from './tree-types';
+import useDragHandle from './hooks/useDragHandle';
+import useTreeAction from './hooks/useTreeAction';
+import useTreeNodes from './hooks/useTreeNodes';
+import useTreeScroll from './hooks/useTreeScroll';
+import useTreeState from './hooks/useTreeState';
 import useTreeStore from './hooks/useTreeStore';
 import useTreeStyles from './hooks/useTreeStyles';
-import useTreeState from './hooks/useTreeState';
-import useTreeAction from './hooks/useTreeAction';
-import useTreeScroll from './hooks/useTreeScroll';
-import useTreeNodes from './hooks/useTreeNodes';
-import useDragHandle from './hooks/useDragHandle';
-import { renderTNodeJSX } from '../utils/render-tnode';
+import props from './props';
+import { TreeNodeState, TreeNodeValue, TypeTreeNodeModel } from './tree-types';
 import { getNode } from './util';
 
 // 2022.11.02 tabliang 备注
@@ -222,7 +222,9 @@ export default defineComponent({
           ...item.data,
           value,
         };
-        delete itemData.children;
+        if (itemData.children !== true) {
+          delete itemData.children;
+        }
         nodeMap[value] = itemData;
         const parent = item.getParent();
         if (!parent) {

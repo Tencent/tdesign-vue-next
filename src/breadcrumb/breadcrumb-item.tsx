@@ -77,13 +77,14 @@ export default defineComponent({
       }
     };
     const bindEvent = (e: MouseEvent) => {
-      if (!props.disabled)
+      if (!props.disabled) {
+        e.preventDefault();
         if (props.target === '_blank') {
           props.href ? window.open(props.href) : window.open(props.to as string);
         } else {
-          e.preventDefault();
           handleClick();
         }
+      }
     };
 
     return () => {

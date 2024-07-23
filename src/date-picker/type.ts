@@ -68,6 +68,11 @@ export interface TdDatePickerProps {
    */
   mode?: 'year' | 'quarter' | 'month' | 'week' | 'date';
   /**
+   * 决定在日期时间选择器的场景下是否需要点击确认按钮才完成选择动作，默认为`true`
+   * @default true
+   */
+  needConfirm?: boolean;
+  /**
    * 占位符
    */
   placeholder?: string;
@@ -221,6 +226,11 @@ export interface TdDateRangePickerProps {
    * @default date
    */
   mode?: 'year' | 'quarter' | 'month' | 'week' | 'date';
+  /**
+   * 决定在日期时间区间选择器的场景下是否需要点击确认按钮才完成选择动作，默认为 `true`
+   * @default true
+   */
+  needConfirm?: boolean;
   /**
    * 在开始日期选中之前，面板是否显示预选状态，即是否高亮预选日期
    * @default true

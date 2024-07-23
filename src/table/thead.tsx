@@ -138,13 +138,14 @@ export default defineComponent({
             rowIndex: -1,
           };
           const customClasses = formatClassNames(col.className, { ...colParams, type: 'th' });
+          const thCustomClasses = formatClassNames(col.thClassName, { ...colParams, type: 'th' });
           const isLeftFixedActive = this.showColumnShadow.left && col.fixed === 'left';
           const isRightFixedActive = this.showColumnShadow.right && col.fixed === 'right';
           const canDragSort = this.thDraggable && !(isLeftFixedActive || isRightFixedActive);
           const thClasses = [
             thStyles.classes,
             customClasses,
-            col.thClassName,
+            thCustomClasses,
             {
               // 受 rowspan 影响，部分 tr > th:first-child 需要补足左边框
               [this.tableHeaderClasses.thBordered]: thBorderMap.get(col),

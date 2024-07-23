@@ -14,6 +14,7 @@ import useDefault from '../hooks/useDefaultValue';
 import useDragSorter from './hooks/useDragSorter';
 import isArray from 'lodash/isArray';
 import { useDisabled } from '../hooks/useDisabled';
+import { useReadonly } from '../hooks/useReadonly';
 
 const useComponentClassName = () => {
   return {
@@ -33,6 +34,7 @@ export default defineComponent({
     const { CloseCircleFilledIcon } = useGlobalIcon({ CloseCircleFilledIcon: TdCloseCircleFilledIcon });
 
     const isDisabled = useDisabled();
+    const isReadonly = useReadonly();
 
     const { inputValue, inputProps } = toRefs(props);
     const [tInputValue, setTInputValue] = useDefault(
@@ -41,9 +43,9 @@ export default defineComponent({
       props.onInputChange,
       'inputValue',
     );
-    const { excessTagsDisplayType, readonly, clearable, placeholder } = toRefs(props);
+    const { excessTagsDisplayType, clearable, placeholder } = toRefs(props);
     const { isHover, addHover, cancelHover } = useHover({
-      readonly: props.readonly,
+      readonly: isReadonly.value,
       disabled: isDisabled.value,
       onMouseenter: props.onMouseenter,
       onMouseleave: props.onMouseleave,
@@ -89,7 +91,7 @@ export default defineComponent({
 
     const showClearIcon = computed(() =>
       Boolean(
-        !readonly.value &&
+        !isReadonly.value &&
           !isDisabled.value &&
           clearable.value &&
           isHover.value &&
@@ -211,6 +213,7 @@ export default defineComponent({
       onInputCompositionend,
       classes,
       isDisabled,
+      isReadonly,
     };
   },
 
@@ -236,7 +239,7 @@ export default defineComponent({
     // 左侧文本
     const label = renderTNodeJSX(this, 'label', { silent: true });
     const inputProps = this.inputProps as TdTagInputProps['inputProps'];
-    const readonly = this.readonly || inputProps?.readonly;
+    const readonly = this.isReadonly || inputProps?.readonly;
     return (
       <TInput
         ref="tagInputRef"
