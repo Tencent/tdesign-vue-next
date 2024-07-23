@@ -5,6 +5,29 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.9.8 `2024-07-23` 
+### 🚀 Features
+- `Form`: 支持通过表单的`readonly`属性影响`TagInput`组件 @xiaojueshi ([#4370](https://github.com/Tencent/tdesign-vue-next/pull/4370))
+- `Icon`: 新增有序列表图标 `list-numbered`，优化`lock-off`的绘制路径 @double-deng ([#4378](https://github.com/Tencent/tdesign-vue-next/pull/4378))
+- `TreeSelect`: `valueDisplay` 回调整个节点信息，用于输入框的回调展示 @uyarn ([#4389](https://github.com/Tencent/tdesign-vue-next/pull/4389))
+- `Dropdown`: 新增`panelTopContent` 和 `panelBottomContent` API 的实现 @uyarn ([#4388](https://github.com/Tencent/tdesign-vue-next/pull/4388))
+- `ImageViewer`: 新增 `attach` API，支持自定义 `ImageViewer` 的挂载节点 @josonyang ([#4405](https://github.com/Tencent/tdesign-vue-next/pull/4405))
+- `Tree`: 使用 `getTreeData` 获取树结构，支持 `children`为 `true` 的情况 @josonyang ([#4405](https://github.com/Tencent/tdesign-vue-next/pull/4405))
+- `DatePicker`: 新增 `needConfirm` API，支持日期时间选择器不需要点击确认按钮保存选择时间 @Cat1007 ([#4411](https://github.com/Tencent/tdesign-vue-next/pull/4411))
+### 🐞 Bug Fixes
+- `DateRangePicker`: @liweijie0812
+    - 修复在`Form`表单处于禁用时，禁用不生效的问题  ([#4380](https://github.com/Tencent/tdesign-vue-next/pull/4380))
+    - 修复 `label` 样式异常的问题  ([common#1845](https://github.com/Tencent/tdesign-common/pull/1845))
+- `TagInput`: 修复 `Form` 组件 `disabled` 属性无法影响到 `TagInput` 组件 @xiaojueshi ([#4353](https://github.com/Tencent/tdesign-vue-next/pull/4353))
+- `Icon`: 修复图标`chart-column`的命名错误问题 @uyarn ([#4378](https://github.com/Tencent/tdesign-vue-next/pull/4378))
+- `Input`: 修复禁用状态下仍可以切换明文密文的问题 @jby0107 ([#4387](https://github.com/Tencent/tdesign-vue-next/pull/4387))
+- `Avatar`: 修复`max`属性在多层嵌套下不生效的问题 @1379255913 ([#4326](https://github.com/Tencent/tdesign-vue-next/pull/4326))
+- `Table`: 修复 `thClassName` 不支持函数和数组使用的缺陷 @theBestVayne ([#4406](https://github.com/Tencent/tdesign-vue-next/pull/4406))
+- `Breadcrumb`: 修复`_blank`配置打开两次新 `Tab` 页的缺陷 @uyarn ([#4421](https://github.com/Tencent/tdesign-vue-next/pull/4421))
+- `Notification`: 修复部分节点前缀没有跟随`classPrefix`变化的问题 @uyarn ([#4421](https://github.com/Tencent/tdesign-vue-next/pull/4421))
+### 🚧 Others
+- `Table`: 修复文档关于`footerAffixedBottom` API的文案错误 @Tsuj100 ([#4384](https://github.com/Tencent/tdesign-vue-next/pull/4384))
+
 ## 🌈 1.9.7 `2024-06-28` 
 ### 🚀 Features
 - `Tree`: 
