@@ -54,7 +54,7 @@ export default defineComponent({
     });
 
     useResizeObserver(
-      barRef, 
+      barRef,
       debounce(() => {
         update();
       }, 20),
