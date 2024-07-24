@@ -17,7 +17,7 @@ export default defineComponent({
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('tabs');
     const classPrefix = usePrefixClass();
-    const barRef = ref<HTMLElement>()
+    const barRef = ref<HTMLElement>();
     const navBarClass = computed(() => {
       return [`${COMPONENT_NAME.value}__bar`, `${classPrefix.value}-is-${props.placement}`];
     });
@@ -39,23 +39,26 @@ export default defineComponent({
         [sizePropName]: `${props.navs[i].el?.getBoundingClientRect()?.[sizePropName] || 0}px`,
       };
     };
-    const update = () => (navBarStyle.value = getStyle())
+    const update = () => (navBarStyle.value = getStyle());
 
     onMounted(() => {
       nextTick(() => {
-        update()
+        update();
       });
     });
 
     watch([() => props.navs, () => props.value, () => props.placement], () => {
       nextTick(() => {
-        update()
+        update();
       });
     });
 
-    useResizeObserver(barRef, debounce(() => {
-      update()
-    }, 20))
+    useResizeObserver(
+      barRef, 
+      debounce(() => {
+        update();
+      }, 20),
+    );
     return () => {
       return <div class={navBarClass.value} style={navBarStyle.value} ref={barRef}></div>;
     };
