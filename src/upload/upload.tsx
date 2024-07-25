@@ -1,5 +1,5 @@
 import { computed, defineComponent } from 'vue';
-import { UploadIcon } from 'tdesign-icons-vue-next';
+import { UploadIcon as TdUploadIcon } from 'tdesign-icons-vue-next';
 import props from './props';
 import NormalFile from './themes/normal-file';
 import DraggerFile from './themes/dragger-file';
@@ -13,6 +13,7 @@ import { UploadDragEvents } from './hooks/useDrag';
 import useUpload from './hooks/useUpload';
 import { useContent, useTNodeJSX } from '../hooks/tnode';
 import { useDisabled } from '../hooks/useDisabled';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 
 export default defineComponent({
   name: 'TUpload',
@@ -45,6 +46,10 @@ export default defineComponent({
       uploadFilePercent,
     } = useUpload(props);
     const disabled = useDisabled();
+
+    const { UploadIcon } = useGlobalIcon({
+      UploadIcon: TdUploadIcon,
+    });
 
     const triggerUploadButtonText = computed(
       () => props.triggerButtonProps?.default || props.triggerButtonProps?.content || triggerUploadText.value,
