@@ -47,5 +47,28 @@
         "value": "large"
       }
     ]
+  },
+  {
+    "name": "status",
+    "type": "enum",
+    "defaultValue": "default",
+    "options": [
+      {
+        "label": "default",
+        "value": "default"
+      },
+      {
+        "label": "success",
+        "value": "success"
+      },
+      {
+        "label": "warning",
+        "value": "warning"
+      },
+      {
+        "label": "error",
+        "value": "error"
+      }
+    ]
   }
 ]

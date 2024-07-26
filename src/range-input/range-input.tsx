@@ -120,6 +120,7 @@ export default defineComponent({
               [STATUS.value.error]: props.status === 'error',
               [`${COMPONENT_NAME.value}--prefix`]: prefixIconContent || labelContent,
               [`${COMPONENT_NAME.value}--suffix`]: suffixContent || suffixIconContent,
+              [`${COMPONENT_NAME.value}--borderless`]: props.borderless,
             },
           ]}
           onMouseenter={handleMouseEnter}
