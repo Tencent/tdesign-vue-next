@@ -9,7 +9,7 @@ labelAlign | String | left | 标签信息放在时间轴的位置，`mode='alter
 layout | String | vertical | 时间轴方向：水平方向、垂直方向。可选项：horizontal/vertical | N
 mode | String | alternate | 标签与内容文本的位置关系，`alternate` 为展示在轴两侧，`same` 为展示在同一侧。可选项：alternate/same | N
 reverse | Boolean | false | 时间轴是否表现为倒序 | N
-theme | String | default | 步骤条风格。可选项：default/dot | N
+theme | String | default | 时间轴风格。可选项：default/dot | N
 
 ### TimelineItem Props
 
