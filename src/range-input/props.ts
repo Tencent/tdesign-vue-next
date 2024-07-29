@@ -12,6 +12,8 @@ export default {
   activeIndex: {
     type: Number,
   },
+  /** 无边框模式 */
+  borderless: Boolean,
   /** 是否可清空 */
   clearable: Boolean,
   /** 是否禁用范围输入框 */
