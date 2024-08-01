@@ -57,6 +57,7 @@ export default defineComponent({
       barRef,
       debounce(() => {
         update();
+        // 数值大了动画不流畅，小了会频繁触发，所以在合适区间里选择一个值
       }, 20),
     );
     return () => {
