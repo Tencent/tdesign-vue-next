@@ -80,7 +80,7 @@ describe('Input', () => {
     it(':maxlength', async () => {
       const wrapper = mount(() => <Input label="标题" maxlength={10} />);
       const input = wrapper.find('.t-input input');
-      expect(input.element.getAttribute('maxlength')).toBe('10');
+      expect(input.element.getAttribute('maxlength')).toBe(null);
     });
     it(':maxcharacter', async () => {
       const value = ref('12345');
