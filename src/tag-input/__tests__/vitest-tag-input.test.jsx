@@ -288,6 +288,17 @@ describe('TagInput Component', () => {
     expect(wrapper.findAll('.t-tag--warning').length).toBe(5);
   });
 
+  it('props.tagProps should effect minCollapseNum tag', () => {
+    const wrapper = getTagInputValueMount(TagInput, {
+      tagProps: { theme: 'warning' },
+      multiple: true,
+      minCollapsedNum: 2,
+      value: ['tdesign-vue', 'tdesign-vue-next', 'tdesign-react'],
+    });
+    // tagProps 需要作用到 minCollapseNum 的 tag 上，2 个正常展示的tag 和 1 个折叠的 tag 都会被 tagProps 影响
+    expect(wrapper.findAll('.t-tag--warning').length).toBe(3);
+  });
+
   it('props.tips is equal this is a tip', () => {
     const wrapper = mount(<TagInput tips={'this is a tip'}></TagInput>);
     expect(wrapper.findAll('.t-input__tips').length).toBe(1);
