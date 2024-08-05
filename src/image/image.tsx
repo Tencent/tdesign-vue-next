@@ -1,21 +1,19 @@
 import { defineComponent, ref, onMounted, computed, onUnmounted, watch, toRefs } from 'vue';
 import omit from 'lodash/omit';
+import isString from 'lodash/isString';
 import isFunction from 'lodash/isFunction';
 import { ImageErrorIcon, ImageIcon } from 'tdesign-icons-vue-next';
 import observe from '../_common/js/utils/observe';
 import { useConfig } from '../config-provider/useConfig';
 import { useTNodeDefault, useTNodeJSX } from '../hooks/tnode';
-import { TdImageProps } from './type';
 import props from './props';
 import Space from '../space';
 import { useImagePreviewUrl } from '../hooks/useImagePreviewUrl';
 
 export default defineComponent({
   name: 'TImage',
-
   props,
-
-  setup(props: TdImageProps) {
+  setup(props) {
     const divRef = ref<HTMLElement>(null);
     const imgRef = ref<HTMLImageElement>(null);
     let io: IntersectionObserver = null;
@@ -146,7 +144,7 @@ export default defineComponent({
 
     function renderImage() {
       // string | File
-      const url = typeof imageStrSrc.value === 'string' ? imageStrSrc.value : previewUrl.value;
+      const url = isString(imageStrSrc.value) ? imageStrSrc.value : previewUrl.value;
       return (
         <img
           ref={imgRef}
@@ -202,7 +200,7 @@ export default defineComponent({
               {renderTNodeJSX('loading') || (
                 <Space direction="vertical" size={8} align="center">
                   <ImageIcon size="24px" />
-                  {typeof props.loading === 'string' ? props.loading : globalConfig.value.loadingText}
+                  {isString(props.loading) ? props.loading : globalConfig.value.loadingText}
                 </Space>
               )}
             </div>
@@ -214,7 +212,7 @@ export default defineComponent({
                 defaultNode: (
                   <Space direction="vertical" size={8} align="center">
                     <ImageErrorIcon size="24px" />
-                    {typeof props.error === 'string' ? props.error : globalConfig.value.errorText}
+                    {isString(props.error) ? props.error : globalConfig.value.errorText}
                   </Space>
                 ),
               })}
