@@ -1,6 +1,6 @@
 <template>
   <t-space size="large">
-    <t-popup content="触发元素的父元素是组件根元素，通过 CSSSelector 定义" attach="#myPopup">
+    <t-popup content="触发元素的父元素是组件根元素，通过 CSSSelector 定义" attach="#myPopup" trigger="click">
       <div id="myPopup">
         <t-button variant="outline">父元素为组件本身</t-button>
       </div>
