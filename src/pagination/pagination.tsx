@@ -9,7 +9,7 @@ import {
   ChevronRightDoubleIcon as TdChevronRightDoubleIcon,
   EllipsisIcon as TdEllipsisIcon,
 } from 'tdesign-icons-vue-next';
-import { TdPaginationProps } from '../pagination/type';
+import { PageInfo, TdPaginationProps } from '../pagination/type';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import TInputNumber from '../input-number';
@@ -147,7 +147,7 @@ export default defineComponent({
       (val) => (jumpIndex.value = val),
     );
 
-    const toPage: (pageIndex: number, isTriggerChange?: boolean) => void = (pageIndex, isTriggerChange) => {
+    const toPage: (pageIndex: number, pageInfo?: PageInfo) => void = (pageIndex, pageInfo) => {
       if (props.disabled) {
         return;
       }
@@ -159,13 +159,12 @@ export default defineComponent({
       }
       if (innerCurrent.value !== current) {
         const prev = innerCurrent.value;
-        const pageInfo = {
+        pageInfo = pageInfo || {
           current,
           previous: prev,
           pageSize: innerPageSize.value,
         };
-
-        if (isTriggerChange !== false) {
+        if (pageInfo) {
           setInnerCurrent(current, pageInfo);
           props.onChange?.(pageInfo);
         } else {
@@ -214,7 +213,7 @@ export default defineComponent({
       };
       setInnerPageSize(pageSize, pageInfo);
       if (isIndexChange) {
-        toPage(pageCount, true);
+        toPage(pageCount, pageInfo);
       } else {
         props.onChange?.(pageInfo);
       }
