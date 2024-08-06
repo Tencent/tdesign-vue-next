@@ -115,7 +115,7 @@ export default function useTagList(props: TagInputProps) {
       });
       list.push(
         more ?? (
-          <Tag key="more" size={size.value}>
+          <Tag key="more" size={size.value} {...tagProps.value}>
             +{len}
           </Tag>
         ),

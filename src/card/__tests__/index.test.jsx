@@ -130,6 +130,22 @@ describe('Card', () => {
       expect(svg.classes()).toContain('t-icon-loading');
     });
 
+    it(':loadingProps', () => {
+      const loadingProps = {
+        text: 'TDesign努力加载中...',
+      };
+      const wrapper = mount(() => (
+        <Card loading loadingProps={loadingProps}>
+          卡片内容
+        </Card>
+      ));
+      const loading = wrapper.find('.t-loading');
+      const loadingText = wrapper.find('.t-loading__text');
+      expect(loading.exists()).toBeTruthy();
+      expect(loadingText.exists()).toBeTruthy();
+      expect(loadingText.text()).toBe('TDesign努力加载中...');
+    });
+
     it(':theme:poster1', () => {
       const wrapper = mount(() => (
         <Card actions="actions" theme="poster1">
