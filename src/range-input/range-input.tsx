@@ -44,7 +44,8 @@ export default defineComponent({
 
     const isShowClearIcon = computed(
       () =>
-        ((props.clearable && props.value?.length && !disabled.value) || props.showClearIconOnEmpty) && isHover.value,
+        ((props.clearable && innerValue.value?.length && !disabled.value) || props.showClearIconOnEmpty) &&
+        isHover.value,
     );
 
     const inputRefs = {
