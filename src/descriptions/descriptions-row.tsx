@@ -1,7 +1,7 @@
 import { defineComponent, inject, PropType } from 'vue';
 
 import { LayoutEnum } from '../common';
-import { usePrefixClass } from '../hooks/useConfig';
+import { useConfig, usePrefixClass } from '../hooks/useConfig';
 
 import { descriptionsKey } from './const';
 import { ItemsType, TdDescriptionItem } from './interface';
@@ -16,6 +16,7 @@ export default defineComponent({
   setup(props) {
     const descriptionsProps = inject(descriptionsKey);
     const COMPONENT_NAME = usePrefixClass('descriptions');
+    const { globalConfig } = useConfig('descriptions');
 
     const label = (node: TdDescriptionItem, layout: LayoutEnum = 'horizontal') => {
       const labelClass = [`${COMPONENT_NAME.value}__label`];
@@ -34,7 +35,7 @@ export default defineComponent({
       return (
         <td colspan={labelSpan} class={labelClass} {...{ style: descriptionsProps.labelStyle }}>
           {label}
-          {descriptionsProps.colon && ':'}
+          {descriptionsProps.colon && globalConfig.value.colon}
         </td>
       );
     };

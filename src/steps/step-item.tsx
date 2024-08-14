@@ -44,7 +44,11 @@ export default defineComponent({
         let icon: SlotReturnValue = '';
         switch (props.status) {
           case 'finish':
-            icon = <CheckIcon />;
+            if (isFunction(globalConfig.value.checkIcon)) {
+              icon = globalConfig.value.checkIcon(h);
+            } else {
+              icon = <CheckIcon />;
+            }
             break;
           case 'error':
             if (isFunction(globalConfig.value.errorIcon)) {
