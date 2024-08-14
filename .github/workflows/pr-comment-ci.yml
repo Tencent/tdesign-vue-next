@@ -11,12 +11,14 @@ jobs:
       next_action: ${{ steps.get-action.outputs.next_action }}
     if: ${{ github.event.issue.pull_request }}
     steps:
-       - uses: actions/checkout@v4
-         with:
-          fetch-depth: 1
-       - uses: actions/github-script@v7
-         id: get-action
-         with:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            .github/CODEOWNERS
+          sparse-checkout-cone-mode: false
+      - uses: actions/github-script@v7
+        id: get-action
+        with:
           script: |
             const user = context.payload.comment.user.login
             core.debug(`user: ${user}`)
@@ -41,13 +43,21 @@ jobs:
               }
               if (body.startsWith('/update-snapshot')) {
                 next_action='update-snapshot'
-              }  
+              }
+              if(next_action){
+                await github.rest.reactions.createForIssueComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  comment_id: context.payload.comment.id,
+                  content: 'rocket',
+                })
+              }
             } else {
                core.warning('You are not collaborator');
             }
             core.info(`next_action: ${next_action}`)
             core.setOutput('next_action', next_action)
-  
+
   update-common:
     needs: check
     runs-on: ubuntu-latest
@@ -55,20 +65,69 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          fetch-depth: 0
           token: ${{ secrets.PERSONAL_TOKEN }}
       - name: gh checkout pr
         env:
           GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
-        run: gh pr checkout ${{ github.event.issue.number }} --recurse-submodules
-      - run: git submodule update --remote --merge
-      - name: Commit Common
+        run: gh pr checkout ${{ github.event.issue.number }}
+      - name: merge develop
         run: |
-          git add .
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git commit -m "chore: update common"
-          git push
-  
+          git merge develop --no-commit || true
+
+      - name: check conflicts
+        run: |
+          git status
+          conflict_count=$(git status | grep -c 'both modified:') || true
+          working_tree_clean=$(git status | grep -c 'nothing to commit, working tree clean') || true
+          common_conflict=$(git status | grep 'both modified:' | grep -c '_common') || true
+          conflicts_sum=$((common_conflict))
+          echo "conflict_count: $conflict_count"
+          echo "working_tree_clean: $working_tree_clean"
+          echo "common_conflict: $common_conflict"
+          echo "conflicts_sum: $conflicts_sum"
+
+          if [ "$working_tree_clean" -eq "1" ]; then
+              echo "nothing to commit, working tree clean"
+              exit 0
+          fi
+
+          if [ "$conflict_count" -gt "0" ]&&[ "$conflicts_sum" -eq "0" ]; then
+              echo "Unknown conflict "
+              git status
+              exit 1
+          fi
+
+          if [ "$common_conflict" -eq "1" ];then
+              git checkout --theirs src/_common
+              git add src/_common
+              echo "resolve conflict _common"
+          fi
+
+          git status
+          git commit -am "chore: merge develop"
+      - run: git submodule init    
+      - run: git submodule update --remote --merge
+      - name: Commit common
+        run: |
+          git status
+          working_tree_clean=$(git status | grep -c 'nothing to commit, working tree clean') || true
+          if [ "$working_tree_clean" -eq "0" ]; then
+            git add .
+            git commit -m "chore: update common"
+          fi
+          git status
+      - name: git push
+        run: |
+          git status
+          branch_ahead=$(git status | grep -c 'use "git push" to publish your local commits') || true
+          if [ "$branch_ahead" -eq "1" ]; then
+            git push
+          fi
+          git status
+
   update-snapshot:
     needs: check
     runs-on: ubuntu-latest
@@ -76,11 +135,65 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          fetch-depth: 0
           token: ${{ secrets.PERSONAL_TOKEN }}
       - name: gh checkout pr
         env:
           GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
         run: gh pr checkout ${{ github.event.issue.number }} --recurse-submodules
+      - name: merge develop
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git merge develop --no-commit || true
+      - name: check conflicts
+        run: |
+          git status
+          conflict_count=$(git status | grep -c 'both modified:') || true
+          working_tree_clean=$(git status | grep -c 'nothing to commit, working tree clean') || true
+          csr_snap_conflict=$(git status | grep 'both modified:' | grep -c 'csr.test.jsx.snap') || true
+          ssr_snap_conflict=$(git status | grep 'both modified:' | grep -c 'ssr.test.jsx.snap') || true
+          common_conflict=$(git status | grep 'both modified:' | grep -c '_common') || true
+          conflicts_sum=$((csr_snap_conflict + ssr_snap_conflict + common_conflict))
+          echo "conflict_count: $conflict_count"
+          echo "working_tree_clean: $working_tree_clean"
+          echo "csr_snap_conflict: $csr_snap_conflict"
+          echo "ssr_snap_conflict: $ssr_snap_conflict"
+          echo "common_conflict: $common_conflict"
+          echo "conflicts_sum: $conflicts_sum"
+
+          if [ "$working_tree_clean" -eq "1" ]; then
+              echo "nothing to commit, working tree clean"
+              exit 0
+          fi
+
+          if [ "$conflict_count" -gt "0" ]&&[ "$conflicts_sum" -eq "0" ]; then
+              echo "Unknown conflict "
+              git status
+              exit 1
+          fi
+
+          if [ "$csr_snap_conflict" -eq "1" ];then
+              git checkout --theirs test/snap/__snapshots__/csr.test.jsx.snap
+              git add test/snap/__snapshots__/csr.test.jsx.snap
+              echo "resolve conflict csr.test.jsx.snap"
+          fi
+
+          if [ "$ssr_snap_conflict" -eq "1" ];then
+              git checkout --theirs test/snap/__snapshots__/ssr.test.jsx.snap
+              git add test/snap/__snapshots__/ssr.test.jsx.snap
+              echo "resolve conflict ssr.test.jsx.snap"
+          fi
+
+          if [ "$common_conflict" -eq "1" ];then
+              git checkout --theirs src/_common
+              git add src/_common
+              echo "resolve conflict _common"
+          fi
+
+          git status
+          git commit -am "chore: merge develop"
+
       - uses: actions/setup-node@v4
         with:
           node-version: 18
@@ -88,8 +201,18 @@ jobs:
       - run: npm run test:update
       - name: Commit Snapshot
         run: |
-          git add .
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git commit -m "chore: update snapshot"
-          git push
+          git status
+          working_tree_clean=$(git status | grep -c 'nothing to commit, working tree clean') || true
+          if [ "$working_tree_clean" -eq "0" ]; then
+            git add .
+            git commit -m "chore: update snapshot"
+          fi
+          git status
+      - name: git push
+        run: |
+          git status
+          branch_ahead=$(git status | grep -c 'use "git push" to publish your local commits') || true
+          if [ "$branch_ahead" -eq "1" ]; then
+            git push
+          fi
+          git status
