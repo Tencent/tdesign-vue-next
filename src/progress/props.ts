@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { TdProgressProps } from './type';
@@ -17,7 +16,7 @@ export default {
   /** 进度百分比，可自定义 */
   label: {
     type: [String, Boolean, Function] as PropType<TdProgressProps['label']>,
-    default: true,
+    default: true as TdProgressProps['label'],
   },
   /** 进度条百分比 */
   percentage: {
@@ -27,12 +26,13 @@ export default {
   /** 进度条尺寸，示例：small/medium/large/240。small 值为 72； medium 值为 112；large 值为 160 */
   size: {
     type: [String, Number] as PropType<TdProgressProps['size']>,
-    default: 'medium',
+    default: 'medium' as TdProgressProps['size'],
   },
   /** 进度条状态 */
   status: {
     type: String as PropType<TdProgressProps['status']>,
     validator(val: TdProgressProps['status']): boolean {
+      if (!val) return true;
       return ['success', 'error', 'warning', 'active'].includes(val);
     },
   },
@@ -45,6 +45,7 @@ export default {
     type: String as PropType<TdProgressProps['theme']>,
     default: 'line' as TdProgressProps['theme'],
     validator(val: TdProgressProps['theme']): boolean {
+      if (!val) return true;
       return ['line', 'plump', 'circle'].includes(val);
     },
   },

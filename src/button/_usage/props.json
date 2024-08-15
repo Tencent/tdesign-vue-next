@@ -12,12 +12,6 @@
     "options": []
   },
   {
-    "name": "ghost",
-    "type": "Boolean",
-    "defaultValue": false,
-    "options": []
-  },
-  {
     "name": "loading",
     "type": "Boolean",
     "defaultValue": false,
