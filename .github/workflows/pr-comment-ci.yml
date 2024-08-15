@@ -111,6 +111,8 @@ jobs:
           git status
           git commit -am "chore: merge develop"
 
+      - run: git submodule update --remote --merge
+      
       - name: Commit common
         run: |
           git status
