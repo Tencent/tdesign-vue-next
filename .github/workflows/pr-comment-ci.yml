@@ -70,8 +70,8 @@ jobs:
           
       - name: gh checkout pr
         env:
-          GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }} --recurse-submodules
-        run: gh pr checkout ${{ github.event.issue.number }}
+          GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+        run: gh pr checkout ${{ github.event.issue.number }} --recurse-submodules
 
       - name: merge develop
         run: |
