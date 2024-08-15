@@ -67,10 +67,12 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.PERSONAL_TOKEN }}
+          
       - name: gh checkout pr
         env:
-          GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }} --recurse-submodules
         run: gh pr checkout ${{ github.event.issue.number }}
+
       - name: merge develop
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
@@ -108,8 +110,7 @@ jobs:
 
           git status
           git commit -am "chore: merge develop"
-      - run: git submodule init    
-      - run: git submodule update --remote --merge
+
       - name: Commit common
         run: |
           git status
@@ -119,6 +120,7 @@ jobs:
             git commit -m "chore: update common"
           fi
           git status
+
       - name: git push
         run: |
           git status
