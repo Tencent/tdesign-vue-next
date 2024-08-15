@@ -784,6 +784,11 @@ export interface UploadConfigFileList {
 
 export interface FormConfig {
   /**
+   * 字段旁边的冒号，中文为“：”
+   * @default ''
+   */
+  colonText?: string;
+  /**
    * 表单错误信息配置，示例：`{ idcard: '请输入正确的身份证号码', max: '字符长度不能超过 ${max}' }`
    */
   errorMessage?: FormErrorMessage;
@@ -830,7 +835,7 @@ export interface DescriptionsConfig {
    * 字段旁边的冒号，中文为“：”
    * @default ''
    */
-  colon?: string;
+  colonText?: string;
 }
 
 export interface AnchorConfig {

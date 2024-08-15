@@ -35,7 +35,7 @@ export default defineComponent({
       return (
         <td colspan={labelSpan} class={labelClass} {...{ style: descriptionsProps.labelStyle }}>
           {label}
-          {descriptionsProps.colon && globalConfig.value.colon}
+          {descriptionsProps.colon && globalConfig.value.colonText}
         </td>
       );
     };
