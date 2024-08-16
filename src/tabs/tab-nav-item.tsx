@@ -39,7 +39,7 @@ export default defineComponent({
     const { STATUS, SIZE } = useCommonClassName();
 
     const removeBtnClick = ({ e }: { e: MouseEvent }) => {
-      e.stopPropagation();
+      if (e) e.stopPropagation();
       props.onRemove({ e, value: props.value, index: props.index });
     };
     const onClickNav = (e: MouseEvent) => {
