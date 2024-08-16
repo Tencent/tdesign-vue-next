@@ -42,9 +42,12 @@ export default defineComponent({
     const placeholder = computed(() => calcArrayValue(props.placeholder));
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
 
+    const inputValue = computed(() => String((innerValue.value[0] || innerValue.value[1]) ?? ''));
+
     const isShowClearIcon = computed(
       () =>
-        ((props.clearable && props.value?.length && !disabled.value) || props.showClearIconOnEmpty) && isHover.value,
+        ((props.clearable && inputValue.value?.length && !disabled.value) || props.showClearIconOnEmpty) &&
+        isHover.value,
     );
 
     const inputRefs = {
@@ -86,15 +89,15 @@ export default defineComponent({
       secondInputElement: inputRefs.secondInputRef.value,
       focus: (options: any) => {
         const { position = 'first' } = options || {};
-        inputRefs[`${position}InputRef`].value?.focus();
+        inputRefs[`${position as Exclude<RangeInputPosition, 'all'>}InputRef`].value?.focus();
       },
       blur: (options: any) => {
         const { position = 'first' } = options || {};
-        inputRefs[`${position}InputRef`].value?.blur();
+        inputRefs[`${position as Exclude<RangeInputPosition, 'all'>}InputRef`].value?.blur();
       },
       select: (options: any) => {
         const { position = 'first' } = options || {};
-        inputRefs[`${position}InputRef`].value?.select();
+        inputRefs[`${position as Exclude<RangeInputPosition, 'all'>}InputRef`].value?.select();
       },
     });
 
@@ -205,7 +208,7 @@ export default defineComponent({
               {...inputProps.value[1]}
             />
             {suffixContent ? <div class={`${COMPONENT_NAME.value}__suffix`}>{suffixContent}</div> : null}
-            {suffixIconContent && (
+            {(suffixIconContent || isShowClearIcon.value) && (
               <span class={`${COMPONENT_NAME.value}__suffix ${COMPONENT_NAME.value}__suffix-icon`}>
                 {isShowClearIcon.value ? (
                   <CloseCircleFilledIcon class={`${COMPONENT_NAME.value}__suffix-clear`} onClick={handleClear} />
