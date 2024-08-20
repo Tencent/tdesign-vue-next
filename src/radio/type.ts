@@ -105,9 +105,9 @@ export interface TdRadioGroupProps<T = RadioValue> {
    */
   variant?: 'outline' | 'primary-filled' | 'default-filled';
   /**
-   * 选中值发生变化时触发
+   * 选中值发生变化时触发, `context.name` 指 RadioGroup 的 name 属性
    */
-  onChange?: (value: T, context: { e: Event }) => void;
+  onChange?: (value: T, context: { e: Event; name?: string }) => void;
 }
 
 export type RadioOption = string | number | RadioOptionObj;

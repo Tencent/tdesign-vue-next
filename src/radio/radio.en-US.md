@@ -38,10 +38,10 @@ size | String | medium | options: small/medium/large。Typescript：`SizeEnum`�
 value | String / Number / Boolean | - | `v-model` and `v-model:value` is supported。Typescript：`T` `type RadioValue = string \| number \| boolean`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/radio/type.ts) | N
 defaultValue | String / Number / Boolean | - | uncontrolled property。Typescript：`T` `type RadioValue = string \| number \| boolean`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/radio/type.ts) | N
 variant | String | outline | options: outline/primary-filled/default-filled | N
-onChange | Function |  | Typescript：`(value: T, context: { e: Event }) => void`<br/> | N
+onChange | Function |  | Typescript：`(value: T, context: { e: Event; name?:string }) => void`<br/> | N
 
 ### RadioGroup Events
 
 name | params | description
 -- | -- | --
-change | `(value: T, context: { e: Event })` | \-
+change | `(value: T, context: { e: Event; name?:string })` | \-
