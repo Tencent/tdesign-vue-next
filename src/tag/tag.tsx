@@ -89,7 +89,7 @@ export default defineComponent({
       return (
         <CloseIcon
           onClick={({ e }: { e: MouseEvent }) => {
-            e.stopPropagation();
+            if (e) e.stopPropagation();
             props.onClose?.({ e });
           }}
           class={iconClassName}

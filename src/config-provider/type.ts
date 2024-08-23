@@ -47,6 +47,10 @@ export interface GlobalConfigProvider {
    */
   datePicker?: DatePickerConfig;
   /**
+   * 描述全局配置
+   */
+  descriptions?: DescriptionsConfig;
+  /**
    * 对话框全局配置
    */
   dialog?: DialogConfig;
@@ -94,6 +98,10 @@ export interface GlobalConfigProvider {
    * 气泡确认框全局配置
    */
   popconfirm?: PopconfirmConfig;
+  /**
+   * 评分全局配置
+   */
+  rate?: RateConfig;
   /**
    * 选择器组件全局配置
    */
@@ -776,6 +784,11 @@ export interface UploadConfigFileList {
 
 export interface FormConfig {
   /**
+   * 字段旁边的冒号，中文为“：”
+   * @default ''
+   */
+  colonText?: string;
+  /**
    * 表单错误信息配置，示例：`{ idcard: '请输入正确的身份证号码', max: '字符长度不能超过 ${max}' }`
    */
   errorMessage?: FormErrorMessage;
@@ -795,6 +808,10 @@ export interface TagConfig {
 
 export interface StepsConfig {
   /**
+   * 已完成步骤图标，【注意】使用渲染函数输出图标组件
+   */
+  checkIcon?: TNode;
+  /**
    * 错误步骤图标，【注意】使用渲染函数输出图标组件
    */
   errorIcon?: TNode;
@@ -811,6 +828,14 @@ export interface AlertConfig {
    * @default ''
    */
   expandText?: string;
+}
+
+export interface DescriptionsConfig {
+  /**
+   * 字段旁边的冒号，中文为“：”
+   * @default ''
+   */
+  colonText?: string;
 }
 
 export interface AnchorConfig {
@@ -885,6 +910,13 @@ export interface GuideConfig {
    * 跳过按钮，示例：`{ content: '跳过', theme: 'default' }`
    */
   skipButtonProps?: ButtonProps;
+}
+
+export interface RateConfig {
+  /**
+   * 评分描述，默认值：['极差', '失望', '一般', '满意', '惊喜']
+   */
+  rateText?: string[];
 }
 
 export type AnimationType = 'ripple' | 'expand' | 'fade';

@@ -94,7 +94,6 @@ export default defineComponent({
       CLASS_NAMES.value.label,
       {
         [`${FROM_LABEL.value}--required`]: needRequiredMark.value,
-        [`${FROM_LABEL.value}--colon`]: hasColon.value,
         [`${FROM_LABEL.value}--top`]: hasLabel.value && (labelAlign.value === 'top' || !labelWidth.value),
         [`${FROM_LABEL.value}--left`]: labelAlign.value === 'left' && labelWidth.value,
         [`${FROM_LABEL.value}--right`]: labelAlign.value === 'right' && labelWidth.value,
@@ -116,6 +115,7 @@ export default defineComponent({
       return (
         <div class={labelClasses.value} style={labelStyle}>
           <label for={props.for || null}>{renderContent('label')}</label>
+          {hasColon.value && globalConfig.value.colonText}
         </div>
       );
     };
