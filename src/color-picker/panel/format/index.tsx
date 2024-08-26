@@ -69,7 +69,7 @@ export default defineComponent({
           <TSelect
             size="small"
             class={`${baseClassName}__format-mode-select`}
-            {...selectInputProps}
+            selectInputProps={{ ...selectInputProps }}
             popupProps={{
               overlayClassName: `${baseClassName}__select-options`,
               ...(selectInputProps as TdSelectInputProps).popupProps,
