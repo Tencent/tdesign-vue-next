@@ -332,6 +332,11 @@ export interface FormErrorMessage {
    * @default ''
    */
   validator?: string;
+  /**
+   * 值为空格校验不通过时表单项显示文案，全局配置默认是：`'${name}不能为空`
+   * @default ''
+   */
+  whitespace?: string;
 }
 
 export type FormRules<T extends Data = any> = { [field in keyof T]?: Array<FormRule> };

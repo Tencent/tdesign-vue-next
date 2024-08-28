@@ -1,6 +1,7 @@
 :: BASE_DOC ::
 
 ## API
+
 ### Form Props
 
 name | type | default | description | required
@@ -44,6 +45,7 @@ setValidateMessage | `(message: FormValidateMessage<FormData>)` | \- | required�
 submit | `(params?: { showErrorMessage?: boolean })` | \- | required
 validate | `(params?: FormValidateParams)` | `Promise<FormValidateResult<FormData>>` | required。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/form/type.ts)。<br/>`interface FormValidateParams { fields?: Array<string>; showErrorMessage?: boolean; trigger?: ValidateTriggerType }`<br/><br/>`type ValidateTriggerType = 'blur' \| 'change' \| 'submit' \| 'all'`<br/>
 validateOnly | `(params?: Pick<FormValidateParams, 'fields' \| 'trigger'>)` | `Promise<FormValidateResult<FormData>>` | required
+
 
 ### FormItem Props
 
@@ -103,3 +105,4 @@ required | String | - | \- | N
 telnumber | String | - | \- | N
 url | String | - | \- | N
 validator | String | - | \- | N
+whitespace | String | - | \- | N
