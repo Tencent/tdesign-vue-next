@@ -104,8 +104,7 @@ export default defineComponent({
       const tagContent = renderContent('default', 'content');
       // 图标
       const icon = renderTNodeJSX('icon');
-      const title = renderTNodeJSX('title');
-      const titleAttribute = title && props.maxWidth ? title : undefined;
+      const titleAttribute = props.title && props.maxWidth ? props.title : undefined;
 
       return (
         <div class={tagClass.value} style={tagStyle.value} onClick={handleClick}>
