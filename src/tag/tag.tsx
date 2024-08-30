@@ -7,7 +7,6 @@ import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfi
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import { Styles } from '../common';
-import isString from 'lodash/isString';
 
 export default defineComponent({
   name: 'TTag',
