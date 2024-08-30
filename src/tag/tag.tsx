@@ -104,8 +104,7 @@ export default defineComponent({
       const tagContent = renderContent('default', 'content');
       // 图标
       const icon = renderTNodeJSX('icon');
-
-      const title = isString(tagContent) ? tagContent : '';
+      const title = renderTNodeJSX('title');
       const titleAttribute = title && props.maxWidth ? title : undefined;
 
       return (
