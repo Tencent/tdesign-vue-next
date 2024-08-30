@@ -42,14 +42,14 @@ disabled | Boolean | false | \- | N
 size | String | medium | options: small/medium/large。Typescript：`SizeEnum`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 uncheckedProps | Object | - | used to set unchecked tag props。Typescript：`TdTagProps` | N
 value | String / Number | - | tag unique key | N
-onChange | Function |  | Typescript：`(checked: boolean, context: CheckTagChangeContext)  => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag/type.ts)。<br/>`interface CheckTagChangeContext { e: MouseEvent \| KeyboardEvent; value: string \| number }`<br/> | N
+onChange | Function |  | Typescript：`(checked: boolean, context: CheckTagChangeContext) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag/type.ts)。<br/>`interface CheckTagChangeContext { e: MouseEvent \| KeyboardEvent; value: string \| number }`<br/> | N
 onClick | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/> | N
 
 ### CheckTag Events
 
 name | params | description
 -- | -- | --
-change | `(checked: boolean, context: CheckTagChangeContext) ` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag/type.ts)。<br/>`interface CheckTagChangeContext { e: MouseEvent \| KeyboardEvent; value: string \| number }`<br/>
+change | `(checked: boolean, context: CheckTagChangeContext)` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag/type.ts)。<br/>`interface CheckTagChangeContext { e: MouseEvent \| KeyboardEvent; value: string \| number }`<br/>
 click | `(context: { e: MouseEvent })` | \-
 
 

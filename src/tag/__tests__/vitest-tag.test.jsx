@@ -65,7 +65,7 @@ describe('Tag Component', () => {
     const domWrapper = wrapper.findComponent(Tag);
     expect(domWrapper.element.style.maxWidth).toBe('150px');
     const domWrapper1 = wrapper.find('.t-tag--text');
-    expect(domWrapper1.attributes('title')).toBe('This is a long long long long long tag');
+    expect(domWrapper1.attributes('title')).toBeUndefined();
   });
 
   const shapeClassNameList = [{ 't-tag--square': false }, 't-tag--round', 't-tag--mark'];
@@ -99,6 +99,20 @@ describe('Tag Component', () => {
       const wrapper = mount(<Tag theme={item}></Tag>);
       expect(wrapper.classes(`t-tag--${item}`)).toBeTruthy();
     });
+  });
+
+  it(`props.title is equal to This is a long long long long long tag`, () => {
+    const wrapper = mount(
+      <Tag
+        title={'This is a long long long long long tag'}
+        content={'This is a long long long long long tag'}
+        maxWidth={'150px'}
+      ></Tag>,
+    );
+    const domWrapper = wrapper.findComponent(Tag);
+    expect(domWrapper.element.style.maxWidth).toBe('150px');
+    const domWrapper1 = wrapper.find('.t-tag--text');
+    expect(domWrapper1.attributes('title')).toBe('This is a long long long long long tag');
   });
 
   ['dark', 'light', 'outline', 'light-outline'].forEach((item) => {
