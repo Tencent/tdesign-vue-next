@@ -1,6 +1,5 @@
 import { App } from 'vue';
 import * as components from './components';
-import Empty from './empty';
 
 export function install(app: App, config?: Record<string, unknown>): void {
   Object.keys(components).forEach((key) => {
