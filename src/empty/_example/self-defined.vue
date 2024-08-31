@@ -11,12 +11,12 @@
       <t-empty description="暂无数据">
         <template #image>
           <div
-            :style="{
-              width: '64px',
-              height: '64px',
-              backgroundImage: 'url(https://tdesign.gtimg.com/demo/demo-image-1.png)',
-              backgroundSize: '100% 100%',
-            }"
+            style="
+              width: 64px;
+              height: 64px;
+              background-image: url(https://tdesign.gtimg.com/demo/demo-image-1.png);
+              background-size: 100% 100%;
+            "
           ></div>
         </template>
       </t-empty>
