@@ -50,6 +50,7 @@ export * from './badge';
 export * from './calendar';
 export * from './card';
 export * from './comment';
+export * from './empty';
 export * from './image';
 export * from './image-viewer';
 export * from './list';
