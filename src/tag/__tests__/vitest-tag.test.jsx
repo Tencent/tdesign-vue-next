@@ -101,13 +101,25 @@ describe('Tag Component', () => {
     });
   });
 
-  it(`props.title is equal to This is a long long long long long tag`, () => {
+  it(`props.title is equal to This is a long tag`, () => {
     const wrapper = mount(
-      <Tag
-        title={'This is a long long long long long tag'}
-        content={'This is a long long long long long tag'}
-        maxWidth={'150px'}
-      ></Tag>,
+      <Tag title={'This is a long tag'} content={'This is a long long long long long tag'} maxWidth={'150px'}></Tag>,
+    );
+    const domWrapper = wrapper.findComponent(Tag);
+    expect(domWrapper.element.style.maxWidth).toBe('150px');
+    const domWrapper1 = wrapper.find('.t-tag--text');
+    expect(domWrapper1.attributes('title')).toBe('This is a long tag');
+  });
+  it(`props.title is equal to `, () => {
+    const wrapper = mount(<Tag title={''} content={'This is a long long long long long tag'} maxWidth={'150px'}></Tag>);
+    const domWrapper = wrapper.findComponent(Tag);
+    expect(domWrapper.element.style.maxWidth).toBe('150px');
+    const domWrapper1 = wrapper.find('.t-tag--text');
+    expect(domWrapper1.attributes('title')).toBe('This is a long long long long long tag');
+  });
+  it(`props.title is equal to undefined`, () => {
+    const wrapper = mount(
+      <Tag title={undefined} content={'This is a long long long long long tag'} maxWidth={'150px'}></Tag>,
     );
     const domWrapper = wrapper.findComponent(Tag);
     expect(domWrapper.element.style.maxWidth).toBe('150px');
