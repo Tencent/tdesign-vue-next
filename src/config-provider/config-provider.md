@@ -19,6 +19,7 @@ Vue.createApp({}).use(TDesign)
 ```
 
 #### vue-cli
+<!-- vue.config.js -->
 ```js
 {
     css: {
@@ -37,6 +38,7 @@ Vue.createApp({}).use(TDesign)
 ```
 
 #### vite
+<!-- vite.config.js -->
 ```js
 {
     css: {
