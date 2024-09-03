@@ -20,8 +20,8 @@ Vue.createApp({}).use(TDesign)
 ```
 
 #### vue-cli
-<!-- vue.config.js -->
 ```js
+//  vue.config.js
 {
     css: {
         loaderOptions: {
@@ -38,8 +38,8 @@ Vue.createApp({}).use(TDesign)
 }
 ```
 #### vite
-<!-- vite.config.js -->
 ```js
+// vite.config.js
 {
     css: {
         preprocessorOptions: {
