@@ -1,5 +1,6 @@
-import { computed, defineComponent, h, VNode } from 'vue';
+import { computed, defineComponent, getCurrentInstance, h, VNode } from 'vue';
 import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
+import isString from 'lodash/isString';
 import tinycolor from 'tinycolor2';
 
 import props from './props';
@@ -7,7 +8,6 @@ import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfi
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import { Styles } from '../common';
-import isString from 'lodash/isString';
 
 export default defineComponent({
   name: 'TTag',
@@ -19,6 +19,7 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const renderContent = useContent();
     const { SIZE } = useCommonClassName();
+    const { vnode } = getCurrentInstance();
 
     const tagClass = computed(() => {
       return [
@@ -97,6 +98,19 @@ export default defineComponent({
       );
     };
 
+    const renderTitle = (tagContent: string) => {
+      const vProps = vnode.props || {};
+      if (Reflect.has(vProps, 'title') && vProps['title']) {
+        return props.title;
+      }
+
+      if (tagContent) {
+        return tagContent;
+      }
+
+      return undefined;
+    };
+
     return () => {
       // 关闭按钮 自定义组件使用 nativeOnClick 绑定事件
       const closeIcon = getCloseIcon();
@@ -105,7 +119,8 @@ export default defineComponent({
       // 图标
       const icon = renderTNodeJSX('icon');
 
-      const title = isString(tagContent) ? tagContent : '';
+      const title = renderTitle(isString(tagContent) ? tagContent : '');
+
       const titleAttribute = title && props.maxWidth ? title : undefined;
 
       return (

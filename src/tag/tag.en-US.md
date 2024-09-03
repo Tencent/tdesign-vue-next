@@ -1,12 +1,13 @@
 :: BASE_DOC ::
 
 ## API
+
 ### Tag Props
 
 name | type | default | description | required
 -- | -- | -- | -- | --
 closable | Boolean | false | \- | N
-color | String | '' | custom color | N
+color | String | - | self-defined tag color  | N
 content | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 default | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 disabled | Boolean | false | \- | N
@@ -15,6 +16,7 @@ maxWidth | String / Number | - | \- | N
 shape | String | square | options: square/round/mark | N
 size | String | medium | options: small/medium/large。Typescript：`SizeEnum`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 theme | String | default | options: default/primary/warning/danger/success | N
+title | String | - | title of tag | N
 variant | String | dark | options: dark/light/outline/light-outline | N
 onClick | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/> | N
 onClose | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/> | N
@@ -26,12 +28,13 @@ name | params | description
 click | `(context: { e: MouseEvent })` | \-
 close | `(context: { e: MouseEvent })` | \-
 
+
 ### CheckTag Props
 
 name | type | default | description | required
 -- | -- | -- | -- | --
-checked | Boolean | - | `v-model` and `v-model:checked` is supported | N
-defaultChecked | Boolean | - | uncontrolled property | N
+checked | Boolean | undefined | `v-model` and `v-model:checked` is supported | N
+defaultChecked | Boolean | undefined | uncontrolled property | N
 checkedProps | Object | - | used to set checked tag props。Typescript：`TdTagProps` | N
 content | String / Number / Array / Slot / Function | - | Typescript：`string \| number \| string[] \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 default | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
@@ -48,6 +51,7 @@ name | params | description
 -- | -- | --
 change | `(checked: boolean, context: CheckTagChangeContext)` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag/type.ts)。<br/>`interface CheckTagChangeContext { e: MouseEvent \| KeyboardEvent; value: string \| number }`<br/>
 click | `(context: { e: MouseEvent })` | \-
+
 
 ### CheckTagGroup Props
 
