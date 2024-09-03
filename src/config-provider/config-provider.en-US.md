@@ -19,17 +19,37 @@ Vue.createApp({}).use(TDesign)
 </t-config-provider>
 ```
 
+#### vue-cli
 ```js
+//  vue.config.js
 {
-    loaderOptions: {
-        less: {
-            lessOptions: {
+    css: {
+        loaderOptions: {
+            less: {
+                lessOptions: {
+                    modifyVars: {
+                     '@prefix': 'any', // should be the same as classPrefix
+                    },
+                    javascriptEnabled: true,
+                },
+            },
+        }
+    }
+}
+```
+#### vite
+```js
+// vite.config.js
+{
+    css: {
+        preprocessorOptions: {
+            less: {
                 modifyVars: {
                     '@prefix': 'any', // should be the same as classPrefix
                 },
                 javascriptEnabled: true,
             },
-        },
+        }
     }
 }
 ```

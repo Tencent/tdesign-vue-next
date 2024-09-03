@@ -18,20 +18,42 @@ Vue.createApp({}).use(TDesign)
 </t-config-provider>
 ```
 
+#### vue-cli
 ```js
+// vue.config.js
 {
-    loaderOptions: {
-        less: {
-            lessOptions: {
-                modifyVars: {
-                    '@prefix': 'any', // 请注意需要与classPrefix保持一致
+    css: {
+        loaderOptions: {
+            less: {
+                lessOptions: {
+                    modifyVars: {
+                     '@prefix': 'any',// 请注意需要与classPrefix保持一致
+                    },
+                    javascriptEnabled: true,
                 },
-                javascriptEnabled: true,
             },
-        },
+        }
     }
 }
 ```
+
+#### vite
+```js
+// vite.config.js
+{
+    css: {
+        preprocessorOptions: {
+            less: {
+                modifyVars: {
+                    '@prefix': 'any',// 请注意需要与classPrefix保持一致
+                },
+                javascriptEnabled: true,
+            },
+        }
+    }
+}
+```
+
 
 ## API
 ### GlobalConfigProvider
