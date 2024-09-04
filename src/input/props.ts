@@ -28,7 +28,7 @@ export default {
   },
   /** 自动聚焦 */
   autofocus: Boolean,
-  /** 无边框模式 */
+  /** 是否开启无边框模式 */
   borderless: Boolean,
   /** 是否可清空 */
   clearable: Boolean,
@@ -91,10 +91,10 @@ export default {
   },
   /** 是否开启拼写检查，HTML5 原生属性，[点击查看详情](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/spellcheck) */
   spellCheck: Boolean,
-  /** 输入框状态。默认情况会由组件内部根据实际情况呈现，如果文本过长引起的状态变化 */
+  /** 输入框状态 */
   status: {
     type: String as PropType<TdInputProps['status']>,
-    default: undefined as TdInputProps['status'],
+    default: 'default' as TdInputProps['status'],
     validator(val: TdInputProps['status']): boolean {
       if (!val) return true;
       return ['default', 'success', 'warning', 'error'].includes(val);
