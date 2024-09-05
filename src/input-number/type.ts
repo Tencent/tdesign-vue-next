@@ -149,4 +149,4 @@ export interface ChangeContext {
 
 export type ChangeSource = 'add' | 'reduce' | 'input' | 'blur' | 'enter' | 'clear' | 'props';
 
-export type InputNumberDecimalPlaces = number | { enableRound: boolean; decimalPlaces: number };
+export type InputNumberDecimalPlaces = number | { enableRound: boolean; places: number };
