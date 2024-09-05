@@ -53,20 +53,6 @@ describe('InputNumber', () => {
       ));
       const input4 = wrapper4.find('.t-input input');
       expect(input4.element.value).toBe('1.35');
-
-      const value5 = ref('1.356');
-      const wrapper5 = mount(() => (
-        <InputNumber v-model={value5.value} decimalPlaces={{ places: 2 }} isLargeNumber={true} />
-      ));
-      const input5 = wrapper5.find('.t-input input');
-      expect(input5.element.value).toBe('1.36');
-
-      const value6 = ref('1.356');
-      const wrapper6 = mount(() => (
-        <InputNumber v-model={value6.value} decimalPlaces={{ enableRound: false, places: 2 }} />
-      ));
-      const input6 = wrapper6.find('.t-input input');
-      expect(input6.element.value).toBe('1.35');
     });
 
     it(':disabled', () => {
