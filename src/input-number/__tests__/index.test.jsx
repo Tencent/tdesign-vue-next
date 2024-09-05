@@ -27,6 +27,22 @@ describe('InputNumber', () => {
       expect(input.element.value).toBe('100.00');
     });
 
+    it(':decimalPlaces: { enableRound: boolean }', () => {
+      const value1 = ref('1.356');
+      const wrapper1 = mount(() => (
+        <InputNumber v-model={value1.value} decimalPlaces={{ enableRound: true, places: 2 }} />
+      ));
+      const input1 = wrapper1.find('.t-input input');
+      expect(input1.element.value).toBe('1.36');
+
+      const value2 = ref('1.356');
+      const wrapper2 = mount(() => (
+        <InputNumber v-model={value2.value} decimalPlaces={{ enableRound: false, places: 2 }} />
+      ));
+      const input2 = wrapper2.find('.t-input input');
+      expect(input2.element.value).toBe('1.35');
+    });
+
     it(':disabled', () => {
       const wrapper = mount(() => <InputNumber disabled />);
       const container = wrapper.find('.t-input-number');
