@@ -25,7 +25,7 @@ export interface TdInputNumberProps<T = InputNumberValue> {
   /**
    * [小数位数](https://en.wiktionary.org/wiki/decimal_place)
    */
-  decimalPlaces?: number;
+  decimalPlaces?: InputNumberDecimalPlaces;
   /**
    * 禁用组件
    */
@@ -148,3 +148,5 @@ export interface ChangeContext {
 }
 
 export type ChangeSource = 'add' | 'reduce' | 'input' | 'blur' | 'enter' | 'clear' | 'props';
+
+export type InputNumberDecimalPlaces = number | { enableRound: boolean; decimalPlaces: number };

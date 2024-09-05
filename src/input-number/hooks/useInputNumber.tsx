@@ -1,8 +1,8 @@
 import { computed, ref, toRefs, watch } from 'vue';
-import useCommonClassName from '../hooks/useCommonClassName';
-import useVModel from '../hooks/useVModel';
-import { InputNumberValue, TdInputNumberProps } from './type';
-import { useReadonly } from '../hooks/useReadonly';
+import useCommonClassName from '../../hooks/useCommonClassName';
+import useVModel from '../../hooks/useVModel';
+import { InputNumberValue, TdInputNumberProps } from '../type';
+import { useReadonly } from '../../hooks/useReadonly';
 
 // 计算逻辑，统一到 common 中，方便各框架复用（如超过 16 位的大数处理）
 import {
@@ -15,9 +15,9 @@ import {
   canSetValue,
   formatUnCompleteNumber,
   largeNumberToFixed,
-} from '../_common/js/input-number/number';
-import { useDisabled } from '../hooks/useDisabled';
-import { StrInputProps } from '../input';
+} from '../../_common/js/input-number/number';
+import { useDisabled } from '../../hooks/useDisabled';
+import { StrInputProps } from '../../input';
 
 /**
  * 独立一个组件 Hook 方便用户直接使用相关逻辑 自定义任何样式的数字输入框
@@ -166,7 +166,6 @@ export default function useInputNumber(props: TdInputNumberProps) {
   const onInnerInputChange: StrInputProps['onChange'] = (inputValue, { e }) => {
     // 千分位处理
     const val = formatThousandths(inputValue);
-
     if (!canInputNumber(val, props.largeNumber)) return;
 
     userInput.value = val;

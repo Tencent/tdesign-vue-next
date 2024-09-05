@@ -25,7 +25,7 @@ export default {
   autoWidth: Boolean,
   /** [小数位数](https://en.wiktionary.org/wiki/decimal_place) */
   decimalPlaces: {
-    type: Number,
+    type: [String, Object] as PropType<TdInputNumberProps['decimalPlaces']>,
     default: undefined,
   },
   /** 禁用组件 */
