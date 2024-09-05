@@ -28,19 +28,45 @@ describe('InputNumber', () => {
     });
 
     it(':decimalPlaces: { enableRound: boolean }', () => {
-      const value1 = ref('1.356');
+      const value1 = ref('1');
       const wrapper1 = mount(() => (
-        <InputNumber v-model={value1.value} decimalPlaces={{ enableRound: true, places: 2 }} />
+        <InputNumber v-model={value1.value} decimalPlaces={{ places: 0 }} isLargeNumber={true} />
       ));
       const input1 = wrapper1.find('.t-input input');
-      expect(input1.element.value).toBe('1.36');
+      expect(input1.element.value).toBe('1');
 
-      const value2 = ref('1.356');
-      const wrapper2 = mount(() => (
-        <InputNumber v-model={value2.value} decimalPlaces={{ enableRound: false, places: 2 }} />
-      ));
+      const value2 = ref('1');
+      const wrapper2 = mount(() => <InputNumber v-model={value2.value} decimalPlaces={{ places: 0 }} />);
       const input2 = wrapper2.find('.t-input input');
-      expect(input2.element.value).toBe('1.35');
+      expect(input2.element.value).toBe('1');
+
+      const value3 = ref('1.356');
+      const wrapper3 = mount(() => (
+        <InputNumber v-model={value3.value} decimalPlaces={{ places: 2 }} isLargeNumber={true} />
+      ));
+      const input3 = wrapper3.find('.t-input input');
+      expect(input3.element.value).toBe('1.36');
+
+      const value4 = ref('1.356');
+      const wrapper4 = mount(() => (
+        <InputNumber v-model={value4.value} decimalPlaces={{ enableRound: false, places: 2 }} />
+      ));
+      const input4 = wrapper4.find('.t-input input');
+      expect(input4.element.value).toBe('1.35');
+
+      const value5 = ref('1.356');
+      const wrapper5 = mount(() => (
+        <InputNumber v-model={value5.value} decimalPlaces={{ places: 2 }} isLargeNumber={true} />
+      ));
+      const input5 = wrapper5.find('.t-input input');
+      expect(input5.element.value).toBe('1.36');
+
+      const value6 = ref('1.356');
+      const wrapper6 = mount(() => (
+        <InputNumber v-model={value6.value} decimalPlaces={{ enableRound: false, places: 2 }} />
+      ));
+      const input6 = wrapper6.find('.t-input input');
+      expect(input6.element.value).toBe('1.35');
     });
 
     it(':disabled', () => {
