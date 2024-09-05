@@ -21,6 +21,36 @@ describe('Tag Component', () => {
     expect(wrapper2.find('.t-tag__icon-close').exists()).toBeTruthy();
   });
 
+  it(`props.color is equal to #ff0000`, () => {
+    const wrapper = mount(<Tag color={'#ff0000'}></Tag>);
+    const domWrapper = wrapper.findComponent(Tag);
+    expect(domWrapper.element.style.backgroundColor).toBe('rgb(255, 0, 0)');
+  });
+  it(`props.color expect variant='dark'`, () => {
+    const wrapper = mount(<Tag color={'#ff0000'} variant={'dark'} theme={'primary'}></Tag>);
+    const domWrapper = wrapper.findComponent(Tag);
+    expect(domWrapper.element.style.backgroundColor).toBe('rgb(255, 0, 0)');
+    expect(domWrapper.element.style.color).toBe('white');
+  });
+  it(`props.color expect variant='light'`, () => {
+    const wrapper = mount(<Tag color={'#ff0000'} variant={'light'}></Tag>);
+    const domWrapper = wrapper.findComponent(Tag);
+    expect(domWrapper.element.style.color).toBe('rgb(255, 0, 0)');
+    expect(domWrapper.element.style.backgroundColor).toBe('rgba(255, 0, 0, 0.1)');
+  });
+  it(`props.color expect variant='outline'`, () => {
+    const wrapper = mount(<Tag color={'#ff0000'} variant={'outline'}></Tag>);
+    const domWrapper = wrapper.findComponent(Tag);
+    expect(domWrapper.element.style.borderColor).toBe('#ff0000');
+    expect(domWrapper.element.style.color).toBe('rgb(255, 0, 0)');
+  });
+  it(`props.color expect variant='light-outline'`, () => {
+    const wrapper = mount(<Tag color={'#ff0000'} variant={'light-outline'}></Tag>);
+    const domWrapper = wrapper.findComponent(Tag);
+    expect(domWrapper.element.style.borderColor).toBe('#ff0000');
+    expect(domWrapper.element.style.color).toBe('rgb(255, 0, 0)');
+  });
+
   it('props.content works fine', () => {
     const wrapper = mount(<Tag content={() => <span class="custom-node">TNode</span>}></Tag>);
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
