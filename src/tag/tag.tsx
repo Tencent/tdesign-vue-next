@@ -99,6 +99,10 @@ export default defineComponent({
     };
 
     const renderTitle = (tagContent: string) => {
+      if (!props.maxWidth) {
+        return undefined;
+      }
+
       const vProps = vnode.props || {};
       if (Reflect.has(vProps, 'title')) {
         return vProps.title || undefined;
@@ -121,12 +125,10 @@ export default defineComponent({
 
       const title = renderTitle(isString(tagContent) ? tagContent : '');
 
-      const titleAttribute = title && props.maxWidth ? title : undefined;
-
       return (
         <div class={tagClass.value} style={tagStyle.value} onClick={handleClick}>
           {icon}
-          <span class={`${COMPONENT_NAME.value}--text`} title={titleAttribute}>
+          <span class={`${COMPONENT_NAME.value}--text`} title={title}>
             {tagContent}
           </span>
           {!props.disabled && closeIcon}
