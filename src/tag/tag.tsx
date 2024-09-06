@@ -8,6 +8,7 @@ import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfi
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import { Styles } from '../common';
+import { symlink } from 'fs';
 
 export default defineComponent({
   name: 'TTag',
@@ -35,18 +36,16 @@ export default defineComponent({
         props.shape !== 'square' && `${COMPONENT_NAME.value}--${props.shape}`,
       ];
     });
+    const tagStyle = computed<Styles>(() => {
+      return getTagColorStyle();
+    });
 
     const textStyle = computed<Styles>(() => {
-      const { maxWidth } = props;
+      if (!props.maxWidth) return {};
 
-      const styles = getTagColorStyle();
-
-      return props.maxWidth
-        ? {
-            maxWidth: isNaN(Number(maxWidth)) ? String(maxWidth) : `${maxWidth}px`,
-            ...styles,
-          }
-        : styles;
+      return {
+        maxWidth: isNaN(Number(props.maxWidth)) ? String(props.maxWidth) : `${props.maxWidth}px`,
+      };
     });
 
     const getTagColorStyle = () => {
@@ -126,7 +125,7 @@ export default defineComponent({
       const title = renderTitle(isString(tagContent) ? tagContent : '');
 
       return (
-        <div class={tagClass.value} onClick={handleClick}>
+        <div class={tagClass.value} style={tagStyle.value} onClick={handleClick}>
           {icon}
           <span
             class={props.maxWidth ? `${COMPONENT_NAME.value}--text` : undefined}
