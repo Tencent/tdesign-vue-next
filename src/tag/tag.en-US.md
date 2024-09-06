@@ -33,8 +33,8 @@ close | `(context: { e: MouseEvent })` | \-
 
 name | type | default | description | required
 -- | -- | -- | -- | --
-checked | Boolean | undefined | `v-model` and `v-model:checked` is supported | N
-defaultChecked | Boolean | undefined | uncontrolled property | N
+checked | Boolean | - | `v-model` and `v-model:checked` is supported | N
+defaultChecked | Boolean | - | uncontrolled property | N
 checkedProps | Object | - | used to set checked tag props。Typescript：`TdTagProps` | N
 content | String / Number / Array / Slot / Function | - | Typescript：`string \| number \| string[] \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 default | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N

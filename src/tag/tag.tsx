@@ -36,7 +36,7 @@ export default defineComponent({
       ];
     });
 
-    const tagStyle = computed<Styles>(() => {
+    const textStyle = computed<Styles>(() => {
       const { maxWidth } = props;
 
       const styles = getTagColorStyle();
@@ -126,9 +126,13 @@ export default defineComponent({
       const title = renderTitle(isString(tagContent) ? tagContent : '');
 
       return (
-        <div class={tagClass.value} style={tagStyle.value} onClick={handleClick}>
+        <div class={tagClass.value} onClick={handleClick}>
           {icon}
-          <span class={`${COMPONENT_NAME.value}--text`} title={title}>
+          <span
+            class={props.maxWidth ? `${COMPONENT_NAME.value}--text` : undefined}
+            style={textStyle.value}
+            title={title}
+          >
             {tagContent}
           </span>
           {!props.disabled && closeIcon}
