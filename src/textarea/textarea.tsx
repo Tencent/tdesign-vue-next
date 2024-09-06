@@ -138,7 +138,6 @@ export default defineComponent({
 
     const formItem = inject(FormItemInjectionKey, undefined);
     const emitBlur = (e: FocusEvent) => {
-      adjustTextareaHeight();
       focused.value = false;
       props.onBlur?.(innerValue.value, { e });
       formItem?.handleBlur();
