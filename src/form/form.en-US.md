@@ -11,6 +11,7 @@ data | Object | {} | Typescript：`FormData` | N
 disabled | Boolean | undefined | \- | N
 errorMessage | Object | - | Typescript：`FormErrorMessage` | N
 formControlledComponents | Array | - | Typescript：`Array<string>` | N
+id | String | undefined | native id attribute of the form，which supports being used in conjunction with non-form buttons through the form attribute to trigger form events | N
 labelAlign | String | right | options: left/right/top | N
 labelWidth | String / Number | '100px' | \- | N
 layout | String | vertical | options: vertical/inline | N
