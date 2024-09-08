@@ -19,17 +19,37 @@ Vue.createApp({}).use(TDesign)
 </t-config-provider>
 ```
 
+#### vue-cli
 ```js
+//  vue.config.js
 {
-    loaderOptions: {
-        less: {
-            lessOptions: {
+    css: {
+        loaderOptions: {
+            less: {
+                lessOptions: {
+                    modifyVars: {
+                     '@prefix': 'any', // should be the same as classPrefix
+                    },
+                    javascriptEnabled: true,
+                },
+            },
+        }
+    }
+}
+```
+#### vite
+```js
+// vite.config.js
+{
+    css: {
+        preprocessorOptions: {
+            less: {
                 modifyVars: {
                     '@prefix': 'any', // should be the same as classPrefix
                 },
                 javascriptEnabled: true,
             },
-        },
+        }
     }
 }
 ```
@@ -47,6 +67,7 @@ cascader | Object | - | Cascader global configs。Typescript：`CascaderConfig` 
 classPrefix | String | t | \- | N
 colorPicker | Object | - | ColorPicker global configs。Typescript：`ColorPickerConfig` | N
 datePicker | Object | - | DatePicker global configs。Typescript：`DatePickerConfig` | N
+descriptions | Object | - | Descriptions global configs。Typescript：`DescriptionsConfig` | N
 dialog | Object | - | Dialog global configs。Typescript：`DialogConfig` | N
 drawer | Object | - | Drawer global configs。Typescript：`DrawerConfig` | N
 form | Object | - | Form global configs。Typescript：`FormConfig` | N
@@ -59,6 +80,7 @@ list | Object | - | List global configs。Typescript：`ListConfig` | N
 message | Object | - | Message Component global configs。Typescript：`MessageConfig` | N
 pagination | Object | - | Pagination global configs。Typescript：`PaginationConfig` | N
 popconfirm | Object | - | Popconfirm global configs。Typescript：`PopconfirmConfig` | N
+rate | Object | - | Rate global configs。Typescript：`RateConfig` | N
 select | Object | - | Select global configs。Typescript：`SelectConfig` | N
 steps | Object | - | Steps global configs。Typescript：`StepsConfig` | N
 table | Object | - | Table global configs。Typescript：`TableConfig` | N
@@ -294,6 +316,7 @@ fileStatusText | String | - | \- | N
 
 name | type | default | description | required
 -- | -- | -- | -- | --
+colonText | String | - | colon on the right of label ":" | N
 errorMessage | Object | - | Typescript：`FormErrorMessage`，[Form API Documents](./form?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
 requiredMark | Boolean | true | \- | N
 
@@ -307,6 +330,7 @@ closeIcon | Function | - | Typescript：`TNode`。[see more ts definition](https
 
 name | type | default | description | required
 -- | -- | -- | -- | --
+checkIcon | Slot / Function | - | Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 errorIcon | Slot / Function | - | Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 
 ### AlertConfig
@@ -315,6 +339,12 @@ name | type | default | description | required
 -- | -- | -- | -- | --
 collapseText | String | - | \- | N
 expandText | String | - | \- | N
+
+### DescriptionsConfig
+
+name | type | default | description | required
+-- | -- | -- | -- | --
+colonText | String | - | colon on the right of label, ":" | N
 
 ### AnchorConfig
 
@@ -354,3 +384,9 @@ finishButtonProps | Object | - | finish button in last step. `{ content: 'Finish
 nextButtonProps | Object | - | next step button. `{ content: 'Next Button', theme: 'primary' }`。Typescript：`ButtonProps` | N
 prevButtonProps | Object | - | previous step button. `{ content: 'Previous Step', theme: 'default' }`。Typescript：`ButtonProps` | N
 skipButtonProps | Object | - | skip button. `{ content: 'Skip', theme: 'default' }`。Typescript：`ButtonProps` | N
+
+### RateConfig
+
+name | type | default | description | required
+-- | -- | -- | -- | --
+rateText | Array | - | Typescript：`string[]` | N

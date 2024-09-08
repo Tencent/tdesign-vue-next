@@ -27,7 +27,7 @@ showClearIconOnEmpty | Boolean | false | show clear icon on empty input value | 
 showLimitNumber | Boolean | false | show limit number text on the right | N
 size | String | medium | make input to be different size。options: small/medium/large。Typescript：`SizeEnum`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 spellCheck | Boolean | false | attribute of input element, [see here](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/spellcheck) | N
-status | String | undefined | options: default/success/warning/error | N
+status | String | default | options: default/success/warning/error | N
 suffix | String / Slot / Function | - | suffix content before suffixIcon。Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 suffixIcon | Slot / Function | - | suffix icon of input。Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 tips | String / Slot / Function | - | tips on the bottom of input, different `status` can make tips to be different color。Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N

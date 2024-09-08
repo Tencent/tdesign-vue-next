@@ -414,9 +414,26 @@ module.exports = {
     },
   },
   'time-picker': {
-    panelStr: `const panelList = [{label: 'timePicker', value: 'timePicker'}];`,
+    importStr: `
+      import timePickerConfigJson from './time-picker-props.json';\n
+      import timeRangePickerConfigJson from './time-range-picker-props.json';\n
+    `,
+    configStr: `const configList = ref(timePickerConfigJson);`,
+    panelStr: `
+      const panelList = [
+        {label: 'timePicker', value: 'timePicker', config: timePickerConfigJson},
+        {label: 'timeRangePicker', value: 'timeRangePicker', config: timeRangePickerConfigJson}
+      ];
+    `,
+    panelChangeStr: `
+      function onPanelChange(panel) {
+        configList.value = panelList.find(item => item.value === panel).config;
+        usageCode.value = \`<template>\${usageCodeMap[panel].trim()}</template>\`;
+      }
+    `,
     render: {
-      timePicker: `<t-timePicker v-bind="configProps" />`,
+      timePicker: `<t-time-picker v-bind="configProps" />`,
+      timeRangePicker: `<t-time-range-picker v-bind="configProps" />`,
     },
   },
   timeline: {
@@ -601,6 +618,12 @@ module.exports = {
           <div style="width: 100%; height: 300px" />
         </t-watermark>
       `,
+    },
+  },
+  'range-input': {
+    panelStr: `const panelList = [{label: 'rangeInput', value: 'rangeInput'}];`,
+    render: {
+      rangeInput: `<t-range-input v-bind="configProps"/>`,
     },
   },
   rate: {

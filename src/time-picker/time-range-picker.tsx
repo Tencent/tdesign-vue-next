@@ -154,6 +154,7 @@ export default defineComponent({
             class: inputClasses.value,
             value: isShowPanel.value ? currentValue.value : innerValue.value ?? undefined,
             placeholder: props.placeholder || [globalConfig.value.placeholder, globalConfig.value.placeholder],
+            borderless: props.borderless,
             suffixIcon: () => <TimeIcon />,
             onClear: handleClear,
             onClick: handleClick,

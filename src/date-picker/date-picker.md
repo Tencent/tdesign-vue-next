@@ -18,6 +18,7 @@ format | String | 'YYYY-MM-DD' | 仅用于格式化日期显示的格式，不�
 inputProps | Object | - | 透传给输入框（Input）组件的参数。TS 类型：`InputProps`，[Input API Documents](./input?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/date-picker/type.ts) | N
 label | String / Slot / Function | - | 左侧文本。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 mode | String | date | 选择器模式。可选项：year/quarter/month/week/date | N
+needConfirm | Boolean | true | 决定在日期时间选择器的场景下是否需要点击确认按钮才完成选择动作，默认为`true` | N
 placeholder | String / Array | undefined | 占位符。TS 类型：`string` | N
 popupProps | Object | - | 透传给 popup 组件的参数。TS 类型：`PopupProps`，[Popup API Documents](./popup?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/date-picker/type.ts) | N
 prefixIcon | Slot / Function | - | 用于自定义组件前置图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
@@ -57,6 +58,7 @@ preset-click | `(context: { preset: PresetDate, e: MouseEvent })` | 点击预设
 名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
 allowInput | Boolean | false | 是否允许输入日期 | N
+borderless | Boolean | false | 无边框模式 | N
 cancelRangeSelectLimit | Boolean | false | 默认的日期选择交互是根据点击前后日期的顺序来决定并且会加以限制。比如：用户先点击开始时间输入框，选择了一个日期例如2020-05-15，紧接着交互会自动将焦点跳到结束日期输入框，等待用户选择结束时间。此时用户只能选择大于2020-05-15的日期（之前的日期会被灰态禁止点击，限制用户的点击）。当该值传递`true`时，则取消该限制。 | N
 clearable | Boolean | false | 是否显示清除按钮 | N
 defaultTime | Array | ["00:00:00", "23:59:59"] | 时间选择器默认值，当 value/defaultValue 未设置值时有效。TS 类型：`string[]` | N
@@ -67,6 +69,7 @@ firstDayOfWeek | Number | - | 第一天从星期几开始。可选项：1/2/3/4/
 format | String | - | 用于格式化日期，[详细文档](https://day.js.org/docs/en/display/format) | N
 label | String / Slot / Function | - | 左侧文本。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 mode | String | date | 选择器模式。可选项：year/quarter/month/week/date | N
+needConfirm | Boolean | true | 决定在日期时间区间选择器的场景下是否需要点击确认按钮才完成选择动作，默认为 `true` | N
 panelPreselection | Boolean | true | 在开始日期选中之前，面板是否显示预选状态，即是否高亮预选日期 | N
 placeholder | String / Array | - | 占位符，值为数组表示可分别为开始日期和结束日期设置占位符。TS 类型：`string \| Array<string>` | N
 popupProps | Object | - | 透传给 popup 组件的参数。TS 类型：`PopupProps`，[Popup API Documents](./popup?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/date-picker/type.ts) | N

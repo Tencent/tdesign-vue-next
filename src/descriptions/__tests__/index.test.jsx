@@ -21,7 +21,7 @@ describe('Descriptions', () => {
     it(':colon', () => {
       const wrapper = getDescriptionsMount({ colon: true });
       const label = wrapper.find('.t-descriptions__label');
-      expect(label.text()).toMatch(/:$/);
+      expect(label.text()).toMatch(/：$/);
     });
 
     it(':size', () => {

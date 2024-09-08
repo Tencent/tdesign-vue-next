@@ -69,6 +69,13 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, fail 
           <!---->
         </div>
         <!--teleport start-->
+        <transition-stub
+          appear="false"
+          css="true"
+          persisted="false"
+        >
+          <!---->
+        </transition-stub>
         <!--teleport end-->
         
       </div>
@@ -232,6 +239,13 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, progr
           <!---->
         </div>
         <!--teleport start-->
+        <transition-stub
+          appear="false"
+          css="true"
+          persisted="false"
+        >
+          <!---->
+        </transition-stub>
         <!--teleport end-->
         
       </div>
@@ -400,6 +414,13 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
           <!---->
         </div>
         <!--teleport start-->
+        <transition-stub
+          appear="false"
+          css="true"
+          persisted="false"
+        >
+          <!---->
+        </transition-stub>
         <!--teleport end-->
         
       </div>
@@ -563,6 +584,13 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
           <!---->
         </div>
         <!--teleport start-->
+        <transition-stub
+          appear="false"
+          css="true"
+          persisted="false"
+        >
+          <!---->
+        </transition-stub>
         <!--teleport end-->
         
       </div>
@@ -726,6 +754,13 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, waiti
           <!---->
         </div>
         <!--teleport start-->
+        <transition-stub
+          appear="false"
+          css="true"
+          persisted="false"
+        >
+          <!---->
+        </transition-stub>
         <!--teleport end-->
         
       </div>
@@ -1084,6 +1119,13 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
     
     <!---->
     <!--teleport start-->
+    <transition-stub
+      appear="false"
+      css="true"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
     <!--teleport end-->
     
   </div>
@@ -1616,6 +1658,13 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
     
     <!---->
     <!--teleport start-->
+    <transition-stub
+      appear="false"
+      css="true"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
     <!--teleport end-->
     
   </div>

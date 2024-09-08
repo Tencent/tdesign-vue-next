@@ -38,10 +38,10 @@ size | String | medium | 组件尺寸【讨论中】。可选项：small/medium/
 value | String / Number / Boolean | - | 选中的值。支持语法糖 `v-model` 或 `v-model:value`。TS 类型：`T` `type RadioValue = string \| number \| boolean`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/radio/type.ts) | N
 defaultValue | String / Number / Boolean | - | 选中的值。非受控属性。TS 类型：`T` `type RadioValue = string \| number \| boolean`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/radio/type.ts) | N
 variant | String | outline | 单选组件按钮形式。可选项：outline/primary-filled/default-filled | N
-onChange | Function |  | TS 类型：`(value: T, context: { e: Event }) => void`<br/>选中值发生变化时触发 | N
+onChange | Function |  | TS 类型：`(value: T, context: { e: Event; name?:string }) => void`<br/>选中值发生变化时触发, `context.name` 指 RadioGroup 的 name 属性 | N
 
 ### RadioGroup Events
 
 名称 | 参数 | 描述
 -- | -- | --
-change | `(value: T, context: { e: Event })` | 选中值发生变化时触发
+change | `(value: T, context: { e: Event; name?:string })` | 选中值发生变化时触发, `context.name` 指 RadioGroup 的 name 属性

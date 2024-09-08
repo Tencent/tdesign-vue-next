@@ -55,7 +55,7 @@ export default defineComponent({
 
       if (radioGroup) {
         const value = radioChecked.value && allowUncheck.value ? undefined : props.value;
-        radioGroup.setValue(value, { e });
+        radioGroup.setValue(value, { e, name: radioGroup.name });
       } else {
         const value = allowUncheck.value ? !radioChecked.value : true;
         setInnerChecked(value, { e });

@@ -29,6 +29,10 @@ export default defineComponent({
     month: Number,
     time: String,
     popupVisible: Boolean,
+    needConfirm: {
+      type: Boolean,
+      default: true,
+    },
     onPanelClick: Function,
     onCellClick: Function,
     onCellMouseEnter: Function,
@@ -101,6 +105,7 @@ export default defineComponent({
       onPresetClick: props.onPresetClick,
       onConfirmClick: props.onConfirmClick,
       selectedValue: props.value,
+      needConfirm: props.needConfirm,
     }));
 
     return () => (
