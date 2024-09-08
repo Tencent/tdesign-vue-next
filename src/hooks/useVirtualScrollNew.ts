@@ -171,7 +171,7 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
   const refreshVirtualScroll = ([{ contentRect }]: [ResizeObserverEntry]) => {
     // 如果宽度发生变化，重置滚动位置
     const maxScrollbarWidth = 16;
-    if (Math.abs(contentRect.width - containerWidth.value) > maxScrollbarWidth) {
+    if (Math.abs(contentRect.width - containerWidth.value) > maxScrollbarWidth && !!container.value) {
       container.value.scrollTop = 0;
       translateY.value = 0;
     }
