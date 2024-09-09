@@ -1,4 +1,4 @@
-import { computed, defineComponent, ref, h } from 'vue';
+import { computed, defineComponent, ref } from 'vue';
 import { usePrefixClass } from '../hooks/useConfig';
 import props from './text-props';
 import copy from './utils/copy-to-clipboard';
