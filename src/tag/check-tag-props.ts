@@ -18,10 +18,7 @@ export default {
     default: undefined,
   },
   /** 标签选中的状态，默认风格（theme=default）才有选中态，非受控属性 */
-  defaultChecked: {
-    type: Boolean,
-    default: undefined,
-  },
+  defaultChecked: Boolean,
   /** 透传标签选中态属性 */
   checkedProps: {
     type: Object as PropType<TdCheckTagProps['checkedProps']>,

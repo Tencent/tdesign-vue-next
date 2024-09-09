@@ -35,18 +35,16 @@ export default defineComponent({
         props.shape !== 'square' && `${COMPONENT_NAME.value}--${props.shape}`,
       ];
     });
-
     const tagStyle = computed<Styles>(() => {
-      const { maxWidth } = props;
+      return getTagColorStyle();
+    });
 
-      const styles = getTagColorStyle();
+    const textStyle = computed<Styles>(() => {
+      if (!props.maxWidth) return {};
 
-      return props.maxWidth
-        ? {
-            maxWidth: isNaN(Number(maxWidth)) ? String(maxWidth) : `${maxWidth}px`,
-            ...styles,
-          }
-        : styles;
+      return {
+        maxWidth: isNaN(Number(props.maxWidth)) ? String(props.maxWidth) : `${props.maxWidth}px`,
+      };
     });
 
     const getTagColorStyle = () => {
@@ -99,9 +97,13 @@ export default defineComponent({
     };
 
     const renderTitle = (tagContent: string) => {
+      if (!props.maxWidth) {
+        return undefined;
+      }
+
       const vProps = vnode.props || {};
-      if (Reflect.has(vProps, 'title') && vProps['title']) {
-        return props.title;
+      if (Reflect.has(vProps, 'title')) {
+        return vProps.title || undefined;
       }
 
       if (tagContent) {
@@ -121,12 +123,14 @@ export default defineComponent({
 
       const title = renderTitle(isString(tagContent) ? tagContent : '');
 
-      const titleAttribute = title && props.maxWidth ? title : undefined;
-
       return (
         <div class={tagClass.value} style={tagStyle.value} onClick={handleClick}>
           {icon}
-          <span class={`${COMPONENT_NAME.value}--text`} title={titleAttribute}>
+          <span
+            class={props.maxWidth ? `${COMPONENT_NAME.value}--text` : undefined}
+            style={textStyle.value}
+            title={title}
+          >
             {tagContent}
           </span>
           {!props.disabled && closeIcon}
