@@ -89,6 +89,7 @@ timePicker | Object | - | TimePicker global configs。Typescript：`TimePickerCo
 transfer | Object | - | Transfer global configs。Typescript：`TransferConfig` | N
 tree | Object | - | Tree global configs。Typescript：`TreeConfig` | N
 treeSelect | Object | - | TreeSelect global configs。Typescript：`TreeSelectConfig` | N
+typography | Object | - | Typography global configs。Typescript：`TypographyConfig` | N
 upload | Object | - | Upload global configs。Typescript：`UploadConfig` | N
 
 ### InputConfig
@@ -390,3 +391,11 @@ skipButtonProps | Object | - | skip button. `{ content: 'Skip', theme: 'default'
 name | type | default | description | required
 -- | -- | -- | -- | --
 rateText | Array | - | Typescript：`string[]` | N
+
+### TypographyConfig
+
+name | type | default | description | required
+-- | -- | -- | -- | --
+collapseText | String | - | collapse text | N
+copiedText | String | - | copied text | N
+expandText | String | - | expand text | N
