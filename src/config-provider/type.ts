@@ -63,7 +63,6 @@ export interface GlobalConfigProvider {
    */
   empty?: EmptyConfig;
   /**
-  /**
    * 表单组件全局配置
    */
   form?: FormConfig;
@@ -139,6 +138,10 @@ export interface GlobalConfigProvider {
    * 树选择器组件全局配置
    */
   treeSelect?: TreeSelectConfig;
+  /**
+   * 排版组件全局配置
+   */
+  typography?: TypographyConfig;
   /**
    * 上传组件全局配置
    */
@@ -933,6 +936,24 @@ export interface EmptyConfig {
    * 空状态组件各类型的标题文本配置
    */
   titleText?: { maintenance: string; success: string; fail: string; empty: string; networkError: string };
+}
+
+export interface TypographyConfig {
+  /**
+   * 语言配置，“收起”描述文本
+   * @default ''
+   */
+  collapseText?: string;
+  /**
+   * 语言配置，“复制成功”描述文本
+   * @default ''
+   */
+  copiedText?: string;
+  /**
+   * 语言配置，“展开”描述文本
+   * @default ''
+   */
+  expandText?: string;
 }
 
 export type AnimationType = 'ripple' | 'expand' | 'fade';
