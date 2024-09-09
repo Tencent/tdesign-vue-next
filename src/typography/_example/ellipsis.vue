@@ -14,7 +14,7 @@ const content = `TDesign was founded with the principles of open-source collabor
 const ellipsisState1 = {
   row: 2,
   expandable: true,
-  suffix: 'more',
+  collapsible: true,
 };
 
 const ellipsisState2 = {
@@ -33,7 +33,7 @@ const ellipsisState3 = {
 };
 
 const ellipsisState4 = {
-  row: 1,
+  row: 2,
   suffix: <span style="color: black">roles.</span>,
 };
 </script>

@@ -1,68 +1,118 @@
-import { defineComponent, ref, computed } from 'vue';
-import Tooltip from '../tooltip';
+import { defineComponent, computed, ref, VNode } from 'vue';
+import { usePrefixClass } from '../hooks/useConfig';
+import props from './paragraph-props';
+import TTooltip from '../tooltip/index';
+import { useConfig } from '../config-provider/useConfig';
+
+import type { TypographyEllipsis } from './type';
 
 export default defineComponent({
-  name: 'EllipsisAPI',
+  name: 'TEllipsis',
+  components: { TTooltip },
   props: {
-    rows: {
-      type: Number,
-      default: 1,
-    },
-    expandable: {
-      type: Boolean,
-      default: false,
-    },
-    tooltipProps: {
-      type: Object,
-      default: () => ({}),
-    },
-    onExpand: {
-      type: Function,
-      default: () => {},
-    },
-    suffix: {
-      type: Function,
-      default: (expanded: boolean) => (expanded ? '收起' : '展开'),
-    },
-    collapsible: {
-      type: Boolean,
-      default: true,
-    },
-    hidden: {
-      type: Boolean,
-      default: false,
-    },
+    ...props,
   },
   setup(props, { slots }) {
-    const isExpanded = ref(false);
+    const COMPONENT_NAME = usePrefixClass('typography');
+    const { globalConfig } = useConfig('typography');
 
-    const handleExpand = () => {
-      isExpanded.value = !isExpanded.value;
-      props.onExpand(isExpanded.value);
-    };
-    const styles = computed((): any => {
-      const def = {
-        overflow: props.hidden ? 'hidden' : 'visible',
-        textOverflow: 'ellipsis',
-        whiteSpace: 'nowrap',
-        display: 'inline-block',
-        WebkitLineClamp: props.rows,
-        WebkitBoxOrient: 'vertical',
-        width: '200px',
+    const content = computed(() => {
+      return props.content || slots?.default();
+    });
+
+    const ellipsisState = computed((): TypographyEllipsis => {
+      const ellipsis = props.ellipsis;
+      return {
+        row: 1,
+        expandable: false,
+        ...(typeof ellipsis === 'object' ? ellipsis : null),
       };
+    });
+
+    const ellipsisStyles = computed((): any => {
+      const ellipsis = ellipsisState.value;
+      const def = {
+        overflow: props.ellipsis ? 'hidden' : 'visible',
+        textOverflow: props.ellipsis ? 'ellipsis' : 'initial',
+        whiteSpace: props.ellipsis ? 'nowrap' : 'normal',
+        display: 'block',
+        WebkitLineClamp: ellipsis.row,
+        WebkitBoxOrient: 'vertical',
+      };
+      if (ellipsis.row > 1) {
+        def.whiteSpace = 'normal';
+        def.display = '-webkit-box';
+      }
+      if (isExpand.value) {
+        def.overflow = 'visible';
+        def.whiteSpace = 'normal';
+        def.display = 'initial';
+      }
       return def;
     });
-    return () => (
-      <>
-        {props.hidden && <div style={styles.value}>{slots.default?.()}</div>}
-        {!props.hidden && slots.default?.()}
-        {props.expandable && (
-          <Tooltip {...props.tooltipProps}>
-            <span onClick={handleExpand}>{props.suffix(isExpanded.value)}</span>
-          </Tooltip>
-        )}
-        {isExpanded.value && props.collapsible && <div>{slots.expanded?.()}</div>}
-      </>
-    );
+    const isExpand = ref(false);
+    const onExpand = () => {
+      isExpand.value = true;
+      typeof props.ellipsis === 'object' &&
+        typeof props.ellipsis?.onExpand === 'function' &&
+        props.ellipsis.onExpand(true);
+    };
+    const onPackUp = () => {
+      isExpand.value = false;
+    };
+
+    const renderEllipsisExpand = () => {
+      const { suffix } = ellipsisState.value;
+
+      const moreNode = (
+        <span
+          class={`${COMPONENT_NAME.value}-ellipsis-symbol`}
+          onClick={onExpand}
+          style="text-decoration:none;white-space:nowrap;flex: 1;"
+        >
+          {suffix || globalConfig.value.expandText}
+        </span>
+      );
+
+      const { tooltipProps, expandable, collapsible } = ellipsisState.value;
+      if (!isExpand.value && expandable) {
+        return tooltipProps && tooltipProps.content ? (
+          <TTooltip {...tooltipProps} content={tooltipProps.content}>
+            {moreNode}
+          </TTooltip>
+        ) : (
+          moreNode
+        );
+      }
+      if (expandable && isExpand.value && collapsible) {
+        return (
+          <span
+            class={`${COMPONENT_NAME.value}-ellipsis-symbol`}
+            onClick={onPackUp}
+            style="text-decoration:none;white-space:nowrap;flex: 1;"
+          >
+            {globalConfig.value.collapseText}
+          </span>
+        );
+      }
+    };
+
+    const boxStyle = computed(() => {
+      return {
+        display: 'flex',
+        alignItems: 'flex-end',
+      };
+    });
+
+    return () => {
+      const { tooltipProps } = ellipsisState.value;
+      return (
+        <div style={boxStyle.value}>
+          {tooltipProps && <TTooltip content={tooltipProps.content} placement="top-right"></TTooltip>}
+          <p style={props.ellipsis ? ellipsisStyles.value : {}}>{content.value}</p>
+          {renderEllipsisExpand()}
+        </div>
+      );
+    };
   },
 });

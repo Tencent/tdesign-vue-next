@@ -5,11 +5,13 @@
       TDesign is an enterprise-level design system accumulated by Tencent's various business teams.
     </t-typography-text>
     <t-typography-paragraph>
-      TDesign features a unified design values, consistent design language, and visual style, helping users form
-      continuous and coherent perceptions of the experience. Based on this, TDesign offers out-of-the-box UI component
-      libraries, design guidelines, and design assets, elegantly and efficiently freeing design and development from
-      repetitive tasks. Simultaneously, it facilitates easy extension on top of TDesign, enabling a better alignment
-      with business requirements.
+      <t-typography-text strong>
+        TDesign features a unified design values, consistent design language, and visual style, helping users form
+        continuous and coherent perceptions of the experience.
+      </t-typography-text>
+      Based on this, TDesign offers out-of-the-box UI component libraries, design guidelines, and design assets,
+      elegantly and efficiently freeing design and development from repetitive tasks. Simultaneously, it facilitates
+      easy extension on top of TDesign, enabling a better alignment with business requirements.
     </t-typography-paragraph>
     <t-typography-title>Comprehensive</t-typography-title>
     <t-typography-paragraph>
@@ -20,14 +22,6 @@
       <t-typography-text code>Vue 3</t-typography-text>,
       <t-typography-text code>Wechat MiniProgram</t-typography-text>
       components for Mobile Application.
-    </t-typography-paragraph>
-    <t-typography-paragraph>
-      <blockquote>
-        TDesign distills Tencent's years of design experience into professional design guideline, providing universal
-        design solutions that assist product managers, designers, developers, and other roles in efficiently completing
-        the design and development of enterprise-level products, while maintaining consistent design language and style
-        to meet user experience requirements.
-      </blockquote>
     </t-typography-paragraph>
     <t-typography-paragraph>
       <ul>

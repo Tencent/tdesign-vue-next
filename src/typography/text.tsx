@@ -1,18 +1,26 @@
 import { computed, defineComponent, ref } from 'vue';
 import { usePrefixClass } from '../hooks/useConfig';
 import props from './text-props';
-import { TdTextProps } from './type';
 import copy from './utils/copy-to-clipboard';
-import { CopyIcon } from 'tdesign-icons-vue-next';
-import { TooltipProps, TypographyEllipsis } from '..';
+import { CopyIcon, CheckIcon } from 'tdesign-icons-vue-next';
 import Ellipsis from './ellipsis';
-import { useTNodeJSX } from '../hooks/tnode';
+import TTooltip from '../tooltip';
+import TButton from '../button';
+import { useConfig } from '../config-provider/useConfig';
+import { useContent } from '../hooks/tnode';
+
+import type { TdTextProps } from './type';
+import type { TdTooltipProps } from '../tooltip/type';
+
 export default defineComponent({
   name: 'TTypographyText',
   props,
   setup(props, { slots }) {
     const COMPONENT_NAME = usePrefixClass('typography');
-    const copyActionState = ref(false);
+    const { globalConfig } = useConfig('typography');
+    const isCopied = ref(false);
+    const renderContent = useContent();
+
     function wrapperDecorations(
       { code, underline, delete: del, strong, keyboard, mark, italic }: TdTextProps,
       content: any,
@@ -34,10 +42,9 @@ export default defineComponent({
       return currentContent;
     }
     const classList = computed(() => {
-      const { theme, disabled, ellipsis } = props;
+      const { theme, disabled } = props;
       const prefix = COMPONENT_NAME.value;
       const list: string[] = [prefix];
-      ellipsis && list.push(`${prefix}--ellipsis`);
       if (disabled) {
         list.push(`${prefix}--disabled`);
       } else if (theme && ['primary', 'secondary', 'success', 'warning', 'error'].includes(theme)) {
@@ -49,16 +56,13 @@ export default defineComponent({
     const content = computed(() => {
       return props.content || slots?.default();
     });
+
     const renderCopy = () => {
-      const renderTNodeJSX = useTNodeJSX();
       const { copyable } = props;
       if (!copyable) return;
-      const style = {
-        color: copyActionState.value ? '' : '#0052D9',
-      };
-      let icon: any = <CopyIcon style={style} />;
-      let tooltipConf: TooltipProps = {
-        content: '复制',
+
+      let icon: any = isCopied.value ? <CheckIcon /> : <CopyIcon />;
+      let tooltipConf: TdTooltipProps = {
         theme: 'default',
       };
       let onCopy = () => {};
@@ -74,17 +78,11 @@ export default defineComponent({
         }
       }
       return (
-        <t-tooltip {...tooltipConf}>
-          <span
-            style="margin-left: 6px"
-            onClick={(e) => onCopyClick(e, onCopy)}
-            onFocus={onCopyFocus}
-            onBlur={onCopyBlur}
-          >
-            {icon}
-            {renderTNodeJSX('suffix')}
+        <TTooltip content={isCopied.value ? globalConfig.value.copiedText : null} {...tooltipConf}>
+          <span style="margin-left: 6px" onClick={(e) => onCopyClick(e, onCopy)}>
+            <TButton icon={icon} shape="square" theme="primary" variant="text" />
           </span>
-        </t-tooltip>
+        </TTooltip>
       );
     };
 
@@ -96,41 +94,32 @@ export default defineComponent({
       }
     }
 
-    const onCopyFocus = () => {
-      copyActionState.value = true;
-    };
-    const onCopyBlur = () => {
-      copyActionState.value = false;
-    };
     const onCopyClick = (e: MouseEvent, cb: Function) => {
       e.preventDefault();
       e.stopPropagation();
+
+      isCopied.value = true;
+      setTimeout(() => {
+        isCopied.value = false;
+      }, 1500);
 
       copy(getChildrenText());
       cb && cb();
     };
 
-    const ellipsis = computed((): TypographyEllipsis => {
-      const ellipsis = props.ellipsis;
-      if (!ellipsis) return {};
+    const renderTextNode = () => {
+      const content = renderContent('default', 'content');
 
-      return {
-        row: 1,
-        expandable: false,
-        ...(typeof ellipsis === 'object' ? ellipsis : null),
-      };
-    });
+      return (
+        <span class={classList.value}>
+          {wrapperDecorations(props, content)}
+          {renderCopy()}
+        </span>
+      );
+    };
 
     return () => {
-      return (
-        <Ellipsis v-bind={ellipsis.value}>
-          {ellipsis.value}
-          <span class={classList.value}>
-            {wrapperDecorations(props, content.value)}
-            {renderCopy()}
-          </span>
-        </Ellipsis>
-      );
+      return props.ellipsis ? <Ellipsis {...props}>{renderTextNode()}</Ellipsis> : renderTextNode();
     };
   },
 });

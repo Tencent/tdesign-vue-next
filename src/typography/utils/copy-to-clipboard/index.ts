@@ -1,5 +1,3 @@
-import deselectCurrent from './toggle-selection';
-
 interface Options {
   message?: string;
   format?: string; // MIME type
@@ -8,12 +6,51 @@ interface Options {
 
 const defaultMessage = 'Copy to clipboard: #{key}, Enter';
 
-function format(message: string) {
+const format = (message: string) => {
   const copyKey = (/mac os x/i.test(navigator.userAgent) ? '⌘' : 'Ctrl') + '+C';
   return message.replace(/#{\s*key\s*}/g, copyKey);
-}
+};
 
-function copy(text: string, options?: Options): boolean {
+// inspired by https://github.com/sudodoki/toggle-selection, refactor to esm
+const deselectCurrent = () => {
+  const selection = document.getSelection();
+  if (!selection.rangeCount) {
+    return function () {};
+  }
+  let active = document.activeElement as any;
+
+  const ranges: Range[] = [];
+  for (let i = 0; i < selection.rangeCount; i++) {
+    ranges.push(selection.getRangeAt(i));
+  }
+
+  const tagName = active.tagName.toUpperCase(); // toUpperCase handles XHTML
+  switch (tagName) {
+    case 'INPUT':
+    case 'TEXTAREA':
+      active.blur();
+      break;
+
+    default:
+      active = null;
+      break;
+  }
+
+  selection.removeAllRanges();
+  return function () {
+    selection.type === 'Caret' && selection.removeAllRanges();
+
+    if (!selection.rangeCount) {
+      ranges.forEach(function (range) {
+        selection.addRange(range);
+      });
+    }
+
+    active && active.focus();
+  };
+};
+
+const copy = (text: string, options?: Options) => {
   let message,
     reselectPrevious,
     range,
@@ -90,6 +127,6 @@ function copy(text: string, options?: Options): boolean {
   }
 
   return success;
-}
+};
 
 export default copy;

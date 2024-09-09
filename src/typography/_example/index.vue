@@ -10,7 +10,7 @@
   </t-typography-text>
 </template>
 
-<script setup>
+<script setup lang="tsx">
 const ellipsis = {
   rows: 2,
   color: 'red',
