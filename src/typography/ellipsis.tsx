@@ -1,4 +1,4 @@
-import { defineComponent, computed, ref, VNode } from 'vue';
+import { defineComponent, computed, ref } from 'vue';
 import { usePrefixClass } from '../hooks/useConfig';
 import props from './paragraph-props';
 import TTooltip from '../tooltip/index';
@@ -34,15 +34,12 @@ export default defineComponent({
       const def = {
         overflow: props.ellipsis ? 'hidden' : 'visible',
         textOverflow: props.ellipsis ? 'ellipsis' : 'initial',
-        whiteSpace: props.ellipsis ? 'nowrap' : 'normal',
-        display: 'block',
+        whiteSpace: props.ellipsis ? 'normal' : 'nowrap',
+        display: '-webkit-box',
         WebkitLineClamp: ellipsis.row,
         WebkitBoxOrient: 'vertical',
       };
-      if (ellipsis.row > 1) {
-        def.whiteSpace = 'normal';
-        def.display = '-webkit-box';
-      }
+
       if (isExpand.value) {
         def.overflow = 'visible';
         def.whiteSpace = 'normal';
@@ -51,14 +48,15 @@ export default defineComponent({
       return def;
     });
     const isExpand = ref(false);
+
     const onExpand = () => {
       isExpand.value = true;
-      typeof props.ellipsis === 'object' &&
-        typeof props.ellipsis?.onExpand === 'function' &&
-        props.ellipsis.onExpand(true);
+      if (typeof props.ellipsis === 'object') props.ellipsis.onExpand?.(true);
     };
-    const onPackUp = () => {
+
+    const onCollapse = () => {
       isExpand.value = false;
+      if (typeof props.ellipsis === 'object') props.ellipsis.onExpand?.(false);
     };
 
     const renderEllipsisExpand = () => {
@@ -88,7 +86,7 @@ export default defineComponent({
         return (
           <span
             class={`${COMPONENT_NAME.value}-ellipsis-symbol`}
-            onClick={onPackUp}
+            onClick={onCollapse}
             style="text-decoration:none;white-space:nowrap;flex: 1;"
           >
             {globalConfig.value.collapseText}
@@ -97,17 +95,15 @@ export default defineComponent({
       }
     };
 
-    const boxStyle = computed(() => {
-      return {
-        display: 'flex',
-        alignItems: 'flex-end',
-      };
-    });
-
     return () => {
       const { tooltipProps } = ellipsisState.value;
       return (
-        <div style={boxStyle.value}>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'flex-end',
+          }}
+        >
           {tooltipProps && <TTooltip content={tooltipProps.content} placement="top-right"></TTooltip>}
           <p style={props.ellipsis ? ellipsisStyles.value : {}}>{content.value}</p>
           {renderEllipsisExpand()}

@@ -15,7 +15,9 @@ export default defineComponent({
       const { level: Tag } = props;
       const content = renderContent('default', 'content');
       return props.ellipsis ? (
-        <Ellipsis {...props}>{h(Tag, { class: COMPONENT_NAME.value }, ...content)}</Ellipsis>
+        <Ellipsis {...props} class={COMPONENT_NAME.value}>
+          {h(Tag, ...content)}
+        </Ellipsis>
       ) : (
         <>{h(Tag, { class: COMPONENT_NAME.value }, ...content)}</>
       );

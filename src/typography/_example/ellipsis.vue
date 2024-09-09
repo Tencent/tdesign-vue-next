@@ -4,7 +4,6 @@
     <t-typography-paragraph :ellipsis="ellipsisState1">{{ content }}</t-typography-paragraph>
     <t-typography-paragraph :ellipsis="ellipsisState2" style="width: 200px">{{ content }}</t-typography-paragraph>
     <t-typography-paragraph :ellipsis="ellipsisState3">{{ content }}</t-typography-paragraph>
-    <t-typography-paragraph :ellipsis="ellipsisState4">{{ content }}</t-typography-paragraph>
   </div>
 </template>
 
@@ -29,13 +28,6 @@ const ellipsisState3 = {
   row: 1,
   suffix: <ChevronDownIcon />,
   expandable: true,
-  collapsible: true,
-};
-
-const ellipsisState4 = {
-  row: 2,
-  suffix: <span style="color: black">roles.</span>,
+  collapsible: false,
 };
 </script>
-
-<style scoped></style>

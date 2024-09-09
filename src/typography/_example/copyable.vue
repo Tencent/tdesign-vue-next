@@ -2,17 +2,26 @@
   <div style="width: 100%">
     <t-typography-text copyable>This is a copyable text.</t-typography-text>
     <br />
-    <t-typography-text :copyable="customIconState1">This is a copyable text</t-typography-text>
+    <t-typography-text
+      :copyable="{
+        tooltipProps: {
+          content: 'click to copy the text',
+        },
+      }"
+      >This is a copyable text.</t-typography-text
+    >
+    <br />
+    <t-typography-text :copyable="copyableConfig">This is a copyable text.</t-typography-text>
   </div>
 </template>
 
 <script setup lang="tsx">
-import { CopyIcon } from 'tdesign-icons-vue-next';
+import { SmileIcon } from 'tdesign-icons-vue-next';
 
-const customIconState1 = {
-  suffix: <CopyIcon style={{ color: '#000' }} />,
+const copyableConfig = {
+  suffix: <SmileIcon />,
   tooltipProps: {
-    content: 'click to copy',
+    content: 'click to copy the text',
   },
 };
 </script>

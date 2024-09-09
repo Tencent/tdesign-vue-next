@@ -1,4 +1,4 @@
-import { computed, defineComponent, ref } from 'vue';
+import { computed, defineComponent, ref, h } from 'vue';
 import { usePrefixClass } from '../hooks/useConfig';
 import props from './text-props';
 import copy from './utils/copy-to-clipboard';
@@ -21,10 +21,10 @@ export default defineComponent({
     const isCopied = ref(false);
     const renderContent = useContent();
 
-    function wrapperDecorations(
+    const wrapperDecorations = (
       { code, underline, delete: del, strong, keyboard, mark, italic }: TdTextProps,
       content: any,
-    ) {
+    ) => {
       let currentContent = content;
 
       function wrap(needed: boolean, Tag: string, styles: object = {}) {
@@ -40,7 +40,8 @@ export default defineComponent({
       wrap(keyboard, 'kbd');
       wrap(italic, 'i');
       return currentContent;
-    }
+    };
+
     const classList = computed(() => {
       const { theme, disabled } = props;
       const prefix = COMPONENT_NAME.value;
@@ -53,6 +54,13 @@ export default defineComponent({
       return list;
     });
 
+    const tooltipText = computed(() => {
+      const { copyable } = props;
+      if (isCopied.value) return globalConfig.value.copiedText;
+      else if (typeof copyable === 'object') return copyable.tooltipProps?.content;
+      return null;
+    });
+
     const content = computed(() => {
       return props.content || slots?.default();
     });
@@ -61,13 +69,14 @@ export default defineComponent({
       const { copyable } = props;
       if (!copyable) return;
 
-      let icon: any = isCopied.value ? <CheckIcon /> : <CopyIcon />;
+      let icon: any = isCopied.value ? () => <CheckIcon /> : () => <CopyIcon />;
       let tooltipConf: TdTooltipProps = {
         theme: 'default',
       };
+
       let onCopy = () => {};
       if (typeof copyable === 'object') {
-        if (copyable.suffix) {
+        if (copyable.suffix && !isCopied.value) {
           icon = copyable.suffix;
         }
         if (copyable.tooltipProps) {
@@ -78,21 +87,19 @@ export default defineComponent({
         }
       }
       return (
-        <TTooltip content={isCopied.value ? globalConfig.value.copiedText : null} {...tooltipConf}>
-          <span style="margin-left: 6px" onClick={(e) => onCopyClick(e, onCopy)}>
-            <TButton icon={icon} shape="square" theme="primary" variant="text" />
-          </span>
+        <TTooltip {...tooltipConf} content={tooltipText.value}>
+          <TButton icon={icon} shape="square" theme="primary" variant="text" onClick={(e) => onCopyClick(e, onCopy)} />
         </TTooltip>
       );
     };
 
-    function getChildrenText(): string {
+    const getChildrenText = () => {
       if (typeof content.value === 'string') {
         return content.value;
       } else if (Array.isArray(content.value)) {
         return content.value.map((v) => v.children).join('');
       }
-    }
+    };
 
     const onCopyClick = (e: MouseEvent, cb: Function) => {
       e.preventDefault();
@@ -104,22 +111,22 @@ export default defineComponent({
       }, 1500);
 
       copy(getChildrenText());
-      cb && cb();
-    };
-
-    const renderTextNode = () => {
-      const content = renderContent('default', 'content');
-
-      return (
-        <span class={classList.value}>
-          {wrapperDecorations(props, content)}
-          {renderCopy()}
-        </span>
-      );
+      cb?.();
     };
 
     return () => {
-      return props.ellipsis ? <Ellipsis {...props}>{renderTextNode()}</Ellipsis> : renderTextNode();
+      const content = renderContent('default', 'content');
+      return props.ellipsis ? (
+        <Ellipsis {...props} class={classList.value}>
+          {wrapperDecorations(props, content)}
+          {props.copyable ? renderCopy() : null}
+        </Ellipsis>
+      ) : (
+        <span class={classList.value}>
+          {wrapperDecorations(props, content)}
+          {props.copyable ? renderCopy() : null}
+        </span>
+      );
     };
   },
 });
