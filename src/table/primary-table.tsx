@@ -149,7 +149,7 @@ export default defineComponent({
       onRuleChange,
       clearValidateData,
       onUpdateEditedCell,
-      getEditRowData,
+      // getEditRowData,
       onPrimaryTableCellEditChange,
     } = useEditableRow(props);
 
@@ -209,6 +209,7 @@ export default defineComponent({
       baseTableRef: primaryTableRef,
     });
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const onEditableCellChange: EditableCellProps['onChange'] = (params) => {
       props.onRowEdit?.(params);
       const rowValue = get(params.editedRow, props.rowKey || 'id');
@@ -273,12 +274,11 @@ export default defineComponent({
           item.cell = (h, p: PrimaryTableCellParams<TableRowData>) => {
             const cellProps: EditableCellProps = {
               ...p,
-              row: getEditRowData(p),
               oldCell,
               rowKey: props.rowKey || 'id',
               tableBaseClass,
               cellEmptyContent: props.cellEmptyContent,
-              onChange: onEditableCellChange,
+              onChange: props.onRowEdit,
               onValidate: props.onRowValidate,
               onRuleChange,
               onEditableChange: onPrimaryTableCellEditChange,
