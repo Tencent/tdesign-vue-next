@@ -259,7 +259,7 @@ describe('Tag or CheckTag', () => {
           return <Tag max-width={100}></Tag>;
         },
       });
-      const tag = wrapper.find('.t-tag');
+      const tag = wrapper.find('.t-tag--text');
       expect(getComputedStyle(tag.element, null).maxWidth).toBe('100px');
     });
   });

@@ -70,11 +70,11 @@ exports[`TreeSelect > :props > :defaultValue 1`] = `
         
         <div
           class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close"
-          style="max-width: 300px;"
         >
           <!---->
           <span
             class="t-tag--text"
+            style="max-width: 300px;"
           >
             <!---->
           </span>
@@ -528,11 +528,11 @@ exports[`TreeSelect > :props > :multiple 1`] = `
         
         <div
           class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close"
-          style="max-width: 300px;"
         >
           <!---->
           <span
             class="t-tag--text"
+            style="max-width: 300px;"
           >
             <!---->
           </span>
@@ -924,11 +924,11 @@ exports[`TreeSelect > <slot> > <collapsedItems> 1`] = `
         
         <div
           class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close"
-          style="max-width: 300px;"
         >
           <!---->
           <span
             class="t-tag--text"
+            style="max-width: 300px;"
           >
             <!---->
           </span>
@@ -1248,11 +1248,11 @@ exports[`TreeSelect > function > :collapsedItems 1`] = `
         
         <div
           class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close"
-          style="max-width: 300px;"
         >
           <!---->
           <span
             class="t-tag--text"
+            style="max-width: 300px;"
           >
             <!---->
           </span>

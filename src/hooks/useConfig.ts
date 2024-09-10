@@ -1,7 +1,7 @@
-import { computed } from 'vue';
+import { ComputedRef, computed } from 'vue';
 import { useConfig } from '../config-provider/useConfig';
 
-export function usePrefixClass(componentName?: string) {
+export function usePrefixClass(componentName?: string): ComputedRef {
   const { classPrefix } = useConfig('classPrefix');
   return computed(() => {
     return componentName ? `${classPrefix.value}-${componentName}` : classPrefix.value;

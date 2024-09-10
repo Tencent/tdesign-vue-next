@@ -32,6 +32,10 @@ export interface TdFormProps<FormData extends Data = Data> {
    */
   formControlledComponents?: Array<string>;
   /**
+   * 表单原生的id属性，支持用于配合非表单内的按钮通过form属性来触发表单事件
+   */
+  id?: string;
+  /**
    * 表单字段标签对齐方式：左对齐、右对齐、顶部对齐
    * @default right
    */

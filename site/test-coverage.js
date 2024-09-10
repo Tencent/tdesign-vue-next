@@ -193,7 +193,7 @@ module.exports = {
   },
   input: {
     statements: '97.07%',
-    branches: '83.76%',
+    branches: '83.15%',
     functions: '97.67%',
     lines: '97.07%',
   },
@@ -366,10 +366,10 @@ module.exports = {
     lines: '95.01%',
   },
   tag: {
-    statements: '81.68%',
-    branches: '79.62%',
-    functions: '66.66%',
-    lines: '81.68%',
+    statements: '82.53%',
+    branches: '81.96%',
+    functions: '68%',
+    lines: '82.53%',
   },
   tagInput: {
     statements: '96.76%',
@@ -418,6 +418,12 @@ module.exports = {
     branches: '73.07%',
     functions: '63.33%',
     lines: '83.99%',
+  },
+  typography: {
+    statements: '48.71%',
+    branches: '50%',
+    functions: '27.58%',
+    lines: '48.71%',
   },
   upload: {
     statements: '100%',
