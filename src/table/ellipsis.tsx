@@ -1,5 +1,5 @@
 /** 超出省略显示 */
-import { defineComponent, PropType, ref, computed, onMounted } from 'vue';
+import { defineComponent, PropType, ref, computed, onMounted, onUpdated } from 'vue';
 import debounce from 'lodash/debounce';
 import { AttachNode, TNode } from '../common';
 import { renderContent } from '../utils/render-tnode';
@@ -49,7 +49,7 @@ export default defineComponent({
   setup(props) {
     const root = ref();
 
-    // 用于判断是否需要渲染 Tooltop
+    // 用于判断是否需要渲染 Tooltip
     const flag = ref(false);
     const isOverflow = ref(false);
 
@@ -67,16 +67,18 @@ export default defineComponent({
       isOverflow.value = isTextEllipsis(root.value);
     });
 
+    onUpdated(() => {
+      isOverflow.value = isTextEllipsis(root.value);
+    });
+
     // 当表格数据量大时，不希望默认渲染全量的 Tooltip，期望在用户 mouseenter 的时候再显示，通过 flag 判断
     const onTriggerMouseenter = () => {
       if (!root.value) return;
-      isOverflow.value = isTextEllipsis(root.value);
       flag.value = true;
     };
 
     const onTriggerMouseleave = () => {
       if (!root.value) return;
-      isOverflow.value = isTextEllipsis(root.value);
     };
 
     // 使用 debounce 有两个原因：1. 避免 safari/firefox 等浏览器不显示省略浮层；2. 避免省略列快速滚动时，出现一堆的省略浮层
