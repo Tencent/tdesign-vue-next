@@ -7,6 +7,8 @@ docClass: timeline
 
 ## 🌈 1.10.0 `2024-09-10` 
 ### 🚀 Features
+- `Empty`:  新增 `Empty` 空状态组件 @HaixingOoO ([#4519](https://github.com/Tencent/tdesign-vue-next/pull/4519))
+- `Typography`: 新增 `Typography` 排版组件 @byq1213 ([#4293](https://github.com/Tencent/tdesign-vue-next/pull/4293))
 - `Cascader`:  
   - 新增级联面板支持自定义下拉选项内容的能力 @uyarn ([#4513](https://github.com/Tencent/tdesign-vue-next/pull/4513))
   -  新增 `panelTopContent` 和 `panelBottomContent` API @uyarn ([#4546](https://github.com/Tencent/tdesign-vue-next/pull/4546))
@@ -16,10 +18,8 @@ docClass: timeline
 - `Tag`: 
   - 新增 `title` API 控制鼠标悬停显示的文本 @liweijie0812 ([#4517](https://github.com/Tencent/tdesign-vue-next/pull/4517))
   -  修改 `maxWidth`生效的 `dom` 节点，方便控制文本内容长度 @liweijie0812 ([#4532](https://github.com/Tencent/tdesign-vue-next/pull/4532))
-- `Typography`: 新增 `Typography` 组件 @byq1213 ([#4293](https://github.com/Tencent/tdesign-vue-next/pull/4293))
 - `GlobalConfig`: 新增 `descriptions.colonText` `rate.rateText` `setpes.checkIcon` 支持全局配置 @liweijie0812 ([#4476](https://github.com/Tencent/tdesign-vue-next/pull/4476))
 - `Radio`: `RadioGroup` `change` 事件回调添加`name`属性 @taninsist ([#4491](https://github.com/Tencent/tdesign-vue-next/pull/4491))
-- `Empty`:  新增 `Empty` 空状态组件 @HaixingOoO ([#4519](https://github.com/Tencent/tdesign-vue-next/pull/4519))
 - `Button`: 新增`form` API，原生的 `form` 属性，支持用于通过 `form` 属性触发对应 `id` 的 `form` 的表单事件 @uyarn ([#4538](https://github.com/Tencent/tdesign-vue-next/pull/4538))
 - `InputNumber`: `decimalPlaces` 类型扩展，支持灵活的进位配置 @zhangpaopao0609 ([#4536](https://github.com/Tencent/tdesign-vue-next/pull/4536))
 ### 🐞 Bug Fixes
