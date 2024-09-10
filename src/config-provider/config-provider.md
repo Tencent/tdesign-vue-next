@@ -18,20 +18,42 @@ Vue.createApp({}).use(TDesign)
 </t-config-provider>
 ```
 
+#### vue-cli
 ```js
+// vue.config.js
 {
-    loaderOptions: {
-        less: {
-            lessOptions: {
-                modifyVars: {
-                    '@prefix': 'any', // 请注意需要与classPrefix保持一致
+    css: {
+        loaderOptions: {
+            less: {
+                lessOptions: {
+                    modifyVars: {
+                     '@prefix': 'any',// 请注意需要与classPrefix保持一致
+                    },
+                    javascriptEnabled: true,
                 },
-                javascriptEnabled: true,
             },
-        },
+        }
     }
 }
 ```
+
+#### vite
+```js
+// vite.config.js
+{
+    css: {
+        preprocessorOptions: {
+            less: {
+                modifyVars: {
+                    '@prefix': 'any',// 请注意需要与classPrefix保持一致
+                },
+                javascriptEnabled: true,
+            },
+        }
+    }
+}
+```
+
 
 ## API
 ### GlobalConfigProvider
@@ -68,6 +90,7 @@ timePicker | Object | - | 时间选择器全局配置。TS 类型：`TimePickerC
 transfer | Object | - | 穿梭框全局配置。TS 类型：`TransferConfig` | N
 tree | Object | - | 树组件全局配置。TS 类型：`TreeConfig` | N
 treeSelect | Object | - | 树选择器组件全局配置。TS 类型：`TreeSelectConfig` | N
+typography | Object | - | 排版组件全局配置。TS 类型：`TypographyConfig` | N
 upload | Object | - | 上传组件全局配置。TS 类型：`UploadConfig` | N
 
 ### InputConfig
@@ -369,3 +392,11 @@ skipButtonProps | Object | - | 跳过按钮，示例：`{ content: '跳过', the
 名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
 rateText | Array | - | 评分描述，默认值：['极差', '失望', '一般', '满意', '惊喜']。TS 类型：`string[]` | N
+
+### TypographyConfig
+
+名称 | 类型 | 默认值 | 描述 | 必传
+-- | -- | -- | -- | --
+collapseText | String | - | 语言配置，“收起”描述文本 | N
+copiedText | String | - | 语言配置，“复制成功”描述文本 | N
+expandText | String | - | 语言配置，“展开”描述文本 | N
