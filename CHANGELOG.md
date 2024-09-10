@@ -5,6 +5,34 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.10.0 `2024-09-10` 
+### 🚀 Features
+- `Empty`:  新增 `Empty` 空状态组件 @HaixingOoO ([#4519](https://github.com/Tencent/tdesign-vue-next/pull/4519))
+- `Typography`: 新增 `Typography` 排版组件 @byq1213 ([#4293](https://github.com/Tencent/tdesign-vue-next/pull/4293))
+- `Cascader`:  
+  - 新增级联面板支持自定义下拉选项内容的能力 @uyarn ([#4513](https://github.com/Tencent/tdesign-vue-next/pull/4513))
+  -  新增 `panelTopContent` 和 `panelBottomContent` API @uyarn ([#4546](https://github.com/Tencent/tdesign-vue-next/pull/4546))
+- `Form`: 
+  - 添加 `whitespace` 校验默认错误信息 @liweijie0812 ([#4508](https://github.com/Tencent/tdesign-vue-next/pull/4508))
+  - 新增`id` API，表单原生的 `id` 属性，支持用于配合非表单内的按钮通过 `form` 属性来触发表单事件 @uyarn ([#4538](https://github.com/Tencent/tdesign-vue-next/pull/4538))
+- `Tag`: 
+  - 新增 `title` API 控制鼠标悬停显示的文本 @liweijie0812 ([#4517](https://github.com/Tencent/tdesign-vue-next/pull/4517))
+  -  修改 `maxWidth`生效的 `dom` 节点，方便控制文本内容长度 @liweijie0812 ([#4532](https://github.com/Tencent/tdesign-vue-next/pull/4532))
+- `GlobalConfig`: 新增 `descriptions.colonText` `rate.rateText` `setpes.checkIcon` 支持全局配置 @liweijie0812 ([#4476](https://github.com/Tencent/tdesign-vue-next/pull/4476))
+- `Radio`: `RadioGroup` `change` 事件回调添加`name`属性 @taninsist ([#4491](https://github.com/Tencent/tdesign-vue-next/pull/4491))
+- `Button`: 新增`form` API，原生的 `form` 属性，支持用于通过 `form` 属性触发对应 `id` 的 `form` 的表单事件 @uyarn ([#4538](https://github.com/Tencent/tdesign-vue-next/pull/4538))
+- `InputNumber`: `decimalPlaces` 类型扩展，支持灵活的进位配置 @zhangpaopao0609 ([#4536](https://github.com/Tencent/tdesign-vue-next/pull/4536))
+### 🐞 Bug Fixes
+- `List`: 
+  - 修复使用虚拟滚动列表时使用 `v-if` 展示的场景容器未判空异常的问题 @zhengchengshi ([#4541](https://github.com/Tencent/tdesign-vue-next/pull/4541))
+  - 修复 `list-item` 的 `props` 错误导致部分 `API` 不生效的问题 @summer-077 ([#4544](https://github.com/Tencent/tdesign-vue-next/pull/4544))
+- `Tag`: 修复全局替换 `closeBtn` 图标的场景下报错的问题 @uyarn ([#4494](https://github.com/Tencent/tdesign-vue-next/pull/4494))
+- `TimePicker`: 修复 `format` 仅支持 `HH:mm:ss` 格式的问题 @liweijie0812 ([#4505](https://github.com/Tencent/tdesign-vue-next/pull/4505))
+- `Table`: 修复拖拽调整列宽之后超出省略样式丢失的问题 @uyarn ([#4545](https://github.com/Tencent/tdesign-vue-next/pull/4545))
+### 🚧 Others
+- `Table`: 修复分页文档的展示示例错误问题 @uyarn ([#4501](https://github.com/Tencent/tdesign-vue-next/pull/4501))
+- `Menu`: 更新关于`MenuItem`的 `routerLink`的相关文档 @Nero978 ([#4543](https://github.com/Tencent/tdesign-vue-next/pull/4543))
+
 ## 🌈 1.9.9 `2024-08-16` 
 ### 🚀 Features
 - `Borderless`: `RangeInput` `DateRangePicker`  `TimeRangePicker` 支持无边框模式 @liweijie0812 ([#4442](https://github.com/Tencent/tdesign-vue-next/pull/4442))
