@@ -27,6 +27,34 @@ describe('InputNumber', () => {
       expect(input.element.value).toBe('100.00');
     });
 
+    it(':decimalPlaces: { enableRound: boolean }', () => {
+      const value1 = ref('1');
+      const wrapper1 = mount(() => (
+        <InputNumber v-model={value1.value} decimalPlaces={{ places: 0 }} isLargeNumber={true} />
+      ));
+      const input1 = wrapper1.find('.t-input input');
+      expect(input1.element.value).toBe('1');
+
+      const value2 = ref('1');
+      const wrapper2 = mount(() => <InputNumber v-model={value2.value} decimalPlaces={{ places: 0 }} />);
+      const input2 = wrapper2.find('.t-input input');
+      expect(input2.element.value).toBe('1');
+
+      const value3 = ref('1.356');
+      const wrapper3 = mount(() => (
+        <InputNumber v-model={value3.value} decimalPlaces={{ places: 2 }} isLargeNumber={true} />
+      ));
+      const input3 = wrapper3.find('.t-input input');
+      expect(input3.element.value).toBe('1.36');
+
+      const value4 = ref('1.356');
+      const wrapper4 = mount(() => (
+        <InputNumber v-model={value4.value} decimalPlaces={{ enableRound: false, places: 2 }} />
+      ));
+      const input4 = wrapper4.find('.t-input input');
+      expect(input4.element.value).toBe('1.35');
+    });
+
     it(':disabled', () => {
       const wrapper = mount(() => <InputNumber disabled />);
       const container = wrapper.find('.t-input-number');
