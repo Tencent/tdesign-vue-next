@@ -87,6 +87,14 @@ export default {
     type: Array as PropType<TdCascaderProps['options']>,
     default: (): TdCascaderProps['options'] => [],
   },
+  /** 面板内的底部内容 */
+  panelBottomContent: {
+    type: [String, Function] as PropType<TdCascaderProps['panelBottomContent']>,
+  },
+  /** 面板内的顶部内容 */
+  panelTopContent: {
+    type: [String, Function] as PropType<TdCascaderProps['panelTopContent']>,
+  },
   /** 占位符 */
   placeholder: {
     type: String,
