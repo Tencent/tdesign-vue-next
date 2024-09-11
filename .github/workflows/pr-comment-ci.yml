@@ -4,7 +4,7 @@ on:
   issue_comment:
     types: [created]
 env:
-  HUSKY: "0"
+  HUSKY: '0'
 
 jobs:
   check:
@@ -19,6 +19,7 @@ jobs:
           sparse-checkout: |
             .github/.pr-comment-ci-whitelist
           sparse-checkout-cone-mode: false
+
       - uses: actions/github-script@v7
         id: get-action
         with:
@@ -26,7 +27,6 @@ jobs:
             const user = context.payload.comment.user.login
             core.info(`user: ${user}`)
 
-            const fs = require('fs')
             const fs = require('fs');
             const whitelist = fs.readFileSync('.github/.pr-comment-ci-whitelist', 'utf8');
 
@@ -50,7 +50,7 @@ jobs:
               if (body.startsWith('/update-coverage')) {
                 next_action='update-coverage'
               }
-
+                
               if(next_action){
                 await github.rest.reactions.createForIssueComment({
                   owner: context.repo.owner,
@@ -74,16 +74,33 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.PERSONAL_TOKEN }}
-          
+
       - name: gh checkout pr
         env:
           GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
-        run: gh pr checkout ${{ github.event.issue.number }} --recurse-submodules
+        run: gh pr checkout ${{ github.event.issue.number }}
 
-      - name: merge develop
+      - name: git config
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+
+      - name: submodule init and sync remote
+        run: |
+          git submodule update --init --remote
+
+      - name: Commit common
+        run: |
+          git status
+          working_tree_clean=$(git status | grep -c 'nothing to commit, working tree clean') || true
+          if [ "$working_tree_clean" -eq "0" ]; then
+            git add .
+            git commit -m "chore: update common"
+          fi
+          git status
+
+      - name: merge develop
+        run: |
           git merge develop --no-commit || true
 
       - name: check conflicts
@@ -110,7 +127,7 @@ jobs:
           fi
 
           if [ "$common_conflict" -eq "1" ];then
-              git checkout --theirs src/_common
+              git checkout --ours src/_common
               git add src/_common
               echo "resolve conflict _common"
           fi
@@ -118,34 +135,10 @@ jobs:
           git status
           git commit -am "chore: merge develop"
 
-      - name: update common
-        run: |
-          git submodule update --remote --merge
-
-      - name: commit common
-        run: |
-          git status
-          working_tree_clean=$(git status | grep -c 'nothing to commit, working tree clean') || true
-          if [ "$working_tree_clean" -eq "0" ]; then
-            git add .
-            git commit -m "chore: update common"
-          fi
-          git status
-
       - name: git push
         run: |
           git status
           git push || true
-      
-      - name: delete comment
-        uses: actions/github-script@v7
-        with:
-          script: |
-            await github.rest.issues.deleteComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              comment_id: context.payload.comment.id
-            })
 
   update-snapshot:
     needs: check
@@ -173,14 +166,17 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `⏳ 正在运行 快照更新。。。 CI: ${urlLink}`
+              body: `⏳ 正在运行快照更新。。。 CI: ${urlLink}`
             })
             return comment.id
 
-      - name: merge develop
+      - name: git config
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+
+      - name: merge develop
+        run: |
           git merge develop --no-commit || true
 
       - name: check conflicts
@@ -239,7 +235,7 @@ jobs:
 
       - run: npm run test:update
 
-      - name: commit snapshot
+      - name: Commit Snapshot
         run: |
           git status
           working_tree_clean=$(git status | grep -c 'nothing to commit, working tree clean') || true
@@ -248,26 +244,11 @@ jobs:
             git commit -m "chore: update snapshot"
           fi
           git status
-
+ 
       - name: git push
         run: |
           git status
           git push || true
-
-      - name: delete comment
-        uses: actions/github-script@v7
-        with:
-          script: |
-            await github.rest.issues.deleteComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              comment_id: context.payload.comment.id
-            })
-            await github.rest.issues.deleteComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              comment_id: `${{ steps.bot-comment.outputs.result }}`
-            }) 
 
   update-coverage:
     needs: check
@@ -283,6 +264,11 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
         run: gh pr checkout ${{ github.event.issue.number }} --recurse-submodules
+
+      - name: git config
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
 
       - name: bot commtent
         id: bot-comment
@@ -321,18 +307,3 @@ jobs:
         run: |
           git status
           git push || true
-
-      - name: delete comment
-        uses: actions/github-script@v7
-        with:
-          script: |
-            await github.rest.issues.deleteComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              comment_id: context.payload.comment.id
-            })
-            await github.rest.issues.deleteComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              comment_id: `${{ steps.bot-comment.outputs.result }}`
-            })                 
