@@ -5,6 +5,10 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.10.1 `2024-09-11` 
+### 🐞 Bug Fixes
+- `Table`: 修复开启`ellipsis`配置的节点因为状态更新问题导致部分场景分页切换时存在异常的问题 @uyarn ([#4555](https://github.com/Tencent/tdesign-vue-next/pull/4555))
+
 ## 🌈 1.10.0 `2024-09-10` 
 ### 🚀 Features
 - `Empty`:  新增 `Empty` 空状态组件 @HaixingOoO ([#4519](https://github.com/Tencent/tdesign-vue-next/pull/4519))

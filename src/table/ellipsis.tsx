@@ -80,7 +80,9 @@ export default defineComponent({
     const onTriggerMouseleave = () => {
       if (!root.value) return;
     };
-
+    const handleVisibleChange = (v: boolean) => {
+      if (!v) flag.value = false;
+    };
     // 使用 debounce 有两个原因：1. 避免 safari/firefox 等浏览器不显示省略浮层；2. 避免省略列快速滚动时，出现一堆的省略浮层
     const onMouseAround = debounce((e: MouseEvent) => {
       e.type === 'mouseleave' ? onTriggerMouseleave() : onTriggerMouseenter();
@@ -93,11 +95,13 @@ export default defineComponent({
       ellipsisClasses,
       innerEllipsisClassName,
       onMouseAround,
+      handleVisibleChange,
     };
   },
 
   render() {
     const cellNode = renderContent(this, 'default', 'content');
+
     const ellipsisContent = (
       <div
         ref="root"
@@ -123,6 +127,7 @@ export default defineComponent({
         overlayClassName: tooltipProps?.overlayClassName
           ? this.innerEllipsisClassName.concat(tooltipProps.overlayClassName)
           : this.innerEllipsisClassName,
+        onVisibleChange: this.handleVisibleChange,
         ...tooltipProps,
       };
       content = <TTooltip {...rProps}>{ellipsisContent}</TTooltip>;
