@@ -9,7 +9,8 @@ import useCollapseAnimation from '../hooks/useCollapseAnimation';
 export default defineComponent({
   name: 'TCollapsePanel',
   props,
-  setup(props: TdCollapsePanelProps, { slots }) {
+  // setup(props: TdCollapsePanelProps, { slots }) {
+  setup(props: TdCollapsePanelProps, {}) {
     const renderTNodeJSX = useTNodeJSX();
     const renderContent = useContent();
     const componentName = usePrefixClass('collapse-panel');
@@ -19,15 +20,22 @@ export default defineComponent({
     const { value, disabled, destroyOnCollapse } = toRefs(props);
     const collapseValue: Ref<CollapseValue> = inject('collapseValue');
     const updateCollapseValue: Function = inject('updateCollapseValue');
-    const getUniqId: Function = inject('getUniqId', () => undefined, false);
+    const getUniqIdGenerator = inject(
+      'uniqIdGenerator',
+      {
+        getUniqId: (): number => undefined,
+        reset: (): void => {},
+      },
+      false,
+    );
     const {
       defaultExpandAll,
       disabled: disableAll,
       expandIconPlacement,
       expandOnRowClick,
     } = inject<any>('collapseProps');
-    const renderParentTNode: Function = inject('renderParentTNode');
-    const innerValue = value.value || getUniqId();
+    // const renderParentTNode: Function = inject('renderParentTNode');
+    let innerValue = value.value;
     if (defaultExpandAll.value) {
       updateCollapseValue(innerValue);
     }
@@ -42,7 +50,7 @@ export default defineComponent({
     const classes = computed(() => {
       return [componentName.value, { [disableClass.value]: isDisabled.value }];
     });
-    const panelExpandIcon = computed(() => slots.expandIcon || props.expandIcon);
+    // const panelExpandIcon = computed(() => slots.expandIcon || props.expandIcon);
     const handleClick = (e: MouseEvent) => {
       const canExpand = expandOnRowClick.value || e.currentTarget === iconRef.value;
       if (canExpand && !isDisabled.value) {
@@ -57,7 +65,8 @@ export default defineComponent({
       return <FakeArrow overlayClassName={`${componentName.value}__icon--default`} />;
     };
     const renderIcon = () => {
-      const tNodeRender = panelExpandIcon.value === undefined ? renderParentTNode : renderTNodeJSX;
+      // const tNodeRender = panelExpandIcon.value === undefined ? renderParentTNode : renderTNodeJSX;
+      const tNodeRender = renderTNodeJSX;
       return (
         <div
           ref={iconRef}
@@ -111,8 +120,11 @@ export default defineComponent({
       ) : null;
     };
     const renderBody = () => {
+      innerValue = value.value || getUniqIdGenerator.getUniqId();
+
       return destroyOnCollapse.value ? renderBodyDestroyOnCollapse() : renderBodyByNormal();
     };
+
     return () => {
       return (
         <div class={classes.value}>

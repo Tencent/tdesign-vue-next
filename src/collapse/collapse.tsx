@@ -12,7 +12,7 @@ export default defineComponent({
   setup(props: TdCollapseProps) {
     const componentName = usePrefixClass('collapse');
     const borderlessClass = usePrefixClass('-border-less');
-    const renderTNodeJSX = useTNodeJSX();
+    // const renderTNodeJSX = useTNodeJSX();
     const { value, expandMutex, borderless, modelValue } = toRefs(props);
     const [collapseValue, setCollapseValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
     const updateCollapseValue = (value: CollapsePanelValue) => {
@@ -35,17 +35,32 @@ export default defineComponent({
         },
       ];
     });
-    const getUniqId = (() => {
+
+    const uniqIdGenerator = (() => {
       let index = 0;
-      return () => index++;
+
+      const getUniqId = () => {
+        return index++;
+      };
+      const reset = () => {
+        index = 0;
+      };
+
+      return { getUniqId, reset };
     })();
+
     provide('collapseValue', collapseValue);
     provide('updateCollapseValue', updateCollapseValue);
     provide('collapseProps', toRefs(props));
-    provide('getUniqId', getUniqId);
-    provide('renderParentTNode', renderTNodeJSX);
+    provide('uniqIdGenerator', uniqIdGenerator);
+    // provide('renderParentTNode', () => renderTNodeJSX);
+
     return () => {
+      const renderTNodeJSX = useTNodeJSX();
+
       const nodes = renderTNodeJSX('default');
+      uniqIdGenerator.reset();
+
       return <div class={classes.value}>{nodes}</div>;
     };
   },
