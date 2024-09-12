@@ -1,6 +1,29 @@
 <template>
-  <router-view />
+  <t-config-provider :global-config="globalConfig">
+    <router-view />
+  </t-config-provider>
 </template>
+
+<script setup>
+import { onMounted, ref } from 'vue';
+import cnConfig from 'tdesign-vue-next/es/locale/zh_CN';
+import enConfig from 'tdesign-vue-next/es/locale/en_US';
+
+const globalConfig = ref(cnConfig);
+
+onMounted(() => {
+  const lang = localStorage.getItem('tdesign_site_lang');
+  if (lang) {
+    globalConfig.value = lang === 'en' ? enConfig : cnConfig;
+  }
+});
+
+//  nextLang 'en' | 'zh'
+document.addEventListener('tdesign_site_lang', ({ detail: nextLang }) => {
+  localStorage.setItem('tdesign_site_lang', nextLang);
+  globalConfig.value = nextLang === 'en' ? enConfig : cnConfig;
+});
+</script>
 
 <style lang="less">
 div[slot='action'] {
