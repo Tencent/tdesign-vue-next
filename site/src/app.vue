@@ -8,20 +8,18 @@
 import { onMounted, ref } from 'vue';
 import cnConfig from 'tdesign-vue-next/es/locale/zh_CN';
 import enConfig from 'tdesign-vue-next/es/locale/en_US';
+import { getLang } from 'tdesign-site-components';
 
 const globalConfig = ref(cnConfig);
 
 onMounted(() => {
-  const lang = localStorage.getItem('tdesign_site_lang');
-  if (lang) {
-    globalConfig.value = lang === 'en' ? enConfig : cnConfig;
-  }
+  const lang = getLang();
+  globalConfig.value = lang === 'en' ? enConfig : cnConfig;
 });
 
 //  nextLang 'en' | 'zh'
-document.addEventListener('tdesign_site_lang', ({ detail: nextLang }) => {
-  localStorage.setItem('tdesign_site_lang', nextLang);
-  globalConfig.value = nextLang === 'en' ? enConfig : cnConfig;
+document.addEventListener('tdesign_site_lang', () => {
+  globalConfig.value = getLang() === 'en' ? enConfig : cnConfig;
 });
 </script>
 
