@@ -17,10 +17,6 @@ onMounted(() => {
   globalConfig.value = lang === 'en' ? enConfig : cnConfig;
 });
 
-//  nextLang 'en' | 'zh'
-document.addEventListener('tdesign_site_lang', () => {
-  globalConfig.value = getLang() === 'en' ? enConfig : cnConfig;
-});
 </script>
 
 <style lang="less">
