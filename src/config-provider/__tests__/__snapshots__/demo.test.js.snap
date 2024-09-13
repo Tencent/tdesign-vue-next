@@ -2005,7 +2005,7 @@ exports[`ConfigProvider > ConfigProvider globalVue demo works fine 1`] = `
   <div>
     中文语言包引入路径：
     <code>
-      import enConfig from 'tdesign-vue-next/es/locale/zh_CN';
+      import zhConfig from 'tdesign-vue-next/es/locale/zh_CN';
     </code>
   </div>
   

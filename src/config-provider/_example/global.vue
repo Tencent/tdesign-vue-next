@@ -4,7 +4,7 @@
     <br />
     <div>English: <code>import enConfig from 'tdesign-vue-next/es/locale/en_US';</code></div>
     <br />
-    <div>中文：<code>import enConfig from 'tdesign-vue-next/es/locale/zh_CN';</code></div>
+    <div>中文：<code>import zhConfig from 'tdesign-vue-next/es/locale/zh_CN';</code></div>
   </t-config-provider>
 </template>
 
