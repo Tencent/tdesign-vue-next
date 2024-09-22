@@ -17,6 +17,7 @@ import { useMirror, useRotate, useScale } from './hooks';
 import props from './props';
 import { TdImageViewerProps } from './type';
 import { formatImages, getOverlay } from './utils';
+import { debounce } from 'lodash';
 
 export default defineComponent({
   name: 'TImageViewer',
@@ -137,10 +138,12 @@ export default defineComponent({
           animationEnd.value = false;
           nextTick().then(() => {
             divRef.value?.focus?.();
+            document.documentElement.style.overflow = 'hidden';
           });
 
           onRest();
         } else {
+          document.documentElement.style.overflow = 'visible';
           animationTimer.value = setTimeout(() => {
             animationEnd.value = true;
           }, 200);
@@ -148,10 +151,13 @@ export default defineComponent({
       },
     );
 
-    const onWheel = (e: WheelEvent) => {
+    const debounceOnWheel = debounce((e) => {
       e.preventDefault();
-      const { deltaY } = e;
 
+      onWheel(e);
+    }, 10);
+    const onWheel = (e: WheelEvent) => {
+      const { deltaY } = e;
       deltaY > 0 ? onZoomOut() : onZoomIn();
     };
 
@@ -259,7 +265,7 @@ export default defineComponent({
                   v-show={visibleValue.value}
                   class={wrapClass.value}
                   style={{ zIndex: zIndexValue.value }}
-                  onWheel={onWheel}
+                  onWheel={debounceOnWheel}
                   tabindex={-1}
                   onKeydown={keydownHandler}
                 >
