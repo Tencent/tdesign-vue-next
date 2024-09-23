@@ -27,9 +27,11 @@ export default defineComponent({
     const classPrefix = usePrefixClass();
     const { SearchIcon } = useGlobalIcon({ SearchIcon: TdSearchIcon });
     const handleChange = (value: string, changeCtx: any) => {
+      const { e, trigger } = changeCtx;
       props.onChange?.({
         value,
-        e: changeCtx.e,
+        e,
+        trigger,
       });
     };
     const inputProps = typeof props.search === 'object' ? props.search : { clearable: true };
