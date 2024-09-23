@@ -127,5 +127,24 @@ describe('Alert', () => {
       expect(fn).toBeCalled();
       expect(alert.classes()).toContain('t-alert--closing');
     });
+    it(':onClosed', async () => {
+      const arr = [];
+      const fn1 = () => {
+        arr.push('fn1');
+      };
+      const fn2 = () => {
+        arr.push('fn2');
+      };
+      const wrapper = mount(() => (
+        <Alert close onClose={fn1()} onClosed={fn2()}>
+          text
+        </Alert>
+      ));
+      const close = wrapper.find('.t-alert__close');
+      await close.trigger('click');
+      await nextTick();
+      expect(arr[0]).toBe('fn1');
+      expect(arr[1]).toBe('fn2');
+    });
   });
 });
