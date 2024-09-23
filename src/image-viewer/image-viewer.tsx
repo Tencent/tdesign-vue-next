@@ -1,5 +1,6 @@
 import { ChevronDownIcon, ChevronLeftIcon, CloseIcon } from 'tdesign-icons-vue-next';
 import { Teleport, Transition, computed, defineComponent, nextTick, ref, toRefs, watch } from 'vue';
+import debounce from 'lodash/debounce';
 
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
@@ -17,7 +18,6 @@ import { useMirror, useRotate, useScale } from './hooks';
 import props from './props';
 import { TdImageViewerProps } from './type';
 import { formatImages, getOverlay } from './utils';
-import { debounce } from 'lodash';
 
 export default defineComponent({
   name: 'TImageViewer',
@@ -138,12 +138,10 @@ export default defineComponent({
           animationEnd.value = false;
           nextTick().then(() => {
             divRef.value?.focus?.();
-            document.documentElement.style.overflow = 'hidden';
           });
 
           onRest();
         } else {
-          document.documentElement.style.overflow = 'visible';
           animationTimer.value = setTimeout(() => {
             animationEnd.value = true;
           }, 200);
@@ -151,12 +149,8 @@ export default defineComponent({
       },
     );
 
-    const debounceOnWheel = debounce((e) => {
-      e.preventDefault();
-
-      onWheel(e);
-    }, 10);
     const onWheel = (e: WheelEvent) => {
+      e.preventDefault();
       const { deltaY } = e;
       deltaY > 0 ? onZoomOut() : onZoomIn();
     };
@@ -265,7 +259,7 @@ export default defineComponent({
                   v-show={visibleValue.value}
                   class={wrapClass.value}
                   style={{ zIndex: zIndexValue.value }}
-                  onWheel={debounceOnWheel}
+                  onWheel={onWheel}
                   tabindex={-1}
                   onKeydown={keydownHandler}
                 >
