@@ -63,7 +63,9 @@ export default defineComponent({
 
       const container = document.createElement('div');
 
-      container.style.background = 'transparent';
+      container.style.background = '#fff';
+      container.style.padding = '4px';
+      container.style.borderRadius = '4px';
       container.innerHTML = svgText;
       shadowRoot.appendChild(container);
 
