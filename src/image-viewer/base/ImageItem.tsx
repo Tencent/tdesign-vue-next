@@ -66,6 +66,8 @@ export default defineComponent({
       container.style.background = '#fff';
       container.style.padding = '4px';
       container.style.borderRadius = '4px';
+      container.style.maxHeight = 'fit-content';
+      container.style.maxWidth = '100%';
       container.innerHTML = svgText;
       shadowRoot.appendChild(container);
 
@@ -93,6 +95,8 @@ export default defineComponent({
           container.style.width = `${bbox.width}px`;
           container.style.height = `${bbox.height}px`;
         }
+        svgElement.style.maxHeight = '100%';
+        svgElement.style.maxWidth = '100%';
       }
       loaded.value = true;
     };
