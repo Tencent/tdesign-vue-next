@@ -63,7 +63,7 @@ export default defineComponent({
 
       const container = document.createElement('div');
 
-      container.style.background = '#fff';
+      container.style.background = 'var(--td-bg-color-container)';
       container.style.padding = '4px';
       container.style.borderRadius = '4px';
       container.style.maxHeight = 'fit-content';
