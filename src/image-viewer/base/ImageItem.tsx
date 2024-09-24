@@ -97,6 +97,7 @@ export default defineComponent({
         }
         svgElement.style.maxHeight = '100%';
         svgElement.style.maxWidth = '100%';
+        svgElement.style.height = 'auto';
       }
       loaded.value = true;
     };
