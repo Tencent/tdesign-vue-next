@@ -86,7 +86,7 @@ export default defineComponent({
 
           // svg viewbox x(0) and y(1) offset, width(2) and height(3),eg
           const svgViewBoxWidth = viewBoxValues[2];
-          const svgViewBoxHeight = viewBoxValues[3];
+          // const svgViewBoxHeight = viewBoxValues[3];
           container.style.width = `${svgViewBoxWidth}px`;
         } else {
           const bbox = svgElement.getBBox();
