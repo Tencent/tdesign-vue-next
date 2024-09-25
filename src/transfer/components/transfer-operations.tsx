@@ -93,7 +93,7 @@ export default defineComponent({
           onClick={moveToRight}
           icon={getIcon('right')}
         >
-          {renderButton(h, 'right')}
+          {slots.operation || props.operation?.[1] ? renderButton(h, 'right') : null}
         </Button>
         <Button
           variant="outline"
@@ -104,7 +104,7 @@ export default defineComponent({
           onClick={moveToLeft}
           icon={getIcon('left')}
         >
-          {renderButton(h, 'left')}
+          {slots.operation || props.operation?.[0] ? renderButton(h, 'left') : null}
         </Button>
       </div>
     );
