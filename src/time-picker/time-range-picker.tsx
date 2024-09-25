@@ -102,11 +102,24 @@ export default defineComponent({
     const handleClickConfirm = () => {
       const isValidTime = !currentValue.value.find((v) => !validateInputValue(v, format.value));
       if (isValidTime) setInnerValue(currentValue.value);
+      setCurrentValue2InnerValue();
       isShowPanel.value = false;
     };
 
     const handleFocus = (value: TimeRangeValue, { e, position }: { e: FocusEvent; position: RangeInputPosition }) => {
       props.onFocus?.({ value, e, position: position === 'first' ? 'start' : 'end' });
+    };
+
+    const setCurrentValue2InnerValue = () => {
+      const [startTime, endTime] = currentValue.value;
+      const startDayjs = dayjs(startTime, props.format);
+      const endDayjs = dayjs(endTime, props.format);
+
+      if (startDayjs.isAfter(endDayjs, 'second')) {
+        setInnerValue([currentValue.value[1], currentValue.value[0]]);
+      } else {
+        setInnerValue([currentValue.value[0], currentValue.value[1]]);
+      }
     };
 
     const handleOnPick = (pickValue: string | string[], e: MouseEvent) => {
