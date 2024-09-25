@@ -242,6 +242,7 @@ export default defineComponent({
       onCheckAllChange,
       getSelectedOptions,
       displayOptions: displayOptions.value,
+      emitBlur: handleOptionEmitBlur,
     }));
 
     provide(selectInjectKey, SelectProvider);
@@ -270,6 +271,10 @@ export default defineComponent({
         virtualFilteredOptions.value = selectPanelRef.value?.visibleData;
         filteredOptions.value = selectPanelRef.value?.displayOptions;
       });
+    };
+
+    const handleOptionEmitBlur = (e: MouseEvent | KeyboardEvent) => {
+      props.onBlur?.({ e, value: innerValue.value });
     };
 
     const handlerPopupVisibleChange = (visible: boolean, context: PopupVisibleChangeContext) => {

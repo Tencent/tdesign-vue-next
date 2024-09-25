@@ -107,6 +107,7 @@ export default defineComponent({
         e,
       });
       selectProvider.value.handlePopupVisibleChange(false, { e });
+      selectProvider.value.emitBlur(e);
     };
 
     const handleCheckboxClick = (val: boolean, context: { e: MouseEvent | KeyboardEvent }) => {
