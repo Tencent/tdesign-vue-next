@@ -70,7 +70,7 @@ export default function useRenderLabel(state: TypeTreeItemState) {
           name={String(node.value)}
           onChange={handleChange}
           stopLabelTrigger={shouldStopLabelTrigger.value}
-          ignore="expand,active"
+          ignore={treeProps.expandOnClickNode ? 'active' : 'expand,active'}
           props={itemCheckProps}
         >
           {labelNode}

@@ -151,7 +151,6 @@ export default defineComponent({
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
       const { deltaY } = e;
-
       deltaY > 0 ? onZoomOut() : onZoomIn();
     };
 

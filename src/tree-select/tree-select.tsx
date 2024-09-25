@@ -158,7 +158,6 @@ export default defineComponent({
       return props.keys?.children || 'children';
     });
 
-    // timelifes
     onMounted(async () => {
       if (!treeSelectValue.value && props.defaultValue) {
         await change(props.defaultValue, null, 'uncheck');
@@ -174,8 +173,6 @@ export default defineComponent({
       }
       changeNodeInfo();
     });
-
-    // methods
 
     const change = (
       valueParam: TreeSelectValue,
@@ -360,7 +357,7 @@ export default defineComponent({
         onActive={treeNodeActive}
         onExpand={treeNodeExpand}
         onLoad={treeNodeLoad}
-        expandOnClickNode
+        expandOnClickNode={false}
         v-slots={{
           empty: () =>
             renderDefaultTNode('empty', {

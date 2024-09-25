@@ -97,8 +97,14 @@ export default defineComponent({
     const { tDisplayColumns, renderColumnController } = useColumnController(props, context);
 
     // 展开/收起行功能
-    const { showExpandedRow, showExpandIconColumn, getExpandColumn, renderExpandedRow, onInnerExpandRowClick } =
-      useRowExpand(props, context);
+    const {
+      showExpandedRow,
+      showExpandIconColumn,
+      getExpandColumn,
+      renderExpandedRow,
+      onInnerExpandRowClick,
+      getExpandedRowClass,
+    } = useRowExpand(props, context);
 
     // 排序功能
     const { renderSortIcon } = useSorter(props, context);
@@ -172,7 +178,7 @@ export default defineComponent({
 
     // 如果想给 TR 添加类名，请在这里补充，不要透传更多额外 Props 到 BaseTable
     const tRowClassNames = computed(() => {
-      const tClassNames = [props.rowClassName, selectedRowClassNames.value];
+      const tClassNames = [props.rowClassName, selectedRowClassNames.value, getExpandedRowClass];
       return tClassNames.filter((v) => v);
     });
 
