@@ -102,7 +102,7 @@ export default defineComponent({
     const handleClickConfirm = () => {
       const isValidTime = !currentValue.value.find((v) => !validateInputValue(v, format.value));
       if (isValidTime) setInnerValue(currentValue.value);
-      setCurrentValue2InnerValue();
+      autoSwapTime();
       isShowPanel.value = false;
     };
 
@@ -110,7 +110,7 @@ export default defineComponent({
       props.onFocus?.({ value, e, position: position === 'first' ? 'start' : 'end' });
     };
 
-    const setCurrentValue2InnerValue = () => {
+    const autoSwapTime = () => {
       const [startTime, endTime] = currentValue.value;
       const startDayjs = dayjs(startTime, props.format);
       const endDayjs = dayjs(endTime, props.format);
