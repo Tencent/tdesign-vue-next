@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed, inject, onMounted, onBeforeUnmount } from 'vue';
+import { defineComponent, ref, computed, inject, onMounted, onBeforeUnmount, getCurrentInstance } from 'vue';
 
 import props from './option-props';
 import Checkbox from '../checkbox/index';
@@ -31,6 +31,7 @@ export default defineComponent({
   setup(props, context) {
     const selectProvider = inject(selectInjectKey);
     const formDisabled = useDisabled();
+    const { vnode } = getCurrentInstance();
 
     const isReachMax = computed(
       () =>
@@ -127,6 +128,17 @@ export default defineComponent({
       }
     };
 
+    const renderTitle = () => {
+      const vProps = vnode.props || {};
+      // 如果设置了title 说明希望自己控制title的展示
+      if (Reflect.has(vProps, 'title')) {
+        return props.title;
+      }
+      if (typeof labelText.value === 'string') return labelText.value;
+
+      return null;
+    };
+
     // 处理虚拟滚动节点挂载
     onMounted(() => {
       const { trs, rowIndex, isVirtual } = props;
@@ -153,7 +165,7 @@ export default defineComponent({
         <li
           ref={liRef}
           class={classes.value}
-          title={props.title || `${labelText.value}`}
+          title={renderTitle()}
           onMouseenter={() => (isHover.value = true)}
           onMouseleave={() => (isHover.value = false)}
           onClick={handleClick}
