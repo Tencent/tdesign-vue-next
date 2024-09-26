@@ -118,8 +118,8 @@ export default function useSingle(
 
     const onBlur: StrInputProps['onBlur'] = (val, context) => {
       const overlayState = popupRef.value?.getOverlayState();
-      if (overlayState?.hover) return;
       isSingleFocus.value = false;
+      if (overlayState?.hover) return;
       props.onBlur?.(value.value, { ...context, inputValue: val });
     };
 
