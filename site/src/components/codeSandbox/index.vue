@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import { defineComponent, computed, ref } from 'vue';
-import { htmlContent, mainJsContent, styleContent, packageJSONContent, viteConfigContent } from './content';
+import { defineComponent, ref } from 'vue';
+import { htmlContent, mainJsContent, styleContent, packageJSONContent } from './content';
 
 export default defineComponent({
   name: 'CodeSandbox',
@@ -31,11 +31,6 @@ export default defineComponent({
   },
   setup(props) {
     const code = ref('');
-    const params = computed(() => {
-      return getCodeSandboxParams(code.value, {
-        title: `${props.demoName} - ${props.componentName}`,
-      });
-    });
 
     const onRunOnline = () => {
       code.value = document.querySelector(`td-doc-demo[demo-name='${props.demoName}']`).currentRenderCode;
@@ -49,7 +44,7 @@ export default defineComponent({
         body: JSON.stringify({
           files: {
             'package.json': {
-              content: packageJSONContent,
+              content: packageJSONContent(`tdesign-vue-next-${props.componentName}-${props.demoName}-demo`),
             },
             'index.html': {
               content: htmlContent,
@@ -63,9 +58,6 @@ export default defineComponent({
             'src/demo.vue': {
               content: code.value,
             },
-            'vite.config.js': {
-              content: viteConfigContent,
-            },
           },
         }),
       })
@@ -76,11 +68,8 @@ export default defineComponent({
         .finally(() => (this.loading = false));
     };
     return {
-      params,
       onRunOnline,
     };
   },
 });
 </script>
-
-<style lang="scss" scoped></style>
