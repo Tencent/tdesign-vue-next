@@ -1,7 +1,7 @@
 {
   "name": "tdesign-vue-next",
   "purename": "tdesign",
-  "version": "1.10.1",
+  "version": "1.10.2",
   "title": "tdesign-vue-next",
   "description": "TDesign Component for vue-next",
   "keywords": [
@@ -118,7 +118,7 @@
     "@rollup/plugin-replace": "^4.0.0",
     "@rollup/plugin-url": "^7.0.0",
     "@testing-library/dom": "^8.20.1",
-    "@types/babel__traverse": "~7.18.5",
+    "@types/babel__traverse": "~7.20.6",
     "@types/node": "22.5.1",
     "@types/raf": "^3.4.0",
     "@typescript-eslint/eslint-plugin": "^4.33.0",

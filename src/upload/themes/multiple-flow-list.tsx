@@ -339,7 +339,8 @@ export default defineComponent({
                 fileName
               );
               const fileNameNode = file.url ? (
-                <Link href={file.url} target="_blank" hover="color">
+                // 此次需要设置disabled为false 否则链接会跟随表单不可点击
+                <Link href={file.url} target="_blank" hover="color" disabled={false}>
                   {thumbnailNode}
                 </Link>
               ) : (

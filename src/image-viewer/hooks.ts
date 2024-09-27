@@ -1,6 +1,7 @@
 import { positiveSubtract, positiveAdd } from '../_common/js/input-number/number';
 import { ref, watch } from 'vue';
 import { ImageScale } from './type';
+import throttle from 'lodash/throttle';
 
 interface InitTransform {
   translateX: number;
@@ -48,17 +49,20 @@ export function useMirror() {
   return { mirror, onMirror, resetMirror };
 }
 
-export function useScale(imageScale: ImageScale = { max: 2, min: 0.5, step: 0.5 }) {
+export function useScale(imageScale: ImageScale = { max: 2, min: 0.5, step: 0.2 }) {
   const { max, min, step, defaultScale } = imageScale;
   const scale = ref(defaultScale ?? 1);
-  const onZoomIn = () => {
+
+  const onZoomIn = throttle(() => {
     const result = positiveAdd(scale.value, step);
     setScale(result);
-  };
-  const onZoomOut = () => {
+  }, 50);
+
+  const onZoomOut = throttle(() => {
     const result = positiveSubtract(scale.value, step);
     setScale(result);
-  };
+  }, 50);
+
   const resetScale = () => {
     scale.value = defaultScale ?? 1;
   };

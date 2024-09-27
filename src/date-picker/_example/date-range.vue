@@ -1,6 +1,13 @@
 <template>
   <t-space direction="vertical">
-    <t-date-range-picker allow-input clearable @pick="onPick" @change="onChange" />
+    <t-date-range-picker
+      allow-input
+      clearable
+      format="YYYY-MM-DD HH:mm:ss"
+      :default-time="['00:00:00', '22:22:22']"
+      @pick="onPick"
+      @change="onChange"
+    />
     <t-date-range-picker enable-time-picker allow-input clearable @pick="onPick" @change="onChange" />
   </t-space>
 </template>
