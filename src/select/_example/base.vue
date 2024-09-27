@@ -22,7 +22,7 @@ import { ref } from 'vue';
 
 const options1 = [
   { label: '架构云', value: '1', title: '架构云选项' },
-  { label: '大数据', value: '2' },
+  { label: '大数据', value: '2', title: '' },
   { label: '区块链', value: '3' },
   { label: '物联网', value: '4', disabled: true },
   { label: '人工智能', value: '5' },
