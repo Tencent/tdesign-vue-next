@@ -69,7 +69,7 @@ export function useConfig<T extends keyof GlobalConfigProvider>(
 export const provideConfig = (props: ConfigProviderProps) => {
   const defaultData = cloneDeep(defaultGlobalConfig);
   const mergedGlobalConfig = computed(() =>
-    mergeWith(defaultData as unknown as GlobalConfigProvider, props.globalConfig),
+    Object.assign({}, mergeWith(defaultData as unknown as GlobalConfigProvider, props.globalConfig)),
   );
 
   provide(configProviderInjectKey, mergedGlobalConfig);
