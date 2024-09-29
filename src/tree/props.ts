@@ -146,7 +146,7 @@ export default {
     type: Array as PropType<TdTreeProps['defaultValue']>,
     default: (): TdTreeProps['defaultValue'] => [],
   },
-  /** 选中值模式。all 表示父节点和子节点全部会出现在选中值里面；parentFirst 表示当子节点全部选中时，仅父节点在选中值里面；onlyLeaft 表示无论什么情况，选中值仅呈现叶子节点 */
+  /** 选中值模式。all 表示父节点和子节点全部会出现在选中值里面；parentFirst 表示当子节点全部选中时，仅父节点在选中值里面；onlyLeaf 表示无论什么情况，选中值仅呈现叶子节点 */
   valueMode: {
     type: String as PropType<TdTreeProps['valueMode']>,
     default: 'onlyLeaf' as TdTreeProps['valueMode'],
