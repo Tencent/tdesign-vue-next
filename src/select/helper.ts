@@ -20,6 +20,7 @@ export const selectInjectKey: InjectionKey<
     onCheckAllChange: (checked: boolean) => void;
     getSelectedOptions: (selectValue?: SelectValue[] | SelectValue) => TdOptionProps[];
     displayOptions: TdSelectProps['options'];
+    emitBlur: (e: MouseEvent | KeyboardEvent) => void;
   }>
 > = Symbol('selectProvide');
 

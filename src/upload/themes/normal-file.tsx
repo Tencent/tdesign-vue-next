@@ -67,7 +67,14 @@ const NormalFile = defineComponent({
             key={file.name + index + file.percent + file.status}
           >
             {file.url ? (
-              <Link href={file.url} target="_blank" hover="color" size="small" class={`${uploadPrefix}__single-name`}>
+              <Link
+                href={file.url}
+                target="_blank"
+                hover="color"
+                size="small"
+                class={`${uploadPrefix}__single-name`}
+                disabled={false}
+              >
                 {fileName}
               </Link>
             ) : (

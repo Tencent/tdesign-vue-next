@@ -157,7 +157,14 @@ export default defineComponent({
                   {!['progress', 'fail'].includes(file.status) && renderMainContent(file, index)}
                   {Boolean(fileName && props.showImageFileName) &&
                     (file.url ? (
-                      <Link href={file.url} class={fileNameClassName} target="_blank" hover="color" size="small">
+                      <Link
+                        href={file.url}
+                        class={fileNameClassName}
+                        target="_blank"
+                        hover="color"
+                        size="small"
+                        disabled={false}
+                      >
                         {fileName}
                       </Link>
                     ) : (

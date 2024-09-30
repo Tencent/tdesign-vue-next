@@ -13,6 +13,11 @@ export interface TdRateProps {
    */
   allowHalf?: boolean;
   /**
+   * 是否允许清除评分，如果允许，重新点击当前评分清除
+   * @default false
+   */
+  clearable?: boolean;
+  /**
    * 评分图标的颜色，样式中默认为 #ED7B2F。一个值表示设置选中高亮的五角星颜色，示例：[选中颜色]。数组则表示分别设置 选中高亮的五角星颜色 和 未选中暗灰的五角星颜色，[选中颜色，未选中颜色]。示例：['#ED7B2F', '#E3E6EB']
    * @default '#ED7B2F'
    */
@@ -24,7 +29,6 @@ export interface TdRateProps {
   count?: number;
   /**
    * 是否禁用评分
-   * @default false
    */
   disabled?: boolean;
   /**
@@ -42,7 +46,7 @@ export interface TdRateProps {
    */
   showText?: boolean;
   /**
-   * 评分图标的大小，示例：`20px`
+   * 评分图标的大小
    * @default 24px
    */
   size?: string;
