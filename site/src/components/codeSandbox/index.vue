@@ -55,8 +55,8 @@ export default defineComponent({
     });
 
     onBeforeUnmount(() => {
-      renderCodeObserver.value.unobserve?.(observeDom.value);
-      renderCodeObserver.value.disconnect?.();
+      renderCodeObserver.value?.unobserve?.(observeDom.value);
+      renderCodeObserver.value?.disconnect?.();
       renderCodeObserver.value = null;
     });
 
