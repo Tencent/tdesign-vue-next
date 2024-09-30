@@ -4,7 +4,7 @@
       style="width: 300px"
       :options="options"
       placeholder="请选择"
-      :popup-props="{ 'on-scroll-to-bottom': handleScrollToBottom }"
+      :popup-props="{ onScrollToBottom: handleScrollToBottom }"
     />
   </t-space>
 </template>

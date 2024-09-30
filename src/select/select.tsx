@@ -19,7 +19,7 @@ import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { selectInjectKey, getSingleContent, getMultipleContent } from './helper';
 import { useSelectOptions } from './hooks/useSelectOptions';
 import useKeyboardControl from './hooks/useKeyboardControl';
-import type { PopupVisibleChangeContext } from '../popup';
+import type { PopupProps, PopupVisibleChangeContext } from '../popup';
 import type { SelectInputValueChangeContext } from '../select-input';
 import type { TdSelectProps, SelectValue } from './type';
 import { SelectInputValueDisplayOptions } from '../select-input/useSingle';
@@ -283,6 +283,14 @@ export default defineComponent({
       if (visible && context.trigger === 'trigger-element-click') setInputValue('');
     };
 
+    const handlerPopupScrollToBottom: PopupProps['onScrollToBottom'] = async (context) => {
+      const { onScrollToBottom } = (props.popupProps || {}) as TdSelectProps['popupProps'];
+      if (props.loading) {
+        return;
+      }
+      onScrollToBottom?.(context);
+    };
+
     const addCache = (val: SelectValue) => {
       if (props.multiple) {
         const newCache = [];
@@ -391,6 +399,7 @@ export default defineComponent({
             popupProps={{
               overlayClassName: [`${COMPONENT_NAME.value}__dropdown`, overlayClassName],
               ...restPopupProps,
+              onScrollToBottom: handlerPopupScrollToBottom,
             }}
             label={props.label}
             prefixIcon={props.prefixIcon}

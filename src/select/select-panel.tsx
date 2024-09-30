@@ -134,7 +134,7 @@ export default defineComponent({
           renderDefaultTNode('empty', {
             defaultNode: <div class={`${COMPONENT_NAME.value}__empty`}>{t(globalConfig.value.empty)}</div>,
           })}
-        {!isEmpty.value && !props.loading && renderOptionsContent(options)}
+        {!isEmpty.value && renderOptionsContent(options)}
       </div>
     );
     return {
