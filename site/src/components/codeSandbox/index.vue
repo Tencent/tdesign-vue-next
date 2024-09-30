@@ -1,6 +1,6 @@
 <template>
   <t-tooltip content="在 CodeSandbox 中打开">
-    <t-loading size="small" :loading="false">
+    <t-loading v-show="isCodesandboxAvailable" size="small" :loading="isLoading">
       <div class="action-online" @click="onRunOnline">
         <svg fill="none" height="20" viewBox="0 0 23 23" width="20" xmlns="http://www.w3.org/2000/svg">
           <g clip-rule="evenodd" fill-rule="evenodd">
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, onMounted, nextTick } from 'vue';
 import { htmlContent, mainJsContent, styleContent, packageJSONContent } from './content';
 
 export default defineComponent({
@@ -31,10 +31,29 @@ export default defineComponent({
   },
   setup(props) {
     const code = ref('');
-
+    const isLoading = ref(false);
+    // TODO: codesandbox + setup tsx
+    const isCodesandboxAvailable = ref(true);
+    onMounted(() => {
+      nextTick(() => {
+        const currentRenderCode = document.querySelector(
+          `td-doc-demo[demo-name='${props.demoName}']`,
+        )?.currentRenderCode;
+        // only script include jsx/tsx need to check
+        const toggleCodesandbox = /lang\=\"jsx\"/.test(currentRenderCode);
+        if (toggleCodesandbox) {
+          let observer = new MutationObserver((mutations) => {
+            const isTsx = /lang\=\"tsx\"/.test(mutations[0].target.currentRenderCode);
+            isCodesandboxAvailable.value = !isTsx;
+          });
+          let demoElem = document.querySelector(`td-doc-demo[demo-name='${props.demoName}']`);
+          observer.observe(demoElem, { attributes: true });
+        }
+      });
+    });
     const onRunOnline = () => {
       code.value = document.querySelector(`td-doc-demo[demo-name='${props.demoName}']`).currentRenderCode;
-
+      isLoading.value = true;
       fetch('https://codesandbox.io/api/v1/sandboxes/define?json=1', {
         method: 'POST',
         headers: {
@@ -65,10 +84,12 @@ export default defineComponent({
         .then(({ sandbox_id: sandboxId }) => {
           window.open(`https://codesandbox.io/s/${sandboxId}?file=/src/demo.vue`);
         })
-        .finally(() => (this.loading = false));
+        .finally(() => (isLoading.value = false));
     };
     return {
       onRunOnline,
+      isLoading,
+      isCodesandboxAvailable,
     };
   },
 });
