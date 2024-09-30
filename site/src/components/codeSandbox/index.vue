@@ -20,8 +20,10 @@
 </template>
 
 <script>
-import { defineComponent, ref, onMounted, nextTick } from 'vue';
+import { defineComponent, ref, onMounted, nextTick, onBeforeUnmount } from 'vue';
 import { htmlContent, mainJsContent, styleContent, packageJSONContent } from './content';
+
+let renderCodeObserver = null;
 
 export default defineComponent({
   name: 'CodeSandbox',
@@ -32,6 +34,7 @@ export default defineComponent({
   setup(props) {
     const code = ref('');
     const isLoading = ref(false);
+    const observeDom = ref(null);
     // TODO: codesandbox + setup tsx
     const isCodesandboxAvailable = ref(true);
     onMounted(() => {
@@ -42,15 +45,22 @@ export default defineComponent({
         // only script include jsx/tsx need to check
         const toggleCodesandbox = /lang\=\"jsx\"/.test(currentRenderCode);
         if (toggleCodesandbox) {
-          let observer = new MutationObserver((mutations) => {
+          renderCodeObserver = new MutationObserver((mutations) => {
             const isTsx = /lang\=\"tsx\"/.test(mutations[0].target.currentRenderCode);
             isCodesandboxAvailable.value = !isTsx;
           });
-          let demoElem = document.querySelector(`td-doc-demo[demo-name='${props.demoName}']`);
-          observer.observe(demoElem, { attributes: true });
+          observeDom.value = document.querySelector(`td-doc-demo[demo-name='${props.demoName}']`);
+          renderCodeObserver.observe(observeDom.value, { attributes: true });
         }
       });
     });
+
+    onBeforeUnmount(() => {
+      renderCodeObserver.unobserve(observeDom.value);
+      renderCodeObserver.disconnect();
+      renderCodeObserver = null;
+    });
+
     const onRunOnline = () => {
       code.value = document.querySelector(`td-doc-demo[demo-name='${props.demoName}']`).currentRenderCode;
       isLoading.value = true;
