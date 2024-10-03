@@ -141,7 +141,7 @@
     "cypress": "^12.17.2",
     "cz-git": "^1.7.0",
     "czg": "^1.7.0",
-    "dom-parser": "^0.1.6",
+    "dom-parser": "^1.1.5",
     "esbuild": "^0.14.54",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.8.0",
