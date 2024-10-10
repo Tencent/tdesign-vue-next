@@ -284,11 +284,13 @@ export default defineComponent({
     };
 
     const handlerPopupScrollToBottom: PopupProps['onScrollToBottom'] = async (context) => {
-      const { onScrollToBottom } = (props.popupProps || {}) as TdSelectProps['popupProps'];
+      const { popupProps } = props;
       if (props.loading) {
         return;
       }
-      onScrollToBottom?.(context);
+      // @ts-ignore types 中只有 onScrollToBottom，但 Vue 会自动转换 on-scroll-to-bottom 并支持，故此处都进行调用
+      popupProps?.['on-scroll-to-bottom']?.(context);
+      popupProps?.onScrollToBottom?.(context);
     };
 
     const addCache = (val: SelectValue) => {
