@@ -2,6 +2,7 @@ import { mount } from '@vue/test-utils';
 import Tree from '@/src/tree/index.ts';
 import { delay } from './kit';
 import { ref } from './adapt';
+import { Icon } from 'tdesign-icons-vue-next';
 
 describe('Tree:expand', () => {
   vi.useRealTimers();
@@ -374,6 +375,31 @@ describe('Tree:expand', () => {
       wrapper.find('[data-value="t1"] .t-tree__icon').trigger('click');
       await delay(10);
       expect(wrapper.find('[data-value="t1.1"]').exists()).toBe(true);
+    });
+
+    it('自定义图标-点击父节点图标可触发展开子节点', async () => {
+      const data = [
+        {
+          value: 't1',
+          children: [
+            {
+              value: 't1.1',
+            },
+          ],
+        },
+      ];
+      const wrapper = mount({
+        render() {
+          return <Tree transition={false} data={data} icon={() => <Icon name="folder" />}></Tree>;
+        },
+      });
+      wrapper.find('[data-value="t1"] .t-tree__icon').trigger('click');
+      await delay(10);
+
+      const element_1 = wrapper.find('[data-value="t1.1"]');
+      const element_1SpanElement = element_1.find('span.t-tree__icon');
+      const element_1SvgElement = element_1SpanElement.find('svg.t-icon');
+      expect(element_1SvgElement.exists()).toBe(true);
     });
 
     it('点击已展开的父节点图标，可触发收起子节点', async () => {
