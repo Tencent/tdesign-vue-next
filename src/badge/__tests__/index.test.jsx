@@ -70,7 +70,7 @@ describe('Badge', () => {
       expect(circle.text()).toBe('new');
     });
 
-    it(':size', () => {
+    it(':size:small', () => {
       const wrapper = mount(() => (
         <Badge size="small" count={2}>
           Tdesign
@@ -79,6 +79,15 @@ describe('Badge', () => {
       const circle = wrapper.find('.t-badge--circle');
       expect(circle.exists()).toBeTruthy();
       expect(circle.classes()).toContain('t-size-s');
+    });
+
+    it(':size:medium', () => {
+      const wrapper = mount(() => (
+        <Badge size="medium" count={2}>
+          Tdesign
+        </Badge>
+      ));
+      expect(wrapper.find('.t-size-s').exists()).toBe(false);
     });
 
     it(':shape', () => {
