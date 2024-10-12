@@ -1,4 +1,4 @@
-import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, ref, Transition, watch, Teleport } from 'vue';
+import { computed, defineComponent, nextTick, onBeforeUnmount, ref, Transition, watch, Teleport } from 'vue';
 import {
   CloseIcon as TdCloseIcon,
   InfoCircleFilledIcon as TdInfoCircleFilledIcon,
