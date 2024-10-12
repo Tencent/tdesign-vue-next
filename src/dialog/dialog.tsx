@@ -79,8 +79,6 @@ function InitDragEvent(dragBox: HTMLElement) {
   });
 }
 
-const key = 1;
-
 export default defineComponent({
   name: 'TDialog',
   // 注册v-draggable指令,传入true时候初始化拖拽事件
