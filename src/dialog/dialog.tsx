@@ -13,11 +13,11 @@ import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useAction, useSameTarget } from './hooks';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import useDestroyOnClose from '../hooks/useDestroyOnClose';
-import { getScrollbarWidth } from '../_common/js/utils/getScrollbarWidth';
 
 import type { TdDialogProps } from './type';
 import useTeleport from '../hooks/useTeleport';
 import usePopupManager from '../hooks/usePopupManager';
+import { lock, unlock } from 'tua-body-scroll-lock';
 
 function GetCSSValue(v: string | number) {
   return Number.isNaN(Number(v)) ? v : `${Number(v)}px`;
@@ -79,7 +79,7 @@ function InitDragEvent(dragBox: HTMLElement) {
   });
 }
 
-let key = 1;
+const key = 1;
 
 export default defineComponent({
   name: 'TDialog',
@@ -120,7 +120,6 @@ export default defineComponent({
     const teleportElement = useTeleport(() => props.attach);
     useDestroyOnClose();
     const timer = ref();
-    const styleEl = ref();
     // 是否模态形式的对话框
     const isModal = computed(() => props.mode === 'modal');
     // 是否非模态对话框
@@ -185,7 +184,7 @@ export default defineComponent({
         if (value) {
           if ((isModal.value && !props.showInAttachedElement) || isFullScreen.value) {
             if (props.preventScrollThrough) {
-              document.body.appendChild(styleEl.value);
+              lock();
             }
 
             nextTick(() => {
@@ -206,7 +205,7 @@ export default defineComponent({
     );
 
     function destroySelf() {
-      styleEl.value.parentNode?.removeChild?.(styleEl.value);
+      unlock();
     }
 
     function clearStyleFunc() {
@@ -388,19 +387,6 @@ export default defineComponent({
         </div>
       );
     };
-
-    onMounted(() => {
-      const hasScrollBar = document.documentElement.scrollHeight > document.documentElement.clientHeight;
-      const scrollWidth = hasScrollBar ? getScrollbarWidth() : 0;
-      styleEl.value = document.createElement('style');
-      styleEl.value.dataset.id = `td_dialog_${+new Date()}_${(key += 1)}`;
-      styleEl.value.innerHTML = `
-        html body {
-          overflow-y: hidden;
-          width: calc(100% - ${scrollWidth}px);
-        }
-      `;
-    });
 
     onBeforeUnmount(() => {
       addKeyboardEvent(false);

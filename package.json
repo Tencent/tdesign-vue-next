@@ -96,6 +96,7 @@
     "sortablejs": "^1.15.0",
     "tdesign-icons-vue-next": "^0.2.4",
     "tinycolor2": "^1.6.0",
+    "tua-body-scroll-lock": "^1.5.1",
     "validator": "^13.9.0"
   },
   "peerDependencies": {
