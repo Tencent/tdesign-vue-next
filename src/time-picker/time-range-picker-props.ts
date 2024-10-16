@@ -10,6 +10,11 @@ import { PropType } from 'vue';
 export default {
   /** 是否允许直接输入时间 */
   allowInput: Boolean,
+  /** 是否自动调换左右区间的顺序，默认为 true；若需要支持跨天的场景，可以设置为 false */
+  autoSwap: {
+    type: Boolean,
+    default: true,
+  },
   /** 无边框模式 */
   borderless: Boolean,
   /** 是否允许清除选中值 */
