@@ -1,8 +1,5 @@
 import { computed, defineComponent, inject, PropType } from 'vue';
-
-import { LayoutEnum } from '../common';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
-
 import { descriptionsKey } from './const';
 import { ItemsType, TdDescriptionItem } from './interface';
 import { renderVNodeTNode, itemTypeIsProps } from './utils';
