@@ -220,7 +220,7 @@ export default function useInputNumber(props: TdInputNumberProps) {
       ArrowUp: handleAdd,
       ArrowDown: handleReduce,
     };
-    const code = e.code || e.key;
+    const code = (e.code || e.key) as keyof typeof keyEvent;
     if (keyEvent[code] !== undefined) {
       keyEvent[code](e);
     }
@@ -248,6 +248,7 @@ export default function useInputNumber(props: TdInputNumberProps) {
   };
 
   const focus = () => {
+    if (tDisabled.value || isReadonly.value) return;
     (inputRef.value as any).focus();
   };
 
