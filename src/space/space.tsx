@@ -1,4 +1,4 @@
-import { defineComponent, computed, CSSProperties, Fragment } from 'vue';
+import { defineComponent, computed, CSSProperties, Fragment, Comment, isVNode } from 'vue';
 import props from './props';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
@@ -57,16 +57,18 @@ export default defineComponent({
     function renderChildren() {
       const children = getChildSlots();
       const separatorContent = renderTNodeJSX('separator');
-      return children.map((child, index) => {
-        // filter last child
-        const showSeparator = index + 1 !== children.length && separatorContent;
-        return (
-          <Fragment>
-            <div class={`${COMPONENT_NAME.value}-item`}>{child}</div>
-            {showSeparator && <div class={`${COMPONENT_NAME.value}-item-separator`}>{separatorContent}</div>}
-          </Fragment>
-        );
-      });
+      return children
+        .filter((child) => (isVNode(child) ? child.type !== Comment : true))
+        .map((child, index) => {
+          // filter last child
+          const showSeparator = index + 1 !== children.length && separatorContent;
+          return (
+            <Fragment>
+              <div class={`${COMPONENT_NAME.value}-item`}>{child}</div>
+              {showSeparator && <div class={`${COMPONENT_NAME.value}-item-separator`}>{separatorContent}</div>}
+            </Fragment>
+          );
+        });
     }
 
     return () => {
