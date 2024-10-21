@@ -131,6 +131,8 @@ export default defineComponent({
         onClose: props.multiple ? (index: number) => removeTag(index) : () => {},
       };
 
+      if (!props.multiple) Object.assign(params, { label: displayText.value });
+
       if (props.minCollapsedNum && props.multiple) {
         return {
           ...params,
