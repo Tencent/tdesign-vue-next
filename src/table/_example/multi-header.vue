@@ -180,6 +180,7 @@ function getColumns(fixedLeftCol, fixedRightCol) {
               title: '审批单号',
               fixed: fixedRightCol ? 'right' : undefined,
               width: 120,
+              // colspan: 2,
             },
             {
               colKey: 'detail.email',
