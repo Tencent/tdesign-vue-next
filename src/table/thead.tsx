@@ -79,12 +79,12 @@ export default defineComponent({
       const map: { [key: string]: boolean } = {};
 
       const processColumns = (columns: BaseTableColumns) => {
-        columns.forEach((item, i) => {
+        for (let i = 0, len = columns.length; i < len; i++) {
+          const item = columns[i];
           if (item.colspan > 1) {
-            for (let j = 1; j < item.colspan; j++) {
-              const nextIndex = i + j;
-              if (columns[nextIndex]) {
-                map[columns[nextIndex].colKey] = true;
+            for (let j = i + 1; j < i + item.colspan; j++) {
+              if (columns[j]) {
+                map[columns[j].colKey] = true;
               }
             }
           }
@@ -92,7 +92,7 @@ export default defineComponent({
           if (item.children) {
             processColumns(item.children);
           }
-        });
+        }
       };
 
       const list = props.thList[0];
