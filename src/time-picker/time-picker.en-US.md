@@ -7,6 +7,7 @@
 name | type | default | description | required
 -- | -- | -- | -- | --
 allowInput | Boolean | false | \- | N
+autoSwap | Boolean | true | \- | N
 borderless | Boolean | false | \- | N
 clearable | Boolean | false | \- | N
 disableTime | Function | - | disable time config function。Typescript：`(h: number, m: number, s: number, ms: number) => Partial<{ hour: Array<number>, minute: Array<number>, second: Array<number>, millisecond: Array<number>  }>` | N
