@@ -102,7 +102,7 @@ export default defineComponent({
     const handleClickConfirm = () => {
       const isValidTime = !currentValue.value.find((v) => !validateInputValue(v, format.value));
       if (isValidTime) setInnerValue(currentValue.value);
-      autoSwapTime();
+      if (props.autoSwap) autoSwapTime();
       isShowPanel.value = false;
     };
 
