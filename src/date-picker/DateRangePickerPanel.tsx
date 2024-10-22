@@ -118,7 +118,7 @@ export default defineComponent({
         prev: 'arrow-previous',
         next: 'arrow-next',
       };
-      const monthCountMap = { date: 1, month: 12, year: 120 };
+      const monthCountMap = { date: 1, week: 1, month: 12, quarter: 12, year: 120 };
       const monthCount = monthCountMap[props.mode] || 0;
       const current = new Date(year.value[partialIndex], month.value[partialIndex]);
 
