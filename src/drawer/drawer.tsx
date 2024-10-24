@@ -223,7 +223,7 @@ export default defineComponent({
     });
 
     onMounted(() => {
-      const hasScrollBar = document.documentElement.scrollHeight > document.documentElement.clientHeight;
+      const hasScrollBar = window.innerWidth > document.documentElement.clientWidth;
       const scrollWidth = hasScrollBar ? getScrollbarWidth() : 0;
 
       styleEl.value = document.createElement('style');
