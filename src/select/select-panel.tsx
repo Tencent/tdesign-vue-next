@@ -81,7 +81,7 @@ export default defineComponent({
                       scrollType: props.scroll?.type,
                       isVirtual: isVirtual.value,
                       bufferSize: props.scroll?.bufferSize,
-                      key: `${item.$index || ''}_${index}`,
+                      key: `${item.$index || ''}_${index}_${item.value}`,
                     }
                   : {
                       key: `${index}_${item.value}`,
