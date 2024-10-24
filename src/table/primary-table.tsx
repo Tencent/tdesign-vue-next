@@ -114,7 +114,6 @@ export default defineComponent({
       selectColumn,
       showRowSelect,
       selectedRowClassNames,
-      currentPaginateData,
       formatToRowSelectColumn,
       setTSelectedRowKeys,
       onInnerSelectRowClick,
@@ -323,7 +322,6 @@ export default defineComponent({
 
     const onInnerPageChange = (pageInfo: PageInfo, newData: Array<TableRowData>) => {
       innerPagination.value = { ...innerPagination.value, ...pageInfo };
-      currentPaginateData.value = newData;
       props.onPageChange?.(pageInfo, newData);
       const changeParams: Parameters<TdPrimaryTableProps['onChange']> = [
         { pagination: pageInfo },

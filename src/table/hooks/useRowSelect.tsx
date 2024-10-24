@@ -25,7 +25,7 @@ export default function useRowSelect(
   tableSelectedClasses: TableClassName['tableSelectedClasses'],
 ) {
   const { selectedRowKeys, columns, rowKey, data, reserveSelectedRowOnPaginate } = toRefs(props);
-  const currentPaginateData = ref<TableRowData[]>(data.value);
+  const currentPaginateData = computed<TableRowData[]>(() => data.value);
   const selectedRowClassNames = ref();
   const [tSelectedRowKeys, setTSelectedRowKeys] = useDefaultValue(
     selectedRowKeys,
