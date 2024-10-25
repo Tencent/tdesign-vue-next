@@ -86,7 +86,7 @@ export default defineComponent({
     });
 
     onBeforeUnmount(() => {
-      selectInputRef.value.removeEventListener('keydown', addKeyboardEventListener);
+      selectInputRef.value?.removeEventListener('keydown', addKeyboardEventListener);
     });
 
     const onOverlayClick: PopupProps['onOverlayClick'] = (ctx) => {
