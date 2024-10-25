@@ -104,7 +104,12 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
     setInnerValue(getOutputValue(val, props.type), { e, trigger: 'input' });
     // 受控
     nextTick(() => {
-      setInputElValue(innerValue.value);
+      // type = 'number'时, 解决小数点后面有 0 自动删除的问题
+      if (props.type === 'number' && /\.(\d+)?0$/.test(val)) {
+        setInputElValue(val);
+      } else {
+        setInputElValue(innerValue.value);
+      }
     });
   };
 
