@@ -168,7 +168,7 @@ export default defineComponent({
     const handleCreate = () => {
       if (!innerInputValue.value) return;
       props.onCreate?.(innerInputValue.value);
-      // only clean input value when multiple
+      // only clean input value when reopen popup
       if (!innerPopupVisible.value) setInputValue('');
     };
 
