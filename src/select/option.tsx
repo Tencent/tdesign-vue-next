@@ -124,9 +124,6 @@ export default defineComponent({
         trigger: val ? 'check' : 'uncheck',
         e: context.e,
       });
-      if (!selectProvider.value.reserveKeyword) {
-        selectProvider.value.handlerInputChange('');
-      }
     };
 
     const renderTitle = () => {
