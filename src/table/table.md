@@ -22,11 +22,11 @@ empty | String / Slot / Function | '' | 空表格呈现样式，支持全局配�
 firstFullRow | String / Slot / Function | - | 首行内容，横跨所有列。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 fixedRows | Array | - | 固定行（冻结行），示例：[M, N]，表示冻结表头 M 行和表尾 N 行。M 和 N 值为 0 时，表示不冻结行。TS 类型：`Array<number>` | N
 footData | Array | [] | 表尾数据源，泛型 T 指表格数据类型。TS 类型：`Array<T>` | N
-footerAffixProps | Object | - | 已废弃。请更为使用 `footerAffixedBottom`。表尾吸底基于 Affix 组件开发，透传全部 Affix 组件属性。。TS 类型：`Partial<AffixProps>` | N
+footerAffixProps | Object | - | 已废弃。请更为使用 `footerAffixedBottom`。表尾吸底基于 Affix 组件开发，透传全部 Affix 组件属性。TS 类型：`Partial<AffixProps>` | N
 footerAffixedBottom | Boolean / Object | false | 表尾吸底。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，则表示相对于整个窗口吸底。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixedBottom.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性。TS 类型：`boolean \| Partial<AffixProps>` | N
 footerSummary | String / Slot / Function | - | 表尾总结行。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 headerAffixProps | Object | - | 已废弃。请更为使用 `headerAffixedTop`。表头吸顶基于 Affix 组件开发，透传全部 Affix 组件属性。TS 类型：`Partial<AffixProps>`，[Affix API Documents](./affix?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
-headerAffixedTop | Boolean / Object | false | 表头吸顶。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，表示相对于整个窗口吸顶。如果表格滚动的父元素不是整个窗口，请通过 `headerAffixedTop.container` 调整吸顶的位置。基于 Affix 组件开发，透传全部 Affix 组件属性。。TS 类型：`boolean \| Partial<AffixProps>` | N
+headerAffixedTop | Boolean / Object | false | 表头吸顶。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，表示相对于整个窗口吸顶。如果表格滚动的父元素不是整个窗口，请通过 `headerAffixedTop.container` 调整吸顶的位置。基于 Affix 组件开发，透传全部 Affix 组件属性。TS 类型：`boolean \| Partial<AffixProps>` | N
 height | String / Number | - | 表格高度，超出后会出现滚动条。示例：100,  '30%',  '300'。值为数字类型，会自动加上单位 px。如果不是绝对固定表格高度，建议使用 `maxHeight` | N
 horizontalScrollAffixedBottom | Boolean / Object | - | 滚动条吸底。基于 Affix 组件开发，透传全部 Affix 组件属性。TS 类型：`boolean \| Partial<AffixProps>` | N
 hover | Boolean | false | 是否显示鼠标悬浮状态 | N
@@ -132,7 +132,7 @@ columnControllerVisible | Boolean | undefined | 是否显示列配置弹框控�
 columns | Array | [] | 列配置，泛型 T 指表格数据类型。TS 类型：`Array<PrimaryTableCol<T>>` | N
 displayColumns | Array | - | 列配置功能中，当前显示的列。支持语法糖 `v-model:displayColumns`。TS 类型：`CheckboxGroupValue` | N
 defaultDisplayColumns | Array | - | 列配置功能中，当前显示的列。非受控属性。TS 类型：`CheckboxGroupValue` | N
-dragSort | String | - | 拖拽排序方式，值为 `row` 表示行拖拽排序，这种方式无法进行文本复制，慎用。值为`row-handler` 表示通过拖拽手柄进行行拖拽排序。值为 `col` 表示列顺序拖拽。值为 `row-handler-col` 表示同时支持行拖拽和列拖拽。⚠️`drag-col` 已废弃，请勿使用。。可选项：row/row-handler/col/row-handler-col/drag-col | N
+dragSort | String | - | 拖拽排序方式，值为 `row` 表示行拖拽排序，这种方式无法进行文本复制，慎用。值为`row-handler` 表示通过拖拽手柄进行行拖拽排序。值为 `col` 表示列顺序拖拽。值为 `row-handler-col` 表示同时支持行拖拽和列拖拽。⚠️`drag-col` 已废弃，请勿使用。可选项：row/row-handler/col/row-handler-col/drag-col | N
 dragSortOptions | Object | - | 拖拽排序扩展参数，具体参数见 [Sortable](https://github.com/SortableJS/Sortable)。TS 类型：`SortableOptions` | N
 editableCellState | Function | - | 单元格是否允许编辑。返回值为 `true` 则表示可编辑；返回值为 `false` 则表示不可编辑，只读状态。TS 类型：`EditableCellType<T>` `type EditableCellType<T> = (params: PrimaryTableCellParams<T>) => boolean`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts) | N
 editableRowKeys | Array | - | 处于编辑状态的行。TS 类型：`Array<string \| number>` | N
