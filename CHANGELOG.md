@@ -5,6 +5,33 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.10.3 `2024-10-27` 
+### 🚀 Features
+- `TimePicker`: 新增 `autoSwap` API，支持`1.10.2` 版本之后仍支持保持选定的左右侧时间大小顺序 @uyarn ([#4662](https://github.com/Tencent/tdesign-vue-next/pull/4662))
+- `Select`: `valudeDisplay` 增加`label`参数 @uyarn ([#4645](https://github.com/Tencent/tdesign-vue-next/pull/4645))
+### 🐞 Bug Fixes
+- `Select`: 
+  - 修复使用虚拟滚动配合过滤加自定义渲染内容时渲染异常的问题 @uyarn ([#4677](https://github.com/Tencent/tdesign-vue-next/pull/4677))
+  - 修复可过滤场景下回车键会清空输入框的错误交互行为 @uyarn ([#4677](https://github.com/Tencent/tdesign-vue-next/pull/4677))
+  - 部分节点事件增加容错判断 @uyarn ([#4677](https://github.com/Tencent/tdesign-vue-next/pull/4677))
+  - 修复 `loading` 配合触底事件 `onScrollToBottom` 一起使用的问题 @lllllllqw ([#4625](https://github.com/Tencent/tdesign-vue-next/pull/4625))
+- `Descriptions`:  
+  - 修复 `layout`为 `vertical` 下的设置 `span`的展示问题 @zhangpaopao0609 ([#4656](https://github.com/Tencent/tdesign-vue-next/pull/4656))
+  - 修复 `span` 大于 `column` 配置的渲染问题  @zhangpaopao0609 ([#4656](https://github.com/Tencent/tdesign-vue-next/pull/4656))
+- `Tree`: 修复没有子节点时，自定义图标无法点击 @RSS1102 ([#4638](https://github.com/Tencent/tdesign-vue-next/pull/4638))
+- `Space`: 修复使用`v-if`的情况下存在冗余空格的问题 @Luffy-developer ([#4663](https://github.com/Tencent/tdesign-vue-next/pull/4663))
+- `InputNumber`: 禁用时焦点事件仍然会触发的问题 @betavs ([#4661](https://github.com/Tencent/tdesign-vue-next/pull/4661))
+- `DatePicker`: panel top arrow doesn't work when using week mode @RSS1102 ([#4673](https://github.com/Tencent/tdesign-vue-next/pull/4673))
+- `Table`: 多级表头下的通过colspan合并表头 @wangyang0210 ([#4669](https://github.com/Tencent/tdesign-vue-next/pull/4669))
+- `Input`: 修复 Input type="number" 时，无法输入小数位末尾 0 的问题 @wilonjiang ([#4660](https://github.com/Tencent/tdesign-vue-next/pull/4660))
+- `Drawer`: 修复打开 `drawer` 时页面抖动的问题 @uyarn ([#4671](https://github.com/Tencent/tdesign-vue-next/pull/4671))
+- `Dialog`: 修复打开 `dialog` 时页面抖动的问题 @RSS1102  @uyarn ([#4671](https://github.com/Tencent/tdesign-vue-next/pull/4671))
+### 📝 Documentation
+- `Tree`: 修复`valueMode` API 的拼写错误问题 @Simon-He95 ([#4622](https://github.com/Tencent/tdesign-vue-next/pull/4622))
+- `Docs`: 修复`Codesandbox`示例启动失败或需要打开 devbox 才可以运行的问题 @RSS1102 ([#4610](https://github.com/Tencent/tdesign-vue-next/pull/4610))
+### 🚧 Others
+- `Table`: 修复`table`的API文档中多余的`。` @Wesley-0808 ([#4683](https://github.com/Tencent/tdesign-vue-next/pull/4683))
+
 ## 🌈 1.10.2 `2024-09-27` 
 ### 🚀 Features
 - `Table`: 可展开收起场景下新增 `t-table__row--expanded` 和 `t-table__row--folded` 用于区分展开和收起的行 @uyarn ([#4586](https://github.com/Tencent/tdesign-vue-next/pull/4586))
