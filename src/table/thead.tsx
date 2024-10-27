@@ -77,17 +77,27 @@ export default defineComponent({
     // 单行表格合并
     const colspanSkipMap = computed(() => {
       const map: { [key: string]: boolean } = {};
-      const list = props.thList[0];
-      for (let i = 0, len = list.length; i < len; i++) {
-        const item = list[i];
-        if (item.colspan > 1) {
-          for (let j = i + 1; j < i + item.colspan; j++) {
-            if (list[j]) {
-              map[list[j].colKey] = true;
+
+      const processColumns = (columns: BaseTableColumns) => {
+        for (let i = 0, len = columns.length; i < len; i++) {
+          const item = columns[i];
+          if (item.colspan > 1) {
+            for (let j = i + 1; j < i + item.colspan; j++) {
+              if (columns[j]) {
+                map[columns[j].colKey] = true;
+              }
             }
           }
+          // 如果有子列，递归处理
+          if (item.children) {
+            processColumns(item.children);
+          }
         }
-      }
+      };
+
+      const list = props.thList[0];
+      processColumns(list);
+
       return map;
     });
 

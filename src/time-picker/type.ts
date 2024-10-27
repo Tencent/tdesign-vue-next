@@ -18,6 +18,11 @@ export interface TdTimePickerProps {
    */
   allowInput?: boolean;
   /**
+   * 是否自动调换左右区间的顺序，默认为 true；若需要支持跨天的场景，可以设置为 false
+   * @default true
+   */
+  autoSwap?: boolean;
+  /**
    * 无边框模式
    * @default false
    */

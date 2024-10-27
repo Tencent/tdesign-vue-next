@@ -52,6 +52,7 @@ pick | `(value: TimePickerValue, context: { e: MouseEvent })` | 面板选中值�
 名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
 allowInput | Boolean | false | 是否允许直接输入时间 | N
+autoSwap | Boolean | true | 是否自动调换左右区间的顺序，默认为 true；若需要支持跨天的场景，可以设置为 false | N
 borderless | Boolean | false | 无边框模式 | N
 clearable | Boolean | false | 是否允许清除选中值 | N
 disableTime | Function | - | 禁用时间项。TS 类型：`(h: number, m: number, s: number, context: { partial: TimeRangePickerPartial }) =>Partial<{ hour: Array<number>, minute: Array<number>, second: Array<number> }>` `type TimeRangePickerPartial = 'start' \| 'end'`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts) | N

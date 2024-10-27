@@ -136,7 +136,7 @@ export default function useKeyboardControl({
   watch(hoverIndex, (index) => {
     const optionHeight = selectPanelRef.value?.innerRef?.querySelector(
       `.${classPrefix.value}-select-option`,
-    ).clientHeight;
+    )?.clientHeight;
 
     const scrollHeight = optionHeight * index;
 
