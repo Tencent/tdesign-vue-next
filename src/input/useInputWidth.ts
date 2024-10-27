@@ -19,7 +19,7 @@ export default function useInputWidth(
     inputRef.value.style.width = `${width || 0}px`;
   };
 
-  useResizeObserver(inputRef, () => {
+  useResizeObserver(inputPreRef, () => {
     if (autoWidth.value) {
       observerTimer.value = setTimeout(() => {
         updateInputWidth();

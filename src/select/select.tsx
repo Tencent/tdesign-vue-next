@@ -87,6 +87,7 @@ export default defineComponent({
         newVal = props.multiple ? (newVal as SelectValue[]).map((val) => getOption(val)) : getOption(newVal);
       }
       if (newVal === orgValue.value) return;
+      if (props.multiple && !props.reserveKeyword) setInputValue('');
       setOrgValue(newVal, {
         selectedOptions: getSelectedOptions(newVal),
         ...context,
@@ -167,7 +168,8 @@ export default defineComponent({
     const handleCreate = () => {
       if (!innerInputValue.value) return;
       props.onCreate?.(innerInputValue.value);
-      setInputValue('');
+      // only clean input value when reopen popup
+      if (!innerPopupVisible.value) setInputValue('');
     };
 
     const popupContentRef = computed(() => selectInputRef.value?.popupRef.getOverlay() as HTMLElement);
