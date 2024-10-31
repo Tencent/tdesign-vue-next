@@ -43,7 +43,7 @@
   {
     "name": "theme",
     "type": "enum",
-    "defaultValue": "primary",
+    "defaultValue": "default",
     "options": [
       {
         "label": "default",
