@@ -102,7 +102,7 @@ export default function useInputNumber(props: TdInputNumberProps) {
       if (largeNumber) {
         userInput.value = getUserInput(inputValue);
         if (decimalPlaces !== undefined && largeNumberToFixed(inputValue, decimalPlaces, largeNumber) !== val) {
-          setTValue(userInput.value, { type: 'props', e: undefined });
+          setTValue(tValue.value, { type: 'props', e: undefined });
         }
       }
     },
