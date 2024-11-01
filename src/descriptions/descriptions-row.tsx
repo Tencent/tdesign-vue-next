@@ -3,6 +3,7 @@ import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { descriptionsKey } from './const';
 import { ItemsType, TdDescriptionItem } from './interface';
 import { renderVNodeTNode, itemTypeIsProps } from './utils';
+import type { TdDescriptionItemProps } from './type';
 
 export default defineComponent({
   name: 'TDescriptionsRow',
@@ -20,14 +21,14 @@ export default defineComponent({
     const label = (node: TdDescriptionItem) => {
       const labelClass = [`${COMPONENT_NAME.value}__label`];
 
-      let label = null;
-      let span = null;
+      let label: TdDescriptionItemProps['label'] = null;
+      let span: TdDescriptionItemProps['span'] = null;
       if (itemTypeIsProps(props.itemType, node)) {
         label = node.label;
         span = node.span;
       } else {
         label = renderVNodeTNode(node, 'label');
-        span = node.props.span;
+        span = node.props?.span;
       }
       // 当 layout 为 horizontal 时，span 设置将失效
       const labelSpan = layoutIsHorizontal.value ? (itemLayoutIsHorizontal.value ? 1 : span) : 1;
@@ -42,14 +43,14 @@ export default defineComponent({
     const content = (node: TdDescriptionItem) => {
       const contentClass = [`${COMPONENT_NAME.value}__content`];
 
-      let content = null;
-      let span = null;
+      let content: TdDescriptionItemProps['content'] = null;
+      let span: TdDescriptionItemProps['span'] = null;
       if (itemTypeIsProps(props.itemType, node)) {
         content = node.content;
         span = node.span;
       } else {
         content = renderVNodeTNode(node, 'content', 'default');
-        span = node.props.span;
+        span = node.props?.span;
       }
       const contentSpan = layoutIsHorizontal.value
         ? span > 1 && itemLayoutIsHorizontal.value

@@ -84,12 +84,12 @@ export default defineComponent({
       items.forEach((item, index) => {
         let span = 1;
         if (itemTypeIsProps(itemsType.value, item)) {
-          span = isNil(item.span) ? span : item.span;
+          span = isNil(item.span) ? span : item?.span;
           // 当 span 大于 column 时，取 column
           span = span > column ? column : span;
         } else {
           item.props = item.props || {};
-          span = isNil(item.props?.span) ? span : item.props.span;
+          span = isNil(item.props?.span) ? span : item.props?.span;
           span = span > column ? column : span;
           item.props.span = span;
         }
