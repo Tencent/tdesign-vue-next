@@ -5,7 +5,7 @@
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
-beforeChange | Function | - | Switch 切换状态前的回调方法，常用于需要发起异步请求的场景，回到返回值支持布尔和 Promise 类型，返回`false`或 Promise reject不继续执行change，否则则继续执行。。TS 类型：`() => boolean \| Promise<boolean>` | N
+beforeChange | Function | - | Switch 切换状态前的回调方法，常用于需要发起异步请求的场景，回调返回值支持布尔和 Promise 类型，返回`false`或 Promise reject不继续执行change，否则则继续执行。。TS 类型：`() => boolean \| Promise<boolean>` | N
 customValue | Array | - | 用于自定义开关的值，[打开时的值，关闭时的值]。默认为 [true, false]。示例：[1, 0]、['open', 'close']。TS 类型：`Array<SwitchValue>` | N
 disabled | Boolean | undefined | 是否禁用组件。优先级：Switch.disabled > Form.disabled | N
 label | Array / Slot / Function | [] | 开关内容，[开启时内容，关闭时内容]。示例：['开', '关'] 或 (value) => value ? '开' : '关'。TS 类型：`Array<string \| TNode> \| TNode<{ value: SwitchValue }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
