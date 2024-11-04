@@ -176,7 +176,6 @@ export const treeNodesEffect = (
   let nodes = [];
   if (inputVal) {
     const filterMethods = (node: TreeNode) => {
-      if (!node.isLeaf()) return;
       if (isFunction(filter)) {
         return filter(`${inputVal}`, node as TreeNodeModel & TreeNode);
       }
