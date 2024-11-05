@@ -136,5 +136,44 @@ describe('switch', () => {
         expect(eleCls.includes('t-size-s')).toBe(true);
       });
     });
+    // test props beforeChange
+    describe(':props.beforeChange', () => {
+      it('beforeChange resolve', async () => {
+        const beforeChangeResolve = () =>
+          new Promise((resolve) => {
+            setTimeout(() => {
+              resolve(true);
+            }, 80);
+          });
+        const wrapper = mount({
+          render() {
+            return <Switch defaultValue={true} beforeChange={beforeChangeResolve} />;
+          },
+        });
+        wrapper.trigger('click');
+        await new Promise((resolve) => setTimeout(resolve, 100));
+        const ele = wrapper.find('.t-switch');
+        const eleCls = ele.classes();
+        expect(eleCls.includes('t-is-checked')).toBeFalsy();
+      });
+      it('beforeChange reject', async () => {
+        const beforeChangeReject = () =>
+          new Promise((_resolve, reject) => {
+            setTimeout(() => {
+              reject(new Error('reject'));
+            }, 80);
+          }).catch(() => {});
+        const wrapper = mount({
+          render() {
+            return <Switch defaultValue={false} beforeChange={beforeChangeReject} />;
+          },
+        });
+        wrapper.trigger('click');
+        await new Promise((resolve) => setTimeout(resolve, 100));
+        const ele = wrapper.find('.t-switch');
+        const eleCls = ele.classes();
+        expect(eleCls.includes('t-is-checked')).toBe(false);
+      });
+    });
   });
 });
