@@ -18,7 +18,7 @@ import props from './props';
 import { FormInjectionKey, FormItemContext, useCLASSNAMES } from './const';
 import { FormResetEvent, FormSubmitEvent } from '../common';
 
-import { FormDisabledProvider } from './hooks';
+import { FormDisabledProvider, FormReadonlyProvider } from './hooks';
 import { usePrefixClass, useTNodeJSX } from '../hooks';
 
 type Result = FormValidateResult<TdFormProps['data']>;
@@ -30,9 +30,12 @@ export default defineComponent({
 
   setup(props, { expose }) {
     const renderContent = useTNodeJSX();
-    const { disabled } = toRefs(props);
+    const { disabled, readonly } = toRefs(props);
     provide<FormDisabledProvider>('formDisabled', {
       disabled,
+    });
+    provide<FormReadonlyProvider>('formReadonly', {
+      readonly,
     });
 
     const formRef = ref<HTMLFormElement>(null);

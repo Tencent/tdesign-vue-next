@@ -16,6 +16,11 @@ export interface TdRangeInputProps {
    */
   activeIndex?: number;
   /**
+   * 无边框模式
+   * @default false
+   */
+  borderless?: boolean;
+  /**
    * 是否可清空
    * @default false
    */
@@ -171,6 +176,10 @@ export interface TdRangeInputPopupProps {
    * 输入框的值，非受控属性
    */
   defaultInputValue?: RangeInputValue;
+  /**
+   * 左侧文本
+   */
+  label?: string | TNode;
   /**
    * 下拉框内容，可完全自定义
    */

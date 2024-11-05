@@ -13,6 +13,11 @@ export interface TdTagProps {
    */
   closable?: boolean;
   /**
+   * 自定义标签颜色
+   * @default ''
+   */
+  color?: string;
+  /**
    * 组件子元素
    */
   content?: string | TNode;
@@ -48,6 +53,11 @@ export interface TdTagProps {
    * @default default
    */
   theme?: 'default' | 'primary' | 'warning' | 'danger' | 'success';
+  /**
+   * 标签标题，在标签hover时展示，默认为标签内容
+   * @default ''
+   */
+  title?: string;
   /**
    * 标签风格变体
    * @default dark

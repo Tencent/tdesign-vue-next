@@ -20,12 +20,15 @@ export default {
   checkStrictly: Boolean,
   /** 是否支持清空选项 */
   clearable: Boolean,
-  /** 多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`collapsedTags` 表示折叠的标签，`count` 表示折叠的数量 */
+  /** 多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`collapsedSelectedItems` 表示折叠的标签，`count` 表示折叠的数量，`onClose` 表示移除标签的事件回调 */
   collapsedItems: {
     type: Function as PropType<TdCascaderProps['collapsedItems']>,
   },
   /** 是否禁用组件 */
-  disabled: Boolean,
+  disabled: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 无匹配选项时的内容，默认全局配置为 '暂无数据' */
   empty: {
     type: [String, Function] as PropType<TdCascaderProps['empty']>,
@@ -83,6 +86,14 @@ export default {
   options: {
     type: Array as PropType<TdCascaderProps['options']>,
     default: (): TdCascaderProps['options'] => [],
+  },
+  /** 面板内的底部内容 */
+  panelBottomContent: {
+    type: [String, Function] as PropType<TdCascaderProps['panelBottomContent']>,
+  },
+  /** 面板内的顶部内容 */
+  panelTopContent: {
+    type: [String, Function] as PropType<TdCascaderProps['panelTopContent']>,
   },
   /** 占位符 */
   placeholder: {

@@ -10,8 +10,11 @@ import { PropType } from 'vue';
 export default {
   /** 是否允许取消选中 */
   allowUncheck: Boolean,
-  /** 是否禁用全部子单选框。默认为 false。RadioGroup.disabled 优先级低于 Radio.disabled */
-  disabled: Boolean,
+  /** 是否禁用全部子单选框。优先级：Radio.disabled > RadioGroup.disabled > Form.disabled */
+  disabled: {
+    type: Boolean,
+    default: undefined,
+  },
   /** HTML 元素原生属性 */
   name: {
     type: String,
@@ -52,6 +55,6 @@ export default {
       return ['outline', 'primary-filled', 'default-filled'].includes(val);
     },
   },
-  /** 选中值发生变化时触发 */
+  /** 选中值发生变化时触发, `context.name` 指 RadioGroup 的 name 属性 */
   onChange: Function as PropType<TdRadioGroupProps['onChange']>,
 };

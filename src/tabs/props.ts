@@ -8,7 +8,7 @@ import { TdTabsProps } from './type';
 import { PropType } from 'vue';
 
 export default {
-  /** 【开发中】选项卡右侧的操作区域 */
+  /** 选项卡右侧的操作区域 */
   action: {
     type: [String, Function] as PropType<TdTabsProps['action']>,
   },
@@ -29,6 +29,15 @@ export default {
     validator(val: TdTabsProps['placement']): boolean {
       if (!val) return true;
       return ['left', 'top', 'bottom', 'right'].includes(val);
+    },
+  },
+  /** Tab较多的时候，选中滑块滚动最终停留的位置 */
+  scrollPosition: {
+    type: String as PropType<TdTabsProps['scrollPosition']>,
+    default: 'auto' as TdTabsProps['scrollPosition'],
+    validator(val: TdTabsProps['scrollPosition']): boolean {
+      if (!val) return true;
+      return ['auto', 'start', 'center', 'end'].includes(val);
     },
   },
   /** 组件尺寸 */

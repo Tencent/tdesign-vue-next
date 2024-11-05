@@ -1,5 +1,11 @@
 /* eslint-disable */
 module.exports = {
+  'auto-complete': {
+    panelStr: `const panelList = [{label: 'AutoComplete', value: 'AutoComplete'}];`,
+    render: {
+      AutoComplete: `<t-auto-complete v-bind="configProps" :options="['第一个联想词', '第二个联想词', '第三个联想词']" />`,
+    },
+  },
   button: {
     panelStr: `const panelList = [{label: 'button', value: 'button'}];`,
     render: {
@@ -408,9 +414,26 @@ module.exports = {
     },
   },
   'time-picker': {
-    panelStr: `const panelList = [{label: 'timePicker', value: 'timePicker'}];`,
+    importStr: `
+      import timePickerConfigJson from './time-picker-props.json';\n
+      import timeRangePickerConfigJson from './time-range-picker-props.json';\n
+    `,
+    configStr: `const configList = ref(timePickerConfigJson);`,
+    panelStr: `
+      const panelList = [
+        {label: 'timePicker', value: 'timePicker', config: timePickerConfigJson},
+        {label: 'timeRangePicker', value: 'timeRangePicker', config: timeRangePickerConfigJson}
+      ];
+    `,
+    panelChangeStr: `
+      function onPanelChange(panel) {
+        configList.value = panelList.find(item => item.value === panel).config;
+        usageCode.value = \`<template>\${usageCodeMap[panel].trim()}</template>\`;
+      }
+    `,
     render: {
-      timePicker: `<t-timePicker v-bind="configProps" />`,
+      timePicker: `<t-time-picker v-bind="configProps" />`,
+      timeRangePicker: `<t-time-range-picker v-bind="configProps" />`,
     },
   },
   timeline: {
@@ -597,6 +620,12 @@ module.exports = {
       `,
     },
   },
+  'range-input': {
+    panelStr: `const panelList = [{label: 'rangeInput', value: 'rangeInput'}];`,
+    render: {
+      rangeInput: `<t-range-input v-bind="configProps"/>`,
+    },
+  },
   rate: {
     panelStr: `const panelList = [{label: 'rate', value: 'rate'}];`,
     render: {
@@ -638,7 +667,8 @@ module.exports = {
       drawer: `
         <div>
           <t-button @click="handleClick">Open Drawer</t-button>
-          <t-drawer v-bind="configProps" v-model:visible="visible" header="header">
+          <t-drawer v-bind="configProps" v-model:visible="visible">
+            <template #header>header</template>
             <p>This is a Drawer</p>
           </t-drawer>
         </div>

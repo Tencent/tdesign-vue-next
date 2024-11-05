@@ -1,21 +1,22 @@
-import { computed, defineComponent, ref, toRefs, Teleport, watch, Transition, nextTick } from 'vue';
-import { ChevronLeftIcon, ChevronDownIcon, CloseIcon } from 'tdesign-icons-vue-next';
+import { ChevronDownIcon, ChevronLeftIcon, CloseIcon } from 'tdesign-icons-vue-next';
+import { Teleport, Transition, computed, defineComponent, nextTick, ref, toRefs, watch } from 'vue';
 
-import props from './props';
-import TImageViewerIcon from './base/ImageModalIcon';
-import TImageViewerUtils from './base/ImageViewerUtils';
-import TImageItem from './base/ImageItem';
-import TImageViewerModal from './base/ImageViewerModal';
 import { useTNodeJSX } from '../hooks/tnode';
-import useVModel from '../hooks/useVModel';
-import useDefaultValue from '../hooks/useDefaultValue';
 import { usePrefixClass } from '../hooks/useConfig';
-import { TdImageViewerProps } from './type';
-import { useMirror, useRotate, useScale } from './hooks';
-import { formatImages, getOverlay } from './utils';
-import { EVENT_CODE } from './const';
-import Image from '../image';
+import useDefaultValue from '../hooks/useDefaultValue';
 import usePopupManager from '../hooks/usePopupManager';
+import useTeleport from '../hooks/useTeleport';
+import useVModel from '../hooks/useVModel';
+import Image from '../image';
+import TImageItem from './base/ImageItem';
+import TImageViewerIcon from './base/ImageModalIcon';
+import TImageViewerModal from './base/ImageViewerModal';
+import TImageViewerUtils from './base/ImageViewerUtils';
+import { EVENT_CODE } from './const';
+import { useMirror, useRotate, useScale } from './hooks';
+import props from './props';
+import { TdImageViewerProps } from './type';
+import { formatImages, getOverlay } from './utils';
 
 export default defineComponent({
   name: 'TImageViewer',
@@ -32,6 +33,8 @@ export default defineComponent({
     const [visibleValue, setVisibleValue] = useVModel(visible, modelValue, props.defaultVisible, () => {}, 'visible');
     const animationEnd = ref(true);
     const animationTimer = ref();
+    // teleport容器
+    const teleportElement = useTeleport(() => props.attach);
 
     const wrapClass = computed(() => [
       COMPONENT_NAME.value,
@@ -148,7 +151,6 @@ export default defineComponent({
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
       const { deltaY } = e;
-
       deltaY > 0 ? onZoomOut() : onZoomIn();
     };
 
@@ -248,7 +250,7 @@ export default defineComponent({
       return (
         <>
           {renderTNodeJSX('trigger', { params: { open: openHandler } })}
-          <Teleport to="body">
+          <Teleport disabled={!props.attach || !teleportElement.value} to={teleportElement.value}>
             <Transition>
               {(visibleValue.value || !animationEnd.value) && (
                 <div
@@ -290,6 +292,7 @@ export default defineComponent({
                     mirror={mirror.value}
                     src={currentImage.value.mainImage}
                     placementSrc={currentImage.value.thumbnail}
+                    isSvg={currentImage.value.isSvg}
                   />
                 </div>
               )}

@@ -33,8 +33,8 @@
   </t-space>
 </template>
 <script lang="tsx" setup>
-import { SwitchProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { SwitchProps } from 'tdesign-vue-next';
 import { CloseIcon, CheckIcon } from 'tdesign-icons-vue-next';
 const checked = ref(true);
 const renderChecked = ref(true);

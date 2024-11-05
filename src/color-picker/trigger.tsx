@@ -17,6 +17,10 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    borderless: {
+      type: Boolean,
+      default: false,
+    },
     clearable: {
       type: Boolean,
       default: false,
@@ -93,6 +97,7 @@ export default defineComponent({
     };
     return (
       <TInput
+        borderless={this.borderless}
         clearable={this.clearable}
         size={this.size}
         v-slots={inputSlots}

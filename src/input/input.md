@@ -1,31 +1,33 @@
 :: BASE_DOC ::
 
 ## API
+
 ### Input Props
 
-名称 | 类型 | 默认值 | 说明 | 必传
+名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
 align | String | left | 文本内容位置，居左/居中/居右。可选项：left/center/right | N
 allowInputOverMax | Boolean | false | 超出 `maxlength` 或 `maxcharacter` 之后是否允许继续输入 | N
 autoWidth | Boolean | false | 宽度随内容自适应 | N
 autocomplete | String | undefined | 是否开启自动填充功能，HTML5 原生属性，[点击查看详情](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) | N
 autofocus | Boolean | false | 自动聚焦 | N
-borderless | Boolean | false | 【开发中】无边框模式 | N
+borderless | Boolean | false | 是否开启无边框模式 | N
 clearable | Boolean | false | 是否可清空 | N
-disabled | Boolean | - | 是否禁用输入框 | N
+disabled | Boolean | undefined | 是否禁用输入框 | N
 format | Function | - | 指定输入框展示值的格式。注意 `type=number` 时请勿使用，此功能建议更为使用 `InputNumber` 组件。TS 类型：`InputFormatType` `type InputFormatType = (value: string) => string`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/input/type.ts) | N
 inputClass | String / Object / Array | - | t-input 同级类名，示例：'name1 name2 name3' 或 `['name1', 'name2']` 或 `[{ 'name1': true }]`。TS 类型：`ClassName`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 label | String / Slot / Function | - | 左侧文本。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 maxcharacter | Number | - | 用户最多可以输入的字符个数，一个中文汉字表示两个字符长度。`maxcharacter` 和 `maxlength` 二选一使用 | N
-maxlength | String / Number | - | 用户最多可以输入的文本长度，一个中文等于一个计数长度。值为空，则表示不限制输入长度。`maxcharacter` 和 `maxlength` 二选一使用 | N
+maxlength | String / Number | - | 用户最多可以输入的文本长度，一个中文等于一个计数长度。默认为空，不限制输入长度。`maxcharacter` 和 `maxlength` 二选一使用 | N
 name | String | - | 名称 | N
 placeholder | String | undefined | 占位符 | N
 prefixIcon | Slot / Function | - | 组件前置图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-readonly | Boolean | false | 只读状态 | N
+readonly | Boolean | undefined | 只读状态 | N
 showClearIconOnEmpty | Boolean | false | 输入框内容为空时，悬浮状态是否显示清空按钮，默认不显示 | N
 showLimitNumber | Boolean | false | 是否在输入框右侧显示字数统计 | N
 size | String | medium | 输入框尺寸。可选项：small/medium/large。TS 类型：`SizeEnum`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-status | String | undefined | 输入框状态。默认情况会由组件内部根据实际情况呈现，如果文本过长引起的状态变化。可选项：default/success/warning/error | N
+spellCheck | Boolean | false | 是否开启拼写检查，HTML5 原生属性，[点击查看详情](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/spellcheck) | N
+status | String | default | 输入框状态。可选项：default/success/warning/error | N
 suffix | String / Slot / Function | - | 后置图标前的后置内容。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 suffixIcon | Slot / Function | - | 组件后置图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 tips | String / Slot / Function | - | 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
@@ -70,8 +72,9 @@ paste | `(context: { e: ClipboardEvent; pasteValue: string })` | 粘贴事件，
 validate | `(context: { error?: 'exceed-maximum' \| 'below-minimum' })` | 字数超出限制时触发
 wheel | `(context: { e: WheelEvent })` | 输入框中滚动鼠标时触发
 
+
 ### InputGroup Props
 
-名称 | 类型 | 默认值 | 说明 | 必传
+名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
 separate | Boolean | - | 多个输入框之间是否需要间隔 | N

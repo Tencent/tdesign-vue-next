@@ -6,15 +6,8 @@ import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 
 import { panelColProps } from './props';
-import {
-  EPickerCols,
-  TWELVE_HOUR_FORMAT,
-  TIME_FORMAT,
-  AM,
-  PM,
-  MERIDIEM_LIST,
-} from '../../_common/js/time-picker/const';
-import { closestLookup } from '../../_common/js/time-picker/utils';
+import { EPickerCols, TWELVE_HOUR_FORMAT, AM, PM, MERIDIEM_LIST } from '../../_common/js/time-picker/const';
+import { closestLookup, getPickerCols } from '../../_common/js/time-picker/utils';
 import { useCommonClassName, useConfig, usePrefixClass } from '../../hooks/useConfig';
 
 dayjs.extend(customParseFormat);
@@ -79,21 +72,7 @@ export default defineComponent({
     );
 
     onMounted(() => {
-      const match = format.value.match(TIME_FORMAT);
-
-      const [, startCol, hourCol, minuteCol, secondCol, milliSecondCol, endCol] = match;
-      const { meridiem, hour, minute, second, milliSecond } = EPickerCols;
-
-      const renderCol = [
-        startCol && meridiem,
-        hourCol && hour,
-        minuteCol && minute,
-        secondCol && second,
-        milliSecondCol && milliSecond,
-        endCol && meridiem,
-      ].filter((v) => !!v);
-
-      cols.value = renderCol;
+      cols.value = getPickerCols(format.value);
     });
 
     // 获取每个时间的高度

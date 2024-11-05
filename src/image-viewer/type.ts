@@ -4,9 +4,14 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
-import { TNode } from '../common';
+import { AttachNode, TNode } from '../common';
 
 export interface TdImageViewerProps {
+  /**
+   * 制定挂载节点。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body
+   * @default 'body'
+   */
+  attach?: AttachNode;
   /**
    * 是否展示关闭按钮，值为 `true` 显示默认关闭按钮；值为 `false` 则不显示关闭按钮；也可以完全自定义关闭按钮
    * @default true
@@ -26,7 +31,7 @@ export interface TdImageViewerProps {
    */
   draggable?: boolean;
   /**
-   *  图片缩放相关配置。`imageScale.max` 缩放的最大比例；`imageScale.min` 缩放的最小比例；`imageScale.step` 缩放的步长速度；`imageScale.defaultScale` 默认的缩放比例
+   *  图片缩放相关配置。`imageScale.max` 缩放的最大比例；`imageScale.min` 缩放的最小比例；`imageScale.step` 缩放的步长速度; `imageScale.defaultScale` 默认的缩放比例
    */
   imageScale?: ImageScale;
   /**
@@ -110,6 +115,7 @@ export interface ImageInfo {
   mainImage: string | File;
   thumbnail?: string | File;
   download?: boolean;
+  isSvg?: boolean;
 }
 
 export interface ImageViewerScale {

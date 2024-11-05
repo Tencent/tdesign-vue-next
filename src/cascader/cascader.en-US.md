@@ -1,6 +1,7 @@
 :: BASE_DOC ::
 
 ## API
+
 ### Cascader Props
 
 name | type | default | description | required
@@ -10,8 +11,8 @@ borderless | Boolean | false | \- | N
 checkProps | Object | - | Typescript：`CheckboxProps`，[Checkbox API Documents](./checkbox?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/cascader/type.ts) | N
 checkStrictly | Boolean | false | \- | N
 clearable | Boolean | false | \- | N
-collapsedItems | Slot / Function | - | Typescript：`TNode<{ value: CascaderOption[]; collapsedSelectedItems: CascaderOption[]; count: number }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-disabled | Boolean | - | \- | N
+collapsedItems | Slot / Function | - | Typescript：`TNode<{ value: CascaderOption[]; collapsedSelectedItems: CascaderOption[]; count: number; onClose: (context: { index: number, e?: MouseEvent }) => void }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+disabled | Boolean | undefined | \- | N
 empty | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 filter | Function | - | Typescript：`(filterWords: string, node: TreeNodeModel) => boolean \| Promise<boolean>` | N
 filterable | Boolean | false | \- | N
@@ -27,6 +28,8 @@ minCollapsedNum | Number | 0 | \- | N
 multiple | Boolean | false | \- | N
 option | Slot / Function | - | customize one option。Typescript：`TNode<{ item: CascaderOption; index: number }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 options | Array | [] | Typescript：`Array<CascaderOption>` | N
+panelBottomContent | String / Slot / Function | - | bottom content of the cascader panel。Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+panelTopContent | String / Slot / Function | - | top content of the cascader panel。Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 placeholder | String | undefined | \- | N
 popupProps | Object | - | Typescript：`PopupProps`，[Popup API Documents](./popup?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/cascader/type.ts) | N
 popupVisible | Boolean | - | \- | N

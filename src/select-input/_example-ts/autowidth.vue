@@ -24,8 +24,8 @@
   </t-select-input>
 </template>
 <script lang="ts" setup>
-import { SelectInputProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { SelectInputProps } from 'tdesign-vue-next';
 import { ChevronDownIcon } from 'tdesign-icons-vue-next';
 const options = [
   {
@@ -46,7 +46,10 @@ const options = [
 ];
 
 // const selectValue = ref('tdesign-vue');
-const selectValue = ref<{ label: string; value: number }>({
+const selectValue = ref<{
+  label: string;
+  value: number;
+}>({
   label: 'tdesign-vue',
   value: 1,
 });

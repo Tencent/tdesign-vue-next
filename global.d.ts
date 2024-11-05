@@ -3,7 +3,7 @@
  * https://github.com/TDesignOteam/tdesign-api
  * eslint-disable
  * */
-declare module '@vue/runtime-core' {
+declare module 'vue' {
   export interface GlobalComponents {
     TAffix: typeof import('tdesign-vue-next')['Affix'];
     TAlert: typeof import('tdesign-vue-next')['Alert'];
@@ -32,6 +32,7 @@ declare module '@vue/runtime-core' {
     TCollapsePanel: typeof import('tdesign-vue-next')['CollapsePanel'];
     TColorPicker: typeof import('tdesign-vue-next')['ColorPicker'];
     TComment: typeof import('tdesign-vue-next')['Comment'];
+    TContent: typeof import('tdesign-vue-next')['Content'];
     TDatePicker: typeof import('tdesign-vue-next')['DatePicker'];
     TDatePickerPanel: typeof import('tdesign-vue-next')['DatePickerPanel'];
     TDateRangePicker: typeof import('tdesign-vue-next')['DateRangePicker'];
@@ -52,6 +53,7 @@ declare module '@vue/runtime-core' {
     TGuide: typeof import('tdesign-vue-next')['Guide'];
     THeadMenu: typeof import('tdesign-vue-next')['HeadMenu'];
     THeader: typeof import('tdesign-vue-next')['Header'];
+    TIcon: typeof import('tdesign-vue-next')['Icon'];
     TIconSVG: typeof import('tdesign-vue-next')['IconSVG'];
     TIconfont: typeof import('tdesign-vue-next')['Iconfont'];
     TImage: typeof import('tdesign-vue-next')['Image'];

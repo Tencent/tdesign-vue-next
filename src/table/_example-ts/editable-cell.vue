@@ -21,6 +21,7 @@
 </template>
 
 <script lang="tsx" setup>
+import dayjs from 'dayjs';
 import { ref, computed } from 'vue';
 import {
   Input,
@@ -34,8 +35,6 @@ import {
   TableEditableCellPropsParams,
   PrimaryTableOnEditedContext,
 } from 'tdesign-vue-next';
-import dayjs from 'dayjs';
-
 interface TableData {
   key: string;
   firstName: string;
@@ -44,7 +43,6 @@ interface TableData {
   letters: string[];
   createTime: string;
 }
-
 const initData = new Array(5).fill(null).map((_, i) => ({
   key: String(i + 1),
   firstName: ['贾明', '张三', '王芳'][i % 3],
@@ -114,7 +112,11 @@ const columns = computed<TableProps['columns']>(() => [
         onBlur: () => {
           console.log('失去焦点', editContext);
         },
-        onEnter: (ctx: { e: { preventDefault: () => void } }) => {
+        onEnter: (ctx: {
+          e: {
+            preventDefault: () => void;
+          };
+        }) => {
           ctx?.e?.preventDefault();
           console.log('onEnter', ctx);
         },
@@ -150,7 +152,7 @@ const columns = computed<TableProps['columns']>(() => [
     title: '申请状态',
     colKey: 'status',
     cell: (h, { row }) => STATUS_OPTIONS.find((t) => t.value === row.status)?.label,
-    1: {
+    edit: {
       component: Select,
       // props, 透传全部属性到 Select 组件
       props: {

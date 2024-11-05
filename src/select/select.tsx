@@ -11,7 +11,7 @@ import SelectInput from '../select-input';
 import SelectPanel from './select-panel';
 import props from './props';
 // hooks
-import { useFormDisabled } from '../form/hooks';
+import { useDisabled } from '../hooks/useDisabled';
 import useDefaultValue from '../hooks/useDefaultValue';
 import useVModel from '../hooks/useVModel';
 import { useTNodeJSX } from '../hooks/tnode';
@@ -19,7 +19,7 @@ import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { selectInjectKey, getSingleContent, getMultipleContent } from './helper';
 import { useSelectOptions } from './hooks/useSelectOptions';
 import useKeyboardControl from './hooks/useKeyboardControl';
-import type { PopupVisibleChangeContext } from '../popup';
+import type { PopupProps, PopupVisibleChangeContext } from '../popup';
 import type { SelectInputValueChangeContext } from '../select-input';
 import type { TdSelectProps, SelectValue } from './type';
 import { SelectInputValueDisplayOptions } from '../select-input/useSingle';
@@ -37,7 +37,7 @@ export default defineComponent({
   },
   setup(props: TdSelectProps & { valueDisplayOptions: SelectInputValueDisplayOptions }, { slots }) {
     const classPrefix = usePrefixClass();
-    const disabled = useFormDisabled();
+    const disabled = useDisabled();
     const renderTNodeJSX = useTNodeJSX();
     const COMPONENT_NAME = usePrefixClass('select');
     const { globalConfig, t } = useConfig('select');
@@ -87,6 +87,7 @@ export default defineComponent({
         newVal = props.multiple ? (newVal as SelectValue[]).map((val) => getOption(val)) : getOption(newVal);
       }
       if (newVal === orgValue.value) return;
+      if (props.multiple && !props.reserveKeyword) setInputValue('');
       setOrgValue(newVal, {
         selectedOptions: getSelectedOptions(newVal),
         ...context,
@@ -131,6 +132,8 @@ export default defineComponent({
         onClose: props.multiple ? (index: number) => removeTag(index) : () => {},
       };
 
+      if (!props.multiple) Object.assign(params, { label: displayText.value });
+
       if (props.minCollapsedNum && props.multiple) {
         return {
           ...params,
@@ -142,6 +145,10 @@ export default defineComponent({
 
     const isFilterable = computed(() => {
       return Boolean(props.filterable || globalConfig.value.filterable || isFunction(props.filter));
+    });
+
+    const isRemoteSearch = computed(() => {
+      return Boolean((props.filterable || globalConfig.value.filterable) && isFunction(props.onSearch));
     });
 
     // 移除tag
@@ -161,7 +168,8 @@ export default defineComponent({
     const handleCreate = () => {
       if (!innerInputValue.value) return;
       props.onCreate?.(innerInputValue.value);
-      setInputValue('');
+      // only clean input value when reopen popup
+      if (!innerPopupVisible.value) setInputValue('');
     };
 
     const popupContentRef = computed(() => selectInputRef.value?.popupRef.getOverlay() as HTMLElement);
@@ -191,6 +199,7 @@ export default defineComponent({
       setInnerPopupVisible,
       selectPanelRef,
       isFilterable,
+      isRemoteSearch,
       getSelectedOptions,
       setInnerValue,
       innerValue,
@@ -237,6 +246,7 @@ export default defineComponent({
       onCheckAllChange,
       getSelectedOptions,
       displayOptions: displayOptions.value,
+      emitBlur: handleOptionEmitBlur,
     }));
 
     provide(selectInjectKey, SelectProvider);
@@ -257,7 +267,7 @@ export default defineComponent({
 
     const handlerInputChange = (value: string, context: SelectInputValueChangeContext) => {
       if (value) {
-        setInnerPopupVisible(true, { e: context.e as KeyboardEvent });
+        !innerPopupVisible.value && setInnerPopupVisible(true, { e: context.e as KeyboardEvent });
       }
       setInputValue(value);
       handleSearch(`${value}`, { e: context.e as KeyboardEvent });
@@ -267,10 +277,24 @@ export default defineComponent({
       });
     };
 
+    const handleOptionEmitBlur = (e: MouseEvent | KeyboardEvent) => {
+      props.onBlur?.({ e, value: innerValue.value });
+    };
+
     const handlerPopupVisibleChange = (visible: boolean, context: PopupVisibleChangeContext) => {
       setInnerPopupVisible(visible, context);
       // 在通过点击选择器打开弹窗时 清空此前的输入内容 避免在关闭时就清空引起的闪烁问题
       if (visible && context.trigger === 'trigger-element-click') setInputValue('');
+    };
+
+    const handlerPopupScrollToBottom: PopupProps['onScrollToBottom'] = async (context) => {
+      const { popupProps } = props;
+      if (props.loading) {
+        return;
+      }
+      // @ts-ignore types 中只有 onScrollToBottom，但 Vue 会自动转换 on-scroll-to-bottom 并支持，故此处都进行调用
+      popupProps?.['on-scroll-to-bottom']?.(context);
+      popupProps?.onScrollToBottom?.(context);
     };
 
     const addCache = (val: SelectValue) => {
@@ -381,6 +405,7 @@ export default defineComponent({
             popupProps={{
               overlayClassName: [`${COMPONENT_NAME.value}__dropdown`, overlayClassName],
               ...restPopupProps,
+              onScrollToBottom: handlerPopupScrollToBottom,
             }}
             label={props.label}
             prefixIcon={props.prefixIcon}
@@ -416,8 +441,11 @@ export default defineComponent({
               props.onClear?.({ e });
             }}
             onEnter={(inputValue, { e }) => {
-              props.onEnter?.({ inputValue: `${innerInputValue.value}`, e, value: innerValue.value });
-              handleCreate();
+              // onEnter和handleKeyDown的Enter事件同时触发，需要通过setTimeout设置先后
+              setTimeout(() => {
+                props.onEnter?.({ inputValue: `${innerInputValue.value}`, e, value: innerValue.value });
+                handleCreate();
+              }, 0);
             }}
             onBlur={(inputValue, { e }) => {
               props.onBlur?.({ e, value: innerValue.value });

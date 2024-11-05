@@ -17,6 +17,7 @@ exports[`TreeSelect > :props > :clearable 1`] = `
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
+        spellcheck="false"
         type="text"
         unselectable="on"
       />
@@ -28,7 +29,6 @@ exports[`TreeSelect > :props > :clearable 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -70,11 +70,11 @@ exports[`TreeSelect > :props > :defaultValue 1`] = `
         
         <div
           class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close"
-          style="max-width: 300px;"
         >
           <!---->
           <span
             class="t-tag--text"
+            style="max-width: 300px;"
           >
             <!---->
           </span>
@@ -97,6 +97,7 @@ exports[`TreeSelect > :props > :defaultValue 1`] = `
         class="t-input__inner t-input--soft-hidden"
         placeholder=""
         readonly=""
+        spellcheck="false"
         type="text"
         unselectable="on"
       />
@@ -112,7 +113,6 @@ exports[`TreeSelect > :props > :defaultValue 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -154,6 +154,7 @@ exports[`TreeSelect > :props > :disabled 1`] = `
         disabled=""
         placeholder="请选择"
         readonly=""
+        spellcheck="false"
         type="text"
         unselectable="on"
       />
@@ -206,6 +207,7 @@ exports[`TreeSelect > :props > :empty string 1`] = `
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
+        spellcheck="false"
         type="text"
         unselectable="on"
       />
@@ -217,7 +219,6 @@ exports[`TreeSelect > :props > :empty string 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -257,6 +258,7 @@ exports[`TreeSelect > :props > :filterable 1`] = `
       <input
         class="t-input__inner"
         placeholder="请选择"
+        spellcheck="false"
         type="text"
       />
       <!---->
@@ -267,7 +269,6 @@ exports[`TreeSelect > :props > :filterable 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -308,6 +309,7 @@ exports[`TreeSelect > :props > :loading 1`] = `
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
+        spellcheck="false"
         type="text"
         unselectable="on"
       />
@@ -369,6 +371,7 @@ exports[`TreeSelect > :props > :loadingText 1`] = `
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
+        spellcheck="false"
         type="text"
         unselectable="on"
       />
@@ -380,7 +383,6 @@ exports[`TreeSelect > :props > :loadingText 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -421,6 +423,7 @@ exports[`TreeSelect > :props > :max 1`] = `
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
+        spellcheck="false"
         type="text"
         unselectable="on"
       />
@@ -432,7 +435,6 @@ exports[`TreeSelect > :props > :max 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -473,6 +475,7 @@ exports[`TreeSelect > :props > :minCollapsedNum 1`] = `
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
+        spellcheck="false"
         type="text"
         unselectable="on"
       />
@@ -484,7 +487,6 @@ exports[`TreeSelect > :props > :minCollapsedNum 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -526,11 +528,11 @@ exports[`TreeSelect > :props > :multiple 1`] = `
         
         <div
           class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close"
-          style="max-width: 300px;"
         >
           <!---->
           <span
             class="t-tag--text"
+            style="max-width: 300px;"
           >
             <!---->
           </span>
@@ -553,6 +555,7 @@ exports[`TreeSelect > :props > :multiple 1`] = `
         class="t-input__inner t-input--soft-hidden"
         placeholder=""
         readonly=""
+        spellcheck="false"
         type="text"
         unselectable="on"
       />
@@ -568,7 +571,6 @@ exports[`TreeSelect > :props > :multiple 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -609,6 +611,7 @@ exports[`TreeSelect > :props > :placeholder 1`] = `
         class="t-input__inner"
         placeholder="please select address"
         readonly=""
+        spellcheck="false"
         type="text"
         unselectable="on"
       />
@@ -620,7 +623,6 @@ exports[`TreeSelect > :props > :placeholder 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -661,6 +663,7 @@ exports[`TreeSelect > :props > :popupProps 1`] = `
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
+        spellcheck="false"
         type="text"
         unselectable="on"
       />
@@ -672,7 +675,6 @@ exports[`TreeSelect > :props > :popupProps 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -713,6 +715,7 @@ exports[`TreeSelect > :props > :size 1`] = `
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
+        spellcheck="false"
         type="text"
         unselectable="on"
       />
@@ -724,7 +727,6 @@ exports[`TreeSelect > :props > :size 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -765,6 +767,7 @@ exports[`TreeSelect > :props > :treeProps 1`] = `
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
+        spellcheck="false"
         type="text"
         unselectable="on"
       />
@@ -776,7 +779,6 @@ exports[`TreeSelect > :props > :treeProps 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -817,6 +819,7 @@ exports[`TreeSelect > :props > :value 1`] = `
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
+        spellcheck="false"
         type="text"
         unselectable="on"
       />
@@ -828,7 +831,6 @@ exports[`TreeSelect > :props > :value 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -869,6 +871,7 @@ exports[`TreeSelect > :props > :valueType 1`] = `
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
+        spellcheck="false"
         type="text"
         unselectable="on"
       />
@@ -880,7 +883,6 @@ exports[`TreeSelect > :props > :valueType 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -922,11 +924,11 @@ exports[`TreeSelect > <slot> > <collapsedItems> 1`] = `
         
         <div
           class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close"
-          style="max-width: 300px;"
         >
           <!---->
           <span
             class="t-tag--text"
+            style="max-width: 300px;"
           >
             <!---->
           </span>
@@ -949,6 +951,7 @@ exports[`TreeSelect > <slot> > <collapsedItems> 1`] = `
         class="t-input__inner t-input--soft-hidden"
         placeholder=""
         readonly=""
+        spellcheck="false"
         type="text"
         unselectable="on"
       />
@@ -964,7 +967,6 @@ exports[`TreeSelect > <slot> > <collapsedItems> 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -1005,6 +1007,7 @@ exports[`TreeSelect > <slot> > <empty> 1`] = `
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
+        spellcheck="false"
         type="text"
         unselectable="on"
       />
@@ -1016,7 +1019,6 @@ exports[`TreeSelect > <slot> > <empty> 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -1057,6 +1059,7 @@ exports[`TreeSelect > <slot> > <loadingText> 1`] = `
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
+        spellcheck="false"
         type="text"
         unselectable="on"
       />
@@ -1129,6 +1132,7 @@ exports[`TreeSelect > <slot> > <prefixIcon> 1`] = `
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
+        spellcheck="false"
         type="text"
         unselectable="on"
       />
@@ -1140,7 +1144,6 @@ exports[`TreeSelect > <slot> > <prefixIcon> 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -1192,6 +1195,7 @@ exports[`TreeSelect > <slot> > <valueDisplay> 1`] = `
         class="t-input__inner"
         placeholder=""
         readonly=""
+        spellcheck="false"
         type="text"
         unselectable="on"
       />
@@ -1203,7 +1207,6 @@ exports[`TreeSelect > <slot> > <valueDisplay> 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -1245,11 +1248,11 @@ exports[`TreeSelect > function > :collapsedItems 1`] = `
         
         <div
           class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close"
-          style="max-width: 300px;"
         >
           <!---->
           <span
             class="t-tag--text"
+            style="max-width: 300px;"
           >
             <!---->
           </span>
@@ -1272,6 +1275,7 @@ exports[`TreeSelect > function > :collapsedItems 1`] = `
         class="t-input__inner t-input--soft-hidden"
         placeholder=""
         readonly=""
+        spellcheck="false"
         type="text"
         unselectable="on"
       />
@@ -1287,7 +1291,6 @@ exports[`TreeSelect > function > :collapsedItems 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -1328,6 +1331,7 @@ exports[`TreeSelect > function > :empty 1`] = `
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
+        spellcheck="false"
         type="text"
         unselectable="on"
       />
@@ -1339,7 +1343,6 @@ exports[`TreeSelect > function > :empty 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -1380,6 +1383,7 @@ exports[`TreeSelect > function > :loadingText 1`] = `
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
+        spellcheck="false"
         type="text"
         unselectable="on"
       />
@@ -1452,6 +1456,7 @@ exports[`TreeSelect > function > :prefixIcon 1`] = `
         class="t-input__inner"
         placeholder="请选择"
         readonly=""
+        spellcheck="false"
         type="text"
         unselectable="on"
       />
@@ -1463,7 +1468,6 @@ exports[`TreeSelect > function > :prefixIcon 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -1513,6 +1517,7 @@ exports[`TreeSelect > function > :valueDisplay 1`] = `
         class="t-input__inner"
         placeholder=""
         readonly=""
+        spellcheck="false"
         type="text"
         unselectable="on"
       />
@@ -1524,7 +1529,6 @@ exports[`TreeSelect > function > :valueDisplay 1`] = `
       >
         <svg
           class="t-fake-arrow"
-          disabled="false"
           fill="none"
           height="16"
           viewBox="0 0 16 16"

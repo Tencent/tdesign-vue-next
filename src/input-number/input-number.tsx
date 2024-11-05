@@ -10,7 +10,7 @@ import TInput from '../input';
 import props from './props';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { TdInputNumberProps } from './type';
-import useInputNumber from './useInputNumber';
+import useInputNumber from './hooks/useInputNumber';
 import { useTNodeJSX } from '../hooks';
 
 export default defineComponent({
@@ -53,10 +53,10 @@ export default defineComponent({
           <TInput
             ref={inputRef}
             disabled={p.tDisabled.value}
-            readonly={props.readonly}
+            readonly={p.isReadonly.value}
             autocomplete="off"
             placeholder={props.placeholder}
-            unselectable={props.readonly ? 'on' : 'off'}
+            unselectable={p.isReadonly.value ? 'on' : 'off'}
             autoWidth={props.autoWidth}
             align={props.align || (props.theme === 'row' ? 'center' : undefined)}
             status={status}

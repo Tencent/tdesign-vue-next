@@ -7,7 +7,7 @@ import { RangeInputValue, RangeInputPosition } from './type';
 
 // hooks
 import useVModel from '../hooks/useVModel';
-import { useFormDisabled } from '../form/hooks';
+import { useDisabled } from '../hooks/useDisabled';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
@@ -30,7 +30,7 @@ export default defineComponent({
     const { value, modelValue } = toRefs(props);
     const { STATUS, SIZE } = useCommonClassName();
     const classPrefix = usePrefixClass();
-    const disabled = useFormDisabled();
+    const disabled = useDisabled();
     const COMPONENT_NAME = usePrefixClass('range-input');
     const { CloseCircleFilledIcon } = useGlobalIcon({ CloseCircleFilledIcon: TdCloseCircleFilledIcon });
     const renderTNodeJSX = useTNodeJSX();
@@ -42,9 +42,12 @@ export default defineComponent({
     const placeholder = computed(() => calcArrayValue(props.placeholder));
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
 
+    const inputValue = computed(() => String((innerValue.value?.[0] || innerValue.value?.[1]) ?? ''));
+
     const isShowClearIcon = computed(
       () =>
-        ((props.clearable && props.value?.length && !disabled.value) || props.showClearIconOnEmpty) && isHover.value,
+        ((props.clearable && inputValue.value?.length && !disabled.value) || props.showClearIconOnEmpty) &&
+        isHover.value,
     );
 
     const inputRefs = {
@@ -86,15 +89,15 @@ export default defineComponent({
       secondInputElement: inputRefs.secondInputRef.value,
       focus: (options: any) => {
         const { position = 'first' } = options || {};
-        inputRefs[`${position}InputRef`].value?.focus();
+        inputRefs[`${position as Exclude<RangeInputPosition, 'all'>}InputRef`].value?.focus();
       },
       blur: (options: any) => {
         const { position = 'first' } = options || {};
-        inputRefs[`${position}InputRef`].value?.blur();
+        inputRefs[`${position as Exclude<RangeInputPosition, 'all'>}InputRef`].value?.blur();
       },
       select: (options: any) => {
         const { position = 'first' } = options || {};
-        inputRefs[`${position}InputRef`].value?.select();
+        inputRefs[`${position as Exclude<RangeInputPosition, 'all'>}InputRef`].value?.select();
       },
     });
 
@@ -104,6 +107,8 @@ export default defineComponent({
       const suffixContent = renderTNodeJSX('suffix');
       const suffixIconContent = renderTNodeJSX('suffixIcon');
       const tips = renderTNodeJSX('tips');
+      const separator = renderTNodeJSX('separator');
+
       const RangeInputContent = (
         <div
           {...attrs}
@@ -118,6 +123,7 @@ export default defineComponent({
               [STATUS.value.error]: props.status === 'error',
               [`${COMPONENT_NAME.value}--prefix`]: prefixIconContent || labelContent,
               [`${COMPONENT_NAME.value}--suffix`]: suffixContent || suffixIconContent,
+              [`${COMPONENT_NAME.value}--borderless`]: props.borderless,
             },
           ]}
           onMouseenter={handleMouseEnter}
@@ -163,7 +169,7 @@ export default defineComponent({
               {...inputProps.value[0]}
             />
 
-            <div class={`${COMPONENT_NAME.value}__inner-separator`}>{props.separator}</div>
+            <div class={`${COMPONENT_NAME.value}__inner-separator`}>{separator}</div>
 
             <Input
               ref={inputRefs.secondInputRef}
@@ -202,7 +208,7 @@ export default defineComponent({
               {...inputProps.value[1]}
             />
             {suffixContent ? <div class={`${COMPONENT_NAME.value}__suffix`}>{suffixContent}</div> : null}
-            {suffixIconContent && (
+            {(suffixIconContent || isShowClearIcon.value) && (
               <span class={`${COMPONENT_NAME.value}__suffix ${COMPONENT_NAME.value}__suffix-icon`}>
                 {isShowClearIcon.value ? (
                   <CloseCircleFilledIcon class={`${COMPONENT_NAME.value}__suffix-clear`} onClick={handleClear} />

@@ -1,5 +1,6 @@
 import { it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
+import { nextTick } from 'vue';
 import { getDescriptionsMount } from './mount';
 import Descriptions, { DescriptionsItem } from '@/src/descriptions/index.ts';
 import CustomComp from './custom-comp.vue';
@@ -13,26 +14,39 @@ const layout = {
 describe('Descriptions', () => {
   describe(':props', () => {
     it(':bordered', () => {
-      const wrapper = getDescriptionsMount({ bordered: true });
+      const wrapper = getDescriptionsMount({ props: { bordered: true } });
       expect(wrapper.find('.t-descriptions__body.t-descriptions__body--border').exists()).toBeTruthy();
     });
 
     it(':colon', () => {
-      const wrapper = getDescriptionsMount({ colon: true });
+      const wrapper = getDescriptionsMount({ props: { colon: true } });
       const label = wrapper.find('.t-descriptions__label');
-      expect(label.text()).toMatch(/:$/);
+      expect(label.text()).toMatch(/：$/);
     });
 
     it(':size', () => {
       sizeList.forEach((size) => {
-        const wrapper = getDescriptionsMount({ size });
+        const wrapper = getDescriptionsMount({ props: { size } });
         const body = wrapper.find('.t-descriptions__body');
         expect(body.classes()).toContain(`t-size-${size.slice(0, 1)}`);
       });
     });
 
+    it(':tableLayout:fixed', async () => {
+      const wrapper = getDescriptionsMount({ props: { tableLayout: 'fixed', style: { width: '400px' } } });
+      const body = wrapper.find('.t-descriptions__body');
+      expect(body.classes()).toContain('t-descriptions__body--fixed');
+
+      // todo: need test td width, but don't know how to test
+      // const labels = wrapper.findAll('.t-descriptions');
+      // const contents = wrapper.findAll('.t-descriptions__content');
+      // await nextTick();
+      // expect(getComputedStyle(labels[0].element, null).width).toBe('100px');
+      // expect(getComputedStyle(contents[0].element, null).width).toBe('100px');
+    });
+
     it(':layout:horizontal', () => {
-      const wrapper = getDescriptionsMount({ layout: layout.H, column: 3 });
+      const wrapper = getDescriptionsMount({ props: { layout: layout.H, column: 3 } });
       const tbody = wrapper.find('tbody');
       // 检查 tbody 下面是否只有 2 个 tr 元素
       expect(tbody.findAll('tr')).toHaveLength(2);
@@ -50,8 +64,19 @@ describe('Descriptions', () => {
       expect(secondTrTd.element.getAttribute('colspan')).toBe('5');
     });
 
+    it(':layout:horizontal:span (should reset span when span is greater than column)', () => {
+      const wrapper = getDescriptionsMount({ props: { layout: layout.H, column: 3 }, firstItemProps: { span: 10 } });
+      const tbody = wrapper.find('tbody');
+
+      const firstTr = tbody.findAll('tr')[0];
+      // 检查第 1 个 tr 元素中的第 1 个 td 元素是否具有 colspan 属性，并检查其值是否为 1
+      expect(firstTr.findAll('td')[0].element.getAttribute('colspan')).toBe('1');
+      // 检查第 1 个 tr 元素中的第 2 个 td 元素是否具有 colspan 属性，并检查其值是否为 5
+      expect(firstTr.findAll('td')[1].element.getAttribute('colspan')).toBe('5');
+    });
+
     it(':layout:vertical', () => {
-      const wrapper = getDescriptionsMount({ layout: layout.V });
+      const wrapper = getDescriptionsMount({ props: { layout: layout.V } });
       const tbody = wrapper.find('tbody');
       // 检查 tbody 下面是否只有 4 个 tr 元素
       expect(tbody.findAll('tr')).toHaveLength(4);
@@ -69,8 +94,18 @@ describe('Descriptions', () => {
       expect(thirdTrTd.element.getAttribute('colspan')).toBe('1');
     });
 
+    it(':layout:vertical (should not be affected by span)', () => {
+      const wrapper = getDescriptionsMount({ props: { layout: layout.V }, firstItemProps: { span: 2 } });
+      const tbody = wrapper.find('tbody');
+
+      const firstTr = tbody.findAll('tr')[0];
+      // 检查第 1 个 tr 元素中的 td 元素是否具有 colspan 属性，并检查其值是否为 1
+      expect(firstTr.findAll('td')[0].element.getAttribute('colspan')).toBe('1');
+      expect(firstTr.findAll('td')[1].element.getAttribute('colspan')).toBe('1');
+    });
+
     it(':itemLayout:vertical', () => {
-      const wrapper = getDescriptionsMount({ itemLayout: layout.V, column: 3 });
+      const wrapper = getDescriptionsMount({ props: { itemLayout: layout.V, column: 3 } });
       const tbody = wrapper.find('tbody');
       // 检查 tbody 下面是否只有 4 个 tr 元素
       expect(tbody.findAll('tr')).toHaveLength(4);
@@ -89,7 +124,7 @@ describe('Descriptions', () => {
     });
 
     it(':layout:vertical:itemLayout:vertical', () => {
-      const wrapper = getDescriptionsMount({ layout: layout.V, itemLayout: layout.V });
+      const wrapper = getDescriptionsMount({ props: { layout: layout.V, itemLayout: layout.V } });
       const tbody = wrapper.find('tbody');
       // 检查 tbody 下面是否只有 8 个 tr 元素
       expect(tbody.findAll('tr')).toHaveLength(8);
@@ -108,7 +143,7 @@ describe('Descriptions', () => {
     });
 
     it(':column:2', () => {
-      const wrapper = getDescriptionsMount({ column: 2 });
+      const wrapper = getDescriptionsMount({ props: { column: 2 } });
       const tbody = wrapper.find('tbody');
       // 检查 tbody 下面是否只有 2 个 tr 元素
       expect(tbody.findAll('tr')).toHaveLength(2);
@@ -123,7 +158,7 @@ describe('Descriptions', () => {
     });
 
     it(':column:4', () => {
-      const wrapper = getDescriptionsMount({ column: 4 });
+      const wrapper = getDescriptionsMount({ props: { column: 4 } });
       const tbody = wrapper.find('tbody');
       // 检查 tbody 下面是否只有 1 个 tr 元素
       expect(tbody.findAll('tr')).toHaveLength(1);
@@ -155,6 +190,26 @@ describe('Descriptions', () => {
       const firstTr = tbody.findAll('tr')[0];
       // 检查第 1 个 tr 元素中是否只有 4 个 td 元素
       expect(firstTr.findAll('td')).toHaveLength(4);
+    });
+
+    it(':items:undefined:null', () => {
+      const items = [
+        { label: undefined, content: 'TDesign' },
+        { label: 'Telephone Number', content: null },
+      ];
+      const wrapper = mount({
+        render() {
+          return <Descriptions items={items} />;
+        },
+      });
+
+      const tbody = wrapper.find('tbody');
+      const firstTr = tbody.findAll('tr')[0];
+      // 检查 第 1 个 td 是否为空
+      expect(firstTr.findAll('td')[0].text()).toBe('');
+
+      // 检查 第 4 个 td 是否为空
+      expect(firstTr.findAll('td')[3].text()).toBe('');
     });
   });
 

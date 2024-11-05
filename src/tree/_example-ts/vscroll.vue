@@ -30,6 +30,9 @@
       <t-space>
         <t-button @click="append()">插入根节点</t-button>
       </t-space>
+      <t-space>
+        <t-button @click="handleScroll">滚动到指定节点</t-button>
+      </t-space>
     </t-space>
     <t-tree
       ref="tree"
@@ -63,8 +66,8 @@
 </template>
 
 <script lang="ts" setup>
-import { TreeProps, TreeInstanceFunctions, TreeOptionData, TypeTreeNodeModel } from 'tdesign-vue-next';
 import { ref, computed } from 'vue';
+import { TreeProps, TreeInstanceFunctions, TreeOptionData, TypeTreeNodeModel } from 'tdesign-vue-next';
 const allLevels = [5, 5, 5];
 function createTreeData() {
   let cacheIndex = 0;
@@ -111,12 +114,23 @@ const insertCount = computed(() => {
 const label: TreeProps['label'] = (h, node) => {
   return `${node.value}`;
 };
+
+const handleScroll = () => {
+  tree.value.scrollTo({
+    // 指定key滚动，即当前节点对应的唯一值，推荐使用
+    key: 't30',
+    // 指定index滚动，如果存在多级嵌套，需要自己计算index
+    // index: 100,
+  });
+};
+
 const getInsertItem = () => {
   const value = virtualTree.getValue();
   return {
     value,
   };
 };
+
 const append = (node?: TypeTreeNodeModel) => {
   if (!node) {
     for (let index = 0; index < insertCount.value; index += 1) {

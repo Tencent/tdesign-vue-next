@@ -54,8 +54,15 @@ You can get all the name of icon by import manifest from the bundle `import { ma
 
 #### the usage of full import needs network. What if my project is in a no-network scenario?
 
-if your project is in a no-network scenario, please use on-demand loading of icons. For example,`<t-icon name="add" />` should be changed to `<AddIcon />`
+if your project is in a **no-network scenario**, please use **on-demand loading** of icons. For example,`<t-icon name="add" />` should be changed to `<AddIcon />`
 ### All Icons
+
+<div style="background: #ecf2fe; display: flex; align-items: center; line-height: 20px; padding: 14px 24px; border-radius: 3px; color: #555a65;margin:16px 0">
+  <svg fill="none" viewBox="0 0 16 16" width="16px" height="16px" style="margin-right: 5px">
+    <path fill="#0052d9" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillOpacity="0.9"></path>
+  </svg>
+  Most icons were added to the icon library after version 0.2.0. If you find that the icon cannot be displayed normally after being imported, please check the version of tdesign-icons-vue-next you have installed</div>
+
 
 <td-icons-view />
 

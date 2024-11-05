@@ -1,5 +1,6 @@
 <template>
   <t-space direction="vertical" class="tdesign-demo__select-input-collapsed-items">
+    <h3>default:</h3>
     <t-select-input
       :value="value"
       :min-collapsed-num="1"
@@ -20,16 +21,31 @@
       </template>
     </t-select-input>
 
+    <h3>use collapsedItems:</h3>
+    <t-space>
+      <div>size control:</div>
+      <t-radio-group :value="size" :options="['small', 'medium', 'large']" @change="(value) => (size = value)" />
+    </t-space>
+    <t-space>
+      <span>disabled control:</span>
+      <t-checkbox :checked="disabled" @change="(value) => (disabled = value)" />
+    </t-space>
+    <t-space>
+      <span>readonly control:</span>
+      <t-checkbox :checked="readonly" @change="(value) => (readonly = value)" />
+    </t-space>
     <!-- 第一种方式：使用渲染函数 collapsed-items 自定义折叠项 -->
     <t-select-input
       :value="value"
-      :min-collapsed-num="2"
-      :collapsed-items="renderCollapsedItems"
+      multiple
       :popup-props="{ overlayInnerStyle: { padding: '6px' } }"
       placeholder="请选择"
       allow-input
-      clearable
-      multiple
+      :min-collapsed-num="minCollapsedNum"
+      :collapsed-items="collapsedItems"
+      :tag-input-props="{ size }"
+      :disabled="disabled"
+      :readonly="readonly"
       @tag-change="onTagChange"
     >
       <template #panel>
@@ -45,23 +61,26 @@
     <!-- 第二种方式：使用插槽 collapsedItems 自定义折叠项 -->
     <t-select-input
       :value="value"
-      :min-collapsed-num="3"
       :popup-props="{ overlayInnerStyle: { padding: '6px' } }"
       placeholder="请选择"
       allow-input
-      clearable
       multiple
+      :min-collapsed-num="minCollapsedNum"
+      :tag-input-props="{ size }"
+      :disabled="disabled"
+      :readonly="readonly"
       @tag-change="onTagChange"
     >
-      <template #collapsedItems="{ collapsedTags }">
-        <t-popup>
-          <t-tag>More({{ collapsedTags.length }})</t-tag>
-          <template #content>
-            <t-tag v-for="item in collapsedTags" :key="item" style="margin: 4px 4px 4px 0">
-              {{ item }}
-            </t-tag>
-          </template>
-        </t-popup>
+      <template #collapsedItems="{ value: v, onClose }">
+        <CollapsedItemsRender
+          :style="{ marginRight: '4px' }"
+          :value="v"
+          :min-collapsed-num="minCollapsedNum"
+          :size="size"
+          :disabled="disabled"
+          :closable="!readonly && !disabled"
+          @close="onClose"
+        />
       </template>
       <template #panel>
         <t-checkbox-group
@@ -75,8 +94,7 @@
   </t-space>
 </template>
 <script setup lang="jsx">
-import { computed, ref } from 'vue';
-import { Tag } from 'tdesign-vue-next';
+import { defineComponent, computed, ref } from 'vue';
 
 const OPTIONS = [
   // 全选
@@ -91,6 +109,10 @@ const OPTIONS = [
 
 const options = ref([...OPTIONS]);
 const value = ref(OPTIONS.slice(1));
+const size = ref('medium');
+const disabled = ref(false);
+const readonly = ref(false);
+const minCollapsedNum = ref(1);
 
 const checkboxValue = computed(() => {
   const arr = [];
@@ -135,9 +157,82 @@ const onTagChange = (currentTags, context) => {
   }
 };
 
-const renderCollapsedItems = (_, { collapsedTags }) => {
-  return <Tag>更多({collapsedTags.length})</Tag>;
+// Function
+const collapsedItems = (h, { value, onClose }) => {
+  if (!(value instanceof Array)) return null;
+  const count = value.length - minCollapsedNum.value;
+  const collapsedTags = value.slice(minCollapsedNum.value, value.length);
+  if (count <= 0) return null;
+  return (
+    <t-popup
+      v-slots={{
+        content: () => (
+          <>
+            {collapsedTags.map((item, index) => (
+              <t-tag
+                key={item}
+                style={{ marginRight: '4px' }}
+                size={size.value}
+                disabled={disabled.value}
+                closable={!readonly.value && !disabled.value}
+                onClose={(context) => onClose({ e: context.e, index: minCollapsedNum.value + index })}
+              >
+                {item}
+              </t-tag>
+            ))}
+          </>
+        ),
+      }}
+    >
+      <t-tag size={size.value} disabled={disabled.value}>
+        Function - More({count})
+      </t-tag>
+    </t-popup>
+  );
 };
+
+// Slot Component
+const CollapsedItemsRender = defineComponent({
+  name: 'CollapsedItemsRender',
+  // eslint-disable-next-line vue/require-prop-types
+  props: ['value', 'minCollapsedNum'],
+  emits: ['close'],
+  setup(props, { attrs, emit }) {
+    const count = computed(() => {
+      return props.value.length - props.minCollapsedNum;
+    });
+    const collapsedTags = computed(() => {
+      return props.value.slice(props.minCollapsedNum, props.value.length);
+    });
+
+    return () => {
+      if (count.value <= 0) return null;
+      return (
+        <t-popup
+          v-slots={{
+            content: () => (
+              <>
+                {collapsedTags.value.map((item, index) => (
+                  <t-tag
+                    {...attrs}
+                    key={item}
+                    onClose={(context) => emit('close', { e: context.e, index: props.minCollapsedNum.value + index })}
+                  >
+                    {item}
+                  </t-tag>
+                ))}
+              </>
+            ),
+          }}
+        >
+          <t-tag {...attrs} closable={false}>
+            Slot - More({count.value})
+          </t-tag>
+        </t-popup>
+      );
+    };
+  },
+});
 </script>
 <style>
 .tdesign-demo__panel-options-collapsed-items {

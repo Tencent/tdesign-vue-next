@@ -32,6 +32,10 @@ export interface TdFormProps<FormData extends Data = Data> {
    */
   formControlledComponents?: Array<string>;
   /**
+   * 表单原生的id属性，支持用于配合非表单内的按钮通过form属性来触发表单事件
+   */
+  id?: string;
+  /**
    * 表单字段标签对齐方式：左对齐、右对齐、顶部对齐
    * @default right
    */
@@ -51,6 +55,10 @@ export interface TdFormProps<FormData extends Data = Data> {
    * @default true
    */
   preventSubmitDefault?: boolean;
+  /**
+   * 是否整个表单只读
+   */
+  readonly?: boolean;
   /**
    * 是否显示必填符号（*），默认显示
    */
@@ -328,6 +336,11 @@ export interface FormErrorMessage {
    * @default ''
    */
   validator?: string;
+  /**
+   * 值为空格校验不通过时表单项显示文案，全局配置默认是：`'${name}不能为空`
+   * @default ''
+   */
+  whitespace?: string;
 }
 
 export type FormRules<T extends Data = any> = { [field in keyof T]?: Array<FormRule> };

@@ -17,7 +17,7 @@ import props from './props';
 
 // hooks
 import { usePrefixClass, useConfig } from '../hooks/useConfig';
-import { useFormDisabled } from '../form/hooks';
+import { useDisabled } from '../hooks/useDisabled';
 import { useTNodeJSX, useTNodeDefault } from '../hooks/tnode';
 import useVModel from '../hooks/useVModel';
 import useDefaultValue from '../hooks/useDefaultValue';
@@ -25,12 +25,12 @@ import useDefaultValue from '../hooks/useDefaultValue';
 export default defineComponent({
   name: 'TTreeSelect',
   props,
-  setup(props: TdTreeSelectProps, { slots }) {
+  setup(props: TdTreeSelectProps, { slots, expose }) {
     const renderTNodeJSX = useTNodeJSX();
     const renderDefaultTNode = useTNodeDefault();
     const classPrefix = usePrefixClass();
     const { globalConfig } = useConfig('treeSelect');
-    const formDisabled = useFormDisabled();
+    const formDisabled = useDisabled();
 
     // ref
     const treeRef = ref(null);
@@ -158,7 +158,6 @@ export default defineComponent({
       return props.keys?.children || 'children';
     });
 
-    // timelifes
     onMounted(async () => {
       if (!treeSelectValue.value && props.defaultValue) {
         await change(props.defaultValue, null, 'uncheck');
@@ -174,8 +173,6 @@ export default defineComponent({
       }
       changeNodeInfo();
     });
-
-    // methods
 
     const change = (
       valueParam: TreeSelectValue,
@@ -288,7 +285,7 @@ export default defineComponent({
         if (!isEmpty(props.data)) {
           const node = treeRef.value.getItem(nodeValue);
           if (node) {
-            return { label: node.data[realLabel.value], value: node.data[realValue.value] };
+            return { ...node.data, label: node.data[realLabel.value], value: node.data[realValue.value] };
           }
         }
         return { label: nodeValue, value: nodeValue };
@@ -307,7 +304,7 @@ export default defineComponent({
           if (!isEmpty(props.data)) {
             const node = treeRef.value.getItem(nodeValue);
             if (node) {
-              return { label: node.data[realLabel.value], value: node.data[realValue.value] };
+              return { ...node.data, label: node.data[realLabel.value], value: node.data[realValue.value] };
             }
           }
           return { label: nodeValue, value: nodeValue };
@@ -322,7 +319,7 @@ export default defineComponent({
     const getTreeNode = (data: Array<TreeOptionData>, targetValue: TreeSelectValue): TreeSelectValue | null => {
       for (let i = 0, len = data.length; i < len; i++) {
         if (data[i][realValue.value] === targetValue) {
-          return { label: data[i][realLabel.value], value: data[i][realValue.value] };
+          return { ...data[i], label: data[i][realLabel.value], value: data[i][realValue.value] };
         }
         if (data[i]?.[realChildren.value]) {
           const result = getTreeNode(data[i]?.[realChildren.value], targetValue);
@@ -360,7 +357,7 @@ export default defineComponent({
         onActive={treeNodeActive}
         onExpand={treeNodeExpand}
         onLoad={treeNodeLoad}
-        expandOnClickNode
+        expandOnClickNode={false}
         v-slots={{
           empty: () =>
             renderDefaultTNode('empty', {
@@ -381,6 +378,10 @@ export default defineComponent({
         }}
       />
     );
+
+    expose({
+      treeRef,
+    });
 
     return () => (
       <SelectInput

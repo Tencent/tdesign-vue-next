@@ -5,7 +5,7 @@ import props from './props';
 import { RadioGroupInjectionKey, RadioButtonInjectionKey } from './constants';
 
 // hooks
-import { useFormDisabled } from '../form/hooks';
+import { useDisabled } from '../hooks/useDisabled';
 import useVModel from '../hooks/useVModel';
 import { useContent } from '../hooks/tnode';
 import isUndefined from 'lodash/isUndefined';
@@ -48,14 +48,14 @@ export default defineComponent({
     };
 
     const onLabelClick = (e: MouseEvent) => {
-      if (disabled.value || props.readonly) return;
+      if (isDisabled.value || props.readonly) return;
       props.onClick?.({ e });
 
       if (radioChecked.value && !allowUncheck.value) return;
 
       if (radioGroup) {
         const value = radioChecked.value && allowUncheck.value ? undefined : props.value;
-        radioGroup.setValue(value, { e });
+        radioGroup.setValue(value, { e, name: radioGroup.name });
       } else {
         const value = allowUncheck.value ? !radioChecked.value : true;
         setInnerChecked(value, { e });
@@ -81,13 +81,13 @@ export default defineComponent({
 
     // extend radioGroup disabled props
     const groupDisabled = computed(() => radioGroup?.disabled);
-    const disabled = useFormDisabled(groupDisabled);
+    const isDisabled = useDisabled({ afterDisabled: groupDisabled });
 
     // attribute
     const inputProps = computed(() => ({
       name: radioGroup ? radioGroup.name : props.name,
       checked: radioChecked.value,
-      disabled: disabled.value,
+      disabled: isDisabled.value,
       readonly: props.readonly,
       value: props.value,
     }));
@@ -114,7 +114,7 @@ export default defineComponent({
         ref={inputRef}
         class={inputClass.value}
         {...wrapperAttrs.value}
-        tabindex={disabled.value ? undefined : '0'}
+        tabindex={isDisabled.value ? undefined : '0'}
         onClick={onLabelClick}
       >
         <input

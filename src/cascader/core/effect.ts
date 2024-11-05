@@ -2,8 +2,9 @@ import isNumber from 'lodash/isNumber';
 import isFunction from 'lodash/isFunction';
 import isArray from 'lodash/isArray';
 import cloneDeep from 'lodash/cloneDeep';
-import { TreeNode, CascaderContextType, TdCascaderProps, TreeNodeValue, TreeNodeModel } from '../interface';
-import { getFullPathLabel, getTreeValue } from './helper';
+
+import type { TreeNode, CascaderContextType, TdCascaderProps, TreeNodeValue, TreeNodeModel } from '../interface';
+import { getFullPathLabel, getTreeValue, isEmptyValues } from './helper';
 
 /**
  * 点击item的副作用
@@ -25,7 +26,7 @@ export function expendClickEffect(
 
   if (isDisabled) return;
   // 点击展开节点，设置展开状态
-  if (propsTrigger === trigger && !node.isLeaf()) {
+  if (propsTrigger === trigger) {
     const expanded = node.setExpanded(true);
     treeStore.refreshNodes();
     treeStore.replaceExpanded(expanded);
@@ -128,29 +129,33 @@ export function handleRemoveTagEffect(
   onRemove: TdCascaderProps['onRemove'],
 ) {
   const { disabled, setValue, value, valueType, treeStore } = cascaderContext;
-
   if (disabled) return;
-  const newValue = cloneDeep(value) as [];
-  const res = newValue.splice(index, 1);
-  const node = treeStore.getNodes(res[0])[0];
 
-  setValue(newValue, 'uncheck', node.getModel());
+  // index equal to undefined means to click clear button
+  if (index !== undefined) {
+    const newValue = cloneDeep(value) as [];
+    const res = newValue.splice(index, 1);
+    const node = treeStore.getNodes(res[0])[0];
 
-  const checked = node.setChecked(!node.isChecked());
-  // 处理不同数据类型
-  const resValue =
-    valueType === 'single'
-      ? checked
-      : checked.map((val) =>
-          treeStore
-            .getNode(val)
-            .getPath()
-            .map((item) => item.value),
-        );
-
-  setValue(resValue, 'uncheck', node.getModel());
-  if (isFunction(onRemove)) {
-    onRemove({ value: checked, node: node as any });
+    const checked = node.setChecked(!node.isChecked());
+    // 处理不同数据类型
+    const resValue =
+      valueType === 'single'
+        ? checked
+        : checked.map((val) =>
+            treeStore
+              .getNode(val)
+              .getPath()
+              .map((item) => item.value),
+          );
+    setValue(resValue, 'uncheck', node.getModel());
+    if (isFunction(onRemove)) {
+      onRemove({ value: checked, node: node as any });
+    }
+  } else {
+    if (isFunction(onRemove)) {
+      onRemove({ value, node: undefined });
+    }
   }
 }
 
@@ -204,7 +209,7 @@ export const treeStoreExpendEffect = (
   if (isArray(treeValue) && expend.length === 0) {
     const expandedMap = new Map();
     const [val] = treeValue;
-    if (val) {
+    if (!isEmptyValues(val)) {
       expandedMap.set(val, true);
       const node = treeStore.getNode(val);
       if (!node) {

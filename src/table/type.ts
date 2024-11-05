@@ -113,7 +113,7 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   footerAffixProps?: Partial<AffixProps>;
   /**
-   * 表尾吸底。使用此向功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，则表示相对于整个窗口吸底。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixedBottom.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性
+   * 表尾吸底。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，则表示相对于整个窗口吸底。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixedBottom.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性
    * @default false
    */
   footerAffixedBottom?: boolean | Partial<AffixProps>;
@@ -218,8 +218,7 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   showHeader?: boolean;
   /**
-   * 表格尺寸
-   * @default medium
+   * 表格尺寸，支持全局配置 `GlobalConfigProvider`，默认全局配置值为 `medium`
    */
   size?: SizeEnum;
   /**
@@ -392,7 +391,7 @@ export interface BaseTableCol<T extends TableRowData = TableRowData> {
    */
   render?: TNode<BaseTableRenderParams<T>>;
   /**
-   * 是否允许调整当前列列宽
+   * 是否允许调整当前列列宽，一般用于设置为 `false` 禁止调整某一列列宽。如果是允许列宽调整，需要先设置 `BaseTable.resizable` 为 `true` 打开所有列宽调整
    * @default true
    */
   resizable?: boolean;
@@ -1031,6 +1030,7 @@ export type TableRowAttributes<T> =
 export interface RowClassNameParams<T> {
   row: T;
   rowIndex: number;
+  rowKey?: string;
   type?: 'body' | 'foot';
 }
 

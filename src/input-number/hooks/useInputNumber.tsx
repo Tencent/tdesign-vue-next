@@ -1,7 +1,9 @@
 import { computed, ref, toRefs, watch } from 'vue';
-import useCommonClassName from '../hooks/useCommonClassName';
-import useVModel from '../hooks/useVModel';
-import { InputNumberValue, TdInputNumberProps } from './type';
+import useCommonClassName from '../../hooks/useCommonClassName';
+import useVModel from '../../hooks/useVModel';
+import { InputNumberValue, TdInputNumberProps } from '../type';
+import { useReadonly } from '../../hooks/useReadonly';
+
 // 计算逻辑，统一到 common 中，方便各框架复用（如超过 16 位的大数处理）
 import {
   canAddNumber,
@@ -13,9 +15,9 @@ import {
   canSetValue,
   formatUnCompleteNumber,
   largeNumberToFixed,
-} from '../_common/js/input-number/number';
-import { useFormDisabled } from '../form/hooks';
-import { StrInputProps } from '../input';
+} from '../../_common/js/input-number/number';
+import { useDisabled } from '../../hooks/useDisabled';
+import { StrInputProps } from '../../input';
 
 /**
  * 独立一个组件 Hook 方便用户直接使用相关逻辑 自定义任何样式的数字输入框
@@ -28,7 +30,9 @@ export default function useInputNumber(props: TdInputNumberProps) {
   const inputRef = ref();
   const userInput = ref('');
 
-  const tDisabled = useFormDisabled();
+  const tDisabled = useDisabled();
+
+  const isReadonly = useReadonly();
 
   const isError = ref<'exceed-maximum' | 'below-minimum'>();
 
@@ -146,14 +150,14 @@ export default function useInputNumber(props: TdInputNumberProps) {
   };
 
   const handleReduce = (e: KeyboardEvent | MouseEvent) => {
-    if (disabledReduce.value || props.readonly) return;
+    if (disabledReduce.value || isReadonly.value) return;
     const r = handleStepValue('reduce');
     if (r.overLimit && !props.allowInputOverLimit) return;
     setTValue(r.newValue, { type: 'reduce', e });
   };
 
   const handleAdd = (e: KeyboardEvent | MouseEvent) => {
-    if (disabledAdd.value || props.readonly) return;
+    if (disabledAdd.value || isReadonly.value) return;
     const r = handleStepValue('add');
     if (r.overLimit && !props.allowInputOverLimit) return;
     setTValue(r.newValue, { type: 'add', e });
@@ -162,7 +166,6 @@ export default function useInputNumber(props: TdInputNumberProps) {
   const onInnerInputChange: StrInputProps['onChange'] = (inputValue, { e }) => {
     // 千分位处理
     const val = formatThousandths(inputValue);
-
     if (!canInputNumber(val, props.largeNumber)) return;
 
     userInput.value = val;
@@ -217,7 +220,7 @@ export default function useInputNumber(props: TdInputNumberProps) {
       ArrowUp: handleAdd,
       ArrowDown: handleReduce,
     };
-    const code = e.code || e.key;
+    const code = (e.code || e.key) as keyof typeof keyEvent;
     if (keyEvent[code] !== undefined) {
       keyEvent[code](e);
     }
@@ -245,6 +248,7 @@ export default function useInputNumber(props: TdInputNumberProps) {
   };
 
   const focus = () => {
+    if (tDisabled.value || isReadonly.value) return;
     (inputRef.value as any).focus();
   };
 
@@ -278,5 +282,6 @@ export default function useInputNumber(props: TdInputNumberProps) {
     handleReduce,
     handleAdd,
     onInnerInputChange,
+    isReadonly,
   };
 }

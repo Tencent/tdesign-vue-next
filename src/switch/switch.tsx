@@ -47,7 +47,19 @@ export default defineComponent({
       if (disabled.value || props.loading) {
         return;
       }
-      handleToggle(e);
+      if (!props.beforeChange) {
+        handleToggle(e);
+        return;
+      }
+      Promise.resolve(props.beforeChange())
+        .then((v) => {
+          if (v) {
+            handleToggle(e);
+          }
+        })
+        .catch((e) => {
+          throw new Error(`Switch: some error occurred: ${e}`);
+        });
     }
 
     // classes

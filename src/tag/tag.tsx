@@ -1,11 +1,13 @@
-import { computed, defineComponent, h, VNode } from 'vue';
+import { computed, defineComponent, getCurrentInstance, h, VNode } from 'vue';
 import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
+import isString from 'lodash/isString';
+import tinycolor from 'tinycolor2';
 
 import props from './props';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
-import isString from 'lodash/isString';
+import { Styles } from '../common';
 
 export default defineComponent({
   name: 'TTag',
@@ -17,6 +19,7 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const renderContent = useContent();
     const { SIZE } = useCommonClassName();
+    const { vnode } = getCurrentInstance();
 
     const tagClass = computed(() => {
       return [
@@ -32,15 +35,44 @@ export default defineComponent({
         props.shape !== 'square' && `${COMPONENT_NAME.value}--${props.shape}`,
       ];
     });
-
-    const tagStyle = computed<Record<string, string>>(() => {
-      const { maxWidth } = props;
-      return props.maxWidth
-        ? {
-            maxWidth: isNaN(Number(maxWidth)) ? String(maxWidth) : `${maxWidth}px`,
-          }
-        : {};
+    const tagStyle = computed<Styles>(() => {
+      return getTagColorStyle();
     });
+
+    const textStyle = computed<Styles>(() => {
+      if (!props.maxWidth) return {};
+
+      return {
+        maxWidth: isNaN(Number(props.maxWidth)) ? String(props.maxWidth) : `${props.maxWidth}px`,
+      };
+    });
+
+    const getTagColorStyle = () => {
+      const { color, variant } = props;
+      if (!color) return {};
+
+      const luminance = tinycolor(color).getLuminance();
+
+      const style: Styles = {
+        color: luminance > 0.5 ? 'black' : 'white',
+      };
+
+      if (variant === 'outline' || variant === 'light-outline') {
+        style.borderColor = color;
+      }
+      if (variant !== 'outline') {
+        const getLightestShade = () => {
+          const { r, g, b } = tinycolor(color).toRgb();
+          // alpha 0.1  is designed by @wen1kang
+          return `rgba(${r}, ${g}, ${b}, 0.1)`;
+        };
+        style.backgroundColor = variant === 'dark' ? color : getLightestShade();
+      }
+      if (variant !== 'dark') {
+        style.color = color;
+      }
+      return style;
+    };
 
     const handleClick = (e: MouseEvent) => {
       if (props.disabled) return;
@@ -56,12 +88,29 @@ export default defineComponent({
       return (
         <CloseIcon
           onClick={({ e }: { e: MouseEvent }) => {
-            e.stopPropagation();
+            if (e) e.stopPropagation();
             props.onClose?.({ e });
           }}
           class={iconClassName}
         />
       );
+    };
+
+    const renderTitle = (tagContent: string) => {
+      if (!props.maxWidth) {
+        return undefined;
+      }
+
+      const vProps = vnode.props || {};
+      if (Reflect.has(vProps, 'title')) {
+        return vProps.title || undefined;
+      }
+
+      if (tagContent) {
+        return tagContent;
+      }
+
+      return undefined;
     };
 
     return () => {
@@ -72,19 +121,18 @@ export default defineComponent({
       // 图标
       const icon = renderTNodeJSX('icon');
 
-      const title = isString(tagContent) ? tagContent : '';
-      const titleAttribute = title && props.maxWidth ? title : undefined;
+      const title = renderTitle(isString(tagContent) ? tagContent : '');
 
       return (
         <div class={tagClass.value} style={tagStyle.value} onClick={handleClick}>
           {icon}
-          {props.maxWidth ? (
-            <span class={{ [`${COMPONENT_NAME.value}--text`]: props.maxWidth }} title={titleAttribute}>
-              {tagContent}
-            </span>
-          ) : (
-            tagContent
-          )}
+          <span
+            class={props.maxWidth ? `${COMPONENT_NAME.value}--text` : undefined}
+            style={textStyle.value}
+            title={title}
+          >
+            {tagContent}
+          </span>
           {!props.disabled && closeIcon}
         </div>
       );

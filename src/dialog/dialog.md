@@ -2,31 +2,35 @@
 
 ### 插件函数式调用
 
-插件调用方式一：`this.$dialog(options)`
+#### 插件调用
 
-插件调用方式二：`this.$dialog.confirm(options)`
+- 方式一：`this.$dialog(options)`
 
-插件调用方式三：`this.$dialog.alert(options)`
+- 方式二：`this.$dialog.confirm(options)`
 
-<br />
+- 方式三：`this.$dialog.alert(options)`
 
-函数调用方式一：`DialogPlugin(options)`
+#### 函数调用
 
-函数调用方式二：`DialogPlugin.confirm(options)`
+- 方式一：`DialogPlugin(options)`
 
-函数调用方式三：`DialogPlugin.alert(options)`
+- 方式二：`DialogPlugin.confirm(options)`
 
-<br />
+- 方式三：`DialogPlugin.alert(options)`
 
-组件实例：`DialogInstance = this.$dialog(options)` 或者 组件实例：`DialogInstance = DialogPlugin(options)`
+#### 组件实例方法
 
-组件实例方法-销毁弹框：`DialogInstance.destroy()`
+组件实例指的是 `DialogInstance = this.$dialog(options)` 或者 `DialogInstance = DialogPlugin(options)`。
 
-组件实例方法-隐藏弹框：`DialogInstance.hide()`
+- 销毁弹框：`DialogInstance.destroy()`
 
-组件实例方法-显示弹窗：`DialogInstance.show()`
+- 隐藏弹框：`DialogInstance.hide()`
 
-组件实例方法-更新弹框：`DialogInstance.update()`
+- 显示弹窗：`DialogInstance.show()`
+
+- 更新弹框：`DialogInstance.update()`
+
+注意在以下使用示例中，有多处并未销毁 DOM 元素。在实际应用中，需要考虑销毁 DOM 元素，否则当用户重复点击、创建插件或函数调用的实例后，会产生大量 DOM 元素、容易造成内存泄漏。
 
 {{ plugin }}
 
@@ -82,6 +86,8 @@ confirmBtn | String / Object / Slot / Function | - | 确认按钮。值为 null 
 confirmLoading | Boolean | undefined | 确认按钮加载状态 | N
 confirmOnEnter | Boolean | - | 是否在按下回车键时，触发确认事件 | N
 default | String / Slot / Function | - | 对话框内容，同 body。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+dialogClassName | String | - | 弹框元素类名，示例：'t-class-dialog-first t-class-dialog-second' | N
+dialogStyle | Object | - | 作用于对话框本身的样式。TS 类型：`Styles`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 destroyOnClose | Boolean | false | 是否在关闭弹框的时候销毁子元素 | N
 draggable | Boolean | false | 对话框是否可以拖拽（仅在非模态对话框时有效） | N
 footer | Boolean / Slot / Function | true | 底部操作栏，默认会有“确认”和“取消”两个按钮。值为 true 显示默认操作按钮，值为 false 不显示任何内容，值类型为 Function 表示自定义底部内容。TS 类型：`boolean \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N

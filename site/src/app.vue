@@ -1,6 +1,23 @@
 <template>
-  <router-view />
+  <t-config-provider :global-config="globalConfig">
+    <router-view />
+  </t-config-provider>
 </template>
+
+<script setup>
+import { onMounted, ref } from 'vue';
+import cnConfig from 'tdesign-vue-next/es/locale/zh_CN';
+import enConfig from 'tdesign-vue-next/es/locale/en_US';
+import { getLang } from 'tdesign-site-components';
+
+const globalConfig = ref(cnConfig);
+
+onMounted(() => {
+  const lang = getLang();
+  globalConfig.value = lang === 'en' ? enConfig : cnConfig;
+});
+
+</script>
 
 <style lang="less">
 div[slot='action'] {

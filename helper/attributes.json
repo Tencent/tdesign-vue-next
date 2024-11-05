@@ -566,11 +566,11 @@
   },
   "t-base-table/footer-affixed-bottom": {
     "type": "Boolean|Object",
-    "description": "affix foot to viewport bottom\n\n表尾吸底。使用此向功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，则表示相对于整个窗口吸底。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixedBottom.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props)"
+    "description": "affix foot to viewport bottom\n\n表尾吸底。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，则表示相对于整个窗口吸底。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixedBottom.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props)"
   },
   "t-table/footer-affixed-bottom": {
     "type": "Boolean|Object",
-    "description": "affix foot to viewport bottom\n\n表尾吸底。使用此向功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，则表示相对于整个窗口吸底。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixedBottom.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props)"
+    "description": "affix foot to viewport bottom\n\n表尾吸底。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，则表示相对于整个窗口吸底。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixedBottom.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props)"
   },
   "t-base-table/footer-summary": {
     "type": "String|TNode",
@@ -763,7 +763,7 @@
       "medium",
       "large"
     ],
-    "description": "表格尺寸\n\ndefault: medium\n\n[docs](https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props)"
+    "description": "table size, support `GlobalConfigProvider`, default value is `medium`\n\n表格尺寸，支持全局配置 `GlobalConfigProvider`，默认全局配置值为 `medium`\n\n[docs](https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props)"
   },
   "t-table/size": {
     "type": "String",
@@ -772,7 +772,7 @@
       "medium",
       "large"
     ],
-    "description": "表格尺寸\n\ndefault: medium\n\n[docs](https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props)"
+    "description": "table size, support `GlobalConfigProvider`, default value is `medium`\n\n表格尺寸，支持全局配置 `GlobalConfigProvider`，默认全局配置值为 `medium`\n\n[docs](https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props)"
   },
   "t-base-table/stripe": {
     "type": "Boolean",
@@ -1008,6 +1008,10 @@
   "t-breadcrumb-item/to": {
     "type": "String|Object",
     "description": "路由跳转目标，当且仅当 Router 存在时，该 API 有效\n\n[docs](https://tdesign.tencent.com/vue-next/components/breadcrumb-item?tab=api#breadcrumbitem-props)"
+  },
+  "t-breadcrumb-item/click": {
+    "type": "event",
+    "description": "trigger on click\n\n点击时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/breadcrumb-item?tab=api#breadcrumbitem-events)"
   },
   "t-button/block": {
     "type": "Boolean",
@@ -1614,6 +1618,10 @@
   "t-checkbox/readonly": {
     "type": "Boolean",
     "description": "只读状态\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/checkbox?tab=api#checkbox-props)"
+  },
+  "t-checkbox/title": {
+    "type": "String",
+    "description": "html attribute\n\nHTML 原生属性\n\n[docs](https://tdesign.tencent.com/vue-next/components/checkbox?tab=api#checkbox-props)"
   },
   "t-checkbox/value": {
     "type": "String|Number|Boolean",
@@ -2276,30 +2284,30 @@
     "type": "event",
     "description": "年份切换发生变化时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-range-picker-panel?tab=api#daterangepickerpanel-events)"
   },
-  "t-description-item/align": {
+  "t-descriptions-item/align": {
     "type": "String",
     "options": [
       "top",
       "middle",
       "bottom"
     ],
-    "description": "content align type\n\n内容垂直对齐方式，DescriptionItem.align 优先级高于 Descriptions.align\n\n[docs](https://tdesign.tencent.com/vue-next/components/description-item?tab=api#descriptionitem-props)"
+    "description": "content align type\n\n内容垂直对齐方式，DescriptionsItem.align 优先级高于 Descriptions.align\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsItem-props)"
   },
-  "t-description-item/content": {
+  "t-descriptions-item/content": {
     "type": "String|TNode",
-    "description": "content of description item\n\n描述项内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/description-item?tab=api#descriptionitem-props)"
+    "description": "content of description item\n\n描述项内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsItem-props)"
   },
-  "t-description-item/default": {
+  "t-descriptions-item/default": {
     "type": "String|TNode",
-    "description": "content of description item\n\n描述项内容，同 `content`\n\n[docs](https://tdesign.tencent.com/vue-next/components/description-item?tab=api#descriptionitem-props)"
+    "description": "content of description item\n\n描述项内容，同 `content`\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsItem-props)"
   },
-  "t-description-item/label": {
+  "t-descriptions-item/label": {
     "type": "String|TNode",
-    "description": "label of description item\n\n描述项标签\n\n[docs](https://tdesign.tencent.com/vue-next/components/description-item?tab=api#descriptionitem-props)"
+    "description": "label of description item\n\n描述项标签\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsItem-props)"
   },
-  "t-description-item/span": {
+  "t-descriptions-item/span": {
     "type": "Number",
-    "description": "width count\n\n占用的宽度数量\n\ndefault: 1\n\n[docs](https://tdesign.tencent.com/vue-next/components/description-item?tab=api#descriptionitem-props)"
+    "description": "width count\n\n占用的宽度数量\n\ndefault: 1\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions-item?tab=api#descriptionsItem-props)"
   },
   "t-descriptions/align": {
     "type": "String",
@@ -2308,7 +2316,7 @@
       "middle",
       "bottom"
     ],
-    "description": "content align type\n\n内容垂直对齐方式，DescriptionItem.align 优先级高于 Descriptions.align\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions?tab=api#descriptions-props)"
+    "description": "content align type\n\n内容垂直对齐方式，DescriptionsItem.align 优先级高于 Descriptions.align\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions?tab=api#descriptions-props)"
   },
   "t-descriptions/bordered": {
     "type": "Boolean",
@@ -2320,7 +2328,7 @@
   },
   "t-descriptions/column": {
     "type": "Number",
-    "description": "count of DescriptionItem in one row\n\n一行 `DescriptionItem` 的数量\n\ndefault: 2\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions?tab=api#descriptions-props)"
+    "description": "count of DescriptionsItem in one row\n\n一行 `DescriptionsItem` 的数量\n\ndefault: 2\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions?tab=api#descriptions-props)"
   },
   "t-descriptions/content-style": {
     "type": "Object",
@@ -2406,6 +2414,10 @@
   "t-dialog/destroy-on-close": {
     "type": "Boolean",
     "description": "是否在关闭弹框的时候销毁子元素\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/dialog?tab=api#dialog-props)"
+  },
+  "t-dialog/dialog-class-name": {
+    "type": "String",
+    "description": "弹框元素类名，示例：'t-class-dialog-first t-class-dialog-second'\n\n[docs](https://tdesign.tencent.com/vue-next/components/dialog?tab=api#dialog-props)"
   },
   "t-dialog/draggable": {
     "type": "Boolean",
@@ -2623,8 +2635,8 @@
     "description": "尺寸，支持 'small', 'medium', 'large'，'35px', '30%',  '3em' 等。纵向抽屉调整的是抽屉宽度，横向抽屉调整的是抽屉高度\n\ndefault: undefined\n\n[docs](https://tdesign.tencent.com/vue-next/components/drawer?tab=api#drawer-props)"
   },
   "t-drawer/size-draggable": {
-    "type": "Boolean",
-    "description": "抽屉大小可拖拽调整，横向抽屉调整宽度，纵向抽屉调整高度\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/drawer?tab=api#drawer-props)"
+    "type": "Boolean|Object",
+    "description": "allow resizing drawer width/height, set `max` or `min` to limit size\n\n抽屉大小可拖拽调整，横向抽屉调整宽度，纵向抽屉调整高度。`sizeDraggable.max` 和 `sizeDraggable.min` 用于控制拖拽尺寸大小限制\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/drawer?tab=api#drawer-props)"
   },
   "t-drawer/visible": {
     "type": "Boolean",
@@ -2657,6 +2669,10 @@
   "t-drawer/overlay-click": {
     "type": "event",
     "description": "如果蒙层存在，点击蒙层时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/drawer?tab=api#drawer-events)"
+  },
+  "t-drawer/size-drag-end": {
+    "type": "event",
+    "description": "trigger on size drag end\n\n抽屉大小拖拽结束时触发，事件参数 `size` 在横向抽屉中表示宽度，在纵向抽屉中表示高度\n\n[docs](https://tdesign.tencent.com/vue-next/components/drawer?tab=api#drawer-events)"
   },
   "t-dropdown/direction": {
     "type": "String",
@@ -4858,11 +4874,11 @@
   },
   "t-radio/click": {
     "type": "event",
-    "description": "trigger on click\n\n点击时出发，一般用于外层阻止冒泡场景\n\n[docs](https://tdesign.tencent.com/vue-next/components/radio?tab=api#radio-events)"
+    "description": "trigger on click\n\n点击时触发，一般用于外层阻止冒泡场景\n\n[docs](https://tdesign.tencent.com/vue-next/components/radio?tab=api#radio-events)"
   },
   "t-radio-button/click": {
     "type": "event",
-    "description": "trigger on click\n\n点击时出发，一般用于外层阻止冒泡场景\n\n[docs](https://tdesign.tencent.com/vue-next/components/radio?tab=api#radio-events)"
+    "description": "trigger on click\n\n点击时触发，一般用于外层阻止冒泡场景\n\n[docs](https://tdesign.tencent.com/vue-next/components/radio?tab=api#radio-events)"
   },
   "t-radio-group/allow-uncheck": {
     "type": "Boolean",
@@ -7185,7 +7201,7 @@
       "parentFirst",
       "all"
     ],
-    "description": "选中值模式。all 表示父节点和子节点全部会出现在选中值里面；parentFirst 表示当子节点全部选中时，仅父节点在选中值里面；onlyLeaft 表示无论什么情况，选中值仅呈现叶子节点\n\ndefault: onlyLeaf\n\n[docs](https://tdesign.tencent.com/vue-next/components/tree?tab=api#tree-props)"
+    "description": "选中值模式。all 表示父节点和子节点全部会出现在选中值里面；parentFirst 表示当子节点全部选中时，仅父节点在选中值里面；onlyLeaf 表示无论什么情况，选中值仅呈现叶子节点\n\ndefault: onlyLeaf\n\n[docs](https://tdesign.tencent.com/vue-next/components/tree?tab=api#tree-props)"
   },
   "t-tree/active": {
     "type": "event",

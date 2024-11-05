@@ -2,7 +2,7 @@ import { ref, computed, watch, nextTick, toRefs, inject } from 'vue';
 import { InputValue, TdInputProps } from './type';
 import { FormItemInjectionKey } from '../form/const';
 import useVModel from '../hooks/useVModel';
-import { useFormDisabled } from '../form/hooks';
+import { useDisabled } from '../hooks/useDisabled';
 import useLengthLimit from './useLengthLimit';
 
 export function getOutputValue(val: InputValue, type: TdInputProps['type']) {
@@ -24,7 +24,7 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
   const compositionValue = ref<InputValue>();
   const clearIconRef = ref(null);
   const innerClickElement = ref();
-  const disabled = useFormDisabled();
+  const disabled = useDisabled();
   const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
 
   const isHover = ref(false);
@@ -78,6 +78,7 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
   };
 
   const emitPassword = () => {
+    if (disabled.value) return;
     const toggleType = renderType.value === 'password' ? 'text' : 'password';
     renderType.value = toggleType;
   };
@@ -103,7 +104,12 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
     setInnerValue(getOutputValue(val, props.type), { e, trigger: 'input' });
     // 受控
     nextTick(() => {
-      setInputElValue(innerValue.value);
+      // type = 'number'时, 解决小数点后面有 0 自动删除的问题
+      if (props.type === 'number' && /\.(\d+)?0$/.test(val)) {
+        setInputElValue(val);
+      } else {
+        setInputElValue(innerValue.value);
+      }
     });
   };
 
@@ -133,7 +139,6 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
 
   const formItem = inject(FormItemInjectionKey, undefined);
   const formatAndEmitBlur = (e: FocusEvent) => {
-    if (isHover.value) return;
     if (!isClearIcon()) {
       if (props.format) {
         inputValue.value =

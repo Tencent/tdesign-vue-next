@@ -1,6 +1,6 @@
 <template>
   <div class="box">
-    <t-menu theme="light" default-value="item1" style="margin-right: 40px" height="550px" @change="changeHandler">
+    <t-menu theme="light" default-value="item1" style="margin-right: 40px" @change="changeHandler">
       <template #logo>
         <img height="28" src="https://tdesign.gtimg.com/site/baseLogo-light.png" alt="logo" />
       </template>
@@ -15,7 +15,7 @@
       <t-menu-item value="item9"> 资源编辑 </t-menu-item>
     </t-menu>
 
-    <t-menu theme="light" default-value="dashboard" style="margin-right: 40px" height="550px">
+    <t-menu theme="light" default-value="dashboard" style="margin-right: 40px">
       <template #logo>
         <img height="28" src="https://tdesign.gtimg.com/site/baseLogo-light.png" alt="logo" />
       </template>
@@ -75,7 +75,7 @@
       </t-menu-item>
     </t-menu>
 
-    <t-menu theme="dark" default-value="dashboard" height="550px">
+    <t-menu theme="dark" default-value="dashboard">
       <template #logo>
         <img height="28" src="https://tdesign.gtimg.com/site/baseLogo-dark.png" alt="logo" />
       </template>

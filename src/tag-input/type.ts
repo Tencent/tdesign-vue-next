@@ -6,7 +6,7 @@
 
 import { InputProps } from '../input';
 import { TagProps } from '../tag';
-import { TNode } from '../common';
+import { TNode, SizeEnum } from '../common';
 
 export interface TdTagInputProps {
   /**
@@ -15,14 +15,24 @@ export interface TdTagInputProps {
    */
   autoWidth?: boolean;
   /**
+   * 无边框模式
+   * @default false
+   */
+  borderless?: boolean;
+  /**
    * 是否可清空
    * @default false
    */
   clearable?: boolean;
   /**
-   * 标签过多的情况下，折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`collapsedTags` 表示折叠的标签，`count` 表示折叠的数量
+   * 标签过多的情况下，折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`collapsedSelectedItems` 表示折叠的标签，`count` 表示折叠的数量，`onClose` 表示移除标签的事件回调
    */
-  collapsedItems?: TNode<{ value: TagInputValue; collapsedTags: TagInputValue; count: number }>;
+  collapsedItems?: TNode<{
+    value: TagInputValue;
+    collapsedSelectedItems: TagInputValue;
+    count: number;
+    onClose: (context: { index: number; e?: MouseEvent }) => void;
+  }>;
   /**
    * 是否禁用标签输入框
    */
@@ -78,10 +88,10 @@ export interface TdTagInputProps {
    */
   readonly?: boolean;
   /**
-   * 尺寸
+   * 组件尺寸
    * @default medium
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: SizeEnum;
   /**
    * 输入框状态
    */

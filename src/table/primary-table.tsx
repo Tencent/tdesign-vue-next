@@ -17,6 +17,7 @@ import useAsyncLoading from './hooks/useAsyncLoading';
 import EditableCell, { EditableCellProps } from './editable-cell';
 import { PageInfo } from '../pagination';
 import useClassName from './hooks/useClassName';
+import { useConfig } from '../hooks/useConfig';
 import useEditableRow from './hooks/useEditableRow';
 import useStyle from './hooks/useStyle';
 import { ScrollToElementParams } from '../hooks/useVirtualScrollNew';
@@ -89,13 +90,21 @@ export default defineComponent({
 
     const { classPrefix, tableDraggableClasses, tableBaseClass, tableSelectedClasses, tableSortClasses } =
       useClassName();
+    const { globalConfig } = useConfig('table', props.locale);
     const { sizeClassNames } = useStyle(props);
+    const tableSize = computed(() => props.size ?? globalConfig.value.size);
     // 自定义列配置功能
     const { tDisplayColumns, renderColumnController } = useColumnController(props, context);
 
     // 展开/收起行功能
-    const { showExpandedRow, showExpandIconColumn, getExpandColumn, renderExpandedRow, onInnerExpandRowClick } =
-      useRowExpand(props, context);
+    const {
+      showExpandedRow,
+      showExpandIconColumn,
+      getExpandColumn,
+      renderExpandedRow,
+      onInnerExpandRowClick,
+      getExpandedRowClass,
+    } = useRowExpand(props, context);
 
     // 排序功能
     const { renderSortIcon } = useSorter(props, context);
@@ -121,17 +130,9 @@ export default defineComponent({
       setFilterPrimaryTableRef,
     } = useFilter(props, context);
 
-    const tableKey = ref(1);
-
-    const onTableRefresh = () => {
-      tableKey.value += 1;
-    };
-
     // 拖拽排序功能
     const dragSortParams = computed(() => ({
       showElement: showElement.value,
-      onTableRefresh,
-      tableKey: tableKey.value,
     }));
     const {
       isRowHandlerDraggable,
@@ -154,7 +155,7 @@ export default defineComponent({
       onRuleChange,
       clearValidateData,
       onUpdateEditedCell,
-      getEditRowData,
+      // getEditRowData,
       onPrimaryTableCellEditChange,
     } = useEditableRow(props);
 
@@ -177,7 +178,7 @@ export default defineComponent({
 
     // 如果想给 TR 添加类名，请在这里补充，不要透传更多额外 Props 到 BaseTable
     const tRowClassNames = computed(() => {
-      const tClassNames = [props.rowClassName, selectedRowClassNames.value];
+      const tClassNames = [props.rowClassName, selectedRowClassNames.value, getExpandedRowClass];
       return tClassNames.filter((v) => v);
     });
 
@@ -214,6 +215,7 @@ export default defineComponent({
       baseTableRef: primaryTableRef,
     });
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const onEditableCellChange: EditableCellProps['onChange'] = (params) => {
       props.onRowEdit?.(params);
       const rowValue = get(params.editedRow, props.rowKey || 'id');
@@ -266,7 +268,7 @@ export default defineComponent({
               attach,
               {
                 classPrefix,
-                ellipsisOverlayClassName: props.size !== 'medium' ? sizeClassNames[props.size] : '',
+                ellipsisOverlayClassName: tableSize.value !== 'medium' ? sizeClassNames[tableSize.value] : '',
               },
             );
           };
@@ -278,12 +280,11 @@ export default defineComponent({
           item.cell = (h, p: PrimaryTableCellParams<TableRowData>) => {
             const cellProps: EditableCellProps = {
               ...p,
-              row: getEditRowData(p),
               oldCell,
               rowKey: props.rowKey || 'id',
               tableBaseClass,
               cellEmptyContent: props.cellEmptyContent,
-              onChange: onEditableCellChange,
+              onChange: props.onRowEdit,
               onValidate: props.onRowValidate,
               onRuleChange,
               onEditableChange: onPrimaryTableCellEditChange,

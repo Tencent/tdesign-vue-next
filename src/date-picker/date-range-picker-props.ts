@@ -10,6 +10,10 @@ import { PropType } from 'vue';
 export default {
   /** 是否允许输入日期 */
   allowInput: Boolean,
+  /** 无边框模式 */
+  borderless: Boolean,
+  /** 默认的日期选择交互是根据点击前后日期的顺序来决定并且会加以限制。比如：用户先点击开始时间输入框，选择了一个日期例如2020-05-15，紧接着交互会自动将焦点跳到结束日期输入框，等待用户选择结束时间。此时用户只能选择大于2020-05-15的日期（之前的日期会被灰态禁止点击，限制用户的点击）。当该值传递`true`时，则取消该限制。 */
+  cancelRangeSelectLimit: Boolean,
   /** 是否显示清除按钮 */
   clearable: Boolean,
   /** 时间选择器默认值，当 value/defaultValue 未设置值时有效 */
@@ -22,7 +26,10 @@ export default {
     type: [Object, Array, Function] as PropType<TdDateRangePickerProps['disableDate']>,
   },
   /** 是否禁用组件 */
-  disabled: Boolean,
+  disabled: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 是否显示时间选择 */
   enableTimePicker: Boolean,
   /** 第一天从星期几开始 */
@@ -38,6 +45,10 @@ export default {
     type: String,
     default: '',
   },
+  /** 左侧文本 */
+  label: {
+    type: [String, Function] as PropType<TdDateRangePickerProps['label']>,
+  },
   /** 选择器模式 */
   mode: {
     type: String as PropType<TdDateRangePickerProps['mode']>,
@@ -46,6 +57,11 @@ export default {
       if (!val) return true;
       return ['year', 'quarter', 'month', 'week', 'date'].includes(val);
     },
+  },
+  /** 决定在日期时间区间选择器的场景下是否需要点击确认按钮才完成选择动作，默认为 `true` */
+  needConfirm: {
+    type: Boolean,
+    default: true,
   },
   /** 在开始日期选中之前，面板是否显示预选状态，即是否高亮预选日期 */
   panelPreselection: {
@@ -119,11 +135,11 @@ export default {
   /** 选中值 */
   value: {
     type: Array as PropType<TdDateRangePickerProps['value']>,
-    default: undefined,
+    default: undefined as TdDateRangePickerProps['value'],
   },
   modelValue: {
     type: Array as PropType<TdDateRangePickerProps['value']>,
-    default: undefined,
+    default: undefined as TdDateRangePickerProps['value'],
   },
   /** 选中值，非受控属性 */
   defaultValue: {
@@ -147,15 +163,6 @@ export default {
         'YYYY-MM-DD HH:mm:ss:SSS',
       ].includes(val);
     },
-  },
-  /** 禁用日期选择限制
-   * 默认的日期选择交互是根据点击前后日期的顺序来决定并且会加以限制。
-    比如：用户先点击开始时间输入框，选择了一个日期例如2020-05-15，紧接着交互会自动将焦点跳到结束日期输入框，等待用户选择结束时间。此时用户只能选择大于2020-05-15的日期（之前的日期会被灰态禁止点击，限制用户的点击）。
-    当该值传递true时，则取消该限制
-  */
-  cancelRangeSelectLimit: {
-    type: Boolean,
-    default: false,
   },
   /** 当输入框失去焦点时触发 */
   onBlur: Function as PropType<TdDateRangePickerProps['onBlur']>,

@@ -5,7 +5,8 @@ import {
   CloseCircleFilledIcon as TdCloseCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
 import props from './props';
-import { useFormDisabled } from '../form/hooks';
+import { useDisabled } from '../hooks/useDisabled';
+import { useReadonly } from '../hooks/useReadonly';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useTNodeJSX } from '../hooks/tnode';
@@ -52,7 +53,9 @@ export default defineComponent({
       BrowseOffIcon: TdBrowseOffIcon,
       CloseCircleFilledIcon: TdCloseCircleFilledIcon,
     });
-    const disabled = useFormDisabled();
+    const readonly = useReadonly();
+    const disabled = useDisabled();
+
     const COMPONENT_NAME = usePrefixClass('input');
     const INPUT_WRAP_CLASS = usePrefixClass('input__wrap');
     const INPUT_TIPS_CLASS = usePrefixClass('input__tips');
@@ -83,13 +86,16 @@ export default defineComponent({
       getValidAttrs({
         autofocus: props.autofocus,
         disabled: disabled.value,
-        readonly: props.readonly,
+        readonly: readonly.value,
         placeholder: tPlaceholder.value,
-        maxlength: (!props.allowInputOverMax && props.maxlength) || undefined,
         name: props.name || undefined,
         type: renderType.value,
         autocomplete: props.autocomplete ?? (globalConfig.value.autocomplete || undefined),
-        unselectable: props.readonly ? 'on' : undefined,
+        unselectable: readonly.value ? 'on' : undefined,
+        spellcheck: props.spellCheck,
+        // 不要传给 input 原生元素 maxlength，浏览器默认行为会按照 unicode 进行限制，与 maxLength API 违背
+        // https://github.com/Tencent/tdesign-vue-next/issues/4413
+        // 参见： https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/maxlength，提到了字符串长度的计算方法，就是 str.length
       }),
     );
 
@@ -141,14 +147,11 @@ export default defineComponent({
         ) : null;
 
       if (props.type === 'password') {
+        const passwordClass = [{ [`${COMPONENT_NAME.value}__suffix-clear`]: !disabled.value }];
         if (renderType.value === 'password') {
-          suffixIcon = (
-            <BrowseOffIcon class={`${COMPONENT_NAME.value}__suffix-clear`} onClick={inputHandle.emitPassword} />
-          );
+          suffixIcon = <BrowseOffIcon class={passwordClass} onClick={inputHandle.emitPassword} />;
         } else if (renderType.value === 'text') {
-          suffixIcon = (
-            <BrowseIcon class={`${COMPONENT_NAME.value}__suffix-clear`} onClick={inputHandle.emitPassword} />
-          );
+          suffixIcon = <BrowseIcon class={passwordClass} onClick={inputHandle.emitPassword} />;
         }
       }
 
@@ -184,9 +187,10 @@ export default defineComponent({
           [STATUS.value.focused]: disabled.value ? false : focused.value,
           [`${classPrefix.value}-is-${tStatus.value}`]: tStatus.value && tStatus.value !== 'default',
           [`${classPrefix.value}-align-${props.align}`]: props.align !== 'left',
-          [`${classPrefix.value}-is-readonly`]: props.readonly,
+          [`${classPrefix.value}-is-readonly`]: readonly.value,
           [`${COMPONENT_NAME.value}--prefix`]: prefixIcon || labelContent,
           [`${COMPONENT_NAME.value}--suffix`]: suffixIcon || suffixContent,
+          [`${COMPONENT_NAME.value}--borderless`]: props.borderless,
           [`${COMPONENT_NAME.value}--focused`]: focused.value,
         },
       ];
@@ -225,7 +229,7 @@ export default defineComponent({
             />
             {props.autoWidth && (
               <span ref={inputPreRef} class={`${classPrefix.value}-input__input-pre`}>
-                {innerValue.value || tPlaceholder.value}
+                {isComposition.value ? compositionValue.value ?? '' : innerValue.value || tPlaceholder.value}
               </span>
             )}
             {suffixContent}

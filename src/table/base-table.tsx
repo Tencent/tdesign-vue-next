@@ -28,6 +28,7 @@ import { useRowHighlight } from './hooks/useRowHighlight';
 import useHoverKeyboardEvent from './hooks/useHoverKeyboardEvent';
 import useElementLazyRender from '../hooks/useElementLazyRender';
 import isFunction from 'lodash/isFunction';
+import throttle from 'lodash/throttle';
 
 export const BASE_TABLE_EVENTS = ['page-change', 'cell-click', 'scroll', 'scrollX', 'scrollY'];
 export const BASE_TABLE_ALL_EVENTS = ROW_LISTENERS.map((t) => `row-${t}`).concat(BASE_TABLE_EVENTS);
@@ -66,6 +67,7 @@ export default defineComponent({
     const { globalConfig } = useConfig('table', props.locale);
     const { isMultipleHeader, spansAndLeafNodes, thList } = useTableHeader(props);
     const finalColumns = computed(() => spansAndLeafNodes.value?.leafColumns || props.columns);
+    const tableSize = computed(() => props.size ?? globalConfig.value.size);
 
     const { showElement } = useElementLazyRender(tableRef, lazyLoad);
 
@@ -203,10 +205,15 @@ export default defineComponent({
       });
     };
 
+    const syncThWidthList = throttle(() => {
+      updateThWidthList(getThWidthList('calculate'));
+    });
+
     // 虚拟滚动相关数据
     const virtualScrollParams = computed(() => ({
       data: props.data,
-      scroll: props.scroll,
+      // 传递 fixedRows 的配置
+      scroll: { ...props.scroll, fixedRows: props.fixedRows },
     }));
     const virtualConfig = useVirtualScrollNew(tableContentRef, virtualScrollParams);
 
@@ -223,6 +230,9 @@ export default defineComponent({
       }
       lastScrollY = top;
       emitScrollEvent(e);
+      if (props.tableLayout === 'auto') {
+        syncThWidthList();
+      }
     };
 
     // used for top margin
@@ -248,9 +258,24 @@ export default defineComponent({
 
     watch(tableContentRef, () => {
       setTableContentRef(tableContentRef.value);
+      // auto 布局下，初始化表头列宽，避免 affix 表头列宽不对齐
+      if (props.tableLayout === 'auto') {
+        syncThWidthList();
+      }
     });
 
-    watch(tableElmRef, getTFootHeight);
+    // 应该有多种情况下需要更新 foot 高度
+    // 原方案只监听 tableElmRef，但是可能有异步渲染的情况，footer 的渲染晚于 dom 引用的产生
+    // 加入 timeout，避免渲染延迟导致的高度获取失败
+    watch(
+      () => [tableElmRef.value, props.footData, props.footerSummary, props.columns],
+      () => {
+        const timer = setTimeout(() => {
+          getTFootHeight();
+          clearTimeout(timer);
+        }, 0);
+      },
+    );
 
     watch(tableRef, (tableRef) => {
       addTableResizeObserver(tableRef);
@@ -310,6 +335,7 @@ export default defineComponent({
       globalConfig,
       tableFootHeight,
       virtualScrollHeaderPos,
+      tableSize,
       tableWidth,
       tableElmWidth,
       tableRef,
@@ -465,7 +491,7 @@ export default defineComponent({
       resizable: this.resizable,
       columnResizeParams: this.columnResizeParams,
       classPrefix: this.classPrefix,
-      ellipsisOverlayClassName: this.size !== 'medium' ? this.sizeClassNames[this.size] : '',
+      ellipsisOverlayClassName: this.tableSize !== 'medium' ? this.sizeClassNames[this.tableSize] : '',
       attach: this.attach,
       showColumnShadow: this.showColumnShadow,
       thDraggable: this.thDraggable,
@@ -534,19 +560,27 @@ export default defineComponent({
       marginScrollbarWidth += 1;
     }
     // Hack: Affix 组件，marginTop 临时使用 负 margin 定位位置
-    const affixedFooter = Boolean(this.footerAffixedBottom && this.footData?.length && this.tableWidth) && (
+    const showFooter = Boolean(this.virtualConfig.isVirtualScroll.value || this.footerAffixedBottom);
+    const hasFooter = this.footData?.length || this.footerSummary || this.$slots['footerSummary'];
+    const affixedFooter = Boolean(showFooter && hasFooter && this.tableWidth) && (
       <Affix
         class={this.tableBaseClass.affixedFooterWrap}
         onFixedChange={this.onFixedChange}
         offsetBottom={marginScrollbarWidth || 0}
         {...getAffixProps(this.footerAffixedBottom)}
-        style={{ marginTop: `${-1 * (this.tableFootHeight + marginScrollbarWidth)}px` }}
+        style={{ marginTop: `${-1 * ((this.tableFootHeight ?? 0) + marginScrollbarWidth)}px` }}
         ref="footerBottomAffixRef"
       >
         <div
           ref="affixFooterRef"
           style={{ width: `${this.tableWidth - affixedLeftBorder}px`, opacity: Number(this.showAffixFooter) }}
-          class={['scrollbar', { [this.tableBaseClass.affixedFooterElm]: this.footerAffixedBottom || this.isVirtual }]}
+          class={[
+            'scrollbar',
+            {
+              [this.tableBaseClass.affixedFooterElm]:
+                this.footerAffixedBottom || this.virtualConfig.isVirtualScroll.value,
+            },
+          ]}
         >
           <table class={this.tableElmClasses} style={{ ...this.tableElementStyles, width: `${this.tableElmWidth}px` }}>
             {/* 此处和 Vue2 不同，Vue3 里面必须每一处单独写 <colgroup> */}
@@ -569,20 +603,22 @@ export default defineComponent({
       </Affix>
     );
 
-    const translate = `translate(0, ${this.virtualConfig.scrollHeight.value}px)`;
+    // 通过 translate 撑开虚拟滚动的高度，应该是内容高度加上表头和表尾的高度
+    const translate = `translate(0, ${
+      this.virtualConfig.scrollHeight.value + (this.tableFootHeight ?? 0) + (affixHeaderHeight.value ?? 0)
+    }px)`;
     const virtualStyle = {
       transform: translate,
       '-ms-transform': translate,
       '-moz-transform': translate,
       '-webkit-transform': translate,
     };
-    const { virtualConfig } = this;
     const tableBodyProps = {
       classPrefix: this.classPrefix,
-      ellipsisOverlayClassName: this.size !== 'medium' ? this.sizeClassNames[this.size] : '',
+      ellipsisOverlayClassName: this.tableSize !== 'medium' ? this.sizeClassNames[this.tableSize] : '',
       rowAndColFixedPosition,
       showColumnShadow: this.showColumnShadow,
-      data: virtualConfig.isVirtualScroll.value ? virtualConfig.visibleData.value : data,
+      data: data,
       virtualConfig: this.virtualConfig,
       columns: this.spansAndLeafNodes.leafColumns,
       tableElm: this.tableRef,
@@ -639,6 +675,7 @@ export default defineComponent({
             rowClassName={this.rowClassName}
             footerSummary={this.footerSummary}
             rowspanAndColspanInFooter={this.rowspanAndColspanInFooter}
+            virtualScroll={this.virtualConfig.isVirtualScroll.value}
           ></TFoot>
         </table>
       </div>

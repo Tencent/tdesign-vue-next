@@ -1,6 +1,7 @@
 :: BASE_DOC ::
 
 ## API
+
 ### Tree Props
 
 name | type | default | description | required
@@ -8,6 +9,7 @@ name | type | default | description | required
 activable | Boolean | false | make nodes can be highlight | N
 activeMultiple | Boolean | false | \- | N
 actived | Array | - | `v-model:actived` is supported。Typescript：`Array<TreeNodeValue>` | N
+allowDrop | Function | - | Determine whether the node can execute the drop operation。Typescript：`(context: { e: DragEvent; dragNode: TreeNodeModel<T>; dropNode: TreeNodeModel<T>; dropPosition: number; }) => boolean` | N
 allowFoldNodeOnFilter | Boolean | false | \- | N
 checkProps | Object | - | Typescript：`CheckboxProps`，[Checkbox API Documents](./checkbox?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tree/type.ts) | N
 checkStrictly | Boolean | false | \- | N
@@ -83,7 +85,7 @@ insertAfter | `(value: TreeNodeValue, newData: T)` | \- | required
 insertBefore | `(value: TreeNodeValue, newData: T)` | \- | required
 refresh | \- | \- | required。refresh tree state, used in tree search
 remove | `(value: TreeNodeValue)` | \- | required
-scrollTo | `(scrollToParams: ScrollToElementParams)` | \- | support scrolling to a specific node when virtual scrolling 
+scrollTo | `(scrollToParams: ComponentScrollToElementParams)` | \- | support scrolling to a specific node when virtual scrolling 
 setItem | `(value: TreeNodeValue, options: TreeNodeState)` | \- | required
 
 ### TreeNodeState

@@ -1,17 +1,19 @@
 import { computed, defineComponent } from 'vue';
-import { UploadIcon } from 'tdesign-icons-vue-next';
+import { UploadIcon as TdUploadIcon } from 'tdesign-icons-vue-next';
 import props from './props';
 import NormalFile from './themes/normal-file';
 import DraggerFile from './themes/dragger-file';
 import ImageCard from './themes/image-card';
 import MultipleFlowList from './themes/multiple-flow-list';
-import useUpload from './hooks/useUpload';
 import Button from '../button';
 import { CommonDisplayFileProps, UploadProps } from './interface';
-import { UploadDragEvents } from './hooks/useDrag';
 import CustomFile from './themes/custom-file';
+
+import { UploadDragEvents } from './hooks/useDrag';
+import useUpload from './hooks/useUpload';
 import { useContent, useTNodeJSX } from '../hooks/tnode';
-import { useFormDisabled } from '../form/hooks';
+import { useDisabled } from '../hooks/useDisabled';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 
 export default defineComponent({
   name: 'TUpload',
@@ -43,7 +45,15 @@ export default defineComponent({
       cancelUpload,
       uploadFilePercent,
     } = useUpload(props);
-    const disabled = useFormDisabled();
+    const disabled = useDisabled();
+
+    const { UploadIcon } = useGlobalIcon({
+      UploadIcon: TdUploadIcon,
+    });
+
+    const triggerUploadButtonText = computed(
+      () => props.triggerButtonProps?.default || props.triggerButtonProps?.content || triggerUploadText.value,
+    );
 
     expose({
       upload: inputRef.value,
@@ -59,13 +69,13 @@ export default defineComponent({
         if (props.theme === 'file-input') {
           return (
             <Button disabled={disabled.value} variant="outline" {...props.triggerButtonProps}>
-              {triggerUploadText.value}
+              {triggerUploadButtonText.value}
             </Button>
           );
         }
         return (
           <Button disabled={disabled.value} variant="outline" icon={() => <UploadIcon />} {...props.triggerButtonProps}>
-            {triggerUploadText.value}
+            {triggerUploadButtonText.value}
           </Button>
         );
       };

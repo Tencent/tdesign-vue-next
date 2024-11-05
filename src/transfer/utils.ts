@@ -46,6 +46,7 @@ function getDataValues(
   {
     isTreeMode = false,
     include = true, // true=保留filterValues，false=删除filterValues中元素
+    remainValue = [] as Array<TransferValue>,
   } = {},
 ): Array<TransferValue> {
   // 用于处理 tree 组件这种数据结构是树形的
@@ -77,7 +78,9 @@ function getDataValues(
     .filter((item) => {
       if (!item) return false;
       const isInclude = filterValues.includes(item.value);
-      return ((include && isInclude) || (!include && !isInclude)) && !item.disabled;
+      return (
+        ((include && isInclude) || (!include && !isInclude)) && (!item.disabled || remainValue.includes(item.value))
+      );
     })
     .map((item) => item.value);
 }

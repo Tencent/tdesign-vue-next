@@ -11,8 +11,8 @@
 </template>
 
 <script lang="ts" setup>
-import { RadioGroupProps, DescriptionsProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { RadioGroupProps, DescriptionsProps } from 'tdesign-vue-next';
 const sizeOptions: RadioGroupProps['options'] = ['large', 'medium', 'small'];
 const size = ref<DescriptionsProps['size']>('medium');
 </script>

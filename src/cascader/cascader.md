@@ -1,17 +1,18 @@
 :: BASE_DOC ::
 
 ## API
+
 ### Cascader Props
 
-名称 | 类型 | 默认值 | 说明 | 必传
+名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
 autofocus | Boolean | - | 自动聚焦 | N
 borderless | Boolean | false | 无边框模式 | N
 checkProps | Object | - | 参考 checkbox 组件 API。TS 类型：`CheckboxProps`，[Checkbox API Documents](./checkbox?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/cascader/type.ts) | N
 checkStrictly | Boolean | false | 父子节点选中状态不再关联，可各自选中或取消 | N
 clearable | Boolean | false | 是否支持清空选项 | N
-collapsedItems | Slot / Function | - | 多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`collapsedTags` 表示折叠的标签，`count` 表示折叠的数量。TS 类型：`TNode<{ value: CascaderOption[]; collapsedSelectedItems: CascaderOption[]; count: number }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-disabled | Boolean | - | 是否禁用组件 | N
+collapsedItems | Slot / Function | - | 多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`collapsedSelectedItems` 表示折叠的标签，`count` 表示折叠的数量，`onClose` 表示移除标签的事件回调。TS 类型：`TNode<{ value: CascaderOption[]; collapsedSelectedItems: CascaderOption[]; count: number; onClose: (context: { index: number, e?: MouseEvent }) => void }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+disabled | Boolean | undefined | 是否禁用组件 | N
 empty | String / Slot / Function | - | 无匹配选项时的内容，默认全局配置为 '暂无数据'。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 filter | Function | - | 自定义过滤方法，用于对现有数据进行搜索过滤，判断是否过滤某一项数据。TS 类型：`(filterWords: string, node: TreeNodeModel) => boolean \| Promise<boolean>` | N
 filterable | Boolean | false | 是否可搜索 | N
@@ -27,6 +28,8 @@ minCollapsedNum | Number | 0 | 最小折叠数量，用于多选情况下折叠�
 multiple | Boolean | false | 是否允许多选 | N
 option | Slot / Function | - | 自定义单个级联选项。TS 类型：`TNode<{ item: CascaderOption; index: number }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 options | Array | [] | 可选项数据源。TS 类型：`Array<CascaderOption>` | N
+panelBottomContent | String / Slot / Function | - | 面板内的底部内容。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+panelTopContent | String / Slot / Function | - | 面板内的顶部内容。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 placeholder | String | undefined | 占位符 | N
 popupProps | Object | - | 参考 popup 组件 API。TS 类型：`PopupProps`，[Popup API Documents](./popup?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/cascader/type.ts) | N
 popupVisible | Boolean | - | 是否显示下拉框 | N

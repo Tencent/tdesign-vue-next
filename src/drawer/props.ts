@@ -11,7 +11,6 @@ export default {
   /** 抽屉挂载的节点，默认挂在组件本身的位置。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body */
   attach: {
     type: [String, Function] as PropType<TdDrawerProps['attach']>,
-    default: '',
   },
   /** 抽屉内容 */
   body: {
@@ -20,11 +19,10 @@ export default {
   /** 取消按钮，可自定义。值为 null 则不显示取消按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制取消事件 */
   cancelBtn: {
     type: [String, Object, Function] as PropType<TdDrawerProps['cancelBtn']>,
-    default: '' as TdDrawerProps['cancelBtn'],
   },
   /** 关闭按钮，可以自定义。值为 true 显示默认关闭按钮，值为 false 不显示关闭按钮。值类型为 string 则直接显示值，如：“关闭”。值类型为 TNode，则表示呈现自定义按钮示例 */
   closeBtn: {
-    type: [Boolean, String, Function] as PropType<TdDrawerProps['closeBtn']>,
+    type: [String, Boolean, Function] as PropType<TdDrawerProps['closeBtn']>,
   },
   /** 按下 ESC 时是否触发抽屉关闭事件 */
   closeOnEscKeydown: {
@@ -39,7 +37,6 @@ export default {
   /** 确认按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制确认事件 */
   confirmBtn: {
     type: [String, Object, Function] as PropType<TdDrawerProps['confirmBtn']>,
-    default: '' as TdDrawerProps['confirmBtn'],
   },
   /** 抽屉内容，同 body */
   default: {
@@ -50,12 +47,12 @@ export default {
   /** 底部操作栏，默认会有“确认”和“取消”两个按钮。值为 true 显示默认操作按钮，值为 false 或 null 不显示任何内容，值类型为 TNode 表示自定义底部内容 */
   footer: {
     type: [Boolean, Function] as PropType<TdDrawerProps['footer']>,
-    default: true,
+    default: true as TdDrawerProps['footer'],
   },
   /** 头部内容。值为 true 显示空白头部，值为 false 不显示头部，值类型为 string 则直接显示值，值类型为 TNode 表示自定义头部内容 */
   header: {
     type: [String, Boolean, Function] as PropType<TdDrawerProps['header']>,
-    default: true,
+    default: true as TdDrawerProps['header'],
   },
   /** 展开方式，有两种：直接展示在内容上方 和 推开内容区域 */
   mode: {
@@ -92,8 +89,11 @@ export default {
     type: String,
     default: undefined,
   },
-  /** 抽屉大小可拖拽调整，横向抽屉调整宽度，纵向抽屉调整高度 */
-  sizeDraggable: Boolean,
+  /** 抽屉大小可拖拽调整，横向抽屉调整宽度，纵向抽屉调整高度。`sizeDraggable.max` 和 `sizeDraggable.min` 用于控制拖拽尺寸大小限制 */
+  sizeDraggable: {
+    type: [Boolean, Object] as PropType<TdDrawerProps['sizeDraggable']>,
+    default: false as TdDrawerProps['sizeDraggable'],
+  },
   /** 组件是否可见 */
   visible: Boolean,
   /** 抽屉层级，样式默认为 1500 */
@@ -112,4 +112,6 @@ export default {
   onEscKeydown: Function as PropType<TdDrawerProps['onEscKeydown']>,
   /** 如果蒙层存在，点击蒙层时触发 */
   onOverlayClick: Function as PropType<TdDrawerProps['onOverlayClick']>,
+  /** 抽屉大小拖拽结束时触发，事件参数 `size` 在横向抽屉中表示宽度，在纵向抽屉中表示高度 */
+  onSizeDragEnd: Function as PropType<TdDrawerProps['onSizeDragEnd']>,
 };

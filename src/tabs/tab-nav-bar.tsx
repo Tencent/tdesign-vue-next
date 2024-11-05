@@ -1,9 +1,10 @@
 import { defineComponent, PropType, computed, VNode, nextTick, ref, watch, onMounted } from 'vue';
-import { firstUpperCase } from '../utils/helper';
 import tabProps from './props';
 
 // hooks
 import { usePrefixClass } from '../hooks/useConfig';
+import useResizeObserver from '../hooks/useResizeObserver';
+import debounce from 'lodash/debounce';
 
 export default defineComponent({
   props: {
@@ -16,6 +17,7 @@ export default defineComponent({
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('tabs');
     const classPrefix = usePrefixClass();
+    const barRef = ref<HTMLElement>();
     const navBarClass = computed(() => {
       return [`${COMPONENT_NAME.value}__bar`, `${classPrefix.value}-is-${props.placement}`];
     });
@@ -29,29 +31,37 @@ export default defineComponent({
         if (props.navs[i].props.value === props.value) {
           break;
         }
-        offset += props.navs[i]?.el?.[`client${firstUpperCase(sizePropName)}`] || 0;
+        offset += props.navs[i]?.el?.getBoundingClientRect()?.[sizePropName] || 0;
       }
       if (!props.navs[i]) return {};
       return {
         [offsetPropName]: `${offset}px`,
-        [sizePropName]: `${props.navs[i].el?.[`client${firstUpperCase(sizePropName)}`] || 0}px`,
+        [sizePropName]: `${props.navs[i].el?.getBoundingClientRect()?.[sizePropName] || 0}px`,
       };
     };
+    const update = () => (navBarStyle.value = getStyle());
 
     onMounted(() => {
       nextTick(() => {
-        navBarStyle.value = getStyle();
+        update();
       });
     });
 
     watch([() => props.navs, () => props.value, () => props.placement], () => {
       nextTick(() => {
-        navBarStyle.value = getStyle();
+        update();
       });
     });
 
+    useResizeObserver(
+      barRef,
+      debounce(() => {
+        update();
+        // 数值大了动画不流畅，小了会频繁触发，所以在合适区间里选择一个值
+      }, 20),
+    );
     return () => {
-      return <div class={navBarClass.value} style={navBarStyle.value}></div>;
+      return <div class={navBarClass.value} style={navBarStyle.value} ref={barRef}></div>;
     };
   },
 });

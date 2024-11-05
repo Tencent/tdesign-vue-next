@@ -162,6 +162,7 @@ export default defineComponent({
         `${COMPONENT_NAME.value}`,
         `${COMPONENT_NAME.value}__modal-${props.theme}`,
         isModeLess.value && props.draggable && `${COMPONENT_NAME.value}--draggable`,
+        props.dialogClassName,
       ];
 
       if (isFullScreen.value) {
@@ -172,7 +173,7 @@ export default defineComponent({
       return dialogClass;
     });
     const dialogStyle = computed(() => {
-      return !isFullScreen.value ? { width: GetCSSValue(props.width) } : {}; // width全屏模式不生效
+      return !isFullScreen.value ? { width: GetCSSValue(props.width), ...props.dialogStyle } : { ...props.dialogStyle }; // width全屏模式不生效
     });
     const { isLastDialog } = usePopupManager('dialog', {
       visible: computedVisible,
@@ -224,7 +225,7 @@ export default defineComponent({
         props.confirmOnEnter && document.removeEventListener('keydown', keyboardEnterEvent);
       }
     };
-    // 回车出发确认事件
+    // 回车触发确认事件
     const keyboardEnterEvent = (e: KeyboardEvent) => {
       const eventSrc = e.target as HTMLElement;
       if (eventSrc.tagName.toLowerCase() === 'input') return; // 若是input触发 则不执行

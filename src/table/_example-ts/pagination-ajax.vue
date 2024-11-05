@@ -15,8 +15,8 @@
   />
 </template>
 <script lang="tsx" setup>
-import { PaginationProps, TableProps } from 'tdesign-vue-next';
 import { ref, onMounted } from 'vue';
+import { PaginationProps, TableProps } from 'tdesign-vue-next';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 const statusNameListMap = {
   0: {
@@ -111,8 +111,9 @@ const rehandleChange: TableProps['onChange'] = (changeParams, triggerAndData) =>
 // BaseTable 中只有 page-change 事件，没有 change 事件
 const onPageChange: TableProps['onPageChange'] = async (pageInfo) => {
   console.log('page-change', pageInfo);
-  // pagination.current = pageInfo.current;
-  // pagination.pageSize = pageInfo.pageSize;
+  // 下面为受控方式，如果使用此方式，将pagination内的defaultCurrent改为current
+  // pagination.value.current = pageInfo.current;
+  // pagination.value.pageSize = pageInfo.pageSize;
   await fetchData(pageInfo);
 };
 onMounted(async () => {

@@ -7,7 +7,7 @@ import {
 } from 'tdesign-icons-vue-next';
 import { TdTabsProps } from './type';
 import tabProps from './props';
-import tabBase from '../_common/js/tabs/base';
+import { calcMaxOffset, calcValidOffset, calculateOffset, calcPrevOrNextOffset } from '../_common/js/tabs/base';
 
 // 子组件
 import TTabPanel from './tab-panel';
@@ -21,9 +21,6 @@ import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import useDragSort from '../hooks/useDragSort';
 import isFunction from 'lodash/isFunction';
 
-const { calculateCanToLeft, calculateCanToRight, calcScrollLeft, scrollToLeft, scrollToRight, moveActiveTabIntoView } =
-  tabBase;
-
 export default defineComponent({
   name: 'TTabNav',
   ...{ resizeObserver: null },
@@ -33,9 +30,10 @@ export default defineComponent({
       type: Array as { new (): Array<InstanceType<typeof TTabPanel>> },
       default: (): Array<InstanceType<typeof TTabPanel>> => [] as Array<InstanceType<typeof TTabPanel>>,
     },
-    action: tabProps.action,
+    action: Array,
     value: tabProps.value,
     placement: tabProps.placement,
+    scrollPosition: tabProps.scrollPosition,
     size: tabProps.size,
     disabled: tabProps.disabled,
     addable: tabProps.addable,
@@ -57,30 +55,31 @@ export default defineComponent({
     const { SIZE } = useCommonClassName();
 
     const scrollLeft = ref(0);
-    const canToLeft = ref(false);
-    const canToRight = ref(false);
 
     // refs
-    // const panels = ref(props.panels);
     const navsContainerRef = ref();
     const navsWrapRef = ref();
     const leftOperationsRef = ref();
-    const toLeftBtnRef = ref();
     const rightOperationsRef = ref();
     const toRightBtnRef = ref();
     const activeTabRef = ref();
+    const maxScrollLeft = ref(0);
 
     const getRefs = () => ({
       navsContainer: navsContainerRef.value,
       navsWrap: navsWrapRef.value,
       leftOperations: leftOperationsRef.value,
-      toLeftBtn: toLeftBtnRef.value,
       rightOperations: rightOperationsRef.value,
       toRightBtn: toRightBtnRef.value,
+      activeTab: activeTabRef.value,
     });
 
     // left right位置 选项卡的位置是在左右侧垂直方向铺开的
     const isVerticalPlacement = computed(() => ['left', 'right'].includes(props.placement.toLowerCase()));
+
+    // 展示操作按钮
+    const canToLeft = computed(() => scrollLeft.value > 1);
+    const canToRight = computed(() => scrollLeft.value < maxScrollLeft.value - 1);
 
     // style
     const wrapTransformStyle = computed(() => {
@@ -142,59 +141,45 @@ export default defineComponent({
       ];
     });
 
-    const totalAdjust = () => {
-      nextTick(() => {
-        adjustArrowDisplay();
-        adjustScrollLeft();
-      });
-    };
-    // watch
-    watch([scrollLeft, () => props.placement, () => props.panels], totalAdjust);
-
-    // life times
-    useResize(debounce(totalAdjust), navsContainerRef.value);
-
-    onMounted(() => {
-      calculateMountedScrollLeft();
-      totalAdjust();
-    });
-
-    // calculate scroll left after mounted
-    const calculateMountedScrollLeft = () => {
-      if (isVerticalPlacement.value) return;
-      nextTick(() => {
-        const container = navsContainerRef.value;
-        const activeTabEl = activeTabRef.value;
-        const activeTabWidth = activeTabEl?.offsetWidth || 0;
-        const containerWidth = container?.offsetWidth || 0;
-
-        const activeElIndex = Array.prototype.indexOf.call(navsWrapRef.value.children, activeTabEl); // index of the active tab
-
-        const isRightBtnShow =
-          navs.value.length - activeElIndex >= Math.round((containerWidth - activeTabWidth) / activeTabWidth) ? 1 : 0; // calculate whether the right btn is display or not
-        const totalWidthBeforeActiveTab = activeTabEl?.offsetLeft;
-        if (totalWidthBeforeActiveTab > containerWidth - activeTabWidth)
-          scrollLeft.value = totalWidthBeforeActiveTab - isRightBtnShow * activeTabWidth;
-      });
+    const setOffset = (offset: number) => {
+      scrollLeft.value = calcValidOffset(offset, maxScrollLeft.value);
     };
 
-    // methods
-    const adjustScrollLeft = () => {
-      scrollLeft.value = calcScrollLeft(getRefs(), scrollLeft.value);
+    const handleScroll = (action: 'prev' | 'next') => {
+      setOffset(calcPrevOrNextOffset(getRefs(), scrollLeft.value, action));
     };
 
-    const adjustArrowDisplay = () => {
-      canToLeft.value = calculateCanToLeft(getRefs(), scrollLeft.value, props.placement);
-      canToRight.value = calculateCanToRight(getRefs(), scrollLeft.value, props.placement);
-    };
+    const handleWheel = (event: WheelEvent) => {
+      if (!canToLeft.value && !canToRight.value) return;
 
-    const handleScroll = (direction: 'left' | 'right') => {
-      if (direction === 'left') {
-        scrollLeft.value = scrollToLeft(getRefs(), scrollLeft.value);
+      event.preventDefault();
+      const { deltaX, deltaY } = event;
+
+      if (Math.abs(deltaX) > Math.abs(deltaY)) {
+        setOffset(scrollLeft.value + deltaX);
       } else {
-        scrollLeft.value = scrollToRight(getRefs(), scrollLeft.value);
+        setOffset(scrollLeft.value + deltaY);
       }
     };
+
+    const handleActiveTabScroll = () => {
+      setTimeout(() => {
+        setOffset(calculateOffset(getRefs(), scrollLeft.value, props.scrollPosition));
+      }, 0);
+    };
+
+    const getMaxScrollLeft = () => {
+      nextTick(() => {
+        maxScrollLeft.value = calcMaxOffset(getRefs());
+      });
+    };
+
+    // watch
+    watch([() => props.placement, () => props.panels], getMaxScrollLeft);
+    watch([() => props.scrollPosition], handleActiveTabScroll);
+
+    // life times
+    useResize(debounce(getMaxScrollLeft), navsContainerRef.value);
 
     const handleAddTab = (e: MouseEvent) => {
       props.onAdd?.({ e });
@@ -214,13 +199,7 @@ export default defineComponent({
       if (!ref?.$el) return;
       if (ref?.value === props.value && activeTabRef.value !== ref.$el) {
         activeTabRef.value = ref.$el;
-        scrollLeft.value = moveActiveTabIntoView(
-          {
-            activeTab: activeTabRef.value,
-            ...getRefs(),
-          },
-          scrollLeft.value,
-        );
+        handleActiveTabScroll();
       }
     };
 
@@ -228,6 +207,8 @@ export default defineComponent({
 
     onMounted(() => {
       setNavsWrap(navsWrapRef.value);
+      getMaxScrollLeft();
+      handleActiveTabScroll();
     });
     // renders
     const navs = computed(() => {
@@ -272,7 +253,7 @@ export default defineComponent({
         >
           <Transition name="fade" mode="out-in" appear>
             {canToLeft.value ? (
-              <div ref={toLeftBtnRef} class={leftIconClass.value} onClick={() => handleScroll('left')}>
+              <div class={leftIconClass.value} onClick={() => handleScroll('prev')}>
                 <ChevronLeftIcon />
               </div>
             ) : null}
@@ -284,7 +265,7 @@ export default defineComponent({
         >
           <Transition name="fade" mode="out-in" appear>
             {canToRight.value ? (
-              <div ref={toRightBtnRef} class={rightIconClass.value} onClick={() => handleScroll('right')}>
+              <div ref={toRightBtnRef} class={rightIconClass.value} onClick={() => handleScroll('next')}>
                 <ChevronRightIcon></ChevronRightIcon>
               </div>
             ) : null}
@@ -301,7 +282,7 @@ export default defineComponent({
     const renderNavs = () => {
       return (
         <div class={navContainerClass.value}>
-          <div class={navScrollContainerClass.value}>
+          <div class={navScrollContainerClass.value} onWheel={handleWheel}>
             <div ref={navsWrapRef} class={navsWrapClass.value} style={wrapTransformStyle.value}>
               {props.theme !== 'card' && (
                 <TTabNavBar placement={props.placement} value={props.value} navs={navs.value} />

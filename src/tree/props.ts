@@ -21,6 +21,10 @@ export default {
   defaultActived: {
     type: Array as PropType<TdTreeProps['defaultActived']>,
   },
+  /** 判断节点是否可以执行 drop 操作，泛型 `T` 表示树节点 TS 类型 */
+  allowDrop: {
+    type: Function as PropType<TdTreeProps['allowDrop']>,
+  },
   /** 是否允许在过滤时节点折叠节点 */
   allowFoldNodeOnFilter: Boolean,
   /** 透传属性到 checkbox 组件。参考 checkbox 组件 API */
@@ -142,7 +146,7 @@ export default {
     type: Array as PropType<TdTreeProps['defaultValue']>,
     default: (): TdTreeProps['defaultValue'] => [],
   },
-  /** 选中值模式。all 表示父节点和子节点全部会出现在选中值里面；parentFirst 表示当子节点全部选中时，仅父节点在选中值里面；onlyLeaft 表示无论什么情况，选中值仅呈现叶子节点 */
+  /** 选中值模式。all 表示父节点和子节点全部会出现在选中值里面；parentFirst 表示当子节点全部选中时，仅父节点在选中值里面；onlyLeaf 表示无论什么情况，选中值仅呈现叶子节点 */
   valueMode: {
     type: String as PropType<TdTreeProps['valueMode']>,
     default: 'onlyLeaf' as TdTreeProps['valueMode'],

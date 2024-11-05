@@ -192,6 +192,36 @@ describe('Dialog', () => {
       await nextTick();
       expect(dialog.classes()).toContain('t-dialog--draggable');
     });
+
+    it(':dialogClassName', async () => {
+      const visible = ref(true);
+      const wrapper = mount(() => (
+        <Dialog
+          v-model:visible={visible.value}
+          dialogClassName="custom-class"
+          mode="modeless"
+          body="this is content"
+        ></Dialog>
+      ));
+      const dialog = wrapper.find('.t-dialog');
+      await nextTick();
+      expect(dialog.classes()).toContain('custom-class');
+    });
+
+    it(':dialogStyle', async () => {
+      const visible = ref(true);
+      const wrapper = mount(() => (
+        <Dialog
+          v-model:visible={visible.value}
+          dialogStyle={{ padding: '99px' }}
+          mode="modeless"
+          body="this is content"
+        ></Dialog>
+      ));
+      const dialog = wrapper.find('.t-dialog');
+      await nextTick();
+      expect(getComputedStyle(dialog.element, null).padding).toBe('99px');
+    });
   });
 
   describe(':events', () => {

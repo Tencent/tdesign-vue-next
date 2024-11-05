@@ -43,9 +43,16 @@ export function useRowHighlight(props: BaseTableProps, tableRef: Ref<HTMLDivElem
       });
     } else if (activeRowType.value === 'multiple') {
       const newActiveRowKeys = tActiveRow.value.filter((t) => t !== rowValue);
+      const activeRowList: { row: TableRowData; rowIndex: number }[] = [];
+      for (let i = 0, len = data.value.length; i < len; i++) {
+        const row = data.value[i];
+        if (newActiveRowKeys.includes(get(row, props.rowKey))) {
+          activeRowList.push({ row, rowIndex: i });
+        }
+      }
       setTActiveRow(newActiveRowKeys, {
         type: 'inactive',
-        activeRowList: [],
+        activeRowList,
         currentRowData: row,
       });
     }

@@ -65,7 +65,7 @@ export const useTNodeJSX = () => {
     //   log.warn('', `Both slots.${name} and props.${name} exist, props.${name} is preferred`);
     // }
     // propsNode 为 false 不渲染
-    if (propsNode === false) return;
+    if (propsNode === false || propsNode === null) return;
     if (propsNode === true) {
       return handleSlots(instance, name, params) || defaultNode;
     }

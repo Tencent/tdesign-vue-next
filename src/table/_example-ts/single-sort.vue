@@ -33,8 +33,8 @@
 </template>
 
 <script lang="tsx" setup>
-import { TableProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { TableProps } from 'tdesign-vue-next';
 import { CheckCircleFilledIcon, ErrorCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 const statusNameListMap = {
   0: {
@@ -113,7 +113,6 @@ const hideSortTips = ref(false);
 const request = (sort: TableProps['sort']) => {
   // 模拟异步请求，进行数据排序
   if (Array.isArray(sort)) return;
-
   const timer = setTimeout(() => {
     if (sort) {
       data.value = data.value
@@ -130,7 +129,7 @@ const sortChange: TableProps['onSortChange'] = (val) => {
   request(val);
 };
 
-// 排序、分页、过滤等发生变化时会出发 change 事件
+// 排序、分页、过滤等发生变化时会触发 change 事件
 const onChange: TableProps['onChange'] = (info, context) => {
   console.log('change', info, context);
 };

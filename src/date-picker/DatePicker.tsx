@@ -1,17 +1,20 @@
 import { defineComponent, computed, watch } from 'vue';
 import dayjs from 'dayjs';
-import { usePrefixClass } from '../hooks/useConfig';
 import isFunction from 'lodash/isFunction';
 
-import { useFormDisabled } from '../form/hooks';
+import { useTNodeJSX } from '../hooks/tnode';
+import { usePrefixClass, useConfig } from '../hooks/useConfig';
+import { useDisabled } from '../hooks/useDisabled';
 import useSingle from './hooks/useSingle';
 import { parseToDayjs, getDefaultFormat, formatTime, formatDate } from '../_common/js/date-picker/format';
-import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-picker/utils';
-import type { DateValue } from './type';
+import { subtractMonth, addMonth, extractTimeObj, covertToDate } from '../_common/js/date-picker/utils';
 import props from './props';
-
 import TSelectInput from '../select-input';
 import TSinglePanel from './panel/SinglePanel';
+
+import type { TdDatePickerProps } from './type';
+import type { DateValue } from './type';
+import isDate from 'lodash/isDate';
 
 export default defineComponent({
   name: 'TDatePicker',
@@ -38,7 +41,9 @@ export default defineComponent({
       onChange,
     } = useSingle(props);
 
-    const disabled = useFormDisabled();
+    const disabled = useDisabled();
+    const renderTNodeJSX = useTNodeJSX();
+    const { globalConfig } = useConfig('datePicker');
 
     const formatRef = computed(() =>
       getDefaultFormat({
@@ -48,18 +53,56 @@ export default defineComponent({
         enableTimePicker: props.enableTimePicker,
       }),
     );
+    const valueDisplayParams = computed(() => {
+      return {
+        value: value.value,
+        displayValue: inputValue.value,
+      };
+    });
 
     watch(popupVisible, (visible) => {
-      cacheValue.value = formatDate(value.value, {
-        format: formatRef.value.format,
+      // 如果不需要确认，直接保存当前值
+      if (!props.needConfirm && props.enableTimePicker && !visible) {
+        const nextValue = formatDate(inputValue.value, {
+          format: formatRef.value.format,
+        });
+        if (nextValue) {
+          onChange?.(
+            formatDate(inputValue.value, {
+              format: formatRef.value.format,
+              targetFormat: formatRef.value.valueType,
+            }) as DateValue,
+            {
+              dayjsValue: parseToDayjs(inputValue.value as string, formatRef.value.format),
+              trigger: 'confirm',
+            },
+          );
+        } else {
+          inputValue.value = formatDate(value.value, {
+            format: formatRef.value.format,
+          });
+        }
+      }
+
+      // 格式化 input 值
+      const dateValue =
+        // Date 属性、季度和周不再 parse，避免 dayjs 处理成 Invalid
+        value.value && !isDate(value.value) && !['week', 'quarter'].includes(props.mode)
+          ? covertToDate(value.value as string, formatRef.value?.valueType)
+          : value.value;
+
+      cacheValue.value = formatDate(dateValue, {
+        format: formatRef.value.valueType,
+        targetFormat: formatRef.value.format,
       });
-      inputValue.value = formatDate(value.value, {
-        format: formatRef.value.format,
+      inputValue.value = formatDate(dateValue, {
+        format: formatRef.value.valueType,
+        targetFormat: formatRef.value.format,
       });
 
       // 面板展开重置数据
       if (visible) {
-        year.value = parseToDayjs(value.value, formatRef.value.format).year();
+        year.value = parseToDayjs(value.value, formatRef.value.valueType).year();
         month.value = parseToDayjs(value.value, formatRef.value.format).month();
         time.value = formatTime(value.value, formatRef.value.format, formatRef.value.timeFormat, props.defaultTime);
       } else {
@@ -223,6 +266,7 @@ export default defineComponent({
       enableTimePicker: props.enableTimePicker,
       presetsPlacement: props.presetsPlacement,
       popupVisible: popupVisible.value,
+      needConfirm: props.needConfirm,
       onCellClick,
       onCellMouseEnter,
       onCellMouseLeave,
@@ -238,14 +282,20 @@ export default defineComponent({
     return () => (
       <div class={COMPONENT_NAME.value}>
         <TSelectInput
+          borderless={props.borderless}
           disabled={disabled.value}
           value={inputValue.value}
+          label={props.label}
           status={props.status}
           tips={props.tips}
           clearable={props.clearable}
           popupProps={popupProps.value}
           inputProps={inputProps.value}
+          placeholder={props.placeholder || globalConfig.value.placeholder[props.mode]}
           popupVisible={popupVisible.value}
+          valueDisplay={() => renderTNodeJSX('valueDisplay', { params: valueDisplayParams.value })}
+          needConfirm={props.needConfirm}
+          {...(props.selectInputProps as TdDatePickerProps['selectInputProps'])}
           panel={() => <TSinglePanel {...panelProps.value} />}
         />
       </div>

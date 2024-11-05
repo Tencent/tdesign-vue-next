@@ -3,7 +3,7 @@ import isObject from 'lodash/isObject';
 import isFunction from 'lodash/isFunction';
 import { TdSelectInputProps } from './type';
 import { TdPopupProps, PopupVisibleChangeContext } from '../popup';
-import { useFormDisabled } from '../form/hooks';
+import { useDisabled } from '../hooks/useDisabled';
 
 export type overlayInnerStyleProps = Pick<
   TdSelectInputProps,
@@ -18,7 +18,7 @@ const RESERVE_WIDTH = 0;
 export default function useOverlayInnerStyle(props: overlayInnerStyleProps) {
   const { popupProps, autoWidth } = toRefs(props);
   const innerPopupVisible = ref(false);
-  const disable = useFormDisabled();
+  const disable = useDisabled();
 
   const matchWidthFunc = (triggerElement: HTMLElement, popupElement: HTMLElement) => {
     const SCROLLBAR_WIDTH = popupElement.scrollHeight > popupElement.offsetHeight ? RESERVE_WIDTH : 0;

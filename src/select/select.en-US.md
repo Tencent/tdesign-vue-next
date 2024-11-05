@@ -1,6 +1,7 @@
 :: BASE_DOC ::
 
 ## API
+
 ### Select Props
 
 name | type | default | description | required
@@ -9,15 +10,15 @@ autoWidth | Boolean | false | \- | N
 autofocus | Boolean | false | \- | N
 borderless | Boolean | false | \- | N
 clearable | Boolean | false | \- | N
-collapsedItems | Slot / Function | - | Typescript：`TNode<{ value: T[]; collapsedSelectedItems: T[]; count: number }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+collapsedItems | Slot / Function | - | Typescript：`TNode<{ value: T[]; collapsedSelectedItems: T[]; count: number; onClose: (context: { index: number, e?: MouseEvent }) => void }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 creatable | Boolean | false | \- | N
 disabled | Boolean | - | \- | N
 empty | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 filter | Function | - | Typescript：`(filterWords: string, option: T) => boolean \| Promise<boolean>` | N
 filterable | Boolean | false | \- | N
 inputProps | Object | - | Typescript：`InputProps`，[Input API Documents](./input?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select/type.ts) | N
-inputValue | String / Number | - | input value。`v-model:inputValue` is supported。Typescript：`InputValue`，[Input API Documents](./input?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select/type.ts) | N
-defaultInputValue | String / Number | - | input value。uncontrolled property。Typescript：`InputValue`，[Input API Documents](./input?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select/type.ts) | N
+inputValue | String / Number | - | input value。`v-model:inputValue` is supported。Typescript：`InputValue`，[Input API Documents](./input?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select/type.ts) | N	inputValue | String / Number | - | input value。`v-model:inputValue` is supported。Typescript：`string` | N
+defaultInputValue | String / Number | - | input value。uncontrolled property。Typescript：`InputValue`，[Input API Documents](./input?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select/type.ts) | N	defaultInputValue | String / Number | - | input value。uncontrolled property。Typescript：`string` | N
 keys | Object | - | alias option field。Typescript：`KeysType`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 label | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 loading | Boolean | false | \- | N
@@ -47,7 +48,7 @@ tagProps | Object | - | Typescript：`TagProps`，[Tag API Documents](./tag?tab=
 tips | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 value | String / Number / Boolean / Object / Array | - | `v-model` and `v-model:value` is supported。Typescript：`SelectValue` `type SelectValue<T extends SelectOption = SelectOption> = string \| number \| boolean \| T \| Array<SelectValue<T>>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select/type.ts) | N
 defaultValue | String / Number / Boolean / Object / Array | - | uncontrolled property。Typescript：`SelectValue` `type SelectValue<T extends SelectOption = SelectOption> = string \| number \| boolean \| T \| Array<SelectValue<T>>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select/type.ts) | N
-valueDisplay | String / Slot / Function | - | `MouseEvent<SVGElement>`。Typescript：`string \| TNode<{ value: SelectValue; onClose: (index: number) => void; displayValue?: SelectValue }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+valueDisplay | String / Slot / Function | - | `MouseEvent<SVGElement>`。Typescript：`string \| TNode<{ value: SelectValue; onClose: (index: number) => void; displayValue?: SelectValue; label?: string }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 valueType | String | value | options: value/object | N
 onBlur | Function |  | Typescript：`(context: { value: SelectValue; e: FocusEvent \| KeyboardEvent }) => void`<br/> | N
 onChange | Function |  | Typescript：`(value: SelectValue, context: { option?: T, selectedOptions: T[], trigger: SelectValueChangeTrigger; e?: MouseEvent \| KeyboardEvent }) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select/type.ts)。<br/>`type SelectValueChangeTrigger = 'clear' \| 'tag-remove' \| 'backspace' \| 'check' \| 'uncheck' \| 'default'`<br/> | N
@@ -75,6 +76,7 @@ popup-visible-change | `(visible: boolean, context: PopupVisibleChangeContext)` 
 remove | `(options: SelectRemoveContext<T>)` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select/type.ts)。<br/>`interface SelectRemoveContext<T> { value: string \| number; data: T; e: MouseEvent \| KeyboardEvent }`<br/>
 search | `(filterWords: string, context: { e: KeyboardEvent })` | \-
 
+
 ### Option Props
 
 name | type | default | description | required
@@ -86,6 +88,7 @@ disabled | Boolean | false | \- | N
 label | String | - | \- | N
 title | String | - | \- | N
 value | String / Number | - | \- | N
+
 
 ### OptionGroup Props
 

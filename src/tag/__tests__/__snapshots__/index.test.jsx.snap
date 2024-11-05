@@ -5,7 +5,9 @@ exports[`Tag or CheckTag > @event: Tag > Event passthrough: close 1`] = `
   class="t-tag t-tag--default t-tag--dark t-tag--close"
 >
   <!---->
-  <!---->
+  <span>
+    <!---->
+  </span>
   <svg
     class="t-icon t-icon-close t-tag__icon-close"
     fill="none"

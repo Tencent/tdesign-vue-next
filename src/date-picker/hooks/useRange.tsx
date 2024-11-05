@@ -42,6 +42,7 @@ export default function useRange(props: TdDateRangePickerProps) {
     ...props.rangeInputProps,
     size: props.size,
     ref: inputRef,
+    borderless: props.borderless,
     clearable: props.clearable,
     prefixIcon: () => renderTNodeJSX('prefixIcon'),
     readonly: !props.allowInput,
@@ -148,7 +149,8 @@ export default function useRange(props: TdDateRangePickerProps) {
       if (!isValidDate(value, formatRef.value.format)) return;
 
       inputValue.value = formatDate(value, {
-        format: formatRef.value.format,
+        format: formatRef.value.valueType,
+        targetFormat: formatRef.value.format,
       });
     },
     {

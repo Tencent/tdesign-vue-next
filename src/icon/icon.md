@@ -63,9 +63,16 @@ TDesign 支持通过使用 Iconfont 图标，使用时需要单独引入 Iconfon
 
 `iconfont`需要加载图标的字体资源，而`icon`需要加载图标的svgsprite资源，这些资源都是相对来说比较大的，所以没有直接放在包里（当然不排除未来会做改动），所以会发起网络请求。
 
-所以如果你的项目是无网络场景，请使用按需加载的图标，如`<t-icon name="add" />`请改为`<AddIcon />`。
+所以如果你的项目是**无网络场景**，请使用**按需加载**的图标，如`<t-icon name="add" />`请改为`<AddIcon />`。
 
 ### 全部图标
+
+<div style="background: #ecf2fe; display: flex; align-items: center; line-height: 20px; padding: 14px 24px; border-radius: 3px; color: #555a65;margin:16px 0">
+  <svg fill="none" viewBox="0 0 16 16" width="16px" height="16px" style="margin-right: 5px">
+    <path fill="#0052d9" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillOpacity="0.9"></path>
+  </svg>
+ 大部分图标在 0.2.0 版本后的图标库新增，如果发现图标引入后无法正常展示，请检查安装的图标库`tdesign-icons-vue-next`的版本。
+</div>
 
 <td-icons-view />
 

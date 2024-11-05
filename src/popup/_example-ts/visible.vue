@@ -9,8 +9,8 @@
   </t-space>
 </template>
 <script lang="ts" setup>
-import { ButtonProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { ButtonProps } from 'tdesign-vue-next';
 const visible = ref(false);
 const onToggle: ButtonProps['onClick'] = () => {
   visible.value = !visible.value;

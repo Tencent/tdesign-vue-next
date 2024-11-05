@@ -18,8 +18,8 @@
   </t-space>
 </template>
 <script lang="tsx" setup>
-import { SelectProps } from 'tdesign-vue-next';
 import { ref } from 'vue';
+import { SelectProps } from 'tdesign-vue-next';
 const options1: SelectProps['options'] = [
   {
     label: '架构云',
@@ -29,6 +29,7 @@ const options1: SelectProps['options'] = [
   {
     label: '大数据',
     value: '2',
+    title: '',
   },
   {
     label: '区块链',

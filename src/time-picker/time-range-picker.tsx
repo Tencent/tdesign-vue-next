@@ -1,5 +1,6 @@
 import { defineComponent, ref, toRefs, watch, computed } from 'vue';
 import dayjs from 'dayjs';
+import isArray from 'lodash/isArray';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { TimeIcon as TdTimeIcon } from 'tdesign-icons-vue-next';
 
@@ -17,7 +18,7 @@ import { TimeRangePickerPartial } from './type';
 import useVModel from '../hooks/useVModel';
 import { useCommonClassName, useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useFormDisabled } from '../form/hooks';
+import { useDisabled } from '../hooks/useDisabled';
 
 dayjs.extend(customParseFormat);
 
@@ -32,7 +33,7 @@ export default defineComponent({
     const { STATUS } = useCommonClassName();
     const { TimeIcon } = useGlobalIcon({ TimeIcon: TdTimeIcon });
 
-    const disabled = useFormDisabled();
+    const disabled = useDisabled();
     const currentPanelIdx = ref(undefined);
     const currentValue = ref<Array<string>>(TIME_PICKER_EMPTY);
     const isShowPanel = ref(false);
@@ -66,8 +67,10 @@ export default defineComponent({
       currentPanelIdx.value = position === 'first' ? 0 : 1;
     };
 
-    const handleTimeChange = (newValue: string, e: MouseEvent) => {
-      if (currentPanelIdx.value === 0) {
+    const handleTimeChange = (newValue: string | string[], e: MouseEvent) => {
+      if (isArray(newValue)) {
+        currentValue.value = newValue;
+      } else if (currentPanelIdx.value === 0) {
         currentValue.value = [newValue, currentValue.value[1] ?? newValue];
       } else {
         currentValue.value = [currentValue.value[0] ?? newValue, newValue];
@@ -99,6 +102,7 @@ export default defineComponent({
     const handleClickConfirm = () => {
       const isValidTime = !currentValue.value.find((v) => !validateInputValue(v, format.value));
       if (isValidTime) setInnerValue(currentValue.value);
+      if (props.autoSwap) autoSwapTime();
       isShowPanel.value = false;
     };
 
@@ -106,10 +110,25 @@ export default defineComponent({
       props.onFocus?.({ value, e, position: position === 'first' ? 'start' : 'end' });
     };
 
-    const handleOnPick = (pickValue: string, e: MouseEvent) => {
+    const autoSwapTime = () => {
+      const [startTime, endTime] = currentValue.value;
+      const startDayjs = dayjs(startTime, props.format);
+      const endDayjs = dayjs(endTime, props.format);
+
+      if (startDayjs.isAfter(endDayjs, 'second')) {
+        setInnerValue([currentValue.value[1], currentValue.value[0]]);
+      } else {
+        setInnerValue([currentValue.value[0], currentValue.value[1]]);
+      }
+    };
+
+    const handleOnPick = (pickValue: string | string[], e: MouseEvent) => {
       let pickedRangeValue = [];
       let context;
-      if (currentPanelIdx.value === 0) {
+      if (isArray(pickValue)) {
+        pickedRangeValue = pickValue;
+        context = { e };
+      } else if (currentPanelIdx.value === 0) {
         pickedRangeValue = [pickValue, currentValue.value[1] ?? pickValue];
         context = { e, position: 'start' as TimeRangePickerPartial };
       } else {
@@ -148,6 +167,7 @@ export default defineComponent({
             class: inputClasses.value,
             value: isShowPanel.value ? currentValue.value : innerValue.value ?? undefined,
             placeholder: props.placeholder || [globalConfig.value.placeholder, globalConfig.value.placeholder],
+            borderless: props.borderless,
             suffixIcon: () => <TimeIcon />,
             onClear: handleClear,
             onClick: handleClick,
@@ -157,6 +177,7 @@ export default defineComponent({
             activeIndex: currentPanelIdx.value,
             ...props.rangeInputProps,
           }}
+          label={props.label}
           status={props.status}
           tips={props.tips}
           panel={() => (

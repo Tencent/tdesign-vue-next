@@ -81,7 +81,7 @@ export default {
   footerAffixProps: {
     type: Object as PropType<TdBaseTableProps['footerAffixProps']>,
   },
-  /** 表尾吸底。使用此向功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，则表示相对于整个窗口吸底。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixedBottom.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性 */
+  /** 表尾吸底。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，则表示相对于整个窗口吸底。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixedBottom.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性 */
   footerAffixedBottom: {
     type: [Boolean, Object] as PropType<TdBaseTableProps['footerAffixedBottom']>,
     default: false as TdBaseTableProps['footerAffixedBottom'],
@@ -178,10 +178,9 @@ export default {
     type: Boolean,
     default: true,
   },
-  /** 表格尺寸 */
+  /** 表格尺寸，支持全局配置 `GlobalConfigProvider`，默认全局配置值为 `medium` */
   size: {
     type: String as PropType<TdBaseTableProps['size']>,
-    default: 'medium' as TdBaseTableProps['size'],
     validator(val: TdBaseTableProps['size']): boolean {
       if (!val) return true;
       return ['small', 'medium', 'large'].includes(val);
