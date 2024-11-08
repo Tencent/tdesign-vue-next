@@ -14,7 +14,7 @@ import { TreeNodeModel } from '../tree';
 import { PopupVisibleChangeContext } from '../popup';
 import { TNode, TreeOptionData, SizeEnum, TreeKeysType } from '../common';
 
-export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOptionData> {
+export interface TdCascaderProps<T extends CascaderOption = CascaderOption> {
   /**
    * 自动聚焦
    */
@@ -42,8 +42,8 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    * 多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`collapsedSelectedItems` 表示折叠的标签，`count` 表示折叠的数量，`onClose` 表示移除标签的事件回调
    */
   collapsedItems?: TNode<{
-    value: CascaderOption[];
-    collapsedSelectedItems: CascaderOption[];
+    value: T[];
+    collapsedSelectedItems: T[];
     count: number;
     onClose: (context: { index: number; e?: MouseEvent }) => void;
   }>;
@@ -112,12 +112,12 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
   /**
    * 自定义单个级联选项
    */
-  option?: TNode<{ item: CascaderOption; index: number }>;
+  option?: TNode<{ item: T; index: number }>;
   /**
    * 可选项数据源
    * @default []
    */
-  options?: Array<CascaderOption>;
+  options?: Array<T>;
   /**
    * 面板内的底部内容
    */
@@ -235,15 +235,15 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
   /**
    * 当输入框失去焦点时触发
    */
-  onBlur?: (context: { value: CascaderValue<CascaderOption> } & SelectInputBlurContext) => void;
+  onBlur?: (context: { value: CascaderValue<T> } & SelectInputBlurContext) => void;
   /**
    * 选中值发生变化时触发。TreeNodeModel 从树组件中导出。`context.node` 表示触发事件的节点，`context.source` 表示触发事件的来源
    */
-  onChange?: (value: CascaderValue<CascaderOption>, context: CascaderChangeContext<CascaderOption>) => void;
+  onChange?: (value: CascaderValue<T>, context: CascaderChangeContext<T>) => void;
   /**
    * 获得焦点时触发
    */
-  onFocus?: (context: { value: CascaderValue<CascaderOption>; e: FocusEvent }) => void;
+  onFocus?: (context: { value: CascaderValue<T>; e: FocusEvent }) => void;
   /**
    * 下拉框显示或隐藏时触发
    */
@@ -251,13 +251,13 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
   /**
    * 多选模式下，选中数据被移除时触发
    */
-  onRemove?: (context: RemoveContext<CascaderOption>) => void;
+  onRemove?: (context: RemoveContext<T>) => void;
 }
 
 export type CascaderValue<T extends TreeOptionData = TreeOptionData> = string | number | T | Array<CascaderValue<T>>;
 
-export interface CascaderChangeContext<CascaderOption> {
-  node?: TreeNodeModel<CascaderOption>;
+export interface CascaderChangeContext<T> {
+  node?: TreeNodeModel<T>;
   source: CascaderChangeSource;
 }
 
@@ -267,3 +267,5 @@ export interface RemoveContext<T> {
   value: CascaderValue<T>;
   node: TreeNodeModel<T>;
 }
+
+export type CascaderOption = TreeOptionData;
