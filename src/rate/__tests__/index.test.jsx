@@ -39,6 +39,23 @@ describe('Rate', () => {
       const item = wrapper.find('.t-rate__item');
       expect(item.classes()).contains('t-rate__item--half');
     });
+    it(':clearable', async () => {
+      const wrapper = mount(Rate, {
+        props: {
+          defaultValue: 4,
+          clearable: true,
+        },
+      });
+
+      const items = wrapper.findAll('.t-rate__item--full');
+
+      expect(items.length).toBe(4);
+
+      items.at(3).trigger('click');
+      await wrapper.vm.$nextTick();
+      const newItems = wrapper.findAll('.t-rate__item--full');
+      expect(newItems.length).toBe(0);
+    });
     it(':color String', async () => {
       const wrapper = mount(Rate, {
         props: {

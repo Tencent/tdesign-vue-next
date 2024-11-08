@@ -208,7 +208,9 @@ export interface TdSelectProps<T extends SelectOption = SelectOption> {
   /**
    * 自定义选中项呈现的内容
    */
-  valueDisplay?: string | TNode<{ value: SelectValue; onClose: (index: number) => void; displayValue?: SelectValue }>;
+  valueDisplay?:
+    | string
+    | TNode<{ value: SelectValue; onClose: (index: number) => void; displayValue?: SelectValue; label?: string }>;
   /**
    * 用于控制选中值的类型。假设数据选项为：`[{ label: '姓名', value: 'name' }]`，value 表示值仅返回数据选项中的 value， object 表示值返回全部数据。
    * @default value

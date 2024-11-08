@@ -9,6 +9,7 @@ import {
   PrimaryTableCellParams,
   TableExpandedRowParams,
   RowEventContext,
+  RowClassNameParams,
 } from '../type';
 import useClassName from './useClassName';
 import { useTNodeJSX } from '../../hooks/tnode';
@@ -37,6 +38,14 @@ export default function useRowExpand(props: TdPrimaryTableProps, context: SetupC
   const showExpandIconColumn = computed(() => props.expandIcon !== false && showExpandedRow.value);
 
   const isFirstColumnFixed = computed(() => props.columns?.[0]?.fixed === 'left');
+
+  const getExpandedRowClass = (params: RowClassNameParams<TableRowData>) => {
+    // 如果没有配置展开行，则不需要增加展开收起相关的类名
+    if (!showExpandedRow.value) return null;
+    const { row, rowKey } = params;
+    const currentRowKey = get(row, rowKey || 'id');
+    return tableExpandClasses[tExpandedRowKeys.value?.includes(currentRowKey) ? 'rowExpanded' : 'rowFolded'];
+  };
 
   const onToggleExpand = (e: MouseEvent, row: TableRowData) => {
     props.expandOnRowClick && e.stopPropagation();
@@ -113,5 +122,6 @@ export default function useRowExpand(props: TdPrimaryTableProps, context: SetupC
     getExpandColumn,
     renderExpandedRow,
     onInnerExpandRowClick,
+    getExpandedRowClass,
   };
 }

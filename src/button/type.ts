@@ -26,6 +26,10 @@ export interface TdButtonProps {
    */
   disabled?: boolean;
   /**
+   * 原生的form属性，支持用于通过form属性对于id的form的表单事件
+   */
+  form?: string;
+  /**
    * 是否为幽灵按钮（镂空按钮）
    * @default false
    */
@@ -44,10 +48,10 @@ export interface TdButtonProps {
    * @default false
    */
   loading?: boolean;
-   /**
+  /**
    * 透传加载组件全部属性
    */
-   loadingProps?: Partial<LoadingProps>;
+  loadingProps?: Partial<LoadingProps>;
   /**
    * 按钮形状，有 4 种：长方形、正方形、圆角长方形、圆形
    * @default rectangle

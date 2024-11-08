@@ -76,7 +76,7 @@ export default function useAffix(props: TdBaseTableProps) {
   };
 
   const updateAffixHeaderOrFooter = () => {
-    if (!isAffixed.value && !isVirtualScroll.value) return;
+    if (!isAffixed.value && !isVirtualScroll.value && !tableContentRef.value) return;
     const pos = tableContentRef.value?.getBoundingClientRect();
     const headerRect = tableContentRef.value?.querySelector('thead')?.getBoundingClientRect();
     const headerHeight = headerRect?.height || 0;

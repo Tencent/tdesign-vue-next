@@ -1,6 +1,6 @@
 <template>
   <t-tooltip content="在 CodeSandbox 中打开">
-    <t-loading size="small" :loading="false">
+    <t-loading v-show="isCodesandboxAvailable" size="small" :loading="isLoading">
       <div class="action-online" @click="onRunOnline">
         <svg fill="none" height="20" viewBox="0 0 23 23" width="20" xmlns="http://www.w3.org/2000/svg">
           <g clip-rule="evenodd" fill-rule="evenodd">
@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import { defineComponent, computed, ref } from 'vue';
-import { htmlContent, mainJsContent, styleContent, packageJSONContent, viteConfigContent } from './content';
+import { defineComponent, ref, onMounted, nextTick, onBeforeUnmount } from 'vue';
+import { htmlContent, mainJsContent, styleContent, packageJSONContent } from './content';
 
 export default defineComponent({
   name: 'CodeSandbox',
@@ -31,15 +31,38 @@ export default defineComponent({
   },
   setup(props) {
     const code = ref('');
-    const params = computed(() => {
-      return getCodeSandboxParams(code.value, {
-        title: `${props.demoName} - ${props.componentName}`,
+    const isLoading = ref(false);
+    const renderCodeObserver = ref(null);
+    const observeDom = ref(null);
+    // TODO: codesandbox + setup tsx
+    const isCodesandboxAvailable = ref(true);
+    onMounted(() => {
+      nextTick(() => {
+        const currentRenderCode = document.querySelector(
+          `td-doc-demo[demo-name='${props.demoName}']`,
+        )?.currentRenderCode;
+        // only script include jsx/tsx need to check
+        const toggleCodesandbox = /lang\=\"jsx\"/.test(currentRenderCode);
+        if (toggleCodesandbox) {
+          renderCodeObserver.value = new MutationObserver((mutations) => {
+            const isTsx = /lang\=\"tsx\"/.test(mutations[0].target.currentRenderCode);
+            isCodesandboxAvailable.value = !isTsx;
+          });
+          observeDom.value = document.querySelector(`td-doc-demo[demo-name='${props.demoName}']`);
+          renderCodeObserver.value.observe(observeDom.value, { attributes: true });
+        }
       });
+    });
+
+    onBeforeUnmount(() => {
+      renderCodeObserver.value?.unobserve?.(observeDom.value);
+      renderCodeObserver.value?.disconnect?.();
+      renderCodeObserver.value = null;
     });
 
     const onRunOnline = () => {
       code.value = document.querySelector(`td-doc-demo[demo-name='${props.demoName}']`).currentRenderCode;
-
+      isLoading.value = true;
       fetch('https://codesandbox.io/api/v1/sandboxes/define?json=1', {
         method: 'POST',
         headers: {
@@ -49,7 +72,7 @@ export default defineComponent({
         body: JSON.stringify({
           files: {
             'package.json': {
-              content: packageJSONContent,
+              content: packageJSONContent(`tdesign-vue-next-${props.componentName}-${props.demoName}-demo`),
             },
             'index.html': {
               content: htmlContent,
@@ -63,9 +86,6 @@ export default defineComponent({
             'src/demo.vue': {
               content: code.value,
             },
-            'vite.config.js': {
-              content: viteConfigContent,
-            },
           },
         }),
       })
@@ -73,14 +93,13 @@ export default defineComponent({
         .then(({ sandbox_id: sandboxId }) => {
           window.open(`https://codesandbox.io/s/${sandboxId}?file=/src/demo.vue`);
         })
-        .finally(() => (this.loading = false));
+        .finally(() => (isLoading.value = false));
     };
     return {
-      params,
       onRunOnline,
+      isLoading,
+      isCodesandboxAvailable,
     };
   },
 });
 </script>
-
-<style lang="scss" scoped></style>

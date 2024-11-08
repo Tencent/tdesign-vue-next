@@ -11,6 +11,7 @@ import {
   VNodeChild,
 } from 'vue';
 import isArray from 'lodash/isArray';
+import { getChildren } from '../utils/render-tnode';
 
 /**
  * 渲染default slot，获取子组件VNode。处理多种子组件创建场景
@@ -28,21 +29,6 @@ export function useChildComponentSlots() {
       slots = instance.slots;
     }
     const content = slots?.default?.() || [];
-
-    // 满足基于基础组件封装场景，递归找到子组件
-    const childList: VNode[] = [];
-    const getChildren = (content: VNode[]) => {
-      if (!isArray(content)) return;
-      content.forEach((item: VNode) => {
-        if (item.children && isArray(item.children)) {
-          if (item.type !== Fragment) return;
-          getChildren(item.children as VNode[]);
-        } else {
-          childList.push(item);
-        }
-      });
-      return childList;
-    };
 
     return getChildren(content).filter((item: VNode) =>
       (item.type as Component).name?.endsWith(childComponentName),

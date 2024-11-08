@@ -1,9 +1,10 @@
 :: BASE_DOC ::
 
 ## API
+
 ### Watermark Props
 
-名称 | 类型 | 默认值 | 说明 | 必传
+名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
 alpha | Number | 1 | 水印整体透明度，取值范围 [0-1] | N
 content | String / Slot / Function | - | 水印所覆盖的内容节点。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
@@ -24,7 +25,7 @@ zIndex | Number | - | 水印元素的 `z-index`，默认值写在 CSS 中 | N
 
 ### WatermarkText
 
-名称 | 类型 | 默认值 | 说明 | 必传
+名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
 fontColor | String | rgba(0,0,0,0.1) | 水印文本文字颜色 | N
 fontFamily | String | - | 水印文本文字字体 | N
@@ -34,7 +35,7 @@ text | String | - | 水印文本内容 | N
 
 ### WatermarkImage
 
-名称 | 类型 | 默认值 | 说明 | 必传
+名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
 isGrayscale | Boolean | false | 水印图片是否需要灰阶显示 | N
 url | String | - | 水印图片源地址，为了显示清楚，建议导出 2 倍或 3 倍图 | N

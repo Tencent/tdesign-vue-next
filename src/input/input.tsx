@@ -88,12 +88,14 @@ export default defineComponent({
         disabled: disabled.value,
         readonly: readonly.value,
         placeholder: tPlaceholder.value,
-        maxlength: (!props.allowInputOverMax && props.maxlength) || undefined,
         name: props.name || undefined,
         type: renderType.value,
         autocomplete: props.autocomplete ?? (globalConfig.value.autocomplete || undefined),
         unselectable: readonly.value ? 'on' : undefined,
         spellcheck: props.spellCheck,
+        // 不要传给 input 原生元素 maxlength，浏览器默认行为会按照 unicode 进行限制，与 maxLength API 违背
+        // https://github.com/Tencent/tdesign-vue-next/issues/4413
+        // 参见： https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/maxlength，提到了字符串长度的计算方法，就是 str.length
       }),
     );
 
@@ -145,14 +147,11 @@ export default defineComponent({
         ) : null;
 
       if (props.type === 'password') {
+        const passwordClass = [{ [`${COMPONENT_NAME.value}__suffix-clear`]: !disabled.value }];
         if (renderType.value === 'password') {
-          suffixIcon = (
-            <BrowseOffIcon class={`${COMPONENT_NAME.value}__suffix-clear`} onClick={inputHandle.emitPassword} />
-          );
+          suffixIcon = <BrowseOffIcon class={passwordClass} onClick={inputHandle.emitPassword} />;
         } else if (renderType.value === 'text') {
-          suffixIcon = (
-            <BrowseIcon class={`${COMPONENT_NAME.value}__suffix-clear`} onClick={inputHandle.emitPassword} />
-          );
+          suffixIcon = <BrowseIcon class={passwordClass} onClick={inputHandle.emitPassword} />;
         }
       }
 
@@ -230,7 +229,7 @@ export default defineComponent({
             />
             {props.autoWidth && (
               <span ref={inputPreRef} class={`${classPrefix.value}-input__input-pre`}>
-                {innerValue.value || tPlaceholder.value}
+                {isComposition.value ? compositionValue.value ?? '' : innerValue.value || tPlaceholder.value}
               </span>
             )}
             {suffixContent}

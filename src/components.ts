@@ -50,6 +50,7 @@ export * from './badge';
 export * from './calendar';
 export * from './card';
 export * from './comment';
+export * from './empty';
 export * from './image';
 export * from './image-viewer';
 export * from './list';
@@ -65,7 +66,7 @@ export * from './tree';
 export * from './collapse';
 export * from './watermark';
 export * from './rate';
-
+export * from './typography';
 // 消息提醒
 
 export * from './alert';

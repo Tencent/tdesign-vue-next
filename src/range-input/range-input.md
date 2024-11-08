@@ -7,8 +7,9 @@
 名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
 activeIndex | Number | - | 输入框高亮状态序号 | N
+borderless | Boolean | false | 无边框模式 | N
 clearable | Boolean | false | 是否可清空 | N
-disabled | Boolean | - | 是否禁用范围输入框 | N
+disabled | Boolean | undefined | 是否禁用范围输入框 | N
 format | Array / Function | - | 指定输入框展示值的格式。TS 类型：`InputFormatType \| Array<InputFormatType>` | N
 inputProps | Object / Array | - | 透传 Input 输入框组件全部属性，数组第一项表示第一个输入框属性，第二项表示第二个输入框属性。示例：`[{ label: 'A', name: 'A-name' }, { label: 'B',  name: 'B-name' }]`。TS 类型：`InputProps \| Array<InputProps>`，[Input API Documents](./input?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/range-input/type.ts) | N
 label | String / Slot / Function | - | 左侧内容。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N

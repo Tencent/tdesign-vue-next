@@ -1,6 +1,7 @@
 :: BASE_DOC ::
 
 ## API
+
 ### Form Props
 
 name | type | default | description | required
@@ -10,11 +11,12 @@ data | Object | {} | Typescript：`FormData` | N
 disabled | Boolean | undefined | \- | N
 errorMessage | Object | - | Typescript：`FormErrorMessage` | N
 formControlledComponents | Array | - | Typescript：`Array<string>` | N
+id | String | undefined | native id attribute of the form，which supports being used in conjunction with non-form buttons through the form attribute to trigger form events | N
 labelAlign | String | right | options: left/right/top | N
 labelWidth | String / Number | '100px' | \- | N
 layout | String | vertical | options: vertical/inline | N
 preventSubmitDefault | Boolean | true | \- | N
-readonly | Boolean | - | \- | N
+readonly | Boolean | undefined | Whether the entire form is read-only (* input, checkbox, TagInput, and InputNumber are only supported for the time being) | N
 requiredMark | Boolean | true | \- | N
 resetType | String | empty | options: empty/initial | N
 rules | Object | - | Typescript：`FormRules<FormData>` `type FormRules<T extends Data = any> = { [field in keyof T]?: Array<FormRule> }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/form/type.ts) | N
@@ -44,6 +46,7 @@ setValidateMessage | `(message: FormValidateMessage<FormData>)` | \- | required�
 submit | `(params?: { showErrorMessage?: boolean })` | \- | required
 validate | `(params?: FormValidateParams)` | `Promise<FormValidateResult<FormData>>` | required。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/form/type.ts)。<br/>`interface FormValidateParams { fields?: Array<string>; showErrorMessage?: boolean; trigger?: ValidateTriggerType }`<br/><br/>`type ValidateTriggerType = 'blur' \| 'change' \| 'submit' \| 'all'`<br/>
 validateOnly | `(params?: Pick<FormValidateParams, 'fields' \| 'trigger'>)` | `Promise<FormValidateResult<FormData>>` | required
+
 
 ### FormItem Props
 
@@ -103,3 +106,4 @@ required | String | - | \- | N
 telnumber | String | - | \- | N
 url | String | - | \- | N
 validator | String | - | \- | N
+whitespace | String | - | \- | N

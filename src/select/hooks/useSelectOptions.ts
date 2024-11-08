@@ -18,7 +18,6 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inpu
 
   const options = computed(() => {
     let dynamicIndex = 0;
-
     // 统一处理 keys,处理通用数据
     const innerOptions: UniOption[] =
       props.options?.map((option) => {
@@ -29,7 +28,7 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inpu
             index: dynamicIndex,
             label: get(option, label),
             value: get(option, value),
-            disabled: get(option, disabled),
+            disabled: get(option, disabled) || false,
           };
           dynamicIndex++;
           return res;

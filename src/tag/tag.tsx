@@ -1,5 +1,6 @@
-import { computed, defineComponent, h, VNode } from 'vue';
+import { computed, defineComponent, getCurrentInstance, h, VNode } from 'vue';
 import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
+import isString from 'lodash/isString';
 import tinycolor from 'tinycolor2';
 
 import props from './props';
@@ -7,7 +8,6 @@ import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfi
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import { Styles } from '../common';
-import isString from 'lodash/isString';
 
 export default defineComponent({
   name: 'TTag',
@@ -19,6 +19,7 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const renderContent = useContent();
     const { SIZE } = useCommonClassName();
+    const { vnode } = getCurrentInstance();
 
     const tagClass = computed(() => {
       return [
@@ -34,18 +35,16 @@ export default defineComponent({
         props.shape !== 'square' && `${COMPONENT_NAME.value}--${props.shape}`,
       ];
     });
-
     const tagStyle = computed<Styles>(() => {
-      const { maxWidth } = props;
+      return getTagColorStyle();
+    });
 
-      const styles = getTagColorStyle();
+    const textStyle = computed<Styles>(() => {
+      if (!props.maxWidth) return {};
 
-      return props.maxWidth
-        ? {
-            maxWidth: isNaN(Number(maxWidth)) ? String(maxWidth) : `${maxWidth}px`,
-            ...styles,
-          }
-        : styles;
+      return {
+        maxWidth: isNaN(Number(props.maxWidth)) ? String(props.maxWidth) : `${props.maxWidth}px`,
+      };
     });
 
     const getTagColorStyle = () => {
@@ -89,12 +88,29 @@ export default defineComponent({
       return (
         <CloseIcon
           onClick={({ e }: { e: MouseEvent }) => {
-            e.stopPropagation();
+            if (e) e.stopPropagation();
             props.onClose?.({ e });
           }}
           class={iconClassName}
         />
       );
+    };
+
+    const renderTitle = (tagContent: string) => {
+      if (!props.maxWidth) {
+        return undefined;
+      }
+
+      const vProps = vnode.props || {};
+      if (Reflect.has(vProps, 'title')) {
+        return vProps.title || undefined;
+      }
+
+      if (tagContent) {
+        return tagContent;
+      }
+
+      return undefined;
     };
 
     return () => {
@@ -105,13 +121,16 @@ export default defineComponent({
       // 图标
       const icon = renderTNodeJSX('icon');
 
-      const title = isString(tagContent) ? tagContent : '';
-      const titleAttribute = title && props.maxWidth ? title : undefined;
+      const title = renderTitle(isString(tagContent) ? tagContent : '');
 
       return (
         <div class={tagClass.value} style={tagStyle.value} onClick={handleClick}>
           {icon}
-          <span class={`${COMPONENT_NAME.value}--text`} title={titleAttribute}>
+          <span
+            class={props.maxWidth ? `${COMPONENT_NAME.value}--text` : undefined}
+            style={textStyle.value}
+            title={title}
+          >
             {tagContent}
           </span>
           {!props.disabled && closeIcon}

@@ -10,7 +10,7 @@ import TInput from '../input';
 import props from './props';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { TdInputNumberProps } from './type';
-import useInputNumber from './useInputNumber';
+import useInputNumber from './hooks/useInputNumber';
 import { useTNodeJSX } from '../hooks';
 
 export default defineComponent({

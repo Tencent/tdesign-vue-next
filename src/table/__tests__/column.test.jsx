@@ -72,5 +72,27 @@ TABLES.forEach((TTable) => {
       expect(tdList[3].classes('tdesign-class')).toBeTruthy();
       expect(tdList[3].classes('tdesign-class1')).toBeFalsy();
     });
+
+    // 校验逻辑与上面columns.className一致
+    it('Props.columns.thClassName works fine', () => {
+      const columns = [
+        { title: 'Index', colKey: 'index', thClassName: () => ['th-class'] },
+        { title: 'Instance', colKey: 'instance', thClassName: 'th-class' },
+        { title: 'description', colKey: 'instance', thClassName: [{ 'th-class': true }] },
+        { title: 'Owner', colKey: 'owner', thClassName: { 'th-class': true, 'th-class1': false } },
+      ];
+      const wrapper = mount({
+        render() {
+          return <TTable rowKey="index" data={data} columns={columns}></TTable>;
+        },
+      });
+      const thWrapper = wrapper.find('thead > tr');
+      const thList = thWrapper.findAll('th');
+      expect(thList[0].classes('th-class')).toBeTruthy();
+      expect(thList[1].classes('th-class')).toBeTruthy();
+      expect(thList[2].classes('th-class')).toBeTruthy();
+      expect(thList[3].classes('th-class')).toBeTruthy();
+      expect(thList[3].classes('th-class1')).toBeFalsy();
+    });
   });
 });

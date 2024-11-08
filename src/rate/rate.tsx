@@ -12,6 +12,7 @@ export default defineComponent({
   props: { ...props },
   setup(props, { slots }) {
     const renderTNodeJSX = useTNodeJSX();
+    const { globalConfig } = useConfig('rate');
 
     const activeColor = isArray(props.color) ? props.color[0] : props.color;
     const defaultColor = isArray(props.color) ? props.color[1] : 'var(--td-bg-color-component)';
@@ -23,9 +24,7 @@ export default defineComponent({
     const root = ref<HTMLTableElement>();
 
     const displayValue = computed(() => Number(hoverValue.value || starValue.value));
-    const displayTexts = computed(() =>
-      props.texts.length === 0 ? ['极差', '失望', '一般', '满意', '惊喜'] : props.texts,
-    );
+    const displayTexts = computed(() => (props.texts.length === 0 ? globalConfig.value.rateText : props.texts));
     const displayText = computed(() => displayTexts.value[Math.ceil(displayValue.value - 1)]);
 
     // 评分图标
@@ -66,7 +65,13 @@ export default defineComponent({
 
     const clickHandler = (event: MouseEvent, index: number) => {
       if (props.disabled) return;
-      setStarValue(getStarValue(event, index));
+      const value = getStarValue(event, index);
+      if (props.clearable && value === starValue.value) {
+        hoverValue.value = undefined;
+        setStarValue(0);
+      } else {
+        setStarValue(value);
+      }
     };
 
     const getStarCls = (index: number) => {
@@ -112,7 +117,7 @@ export default defineComponent({
               </li>
             ))}
           </ul>
-          {props.showText && <div className={`${classPrefix.value}-rate__text`}>{displayText.value}</div>}
+          {props.showText && <div class={`${classPrefix.value}-rate__text`}>{displayText.value}</div>}
         </div>
       );
     };

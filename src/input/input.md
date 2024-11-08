@@ -11,7 +11,7 @@ allowInputOverMax | Boolean | false | 超出 `maxlength` 或 `maxcharacter` 之�
 autoWidth | Boolean | false | 宽度随内容自适应 | N
 autocomplete | String | undefined | 是否开启自动填充功能，HTML5 原生属性，[点击查看详情](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) | N
 autofocus | Boolean | false | 自动聚焦 | N
-borderless | Boolean | false | 无边框模式 | N
+borderless | Boolean | false | 是否开启无边框模式 | N
 clearable | Boolean | false | 是否可清空 | N
 disabled | Boolean | undefined | 是否禁用输入框 | N
 format | Function | - | 指定输入框展示值的格式。注意 `type=number` 时请勿使用，此功能建议更为使用 `InputNumber` 组件。TS 类型：`InputFormatType` `type InputFormatType = (value: string) => string`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/input/type.ts) | N
@@ -27,7 +27,7 @@ showClearIconOnEmpty | Boolean | false | 输入框内容为空时，悬浮状态
 showLimitNumber | Boolean | false | 是否在输入框右侧显示字数统计 | N
 size | String | medium | 输入框尺寸。可选项：small/medium/large。TS 类型：`SizeEnum`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 spellCheck | Boolean | false | 是否开启拼写检查，HTML5 原生属性，[点击查看详情](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/spellcheck) | N
-status | String | undefined | 输入框状态。默认情况会由组件内部根据实际情况呈现，如果文本过长引起的状态变化。可选项：default/success/warning/error | N
+status | String | default | 输入框状态。可选项：default/success/warning/error | N
 suffix | String / Slot / Function | - | 后置图标前的后置内容。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 suffixIcon | Slot / Function | - | 组件后置图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 tips | String / Slot / Function | - | 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N

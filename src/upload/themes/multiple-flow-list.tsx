@@ -5,12 +5,12 @@ import {
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
   TimeFilledIcon as TdTimeFilledIcon,
-  FileExcelIcon,
-  FilePdfIcon,
-  FileWordIcon,
-  FilePowerpointIcon,
-  FileIcon,
-  VideoIcon,
+  FileExcelIcon as TdFileExcelIcon,
+  FilePdfIcon as TdFilePdfIcon,
+  FileWordIcon as TdFileWordIcon,
+  FilePowerpointIcon as TdFilePowerpointIcon,
+  FileIcon as TdFileIcon,
+  VideoIcon as TdVideoIcon,
 } from 'tdesign-icons-vue-next';
 import isFunction from 'lodash/isFunction';
 import isObject from 'lodash/isObject';
@@ -76,12 +76,30 @@ export default defineComponent({
 
     const renderTNodeJSX = useTNodeJSX();
 
-    const { BrowseIcon, DeleteIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon, TimeFilledIcon } = useGlobalIcon({
+    const {
+      BrowseIcon,
+      DeleteIcon,
+      CheckCircleFilledIcon,
+      ErrorCircleFilledIcon,
+      TimeFilledIcon,
+      FileExcelIcon,
+      FilePdfIcon,
+      FileWordIcon,
+      FilePowerpointIcon,
+      FileIcon,
+      VideoIcon,
+    } = useGlobalIcon({
       BrowseIcon: TdBrowseIcon,
       DeleteIcon: TdDeleteIcon,
       CheckCircleFilledIcon: TdCheckCircleFilledIcon,
       ErrorCircleFilledIcon: TdErrorCircleFilledIcon,
       TimeFilledIcon: TdTimeFilledIcon,
+      FileExcelIcon: TdFileExcelIcon,
+      FilePdfIcon: TdFilePdfIcon,
+      FileWordIcon: TdFileWordIcon,
+      FilePowerpointIcon: TdFilePowerpointIcon,
+      FileIcon: TdFileIcon,
+      VideoIcon: TdVideoIcon,
     });
 
     const drag = useDrag(props.dragEvents, accept);
@@ -321,7 +339,8 @@ export default defineComponent({
                 fileName
               );
               const fileNameNode = file.url ? (
-                <Link href={file.url} target="_blank" hover="color">
+                // 此次需要设置disabled为false 否则链接会跟随表单不可点击
+                <Link href={file.url} target="_blank" hover="color" disabled={false}>
                   {thumbnailNode}
                 </Link>
               ) : (
