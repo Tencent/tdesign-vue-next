@@ -277,7 +277,6 @@ export default defineComponent({
       baseClassName,
       statusClassNames,
       globalConfig,
-      recentColors,
       swatchColors,
       showPrimaryColorPreview,
       isGradient,
@@ -286,7 +285,7 @@ export default defineComponent({
       color: this.color,
       disabled: this.disabled,
     };
-    const showUsedColors = recentColors !== null && recentColors !== false;
+    const showUsedColors = this.recentlyUsedColors !== null && this.recentlyUsedColors !== false;
 
     let systemColors = swatchColors;
     if (systemColors === undefined) {
