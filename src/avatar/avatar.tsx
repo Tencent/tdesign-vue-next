@@ -1,4 +1,4 @@
-import { computed, defineComponent, inject, nextTick, onMounted, onUpdated, ref } from 'vue';
+import { computed, defineComponent, inject, nextTick, onMounted, onUpdated, ref, watch } from 'vue';
 import props from './props';
 import { TdAvatarProps } from './type';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
@@ -77,6 +77,16 @@ export default defineComponent({
         setScaleParams();
       });
     });
+
+    watch(
+      () => props.image,
+      (val) => {
+        if (val) {
+          // 重置 flag，避免切换后无法渲染
+          isImgExist.value = true;
+        }
+      },
+    );
 
     return () => {
       let content = renderContent('default', 'content');
