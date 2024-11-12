@@ -61,7 +61,8 @@ if your project is in a **no-network scenario**, please use **on-demand loading*
   <svg fill="none" viewBox="0 0 16 16" width="16px" height="16px" style="margin-right: 5px">
     <path fill="#0052d9" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillOpacity="0.9"></path>
   </svg>
-  Most icons were added to the icon library after version 0.2.0. If you find that the icon cannot be displayed normally after being imported, please check the version of tdesign-icons-vue-next you have installed</div>
+<p style="flex:1">Most icons were added to the icon library after version 0.3.0. If you find that the icon cannot be displayed normally after being imported, please check the version of tdesign-icons-vue-next you have installed. Supports Chinese and English search. If you think other keyword prompts can be added, feel free to submit a Pull Request to <a href="https://github.com/Tencent/tdesign-icons/blob/develop/packages/view/src/manifest.js" target="_blank"> the Icon Repository</a> to help us complete it together. </p>
+</div>
 
 
 <td-icons-view />
