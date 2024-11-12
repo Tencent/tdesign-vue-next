@@ -19,8 +19,20 @@ export function expendClickEffect(
   node: TreeNode,
   cascaderContext: CascaderContextType,
 ) {
-  const { checkStrictly, multiple, treeStore, setVisible, setValue, setTreeNodes, setExpend, value, max, valueType } =
-    cascaderContext;
+  const {
+    checkStrictly,
+    multiple,
+    treeStore,
+    setVisible,
+    setValue,
+    setTreeNodes,
+    setExpend,
+    value,
+    max,
+    valueType,
+    inputVal,
+    filter,
+  } = cascaderContext;
 
   const isDisabled = node.disabled || (multiple && (value as TreeNodeValue[]).length >= max && max !== 0);
 
@@ -30,8 +42,9 @@ export function expendClickEffect(
     const expanded = node.setExpanded(true);
     treeStore.refreshNodes();
     treeStore.replaceExpanded(expanded);
-    const nodes = treeStore.getNodes().filter((node: TreeNode) => node.visible);
-    setTreeNodes(nodes);
+
+    // 搜索状态下更新treeNodes
+    treeNodesEffect(inputVal, treeStore, setTreeNodes, filter);
 
     // 多选条件下手动维护expend
     if (multiple) {
@@ -173,20 +186,19 @@ export const treeNodesEffect = (
   filter: CascaderContextType['filter'],
 ) => {
   if (!treeStore) return;
-  let nodes = [];
-  if (inputVal) {
-    const filterMethods = (node: TreeNode) => {
-      if (isFunction(filter)) {
-        return filter(`${inputVal}`, node as TreeNodeModel & TreeNode);
-      }
-      const fullPathLabel = getFullPathLabel(node, '');
-      return fullPathLabel.indexOf(`${inputVal}`) > -1;
-    };
 
-    nodes = treeStore.nodes.filter(filterMethods);
-  } else {
-    nodes = treeStore.getNodes().filter((node: TreeNode) => node.visible);
-  }
+  const filterMethods = (node: TreeNode) => {
+    if (isFunction(filter)) {
+      return filter(`${inputVal}`, node as TreeNodeModel & TreeNode);
+    }
+    const fullPathLabel = getFullPathLabel(node, '');
+    return fullPathLabel.includes(`${inputVal}`) && !Array.isArray(node.children) && node.visible;
+  };
+
+  const nodes = inputVal
+    ? treeStore.nodes.filter((item) => filterMethods(item))
+    : treeStore.getNodes().filter((node) => node.visible);
+
   setTreeNodes(nodes);
 };
 
