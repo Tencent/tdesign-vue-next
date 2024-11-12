@@ -15,7 +15,8 @@ export default function useInputWidth(
 
   const updateInputWidth = () => {
     if (!inputPreRef.value || !inputRef.value) return;
-    const { width } = inputPreRef.value.getBoundingClientRect();
+    // 使用 offsetWidth，会丢失精度，但是在配合 transform 的场景下，不会受到 scale 影响从而设置到错误的宽度
+    const width = inputPreRef.value.offsetWidth;
     inputRef.value.style.width = `${width || 0}px`;
   };
 
