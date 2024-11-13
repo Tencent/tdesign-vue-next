@@ -18,7 +18,7 @@ export default {
   },
   /** 取消按钮，可自定义。值为 null 则不显示取消按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制取消事件 */
   cancelBtn: {
-    type: [String, Object, Function, null] as PropType<TdDialogProps['cancelBtn']>,
+    type: [String, Object, Function] as PropType<TdDialogProps['cancelBtn']>,
   },
   /** 关闭按钮，可以自定义。值为 true 显示默认关闭按钮，值为 false 不显示关闭按钮。值类型为 string 则直接显示值，如：“关闭”。值类型为 TNode，则表示呈现自定义按钮示例 */
   closeBtn: {
@@ -31,13 +31,10 @@ export default {
     default: undefined,
   },
   /** 点击蒙层时是否触发关闭事件 */
-  closeOnOverlayClick: {
-    type: Boolean,
-    default: undefined,
-  },
+  closeOnOverlayClick: Boolean,
   /** 确认按钮。值为 null 则不显示确认按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制确认事件 */
   confirmBtn: {
-    type: [String, Object, Function, null] as PropType<TdDialogProps['confirmBtn']>,
+    type: [String, Object, Function] as PropType<TdDialogProps['confirmBtn']>,
   },
   /** 确认按钮加载状态 */
   confirmLoading: {
@@ -52,6 +49,7 @@ export default {
   },
   /** 是否在关闭弹框的时候销毁子元素 */
   destroyOnClose: Boolean,
+  /** 弹框元素类名，示例：'t-class-dialog-first t-class-dialog-second' */
   dialogClassName: {
     type: String,
     default: '',
@@ -72,13 +70,13 @@ export default {
     type: [String, Boolean, Function] as PropType<TdDialogProps['header']>,
     default: true as TdDialogProps['header'],
   },
-  /** 对话框类型，有 4 种：模态对话框、非模态对话框、普通对话框、全屏对话框。弹出「模态对话框」时，只能操作对话框里面的内容，不能操作其他内容。弹出「非模态对话框」时，则可以操作页面内所有内容。「普通对话框」是指没有脱离文档流的对话框，可以在这个基础上开发更多的插件 */
+  /** 对话框类型，有 3 种：模态对话框、非模态对话框、全屏对话框。弹出「模态对话框」时，只能操作对话框里面的内容，不能操作其他内容。弹出「非模态对话框」时，则可以操作页面内所有内容。「普通对话框」是指没有脱离文档流的对话框，可以在这个基础上开发更多的插件 */
   mode: {
     type: String as PropType<TdDialogProps['mode']>,
     default: 'modal' as TdDialogProps['mode'],
     validator(val: TdDialogProps['mode']): boolean {
       if (!val) return true;
-      return ['modal', 'modeless', 'normal', 'full-screen'].includes(val);
+      return ['modal', 'modeless', 'full-screen'].includes(val);
     },
   },
   /** 对话框位置，内置两种：垂直水平居中显示 和 靠近顶部（top:20%）显示。默认情况，为避免贴顶或贴底，顶部和底部距离最小为 `48px`，可通过调整 `top` 覆盖默认大小 */
@@ -125,6 +123,10 @@ export default {
   zIndex: {
     type: Number,
   },
+  /** 对话框执行消失动画效果前触发 */
+  onBeforeClose: Function as PropType<TdDialogProps['onBeforeClose']>,
+  /** 对话框执行弹出动画效果前触发 */
+  onBeforeOpen: Function as PropType<TdDialogProps['onBeforeOpen']>,
   /** 如果“取消”按钮存在，则点击“取消”按钮时触发，同时触发关闭事件 */
   onCancel: Function as PropType<TdDialogProps['onCancel']>,
   /** 关闭事件，点击取消按钮、点击关闭按钮、点击蒙层、按下 ESC 等场景下触发 */

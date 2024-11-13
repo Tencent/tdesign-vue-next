@@ -258,10 +258,21 @@ export default defineComponent({
       });
     };
 
+    // 打开弹窗动画开始时事件
+    const beforeEnter = () => {
+      props.onBeforeOpen?.();
+    };
+
     // 打开弹窗动画结束时事件
     const afterEnter = () => {
       props.onOpened?.();
     };
+
+    // 关闭弹窗动画开始时事件
+    const beforeLeave = () => {
+      props.onBeforeClose?.();
+    };
+
     // 关闭弹窗动画结束时事件
     const afterLeave = () => {
       if (isModeLess.value && props.draggable && dialogEle.value) {
@@ -416,7 +427,9 @@ export default defineComponent({
       dialogClass,
       dialogStyle,
       dialogEle,
+      beforeEnter,
       afterEnter,
+      beforeLeave,
       afterLeave,
       hasEventOn,
       renderDialog,
@@ -445,7 +458,9 @@ export default defineComponent({
         <Transition
           duration={300}
           name={`${COMPONENT_NAME}-zoom__vue`}
+          onBeforeEnter={this.beforeEnter}
           onAfterEnter={this.afterEnter}
+          onBeforeLeave={this.beforeLeave}
           onAfterLeave={this.afterLeave}
         >
           {(!this.destroyOnClose || this.visible) && (
