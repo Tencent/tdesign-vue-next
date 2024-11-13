@@ -3,7 +3,7 @@
 ### 安装独立 Icon 包
 
 图标相对其他基础组件较为独立，所以作为一个独立的 `npm` 包做发布管理。如果项目中直接使用，请安装 `tdesign-icons-vue-next`。 同时 `tdesign-vue-next` 也内置了 `icon`, 支持直接通过 `t-icon` 来使用。
-图标库中共包含超过 **25** 类，**1200+** 个图标，推荐您按需引用图标，减少产物的体积。
+图标库中共包含超过 **25** 类，**2100+** 个图标，推荐您按需引用图标，减少产物的体积。
 
 ### 按需引入使用图标
 
@@ -71,7 +71,8 @@ TDesign 支持通过使用 Iconfont 图标，使用时需要单独引入 Iconfon
   <svg fill="none" viewBox="0 0 16 16" width="16px" height="16px" style="margin-right: 5px">
     <path fill="#0052d9" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillOpacity="0.9"></path>
   </svg>
- 大部分图标在 0.2.0 版本后的图标库新增，如果发现图标引入后无法正常展示，请检查安装的图标库`tdesign-icons-vue-next`的版本。
+ <p style="flex: 1">大部分图标在 0.3.0 版本后的图标库新增，如果发现图标引入后无法正常展示，请检查安装的图标库`tdesign-icons-vue-next`的版本。支持中文英文搜索，如果觉得可以再增加其他关键词提示，欢迎到 <a href="https://github.com/Tencent/tdesign-icons/blob/develop/packages/view/src/manifest.js" target="_blank" > 图标仓库</a> 提交PR，帮我们一起补充。
+ </p>
 </div>
 
 <td-icons-view />
