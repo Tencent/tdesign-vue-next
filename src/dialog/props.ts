@@ -70,13 +70,13 @@ export default {
     type: [String, Boolean, Function] as PropType<TdDialogProps['header']>,
     default: true as TdDialogProps['header'],
   },
-  /** 对话框类型，有 3 种：模态对话框、非模态对话框、全屏对话框。弹出「模态对话框」时，只能操作对话框里面的内容，不能操作其他内容。弹出「非模态对话框」时，则可以操作页面内所有内容。「普通对话框」是指没有脱离文档流的对话框，可以在这个基础上开发更多的插件 */
+  /** 对话框类型，有 4 种：模态对话框、非模态对话框、普通对话框、全屏对话框。弹出「模态对话框」时，只能操作对话框里面的内容，不能操作其他内容。弹出「非模态对话框」时，则可以操作页面内所有内容。「普通对话框」是指没有脱离文档流的对话框，可以在这个基础上开发更多的插件 */
   mode: {
     type: String as PropType<TdDialogProps['mode']>,
     default: 'modal' as TdDialogProps['mode'],
     validator(val: TdDialogProps['mode']): boolean {
       if (!val) return true;
-      return ['modal', 'modeless', 'full-screen'].includes(val);
+      return ['modal', 'modeless', 'normal', 'full-screen'].includes(val);
     },
   },
   /** 对话框位置，内置两种：垂直水平居中显示 和 靠近顶部（top:20%）显示。默认情况，为避免贴顶或贴底，顶部和底部距离最小为 `48px`，可通过调整 `top` 覆盖默认大小 */
