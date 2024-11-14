@@ -1,4 +1,5 @@
 import { defineComponent, ref, toRefs, inject, watch, computed } from 'vue';
+import isString from 'lodash/isString';
 import props from './props';
 import useVModel from '../hooks/useVModel';
 import useRipple from '../hooks/useRipple';
@@ -137,7 +138,7 @@ export default defineComponent({
 
     const { showCheckbox } = useCheckboxLazyLoad(labelRef, lazyLoad);
     const { onCheckboxFocus, onCheckboxBlur } = useKeyboardEvent(handleChange);
-
+    const titleAttr = isString(props.title) && props.title ? props.title : null;
     return () => {
       return (
         <label
@@ -146,7 +147,7 @@ export default defineComponent({
           tabindex={isDisabled.value ? undefined : '0'}
           onFocus={onCheckboxFocus}
           onBlur={onCheckboxBlur}
-          title={props.title}
+          title={titleAttr}
         >
           {!showCheckbox.value
             ? null
