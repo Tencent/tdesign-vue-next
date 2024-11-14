@@ -196,7 +196,7 @@ export default defineComponent({
     ) => {
       let current: TreeSelectValue = valueParam;
       if (isObjectValue.value) {
-        current = valueParam.map((nodeValue) => getTreeNode(props.data, nodeValue));
+        current = valueParam.map(getNodeItem);
       }
       change(current, context.node, 'check');
     };
@@ -219,7 +219,7 @@ export default defineComponent({
       let current: TreeSelectValue = valueParam;
       if (isObjectValue.value) {
         const nodeValue = isEmpty(valueParam) ? '' : valueParam[0];
-        current = getTreeNode(props.data, nodeValue);
+        current = getNodeItem(nodeValue);
       } else {
         current = isEmpty(valueParam) ? '' : valueParam[0];
       }
@@ -281,48 +281,49 @@ export default defineComponent({
 
     const getSingleNodeInfo = () => {
       const nodeValue = isObjectValue.value ? (treeSelectValue.value as INodeOptions).value : treeSelectValue.value;
-      if (treeRef.value && (props.treeProps as TreeProps)?.load) {
-        if (!isEmpty(props.data)) {
-          const node = treeRef.value.getItem(nodeValue);
-          if (node) {
-            return { ...node.data, label: node.data[realLabel.value], value: node.data[realValue.value] };
-          }
-        }
-        return { label: nodeValue, value: nodeValue };
-      }
-      const node = getTreeNode(props.data, nodeValue);
-      if (!node) {
-        return { label: nodeValue, value: nodeValue };
-      }
-      return node;
+      return getNodeItem(nodeValue);
     };
 
     const getMultipleNodeInfo = () => {
       return (treeSelectValue.value as Array<TreeSelectValue>).map((value) => {
         const nodeValue = isObjectValue.value ? (value as INodeOptions).value : value;
-        if (treeRef.value && (props.treeProps as TreeProps)?.load) {
-          if (!isEmpty(props.data)) {
-            const node = treeRef.value.getItem(nodeValue);
-            if (node) {
-              return { ...node.data, label: node.data[realLabel.value], value: node.data[realValue.value] };
-            }
-          }
-          return { label: nodeValue, value: nodeValue };
-        }
-        const node = getTreeNode(props.data, nodeValue);
-        if (!node) {
-          return { label: nodeValue, value: nodeValue };
-        }
-        return node;
+        return getNodeItem(nodeValue);
       });
     };
+
+    const getNodeItem = (targetValue: TreeSelectValue) => {
+      if (treeRef.value) {
+        const node = treeRef.value.getItem(targetValue);
+        if (node) {
+          return {
+            ...node.data,
+            label: node.data[realLabel.value],
+            value: node.data[realValue.value],
+          };
+        }
+      }
+      const node = getTreeNode(props.data, targetValue);
+      if (node) {
+        return node;
+      }
+      return {
+        label: targetValue,
+        value: targetValue,
+      };
+    };
+
     const getTreeNode = (data: Array<TreeOptionData>, targetValue: TreeSelectValue): TreeSelectValue | null => {
       for (let i = 0, len = data.length; i < len; i++) {
-        if (data[i][realValue.value] === targetValue) {
-          return { ...data[i], label: data[i][realLabel.value], value: data[i][realValue.value] };
+        const item = data[i];
+        if (item[realValue.value] === targetValue) {
+          return {
+            ...item,
+            label: item[realLabel.value],
+            value: item[realValue.value],
+          };
         }
-        if (data[i]?.[realChildren.value]) {
-          const result = getTreeNode(data[i]?.[realChildren.value], targetValue);
+        if (item?.[realChildren.value]) {
+          const result = getTreeNode(item?.[realChildren.value], targetValue);
           if (!isNil(result)) {
             return result;
           }
