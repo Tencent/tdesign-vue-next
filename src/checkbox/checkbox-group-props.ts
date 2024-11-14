@@ -8,13 +8,8 @@ import { TdCheckboxGroupProps } from '../checkbox/type';
 import { PropType } from 'vue';
 
 export default {
-  /** 是否禁用组件，默认为 false。优先级：Form.disabled < CheckboxGroup.disabled < Checkbox.disabled */
+  /** 是否禁用组件。优先级：Form.disabled < CheckboxGroup.disabled < Checkbox.disabled */
   disabled: {
-    type: Boolean,
-    default: undefined,
-  },
-  /** 是否禁用组件，默认为 false。优先级：Form.readonly < CheckboxGroup.readonly < Checkbox.readonly */
-  readonly: {
     type: Boolean,
     default: undefined,
   },
@@ -33,6 +28,11 @@ export default {
   /** 以配置形式设置子元素。示例1：`['北京', '上海']` ，示例2: `[{ label: '全选', checkAll: true }, { label: '上海', value: 'shanghai' }]`。checkAll 值为 true 表示当前选项为「全选选项」 */
   options: {
     type: Array as PropType<TdCheckboxGroupProps['options']>,
+  },
+  /** 只读状态 */
+  readonly: {
+    type: Boolean,
+    default: undefined,
   },
   /** 选中值 */
   value: {

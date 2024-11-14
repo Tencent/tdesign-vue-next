@@ -146,6 +146,7 @@ export default defineComponent({
           tabindex={isDisabled.value ? undefined : '0'}
           onFocus={onCheckboxFocus}
           onBlur={onCheckboxBlur}
+          title={props.title}
         >
           {!showCheckbox.value
             ? null
