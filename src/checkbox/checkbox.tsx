@@ -138,8 +138,9 @@ export default defineComponent({
 
     const { showCheckbox } = useCheckboxLazyLoad(labelRef, lazyLoad);
     const { onCheckboxFocus, onCheckboxBlur } = useKeyboardEvent(handleChange);
-    const titleAttr = isString(props.title) && props.title ? props.title : null;
+
     return () => {
+      const titleAttr = isString(props.title) && props.title ? props.title : null;
       return (
         <label
           ref={labelRef}
