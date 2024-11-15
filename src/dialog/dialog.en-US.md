@@ -35,12 +35,6 @@ Note that in the following demo, there are multiple instances where DOM elements
 {{ plugin }}
 
 ## API
-### DialogCard Props
-
-name | type | default | description | required
--- | -- | -- | -- | --
-`Pick<DialogProps, 'body' \| 'cancelBtn' \| 'closeBtn' \| 'confirmBtn' \| 'footer' \| 'header' \| 'theme' \| 'onCancel' \| 'onCloseBtnClick' \| 'onConfirm'>` | String / Slot / Function | - | extends `Pick<DialogProps, 'body' \| 'cancelBtn' \| 'closeBtn' \| 'confirmBtn' \| 'footer' \| 'header' \| 'theme' \| 'onCancel' \| 'onCloseBtnClick' \| 'onConfirm'>`. TypeScript: `string \| TNode`. [see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-
 ### Dialog Props
 
 name | type | default | description | required
@@ -49,15 +43,15 @@ attach | String / Function | - | TypeScript: `AttachNode`. [see more ts definiti
 body | String / Slot / Function | - | TypeScript: `string \| TNode`. [see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 cancelBtn | String / Object / Slot / Function | - | TypeScript: `string \| ButtonProps \| TNode \| null`，[Button API Documents](./button?tab=api). [see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts). [see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/dialog/type.ts) | N
 closeBtn | String / Boolean / Slot / Function | true | TypeScript: `string \| boolean \| TNode`. [see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-closeOnEscKeydown | Boolean | true | \- | N
+closeOnEscKeydown | Boolean | true | trigger dialog close event on `ESC` keydown | N
 closeOnOverlayClick | Boolean | true | \- | N
 confirmBtn | String / Object / Slot / Function | - | TypeScript: `string \| ButtonProps \| TNode \| null`. [see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 confirmLoading | Boolean | undefined | confirm button loading status | N
 confirmOnEnter | Boolean | - | confirm on enter | N
 default | String / Slot / Function | - | TypeScript: `string \| TNode`. [see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-dialogClassName | String | - | \- | N
-dialogStyle | Object | - | Styles that apply to the dialog box itself。Typescript：`Styles`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 destroyOnClose | Boolean | false | \- | N
+dialogClassName | String | - | \- | N
+dialogStyle | Object | - | Styles that apply to the dialog box itself. TypeScript: `Styles`. [see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 draggable | Boolean | false | \- | N
 footer | Boolean / Slot / Function | true | TypeScript: `boolean \| TNode`. [see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 header | String / Boolean / Slot / Function | true | TypeScript: `string \| boolean \| TNode`. [see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
@@ -71,6 +65,8 @@ top | String / Number | - | \- | N
 visible | Boolean | - | \- | N
 width | String / Number | - | \- | N
 zIndex | Number | - | \- | N
+onBeforeClose | Function |  | TypeScript: `() => void`<br/> | N
+onBeforeOpen | Function |  | TypeScript: `() => void`<br/> | N
 onCancel | Function |  | TypeScript: `(context: { e: MouseEvent }) => void`<br/> | N
 onClose | Function |  | TypeScript: `(context: DialogCloseContext) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/dialog/type.ts). <br/>`type DialogEventSource = 'esc' \| 'close-btn' \| 'cancel' \| 'overlay'`<br/><br/>`interface DialogCloseContext { trigger: DialogEventSource; e: MouseEvent \| KeyboardEvent }`<br/> | N
 onCloseBtnClick | Function |  | TypeScript: `(context: { e: MouseEvent }) => void`<br/> | N
@@ -84,6 +80,8 @@ onOverlayClick | Function |  | TypeScript: `(context: { e: MouseEvent }) => void
 
 name | params | description
 -- | -- | --
+before-close | \- | \-
+before-open | \- | \-
 cancel | `(context: { e: MouseEvent })` | \-
 close | `(context: DialogCloseContext)` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/dialog/type.ts). <br/>`type DialogEventSource = 'esc' \| 'close-btn' \| 'cancel' \| 'overlay'`<br/><br/>`interface DialogCloseContext { trigger: DialogEventSource; e: MouseEvent \| KeyboardEvent }`<br/>
 close-btn-click | `(context: { e: MouseEvent })` | \-
@@ -120,7 +118,7 @@ name | params | default | description
 -- | -- | -- | --
 options | \- | - | TypeScript: `DialogOptions`
 
-The plugin returns `DialogInstance`.
+The plugin returns: `DialogInstance`
 
 ### DialogPlugin.confirm
 
@@ -130,8 +128,6 @@ name | params | default | description
 -- | -- | -- | --
 options | \- | - | TypeScript: `DialogOptions`
 
-The plugin returns `DialogInstance`.
-
 ### DialogPlugin.alert
 
 Also supports `this.$dialog.alert`. 
@@ -139,5 +135,3 @@ Also supports `this.$dialog.alert`.
 name | params | default | description
 -- | -- | -- | --
 options | Object | - | TypeScript: `Omit<DialogOptions, 'cancelBtn'>`
-
-The plugin returns `DialogInstance`.
