@@ -327,7 +327,9 @@ export default defineComponent({
     watch(
       () => props.current,
       () => {
-        swiperTo(props.current, { source: 'autoplay' });
+        if (props.autoplay) {
+          swiperTo(props.current, { source: 'autoplay' });
+        }
       },
     );
 
