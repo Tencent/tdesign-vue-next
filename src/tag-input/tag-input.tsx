@@ -1,4 +1,4 @@
-import { defineComponent, computed, toRefs, ref, nextTick, reactive, watch } from 'vue';
+import { defineComponent, computed, toRefs, ref, nextTick, reactive, watch, PropType } from 'vue';
 import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import TInput, { InputProps, StrInputProps, TdInputProps } from '../input';
 import { TdTagInputProps } from './type';
@@ -27,7 +27,15 @@ const useComponentClassName = () => {
 export default defineComponent({
   name: 'TTagInput',
 
-  props: { ...props },
+  props: {
+    ...props,
+    /**
+     * 不对外暴露，参数穿透options, 给SelectInput/SelectInput 自定义选中项呈现的内容和多选状态下设置折叠项内容
+     */
+    options: {
+      type: Array as PropType<any[]>,
+    },
+  },
 
   setup(props: TdTagInputProps) {
     const { NAME_CLASS, CLEAR_CLASS, BREAK_LINE_CLASS } = useComponentClassName();

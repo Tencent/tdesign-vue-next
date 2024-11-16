@@ -1,4 +1,5 @@
 import { TdSelectInputProps } from './type';
+import { PropType } from 'vue';
 
 export interface SelectInputCommonProperties {
   autofocus?: TdSelectInputProps['autofocus'];
@@ -17,4 +18,11 @@ export interface SelectInputCommonProperties {
   onEnter?: TdSelectInputProps['onEnter'];
   onMouseenter?: TdSelectInputProps['onMouseenter'];
   onMouseleave?: TdSelectInputProps['onMouseleave'];
+}
+
+export interface SelectInputProps extends TdSelectInputProps {
+  /**
+   * 不对外暴露，参数穿透options, 给SelectInput/SelectInput 自定义选中项呈现的内容和多选状态下设置折叠项内容
+   */
+  options: any[];
 }

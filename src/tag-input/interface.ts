@@ -30,4 +30,6 @@ export interface DragSortInnerProps extends DragSortInnerData {
   getDragProps?: (index?: number, record?: any, tagRef?: Ref<HTMLElement>) => DragSortInnerData;
 }
 
-export interface TagInputProps extends TdTagInputProps, DragSortInnerProps {}
+export interface TagInputProps extends TdTagInputProps, DragSortInnerProps {
+  options?: any[]; // 不对外暴露，参数穿透options, 给SelectInput/SelectInput 自定义选中项呈现的内容和多选状态下设置折叠项内容
+}

@@ -104,12 +104,14 @@ export default function useTagList(props: TagInputProps) {
     // 超出省略
     if (newList.length !== (tagValue.value || []).length) {
       const len = tagValue.value.length - newList.length;
+      // 这里会从selectInput/SelectInput中传递options参数，用于自定义选中项呈现的内容和多选状态下设置折叠项内容
+      const options = Array.isArray(props?.options) ? props.options : tagValue.value;
       const more = renderTNode('collapsedItems', {
         params: {
           value: tagValue.value,
           count: tagValue.value.length - minCollapsedNum.value,
           collapsedTags: tagValue.value.slice(minCollapsedNum.value, tagValue.value.length),
-          collapsedSelectedItems: tagValue.value.slice(minCollapsedNum.value, tagValue.value.length),
+          collapsedSelectedItems: options.slice(minCollapsedNum.value, tagValue.value.length),
           onClose,
         },
       });

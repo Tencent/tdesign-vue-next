@@ -382,6 +382,7 @@ export default defineComponent({
             ref={selectInputRef}
             class={COMPONENT_NAME.value}
             value={displayText.value}
+            options={props.options}
             disabled={disabled.value}
             popupVisible={innerPopupVisible.value}
             inputValue={innerPopupVisible.value ? innerInputValue.value : ''}

@@ -1,7 +1,7 @@
 import { SetupContext, computed, ref, toRefs, Ref } from 'vue';
 import isObject from 'lodash/isObject';
-import { TdSelectInputProps, SelectInputChangeContext, SelectInputKeys } from './type';
-import { SelectInputCommonProperties } from './interface';
+import type { SelectInputChangeContext, SelectInputKeys } from './type';
+import type { SelectInputCommonProperties, SelectInputProps } from './interface';
 import TagInput, { TagInputValue, TagInputProps } from '../tag-input';
 import Loading from '../loading';
 import useDefault from '../hooks/useDefaultValue';
@@ -23,7 +23,7 @@ const DEFAULT_KEYS = {
 };
 
 export default function useMultiple(
-  props: TdSelectInputProps,
+  props: SelectInputProps,
   context: SetupContext,
   popupRef: Ref<PopupInstanceFunctions>,
 ) {
@@ -99,6 +99,7 @@ export default function useMultiple(
       collapsedItems: props.collapsedItems,
       tag: props.tag,
       value: tags.value,
+      options: props.options,
       valueDisplay: props.valueDisplay,
       inputValue: p.popupVisible && p.allowInput ? tInputValue.value : '',
       inputProps: {

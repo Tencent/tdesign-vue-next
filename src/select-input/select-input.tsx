@@ -1,12 +1,13 @@
 import { computed, defineComponent, onBeforeUnmount, onMounted, PropType, ref, SetupContext, toRefs, watch } from 'vue';
 import Popup, { PopupInstanceFunctions, PopupProps, PopupVisibleChangeContext } from '../popup';
 import props from './props';
-import { TdSelectInputProps } from './type';
+import type { TdSelectInputProps } from './type';
 import useSingle, { SelectInputValueDisplayOptions } from './useSingle';
 import useMultiple from './useMultiple';
 import useOverlayInnerStyle from './useOverlayInnerStyle';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks';
+import type { SelectInputProps } from './interface';
 
 const useComponentClassName = () => {
   return {
@@ -32,9 +33,15 @@ export default defineComponent({
     valueDisplayOptions: {
       type: Object as PropType<SelectInputValueDisplayOptions>,
     },
+    /**
+     * 不对外暴露，参数穿透options, 给SelectInput/SelectInput 自定义选中项呈现的内容和多选状态下设置折叠项内容
+     */
+    options: {
+      type: Array as PropType<any[]>,
+    },
   },
 
-  setup(props: TdSelectInputProps & { valueDisplayOptions: SelectInputValueDisplayOptions }, context: SetupContext) {
+  setup(props: SelectInputProps & { valueDisplayOptions: SelectInputValueDisplayOptions }, context: SetupContext) {
     const { NAME_CLASS, BASE_CLASS_BORDERLESS, BASE_CLASS_MULTIPLE, BASE_CLASS_POPUP_VISIBLE, BASE_CLASS_EMPTY } =
       useComponentClassName();
     const classPrefix = usePrefixClass();
