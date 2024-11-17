@@ -2,7 +2,8 @@ import isNumber from 'lodash/isNumber';
 import isFunction from 'lodash/isFunction';
 import isArray from 'lodash/isArray';
 import cloneDeep from 'lodash/cloneDeep';
-import { TreeNode, CascaderContextType, TdCascaderProps, TreeNodeValue, TreeNodeModel } from '../interface';
+
+import type { TreeNode, CascaderContextType, TdCascaderProps, TreeNodeValue, TreeNodeModel } from '../interface';
 import { getFullPathLabel, getTreeValue, isEmptyValues } from './helper';
 
 /**
@@ -46,7 +47,8 @@ export function expendClickEffect(
     // 非受控状态下更新状态
     setValue(valueType === 'single' ? value : node.getPath().map((item) => item.value), 'check', node.getModel());
 
-    if (!checkStrictly) {
+    // 当 trigger 为 hover 时 ，点击节点一定是关闭 panel 的操作
+    if (!checkStrictly || propsTrigger === 'hover') {
       setVisible(false, {});
     }
   }
@@ -128,27 +130,33 @@ export function handleRemoveTagEffect(
   onRemove: TdCascaderProps['onRemove'],
 ) {
   const { disabled, setValue, value, valueType, treeStore } = cascaderContext;
-
   if (disabled) return;
-  const newValue = cloneDeep(value) as [];
-  const res = newValue.splice(index, 1);
-  const node = treeStore.getNodes(res[0])[0];
 
-  const checked = node.setChecked(!node.isChecked());
-  // 处理不同数据类型
-  const resValue =
-    valueType === 'single'
-      ? checked
-      : checked.map((val) =>
-          treeStore
-            .getNode(val)
-            .getPath()
-            .map((item) => item.value),
-        );
+  // index equal to undefined means to click clear button
+  if (index !== undefined) {
+    const newValue = cloneDeep(value) as [];
+    const res = newValue.splice(index, 1);
+    const node = treeStore.getNodes(res[0])[0];
 
-  setValue(resValue, 'uncheck', node.getModel());
-  if (isFunction(onRemove)) {
-    onRemove({ value: checked, node: node as any });
+    const checked = node.setChecked(!node.isChecked());
+    // 处理不同数据类型
+    const resValue =
+      valueType === 'single'
+        ? checked
+        : checked.map((val) =>
+            treeStore
+              .getNode(val)
+              .getPath()
+              .map((item) => item.value),
+          );
+    setValue(resValue, 'uncheck', node.getModel());
+    if (isFunction(onRemove)) {
+      onRemove({ value: checked, node: node as any });
+    }
+  } else {
+    if (isFunction(onRemove)) {
+      onRemove({ value, node: undefined });
+    }
   }
 }
 

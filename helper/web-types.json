@@ -1399,7 +1399,7 @@
             },
             {
               "name": "footer-affixed-bottom",
-              "description": "affix foot to viewport bottom\n\n表尾吸底。使用此向功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，则表示相对于整个窗口吸底。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixedBottom.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性",
+              "description": "affix foot to viewport bottom\n\n表尾吸底。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，则表示相对于整个窗口吸底。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixedBottom.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props",
               "type": [
                 "Boolean",
@@ -2008,7 +2008,7 @@
             },
             {
               "name": "footer-affixed-bottom",
-              "description": "affix foot to viewport bottom\n\n表尾吸底。使用此向功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，则表示相对于整个窗口吸底。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixedBottom.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性",
+              "description": "affix foot to viewport bottom\n\n表尾吸底。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，则表示相对于整个窗口吸底。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixedBottom.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/base-table?tab=api#basetable-props",
               "type": [
                 "Boolean",
@@ -19045,7 +19045,7 @@
             },
             {
               "name": "value-mode",
-              "description": "选中值模式。all 表示父节点和子节点全部会出现在选中值里面；parentFirst 表示当子节点全部选中时，仅父节点在选中值里面；onlyLeaft 表示无论什么情况，选中值仅呈现叶子节点",
+              "description": "选中值模式。all 表示父节点和子节点全部会出现在选中值里面；parentFirst 表示当子节点全部选中时，仅父节点在选中值里面；onlyLeaf 表示无论什么情况，选中值仅呈现叶子节点",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/tree?tab=api#tree-props",
               "type": [
                 "String"

@@ -60,7 +60,7 @@ export default function useTagList(props: TagInputProps) {
   // 按下回退键，删除标签
   const onInputBackspaceKeyDown = (value: InputValue, context: { e: KeyboardEvent }) => {
     const { e } = context;
-    if (!tagValue.value || !tagValue.value.length || e.key === 'Process') return;
+    if (!tagValue.value || !tagValue.value.length || e.key === 'Process' || isReadonly.value) return;
     // 回车键删除，输入框值为空时，才允许 Backspace 删除标签
     const isDelete = /(Backspace|NumpadDelete)/i.test(e.code) || /(Backspace|NumpadDelete)/i.test(e.key);
     if (!value && isDelete) {
@@ -115,7 +115,7 @@ export default function useTagList(props: TagInputProps) {
       });
       list.push(
         more ?? (
-          <Tag key="more" size={size.value}>
+          <Tag key="more" size={size.value} {...tagProps.value}>
             +{len}
           </Tag>
         ),

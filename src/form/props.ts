@@ -28,6 +28,11 @@ export default {
   formControlledComponents: {
     type: Array as PropType<TdFormProps['formControlledComponents']>,
   },
+  /** 表单原生的id属性，支持用于配合非表单内的按钮通过form属性来触发表单事件 */
+  id: {
+    type: String,
+    default: undefined,
+  },
   /** 表单字段标签对齐方式：左对齐、右对齐、顶部对齐 */
   labelAlign: {
     type: String as PropType<TdFormProps['labelAlign']>,

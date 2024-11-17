@@ -47,6 +47,9 @@ export default function useTreeAction(state: TypeTreeState) {
 
   const toggleExpanded = (item: TypeTargetNode): TreeNodeValue[] => {
     const node = getNode(store, item);
+
+    if (!node.children) return;
+
     return setExpanded(node, !node.isExpanded());
   };
 

@@ -6,7 +6,7 @@ import { usePrefixClass } from '../hooks/useConfig';
 export default defineComponent({
   name: 'TBadge',
   inheritAttrs: false,
-  props: { ...props },
+  props,
   setup(props, { attrs }) {
     const renderContent = useContent();
     const renderTNodeJSX = useTNodeJSX();
@@ -52,7 +52,7 @@ export default defineComponent({
     const inlineStyle = computed(() => {
       const { xOffset, yOffset } = getOffset();
       return {
-        background: `${props.color}`,
+        background: props.color,
         right: xOffset,
         top: yOffset,
       };

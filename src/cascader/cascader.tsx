@@ -176,16 +176,20 @@ export default defineComponent({
             suffix: slots.suffix,
             prefixIcon: slots.prefixIcon,
             panel: () => (
-              <Panel
-                option={props.option}
-                empty={props.empty}
-                visible={visible}
-                trigger={props.trigger}
-                loading={props.loading}
-                loadingText={props.loadingText}
-                cascaderContext={cascaderContext.value}
-                v-slots={{ option: slots.option, empty: slots.empty, loadingText: slots.loadingText }}
-              />
+              <>
+                {renderTNodeJSX('panelTopContent')}
+                <Panel
+                  option={props.option}
+                  empty={props.empty}
+                  visible={visible}
+                  trigger={props.trigger}
+                  loading={props.loading}
+                  loadingText={props.loadingText}
+                  cascaderContext={cascaderContext.value}
+                  v-slots={{ option: slots.option, empty: slots.empty, loadingText: slots.loadingText }}
+                />
+                {renderTNodeJSX('panelBottomContent')}
+              </>
             ),
             collapsedItems: slots.collapsedItems,
           }}

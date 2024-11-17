@@ -1,8 +1,9 @@
-import { defineComponent, provide, RendererNode } from 'vue';
+import { defineComponent, provide, VNode } from 'vue';
 import props from './avatar-group-props';
 import Avatar from './avatar';
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
+import { getChildren } from '../utils/render-tnode';
 
 export default defineComponent({
   name: 'TAvatarGroup',
@@ -15,7 +16,7 @@ export default defineComponent({
     const AVATAR_NAME = usePrefixClass('avatar');
     const COMPONENT_NAME = usePrefixClass('avatar-group');
 
-    const renderEllipsisAvatar = (children: Array<RendererNode>): Array<RendererNode> => {
+    const renderEllipsisAvatar = (children: Array<VNode>): Array<VNode> => {
       if (children?.length > props.max) {
         const content = getEllipsisContent(children);
         const outAvatar = children.slice(0, props.max);
@@ -24,13 +25,13 @@ export default defineComponent({
             {content}
           </Avatar>,
         );
-        return [outAvatar];
+        return outAvatar;
       }
-      return [children];
+      return children;
     };
 
     // collapseAvatar
-    const getEllipsisContent = (children: Array<RendererNode>) => {
+    const getEllipsisContent = (children: Array<VNode>) => {
       return renderTNodeJSX('collapseAvatar') || `+${children.length - props.max}`;
     };
 
@@ -44,7 +45,7 @@ export default defineComponent({
           [`${AVATAR_NAME.value}--offset-left`]: cascading === 'left-up',
         },
       ];
-      const content = max && max >= 0 ? [renderEllipsisAvatar(children)] : [children];
+      const content = max && max >= 0 ? [renderEllipsisAvatar(getChildren(children))] : [children];
 
       return <div class={groupClass}>{content}</div>;
     };

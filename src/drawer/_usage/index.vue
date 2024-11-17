@@ -4,7 +4,8 @@
     <template #drawer="{ configProps }"
       ><div>
         <t-button @click="handleClick">Open Drawer</t-button>
-        <t-drawer v-bind="configProps" v-model:visible="visible" header="header">
+        <t-drawer v-bind="configProps" v-model:visible="visible">
+          <template #header>header</template>
           <p>This is a Drawer</p>
         </t-drawer>
       </div></template
@@ -26,7 +27,7 @@ const panelList = [{ label: 'drawer', value: 'drawer' }];
 
 const usageCodeMap = {
   drawer:
-    '\n        <div>\n          <t-button @click="handleClick">Open Drawer</t-button>\n          <t-drawer v-bind="configProps" v-model:visible="visible" header="header">\n            <p>This is a Drawer</p>\n          </t-drawer>\n        </div>\n      ',
+    '\n        <div>\n          <t-button @click="handleClick">Open Drawer</t-button>\n          <t-drawer v-bind="configProps" v-model:visible="visible">\n            <template #header>header</template>\n            <p>This is a Drawer</p>\n          </t-drawer>\n        </div>\n      ',
 };
 const usageCode = ref(`<template>${usageCodeMap[panelList[0].value].trim()}</template>`);
 

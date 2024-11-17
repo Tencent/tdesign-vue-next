@@ -72,6 +72,7 @@ href | String | - | \- | N
 icon | Slot / Function | - | Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 replace | Boolean | false | \- | N
 router | Object | - | Typescript：`Record<string, any>` | N
+routerLink | Boolean | - | `1.3.11`。This API is valid if and only if the Router exists. Enable menu item content to be rendered as an `<a />` consistent with router-link behavior. | N
 target | String | _self | options：_blank/_self/_parent/_top | N
 to | String / Object | - | Typescript：`MenuRoute` `interface MenuRoute { path?: string; name?: string; hash?: string; query?: MenuQueryData; params?: MenuQueryData }` `type MenuQueryData = { [key: string]: string \| string[] }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/menu/type.ts) | N
 value | String / Number | - | Typescript：`MenuValue` | N

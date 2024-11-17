@@ -166,7 +166,7 @@ export default defineComponent({
                 partial="start"
                 year={props.year[0]}
                 month={props.month[0]}
-                time={props.time[0]}
+                time={props.time[props.activeIndex]}
                 value={props.value}
                 tableData={startTableData.value}
                 {...panelContentProps.value}
@@ -176,7 +176,7 @@ export default defineComponent({
                 partial="end"
                 year={props.year[1]}
                 month={props.month[1]}
-                time={props.time[1]}
+                time={props.time[props.activeIndex]}
                 value={props.value}
                 tableData={endTableData.value}
                 {...panelContentProps.value}

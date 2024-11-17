@@ -8,6 +8,10 @@ import { TdSwitchProps } from './type';
 import { PropType } from 'vue';
 
 export default {
+  /** Switch 切换状态前的回调方法，常用于需要发起异步请求的场景，回调返回值支持布尔和 Promise 类型，返回`false`或 Promise reject不继续执行change，否则则继续执行。 */
+  beforeChange: {
+    type: Function as PropType<TdSwitchProps['beforeChange']>,
+  },
   /** 用于自定义开关的值，[打开时的值，关闭时的值]。默认为 [true, false]。示例：[1, 0]、['open', 'close'] */
   customValue: {
     type: Array as PropType<TdSwitchProps['customValue']>,

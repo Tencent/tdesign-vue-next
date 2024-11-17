@@ -18,7 +18,7 @@ export default {
   },
   /** 取消按钮，可自定义。值为 null 则不显示取消按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制取消事件 */
   cancelBtn: {
-    type: [String, Object, Function] as PropType<TdDialogProps['cancelBtn']>,
+    type: [String, Object, Function, null] as PropType<TdDialogProps['cancelBtn']>,
   },
   /** 关闭按钮，可以自定义。值为 true 显示默认关闭按钮，值为 false 不显示关闭按钮。值类型为 string 则直接显示值，如：“关闭”。值类型为 TNode，则表示呈现自定义按钮示例 */
   closeBtn: {
@@ -31,13 +31,10 @@ export default {
     default: undefined,
   },
   /** 点击蒙层时是否触发关闭事件 */
-  closeOnOverlayClick: {
-    type: Boolean,
-    default: undefined,
-  },
+  closeOnOverlayClick: Boolean,
   /** 确认按钮。值为 null 则不显示确认按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制确认事件 */
   confirmBtn: {
-    type: [String, Object, Function] as PropType<TdDialogProps['confirmBtn']>,
+    type: [String, Object, Function, null] as PropType<TdDialogProps['confirmBtn']>,
   },
   /** 确认按钮加载状态 */
   confirmLoading: {
@@ -52,6 +49,7 @@ export default {
   },
   /** 是否在关闭弹框的时候销毁子元素 */
   destroyOnClose: Boolean,
+  /** 弹框元素类名，示例：'t-class-dialog-first t-class-dialog-second' */
   dialogClassName: {
     type: String,
     default: '',
@@ -125,6 +123,10 @@ export default {
   zIndex: {
     type: Number,
   },
+  /** 对话框执行消失动画效果前触发 */
+  onBeforeClose: Function as PropType<TdDialogProps['onBeforeClose']>,
+  /** 对话框执行弹出动画效果前触发 */
+  onBeforeOpen: Function as PropType<TdDialogProps['onBeforeOpen']>,
   /** 如果“取消”按钮存在，则点击“取消”按钮时触发，同时触发关闭事件 */
   onCancel: Function as PropType<TdDialogProps['onCancel']>,
   /** 关闭事件，点击取消按钮、点击关闭按钮、点击蒙层、按下 ESC 等场景下触发 */

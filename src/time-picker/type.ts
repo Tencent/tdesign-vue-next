@@ -18,6 +18,11 @@ export interface TdTimePickerProps {
    */
   allowInput?: boolean;
   /**
+   * 是否自动调换左右区间的顺序，默认为 true；若需要支持跨天的场景，可以设置为 false
+   * @default true
+   */
+  autoSwap?: boolean;
+  /**
    * 无边框模式
    * @default false
    */
@@ -39,10 +44,7 @@ export interface TdTimePickerProps {
   /**
    * 是否禁用组件
    */
-  disabled?: {
-    type: Boolean;
-    default: undefined;
-  };
+  disabled?: boolean;
   /**
    * 用于格式化时间，[详细文档](https://day.js.org/docs/en/display/format)
    * @default HH:mm:ss
@@ -151,6 +153,11 @@ export interface TdTimeRangePickerProps {
    * @default false
    */
   allowInput?: boolean;
+  /**
+   * 无边框模式
+   * @default false
+   */
+  borderless?: boolean;
   /**
    * 是否允许清除选中值
    * @default false

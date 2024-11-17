@@ -1,11 +1,5 @@
 [
   {
-    "name": "allowInput",
-    "type": "Boolean",
-    "defaultValue": false,
-    "options": []
-  },
-  {
     "name": "borderless",
     "type": "Boolean",
     "defaultValue": false,
@@ -24,9 +18,15 @@
     "options": []
   },
   {
-    "name": "hideDisabledTime",
+    "name": "readonly",
     "type": "Boolean",
-    "defaultValue": true,
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "showClearIconOnEmpty",
+    "type": "Boolean",
+    "defaultValue": false,
     "options": []
   },
   {
@@ -45,6 +45,29 @@
       {
         "label": "large",
         "value": "large"
+      }
+    ]
+  },
+  {
+    "name": "status",
+    "type": "enum",
+    "defaultValue": "default",
+    "options": [
+      {
+        "label": "default",
+        "value": "default"
+      },
+      {
+        "label": "success",
+        "value": "success"
+      },
+      {
+        "label": "warning",
+        "value": "warning"
+      },
+      {
+        "label": "error",
+        "value": "error"
       }
     ]
   }

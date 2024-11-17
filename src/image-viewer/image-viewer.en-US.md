@@ -1,10 +1,12 @@
 :: BASE_DOC ::
 
 ## API
+
 ### ImageViewer Props
 
 name | type | default | description | required
 -- | -- | -- | -- | --
+attach | String / Function | 'body' | Typescript：`AttachNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 closeBtn | Boolean / Slot / Function | true | Typescript：`boolean \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 closeOnEscKeydown | Boolean | true | trigger image viewer close event on `ESC` keydown | N
 closeOnOverlay | Boolean | - | \- | N

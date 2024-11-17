@@ -178,6 +178,9 @@ export default defineComponent({
           clearStyleFunc();
         }
 
+        // 打开前动画或关闭前动画
+        value ? props.onBeforeOpen?.() : props.onBeforeClose?.();
+
         // 处理显示逻辑
         if (props.destroyOnClose) {
           if (value) {
@@ -223,7 +226,7 @@ export default defineComponent({
     });
 
     onMounted(() => {
-      const hasScrollBar = document.documentElement.scrollHeight > document.documentElement.clientHeight;
+      const hasScrollBar = window.innerWidth > document.documentElement.clientWidth;
       const scrollWidth = hasScrollBar ? getScrollbarWidth() : 0;
 
       styleEl.value = document.createElement('style');

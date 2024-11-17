@@ -24,7 +24,7 @@ export function useConfig<T extends keyof GlobalConfigProvider>(
   componentLocale?: GlobalConfigProvider[T],
 ) {
   const injectGlobalConfig = getCurrentInstance() ? inject(configProviderInjectKey, null) : globalConfigCopy;
-  const mergedGlobalConfig = computed(() => injectGlobalConfig?.value || (defaultGlobalConfig as GlobalConfigProvider));
+  const mergedGlobalConfig = computed(() => injectGlobalConfig?.value || defaultGlobalConfig);
   const globalConfig = computed(() => Object.assign({}, mergedGlobalConfig.value[componentName], componentLocale));
 
   const classPrefix = computed(() => {
@@ -68,7 +68,9 @@ export function useConfig<T extends keyof GlobalConfigProvider>(
  */
 export const provideConfig = (props: ConfigProviderProps) => {
   const defaultData = cloneDeep(defaultGlobalConfig);
-  const mergedGlobalConfig = computed(() => mergeWith(defaultData, props.globalConfig));
+  const mergedGlobalConfig = computed(() =>
+    Object.assign({}, mergeWith(defaultData as unknown as GlobalConfigProvider, props.globalConfig)),
+  );
 
   provide(configProviderInjectKey, mergedGlobalConfig);
 

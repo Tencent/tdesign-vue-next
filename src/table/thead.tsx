@@ -77,17 +77,27 @@ export default defineComponent({
     // 单行表格合并
     const colspanSkipMap = computed(() => {
       const map: { [key: string]: boolean } = {};
-      const list = props.thList[0];
-      for (let i = 0, len = list.length; i < len; i++) {
-        const item = list[i];
-        if (item.colspan > 1) {
-          for (let j = i + 1; j < i + item.colspan; j++) {
-            if (list[j]) {
-              map[list[j].colKey] = true;
+
+      const processColumns = (columns: BaseTableColumns) => {
+        for (let i = 0, len = columns.length; i < len; i++) {
+          const item = columns[i];
+          if (item.colspan > 1) {
+            for (let j = i + 1; j < i + item.colspan; j++) {
+              if (columns[j]) {
+                map[columns[j].colKey] = true;
+              }
             }
           }
+          // 如果有子列，递归处理
+          if (item.children) {
+            processColumns(item.children);
+          }
         }
-      }
+      };
+
+      const list = props.thList[0];
+      processColumns(list);
+
       return map;
     });
 
@@ -138,13 +148,14 @@ export default defineComponent({
             rowIndex: -1,
           };
           const customClasses = formatClassNames(col.className, { ...colParams, type: 'th' });
+          const thCustomClasses = formatClassNames(col.thClassName, { ...colParams, type: 'th' });
           const isLeftFixedActive = this.showColumnShadow.left && col.fixed === 'left';
           const isRightFixedActive = this.showColumnShadow.right && col.fixed === 'right';
           const canDragSort = this.thDraggable && !(isLeftFixedActive || isRightFixedActive);
           const thClasses = [
             thStyles.classes,
             customClasses,
-            col.thClassName,
+            thCustomClasses,
             {
               // 受 rowspan 影响，部分 tr > th:first-child 需要补足左边框
               [this.tableHeaderClasses.thBordered]: thBorderMap.get(col),

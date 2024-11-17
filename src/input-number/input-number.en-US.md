@@ -8,7 +8,7 @@ name | type | default | description | required
 align | String | - | options：left/center/right | N
 allowInputOverLimit | Boolean | true | \- | N
 autoWidth | Boolean | false | \- | N
-decimalPlaces | Number | undefined | \- | N
+decimalPlaces | Number / Object | undefined | Typescript：`InputNumberDecimalPlaces` `type InputNumberDecimalPlaces = number \| { enableRound: boolean; places: number } `。[see more ts definition](https://github.com/Tencent/tdesign-react/blob/develop/src/input-number/type.ts) | N
 disabled | Boolean | - | \- | N
 format | Function | - | Typescript：`(value: InputNumberValue, context?: { fixedNumber?: InputNumberValue }) => InputNumberValue` | N
 inputProps | Object | - | Typescript：`InputProps`，[Input API Documents](./input?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/input-number/type.ts) | N
