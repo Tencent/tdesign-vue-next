@@ -77,8 +77,8 @@ export interface TdAnchorItemProps {
    */
   title?: string | TNode;
   /**
-   * 禁用点击锚点链接后自动滚动到目标元素，滚动行为由用户或浏览器处理（如scroll-behavior: smooth）
+   * 自定义滚动效果，为true时点击锚点链接后不会使用js动画平滑滚动到锚点目标元素
    * @default false
    */
-  disableScroll?: boolean;
+  customScroll?: boolean;
 }
