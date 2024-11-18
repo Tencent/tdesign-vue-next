@@ -11,7 +11,7 @@ const docsMap = {
 };
 
 const currentVersion = packageJson.version.replace(/\./g, '_');
-const registryUrl = 'https://mirrors.tencent.com/npm/tdesign-vue-next';
+const registryUrl = 'https://service-edbzjd6y-1257786608.hk.apigw.tencentcs.com/release/npm/versions/tdesign-vue-next';
 
 // 过滤小版本号
 function getVersions(versions = []) {
