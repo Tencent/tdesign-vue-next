@@ -6,7 +6,7 @@
 
 import { TNode, SizeEnum } from '../common';
 
-export interface TdRadioProps {
+export interface TdRadioProps<T = RadioValue> {
   /**
    * 是否允许取消选中
    * @default false
@@ -46,13 +46,12 @@ export interface TdRadioProps {
   name?: string;
   /**
    * 只读状态
-   * @default false
    */
   readonly?: boolean;
   /**
    * 单选按钮的值
    */
-  value?: string | number | boolean;
+  value?: T;
   /**
    * 选中状态变化时触发
    */
@@ -82,6 +81,10 @@ export interface TdRadioGroupProps<T = RadioValue> {
    * 单选组件按钮形式。RadioOption 数据类型为 string 或 number 时，表示 label 和 value 值相同
    */
   options?: Array<RadioOption>;
+  /**
+   * 只读状态
+   */
+  readonly?: boolean;
   /**
    * 组件尺寸【讨论中】
    * @default medium
