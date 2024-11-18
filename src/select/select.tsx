@@ -121,10 +121,10 @@ export default defineComponent({
     const valueDisplayParams = computed(() => {
       const val =
         props.multiple && isArray(innerValue.value)
-          ? (innerValue.value as SelectValue[]).map((value) => ({
-              value,
-              label: optionsMap.value.get(value)?.label,
-            }))
+          ? (innerValue.value as SelectValue[]).map((value) => {
+              const { index: _, disabled: __, ...rest } = optionsMap.value.get(value);
+              return rest;
+            })
           : innerValue.value;
 
       const params = {

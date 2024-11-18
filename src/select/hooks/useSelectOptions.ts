@@ -10,6 +10,12 @@ import { KeysType } from '../../common';
 type UniOption = (TdOptionProps | SelectOptionGroup) & {
   index?: number;
   slots?: Slots;
+  disabled?: boolean;
+};
+
+type UniTdOptionProps = TdOptionProps & {
+  index?: number;
+  disabled?: boolean;
 };
 
 export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inputValue: Ref<string>) => {
@@ -81,8 +87,8 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inpu
   });
 
   const optionsList = computed(() => {
-    const res: TdOptionProps[] = [];
-    const getOptionsList = (options: TdOptionProps[]) => {
+    const res: UniTdOptionProps[] = [];
+    const getOptionsList = (options: UniOption[]) => {
       for (const option of options) {
         if ((option as SelectOptionGroup).group) {
           getOptionsList((option as SelectOptionGroup).children);
@@ -96,9 +102,9 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inpu
   });
 
   const optionsMap = computed(() => {
-    const res = new Map<SelectValue, TdOptionProps>();
+    const res = new Map<SelectValue, UniTdOptionProps>();
     // map以最新的为主 避免存在重复value更新的场景 https://github.com/Tencent/tdesign-vue-next/issues/2646
-    optionsCache.value.concat(optionsList.value).forEach((option: TdOptionProps) => {
+    optionsCache.value.concat(optionsList.value).forEach((option: UniTdOptionProps) => {
       res.set(option.value, option);
     });
     return res;

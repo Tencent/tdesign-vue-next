@@ -1,5 +1,4 @@
 import { TdSelectInputProps } from './type';
-import { PropType } from 'vue';
 
 export interface SelectInputCommonProperties {
   autofocus?: TdSelectInputProps['autofocus'];
