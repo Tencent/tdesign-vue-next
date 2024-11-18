@@ -8,6 +8,7 @@ import { RangeInputValue, RangeInputPosition } from './type';
 // hooks
 import useVModel from '../hooks/useVModel';
 import { useDisabled } from '../hooks/useDisabled';
+import { useReadonly } from '../hooks/useReadonly';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
@@ -30,11 +31,12 @@ export default defineComponent({
     const { value, modelValue } = toRefs(props);
     const { STATUS, SIZE } = useCommonClassName();
     const classPrefix = usePrefixClass();
-    const disabled = useDisabled();
     const COMPONENT_NAME = usePrefixClass('range-input');
     const { CloseCircleFilledIcon } = useGlobalIcon({ CloseCircleFilledIcon: TdCloseCircleFilledIcon });
     const renderTNodeJSX = useTNodeJSX();
 
+    const isDisabled = useDisabled();
+    const isReadonly = useReadonly();
     const focused = ref(false);
     const isHover = ref(false);
     const format = computed(() => calcArrayValue(props.format));
@@ -46,7 +48,7 @@ export default defineComponent({
 
     const isShowClearIcon = computed(
       () =>
-        ((props.clearable && inputValue.value?.length && !disabled.value) || props.showClearIconOnEmpty) &&
+        ((props.clearable && inputValue.value?.length && !isDisabled.value) || props.showClearIconOnEmpty) &&
         isHover.value,
     );
 
@@ -116,7 +118,7 @@ export default defineComponent({
             COMPONENT_NAME.value,
             {
               [SIZE.value[props.size]]: props.size !== 'medium',
-              [STATUS.value.disabled]: disabled.value,
+              [STATUS.value.disabled]: isDisabled.value,
               [STATUS.value.focused]: focused.value,
               [STATUS.value.success]: props.status === 'success',
               [STATUS.value.warning]: props.status === 'warning',
@@ -139,8 +141,8 @@ export default defineComponent({
                 [`${classPrefix.value}-is-focused`]: props.activeIndex === 0,
               }}
               placeholder={placeholder.value[0]}
-              disabled={disabled.value}
-              readonly={props.readonly}
+              disabled={isDisabled.value}
+              readonly={isReadonly.value}
               format={format.value[0]}
               value={innerValue.value?.[0]}
               onClick={({ e }: { e: MouseEvent }) => props.onClick?.({ e, position: 'first' })}
@@ -178,8 +180,8 @@ export default defineComponent({
                 [`${classPrefix.value}-is-focused`]: props.activeIndex === 1,
               }}
               placeholder={placeholder.value[1]}
-              disabled={disabled.value}
-              readonly={props.readonly}
+              disabled={isDisabled.value}
+              readonly={isReadonly.value}
               format={format.value[1]}
               value={innerValue.value?.[1]}
               onClick={({ e }: { e: MouseEvent }) => props.onClick?.({ e, position: 'second' })}

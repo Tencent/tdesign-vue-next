@@ -12,6 +12,7 @@ import SelectPanel from './select-panel';
 import props from './props';
 // hooks
 import { useDisabled } from '../hooks/useDisabled';
+import { useReadonly } from '../hooks/useReadonly';
 import useDefaultValue from '../hooks/useDefaultValue';
 import useVModel from '../hooks/useVModel';
 import { useTNodeJSX } from '../hooks/tnode';
@@ -37,7 +38,8 @@ export default defineComponent({
   },
   setup(props: TdSelectProps & { valueDisplayOptions: SelectInputValueDisplayOptions }, { slots }) {
     const classPrefix = usePrefixClass();
-    const disabled = useDisabled();
+    const isDisabled = useDisabled();
+    const isReadonly = useReadonly();
     const renderTNodeJSX = useTNodeJSX();
     const COMPONENT_NAME = usePrefixClass('select');
     const { globalConfig, t } = useConfig('select');
@@ -368,7 +370,7 @@ export default defineComponent({
           <SelectInput
             {...{
               autoWidth: props.autoWidth,
-              readonly: props.readonly,
+              readonly: isReadonly.value,
               borderless: props.borderless,
               multiple: props.multiple,
               clearable: props.clearable,

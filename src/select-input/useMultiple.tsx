@@ -7,6 +7,7 @@ import Loading from '../loading';
 import useDefault from '../hooks/useDefaultValue';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useDisabled } from '../hooks/useDisabled';
+import { useReadonly } from '../hooks/useReadonly';
 import { PopupInstanceFunctions } from '../popup';
 
 export interface RenderSelectMultipleParams {
@@ -38,6 +39,7 @@ export default function useMultiple(
     'inputValue',
   );
   const disable = useDisabled();
+  const isReadonly = useReadonly();
 
   const iKeys = computed<SelectInputKeys>(() => ({ ...DEFAULT_KEYS, ...props.keys }));
   const tags = computed<TagInputValue>(() => {
@@ -93,7 +95,7 @@ export default function useMultiple(
       tagProps: props.tagProps,
       label: props.label,
       autoWidth: props.autoWidth,
-      readonly: props.readonly,
+      readonly: isReadonly.value,
       placeholder: tPlaceholder.value,
       minCollapsedNum: props.minCollapsedNum,
       collapsedItems: props.collapsedItems,
@@ -103,7 +105,7 @@ export default function useMultiple(
       valueDisplay: props.valueDisplay,
       inputValue: p.popupVisible && p.allowInput ? tInputValue.value : '',
       inputProps: {
-        readonly: !props.allowInput || props.readonly,
+        readonly: !props.allowInput || isReadonly.value,
         inputClass: {
           [`${classPrefix.value}-input--focused`]: p.popupVisible,
         },

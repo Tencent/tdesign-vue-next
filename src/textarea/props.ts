@@ -8,10 +8,8 @@ import { TdTextareaProps } from './type';
 import { PropType } from 'vue';
 
 export default {
-  allowInputOverMax: {
-    type: Boolean,
-    default: false,
-  },
+  /** 超出maxlength或maxcharacter之后是否还允许输入 */
+  allowInputOverMax: Boolean,
   /** 自动聚焦，拉起键盘 */
   autofocus: Boolean,
   /** 高度自动撑开。 autosize = true 表示组件高度自动撑开，同时，依旧允许手动拖高度。如果设置了 autosize.maxRows 或者 autosize.minRows 则不允许手动调整高度 */
@@ -30,7 +28,7 @@ export default {
   },
   /** 用户最多可以输入的字符个数 */
   maxlength: {
-    type: [Number, String] as PropType<TdTextareaProps['maxlength']>,
+    type: [String, Number] as PropType<TdTextareaProps['maxlength']>,
   },
   /** 名称，HTML 元素原生属性 */
   name: {
@@ -42,12 +40,17 @@ export default {
     type: String,
     default: undefined,
   },
-  /** 文本框是否只读 */
-  readonly: Boolean,
+  /** 只读状态 */
+  readonly: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 文本框状态 */
   status: {
     type: String as PropType<TdTextareaProps['status']>,
+    default: 'default' as TdTextareaProps['status'],
     validator(val: TdTextareaProps['status']): boolean {
+      if (!val) return true;
       return ['default', 'success', 'warning', 'error'].includes(val);
     },
   },
@@ -58,10 +61,11 @@ export default {
   /** 文本框值 */
   value: {
     type: [String, Number] as PropType<TdTextareaProps['value']>,
+    default: undefined as TdTextareaProps['value'],
   },
-  /** v-model */
   modelValue: {
     type: [String, Number] as PropType<TdTextareaProps['value']>,
+    default: undefined as TdTextareaProps['value'],
   },
   /** 文本框值，非受控属性 */
   defaultValue: {
