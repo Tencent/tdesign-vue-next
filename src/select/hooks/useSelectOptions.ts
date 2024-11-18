@@ -7,13 +7,13 @@ import { useChildComponentSlots } from '../../hooks/slot';
 import { TdSelectProps, TdOptionProps, SelectOptionGroup, SelectValue, SelectOption } from '../type';
 import { KeysType } from '../../common';
 
-type UniOption = (TdOptionProps | SelectOptionGroup) & {
+export type UniOption = (TdOptionProps | SelectOptionGroup) & {
   index?: number;
   slots?: Slots;
   disabled?: boolean;
 };
 
-type UniTdOptionProps = TdOptionProps & {
+export type UniTdOptionProps = TdOptionProps & {
   index?: number;
   disabled?: boolean;
 };

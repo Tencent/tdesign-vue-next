@@ -80,28 +80,30 @@ const minCollapsedNum = ref(1);
 // Function
 const collapsedItems = (h, { collapsedSelectedItems, onClose }) => {
   if (!(collapsedSelectedItems instanceof Array)) return null;
-  const count = collapsedSelectedItems.length - minCollapsedNum.value;
-  const collapsedTags = collapsedSelectedItems.slice(minCollapsedNum.value, collapsedSelectedItems.length);
+  const count = collapsedSelectedItems.length;
+
   if (count <= 0) return null;
   return (
     <t-popup
       v-slots={{
-        content: () => (
-          <>
-            {collapsedTags.map((item, index) => (
-              <t-tag
-                key={item.value}
-                style={{ marginRight: '4px' }}
-                size={size.value}
-                disabled={disabled.value}
-                closable={!readonly.value && !disabled.value}
-                onClose={(context) => onClose({ e: context.e, index: minCollapsedNum.value + index })}
-              >
-                {item.label}
-              </t-tag>
-            ))}
-          </>
-        ),
+        content: () => {
+          return (
+            <>
+              {collapsedSelectedItems.map((item, index) => (
+                <t-tag
+                  key={item.value}
+                  style={{ marginRight: '4px' }}
+                  size={size.value}
+                  disabled={disabled.value}
+                  closable={!readonly.value && !disabled.value}
+                  onClose={(context) => onClose({ e: context.e, index: minCollapsedNum.value + index })}
+                >
+                  {item.label}
+                </t-tag>
+              ))}
+            </>
+          );
+        },
       }}
     >
       <t-tag size={size.value} disabled={disabled.value}>
@@ -118,12 +120,8 @@ const CollapsedItemsRender = defineComponent({
   props: ['collapsedSelectedItems', 'minCollapsedNum'],
   emits: ['close'],
   setup(props, { attrs, emit }) {
-    const count = computed(() => {
-      return props.collapsedSelectedItems.length - props.minCollapsedNum;
-    });
-    const collapsedTags = computed(() => {
-      return props.collapsedSelectedItems.slice(props.minCollapsedNum, props.collapsedSelectedItems.length);
-    });
+    const count = computed(() => props.collapsedSelectedItems.length);
+    const collapsedTags = computed(() => props.collapsedSelectedItems);
 
     return () => {
       if (count.value <= 0) return null;

@@ -21,7 +21,7 @@ import { useSelectOptions } from './hooks/useSelectOptions';
 import useKeyboardControl from './hooks/useKeyboardControl';
 import type { PopupProps, PopupVisibleChangeContext } from '../popup';
 import type { SelectInputValueChangeContext } from '../select-input';
-import type { TdSelectProps, SelectValue } from './type';
+import type { TdSelectProps, SelectValue, SelectOptionGroup } from './type';
 import { SelectInputValueDisplayOptions } from '../select-input/useSingle';
 
 export default defineComponent({
@@ -122,8 +122,27 @@ export default defineComponent({
       const val =
         props.multiple && isArray(innerValue.value)
           ? (innerValue.value as SelectValue[]).map((value) => {
-              const { index: _, disabled: __, ...rest } = optionsMap.value.get(value);
-              return rest;
+              const option = optionsMap.value.get(value);
+              // if (!option) {
+              //   return { value };
+              // }
+              // const { index, disabled, ...rest } = option;
+              // if ((props.options as unknown as SelectOptionGroup)?.group) {
+              //   const keys = Object.keys((props.options as unknown as SelectOptionGroup)?.children);
+              //   return {
+              //     // ...(keys.includes('index') && { index }),
+              //     // ...(keys.includes('disabled') && { disabled }),
+              //     ...rest,
+              //   };
+              // } else {
+              //   const keys = Object.keys(props.options);
+              //   return {
+              //     // ...(keys.includes('index') && { index }),
+              //     // ...(keys.includes('disabled') && { disabled }),
+              //     ...rest,
+              //   };
+              // }
+              return option;
             })
           : innerValue.value;
 
@@ -382,7 +401,7 @@ export default defineComponent({
             ref={selectInputRef}
             class={COMPONENT_NAME.value}
             value={displayText.value}
-            options={props.options}
+            options={valueDisplayParams.value.value}
             disabled={disabled.value}
             popupVisible={innerPopupVisible.value}
             inputValue={innerPopupVisible.value ? innerInputValue.value : ''}

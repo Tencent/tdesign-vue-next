@@ -106,6 +106,7 @@ export default function useTagList(props: TagInputProps) {
       const len = tagValue.value.length - newList.length;
       // 这里会从selectInput/SelectInput中传递options参数，用于自定义选中项呈现的内容和多选状态下设置折叠项内容
       const options = Array.isArray(props?.options) ? props.options : tagValue.value;
+
       const more = renderTNode('collapsedItems', {
         params: {
           value: tagValue.value,
