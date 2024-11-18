@@ -123,25 +123,7 @@ export default defineComponent({
         props.multiple && isArray(innerValue.value)
           ? (innerValue.value as SelectValue[]).map((value) => {
               const option = optionsMap.value.get(value);
-              // if (!option) {
-              //   return { value };
-              // }
-              // const { index, disabled, ...rest } = option;
-              // if ((props.options as unknown as SelectOptionGroup)?.group) {
-              //   const keys = Object.keys((props.options as unknown as SelectOptionGroup)?.children);
-              //   return {
-              //     // ...(keys.includes('index') && { index }),
-              //     // ...(keys.includes('disabled') && { disabled }),
-              //     ...rest,
-              //   };
-              // } else {
-              //   const keys = Object.keys(props.options);
-              //   return {
-              //     // ...(keys.includes('index') && { index }),
-              //     // ...(keys.includes('disabled') && { disabled }),
-              //     ...rest,
-              //   };
-              // }
+              // TODO: 默认的 option.index 和 option.disabled 要参考是否传入进行剔除
               return option;
             })
           : innerValue.value;
