@@ -272,21 +272,13 @@ export default defineComponent({
     };
   },
   render() {
-    const {
-      t,
-      baseClassName,
-      statusClassNames,
-      globalConfig,
-      recentColors,
-      swatchColors,
-      showPrimaryColorPreview,
-      isGradient,
-    } = this;
+    const { t, baseClassName, statusClassNames, globalConfig, swatchColors, showPrimaryColorPreview, isGradient } =
+      this;
     const baseProps = {
       color: this.color,
       disabled: this.disabled,
     };
-    const showUsedColors = recentColors !== null && recentColors !== false;
+    const showUsedColors = this.recentlyUsedColors !== null && this.recentlyUsedColors !== false;
 
     let systemColors = swatchColors;
     if (systemColors === undefined) {
