@@ -22,7 +22,7 @@ import { useSelectOptions } from './hooks/useSelectOptions';
 import useKeyboardControl from './hooks/useKeyboardControl';
 import type { PopupProps, PopupVisibleChangeContext } from '../popup';
 import type { SelectInputValueChangeContext } from '../select-input';
-import type { TdSelectProps, SelectValue, SelectOptionGroup } from './type';
+import type { TdSelectProps, SelectValue } from './type';
 import { SelectInputValueDisplayOptions } from '../select-input/useSingle';
 
 export default defineComponent({
@@ -386,7 +386,7 @@ export default defineComponent({
             class={COMPONENT_NAME.value}
             value={displayText.value}
             options={valueDisplayParams.value.value}
-            disabled={disabled.value}
+            disabled={isDisabled.value}
             popupVisible={innerPopupVisible.value}
             inputValue={innerPopupVisible.value ? innerInputValue.value : ''}
             placeholder={`${placeholderText.value}`}
