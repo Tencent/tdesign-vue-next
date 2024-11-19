@@ -14,6 +14,7 @@ import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfi
 import { useCascaderContext } from './hooks';
 import { useTNodeJSX } from '../hooks/tnode';
 import { useDisabled } from '../hooks/useDisabled';
+import { useReadonly } from '../hooks/useReadonly';
 
 export default defineComponent({
   name: 'TCascader',
@@ -21,14 +22,13 @@ export default defineComponent({
   props: { ...props },
 
   setup(props, { slots }) {
-    const disabled = useDisabled();
-
     const COMPONENT_NAME = usePrefixClass('cascader');
     const classPrefix = usePrefixClass();
     const { STATUS } = useCommonClassName();
     const overlayClassName = usePrefixClass('cascader__popup');
     const { globalConfig } = useConfig('cascader');
-
+    const isDisabled = useDisabled();
+    const isReadonly = useReadonly();
     const renderTNodeJSX = useTNodeJSX();
 
     // 拿到全局状态的上下文
@@ -107,8 +107,8 @@ export default defineComponent({
           allowInput={isFilterable.value}
           min-collapsed-num={props.minCollapsedNum}
           collapsed-items={props.collapsedItems}
-          readonly={props.readonly}
-          disabled={props.disabled}
+          readonly={isReadonly.value}
+          disabled={isDisabled.value}
           clearable={props.clearable}
           placeholder={inputPlaceholder.value}
           multiple={props.multiple}
@@ -148,7 +148,7 @@ export default defineComponent({
             (props?.selectInputProps as TdSelectInputProps)?.onTagChange?.(val, ctx);
           }}
           onPopupVisibleChange={(val: boolean, context) => {
-            if (disabled.value) return;
+            if (isDisabled.value) return;
             setVisible(val, context);
             (props?.selectInputProps as TdSelectInputProps)?.onPopupVisibleChange?.(val, context);
           }}

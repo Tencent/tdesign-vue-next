@@ -10,7 +10,7 @@ autofocus | Boolean | - | \- | N
 borderless | Boolean | false | \- | N
 clearable | Boolean | - | \- | N
 default | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-disabled | Boolean | - | \- | N
+disabled | Boolean | undefined | \- | N
 filter | Function | - | Typescript：`(filterWords: string, option: T) => boolean \| Promise<boolean>` | N
 filterable | Boolean | true | \- | N
 highlightKeyword | Boolean | true | \- | N
@@ -20,7 +20,7 @@ panelBottomContent | String / Slot / Function | - | Typescript：`string \| TNod
 panelTopContent | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 placeholder | String | undefined | \- | N
 popupProps | Object | - | Typescript：`PopupProps`，[Popup API Documents](./popup?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/auto-complete/type.ts) | N
-readonly | Boolean | - | \- | N
+readonly | Boolean | undefined | \- | N
 size | String | medium | options: small/medium/large。Typescript：`SizeEnum`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 status | String | default | options: default/success/warning/error | N
 textareaProps | Object | - | Typescript：`TextareaProps`，[Textarea API Documents](./textarea?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/auto-complete/type.ts) | N

@@ -48,7 +48,6 @@ export interface TdTreeSelectProps<
   data?: Array<DataOption>;
   /**
    * 是否禁用组件
-   * @default false
    */
   disabled?: boolean;
   /**
@@ -124,7 +123,6 @@ export interface TdTreeSelectProps<
   prefixIcon?: TNode;
   /**
    * 只读状态，值为真会隐藏输入框，且无法打开下拉框
-   * @default false
    */
   readonly?: boolean;
   /**

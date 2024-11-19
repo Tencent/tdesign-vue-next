@@ -28,6 +28,7 @@ click | `(link: { href: string; title: string; e: MouseEvent })` | 锚点被点�
 href | String | - | 必需。锚点链接, 如果是 hash 模式需要加上当前 path | Y
 target | String | _self | 锚点文本。可选项：_self/_blank/_parent/_top | N
 title | String / Slot / Function | '' | 锚点文本。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+customScroll | Boolean | false | 自定义滚动效果，为true时点击锚点链接后不会使用js动画平滑滚动到锚点目标元素
 
 ### AnchorTarget Props
 

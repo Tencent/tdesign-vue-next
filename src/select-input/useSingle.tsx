@@ -7,6 +7,7 @@ import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
 import useDefaultValue from '../hooks/useDefaultValue';
 import { useDisabled } from '../hooks/useDisabled';
+import { useReadonly } from '../hooks/useReadonly';
 import { PopupInstanceFunctions } from '../popup';
 import { TdSelectInputProps } from './type';
 import { SelectInputCommonProperties } from './interface';
@@ -62,10 +63,12 @@ export default function useSingle(
   );
   const renderTNode = useTNodeJSX();
   const disable = useDisabled();
+  const isReadonly = useReadonly();
 
   const commonInputProps = computed<SelectInputCommonProperties>(() => ({
     ...pick(props, COMMON_PROPERTIES),
     disabled: disable.value,
+    readonly: isReadonly.value,
   }));
 
   const onInnerClear = (context: { e: MouseEvent }) => {
@@ -89,11 +92,11 @@ export default function useSingle(
       value: renderInputDisplay(singleValueDisplay, displayedValue, popupVisible),
       label: prefixContent.length ? () => prefixContent : undefined,
       autoWidth: props.autoWidth,
-      readonly: !props.allowInput || props.readonly,
+      readonly: !props.allowInput || isReadonly.value,
       placeholder: renderPlaceholder(singleValueDisplay),
       suffixIcon: !disable.value && props.loading ? () => <Loading loading size="small" /> : props.suffixIcon,
       showClearIconOnEmpty: Boolean(
-        props.clearable && (inputValue.value || displayedValue) && !disable.value && !props.readonly,
+        props.clearable && (inputValue.value || displayedValue) && !disable.value && !isReadonly.value,
       ),
       ...props.inputProps,
     };

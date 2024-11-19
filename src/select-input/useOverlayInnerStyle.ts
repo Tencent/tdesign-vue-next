@@ -4,6 +4,7 @@ import isFunction from 'lodash/isFunction';
 import { TdSelectInputProps } from './type';
 import { TdPopupProps, PopupVisibleChangeContext } from '../popup';
 import { useDisabled } from '../hooks/useDisabled';
+import { useReadonly } from '../hooks/useReadonly';
 
 export type overlayInnerStyleProps = Pick<
   TdSelectInputProps,
@@ -19,6 +20,7 @@ export default function useOverlayInnerStyle(props: overlayInnerStyleProps) {
   const { popupProps, autoWidth } = toRefs(props);
   const innerPopupVisible = ref(false);
   const disable = useDisabled();
+  const isReadonly = useReadonly();
 
   const matchWidthFunc = (triggerElement: HTMLElement, popupElement: HTMLElement) => {
     const SCROLLBAR_WIDTH = popupElement.scrollHeight > popupElement.offsetHeight ? RESERVE_WIDTH : 0;
@@ -41,7 +43,7 @@ export default function useOverlayInnerStyle(props: overlayInnerStyleProps) {
   };
 
   const onInnerPopupVisibleChange = (visible: boolean, ctx: PopupVisibleChangeContext) => {
-    if (disable.value || props.readonly) return;
+    if (disable.value || isReadonly.value) return;
     // 如果点击触发元素（输入框）且为可输入状态，则继续显示下拉框
     const newVisible = ctx.trigger === 'trigger-element-click' && props.allowInput ? true : visible;
     // 重复点击触发元素时，下拉框展示状态不变，不重复触发事件

@@ -18,6 +18,7 @@ import props from './props';
 // hooks
 import { usePrefixClass, useConfig } from '../hooks/useConfig';
 import { useDisabled } from '../hooks/useDisabled';
+import { useReadonly } from '../hooks/useReadonly';
 import { useTNodeJSX, useTNodeDefault } from '../hooks/tnode';
 import useVModel from '../hooks/useVModel';
 import useDefaultValue from '../hooks/useDefaultValue';
@@ -31,6 +32,7 @@ export default defineComponent({
     const classPrefix = usePrefixClass();
     const { globalConfig } = useConfig('treeSelect');
     const formDisabled = useDisabled();
+    const isReadonly = useReadonly();
 
     // ref
     const treeRef = ref(null);
@@ -396,7 +398,7 @@ export default defineComponent({
         clearable={props.clearable}
         autoWidth={props.autoWidth}
         borderless={props.borderless}
-        readonly={props.readonly}
+        readonly={isReadonly.value}
         placeholder={inputPlaceholder.value}
         allowInput={props.filterable || isFunction(props.filter)}
         minCollapsedNum={props.minCollapsedNum}
