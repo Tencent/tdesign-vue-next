@@ -36,6 +36,12 @@
     "options": []
   },
   {
+    "name": "readonly",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
     "name": "showAllLevels",
     "type": "Boolean",
     "defaultValue": true,
