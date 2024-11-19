@@ -32,7 +32,7 @@ export default {
   /** 点击蒙层时是否触发抽屉关闭事件 */
   closeOnOverlayClick: {
     type: Boolean,
-    default: undefined,
+    default: true,
   },
   /** 确认按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制确认事件 */
   confirmBtn: {
@@ -100,6 +100,10 @@ export default {
   zIndex: {
     type: Number,
   },
+  /** 抽屉执行关闭动画效果前触发 */
+  onBeforeClose: Function as PropType<TdDrawerProps['onBeforeClose']>,
+  /** 抽屉执行打开动画效果前触发 */
+  onBeforeOpen: Function as PropType<TdDrawerProps['onBeforeOpen']>,
   /** 如果“取消”按钮存在，点击“取消”按钮时触发，同时触发关闭事件 */
   onCancel: Function as PropType<TdDrawerProps['onCancel']>,
   /** 关闭事件，取消按钮点击时、关闭按钮点击时、ESC 按下时、点击蒙层时均会触发 */

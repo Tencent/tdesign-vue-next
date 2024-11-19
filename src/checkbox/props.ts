@@ -30,11 +30,6 @@ export default {
     type: Boolean,
     default: undefined,
   },
-  /** 是否组件只读。如果父组件存在 CheckboxGroup，默认值由 CheckboxGroup.disabled 控制。优先级：Checkbox.readonly > CheckboxGroup.readonly > Form.readonly */
-  readonly: {
-    type: Boolean,
-    default: undefined,
-  },
   /** 是否为半选 */
   indeterminate: Boolean,
   /** 主文案 */
@@ -45,6 +40,16 @@ export default {
   lazyLoad: Boolean,
   /** HTML 元素原生属性 */
   name: {
+    type: String,
+    default: '',
+  },
+  /** 只读状态 */
+  readonly: {
+    type: Boolean,
+    default: undefined,
+  },
+  /** HTML 原生属性 */
+  title: {
     type: String,
     default: '',
   },

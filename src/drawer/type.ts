@@ -30,6 +30,7 @@ export interface TdDrawerProps {
   closeOnEscKeydown?: boolean;
   /**
    * 点击蒙层时是否触发抽屉关闭事件
+   * @default true
    */
   closeOnOverlayClick?: boolean;
   /**
@@ -98,6 +99,14 @@ export interface TdDrawerProps {
    * 抽屉层级，样式默认为 1500
    */
   zIndex?: number;
+  /**
+   * 抽屉执行关闭动画效果前触发
+   */
+  onBeforeClose?: () => void;
+  /**
+   * 抽屉执行打开动画效果前触发
+   */
+  onBeforeOpen?: () => void;
   /**
    * 如果“取消”按钮存在，点击“取消”按钮时触发，同时触发关闭事件
    */
