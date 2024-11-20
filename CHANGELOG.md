@@ -24,7 +24,7 @@ docClass: timeline
   - 修复异步加载且 `valueMode="onlyLeaf"` 情况下的选中逻辑([common#1976](https://github.com/Tencent/tdesign-common/pull/1976)) @ylunwang ([#4734](https://github.com/Tencent/tdesign-vue-next/pull/4734))
 - `Menu`: 
   - `menu-group` 的 `title` 插槽无效 @chensid ([#4755](https://github.com/Tencent/tdesign-vue-next/pull/4755))
- - 修复当项目不包含 `vue-router ` 时，会产生额外的 `warning` @dsh0416 ([#4719](https://github.com/Tencent/tdesign-vue-next/pull/4719))
+  - 修复当项目不包含 `vue-router ` 时，会产生额外的 `warning` @dsh0416 ([#4719](https://github.com/Tencent/tdesign-vue-next/pull/4719))
 - `TagInput`: 修复在 `readonly` 模式下仍可以通过 `Backspace` 按键删除已选项的缺陷 @RSS1102 ([#4696](https://github.com/Tencent/tdesign-vue-next/pull/4696))
 - `Avatar`: 头像链接切换后，清除上一张图片加载失败的占位符 @Cat1007 ([#4724](https://github.com/Tencent/tdesign-vue-next/pull/4724))
 - `ColorPicker`: 最近使用颜色需要选中才能删除 @superNos ([#4720](https://github.com/Tencent/tdesign-vue-next/pull/4720))
