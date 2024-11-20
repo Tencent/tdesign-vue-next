@@ -15,7 +15,7 @@ inputProps | Object / Array | - | Typescript：`InputProps \| Array<InputProps>`
 label | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 placeholder | String / Array | - | Typescript：`string \| Array<string>` | N
 prefixIcon | Slot / Function | - | Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-readonly | Boolean | false | \- | N
+readonly | Boolean | undefined | \- | N
 separator | String / Slot / Function | '-' | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 showClearIconOnEmpty | Boolean | false | \- | N
 size | String | medium | options: small/medium/large | N
@@ -70,7 +70,7 @@ popupProps | Object | - | Typescript：`PopupProps`，[Popup API Documents](./po
 popupVisible | Boolean | - | \- | N
 defaultPopupVisible | Boolean | - | uncontrolled property | N
 rangeInputProps | Object | - | Typescript：`RangeInputProps`，[RangeInput API Documents](./range-input?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/range-input/type.ts) | N
-readonly | Boolean | false | \- | N
+readonly | Boolean | undefined | \- | N
 status | String | default | options: default/success/warning/error | N
 tips | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 onInputChange | Function |  | Typescript：`(value: RangeInputValue, context?: RangeInputValueChangeContext)  => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/range-input/type.ts)。<br/>`type RangeInputValueChangeContext = { e?: InputEvent \| MouseEvent; trigger?: 'input' \| 'clear', position?: RangeInputPosition }`<br/> | N

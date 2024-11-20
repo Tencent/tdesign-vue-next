@@ -11,11 +11,11 @@ export default {
   /** 当前步骤，即整个步骤条进度。默认根据步骤下标判断步骤的完成状态，当前步骤为进行中，当前步骤之前的步骤为已完成，当前步骤之后的步骤为未开始。如果每个步骤没有设置 value，current 值为步骤长度则表示所有步骤已完成。如果每个步骤设置了自定义 value，则 current = 'FINISH' 表示所有状态完成 */
   current: {
     type: [String, Number] as PropType<TdStepsProps['current']>,
-    default: undefined,
+    default: undefined as TdStepsProps['current'],
   },
   modelValue: {
     type: [String, Number] as PropType<TdStepsProps['current']>,
-    default: undefined,
+    default: undefined as TdStepsProps['current'],
   },
   /** 当前步骤，即整个步骤条进度。默认根据步骤下标判断步骤的完成状态，当前步骤为进行中，当前步骤之前的步骤为已完成，当前步骤之后的步骤为未开始。如果每个步骤没有设置 value，current 值为步骤长度则表示所有步骤已完成。如果每个步骤设置了自定义 value，则 current = 'FINISH' 表示所有状态完成，非受控属性 */
   defaultCurrent: {
@@ -35,7 +35,10 @@ export default {
     type: Array as PropType<TdStepsProps['options']>,
   },
   /** 只读状态 */
-  readonly: Boolean,
+  readonly: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 步骤条分割符 */
   separator: {
     type: String as PropType<TdStepsProps['separator']>,

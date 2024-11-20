@@ -28,4 +28,9 @@ export default {
     type: [String, Function] as PropType<TdAnchorItemProps['title']>,
     default: '',
   },
+  /** 自定义滚动效果，为true时点击锚点链接后不会使用js动画平滑滚动到锚点目标元素 */
+  customScroll: {
+    type: Boolean,
+    default: false,
+  },
 };

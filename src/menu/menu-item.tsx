@@ -71,14 +71,12 @@ export default defineComponent({
     },
   },
   render() {
-    const router = this.router || this.$router;
-
     const liContent = (
       <li ref="itemRef" class={this.classes} onClick={this.handleClick}>
         {renderTNodeJSX(this, 'icon')}
         {this.routerLink ? (
           <a
-            href={this.href ? this.href : this.to ? router?.resolve(this.to).href : ''}
+            href={this.href ? this.href : this.to ? (this.router || this.$router)?.resolve(this.to).href : ''}
             target={this.target}
             class={`${this.classPrefix}-menu__item-link`}
             onClick={(e) => e.preventDefault()}

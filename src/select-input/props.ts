@@ -82,7 +82,10 @@ export default {
     type: Function as PropType<TdSelectInputProps['prefixIcon']>,
   },
   /** 只读状态，值为真会隐藏输入框，且无法打开下拉框 */
-  readonly: Boolean,
+  readonly: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 多选且可搜索时，是否在选中一个选项后保留当前的搜索关键词 */
   reserveKeyword: Boolean,
   /** 组件尺寸 */

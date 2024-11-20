@@ -65,7 +65,7 @@ const columns = [
 
     // 禁用行选中方式二：使用 checkProps 禁用行（示例代码有效，勿删）
     // 这种方式禁用行选中，行文本不会变灰
-    checkProps: ({ rowIndex }) => ({ disabled: rowIndex % 2 !== 0 }),
+    checkProps: ({ rowIndex }) => ({ disabled: rowIndex % 2 !== 0, title: rowIndex % 2 !== 0 ? '不可选' : null }),
     width: 50,
   },
   { colKey: 'applicant', title: '申请人', width: '100' },

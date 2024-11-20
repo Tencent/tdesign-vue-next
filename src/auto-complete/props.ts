@@ -19,7 +19,10 @@ export default {
     type: [String, Function] as PropType<TdAutoCompleteProps['default']>,
   },
   /** 是否禁用 */
-  disabled: Boolean,
+  disabled: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 自定义过滤规则，用于对现有数据进行搜索过滤，判断是否过滤某一项数据。参数 `filterWords` 表示搜索词，`option`表示单个选项内容，返回值为 `true` 保留该选项，返回值为 `false` 则隐藏该选项。使用该方法时无需设置 `filterable` */
   filter: {
     type: Function as PropType<TdAutoCompleteProps['filter']>,
@@ -60,7 +63,10 @@ export default {
     type: Object as PropType<TdAutoCompleteProps['popupProps']>,
   },
   /** 是否只读 */
-  readonly: Boolean,
+  readonly: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 组件尺寸 */
   size: {
     type: String as PropType<TdAutoCompleteProps['size']>,

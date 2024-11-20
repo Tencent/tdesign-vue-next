@@ -30,7 +30,6 @@ export interface TdStepsProps {
   options?: Array<TdStepItemProps>;
   /**
    * 只读状态
-   * @default false
    */
   readonly?: boolean;
   /**
@@ -74,7 +73,7 @@ export interface TdStepItemProps {
    */
   icon?: boolean | TNode;
   /**
-   * 当前步骤的状态
+   * 当前步骤的状态：默认状态（未开始）、进行中状态、完成状态、错误状态
    * @default default
    */
   status?: StepStatus;

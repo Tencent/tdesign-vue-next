@@ -26,7 +26,7 @@ export default {
   /** [小数位数](https://en.wiktionary.org/wiki/decimal_place) */
   decimalPlaces: {
     type: [Number, Object] as PropType<TdInputNumberProps['decimalPlaces']>,
-    default: undefined,
+    default: undefined as TdInputNumberProps['decimalPlaces'],
   },
   /** 禁用组件 */
   disabled: {
