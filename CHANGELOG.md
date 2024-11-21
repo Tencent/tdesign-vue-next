@@ -15,7 +15,7 @@ docClass: timeline
 - `RadioGroup`: 新增 `readonly API ` @liweijie0812 ([#4737](https://github.com/Tencent/tdesign-vue-next/pull/4737))
 - `Form`: 全部 `readonly`API 默认值改undefined ，修复表单 `readonly` 为 true，表单输入类组件 `readonly` 为 false 时的表现异常问题 @liweijie0812 ([#4737](https://github.com/Tencent/tdesign-vue-next/pull/4737))
 - `AnchorItem`: 新增 `customScroll API`，支持关闭默认滚动动画，由用户可自定义锚点滚动的行为 @boogie-ben ([#4386](https://github.com/Tencent/tdesign-vue-next/pull/4386))
-- `Dialog`: 新增 API `BeforeOpen` 对话框执行消失动画效果前触发，`BeforeClose` 对话框执行消失动画效果前触发  @Wesley-0808 ([#4733](https://github.com/Tencent/tdesign-vue-next/pull/4733))
+- `Dialog`: 新增 API `BeforeOpen` 对话框执行打开动画效果前触发，`BeforeClose` 对话框执行消失动画效果前触发  @Wesley-0808 ([#4733](https://github.com/Tencent/tdesign-vue-next/pull/4733))
 - `Drawer`: 新增 API `BeforeOpen` 抽屉执行打开动画效果前触发，`BeforeClose` 抽屉执行关闭动画效果前触发 @Wesley-0808 ([#4733](https://github.com/Tencent/tdesign-vue-next/pull/4733))
 ### 🐞 Bug Fixes
 - `Input`: 
