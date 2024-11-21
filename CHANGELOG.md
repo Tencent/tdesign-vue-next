@@ -8,12 +8,15 @@ docClass: timeline
 ## 🌈 1.10.4 `2024-11-20` 
 ### 🚀 Features
 - `Icon`: 图标库发布 `0.3.0`版本，新增 `907` 个新图标；命名优化`blockchain` 重命名改为`transform-1`,`gesture-pray-1`重命名为`gesture-open`,`gesture-ranslation-1`重命名为`wave-bye`, `gesture-up-1`重命名为`gesture-typing`,`gesture-up-2`重命名为`gesture-right-slip`,`logo-wechat`重命名为`logo-wechat-stroke-filled`，移除`tree-list`、`logo-adobe-photoshop-1` 等错误图标 @uyarn ([#4729](https://github.com/Tencent/tdesign-vue-next/pull/4729))
+- `Nuxt` : `@tdesign-vue-next/nuxt` 发布 `0.1.5` 版本, 自动导入 `Typography`、`Empty` 组件和新图标
 - `Switch`: 新增 `before-change` API , 用于需要发起异步请求的场景 @centuryPark ([#4699](https://github.com/Tencent/tdesign-vue-next/pull/4699))
 - `Cascader`: 单选模式下当 `trigger` 为 `hover` 时，选中选项后自动关闭面板 @uyarn ([#4717](https://github.com/Tencent/tdesign-vue-next/pull/4717))
 - `Checkbox`: 新增 `title API`, 用于在选项展示禁用原因等场景 @liweijie0812 ([#4737](https://github.com/Tencent/tdesign-vue-next/pull/4737))
 - `RadioGroup`: 新增 `readonly API ` @liweijie0812 ([#4737](https://github.com/Tencent/tdesign-vue-next/pull/4737))
 - `Form`: 全部 `readonly`API 默认值改undefined ，修复表单 `readonly` 为 true，表单输入类组件 `readonly` 为 false 时的表现异常问题 @liweijie0812 ([#4737](https://github.com/Tencent/tdesign-vue-next/pull/4737))
 - `AnchorItem`: 新增 `customScroll API`，支持关闭默认滚动动画，由用户可自定义锚点滚动的行为 @boogie-ben ([#4386](https://github.com/Tencent/tdesign-vue-next/pull/4386))
+- `Dialog`: 新增 API `BeforeOpen` 对话框执行打开动画效果前触发，`BeforeClose` 对话框执行消失动画效果前触发  @Wesley-0808 ([#4733](https://github.com/Tencent/tdesign-vue-next/pull/4733))
+- `Drawer`: 新增 API `BeforeOpen` 抽屉执行打开动画效果前触发，`BeforeClose` 抽屉执行关闭动画效果前触发 @Wesley-0808 ([#4733](https://github.com/Tencent/tdesign-vue-next/pull/4733))
 ### 🐞 Bug Fixes
 - `Input`: 
   - 修复 `AutoWidth` 状态下，使用中文输入法时，`InputPreValue` 不会更新为输入值的问题 @Wesley-0808 ([#4688](https://github.com/Tencent/tdesign-vue-next/pull/4688))
@@ -24,7 +27,7 @@ docClass: timeline
   - 修复异步加载且 `valueMode="onlyLeaf"` 情况下的选中逻辑([common#1976](https://github.com/Tencent/tdesign-common/pull/1976)) @ylunwang ([#4734](https://github.com/Tencent/tdesign-vue-next/pull/4734))
 - `Menu`: 
   - `menu-group` 的 `title` 插槽无效 @chensid ([#4755](https://github.com/Tencent/tdesign-vue-next/pull/4755))
- - 修复当项目不包含 `vue-router ` 时，会产生额外的 `warning` @dsh0416 ([#4719](https://github.com/Tencent/tdesign-vue-next/pull/4719))
+  - 修复当项目不包含 `vue-router` 时，会产生额外的 `warning` @dsh0416 ([#4719](https://github.com/Tencent/tdesign-vue-next/pull/4719))
 - `TagInput`: 修复在 `readonly` 模式下仍可以通过 `Backspace` 按键删除已选项的缺陷 @RSS1102 ([#4696](https://github.com/Tencent/tdesign-vue-next/pull/4696))
 - `Avatar`: 头像链接切换后，清除上一张图片加载失败的占位符 @Cat1007 ([#4724](https://github.com/Tencent/tdesign-vue-next/pull/4724))
 - `ColorPicker`: 最近使用颜色需要选中才能删除 @superNos ([#4720](https://github.com/Tencent/tdesign-vue-next/pull/4720))
