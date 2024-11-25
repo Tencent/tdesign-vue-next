@@ -1,8 +1,12 @@
 import { ref } from 'vue';
 import { mount } from '@vue/test-utils';
+import { mockDelay } from '@test/utils';
 import { vi, describe, it, expect } from 'vitest';
 import { Select, OptionGroup, Option } from '@/src/select/index.ts';
+import { Popup } from '@/src/popup/index.ts';
+import { Tag } from '@/src/tag/index.ts';
 import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+import { console } from 'inspector';
 
 const options = [
   { label: '架构云', value: '1' },
@@ -140,6 +144,74 @@ describe('Select', () => {
       });
       expect(wrapper.element).toMatchSnapshot();
     });
+
+    it(':collapsedItems', async () => {
+      const collapsedItems = (h, { collapsedSelectedItems, onClose }) => {
+        if (!(collapsedSelectedItems instanceof Array)) return null;
+        const count = collapsedSelectedItems.length;
+
+        if (count <= 0) return null;
+        return (
+          <Popup
+            v-slots={{
+              content: () => {
+                return (
+                  <>
+                    {collapsedSelectedItems.map((item, index) => (
+                      <Tag
+                        key={item.value}
+                        style={{ marginRight: '4px' }}
+                        onClose={(context) => onClose({ e: context.e, index: 1 + index })}
+                      >
+                        {item.label}
+                      </Tag>
+                    ))}
+                  </>
+                );
+              },
+            }}
+          >
+            <Tag>Function - More({count})</Tag>
+          </Popup>
+        );
+      };
+
+      const currentOptions = [
+        { label: '架构云', value: '1' },
+        { label: '大数据', value: '2' },
+        { label: '区块链', value: '3' },
+      ];
+      const currentValues = ['1', '2', '3'];
+
+      const wrapper = mount({
+        render() {
+          return (
+            <Select
+              value={currentValues}
+              options={currentOptions}
+              minCollapsedNum={1}
+              multiple
+              collapsed-items={collapsedItems}
+            ></Select>
+          );
+        },
+      });
+
+      const tags = wrapper.findAll('.t-tag');
+      // 默认
+      expect(tags.length).toBe(2);
+      expect(tags[0].text()).toBe('架构云');
+      expect(tags[1].text()).toBe('Function - More(2)');
+      // // collapsedItems popup 展示
+      // await tags[1].trigger('mouseenter');
+
+      // await wrapper.vm.$nextTick();
+      // await mockDelay(300);
+
+      // const queryAllTags = document.querySelector('.t-tag');
+      // expect(queryAllTags).toBeTruthy();
+      // expect(queryAllTags.length).toBe(4);
+    });
   });
 
   describe('@event', () => {
@@ -202,85 +274,84 @@ describe('Select', () => {
       });
     });
   });
-});
 
-describe('Select Option', () => {
-  // test props api
-  describe(':props', () => {
-    it(':value', () => {
-      const value = '1';
-      const wrapper = mount({
-        render() {
-          return (
-            <Select v-model={value}>
-              <Option value={'1'} label={'1'}></Option>
-            </Select>
-          );
-        },
-      });
-      expect(wrapper.element).toMatchSnapshot();
-    });
-    it(':label', () => {
-      const value = '1';
-      const wrapper = mount({
-        render() {
-          return (
-            <Select v-model={value}>
-              <Option value={'1'} label={'1'}></Option>
-            </Select>
-          );
-        },
-      });
-      expect(wrapper.element).toMatchSnapshot();
-    });
-    it(':disabled', () => {
-      const value = '1';
-      const wrapper = mount({
-        render() {
-          return (
-            <Select v-model={value}>
-              <Option value={'1'} label={'1'} disabled={true}></Option>
-            </Select>
-          );
-        },
-      });
-      expect(wrapper.element).toMatchSnapshot();
-    });
-  });
-});
-
-describe('Select OptionGroup', () => {
-  // test props api
-  describe(':props', () => {
-    it(':value', () => {
-      const value = '1';
-      const wrapper = mount({
-        render() {
-          return (
-            <Select v-model={value}>
-              <OptionGroup label={'num'}>
+  describe('Select Option', () => {
+    // test props api
+    describe(':props', () => {
+      it(':value', () => {
+        const value = '1';
+        const wrapper = mount({
+          render() {
+            return (
+              <Select v-model={value}>
                 <Option value={'1'} label={'1'}></Option>
-              </OptionGroup>
-              <OptionGroup label={'abc'}>
-                <Option value={'a'} label={'a'}></Option>
-              </OptionGroup>
-            </Select>
-          );
-        },
+              </Select>
+            );
+          },
+        });
+        expect(wrapper.element).toMatchSnapshot();
       });
-      expect(wrapper.element).toMatchSnapshot();
+      it(':label', () => {
+        const value = '1';
+        const wrapper = mount({
+          render() {
+            return (
+              <Select v-model={value}>
+                <Option value={'1'} label={'1'}></Option>
+              </Select>
+            );
+          },
+        });
+        expect(wrapper.element).toMatchSnapshot();
+      });
+      it(':disabled', () => {
+        const value = '1';
+        const wrapper = mount({
+          render() {
+            return (
+              <Select v-model={value}>
+                <Option value={'1'} label={'1'} disabled={true}></Option>
+              </Select>
+            );
+          },
+        });
+        expect(wrapper.element).toMatchSnapshot();
+      });
     });
   });
 
-  describe(':base', () => {
-    it('v-for and option works fine', async () => {
-      const Comp = {
-        components: {
-          TSelect: Select,
-          TOptionGroup: OptionGroup,
-          TOption: Option,
-        },
-        template: `
+  describe('Select OptionGroup', () => {
+    // test props api
+    describe(':props', () => {
+      it(':value', () => {
+        const value = '1';
+        const wrapper = mount({
+          render() {
+            return (
+              <Select v-model={value}>
+                <OptionGroup label={'num'}>
+                  <Option value={'1'} label={'1'}></Option>
+                </OptionGroup>
+                <OptionGroup label={'abc'}>
+                  <Option value={'a'} label={'a'}></Option>
+                </OptionGroup>
+              </Select>
+            );
+          },
+        });
+        expect(wrapper.element).toMatchSnapshot();
+      });
+    });
+
+    describe(':base', () => {
+      it('v-for and option works fine', async () => {
+        const Comp = {
+          components: {
+            TSelect: Select,
+            TOptionGroup: OptionGroup,
+            TOption: Option,
+          },
+          template: `
           <t-select>
             <t-option-group label='test'>
               <t-option v-for='i in ["1", "2"]' :key='i' :label='i' :value='i'></t-option>
@@ -296,19 +367,20 @@ describe('Select OptionGroup', () => {
             </t-option-group>
           </t-select>
         `,
-      };
+        };
 
-      const wrapper = mount(Comp);
-      await wrapper.setProps({ popupProps: { visible: true } });
+        const wrapper = mount(Comp);
+        await wrapper.setProps({ popupProps: { visible: true } });
 
-      const panelNode = document.querySelector('.t-select__list');
-      const groupNode = document.querySelectorAll('.t-select-option-group');
-      expect(groupNode.length).toBe(3);
-      groupNode.forEach((item) => {
-        const option = item.querySelectorAll('.t-select-option');
-        expect(option.length).toBe(3);
+        const panelNode = document.querySelector('.t-select__list');
+        const groupNode = document.querySelectorAll('.t-select-option-group');
+        expect(groupNode.length).toBe(3);
+        groupNode.forEach((item) => {
+          const option = item.querySelectorAll('.t-select-option');
+          expect(option.length).toBe(3);
+        });
+        panelNode.parentNode.removeChild(panelNode);
       });
-      panelNode.parentNode.removeChild(panelNode);
     });
   });
 });
