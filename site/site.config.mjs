@@ -69,6 +69,22 @@ export const docs = [
     ],
   },
   {
+    title: '高阶组件',
+    titleEn: 'Pro',
+    type: 'component', // 组件文档
+    children: [
+      {
+        title: 'AI Chat 对话',
+        titleEn: 'Chat',
+        name: 'chat',
+        path: '/chat',
+        redirect: () => {
+          window.open('https://tdesign.tencent.com/chat', '_blank');
+        },
+      },
+    ],
+  },
+  {
     title: '基础',
     titleEn: 'Base',
     type: 'component', // 组件文档
