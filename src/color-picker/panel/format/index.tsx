@@ -54,7 +54,6 @@ export default defineComponent({
     };
   },
   render() {
-    const formats = [...FORMATS];
     const { baseClassName, handleModeChange } = this;
     const newProps = {
       ...this.$props,
