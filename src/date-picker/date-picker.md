@@ -77,6 +77,7 @@ prefixIcon | Slot / Function | - | 组件前置图标。TS 类型：`TNode`。[�
 presets | Object | - | 预设快捷日期选择，示例：{ '特定日期范围': ['2021-01-01', '2022-01-01'], '本月': [dayjs().startOf('month'), dayjs().endOf('month')] }。TS 类型：`PresetRange` `interface PresetRange { [range: string]: DateRange \| (() => DateRange)}` `type DateRange = [DateValue, DateValue]`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/date-picker/type.ts) | N
 presetsPlacement | String | bottom | 预设面板展示区域（包含确定按钮）。可选项：left/top/right/bottom | N
 rangeInputProps | Object | - | 透传给范围输入框 RangeInput 组件的参数。TS 类型：`RangeInputProps`，[RangeInput API Documents](./range-input?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/date-picker/type.ts) | N
+readonly | Boolean | undefined | 是否只读，优先级大于 `allowInput` | N
 separator | String | - | 日期分隔符，支持全局配置，默认为 '-' | N
 size | String | medium | 输入框尺寸。可选项：small/medium/large。TS 类型：`SizeEnum`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 status | String | default | 输入框状态。可选项：default/success/warning/error | N

@@ -292,7 +292,7 @@ export default defineComponent({
           popupProps={popupProps.value}
           inputProps={inputProps.value}
           placeholder={props.placeholder || globalConfig.value.placeholder[props.mode]}
-          popupVisible={popupVisible.value}
+          popupVisible={!props.readonly && popupVisible.value}
           valueDisplay={() => renderTNodeJSX('valueDisplay', { params: valueDisplayParams.value })}
           needConfirm={props.needConfirm}
           {...(props.selectInputProps as TdDatePickerProps['selectInputProps'])}
