@@ -2,7 +2,7 @@ import { defineComponent, PropType, ref, watch } from 'vue';
 import upperCase from 'lodash/upperCase';
 import { TdColorPickerProps } from '../../type';
 import props from '../../props';
-import { FORMATS } from '../../const';
+import { FORMATS } from '../../../_common/js/color-picker/constants';
 import { Color } from '../../utils';
 import { Select as TSelect, Option as TOption } from '../../../select';
 import FormatInputs from './inputs';
@@ -54,7 +54,6 @@ export default defineComponent({
     };
   },
   render() {
-    const formats: TdColorPickerProps['format'][] = [...FORMATS];
     const { baseClassName, handleModeChange } = this;
     const newProps = {
       ...this.$props,
@@ -77,7 +76,7 @@ export default defineComponent({
             v-model={this.formatModel}
             onChange={handleModeChange}
           >
-            {formats.map((item) => (
+            {FORMATS.map((item) => (
               <TOption key={item} value={item} label={upperCase(item)} style={{ fontSize: '12px' }} />
             ))}
           </TSelect>

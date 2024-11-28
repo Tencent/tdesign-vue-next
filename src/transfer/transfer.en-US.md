@@ -14,7 +14,7 @@ empty | String / Array / Slot / Function | '' | Typescript：`EmptyType \| Array
 footer | Array / Slot / Function | - | Typescript：`Array<string \| TNode> \| TNode<{ type: TransferListType }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 keys | Object | - | alias field name in data。Typescript：`KeysType`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 operation | Array / Slot / Function | - | Typescript：`Array<string \| TNode> \| TNode<{ direction: 'left' \| 'right' }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-pagination | Object / Array | - | Typescript：`PaginationProps \| Array<PaginationProps>`，[Pagination API Documents](./pagination?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/transfer/type.ts) | N
+pagination | Object / Array | - | Typescript：`PaginationProps \| Array<PaginationProps>`，[Pagination API Documents](./pagination?tab=api)。Cannot configure 'theme' and 'size'`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/transfer/type.ts) | N
 search | Boolean / Object / Array | false | Typescript：`SearchOption \| Array<SearchOption>` `type SearchOption = boolean \| InputProps`，[Input API Documents](./input?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/transfer/type.ts) | N
 showCheckAll | Boolean / Array | true | Typescript：`boolean \| Array<boolean>` | N
 targetDraggable | Boolean | false | allowed to sort the target list by dragging | N

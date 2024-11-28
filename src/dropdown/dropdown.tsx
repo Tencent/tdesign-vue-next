@@ -71,7 +71,9 @@ export default defineComponent({
             content: () => (
               <>
                 {renderTNodeJSX('panelTopContent')}
-                <DropdownMenu {...omit(props, 'onClick')} options={options.value} onClick={handleMenuClick} />
+                {options.value?.length ? (
+                  <DropdownMenu {...omit(props, 'onClick')} options={options.value} onClick={handleMenuClick} />
+                ) : null}
                 {renderTNodeJSX('panelBottomContent')}
               </>
             ),
