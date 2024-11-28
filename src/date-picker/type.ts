@@ -94,6 +94,11 @@ export interface TdDatePickerProps {
    */
   presetsPlacement?: 'left' | 'top' | 'right' | 'bottom';
   /**
+   * 只读状态
+   * @default undefined
+   */
+  readonly?: boolean;
+  /**
    * 透传 SelectInput 筛选器输入框组件的全部属性
    */
   selectInputProps?: SelectInputProps;
@@ -257,6 +262,11 @@ export interface TdDateRangePickerProps {
    * @default bottom
    */
   presetsPlacement?: 'left' | 'top' | 'right' | 'bottom';
+  /**
+   * 只读状态
+   * @default undefined
+   */
+  readonly?: boolean;
   /**
    * 透传给范围输入框 RangeInput 组件的参数
    */
