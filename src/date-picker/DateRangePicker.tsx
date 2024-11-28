@@ -411,6 +411,7 @@ export default defineComponent({
     return () => (
       <div class={COMPONENT_NAME.value}>
         <TRangeInputPopup
+          readonly={props.readonly}
           disabled={disabled.value}
           label={props.label}
           status={props.status}

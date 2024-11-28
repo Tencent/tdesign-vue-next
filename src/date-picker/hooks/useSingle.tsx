@@ -47,7 +47,7 @@ export default function useSingle(props: TdDatePickerProps) {
     size: props.size,
     ref: inputRef,
     prefixIcon: () => renderTNodeJSX('prefixIcon'),
-    readonly: !props.allowInput,
+    readonly: props.readonly || !props.allowInput,
     suffixIcon: () => {
       return renderTNodeJSX('suffixIcon') || <CalendarIcon />;
     },
