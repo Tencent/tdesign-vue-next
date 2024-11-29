@@ -1,4 +1,4 @@
-import { defineComponent, computed, watch } from 'vue';
+import { defineComponent, computed, watch, ref } from 'vue';
 import dayjs from 'dayjs';
 import isFunction from 'lodash/isFunction';
 
@@ -60,8 +60,17 @@ export default defineComponent({
       };
     });
 
+    const popupCloseByPreset = ref(false);
     watch(popupVisible, (visible) => {
       // 如果不需要确认，直接保存当前值
+      // 存在一种可能性，点击 preset 时，不会更新 input
+      if ((popupCloseByPreset.value = true)) {
+        inputValue.value = formatDate(value.value, {
+          format: formatRef.value.format,
+        });
+        popupCloseByPreset.value = false;
+        return;
+      }
       if (!props.needConfirm && props.enableTimePicker && !visible) {
         const nextValue = formatDate(inputValue.value, {
           format: formatRef.value.format,
@@ -149,6 +158,7 @@ export default defineComponent({
             trigger: 'pick',
           },
         );
+        popupCloseByPreset.value = true;
         popupVisible.value = false;
       }
 
