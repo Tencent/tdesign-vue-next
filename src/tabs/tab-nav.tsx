@@ -211,7 +211,7 @@ export default defineComponent({
       handleActiveTabScroll();
     });
     // renders
-    const navs = computed(() => {
+    const renderNavsContent = () => {
       return props.panels.map((panel, index) => {
         let label;
         if (panel?.children?.label) {
@@ -244,7 +244,7 @@ export default defineComponent({
           />
         );
       });
-    });
+    };
     const renderArrows = () => {
       return [
         <div
@@ -280,14 +280,15 @@ export default defineComponent({
       ];
     };
     const renderNavs = () => {
+      const navContent = renderNavsContent();
       return (
         <div class={navContainerClass.value}>
           <div class={navScrollContainerClass.value} onWheel={handleWheel}>
             <div ref={navsWrapRef} class={navsWrapClass.value} style={wrapTransformStyle.value}>
               {props.theme !== 'card' && (
-                <TTabNavBar placement={props.placement} value={props.value} navs={navs.value} />
+                <TTabNavBar placement={props.placement} value={props.value} navs={navContent} />
               )}
-              {navs.value}
+              {navContent}
             </div>
           </div>
         </div>
