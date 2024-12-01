@@ -184,7 +184,7 @@
     "vite": "^2.9.16",
     "vite-plugin-pwa": "^0.12.8",
     "vite-plugin-tdoc": "^2.0.4",
-    "vitest": "^0.14.2",
+    "vitest": "^2.1.6",
     "vitest-fetch-mock": "^0.1.0",
     "vue": "3.3.9",
     "vue-router": "^4.2.4",
