@@ -20,6 +20,7 @@ export type UseVirtualScrollParams = Ref<{
     /** 固定行（冻结行），示例：[M, N]，表示冻结头 M 行和尾 N 行。M 和 N 值为 0 时，表示不冻结行 */
     fixedRows?: Array<number>;
   };
+  preventResizeRefresh?: boolean;
 }>;
 
 export interface ScrollToElementParams {
@@ -170,6 +171,7 @@ const useVirtualScroll = (container: Ref<HTMLElement | null>, params: UseVirtual
 
   const refreshVirtualScroll = ([{ contentRect }]: [ResizeObserverEntry]) => {
     // 如果宽度发生变化，重置滚动位置
+    if (params.value.preventResizeRefresh) return;
     const maxScrollbarWidth = 16;
     if (Math.abs(contentRect.width - containerWidth.value) > maxScrollbarWidth && !!container.value) {
       container.value.scrollTop = 0;
