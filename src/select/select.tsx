@@ -22,7 +22,7 @@ import { useSelectOptions } from './hooks/useSelectOptions';
 import useKeyboardControl from './hooks/useKeyboardControl';
 import type { PopupProps, PopupVisibleChangeContext } from '../popup';
 import type { SelectInputValueChangeContext } from '../select-input';
-import type { TdSelectProps, SelectValue } from './type';
+import type { TdSelectProps, SelectValue, TdOptionProps } from './type';
 import { SelectInputValueDisplayOptions } from '../select-input/useSingle';
 
 export default defineComponent({
@@ -121,13 +121,15 @@ export default defineComponent({
 
     // valueDisplayParams参数
     const valueDisplayParams = computed(() => {
-      const val =
-        props.multiple && isArray(innerValue.value)
-          ? (innerValue.value as SelectValue[]).map((value) => ({
-              value,
-              label: optionsMap.value.get(value)?.label,
-            }))
-          : innerValue.value;
+      const tValue = innerValue.value || [];
+      const values = Array.isArray(tValue) ? tValue : [tValue];
+
+      const val = props.multiple
+        ? values.map((item: any) => {
+            const tmpValue = typeof item === 'object' ? item[props.keys?.value || 'value'] : item;
+            return props.options?.find((t: TdOptionProps) => t.value === tmpValue);
+          })
+        : innerValue.value;
 
       const params = {
         value: val,
@@ -143,6 +145,24 @@ export default defineComponent({
         };
       }
       return params;
+    });
+
+    const collapsedItemsParams = computed(() => {
+      const tValue = innerValue.value || [];
+      const values = Array.isArray(tValue) ? tValue : [tValue];
+      return props.multiple
+        ? {
+            value: values,
+            collapsedSelectedItems: values
+              .map((item: any) => {
+                const tmpValue = typeof item === 'object' ? item[props.keys?.value || 'value'] : item;
+                return props.options?.find((t: TdOptionProps) => t.value === tmpValue);
+              })
+              .slice(props.minCollapsedNum),
+            count: values.length - props.minCollapsedNum,
+            onClose: (index: number) => removeTag(index),
+          }
+        : {};
     });
 
     const isFilterable = computed(() => {
@@ -431,6 +451,7 @@ export default defineComponent({
                 params: valueDisplayParams.value,
               })
             }
+            collapsedItems={() => renderTNodeJSX('collapsedItems', { params: collapsedItemsParams.value })}
             onPopupVisibleChange={handlerPopupVisibleChange}
             onInputChange={handlerInputChange}
             onClear={({ e }) => {

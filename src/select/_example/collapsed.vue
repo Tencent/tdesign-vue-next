@@ -39,8 +39,9 @@
       :disabled="disabled"
       :readonly="readonly"
     >
-      <template #collapsedItems="{ value: v, onClose }">
+      <template #collapsedItems="{ value: v, collapsedSelectedItems: collapsedSelectedItemsV, onClose }">
         <CollapsedItemsRender
+          :collapsed-selected-items="collapsedSelectedItemsV"
           :style="{ marginRight: '4px' }"
           :value="v"
           :min-collapsed-num="minCollapsedNum"
@@ -78,26 +79,26 @@ const readonly = ref(false);
 const minCollapsedNum = ref(1);
 
 // Function
-const collapsedItems = (h, { value, onClose }) => {
+const collapsedItems = (h, { value, onClose, collapsedSelectedItems }) => {
+  console.log('collapsedSelectedItems', collapsedSelectedItems);
   if (!(value instanceof Array)) return null;
   const count = value.length - minCollapsedNum.value;
-  const collapsedTags = value.slice(minCollapsedNum.value, value.length);
   if (count <= 0) return null;
   return (
     <t-popup
       v-slots={{
         content: () => (
           <>
-            {collapsedTags.map((item, index) => (
+            {collapsedSelectedItems.map((item, index) => (
               <t-tag
-                key={item}
+                key={item.value}
                 style={{ marginRight: '4px' }}
                 size={size.value}
                 disabled={disabled.value}
                 closable={!readonly.value && !disabled.value}
                 onClose={(context) => onClose({ e: context.e, index: minCollapsedNum.value + index })}
               >
-                {item}
+                {item.label}
               </t-tag>
             ))}
           </>
@@ -115,15 +116,13 @@ const collapsedItems = (h, { value, onClose }) => {
 const CollapsedItemsRender = defineComponent({
   name: 'CollapsedItemsRender',
   // eslint-disable-next-line vue/require-prop-types
-  props: ['value', 'minCollapsedNum'],
+  props: ['value', 'minCollapsedNum', 'collapsedSelectedItems'],
   emits: ['close'],
   setup(props, { attrs, emit }) {
     const count = computed(() => {
       return props.value.length - props.minCollapsedNum;
     });
-    const collapsedTags = computed(() => {
-      return props.value.slice(props.minCollapsedNum, props.value.length);
-    });
+    console.log('props.collapsedSelectedItems', props);
 
     return () => {
       if (count.value <= 0) return null;
@@ -132,13 +131,13 @@ const CollapsedItemsRender = defineComponent({
           v-slots={{
             content: () => (
               <>
-                {collapsedTags.value.map((item, index) => (
+                {props.collapsedSelectedItems.map((item, index) => (
                   <t-tag
                     {...attrs}
-                    key={item}
+                    key={item.value}
                     onClose={(context) => emit('close', { e: context.e, index: props.minCollapsedNum.value + index })}
                   >
-                    {item}
+                    {item.label}
                   </t-tag>
                 ))}
               </>
