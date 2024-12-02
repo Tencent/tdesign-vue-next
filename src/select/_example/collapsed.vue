@@ -80,7 +80,6 @@ const minCollapsedNum = ref(1);
 
 // Function
 const collapsedItems = (h, { value, onClose, collapsedSelectedItems }) => {
-  console.log('collapsedSelectedItems', collapsedSelectedItems);
   if (!(value instanceof Array)) return null;
   const count = value.length - minCollapsedNum.value;
   if (count <= 0) return null;
@@ -122,7 +121,6 @@ const CollapsedItemsRender = defineComponent({
     const count = computed(() => {
       return props.value.length - props.minCollapsedNum;
     });
-    console.log('props.collapsedSelectedItems', props);
 
     return () => {
       if (count.value <= 0) return null;
