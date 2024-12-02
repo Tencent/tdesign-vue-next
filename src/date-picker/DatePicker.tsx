@@ -149,7 +149,6 @@ export default defineComponent({
             trigger: 'pick',
           },
         );
-        popupCloseByPreset.value = true;
         popupVisible.value = false;
       }
 
