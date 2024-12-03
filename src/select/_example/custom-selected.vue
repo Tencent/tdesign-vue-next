@@ -54,8 +54,8 @@ const value1 = ref(['1', '2', '3']);
 const value2 = ref(['4', '5', '6', '7']);
 const value3 = ref('1');
 
-const valueDisplay = (h, { value, onClose, displayValue }) => {
-  if (!(value instanceof Array)) return;
+const valueDisplay = (_h, { onClose, displayValue }) => {
+  if (!(displayValue instanceof Array)) return;
   return displayValue.map((item, index) => (
     <t-tag
       key={index}
