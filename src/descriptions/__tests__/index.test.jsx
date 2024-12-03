@@ -1,6 +1,5 @@
 import { it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { nextTick } from 'vue';
 import { getDescriptionsMount } from './mount';
 import Descriptions, { DescriptionsItem } from '@/src/descriptions/index.ts';
 import CustomComp from './custom-comp.vue';
@@ -92,6 +91,31 @@ describe('Descriptions', () => {
       const thirdTrTd = thirdTr.findAll('td')[0];
       // 检查第 3 个 tr 元素中的第 1 个 td 元素是否具有 colspan 属性，并检查其值是否为 1
       expect(thirdTrTd.element.getAttribute('colspan')).toBe('1');
+    });
+
+    it(':layout:vertical,title slot', () => {
+      const labelSlot = 'Label Slot';
+      const wrapper = mount({
+        render() {
+          return (
+            <Descriptions layout={layout.V}>
+              <DescriptionsItem v-slots={{ label: () => labelSlot }}>TDesign</DescriptionsItem>
+              <DescriptionsItem label="Telephone Number">139****0609</DescriptionsItem>
+              <DescriptionsItem label="Area">China Tencent Headquarters</DescriptionsItem>
+              <DescriptionsItem label="Address">Shenzhen Penguin Island D1 4A Mail Center</DescriptionsItem>
+            </Descriptions>
+          );
+        },
+      });
+
+      const tbody = wrapper.find('tbody');
+      // 检查 tbody 下面是否只有 4 个 tr 元素
+      expect(tbody.findAll('tr')).toHaveLength(4);
+      //主要关注第一个 tr
+      const firstTr = tbody.findAll('tr')[0];
+      // 检查第 1 个 tr 元素中是否只有 2 个 td 元素
+      expect(firstTr.findAll('td')).toHaveLength(2);
+      expect(firstTr.findAll('td')[0].text()).toBe(labelSlot);
     });
 
     it(':layout:vertical (should not be affected by span)', () => {
