@@ -217,7 +217,7 @@ describe('Select', () => {
       const visible = ref(false);
       const minCollapsedNum = 1;
 
-      const collapsedItems = (h, { collapsedSelectedItems }) => {
+      const collapsedItems = (h, { collapsedSelectedItems, onClose }) => {
         if (!(collapsedSelectedItems instanceof Array)) return null;
         const count = collapsedSelectedItems.length;
         if (count <= 0) return null;
