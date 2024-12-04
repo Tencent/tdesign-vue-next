@@ -55,7 +55,7 @@ function getDataValues(
     if (data) {
       for (let i = 0; i < data.length; i++) {
         const item = data[i];
-        const isInclude = filterValues.includes(item.value);
+        const isInclude = filterValues.includes(item.value) && !item.disabled;
         if (!include && isInclude) {
           continue; // 排除模式下子元素一律排除
         }

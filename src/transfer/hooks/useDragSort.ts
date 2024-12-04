@@ -73,10 +73,6 @@ export default function useDragSort(
 
     newData.splice(sourceIndex, 1);
 
-    if (currentDraggingIndex < currentDragoverIndex) {
-      targetIndex -= 1;
-    }
-
     if (dragoverPos.value === 'bottom') {
       targetIndex += 1;
     }
