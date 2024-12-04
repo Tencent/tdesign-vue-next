@@ -23,6 +23,7 @@ export default function usePaginationClasses(
       [STATUS.value.disabled]: props.disabled,
       [`${name.value}-ie`]: getIEVersion() < 11,
     },
+    props.theme === 'simple' ? `${name.value}--simple` : ``,
   ]);
 
   const totalClass = computed(() => [`${name.value}__total`]);
