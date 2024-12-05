@@ -1211,12 +1211,7 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
               <!---->
               <!---->
               <!---->
-              <img
-                alt=""
-                class="t-image t-image--fit-fill t-image--position-center"
-                referrerpolicy="strict-origin-when-cross-origin"
-                src=""
-              />
+              <!---->
               <div
                 class="t-image__loading"
               >
