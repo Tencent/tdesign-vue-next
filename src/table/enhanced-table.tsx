@@ -138,7 +138,7 @@ export default defineComponent({
         // 半选状态节点
         indeterminateSelectedRowKeys: tIndeterminateSelectedRowKeys.value,
         // 树形结构不允许本地数据分页
-        disableDataPage: Boolean(props.tree && Object.keys(props.tree).length),
+        disableDataPage: Boolean(props.tree && Object.keys(props.tree).length) || props.disableDataPage,
         onSelectChange: onInnerSelectChange,
         onDragSort: onDragSortChange,
         rowClassName: ({ row }) => {

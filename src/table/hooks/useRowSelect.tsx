@@ -68,6 +68,7 @@ export default function useRowSelect(
       };
       const selectedRowClass = selected.size ? selectedRowClassFunc : undefined;
       selectedRowClassNames.value = [disabledRowClass, selectedRowClass];
+      currentPaginateData.value = data.value;
     },
     { immediate: true },
   );

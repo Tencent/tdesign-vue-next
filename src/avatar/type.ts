@@ -6,7 +6,7 @@
 
 import { ImageProps } from '../image';
 import { PopupProps } from '../popup';
-import { TNode } from '../common';
+import { TNode, ShapeEnum } from '../common';
 
 export interface TdAvatarProps {
   /**
@@ -80,7 +80,5 @@ export interface TdAvatarGroupProps {
    */
   size?: string;
 }
-
-export type ShapeEnum = 'circle' | 'round';
 
 export type CascadingValue = 'left-up' | 'right-up';

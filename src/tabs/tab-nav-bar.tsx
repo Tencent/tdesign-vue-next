@@ -31,12 +31,18 @@ export default defineComponent({
         if (props.navs[i].props.value === props.value) {
           break;
         }
-        offset += props.navs[i]?.el?.getBoundingClientRect()?.[sizePropName] || 0;
+        if (props.navs[i]?.el) {
+          const sizeWithUnit = getComputedStyle(props.navs[i].el as Element)[sizePropName as 'width' | 'left'];
+          const size = parseFloat(sizeWithUnit);
+          offset += size;
+        }
       }
       if (!props.navs[i]) return {};
       return {
         [offsetPropName]: `${offset}px`,
-        [sizePropName]: `${props.navs[i].el?.getBoundingClientRect()?.[sizePropName] || 0}px`,
+        [sizePropName]: props.navs[i].el
+          ? getComputedStyle(props.navs[i].el as Element)[sizePropName as 'width' | 'left']
+          : '0px',
       };
     };
     const update = () => (navBarStyle.value = getStyle());
@@ -58,7 +64,7 @@ export default defineComponent({
       debounce(() => {
         update();
         // 数值大了动画不流畅，小了会频繁触发，所以在合适区间里选择一个值
-      }, 20),
+      }, 35),
     );
     return () => {
       return <div class={navBarClass.value} style={navBarStyle.value} ref={barRef}></div>;

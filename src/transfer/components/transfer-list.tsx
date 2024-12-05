@@ -124,8 +124,6 @@ export default defineComponent({
     });
     const paginationProps = computed(() => {
       const defaultPaginationProps: TdPaginationProps = {
-        size: 'small',
-        theme: 'simple',
         totalContent: false,
         pageSizeOptions: [],
       };
@@ -133,6 +131,8 @@ export default defineComponent({
         ? {
             ...defaultPaginationProps,
             ...props.pagination,
+            size: 'small',
+            theme: 'simple',
             current: currentPage.value,
             total: pageTotal.value,
             pageSize: pageSize.value,

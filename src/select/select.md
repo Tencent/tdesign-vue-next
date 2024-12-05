@@ -12,7 +12,7 @@ borderless | Boolean | false | 无边框模式 | N
 clearable | Boolean | false | 是否可以清空选项 | N
 collapsedItems | Slot / Function | - | 多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示当前存在的所有标签，`collapsedSelectedItems` 表示折叠的标签，泛型 `T` 继承 `SelectOption`，表示选项数据；`count` 表示折叠的数量, `onClose` 表示移除标签。TS 类型：`TNode<{ value: T[]; collapsedSelectedItems: T[]; count: number; onClose: (context: { index: number, e?: MouseEvent }) => void }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 creatable | Boolean | false | 是否允许用户创建新条目，需配合 filterable 使用 | N
-disabled | Boolean | - | 是否禁用组件 | N
+disabled | Boolean | undefined | 是否禁用组件 | N
 empty | String / Slot / Function | - | 当下拉列表为空时显示的内容。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 filter | Function | - | 自定义搜索规则，用于对现有数据进行搜索，判断是否过滤某一项数据。参数 `filterWords` 表示搜索词，`option`表示单个选项内容，返回值为 `true` 保留该选项，返回值为 `false` 则隐藏该选项。使用该方法时无需设置 `filterable`。TS 类型：`(filterWords: string, option: T) => boolean \| Promise<boolean>` | N
 filterable | Boolean | false | 是否可搜索，默认搜索规则不区分大小写，全文本任意位置匹配。如果默认搜索规则不符合业务需求，可以更为使用 `filter` 自定义过滤规则 | N
@@ -34,7 +34,7 @@ popupProps | Object | - | 透传给 popup 组件的全部属性。TS 类型：`P
 popupVisible | Boolean | - | 是否显示下拉框。支持语法糖 `v-model:popupVisible` | N
 defaultPopupVisible | Boolean | - | 是否显示下拉框。非受控属性 | N
 prefixIcon | Slot / Function | - | 组件前置图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-readonly | Boolean | false | 只读状态，值为真会隐藏输入框，且无法打开下拉框 | N
+readonly | Boolean | undefined | 只读状态，值为真会隐藏输入框，且无法打开下拉框 | N
 reserveKeyword | Boolean | false | 多选且可搜索时，是否在选中一个选项后保留当前的搜索关键词 | N
 scroll | Object | - | 懒加载和虚拟滚动。为保证组件收益最大化，当数据量小于阈值 `scroll.threshold` 时，无论虚拟滚动的配置是否存在，组件内部都不会开启虚拟滚动，`scroll.threshold` 默认为 `100`。TS 类型：`InfinityScroll`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 selectInputProps | Object | - | 透传 SelectInput 筛选器输入框组件的全部属性。TS 类型：`SelectInputProps`，[SelectInput API Documents](./select-input?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select/type.ts) | N

@@ -38,5 +38,7 @@ export default function useTableData(props: any) {
     hoverEnd: props.hoverEnd,
     type: props.mode,
     isRange: props.isRange,
+    value: props.value,
+    multiple: props.multiple,
   });
 }

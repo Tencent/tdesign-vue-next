@@ -1,10 +1,11 @@
 import { defineComponent, PropType, ref, watch } from 'vue';
 
 import props from '../props';
-import { COLOR_MODES } from '../const';
+import { COLOR_MODES } from '../../_common/js/color-picker/constants';
 import { RadioGroup as TRadioGroup, RadioButton as TRadioButton } from '../../radio';
 import { TdColorModes } from '../interfaces';
 import { useBaseClassName } from '../hooks';
+import { useConfig } from '../../hooks';
 
 export default defineComponent({
   name: 'PanelHeader',
@@ -25,6 +26,7 @@ export default defineComponent({
     },
   },
   setup(props) {
+    const { globalConfig } = useConfig('colorPicker');
     const baseClassName = useBaseClassName();
     const modeValue = ref(props.mode);
     const handleModeChange = (v: string) => props.onModeChange(v);
@@ -32,38 +34,23 @@ export default defineComponent({
       () => props.mode,
       (v) => (modeValue.value = v),
     );
-    return {
-      baseClassName,
-      modeValue,
-      handleModeChange,
-    };
-  },
-  render() {
-    if (this.colorModes?.length === 1) {
-      return null;
-    }
-    const { baseClassName } = this;
-    return (
-      <div class={`${baseClassName}__head`}>
-        <div class={`${baseClassName}__mode`}>
-          {this.colorModes?.length === 1 ? (
-            COLOR_MODES[this.colorModes[0]]
-          ) : (
-            <TRadioGroup
-              variant="default-filled"
-              size="small"
-              v-model={this.modeValue}
-              onChange={this.handleModeChange}
-            >
+    return () => {
+      if (props.colorModes?.length === 1) {
+        return null;
+      }
+      return (
+        <div class={`${baseClassName.value}__head`}>
+          <div class={`${baseClassName.value}__mode`}>
+            <TRadioGroup variant="default-filled" size="small" v-model={modeValue.value} onChange={handleModeChange}>
               {Object.keys(COLOR_MODES).map((key) => (
                 <TRadioButton key={key} value={key}>
-                  {COLOR_MODES[key]}
+                  {Reflect.get(globalConfig.value, COLOR_MODES[key as keyof typeof COLOR_MODES])}
                 </TRadioButton>
               ))}
             </TRadioGroup>
-          )}
+          </div>
         </div>
-      </div>
-    );
+      );
+    };
   },
 });

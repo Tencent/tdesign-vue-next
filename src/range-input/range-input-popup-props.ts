@@ -40,7 +40,10 @@ export default {
     type: Object as PropType<TdRangeInputPopupProps['rangeInputProps']>,
   },
   /** 只读状态，值为真会隐藏输入框，且无法打开下拉框 */
-  readonly: Boolean,
+  readonly: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 输入框状态 */
   status: {
     type: String as PropType<TdRangeInputPopupProps['status']>,

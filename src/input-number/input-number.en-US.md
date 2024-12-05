@@ -1,15 +1,16 @@
 :: BASE_DOC ::
 
 ## API
+
 ### InputNumber Props
 
 name | type | default | description | required
 -- | -- | -- | -- | --
-align | String | - | options：left/center/right | N
+align | String | - | options: left/center/right | N
 allowInputOverLimit | Boolean | true | \- | N
 autoWidth | Boolean | false | \- | N
-decimalPlaces | Number / Object | undefined | Typescript：`InputNumberDecimalPlaces` `type InputNumberDecimalPlaces = number \| { enableRound: boolean; places: number } `。[see more ts definition](https://github.com/Tencent/tdesign-react/blob/develop/src/input-number/type.ts) | N
-disabled | Boolean | - | \- | N
+decimalPlaces | Number / Object | undefined | Typescript：`InputNumberDecimalPlaces` `type InputNumberDecimalPlaces = number \| { enableRound: boolean; places: number } `。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/input-number/type.ts) | N
+disabled | Boolean | undefined | \- | N
 format | Function | - | Typescript：`(value: InputNumberValue, context?: { fixedNumber?: InputNumberValue }) => InputNumberValue` | N
 inputProps | Object | - | Typescript：`InputProps`，[Input API Documents](./input?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/input-number/type.ts) | N
 label | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
@@ -17,12 +18,12 @@ largeNumber | Boolean | false | \- | N
 max | String / Number | Infinity | Typescript：`InputNumberValue` | N
 min | String / Number | -Infinity | Typescript：`InputNumberValue` | N
 placeholder | String | undefined | \- | N
-readonly | Boolean | false | \- | N
-size | String | medium | options：small/medium/large | N
-status | String | default | options：default/success/warning/error | N
+readonly | Boolean | undefined | \- | N
+size | String | medium | options: small/medium/large | N
+status | String | default | options: default/success/warning/error | N
 step | String / Number | 1 | Typescript：`InputNumberValue` | N
 suffix | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-theme | String | row | options：column/row/normal | N
+theme | String | row | options: column/row/normal | N
 tips | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 value | String / Number | - | `v-model` and `v-model:value` is supported。Typescript：`T` `type InputNumberValue = number \| string`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/input-number/type.ts) | N
 defaultValue | String / Number | - | uncontrolled property。Typescript：`T` `type InputNumberValue = number \| string`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/input-number/type.ts) | N

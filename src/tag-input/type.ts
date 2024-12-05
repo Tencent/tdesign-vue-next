@@ -84,7 +84,6 @@ export interface TdTagInputProps {
   prefixIcon?: TNode;
   /**
    * 只读状态，值为真会隐藏标签移除按钮和输入框
-   * @default false
    */
   readonly?: boolean;
   /**

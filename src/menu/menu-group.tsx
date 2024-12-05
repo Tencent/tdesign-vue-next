@@ -16,7 +16,7 @@ export default defineComponent({
     const { classPrefix } = this;
     return (
       <div class={`${classPrefix}-menu-group`}>
-        <div class={`${classPrefix}-menu-group__title`}>{this.title}</div>
+        <div class={`${classPrefix}-menu-group__title`}>{renderTNodeJSX(this, 'title', { silent: false })}</div>
         {renderTNodeJSX(this, 'default')}
       </div>
     );

@@ -12,7 +12,7 @@ borderless | Boolean | false | \- | N
 clearable | Boolean | false | \- | N
 collapsedItems | Slot / Function | - | Typescript：`TNode<{ value: T[]; collapsedSelectedItems: T[]; count: number; onClose: (context: { index: number, e?: MouseEvent }) => void }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 creatable | Boolean | false | \- | N
-disabled | Boolean | - | \- | N
+disabled | Boolean | undefined | \- | N
 empty | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 filter | Function | - | Typescript：`(filterWords: string, option: T) => boolean \| Promise<boolean>` | N
 filterable | Boolean | false | \- | N
@@ -27,6 +27,7 @@ max | Number | 0 | \- | N
 minCollapsedNum | Number | 0 | \- | N
 multiple | Boolean | false | \- | N
 options | Array | - | Typescript：`Array<T>` | N
+optionsLayout | String | vertical | layout of options in popup。Typescript：`vertical \| horizontal` | N
 panelBottomContent | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 panelTopContent | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 placeholder | String | undefined | \- | N
@@ -34,7 +35,7 @@ popupProps | Object | - | Typescript：`PopupProps`，[Popup API Documents](./po
 popupVisible | Boolean | - | `v-model:popupVisible` is supported | N
 defaultPopupVisible | Boolean | - | uncontrolled property | N
 prefixIcon | Slot / Function | - | Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-readonly | Boolean | false | \- | N
+readonly | Boolean | undefined | \- | N
 reserveKeyword | Boolean | false | \- | N
 scroll | Object | - | lazy load and virtual scroll。Typescript：`InfinityScroll`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 selectInputProps | Object | - | Typescript：`SelectInputProps`，[SelectInput API Documents](./select-input?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select/type.ts) | N

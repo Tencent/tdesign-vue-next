@@ -63,7 +63,6 @@ export interface TdInputNumberProps<T = InputNumberValue> {
   placeholder?: string;
   /**
    * 只读状态
-   * @default false
    */
   readonly?: boolean;
   /**
@@ -140,6 +139,8 @@ export interface TdInputNumberProps<T = InputNumberValue> {
   onValidate?: (context: { error?: 'exceed-maximum' | 'below-minimum' }) => void;
 }
 
+export type InputNumberDecimalPlaces = number | { enableRound: boolean; places: number };
+
 export type InputNumberValue = number | string;
 
 export interface ChangeContext {
@@ -148,5 +149,3 @@ export interface ChangeContext {
 }
 
 export type ChangeSource = 'add' | 'reduce' | 'input' | 'blur' | 'enter' | 'clear' | 'props';
-
-export type InputNumberDecimalPlaces = number | { enableRound: boolean; places: number };

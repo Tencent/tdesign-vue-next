@@ -37,7 +37,6 @@
 如果您不确定问题是否是由该规则引起的，或者确定该规则不是问题的根本原因，请在 `GitHub` 上提出一个 `issue`，并提供可以重现问题的代码。这将有助于我们更好地了解您的问题并提供更好的帮助。
 
 ## API
-
 ### Drawer Props
 
 名称 | 类型 | 默认值 | 描述 | 必传
@@ -62,6 +61,8 @@ size | String | 'small' | 尺寸，支持 'small', 'medium', 'large'，'35px', '
 sizeDraggable | Boolean / Object | false | 抽屉大小可拖拽调整，横向抽屉调整宽度，纵向抽屉调整高度。`sizeDraggable.max` 和 `sizeDraggable.min` 用于控制拖拽尺寸大小限制。TS 类型：`boolean \| SizeDragLimit` `interface SizeDragLimit { max: number, min: number }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/drawer/type.ts) | N
 visible | Boolean | false | 组件是否可见 | N
 zIndex | Number | - | 抽屉层级，样式默认为 1500 | N
+onBeforeClose | Function |  | TS 类型：`() => void`<br/>抽屉执行关闭动画效果前触发 | N
+onBeforeOpen | Function |  | TS 类型：`() => void`<br/>抽屉执行打开动画效果前触发 | N
 onCancel | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>如果“取消”按钮存在，点击“取消”按钮时触发，同时触发关闭事件 | N
 onClose | Function |  | TS 类型：`(context: DrawerCloseContext) => void`<br/>关闭事件，取消按钮点击时、关闭按钮点击时、ESC 按下时、点击蒙层时均会触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/drawer/type.ts)。<br/>`type DrawerEventSource = 'esc' \| 'close-btn' \| 'cancel' \| 'overlay'`<br/><br/>`interface DrawerCloseContext { trigger: DrawerEventSource; e: MouseEvent \| KeyboardEvent }`<br/> | N
 onCloseBtnClick | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>如果关闭按钮存在，点击关闭按钮时触发该事件，同时触发关闭事件 | N
@@ -74,6 +75,8 @@ onSizeDragEnd | Function |  | TS 类型：`(context: { e: MouseEvent; size: numb
 
 名称 | 参数 | 描述
 -- | -- | --
+before-close | \- | 抽屉执行关闭动画效果前触发
+before-open | \- | 抽屉执行打开动画效果前触发
 cancel | `(context: { e: MouseEvent })` | 如果“取消”按钮存在，点击“取消”按钮时触发，同时触发关闭事件
 close | `(context: DrawerCloseContext)` | 关闭事件，取消按钮点击时、关闭按钮点击时、ESC 按下时、点击蒙层时均会触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/drawer/type.ts)。<br/>`type DrawerEventSource = 'esc' \| 'close-btn' \| 'cancel' \| 'overlay'`<br/><br/>`interface DrawerCloseContext { trigger: DrawerEventSource; e: MouseEvent \| KeyboardEvent }`<br/>
 close-btn-click | `(context: { e: MouseEvent })` | 如果关闭按钮存在，点击关闭按钮时触发该事件，同时触发关闭事件

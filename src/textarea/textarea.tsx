@@ -22,6 +22,7 @@ import { getCharacterLength } from '../_common/js/utils/helper';
 // hooks
 import useVModel from '../hooks/useVModel';
 import { useDisabled } from '../hooks/useDisabled';
+import { useReadonly } from '../hooks/useReadonly';
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import useLengthLimit from '../input/useLengthLimit';
@@ -53,6 +54,7 @@ export default defineComponent({
     const { value, modelValue } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
     const disabled = useDisabled();
+    const isReadonly = useReadonly();
     const textareaStyle = ref<CSSProperties>({});
 
     const refTextareaElem = ref<HTMLTextAreaElement>();
@@ -151,7 +153,7 @@ export default defineComponent({
         name.value,
         {
           [`${prefix.value}-is-disabled`]: disabled.value,
-          [`${prefix.value}-is-readonly`]: props.readonly,
+          [`${prefix.value}-is-readonly`]: isReadonly.value,
         },
       ];
     });
@@ -159,7 +161,7 @@ export default defineComponent({
       return getValidAttrs({
         autofocus: props.autofocus,
         disabled: disabled.value,
-        readonly: props.readonly,
+        readonly: isReadonly.value,
         placeholder: props.placeholder,
         maxlength: (!props.allowInputOverMax && props.maxlength) || undefined,
         name: props.name || undefined,

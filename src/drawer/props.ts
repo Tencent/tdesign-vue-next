@@ -100,6 +100,10 @@ export default {
   zIndex: {
     type: Number,
   },
+  /** 抽屉执行关闭动画效果前触发 */
+  onBeforeClose: Function as PropType<TdDrawerProps['onBeforeClose']>,
+  /** 抽屉执行打开动画效果前触发 */
+  onBeforeOpen: Function as PropType<TdDrawerProps['onBeforeOpen']>,
   /** 如果“取消”按钮存在，点击“取消”按钮时触发，同时触发关闭事件 */
   onCancel: Function as PropType<TdDrawerProps['onCancel']>,
   /** 关闭事件，取消按钮点击时、关闭按钮点击时、ESC 按下时、点击蒙层时均会触发 */

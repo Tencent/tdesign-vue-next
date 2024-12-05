@@ -101,8 +101,18 @@ export default function useInputNumber(props: TdInputNumberProps) {
       }
       if (largeNumber) {
         userInput.value = getUserInput(inputValue);
+
         if (decimalPlaces !== undefined && largeNumberToFixed(inputValue, decimalPlaces, largeNumber) !== val) {
-          setTValue(userInput.value, { type: 'props', e: undefined });
+          let completeValue = inputValue;
+          if (!inputRef.value?.inputRef?.contains(document.activeElement)) {
+            // isToFixed为true 只可能是string
+            completeValue = formatUnCompleteNumber(completeValue, {
+              decimalPlaces: props.decimalPlaces,
+              largeNumber: props.largeNumber,
+              isToFixed: true,
+            }) as string;
+          }
+          setTValue(completeValue, { type: 'props', e: undefined });
         }
       }
     },

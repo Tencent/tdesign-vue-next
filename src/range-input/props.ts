@@ -42,7 +42,10 @@ export default {
     type: Function as PropType<TdRangeInputProps['prefixIcon']>,
   },
   /** 只读状态 */
-  readonly: Boolean,
+  readonly: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 范围分隔符 */
   separator: {
     type: [String, Function] as PropType<TdRangeInputProps['separator']>,

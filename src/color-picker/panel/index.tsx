@@ -6,7 +6,7 @@ import {
   DEFAULT_LINEAR_GRADIENT,
   TD_COLOR_USED_COLORS_MAX_SIZE,
   DEFAULT_SYSTEM_SWATCH_COLORS,
-} from '../const';
+} from '../../_common/js/color-picker/constants';
 import PanelHeader from './header';
 import LinearGradient from './linear-gradient';
 import SaturationPanel from './saturation';
@@ -272,21 +272,13 @@ export default defineComponent({
     };
   },
   render() {
-    const {
-      t,
-      baseClassName,
-      statusClassNames,
-      globalConfig,
-      recentColors,
-      swatchColors,
-      showPrimaryColorPreview,
-      isGradient,
-    } = this;
+    const { t, baseClassName, statusClassNames, globalConfig, swatchColors, showPrimaryColorPreview, isGradient } =
+      this;
     const baseProps = {
       color: this.color,
       disabled: this.disabled,
     };
-    const showUsedColors = recentColors !== null && recentColors !== false;
+    const showUsedColors = this.recentlyUsedColors !== null && this.recentlyUsedColors !== false;
 
     let systemColors = swatchColors;
     if (systemColors === undefined) {

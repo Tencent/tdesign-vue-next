@@ -95,7 +95,10 @@ export default {
     type: Function as PropType<TdTreeSelectProps['prefixIcon']>,
   },
   /** 只读状态，值为真会隐藏输入框，且无法打开下拉框 */
-  readonly: Boolean,
+  readonly: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 透传 SelectInput 筛选器输入框组件的全部属性 */
   selectInputProps: {
     type: Object as PropType<TdTreeSelectProps['selectInputProps']>,

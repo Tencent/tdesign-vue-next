@@ -6,6 +6,7 @@ import { RadioGroupInjectionKey, RadioButtonInjectionKey } from './constants';
 
 // hooks
 import { useDisabled } from '../hooks/useDisabled';
+import { useReadonly } from '../hooks/useReadonly';
 import useVModel from '../hooks/useVModel';
 import { useContent } from '../hooks/tnode';
 import isUndefined from 'lodash/isUndefined';
@@ -48,7 +49,7 @@ export default defineComponent({
     };
 
     const onLabelClick = (e: MouseEvent) => {
-      if (isDisabled.value || props.readonly) return;
+      if (isDisabled.value || isReadonly.value) return;
       props.onClick?.({ e });
 
       if (radioChecked.value && !allowUncheck.value) return;
@@ -81,14 +82,16 @@ export default defineComponent({
 
     // extend radioGroup disabled props
     const groupDisabled = computed(() => radioGroup?.disabled);
+    const groupReadonly = computed(() => radioGroup?.readonly);
     const isDisabled = useDisabled({ afterDisabled: groupDisabled });
+    const isReadonly = useReadonly({ afterReadonly: groupReadonly });
 
     // attribute
     const inputProps = computed(() => ({
       name: radioGroup ? radioGroup.name : props.name,
       checked: radioChecked.value,
       disabled: isDisabled.value,
-      readonly: props.readonly,
+      readonly: isReadonly.value,
       value: props.value,
     }));
 
