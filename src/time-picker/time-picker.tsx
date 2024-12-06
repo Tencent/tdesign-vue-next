@@ -17,6 +17,7 @@ import { useDisabled } from '../hooks/useDisabled';
 import { useCommonClassName, useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { TdTimePickerProps } from './type';
+import { useReadonly } from '../hooks/useReadonly';
 
 dayjs.extend(customParseFormat);
 
@@ -34,6 +35,7 @@ export default defineComponent({
 
     const currentValue = ref('');
     const isShowPanel = ref(false);
+    const isReadonly = useReadonly();
 
     const { value, modelValue } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
@@ -110,7 +112,7 @@ export default defineComponent({
           class={inputClasses.value}
           label={props.label}
           suffixIcon={() => <TimeIcon />}
-          popupVisible={!props.readonly && isShowPanel.value}
+          popupVisible={!isReadonly && isShowPanel.value}
           onInputChange={handleInputChange}
           onBlur={handleInputBlur}
           onPopupVisibleChange={handleShowPopup}
