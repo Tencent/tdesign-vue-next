@@ -21,7 +21,7 @@ import {
 } from '../_common/js/date-picker/format';
 import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-picker/utils';
 import { dateCorrection } from './utils';
-import { useReadonly } from '@src/hooks/useReadonly';
+import { useReadonly } from '../hooks/useReadonly';
 
 export default defineComponent({
   name: 'TDateRangePicker',
