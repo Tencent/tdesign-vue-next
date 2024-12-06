@@ -11,7 +11,7 @@ import { subtractMonth, addMonth, extractTimeObj, covertToDate } from '../_commo
 import props from './props';
 import TSelectInput from '../select-input';
 import TSinglePanel from './panel/SinglePanel';
-import { useReadonly } from '../hooks/useReadonly';
+import { useReadonly } from '@src/hooks/useReadonly';
 
 import type { TdDatePickerProps } from './type';
 import type { DateValue } from './type';
