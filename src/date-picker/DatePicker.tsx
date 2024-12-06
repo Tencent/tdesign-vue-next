@@ -240,7 +240,10 @@ export default defineComponent({
           trigger: 'preset',
         },
       );
-
+      // 更新到 input，避免 needConfirm 导致值被覆盖
+      inputValue.value = formatDate(presetVal, {
+        format: formatRef.value.format,
+      });
       popupVisible.value = false;
     }
 
