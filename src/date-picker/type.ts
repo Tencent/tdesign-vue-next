@@ -315,7 +315,8 @@ export interface TdDateRangePickerProps {
     | 'YYYY-MM-DD HH'
     | 'YYYY-MM-DD HH:mm'
     | 'YYYY-MM-DD HH:mm:ss'
-    | 'YYYY-MM-DD HH:mm:ss:SSS';
+    | 'YYYY-MM-DD HH:mm:ss:SSS'
+    | 'YYYY-MM-DDTHH:mm:ss.SSSZ';
   /**
    * 当输入框失去焦点时触发
    */
