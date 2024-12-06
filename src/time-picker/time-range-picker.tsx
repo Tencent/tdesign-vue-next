@@ -19,6 +19,7 @@ import useVModel from '../hooks/useVModel';
 import { useCommonClassName, useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useDisabled } from '../hooks/useDisabled';
+import { useReadonly } from '../hooks/useReadonly';
 
 dayjs.extend(customParseFormat);
 
@@ -37,6 +38,7 @@ export default defineComponent({
     const currentPanelIdx = ref(undefined);
     const currentValue = ref<Array<string>>(TIME_PICKER_EMPTY);
     const isShowPanel = ref(false);
+    const isReadOnly = useReadonly();
 
     const inputClasses = computed(() => [
       `${COMPONENT_NAME.value}__group`,
@@ -48,6 +50,7 @@ export default defineComponent({
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange as any);
 
     const handleShowPopup = (visible: boolean, context: any) => {
+      if (isReadOnly.value) return;
       // 输入框点击不关闭面板
       if (context.trigger === 'trigger-element-click') {
         isShowPanel.value = true;
@@ -173,7 +176,7 @@ export default defineComponent({
             onClick: handleClick,
             onFocus: handleFocus,
             onBlur: handleInputBlur,
-            readonly: !allowInput.value,
+            readonly: props.readonly || !allowInput.value,
             activeIndex: currentPanelIdx.value,
             ...props.rangeInputProps,
           }}
