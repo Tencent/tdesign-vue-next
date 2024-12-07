@@ -16,7 +16,7 @@ import {
   parseToDayjs,
 } from '../../_common/js/date-picker/format';
 import useSingleValue from './useSingleValue';
-import { useReadonly } from '@src/hooks/useReadonly';
+import { useReadonly } from '../../hooks/useReadonly';
 
 export default function useSingle(props: TdDatePickerProps) {
   const COMPONENT_NAME = usePrefixClass('date-picker');
