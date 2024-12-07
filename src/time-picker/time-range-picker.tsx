@@ -176,7 +176,7 @@ export default defineComponent({
             onClick: handleClick,
             onFocus: handleFocus,
             onBlur: handleInputBlur,
-            readonly: props.readonly || !allowInput.value,
+            readonly: isReadOnly.value || !allowInput.value,
             activeIndex: currentPanelIdx.value,
             ...props.rangeInputProps,
           }}
