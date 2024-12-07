@@ -43,10 +43,7 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
   const { limitNumber, getValueByLimitNumber, tStatus } = useLengthLimit(limitParams);
 
   const showClear = computed(() => {
-    return (
-      ((innerValue.value && !disabled.value && props.clearable && !props.readonly) || props.showClearIconOnEmpty) &&
-      isHover.value
-    );
+    return (innerValue.value && !disabled.value && props.clearable && !props.readonly) || props.showClearIconOnEmpty;
   });
 
   const focus = () => {
