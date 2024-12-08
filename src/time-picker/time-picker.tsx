@@ -112,7 +112,7 @@ export default defineComponent({
           class={inputClasses.value}
           label={props.label}
           suffixIcon={() => <TimeIcon />}
-          popupVisible={!isReadonly && isShowPanel.value}
+          popupVisible={!isReadonly.value && isShowPanel.value}
           onInputChange={handleInputChange}
           onBlur={handleInputBlur}
           onPopupVisibleChange={handleShowPopup}
