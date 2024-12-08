@@ -17,6 +17,7 @@
     "defaultValue": false,
     "options": []
   },
+
   {
     "name": "disabled",
     "type": "Boolean",
@@ -25,6 +26,12 @@
   },
   {
     "name": "enableTimePicker",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "readonly",
     "type": "Boolean",
     "defaultValue": false,
     "options": []

@@ -77,6 +77,7 @@ prefixIcon | Slot / Function | - | Typescript：`TNode`。[see more ts definitio
 presets | Object | - | Typescript：`PresetRange` `interface PresetRange { [range: string]: DateRange \| (() => DateRange)}` `type DateRange = [DateValue, DateValue]`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/date-picker/type.ts) | N
 presetsPlacement | String | bottom | options: left/top/right/bottom | N
 rangeInputProps | Object | - | Typescript：`RangeInputProps`，[RangeInput API Documents](./range-input?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/date-picker/type.ts) | N
+readonly | Boolean | undefined | Whether it is read only, the priority is greater than `allowInput` | N
 separator | String | - | \- | N
 size | String | medium | options: small/medium/large。Typescript：`SizeEnum`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 status | String | default | options: default/success/warning/error | N

@@ -30,6 +30,12 @@
     "options": []
   },
   {
+    "name": "readonly",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
     "name": "mode",
     "type": "enum",
     "defaultValue": "date",

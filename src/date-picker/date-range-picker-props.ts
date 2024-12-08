@@ -97,6 +97,11 @@ export default {
   rangeInputProps: {
     type: Object as PropType<TdDateRangePickerProps['rangeInputProps']>,
   },
+  /** 只读状态 */
+  readonly: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 日期分隔符，支持全局配置，默认为 '-' */
   separator: {
     type: String,
