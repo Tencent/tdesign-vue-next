@@ -53,11 +53,13 @@ export default defineComponent({
       { immediate: true },
     );
 
-    const { previewUrl } = useImagePreviewUrl(imageStrSrc);
+    const { loading, previewUrl } = useImagePreviewUrl(imageStrSrc);
 
-    watch([previewUrl], () => {
-      hasError.value = false;
-      isLoaded.value = false;
+    watch([loading], () => {
+      if (!loading) {
+        hasError.value = false;
+        isLoaded.value = false;
+      }
     });
 
     const shouldLoad = ref(!props.lazy);
@@ -194,6 +196,7 @@ export default defineComponent({
 
           {(hasError.value || !shouldLoad.value) && <div class={`${classPrefix.value}-image`} />}
           {!(hasError.value || !shouldLoad.value) &&
+            !loading.value &&
             (props.srcset && Object.keys(props.srcset).length ? renderImageSrcset() : renderImage())}
           {!(hasError.value || !shouldLoad.value) && !isLoaded.value && (
             <div class={`${classPrefix.value}-image__loading`}>
