@@ -11,6 +11,7 @@ import { subtractMonth, addMonth, extractTimeObj, covertToDate } from '../_commo
 import props from './props';
 import TSelectInput from '../select-input';
 import TSinglePanel from './panel/SinglePanel';
+import { useReadonly } from '../hooks/useReadonly';
 
 import type { TdDatePickerProps } from './type';
 import type { DateValue } from './type';
@@ -44,6 +45,7 @@ export default defineComponent({
     const disabled = useDisabled();
     const renderTNodeJSX = useTNodeJSX();
     const { globalConfig } = useConfig('datePicker');
+    const isReadOnly = useReadonly();
 
     const formatRef = computed(() =>
       getDefaultFormat({
@@ -295,7 +297,7 @@ export default defineComponent({
           popupProps={popupProps.value}
           inputProps={inputProps.value}
           placeholder={props.placeholder || globalConfig.value.placeholder[props.mode]}
-          popupVisible={popupVisible.value}
+          popupVisible={!isReadOnly.value && popupVisible.value}
           valueDisplay={() => renderTNodeJSX('valueDisplay', { params: valueDisplayParams.value })}
           needConfirm={props.needConfirm}
           {...(props.selectInputProps as TdDatePickerProps['selectInputProps'])}

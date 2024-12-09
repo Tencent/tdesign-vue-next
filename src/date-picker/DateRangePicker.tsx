@@ -21,6 +21,7 @@ import {
 } from '../_common/js/date-picker/format';
 import { subtractMonth, addMonth, extractTimeObj } from '../_common/js/date-picker/utils';
 import { dateCorrection } from './utils';
+import { useReadonly } from '../hooks/useReadonly';
 
 export default defineComponent({
   name: 'TDateRangePicker',
@@ -49,6 +50,7 @@ export default defineComponent({
     } = useRange(props);
 
     const disabled = useDisabled();
+    const isReadOnly = useReadonly();
 
     const formatRef = computed(() =>
       getDefaultFormat({
@@ -411,6 +413,7 @@ export default defineComponent({
     return () => (
       <div class={COMPONENT_NAME.value}>
         <TRangeInputPopup
+          readonly={isReadOnly.value}
           disabled={disabled.value}
           label={props.label}
           status={props.status}
