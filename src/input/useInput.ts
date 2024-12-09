@@ -4,6 +4,7 @@ import { FormItemInjectionKey } from '../form/const';
 import useVModel from '../hooks/useVModel';
 import { useDisabled } from '../hooks/useDisabled';
 import useLengthLimit from './useLengthLimit';
+import { useReadonly } from '../hooks/useReadonly';
 
 export function getOutputValue(val: InputValue, type: TdInputProps['type']) {
   if (type === 'number') {
@@ -25,6 +26,7 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
   const clearIconRef = ref(null);
   const innerClickElement = ref();
   const disabled = useDisabled();
+  const readonly = useReadonly();
   const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
 
   const isHover = ref(false);
@@ -44,7 +46,7 @@ export default function useInput(props: ExtendsTdInputProps, expose: (exposed: R
 
   const showClear = computed(() => {
     return (
-      ((innerValue.value && !disabled.value && props.clearable && !props.readonly) || props.showClearIconOnEmpty) &&
+      ((innerValue.value && !disabled.value && props.clearable && !readonly.value) || props.showClearIconOnEmpty) &&
       isHover.value
     );
   });
