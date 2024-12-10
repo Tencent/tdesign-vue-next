@@ -2,7 +2,6 @@ import { ref, SetupContext, toRefs, watch } from 'vue';
 import { useConfig } from '../../hooks/useConfig';
 import Pagination, { PageInfo, PaginationProps } from '../../pagination';
 import { TdBaseTableProps, TableRowData } from '../type';
-import { SizeEnum } from '../../common';
 
 // 分页功能包含：远程数据排序受控、远程数据排序非受控、本地数据排序受控、本地数据排序非受控 等 4 类功能
 export default function usePagination(props: TdBaseTableProps, context: SetupContext) {
