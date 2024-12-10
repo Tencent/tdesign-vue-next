@@ -5,6 +5,34 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.10.5 `2024-12-10` 
+### 🚀 Features
+- `Vitest`: 升级 `vitest` 版本以及相关依赖到 `2.1.8`，配合 vscode 插件支持单个单测的运行测试 @PengYYYYY ([#4807](https://github.com/Tencent/tdesign-vue-next/pull/4807))
+- `TimePicker`: 支持 `readonly` 属性 @RSS1102 ([#4812](https://github.com/Tencent/tdesign-vue-next/pull/4812))
+- `DatePicker`: 支持 `readonly` 属性 @RSS1102 ([#4790](https://github.com/Tencent/tdesign-vue-next/pull/4790))
+### 🐞 Bug Fixes
+- `Tabs`: 
+  - 修正渲染函数导致的生产版本错误 @Cat1007 ([#4787](https://github.com/Tencent/tdesign-vue-next/pull/4787))
+  - 优化 `scale` 下的指示器宽度错位的问题 @Cat1007 ([#4786](https://github.com/Tencent/tdesign-vue-next/pull/4786))
+- `Transfer`: 
+  - 修复树形组件选项禁用在全选下仍可选中的缺陷 @uyarn ([#4810](https://github.com/Tencent/tdesign-vue-next/pull/4810))
+  - 修复拖拽排序向后移动的功能异常 @uyarn ([#4810](https://github.com/Tencent/tdesign-vue-next/pull/4810))
+- `Table`: 
+  - 修复可分页的表格设置`size` 分页组件没有跟随变化的问题 @uyarn ([#4828](https://github.com/Tencent/tdesign-vue-next/pull/4828))
+  - 修复 `enhanced-table` `disableDataPage` 属性传值问题 @lxzlx624 ([#4781](https://github.com/Tencent/tdesign-vue-next/pull/4781))
+- `Dropdown`: 示例里 `prefixIcon` 字段应该调整为函数形式 @Lnncoco ([#4769](https://github.com/Tencent/tdesign-vue-next/pull/4769))
+- `Pagination`: 增加`class`方便区分组件状态 @uyarn ([#4828](https://github.com/Tencent/tdesign-vue-next/pull/4828))
+- `ColorPicker`: 修复 `colorMode` 文案国际化 @liweijie0812 ([#4778](https://github.com/Tencent/tdesign-vue-next/pull/4778))
+- `Dropdown`: 当 `options` 为空时，控制台报错的问题 @betavs ([#4785](https://github.com/Tencent/tdesign-vue-next/pull/4785))
+- `Drawer`: 修复 `closeOnOverlayClick` 属性默认值为 `true` 导致全局参数无法设置的问题 ([#4782](https://github.com/Tencent/tdesign-vue-next/issues/4782)) @PengYYYYY ([#4801](https://github.com/Tencent/tdesign-vue-next/pull/4801))
+- `DatePicker`: 修正 `needConfirm` 为 `false` 的场景下，`preset` 选择失效的问题 @Cat1007 ([#4792](https://github.com/Tencent/tdesign-vue-next/pull/4792))
+- `Input`: 修复在 `Form` 设置全局只读下 `Input` 组件的状态异常问题 @xiaojueshi ([#4818](https://github.com/Tencent/tdesign-vue-next/pull/4818))
+- `Tree`: 修复树开启虚拟滚动后容器宽度发生变化会导致回滚到顶部的问题 @uyarn ([#4826](https://github.com/Tencent/tdesign-vue-next/pull/4826))
+
+### 📝 Documentation
+- `Chat`: 增加高阶组件 `AI Chat 对话` 入口 @zydemail ([#4777](https://github.com/Tencent/tdesign-vue-next/pull/4777))
+
+
 ## 🌈 1.10.4 `2024-11-20` 
 ### 🚀 Features
 - `Icon`: 图标库发布 `0.3.0`版本，新增 `907` 个新图标；命名优化`blockchain` 重命名改为`transform-1`,`gesture-pray-1`重命名为`gesture-open`,`gesture-ranslation-1`重命名为`wave-bye`, `gesture-up-1`重命名为`gesture-typing`,`gesture-up-2`重命名为`gesture-right-slip`,`logo-wechat`重命名为`logo-wechat-stroke-filled`，移除`tree-list`、`logo-adobe-photoshop-1` 等错误图标 @uyarn ([#4729](https://github.com/Tencent/tdesign-vue-next/pull/4729))
