@@ -13,7 +13,7 @@ import { renderTitle } from './useTableHeader';
 function isFilterValueExist(value: any) {
   const isArrayTrue = value instanceof Array && value.length;
   const isObject = typeof value === 'object' && !(value instanceof Array);
-  const isObjectTrue = isObject && Object.keys(value).length;
+  const isObjectTrue = value !== null && isObject && Object.keys(value).length;
   return isArrayTrue || isObjectTrue || !['null', '', 'undefined'].includes(String(value));
 }
 
