@@ -54,6 +54,11 @@ export default {
   presets: {
     type: Object as PropType<TdTimePickerProps['presets']>,
   },
+  /** 只读状态 */
+  readonly: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 透传 SelectInput 筛选器输入框组件的全部属性 */
   selectInputProps: {
     type: Object as PropType<TdTimePickerProps['selectInputProps']>,
