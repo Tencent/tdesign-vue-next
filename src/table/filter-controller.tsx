@@ -7,10 +7,10 @@ import { RadioGroup } from '../radio';
 import Input from '../input';
 import TButton from '../button';
 import { useTNodeDefault } from '../hooks/tnode';
-import { PrimaryTableCol, FilterValue } from './type';
+import { PrimaryTableCol, FilterValue, TdPrimaryTableProps } from './type';
 import { useConfig } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { AttachNode, TNode } from '../common';
+import { AttachNode } from '../common';
 import isFunction from 'lodash/isFunction';
 import { TableConfig } from '../config-provider';
 
@@ -37,7 +37,7 @@ export interface TableFilterControllerProps {
   popupProps: PopupProps;
   attach?: AttachNode;
   onVisibleChange: (val: boolean) => void;
-  filterIcon?: TNode<{ col: PrimaryTableCol<any>; colIndex: number }>;
+  filterIcon?: TdPrimaryTableProps['filterIcon'];
 }
 
 export default defineComponent({
