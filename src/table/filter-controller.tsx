@@ -10,7 +10,7 @@ import { useTNodeDefault } from '../hooks/tnode';
 import { PrimaryTableCol, FilterValue } from './type';
 import { useConfig } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { AttachNode } from '../common';
+import { AttachNode, TNode } from '../common';
 import isFunction from 'lodash/isFunction';
 import { TableConfig } from '../config-provider';
 
@@ -37,6 +37,7 @@ export interface TableFilterControllerProps {
   popupProps: PopupProps;
   attach?: AttachNode;
   onVisibleChange: (val: boolean) => void;
+  filterIcon?: TNode;
 }
 
 export default defineComponent({
@@ -55,6 +56,7 @@ export default defineComponent({
     popupProps: Object as PropType<TableFilterControllerProps['popupProps']>,
     attach: [String, Function] as PropType<TableFilterControllerProps['attach']>,
     onVisibleChange: Function as PropType<TableFilterControllerProps['onVisibleChange']>,
+    filterIcon: [String, Function] as PropType<TableFilterControllerProps['filterIcon']>,
   },
 
   emits: ['inner-filter-change', 'reset', 'confirm'],
