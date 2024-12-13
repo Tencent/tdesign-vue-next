@@ -18,6 +18,7 @@ import { getScrollbarWidth } from '../_common/js/utils/getScrollbarWidth';
 import type { TdDialogProps } from './type';
 import useTeleport from '../hooks/useTeleport';
 import usePopupManager from '../hooks/usePopupManager';
+import debounce from 'lodash/debounce';
 
 function GetCSSValue(v: string | number) {
   return Number.isNaN(Number(v)) ? v : `${Number(v)}px`;
@@ -259,9 +260,9 @@ export default defineComponent({
     };
 
     // 打开弹窗动画开始时事件
-    const beforeEnter = () => {
+    const beforeEnter = debounce(() => {
       props.onBeforeOpen?.();
-    };
+    });
 
     // 打开弹窗动画结束时事件
     const afterEnter = () => {
