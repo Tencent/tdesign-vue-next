@@ -37,7 +37,7 @@ export interface TableFilterControllerProps {
   popupProps: PopupProps;
   attach?: AttachNode;
   onVisibleChange: (val: boolean) => void;
-  filterIcon?: TNode;
+  filterIcon?: TNode<{ col: PrimaryTableCol<any>; colIndex: number }>;
 }
 
 export default defineComponent({
@@ -56,7 +56,7 @@ export default defineComponent({
     popupProps: Object as PropType<TableFilterControllerProps['popupProps']>,
     attach: [String, Function] as PropType<TableFilterControllerProps['attach']>,
     onVisibleChange: Function as PropType<TableFilterControllerProps['onVisibleChange']>,
-    filterIcon: [String, Function] as PropType<TableFilterControllerProps['filterIcon']>,
+    filterIcon: [Function] as PropType<TableFilterControllerProps['filterIcon']>,
   },
 
   emits: ['inner-filter-change', 'reset', 'confirm'],
