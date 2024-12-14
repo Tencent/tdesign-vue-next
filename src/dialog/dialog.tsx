@@ -260,9 +260,9 @@ export default defineComponent({
     };
 
     // 打开弹窗动画开始时事件
-    const beforeEnter = debounce(() => {
+    const beforeEnter = () => {
       props.onBeforeOpen?.();
-    });
+    };
 
     // 打开弹窗动画结束时事件
     const afterEnter = () => {

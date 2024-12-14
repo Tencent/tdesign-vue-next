@@ -4,7 +4,14 @@
     <template #dialog="{ configProps }"
       ><div>
         <t-button @click="visible = true">Open Modal</t-button>
-        <t-dialog v-bind="configProps" v-model:visible="visible">
+        <t-dialog
+          v-bind="configProps"
+          v-model:visible="visible"
+          @opened="opened"
+          @closed="closed"
+          @before-open="BeforeOpen"
+          @before-close="BeforeClose"
+        >
           <p>This is a dialog</p>
         </t-dialog>
       </div></template
@@ -24,9 +31,25 @@ const handleClick = () => {
 const configList = ref(configJson);
 const panelList = [{ label: 'dialog', value: 'dialog' }];
 
+const BeforeOpen = () => {
+  console.log('before open');
+};
+
+const BeforeClose = () => {
+  console.log('before close');
+};
+
+const opened = () => {
+  console.log('opened');
+};
+
+const closed = () => {
+  console.log('closed');
+};
+
 const usageCodeMap = {
   dialog:
-    '\n        <div>\n          <t-button @click="visible = true">Open Modal</t-button>\n          <t-dialog v-bind="configProps" v-model:visible="visible">\n            <p>This is a dialog</p>\n          </t-dialog>\n        </div>\n      ',
+    '\n        <div>\n          <t-button @click="visible = true">Open Modal</t-button>\n          <t-dialog v-bind="configProps" v-model:visible="visible" @opened="opened" @closed="closed" @before-open="BeforeOpen" @before-close="BeforeClose">\n            <p>This is a dialog</p>\n          </t-dialog>\n        </div>\n      ',
 };
 const usageCode = ref(`<template>${usageCodeMap[panelList[0].value].trim()}</template>`);
 
