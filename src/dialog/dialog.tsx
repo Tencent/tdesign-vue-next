@@ -374,18 +374,20 @@ export default defineComponent({
               v-draggable={isModeLess.value && props.draggable}
               ref={dialogEle}
             >
-              <div class={headerClassName} onMousedown={onStopDown}>
-                <div class={`${COMPONENT_NAME.value}__header-content`}>
-                  {getIcon()}
-                  {renderTNodeJSX('header', defaultHeader)}
-                </div>
+              {(props.header || props.closeBtn) && (
+                <div class={headerClassName} onMousedown={onStopDown}>
+                  <div class={`${COMPONENT_NAME.value}__header-content`}>
+                    {getIcon()}
+                    {renderTNodeJSX('header', defaultHeader)}
+                  </div>
 
-                {props.closeBtn ? (
-                  <span class={closeClassName} onClick={closeBtnAction}>
-                    {renderTNodeJSX('closeBtn', defaultCloseBtn)}
-                  </span>
-                ) : null}
-              </div>
+                  {props.closeBtn ? (
+                    <span class={closeClassName} onClick={closeBtnAction}>
+                      {renderTNodeJSX('closeBtn', defaultCloseBtn)}
+                    </span>
+                  ) : null}
+                </div>
+              )}
               <div class={bodyClassName} onMousedown={onStopDown}>
                 {body}
               </div>
