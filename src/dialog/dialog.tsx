@@ -377,7 +377,7 @@ export default defineComponent({
               v-draggable={isModeLess.value && props.draggable}
               ref={dialogEle}
             >
-              {(headerContent || props.closeBtn) && (
+              {(headerContent || headerContent === 0 || props.closeBtn) && (
                 <div class={headerClassName} onMousedown={onStopDown}>
                   <div class={`${COMPONENT_NAME.value}__header-content`}>
                     {getIcon()}
