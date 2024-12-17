@@ -330,6 +330,11 @@ export default defineComponent({
           })}
         </div>
       );
+
+      const headerContent = renderTNodeJSX('header', defaultHeader);
+
+      const footerContent = renderTNodeJSX('footer', defaultFooter);
+
       const headerClassName = isFullScreen.value
         ? [`${COMPONENT_NAME.value}__header`, `${COMPONENT_NAME.value}__header--fullscreen`]
         : `${COMPONENT_NAME.value}__header`;
@@ -340,8 +345,6 @@ export default defineComponent({
 
       const bodyClassName =
         props.theme === 'default' ? [`${COMPONENT_NAME.value}__body`] : [`${COMPONENT_NAME.value}__body__icon`];
-
-      const footerContent = renderTNodeJSX('footer', defaultFooter);
 
       if (isFullScreen.value && footerContent) {
         bodyClassName.push(`${COMPONENT_NAME.value}__body--fullscreen`);
@@ -374,18 +377,20 @@ export default defineComponent({
               v-draggable={isModeLess.value && props.draggable}
               ref={dialogEle}
             >
-              <div class={headerClassName} onMousedown={onStopDown}>
-                <div class={`${COMPONENT_NAME.value}__header-content`}>
-                  {getIcon()}
-                  {renderTNodeJSX('header', defaultHeader)}
-                </div>
+              {(headerContent || headerContent === 0 || props.closeBtn) && (
+                <div class={headerClassName} onMousedown={onStopDown}>
+                  <div class={`${COMPONENT_NAME.value}__header-content`}>
+                    {getIcon()}
+                    {headerContent}
+                  </div>
 
-                {props.closeBtn ? (
-                  <span class={closeClassName} onClick={closeBtnAction}>
-                    {renderTNodeJSX('closeBtn', defaultCloseBtn)}
-                  </span>
-                ) : null}
-              </div>
+                  {props.closeBtn ? (
+                    <span class={closeClassName} onClick={closeBtnAction}>
+                      {renderTNodeJSX('closeBtn', defaultCloseBtn)}
+                    </span>
+                  ) : null}
+                </div>
+              )}
               <div class={bodyClassName} onMousedown={onStopDown}>
                 {body}
               </div>
