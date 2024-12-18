@@ -271,7 +271,7 @@ export default defineComponent({
       if (value) {
         !innerPopupVisible.value && setInnerPopupVisible(true, { e: context.e as KeyboardEvent });
       }
-      setInputValue(value);
+      setInputValue(value, context);
       handleSearch(`${value}`, { e: context.e as KeyboardEvent });
       nextTick(() => {
         virtualFilteredOptions.value = selectPanelRef.value?.visibleData;
@@ -285,8 +285,6 @@ export default defineComponent({
 
     const handlerPopupVisibleChange = (visible: boolean, context: PopupVisibleChangeContext) => {
       setInnerPopupVisible(visible, context);
-      // 在通过点击选择器打开弹窗时 清空此前的输入内容 避免在关闭时就清空引起的闪烁问题
-      if (visible && context.trigger === 'trigger-element-click') setInputValue('');
     };
 
     const handlerPopupScrollToBottom: PopupProps['onScrollToBottom'] = async (context) => {
