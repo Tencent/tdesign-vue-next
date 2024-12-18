@@ -203,7 +203,7 @@ describe('Select', () => {
     });
 
     describe('onInputChange', () => {
-      it('[multiple=false][filterable="value"]', async () => {
+      it('[multiple=false] [filterable="value"]', async () => {
         const onInputChangeFn = vi.fn();
         const options = [
           { label: '架构云', value: '1' },
@@ -216,27 +216,35 @@ describe('Select', () => {
         const wrapper = mount(
           {
             render() {
-              return <Select filterable={true} onInputChange={onInputChangeFn} options={options}></Select>;
+              return (
+                <Select
+                  class="custom-select"
+                  filterable={true}
+                  onInputChange={onInputChangeFn}
+                  options={options}
+                ></Select>
+              );
             },
           },
           {
             attachTo: document.body,
           },
         );
+        await wrapper.setProps({ popupProps: { attach: 'custom-select', visible: true } });
 
         const input = wrapper.find('input');
         await input.trigger('focus');
 
-        await input.setValue('大数据');
+        //  onInputChange 被调用
+        await input.setValue('大数');
         await input.trigger('input');
         expect(onInputChangeFn).toBeCalled();
 
-        await wrapper.vm.$nextTick();
-        const optionsList = document.querySelectorAll('.t-select__list .t-select-option');
-        // const optionsList = wrapper.findAll('t-select-option');
+        // 当前只剩下 filter 之后的数据,判断选中后的结果
+        const optionsList = wrapper.findAll('.t-select-option');
         expect(optionsList.length).toBe(1);
-        expect(optionsList[0].textContent).toContain('大数据');
-        optionsList[0].trigger('click');
+        expect(optionsList[0].text()).toContain('大数据');
+        await optionsList[0].trigger('click');
         expect(input.element.value).toBe('大数据');
       });
     });
