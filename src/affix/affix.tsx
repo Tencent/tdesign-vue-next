@@ -99,6 +99,7 @@ export default defineComponent({
       scrollContainer.value = getScrollContainer(props.container);
       on(scrollContainer.value, 'scroll', handleScroll);
       on(window, 'resize', handleScroll);
+      on(window, 'scroll', handleScroll);
       binded.value = true;
     };
 
@@ -106,6 +107,7 @@ export default defineComponent({
       if (!scrollContainer.value || !binded.value) return;
       off(scrollContainer.value, 'scroll', handleScroll);
       off(window, 'resize', handleScroll);
+      off(window, 'scroll', handleScroll);
       if (rAFId) {
         window.cancelAnimationFrame(rAFId);
       }
