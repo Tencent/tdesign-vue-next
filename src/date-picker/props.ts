@@ -60,6 +60,8 @@ export default {
       return ['year', 'quarter', 'month', 'week', 'date'].includes(val);
     },
   },
+  /** 支持多选日期，但不支持在range-picker中，或与enableTimePicker、allowInput 一起使用 */
+  multiple: Boolean,
   /** 决定在日期时间选择器的场景下是否需要点击确认按钮才完成选择动作，默认为`true` */
   needConfirm: {
     type: Boolean,
@@ -90,11 +92,6 @@ export default {
       if (!val) return true;
       return ['left', 'top', 'right', 'bottom'].includes(val);
     },
-  },
-  /** 只读状态 */
-  readonly: {
-    type: Boolean,
-    default: undefined,
   },
   /** 透传 SelectInput 筛选器输入框组件的全部属性 */
   selectInputProps: {
