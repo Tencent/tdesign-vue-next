@@ -173,7 +173,13 @@ export default defineComponent({
               </div>
             )}
             {(['waiting', 'success'].includes(file.status) || (!file.status && file.url)) && (
-              <Image class={`${uploadPrefix.value}__card-image`} src={file.url || file.raw} error="" loading="" />
+              <Image
+                class={`${uploadPrefix.value}__card-image`}
+                src={file.url || file.raw}
+                error=""
+                loading=""
+                fit="contain"
+              />
             )}
             <div class={`${uploadPrefix.value}__card-mask`}>
               {(file.url || file.raw) && !['progress', 'fail'].includes(file.status) && (
