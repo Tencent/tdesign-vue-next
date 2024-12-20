@@ -7,7 +7,7 @@ import { RadioGroup } from '../radio';
 import Input from '../input';
 import TButton from '../button';
 import { useTNodeDefault } from '../hooks/tnode';
-import { PrimaryTableCol, FilterValue } from './type';
+import { PrimaryTableCol, FilterValue, TdPrimaryTableProps } from './type';
 import { useConfig } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { AttachNode } from '../common';
@@ -37,6 +37,7 @@ export interface TableFilterControllerProps {
   popupProps: PopupProps;
   attach?: AttachNode;
   onVisibleChange: (val: boolean) => void;
+  filterIcon?: TdPrimaryTableProps['filterIcon'];
 }
 
 export default defineComponent({
@@ -55,6 +56,7 @@ export default defineComponent({
     popupProps: Object as PropType<TableFilterControllerProps['popupProps']>,
     attach: [String, Function] as PropType<TableFilterControllerProps['attach']>,
     onVisibleChange: Function as PropType<TableFilterControllerProps['onVisibleChange']>,
+    filterIcon: [Function] as PropType<TableFilterControllerProps['filterIcon']>,
   },
 
   emits: ['inner-filter-change', 'reset', 'confirm'],
