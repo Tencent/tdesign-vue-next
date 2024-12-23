@@ -11,6 +11,7 @@ export default {
   /** 对话框挂载的节点。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body */
   attach: {
     type: [String, Function] as PropType<TdDialogProps['attach']>,
+    default: 'body'
   },
   /** 对话框内容 */
   body: {
