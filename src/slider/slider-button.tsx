@@ -149,7 +149,7 @@ export default defineComponent({
       const parentSliderSize = parentProps.sliderSize;
       const { type } = event;
       let { clientY, clientX } = event as MouseEvent;
-      if (type === 'touchstart') {
+      if (type === 'touchmove') {
         const touch = (event as TouchEvent).touches;
         [clientY, clientX] = [touch[0].clientY, touch[0].clientX];
       }
