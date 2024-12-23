@@ -1,21 +1,21 @@
 import {
-  PropType,
-  defineComponent,
   ComponentPublicInstance,
-  ref,
+  PropType,
   computed,
-  reactive,
-  nextTick,
-  watchEffect,
+  defineComponent,
   inject,
+  nextTick,
+  reactive,
+  ref,
+  watchEffect,
 } from 'vue';
 import TTooltip from '../tooltip/index';
 import { TdSliderProps } from './type';
 
+import isFunction from 'lodash/isFunction';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useSliderTooltip } from './hooks/useSliderTooltip';
 import { sliderPropsInjectKey } from './util/constants';
-import isFunction from 'lodash/isFunction';
 
 export default defineComponent({
   name: 'TSliderButton',
@@ -147,10 +147,16 @@ export default defineComponent({
       }
       let diff = 0;
       const parentSliderSize = parentProps.sliderSize;
+      const { type } = event;
+      let { clientY, clientX } = event as MouseEvent;
+      if (type === 'touchstart') {
+        const touch = (event as TouchEvent).touches;
+        [clientY, clientX] = [touch[0].clientY, touch[0].clientX];
+      }
       if (props.vertical) {
-        diff = slideButtonProps.startY - (event as MouseEvent).clientY;
+        diff = slideButtonProps.startY - clientY;
       } else {
-        diff = (event as MouseEvent).clientX - slideButtonProps.startX;
+        diff = clientX - slideButtonProps.startX;
       }
       diff = (diff / parentSliderSize) * 100;
       slideButtonProps.newPos = slideButtonProps.startPos + diff;
