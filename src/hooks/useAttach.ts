@@ -5,15 +5,17 @@ import type { AttachNode } from '../common';
 const defaultAttach = 'body';
 /**
  * useAttach
- *
- * 挂载节点 优先级:
- *
+ * @param attach
+ * @param name
+ * @returns
  * props attach -> globalConfig.attach.component -> globalConfig.attach -> default = 'body'
  */
 const useAttach = (name: string, attach: AttachNode) => {
-  const globalAttachConfig = useConfig('attach');
+  const { globalConfig: globalAttachConfig } = useConfig('attach');
 
-  const attachVal = computed(() => attach || globalAttachConfig?.[name] || globalAttachConfig || defaultAttach);
+  const attachVal = computed(
+    () => attach || globalAttachConfig.value[name] || globalAttachConfig.value || defaultAttach,
+  );
 
   return attachVal;
 };

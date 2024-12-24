@@ -8,6 +8,8 @@ import props from './props';
 import { DrawerCloseContext } from './type';
 import { useAction } from '../dialog/hooks';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
+import useAttach from '../hooks/useAttach';
+
 import { useDrag } from './hooks';
 import type { TdDrawerProps } from './type';
 import useTeleport from '../hooks/useTeleport';
@@ -29,10 +31,11 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const renderContent = useContent();
     const COMPONENT_NAME = usePrefixClass('drawer');
+    const attach = useAttach('drawer', props.attach);
     const { draggedSizeValue, enableDrag, draggableLineStyles } = useDrag(props as TdDrawerProps);
 
     // teleport容器
-    const teleportElement = useTeleport(() => props.attach);
+    const teleportElement = useTeleport(() => attach.value);
 
     const confirmBtnAction = (e: MouseEvent) => {
       props.onConfirm?.({ e });

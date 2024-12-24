@@ -11,7 +11,8 @@ import props from './props';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
-import { useAction, useSameTarget, useAttach } from './hooks';
+import useAttach from '../hooks/useAttach';
+import { useAction, useSameTarget } from './hooks';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import useDestroyOnClose from '../hooks/useDestroyOnClose';
 import { getScrollbarWidth } from '../_common/js/utils/getScrollbarWidth';
@@ -103,6 +104,7 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const dialogEle = ref<HTMLElement | null>(null);
     const { globalConfig } = useConfig('dialog');
+    const attach = useAttach('dialog', props.attach);
     const { CloseIcon, InfoCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon } = useGlobalIcon({
       CloseIcon: TdCloseIcon,
       InfoCircleFilledIcon: TdInfoCircleFilledIcon,
@@ -118,7 +120,7 @@ export default defineComponent({
     };
     const { getConfirmBtn, getCancelBtn } = useAction({ confirmBtnAction, cancelBtnAction });
     // teleport容器
-    const teleportElement = useTeleport(() => props.attach);
+    const teleportElement = useTeleport(() => attach.value);
     useDestroyOnClose();
     const timer = ref();
     const styleEl = ref();
