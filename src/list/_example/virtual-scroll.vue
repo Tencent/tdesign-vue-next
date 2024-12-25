@@ -5,7 +5,7 @@
       style="height: 300px"
       :scroll="{ type: 'virtual', rowHeight: 80, bufferSize: 10, threshold: 10 }"
     >
-      <t-list-item v-for="(item, index) in listData" :key="`t${index + 1}`">
+      <t-list-item v-for="(item, index) in listData" :key="index">
         <t-list-item-meta :image="imageUrl" title="列表标题" :description="item.content" />
       </t-list-item>
     </t-list>
@@ -31,9 +31,9 @@ onMounted(() => {
 const handleScroll = () => {
   // scroll 属性需要设置 rowHeight 参数
   list.value?.scrollTo({
-    // 指定key滚动，即当前节点对应的唯一值，推荐使用
-    key: 't30',
-    // 指定index滚动，如果存在多级嵌套，需要自己计算index
+    // 指定key滚动，这里的key视作index使用
+    key: 30,
+    // 指定index滚动
     // index: 100,
   });
 };

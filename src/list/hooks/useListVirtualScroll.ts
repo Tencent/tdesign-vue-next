@@ -1,5 +1,4 @@
 import { Ref, computed } from 'vue';
-import get from 'lodash/get';
 
 import log from '../../_common/js/log';
 import useVirtualScroll from '../../hooks/useVirtualScrollNew';
@@ -55,19 +54,17 @@ export const useListVirtualScroll = (
   );
 
   const handleScrollTo = (params: ComponentScrollToElementParams) => {
-    let index = params.index;
-    if (!index && index !== 0) {
-      if (!params.key) {
-        log.error('List', 'scrollTo: one of `index` or `key` must exist.');
-        return;
-      }
-      index = listItems.value?.findIndex((item) => [get(item, 'key')].includes(params.key));
-      if (index < 0) {
-        log.error('List', `${params.key} does not exist in data, check \`key\` or \`data\` please.`);
-        return;
-      }
+    const { index, key } = params;
+    const targetIndex = index === 0 ? index : index ?? Number(key);
+    if (!targetIndex && targetIndex !== 0) {
+      log.error('List', 'scrollTo: `index` or `key` must exist.');
+      return;
     }
-    virtualConfig.scrollToElement({ ...params, index: index - 1 });
+    if (targetIndex < 0 || targetIndex >= listItems.value.length) {
+      log.error('List', `${targetIndex} does not exist in data, check \`index\` or \`key\` please.`);
+      return;
+    }
+    virtualConfig.scrollToElement({ ...params, index: targetIndex - 1 });
   };
 
   return {
