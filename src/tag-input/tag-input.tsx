@@ -134,7 +134,7 @@ export default defineComponent({
     };
 
     const focus = () => {
-      tagInputRef.value.focus();
+      tagInputRef.value?.focus();
     };
 
     const blur = () => {

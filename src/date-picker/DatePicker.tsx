@@ -13,7 +13,7 @@ import TSelectInput from '../select-input';
 import TSinglePanel from './panel/SinglePanel';
 import { useReadonly } from '../hooks/useReadonly';
 
-import type { TdDatePickerProps, PresetDate, DateMultipleValue, DateValue } from './type';
+import type { TdDatePickerProps, DateMultipleValue, DateValue } from './type';
 import type { TagInputRemoveContext } from '../tag-input';
 import isDate from 'lodash/isDate';
 
@@ -148,7 +148,7 @@ export default defineComponent({
         if (props.multiple) {
           const newDate = processDate(date);
           onChange(newDate, {
-            dayjsValue: parseToDayjs(date, format),
+            dayjsValue: parseToDayjs(date, props.format),
             trigger: 'pick',
           });
           return;
@@ -175,12 +175,14 @@ export default defineComponent({
       let currentDate: DateMultipleValue;
 
       if (!isSameDate) {
-        currentDate = (value.value as DateMultipleValue).concat(formatDate(date, { format, targetFormat: valueType }));
+        currentDate = (value.value as DateMultipleValue).concat(
+          formatDate(date, { format: props.format, targetFormat: formatRef.value.valueType }),
+        );
       } else {
         currentDate = (value.value as DateMultipleValue).filter(
           (val) =>
-            formatDate(val, { format, targetFormat: valueType }) !==
-            formatDate(date, { format, targetFormat: valueType }),
+            formatDate(val, { format: props.format, targetFormat: formatRef.value.valueType }) !==
+            formatDate(date, { format: props.format, targetFormat: formatRef.value.valueType }),
         );
       }
 
@@ -191,14 +193,14 @@ export default defineComponent({
       const removeDate = dayjs(ctx.item).toDate();
       const newDate = processDate(removeDate);
       onChange?.(newDate, {
-        dayjsValue: parseToDayjs(removeDate, format),
+        dayjsValue: parseToDayjs(removeDate, props.format),
         trigger: 'pick',
       });
     };
 
-    const onTagClearClick = ({ e }) => {
+    const onTagClearClick = ({ e }: any) => {
       e.stopPropagation();
-      setPopupVisible(false);
+      popupVisible.value = false;
       onChange([], { dayjsValue: dayjs(), trigger: 'clear' });
     };
 
