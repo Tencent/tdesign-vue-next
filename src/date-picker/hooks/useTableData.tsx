@@ -30,7 +30,6 @@ export default function useTableData(props: any) {
   } else if (props.mode === 'year') {
     data = getYears(props.year, options);
   }
-
   return flagActive(data, {
     start: props.start,
     end: props.end,

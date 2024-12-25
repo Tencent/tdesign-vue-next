@@ -2,10 +2,11 @@ import { defineComponent, PropType, computed } from 'vue';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 import TPanelContent from './PanelContent';
 import TExtraContent from './ExtraContent';
-import { TdDatePickerProps } from '../type';
 import { getDefaultFormat, parseToDayjs } from '../../_common/js/date-picker/format';
 import useTableData from '../hooks/useTableData';
 import useDisableDate from '../hooks/useDisableDate';
+
+import type { TdDatePickerProps, DateMultipleValue, DateValue } from '../type';
 
 export default defineComponent({
   name: 'TSinglePanel',
@@ -29,6 +30,7 @@ export default defineComponent({
     month: Number,
     time: String,
     popupVisible: Boolean,
+    multiple: Boolean,
     needConfirm: {
       type: Boolean,
       default: true,
@@ -64,14 +66,20 @@ export default defineComponent({
         disableDate: props.disableDate,
       }),
     );
-
     const tableData = computed(() =>
       useTableData({
         year: props.year,
         month: props.month,
         mode: props.mode,
-        start: props.value ? parseToDayjs(props.value, format.value).toDate() : undefined,
+        start: props.value
+          ? parseToDayjs(
+              props.multiple ? (props.value as DateMultipleValue)[0] : (props.value as DateValue),
+              format.value,
+            ).toDate()
+          : undefined,
         firstDayOfWeek: props.firstDayOfWeek || globalConfig.value.firstDayOfWeek,
+        multiple: props.multiple,
+        value: props.value,
         ...disableDateOptions.value,
       }),
     );
@@ -85,7 +93,7 @@ export default defineComponent({
       firstDayOfWeek: props.firstDayOfWeek || globalConfig.value.firstDayOfWeek,
       tableData: tableData.value,
       popupVisible: props.popupVisible,
-
+      multiple: props.multiple,
       enableTimePicker: props.enableTimePicker,
       timePickerProps: props.timePickerProps,
       time: props.time,

@@ -63,6 +63,8 @@ export default defineComponent({
     });
 
     watch(popupVisible, (visible) => {
+      // 多选不考虑输入情况
+      if (props.multiple) return;
       // 如果不需要确认，直接保存当前值
       if (!props.needConfirm && props.enableTimePicker && !visible) {
         const nextValue = formatDate(inputValue.value, {
@@ -148,7 +150,7 @@ export default defineComponent({
         if (props.multiple) {
           const newDate = processDate(date);
           onChange(newDate, {
-            dayjsValue: parseToDayjs(date, props.format),
+            dayjsValue: parseToDayjs(date, formatRef.value.format),
             trigger: 'pick',
           });
           return;
@@ -171,38 +173,39 @@ export default defineComponent({
     }
 
     function processDate(date: Date) {
-      const isSameDate = (value.value as DateMultipleValue).some((val) => isSame(dayjs(val).toDate(), date));
+      const val = (value.value || []) as DateMultipleValue;
+      const isSameDate = val?.some?.((val) => isSame(dayjs(val).toDate(), date));
       let currentDate: DateMultipleValue;
 
       if (!isSameDate) {
-        currentDate = (value.value as DateMultipleValue).concat(
-          formatDate(date, { format: props.format, targetFormat: formatRef.value.valueType }),
+        currentDate = val.concat(
+          formatDate(date, { format: formatRef.value.format, targetFormat: formatRef.value.valueType }),
         );
       } else {
-        currentDate = (value.value as DateMultipleValue).filter(
+        currentDate = val.filter(
           (val) =>
-            formatDate(val, { format: props.format, targetFormat: formatRef.value.valueType }) !==
-            formatDate(date, { format: props.format, targetFormat: formatRef.value.valueType }),
+            formatDate(val, { format: formatRef.value.format, targetFormat: formatRef.value.valueType }) !==
+            formatDate(date, { format: formatRef.value.format, targetFormat: formatRef.value.valueType }),
         );
       }
 
       return currentDate.sort((a, b) => dayjs(a).valueOf() - dayjs(b).valueOf());
     }
 
-    const onTagRemoveClick = (ctx: TagInputRemoveContext) => {
+    function onTagRemoveClick(ctx: TagInputRemoveContext) {
       const removeDate = dayjs(ctx.item).toDate();
       const newDate = processDate(removeDate);
       onChange?.(newDate, {
-        dayjsValue: parseToDayjs(removeDate, props.format),
-        trigger: 'pick',
+        dayjsValue: parseToDayjs(removeDate, formatRef.value.format),
+        trigger: 'tag-remove',
       });
-    };
+    }
 
-    const onTagClearClick = ({ e }: any) => {
+    function onTagClearClick({ e }: { e: MouseEvent }) {
       e.stopPropagation();
       popupVisible.value = false;
-      onChange([], { dayjsValue: dayjs(), trigger: 'clear' });
-    };
+      onChange?.([], { dayjsValue: dayjs(), trigger: 'clear' });
+    }
 
     // 头部快速切换
     function onJumperClick({ trigger }: { trigger: string }) {
@@ -311,7 +314,8 @@ export default defineComponent({
       format: formatRef.value.format,
       mode: props.mode,
       presets: props.presets,
-      time: props.multiple ? false : time.value,
+      multiple: props.multiple,
+      time: props.multiple ? '' : time.value,
       disableDate: props.disableDate,
       firstDayOfWeek: props.firstDayOfWeek,
       timePickerProps: props.timePickerProps,

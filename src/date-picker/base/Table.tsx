@@ -74,9 +74,7 @@ export default defineComponent({
       }
 
       return {
-        [`${COMPONENT_NAME.value}-${props.mode}-row--active`]:
-          parseToDayjs(value, format).locale(dayjsLocale).week() ===
-          parseToDayjs(targetValue, format).locale(dayjsLocale).week(),
+        [`${COMPONENT_NAME.value}-${props.mode}-row--active`]: true,
       };
     };
 
