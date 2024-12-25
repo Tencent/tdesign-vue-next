@@ -1,9 +1,13 @@
 import { defineComponent, PropType, computed } from 'vue';
+import dayjs from 'dayjs';
+import isoWeek from 'dayjs/plugin/isoWeek';
 import TDatePickerCell from './Cell';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 import type { TdDatePickerProps } from '../type';
 import { parseToDayjs } from '../../_common/js/date-picker/format';
 import isArray from 'lodash/isArray';
+
+dayjs.extend(isoWeek);
 
 export default defineComponent({
   name: 'TDatePickerTable',
@@ -55,12 +59,13 @@ export default defineComponent({
         const endWeek = endObj?.locale?.(dayjsLocale)?.week?.();
 
         const targetObj = parseToDayjs(targetValue, format);
-        const targetYear = targetObj.year();
-        const targetWeek = targetObj.week();
+        const targetYear = targetObj.isoWeekYear();
+        const targetWeek = targetObj.isoWeek();
         const isActive =
           (targetYear === startYear && targetWeek === startWeek) || (targetYear === endYear && targetWeek === endWeek);
         const isRange =
-          targetYear >= startYear && targetYear <= endYear && targetWeek > startWeek && targetWeek < endWeek;
+          (targetYear > startYear || (targetYear === startYear && targetWeek > startWeek)) &&
+          (targetYear < endYear || (targetYear === endYear && targetWeek < endWeek));
         return {
           // 同年同周
           [`${COMPONENT_NAME.value}-${props.mode}-row--active`]: isActive,

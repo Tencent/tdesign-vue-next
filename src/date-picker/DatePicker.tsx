@@ -7,14 +7,14 @@ import { usePrefixClass, useConfig } from '../hooks/useConfig';
 import { useDisabled } from '../hooks/useDisabled';
 import useSingle from './hooks/useSingle';
 import { parseToDayjs, getDefaultFormat, formatTime, formatDate } from '../_common/js/date-picker/format';
-import { subtractMonth, addMonth, extractTimeObj, covertToDate } from '../_common/js/date-picker/utils';
+import { subtractMonth, addMonth, extractTimeObj, covertToDate, isSame } from '../_common/js/date-picker/utils';
 import props from './props';
 import TSelectInput from '../select-input';
 import TSinglePanel from './panel/SinglePanel';
 import { useReadonly } from '../hooks/useReadonly';
 
-import type { TdDatePickerProps } from './type';
-import type { DateValue } from './type';
+import type { TdDatePickerProps, PresetDate, DateMultipleValue, DateValue } from './type';
+import type { TagInputRemoveContext } from '../tag-input';
 import isDate from 'lodash/isDate';
 
 export default defineComponent({
@@ -52,7 +52,7 @@ export default defineComponent({
         mode: props.mode,
         format: props.format,
         valueType: props.valueType,
-        enableTimePicker: props.enableTimePicker,
+        enableTimePicker: props.multiple ? false : props.enableTimePicker,
       }),
     );
     const valueDisplayParams = computed(() => {
@@ -104,8 +104,8 @@ export default defineComponent({
 
       // 面板展开重置数据
       if (visible) {
-        year.value = parseToDayjs(value.value, formatRef.value.valueType).year();
-        month.value = parseToDayjs(value.value, formatRef.value.format).month();
+        year.value = parseToDayjs(value.value as DateValue, formatRef.value.valueType).year();
+        month.value = parseToDayjs(value.value as DateValue, formatRef.value.format).month();
         time.value = formatTime(value.value, formatRef.value.format, formatRef.value.timeFormat, props.defaultTime);
       } else {
         isHoverCell.value = false;
@@ -114,6 +114,8 @@ export default defineComponent({
 
     // 日期 hover
     function onCellMouseEnter(date: Date) {
+      if (props.multiple) return;
+
       isHoverCell.value = true;
       inputValue.value = formatDate(date, {
         format: formatRef.value.format,
@@ -122,6 +124,8 @@ export default defineComponent({
 
     // 日期 leave
     function onCellMouseLeave() {
+      if (props.multiple) return;
+
       isHoverCell.value = false;
       inputValue.value = formatDate(cacheValue.value, {
         format: formatRef.value.format,
@@ -141,6 +145,15 @@ export default defineComponent({
           format: formatRef.value.format,
         });
       } else {
+        if (props.multiple) {
+          const newDate = processDate(date);
+          onChange(newDate, {
+            dayjsValue: parseToDayjs(date, format),
+            trigger: 'pick',
+          });
+          return;
+        }
+
         onChange?.(
           formatDate(date, {
             format: formatRef.value.format,
@@ -156,6 +169,38 @@ export default defineComponent({
 
       props.onPick?.(date);
     }
+
+    function processDate(date: Date) {
+      const isSameDate = (value.value as DateMultipleValue).some((val) => isSame(dayjs(val).toDate(), date));
+      let currentDate: DateMultipleValue;
+
+      if (!isSameDate) {
+        currentDate = (value.value as DateMultipleValue).concat(formatDate(date, { format, targetFormat: valueType }));
+      } else {
+        currentDate = (value.value as DateMultipleValue).filter(
+          (val) =>
+            formatDate(val, { format, targetFormat: valueType }) !==
+            formatDate(date, { format, targetFormat: valueType }),
+        );
+      }
+
+      return currentDate.sort((a, b) => dayjs(a).valueOf() - dayjs(b).valueOf());
+    }
+
+    const onTagRemoveClick = (ctx: TagInputRemoveContext) => {
+      const removeDate = dayjs(ctx.item).toDate();
+      const newDate = processDate(removeDate);
+      onChange?.(newDate, {
+        dayjsValue: parseToDayjs(removeDate, format),
+        trigger: 'pick',
+      });
+    };
+
+    const onTagClearClick = ({ e }) => {
+      e.stopPropagation();
+      setPopupVisible(false);
+      onChange([], { dayjsValue: dayjs(), trigger: 'clear' });
+    };
 
     // 头部快速切换
     function onJumperClick({ trigger }: { trigger: string }) {
@@ -264,11 +309,11 @@ export default defineComponent({
       format: formatRef.value.format,
       mode: props.mode,
       presets: props.presets,
-      time: time.value as string,
+      time: props.multiple ? false : time.value,
       disableDate: props.disableDate,
       firstDayOfWeek: props.firstDayOfWeek,
       timePickerProps: props.timePickerProps,
-      enableTimePicker: props.enableTimePicker,
+      enableTimePicker: props.multiple ? false : props.enableTimePicker,
       presetsPlacement: props.presetsPlacement,
       popupVisible: popupVisible.value,
       needConfirm: props.needConfirm,
@@ -294,6 +339,7 @@ export default defineComponent({
           status={props.status}
           tips={props.tips}
           clearable={props.clearable}
+          multiple={props.multiple}
           popupProps={popupProps.value}
           inputProps={inputProps.value}
           placeholder={props.placeholder || globalConfig.value.placeholder[props.mode]}
@@ -302,6 +348,10 @@ export default defineComponent({
           needConfirm={props.needConfirm}
           {...(props.selectInputProps as TdDatePickerProps['selectInputProps'])}
           panel={() => <TSinglePanel {...panelProps.value} />}
+          tagInputProps={{
+            onRemove: onTagRemoveClick,
+          }}
+          onClear={onTagClearClick}
         />
       </div>
     );
