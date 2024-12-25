@@ -31,10 +31,9 @@ onMounted(() => {
 const handleScroll = () => {
   // scroll 属性需要设置 rowHeight 参数
   list.value?.scrollTo({
-    // 指定key滚动，这里的key视作index使用
-    key: 30,
-    // 指定index滚动
-    // index: 100,
+    // list 不存在嵌套，key 与 index 相同
+    index: 30,
+    behavior: 'smooth',
   });
 };
 </script>
