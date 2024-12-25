@@ -23,6 +23,13 @@ onScroll | Function |  | TS 类型：`(options: { e: Event \| WheelEvent; scroll
 load-more | `(options: { e: MouseEvent })` | 点击加载更多时触发
 scroll | `(options: { e: Event \| WheelEvent; scrollTop: number; scrollBottom: number })` | 列表滚动时触发，scrollTop 表示顶部滚动距离，scrollBottom 表示底部滚动距离
 
+### ListInstanceFunctions 组件实例方法
+
+名称 | 参数 | 返回值 | 描述
+-- | -- | -- | --
+scrollTo | `(scrollToParams: ScrollToElementParams)` | \- | 虚拟滚动场景下，支持指定滚动到具体的节点
+
+
 ### ListItem Props
 
 名称 | 类型 | 默认值 | 说明 | 必传
