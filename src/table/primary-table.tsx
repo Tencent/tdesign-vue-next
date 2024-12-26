@@ -149,7 +149,7 @@ export default defineComponent({
       onRuleChange,
       clearValidateData,
       onUpdateEditedCell,
-      // getEditRowData,
+      getEditRowData,
       onPrimaryTableCellEditChange,
     } = useEditableRow(props);
 
@@ -274,11 +274,12 @@ export default defineComponent({
           item.cell = (h, p: PrimaryTableCellParams<TableRowData>) => {
             const cellProps: EditableCellProps = {
               ...p,
+              row: getEditRowData(p),
               oldCell,
               rowKey: props.rowKey || 'id',
               tableBaseClass,
               cellEmptyContent: props.cellEmptyContent,
-              onChange: props.onRowEdit,
+              onChange: onEditableCellChange,
               onValidate: props.onRowValidate,
               onRuleChange,
               onEditableChange: onPrimaryTableCellEditChange,
