@@ -1,9 +1,14 @@
 <template>
   <t-space direction="vertical">
-    <t-date-picker multiple />
-    <t-date-picker mode="week" multiple />
-    <t-date-picker mode="year" multiple />
+    <t-date-picker v-model="value" multiple clearable />
+    <t-date-picker mode="week" multiple clearable />
+    <t-date-picker mode="quarter" multiple clearable />
+    <t-date-picker mode="year" multiple clearable />
   </t-space>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from 'vue';
+
+const value = ref([]);
+</script>

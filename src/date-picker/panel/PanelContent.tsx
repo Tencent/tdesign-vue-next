@@ -21,6 +21,7 @@ export default defineComponent({
     month: Number,
     tableData: Array,
     time: String,
+    multiple: Boolean,
     firstDayOfWeek: Number,
     partial: String,
     popupVisible: Boolean,
@@ -64,6 +65,7 @@ export default defineComponent({
             time={props.time}
             value={props.value}
             format={props.format}
+            multiple={props.multiple}
             firstDayOfWeek={props.firstDayOfWeek}
             onCellClick={(date: Date, { e }: { e: MouseEvent }) =>
               props.onCellClick?.(date, { e, partial: props.partial })

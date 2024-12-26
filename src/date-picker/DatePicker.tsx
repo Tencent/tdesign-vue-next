@@ -173,23 +173,31 @@ export default defineComponent({
     }
 
     function processDate(date: Date) {
-      const val = (value.value || []) as DateMultipleValue;
-      const isSameDate = val?.some?.((val) => isSame(dayjs(val).toDate(), date));
+      let isSameDate: boolean;
+      const currentValue = (value.value || []) as DateMultipleValue;
+      const { dayjsLocale } = globalConfig.value;
+
       let currentDate: DateMultipleValue;
+      if (props.mode !== 'week')
+        isSameDate = currentValue.some((val) =>
+          isSame(parseToDayjs(val, formatRef.value.format).toDate(), date, props.mode, dayjsLocale),
+        );
+      else {
+        isSameDate = currentValue.some((val) => val === dayjs(date).locale(dayjsLocale).format(formatRef.value.format));
+      }
 
       if (!isSameDate) {
-        currentDate = val.concat(
+        currentDate = currentValue.concat(
           formatDate(date, { format: formatRef.value.format, targetFormat: formatRef.value.valueType }),
         );
       } else {
-        currentDate = val.filter(
+        currentDate = currentValue.filter(
           (val) =>
             formatDate(val, { format: formatRef.value.format, targetFormat: formatRef.value.valueType }) !==
             formatDate(date, { format: formatRef.value.format, targetFormat: formatRef.value.valueType }),
         );
       }
-
-      return currentDate.sort((a, b) => dayjs(a).valueOf() - dayjs(b).valueOf());
+      return currentDate;
     }
 
     function onTagRemoveClick(ctx: TagInputRemoveContext) {
