@@ -11,10 +11,10 @@ const defaultAttach = 'body';
  * props attach -> globalConfig.attach.component -> globalConfig.attach -> default = 'body'
  */
 const useAttach = (name: string, attach: AttachNode) => {
-  const { globalConfig: globalAttachConfig } = useConfig('attach');
+  const { globalConfig } = useConfig();
 
   const attachVal = computed(
-    () => attach || globalAttachConfig.value[name] || globalAttachConfig.value || defaultAttach,
+    () => attach || globalConfig.value.attach?.[name] || globalConfig.value.attach || defaultAttach,
   );
 
   return attachVal;
