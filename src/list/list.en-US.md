@@ -23,6 +23,13 @@ name | params | description
 load-more | `(options: { e: MouseEvent })` | \-
 scroll | `(options: { e: Event \| WheelEvent; scrollTop: number; scrollBottom: number })` | \-
 
+### ListInstanceFunctions
+
+name | params | return | description
+-- | -- | -- | --
+scrollTo | `(scrollToParams: ScrollToElementParams)` | \- | support scrolling to a specific node when virtual scrolling 
+
+
 ### ListItem Props
 
 name | type | default | description | required

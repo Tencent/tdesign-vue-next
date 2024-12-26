@@ -66,7 +66,7 @@ export default defineComponent({
     const renderMainContent = (file: UploadFile, index: number) => {
       return (
         <div class={`${classPrefix.value}-upload__card-content ${classPrefix.value}-upload__card-box`}>
-          <Image class={`${classPrefix.value}-upload__card-image`} src={file.url || file.raw} error="" />
+          <Image class={`${classPrefix.value}-upload__card-image`} src={file.url || file.raw} error="" fit="contain" />
           <div class={`${classPrefix.value}-upload__card-mask`}>
             <span class={`${classPrefix.value}-upload__card-mask-item`} onClick={(e) => e.stopPropagation()}>
               <ImageViewer
