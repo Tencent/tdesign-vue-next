@@ -51,6 +51,7 @@ export const useContext = (
         showAllLevels,
         minCollapsedNum,
         valueType,
+        modelValue,
       } = props;
       return {
         value: statusContext.scopeVal,
@@ -72,7 +73,7 @@ export const useContext = (
           statusContext.treeNodes = nodes;
         },
         setValue: (val: CascaderValue, source: CascaderChangeSource, node?: TreeNodeModel) => {
-          if (isEqual(val, statusContext.scopeVal)) return;
+          if (isEqual(val, modelValue)) return;
           setInnerValue(val, { source, node });
         },
         setVisible: setPopupVisible,
