@@ -38,6 +38,15 @@ export default {
       return ['small', 'medium', 'large'].includes(val);
     },
   },
+  /** 组件风格 */
+  theme: {
+    type: String as PropType<TdRadioGroupProps['theme']>,
+    default: 'radio' as TdRadioGroupProps['theme'],
+    validator(val: TdRadioGroupProps['theme']): boolean {
+      if (!val) return true;
+      return ['radio', 'button'].includes(val);
+    },
+  },
   /** 选中的值 */
   value: {
     type: [String, Number, Boolean] as PropType<TdRadioGroupProps['value']>,
