@@ -5,6 +5,31 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.10.6 `2024-12-31` 
+### 🚀 Features
+- `List`: 新增`scrollTo`方法，支持滚动到指定元素，可参考示例使用 @natural1024 ([#4863](https://github.com/Tencent/tdesign-vue-next/pull/4863))
+- `Radio`: 新增 `theme` API，用于决定 `options` 方式渲染的 `Radio` 样式 @myronliu347 @liweijie0812 ([#4872](https://github.com/Tencent/tdesign-vue-next/pull/4872))
+### 🐞 Bug Fixes
+- `Table`: 
+  - 修复 `isFilterValueExist` 无法正常处理 `null` 值导致无法正常清除筛选的问题 @HHaoWang ([#4829](https://github.com/Tencent/tdesign-vue-next/pull/4829))
+  - 修复 `filterIcon` 不生效 @liweijie0812 ([#4837](https://github.com/Tencent/tdesign-vue-next/pull/4837))
+  - 修复 `1.10.0` 版本的 `updateEditedCellValue` 的功能异常问题 @uyarn ([#4869](https://github.com/Tencent/tdesign-vue-next/pull/4869))
+  - 修复删除行操作后使用 `validateTableData` 方法进行校验仍存在删除行的问题 @uyarn ([#4878](https://github.com/Tencent/tdesign-vue-next/pull/4878))
+- `Cascader`: 
+  - 当 `valueType` 为 `full` 时会意外触发 `change` 事件 @betavs ([#4870](https://github.com/Tencent/tdesign-vue-next/pull/4870))
+  - 校验无效值逻辑错误并优化代码 @betavs ([#4870](https://github.com/Tencent/tdesign-vue-next/pull/4870))
+- `Dialog`: 
+  - 当 `header` 和 `closeBtn` 都为 `false` 时，不渲染 `header dom` @chensid @ylunwang ([#4841](https://github.com/Tencent/tdesign-vue-next/pull/4841))
+  - 修复`1.10.4`版本后`closeOnClickOverlay`默认开启行为和挂载`body`行为的缺失问题 @uyarn ([#4877](https://github.com/Tencent/tdesign-vue-next/pull/4877))
+- `Swiper`: 修复 `autopaly=false`,  修改 `current` 无效  @liweijie0812 ([#4845](https://github.com/Tencent/tdesign-vue-next/pull/4845))
+- `Upload`: 上传组件图片展示样式优化 @huangchen1031 ([#4853](https://github.com/Tencent/tdesign-vue-next/pull/4853))
+- `Slider`: 滑块可以正常在移动端设备中拖动 @zd5043039119 ([#4860](https://github.com/Tencent/tdesign-vue-next/pull/4860))
+- `DatePicker`: 优化日期范围选择面板初始化展示的逻辑，保持右侧面板大于左侧面板 @uyarn ([#4879](https://github.com/Tencent/tdesign-vue-next/pull/4879))
+- `DateRangePicker`: 修复开始结束值同时存在的逻辑判断错误问题 @betavs ([#4868](https://github.com/Tencent/tdesign-vue-next/pull/4868))
+- `Tree`: 修复使用`keys`定义`value`无法配合 `scrollTo` 一起使用的问题 @uyarn ([#4880](https://github.com/Tencent/tdesign-vue-next/pull/4880))
+### 📝 Documentation
+- `Tree`: 新增关于唯一键值不可重复的问题FAQ @RSS1102  @uyarn ([#4852](https://github.com/Tencent/tdesign-vue-next/pull/4852))
+
 ## 🌈 1.10.5 `2024-12-10` 
 ### 🚀 Features
 - `Vitest`: 升级 `vitest` 版本以及相关依赖到 `2.1.8`，配合 vscode 插件支持单个单测的运行测试 @PengYYYYY ([#4807](https://github.com/Tencent/tdesign-vue-next/pull/4807))

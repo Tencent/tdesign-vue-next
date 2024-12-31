@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { it, expect, describe, vi } from 'vitest';
 import { nextTick, ref } from 'vue';
-import Radio, { RadioGroup } from '@/src/radio/index.ts';
+import Radio, { RadioButton, RadioGroup } from '@/src/radio/index.ts';
 
 // every component needs four parts: props/events/slots/functions.
 describe('Radio', () => {
@@ -170,6 +170,23 @@ describe('RadioGroup', () => {
         </RadioGroup>
       ));
       expect(wrapper3.find('.t-radio-group').classes()).toContain(`t-radio-group--filled`);
+    });
+    it(':theme', () => {
+      const wrapper = mount(() => (
+        <RadioGroup theme="radio">
+          <Radio value="1">选项一</Radio>
+          <Radio value="2">选项二</Radio>
+        </RadioGroup>
+      ));
+      expect(wrapper.findComponent(Radio)).toBeTruthy();
+      const wrapper2 = mount(() => (
+        <RadioGroup theme="button">
+          <Radio value="1">选项一</Radio>
+          <Radio value="2">选项二</Radio>
+        </RadioGroup>
+      ));
+
+      expect(wrapper2.findComponent(RadioButton)).toBeTruthy();
     });
   });
 
