@@ -86,7 +86,7 @@ export default function useTreeScroll(state: TypeTreeState) {
         return;
       }
       index = allNodes.value?.findIndex((item) =>
-        [get(item.data, 'key'), get(item.data, 'value')].includes(params.key),
+        [get(item.data, 'key'), get(item.data, props.keys?.['value'] || 'value')].includes(params.key),
       );
       if (index < 0) {
         log.error('Tree', `${params.key} does not exist in data, check \`key\` or \`data\` please.`);
