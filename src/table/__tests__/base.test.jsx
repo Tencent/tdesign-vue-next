@@ -561,5 +561,56 @@ TABLES.forEach((TTable) => {
         expect(wrapper.find('.t-table__top-content').text()).toBe(topContentText);
       });
     });
+
+    describe(':props.filterIcon', () => {
+      it('props.filterIcon could be function', async () => {
+        const filterIconText = () => '筛';
+        const filterColumns = SIMPLE_COLUMNS.map((item) => ({
+          ...item,
+          filter: { type: 'single', list: [{ label: 1, value: 2 }] },
+        }));
+
+        const wrapper = mount({
+          render() {
+            return <TTable filterIcon={filterIconText} rowKey="index" data={data} columns={filterColumns}></TTable>;
+          },
+        });
+
+        if (TTable.name == 'TBaseTable') {
+          expect(wrapper.find('.t-table__filter-icon').exists()).toBeFalsy();
+        } else {
+          expect(wrapper.find('.t-table__filter-icon').exists()).toBeTruthy();
+          expect(wrapper.find('.t-table__filter-icon').text()).toBe(filterIconText());
+        }
+      });
+
+      it('slots.filter-icon works fine', () => {
+        const filterIconText = (rowKey) => '筛' + rowKey;
+        const filterColumns = SIMPLE_COLUMNS.map((item) => ({
+          ...item,
+          filter: { type: 'single', list: [{ label: 1, value: 2 }] },
+        }));
+        const wrapper = mount({
+          render() {
+            return (
+              <TTable
+                v-slots={{ filterIcon: (col, colIndex) => filterIconText(col.col.colKey) }}
+                rowKey="index"
+                data={data}
+                columns={filterColumns}
+              ></TTable>
+            );
+          },
+        });
+        if (TTable.name == 'TBaseTable') {
+          expect(wrapper.find('.t-table__filter-icon').exists()).toBeFalsy();
+        } else {
+          expect(wrapper.find('.t-table__filter-icon').exists()).toBeTruthy();
+          SIMPLE_COLUMNS.forEach((item, index) => {
+            expect(wrapper.findAll('.t-table__filter-icon').at(index).text()).toBe(filterIconText(item.colKey));
+          });
+        }
+      });
+    });
   });
 });

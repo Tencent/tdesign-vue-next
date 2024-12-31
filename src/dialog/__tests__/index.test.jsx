@@ -81,6 +81,16 @@ describe('Dialog', () => {
       expect(header.text()).toBe('this is header');
     });
 
+    it(':header:false', async () => {
+      const visible = ref(true);
+      const wrapper = mount(() => (
+        <Dialog v-model:visible={visible.value} header={false} closeBtn={false} body="this is content"></Dialog>
+      ));
+      const header = wrapper.find('.t-dialog__header');
+      await nextTick();
+      expect(header.exists()).toBeFalsy();
+    });
+
     it(':placement', async () => {
       const placementList = ['top', 'center'];
       const visible = ref(true);

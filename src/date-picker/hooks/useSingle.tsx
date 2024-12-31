@@ -16,6 +16,7 @@ import {
   parseToDayjs,
 } from '../../_common/js/date-picker/format';
 import useSingleValue from './useSingleValue';
+import { useReadonly } from '../../hooks/useReadonly';
 
 export default function useSingle(props: TdDatePickerProps) {
   const COMPONENT_NAME = usePrefixClass('date-picker');
@@ -24,6 +25,7 @@ export default function useSingle(props: TdDatePickerProps) {
   const renderTNodeJSX = useTNodeJSX();
 
   const inputRef = ref();
+  const isReadOnly = useReadonly();
 
   const { value, onChange, time, month, year, cacheValue } = useSingleValue(props);
 
@@ -47,7 +49,7 @@ export default function useSingle(props: TdDatePickerProps) {
     size: props.size,
     ref: inputRef,
     prefixIcon: () => renderTNodeJSX('prefixIcon'),
-    readonly: !props.allowInput,
+    readonly: isReadOnly.value || !props.allowInput,
     suffixIcon: () => {
       return renderTNodeJSX('suffixIcon') || <CalendarIcon />;
     },

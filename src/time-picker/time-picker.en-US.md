@@ -19,6 +19,7 @@ label | String / Slot / Function | - | Typescript：`string \| TNode`。[see mor
 placeholder | String | undefined | \- | N
 popupProps | Object | - | Typescript：`PopupProps`，[Popup API Documents](./popup?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts) | N
 presets | Object | - | Typescript：`PresetTime` `interface PresetTime { [presetName: string]: TimePickerValue \| (() => TimePickerValue) }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts) | N
+readonly | Boolean | undefined | Whether it is read only, the priority is greater than `allowInput` | N
 selectInputProps | Object | - | Typescript：`SelectInputProps`，[SelectInput API Documents](./select-input?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts) | N
 size | String | medium | options: small/medium/large | N
 status | String | default | options: default/success/warning/error | N

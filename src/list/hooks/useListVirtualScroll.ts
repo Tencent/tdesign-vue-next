@@ -1,7 +1,9 @@
 import { Ref, computed } from 'vue';
+
+import log from '../../_common/js/log';
 import useVirtualScroll from '../../hooks/useVirtualScrollNew';
 import { TdListProps } from '../type';
-import { Styles } from '../../common';
+import { Styles, type ComponentScrollToElementParams } from '../../common';
 
 export const useListVirtualScroll = (
   scroll: TdListProps['scroll'],
@@ -51,11 +53,26 @@ export const useListVirtualScroll = (
       } as Styles),
   );
 
+  const handleScrollTo = (params: ComponentScrollToElementParams) => {
+    const { index, key } = params;
+    const targetIndex = index === 0 ? index : index ?? Number(key);
+    if (!targetIndex && targetIndex !== 0) {
+      log.error('List', 'scrollTo: `index` or `key` must exist.');
+      return;
+    }
+    if (targetIndex < 0 || targetIndex >= listItems.value.length) {
+      log.error('List', `${targetIndex} does not exist in data, check \`index\` or \`key\` please.`);
+      return;
+    }
+    virtualConfig.scrollToElement({ ...params, index: targetIndex - 1 });
+  };
+
   return {
     virtualConfig,
     cursorStyle,
     listStyle,
     isVirtualScroll,
     onInnerVirtualScroll,
+    scrollToElement: handleScrollTo,
   };
 };

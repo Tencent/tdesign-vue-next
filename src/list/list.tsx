@@ -26,11 +26,8 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const { listItems } = useListItems();
 
-    const { virtualConfig, cursorStyle, listStyle, isVirtualScroll, onInnerVirtualScroll } = useListVirtualScroll(
-      props.scroll,
-      listRef,
-      listItems,
-    );
+    const { virtualConfig, cursorStyle, listStyle, isVirtualScroll, onInnerVirtualScroll, scrollToElement } =
+      useListVirtualScroll(props.scroll, listRef, listItems);
 
     /** 列表基础逻辑 start */
     const listClass = computed(() => {
@@ -123,6 +120,7 @@ export default defineComponent({
       handleLoadMore,
       listRef,
       isVirtualScroll,
+      scrollTo: scrollToElement,
     };
   },
 

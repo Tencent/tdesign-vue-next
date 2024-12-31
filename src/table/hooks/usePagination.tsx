@@ -62,6 +62,7 @@ export default function usePagination(props: TdBaseTableProps, context: SetupCon
     return (
       <div class={`${classPrefix.value}-table__pagination`}>
         <Pagination
+          size={props.size === 'large' ? null : props.size}
           {...paginationProps}
           onChange={(pageInfo: PageInfo) => {
             props.pagination?.onChange?.(pageInfo);

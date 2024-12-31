@@ -19,7 +19,8 @@ import throttle from 'lodash/throttle';
 
 import props from './radio-group-props';
 import { RadioOptionObj, RadioOption } from './type';
-import Radio from './radio';
+import TRadio from './radio';
+import TRadioButton from './radio-button';
 import { RadioGroupInjectionKey } from './constants';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import useVModel from '../hooks/useVModel';
@@ -168,8 +169,9 @@ export default defineComponent({
         if (isNumber(option) || isString(option)) {
           opt = { value: option, label: option.toString() };
         }
+        const RadioComponent = props.theme === 'button' ? TRadioButton : TRadio;
         return (
-          <Radio
+          <RadioComponent
             key={`radio-group-options-${opt.value}-${Math.random()}`}
             name={props.name}
             checked={innerValue.value === opt.value}
@@ -177,7 +179,7 @@ export default defineComponent({
             value={opt.value}
           >
             {isFunction(opt.label) ? opt.label(h) : opt.label}
-          </Radio>
+          </RadioComponent>
         );
       });
     };

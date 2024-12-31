@@ -18,6 +18,8 @@
       <t-radio allow-uncheck value="3">可取消选中项三</t-radio>
       <t-radio value="4">不可取消选中项</t-radio>
     </t-radio-group>
+
+    <t-radio-group default-value="2" allow-uncheck :options="options" theme="button" @change="onChange"></t-radio-group>
   </t-space>
 </template>
 
