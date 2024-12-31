@@ -1,4 +1,4 @@
-import { defineComponent, computed, ref } from 'vue';
+import { defineComponent, computed, ref, onMounted } from 'vue';
 import dayjs from 'dayjs';
 import isFunction from 'lodash/isFunction';
 import isArray from 'lodash/isArray';
@@ -55,6 +55,22 @@ export default defineComponent({
     const isHoverCell = ref(false);
     const hoverValue = ref([]);
     const activeIndex = computed(() => (isFirstValueSelected.value ? 1 : 0));
+
+    onMounted(() => {
+      if (value.value.length === 2 && !props.enableTimePicker) {
+        // 确保右侧面板月份比左侧大 避免两侧面板月份一致
+        const nextMonth = value.value.map((v: string) => parseToDayjs(v, formatRef.value.format).month());
+        year.value = value.value.map((v: string) => parseToDayjs(v, formatRef.value.valueType).year());
+        if (year.value[0] === year.value[1] && nextMonth[0] === nextMonth[1]) {
+          nextMonth[0] === 11 ? (nextMonth[0] -= 1) : (nextMonth[1] += 1);
+        }
+        month.value = nextMonth;
+        // 月份季度选择时需要确保右侧面板年份比左侧大
+        if ((props.mode === 'month' || props.mode === 'quarter') && year.value[0] === year.value[1]) {
+          year.value = [year.value[0], year.value[0] + 1];
+        }
+      }
+    });
 
     // 日期 hover
     function onCellMouseEnter(date: Date) {
