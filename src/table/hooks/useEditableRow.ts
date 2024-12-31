@@ -96,7 +96,7 @@ export default function useRowEdit(props: PrimaryTableProps) {
     const cellKeys = Object.keys(editingCells.value);
 
     // 过滤不存在的行，如删除操作
-    const existKeys = props.data.map((v) => v.rowKey.toString());
+    const existKeys = props.data.map((v) => v[props.rowKey]?.toString());
     const promiseList = cellKeys
       .filter((v) => existKeys.includes(getRowKeyFromCell(v)))
       .map((cellKey) => editingCells.value[cellKey].validateEdit('parent'));
