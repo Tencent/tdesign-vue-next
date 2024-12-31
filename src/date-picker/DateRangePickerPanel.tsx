@@ -66,7 +66,7 @@ export default defineComponent({
         }
         month.value = nextMonth;
         // 月份季度选择时需要确保右侧面板年份比左侧大
-        if ((props.mode === 'month' || props.mode === 'quarter') && year.value[0] === year.value[1]) {
+        if (['month', 'quarter'].includes(props.mode) && year.value[0] === year.value[1]) {
           year.value = [year.value[0], year.value[0] + 1];
         }
       }
