@@ -17,6 +17,11 @@ export function getCellKey(row: TableRowData, rowKey: string, colKey: string, co
   return [rowValue, colKey || colIndex].join('_');
 }
 
+// getCellKey的反向操作 用于获取rowKey
+export function getRowKeyFromCell(cellKey: string) {
+  return cellKey.split('_')?.[0];
+}
+
 export default function useRowspanAndColspan(
   data: Ref<TableRowData[]>,
   columns: Ref<BaseTableCol<TableRowData>[]>,

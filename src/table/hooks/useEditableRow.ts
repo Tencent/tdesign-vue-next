@@ -14,7 +14,7 @@ import {
   ErrorListObjectType,
   PrimaryTableCellParams,
 } from '../type';
-import { getCellKey } from './useRowspanAndColspan';
+import { getCellKey, getRowKeyFromCell } from './useRowspanAndColspan';
 import { OnEditableChangeContext } from '../editable-cell';
 
 export interface TablePromiseErrorData {
@@ -94,7 +94,12 @@ export default function useRowEdit(props: PrimaryTableProps) {
   // 校验可编辑单元格
   const validateTableCellData = (): Promise<{ result: TableErrorListMap }> => {
     const cellKeys = Object.keys(editingCells.value);
-    const promiseList = cellKeys.map((cellKey) => editingCells.value[cellKey].validateEdit('parent'));
+
+    // 过滤不存在的行，如删除操作
+    const existKeys = props.data.map((v) => v[props.rowKey]?.toString());
+    const promiseList = cellKeys
+      .filter((v) => existKeys.includes(getRowKeyFromCell(v)))
+      .map((cellKey) => editingCells.value[cellKey].validateEdit('parent'));
     return new Promise((resolve, reject) => {
       Promise.all(promiseList).then((arr) => {
         const allErrorListMap: TableErrorListMap = {};
@@ -116,6 +121,7 @@ export default function useRowEdit(props: PrimaryTableProps) {
       return validateTableCellData();
     }
     const promiseList: Promise<TablePromiseErrorData>[] = [];
+
     const data = props.data || [];
     for (let i = 0, len = data.length; i < len; i++) {
       const rowValue = get(data[i], props.rowKey || 'id');
@@ -169,6 +175,7 @@ export default function useRowEdit(props: PrimaryTableProps) {
 
   const onPrimaryTableCellEditChange = (params: OnEditableChangeContext<TableRowData>) => {
     const cellKey = getCellKey(params.row, props.rowKey, params.col.colKey, params.colIndex);
+
     if (params.isEdit) {
       // @ts-ignore
       editingCells.value[cellKey] = params;
