@@ -42,6 +42,7 @@
   },
   "t-anchor-item": {
     "attributes": [
+      "custom-scroll",
       "href",
       "target",
       "title"
@@ -64,6 +65,7 @@
   "t-auto-complete": {
     "attributes": [
       "autofocus",
+      "borderless",
       "clearable",
       "default",
       "disabled",
@@ -105,7 +107,10 @@
       "image-props",
       "shape",
       "size",
-      "error"
+      "click",
+      "contextmenu",
+      "error",
+      "hover"
     ],
     "description": "Avatar\n\n头像\n\n[docs](https://tdesign.tencent.com/vue-next/components/avatar)"
   },
@@ -115,7 +120,9 @@
       "collapse-avatar",
       "max",
       "popup-props",
-      "size"
+      "shape",
+      "size",
+      "collapsed-item-click"
     ],
     "description": "AvatarGroup\n\n头像组\n\n[docs](https://tdesign.tencent.com/vue-next/components/avatar-group)"
   },
@@ -295,10 +302,12 @@
       "content",
       "default",
       "disabled",
+      "form",
       "ghost",
       "href",
       "icon",
       "loading",
+      "loading-props",
       "shape",
       "size",
       "suffix",
@@ -385,6 +394,8 @@
       "multiple",
       "option",
       "options",
+      "panel-bottom-content",
+      "panel-top-content",
       "placeholder",
       "popup-props",
       "popup-visible",
@@ -463,6 +474,7 @@
       "max",
       "name",
       "options",
+      "readonly",
       "value",
       "change"
     ],
@@ -515,6 +527,7 @@
   },
   "t-color-picker": {
     "attributes": [
+      "borderless",
       "clearable",
       "close-btn",
       "color-modes",
@@ -528,6 +541,7 @@
       "recent-colors",
       "select-input-props",
       "show-primary-color-preview",
+      "size",
       "swatch-colors",
       "value",
       "change",
@@ -551,26 +565,33 @@
   "t-date-picker": {
     "attributes": [
       "allow-input",
+      "borderless",
       "clearable",
       "default-time",
       "disable-date",
+      "disable-time",
       "disabled",
       "enable-time-picker",
       "first-day-of-week",
       "format",
       "input-props",
+      "label",
       "mode",
+      "multiple",
+      "need-confirm",
       "placeholder",
       "popup-props",
       "prefix-icon",
       "presets",
       "presets-placement",
+      "select-input-props",
       "size",
       "status",
       "suffix-icon",
       "time-picker-props",
       "tips",
       "value",
+      "value-display",
       "value-type",
       "blur",
       "change",
@@ -598,15 +619,19 @@
   "t-date-range-picker": {
     "attributes": [
       "allow-input",
+      "borderless",
       "cancel-range-select-limit",
       "clearable",
       "default-time",
       "disable-date",
+      "disable-time",
       "disabled",
       "enable-time-picker",
       "first-day-of-week",
       "format",
+      "label",
       "mode",
+      "need-confirm",
       "panel-preselection",
       "placeholder",
       "popup-props",
@@ -646,7 +671,7 @@
     ],
     "description": "DateRangePickerPanel\n\n日期范围选择器面板\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-range-picker-panel)"
   },
-  "t-descriptions-item": {
+  "t-description-item": {
     "attributes": [
       "align",
       "content",
@@ -654,7 +679,7 @@
       "label",
       "span"
     ],
-    "description": "DescriptionsItem\n\n描述项\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions-item)"
+    "description": "DescriptionItem\n\n描述项\n\n[docs](https://tdesign.tencent.com/vue-next/components/description-item)"
   },
   "t-descriptions": {
     "attributes": [
@@ -668,6 +693,7 @@
       "label-style",
       "layout",
       "size",
+      "table-layout",
       "title"
     ],
     "description": "Descriptions\n\n描述列表\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions)"
@@ -686,6 +712,7 @@
       "default",
       "destroy-on-close",
       "dialog-class-name",
+      "dialog-style",
       "draggable",
       "footer",
       "header",
@@ -699,6 +726,8 @@
       "visible",
       "width",
       "z-index",
+      "before-close",
+      "before-open",
       "cancel",
       "close",
       "close-btn-click",
@@ -747,6 +776,8 @@
       "size-draggable",
       "visible",
       "z-index",
+      "before-close",
+      "before-open",
       "cancel",
       "close",
       "close-btn-click",
@@ -794,6 +825,7 @@
       "description",
       "image",
       "image-style",
+      "size",
       "title",
       "type"
     ],
@@ -824,10 +856,12 @@
       "disabled",
       "error-message",
       "form-controlled-components",
+      "id",
       "label-align",
       "label-width",
       "layout",
       "prevent-submit-default",
+      "readonly",
       "required-mark",
       "reset-type",
       "rules",
@@ -949,10 +983,12 @@
   },
   "t-image-viewer": {
     "attributes": [
+      "attach",
       "close-btn",
       "close-on-esc-keydown",
       "close-on-overlay",
       "draggable",
+      "image-referrerpolicy",
       "image-scale",
       "images",
       "index",
@@ -991,6 +1027,7 @@
       "show-clear-icon-on-empty",
       "show-limit-number",
       "size",
+      "spell-check",
       "status",
       "suffix",
       "suffix-icon",
@@ -1168,8 +1205,10 @@
       "icon",
       "replace",
       "router",
+      "router-link",
       "target",
       "to",
+      "tooltip-props",
       "value",
       "click"
     ],
@@ -1409,7 +1448,9 @@
       "disabled",
       "name",
       "options",
+      "readonly",
       "size",
+      "theme",
       "value",
       "variant",
       "change"
@@ -1419,6 +1460,7 @@
   "t-range-input": {
     "attributes": [
       "active-index",
+      "borderless",
       "clearable",
       "disabled",
       "format",
@@ -1451,6 +1493,7 @@
       "auto-width",
       "disabled",
       "input-value",
+      "label",
       "panel",
       "popup-props",
       "popup-visible",
@@ -1466,6 +1509,7 @@
   "t-rate": {
     "attributes": [
       "allow-half",
+      "clearable",
       "color",
       "count",
       "disabled",
@@ -1595,8 +1639,10 @@
       "placeholder",
       "popup-props",
       "popup-visible",
+      "prefix-icon",
       "readonly",
       "reserve-keyword",
+      "size",
       "status",
       "suffix",
       "suffix-icon",
@@ -1762,6 +1808,7 @@
   },
   "t-switch": {
     "attributes": [
+      "before-change",
       "custom-value",
       "disabled",
       "label",
@@ -1795,6 +1842,7 @@
       "drag-sort",
       "list",
       "placement",
+      "scroll-position",
       "size",
       "theme",
       "value",
@@ -1808,6 +1856,7 @@
   "t-tag": {
     "attributes": [
       "closable",
+      "color",
       "content",
       "default",
       "disabled",
@@ -1816,6 +1865,7 @@
       "shape",
       "size",
       "theme",
+      "title",
       "variant",
       "click",
       "close"
@@ -1825,6 +1875,7 @@
   "t-tag-input": {
     "attributes": [
       "auto-width",
+      "borderless",
       "clearable",
       "collapsed-items",
       "disabled",
@@ -1886,7 +1937,6 @@
       "autofocus",
       "autosize",
       "disabled",
-      "label",
       "maxcharacter",
       "maxlength",
       "name",
@@ -1900,27 +1950,32 @@
       "focus",
       "keydown",
       "keypress",
-      "keyup"
+      "keyup",
+      "validate"
     ],
     "description": "Textarea\n\n文本输入框\n\n[docs](https://tdesign.tencent.com/vue-next/components/textarea)"
   },
   "t-time-picker": {
     "attributes": [
       "allow-input",
+      "borderless",
       "clearable",
       "disable-time",
       "disabled",
       "format",
       "hide-disabled-time",
       "input-props",
+      "label",
       "placeholder",
       "popup-props",
       "presets",
+      "select-input-props",
       "size",
       "status",
       "steps",
       "tips",
       "value",
+      "value-display",
       "blur",
       "change",
       "close",
@@ -1934,11 +1989,14 @@
   "t-time-range-picker": {
     "attributes": [
       "allow-input",
+      "auto-swap",
+      "borderless",
       "clearable",
       "disable-time",
       "disabled",
       "format",
       "hide-disabled-time",
+      "label",
       "placeholder",
       "popup-props",
       "presets",
@@ -2042,6 +2100,7 @@
       "activable",
       "active-multiple",
       "actived",
+      "allow-drop",
       "allow-fold-node-on-filter",
       "check-props",
       "check-strictly",
