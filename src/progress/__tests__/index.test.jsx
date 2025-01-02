@@ -86,5 +86,11 @@ describe('Progress', () => {
       expect(getComputedStyle(circle4.element, null).width).toBe('50px');
       expect(getComputedStyle(circle4.element, null).height).toBe('50px');
     });
+
+    it(':fixedWidth', () => {
+      const wrapper = mount(() => <Progress percentage={30} fixedWidth={true} />);
+      const bar = wrapper.find('.t-progress__bar');
+      expect(getComputedStyle(bar.element, null).flexShrink).toBe('0');
+    });
   });
 });
