@@ -27,6 +27,7 @@ export default defineComponent({
   setup(props) {
     const classPrefix = usePrefixClass();
     const imageUrl = computed(() => props.currentImage.mainImage);
+    const imageName = computed(() => props.currentImage?.name);
 
     const { previewUrl } = useImagePreviewUrl(imageUrl);
     const { globalConfig } = useConfig('imageViewer');
@@ -78,7 +79,7 @@ export default defineComponent({
             <TImageViewerIcon
               icon={() => <DownloadIcon size="medium" />}
               onClick={() => {
-                downloadFile(previewUrl.value);
+                downloadFile(previewUrl.value, imageName.value);
               }}
             />
           )}
