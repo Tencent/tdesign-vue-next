@@ -1,6 +1,8 @@
-import { defineComponent, computed } from 'vue';
+import { defineComponent, computed, PropType } from 'vue';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 import TButton from '../../button';
+
+import type { TdDatePickerProps } from '../type';
 
 export default defineComponent({
   name: 'TDatePickerTable',
@@ -12,7 +14,7 @@ export default defineComponent({
       type: Boolean,
       default: true,
     },
-    selectedValue: [Date, String, Number],
+    selectedValue: [String, Number, Array, Date] as PropType<TdDatePickerProps['value']>,
     onPresetClick: Function,
     onConfirmClick: Function,
   },

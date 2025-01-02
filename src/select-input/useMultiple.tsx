@@ -44,6 +44,7 @@ export default function useMultiple(
   const iKeys = computed<SelectInputKeys>(() => ({ ...DEFAULT_KEYS, ...props.keys }));
   const tags = computed<TagInputValue>(() => {
     if (!(props.value instanceof Array)) {
+      if (['', null, undefined].includes(props.value as any)) return [];
       return isObject(props.value) ? [props.value[iKeys.value.label]] : [props.value];
     }
     return props.value.map((item) => (isObject(item) ? item[iKeys.value.label] : item));
