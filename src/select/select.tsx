@@ -89,7 +89,7 @@ export default defineComponent({
         newVal = props.multiple ? (newVal as SelectValue[]).map((val) => getOption(val)) : getOption(newVal);
       }
       if (newVal === orgValue.value) return;
-      if (props.multiple && !props.reserveKeyword) setInputValue('');
+      if (props.multiple && !props.reserveKeyword) setInputValue('', { e: context.e, trigger: 'change' });
       setOrgValue(newVal, {
         selectedOptions: getSelectedOptions(newVal),
         ...context,
@@ -167,11 +167,11 @@ export default defineComponent({
       });
     };
 
-    const handleCreate = () => {
+    const handleCreate = (e: KeyboardEvent) => {
       if (!innerInputValue.value) return;
       props.onCreate?.(innerInputValue.value);
       // only clean input value when reopen popup
-      if (!innerPopupVisible.value) setInputValue('');
+      if (!innerPopupVisible.value) setInputValue('', { e, trigger: 'change' });
     };
 
     const popupContentRef = computed(() => selectInputRef.value?.popupRef.getOverlay() as HTMLElement);
@@ -444,7 +444,7 @@ export default defineComponent({
               // onEnter和handleKeyDown的Enter事件同时触发，需要通过setTimeout设置先后
               setTimeout(() => {
                 props.onEnter?.({ inputValue: `${innerInputValue.value}`, e, value: innerValue.value });
-                handleCreate();
+                handleCreate(e);
               }, 0);
             }}
             onBlur={(inputValue, { e }) => {
