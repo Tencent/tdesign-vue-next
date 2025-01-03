@@ -34,7 +34,7 @@ export default defineComponent({
       });
 
     const statusStyle = computed(() => {
-      if (props.percentage >= 100) {
+      if (!props.status && props.percentage >= 100) {
         return 'success';
       }
       return props.status || 'default';
