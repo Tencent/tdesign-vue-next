@@ -64,7 +64,7 @@ export default defineComponent({
       return (
         <ul class={`${COMPONENT_NAME.value}__list`}>
           {options.map((item: SelectOptionGroup & TdOptionProps & { slots: Slots } & { $index: number }, index) => {
-            if (item.group) {
+            if (item.children) {
               return (
                 <OptionGroup label={item.group} divider={item.divider}>
                   {renderOptionsContent(item.children)}

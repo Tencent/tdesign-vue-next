@@ -23,7 +23,7 @@ export default defineComponent({
 
     return () => (
       <li class={classes.value}>
-        <div class={`${COMPONENT_NAME.value}__header`}>{props.label}</div>
+        {(props.label ?? false) && <div class={`${COMPONENT_NAME.value}__header`}>{props.label}</div>}
         {renderTNodeJSX('default')}
       </li>
     );

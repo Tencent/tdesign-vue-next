@@ -13,6 +13,5 @@ export default {
   /** 分组别名 */
   label: {
     type: String,
-    default: '',
   },
 };
