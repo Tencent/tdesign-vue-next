@@ -210,9 +210,24 @@ export default defineComponent({
       max: props.max,
     });
 
+    /**
+     * 获取过滤后可以全选的选项
+     * @returns 可选选项的列表的value
+     * @todo 如果未来setInnerValue 的第一个参数更改为对象类型，需要修改
+     */
+    const getFilteredOptions = () =>
+      optionalList.value
+        .filter((option) => {
+          if (isFunction(props.filter)) {
+            return props.filter(`${innerInputValue.value}`, option);
+          }
+          return option.label?.toLowerCase()?.includes(`${innerInputValue.value}`.toLowerCase());
+        })
+        .map((option) => option.value);
+
     const onCheckAllChange = (checked: boolean) => {
       if (!props.multiple) return;
-      const value = checked ? optionalList.value.map((option) => option.value) : [];
+      const value = checked ? getFilteredOptions() : [];
       setInnerValue(value, { selectedOptions: getSelectedOptions(value), trigger: checked ? 'check' : 'clear' });
     };
 
@@ -223,10 +238,8 @@ export default defineComponent({
       return n.length;
     });
 
-    // 全选
-    const isCheckAll = computed<boolean>(() => {
-      return intersectionLen.value === optionalList.value.length;
-    });
+    // 是否全选
+    const isCheckAll = computed<boolean>(() => intersectionLen.value === getFilteredOptions().length);
 
     // 半选
     const indeterminate = computed<boolean>(() => !isCheckAll.value && intersectionLen.value !== 0);
