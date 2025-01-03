@@ -86,7 +86,7 @@ export default defineComponent({
       }
 
       if (props.createAble) {
-        selectProvider.value.handleCreate?.(props.value);
+        selectProvider.value.handleCreate?.(e);
         if (selectProvider.value.multiple) {
           selectProvider.value.handleValueChange(
             [...(selectProvider.value.selectValue as SelectValue[]), props.value],
