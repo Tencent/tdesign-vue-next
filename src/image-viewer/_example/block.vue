@@ -41,6 +41,7 @@ const images = [
   {
     mainImage: 'https://tdesign.gtimg.com/demo/demo-image-2.png',
     thumbnail: 'https://tdesign.gtimg.com/demo/demo-image-1.png',
+    name: '测试下载图片名称',
   },
 ];
 </script>

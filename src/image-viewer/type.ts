@@ -116,6 +116,11 @@ export interface ImageInfo {
   thumbnail?: string | File;
   download?: boolean;
   isSvg?: boolean;
+  /**
+   * 预览下载时的文件名
+   * @default 从URL中获取文件名
+   */
+  name?: string;
 }
 
 export interface ImageViewerScale {
