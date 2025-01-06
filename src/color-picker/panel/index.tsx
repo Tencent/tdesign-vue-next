@@ -41,7 +41,13 @@ export default defineComponent({
 
     const defaultEmptyColor = computed(() => (isGradient.value ? DEFAULT_LINEAR_GRADIENT : DEFAULT_COLOR));
 
-    const mode = ref<TdColorModes>(props.colorModes?.length === 1 ? props.colorModes[0] : 'monochrome');
+    const mode = ref<TdColorModes>(
+      props.colorModes?.length !== 1 && innerValue.value?.includes('linear-gradient')
+        ? 'linear-gradient'
+        : props.colorModes?.length === 1
+        ? props.colorModes[0]
+        : 'monochrome',
+    );
     const isGradient = computed(() => mode.value === 'linear-gradient');
 
     const color = ref(new Color(innerValue.value || defaultEmptyColor.value));
