@@ -7,6 +7,8 @@ import useDefaultValue from '../hooks/useDefaultValue';
 import usePopupManager from '../hooks/usePopupManager';
 import useTeleport from '../hooks/useTeleport';
 import useVModel from '../hooks/useVModel';
+import useAttach from '../hooks/useAttach';
+
 import Image from '../image';
 import TImageItem from './base/ImageItem';
 import TImageViewerIcon from './base/ImageModalIcon';
@@ -25,6 +27,7 @@ export default defineComponent({
     const classPrefix = usePrefixClass();
     const COMPONENT_NAME = usePrefixClass('image-viewer');
     const renderTNodeJSX = useTNodeJSX();
+    const attach = useAttach('image-viewer', props.attach);
     const isExpand = ref(true);
     const showOverlayValue = computed(() => getOverlay(props));
 
@@ -34,7 +37,7 @@ export default defineComponent({
     const animationEnd = ref(true);
     const animationTimer = ref();
     // teleport容器
-    const teleportElement = useTeleport(() => props.attach);
+    const teleportElement = useTeleport(() => attach.value);
 
     const wrapClass = computed(() => [
       COMPONENT_NAME.value,

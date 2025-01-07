@@ -18,6 +18,7 @@ import {
   watch,
 } from 'vue';
 import { useContent, useTNodeJSX } from '../hooks';
+import useAttach from '../hooks/useAttach';
 import { useCommonClassName, usePrefixClass } from '../hooks/useConfig';
 import useVModel from '../hooks/useVModel';
 import { off, on, once } from '../utils/dom';
@@ -104,6 +105,7 @@ export default defineComponent({
     );
     const renderTNodeJSX = useTNodeJSX();
     const renderContent = useContent();
+    const attach = useAttach('popup', props.attach);
 
     /** popperjs instance */
     let popper: ReturnType<typeof createPopper>;
@@ -473,7 +475,7 @@ export default defineComponent({
             }
           }}
           visible={visible.value}
-          attach={props.attach}
+          attach={attach.value}
         >
           {{
             content: () => (

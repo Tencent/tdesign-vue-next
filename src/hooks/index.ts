@@ -10,3 +10,4 @@ export * from './useRipple';
 export * from './useVirtualScroll';
 export * from './useVModel';
 export * from './useImagePreviewUrl';
+export * from './useAttach';
