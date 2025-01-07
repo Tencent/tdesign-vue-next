@@ -7,8 +7,6 @@ import { on, off } from '../../utils/dom';
 import {
   ARROW_DOWN_REG,
   ARROW_UP_REG,
-  ARROW_LEFT_REG,
-  ARROW_RIGHT_REG,
   ESCAPE_REG,
   SPACE_REG,
   SHIFT_REG,
