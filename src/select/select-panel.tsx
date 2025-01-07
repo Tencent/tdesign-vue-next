@@ -133,13 +133,7 @@ export default defineComponent({
           isEmpty.value &&
           !showCreateOption.value &&
           renderDefaultTNode('empty', {
-            defaultNode: (
-              <TEmpty
-                class={`${COMPONENT_NAME.value}__empty`}
-                size="small"
-                title={t(globalConfig.value.empty)}
-              ></TEmpty>
-            ),
+            defaultNode: <TEmpty size="small" title={t(globalConfig.value.empty)}></TEmpty>,
           })}
         {!isEmpty.value && renderOptionsContent(options)}
       </div>
