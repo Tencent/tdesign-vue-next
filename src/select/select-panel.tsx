@@ -6,6 +6,7 @@ import { SelectOption, SelectOptionGroup, TdOptionProps } from './type';
 import Option from './option';
 import OptionGroup from './optionGroup';
 import TdSelectProps from './props';
+import TEmpty from '../empty/empty';
 
 import { useTNodeJSX, useTNodeDefault } from '../hooks/tnode';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
@@ -132,7 +133,13 @@ export default defineComponent({
           isEmpty.value &&
           !showCreateOption.value &&
           renderDefaultTNode('empty', {
-            defaultNode: <div class={`${COMPONENT_NAME.value}__empty`}>{t(globalConfig.value.empty)}</div>,
+            defaultNode: (
+              <TEmpty
+                class={`${COMPONENT_NAME.value}__empty`}
+                size="small"
+                title={t(globalConfig.value.empty)}
+              ></TEmpty>
+            ),
           })}
         {!isEmpty.value && renderOptionsContent(options)}
       </div>
