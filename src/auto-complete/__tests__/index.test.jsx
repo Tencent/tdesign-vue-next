@@ -12,9 +12,9 @@ describe('Anchor', () => {
       });
       await wrapper.setProps({ popupProps: { visible: true } });
       expect(wrapper.find('.t-auto-complete').exists()).toBeTruthy();
-      const panelNode = document.querySelector('.t-autocomplete__panel');
+      const panelNode = document.querySelector('.t-auto-complete__panel');
       expect(document.querySelectorAll('.t-select-option').length).toBe(3);
-      expect(document.querySelector('.t-autocomplete__panel')).toBeTruthy();
+      expect(document.querySelector('.t-auto-complete__panel')).toBeTruthy();
       panelNode.parentNode.removeChild(panelNode);
     });
   });
