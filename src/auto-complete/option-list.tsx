@@ -145,9 +145,7 @@ export default defineComponent({
       if (!tOptions.value.length) {
         const empty = renderTNodeJSX('empty');
         return (
-          <div class={`${classPrefix.value}-auto-complete__panel--empty`}>
-            {empty ? empty : globalConfig.value.empty}
-          </div>
+          <div class={`${classPrefix.value}-auto-complete__panel--empty`}>{empty || globalConfig.value.empty}</div>
         );
       }
 
