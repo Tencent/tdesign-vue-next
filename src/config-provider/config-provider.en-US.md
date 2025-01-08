@@ -70,6 +70,7 @@ datePicker | Object | - | DatePicker global configs。Typescript：`DatePickerCo
 descriptions | Object | - | Descriptions global configs。Typescript：`DescriptionsConfig` | N
 dialog | Object | - | Dialog global configs。Typescript：`DialogConfig` | N
 drawer | Object | - | Drawer global configs。Typescript：`DrawerConfig` | N
+empty | Object | - | Empty global configs。Typescript：`EmptyConfig` | N
 form | Object | - | Form global configs。Typescript：`FormConfig` | N
 guide | Object | - | Guide global configs。Typescript：`GuideConfig` | N
 icon | Object | - | icon config。Typescript：`IconConfig` `type IconConfig = GlobalIconConfig` `import { GlobalIconConfig } from '@icon'`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
@@ -392,6 +393,13 @@ name | type | default | description | required
 -- | -- | -- | -- | --
 rateText | Array | - | Typescript：`string[]` | N
 
+### EmptyConfig
+
+name | type | default | description | required
+-- | -- | -- | -- | --
+image | Object | - | Typescript：`{ maintenance: TNode; success: TNode; fail: TNode; empty: TNode; networkError: TNode; }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+titleText | Object | - | Typescript：`{ maintenance: string; success: string; fail: string; empty: string; networkError: string; }` | N
+
 ### TypographyConfig
 
 name | type | default | description | required
@@ -399,3 +407,9 @@ name | type | default | description | required
 collapseText | String | - | collapse text | N
 copiedText | String | - | copied text | N
 expandText | String | - | expand text | N
+
+### AutoCompleteConfig
+
+name | type | default | description | required
+-- | -- | -- | -- | --
+empty | String | - | \- | N

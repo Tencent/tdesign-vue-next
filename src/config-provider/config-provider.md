@@ -71,6 +71,7 @@ datePicker | Object | - | 日期选择器全局配置。TS 类型：`DatePickerC
 descriptions | Object | - | 描述全局配置。TS 类型：`DescriptionsConfig` | N
 dialog | Object | - | 对话框全局配置。TS 类型：`DialogConfig` | N
 drawer | Object | - | 抽屉全局配置。TS 类型：`DrawerConfig` | N
+empty | Object | - | 空状态全局配置。TS 类型：`EmptyConfig` | N
 form | Object | - | 表单组件全局配置。TS 类型：`FormConfig` | N
 guide | Object | - | 引导全局配置。TS 类型：`GuideConfig` | N
 icon | Object | - | 图标全局配置。TS 类型：`IconConfig` `type IconConfig = GlobalIconConfig` `import { GlobalIconConfig } from '@icon'`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
@@ -393,6 +394,13 @@ skipButtonProps | Object | - | 跳过按钮，示例：`{ content: '跳过', the
 -- | -- | -- | -- | --
 rateText | Array | - | 评分描述，默认值：['极差', '失望', '一般', '满意', '惊喜']。TS 类型：`string[]` | N
 
+### EmptyConfig
+
+名称 | 类型 | 默认值 | 描述 | 必传
+-- | -- | -- | -- | --
+image | Object | - | 空状态组件各类型的图片配置。TS 类型：`{ maintenance: TNode; success: TNode; fail: TNode; empty: TNode; networkError: TNode; }`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+titleText | Object | - | 空状态组件各类型的标题文本配置。TS 类型：`{ maintenance: string; success: string; fail: string; empty: string; networkError: string; }` | N
+
 ### TypographyConfig
 
 名称 | 类型 | 默认值 | 描述 | 必传
@@ -400,3 +408,9 @@ rateText | Array | - | 评分描述，默认值：['极差', '失望', '一般',
 collapseText | String | - | 语言配置，“收起”描述文本 | N
 copiedText | String | - | 语言配置，“复制成功”描述文本 | N
 expandText | String | - | 语言配置，“展开”描述文本 | N
+
+### AutoCompleteConfig
+
+名称 | 类型 | 默认值 | 描述 | 必传
+-- | -- | -- | -- | --
+empty | String | - | 语言配置，“暂无数据”描述文本 | N
