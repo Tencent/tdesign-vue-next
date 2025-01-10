@@ -128,12 +128,9 @@ export default defineComponent({
             defaultNode: <div class={`${COMPONENT_NAME.value}__loading-tips`}>{t(globalConfig.value.loadingText)}</div>,
           })}
         {/* 空状态 */}
-        {!props.loading &&
-          isEmpty.value &&
-          !showCreateOption.value &&
-          renderDefaultTNode('empty', {
-            defaultNode: <div class={`${COMPONENT_NAME.value}__empty`}>{t(globalConfig.value.empty)}</div>,
-          })}
+        {!props.loading && isEmpty.value && !showCreateOption.value && (
+          <div class={`${COMPONENT_NAME.value}__empty`}>{renderTNodeJSX('empty') || t(globalConfig.value.empty)}</div>
+        )}
         {!isEmpty.value && renderOptionsContent(options)}
       </div>
     );
