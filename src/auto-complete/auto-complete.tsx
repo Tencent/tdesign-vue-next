@@ -143,7 +143,7 @@ export default defineComponent({
           highlightKeyword={props.highlightKeyword}
           filterable={props.filterable}
           filter={props.filter}
-          empty={props.empty}
+          empty={renderTNodeJSX('empty')}
           v-slots={{ option: slots.option }}
         />
       );
