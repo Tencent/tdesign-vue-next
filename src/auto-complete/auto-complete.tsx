@@ -143,18 +143,21 @@ export default defineComponent({
           highlightKeyword={props.highlightKeyword}
           filterable={props.filterable}
           filter={props.filter}
+          empty={props.empty}
           v-slots={{ option: slots.option }}
         />
       );
+
       const topContent = renderTNodeJSX('panelTopContent');
       const bottomContent = renderTNodeJSX('panelBottomContent');
-      const panelContent = Boolean(topContent || props.options?.length || bottomContent) ? (
-        <div class={`${classPrefix.value}-auto-complete__panel`}>
-          {topContent}
-          {listContent}
-          {bottomContent}
-        </div>
-      ) : null;
+      const panelContent =
+        topContent || listContent || bottomContent ? (
+          <div class={`${classPrefix.value}-auto-complete__panel`}>
+            {topContent}
+            {listContent}
+            {bottomContent}
+          </div>
+        ) : null;
       const popupProps = {
         ...props.popupProps,
         overlayInnerStyle: getOverlayStyle,
