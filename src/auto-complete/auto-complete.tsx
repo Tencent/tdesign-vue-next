@@ -131,7 +131,7 @@ export default defineComponent({
         />
       );
       // 联想词列表
-      const listContent = (
+      const listContent = Array.isArray(props.options) && (
         <AutoCompleteOptionList
           ref={optionListRef}
           value={tValue.value}
@@ -151,7 +151,7 @@ export default defineComponent({
       const topContent = renderTNodeJSX('panelTopContent');
       const bottomContent = renderTNodeJSX('panelBottomContent');
       const panelContent =
-        topContent || Array.isArray(props.options) || bottomContent ? (
+        topContent || listContent || bottomContent ? (
           <div class={`${classPrefix.value}-auto-complete__panel`}>
             {topContent}
             {listContent}
