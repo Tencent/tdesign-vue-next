@@ -10,8 +10,8 @@
 </template>
 
 <script>
-const demoVueReq = import.meta.globEager('../../../src/**/_example/*.vue');
-const demoJsxReq = import.meta.globEager('../../../src/**/_example/*.jsx');
+const demoVueReq = import.meta.glob('../../../src/**/_example/*.vue', { eager: true });
+const demoJsxReq = import.meta.glob('../../../src/**/_example/*.jsx', { eager: true });
 
 const demoReq = { ...demoVueReq, ...demoJsxReq };
 const demoObject = {};
