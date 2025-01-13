@@ -1,9 +1,9 @@
-import { defineComponent, PropType, computed } from 'vue';
-import TDatePickerCell from './Cell';
+import isArray from 'lodash/isArray';
+import { computed, defineComponent, PropType } from 'vue';
+import { parseToDayjs } from '../../_common/js/date-picker/format';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 import type { TdDatePickerProps } from '../type';
-import { parseToDayjs } from '../../_common/js/date-picker/format';
-import isArray from 'lodash/isArray';
+import TDatePickerCell from './Cell';
 
 export default defineComponent({
   name: 'TDatePickerTable',
@@ -80,9 +80,11 @@ export default defineComponent({
         <table>
           {showThead.value && (
             <thead>
-              <tr>
+              <tr class={`${COMPONENT_NAME.value}-header-row`}>
                 {weekArr.value.map((value: string, i: number) => (
-                  <th key={i}>{value}</th>
+                  <th class={`${COMPONENT_NAME.value}-header`} key={i}>
+                    {value}
+                  </th>
                 ))}
               </tr>
             </thead>
