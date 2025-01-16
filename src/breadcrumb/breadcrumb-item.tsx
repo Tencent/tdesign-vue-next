@@ -68,12 +68,12 @@ export default defineComponent({
     const { proxy } = getCurrentInstance();
 
     const handleClick = () => {
-      if (props.href) {
-        window.location.href = props.href;
-      }
       const router = props.router || proxy.$router;
+
       if (props.to && router) {
         props.replace ? router.replace(props.to) : router.push(props.to);
+      } else {
+        window.location.href = props.href;
       }
     };
     const bindEvent = (e: MouseEvent) => {
