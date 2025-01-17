@@ -233,7 +233,7 @@ export interface TdSelectProps<T extends SelectOption = SelectOption> {
   /**
    * 当选择新创建的条目时触发
    */
-  onCreate?: (value: string | number) => void;
+  onCreate?: (value: string | number | boolean) => void;
   /**
    * 回车键按下时触发。`inputValue` 表示输入框的值，`value` 表示选中值
    */
