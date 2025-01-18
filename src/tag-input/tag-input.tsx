@@ -13,6 +13,7 @@ import useHover from './hooks/useHover';
 import useDefault from '../hooks/useDefaultValue';
 import useDragSorter from './hooks/useDragSorter';
 import isArray from 'lodash/isArray';
+import isFunction from 'lodash/isFunction';
 import { useDisabled } from '../hooks/useDisabled';
 import { useReadonly } from '../hooks/useReadonly';
 
@@ -99,7 +100,24 @@ export default defineComponent({
       ),
     );
 
+    // 去掉 props.inputProps 中的所有事件
+    const inputPropsWithoutEvent = computed<TdTagInputProps['inputProps']>(() => {
+      if (inputProps.value) {
+        return (
+          Object.keys(inputProps.value)
+            // 依靠属性名以 on 开头及属性值为函数来判断属性是否为事件
+            .filter((key) => !key.startsWith('on') && !isFunction(inputProps.value[key]))
+            .reduce((acc, key) => {
+              acc[key] = inputProps.value[key];
+              return acc;
+            }, {})
+        );
+      }
+      return {};
+    });
+
     const onInputEnter = (value: string, context: { e: KeyboardEvent }) => {
+      inputProps.value?.onEnter(value, context);
       // 阻止 Enter 默认行为，避免在 Form 中触发 submit 事件
       context.e?.preventDefault?.();
       setTInputValue('', { e: context.e, trigger: 'enter' });
@@ -111,16 +129,17 @@ export default defineComponent({
     };
 
     const onInputCompositionstart = (value: string, context: { e: CompositionEvent }) => {
-      isComposition.value = true;
       inputProps.value?.onCompositionstart?.(value, context);
+      isComposition.value = true;
     };
 
     const onInputCompositionend = (value: string, context: { e: CompositionEvent }) => {
-      isComposition.value = false;
       inputProps.value?.onCompositionend?.(value, context);
+      isComposition.value = false;
     };
 
     const onClick: TdInputProps['onClick'] = (ctx) => {
+      inputProps.value?.onClick?.(ctx);
       if (isDisabled.value) return;
       isFocused.value = true;
       tagInputRef.value.focus();
@@ -142,29 +161,39 @@ export default defineComponent({
     };
 
     const onMouseEnter: InputProps['onMouseenter'] = (context) => {
+      inputProps.value?.onMouseenter?.(context);
       addHover(context);
       scrollToRightOnEnter();
     };
 
     const onMouseLeave: InputProps['onMouseleave'] = (context) => {
+      inputProps.value?.onMouseleave?.(context);
       cancelHover(context);
       scrollToLeftOnLeave();
     };
 
     const onInnerFocus: InputProps['onFocus'] = (inputValue: string, context: { e: MouseEvent }) => {
+      inputProps.value?.onFocus?.(inputValue, context);
       if (isFocused.value) return;
       isFocused.value = true;
       props.onFocus?.(tagValue.value, { e: context.e, inputValue });
     };
 
     const onInnerBlur: InputProps['onFocus'] = (inputValue: string, context: { e: MouseEvent }) => {
+      inputProps.value?.onBlur?.(inputValue, context);
       isFocused.value = false;
       setTInputValue('', { e: context.e, trigger: 'blur' });
       props.onBlur?.(tagValue.value, { e: context.e, inputValue });
     };
 
     const onInnerChange: StrInputProps['onChange'] = (val, context) => {
+      inputProps.value?.onChange?.(val, context);
       setTInputValue(val, { ...context, trigger: 'input' });
+    };
+
+    const onInputWheel: InputProps['onWheel'] = (context) => {
+      inputProps.value?.onWheel?.(context);
+      onWheel(context);
     };
 
     watch(
@@ -203,7 +232,6 @@ export default defineComponent({
       onInputBackspaceKeyUp,
       onInputBackspaceKeyDown,
       renderLabel,
-      onWheel,
       scrollToRightOnEnter,
       scrollToLeftOnLeave,
       onClick,
@@ -211,9 +239,11 @@ export default defineComponent({
       onClose,
       onInputCompositionstart,
       onInputCompositionend,
+      onInputWheel,
       classes,
       isDisabled,
       isReadonly,
+      inputPropsWithoutEvent,
     };
   },
 
@@ -262,7 +292,7 @@ export default defineComponent({
         suffixIcon={() => suffixIconNode}
         prefixIcon={() => prefixIconNode}
         keepWrapperWidth={!this.autoWidth}
-        onWheel={this.onWheel}
+        onWheel={this.onInputWheel}
         onChange={this.onInnerChange}
         onPaste={this.onPaste}
         onEnter={this.onInputEnter}
@@ -275,7 +305,10 @@ export default defineComponent({
         onClick={this.onClick}
         onCompositionstart={this.onInputCompositionstart}
         onCompositionend={this.onInputCompositionend}
-        {...(this.inputProps as TdTagInputProps['inputProps'])}
+        onClear={inputProps?.onClear}
+        onKeypress={inputProps?.onKeypress}
+        onValidate={inputProps?.onValidate}
+        {...this.inputPropsWithoutEvent}
       />
     );
   },
