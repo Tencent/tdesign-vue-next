@@ -88,7 +88,7 @@ default | String / Slot / Function | - | Typescript：`string \| TNode`。[see m
 disabled | Boolean | false | \- | N
 label | String | - | \- | N
 title | String | - | \- | N
-value | String / Number | - | \- | N
+value | String / Number / Boolean | - | \- | N
 
 
 ### OptionGroup Props
