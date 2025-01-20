@@ -159,6 +159,32 @@ export default defineNuxtConfig({
   // }
 });
 ```
+## 使用 AI 搜索
+
+站点接入 TDesign 知识库，您只需要点击菜单顶部的 `AI 搜索`按钮，即可开始通过站点的对话助手，对使用 TDesign 的问题进行对话式的互动。
+目前站点提供三种使用方式，分别是`键入式的提问`、`划词解释`以及`指定 API 示例代码生成`。
+
+### 键入式的提问
+
+即普通的对话聊天式输入。
+
+### 划词解释
+
+在文档部分，选中任意文字，均可进行划词解释的使用。
+
+<img src="https://tdesign.gtimg.com/docs/ai-search-marking.png" alt="ai-search-marking" />
+
+### 指定 API 示例代码生成
+
+在组件的 API 部分，选中API本身，即可生成API的示例代码。
+
+<img src="https://tdesign.gtimg.com/docs/ai-search-api-1.png" alt="ai-search-api" />
+
+生成完毕后，会同时跳转`codesandbox`直接运行生成的示例代码，您可以在生成的链接中进行二次调试或功能的体验。
+
+<img src="https://tdesign.gtimg.com/docs/ai-search-api-2.png" alt="ai-search-api" />
+
+### 
 
 ## 编辑器提示
 
