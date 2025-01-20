@@ -152,6 +152,7 @@ export default defineComponent({
       editableKeysMap,
       validateRowData,
       validateTableData,
+      validateTableCellData,
       onRuleChange,
       clearValidateData,
       onUpdateEditedCell,
@@ -201,6 +202,7 @@ export default defineComponent({
     context.expose({
       validateRowData,
       validateTableData,
+      validateTableCellData,
       clearValidateData,
       refreshTable: () => {
         primaryTableRef.value.refreshTable();
