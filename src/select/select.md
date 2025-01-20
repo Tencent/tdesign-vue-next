@@ -53,7 +53,7 @@ valueType | String | value | 用于控制选中值的类型。假设数据选项
 onBlur | Function |  | TS 类型：`(context: { value: SelectValue; e: FocusEvent \| KeyboardEvent }) => void`<br/>输入框失去焦点时触发 | N
 onChange | Function |  | TS 类型：`(value: SelectValue, context: { option?: T, selectedOptions: T[], trigger: SelectValueChangeTrigger; e?: MouseEvent \| KeyboardEvent }) => void`<br/>选中值变化时触发。`context.trigger` 表示触发变化的来源；`context.selectedOptions` 表示选中值的完整对象，数组长度一定和 `value` 相同；`context.option` 表示当前操作的选项，不一定存在。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select/type.ts)。<br/>`type SelectValueChangeTrigger = 'clear' \| 'tag-remove' \| 'backspace' \| 'check' \| 'uncheck' \| 'default'`<br/> | N
 onClear | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>点击清除按钮时触发 | N
-onCreate | Function |  | TS 类型：`(value: string \| number) => void`<br/>当选择新创建的条目时触发 | N
+onCreate | Function |  | TS 类型：`(value: string \| number \| boolean) => void`<br/>当选择新创建的条目时触发 | N
 onEnter | Function |  | TS 类型：`(context: { inputValue: string; e: KeyboardEvent; value: SelectValue }) => void`<br/>回车键按下时触发。`inputValue` 表示输入框的值，`value` 表示选中值 | N
 onFocus | Function |  | TS 类型：`(context: { value: SelectValue; e: FocusEvent \| KeyboardEvent }) => void`<br/>输入框获得焦点时触发 | N
 onInputChange | Function |  | TS 类型：`(value: InputValue, context?: SelectInputValueChangeContext) => void`<br/>输入框值发生变化时触发，`context.trigger` 表示触发输入框值变化的来源：文本输入触发、清除按钮触发、失去焦点等。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select/type.ts)。<br/>`import { SelectInputValueChangeContext } from '@SelectInput'`<br/> | N
