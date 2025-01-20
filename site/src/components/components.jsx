@@ -1,9 +1,28 @@
 import { defineComponent } from 'vue';
 import semver from 'semver';
 import siteConfig from '../../site.config';
+import { htmlContent, mainJsContent, styleContent, packageJSONContent } from './codeSandbox/content';
+
 import packageJson from '@/package.json';
 
 const { docs, enDocs } = JSON.parse(JSON.stringify(siteConfig).replace(/component:.+/g, ''));
+
+const demoRequestBody = JSON.stringify({
+  files: {
+    'package.json': {
+      content: packageJSONContent(`tdesign-vue-next-demo`),
+    },
+    'index.html': {
+      content: htmlContent,
+    },
+    'src/main.js': {
+      content: mainJsContent,
+    },
+    'src/index.css': {
+      content: styleContent,
+    },
+  },
+});
 
 const docsMap = {
   zh: docs,
@@ -99,7 +118,10 @@ export default defineComponent({
     return (
       <td-doc-layout>
         <td-header ref="tdHeader" slot="header">
-          <td-doc-search slot="search" ref="tdDocSearch" />
+          <div slot="search" style="display:flex; align-items:center;">
+            <td-ai-button style="margin-right:8px" framework={'vue'} demoRequestBody={demoRequestBody} />
+            <td-doc-search ref="tdDocSearch" />
+          </div>
         </td-header>
 
         <td-doc-aside ref="tdDocAside" title="Vue Next for Web">
