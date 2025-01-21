@@ -57,7 +57,7 @@ export default defineComponent({
     const renderTNode = useTNodeJSX();
     const tableRef = ref<HTMLDivElement>();
     const tableElmRef = ref<HTMLTableElement>();
-    const tableBodyRef = ref<HTMLTableElement>();
+    const tableBodyRef = ref<InstanceType<typeof TBody>>();
     const bottomContentRef = ref<HTMLDivElement>();
     const tableFootHeight = ref(0);
     const { classPrefix, virtualScrollClasses, tableLayoutClasses, tableBaseClass, tableColFixedClasses } =
@@ -326,7 +326,21 @@ export default defineComponent({
           log.error('Table', `${params.key} does not exist in data, check \`rowKey\` or \`data\` please.`);
         }
       }
-      virtualConfig.scrollToElement({ ...params, index: index - 1 });
+      if (virtualConfig.isVirtualScroll.value) {
+        virtualConfig.scrollToElement({ ...params, index: index + 1 });
+      } else {
+        // 执行普通的滚动
+        // 获取 tbody
+        const el = tableBodyRef.value?.$el as HTMLElement | undefined;
+        const row = el?.children?.[index] as HTMLElement;
+        if (row) {
+          const { offsetTop } = row;
+          const scrollTop = tableContentRef.value.scrollTop;
+          const scrollHeight = offsetTop - scrollTop - (params.top ?? 0);
+          // 实现偏移量的支持
+          tableContentRef.value.scrollBy({ top: scrollHeight, behavior: params.behavior ?? 'auto' });
+        }
+      }
     };
 
     return {
@@ -665,7 +679,7 @@ export default defineComponent({
           {this.showHeader && (
             <THead v-slots={this.$slots} {...{ ...headProps, thWidthList: columnResizable ? this.thWidthList : {} }} />
           )}
-          <TBody v-slots={this.$slots} {...tableBodyProps} />
+          <TBody v-slots={this.$slots} ref="tableBodyRef" {...tableBodyProps} />
           <TFoot
             v-slots={this.$slots}
             rowKey={this.rowKey}
