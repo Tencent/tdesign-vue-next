@@ -46,4 +46,7 @@ div[slot='action'] {
 #webchat-sdk-iframe {
   z-index: 99999;
 }
+.webchat-sdk-toolbar {
+  bottom: 150px !important;
+}
 </style>
