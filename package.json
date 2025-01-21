@@ -178,7 +178,7 @@
     "semver": "^7.5.4",
     "tdesign-icons-view": "^0.3.4",
     "tdesign-publish-cli": "^0.0.12",
-    "tdesign-site-components": "0.16.0-alpha.5",
+    "tdesign-site-components": "0.16.0-alpha.6",
     "tdesign-theme-generator": "^1.0.11",
     "typescript": "~4.8.4",
     "vite": "^2.9.16",
