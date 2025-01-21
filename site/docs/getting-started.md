@@ -168,7 +168,7 @@ export default defineNuxtConfig({
 
 即普通的对话聊天式输入。
 
-由于知识库内包括了 TDesign相关的内容以及其他前端开发相关的知识，如果需要通过对话方式询问 `tdesign-vue-next` 的相关结果，建议在问题中加入 `tdesign-vue-next` 的相关关键词。
+由于知识库内包括了 TDesign 相关的内容以及其他前端开发相关的知识，如果需要通过对话方式提问 `tdesign-vue-next` 框架内的相关问题，建议在问题中加入 `tdesign-vue-next` 的相关关键词。
 除了可以提问 TDesign 相关的内容，也可以提问和前端开发相关的内容。
 
 ### 划词解释
