@@ -4,7 +4,7 @@ import HighlightOption from './highlight-option';
 import { CommonClassNameType } from '../hooks/useCommonClassName';
 import { AutoCompleteOptionObj, TdAutoCompleteProps } from './type';
 import log from '../_common/js/log';
-import { usePrefixClass } from '../hooks/useConfig';
+import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { on, off } from '../utils/dom';
 import isString from 'lodash/isString';
 import escapeRegExp from 'lodash/escapeRegExp';
@@ -29,6 +29,8 @@ export default defineComponent({
   setup(props, { emit, slots, expose }) {
     const active = ref('');
     const classPrefix = usePrefixClass();
+
+    const { globalConfig } = useConfig('autoComplete');
 
     const classes = computed(() => `${classPrefix.value}-select__list`);
     const optionClasses = computed(() => [
@@ -138,7 +140,8 @@ export default defineComponent({
     });
 
     return () => {
-      if (!tOptions.value.length) return null;
+      if (!tOptions.value.length)
+        return <div className={`${classPrefix.value}-auto-complete__panel--empty`}>{globalConfig.value.empty}</div>;
       return (
         <ul class={classes.value}>
           {tOptions.value.map((item) => {

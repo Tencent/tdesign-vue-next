@@ -32,6 +32,6 @@ export default {
   },
   /** 选项值 */
   value: {
-    type: [String, Number] as PropType<TdOptionProps['value']>,
+    type: [String, Number, Boolean] as PropType<TdOptionProps['value']>,
   },
 };

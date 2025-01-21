@@ -16,7 +16,6 @@ onMounted(() => {
   const lang = getLang();
   globalConfig.value = lang === 'en' ? enConfig : cnConfig;
 });
-
 </script>
 
 <style lang="less">
@@ -42,5 +41,9 @@ div[slot='action'] {
     color: var(--text-primary);
     background-color: var(--bg-color-demo-hover, rgb(243, 243, 243));
   }
+}
+
+#webchat-sdk-iframe {
+  z-index: 99999;
 }
 </style>

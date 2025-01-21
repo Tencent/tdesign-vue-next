@@ -33,7 +33,7 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inpu
           dynamicIndex++;
           return res;
         };
-        if ((option as SelectOptionGroup).group && (option as SelectOptionGroup).children) {
+        if ((option as SelectOptionGroup).children) {
           return {
             ...option,
             children: (option as SelectOptionGroup).children.map((child) => getFormatOption(child)),
@@ -84,7 +84,7 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inpu
     const res: TdOptionProps[] = [];
     const getOptionsList = (options: TdOptionProps[]) => {
       for (const option of options) {
-        if ((option as SelectOptionGroup).group) {
+        if ((option as SelectOptionGroup).children) {
           getOptionsList((option as SelectOptionGroup).children);
         } else {
           res.push(option);
@@ -120,7 +120,7 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inpu
     const res: SelectOption[] = [];
 
     options.value.forEach((option) => {
-      if ((option as SelectOptionGroup).group && (option as SelectOptionGroup).children) {
+      if ((option as SelectOptionGroup).children) {
         res.push({
           ...option,
           children: (option as SelectOptionGroup).children.filter(filterMethods),

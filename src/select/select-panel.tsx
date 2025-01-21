@@ -64,7 +64,7 @@ export default defineComponent({
       return (
         <ul class={`${COMPONENT_NAME.value}__list`}>
           {options.map((item: SelectOptionGroup & TdOptionProps & { slots: Slots } & { $index: number }, index) => {
-            if (item.group) {
+            if (item.children) {
               return (
                 <OptionGroup label={item.group} divider={item.divider}>
                   {renderOptionsContent(item.children)}
@@ -128,12 +128,9 @@ export default defineComponent({
             defaultNode: <div class={`${COMPONENT_NAME.value}__loading-tips`}>{t(globalConfig.value.loadingText)}</div>,
           })}
         {/* 空状态 */}
-        {!props.loading &&
-          isEmpty.value &&
-          !showCreateOption.value &&
-          renderDefaultTNode('empty', {
-            defaultNode: <div class={`${COMPONENT_NAME.value}__empty`}>{t(globalConfig.value.empty)}</div>,
-          })}
+        {!props.loading && isEmpty.value && !showCreateOption.value && (
+          <div class={`${COMPONENT_NAME.value}__empty`}>{renderTNodeJSX('empty') || t(globalConfig.value.empty)}</div>
+        )}
         {!isEmpty.value && renderOptionsContent(options)}
       </div>
     );

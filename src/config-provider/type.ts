@@ -14,6 +14,10 @@ import { TNode, SizeEnum } from '../common';
 
 export interface GlobalConfigProvider {
   /**
+   * 自动填充全局配置
+   */
+  autoComplete?: AutoCompleteConfig;
+  /**
    * 警告全局配置
    */
   alert?: AlertConfig;
@@ -146,6 +150,14 @@ export interface GlobalConfigProvider {
    * 上传组件全局配置
    */
   upload?: UploadConfig;
+}
+
+export interface AutoCompleteConfig {
+  /**
+   * 语言配置，“暂无数据”描述文本
+   * @default ''
+   */
+  empty?: string;
 }
 
 export interface InputConfig {

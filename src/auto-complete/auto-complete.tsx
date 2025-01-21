@@ -149,7 +149,7 @@ export default defineComponent({
       const topContent = renderTNodeJSX('panelTopContent');
       const bottomContent = renderTNodeJSX('panelBottomContent');
       const panelContent = Boolean(topContent || props.options?.length || bottomContent) ? (
-        <div class={`${classPrefix.value}-autocomplete__panel`}>
+        <div class={`${classPrefix.value}-auto-complete__panel`}>
           {topContent}
           {listContent}
           {bottomContent}
