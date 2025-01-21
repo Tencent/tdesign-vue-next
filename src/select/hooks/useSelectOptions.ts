@@ -117,7 +117,7 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inpu
       return option.label?.toLowerCase?.().indexOf(`${inputValue.value}`.toLowerCase()) > -1;
     };
 
-    const res: SelectOption[] = [];
+    let res: SelectOption[] = [];
 
     options.value.forEach((option) => {
       if ((option as SelectOptionGroup).children) {
@@ -130,6 +130,15 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inpu
         res.push(option);
       }
     });
+
+    if (!isFunction(props.filter)) {
+      // 使用默认 filter，增加表现，调整全等项到首尾，避免全等项位于最后
+      // inputValue: ab
+      // options abcde, abcd, abc,  ab
+      const exactMatch = res.filter((item) => item.label === inputValue.value);
+      const fuzzyMatch = res.filter((item) => item.label !== inputValue.value);
+      res = exactMatch.concat(fuzzyMatch);
+    }
 
     return res;
   });
