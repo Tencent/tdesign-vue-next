@@ -16,14 +16,26 @@ const options = [
       {
         label: '子选项一',
         value: '1.1',
+        children: [
+          {
+            label: '三级选项一',
+            value: '1.1.1',
+          },
+          {
+            label: '三级选项二',
+            value: '1.1.2',
+          },
+        ],
       },
       {
         label: '子选项二',
         value: '1.2',
-      },
-      {
-        label: '子选项三',
-        value: '1.3',
+        children: [
+          {
+            label: '三级选项一',
+            value: '1.2.1',
+          },
+        ],
       },
     ],
   },
@@ -34,10 +46,26 @@ const options = [
       {
         label: '子选项一',
         value: '2.1',
+        children: [
+          {
+            label: '三级选项一',
+            value: '2.1.1',
+          },
+          {
+            label: '三级选项二',
+            value: '2.1.2',
+          },
+        ],
       },
       {
         label: '子选项二',
         value: '2.2',
+        children: [
+          {
+            label: '三级选项一',
+            value: '2.2.1',
+          },
+        ],
       },
     ],
   },
