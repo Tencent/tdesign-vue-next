@@ -164,6 +164,7 @@ export function useRowHighlight(props: BaseTableProps, tableRef: Ref<HTMLDivElem
 
   const keyboardDownListener = (e: KeyboardEvent) => {
     const code = e.code || e.key?.trim();
+
     if (ARROW_DOWN_REG.test(code)) {
       e.preventDefault();
       const index = Math.min(data.value.length - 1, currentOperationRowIndex.value + 1);
