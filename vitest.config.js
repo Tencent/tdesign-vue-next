@@ -1,5 +1,4 @@
-import * as path from 'path';
-import { resolveConfig, basePlugin } from '../../script/vite.base.config';
+import { resolveConfig, basePlugin } from './script/vite.base.config';
 
 // 单元测试相关配置
 const testConfig = {
@@ -10,7 +9,7 @@ const testConfig = {
   globals: true,
   environment: 'jsdom',
   testTimeout: 5000,
-  setupFiles: process.env.NODE_ENV === 'test-snap' ? path.resolve(__dirname, './test-setup.js') : '',
+  setupFiles: process.env.NODE_ENV === 'test-snap' ? './test/unit/test-setup.js' : '',
   transformMode: {
     web: [/\.[jt]sx$/],
   },
