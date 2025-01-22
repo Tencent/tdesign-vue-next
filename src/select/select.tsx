@@ -218,12 +218,12 @@ export default defineComponent({
      */
     const onCheckAllChange = (checked: boolean) => {
       if (!props.multiple) return;
-      const lockedValues = innerValue.value.filter((value) => {
+      const lockedValues = innerValue.value.filter((value: string | number | boolean) => {
         return optionsList.value.find((item) => item.value === value && item.disabled);
       });
       const activeValues = optionalList.value.map((option) => option.value);
-      const value = checked ? [...new Set([...activeValues, ...lockedValues])] : [...lockedValues];
-      setInnerValue(value, { selectedOptions: getSelectedOptions(value), trigger: checked ? 'check' : 'clear' });
+      const values = checked ? [...new Set([...activeValues, ...lockedValues])] : [...lockedValues];
+      setInnerValue(values, { selectedOptions: getSelectedOptions(values), trigger: checked ? 'check' : 'clear' });
     };
 
     // 已选的长度
