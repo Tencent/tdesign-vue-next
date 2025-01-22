@@ -8,6 +8,11 @@
 
 <script setup>
 import { ref } from 'vue';
+import dayjs from 'dayjs';
+
+dayjs.updateLocale('zh-cn', {
+  weekStart: 1,
+});
 
 const value = ref([]);
 </script>
