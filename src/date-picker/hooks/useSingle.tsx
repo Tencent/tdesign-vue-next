@@ -2,7 +2,6 @@ import { ref, computed, watch } from 'vue';
 import dayjs from 'dayjs';
 import omit from 'lodash/omit';
 
-import { useTNodeJSX } from '../../hooks/tnode';
 import { useDisabled } from '../../hooks/useDisabled';
 import { usePrefixClass } from '../../hooks/useConfig';
 import { TdDatePickerProps, DateValue } from '../type';
@@ -19,7 +18,6 @@ import { useReadonly } from '../../hooks/useReadonly';
 export default function useSingle(props: TdDatePickerProps) {
   const COMPONENT_NAME = usePrefixClass('date-picker');
   const disabled = useDisabled();
-  const renderTNodeJSX = useTNodeJSX();
 
   const inputRef = ref();
   const isReadOnly = useReadonly();
@@ -38,7 +36,11 @@ export default function useSingle(props: TdDatePickerProps) {
   const popupVisible = ref(false);
   const isHoverCell = ref(false);
   // 未真正选中前可能不断变更输入框的内容
-  const inputValue = ref(formatDate(value.value, { format: formatRef.value.format }));
+  const inputValue = ref(
+    props.multiple
+      ? formatDate(value.value, { format: formatRef.value.format }) || []
+      : formatDate(value.value, { format: formatRef.value.format }),
+  );
 
   // input 设置
   const inputProps = computed(() => {
