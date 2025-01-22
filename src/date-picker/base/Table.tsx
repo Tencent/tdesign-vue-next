@@ -88,7 +88,7 @@ export default defineComponent({
         .map?.((v) => parseToDayjs(v, props.format))
         .some((item) => item.week() === targetDayjs.week() && item.year() === targetDayjs.year());
       return {
-        [`${COMPONENT_NAME.value}__table-${props.mode}-row--active`]: isSomeYearWeek,
+        [`${COMPONENT_NAME.value}-${props.mode}-row--active`]: isSomeYearWeek,
       };
     };
     const activeRowCss = props.multiple ? multipleWeekRowClass : weekRowClass;
