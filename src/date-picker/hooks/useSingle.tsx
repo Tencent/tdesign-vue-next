@@ -1,12 +1,10 @@
 import { ref, computed, watch } from 'vue';
-import { CalendarIcon as TdCalendarIcon } from 'tdesign-icons-vue-next';
 import dayjs from 'dayjs';
 import omit from 'lodash/omit';
 
 import { useTNodeJSX } from '../../hooks/tnode';
 import { useDisabled } from '../../hooks/useDisabled';
 import { usePrefixClass } from '../../hooks/useConfig';
-import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 import { TdDatePickerProps, DateValue } from '../type';
 import {
   isValidDate,
@@ -20,7 +18,6 @@ import { useReadonly } from '../../hooks/useReadonly';
 
 export default function useSingle(props: TdDatePickerProps) {
   const COMPONENT_NAME = usePrefixClass('date-picker');
-  const { CalendarIcon } = useGlobalIcon({ CalendarIcon: TdCalendarIcon });
   const disabled = useDisabled();
   const renderTNodeJSX = useTNodeJSX();
 
@@ -49,11 +46,7 @@ export default function useSingle(props: TdDatePickerProps) {
       ...props.inputProps,
       size: props.size,
       ref: inputRef,
-      prefixIcon: () => renderTNodeJSX('prefixIcon'),
       readonly: isReadOnly.value || !props.allowInput,
-      suffixIcon: () => {
-        return renderTNodeJSX('suffixIcon') || <CalendarIcon />;
-      },
       class: [
         {
           [`${COMPONENT_NAME.value}__input--placeholder`]: isHoverCell.value,

@@ -1,10 +1,12 @@
 import { defineComponent, computed, watch } from 'vue';
 import dayjs from 'dayjs';
 import isFunction from 'lodash/isFunction';
+import { CalendarIcon as TdCalendarIcon } from 'tdesign-icons-vue-next';
 
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass, useConfig } from '../hooks/useConfig';
 import { useDisabled } from '../hooks/useDisabled';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import useSingle from './hooks/useSingle';
 import { parseToDayjs, getDefaultFormat, formatTime, formatDate } from '../_common/js/date-picker/format';
 import { subtractMonth, addMonth, extractTimeObj, covertToDate, isSame } from '../_common/js/date-picker/utils';
@@ -46,6 +48,7 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const { globalConfig } = useConfig('datePicker');
     const isReadOnly = useReadonly();
+    const { CalendarIcon } = useGlobalIcon({ CalendarIcon: TdCalendarIcon });
 
     const formatRef = computed(() =>
       getDefaultFormat({
@@ -366,6 +369,8 @@ export default defineComponent({
             onRemove: onTagRemoveClick,
           }}
           onClear={onTagClearClick}
+          prefixIcon={renderTNodeJSX('prefixIcon')}
+          suffixIcon={() => renderTNodeJSX('suffixIcon') || <CalendarIcon />}
         />
       </div>
     );

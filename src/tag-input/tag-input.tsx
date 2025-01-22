@@ -123,7 +123,7 @@ export default defineComponent({
     const onClick: TdInputProps['onClick'] = (ctx) => {
       if (isDisabled.value) return;
       isFocused.value = true;
-      tagInputRef.value?.focus();
+      tagInputRef.value.focus();
       props.onClick?.(ctx);
     };
 
@@ -134,7 +134,7 @@ export default defineComponent({
     };
 
     const focus = () => {
-      tagInputRef.value?.focus();
+      tagInputRef.value.focus();
     };
 
     const blur = () => {
