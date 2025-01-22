@@ -181,11 +181,11 @@ export default defineComponent({
       }
 
       // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
-      if (!isFirstValueSelected.value) {
+      if (!isFirstValueSelected.value || !activeIndex.value) {
         let nextIndex = notValidIndex;
         if (nextIndex === -1) nextIndex = activeIndex.value ? 0 : 1;
         activeIndex.value = nextIndex;
-        isFirstValueSelected.value = true;
+        isFirstValueSelected.value = !!nextValue[0];
       } else {
         popupVisible.value = false;
       }
@@ -228,7 +228,7 @@ export default defineComponent({
       const { hours, minutes, seconds, milliseconds, meridiem } = extractTimeObj(val);
 
       const nextInputValue = [...(inputValue.value as DateValue[])];
-      const changedInputValue = inputValue.value[activeIndex.value];
+      const changedInputValue = nextInputValue[activeIndex.value];
       const currentDate = !dayjs(changedInputValue, formatRef.value.format).isValid()
         ? dayjs().year(year.value[activeIndex.value]).month(month.value[activeIndex.value])
         : dayjs(changedInputValue, formatRef.value.format);
@@ -290,11 +290,11 @@ export default defineComponent({
       }
 
       // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
-      if (!isFirstValueSelected.value || nextValue.length === 1) {
+      if (!isFirstValueSelected.value || !activeIndex.value) {
         let nextIndex = notValidIndex;
         if (nextIndex === -1) nextIndex = activeIndex.value ? 0 : 1;
         activeIndex.value = nextIndex;
-        isFirstValueSelected.value = true;
+        isFirstValueSelected.value = !!nextValue[0];
       } else if (nextValue.length === 2) {
         popupVisible.value = false;
       }

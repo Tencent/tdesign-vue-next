@@ -98,9 +98,11 @@ export default defineComponent({
         <table>
           {showThead.value && (
             <thead>
-              <tr>
+              <tr class={`${COMPONENT_NAME.value}-header-row`}>
                 {weekArr.value.map((value: string, i: number) => (
-                  <th key={i}>{value}</th>
+                  <th class={`${COMPONENT_NAME.value}-header-cell`} key={i}>
+                    {value}
+                  </th>
                 ))}
               </tr>
             </thead>

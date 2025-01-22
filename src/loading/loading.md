@@ -1,18 +1,10 @@
 :: BASE_DOC ::
 
 ### 指令方式调用
+
 支持 `v-loading` 指令调用 `Loading`，只需要绑定 `boolean` 值即可，支持 `fullscreen` 和 `inheritColor` 修饰符以及 `Object` 形式的自定义配置，分别对应其属性。
 
 {{ directive }}
-
-### 挂载到指定元素
-
-可通过 `attach` 挂载到指定元素。
-
-注：被挂载元素（loading的父元素）需设置：`position: relative;`
-
-{{ attach }}
-
 
 ## FAQ
 
@@ -23,6 +15,7 @@
 如果必须要进行样式替换，可以采用以下几种方案。
 
 方案一：单独创建一个不使用`scoped`的`style`标签
+
 ```html
 <style>
 .test .t-radio-button__label {
@@ -30,7 +23,9 @@
 }
 </style>
 ```
+
 方案二：使用 `:global` 伪类来实现相同效果，比起单独创建一个`style`更加简洁明了。
+
 ```html
 <style scoped>
 .abc{
@@ -51,6 +46,7 @@
 如果您不确定问题是否是由该规则引起的，或者确定该规则不是问题的根本原因，请在 `GitHub` 上提出一个 `issue`，并提供可以重现问题的代码。这将有助于我们更好地了解您的问题并提供更好的帮助。
 
 ## API
+
 ### Loading Props
 
 名称 | 类型 | 默认值 | 说明 | 必传

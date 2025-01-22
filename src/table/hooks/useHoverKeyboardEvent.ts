@@ -2,7 +2,16 @@ import { toRefs, Ref, ref, computed } from 'vue';
 import get from 'lodash/get';
 import { BaseTableProps } from '../interface';
 import { on, off } from '../../utils/dom';
-import { ALL_REG, ARROW_DOWN_REG, ARROW_UP_REG, CLEAR_REG, ESCAPE_REG, SPACE_REG } from '../../_common/js/common';
+import {
+  ALL_REG,
+  ARROW_DOWN_REG,
+  ARROW_UP_REG,
+  CLEAR_REG,
+  ESCAPE_REG,
+  SPACE_REG,
+  ARROW_LEFT_REG,
+  ARROW_RIGHT_REG,
+} from '../../_common/js/common';
 import { RowEventContext, TableRowData } from '../type';
 
 /**
@@ -13,6 +22,7 @@ export function useHoverKeyboardEvent(props: BaseTableProps, tableRef: Ref<HTMLD
   const { hover, data, activeRowType, keyboardRowHover, disableSpaceInactiveRow } = toRefs(props);
   const hoverRow = ref<string | number>();
   const currentHoverRowIndex = ref(-1);
+  const tableRefTabIndex = ref(0);
 
   // 单行高亮场景，不需要键盘悬浮效果
   const needKeyboardRowHover = computed(() => {
@@ -67,6 +77,13 @@ export function useHoverKeyboardEvent(props: BaseTableProps, tableRef: Ref<HTMLD
     } else if (CLEAR_REG.test(code) && !props.activeRowType) {
       props.onActiveRowAction?.({ action: 'clear', activeRowList: [] });
     }
+
+    // 用于支持键盘默认的左右滚动，左右滚动时重置为undefined，其他情况下为0，支持键盘操作
+    if (ARROW_LEFT_REG.test(code) || ARROW_RIGHT_REG.test(code)) {
+      tableRefTabIndex.value = undefined;
+    } else {
+      tableRefTabIndex.value = 0;
+    }
   };
 
   const addRowHoverKeyboardListener = () => {
@@ -83,6 +100,7 @@ export function useHoverKeyboardEvent(props: BaseTableProps, tableRef: Ref<HTMLD
     clearHoverRow,
     addRowHoverKeyboardListener,
     removeRowHoverKeyboardListener,
+    tableRefTabIndex,
   };
 }
 
