@@ -12,12 +12,11 @@ column | Number | 2 | 一行 `DescriptionItem` 的数量 | N
 contentStyle | Object | - | 自定义描述项内容的样式。TS 类型：`Styles`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 itemLayout | String | horizontal | 描述项的排列方向。可选项：horizontal/vertical | N
 items | Array | - | 描述项的列表。TS 类型：`Array<TdDescriptionItemProps>` | N
-labelStyle | Object | - | 自定义描述项标签的样式。TS 类型：`Styles`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+labelStyle | Object | - | 自定义描述项标签的样式，需要配合 `tableLayout` 为 `auto` 才可以生效。TS 类型：`Styles`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 layout | String | horizontal | 排列方向。可选项：horizontal/vertical | N
 size | String | medium | 组件尺寸。可选项：small/medium/large。TS 类型：`SizeEnum`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 tableLayout | String | fixed | 用于设置底层 `table` 单元格、行和列的布局算法，与原生 table-layout css 属性完全一致。`fixed`：采用固定布局算法；`auto`：采用自动布局算法。详情可参考 [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout)。可选项：fixed/auto | N
 title | String / Slot / Function | - | 描述列表的标题。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-
 
 ### DescriptionItem Props
 
