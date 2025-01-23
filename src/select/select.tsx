@@ -210,10 +210,20 @@ export default defineComponent({
       max: props.max,
     });
 
+    /*
+     * 全选逻辑：
+     * 根据 checked 的值计算最终选中的值：
+     *    - 如果 checked 为 true，则选中所有非 disabled 选项，并保留已选中的 disabled 选项。
+     *    - 如果 checked 为 false，则只保留已选中的 disabled 选项。
+     */
     const onCheckAllChange = (checked: boolean) => {
       if (!props.multiple) return;
-      const value = checked ? optionalList.value.map((option) => option.value) : [];
-      setInnerValue(value, { selectedOptions: getSelectedOptions(value), trigger: checked ? 'check' : 'clear' });
+      const lockedValues = innerValue.value.filter((value: string | number | boolean) => {
+        return optionsList.value.find((item) => item.value === value && item.disabled);
+      });
+      const activeValues = optionalList.value.map((option) => option.value);
+      const values = checked ? [...new Set([...activeValues, ...lockedValues])] : [...lockedValues];
+      setInnerValue(values, { selectedOptions: getSelectedOptions(values), trigger: checked ? 'check' : 'clear' });
     };
 
     // 已选的长度

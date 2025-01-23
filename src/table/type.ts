@@ -320,7 +320,7 @@ export interface BaseTableInstanceFunctions<T extends TableRowData = TableRowDat
    */
   scrollColumnIntoView: (colKey: string) => void;
   /**
-   * 虚拟滚动场景，纵向滚动到指定行。示例：`scrollToElement({ index: 100, top: 80, time: 200, behavior: 'smooth' })`
+   * 纵向滚动到指定行。示例：`scrollToElement({ index: 100, top: 80, time: 200, behavior: 'smooth' })`
    */
   scrollToElement: (params: ComponentScrollToElementParams) => void;
 }
