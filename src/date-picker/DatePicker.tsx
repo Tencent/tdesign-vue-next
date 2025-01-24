@@ -1,20 +1,22 @@
 import { defineComponent, computed, watch } from 'vue';
 import dayjs from 'dayjs';
 import isFunction from 'lodash/isFunction';
+import { CalendarIcon as TdCalendarIcon } from 'tdesign-icons-vue-next';
 
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass, useConfig } from '../hooks/useConfig';
 import { useDisabled } from '../hooks/useDisabled';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import useSingle from './hooks/useSingle';
 import { parseToDayjs, getDefaultFormat, formatTime, formatDate } from '../_common/js/date-picker/format';
-import { subtractMonth, addMonth, extractTimeObj, covertToDate } from '../_common/js/date-picker/utils';
+import { subtractMonth, addMonth, extractTimeObj, covertToDate, isSame } from '../_common/js/date-picker/utils';
 import props from './props';
 import TSelectInput from '../select-input';
 import TSinglePanel from './panel/SinglePanel';
 import { useReadonly } from '../hooks/useReadonly';
 
-import type { TdDatePickerProps } from './type';
-import type { DateValue } from './type';
+import type { TdDatePickerProps, DateMultipleValue, DateValue } from './type';
+import type { TagInputRemoveContext } from '../tag-input';
 import isDate from 'lodash/isDate';
 
 export default defineComponent({
@@ -46,13 +48,14 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const { globalConfig } = useConfig('datePicker');
     const isReadOnly = useReadonly();
+    const { CalendarIcon } = useGlobalIcon({ CalendarIcon: TdCalendarIcon });
 
     const formatRef = computed(() =>
       getDefaultFormat({
         mode: props.mode,
         format: props.format,
         valueType: props.valueType,
-        enableTimePicker: props.enableTimePicker,
+        enableTimePicker: props.multiple ? false : props.enableTimePicker,
       }),
     );
     const valueDisplayParams = computed(() => {
@@ -63,6 +66,8 @@ export default defineComponent({
     });
 
     watch(popupVisible, (visible) => {
+      // 多选不考虑输入情况
+      if (props.multiple) return;
       // 如果不需要确认，直接保存当前值
       if (!props.needConfirm && props.enableTimePicker && !visible) {
         const nextValue = formatDate(inputValue.value, {
@@ -104,8 +109,8 @@ export default defineComponent({
 
       // 面板展开重置数据
       if (visible) {
-        year.value = parseToDayjs(value.value, formatRef.value.valueType).year();
-        month.value = parseToDayjs(value.value, formatRef.value.format).month();
+        year.value = parseToDayjs(value.value as DateValue, formatRef.value.valueType).year();
+        month.value = parseToDayjs(value.value as DateValue, formatRef.value.format).month();
         time.value = formatTime(value.value, formatRef.value.format, formatRef.value.timeFormat, props.defaultTime);
       } else {
         isHoverCell.value = false;
@@ -114,6 +119,8 @@ export default defineComponent({
 
     // 日期 hover
     function onCellMouseEnter(date: Date) {
+      if (props.multiple) return;
+
       isHoverCell.value = true;
       inputValue.value = formatDate(date, {
         format: formatRef.value.format,
@@ -122,6 +129,8 @@ export default defineComponent({
 
     // 日期 leave
     function onCellMouseLeave() {
+      if (props.multiple) return;
+
       isHoverCell.value = false;
       inputValue.value = formatDate(cacheValue.value, {
         format: formatRef.value.format,
@@ -141,6 +150,15 @@ export default defineComponent({
           format: formatRef.value.format,
         });
       } else {
+        if (props.multiple) {
+          const newDate = processDate(date);
+          onChange(newDate, {
+            dayjsValue: parseToDayjs(date, formatRef.value.format),
+            trigger: 'pick',
+          });
+          return;
+        }
+
         onChange?.(
           formatDate(date, {
             format: formatRef.value.format,
@@ -155,6 +173,49 @@ export default defineComponent({
       }
 
       props.onPick?.(date);
+    }
+
+    function processDate(date: Date) {
+      let isSameDate: boolean;
+      const currentValue = (value.value || []) as DateMultipleValue;
+      const { dayjsLocale } = globalConfig.value;
+
+      let currentDate: DateMultipleValue;
+      if (props.mode !== 'week')
+        isSameDate = currentValue.some((val) =>
+          isSame(parseToDayjs(val, formatRef.value.format).toDate(), date, props.mode, dayjsLocale),
+        );
+      else {
+        isSameDate = currentValue.some((val) => val === dayjs(date).locale(dayjsLocale).format(formatRef.value.format));
+      }
+
+      if (!isSameDate) {
+        currentDate = currentValue.concat(
+          formatDate(date, { format: formatRef.value.format, targetFormat: formatRef.value.valueType }),
+        );
+      } else {
+        currentDate = currentValue.filter(
+          (val) =>
+            formatDate(val, { format: formatRef.value.format, targetFormat: formatRef.value.valueType }) !==
+            formatDate(date, { format: formatRef.value.format, targetFormat: formatRef.value.valueType }),
+        );
+      }
+      return currentDate;
+    }
+
+    function onTagRemoveClick(ctx: TagInputRemoveContext) {
+      const removeDate = dayjs(ctx.item).toDate();
+      const newDate = processDate(removeDate);
+      onChange?.(newDate, {
+        dayjsValue: parseToDayjs(removeDate, formatRef.value.format),
+        trigger: 'tag-remove',
+      });
+    }
+
+    function onTagClearClick({ e }: { e: MouseEvent }) {
+      e.stopPropagation();
+      popupVisible.value = false;
+      onChange?.([], { dayjsValue: dayjs(), trigger: 'clear' });
     }
 
     // 头部快速切换
@@ -264,11 +325,12 @@ export default defineComponent({
       format: formatRef.value.format,
       mode: props.mode,
       presets: props.presets,
-      time: time.value as string,
+      multiple: props.multiple,
+      time: props.multiple ? '' : time.value,
       disableDate: props.disableDate,
       firstDayOfWeek: props.firstDayOfWeek,
       timePickerProps: props.timePickerProps,
-      enableTimePicker: props.enableTimePicker,
+      enableTimePicker: props.multiple ? false : props.enableTimePicker,
       presetsPlacement: props.presetsPlacement,
       popupVisible: popupVisible.value,
       needConfirm: props.needConfirm,
@@ -294,6 +356,7 @@ export default defineComponent({
           status={props.status}
           tips={props.tips}
           clearable={props.clearable}
+          multiple={props.multiple}
           popupProps={popupProps.value}
           inputProps={inputProps.value}
           placeholder={props.placeholder || globalConfig.value.placeholder[props.mode]}
@@ -302,6 +365,12 @@ export default defineComponent({
           needConfirm={props.needConfirm}
           {...(props.selectInputProps as TdDatePickerProps['selectInputProps'])}
           panel={() => <TSinglePanel {...panelProps.value} />}
+          tagInputProps={{
+            onRemove: onTagRemoveClick,
+          }}
+          onClear={onTagClearClick}
+          prefixIcon={renderTNodeJSX('prefixIcon')}
+          suffixIcon={() => renderTNodeJSX('suffixIcon') || <CalendarIcon />}
         />
       </div>
     );

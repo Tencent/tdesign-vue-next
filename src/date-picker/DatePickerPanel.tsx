@@ -66,7 +66,7 @@ export default defineComponent({
     }
 
     // 头部快速切换
-    function onJumperClick({ trigger }: { trigger: string }) {
+    function onJumperClick({ trigger }: { trigger: 'prev' | 'next' | 'current' }) {
       const triggerMap = {
         prev: 'arrow-previous',
         next: 'arrow-next',
@@ -91,14 +91,14 @@ export default defineComponent({
       if (year.value !== nextYear) {
         props.onYearChange?.({
           year: nextYear,
-          date: dayjs(value.value).toDate(),
+          date: dayjs(value.value as DateValue).toDate(),
           trigger: trigger === 'current' ? 'today' : (`year-${triggerMap[trigger]}` as DatePickerYearChangeTrigger),
         });
       }
       if (month.value !== nextMonth) {
         props.onMonthChange?.({
           month: nextMonth,
-          date: dayjs(value.value).toDate(),
+          date: dayjs(value.value as DateValue).toDate(),
           trigger: trigger === 'current' ? 'today' : (`month-${triggerMap[trigger]}` as DatePickerMonthChangeTrigger),
         });
       }
@@ -125,7 +125,7 @@ export default defineComponent({
 
       props.onTimeChange?.({
         time: val,
-        date: dayjs(value.value).toDate(),
+        date: dayjs(value.value as DateValue).toDate(),
         trigger: 'time-hour',
       });
     }
@@ -159,7 +159,7 @@ export default defineComponent({
 
       props.onYearChange?.({
         year: year.value,
-        date: dayjs(value.value).toDate(),
+        date: dayjs(value.value as DateValue).toDate(),
         trigger: 'year-select',
       });
     }
@@ -169,7 +169,7 @@ export default defineComponent({
 
       props.onMonthChange?.({
         month: month.value,
-        date: dayjs(value.value).toDate(),
+        date: dayjs(value.value as DateValue).toDate(),
         trigger: 'month-select',
       });
     }
