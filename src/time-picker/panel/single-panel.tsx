@@ -41,7 +41,7 @@ export default defineComponent({
     const bodyRef = ref();
     const maskRef = ref(null);
     // 每个滚动列的ref 顺序不定 所以只要有5列标识即可
-    const colsRef = reactive({ 0: null, 1: null, 2: null, 3: null, 4: null, 5: null });
+    const colsRef = reactive<Record<string, any>>({ 0: null, 1: null, 2: null, 3: null, 4: null, 5: null });
 
     const dayjsValue = computed(() => {
       const isStepsSet = !!steps.value.filter((step) => Number(step) > 1).length;
@@ -191,7 +191,7 @@ export default defineComponent({
         return;
 
       if (timeArr.includes(col)) {
-        if (timeItemCanUsed(col, val)) formattedVal = dayjsValue.value[col]?.(val).format(format.value);
+        if (timeItemCanUsed(col, val)) formattedVal = (dayjsValue.value as any)[col]?.(val).format(format.value);
         else formattedVal = dayjsValue.value.format(format.value);
       } else {
         const currentHour = dayjsValue.value.hour();
@@ -245,6 +245,10 @@ export default defineComponent({
           el = Number(el) + 12;
         }
         scrollToTime(col, el, idx, 'smooth');
+
+        setTimeout(() => {
+          props.onChange?.((dayjsValue.value as any)[col]?.(el).format(format.value), e);
+        }, 100);
       } else {
         const currentHour = dayjsValue.value.hour();
         if (el === AM && currentHour >= 12) {
@@ -265,7 +269,7 @@ export default defineComponent({
             // 如果没有设置大于1的steps或设置了大于1的step 正常处理滚动
             scrollToTime(
               col,
-              timeArr.includes(col) ? dayjsValue.value[col]?.() : dayjsValue.value.format('a'),
+              timeArr.includes(col) ? (dayjsValue.value as any)[col]?.() : dayjsValue.value.format('a'),
               idx,
               behavior,
             );
