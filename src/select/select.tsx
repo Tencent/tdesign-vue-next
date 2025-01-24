@@ -1,5 +1,5 @@
 import { defineComponent, provide, computed, toRefs, watch, ref, nextTick, PropType } from 'vue';
-import { picker } from 'lodash-es';
+import { pick as picker } from 'lodash-es';
 import { isArray } from 'lodash-es';
 import { isFunction } from 'lodash-es';
 import { debounce } from 'lodash-es';

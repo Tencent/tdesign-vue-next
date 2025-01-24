@@ -23,8 +23,8 @@ import { isNumber } from 'lodash-es';
 import { isString } from 'lodash-es';
 import { isBoolean } from 'lodash-es';
 import { cloneDeep } from 'lodash-es';
-import { lodashGet } from 'lodash-es';
-import { lodashSet } from 'lodash-es';
+import { get as lodashGet } from 'lodash-es';
+import { set as lodashSet } from 'lodash-es';
 import { isNil } from 'lodash-es';
 
 import { validate } from './form-model';
