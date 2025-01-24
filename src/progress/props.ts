@@ -54,4 +54,9 @@ export default {
     type: String,
     default: '',
   },
+  /** 固定导航条宽度，不受文案影响 */
+  fixedWidth: {
+    type: Boolean,
+    default: false,
+  },
 };

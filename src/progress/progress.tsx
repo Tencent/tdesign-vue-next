@@ -50,6 +50,9 @@ export default defineComponent({
       if (props.trackColor) {
         style.backgroundColor = props.trackColor;
       }
+      if (props.fixedWidth) {
+        style.flexShrink = 0;
+      }
       return style;
     });
 
