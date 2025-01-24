@@ -89,7 +89,7 @@ export default defineComponent({
         newVal = props.multiple ? (newVal as SelectValue[]).map((val) => getOption(val)) : getOption(newVal);
       }
       if (newVal === orgValue.value) return;
-      if (props.multiple && !props.reserveKeyword) setInputValue('');
+      if (props.multiple && !props.reserveKeyword) setInputValue('', { e: context.e, trigger: 'change' });
       setOrgValue(newVal, {
         selectedOptions: getSelectedOptions(newVal),
         ...context,
@@ -167,11 +167,11 @@ export default defineComponent({
       });
     };
 
-    const handleCreate = () => {
+    const handleCreate = (e: KeyboardEvent) => {
       if (!innerInputValue.value) return;
       props.onCreate?.(innerInputValue.value);
       // only clean input value when reopen popup
-      if (!innerPopupVisible.value) setInputValue('');
+      if (!innerPopupVisible.value) setInputValue('', { e, trigger: 'change' });
     };
 
     const popupContentRef = computed(() => selectInputRef.value?.popupRef.getOverlay() as HTMLElement);
@@ -281,7 +281,7 @@ export default defineComponent({
       if (value) {
         !innerPopupVisible.value && setInnerPopupVisible(true, { e: context.e as KeyboardEvent });
       }
-      setInputValue(value);
+      setInputValue(value, context);
       handleSearch(`${value}`, { e: context.e as KeyboardEvent });
       nextTick(() => {
         virtualFilteredOptions.value = selectPanelRef.value?.visibleData;
@@ -295,8 +295,6 @@ export default defineComponent({
 
     const handlerPopupVisibleChange = (visible: boolean, context: PopupVisibleChangeContext) => {
       setInnerPopupVisible(visible, context);
-      // 在通过点击选择器打开弹窗时 清空此前的输入内容 避免在关闭时就清空引起的闪烁问题
-      if (visible && context.trigger === 'trigger-element-click') setInputValue('');
     };
 
     const handlerPopupScrollToBottom: PopupProps['onScrollToBottom'] = async (context) => {
@@ -456,7 +454,7 @@ export default defineComponent({
               // onEnter和handleKeyDown的Enter事件同时触发，需要通过setTimeout设置先后
               setTimeout(() => {
                 props.onEnter?.({ inputValue: `${innerInputValue.value}`, e, value: innerValue.value });
-                handleCreate();
+                handleCreate(e);
               }, 0);
             }}
             onBlur={(inputValue, { e }) => {

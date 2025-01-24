@@ -11,7 +11,7 @@ export const selectInjectKey: InjectionKey<
     reserveKeyword: TdSelectProps['reserveKeyword'];
     multiple: TdSelectProps['multiple'];
     handleValueChange: TdSelectProps['onChange'];
-    handleCreate: TdSelectProps['onCreate'];
+    handleCreate: (e: MouseEvent | KeyboardEvent) => void;
     handlerInputChange: TdSelectProps['onInputChange'];
     handlePopupVisibleChange: TdSelectProps['onPopupVisibleChange'];
     popupContentRef: ComputedRef<HTMLElement>;
