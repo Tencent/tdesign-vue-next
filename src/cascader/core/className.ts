@@ -41,7 +41,11 @@ export function getNodeStatusClass(
 
   const isDisabled = node.disabled || (multiple && (value as TreeNodeValue[]).length >= max && max !== 0);
 
-  const isSelected = node.checked || (multiple && !checkStrictly && node.expanded && !isLeaf);
+  let isSelected = node.checked || (multiple && !checkStrictly && node.expanded && !isLeaf);
+  // 处理单选非叶子节点的选中逻辑
+  if (!multiple && !checkStrictly && !isLeaf) {
+    isSelected = node.expanded;
+  }
 
   return [
     {

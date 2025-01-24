@@ -68,6 +68,11 @@ export interface TdDatePickerProps {
    */
   mode?: 'year' | 'quarter' | 'month' | 'week' | 'date';
   /**
+   * 支持多选日期，但不支持在range-picker中，或与enableTimePicker、allowInput 一起使用
+   * @default false
+   */
+  multiple?: boolean;
+  /**
    * 决定在日期时间选择器的场景下是否需要点击确认按钮才完成选择动作，默认为`true`
    * @default true
    */
@@ -93,11 +98,6 @@ export interface TdDatePickerProps {
    * @default bottom
    */
   presetsPlacement?: 'left' | 'top' | 'right' | 'bottom';
-  /**
-   * 只读状态
-   * @default undefined
-   */
-  readonly?: boolean;
   /**
    * 透传 SelectInput 筛选器输入框组件的全部属性
    */
@@ -128,17 +128,17 @@ export interface TdDatePickerProps {
    * 选中值
    * @default ''
    */
-  value?: DateValue;
+  value?: DateValue | DateMultipleValue;
   /**
    * 选中值，非受控属性
    * @default ''
    */
-  defaultValue?: DateValue;
+  defaultValue?: DateValue | DateMultipleValue;
   /**
    * 选中值
    * @default ''
    */
-  modelValue?: DateValue;
+  modelValue?: DateValue | DateMultipleValue;
   /**
    * 自定义选中项呈现的内容
    */
@@ -151,11 +151,14 @@ export interface TdDatePickerProps {
   /**
    * 当输入框失去焦点时触发
    */
-  onBlur?: (context: { value: DateValue; e: FocusEvent }) => void;
+  onBlur?: (context: { value: DateValue | DateMultipleValue; e: FocusEvent }) => void;
   /**
    * 选中值发生变化时触发
    */
-  onChange?: (value: DateValue, context: { dayjsValue?: Dayjs; trigger?: DatePickerTriggerSource }) => void;
+  onChange?: (
+    value: DateValue | DateMultipleValue,
+    context: { dayjsValue?: Dayjs; trigger?: DatePickerTriggerSource },
+  ) => void;
   /**
    * 如果存在“确定”按钮，则点击“确定”按钮时触发
    */
@@ -163,7 +166,7 @@ export interface TdDatePickerProps {
   /**
    * 输入框获得焦点时触发
    */
-  onFocus?: (context: { value: DateValue; e: FocusEvent }) => void;
+  onFocus?: (context: { value: DateValue | DateMultipleValue; e: FocusEvent }) => void;
   /**
    * 面板选中值后触发
    */
@@ -186,7 +189,7 @@ export interface TdDateRangePickerProps {
    */
   borderless?: boolean;
   /**
-   * 默认的日期选择交互是根据点击前后日期的顺序来决定并且会加以限制。比如：用户先点击开始时间输入框，选择了一个日期例如2020-05-15，紧接着交互会自动将焦点跳到结束日期输入框，等待用户选择结束时间。此时用户只能选择大于2020-05-15的日期（之前的日期会被灰态禁止点击，限制用户的点击）。当该值传递`true`时，则取消该限制。
+   * 默认的日期选择交互是根据点击前后日期的顺序来决定并且会加以限制。比如：用户先点击开始时间输入框，选择了一个日期例如2020-05-15，紧接着交互会自动将焦点跳到结束日期输入框，等待用户选择结束时间。此时用户只能选择大于2020-05-15的日期（之前的日期会被灰态禁止点击，限制用户的点击）。当该值传递`true`时，则取消该限制
    * @default false
    */
   cancelRangeSelectLimit?: boolean;
@@ -204,6 +207,13 @@ export interface TdDateRangePickerProps {
    * 禁用日期，示例：['A', 'B'] 表示日期 A 和日期 B 会被禁用。{ from: 'A', to: 'B' } 表示在 A 到 B 之间的日期会被禁用。{ before: 'A', after: 'B' } 表示在 A 之前和在 B 之后的日期都会被禁用。其中 A = '2021-01-01'，B = '2021-02-01'。值类型为 Function 则表示返回值为 true 的日期会被禁用
    */
   disableDate?: DisableRangeDate;
+  /**
+   * 禁用时间项的配置函数，仅在日期区间选择器中开启时间展示时可用
+   */
+  disableTime?: (
+    times: Array<Date | null>,
+    context: { partial: DateRangePickerPartial },
+  ) => Partial<{ hour: Array<number>; minute: Array<number>; second: Array<number> }>;
   /**
    * 是否禁用组件
    */
@@ -262,11 +272,6 @@ export interface TdDateRangePickerProps {
    * @default bottom
    */
   presetsPlacement?: 'left' | 'top' | 'right' | 'bottom';
-  /**
-   * 只读状态
-   * @default undefined
-   */
-  readonly?: boolean;
   /**
    * 透传给范围输入框 RangeInput 组件的参数
    */
@@ -369,6 +374,7 @@ export interface TdDatePickerPanelProps
     | 'presets'
     | 'presetsPlacement'
     | 'timePickerProps'
+    | 'needConfirm'
   > {
   /**
    * 时间选择器默认值，当 value/defaultValue 未设置值时有效
@@ -512,6 +518,8 @@ export interface PresetDate {
 
 export type DateValue = string | number | Date;
 
+export type DateMultipleValue = Array<DateValue>;
+
 export type DatePickerValueType =
   | 'time-stamp'
   | 'Date'
@@ -525,7 +533,7 @@ export type DatePickerValueType =
 
 export type ValueTypeEnum = DatePickerValueType;
 
-export type DatePickerTriggerSource = 'confirm' | 'pick' | 'enter' | 'preset' | 'clear';
+export type DatePickerTriggerSource = 'confirm' | 'pick' | 'enter' | 'preset' | 'clear' | 'tag-remove';
 
 export type DisableRangeDate =
   | Array<DateValue>

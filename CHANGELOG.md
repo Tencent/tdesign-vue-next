@@ -5,6 +5,32 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.10.7 `2025-01-24` 
+### 🚀 Features
+- `Icon`: 新增`logo-alipay`、`logo-behance-filled`等图标，修改`logo-wecom`图标，移除不合理的`logo-wecom-filled`图标 @uyarn ([#4926](https://github.com/Tencent/tdesign-vue-next/pull/4926))
+- `Table`: 支持 `scrollToElement` 方法在非虚拟滚动的情况下使用 @Cat1007 ([#4946](https://github.com/Tencent/tdesign-vue-next/pull/4946))
+- `DatePicker`: 新增`multiple` API，用于支持多选场景，具体使用请参考示例 @uyarn ([#4854](https://github.com/Tencent/tdesign-vue-next/pull/4854))
+### 🐞 Bug Fixes
+- `Select`: 
+  - 修复分组情况下标题不存在 `group` 的渲染报错的问题 @RSS1102 ([#4896](https://github.com/Tencent/tdesign-vue-next/pull/4896))
+  - 修复 `option value` 为 `boolean` 时控制台类型错误警告 @SaberA1ter ([#4932](https://github.com/Tencent/tdesign-vue-next/pull/4932))
+  - 修复使用`empty` API 自定义空状态内容缺失默认样式的问题 @liweijie0812 ([#4909](https://github.com/Tencent/tdesign-vue-next/pull/4909))
+  - 修复全选配合选项 `disabled` 状态使用的错误问题 @msg-fobbit ([#4947](https://github.com/Tencent/tdesign-vue-next/pull/4947))
+- `Progress`: 修复 `progress` 为100时，`status` 无效的问题 @rofixro ([#4895](https://github.com/Tencent/tdesign-vue-next/pull/4895))
+- `AutoComplete`: 修复选项为空时显示效果异常的问题 @betavs ([#4907](https://github.com/Tencent/tdesign-vue-next/pull/4907))
+- `Breadcrumb`: 修复 `herf` 和 `to` 同时存在时点击后会先后触发 @rofixro ([#4916](https://github.com/Tencent/tdesign-vue-next/pull/4916))
+- `Table`: 修复不支持默认的键盘横向操作滚动宽表格的问题 @uyarn ([#4904](https://github.com/Tencent/tdesign-vue-next/pull/4904))
+- `ImageViewer`: 修复开启 `closeOnOverlay` 时，点击蒙层关闭存在闪烁情况的问题 @huangchen1031 ([#4931](https://github.com/Tencent/tdesign-vue-next/pull/4931))
+- `ColorPicker`: 修复支持渐变模式下，第一次打开时 `tabs` 位置没有跟随变化的问题 @natural1024 ([#4903](https://github.com/Tencent/tdesign-vue-next/pull/4903))
+- `Cascader`: 修复某一级的 `children` 长度为 `1` 时导致的样式错误问题 @msg-fobbit ([#4951](https://github.com/Tencent/tdesign-vue-next/pull/4951))
+- `Tabs`: 修复可滑动`Tabs`配合`action`使用的样式问题 @Wesley-0808 @tdesign-bot ([#4953](https://github.com/Tencent/tdesign-vue-next/pull/4953))
+- `DatePicker`: 修复日期范围选择器在跨年场景下，周模式选中范围样式缺失的问题 @uyarn ([#4854](https://github.com/Tencent/tdesign-vue-next/pull/4854))
+### 📝 Documentation
+- `Loading`: 移除重复的示例 @RSS1102 ([#4949](https://github.com/Tencent/tdesign-vue-next/pull/4949))
+- `Descriptions`: 添加对于 `labelStyle` 的使用说明 @RSS1102 ([#4950](https://github.com/Tencent/tdesign-vue-next/pull/4950))
+- `Plugin`: 更新插件提示内容 @liweijie0812 ([#4892](https://github.com/Tencent/tdesign-vue-next/pull/4892))
+
+
 ## 🌈 1.10.6 `2024-12-31` 
 ### 🚀 Features
 - `List`: 新增`scrollTo`方法，支持滚动到指定元素，可参考示例使用 @natural1024 ([#4863](https://github.com/Tencent/tdesign-vue-next/pull/4863))
