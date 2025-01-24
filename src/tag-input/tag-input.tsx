@@ -12,7 +12,7 @@ import useTagList from './useTagList';
 import useHover from './hooks/useHover';
 import useDefault from '../hooks/useDefaultValue';
 import useDragSorter from './hooks/useDragSorter';
-import isArray from 'lodash/isArray';
+import { isArray } from 'lodash-es';
 import { useDisabled } from '../hooks/useDisabled';
 import { useReadonly } from '../hooks/useReadonly';
 

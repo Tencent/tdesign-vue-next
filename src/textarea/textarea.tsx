@@ -10,8 +10,8 @@ import {
   StyleValue,
   CSSProperties,
 } from 'vue';
-import merge from 'lodash/merge';
-import isUndefined from 'lodash/isUndefined';
+import { merge } from 'lodash-es';
+import { isUndefined } from 'lodash-es';
 
 import { omit } from '../utils/helper';
 import calcTextareaHeight from './calcTextareaHeight';

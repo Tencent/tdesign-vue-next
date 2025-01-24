@@ -1,5 +1,5 @@
 import { computed, onMounted, TypeRef, useVirtualScroll, TypeScroll, TreeNode } from '../adapt';
-import get from 'lodash/get';
+import { get } from 'lodash-es';
 import { TypeTreeState, TypeTimer } from '../tree-types';
 import log from '../../_common/js/log';
 

@@ -10,8 +10,8 @@ import {
   watch,
   toRefs,
 } from 'vue';
-import isNumber from 'lodash/isNumber';
-import isArray from 'lodash/isArray';
+import { isNumber } from 'lodash-es';
+import { isArray } from 'lodash-es';
 import props from './props';
 import TSliderButton from './slider-button';
 import { SliderValue } from './type';

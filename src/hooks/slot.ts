@@ -10,7 +10,7 @@ import {
   RendererElement,
   VNodeChild,
 } from 'vue';
-import isArray from 'lodash/isArray';
+import { isArray } from 'lodash-es';
 import { getChildren } from '../utils/render-tnode';
 
 /**

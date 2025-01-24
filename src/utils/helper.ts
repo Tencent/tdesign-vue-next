@@ -1,9 +1,9 @@
-import camelCase from 'lodash/camelCase';
-import isUndefined from 'lodash/isUndefined';
-import isNull from 'lodash/isNull';
-import isArray from 'lodash/isArray';
-import isNumber from 'lodash/isNumber';
-import isString from 'lodash/isString';
+import { camelCase } from 'lodash-es';
+import { isUndefined } from 'lodash-es';
+import { isNull } from 'lodash-es';
+import { isArray } from 'lodash-es';
+import { isNumber } from 'lodash-es';
+import { isString } from 'lodash-es';
 
 export function omit(obj: object, fields: string[]): object {
   const shallowCopy = {

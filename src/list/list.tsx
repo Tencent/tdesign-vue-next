@@ -1,6 +1,6 @@
 import { defineComponent, VNodeChild, computed, ref } from 'vue';
-import isString from 'lodash/isString';
-import omit from 'lodash/omit';
+import { isString } from 'lodash-es';
+import { omit } from 'lodash-es';
 import { useTNodeJSX } from '../hooks/tnode';
 import TLoading from '../loading';
 import TListItem from './list-item';

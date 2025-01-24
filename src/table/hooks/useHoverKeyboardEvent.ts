@@ -1,5 +1,5 @@
 import { toRefs, Ref, ref, computed } from 'vue';
-import get from 'lodash/get';
+import { get } from 'lodash-es';
 import { BaseTableProps } from '../interface';
 import { on, off } from '../../utils/dom';
 import {

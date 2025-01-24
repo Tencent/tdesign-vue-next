@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
-import isArray from 'lodash/isArray';
-import isFunction from 'lodash/isFunction';
-import isObject from 'lodash/isObject';
+import { isArray } from 'lodash-es';
+import { isFunction } from 'lodash-es';
+import { isObject } from 'lodash-es';
 
 import type { TdDatePickerProps, TdDateRangePickerProps } from '../type';
 

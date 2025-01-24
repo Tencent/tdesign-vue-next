@@ -4,7 +4,7 @@ import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
 import TLoading from '../loading';
 import props from './props';
-import isString from 'lodash/isString';
+import { isString } from 'lodash-es';
 import { TdCardProps } from './type';
 
 export default defineComponent({

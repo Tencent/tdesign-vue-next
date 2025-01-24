@@ -4,7 +4,6 @@ import { delay } from './kit';
 import { ref } from './adapt';
 import { Icon } from 'tdesign-icons-vue-next';
 import { nextTick } from 'vue';
-import { get } from 'lodash';
 
 describe('Tree:expand', () => {
   vi.useRealTimers();

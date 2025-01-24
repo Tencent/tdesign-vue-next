@@ -6,7 +6,7 @@ import { COMPONENT_NAME } from '../const';
 import { createDefaultCurDate } from '../utils';
 import { TdCalendarProps } from '../type';
 import { CalendarState } from '../interface';
-import isArray from 'lodash/isArray';
+import { isArray } from 'lodash-es';
 
 export function useState(props: TdCalendarProps) {
   const { globalConfig } = useConfig(COMPONENT_NAME);

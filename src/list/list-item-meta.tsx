@@ -2,7 +2,7 @@ import { defineComponent } from 'vue';
 import props from './list-item-meta-props';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useContent, useTNodeJSX } from '../hooks/tnode';
-import isString from 'lodash/isString';
+import { isString } from 'lodash-es';
 
 export default defineComponent({
   name: 'TListItemMeta',

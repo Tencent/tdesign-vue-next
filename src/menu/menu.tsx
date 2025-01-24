@@ -8,8 +8,8 @@ import log from '../_common/js/log/log';
 import { usePrefixClass } from '../hooks/useConfig';
 import useVModel from '../hooks/useVModel';
 import useDefaultValue from '../hooks/useDefaultValue';
-import isNumber from 'lodash/isNumber';
-import isArray from 'lodash/isArray';
+import { isNumber } from 'lodash-es';
+import { isArray } from 'lodash-es';
 
 export default defineComponent({
   name: 'TMenu',

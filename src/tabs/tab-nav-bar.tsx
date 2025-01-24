@@ -4,7 +4,7 @@ import tabProps from './props';
 // hooks
 import { usePrefixClass } from '../hooks/useConfig';
 import useResizeObserver from '../hooks/useResizeObserver';
-import debounce from 'lodash/debounce';
+import { debounce } from 'lodash-es';
 
 export default defineComponent({
   props: {

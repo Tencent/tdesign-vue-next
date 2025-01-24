@@ -1,5 +1,5 @@
 import { computed, defineComponent, h, inject } from 'vue';
-import isFunction from 'lodash/isFunction';
+import { isFunction } from 'lodash-es';
 import { CheckIcon as TdCheckIcon, CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
 
 import props from './step-item-props';

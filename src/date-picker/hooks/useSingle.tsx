@@ -1,6 +1,6 @@
 import { ref, computed, watch } from 'vue';
 import dayjs from 'dayjs';
-import omit from 'lodash/omit';
+import { omit } from 'lodash-es';
 
 import { useDisabled } from '../../hooks/useDisabled';
 import { usePrefixClass } from '../../hooks/useConfig';

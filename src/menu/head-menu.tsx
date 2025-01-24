@@ -14,8 +14,8 @@ import {
   getCurrentInstance,
 } from 'vue';
 import { EllipsisIcon } from 'tdesign-icons-vue-next';
-import isFunction from 'lodash/isFunction';
-import isArray from 'lodash/isArray';
+import { isFunction } from 'lodash-es';
+import { isArray } from 'lodash-es';
 
 import log from '../_common/js/log/log';
 import props from './head-menu-props';

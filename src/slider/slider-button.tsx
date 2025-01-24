@@ -12,7 +12,7 @@ import {
 import TTooltip from '../tooltip/index';
 import { TdSliderProps } from './type';
 
-import isFunction from 'lodash/isFunction';
+import { isFunction } from 'lodash-es';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useSliderTooltip } from './hooks/useSliderTooltip';
 import { sliderPropsInjectKey } from './util/constants';

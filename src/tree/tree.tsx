@@ -1,5 +1,5 @@
-import isFunction from 'lodash/isFunction';
-import upperFirst from 'lodash/upperFirst';
+import { isFunction } from 'lodash-es';
+import { upperFirst } from 'lodash-es';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import {
   defineComponent,

@@ -9,8 +9,8 @@ import { useDisabled } from '../hooks/useDisabled';
 import { useReadonly } from '../hooks/useReadonly';
 import useVModel from '../hooks/useVModel';
 import { useContent } from '../hooks/tnode';
-import isUndefined from 'lodash/isUndefined';
-import isString from 'lodash/isString';
+import { isUndefined } from 'lodash-es';
+import { isString } from 'lodash-es';
 
 function getValidAttrs(obj: Record<string, any>): Record<string, any> {
   const newObj = {};

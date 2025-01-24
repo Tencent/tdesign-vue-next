@@ -1,5 +1,5 @@
 import { defineComponent, PropType, ref, watch } from 'vue';
-import upperCase from 'lodash/upperCase';
+import { upperCase } from 'lodash-es';
 import { TdColorPickerProps } from '../../type';
 import props from '../../props';
 import { FORMATS } from '../../../_common/js/color-picker/constants';

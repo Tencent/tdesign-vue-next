@@ -1,6 +1,6 @@
 import { defineComponent, computed, toRefs } from 'vue';
-import pick from 'lodash/pick';
-import isFunction from 'lodash/isFunction';
+import { pick } from 'lodash-es';
+import { isFunction } from 'lodash-es';
 
 import TransferList from './components/transfer-list';
 import TransferOperations from './components/transfer-operations';
