@@ -1,7 +1,7 @@
 import { positiveSubtract, positiveAdd } from '../_common/js/input-number/number';
 import { ref, watch } from 'vue';
 import { ImageScale } from './type';
-import throttle from 'lodash/throttle';
+import { throttle } from 'lodash-es';
 
 interface InitTransform {
   translateX: number;

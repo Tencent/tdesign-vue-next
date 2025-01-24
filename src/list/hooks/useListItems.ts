@@ -1,5 +1,5 @@
 import { computed } from 'vue';
-import isArray from 'lodash/isArray';
+import { isArray } from 'lodash-es';
 
 import { useChildComponentSlots } from '../../hooks/slot';
 

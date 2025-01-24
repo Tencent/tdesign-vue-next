@@ -15,9 +15,9 @@ import Search from './transfer-search';
 import { useTNodeDefault } from '../../hooks/tnode';
 
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
-import isString from 'lodash/isString';
-import filter from 'lodash/filter';
-import cloneDeep from 'lodash/cloneDeep';
+import { isString } from 'lodash-es';
+import { filter } from 'lodash-es';
+import { cloneDeep } from 'lodash-es';
 import useDragSort from '../hooks/useDragSort';
 
 const props = {

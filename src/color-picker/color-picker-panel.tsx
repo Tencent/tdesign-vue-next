@@ -2,7 +2,7 @@ import { computed, defineComponent } from 'vue';
 import props from './props';
 import ColorPanel from './panel';
 import { usePrefixClass } from '../hooks/useConfig';
-import pickBy from 'lodash/pickBy';
+import { pickBy } from 'lodash-es';
 
 export default defineComponent({
   name: 'TColorPickerPanel',

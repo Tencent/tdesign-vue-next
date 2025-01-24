@@ -1,6 +1,6 @@
 import { defineComponent, ref, toRefs, watch, computed } from 'vue';
 import dayjs from 'dayjs';
-import isArray from 'lodash/isArray';
+import { isArray } from 'lodash-es';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { TimeIcon as TdTimeIcon } from 'tdesign-icons-vue-next';
 

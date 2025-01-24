@@ -1,13 +1,13 @@
 import { ref, computed, defineComponent, PropType, h, watch, onBeforeUnmount } from 'vue';
-import isFunction from 'lodash/isFunction';
+import { isFunction } from 'lodash-es';
 import HighlightOption from './highlight-option';
 import { CommonClassNameType } from '../hooks/useCommonClassName';
 import { AutoCompleteOptionObj, TdAutoCompleteProps } from './type';
 import log from '../_common/js/log';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { on, off } from '../utils/dom';
-import isString from 'lodash/isString';
-import escapeRegExp from 'lodash/escapeRegExp';
+import { isString } from 'lodash-es';
+import { escapeRegExp } from 'lodash-es';
 import { ARROW_UP_REG, ARROW_DOWN_REG, ENTER_REG } from '../_common/js/common';
 
 export default defineComponent({

@@ -7,7 +7,7 @@ import { isTextEllipsis } from '../utils/dom';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
-import isFunction from 'lodash/isFunction';
+import { isFunction } from 'lodash-es';
 
 interface LocalTBreadcrumb {
   separator: (() => void) | string;

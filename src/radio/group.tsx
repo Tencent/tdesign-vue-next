@@ -12,10 +12,10 @@ import {
   toRefs,
   onUnmounted,
 } from 'vue';
-import isString from 'lodash/isString';
-import isNumber from 'lodash/isNumber';
-import isNil from 'lodash/isNil';
-import throttle from 'lodash/throttle';
+import { isString } from 'lodash-es';
+import { isNumber } from 'lodash-es';
+import { isNil } from 'lodash-es';
+import { throttle } from 'lodash-es';
 
 import props from './radio-group-props';
 import { RadioOptionObj, RadioOption } from './type';
@@ -26,7 +26,7 @@ import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import useVModel from '../hooks/useVModel';
 import { useTNodeDefault } from '../hooks/tnode';
 import useKeyboard from './useKeyboard';
-import isFunction from 'lodash/isFunction';
+import { isFunction } from 'lodash-es';
 import { useMutationObserver } from '../watermark/hooks';
 import type { UseMutationObserverReturn } from '../watermark/hooks';
 import useResizeObserver from '../hooks/useResizeObserver';

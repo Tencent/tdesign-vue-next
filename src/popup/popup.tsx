@@ -1,8 +1,8 @@
 import { createPopper, Placement } from '@popperjs/core';
-import isFunction from 'lodash/isFunction';
-import isObject from 'lodash/isObject';
-import debounce from 'lodash/debounce';
-import isString from 'lodash/isString';
+import { isFunction } from 'lodash-es';
+import { isObject } from 'lodash-es';
+import { debounce } from 'lodash-es';
+import { isString } from 'lodash-es';
 import {
   computed,
   defineComponent,

@@ -48,7 +48,7 @@
 </template>
 
 <script lang="tsx" setup>
-import isNumber from 'lodash/isNumber';
+import { isNumber } from 'lodash-es';
 import { ref, computed } from 'vue';
 import { DateRangePickerPanel, TableProps, ButtonProps, BaseTableCol, FilterValue, InputProps } from 'tdesign-vue-next';
 import { ErrorCircleFilledIcon, CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';

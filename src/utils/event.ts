@@ -1,6 +1,6 @@
 import { ComponentPublicInstance } from 'vue';
-import isFunction from 'lodash/isFunction';
-import isString from 'lodash/isString';
+import { isFunction } from 'lodash-es';
+import { isString } from 'lodash-es';
 
 import { getPropsApiByEvent } from './helper';
 export type EmitEventName = { event: string; method: string } | string;

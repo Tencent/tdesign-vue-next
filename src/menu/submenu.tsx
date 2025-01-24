@@ -20,7 +20,7 @@ import FakeArrow from '../common-components/fake-arrow';
 import useRipple from '../hooks/useRipple';
 import { usePrefixClass } from '../hooks/useConfig';
 import { Popup, PopupPlacement } from '../popup';
-import isFunction from 'lodash/isFunction';
+import { isFunction } from 'lodash-es';
 import { TdSubmenuProps } from './type';
 import useCollapseAnimation from '../hooks/useCollapseAnimation';
 

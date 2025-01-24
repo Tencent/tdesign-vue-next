@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import merge from 'lodash/merge';
+import { merge } from 'lodash-es';
 import enConfig from 'tdesign-vue-next/es/locale/en_US';
 
 const MONTHS = [

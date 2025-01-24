@@ -46,7 +46,7 @@
 </template>
 
 <script lang="tsx" setup>
-import cloneDeep from 'lodash/cloneDeep';
+import { cloneDeep } from 'lodash-es';
 import { ref, watch } from 'vue';
 import {
   EnhancedTable as TEnhancedTable,

@@ -1,6 +1,6 @@
 import { defineComponent, PropType, ref, h } from 'vue';
 import { FilterIcon as TdFilterIcon } from 'tdesign-icons-vue-next';
-import isEmpty from 'lodash/isEmpty';
+import { isEmpty } from 'lodash-es';
 import Popup, { PopupProps } from '../popup';
 import { CheckboxGroup } from '../checkbox';
 import { RadioGroup } from '../radio';
@@ -11,7 +11,7 @@ import { PrimaryTableCol, FilterValue, TdPrimaryTableProps } from './type';
 import { useConfig } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { AttachNode } from '../common';
-import isFunction from 'lodash/isFunction';
+import { isFunction } from 'lodash-es';
 import { TableConfig } from '../config-provider';
 
 export interface TableFilterControllerProps {

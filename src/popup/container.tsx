@@ -15,7 +15,7 @@ import {
 } from 'vue';
 import props from './props';
 import useResizeObserver from '../hooks/useResizeObserver';
-import isArray from 'lodash/isArray';
+import { isArray } from 'lodash-es';
 import { getSSRAttach, getAttach } from '../utils/dom';
 
 function filterEmpty(children: VNode[] = []) {

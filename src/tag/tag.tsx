@@ -1,6 +1,6 @@
 import { computed, defineComponent, getCurrentInstance, h, VNode } from 'vue';
 import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
-import isString from 'lodash/isString';
+import { isString } from 'lodash-es';
 import tinycolor from 'tinycolor2';
 
 import props from './props';

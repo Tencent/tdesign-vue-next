@@ -1,8 +1,8 @@
 import { computed, Ref } from 'vue';
-import omit from 'lodash/omit';
+import { omit } from 'lodash-es';
 import { TdSliderProps } from '../type';
 import InputNumber, { InputNumberProps, ChangeContext } from '../../input-number';
-import isBoolean from 'lodash/isBoolean';
+import { isBoolean } from 'lodash-es';
 
 interface useSliderInputProps {
   inputNumberProps: boolean | TdSliderProps['inputNumberProps'];
