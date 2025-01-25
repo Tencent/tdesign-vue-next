@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils';
 import { describe, expect, it, vi } from 'vitest';
 import { CloseCircleFilledIcon, AppIcon, CloseIcon } from 'tdesign-icons-vue-next';
 import { nextTick, ref } from 'vue';
-import TagInput from '@/src/tag-input/index.ts';
+import TagInput from '@src/tag-input/index.ts';
 
 describe('TagInput', () => {
   describe(':props', () => {

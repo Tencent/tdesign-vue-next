@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { Text, Title, Paragraph } from '@/src/typography/index.ts';
+import { Text, Title, Paragraph } from '@src/typography/index.ts';
 import { nextTick } from 'vue';
 
 describe('Typography', () => {

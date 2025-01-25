@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { expect, it } from 'vitest';
 import { nextTick, ref } from 'vue';
-import Skeleton from '@/src/skeleton/index.ts';
+import Skeleton from '@src/skeleton/index.ts';
 
 // every component needs four parts: props/events/slots/functions.
 describe('Skeleton', () => {

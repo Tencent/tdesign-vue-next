@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { it, expect, vi } from 'vitest';
 import { nextTick } from 'vue';
-import Avatar, { AvatarGroup } from '@/src/avatar/index.ts';
+import Avatar, { AvatarGroup } from '@src/avatar/index.ts';
 import { UserIcon } from 'tdesign-icons-vue-next';
 
 // every component needs four parts: props/events/slots/functions.

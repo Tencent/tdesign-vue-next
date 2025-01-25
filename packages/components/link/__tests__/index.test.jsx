@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
-import Link from '@/src/link/index';
+import Link from '@src/link/index';
 
 // every component needs four parts: props/events/slots/functions.
 describe('Link', () => {

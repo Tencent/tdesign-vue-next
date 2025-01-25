@@ -3,7 +3,7 @@ import { mount } from '@vue/test-utils';
 import { expect } from 'vitest';
 import { CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { FormItem, Form } from '../index.ts';
-import { Input } from '@/src/index.ts';
+import { Input } from '@src/index.ts';
 
 describe('FormItem', () => {
   describe(':props', () => {

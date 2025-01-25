@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
-import Space from '@/src/space/index.ts';
-import Button from '@/src/button/index.ts';
-import Divider from '@/src/divider/index.ts';
+import Space from '@src/space/index.ts';
+import Button from '@src/button/index.ts';
+import Divider from '@src/divider/index.ts';
 
 describe('Space', () => {
   describe(':props', () => {

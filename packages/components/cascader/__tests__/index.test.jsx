@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Cascader from '@/src/cascader/index.ts';
+import Cascader from '@src/cascader/index.ts';
 
 const options = [
   {

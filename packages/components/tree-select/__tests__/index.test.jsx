@@ -1,6 +1,6 @@
 import { expect, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
-import TreeSelect from '@/src/tree-select/index.ts';
+import TreeSelect from '@src/tree-select/index.ts';
 
 const options = [
   {

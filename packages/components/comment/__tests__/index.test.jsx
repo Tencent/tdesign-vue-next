@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { it, expect } from 'vitest';
 import { ThumbUpIcon, ChartIcon } from 'tdesign-icons-vue-next';
-import Comment from '@/src/comment/index.ts';
+import Comment from '@src/comment/index.ts';
 
 describe('Comment', () => {
   describe(':props', () => {

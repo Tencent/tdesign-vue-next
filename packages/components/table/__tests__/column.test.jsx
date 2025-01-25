@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { Table, BaseTable, PrimaryTable, EnhancedTable } from '@/src/table/index.ts';
+import { Table, BaseTable, PrimaryTable, EnhancedTable } from '@src/table/index.ts';
 
 const data = new Array(5).fill(null).map((item, index) => ({
   id: index + 100,

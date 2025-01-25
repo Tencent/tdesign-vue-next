@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { AutoComplete } from '@/src/auto-complete/index.ts';
+import { AutoComplete } from '@src/auto-complete/index.ts';
 
 const options = ['第一个默认联想词', '第二个默认联想词', '第三个默认联想词'];
 describe('Anchor', () => {

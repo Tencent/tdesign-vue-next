@@ -8,7 +8,7 @@ export const resolveConfig = {
   alias: {
     '@': path.resolve(__dirname, '../'),
     '@test': path.resolve(__dirname, '../test'),
-    '@/src': path.resolve(__dirname, '../packages/components/'),
+    '@src': path.resolve(__dirname, '../packages/components/'),
     '@common': path.resolve(__dirname, '../packages/components/_common'),
     'tdesign-vue-next/es': path.resolve(__dirname, '../packages/components'),
     'tdesign-vue-next': path.resolve(__dirname, '../packages/components'),

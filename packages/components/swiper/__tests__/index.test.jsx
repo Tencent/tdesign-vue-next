@@ -1,7 +1,7 @@
 import { nextTick, ref } from 'vue';
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
-import Swiper, { SwiperItem } from '@/src/swiper/index.ts';
+import Swiper, { SwiperItem } from '@src/swiper/index.ts';
 
 describe('Swiper', () => {
   describe(':props', () => {

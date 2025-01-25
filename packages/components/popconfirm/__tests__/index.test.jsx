@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Popconfirm from '@/src/popconfirm/index.ts';
+import Popconfirm from '@src/popconfirm/index.ts';
 
 // every component needs four parts: props/events/slots/functions.
 describe('Popconfirm', () => {

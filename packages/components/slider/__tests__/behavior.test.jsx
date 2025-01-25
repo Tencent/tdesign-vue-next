@@ -3,7 +3,7 @@ import { vi } from 'vitest';
 
 import { nextTick } from 'vue';
 import { describe, expect, it } from 'vitest';
-import Slider from '@/src/slider/index.ts';
+import Slider from '@src/slider/index.ts';
 
 const inputNumberPropsInitData = {
   decimalPlaces: 0,

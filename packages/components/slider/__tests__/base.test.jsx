@@ -3,8 +3,8 @@
 import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 import { describe, expect, it } from 'vitest';
-import Slider from '@/src/slider/index.ts';
-import { formatLabel } from '@/src/slider/util/common.ts';
+import Slider from '@src/slider/index.ts';
+import { formatLabel } from '@src/slider/util/common.ts';
 
 // ui test
 describe('Slider', () => {

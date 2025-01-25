@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Tree from '@/src/tree/index.ts';
+import Tree from '@src/tree/index.ts';
 
 describe('Tree:keys', () => {
   vi.useRealTimers();

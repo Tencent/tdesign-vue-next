@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
-import { Timeline, TimelineItem } from '@/src/timeline/index.ts';
-import Loading from '@/src/loading/index.ts';
+import { Timeline, TimelineItem } from '@src/timeline/index.ts';
+import Loading from '@src/loading/index.ts';
 
 describe('TimeLine', () => {
   describe(':base', () => {

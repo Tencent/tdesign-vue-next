@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
-import Switch from '@/src/switch/index.ts';
+import Switch from '@src/switch/index.ts';
 
 describe('switch', () => {
   describe('behavior test', () => {

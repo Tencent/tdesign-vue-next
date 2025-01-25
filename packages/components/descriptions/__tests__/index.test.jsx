@@ -2,7 +2,7 @@ import { it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 import { getDescriptionsMount } from './mount';
-import Descriptions, { DescriptionsItem } from '@/src/descriptions/index.ts';
+import Descriptions, { DescriptionsItem } from '@src/descriptions/index.ts';
 import CustomComp from './custom-comp.vue';
 
 const sizeList = ['small', 'medium', 'large'];

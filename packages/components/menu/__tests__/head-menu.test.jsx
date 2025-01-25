@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { HeadMenu } from '@/src/menu';
+import { HeadMenu } from '@src/menu';
 
 // every component needs four parts: props/events/slots/functions.
 describe('HeadMenu', () => {

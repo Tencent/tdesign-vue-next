@@ -2,7 +2,7 @@ import { mount, shallowMount } from '@vue/test-utils';
 import { nextTick, template } from 'vue';
 import { expect, vi } from 'vitest';
 import { Dropdown, DropdownMenu, DropdownItem } from '../index';
-import { Button } from '@/src/button/index';
+import { Button } from '@src/button/index';
 
 // every component needs four parts: props/events/slots/functions.
 describe('Dropdown', () => {

@@ -1,7 +1,7 @@
 import { nextTick, ref } from 'vue';
 import { mount } from '@vue/test-utils';
 import { expect, it, vi } from 'vitest';
-import Textarea from '@/src/textarea/index.ts';
+import Textarea from '@src/textarea/index.ts';
 
 const statusList = ['success', 'warning', 'error'];
 
