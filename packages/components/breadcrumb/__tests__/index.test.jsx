@@ -3,7 +3,7 @@ import { nextTick } from 'vue';
 import { expect, vi } from 'vitest';
 import { Breadcrumb, BreadcrumbItem } from '@/src/breadcrumb/index';
 
-const _mount = (render, $router = {}) =>
+const innerMount = (render, $router = {}) =>
   mount(render, {
     global: {
       provide: {
@@ -133,7 +133,7 @@ describe('BreadcrumbItem', () => {
     });
     it('to', async () => {
       const push = vi.fn();
-      const wrapper = _mount(
+      const wrapper = innerMount(
         {
           render() {
             return (
@@ -153,7 +153,7 @@ describe('BreadcrumbItem', () => {
     });
     it('replace', async () => {
       const replace = vi.fn();
-      const wrapper = _mount(
+      const wrapper = innerMount(
         {
           render() {
             return (
