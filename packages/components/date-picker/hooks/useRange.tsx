@@ -5,7 +5,7 @@ import { omit } from 'lodash-es';
 import { useTNodeJSX } from '../../hooks/tnode';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 import { usePrefixClass, useConfig } from '../../hooks/useConfig';
-import { useReadonly } from '../../../src/hooks/useReadonly';
+import { useReadonly } from '../../hooks/useReadonly';
 
 import { TdDateRangePickerProps, DateValue } from '../type';
 import { isValidDate, formatDate, getDefaultFormat, parseToDayjs } from '../../_common/js/date-picker/format';

@@ -1,4 +1,4 @@
-import { TooltipProps } from '@src/tooltip';
+import { TooltipProps } from '../../tooltip';
 import { ref, computed, ComputedRef, Ref } from 'vue';
 import { TdSliderProps } from '../type';
 import { formatLabel } from '../util/common';
