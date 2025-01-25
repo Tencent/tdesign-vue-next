@@ -22,7 +22,7 @@ import pkg from '../package.json';
 const name = 'tdesign';
 
 const esExternalDeps = Object.keys(pkg.dependencies || {});
-const externalDeps = esExternalDeps.concat([/lodash/, /@babel\/runtime/]);
+const externalDeps = esExternalDeps.concat([/@babel\/runtime/]);
 const externalPeerDeps = Object.keys(pkg.peerDependencies || {});
 const banner = `/**
  * ${name} v${pkg.version}
@@ -233,7 +233,7 @@ const umdConfig = {
     banner,
     format: 'umd',
     exports: 'named',
-    globals: { vue: 'Vue', lodash: '_' },
+    globals: { vue: 'Vue' },
     sourcemap: true,
     file: `dist/${name}.js`,
   },
@@ -253,7 +253,7 @@ const umdMinConfig = {
     banner,
     format: 'umd',
     exports: 'named',
-    globals: { vue: 'Vue', lodash: '_' },
+    globals: { vue: 'Vue' },
     sourcemap: true,
     file: `dist/${name}.min.js`,
   },
