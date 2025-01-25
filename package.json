@@ -69,7 +69,7 @@
     "lint": "npm run lint:tsc && eslint --ext .vue,.js,.ts,.tsx ./packages --max-warnings 0 --cache",
     "lint:tsc": "tsc --emitDeclarationOnly",
     "test": "npm run test:unit && npm run test:snap",
-    "test:unit": "vitest run ",
+    "test:unit": "vitest run",
     "test:update": "vitest run  -u && npm run test:snap-update",
     "test:unit-dev": "vitest ",
     "test:unit-gui": "vitest  --ui",
