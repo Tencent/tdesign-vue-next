@@ -5,6 +5,7 @@ import { Select, OptionGroup, Option } from '@/src/select/index.ts';
 import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
 const options = [
+  { label: '全选', checkAll: true }, // 添加 checkAll 选项
   { label: '架构云', value: '1' },
   { label: '大数据', value: '2' },
   { label: '区块链', value: '3' },
@@ -28,7 +29,7 @@ describe('Select', () => {
       await wrapper.setProps({ popupProps: { visible: true } });
 
       const panelNode = document.querySelector('.t-select__list');
-      expect(document.querySelectorAll('.t-select-option').length).toBe(6);
+      expect(document.querySelectorAll('.t-select-option').length).toBe(7);
       expect(document.querySelectorAll('.t-is-disabled').length).toBe(1);
       expect(document.querySelectorAll('p').length).toBe(1);
       panelNode.parentNode.removeChild(panelNode);
@@ -43,7 +44,7 @@ describe('Select', () => {
       await wrapper.setProps({ popupProps: { visible: true } });
 
       const panelNode = document.querySelector('.t-select__list');
-      expect(document.querySelectorAll('.t-checkbox').length).toBe(6);
+      expect(document.querySelectorAll('.t-checkbox').length).toBe(7);
       panelNode.parentNode.removeChild(panelNode);
     });
   });
@@ -310,5 +311,49 @@ describe('Select OptionGroup', () => {
       });
       panelNode.parentNode.removeChild(panelNode);
     });
+  });
+});
+describe('Select CheckAll with Disabled Option', () => {
+  const setupTest = async (initialValue) => {
+    const value = ref(initialValue);
+    const wrapper = mount({
+      setup() {
+        return { value };
+      },
+      render() {
+        return <Select v-model={value.value} options={options} multiple />;
+      },
+    });
+
+    await wrapper.setProps({ popupProps: { visible: true } });
+    const checkAllCheckbox = document.querySelector('li[title="全选"] .t-checkbox');
+
+    return {
+      value,
+      wrapper,
+      checkAllCheckbox,
+      cleanup: () => {
+        const panelNode = document.querySelector('.t-select__list');
+        panelNode.parentNode.removeChild(panelNode);
+      },
+    };
+  };
+
+  it('should keep disabled option state consistent regardless of checkAll', async () => {
+    // 测试 disabled 选项默认选中
+    let { value, checkAllCheckbox, cleanup } = await setupTest(['1', '4']);
+    await checkAllCheckbox.click();
+    expect(value.value).toContain('4');
+    await checkAllCheckbox.click();
+    expect(value.value).toContain('4');
+    cleanup();
+
+    // 测试 disabled 选项默认未选中
+    ({ value, checkAllCheckbox, cleanup } = await setupTest([]));
+    await checkAllCheckbox.click();
+    expect(value.value).not.toContain('4');
+    await checkAllCheckbox.click();
+    expect(value.value).not.toContain('4');
+    cleanup();
   });
 });
