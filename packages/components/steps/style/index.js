@@ -1,1 +1,1 @@
-import '../../_common/style/web/components/steps/_index.less';
+import '../../../common/style/web/components/steps/_index.less';

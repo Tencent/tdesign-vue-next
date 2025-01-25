@@ -1,5 +1,5 @@
 import { onBeforeUnmount, onMounted, Ref, ref, watch } from 'vue';
-import observe from '../_common/js/utils/observe';
+import observe from '../../common/js/utils/observe';
 
 export function useElementLazyRender(labelRef: Ref<HTMLElement>, lazyLoad: Ref<boolean>) {
   const ioObserver = ref<IntersectionObserver>();

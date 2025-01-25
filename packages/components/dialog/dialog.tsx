@@ -13,7 +13,7 @@ import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useAction, useSameTarget } from './hooks';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import useDestroyOnClose from '../hooks/useDestroyOnClose';
-import { getScrollbarWidth } from '../_common/js/utils/getScrollbarWidth';
+import { getScrollbarWidth } from '../../common/js/utils/getScrollbarWidth';
 
 import type { TdDialogProps } from './type';
 import useTeleport from '../hooks/useTeleport';

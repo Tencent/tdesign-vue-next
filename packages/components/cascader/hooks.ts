@@ -3,7 +3,7 @@ import { isEqual } from 'lodash-es';
 import { isFunction } from 'lodash-es';
 import { isString } from 'lodash-es';
 
-import TreeStore from '../_common/js/tree/tree-store';
+import TreeStore from '../../common/js/tree/tree-store';
 import { useDisabled } from '../hooks/useDisabled';
 import useVModel from '../hooks/useVModel';
 import useDefaultValue from '../hooks/useDefaultValue';

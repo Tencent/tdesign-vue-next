@@ -1,2 +1,2 @@
-import '../_common/style/web/_global.less';
-import '../_common/style/web/theme/_index.less';
+import '../../common/style/web/_global.less';
+import '../../common/style/web/theme/_index.less';

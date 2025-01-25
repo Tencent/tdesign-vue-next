@@ -30,7 +30,7 @@ import {
   FILE_WORD_REGEXP,
   FILE_PPT_REGEXP,
   VIDEO_REGEXP,
-} from '../../_common/js/upload/utils';
+} from '../../../common/js/upload/utils';
 import TLoading from '../../loading';
 import { useTNodeJSX } from '../../hooks';
 import Link from '../../link';

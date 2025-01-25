@@ -109,7 +109,11 @@ const getPlugins = ({
     plugins.push(
       staticImport({
         baseDir: 'packages/components',
-        include: ['packages/components/**/style/index.js', 'packages/components/_common/style/web/**/*.less'],
+        include: ['packages/components/**/style/index.js'],
+      }),
+      staticImport({
+        baseDir: 'packages/common',
+        include: ['packages/common/style/web/**/*.less'],
       }),
       ignoreImport({
         include: ['packages/components/*/style/*'],
@@ -270,7 +274,7 @@ const umdMinConfig = {
 
 // 单独导出 reset.css 到 dist 目录，兼容旧版本样式
 const resetCss = {
-  input: 'packages/components/_common/style/web/_reset.less',
+  input: 'packages/common/style/web/_reset.less',
   output: {
     file: 'dist/reset.css',
   },
@@ -279,7 +283,7 @@ const resetCss = {
 
 // 单独导出 plugin 相关组件的样式，支持修改前缀的但因为上下文暂时无法获取的情况使用
 const pluginCss = {
-  input: 'packages/components/_common/style/web/_plugin.less',
+  input: 'packages/common/style/web/_plugin.less',
   output: {
     file: 'dist/plugin.css',
   },

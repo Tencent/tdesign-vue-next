@@ -1,7 +1,7 @@
 import { defineComponent, PropType, ref, watch } from 'vue';
 
 import props from '../props';
-import { COLOR_MODES } from '../../_common/js/color-picker/constants';
+import { COLOR_MODES } from '../../../common/js/color-picker/constants';
 import { RadioGroup as TRadioGroup, RadioButton as TRadioButton } from '../../radio';
 import { TdColorModes } from '../interfaces';
 import { useBaseClassName } from '../hooks';

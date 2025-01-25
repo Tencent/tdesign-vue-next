@@ -12,7 +12,7 @@ import {
   SHIFT_REG,
   CLEAR_REG,
   ALL_REG,
-} from '../../_common/js/common';
+} from '../../../common/js/common';
 
 /**
  * 行高亮功能，支持键盘操作
