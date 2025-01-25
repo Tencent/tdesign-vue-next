@@ -1,19 +1,12 @@
 {
-  "extends": [
-    "plugin:@typescript-eslint/recommended",
-    "plugin:vue/vue3-recommended",
-    "plugin:prettier/recommended"
-  ],
+  "extends": ["plugin:@typescript-eslint/recommended", "plugin:vue/vue3-recommended", "plugin:prettier/recommended"],
   "env": {
     "browser": true,
     "node": true,
     "jest": true,
     "es6": true
   },
-  "plugins": [
-    "vue",
-    "@typescript-eslint"
-  ],
+  "plugins": ["vue", "@typescript-eslint"],
   "globals": {
     "cy": "readonly",
     "Cypress": "readonly",
@@ -31,12 +24,7 @@
     }
   },
   "settings": {
-    "import/extensions": [
-      ".js",
-      ".jsx",
-      ".ts",
-      ".tsx"
-    ]
+    "import/extensions": [".js", ".jsx", ".ts", ".tsx"]
   },
   "rules": {
     "no-console": [
@@ -49,8 +37,8 @@
     "no-continue": "off",
     "no-restricted-syntax": "off",
     "no-plusplus": "off",
-    "no-param-reassign":  "off",
-    "no-shadow":  "off",
+    "no-param-reassign": "off",
+    "no-shadow": "off",
     "no-underscore-dangle": ["error"],
     "no-unused-vars": "off",
     "no-unused-expressions": "off",
@@ -70,7 +58,7 @@
     "import/no-extraneous-dependencies": "off",
     "import/prefer-default-export": "off",
     "import/no-relative-packages": "off",
-    
+
     // typescript config
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
@@ -78,7 +66,7 @@
     "@typescript-eslint/no-var-requires": 0,
     "@typescript-eslint/prefer-for-of": 0,
     "@typescript-eslint/ban-types": 0,
-    "@typescript-eslint/no-unused-vars":  [
+    "@typescript-eslint/no-unused-vars": [
       1,
       {
         "argsIgnorePattern": "^_",
@@ -89,7 +77,18 @@
     "@typescript-eslint/ban-ts-comment": 0,
     "vue/require-default-prop": 0,
     "vue/multi-word-component-names": 0,
-    "vue/no-deprecated-slot-attribute": 0
+    "vue/no-deprecated-slot-attribute": 0,
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "lodash",
+            "message": "Please use lodash-es instead."
+          }
+        ]
+      }
+    ]
   },
   "overrides": [
     {
@@ -100,15 +99,7 @@
       }
     },
     {
-      "files": [
-        "**/_example/*",
-        "**/_example-ts/*",
-        "script/**/*",
-        "script/*",
-        "*.js",
-        "site/**/*",
-        "site/*"
-      ],
+      "files": ["**/_example/*", "**/_example-ts/*", "script/**/*", "script/*", "*.js", "site/**/*", "site/*"],
       "rules": {
         "no-var-requires": 0,
         "no-console": 0,
@@ -117,18 +108,13 @@
       }
     },
     {
-      "files": [
-        "*.ts",
-        "*.tsx"
-      ],
+      "files": ["*.ts", "*.tsx"],
       "rules": {
         "@typescript-eslint/explicit-function-return-type": 0
       }
     },
     {
-      "files": [
-        "*.test.js"
-      ],
+      "files": ["*.test.js"],
       "rules": {
         "import/no-dynamic-require": "off",
         "global-require": "off"
