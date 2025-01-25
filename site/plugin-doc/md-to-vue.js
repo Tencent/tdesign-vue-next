@@ -2,7 +2,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { compileUsage, getGitTimestamp } from '../../packages/components/_common/docs/compile';
+import { compileUsage, getGitTimestamp } from '../../packages/common/docs/compile';
 import camelCase from 'camelcase';
 
 import testCoverage from '../test-coverage';
