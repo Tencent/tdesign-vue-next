@@ -62,7 +62,7 @@ Vue.createApp({}).use(TDesign)
 -- | -- | -- | -- | --
 alert | Object | - | 警告全局配置。TS 类型：`AlertConfig` | N
 anchor | Object | - | 锚点全局配置。TS 类型：`AnchorConfig` | N
-animation | Object | - | 动画效果控制，`ripple` 指波纹动画， `expand` 指展开动画，`fade` 指渐变动画。默认为 `{ include: ['ripple','expand','fade'], exclude: [] }`。TS 类型：`Partial<Record<'include'\|'exclude', Array<AnimationType>>>` `type AnimationType = 'ripple' \| 'expand' \| 'fade'`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
+animation | Object | - | 动画效果控制，`ripple` 指波纹动画， `expand` 指展开动画，`fade` 指渐变动画。默认为 `{ include: ['ripple','expand','fade'], exclude: [] }`。TS 类型：`Partial<Record<'include'\|'exclude', Array<AnimationType>>>` `type AnimationType = 'ripple' \| 'expand' \| 'fade'`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/config-provider/type.ts) | N
 calendar | Object | - | 日历组件全局配置。TS 类型：`CalendarConfig` | N
 cascader | Object | - | 级联选择器全局配置。TS 类型：`CascaderConfig` | N
 classPrefix | String | t | CSS 类名前缀 | N
@@ -73,7 +73,7 @@ dialog | Object | - | 对话框全局配置。TS 类型：`DialogConfig` | N
 drawer | Object | - | 抽屉全局配置。TS 类型：`DrawerConfig` | N
 form | Object | - | 表单组件全局配置。TS 类型：`FormConfig` | N
 guide | Object | - | 引导全局配置。TS 类型：`GuideConfig` | N
-icon | Object | - | 图标全局配置。TS 类型：`IconConfig` `type IconConfig = GlobalIconConfig` `import { GlobalIconConfig } from '@icon'`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
+icon | Object | - | 图标全局配置。TS 类型：`IconConfig` `type IconConfig = GlobalIconConfig` `import { GlobalIconConfig } from '@icon'`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/config-provider/type.ts) | N
 image | Object | - | 图片全局配置。TS 类型：`ImageConfig` | N
 imageViewer | Object | - | 图片预览器全局配置。TS 类型：`ImageViewerConfig` | N
 input | Object | - | 输入框组件全局配置。TS 类型：`InputConfig` | N
@@ -114,7 +114,7 @@ total | String | - | 语言配置，数据总条数文本，示例：`'共 {tota
 名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
 cellMonth | String | - | 语言配置，月份描述文本，示例：'一月,二月,三月,四月,五月,六月,七月,八月,九月,十月,十一月,十二月' | N
-controllerConfig | Object | - | 日历右上角控制器按钮配置。TS 类型：`CalendarController`，[Calendar API Documents](./calendar?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
+controllerConfig | Object | - | 日历右上角控制器按钮配置。TS 类型：`CalendarController`，[Calendar API Documents](./calendar?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/config-provider/type.ts) | N
 fillWithZero | Boolean | true | 当日期数字小于 10 时，是否使用 '0' 填充 | N
 firstDayOfWeek | Number | 1 | 第一天从星期几开始。可选项：1/2/3/4/5/6/7 | N
 hideWeekend | String | - | 语言配置，“隐藏周末”描述文本 | N
@@ -181,7 +181,7 @@ placeholder | Object | - | 占位符文本提示，默认值：`{ date: '请选�
 preDecade | String | - | 语言配置，“上个十年” 描述文本 | N
 preMonth | String | - | 语言配置，“上个月” 描述文本 | N
 preYear | String | - | 语言配置，“上一年” 描述文本 | N
-presets | Object | - | 【暂不支持，讨论确认中】预设快捷日期选择，示例：`{ '元旦': '2021-01-01', '昨天':  dayjs().subtract(1, 'day').format('YYYY-MM-DD'), '特定日期': () => ['2021-02-01'] }`。TS 类型：`ConfigPresetDate` `interface ConfigPresetDate { [name: string]: DateConfigValue \| (() => DateConfigValue) }` `type DateConfigValue = string \| Date \| Array<DateConfigValue>`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
+presets | Object | - | 【暂不支持，讨论确认中】预设快捷日期选择，示例：`{ '元旦': '2021-01-01', '昨天':  dayjs().subtract(1, 'day').format('YYYY-MM-DD'), '特定日期': () => ['2021-02-01'] }`。TS 类型：`ConfigPresetDate` `interface ConfigPresetDate { [name: string]: DateConfigValue \| (() => DateConfigValue) }` `type DateConfigValue = string \| Date \| Array<DateConfigValue>`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/config-provider/type.ts) | N
 quarters | Array | - | 季度文本描述，默认值：['1 季度', '2 季度', '3 季度', '4 季度']。TS 类型：`string[]` | N
 rangeSeparator | String | - | 语言配置，“ 至 ” 范围分隔符描述文本，示例：' ~ ' | N
 selectDate | String | - | 语言配置，“选择日期” 描述文本 | N
@@ -194,7 +194,7 @@ yearAriaLabel | String | - | 语言配置，“年” 描述文本 | N
 
 名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
-cancel | Object | - | 取消按钮风格。TS 类型：`string \| ButtonProps`，[Button API Documents](./button?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
+cancel | Object | - | 取消按钮风格。TS 类型：`string \| ButtonProps`，[Button API Documents](./button?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/config-provider/type.ts) | N
 closeOnEscKeydown | Boolean | true | 按下 ESC 时是否触发对话框关闭事件 | N
 closeOnOverlayClick | Boolean | true | 点击蒙层时是否触发关闭事件 | N
 confirm | Object | - | 确认按钮风格。TS 类型：`string \| ButtonProps` | N
@@ -214,7 +214,7 @@ size | String | 'small' | 尺寸配置，配置Drawer尺寸 | N
 
 名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
-cancel | String / Object | - | 语言配置，“取消”描述文本。TS 类型：`string \| ButtonProps`，[Button API Documents](./button?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
+cancel | String / Object | - | 语言配置，“取消”描述文本。TS 类型：`string \| ButtonProps`，[Button API Documents](./button?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/config-provider/type.ts) | N
 confirm | String / Object | - | 语言配置，“确定”描述文本。TS 类型：`string \| ButtonProps` | N
 confirmBtnTheme | Object | - | 确认按钮主题色，即 Popconfirm 的 `theme` 和 确认按钮的 `theme` 映射关系。示例：{ danger: 'danger' }。TS 类型：`{ default: string; warning: string; danger: string; }` | N
 
@@ -228,27 +228,27 @@ columnConfigButtonText | String | - | 语言配置，列配置功能中，“列
 columnConfigDescriptionText | String | - | 语言配置，“请选择需要在表格中显示的数据列” 描述文本，列配置功能中弹框顶部描述 | N
 columnConfigTitleText | String | - | 语言配置，“表格列配置” 描述文本，列配置功能中弹框的标题 | N
 confirmText | String | - | 语言配置，“确认” 描述文本 | N
-empty | String / Slot / Function | - | 语言配置，“暂无数据” 描述文本。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-expandIcon | Slot / Function | undefined | 展开和收起图标（配置传入收起图标即可），如果没有配置，会使用组件内置的默认图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-filterIcon | Slot / Function | undefined | 过滤图标，如果没有配置，会使用组件内置的默认图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+empty | String / Slot / Function | - | 语言配置，“暂无数据” 描述文本。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
+expandIcon | Slot / Function | undefined | 展开和收起图标（配置传入收起图标即可），如果没有配置，会使用组件内置的默认图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
+filterIcon | Slot / Function | undefined | 过滤图标，如果没有配置，会使用组件内置的默认图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 hideSortTips | Boolean | false | 隐藏排序文本提示 | N
 loadingMoreText | String | - | 语言配置，“点击加载更多” 描述文本 | N
 loadingText | String | - | 语言配置，“正在加载中，请稍后” 描述文本 | N
 resetText | String | - | 语言配置，“重置” 描述文本 | N
 searchResultText | String | - | 语言配置，过滤功能中，过滤条件和结果描述文本，示例：'搜索“{result}”，找到 {count} 条结果' | N
 selectAllText | String | - | 语言配置，'全选' 描述文本 | N
-size | String | medium | 全局表格尺寸配置。可选项：small/medium/large。TS 类型：`SizeEnum`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+size | String | medium | 全局表格尺寸配置。可选项：small/medium/large。TS 类型：`SizeEnum`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 sortAscendingOperationText | String | - | 语言配置，'点击升序' 描述文本 | N
 sortCancelOperationText | String | - | 语言配置，'点击取消排序' 描述文本 | N
 sortDescendingOperationText | String | - | 语言配置，'点击降序' 描述文本 | N
-sortIcon | Slot / Function | undefined | 排序图标（配置传入降序图标即可），如果没有配置，会使用组件内置的默认图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-treeExpandAndFoldIcon | Function | undefined | 树形结构，展开和折叠图标。如果没有配置，会使用组件内置的默认图标。TS 类型：`TNode<{ type: 'expand' \| 'fold' }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+sortIcon | Slot / Function | undefined | 排序图标（配置传入降序图标即可），如果没有配置，会使用组件内置的默认图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
+treeExpandAndFoldIcon | Function | undefined | 树形结构，展开和折叠图标。如果没有配置，会使用组件内置的默认图标。TS 类型：`TNode<{ type: 'expand' \| 'fold' }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 
 ### SelectConfig
 
 名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
-clearIcon | Function | - | 清除图标，【注意】使用渲染函数输出图标组件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+clearIcon | Function | - | 清除图标，【注意】使用渲染函数输出图标组件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 empty | String | - | 语言配置，“暂无数据”描述文本 | N
 filterable | Boolean | false | 全局配置是否可筛选 | N
 loadingText | String | - | 语言配置，“加载中”描述文本 | N
@@ -259,7 +259,7 @@ placeholder | String | - | 语言配置，“请选择”占位符描述文本 |
 名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
 empty | String | - | 语言配置，“暂无数据”描述文本 | N
-folderIcon | Function | - | 目录层级图标，传入收起状态图标即可。【注意】使用渲染函数输出图标组件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+folderIcon | Function | - | 目录层级图标，传入收起状态图标即可。【注意】使用渲染函数输出图标组件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 
 ### TreeSelectConfig
 
@@ -285,7 +285,7 @@ dragger | Object | - | 语言配置，拖拽相关。示例：{ dragDropText: '�
 file | Object | - | 语言配置，文件信息相关。示例：{  fileNameText: '文件名', fileSizeText: '文件尺寸', fileStatusText: '状态', fileOperationText: '操作', fileOperationDateText: '上传日期' }。TS 类型：`UploadConfigFileList` | N
 progress | Object | - | 语言配置，上传进度相关。示例：{ uploadText: '上传中', waitingText: '待上传', 'failText': '上传失败', successText: '上传成功' }。TS 类型：`UploadConfigProgress` | N
 sizeLimitMessage | String | - | 语言配置，文件大小超出限制时提醒文本。示例：`'文件大小不能超过 {sizeLimit}'` | N
-triggerUploadText | Object | - | 语言配置，上传功能触发文案。示例：{ image: '点击上传图片', normal: '点击上传',  fileInput: '选择文件', reupload: '重新上传', delete: '删除', continueUpload?: '继续选择' }。TS 类型：`UploadTriggerUploadText` `interface UploadTriggerUploadText { image?: string, normal?: string,  fileInput?: string,  reupload?: string, continueUpload?: string, delete?: string }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
+triggerUploadText | Object | - | 语言配置，上传功能触发文案。示例：{ image: '点击上传图片', normal: '点击上传',  fileInput: '选择文件', reupload: '重新上传', delete: '删除', continueUpload?: '继续选择' }。TS 类型：`UploadTriggerUploadText` `interface UploadTriggerUploadText { image?: string, normal?: string,  fileInput?: string,  reupload?: string, continueUpload?: string, delete?: string }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/config-provider/type.ts) | N
 
 ### UploadConfigProgress
 
@@ -319,21 +319,21 @@ fileStatusText | String | - | 语言配置，“状态” 描述文本 | N
 名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
 colonText | String | - | 字段旁边的冒号，中文为“：” | N
-errorMessage | Object | - | 表单错误信息配置，示例：`{ idcard: '请输入正确的身份证号码', max: '字符长度不能超过 ${max}' }`。TS 类型：`FormErrorMessage`，[Form API Documents](./form?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
+errorMessage | Object | - | 表单错误信息配置，示例：`{ idcard: '请输入正确的身份证号码', max: '字符长度不能超过 ${max}' }`。TS 类型：`FormErrorMessage`，[Form API Documents](./form?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/config-provider/type.ts) | N
 requiredMark | Boolean | true | 是否显示必填符号（*），默认显示 | N
 
 ### TagConfig
 
 名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
-closeIcon | Function | - | 关闭图标，【注意】使用渲染函数输出图标组件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+closeIcon | Function | - | 关闭图标，【注意】使用渲染函数输出图标组件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 
 ### StepsConfig
 
 名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
-checkIcon | Slot / Function | - | 已完成步骤图标，【注意】使用渲染函数输出图标组件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-errorIcon | Slot / Function | - | 错误步骤图标，【注意】使用渲染函数输出图标组件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+checkIcon | Slot / Function | - | 已完成步骤图标，【注意】使用渲染函数输出图标组件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
+errorIcon | Slot / Function | - | 错误步骤图标，【注意】使用渲染函数输出图标组件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 
 ### AlertConfig
 
@@ -367,7 +367,7 @@ copyText | String | - | 语言配置，“复制链接” 描述文本 | N
 -- | -- | -- | -- | --
 errorText | String | - | 图片加载失败显示的文本，中文默认为“图片无法显示” | N
 loadingText | String | - | 图片加载中显示的文本，中文默认为“图片加载中” | N
-replaceImageSrc | Function | - | 统一替换图片 `src` 地址，参数为组件的全部属性，返回值为新的图片地址。TS 类型：`(params: ImageProps) => string`，[Image API Documents](./image?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
+replaceImageSrc | Function | - | 统一替换图片 `src` 地址，参数为组件的全部属性，返回值为新的图片地址。TS 类型：`(params: ImageProps) => string`，[Image API Documents](./image?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/config-provider/type.ts) | N
 
 ### ImageViewerConfig
 

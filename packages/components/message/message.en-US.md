@@ -5,11 +5,11 @@
 
 name | type | default | description | required
 -- | -- | -- | -- | --
-closeBtn | String / Boolean / Slot / Function | undefined | Typescript：`string \| boolean \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-content | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+closeBtn | String / Boolean / Slot / Function | undefined | Typescript：`string \| boolean \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
+content | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 duration | Number | 3000 | \- | N
-icon | Boolean / Slot / Function | true | Typescript：`boolean \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-theme | String | info | options：info/success/warning/error/question/loading。Typescript：`MessageThemeList` `type MessageThemeList = 'info' \| 'success' \| 'warning' \| 'error' \| 'question' \| 'loading'`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/message/type.ts) | N
+icon | Boolean / Slot / Function | true | Typescript：`boolean \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
+theme | String | info | options：info/success/warning/error/question/loading。Typescript：`MessageThemeList` `type MessageThemeList = 'info' \| 'success' \| 'warning' \| 'error' \| 'question' \| 'loading'`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/message/type.ts) | N
 onClose | Function |  | Typescript：`(context: { trigger: 'close-click' \| 'duration-end', e?: MouseEvent }) => void`<br/>close message event | N
 onCloseBtnClick | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/> | N
 onDurationEnd | Function |  | Typescript：`() => void`<br/> | N
@@ -26,10 +26,10 @@ duration-end | \- | \-
 
 name | type | default | description | required
 -- | -- | -- | -- | --
-attach | String / Function | 'body' | Typescript：`AttachNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+attach | String / Function | 'body' | Typescript：`AttachNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 className | String | - | HTMLElement class | N
 offset | Array | - | Typescript：`Array<string \| number>` | N
-placement | String | top | options：center/top/left/right/bottom/top-left/top-right/bottom-left/bottom-right。Typescript：`MessagePlacementList` `type MessagePlacementList = 'center' \| 'top' \| 'left' \| 'right' \| 'bottom' \| 'top-left' \| 'top-right' \| 'bottom-left' \| 'bottom-right'`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/message/type.ts) | N
+placement | String | top | options：center/top/left/right/bottom/top-left/top-right/bottom-left/bottom-right。Typescript：`MessagePlacementList` `type MessagePlacementList = 'center' \| 'top' \| 'left' \| 'right' \| 'bottom' \| 'top-left' \| 'top-right' \| 'bottom-left' \| 'bottom-right'`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/message/type.ts) | N
 style | Object | - | CSS style。Typescript：`CSSProperties` | N
 zIndex | Number | 5000 | \- | N
 `MessageProps` | \- | - | \- | N
@@ -50,7 +50,7 @@ duration | Number | 3000 | \-
 
 name | params | default | description
 -- | -- | -- | --
-message | String / Object | - | required。Typescript：`string \| MessageInfoOptions` `type MessageInfoOptions = Omit<MessageOptions, 'theme'>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/message/type.ts)
+message | String / Object | - | required。Typescript：`string \| MessageInfoOptions` `type MessageInfoOptions = Omit<MessageOptions, 'theme'>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/message/type.ts)
 duration | Number | 3000 | \-
 
 ### MessagePlugin.error
