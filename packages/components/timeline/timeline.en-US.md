@@ -15,10 +15,10 @@ theme | String | default | options: default/dot | N
 
 name | type | default | description | required
 -- | -- | -- | -- | --
-content | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-dot | Slot / Function | - | Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+content | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
+dot | Slot / Function | - | Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 dotColor | String | primary | Typescript：`string` | N
-label | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+label | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 labelAlign | String | - | options: left/right/top/bottom | N
 loading | Boolean | - | Whether it is in the loading state | N
 onClick | Function |  | Typescript：`(context: { e: MouseEvent; item: TdTimelineItemProps }) => void`<br/>trigger on click | N

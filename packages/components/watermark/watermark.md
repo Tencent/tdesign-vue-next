@@ -7,8 +7,8 @@
 名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
 alpha | Number | 1 | 水印整体透明度，取值范围 [0-1] | N
-content | String / Slot / Function | - | 水印所覆盖的内容节点。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-default | String / Slot / Function | - | 水印所覆盖的内容节点，同 `content`。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+content | String / Slot / Function | - | 水印所覆盖的内容节点。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
+default | String / Slot / Function | - | 水印所覆盖的内容节点，同 `content`。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 height | Number | - | 水印高度 | N
 isRepeat | Boolean | true | 水印是否重复出现 | N
 lineSpace | Number | 16 | 行间距，只作用在多行（`content` 配置为数组）情况下 | N
