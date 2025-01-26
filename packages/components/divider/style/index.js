@@ -1,1 +1,1 @@
-import '../../_common/style/web/components/divider/_index.less';
+import '../../../common/style/web/components/divider/_index.less';

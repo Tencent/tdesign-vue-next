@@ -1,12 +1,12 @@
 import { computed, onMounted, defineComponent, watch, ref, reactive, shallowRef } from 'vue';
 import props from './props';
-import generateBase64Url from '../_common/js/watermark/generateBase64Url';
-import randomMovingStyle from '../_common/js/watermark/randomMovingStyle';
-import injectStyle from '../_common/js/utils/injectStyle';
+import generateBase64Url from '../../common/js/watermark/generateBase64Url';
+import randomMovingStyle from '../../common/js/watermark/randomMovingStyle';
+import injectStyle from '../../common/js/utils/injectStyle';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useMutationObserver } from './hooks';
 import { useContent } from '../hooks/tnode';
-import setStyle from '../_common/js/utils/set-style';
+import setStyle from '../../common/js/utils/set-style';
 
 export default defineComponent({
   name: 'TWatermark',

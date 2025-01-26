@@ -1,1 +1,1 @@
-import '../../_common/style/web/components/calendar/_index.less';
+import '../../../common/style/web/components/calendar/_index.less';

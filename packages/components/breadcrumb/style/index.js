@@ -1,1 +1,1 @@
-import '../../_common/style/web/components/breadcrumb/_index.less';
+import '../../../common/style/web/components/breadcrumb/_index.less';

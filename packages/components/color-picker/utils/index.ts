@@ -1,1 +1,1 @@
-export * from '../../_common/js/color-picker';
+export * from '../../../common/js/color-picker';

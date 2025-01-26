@@ -7,8 +7,8 @@ import { TimeIcon as TdTimeIcon } from 'tdesign-icons-vue-next';
 import { RangeInputPopup, RangeInputPosition } from '../range-input';
 import TimePickerPanel from './panel/time-picker-panel';
 
-import { TIME_PICKER_EMPTY } from '../_common/js/time-picker/const';
-import { formatInputValue, validateInputValue } from '../_common/js/time-picker/utils';
+import { TIME_PICKER_EMPTY } from '../../common/js/time-picker/const';
+import { formatInputValue, validateInputValue } from '../../common/js/time-picker/utils';
 
 // interfaces
 import props from './time-range-picker-props';

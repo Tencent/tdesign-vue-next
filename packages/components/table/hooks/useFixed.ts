@@ -13,13 +13,13 @@ import {
 import { get } from 'lodash-es';
 import { debounce } from 'lodash-es';
 import { xorWith } from 'lodash-es';
-import log from '../../_common/js/log';
+import log from '../../../common/js/log';
 import { ClassName, Styles } from '../../common';
 import { BaseTableCol, BaseTableInstanceFunctions, TableRowData, TdBaseTableProps } from '../type';
-import { getScrollbarWidthWithCSS } from '../../_common/js/utils/getScrollbarWidth';
+import { getScrollbarWidthWithCSS } from '../../../common/js/utils/getScrollbarWidth';
 import { on, off } from '../../utils/dom';
 import { FixedColumnInfo, TableRowFixedClasses, RowAndColFixedPosition, TableColFixedClasses } from '../interface';
-import { getIEVersion } from '../../_common/js/utils/helper';
+import { getIEVersion } from '../../../common/js/utils/helper';
 import { pick } from 'lodash-es';
 
 // 固定列相关类名处理

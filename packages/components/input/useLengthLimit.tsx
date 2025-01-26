@@ -1,7 +1,7 @@
 import { computed, ComputedRef, onMounted, watch } from 'vue';
 import { TdInputProps } from './type';
-import log from '../_common/js/log';
-import { getCharacterLength, getUnicodeLength, limitUnicodeMaxLength } from '../_common/js/utils/helper';
+import log from '../../common/js/log';
+import { getCharacterLength, getUnicodeLength, limitUnicodeMaxLength } from '../../common/js/utils/helper';
 import { isNumber } from 'lodash-es';
 import { isObject } from 'lodash-es';
 

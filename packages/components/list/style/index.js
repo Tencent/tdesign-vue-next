@@ -1,1 +1,1 @@
-import '../../_common/style/web/components/list/_index.less';
+import '../../../common/style/web/components/list/_index.less';

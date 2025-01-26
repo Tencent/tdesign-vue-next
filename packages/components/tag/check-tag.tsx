@@ -5,7 +5,7 @@ import useVModel from '../hooks/useVModel';
 import { useContent } from '../hooks/tnode';
 import Tag from './tag';
 import { TdCheckTagProps, TdTagProps } from './type';
-import { ENTER_REG, SPACE_REG } from '../_common/js/common';
+import { ENTER_REG, SPACE_REG } from '../../common/js/common';
 
 export default defineComponent({
   name: 'TCheckTag',

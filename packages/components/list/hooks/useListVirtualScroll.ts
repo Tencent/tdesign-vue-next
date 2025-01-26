@@ -1,6 +1,6 @@
 import { Ref, computed } from 'vue';
 
-import log from '../../_common/js/log';
+import log from '../../../common/js/log';
 import useVirtualScroll from '../../hooks/useVirtualScrollNew';
 import { TdListProps } from '../type';
 import { Styles, type ComponentScrollToElementParams } from '../../common';
