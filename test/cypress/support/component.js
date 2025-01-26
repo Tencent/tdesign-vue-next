@@ -20,7 +20,7 @@ import './commands';
 // require('./commands')
 
 import { mount } from 'cypress/vue';
-// import TDesign from '@/src/index';
+// import TDesign from '@src/index';
 // import 'tdesign-vue-next/style/index.js';
 import '@common/style/web/docs.less';
 

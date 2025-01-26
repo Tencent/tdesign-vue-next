@@ -26,16 +26,16 @@
     "baseUrl": "./",
     "paths": {
       "@src/*": [
-        "src/*"
+        "packages/components/*"
       ],
       "tdesign-vue-next": [
-        "src"
+        "packages/components"
       ],
       "tdesign-vue-next/es/locale/*": [
-        "src/locale/*"
+        "packages/components/locale/*"
       ],
       "@common/*": [
-        "src/_common/*"
+        "packages/components/_common/*"
       ],
       "@test/utils": [
         "test/utils"
@@ -45,12 +45,12 @@
   "include": [
     "./**/*.ts",
     "./**/*.tsx",
-    "src/**/*.vue",
+    "packages/components/**/*.vue",
     "scripts/rollup.config.js"
   ],
   "exclude": [
     "node_modules",
-    "src/_common",
+    "packages/components/_common",
     "dist",
     "lib",
     "cjs",

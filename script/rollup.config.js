@@ -31,8 +31,14 @@ const banner = `/**
  */
 `;
 
-const input = 'src/index-lib.ts';
-const inputList = ['src/**/*.ts', 'src/**/*.tsx', '!src/**/demos', '!src/**/*.d.ts', '!src/**/__tests__'];
+const input = 'packages/components/index-lib.ts';
+const inputList = [
+  'packages/components/**/*.ts',
+  'packages/components/**/*.tsx',
+  '!packages/components/**/demos',
+  '!packages/components/**/*.d.ts',
+  '!packages/components/**/__tests__',
+];
 
 const getPlugins = ({
   env,
@@ -78,18 +84,20 @@ const getPlugins = ({
   } else if (extractMultiCss) {
     plugins.push(
       staticImport({
-        include: ['src/**/style/css.mjs'],
+        baseDir: 'packages/components',
+        include: ['packages/components/**/style/css.mjs'],
       }),
       ignoreImport({
-        include: ['src/*/style/*'],
+        include: ['packages/components/*/style/*'],
         body: 'import "./style/css.mjs";',
       }),
       copy({
         targets: [
           {
-            src: 'src/**/style/css.js',
+            src: 'packages/components/**/style/css.js',
             dest: 'es',
-            rename: (name, extension, fullPath) => `${fullPath.substring(4, fullPath.length - 6)}${name}.mjs`,
+            rename: (name, extension, fullPath) =>
+              `${fullPath.substring('packages/components/'.length, fullPath.length - 6)}${name}.mjs`,
           },
         ],
         verbose: true,
@@ -100,10 +108,11 @@ const getPlugins = ({
   } else {
     plugins.push(
       staticImport({
-        include: ['src/**/style/index.js', 'src/_common/style/web/**/*.less'],
+        baseDir: 'packages/components',
+        include: ['packages/components/**/style/index.js', 'packages/components/_common/style/web/**/*.less'],
       }),
       ignoreImport({
-        include: ['src/*/style/*'],
+        include: ['packages/components/*/style/*'],
         body: 'import "./style/index.js";',
       }),
     );
@@ -137,8 +146,8 @@ const getPlugins = ({
 
 /** @type {import('rollup').RollupOptions} */
 const cssConfig = {
-  input: ['src/**/style/index.js'],
-  plugins: [multiInput(), styles({ mode: 'extract' })],
+  input: ['packages/components/**/style/index.js'],
+  plugins: [multiInput({ relative: 'packages/components/' }), styles({ mode: 'extract' })],
   output: {
     banner,
     dir: 'es/',
@@ -155,11 +164,11 @@ const deleteEmptyJSConfig = {
 const exception = ['tinycolor2', 'dayjs'];
 const esExternal = esExternalDeps.concat(externalPeerDeps).filter((value) => !exception.includes(value));
 const esConfig = {
-  input: inputList.concat('!src/index-lib.ts'),
+  input: inputList.concat('!packages/components/index-lib.ts'),
   // 为了保留 style/css.js
   treeshake: false,
   external: esExternal,
-  plugins: [multiInput()].concat(getPlugins({ extractMultiCss: true })),
+  plugins: [multiInput({ relative: 'packages/components/' })].concat(getPlugins({ extractMultiCss: true })),
   output: {
     banner,
     dir: 'es/',
@@ -172,11 +181,11 @@ const esConfig = {
 
 /** @type {import('rollup').RollupOptions} */
 const esmConfig = {
-  input: inputList.concat('!src/index-lib.ts'),
+  input: inputList.concat('!packages/components/index-lib.ts'),
   // 为了保留 style/index.js
   treeshake: false,
   external: externalDeps.concat(externalPeerDeps),
-  plugins: [multiInput()].concat(getPlugins({ ignoreLess: false })),
+  plugins: [multiInput({ relative: 'packages/components/' })].concat(getPlugins({ ignoreLess: false })),
   output: {
     banner,
     dir: 'esm/',
@@ -190,7 +199,7 @@ const esmConfig = {
 const libConfig = {
   input: inputList,
   external: externalDeps.concat(externalPeerDeps),
-  plugins: [multiInput()].concat(getPlugins()),
+  plugins: [multiInput({ relative: 'packages/components/' })].concat(getPlugins()),
   output: {
     banner,
     dir: 'lib/',
@@ -204,7 +213,7 @@ const libConfig = {
 const cjsConfig = {
   input: inputList,
   external: externalDeps.concat(externalPeerDeps),
-  plugins: [multiInput()].concat(getPlugins()),
+  plugins: [multiInput({ relative: 'packages/components/' })].concat(getPlugins()),
   output: {
     banner,
     dir: 'cjs/',
@@ -261,7 +270,7 @@ const umdMinConfig = {
 
 // 单独导出 reset.css 到 dist 目录，兼容旧版本样式
 const resetCss = {
-  input: 'src/_common/style/web/_reset.less',
+  input: 'packages/components/_common/style/web/_reset.less',
   output: {
     file: 'dist/reset.css',
   },
@@ -270,7 +279,7 @@ const resetCss = {
 
 // 单独导出 plugin 相关组件的样式，支持修改前缀的但因为上下文暂时无法获取的情况使用
 const pluginCss = {
-  input: 'src/_common/style/web/_plugin.less',
+  input: 'packages/components/_common/style/web/_plugin.less',
   output: {
     file: 'dist/plugin.css',
   },
