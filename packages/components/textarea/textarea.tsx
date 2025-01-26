@@ -13,7 +13,7 @@ import {
 import { merge } from 'lodash-es';
 import { isUndefined } from 'lodash-es';
 
-import { omit } from '../utils/helper';
+import { omit } from '../../utils/helper';
 import calcTextareaHeight from './calcTextareaHeight';
 import { FormItemInjectionKey } from '../form/const';
 import setStyle from '../../common/js/utils/set-style';
