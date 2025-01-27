@@ -130,7 +130,7 @@ jobs:
           name: pr
           path: ./pr-id.txt
 
-build:
+  build:
     runs-on: ubuntu-latest
     # needs: build
     steps:
