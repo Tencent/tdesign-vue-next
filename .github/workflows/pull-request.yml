@@ -1,5 +1,6 @@
 # 文件名建议统一为 pull-request.yml 
 # 应用 test-build.yml 的 demo
+# 改造 mono 无法复用主仓 test-build.yml, 需要单独配置
 
 name: MAIN_PULL_REQUEST
 
@@ -9,5 +10,120 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  call-test-build:
-    uses: Tencent/tdesign/.github/workflows/test-build.yml@main
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: check_github_primary_email
+        run: |
+          log_emails=$(git log --pretty=format:"%ae %ce" -1)
+          if [[ ${log_emails} =~ 'tdesign@tencent.com' ]];then 
+            echo "$log_emails 跳过验证"
+            exit 0
+          fi
+          if [[ ${log_emails} =~ '@tencent.com' ]];then 
+            echo "默认邮箱 $log_emails 校验非法，可以去 https://github.com/settings/emails 更改" 
+            exit 2;
+          else 
+            echo "邮箱 $log_emails 校验通过";
+          fi
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: check_local_email
+        run: |
+          log_emails=$(git log --pretty=format:"%ae %ce" -1)
+          if [[ ${log_emails} =~ 'tdesign@tencent.com' ]];then 
+            echo "$log_emails 跳过验证"
+            exit 0
+          fi
+          if [[ ${log_emails} =~ '@tencent.com' ]];then 
+            echo "本地提交邮箱 $log_emails 校验非法，需要本地更改重新提交" 
+            exit 2;
+          else 
+            echo "邮箱 $log_emails 校验通过";
+          fi
+
+  test:
+    # needs: check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 9    
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - run: pnpm install
+
+      - run: pnpm run lint
+      - run: pnpm run test
+      # upload report to codecov
+      - uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+  site:
+    runs-on: ubuntu-latest
+    # needs: test
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 9            
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - run: pnpm install
+
+      - name: Build site
+        run: pnpm run site:preview
+
+      - run: |
+          zip -r _site.zip _site
+
+      - name: upload _site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: _site
+          path: _site.zip
+          retention-days: 5
+
+      - name: Save PR number
+        if: ${{ always() }}
+        run: echo ${{ github.event.number }} > ./pr-id.txt
+
+      - name: Upload PR number
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr
+          path: ./pr-id.txt
+
+  build:
+    runs-on: ubuntu-latest
+    # needs: build
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 9  
+        
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - run: pnpm install
+
+      - name: Build 
+        run: pnpm run build
