@@ -10,7 +10,7 @@ on:
   push:
     branches: [develop, main, compositionAPI]
     types: [opened, synchronize, reopened]
-
+  workflow_dispatch:
 # jobs:
 #   call-test-build:
 #     uses: Tencent/tdesign/.github/workflows/test-build.yml@main
