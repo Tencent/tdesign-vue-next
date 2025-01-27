@@ -6,7 +6,7 @@ import { useChildSlots } from '../hooks/slot';
 import { isNumber } from 'lodash-es';
 import { isString } from 'lodash-es';
 import { isArray } from 'lodash-es';
-import { getFlexGapPolyFill } from '../../common/js/utils/helper';
+import { getFlexGapPolyFill } from '@tdesign/common/js/utils/helper';
 
 const sizeMap = { small: '8px', medium: '16px', large: '24px' };
 const defaultNeedPolyfill = getFlexGapPolyFill();

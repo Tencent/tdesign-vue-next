@@ -11,7 +11,7 @@ import ImageViewer, { ImageViewerProps } from '../../image-viewer';
 import { CommonDisplayFileProps } from '../interface';
 import { commonProps } from '../constants';
 import { TdUploadProps, UploadFile } from '../type';
-import { abridgeName } from '../../../common/js/upload/utils';
+import { abridgeName } from '@tdesign/common/js/upload/utils';
 import { UploadConfig } from '../../config-provider';
 import { useTNodeJSX } from '../../hooks';
 import Link from '../../link';

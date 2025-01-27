@@ -7,7 +7,7 @@ import {
 } from 'tdesign-icons-vue-next';
 import { TdTabsProps } from './type';
 import tabProps from './props';
-import { calcMaxOffset, calcValidOffset, calculateOffset, calcPrevOrNextOffset } from '../../common/js/tabs/base';
+import { calcMaxOffset, calcValidOffset, calculateOffset, calcPrevOrNextOffset } from '@tdesign/common/js/tabs/base';
 
 // 子组件
 import TTabPanel from './tab-panel';

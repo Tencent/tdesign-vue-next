@@ -1,1 +1,1 @@
-import '../../../common/style/web/components/timeline/_index.less';
+import '@tdesign/common/style/web/components/timeline/_index.less';

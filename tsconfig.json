@@ -24,6 +24,7 @@
     "allowJs": true,
     "jsx": "preserve",
     "baseUrl": "./",
+    "types": ["vite/client"],
     "paths": {
       "@src/*": [
         "packages/components/*"

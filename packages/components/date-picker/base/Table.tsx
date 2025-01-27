@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import isoWeek from 'dayjs/plugin/isoWeek';
 import TDatePickerCell from './Cell';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
-import { parseToDayjs } from '../../../common/js/date-picker/format';
+import { parseToDayjs } from '@tdesign/common/js/date-picker/format';
 import { isArray } from 'lodash-es';
 
 import type { TdDatePickerProps, DateMultipleValue } from '../type';

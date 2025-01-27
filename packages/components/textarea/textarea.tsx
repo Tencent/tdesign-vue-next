@@ -16,8 +16,8 @@ import { isUndefined } from 'lodash-es';
 import { omit } from '../../utils/helper';
 import calcTextareaHeight from './calcTextareaHeight';
 import { FormItemInjectionKey } from '../form/const';
-import setStyle from '../../common/js/utils/set-style';
-import { getCharacterLength } from '../../common/js/utils/helper';
+import setStyle from '@tdesign/common/js/utils/set-style';
+import { getCharacterLength } from '@tdesign/common/js/utils/helper';
 
 // hooks
 import useVModel from '../hooks/useVModel';

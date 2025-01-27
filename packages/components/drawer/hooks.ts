@@ -1,6 +1,6 @@
 import { computed, ref } from 'vue';
 import { Styles } from '../common';
-import { getSizeDraggable, calcMoveSize } from '../../common/js/drawer/utils';
+import { getSizeDraggable, calcMoveSize } from '@tdesign/common/js/drawer/utils';
 import type { TdDrawerProps } from './type';
 
 export const useDrag = (props: TdDrawerProps) => {

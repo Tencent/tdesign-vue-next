@@ -21,7 +21,7 @@ import { useContent, useTNodeJSX } from '../hooks';
 import { useCommonClassName, usePrefixClass } from '../hooks/useConfig';
 import useVModel from '../hooks/useVModel';
 import { off, on, once } from '../utils/dom';
-import setStyle from '../../common/js/utils/set-style';
+import setStyle from '@tdesign/common/js/utils/set-style';
 import Container from './container';
 import props from './props';
 import { PopupTriggerEvent, TdPopupProps } from './type';
