@@ -1,5 +1,5 @@
 import { HTMLAttributes } from 'vue';
-
+import type { Router } from 'vue-router';
 declare global {
   namespace JSX {
     interface IntrinsicAttributes {
@@ -22,5 +22,6 @@ declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
     // todo
     [x: string]: any;
+    $router: Router;
   }
 }
