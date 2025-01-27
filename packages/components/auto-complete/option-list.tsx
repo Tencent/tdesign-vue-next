@@ -141,7 +141,7 @@ export default defineComponent({
 
     return () => {
       if (!tOptions.value.length)
-        return <div className={`${classPrefix.value}-auto-complete__panel--empty`}>{globalConfig.value.empty}</div>;
+        return <div class={`${classPrefix.value}-auto-complete__panel--empty`}>{globalConfig.value.empty}</div>;
       return (
         <ul class={classes.value}>
           {tOptions.value.map((item) => {
