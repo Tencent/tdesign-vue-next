@@ -1,6 +1,3 @@
-# 文件名建议统一为 pull-request.yml 
-# 应用 test-build.yml 的 demo
-
 name: MAIN_PULL_REQUEST
 
 on:
