@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue';
 import { FileCopyIcon as TdFileCopyIcon } from 'tdesign-icons-vue-next';
-import { copyText } from '../../utils/clipboard';
+import { copyText } from '@tdesign/utils/clipboard';
 import Message from '../message/plugin';
 import props from './anchor-target-props';
 import Popup from '../popup';

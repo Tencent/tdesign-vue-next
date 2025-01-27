@@ -51,7 +51,7 @@ import {
 
 import { useConfig, usePrefixClass, useTNodeJSX } from '../hooks';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import template from '../../utils/string-template';
+import template from '@tdesign/utils/string-template';
 
 export type FormItemValidateResult<T extends Data = Data> = { [key in keyof T]: boolean | AllValidateResult[] };
 
