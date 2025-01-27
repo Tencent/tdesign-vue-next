@@ -57,7 +57,7 @@ jobs:
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
-        
+
       - uses: actions/setup-node@v4
         with:
           node-version: 18
@@ -72,7 +72,7 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
-      - run: pnpm i --frozen-lockfile
+      - run: pnpm i
 
       - run: pnpm run lint
       - run: pnpm run test
@@ -106,7 +106,7 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
-      - run: pnpm i --frozen-lockfile
+      - run: pnpm i
       
       - name: Build site
         run: pnpm run site:preview
@@ -157,7 +157,7 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
-      - run: pnpm i --frozen-lockfile
+      - run: pnpm i
 
       - name: Build 
         run: pnpm run build
