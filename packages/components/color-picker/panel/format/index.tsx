@@ -2,7 +2,7 @@ import { defineComponent, PropType, ref, watch } from 'vue';
 import { upperCase } from 'lodash-es';
 import { TdColorPickerProps } from '../../type';
 import props from '../../props';
-import { FORMATS } from '../../@tdesign/common/js/color-picker/constants';
+import { FORMATS } from '@tdesign/common/js/color-picker/constants';
 import { Color } from '../../utils';
 import { Select as TSelect, Option as TOption } from '../../../select';
 import FormatInputs from './inputs';
