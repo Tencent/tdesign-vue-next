@@ -5,7 +5,7 @@ import { isObject } from 'lodash-es';
 import { isArray } from 'lodash-es';
 
 import { TdColProps, TdRowProps } from './type';
-import { calcSize } from '../utils/responsive';
+import { calcSize } from '../../utils/responsive';
 import { useListener } from '../hooks/useListener';
 import { isServer } from '../utils/dom';
 
