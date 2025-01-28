@@ -1,14 +1,4 @@
-import {
-  ComponentPublicInstance,
-  PropType,
-  computed,
-  defineComponent,
-  inject,
-  nextTick,
-  reactive,
-  ref,
-  watchEffect,
-} from 'vue';
+import { PropType, computed, defineComponent, inject, nextTick, reactive, ref, watchEffect } from 'vue';
 import TTooltip from '../tooltip/index';
 import { TdSliderProps } from './type';
 
@@ -49,7 +39,7 @@ export default defineComponent({
     const tooltipConfig = computed(() => props);
     const { tooltipRef, tooltipProps, toggleTooltip, showTooltip } = useSliderTooltip(tooltipConfig);
     const parentProps = inject(sliderPropsInjectKey);
-    const buttonRef = ref();
+    const buttonRef = ref<HTMLDivElement>();
     const dragged = ref(false);
 
     /** --------------------- slide button 相关状态start ------------------- */
@@ -108,7 +98,7 @@ export default defineComponent({
     };
 
     const handleMouseEnter = () => {
-      (buttonRef.value as ComponentPublicInstance).focus();
+      buttonRef.value.focus();
       toggleTooltip(true);
     };
     const handleMouseLeave = () => {
