@@ -3,7 +3,7 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 const packages = fs
-  .readdirSync(path.resolve(__dirname, 'src'), { withFileTypes: true })
+  .readdirSync(path.resolve(__dirname, 'packages/components'), { withFileTypes: true })
   .filter((dirent) => dirent.isDirectory())
   .map((dirent) => dirent.name);
 
