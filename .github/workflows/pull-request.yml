@@ -1,163 +1,243 @@
 name: MAIN_PULL_REQUEST
 
 on:
-  # pull_request:
-  #   branches: [develop, main, compositionAPI]
-  #   types: [opened, synchronize, reopened]
-  push:
+  pull_request:
     branches: [develop, main, compositionAPI]
+    # opened：当 PR 创建时触发
+    # synchronize：当 PR 的源分支有新的提交时触发
+    # reopened：当关闭的 PR 重新打开时触发
     types: [opened, synchronize, reopened]
+  # workflow_dispatch：允许手动触发工作流
   workflow_dispatch:
+
+# todo: paopao 
 # jobs:
 #   call-test-build:
 #     uses: Tencent/tdesign/.github/workflows/test-build.yml@main
 
 jobs:
   check:
+    # 在最新版本的 Ubuntu 环境中运行
     runs-on: ubuntu-latest
     steps:
+      # 检出代码仓库
       - uses: actions/checkout@v4
+
+      # 检查 GitHub 提交记录中的邮箱
       - name: check_github_primary_email
         run: |
+          # 获取最新提交的作者邮箱和提交者邮箱
           log_emails=$(git log --pretty=format:"%ae %ce" -1)
+          # 如果邮箱包含 'tdesign@tencent.com'，跳过验证
           if [[ ${log_emails} =~ 'tdesign@tencent.com' ]];then 
             echo "$log_emails 跳过验证"
             exit 0
           fi
+          # 如果邮箱包含 '@tencent.com'，校验失败，提示用户更改邮箱
           if [[ ${log_emails} =~ '@tencent.com' ]];then 
             echo "默认邮箱 $log_emails 校验非法，可以去 https://github.com/settings/emails 更改" 
             exit 2;
           else 
+            # 否则，校验通过
             echo "邮箱 $log_emails 校验通过";
           fi
+
+      # 再次检出代码仓库，这次使用 PR 的源分支的 SHA
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
+
+      # 检查本地提交记录中的邮箱
       - name: check_local_email
         run: |
+          # 获取最新提交的作者邮箱和提交者邮箱
           log_emails=$(git log --pretty=format:"%ae %ce" -1)
+          # 如果邮箱包含 'tdesign@tencent.com'，跳过验证
           if [[ ${log_emails} =~ 'tdesign@tencent.com' ]];then 
             echo "$log_emails 跳过验证"
             exit 0
           fi
+          # 如果邮箱包含 '@tencent.com'，校验失败，提示用户更改本地邮箱
           if [[ ${log_emails} =~ '@tencent.com' ]];then 
             echo "本地提交邮箱 $log_emails 校验非法，需要本地更改重新提交" 
             exit 2;
           else 
+            # 否则，校验通过
             echo "邮箱 $log_emails 校验通过";
           fi
 
   test:
+    # 如果需要依赖 check 任务，可以取消注释
     # needs: check
+    # 在最新版本的 Ubuntu 环境中运行
     runs-on: ubuntu-latest
     steps:
+      # 检出代码仓库，并递归初始化子模块
       - uses: actions/checkout@v4
         with:
           submodules: recursive
 
+      # 设置 pnpm
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
 
+      # 设置 Node.js 环境，版本为 18
       - uses: actions/setup-node@v4
         with:
           node-version: 18
+
+      # 获取 pnpm 的存储目录路径
       - name: Get pnpm store directory
         id: pnpm-cache
         run: |
           echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      # 设置 pnpm 缓存
       - uses: actions/cache@v4
         name: Setup pnpm cache
         with:
+          # 缓存路径
           path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          # 缓存键
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          # 恢复缓存的备用键
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
+
+      # 安装依赖
       - run: pnpm i
 
+      # 运行代码 lint 检查
       - run: pnpm run lint
+
+      # 运行测试
       - run: pnpm run test
       # upload report to codecov
+
+      # 将测试报告上传到 Codecov
       - uses: codecov/codecov-action@v2
         with:
+          # 使用 GitHub Secrets 中的 Codecov Token
           token: ${{ secrets.CODECOV_TOKEN }}
 
   site:
+    # 在最新版本的 Ubuntu 环境中运行
     runs-on: ubuntu-latest
+    # 如果需要依赖 test 任务，可以取消注释
     # needs: test
     steps:
+      # 检出代码仓库，并递归初始化子模块
       - uses: actions/checkout@v4
         with:
           submodules: recursive
 
+      # 设置 pnpm
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
 
+      # 设置 Node.js 环境，版本为 18
       - uses: actions/setup-node@v4
         with:
           node-version: 18
+
+      # 获取 pnpm 的存储目录路径
       - name: Get pnpm store directory
         id: pnpm-cache
         run: |
           echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      # 设置 pnpm 缓存
       - uses: actions/cache@v4
         name: Setup pnpm cache
         with:
+          # 缓存路径
           path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          # 缓存键
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          # 恢复缓存的备用键
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
+
+      # 安装依赖
       - run: pnpm i
-      
+
+      # 构建站点
       - name: Build site
         run: pnpm run site:preview
 
+      # 将构建的站点文件压缩为 zip
       - run: |
           zip -r _site.zip _site
 
+      # 上传站点文件作为构建产物
       - name: upload _site artifact
         uses: actions/upload-artifact@v4
         with:
+          # 产物名称
           name: _site
+          # 产物路径
           path: _site.zip
+          # 产物保留天数
           retention-days: 5
 
+      # 保存 PR 编号到文件
       - name: Save PR number
+        # 无论任务成功或失败都执行
         if: ${{ always() }}
         run: echo ${{ github.event.number }} > ./pr-id.txt
 
+      # 上传 PR 编号文件作为构建产物
       - name: Upload PR number
+        # 无论任务成功或失败都执行
         if: ${{ always() }}
         uses: actions/upload-artifact@v4
         with:
+          # 产物名称
           name: pr
+          # 产物路径
           path: ./pr-id.txt
 
   build:
+    # 在最新版本的 Ubuntu 环境中运行
     runs-on: ubuntu-latest
+    # 如果需要依赖自身任务，可以取消注释（通常不需要）
     # needs: build
     steps:
+      # 检出代码仓库，并递归初始化子模块
       - uses: actions/checkout@v4
         with:
           submodules: recursive
 
+      # 设置 pnpm
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
 
+      # 设置 Node.js 环境，版本为 18
       - uses: actions/setup-node@v4
         with:
           node-version: 18
+
+      # 获取 pnpm 的存储目录路径
       - name: Get pnpm store directory
         id: pnpm-cache
         run: |
           echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      # 设置 pnpm 缓存
       - uses: actions/cache@v4
         name: Setup pnpm cache
         with:
+          # 缓存路径
           path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          # 缓存键
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          # 恢复缓存的备用键
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
+
+      # 安装依赖
       - run: pnpm i
 
+      # 运行构建任务
       - name: Build 
         run: pnpm run build
