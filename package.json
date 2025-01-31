@@ -64,7 +64,7 @@
     "generate:coverage-badge": "pnpm run test:unit-coverage && node script/test/generate-coverage.js",
     "prebuild": "rimraf es/* esm/* lib/* cjs/* dist/* --glob",
     "build": "cross-env NODE_ENV=production rollup -c script/rollup.config.js && pnpm run build:tsc",
-    "build:tsc": "run-p build:tsc-*",
+    "build:tsc": "pnpm run build:tsc-es && pnpm run build:tsc-esm && pnpm run build:tsc-lib && pnpm run build:tsc-cjs",
     "build:tsc-es": "tsc --emitDeclarationOnly -d --outDir es/",
     "build:tsc-esm": "tsc --emitDeclarationOnly -d --outDir esm/",
     "build:tsc-lib": "tsc --emitDeclarationOnly -d --outDir lib/",
