@@ -428,9 +428,7 @@ export default defineComponent({
             class={[prefixCls.value, props.overlayClassName]}
             ref={(ref: HTMLElement) => (popperEl.value = ref)}
             style={[{ zIndex: props.zIndex }, getOverlayStyle(), hidePopup && { visibility: 'hidden' }]}
-            // todo: paopao 待确认是否有用，无用的话就移除掉
-            // @ts-ignore
-            vShow={visible.value}
+            v-show={visible.value}
             onClick={onOverlayClick}
             onMouseenter={onMouseenter}
             onMouseleave={onMouseLeave}
