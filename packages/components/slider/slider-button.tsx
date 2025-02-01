@@ -231,13 +231,12 @@ export default defineComponent({
         style={wrapperStyle.value}
         tabindex="0"
         show-tooltip={showTooltip.value}
-        disabled={parentProps.disabled}
-        onmouseenter={handleMouseEnter}
-        onmouseleave={handleMouseLeave}
-        onmousedown={onButtonDown}
+        onMouseenter={handleMouseEnter}
+        onMouseleave={handleMouseLeave}
+        onMousedown={onButtonDown}
         onTouchstart={onButtonDown}
-        onfocus={handleMouseEnter}
-        onblur={handleMouseLeave}
+        onFocus={handleMouseEnter}
+        onBlur={handleMouseLeave}
         onKeydown={onNativeKeyDown}
       >
         {/* hide tooltip with `hideEmptyPopup`, empty content won't show */}

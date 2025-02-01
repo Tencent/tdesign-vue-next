@@ -86,7 +86,7 @@ exports[`Guide Component > GuideStep.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -231,7 +231,7 @@ exports[`Guide Component > GuideStep.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -376,7 +376,7 @@ exports[`Guide Component > GuideStep.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -521,7 +521,7 @@ exports[`Guide Component > GuideStep.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -666,7 +666,7 @@ exports[`Guide Component > GuideStep.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -811,7 +811,7 @@ exports[`Guide Component > GuideStep.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -956,7 +956,7 @@ exports[`Guide Component > GuideStep.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -1101,7 +1101,7 @@ exports[`Guide Component > GuideStep.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -1223,7 +1223,7 @@ exports[`Guide Component > GuideStep.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -1368,7 +1368,7 @@ exports[`Guide Component > GuideStep.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -1513,7 +1513,7 @@ exports[`Guide Component > GuideStep.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -1658,7 +1658,7 @@ exports[`Guide Component > GuideStep.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -1803,7 +1803,7 @@ exports[`Guide Component > GuideStep.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -1948,7 +1948,7 @@ exports[`Guide Component > GuideStep.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -2093,7 +2093,7 @@ exports[`Guide Component > GuideStep.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -2238,7 +2238,7 @@ exports[`Guide Component > GuideStep.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -2383,7 +2383,7 @@ exports[`Guide Component > GuideStep.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -2528,7 +2528,7 @@ exports[`Guide Component > GuideStep.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -2673,7 +2673,7 @@ exports[`Guide Component > GuideStep.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -2818,7 +2818,7 @@ exports[`Guide Component > GuideStep.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -2963,7 +2963,7 @@ exports[`Guide Component > GuideStep.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -3108,7 +3108,7 @@ exports[`Guide Component > GuideStep.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -3253,7 +3253,7 @@ exports[`Guide Component > GuideStep.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -3375,7 +3375,7 @@ exports[`Guide Component > GuideStep.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -3520,7 +3520,7 @@ exports[`Guide Component > GuideStep.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -3665,7 +3665,7 @@ exports[`Guide Component > GuideStep.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -3787,7 +3787,7 @@ exports[`Guide Component > GuideStep.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -4020,7 +4020,7 @@ exports[`Guide Component > GuideStep.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -4165,7 +4165,7 @@ exports[`Guide Component > GuideStep.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -4310,7 +4310,7 @@ exports[`Guide Component > GuideStep.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -4455,7 +4455,7 @@ exports[`Guide Component > GuideStep.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -4600,7 +4600,7 @@ exports[`Guide Component > GuideStep.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -4745,7 +4745,7 @@ exports[`Guide Component > GuideStep.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -4890,7 +4890,7 @@ exports[`Guide Component > GuideStep.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -5035,7 +5035,7 @@ exports[`Guide Component > GuideStep.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -5157,7 +5157,7 @@ exports[`Guide Component > GuideStep.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -5302,7 +5302,7 @@ exports[`Guide Component > GuideStep.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -5447,7 +5447,7 @@ exports[`Guide Component > GuideStep.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -5592,7 +5592,7 @@ exports[`Guide Component > GuideStep.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -5737,7 +5737,7 @@ exports[`Guide Component > GuideStep.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -5882,7 +5882,7 @@ exports[`Guide Component > GuideStep.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -6027,7 +6027,7 @@ exports[`Guide Component > GuideStep.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -6172,7 +6172,7 @@ exports[`Guide Component > GuideStep.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -6317,7 +6317,7 @@ exports[`Guide Component > GuideStep.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -6462,7 +6462,7 @@ exports[`Guide Component > GuideStep.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -6607,7 +6607,7 @@ exports[`Guide Component > GuideStep.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -6752,7 +6752,7 @@ exports[`Guide Component > GuideStep.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -6897,7 +6897,7 @@ exports[`Guide Component > GuideStep.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -7042,7 +7042,7 @@ exports[`Guide Component > GuideStep.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -7187,7 +7187,7 @@ exports[`Guide Component > GuideStep.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -7309,7 +7309,7 @@ exports[`Guide Component > GuideStep.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -7454,7 +7454,7 @@ exports[`Guide Component > GuideStep.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -7599,7 +7599,7 @@ exports[`Guide Component > GuideStep.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -7721,7 +7721,7 @@ exports[`Guide Component > GuideStep.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -7866,7 +7866,7 @@ exports[`Guide Component > GuideStep.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -8011,7 +8011,7 @@ exports[`Guide Component > GuideStep.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -8197,7 +8197,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -8342,7 +8342,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -8487,7 +8487,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -8632,7 +8632,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -8777,7 +8777,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -8922,7 +8922,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -9067,7 +9067,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -9212,7 +9212,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -9334,7 +9334,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -9479,7 +9479,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -9624,7 +9624,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -9769,7 +9769,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -9914,7 +9914,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -10059,7 +10059,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -10204,7 +10204,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -10349,7 +10349,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -10494,7 +10494,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -10639,7 +10639,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -10784,7 +10784,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -10929,7 +10929,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -11074,7 +11074,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -11219,7 +11219,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -11364,7 +11364,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -11486,7 +11486,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -11631,7 +11631,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -11776,7 +11776,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -11898,7 +11898,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -12043,7 +12043,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -12188,7 +12188,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -12333,7 +12333,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -12478,7 +12478,7 @@ exports[`Guide Component > GuideStep.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -12705,7 +12705,7 @@ exports[`Guide Component > GuideStep.mode is equal to dialog 1`] = `
       </div>
     </div>
     <div
-      class="action action-base"
+      class="t-row t-row--start t-row--align-top action action-base"
       style="margin-left: 0px; margin-right: 0px;"
     >
       
@@ -12829,7 +12829,7 @@ exports[`Guide Component > GuideStep.mode is equal to popup 1`] = `
       </div>
     </div>
     <div
-      class="action action-base"
+      class="t-row t-row--start t-row--align-top action action-base"
       style="margin-left: 0px; margin-right: 0px;"
     >
       
@@ -12959,7 +12959,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -13104,7 +13104,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -13249,7 +13249,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -13394,7 +13394,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -13539,7 +13539,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -13684,7 +13684,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -13829,7 +13829,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -13974,7 +13974,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -14096,7 +14096,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -14241,7 +14241,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -14386,7 +14386,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -14531,7 +14531,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -14676,7 +14676,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -14821,7 +14821,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -14966,7 +14966,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -15111,7 +15111,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -15256,7 +15256,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -15401,7 +15401,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -15546,7 +15546,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -15691,7 +15691,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -15836,7 +15836,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -15981,7 +15981,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -16126,7 +16126,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -16248,7 +16248,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -16393,7 +16393,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -16538,7 +16538,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -16660,7 +16660,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -16805,7 +16805,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -16950,7 +16950,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -17095,7 +17095,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -17240,7 +17240,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -17385,7 +17385,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -17530,7 +17530,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -17675,7 +17675,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -17820,7 +17820,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -17965,7 +17965,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -18097,7 +18097,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -18242,7 +18242,7 @@ exports[`Guide Component > GuideStep.placement is equal to bottom-left 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -18471,7 +18471,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -18616,7 +18616,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -18761,7 +18761,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -18906,7 +18906,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -19051,7 +19051,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -19196,7 +19196,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -19341,7 +19341,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -19486,7 +19486,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -19608,7 +19608,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -19753,7 +19753,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -19898,7 +19898,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -20043,7 +20043,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -20188,7 +20188,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -20333,7 +20333,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -20478,7 +20478,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -20623,7 +20623,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -20768,7 +20768,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -20913,7 +20913,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -21058,7 +21058,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -21203,7 +21203,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -21348,7 +21348,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -21493,7 +21493,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -21638,7 +21638,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -21760,7 +21760,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -21905,7 +21905,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -22050,7 +22050,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -22172,7 +22172,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -22317,7 +22317,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -22462,7 +22462,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -22607,7 +22607,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -22752,7 +22752,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -22897,7 +22897,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -23042,7 +23042,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -23187,7 +23187,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -23332,7 +23332,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -23477,7 +23477,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -23609,7 +23609,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -23754,7 +23754,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -23899,7 +23899,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -24044,7 +24044,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -24189,7 +24189,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -24334,7 +24334,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -24479,7 +24479,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -24624,7 +24624,7 @@ exports[`Guide Component > GuideStep.stepOverlayClass is equal to t-test-guide-s
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -24853,7 +24853,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -24998,7 +24998,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -25143,7 +25143,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -25288,7 +25288,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -25433,7 +25433,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -25578,7 +25578,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -25723,7 +25723,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -25868,7 +25868,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -25990,7 +25990,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -26135,7 +26135,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -26280,7 +26280,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -26425,7 +26425,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -26570,7 +26570,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -26715,7 +26715,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -26860,7 +26860,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -27005,7 +27005,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -27150,7 +27150,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -27295,7 +27295,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -27440,7 +27440,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -27585,7 +27585,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -27730,7 +27730,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -27875,7 +27875,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -28020,7 +28020,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -28142,7 +28142,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -28287,7 +28287,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -28432,7 +28432,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -28554,7 +28554,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -28699,7 +28699,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -28844,7 +28844,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -28989,7 +28989,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -29134,7 +29134,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -29279,7 +29279,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -29424,7 +29424,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -29569,7 +29569,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -29714,7 +29714,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -29859,7 +29859,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -29991,7 +29991,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -30136,7 +30136,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -30281,7 +30281,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -30426,7 +30426,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -30571,7 +30571,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -30716,7 +30716,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -30861,7 +30861,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -31006,7 +31006,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -31151,7 +31151,7 @@ exports[`Guide Component > GuideStep.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -31384,7 +31384,7 @@ exports[`Guide Component > slots.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -31529,7 +31529,7 @@ exports[`Guide Component > slots.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -31674,7 +31674,7 @@ exports[`Guide Component > slots.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -31819,7 +31819,7 @@ exports[`Guide Component > slots.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -31964,7 +31964,7 @@ exports[`Guide Component > slots.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -32109,7 +32109,7 @@ exports[`Guide Component > slots.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -32254,7 +32254,7 @@ exports[`Guide Component > slots.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -32399,7 +32399,7 @@ exports[`Guide Component > slots.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -32521,7 +32521,7 @@ exports[`Guide Component > slots.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -32666,7 +32666,7 @@ exports[`Guide Component > slots.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -32811,7 +32811,7 @@ exports[`Guide Component > slots.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -32956,7 +32956,7 @@ exports[`Guide Component > slots.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -33101,7 +33101,7 @@ exports[`Guide Component > slots.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -33246,7 +33246,7 @@ exports[`Guide Component > slots.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -33391,7 +33391,7 @@ exports[`Guide Component > slots.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -33536,7 +33536,7 @@ exports[`Guide Component > slots.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -33681,7 +33681,7 @@ exports[`Guide Component > slots.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -33826,7 +33826,7 @@ exports[`Guide Component > slots.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -33971,7 +33971,7 @@ exports[`Guide Component > slots.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -34116,7 +34116,7 @@ exports[`Guide Component > slots.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -34261,7 +34261,7 @@ exports[`Guide Component > slots.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -34406,7 +34406,7 @@ exports[`Guide Component > slots.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -34551,7 +34551,7 @@ exports[`Guide Component > slots.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -34673,7 +34673,7 @@ exports[`Guide Component > slots.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -34818,7 +34818,7 @@ exports[`Guide Component > slots.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -34963,7 +34963,7 @@ exports[`Guide Component > slots.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -35085,7 +35085,7 @@ exports[`Guide Component > slots.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -35230,7 +35230,7 @@ exports[`Guide Component > slots.body works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -35465,7 +35465,7 @@ exports[`Guide Component > slots.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -35610,7 +35610,7 @@ exports[`Guide Component > slots.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -35755,7 +35755,7 @@ exports[`Guide Component > slots.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -35900,7 +35900,7 @@ exports[`Guide Component > slots.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -36045,7 +36045,7 @@ exports[`Guide Component > slots.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -36190,7 +36190,7 @@ exports[`Guide Component > slots.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -36335,7 +36335,7 @@ exports[`Guide Component > slots.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -36480,7 +36480,7 @@ exports[`Guide Component > slots.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -36602,7 +36602,7 @@ exports[`Guide Component > slots.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -36747,7 +36747,7 @@ exports[`Guide Component > slots.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -36892,7 +36892,7 @@ exports[`Guide Component > slots.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -37037,7 +37037,7 @@ exports[`Guide Component > slots.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -37182,7 +37182,7 @@ exports[`Guide Component > slots.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -37327,7 +37327,7 @@ exports[`Guide Component > slots.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -37472,7 +37472,7 @@ exports[`Guide Component > slots.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -37617,7 +37617,7 @@ exports[`Guide Component > slots.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -37762,7 +37762,7 @@ exports[`Guide Component > slots.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -37907,7 +37907,7 @@ exports[`Guide Component > slots.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -38052,7 +38052,7 @@ exports[`Guide Component > slots.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -38197,7 +38197,7 @@ exports[`Guide Component > slots.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -38342,7 +38342,7 @@ exports[`Guide Component > slots.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -38487,7 +38487,7 @@ exports[`Guide Component > slots.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -38632,7 +38632,7 @@ exports[`Guide Component > slots.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -38754,7 +38754,7 @@ exports[`Guide Component > slots.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -38899,7 +38899,7 @@ exports[`Guide Component > slots.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -39044,7 +39044,7 @@ exports[`Guide Component > slots.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -39166,7 +39166,7 @@ exports[`Guide Component > slots.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -39311,7 +39311,7 @@ exports[`Guide Component > slots.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -39456,7 +39456,7 @@ exports[`Guide Component > slots.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -39601,7 +39601,7 @@ exports[`Guide Component > slots.content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -39791,7 +39791,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -39936,7 +39936,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -40081,7 +40081,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -40226,7 +40226,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -40371,7 +40371,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -40516,7 +40516,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -40661,7 +40661,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -40806,7 +40806,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -40928,7 +40928,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -41073,7 +41073,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -41218,7 +41218,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -41363,7 +41363,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -41508,7 +41508,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -41653,7 +41653,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -41798,7 +41798,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -41943,7 +41943,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -42088,7 +42088,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -42233,7 +42233,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -42378,7 +42378,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -42523,7 +42523,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -42668,7 +42668,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -42813,7 +42813,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -42958,7 +42958,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -43080,7 +43080,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -43225,7 +43225,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -43370,7 +43370,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -43492,7 +43492,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -43637,7 +43637,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -43782,7 +43782,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -43927,7 +43927,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -44072,7 +44072,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -44217,7 +44217,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -44362,7 +44362,7 @@ exports[`Guide Component > slots.highlight-content works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -44597,7 +44597,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -44742,7 +44742,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -44887,7 +44887,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -45032,7 +45032,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -45177,7 +45177,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -45322,7 +45322,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -45467,7 +45467,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -45612,7 +45612,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -45734,7 +45734,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -45879,7 +45879,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -46024,7 +46024,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -46169,7 +46169,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -46314,7 +46314,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -46459,7 +46459,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -46604,7 +46604,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -46749,7 +46749,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -46894,7 +46894,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -47039,7 +47039,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -47184,7 +47184,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -47329,7 +47329,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -47474,7 +47474,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -47619,7 +47619,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -47764,7 +47764,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -47886,7 +47886,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -48031,7 +48031,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -48176,7 +48176,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -48298,7 +48298,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -48443,7 +48443,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -48588,7 +48588,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -48733,7 +48733,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -48878,7 +48878,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -49023,7 +49023,7 @@ exports[`Guide Component > slots.highlightContent works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -49258,7 +49258,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -49403,7 +49403,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -49548,7 +49548,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -49693,7 +49693,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -49838,7 +49838,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -49983,7 +49983,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -50128,7 +50128,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -50273,7 +50273,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -50395,7 +50395,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -50540,7 +50540,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -50685,7 +50685,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -50830,7 +50830,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -50975,7 +50975,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -51120,7 +51120,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -51265,7 +51265,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -51410,7 +51410,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -51555,7 +51555,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -51700,7 +51700,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -51845,7 +51845,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -51990,7 +51990,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -52135,7 +52135,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -52280,7 +52280,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -52425,7 +52425,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -52547,7 +52547,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -52692,7 +52692,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -52837,7 +52837,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -52959,7 +52959,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -53104,7 +53104,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -53249,7 +53249,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -53394,7 +53394,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -53539,7 +53539,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -53684,7 +53684,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -53829,7 +53829,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -53974,7 +53974,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -54119,7 +54119,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -54264,7 +54264,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -54396,7 +54396,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -54541,7 +54541,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -54686,7 +54686,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -54831,7 +54831,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -54976,7 +54976,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -55121,7 +55121,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -55266,7 +55266,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -55411,7 +55411,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -55556,7 +55556,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           
@@ -55701,7 +55701,7 @@ exports[`Guide Component > slots.title works fine 1`] = `
           </div>
         </div>
         <div
-          class="action action-base"
+          class="t-row t-row--start t-row--align-top action action-base"
           style="margin-left: 0px; margin-right: 0px;"
         >
           

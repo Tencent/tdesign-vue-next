@@ -135,7 +135,7 @@ export default defineComponent({
       }
 
       return (
-        <div class={classes.value} disabled={disabled.value} onClick={toggle}>
+        <div class={classes.value} onClick={toggle}>
           <span class={nodeClasses.value}>{loadingContent}</span>
           <div class={contentClasses.value}>{switchContent}</div>
         </div>
