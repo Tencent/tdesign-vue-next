@@ -1,45 +1,52 @@
 {
   "compilerOptions": {
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
-    ],
+    /* Language and Environment */
     "target": "esnext",
-    "outDir": "lib",
-    "declaration": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "isolatedModules": false,
+    "lib": [ "esnext", "dom", "dom.iterable", "scripthost"],
+    "jsx": "preserve",
+    // todo: 待移除 哪里有使用装饰器吗
     "experimentalDecorators": true,
+
+    /* Modules */
+    "module": "esnext",
+    "rootDir": ".",
+    // todo: 待更新 按照官网介绍，node 和 node10 已经弃用了，https://www.typescriptlang.org/docs/handbook/modules/theory.html#module-resolution-is-host-defined
+    // 但如果用 node16 的话， module 需要使用 node，因此这里我们讨论一下吧
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "resolveJsonModule": true,
+
+    /* JavaScript Support */
+    "allowJs": true,
+
+    /* Emit */
+    "declaration": true,  
+    "outDir": "lib",
+    "removeComments": true,
+
+    /* Interop Constraints */
+    // todo: 为什么要 false 呢？
+    "isolatedModules": false,
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
+
+    /* Type Checking */
+    // todo: 待增加 直接 strict 比较好
+    "strict": true,
     "noImplicitAny": true,
     "noImplicitThis": true,
+    // todo: 待移除 这就不合适了
     "strictNullChecks": false,
-    "removeComments": true,
-    "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true,
+
+    /* Completeness */
     "skipLibCheck": true,
-    "allowJs": true,
-    "jsx": "preserve",
-    "baseUrl": "./",
+
     "paths": {
-      "@src/*": [
-        "packages/components/*"
-      ],
-      "tdesign-vue-next": [
-        "packages/components"
-      ],
-      "tdesign-vue-next/es/locale/*": [
-        "packages/components/locale/*"
-      ],
-      "@common/*": [
-        "packages/common/*"
-      ],
-      "@test/utils": [
-        "test/utils"
-      ]
+      "@src/*": [ "packages/components/*" ],
+      "tdesign-vue-next": [ "packages/components" ],
+      "tdesign-vue-next/es/locale/*": [ "packages/components/locale/*" ],
+      "@common/*": ["packages/common/*"],
+      "@test/utils": ["test/utils"]
     }
   },
   "include": [
@@ -57,6 +64,5 @@
     "esm",
     "es",
     "global.d.ts"
-  ],
-  "compileOnSave": false
+  ]
 }
