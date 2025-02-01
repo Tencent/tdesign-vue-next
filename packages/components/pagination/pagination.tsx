@@ -302,8 +302,8 @@ export default defineComponent({
                 <li
                   class={CLASS_MAP.btnMoreClass.value}
                   onClick={() => handlePageChange('prevMorePage')}
-                  onMouseOver={() => (prevMore.value = true)}
-                  onMouseOut={() => (prevMore.value = false)}
+                  onMouseover={() => (prevMore.value = true)}
+                  onMouseout={() => (prevMore.value = false)}
                 >
                   {prevMore.value ? <ChevronLeftDoubleIcon /> : <EllipsisIcon />}
                 </li>
@@ -317,8 +317,8 @@ export default defineComponent({
                 <li
                   class={CLASS_MAP.btnMoreClass.value}
                   onClick={() => handlePageChange('nextMorePage')}
-                  onMouseOver={() => (nextMore.value = true)}
-                  onMouseOut={() => (nextMore.value = false)}
+                  onMouseover={() => (nextMore.value = true)}
+                  onMouseout={() => (nextMore.value = false)}
                 >
                   {nextMore.value ? <ChevronRightDoubleIcon /> : <EllipsisIcon />}
                 </li>

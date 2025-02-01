@@ -8,20 +8,20 @@ export default defineComponent({
   setup() {
     return () => {
       return (
-        <div className="guide-container">
-          <div className="main-title-base">
-            <div className="title-major">Guide 用户引导</div>
-            <div className="title-sub">按钮用于开启一个闭环的操作任务，如“删除”对象、“购买”商品等。</div>
+        <div class="guide-container">
+          <div class="main-title-base">
+            <div class="title-major">Guide 用户引导</div>
+            <div class="title-sub">按钮用于开启一个闭环的操作任务，如“删除”对象、“购买”商品等。</div>
           </div>
-          <div className="field label-field-base">
-            <div className="label">Label</div>
+          <div class="field label-field-base">
+            <div class="label">Label</div>
             <Input placeholder="请输入内容" />
           </div>
-          <div className="field">
-            <div className="label">Label</div>
+          <div class="field">
+            <div class="label">Label</div>
             <Input placeholder="请输入内容" />
           </div>
-          <Row className="action action-base">
+          <Row class="action action-base">
             <Button>确定</Button>
             <Button theme="default" variant="base">
               取消
