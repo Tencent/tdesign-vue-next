@@ -97,7 +97,7 @@ export default defineComponent({
     };
     return (
       <div class={[`${baseClassName}__slider-wrapper`, `${baseClassName}__slider-wrapper--${type}-type`]}>
-        {type === 'alpha' && <div className={`${baseClassName}__slider-padding`} style={paddingStyle} />}
+        {type === 'alpha' && <div class={`${baseClassName}__slider-padding`} style={paddingStyle} />}
         <div class={[`${baseClassName}__slider`, className]} ref="refPanel">
           <div class={`${baseClassName}__rail`} style={railStyle}></div>
           <span class={[`${baseClassName}__thumb`]} role="slider" tabindex={0} ref="refThumb" style={styles}></span>

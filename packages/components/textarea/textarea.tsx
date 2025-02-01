@@ -10,7 +10,7 @@ import {
   StyleValue,
   CSSProperties,
 } from 'vue';
-import { merge } from 'lodash-es';
+import { isObject, merge } from 'lodash-es';
 import { isUndefined } from 'lodash-es';
 
 import { omit } from '../../utils/helper';
@@ -207,7 +207,11 @@ export default defineComponent({
 
     watch(textareaStyle, (val) => {
       const { style } = attrs as { style: StyleValue };
-      setStyle(refTextareaElem.value, merge(style, val));
+      if (isObject(style)) {
+        setStyle(refTextareaElem.value, merge(style, val) as Record<string, any>);
+      } else {
+        setStyle(refTextareaElem.value, val);
+      }
     });
 
     watch(innerValue, () => {

@@ -52,7 +52,7 @@ export default defineComponent({
       const iconOnly = icon && !buttonContent;
       const suffix =
         props.suffix || slots.suffix ? (
-          <span className={`${COMPONENT_NAME.value}__suffix`}>{renderTNodeJSX('suffix')}</span>
+          <span class={`${COMPONENT_NAME.value}__suffix`}>{renderTNodeJSX('suffix')}</span>
         ) : null;
 
       buttonContent = buttonContent ? <span class={`${COMPONENT_NAME.value}__text`}>{buttonContent}</span> : '';
