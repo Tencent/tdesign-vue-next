@@ -163,7 +163,7 @@
     "msw": "^1.2.3",
     "npm-run-all2": "^7.0.2",
     "postcss": "^8.4.26",
-    "prettier": "2.8.1",
+    "prettier": "3.4.2",
     "prismjs": "^1.29.0",
     "raf": "^3.4.1",
     "rimraf": "^5.0.1",
