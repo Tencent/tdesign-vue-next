@@ -56,6 +56,8 @@ export default function useRenderIcon(state: TypeTreeItemState) {
           `${classPrefix}-folder-icon`,
           isDefaultIcon ? `${componentName}__icon--default` : '',
         ]}
+        // todo: 这里最好修改一下，改成 data-ignore 之类的
+        // @ts-ignore
         trigger="expand"
         ignore="active"
         onmousedown={handleMousedown}
