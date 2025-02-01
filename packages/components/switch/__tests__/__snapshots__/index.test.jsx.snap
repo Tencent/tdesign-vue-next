@@ -3,7 +3,6 @@
 exports[`Switch > :props > :customValue 1`] = `
 <div
   class="t-switch t-size-m"
-  disabled="false"
 >
   <span
     class="t-switch__handle"
@@ -21,7 +20,6 @@ exports[`Switch > :props > :customValue 1`] = `
 exports[`Switch > :props > :defaultValue 1`] = `
 <div
   class="t-switch t-size-m"
-  disabled="false"
 >
   <span
     class="t-switch__handle"
@@ -39,7 +37,6 @@ exports[`Switch > :props > :defaultValue 1`] = `
 exports[`Switch > :props > :disabled 1`] = `
 <div
   class="t-switch t-size-m t-is-disabled"
-  disabled="true"
 >
   <span
     class="t-switch__handle t-is-disabled"
@@ -57,7 +54,6 @@ exports[`Switch > :props > :disabled 1`] = `
 exports[`Switch > :props > :label 1`] = `
 <div
   class="t-switch t-size-m"
-  disabled="false"
 >
   <span
     class="t-switch__handle"
@@ -75,7 +71,6 @@ exports[`Switch > :props > :label 1`] = `
 exports[`Switch > :props > :loading 1`] = `
 <div
   class="t-switch t-size-m t-is-loading"
-  disabled="false"
 >
   <span
     class="t-switch__handle t-is-loading"
@@ -117,7 +112,6 @@ exports[`Switch > :props > :loading 1`] = `
 exports[`Switch > :props > :modelValue 1`] = `
 <div
   class="t-switch t-size-m"
-  disabled="false"
 >
   <span
     class="t-switch__handle"
@@ -135,7 +129,6 @@ exports[`Switch > :props > :modelValue 1`] = `
 exports[`Switch > :props > :onChange 1`] = `
 <div
   class="t-switch t-size-m"
-  disabled="false"
 >
   <span
     class="t-switch__handle"
@@ -153,7 +146,6 @@ exports[`Switch > :props > :onChange 1`] = `
 exports[`Switch > :props > :size 1`] = `
 <div
   class="t-switch t-size-s"
-  disabled="false"
 >
   <span
     class="t-switch__handle"
@@ -171,7 +163,6 @@ exports[`Switch > :props > :size 1`] = `
 exports[`Switch > :props > :value 1`] = `
 <div
   class="t-switch t-size-m"
-  disabled="false"
 >
   <span
     class="t-switch__handle"
@@ -189,7 +180,6 @@ exports[`Switch > :props > :value 1`] = `
 exports[`Switch > <slot> > <label> 1`] = `
 <div
   class="t-switch t-size-m"
-  disabled="false"
 >
   <span
     class="t-switch__handle"
@@ -209,7 +199,6 @@ exports[`Switch > <slot> > <label> 1`] = `
 exports[`Switch > @event > Event passthrough: change 1`] = `
 <div
   class="t-switch t-size-m"
-  disabled="false"
 >
   <span
     class="t-switch__handle"

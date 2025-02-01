@@ -42,7 +42,7 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
           class="t-image-viewer__header-box"
         >
           <div
-            class="t-image-viewer__header-img"
+            class="t-image__wrapper t-image__wrapper--shape-square t-image-viewer__header-img"
             fallback=""
             referrerpolicy="strict-origin-when-cross-origin"
           >
@@ -102,7 +102,7 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
           class="t-image-viewer__header-box t-is-active"
         >
           <div
-            class="t-image-viewer__header-img"
+            class="t-image__wrapper t-image__wrapper--shape-square t-image-viewer__header-img"
             fallback=""
             referrerpolicy="strict-origin-when-cross-origin"
           >
@@ -162,7 +162,7 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
           class="t-image-viewer__header-box"
         >
           <div
-            class="t-image-viewer__header-img"
+            class="t-image__wrapper t-image__wrapper--shape-square t-image-viewer__header-img"
             fallback=""
             referrerpolicy="strict-origin-when-cross-origin"
           >
