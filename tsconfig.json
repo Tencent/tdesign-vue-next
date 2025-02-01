@@ -21,6 +21,7 @@
     "suppressImplicitAnyIndexErrors": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
+    "skipLibCheck": true,
     "allowJs": true,
     "jsx": "preserve",
     "baseUrl": "./",
