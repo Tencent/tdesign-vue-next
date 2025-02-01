@@ -190,7 +190,7 @@
     "vite-plugin-tdoc": "^2.0.4",
     "vitest": "^2.1.8",
     "vitest-fetch-mock": "^0.1.0",
-    "vue": "3.3.9",
+    "vue": "3.5.13",
     "vue-router": "^4.2.4",
     "workbox-precaching": "^6.6.0"
   },
