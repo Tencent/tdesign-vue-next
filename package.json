@@ -167,7 +167,7 @@
     "prismjs": "^1.29.0",
     "raf": "^3.4.1",
     "rimraf": "^5.0.1",
-    "rollup": "^2.79.1",
+    "rollup": "^4.34.0",
     "rollup-plugin-analyzer": "^4.0.0",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-delete": "^2.0.0",
