@@ -272,21 +272,13 @@ export default defineComponent({
           )}
           {/* 首页按钮 */}
           {props.showFirstAndLastPageBtn ? (
-            <div
-              class={CLASS_MAP.preBtnClass.value}
-              onClick={() => toPage(1)}
-              disabled={props.disabled || props.current === min}
-            >
+            <div class={CLASS_MAP.preBtnClass.value} onClick={() => toPage(1)}>
               <PageFirstIcon />
             </div>
           ) : null}
           {/* 向前按钮 */}
           {props.showPreviousAndNextBtn ? (
-            <div
-              class={CLASS_MAP.preBtnClass.value}
-              onClick={() => handlePageChange('prevPage')}
-              disabled={disabled || innerCurrent.value === min}
-            >
+            <div class={CLASS_MAP.preBtnClass.value} onClick={() => handlePageChange('prevPage')}>
               <ChevronLeftIcon />
             </div>
           ) : null}
@@ -334,21 +326,13 @@ export default defineComponent({
           {props.theme === 'simple' && Jumper}
           {/* 向后按钮 */}
           {props.showPreviousAndNextBtn ? (
-            <div
-              class={CLASS_MAP.nextBtnClass.value}
-              onClick={() => handlePageChange('nextPage')}
-              disabled={disabled || innerCurrent.value === pageCount.value}
-            >
+            <div class={CLASS_MAP.nextBtnClass.value} onClick={() => handlePageChange('nextPage')}>
               <ChevronRightIcon />
             </div>
           ) : null}
           {/* 尾页按钮 */}
           {props.showFirstAndLastPageBtn ? (
-            <div
-              class={CLASS_MAP.nextBtnClass.value}
-              onClick={() => toPage(pageCount.value)}
-              disabled={disabled || innerCurrent.value === pageCount.value}
-            >
+            <div class={CLASS_MAP.nextBtnClass.value} onClick={() => toPage(pageCount.value)}>
               <PageLastIcon />
             </div>
           ) : null}
