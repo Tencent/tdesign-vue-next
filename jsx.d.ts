@@ -8,11 +8,7 @@ declare global {
   }
 }
 
-declare module '@vue/runtime-dom' {
-  interface CSSProperties {
-    [attr: string]: any;
-  }
-}
+declare module '@vue/runtime-dom' {}
 
 declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
