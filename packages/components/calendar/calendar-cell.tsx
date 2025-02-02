@@ -75,7 +75,7 @@ export default defineComponent({
     });
     const clickCell = (e: MouseEvent): void => {
       if (disabled.value) return;
-      const emitName = clickTypeEmitEventMap[e.type];
+      const emitName = clickTypeEmitEventMap[e.type as keyof typeof clickTypeEmitEventMap];
       emit(emitName, e);
     };
 

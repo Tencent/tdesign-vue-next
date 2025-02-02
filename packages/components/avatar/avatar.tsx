@@ -21,7 +21,7 @@ export default defineComponent({
     const gap = ref(4);
     const scale = ref('');
 
-    const sizeValue = computed(() => props.size || avatarGroup?.size);
+    const sizeValue = computed<keyof typeof SIZE.value>(() => props.size || avatarGroup?.size);
     const isCustomSize = computed(() => sizeValue.value && !SIZE.value[sizeValue.value]);
 
     const customAvatarSize = computed(() => {

@@ -7,11 +7,11 @@ import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 import { usePrefixClass, useConfig } from '../../hooks/useConfig';
 import { useReadonly } from '../../hooks/useReadonly';
 
-import { TdDateRangePickerProps, DateValue } from '../type';
+import { TdDateRangePickerProps, DateValue, DateRangePickerPartial } from '../type';
 import { isValidDate, formatDate, getDefaultFormat, parseToDayjs } from '../../../common/js/date-picker/format';
 import useRangeValue from './useRangeValue';
 
-export const PARTIAL_MAP = { first: 'start', second: 'end' };
+export const PARTIAL_MAP: Record<'first' | 'second', DateRangePickerPartial> = { first: 'start', second: 'end' };
 
 export default function useRange(props: TdDateRangePickerProps) {
   const COMPONENT_NAME = usePrefixClass('date-range-picker');
@@ -65,15 +65,15 @@ export default function useRange(props: TdDateRangePickerProps) {
       popupVisible.value = false;
       onChange?.([], { dayjsValue: [], trigger: 'clear' });
     },
-    onBlur: (newVal: string[], { e, position }: any) => {
+    onBlur: (newVal: string[], { e, position }: { e: MouseEvent; position: 'first' | 'second' }) => {
       props.onBlur?.({ value: newVal, partial: PARTIAL_MAP[position], e });
     },
-    onFocus: (newVal: string[], { e, position }: any) => {
+    onFocus: (newVal: string[], { e, position }: { e: MouseEvent; position: 'first' | 'second' }) => {
       props.onFocus?.({ value: newVal, partial: PARTIAL_MAP[position], e });
       activeIndex.value = position === 'first' ? 0 : 1;
     },
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    onChange: (newVal: string[], { e, position }: any) => {
+    onChange: (newVal: string[], { e, position }: { e: MouseEvent; position: 'first' | 'second' }) => {
       inputValue.value = newVal;
 
       // 跳过不符合格式化的输入框内容

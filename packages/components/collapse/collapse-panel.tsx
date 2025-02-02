@@ -19,7 +19,7 @@ export default defineComponent({
     const { value, disabled, destroyOnCollapse } = toRefs(props);
     const collapseValue: Ref<CollapseValue> = inject('collapseValue');
     const updateCollapseValue: Function = inject('updateCollapseValue');
-    const getUniqId: Function = inject('getUniqId', () => undefined, false);
+    const getUniqId: Function = inject('getUniqId', (): undefined => undefined, false);
     const {
       defaultExpandAll,
       disabled: disableAll,
