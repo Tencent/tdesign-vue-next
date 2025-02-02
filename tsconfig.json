@@ -8,9 +8,7 @@
     /* Modules */
     "module": "esnext",
     "rootDir": ".",
-    // todo: 待更新 按照官网介绍，node 和 node10 已经弃用了，https://www.typescriptlang.org/docs/handbook/modules/theory.html#module-resolution-is-host-defined
-    // 但如果用 node16 的话， module 需要使用 node，因此这里我们讨论一下吧
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "baseUrl": "./",
     "resolveJsonModule": true,
 
