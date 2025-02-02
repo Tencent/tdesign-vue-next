@@ -31,6 +31,7 @@ export default defineComponent({
         setTimeout(() => (isPopupVisible.value = false), manualCloseTimeout.value);
 
         props.popupProps?.onVisibleChange?.(false, context);
+        // TODO
         // @ts-ignore types only declare onVisibleChange，but not declare on-visible-change
         props.popupProps?.['on-visible-change']?.(false, context);
       }
@@ -42,6 +43,7 @@ export default defineComponent({
       isPopupVisible.value = visible;
 
       props.popupProps?.onVisibleChange?.(visible, context);
+      // TODO
       // @ts-ignore types only declare onVisibleChange，but not declare on-visible-change
       props.popupProps?.['on-visible-change']?.(visible, context);
     };
