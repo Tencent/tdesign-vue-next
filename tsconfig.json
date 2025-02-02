@@ -28,8 +28,7 @@
     /* Type Checking */
     // TODO: 待开启
     // "strict": true,
-    // TODO: 待开启
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "noImplicitThis": true,
     "strictNullChecks": false,
 
