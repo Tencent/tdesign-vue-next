@@ -4,8 +4,6 @@
     "target": "esnext",
     "lib": [ "esnext", "dom", "dom.iterable", "scripthost"],
     "jsx": "preserve",
-    // todo: 待移除 哪里有使用装饰器吗
-    "experimentalDecorators": true,
 
     /* Modules */
     "module": "esnext",
@@ -25,17 +23,15 @@
     "removeComments": true,
 
     /* Interop Constraints */
-    // todo: 为什么要 false 呢？
-    "isolatedModules": false,
+    "isolatedModules": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
 
     /* Type Checking */
-    // todo: 待增加 直接 strict 比较好
-    "strict": true,
+    // TODO: 待开启
+    // "strict": true,
     "noImplicitAny": true,
     "noImplicitThis": true,
-    // todo: 待移除 这就不合适了
     "strictNullChecks": false,
 
     /* Completeness */
