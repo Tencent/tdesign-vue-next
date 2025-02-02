@@ -8,9 +8,14 @@ import { CSSProperties } from 'vue';
 function setStyle(el: HTMLElement, styles: CSSProperties): void {
   const keys = Object.keys(styles);
   keys.forEach((key) => {
+    // @ts-ignore
     // eslint-disable-next-line no-param-reassign
     el.style[key] = styles[key];
   });
+  // TODO: 建议改成如下
+  // Object.entries(styles).forEach(([key, value]) => {
+  //   el.style.setProperty(key, String(value));
+  // });
 }
 
 export default setStyle;

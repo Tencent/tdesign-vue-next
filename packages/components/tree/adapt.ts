@@ -87,8 +87,8 @@ export function getScopedSlots(instance: ComponentPublicInstance) {
 }
 
 export function useVModel(
-  props: TreeProps,
-  refsProps: ToRefs<TreeProps>,
+  props: TreeProps & Record<string, any>,
+  refsProps: ToRefs<TreeProps> & Record<string, any>,
   propName = 'value',
   defaultPropName = 'defaultValue',
   eventPropName = 'onChange',
