@@ -75,7 +75,7 @@ export default defineComponent({
     // 更新modelValue
     const updateModelValue = () => {
       const { format, color } = props;
-      const values: any = getFormatColorMap('encode')[format];
+      const values = getFormatColorMap('encode')[format];
       values.a = Math.round(color.alpha * 100);
       Object.keys(values).forEach((key) => {
         modelValue[key] = values[key];
