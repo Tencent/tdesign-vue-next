@@ -105,9 +105,9 @@ export default defineComponent({
       inputValueChangeHandle(e as InputEvent);
     };
 
-    const eventDeal = (name: 'keydown' | 'keyup' | 'keypress' | 'change', e: KeyboardEvent | FocusEvent) => {
+    const eventDeal = <T extends 'keydown' | 'keyup' | 'keypress'>(name: T, e: KeyboardEvent) => {
       if (disabled.value) return;
-      const eventName = `on${name[0].toUpperCase()}${name.slice(1)}`;
+      const eventName = `on${name[0].toUpperCase()}${name.slice(1)}` as `on${Capitalize<T>}`;
       props[eventName]?.(innerValue.value, { e });
     };
 
@@ -160,6 +160,8 @@ export default defineComponent({
     const characterNumber = computed(() => {
       const characterInfo = getCharacterLength(String(innerValue.value || ''));
       if (typeof characterInfo === 'object') {
+        // @ts-ignore
+        // TODO: 这里的写法本身就有问题，因为 getCharacterLength(String(innerValue.value || '')) 一定会返回 number，所以这个分支肯定是进不了的，除非 getCharacterLength 写得有问题
         return characterInfo.length;
       }
       return characterInfo;
