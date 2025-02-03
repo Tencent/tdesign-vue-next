@@ -45,6 +45,7 @@ export default defineComponent({
           const calcTop = wrapToTop - containerTop; // 节点顶部到 container 顶部的距离
 
           const containerHeight =
+            // @ts-ignore 这个的源头应该是在这里 type ScrollContainerElement = Window | HTMLElement;
             scrollContainer.value[scrollContainer.value instanceof Window ? 'innerHeight' : 'clientHeight'] -
             wrapHeight;
           const calcBottom = containerTop + containerHeight - props.offsetBottom; // 计算 bottom 相对应的 top 值

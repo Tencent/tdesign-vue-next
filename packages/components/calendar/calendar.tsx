@@ -306,7 +306,7 @@ export default defineComponent({
           },
           e,
         };
-        props[eventPropsName](options);
+        (props[eventPropsName] as Function)(options);
       }
     };
     const clickCell = (e: MouseEvent, cellData: CalendarCell): void => {

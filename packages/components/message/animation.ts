@@ -51,6 +51,8 @@ function setDomStyleAfterAnimation(dom: HTMLElement, styleAfterAnimation: Keyfra
   for (let i = 0; i < keys.length; i += 1) {
     const key = keys[i];
     // eslint-disable-next-line no-param-reassign
+    // @ts-ignore
+    // TODO: 不知道咋改 😭
     dom.style[key] = styleAfterAnimation[key];
   }
 }
