@@ -7,6 +7,7 @@ import { isNumber } from 'lodash-es';
 import { isString } from 'lodash-es';
 import { isArray } from 'lodash-es';
 import { getFlexGapPolyFill } from '../../common/js/utils/helper';
+import { SizeEnum } from '../common';
 
 const sizeMap = { small: '8px', medium: '16px', large: '24px' };
 const defaultNeedPolyfill = getFlexGapPolyFill();
@@ -33,12 +34,12 @@ export default defineComponent({
         renderGap = props.size
           .map((s) => {
             if (isNumber(s)) return `${s}px`;
-            if (isString(s)) return sizeMap[s] || s;
+            if (isString(s) && ['small', 'medium', 'large'].includes(s)) return sizeMap[s as SizeEnum];
             return s;
           })
           .join(' ');
       } else if (isString(props.size)) {
-        renderGap = sizeMap[props.size] || props.size;
+        renderGap = ['small', 'medium', 'large'].includes(props.size) ? sizeMap[props.size as SizeEnum] : props.size;
       } else if (isNumber(props.size)) {
         renderGap = `${props.size}px`;
       }

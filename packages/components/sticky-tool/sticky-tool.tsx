@@ -46,7 +46,7 @@ export default defineComponent({
         if (children && isObject(children)) {
           for (const key in children) {
             if (key in stickyItemProps && !list[key]) {
-              list[key] = children[key];
+              list[key] = (children as Record<string, any>)[key];
             }
           }
         }

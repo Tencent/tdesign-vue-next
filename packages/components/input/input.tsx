@@ -13,18 +13,7 @@ import { useTNodeJSX } from '../hooks/tnode';
 import useInput from './useInput';
 import useInputEventHandler from './useInputEventHandler';
 import useInputWidth from './useInputWidth';
-import { isUndefined } from 'lodash-es';
-import { PlainObject } from '../common';
-
-function getValidAttrs(obj: PlainObject): PlainObject {
-  const newObj: PlainObject = {};
-  Object.keys(obj).forEach((key) => {
-    if (!isUndefined(obj[key])) {
-      newObj[key] = obj[key];
-    }
-  });
-  return newObj;
-}
+import { getValidAttrs } from '../../utils/helper';
 
 export default defineComponent({
   name: 'TInput',

@@ -5,7 +5,7 @@ import { isArray } from 'lodash-es';
 import { isNumber } from 'lodash-es';
 import { isString } from 'lodash-es';
 
-export function removeEmptyAttrs<T extends Record<string, any>>(obj: T): Partial<T> {
+export function getValidAttrs<T extends Record<string, any>>(obj: T): Partial<T> {
   const newObj: Partial<T> = {};
 
   Object.keys(obj).forEach((key) => {

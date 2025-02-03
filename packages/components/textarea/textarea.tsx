@@ -10,8 +10,7 @@ import {
   StyleValue,
   CSSProperties,
 } from 'vue';
-import { isObject, merge } from 'lodash-es';
-import { isUndefined, omit } from 'lodash-es';
+import { isObject, merge, omit } from 'lodash-es';
 
 import calcTextareaHeight from './calcTextareaHeight';
 import { FormItemInjectionKey } from '../form/const';
@@ -29,15 +28,7 @@ import useLengthLimit from '../input/useLengthLimit';
 import props from './props';
 import type { TextareaValue, TdTextareaProps } from './type';
 
-function getValidAttrs(obj: Record<string, any>): object {
-  const newObj: Record<string, any> = {};
-  Object.keys(obj).forEach((key) => {
-    if (!isUndefined(obj[key])) {
-      newObj[key] = obj[key];
-    }
-  });
-  return newObj;
-}
+import { getValidAttrs } from '../../utils/helper';
 
 export default defineComponent({
   name: 'TTextarea',
