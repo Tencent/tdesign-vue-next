@@ -166,3 +166,5 @@ export type JumperDisabledConfig = { prev?: boolean; current?: boolean; next?: b
 export type JumperTipsConfig = { prev?: string; current?: string; next?: string };
 
 export type JumperTrigger = 'prev' | 'current' | 'next';
+
+export type PageChangeType = 'prevPage' | 'nextPage' | 'prevMorePage' | 'nextMorePage';

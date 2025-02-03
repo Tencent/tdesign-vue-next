@@ -67,8 +67,12 @@ export default defineComponent({
       }
       if (props.valueType === 'object') {
         return !props.multiple
-          ? orgValue.value[keys.value.value]
-          : (orgValue.value as SelectValue[]).map((option) => option[keys.value.value]);
+          ? // @ts-ignore
+            // TODO 不好改 😭
+            orgValue.value[keys.value.value]
+          : // @ts-ignore
+            // TODO 不好改 😭
+            (orgValue.value as SelectValue[]).map((option) => option[keys.value.value]);
       }
       return orgValue.value;
     });
@@ -182,6 +186,7 @@ export default defineComponent({
      */
     const optionalList = computed(() =>
       optionsList.value.filter((item) => {
+        // @ts-ignore types only declare checkAll not declare check-all
         return !item.disabled && !item['check-all'] && !item.checkAll;
       }),
     );

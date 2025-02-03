@@ -155,7 +155,7 @@ export default defineComponent({
       const status = props.status || '';
       if (STATUS_ICON.includes(status) && props.theme !== PRO_THEME.PLUMP) {
         const components = getIconMap();
-        const component = components[status];
+        const component = components[status as keyof typeof components];
         if (component) {
           labelContent = <component class={[`${COMPONENT_NAME.value}__icon`]}></component>;
         }
