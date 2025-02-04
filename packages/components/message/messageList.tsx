@@ -1,5 +1,5 @@
 import { computed, defineComponent, ref } from 'vue';
-import type { StyleValue, CSSProperties } from 'vue';
+import type { CSSProperties } from 'vue';
 import { PLACEMENT_OFFSET } from './const';
 import TMessage from './message';
 import { MessageOptions } from './type';
