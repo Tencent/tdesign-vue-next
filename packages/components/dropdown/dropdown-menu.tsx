@@ -16,7 +16,7 @@ export default defineComponent({
   setup(props) {
     const dropdownClass = usePrefixClass('dropdown');
     const dropdownMenuClass = usePrefixClass('dropdown__menu');
-    const scrollTopMap = reactive({});
+    const scrollTopMap = reactive<Record<string, number>>({});
     const itemHeight = ref(null);
     const menuRef = ref<HTMLElement>();
     const isOverMaxHeight = ref(false);

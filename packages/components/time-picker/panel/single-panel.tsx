@@ -41,7 +41,14 @@ export default defineComponent({
     const bodyRef = ref();
     const maskRef = ref(null);
     // 每个滚动列的ref 顺序不定 所以只要有5列标识即可
-    const colsRef = reactive({ 0: null, 1: null, 2: null, 3: null, 4: null, 5: null });
+    const colsRef = reactive<Record<number, null | HTMLElement>>({
+      0: null,
+      1: null,
+      2: null,
+      3: null,
+      4: null,
+      5: null,
+    });
 
     const dayjsValue = computed(() => {
       const isStepsSet = !!steps.value.filter((step) => Number(step) > 1).length;
@@ -191,6 +198,8 @@ export default defineComponent({
         return;
 
       if (timeArr.includes(col)) {
+        // @ts-ignore
+        // TODO: 这里不好改，要改的话需要分类型处理
         if (timeItemCanUsed(col, val)) formattedVal = dayjsValue.value[col]?.(val).format(format.value);
         else formattedVal = dayjsValue.value.format(format.value);
       } else {
@@ -265,6 +274,8 @@ export default defineComponent({
             // 如果没有设置大于1的steps或设置了大于1的step 正常处理滚动
             scrollToTime(
               col,
+              // @ts-ignore
+              // TODO: 这里不好改，要改的话需要分类型处理
               timeArr.includes(col) ? dayjsValue.value[col]?.() : dayjsValue.value.format('a'),
               idx,
               behavior,
@@ -304,7 +315,7 @@ export default defineComponent({
         {cols.value.map?.((col, idx) => (
           <ul
             key={`${col}_${idx}`}
-            ref={(el) => (colsRef[idx] = el)}
+            ref={(el) => (colsRef[idx] = el as HTMLElement)}
             class={`${COMPONENT_NAME.value}-body-scroll`}
             onScroll={debounce((e) => handleScroll(col, idx, e), 50)}
           >

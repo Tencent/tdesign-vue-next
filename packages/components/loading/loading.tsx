@@ -7,6 +7,8 @@ import props from './props';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import useTeleport from '../hooks/useTeleport';
 
+import { getPropertyValFromObj } from '../../common/js/utils/general';
+
 const useComponentClassName = () => {
   return {
     name: usePrefixClass('loading'),
@@ -67,7 +69,7 @@ export default defineComponent({
     const classes = computed(() => {
       const baseClasses = [
         centerClass.value,
-        SIZE.value[props.size],
+        getPropertyValFromObj(SIZE.value, props.size),
         { [inheritColorClass.value]: props.inheritColor },
       ];
       const fullScreenClasses = [name.value, fullscreenClass.value, centerClass.value, overlayClass.value];

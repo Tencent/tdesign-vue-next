@@ -25,7 +25,7 @@ export default function useRenderOperations(state: TypeTreeItemState) {
     }
     if (opNode) {
       opNode = (
-        // todo: 这里最好修改一下，改成 data-ignore 之类的
+        // TODO: 这里最好修改一下，改成 data-ignore 之类的
         // @ts-ignore
         <span class={`${componentName}__operations`} ignore="active,expand">
           {opNode}

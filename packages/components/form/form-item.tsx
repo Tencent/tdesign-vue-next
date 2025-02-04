@@ -51,7 +51,7 @@ import {
 
 import { useConfig, usePrefixClass, useTNodeJSX } from '../hooks';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import template from '../../utils/string-template';
+import { template } from '../../common/js/utils/stringTemplate';
 
 export type FormItemValidateResult<T extends Data = Data> = { [key in keyof T]: boolean | AllValidateResult[] };
 
@@ -252,10 +252,13 @@ export default defineComponent({
         .filter((item) => item.result !== true)
         .map((item: ErrorListType) => {
           Object.keys(item).forEach((key) => {
+            // @ts-ignore
             if (!item.message && errorMessages.value[key]) {
               const name = isString(props.label) ? props.label : props.name;
+              // @ts-ignore
               item.message = template(errorMessages.value[key], {
                 name,
+                // @ts-ignore
                 validate: item[key],
               });
             }

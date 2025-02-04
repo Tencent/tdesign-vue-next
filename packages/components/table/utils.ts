@@ -56,8 +56,11 @@ export function formatRowClassNames(
     const rName = rowClassList[i];
     let tClass = isFunction(rName) ? rName(params) : rName;
     if (isObject(tClass) && !(tClass instanceof Array)) {
+      // TODO: 这里其实是两点原因导致的
+      // 1. isObject(tClass) && !(tClass instanceof Array) 直接用 isPlainObject 就可以了吧，或者 tClass && typeof tClass === 'object'
+      // 2. lodash-es 类型不全
       // 根据下标设置行类名
-      tClass[rowIndex] && (tClass = tClass[rowIndex]);
+      (tClass as Record<string, any>)[rowIndex] && (tClass = (tClass as Record<string, any>)[rowIndex]);
       // 根据行唯一标识设置行类名
       const rowId = get(row, rowKey || 'id');
       tClass[rowId] && (tClass = tClass[rowId]);

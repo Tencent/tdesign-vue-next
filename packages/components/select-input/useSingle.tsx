@@ -43,7 +43,8 @@ export interface SelectInputValueDisplayOptions {
 
 function getInputValue(value: TdSelectInputProps['value'], keys: TdSelectInputProps['keys']) {
   const iKeys = { ...DEFAULT_KEYS, ...keys };
-  return isObject(value) ? value[iKeys.label] : value;
+  // TODO: replace isObject as isPlainObject
+  return isObject(value) ? (value as Record<string, any>)[iKeys.label] : value;
 }
 
 export default function useSingle(

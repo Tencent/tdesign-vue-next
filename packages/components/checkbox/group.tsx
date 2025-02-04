@@ -141,6 +141,7 @@ export default defineComponent({
       nodes?.forEach((node) => {
         const option = node.props as CheckboxOptionObj;
         if (!option) return;
+        // @ts-ignore types only declare checkAll not declare check-all
         if (option['check-all'] === '' || option['check-all'] === true) {
           option.checkAll = true;
         }

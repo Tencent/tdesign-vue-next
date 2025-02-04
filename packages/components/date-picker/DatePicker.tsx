@@ -359,7 +359,9 @@ export default defineComponent({
           multiple={props.multiple}
           popupProps={popupProps.value}
           inputProps={inputProps.value}
-          placeholder={props.placeholder || globalConfig.value.placeholder[props.mode]}
+          placeholder={
+            props.placeholder || (globalConfig.value.placeholder as { [key in typeof props.mode]: string })[props.mode]
+          }
           popupVisible={!isReadOnly.value && popupVisible.value}
           valueDisplay={() => renderTNodeJSX('valueDisplay', { params: valueDisplayParams.value })}
           needConfirm={props.needConfirm}

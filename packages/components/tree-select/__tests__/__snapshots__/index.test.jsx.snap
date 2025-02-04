@@ -260,6 +260,7 @@ exports[`TreeSelect > :props > :filterable 1`] = `
         placeholder="请选择"
         spellcheck="false"
         type="text"
+        unselectable="off"
       />
       <!---->
       <!---->

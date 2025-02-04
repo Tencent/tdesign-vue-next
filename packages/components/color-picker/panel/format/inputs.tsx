@@ -75,7 +75,9 @@ export default defineComponent({
     // 更新modelValue
     const updateModelValue = () => {
       const { format, color } = props;
-      const values: any = getFormatColorMap('encode')[format];
+      // @ts-ignore
+      // TODO: 从类型上看，values 可能为空，那么下面就会报错，需要同步类型处理 1.getFormatColorMap 2. format 前置过滤
+      const values = getFormatColorMap('encode')[format];
       values.a = Math.round(color.alpha * 100);
       Object.keys(values).forEach((key) => {
         modelValue[key] = values[key];
@@ -96,6 +98,8 @@ export default defineComponent({
       if (v === lastModelValue[key]) {
         return;
       }
+      // @ts-ignore
+      // TODO: 如上
       const value = getFormatColorMap('decode')[props.format];
       props.onInputChange(value, modelValue.a / 100, key, v);
     };

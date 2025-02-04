@@ -23,7 +23,7 @@ export default function useSorter(props: TdPrimaryTableProps, { slots }: SetupCo
   });
 
   const sortMap = computed<SortMap>(() => {
-    const sortMap = {};
+    const sortMap: Record<string, any> = {};
     sortArray.value.forEach((info, index) => {
       const { sortBy } = info;
       sortMap[sortBy] = { index, ...info };

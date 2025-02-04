@@ -34,16 +34,16 @@ export default defineComponent({
 
     provide('StepsProps', props);
 
-    const indexMap = ref({});
+    const indexMap = ref<Record<string | number, number>>({});
 
     const handleStatus = (itemProps: TdStepItemProps, index: number) => {
       if (itemProps.status && itemProps.status !== 'default') return itemProps.status;
       if (innerCurrent.value === 'FINISH') return 'finish';
       // value 不存在时，使用 index 进行区分每一个步骤
-      if (itemProps.value === undefined && index < innerCurrent.value) return 'finish';
+      if (itemProps.value === undefined && index < Number(innerCurrent.value)) return 'finish';
       // value 存在，找匹配位置
       if (itemProps.value !== undefined) {
-        const matchIndex = indexMap.value[innerCurrent.value];
+        const matchIndex = Number(indexMap.value[innerCurrent.value]);
         if (matchIndex === undefined) {
           console.warn('TDesign Steps Warn: The current `value` is not exist.');
           return 'default';
@@ -67,7 +67,7 @@ export default defineComponent({
         if (children && isObject(children)) {
           for (const key in children) {
             if (key in stepItemProps && !option[key]) {
-              option[key] = children[key];
+              option[key] = (children as Record<string, any>)[key];
             }
           }
         }

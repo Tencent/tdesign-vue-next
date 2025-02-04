@@ -13,18 +13,7 @@ import { useTNodeJSX } from '../hooks/tnode';
 import useInput from './useInput';
 import useInputEventHandler from './useInputEventHandler';
 import useInputWidth from './useInputWidth';
-import { isUndefined } from 'lodash-es';
-import { PlainObject } from '../common';
-
-function getValidAttrs(obj: PlainObject): PlainObject {
-  const newObj: PlainObject = {};
-  Object.keys(obj).forEach((key) => {
-    if (!isUndefined(obj[key])) {
-      newObj[key] = obj[key];
-    }
-  });
-  return newObj;
-}
+import { getValidAttrs } from '../../common/js/utils/helper';
 
 export default defineComponent({
   name: 'TInput',
@@ -82,8 +71,8 @@ export default defineComponent({
     const inputEventHandler = useInputEventHandler(props, isHover);
 
     const tPlaceholder = computed(() => props.placeholder ?? globalConfig.value.placeholder);
-    const inputAttrs = computed(() =>
-      getValidAttrs({
+    const inputAttrs = computed(() => {
+      const value = {
         autofocus: props.autofocus,
         disabled: disabled.value,
         readonly: readonly.value,
@@ -91,13 +80,14 @@ export default defineComponent({
         name: props.name || undefined,
         type: renderType.value,
         autocomplete: props.autocomplete ?? (globalConfig.value.autocomplete || undefined),
-        unselectable: readonly.value ? 'on' : undefined,
+        unselectable: readonly.value ? 'on' : 'off',
         spellcheck: props.spellCheck,
         // 不要传给 input 原生元素 maxlength，浏览器默认行为会按照 unicode 进行限制，与 maxLength API 违背
         // https://github.com/Tencent/tdesign-vue-next/issues/4413
         // 参见： https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/maxlength，提到了字符串长度的计算方法，就是 str.length
-      }),
-    );
+      } as const;
+      return getValidAttrs(value);
+    });
 
     const wrapClasses = computed(() => [
       INPUT_WRAP_CLASS.value,

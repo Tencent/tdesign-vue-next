@@ -194,7 +194,7 @@ export default defineComponent({
 
     if (!column.filter || (column.filter && !Object.keys(column.filter).length)) return null;
     const defaultFilterIcon = this.t(this.globalConfig.filterIcon) || <FilterIcon />;
-    const filterValue = this.tFilterValue?.[column.colKey];
+    const filterValue = (this.tFilterValue as TableFilterControllerProps['tFilterValue'])?.[column.colKey];
     const isObjectTrue = typeof filterValue === 'object' && !isEmpty(filterValue);
     // false is a valid filter value
     const isValueExist = ![null, undefined, ''].includes(filterValue) && typeof filterValue !== 'object';
