@@ -307,7 +307,7 @@ export default defineComponent({
         danger: <ErrorCircleFilledIcon class={`${classPrefix.value}-is-error`} />,
         success: <CheckCircleFilledIcon class={`${classPrefix.value}-is-success`} />,
       };
-      return icon[props.theme];
+      return icon[props.theme as keyof typeof icon];
     };
     const renderDialog = () => {
       // header 值为 true 显示空白头部

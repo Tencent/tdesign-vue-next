@@ -103,8 +103,16 @@ export default defineComponent({
           current: globalConfig.value.now,
           next: globalConfig.value.nextMonth,
         },
-        quarter: undefined,
-        week: undefined,
+        quarter: {
+          prev: globalConfig.value.preYear,
+          current: globalConfig.value.now,
+          next: globalConfig.value.nextYear,
+        },
+        week: {
+          prev: globalConfig.value.preMonth,
+          current: globalConfig.value.now,
+          next: globalConfig.value.nextMonth,
+        },
       };
     });
 
