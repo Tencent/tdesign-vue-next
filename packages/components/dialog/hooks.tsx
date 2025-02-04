@@ -7,6 +7,7 @@ import TButton, { ButtonProps } from '../button';
 import { PopconfirmConfig, DialogConfig, DrawerConfig } from '../config-provider';
 import type { ClassName } from '../common';
 import type { TdDialogProps } from './type';
+import { getPropertyValFromObj } from '../../utils/general';
 
 export interface MixinsConfirmBtn {
   theme?: MixinsThemeType;
@@ -38,8 +39,10 @@ export function useAction(action: BtnAction) {
   // 全局配置属性综合
   const getDefaultConfirmBtnProps = (options: MixinsConfirmBtn): ButtonProps => {
     const { globalConfirm, theme, globalConfirmBtnTheme } = options;
-    const defaultTheme = omit(globalConfirmBtnTheme, ['info'])?.[theme] || 'primary';
+    const defaultTheme = getPropertyValFromObj(omit(globalConfirmBtnTheme, ['info']), theme) || 'primary';
     let props: ButtonProps = {
+      // @ts-ignore
+      // TODO: 这里的类型是有问题的，出在 globalConfirmBtnTheme 上
       theme: defaultTheme,
       size: options.size,
       onClick: (e) => {

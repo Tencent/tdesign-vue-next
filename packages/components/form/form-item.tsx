@@ -252,10 +252,13 @@ export default defineComponent({
         .filter((item) => item.result !== true)
         .map((item: ErrorListType) => {
           Object.keys(item).forEach((key) => {
+            // @ts-ignore
             if (!item.message && errorMessages.value[key]) {
               const name = isString(props.label) ? props.label : props.name;
+              // @ts-ignore
               item.message = template(errorMessages.value[key], {
                 name,
+                // @ts-ignore
                 validate: item[key],
               });
             }

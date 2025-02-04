@@ -35,7 +35,7 @@ export default function useRange(props: TdDateRangePickerProps) {
 
   const popupVisible = ref(false);
   const isHoverCell = ref(false);
-  const activeIndex = ref(0); // 确定当前选中的输入框序号
+  const activeIndex = ref<0 | 1>(0); // 确定当前选中的输入框序号
   const inputValue = ref(formatDate(props.value, { format: formatRef.value.format })); // 未真正选中前可能不断变更输入框的内容
   const isReadOnly = useReadonly();
 
@@ -128,6 +128,8 @@ export default function useRange(props: TdDateRangePickerProps) {
 
       // 这里劫持了进一步向 popup 传递的 onVisibleChange 事件，为了保证可以在 Datepicker 中使用 popupProps.onVisibleChange，故此处理
       props.popupProps?.onVisibleChange?.(visible, context);
+      // TODO
+      // @ts-ignore types only declare onVisibleChange，but not declare on-visible-change
       props.popupProps?.['on-visible-change']?.(visible, context);
 
       // 输入框点击不关闭面板

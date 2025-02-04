@@ -4,7 +4,7 @@ import { isNumber } from 'lodash-es';
 import { isObject } from 'lodash-es';
 import { isArray } from 'lodash-es';
 
-import { TdColProps, TdRowProps } from './type';
+import { GutterObject, TdColProps, TdRowProps } from './type';
 import { calcSize } from '../../utils/responsive';
 import { useListener } from '../hooks/useListener';
 import { isServer } from '../utils/dom';
@@ -52,7 +52,8 @@ export function getRowClasses(name: string, props: TdRowProps) {
  * @param currentSize
  * @returns
  */
-export function calcRowStyle(gutter: TdRowProps['gutter'], currentSize: string) {
+// TODO: 看代码，已经没有用到了，是不是可以删除了
+export function calcRowStyle(gutter: TdRowProps['gutter'], currentSize: keyof GutterObject) {
   const rowStyle = {};
   const getMarginStyle = (gutter: number) =>
     Object.assign(rowStyle, {
@@ -80,6 +81,7 @@ export function calcRowStyle(gutter: TdRowProps['gutter'], currentSize: string) 
         }
 
         if (isObject(gutter[0]) && !isUndefined(gutter[0][currentSize])) {
+          const a = gutter[0];
           getMarginStyle(gutter[0][currentSize]);
         }
 
@@ -89,11 +91,17 @@ export function calcRowStyle(gutter: TdRowProps['gutter'], currentSize: string) 
       }
     },
     isObject: (gutter: TdRowProps['gutter']) => {
+      // TODO: 好吧，这里明显就不对
+      // @ts-ignore
       if (isObject(gutter) && gutter[currentSize]) {
         if (isArray(gutter) && gutter.length) {
+          // @ts-ignore
+          // TODO: 你看，这里是数组吧，但又来 currentSize
           getMarginStyle(gutter[currentSize][0]);
+          // @ts-ignore
           getRowGapStyle(gutter[currentSize][1]);
         } else {
+          // @ts-ignore
           getMarginStyle(gutter[currentSize]);
         }
       }
@@ -101,12 +109,12 @@ export function calcRowStyle(gutter: TdRowProps['gutter'], currentSize: string) 
   };
 
   Object.keys(strategyMap).forEach((item) => {
+    // @ts-ignore
     strategyMap[item](gutter);
   });
 
   return rowStyle;
 }
-
 /**
  * 解析Flex
  * @param flex
@@ -129,7 +137,7 @@ export function parseFlex(flex: TdColProps['flex']): string {
  * @param currentSize
  * @returns
  */
-export function calcColPadding(gutter: TdRowProps['gutter'], currentSize: string) {
+export function calcColPadding(gutter: TdRowProps['gutter'], currentSize: keyof GutterObject) {
   const paddingObj = {};
   const getPaddingStyle = (gutter: number) =>
     Object.assign(paddingObj, {
@@ -154,13 +162,14 @@ export function calcColPadding(gutter: TdRowProps['gutter'], currentSize: string
       }
     },
     isObject: (gutter: TdRowProps['gutter']) => {
-      if (isObject(gutter) && gutter[currentSize]) {
+      // TODO: 你看，这里就不对的 isObject 在乱用
+      if (isObject(gutter) && !isArray(gutter) && gutter[currentSize]) {
         getPaddingStyle(gutter[currentSize]);
       }
     },
   };
 
-  Object.keys(strategyMap).forEach((item) => {
+  Object.keys(strategyMap).forEach((item: keyof typeof strategyMap) => {
     strategyMap[item](gutter);
   });
 
@@ -174,7 +183,7 @@ export function calcColPadding(gutter: TdRowProps['gutter'], currentSize: string
  */
 export function getColClasses(name: string, props: TdColProps) {
   const { span, order, offset, push, pull } = props;
-  const allSizes = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
+  const allSizes = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
 
   const ColSizeClasses = allSizes.reduce((acc, currSize) => {
     const sizeProp = props[currSize];

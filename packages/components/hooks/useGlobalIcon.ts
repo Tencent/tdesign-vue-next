@@ -2,12 +2,12 @@ import { useConfig } from './useConfig';
 import { IconConfig } from '../config-provider/type';
 
 // 从 globalConfig 获取 icon 配置用于覆盖组件内置 icon
-export function useGlobalIcon(tdIcon: Object) {
+export function useGlobalIcon(tdIcon: object) {
   const { globalConfig } = useConfig('icon');
 
   const resultIcon: IconConfig = {};
 
-  Object.keys(tdIcon).forEach((key) => {
+  Object.keys(tdIcon).forEach((key: keyof typeof tdIcon) => {
     resultIcon[key] = globalConfig.value?.[key] || tdIcon[key];
   });
 

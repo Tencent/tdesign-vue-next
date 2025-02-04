@@ -25,7 +25,7 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('row');
     const rowClasses = computed(() => getRowClasses(COMPONENT_NAME.value, props));
 
-    const rowStyle = computed(() => calcRowStyle(props.gutter, size.value));
+    const rowStyle = computed(() => (props.gutter, size.value));
 
     return () => {
       const { tag: TAG } = props;

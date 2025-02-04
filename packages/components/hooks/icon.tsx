@@ -14,7 +14,7 @@ export function useIcon() {
     let iconContent;
     // 传入的是渲染函数
     if (isFunction(instance.props[iconType])) {
-      iconContent = (instance.props as Object)[iconType](h);
+      iconContent = instance.props[iconType](h);
     } else if (instance.slots[iconType]) {
       // 插槽slot
       iconContent = instance.slots[iconType] && instance.slots[iconType](null)[0];
