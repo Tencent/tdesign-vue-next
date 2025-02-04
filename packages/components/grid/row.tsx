@@ -1,6 +1,6 @@
 import { defineComponent, provide, computed, toRefs, reactive } from 'vue';
 import props from './row-props';
-import { useRowSize, getRowClasses, RowProviderType } from './common';
+import { useRowSize, getRowClasses, RowProviderType, calcRowStyle } from './common';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
 
@@ -25,7 +25,7 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('row');
     const rowClasses = computed(() => getRowClasses(COMPONENT_NAME.value, props));
 
-    const rowStyle = computed(() => (props.gutter, size.value));
+    const rowStyle = computed(() => calcRowStyle(props.gutter, size.value));
 
     return () => {
       const { tag: TAG } = props;
