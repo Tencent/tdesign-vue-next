@@ -16,9 +16,7 @@ const createInstance = (el: HTMLElement, binding: DirectiveBinding) => {
   };
 
   if (isObject(binding.value)) {
-    mapKeys(binding.value, (value, key) => {
-      // @ts-ignore
-      // TODO: 😭
+    mapKeys(binding.value, (value, key: keyof typeof options) => {
       options[key] = value;
     });
   }

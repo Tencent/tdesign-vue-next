@@ -172,9 +172,7 @@ export default defineComponent({
       if (!keys.length) return;
       const list = children.value
         .filter((child) => isFunction(child.setValidateMessage) && keys.includes(`${child.name}`))
-        // @ts-ignore
-        // TODO: 😭
-        .map((child) => child.setValidateMessage(validateMessage[child.name]));
+        .map((child) => child.setValidateMessage(validateMessage[child.name as keyof FormData]));
       Promise.all(list);
     };
 
