@@ -9,7 +9,8 @@ import { useTNodeDefault } from '../hooks/tnode';
 import { TNode } from '../common';
 import { TableConfig } from '../config-provider';
 
-type SortTypeEnums = Array<'desc' | 'asc'>;
+type SortTypeEnum = 'desc' | 'asc';
+type SortTypeEnums = Array<SortTypeEnum>;
 
 export default defineComponent({
   name: 'TSorterButton',
@@ -45,7 +46,7 @@ export default defineComponent({
       context.emit('sort-icon-click', e, { descending: direction === 'desc' });
     };
 
-    const getSortIcon = (direction: string, activeClass: string) => {
+    const getSortIcon = (direction: SortTypeEnum, activeClass: string) => {
       const defaultIcon = t(globalConfig.value.sortIcon) || <ChevronDownIcon />;
       const icon = renderTNode('sortIcon', defaultIcon);
       const sortClassName = [
@@ -78,7 +79,7 @@ export default defineComponent({
       asc: this.globalConfig.sortAscendingOperationText,
       desc: this.globalConfig.sortDescendingOperationText,
     };
-    const sortButton = this.allowSortTypes.map((direction: string) => {
+    const sortButton = this.allowSortTypes.map((direction: SortTypeEnum) => {
       const activeClass = direction === this.sortOrder ? tableSortClasses.iconActive : tableSortClasses.iconDefault;
       const cancelTips = this.globalConfig.sortCancelOperationText;
       const tips = direction === this.sortOrder ? cancelTips : tooltips[direction];
