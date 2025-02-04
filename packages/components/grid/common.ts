@@ -53,7 +53,6 @@ export function getRowClasses(name: string, props: TdRowProps) {
  * @param currentSize
  * @returns
  */
-// TODO: 看代码，已经没有用到了，是不是可以删除了
 export function calcRowStyle(gutter: TdRowProps['gutter'], currentSize: keyof GutterObject) {
   const rowStyle = {};
   const getMarginStyle = (gutter: number) =>
@@ -91,12 +90,11 @@ export function calcRowStyle(gutter: TdRowProps['gutter'], currentSize: keyof Gu
       }
     },
     isObject: (gutter: TdRowProps['gutter']) => {
-      // TODO: 好吧，这里明显就不对
+      // TODO: check and remove unreachable code
       // @ts-ignore
       if (isObject(gutter) && gutter[currentSize]) {
         if (isArray(gutter) && gutter.length) {
           // @ts-ignore
-          // TODO: 你看，这里是数组吧，但又来 currentSize
           getMarginStyle(gutter[currentSize][0]);
           // @ts-ignore
           getRowGapStyle(gutter[currentSize][1]);
@@ -108,8 +106,7 @@ export function calcRowStyle(gutter: TdRowProps['gutter'], currentSize: keyof Gu
     },
   };
 
-  Object.keys(strategyMap).forEach((item) => {
-    // @ts-ignore
+  Object.keys(strategyMap).forEach((item: keyof typeof strategyMap) => {
     strategyMap[item](gutter);
   });
 
@@ -162,7 +159,7 @@ export function calcColPadding(gutter: TdRowProps['gutter'], currentSize: keyof 
       }
     },
     isObject: (gutter: TdRowProps['gutter']) => {
-      // TODO: 你看，这里就不对的 isObject 在乱用
+      // TODO: replace isObject as isPlainObject
       if (isObject(gutter) && !isArray(gutter) && gutter[currentSize]) {
         getPaddingStyle(gutter[currentSize]);
       }

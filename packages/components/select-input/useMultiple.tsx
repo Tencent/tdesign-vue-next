@@ -44,7 +44,7 @@ export default function useMultiple(
   const iKeys = computed<SelectInputKeys>(() => ({ ...DEFAULT_KEYS, ...props.keys }));
   const tags = computed<TagInputValue>(() => {
     if (!(props.value instanceof Array)) {
-      // TODO: 看代码这里应该不是用 isObject，应该是用 isPlainObject，但 isPlainObject 又没有类型谓词，就很尴尬，，建议用 utils 的 isObject
+      // TODO: replace isObject as isPlainObject
       return isObject(props.value) ? [(props.value as Record<string, any>)[iKeys.value.label]] : [props.value];
     }
     return props.value.map((item) => (isObject(item) ? (item as Record<string, any>)[iKeys.value.label] : item));

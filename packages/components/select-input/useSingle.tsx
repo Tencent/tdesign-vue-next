@@ -43,7 +43,7 @@ export interface SelectInputValueDisplayOptions {
 
 function getInputValue(value: TdSelectInputProps['value'], keys: TdSelectInputProps['keys']) {
   const iKeys = { ...DEFAULT_KEYS, ...keys };
-  // TODO: 看代码这里应该不是用 isObject，应该是用 isPlainObject，但 isPlainObject 又没有类型谓词，就很尴尬，建议用 utils 的 isObject
+  // TODO: replace isObject as isPlainObject
   return isObject(value) ? (value as Record<string, any>)[iKeys.label] : value;
 }
 
