@@ -9,6 +9,7 @@ import { calcSize } from '../../utils/responsive';
 import { useListener } from '../hooks/useListener';
 import { isServer } from '../utils/dom';
 
+import type { Ref } from 'vue';
 export interface RowProviderType {
   gutter: TdRowProps['gutter'];
 }
@@ -25,7 +26,7 @@ export function useRowSize() {
 
   useListener('resize', updateSize);
 
-  return size;
+  return size as unknown as Ref<keyof GutterObject>;
 }
 
 /**

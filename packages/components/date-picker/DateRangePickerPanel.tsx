@@ -127,7 +127,13 @@ export default defineComponent({
     }
 
     // 头部快速切换
-    function onJumperClick({ trigger, partial }: { trigger: string; partial: DateRangePickerPartial }) {
+    function onJumperClick({
+      trigger,
+      partial,
+    }: {
+      trigger: 'prev' | 'next' | 'current';
+      partial: DateRangePickerPartial;
+    }) {
       const partialIndex = partial === 'start' ? 0 : 1;
 
       const triggerMap = {
