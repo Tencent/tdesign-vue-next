@@ -11,6 +11,7 @@ exports[`Input Component > props.align is equal to center 1`] = `
     placeholder="请输入"
     spellcheck="false"
     type="text"
+    unselectable="off"
   />
   <!---->
   <!---->
@@ -30,6 +31,7 @@ exports[`Input Component > props.align is equal to left 1`] = `
     placeholder="请输入"
     spellcheck="false"
     type="text"
+    unselectable="off"
   />
   <!---->
   <!---->
@@ -49,6 +51,7 @@ exports[`Input Component > props.align is equal to right 1`] = `
     placeholder="请输入"
     spellcheck="false"
     type="text"
+    unselectable="off"
   />
   <!---->
   <!---->
@@ -79,6 +82,7 @@ exports[`Input Component > props.label works fine 1`] = `
       placeholder="请输入"
       spellcheck="false"
       type="text"
+      unselectable="off"
     />
     <!---->
     <!---->
@@ -100,6 +104,7 @@ exports[`Input Component > props.status is equal to default 1`] = `
     placeholder="请输入"
     spellcheck="false"
     type="text"
+    unselectable="off"
   />
   <!---->
   <!---->
@@ -119,6 +124,7 @@ exports[`Input Component > props.status is equal to error 1`] = `
     placeholder="请输入"
     spellcheck="false"
     type="text"
+    unselectable="off"
   />
   <!---->
   <!---->
@@ -138,6 +144,7 @@ exports[`Input Component > props.status is equal to success 1`] = `
     placeholder="请输入"
     spellcheck="false"
     type="text"
+    unselectable="off"
   />
   <!---->
   <!---->
@@ -157,6 +164,7 @@ exports[`Input Component > props.status is equal to warning 1`] = `
     placeholder="请输入"
     spellcheck="false"
     type="text"
+    unselectable="off"
   />
   <!---->
   <!---->
@@ -179,6 +187,7 @@ exports[`Input Component > props.suffix works fine 1`] = `
       placeholder="请输入"
       spellcheck="false"
       type="text"
+      unselectable="off"
     />
     <!---->
     <div
@@ -212,6 +221,7 @@ exports[`Input Component > props.suffixIcon works fine 1`] = `
       placeholder="请输入"
       spellcheck="false"
       type="text"
+      unselectable="off"
     />
     <!---->
     <!---->
@@ -254,6 +264,7 @@ exports[`Input Component > slots.label works fine 1`] = `
       placeholder="请输入"
       spellcheck="false"
       type="text"
+      unselectable="off"
     />
     <!---->
     <!---->
@@ -278,6 +289,7 @@ exports[`Input Component > slots.suffix works fine 1`] = `
       placeholder="请输入"
       spellcheck="false"
       type="text"
+      unselectable="off"
     />
     <!---->
     <div
@@ -313,6 +325,7 @@ exports[`Input Component > slots.suffix-icon works fine 1`] = `
       placeholder="请输入"
       spellcheck="false"
       type="text"
+      unselectable="off"
     />
     <!---->
     <!---->
@@ -347,6 +360,7 @@ exports[`Input Component > slots.suffixIcon works fine 1`] = `
       placeholder="请输入"
       spellcheck="false"
       type="text"
+      unselectable="off"
     />
     <!---->
     <!---->
