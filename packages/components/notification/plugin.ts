@@ -104,7 +104,7 @@ NotificationPlugin.install = (app: App) => {
 
 Object.keys(extraApi).forEach((funcName: keyof ExtraApi) => {
   // @ts-ignore
-  // TODO 我😭
+  // TODO https://github.com/microsoft/TypeScript/issues/32693
   NotificationPlugin[funcName] = extraApi[funcName];
 });
 
