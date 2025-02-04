@@ -1,6 +1,6 @@
 import { defineComponent, provide, computed, toRefs, reactive } from 'vue';
 import props from './row-props';
-import { useRowSize, calcRowStyle, getRowClasses, RowProviderType } from './common';
+import { useRowSize, getRowClasses, RowProviderType } from './common';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
 

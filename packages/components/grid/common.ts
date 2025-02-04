@@ -82,7 +82,6 @@ export function calcRowStyle(gutter: TdRowProps['gutter'], currentSize: keyof Gu
         }
 
         if (isObject(gutter[0]) && !isUndefined(gutter[0][currentSize])) {
-          const a = gutter[0];
           getMarginStyle(gutter[0][currentSize]);
         }
 
