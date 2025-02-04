@@ -90,18 +90,21 @@ const extraApi: ExtraApi = {
     });
   },
 };
+
 export type NotificationPluginType = Plugin & ExtraApi & NotificationMethod;
 
 const NotificationPlugin: NotificationPluginType = showThemeNotification as NotificationPluginType;
 
 NotificationPlugin.install = (app: App) => {
   app.config.globalProperties.$notify = showThemeNotification;
-  Object.keys(extraApi).forEach((funcName) => {
+  Object.keys(extraApi).forEach((funcName: keyof ExtraApi) => {
     app.config.globalProperties.$notify[funcName] = extraApi[funcName];
   });
 };
 
-Object.keys(extraApi).forEach((funcName) => {
+Object.keys(extraApi).forEach((funcName: keyof ExtraApi) => {
+  // @ts-ignore
+  // TODO 我😭
   NotificationPlugin[funcName] = extraApi[funcName];
 });
 

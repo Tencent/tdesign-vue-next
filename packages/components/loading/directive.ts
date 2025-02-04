@@ -1,6 +1,5 @@
 import type { Directive, DirectiveBinding } from 'vue';
-import { isObject } from 'lodash-es';
-import { mapKeys } from 'lodash-es';
+import { mapKeys, isObject } from 'lodash-es';
 import { isEqual } from 'lodash-es';
 import { TdLoadingProps } from './type';
 import produceLoading from './plugin';
@@ -22,6 +21,8 @@ const createInstance = (el: HTMLElement, binding: DirectiveBinding) => {
     });
   }
 
+  // @ts-ignore
+  // TODO: 这怎么说
   el[INSTANCE_KEY] = {
     options,
     instance: produceLoading(options),
