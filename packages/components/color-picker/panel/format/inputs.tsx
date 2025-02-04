@@ -76,7 +76,7 @@ export default defineComponent({
     const updateModelValue = () => {
       const { format, color } = props;
       // @ts-ignore
-      // TODO: 好吧，这里是有大问题的，从类型上看，values 可能为空，那么下面就会报错，改的话有两处，1.getFormatColorMap 2. format 前置过滤
+      // TODO: 从类型上看，values 可能为空，那么下面就会报错，需要同步类型处理 1.getFormatColorMap 2. format 前置过滤
       const values = getFormatColorMap('encode')[format];
       values.a = Math.round(color.alpha * 100);
       Object.keys(values).forEach((key) => {
