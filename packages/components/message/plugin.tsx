@@ -137,7 +137,7 @@ const extraApi: ExtraApi = {
   },
 };
 
-export const MessagePlugin: MessagePluginType = showThemeMessage as MessagePluginType;
+export const MessagePlugin = showThemeMessage as MessagePluginType;
 
 MessagePlugin.install = (app: App): void => {
   app.config.globalProperties.$message = showThemeMessage;
@@ -154,7 +154,7 @@ MessagePlugin.install = (app: App): void => {
  */
 Object.keys(extraApi).forEach((funcName: keyof ExtraApi) => {
   // @ts-ignore
-  // TODO 我😭
+  // TODO https://github.com/microsoft/TypeScript/issues/32693
   MessagePlugin[funcName] = extraApi[funcName];
 });
 

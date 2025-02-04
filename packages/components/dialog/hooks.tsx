@@ -42,7 +42,7 @@ export function useAction(action: BtnAction) {
     const defaultTheme = getPropertyValFromObj(omit(globalConfirmBtnTheme, ['info']), theme) || 'primary';
     let props: ButtonProps = {
       // @ts-ignore
-      // TODO: 这里的类型是有问题的，出在 globalConfirmBtnTheme 上 😭
+      // TODO: fix type of globalConfirmBtnTheme
       theme: defaultTheme,
       size: options.size,
       onClick: (e) => {
