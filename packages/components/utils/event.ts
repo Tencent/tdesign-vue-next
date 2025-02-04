@@ -1,9 +1,12 @@
 import { ComponentPublicInstance } from 'vue';
-import { isFunction } from 'lodash-es';
-import { isString } from 'lodash-es';
+import { camelCase, isFunction, isString } from 'lodash-es';
 
-import { getPropsApiByEvent } from '../../utils/helper';
 export type EmitEventName = { event: string; method: string } | string;
+
+// keyboard-event => onKeyboardEvent
+export function getPropsApiByEvent(eventName: string) {
+  return camelCase(`on-${eventName}`);
+}
 
 /**
  * 组件对外传递事件

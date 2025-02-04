@@ -6,7 +6,7 @@ import injectStyle from '../../common/js/utils/injectStyle';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useMutationObserver } from './hooks';
 import { useContent } from '../hooks/tnode';
-import setStyle from '../../common/js/utils/set-style';
+import setStyle from '../../common/js/utils/setStyle';
 
 export default defineComponent({
   name: 'TWatermark',

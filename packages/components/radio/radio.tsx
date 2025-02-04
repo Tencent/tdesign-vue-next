@@ -10,7 +10,7 @@ import { useReadonly } from '../hooks/useReadonly';
 import useVModel from '../hooks/useVModel';
 import { useContent } from '../hooks/tnode';
 import { isString } from 'lodash-es';
-import { getValidAttrs } from '../../utils/helper';
+import { getValidAttrs } from '../../common/js/utils/helper';
 
 export default defineComponent({
   name: 'TRadio',
