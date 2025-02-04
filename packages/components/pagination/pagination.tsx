@@ -9,7 +9,6 @@ import {
   ChevronRightDoubleIcon as TdChevronRightDoubleIcon,
   EllipsisIcon as TdEllipsisIcon,
 } from 'tdesign-icons-vue-next';
-import type { PageInfo, TdPaginationProps, PageChangeType } from '../pagination/type';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import TInputNumber from '../input-number';
@@ -23,7 +22,11 @@ import useDefaultValue from '../hooks/useDefaultValue';
 import { useTNodeJSX } from '../hooks/tnode';
 import { isObject } from 'lodash-es';
 
+import type { PageInfo, TdPaginationProps } from '../pagination/type';
+
 const min = 1;
+
+type PageChangeType = 'prevPage' | 'nextPage' | 'prevMorePage' | 'nextMorePage';
 
 export default defineComponent({
   name: 'TPagination',

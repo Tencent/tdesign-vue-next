@@ -22,7 +22,7 @@ const createInstance = (el: HTMLElement, binding: DirectiveBinding) => {
   }
 
   // @ts-ignore
-  // TODO: 这怎么说 😭
+  // TODO: unique symbol' can't be used to index type 'HTMLElement'
   el[INSTANCE_KEY] = {
     options,
     instance: produceLoading(options),
