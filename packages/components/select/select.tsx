@@ -68,10 +68,10 @@ export default defineComponent({
       if (props.valueType === 'object') {
         return !props.multiple
           ? // @ts-ignore
-            // TODO 不好改 😭
+            // TODO optimize SelectValue
             orgValue.value[keys.value.value]
           : // @ts-ignore
-            // TODO 不好改 😭
+            // TODO optimize SelectValue
             (orgValue.value as SelectValue[]).map((option) => option[keys.value.value]);
       }
       return orgValue.value;
