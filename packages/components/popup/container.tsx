@@ -40,10 +40,10 @@ function filterEmpty(children: VNode[] = []) {
   );
 }
 
-function isRectChanged(rect1: DOMRectReadOnly, rect2: DOMRectReadOnly) {
+function isRectChanged(rect1?: DOMRectReadOnly, rect2?: DOMRectReadOnly) {
   if (!rect1 && !rect2) return false;
   if (!rect1 || !rect2) return true;
-  if (['width', 'height', 'x', 'y'].some((k) => rect1[k] !== rect2[k])) {
+  if ((['width', 'height', 'x', 'y'] as const).some((k) => rect1[k] !== rect2[k])) {
     return true;
   }
   return false;

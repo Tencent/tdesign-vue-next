@@ -1,5 +1,5 @@
 import { SetupContext, ref, computed, toRefs, Ref } from 'vue';
-import { isObject } from 'lodash-es';
+import { isObject, isPlainObject } from 'lodash-es';
 import { pick } from 'lodash-es';
 import Input, { StrInputProps } from '../input';
 import Loading from '../loading';
@@ -43,7 +43,8 @@ export interface SelectInputValueDisplayOptions {
 
 function getInputValue(value: TdSelectInputProps['value'], keys: TdSelectInputProps['keys']) {
   const iKeys = { ...DEFAULT_KEYS, ...keys };
-  return isObject(value) ? value[iKeys.label] : value;
+  // TODO: 看代码这里应该不是用 isObject，应该是用 isPlainObject，但 isPlainObject 又没有类型谓词，就很尴尬，建议用 utils 的 isObject
+  return isObject(value) ? (value as Record<string, any>)[iKeys.label] : value;
 }
 
 export default function useSingle(

@@ -40,8 +40,11 @@ const getColItemStyle = (obj: SkeletonRowColObj) => {
   const styleName = ['width', 'height', 'marginRight', 'marginLeft', 'margin', 'size', 'background', 'backgroundColor'];
   const style = Object.create(null);
   styleName.forEach((name) => {
+    // TODO: 我们可以提供这样的类型守卫函数，其实归根结底就是 TS 笨笨的
+    // TODO: function isKeyOfObj(key: string, obj: object): key is keyof typeof obj { return key in obj;}
     if (name in obj) {
-      const px = isNumber(obj[name]) ? `${obj[name]}px` : obj[name];
+      const val = obj[name as keyof typeof obj];
+      const px = isNumber(val) ? `${val}px` : val;
       if (name === 'size') {
         [style.width, style.height] = [px, px];
       } else {
