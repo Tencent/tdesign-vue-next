@@ -7,7 +7,7 @@ import props from './props';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import useTeleport from '../hooks/useTeleport';
 
-import { getPropertyValFromObj } from '../../utils/general';
+import { getPropertyValFromObj } from '../../common/js/utils/general';
 
 const useComponentClassName = () => {
   return {

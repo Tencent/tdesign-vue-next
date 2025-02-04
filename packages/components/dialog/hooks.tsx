@@ -7,7 +7,7 @@ import TButton, { ButtonProps } from '../button';
 import { PopconfirmConfig, DialogConfig, DrawerConfig } from '../config-provider';
 import type { ClassName } from '../common';
 import type { TdDialogProps } from './type';
-import { getPropertyValFromObj } from '../../utils/general';
+import { getPropertyValFromObj } from '../../common/js/utils/general';
 
 export interface MixinsConfirmBtn {
   theme?: MixinsThemeType;
