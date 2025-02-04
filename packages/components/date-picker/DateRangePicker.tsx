@@ -184,7 +184,7 @@ export default defineComponent({
       if (!isFirstValueSelected.value || !activeIndex.value) {
         let nextIndex = notValidIndex;
         if (nextIndex === -1) nextIndex = activeIndex.value ? 0 : 1;
-        activeIndex.value = nextIndex;
+        activeIndex.value = nextIndex as 0 | 1;
         isFirstValueSelected.value = !!nextValue[0];
       } else {
         popupVisible.value = false;
@@ -293,7 +293,7 @@ export default defineComponent({
       if (!isFirstValueSelected.value || !activeIndex.value) {
         let nextIndex = notValidIndex;
         if (nextIndex === -1) nextIndex = activeIndex.value ? 0 : 1;
-        activeIndex.value = nextIndex;
+        activeIndex.value = nextIndex as 0 | 1;
         isFirstValueSelected.value = !!nextValue[0];
       } else if (nextValue.length === 2) {
         popupVisible.value = false;

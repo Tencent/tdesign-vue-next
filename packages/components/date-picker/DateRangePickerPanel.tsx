@@ -187,8 +187,8 @@ export default defineComponent({
     // time-picker 点击
     function onTimePickerChange(val: string) {
       const { hours, minutes, seconds, milliseconds, meridiem } = extractTimeObj(val);
-
       const nextInputValue = [...(cacheValue.value as DateValue[])];
+      // @ts-ignore
       const changedInputValue = cacheValue.value[activeIndex.value];
       const currentDate = !dayjs(changedInputValue, formatRef.value.format).isValid()
         ? dayjs().year(year.value[activeIndex.value]).month(month.value[activeIndex.value])

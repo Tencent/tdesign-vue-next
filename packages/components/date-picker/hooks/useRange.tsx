@@ -49,7 +49,8 @@ export default function useRange(props: TdDateRangePickerProps) {
     prefixIcon: () => renderTNodeJSX('prefixIcon'),
     readonly: isReadOnly.value || !props.allowInput,
     separator: props.separator || globalConfig.value.rangeSeparator,
-    placeholder: props.placeholder || globalConfig.value.placeholder[props.mode],
+    placeholder:
+      props.placeholder || (globalConfig.value.placeholder as { [key in typeof props.mode]: string })[props.mode],
     activeIndex: popupVisible.value ? activeIndex.value : undefined,
     suffixIcon: () => {
       return renderTNodeJSX('suffixIcon') || <CalendarIcon />;
