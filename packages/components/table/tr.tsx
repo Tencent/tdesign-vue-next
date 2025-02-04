@@ -220,7 +220,6 @@ export default defineComponent({
       ROW_LISTENERS.forEach((eventName) => {
         trListeners[`on${upperFirst(eventName)}`] = (e: MouseEvent) => {
           const p = { e, row, index: rowIndex };
-          // TODO: 有点小丑的 (＾Ｕ＾)ノ~ＹＯ
           props[`onRow${upperFirst(eventName)}` as `onRow${Capitalize<typeof ROW_LISTENERS[number]>}`]?.(p);
         };
       });

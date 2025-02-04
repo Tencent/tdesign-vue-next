@@ -126,7 +126,6 @@ export default defineComponent({
     };
 
     const getFullRow = (columnLength: number, type: 'first-full-row' | 'last-full-row') => {
-      // TODO: 这怎么 lodash 类型都没好好给的
       const tType = camelCase(type) as CamelCase<typeof type, '-'>;
       const fullRowNode = this.renderTNode(tType);
       if (['', null, undefined, false].includes(fullRowNode)) return null;
