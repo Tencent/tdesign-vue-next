@@ -1,6 +1,6 @@
 import { useConfig } from '../../hooks/useConfig';
 
-import { getWeeks, getYears, getMonths, getQuarters, flagActive } from '../../../common/js/date-picker/utils';
+import { getWeeks, getYears, getMonths, getQuarters, flagActive } from '@tdesign/common/js/date-picker/utils';
 
 export default function useTableData(props: any) {
   // 国际化文本初始化

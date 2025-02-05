@@ -13,7 +13,7 @@ import { useTNodeJSX } from '../hooks/tnode';
 import useInput from './useInput';
 import useInputEventHandler from './useInputEventHandler';
 import useInputWidth from './useInputWidth';
-import { getValidAttrs } from '../../common/js/utils/helper';
+import { getValidAttrs } from '@tdesign/common/js/utils/helper';
 
 export default defineComponent({
   name: 'TInput',

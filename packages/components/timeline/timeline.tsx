@@ -4,7 +4,7 @@ import { TimelineInjectKey, DefaultAlign } from './hooks';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useChildComponentSlots } from '../hooks/slot';
 import TimelineItem from './timeline-item';
-import log from '../../common/js/log';
+import log from '@tdesign/common/js/log';
 
 export default defineComponent({
   name: 'TTimeline',

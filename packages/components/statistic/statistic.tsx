@@ -10,8 +10,8 @@ import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useTNodeJSX } from '../hooks/tnode';
 import Skeleton from '../skeleton';
-import Tween from '../../common/js/statistic/tween';
-import { COLOR_MAP } from '../../common/js/statistic/utils';
+import Tween from '@tdesign/common/js/statistic/tween';
+import { COLOR_MAP } from '@tdesign/common/js/statistic/utils';
 
 export default defineComponent({
   name: 'TStatistic',

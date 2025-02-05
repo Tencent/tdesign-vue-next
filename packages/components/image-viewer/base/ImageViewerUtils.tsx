@@ -6,7 +6,7 @@ import { usePrefixClass, useConfig } from '../../hooks/useConfig';
 import { downloadFile } from '../utils';
 import { useImagePreviewUrl } from '../../hooks';
 import { ImageInfo } from '../type';
-import { largeNumberToFixed } from '../../../common/js/input-number/large-number';
+import { largeNumberToFixed } from '@tdesign/common/js/input-number/large-number';
 
 export default defineComponent({
   name: 'TImageViewerUtils',

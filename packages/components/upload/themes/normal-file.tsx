@@ -10,7 +10,7 @@ import TLoading from '../../loading';
 import Link from '../../link';
 import { useTNodeJSX } from '../../hooks/tnode';
 import { UploadFile } from '../type';
-import { abridgeName } from '../../../common/js/upload/utils';
+import { abridgeName } from '@tdesign/common/js/upload/utils';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 import { CommonDisplayFileProps } from '../interface';
 import { commonProps } from '../constants';

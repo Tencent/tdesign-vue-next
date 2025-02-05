@@ -3,12 +3,12 @@ import { isFunction } from 'lodash-es';
 import HighlightOption from './highlight-option';
 import { CommonClassNameType } from '../hooks/useCommonClassName';
 import { AutoCompleteOptionObj, TdAutoCompleteProps } from './type';
-import log from '../../common/js/log';
+import log from '@tdesign/common/js/log';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { on, off } from '../utils/dom';
 import { isString } from 'lodash-es';
 import { escapeRegExp } from 'lodash-es';
-import { ARROW_UP_REG, ARROW_DOWN_REG, ENTER_REG } from '../../common/js/common';
+import { ARROW_UP_REG, ARROW_DOWN_REG, ENTER_REG } from '@tdesign/common/js/common';
 
 export default defineComponent({
   name: 'AutoCompleteOptionList',

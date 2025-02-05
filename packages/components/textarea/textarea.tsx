@@ -14,8 +14,8 @@ import { isObject, merge, omit } from 'lodash-es';
 
 import calcTextareaHeight from './calcTextareaHeight';
 import { FormItemInjectionKey } from '../form/const';
-import setStyle from '../../common/js/utils/setStyle';
-import { getCharacterLength } from '../../common/js/utils/helper';
+import setStyle from '@tdesign/common/js/utils/setStyle';
+import { getCharacterLength } from '@tdesign/common/js/utils/helper';
 
 // hooks
 import useVModel from '../hooks/useVModel';
@@ -28,7 +28,7 @@ import useLengthLimit from '../input/useLengthLimit';
 import props from './props';
 import type { TextareaValue, TdTextareaProps } from './type';
 
-import { getValidAttrs } from '../../common/js/utils/helper';
+import { getValidAttrs } from '@tdesign/common/js/utils/helper';
 
 export default defineComponent({
   name: 'TTextarea',

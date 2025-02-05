@@ -3,13 +3,13 @@ import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { isUndefined } from 'lodash-es';
 
-import { DEFAULT_STEPS, DEFAULT_FORMAT } from '../../../common/js/time-picker/const';
+import { DEFAULT_STEPS, DEFAULT_FORMAT } from '@tdesign/common/js/time-picker/const';
 import { panelProps } from './props';
 import SinglePanel from './single-panel';
 import TButton from '../../button/button';
 import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 import { TimePickerValue, TimeRangeValue } from '../type';
-import log from '../../../common/js/log';
+import log from '@tdesign/common/js/log';
 
 dayjs.extend(customParseFormat);
 
