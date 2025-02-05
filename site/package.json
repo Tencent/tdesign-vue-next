@@ -1,0 +1,15 @@
+{
+  "name": "@tdesign/site",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "start": "pnpm run dev",
+    "dev": "vite",
+    "site": "vite build",
+    "site:intranet": "vite build --mode intranet",
+    "site:preview": "vite build --mode preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
