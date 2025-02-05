@@ -217,6 +217,19 @@ export default function useTreeStore(state: TypeTreeState) {
     });
   });
 
+  watch(refProps.expandAll, (nVal) => {
+    if (nVal) {
+      const valueList = store
+        .getNodes()
+        .filter((node) => Array.isArray(node.children) && node.children.length)
+        .map((node) => node.value);
+      store.setExpanded(valueList);
+    } else {
+      store.replaceExpanded(prevExpanded);
+      prevExpanded = null;
+    }
+  });
+
   return {
     store,
     rebuild,
