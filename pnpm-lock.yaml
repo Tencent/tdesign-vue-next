@@ -9,40 +9,40 @@ importers:
   .:
     dependencies:
       '@babel/runtime':
-        specifier: ^7.22.6
+        specifier: 7.26.7
         version: 7.26.7
       '@popperjs/core':
-        specifier: ^2.11.8
+        specifier: 2.11.8
         version: 2.11.8
       '@types/sortablejs':
-        specifier: ^1.15.1
+        specifier: 1.15.8
         version: 1.15.8
       '@types/tinycolor2':
-        specifier: ^1.4.3
+        specifier: 1.4.6
         version: 1.4.6
       '@types/validator':
-        specifier: ^13.7.17
+        specifier: ^13.12.2
         version: 13.12.2
       dayjs:
-        specifier: 1.11.10
-        version: 1.11.10
+        specifier: 1.11.13
+        version: 1.11.13
       lodash-es:
-        specifier: ^4.17.21
+        specifier: 4.17.21
         version: 4.17.21
       mitt:
-        specifier: ^3.0.1
+        specifier: 3.0.1
         version: 3.0.1
       sortablejs:
-        specifier: ^1.15.0
+        specifier: 1.15.6
         version: 1.15.6
       tdesign-icons-vue-next:
-        specifier: ^0.3.4
+        specifier: 0.3.4
         version: 0.3.4(vue@3.3.9(typescript@5.7.3))
       tinycolor2:
-        specifier: ^1.6.0
+        specifier: 1.6.0
         version: 1.6.0
       validator:
-        specifier: ^13.9.0
+        specifier: 13.12.0
         version: 13.12.0
     devDependencies:
       '@babel/cli':
@@ -2913,6 +2913,9 @@ packages:
 
   dayjs@1.11.10:
     resolution: {integrity: sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==}
+
+  dayjs@1.11.13:
+    resolution: {integrity: sha512-oaMBel6gjolK862uaPQOVTA7q3TZhuSvuMQAAglQDOWYO9A91IrAOUJEyKVlqJlHE0vq5p5UXxzdPfMH/x6xNg==}
 
   debug@3.1.0:
     resolution: {integrity: sha512-OX8XqP7/1a9cqkxYw2yXss15f26NKWBpDXQd0/uK/KPqdQhxbPa994hnzjcE2VqQpDslf55723cKPUOGSmMY3g==}
@@ -10297,7 +10300,7 @@ snapshots:
       cli-table3: 0.6.5
       commander: 6.2.1
       common-tags: 1.8.2
-      dayjs: 1.11.10
+      dayjs: 1.11.13
       debug: 4.4.0(supports-color@8.1.1)
       enquirer: 2.4.1
       eventemitter2: 6.4.7
@@ -10386,6 +10389,8 @@ snapshots:
   dateformat@3.0.3: {}
 
   dayjs@1.11.10: {}
+
+  dayjs@1.11.13: {}
 
   debug@3.1.0:
     dependencies:
@@ -14421,7 +14426,7 @@ snapshots:
       '@types/tinycolor2': 1.4.6
       '@types/validator': 13.12.2
       clipboard: 2.0.11
-      dayjs: 1.11.10
+      dayjs: 1.11.13
       lodash: 4.17.21
       mitt: 3.0.1
       raf: 3.4.1
