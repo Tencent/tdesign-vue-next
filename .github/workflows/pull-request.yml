@@ -85,7 +85,7 @@ jobs:
           cache: 'pnpm'
 
       # 安装依赖
-      - run: pnpm install
+      - run: pnpm install --frozen-lockfile
 
       # 运行代码 lint 检查
       - run: pnpm run lint
@@ -121,7 +121,7 @@ jobs:
           cache: 'pnpm'
 
       # 安装依赖
-      - run: pnpm install
+      - run: pnpm install --frozen-lockfile
 
       # 构建站点
       - name: Build site
@@ -180,7 +180,7 @@ jobs:
           cache: 'pnpm'
 
       # 安装依赖
-      - run: pnpm install
+      - run: pnpm install --frozen-lockfile
 
       # 运行构建任务
       - name: Build 
