@@ -124,12 +124,11 @@ jobs:
       - run: pnpm install --frozen-lockfile
 
       # 构建站点
-      - name: Build site
+      - name: Run build site
         run: pnpm run site:preview
 
       # 将构建的站点文件压缩为 zip
-      - run: |
-          zip -r _site.zip _site
+      - run: zip -r _site.zip _site
 
       # 上传站点文件作为构建产物
       - name: upload _site artifact
@@ -183,4 +182,5 @@ jobs:
       - run: pnpm install --frozen-lockfile
 
       # 运行构建任务
-      - run: pnpm run build
+      - name: Run build 
+        run: pnpm run build
