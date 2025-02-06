@@ -183,5 +183,4 @@ jobs:
       - run: pnpm install --frozen-lockfile
 
       # 运行构建任务
-      - name: Build 
-        run: pnpm run build
+      - run: pnpm run build
