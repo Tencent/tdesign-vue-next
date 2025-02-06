@@ -21,7 +21,7 @@ import { useContent, useTNodeJSX } from '../hooks';
 import { useCommonClassName, usePrefixClass } from '../hooks/useConfig';
 import useVModel from '../hooks/useVModel';
 import { off, on, once } from '../utils/dom';
-import setStyle from '../../common/js/utils/set-style';
+import setStyle from '../../common/js/utils/setStyle';
 import Container from './container';
 import props from './props';
 import { PopupTriggerEvent, TdPopupProps } from './type';
@@ -428,7 +428,7 @@ export default defineComponent({
             class={[prefixCls.value, props.overlayClassName]}
             ref={(ref: HTMLElement) => (popperEl.value = ref)}
             style={[{ zIndex: props.zIndex }, getOverlayStyle(), hidePopup && { visibility: 'hidden' }]}
-            vShow={visible.value}
+            v-show={visible.value}
             onClick={onOverlayClick}
             onMouseenter={onMouseenter}
             onMouseleave={onMouseLeave}

@@ -46,12 +46,16 @@ export default defineComponent({
     });
     const handleClickItem = (e: MouseEvent) => {
       const item: TdStickyItemProps = {};
-      Object.keys(baseProps).forEach((i) => (item[i] = props[i]));
+      // @ts-ignore
+      // TODO 这里因为 props 类型的原因，暂不好修改，后续改成 setup 就简单了
+      (Object.keys(baseProps) as (keyof typeof baseProps)[]).forEach((i) => (item[i] = props[i] as any));
       props.onClick({ e, item });
     };
     const handleHoverItem = (e: MouseEvent) => {
       const item: TdStickyItemProps = {};
-      Object.keys(baseProps).forEach((i) => (item[i] = props[i]));
+      // @ts-ignore
+      // TODO 这里因为 props 类型的原因，暂不好修改，后续改成 setup 就简单了
+      (Object.keys(baseProps) as (keyof typeof baseProps)[]).forEach((i) => (item[i] = props[i] as any));
       props.onHover({ e, item });
     };
     const renderTNodeJSX = useTNodeJSX();

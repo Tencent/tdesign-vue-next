@@ -10,11 +10,11 @@ import { isObject } from 'lodash-es';
 export function useColHeaders(props: TdCalendarProps, state: CalendarState) {
   const { t, globalConfig } = useConfig(COMPONENT_NAME);
 
-  const weekDipalyText = computed<TdCalendarProps['week']>(() => {
+  const weekDisplayText = computed<TdCalendarProps['week']>(() => {
     return props.week || t(globalConfig.value.week).split(',');
   });
   function getWeekDisplay(weekNum: number): string {
-    const weekText = weekDipalyText.value;
+    const weekText = weekDisplayText.value as string[];
     return isObject(weekText) && weekText[weekNum - 1] ? weekText[weekNum - 1] : utils.getDayCn(weekNum);
   }
   const cellColHeaders = computed<CellColHeader[]>(() => {

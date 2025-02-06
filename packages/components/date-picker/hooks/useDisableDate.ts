@@ -2,6 +2,9 @@ import dayjs from 'dayjs';
 import { isArray } from 'lodash-es';
 import { isFunction } from 'lodash-es';
 import { isObject } from 'lodash-es';
+import dayJsIsBetween from 'dayjs/plugin/isBetween';
+
+dayjs.extend(dayJsIsBetween);
 
 import type { TdDatePickerProps, TdDateRangePickerProps } from '../type';
 

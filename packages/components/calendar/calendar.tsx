@@ -297,7 +297,7 @@ export default defineComponent({
       );
     };
 
-    const cellClickEmit = (eventPropsName: string, e: MouseEvent, cellData: CalendarCell): void => {
+    const cellClickEmit = (eventPropsName: keyof typeof props, e: MouseEvent, cellData: CalendarCell): void => {
       if (isFunction(props[eventPropsName])) {
         const options: CellEventOption = {
           cell: {
@@ -306,7 +306,7 @@ export default defineComponent({
           },
           e,
         };
-        props[eventPropsName](options);
+        (props[eventPropsName] as Function)(options);
       }
     };
     const clickCell = (e: MouseEvent, cellData: CalendarCell): void => {

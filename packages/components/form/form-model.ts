@@ -58,8 +58,8 @@ export type ValidateFuncType = typeof VALIDATE_MAP[keyof typeof VALIDATE_MAP];
  */
 export async function validateOneRule(value: ValueType, rule: FormRule): Promise<AllValidateResult> {
   let validateResult: CustomValidateResolveType | ValidateResultType = { result: true };
-  const keys = Object.keys(rule);
-  let vOptions;
+  const keys = Object.keys(rule) as (keyof FormRule)[];
+  let vOptions: undefined | FormRule[keyof FormRule];
   let vValidateFun: ValidateFuncType;
   for (let i = 0; i < keys.length; i++) {
     const key = keys[i];
@@ -67,7 +67,8 @@ export async function validateOneRule(value: ValueType, rule: FormRule): Promise
     if (!rule.required && isValueEmpty(value) && !rule.validator) {
       return validateResult;
     }
-    const validateRule: ValidateFuncType = VALIDATE_MAP[key];
+
+    const validateRule: ValidateFuncType = VALIDATE_MAP[key as keyof typeof VALIDATE_MAP];
     // 找到一个校验规则，则无需再找，因为参数只允许对一个规则进行校验
     if (validateRule && (rule[key] || rule[key] === 0)) {
       // rule 值为 true 则表示没有校验参数，只是对值进行默认规则校验
@@ -77,6 +78,7 @@ export async function validateOneRule(value: ValueType, rule: FormRule): Promise
     }
   }
   if (vValidateFun) {
+    // @ts-ignore
     validateResult = await vValidateFun(value, vOptions);
     // 如果校验不通过，则返回校验不通过的规则
     if (isBoolean(validateResult)) {

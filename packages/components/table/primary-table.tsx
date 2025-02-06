@@ -380,34 +380,35 @@ export default defineComponent({
       showElement.value = val;
     };
 
+    const formatNode = (
+      api: 'topContent' | 'bottomContent' | 'firstFullRow' | 'lastFullRow',
+      renderInnerNode: Function,
+      condition: boolean,
+      extra?: { reverse?: boolean },
+    ) => {
+      if (!condition) return props[api];
+      const innerNode = renderInnerNode(h);
+      const propsNode = renderTNode(api);
+      if (innerNode && !propsNode) return () => innerNode;
+      if (propsNode && !innerNode) return () => propsNode;
+      if (innerNode && propsNode) {
+        return () =>
+          extra?.reverse ? (
+            <div>
+              {innerNode}
+              {propsNode}
+            </div>
+          ) : (
+            <div>
+              {propsNode}
+              {innerNode}
+            </div>
+          );
+      }
+      return null;
+    };
+
     return () => {
-      const formatNode = (
-        api: string,
-        renderInnerNode: Function,
-        condition: boolean,
-        extra?: { reverse?: boolean },
-      ) => {
-        if (!condition) return props[api];
-        const innerNode = renderInnerNode(h);
-        const propsNode = renderTNode(api);
-        if (innerNode && !propsNode) return () => innerNode;
-        if (propsNode && !innerNode) return () => propsNode;
-        if (innerNode && propsNode) {
-          return () =>
-            extra?.reverse ? (
-              <div>
-                {innerNode}
-                {propsNode}
-              </div>
-            ) : (
-              <div>
-                {propsNode}
-                {innerNode}
-              </div>
-            );
-        }
-        return null;
-      };
       const isColumnController = !!(columnController.value && Object.keys(columnController.value).length);
       // @ts-ignore
       const placement = isColumnController ? columnController.value.placement || 'top-right' : '';

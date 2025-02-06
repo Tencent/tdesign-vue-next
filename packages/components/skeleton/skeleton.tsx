@@ -40,8 +40,10 @@ const getColItemStyle = (obj: SkeletonRowColObj) => {
   const styleName = ['width', 'height', 'marginRight', 'marginLeft', 'margin', 'size', 'background', 'backgroundColor'];
   const style = Object.create(null);
   styleName.forEach((name) => {
+    // TODO: function isKeyOfObj(key: string, obj: object): key is keyof typeof obj { return key in obj;}
     if (name in obj) {
-      const px = isNumber(obj[name]) ? `${obj[name]}px` : obj[name];
+      const val = obj[name as keyof typeof obj];
+      const px = isNumber(val) ? `${val}px` : val;
       if (name === 'size') {
         [style.width, style.height] = [px, px];
       } else {

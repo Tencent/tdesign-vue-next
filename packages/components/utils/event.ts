@@ -1,9 +1,12 @@
 import { ComponentPublicInstance } from 'vue';
-import { isFunction } from 'lodash-es';
-import { isString } from 'lodash-es';
+import { camelCase, isFunction, isString } from 'lodash-es';
 
-import { getPropsApiByEvent } from './helper';
 export type EmitEventName = { event: string; method: string } | string;
+
+// keyboard-event => onKeyboardEvent
+export function getPropsApiByEvent(eventName: string) {
+  return camelCase(`on-${eventName}`);
+}
 
 /**
  * 组件对外传递事件
@@ -14,7 +17,11 @@ export type EmitEventName = { event: string; method: string } | string;
  * @example emitEvent<[TransferValue[], TargetParams]>(this, 'change', newTargetValue, params);
  * @example emitEvent<[SearchEvent[], TargetParams]>(this, { event: 'search', method: 'onChange' }, {query: ''});
  */
-export function emitEvent<T extends any[]>(vm: ComponentPublicInstance, eventName: string, ...args: T) {
+export function emitEvent<T extends any[]>(
+  vm: ComponentPublicInstance & { $props: Record<string, any> },
+  eventName: string,
+  ...args: T
+) {
   let emitEventMethodName: string;
   if (isString(eventName)) {
     emitEventMethodName = getPropsApiByEvent(eventName);

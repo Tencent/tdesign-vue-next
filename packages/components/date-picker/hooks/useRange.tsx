@@ -7,11 +7,11 @@ import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 import { usePrefixClass, useConfig } from '../../hooks/useConfig';
 import { useReadonly } from '../../hooks/useReadonly';
 
-import { TdDateRangePickerProps, DateValue } from '../type';
+import { TdDateRangePickerProps, DateValue, DateRangePickerPartial } from '../type';
 import { isValidDate, formatDate, getDefaultFormat, parseToDayjs } from '../../../common/js/date-picker/format';
 import useRangeValue from './useRangeValue';
 
-export const PARTIAL_MAP = { first: 'start', second: 'end' };
+export const PARTIAL_MAP: Record<'first' | 'second', DateRangePickerPartial> = { first: 'start', second: 'end' };
 
 export default function useRange(props: TdDateRangePickerProps) {
   const COMPONENT_NAME = usePrefixClass('date-range-picker');
@@ -35,7 +35,7 @@ export default function useRange(props: TdDateRangePickerProps) {
 
   const popupVisible = ref(false);
   const isHoverCell = ref(false);
-  const activeIndex = ref(0); // 确定当前选中的输入框序号
+  const activeIndex = ref<0 | 1>(0); // 确定当前选中的输入框序号
   const inputValue = ref(formatDate(props.value, { format: formatRef.value.format })); // 未真正选中前可能不断变更输入框的内容
   const isReadOnly = useReadonly();
 
@@ -49,7 +49,8 @@ export default function useRange(props: TdDateRangePickerProps) {
     prefixIcon: () => renderTNodeJSX('prefixIcon'),
     readonly: isReadOnly.value || !props.allowInput,
     separator: props.separator || globalConfig.value.rangeSeparator,
-    placeholder: props.placeholder || globalConfig.value.placeholder[props.mode],
+    placeholder:
+      props.placeholder || (globalConfig.value.placeholder as { [key in typeof props.mode]: string })[props.mode],
     activeIndex: popupVisible.value ? activeIndex.value : undefined,
     suffixIcon: () => {
       return renderTNodeJSX('suffixIcon') || <CalendarIcon />;
@@ -65,15 +66,15 @@ export default function useRange(props: TdDateRangePickerProps) {
       popupVisible.value = false;
       onChange?.([], { dayjsValue: [], trigger: 'clear' });
     },
-    onBlur: (newVal: string[], { e, position }: any) => {
+    onBlur: (newVal: string[], { e, position }: { e: MouseEvent; position: 'first' | 'second' }) => {
       props.onBlur?.({ value: newVal, partial: PARTIAL_MAP[position], e });
     },
-    onFocus: (newVal: string[], { e, position }: any) => {
+    onFocus: (newVal: string[], { e, position }: { e: MouseEvent; position: 'first' | 'second' }) => {
       props.onFocus?.({ value: newVal, partial: PARTIAL_MAP[position], e });
       activeIndex.value = position === 'first' ? 0 : 1;
     },
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    onChange: (newVal: string[], { e, position }: any) => {
+    onChange: (newVal: string[], { e, position }: { e: MouseEvent; position: 'first' | 'second' }) => {
       inputValue.value = newVal;
 
       // 跳过不符合格式化的输入框内容
@@ -128,6 +129,8 @@ export default function useRange(props: TdDateRangePickerProps) {
 
       // 这里劫持了进一步向 popup 传递的 onVisibleChange 事件，为了保证可以在 Datepicker 中使用 popupProps.onVisibleChange，故此处理
       props.popupProps?.onVisibleChange?.(visible, context);
+      // TODO
+      // @ts-ignore types only declare onVisibleChange，but not declare on-visible-change
       props.popupProps?.['on-visible-change']?.(visible, context);
 
       // 输入框点击不关闭面板

@@ -8,10 +8,11 @@ import type { DropdownOption, TdDropdownProps } from '../type';
 
 export const getOptionsFromChildren = (menuNode: VNode | VNode[]): DropdownOption[] => {
   if (!menuNode) return [];
-
   // 处理内部嵌套场景
-  if (menuNode[0]?.type?.name === 'TDropdownMenu') {
-    const groupChildren = menuNode[0]?.children?.default?.() as VNode;
+  if (isArray(menuNode) && (menuNode[0]?.type as Component)?.name === 'TDropdownMenu') {
+    // TODO: RawSlots
+    // @ts-ignore
+    const groupChildren = menuNode[0]?.children?.default?.();
     if (isArray(groupChildren)) {
       return getOptionsFromChildren(groupChildren);
     }
@@ -39,7 +40,7 @@ export const getOptionsFromChildren = (menuNode: VNode | VNode[]): DropdownOptio
         );
 
         // 将item.props的属性名都转成驼峰，再进行传递
-        const itemProps = Object.keys(item.props || {}).reduce((props, propName) => {
+        const itemProps = Object.keys(item.props || {}).reduce((props: typeof item.props, propName) => {
           // 处理 TDropdownItem 的 boolean attribute
           if (
             item.props[propName] === '' &&
@@ -64,7 +65,7 @@ export const getOptionsFromChildren = (menuNode: VNode | VNode[]): DropdownOptio
   }
 
   // 处理v-if的场景
-  if (isArray(menuNode[0]?.children)) return getOptionsFromChildren(menuNode[0]?.children);
+  if (isArray(menuNode) && isArray(menuNode[0]?.children)) return getOptionsFromChildren(menuNode[0]?.children);
 
   return [];
 };

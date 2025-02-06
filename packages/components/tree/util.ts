@@ -11,7 +11,12 @@ import {
   TypeTargetNode,
 } from './tree-types';
 
-export function emitEvent<T extends any[]>(props: TreeProps, context: TypeSetupContext, evtName: string, ...args: T) {
+export function emitEvent<T extends any[]>(
+  props: TreeProps & Record<string, any>,
+  context: TypeSetupContext,
+  evtName: string,
+  ...args: T
+) {
   const apiName = camelCase(`on-${evtName}`);
   evtName.replace(/^on/, '').toLowerCase();
   if (typeof props[apiName] === 'function') {

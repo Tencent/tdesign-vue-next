@@ -42,7 +42,7 @@ export default function useUpload(props: TdUploadProps) {
       multiple: multiple.value,
       status: uploadValue.value?.[0]?.status,
       autoUpload: autoUpload.value,
-    });
+    }) as keyof typeof locale.value.triggerUploadText;
     return locale.value.triggerUploadText[field];
   });
 

@@ -1,7 +1,7 @@
 import { ref, onMounted, onUnmounted, Ref } from 'vue';
 import useKeepAnimation from './useKeepAnimation';
 import { usePrefixClass } from './useConfig';
-import setStyle from '../utils/set-style';
+import setStyle from '../../common/js/utils/setStyle';
 
 const period = 200;
 const noneRippleBg = 'rgba(0, 0, 0, 0)';

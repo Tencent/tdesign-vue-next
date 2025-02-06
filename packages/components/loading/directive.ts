@@ -1,6 +1,5 @@
 import type { Directive, DirectiveBinding } from 'vue';
-import { isObject } from 'lodash-es';
-import { mapKeys } from 'lodash-es';
+import { mapKeys, isObject } from 'lodash-es';
 import { isEqual } from 'lodash-es';
 import { TdLoadingProps } from './type';
 import produceLoading from './plugin';
@@ -17,11 +16,13 @@ const createInstance = (el: HTMLElement, binding: DirectiveBinding) => {
   };
 
   if (isObject(binding.value)) {
-    mapKeys(binding.value, (value, key) => {
+    mapKeys(binding.value, (value, key: keyof typeof options) => {
       options[key] = value;
     });
   }
 
+  // @ts-ignore
+  // TODO: unique symbol' can't be used to index type 'HTMLElement'
   el[INSTANCE_KEY] = {
     options,
     instance: produceLoading(options),

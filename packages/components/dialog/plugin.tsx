@@ -108,6 +108,8 @@ interface ExtraApi {
   alert: DialogAlertMethod;
 }
 
+type ExtraApiType = keyof ExtraApi;
+
 const confirm: DialogConfirmMethod = (props: DialogOptions) => createDialog(props);
 
 const alert: DialogAlertMethod = (props: Omit<DialogOptions, 'confirmBtn'>) => {
@@ -127,12 +129,12 @@ export const DialogPlugin = createDialog as DialogPluginType;
 
 DialogPlugin.install = (app: App): void => {
   app.config.globalProperties.$dialog = createDialog;
-  Object.keys(extraApi).forEach((funcName) => {
+  Object.keys(extraApi).forEach((funcName: ExtraApiType) => {
     app.config.globalProperties.$dialog[funcName] = extraApi[funcName];
   });
 };
 
-Object.keys(extraApi).forEach((funcName) => {
+Object.keys(extraApi).forEach((funcName: ExtraApiType) => {
   DialogPlugin[funcName] = extraApi[funcName];
 });
 

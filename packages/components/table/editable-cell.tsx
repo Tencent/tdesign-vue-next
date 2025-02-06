@@ -252,7 +252,7 @@ export default defineComponent({
       if (!isEdit.value || !isCellEditable) return;
       if (!edit?.abortEditOnEvent?.length) return {};
       // 自定义退出编辑态的事件
-      const tListeners = {};
+      const tListeners: Record<string, Function> = {};
       const outsideAbortEvent = edit?.onEdited;
       edit.abortEditOnEvent.forEach((itemEvent) => {
         if (itemEvent === 'onChange') return;

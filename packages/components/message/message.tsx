@@ -41,7 +41,7 @@ export default defineComponent({
     const timer = ref(null);
 
     const classes = computed(() => {
-      const status = {};
+      const status: Record<string, boolean> = {};
       THEME_LIST.forEach((t) => (status[`${classPrefix.value}-is-${t}`] = props.theme === t));
       return [
         COMPONENT_NAME.value,

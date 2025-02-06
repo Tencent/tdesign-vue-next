@@ -137,12 +137,12 @@ const extraApi: ExtraApi = {
   },
 };
 
-export const MessagePlugin: MessagePluginType = showThemeMessage as MessagePluginType;
+export const MessagePlugin = showThemeMessage as MessagePluginType;
 
 MessagePlugin.install = (app: App): void => {
   app.config.globalProperties.$message = showThemeMessage;
   // 这样定义后，可以通过 this.$message 调用插件
-  Object.keys(extraApi).forEach((funcName) => {
+  Object.keys(extraApi).forEach((funcName: keyof ExtraApi) => {
     app.config.globalProperties.$message[funcName] = extraApi[funcName];
   });
 };
@@ -152,7 +152,9 @@ MessagePlugin.install = (app: App): void => {
  * import { showMessage } from 'message/index.ts';
  * showMessage();
  */
-Object.keys(extraApi).forEach((funcName) => {
+Object.keys(extraApi).forEach((funcName: keyof ExtraApi) => {
+  // @ts-ignore
+  // TODO https://github.com/microsoft/TypeScript/issues/32693
   MessagePlugin[funcName] = extraApi[funcName];
 });
 

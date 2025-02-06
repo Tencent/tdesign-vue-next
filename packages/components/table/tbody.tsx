@@ -12,8 +12,9 @@ import useRowspanAndColspan from './hooks/useRowspanAndColspan';
 import { BaseTableProps, RowAndColFixedPosition } from './interface';
 import { TdBaseTableProps } from './type';
 import { VirtualScrollConfig } from '../hooks/useVirtualScrollNew';
+import type { CamelCase } from '../../common/js/utils/types';
 
-export const ROW_AND_TD_LISTENERS = ROW_LISTENERS.concat('cell-click');
+export const ROW_AND_TD_LISTENERS = [...ROW_LISTENERS, 'cell-click'];
 export interface TableBodyProps extends BaseTableProps {
   classPrefix: string;
   ellipsisOverlayClassName: string;
@@ -125,7 +126,7 @@ export default defineComponent({
     };
 
     const getFullRow = (columnLength: number, type: 'first-full-row' | 'last-full-row') => {
-      const tType = camelCase(type);
+      const tType = camelCase(type) as CamelCase<typeof type, '-'>;
       const fullRowNode = this.renderTNode(tType);
       if (['', null, undefined, false].includes(fullRowNode)) return null;
       const isFixedToLeft = this.isWidthOverflow && this.columns.find((col) => col.fixed === 'left');

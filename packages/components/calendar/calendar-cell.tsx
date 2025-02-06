@@ -75,7 +75,7 @@ export default defineComponent({
     });
     const clickCell = (e: MouseEvent): void => {
       if (disabled.value) return;
-      const emitName = clickTypeEmitEventMap[e.type];
+      const emitName = clickTypeEmitEventMap[e.type as keyof typeof clickTypeEmitEventMap];
       emit(emitName, e);
     };
 
@@ -94,7 +94,7 @@ export default defineComponent({
     return () => {
       return (
         props.item && (
-          <td class={cellCls.value} onClick={clickCell} ondblclick={clickCell} oncontextmenu={clickCell}>
+          <td class={cellCls.value} onClick={clickCell} onDblclick={clickCell} onContextmenu={clickCell}>
             {renderContent('cell', undefined, {
               defaultNode: renderDefaultNode(),
               params: { ...props.item },

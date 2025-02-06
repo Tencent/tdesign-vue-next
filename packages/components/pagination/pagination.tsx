@@ -9,7 +9,6 @@ import {
   ChevronRightDoubleIcon as TdChevronRightDoubleIcon,
   EllipsisIcon as TdEllipsisIcon,
 } from 'tdesign-icons-vue-next';
-import { PageInfo, TdPaginationProps } from '../pagination/type';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import TInputNumber from '../input-number';
@@ -23,7 +22,11 @@ import useDefaultValue from '../hooks/useDefaultValue';
 import { useTNodeJSX } from '../hooks/tnode';
 import { isObject } from 'lodash-es';
 
+import type { PageInfo, TdPaginationProps } from '../pagination/type';
+
 const min = 1;
+
+type PageChangeType = 'prevPage' | 'nextPage' | 'prevMorePage' | 'nextMorePage';
 
 export default defineComponent({
   name: 'TPagination',
@@ -174,14 +177,13 @@ export default defineComponent({
       }
     };
 
-    const handlePageChange = (type: string) => {
+    const handlePageChange = (type: PageChangeType) => {
       const pageChangeMap = {
         prevPage: () => toPage(innerCurrent.value - 1),
         nextPage: () => toPage(innerCurrent.value + 1),
         prevMorePage: () => toPage(Math.max(2, innerCurrent.value - props.foldedMaxPageBtn)),
         nextMorePage: () => toPage(Math.min(innerCurrent.value + props.foldedMaxPageBtn, pageCount.value - 1)),
       };
-
       pageChangeMap[type]();
     };
 
@@ -272,21 +274,13 @@ export default defineComponent({
           )}
           {/* 首页按钮 */}
           {props.showFirstAndLastPageBtn ? (
-            <div
-              class={CLASS_MAP.preBtnClass.value}
-              onClick={() => toPage(1)}
-              disabled={props.disabled || props.current === min}
-            >
+            <div class={CLASS_MAP.preBtnClass.value} onClick={() => toPage(1)}>
               <PageFirstIcon />
             </div>
           ) : null}
           {/* 向前按钮 */}
           {props.showPreviousAndNextBtn ? (
-            <div
-              class={CLASS_MAP.preBtnClass.value}
-              onClick={() => handlePageChange('prevPage')}
-              disabled={disabled || innerCurrent.value === min}
-            >
+            <div class={CLASS_MAP.preBtnClass.value} onClick={() => handlePageChange('prevPage')}>
               <ChevronLeftIcon />
             </div>
           ) : null}
@@ -302,8 +296,8 @@ export default defineComponent({
                 <li
                   class={CLASS_MAP.btnMoreClass.value}
                   onClick={() => handlePageChange('prevMorePage')}
-                  onMouseOver={() => (prevMore.value = true)}
-                  onMouseOut={() => (prevMore.value = false)}
+                  onMouseover={() => (prevMore.value = true)}
+                  onMouseout={() => (prevMore.value = false)}
                 >
                   {prevMore.value ? <ChevronLeftDoubleIcon /> : <EllipsisIcon />}
                 </li>
@@ -317,8 +311,8 @@ export default defineComponent({
                 <li
                   class={CLASS_MAP.btnMoreClass.value}
                   onClick={() => handlePageChange('nextMorePage')}
-                  onMouseOver={() => (nextMore.value = true)}
-                  onMouseOut={() => (nextMore.value = false)}
+                  onMouseover={() => (nextMore.value = true)}
+                  onMouseout={() => (nextMore.value = false)}
                 >
                   {nextMore.value ? <ChevronRightDoubleIcon /> : <EllipsisIcon />}
                 </li>
@@ -334,21 +328,13 @@ export default defineComponent({
           {props.theme === 'simple' && Jumper}
           {/* 向后按钮 */}
           {props.showPreviousAndNextBtn ? (
-            <div
-              class={CLASS_MAP.nextBtnClass.value}
-              onClick={() => handlePageChange('nextPage')}
-              disabled={disabled || innerCurrent.value === pageCount.value}
-            >
+            <div class={CLASS_MAP.nextBtnClass.value} onClick={() => handlePageChange('nextPage')}>
               <ChevronRightIcon />
             </div>
           ) : null}
           {/* 尾页按钮 */}
           {props.showFirstAndLastPageBtn ? (
-            <div
-              class={CLASS_MAP.nextBtnClass.value}
-              onClick={() => toPage(pageCount.value)}
-              disabled={disabled || innerCurrent.value === pageCount.value}
-            >
+            <div class={CLASS_MAP.nextBtnClass.value} onClick={() => toPage(pageCount.value)}>
               <PageLastIcon />
             </div>
           ) : null}

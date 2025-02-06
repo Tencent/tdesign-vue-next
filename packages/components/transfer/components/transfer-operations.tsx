@@ -87,24 +87,24 @@ export default defineComponent({
         <Button
           variant="outline"
           size="small"
-          shape={isString(props.operation?.[1]) ? 'rectangle' : 'square'}
+          shape={isArray(props.operation) && isString(props.operation[1]) ? 'rectangle' : 'square'}
           key={props.rightDisabled ? 'right-outline' : 'right-base'}
           disabled={props.rightDisabled}
           onClick={moveToRight}
           icon={getIcon('right')}
         >
-          {slots.operation || props.operation?.[1] ? renderButton(h, 'right') : null}
+          {slots.operation || (isArray(props.operation) && props.operation[1]) ? renderButton(h, 'right') : null}
         </Button>
         <Button
           variant="outline"
           size="small"
-          shape={isString(props.operation?.[0]) ? 'rectangle' : 'square'}
+          shape={isArray(props.operation) && isString(props.operation[0]) ? 'rectangle' : 'square'}
           key={props.rightDisabled ? 'left-outline' : 'left-base'}
           disabled={props.leftDisabled}
           onClick={moveToLeft}
           icon={getIcon('left')}
         >
-          {slots.operation || props.operation?.[0] ? renderButton(h, 'left') : null}
+          {slots.operation || (isArray(props.operation) && props.operation[0]) ? renderButton(h, 'left') : null}
         </Button>
       </div>
     );

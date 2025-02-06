@@ -111,8 +111,8 @@ export default defineComponent({
       if (node && spec) {
         ['expanded', 'actived', 'checked'].forEach((name) => {
           if (keys.includes(name)) {
-            const val = spec[name];
-            delete spec[name];
+            const val = spec[name as keyof typeof spec];
+            delete spec[name as keyof typeof spec];
             const methodName = `set${upperFirst(name)}`;
             const setupMethod = this[methodName];
             if (isFunction(setupMethod)) {
@@ -214,7 +214,7 @@ export default defineComponent({
         list = this.store.getNodes();
       }
       // 一维结构树节点转树结构数据
-      const nodeMap = {};
+      const nodeMap: Record<string, TreeNodeState & { value: string; children?: TreeNodeState[] | boolean }> = {};
       const treeNodes: TypeTreeOptionData[] = [];
       list.forEach((item: TreeNode) => {
         const { value } = item;

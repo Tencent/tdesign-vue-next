@@ -67,7 +67,10 @@ export default defineComponent({
       if (mode.value === 'linear-gradient') {
         return color.value.linearGradient;
       }
-      return color.value.getFormatsColorMap()[props.format] || color.value.css;
+      const colorMap = color.value.getFormatsColorMap();
+      return Object.keys(colorMap).includes(props.format)
+        ? colorMap[props.format as keyof typeof colorMap]
+        : color.value.css;
     };
 
     /**

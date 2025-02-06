@@ -1,6 +1,6 @@
 import { defineComponent, inject, toRefs, computed, ref } from 'vue';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import { omit } from '../utils/helper';
+import { omit } from 'lodash-es';
 import props from './props';
 import { RadioGroupInjectionKey, RadioButtonInjectionKey } from './constants';
 
@@ -9,18 +9,8 @@ import { useDisabled } from '../hooks/useDisabled';
 import { useReadonly } from '../hooks/useReadonly';
 import useVModel from '../hooks/useVModel';
 import { useContent } from '../hooks/tnode';
-import { isUndefined } from 'lodash-es';
 import { isString } from 'lodash-es';
-
-function getValidAttrs(obj: Record<string, any>): Record<string, any> {
-  const newObj = {};
-  Object.keys(obj).forEach((key) => {
-    if (!isUndefined(obj[key])) {
-      newObj[key] = obj[key];
-    }
-  });
-  return newObj;
-}
+import { getValidAttrs } from '../../common/js/utils/helper';
 
 export default defineComponent({
   name: 'TRadio',

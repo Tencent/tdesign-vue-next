@@ -1,4 +1,5 @@
 import { computed, defineComponent, ref } from 'vue';
+import type { CSSProperties } from 'vue';
 import { PLACEMENT_OFFSET } from './const';
 import TMessage from './message';
 import { MessageOptions } from './type';
@@ -32,7 +33,7 @@ export const MessageList = defineComponent({
     const messageList = ref([]);
 
     const styles = computed(() => ({
-      ...PLACEMENT_OFFSET[props.placement],
+      ...(PLACEMENT_OFFSET[props.placement as keyof typeof PLACEMENT_OFFSET] as CSSProperties),
       zIndex: props.zIndex !== DEFAULT_Z_INDEX ? props.zIndex : DEFAULT_Z_INDEX,
     }));
 

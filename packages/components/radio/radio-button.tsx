@@ -1,7 +1,7 @@
 import { computed, defineComponent, provide, reactive } from 'vue';
 import props from './props';
 import Radio from './radio';
-import { omit } from '../utils/helper';
+import { omit } from 'lodash-es';
 import { RadioButtonInjectionKey } from './constants';
 
 import { useContent } from '../hooks/tnode';

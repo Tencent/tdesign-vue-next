@@ -226,7 +226,7 @@ export default defineComponent({
       return swiperTo(currentIndex.value - 1, context);
     };
     const getWrapAttribute = (attr: string) => {
-      return swiperWrap.value?.parentNode?.[attr];
+      return swiperWrap.value?.parentNode?.[attr as keyof ParentNode];
     };
     const renderPagination = () => {
       const fractionIndex = currentIndex.value + 1 > swiperItemLength.value ? 1 : currentIndex.value + 1;

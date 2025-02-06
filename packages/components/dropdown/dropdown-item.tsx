@@ -5,7 +5,7 @@ import dropdownItemProps from './dropdown-item-props';
 import useRipple from '../hooks/useRipple';
 import { useContent, useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
-import { pxCompat } from '../utils/helper';
+import { pxCompat } from '../../common/js/utils/helper';
 
 export default defineComponent({
   name: 'TDropdownItem',

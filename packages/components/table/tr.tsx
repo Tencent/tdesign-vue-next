@@ -87,7 +87,15 @@ export interface TrProps extends TrCommonProps {
   isHover?: boolean;
 }
 
-export const ROW_LISTENERS = ['click', 'dblclick', 'mouseover', 'mousedown', 'mouseenter', 'mouseleave', 'mouseup'];
+export const ROW_LISTENERS = [
+  'click',
+  'dblclick',
+  'mouseover',
+  'mousedown',
+  'mouseenter',
+  'mouseleave',
+  'mouseup',
+] as const;
 
 export function renderCell(
   params: BaseTableCellParams<TableRowData>,
@@ -212,7 +220,7 @@ export default defineComponent({
       ROW_LISTENERS.forEach((eventName) => {
         trListeners[`on${upperFirst(eventName)}`] = (e: MouseEvent) => {
           const p = { e, row, index: rowIndex };
-          props[`onRow${upperFirst(eventName)}`]?.(p);
+          props[`onRow${upperFirst(eventName)}` as `onRow${Capitalize<typeof ROW_LISTENERS[number]>}`]?.(p);
         };
       });
       return trListeners;
