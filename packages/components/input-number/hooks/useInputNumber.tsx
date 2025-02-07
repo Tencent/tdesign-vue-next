@@ -15,7 +15,7 @@ import {
   canSetValue,
   formatUnCompleteNumber,
   largeNumberToFixed,
-} from '@tdesign/common/js/input-number/number';
+} from '@tdesign/common-js/input-number/number';
 import { useDisabled } from '../../hooks/useDisabled';
 import { StrInputProps } from '../../input';
 

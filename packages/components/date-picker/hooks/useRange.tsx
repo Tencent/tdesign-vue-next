@@ -8,7 +8,7 @@ import { usePrefixClass, useConfig } from '../../hooks/useConfig';
 import { useReadonly } from '../../hooks/useReadonly';
 
 import { TdDateRangePickerProps, DateValue, DateRangePickerPartial } from '../type';
-import { isValidDate, formatDate, getDefaultFormat, parseToDayjs } from '@tdesign/common/js/date-picker/format';
+import { isValidDate, formatDate, getDefaultFormat, parseToDayjs } from '@tdesign/common-js/date-picker/format';
 import useRangeValue from './useRangeValue';
 
 export const PARTIAL_MAP: Record<'first' | 'second', DateRangePickerPartial> = { first: 'start', second: 'end' };

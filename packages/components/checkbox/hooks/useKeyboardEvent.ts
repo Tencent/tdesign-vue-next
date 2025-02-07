@@ -1,4 +1,4 @@
-import { CHECKED_CODE_REG } from '@tdesign/common/js/common';
+import { CHECKED_CODE_REG } from '@tdesign/common-js/common';
 
 export function useKeyboardEvent(handleChange: (e: Event) => void) {
   const keyboardEventListener = (e: KeyboardEvent) => {

@@ -1,4 +1,4 @@
-import { positiveSubtract, positiveAdd } from '@tdesign/common/js/input-number/number';
+import { positiveSubtract, positiveAdd } from '@tdesign/common-js/input-number/number';
 import { ref, watch } from 'vue';
 import { ImageScale } from './type';
 import { throttle } from 'lodash-es';

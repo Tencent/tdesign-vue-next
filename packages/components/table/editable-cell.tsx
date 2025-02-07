@@ -16,7 +16,7 @@ import { TableClassName } from './hooks/useClassName';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { renderCell } from './tr';
 import { validate } from '../form/form-model';
-import log from '@tdesign/common/js/log';
+import log from '@tdesign/common-js/log/index';
 import { AllValidateResult } from '../form/type';
 import { on, off } from '../utils/dom';
 import { isObject } from 'lodash-es';

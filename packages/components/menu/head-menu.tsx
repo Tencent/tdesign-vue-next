@@ -17,7 +17,7 @@ import { EllipsisIcon } from 'tdesign-icons-vue-next';
 import { isFunction } from 'lodash-es';
 import { isArray } from 'lodash-es';
 
-import log from '@tdesign/common/js/log/log';
+import log from '@tdesign/common-js/log/log';
 import props from './head-menu-props';
 import { MenuValue } from './type';
 import { TdMenuInterface, TdOpenType } from './const';

@@ -2,7 +2,7 @@ import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, reacti
 import {
   SATURATION_PANEL_DEFAULT_HEIGHT,
   SATURATION_PANEL_DEFAULT_WIDTH,
-} from '@tdesign/common/js/color-picker/constants';
+} from '@tdesign/common-js/color-picker/constants';
 import { Draggable, Coordinate } from '../utils';
 import { useBaseClassName } from '../hooks';
 import baseProps from './base-props';

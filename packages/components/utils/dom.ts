@@ -8,7 +8,7 @@ import raf from 'raf';
 import { isString } from 'lodash-es';
 import { isFunction } from 'lodash-es';
 import { isArray } from 'lodash-es';
-import { easeInOutCubic, EasingFunction } from '@tdesign/common/js/utils/easing';
+import { easeInOutCubic, EasingFunction } from '@tdesign/common-js/utils/easing';
 import { ScrollContainer, ScrollContainerElement } from '../common';
 
 export const isServer = typeof window === 'undefined';

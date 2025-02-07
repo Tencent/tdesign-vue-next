@@ -4,7 +4,7 @@ import { MenuValue } from './type';
 import { TdMenuInterface, TdOpenType } from './const';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import VMenu from './v-menu';
-import log from '@tdesign/common/js/log/log';
+import log from '@tdesign/common-js/log/log';
 import { usePrefixClass } from '../hooks/useConfig';
 import useVModel from '../hooks/useVModel';
 import useDefaultValue from '../hooks/useDefaultValue';

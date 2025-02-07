@@ -48,7 +48,9 @@ const getPlugins = ({
   extractMultiCss = false,
 } = {}) => {
   const plugins = [
-    nodeResolve(),
+    nodeResolve({
+      extensions: ['.mjs', '.js', '.json', '.node', '.ts', '.tsx'],
+    }),
     vuePlugin(),
     commonjs(),
     esbuild({
@@ -151,7 +153,7 @@ const getPlugins = ({
 /** @type {import('rollup').RollupOptions} */
 const cssConfig = {
   input: ['packages/components/**/style/index.js'],
-  plugins: [multiInput({ relative: 'packages/components/' }), styles({ mode: 'extract' })],
+  plugins: [multiInput({ relative: 'packages/components/' }), styles({ mode: 'extract' }), nodeResolve()],
   output: {
     banner,
     dir: 'es/',

@@ -4,7 +4,7 @@ import {
   MinusRectangleIcon as TdMinusRectangleIcon,
 } from 'tdesign-icons-vue-next';
 import { get } from 'lodash-es';
-import TableTreeStore, { SwapParams } from '@tdesign/common/js/table/tree-store';
+import TableTreeStore, { SwapParams } from '@tdesign/common-js/table/tree-store';
 import {
   TdEnhancedTableProps,
   PrimaryTableCol,

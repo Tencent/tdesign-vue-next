@@ -12,7 +12,7 @@ import {
   SHIFT_REG,
   CLEAR_REG,
   ALL_REG,
-} from '@tdesign/common/js/common';
+} from '@tdesign/common-js/common';
 
 /**
  * 行高亮功能，支持键盘操作
