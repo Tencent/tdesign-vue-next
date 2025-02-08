@@ -1,15 +1,13 @@
 {
   "name": "@tdesign/site",
-  "version": "0.0.1",
-  "description": "",
+  "private": true,
   "scripts": {
     "start": "pnpm run dev",
     "dev": "vite",
-    "site": "vite build",
+    "build": "vite build",
     "intranet": "vite build --mode intranet",
     "preview": "vite build --mode preview"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "tdesign",
+  "license": "MIT"
 }
