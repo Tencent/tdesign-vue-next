@@ -55,11 +55,32 @@ export default function useTreeStore(state: TypeTreeState) {
 
   const updateExpanded = () => {
     const { expandParent } = props;
-    if (!Array.isArray(tExpanded.value)) return;
+
+    const expandedValueSet = new Set<TreeNodeValue>();
+
+    const getValueParentsToSet = (values: TreeNodeValue[]) => {
+      values.forEach((val) => {
+        const parents = store.getParents(val);
+        parents.forEach((parent) => {
+          expandedValueSet.add(parent.value);
+        });
+      });
+    };
+
+    if (Array.isArray(tValue.value)) {
+      getValueParentsToSet(tValue.value);
+    }
+
+    if (Array.isArray(tExpanded.value)) {
+      tExpanded.value.forEach((value) => expandedValueSet.add(value));
+    }
+
+    const expandedValue = Array.from(expandedValueSet);
+
     // 初始化展开状态
     // 校验是否自动展开父节点
     const expandedMap = new Map();
-    tExpanded.value.forEach((val) => {
+    expandedValue.forEach((val) => {
       expandedMap.set(val, true);
       if (expandParent) {
         const node = store.getNode(val);
