@@ -237,7 +237,7 @@ export default defineComponent({
       props.onCloseBtnClick?.(context);
       emitCloseEvent({
         trigger: 'close-btn',
-        e,
+        e: context.e,
       });
     };
 
