@@ -1,5 +1,5 @@
 import { pick } from 'lodash-es';
-import { TreeStore } from '../../../common/js/tree/tree-store';
+import { TreeStore } from '@tdesign/common-js/tree/tree-store';
 import { watch, TypeRef } from '../adapt';
 import {
   TreeProps,
@@ -215,6 +215,19 @@ export default function useTreeStore(state: TypeTreeState) {
     store.setConfig({
       keys,
     });
+  });
+
+  watch(refProps.expandAll, (nVal) => {
+    if (nVal) {
+      const valueList = store
+        .getNodes()
+        .filter((node) => Array.isArray(node.children) && node.children.length)
+        .map((node) => node.value);
+      store.setExpanded(valueList);
+    } else {
+      store.replaceExpanded(prevExpanded);
+      prevExpanded = null;
+    }
   });
 
   return {

@@ -1,5 +1,5 @@
 import { computed, defineComponent, onBeforeUnmount, onMounted, PropType, reactive, ref } from 'vue';
-import { SLIDER_DEFAULT_WIDTH } from '../../../common/js/color-picker/constants';
+import { SLIDER_DEFAULT_WIDTH } from '@tdesign/common-js/color-picker/constants';
 import { Draggable, Coordinate } from '../utils';
 import { useBaseClassName } from '../hooks';
 import baseProps from './base-props';

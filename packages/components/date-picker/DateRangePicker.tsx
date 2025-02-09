@@ -18,8 +18,8 @@ import {
   isValidDate,
   getDefaultFormat,
   initYearMonthTime,
-} from '../../common/js/date-picker/format';
-import { subtractMonth, addMonth, extractTimeObj } from '../../common/js/date-picker/utils';
+} from '@tdesign/common-js/date-picker/format';
+import { subtractMonth, addMonth, extractTimeObj } from '@tdesign/common-js/date-picker/utils';
 import { dateCorrection } from './utils';
 import { useReadonly } from '../hooks/useReadonly';
 
