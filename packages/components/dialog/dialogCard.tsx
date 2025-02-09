@@ -91,7 +91,7 @@ export default defineComponent({
           danger: <ErrorCircleFilledIcon class={`${classPrefix.value}-is-error`} />,
           success: <CheckCircleFilledIcon class={`${classPrefix.value}-is-success`} />,
         };
-        return icon[theme as keyof typeof icon];
+        return icon[props.theme as keyof typeof icon];
       };
       //   console.log(confirmLoading ?? confirmBtn?.loading, confirmBtn)
       return (

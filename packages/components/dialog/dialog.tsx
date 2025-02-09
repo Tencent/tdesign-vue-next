@@ -5,7 +5,7 @@ import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useSameTarget } from './hooks';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import useDestroyOnClose from '../hooks/useDestroyOnClose';
-import { getScrollbarWidth } from '@tdesign/common-js/utils/getScrollbarWidth';
+import { getScrollbarWidth } from '../../common/js/utils/getScrollbarWidth';
 import useTeleport from '../hooks/useTeleport';
 import usePopupManager from '../hooks/usePopupManager';
 
@@ -312,7 +312,6 @@ export default defineComponent({
                 header={header}
                 body={body}
                 class={dialogClassName}
-                style={{ ...props?.style }}
                 onConfirm={confirmBtnAction}
                 onCancel={cancelBtnAction}
                 onCloseBtnClick={closeBtnAction}
