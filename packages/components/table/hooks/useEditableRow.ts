@@ -3,7 +3,7 @@ import { get } from 'lodash-es';
 import { set } from 'lodash-es';
 import { isFunction } from 'lodash-es';
 import { PrimaryTableProps } from '../interface';
-import { getEditableKeysMap } from '../../../common/js/table/utils';
+import { getEditableKeysMap } from '@tdesign/common-js/table/utils';
 import { validate } from '../../form/form-model';
 import { cloneDeep } from 'lodash-es';
 import {
