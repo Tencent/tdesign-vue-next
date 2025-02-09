@@ -7,7 +7,7 @@ import { useTNodeDefault } from '../../hooks/tnode';
 import TableFilterController from '../filter-controller';
 import { useConfig } from '../../hooks/useConfig';
 import { isFunction } from 'lodash-es';
-import { getColumnsResetValue } from '../../../common/js/table/utils';
+import { getColumnsResetValue } from '@tdesign/common-js/table/utils';
 import { renderTitle } from './useTableHeader';
 
 function isFilterValueExist(value: any) {

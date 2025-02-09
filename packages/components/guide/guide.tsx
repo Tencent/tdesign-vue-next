@@ -4,7 +4,7 @@ import props from './props';
 import { GuideCrossProps } from './interface';
 import { TdGuideProps, GuideStep } from './type';
 import { scrollToParentVisibleArea, getRelativePosition, getTargetElm, scrollToElm } from './utils';
-import setStyle from '../../common/js/utils/setStyle';
+import setStyle from '@tdesign/common-js/utils/setStyle';
 import { addClass, removeClass, isFixed, getWindowScroll } from '../utils/dom';
 import useVModel from '../hooks/useVModel';
 import { useTNodeJSX } from '../hooks/tnode';

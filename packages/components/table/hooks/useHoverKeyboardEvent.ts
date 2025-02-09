@@ -11,7 +11,7 @@ import {
   SPACE_REG,
   ARROW_LEFT_REG,
   ARROW_RIGHT_REG,
-} from '../../../common/js/common';
+} from '@tdesign/common-js/common';
 import { RowEventContext, TableRowData } from '../type';
 
 /**
