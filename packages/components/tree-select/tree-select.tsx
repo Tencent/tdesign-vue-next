@@ -77,6 +77,40 @@ export default defineComponent({
       },
     );
 
+    /**
+     * 递归查找指定节点的所有父节点的 value。
+     * @param targetValue 要查找的目标节点 value
+     * @param nodes 树形数据源
+     * @param ancestors 父节点 value 累加数组
+     * @returns 则返回父节点 value 数组
+     */
+    function findParentValues(options: TreeOptionData[], targetValue: string | number): (string | number)[] {
+      function helper(nodes: TreeOptionData[], parentValues: (string | number)[]): (string | number)[] | null {
+        for (const node of nodes) {
+          // 找到目标节点，返回当前记录的父节点值数组
+          if (node.value === targetValue) {
+            return parentValues;
+          }
+          // 递归处理子节点，将当前节点的 value 加入父节点路径
+          if (Array.isArray(node.children)) {
+            const found = helper(node.children, [...parentValues, node.value]);
+            if (found) return found;
+          }
+        }
+        return null;
+      }
+
+      const result = helper(options, []);
+      return result || [];
+    }
+    watch(actived, () => {
+      if (actived.value.length > 0) {
+        const activedExpanded = actived.value.map((val) => findParentValues(props.data, val)).flat();
+        expanded.value = Array.from(new Set([...expanded.value, ...activedExpanded]));
+        popupVisible.value = true;
+      }
+    });
+
     // computed
     /** filterByText keep pace with innerInputValue */
     const filterByText = computed(() => {
