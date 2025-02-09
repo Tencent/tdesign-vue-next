@@ -95,12 +95,12 @@ export default defineComponent({
     const dialogEle = ref<HTMLElement | null>(null);
     const dialogCardRef = ref<HTMLElement | null>(null);
     const { globalConfig } = useConfig('dialog');
-    const confirmBtnAction = (e: MouseEvent) => {
-      props.onConfirm?.({ e });
+    const confirmBtnAction = (context: { e: MouseEvent }) => {
+      props.onConfirm?.(context);
     };
-    const cancelBtnAction = (e: MouseEvent) => {
-      props.onCancel?.({ e });
-      emitCloseEvent({ e, trigger: 'cancel' });
+    const cancelBtnAction = (context: { e: MouseEvent }) => {
+      props.onCancel?.(context);
+      emitCloseEvent({ e: context.e, trigger: 'cancel' });
     };
     // teleport容器
     const teleportElement = useTeleport(() => props.attach);
@@ -233,8 +233,8 @@ export default defineComponent({
       }
     };
     const { onClick, onMousedown, onMouseup } = useSameTarget(overlayAction);
-    const closeBtnAction = (e: MouseEvent) => {
-      props.onCloseBtnClick?.({ e });
+    const closeBtnAction = (context: { e: MouseEvent }) => {
+      props.onCloseBtnClick?.(context);
       emitCloseEvent({
         trigger: 'close-btn',
         e,
