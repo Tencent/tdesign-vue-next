@@ -14,6 +14,12 @@ importers:
       '@popperjs/core':
         specifier: 2.11.8
         version: 2.11.8
+      '@tdesign/common-js':
+        specifier: workspace:^
+        version: link:packages/common/js
+      '@tdesign/common-style':
+        specifier: workspace:^
+        version: link:packages/common/style
       '@types/sortablejs':
         specifier: 1.15.8
         version: 1.15.8
@@ -401,11 +407,11 @@ importers:
         specifier: ^2.1.8
         version: 2.1.9(@types/node@22.13.1)(@vitest/ui@2.1.9)(jsdom@19.0.0)(less@4.2.2)(msw@1.3.5(encoding@0.1.13)(typescript@5.7.3))(terser@5.37.0)
 
-  packages/components:
-    dependencies:
-      '@tdesign/common':
-        specifier: workspace:*
-        version: link:../common
+  packages/common/js: {}
+
+  packages/common/style: {}
+
+  packages/components: {}
 
   site: {}
 
@@ -9099,7 +9105,7 @@ snapshots:
       sirv: 3.0.0
       tinyglobby: 0.2.10
       tinyrainbow: 1.2.0
-      vitest: 2.1.9(@types/node@22.5.1)(@vitest/ui@2.1.9)(jsdom@19.0.0)(less@4.2.2)(msw@1.3.5(encoding@0.1.13)(typescript@5.7.3))(terser@5.37.0)
+      vitest: 2.1.9(@types/node@22.13.1)(@vitest/ui@2.1.9)(jsdom@19.0.0)(less@4.2.2)(msw@1.3.5(encoding@0.1.13)(typescript@5.7.3))(terser@5.37.0)
 
   '@vitest/utils@2.1.9':
     dependencies:
