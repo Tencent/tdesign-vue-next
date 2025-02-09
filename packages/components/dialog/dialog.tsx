@@ -1,23 +1,15 @@
 import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, ref, Transition, watch, Teleport } from 'vue';
-import {
-  CloseIcon as TdCloseIcon,
-  InfoCircleFilledIcon as TdInfoCircleFilledIcon,
-  CheckCircleFilledIcon as TdCheckCircleFilledIcon,
-  ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
-} from 'tdesign-icons-vue-next';
-
 import { DialogCloseContext } from './type';
 import props from './props';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
-import { useAction, useSameTarget } from './hooks';
+import { useSameTarget } from './hooks';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import useDestroyOnClose from '../hooks/useDestroyOnClose';
 import { getScrollbarWidth } from '../../common/js/utils/getScrollbarWidth';
-
-import type { TdDialogProps } from './type';
 import useTeleport from '../hooks/useTeleport';
 import usePopupManager from '../hooks/usePopupManager';
+
+import TDialogCard from './dialogCard';
 
 function GetCSSValue(v: string | number) {
   return Number.isNaN(Number(v)) ? v : `${Number(v)}px`;
@@ -101,13 +93,8 @@ export default defineComponent({
     const renderContent = useContent();
     const renderTNodeJSX = useTNodeJSX();
     const dialogEle = ref<HTMLElement | null>(null);
+    const dialogCardRef = ref<HTMLElement | null>(null);
     const { globalConfig } = useConfig('dialog');
-    const { CloseIcon, InfoCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon } = useGlobalIcon({
-      CloseIcon: TdCloseIcon,
-      InfoCircleFilledIcon: TdInfoCircleFilledIcon,
-      CheckCircleFilledIcon: TdCheckCircleFilledIcon,
-      ErrorCircleFilledIcon: TdErrorCircleFilledIcon,
-    });
     const confirmBtnAction = (e: MouseEvent) => {
       props.onConfirm?.({ e });
     };
@@ -115,7 +102,6 @@ export default defineComponent({
       props.onCancel?.({ e });
       emitCloseEvent({ e, trigger: 'cancel' });
     };
-    const { getConfirmBtn, getCancelBtn } = useAction({ confirmBtnAction, cancelBtnAction });
     // teleport容器
     const teleportElement = useTeleport(() => props.attach);
     useDestroyOnClose();
@@ -125,8 +111,6 @@ export default defineComponent({
     const isModal = computed(() => props.mode === 'modal');
     // 是否非模态对话框
     const isModeLess = computed(() => props.mode === 'modeless');
-    // 是否普通对话框，没有脱离文档流的对话框
-    const isNormal = computed(() => props.mode === 'normal');
     // 是否全屏对话框
     const isFullScreen = computed(() => props.mode === 'full-screen');
     const computedVisible = computed(() => props.visible);
@@ -135,7 +119,6 @@ export default defineComponent({
       !props.showOverlay && `${classPrefix.value}-is-hidden`,
     ]);
     const positionClass = computed(() => {
-      if (isNormal.value) return [];
       if (isFullScreen.value) return [`${COMPONENT_NAME.value}__position_fullscreen`];
 
       return [
@@ -144,7 +127,7 @@ export default defineComponent({
         `${props.placement && !props.top ? `${COMPONENT_NAME.value}--${props.placement}` : ''}`,
       ];
     });
-    const wrapClass = computed(() => [!isNormal.value && `${COMPONENT_NAME.value}__wrap`]);
+    const wrapClass = computed(() => [`${COMPONENT_NAME.value}__wrap`]);
     const positionStyle = computed(() => {
       if (isFullScreen.value) return {}; // 全屏模式，top属性不生效
 
@@ -300,67 +283,11 @@ export default defineComponent({
       const eventFuncs = this['_events']?.[name];
       return !!eventFuncs?.length;
     };
-    const getIcon = () => {
-      const icon = {
-        info: <InfoCircleFilledIcon class={`${classPrefix.value}-is-info`} />,
-        warning: <ErrorCircleFilledIcon class={`${classPrefix.value}-is-warning`} />,
-        danger: <ErrorCircleFilledIcon class={`${classPrefix.value}-is-error`} />,
-        success: <CheckCircleFilledIcon class={`${classPrefix.value}-is-success`} />,
-      };
-      return icon[props.theme as keyof typeof icon];
-    };
     const renderDialog = () => {
       // header 值为 true 显示空白头部
-      const defaultHeader = <h5 class="title"></h5>;
-      const defaultCloseBtn = <CloseIcon />;
+      const header = renderTNodeJSX('header', <h5 class="title"></h5>);
       const body = renderContent('default', 'body');
-      const defaultFooter = (
-        <div>
-          {getCancelBtn({
-            cancelBtn: props.cancelBtn as TdDialogProps['cancelBtn'],
-            globalCancel: globalConfig.value.cancel,
-            className: `${COMPONENT_NAME.value}__cancel`,
-          })}
-          {getConfirmBtn({
-            theme: props.theme,
-            confirmBtn: props.confirmBtn as TdDialogProps['confirmBtn'],
-            globalConfirm: globalConfig.value.confirm,
-            globalConfirmBtnTheme: globalConfig.value.confirmBtnTheme,
-            className: `${COMPONENT_NAME.value}__confirm`,
-            confirmLoading: props.confirmLoading,
-          })}
-        </div>
-      );
-
-      const headerContent = renderTNodeJSX('header', defaultHeader);
-
-      const footerContent = renderTNodeJSX('footer', defaultFooter);
-
-      const headerClassName = isFullScreen.value
-        ? [`${COMPONENT_NAME.value}__header`, `${COMPONENT_NAME.value}__header--fullscreen`]
-        : `${COMPONENT_NAME.value}__header`;
-
-      const closeClassName = isFullScreen.value
-        ? [`${COMPONENT_NAME.value}__close`, `${COMPONENT_NAME.value}__close--fullscreen`]
-        : `${COMPONENT_NAME.value}__close`;
-
-      const bodyClassName =
-        props.theme === 'default' ? [`${COMPONENT_NAME.value}__body`] : [`${COMPONENT_NAME.value}__body__icon`];
-
-      if (isFullScreen.value && footerContent) {
-        bodyClassName.push(`${COMPONENT_NAME.value}__body--fullscreen`);
-      } else if (isFullScreen.value) {
-        bodyClassName.push(`${COMPONENT_NAME.value}__body--fullscreen--without-footer`);
-      }
-
-      const footerClassName = isFullScreen.value
-        ? [`${COMPONENT_NAME.value}__footer`, `${COMPONENT_NAME.value}__footer--fullscreen`]
-        : `${COMPONENT_NAME.value}__footer`;
-
-      const onStopDown = (e: MouseEvent) => {
-        if (isModeLess.value && props.draggable) e.stopPropagation();
-      };
-
+      const { dialogClassName, theme, ...otherProps } = props;
       return (
         // /* 非模态形态下draggable为true才允许拖拽 */
         <div class={wrapClass.value}>
@@ -378,28 +305,18 @@ export default defineComponent({
               v-draggable={isModeLess.value && props.draggable}
               ref={dialogEle}
             >
-              {(headerContent || headerContent === 0 || props.closeBtn) && (
-                <div class={headerClassName} onMousedown={onStopDown}>
-                  <div class={`${COMPONENT_NAME.value}__header-content`}>
-                    {getIcon()}
-                    {headerContent}
-                  </div>
-
-                  {props.closeBtn ? (
-                    <span class={closeClassName} onClick={closeBtnAction}>
-                      {renderTNodeJSX('closeBtn', defaultCloseBtn)}
-                    </span>
-                  ) : null}
-                </div>
-              )}
-              <div class={bodyClassName} onMousedown={onStopDown}>
-                {body}
-              </div>
-              {footerContent && (
-                <div class={footerClassName} onMousedown={onStopDown}>
-                  {footerContent}
-                </div>
-              )}
+              <TDialogCard
+                ref={dialogCardRef}
+                theme={theme}
+                {...otherProps}
+                header={header}
+                body={body}
+                class={dialogClassName}
+                style={{ ...props?.style }}
+                onConfirm={confirmBtnAction}
+                onCancel={cancelBtnAction}
+                onCloseBtnClick={closeBtnAction}
+              />
             </div>
           </div>
         </div>
