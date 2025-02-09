@@ -32,12 +32,8 @@ export default defineComponent({
     });
     const { header, body, cancelBtn, confirmBtn, confirmLoading } = toRefs(props);
 
-    const confirmBtnAction = (e: MouseEvent) => {
-      props.onConfirm?.({ e });
-    };
-    const cancelBtnAction = (e: MouseEvent) => {
-      props.onCancel?.({ e });
-    };
+    const confirmBtnAction = (e: MouseEvent) => props.onConfirm?.({ e });
+    const cancelBtnAction = (e: MouseEvent) => props.onCancel?.({ e });
     const { getConfirmBtn, getCancelBtn } = useAction({ confirmBtnAction, cancelBtnAction });
     // 是否非模态对话框
     const isModeLess = computed(() => props.mode === 'modeless');
@@ -68,9 +64,7 @@ export default defineComponent({
       ? [`${COMPONENT_NAME.value}__footer`, `${COMPONENT_NAME.value}__footer--fullscreen`]
       : `${COMPONENT_NAME.value}__footer`;
 
-    const closeBtnAction = (e: MouseEvent) => {
-      props.onCloseBtnClick?.({ e });
-    };
+    const closeBtnAction = (e: MouseEvent) => props.onCloseBtnClick?.({ e });
 
     const onStopDown = (e: MouseEvent) => {
       if (isModeLess.value && props.draggable) e.stopPropagation();
