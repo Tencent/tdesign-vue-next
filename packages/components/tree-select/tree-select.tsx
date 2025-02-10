@@ -88,12 +88,12 @@ export default defineComponent({
       function helper(nodes: TreeOptionData[], parentValues: (string | number)[]): (string | number)[] | null {
         for (const node of nodes) {
           // 找到目标节点，返回当前记录的父节点值数组
-          if (node.value === targetValue) {
+          if (node[realValue.value] === targetValue) {
             return parentValues;
           }
           // 递归处理子节点，将当前节点的 value 加入父节点路径
-          if (Array.isArray(node.children)) {
-            const found = helper(node.children, [...parentValues, node.value]);
+          if (Array.isArray(node[realChildren.value])) {
+            const found = helper(node[realChildren.value], [...parentValues, node[realValue.value]]);
             if (found) return found;
           }
         }
