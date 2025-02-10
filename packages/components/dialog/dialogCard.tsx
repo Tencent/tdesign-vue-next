@@ -30,10 +30,10 @@ export default defineComponent({
       CheckCircleFilledIcon: TdCheckCircleFilledIcon,
       ErrorCircleFilledIcon: TdErrorCircleFilledIcon,
     });
-    const { header, body, cancelBtn, confirmBtn, confirmLoading } = toRefs(props);
+    const { header, body, footer, cancelBtn, confirmBtn, confirmLoading } = toRefs(props);
 
-    const confirmBtnAction = (e: MouseEvent) => props.onConfirm?.({ e });
-    const cancelBtnAction = (e: MouseEvent) => props.onCancel?.({ e });
+    const confirmBtnAction = (e: MouseEvent) => props?.onConfirm?.({ e });
+    const cancelBtnAction = (e: MouseEvent) => props?.onCancel?.({ e });
     const { getConfirmBtn, getCancelBtn } = useAction({ confirmBtnAction, cancelBtnAction });
     // 是否非模态对话框
     const isModeLess = computed(() => props.mode === 'modeless');
@@ -48,7 +48,7 @@ export default defineComponent({
           className: `${COMPONENT_NAME.value}__cancel`,
         })}
         {getConfirmBtn({
-          theme: props.theme,
+          theme: props?.theme,
           confirmBtn: confirmBtn.value as TdDialogProps['confirmBtn'],
           globalConfirm: globalConfig.value.confirm,
           globalConfirmBtnTheme: globalConfig.value.confirmBtnTheme,
@@ -64,10 +64,10 @@ export default defineComponent({
       ? [`${COMPONENT_NAME.value}__footer`, `${COMPONENT_NAME.value}__footer--fullscreen`]
       : `${COMPONENT_NAME.value}__footer`;
 
-    const closeBtnAction = (e: MouseEvent) => props.onCloseBtnClick?.({ e });
+    const closeBtnAction = (e: MouseEvent) => props?.onCloseBtnClick?.({ e });
 
     const onStopDown = (e: MouseEvent) => {
-      if (isModeLess.value && props.draggable) e.stopPropagation();
+      if (isModeLess.value && props?.draggable) e.stopPropagation();
     };
 
     const renderHeader = () => {
@@ -85,17 +85,17 @@ export default defineComponent({
           danger: <ErrorCircleFilledIcon class={`${classPrefix.value}-is-error`} />,
           success: <CheckCircleFilledIcon class={`${classPrefix.value}-is-success`} />,
         };
-        return icon[props.theme as keyof typeof icon];
+        return icon[props?.theme as keyof typeof icon];
       };
       return (
-        (header.value || props.closeBtn) && (
+        (header.value || props?.closeBtn) && (
           <div class={headerClassName} onMousedown={onStopDown}>
             <div class={`${COMPONENT_NAME.value}__header-content`}>
               {getIcon()}
               {header.value}
             </div>
 
-            {props.closeBtn ? (
+            {props?.closeBtn ? (
               <span class={closeClassName} onClick={closeBtnAction}>
                 {renderTNodeJSX('closeBtn', <CloseIcon />)}
               </span>
@@ -107,7 +107,7 @@ export default defineComponent({
 
     const renderBody = () => {
       const bodyClassName =
-        props.theme === 'default' ? [`${COMPONENT_NAME.value}__body`] : [`${COMPONENT_NAME.value}__body__icon`];
+        props?.theme === 'default' ? [`${COMPONENT_NAME.value}__body`] : [`${COMPONENT_NAME.value}__body__icon`];
       if (isFullScreen.value && footerContent) {
         bodyClassName.push(`${COMPONENT_NAME.value}__body--fullscreen`);
       } else if (isFullScreen.value) {
@@ -131,6 +131,8 @@ export default defineComponent({
     };
 
     return {
+      header: header.value,
+      footer: footer.value,
       renderHeader,
       renderBody,
       renderFooter,
