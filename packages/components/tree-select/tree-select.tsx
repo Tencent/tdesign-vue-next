@@ -77,40 +77,6 @@ export default defineComponent({
       },
     );
 
-    /**
-     * 递归查找指定节点的所有父节点的 value
-     */
-    function findParentValues(options: TreeOptionData[], targetValue: string | number): (string | number)[] {
-      const parentNodes: (string | number)[] = [];
-
-      const helper = (nodes: TreeOptionData[]): boolean => {
-        for (const node of nodes) {
-          parentNodes.push(node[realValue.value]);
-          if (node[realValue.value] === targetValue) {
-            parentNodes.pop();
-            return true;
-          }
-          if (Array.isArray(node[realChildren.value]) && node[realChildren.value].length) {
-            if (helper(node[realChildren.value])) {
-              return true;
-            }
-          }
-          parentNodes.pop();
-        }
-        return false;
-      };
-
-      helper(options);
-      return parentNodes;
-    }
-
-    watch(actived, () => {
-      if (actived.value.length > 0) {
-        const activedExpanded = actived.value.map((val) => findParentValues(props.data, val)).flat();
-        expanded.value = Array.from(new Set([...expanded.value, ...activedExpanded]));
-      }
-    });
-
     // computed
     /** filterByText keep pace with innerInputValue */
     const filterByText = computed(() => {
@@ -196,7 +162,7 @@ export default defineComponent({
 
     onMounted(async () => {
       if (!treeSelectValue.value && props.defaultValue) {
-        await change(props.defaultValue, null, 'uncheck');
+        change(props.defaultValue, null, 'uncheck');
       }
       if (isObjectValue.value) {
         actived.value = isArray(treeSelectValue.value)
@@ -296,8 +262,6 @@ export default defineComponent({
       if (visible && context.trigger === 'trigger-element-click') setInnerInputValue('');
     };
     const changeNodeInfo = async () => {
-      await treeSelectValue.value;
-
       if (!props.multiple) {
         if (treeSelectValue.value || treeSelectValue.value === 0) {
           nodeInfo.value = getSingleNodeInfo();
@@ -367,6 +331,28 @@ export default defineComponent({
       }
       return null;
     };
+
+    watch(treeRef, (treeRefValue) => {
+      if (!treeRefValue) return;
+      const expandedValueSet = new Set<TreeNodeValue>();
+      const valueKey = (props.treeProps?.keys?.value as 'value') || 'value';
+
+      const treeValues: TreeSelectValue[] =
+        props.multiple && Array.isArray(treeSelectValue.value)
+          ? treeSelectValue.value
+          : treeSelectValue.value
+          ? [treeSelectValue.value]
+          : [];
+
+      treeValues.forEach((val) => {
+        treeRefValue.getParents(val)?.forEach((parent: TreeNodeModel) => {
+          expandedValueSet.add(parent[valueKey]);
+        });
+      });
+
+      const expandedValue = Array.from(expandedValueSet);
+      expanded.value = [...new Set([...expandedValue, ...expanded.value])];
+    });
 
     const treeRerender = () => {
       treeKey.value += 1;
