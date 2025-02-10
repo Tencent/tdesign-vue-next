@@ -397,7 +397,7 @@ rateText | Array | - | Typescript：`string[]` | N
 
 name | type | default | description | required
 -- | -- | -- | -- | --
-image | Object | - | Typescript：`{ maintenance: TNode; success: TNode; fail: TNode; empty: TNode; networkError: TNode; }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+image | Object | - | Typescript：`{ maintenance: TNode; success: TNode; fail: TNode; empty: TNode; networkError: TNode; }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 titleText | Object | - | Typescript：`{ maintenance: string; success: string; fail: string; empty: string; networkError: string; }` | N
 
 ### TypographyConfig

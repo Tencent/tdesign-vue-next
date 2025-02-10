@@ -11,7 +11,7 @@ borderless | Boolean | false | 无边框模式 | N
 clearable | Boolean | - | 是否允许清空 | N
 default | String / Slot / Function | - | 触发显示联想词下拉框的元素，同 `triggerElement`。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 disabled | Boolean | undefined | 是否禁用 | N
-empty | String / Slot / Function | - | 当下拉联想词列表为空时显示的内容。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+empty | String / Slot / Function | - | 当下拉联想词列表为空时显示的内容。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 filter | Function | - | 自定义过滤规则，用于对现有数据进行搜索过滤，判断是否过滤某一项数据。参数 `filterWords` 表示搜索词，`option`表示单个选项内容，返回值为 `true` 保留该选项，返回值为 `false` 则隐藏该选项。使用该方法时无需设置 `filterable`。TS 类型：`(filterWords: string, option: T) => boolean \| Promise<boolean>` | N
 filterable | Boolean | true | 是否根据输入内容过滤联想词。默认过滤规则不区分大小写，全文本任意位置匹配。如果默认搜索规则不符合业务需求，可以更为使用 `filter` 自定义过滤规则。部分场景下输入关键词和下拉联想词完全不同，此时可以设置为 `false` | N
 highlightKeyword | Boolean | true | 是否高亮联想词中和输入值的相同部分 | N
