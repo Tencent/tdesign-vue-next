@@ -95,9 +95,6 @@ export default defineComponent({
     const dialogEle = ref<HTMLElement | null>(null);
     const dialogCardRef = ref<HTMLElement | null>(null);
     const { globalConfig } = useConfig('dialog');
-    // header 值为 true 显示空白头部
-    const header = renderTNodeJSX('header', <h5 class="title"></h5>);
-    const body = renderContent('default', 'body');
     const confirmBtnAction = (context: { e: MouseEvent }) => {
       props.onConfirm?.(context);
     };
@@ -289,8 +286,11 @@ export default defineComponent({
       return !!eventFuncs?.length;
     };
     const renderDialog = () => {
+      // header 值为 true 显示空白头部
+      const headerContent = renderTNodeJSX('header', <h5 class="title"></h5>) ?? false;
+      const bodyContent = renderContent('default', 'body');
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { dialogClassName, theme, onConfirm, onCancel, onCloseBtnClick, ...otherProps } = props;
+      const { body, header, dialogClassName, theme, onConfirm, onCancel, onCloseBtnClick, ...otherProps } = props;
       return (
         // /* 非模态形态下draggable为true才允许拖拽 */
         <div class={wrapClass.value}>
@@ -312,8 +312,8 @@ export default defineComponent({
                 ref={dialogCardRef}
                 theme={theme}
                 {...otherProps}
-                header={header}
-                body={body}
+                header={headerContent}
+                body={bodyContent}
                 class={dialogClassName}
                 onConfirm={confirmBtnAction}
                 onCancel={cancelBtnAction}

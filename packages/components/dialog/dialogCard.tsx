@@ -30,7 +30,7 @@ export default defineComponent({
       CheckCircleFilledIcon: TdCheckCircleFilledIcon,
       ErrorCircleFilledIcon: TdErrorCircleFilledIcon,
     });
-    const { header, body, footer, cancelBtn, confirmBtn, confirmLoading } = toRefs(props);
+    const { header, body, cancelBtn, confirmBtn, confirmLoading } = toRefs(props);
 
     const confirmBtnAction = (e: MouseEvent) => props.onConfirm?.({ e });
     const cancelBtnAction = (e: MouseEvent) => props.onCancel?.({ e });
@@ -88,20 +88,19 @@ export default defineComponent({
         return icon[props?.theme as keyof typeof icon];
       };
       return (
-        (header.value || props?.closeBtn) && (
-          <div class={headerClassName} onMousedown={onStopDown}>
+        <div class={headerClassName} onMousedown={onStopDown}>
+          {header.value ? (
             <div class={`${COMPONENT_NAME.value}__header-content`}>
               {getIcon()}
               {header.value}
             </div>
-
-            {props?.closeBtn ? (
-              <span class={closeClassName} onClick={closeBtnAction}>
-                {renderTNodeJSX('closeBtn', <CloseIcon />)}
-              </span>
-            ) : null}
-          </div>
-        )
+          ) : null}
+          {props?.closeBtn ? (
+            <span class={closeClassName} onClick={closeBtnAction}>
+              {renderTNodeJSX('closeBtn', <CloseIcon />)}
+            </span>
+          ) : null}
+        </div>
       );
     };
 
@@ -131,8 +130,6 @@ export default defineComponent({
     };
 
     return {
-      header: header.value,
-      footer: footer.value,
       renderHeader,
       renderBody,
       renderFooter,
