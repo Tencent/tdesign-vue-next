@@ -4,7 +4,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import { renderToString } from 'vue/server-renderer';
 import createFetchMock from 'vitest-fetch-mock';
 import { vi } from 'vitest';
-import TDesign from '@/src/index';
+import TDesign from '@src/index';
 
 const fetchMock = createFetchMock(vi);
 fetchMock.enableMocks();

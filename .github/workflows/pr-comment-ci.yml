@@ -127,8 +127,8 @@ jobs:
           fi
 
           if [ "$common_conflict" -eq "1" ];then
-              git checkout --ours src/_common
-              git add src/_common
+              git checkout --ours packages/common
+              git add packages/common
               echo "resolve conflict _common"
           fi
 
@@ -219,8 +219,8 @@ jobs:
           fi
 
           if [ "$common_conflict" -eq "1" ];then
-              git checkout --theirs src/_common
-              git add src/_common
+              git checkout --theirs packages/common
+              git add packages/common
               echo "resolve conflict _common"
           fi
 

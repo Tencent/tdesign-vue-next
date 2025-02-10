@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import <%= upperComponent %> from '@/src/<%= component %>/index.ts';
+import <%= upperComponent %> from '@src/<%= component %>/index.ts';
 
 // every component needs four parts: props/events/slots/functions.
 describe('<%= upperComponent %>', () => {

@@ -1,62 +1,62 @@
 {
   "compilerOptions": {
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
-    ],
+    /* Language and Environment */
     "target": "esnext",
-    "outDir": "lib",
-    "declaration": true,
+    "lib": [ "esnext", "dom", "dom.iterable", "scripthost"],
+    "jsx": "preserve",
+
+    /* Modules */
     "module": "esnext",
-    "moduleResolution": "node",
-    "isolatedModules": false,
-    "experimentalDecorators": true,
+    "rootDir": ".",
+    "moduleResolution": "bundler",
+    "baseUrl": "./",
+    "resolveJsonModule": true,
+
+    /* JavaScript Support */
+    "allowJs": true,
+
+    /* Emit */
+    "declaration": true,  
+    "outDir": "lib",
+    "removeComments": true,
+
+    /* Interop Constraints */
+    "isolatedModules": true,
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
+
+    /* Type Checking */
+    // TODO: 待开启
+    // "strict": true,
     "noImplicitAny": true,
     "noImplicitThis": true,
     "strictNullChecks": false,
-    "removeComments": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true,
-    "allowJs": true,
-    "jsx": "preserve",
-    "baseUrl": "./",
+
+    /* Completeness */
+    "skipLibCheck": true,
+
     "paths": {
-      "@src/*": [
-        "src/*"
-      ],
-      "tdesign-vue-next": [
-        "src"
-      ],
-      "tdesign-vue-next/es/locale/*": [
-        "src/locale/*"
-      ],
-      "@common/*": [
-        "src/_common/*"
-      ],
-      "@test/utils": [
-        "test/utils"
-      ]
+      "@src/*": [ "packages/components/*" ],
+      "tdesign-vue-next": [ "packages/components" ],
+      "tdesign-vue-next/es/locale/*": [ "packages/components/locale/*" ],
+      "@common/*": ["packages/common/*"],
+      "@test/utils": ["test/utils"]
     }
   },
   "include": [
     "./**/*.ts",
     "./**/*.tsx",
-    "src/**/*.vue",
+    "packages/components/**/*.vue",
     "scripts/rollup.config.js"
   ],
   "exclude": [
     "node_modules",
-    "src/_common",
+    "packages/common",
     "dist",
     "lib",
     "cjs",
     "esm",
     "es",
     "global.d.ts"
-  ],
-  "compileOnSave": false
+  ]
 }
