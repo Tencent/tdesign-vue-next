@@ -78,30 +78,30 @@ export default defineComponent({
     );
 
     /**
-     * 递归查找指定节点的所有父节点的 value。
-     * @param targetValue 要查找的目标节点 value
-     * @param nodes 树形数据源
-     * @param ancestors 父节点 value 累加数组
-     * @returns 则返回父节点 value 数组
+     * 递归查找指定节点的所有父节点的 value
      */
     function findParentValues(options: TreeOptionData[], targetValue: string | number): (string | number)[] {
-      function helper(nodes: TreeOptionData[], parentValues: (string | number)[]): (string | number)[] | null {
-        for (const node of nodes) {
-          // 找到目标节点，返回当前记录的父节点值数组
-          if (node[realValue.value] === targetValue) {
-            return parentValues;
-          }
-          // 递归处理子节点，将当前节点的 value 加入父节点路径
-          if (Array.isArray(node[realChildren.value])) {
-            const found = helper(node[realChildren.value], [...parentValues, node[realValue.value]]);
-            if (found) return found;
-          }
-        }
-        return null;
-      }
+      const parentNodes: (string | number)[] = [];
 
-      const result = helper(options, []);
-      return result || [];
+      const helper = (nodes: TreeOptionData[]): boolean => {
+        for (const node of nodes) {
+          parentNodes.push(node[realValue.value]);
+          if (node[realValue.value] === targetValue) {
+            parentNodes.pop();
+            return true;
+          }
+          if (Array.isArray(node[realChildren.value]) && node[realChildren.value].length) {
+            if (helper(node[realChildren.value])) {
+              return true;
+            }
+          }
+          parentNodes.pop();
+        }
+        return false;
+      };
+
+      helper(options);
+      return parentNodes;
     }
 
     watch(actived, () => {
