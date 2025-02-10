@@ -43,13 +43,13 @@ export default defineComponent({
     const defaultFooter = (
       <div>
         {getCancelBtn({
-          cancelBtn: cancelBtn as TdDialogProps['cancelBtn'],
+          cancelBtn: cancelBtn.value as TdDialogProps['cancelBtn'],
           globalCancel: globalConfig.value.cancel,
           className: `${COMPONENT_NAME.value}__cancel`,
         })}
         {getConfirmBtn({
           theme: props.theme,
-          confirmBtn: confirmBtn as TdDialogProps['confirmBtn'],
+          confirmBtn: confirmBtn.value as TdDialogProps['confirmBtn'],
           globalConfirm: globalConfig.value.confirm,
           globalConfirmBtnTheme: globalConfig.value.confirmBtnTheme,
           className: `${COMPONENT_NAME.value}__confirm`,
@@ -87,13 +87,12 @@ export default defineComponent({
         };
         return icon[props.theme as keyof typeof icon];
       };
-      //   console.log(confirmLoading ?? confirmBtn?.loading, confirmBtn)
       return (
-        (header || props.closeBtn) && (
+        (header.value || props.closeBtn) && (
           <div class={headerClassName} onMousedown={onStopDown}>
             <div class={`${COMPONENT_NAME.value}__header-content`}>
               {getIcon()}
-              {header}
+              {header.value}
             </div>
 
             {props.closeBtn ? (
@@ -116,7 +115,7 @@ export default defineComponent({
       }
       return (
         <div class={bodyClassName} onMousedown={onStopDown}>
-          {body}
+          {body.value}
         </div>
       );
     };
