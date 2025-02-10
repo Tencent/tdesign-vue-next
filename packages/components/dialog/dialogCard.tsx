@@ -88,19 +88,22 @@ export default defineComponent({
         return icon[props?.theme as keyof typeof icon];
       };
       return (
-        <div class={headerClassName} onMousedown={onStopDown}>
-          {header.value ? (
-            <div class={`${COMPONENT_NAME.value}__header-content`}>
-              {getIcon()}
-              {header.value}
-            </div>
-          ) : null}
-          {props?.closeBtn ? (
-            <span class={closeClassName} onClick={closeBtnAction}>
-              {renderTNodeJSX('closeBtn', <CloseIcon />)}
-            </span>
-          ) : null}
-        </div>
+        (header.value || props?.closeBtn) && (
+          <div class={headerClassName} onMousedown={onStopDown}>
+            {header.value ? (
+              <div class={`${COMPONENT_NAME.value}__header-content`}>
+                {getIcon()}
+                {header.value}
+              </div>
+            ) : null}
+
+            {props?.closeBtn ? (
+              <span class={closeClassName} onClick={closeBtnAction}>
+                {renderTNodeJSX('closeBtn', <CloseIcon />)}
+              </span>
+            ) : null}
+          </div>
+        )
       );
     };
 
@@ -138,7 +141,7 @@ export default defineComponent({
   render() {
     return (
       <>
-        {!!this.header && this.renderHeader()}
+        {this.renderHeader()}
         {this.renderBody()}
         {!!this.footer && this.renderFooter()}
       </>
