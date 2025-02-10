@@ -103,11 +103,11 @@ export default defineComponent({
       const result = helper(options, []);
       return result || [];
     }
+
     watch(actived, () => {
       if (actived.value.length > 0) {
         const activedExpanded = actived.value.map((val) => findParentValues(props.data, val)).flat();
         expanded.value = Array.from(new Set([...expanded.value, ...activedExpanded]));
-        popupVisible.value = true;
       }
     });
 
