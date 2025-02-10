@@ -287,7 +287,8 @@ export default defineComponent({
       return !!eventFuncs?.length;
     };
     const renderDialog = () => {
-      const { dialogClassName, theme, ...otherProps } = props;
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { dialogClassName, theme, onConfirm, onCancel, onCloseBtnClick, ...otherProps } = props;
       return (
         // /* 非模态形态下draggable为true才允许拖拽 */
         <div class={wrapClass.value}>

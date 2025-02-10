@@ -32,8 +32,8 @@ export default defineComponent({
     });
     const { header, body, footer, cancelBtn, confirmBtn, confirmLoading } = toRefs(props);
 
-    const confirmBtnAction = (e: MouseEvent) => props?.onConfirm?.({ e });
-    const cancelBtnAction = (e: MouseEvent) => props?.onCancel?.({ e });
+    const confirmBtnAction = (e: MouseEvent) => props.onConfirm?.({ e });
+    const cancelBtnAction = (e: MouseEvent) => props.onCancel?.({ e });
     const { getConfirmBtn, getCancelBtn } = useAction({ confirmBtnAction, cancelBtnAction });
     // 是否非模态对话框
     const isModeLess = computed(() => props.mode === 'modeless');
