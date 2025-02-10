@@ -123,12 +123,14 @@ export default defineComponent({
     ]);
     const positionClass = computed(() => {
       if (isFullScreen.value) return [`${COMPONENT_NAME.value}__position_fullscreen`];
-
-      return [
-        `${COMPONENT_NAME.value}__position`,
-        !!props.top && `${COMPONENT_NAME.value}--top`,
-        `${props.placement && !props.top ? `${COMPONENT_NAME.value}--${props.placement}` : ''}`,
-      ];
+      if (isModal.value || isModeLess.value) {
+        return [
+          `${COMPONENT_NAME.value}__position`,
+          !!props.top && `${COMPONENT_NAME.value}--top`,
+          `${props.placement && !props.top ? `${COMPONENT_NAME.value}--${props.placement}` : ''}`,
+        ];
+      }
+      return [];
     });
     const wrapClass = computed(() => [`${COMPONENT_NAME.value}__wrap`]);
     const positionStyle = computed(() => {
