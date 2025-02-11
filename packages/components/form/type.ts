@@ -176,7 +176,7 @@ export interface TdFormItemProps {
    * 校验状态，可在需要完全自主控制校验状态时使用
    * @default ''
    */
-  status?: 'error' | 'warning' | 'success' | 'validating';
+  status?: 'error' | 'warning' | 'success';
   /**
    * 校验状态图标，值为 `true` 显示默认图标，默认图标有 成功、失败、警告 等，不同的状态图标不同。`statusIcon` 值为 `false`，不显示图标。`statusIcon` 值类型为渲染函数，则可以自定义右侧状态图标。优先级高级 Form 的 statusIcon
    */
