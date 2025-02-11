@@ -90,12 +90,10 @@ export default defineComponent({
       return (
         (header.value || props?.closeBtn) && (
           <div class={headerClassName} onMousedown={onStopDown}>
-            {header.value ? (
-              <div class={`${COMPONENT_NAME.value}__header-content`}>
-                {getIcon()}
-                {header.value}
-              </div>
-            ) : null}
+            <div class={`${COMPONENT_NAME.value}__header-content`}>
+              {getIcon()}
+              {header.value}
+            </div>
 
             {props?.closeBtn ? (
               <span class={closeClassName} onClick={closeBtnAction}>
