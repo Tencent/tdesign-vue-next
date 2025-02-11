@@ -166,7 +166,7 @@ const cssConfig = {
 
 const deleteEmptyJSConfig = {
   input: 'script/utils/rollup-empty-input.js',
-  plugins: [deletePlugin({ targets: 'es/**/style/index.js', runOnce: true })],
+  plugins: [deletePlugin({ targets: getCurrentAppPath('es/**/style/index.js'), runOnce: true })],
 };
 
 // lodash会使ssr无法运行,@babel\runtime affix组件报错,tinycolor2 颜色组件报错,dayjs 日期组件报错
