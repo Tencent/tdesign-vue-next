@@ -17,7 +17,10 @@ import staticImport from 'rollup-plugin-static-import';
 import ignoreImport from 'rollup-plugin-ignore-import';
 import copy from 'rollup-plugin-copy';
 
-import pkg from '../package.json';
+import pkg from './package.json';
+import path from 'node:path';
+
+const getCurrentAppPath = (str) => path.resolve(__dirname, str);
 
 const name = 'tdesign';
 
@@ -156,7 +159,7 @@ const cssConfig = {
   plugins: [multiInput({ relative: 'packages/components/' }), styles({ mode: 'extract' }), nodeResolve()],
   output: {
     banner,
-    dir: 'es/',
+    dir: getCurrentAppPath('es/'),
     assetFileNames: '[name].css',
   },
 };
@@ -177,7 +180,7 @@ const esConfig = {
   plugins: [multiInput({ relative: 'packages/components/' })].concat(getPlugins({ extractMultiCss: true })),
   output: {
     banner,
-    dir: 'es/',
+    dir: getCurrentAppPath('es/'),
     format: 'esm',
     sourcemap: true,
     entryFileNames: '[name].mjs',
@@ -194,7 +197,7 @@ const esmConfig = {
   plugins: [multiInput({ relative: 'packages/components/' })].concat(getPlugins({ ignoreLess: false })),
   output: {
     banner,
-    dir: 'esm/',
+    dir: getCurrentAppPath('esm/'),
     format: 'esm',
     sourcemap: true,
     chunkFileNames: '_chunks/dep-[hash].js',
@@ -208,7 +211,7 @@ const libConfig = {
   plugins: [multiInput({ relative: 'packages/components/' })].concat(getPlugins()),
   output: {
     banner,
-    dir: 'lib/',
+    dir: getCurrentAppPath('lib/'),
     format: 'esm',
     sourcemap: true,
     chunkFileNames: '_chunks/dep-[hash].js',
@@ -222,7 +225,7 @@ const cjsConfig = {
   plugins: [multiInput({ relative: 'packages/components/' })].concat(getPlugins()),
   output: {
     banner,
-    dir: 'cjs/',
+    dir: getCurrentAppPath('cjs/'),
     format: 'cjs',
     sourcemap: true,
     exports: 'named',
@@ -250,7 +253,7 @@ const umdConfig = {
     exports: 'named',
     globals: { vue: 'Vue' },
     sourcemap: true,
-    file: `dist/${name}.js`,
+    file: getCurrentAppPath(`dist/${name}.js`),
   },
 };
 
@@ -270,7 +273,7 @@ const umdMinConfig = {
     exports: 'named',
     globals: { vue: 'Vue' },
     sourcemap: true,
-    file: `dist/${name}.min.js`,
+    file: getCurrentAppPath(`dist/${name}.min.js`),
   },
 };
 
@@ -278,7 +281,7 @@ const umdMinConfig = {
 const resetCss = {
   input: 'packages/common/style/web/_reset.less',
   output: {
-    file: 'dist/reset.css',
+    file: getCurrentAppPath('dist/reset.css'),
   },
   plugins: [postcss({ extract: true })],
 };
@@ -287,7 +290,7 @@ const resetCss = {
 const pluginCss = {
   input: 'packages/common/style/web/_plugin.less',
   output: {
-    file: 'dist/plugin.css',
+    file: getCurrentAppPath('dist/plugin.css'),
   },
   plugins: [postcss({ extract: true })],
 };
