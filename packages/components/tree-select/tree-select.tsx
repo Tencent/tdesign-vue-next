@@ -4,6 +4,7 @@ import { isEmpty } from 'lodash-es';
 import { isBoolean } from 'lodash-es';
 import { isFunction } from 'lodash-es';
 import { isNil } from 'lodash-es';
+import { findParentValues } from '@tdesign/common-js/tree-select/utils';
 
 import Tree, { TreeProps, TreeNodeModel, TreeNodeValue } from '../tree';
 import SelectInput, { TdSelectInputProps } from '../select-input';
@@ -60,48 +61,20 @@ export default defineComponent({
     );
 
     /**
-     * 递归查找指定节点的所有父节点的 value
-     */
-    function findParentValues(
-      options: TreeOptionData[],
-      targetValue: TreeSelectValue,
-      realChildren: string,
-      realValue: string,
-    ): (string | number)[] {
-      const parentNodes: (string | number)[] = [];
-
-      const helper = (nodes: TreeOptionData[]): boolean => {
-        for (const node of nodes) {
-          parentNodes.push(node[realValue]);
-          if (node[realValue] === targetValue) {
-            parentNodes.pop();
-            return true;
-          }
-          if (Array.isArray(node[realChildren]) && node[realChildren].length) {
-            if (helper(node[realChildren])) {
-              return true;
-            }
-          }
-          parentNodes.pop();
-        }
-        return false;
-      };
-      helper(options);
-
-      return parentNodes;
-    }
-
-    /**
      * 设置树的所有父节点展开
      */
     const setTreeParentsExpanded = () => {
       const getParents = (value: TreeSelectValue) =>
         findParentValues(props.data, value, realChildren.value, realValue.value);
 
-      const treeParents = Array.isArray(treeSelectValue.value)
-        ? treeSelectValue.value.flatMap(getParents)
-        : getParents(treeSelectValue.value);
-
+      let treeParents: TreeSelectValue[] = [];
+      if (treeSelectValue.value) {
+        if (Array.isArray(treeSelectValue.value) && props.multiple) {
+          treeParents = treeSelectValue.value.flatMap(getParents);
+        } else if (!Array.isArray(treeSelectValue.value) && !props.multiple) {
+          treeParents = getParents(treeSelectValue.value);
+        }
+      }
       expanded.value = Array.from(new Set([...expanded.value, ...treeParents]));
     };
 
