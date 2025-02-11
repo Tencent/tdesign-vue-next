@@ -1,7 +1,7 @@
+import path from 'node:path';
 import url from '@rollup/plugin-url';
 import json from '@rollup/plugin-json';
 import babel from '@rollup/plugin-babel';
-import vuePlugin from 'rollup-plugin-vue';
 import styles from 'rollup-plugin-styles';
 import deletePlugin from 'rollup-plugin-delete';
 import esbuild from 'rollup-plugin-esbuild';
@@ -18,7 +18,6 @@ import ignoreImport from 'rollup-plugin-ignore-import';
 import copy from 'rollup-plugin-copy';
 
 import pkg from './package.json';
-import path from 'node:path';
 
 const getCurrentAppPath = (str) => path.resolve(__dirname, str);
 
@@ -54,7 +53,6 @@ const getPlugins = ({
     nodeResolve({
       extensions: ['.mjs', '.js', '.json', '.node', '.ts', '.tsx'],
     }),
-    vuePlugin(),
     commonjs(),
     esbuild({
       target: 'esnext',
