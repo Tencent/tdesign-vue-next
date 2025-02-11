@@ -100,7 +100,7 @@ const getPlugins = ({
         targets: [
           {
             src: 'packages/components/**/style/css.js',
-            dest: 'es',
+            dest: getCurrentAppPath('es'),
             rename: (name, extension, fullPath) =>
               `${fullPath.substring('packages/components/'.length, fullPath.length - 6)}${name}.mjs`,
           },
