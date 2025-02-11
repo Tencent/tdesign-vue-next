@@ -65,7 +65,7 @@ export default defineComponent({
      */
     const setTreeParentsExpanded = () => {
       const getParents = (value: TreeSelectValue) =>
-        findParentValues(props.data, value, realChildren.value, realValue.value);
+        findParentValues(props.data, value, realValue.value, realChildren.value);
 
       let treeParents: TreeSelectValue[] = [];
       if (treeSelectValue.value) {
