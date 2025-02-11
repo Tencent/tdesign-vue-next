@@ -29,7 +29,9 @@
     "nuxt",
     "popconfirm",
     "popperjs",
+    "precaching",
     "tdesign",
+    "tdoc",
     "tnode",
     "wechat"
   ]

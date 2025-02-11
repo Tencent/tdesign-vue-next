@@ -9,5 +9,13 @@
     "preview": "vite build --mode preview"
   },
   "author": "tdesign",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^6.1.0",
+    "vite-plugin-pwa": "^0.21.1",
+    "vite-plugin-tdoc": "^2.0.4",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0",
+    "workbox-precaching": "^6.6.1"
+  }
 }

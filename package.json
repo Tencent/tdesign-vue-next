@@ -151,14 +151,8 @@
     "tdesign-site-components": "0.16.0-alpha.6",
     "tdesign-theme-generator": "^1.0.11",
     "typescript": "^5.7.3",
-    "vite": "^2.9.16",
-    "vite-plugin-pwa": "^0.12.8",
-    "vite-plugin-tdoc": "^2.0.4",
     "vitest": "^2.1.8",
-    "vitest-fetch-mock": "^0.1.0",
-    "vue": "3.3.9",
-    "vue-router": "^4.2.4",
-    "workbox-precaching": "^6.6.0"
+    "vitest-fetch-mock": "^0.1.0"
   },
   "config": {
     "commitizen": {
