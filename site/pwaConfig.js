@@ -19,4 +19,7 @@ export default {
       },
     ],
   },
+  injectManifest: {
+    maximumFileSizeToCacheInBytes: 1024 * 1024 * 10,
+  },
 };
