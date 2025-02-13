@@ -1,44 +1,6 @@
 {
-  "name": "tdesign-vue-next",
-  "version": "1.10.7",
-  "title": "tdesign-vue-next",
-  "description": "TDesign Component for vue-next",
+  "name": "tdesign-vue-mono",
   "packageManager": "pnpm@9.5.0",
-  "keywords": [
-    "vue",
-    "vue3",
-    "vue-next",
-    "tdesign",
-    "typescript"
-  ],
-  "main": "cjs/index-lib.js",
-  "module": "es/index.mjs",
-  "typings": "es/index.d.ts",
-  "unpkg": "dist/tdesign.min.js",
-  "jsdelivr": "dist/tdesign.min.js",
-  "files": [
-    "es",
-    "esm",
-    "cjs",
-    "lib",
-    "dist",
-    "LICENSE",
-    "README.md",
-    "CHANGELOG.md",
-    "global.d.ts",
-    "helper"
-  ],
-  "sideEffects": [
-    "*.vue",
-    "dist/*",
-    "site/*",
-    "examples/*",
-    "es/**/style/**",
-    "esm/**/style/**"
-  ],
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Tencent/tdesign-vue-next.git"
@@ -205,10 +167,5 @@
       "prettier --write --cache",
       "eslint --fix --cache"
     ]
-  },
-  "vetur": {
-    "tags": "helper/tags.json",
-    "attributes": "helper/attributes.json"
-  },
-  "web-types": "helper/web-types.json"
+  }
 }
