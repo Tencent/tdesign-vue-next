@@ -1,10 +1,5 @@
 import { defineComponent, provide, computed, toRefs, watch, ref, nextTick, PropType } from 'vue';
-import { pick as picker } from 'lodash-es';
-import { isArray } from 'lodash-es';
-import { isFunction } from 'lodash-es';
-import { debounce } from 'lodash-es';
-import { cloneDeep } from 'lodash-es';
-import { get } from 'lodash-es';
+import { pick as picker, isArray, isFunction, debounce, cloneDeep, get, intersection } from 'lodash-es';
 import FakeArrow from '../common-components/fake-arrow';
 import SelectInput from '../select-input';
 import SelectPanel from './select-panel';
@@ -249,8 +244,9 @@ export default defineComponent({
 
     // 已选的长度
     const intersectionLen = computed(() => {
-      const validValues = new Set(getFilteredOptions.value);
-      return innerValue.value.filter((v: string | number | boolean) => validValues.has(v)).length;
+      const values = optionalList.value.map((item) => item.value);
+      const n = intersection(innerValue.value, values);
+      return n.length;
     });
 
     // 全选
