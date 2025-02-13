@@ -219,7 +219,7 @@ export default defineComponent({
      * @returns 可选选项的列表的 value
      */
     const getFilteredOptions = computed(() => {
-      const inputValue = innerInputValue.value.toLowerCase();
+      const inputValue = innerInputValue.value?.toLowerCase();
       return optionalList.value
         .filter((option) => {
           if (option.disabled) return false;
@@ -227,7 +227,7 @@ export default defineComponent({
             return props.filter(innerInputValue.value, option);
           }
 
-          return option.label.toLowerCase().includes(inputValue);
+          return option.label?.toLowerCase().includes(inputValue);
         })
         .map((option) => option.value);
     });
