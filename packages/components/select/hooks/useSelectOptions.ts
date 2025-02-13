@@ -113,7 +113,7 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inpu
       if (isFunction(props.filter)) {
         return props.filter(`${inputValue.value}`, option);
       }
-
+      if ((option as TdOptionProps)?.checkAll === true) return true;
       return option.label?.toLowerCase?.().indexOf(`${inputValue.value}`.toLowerCase()) > -1;
     };
 
