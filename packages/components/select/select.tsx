@@ -5,7 +5,6 @@ import { isFunction } from 'lodash-es';
 import { debounce } from 'lodash-es';
 import { cloneDeep } from 'lodash-es';
 import { get } from 'lodash-es';
-import { intersection } from 'lodash-es';
 import FakeArrow from '../common-components/fake-arrow';
 import SelectInput from '../select-input';
 import SelectPanel from './select-panel';
@@ -22,7 +21,7 @@ import { useSelectOptions } from './hooks/useSelectOptions';
 import useKeyboardControl from './hooks/useKeyboardControl';
 import type { PopupProps, PopupVisibleChangeContext } from '../popup';
 import type { SelectInputValueChangeContext } from '../select-input';
-import type { TdSelectProps, SelectValue, TdOptionProps } from './type';
+import type { TdSelectProps, SelectValue } from './type';
 import { SelectInputValueDisplayOptions } from '../select-input/useSingle';
 
 export default defineComponent({
@@ -244,7 +243,7 @@ export default defineComponent({
       const lockedValues = innerValue.value.filter((value: string | number | boolean) => {
         return optionsList.value.some((item) => item.value === value && item.disabled);
       });
-      const values = checked ? [...new Set([...getFilteredOptions.value, ...lockedValues])] : lockedValues.value;
+      const values = checked ? [...new Set([...getFilteredOptions.value, ...lockedValues])] : lockedValues;
       setInnerValue(values, { selectedOptions: getSelectedOptions(values), trigger: checked ? 'check' : 'clear' });
     };
 
