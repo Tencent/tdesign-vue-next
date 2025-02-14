@@ -35,7 +35,7 @@
     "test": "pnpm test:unit && pnpm test:snap",
     "test:unit": "vitest run",
     "test:update": "vitest run  -u && pnpm test:snap-update",
-    "test:unit-dev": "vitest ",
+    "test:unit-dev": "vitest",
     "test:unit-gui": "vitest  --ui",
     "test:unit-coverage": "vitest run  --coverage",
     "test:snap": "cross-env NODE_ENV=test-snap vitest run ",
