@@ -10,9 +10,9 @@ import { FIRST_MONTH_OF_YEAR, LAST_MONTH_OF_YEAR, DAY_CN_MAP } from './const';
  * 获取一个日期是周几（1~7）
  */
 export const getDay = (dt: Date): number => {
-  let day = dayjs(dt).day();
+  const day = dayjs(dt).day();
   if (day === 0) {
-    day = 7;
+    return 7;
   }
   return day;
 };
