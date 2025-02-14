@@ -6,13 +6,13 @@ export function mockDelay(timeout = 300) {
   });
 }
 
-export function simulateInputChange(dom, text) {
+export function simulateInputChange(dom: HTMLInputElement, text: string) {
   dom.value = text;
   dom.dispatchEvent(new Event('input'));
 }
 
 // input enter
-export function simulateInputEnter(dom) {
+export function simulateInputEnter(dom: HTMLInputElement) {
   fireEvent.keyDown(dom, { key: 'Enter', code: 'Enter', charCode: 13 });
 }
 
@@ -21,12 +21,15 @@ export function simulateDocumentClick(dom = document) {
 }
 
 // image event enums：load/error
-export function simulateImageEvent(dom, event) {
+export function simulateImageEvent(dom: HTMLImageElement, event: 'error' | 'load') {
   fireEvent(dom, createEvent(event, dom));
 }
 
 // document keydown
-export function simulateKeydownEvent(dom, type) {
+export function simulateKeydownEvent(
+  dom: Document,
+  type: 'ArrowDown' | 'ArrowUp' | 'ArrowLeft' | 'ArrowRight' | 'Escape' | 'Enter',
+) {
   let event;
   switch (type) {
     case 'ArrowDown':
@@ -83,7 +86,7 @@ export function getFakeFileList(type = 'file', count = 1) {
  * @param {Number} count 文件数量
  * @returns File[]
  */
-export function simulateFileChange(dom, type = 'file', count = 1) {
+export function simulateFileChange(dom: HTMLInputElement, type = 'file', count = 1) {
   const fakeFileList = getFakeFileList(type, count);
   fireEvent.change(dom, { target: { files: fakeFileList } });
   return fakeFileList;
@@ -97,7 +100,12 @@ export function simulateFileChange(dom, type = 'file', count = 1) {
  * @param {Number} count 数量
  * @returns File[]
  */
-export function simulateDragFileChange(dom, trigger, type = 'file', count = 1) {
+export function simulateDragFileChange(
+  dom: Element,
+  trigger: 'dragEnter' | 'dragLeave' | 'dragOver' | 'drop',
+  type = 'file',
+  count = 1,
+) {
   const fakeFileList = getFakeFileList(type, count);
   fireEvent[trigger](dom, {
     dataTransfer: { files: fakeFileList },
