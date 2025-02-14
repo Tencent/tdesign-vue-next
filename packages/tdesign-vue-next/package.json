@@ -50,7 +50,15 @@
   "engines": {
     "node": ">= 18"
   },
-  "scripts": {},
+  "scripts": {
+    "prebuild": "rimraf es/* esm/* lib/* cjs/* dist/* --glob",
+    "build": "pnpm -w build",
+    "build:tsc": "pnpm -w build:tsc",
+    "build:tsc-es": "pnpm -w build:tsc-es",
+    "build:tsc-esm": "pnpm -w build:tsc-esm",
+    "build:tsc-lib": "pnpm -w build:tsc-lib",
+    "build:tsc-cjs": "pnpm -w build:tsc-cjs"
+  },
   "author": "tdesign",
   "license": "MIT",
   "dependencies": {
