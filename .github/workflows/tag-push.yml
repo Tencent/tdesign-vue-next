@@ -82,7 +82,7 @@ jobs:
         uses: JS-DevTools/npm-publish@v3
         with:
           token: ${{ secrets.TDESIGN_NPM_TOKEN }}
-          directory: packages/tdesign-vue-next
+          package: packages/tdesign-vue-next
           tag: ${{ contains(github.ref_name, 'beta') && 'beta' || 'latest' }}
       - if: steps.publish.outputs.type != 'none'
         run: |
