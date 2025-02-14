@@ -1,5 +1,5 @@
 import _Dialog from './dialog';
-import _DialogCard from './dialogCard';
+import _DialogCard from './dialog-card';
 import withInstall from '../utils/withInstall';
 import { TdDialogProps } from './type';
 

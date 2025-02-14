@@ -9,7 +9,7 @@ import { getScrollbarWidth } from '@tdesign/common-js/utils/getScrollbarWidth';
 import useTeleport from '../hooks/useTeleport';
 import usePopupManager from '../hooks/usePopupManager';
 
-import TDialogCard from './dialogCard';
+import TDialogCard from './dialog-card';
 
 function GetCSSValue(v: string | number) {
   return Number.isNaN(Number(v)) ? v : `${Number(v)}px`;
