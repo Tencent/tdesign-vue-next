@@ -8,7 +8,7 @@ import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
 import { Avatar, AvatarGroup } from '..';
 import { getAvatarGroupDefaultMount } from './mount';
-import { mockDelay, simulateImageEvent } from '@test/utils';
+import { mockDelay, simulateImageEvent } from '@tdesign/test/utils';
 
 describe('Avatar Component', () => {
   it('props.alt works fine', () => {

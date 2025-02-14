@@ -1,4 +1,4 @@
-import glob from 'glob';
+import { globSync } from 'glob';
 import MockDate from 'mockdate';
 import { vi } from 'vitest';
 import { config } from '@vue/test-utils';
@@ -8,7 +8,7 @@ import path from 'path';
 MockDate.set('2020-12-28 00:00:00');
 
 function runTest() {
-  const files = glob.sync('./packages/components/**/_example/*.vue');
+  const files = globSync('./packages/components/**/_example/*.vue');
   const { createSSRApp } = config.global;
 
   describe('ssr snapshot test', () => {
@@ -16,7 +16,7 @@ function runTest() {
 
     files.forEach((file) => {
       it(`ssr test ${file}`, async () => {
-        const demo = await import(`../../.${file}`);
+        const demo = await import(file);
         const realDemoComp = demo.default ? demo.default : demo;
         realDemoComp.name = `test-ssr-${realDemoComp.name}`;
         const html = await createSSRApp(realDemoComp);

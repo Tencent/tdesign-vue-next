@@ -8,7 +8,7 @@ import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
 import { TagInput } from '..';
 import { getTagInputValueMount, getTagInputDefaultMount } from './mount';
-import { simulateInputChange, simulateInputEnter } from '@test/utils';
+import { simulateInputChange, simulateInputEnter } from '@tdesign/test/utils';
 
 describe('TagInput Component', () => {
   it('props.clearable: empty TagInput does not need clearIcon', async () => {

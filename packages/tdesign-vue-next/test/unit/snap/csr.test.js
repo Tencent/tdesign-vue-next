@@ -1,4 +1,4 @@
-import glob from 'glob';
+import { globSync } from 'glob';
 import MockDate from 'mockdate';
 import { vi } from 'vitest';
 import { mount } from '@vue/test-utils';
@@ -7,7 +7,7 @@ import { mount } from '@vue/test-utils';
 MockDate.set('2020-12-28 00:00:00');
 
 function runTest() {
-  const files = glob.sync('./packages/components/**/_example/*.vue');
+  const files = globSync('./packages/components/**/_example/*.vue');
   let $routerMock = { push: vi.fn() };
 
   describe('csr snapshot test', () => {
@@ -15,7 +15,7 @@ function runTest() {
 
     files.forEach((file) => {
       it(`csr test ${file}`, async () => {
-        const demo = await import(`../../.${file}`);
+        const demo = await import(file);
         const realDemoComp = demo.default ? demo.default : demo;
         realDemoComp.name = `test-csr-${realDemoComp.name}`;
         const wrapper = mount(realDemoComp, {
