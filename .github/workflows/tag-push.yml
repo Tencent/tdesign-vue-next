@@ -17,12 +17,6 @@ name: TAG_PUSH
 
 on: create
 
-workflow_call:
-  secrets:
-    PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
-    TDESIGN_SURGE_TOKEN: ${{ secrets.TDESIGN_SURGE_TOKEN }}
-    TDESIGN_NPM_TOKEN: ${{ secrets.TDESIGN_NPM_TOKEN }}
-
 jobs:
   TAG_PUSH:
     runs-on: ubuntu-latest
