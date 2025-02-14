@@ -57,18 +57,6 @@ jobs:
       # 安装依赖
       - run: pnpm i
 
-      - name: Build site
-        run: pnpm run site:preview
-      - name: upload surge service
-        id: deploy
-        run: |
-          repository=${{github.repository}}
-          project_name=${repository#*/}
-          ref_name=${{ github.ref_name }}
-          tag_name=${ref_name//./_}
-          export DEPLOY_DOMAIN=https://$tag_name-$project_name.surge.sh
-          npx surge --project _site --domain $DEPLOY_DOMAIN --token ${{ secrets.TDESIGN_SURGE_TOKEN }}
-          echo $DEPLOY_DOMAIN
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: pnpm run build
       - name: publish
@@ -81,6 +69,60 @@ jobs:
       - if: steps.publish.outputs.type != 'none'
         run: |
           echo "Version changed: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"
+
+  DEPLOY_HISTORY_VERSION_SITE:
+    runs-on: ubuntu-latest
+    if: github.event.ref_type == 'tag'
+    steps:
+      # 检出代码仓库，并递归初始化子模块
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      # 设置 pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      # 设置 Node.js 环境，版本为 18
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      # 获取 pnpm 的存储目录路径
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: |
+          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      # 设置 pnpm 缓存
+      - uses: actions/cache@v4
+        name: Setup pnpm cache
+        with:
+          # 缓存路径
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          # 缓存键
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          # 恢复缓存的备用键
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      # 安装依赖
+      - run: pnpm i
+
+      - name: Build site
+        run: pnpm run site:preview
+
+      - name: upload surge service
+        id: deploy
+        run: |
+          repository=${{github.repository}}
+          project_name=${repository#*/}
+          ref_name=${{ github.ref_name }}
+          tag_name=${ref_name//./_}
+          export DEPLOY_DOMAIN=https://$tag_name-$project_name.surge.sh
+          npx surge --project _site --domain $DEPLOY_DOMAIN --token ${{ secrets.TDESIGN_SURGE_TOKEN }}
+          echo $DEPLOY_DOMAIN
+   
   UPDATE_OFFICIAL_WEBSITE:
     runs-on: ubuntu-latest
     if: github.event.ref_type == 'tag'
