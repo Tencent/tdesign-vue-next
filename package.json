@@ -40,8 +40,6 @@
     "test:unit-coverage": "vitest run  --coverage",
     "test:snap": "cross-env NODE_ENV=test-snap vitest run ",
     "test:snap-update": "cross-env NODE_ENV=test-snap vitest run  -u",
-    "test:e2e": "cypress run --config-file test/cypress/cypress.config.js --component",
-    "test:e2e-gui": "cypress open --config-file test/cypress/cypress.config.js",
     "robot": "publish-cli robot-msg",
     "prepare": "husky install"
   },
