@@ -1,4 +1,5 @@
-import orgPkg from '../../../../package.json';
+import orgPkg from '../../../package.json';
+import tdesignVueNextPkg from '../../../../package.json';
 
 export const htmlContent = `<div id="app"></div>`;
 
@@ -45,8 +46,8 @@ export const packageJSONContent = (name) => {
     dependencies: {
       vue: orgPkg.devDependencies.vue,
       less: orgPkg.devDependencies.less,
-      'tdesign-vue-next': orgPkg.version,
-      'tdesign-icons-vue-next': orgPkg.dependencies['tdesign-icons-vue-next'],
+      'tdesign-vue-next': tdesignVueNextPkg.version,
+      'tdesign-icons-vue-next': tdesignVueNextPkg.dependencies['tdesign-icons-vue-next'],
     },
     devDependencies: {
       '@vue/cli-plugin-babel': '~4.5.0',
