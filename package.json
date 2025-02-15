@@ -115,7 +115,6 @@
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^8.7.1",
-    "glob": "^11.0.1",
     "gray-matter": "^4.0.3",
     "husky": "^7.0.4",
     "ignore": "^5.2.4",
@@ -152,7 +151,6 @@
     "vite-plugin-pwa": "^0.12.8",
     "vite-plugin-tdoc": "^2.0.4",
     "vitest": "^2.1.8",
-    "vitest-fetch-mock": "^0.1.0",
     "vue": "3.3.9",
     "vue-router": "^4.2.4",
     "workbox-precaching": "^6.6.0"
