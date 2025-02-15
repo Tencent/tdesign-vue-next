@@ -1,5 +1,6 @@
 {
   "name": "tdesign-vue-mono",
+  "private": true,
   "packageManager": "pnpm@9.5.0",
   "repository": {
     "type": "git",
