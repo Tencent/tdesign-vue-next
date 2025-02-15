@@ -11,6 +11,7 @@
   "author": "tdesign",
   "license": "MIT",
   "dependencies": {
+    "lodash-es": "^4.17.21",
     "semver": "^7.5.4",
     "vue": "3.3.9",
     "vue-router": "^4.2.4",

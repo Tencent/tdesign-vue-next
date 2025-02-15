@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { compileUsage, getGitTimestamp } from '../../../../packages/common/docs/compile';
-import camelCase from 'camelcase';
+import { camelCase } from 'lodash-es';
 
 import testCoverage from '../test-coverage';
 
