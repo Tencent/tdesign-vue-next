@@ -21,7 +21,7 @@ import pkg from 'tdesign-vue-next/package.json';
 import path from 'node:path';
 
 const resolve = (...args) => path.resolve(...args);
-// todo 后续使用 @pnpm/find-workspace-dir 替换
+// TODO 后续使用 @pnpm/find-workspace-dir 替换
 const workspaceDir = resolve(__dirname, '../');
 const tdesignVueNextDir = resolve(workspaceDir, 'packages/tdesign-vue-next');
 const relativeTdesignVueNextPath = (...args) => resolve(tdesignVueNextDir, ...args);
