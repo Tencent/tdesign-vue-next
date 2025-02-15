@@ -3,8 +3,17 @@
   "private": true,
   "author": "tdesign",
   "license": "MIT",
+  "scripts": {
+    "test": "pnpm test:unit && pnpm test:snap",
+    "test:unit": "vitest run",
+    "test:update": "vitest run  -u && pnpm test:snap-update",
+    "test:unit-dev": "vitest",
+    "test:unit-gui": "vitest  --ui",
+    "test:unit-coverage": "vitest run  --coverage",
+    "test:snap": "cross-env NODE_ENV=test-snap vitest run ",
+    "test:snap-update": "cross-env NODE_ENV=test-snap vitest run  -u"
+  },
   "devDependencies": {
-    "@vue/server-renderer": "^3.5.13",
     "@vue/test-utils": "^2.4.1",
     "glob": "^11.0.1",
     "vitest-fetch-mock": "^0.1.0",

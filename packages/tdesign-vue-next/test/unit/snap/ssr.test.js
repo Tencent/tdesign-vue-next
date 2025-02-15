@@ -7,7 +7,7 @@ import { config } from '@vue/test-utils';
 MockDate.set('2020-12-28 00:00:00');
 
 function runTest() {
-  const files = globSync('./packages/components/**/_example/*.vue');
+  const files = globSync('../../../packages/components/**/_example/*.vue');
   const { createSSRApp } = config.global;
 
   describe('ssr snapshot test', () => {
