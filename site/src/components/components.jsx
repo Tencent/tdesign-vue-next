@@ -3,7 +3,7 @@ import semver from 'semver';
 import siteConfig from '../../site.config';
 import { htmlContent, mainJsContent, styleContent, packageJSONContent } from './codeSandbox/content';
 
-import packageJson from '@/package.json';
+import packageJson from '../../../packages/tdesign-vue-next/package.json';
 
 const { docs, enDocs } = JSON.parse(JSON.stringify(siteConfig).replace(/component:.+/g, ''));
 
