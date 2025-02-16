@@ -41,7 +41,7 @@
     "test:snap": "pnpm -C packages/tdesign-vue-next/test test:snap",
     "test:snap-update": "pnpm -C packages/tdesign-vue-next/test test:snap-update",
     "robot": "publish-cli robot-msg",
-    "prepare": "husky install"
+    "prepare": "husky install && pnpm -C internal/utils build"
   },
   "author": "tdesign",
   "license": "MIT",
@@ -51,6 +51,7 @@
     "@tdesign/common-js": "workspace:^",
     "@tdesign/common-style": "workspace:^",
     "@tdesign/components": "workspace:^",
+    "@tdesign/internal-utils": "workspace:^",
     "@types/sortablejs": "^1.15.1",
     "@types/tinycolor2": "^1.4.3",
     "@types/validator": "^13.7.17",
