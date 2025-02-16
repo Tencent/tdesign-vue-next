@@ -32,7 +32,7 @@
     "build:tsc-cjs": "tsc --outDir packages/tdesign-vue-next/cjs/ -p tsconfig.components.json",
     "lint:fix": "eslint --ext .vue,.js,.ts,.tsx ./packages --max-warnings 0 --fix --cache",
     "lint": "pnpm lint:tsc && eslint --ext .vue,.js,.ts,.tsx ./packages --max-warnings 0 --cache",
-    "lint:tsc": "tsc --emitDeclarationOnly",
+    "lint:tsc": "tsc --noEmit",
     "test": "pnpm -C packages/tdesign-vue-next/test test",
     "test:unit": "pnpm -C packages/tdesign-vue-next/test test:unit",
     "test:update": "pnpm -C packages/tdesign-vue-next/test test:update",
