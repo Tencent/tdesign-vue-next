@@ -33,7 +33,7 @@ fs.readFile(resolveCwd('/packages/tdesign-vue-next/test/coverage/index.html'), '
         const branches = `${item[4].getAttribute('data-value')}%`;
         const functions = `${item[6].getAttribute('data-value')}%`;
         const lines = `${item[8].getAttribute('data-value')}%`;
-        const key = camelCase(name).split('/')[1];
+        const key = camelCase(name.split('/')[1]);
 
         resultCoverage[key] = {
           statements,
