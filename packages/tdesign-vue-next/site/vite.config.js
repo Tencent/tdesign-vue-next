@@ -23,9 +23,6 @@ export default ({ mode }) => {
         allow: ['..'],
       },
     },
-    build: {
-      outDir: '../_site',
-    },
     plugins: [...basePlugin, tDocPlugin(), VitePWA(pwaConfig)],
     optimizeDeps: {
       include: ['prismjs', 'prismjs/components/prism-bash.js'],
