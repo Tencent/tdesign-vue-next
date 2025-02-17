@@ -1,11 +1,5 @@
 import { defineComponent, provide, computed, toRefs, watch, ref, nextTick, PropType } from 'vue';
-import { pick as picker } from 'lodash-es';
-import { isArray } from 'lodash-es';
-import { isFunction } from 'lodash-es';
-import { debounce } from 'lodash-es';
-import { cloneDeep } from 'lodash-es';
-import { get } from 'lodash-es';
-import { intersection } from 'lodash-es';
+import { pick as picker, isArray, isFunction, debounce, cloneDeep, get, intersection } from 'lodash-es';
 import FakeArrow from '../common-components/fake-arrow';
 import SelectInput from '../select-input';
 import SelectPanel from './select-panel';
@@ -215,6 +209,24 @@ export default defineComponent({
       max: props.max,
     });
 
+    /**
+     * 获取过滤后可以全选的选项
+     * @returns 可选选项的列表的 value
+     */
+    const getFilteredOptions = computed(() => {
+      const inputValue = innerInputValue.value?.toLowerCase();
+      return optionalList.value
+        .filter((option) => {
+          if (option.disabled) return false;
+          if (typeof props.filter === 'function') {
+            return props.filter(innerInputValue.value, option);
+          }
+
+          return option.label?.toLowerCase().includes(inputValue);
+        })
+        .map((option) => option.value);
+    });
+
     /*
      * 全选逻辑：
      * 根据 checked 的值计算最终选中的值：
@@ -224,23 +236,26 @@ export default defineComponent({
     const onCheckAllChange = (checked: boolean) => {
       if (!props.multiple) return;
       const lockedValues = innerValue.value.filter((value: string | number | boolean) => {
-        return optionsList.value.find((item) => item.value === value && item.disabled);
+        return optionsList.value.some((item) => item.value === value && item.disabled);
       });
-      const activeValues = optionalList.value.map((option) => option.value);
-      const values = checked ? [...new Set([...activeValues, ...lockedValues])] : [...lockedValues];
+      const values = checked ? [...new Set([...getFilteredOptions.value, ...lockedValues])] : lockedValues;
       setInnerValue(values, { selectedOptions: getSelectedOptions(values), trigger: checked ? 'check' : 'clear' });
     };
 
     // 已选的长度
-    const intersectionLen = computed<number>(() => {
+    const intersectionLen = computed(() => {
       const values = optionalList.value.map((item) => item.value);
       const n = intersection(innerValue.value, values);
       return n.length;
     });
 
     // 全选
-    const isCheckAll = computed<boolean>(() => {
-      return intersectionLen.value === optionalList.value.length;
+    const isCheckAll = computed(() => {
+      const filtered = getFilteredOptions.value;
+      if (filtered.length === 0) return false;
+
+      const selectedSet = new Set(innerValue.value);
+      return filtered.every((v) => selectedSet.has(v));
     });
 
     // 半选
