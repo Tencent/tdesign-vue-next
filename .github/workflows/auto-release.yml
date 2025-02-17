@@ -5,7 +5,7 @@ on:
     branches: [develop]
     types: [opened, synchronize, reopened, closed]
     paths:
-      - "package.json"
+      - "packages/tdesign-vue-next/package.json"
   issue_comment:
     types: [edited]
 
@@ -78,7 +78,7 @@ jobs:
           token: ${{ secrets.PERSONAL_TOKEN }}
       - name: tag and push if needed
         run: |
-          data=$(cat package.json)
+          data=$(cat packages/tdesign-vue-next/package.json)
           re="\"version\": \"([^\"]*)\""
           [[ $data =~ $re ]]
           echo "${BASH_REMATCH[1]}"
