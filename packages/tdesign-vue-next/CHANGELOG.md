@@ -5,6 +5,16 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.11.0 `2025-02-17` 
+### 🐞 Bug Fixes
+- `Tree`: 修复动态切换 `expandAll` 的功能异常问题 @RSS1102 ([#4988](https://github.com/Tencent/tdesign-vue-next/pull/4988))
+- `Form`: 修复`status` 属性没有应用到校验状态上的问题 @RSS1102 ([#5008](https://github.com/Tencent/tdesign-vue-next/pull/5008))
+### 📈 Performance
+- `refactor`: packages/tdesign-vue-next for npm @zhangpaopao0609 ([#5015](https://github.com/Tencent/tdesign-vue-next/pull/5015))
+- `refactor`: packages/tdesign-vue-next for test @zhangpaopao0609 ([#5021](https://github.com/Tencent/tdesign-vue-next/pull/5021))
+### 🚧 Others
+- `select`: add test cases for select component @msg-fobbit ([#4956](https://github.com/Tencent/tdesign-vue-next/pull/4956))
+
 ## 🌈 1.10.7 `2025-01-24` 
 ### 🚀 Features
 - `Icon`: 新增`logo-alipay`、`logo-behance-filled`等图标，修改`logo-wecom`图标，移除不合理的`logo-wecom-filled`图标 @uyarn ([#4926](https://github.com/Tencent/tdesign-vue-next/pull/4926))
