@@ -3,10 +3,11 @@
 
 version: 2
 updates:
-  # Enable version updates for pnpm
-  - package-ecosystem: 'pnpm'
+  # https://docs.github.com/en/code-security/dependabot/working-with-dependabot/dependabot-options-reference#package-ecosystem-
+  # Enable version updates for npm
+  - package-ecosystem: 'npm'
     # Look for `package.json` and `lock` files in the `root` directory
     directory: '/'
-    # Check the pnpm registry for updates every day (weekdays)
+    # Check the npm registry for updates every day (weekdays)
     schedule:
       interval: 'monthly'
