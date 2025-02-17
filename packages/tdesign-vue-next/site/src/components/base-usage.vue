@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="jsx">
-import { ref, compile, onMounted, computed, onBeforeUnmount, watchEffect } from 'vue';
+import { ref, onMounted, computed, onBeforeUnmount, watchEffect } from 'vue';
 import * as prettier from 'prettier/standalone';
 import * as parserHtml from 'prettier/parser-html';
 

@@ -12,7 +12,6 @@ export default {
     const reg = file.match(/([\w-]+)\.?([\w-]+)?\.md/);
     const fileName = reg && reg[0];
     const componentName = reg && reg[1];
-    const localeName = reg && reg[2];
     demoImports = {};
     demoCodesImports = {};
 
