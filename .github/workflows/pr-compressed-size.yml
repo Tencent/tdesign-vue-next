@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           submodules: recursive
-      - uses: 94dreamer/compressed-size-action@master
+      - uses: preactjs/compressed-size-action@v2
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
-          pattern: "./dist/**/*.{js,css}"
+          pattern: "packages/tdesign-vue-next/dist/**/*.{js,css}"
