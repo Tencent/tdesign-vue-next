@@ -8,7 +8,7 @@ import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
 import { Image } from '..';
 import { getOverlayImageMount } from './mount';
-import { simulateImageEvent } from '@tdesign/test/utils';
+import { simulateImageEvent } from '@tdesign/internal-tests/utils';
 
 describe('Image Component', () => {
   it('props.alt works fine', () => {

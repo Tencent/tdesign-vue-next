@@ -13,7 +13,7 @@ import {
   getCustomGuideStepMount,
   getCustomMultipleGuideStepMount,
 } from './mount';
-import { mockDelay } from '@tdesign/test/utils';
+import { mockDelay } from '@tdesign/internal-tests/utils';
 
 describe('Guide Component', () => {
   afterEach(() => {

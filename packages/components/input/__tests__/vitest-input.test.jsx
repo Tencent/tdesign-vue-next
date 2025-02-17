@@ -8,7 +8,7 @@ import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
 import { Input, InputGroup } from '..';
 import { getInputGroupDefaultMount } from './mount';
-import { simulateInputChange } from '@tdesign/test/utils';
+import { simulateInputChange } from '@tdesign/internal-tests/utils';
 
 describe('Input Component', () => {
   const alignClassNameList = [{ 't-align-left': false }, 't-align-center', 't-align-right'];

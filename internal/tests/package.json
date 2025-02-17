@@ -1,5 +1,5 @@
 {
-  "name": "@tdesign/test",
+  "name": "@tdesign/internal-tests",
   "private": true,
   "author": "tdesign",
   "license": "MIT"

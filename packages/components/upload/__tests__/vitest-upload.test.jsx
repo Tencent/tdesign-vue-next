@@ -7,7 +7,7 @@
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
 import { Upload } from '..';
-import { mockDelay, simulateFileChange, getFakeFileList, simulateDragFileChange } from '@tdesign/test/utils';
+import { mockDelay, simulateFileChange, getFakeFileList, simulateDragFileChange } from '@tdesign/internal-tests/utils';
 import { getUploadServer } from './request';
 
 describe('Upload Component', () => {
