@@ -9,5 +9,8 @@ updates:
     # Look for `package.json` and `lock` files in the `root` directory
     directory: '/'
     # Check the npm registry for updates every day (weekdays)
+    # interval:daily. Use daily to run on every weekday, Monday to Friday.
+    # interval:weekly. Use weekly to run once a week, by default on Monday
+    # interval:monthly. Use monthly to run on the first day of each month.
     schedule:
       interval: 'monthly'
