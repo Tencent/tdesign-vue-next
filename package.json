@@ -1,44 +1,6 @@
 {
-  "name": "tdesign-vue-next",
-  "version": "1.10.7",
-  "title": "tdesign-vue-next",
-  "description": "TDesign Component for vue-next",
+  "name": "tdesign-vue-mono",
   "packageManager": "pnpm@9.5.0",
-  "keywords": [
-    "vue",
-    "vue3",
-    "vue-next",
-    "tdesign",
-    "typescript"
-  ],
-  "main": "cjs/index-lib.js",
-  "module": "es/index.mjs",
-  "typings": "es/index.d.ts",
-  "unpkg": "dist/tdesign.min.js",
-  "jsdelivr": "dist/tdesign.min.js",
-  "files": [
-    "es",
-    "esm",
-    "cjs",
-    "lib",
-    "dist",
-    "LICENSE",
-    "README.md",
-    "CHANGELOG.md",
-    "global.d.ts",
-    "helper"
-  ],
-  "sideEffects": [
-    "*.vue",
-    "dist/*",
-    "site/*",
-    "examples/*",
-    "es/**/style/**",
-    "esm/**/style/**"
-  ],
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Tencent/tdesign-vue-next.git"
@@ -61,13 +23,12 @@
     "generate:usage": "node script/generate-usage/index.js",
     "generate:component": "node script/init/index.js",
     "generate:coverage-badge": "pnpm test:unit-coverage && node script/test/generate-coverage.js",
-    "prebuild": "rimraf es/* esm/* lib/* cjs/* dist/* --glob",
     "build": "cross-env NODE_ENV=production rollup -c script/rollup.config.js && pnpm build:tsc",
     "build:tsc": "run-p build:tsc-*",
-    "build:tsc-es": "tsc --emitDeclarationOnly -d --rootDir packages/components --outDir es/",
-    "build:tsc-esm": "tsc --emitDeclarationOnly -d --rootDir packages/components --outDir esm/",
-    "build:tsc-lib": "tsc --emitDeclarationOnly -d --rootDir packages/components --outDir lib/",
-    "build:tsc-cjs": "tsc --emitDeclarationOnly -d --rootDir packages/components --outDir cjs/",
+    "build:tsc-es": "tsc --emitDeclarationOnly -d --rootDir packages/components --outDir packages/tdesign-vue-next/es/",
+    "build:tsc-esm": "tsc --emitDeclarationOnly -d --rootDir packages/components --outDir packages/tdesign-vue-next/esm/",
+    "build:tsc-lib": "tsc --emitDeclarationOnly -d --rootDir packages/components --outDir packages/tdesign-vue-next/lib/",
+    "build:tsc-cjs": "tsc --emitDeclarationOnly -d --rootDir packages/components --outDir packages/tdesign-vue-next/cjs/",
     "lint:fix": "eslint --ext .vue,.js,.ts,.tsx ./packages --max-warnings 0 --fix --cache",
     "lint": "pnpm lint:tsc && eslint --ext .vue,.js,.ts,.tsx ./packages --max-warnings 0 --cache",
     "lint:tsc": "tsc --emitDeclarationOnly",
@@ -99,6 +60,7 @@
     "mitt": "^3.0.1",
     "sortablejs": "^1.15.0",
     "tdesign-icons-vue-next": "^0.3.4",
+    "tdesign-vue-next": "workspace:^",
     "tinycolor2": "^1.6.0",
     "validator": "^13.9.0"
   },
@@ -205,10 +167,5 @@
       "prettier --write --cache",
       "eslint --fix --cache"
     ]
-  },
-  "vetur": {
-    "tags": "helper/tags.json",
-    "attributes": "helper/attributes.json"
-  },
-  "web-types": "helper/web-types.json"
+  }
 }
