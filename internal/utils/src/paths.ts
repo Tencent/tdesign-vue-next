@@ -21,7 +21,7 @@ export const resolveTDesignVueNextRoot = (...args: string[]) => resolve(tdesignV
 /**
  * getRelativeWorkspaceRootPath
  * @description get the relative path from the workspaceRoot directory
- * @param absolutePath
+ * @param absolutePath string
  * @returns string
  */
 export const getRelativeWorkspaceRootPath = (absolutePath: string) => {
