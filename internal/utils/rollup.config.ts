@@ -1,10 +1,13 @@
 import { defineConfig } from 'rollup';
 import typescript from '@rollup/plugin-typescript';
 import nodeResolve from '@rollup/plugin-node-resolve';
+import json from '@rollup/plugin-json';
 import del from 'rollup-plugin-delete';
+// @ts-ignore
+import multiInput from 'rollup-plugin-multi-input';
 
 export default defineConfig({
-  input: './index.ts',
+  input: ['./index.ts', './src/*.ts'],
   output: [
     {
       dir: 'dist/cjs',
@@ -16,11 +19,13 @@ export default defineConfig({
     },
   ],
   plugins: [
+    multiInput(),
     typescript({
-      // TODO: 等 tsconfig.json 完善后这里加上
-      // declaration: true,
+      resolveJsonModule: true,
+      allowSyntheticDefaultImports: true,
     }),
     nodeResolve(),
+    json(),
     del({ targets: 'dist' }),
   ],
 });
