@@ -71,7 +71,7 @@ export const packageJSONContent = JSON.stringify(
       serve: 'vite preview',
     },
     dependencies: {
-      vue: orgPkg.devDependencies.vue,
+      vue: orgPkg.dependencies.vue,
       less: orgPkg.devDependencies.less,
       'tdesign-vue-next': tdesignVueNextPkg.version,
       'tdesign-icons-vue-next': tdesignVueNextPkg.dependencies['tdesign-icons-vue-next'],
