@@ -2,7 +2,7 @@ import { resolve } from 'node:path';
 
 export { resolve };
 
-// 根目录
+// root
 export const workspaceRoot = resolve(__dirname, '..', '..', '..', '..');
 // packages
 export const packagesRoot = resolve(workspaceRoot, 'packages');
