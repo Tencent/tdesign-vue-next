@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import TDesign from 'tdesign-vue-next';
+import TDesign from '@tdesign/components';
 import App from './app.vue';
 import router from './routes';
 
@@ -8,7 +8,7 @@ import CodeSandbox from './components/codeSandbox/index.vue';
 import BaseUsage from './components/base-usage.vue';
 
 // import tdesign style
-import 'tdesign-vue-next/style/index.js';
+import '@tdesign/components/style/index.js';
 import '@common/style/web/docs.less';
 
 // import site webComponents

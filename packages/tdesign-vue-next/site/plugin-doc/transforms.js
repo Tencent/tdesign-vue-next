@@ -12,14 +12,13 @@ export default {
     const reg = file.match(/([\w-]+)\.?([\w-]+)?\.md/);
     const fileName = reg && reg[0];
     const componentName = reg && reg[1];
-    const localeName = reg && reg[2];
     demoImports = {};
     demoCodesImports = {};
 
     // 统一换成 common 公共文档内容
     if (fileName && source.includes(':: BASE_DOC ::')) {
-      const localeDocPath = path.resolve(__dirname, `../../packages/common/docs/web/api/${fileName}`);
-      const defaultDocPath = path.resolve(__dirname, `../../packages/common/docs/web/api/${componentName}.md`);
+      const localeDocPath = path.resolve(__dirname, `../../../../packages/common/docs/web/api/${fileName}`);
+      const defaultDocPath = path.resolve(__dirname, `../../../../packages/common/docs/web/api/${componentName}.md`);
       let baseDoc = '';
       if (fs.existsSync(localeDocPath)) {
         // 优先载入语言版本
