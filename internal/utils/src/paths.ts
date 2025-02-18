@@ -1,4 +1,4 @@
-import { resolve } from 'node:path';
+import { resolve } from 'path';
 
 export { resolve };
 
@@ -11,6 +11,8 @@ export const componentsRoot = resolve(packagesRoot, 'components');
 // packages/tdesign-vue-next
 export const tdesignVueNextRoot = resolve(packagesRoot, 'tdesign-vue-next');
 
+// resolve workspaceRoot
+export const resolveWorkSpaceRoot = (...args: string[]) => resolve(workspaceRoot, ...args);
 // resolve packagesRoot
 export const resolvePackagesRoot = (...args: string[]) => resolve(packagesRoot, ...args);
 // resolve componentsRoot

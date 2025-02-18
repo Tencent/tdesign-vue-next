@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs';
-import { resolvePackagesRoot } from '@tdesign/internal-utils';
+import { resolvePackagesRoot } from '@tdesign/internal-utils/paths';
 
 import mdToVue from './md-to-vue';
 
