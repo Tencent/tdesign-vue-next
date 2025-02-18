@@ -22,6 +22,7 @@ export default defineComponent({
     highlightKeyword: Boolean,
     filterable: Boolean,
     filter: Function as PropType<TdAutoCompleteProps['filter']>,
+    empty: [String, Function] as PropType<TdAutoCompleteProps['empty']>,
   },
 
   emits: ['select'],
@@ -29,7 +30,6 @@ export default defineComponent({
   setup(props, { emit, slots, expose }) {
     const active = ref('');
     const classPrefix = usePrefixClass();
-
     const { globalConfig } = useConfig('autoComplete');
 
     const classes = computed(() => `${classPrefix.value}-select__list`);
@@ -140,8 +140,14 @@ export default defineComponent({
     });
 
     return () => {
-      if (!tOptions.value.length)
-        return <div class={`${classPrefix.value}-auto-complete__panel--empty`}>{globalConfig.value.empty}</div>;
+      if (!tOptions.value.length) {
+        return (
+          <div class={`${classPrefix.value}-auto-complete__panel--empty`}>
+            {props.empty || globalConfig.value.empty}
+          </div>
+        );
+      }
+
       return (
         <ul class={classes.value}>
           {tOptions.value.map((item) => {

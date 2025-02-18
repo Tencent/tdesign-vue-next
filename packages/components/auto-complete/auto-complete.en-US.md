@@ -11,6 +11,7 @@ borderless | Boolean | false | \- | N
 clearable | Boolean | - | \- | N
 default | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 disabled | Boolean | undefined | \- | N
+empty | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 filter | Function | - | Typescript：`(filterWords: string, option: T) => boolean \| Promise<boolean>` | N
 filterable | Boolean | true | \- | N
 highlightKeyword | Boolean | true | \- | N
