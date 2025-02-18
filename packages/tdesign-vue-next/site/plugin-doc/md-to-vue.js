@@ -2,8 +2,11 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+// TODO: 后续将这里修改为 mjs 后修改为 @tdesign/common 引入
 import { compileUsage, getGitTimestamp } from '../../../../packages/common/docs/compile';
+// TODO: 同上
 import camelCase from 'lodash/camelCase';
+import { resolvePackagesRoot } from '@tdesign/internal-utils';
 
 import testCoverage from '../test-coverage';
 
@@ -195,9 +198,7 @@ async function customRender({ source, file, md }) {
     const usageObj = compileUsage({
       componentName,
       usage: pageData.usage,
-      demoPath: path.posix
-        .resolve(__dirname, `../../../../packages/components/${componentName}/_usage/index.vue`)
-        .replace(/\\/g, '/'),
+      demoPath: resolvePackagesRoot(`components/${componentName}/_usage/index.vue`),
     });
     if (usageObj) {
       mdSegment.usage = usageObj;
@@ -223,7 +224,7 @@ async function customRender({ source, file, md }) {
 
   // 设计指南内容 不展示 design Tab 则不解析
   if (pageData.isComponent && pageData.tdDocTabs.some((item) => item.tab === 'design')) {
-    const designDocPath = path.resolve(__dirname, `../../../../packages/common/docs/web/design/${componentName}.md`);
+    const designDocPath = resolvePackagesRoot(`common/docs/web/design/${componentName}.md`);
 
     if (fs.existsSync(designDocPath)) {
       const designDocLastUpdated =

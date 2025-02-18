@@ -10,7 +10,7 @@
 </template>
 
 <script>
-// TODO: 这种是否能优化一下呀，就不用路径的方式，用 @tdesign/components
+// TODO: 这种是否能优化一下呀，就不用路径的方式
 const demoVueReq = import.meta.globEager('../../../../../packages/components/**/_example/*.vue');
 const demoJsxReq = import.meta.globEager('../../../../../packages/components/**/_example/*.jsx');
 
