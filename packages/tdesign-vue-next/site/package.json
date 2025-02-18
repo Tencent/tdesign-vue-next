@@ -14,7 +14,7 @@
     "semver": "^7.5.4",
     "vue": "3.3.9",
     "vue-router": "^4.2.4",
-    "workbox-precaching": "^6.6.0"
+    "workbox-precaching": "^7.3.0"
   },
   "devDependencies": {
     "@types/lodash": "^4.17.15",
