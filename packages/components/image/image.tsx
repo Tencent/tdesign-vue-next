@@ -3,7 +3,7 @@ import { omit } from 'lodash-es';
 import { isString } from 'lodash-es';
 import { isFunction } from 'lodash-es';
 import { ImageErrorIcon, ImageIcon } from 'tdesign-icons-vue-next';
-import observe from '../../common/js/utils/observe';
+import observe from '@tdesign/common-js/utils/observe';
 import { useConfig } from '../config-provider/useConfig';
 import { useTNodeDefault, useTNodeJSX } from '../hooks/tnode';
 import props from './props';

@@ -5,7 +5,7 @@ import { isObject } from 'lodash-es';
 import { isArray } from 'lodash-es';
 
 import { GutterObject, TdColProps, TdRowProps } from './type';
-import { calcSize } from '../../common/js/utils/responsive';
+import { calcSize } from '@tdesign/common-js/utils/responsive';
 import { useListener } from '../hooks/useListener';
 import { isServer } from '../utils/dom';
 

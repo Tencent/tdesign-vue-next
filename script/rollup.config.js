@@ -17,7 +17,14 @@ import staticImport from 'rollup-plugin-static-import';
 import ignoreImport from 'rollup-plugin-ignore-import';
 import copy from 'rollup-plugin-copy';
 
-import pkg from '../package.json';
+import pkg from 'tdesign-vue-next/package.json';
+import path from 'node:path';
+
+const resolve = (...args) => path.resolve(...args);
+// TODO 后续使用 @pnpm/find-workspace-dir 替换
+const workspaceDir = resolve(__dirname, '../');
+const tdesignVueNextDir = resolve(workspaceDir, 'packages/tdesign-vue-next');
+const relativeTdesignVueNextPath = (...args) => resolve(tdesignVueNextDir, ...args);
 
 const name = 'tdesign';
 
@@ -48,7 +55,9 @@ const getPlugins = ({
   extractMultiCss = false,
 } = {}) => {
   const plugins = [
-    nodeResolve(),
+    nodeResolve({
+      extensions: ['.mjs', '.js', '.json', '.node', '.ts', '.tsx'],
+    }),
     vuePlugin(),
     commonjs(),
     esbuild({
@@ -95,7 +104,7 @@ const getPlugins = ({
         targets: [
           {
             src: 'packages/components/**/style/css.js',
-            dest: 'es',
+            dest: relativeTdesignVueNextPath('es'),
             rename: (name, extension, fullPath) =>
               `${fullPath.substring('packages/components/'.length, fullPath.length - 6)}${name}.mjs`,
           },
@@ -151,17 +160,17 @@ const getPlugins = ({
 /** @type {import('rollup').RollupOptions} */
 const cssConfig = {
   input: ['packages/components/**/style/index.js'],
-  plugins: [multiInput({ relative: 'packages/components/' }), styles({ mode: 'extract' })],
+  plugins: [multiInput({ relative: 'packages/components/' }), styles({ mode: 'extract' }), nodeResolve()],
   output: {
     banner,
-    dir: 'es/',
+    dir: relativeTdesignVueNextPath('es/'),
     assetFileNames: '[name].css',
   },
 };
 
 const deleteEmptyJSConfig = {
   input: 'script/utils/rollup-empty-input.js',
-  plugins: [deletePlugin({ targets: 'es/**/style/index.js', runOnce: true })],
+  plugins: [deletePlugin({ targets: relativeTdesignVueNextPath('es/**/style/index.js'), runOnce: true })],
 };
 
 // lodash会使ssr无法运行,@babel\runtime affix组件报错,tinycolor2 颜色组件报错,dayjs 日期组件报错
@@ -175,7 +184,7 @@ const esConfig = {
   plugins: [multiInput({ relative: 'packages/components/' })].concat(getPlugins({ extractMultiCss: true })),
   output: {
     banner,
-    dir: 'es/',
+    dir: relativeTdesignVueNextPath('es/'),
     format: 'esm',
     sourcemap: true,
     entryFileNames: '[name].mjs',
@@ -192,7 +201,7 @@ const esmConfig = {
   plugins: [multiInput({ relative: 'packages/components/' })].concat(getPlugins({ ignoreLess: false })),
   output: {
     banner,
-    dir: 'esm/',
+    dir: relativeTdesignVueNextPath('esm/'),
     format: 'esm',
     sourcemap: true,
     chunkFileNames: '_chunks/dep-[hash].js',
@@ -206,7 +215,7 @@ const libConfig = {
   plugins: [multiInput({ relative: 'packages/components/' })].concat(getPlugins()),
   output: {
     banner,
-    dir: 'lib/',
+    dir: relativeTdesignVueNextPath('lib/'),
     format: 'esm',
     sourcemap: true,
     chunkFileNames: '_chunks/dep-[hash].js',
@@ -220,7 +229,7 @@ const cjsConfig = {
   plugins: [multiInput({ relative: 'packages/components/' })].concat(getPlugins()),
   output: {
     banner,
-    dir: 'cjs/',
+    dir: relativeTdesignVueNextPath('cjs/'),
     format: 'cjs',
     sourcemap: true,
     exports: 'named',
@@ -248,7 +257,7 @@ const umdConfig = {
     exports: 'named',
     globals: { vue: 'Vue' },
     sourcemap: true,
-    file: `dist/${name}.js`,
+    file: relativeTdesignVueNextPath(`dist/${name}.js`),
   },
 };
 
@@ -268,7 +277,7 @@ const umdMinConfig = {
     exports: 'named',
     globals: { vue: 'Vue' },
     sourcemap: true,
-    file: `dist/${name}.min.js`,
+    file: relativeTdesignVueNextPath(`dist/${name}.min.js`),
   },
 };
 
@@ -276,7 +285,7 @@ const umdMinConfig = {
 const resetCss = {
   input: 'packages/common/style/web/_reset.less',
   output: {
-    file: 'dist/reset.css',
+    file: relativeTdesignVueNextPath('dist/reset.css'),
   },
   plugins: [postcss({ extract: true })],
 };
@@ -285,7 +294,7 @@ const resetCss = {
 const pluginCss = {
   input: 'packages/common/style/web/_plugin.less',
   output: {
-    file: 'dist/plugin.css',
+    file: relativeTdesignVueNextPath('dist/plugin.css'),
   },
   plugins: [postcss({ extract: true })],
 };

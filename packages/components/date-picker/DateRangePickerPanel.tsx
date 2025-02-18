@@ -15,8 +15,8 @@ import {
 
 import TRangePanel from './panel/RangePanel';
 import useRangeValue from './hooks/useRangeValue';
-import { formatDate, getDefaultFormat, parseToDayjs } from '../../common/js/date-picker/format';
-import { subtractMonth, addMonth, extractTimeObj } from '../../common/js/date-picker/utils';
+import { formatDate, getDefaultFormat, parseToDayjs } from '@tdesign/common-js/date-picker/format';
+import { subtractMonth, addMonth, extractTimeObj } from '@tdesign/common-js/date-picker/utils';
 import { dateCorrection } from './utils';
 
 export default defineComponent({

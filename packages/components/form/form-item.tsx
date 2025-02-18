@@ -51,7 +51,7 @@ import {
 
 import { useConfig, usePrefixClass, useTNodeJSX } from '../hooks';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { template } from '../../common/js/utils/stringTemplate';
+import { template } from '@tdesign/common-js/utils/stringTemplate';
 
 export type FormItemValidateResult<T extends Data = Data> = { [key in keyof T]: boolean | AllValidateResult[] };
 
@@ -99,6 +99,13 @@ export default defineComponent({
         [`${FROM_LABEL.value}--right`]: labelAlign.value === 'right' && labelWidth.value,
       },
     ]);
+
+    const statusClass = computed(
+      () =>
+        `${classPrefix.value}-is-${props.status || 'default'} ${
+          props.status === 'success' ? CLASS_NAMES.value.successBorder : ''
+        }`,
+    );
 
     const renderLabel = () => {
       if (Number(labelWidth.value) === 0) return;
@@ -165,6 +172,7 @@ export default defineComponent({
       }
       if (!errorList.value.length) return;
       const type = errorList.value[0].type || 'error';
+      if (props.status) return statusClass.value;
       return type === 'error' ? CLASS_NAMES.value.error : CLASS_NAMES.value.warning;
     });
     const contentClasses = computed(() => [CLASS_NAMES.value.controls, errorClasses.value]);
@@ -398,11 +406,7 @@ export default defineComponent({
     const tipsNode = computed<VNode>(() => {
       const tmpTips = renderContent('tips');
       if (!tmpTips) return null;
-      const tmpClasses = [
-        `${formItemClassPrefix.value}-tips`,
-        `${classPrefix.value}-tips`,
-        `${classPrefix.value}-is-${props.status || 'default'}`,
-      ];
+      const tmpClasses = [`${formItemClassPrefix.value}-tips`, `${classPrefix.value}-tips`, statusClass.value];
       return <div class={tmpClasses}>{tmpTips}</div>;
     });
 

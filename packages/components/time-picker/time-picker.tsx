@@ -5,7 +5,7 @@ import { TimeIcon as TdTimeIcon } from 'tdesign-icons-vue-next';
 
 import TimePickerPanel from './panel/time-picker-panel';
 import TSelectInput, { SelectInputBlurContext } from '../select-input';
-import { formatInputValue, validateInputValue } from '../../common/js/time-picker/utils';
+import { formatInputValue, validateInputValue } from '@tdesign/common-js/time-picker/utils';
 import { useTNodeJSX } from '../hooks/tnode';
 import type { InputProps } from '../input';
 

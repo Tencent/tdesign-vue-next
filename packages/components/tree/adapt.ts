@@ -4,13 +4,13 @@ import * as Vue from 'vue';
 import { Ref, SetupContext, ToRefs, VNode, PropType, ComponentPublicInstance, UnwrapNestedRefs } from 'vue';
 import { CheckboxProps } from '../checkbox';
 import { ClassName, TScroll, Styles, TNode, TreeOptionData, TNodeReturnValue } from '../common';
-import { TypeTreeEventState as TreeEventState } from '../../common/js/tree/types';
+import { TypeTreeEventState as TreeEventState } from '@tdesign/common-js/tree/types';
 import { TdTreeProps, TreeInstanceFunctions } from './type';
 import { VirtualScrollConfig } from '../hooks/useVirtualScrollNew';
 import tdWithInstall from '../utils/withInstall';
 import tdUseVModel from '../hooks/useVModel';
 import tdUseDefaultValue from '../hooks/useDefaultValue';
-import { TreeStore } from '../../common/js/tree/tree-store';
+import { TreeStore } from '@tdesign/common-js/tree/tree-store';
 
 export { ref, reactive, computed, watch, onMounted, toRefs, defineComponent, TransitionGroup } from 'vue';
 export { CaretRightSmallIcon as TdCaretRightSmallIcon } from 'tdesign-icons-vue-next';
@@ -20,7 +20,7 @@ export { useConfig, usePrefixClass } from '../hooks/useConfig';
 export { useGlobalIcon } from '../hooks/useGlobalIcon';
 export { default as useLazyLoad } from '../hooks/useLazyLoad';
 export { default as useVirtualScroll } from '../hooks/useVirtualScrollNew';
-export { TreeNode, privateKey } from '../../common/js/tree/tree-node';
+export { TreeNode, privateKey } from '@tdesign/common-js/tree/tree-node';
 export type TypeVModel = ReturnType<typeof tdUseVModel>;
 
 export type TypeRef<T> = Ref<T>;
