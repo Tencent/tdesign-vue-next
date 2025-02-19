@@ -129,7 +129,9 @@ export default defineComponent({
       }
       return [];
     });
-    const wrapClass = computed(() => [`${COMPONENT_NAME.value}__wrap`]);
+    const wrapClass = computed(() =>
+      isFullScreen.value || isModal.value || isModeLess.value ? [`${COMPONENT_NAME.value}__wrap`] : null,
+    );
     const positionStyle = computed(() => {
       if (isFullScreen.value) return {}; // 全屏模式，top属性不生效
 
