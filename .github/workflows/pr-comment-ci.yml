@@ -207,14 +207,14 @@ jobs:
           fi
 
           if [ "$csr_snap_conflict" -eq "1" ];then
-              git checkout --theirs test/snap/__snapshots__/csr.test.jsx.snap
-              git add test/snap/__snapshots__/csr.test.jsx.snap
+              git checkout --theirs packages/tdesign-vue-next/test/unit/snap/__snapshots__/csr.test.js.snap
+              git add packages/tdesign-vue-next/test/unit/snap/__snapshots__/csr.test.js.snap
               echo "resolve conflict csr.test.jsx.snap"
           fi
 
           if [ "$ssr_snap_conflict" -eq "1" ];then
-              git checkout --theirs test/snap/__snapshots__/ssr.test.jsx.snap
-              git add test/snap/__snapshots__/ssr.test.jsx.snap
+              git checkout --theirs packages/tdesign-vue-next/test/unit/snap/__snapshots__/ssr.test.js.snap
+              git add packages/tdesign-vue-next/test/unit/snap/__snapshots__/ssr.test.js.snap
               echo "resolve conflict ssr.test.jsx.snap"
           fi
 
