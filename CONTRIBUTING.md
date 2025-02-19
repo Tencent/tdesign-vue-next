@@ -2,7 +2,7 @@
 
 `tdesign-vue-next` 是一个 Monorepo，承载 TDesign Vue 3 桌面端相关基础组件和高阶组件、插件的源码。
 
-> `packages/components` 是组件源码，承载大部分的组件。
+> `packages/components` 是组件源码，承载大部分的组件框架相关的代码逻辑、示例代码和测试用例。
 
 > `packages/common` 是子仓库，承载大部分组件样式、Design Token、框架无关的逻辑、文档内容结构等。
 
