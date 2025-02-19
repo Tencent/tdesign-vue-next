@@ -118,7 +118,7 @@ TDesign 的项目都会以子仓库的形式引入 `tdesign-common` 公共仓库
    如果需要配合子仓库改动，需要在步骤 3 完成后，在主仓库的开发过程中，将子仓库的指向改为合并后的主干的 commit id
    ```bash
    cd packages/common
-   git pull origin develop
+   git submodule update --init --remote
    ```
 
 ### 组件库 UI
