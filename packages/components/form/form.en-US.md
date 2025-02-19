@@ -61,7 +61,7 @@ name | String | - | \- | N
 requiredMark | Boolean | undefined | \- | N
 rules | Array | - | Typescript：`Array<FormRule>` | N
 showErrorMessage | Boolean | undefined | \- | N
-status | String | - | Typescript：`'error' \| 'warning' \| 'success' \| 'validating'` | N
+status | String | - | Typescript：`'error' \| 'warning' \| 'success'` | N
 statusIcon | Boolean / Slot / Function | undefined | Typescript：`boolean \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 successBorder | Boolean | false | \- | N
 tips | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N

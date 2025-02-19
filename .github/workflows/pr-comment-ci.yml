@@ -108,7 +108,7 @@ jobs:
           git status
           conflict_count=$(git status | grep -c 'both modified:') || true
           working_tree_clean=$(git status | grep -c 'nothing to commit, working tree clean') || true
-          common_conflict=$(git status | grep 'both modified:' | grep -c '_common') || true
+          common_conflict=$(git status | grep 'both modified:' | grep -c 'packages/common') || true
           conflicts_sum=$((common_conflict))
           echo "conflict_count: $conflict_count"
           echo "working_tree_clean: $working_tree_clean"
@@ -129,7 +129,7 @@ jobs:
           if [ "$common_conflict" -eq "1" ];then
               git checkout --ours packages/common
               git add packages/common
-              echo "resolve conflict _common"
+              echo "resolve conflict packages/common"
           fi
 
           git status
@@ -186,7 +186,7 @@ jobs:
           working_tree_clean=$(git status | grep -c 'nothing to commit, working tree clean') || true
           csr_snap_conflict=$(git status | grep 'both modified:' | grep -c 'csr.test.jsx.snap') || true
           ssr_snap_conflict=$(git status | grep 'both modified:' | grep -c 'ssr.test.jsx.snap') || true
-          common_conflict=$(git status | grep 'both modified:' | grep -c '_common') || true
+          common_conflict=$(git status | grep 'both modified:' | grep -c 'packages/common') || true
           conflicts_sum=$((csr_snap_conflict + ssr_snap_conflict + common_conflict))
           echo "conflict_count: $conflict_count"
           echo "working_tree_clean: $working_tree_clean"
@@ -207,33 +207,35 @@ jobs:
           fi
 
           if [ "$csr_snap_conflict" -eq "1" ];then
-              git checkout --theirs test/snap/__snapshots__/csr.test.jsx.snap
-              git add test/snap/__snapshots__/csr.test.jsx.snap
+              git checkout --theirs packages/tdesign-vue-next/test/unit/snap/__snapshots__/csr.test.js.snap
+              git add packages/tdesign-vue-next/test/unit/snap/__snapshots__/csr.test.js.snap
               echo "resolve conflict csr.test.jsx.snap"
           fi
 
           if [ "$ssr_snap_conflict" -eq "1" ];then
-              git checkout --theirs test/snap/__snapshots__/ssr.test.jsx.snap
-              git add test/snap/__snapshots__/ssr.test.jsx.snap
+              git checkout --theirs packages/tdesign-vue-next/test/unit/snap/__snapshots__/ssr.test.js.snap
+              git add packages/tdesign-vue-next/test/unit/snap/__snapshots__/ssr.test.js.snap
               echo "resolve conflict ssr.test.jsx.snap"
           fi
 
           if [ "$common_conflict" -eq "1" ];then
               git checkout --theirs packages/common
               git add packages/common
-              echo "resolve conflict _common"
+              echo "resolve conflict packages/common"
           fi
 
           git status
           git commit -am "chore: merge develop"
 
+      - uses: pnpm/action-setup@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      - run: npm install
+      - run: pnpm install
 
-      - run: npm run test:update
+      - run: pnpm run test:update
 
       - name: Commit Snapshot
         run: |
@@ -285,13 +287,15 @@ jobs:
             })
             return comment.id
 
+      - uses: pnpm/action-setup@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      - run: npm install
+      - run: pnpm install
 
-      - run: npm run generate:coverage-badge
+      - run: pnpm run generate:coverage-badge
 
       - name: commit coverage badge
         run: |

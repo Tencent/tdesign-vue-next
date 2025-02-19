@@ -3,18 +3,14 @@
 
 version: 2
 updates:
+  # https://docs.github.com/en/code-security/dependabot/working-with-dependabot/dependabot-options-reference#package-ecosystem-
   # Enable version updates for npm
   - package-ecosystem: 'npm'
     # Look for `package.json` and `lock` files in the `root` directory
     directory: '/'
     # Check the npm registry for updates every day (weekdays)
-    schedule:
-      interval: 'monthly'
-
-  # Enable version updates for Docker
-  - package-ecosystem: 'docker'
-    # Look for a `Dockerfile` in the `root` directory
-    directory: '/'
-    # Check for updates once a week
+    # interval:daily. Use daily to run on every weekday, Monday to Friday.
+    # interval:weekly. Use weekly to run once a week, by default on Monday
+    # interval:monthly. Use monthly to run on the first day of each month.
     schedule:
       interval: 'monthly'
