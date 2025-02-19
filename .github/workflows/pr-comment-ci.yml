@@ -227,6 +227,8 @@ jobs:
           git status
           git commit -am "chore: merge develop"
 
+      - uses: pnpm/action-setup@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 18
@@ -284,6 +286,8 @@ jobs:
               body: `⏳ 正在运行 coverage badge 更新。。。 CI: ${urlLink}`
             })
             return comment.id
+
+      - uses: pnpm/action-setup@v4
 
       - uses: actions/setup-node@v4
         with:
