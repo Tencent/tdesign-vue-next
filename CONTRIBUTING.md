@@ -6,7 +6,7 @@
 
 > `packages/common` 是子仓库，承载大部分组件样式、Design Token、框架无关的逻辑、文档内容结构等。
 
->`packages/tdesign-vue-next` 是 Vue 3 基础组件，承载大部分组件样式、框架无关的复用公告逻辑。
+> `packages/tdesign-vue-next` 是 Vue 3 基础组件，承载大部分组件样式、框架无关的复用公告逻辑。
 
 大部分情况下，您参与贡献的开发过程，都只需要关注 `packages/components` 和 `packages/common` 的相关代码。
 
