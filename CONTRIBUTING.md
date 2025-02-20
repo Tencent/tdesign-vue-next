@@ -100,10 +100,10 @@ pnpm run dev
 ## 子仓库相关
 
 TDesign 的项目都会以子仓库的形式引入 `tdesign-common` 公共仓库
-公共仓库中包含
 
+公共仓库中包含
 - 部分组件的一些框架无关的公共的工具函数
-- `组件库UI`，既 `HTML` 结构和 `CSS` 样式（多框架共用）
+- `组件库UI`，即 `HTML` 结构和 `CSS` 样式（多框架共用）
 - 每个组件的文档页面的内容结构
 
 大部分的功能和改动都只需要调整基础组件的代码（即`pcakges/components`中的代码）即可，但涉及部分公共函数、样式或者部分文档的调整，需要改动子仓库的代码。
@@ -176,7 +176,7 @@ git merge upstream/develop
 
 - 使用工具 `commitizen` 协助规范 `git commit` 信息
 - `fix` & `feat` 的提交会被用来生成 `changelog`
-- 提交会触发 `git pre-commit` 检查，修复提示的 `eslint` 错误，
+- 提交会触发 `git pre-commit` 检查，修复提示的 `eslint` 错误
 
 ## 开发规范
 
