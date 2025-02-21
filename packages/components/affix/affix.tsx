@@ -20,7 +20,7 @@ export default defineComponent({
     const affixRef = ref<HTMLElement>(null);
     const placeholderEL = ref(document?.createElement('div')); // 占位节点
     const ticking = ref(false);
-    const binded = ref(false);
+    const isBind = ref(false);
 
     const scrollContainer = ref<ScrollContainerElement>();
     const affixStyle = ref<Record<string, any>>();
@@ -96,21 +96,21 @@ export default defineComponent({
 
     const bindScroll = async () => {
       await nextTick();
-      if (binded.value) return;
+      if (isBind.value) return;
       scrollContainer.value = getScrollContainer(props.container);
       on(scrollContainer.value, 'scroll', handleScroll);
       on(window, 'resize', handleScroll);
-      binded.value = true;
+      isBind.value = true;
     };
 
     const unbindScroll = () => {
-      if (!scrollContainer.value || !binded.value) return;
+      if (!scrollContainer.value || !isBind.value) return;
       off(scrollContainer.value, 'scroll', handleScroll);
       off(window, 'resize', handleScroll);
       if (rAFId) {
         window.cancelAnimationFrame(rAFId);
       }
-      binded.value = false;
+      isBind.value = false;
     };
 
     watch(
@@ -142,22 +142,10 @@ export default defineComponent({
 
     onBeforeUnmount(unbindScroll);
 
-    return {
-      affixWrapRef,
-      affixRef,
-      bindScroll,
-      unbindScroll,
-      handleScroll,
-      scrollContainer,
-      renderTNodeJSX,
-      affixStyle,
-    };
-  },
-  render() {
-    return (
-      <div ref="affixWrapRef">
-        <div ref="affixRef" style={this.affixStyle}>
-          {this.renderTNodeJSX('default')}
+    return () => (
+      <div ref={affixWrapRef}>
+        <div ref={affixRef} style={affixStyle.value}>
+          {renderTNodeJSX('default')}
         </div>
       </div>
     );
