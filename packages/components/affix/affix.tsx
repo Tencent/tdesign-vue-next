@@ -142,6 +142,12 @@ export default defineComponent({
 
     onBeforeUnmount(unbindScroll);
 
+    context.expose({
+      scrollContainer,
+      affixWrapRef,
+      handleScroll,
+    });
+
     return () => (
       <div ref={affixWrapRef}>
         <div ref={affixRef} style={affixStyle.value}>
