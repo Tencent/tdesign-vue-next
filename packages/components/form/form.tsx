@@ -26,7 +26,7 @@ type Result = FormValidateResult<TdFormProps['data']>;
 export default defineComponent({
   name: 'TForm',
 
-  props: { ...props },
+  props,
 
   setup(props, { expose }) {
     const renderContent = useTNodeJSX();

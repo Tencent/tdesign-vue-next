@@ -28,7 +28,7 @@ import { CalendarRange, YearMonthOption, ModeOption, CellEventOption } from './i
 // 组件逻辑
 export default defineComponent({
   name: 'TCalendar',
-  props: { ...props },
+  props,
   setup(props, { slots }) {
     const renderContent = useContent();
     const { t, globalConfig } = useConfig(COMPONENT_NAME);

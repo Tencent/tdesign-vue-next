@@ -27,7 +27,7 @@ const useComponentClassName = () => {
 export default defineComponent({
   name: 'TTagInput',
 
-  props: { ...props },
+  props,
 
   setup(props: TdTagInputProps) {
     const { NAME_CLASS, CLEAR_CLASS, BREAK_LINE_CLASS } = useComponentClassName();

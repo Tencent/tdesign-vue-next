@@ -9,9 +9,7 @@ import { ENTER_REG, SPACE_REG } from '@tdesign/common-js/common';
 
 export default defineComponent({
   name: 'TCheckTag',
-
   props,
-
   setup(props: TdCheckTagProps) {
     const componentName = usePrefixClass('tag');
     const { SIZE } = useCommonClassName();

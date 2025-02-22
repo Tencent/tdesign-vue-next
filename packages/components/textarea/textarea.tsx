@@ -33,7 +33,7 @@ import { getValidAttrs } from '@tdesign/common-js/utils/helper';
 export default defineComponent({
   name: 'TTextarea',
   inheritAttrs: false,
-  props: { ...props },
+  props,
 
   setup(props: TdTextareaProps, { attrs, expose }) {
     const prefix = usePrefixClass();

@@ -13,8 +13,7 @@ import { isArray } from 'lodash-es';
 
 export default defineComponent({
   name: 'TSwitch',
-  props: { ...props },
-
+  props,
   setup(props, { slots }) {
     const disabled = useDisabled();
     const COMPONENT_NAME = usePrefixClass('switch');

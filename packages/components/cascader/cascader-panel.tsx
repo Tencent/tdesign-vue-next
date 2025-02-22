@@ -7,7 +7,7 @@ import { useCascaderContext } from './hooks';
 export default defineComponent({
   name: 'TCascaderPanel',
 
-  props: { ...props },
+  props,
 
   setup(props, { slots }) {
     const { cascaderContext } = useCascaderContext(props);

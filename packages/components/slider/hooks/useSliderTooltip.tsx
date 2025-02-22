@@ -1,7 +1,7 @@
 import { TooltipProps } from '../../tooltip';
 import { ref, computed, ComputedRef, Ref } from 'vue';
 import { TdSliderProps } from '../type';
-import { formatLabel } from '../util/common';
+import { formatLabel } from '../utils';
 import { useTNodeJSX } from '../../hooks';
 
 const initialProps: TooltipProps & { overlayClassName: string } = {

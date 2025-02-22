@@ -19,7 +19,7 @@ import { useReadonly } from '../hooks/useReadonly';
 export default defineComponent({
   name: 'TCascader',
 
-  props: { ...props },
+  props,
 
   setup(props, { slots }) {
     const COMPONENT_NAME = usePrefixClass('cascader');

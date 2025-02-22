@@ -6,7 +6,7 @@ import { selectInjectKey } from './helper';
 
 export default defineComponent({
   name: 'TOptionGroup',
-  props: { ...props },
+  props,
   setup(props) {
     const selectProvider = inject(selectInjectKey);
     const COMPONENT_NAME = usePrefixClass('select-option-group');

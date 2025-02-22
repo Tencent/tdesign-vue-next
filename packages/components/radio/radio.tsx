@@ -15,7 +15,7 @@ import { getValidAttrs } from '@tdesign/common-js/utils/helper';
 export default defineComponent({
   name: 'TRadio',
   inheritAttrs: false,
-  props: { ...props },
+  props,
 
   setup(props, { attrs }) {
     const inputRef = ref();

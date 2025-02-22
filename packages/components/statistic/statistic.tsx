@@ -15,9 +15,7 @@ import { COLOR_MAP } from '@tdesign/common-js/statistic/utils';
 
 export default defineComponent({
   name: 'TStatistic',
-
   props,
-
   setup(props, { expose }) {
     const COMPONENT_NAME = usePrefixClass('statistic');
     const renderTNodeJSX = useTNodeJSX();
