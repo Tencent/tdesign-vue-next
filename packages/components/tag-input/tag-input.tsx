@@ -129,14 +129,6 @@ export default defineComponent({
       props.onClear?.(context);
     };
 
-    const focus = () => {
-      tagInputRef.value?.focus();
-    };
-
-    const blur = () => {
-      tagInputRef.value?.blur();
-    };
-
     const onMouseEnter: InputProps['onMouseenter'] = (context) => {
       addHover(context);
       scrollToRightOnEnter();
