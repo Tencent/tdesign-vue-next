@@ -23,7 +23,7 @@ import useKeyboardControl from './hooks/useKeyboardControl';
 import type { PopupProps, PopupVisibleChangeContext } from '../popup';
 import type { SelectInputValueChangeContext } from '../select-input';
 import type { TdSelectProps, SelectValue } from './type';
-import { SelectInputValueDisplayOptions } from '../select-input/useSingle';
+import { SelectInputValueDisplayOptions } from '../select-input/hooks/useSingle';
 
 export default defineComponent({
   name: 'TSelect',

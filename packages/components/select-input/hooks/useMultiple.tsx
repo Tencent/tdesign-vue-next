@@ -1,14 +1,14 @@
 import { SetupContext, computed, ref, toRefs, Ref } from 'vue';
 import { isObject } from 'lodash-es';
-import { TdSelectInputProps, SelectInputChangeContext, SelectInputKeys } from './type';
-import { SelectInputCommonProperties } from './interface';
-import TagInput, { TagInputValue, TagInputProps } from '../tag-input';
-import Loading from '../loading';
-import useDefault from '../hooks/useDefaultValue';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useDisabled } from '../hooks/useDisabled';
-import { useReadonly } from '../hooks/useReadonly';
-import { PopupInstanceFunctions } from '../popup';
+import { TdSelectInputProps, SelectInputChangeContext, SelectInputKeys } from '../type';
+import { SelectInputCommonProperties } from '../types';
+import TagInput, { TagInputValue, TagInputProps } from '../../tag-input';
+import Loading from '../../loading';
+import useDefault from '../../hooks/useDefaultValue';
+import { usePrefixClass } from '../../hooks/useConfig';
+import { useDisabled } from '../../hooks/useDisabled';
+import { useReadonly } from '../../hooks/useReadonly';
+import { PopupInstanceFunctions } from '../../popup';
 
 export interface RenderSelectMultipleParams {
   commonInputProps: SelectInputCommonProperties;
@@ -23,11 +23,7 @@ const DEFAULT_KEYS = {
   children: 'children',
 };
 
-export default function useMultiple(
-  props: TdSelectInputProps,
-  context: SetupContext,
-  popupRef: Ref<PopupInstanceFunctions>,
-) {
+export function useMultiple(props: TdSelectInputProps, context: SetupContext, popupRef: Ref<PopupInstanceFunctions>) {
   const { inputValue } = toRefs(props);
   const classPrefix = usePrefixClass();
   const tagInputRef = ref();
