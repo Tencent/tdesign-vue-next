@@ -14,10 +14,6 @@ import { TNode, SizeEnum } from '../common';
 
 export interface GlobalConfigProvider {
   /**
-   * 自动填充全局配置
-   */
-  autoComplete?: AutoCompleteConfig;
-  /**
    * 警告全局配置
    */
   alert?: AlertConfig;
@@ -29,6 +25,10 @@ export interface GlobalConfigProvider {
    * 动画效果控制，`ripple` 指波纹动画， `expand` 指展开动画，`fade` 指渐变动画。默认为 `{ include: ['ripple','expand','fade'], exclude: [] }`
    */
   animation?: Partial<Record<'include' | 'exclude', Array<AnimationType>>>;
+  /**
+   * 自动填充组件全局配置
+   */
+  autoComplete?: AutoCompleteConfig;
   /**
    * 日历组件全局配置
    */
@@ -150,14 +150,6 @@ export interface GlobalConfigProvider {
    * 上传组件全局配置
    */
   upload?: UploadConfig;
-}
-
-export interface AutoCompleteConfig {
-  /**
-   * 语言配置，“暂无数据”描述文本
-   * @default ''
-   */
-  empty?: string;
 }
 
 export interface InputConfig {
@@ -966,6 +958,14 @@ export interface TypographyConfig {
    * @default ''
    */
   expandText?: string;
+}
+
+export interface AutoCompleteConfig {
+  /**
+   * 语言配置，“暂无数据”描述文本
+   * @default ''
+   */
+  empty?: string;
 }
 
 export type AnimationType = 'ripple' | 'expand' | 'fade';
