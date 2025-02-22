@@ -200,7 +200,9 @@ export default defineComponent({
             isVisible.value = true;
           });
         } else {
-          isVisible.value = value;
+          setTimeout(() => {
+            isVisible.value = value;
+          });
         }
       },
       { immediate: true },
