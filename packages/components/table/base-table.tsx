@@ -215,6 +215,7 @@ export default defineComponent({
       data: props.data,
       // 传递 fixedRows 的配置
       scroll: { ...props.scroll, fixedRows: props.fixedRows },
+      preventResizeRefresh: true,
     }));
     const virtualConfig = useVirtualScrollNew(tableContentRef, virtualScrollParams);
 
