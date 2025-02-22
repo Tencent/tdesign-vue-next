@@ -94,6 +94,11 @@ export default defineComponent({
       if (props.multiple) tagInputRef.value?.focus();
     };
 
+    context.expose({
+      popupRef,
+      allowInput,
+    });
+
     return () => {
       // 浮层显示的受控与非受控
       const visibleProps = { visible: popupVisible.value ?? innerPopupVisible.value };
