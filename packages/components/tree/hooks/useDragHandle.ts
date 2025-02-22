@@ -1,7 +1,7 @@
-import { TreeNode } from '../adapt';
-import { TreeProps, TypDragEventState, TypeTreeState, TypeDragHandle } from '../tree-types';
+import { TreeNode } from '../utils/adapt';
+import { TreeProps, TypDragEventState, TypeTreeState, TypeDragHandle } from '../types';
 import { DragPosition } from './useDraggable';
-import { emitEvent } from '../util';
+import { emitEvent } from '../utils';
 
 export default function useDragHandle(state: TypeTreeState) {
   const { props, context, scope, store } = state;
