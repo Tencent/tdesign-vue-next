@@ -29,7 +29,6 @@ export default defineComponent({
     resetTriggerScroll: Function,
     isShowPanel: Boolean,
   },
-
   setup(props) {
     const { globalConfig } = useConfig('timePicker');
     const COMPONENT_NAME = usePrefixClass('time-picker__panel');

@@ -1,7 +1,7 @@
 import { defineComponent, PropType } from 'vue';
 import { SearchIcon as TdSearchIcon } from 'tdesign-icons-vue-next';
 
-import { SearchOption } from '../interface';
+import { SearchOption } from '../types';
 import TInput from '../../input';
 import { usePrefixClass } from '../../hooks/useConfig';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';
