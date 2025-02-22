@@ -8,25 +8,12 @@ const createDrawer: DrawerMethod = (props: DrawerOptions) => {
   const options = { ...props };
   const wrapper = document.createElement('div');
   const visible = ref(false);
-  const { className, style } = options;
+  const { style } = options;
 
-  let preClassName = className;
-
-  const updateClassNameStyle = (className: string, style: DrawerOptions['style']) => {
-    if (className) {
-      if (preClassName && preClassName !== className) {
-        wrapper.firstElementChild.classList.remove(...preClassName.split(' ').map((name) => name.trim()));
-      }
-      className.split(' ').forEach((name) => {
-        wrapper.firstElementChild.classList.add(name.trim());
-      });
-    }
-
+  const updateStyle = (style: DrawerOptions['style']) => {
     if (style) {
       (wrapper.firstElementChild as HTMLElement).style.cssText += style;
     }
-
-    preClassName = className;
   };
 
   const component = defineComponent({
@@ -36,7 +23,7 @@ const createDrawer: DrawerMethod = (props: DrawerOptions) => {
         visible.value = true;
         (document.activeElement as HTMLElement).blur();
         nextTick(() => {
-          updateClassNameStyle(className, style);
+          updateStyle(style);
         });
       });
       const update = (newOptions: DrawerOptions) => {
@@ -56,11 +43,11 @@ const createDrawer: DrawerMethod = (props: DrawerOptions) => {
           function () {
             visible.value = false;
           };
-        delete options.className;
         delete options.style;
         return h(DrawerComponent, {
           onClose,
           visible: visible.value,
+          drawerClassName: drawerOptions.value?.className,
           ...drawerOptions.value,
         });
       };
@@ -93,8 +80,8 @@ const createDrawer: DrawerMethod = (props: DrawerOptions) => {
     },
     update: (newOptions: DrawerOptions) => {
       // className & style由updateClassNameStyle来处理
-      drawer.update(omit(newOptions, ['className', 'style']));
-      updateClassNameStyle(newOptions.className, newOptions.style);
+      drawer.update(omit(newOptions, ['style']));
+      updateStyle(newOptions.style);
     },
     destroy: () => {
       destroyDrawer();
