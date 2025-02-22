@@ -65,7 +65,7 @@ function calculateNodeStyling(targetElement: HTMLTextAreaElement) {
   };
 }
 
-export default function calcTextareaHeight(
+export function calcTextareaHeight(
   targetElement: HTMLTextAreaElement,
   minRows: RowsType = 1,
   maxRows: RowsType = null,

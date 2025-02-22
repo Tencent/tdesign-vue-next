@@ -16,7 +16,6 @@ export default defineComponent({
       type: Number,
     },
   },
-
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('timeline-item');
     // unit test need default value
