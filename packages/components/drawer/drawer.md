@@ -14,13 +14,13 @@
 
 组件实例指的是 `DrawerInstance = this.$drawer(options)` 或者 `DrawerInstance = DrawerPlugin(options)`。
 
-- 销毁弹框：`DrawerInstance.destroy()`
+- 销毁抽屉：`DrawerInstance.destroy()`
 
-- 隐藏弹框：`DrawerInstance.hide()`
+- 隐藏抽屉：`DrawerInstance.hide()`
 
-- 显示弹窗：`DrawerInstance.show()`
+- 显示抽屉：`DrawerInstance.show()`
 
-- 更新弹框：`DrawerInstance.update()`
+- 更新抽屉：`DrawerInstance.update()`
 
 注意在以下使用示例中，有多处并未销毁 DOM 元素。在实际应用中，需要考虑销毁 DOM 元素，否则当用户重复点击、创建插件或函数调用的实例后，会产生大量 DOM 元素、容易造成内存泄漏。
 

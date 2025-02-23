@@ -26,7 +26,7 @@
 
 - 隐藏弹框：`DialogInstance.hide()`
 
-- 显示弹窗：`DialogInstance.show()`
+- 显示弹框：`DialogInstance.show()`
 
 - 更新弹框：`DialogInstance.update()`
 
