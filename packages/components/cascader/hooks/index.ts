@@ -4,11 +4,17 @@ import { isFunction } from 'lodash-es';
 import { isString } from 'lodash-es';
 
 import TreeStore from '@tdesign/common-js/tree/tree-store';
-import { useDisabled } from '../hooks/useDisabled';
-import useVModel from '../hooks/useVModel';
-import useDefaultValue from '../hooks/useDefaultValue';
-import { getTreeValue, getCascaderValue, isEmptyValues, isValueInvalid } from './core/helper';
-import { treeNodesEffect, treeStoreExpendEffect } from './core/effect';
+import { useDisabled } from '../../hooks/useDisabled';
+import useVModel from '../../hooks/useVModel';
+import useDefaultValue from '../../hooks/useDefaultValue';
+import {
+  getTreeValue,
+  getCascaderValue,
+  isEmptyValues,
+  isValueInvalid,
+  treeNodesEffect,
+  treeStoreExpendEffect,
+} from '../utils';
 
 import {
   TreeNode,
@@ -18,7 +24,7 @@ import {
   CascaderChangeSource,
   CascaderValue,
   TreeOptionData,
-} from './interface';
+} from '../types';
 
 // 全局状态
 export const useContext = (
