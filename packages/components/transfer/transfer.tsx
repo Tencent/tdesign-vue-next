@@ -4,7 +4,7 @@ import { isFunction } from 'lodash-es';
 
 import TransferList from './components/transfer-list';
 import TransferOperations from './components/transfer-operations';
-import { TransferListType, CheckedOptions, TransferValue, EmptyType, TargetParams, SearchEvent } from './interface';
+import { TransferListType, CheckedOptions, TransferValue, EmptyType, TargetParams, SearchEvent } from './types';
 
 import {
   getTransferListOption,

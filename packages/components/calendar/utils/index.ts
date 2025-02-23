@@ -1,10 +1,10 @@
 import dayjs from 'dayjs';
 
-import { TdCalendarProps, CalendarCell } from './type';
-import { CalendarState } from './interface';
+import { TdCalendarProps, CalendarCell } from '../type';
+import { CalendarState } from '../types';
 
 // 组件的一些常量
-import { FIRST_MONTH_OF_YEAR, LAST_MONTH_OF_YEAR, DAY_CN_MAP } from './const';
+import { FIRST_MONTH_OF_YEAR, LAST_MONTH_OF_YEAR, DAY_CN_MAP } from '../consts';
 
 /**
  * 获取一个日期是周几（1~7）

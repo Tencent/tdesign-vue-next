@@ -12,7 +12,7 @@ import { formatInputValue, validateInputValue } from '@tdesign/common-js/time-pi
 
 // interfaces
 import props from './time-range-picker-props';
-import { TimeRangeValue } from './interface';
+import { TimeRangeValue } from './types';
 import { TimeRangePickerPartial } from './type';
 // hooks
 import useVModel from '../hooks/useVModel';
@@ -25,9 +25,7 @@ dayjs.extend(customParseFormat);
 
 export default defineComponent({
   name: 'TTimeRangePicker',
-
   props: { ...props, rangeInputProps: Object, popupProps: Object },
-
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('time-range-picker');
     const { globalConfig } = useConfig('timePicker');

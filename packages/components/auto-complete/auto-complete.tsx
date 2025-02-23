@@ -14,9 +14,7 @@ import { useReadonly } from '../hooks/useReadonly';
 
 export default defineComponent({
   name: 'TAutoComplete',
-
   props,
-
   setup(props: TdAutoCompleteProps, { slots }) {
     const { value, modelValue } = toRefs(props);
     const [tValue, setTValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);

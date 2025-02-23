@@ -7,7 +7,7 @@ import {
   TdTransferProps,
   TransferListType,
   TransferItemOption,
-} from '../interface';
+} from '../types';
 import { PageInfo, TdPaginationProps, Pagination } from '../../pagination';
 import { Checkbox as TCheckbox, CheckboxGroup as TCheckboxGroup, CheckboxProps } from '../../checkbox';
 import { getLefCount, getDataValues, TARGET } from '../utils';

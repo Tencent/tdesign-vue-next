@@ -9,7 +9,6 @@ import log from '@tdesign/common-js/log/index';
 export default defineComponent({
   name: 'TTimeline',
   props: TimeLineProps,
-
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('timeline');
     const renderAlign = computed(() => {

@@ -120,29 +120,19 @@ export default defineComponent({
 
     watch(() => props, injectWaterMark, { deep: true, flush: 'post' });
 
-    return {
-      gapX,
-      gapY,
-      backgroundRepeat,
-      backgroundImage,
-      watermarkRef,
-      watermarkContentRef,
-      bgImageOptions,
+    return () => {
+      const COMPONENT_NAME = usePrefixClass('watermark');
+      const renderContent = useContent();
+
+      return (
+        <div
+          style={{ position: 'relative', overflow: 'hidden', width: '100%' }}
+          class={COMPONENT_NAME.value}
+          ref={watermarkRef}
+        >
+          {renderContent('default', 'content')}
+        </div>
+      );
     };
-  },
-
-  render() {
-    const COMPONENT_NAME = usePrefixClass('watermark');
-    const renderContent = useContent();
-
-    return (
-      <div
-        style={{ position: 'relative', overflow: 'hidden', width: '100%' }}
-        class={COMPONENT_NAME.value}
-        ref="watermarkRef"
-      >
-        {renderContent('default', 'content')}
-      </div>
-    );
   },
 });
