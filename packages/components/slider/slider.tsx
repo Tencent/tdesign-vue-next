@@ -20,8 +20,8 @@ import { SliderValue } from './type';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useSliderMark } from './hooks/useSliderMark';
 import { useSliderInput } from './hooks/useSliderInput';
-import { formatSliderValue, getStopStyle } from './util/common';
-import { sliderPropsInjectKey } from './util/constants';
+import { formatSliderValue, getStopStyle } from './utils';
+import { sliderPropsInjectKey } from './consts';
 import useVModel from '../hooks/useVModel';
 import { useDisabled } from '../hooks/useDisabled';
 
@@ -34,8 +34,7 @@ export default defineComponent({
     prop: 'value',
     event: 'change',
   },
-  props: { ...props },
-
+  props,
   setup(props) {
     const disabled = useDisabled();
     const COMPONENT_NAME = usePrefixClass('slider');

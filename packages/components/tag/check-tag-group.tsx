@@ -8,9 +8,7 @@ import { isFunction } from 'lodash-es';
 
 export default defineComponent({
   name: 'TCheckTagGroup',
-
   props,
-
   setup(props, context) {
     const { value, modelValue, options } = toRefs(props);
     const componentName = usePrefixClass('check-tag-group');

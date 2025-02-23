@@ -6,7 +6,7 @@ import props from './props';
 
 export default defineComponent({
   name: 'TLink',
-  props: { ...props },
+  props,
   emits: ['click'],
   setup(props, { emit }) {
     const renderContent = useContent();

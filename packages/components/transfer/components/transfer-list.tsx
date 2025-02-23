@@ -76,7 +76,7 @@ const props = {
 
 export default defineComponent({
   name: 'TTransferList',
-  props: { ...props },
+  props,
   setup(props) {
     const classPrefix = usePrefixClass();
     const { currentValue } = toRefs(props);
