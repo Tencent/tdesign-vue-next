@@ -2,7 +2,7 @@ import { computed, defineComponent, provide, reactive } from 'vue';
 import props from './props';
 import Radio from './radio';
 import { omit } from 'lodash-es';
-import { RadioButtonInjectionKey } from './constants';
+import { RadioButtonInjectionKey } from './consts';
 
 import { useContent } from '../hooks/tnode';
 
@@ -10,7 +10,6 @@ export default defineComponent({
   name: 'TRadioButton',
   inheritAttrs: false,
   props: { ...props },
-
   setup(props, { attrs }) {
     provide(RadioButtonInjectionKey, reactive({}));
 

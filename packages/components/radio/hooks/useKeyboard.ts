@@ -1,10 +1,10 @@
 import { onBeforeMount, onMounted, Ref } from 'vue';
 import { isString } from 'lodash-es';
-import { off, on } from '../utils/dom';
+import { off, on } from '../../utils/dom';
 import { CHECKED_CODE_REG } from '@tdesign/common-js/common';
 
 /** 键盘操作 */
-export default function useKeyboard(
+export function useKeyboard(
   radioGroupRef: Ref<HTMLElement>,
   setInnerValue: (value: any, context: { e: Event }) => void,
 ) {
