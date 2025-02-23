@@ -7,9 +7,7 @@ import { pickBy } from 'lodash-es';
 export default defineComponent({
   name: 'TColorPickerPanel',
   inheritAttrs: false,
-  props: {
-    ...props,
-  },
+  props,
   setup(props, { attrs }) {
     const newProps = computed(() => pickBy({ ...props, ...attrs }, (v) => v !== undefined));
     const prefix = usePrefixClass();

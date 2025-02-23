@@ -3,7 +3,7 @@ import { isFunction } from 'lodash-es';
 import { isArray } from 'lodash-es';
 import { cloneDeep } from 'lodash-es';
 
-import type { TreeNode, CascaderContextType, TdCascaderProps, TreeNodeValue, TreeNodeModel } from '../interface';
+import type { TreeNode, CascaderContextType, TdCascaderProps, TreeNodeValue, TreeNodeModel } from '../types';
 import { getFullPathLabel, getTreeValue, isEmptyValues } from './helper';
 
 /**

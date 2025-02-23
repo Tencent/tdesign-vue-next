@@ -2,14 +2,7 @@ import { isNumber } from 'lodash-es';
 import { isObject } from 'lodash-es';
 import { isArray } from 'lodash-es';
 import { isEmpty } from 'lodash-es';
-import {
-  TreeNode,
-  CascaderContextType,
-  TdCascaderProps,
-  CascaderValue,
-  TreeNodeValue,
-  TreeOptionData,
-} from '../interface';
+import { TreeNode, CascaderContextType, TdCascaderProps, CascaderValue, TreeNodeValue, TreeOptionData } from '../types';
 
 /**
  * 单选状态下内容

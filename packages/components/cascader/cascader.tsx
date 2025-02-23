@@ -5,10 +5,15 @@ import SelectInput from '../select-input';
 import FakeArrow from '../common-components/fake-arrow';
 import props from './props';
 
-import { CascaderValue, TdSelectInputProps, TdCascaderProps } from './interface';
-import { closeIconClickEffect, handleRemoveTagEffect } from './core/effect';
-import { getPanels, getSingleContent, getMultipleContent } from './core/helper';
-import { getFakeArrowIconClass } from './core/className';
+import { CascaderValue, TdSelectInputProps, TdCascaderProps } from './types';
+import {
+  closeIconClickEffect,
+  handleRemoveTagEffect,
+  getFakeArrowIconClass,
+  getPanels,
+  getSingleContent,
+  getMultipleContent,
+} from './utils';
 
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useCascaderContext } from './hooks';
@@ -18,9 +23,7 @@ import { useReadonly } from '../hooks/useReadonly';
 
 export default defineComponent({
   name: 'TCascader',
-
   props,
-
   setup(props, { slots }) {
     const COMPONENT_NAME = usePrefixClass('cascader');
     const classPrefix = usePrefixClass();

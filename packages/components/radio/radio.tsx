@@ -2,7 +2,7 @@ import { defineComponent, inject, toRefs, computed, ref } from 'vue';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { omit } from 'lodash-es';
 import props from './props';
-import { RadioGroupInjectionKey, RadioButtonInjectionKey } from './constants';
+import { RadioGroupInjectionKey, RadioButtonInjectionKey } from './consts';
 
 // hooks
 import { useDisabled } from '../hooks/useDisabled';
@@ -16,7 +16,6 @@ export default defineComponent({
   name: 'TRadio',
   inheritAttrs: false,
   props,
-
   setup(props, { attrs }) {
     const inputRef = ref();
     const { checked, modelValue } = toRefs(props);

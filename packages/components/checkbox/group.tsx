@@ -5,7 +5,7 @@ import { isUndefined } from 'lodash-es';
 import Checkbox from './checkbox';
 import props from './checkbox-group-props';
 import { CheckboxOptionObj, TdCheckboxProps, CheckboxGroupValue } from './type';
-import { CheckboxGroupInjectionKey } from './constants';
+import { CheckboxGroupInjectionKey } from './consts';
 import useVModel from '../hooks/useVModel';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
@@ -14,7 +14,6 @@ import { useChildComponentSlots } from '../hooks/slot';
 export default defineComponent({
   name: 'TCheckboxGroup',
   props,
-
   setup(props) {
     /** 样式 */
     const COMPONENT_NAME = usePrefixClass('checkbox-group');
