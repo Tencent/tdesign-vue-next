@@ -5,7 +5,7 @@ import useVModel from '../hooks/useVModel';
 import useRipple from '../hooks/useRipple';
 import { useContent } from '../hooks/tnode';
 import { useCommonClassName, usePrefixClass } from '../hooks/useConfig';
-import { CheckboxGroupInjectionKey } from './constants';
+import { CheckboxGroupInjectionKey } from './consts';
 import useCheckboxLazyLoad from './hooks/useCheckboxLazyLoad';
 import useKeyboardEvent from './hooks/useKeyboardEvent';
 import { useDisabled } from '../hooks/useDisabled';
@@ -21,7 +21,6 @@ export default defineComponent({
     // 传递给 Checkbox 组件额外的数据
     data: Object,
   },
-
   setup(props) {
     const labelRef = ref<HTMLElement>();
     if (props.needRipple) {
