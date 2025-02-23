@@ -1,5 +1,31 @@
 :: BASE_DOC ::
 
+### Plugin or function invocations
+
+#### Plugin invocations
+
+- `this.$drawer(options)`
+
+#### Function invocations
+
+- `DrawerPlugin(options)`
+
+#### Component instance methods
+
+A component instance refers to `DrawerInstance = this.$drawer(options)` or `DrawerInstance = DrawerPlugin(options)`.
+
+- Destroying a drawer: `DrawerInstance.destroy()`
+
+- Hiding a drawer: `DrawerInstance.hide()`
+
+- Showing a drawer: `DrawerInstance.show()`
+
+- Updating a drawer: `DrawerInstance.update()`
+
+Note that in the following demo, there are multiple instances where DOM elements are not being destroyed. In real-world applications, it is important to consider destroying DOM elements. Otherwise, when users repeatedly click and create instances from plugin or function invocations, a large number of DOM elements can accumulate, leading to potential memory leaks.
+
+{{ plugin }}
+
 ## API
 ### Drawer Props
 
