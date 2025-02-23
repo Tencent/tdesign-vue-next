@@ -1,18 +1,18 @@
 import { ref, toRefs } from 'vue';
-import { TagInputValue, TagInputChangeContext } from './type';
-import { TagInputProps } from './interface';
-import { InputValue } from '../input';
-import Tag from '../tag';
-import useVModel from '../hooks/useVModel';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
-import { useDisabled } from '../hooks/useDisabled';
-import { useReadonly } from '../hooks/useReadonly';
+import { TagInputValue, TagInputChangeContext } from '../type';
+import { TagInputProps } from '../types';
+import { InputValue } from '../../input';
+import Tag from '../../tag';
+import useVModel from '../../hooks/useVModel';
+import { usePrefixClass } from '../../hooks/useConfig';
+import { useTNodeJSX } from '../../hooks/tnode';
+import { useDisabled } from '../../hooks/useDisabled';
+import { useReadonly } from '../../hooks/useReadonly';
 
 export type ChangeParams = [TagInputChangeContext];
 
 // handle tag add and remove
-export default function useTagList(props: TagInputProps) {
+export function useTagList(props: TagInputProps) {
   const renderTNode = useTNodeJSX();
   const classPrefix = usePrefixClass();
   const { value, modelValue, onRemove, max, minCollapsedNum, size, tagProps, getDragProps } = toRefs(props);
