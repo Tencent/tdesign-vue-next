@@ -14,13 +14,11 @@ const defaultNeedPolyfill = getFlexGapPolyFill();
 
 export default defineComponent({
   name: 'TSpace',
-
   props: {
     ...props,
     /** 强制使用 margin 间距代替 gap 属性间距（某些浏览器不支持 gap 属性） */
     forceFlexGapPolyfill: Boolean,
   },
-
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('space');
     const renderTNodeJSX = useTNodeJSX();

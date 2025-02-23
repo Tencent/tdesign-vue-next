@@ -16,7 +16,7 @@ import TButton from '../button';
 export default defineComponent({
   name: 'TPaginationMini',
 
-  props: { ...props },
+  props,
 
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('pagination-mini');
