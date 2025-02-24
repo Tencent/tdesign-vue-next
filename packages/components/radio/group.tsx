@@ -33,7 +33,7 @@ import useResizeObserver from '../hooks/useResizeObserver';
 
 export default defineComponent({
   name: 'TRadioGroup',
-  props: { ...props },
+  props,
   setup(props) {
     const { value, modelValue } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);

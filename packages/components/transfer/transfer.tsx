@@ -27,7 +27,7 @@ import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: TRANSFER_NAME,
-  props: { ...props },
+  props,
 
   setup(props, { slots }) {
     const disabled = useDisabled();

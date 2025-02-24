@@ -18,7 +18,7 @@ const defaultNavigation: SwiperNavigation = {
 
 export default defineComponent({
   name: 'TSwiper',
-  props: { ...props },
+  props,
   emits: ['update:current'],
   setup(props, { emit }) {
     const prefix = usePrefixClass();

@@ -9,7 +9,7 @@ import { useContent } from '../hooks/tnode';
 export default defineComponent({
   name: 'TRadioButton',
   inheritAttrs: false,
-  props: { ...props },
+  props,
   setup(props, { attrs }) {
     provide(RadioButtonInjectionKey, reactive({}));
 
