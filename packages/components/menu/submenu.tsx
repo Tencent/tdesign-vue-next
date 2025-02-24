@@ -258,7 +258,7 @@ export default defineComponent({
       const hasContent = slots.content || slots.default;
       const icon = renderTNodeJSX('icon');
       const child = renderContent('default', 'content');
-      let parent = instance;
+      let parent = instance.parent;
       let paddingLeft = 44;
 
       while (parent && parent.type.name !== 'TMenu') {
@@ -302,7 +302,7 @@ export default defineComponent({
         icon,
         <span class={[`${classPrefix.value}-menu__content`]}>{renderTNodeJSX('title', { silent: true })}</span>,
         <FakeArrow
-          overlayClassName={/menu/i.test(parent.proxy.$options.name) ? arrowClass : null}
+          overlayClassName={/menu/i.test(parent.proxy.$options.name) ? arrowClass.value : null}
           overlayStyle={{ transform: `rotate(${needRotate ? -90 : 0}deg)`, 'margin-left': 'auto' }}
         />,
       ];
