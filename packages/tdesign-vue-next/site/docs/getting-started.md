@@ -139,6 +139,8 @@ module.exports = {
 在 nuxt 3 中，可以安装 nuxt module `@tdesign-vue-next/nuxt`
 
 ```bash
+npx nuxi@latest module add tdesign-vue-next
+# or
 npm install tdesign-vue-next
 npm install -D @tdesign-vue-next/nuxt
 ```

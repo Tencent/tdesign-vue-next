@@ -145,6 +145,8 @@ module.exports = {
 In Nuxt 3, you can install the Nuxt module @tdesign-vue-next/nuxt
 
 ```bash
+npx nuxi@latest module add tdesign-vue-next
+# or
 npm install tdesign-vue-next
 npm install -D @tdesign-vue-next/nuxt
 ```
