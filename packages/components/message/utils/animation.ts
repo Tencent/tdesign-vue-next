@@ -1,4 +1,4 @@
-import { PLACEMENT_LIST } from './const';
+import { PLACEMENT_LIST } from '../consts';
 
 interface Keyframe {
   composite?: CompositeOperationOrAuto;
