@@ -50,6 +50,7 @@ declare module 'vue' {
     TFooter: typeof import('tdesign-vue-next')['Footer'];
     TForm: typeof import('tdesign-vue-next')['Form'];
     TFormItem: typeof import('tdesign-vue-next')['FormItem'];
+    TConfigProvider: typeof import('tdesign-vue-next')['ConfigProvider'];
     TGuide: typeof import('tdesign-vue-next')['Guide'];
     THeadMenu: typeof import('tdesign-vue-next')['HeadMenu'];
     THeader: typeof import('tdesign-vue-next')['Header'];

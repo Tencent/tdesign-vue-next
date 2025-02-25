@@ -512,6 +512,15 @@
               "default": "undefined"
             },
             {
+              "name": "empty",
+              "description": "当下拉联想词列表为空时显示的内容",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/auto-complete?tab=api#autocomplete-props",
+              "type": [
+                "String",
+                "TNode"
+              ]
+            },
+            {
               "name": "filter",
               "description": "自定义过滤规则，用于对现有数据进行搜索过滤，判断是否过滤某一项数据。参数 `filterWords` 表示搜索词，`option`表示单个选项内容，返回值为 `true` 保留该选项，返回值为 `false` 则隐藏该选项。使用该方法时无需设置 `filterable`",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/auto-complete?tab=api#autocomplete-props",
@@ -582,7 +591,7 @@
             },
             {
               "name": "popup-props",
-              "description": "透传 Popup 组件全部特性",
+              "description": "透传 Popup 组件全部属性",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/auto-complete?tab=api#autocomplete-props",
               "type": [
                 "Object"
@@ -729,6 +738,11 @@
             {
               "name": "default",
               "description": "触发显示联想词下拉框的元素，同 `triggerElement`",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/auto-complete?tab=api#autocomplete-props"
+            },
+            {
+              "name": "empty",
+              "description": "当下拉联想词列表为空时显示的内容",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/auto-complete?tab=api#autocomplete-props"
             },
             {
@@ -3763,7 +3777,7 @@
             },
             {
               "name": "popup-props",
-              "description": "参考 popup 组件 API",
+              "description": "透传 Popup 组件全部属性",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/cascader?tab=api#cascader-props",
               "type": [
                 "Object"
@@ -5420,7 +5434,7 @@
             },
             {
               "name": "popup-props",
-              "description": "透传给 popup 组件的参数",
+              "description": "透传 Popup 组件全部属性",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#datepicker-props",
               "type": [
                 "Object"
@@ -5919,7 +5933,7 @@
             },
             {
               "name": "popup-props",
-              "description": "透传给 popup 组件的参数",
+              "description": "透传 Popup 组件全部属性",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/date-range-picker?tab=api#daterangepicker-props",
               "type": [
                 "Object"
@@ -6422,7 +6436,7 @@
             },
             {
               "name": "label-style",
-              "description": "style of description item\n\n自定义描述项标签的样式",
+              "description": "style of description item, which takes effect when `tableLayout` is `auto`\n\n自定义描述项标签的样式，需要配合 `tableLayout` 为 `auto` 才可以生效",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions?tab=api#descriptions-props",
               "type": [
                 "Object"
@@ -6916,8 +6930,173 @@
           },
           "description": "DialogCard\n\n对话框卡片",
           "doc-url": "https://tdesign.tencent.com/vue-next/components/dialog-card",
-          "props": [],
-          "slots": []
+          "props": [
+            {
+              "name": "body",
+              "description": "对话框内容",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/dialog-card?tab=api#dialogcard-props",
+              "type": [
+                "String",
+                "TNode"
+              ]
+            },
+            {
+              "name": "cancel-btn",
+              "description": "取消按钮，可自定义。值为 null 则不显示取消按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制取消事件",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/dialog-card?tab=api#dialogcard-props",
+              "type": [
+                "String",
+                "Object",
+                "TNode"
+              ]
+            },
+            {
+              "name": "close-btn",
+              "description": "关闭按钮，可以自定义。值为 true 显示默认关闭按钮，值为 false 不显示关闭按钮。值类型为 string 则直接显示值，如：“关闭”。值类型为 TNode，则表示呈现自定义按钮示例",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/dialog-card?tab=api#dialogcard-props",
+              "type": [
+                "String",
+                "Boolean",
+                "TNode"
+              ],
+              "default": "true"
+            },
+            {
+              "name": "confirm-btn",
+              "description": "确认按钮。值为 null 则不显示确认按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制确认事件",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/dialog-card?tab=api#dialogcard-props",
+              "type": [
+                "String",
+                "Object",
+                "TNode"
+              ],
+              "default": "true"
+            },
+            {
+              "name": "confirm-loading",
+              "description": "confirm button loading status\n\n确认按钮加载状态",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/dialog-card?tab=api#dialogcard-props",
+              "type": [
+                "Boolean"
+              ]
+            },
+            {
+              "name": "footer",
+              "description": "底部操作栏，默认会有“确认”和“取消”两个按钮。值为 true 显示默认操作按钮，值为 false 不显示任何内容，值类型为 Function 表示自定义底部内容",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/dialog-card?tab=api#dialogcard-props",
+              "type": [
+                "Boolean",
+                "TNode"
+              ],
+              "default": "true"
+            },
+            {
+              "name": "header",
+              "description": "头部内容。值为 true 显示空白头部，值为 false 不显示任何内容，值类型为 string 则直接显示值，值类型为 Function 表示自定义头部内容",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/dialog-card?tab=api#dialogcard-props",
+              "type": [
+                "String",
+                "Boolean",
+                "TNode"
+              ],
+              "default": "true"
+            },
+            {
+              "name": "theme",
+              "description": "对话框风格",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/dialog-card?tab=api#dialogcard-props",
+              "type": [
+                "String"
+              ],
+              "default": "default",
+              "attribute-value": {
+                "type": "enum"
+              },
+              "values": [
+                {
+                  "name": "default"
+                },
+                {
+                  "name": "info"
+                },
+                {
+                  "name": "warning"
+                },
+                {
+                  "name": "danger"
+                },
+                {
+                  "name": "success"
+                }
+              ]
+            }
+          ],
+          "js": {
+            "events": [
+              {
+                "name": "cancel",
+                "description": "如果“取消”按钮存在，则点击“取消”按钮时触发，同时触发关闭事件",
+                "doc-url": "https://tdesign.tencent.com/vue-next/components/dialog-card?tab=api#dialogcard-events"
+              },
+              {
+                "name": "close-btn-click",
+                "description": "点击右上角关闭按钮时触发",
+                "doc-url": "https://tdesign.tencent.com/vue-next/components/dialog-card?tab=api#dialogcard-events"
+              },
+              {
+                "name": "confirm",
+                "description": "如果“确认”按钮存在，则点击“确认”按钮时触发，或者键盘按下回车键时触发",
+                "doc-url": "https://tdesign.tencent.com/vue-next/components/dialog-card?tab=api#dialogcard-events"
+              }
+            ]
+          },
+          "slots": [
+            {
+              "name": "body",
+              "description": "对话框内容",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/dialog-card?tab=api#dialogcard-props"
+            },
+            {
+              "name": "cancelBtn",
+              "description": "取消按钮，可自定义。值为 null 则不显示取消按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制取消事件类型和参数：string | ButtonProps | TNode | null【import { ButtonProps } from '@Button'】",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/dialog-card?tab=api#dialogcard-props"
+            },
+            {
+              "name": "cancel-btn",
+              "description": "取消按钮，可自定义。值为 null 则不显示取消按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制取消事件类型和参数：string | ButtonProps | TNode | null【import { ButtonProps } from '@Button'】",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/dialog-card?tab=api#dialogcard-props"
+            },
+            {
+              "name": "closeBtn",
+              "description": "关闭按钮，可以自定义。值为 true 显示默认关闭按钮，值为 false 不显示关闭按钮。值类型为 string 则直接显示值，如：“关闭”。值类型为 TNode，则表示呈现自定义按钮示例类型和参数：string | ButtonProps | TNode | null【import { ButtonProps } from '@Button'】",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/dialog-card?tab=api#dialogcard-props"
+            },
+            {
+              "name": "close-btn",
+              "description": "关闭按钮，可以自定义。值为 true 显示默认关闭按钮，值为 false 不显示关闭按钮。值类型为 string 则直接显示值，如：“关闭”。值类型为 TNode，则表示呈现自定义按钮示例类型和参数：string | ButtonProps | TNode | null【import { ButtonProps } from '@Button'】",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/dialog-card?tab=api#dialogcard-props"
+            },
+            {
+              "name": "confirmBtn",
+              "description": "确认按钮。值为 null 则不显示确认按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制确认事件类型和参数：string | ButtonProps | TNode | null",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/dialog-card?tab=api#dialogcard-props"
+            },
+            {
+              "name": "confirm-btn",
+              "description": "确认按钮。值为 null 则不显示确认按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制确认事件类型和参数：string | ButtonProps | TNode | null",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/dialog-card?tab=api#dialogcard-props"
+            },
+            {
+              "name": "footer",
+              "description": "底部操作栏，默认会有“确认”和“取消”两个按钮。值为 true 显示默认操作按钮，值为 false 不显示任何内容，值类型为 Function 表示自定义底部内容",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/dialog-card?tab=api#dialogcard-props"
+            },
+            {
+              "name": "header",
+              "description": "头部内容。值为 true 显示空白头部，值为 false 不显示任何内容，值类型为 string 则直接显示值，值类型为 Function 表示自定义头部内容",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/dialog-card?tab=api#dialogcard-props"
+            }
+          ]
         },
         {
           "name": "t-divider",
@@ -7121,6 +7300,14 @@
                 "Boolean"
               ],
               "default": "false"
+            },
+            {
+              "name": "drawer-class-name",
+              "description": "抽屉元素类名。",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/drawer?tab=api#drawer-props",
+              "type": [
+                "String"
+              ]
             },
             {
               "name": "footer",
@@ -7509,7 +7696,7 @@
             },
             {
               "name": "popup-props",
-              "description": "透传  Popup 组件属性，方便更加自由地控制。比如使用 popupProps.overlayStyle 设置浮层样式",
+              "description": "透传 Popup 组件全部属性，方便更加自由地控制。比如使用 popupProps.overlayStyle 设置浮层样式",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/dropdown?tab=api#dropdown-props",
               "type": [
                 "Object"
@@ -8315,6 +8502,300 @@
               "doc-url": "https://tdesign.tencent.com/vue-next/components/form-item?tab=api#formitem-props"
             }
           ]
+        },
+        {
+          "name": "t-config-provider",
+          "source": {
+            "symbol": "GlobalConfigProvider"
+          },
+          "description": "GlobalConfigProvider\n\n全局配置(是 ConfigProvider 的别名)",
+          "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration",
+          "props": [
+            {
+              "name": "alert",
+              "description": "Alert global configs\n\n警告全局配置",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "anchor",
+              "description": "Anchor global configs\n\n锚点全局配置",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "animation",
+              "description": "动画效果控制，`ripple` 指波纹动画， `expand` 指展开动画，`fade` 指渐变动画。默认为 `{ include: ['ripple','expand','fade'], exclude: [] }`",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "attach",
+              "description": "",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "String",
+                "Object",
+                "Function"
+              ]
+            },
+            {
+              "name": "auto-complete",
+              "description": "AutoComplete global configs\n\n自动填充组件全局配置",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "calendar",
+              "description": "Calendar global configs\n\n日历组件全局配置",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "cascader",
+              "description": "Cascader global configs\n\n级联选择器全局配置",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "class-prefix",
+              "description": "CSS 类名前缀",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "String"
+              ],
+              "default": "t"
+            },
+            {
+              "name": "color-picker",
+              "description": "ColorPicker global configs\n\n颜色选择器全局配置",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "date-picker",
+              "description": "DatePicker global configs\n\n日期选择器全局配置",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "descriptions",
+              "description": "Descriptions global configs\n\n描述全局配置",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "dialog",
+              "description": "Dialog global configs\n\n对话框全局配置",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "drawer",
+              "description": "Drawer global configs\n\n抽屉全局配置",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "empty",
+              "description": "Empty global configs\n\n空状态全局配置",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "form",
+              "description": "Form global configs\n\n表单组件全局配置",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "guide",
+              "description": "Guide global configs\n\n引导全局配置",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "icon",
+              "description": "icon config\n\n图标全局配置",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "image",
+              "description": "image global configs\n\n图片全局配置",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "image-viewer",
+              "description": "imageViewer global configs\n\n图片预览器全局配置",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "input",
+              "description": "Input global configs\n\n输入框组件全局配置",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "list",
+              "description": "List global configs\n\n列表组件全局配置",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "message",
+              "description": "Message Component global configs\n\n消息组件全局配置",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "pagination",
+              "description": "Pagination global configs\n\n分页组件全局配置",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "popconfirm",
+              "description": "Popconfirm global configs\n\n气泡确认框全局配置",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "rate",
+              "description": "Rate global configs\n\n评分全局配置",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "select",
+              "description": "Select global configs\n\n选择器组件全局配置",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "steps",
+              "description": "Steps global configs\n\n步骤条组件全局配置",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "table",
+              "description": "Table global configs\n\n表格组件全局配置",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "tag",
+              "description": "Tag global configs\n\n标签全局配置",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "time-picker",
+              "description": "TimePicker global configs\n\n时间选择器全局配置",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "transfer",
+              "description": "Transfer global configs\n\n穿梭框全局配置",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "tree",
+              "description": "Tree global configs\n\n树组件全局配置",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "tree-select",
+              "description": "TreeSelect global configs\n\n树选择器组件全局配置",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "typography",
+              "description": "Typography global configs\n\n排版组件全局配置",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "upload",
+              "description": "Upload global configs\n\n上传组件全局配置",
+              "doc-url": "https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider",
+              "type": [
+                "Object"
+              ]
+            }
+          ],
+          "slots": []
         },
         {
           "name": "t-guide",
@@ -11391,7 +11872,8 @@
               "doc-url": "https://tdesign.tencent.com/vue-next/components/option?tab=api#option-props",
               "type": [
                 "String",
-                "Number"
+                "Number",
+                "Boolean"
               ]
             }
           ],
@@ -11929,7 +12411,7 @@
             },
             {
               "name": "popup-props",
-              "description": "透传 Popup 组件属性",
+              "description": "透传 Popup 组件全部属性",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/popconfirm?tab=api#popconfirm-props",
               "type": [
                 "Object"
@@ -13536,7 +14018,7 @@
             },
             {
               "name": "theme",
-              "description": "component Style\n\n组件风格",
+              "description": "Determine the style of radio when using options API\n\n用于在使用 options 方式渲染时决定组件的风格",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/radio-group?tab=api#radiogroup-props",
               "type": [
                 "String"
@@ -13939,7 +14421,7 @@
             },
             {
               "name": "popup-props",
-              "description": "透传 Popup 浮层组件全部属性",
+              "description": "透传 Popup 组件全部属性",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/range-input-popup?tab=api#rangeinputpopup-props",
               "type": [
                 "Object"
@@ -14721,7 +15203,7 @@
             },
             {
               "name": "popup-props",
-              "description": "透传给 popup 组件的全部属性",
+              "description": "透传 Popup 组件全部属性",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/select?tab=api#select-props",
               "type": [
                 "Object"
@@ -15216,7 +15698,7 @@
             },
             {
               "name": "popup-props",
-              "description": "透传 Popup 浮层组件全部属性",
+              "description": "透传 Popup 组件全部属性",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/select-input?tab=api#selectinput-props",
               "type": [
                 "Object"
@@ -16360,7 +16842,7 @@
             },
             {
               "name": "popup-props",
-              "description": "透传浮层组件全部属性",
+              "description": "透传 Popup 组件全部属性",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/sticky-item?tab=api#stickyitem-props",
               "type": [
                 "Object"
@@ -16464,7 +16946,7 @@
             },
             {
               "name": "popup-props",
-              "description": "透传 Popup 组件全部特性，优先级低于 StickyItem.popupProps",
+              "description": "透传 Popup 组件全部属性，优先级低于 StickyItem.popupProps",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/sticky-tool?tab=api#stickytool-props",
               "type": [
                 "Object"
@@ -16580,7 +17062,7 @@
             },
             {
               "name": "popup-props",
-              "description": "Transparent all feature props of the Popup\n\n透传 Popup 组件全部特性",
+              "description": "Transparent all feature props of the Popup\n\n透传 Popup 组件全部属性",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/submenu?tab=api#submenu-props",
               "type": [
                 "Object"
@@ -18269,7 +18751,7 @@
             },
             {
               "name": "popup-props",
-              "description": "透传给 popup 组件的参数",
+              "description": "透传 Popup 组件全部属性",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/time-picker?tab=api#timepicker-props",
               "type": [
                 "Object"
@@ -18539,7 +19021,7 @@
             },
             {
               "name": "popup-props",
-              "description": "透传给 popup 组件的参数",
+              "description": "透传 Popup 组件全部属性",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/time-range-picker?tab=api#timerangepicker-props",
               "type": [
                 "Object"
@@ -20050,7 +20532,7 @@
             },
             {
               "name": "popup-props",
-              "description": "透传给 popup 组件的全部属性",
+              "description": "透传 Popup 组件全部属性",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/tree-select?tab=api#treeselect-props",
               "type": [
                 "Object"
@@ -20535,6 +21017,14 @@
             {
               "name": "headers",
               "description": "HTTP Request Header\n\n设置上传的请求头部，`action` 存在时有效",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
+              "type": [
+                "Object"
+              ]
+            },
+            {
+              "name": "image-props",
+              "description": "用于在上传图片场景下，透传属性配置至 Image 组件",
               "doc-url": "https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props",
               "type": [
                 "Object"

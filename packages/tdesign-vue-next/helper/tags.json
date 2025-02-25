@@ -69,6 +69,7 @@
       "clearable",
       "default",
       "disabled",
+      "empty",
       "filter",
       "filterable",
       "highlight-keyword",
@@ -740,7 +741,19 @@
     "description": "Dialog\n\n对话框\n\n[docs](https://tdesign.tencent.com/vue-next/components/dialog)"
   },
   "t-dialog-card": {
-    "attributes": [],
+    "attributes": [
+      "body",
+      "cancel-btn",
+      "close-btn",
+      "confirm-btn",
+      "confirm-loading",
+      "footer",
+      "header",
+      "theme",
+      "cancel",
+      "close-btn-click",
+      "confirm"
+    ],
     "description": "DialogCard\n\n对话框卡片\n\n[docs](https://tdesign.tencent.com/vue-next/components/dialog-card)"
   },
   "t-divider": {
@@ -765,6 +778,7 @@
       "confirm-btn",
       "default",
       "destroy-on-close",
+      "drawer-class-name",
       "footer",
       "header",
       "mode",
@@ -892,6 +906,46 @@
       "tips"
     ],
     "description": "FormItem\n\n表单元素\n\n[docs](https://tdesign.tencent.com/vue-next/components/form-item)"
+  },
+  "t-config-provider": {
+    "attributes": [
+      "alert",
+      "anchor",
+      "animation",
+      "attach",
+      "auto-complete",
+      "calendar",
+      "cascader",
+      "class-prefix",
+      "color-picker",
+      "date-picker",
+      "descriptions",
+      "dialog",
+      "drawer",
+      "empty",
+      "form",
+      "guide",
+      "icon",
+      "image",
+      "image-viewer",
+      "input",
+      "list",
+      "message",
+      "pagination",
+      "popconfirm",
+      "rate",
+      "select",
+      "steps",
+      "table",
+      "tag",
+      "time-picker",
+      "transfer",
+      "tree",
+      "tree-select",
+      "typography",
+      "upload"
+    ],
+    "description": "GlobalConfigProvider\n\n全局配置(是 ConfigProvider 的别名)\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration)"
   },
   "t-guide": {
     "attributes": [
@@ -2218,6 +2272,7 @@
       "format-request",
       "format-response",
       "headers",
+      "image-props",
       "image-viewer-props",
       "input-attributes",
       "is-batch-upload",
