@@ -8,9 +8,7 @@ import type { InjectTabs } from './tabs';
 
 export default defineComponent({
   name: 'TTabPanel',
-
-  props: { ...props },
-
+  props,
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('tab-panel');
     const { STATUS } = useCommonClassName();

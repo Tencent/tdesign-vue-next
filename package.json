@@ -14,8 +14,10 @@
     "node": ">= 18"
   },
   "scripts": {
+    "pnpm:devPreinstall": "pnpm run init",
+    "postinstall": "husky install && pnpm -C internal/utils build",
     "init": "git submodule init && git submodule update",
-    "start": "pnpm run init && pnpm dev",
+    "start": "pnpm dev",
     "dev": "pnpm -C packages/tdesign-vue-next/site dev",
     "site": "pnpm -C packages/tdesign-vue-next/site build",
     "site:intranet": "pnpm -C packages/tdesign-vue-next/site intranet",
@@ -40,8 +42,7 @@
     "test:unit-coverage": "pnpm -C packages/tdesign-vue-next/test test:unit-coverage",
     "test:snap": "pnpm -C packages/tdesign-vue-next/test test:snap",
     "test:snap-update": "pnpm -C packages/tdesign-vue-next/test test:snap-update",
-    "robot": "publish-cli robot-msg",
-    "prepare": "husky install"
+    "robot": "publish-cli robot-msg"
   },
   "author": "tdesign",
   "license": "MIT",
@@ -51,6 +52,8 @@
     "@tdesign/common-js": "workspace:^",
     "@tdesign/common-style": "workspace:^",
     "@tdesign/components": "workspace:^",
+    "@tdesign/internal-utils": "workspace:^",
+    "@tdesign/internal-tests": "workspace:^",
     "@types/sortablejs": "^1.15.1",
     "@types/tinycolor2": "^1.4.3",
     "@types/validator": "^13.7.17",
@@ -82,7 +85,6 @@
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-replace": "^4.0.0",
     "@rollup/plugin-url": "^7.0.0",
-    "@tdesign/internal-tests": "workspace:^",
     "@testing-library/dom": "^8.20.1",
     "@types/babel__traverse": "~7.20.6",
     "@types/lodash-es": "^4.17.12",

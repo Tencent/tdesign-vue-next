@@ -3,18 +3,15 @@ import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-
 import TInput, { InputProps, StrInputProps, TdInputProps } from '../input';
 import { TdTagInputProps } from './type';
 import props from './props';
-import { renderTNodeJSX } from '../utils/render-tnode';
 import { useConfig } from '../config-provider/useConfig';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import useTagScroll from './hooks/useTagScroll';
-import useTagList from './useTagList';
-import useHover from './hooks/useHover';
+import { useTagScroll, useHover, useDragSorter, useTagList } from './hooks';
 import useDefault from '../hooks/useDefaultValue';
-import useDragSorter from './hooks/useDragSorter';
 import { isArray } from 'lodash-es';
 import { useDisabled } from '../hooks/useDisabled';
 import { useReadonly } from '../hooks/useReadonly';
+import { useTNodeJSX } from '../hooks/tnode';
 
 const useComponentClassName = () => {
   return {
@@ -26,17 +23,16 @@ const useComponentClassName = () => {
 
 export default defineComponent({
   name: 'TTagInput',
-
-  props: { ...props },
-
-  setup(props: TdTagInputProps) {
+  props,
+  setup(props: TdTagInputProps, { slots }) {
+    const renderTNodeJSX = useTNodeJSX();
     const { NAME_CLASS, CLEAR_CLASS, BREAK_LINE_CLASS } = useComponentClassName();
     const { CloseCircleFilledIcon } = useGlobalIcon({ CloseCircleFilledIcon: TdCloseCircleFilledIcon });
 
     const isDisabled = useDisabled();
     const isReadonly = useReadonly();
 
-    const { inputValue, inputProps } = toRefs(props);
+    const { inputValue, inputProps, borderless, size, tips, status, suffix, autoWidth, onPaste } = toRefs(props);
     const [tInputValue, setTInputValue] = useDefault(
       inputValue,
       props.defaultInputValue,
@@ -133,14 +129,6 @@ export default defineComponent({
       props.onClear?.(context);
     };
 
-    const focus = () => {
-      tagInputRef.value?.focus();
-    };
-
-    const blur = () => {
-      tagInputRef.value?.blur();
-    };
-
     const onMouseEnter: InputProps['onMouseenter'] = (context) => {
       addHover(context);
       scrollToRightOnEnter();
@@ -177,106 +165,68 @@ export default defineComponent({
         else scrollElement.classList.remove(`${scrollElementClass}--scrollable`);
       },
     );
-    return {
-      CLEAR_CLASS,
-      CloseCircleFilledIcon,
-      tagValue,
-      tInputValue,
-      isHover,
-      tagInputPlaceholder,
-      showClearIcon,
-      tagInputRef,
-      classPrefix,
-      isFocused,
-      focus,
-      blur,
-      setTInputValue,
-      onMouseEnter,
-      onMouseLeave,
-      onInnerFocus,
-      onInnerBlur,
-      onInnerChange,
-      addHover,
-      cancelHover,
-      onInputEnter,
-      onInnerEnter,
-      onInputBackspaceKeyUp,
-      onInputBackspaceKeyDown,
-      renderLabel,
-      onWheel,
-      scrollToRightOnEnter,
-      scrollToLeftOnLeave,
-      onClick,
-      onClearClick,
-      onClose,
-      onInputCompositionstart,
-      onInputCompositionend,
-      classes,
-      isDisabled,
-      isReadonly,
-    };
-  },
 
-  render() {
-    const { CloseCircleFilledIcon } = this;
-    const suffixIconNode = this.showClearIcon ? (
-      <CloseCircleFilledIcon class={this.CLEAR_CLASS} onClick={this.onClearClick} />
-    ) : (
-      renderTNodeJSX(this, 'suffixIcon')
-    );
-    const prefixIconNode = renderTNodeJSX(this, 'prefixIcon');
-    const suffixClass = `${this.classPrefix}-tag-input__with-suffix-icon`;
-    if (suffixIconNode && !this.classes.includes(suffixClass)) {
-      this.classes.push(suffixClass);
-    }
-    // 自定义 Tag 节点
-    const displayNode = renderTNodeJSX(this, 'valueDisplay', {
-      params: {
-        value: this.tagValue,
-        onClose: (index: number) => this.onClose({ index }),
-      },
-    });
-    // 左侧文本
-    const label = renderTNodeJSX(this, 'label', { silent: true });
-    const inputProps = this.inputProps as TdTagInputProps['inputProps'];
-    const readonly = this.isReadonly || inputProps?.readonly;
-    return (
-      <TInput
-        ref="tagInputRef"
-        v-slots={{
-          suffix: this.$slots.suffix,
-        }}
-        borderless={this.borderless}
-        readonly={readonly}
-        showInput={!readonly || !this.tagValue || !this.tagValue?.length}
-        value={this.tInputValue}
-        autoWidth={true} // 控制input_inner的宽度 设置为true让内部input不会提前换行
-        size={this.size}
-        disabled={this.isDisabled}
-        label={() => this.renderLabel({ displayNode, label })}
-        class={this.classes}
-        tips={this.tips}
-        status={this.status}
-        placeholder={this.tagInputPlaceholder}
-        suffix={this.suffix}
-        suffixIcon={() => suffixIconNode}
-        prefixIcon={() => prefixIconNode}
-        keepWrapperWidth={!this.autoWidth}
-        onWheel={this.onWheel}
-        onChange={this.onInnerChange}
-        onPaste={this.onPaste}
-        onEnter={this.onInputEnter}
-        onKeyup={this.onInputBackspaceKeyUp}
-        onKeydown={this.onInputBackspaceKeyDown}
-        onMouseenter={this.onMouseEnter}
-        onMouseleave={this.onMouseLeave}
-        onFocus={this.onInnerFocus}
-        onBlur={this.onInnerBlur}
-        onClick={this.onClick}
-        onCompositionstart={this.onInputCompositionstart}
-        onCompositionend={this.onInputCompositionend}
-        {...(this.inputProps as TdTagInputProps['inputProps'])}
-      />
-    );
+    return () => {
+      const suffixIconNode = showClearIcon.value ? (
+        <CloseCircleFilledIcon class={CLEAR_CLASS.value} onClick={onClearClick} />
+      ) : (
+        renderTNodeJSX('suffixIcon')
+      );
+      const prefixIconNode = renderTNodeJSX('prefixIcon');
+      const suffixClass = `${classPrefix.value}-tag-input__with-suffix-icon`;
+      if (suffixIconNode && !classes.value.includes(suffixClass)) {
+        classes.value.push(suffixClass);
+      }
+      // 自定义 Tag 节点
+      const displayNode = renderTNodeJSX('valueDisplay', {
+        params: {
+          value: tagValue.value,
+          onClose: (index: number) => onClose({ index }),
+        },
+      });
+      // 左侧文本
+      const label = renderTNodeJSX('label', { silent: true });
+      // const inputProps = inputProps as TdTagInputProps['inputProps'];
+      const readonly = isReadonly.value || inputProps.value?.readonly;
+
+      return (
+        <TInput
+          ref={tagInputRef}
+          v-slots={{
+            suffix: slots.suffix,
+          }}
+          borderless={borderless.value}
+          readonly={readonly}
+          showInput={!readonly || !tagValue.value || !tagValue.value?.length}
+          value={tInputValue.value}
+          autoWidth={true} // 控制input_inner的宽度 设置为true让内部input不会提前换行
+          size={size.value}
+          disabled={isDisabled.value}
+          label={() => renderLabel({ displayNode, label })}
+          class={classes.value}
+          tips={tips.value}
+          status={status.value}
+          placeholder={tagInputPlaceholder.value}
+          suffix={suffix.value}
+          suffixIcon={() => suffixIconNode}
+          prefixIcon={() => prefixIconNode}
+          keepWrapperWidth={!autoWidth.value}
+          onWheel={onWheel}
+          onChange={onInnerChange}
+          onPaste={onPaste.value}
+          onEnter={onInputEnter}
+          onKeyup={onInputBackspaceKeyUp}
+          onKeydown={onInputBackspaceKeyDown}
+          onMouseenter={onMouseEnter}
+          onMouseleave={onMouseLeave}
+          onFocus={onInnerFocus}
+          onBlur={onInnerBlur}
+          onClick={onClick}
+          onCompositionstart={onInputCompositionstart}
+          onCompositionend={onInputCompositionend}
+          {...inputProps.value}
+        />
+      );
+    };
   },
 });

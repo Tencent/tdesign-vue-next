@@ -12,7 +12,7 @@ import {
 } from 'vue';
 import { isObject, merge, omit } from 'lodash-es';
 
-import calcTextareaHeight from './calcTextareaHeight';
+import { calcTextareaHeight } from './utils';
 import { FormItemInjectionKey } from '../form/const';
 import setStyle from '@tdesign/common-js/utils/setStyle';
 import { getCharacterLength } from '@tdesign/common-js/utils/helper';
@@ -33,8 +33,7 @@ import { getValidAttrs } from '@tdesign/common-js/utils/helper';
 export default defineComponent({
   name: 'TTextarea',
   inheritAttrs: false,
-  props: { ...props },
-
+  props,
   setup(props: TdTextareaProps, { attrs, expose }) {
     const prefix = usePrefixClass();
     const name = usePrefixClass('textarea');

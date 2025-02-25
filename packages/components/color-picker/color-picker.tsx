@@ -5,14 +5,12 @@ import props from './props';
 import { Popup as TPopup } from '../popup';
 import ColorPanel from './panel';
 import DefaultTrigger from './trigger';
-import { TdColorContext } from './interfaces';
+import { TdColorContext } from './types';
 import { useBaseClassName } from './hooks';
 
 export default defineComponent({
   name: 'TColorPicker',
-  props: {
-    ...props,
-  },
+  props,
   setup(props) {
     const baseClassName = useBaseClassName();
     const visible = ref(false);

@@ -20,7 +20,7 @@ import { formatImages, getOverlay } from './utils';
 
 export default defineComponent({
   name: 'TImageViewer',
-  props: { ...props },
+  props,
   setup(props) {
     const classPrefix = usePrefixClass();
     const COMPONENT_NAME = usePrefixClass('image-viewer');

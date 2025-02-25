@@ -2,9 +2,7 @@ import { defineComponent } from 'vue';
 import semver from 'semver';
 import siteConfig from '../../site.config';
 import { htmlContent, mainJsContent, styleContent, packageJSONContent } from './codeSandbox/content';
-
-// TODO
-import packageJson from '../../../package.json';
+import { tdesignVueNextPackageJson } from '@tdesign/internal-utils/package-json';
 
 const { docs, enDocs } = JSON.parse(JSON.stringify(siteConfig).replace(/component:.+/g, ''));
 
@@ -30,7 +28,7 @@ const docsMap = {
   en: enDocs,
 };
 
-const currentVersion = packageJson.version.replace(/\./g, '_');
+const currentVersion = tdesignVueNextPackageJson.version.replace(/\./g, '_');
 const registryUrl = 'https://service-edbzjd6y-1257786608.hk.apigw.tencentcs.com/release/npm/versions/tdesign-vue-next';
 
 // 过滤小版本号
@@ -52,7 +50,7 @@ export default defineComponent({
   data() {
     return {
       loaded: false,
-      version: packageJson.version,
+      version: tdesignVueNextPackageJson.version,
       options: [],
     };
   },
@@ -110,7 +108,7 @@ export default defineComponent({
       const historyUrl = `//${version}-tdesign-vue-next.surge.sh`;
       window.open(historyUrl, '_blank');
       this.$nextTick(() => {
-        this.version = packageJson.version;
+        this.version = tdesignVueNextPackageJson.version;
       });
     },
   },

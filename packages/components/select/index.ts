@@ -1,6 +1,6 @@
 import _Select from './select';
 import _Option from './option';
-import _OptionGroup from './optionGroup';
+import _OptionGroup from './option-group';
 import withInstall from '../utils/withInstall';
 import { TdSelectProps, TdOptionProps, TdOptionGroupProps, SelectOption } from './type';
 

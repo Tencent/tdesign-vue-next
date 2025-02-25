@@ -23,10 +23,8 @@ function calcArrayValue(value: unknown | Array<unknown>) {
 
 export default defineComponent({
   name: 'TRangeInput',
-
   inheritAttrs: false,
   props,
-
   setup(props, { expose, attrs }) {
     const { value, modelValue } = toRefs(props);
     const { STATUS, SIZE } = useCommonClassName();

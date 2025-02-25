@@ -1,7 +1,7 @@
 import { ref, reactive } from 'vue';
-import { DragSortProps, DragSortInnerProps } from '../interface';
+import { DragSortProps, DragSortInnerProps } from '../types';
 
-export default function useDragSorter<T>(props: DragSortProps<T>): DragSortInnerProps {
+export function useDragSorter<T>(props: DragSortProps<T>): DragSortInnerProps {
   const { sortOnDraggable, onDragSort, onDragOverCheck } = props;
   const draggingIndex = ref(-1);
   const dragStartData = ref(null);
