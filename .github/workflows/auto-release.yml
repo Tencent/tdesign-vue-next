@@ -5,7 +5,7 @@ on:
     branches: [develop]
     types: [opened, synchronize, reopened, closed]
     paths:
-      - "package.json"
+      - "packages/tdesign-vue-next/package.json"
   issue_comment:
     types: [edited]
 
@@ -18,11 +18,18 @@ jobs:
       startsWith(github.head_ref, 'release/')
     steps:
       - run: echo "The head of this PR starts with 'release/'"
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      - uses: TDesignOteam/tdesign-tag-action@main
+        id: tag-action
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version_file: packages/tdesign-vue-next/package.json
       - uses: TDesignOteam/tdesign-changelog-action@main
         id: changelog
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag: ${{ steps.tag-action.outputs.version }}  
       - name: Add comment
         uses: peter-evans/create-or-update-comment@v1
         with:
@@ -78,7 +85,7 @@ jobs:
           token: ${{ secrets.PERSONAL_TOKEN }}
       - name: tag and push if needed
         run: |
-          data=$(cat package.json)
+          data=$(cat packages/tdesign-vue-next/package.json)
           re="\"version\": \"([^\"]*)\""
           [[ $data =~ $re ]]
           echo "${BASH_REMATCH[1]}"
