@@ -7,7 +7,7 @@ import { isFunction } from 'lodash-es';
 import { onMounted, onUnmounted, ref, toRefs } from 'vue';
 import { TdTagInputProps } from '../type';
 
-export default function useTagScroll(props: TdTagInputProps) {
+export function useTagScroll(props: TdTagInputProps) {
   const tagInputRef = ref();
   const { excessTagsDisplayType, readonly, disabled } = toRefs(props);
   // 允许向右滚动的最大距离

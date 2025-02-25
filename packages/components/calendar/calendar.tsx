@@ -9,10 +9,16 @@ import props from './props';
 import * as utils from './utils';
 import { useConfig } from '../hooks/useConfig';
 import { useContent } from '../hooks/tnode';
-import { useState, useCalendarClass, userController, useColHeaders } from './hook';
+import { useState, useCalendarClass, userController, useColHeaders } from './hooks';
 
 // 组件的一些常量
-import { COMPONENT_NAME, MIN_YEAR, FIRST_MONTH_OF_YEAR, LAST_MONTH_OF_YEAR, DEFAULT_YEAR_CELL_NUMINROW } from './const';
+import {
+  COMPONENT_NAME,
+  MIN_YEAR,
+  FIRST_MONTH_OF_YEAR,
+  LAST_MONTH_OF_YEAR,
+  DEFAULT_YEAR_CELL_NUMINROW,
+} from './consts';
 
 // 子组件
 import { Select as TSelect } from '../select';
@@ -23,12 +29,12 @@ import CalendarCellItem from './calendar-cell';
 
 // 组件相关类型
 import { CalendarCell } from './type';
-import { CalendarRange, YearMonthOption, ModeOption, CellEventOption } from './interface';
+import { CalendarRange, YearMonthOption, ModeOption, CellEventOption } from './types';
 
 // 组件逻辑
 export default defineComponent({
   name: 'TCalendar',
-  props: { ...props },
+  props,
   setup(props, { slots }) {
     const renderContent = useContent();
     const { t, globalConfig } = useConfig(COMPONENT_NAME);

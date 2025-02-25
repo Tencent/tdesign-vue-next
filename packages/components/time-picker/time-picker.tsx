@@ -23,9 +23,7 @@ dayjs.extend(customParseFormat);
 
 export default defineComponent({
   name: 'TTimePicker',
-
-  props: { ...props },
-
+  props,
   setup(props) {
     const renderTNodeJSX = useTNodeJSX();
     const { globalConfig } = useConfig('timePicker');

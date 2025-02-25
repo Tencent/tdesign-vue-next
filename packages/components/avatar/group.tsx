@@ -8,7 +8,6 @@ import { getChildren } from '../utils/render-tnode';
 export default defineComponent({
   name: 'TAvatarGroup',
   props,
-
   setup(props) {
     provide('avatarGroup', props);
     const renderTNodeJSX = useTNodeJSX();

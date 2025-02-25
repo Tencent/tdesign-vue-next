@@ -9,7 +9,7 @@ import { isArray } from 'lodash-es';
 
 export default defineComponent({
   name: 'TRate',
-  props: { ...props },
+  props,
   setup(props, { slots }) {
     const renderTNodeJSX = useTNodeJSX();
     const { globalConfig } = useConfig('rate');

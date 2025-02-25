@@ -9,7 +9,7 @@ import Tooltip from '../tooltip';
 
 export default defineComponent({
   name: 'TMenuItem',
-  props: { ...props },
+  props,
   emits: ['click'],
   setup(props, ctx) {
     const { href, target } = toRefs(props);

@@ -21,7 +21,6 @@ import { dateCorrection } from './utils';
 
 export default defineComponent({
   name: 'TDateRangePickerPanel',
-
   props: {
     value: dateRangePickerProps.value,
     defaultValue: dateRangePickerProps.defaultValue,

@@ -21,11 +21,7 @@ import { isDate } from 'lodash-es';
 
 export default defineComponent({
   name: 'TDatePicker',
-
-  props: {
-    ...props,
-  },
-
+  props,
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('date-picker');
 

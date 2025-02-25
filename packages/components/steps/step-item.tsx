@@ -11,7 +11,6 @@ import { useTNodeJSX, useContent } from '../hooks';
 export default defineComponent({
   name: 'TStepItem',
   props: { ...props, index: Number },
-
   setup(props) {
     const stepsState = inject('StepsState', undefined);
     const stepsProps = inject('StepsProps', undefined);

@@ -15,9 +15,7 @@ export interface InjectTabs {
 
 export default defineComponent({
   name: 'TTabs',
-
   props,
-
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('tabs');
     const classPrefix = usePrefixClass();

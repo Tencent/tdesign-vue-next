@@ -31,7 +31,7 @@ import useDefaultValue from '../hooks/useDefaultValue';
 
 export default defineComponent({
   name: 'THeadMenu',
-  props: { ...props },
+  props,
   setup(props, ctx) {
     const classPrefix = usePrefixClass();
     const { proxy } = getCurrentInstance();

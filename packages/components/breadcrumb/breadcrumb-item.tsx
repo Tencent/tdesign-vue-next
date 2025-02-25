@@ -28,9 +28,7 @@ const localTBreadcrumbOrigin: LocalTBreadcrumb = {
 export default defineComponent({
   name: 'TBreadcrumbItem',
   inheritAttrs: false,
-  props: {
-    ...props,
-  },
+  props,
   setup(props, { attrs }) {
     const renderContent = useContent();
     const renderTNodeJSX = useTNodeJSX();

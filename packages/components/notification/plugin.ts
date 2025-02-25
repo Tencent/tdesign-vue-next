@@ -1,5 +1,5 @@
 import { App, Plugin, createApp, nextTick, ComponentPublicInstance } from 'vue';
-import NotificationList from './notificationList';
+import NotificationList from './notification-list';
 import { getAttach } from '../utils/dom';
 import {
   NotificationOptions,

@@ -1,7 +1,7 @@
 import { computed, defineComponent, inject, PropType } from 'vue';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
-import { descriptionsKey } from './const';
-import { ItemsType, TdDescriptionItem } from './interface';
+import { descriptionsKey } from './consts';
+import { ItemsType, TdDescriptionItem } from './types';
 import { renderVNodeTNode, itemTypeIsProps } from './utils';
 
 export default defineComponent({
