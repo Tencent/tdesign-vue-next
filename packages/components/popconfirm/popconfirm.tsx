@@ -17,7 +17,6 @@ import type { TdDialogProps } from '../dialog/type';
 export default defineComponent({
   name: 'TPopconfirm',
   props,
-
   setup(props) {
     const { globalConfig } = useConfig('popconfirm');
     const COMPONENT_NAME = usePrefixClass('popconfirm');

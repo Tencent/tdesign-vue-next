@@ -10,7 +10,7 @@ export default defineComponent({
 
   inject: ['rowContext'],
 
-  props: { ...props },
+  props,
 
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('col');

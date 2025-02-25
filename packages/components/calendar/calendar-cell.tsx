@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 import { useCommonClassName } from '../hooks/useConfig';
 import { useContent } from '../hooks/tnode';
 
-import { useCalendarCellClass } from './hook';
+import { useCalendarCellClass } from './hooks';
 
 // 组件相关的自定义类型
 import { CalendarCell } from './type';

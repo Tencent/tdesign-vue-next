@@ -63,7 +63,7 @@ export function getFormItemClassName(componentName: string, name?: string) {
 export default defineComponent({
   name: 'TFormItem',
 
-  props: { ...props },
+  props,
   setup(props, { slots }) {
     const renderContent = useTNodeJSX();
     const CLASS_NAMES = useCLASSNAMES();

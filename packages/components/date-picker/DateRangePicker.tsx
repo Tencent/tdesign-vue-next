@@ -25,11 +25,7 @@ import { useReadonly } from '../hooks/useReadonly';
 
 export default defineComponent({
   name: 'TDateRangePicker',
-
-  props: {
-    ...props,
-  },
-
+  props,
   setup(props, { slots }) {
     const COMPONENT_NAME = usePrefixClass('date-range-picker');
 

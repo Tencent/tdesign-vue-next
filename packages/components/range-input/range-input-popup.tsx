@@ -9,7 +9,6 @@ import { TdRangeInputPopupProps } from './type';
 export default defineComponent({
   name: 'TRangeInputPopup',
   props,
-
   setup(props: TdRangeInputPopupProps) {
     const COMPONENT_NAME = usePrefixClass('range-input-popup');
 

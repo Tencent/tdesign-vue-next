@@ -1,13 +1,12 @@
 import { defineComponent, PropType, computed, ref } from 'vue';
 import { ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
 
-import { getFullPathLabel } from '../core/helper';
-import { getCascaderItemClass, getCascaderItemIconClass } from '../core/className';
+import { getFullPathLabel, getCascaderItemClass, getCascaderItemIconClass } from '../utils';
 
 import Checkbox from '../../checkbox/index';
 import TLoading from '../../loading';
 
-import { CascaderContextType, TreeNodeValue, TreeNode, TdCascaderProps } from '../interface';
+import { CascaderContextType, TreeNodeValue, TreeNode, TdCascaderProps } from '../types';
 import { usePrefixClass, useCommonClassName } from '../../hooks/useConfig';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 import useRipple from '../../hooks/useRipple';

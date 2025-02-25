@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import { defineConfig, searchForWorkspaceRoot } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 import tDocPlugin from './plugin-doc';
 import pwaConfig from './pwaConfig';
@@ -20,7 +20,7 @@ export default ({ mode }) => {
       open: '/',
       https: false,
       fs: {
-        allow: ['..'],
+        allow: [searchForWorkspaceRoot(process.cwd())],
       },
     },
     plugins: [...basePlugin, tDocPlugin(), VitePWA(pwaConfig)],

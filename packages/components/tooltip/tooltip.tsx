@@ -6,7 +6,7 @@ import popupProps from '../popup/props';
 import Popup, { PopupVisibleChangeContext } from '../popup';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
-import { useMouse } from './util';
+import { useMouse } from './utils';
 import useVModel from '../hooks/useVModel';
 
 export default defineComponent({

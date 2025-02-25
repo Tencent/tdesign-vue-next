@@ -7,7 +7,7 @@ export interface UseHoverParams {
   onMouseleave: (context: { e: MouseEvent }) => void;
 }
 
-export default function useHover(props: UseHoverParams) {
+export function useHover(props: UseHoverParams) {
   const { disabled, readonly, onMouseenter, onMouseleave } = props;
   const isHover = ref<boolean>(false);
 
