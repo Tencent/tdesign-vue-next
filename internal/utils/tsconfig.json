@@ -3,7 +3,7 @@
     "declaration": true,
     "emitDeclarationOnly": true,
     "rootDir": ".",
-    "outDir": "types",
+    "outDir": "dist/types",
     "resolveJsonModule": true,
     "esModuleInterop": true
   },
