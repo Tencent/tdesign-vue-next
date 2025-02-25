@@ -3,7 +3,7 @@ import Popup from '../popup';
 import { usePrefixClass } from '../hooks/useConfig';
 import RangeInput from './range-input';
 import props from './range-input-popup-props';
-import useOverlayInnerStyle from '../select-input/useOverlayInnerStyle';
+import { useOverlayInnerStyle } from '../select-input/hooks/useOverlayInnerStyle';
 import { TdRangeInputPopupProps } from './type';
 
 export default defineComponent({
