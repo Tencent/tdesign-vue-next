@@ -967,6 +967,17 @@
     ],
     "description": "IconSVG\n\n图标（IconSVG）\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon-svg)"
   },
+  "t-icon": {
+    "attributes": [
+      "load-default-icons",
+      "name",
+      "size",
+      "style",
+      "url",
+      "click"
+    ],
+    "description": "IconSVG\n\n图标（IconSVG）\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon-svg)"
+  },
   "t-iconfont": {
     "attributes": [
       "load-default-icons",

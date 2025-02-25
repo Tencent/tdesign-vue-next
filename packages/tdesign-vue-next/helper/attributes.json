@@ -3347,7 +3347,15 @@
     "type": "Boolean",
     "description": "是否加载组件库内置图标\n\ndefault: true\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon-svg?tab=api#iconsvg-props)"
   },
+  "t-icon/load-default-icons": {
+    "type": "Boolean",
+    "description": "是否加载组件库内置图标\n\ndefault: true\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon-svg?tab=api#iconsvg-props)"
+  },
   "t-icon-svg/name": {
+    "type": "String",
+    "description": "图标名称\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon-svg?tab=api#iconsvg-props)"
+  },
+  "t-icon/name": {
     "type": "String",
     "description": "图标名称\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon-svg?tab=api#iconsvg-props)"
   },
@@ -3355,7 +3363,15 @@
     "type": "String",
     "description": "图标尺寸，支持 'small', 'medium', 'large'，'35px', '3em' 等\n\ndefault: undefined\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon-svg?tab=api#iconsvg-props)"
   },
+  "t-icon/size": {
+    "type": "String",
+    "description": "图标尺寸，支持 'small', 'medium', 'large'，'35px', '3em' 等\n\ndefault: undefined\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon-svg?tab=api#iconsvg-props)"
+  },
   "t-icon-svg/style": {
+    "type": "String",
+    "description": "可用于设置图标颜色，如：style=\\\"color: red\\\"\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon-svg?tab=api#iconsvg-props)"
+  },
+  "t-icon/style": {
     "type": "String",
     "description": "可用于设置图标颜色，如：style=\\\"color: red\\\"\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon-svg?tab=api#iconsvg-props)"
   },
@@ -3363,7 +3379,15 @@
     "type": "String|Array",
     "description": "图标地址，地址内容参考[组件内部默认加载图标](https://tdesign.gtimg.com/icon/web/index.js)\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon-svg?tab=api#iconsvg-props)"
   },
+  "t-icon/url": {
+    "type": "String|Array",
+    "description": "图标地址，地址内容参考[组件内部默认加载图标](https://tdesign.gtimg.com/icon/web/index.js)\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon-svg?tab=api#iconsvg-props)"
+  },
   "t-icon-svg/click": {
+    "type": "event",
+    "description": "点击时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon-svg?tab=api#iconsvg-events)"
+  },
+  "t-icon/click": {
     "type": "event",
     "description": "点击时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon-svg?tab=api#iconsvg-events)"
   },

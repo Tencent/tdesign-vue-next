@@ -8891,6 +8891,69 @@
           "slots": []
         },
         {
+          "name": "t-icon",
+          "source": {
+            "symbol": "IconSVG"
+          },
+          "description": "IconSVG\n\n图标（IconSVG）",
+          "doc-url": "https://tdesign.tencent.com/vue-next/components/icon-svg",
+          "props": [
+            {
+              "name": "load-default-icons",
+              "description": "是否加载组件库内置图标",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/icon-svg?tab=api#iconsvg-props",
+              "type": [
+                "Boolean"
+              ],
+              "default": "true"
+            },
+            {
+              "name": "name",
+              "description": "图标名称",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/icon-svg?tab=api#iconsvg-props",
+              "type": [
+                "String"
+              ]
+            },
+            {
+              "name": "size",
+              "description": "图标尺寸，支持 'small', 'medium', 'large'，'35px', '3em' 等",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/icon-svg?tab=api#iconsvg-props",
+              "type": [
+                "String"
+              ],
+              "default": "undefined"
+            },
+            {
+              "name": "style",
+              "description": "可用于设置图标颜色，如：style=\\\"color: red\\\"",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/icon-svg?tab=api#iconsvg-props",
+              "type": [
+                "String"
+              ]
+            },
+            {
+              "name": "url",
+              "description": "图标地址，地址内容参考[组件内部默认加载图标](https://tdesign.gtimg.com/icon/web/index.js)",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/icon-svg?tab=api#iconsvg-props",
+              "type": [
+                "String",
+                "Array"
+              ]
+            }
+          ],
+          "js": {
+            "events": [
+              {
+                "name": "click",
+                "description": "点击时触发",
+                "doc-url": "https://tdesign.tencent.com/vue-next/components/icon-svg?tab=api#iconsvg-events"
+              }
+            ]
+          },
+          "slots": []
+        },
+        {
           "name": "t-iconfont",
           "source": {
             "symbol": "Iconfont"
