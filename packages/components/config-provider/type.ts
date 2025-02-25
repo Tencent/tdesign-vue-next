@@ -33,10 +33,6 @@ export interface GlobalConfigProvider {
    */
   animation?: Partial<Record<'include' | 'exclude', Array<AnimationType>>>;
   /**
-   * null
-   */
-  attach?: AttachNode | { imageViewer?: AttachNode; popup?: AttachNode; dialog?: AttachNode; drawer?: AttachNode };
-  /**
    * 自动填充组件全局配置
    */
   autoComplete?: AutoCompleteConfig;
