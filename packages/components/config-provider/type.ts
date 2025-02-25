@@ -10,7 +10,14 @@ import { ButtonProps } from '../button';
 import { FormErrorMessage } from '../form';
 import { MessageOptions } from '../message';
 import { ImageProps } from '../image';
-import { TNode, SizeEnum } from '../common';
+import { TNode, SizeEnum, AttachNode } from '../common';
+
+export interface TdConfigProviderProps {
+  /**
+   * 全局配置
+   */
+  globalConfig?: GlobalConfigProvider;
+}
 
 export interface GlobalConfigProvider {
   /**
@@ -25,6 +32,10 @@ export interface GlobalConfigProvider {
    * 动画效果控制，`ripple` 指波纹动画， `expand` 指展开动画，`fade` 指渐变动画。默认为 `{ include: ['ripple','expand','fade'], exclude: [] }`
    */
   animation?: Partial<Record<'include' | 'exclude', Array<AnimationType>>>;
+  /**
+   * null
+   */
+  attach?: AttachNode | { imageViewer?: AttachNode; popup?: AttachNode; dialog?: AttachNode; drawer?: AttachNode };
   /**
    * 自动填充组件全局配置
    */

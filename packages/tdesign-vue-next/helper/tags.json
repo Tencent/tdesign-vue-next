@@ -563,6 +563,12 @@
     ],
     "description": "Comment\n\n评论\n\n[docs](https://tdesign.tencent.com/vue-next/components/comment)"
   },
+  "t-config-provider": {
+    "attributes": [
+      "global-config"
+    ],
+    "description": "ConfigProvider\n\n全局特性配置\n\n[docs](https://tdesign.tencent.com/vue-next/components/config-provider)"
+  },
   "t-date-picker": {
     "attributes": [
       "allow-input",
@@ -906,46 +912,6 @@
       "tips"
     ],
     "description": "FormItem\n\n表单元素\n\n[docs](https://tdesign.tencent.com/vue-next/components/form-item)"
-  },
-  "t-config-provider": {
-    "attributes": [
-      "alert",
-      "anchor",
-      "animation",
-      "attach",
-      "auto-complete",
-      "calendar",
-      "cascader",
-      "class-prefix",
-      "color-picker",
-      "date-picker",
-      "descriptions",
-      "dialog",
-      "drawer",
-      "empty",
-      "form",
-      "guide",
-      "icon",
-      "image",
-      "image-viewer",
-      "input",
-      "list",
-      "message",
-      "pagination",
-      "popconfirm",
-      "rate",
-      "select",
-      "steps",
-      "table",
-      "tag",
-      "time-picker",
-      "transfer",
-      "tree",
-      "tree-select",
-      "typography",
-      "upload"
-    ],
-    "description": "GlobalConfigProvider\n\n全局配置(是 ConfigProvider 的别名)\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration)"
   },
   "t-guide": {
     "attributes": [

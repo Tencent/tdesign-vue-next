@@ -1963,6 +1963,10 @@
     "type": "String|TNode",
     "description": "回复\n\n[docs](https://tdesign.tencent.com/vue-next/components/comment?tab=api#comment-props)"
   },
+  "t-config-provider/global-config": {
+    "type": "Object",
+    "description": "global config\n\n全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/components/config-provider?tab=api#configprovider-props)"
+  },
   "t-date-picker/allow-input": {
     "type": "Boolean",
     "description": "是否允许输入日期\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#datepicker-props)"
@@ -3214,146 +3218,6 @@
   "t-form-item/tips": {
     "type": "String|TNode",
     "description": "自定义提示内容，样式跟随 `status` 变动，可在需要完全自主控制校验规则时使用\n\n[docs](https://tdesign.tencent.com/vue-next/components/form-item?tab=api#formitem-props)"
-  },
-  "t-config-provider/alert": {
-    "type": "Object",
-    "description": "Alert global configs\n\n警告全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/anchor": {
-    "type": "Object",
-    "description": "Anchor global configs\n\n锚点全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/animation": {
-    "type": "Object",
-    "description": "动画效果控制，`ripple` 指波纹动画， `expand` 指展开动画，`fade` 指渐变动画。默认为 `{ include: ['ripple','expand','fade'], exclude: [] }`\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/attach": {
-    "type": "String|Object|Function",
-    "description": "\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/auto-complete": {
-    "type": "Object",
-    "description": "AutoComplete global configs\n\n自动填充组件全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/calendar": {
-    "type": "Object",
-    "description": "Calendar global configs\n\n日历组件全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/cascader": {
-    "type": "Object",
-    "description": "Cascader global configs\n\n级联选择器全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/class-prefix": {
-    "type": "String",
-    "description": "CSS 类名前缀\n\ndefault: t\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/color-picker": {
-    "type": "Object",
-    "description": "ColorPicker global configs\n\n颜色选择器全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/date-picker": {
-    "type": "Object",
-    "description": "DatePicker global configs\n\n日期选择器全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/descriptions": {
-    "type": "Object",
-    "description": "Descriptions global configs\n\n描述全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/dialog": {
-    "type": "Object",
-    "description": "Dialog global configs\n\n对话框全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/drawer": {
-    "type": "Object",
-    "description": "Drawer global configs\n\n抽屉全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/empty": {
-    "type": "Object",
-    "description": "Empty global configs\n\n空状态全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/form": {
-    "type": "Object",
-    "description": "Form global configs\n\n表单组件全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/guide": {
-    "type": "Object",
-    "description": "Guide global configs\n\n引导全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/icon": {
-    "type": "Object",
-    "description": "icon config\n\n图标全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/image": {
-    "type": "Object",
-    "description": "image global configs\n\n图片全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/image-viewer": {
-    "type": "Object",
-    "description": "imageViewer global configs\n\n图片预览器全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/input": {
-    "type": "Object",
-    "description": "Input global configs\n\n输入框组件全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/list": {
-    "type": "Object",
-    "description": "List global configs\n\n列表组件全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/message": {
-    "type": "Object",
-    "description": "Message Component global configs\n\n消息组件全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/pagination": {
-    "type": "Object",
-    "description": "Pagination global configs\n\n分页组件全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/popconfirm": {
-    "type": "Object",
-    "description": "Popconfirm global configs\n\n气泡确认框全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/rate": {
-    "type": "Object",
-    "description": "Rate global configs\n\n评分全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/select": {
-    "type": "Object",
-    "description": "Select global configs\n\n选择器组件全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/steps": {
-    "type": "Object",
-    "description": "Steps global configs\n\n步骤条组件全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/table": {
-    "type": "Object",
-    "description": "Table global configs\n\n表格组件全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/tag": {
-    "type": "Object",
-    "description": "Tag global configs\n\n标签全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/time-picker": {
-    "type": "Object",
-    "description": "TimePicker global configs\n\n时间选择器全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/transfer": {
-    "type": "Object",
-    "description": "Transfer global configs\n\n穿梭框全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/tree": {
-    "type": "Object",
-    "description": "Tree global configs\n\n树组件全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/tree-select": {
-    "type": "Object",
-    "description": "TreeSelect global configs\n\n树选择器组件全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/typography": {
-    "type": "Object",
-    "description": "Typography global configs\n\n排版组件全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
-  },
-  "t-config-provider/upload": {
-    "type": "Object",
-    "description": "Upload global configs\n\n上传组件全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/global-configuration?tab=api#globalconfigprovider)"
   },
   "t-guide/counter": {
     "type": "TNode",

@@ -32,6 +32,7 @@ declare module 'vue' {
     TCollapsePanel: typeof import('tdesign-vue-next')['CollapsePanel'];
     TColorPicker: typeof import('tdesign-vue-next')['ColorPicker'];
     TComment: typeof import('tdesign-vue-next')['Comment'];
+    TConfigProvider: typeof import('tdesign-vue-next')['ConfigProvider'];
     TContent: typeof import('tdesign-vue-next')['Content'];
     TDatePicker: typeof import('tdesign-vue-next')['DatePicker'];
     TDatePickerPanel: typeof import('tdesign-vue-next')['DatePickerPanel'];
@@ -50,7 +51,6 @@ declare module 'vue' {
     TFooter: typeof import('tdesign-vue-next')['Footer'];
     TForm: typeof import('tdesign-vue-next')['Form'];
     TFormItem: typeof import('tdesign-vue-next')['FormItem'];
-    TConfigProvider: typeof import('tdesign-vue-next')['ConfigProvider'];
     TGuide: typeof import('tdesign-vue-next')['Guide'];
     THeadMenu: typeof import('tdesign-vue-next')['HeadMenu'];
     THeader: typeof import('tdesign-vue-next')['Header'];
