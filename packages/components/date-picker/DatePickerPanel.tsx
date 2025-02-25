@@ -18,7 +18,6 @@ import TSinglePanel from './panel/SinglePanel';
 
 export default defineComponent({
   name: 'TDatePickerPanel',
-
   props: {
     value: datePickerProps.value,
     defaultValue: datePickerProps.defaultValue,

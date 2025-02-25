@@ -7,11 +7,11 @@ import { useChildComponentSlots } from '../hooks/slot';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 import props from './props';
-import { descriptionsKey } from './const';
+import { descriptionsKey } from './consts';
 import { TdDescriptionsProps } from './type';
 import DescriptionsRow from './descriptions-row';
 import { renderCustomNode, itemTypeIsProps } from './utils';
-import { ItemsType, TdDescriptionItem } from './interface';
+import { ItemsType, TdDescriptionItem } from './types';
 
 /**
  * 实现思路

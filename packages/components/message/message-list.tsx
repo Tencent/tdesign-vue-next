@@ -1,6 +1,6 @@
 import { computed, defineComponent, ref } from 'vue';
 import type { CSSProperties } from 'vue';
-import { PLACEMENT_OFFSET } from './const';
+import { PLACEMENT_OFFSET } from './consts';
 import TMessage from './message';
 import { MessageOptions } from './type';
 import { usePrefixClass } from '../hooks/useConfig';

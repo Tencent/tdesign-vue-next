@@ -13,9 +13,7 @@ export type ConfigProviderProps = {
 
 export default defineComponent({
   name: 'TConfigProvider',
-
   props: configProviderProps,
-
   setup(props) {
     provideConfig(props);
 

@@ -11,7 +11,7 @@ import { useChildComponentSlots } from '../hooks';
 
 export default defineComponent({
   name: 'TSteps',
-  props: { ...props },
+  props,
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('steps');
 

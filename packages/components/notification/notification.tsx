@@ -10,7 +10,7 @@ import { useTNodeJSX, useContent } from '../hooks/tnode';
 import props from './props';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { fadeIn, fadeOut } from './animate';
+import { fadeIn, fadeOut } from './utils';
 
 export default defineComponent({
   name: 'TNotification',

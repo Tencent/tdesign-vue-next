@@ -1,5 +1,5 @@
 import { InjectionKey } from 'vue';
-import { RadioValue } from './type';
+import { RadioValue } from '../type';
 
 export const RadioGroupInjectionKey: InjectionKey<{
   name: string;

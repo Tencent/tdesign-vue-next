@@ -1,9 +1,9 @@
 import { computed, Ref } from 'vue';
 import { getIEVersion } from '@tdesign/common-js/utils/helper';
-import { useCommonClassName } from '../hooks/useConfig';
-import { TdPaginationProps } from './type';
+import { useCommonClassName } from '../../hooks/useConfig';
+import { TdPaginationProps } from '../type';
 
-export default function usePaginationClasses(
+export function usePaginationClasses(
   props: TdPaginationProps,
   innerCurrent: Ref<number>,
   innerPageSize: Ref<number>,

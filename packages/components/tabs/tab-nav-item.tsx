@@ -10,7 +10,6 @@ import { useGlobalIcon } from '../hooks/useGlobalIcon';
 
 export default defineComponent({
   name: 'TTabNavItem',
-
   props: {
     index: Number,
     active: {
