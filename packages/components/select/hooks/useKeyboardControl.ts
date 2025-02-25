@@ -1,7 +1,7 @@
 import { ref, watch, ComputedRef, Ref } from 'vue';
 import { usePrefixClass } from '../../hooks/useConfig';
 
-import { getNewMultipleValue } from '../helper';
+import { getNewMultipleValue } from '../utils';
 
 import type { SelectOption, TdOptionProps, SelectValue } from '../type';
 import type { ChangeHandler } from '../../hooks/useVModel';
@@ -24,7 +24,7 @@ export type useKeyboardControlType = {
 };
 
 // 统一处理键盘控制的hooks
-export default function useKeyboardControl({
+export function useKeyboardControl({
   displayOptions,
   optionsList,
   innerPopupVisible,
