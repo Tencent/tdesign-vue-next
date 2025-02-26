@@ -1967,6 +1967,14 @@
     "type": "Object",
     "description": "global config\n\n全局配置\n\n[docs](https://tdesign.tencent.com/vue-next/components/config-provider?tab=api#configprovider-props)"
   },
+  "t-content/content": {
+    "type": "String|TNode",
+    "description": "内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/layout?tab=api#content-props)"
+  },
+  "t-content/default": {
+    "type": "String|TNode",
+    "description": "内容，同 content\n\n[docs](https://tdesign.tencent.com/vue-next/components/layout?tab=api#content-props)"
+  },
   "t-date-picker/allow-input": {
     "type": "Boolean",
     "description": "是否允许输入日期\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#datepicker-props)"

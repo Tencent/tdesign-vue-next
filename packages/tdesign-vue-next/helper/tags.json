@@ -569,6 +569,13 @@
     ],
     "description": "ConfigProvider\n\n全局特性配置\n\n[docs](https://tdesign.tencent.com/vue-next/components/config-provider)"
   },
+  "t-content": {
+    "attributes": [
+      "content",
+      "default"
+    ],
+    "description": "Content\n\n布局-内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/layout)"
+  },
   "t-date-picker": {
     "attributes": [
       "allow-input",

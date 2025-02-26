@@ -5255,6 +5255,46 @@
           "slots": []
         },
         {
+          "name": "t-content",
+          "source": {
+            "symbol": "Content"
+          },
+          "description": "Content\n\n布局-内容",
+          "doc-url": "https://tdesign.tencent.com/vue-next/components/layout",
+          "props": [
+            {
+              "name": "content",
+              "description": "内容",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/layout?tab=api#content-props",
+              "type": [
+                "String",
+                "TNode"
+              ]
+            },
+            {
+              "name": "default",
+              "description": "内容，同 content",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/layout?tab=api#content-props",
+              "type": [
+                "String",
+                "TNode"
+              ]
+            }
+          ],
+          "slots": [
+            {
+              "name": "content",
+              "description": "内容",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/layout?tab=api#content-props"
+            },
+            {
+              "name": "default",
+              "description": "内容，同 content",
+              "doc-url": "https://tdesign.tencent.com/vue-next/components/layout?tab=api#content-props"
+            }
+          ]
+        },
+        {
           "name": "t-date-picker",
           "source": {
             "symbol": "DatePicker"

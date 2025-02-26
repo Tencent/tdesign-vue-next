@@ -33,6 +33,7 @@ declare module 'vue' {
     TColorPicker: typeof import('tdesign-vue-next')['ColorPicker'];
     TComment: typeof import('tdesign-vue-next')['Comment'];
     TConfigProvider: typeof import('tdesign-vue-next')['ConfigProvider'];
+    TContent: typeof import('tdesign-vue-next')['Content'];
     TDatePicker: typeof import('tdesign-vue-next')['DatePicker'];
     TDatePickerPanel: typeof import('tdesign-vue-next')['DatePickerPanel'];
     TDateRangePicker: typeof import('tdesign-vue-next')['DateRangePicker'];
