@@ -115,8 +115,7 @@ export default function useMultiple(
       ...props.tagInputProps,
     };
 
-    // eslint-disable-next-line
-    const { tips, ...slots } = context.slots;
+    const { tips: _tips, ...slots } = context.slots;
     return (
       <TagInput
         ref={tagInputRef}

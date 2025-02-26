@@ -21,9 +21,10 @@ import { getSingleContent, getMultipleContent } from './utils';
 import { selectInjectKey } from './consts';
 import { useSelectOptions, useKeyboardControl } from './hooks';
 import type { PopupProps, PopupVisibleChangeContext } from '../popup';
-import type { SelectInputValueChangeContext } from '../select-input';
+import type { SelectInputChangeContext, SelectInputValueChangeContext } from '../select-input';
 import type { TdSelectProps, SelectValue } from './type';
 import { SelectInputValueDisplayOptions } from '../select-input/useSingle';
+import { TagInputTriggerSource } from '@src/tag-input';
 
 export default defineComponent({
   name: 'TSelect',
@@ -158,12 +159,23 @@ export default defineComponent({
     });
 
     // 移除tag
-    const removeTag = (index: number, e?: MouseEvent) => {
+    const removeTag = (index: number, context?: SelectInputChangeContext) => {
+      const { e, trigger = 'tag-remove' } =
+        (context as SelectInputChangeContext & {
+          trigger: Exclude<TagInputTriggerSource, 'enter'>;
+        }) || {};
+
       e && e.stopPropagation();
+
       const selectValue = cloneDeep(innerValue.value) as SelectValue[];
       const value = selectValue[index];
+
       selectValue.splice(index, 1);
-      setInnerValue(selectValue, { selectedOptions: getSelectedOptions(selectValue), trigger: 'tag-remove', e });
+
+      if (trigger !== 'clear') {
+        setInnerValue(selectValue, { selectedOptions: getSelectedOptions(selectValue), trigger, e });
+      }
+
       props.onRemove?.({
         value: value as string | number,
         data: optionsMap.value.get(value),
@@ -416,7 +428,7 @@ export default defineComponent({
               ...(props.tagInputProps as TdSelectProps['tagInputProps']),
             }}
             onTagChange={(val, ctx) => {
-              removeTag(ctx.index);
+              removeTag(ctx.index, ctx);
             }}
             tagProps={{ ...(props.tagProps as TdSelectProps['tagProps']) }}
             popupProps={{
