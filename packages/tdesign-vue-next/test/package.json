@@ -6,12 +6,12 @@
   "scripts": {
     "test": "pnpm test:unit && pnpm test:snap",
     "test:unit": "vitest run",
-    "test:update": "vitest run  -u && pnpm test:snap-update",
+    "test:update": "vitest run -u && pnpm test:snap-update",
     "test:unit-dev": "vitest",
-    "test:unit-gui": "vitest  --ui",
-    "test:unit-coverage": "vitest run  --coverage",
-    "test:snap": "cross-env NODE_ENV=test-snap vitest run ",
-    "test:snap-update": "cross-env NODE_ENV=test-snap vitest run  -u"
+    "test:unit-gui": "vitest --ui",
+    "test:unit-coverage": "vitest run --coverage",
+    "test:snap": "cross-env NODE_ENV=test-snap vitest run",
+    "test:snap-update": "cross-env NODE_ENV=test-snap vitest run -u"
   },
   "devDependencies": {
     "@vue/test-utils": "^2.4.1",
