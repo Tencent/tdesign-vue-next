@@ -1,4 +1,4 @@
-import { PLACEMENT_LIST } from './const';
+import { PLACEMENT_LIST } from '../consts';
 
 interface Keyframe {
   composite?: CompositeOperationOrAuto;
@@ -11,33 +11,6 @@ type CompositeOperationOrAuto = 'accumulate' | 'add' | 'auto' | 'replace';
 const ANIMATION_OPTION = {
   duration: 200,
   easing: 'linear',
-};
-
-const fadeIn = (dom: HTMLElement, placement: string) => {
-  if (!dom) return;
-  const offsetHeight = dom?.offsetHeight || 0;
-  const offsetWidth = dom?.offsetWidth || 0;
-  const keyframes: Array<Keyframe> | null = getFadeInKeyframes(placement, offsetWidth, offsetHeight);
-  if (!keyframes) return;
-  dom.animate && dom.animate(keyframes, ANIMATION_OPTION);
-};
-
-const fadeOut = (dom: HTMLElement, placement: string, onFinish: Function) => {
-  if (!dom) return;
-  const offsetHeight = dom?.offsetHeight || 0;
-  const offsetWidth = dom?.offsetWidth || 0;
-  const keyframes: Array<Keyframe> | null = getFadeOutKeyframes(placement, offsetWidth, offsetHeight);
-  if (!keyframes) return onFinish();
-
-  const animate = dom.animate && dom.animate(keyframes, ANIMATION_OPTION);
-  if (animate) {
-    animate.onfinish = () => {
-      onFinish();
-    };
-  } else {
-    dom.style.display = 'none';
-    onFinish();
-  }
 };
 
 const getFadeInKeyframes = (placement: string, offsetWidth: Number, offsetHeight: Number): Array<Keyframe> | null => {
@@ -96,4 +69,29 @@ const getFadeOutKeyframes = (placement: string, offsetWidth: Number, offsetHeigh
   }
 };
 
-export { fadeIn, fadeOut };
+export const fadeIn = (dom: HTMLElement, placement: string) => {
+  if (!dom) return;
+  const offsetHeight = dom?.offsetHeight || 0;
+  const offsetWidth = dom?.offsetWidth || 0;
+  const keyframes: Array<Keyframe> | null = getFadeInKeyframes(placement, offsetWidth, offsetHeight);
+  if (!keyframes) return;
+  dom.animate && dom.animate(keyframes, ANIMATION_OPTION);
+};
+
+export const fadeOut = (dom: HTMLElement, placement: string, onFinish: Function) => {
+  if (!dom) return;
+  const offsetHeight = dom?.offsetHeight || 0;
+  const offsetWidth = dom?.offsetWidth || 0;
+  const keyframes: Array<Keyframe> | null = getFadeOutKeyframes(placement, offsetWidth, offsetHeight);
+  if (!keyframes) return onFinish();
+
+  const animate = dom.animate && dom.animate(keyframes, ANIMATION_OPTION);
+  if (animate) {
+    animate.onfinish = () => {
+      onFinish();
+    };
+  } else {
+    dom.style.display = 'none';
+    onFinish();
+  }
+};

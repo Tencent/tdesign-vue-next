@@ -12,7 +12,15 @@ jobs:
       - uses: actions/checkout@v3
         with:
           submodules: recursive
-      - uses: 94dreamer/compressed-size-action@master
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - uses: preactjs/compressed-size-action@v2
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
-          pattern: "./dist/**/*.{js,css}"
+          install-script: "pnpm install"
+          pattern: "packages/tdesign-vue-next/dist/**/*.{js,css}"
