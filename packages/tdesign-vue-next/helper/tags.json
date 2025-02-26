@@ -47,20 +47,20 @@
       "target",
       "title"
     ],
-    "description": "AnchorItem\n\n锚点项\n\n[docs](https://tdesign.tencent.com/vue-next/components/anchor-item)"
+    "description": "AnchorItem\n\n锚点项\n\n[docs](https://tdesign.tencent.com/vue-next/components/anchor)"
   },
   "t-anchor-target": {
     "attributes": [
       "id",
       "tag"
     ],
-    "description": "AnchorTarget\n\n锚点目标\n\n[docs](https://tdesign.tencent.com/vue-next/components/anchor-target)"
+    "description": "AnchorTarget\n\n锚点目标\n\n[docs](https://tdesign.tencent.com/vue-next/components/anchor)"
   },
   "t-aside": {
     "attributes": [
       "width"
     ],
-    "description": "Aside\n\n布局-侧边栏\n\n[docs](https://tdesign.tencent.com/vue-next/components/aside)"
+    "description": "Aside\n\n布局-侧边栏\n\n[docs](https://tdesign.tencent.com/vue-next/components/layout)"
   },
   "t-auto-complete": {
     "attributes": [
@@ -125,7 +125,7 @@
       "size",
       "collapsed-item-click"
     ],
-    "description": "AvatarGroup\n\n头像组\n\n[docs](https://tdesign.tencent.com/vue-next/components/avatar-group)"
+    "description": "AvatarGroup\n\n头像组\n\n[docs](https://tdesign.tencent.com/vue-next/components/avatar)"
   },
   "t-back-top": {
     "attributes": [
@@ -222,7 +222,7 @@
       "scroll-x",
       "scroll-y"
     ],
-    "description": "BaseTable\n\n基础表格\n\n[docs](https://tdesign.tencent.com/vue-next/components/base-table)"
+    "description": "BaseTable\n\n基础表格\n\n[docs](https://tdesign.tencent.com/vue-next/components/table)"
   },
   "t-table": {
     "attributes": [
@@ -270,7 +270,7 @@
       "sort-change",
       "validate"
     ],
-    "description": "PrimaryTable\n\n主表格\n\n[docs](https://tdesign.tencent.com/vue-next/components/primary-table)"
+    "description": "PrimaryTable\n\n主表格\n\n[docs](https://tdesign.tencent.com/vue-next/components/table)"
   },
   "t-breadcrumb": {
     "attributes": [
@@ -295,7 +295,7 @@
       "to",
       "click"
     ],
-    "description": "BreadcrumbItem\n\n面包屑项\n\n[docs](https://tdesign.tencent.com/vue-next/components/breadcrumb-item)"
+    "description": "BreadcrumbItem\n\n面包屑项\n\n[docs](https://tdesign.tencent.com/vue-next/components/breadcrumb)"
   },
   "t-button": {
     "attributes": [
@@ -438,7 +438,7 @@
       "change",
       "click"
     ],
-    "description": "CheckTag\n\n可选标签\n\n[docs](https://tdesign.tencent.com/vue-next/components/check-tag)"
+    "description": "CheckTag\n\n可选标签\n\n[docs](https://tdesign.tencent.com/vue-next/components/tag)"
   },
   "t-check-tag-group": {
     "attributes": [
@@ -449,7 +449,7 @@
       "value",
       "change"
     ],
-    "description": "CheckTagGroup\n\n可选标签组\n\n[docs](https://tdesign.tencent.com/vue-next/components/check-tag-group)"
+    "description": "CheckTagGroup\n\n可选标签组\n\n[docs](https://tdesign.tencent.com/vue-next/components/tag)"
   },
   "t-checkbox": {
     "attributes": [
@@ -479,7 +479,7 @@
       "value",
       "change"
     ],
-    "description": "CheckboxGroup\n\n多选框组\n\n[docs](https://tdesign.tencent.com/vue-next/components/checkbox-group)"
+    "description": "CheckboxGroup\n\n多选框组\n\n[docs](https://tdesign.tencent.com/vue-next/components/checkbox)"
   },
   "t-col": {
     "attributes": [
@@ -524,7 +524,7 @@
       "header-right-content",
       "value"
     ],
-    "description": "CollapsePanel\n\n折叠面板\n\n[docs](https://tdesign.tencent.com/vue-next/components/collapse-panel)"
+    "description": "CollapsePanel\n\n折叠面板\n\n[docs](https://tdesign.tencent.com/vue-next/components/collapse)"
   },
   "t-color-picker": {
     "attributes": [
@@ -621,7 +621,7 @@
       "time-change",
       "year-change"
     ],
-    "description": "DatePickerPanel\n\n日期选择器面板\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker-panel)"
+    "description": "DatePickerPanel\n\n日期选择器面板\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker)"
   },
   "t-date-range-picker": {
     "attributes": [
@@ -662,7 +662,7 @@
       "pick",
       "preset-click"
     ],
-    "description": "DateRangePicker\n\n日期范围选择器\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-range-picker)"
+    "description": "DateRangePicker\n\n日期范围选择器\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker)"
   },
   "t-date-range-picker-panel": {
     "attributes": [
@@ -676,7 +676,7 @@
       "time-change",
       "year-change"
     ],
-    "description": "DateRangePickerPanel\n\n日期范围选择器面板\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-range-picker-panel)"
+    "description": "DateRangePickerPanel\n\n日期范围选择器面板\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker)"
   },
   "t-description-item": {
     "attributes": [
@@ -686,7 +686,7 @@
       "label",
       "span"
     ],
-    "description": "DescriptionItem\n\n描述项\n\n[docs](https://tdesign.tencent.com/vue-next/components/description-item)"
+    "description": "DescriptionItem\n\n描述项\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions)"
   },
   "t-descriptions": {
     "attributes": [
@@ -760,7 +760,7 @@
       "close-btn-click",
       "confirm"
     ],
-    "description": "DialogCard\n\n对话框卡片\n\n[docs](https://tdesign.tencent.com/vue-next/components/dialog-card)"
+    "description": "DialogCard\n\n对话框卡片\n\n[docs](https://tdesign.tencent.com/vue-next/components/dialog)"
   },
   "t-divider": {
     "attributes": [
@@ -837,7 +837,7 @@
       "value",
       "click"
     ],
-    "description": "DropdownItem\n\n下拉菜单选项\n\n[docs](https://tdesign.tencent.com/vue-next/components/dropdown-item)"
+    "description": "DropdownItem\n\n下拉菜单选项\n\n[docs](https://tdesign.tencent.com/vue-next/components/dropdown)"
   },
   "t-empty": {
     "attributes": [
@@ -861,13 +861,13 @@
       "expanded-tree-nodes-change",
       "tree-expand-change"
     ],
-    "description": "EnhancedTable\n\n增强表格\n\n[docs](https://tdesign.tencent.com/vue-next/components/enhanced-table)"
+    "description": "EnhancedTable\n\n增强表格\n\n[docs](https://tdesign.tencent.com/vue-next/components/table)"
   },
   "t-footer": {
     "attributes": [
       "height"
     ],
-    "description": "Footer\n\n布局-底部内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/footer)"
+    "description": "Footer\n\n布局-底部内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/layout)"
   },
   "t-form": {
     "attributes": [
@@ -911,7 +911,7 @@
       "success-border",
       "tips"
     ],
-    "description": "FormItem\n\n表单元素\n\n[docs](https://tdesign.tencent.com/vue-next/components/form-item)"
+    "description": "FormItem\n\n表单元素\n\n[docs](https://tdesign.tencent.com/vue-next/components/form)"
   },
   "t-guide": {
     "attributes": [
@@ -948,13 +948,13 @@
       "change",
       "expand"
     ],
-    "description": "HeadMenu\n\n顶部导航菜单\n\n[docs](https://tdesign.tencent.com/vue-next/components/head-menu)"
+    "description": "HeadMenu\n\n顶部导航菜单\n\n[docs](https://tdesign.tencent.com/vue-next/components/menu)"
   },
   "t-header": {
     "attributes": [
       "height"
     ],
-    "description": "Header\n\n布局-头部\n\n[docs](https://tdesign.tencent.com/vue-next/components/header)"
+    "description": "Header\n\n布局-头部\n\n[docs](https://tdesign.tencent.com/vue-next/components/layout)"
   },
   "t-icon-svg": {
     "attributes": [
@@ -965,7 +965,7 @@
       "url",
       "click"
     ],
-    "description": "IconSVG\n\n图标（IconSVG）\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon-svg)"
+    "description": "IconSVG\n\n图标（IconSVG）\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon)"
   },
   "t-icon": {
     "attributes": [
@@ -976,7 +976,7 @@
       "url",
       "click"
     ],
-    "description": "IconSVG\n\n图标（IconSVG）\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon-svg)"
+    "description": "IconSVG\n\n图标（IconSVG）\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon)"
   },
   "t-iconfont": {
     "attributes": [
@@ -988,7 +988,7 @@
       "url",
       "click"
     ],
-    "description": "Iconfont\n\n图标（Iconfont）\n\n[docs](https://tdesign.tencent.com/vue-next/components/iconfont)"
+    "description": "Iconfont\n\n图标（Iconfont）\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon)"
   },
   "t-image": {
     "attributes": [
@@ -1095,7 +1095,7 @@
     "attributes": [
       "separate"
     ],
-    "description": "InputGroup\n\n输入框组\n\n[docs](https://tdesign.tencent.com/vue-next/components/input-group)"
+    "description": "InputGroup\n\n输入框组\n\n[docs](https://tdesign.tencent.com/vue-next/components/input)"
   },
   "t-input-number": {
     "attributes": [
@@ -1176,7 +1176,7 @@
       "content",
       "default"
     ],
-    "description": "ListItem\n\n列表项\n\n[docs](https://tdesign.tencent.com/vue-next/components/list-item)"
+    "description": "ListItem\n\n列表项\n\n[docs](https://tdesign.tencent.com/vue-next/components/list)"
   },
   "t-list-item-meta": {
     "attributes": [
@@ -1185,7 +1185,7 @@
       "image",
       "title"
     ],
-    "description": "ListItemMeta\n\n带图片的列表项\n\n[docs](https://tdesign.tencent.com/vue-next/components/list-item-meta)"
+    "description": "ListItemMeta\n\n带图片的列表项\n\n[docs](https://tdesign.tencent.com/vue-next/components/list)"
   },
   "t-loading": {
     "attributes": [
@@ -1225,7 +1225,7 @@
     "attributes": [
       "title"
     ],
-    "description": "MenuGroup\n\n导航菜单组\n\n[docs](https://tdesign.tencent.com/vue-next/components/menu-group)"
+    "description": "MenuGroup\n\n导航菜单组\n\n[docs](https://tdesign.tencent.com/vue-next/components/menu)"
   },
   "t-menu-item": {
     "attributes": [
@@ -1243,7 +1243,7 @@
       "value",
       "click"
     ],
-    "description": "MenuItem\n\n导航菜单选项\n\n[docs](https://tdesign.tencent.com/vue-next/components/menu-item)"
+    "description": "MenuItem\n\n导航菜单选项\n\n[docs](https://tdesign.tencent.com/vue-next/components/menu)"
   },
   "t-message": {
     "attributes": [
@@ -1283,14 +1283,14 @@
       "title",
       "value"
     ],
-    "description": "Option\n\n选择器选项\n\n[docs](https://tdesign.tencent.com/vue-next/components/option)"
+    "description": "Option\n\n选择器选项\n\n[docs](https://tdesign.tencent.com/vue-next/components/select)"
   },
   "t-option-group": {
     "attributes": [
       "divider",
       "label"
     ],
-    "description": "OptionGroup\n\n选择器选项组\n\n[docs](https://tdesign.tencent.com/vue-next/components/option-group)"
+    "description": "OptionGroup\n\n选择器选项组\n\n[docs](https://tdesign.tencent.com/vue-next/components/select)"
   },
   "t-pagination": {
     "attributes": [
@@ -1327,7 +1327,7 @@
       "variant",
       "change"
     ],
-    "description": "PaginationMini\n\n迷你分页\n\n[docs](https://tdesign.tencent.com/vue-next/components/pagination-mini)"
+    "description": "PaginationMini\n\n迷你分页\n\n[docs](https://tdesign.tencent.com/vue-next/components/pagination)"
   },
   "t-paragraph": {
     "attributes": [
@@ -1335,7 +1335,7 @@
       "default",
       "ellipsis"
     ],
-    "description": "Paragraph\n\n段落\n\n[docs](https://tdesign.tencent.com/vue-next/components/paragraph)"
+    "description": "Paragraph\n\n段落\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography)"
   },
   "t-popconfirm": {
     "attributes": [
@@ -1428,7 +1428,7 @@
       "sort-change",
       "validate"
     ],
-    "description": "PrimaryTable\n\n主表格\n\n[docs](https://tdesign.tencent.com/vue-next/components/primary-table)"
+    "description": "PrimaryTable\n\n主表格\n\n[docs](https://tdesign.tencent.com/vue-next/components/table)"
   },
   "t-progress": {
     "attributes": [
@@ -1486,7 +1486,7 @@
       "variant",
       "change"
     ],
-    "description": "RadioGroup\n\n单选框组\n\n[docs](https://tdesign.tencent.com/vue-next/components/radio-group)"
+    "description": "RadioGroup\n\n单选框组\n\n[docs](https://tdesign.tencent.com/vue-next/components/radio)"
   },
   "t-range-input": {
     "attributes": [
@@ -1535,7 +1535,7 @@
       "input-change",
       "popup-visible-change"
     ],
-    "description": "RangeInputPopup\n\n范围输入框触发器\n\n[docs](https://tdesign.tencent.com/vue-next/components/range-input-popup)"
+    "description": "RangeInputPopup\n\n范围输入框触发器\n\n[docs](https://tdesign.tencent.com/vue-next/components/range-input)"
   },
   "t-rate": {
     "attributes": [
@@ -1767,7 +1767,7 @@
       "title",
       "value"
     ],
-    "description": "StepItem\n\n步骤\n\n[docs](https://tdesign.tencent.com/vue-next/components/step-item)"
+    "description": "StepItem\n\n步骤\n\n[docs](https://tdesign.tencent.com/vue-next/components/steps)"
   },
   "t-steps": {
     "attributes": [
@@ -1790,7 +1790,7 @@
       "popup-props",
       "trigger"
     ],
-    "description": "StickyItem\n\n侧边固钉项\n\n[docs](https://tdesign.tencent.com/vue-next/components/sticky-item)"
+    "description": "StickyItem\n\n侧边固钉项\n\n[docs](https://tdesign.tencent.com/vue-next/components/sticky-tool)"
   },
   "t-sticky-tool": {
     "attributes": [
@@ -1816,7 +1816,7 @@
       "title",
       "value"
     ],
-    "description": "Submenu\n\n二级导航\n\n[docs](https://tdesign.tencent.com/vue-next/components/submenu)"
+    "description": "Submenu\n\n二级导航\n\n[docs](https://tdesign.tencent.com/vue-next/components/menu)"
   },
   "t-swiper": {
     "attributes": [
@@ -1863,7 +1863,7 @@
       "value",
       "remove"
     ],
-    "description": "TabPanel\n\n选项卡面板\n\n[docs](https://tdesign.tencent.com/vue-next/components/tab-panel)"
+    "description": "TabPanel\n\n选项卡面板\n\n[docs](https://tdesign.tencent.com/vue-next/components/tabs)"
   },
   "t-tabs": {
     "attributes": [
@@ -1960,7 +1960,7 @@
       "theme",
       "underline"
     ],
-    "description": "Text\n\n文本\n\n[docs](https://tdesign.tencent.com/vue-next/components/text)"
+    "description": "Text\n\n文本\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography)"
   },
   "t-textarea": {
     "attributes": [
@@ -2043,7 +2043,7 @@
       "input",
       "pick"
     ],
-    "description": "TimeRangePicker\n\n时间范围选择器\n\n[docs](https://tdesign.tencent.com/vue-next/components/time-range-picker)"
+    "description": "TimeRangePicker\n\n时间范围选择器\n\n[docs](https://tdesign.tencent.com/vue-next/components/time-picker)"
   },
   "t-timeline": {
     "attributes": [
@@ -2065,7 +2065,7 @@
       "loading",
       "click"
     ],
-    "description": "TimelineItem\n\n时间轴\n\n[docs](https://tdesign.tencent.com/vue-next/components/timeline-item)"
+    "description": "TimelineItem\n\n时间轴\n\n[docs](https://tdesign.tencent.com/vue-next/components/timeline)"
   },
   "t-title": {
     "attributes": [
@@ -2074,7 +2074,7 @@
       "ellipsis",
       "level"
     ],
-    "description": "Title\n\n标题\n\n[docs](https://tdesign.tencent.com/vue-next/components/title)"
+    "description": "Title\n\n标题\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography)"
   },
   "t-tooltip": {
     "attributes": [
@@ -2096,7 +2096,7 @@
       "theme",
       "trigger-element"
     ],
-    "description": "TooltipLite\n\n文字提示简版\n\n[docs](https://tdesign.tencent.com/vue-next/components/tooltip-lite)"
+    "description": "TooltipLite\n\n文字提示简版\n\n[docs](https://tdesign.tencent.com/vue-next/components/tooltip)"
   },
   "t-transfer": {
     "attributes": [
