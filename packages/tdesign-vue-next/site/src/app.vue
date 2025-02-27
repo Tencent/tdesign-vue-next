@@ -43,7 +43,15 @@ div[slot='action'] {
   }
 }
 
+// override chat bot style
 #webchat-sdk-iframe {
   z-index: 99999;
+}
+
+.webchat-sdk-iframe-bg {
+  z-index: 9999 !important;
+}
+.webchat-sdk-toolbar {
+  bottom: 150px !important;
 }
 </style>
