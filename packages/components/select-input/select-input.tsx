@@ -93,7 +93,7 @@ export default defineComponent({
       ctx.e?.stopPropagation();
       // do not set focus if target can be focused
       if ((ctx.e.target as HTMLElement).tabIndex >= 0) return;
-      if (props.multiple) tagInputRef.value?.focus();
+      if (props.multiple) tagInputRef.value?.focus?.();
     };
 
     return {
