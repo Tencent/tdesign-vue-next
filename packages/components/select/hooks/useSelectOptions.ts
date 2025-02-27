@@ -145,7 +145,7 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inpu
       res = exactMatch.concat(fuzzyMatch);
     }
 
-    return res.length > 2 && checkAllOption ? [checkAllOption, ...res] : res;
+    return res.length && checkAllOption ? [checkAllOption, ...res] : res;
   });
 
   return {
