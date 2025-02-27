@@ -32,9 +32,24 @@ function isEmptyNode(node: any) {
   return !r.length;
 }
 
+// TODO 可以把这里移动到 utils 中
+/**
+ * 检查用户是否有主动传 prop
+ * @param instance 组件实例
+ * @param propName prop 名称
+ * @returns boolean
+ */
+function isPropExplicitlySet(instance: ComponentInternalInstance, propName: string) {
+  const vProps = instance?.vnode.props || {};
+  return (
+    Object.prototype.hasOwnProperty.call(vProps, propName) ||
+    Object.prototype.hasOwnProperty.call(vProps, kebabCase(propName))
+  );
+}
+
 /**
  * 通过 JSX 的方式渲染 TNode，props 和 插槽同时处理，也能处理默认值为 true 则渲染默认节点的情况
- * 优先级：Props 大于插槽
+ * 优先级：用户注入的 props 值 > slot > 默认 props 值
  * 如果 props 值为 true ，则使用插槽渲染。如果也没有插槽的情况下，则使用 defaultNode 渲染
  * @example const renderTNodeJSX = useTNodeJSX()
  * @return () => {}
@@ -47,36 +62,59 @@ function isEmptyNode(node: any) {
 export const useTNodeJSX = () => {
   const instance = getCurrentInstance();
   return function (name: string, options?: OptionsType) {
-    // assemble params && defaultNode
-    const params = getParams(options);
+    // 渲染节点时所需的参数
+    const renderParams = getParams(options);
+    // 默认渲染节点
+    // TODO 这里需要讨论，这里的默认节点规则是什么呢？ pp test:unit image-viewer pp test:unit Collapse
     const defaultNode = getDefaultNode(options);
-    const slotFirst = getSlotFirst(options);
+    // 是否显示设置 slot 优先
+    const isSlotFirst = getSlotFirst(options);
 
-    // 处理 props 类型的Node
-    let propsNode;
-    if (Object.keys(instance.props).includes(name)) {
-      propsNode = instance.props[name];
-    }
+    if (isSlotFirst && (instance.slots[camelCase(name)] || instance.slots[kebabCase(name)])) {
+      // 1. 如果显示设置了 slot 优先，并且存在 slot，那么优先使用 slot
+      // TODO 这里的策略待讨论
+      return handleSlots(instance, name, renderParams);
+    } else {
+      // 2. 否者按照 用户主动传入的 props 值 > slot > 默认 props 值
+      // 2.1 处理主动传入的 prop
+      if (isPropExplicitlySet(instance, name)) {
+        // 2.1.1 如果有传，那么优先使用 prop 的值
+        const propsNode = instance.vnode.props[name] || instance.vnode.props[kebabCase(name)];
+        // 2.1.2 如果 prop 的值为 false 或者 null，那么直接不渲染
+        if (propsNode === false || propsNode === null) return;
+        // 2.1.3 如果 prop 的值为 true，那么使用 slot 渲染
+        if (propsNode === true) {
+          return handleSlots(instance, name, renderParams) || defaultNode;
+        }
+        // 2.1.4 如果 prop 的值为函数，那么执行函数
+        if (isFunction(propsNode)) return propsNode(h, renderParams);
+        // 2.1.5 如果 prop 的值为 undefined、renderParams、''，那么使用插槽渲染
+        // TODO 这里需要讨论，这里我没懂耶，为啥 renderParams 也要考虑进来，而且 [renderParams].includes(propsNode) 永远不可能为 true 吧，因为 renderParams 是一个对象
+        const isPropsEmpty = [undefined, renderParams, ''].includes(propsNode);
+        if (isPropsEmpty && (instance.slots[camelCase(name)] || instance.slots[kebabCase(name)])) {
+          return handleSlots(instance, name, renderParams);
+        }
+        // 2.1.6 如果 prop 的值为其他值，那么直接返回
+        return propsNode;
+      }
+      // 2.2 如果未主动传入 prop，那么渲染 slot，当然前提是存在 slot
+      if (instance.slots[camelCase(name)] || instance.slots[kebabCase(name)]) {
+        return handleSlots(instance, name, renderParams);
+      }
+      // 2.3 如果未主动传入 prop，也没有 slot，检查是否有默认 props 值
+      if (Object.keys(instance.props).includes(name)) {
+        const propsNode = instance.props[name];
+        if (propsNode === false || propsNode === null) return;
+        if (propsNode === true && defaultNode) {
+          // TODO 待讨论 defaultNode 渲染规则
+          return defaultNode;
+        }
+        if (isFunction(propsNode)) return propsNode(h, renderParams);
+        return propsNode;
+      }
 
-    // 是否静默日志
-    // const isSilent = Boolean(isObject(options) && 'silent' in options && options.silent);
-    // // 同名插槽和属性同时存在，则提醒用户只需要选择一种方式即可
-    // if (instance.slots[name] && propsNode && propsNode !== true && !isSilent) {
-    //   log.warn('', `Both slots.${name} and props.${name} exist, props.${name} is preferred`);
-    // }
-    // propsNode 为 false 不渲染
-    if (propsNode === false || propsNode === null) return;
-    if (propsNode === true) {
-      return handleSlots(instance, name, params) || defaultNode;
+      return defaultNode;
     }
-
-    // 同名 props 和 slot 优先处理 props
-    if (isFunction(propsNode)) return propsNode(h, params);
-    const isPropsEmpty = [undefined, params, ''].includes(propsNode);
-    if ((isPropsEmpty || slotFirst) && (instance.slots[camelCase(name)] || instance.slots[kebabCase(name)])) {
-      return handleSlots(instance, name, params);
-    }
-    return propsNode;
   };
 };
 
