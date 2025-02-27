@@ -73,14 +73,13 @@ export const useTNodeJSX = () => {
 
     if (isSlotFirst && renderSlot) {
       // 1. 如果显示设置了 slot 优先，并且存在 slot，那么优先使用 slot
-      // TODO 这里的策略待讨论
       return handleSlots(instance, name, renderParams);
     } else {
       // 2. 否者按照 用户主动传入的 props 值 > slot > 默认 props 值
       // 2.1 处理主动传入的 prop
       if (isPropExplicitlySet(instance, name)) {
         // 2.1.1 如果有传，那么优先使用 prop 的值
-        const propsNode = instance.vnode.props[camelCase(name)] || instance.vnode.props[kebabCase(name)];
+        const propsNode = instance.props[camelCase(name)] || instance.props[kebabCase(name)];
         // 2.1.2 如果 prop 的值为 false 或者 null，那么直接不渲染
         if (propsNode === false || propsNode === null) return;
         // 2.1.3 如果 prop 的值为 true，那么使用 slot 渲染
@@ -89,9 +88,8 @@ export const useTNodeJSX = () => {
         }
         // 2.1.4 如果 prop 的值为函数，那么执行函数
         if (isFunction(propsNode)) return propsNode(h, renderParams);
-        // 2.1.5 如果 prop 的值为 undefined、renderParams、''，那么使用插槽渲染
-        // TODO 这里需要讨论，这里我没懂耶，为啥 renderParams 也要考虑进来，而且 [renderParams].includes(propsNode) 永远不可能为 true 吧，因为 renderParams 是一个对象
-        const isPropsEmpty = [undefined, renderParams, ''].includes(propsNode);
+        // 2.1.5 如果 prop 的值为 undefined、''，那么使用插槽渲染
+        const isPropsEmpty = [undefined, ''].includes(propsNode as any);
         if (isPropsEmpty && renderSlot) {
           return handleSlots(instance, name, renderParams);
         }
@@ -105,12 +103,11 @@ export const useTNodeJSX = () => {
       // 2.3 如果未主动传入 prop，也没有 slot，那么就走 prop
       const propsNode = instance.props[camelCase(name)] || instance.props[kebabCase(name)];
       if (propsNode === false || propsNode === null) return;
-      if (propsNode === true && defaultNode) {
-        // TODO 待讨论 defaultNode 渲染规则
+      if (propsNode === true) {
         return defaultNode;
       }
       if (isFunction(propsNode)) return propsNode(h, renderParams);
-      return propsNode || defaultNode;
+      return propsNode;
     }
   };
 };

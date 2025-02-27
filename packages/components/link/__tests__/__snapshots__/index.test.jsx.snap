@@ -24,9 +24,7 @@ exports[`Link > :props > :content 1`] = `
     class="t-link t-link--theme-default t-link--hover-underline"
   >
     <!---->
-    
-    bar
-    
+    foo
     <!---->
   </a>
   <a
