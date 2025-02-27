@@ -105,6 +105,7 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inpu
   });
 
   const filterMethods = (option: SelectOption) => {
+    if (!props.filterable) return true;
     if (isFunction(props.filter)) {
       return props.filter(`${inputValue.value}`, option);
     }
