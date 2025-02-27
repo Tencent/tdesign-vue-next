@@ -43,7 +43,7 @@ div[slot='action'] {
   }
 }
 
-// override chat bot style
+// AI SDK 相关样式兼容站点问题，后续沟通支持属性配置
 #webchat-sdk-iframe {
   z-index: 99999;
 }
@@ -51,6 +51,7 @@ div[slot='action'] {
 .webchat-sdk-iframe-bg {
   z-index: 9999 !important;
 }
+
 .webchat-sdk-toolbar {
   bottom: 150px !important;
   right: 25px !important;
