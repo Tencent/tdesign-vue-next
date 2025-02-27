@@ -53,5 +53,6 @@ div[slot='action'] {
 }
 .webchat-sdk-toolbar {
   bottom: 150px !important;
+  right: 25px !important;
 }
 </style>
