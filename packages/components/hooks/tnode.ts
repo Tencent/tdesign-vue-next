@@ -3,6 +3,7 @@ import { isFunction } from 'lodash-es';
 import { camelCase } from 'lodash-es';
 import { kebabCase } from 'lodash-es';
 import { getDefaultNode, getParams, OptionsType, JSXRenderContext, getSlotFirst } from '../utils/render-tnode';
+import { hasOwn } from '@tdesign/common-js/utils/general';
 
 // 兼容处理插槽名称，同时支持驼峰命名和中划线命名，示例：value-display 和 valueDisplay
 function handleSlots(instance: ComponentInternalInstance, name: string, params: Record<string, any>) {
@@ -41,12 +42,10 @@ function isEmptyNode(node: any) {
  */
 function isPropExplicitlySet(instance: ComponentInternalInstance, propName: string) {
   const vProps = instance?.vnode.props || {};
-  return (
-    Object.prototype.hasOwnProperty.call(vProps, propName) ||
-    Object.prototype.hasOwnProperty.call(vProps, kebabCase(propName))
-  );
+  return hasOwn(vProps, camelCase(propName)) || hasOwn(vProps, kebabCase(propName));
 }
 
+/**
 /**
  * 通过 JSX 的方式渲染 TNode，props 和 插槽同时处理，也能处理默认值为 true 则渲染默认节点的情况
  * 优先级：用户注入的 props 值 > slot > 默认 props 值
@@ -69,8 +68,10 @@ export const useTNodeJSX = () => {
     const defaultNode = getDefaultNode(options);
     // 是否显示设置 slot 优先
     const isSlotFirst = getSlotFirst(options);
+    // 插槽
+    const renderSlot = instance.slots[camelCase(name)] || instance.slots[kebabCase(name)];
 
-    if (isSlotFirst && (instance.slots[camelCase(name)] || instance.slots[kebabCase(name)])) {
+    if (isSlotFirst && renderSlot) {
       // 1. 如果显示设置了 slot 优先，并且存在 slot，那么优先使用 slot
       // TODO 这里的策略待讨论
       return handleSlots(instance, name, renderParams);
@@ -79,7 +80,7 @@ export const useTNodeJSX = () => {
       // 2.1 处理主动传入的 prop
       if (isPropExplicitlySet(instance, name)) {
         // 2.1.1 如果有传，那么优先使用 prop 的值
-        const propsNode = instance.vnode.props[name] || instance.vnode.props[kebabCase(name)];
+        const propsNode = instance.vnode.props[camelCase(name)] || instance.vnode.props[kebabCase(name)];
         // 2.1.2 如果 prop 的值为 false 或者 null，那么直接不渲染
         if (propsNode === false || propsNode === null) return;
         // 2.1.3 如果 prop 的值为 true，那么使用 slot 渲染
@@ -91,29 +92,25 @@ export const useTNodeJSX = () => {
         // 2.1.5 如果 prop 的值为 undefined、renderParams、''，那么使用插槽渲染
         // TODO 这里需要讨论，这里我没懂耶，为啥 renderParams 也要考虑进来，而且 [renderParams].includes(propsNode) 永远不可能为 true 吧，因为 renderParams 是一个对象
         const isPropsEmpty = [undefined, renderParams, ''].includes(propsNode);
-        if (isPropsEmpty && (instance.slots[camelCase(name)] || instance.slots[kebabCase(name)])) {
+        if (isPropsEmpty && renderSlot) {
           return handleSlots(instance, name, renderParams);
         }
         // 2.1.6 如果 prop 的值为其他值，那么直接返回
         return propsNode;
       }
       // 2.2 如果未主动传入 prop，那么渲染 slot，当然前提是存在 slot
-      if (instance.slots[camelCase(name)] || instance.slots[kebabCase(name)]) {
+      if (renderSlot) {
         return handleSlots(instance, name, renderParams);
       }
-      // 2.3 如果未主动传入 prop，也没有 slot，检查是否有默认 props 值
-      if (Object.keys(instance.props).includes(name)) {
-        const propsNode = instance.props[name];
-        if (propsNode === false || propsNode === null) return;
-        if (propsNode === true && defaultNode) {
-          // TODO 待讨论 defaultNode 渲染规则
-          return defaultNode;
-        }
-        if (isFunction(propsNode)) return propsNode(h, renderParams);
-        return propsNode;
+      // 2.3 如果未主动传入 prop，也没有 slot，那么就走 prop
+      const propsNode = instance.props[camelCase(name)] || instance.props[kebabCase(name)];
+      if (propsNode === false || propsNode === null) return;
+      if (propsNode === true && defaultNode) {
+        // TODO 待讨论 defaultNode 渲染规则
+        return defaultNode;
       }
-
-      return defaultNode;
+      if (isFunction(propsNode)) return propsNode(h, renderParams);
+      return propsNode || defaultNode;
     }
   };
 };
