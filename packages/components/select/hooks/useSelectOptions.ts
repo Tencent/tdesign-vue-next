@@ -104,18 +104,19 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inpu
     return res;
   });
 
+  const filterMethods = (option: SelectOption) => {
+    if (isFunction(props.filter)) {
+      return props.filter(`${inputValue.value}`, option);
+    }
+    return option.label?.toLowerCase?.().indexOf(`${inputValue.value}`.toLowerCase()) > -1;
+  };
+
   const displayOptions = computed(() => {
     if (props.onSearch && props.filterable) return options.value; // 远程搜索时，不执行内部的过滤，不干预用户的自行处理，如输入首字母搜索中文的场景等
 
     if (!inputValue.value || !(props.filterable || isFunction(props.filter))) return options.value;
 
-    const filterMethods = (option: SelectOption) => {
-      if (isFunction(props.filter)) {
-        return props.filter(`${inputValue.value}`, option);
-      }
-
-      return option.label?.toLowerCase?.().indexOf(`${inputValue.value}`.toLowerCase()) > -1;
-    };
+    let checkAllOption: SelectOption;
 
     let res: SelectOption[] = [];
 
@@ -126,6 +127,9 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inpu
           children: (option as SelectOptionGroup).children.filter(filterMethods),
         });
       }
+
+      if ((option as TdOptionProps)?.checkAll === true) checkAllOption = option;
+
       if (filterMethods(option)) {
         res.push(option);
       }
@@ -140,7 +144,7 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inpu
       res = exactMatch.concat(fuzzyMatch);
     }
 
-    return res;
+    return res.length > 2 && checkAllOption ? [checkAllOption, ...res] : res;
   });
 
   return {
@@ -149,5 +153,6 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inpu
     optionsList,
     optionsCache,
     displayOptions,
+    filterMethods,
   };
 };
