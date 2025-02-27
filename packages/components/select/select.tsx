@@ -24,7 +24,7 @@ import type { PopupProps, PopupVisibleChangeContext } from '../popup';
 import type { SelectInputChangeContext, SelectInputValueChangeContext } from '../select-input';
 import type { TdSelectProps, SelectValue } from './type';
 import { SelectInputValueDisplayOptions } from '../select-input/useSingle';
-import { TagInputTriggerSource } from '@src/tag-input';
+import { TagInputTriggerSource } from '../tag-input';
 
 export default defineComponent({
   name: 'TSelect',
