@@ -13,7 +13,7 @@ import type { Styles } from '../common';
 
 export default defineComponent({
   name: 'TStickyTool',
-  props: { ...props },
+  props,
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('sticky-tool');
     const classes = computed(() => {

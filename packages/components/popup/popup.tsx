@@ -86,7 +86,6 @@ function attachListeners(elm: Ref<Element>) {
 
 export default defineComponent({
   name: 'TPopup',
-
   props: {
     ...props,
     expandAnimation: {

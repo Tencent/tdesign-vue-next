@@ -120,7 +120,7 @@ jobs:
           ref_name=${{ github.ref_name }}
           tag_name=${ref_name//./_}
           export DEPLOY_DOMAIN=https://$tag_name-$project_name.surge.sh
-          npx surge --project _site --domain $DEPLOY_DOMAIN --token ${{ secrets.TDESIGN_SURGE_TOKEN }}
+          npx surge --project packages/tdesign-vue-next/site/dist --domain $DEPLOY_DOMAIN --token ${{ secrets.TDESIGN_SURGE_TOKEN }}
           echo $DEPLOY_DOMAIN
    
   UPDATE_OFFICIAL_WEBSITE:

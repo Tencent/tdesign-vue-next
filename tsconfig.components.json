@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "packages/components",
+    "emitDeclarationOnly": true
+  },
+  "include": [
+    "*.d.ts",
+    "packages/components/**/*.ts",
+    "packages/components/**/*.tsx",
+    "packages/components/**/*.vue",
+  ],
+  "exclude": [
+    "node_modules",
+  ]
+}

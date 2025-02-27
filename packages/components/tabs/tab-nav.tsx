@@ -23,7 +23,7 @@ import { isFunction } from 'lodash-es';
 
 export default defineComponent({
   name: 'TTabNav',
-  ...{ resizeObserver: null },
+  resizeObserver: null,
   props: {
     theme: tabProps.theme,
     panels: {

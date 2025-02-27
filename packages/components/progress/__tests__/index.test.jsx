@@ -1,9 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
 import { Progress } from '@src/progress/index.ts';
-import { PRO_THEME, CIRCLE_SIZE } from '@src/progress/constants.ts';
-
-const STATUS_TEXT = ['success', 'error', 'warning', 'active'];
 
 describe('Progress', () => {
   describe(':props', () => {

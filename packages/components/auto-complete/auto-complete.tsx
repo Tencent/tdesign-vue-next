@@ -14,9 +14,7 @@ import { useReadonly } from '../hooks/useReadonly';
 
 export default defineComponent({
   name: 'TAutoComplete',
-
   props,
-
   setup(props: TdAutoCompleteProps, { slots }) {
     const { value, modelValue } = toRefs(props);
     const [tValue, setTValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
@@ -131,7 +129,7 @@ export default defineComponent({
         />
       );
       // 联想词列表
-      const listContent = (
+      const listContent = Array.isArray(props.options) && (
         <AutoCompleteOptionList
           ref={optionListRef}
           value={tValue.value}
@@ -143,18 +141,21 @@ export default defineComponent({
           highlightKeyword={props.highlightKeyword}
           filterable={props.filterable}
           filter={props.filter}
+          empty={renderTNodeJSX('empty')}
           v-slots={{ option: slots.option }}
         />
       );
+
       const topContent = renderTNodeJSX('panelTopContent');
       const bottomContent = renderTNodeJSX('panelBottomContent');
-      const panelContent = Boolean(topContent || props.options?.length || bottomContent) ? (
-        <div class={`${classPrefix.value}-auto-complete__panel`}>
-          {topContent}
-          {listContent}
-          {bottomContent}
-        </div>
-      ) : null;
+      const panelContent =
+        topContent || listContent || bottomContent ? (
+          <div class={`${classPrefix.value}-auto-complete__panel`}>
+            {topContent}
+            {listContent}
+            {bottomContent}
+          </div>
+        ) : null;
       const popupProps = {
         ...props.popupProps,
         overlayInnerStyle: getOverlayStyle,

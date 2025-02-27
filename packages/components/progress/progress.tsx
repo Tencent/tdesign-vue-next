@@ -9,7 +9,7 @@ import {
 } from 'tdesign-icons-vue-next';
 
 import { getBackgroundColor } from '@tdesign/common-js/utils/helper';
-import { PRO_THEME, CIRCLE_SIZE, CIRCLE_SIZE_PX, STATUS_ICON, CIRCLE_FONT_SIZE_RATIO } from './constants';
+import { PRO_THEME, CIRCLE_SIZE, CIRCLE_SIZE_PX, STATUS_ICON, CIRCLE_FONT_SIZE_RATIO } from './consts';
 import props from './props';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';

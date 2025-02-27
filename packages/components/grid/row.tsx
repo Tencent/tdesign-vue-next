@@ -7,7 +7,7 @@ import { useTNodeJSX } from '../hooks/tnode';
 export default defineComponent({
   name: 'TRow',
 
-  props: { ...props },
+  props,
 
   setup(props) {
     const { gutter } = toRefs(props);

@@ -11,14 +11,12 @@ export interface HighlightOptionProps {
 
 export default defineComponent({
   name: 'HighlightOption',
-
   props: {
     /** 联想词 */
     content: String as PropType<HighlightOptionProps['content']>,
     /** 搜索词 */
     keyword: String as PropType<HighlightOptionProps['keyword']>,
   },
-
   setup(props) {
     const classPrefix = usePrefixClass();
     const words = computed<{ list: string[]; keyword?: string }>(() => {

@@ -1,0 +1,36 @@
+{
+  "name": "@tdesign/internal-utils",
+  "private": true,
+  "author": "tdesign",
+  "license": "MIT",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/es/index.js",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./dist/es/index.js",
+      "default": "./dist/cjs/index.js"
+    },
+    "./paths": {
+      "types": "./types/paths.d.ts",
+      "import": "./dist/es/paths.js",
+      "default": "./dist/cjs/paths.js"
+    },
+    "./package-json": {
+      "types": "./types/package-json.d.ts",
+      "import": "./dist/es/package-json.js",
+      "default": "./dist/cjs/package-json.js"
+    }
+  },
+  "scripts": {
+    "build": "rollup -c rollup.config.ts && pnpm build:tsc", 
+    "build:tsc": "tsc --declaration --emitDeclarationOnly --rootDir . --outDir types --resolveJsonModule --esModuleInterop ./src/*.ts index.ts"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@rollup/plugin-typescript": "^12.1.2",
+    "rollup": "^2.79.1",
+    "rollup-plugin-delete": "^2.1.0",
+    "rollup-plugin-multi-input": "^1.4.1"
+  }
+}
