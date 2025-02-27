@@ -9,7 +9,7 @@ import {
   TypeTNodeProp,
   TypeGetTNodeOption,
   TypeTargetNode,
-} from './tree-types';
+} from '../types';
 
 export function emitEvent<T extends any[]>(
   props: TreeProps & Record<string, any>,

@@ -1,5 +1,5 @@
-import { computed, TypeStyles, usePrefixClass } from '../adapt';
-import { TypeTreeState } from '../tree-types';
+import { computed, TypeStyles, usePrefixClass } from '../utils/adapt';
+import { TypeTreeState } from '../types';
 
 export function formatCSSUnit(unit: string | number) {
   if (!unit) return unit;

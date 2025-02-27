@@ -1,6 +1,6 @@
-import { usePrefixClass, useGlobalIcon, TypeCreateElement, TLoading, TdCaretRightSmallIcon } from '../adapt';
-import { TypeTreeItemState } from '../tree-types';
-import { getTNode } from '../util';
+import { usePrefixClass, useGlobalIcon, TypeCreateElement, TLoading, TdCaretRightSmallIcon } from '../utils/adapt';
+import { TypeTreeItemState } from '../types';
+import { getTNode } from '../utils';
 
 // 渲染节点图标
 export default function useRenderIcon(state: TypeTreeItemState) {

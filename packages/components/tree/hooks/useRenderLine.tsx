@@ -1,6 +1,6 @@
-import { usePrefixClass, TypeCreateElement, TreeNode, TypeVNode } from '../adapt';
-import { TypeTreeItemState } from '../tree-types';
-import { getTNode } from '../util';
+import { usePrefixClass, TypeCreateElement, TreeNode, TypeVNode } from '../utils/adapt';
+import { TypeTreeItemState } from '../types';
+import { getTNode } from '../utils';
 
 // 渲染节点连线
 export default function useRenderLine(state: TypeTreeItemState) {

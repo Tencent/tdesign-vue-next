@@ -1,5 +1,5 @@
-import { onMounted, reactive, TypeCreateElement, usePrefixClass, useLazyLoad, TypeVNode } from '../adapt';
-import { TypeTreeItemState } from '../tree-types';
+import { onMounted, reactive, TypeCreateElement, usePrefixClass, useLazyLoad, TypeVNode } from '../utils/adapt';
+import { TypeTreeItemState } from '../types';
 import useItemEvents from './useItemEvents';
 import useRenderIcon from './useRenderIcon';
 import useRenderLabel from './useRenderLabel';
