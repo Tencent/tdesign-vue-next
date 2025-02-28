@@ -55,6 +55,13 @@ Vue.createApp({}).use(TDesign)
 ```
 
 ## API
+
+### ConfigProvider Props
+
+name | type | default | description | required
+-- | -- | -- | -- | --
+globalConfig | Object | - | global config。Typescript：`GlobalConfigProvider` | N
+
 ### GlobalConfigProvider
 
 name | type | default | description | required
@@ -62,6 +69,7 @@ name | type | default | description | required
 alert | Object | - | Alert global configs。Typescript：`AlertConfig` | N
 anchor | Object | - | Anchor global configs。Typescript：`AnchorConfig` | N
 animation | Object | - | Typescript：`Partial<Record<'include'\|'exclude', Array<AnimationType>>>` `type AnimationType = 'ripple' \| 'expand' \| 'fade'`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/config-provider/type.ts) | N
+autoComplete | Object | - | AutoComplete global configs。Typescript：`AutoCompleteConfig` | N
 calendar | Object | - | Calendar global configs。Typescript：`CalendarConfig` | N
 cascader | Object | - | Cascader global configs。Typescript：`CascaderConfig` | N
 classPrefix | String | t | \- | N

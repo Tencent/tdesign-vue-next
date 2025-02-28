@@ -10,7 +10,14 @@ import { ButtonProps } from '../button';
 import { FormErrorMessage } from '../form';
 import { MessageOptions } from '../message';
 import { ImageProps } from '../image';
-import { TNode, SizeEnum } from '../common';
+import { TNode, SizeEnum, AttachNode } from '../common';
+
+export interface TdConfigProviderProps {
+  /**
+   * 全局配置
+   */
+  globalConfig?: GlobalConfigProvider;
+}
 
 export interface GlobalConfigProvider {
   /**
