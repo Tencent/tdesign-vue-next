@@ -3,6 +3,7 @@
   "version": "1.11.0",
   "title": "tdesign-vue-next",
   "description": "TDesign Component for vue-next",
+  "type": "module",
   "keywords": [
     "vue",
     "vue3",
