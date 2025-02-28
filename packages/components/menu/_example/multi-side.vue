@@ -95,7 +95,7 @@
         </template>
         精准监控
       </t-menu-item>
-      <t-submenu title="消息区 dark" value="3" disabled>
+      <t-submenu title="消息区" value="3" disabled>
         <template #icon>
           <t-icon name="mail" />
         </template>
