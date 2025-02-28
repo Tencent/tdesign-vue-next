@@ -51,7 +51,7 @@ export function getParams(options?: OptionsType) {
 }
 
 export function getSlotFirst(options?: OptionsType) {
-  return isObject(options) && 'slotFirst' in options ? options.slotFirst : {};
+  return isObject(options) && 'slotFirst' in options ? options.slotFirst : false;
 }
 
 // 同时支持驼峰命名和中划线命名的插槽，示例：value-display 和 valueDisplay

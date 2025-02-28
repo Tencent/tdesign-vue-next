@@ -42,6 +42,7 @@ export default defineComponent({
     provide('updateCollapseValue', updateCollapseValue);
     provide('collapseProps', toRefs(props));
     provide('getUniqId', getUniqId);
+    // TODO 这里是有问题的，这是无法响应式，expandIcon 的值变化了，不会重新渲染
     provide('renderParentTNode', renderTNodeJSX);
     return () => {
       const nodes = renderTNodeJSX('default');

@@ -100,7 +100,7 @@
           <t-icon name="mail" />
         </template>
         <template #title>
-          <span>消息区</span>
+          <span>消息区 dark</span>
         </template>
         <t-menu-item value="3-1"> 二级菜单内容 </t-menu-item>
         <t-menu-item value="3-2"> 二级菜单内容 </t-menu-item>
