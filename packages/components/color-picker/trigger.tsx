@@ -39,6 +39,12 @@ export default defineComponent({
         return () => {};
       },
     },
+    onTriggerClear: {
+      type: Function,
+      default: () => {
+        return () => {};
+      },
+    },
     size: {
       type: String as PropType<TdColorPickerProps['size']>,
       default: 'medium',
@@ -65,11 +71,14 @@ export default defineComponent({
       props.onTriggerChange(value.value);
     };
 
+    const handleClear = (context: { e: MouseEvent }) => props.onTriggerClear?.(context);
+
     return {
       baseClassName,
       value,
       handleChange,
       sizeClassNames,
+      handleClear,
     };
   },
 
@@ -104,6 +113,7 @@ export default defineComponent({
         v-model={this.value}
         disabled={this.disabled}
         onBlur={this.handleChange}
+        onClear={this.handleClear}
         {...this.inputProps}
       />
     );

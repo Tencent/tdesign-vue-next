@@ -21,6 +21,8 @@ export default defineComponent({
 
     const refTrigger = ref<HTMLElement>();
 
+    const handleClear = (context: { e: MouseEvent }) => props.onClear?.(context);
+
     const renderPopupContent = () => {
       if (props.disabled) {
         return null;
@@ -46,6 +48,7 @@ export default defineComponent({
       renderPopupContent,
       setVisible,
       setInnerValue,
+      handleClear,
     };
   },
   render() {
@@ -84,6 +87,7 @@ export default defineComponent({
               clearable={this.clearable}
               input-props={this.inputProps}
               onTriggerChange={this.setInnerValue}
+              onTriggerClear={this.handleClear}
               size={this.size}
             />,
           )}
