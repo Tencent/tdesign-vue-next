@@ -74,7 +74,8 @@ export function useHoverKeyboardEvent(props: BaseTableProps, tableRef: Ref<HTMLD
       props.onActiveRowAction?.({ action: 'clear', activeRowList: [] });
     } else if (ALL_REG.test(code) && !props.activeRowType) {
       props.onActiveRowAction?.({ action: 'select-all', activeRowList: [] });
-    } else if (CLEAR_REG.test(code) && !props.activeRowType) {
+      // fix: https://github.com/Tencent/tdesign-vue-next/issues/4990 ↓
+    } else if (CLEAR_REG.test(code) && !props.activeRowType && !e.ctrlKey && !e.metaKey) {
       props.onActiveRowAction?.({ action: 'clear', activeRowList: [] });
     }
 
