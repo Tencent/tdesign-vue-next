@@ -6,7 +6,7 @@
           <t-icon name="mail" />
         </template>
         <template #title>
-          <span>消息区 light</span>
+          <span>消息区</span>
         </template>
         <t-submenu value="3-1" title="二级菜单">
           <t-menu-item value="3-1-1"> 三级菜单内容 </t-menu-item>
