@@ -6,7 +6,7 @@
           <t-icon name="mail" />
         </template>
         <template #title>
-          <span>消息区</span>
+          <span>消息区 light</span>
         </template>
         <t-submenu value="3-1" title="二级菜单">
           <t-menu-item value="3-1-1"> 三级菜单内容 </t-menu-item>
@@ -95,12 +95,12 @@
         </template>
         精准监控
       </t-menu-item>
-      <t-submenu title="消息区" value="3" disabled>
+      <t-submenu title="消息区 dark" value="3" disabled>
         <template #icon>
           <t-icon name="mail" />
         </template>
         <template #title>
-          <span>消息区</span>
+          <span>消息区 dark</span>
         </template>
         <t-menu-item value="3-1"> 二级菜单内容 </t-menu-item>
         <t-menu-item value="3-2"> 二级菜单内容 </t-menu-item>
