@@ -214,6 +214,7 @@ export default function useRowEdit(props: PrimaryTableProps) {
     errorListMap,
     editableKeysMap,
     validateTableData,
+    validateTableCellData,
     validateRowData,
     onRuleChange,
     clearValidateData,
