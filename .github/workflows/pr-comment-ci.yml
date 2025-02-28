@@ -184,8 +184,8 @@ jobs:
           git status
           conflict_count=$(git status | grep -c 'both modified:') || true
           working_tree_clean=$(git status | grep -c 'nothing to commit, working tree clean') || true
-          csr_snap_conflict=$(git status | grep 'both modified:' | grep -c 'csr.test.jsx.snap') || true
-          ssr_snap_conflict=$(git status | grep 'both modified:' | grep -c 'ssr.test.jsx.snap') || true
+          csr_snap_conflict=$(git status | grep 'both modified:' | grep -c 'csr.test.js.snap') || true
+          ssr_snap_conflict=$(git status | grep 'both modified:' | grep -c 'ssr.test.js.snap') || true
           common_conflict=$(git status | grep 'both modified:' | grep -c 'packages/common') || true
           conflicts_sum=$((csr_snap_conflict + ssr_snap_conflict + common_conflict))
           echo "conflict_count: $conflict_count"
