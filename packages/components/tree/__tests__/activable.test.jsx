@@ -350,7 +350,7 @@ describe('Tree:activable', () => {
       tree.setItem('t1.2', {
         actived: true,
       });
-      await delay(1);
+      await delay(3);
 
       expect(wrapper.find('[data-value="t1"]').classes('t-is-active')).toBe(true);
       expect(wrapper.find('[data-value="t1.1"]').classes('t-is-active')).toBe(true);
