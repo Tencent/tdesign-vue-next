@@ -337,58 +337,40 @@ export default defineComponent({
       destroySelf();
     });
 
-    return {
-      COMPONENT_NAME,
-      isModal,
-      isModeLess,
-      isFullScreen,
-      maskClass,
-      dialogClass,
-      dialogStyle,
-      dialogEle,
-      beforeEnter,
-      afterEnter,
-      beforeLeave,
-      afterLeave,
-      hasEventOn,
-      renderDialog,
-      teleportElement,
+    return () => {
+      const maskView = (isModal.value || isFullScreen.value) && <div key="mask" class={maskClass.value}></div>;
+      const dialogView = renderDialog();
+      const view = [maskView, dialogView];
+      const ctxStyle = { zIndex: props.zIndex };
+      // dialog__ctx--fixed 绝对定位
+      // dialog__ctx--absolute 挂载在attach元素上 相对定位
+      // __ctx--modeless modeless 点击穿透
+      const ctxClass = [
+        `${COMPONENT_NAME.value}__ctx`,
+        {
+          [`${COMPONENT_NAME.value}__ctx--fixed`]: isModal.value || isFullScreen.value,
+          [`${COMPONENT_NAME.value}__ctx--absolute`]: isModal.value && props.showInAttachedElement,
+          [`${COMPONENT_NAME.value}__ctx--modeless`]: isModeLess.value,
+        },
+      ];
+      return (
+        <Teleport disabled={!props.attach || !teleportElement.value} to={teleportElement.value}>
+          <Transition
+            duration={300}
+            name={`${COMPONENT_NAME.value}-zoom__vue`}
+            onBeforeEnter={beforeEnter}
+            onAfterEnter={afterEnter}
+            onBeforeLeave={beforeLeave}
+            onAfterLeave={afterLeave}
+          >
+            {(!props.destroyOnClose || props.visible) && (
+              <div v-show={props.visible} class={ctxClass} style={ctxStyle} {...context.attrs}>
+                {view}
+              </div>
+            )}
+          </Transition>
+        </Teleport>
+      );
     };
-  },
-  render() {
-    const { COMPONENT_NAME } = this;
-    const maskView = (this.isModal || this.isFullScreen) && <div key="mask" class={this.maskClass}></div>;
-    const dialogView = this.renderDialog();
-    const view = [maskView, dialogView];
-    const ctxStyle = { zIndex: this.zIndex };
-    // dialog__ctx--fixed 绝对定位
-    // dialog__ctx--absolute 挂载在attach元素上 相对定位
-    // __ctx--modeless modeless 点击穿透
-    const ctxClass = [
-      `${COMPONENT_NAME}__ctx`,
-      {
-        [`${COMPONENT_NAME}__ctx--fixed`]: this.isModal || this.isFullScreen,
-        [`${COMPONENT_NAME}__ctx--absolute`]: this.isModal && this.showInAttachedElement,
-        [`${COMPONENT_NAME}__ctx--modeless`]: this.isModeLess,
-      },
-    ];
-    return (
-      <Teleport disabled={!this.attach || !this.teleportElement} to={this.teleportElement}>
-        <Transition
-          duration={300}
-          name={`${COMPONENT_NAME}-zoom__vue`}
-          onBeforeEnter={this.beforeEnter}
-          onAfterEnter={this.afterEnter}
-          onBeforeLeave={this.beforeLeave}
-          onAfterLeave={this.afterLeave}
-        >
-          {(!this.destroyOnClose || this.visible) && (
-            <div v-show={this.visible} class={ctxClass} style={ctxStyle} {...this.$attrs}>
-              {view}
-            </div>
-          )}
-        </Transition>
-      </Teleport>
-    );
   },
 });
