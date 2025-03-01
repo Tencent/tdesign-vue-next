@@ -277,13 +277,14 @@ export default defineComponent({
     // Vue在引入阶段对事件的处理还做了哪些初始化操作。Vue在实例上用一个_events属性存贮管理事件的派发和更新，
     // 暴露出$on, $once, $off, $emit方法给外部管理事件和派发执行事件
     // 所以通过判断_events某个事件下监听函数数组是否超过一个，可以判断出组件是否监听了当前事件
-    const hasEventOn = (name: string) => {
-      // _events 因没有被暴露在vue实例接口中，只能把这个规则注释掉
-      // eslint-disable-next-line dot-notation
-      // @ts-ignore
-      const eventFuncs = this['_events']?.[name];
-      return !!eventFuncs?.length;
-    };
+    // const hasEventOn = (name: string) => {
+    //   // _events 因没有被暴露在vue实例接口中，只能把这个规则注释掉
+    //   // eslint-disable-next-line dot-notation
+    //   // @ts-ignore
+    //   const eventFuncs = this['_events']?.[name];
+    //   return !!eventFuncs?.length;
+    // };
+
     const renderDialog = () => {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { theme, onConfirm, onCancel, onCloseBtnClick, ...otherProps } = props;
