@@ -10,7 +10,7 @@ import {
 import useVModel from '../../hooks/useVModel';
 import { TdDatePickerProps, DateMultipleValue, DateValue } from '../type';
 
-export default function useSingleValue(props: TdDatePickerProps) {
+export function useSingleValue(props: TdDatePickerProps) {
   const { value: valueFromProps, modelValue } = toRefs(props);
   const [value, onChange] = useVModel(valueFromProps, modelValue, props.defaultValue, props.onChange);
 

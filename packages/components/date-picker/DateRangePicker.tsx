@@ -9,8 +9,8 @@ import props from './date-range-picker-props';
 import { DateValue, DateRangePickerPartial } from './type';
 
 import { RangeInputPopup as TRangeInputPopup } from '../range-input';
-import TRangePanel from './panel/RangePanel';
-import useRange from './hooks/useRange';
+import TRangePanel from './components/panel/RangePanel';
+import { useRange } from './hooks/useRange';
 import {
   parseToDayjs,
   formatTime,

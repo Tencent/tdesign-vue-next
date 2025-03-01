@@ -1,8 +1,8 @@
 import { defineComponent, computed, PropType } from 'vue';
-import { useConfig, usePrefixClass } from '../../hooks/useConfig';
-import TButton from '../../button';
+import { useConfig, usePrefixClass } from '../../../hooks/useConfig';
+import TButton from '../../../button';
 
-import type { TdDatePickerProps } from '../type';
+import type { TdDatePickerProps } from '../../type';
 
 export default defineComponent({
   name: 'TDatePickerTable',

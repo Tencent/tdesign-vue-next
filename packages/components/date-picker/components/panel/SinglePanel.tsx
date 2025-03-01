@@ -1,12 +1,11 @@
 import { defineComponent, PropType, computed } from 'vue';
-import { useConfig, usePrefixClass } from '../../hooks/useConfig';
+import { useConfig, usePrefixClass } from '../../../hooks/useConfig';
 import TPanelContent from './PanelContent';
 import TExtraContent from './ExtraContent';
 import { getDefaultFormat, parseToDayjs } from '@tdesign/common-js/date-picker/format';
-import useTableData from '../hooks/useTableData';
-import useDisableDate from '../hooks/useDisableDate';
+import { useTableData, useDisableDate } from '../../hooks';
 
-import type { TdDatePickerProps, DateMultipleValue, DateValue } from '../type';
+import type { TdDatePickerProps, DateMultipleValue, DateValue } from '../../type';
 
 export default defineComponent({
   name: 'TSinglePanel',

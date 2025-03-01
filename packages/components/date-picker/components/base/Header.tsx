@@ -1,9 +1,9 @@
 import { defineComponent, PropType, ref, computed, watch } from 'vue';
-import { PaginationMini, JumperTrigger } from '../../pagination';
-import TSelect from '../../select';
-import { useConfig, usePrefixClass } from '../../hooks/useConfig';
+import { PaginationMini, JumperTrigger } from '../../../pagination';
+import TSelect from '../../../select';
+import { useConfig, usePrefixClass } from '../../../hooks/useConfig';
 
-import type { TdDatePickerProps } from '../type';
+import type { TdDatePickerProps } from '../../type';
 
 export default defineComponent({
   name: 'TDatePickerHeader',

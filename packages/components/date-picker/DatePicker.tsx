@@ -7,12 +7,12 @@ import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass, useConfig } from '../hooks/useConfig';
 import { useDisabled } from '../hooks/useDisabled';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import useSingle from './hooks/useSingle';
+import { useSingle } from './hooks/useSingle';
 import { parseToDayjs, getDefaultFormat, formatTime, formatDate } from '@tdesign/common-js/date-picker/format';
 import { subtractMonth, addMonth, extractTimeObj, covertToDate, isSame } from '@tdesign/common-js/date-picker/utils';
 import props from './props';
 import TSelectInput from '../select-input';
-import TSinglePanel from './panel/SinglePanel';
+import TSinglePanel from './components/panel/SinglePanel';
 import { useReadonly } from '../hooks/useReadonly';
 
 import type { TdDatePickerProps, DateMultipleValue, DateValue } from './type';

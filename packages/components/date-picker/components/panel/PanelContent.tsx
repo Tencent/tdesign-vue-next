@@ -1,10 +1,10 @@
 import { defineComponent, PropType } from 'vue';
-import { usePrefixClass } from '../../hooks/useConfig';
-import type { TdDatePickerProps } from '../type';
+import { usePrefixClass } from '../../../hooks/useConfig';
+import type { TdDatePickerProps } from '../../type';
 
 import TDateHeader from '../base/Header';
 import TDateTable from '../base/Table';
-import TTimePickerPanel from '../../time-picker/panel/time-picker-panel';
+import TTimePickerPanel from '../../../time-picker/panel/time-picker-panel';
 import { getDefaultFormat } from '@tdesign/common-js/date-picker/format';
 
 export default defineComponent({
