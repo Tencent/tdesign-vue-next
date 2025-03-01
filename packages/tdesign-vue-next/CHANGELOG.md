@@ -5,6 +5,13 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.11.1 `2025-03-01` 
+### 🐞 Bug Fixes
+- `bundle`:  修复`1.11.0`版本 `cjs` 产物的依赖报错问题 @uyarn ([#5116](https://github.com/Tencent/tdesign-vue-next/pull/5116))
+- `List`: 修复`1.11.0`版本`scrollTo`实例方法异常的问题 @uyarn ([#5117](https://github.com/Tencent/tdesign-vue-next/pull/5117))
+- `Dialog`: 修复`1.11.0`版本控制台报错问题 @Wesley-0808 ([#5126](https://github.com/Tencent/tdesign-vue-next/pull/5126))
+- `Table`: 修复按下`Ctrl C`复制快捷键导致清空选中行的问题 @Wesley-0808 ([#5124](https://github.com/Tencent/tdesign-vue-next/pull/5124))
+
 ## 🌈 1.11.0 `2025-02-27` 
 ### 🚀 Features
 - `AutoComplete`: 新增 `empty` API，用于配置空状态下的下拉内容展示 @liweijie0812 ([#4908](https://github.com/Tencent/tdesign-vue-next/pull/4908))
