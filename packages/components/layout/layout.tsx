@@ -8,7 +8,6 @@ export type LayoutProvideType = {
 
 export default defineComponent({
   name: 'TLayout',
-
   setup() {
     const hasSide = ref(false);
     const renderTNodeJSX = useTNodeJSX();
