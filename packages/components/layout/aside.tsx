@@ -6,9 +6,7 @@ import { useTNodeJSX } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TAside',
-
   props,
-
   setup(props) {
     const { hasSide } = inject<LayoutProvideType>('layout', Object.create(null));
     const COMPONENT_NAME = usePrefixClass('layout__sider');

@@ -1,7 +1,7 @@
 import { defineComponent, computed, nextTick, onMounted, ref, toRefs, watch, h, Teleport } from 'vue';
 import { isFunction } from 'lodash-es';
 import props from './props';
-import { GuideCrossProps } from './interface';
+import { GuideCrossProps } from './types';
 import { TdGuideProps, GuideStep } from './type';
 import { scrollToParentVisibleArea, getRelativePosition, getTargetElm, scrollToElm } from './utils';
 import setStyle from '@tdesign/common-js/utils/setStyle';

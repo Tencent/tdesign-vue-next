@@ -1,10 +1,10 @@
 import { ref, computed, watch, nextTick, toRefs, inject } from 'vue';
-import { InputValue, TdInputProps } from './type';
-import { FormItemInjectionKey } from '../form/const';
-import useVModel from '../hooks/useVModel';
-import { useDisabled } from '../hooks/useDisabled';
-import useLengthLimit from './useLengthLimit';
-import { useReadonly } from '../hooks/useReadonly';
+import { InputValue, TdInputProps } from './../type';
+import { FormItemInjectionKey } from '../../form/consts';
+import useVModel from '../../hooks/useVModel';
+import { useDisabled } from '../../hooks/useDisabled';
+import { useLengthLimit } from './useLengthLimit';
+import { useReadonly } from '../../hooks/useReadonly';
 
 export function getOutputValue(val: InputValue, type: TdInputProps['type']) {
   if (type === 'number') {
@@ -18,7 +18,7 @@ export interface ExtendsTdInputProps extends TdInputProps {
   keepWrapperWidth: boolean;
 }
 
-export default function useInput(props: ExtendsTdInputProps, expose: (exposed: Record<string, any>) => void) {
+export function useInput(props: ExtendsTdInputProps, expose: (exposed: Record<string, any>) => void) {
   const { value, modelValue } = toRefs(props);
   const inputValue = ref<InputValue>();
   const isComposition = ref(false);
