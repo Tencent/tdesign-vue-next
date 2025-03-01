@@ -113,7 +113,7 @@ export interface TdImageViewerProps {
   /**
    * 自定义预览图片下载操作，url为图片链接
    */
-  onDownload?: (url: string | File) => void;
+  onDownload?: (url: string) => void;
   /**
    * 预览图片切换时触发，`context.prev` 切换到上一张图片，`context.next` 切换到下一张图片
    */

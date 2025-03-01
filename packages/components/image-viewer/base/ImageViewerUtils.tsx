@@ -17,6 +17,7 @@ export default defineComponent({
     onZoomOut: Function as PropType<() => void>,
     onMirror: Function as PropType<() => void>,
     onReset: Function as PropType<() => void>,
+    onDownload: Function as PropType<(url: string) => void>,
     currentImage: {
       type: Object as PropType<ImageInfo>,
       default() {
@@ -78,7 +79,7 @@ export default defineComponent({
             <TImageViewerIcon
               icon={() => <DownloadIcon size="medium" />}
               onClick={() => {
-                downloadFile(previewUrl.value);
+                props.onDownload(previewUrl.value);
               }}
             />
           )}

@@ -30,6 +30,7 @@ export default defineComponent({
     onMirror: Function as PropType<() => void>,
     onReset: Function as PropType<() => void>,
     onClose: props.onClose,
+    onDownload: props.onDownload,
     draggable: {
       type: Boolean,
       default: true,
@@ -78,6 +79,7 @@ export default defineComponent({
               onRotate={props.onRotate}
               onMirror={props.onMirror}
               onReset={props.onReset}
+              onDownload={props.onDownload}
             />
           </div>
         )}
