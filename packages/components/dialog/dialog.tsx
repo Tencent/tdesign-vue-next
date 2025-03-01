@@ -286,7 +286,7 @@ export default defineComponent({
     };
     const renderDialog = () => {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { dialogClassName, theme, onConfirm, onCancel, onCloseBtnClick, ...otherProps } = props;
+      const { theme, onConfirm, onCancel, onCloseBtnClick, ...otherProps } = props;
       return (
         /** 非模态形态下draggable为true才允许拖拽 */
         <div class={wrapClass.value}>
@@ -309,7 +309,6 @@ export default defineComponent({
                 theme={theme}
                 {...otherProps}
                 v-slots={context.slots}
-                class={dialogClassName}
                 onConfirm={confirmBtnAction}
                 onCancel={cancelBtnAction}
                 onCloseBtnClick={closeBtnAction}

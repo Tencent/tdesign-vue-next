@@ -18,10 +18,6 @@ export default defineComponent({
   props: {
     ...dialogProps,
     ...dialogCardProps,
-    class: {
-      type: [String],
-      default: '',
-    },
   },
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('dialog');
