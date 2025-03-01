@@ -64,7 +64,6 @@ export default defineComponent({
     const showText = computed(() => Boolean(props.text || slots.text));
     const showWrapLoading = computed(() => hasContent.value && props.loading && delayCounted.value);
     const showFullScreenLoading = computed(() => props.fullscreen && props.loading && delayCounted.value);
-    const showNormalLoading = computed(() => props.attach && props.loading && delayCounted.value);
     const showAttachedLoading = computed(() => props.attach && props.loading && delayCounted.value);
     const classes = computed(() => {
       const baseClasses = [
