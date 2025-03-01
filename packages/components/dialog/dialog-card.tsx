@@ -9,7 +9,7 @@ import dialogCardProps from './dialog-card-props';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useAction } from './hooks';
-import { useTNodeJSX } from '../hooks/tnode';
+import { useContent, useTNodeJSX } from '../hooks/tnode';
 import type { TdDialogProps } from './type';
 import dialogProps from './props';
 
@@ -18,11 +18,16 @@ export default defineComponent({
   props: {
     ...dialogProps,
     ...dialogCardProps,
+    class: {
+      type: [String],
+      default: '',
+    },
   },
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('dialog');
     const classPrefix = usePrefixClass();
     const renderTNodeJSX = useTNodeJSX();
+    const renderContent = useContent();
     const { globalConfig } = useConfig('dialog');
     const { CloseIcon, InfoCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon } = useGlobalIcon({
       CloseIcon: TdCloseIcon,
@@ -30,7 +35,7 @@ export default defineComponent({
       CheckCircleFilledIcon: TdCheckCircleFilledIcon,
       ErrorCircleFilledIcon: TdErrorCircleFilledIcon,
     });
-    const { header, body, cancelBtn, confirmBtn, confirmLoading } = toRefs(props);
+    const { cancelBtn, confirmBtn, confirmLoading } = toRefs(props);
 
     const confirmBtnAction = (e: MouseEvent) => props.onConfirm?.({ e });
     const cancelBtnAction = (e: MouseEvent) => props.onCancel?.({ e });
@@ -71,6 +76,8 @@ export default defineComponent({
     };
 
     const renderHeader = () => {
+      // header 值为 true 显示空白头部
+      const header = renderTNodeJSX('header', <h5 class="title"></h5>) ?? false;
       const headerClassName = isFullScreen.value
         ? [`${COMPONENT_NAME.value}__header`, `${COMPONENT_NAME.value}__header--fullscreen`]
         : `${COMPONENT_NAME.value}__header`;
@@ -88,11 +95,11 @@ export default defineComponent({
         return icon[props?.theme as keyof typeof icon];
       };
       return (
-        (header.value || props?.closeBtn) && (
+        (header || props?.closeBtn) && (
           <div class={headerClassName} onMousedown={onStopDown}>
             <div class={`${COMPONENT_NAME.value}__header-content`}>
               {getIcon()}
-              {header.value}
+              {header}
             </div>
 
             {props?.closeBtn ? (
@@ -106,6 +113,7 @@ export default defineComponent({
     };
 
     const renderBody = () => {
+      const body = renderContent('default', 'body');
       const bodyClassName =
         props?.theme === 'default' ? [`${COMPONENT_NAME.value}__body`] : [`${COMPONENT_NAME.value}__body__icon`];
       if (isFullScreen.value && footerContent) {
@@ -115,7 +123,7 @@ export default defineComponent({
       }
       return (
         <div class={bodyClassName} onMousedown={onStopDown}>
-          {body.value}
+          {body}
         </div>
       );
     };
