@@ -42,6 +42,7 @@ export default defineComponent({
     },
     showOverlay: Boolean,
     closeBtn: props.closeBtn,
+    imageReferrerpolicy: props.imageReferrerpolicy,
   },
   setup(props) {
     const classPrefix = usePrefixClass();
@@ -89,6 +90,7 @@ export default defineComponent({
             src={props.currentImage.mainImage}
             placementSrc={props.currentImage.thumbnail}
             isSvg={props.currentImage.isSvg}
+            imageReferrerpolicy={props.imageReferrerpolicy}
           />
         </div>
       </TDialog>

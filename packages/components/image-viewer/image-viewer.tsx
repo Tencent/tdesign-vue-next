@@ -28,7 +28,7 @@ export default defineComponent({
     const isExpand = ref(true);
     const showOverlayValue = computed(() => getOverlay(props));
 
-    const { index, visible, modelValue } = toRefs(props);
+    const { index, visible, modelValue, imageReferrerpolicy } = toRefs(props);
     const [indexValue, setIndexValue] = useDefaultValue(index, props.defaultIndex ?? 0, props.onIndexChange, 'index');
     const [visibleValue, setVisibleValue] = useVModel(visible, modelValue, props.defaultVisible, () => {}, 'visible');
     const animationEnd = ref(true);
@@ -242,6 +242,7 @@ export default defineComponent({
               draggable={props.draggable}
               showOverlay={showOverlayValue.value}
               title={props.title}
+              imageReferrerpolicy={imageReferrerpolicy.value}
             />
           </>
         );
@@ -293,6 +294,7 @@ export default defineComponent({
                     src={currentImage.value.mainImage}
                     placementSrc={currentImage.value.thumbnail}
                     isSvg={currentImage.value.isSvg}
+                    imageReferrerpolicy={imageReferrerpolicy.value}
                   />
                 </div>
               )}
