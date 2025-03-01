@@ -3,7 +3,6 @@ import { ImageIcon, ZoomInIcon, ZoomOutIcon, DownloadIcon, MirrorIcon, RotationI
 import TImageViewerIcon from './ImageModalIcon';
 import TToolTip from '../../tooltip';
 import { usePrefixClass, useConfig } from '../../hooks/useConfig';
-import { downloadFile } from '../utils';
 import { useImagePreviewUrl } from '../../hooks';
 import { ImageInfo } from '../type';
 import { largeNumberToFixed } from '@tdesign/common-js/input-number/large-number';
