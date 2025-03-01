@@ -2,8 +2,7 @@ import { computed, ComputedRef, onMounted, watch } from 'vue';
 import { TdInputProps } from './type';
 import log from '@tdesign/common-js/log/index';
 import { getCharacterLength, getUnicodeLength, limitUnicodeMaxLength } from '@tdesign/common-js/utils/helper';
-import { isNumber } from 'lodash-es';
-import { isObject } from 'lodash-es';
+import { isObject, isNumber } from 'lodash-es';
 
 export interface UseLengthLimitParams {
   value: string;

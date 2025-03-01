@@ -1,7 +1,5 @@
 import { defineComponent, provide, computed, watchEffect, ref, toRefs } from 'vue';
-import { intersection } from 'lodash-es';
-import { isObject } from 'lodash-es';
-import { isUndefined } from 'lodash-es';
+import { intersection, isObject, isUndefined } from 'lodash-es';
 import Checkbox from './checkbox';
 import props from './checkbox-group-props';
 import { CheckboxOptionObj, TdCheckboxProps, CheckboxGroupValue } from './type';

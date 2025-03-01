@@ -1,7 +1,5 @@
 import { Ref, reactive, computed, toRefs, watch, nextTick } from 'vue';
-import { isEqual } from 'lodash-es';
-import { isFunction } from 'lodash-es';
-import { isString } from 'lodash-es';
+import { isEqual, isFunction, isString } from 'lodash-es';
 
 import TreeStore from '@tdesign/common-js/tree/tree-store';
 import { useDisabled } from '../../hooks/useDisabled';

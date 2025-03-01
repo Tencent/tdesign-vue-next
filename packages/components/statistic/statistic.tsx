@@ -3,8 +3,7 @@ import {
   ArrowTriangleDownFilledIcon as TDArrowTriangleDownFilledIcon,
   ArrowTriangleUpFilledIcon as TDArrowTriangleUpFilledIcon,
 } from 'tdesign-icons-vue-next';
-import { isNumber } from 'lodash-es';
-import { isFunction } from 'lodash-es';
+import { isFunction, isNumber } from 'lodash-es';
 import props from './props';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';

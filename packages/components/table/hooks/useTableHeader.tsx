@@ -1,6 +1,5 @@
 import { SetupContext, computed, h } from 'vue';
-import { isString } from 'lodash-es';
-import { isFunction } from 'lodash-es';
+import { isString, isFunction } from 'lodash-es';
 import { BaseTableCol, PrimaryTableCol, TableRowData, TdBaseTableProps } from '../type';
 import { getThRowspanAndColspan, getThList } from './useMultiHeader';
 import useClassName from './useClassName';

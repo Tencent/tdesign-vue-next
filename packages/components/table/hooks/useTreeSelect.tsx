@@ -1,6 +1,5 @@
 import { computed, toRefs, ref, Ref, watch } from 'vue';
-import { get } from 'lodash-es';
-import { intersection } from 'lodash-es';
+import { get, intersection } from 'lodash-es';
 import { TdEnhancedTableProps, TdPrimaryTableProps, TableRowData, PrimaryTableCol } from '../type';
 import { KeysType, TableTreeDataMap, TreeDataMapType } from '@tdesign/common-js/table/tree-store';
 import useDefaultValue from '../../hooks/useDefaultValue';

@@ -2,8 +2,7 @@ import { defineComponent, computed, ref, watch } from 'vue';
 import dayjs from 'dayjs';
 import { useDisabled } from '../hooks/useDisabled';
 import { usePrefixClass } from '../hooks/useConfig';
-import { isFunction } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { isFunction, isArray } from 'lodash-es';
 
 import props from './date-range-picker-props';
 import { DateValue, DateRangePickerPartial } from './type';

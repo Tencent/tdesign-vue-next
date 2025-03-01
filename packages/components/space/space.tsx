@@ -3,9 +3,7 @@ import props from './props';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
 import { useChildSlots } from '../hooks/slot';
-import { isNumber } from 'lodash-es';
-import { isString } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { isNumber, isString, isArray } from 'lodash-es';
 import { getFlexGapPolyFill } from '@tdesign/common-js/utils/helper';
 import { SizeEnum } from '../common';
 

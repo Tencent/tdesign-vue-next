@@ -4,8 +4,7 @@ import props from './props';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
 import Button from '../button';
-import { isString } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { isString, isArray } from 'lodash-es';
 
 export default defineComponent({
   name: 'TComment',

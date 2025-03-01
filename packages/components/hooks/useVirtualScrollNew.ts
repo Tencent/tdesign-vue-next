@@ -8,10 +8,7 @@
 import { ref, computed, watch, Ref } from 'vue';
 import { TScroll } from '../common';
 import useResizeObserver from './useResizeObserver';
-import { max } from 'lodash-es';
-import { min } from 'lodash-es';
-import { sum } from 'lodash-es';
-import { throttle } from 'lodash-es';
+import { max, min, sum, throttle } from 'lodash-es';
 
 export type UseVirtualScrollParams = Ref<{
   /** 列数据 */
