@@ -5,6 +5,35 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.11.1 `2025-03-01` 
+### 🐞 Bug Fixes
+- `bundle`:  修复`1.11.0`版本 `cjs` 产物的依赖报错问题 @uyarn ([#5116](https://github.com/Tencent/tdesign-vue-next/pull/5116))
+- `List`: 修复`1.11.0`版本`scrollTo`实例方法异常的问题 @uyarn ([#5117](https://github.com/Tencent/tdesign-vue-next/pull/5117))
+- `Dialog`: 修复`1.11.0`版本控制台报错问题 @Wesley-0808 ([#5126](https://github.com/Tencent/tdesign-vue-next/pull/5126))
+- `Table`: 修复按下`Ctrl C`复制快捷键导致清空选中行的问题 @Wesley-0808 ([#5124](https://github.com/Tencent/tdesign-vue-next/pull/5124))
+
+## 🌈 1.11.0 `2025-02-27` 
+### 🚀 Features
+- `AutoComplete`: 新增 `empty` API，用于配置空状态下的下拉内容展示 @liweijie0812 ([#4908](https://github.com/Tencent/tdesign-vue-next/pull/4908))
+- `Dialog`: 新增`dialogCard`组件，用于非脱离文档流场景 @Wesley-0808 ([#5002](https://github.com/Tencent/tdesign-vue-next/pull/5002))
+- `Table`: 新增`validateTableCellData`实例方法，用于校验表格可编辑单元格数据 @Wesley-0808 ([#5105](https://github.com/Tencent/tdesign-vue-next/pull/5105))
+### 🐞 Bug Fixes
+- `Select`: 
+  - 默认搜索方法优先展示全等项 @Cat1007 ([#5051](https://github.com/Tencent/tdesign-vue-next/pull/5051))
+  - 多选情况下点击清除按钮重复触发 `change` 事件的问题 @betavs ([#5092](https://github.com/Tencent/tdesign-vue-next/pull/5092))
+  - 修复可过滤场景下存在全选选项时，全选行为的异常 @RSS1102  @uyarn ([#5104](https://github.com/Tencent/tdesign-vue-next/pull/5104))
+- `Tree`: 修复动态切换 `expandAll` 的功能异常问题 @RSS1102 ([#4988](https://github.com/Tencent/tdesign-vue-next/pull/4988))
+- `Form`: 修复`status` 属性没有应用到校验状态上的问题 @RSS1102 ([#5008](https://github.com/Tencent/tdesign-vue-next/pull/5008))
+- `Statistic`: 修复 decimalPlaces=0 时数值动画期间精度错误的问题 @liweijie0812 ([#5055](https://github.com/Tencent/tdesign-vue-next/pull/5055))
+- `TreeSelect`: 首次渲染时自动展开选定节点 @RSS1102 ([#5003](https://github.com/Tencent/tdesign-vue-next/pull/5003))
+
+### 📝 Documentation
+- `docs`: `ConfigProvider` 增加 `globalConfig` API文档，`Layout` 子组件 `Content` 新增 API 文档 @liweijie0812 ([#5090](https://github.com/Tencent/tdesign-vue-next/pull/5090))
+- `docs`:  全局配置页面路由修改为`config-provider`，与其他组件保持一致 @liweijie0812 ([#5090](https://github.com/Tencent/tdesign-vue-next/pull/5090))
+### 🚧 Others
+- `plugin`: 新增`ConfigProvider`、`Typography` 等组件的编辑器提示功能 @liweijie0812 ([#5090](https://github.com/Tencent/tdesign-vue-next/pull/5090))
+- `dependency`: 调整组件依赖 `lodash` 为 `lodash-es` @zhangpaopao0609 (https://github.com/Tencent/tdesign-vue-next/pull/4959)
+
 ## 🌈 1.10.7 `2025-01-24` 
 ### 🚀 Features
 - `Icon`: 新增`logo-alipay`、`logo-behance-filled`等图标，修改`logo-wecom`图标，移除不合理的`logo-wecom-filled`图标 @uyarn ([#4926](https://github.com/Tencent/tdesign-vue-next/pull/4926))

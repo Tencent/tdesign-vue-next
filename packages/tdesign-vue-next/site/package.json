@@ -25,7 +25,7 @@
     "lodash": "^4.17.21",
     "prismjs": "^1.29.0",
     "tdesign-icons-view": "^0.3.4",
-    "tdesign-site-components": "0.16.0-alpha.6",
+    "tdesign-site-components": "0.16.0-alpha.9",
     "tdesign-theme-generator": "^1.0.11",
     "vite": "^2.9.16",
     "vite-plugin-pwa": "^0.12.8",

@@ -32,7 +32,9 @@
     "precaching",
     "tdesign",
     "tdoc",
+    "tmenu",
     "tnode",
+    "vnode",
     "wechat"
   ]
 }

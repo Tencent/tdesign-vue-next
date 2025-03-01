@@ -46,7 +46,7 @@ export const docs = [
         title: '全局特性配置',
         titleEn: 'Global Configuration',
         name: 'config',
-        path: '/vue-next/global-configuration',
+        path: '/vue-next/components/config-provider',
         component: () => import('tdesign-vue-next/config-provider/config-provider.md'),
         componentEn: () => import('tdesign-vue-next/config-provider/config-provider.en-US.md'),
       },

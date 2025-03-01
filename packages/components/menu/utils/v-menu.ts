@@ -1,5 +1,5 @@
 import { ref, Slot } from 'vue';
-import type { TdMenuItemProps } from './type';
+import type { TdMenuItemProps } from '../type';
 type MenuValue = string | number;
 type MenuNode = MenuValue | VMenuData;
 
@@ -46,7 +46,7 @@ const DFS = (root: VMenuData, val: MenuValue): VMenuData => {
   }
 };
 
-export default class VMenu {
+export class VMenu {
   data: VMenuData = null;
 
   cache: Set<VMenuData> = new Set();

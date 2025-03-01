@@ -136,9 +136,11 @@ module.exports = {
 
 ### Nuxt 3 中使用
 
-在 nuxt 3 中，可以安装 nuxt module `@tdesign-vue-next/nuxt`
+在 nuxt 3 中，可以安装 nuxt module [@tdesign-vue-next/nuxt](https://nuxt.com/modules/tdesign-vue-next)
 
 ```bash
+npx nuxi@latest module add tdesign-vue-next
+# or
 npm install tdesign-vue-next
 npm install -D @tdesign-vue-next/nuxt
 ```
@@ -170,10 +172,7 @@ export default defineNuxtConfig({
 
 即普通的对话聊天式输入。
 
-由于知识库内包括了 TDesign 相关的内容以及其他前端开发相关的知识，如果需要通过对话方式提问 `tdesign-vue-next` 框架内的相关问题，建议在问题中加入 `tdesign-vue-next` 的相关关键词。
-
 <img src="https://tdesign.gtimg.com/docs/ai-search-prompt.png" alt="ai-search-prompt" />
-
 
 ### 划词解释
 

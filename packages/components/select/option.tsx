@@ -8,12 +8,12 @@ import { useDisabled } from '../hooks/useDisabled';
 import useRipple from '../hooks/useRipple';
 import { useContent } from '../hooks/tnode';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import { selectInjectKey, getNewMultipleValue } from './helper';
+import { getNewMultipleValue } from './utils';
+import { selectInjectKey } from './consts';
 import { SelectValue } from './type';
 
 export default defineComponent({
   name: 'TOption',
-
   props: {
     ...props,
     createAble: Boolean,
