@@ -3,7 +3,6 @@ import { DialogCloseContext } from './type';
 import props from './props';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useSameTarget } from './hooks';
-import { useTNodeJSX, useContent } from '../hooks/tnode';
 import useDestroyOnClose from '../hooks/useDestroyOnClose';
 import { getScrollbarWidth } from '@tdesign/common-js/utils/getScrollbarWidth';
 import useTeleport from '../hooks/useTeleport';
@@ -90,8 +89,6 @@ export default defineComponent({
   setup(props, context) {
     const COMPONENT_NAME = usePrefixClass('dialog');
     const classPrefix = usePrefixClass();
-    const renderContent = useContent();
-    const renderTNodeJSX = useTNodeJSX();
     const dialogEle = ref<HTMLElement | null>(null);
     const dialogCardRef = ref<HTMLElement | null>(null);
     const { globalConfig } = useConfig('dialog');
@@ -288,13 +285,10 @@ export default defineComponent({
       return !!eventFuncs?.length;
     };
     const renderDialog = () => {
-      // header 值为 true 显示空白头部
-      const headerContent = renderTNodeJSX('header', <h5 class="title"></h5>) ?? false;
-      const bodyContent = renderContent('default', 'body');
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { body, header, dialogClassName, theme, onConfirm, onCancel, onCloseBtnClick, ...otherProps } = props;
+      const { theme, onConfirm, onCancel, onCloseBtnClick, ...otherProps } = props;
       return (
-        // /* 非模态形态下draggable为true才允许拖拽 */
+        /** 非模态形态下draggable为true才允许拖拽 */
         <div class={wrapClass.value}>
           <div
             class={positionClass.value}
@@ -314,9 +308,7 @@ export default defineComponent({
                 ref={dialogCardRef}
                 theme={theme}
                 {...otherProps}
-                header={headerContent}
-                body={bodyContent}
-                class={dialogClassName}
+                v-slots={context.slots}
                 onConfirm={confirmBtnAction}
                 onCancel={cancelBtnAction}
                 onCloseBtnClick={closeBtnAction}
