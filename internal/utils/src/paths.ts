@@ -1,4 +1,6 @@
-import { resolve } from 'path';
+import { posix } from 'path';
+
+const { resolve } = posix;
 
 export { resolve };
 
