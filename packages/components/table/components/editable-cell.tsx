@@ -11,16 +11,16 @@ import {
   PrimaryTableRowValidateContext,
   TdBaseTableProps,
   TableEditableCellPropsParams,
-} from './type';
-import { TableClassName } from './hooks/useClassName';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
+} from '../type';
+import { TableClassName } from '../hooks/useClassName';
+import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 import { renderCell } from './tr';
-import { validate } from '../form/utils/form-model';
+import { validate } from '../../form/utils/form-model';
 import log from '@tdesign/common-js/log/index';
-import { AllValidateResult } from '../form/type';
-import { on, off } from '../utils/dom';
+import { AllValidateResult } from '../../form/type';
+import { on, off } from '../../utils/dom';
 import { isObject } from 'lodash-es';
-import { usePrefixClass } from '../hooks/useConfig';
+import { usePrefixClass } from '../../hooks/useConfig';
 
 export interface OnEditableChangeContext<T> extends PrimaryTableRowEditContext<T> {
   isEdit: boolean;

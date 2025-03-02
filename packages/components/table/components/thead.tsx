@@ -1,13 +1,13 @@
 import { defineComponent, computed, SetupContext, PropType, ref, Ref, h, CSSProperties } from 'vue';
 import { isFunction } from 'lodash-es';
-import { getColumnFixedStyles } from './hooks/useFixed';
-import useClassName from './hooks/useClassName';
-import { BaseTableCol, TableRowData, TdBaseTableProps } from './type';
-import { renderTitle } from './hooks/useTableHeader';
+import { getColumnFixedStyles } from '../hooks/useFixed';
+import useClassName from '../hooks/useClassName';
+import { BaseTableCol, TableRowData, TdBaseTableProps } from '../type';
+import { renderTitle } from '../hooks/useTableHeader';
 import TEllipsis from './ellipsis';
-import { formatClassNames } from './utils';
-import { RowAndColFixedPosition, BaseTableColumns, ThRowspanAndColspan } from './interface';
-import { AttachNode } from '../common';
+import { formatClassNames } from '../utils';
+import { RowAndColFixedPosition, BaseTableColumns, ThRowspanAndColspan } from '../types';
+import { AttachNode } from '../../common';
 
 export interface TheadProps {
   classPrefix: string;

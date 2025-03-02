@@ -20,13 +20,11 @@ import { usePrefixClass } from '../hooks';
 
 export default defineComponent({
   name: 'TEnhancedTable',
-
   props: {
     ...baseTableProps,
     ...primaryTableProps,
     ...enhancedTableProps,
   },
-
   setup(props: TdEnhancedTableProps, context: SetupContext) {
     const primaryTableRef = ref(null);
     const { store, dataSource, formatTreeColumn, swapData, onExpandFoldIconClick, ...treeInstanceFunctions } =

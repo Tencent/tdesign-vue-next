@@ -1,18 +1,18 @@
 import { defineComponent, PropType, ref, h } from 'vue';
 import { FilterIcon as TdFilterIcon } from 'tdesign-icons-vue-next';
 import { isEmpty } from 'lodash-es';
-import Popup, { PopupProps } from '../popup';
-import { CheckboxGroup } from '../checkbox';
-import { RadioGroup } from '../radio';
-import Input from '../input';
-import TButton from '../button';
-import { useTNodeDefault } from '../hooks/tnode';
-import { PrimaryTableCol, FilterValue, TdPrimaryTableProps } from './type';
-import { useConfig } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { AttachNode } from '../common';
+import Popup, { PopupProps } from '../../popup';
+import { CheckboxGroup } from '../../checkbox';
+import { RadioGroup } from '../../radio';
+import Input from '../../input';
+import TButton from '../../button';
+import { useTNodeDefault } from '../../hooks/tnode';
+import { PrimaryTableCol, FilterValue, TdPrimaryTableProps } from '../type';
+import { useConfig } from '../../hooks/useConfig';
+import { useGlobalIcon } from '../../hooks/useGlobalIcon';
+import { AttachNode } from '../../common';
 import { isFunction } from 'lodash-es';
-import { TableConfig } from '../config-provider';
+import { TableConfig } from '../../config-provider';
 
 export interface TableFilterControllerProps {
   locale: TableConfig;

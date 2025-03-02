@@ -4,7 +4,7 @@ import TButton from '../../button';
 import { TdPrimaryTableProps, PrimaryTableCol, TableRowData, FilterValue, TableFilterChangeContext } from '../type';
 import useDefaultValue from '../../hooks/useDefaultValue';
 import { useTNodeDefault } from '../../hooks/tnode';
-import TableFilterController from '../filter-controller';
+import TableFilterController from '../components/filter-controller';
 import { useConfig } from '../../hooks/useConfig';
 import { isFunction } from 'lodash-es';
 import { getColumnsResetValue } from '@tdesign/common-js/table/utils';

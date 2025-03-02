@@ -9,7 +9,7 @@ import { BaseTableInstanceFunctions, EnhancedTableInstanceFunctions, PrimaryTabl
 import './style';
 
 export * from './type';
-export * from './interface';
+export * from './types';
 
 export type AllTableInstanceFunctions = EnhancedTableInstanceFunctions &
   PrimaryTableInstanceFunctions &

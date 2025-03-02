@@ -1,9 +1,7 @@
-import { isFunction } from 'lodash-es';
-import { get } from 'lodash-es';
-import { isObject } from 'lodash-es';
-import { CellData, RowClassNameParams, TableColumnClassName, TableRowData, TdBaseTableProps } from './type';
-import { ClassName, HTMLElementAttributes } from '../common';
-import { AffixProps } from '../affix';
+import { isFunction, get, isObject } from 'lodash-es';
+import { CellData, RowClassNameParams, TableColumnClassName, TableRowData, TdBaseTableProps } from '../type';
+import { ClassName, HTMLElementAttributes } from '../../common';
+import { AffixProps } from '../../affix';
 
 export function toString(obj: any): string {
   return Object.prototype.toString.call(obj).slice(8, -1).toLowerCase();

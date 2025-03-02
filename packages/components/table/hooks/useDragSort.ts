@@ -7,9 +7,8 @@ import useClassName from './useClassName';
 import log from '@tdesign/common-js/log/index';
 import { hasClass } from '../../utils/dom';
 import swapDragArrayElement from '@tdesign/common-js/utils/swapDragArrayElement';
-import { BaseTableColumns } from '../interface';
+import { BaseTableColumns, SimplePageInfo } from '../types';
 import { getColumnDataByKey, getColumnIndexByKey } from '@tdesign/common-js/table/utils';
-import { SimplePageInfo } from '../interface';
 
 function removeNode(node: HTMLElement) {
   if (node.parentElement !== null) {

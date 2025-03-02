@@ -1,13 +1,13 @@
 import { computed, defineComponent, PropType } from 'vue';
 import { ChevronDownIcon as TdChevronDownIcon } from 'tdesign-icons-vue-next';
-import useClassName from './hooks/useClassName';
-import { SortType } from './type';
-import Tooltip, { TooltipProps } from '../tooltip';
-import { useConfig } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useTNodeDefault } from '../hooks/tnode';
-import { TNode } from '../common';
-import { TableConfig } from '../config-provider';
+import useClassName from '../hooks/useClassName';
+import { SortType } from '../type';
+import Tooltip, { TooltipProps } from '../../tooltip';
+import { useConfig } from '../../hooks/useConfig';
+import { useGlobalIcon } from '../../hooks/useGlobalIcon';
+import { useTNodeDefault } from '../../hooks/tnode';
+import { TNode } from '../../common';
+import { TableConfig } from '../../config-provider';
 
 type SortTypeEnum = 'desc' | 'asc';
 type SortTypeEnums = Array<SortTypeEnum>;

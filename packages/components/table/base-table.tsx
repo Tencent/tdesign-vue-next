@@ -1,6 +1,5 @@
 import { computed, defineComponent, SetupContext, ref, nextTick, PropType, watch, onMounted, toRefs } from 'vue';
-import { pick } from 'lodash-es';
-import { get } from 'lodash-es';
+import { pick, get, isFunction, throttle } from 'lodash-es';
 import props from './base-table-props';
 import useTableHeader from './hooks/useTableHeader';
 import useColumnResize from './hooks/useColumnResize';
@@ -9,16 +8,16 @@ import usePagination from './hooks/usePagination';
 import useVirtualScrollNew from '../hooks/useVirtualScrollNew';
 import useAffix from './hooks/useAffix';
 import Loading from '../loading';
-import TBody, { extendTableProps } from './tbody';
-import { BaseTableProps } from './interface';
+import TBody, { extendTableProps } from './components/tbody';
+import { BaseTableProps } from './types';
 import { useTNodeJSX } from '../hooks/tnode';
 import useStyle, { formatCSSUnit } from './hooks/useStyle';
 import useClassName from './hooks/useClassName';
 import { useConfig } from '../hooks/useConfig';
 import { Affix } from '../affix';
-import { ROW_LISTENERS } from './tr';
-import THead from './thead';
-import TFoot from './tfoot';
+import { ROW_LISTENERS } from './components/tr';
+import THead from './components/thead';
+import TFoot from './components/tfoot';
 import { getAffixProps } from './utils';
 import { Styles, ComponentScrollToElementParams } from '../common';
 import { getIEVersion } from '@tdesign/common-js/utils/helper';
@@ -27,8 +26,6 @@ import log from '@tdesign/common-js/log/index';
 import { useRowHighlight } from './hooks/useRowHighlight';
 import useHoverKeyboardEvent from './hooks/useHoverKeyboardEvent';
 import useElementLazyRender from '../hooks/useElementLazyRender';
-import { isFunction } from 'lodash-es';
-import { throttle } from 'lodash-es';
 
 export const BASE_TABLE_EVENTS = ['page-change', 'cell-click', 'scroll', 'scrollX', 'scrollY'];
 export const BASE_TABLE_ALL_EVENTS = ROW_LISTENERS.map((t) => `row-${t}`).concat(BASE_TABLE_EVENTS);
@@ -39,7 +36,6 @@ export interface TableListeners {
 
 export default defineComponent({
   name: 'TBaseTable',
-
   props: {
     ...props,
     /**
@@ -49,9 +45,7 @@ export default defineComponent({
     onLeafColumnsChange: Function as PropType<BaseTableProps['onLeafColumnsChange']>,
     thDraggable: Boolean,
   },
-
   emits: ['show-element-change'],
-
   setup(props: BaseTableProps, context: SetupContext) {
     const { lazyLoad } = toRefs(props);
     const renderTNode = useTNodeJSX();
