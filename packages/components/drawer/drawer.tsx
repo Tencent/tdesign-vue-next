@@ -110,6 +110,8 @@ export default defineComponent({
       ) {
         props.onEscKeydown?.({ e });
         closeDrawer({ trigger: 'esc', e });
+        // 阻止事件冒泡
+        e.stopImmediatePropagation();
       }
     };
 
