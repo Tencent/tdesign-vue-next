@@ -42,7 +42,6 @@ export interface TableFilterControllerProps {
 
 export default defineComponent({
   name: 'TableFilterController',
-
   props: {
     locale: Object as PropType<TableFilterControllerProps['locale']>,
     column: Object as PropType<TableFilterControllerProps['column']>,
@@ -58,9 +57,7 @@ export default defineComponent({
     onVisibleChange: Function as PropType<TableFilterControllerProps['onVisibleChange']>,
     filterIcon: [Function] as PropType<TableFilterControllerProps['filterIcon']>,
   },
-
   emits: ['inner-filter-change', 'reset', 'confirm'],
-
   setup(props: TableFilterControllerProps, context) {
     const triggerElementRef = ref<HTMLDivElement>(null);
     const renderTNode = useTNodeDefault();
@@ -177,53 +174,42 @@ export default defineComponent({
       </div>
     );
 
-    return {
-      t,
-      globalConfig,
-      FilterIcon,
-      filterPopupVisible,
-      triggerElementRef,
-      renderTNode,
-      getContent,
-      onFilterPopupVisibleChange,
+    return () => {
+      if (!props.column.filter || (props.column.filter && !Object.keys(props.column.filter).length)) return null;
+      const defaultFilterIcon = t(globalConfig.value.filterIcon) || <FilterIcon />;
+      const filterValue = (props.tFilterValue as TableFilterControllerProps['tFilterValue'])?.[props.column.colKey];
+      const isObjectTrue = typeof filterValue === 'object' && !isEmpty(filterValue);
+      // false is a valid filter value
+      const isValueExist = ![null, undefined, ''].includes(filterValue) && typeof filterValue !== 'object';
+      return (
+        <Popup
+          attach={
+            props.attach || (props.primaryTableElement ? () => props.primaryTableElement as HTMLElement : undefined)
+          }
+          visible={filterPopupVisible.value}
+          destroyOnClose
+          trigger="click"
+          placement="bottom-right"
+          showArrow
+          overlayClassName={props.tableFilterClasses.popup}
+          onVisibleChange={(val: boolean) => onFilterPopupVisibleChange(val)}
+          class={[
+            props.tableFilterClasses.icon,
+            {
+              [props.isFocusClass]: isObjectTrue || isValueExist,
+            },
+          ]}
+          content={getContent}
+          {...props.popupProps}
+        >
+          <div ref={triggerElementRef}>
+            {renderTNode('filterIcon', {
+              defaultNode: defaultFilterIcon,
+              params: { col: props.column, colIndex: props.colIndex },
+            })}
+          </div>
+        </Popup>
+      );
     };
-  },
-
-  render() {
-    const { column, popupProps, FilterIcon } = this as any;
-
-    if (!column.filter || (column.filter && !Object.keys(column.filter).length)) return null;
-    const defaultFilterIcon = this.t(this.globalConfig.filterIcon) || <FilterIcon />;
-    const filterValue = (this.tFilterValue as TableFilterControllerProps['tFilterValue'])?.[column.colKey];
-    const isObjectTrue = typeof filterValue === 'object' && !isEmpty(filterValue);
-    // false is a valid filter value
-    const isValueExist = ![null, undefined, ''].includes(filterValue) && typeof filterValue !== 'object';
-    return (
-      <Popup
-        attach={this.attach || (this.primaryTableElement ? () => this.primaryTableElement as HTMLElement : undefined)}
-        visible={this.filterPopupVisible}
-        destroyOnClose
-        trigger="click"
-        placement="bottom-right"
-        showArrow
-        overlayClassName={this.tableFilterClasses.popup}
-        onVisibleChange={(val: boolean) => this.onFilterPopupVisibleChange(val)}
-        class={[
-          this.tableFilterClasses.icon,
-          {
-            [this.isFocusClass]: isObjectTrue || isValueExist,
-          },
-        ]}
-        content={this.getContent}
-        {...popupProps}
-      >
-        <div ref="triggerElementRef">
-          {this.renderTNode('filterIcon', {
-            defaultNode: defaultFilterIcon,
-            params: { col: column, colIndex: this.colIndex },
-          })}
-        </div>
-      </Popup>
-    );
   },
 });

@@ -14,7 +14,6 @@ type SortTypeEnums = Array<SortTypeEnum>;
 
 export default defineComponent({
   name: 'TSorterButton',
-
   props: {
     sortType: {
       type: String as PropType<SortType>,
@@ -29,9 +28,7 @@ export default defineComponent({
     tooltipProps: Object as PropType<TooltipProps>,
     hideSortTips: Boolean,
   },
-
   emits: ['sort-icon-click'],
-
   setup(props, context) {
     const { tableSortClasses, negativeRotate180 } = useClassName();
     const renderTNode = useTNodeDefault();
