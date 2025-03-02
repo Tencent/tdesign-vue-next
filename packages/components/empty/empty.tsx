@@ -6,11 +6,11 @@ import { useTNodeJSX } from '../hooks/tnode';
 import props from './props';
 import type { TdEmptyProps } from './type';
 import Image from '../image';
-import MaintenanceSvg from './assets/MaintenanceSvg';
-import NetworkErrorSvg from './assets/NetworkErrorSvg';
-import EmptySvg from './assets/EmptySvg';
-import FailSvg from './assets/FailSvg';
-import SuccessSvg from './assets/SuccessSvg';
+import MaintenanceSvg from './components/MaintenanceSvg';
+import NetworkErrorSvg from './components/NetworkErrorSvg';
+import EmptySvg from './components/EmptySvg';
+import FailSvg from './components/FailSvg';
+import SuccessSvg from './components/SuccessSvg';
 
 export default defineComponent({
   name: 'TEmpty',
@@ -77,7 +77,7 @@ export default defineComponent({
       let result = null;
       if (isString(data)) {
         result = <Image src={data} />;
-      } else if (data && Reflect.has(data, 'render')) {
+      } else if (data && Reflect.has(data, 'setup')) {
         result = h(data as unknown);
       } else if (isPlainObject(data)) {
         result = <Image {...data} />;

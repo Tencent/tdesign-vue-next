@@ -1,8 +1,8 @@
 import { Ref } from 'vue';
-import { TdInputProps } from './type';
+import { TdInputProps } from './../type';
 import { getOutputValue } from './useInput';
 
-export default function useInputEventHandler(props: TdInputProps, isHover: Ref<Boolean>) {
+export function useInputEventHandler(props: TdInputProps, isHover: Ref<Boolean>) {
   const handleKeydown = (e: KeyboardEvent) => {
     if (props.disabled) return;
     const { code } = e;

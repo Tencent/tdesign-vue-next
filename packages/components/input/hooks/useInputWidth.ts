@@ -1,14 +1,10 @@
-import useResizeObserver from '../hooks/useResizeObserver';
 import { onMounted, Ref, ref, watch, nextTick, onBeforeUnmount, toRefs } from 'vue';
-import { InputValue, TdInputProps } from './type';
+import useResizeObserver from '../../hooks/useResizeObserver';
+import { InputValue, TdInputProps } from './../type';
 
 const ANIMATION_TIME = 100;
 
-export default function useInputWidth(
-  props: TdInputProps,
-  inputRef: Ref<HTMLInputElement>,
-  innerValue: Ref<InputValue>,
-) {
+export function useInputWidth(props: TdInputProps, inputRef: Ref<HTMLInputElement>, innerValue: Ref<InputValue>) {
   const { autoWidth, placeholder } = toRefs(props);
   const inputPreRef = ref<HTMLSpanElement>(null);
   const observerTimer = ref(null);

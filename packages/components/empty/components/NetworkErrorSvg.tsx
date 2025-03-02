@@ -2,8 +2,8 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'NetworkErrorSvg',
-  render() {
-    return (
+  setup() {
+    return () => (
       <svg width="1em" height="1em" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="&#230;&#151;&#160;&#231;&#189;&#145;&#231;&#187;&#156;-no-network">
           <g id="Union">

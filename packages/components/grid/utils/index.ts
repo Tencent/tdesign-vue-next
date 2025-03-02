@@ -1,32 +1,8 @@
-import { ref } from 'vue';
-import { isUndefined } from 'lodash-es';
-import { isNumber } from 'lodash-es';
-import { isObject } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { isUndefined, isNumber, isObject, isArray } from 'lodash-es';
+import { GutterObject, TdColProps, TdRowProps } from '../type';
 
-import { GutterObject, TdColProps, TdRowProps } from './type';
-import { calcSize } from '@tdesign/common-js/utils/responsive';
-import { useListener } from '../hooks/useListener';
-import { isServer } from '../utils/dom';
-
-import type { Ref } from 'vue';
 export interface RowProviderType {
   gutter: TdRowProps['gutter'];
-}
-
-/**
- * rowSizeHook
- * @returns
- */
-export function useRowSize() {
-  const size = ref(calcSize(isServer ? 0 : window.innerWidth));
-  const updateSize = () => {
-    size.value = calcSize(isServer ? 0 : window.innerWidth);
-  };
-
-  useListener('resize', updateSize);
-
-  return size as unknown as Ref<keyof GutterObject>;
 }
 
 /**

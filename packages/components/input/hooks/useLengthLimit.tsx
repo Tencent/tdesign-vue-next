@@ -1,9 +1,8 @@
 import { computed, ComputedRef, onMounted, watch } from 'vue';
-import { TdInputProps } from './type';
+import { TdInputProps } from './../type';
 import log from '@tdesign/common-js/log/index';
 import { getCharacterLength, getUnicodeLength, limitUnicodeMaxLength } from '@tdesign/common-js/utils/helper';
-import { isNumber } from 'lodash-es';
-import { isObject } from 'lodash-es';
+import { isNumber, isObject } from 'lodash-es';
 
 export interface UseLengthLimitParams {
   value: string;
@@ -14,7 +13,7 @@ export interface UseLengthLimitParams {
   onValidate: TdInputProps['onValidate'];
 }
 
-export default function useLengthLimit(params: ComputedRef<UseLengthLimitParams>) {
+export function useLengthLimit(params: ComputedRef<UseLengthLimitParams>) {
   // 文本超出数量限制时，是否允许继续输入
   const getValueByLimitNumber = (inputValue: string) => {
     const { allowInputOverMax, maxlength, maxcharacter } = params.value;

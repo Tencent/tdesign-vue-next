@@ -2,8 +2,8 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'MaintenanceSvg',
-  render() {
-    return (
+  setup() {
+    return () => (
       <svg width="1em" height="1em" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="&#232;&#183;&#175;&#229;&#134;&#181;&#228;&#186;&#139;&#228;&#187;&#182;-traffic-events">
           <g id="Subtract">
