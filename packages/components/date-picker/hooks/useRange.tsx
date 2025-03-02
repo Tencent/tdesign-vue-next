@@ -9,11 +9,11 @@ import { useReadonly } from '../../hooks/useReadonly';
 
 import { TdDateRangePickerProps, DateValue, DateRangePickerPartial } from '../type';
 import { isValidDate, formatDate, getDefaultFormat, parseToDayjs } from '@tdesign/common-js/date-picker/format';
-import useRangeValue from './useRangeValue';
+import { useRangeValue } from './useRangeValue';
 
 export const PARTIAL_MAP: Record<'first' | 'second', DateRangePickerPartial> = { first: 'start', second: 'end' };
 
-export default function useRange(props: TdDateRangePickerProps) {
+export function useRange(props: TdDateRangePickerProps) {
   const COMPONENT_NAME = usePrefixClass('date-range-picker');
   const { globalConfig } = useConfig('datePicker');
   const { CalendarIcon } = useGlobalIcon({ CalendarIcon: TdCalendarIcon });

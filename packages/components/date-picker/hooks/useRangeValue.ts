@@ -12,9 +12,7 @@ import {
   extractTimeFormat,
 } from '@tdesign/common-js/date-picker/format';
 
-export const PARTIAL_MAP = { first: 'start', second: 'end' };
-
-export default function useRangeValue(props: TdDateRangePickerProps) {
+export function useRangeValue(props: TdDateRangePickerProps) {
   const { value: valueFromProps, modelValue } = toRefs(props);
 
   const [value, onChange] = useVModel(valueFromProps, modelValue, props.defaultValue, props.onChange);

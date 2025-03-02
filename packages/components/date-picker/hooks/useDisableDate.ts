@@ -16,7 +16,7 @@ export interface disableDateProps {
   end?: Date;
 }
 
-export default function useDisableDate(props: disableDateProps) {
+export function useDisableDate(props: disableDateProps) {
   return {
     disableDate: (value: Date) =>
       !isEnabled({ disableDate: props.disableDate, format: props.format, mode: props.mode, value }),
