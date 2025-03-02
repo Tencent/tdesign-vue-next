@@ -337,6 +337,375 @@ export default defineComponent({
       }
     };
 
+    return () => {
+      if (!showElement.value) {
+        return <div ref={tableRef}></div>;
+      }
+
+      const data = isPaginateData.value ? dataSource.value : props.data;
+      const columns = spansAndLeafNodes?.value.leafColumns || props.columns;
+
+      const columnResizable = props.allowResizeColumnWidth ?? props.resizable;
+      if (columnResizable && props.tableLayout === 'auto') {
+        log.warn(
+          'Table',
+          'table-layout can not be `auto`, cause you are using column resizable, set `table-layout: fixed` please.',
+        );
+      }
+
+      const defaultColWidth = props.tableLayout === 'fixed' && isWidthOverflow.value ? '100px' : undefined;
+
+      const renderColGroup = (isAffixHeader = true) => (
+        <colgroup>
+          {columns.map((col) => {
+            const style: Styles = {
+              width:
+                formatCSSUnit(
+                  (isAffixHeader || columnResizable ? thWidthList.value[col.colKey] : undefined) || col.width,
+                ) || defaultColWidth,
+            };
+            if (col.minWidth) {
+              style.minWidth = formatCSSUnit(col.minWidth);
+            }
+            // 没有设置任何宽度的场景下，需要保留表格正常显示的最小宽度，否则会出现因宽度过小的抖动问题
+            if (!style.width && !col.minWidth && props.tableLayout === 'fixed') {
+              style.minWidth = '80px';
+            }
+            return <col key={col.colKey} style={style}></col>;
+          })}
+        </colgroup>
+      );
+
+      const renderAffixedHeader = () => {
+        if (props.showHeader === false) return null;
+        return (
+          !!(virtualConfig.isVirtualScroll.value || props.headerAffixedTop) &&
+          (props.headerAffixedTop ? (
+            <Affix
+              offsetTop={0}
+              {...getAffixProps(props.headerAffixedTop)}
+              onFixedChange={onFixedChange}
+              ref={headerTopAffixRef}
+            >
+              {affixHeaderWithWrap}
+            </Affix>
+          ) : (
+            isFixedHeader.value && affixHeaderWithWrap
+          ))
+        );
+      };
+
+      const renderAffixedHorizontalScrollbar = () => (
+        <Affix
+          offsetBottom={0}
+          {...getAffixProps(props.horizontalScrollAffixedBottom)}
+          style={{ marginTop: `-${scrollbarWidth.value * 2}px` }}
+          horizontalScrollAffixedBottom
+          ref={horizontalScrollAffixRef}
+        >
+          <div
+            ref={horizontalScrollbarRef}
+            class={['scrollbar', tableBaseClass.obviousScrollbar]}
+            style={{
+              width: `${tableWidth.value}px`,
+              overflow: 'auto',
+              opacity: Number(showAffixFooter.value),
+            }}
+          >
+            <div style={{ width: `${tableElmWidth.value}px`, height: '5px' }}></div>
+          </div>
+        </Affix>
+      );
+
+      const headProps = {
+        isFixedHeader: isFixedHeader.value,
+        rowAndColFixedPosition: rowAndColFixedPosition.value,
+        isMultipleHeader: isMultipleHeader.value,
+        bordered: props.bordered,
+        maxHeight: props.maxHeight,
+        height: props.height,
+        spansAndLeafNodes: spansAndLeafNodes.value,
+        thList: thList.value,
+        thWidthList: thWidthList.value,
+        resizable: props.resizable,
+        columnResizeParams,
+        classPrefix: classPrefix,
+        ellipsisOverlayClassName: tableSize.value !== 'medium' ? sizeClassNames[tableSize.value] : '',
+        attach: props.attach,
+        showColumnShadow: showColumnShadow,
+        thDraggable: props.thDraggable,
+      };
+
+      /**
+       * Affixed Header
+       */
+      // IE 浏览器需要遮挡 header 吸顶滚动条，要减去 getBoundingClientRect.height 的滚动条高度 4 像素
+      const IEHeaderWrap = getIEVersion() <= 11 ? 4 : 0;
+      const barWidth = isWidthOverflow.value ? scrollbarWidth.value : 0;
+      const affixHeaderHeight = ref((affixHeaderRef.value?.getBoundingClientRect().height || 0) - IEHeaderWrap);
+      // 等待表头渲染完成后再更新高度，有可能列变动带来多级表头的高度变化，错误高度会导致滚动条显示
+      const timer = setTimeout(() => {
+        affixHeaderHeight.value = (affixHeaderRef.value?.getBoundingClientRect().height || 0) - IEHeaderWrap;
+        clearTimeout(timer);
+      }, 0);
+      const affixHeaderWrapHeight = computed(() => affixHeaderHeight.value - barWidth);
+      // 两类场景：1. 虚拟滚动，永久显示表头，直到表头消失在可视区域； 2. 表头吸顶，根据滚动情况判断是否显示吸顶表头
+      const headerOpacity = props.headerAffixedTop ? Number(showAffixHeader.value) : 1;
+      const affixHeaderWrapHeightStyle = computed(() => {
+        return {
+          width: `${tableWidth.value}px`,
+          height: `${affixHeaderWrapHeight.value}px`,
+          opacity: headerOpacity,
+        };
+      });
+      // 多级表头左边线缺失
+      const affixedLeftBorder = props.bordered ? 1 : 0;
+      const affixedHeader = Boolean(
+        (props.headerAffixedTop || virtualConfig.isVirtualScroll.value) && tableWidth.value,
+      ) && (
+        <div
+          ref={affixHeaderRef}
+          style={{
+            width: `${tableWidth.value - affixedLeftBorder}px`,
+            opacity: Number(showAffixHeader.value),
+          }}
+          class={[
+            'scrollbar',
+            {
+              [tableBaseClass.affixedHeaderElm]: props.headerAffixedTop || virtualConfig.isVirtualScroll.value,
+            },
+          ]}
+        >
+          <table
+            class={tableElmClasses.value}
+            style={{ ...tableElementStyles.value, width: `${tableElmWidth.value}px` }}
+          >
+            {renderColGroup(true)}
+            <THead v-slots={context.slots} {...headProps} />
+          </table>
+        </div>
+      );
+
+      // 添加这一层，是为了隐藏表头的横向滚动条。如果以后不需要照顾 IE 10 以下的项目，则可直接移除这一层
+      // 彼时，可更为使用 CSS 样式中的 .hideScrollbar()
+      const affixHeaderWithWrap = (
+        <div class={tableBaseClass.affixedHeaderWrap} style={affixHeaderWrapHeightStyle.value}>
+          {affixedHeader}
+        </div>
+      );
+
+      /**
+       * Affixed Footer
+       */
+      let marginScrollbarWidth = isWidthOverflow.value ? scrollbarWidth.value : 0;
+      if (props.bordered) {
+        marginScrollbarWidth += 1;
+      }
+      // Hack: Affix 组件，marginTop 临时使用 负 margin 定位位置
+      const showFooter = Boolean(virtualConfig.isVirtualScroll.value || props.footerAffixedBottom);
+      const hasFooter = props.footData?.length || props.footerSummary || context.slots['footerSummary'];
+      const affixedFooter = Boolean(showFooter && hasFooter && tableWidth.value) && (
+        <Affix
+          class={tableBaseClass.affixedFooterWrap}
+          onFixedChange={onFixedChange}
+          offsetBottom={marginScrollbarWidth || 0}
+          {...getAffixProps(props.footerAffixedBottom)}
+          style={{ marginTop: `${-1 * ((tableFootHeight.value ?? 0) + marginScrollbarWidth)}px` }}
+          ref={footerBottomAffixRef}
+        >
+          <div
+            ref={affixFooterRef}
+            style={{ width: `${tableWidth.value - affixedLeftBorder}px`, opacity: Number(showAffixFooter.value) }}
+            class={[
+              'scrollbar',
+              {
+                [tableBaseClass.affixedFooterElm]: props.footerAffixedBottom || virtualConfig.isVirtualScroll.value,
+              },
+            ]}
+          >
+            <table
+              class={tableElmClasses.value}
+              style={{ ...tableElementStyles.value, width: `${tableElmWidth.value}px` }}
+            >
+              {/* 此处和 Vue2 不同，Vue3 里面必须每一处单独写 <colgroup> */}
+              {renderColGroup(true)}
+              <TFoot
+                rowKey={props.rowKey}
+                v-slots={context.slots}
+                isFixedHeader={isFixedHeader.value}
+                rowAndColFixedPosition={rowAndColFixedPosition.value}
+                footData={props.footData}
+                columns={spansAndLeafNodes.value.leafColumns}
+                rowAttributes={props.rowAttributes}
+                rowClassName={props.rowClassName}
+                thWidthList={thWidthList.value}
+                footerSummary={props.footerSummary}
+                rowspanAndColspanInFooter={props.rowspanAndColspanInFooter}
+              ></TFoot>
+            </table>
+          </div>
+        </Affix>
+      );
+
+      // 通过 translate 撑开虚拟滚动的高度，应该是内容高度加上表头和表尾的高度
+      const translate = `translate(0, ${
+        virtualConfig.scrollHeight.value + (tableFootHeight.value ?? 0) + (affixHeaderHeight.value ?? 0)
+      }px)`;
+      const virtualStyle = {
+        transform: translate,
+        '-ms-transform': translate,
+        '-moz-transform': translate,
+        '-webkit-transform': translate,
+      };
+      const tableBodyProps = {
+        classPrefix,
+        ellipsisOverlayClassName: tableSize.value !== 'medium' ? sizeClassNames[tableSize.value] : '',
+        rowAndColFixedPosition: rowAndColFixedPosition.value,
+        showColumnShadow,
+        data: data,
+        virtualConfig,
+        columns: spansAndLeafNodes.value.leafColumns,
+        tableElm: tableRef.value,
+        tableWidth: tableWidth.value,
+        isWidthOverflow: isWidthOverflow.value,
+        scroll: props.scroll,
+        cellEmptyContent: props.cellEmptyContent,
+        tableContentElm: tableContentRef.value,
+        handleRowMounted: virtualConfig.handleRowMounted,
+        renderExpandedRow: props.renderExpandedRow,
+        ...pick(props, extendTableProps),
+        // 内部使用分页信息必须取 innerPagination
+        pagination: innerPagination.value,
+        attach: props.attach,
+        hoverRow: hoverRow.value,
+        activeRow: tActiveRow.value,
+        onRowClick: onInnerRowClick,
+      };
+      const tableContent = (
+        <div
+          ref={tableContentRef}
+          class={tableBaseClass.content}
+          style={tableContentStyles.value}
+          onScroll={onInnerVirtualScroll}
+        >
+          {virtualConfig.isVirtualScroll.value && <div class={virtualScrollClasses.cursor} style={virtualStyle} />}
+
+          <table
+            ref={tableElmRef}
+            class={tableElmClasses.value}
+            style={{
+              ...tableElementStyles.value,
+              width:
+                props.resizable && isWidthOverflow.value && tableElmWidth.value
+                  ? `${tableElmWidth.value}px`
+                  : tableElementStyles.value.width,
+            }}
+          >
+            {renderColGroup(false)}
+            {props.showHeader && (
+              <THead
+                v-slots={context.slots}
+                {...{ ...headProps, thWidthList: columnResizable ? thWidthList.value : {} }}
+              />
+            )}
+            <TBody v-slots={context.slots} ref={tableBodyRef} {...tableBodyProps} />
+            <TFoot
+              v-slots={context.slots}
+              rowKey={props.rowKey}
+              isFixedHeader={isFixedHeader.value}
+              rowAndColFixedPosition={rowAndColFixedPosition.value}
+              footData={props.footData}
+              columns={spansAndLeafNodes.value.leafColumns}
+              rowAttributes={props.rowAttributes}
+              rowClassName={props.rowClassName}
+              footerSummary={props.footerSummary}
+              rowspanAndColspanInFooter={props.rowspanAndColspanInFooter}
+              virtualScroll={virtualConfig.isVirtualScroll.value}
+            ></TFoot>
+          </table>
+        </div>
+      );
+
+      const getCustomLoadingText = isFunction(props.loading) ? props.loading : context.slots.loading;
+      const loadingContent = props.loading !== undefined && (
+        <Loading
+          loading={!!props.loading}
+          text={getCustomLoadingText}
+          attach={tableRef.value ? () => tableRef.value : undefined}
+          showOverlay
+          size="small"
+          {...props.loadingProps}
+        ></Loading>
+      );
+
+      const topContent = renderTNode('topContent');
+      const bottomContent = renderTNode('bottomContent');
+      const pagination = (
+        <div
+          ref={paginationRef}
+          class={tableBaseClass.paginationWrap}
+          style={{ opacity: Number(showAffixPagination.value) }}
+        >
+          {renderPagination()}
+        </div>
+      );
+
+      const bottom = !!bottomContent && (
+        <div ref={bottomContentRef} class={tableBaseClass.bottomContent}>
+          {bottomContent}
+        </div>
+      );
+
+      return (
+        <div
+          ref={tableRef}
+          tabindex={tableRefTabIndex.value}
+          class={dynamicBaseTableClasses.value}
+          onFocus={onTableFocus}
+          onBlur={onTableBlur}
+        >
+          {!!topContent && <div class={tableBaseClass.topContent}>{topContent}</div>}
+
+          {renderAffixedHeader()}
+
+          {tableContent}
+
+          {affixedFooter}
+
+          {loadingContent}
+
+          {bottom}
+
+          {/* 右侧滚动条分隔线 */}
+          {showRightDivider.value && (
+            <div
+              class={tableBaseClass.scrollbarDivider}
+              style={{
+                right: `${scrollbarWidth.value}px`,
+                bottom: dividerBottom.value ? `${dividerBottom.value}px` : undefined,
+                height: `${tableContentRef.value?.getBoundingClientRect().height}px`,
+              }}
+            ></div>
+          )}
+
+          {/* 吸底的滚动条 */}
+          {props.horizontalScrollAffixedBottom && renderAffixedHorizontalScrollbar()}
+
+          {/* 吸底的分页器 */}
+          {props.paginationAffixedBottom ? (
+            <Affix offsetBottom={0} {...getAffixProps(props.paginationAffixedBottom)} ref={paginationAffixRef}>
+              {pagination}
+            </Affix>
+          ) : (
+            pagination
+          )}
+
+          {/* 调整列宽时的指示线。由于层级需要比较高，因而放在根节点，避免被吸顶表头覆盖。非必要情况，请勿调整辅助线位置 */}
+          <div ref={resizeLineRef} class={tableBaseClass.resizeLine} style={resizeLineStyle}></div>
+        </div>
+      );
+    };
+
     return {
       thList,
       classPrefix,
@@ -407,367 +776,367 @@ export default defineComponent({
     };
   },
 
-  render() {
-    if (!this.showElement) {
-      return <div ref="tableRef"></div>;
-    }
+  // render() {
+  //   if (!showElement) {
+  //     return <div ref="tableRef"></div>;
+  //   }
 
-    const { rowAndColFixedPosition, tableLayout } = this;
-    const data = this.isPaginateData ? this.dataSource : this.data;
-    const columns = this.spansAndLeafNodes?.leafColumns || this.columns;
+  //   const { rowAndColFixedPosition, tableLayout } = this;
+  //   const data = isPaginateData ? dataSource : data;
+  //   const columns = spansAndLeafNodes?.leafColumns || columns;
 
-    const columnResizable = this.allowResizeColumnWidth ?? this.resizable;
-    if (columnResizable && tableLayout === 'auto') {
-      log.warn(
-        'Table',
-        'table-layout can not be `auto`, cause you are using column resizable, set `table-layout: fixed` please.',
-      );
-    }
+  //   const columnResizable = allowResizeColumnWidth ?? resizable;
+  //   if (columnResizable && tableLayout === 'auto') {
+  //     log.warn(
+  //       'Table',
+  //       'table-layout can not be `auto`, cause you are using column resizable, set `table-layout: fixed` please.',
+  //     );
+  //   }
 
-    const defaultColWidth = tableLayout === 'fixed' && this.isWidthOverflow ? '100px' : undefined;
+  //   const defaultColWidth = tableLayout === 'fixed' && isWidthOverflow ? '100px' : undefined;
 
-    const renderColGroup = (isAffixHeader = true) => (
-      <colgroup>
-        {columns.map((col) => {
-          const style: Styles = {
-            width:
-              formatCSSUnit(
-                (isAffixHeader || columnResizable ? this.thWidthList[col.colKey] : undefined) || col.width,
-              ) || defaultColWidth,
-          };
-          if (col.minWidth) {
-            style.minWidth = formatCSSUnit(col.minWidth);
-          }
-          // 没有设置任何宽度的场景下，需要保留表格正常显示的最小宽度，否则会出现因宽度过小的抖动问题
-          if (!style.width && !col.minWidth && this.tableLayout === 'fixed') {
-            style.minWidth = '80px';
-          }
-          return <col key={col.colKey} style={style}></col>;
-        })}
-      </colgroup>
-    );
+  //   const renderColGroup = (isAffixHeader = true) => (
+  //     <colgroup>
+  //       {columns.map((col) => {
+  //         const style: Styles = {
+  //           width:
+  //             formatCSSUnit(
+  //               (isAffixHeader || columnResizable ? thWidthList[col.colKey] : undefined) || col.width,
+  //             ) || defaultColWidth,
+  //         };
+  //         if (col.minWidth) {
+  //           style.minWidth = formatCSSUnit(col.minWidth);
+  //         }
+  //         // 没有设置任何宽度的场景下，需要保留表格正常显示的最小宽度，否则会出现因宽度过小的抖动问题
+  //         if (!style.width && !col.minWidth && tableLayout === 'fixed') {
+  //           style.minWidth = '80px';
+  //         }
+  //         return <col key={col.colKey} style={style}></col>;
+  //       })}
+  //     </colgroup>
+  //   );
 
-    const renderAffixedHeader = () => {
-      if (this.showHeader === false) return null;
-      return (
-        !!(this.virtualConfig.isVirtualScroll.value || this.headerAffixedTop) &&
-        (this.headerAffixedTop ? (
-          <Affix
-            offsetTop={0}
-            {...getAffixProps(this.headerAffixedTop)}
-            onFixedChange={this.onFixedChange}
-            ref="headerTopAffixRef"
-          >
-            {affixHeaderWithWrap}
-          </Affix>
-        ) : (
-          this.isFixedHeader && affixHeaderWithWrap
-        ))
-      );
-    };
+  //   const renderAffixedHeader = () => {
+  //     if (showHeader === false) return null;
+  //     return (
+  //       !!(virtualConfig.isVirtualScroll.value || headerAffixedTop) &&
+  //       (headerAffixedTop ? (
+  //         <Affix
+  //           offsetTop={0}
+  //           {...getAffixProps(headerAffixedTop)}
+  //           onFixedChange={onFixedChange}
+  //           ref="headerTopAffixRef"
+  //         >
+  //           {affixHeaderWithWrap}
+  //         </Affix>
+  //       ) : (
+  //         isFixedHeader && affixHeaderWithWrap
+  //       ))
+  //     );
+  //   };
 
-    const renderAffixedHorizontalScrollbar = () => (
-      <Affix
-        offsetBottom={0}
-        {...getAffixProps(this.horizontalScrollAffixedBottom)}
-        style={{ marginTop: `-${this.scrollbarWidth * 2}px` }}
-        horizontalScrollAffixedBottom
-        ref="horizontalScrollAffixRef"
-      >
-        <div
-          ref="horizontalScrollbarRef"
-          class={['scrollbar', this.tableBaseClass.obviousScrollbar]}
-          style={{
-            width: `${this.tableWidth}px`,
-            overflow: 'auto',
-            opacity: Number(this.showAffixFooter),
-          }}
-        >
-          <div style={{ width: `${this.tableElmWidth}px`, height: '5px' }}></div>
-        </div>
-      </Affix>
-    );
+  //   const renderAffixedHorizontalScrollbar = () => (
+  //     <Affix
+  //       offsetBottom={0}
+  //       {...getAffixProps(horizontalScrollAffixedBottom)}
+  //       style={{ marginTop: `-${scrollbarWidth * 2}px` }}
+  //       horizontalScrollAffixedBottom
+  //       ref="horizontalScrollAffixRef"
+  //     >
+  //       <div
+  //         ref="horizontalScrollbarRef"
+  //         class={['scrollbar', tableBaseClass.obviousScrollbar]}
+  //         style={{
+  //           width: `${tableWidth}px`,
+  //           overflow: 'auto',
+  //           opacity: Number(showAffixFooter),
+  //         }}
+  //       >
+  //         <div style={{ width: `${tableElmWidth}px`, height: '5px' }}></div>
+  //       </div>
+  //     </Affix>
+  //   );
 
-    const headProps = {
-      isFixedHeader: this.isFixedHeader,
-      rowAndColFixedPosition: this.rowAndColFixedPosition,
-      isMultipleHeader: this.isMultipleHeader,
-      bordered: this.bordered,
-      maxHeight: this.maxHeight,
-      height: this.height,
-      spansAndLeafNodes: this.spansAndLeafNodes,
-      thList: this.thList,
-      thWidthList: this.thWidthList,
-      resizable: this.resizable,
-      columnResizeParams: this.columnResizeParams,
-      classPrefix: this.classPrefix,
-      ellipsisOverlayClassName: this.tableSize !== 'medium' ? this.sizeClassNames[this.tableSize] : '',
-      attach: this.attach,
-      showColumnShadow: this.showColumnShadow,
-      thDraggable: this.thDraggable,
-    };
+  //   const headProps = {
+  //     isFixedHeader: isFixedHeader,
+  //     rowAndColFixedPosition: rowAndColFixedPosition,
+  //     isMultipleHeader: isMultipleHeader,
+  //     bordered: bordered,
+  //     maxHeight: maxHeight,
+  //     height: height,
+  //     spansAndLeafNodes: spansAndLeafNodes,
+  //     thList: thList,
+  //     thWidthList: thWidthList,
+  //     resizable: resizable,
+  //     columnResizeParams: columnResizeParams,
+  //     classPrefix: classPrefix,
+  //     ellipsisOverlayClassName: tableSize !== 'medium' ? sizeClassNames[tableSize] : '',
+  //     attach: attach,
+  //     showColumnShadow: showColumnShadow,
+  //     thDraggable: thDraggable,
+  //   };
 
-    /**
-     * Affixed Header
-     */
-    // IE 浏览器需要遮挡 header 吸顶滚动条，要减去 getBoundingClientRect.height 的滚动条高度 4 像素
-    const IEHeaderWrap = getIEVersion() <= 11 ? 4 : 0;
-    const barWidth = this.isWidthOverflow ? this.scrollbarWidth : 0;
-    const affixHeaderHeight = ref((this.affixHeaderRef?.getBoundingClientRect().height || 0) - IEHeaderWrap);
-    // 等待表头渲染完成后再更新高度，有可能列变动带来多级表头的高度变化，错误高度会导致滚动条显示
-    const timer = setTimeout(() => {
-      affixHeaderHeight.value = (this.affixHeaderRef?.getBoundingClientRect().height || 0) - IEHeaderWrap;
-      clearTimeout(timer);
-    }, 0);
-    const affixHeaderWrapHeight = computed(() => affixHeaderHeight.value - barWidth);
-    // 两类场景：1. 虚拟滚动，永久显示表头，直到表头消失在可视区域； 2. 表头吸顶，根据滚动情况判断是否显示吸顶表头
-    const headerOpacity = props.headerAffixedTop ? Number(this.showAffixHeader) : 1;
-    const affixHeaderWrapHeightStyle = computed(() => {
-      return {
-        width: `${this.tableWidth}px`,
-        height: `${affixHeaderWrapHeight.value}px`,
-        opacity: headerOpacity,
-      };
-    });
-    // 多级表头左边线缺失
-    const affixedLeftBorder = this.bordered ? 1 : 0;
-    const affixedHeader = Boolean(
-      (this.headerAffixedTop || this.virtualConfig.isVirtualScroll.value) && this.tableWidth,
-    ) && (
-      <div
-        ref="affixHeaderRef"
-        style={{
-          width: `${this.tableWidth - affixedLeftBorder}px`,
-          opacity: Number(this.showAffixHeader),
-        }}
-        class={[
-          'scrollbar',
-          {
-            [this.tableBaseClass.affixedHeaderElm]: this.headerAffixedTop || this.virtualConfig.isVirtualScroll.value,
-          },
-        ]}
-      >
-        <table class={this.tableElmClasses} style={{ ...this.tableElementStyles, width: `${this.tableElmWidth}px` }}>
-          {renderColGroup(true)}
-          <THead v-slots={this.$slots} {...headProps} />
-        </table>
-      </div>
-    );
+  //   /**
+  //    * Affixed Header
+  //    */
+  //   // IE 浏览器需要遮挡 header 吸顶滚动条，要减去 getBoundingClientRect.height 的滚动条高度 4 像素
+  //   const IEHeaderWrap = getIEVersion() <= 11 ? 4 : 0;
+  //   const barWidth = isWidthOverflow ? scrollbarWidth : 0;
+  //   const affixHeaderHeight = ref((affixHeaderRef?.getBoundingClientRect().height || 0) - IEHeaderWrap);
+  //   // 等待表头渲染完成后再更新高度，有可能列变动带来多级表头的高度变化，错误高度会导致滚动条显示
+  //   const timer = setTimeout(() => {
+  //     affixHeaderHeight.value = (affixHeaderRef?.getBoundingClientRect().height || 0) - IEHeaderWrap;
+  //     clearTimeout(timer);
+  //   }, 0);
+  //   const affixHeaderWrapHeight = computed(() => affixHeaderHeight.value - barWidth);
+  //   // 两类场景：1. 虚拟滚动，永久显示表头，直到表头消失在可视区域； 2. 表头吸顶，根据滚动情况判断是否显示吸顶表头
+  //   const headerOpacity = props.headerAffixedTop ? Number(showAffixHeader) : 1;
+  //   const affixHeaderWrapHeightStyle = computed(() => {
+  //     return {
+  //       width: `${tableWidth}px`,
+  //       height: `${affixHeaderWrapHeight.value}px`,
+  //       opacity: headerOpacity,
+  //     };
+  //   });
+  //   // 多级表头左边线缺失
+  //   const affixedLeftBorder = bordered ? 1 : 0;
+  //   const affixedHeader = Boolean(
+  //     (headerAffixedTop || virtualConfig.isVirtualScroll.value) && tableWidth,
+  //   ) && (
+  //     <div
+  //       ref="affixHeaderRef"
+  //       style={{
+  //         width: `${tableWidth - affixedLeftBorder}px`,
+  //         opacity: Number(showAffixHeader),
+  //       }}
+  //       class={[
+  //         'scrollbar',
+  //         {
+  //           [tableBaseClass.affixedHeaderElm]: headerAffixedTop || virtualConfig.isVirtualScroll.value,
+  //         },
+  //       ]}
+  //     >
+  //       <table class={tableElmClasses} style={{ ...tableElementStyles, width: `${tableElmWidth}px` }}>
+  //         {renderColGroup(true)}
+  //         <THead v-slots={$slots} {...headProps} />
+  //       </table>
+  //     </div>
+  //   );
 
-    // 添加这一层，是为了隐藏表头的横向滚动条。如果以后不需要照顾 IE 10 以下的项目，则可直接移除这一层
-    // 彼时，可更为使用 CSS 样式中的 .hideScrollbar()
-    const affixHeaderWithWrap = (
-      <div class={this.tableBaseClass.affixedHeaderWrap} style={affixHeaderWrapHeightStyle.value}>
-        {affixedHeader}
-      </div>
-    );
+  //   // 添加这一层，是为了隐藏表头的横向滚动条。如果以后不需要照顾 IE 10 以下的项目，则可直接移除这一层
+  //   // 彼时，可更为使用 CSS 样式中的 .hideScrollbar()
+  //   const affixHeaderWithWrap = (
+  //     <div class={tableBaseClass.affixedHeaderWrap} style={affixHeaderWrapHeightStyle.value}>
+  //       {affixedHeader}
+  //     </div>
+  //   );
 
-    /**
-     * Affixed Footer
-     */
-    let marginScrollbarWidth = this.isWidthOverflow ? this.scrollbarWidth : 0;
-    if (this.bordered) {
-      marginScrollbarWidth += 1;
-    }
-    // Hack: Affix 组件，marginTop 临时使用 负 margin 定位位置
-    const showFooter = Boolean(this.virtualConfig.isVirtualScroll.value || this.footerAffixedBottom);
-    const hasFooter = this.footData?.length || this.footerSummary || this.$slots['footerSummary'];
-    const affixedFooter = Boolean(showFooter && hasFooter && this.tableWidth) && (
-      <Affix
-        class={this.tableBaseClass.affixedFooterWrap}
-        onFixedChange={this.onFixedChange}
-        offsetBottom={marginScrollbarWidth || 0}
-        {...getAffixProps(this.footerAffixedBottom)}
-        style={{ marginTop: `${-1 * ((this.tableFootHeight ?? 0) + marginScrollbarWidth)}px` }}
-        ref="footerBottomAffixRef"
-      >
-        <div
-          ref="affixFooterRef"
-          style={{ width: `${this.tableWidth - affixedLeftBorder}px`, opacity: Number(this.showAffixFooter) }}
-          class={[
-            'scrollbar',
-            {
-              [this.tableBaseClass.affixedFooterElm]:
-                this.footerAffixedBottom || this.virtualConfig.isVirtualScroll.value,
-            },
-          ]}
-        >
-          <table class={this.tableElmClasses} style={{ ...this.tableElementStyles, width: `${this.tableElmWidth}px` }}>
-            {/* 此处和 Vue2 不同，Vue3 里面必须每一处单独写 <colgroup> */}
-            {renderColGroup(true)}
-            <TFoot
-              rowKey={this.rowKey}
-              v-slots={this.$slots}
-              isFixedHeader={this.isFixedHeader}
-              rowAndColFixedPosition={rowAndColFixedPosition}
-              footData={this.footData}
-              columns={columns}
-              rowAttributes={this.rowAttributes}
-              rowClassName={this.rowClassName}
-              thWidthList={this.thWidthList}
-              footerSummary={this.footerSummary}
-              rowspanAndColspanInFooter={this.rowspanAndColspanInFooter}
-            ></TFoot>
-          </table>
-        </div>
-      </Affix>
-    );
+  //   /**
+  //    * Affixed Footer
+  //    */
+  //   let marginScrollbarWidth = isWidthOverflow ? scrollbarWidth : 0;
+  //   if (bordered) {
+  //     marginScrollbarWidth += 1;
+  //   }
+  //   // Hack: Affix 组件，marginTop 临时使用 负 margin 定位位置
+  //   const showFooter = Boolean(virtualConfig.isVirtualScroll.value || footerAffixedBottom);
+  //   const hasFooter = footData?.length || footerSummary || $slots['footerSummary'];
+  //   const affixedFooter = Boolean(showFooter && hasFooter && tableWidth) && (
+  //     <Affix
+  //       class={tableBaseClass.affixedFooterWrap}
+  //       onFixedChange={onFixedChange}
+  //       offsetBottom={marginScrollbarWidth || 0}
+  //       {...getAffixProps(footerAffixedBottom)}
+  //       style={{ marginTop: `${-1 * ((tableFootHeight ?? 0) + marginScrollbarWidth)}px` }}
+  //       ref="footerBottomAffixRef"
+  //     >
+  //       <div
+  //         ref="affixFooterRef"
+  //         style={{ width: `${tableWidth - affixedLeftBorder}px`, opacity: Number(showAffixFooter) }}
+  //         class={[
+  //           'scrollbar',
+  //           {
+  //             [tableBaseClass.affixedFooterElm]:
+  //               footerAffixedBottom || virtualConfig.isVirtualScroll.value,
+  //           },
+  //         ]}
+  //       >
+  //         <table class={tableElmClasses} style={{ ...tableElementStyles, width: `${tableElmWidth}px` }}>
+  //           {/* 此处和 Vue2 不同，Vue3 里面必须每一处单独写 <colgroup> */}
+  //           {renderColGroup(true)}
+  //           <TFoot
+  //             rowKey={rowKey}
+  //             v-slots={$slots}
+  //             isFixedHeader={isFixedHeader}
+  //             rowAndColFixedPosition={rowAndColFixedPosition}
+  //             footData={footData}
+  //             columns={columns}
+  //             rowAttributes={rowAttributes}
+  //             rowClassName={rowClassName}
+  //             thWidthList={thWidthList}
+  //             footerSummary={footerSummary}
+  //             rowspanAndColspanInFooter={rowspanAndColspanInFooter}
+  //           ></TFoot>
+  //         </table>
+  //       </div>
+  //     </Affix>
+  //   );
 
-    // 通过 translate 撑开虚拟滚动的高度，应该是内容高度加上表头和表尾的高度
-    const translate = `translate(0, ${
-      this.virtualConfig.scrollHeight.value + (this.tableFootHeight ?? 0) + (affixHeaderHeight.value ?? 0)
-    }px)`;
-    const virtualStyle = {
-      transform: translate,
-      '-ms-transform': translate,
-      '-moz-transform': translate,
-      '-webkit-transform': translate,
-    };
-    const tableBodyProps = {
-      classPrefix: this.classPrefix,
-      ellipsisOverlayClassName: this.tableSize !== 'medium' ? this.sizeClassNames[this.tableSize] : '',
-      rowAndColFixedPosition,
-      showColumnShadow: this.showColumnShadow,
-      data: data,
-      virtualConfig: this.virtualConfig,
-      columns: this.spansAndLeafNodes.leafColumns,
-      tableElm: this.tableRef,
-      tableWidth: this.tableWidth,
-      isWidthOverflow: this.isWidthOverflow,
-      scroll: this.scroll,
-      cellEmptyContent: this.cellEmptyContent,
-      tableContentElm: this.tableContentRef,
-      handleRowMounted: this.virtualConfig.handleRowMounted,
-      renderExpandedRow: this.renderExpandedRow,
-      ...pick(this.$props, extendTableProps),
-      // 内部使用分页信息必须取 innerPagination
-      pagination: this.innerPagination,
-      attach: this.attach,
-      hoverRow: this.hoverRow,
-      activeRow: this.tActiveRow,
-      onRowClick: this.onInnerRowClick,
-    };
-    const tableContent = (
-      <div
-        ref="tableContentRef"
-        class={this.tableBaseClass.content}
-        style={this.tableContentStyles}
-        onScroll={this.onInnerVirtualScroll}
-      >
-        {this.virtualConfig.isVirtualScroll.value && (
-          <div class={this.virtualScrollClasses.cursor} style={virtualStyle} />
-        )}
+  //   // 通过 translate 撑开虚拟滚动的高度，应该是内容高度加上表头和表尾的高度
+  //   const translate = `translate(0, ${
+  //     virtualConfig.scrollHeight.value + (tableFootHeight ?? 0) + (affixHeaderHeight.value ?? 0)
+  //   }px)`;
+  //   const virtualStyle = {
+  //     transform: translate,
+  //     '-ms-transform': translate,
+  //     '-moz-transform': translate,
+  //     '-webkit-transform': translate,
+  //   };
+  //   const tableBodyProps = {
+  //     classPrefix: classPrefix,
+  //     ellipsisOverlayClassName: tableSize !== 'medium' ? sizeClassNames[tableSize] : '',
+  //     rowAndColFixedPosition,
+  //     showColumnShadow: showColumnShadow,
+  //     data: data,
+  //     virtualConfig: virtualConfig,
+  //     columns: spansAndLeafNodes.leafColumns,
+  //     tableElm: tableRef,
+  //     tableWidth: tableWidth,
+  //     isWidthOverflow: isWidthOverflow,
+  //     scroll: scroll,
+  //     cellEmptyContent: cellEmptyContent,
+  //     tableContentElm: tableContentRef,
+  //     handleRowMounted: virtualConfig.handleRowMounted,
+  //     renderExpandedRow: renderExpandedRow,
+  //     ...pick($props, extendTableProps),
+  //     // 内部使用分页信息必须取 innerPagination
+  //     pagination: innerPagination,
+  //     attach: attach,
+  //     hoverRow: hoverRow,
+  //     activeRow: tActiveRow,
+  //     onRowClick: onInnerRowClick,
+  //   };
+  //   const tableContent = (
+  //     <div
+  //       ref="tableContentRef"
+  //       class={tableBaseClass.content}
+  //       style={tableContentStyles}
+  //       onScroll={onInnerVirtualScroll}
+  //     >
+  //       {virtualConfig.isVirtualScroll.value && (
+  //         <div class={virtualScrollClasses.cursor} style={virtualStyle} />
+  //       )}
 
-        <table
-          ref="tableElmRef"
-          class={this.tableElmClasses}
-          style={{
-            ...this.tableElementStyles,
-            width:
-              this.resizable && this.isWidthOverflow && this.tableElmWidth
-                ? `${this.tableElmWidth}px`
-                : this.tableElementStyles.width,
-          }}
-        >
-          {renderColGroup(false)}
-          {this.showHeader && (
-            <THead v-slots={this.$slots} {...{ ...headProps, thWidthList: columnResizable ? this.thWidthList : {} }} />
-          )}
-          <TBody v-slots={this.$slots} ref="tableBodyRef" {...tableBodyProps} />
-          <TFoot
-            v-slots={this.$slots}
-            rowKey={this.rowKey}
-            isFixedHeader={this.isFixedHeader}
-            rowAndColFixedPosition={rowAndColFixedPosition}
-            footData={this.footData}
-            columns={columns}
-            rowAttributes={this.rowAttributes}
-            rowClassName={this.rowClassName}
-            footerSummary={this.footerSummary}
-            rowspanAndColspanInFooter={this.rowspanAndColspanInFooter}
-            virtualScroll={this.virtualConfig.isVirtualScroll.value}
-          ></TFoot>
-        </table>
-      </div>
-    );
+  //       <table
+  //         ref="tableElmRef"
+  //         class={tableElmClasses}
+  //         style={{
+  //           ...tableElementStyles,
+  //           width:
+  //             resizable && isWidthOverflow && tableElmWidth
+  //               ? `${tableElmWidth}px`
+  //               : tableElementStyles.width,
+  //         }}
+  //       >
+  //         {renderColGroup(false)}
+  //         {showHeader && (
+  //           <THead v-slots={$slots} {...{ ...headProps, thWidthList: columnResizable ? thWidthList : {} }} />
+  //         )}
+  //         <TBody v-slots={$slots} ref="tableBodyRef" {...tableBodyProps} />
+  //         <TFoot
+  //           v-slots={$slots}
+  //           rowKey={rowKey}
+  //           isFixedHeader={isFixedHeader}
+  //           rowAndColFixedPosition={rowAndColFixedPosition}
+  //           footData={footData}
+  //           columns={columns}
+  //           rowAttributes={rowAttributes}
+  //           rowClassName={rowClassName}
+  //           footerSummary={footerSummary}
+  //           rowspanAndColspanInFooter={rowspanAndColspanInFooter}
+  //           virtualScroll={virtualConfig.isVirtualScroll.value}
+  //         ></TFoot>
+  //       </table>
+  //     </div>
+  //   );
 
-    const getCustomLoadingText = isFunction(this.loading) ? this.loading : this.$slots.loading;
-    const loadingContent = this.loading !== undefined && (
-      <Loading
-        loading={!!this.loading}
-        text={getCustomLoadingText}
-        attach={this.tableRef ? () => this.tableRef : undefined}
-        showOverlay
-        size="small"
-        {...(this.loadingProps as BaseTableProps['loadingProps'])}
-      ></Loading>
-    );
+  //   const getCustomLoadingText = isFunction(loading) ? loading : $slots.loading;
+  //   const loadingContent = loading !== undefined && (
+  //     <Loading
+  //       loading={!!loading}
+  //       text={getCustomLoadingText}
+  //       attach={tableRef ? () => tableRef : undefined}
+  //       showOverlay
+  //       size="small"
+  //       {...(loadingProps as BaseTableProps['loadingProps'])}
+  //     ></Loading>
+  //   );
 
-    const topContent = this.renderTNode('topContent');
-    const bottomContent = this.renderTNode('bottomContent');
-    const pagination = (
-      <div
-        ref="paginationRef"
-        class={this.tableBaseClass.paginationWrap}
-        style={{ opacity: Number(this.showAffixPagination) }}
-      >
-        {this.renderPagination()}
-      </div>
-    );
+  //   const topContent = renderTNode('topContent');
+  //   const bottomContent = renderTNode('bottomContent');
+  //   const pagination = (
+  //     <div
+  //       ref="paginationRef"
+  //       class={tableBaseClass.paginationWrap}
+  //       style={{ opacity: Number(showAffixPagination) }}
+  //     >
+  //       {renderPagination()}
+  //     </div>
+  //   );
 
-    const bottom = !!bottomContent && (
-      <div ref="bottomContentRef" class={this.tableBaseClass.bottomContent}>
-        {bottomContent}
-      </div>
-    );
+  //   const bottom = !!bottomContent && (
+  //     <div ref="bottomContentRef" class={tableBaseClass.bottomContent}>
+  //       {bottomContent}
+  //     </div>
+  //   );
 
-    return (
-      <div
-        ref="tableRef"
-        tabindex={this.tableRefTabIndex}
-        class={this.dynamicBaseTableClasses}
-        onFocus={this.onTableFocus}
-        onBlur={this.onTableBlur}
-      >
-        {!!topContent && <div class={this.tableBaseClass.topContent}>{topContent}</div>}
+  //   return (
+  //     <div
+  //       ref="tableRef"
+  //       tabindex={tableRefTabIndex}
+  //       class={dynamicBaseTableClasses}
+  //       onFocus={onTableFocus}
+  //       onBlur={onTableBlur}
+  //     >
+  //       {!!topContent && <div class={tableBaseClass.topContent}>{topContent}</div>}
 
-        {renderAffixedHeader()}
+  //       {renderAffixedHeader()}
 
-        {tableContent}
+  //       {tableContent}
 
-        {affixedFooter}
+  //       {affixedFooter}
 
-        {loadingContent}
+  //       {loadingContent}
 
-        {bottom}
+  //       {bottom}
 
-        {/* 右侧滚动条分隔线 */}
-        {this.showRightDivider && (
-          <div
-            class={this.tableBaseClass.scrollbarDivider}
-            style={{
-              right: `${this.scrollbarWidth}px`,
-              bottom: this.dividerBottom ? `${this.dividerBottom}px` : undefined,
-              height: `${this.tableContentRef?.getBoundingClientRect().height}px`,
-            }}
-          ></div>
-        )}
+  //       {/* 右侧滚动条分隔线 */}
+  //       {showRightDivider && (
+  //         <div
+  //           class={tableBaseClass.scrollbarDivider}
+  //           style={{
+  //             right: `${scrollbarWidth}px`,
+  //             bottom: dividerBottom ? `${dividerBottom}px` : undefined,
+  //             height: `${tableContentRef?.getBoundingClientRect().height}px`,
+  //           }}
+  //         ></div>
+  //       )}
 
-        {/* 吸底的滚动条 */}
-        {this.horizontalScrollAffixedBottom && renderAffixedHorizontalScrollbar()}
+  //       {/* 吸底的滚动条 */}
+  //       {horizontalScrollAffixedBottom && renderAffixedHorizontalScrollbar()}
 
-        {/* 吸底的分页器 */}
-        {this.paginationAffixedBottom ? (
-          <Affix offsetBottom={0} {...getAffixProps(this.paginationAffixedBottom)} ref="paginationAffixRef">
-            {pagination}
-          </Affix>
-        ) : (
-          pagination
-        )}
+  //       {/* 吸底的分页器 */}
+  //       {paginationAffixedBottom ? (
+  //         <Affix offsetBottom={0} {...getAffixProps(paginationAffixedBottom)} ref="paginationAffixRef">
+  //           {pagination}
+  //         </Affix>
+  //       ) : (
+  //         pagination
+  //       )}
 
-        {/* 调整列宽时的指示线。由于层级需要比较高，因而放在根节点，避免被吸顶表头覆盖。非必要情况，请勿调整辅助线位置 */}
-        <div ref="resizeLineRef" class={this.tableBaseClass.resizeLine} style={this.resizeLineStyle}></div>
-      </div>
-    );
-  },
+  //       {/* 调整列宽时的指示线。由于层级需要比较高，因而放在根节点，避免被吸顶表头覆盖。非必要情况，请勿调整辅助线位置 */}
+  //       <div ref="resizeLineRef" class={tableBaseClass.resizeLine} style={resizeLineStyle}></div>
+  //     </div>
+  //   );
+  // },
 });
