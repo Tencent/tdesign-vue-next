@@ -1,5 +1,5 @@
 import { ComputedRef, computed } from 'vue';
-import { useConfig } from '../config-provider/useConfig';
+import { useConfig } from '../config-provider/hooks/useConfig';
 
 export function usePrefixClass(componentName?: string): ComputedRef {
   const { classPrefix } = useConfig('classPrefix');

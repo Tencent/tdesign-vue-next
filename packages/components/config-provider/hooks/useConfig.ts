@@ -1,14 +1,15 @@
+// TODO 应当提取到公共 hooks 中
 import { computed, h, inject, getCurrentInstance, ref, provide } from 'vue';
 import { cloneDeep, isFunction, isString } from 'lodash-es';
 
-import { defaultGlobalConfig, configProviderInjectKey, mergeWith } from './context';
-import { GlobalConfigProvider, TdConfigProviderProps } from './type';
+import { defaultGlobalConfig, configProviderInjectKey, mergeWith } from '../utils/context';
+import { GlobalConfigProvider, TdConfigProviderProps } from '../type';
 
 // 这是为了解决在非component里调用useConfig hook时发出的警告
 // https://github.com/Tencent/tdesign-vue-next/issues/2025
 const globalConfigCopy = ref<GlobalConfigProvider>();
 
-export * from './type';
+export * from '../type';
 
 /**
  * component globalConfig
