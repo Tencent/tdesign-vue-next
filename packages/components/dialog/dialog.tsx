@@ -159,7 +159,7 @@ export default defineComponent({
     const dialogStyle = computed(() => {
       return !isFullScreen.value ? { width: GetCSSValue(props.width), ...props.dialogStyle } : { ...props.dialogStyle }; // width全屏模式不生效
     });
-    const { isLastDialog } = usePopupManager('dialog', {
+    const { isLastDialogOrDrawer } = usePopupManager('dialog', {
       visible: computedVisible,
     });
 
@@ -211,19 +211,24 @@ export default defineComponent({
     };
     // 回车触发确认事件
     const keyboardEnterEvent = (e: KeyboardEvent) => {
+      if (!props.confirmOnEnter) {
+        return;
+      }
       const eventSrc = e.target as HTMLElement;
       if (eventSrc.tagName.toLowerCase() === 'input') return; // 若是input触发 则不执行
       const { code } = e;
-      if ((code === 'Enter' || code === 'NumpadEnter') && isLastDialog()) {
+      if ((code === 'Enter' || code === 'NumpadEnter') && isLastDialogOrDrawer()) {
         props.onConfirm?.({ e });
       }
     };
     const keyboardEvent = (e: KeyboardEvent) => {
-      if (e.code === 'Escape' && isLastDialog()) {
+      if (e.code === 'Escape' && isLastDialogOrDrawer()) {
         props.onEscKeydown?.({ e });
         // 根据closeOnEscKeydown判断按下ESC时是否触发close事件
         if (props.closeOnEscKeydown ?? globalConfig.value.closeOnEscKeydown) {
           emitCloseEvent({ e, trigger: 'esc' });
+          // 阻止事件冒泡
+          e.stopImmediatePropagation();
         }
       }
     };
@@ -331,6 +336,7 @@ export default defineComponent({
           width: calc(100% - ${scrollWidth}px);
         }
       `;
+      addKeyboardEvent(true);
     });
 
     onBeforeUnmount(() => {
