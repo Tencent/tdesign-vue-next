@@ -56,9 +56,7 @@ const getColItemStyle = (obj: SkeletonRowColObj) => {
 
 export default defineComponent({
   name: 'TSkeleton',
-
   props,
-
   setup(props, { slots }) {
     const isShow = ref(false);
     const COMPONENT_NAME = usePrefixClass('skeleton');
