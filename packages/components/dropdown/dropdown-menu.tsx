@@ -3,7 +3,7 @@ import { ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
 import DropdownItem from './dropdown-item';
 
 import { DropdownOption } from './type';
-import DropdownProps from './props';
+import props from './props';
 import TDivider from '../divider';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
@@ -12,7 +12,7 @@ import { isFunction } from 'lodash-es';
 
 export default defineComponent({
   name: 'TDropdownMenu',
-  props: { ...DropdownProps },
+  props,
   setup(props) {
     const dropdownClass = usePrefixClass('dropdown');
     const dropdownMenuClass = usePrefixClass('dropdown__menu');

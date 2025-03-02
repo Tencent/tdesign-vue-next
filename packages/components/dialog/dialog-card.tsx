@@ -134,18 +134,11 @@ export default defineComponent({
       );
     };
 
-    return {
-      renderHeader,
-      renderBody,
-      renderFooter,
-    };
-  },
-  render() {
-    return (
+    return () => (
       <>
-        {this.renderHeader()}
-        {this.renderBody()}
-        {!!this.footer && this.renderFooter()}
+        {renderHeader()}
+        {renderBody()}
+        {!!props.footer && renderFooter()}
       </>
     );
   },

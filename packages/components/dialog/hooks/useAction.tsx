@@ -2,11 +2,11 @@ import { getCurrentInstance } from 'vue';
 import { isString } from 'lodash-es';
 import { isObject } from 'lodash-es';
 import { omit } from 'lodash-es';
-import { useTNodeJSX } from '../hooks/tnode';
-import TButton, { ButtonProps } from '../button';
-import { PopconfirmConfig, DialogConfig, DrawerConfig } from '../config-provider';
-import type { ClassName } from '../common';
-import type { TdDialogProps } from './type';
+import { useTNodeJSX } from '../../hooks/tnode';
+import TButton, { ButtonProps } from '../../button';
+import { PopconfirmConfig, DialogConfig, DrawerConfig } from '../../config-provider';
+import type { ClassName } from '../../common';
+import type { TdDialogProps } from '../type';
 import { getPropertyValFromObj } from '@tdesign/common-js/utils/general';
 
 export interface MixinsConfirmBtn {
@@ -134,27 +134,4 @@ export function useAction(action: BtnAction) {
     return renderTNodeJSX('cancelBtn');
   };
   return { getConfirmBtn, getCancelBtn };
-}
-
-export function useSameTarget(handleClick?: (e: MouseEvent) => void) {
-  // 判断 click 事件的起点和落点所在元素是否一致
-  let MOUSEDOWN_TARGET = false;
-  let MOUSEUP_TARGET = false;
-
-  const onClick = (e: MouseEvent) => {
-    if (MOUSEDOWN_TARGET && MOUSEUP_TARGET) {
-      handleClick(e);
-    }
-    MOUSEDOWN_TARGET = false;
-    MOUSEUP_TARGET = false;
-  };
-
-  const onMousedown = (e: MouseEvent) => {
-    MOUSEDOWN_TARGET = e.target === e.currentTarget;
-  };
-  const onMouseup = (e: MouseEvent) => {
-    MOUSEUP_TARGET = e.target === e.currentTarget;
-  };
-
-  return { onClick, onMousedown, onMouseup };
 }
