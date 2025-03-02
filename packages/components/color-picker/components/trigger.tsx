@@ -1,9 +1,9 @@
 import { defineComponent, PropType, ref, watch } from 'vue';
-import TInput from '../input';
-import { Color } from './utils';
-import { TdColorPickerProps } from './type';
-import { useBaseClassName } from './hooks';
-import { useCommonClassName } from '../hooks/useConfig';
+import TInput from '../../input';
+import { Color } from '../utils';
+import { TdColorPickerProps } from '../type';
+import { useBaseClassName } from '../hooks';
+import { useCommonClassName } from '../../hooks/useConfig';
 
 export default defineComponent({
   name: 'DefaultTrigger',
@@ -65,47 +65,38 @@ export default defineComponent({
       props.onTriggerChange(value.value);
     };
 
-    return {
-      baseClassName,
-      value,
-      handleChange,
-      sizeClassNames,
+    return () => {
+      const inputSlots = {
+        label: () => {
+          return (
+            <div class={[`${baseClassName.value}__trigger--default__color`, `${baseClassName.value}--bg-alpha`]}>
+              <span
+                class={[
+                  'color-inner',
+                  {
+                    [sizeClassNames.value[props.size]]: props.size !== 'medium',
+                  },
+                ]}
+                style={{
+                  background: value.value,
+                }}
+              ></span>
+            </div>
+          );
+        },
+      };
+      return (
+        <TInput
+          borderless={props.borderless}
+          clearable={props.clearable}
+          size={props.size}
+          v-slots={inputSlots}
+          v-model={value}
+          disabled={props.disabled}
+          onBlur={handleChange}
+          {...props.inputProps}
+        />
+      );
     };
-  },
-
-  render() {
-    const { baseClassName, sizeClassNames } = this;
-
-    const inputSlots = {
-      label: () => {
-        return (
-          <div class={[`${baseClassName}__trigger--default__color`, `${baseClassName}--bg-alpha`]}>
-            <span
-              class={[
-                'color-inner',
-                {
-                  [sizeClassNames[this.size]]: this.size !== 'medium',
-                },
-              ]}
-              style={{
-                background: this.value,
-              }}
-            ></span>
-          </div>
-        );
-      },
-    };
-    return (
-      <TInput
-        borderless={this.borderless}
-        clearable={this.clearable}
-        size={this.size}
-        v-slots={inputSlots}
-        v-model={this.value}
-        disabled={this.disabled}
-        onBlur={this.handleChange}
-        {...this.inputProps}
-      />
-    );
   },
 });
