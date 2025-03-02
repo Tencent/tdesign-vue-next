@@ -3,7 +3,6 @@ import { ImageIcon, ZoomInIcon, ZoomOutIcon, DownloadIcon, MirrorIcon, RotationI
 import TImageViewerIcon from './ImageModalIcon';
 import TToolTip from '../../tooltip';
 import { usePrefixClass, useConfig } from '../../hooks/useConfig';
-import { downloadFile } from '../utils';
 import { useImagePreviewUrl } from '../../hooks';
 import { ImageInfo } from '../type';
 import { largeNumberToFixed } from '@tdesign/common-js/input-number/large-number';
@@ -17,6 +16,7 @@ export default defineComponent({
     onZoomOut: Function as PropType<() => void>,
     onMirror: Function as PropType<() => void>,
     onReset: Function as PropType<() => void>,
+    onDownload: Function as PropType<(url: string) => void>,
     currentImage: {
       type: Object as PropType<ImageInfo>,
       default() {
@@ -78,7 +78,7 @@ export default defineComponent({
             <TImageViewerIcon
               icon={() => <DownloadIcon size="medium" />}
               onClick={() => {
-                downloadFile(previewUrl.value);
+                props.onDownload(previewUrl.value);
               }}
             />
           )}
