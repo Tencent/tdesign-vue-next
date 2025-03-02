@@ -66,7 +66,7 @@ export default defineComponent({
     const images = computed(() => formatImages(props.images));
     const currentImage = computed(() => images.value[indexValue.value] ?? { mainImage: '' });
 
-    const { isLastDialog } = usePopupManager('dialog', {
+    const { isLastDialogOrDrawer } = usePopupManager('dialog', {
       visible: visibleValue,
     });
 
@@ -119,7 +119,7 @@ export default defineComponent({
           onZoomOut();
           break;
         case EVENT_CODE.esc:
-          if (props.closeOnEscKeydown && isLastDialog()) {
+          if (props.closeOnEscKeydown && isLastDialogOrDrawer()) {
             onClose({ e, trigger: 'esc' });
           }
           break;
