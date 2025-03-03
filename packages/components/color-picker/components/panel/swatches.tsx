@@ -68,78 +68,65 @@ export default defineComponent({
       setVisiblePopConfirm(false);
     };
 
-    return {
-      baseClassName,
-      DeleteIcon,
-      AddIcon,
-      statusClassNames,
-      selectedColorIndex,
-      visiblePopConfirm,
-      setVisiblePopConfirm,
-      handleClick,
-      isEqualCurrentColor,
-      handleRemoveColor,
-    };
-  },
-  render() {
-    const { baseClassName, DeleteIcon, AddIcon, statusClassNames, title, editable } = this;
-    const swatchesClass = `${baseClassName}__swatches`;
+    return () => {
+      const swatchesClass = `${baseClassName.value}__swatches`;
 
-    const renderActions = () => {
-      if (!editable) {
-        return null;
-      }
+      const renderActions = () => {
+        if (!props.editable) {
+          return null;
+        }
+
+        return (
+          <div class={`${swatchesClass}--actions`}>
+            <span role="button" class={`${baseClassName.value}__icon`} onClick={() => props.handleAddColor()}>
+              <AddIcon />
+            </span>
+            {props.colors.length > 0 ? (
+              <span role="button" class={`${baseClassName.value}__icon`} onClick={() => handleRemoveColor()}>
+                <DeleteIcon />
+              </span>
+            ) : null}
+          </div>
+        );
+      };
 
       return (
-        <div class={`${swatchesClass}--actions`}>
-          <span role="button" class={`${baseClassName}__icon`} onClick={() => this.handleAddColor()}>
-            <AddIcon />
-          </span>
-          {this.colors.length > 0 ? (
-            <span role="button" class={`${baseClassName}__icon`} onClick={() => this.handleRemoveColor()}>
-              <DeleteIcon />
-            </span>
-          ) : null}
+        <div class={swatchesClass}>
+          <h3 class={`${swatchesClass}--title`}>
+            <span>{props.title}</span>
+            {renderActions()}
+          </h3>
+          <ul class={[`${swatchesClass}--items`, 'narrow-scrollbar']}>
+            {props.colors.map((color) => {
+              return (
+                <li
+                  class={[
+                    `${swatchesClass}--item`,
+                    isEqualCurrentColor(color) && props.editable ? statusClassNames.active : '',
+                  ]}
+                  title={color}
+                  key={color}
+                  onClick={() => {
+                    if (props.disabled) {
+                      return;
+                    }
+                    handleClick(color);
+                  }}
+                >
+                  <div class={[`${swatchesClass}--color`, `${baseClassName.value}--bg-alpha`]}>
+                    <span
+                      class={`${swatchesClass}--inner`}
+                      style={{
+                        background: color,
+                      }}
+                    ></span>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       );
     };
-
-    return (
-      <div class={swatchesClass}>
-        <h3 class={`${swatchesClass}--title`}>
-          <span>{title}</span>
-          {renderActions()}
-        </h3>
-        <ul class={[`${swatchesClass}--items`, 'narrow-scrollbar']}>
-          {this.colors.map((color) => {
-            return (
-              <li
-                class={[
-                  `${swatchesClass}--item`,
-                  this.isEqualCurrentColor(color) && editable ? statusClassNames.active : '',
-                ]}
-                title={color}
-                key={color}
-                onClick={() => {
-                  if (this.disabled) {
-                    return;
-                  }
-                  this.handleClick(color);
-                }}
-              >
-                <div class={[`${swatchesClass}--color`, `${baseClassName}--bg-alpha`]}>
-                  <span
-                    class={`${swatchesClass}--inner`}
-                    style={{
-                      background: color,
-                    }}
-                  ></span>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    );
   },
 });
