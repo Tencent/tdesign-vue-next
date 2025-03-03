@@ -25,14 +25,12 @@ export interface TFootProps {
   thWidthList?: { [colKey: string]: number };
   footerSummary?: TdBaseTableProps['footerSummary'];
   rowspanAndColspanInFooter: TdBaseTableProps['rowspanAndColspanInFooter'];
-
   // 是否虚拟滚动
   virtualScroll?: boolean;
 }
 
 export default defineComponent({
   name: 'TFoot',
-
   props: {
     rowKey: String,
     isFixedHeader: Boolean,
@@ -46,9 +44,7 @@ export default defineComponent({
     rowspanAndColspanInFooter: Function as PropType<TFootProps['rowspanAndColspanInFooter']>,
     virtualScroll: Boolean,
   },
-
-  // eslint-disable-next-line
-  setup(props: TFootProps, context: SetupContext) {
+  setup(props, context: SetupContext) {
     const renderTNode = useTNodeJSX();
     const classnames = useClassName();
     const { footData, columns, rowKey, rowspanAndColspanInFooter } = toRefs(props);
@@ -63,79 +59,74 @@ export default defineComponent({
       }
       return col.foot || get(row, col.colKey);
     };
-
-    return {
-      skipSpansMap,
-      ...classnames,
-      renderTFootCell,
-      renderTNode,
-    };
-  },
-
-  render() {
-    if (!this.columns) return null;
-    // 虚拟滚动情况下，不使用 sticky 定位，外部通过 affix 实现 footer
-    const theadClasses = [this.tableFooterClasses.footer, { [this.tableFooterClasses.fixed]: this.isFixedHeader }];
-    const footerDomList = this.footData?.map((row, rowIndex) => {
-      const trAttributes = formatRowAttributes(this.rowAttributes, { row, rowIndex, type: 'foot' });
-      // 自定义行类名
-      const customClasses = formatRowClassNames(
-        this.rowClassName,
-        { row, rowIndex, type: 'foot' },
-        this.rowKey || 'id',
-      );
-      return (
-        <tr {...trAttributes} key={rowIndex} class={customClasses}>
-          {this.columns.map((col, colIndex) => {
-            // 合并单元格过滤
-            const cellSpans: RowspanColspan = {};
-            let spanState = null;
-            if (this.skipSpansMap.size) {
-              const cellKey = getCellKey(row, this.rowKey, col.colKey, colIndex);
-              spanState = this.skipSpansMap.get(cellKey) || {};
-              spanState?.rowspan > 1 && (cellSpans.rowspan = spanState.rowspan);
-              spanState?.colspan > 1 && (cellSpans.colspan = spanState.colspan);
-              if (spanState.skipped) return null;
-            }
-            const tdStyles = getColumnFixedStyles(
-              col,
-              colIndex,
-              this.rowAndColFixedPosition,
-              this.tableColFixedClasses,
-            );
-            const style: Styles = { ...tdStyles.style };
-            if (this.thWidthList?.[col.colKey]) {
-              style.width = `${this.thWidthList[col.colKey]}px`;
-            }
-            return (
-              <td {...{ key: col.colKey, ...cellSpans }} class={tdStyles.classes} style={style}>
-                {this.renderTFootCell({
-                  row,
-                  rowIndex,
-                  col,
-                  colIndex,
-                })}
-              </td>
-            );
-          })}
-        </tr>
-      );
-    });
-    const footerSummary = this.renderTNode('footerSummary');
-    // 都不存在，则不需要渲染 footer
-    if (!footerSummary && (!this.footData || !this.footData.length)) return null;
-    return (
-      // 虚拟滚动下，不显示 footer，但预留元素，用于高度计算
-      <tfoot ref="tFooterRef" class={theadClasses} style={{ visibility: this.virtualScroll ? 'hidden' : 'visible' }}>
-        {footerSummary && (
-          <tr class={this.tableFullRowClasses.base}>
-            <td colspan={this.columns.length}>
-              <div class={this.tableFullRowClasses.innerFullElement}>{footerSummary}</div>
-            </td>
+    return () => {
+      if (!columns.value) return null;
+      // 虚拟滚动情况下，不使用 sticky 定位，外部通过 affix 实现 footer
+      const theadClasses = [
+        classnames.tableFooterClasses.footer,
+        { [classnames.tableFooterClasses.fixed]: props.isFixedHeader },
+      ];
+      const footerDomList = props.footData?.map((row, rowIndex) => {
+        const trAttributes = formatRowAttributes(props.rowAttributes, { row, rowIndex, type: 'foot' });
+        // 自定义行类名
+        const customClasses = formatRowClassNames(
+          props.rowClassName,
+          { row, rowIndex, type: 'foot' },
+          rowKey.value || 'id',
+        );
+        return (
+          <tr {...trAttributes} key={rowIndex} class={customClasses}>
+            {columns.value.map((col, colIndex) => {
+              // 合并单元格过滤
+              const cellSpans: RowspanColspan = {};
+              let spanState = null;
+              if (skipSpansMap.value.size) {
+                const cellKey = getCellKey(row, rowKey.value, col.colKey, colIndex);
+                spanState = skipSpansMap.value.get(cellKey) || {};
+                spanState?.rowspan > 1 && (cellSpans.rowspan = spanState.rowspan);
+                spanState?.colspan > 1 && (cellSpans.colspan = spanState.colspan);
+                if (spanState.skipped) return null;
+              }
+              const tdStyles = getColumnFixedStyles(
+                col,
+                colIndex,
+                props.rowAndColFixedPosition,
+                classnames.tableColFixedClasses,
+              );
+              const style: Styles = { ...tdStyles.style };
+              if (props.thWidthList?.[col.colKey]) {
+                style.width = `${props.thWidthList[col.colKey]}px`;
+              }
+              return (
+                <td {...{ key: col.colKey, ...cellSpans }} class={tdStyles.classes} style={style}>
+                  {renderTFootCell({
+                    row,
+                    rowIndex,
+                    col,
+                    colIndex,
+                  })}
+                </td>
+              );
+            })}
           </tr>
-        )}
-        {footerDomList}
-      </tfoot>
-    );
+        );
+      });
+      const footerSummary = renderTNode('footerSummary');
+      // 都不存在，则不需要渲染 footer
+      if (!footerSummary && (!props.footData || !props.footData.length)) return null;
+      return (
+        // 虚拟滚动下，不显示 footer，但预留元素，用于高度计算
+        <tfoot class={theadClasses} style={{ visibility: props.virtualScroll ? 'hidden' : 'visible' }}>
+          {footerSummary && (
+            <tr class={classnames.tableFullRowClasses.base}>
+              <td colspan={columns.value.length}>
+                <div class={classnames.tableFullRowClasses.innerFullElement}>{footerSummary}</div>
+              </td>
+            </tr>
+          )}
+          {footerDomList}
+        </tfoot>
+      );
+    };
   },
 });
