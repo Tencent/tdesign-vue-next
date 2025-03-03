@@ -257,116 +257,93 @@ export default defineComponent({
       emitColorChange();
     };
 
-    return {
-      baseClassName,
-      statusClassNames,
-      t,
-      globalConfig,
-      color,
-      mode,
-      formatModel,
-      recentlyUsedColors,
-      isGradient,
-      addRecentlyUsedColor,
-      handleModeChange,
-      handleSatAndValueChange,
-      handleHueChange,
-      handleAlphaChange,
-      handleGradientChange,
-      handleSetColor,
-      handleFormatModeChange,
-      handleInputChange,
-      handleRecentlyUsedColorsChange,
-    };
-  },
-  render() {
-    const { t, baseClassName, statusClassNames, globalConfig, swatchColors, showPrimaryColorPreview, isGradient } =
-      this;
-    const baseProps = {
-      color: this.color,
-      disabled: this.disabled,
-    };
-    const showUsedColors = this.recentlyUsedColors !== null && this.recentlyUsedColors !== false;
+    return () => {
+      const baseProps = {
+        color: color.value,
+        disabled: props.disabled,
+      };
+      const showUsedColors = recentlyUsedColors.value !== null && recentlyUsedColors.value !== false;
 
-    let systemColors = swatchColors;
-    if (systemColors === undefined) {
-      systemColors = [...DEFAULT_SYSTEM_SWATCH_COLORS];
-    }
-    const showSystemColors = systemColors?.length > 0;
-
-    const renderSwatches = () => {
-      if (!showSystemColors && !showUsedColors) {
-        return null;
+      let systemColors = props.swatchColors;
+      if (systemColors === undefined) {
+        systemColors = [...DEFAULT_SYSTEM_SWATCH_COLORS];
       }
+      const showSystemColors = systemColors?.length > 0;
+
+      const renderSwatches = () => {
+        if (!showSystemColors && !showUsedColors) {
+          return null;
+        }
+        return (
+          <>
+            <div class={`${baseClassName.value}__swatches-wrap`}>
+              {showUsedColors ? (
+                <SwatchesPanel
+                  {...baseProps}
+                  title={t(globalConfig.value.recentColorTitle)}
+                  editable
+                  colors={recentlyUsedColors.value as string[]}
+                  handleAddColor={addRecentlyUsedColor}
+                  onSetColor={(color: string) => handleSetColor('used', color)}
+                  onChange={handleRecentlyUsedColorsChange}
+                />
+              ) : null}
+              {showSystemColors ? (
+                <SwatchesPanel
+                  {...baseProps}
+                  title={t(globalConfig.value.swatchColorTitle)}
+                  colors={systemColors}
+                  onSetColor={(color: string) => handleSetColor('system', color)}
+                />
+              ) : null}
+            </div>
+          </>
+        );
+      };
+
       return (
-        <>
-          <div class={`${baseClassName}__swatches-wrap`}>
-            {showUsedColors ? (
-              <SwatchesPanel
+        <div class={[`${baseClassName.value}__panel`, props.disabled ? statusClassNames.disabled : false]}>
+          <PanelHeader {...props} mode={mode.value} onModeChange={handleModeChange} />
+          <div class={[`${baseClassName.value}__body`]}>
+            {isGradient.value ? (
+              <LinearGradient
                 {...baseProps}
-                title={t(globalConfig.recentColorTitle)}
-                editable
-                colors={this.recentlyUsedColors as string[]}
-                handleAddColor={this.addRecentlyUsedColor}
-                onSetColor={(color: string) => this.handleSetColor('used', color)}
-                onChange={this.handleRecentlyUsedColorsChange}
+                onChange={handleGradientChange}
+                enableMultipleGradient={props.enableMultipleGradient}
               />
             ) : null}
-            {showSystemColors ? (
-              <SwatchesPanel
-                {...baseProps}
-                title={t(globalConfig.swatchColorTitle)}
-                colors={systemColors}
-                onSetColor={(color: string) => this.handleSetColor('system', color)}
-              />
-            ) : null}
-          </div>
-        </>
-      );
-    };
 
-    return (
-      <div class={[`${baseClassName}__panel`, this.disabled ? statusClassNames.disabled : false]}>
-        <PanelHeader {...this.$props} mode={this.mode} onModeChange={this.handleModeChange} />
-        <div class={[`${baseClassName}__body`]}>
-          {isGradient ? (
-            <LinearGradient
-              {...baseProps}
-              onChange={this.handleGradientChange}
-              enableMultipleGradient={this.enableMultipleGradient}
-            />
-          ) : null}
+            <SaturationPanel {...baseProps} onChange={handleSatAndValueChange} />
 
-          <SaturationPanel {...baseProps} onChange={this.handleSatAndValueChange} />
+            <div class={[`${baseClassName.value}__sliders-wrapper`]}>
+              <div class={[`${baseClassName.value}__sliders`]}>
+                <HueSlider {...baseProps} onChange={handleHueChange} />
+                {props.enableAlpha ? <AlphaSlider {...baseProps} onChange={handleAlphaChange} /> : null}
+              </div>
 
-          <div class={[`${baseClassName}__sliders-wrapper`]}>
-            <div class={[`${baseClassName}__sliders`]}>
-              <HueSlider {...baseProps} onChange={this.handleHueChange} />
-              {this.enableAlpha ? <AlphaSlider {...baseProps} onChange={this.handleAlphaChange} /> : null}
+              {props.showPrimaryColorPreview ? (
+                <div class={[`${baseClassName.value}__sliders-preview`, `${baseClassName.value}--bg-alpha`]}>
+                  <span
+                    class={`${baseClassName.value}__sliders-preview-inner`}
+                    style={{
+                      background: isGradient.value ? color.value.linearGradient : color.value.rgba,
+                    }}
+                  />
+                </div>
+              ) : null}
             </div>
 
-            {showPrimaryColorPreview ? (
-              <div class={[`${baseClassName}__sliders-preview`, `${baseClassName}--bg-alpha`]}>
-                <span
-                  class={`${baseClassName}__sliders-preview-inner`}
-                  style={{
-                    background: isGradient ? this.color.linearGradient : this.color.rgba,
-                  }}
-                />
-              </div>
-            ) : null}
+            <FormatPanel
+              {...props}
+              color={color.value}
+              format={formatModel.value}
+              onModeChange={handleFormatModeChange}
+              onInputChange={handleInputChange}
+            />
+            {renderSwatches()}
           </div>
-
-          <FormatPanel
-            {...this.$props}
-            color={this.color}
-            format={this.formatModel}
-            onModeChange={this.handleFormatModeChange}
-            onInputChange={this.handleInputChange}
-          />
-          {renderSwatches()}
         </div>
-      </div>
-    );
+      );
+    };
   },
 });
