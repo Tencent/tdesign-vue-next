@@ -221,11 +221,11 @@ export default defineComponent({
       };
 
       return (
-        <div>
+        <>
           {renderHeader()}
           {renderBody()}
           {!!props.footer && renderFooter()}
-        </div>
+        </>
       );
     };
 
