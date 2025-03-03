@@ -11,7 +11,6 @@ const DELETE_KEYS: string[] = ['delete', 'backspace'];
 
 export default defineComponent({
   name: 'LinearGradient',
-
   inheritAttrs: false,
   props: {
     ...baseProps,
@@ -199,92 +198,77 @@ export default defineComponent({
       window.removeEventListener('contextmenu', handleEnd, false);
     });
 
-    return {
-      baseClassName,
-      statusClassNames,
-      refSlider,
-      degree,
-      selectedId,
-      colors,
-      handleDegreeChange,
-      handleStart,
-      handleMove,
-      handleEnd,
-      handleKeyup,
-      handleThumbBarClick,
-    };
-  },
-  render() {
-    const { linearGradient, gradientColors } = this.color;
-    const { colors, selectedId, degree, disabled, baseClassName, statusClassNames } = this;
-    const thumbBackground = gradientColors2string({
-      points: gradientColors,
-      degree: 90,
-    });
-    return (
-      <div class={`${baseClassName}__gradient`}>
-        <div class={`${baseClassName}__gradient-slider`}>
-          <div
-            class={[`${baseClassName}__slider`, `${baseClassName}--bg-alpha`]}
-            onKeyup={this.handleKeyup}
-            tabindex={0}
-            ref="refSlider"
-          >
-            <ul
-              class="gradient-thumbs"
-              onClick={this.handleThumbBarClick}
-              style={{
-                background: thumbBackground,
-              }}
+    return () => {
+      const { linearGradient, gradientColors } = props.color;
+      const thumbBackground = gradientColors2string({
+        points: gradientColors,
+        degree: 90,
+      });
+      return (
+        <div class={`${baseClassName.value}__gradient`}>
+          <div class={`${baseClassName.value}__gradient-slider`}>
+            <div
+              class={[`${baseClassName.value}__slider`, `${baseClassName.value}--bg-alpha`]}
+              onKeyup={handleKeyup}
+              tabindex={0}
+              ref={refSlider}
             >
-              {colors.map((t) => {
-                const left = `${Math.round(t.left * 100) / 100}%`;
-                return (
-                  <li
-                    class={[
-                      `${baseClassName}__thumb`,
-                      'gradient-thumbs__item',
-                      selectedId === t.id ? statusClassNames.active : '',
-                    ]}
-                    key={t.id}
-                    title={`${t.color} ${left}`}
-                    style={{
-                      color: t.color,
-                      left,
-                    }}
-                    onClick={(e: MouseEvent) => e.stopPropagation()}
-                    onMousedown={() => this.handleStart(t.id)}
-                  >
-                    <span class={['gradient-thumbs__item-inner', `${baseClassName}--bg-alpha`]}></span>
-                  </li>
-                );
-              })}
-            </ul>
+              <ul
+                class="gradient-thumbs"
+                onClick={handleThumbBarClick}
+                style={{
+                  background: thumbBackground,
+                }}
+              >
+                {colors.value.map((t) => {
+                  const left = `${Math.round(t.left * 100) / 100}%`;
+                  return (
+                    <li
+                      class={[
+                        `${baseClassName.value}__thumb`,
+                        'gradient-thumbs__item',
+                        selectedId.value === t.id ? statusClassNames.active : '',
+                      ]}
+                      key={t.id}
+                      title={`${t.color} ${left}`}
+                      style={{
+                        color: t.color,
+                        left,
+                      }}
+                      onClick={(e: MouseEvent) => e.stopPropagation()}
+                      onMousedown={() => handleStart(t.id)}
+                    >
+                      <span class={['gradient-thumbs__item-inner', `${baseClassName.value}--bg-alpha`]}></span>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </div>
+          <div class={`${baseClassName.value}__gradient-degree`} title={`${degree.value}deg`}>
+            <TInputNumber
+              size="small"
+              theme="normal"
+              min={0}
+              max={360}
+              step={1}
+              format={(value: number) => `${value}°`}
+              v-model={degree.value}
+              onBlur={handleDegreeChange}
+              onEnter={handleDegreeChange}
+              disabled={props.disabled}
+            />
+          </div>
+          <div class={[`${baseClassName.value}__gradient-preview`, `${baseClassName.value}--bg-alpha`]}>
+            <span
+              class="preview-inner"
+              style={{
+                background: linearGradient,
+              }}
+            ></span>
           </div>
         </div>
-        <div class={`${baseClassName}__gradient-degree`} title={`${degree}deg`}>
-          <TInputNumber
-            size="small"
-            theme="normal"
-            min={0}
-            max={360}
-            step={1}
-            format={(value: number) => `${value}°`}
-            v-model={this.degree}
-            onBlur={this.handleDegreeChange}
-            onEnter={this.handleDegreeChange}
-            disabled={disabled}
-          />
-        </div>
-        <div class={[`${baseClassName}__gradient-preview`, `${baseClassName}--bg-alpha`]}>
-          <span
-            class="preview-inner"
-            style={{
-              background: linearGradient,
-            }}
-          ></span>
-        </div>
-      </div>
-    );
+      );
+    };
   },
 });
