@@ -83,26 +83,30 @@ export default defineComponent({
       dragInstance.value.destroy();
     });
 
-    return {
-      baseClassName,
-      refThumb,
-      refPanel,
-      styles,
-    };
-  },
-  render() {
-    const { baseClassName, className, railStyle, styles, type, color } = this;
-    const paddingStyle = {
-      background: `linear-gradient(90deg, rgba(0,0,0,.0) 0%, rgba(0,0,0,.0) 93%, ${color.rgb} 93%, ${color.rgb} 100%)`,
-    };
-    return (
-      <div class={[`${baseClassName}__slider-wrapper`, `${baseClassName}__slider-wrapper--${type}-type`]}>
-        {type === 'alpha' && <div class={`${baseClassName}__slider-padding`} style={paddingStyle} />}
-        <div class={[`${baseClassName}__slider`, className]} ref="refPanel">
-          <div class={`${baseClassName}__rail`} style={railStyle}></div>
-          <span class={[`${baseClassName}__thumb`]} role="slider" tabindex={0} ref="refThumb" style={styles}></span>
+    return () => {
+      const paddingStyle = {
+        background: `linear-gradient(90deg, rgba(0,0,0,.0) 0%, rgba(0,0,0,.0) 93%, ${props.color.rgb} 93%, ${props.color.rgb} 100%)`,
+      };
+      return (
+        <div
+          class={[
+            `${baseClassName.value}__slider-wrapper`,
+            `${baseClassName.value}__slider-wrapper--${props.type}-type`,
+          ]}
+        >
+          {props.type === 'alpha' && <div class={`${baseClassName.value}__slider-padding`} style={paddingStyle} />}
+          <div class={[`${baseClassName.value}__slider`, props.className]} ref={refPanel}>
+            <div class={`${baseClassName.value}__rail`} style={props.railStyle}></div>
+            <span
+              class={[`${baseClassName.value}__thumb`]}
+              role="slider"
+              tabindex={0}
+              ref={refThumb}
+              style={styles.value}
+            ></span>
+          </div>
         </div>
-      </div>
-    );
+      );
+    };
   },
 });
