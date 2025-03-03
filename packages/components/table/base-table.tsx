@@ -337,6 +337,12 @@ export default defineComponent({
       }
     };
 
+    context.expose({
+      refreshTable,
+      scrollColumnIntoView,
+      scrollToElement,
+    });
+
     return () => {
       if (!showElement.value) {
         return <div ref={tableRef}></div>;

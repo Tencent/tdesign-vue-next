@@ -59,40 +59,30 @@ export default defineComponent({
       );
     };
 
-    return {
-      t,
-      globalConfig,
-      tableSortClasses,
-      negativeRotate180,
-      allowSortTypes,
-      getSortIcon,
+    return () => {
+      const classes = [tableSortClasses.trigger, { [tableSortClasses.doubleIcon]: allowSortTypes.value.length > 1 }];
+      const tooltips = {
+        asc: globalConfig.value.sortAscendingOperationText,
+        desc: globalConfig.value.sortDescendingOperationText,
+      };
+      const sortButton = allowSortTypes.value.map((direction: SortTypeEnum) => {
+        const activeClass = direction === props.sortOrder ? tableSortClasses.iconActive : tableSortClasses.iconDefault;
+        const cancelTips = globalConfig.value.sortCancelOperationText;
+        const tips = direction === props.sortOrder ? cancelTips : tooltips[direction];
+        if (props.hideSortTips ?? globalConfig.value.hideSortTips) return getSortIcon(direction, activeClass);
+        return (
+          <Tooltip
+            content={tips}
+            placement="right"
+            showArrow={false}
+            class={tableSortClasses.iconDirection[direction]}
+            {...(props.tooltipProps as TooltipProps)}
+          >
+            {getSortIcon(direction, activeClass)}
+          </Tooltip>
+        );
+      });
+      return <div class={classes}>{sortButton}</div>;
     };
-  },
-
-  render() {
-    const { tableSortClasses } = this;
-    const classes = [tableSortClasses.trigger, { [tableSortClasses.doubleIcon]: this.allowSortTypes.length > 1 }];
-    const tooltips = {
-      asc: this.globalConfig.sortAscendingOperationText,
-      desc: this.globalConfig.sortDescendingOperationText,
-    };
-    const sortButton = this.allowSortTypes.map((direction: SortTypeEnum) => {
-      const activeClass = direction === this.sortOrder ? tableSortClasses.iconActive : tableSortClasses.iconDefault;
-      const cancelTips = this.globalConfig.sortCancelOperationText;
-      const tips = direction === this.sortOrder ? cancelTips : tooltips[direction];
-      if (this.hideSortTips ?? this.globalConfig.hideSortTips) return this.getSortIcon(direction, activeClass);
-      return (
-        <Tooltip
-          content={tips}
-          placement="right"
-          showArrow={false}
-          class={this.tableSortClasses.iconDirection[direction]}
-          {...(this.tooltipProps as TooltipProps)}
-        >
-          {this.getSortIcon(direction, activeClass)}
-        </Tooltip>
-      );
-    });
-    return <div class={classes}>{sortButton}</div>;
   },
 });
