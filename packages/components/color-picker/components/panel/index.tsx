@@ -1,6 +1,6 @@
 import { defineComponent, ref, toRefs, watch, computed } from 'vue';
-import { useCommonClassName, useConfig } from '../../hooks/useConfig';
-import props from '../props';
+import { useCommonClassName, useConfig } from '../../../hooks/useConfig';
+import props from '../../props';
 import {
   DEFAULT_COLOR,
   DEFAULT_LINEAR_GRADIENT,
@@ -12,14 +12,14 @@ import LinearGradient from './linear-gradient';
 import SaturationPanel from './saturation';
 import HueSlider from './hue';
 import AlphaSlider from './alpha';
-import FormatPanel from './format';
+import FormatPanel from '../format';
 import SwatchesPanel from './swatches';
-import { Color, getColorObject, GradientColorPoint } from '../utils';
-import { TdColorPickerProps, ColorPickerChangeTrigger } from '../type';
-import { TdColorModes } from '../types';
-import { useBaseClassName } from '../hooks';
-import useVModel from '../../hooks/useVModel';
-import useDefaultValue from '../../hooks/useDefaultValue';
+import { Color, getColorObject, GradientColorPoint } from '../../utils';
+import { TdColorPickerProps, ColorPickerChangeTrigger } from '../../type';
+import { TdColorModes } from '../../types';
+import { useBaseClassName } from '../../hooks';
+import useVModel from '../../../hooks/useVModel';
+import useDefaultValue from '../../../hooks/useDefaultValue';
 import { cloneDeep } from 'lodash-es';
 
 export default defineComponent({
@@ -30,7 +30,6 @@ export default defineComponent({
       type: Function,
     },
   },
-
   setup(props) {
     const baseClassName = useBaseClassName();
     const { STATUS } = useCommonClassName();

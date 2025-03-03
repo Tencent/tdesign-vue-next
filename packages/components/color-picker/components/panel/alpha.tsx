@@ -1,7 +1,7 @@
 import { computed, defineComponent, PropType } from 'vue';
 import ColorSlider from './slider';
-import { Color } from '../utils';
-import { useBaseClassName } from '../hooks';
+import { Color } from '../../utils';
+import { useBaseClassName } from '../../hooks';
 
 export default defineComponent({
   name: 'AlphaSlider',

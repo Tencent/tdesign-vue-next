@@ -1,10 +1,10 @@
 import { computed, defineComponent, PropType, ref } from 'vue';
 import { DeleteIcon as TdDeleteIcon, AddIcon as TdAddIcon } from 'tdesign-icons-vue-next';
 
-import { Color } from '../utils';
-import { useBaseClassName } from '../hooks';
-import { useCommonClassName } from '../../hooks/useConfig';
-import { useGlobalIcon } from '../../hooks/useGlobalIcon';
+import { Color } from '../../utils';
+import { useBaseClassName } from '../../hooks';
+import { useCommonClassName } from '../../../hooks/useConfig';
+import { useGlobalIcon } from '../../../hooks/useGlobalIcon';
 import baseProps from './base-props';
 
 export default defineComponent({

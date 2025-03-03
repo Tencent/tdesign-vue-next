@@ -3,8 +3,8 @@ import {
   SATURATION_PANEL_DEFAULT_HEIGHT,
   SATURATION_PANEL_DEFAULT_WIDTH,
 } from '@tdesign/common-js/color-picker/constants';
-import { Draggable, Coordinate } from '../utils';
-import { useBaseClassName } from '../hooks';
+import { Draggable, Coordinate } from '../../utils';
+import { useBaseClassName } from '../../hooks';
 import baseProps from './base-props';
 
 export default defineComponent({
