@@ -74,7 +74,6 @@ export default defineComponent({
     // 固定表头和固定列逻辑
     const {
       scrollbarWidth,
-      virtualScrollHeaderPos,
       tableWidth,
       tableElmWidth,
       tableContentRef,

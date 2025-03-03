@@ -63,7 +63,6 @@ export const extendTableProps = [
 
 export default defineComponent({
   name: 'TBody',
-
   props: {
     classPrefix: String,
     data: Array as PropType<TableBodyProps['data']>,
@@ -86,9 +85,7 @@ export default defineComponent({
     hoverRow: [String, Number],
     ...pick(baseTableProps, extendTableProps),
   },
-
-  // eslint-disable-next-line
-  setup(props: TableBodyProps) {
+  setup(props, { slots }) {
     const renderTNode = useTNodeJSX();
     const { data, columns, rowKey, rowspanAndColspan } = toRefs(props);
     const { t, globalConfig } = useConfig('table', props.locale);
@@ -97,137 +94,131 @@ export default defineComponent({
 
     const tbodyClasses = computed(() => [tableBaseClass.body]);
 
-    return {
-      t,
-      globalConfig,
-      renderTNode,
-      tableFullRowClasses,
-      tbodyClasses,
-      tableBaseClass,
-      skipSpansMap,
-    };
-  },
-
-  render() {
-    const renderEmpty = (columns: TableBodyProps['columns']) => {
-      const tableWidth = this.bordered ? this.tableWidth - 2 : this.tableWidth;
-      return (
-        <tr class={[this.tableBaseClass.emptyRow, { [this.tableFullRowClasses.base]: this.isWidthOverflow }]}>
-          <td colspan={columns.length}>
-            <div
-              class={[this.tableBaseClass.empty, { [this.tableFullRowClasses.innerFullRow]: this.isWidthOverflow }]}
-              style={this.isWidthOverflow ? { width: `${tableWidth}px` } : {}}
-            >
-              {this.renderTNode('empty') || this.t(this.globalConfig.empty)}
-            </div>
-          </td>
-        </tr>
-      );
-    };
-
-    const getFullRow = (columnLength: number, type: 'first-full-row' | 'last-full-row') => {
-      const tType = camelCase(type) as CamelCase<typeof type, '-'>;
-      const fullRowNode = this.renderTNode(tType);
-      if (['', null, undefined, false].includes(fullRowNode)) return null;
-      const isFixedToLeft = this.isWidthOverflow && this.columns.find((col) => col.fixed === 'left');
-      const classes = [this.tableFullRowClasses.base, this.tableFullRowClasses[tType]];
-      const tableWidth = this.bordered ? this.tableWidth - 2 : this.tableWidth;
-      /** innerFullRow 和 innerFullElement 同时存在，是为了保证 固定列时，当前行不随内容进行横向滚动 */
-      return (
-        <tr class={classes} key={`key-full-row-${type}`}>
-          <td colspan={columnLength}>
-            <div
-              class={{ [this.tableFullRowClasses.innerFullRow]: isFixedToLeft }}
-              style={isFixedToLeft ? { width: `${tableWidth}px` } : {}}
-            >
-              <div class={this.tableFullRowClasses.innerFullElement}>{fullRowNode}</div>
-            </div>
-          </td>
-        </tr>
-      );
-    };
-
-    const columnLength = this.columns.length;
-    const dataLength = this.data?.length;
-    const trNodeList: TNodeReturnValue[] = [];
-
-    const properties = [
-      'classPrefix',
-      'ellipsisOverlayClassName',
-      'rowAndColFixedPosition',
-      'scroll',
-      'tableElm',
-      'tableContentElm',
-      'pagination',
-      'attach',
-    ];
-
-    const renderData = this.virtualConfig.isVirtualScroll.value ? this.virtualConfig.visibleData.value : this.data;
-
-    renderData?.forEach((row, rowIndex) => {
-      const rowKey = this.rowKey || 'id';
-      const rowValue = get(row, rowKey);
-      const trProps = {
-        ...pick(this.$props, TABLE_PROPS),
-        rowKey,
-        row,
-        columns: this.columns,
-        rowIndex: row.VIRTUAL_SCROLL_INDEX || rowIndex,
-        dataLength,
-        skipSpansMap: this.skipSpansMap,
-        virtualConfig: this.virtualConfig,
-        active: this.activeRow?.includes(rowValue),
-        isHover: this.hoverRow === rowValue,
-        ...pick(this.$props, properties),
-        // 遍历的同时，计算后面的节点，是否会因为合并单元格跳过渲染
+    return () => {
+      const renderEmpty = (columns: TableBodyProps['columns']) => {
+        const tableWidth = props.bordered ? props.tableWidth - 2 : props.tableWidth;
+        return (
+          <tr class={[tableBaseClass.emptyRow, { [tableFullRowClasses.base]: props.isWidthOverflow }]}>
+            <td colspan={columns.length}>
+              <div
+                class={[tableBaseClass.empty, { [tableFullRowClasses.innerFullRow]: props.isWidthOverflow }]}
+                style={props.isWidthOverflow ? { width: `${tableWidth}px` } : {}}
+              >
+                {renderTNode('empty') || t(globalConfig.value.empty)}
+              </div>
+            </td>
+          </tr>
+        );
       };
-      if (this.onCellClick) {
-        trProps.onCellClick = this.onCellClick;
-      }
 
-      const trNode = (
-        <TrElement
-          v-slots={this.$slots}
-          key={get(row, this.rowKey || 'id') || rowIndex}
-          {...trProps}
-          onRowMounted={this.handleRowMounted}
-        ></TrElement>
-      );
-      trNodeList.push(trNode);
+      const getFullRow = (columnLength: number, type: 'first-full-row' | 'last-full-row') => {
+        const tType = camelCase(type) as CamelCase<typeof type, '-'>;
+        const fullRowNode = renderTNode(tType);
+        if (['', null, undefined, false].includes(fullRowNode)) return null;
+        const isFixedToLeft = props.isWidthOverflow && columns.value.find((col) => col.fixed === 'left');
+        const classes = [tableFullRowClasses.base, tableFullRowClasses[tType]];
+        const tableWidth = props.bordered ? props.tableWidth - 2 : props.tableWidth;
+        /** innerFullRow 和 innerFullElement 同时存在，是为了保证 固定列时，当前行不随内容进行横向滚动 */
+        return (
+          <tr class={classes} key={`key-full-row-${type}`}>
+            <td colspan={columnLength}>
+              <div
+                class={{ [tableFullRowClasses.innerFullRow]: isFixedToLeft }}
+                style={isFixedToLeft ? { width: `${tableWidth}px` } : {}}
+              >
+                <div class={tableFullRowClasses.innerFullElement}>{fullRowNode}</div>
+              </div>
+            </td>
+          </tr>
+        );
+      };
 
-      // 执行展开行渲染
-      if (this.renderExpandedRow) {
-        const p = {
+      const columnLength = columns.value.length;
+      const dataLength = data.value?.length;
+      const trNodeList: TNodeReturnValue[] = [];
+
+      const properties = [
+        'classPrefix',
+        'ellipsisOverlayClassName',
+        'rowAndColFixedPosition',
+        'scroll',
+        'tableElm',
+        'tableContentElm',
+        'pagination',
+        'attach',
+      ];
+
+      const renderData = props.virtualConfig.isVirtualScroll.value ? props.virtualConfig.visibleData.value : data.value;
+
+      renderData?.forEach((row, rowIndex) => {
+        const rowKey = props.rowKey || 'id';
+        const rowValue = get(row, rowKey);
+        const trProps = {
+          ...pick(props, TABLE_PROPS),
+          rowKey,
           row,
-          index: rowIndex,
-          columns: this.columns,
-          tableWidth: this.tableWidth,
-          isWidthOverflow: this.isWidthOverflow,
+          columns: columns.value,
+          rowIndex: row.VIRTUAL_SCROLL_INDEX || rowIndex,
+          dataLength,
+          skipSpansMap: skipSpansMap.value,
+          virtualConfig: props.virtualConfig,
+          active: props.activeRow?.includes(rowValue),
+          isHover: props.hoverRow === rowValue,
+          ...pick(props, properties),
+          // 遍历的同时，计算后面的节点，是否会因为合并单元格跳过渲染
         };
-        const expandedContent = this.renderExpandedRow(p);
-        expandedContent && trNodeList.push(expandedContent);
-      }
-    });
-
-    const list = [getFullRow(columnLength, 'first-full-row'), ...trNodeList, getFullRow(columnLength, 'last-full-row')];
-
-    const isEmpty = !this.data?.length && !this.loading && !this.firstFullRow && !this.lastFullRow;
-
-    // 垫上隐藏的 tr 元素高度
-    const translate = `translateY(${this.virtualConfig?.translateY.value}px)`;
-    const posStyle = this.virtualConfig?.isVirtualScroll.value
-      ? {
-          transform: translate,
-          '-ms-transform': translate,
-          '-moz-transform': translate,
-          '-webkit-transform': translate,
+        if (props.onCellClick) {
+          trProps.onCellClick = props.onCellClick;
         }
-      : undefined;
 
-    return (
-      <tbody class={this.tbodyClasses} style={{ ...posStyle }}>
-        {isEmpty ? renderEmpty(this.columns) : list}
-      </tbody>
-    );
+        const trNode = (
+          <TrElement
+            v-slots={slots}
+            key={get(row, rowKey || 'id') || rowIndex}
+            {...trProps}
+            onRowMounted={props.handleRowMounted}
+          />
+        );
+        trNodeList.push(trNode);
+
+        // 执行展开行渲染
+        if (props.renderExpandedRow) {
+          const p = {
+            row,
+            index: rowIndex,
+            columns: columns.value,
+            tableWidth: props.tableWidth,
+            isWidthOverflow: props.isWidthOverflow,
+          };
+          const expandedContent = props.renderExpandedRow(p);
+          expandedContent && trNodeList.push(expandedContent);
+        }
+      });
+
+      const list = [
+        getFullRow(columnLength, 'first-full-row'),
+        ...trNodeList,
+        getFullRow(columnLength, 'last-full-row'),
+      ];
+
+      const isEmpty = !data.value?.length && !props.loading && !props.firstFullRow && !props.lastFullRow;
+
+      // 垫上隐藏的 tr 元素高度
+      const translate = `translateY(${props.virtualConfig?.translateY.value}px)`;
+      const posStyle = props.virtualConfig?.isVirtualScroll.value
+        ? {
+            transform: translate,
+            '-ms-transform': translate,
+            '-moz-transform': translate,
+            '-webkit-transform': translate,
+          }
+        : undefined;
+
+      return (
+        <tbody class={tbodyClasses.value} style={{ ...posStyle }}>
+          {isEmpty ? renderEmpty(columns.value) : list}
+        </tbody>
+      );
+    };
   },
 });
