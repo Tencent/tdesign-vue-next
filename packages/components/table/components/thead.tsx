@@ -1,4 +1,4 @@
-import { defineComponent, computed, SetupContext, PropType, ref, Ref, h, CSSProperties } from 'vue';
+import { defineComponent, computed, PropType, ref, Ref, h, CSSProperties } from 'vue';
 import { isFunction } from 'lodash-es';
 import { getColumnFixedStyles } from '../hooks/useFixed';
 import useClassName from '../hooks/useClassName';
@@ -41,7 +41,6 @@ export interface TheadProps {
 
 export default defineComponent({
   name: 'THead',
-
   props: {
     classPrefix: String,
     ellipsisOverlayClassName: String,
@@ -60,8 +59,7 @@ export default defineComponent({
     columnResizeParams: Object as PropType<TheadProps['columnResizeParams']>,
     showColumnShadow: Object as PropType<TheadProps['showColumnShadow']>,
   },
-
-  setup(props: TheadProps, { slots }: SetupContext) {
+  setup(props, { slots }) {
     const theadRef = ref<HTMLHeadElement>();
     const classnames = useClassName();
     const { tableHeaderClasses, tableBaseClass } = classnames;
@@ -112,126 +110,122 @@ export default defineComponent({
       return parent;
     };
 
-    return {
-      ...classnames,
-      colspanSkipMap,
-      theadClasses,
-      theadRef,
-      slots,
-      getTableNode,
-    };
-  },
-
-  render() {
-    const renderThNodeList = (
-      rowAndColFixedPosition: RowAndColFixedPosition,
-      thWidthList: TheadProps['thWidthList'],
-    ) => {
-      // thBorderMap: rowspan 会影响 tr > th 是否为第一列表头，从而影响边框
-      const thBorderMap = new Map<any, boolean>();
-      const thRowspanAndColspan = this.spansAndLeafNodes.rowspanAndColspanMap;
-      return this.thList.map((row, rowIndex) => {
-        const thRow = row.map((col: BaseTableColumns[0], index: number) => {
-          // 因合并单行表头，跳过
-          if (this.colspanSkipMap[col.colKey]) return null;
-          const rowspanAndColspan = thRowspanAndColspan.get(col);
-          if (index === 0 && rowspanAndColspan.rowspan > 1) {
-            for (let j = rowIndex + 1; j < rowIndex + rowspanAndColspan.rowspan; j++) {
-              thBorderMap.set(this.thList[j][0], true);
+    return () => {
+      const renderThNodeList = (
+        rowAndColFixedPosition: RowAndColFixedPosition,
+        thWidthList: TheadProps['thWidthList'],
+      ) => {
+        // thBorderMap: rowspan 会影响 tr > th 是否为第一列表头，从而影响边框
+        const thBorderMap = new Map<any, boolean>();
+        const thRowspanAndColspan = props.spansAndLeafNodes.rowspanAndColspanMap;
+        return props.thList.map((row, rowIndex) => {
+          const thRow = row.map((col: BaseTableColumns[0], index: number) => {
+            // 因合并单行表头，跳过
+            if (colspanSkipMap.value[col.colKey]) return null;
+            const rowspanAndColspan = thRowspanAndColspan.get(col);
+            if (index === 0 && rowspanAndColspan.rowspan > 1) {
+              for (let j = rowIndex + 1; j < rowIndex + rowspanAndColspan.rowspan; j++) {
+                thBorderMap.set(props.thList[j][0], true);
+              }
             }
-          }
-          const thStyles = getColumnFixedStyles(col, index, rowAndColFixedPosition, this.tableColFixedClasses);
-          const colParams = {
-            col,
-            colIndex: index,
-            row: {},
-            rowIndex: -1,
-          };
-          const customClasses = formatClassNames(col.className, { ...colParams, type: 'th' });
-          const thCustomClasses = formatClassNames(col.thClassName, { ...colParams, type: 'th' });
-          const isLeftFixedActive = this.showColumnShadow.left && col.fixed === 'left';
-          const isRightFixedActive = this.showColumnShadow.right && col.fixed === 'right';
-          const canDragSort = this.thDraggable && !(isLeftFixedActive || isRightFixedActive);
-          const thClasses = [
-            thStyles.classes,
-            customClasses,
-            thCustomClasses,
-            {
-              // 受 rowspan 影响，部分 tr > th:first-child 需要补足左边框
-              [this.tableHeaderClasses.thBordered]: thBorderMap.get(col),
-              [`${this.classPrefix}-table__th-${col.colKey}`]: col.colKey,
-              [this.tdAlignClasses[col.align]]: col.align && col.align !== 'left',
-              // 允许拖拽的列类名
-              [this.tableDraggableClasses.dragSortTh]: canDragSort,
-            },
-          ];
-          const withoutChildren = !col.children?.length;
-          const width = withoutChildren && thWidthList?.[col.colKey] ? `${thWidthList?.[col.colKey]}px` : undefined;
-          const styles = { ...(thStyles.style || {}), width };
-          const innerTh = renderTitle(this.slots, col, index);
-          const resizeColumnListener =
-            this.resizable || !canDragSort
-              ? {
-                  onMousedown: (e: MouseEvent) => {
-                    if (this.resizable) {
-                      this.columnResizeParams?.onColumnMousedown?.(e, col, index);
-                    }
-                    if (!canDragSort) {
-                      const timer = setTimeout(() => {
-                        const thList = this.theadRef.querySelectorAll('th');
-                        thList[index]?.removeAttribute('draggable');
-                        clearTimeout(timer);
-                      }, 10);
-                    }
-                  },
-                  onMousemove: (e: MouseEvent) => {
-                    this.resizable && this.columnResizeParams?.onColumnMouseover?.(e, col);
-                  },
-                }
-              : {};
-          const content = isFunction(col.ellipsisTitle) ? col.ellipsisTitle(h, { col, colIndex: index }) : undefined;
-          const isEllipsis = col.ellipsisTitle !== undefined ? Boolean(col.ellipsisTitle) : Boolean(col.ellipsis);
-          const attrs = (isFunction(col.attrs) ? col.attrs({ ...colParams, type: 'th' }) : col.attrs) || {};
-          if (col.colspan > 1) {
-            attrs.colspan = col.colspan;
-          }
-          return (
-            <th
-              key={col.colKey}
-              data-colkey={col.colKey}
-              class={thClasses}
-              style={styles}
-              {...attrs}
-              {...rowspanAndColspan}
-              {...resizeColumnListener}
-            >
-              <div class={this.tableBaseClass.thCellInner}>
-                {isEllipsis ? (
-                  <TEllipsis
-                    placement="bottom"
-                    attach={this.attach || (this.theadRef ? () => this.getTableNode(this.theadRef) : undefined)}
-                    tooltipContent={content && (() => content)}
-                    tooltipProps={typeof col.ellipsisTitle === 'object' ? col.ellipsisTitle : undefined}
-                    overlayClassName={this.ellipsisOverlayClassName}
-                    classPrefix={this.classPrefix}
-                  >
-                    {innerTh}
-                  </TEllipsis>
-                ) : (
-                  innerTh
-                )}
-              </div>
-            </th>
-          );
+            const thStyles = getColumnFixedStyles(
+              col,
+              index,
+              props.rowAndColFixedPosition,
+              classnames.tableColFixedClasses,
+            );
+            const colParams = {
+              col,
+              colIndex: index,
+              row: {},
+              rowIndex: -1,
+            };
+            const customClasses = formatClassNames(col.className, { ...colParams, type: 'th' });
+            const thCustomClasses = formatClassNames(col.thClassName, { ...colParams, type: 'th' });
+            const isLeftFixedActive = props.showColumnShadow.left && col.fixed === 'left';
+            const isRightFixedActive = props.showColumnShadow.right && col.fixed === 'right';
+            const canDragSort = props.thDraggable && !(isLeftFixedActive || isRightFixedActive);
+            const thClasses = [
+              thStyles.classes,
+              customClasses,
+              thCustomClasses,
+              {
+                // 受 rowspan 影响，部分 tr > th:first-child 需要补足左边框
+                [tableHeaderClasses.thBordered]: thBorderMap.get(col),
+                [`${props.classPrefix}-table__th-${col.colKey}`]: col.colKey,
+                [classnames.tdAlignClasses[col.align]]: col.align && col.align !== 'left',
+                // 允许拖拽的列类名
+                [classnames.tableDraggableClasses.dragSortTh]: canDragSort,
+              },
+            ];
+            const withoutChildren = !col.children?.length;
+            const width = withoutChildren && thWidthList?.[col.colKey] ? `${thWidthList?.[col.colKey]}px` : undefined;
+            const styles = { ...(thStyles.style || {}), width };
+            const innerTh = renderTitle(slots, col, index);
+            const resizeColumnListener =
+              props.resizable || !canDragSort
+                ? {
+                    onMousedown: (e: MouseEvent) => {
+                      if (props.resizable) {
+                        props.columnResizeParams?.onColumnMousedown?.(e, col, index);
+                      }
+                      if (!canDragSort) {
+                        const timer = setTimeout(() => {
+                          const thList = theadRef.value.querySelectorAll('th');
+                          thList[index]?.removeAttribute('draggable');
+                          clearTimeout(timer);
+                        }, 10);
+                      }
+                    },
+                    onMousemove: (e: MouseEvent) => {
+                      props.resizable && props.columnResizeParams?.onColumnMouseover?.(e, col);
+                    },
+                  }
+                : {};
+            const content = isFunction(col.ellipsisTitle) ? col.ellipsisTitle(h, { col, colIndex: index }) : undefined;
+            const isEllipsis = col.ellipsisTitle !== undefined ? Boolean(col.ellipsisTitle) : Boolean(col.ellipsis);
+            const attrs = (isFunction(col.attrs) ? col.attrs({ ...colParams, type: 'th' }) : col.attrs) || {};
+            if (col.colspan > 1) {
+              attrs.colspan = col.colspan;
+            }
+            return (
+              <th
+                key={col.colKey}
+                data-colkey={col.colKey}
+                class={thClasses}
+                style={styles}
+                {...attrs}
+                {...rowspanAndColspan}
+                {...resizeColumnListener}
+              >
+                <div class={tableBaseClass.thCellInner}>
+                  {isEllipsis ? (
+                    <TEllipsis
+                      placement="bottom"
+                      attach={props.attach || (theadRef.value ? () => getTableNode(theadRef.value) : undefined)}
+                      tooltipContent={content && (() => content)}
+                      tooltipProps={typeof col.ellipsisTitle === 'object' ? col.ellipsisTitle : undefined}
+                      overlayClassName={props.ellipsisOverlayClassName}
+                      classPrefix={props.classPrefix}
+                    >
+                      {innerTh}
+                    </TEllipsis>
+                  ) : (
+                    innerTh
+                  )}
+                </div>
+              </th>
+            );
+          });
+          return <tr key={rowIndex}>{thRow}</tr>;
         });
-        return <tr key={rowIndex}>{thRow}</tr>;
-      });
-    };
+      };
 
-    return (
-      <thead ref="theadRef" class={this.theadClasses}>
-        {renderThNodeList(this.rowAndColFixedPosition, this.thWidthList)}
-      </thead>
-    );
+      return (
+        <thead ref={theadRef} class={theadClasses.value}>
+          {renderThNodeList(props.rowAndColFixedPosition, props.thWidthList)}
+        </thead>
+      );
+    };
   },
 });
