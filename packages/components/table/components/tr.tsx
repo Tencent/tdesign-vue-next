@@ -11,11 +11,7 @@ import {
   nextTick,
   onMounted,
 } from 'vue';
-import { isFunction } from 'lodash-es';
-import { upperFirst } from 'lodash-es';
-import { isString } from 'lodash-es';
-import { pick } from 'lodash-es';
-import { get } from 'lodash-es';
+import { isFunction, upperFirst, isString, get, pick } from 'lodash-es';
 import { formatClassNames, formatRowAttributes, formatRowClassNames } from '../utils';
 import { getRowFixedStyles, getColumnFixedStyles } from '../hooks/useFixed';
 import useClassName from '../hooks/useClassName';
@@ -143,7 +139,6 @@ export function renderCell(
 // 表格行组件
 export default defineComponent({
   name: 'TR',
-
   props: {
     row: Object as PropType<TableRowData>,
     rowIndex: Number,
@@ -162,9 +157,7 @@ export default defineComponent({
     // eslint-disable-next-line
     tableContentElm: {},
   },
-
   emits: ['row-mounted'],
-
   setup(props: TrProps, context: SetupContext) {
     const { tableContentElm, active, isHover } = toRefs(props);
     const trRef = ref(null);

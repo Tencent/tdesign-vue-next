@@ -1,7 +1,5 @@
 import { defineComponent, computed, PropType, toRefs } from 'vue';
-import { camelCase } from 'lodash-es';
-import { get } from 'lodash-es';
-import { pick } from 'lodash-es';
+import { camelCase, get, pick } from 'lodash-es';
 import TrElement, { ROW_LISTENERS, TABLE_PROPS } from './tr';
 import { useConfig } from '../../hooks/useConfig';
 import { useTNodeJSX } from '../../hooks/tnode';
