@@ -1,4 +1,4 @@
-import { computed, defineComponent, toRefs } from 'vue';
+import { computed, defineComponent, ref, toRefs, watch } from 'vue';
 import {
   CloseIcon as TdCloseIcon,
   InfoCircleFilledIcon as TdInfoCircleFilledIcon,
@@ -40,30 +40,6 @@ export default defineComponent({
     const isModeLess = computed(() => props.mode === 'modeless');
     // 是否全屏对话框
     const isFullScreen = computed(() => props.mode === 'full-screen');
-
-    const defaultFooter = (
-      <div>
-        {getCancelBtn({
-          cancelBtn: cancelBtn.value as TdDialogProps['cancelBtn'],
-          globalCancel: globalConfig.value.cancel,
-          className: `${COMPONENT_NAME.value}__cancel`,
-        })}
-        {getConfirmBtn({
-          theme: props?.theme,
-          confirmBtn: confirmBtn.value as TdDialogProps['confirmBtn'],
-          globalConfirm: globalConfig.value.confirm,
-          globalConfirmBtnTheme: globalConfig.value.confirmBtnTheme,
-          className: `${COMPONENT_NAME.value}__confirm`,
-          confirmLoading: confirmLoading.value,
-        })}
-      </div>
-    );
-
-    const footerContent = renderTNodeJSX('footer', defaultFooter);
-
-    const footerClassName = isFullScreen.value
-      ? [`${COMPONENT_NAME.value}__footer`, `${COMPONENT_NAME.value}__footer--fullscreen`]
-      : `${COMPONENT_NAME.value}__footer`;
 
     const closeBtnAction = (e: MouseEvent) => props?.onCloseBtnClick?.({ e });
 
@@ -125,6 +101,30 @@ export default defineComponent({
     };
 
     const renderFooter = () => {
+      const defaultFooter = (
+        <div>
+          {getCancelBtn({
+            cancelBtn: cancelBtn.value as TdDialogProps['cancelBtn'],
+            globalCancel: globalConfig.value.cancel,
+            className: `${COMPONENT_NAME.value}__cancel`,
+          })}
+          {getConfirmBtn({
+            theme: props?.theme,
+            confirmBtn: confirmBtn.value as TdDialogProps['confirmBtn'],
+            globalConfirm: globalConfig.value.confirm,
+            globalConfirmBtnTheme: globalConfig.value.confirmBtnTheme,
+            className: `${COMPONENT_NAME.value}__confirm`,
+            confirmLoading: (confirmBtn.value as TdDialogProps['confirmBtn'])?.loading || confirmLoading.value,
+          })}
+        </div>
+      );
+
+      const footerContent = renderTNodeJSX('footer', defaultFooter);
+
+      const footerClassName = isFullScreen.value
+        ? [`${COMPONENT_NAME.value}__footer`, `${COMPONENT_NAME.value}__footer--fullscreen`]
+        : `${COMPONENT_NAME.value}__footer`;
+
       return (
         footerContent && (
           <div class={footerClassName} onMousedown={onStopDown}>
