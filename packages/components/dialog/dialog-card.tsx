@@ -47,60 +47,7 @@ export default defineComponent({
       if (isModeLess.value && props?.draggable) e.stopPropagation();
     };
 
-    const renderHeader = () => {
-      // header 值为 true 显示空白头部
-      const header = renderTNodeJSX('header', <h5 class="title"></h5>) ?? false;
-      const headerClassName = isFullScreen.value
-        ? [`${COMPONENT_NAME.value}__header`, `${COMPONENT_NAME.value}__header--fullscreen`]
-        : `${COMPONENT_NAME.value}__header`;
-
-      const closeClassName = isFullScreen.value
-        ? [`${COMPONENT_NAME.value}__close`, `${COMPONENT_NAME.value}__close--fullscreen`]
-        : `${COMPONENT_NAME.value}__close`;
-      const getIcon = () => {
-        const icon = {
-          info: <InfoCircleFilledIcon class={`${classPrefix.value}-is-info`} />,
-          warning: <ErrorCircleFilledIcon class={`${classPrefix.value}-is-warning`} />,
-          danger: <ErrorCircleFilledIcon class={`${classPrefix.value}-is-error`} />,
-          success: <CheckCircleFilledIcon class={`${classPrefix.value}-is-success`} />,
-        };
-        return icon[props?.theme as keyof typeof icon];
-      };
-      return (
-        (header || props?.closeBtn) && (
-          <div class={headerClassName} onMousedown={onStopDown}>
-            <div class={`${COMPONENT_NAME.value}__header-content`}>
-              {getIcon()}
-              {header}
-            </div>
-
-            {props?.closeBtn ? (
-              <span class={closeClassName} onClick={closeBtnAction}>
-                {renderTNodeJSX('closeBtn', <CloseIcon />)}
-              </span>
-            ) : null}
-          </div>
-        )
-      );
-    };
-
-    const renderBody = () => {
-      const body = renderContent('default', 'body');
-      const bodyClassName =
-        props?.theme === 'default' ? [`${COMPONENT_NAME.value}__body`] : [`${COMPONENT_NAME.value}__body__icon`];
-      if (isFullScreen.value && footerContent) {
-        bodyClassName.push(`${COMPONENT_NAME.value}__body--fullscreen`);
-      } else if (isFullScreen.value) {
-        bodyClassName.push(`${COMPONENT_NAME.value}__body--fullscreen--without-footer`);
-      }
-      return (
-        <div class={bodyClassName} onMousedown={onStopDown}>
-          {body}
-        </div>
-      );
-    };
-
-    const renderFooter = () => {
+    const renderCard = () => {
       const defaultFooter = (
         <div>
           {getCancelBtn({
@@ -121,25 +68,82 @@ export default defineComponent({
 
       const footerContent = renderTNodeJSX('footer', defaultFooter);
 
-      const footerClassName = isFullScreen.value
-        ? [`${COMPONENT_NAME.value}__footer`, `${COMPONENT_NAME.value}__footer--fullscreen`]
-        : `${COMPONENT_NAME.value}__footer`;
+      const renderHeader = () => {
+        // header 值为 true 显示空白头部
+        const header = renderTNodeJSX('header', <h5 class="title"></h5>) ?? false;
+        const headerClassName = isFullScreen.value
+          ? [`${COMPONENT_NAME.value}__header`, `${COMPONENT_NAME.value}__header--fullscreen`]
+          : `${COMPONENT_NAME.value}__header`;
+
+        const closeClassName = isFullScreen.value
+          ? [`${COMPONENT_NAME.value}__close`, `${COMPONENT_NAME.value}__close--fullscreen`]
+          : `${COMPONENT_NAME.value}__close`;
+        const getIcon = () => {
+          const icon = {
+            info: <InfoCircleFilledIcon class={`${classPrefix.value}-is-info`} />,
+            warning: <ErrorCircleFilledIcon class={`${classPrefix.value}-is-warning`} />,
+            danger: <ErrorCircleFilledIcon class={`${classPrefix.value}-is-error`} />,
+            success: <CheckCircleFilledIcon class={`${classPrefix.value}-is-success`} />,
+          };
+          return icon[props?.theme as keyof typeof icon];
+        };
+        return (
+          (header || props?.closeBtn) && (
+            <div class={headerClassName} onMousedown={onStopDown}>
+              <div class={`${COMPONENT_NAME.value}__header-content`}>
+                {getIcon()}
+                {header}
+              </div>
+
+              {props?.closeBtn ? (
+                <span class={closeClassName} onClick={closeBtnAction}>
+                  {renderTNodeJSX('closeBtn', <CloseIcon />)}
+                </span>
+              ) : null}
+            </div>
+          )
+        );
+      };
+
+      const renderBody = () => {
+        const body = renderContent('default', 'body');
+        const bodyClassName =
+          props?.theme === 'default' ? [`${COMPONENT_NAME.value}__body`] : [`${COMPONENT_NAME.value}__body__icon`];
+        if (isFullScreen.value && footerContent) {
+          bodyClassName.push(`${COMPONENT_NAME.value}__body--fullscreen`);
+        } else if (isFullScreen.value) {
+          bodyClassName.push(`${COMPONENT_NAME.value}__body--fullscreen--without-footer`);
+        }
+        return (
+          <div class={bodyClassName} onMousedown={onStopDown}>
+            {body}
+          </div>
+        );
+      };
+
+      const renderFooter = () => {
+        const footerClassName = isFullScreen.value
+          ? [`${COMPONENT_NAME.value}__footer`, `${COMPONENT_NAME.value}__footer--fullscreen`]
+          : `${COMPONENT_NAME.value}__footer`;
+
+        return (
+          footerContent && (
+            <div class={footerClassName} onMousedown={onStopDown}>
+              {footerContent}
+            </div>
+          )
+        );
+      };
 
       return (
-        footerContent && (
-          <div class={footerClassName} onMousedown={onStopDown}>
-            {footerContent}
-          </div>
-        )
+        <div>
+          {renderHeader()}
+          {renderBody()}
+          {!!props.footer && renderFooter()}
+        </div>
       );
     };
 
-    return () => (
-      <>
-        {renderHeader()}
-        {renderBody()}
-        {!!props.footer && renderFooter()}
-      </>
-    );
+    return () => <>{renderCard()}</>;
   },
 });
