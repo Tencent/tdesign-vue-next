@@ -121,6 +121,10 @@ declare module 'vue' {
     TTransfer: typeof import('tdesign-vue-next')['Transfer'];
     TTree: typeof import('tdesign-vue-next')['Tree'];
     TTreeSelect: typeof import('tdesign-vue-next')['TreeSelect'];
+    TTypography: typeof import('tdesign-vue-next')['Typography'];
+    TTypographyParagraph: typeof import('tdesign-vue-next')['TypographyParagraph'];
+    TTypographyText: typeof import('tdesign-vue-next')['TypographyText'];
+    TTypographyTitle: typeof import('tdesign-vue-next')['TypographyTitle'];
     TUpload: typeof import('tdesign-vue-next')['Upload'];
     TWatermark: typeof import('tdesign-vue-next')['Watermark'];
   }
