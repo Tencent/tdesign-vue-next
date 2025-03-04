@@ -16,7 +16,7 @@ import { EVENT_CODE } from './consts';
 import { useMirror, useRotate, useScale } from './hooks';
 import props from './props';
 import { TdImageViewerProps } from './type';
-import { formatImages, getOverlay } from './utils';
+import { downloadFile, formatImages, getOverlay } from './utils';
 
 export default defineComponent({
   name: 'TImageViewer',
@@ -28,7 +28,7 @@ export default defineComponent({
     const isExpand = ref(true);
     const showOverlayValue = computed(() => getOverlay(props));
 
-    const { index, visible, modelValue } = toRefs(props);
+    const { index, visible, modelValue, imageReferrerpolicy } = toRefs(props);
     const [indexValue, setIndexValue] = useDefaultValue(index, props.defaultIndex ?? 0, props.onIndexChange, 'index');
     const [visibleValue, setVisibleValue] = useVModel(visible, modelValue, props.defaultVisible, () => {}, 'visible');
     const animationEnd = ref(true);
@@ -84,6 +84,10 @@ export default defineComponent({
 
     const onImgClick = (i: number) => {
       setIndexValue(i, { trigger: 'current' });
+    };
+
+    const onDownloadClick = (url: string) => {
+      props.onDownload ? props.onDownload(url) : downloadFile(url);
     };
 
     const openHandler = () => {
@@ -239,9 +243,11 @@ export default defineComponent({
               onMirror={onMirror}
               onReset={onRest}
               onClose={onClose}
+              onDownload={onDownloadClick}
               draggable={props.draggable}
               showOverlay={showOverlayValue.value}
               title={props.title}
+              imageReferrerpolicy={imageReferrerpolicy.value}
             />
           </>
         );
@@ -283,6 +289,7 @@ export default defineComponent({
                     onMirror={onMirror}
                     onReset={onRest}
                     onRotate={onRotate}
+                    onDownload={onDownloadClick}
                     scale={scale.value}
                     currentImage={currentImage.value}
                   />
@@ -293,6 +300,7 @@ export default defineComponent({
                     src={currentImage.value.mainImage}
                     placementSrc={currentImage.value.thumbnail}
                     isSvg={currentImage.value.isSvg}
+                    imageReferrerpolicy={imageReferrerpolicy.value}
                   />
                 </div>
               )}
