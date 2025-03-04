@@ -4526,25 +4526,13 @@
     "type": "event",
     "description": "按钮点击事件回调\n\n[docs](https://tdesign.tencent.com/vue-next/components/pagination?tab=api#paginationmini-events)"
   },
-  "t-paragraph/content": {
-    "type": "String|TNode",
-    "description": "content of paragraph\n\n段落内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#paragraph-props)"
-  },
   "t-typography-paragraph/content": {
     "type": "String|TNode",
     "description": "content of paragraph\n\n段落内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#paragraph-props)"
   },
-  "t-paragraph/default": {
-    "type": "String|TNode",
-    "description": "default slot of paragraph\n\n段落内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#paragraph-props)"
-  },
   "t-typography-paragraph/default": {
     "type": "String|TNode",
     "description": "default slot of paragraph\n\n段落内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#paragraph-props)"
-  },
-  "t-paragraph/ellipsis": {
-    "type": "Boolean|Object",
-    "description": "add ellipsis style\n\n是否省略展示，可通过配置参数自定义省略操作的具体功能和样式\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#paragraph-props)"
   },
   "t-typography-paragraph/ellipsis": {
     "type": "Boolean|Object",
@@ -6833,104 +6821,49 @@
     "type": "event",
     "description": "移除单个标签时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/tag-input?tab=api#taginput-events)"
   },
-  "t-text/code": {
-    "type": "Boolean",
-    "description": "add code style\n\n是否添加代码样式\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#text-props)"
-  },
   "t-typography-text/code": {
     "type": "Boolean",
     "description": "add code style\n\n是否添加代码样式\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#text-props)"
-  },
-  "t-text/content": {
-    "type": "String|TNode",
-    "description": "content of text\n\n文本内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#text-props)"
   },
   "t-typography-text/content": {
     "type": "String|TNode",
     "description": "content of text\n\n文本内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#text-props)"
   },
-  "t-text/copyable": {
-    "type": "Boolean|Object",
-    "description": "add copyable style\n\n是否可复制，可通过配置参数自定义复制操作的具体功能和样式\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#text-props)"
-  },
   "t-typography-text/copyable": {
     "type": "Boolean|Object",
     "description": "add copyable style\n\n是否可复制，可通过配置参数自定义复制操作的具体功能和样式\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#text-props)"
-  },
-  "t-text/default": {
-    "type": "String|TNode",
-    "description": "default slot of text\n\n文本内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#text-props)"
   },
   "t-typography-text/default": {
     "type": "String|TNode",
     "description": "default slot of text\n\n文本内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#text-props)"
   },
-  "t-text/delete": {
-    "type": "Boolean",
-    "description": "add delete line style\n\n是否添加删除线样式\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#text-props)"
-  },
   "t-typography-text/delete": {
     "type": "Boolean",
     "description": "add delete line style\n\n是否添加删除线样式\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#text-props)"
-  },
-  "t-text/disabled": {
-    "type": "Boolean",
-    "description": "add disabled style\n\n是否添加不可用样式\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#text-props)"
   },
   "t-typography-text/disabled": {
     "type": "Boolean",
     "description": "add disabled style\n\n是否添加不可用样式\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#text-props)"
   },
-  "t-text/ellipsis": {
-    "type": "Boolean|Object",
-    "description": "add ellipsis style\n\n是否省略展示，可通过配置参数自定义省略操作的具体功能和样式\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#text-props)"
-  },
   "t-typography-text/ellipsis": {
     "type": "Boolean|Object",
     "description": "add ellipsis style\n\n是否省略展示，可通过配置参数自定义省略操作的具体功能和样式\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#text-props)"
-  },
-  "t-text/italic": {
-    "type": "Boolean",
-    "description": "add italic style\n\n文本是否为斜体\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#text-props)"
   },
   "t-typography-text/italic": {
     "type": "Boolean",
     "description": "add italic style\n\n文本是否为斜体\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#text-props)"
   },
-  "t-text/keyboard": {
-    "type": "Boolean",
-    "description": "add keyboard style\n\n是否添加键盘样式\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#text-props)"
-  },
   "t-typography-text/keyboard": {
     "type": "Boolean",
     "description": "add keyboard style\n\n是否添加键盘样式\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#text-props)"
-  },
-  "t-text/mark": {
-    "type": "String|Boolean",
-    "description": "add mark style\n\n是否添加标记样式，默认为黄色，可通过配置颜色修改标记样式，如#0052D9\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#text-props)"
   },
   "t-typography-text/mark": {
     "type": "String|Boolean",
     "description": "add mark style\n\n是否添加标记样式，默认为黄色，可通过配置颜色修改标记样式，如#0052D9\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#text-props)"
   },
-  "t-text/strong": {
-    "type": "Boolean",
-    "description": "add bold style\n\n文本是否加粗\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#text-props)"
-  },
   "t-typography-text/strong": {
     "type": "Boolean",
     "description": "add bold style\n\n文本是否加粗\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#text-props)"
-  },
-  "t-text/theme": {
-    "type": "String",
-    "options": [
-      "primary",
-      "secondary",
-      "success",
-      "warning",
-      "error"
-    ],
-    "description": "theme of text\n\n主题\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#text-props)"
   },
   "t-typography-text/theme": {
     "type": "String",
@@ -6942,10 +6875,6 @@
       "error"
     ],
     "description": "theme of text\n\n主题\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#text-props)"
-  },
-  "t-text/underline": {
-    "type": "Boolean",
-    "description": "add underline style\n\n是否添加下划线样式\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#text-props)"
   },
   "t-typography-text/underline": {
     "type": "Boolean",
@@ -7324,41 +7253,17 @@
     "type": "event",
     "description": "trigger on click\n\n点击时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/timeline?tab=api#timelineitem-events)"
   },
-  "t-title/content": {
-    "type": "String|TNode",
-    "description": "content of title\n\n段落内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#title-props)"
-  },
   "t-typography-title/content": {
     "type": "String|TNode",
     "description": "content of title\n\n段落内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#title-props)"
-  },
-  "t-title/default": {
-    "type": "String|TNode",
-    "description": "default slot of title\n\n标题内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#title-props)"
   },
   "t-typography-title/default": {
     "type": "String|TNode",
     "description": "default slot of title\n\n标题内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#title-props)"
   },
-  "t-title/ellipsis": {
-    "type": "Boolean|Object",
-    "description": "add ellipsis style\n\n是否省略展示，可通过配置参数自定义省略操作的具体功能和样式\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#title-props)"
-  },
   "t-typography-title/ellipsis": {
     "type": "Boolean|Object",
     "description": "add ellipsis style\n\n是否省略展示，可通过配置参数自定义省略操作的具体功能和样式\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#title-props)"
-  },
-  "t-title/level": {
-    "type": "String",
-    "options": [
-      "h1",
-      "h2",
-      "h3",
-      "h4",
-      "h5",
-      "h6"
-    ],
-    "description": "level of title\n\n标题等级\n\ndefault: h1\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography?tab=api#title-props)"
   },
   "t-typography-title/level": {
     "type": "String",

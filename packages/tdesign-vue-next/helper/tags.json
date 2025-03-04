@@ -1337,14 +1337,6 @@
     ],
     "description": "PaginationMini\n\n迷你分页\n\n[docs](https://tdesign.tencent.com/vue-next/components/pagination)"
   },
-  "t-paragraph": {
-    "attributes": [
-      "content",
-      "default",
-      "ellipsis"
-    ],
-    "description": "Paragraph\n\n段落\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography)"
-  },
   "t-typography-paragraph": {
     "attributes": [
       "content",
@@ -1960,24 +1952,6 @@
     ],
     "description": "TagInput\n\n标签输入框\n\n[docs](https://tdesign.tencent.com/vue-next/components/tag-input)"
   },
-  "t-text": {
-    "attributes": [
-      "code",
-      "content",
-      "copyable",
-      "default",
-      "delete",
-      "disabled",
-      "ellipsis",
-      "italic",
-      "keyboard",
-      "mark",
-      "strong",
-      "theme",
-      "underline"
-    ],
-    "description": "Text\n\n文本\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography)"
-  },
   "t-typography-text": {
     "attributes": [
       "code",
@@ -2100,15 +2074,6 @@
       "click"
     ],
     "description": "TimelineItem\n\n时间轴\n\n[docs](https://tdesign.tencent.com/vue-next/components/timeline)"
-  },
-  "t-title": {
-    "attributes": [
-      "content",
-      "default",
-      "ellipsis",
-      "level"
-    ],
-    "description": "Title\n\n标题\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography)"
   },
   "t-typography-title": {
     "attributes": [
