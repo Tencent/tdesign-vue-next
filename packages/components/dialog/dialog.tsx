@@ -18,7 +18,7 @@ import useDestroyOnClose from '../hooks/useDestroyOnClose';
 import { getScrollbarWidth } from '@tdesign/common-js/utils/getScrollbarWidth';
 import useTeleport from '../hooks/useTeleport';
 import usePopupManager from '../hooks/usePopupManager';
-import { GetCSSValue } from './hooks';
+import { getCSSValue } from './utils';
 import TDialogCard from './dialog-card';
 
 let mousePosition: { x: number; y: number } | null;
@@ -92,7 +92,7 @@ export default defineComponent({
       const { top } = props;
       let topStyle = {};
       if (top !== undefined) {
-        const topValue = GetCSSValue(top);
+        const topValue = getCSSValue(top);
         topStyle = { paddingTop: topValue };
       }
       return topStyle;
