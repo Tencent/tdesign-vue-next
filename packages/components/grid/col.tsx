@@ -1,17 +1,14 @@
 import { computed, defineComponent, inject } from 'vue';
 import props from './col-props';
-
-import { RowProviderType, useRowSize, parseFlex, calcColPadding, getColClasses } from './common';
+import { useRowSize } from './hooks';
+import { RowProviderType, parseFlex, calcColPadding, getColClasses } from './utils';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TCol',
-
   inject: ['rowContext'],
-
   props,
-
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('col');
     const renderTNodeJSX = useTNodeJSX();

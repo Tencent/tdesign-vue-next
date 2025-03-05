@@ -12,10 +12,10 @@ import {
   getDefaultFormat,
   parseToDayjs,
 } from '@tdesign/common-js/date-picker/format';
-import useSingleValue from './useSingleValue';
+import { useSingleValue } from './useSingleValue';
 import { useReadonly } from '../../hooks/useReadonly';
 
-export default function useSingle(props: TdDatePickerProps) {
+export function useSingle(props: TdDatePickerProps) {
   const COMPONENT_NAME = usePrefixClass('date-picker');
   const disabled = useDisabled();
 

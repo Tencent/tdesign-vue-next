@@ -5,6 +5,15 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.11.2 `2025-03-05` 
+### 🚀 Features
+- `ImageViewer`: 新增`imageReferrerpolicy`API，适用于配置Referrerpolicy的场景 @Wesley-0808 ([#5134](https://github.com/Tencent/tdesign-vue-next/pull/5134))
+- `ImageViewer`: 新增`onDownload`API，用于自定义下载回调 @Wesley-0808 ([#5134](https://github.com/Tencent/tdesign-vue-next/pull/5134))
+### 🐞 Bug Fixes
+- `Dialog`: 修复`1.11.0`版本`footer`内容不能动态变更的问题 @Wesley-0808 ([#5152](https://github.com/Tencent/tdesign-vue-next/pull/5152))
+### 🚧 Others
+- `helper`: 修复部分组件在 `Webstorm` 提示异常的问题 @liweijie0812 ([#5136](https://github.com/Tencent/tdesign-vue-next/pull/5136))
+
 ## 🌈 1.11.1 `2025-03-01` 
 ### 🐞 Bug Fixes
 - `bundle`:  修复`1.11.0`版本 `cjs` 产物的依赖报错问题 @uyarn ([#5116](https://github.com/Tencent/tdesign-vue-next/pull/5116))
@@ -32,7 +41,7 @@ docClass: timeline
 - `docs`:  全局配置页面路由修改为`config-provider`，与其他组件保持一致 @liweijie0812 ([#5090](https://github.com/Tencent/tdesign-vue-next/pull/5090))
 ### 🚧 Others
 - `plugin`: 新增`ConfigProvider`、`Typography` 等组件的编辑器提示功能 @liweijie0812 ([#5090](https://github.com/Tencent/tdesign-vue-next/pull/5090))
-- `dependency`: 调整组件依赖 `lodash` 为 `lodash-es` @zhangpaopao0609 (https://github.com/Tencent/tdesign-vue-next/pull/4959)
+- `dependency`: 调整组件依赖 `lodash` 为 `lodash-es` @zhangpaopao0609 ([#4959](https://github.com/Tencent/tdesign-vue-next/pull/4959))
 
 ## 🌈 1.10.7 `2025-01-24` 
 ### 🚀 Features
@@ -52,7 +61,7 @@ docClass: timeline
 - `ImageViewer`: 修复开启 `closeOnOverlay` 时，点击蒙层关闭存在闪烁情况的问题 @huangchen1031 ([#4931](https://github.com/Tencent/tdesign-vue-next/pull/4931))
 - `ColorPicker`: 修复支持渐变模式下，第一次打开时 `tabs` 位置没有跟随变化的问题 @natural1024 ([#4903](https://github.com/Tencent/tdesign-vue-next/pull/4903))
 - `Cascader`: 修复某一级的 `children` 长度为 `1` 时导致的样式错误问题 @msg-fobbit ([#4951](https://github.com/Tencent/tdesign-vue-next/pull/4951))
-- `Tabs`: 修复可滑动`Tabs`配合`action`使用的样式问题 @Wesley-0808 @tdesign-bot ([#4953](https://github.com/Tencent/tdesign-vue-next/pull/4953))
+- `Tabs`: 修复可滑动`Tabs`配合`action`使用的样式问题 @Wesley-0808 ([#4953](https://github.com/Tencent/tdesign-vue-next/pull/4953))
 - `DatePicker`: 修复日期范围选择器在跨年场景下，周模式选中范围样式缺失的问题 @uyarn ([#4854](https://github.com/Tencent/tdesign-vue-next/pull/4854))
 ### 📝 Documentation
 - `Loading`: 移除重复的示例 @RSS1102 ([#4949](https://github.com/Tencent/tdesign-vue-next/pull/4949))

@@ -1,13 +1,11 @@
 import { defineComponent, ref, computed, watch, onMounted, toRefs, CSSProperties, Teleport } from 'vue';
 import GradientIcon from './icon/gradient';
 import { addClass, removeClass } from '../utils/dom';
-import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
-import props from './props';
-
+import { getPropertyValFromObj } from '@tdesign/common-js/utils/general';
+import { useTNodeJSX, useContent } from '../hooks/tnode';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import useTeleport from '../hooks/useTeleport';
-
-import { getPropertyValFromObj } from '@tdesign/common-js/utils/general';
+import props from './props';
 
 const useComponentClassName = () => {
   return {
@@ -26,13 +24,15 @@ export default defineComponent({
   name: 'TLoading',
   inheritAttrs: false,
   props,
-  setup(props, { slots }) {
+  setup(props, { slots, attrs }) {
     const delayShowLoading = ref(false);
 
     const { name, centerClass, fullscreenClass, lockClass, overlayClass, relativeClass, fullClass, inheritColorClass } =
       useComponentClassName();
 
     const classPrefix = usePrefixClass();
+    const renderTNodeJSX = useTNodeJSX();
+    const renderContent = useContent();
     const { SIZE } = useCommonClassName();
 
     const countDelay = () => {
@@ -64,7 +64,6 @@ export default defineComponent({
     const showText = computed(() => Boolean(props.text || slots.text));
     const showWrapLoading = computed(() => hasContent.value && props.loading && delayCounted.value);
     const showFullScreenLoading = computed(() => props.fullscreen && props.loading && delayCounted.value);
-    const showNormalLoading = computed(() => props.attach && props.loading && delayCounted.value);
     const showAttachedLoading = computed(() => props.attach && props.loading && delayCounted.value);
     const classes = computed(() => {
       const baseClasses = [
@@ -104,78 +103,63 @@ export default defineComponent({
       props.delay && countDelay();
     });
 
-    return {
-      classPrefix,
-      relativeClass,
-      delayShowLoading,
-      styles,
-      showText,
-      hasContent,
-      classes,
-      lockFullscreen,
-      showWrapLoading,
-      showNormalLoading,
-      showFullScreenLoading,
-      showAttachedLoading,
-      teleportElement,
-    };
-  },
-  render() {
-    const { fullScreenClasses, baseClasses, withContentClasses, attachClasses, normalClasses } = this.classes;
+    return () => {
+      const { fullScreenClasses, baseClasses, withContentClasses, attachClasses, normalClasses } = classes.value;
 
-    const defaultIndicator = <GradientIcon size={this.size} />;
-    const indicator = this.loading && renderTNodeJSX(this, 'indicator', defaultIndicator);
-    const text = this.showText && <div class={`${this.classPrefix}-loading__text`}>{renderTNodeJSX(this, 'text')}</div>;
+      const defaultIndicator = <GradientIcon size={props.size} />;
+      const indicator = loading.value && renderTNodeJSX('indicator', defaultIndicator);
+      const text = showText.value && <div class={`${classPrefix.value}-loading__text`}>{renderTNodeJSX('text')}</div>;
 
-    // full screen loading
-    if (this.fullscreen) {
-      if (!this.showFullScreenLoading || !this.loading) return null;
-      return (
-        <Teleport disabled={!this.attach || !this.teleportElement} to={this.teleportElement}>
-          <div class={fullScreenClasses} style={this.styles} {...this.$attrs}>
-            <div class={baseClasses}>
-              {indicator}
-              {text}
+      // full screen loading
+      if (props.fullscreen) {
+        if (!showFullScreenLoading.value || !props.loading) return null;
+        return (
+          <Teleport disabled={!props.attach || !teleportElement.value} to={teleportElement.value}>
+            <div class={fullScreenClasses} style={styles.value} {...attrs}>
+              <div class={baseClasses}>
+                {indicator}
+                {text}
+              </div>
             </div>
+          </Teleport>
+        );
+      }
+
+      // Loading is wrapping a HTMLElement.
+      if (hasContent.value) {
+        return (
+          <div class={relativeClass.value} {...attrs}>
+            {renderContent('default', 'content')}
+            {showWrapLoading.value && (
+              <div class={withContentClasses} style={styles.value}>
+                {indicator}
+                {text}
+              </div>
+            )}
           </div>
-        </Teleport>
-      );
-    }
+        );
+      }
 
-    // Loading is wrapping a HTMLElement.
-    if (this.hasContent) {
-      return (
-        <div class={this.relativeClass} {...this.$attrs}>
-          {renderContent(this, 'default', 'content')}
-          {this.showWrapLoading && (
-            <div class={withContentClasses} style={this.styles}>
+      // transfer parent node
+      if (props.attach) {
+        if (!showAttachedLoading.value || !loading.value) return null;
+        return (
+          <Teleport disabled={!props.attach || !teleportElement.value} to={teleportElement.value}>
+            <div class={attachClasses} style={styles.value} {...attrs}>
               {indicator}
               {text}
             </div>
-          )}
+          </Teleport>
+        );
+      }
+
+      // Normal Loading without overlay or content
+      return loading.value ? (
+        <div class={normalClasses} style={styles.value} {...attrs}>
+          {indicator}
+          {text}
         </div>
-      );
-    }
-
-    // transfer parent node
-    if (this.attach) {
-      if (!this.showAttachedLoading || !this.loading) return null;
-      return (
-        <Teleport disabled={!this.attach || !this.teleportElement} to={this.teleportElement}>
-          <div class={attachClasses} style={this.styles} {...this.$attrs}>
-            {indicator}
-            {text}
-          </div>
-        </Teleport>
-      );
-    }
-
-    // Normal Loading without overlay or content
-    return this.loading ? (
-      <div class={normalClasses} style={this.styles} {...this.$attrs}>
-        {indicator}
-        {text}
-      </div>
-    ) : null;
+      ) : null;
+    };
   },
 });

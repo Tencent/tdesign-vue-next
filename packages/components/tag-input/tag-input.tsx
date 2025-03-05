@@ -3,7 +3,7 @@ import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-
 import TInput, { InputProps, StrInputProps, TdInputProps } from '../input';
 import { TdTagInputProps } from './type';
 import props from './props';
-import { useConfig } from '../config-provider/useConfig';
+import { useConfig } from '../config-provider/hooks/useConfig';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useTagScroll, useHover, useDragSorter, useTagList } from './hooks';
