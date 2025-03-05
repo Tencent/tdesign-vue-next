@@ -191,7 +191,9 @@ export default defineComponent({
       () => props.autofocus,
       (val) => {
         if (val) {
-          refTextareaElem.value.focus();
+          nextTick(() => {
+            refTextareaElem.value.focus();
+          });
         }
       },
     );
