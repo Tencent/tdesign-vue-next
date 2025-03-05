@@ -1,6 +1,6 @@
 import { computed, defineComponent } from 'vue';
 import props from './props';
-import ColorPanel from './panel';
+import ColorPanel from './components/panel';
 import { usePrefixClass } from '../hooks/useConfig';
 import { pickBy } from 'lodash-es';
 

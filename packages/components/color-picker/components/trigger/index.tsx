@@ -1,9 +1,9 @@
 import { defineComponent, PropType, ref, watch } from 'vue';
-import TInput from '../../input';
-import { Color } from '../utils';
-import { TdColorPickerProps } from '../type';
-import { useBaseClassName } from '../hooks';
-import { useCommonClassName } from '../../hooks/useConfig';
+import TInput from '../../../input';
+import { Color } from '../../utils';
+import { TdColorPickerProps } from '../../type';
+import { useBaseClassName } from '../../hooks';
+import { useCommonClassName } from '../../../hooks/useConfig';
 
 export default defineComponent({
   name: 'DefaultTrigger',
@@ -91,7 +91,7 @@ export default defineComponent({
           clearable={props.clearable}
           size={props.size}
           v-slots={inputSlots}
-          v-model={value}
+          v-model={value.value}
           disabled={props.disabled}
           onBlur={handleChange}
           {...props.inputProps}

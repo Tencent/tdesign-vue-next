@@ -3,16 +3,13 @@ import {
   SATURATION_PANEL_DEFAULT_HEIGHT,
   SATURATION_PANEL_DEFAULT_WIDTH,
 } from '@tdesign/common-js/color-picker/constants';
-import { Draggable, Coordinate } from '../utils';
-import { useBaseClassName } from '../hooks';
+import { Draggable, Coordinate } from '../../utils';
+import { useBaseClassName } from '../../hooks';
 import baseProps from './base-props';
 
 export default defineComponent({
   name: 'SaturationPanel',
-
-  props: {
-    ...baseProps,
-  },
+  props: baseProps,
   setup(props) {
     const baseClassName = useBaseClassName();
     const refPanel = ref<HTMLElement>(null);
@@ -90,26 +87,24 @@ export default defineComponent({
       dragInstance.value.destroy();
     });
 
-    return {
-      baseClassName,
-      refThumb,
-      refPanel,
-      styles,
-      panelBackground,
+    return () => {
+      return (
+        <div
+          class={[`${baseClassName.value}__saturation`]}
+          ref={refPanel}
+          style={{
+            background: panelBackground.value,
+          }}
+        >
+          <span
+            class={[`${baseClassName.value}__thumb`]}
+            role="slider"
+            tabindex={0}
+            ref={refThumb}
+            style={styles.value}
+          ></span>
+        </div>
+      );
     };
-  },
-  render() {
-    const { baseClassName, styles, panelBackground } = this;
-    return (
-      <div
-        class={[`${baseClassName}__saturation`]}
-        ref="refPanel"
-        style={{
-          background: panelBackground,
-        }}
-      >
-        <span class={[`${baseClassName}__thumb`]} role="slider" tabindex={0} ref="refThumb" style={styles}></span>
-      </div>
-    );
   },
 });

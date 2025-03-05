@@ -1,5 +1,5 @@
 import { PropType } from 'vue';
-import { Color } from '../utils';
+import { Color } from '../../utils';
 
 export default {
   /** 是否禁用组件 */

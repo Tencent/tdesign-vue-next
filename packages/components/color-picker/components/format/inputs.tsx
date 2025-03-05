@@ -104,60 +104,55 @@ export default defineComponent({
       props.onInputChange(value, modelValue.a / 100, key, v);
     };
 
-    return {
-      modelValue,
-      inputConfigs,
-      handleChange,
+    return () => {
+      const inputProps = {
+        ...((props.inputProps as any) || {}),
+      };
+      return (
+        <div class="input-group">
+          {inputConfigs.value.map((config) => {
+            return (
+              <div
+                class="input-group__item"
+                key={config.key}
+                style={{
+                  flex: config.flex || 1,
+                }}
+              >
+                {config.type === 'input' ? (
+                  <TInput
+                    {...inputProps}
+                    align="center"
+                    size="small"
+                    disabled={props.disabled}
+                    v-model={modelValue[config.key]}
+                    maxlength={props.format === 'HEX' ? 9 : undefined}
+                    title={modelValue[config.key]}
+                    onBlur={(v: string) => handleChange(config.key, v)}
+                    onEnter={(v: string) => handleChange(config.key, v)}
+                  />
+                ) : (
+                  <TInputNumber
+                    {...inputProps}
+                    align="center"
+                    size="small"
+                    disabled={props.disabled}
+                    v-model={modelValue[config.key]}
+                    title={modelValue[config.key]}
+                    min={config.min}
+                    max={config.max}
+                    step={1}
+                    format={config.format}
+                    theme="normal"
+                    onBlur={(v: number) => handleChange(config.key, v)}
+                    onEnter={(v: number) => handleChange(config.key, v)}
+                  />
+                )}
+              </div>
+            );
+          })}
+        </div>
+      );
     };
-  },
-  render() {
-    const inputProps = {
-      ...((this.inputProps as any) || {}),
-    };
-    return (
-      <div class="input-group">
-        {this.inputConfigs.map((config) => {
-          return (
-            <div
-              class="input-group__item"
-              key={config.key}
-              style={{
-                flex: config.flex || 1,
-              }}
-            >
-              {config.type === 'input' ? (
-                <TInput
-                  {...inputProps}
-                  align="center"
-                  size="small"
-                  disabled={this.disabled}
-                  v-model={this.modelValue[config.key]}
-                  maxlength={this.format === 'HEX' ? 9 : undefined}
-                  title={this.modelValue[config.key]}
-                  onBlur={(v: string) => this.handleChange(config.key, v)}
-                  onEnter={(v: string) => this.handleChange(config.key, v)}
-                />
-              ) : (
-                <TInputNumber
-                  {...inputProps}
-                  align="center"
-                  size="small"
-                  disabled={this.disabled}
-                  v-model={this.modelValue[config.key]}
-                  title={this.modelValue[config.key]}
-                  min={config.min}
-                  max={config.max}
-                  step={1}
-                  format={config.format}
-                  theme="normal"
-                  onBlur={(v: number) => this.handleChange(config.key, v)}
-                  onEnter={(v: number) => this.handleChange(config.key, v)}
-                />
-              )}
-            </div>
-          );
-        })}
-      </div>
-    );
   },
 });
