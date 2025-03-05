@@ -91,7 +91,7 @@ export default defineComponent({
           clearable={props.clearable}
           size={props.size}
           v-slots={inputSlots}
-          v-model={value}
+          v-model={value.value}
           disabled={props.disabled}
           onBlur={handleChange}
           {...props.inputProps}
