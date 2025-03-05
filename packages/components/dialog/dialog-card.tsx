@@ -12,8 +12,7 @@ import { useAction } from './hooks';
 import { useContent, useTNodeJSX } from '../hooks/tnode';
 import type { TdDialogProps } from './type';
 import dialogProps from './props';
-import { getCSSValue, InitDragEvent } from './utils';
-
+import { getCSSValue, initDragEvent } from './utils';
 
 export default defineComponent({
   name: 'TDialogCard',
@@ -22,7 +21,7 @@ export default defineComponent({
     draggable(el, binding) {
       // el 指令绑定的元素
       if (el && binding && binding.value) {
-        InitDragEvent(el);
+        initDragEvent(el);
       }
     },
   },

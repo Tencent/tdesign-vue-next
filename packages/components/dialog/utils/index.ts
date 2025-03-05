@@ -1,9 +1,8 @@
-
 export function getCSSValue(v: string | number) {
   return Number.isNaN(Number(v)) ? v : `${Number(v)}px`;
 }
-  
-export function InitDragEvent(dragBox: HTMLElement) {
+
+export function initDragEvent(dragBox: HTMLElement) {
   const target = dragBox;
   const windowInnerWidth = window.innerWidth || document.documentElement.clientWidth;
   const windowInnerHeight = window.innerHeight || document.documentElement.clientHeight;
