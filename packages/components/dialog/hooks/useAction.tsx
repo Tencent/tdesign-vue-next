@@ -128,7 +128,7 @@ export function useAction(action: BtnAction) {
     }
     // 如果属性存在，优先返回属性配置
     if (cancelBtn && ['string', 'object'].includes(typeof cancelBtn)) {
-      return getButtonByProps(cancelBtn as string | ButtonProps, { defaultButtonProps });
+      return getButtonByProps(cancelBtn as string | ButtonProps, { defaultButtonProps, className });
     }
     // 渲染插槽 或 function 类型的 confirmBtn，属性优先级更高
     return renderTNodeJSX('cancelBtn');
