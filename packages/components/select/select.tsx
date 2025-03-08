@@ -8,7 +8,7 @@ import { get } from 'lodash-es';
 import { intersection } from 'lodash-es';
 import FakeArrow from '../common-components/fake-arrow';
 import SelectInput from '../select-input';
-import SelectPanel from './select-panel';
+import SelectPanel from './components/select-panel';
 import props from './props';
 // hooks
 import { useDisabled } from '../hooks/useDisabled';
