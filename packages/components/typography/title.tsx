@@ -1,7 +1,7 @@
 import { defineComponent, h } from 'vue';
 import { usePrefixClass } from '../hooks/useConfig';
 import props from './title-props';
-import Ellipsis from './ellipsis';
+import Ellipsis from './components/ellipsis';
 import { useContent } from '../hooks/tnode';
 
 export default defineComponent({

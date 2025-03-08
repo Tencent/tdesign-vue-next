@@ -1,9 +1,9 @@
 import { defineComponent, PropType, toRefs } from 'vue';
 import useDrag, { UploadDragEvents } from '../hooks/useDrag';
-import { CommonDisplayFileProps } from '../interface';
-import { commonProps } from '../constants';
+import { CommonDisplayFileProps } from '../types';
+import { commonProps } from '../consts';
 import { useContent } from '../../hooks/tnode';
-import { TdUploadProps } from '../type';
+import { TdUploadProps } from '../types';
 
 export interface CustomFileProps extends CommonDisplayFileProps {
   dragEvents: UploadDragEvents;
@@ -17,7 +17,6 @@ export interface CustomFileProps extends CommonDisplayFileProps {
 
 export default defineComponent({
   name: 'UploadCustomFile',
-
   props: {
     ...commonProps,
     dragEvents: Object as PropType<CustomFileProps['dragEvents']>,
@@ -28,7 +27,6 @@ export default defineComponent({
     triggerUpload: Function as PropType<CustomFileProps['triggerUpload']>,
     childrenNode: [String, Function] as PropType<CustomFileProps['childrenNode']>,
   },
-
   setup(props, { slots }) {
     const { classPrefix, displayFiles, accept } = toRefs(props);
     const drag = useDrag(props.dragEvents, accept);
