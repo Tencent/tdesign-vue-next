@@ -1039,6 +1039,7 @@
       "visible",
       "z-index",
       "close",
+      "download",
       "index-change"
     ],
     "description": "ImageViewer\n\n图片预览\n\n[docs](https://tdesign.tencent.com/vue-next/components/image-viewer)"
@@ -1336,7 +1337,7 @@
     ],
     "description": "PaginationMini\n\n迷你分页\n\n[docs](https://tdesign.tencent.com/vue-next/components/pagination)"
   },
-  "t-paragraph": {
+  "t-typography-paragraph": {
     "attributes": [
       "content",
       "default",
@@ -1951,7 +1952,7 @@
     ],
     "description": "TagInput\n\n标签输入框\n\n[docs](https://tdesign.tencent.com/vue-next/components/tag-input)"
   },
-  "t-text": {
+  "t-typography-text": {
     "attributes": [
       "code",
       "content",
@@ -2074,7 +2075,7 @@
     ],
     "description": "TimelineItem\n\n时间轴\n\n[docs](https://tdesign.tencent.com/vue-next/components/timeline)"
   },
-  "t-title": {
+  "t-typography-title": {
     "attributes": [
       "content",
       "default",
@@ -2321,5 +2322,9 @@
       "z-index"
     ],
     "description": "Watermark\n\n水印\n\n[docs](https://tdesign.tencent.com/vue-next/components/watermark)"
+  },
+  "t-typography": {
+    "attributes": [],
+    "description": "Typography\n\n排版\n\n[docs](https://tdesign.tencent.com/vue-next/components/typography)"
   }
 }

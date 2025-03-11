@@ -55,8 +55,8 @@ declare module 'vue' {
     THeader: typeof import('tdesign-vue-next')['Header'];
     THeadMenu: typeof import('tdesign-vue-next')['HeadMenu'];
     TIcon: typeof import('tdesign-vue-next')['Icon'];
-    TIconfont: typeof import('tdesign-vue-next')['Iconfont'];
-    TIconSVG: typeof import('tdesign-vue-next')['IconSVG'];
+    Iconfont: typeof import('tdesign-icons-vue-next')['Iconfont'];
+    Icon: typeof import('tdesign-icons-vue-next')['Icon'];
     TImage: typeof import('tdesign-vue-next')['Image'];
     TImageViewer: typeof import('tdesign-vue-next')['ImageViewer'];
     TInput: typeof import('tdesign-vue-next')['Input'];
@@ -78,7 +78,7 @@ declare module 'vue' {
     TOptionGroup: typeof import('tdesign-vue-next')['OptionGroup'];
     TPagination: typeof import('tdesign-vue-next')['Pagination'];
     TPaginationMini: typeof import('tdesign-vue-next')['PaginationMini'];
-    TParagraph: typeof import('tdesign-vue-next')['Paragraph'];
+    TTypographyParagraph: typeof import('tdesign-vue-next')['Paragraph'];
     TPopconfirm: typeof import('tdesign-vue-next')['Popconfirm'];
     TPopup: typeof import('tdesign-vue-next')['Popup'];
     TPrimaryTable: typeof import('tdesign-vue-next')['PrimaryTable'];
@@ -109,18 +109,19 @@ declare module 'vue' {
     TTabs: typeof import('tdesign-vue-next')['Tabs'];
     TTag: typeof import('tdesign-vue-next')['Tag'];
     TTagInput: typeof import('tdesign-vue-next')['TagInput'];
-    TText: typeof import('tdesign-vue-next')['Text'];
+    TTypographyText: typeof import('tdesign-vue-next')['Text'];
     TTextarea: typeof import('tdesign-vue-next')['Textarea'];
     TTimeline: typeof import('tdesign-vue-next')['Timeline'];
     TTimelineItem: typeof import('tdesign-vue-next')['TimelineItem'];
     TTimePicker: typeof import('tdesign-vue-next')['TimePicker'];
     TTimeRangePicker: typeof import('tdesign-vue-next')['TimeRangePicker'];
-    TTitle: typeof import('tdesign-vue-next')['Title'];
+    TTypographyTitle: typeof import('tdesign-vue-next')['Title'];
     TTooltip: typeof import('tdesign-vue-next')['Tooltip'];
     TTooltipLite: typeof import('tdesign-vue-next')['TooltipLite'];
     TTransfer: typeof import('tdesign-vue-next')['Transfer'];
     TTree: typeof import('tdesign-vue-next')['Tree'];
     TTreeSelect: typeof import('tdesign-vue-next')['TreeSelect'];
+    TTypography: typeof import('tdesign-vue-next')['Typography'];
     TUpload: typeof import('tdesign-vue-next')['Upload'];
     TWatermark: typeof import('tdesign-vue-next')['Watermark'];
   }

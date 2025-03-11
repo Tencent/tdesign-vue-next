@@ -14,7 +14,7 @@ import type { TdListProps } from './type';
 export default defineComponent({
   name: 'TList',
   props,
-  setup(props: TdListProps) {
+  setup(props: TdListProps, { expose }) {
     const listRef = ref();
 
     const { globalConfig } = useConfig('list');
@@ -23,11 +23,8 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const { listItems } = useListItems();
 
-    const { virtualConfig, cursorStyle, listStyle, isVirtualScroll, onInnerVirtualScroll } = useListVirtualScroll(
-      props.scroll,
-      listRef,
-      listItems,
-    );
+    const { virtualConfig, cursorStyle, listStyle, isVirtualScroll, onInnerVirtualScroll, scrollToElement } =
+      useListVirtualScroll(props.scroll, listRef, listItems);
 
     /** 列表基础逻辑 start */
     const listClass = computed(() => {
@@ -109,7 +106,7 @@ export default defineComponent({
       if (isString(props.asyncLoading) && props.asyncLoading !== LOAD_MORE) return;
       props.onLoadMore?.({ e });
     };
-
+    expose({ scrollTo: scrollToElement });
     return () => {
       const listContent = [
         renderContent(),
