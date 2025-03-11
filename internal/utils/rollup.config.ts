@@ -10,12 +10,16 @@ export default defineConfig({
   input: ['./index.ts', './src/*.ts'],
   output: [
     {
-      dir: 'dist/cjs',
+      dir: 'dist',
       format: 'cjs',
+      entryFileNames: 'cjs/[name].js',
+      chunkFileNames: 'cjs/[name]-[hash].js',
     },
     {
-      dir: 'dist/es',
+      dir: 'dist',
       format: 'es',
+      entryFileNames: 'es/[name].js',
+      chunkFileNames: 'es/[name]-[hash].js',
     },
   ],
   plugins: [
@@ -23,6 +27,9 @@ export default defineConfig({
     typescript({
       resolveJsonModule: true,
       allowSyntheticDefaultImports: true,
+      outDir: 'dist/types',
+      declarationDir: 'dist/types',
+      rootDir: '.',
     }),
     nodeResolve(),
     json(),
