@@ -105,7 +105,6 @@
     "clipboard": "^2.0.11",
     "codesandbox": "^2.2.3",
     "cross-env": "^7.0.3",
-    "cypress": "^12.17.2",
     "cz-git": "^1.7.0",
     "czg": "^1.7.0",
     "dom-parser": "^1.1.5",
