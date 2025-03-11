@@ -245,6 +245,7 @@ export default defineComponent({
      *    - 过滤条件下，如果 checked 为 false，则只保留已选中的 disabled 选项。
      */
     const onCheckAllChange = (checked: boolean) => {
+      const { value } = keys.value;
       if (!props.multiple) return;
       // disabled状态的选项，不参与全选的计算，始终保留
       const lockedValues = innerValue.value.filter((value: string | number | boolean) => {
@@ -252,8 +253,13 @@ export default defineComponent({
       });
 
       const activeValues = optionalList.value.map((option) => option.value);
+      const orgValueFormatter =
+        props.valueType === 'object'
+          ? (orgValue.value as Array<SelectValue>).map((v) => get(v, value))
+          : orgValue.value;
+
       const values = checked
-        ? [...new Set([...(orgValue.value as Array<SelectValue>), ...activeValues, ...lockedValues])]
+        ? [...new Set([...(orgValueFormatter as Array<SelectValue>), ...activeValues, ...lockedValues])]
         : [...lockedValues];
       setInnerValue(values, { selectedOptions: getSelectedOptions(values), trigger: checked ? 'check' : 'clear' });
     };
