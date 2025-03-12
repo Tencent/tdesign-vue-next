@@ -7,7 +7,7 @@
   "module": "./dist/es/index.js",
   "scripts": {
     "prebuild": "rollup -c rollup.config.ts",
-    "build": "node dist/tdesign-vue-next/index.js"
+    "build:vue-next-tsc": "node dist/tdesign-vue-next/index.js"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^16.0.0",
