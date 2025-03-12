@@ -16,19 +16,31 @@
       "import": "./dist/es/paths.js",
       "default": "./dist/cjs/paths.js"
     },
+    "./paths-v2": {
+      "types": "./types/paths-v2.d.ts",
+      "import": "./dist/es/paths-v2.js",
+      "default": "./dist/cjs/paths-v2.js"
+    },
     "./package-json": {
       "types": "./types/package-json.d.ts",
       "import": "./dist/es/package-json.js",
       "default": "./dist/cjs/package-json.js"
+    },
+    "./exec": {
+      "types": "./types/exec.d.ts",
+      "import": "./dist/es/exec.js",
+      "default": "./dist/cjs/exec.js"
     }
   },
   "scripts": {
-    "build": "rollup -c rollup.config.ts && pnpm build:tsc", 
+    "prebuild": "rollup -c rollup.config.ts && pnpm build:tsc",
     "build:tsc": "tsc --declaration --emitDeclarationOnly --rootDir . --outDir types --resolveJsonModule --esModuleInterop ./src/*.ts index.ts"
   },
   "devDependencies": {
+    "@pnpm/find-workspace-dir": "^1000.1.0",
     "@rollup/plugin-node-resolve": "^16.0.0",
     "@rollup/plugin-typescript": "^12.1.2",
+    "execa": "^8.0.1",
     "rollup": "^2.79.1",
     "rollup-plugin-delete": "^2.1.0",
     "rollup-plugin-multi-input": "^1.4.1"

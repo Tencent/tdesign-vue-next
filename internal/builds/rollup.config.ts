@@ -8,15 +8,11 @@ import nodeResolve from '@rollup/plugin-node-resolve';
 import multiInput from 'rollup-plugin-multi-input';
 
 export default defineConfig({
-  input: ['./index.ts', './src/*.ts'],
+  input: ['src/**/*.ts'],
   output: [
     {
-      dir: 'dist/cjs',
+      dir: 'dist',
       format: 'cjs',
-    },
-    {
-      dir: 'dist/es',
-      format: 'es',
     },
   ],
   plugins: [
