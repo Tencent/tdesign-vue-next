@@ -3,8 +3,6 @@
   "private": true,
   "author": "tdesign",
   "license": "MIT",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/es/index.js",
   "scripts": {
     "prebuild": "rollup -c rollup.config.ts",
     "build:vue-next-tsc": "node dist/tdesign-vue-next/index.js"
