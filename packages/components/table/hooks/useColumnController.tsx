@@ -14,7 +14,7 @@ import useDefaultValue from '../../hooks/useDefaultValue';
 import { getCurrentRowByKey } from '../utils';
 import { DialogInstance } from '../../dialog';
 import TButton from '../../button';
-import ColumnCheckboxGroup from '../column-checkbox-group';
+import ColumnCheckboxGroup from '../components/column-checkbox-group';
 import { isFunction } from 'lodash-es';
 import { useTNodeJSX } from '../../hooks';
 
