@@ -8,10 +8,10 @@ const generateSourceTypes = async () => {
   await run('tsc --outDir dist/types -p tsconfig.json --emitDeclarationOnly');
 
   const workSpaceRoot = await getWorkSpaceRoot();
-  const distTypesDir = resolve(workSpaceRoot, 'dist/types');
+  const typesRoot = resolve(workSpaceRoot, 'dist/types');
 
   // 2. 删除 style 目录
-  const styleDirPaths = globSync(`${resolve(distTypesDir, 'packages/**/style')}`);
+  const styleDirPaths = globSync(`${resolve(typesRoot, 'packages/**/style')}`);
   await Promise.all(
     styleDirPaths.map(async (styleDirPath) => {
       await remove(styleDirPath);
@@ -19,16 +19,16 @@ const generateSourceTypes = async () => {
   );
 
   // 3. 复制 common 到 packages 下
-  await copy(resolve(distTypesDir, 'packages/common'), resolve(distTypesDir, 'packages/components/common'));
+  await copy(resolve(typesRoot, 'packages/common'), resolve(typesRoot, 'packages/components/common'));
 };
 
 const generateTargetTypes = async (target: 'es' | 'esm' | 'lib' | 'cjs') => {
   const workSpaceRoot = await getWorkSpaceRoot();
-  const distTypesDir = resolve(workSpaceRoot, 'dist/types');
+  const typesRoot = resolve(workSpaceRoot, 'dist/types');
 
   // 1. 复制 packages/components 到 packages/tdesign-vue-next/target 下
   const targetDir = resolve(workSpaceRoot, `packages/tdesign-vue-next/${target}`);
-  await copy(resolve(distTypesDir, `packages/components`), targetDir);
+  await copy(resolve(typesRoot, `packages/components`), targetDir);
 
   // 2. 替换 @tdesign/common-js 为 tdesign-vue-next/common/js
   const dtsPaths = globSync(`${resolve(targetDir, '**/*.d.ts')}`);
