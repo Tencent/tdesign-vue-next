@@ -16,10 +16,10 @@ import { isFunction } from 'lodash-es';
 import { isObject } from 'lodash-es';
 import useGlobalIcon from '../../hooks/useGlobalIcon';
 import ImageViewer, { ImageViewerProps } from '../../image-viewer';
-import { CommonDisplayFileProps } from '../interface';
-import { commonProps } from '../constants';
+import { CommonDisplayFileProps } from '../types';
+import { commonProps } from '../consts';
 import TButton from '../../button';
-import { UploadFile, TdUploadProps } from '../type';
+import { UploadFile, TdUploadProps } from '../types';
 import useDrag, { UploadDragEvents } from '../hooks/useDrag';
 import {
   abridgeName,
@@ -51,7 +51,6 @@ export interface ImageFlowListProps extends CommonDisplayFileProps {
 
 export default defineComponent({
   name: 'UploadMultipleFlowList',
-
   props: {
     ...commonProps,
     showThumbnail: Boolean,
@@ -66,7 +65,6 @@ export default defineComponent({
     cancelUploadButton: Object as PropType<ImageFlowListProps['cancelUploadButton']>,
     onPreview: Function as PropType<ImageFlowListProps['onPreview']>,
   },
-
   setup(props, { slots }) {
     // locale 已经在 useUpload 中统一处理优先级
     const { uploading, disabled, displayFiles, classPrefix, accept } = toRefs(props);

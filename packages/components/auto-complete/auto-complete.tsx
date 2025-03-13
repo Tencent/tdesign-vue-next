@@ -4,7 +4,7 @@ import { TdAutoCompleteProps } from './type';
 import TInput, { InputProps, StrInputProps } from '../input';
 import Popup, { PopupProps } from '../popup';
 import useCommonClassName from '../hooks/useCommonClassName';
-import AutoCompleteOptionList from './option-list';
+import AutoCompleteOptionList from './components/option-list';
 import useVModel from '../hooks/useVModel';
 import { useConfig } from '../config-provider/hooks/useConfig';
 import { ClassName } from '../common';

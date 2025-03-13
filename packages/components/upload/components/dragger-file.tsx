@@ -6,8 +6,8 @@ import {
 import { abridgeName, getFileSizeText } from '@tdesign/common-js/upload/utils';
 import { TdUploadProps, UploadFile } from '../type';
 import Button from '../../button';
-import { CommonDisplayFileProps } from '../interface';
-import { commonProps } from '../constants';
+import { CommonDisplayFileProps } from '../types';
+import { commonProps } from '../consts';
 import useCommonClassName from '../../hooks/useCommonClassName';
 import TLoading from '../../loading';
 import useDrag, { UploadDragEvents } from '../hooks/useDrag';
@@ -27,7 +27,6 @@ export interface DraggerProps extends CommonDisplayFileProps {
 
 export default defineComponent({
   name: 'UploadDraggerFile',
-
   props: {
     ...commonProps,
     trigger: Function as PropType<DraggerProps['trigger']>,
@@ -36,7 +35,6 @@ export default defineComponent({
     cancelUpload: Function as PropType<DraggerProps['cancelUpload']>,
     dragEvents: Object as PropType<DraggerProps['dragEvents']>,
   },
-
   setup(props, { slots }) {
     const { displayFiles, disabled, accept } = toRefs(props);
     const locale = computed(() => props.locale as UploadConfig);
