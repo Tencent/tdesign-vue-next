@@ -3,7 +3,7 @@ import useVModel from '../hooks/useVModel';
 import { useTNodeDefault } from '../hooks/tnode';
 import props from './props';
 import { Popup as TPopup } from '../popup';
-import ColorPanel from './panel';
+import ColorPanel from './components/panel';
 import DefaultTrigger from './components/trigger';
 import { TdColorContext } from './types';
 import { useBaseClassName } from './hooks';

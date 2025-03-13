@@ -5,6 +5,15 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.11.2 `2025-03-05` 
+### 🚀 Features
+- `ImageViewer`: 新增`imageReferrerpolicy`API，适用于配置Referrerpolicy的场景 @Wesley-0808 ([#5134](https://github.com/Tencent/tdesign-vue-next/pull/5134))
+- `ImageViewer`: 新增`onDownload`API，用于自定义下载回调 @Wesley-0808 ([#5134](https://github.com/Tencent/tdesign-vue-next/pull/5134))
+### 🐞 Bug Fixes
+- `Dialog`: 修复`1.11.0`版本`footer`内容不能动态变更的问题 @Wesley-0808 ([#5152](https://github.com/Tencent/tdesign-vue-next/pull/5152))
+### 🚧 Others
+- `helper`: 修复部分组件在 `Webstorm` 提示异常的问题 @liweijie0812 ([#5136](https://github.com/Tencent/tdesign-vue-next/pull/5136))
+
 ## 🌈 1.11.1 `2025-03-01` 
 ### 🐞 Bug Fixes
 - `bundle`:  修复`1.11.0`版本 `cjs` 产物的依赖报错问题 @uyarn ([#5116](https://github.com/Tencent/tdesign-vue-next/pull/5116))
