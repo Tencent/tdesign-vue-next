@@ -51,7 +51,6 @@
   ],
   "exclude": [
     "node_modules",
-    "packages/common",
     "dist",
     "lib",
     "cjs",
