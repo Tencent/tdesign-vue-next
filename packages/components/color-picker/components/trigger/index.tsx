@@ -94,6 +94,7 @@ export default defineComponent({
           v-model={value.value}
           disabled={props.disabled}
           onBlur={handleChange}
+          onChange={handleChange}
           {...props.inputProps}
         />
       );

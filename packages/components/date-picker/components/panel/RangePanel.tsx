@@ -79,15 +79,15 @@ export default defineComponent({
     const startTableData = computed(() =>
       useTableData({
         isRange: true,
-        start: props.value[0] ? parseToDayjs(props.value[0] as string, format.value).toDate() : undefined,
-        end: props.value[1] ? parseToDayjs(props.value[1] as string, format.value).toDate() : undefined,
+        start: props.value[0] ? parseToDayjs(props.value[0], format.value).toDate() : undefined,
+        end: props.value[1] ? parseToDayjs(props.value[1], format.value).toDate() : undefined,
         hoverStart:
           !hidePreselection && props.hoverValue[0]
-            ? parseToDayjs(props.hoverValue[0] as string, format.value).toDate()
+            ? parseToDayjs(props.hoverValue[0], format.value).toDate()
             : undefined,
         hoverEnd:
           !hidePreselection && props.hoverValue[1]
-            ? parseToDayjs(props.hoverValue[1] as string, format.value).toDate()
+            ? parseToDayjs(props.hoverValue[1], format.value).toDate()
             : undefined,
         year: props.year[0],
         month: props.month[0],
@@ -101,15 +101,15 @@ export default defineComponent({
     const endTableData = computed(() =>
       useTableData({
         isRange: true,
-        start: props.value[0] ? parseToDayjs(props.value[0] as string, format.value).toDate() : undefined,
-        end: props.value[1] ? parseToDayjs(props.value[1] as string, format.value).toDate() : undefined,
+        start: props.value[0] ? parseToDayjs(props.value[0], format.value).toDate() : undefined,
+        end: props.value[1] ? parseToDayjs(props.value[1], format.value).toDate() : undefined,
         hoverStart:
           !hidePreselection && props.hoverValue[0]
-            ? parseToDayjs(props.hoverValue[0] as string, format.value).toDate()
+            ? parseToDayjs(props.hoverValue[0], format.value).toDate()
             : undefined,
         hoverEnd:
           !hidePreselection && props.hoverValue[1]
-            ? parseToDayjs(props.hoverValue[1] as string, format.value).toDate()
+            ? parseToDayjs(props.hoverValue[1], format.value).toDate()
             : undefined,
         year: props.year[1],
         month: props.month[1],
