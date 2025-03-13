@@ -5,6 +5,20 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.11.3 `2025-03-13` 
+### 🚀 Features
+- `ConfigProvider`: 新增支持 `@tdesign-vue-next/chat` 的国际化配置能力 @uyarn @zydemail
+ ([#5179](https://github.com/Tencent/tdesign-vue-next/pull/5179))
+### 🐞 Bug Fixes
+- `Dialog`:  修复自定义 `cancelBtn` 文本时仍保留 `t-dialog__cancel` 样式问题 @RSS1102 ([#5157](https://github.com/Tencent/tdesign-vue-next/pull/5157))
+- `Table`: 修复表格内容未渲染时，设置`drag-sort` 拖动事件报错的问题 @Wesley-0808 ([#5140](https://github.com/Tencent/tdesign-vue-next/pull/5140))
+- `Select`: 修复使用 `filter` 时无需设置 `filterable` @RSS1102 ([#5169](https://github.com/Tencent/tdesign-vue-next/pull/5169))
+- `DatePicker`: 修复日期禁用范围错误 @RSS1102 ([#5119](https://github.com/Tencent/tdesign-vue-next/pull/5119))
+- `ColorPicker`: 修复点击清除按钮未触发 `onChange` 回调问题 @wakisun ([#5111](https://github.com/Tencent/tdesign-vue-next/pull/5111))
+- `Select`: 修复当 `valueType = 'object'` 时，在有已选择数据的情况下筛选数据，全选产生错误 Tag 显示的问题。 @RSS1102 ([#5167](https://github.com/Tencent/tdesign-vue-next/pull/5167))
+- `DatePicker`:  修复 `prefixIcon` 插槽告警的问题 @uyarn ([#5179](https://github.com/Tencent/tdesign-vue-next/pull/5179))
+- `Bundle` : 修复产物中部分类型文件路径异常的问题 @zhangpaopao0609 ([#5174](https://github.com/Tencent/tdesign-vue-next/pull/5174))
+
 ## 🌈 1.11.2 `2025-03-05` 
 ### 🚀 Features
 - `ImageViewer`: 新增`imageReferrerpolicy`API，适用于配置Referrerpolicy的场景 @Wesley-0808 ([#5134](https://github.com/Tencent/tdesign-vue-next/pull/5134))
