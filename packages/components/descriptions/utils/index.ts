@@ -2,7 +2,7 @@ import { VNode, Slots, h, ComponentOptions } from 'vue';
 import { isFunction } from 'lodash-es';
 import { isString } from 'lodash-es';
 
-import { ItemsType, TdDescriptionItem } from '../types';
+import { ItemsType, TdDescriptionsItem } from '../types';
 import { TdDescriptionsItemProps } from '../type';
 
 /**
@@ -53,6 +53,6 @@ export function renderVNodeTNode(node: VNode, name1: string, name2?: string) {
  * @param item
  * @returns
  */
-export function itemTypeIsProps(itemsType: ItemsType, item: TdDescriptionItem): item is TdDescriptionsItemProps {
+export function itemTypeIsProps(itemsType: ItemsType, item: TdDescriptionsItem): item is TdDescriptionsItemProps {
   return itemsType === ItemsType.props;
 }
