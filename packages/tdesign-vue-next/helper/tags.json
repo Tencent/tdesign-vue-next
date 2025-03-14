@@ -546,6 +546,7 @@
       "swatch-colors",
       "value",
       "change",
+      "clear",
       "palette-bar-change",
       "recent-colors-change"
     ],
@@ -685,16 +686,6 @@
     ],
     "description": "DateRangePickerPanel\n\n日期范围选择器面板\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker)"
   },
-  "t-description-item": {
-    "attributes": [
-      "align",
-      "content",
-      "default",
-      "label",
-      "span"
-    ],
-    "description": "DescriptionItem\n\n描述项\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions)"
-  },
   "t-descriptions": {
     "attributes": [
       "align",
@@ -711,6 +702,16 @@
       "title"
     ],
     "description": "Descriptions\n\n描述列表\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions)"
+  },
+  "t-descriptions-item": {
+    "attributes": [
+      "align",
+      "content",
+      "default",
+      "label",
+      "span"
+    ],
+    "description": "DescriptionsItem\n\n描述项\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions)"
   },
   "t-dialog": {
     "attributes": [
