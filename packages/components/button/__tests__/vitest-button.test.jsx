@@ -118,7 +118,7 @@ describe('Button Component', () => {
   });
 
   const shapeClassNameList = [
-    { 't-button--shape-rectangle': false },
+    't-button--shape-rectangle',
     't-button--shape-square',
     't-button--shape-round',
     't-button--shape-circle',
