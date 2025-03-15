@@ -293,7 +293,6 @@ export const buidLib = async () => {
   const workSpaceRoot = await getWorkSpaceRoot();
   const input = await getInputList();
   const bundle = await rollup({
-    // input: input.concat(`${resolve(workSpaceRoot, 'packages/common/js/**/*.{js,ts}')}`),
     input,
     external: externalDeps.concat(externalPeerDeps),
     plugins: [multiInput({ relative: resolve(workSpaceRoot, 'packages/components') })].concat(
@@ -313,9 +312,37 @@ export const buidLib = async () => {
   await Promise.all(rewrite);
 };
 
+export const buildCjs = async () => {
+  const cjsExternalException = ['lodash-es'];
+  const cjsExternal = externalDeps.concat(externalPeerDeps).filter((value) => !cjsExternalException.includes(value));
+  const workSpaceRoot = await getWorkSpaceRoot();
+  const input = await getInputList();
+
+  const bundle = await rollup({
+    input,
+    external: cjsExternal,
+    plugins: [multiInput({ relative: resolve(workSpaceRoot, 'packages/components') })].concat(
+      await getPlugins({ ignoreLess: false }),
+    ),
+  });
+  await bundle.write({
+    banner,
+    dir: resolve(workSpaceRoot, 'cjs/'),
+    format: 'cjs',
+    sourcemap: true,
+    exports: 'named',
+    chunkFileNames: '_chunks/dep-[hash].js',
+  });
+
+  const files = await glob(`${resolve(workSpaceRoot, 'cjs/', '**/style/*.js')}`);
+  const rewrite = files.map(async (filePath) => await writeFile(filePath, ''));
+  await Promise.all(rewrite);
+};
+
 export const buildComponents = async () => {
   // await buildCss();
   // await buildEs();
   // await buidlEsm();
   // await buidLib();
+  await buildCjs();
 };
