@@ -155,7 +155,7 @@ const getPlugins = async ({
         targets: [
           {
             src: resolve(await getWorkSpaceRoot(), 'packages/components/**/style/css.js'),
-            dest: resolve(await getWorkSpaceRoot(), 'es'),
+            dest: resolve(await getWorkSpaceRoot(), 'packages/tdesign-vue-next', 'es'),
             rename: (name, extension, fullPath) =>
               `${fullPath.replace(resolve(workSpaceRoot, 'packages/components'), '').slice(0, -6)}${name}.mjs`,
           },
