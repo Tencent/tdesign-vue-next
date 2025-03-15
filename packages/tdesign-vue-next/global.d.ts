@@ -38,8 +38,8 @@ declare module 'vue' {
     TDatePickerPanel: typeof import('tdesign-vue-next')['DatePickerPanel'];
     TDateRangePicker: typeof import('tdesign-vue-next')['DateRangePicker'];
     TDateRangePickerPanel: typeof import('tdesign-vue-next')['DateRangePickerPanel'];
-    TDescriptionItem: typeof import('tdesign-vue-next')['DescriptionItem'];
     TDescriptions: typeof import('tdesign-vue-next')['Descriptions'];
+    TDescriptionsItem: typeof import('tdesign-vue-next')['DescriptionsItem'];
     TDialog: typeof import('tdesign-vue-next')['Dialog'];
     TDialogCard: typeof import('tdesign-vue-next')['DialogCard'];
     TDivider: typeof import('tdesign-vue-next')['Divider'];

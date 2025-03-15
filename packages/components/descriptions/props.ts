@@ -12,7 +12,7 @@ export default {
   bordered: Boolean,
   /** 字段名右侧是否携带冒号“：” */
   colon: Boolean,
-  /** 一行 `DescriptionItem` 的数量 */
+  /** 一行 `DescriptionsItem` 的数量 */
   column: {
     type: Number,
     default: 2,
@@ -34,7 +34,7 @@ export default {
   items: {
     type: Array as PropType<TdDescriptionsProps['items']>,
   },
-  /** 自定义描述项标签的样式 */
+  /** 自定义描述项标签的样式，需要配合 `tableLayout` 为 `auto` 才可以生效 */
   labelStyle: {
     type: Object as PropType<TdDescriptionsProps['labelStyle']>,
   },
