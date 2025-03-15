@@ -131,7 +131,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, fail 
           class="t-upload__dragger-btns"
         >
           <button
-            class="t-button t-button--variant-text t-button--theme-primary t-upload__dragger-progress-cancel"
+            class="t-button t-button--variant-text t-button--theme-primary t-button--shape-rectangle t-upload__dragger-progress-cancel"
             href=""
             tabindex="0"
             type="button"
@@ -145,7 +145,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, fail 
             </span>
           </button>
           <button
-            class="t-button t-button--variant-text t-button--theme-danger t-upload__dragger-delete-btn"
+            class="t-button t-button--variant-text t-button--theme-danger t-button--shape-rectangle t-upload__dragger-delete-btn"
             href=""
             tabindex="0"
             type="button"
@@ -318,7 +318,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, progr
           class="t-upload__dragger-btns"
         >
           <button
-            class="t-button t-button--variant-text t-button--theme-primary t-upload__dragger-progress-cancel"
+            class="t-button t-button--variant-text t-button--theme-primary t-button--shape-rectangle t-upload__dragger-progress-cancel"
             href=""
             tabindex="0"
             type="button"
@@ -476,7 +476,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
           class="t-upload__dragger-btns"
         >
           <button
-            class="t-button t-button--variant-text t-button--theme-primary t-upload__dragger-progress-cancel"
+            class="t-button t-button--variant-text t-button--theme-primary t-button--shape-rectangle t-upload__dragger-progress-cancel"
             href=""
             tabindex="0"
             type="button"
@@ -490,7 +490,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
             </span>
           </button>
           <button
-            class="t-button t-button--variant-text t-button--theme-danger t-upload__dragger-delete-btn"
+            class="t-button t-button--variant-text t-button--theme-danger t-button--shape-rectangle t-upload__dragger-delete-btn"
             href=""
             tabindex="0"
             type="button"
@@ -646,7 +646,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
           class="t-upload__dragger-btns"
         >
           <button
-            class="t-button t-button--variant-text t-button--theme-primary t-upload__dragger-progress-cancel"
+            class="t-button t-button--variant-text t-button--theme-primary t-button--shape-rectangle t-upload__dragger-progress-cancel"
             href=""
             tabindex="0"
             type="button"
@@ -660,7 +660,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
             </span>
           </button>
           <button
-            class="t-button t-button--variant-text t-button--theme-danger t-upload__dragger-delete-btn"
+            class="t-button t-button--variant-text t-button--theme-danger t-button--shape-rectangle t-upload__dragger-delete-btn"
             href=""
             tabindex="0"
             type="button"
@@ -799,7 +799,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, waiti
           class="t-upload__dragger-btns"
         >
           <button
-            class="t-button t-button--variant-text t-button--theme-primary t-upload__dragger-progress-cancel"
+            class="t-button t-button--variant-text t-button--theme-primary t-button--shape-rectangle t-upload__dragger-progress-cancel"
             href=""
             tabindex="0"
             type="button"
@@ -849,7 +849,7 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
         class="t-upload__trigger"
       >
         <button
-          class="t-button t-button--variant-outline t-button--theme-default"
+          class="t-button t-button--variant-outline t-button--theme-default t-button--shape-rectangle"
           href=""
           tabindex="0"
           type="button"
@@ -942,7 +942,7 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
           </td>
           <td>
             <button
-              class="t-button t-button--variant-text t-button--theme-primary t-upload__delete"
+              class="t-button t-button--variant-text t-button--theme-primary t-button--shape-rectangle t-upload__delete"
               href=""
               tabindex="0"
               type="button"
@@ -990,7 +990,7 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
           </td>
           <td>
             <button
-              class="t-button t-button--variant-text t-button--theme-primary t-upload__delete"
+              class="t-button t-button--variant-text t-button--theme-primary t-button--shape-rectangle t-upload__delete"
               href=""
               tabindex="0"
               type="button"
@@ -1038,7 +1038,7 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
           </td>
           <td>
             <button
-              class="t-button t-button--variant-text t-button--theme-primary t-upload__delete"
+              class="t-button t-button--variant-text t-button--theme-primary t-button--shape-rectangle t-upload__delete"
               href=""
               tabindex="0"
               type="button"
@@ -1099,7 +1099,7 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
           </td>
           <td>
             <button
-              class="t-button t-button--variant-text t-button--theme-primary t-upload__delete"
+              class="t-button t-button--variant-text t-button--theme-primary t-button--shape-rectangle t-upload__delete"
               href=""
               tabindex="0"
               type="button"
@@ -1158,7 +1158,7 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
         class="t-upload__trigger"
       >
         <button
-          class="t-button t-button--variant-outline t-button--theme-default"
+          class="t-button t-button--variant-outline t-button--theme-default t-button--shape-rectangle"
           href=""
           tabindex="0"
           type="button"
