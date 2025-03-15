@@ -5,6 +5,14 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.11.4 `2025-03-15` 
+
+### 🚀 Features
+- `Button`:  默认 `shape` 补充相关类名,方便相关定制 @Saraph1nes  ([#5187](https://github.com/Tencent/tdesign-vue-next/pull/5187))
+### 🐞 Bug Fixes
+- `Table` : 修复 `1.11.3` 版本中浮层向上状态时的箭头位置异常问题 @uyarn ([common#2088](https://github.com/Tencent/tdesign-common/pull/2088))
+- `Plugin`: 修复 `WebStorm` 中 DescriptionsItem 组件的提示问题 @liweijie0812 ([#5182](https://github.com/Tencent/tdesign-vue-next/pull/5182))
+
 ## 🌈 1.11.3 `2025-03-13` 
 ### 🚀 Features
 - `ConfigProvider`: 新增支持 `@tdesign-vue-next/chat` 的国际化配置能力 @uyarn @zydemail
