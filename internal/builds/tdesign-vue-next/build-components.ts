@@ -339,17 +339,27 @@ export const buildCjs = async () => {
   await Promise.all(rewrite);
 };
 
-export const buildUmd = async () => {
+export const buildUmd = async (isMin = false) => {
   const workSpaceRoot = await getWorkSpaceRoot();
-
   const bundle = await rollup({
     input: resolve(workSpaceRoot, 'packages/components/index-lib.ts'),
     external: externalPeerDeps,
-    plugins: await getPlugins({
-      isProd: true,
-      extractOneCss: true,
-      env: 'production',
-    }),
+    plugins: isMin
+      ? await getPlugins({
+          isProd: true,
+          extractOneCss: true,
+          env: 'production',
+        })
+      : [
+          analyzer({
+            limit: 5,
+            summaryOnly: true,
+          }),
+          ...(await getPlugins({
+            env: 'development',
+            extractOneCss: true,
+          })),
+        ],
   });
   await bundle.write({
     name: 'TDesign',
@@ -358,7 +368,7 @@ export const buildUmd = async () => {
     exports: 'named',
     globals: { vue: 'Vue' },
     sourcemap: true,
-    file: resolve(workSpaceRoot, `dist/${name}.min.js`),
+    file: resolve(workSpaceRoot, `dist/${name}${isMin ? '.min' : ''}.js`),
   });
 };
 
@@ -369,4 +379,5 @@ export const buildComponents = async () => {
   // await buidLib();
   // await buildCjs();
   await buildUmd();
+  await buildUmd(true);
 };
