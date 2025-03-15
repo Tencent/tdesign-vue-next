@@ -2478,15 +2478,6 @@
     "type": "String|TNode",
     "description": "title of descriptions\n\n描述列表的标题\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions?tab=api#descriptions-props)"
   },
-  "t-descriptions-item/align": {
-    "type": "String",
-    "options": [
-      "top",
-      "middle",
-      "bottom"
-    ],
-    "description": "content align type\n\n内容垂直对齐方式，DescriptionsItem.align 优先级高于 Descriptions.align\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions?tab=api#descriptionsitem-props)"
-  },
   "t-descriptions-item/content": {
     "type": "String|TNode",
     "description": "content of description item\n\n描述项内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions?tab=api#descriptionsitem-props)"

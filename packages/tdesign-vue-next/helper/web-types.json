@@ -4247,11 +4247,6 @@
                 "doc-url": "https://tdesign.tencent.com/vue-next/components/color-picker?tab=api#colorpicker-events"
               },
               {
-                "name": "clear",
-                "description": "清空按钮点击时触发",
-                "doc-url": "https://tdesign.tencent.com/vue-next/components/color-picker?tab=api#colorpicker-events"
-              },
-              {
                 "name": "palette-bar-change",
                 "description": "调色板控制器的值变化时触发，`context.color` 指调色板控制器的值",
                 "doc-url": "https://tdesign.tencent.com/vue-next/components/color-picker?tab=api#colorpicker-events"
@@ -5463,26 +5458,6 @@
           "description": "DescriptionsItem\n\n描述项",
           "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions",
           "props": [
-            {
-              "name": "align",
-              "description": "content align type\n\n内容垂直对齐方式，DescriptionsItem.align 优先级高于 Descriptions.align",
-              "doc-url": "https://tdesign.tencent.com/vue-next/components/descriptions?tab=api#descriptionsitem-props",
-              "type": "'top' | 'middle' | 'bottom'",
-              "attribute-value": {
-                "type": "enum"
-              },
-              "values": [
-                {
-                  "name": "top"
-                },
-                {
-                  "name": "middle"
-                },
-                {
-                  "name": "bottom"
-                }
-              ]
-            },
             {
               "name": "content",
               "description": "content of description item\n\n描述项内容",

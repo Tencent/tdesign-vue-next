@@ -546,7 +546,6 @@
       "swatch-colors",
       "value",
       "change",
-      "clear",
       "palette-bar-change",
       "recent-colors-change"
     ],
@@ -705,7 +704,6 @@
   },
   "t-descriptions-item": {
     "attributes": [
-      "align",
       "content",
       "default",
       "label",
