@@ -21,9 +21,11 @@ import staticImport from 'rollup-plugin-static-import';
 import ignoreImport from 'rollup-plugin-ignore-import';
 import copy from 'rollup-plugin-copy';
 
+import { readFile, writeFile, remove } from 'fs-extra';
 import pkg from 'tdesign-vue-next/package.json';
-import { resolve, getWorkSpaceRoot, getTdesignVueNextRoot } from '@tdesign/internal-utils';
+import { resolve, getWorkSpaceRoot } from '@tdesign/internal-utils';
 import { relative } from 'path';
+import { glob } from 'glob';
 
 const name = 'tdesign';
 const esExternalDeps = Object.keys(pkg.dependencies || {});
@@ -60,9 +62,7 @@ const getPlugins = async ({
       extensions: ['.mjs', '.js', '.json', '.node', '.ts', '.tsx'],
     }),
     vuePlugin(),
-    commonjs({
-      ignoreDynamicRequires: true,
-    }),
+    commonjs(),
     esbuild({
       target: 'esnext',
       minify: false,
@@ -203,7 +203,6 @@ const getPlugins = async ({
       }),
     );
   }
-
   return plugins;
 };
 
@@ -250,7 +249,93 @@ export const buildEs = async () => {
   });
 };
 
+export const buidlEsm = async () => {
+  const workSpaceRoot = await getWorkSpaceRoot();
+  const input = await getInputList();
+  const bundle = await rollup({
+    input: input.concat(`!${resolve(workSpaceRoot, 'packages/components/index-lib.ts')}`),
+    treeshake: false,
+    external: externalDeps.concat(externalPeerDeps),
+    plugins: [
+      multiInput({ relative: resolve(workSpaceRoot, 'packages/components') }),
+      copy({
+        targets: [
+          {
+            src: resolve(workSpaceRoot, 'packages/common/style/web/**/*.less'),
+            dest: resolve(workSpaceRoot, 'esm'),
+            rename: (name, extension, fullPath) => `${fullPath.replace(resolve(workSpaceRoot, 'packages'), '')}`,
+          },
+        ],
+        verbose: true,
+      }),
+    ].concat(await getPlugins({ ignoreLess: false })),
+  });
+  await bundle.write({
+    banner,
+    dir: resolve(workSpaceRoot, 'esm/'),
+    format: 'esm',
+    sourcemap: true,
+    chunkFileNames: '_chunks/dep-[hash].js',
+  });
+
+  // 替换 @tdesign/common-style 为 tdesign-vue-next/esm/common/style
+  // TODO 这个可以提取成公共函数
+  // 这里稍微有点性能问题
+  const files = await glob(`${resolve(workSpaceRoot, 'esm/', '**/style/*.js')}`);
+  const rewrite = files.map(async (filePath) => {
+    const content = await readFile(filePath, 'utf8');
+    await writeFile(filePath, content.replace(/@tdesign\/common-style/g, 'tdesign-vue-next/esm/common/style'), 'utf8');
+  });
+  await Promise.all(rewrite);
+};
+
+// export const buidLib = async () => {
+//   const workSpaceRoot = await getWorkSpaceRoot();
+//   const input = await getInputList();
+//   const bundle = await rollup({
+//     input: input.concat(`${resolve(workSpaceRoot, 'packages/common/js/**/*.{js,ts}')}`),
+//     external: externalDeps.concat(externalPeerDeps),
+//     plugins:  [
+//       multiInput({ relative: resolve(workSpaceRoot) }),
+//       // copy({
+//       //   targets: [
+//       //     {
+//       //       src: resolve(workSpaceRoot, 'packages/common/js/**/*.*'),
+//       //       dest: resolve(workSpaceRoot, 'lib'),
+//       //       rename: (name, extension, fullPath) =>
+//       //         `${fullPath.replace(resolve(workSpaceRoot, 'packages'), '')}`,
+//       //     },
+//       //   ],
+//       //   verbose: true,
+//       // }),
+//     ].concat(await getPlugins({ ignoreLess: false })),
+//   });
+//   await bundle.write({
+//     banner,
+//     dir: resolve(workSpaceRoot, 'lib/'),
+//     format: 'esm',
+//     sourcemap: true,
+//     chunkFileNames: '_chunks/dep-[hash].js',
+//   });
+
+//   // TODO 如上
+//   const files = await glob(`${resolve(workSpaceRoot, 'lib/', '**/*.*')}`);
+//   // const rewrite = files.map(async (filePath) => {
+//   //   const content = await readFile(filePath, 'utf8');
+//   //   await writeFile(
+//   //     filePath,
+//   //     content
+//   //       .replace(/@tdesign\/common-style/g, 'tdesign-vue-next/esm/common/style')
+//   //       .replace(/@tdesign\/common-js/g, 'tdesign-vue-next/esm/common/js'),
+//   //     'utf8'
+//   //   );
+//   // });
+//   // await Promise.all(rewrite);
+// };
+
 export const buildComponents = async () => {
-  await buildCss();
-  await buildEs();
+  // await buildCss();
+  // await buildEs();
+  await buidlEsm();
+  // await buidLib();
 };

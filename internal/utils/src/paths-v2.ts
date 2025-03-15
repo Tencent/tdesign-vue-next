@@ -21,3 +21,17 @@ export const getComponentsRoot = async () => {
 export const getTdesignVueNextRoot = async () => {
   return resolve(await getPackagesRoot(), 'tdesign-vue-next');
 };
+
+// resolve
+// export const resolveWorkSpaceRoot = async (path: string) => {
+//   return resolve(await getWorkSpaceRoot(), path);
+// };
+// export const resolvePackagesRoot = async (path: string) => {
+//   return resolve(await getPackagesRoot(), path);
+// };
+// export const resolveComponentsRoot = async (path: string) => {
+//   return resolve(await getComponentsRoot(), path);
+// };
+// export const resolveTdesignVueNextRoot = async (path: string) => {
+//   return resolve(await getTdesignVueNextRoot(), path);
+// };
