@@ -1,4 +1,4 @@
-import { rollup } from 'rollup';
+import { rollup, Plugin } from 'rollup';
 // @ts-ignore
 import multiInput from 'rollup-plugin-multi-input';
 import multiEntry from '@rollup/plugin-multi-entry';
@@ -60,7 +60,7 @@ const getPlugins = async ({
   const plugins = [
     nodeResolve({
       extensions: ['.mjs', '.js', '.json', '.node', '.ts', '.tsx'],
-    }),
+    }) as unknown as Plugin,
     vuePlugin(),
     commonjs(),
     esbuild({
@@ -339,10 +339,34 @@ export const buildCjs = async () => {
   await Promise.all(rewrite);
 };
 
+export const buildUmd = async () => {
+  const workSpaceRoot = await getWorkSpaceRoot();
+
+  const bundle = await rollup({
+    input: resolve(workSpaceRoot, 'packages/components/index-lib.ts'),
+    external: externalPeerDeps,
+    plugins: await getPlugins({
+      isProd: true,
+      extractOneCss: true,
+      env: 'production',
+    }),
+  });
+  await bundle.write({
+    name: 'TDesign',
+    banner,
+    format: 'umd',
+    exports: 'named',
+    globals: { vue: 'Vue' },
+    sourcemap: true,
+    file: resolve(workSpaceRoot, `dist/${name}.min.js`),
+  });
+};
+
 export const buildComponents = async () => {
   // await buildCss();
   // await buildEs();
   // await buidlEsm();
   // await buidLib();
-  await buildCjs();
+  // await buildCjs();
+  await buildUmd();
 };
