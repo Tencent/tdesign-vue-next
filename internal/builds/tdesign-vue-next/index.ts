@@ -3,7 +3,7 @@ import { buildComponents } from './build-components';
 
 async function build() {
   await buildComponents();
-  // await buildTypes();
+  await buildTypes();
 }
 
 build();
