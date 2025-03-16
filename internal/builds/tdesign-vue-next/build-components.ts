@@ -2,9 +2,8 @@ import { glob } from 'glob';
 import { readFile, writeFile, remove } from 'fs-extra';
 
 import { rollup, Plugin } from 'rollup';
-// @ts-ignore
-import multiInput from 'rollup-plugin-multi-input';
 import url from '@rollup/plugin-url';
+import copy from 'rollup-plugin-copy';
 import json from '@rollup/plugin-json';
 import babel from '@rollup/plugin-babel';
 import vuePlugin from 'rollup-plugin-vue';
@@ -13,14 +12,15 @@ import esbuild from 'rollup-plugin-esbuild';
 import postcss from 'rollup-plugin-postcss';
 import replace from '@rollup/plugin-replace';
 import analyzer from 'rollup-plugin-analyzer';
-// @ts-ignore
-import { terser } from 'rollup-plugin-terser';
 import commonjs from '@rollup/plugin-commonjs';
 import nodeResolve from '@rollup/plugin-node-resolve';
+import ignoreImport from 'rollup-plugin-ignore-import';
+// @ts-ignore
+import { terser } from 'rollup-plugin-terser';
+// @ts-ignore
+import multiInput from 'rollup-plugin-multi-input';
 // @ts-ignore
 import staticImport from 'rollup-plugin-static-import';
-import ignoreImport from 'rollup-plugin-ignore-import';
-import copy from 'rollup-plugin-copy';
 
 import pkg from 'tdesign-vue-next/package.json';
 import { resolve, getWorkSpaceRoot } from '@tdesign/internal-utils';
@@ -36,10 +36,12 @@ const banner = `/**
  * @license ${pkg.license}
  */
 `;
+
 const getInput = async () => {
   const workSpaceRoot = await getWorkSpaceRoot();
   return resolve(workSpaceRoot, 'packages/components/index-lib.ts');
 };
+
 const getInputList = async () => {
   const workSpaceRoot = await getWorkSpaceRoot();
   return [
@@ -219,7 +221,7 @@ export const buildCss = async () => {
   });
   bundle.write({
     banner,
-    // TODO 后续没问题后替换
+    // TODO 后续没问题后统一替换
     dir: resolve(workSpaceRoot, 'packages/tdesign-vue-next', 'es/'),
     assetFileNames: '[name].css',
   });
