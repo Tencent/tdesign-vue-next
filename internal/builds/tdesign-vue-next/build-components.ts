@@ -256,7 +256,7 @@ export const buildEs = async () => {
   await Promise.all(rewrite);
 };
 
-export const buidlEsm = async () => {
+export const buildEsm = async () => {
   const workSpaceRoot = await getWorkSpaceRoot();
   const input = await getInputList();
   const bundle = await rollup({
@@ -296,7 +296,7 @@ export const buidlEsm = async () => {
   await Promise.all(rewrite);
 };
 
-export const buidLib = async () => {
+export const buildLib = async () => {
   const workSpaceRoot = await getWorkSpaceRoot();
   const input = await getInputList();
   const bundle = await rollup({
@@ -406,8 +406,8 @@ export const buildPluginCss = async () => {
 export const buildComponents = async () => {
   await buildCss();
   await buildEs();
-  await buidlEsm();
-  await buidLib();
+  await buildEsm();
+  await buildLib();
   await buildCjs();
   await buildUmd();
   await buildUmd(true);
