@@ -70,7 +70,6 @@ const getPlugins = async ({
       target: 'esnext',
       minify: false,
       jsx: 'preserve',
-      tsconfig: 'tsconfig.build.json',
     }),
     babel({
       babelHelpers: 'runtime',
