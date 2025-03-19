@@ -60,6 +60,7 @@ const getPlugins = async ({
   extractOneCss = false,
   extractMultiCss = false,
 } = {}) => {
+  const workSpaceRoot = await getWorkSpaceRoot();
   const plugins = [
     nodeResolve({
       extensions: ['.mjs', '.js', '.json', '.node', '.ts', '.tsx'],
@@ -74,52 +75,7 @@ const getPlugins = async ({
     babel({
       babelHelpers: 'runtime',
       extensions: [...DEFAULT_EXTENSIONS, '.vue', '.ts', '.tsx'],
-      presets: [
-        [
-          '@babel/preset-env',
-          {
-            targets: {
-              browsers: [
-                'last 3 Chrome versions',
-                'last 3 Firefox versions',
-                'Safari >= 10',
-                'Explorer >= 11',
-                'Edge >= 12',
-              ],
-              esmodules: true,
-            },
-            modules: false,
-          },
-        ],
-      ],
-      plugins: ['@vue/babel-plugin-jsx', '@babel/plugin-transform-runtime'],
-      env: {
-        test: {
-          presets: [
-            [
-              '@babel/preset-env',
-              {
-                targets: {
-                  node: 'current',
-                },
-                modules: 'commonjs',
-              },
-            ],
-          ],
-          plugins: ['@vue/babel-plugin-jsx'],
-        },
-        production: {
-          presets: [
-            [
-              '@babel/preset-env',
-              {
-                modules: false,
-              },
-            ],
-          ],
-          plugins: ['@vue/babel-plugin-jsx', '@babel/plugin-transform-runtime'],
-        },
-      },
+      configFile: resolve(workSpaceRoot, 'babel.config.js'),
     }),
     json(),
     url(),
