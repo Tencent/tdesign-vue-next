@@ -27,9 +27,10 @@ import { resolve, getWorkSpaceRoot } from '@tdesign/internal-utils';
 
 const name = 'tdesign';
 const esExternalDeps = Object.keys(pkg.dependencies || {});
-const externalDeps = esExternalDeps.concat(['@babel/runtime']);
+// @ts-ignore
+const externalDeps = esExternalDeps.concat([/@babel\/runtime/]);
 const externalPeerDeps = Object.keys(pkg.peerDependencies || {});
-const DEFAULT_EXTENSIONS = ['.js', '.jsx', '.es6', '.es', '.mjs'];
+const DEFAULT_EXTENSIONS = ['.js', '.jsx', '.es6', '.es', '.mjs', '.cjs'];
 const banner = `/**
  * ${name} v${pkg.version}
  * (c) ${new Date().getFullYear()} ${pkg.author}
@@ -47,9 +48,9 @@ const getInputList = async () => {
   return [
     resolve(workSpaceRoot, 'packages/components/**/*.ts'),
     resolve(workSpaceRoot, 'packages/components/**/*.tsx'),
-    `!${resolve(workSpaceRoot, 'packages/components/index-lib.ts')}`,
     `!${resolve(workSpaceRoot, 'packages/components/**/demos')}`,
     `!${resolve(workSpaceRoot, 'packages/components/**/*.d.ts')}`,
+    `!${resolve(workSpaceRoot, 'packages/components/**/__tests__')}`,
   ];
 };
 
@@ -121,7 +122,11 @@ const getPlugins = async ({
       }),
     );
   } else if (ignoreLess) {
-    plugins.push(ignoreImport({ extensions: ['*.less'] }));
+    plugins.push(
+      ignoreImport({
+        include: [resolve(await getWorkSpaceRoot(), 'packages/components/**/style/index.js')],
+      }),
+    );
   } else {
     plugins.push(
       staticImport({
@@ -154,9 +159,7 @@ const getPlugins = async ({
     plugins.push(
       terser({
         output: {
-          /* eslint-disable */
           ascii_only: true,
-          /* eslint-enable */
         },
       }),
     );
@@ -176,7 +179,6 @@ export const buildCss = async () => {
   });
   bundle.write({
     banner,
-    // TODO 后续没问题后统一替换
     dir: resolve(workSpaceRoot, 'packages/tdesign-vue-next', 'es/'),
     assetFileNames: '[name].css',
   });
@@ -259,9 +261,7 @@ export const buildLib = async () => {
   const bundle = await rollup({
     input,
     external: externalDeps.concat(externalPeerDeps),
-    plugins: [multiInput({ relative: resolve(workSpaceRoot, 'packages/components') })].concat(
-      await getPlugins({ ignoreLess: false }),
-    ),
+    plugins: [multiInput({ relative: resolve(workSpaceRoot, 'packages/components') })].concat(await getPlugins()),
   });
   await bundle.write({
     banner,
@@ -270,10 +270,6 @@ export const buildLib = async () => {
     sourcemap: true,
     chunkFileNames: '_chunks/dep-[hash].js',
   });
-
-  const files = await glob(`${resolve(workSpaceRoot, 'packages/tdesign-vue-next', 'lib/', '**/style/*.js')}`);
-  const rewrite = files.map(async (filePath) => await writeFile(filePath, ''));
-  await Promise.all(rewrite);
 };
 
 export const buildCjs = async () => {
@@ -285,9 +281,7 @@ export const buildCjs = async () => {
   const bundle = await rollup({
     input,
     external: cjsExternal,
-    plugins: [multiInput({ relative: resolve(workSpaceRoot, 'packages/components') })].concat(
-      await getPlugins({ ignoreLess: false }),
-    ),
+    plugins: [multiInput({ relative: resolve(workSpaceRoot, 'packages/components') })].concat(await getPlugins()),
   });
   await bundle.write({
     banner,
@@ -297,10 +291,6 @@ export const buildCjs = async () => {
     exports: 'named',
     chunkFileNames: '_chunks/dep-[hash].js',
   });
-
-  const files = await glob(`${resolve(workSpaceRoot, 'packages/tdesign-vue-next', 'cjs/', '**/style/*.js')}`);
-  const rewrite = files.map(async (filePath) => await writeFile(filePath, ''));
-  await Promise.all(rewrite);
 };
 
 export const buildUmd = async (isMin = false) => {
