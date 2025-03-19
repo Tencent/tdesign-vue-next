@@ -167,52 +167,56 @@ const getPlugins = async ({
   return plugins;
 };
 
-export const buildCss = async () => {
-  const workSpaceRoot = await getWorkSpaceRoot();
-  const bundle = await rollup({
-    input: [resolve(workSpaceRoot, 'packages/components/**/style/index.js')],
-    plugins: [
-      multiInput({ relative: resolve(workSpaceRoot, 'packages/components') }),
-      styles({ mode: 'extract' }),
-      nodeResolve(),
-    ],
-  });
-  bundle.write({
-    banner,
-    dir: resolve(workSpaceRoot, 'packages/tdesign-vue-next', 'es/'),
-    assetFileNames: '[name].css',
-  });
-};
-
 export const buildEs = async () => {
-  const workSpaceRoot = await getWorkSpaceRoot();
-  // const tdesignVueNextRoot = await getTdesignVueNextRoot();
-  // lodash会使ssr无法运行,@babel\runtime affix组件报错,tinycolor2 颜色组件报错,dayjs 日期组件报错
-  const exception = ['tinycolor2', 'dayjs'];
-  const esExternal = esExternalDeps.concat(externalPeerDeps).filter((value) => !exception.includes(value));
-  const input = await getInputList();
-  const bundle = await rollup({
-    input: input.concat(`!${resolve(workSpaceRoot, 'packages/components/index-lib.ts')}`),
-    // 为了保留 style/css.js
-    treeshake: false,
-    external: esExternal,
-    plugins: [multiInput({ relative: resolve(workSpaceRoot, 'packages/components') })].concat(
-      await getPlugins({ extractMultiCss: true }),
-    ),
-  });
-  bundle.write({
-    banner,
-    dir: resolve(workSpaceRoot, 'packages/tdesign-vue-next', 'es/'),
-    format: 'esm',
-    sourcemap: true,
-    entryFileNames: '[name].mjs',
-    chunkFileNames: '_chunks/dep-[hash].mjs',
-  });
-  const files = await glob(`${resolve(workSpaceRoot, 'packages/tdesign-vue-next', 'es/**/style/index.js')}`);
-  const rewrite = files.map(async (filePath) => {
-    await remove(filePath);
-  });
-  await Promise.all(rewrite);
+  const buildCss = async () => {
+    const workSpaceRoot = await getWorkSpaceRoot();
+    const bundle = await rollup({
+      input: [resolve(workSpaceRoot, 'packages/components/**/style/index.js')],
+      plugins: [
+        multiInput({ relative: resolve(workSpaceRoot, 'packages/components') }),
+        styles({ mode: 'extract' }),
+        nodeResolve(),
+      ],
+    });
+    bundle.write({
+      banner,
+      dir: resolve(workSpaceRoot, 'packages/tdesign-vue-next', 'es/'),
+      assetFileNames: '[name].css',
+    });
+  };
+
+  const buildComp = async () => {
+    const workSpaceRoot = await getWorkSpaceRoot();
+    // const tdesignVueNextRoot = await getTdesignVueNextRoot();
+    // lodash会使ssr无法运行,@babel\runtime affix组件报错,tinycolor2 颜色组件报错,dayjs 日期组件报错
+    const exception = ['tinycolor2', 'dayjs'];
+    const esExternal = esExternalDeps.concat(externalPeerDeps).filter((value) => !exception.includes(value));
+    const input = await getInputList();
+    const bundle = await rollup({
+      input: input.concat(`!${resolve(workSpaceRoot, 'packages/components/index-lib.ts')}`),
+      // 为了保留 style/css.js
+      treeshake: false,
+      external: esExternal,
+      plugins: [multiInput({ relative: resolve(workSpaceRoot, 'packages/components') })].concat(
+        await getPlugins({ extractMultiCss: true }),
+      ),
+    });
+    bundle.write({
+      banner,
+      dir: resolve(workSpaceRoot, 'packages/tdesign-vue-next', 'es/'),
+      format: 'esm',
+      sourcemap: true,
+      entryFileNames: '[name].mjs',
+      chunkFileNames: '_chunks/dep-[hash].mjs',
+    });
+    const files = await glob(`${resolve(workSpaceRoot, 'packages/tdesign-vue-next', 'es/**/style/index.js')}`);
+    const rewrite = files.map(async (filePath) => {
+      await remove(filePath);
+    });
+    await Promise.all(rewrite);
+  };
+  await buildCss();
+  await buildComp();
 };
 
 export const buildEsm = async () => {
@@ -350,8 +354,16 @@ export const buildPluginCss = async () => {
   });
 };
 
+export const deleteOutput = async () => {
+  const workSpaceRoot = await getWorkSpaceRoot();
+  const removes = ['es', 'esm', 'lib', 'cjs', 'umd', 'dist'].map(
+    async (filePath) => await remove(resolve(workSpaceRoot, 'packages/tdesign-vue-next', filePath)),
+  );
+  await Promise.all(removes);
+};
+
 export const buildComponents = async () => {
-  await buildCss();
+  await deleteOutput();
   await buildEs();
   await buildEsm();
   await buildLib();
