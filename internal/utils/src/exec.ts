@@ -1,8 +1,8 @@
 import { execaCommand, SyncOptions } from 'execa';
-import { getWorkSpaceRoot } from './paths-v2';
+import { getWorkspaceRoot } from './paths';
 
 const run = async (command: string, options: SyncOptions = {}) => {
-  const workspaceDir = await getWorkSpaceRoot();
+  const workspaceDir = await getWorkspaceRoot();
   const { stdout, stderr } = await execaCommand(command, {
     cwd: workspaceDir,
     stdio: 'inherit',

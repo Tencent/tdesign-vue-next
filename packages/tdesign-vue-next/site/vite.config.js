@@ -10,7 +10,7 @@ const publicPathMap = {
   production: 'https://static.tdesign.tencent.com/vue-next/',
 };
 
-export default ({ mode }) => {
+export default async ({ mode }) => {
   return defineConfig({
     base: publicPathMap[mode],
     resolve: resolveConfig,
@@ -23,7 +23,7 @@ export default ({ mode }) => {
         allow: [searchForWorkspaceRoot(process.cwd())],
       },
     },
-    plugins: [...basePlugin, tDocPlugin(), VitePWA(pwaConfig)],
+    plugins: [...basePlugin, await tDocPlugin(), VitePWA(pwaConfig)],
     optimizeDeps: {
       include: ['prismjs', 'prismjs/components/prism-bash.js'],
     },
