@@ -1,48 +1,65 @@
-// paths.ts 是用于之前处理路径的，但因为是直接使用的相对路径，在根目录下使用（比如根目录下执行 rollup 打包）路径是没问题的
-// 但如果在非根目录下使用，就会有问题，但又不能直接废弃，因此这里重新写一份
-import { findWorkspaceDir } from '@pnpm/find-workspace-dir';
-import { posix } from 'path';
+import { existsSync } from 'fs-extra';
+import { posix, dirname } from 'path';
 
 const resolve = posix.resolve;
 
 export { resolve };
 
-// root
-export const getWorkspaceRoot = async () => {
-  return await findWorkspaceDir(process.cwd());
+/**
+ * root 原本是使用 @pnpm/find-workspace-dir 获取的，但它的获取方式是同步的，导致部分地方使用时出现问题，比如 vitest 的 snapshot 测试，
+ * 因此这里改成同步写，在本项目中不会出现问题，因为整个项目只有一个 pnpm-workspace.yaml 文件
+ * @returns
+ */
+export const getWorkspaceRoot = () => {
+  let dir = process.cwd();
+  while (dir !== '/') {
+    if (existsSync(`${dir}/pnpm-workspace.yaml`)) {
+      return dir;
+    }
+    dir = dirname(dir);
+  }
+  throw new Error('Could not find workspace root');
 };
+
 // packages
-export const getPackagesRoot = async () => {
-  return resolve(await getWorkspaceRoot(), 'packages');
+export const getPackagesRoot = () => {
+  return resolve(getWorkspaceRoot(), 'packages');
 };
+
 // packages/common
-export const getCommonRoot = async () => {
-  return resolve(await getPackagesRoot(), 'common');
+export const getCommonRoot = () => {
+  return resolve(getPackagesRoot(), 'common');
 };
+
 // packages/components
-export const getComponentsRoot = async () => {
-  return resolve(await getPackagesRoot(), 'components');
+export const getComponentsRoot = () => {
+  return resolve(getPackagesRoot(), 'components');
 };
+
 // packages/tdesign-vue-next
-export const getTdesignVueNextRoot = async () => {
-  return resolve(await getPackagesRoot(), 'tdesign-vue-next');
+export const getTdesignVueNextRoot = () => {
+  return resolve(getPackagesRoot(), 'tdesign-vue-next');
 };
 
 // resolve
-export const resolveWorkspaceRoot = async (...paths: string[]) => {
-  return resolve(await getWorkspaceRoot(), ...paths);
+export const resolveWorkspaceRoot = (...paths: string[]) => {
+  return resolve(getWorkspaceRoot(), ...paths);
 };
-export const resolvePackagesRoot = async (...paths: string[]) => {
-  return resolve(await getPackagesRoot(), ...paths);
+
+export const resolvePackagesRoot = (...paths: string[]) => {
+  return resolve(getPackagesRoot(), ...paths);
 };
-export const resolveCommonRoot = async (...paths: string[]) => {
-  return resolve(await getCommonRoot(), ...paths);
+
+export const resolveCommonRoot = (...paths: string[]) => {
+  return resolve(getCommonRoot(), ...paths);
 };
-export const resolveComponentsRoot = async (...paths: string[]) => {
-  return resolve(await getComponentsRoot(), ...paths);
+
+export const resolveComponentsRoot = (...paths: string[]) => {
+  return resolve(getComponentsRoot(), ...paths);
 };
-export const resolveTdesignVueNextRoot = async (...paths: string[]) => {
-  return resolve(await getTdesignVueNextRoot(), ...paths);
+
+export const resolveTdesignVueNextRoot = (...paths: string[]) => {
+  return resolve(getTdesignVueNextRoot(), ...paths);
 };
 
 /**
@@ -51,8 +68,8 @@ export const resolveTdesignVueNextRoot = async (...paths: string[]) => {
  * @param absolutePath string
  * @returns string
  */
-export const getRelativeWorkspaceRootPath = async (absolutePath: string) => {
-  const workspaceRoot = await getWorkspaceRoot();
+export const getRelativeWorkspaceRootPath = (absolutePath: string) => {
+  const workspaceRoot = getWorkspaceRoot();
   if (!absolutePath.startsWith(workspaceRoot)) {
     throw new Error('path is not a workspaceRoot path');
   }
