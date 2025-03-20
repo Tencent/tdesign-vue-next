@@ -16,11 +16,6 @@
       "import": "./dist/es/paths.js",
       "default": "./dist/cjs/paths.js"
     },
-    "./paths-v2": {
-      "types": "./types/paths-v2.d.ts",
-      "import": "./dist/es/paths-v2.js",
-      "default": "./dist/cjs/paths-v2.js"
-    },
     "./package-json": {
       "types": "./types/package-json.d.ts",
       "import": "./dist/es/package-json.js",
