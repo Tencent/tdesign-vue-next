@@ -323,7 +323,7 @@ export const buildUmd = async (isMin = false) => {
 export const buildResetCss = async () => {
   const bundle = await rollup({
     input: resolveCommonRoot('style/web/_reset.less'),
-    plugins: [postcss()],
+    plugins: [postcss({ extract: true })],
   });
   await bundle.write({
     file: resolveTdesignVueNextRoot('dist/reset.css'),
@@ -334,7 +334,7 @@ export const buildResetCss = async () => {
 export const buildPluginCss = async () => {
   const bundle = await rollup({
     input: resolveCommonRoot('style/web/_plugin.less'),
-    plugins: [postcss()],
+    plugins: [postcss({ extract: true })],
   });
   await bundle.write({
     file: resolveTdesignVueNextRoot('dist/plugin.css'),
