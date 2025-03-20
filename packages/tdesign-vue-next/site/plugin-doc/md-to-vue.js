@@ -6,7 +6,7 @@ import matter from 'gray-matter';
 import { compileUsage, getGitTimestamp } from '../../../../packages/common/docs/compile';
 // TODO: 同上
 import camelCase from 'lodash/camelCase';
-import { resolvePackagesRoot } from '@tdesign/internal-utils/paths';
+import { resolvePackagesRoot } from '@tdesign/internal-utils';
 
 import testCoverage from '../test-coverage';
 

@@ -1,14 +1,12 @@
 import { glob } from 'glob';
-import { run } from '@tdesign/internal-utils';
 import { readFile, copy, writeFile, remove } from 'fs-extra';
-import { resolve, getWorkSpaceRoot } from '@tdesign/internal-utils';
+import { run, resolve, resolveWorkspaceRoot, resolveTdesignVueNextRoot } from '@tdesign/internal-utils';
 
 const generateSourceTypes = async () => {
   // 1. 编译 tsc
   await run('tsc --outDir dist/types -p tsconfig.json --emitDeclarationOnly');
 
-  const workSpaceRoot = await getWorkSpaceRoot();
-  const typesRoot = resolve(workSpaceRoot, 'dist/types');
+  const typesRoot = resolveWorkspaceRoot('dist/types');
 
   // 2. 删除 style 目录
   const styleDirPaths = await glob(`${resolve(typesRoot, 'packages/**/style')}`);
@@ -23,11 +21,10 @@ const generateSourceTypes = async () => {
 };
 
 const generateTargetTypes = async (target: 'es' | 'esm' | 'lib' | 'cjs') => {
-  const workSpaceRoot = await getWorkSpaceRoot();
-  const typesRoot = resolve(workSpaceRoot, 'dist/types');
+  const typesRoot = resolveWorkspaceRoot('dist/types');
 
   // 1. 复制 packages/components 到 packages/tdesign-vue-next/target 下
-  const targetDir = resolve(workSpaceRoot, `packages/tdesign-vue-next/${target}`);
+  const targetDir = resolveTdesignVueNextRoot(`${target}`);
   await copy(resolve(typesRoot, `packages/components`), targetDir);
 
   // 2. 替换 @tdesign/common-js 为 tdesign-vue-next/common/js
@@ -40,8 +37,7 @@ const generateTargetTypes = async (target: 'es' | 'esm' | 'lib' | 'cjs') => {
 };
 
 const removeSourceTypes = async () => {
-  const workSpaceRoot = await getWorkSpaceRoot();
-  const distTypesRoot = resolve(workSpaceRoot, 'dist');
+  const distTypesRoot = resolveWorkspaceRoot('dist');
   await remove(distTypesRoot);
 };
 
