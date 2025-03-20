@@ -4,10 +4,11 @@
   "author": "tdesign",
   "license": "MIT",
   "scripts": {
-    "build:vue-next": "tsx ./tdesign-vue-next/index.ts"
+    "build:vue-next": "cross-env NODE_ENV=production tsx ./tdesign-vue-next/index.ts"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^16.0.1",
+    "cross-env": "^7.0.3",
     "fs-extra": "^11.3.0",
     "glob": "^11.0.1",
     "tsx": "^4.19.2"
