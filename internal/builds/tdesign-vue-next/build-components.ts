@@ -32,8 +32,7 @@ import {
 
 const name = 'tdesign';
 const esExternalDeps = Object.keys(pkg.dependencies || {});
-// @ts-ignore
-const externalDeps = esExternalDeps.concat([/@babel\/runtime/]);
+const externalDeps = [...esExternalDeps, /@babel\/runtime/];
 const externalPeerDeps = Object.keys(pkg.peerDependencies || {});
 const DEFAULT_EXTENSIONS = ['.js', '.jsx', '.es6', '.es', '.mjs', '.cjs'];
 const banner = `/**
@@ -56,14 +55,14 @@ const inputList = [
 ];
 
 const getPlugins = ({
-  env = '',
-  isProd = false,
-  ignoreLess = true,
-  extractOneCss = false,
-  extractMultiCss = false,
+  cssBuildType,
+  env,
+  isProd,
+}: {
+  cssBuildType?: 'single' | 'multi' | 'source' | 'ignore';
+  env?: string;
+  isProd?: boolean;
 } = {}) => {
-  const componentsRoot = resolveComponentsRoot();
-
   const plugins = [
     nodeResolve({
       extensions: ['.mjs', '.js', '.json', '.node', '.ts', '.tsx'],
@@ -90,8 +89,8 @@ const getPlugins = ({
     }),
   ];
 
-  // css
-  if (extractOneCss) {
+  // css 打包到一个文件中
+  if (cssBuildType === 'single') {
     plugins.push(
       postcss({
         extract: `${isProd ? `${name}.min` : name}.css`,
@@ -100,10 +99,12 @@ const getPlugins = ({
         extensions: ['.sass', '.scss', '.css', '.less'],
       }),
     );
-  } else if (extractMultiCss) {
+  }
+  // css 分别打包到各自的 style 下
+  if (cssBuildType === 'multi') {
     plugins.push(
       staticImport({
-        baseDir: resolveComponentsRoot(''),
+        baseDir: resolveComponentsRoot(),
         include: [resolveComponentsRoot('**/style/css.mjs')],
       }),
       ignoreImport({
@@ -115,31 +116,22 @@ const getPlugins = ({
           {
             src: resolveComponentsRoot('**/style/css.js'),
             dest: resolveTdesignVueNextRoot('es'),
-            rename: (name, extension, fullPath) => `${fullPath.replace(componentsRoot, '').slice(0, -6)}${name}.mjs`,
+            rename: (name, extension, fullPath) =>
+              `${fullPath.replace(resolveComponentsRoot(), '').slice(0, -6)}${name}.mjs`,
           },
         ],
         verbose: true,
       }),
     );
-  } else if (ignoreLess) {
+  }
+  // 不打包 less，但保持引用
+  if (cssBuildType === 'source') {
+  }
+  // 完全忽略 less
+  if (cssBuildType === 'ignore') {
     plugins.push(
       ignoreImport({
         include: [resolveComponentsRoot('**/style/index.js')],
-      }),
-    );
-  } else {
-    plugins.push(
-      staticImport({
-        baseDir: resolveComponentsRoot(),
-        include: [resolveComponentsRoot('**/style/index.js')],
-      }),
-      staticImport({
-        baseDir: resolveCommonRoot(),
-        include: [resolveCommonRoot('style/web/**/*.less')],
-      }),
-      ignoreImport({
-        include: [resolveComponentsRoot('*/style/*')],
-        body: 'import "./style/index.js";',
       }),
     );
   }
@@ -171,7 +163,7 @@ export const buildEs = async () => {
   const buildCss = async () => {
     const bundle = await rollup({
       input: [resolveComponentsRoot('**/style/index.js')],
-      plugins: [multiInput({ relative: resolveComponentsRoot('') }), styles({ mode: 'extract' }), nodeResolve()],
+      plugins: [multiInput({ relative: resolveComponentsRoot() }), styles({ mode: 'extract' }), nodeResolve()],
     });
     bundle.write({
       banner,
@@ -184,15 +176,15 @@ export const buildEs = async () => {
     // const tdesignVueNextRoot = await getTdesignVueNextRoot();
     // lodash会使ssr无法运行,@babel\runtime affix组件报错,tinycolor2 颜色组件报错,dayjs 日期组件报错
     const exception = ['tinycolor2', 'dayjs'];
-    const esExternal = esExternalDeps.concat(externalPeerDeps).filter((value) => !exception.includes(value));
+    const esExternal = [...esExternalDeps, ...externalPeerDeps].filter((value) =>
+      typeof value === 'string' ? !exception.includes(value) : true,
+    );
     const bundle = await rollup({
-      input: inputList.concat(`!${resolveComponentsRoot('index-lib.ts')}`),
+      input: [...inputList, `!${resolveComponentsRoot('index-lib.ts')}`],
       // 为了保留 style/css.js
       treeshake: false,
       external: esExternal,
-      plugins: [multiInput({ relative: resolveComponentsRoot('') })].concat(
-        await getPlugins({ extractMultiCss: true }),
-      ),
+      plugins: [multiInput({ relative: resolveComponentsRoot() }), ...getPlugins({ cssBuildType: 'multi' })],
     });
     bundle.write({
       banner,
@@ -213,24 +205,33 @@ export const buildEs = async () => {
 };
 
 export const buildEsm = async () => {
-  const commonRoot = resolveCommonRoot();
   const bundle = await rollup({
-    input: inputList.concat(`!${resolveComponentsRoot('index-lib.ts')}`),
-    treeshake: false,
-    external: externalDeps.concat(externalPeerDeps),
+    input: [...inputList, `!${resolveComponentsRoot('index-lib.ts')}`],
+    external: [...externalDeps, ...externalPeerDeps, /@tdesign\/common-style/],
     plugins: [
-      multiInput({ relative: resolveComponentsRoot('') }),
+      multiInput({ relative: resolveComponentsRoot() }),
       copy({
         targets: [
           {
             src: resolveCommonRoot('style/web/**/*.less'),
             dest: resolveTdesignVueNextRoot('esm/common'),
-            rename: (name, extension, fullPath) => `${fullPath.replace(commonRoot, '')}`,
+            rename: (_, __, fullPath) => `${fullPath.replace(resolveCommonRoot(), '')}`,
           },
         ],
         verbose: true,
       }),
-    ].concat(await getPlugins({ ignoreLess: false })),
+      copy({
+        targets: [
+          {
+            src: resolveComponentsRoot('style/index.js'),
+            dest: resolveTdesignVueNextRoot('esm'),
+            rename: (_, __, fullPath) => `${fullPath.replace(resolveComponentsRoot(), '')}`,
+          },
+        ],
+        verbose: true,
+      }),
+      ...getPlugins({ cssBuildType: 'source' }),
+    ],
   });
   await bundle.write({
     banner,
@@ -243,7 +244,7 @@ export const buildEsm = async () => {
   // 替换 @tdesign/common-style 为 tdesign-vue-next/esm/common/style
   // TODO 这个可以提取成公共函数
   // 这里稍微有点性能问题
-  const files = await glob(`${resolveTdesignVueNextRoot('esm/**/style/*.js')}`);
+  const files = await glob(`${resolveTdesignVueNextRoot('esm/**/*.*')}`);
   const rewrite = files.map(async (filePath) => {
     const content = await readFile(filePath, 'utf8');
     await writeFile(filePath, content.replace(/@tdesign\/common-style/g, 'tdesign-vue-next/esm/common/style'), 'utf8');
@@ -254,8 +255,8 @@ export const buildEsm = async () => {
 export const buildLib = async () => {
   const bundle = await rollup({
     input: inputList,
-    external: externalDeps.concat(externalPeerDeps),
-    plugins: [multiInput({ relative: resolveComponentsRoot('') })].concat(await getPlugins()),
+    external: [...externalDeps, ...externalPeerDeps],
+    plugins: [multiInput({ relative: resolveComponentsRoot() }), ...getPlugins({ cssBuildType: 'ignore' })],
   });
   await bundle.write({
     banner,
@@ -268,11 +269,13 @@ export const buildLib = async () => {
 
 export const buildCjs = async () => {
   const cjsExternalException = ['lodash-es'];
-  const cjsExternal = externalDeps.concat(externalPeerDeps).filter((value) => !cjsExternalException.includes(value));
+  const cjsExternal = [...externalDeps, ...externalPeerDeps].filter((value) =>
+    typeof value === 'string' ? !cjsExternalException.includes(value) : true,
+  );
   const bundle = await rollup({
     input: inputList,
     external: cjsExternal,
-    plugins: [multiInput({ relative: resolveComponentsRoot('') })].concat(await getPlugins()),
+    plugins: [multiInput({ relative: resolveComponentsRoot() }), ...getPlugins({ cssBuildType: 'ignore' })],
   });
   await bundle.write({
     banner,
@@ -289,9 +292,9 @@ export const buildUmd = async (isMin = false) => {
     input,
     external: externalPeerDeps,
     plugins: isMin
-      ? await getPlugins({
+      ? getPlugins({
+          cssBuildType: 'single',
           isProd: true,
-          extractOneCss: true,
           env: 'production',
         })
       : [
@@ -299,10 +302,10 @@ export const buildUmd = async (isMin = false) => {
             limit: 5,
             summaryOnly: true,
           }),
-          ...(await getPlugins({
+          ...getPlugins({
+            cssBuildType: 'single',
             env: 'development',
-            extractOneCss: true,
-          })),
+          }),
         ],
   });
   await bundle.write({
