@@ -37,7 +37,6 @@
     "build:tsc": "tsc --declaration --emitDeclarationOnly --rootDir . --outDir types --resolveJsonModule --esModuleInterop ./src/*.ts index.ts"
   },
   "devDependencies": {
-    "@pnpm/find-workspace-dir": "^1000.1.0",
     "@rollup/plugin-node-resolve": "^16.0.0",
     "@rollup/plugin-typescript": "^12.1.2",
     "execa": "^8.0.1",
