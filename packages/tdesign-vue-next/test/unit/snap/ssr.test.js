@@ -14,8 +14,8 @@ function runTest() {
   describe('ssr snapshot test', () => {
     HTMLCanvasElement.prototype.getContext = vi.fn();
 
-    files.forEach(async (file) => {
-      it(`ssr test ${await getRelativeWorkspaceRootPath(file)}`, async () => {
+    files.forEach((file) => {
+      it(`ssr test ${getRelativeWorkspaceRootPath(file)}`, async () => {
         const demo = await import(file);
         const realDemoComp = demo.default ? demo.default : demo;
         realDemoComp.name = `test-ssr-${realDemoComp.name}`;

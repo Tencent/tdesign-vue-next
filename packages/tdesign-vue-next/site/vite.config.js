@@ -10,7 +10,7 @@ const publicPathMap = {
   production: 'https://static.tdesign.tencent.com/vue-next/',
 };
 
-export default async ({ mode }) => {
+export default ({ mode }) => {
   return defineConfig({
     base: publicPathMap[mode],
     resolve: resolveConfig,
