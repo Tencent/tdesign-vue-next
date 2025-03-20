@@ -23,7 +23,7 @@ export default async ({ mode }) => {
         allow: [searchForWorkspaceRoot(process.cwd())],
       },
     },
-    plugins: [...basePlugin, await tDocPlugin(), VitePWA(pwaConfig)],
+    plugins: [...basePlugin, tDocPlugin(), VitePWA(pwaConfig)],
     optimizeDeps: {
       include: ['prismjs', 'prismjs/components/prism-bash.js'],
     },

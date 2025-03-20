@@ -24,7 +24,6 @@ import staticImport from 'rollup-plugin-static-import';
 
 import pkg from 'tdesign-vue-next/package.json';
 import {
-  resolve,
   resolveWorkspaceRoot,
   resolveCommonRoot,
   resolveComponentsRoot,
@@ -44,26 +43,26 @@ const banner = `/**
  */
 `;
 
-const getInput = async () => await resolveComponentsRoot('index-lib.ts');
+const input = resolveComponentsRoot('index-lib.ts');
 
-const getInputList = async () => [
-  await resolveComponentsRoot('**/*.ts'),
-  await resolveComponentsRoot('**/*.tsx'),
-  `!${await resolveComponentsRoot('**/demos')}`,
-  `!${await resolveComponentsRoot('**/*.d.ts')}`,
-  `!${await resolveComponentsRoot('**/type.ts')}`,
-  `!${await resolveComponentsRoot('**/types.ts')}`,
-  `!${await resolveComponentsRoot('**/__tests__')}`,
+const inputList = [
+  resolveComponentsRoot('**/*.ts'),
+  resolveComponentsRoot('**/*.tsx'),
+  `!${resolveComponentsRoot('**/demos')}`,
+  `!${resolveComponentsRoot('**/*.d.ts')}`,
+  `!${resolveComponentsRoot('**/type.ts')}`,
+  `!${resolveComponentsRoot('**/types.ts')}`,
+  `!${resolveComponentsRoot('**/__tests__')}`,
 ];
 
-const getPlugins = async ({
+const getPlugins = ({
   env = '',
   isProd = false,
   ignoreLess = true,
   extractOneCss = false,
   extractMultiCss = false,
 } = {}) => {
-  const componentsRoot = await resolveComponentsRoot('');
+  const componentsRoot = resolveComponentsRoot();
 
   const plugins = [
     nodeResolve({
@@ -79,7 +78,7 @@ const getPlugins = async ({
     babel({
       babelHelpers: 'runtime',
       extensions: [...DEFAULT_EXTENSIONS, '.vue', '.ts', '.tsx'],
-      configFile: await resolveWorkspaceRoot('babel.config.js'),
+      configFile: resolveWorkspaceRoot('babel.config.js'),
     }),
     json(),
     url(),
@@ -104,18 +103,18 @@ const getPlugins = async ({
   } else if (extractMultiCss) {
     plugins.push(
       staticImport({
-        baseDir: await resolveComponentsRoot(''),
-        include: [await resolveComponentsRoot('**/style/css.mjs')],
+        baseDir: resolveComponentsRoot(''),
+        include: [resolveComponentsRoot('**/style/css.mjs')],
       }),
       ignoreImport({
-        include: [await resolveComponentsRoot('**/style/*')],
+        include: [resolveComponentsRoot('**/style/*')],
         body: 'import "./style/css.mjs";',
       }),
       copy({
         targets: [
           {
-            src: await resolveComponentsRoot('**/style/css.js'),
-            dest: await resolveTdesignVueNextRoot('es'),
+            src: resolveComponentsRoot('**/style/css.js'),
+            dest: resolveTdesignVueNextRoot('es'),
             rename: (name, extension, fullPath) => `${fullPath.replace(componentsRoot, '').slice(0, -6)}${name}.mjs`,
           },
         ],
@@ -125,21 +124,21 @@ const getPlugins = async ({
   } else if (ignoreLess) {
     plugins.push(
       ignoreImport({
-        include: [await resolveComponentsRoot('**/style/index.js')],
+        include: [resolveComponentsRoot('**/style/index.js')],
       }),
     );
   } else {
     plugins.push(
       staticImport({
-        baseDir: await resolveComponentsRoot(''),
-        include: [await resolveComponentsRoot('**/style/index.js')],
+        baseDir: resolveComponentsRoot(),
+        include: [resolveComponentsRoot('**/style/index.js')],
       }),
       staticImport({
-        baseDir: await resolveCommonRoot(''),
-        include: [await resolveCommonRoot('style/web/**/*.less')],
+        baseDir: resolveCommonRoot(),
+        include: [resolveCommonRoot('style/web/**/*.less')],
       }),
       ignoreImport({
-        include: [await resolveComponentsRoot('*/style/*')],
+        include: [resolveComponentsRoot('*/style/*')],
         body: 'import "./style/index.js";',
       }),
     );
@@ -171,12 +170,12 @@ const getPlugins = async ({
 export const buildEs = async () => {
   const buildCss = async () => {
     const bundle = await rollup({
-      input: [await resolveComponentsRoot('**/style/index.js')],
-      plugins: [multiInput({ relative: await resolveComponentsRoot('') }), styles({ mode: 'extract' }), nodeResolve()],
+      input: [resolveComponentsRoot('**/style/index.js')],
+      plugins: [multiInput({ relative: resolveComponentsRoot('') }), styles({ mode: 'extract' }), nodeResolve()],
     });
     bundle.write({
       banner,
-      dir: await resolveTdesignVueNextRoot('es/'),
+      dir: resolveTdesignVueNextRoot('es/'),
       assetFileNames: '[name].css',
     });
   };
@@ -186,25 +185,24 @@ export const buildEs = async () => {
     // lodash会使ssr无法运行,@babel\runtime affix组件报错,tinycolor2 颜色组件报错,dayjs 日期组件报错
     const exception = ['tinycolor2', 'dayjs'];
     const esExternal = esExternalDeps.concat(externalPeerDeps).filter((value) => !exception.includes(value));
-    const input = await getInputList();
     const bundle = await rollup({
-      input: input.concat(`!${await resolveComponentsRoot('index-lib.ts')}`),
+      input: inputList.concat(`!${resolveComponentsRoot('index-lib.ts')}`),
       // 为了保留 style/css.js
       treeshake: false,
       external: esExternal,
-      plugins: [multiInput({ relative: await resolveComponentsRoot('') })].concat(
+      plugins: [multiInput({ relative: resolveComponentsRoot('') })].concat(
         await getPlugins({ extractMultiCss: true }),
       ),
     });
     bundle.write({
       banner,
-      dir: await resolveTdesignVueNextRoot('es/'),
+      dir: resolveTdesignVueNextRoot('es/'),
       format: 'esm',
       sourcemap: true,
       entryFileNames: '[name].mjs',
       chunkFileNames: '_chunks/dep-[hash].mjs',
     });
-    const files = await glob(`${await resolveTdesignVueNextRoot('es/**/style/index.js')}`);
+    const files = await glob(`${resolveTdesignVueNextRoot('es/**/style/index.js')}`);
     const rewrite = files.map(async (filePath) => {
       await remove(filePath);
     });
@@ -215,19 +213,18 @@ export const buildEs = async () => {
 };
 
 export const buildEsm = async () => {
-  const input = await getInputList();
-  const commonRoot = await resolveCommonRoot('');
+  const commonRoot = resolveCommonRoot();
   const bundle = await rollup({
-    input: input.concat(`!${await resolveComponentsRoot('index-lib.ts')}`),
+    input: inputList.concat(`!${resolveComponentsRoot('index-lib.ts')}`),
     treeshake: false,
     external: externalDeps.concat(externalPeerDeps),
     plugins: [
-      multiInput({ relative: await resolveComponentsRoot('') }),
+      multiInput({ relative: resolveComponentsRoot('') }),
       copy({
         targets: [
           {
-            src: await resolveCommonRoot('style/web/**/*.less'),
-            dest: await resolveTdesignVueNextRoot('esm/common'),
+            src: resolveCommonRoot('style/web/**/*.less'),
+            dest: resolveTdesignVueNextRoot('esm/common'),
             rename: (name, extension, fullPath) => `${fullPath.replace(commonRoot, '')}`,
           },
         ],
@@ -237,7 +234,7 @@ export const buildEsm = async () => {
   });
   await bundle.write({
     banner,
-    dir: await resolveTdesignVueNextRoot('esm/'),
+    dir: resolveTdesignVueNextRoot('esm/'),
     format: 'esm',
     sourcemap: true,
     chunkFileNames: '_chunks/dep-[hash].js',
@@ -246,7 +243,7 @@ export const buildEsm = async () => {
   // 替换 @tdesign/common-style 为 tdesign-vue-next/esm/common/style
   // TODO 这个可以提取成公共函数
   // 这里稍微有点性能问题
-  const files = await glob(`${await resolveTdesignVueNextRoot('esm/**/style/*.js')}`);
+  const files = await glob(`${resolveTdesignVueNextRoot('esm/**/style/*.js')}`);
   const rewrite = files.map(async (filePath) => {
     const content = await readFile(filePath, 'utf8');
     await writeFile(filePath, content.replace(/@tdesign\/common-style/g, 'tdesign-vue-next/esm/common/style'), 'utf8');
@@ -255,15 +252,14 @@ export const buildEsm = async () => {
 };
 
 export const buildLib = async () => {
-  const input = await getInputList();
   const bundle = await rollup({
-    input,
+    input: inputList,
     external: externalDeps.concat(externalPeerDeps),
-    plugins: [multiInput({ relative: await resolveComponentsRoot('') })].concat(await getPlugins()),
+    plugins: [multiInput({ relative: resolveComponentsRoot('') })].concat(await getPlugins()),
   });
   await bundle.write({
     banner,
-    dir: await resolveTdesignVueNextRoot('lib/'),
+    dir: resolveTdesignVueNextRoot('lib/'),
     format: 'esm',
     sourcemap: true,
     chunkFileNames: '_chunks/dep-[hash].js',
@@ -273,16 +269,14 @@ export const buildLib = async () => {
 export const buildCjs = async () => {
   const cjsExternalException = ['lodash-es'];
   const cjsExternal = externalDeps.concat(externalPeerDeps).filter((value) => !cjsExternalException.includes(value));
-  const input = await getInputList();
-
   const bundle = await rollup({
-    input,
+    input: inputList,
     external: cjsExternal,
-    plugins: [multiInput({ relative: await resolveComponentsRoot('') })].concat(await getPlugins()),
+    plugins: [multiInput({ relative: resolveComponentsRoot('') })].concat(await getPlugins()),
   });
   await bundle.write({
     banner,
-    dir: await resolveTdesignVueNextRoot('cjs/'),
+    dir: resolveTdesignVueNextRoot('cjs/'),
     format: 'cjs',
     sourcemap: true,
     exports: 'named',
@@ -292,7 +286,7 @@ export const buildCjs = async () => {
 
 export const buildUmd = async (isMin = false) => {
   const bundle = await rollup({
-    input: await getInput(),
+    input,
     external: externalPeerDeps,
     plugins: isMin
       ? await getPlugins({
@@ -318,35 +312,35 @@ export const buildUmd = async (isMin = false) => {
     exports: 'named',
     globals: { vue: 'Vue' },
     sourcemap: true,
-    file: await resolveTdesignVueNextRoot(`dist/${name}${isMin ? '.min' : ''}.js`),
+    file: resolveTdesignVueNextRoot(`dist/${name}${isMin ? '.min' : ''}.js`),
   });
 };
 
 // 单独导出 reset.css 到 dist 目录，兼容旧版本样式
 export const buildResetCss = async () => {
   const bundle = await rollup({
-    input: await resolveCommonRoot('style/web/_reset.less'),
+    input: resolveCommonRoot('style/web/_reset.less'),
     plugins: [postcss({ extract: true })],
   });
   await bundle.write({
-    file: await resolveTdesignVueNextRoot('dist/reset.css'),
+    file: resolveTdesignVueNextRoot('dist/reset.css'),
   });
 };
 
 // 单独导出 plugin 相关组件的样式，支持修改前缀的但因为上下文暂时无法获取的情况使用
 export const buildPluginCss = async () => {
   const bundle = await rollup({
-    input: await resolveCommonRoot('style/web/_plugin.less'),
+    input: resolveCommonRoot('style/web/_plugin.less'),
     plugins: [postcss({ extract: true })],
   });
   await bundle.write({
-    file: await resolveTdesignVueNextRoot('dist/plugin.css'),
+    file: resolveTdesignVueNextRoot('dist/plugin.css'),
   });
 };
 
 export const deleteOutput = async () => {
   const removes = ['es', 'esm', 'lib', 'cjs', 'dist'].map(
-    async (filePath) => await remove(await resolveTdesignVueNextRoot(filePath)),
+    async (filePath) => await remove(resolveTdesignVueNextRoot(filePath)),
   );
   await Promise.all(removes);
 };
