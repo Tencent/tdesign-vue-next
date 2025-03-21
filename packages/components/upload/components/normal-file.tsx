@@ -12,7 +12,7 @@ import { useTNodeJSX } from '../../hooks/tnode';
 import { UploadFile } from '../type';
 import { abridgeName } from '@tdesign/common-js/upload/utils';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';
-import { CommonDisplayFileProps } from '../interface';
+import { CommonDisplayFileProps } from '../types';
 import { commonProps } from '../constants';
 import { UploadConfig } from '../../config-provider';
 
