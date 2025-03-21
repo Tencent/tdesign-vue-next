@@ -1,7 +1,7 @@
 import { defineComponent, PropType, toRefs } from 'vue';
 import useDrag, { UploadDragEvents } from '../hooks/useDrag';
 import { CommonDisplayFileProps } from '../types';
-import { commonProps } from '../constants';
+import { commonProps } from '../consts';
 import { useContent } from '../../hooks/tnode';
 import { TdUploadProps } from '../type';
 

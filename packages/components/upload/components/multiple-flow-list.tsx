@@ -17,7 +17,7 @@ import { isObject } from 'lodash-es';
 import useGlobalIcon from '../../hooks/useGlobalIcon';
 import ImageViewer, { ImageViewerProps } from '../../image-viewer';
 import { CommonDisplayFileProps } from '../types';
-import { commonProps } from '../constants';
+import { commonProps } from '../consts';
 import TButton from '../../button';
 import { UploadFile, TdUploadProps } from '../type';
 import useDrag, { UploadDragEvents } from '../hooks/useDrag';

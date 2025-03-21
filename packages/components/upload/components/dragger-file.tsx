@@ -7,7 +7,7 @@ import { abridgeName, getFileSizeText } from '@tdesign/common-js/upload/utils';
 import { TdUploadProps, UploadFile } from '../type';
 import Button from '../../button';
 import { CommonDisplayFileProps } from '../types';
-import { commonProps } from '../constants';
+import { commonProps } from '../consts';
 import useCommonClassName from '../../hooks/useCommonClassName';
 import TLoading from '../../loading';
 import useDrag, { UploadDragEvents } from '../hooks/useDrag';

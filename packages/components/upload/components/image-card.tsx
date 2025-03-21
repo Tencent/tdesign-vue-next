@@ -9,7 +9,7 @@ import Loading from '../../loading';
 import useGlobalIcon from '../../hooks/useGlobalIcon';
 import ImageViewer, { ImageViewerProps } from '../../image-viewer';
 import { CommonDisplayFileProps } from '../types';
-import { commonProps } from '../constants';
+import { commonProps } from '../consts';
 import { TdUploadProps, UploadFile } from '../type';
 import { abridgeName } from '@tdesign/common-js/upload/utils';
 import { UploadConfig } from '../../config-provider';
