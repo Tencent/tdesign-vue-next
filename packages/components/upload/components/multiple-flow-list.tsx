@@ -51,7 +51,6 @@ export interface ImageFlowListProps extends CommonDisplayFileProps {
 
 export default defineComponent({
   name: 'UploadMultipleFlowList',
-
   props: {
     ...commonProps,
     showThumbnail: Boolean,
@@ -66,7 +65,6 @@ export default defineComponent({
     cancelUploadButton: Object as PropType<ImageFlowListProps['cancelUploadButton']>,
     onPreview: Function as PropType<ImageFlowListProps['onPreview']>,
   },
-
   setup(props, { slots }) {
     // locale 已经在 useUpload 中统一处理优先级
     const { uploading, disabled, displayFiles, classPrefix, accept } = toRefs(props);

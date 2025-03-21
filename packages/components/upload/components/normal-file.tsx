@@ -22,12 +22,10 @@ export interface NormalFileProps extends CommonDisplayFileProps {
 
 const NormalFile = defineComponent({
   name: 'UploadNormalFile',
-
   props: {
     multiple: Boolean,
     ...commonProps,
   },
-
   setup(props, { slots }) {
     const { theme, disabled, classPrefix } = toRefs(props);
 

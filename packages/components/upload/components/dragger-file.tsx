@@ -27,7 +27,6 @@ export interface DraggerProps extends CommonDisplayFileProps {
 
 export default defineComponent({
   name: 'UploadDraggerFile',
-
   props: {
     ...commonProps,
     trigger: Function as PropType<DraggerProps['trigger']>,
@@ -36,7 +35,6 @@ export default defineComponent({
     cancelUpload: Function as PropType<DraggerProps['cancelUpload']>,
     dragEvents: Object as PropType<DraggerProps['dragEvents']>,
   },
-
   setup(props, { slots }) {
     const { displayFiles, disabled, accept } = toRefs(props);
     const locale = computed(() => props.locale as UploadConfig);

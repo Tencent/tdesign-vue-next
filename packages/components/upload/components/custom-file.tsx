@@ -17,7 +17,6 @@ export interface CustomFileProps extends CommonDisplayFileProps {
 
 export default defineComponent({
   name: 'UploadCustomFile',
-
   props: {
     ...commonProps,
     dragEvents: Object as PropType<CustomFileProps['dragEvents']>,
@@ -28,7 +27,6 @@ export default defineComponent({
     triggerUpload: Function as PropType<CustomFileProps['triggerUpload']>,
     childrenNode: [String, Function] as PropType<CustomFileProps['childrenNode']>,
   },
-
   setup(props, { slots }) {
     const { classPrefix, displayFiles, accept } = toRefs(props);
     const drag = useDrag(props.dragEvents, accept);

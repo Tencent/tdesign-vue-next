@@ -30,7 +30,6 @@ export interface ImageCardUploadProps extends CommonDisplayFileProps {
 
 export default defineComponent({
   name: 'UploadImageCard',
-
   props: {
     ...commonProps,
     multiple: Boolean,
@@ -43,7 +42,6 @@ export default defineComponent({
     onPreview: Function as PropType<ImageCardUploadProps['onPreview']>,
     showImageFileName: Boolean,
   },
-
   setup(props) {
     const { displayFiles, classPrefix, multiple, max } = toRefs(props);
     const locale = computed(() => props.locale as UploadConfig);
