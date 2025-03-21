@@ -43,7 +43,7 @@ exports[`BackTop Component > props.shape is equal to circle 1`] = `
     width="1em"
   >
     <path
-      d="M4 4h16v2H4V4zm8 3.59l6.91 6.91-1.41 1.41-4.5-4.5V21h-2v-9.59l-4.5 4.5-1.41-1.41L12 7.59z"
+      d="M4 4H20V6H4V4ZM12 7.58579L18.9142 14.5L17.5 15.9142L13 11.4142V21H11V11.4142L6.5 15.9142L5.08579 14.5L12 7.58579Z"
       fill="currentColor"
     />
   </svg>
@@ -71,7 +71,7 @@ exports[`BackTop Component > props.shape is equal to square 1`] = `
     width="1em"
   >
     <path
-      d="M4 4h16v2H4V4zm8 3.59l6.91 6.91-1.41 1.41-4.5-4.5V21h-2v-9.59l-4.5 4.5-1.41-1.41L12 7.59z"
+      d="M4 4H20V6H4V4ZM12 7.58579L18.9142 14.5L17.5 15.9142L13 11.4142V21H11V11.4142L6.5 15.9142L5.08579 14.5L12 7.58579Z"
       fill="currentColor"
     />
   </svg>

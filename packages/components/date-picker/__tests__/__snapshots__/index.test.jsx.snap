@@ -39,7 +39,7 @@ exports[`DatePicker > :mode 1`] = `
             width="1em"
           >
             <path
-              d="M6 4V1.5h2V4h8V1.5h2V4h4v18H2V4h4zM4 6v3h16V6H4zm16 5H4v9h16v-9z"
+              d="M6 4V1.5H8V4H16V1.5H18V4H22V22H2V4H6ZM4 6V9H20V6H4ZM20 11H4V20H20V11Z"
               fill="currentColor"
             />
           </svg>
@@ -134,7 +134,7 @@ exports[`DatePicker > :range 1`] = `
             width="1em"
           >
             <path
-              d="M6 4V1.5h2V4h8V1.5h2V4h4v18H2V4h4zM4 6v3h16V6H4zm16 5H4v9h16v-9z"
+              d="M6 4V1.5H8V4H16V1.5H18V4H22V22H2V4H6ZM4 6V9H20V6H4ZM20 11H4V20H20V11Z"
               fill="currentColor"
             />
           </svg>
@@ -188,7 +188,7 @@ exports[`DatePicker > :value 1`] = `
             width="1em"
           >
             <path
-              d="M6 4V1.5h2V4h8V1.5h2V4h4v18H2V4h4zM4 6v3h16V6H4zm16 5H4v9h16v-9z"
+              d="M6 4V1.5H8V4H16V1.5H18V4H22V22H2V4H6ZM4 6V9H20V6H4ZM20 11H4V20H20V11Z"
               fill="currentColor"
             />
           </svg>
