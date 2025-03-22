@@ -1,7 +1,7 @@
 {
   "name": "tdesign-vue-mono",
   "private": true,
-  "packageManager": "pnpm@9.5.0",
+  "packageManager": "pnpm@9.15.9",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Tencent/tdesign-vue-next.git"
@@ -47,8 +47,8 @@
     "@tdesign/common-js": "workspace:^",
     "@tdesign/common-style": "workspace:^",
     "@tdesign/components": "workspace:^",
-    "@tdesign/internal-utils": "workspace:^",
     "@tdesign/internal-tests": "workspace:^",
+    "@tdesign/internal-utils": "workspace:^",
     "@types/sortablejs": "^1.15.1",
     "@types/tinycolor2": "^1.4.3",
     "@types/validator": "^13.7.17",
@@ -56,7 +56,7 @@
     "lodash-es": "^4.17.21",
     "mitt": "^3.0.1",
     "sortablejs": "^1.15.0",
-    "tdesign-icons-vue-next": "^0.3.4",
+    "tdesign-icons-vue-next": "^0.3.5",
     "tdesign-vue-next": "workspace:^",
     "tinycolor2": "^1.6.0",
     "validator": "^13.9.0"
