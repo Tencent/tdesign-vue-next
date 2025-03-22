@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    /* Language and Environment */
+    "target": "esnext",
+    
+    /* Modules */
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "rootDir": ".",
+    "baseUrl": "./",
+    "resolveJsonModule": true,
+
+    /* JavaScript Support */
+    "allowJs": true,
+
+    /* Emit */
+    "outDir": "lib",
+    "removeComments": false,
+
+    /* Interop Constraints */
+    "isolatedModules": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+
+    /* Type Checking */
+    // TODO: 待开启
+    // "strict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": false,
+
+    /* Completeness */
+    "skipLibCheck": true,
+  }
+}
