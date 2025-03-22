@@ -1,24 +1,24 @@
 import { defineComponent, onMounted, onUnmounted, inject } from 'vue';
 import props from './aside-props';
-import { LayoutProvideType } from './layout';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
+import { LayoutInjectionKey } from './consts';
 
 export default defineComponent({
   name: 'TAside',
   props,
   setup(props) {
-    const { hasSide } = inject<LayoutProvideType>('layout', Object.create(null));
+    const { hasSide, setHasSide } = inject(LayoutInjectionKey, undefined);
     const COMPONENT_NAME = usePrefixClass('layout__sider');
     const renderTNodeJSX = useTNodeJSX();
     if (!hasSide) return;
 
     onMounted(() => {
-      hasSide.value = true;
+      setHasSide(true);
     });
 
     onUnmounted(() => {
-      hasSide.value = false;
+      setHasSide(false);
     });
 
     return () => {
