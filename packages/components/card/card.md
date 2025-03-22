@@ -1,6 +1,7 @@
 :: BASE_DOC ::
 
 ## API
+
 ### Card Props
 
 名称 | 类型 | 默认值 | 说明 | 必传
@@ -9,7 +10,7 @@ actions | String / Slot / Function | - | 卡片操作区。TS 类型：`string \
 avatar | String / Slot / Function | - | 卡片中的用户头像，仅在海报风格的卡片中有效。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 bordered | Boolean | true | 是否有边框 | N
 content | String / Slot / Function | - | 卡片内容。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
-cover | String / Slot / Function | - | 卡片封面图。值类型为字符串，会自动使用 `img` 标签输出封面图；也可以完全最定义封面图。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
+cover | String / Slot / Function | - | 卡片封面图。值类型为字符串，会自动使用 `img` 标签输出封面图；也可以完全自定义封面图。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 default | String / Slot / Function | - | 卡片内容，同 content。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 description | String / Slot / Function | - | 卡片描述文案。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 footer | String / Slot / Function | - | 卡片底部内容，可完全自定义。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
