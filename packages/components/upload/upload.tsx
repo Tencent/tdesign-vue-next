@@ -1,13 +1,13 @@
 import { computed, defineComponent } from 'vue';
 import { UploadIcon as TdUploadIcon } from 'tdesign-icons-vue-next';
 import props from './props';
-import NormalFile from './themes/normal-file';
-import DraggerFile from './themes/dragger-file';
-import ImageCard from './themes/image-card';
-import MultipleFlowList from './themes/multiple-flow-list';
+import NormalFile from './components/normal-file';
+import DraggerFile from './components/dragger-file';
+import ImageCard from './components/image-card';
+import MultipleFlowList from './components/multiple-flow-list';
 import Button from '../button';
-import { CommonDisplayFileProps, UploadProps } from './interface';
-import CustomFile from './themes/custom-file';
+import { CommonDisplayFileProps, UploadProps } from './types';
+import CustomFile from './components/custom-file';
 
 import { UploadDragEvents } from './hooks/useDrag';
 import useUpload from './hooks/useUpload';
@@ -17,9 +17,7 @@ import { useGlobalIcon } from '../hooks/useGlobalIcon';
 
 export default defineComponent({
   name: 'TUpload',
-
   props,
-
   setup(props: UploadProps, { slots, expose }) {
     const renderContent = useContent();
     const renderTNodeJSX = useTNodeJSX();
