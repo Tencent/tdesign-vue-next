@@ -14,7 +14,7 @@
     "node": ">= 18"
   },
   "scripts": {
-    "pnpm:devPreinstall": "if [ \"$CI\" != \"true\" ]; then pnpm run init; fi",
+    "pnpm:devPreinstall": "node script/preinstall.js",
     "postinstall": "husky install && pnpm -C internal/utils prebuild",
     "init": "git submodule init && git submodule update",
     "start": "pnpm dev",
