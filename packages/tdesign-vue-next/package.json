@@ -1,6 +1,6 @@
 {
   "name": "tdesign-vue-next",
-  "version": "1.10.7",
+  "version": "1.11.4",
   "title": "tdesign-vue-next",
   "description": "TDesign Component for vue-next",
   "keywords": [
@@ -49,15 +49,6 @@
   "engines": {
     "node": ">= 18"
   },
-  "scripts": {
-    "prebuild": "rimraf es/* esm/* lib/* cjs/* dist/* --glob",
-    "build": "pnpm -w build",
-    "build:tsc": "pnpm -w build:tsc",
-    "build:tsc-es": "pnpm -w build:tsc-es",
-    "build:tsc-esm": "pnpm -w build:tsc-esm",
-    "build:tsc-lib": "pnpm -w build:tsc-lib",
-    "build:tsc-cjs": "pnpm -w build:tsc-cjs"
-  },
   "author": "tdesign",
   "license": "MIT",
   "dependencies": {
@@ -71,7 +62,7 @@
     "lodash-es": "^4.17.21",
     "mitt": "^3.0.1",
     "sortablejs": "^1.15.0",
-    "tdesign-icons-vue-next": "^0.3.4",
+    "tdesign-icons-vue-next": "^0.3.5",
     "tinycolor2": "^1.6.0",
     "validator": "^13.9.0"
   },

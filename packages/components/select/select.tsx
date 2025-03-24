@@ -21,9 +21,10 @@ import { getSingleContent, getMultipleContent } from './utils';
 import { selectInjectKey } from './consts';
 import { useSelectOptions, useKeyboardControl } from './hooks';
 import type { PopupProps, PopupVisibleChangeContext } from '../popup';
-import type { SelectInputValueChangeContext } from '../select-input';
+import type { SelectInputChangeContext, SelectInputValueChangeContext } from '../select-input';
 import type { TdSelectProps, SelectValue } from './type';
-import { SelectInputValueDisplayOptions } from '../select-input/useSingle';
+import { SelectInputValueDisplayOptions } from '../select-input/hooks/useSingle';
+import { TagInputTriggerSource } from '../tag-input';
 
 export default defineComponent({
   name: 'TSelect',
@@ -58,7 +59,11 @@ export default defineComponent({
       value: props.keys?.value || 'value',
       disabled: props.keys?.disabled || 'disabled',
     }));
-    const { optionsMap, optionsList, optionsCache, displayOptions } = useSelectOptions(props, keys, innerInputValue);
+    const { optionsMap, optionsList, optionsCache, displayOptions, filterMethods } = useSelectOptions(
+      props,
+      keys,
+      innerInputValue,
+    );
 
     // 内部数据,格式化过的
     const innerValue = computed(() => {
@@ -158,12 +163,23 @@ export default defineComponent({
     });
 
     // 移除tag
-    const removeTag = (index: number, e?: MouseEvent) => {
+    const removeTag = (index: number, context?: SelectInputChangeContext) => {
+      const { e, trigger = 'tag-remove' } =
+        (context as SelectInputChangeContext & {
+          trigger: Exclude<TagInputTriggerSource, 'enter'>;
+        }) || {};
+
       e && e.stopPropagation();
+
       const selectValue = cloneDeep(innerValue.value) as SelectValue[];
       const value = selectValue[index];
+
       selectValue.splice(index, 1);
-      setInnerValue(selectValue, { selectedOptions: getSelectedOptions(selectValue), trigger: 'tag-remove', e });
+
+      if (trigger !== 'clear') {
+        setInnerValue(selectValue, { selectedOptions: getSelectedOptions(selectValue), trigger, e });
+      }
+
       props.onRemove?.({
         value: value as string | number,
         data: optionsMap.value.get(value),
@@ -182,12 +198,17 @@ export default defineComponent({
 
     /**
      * 可选选项的列表
-     * 排除已禁用和全选的选项
+     * 排除已禁用和全选的选项，考虑过滤情况
      */
     const optionalList = computed(() =>
       optionsList.value.filter((item) => {
-        // @ts-ignore types only declare checkAll not declare check-all
-        return !item.disabled && !item['check-all'] && !item.checkAll;
+        return (
+          !item.disabled &&
+          // @ts-ignore types only declare checkAll not declare check-all
+          !item['check-all'] &&
+          !item.checkAll &&
+          filterMethods(item)
+        );
       }),
     );
 
@@ -220,14 +241,26 @@ export default defineComponent({
      * 根据 checked 的值计算最终选中的值：
      *    - 如果 checked 为 true，则选中所有非 disabled 选项，并保留已选中的 disabled 选项。
      *    - 如果 checked 为 false，则只保留已选中的 disabled 选项。
+     *    - 过滤条件下，如果 checked 为 true，则选中所有非 disabled 选项，并保留已选中的选项。
+     *    - 过滤条件下，如果 checked 为 false，则只保留已选中的 disabled 选项。
      */
     const onCheckAllChange = (checked: boolean) => {
       if (!props.multiple) return;
+      const { value } = keys.value;
+      // disabled状态的选项，不参与全选的计算，始终保留
       const lockedValues = innerValue.value.filter((value: string | number | boolean) => {
         return optionsList.value.find((item) => item.value === value && item.disabled);
       });
+
       const activeValues = optionalList.value.map((option) => option.value);
-      const values = checked ? [...new Set([...activeValues, ...lockedValues])] : [...lockedValues];
+      const formattedOrgValue =
+        props.valueType === 'object'
+          ? (orgValue.value as Array<SelectValue>).map((v) => get(v, value))
+          : orgValue.value;
+
+      const values = checked
+        ? [...new Set([...(formattedOrgValue as Array<SelectValue>), ...activeValues, ...lockedValues])]
+        : [...lockedValues];
       setInnerValue(values, { selectedOptions: getSelectedOptions(values), trigger: checked ? 'check' : 'clear' });
     };
 
@@ -416,7 +449,7 @@ export default defineComponent({
               ...(props.tagInputProps as TdSelectProps['tagInputProps']),
             }}
             onTagChange={(val, ctx) => {
-              removeTag(ctx.index);
+              removeTag(ctx.index, ctx);
             }}
             tagProps={{ ...(props.tagProps as TdSelectProps['tagProps']) }}
             popupProps={{

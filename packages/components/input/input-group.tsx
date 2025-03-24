@@ -5,9 +5,7 @@ import inputGroupProps from './input-group-props';
 
 export default defineComponent({
   name: 'TInputGroup',
-
   props: inputGroupProps,
-
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('input-group');
     const renderTNodeJSX = useTNodeJSX();

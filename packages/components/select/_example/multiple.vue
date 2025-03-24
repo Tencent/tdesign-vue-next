@@ -6,6 +6,7 @@
       :options="options1"
       placeholder="请选择云解决方案"
       multiple
+      filterable
       @focus="onFocus"
       @blur="onBlur"
     />

@@ -2,9 +2,8 @@ import { computed, defineComponent, onBeforeUnmount, onMounted, PropType, ref, S
 import Popup, { PopupInstanceFunctions, PopupProps, PopupVisibleChangeContext } from '../popup';
 import props from './props';
 import { TdSelectInputProps } from './type';
-import useSingle, { SelectInputValueDisplayOptions } from './useSingle';
-import useMultiple from './useMultiple';
-import useOverlayInnerStyle from './useOverlayInnerStyle';
+import { useMultiple, useSingle, useOverlayInnerStyle } from './hooks';
+import type { SelectInputValueDisplayOptions } from './hooks';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks';
 
@@ -20,7 +19,6 @@ const useComponentClassName = () => {
 
 export default defineComponent({
   name: 'TSelectInput',
-
   props: {
     ...props,
     /**
@@ -42,7 +40,7 @@ export default defineComponent({
 
     const selectInputRef = ref();
     const popupRef = ref<PopupInstanceFunctions>();
-    const { multiple, value, popupVisible, borderless } = toRefs(props);
+    const { multiple, value, popupVisible, borderless, popupProps, panel, allowInput, status } = toRefs(props);
 
     const { tOverlayInnerStyle, innerPopupVisible, onInnerPopupVisibleChange } = useOverlayInnerStyle(props);
 
@@ -93,71 +91,59 @@ export default defineComponent({
       ctx.e?.stopPropagation();
       // do not set focus if target can be focused
       if ((ctx.e.target as HTMLElement).tabIndex >= 0) return;
-      if (props.multiple) tagInputRef.value?.focus();
+      if (props.multiple) tagInputRef.value?.focus?.();
     };
 
-    return {
-      classPrefix,
-      NAME_CLASS,
-      innerPopupVisible,
-      commonInputProps,
-      tOverlayInnerStyle,
-      selectInputRef,
+    context.expose({
       popupRef,
-      classes,
-      onInnerClear,
-      renderTNodeJSX,
-      renderSelectSingle,
-      renderSelectMultiple,
-      onOverlayClick,
-      onInnerPopupVisibleChange,
+      allowInput,
+    });
+
+    return () => {
+      // 浮层显示的受控与非受控
+      const visibleProps = { visible: popupVisible.value ?? innerPopupVisible.value };
+
+      const mainContent = (
+        <Popup
+          ref={popupRef}
+          trigger={popupProps.value?.trigger || 'click'}
+          placement="bottom-left"
+          {...visibleProps}
+          content={panel.value}
+          v-slots={{ ...context.slots, content: context.slots.panel }}
+          hideEmptyPopup={true}
+          {...{
+            onVisibleChange: onInnerPopupVisibleChange,
+            onOverlayClick: onOverlayClick,
+            ...popupProps.value,
+            overlayInnerStyle: tOverlayInnerStyle.value,
+          }}
+        >
+          {multiple.value
+            ? renderSelectMultiple({
+                commonInputProps: commonInputProps.value,
+                onInnerClear: onInnerClear,
+                popupVisible: visibleProps.visible,
+                allowInput: allowInput.value,
+              })
+            : renderSelectSingle(visibleProps.visible)}
+        </Popup>
+      );
+
+      const tipsNode = renderTNodeJSX('tips');
+
+      const tipsClasses = [
+        `${classPrefix.value}-input__tips`,
+        `${classPrefix.value}-tips`,
+        `${classPrefix.value}-is-${status.value}`,
+      ];
+
+      return (
+        <div ref={selectInputRef} class={classes.value}>
+          {mainContent}
+          {tipsNode && <div class={tipsClasses}>{tipsNode}</div>}
+        </div>
+      );
     };
-  },
-
-  render() {
-    // 浮层显示的受控与非受控
-    const visibleProps = { visible: this.popupVisible ?? this.innerPopupVisible };
-
-    const mainContent = (
-      <Popup
-        ref="popupRef"
-        trigger={(this.popupProps as TdSelectInputProps['popupProps'])?.trigger || 'click'}
-        placement="bottom-left"
-        {...visibleProps}
-        content={this.panel}
-        v-slots={{ ...this.$slots, content: this.$slots.panel }}
-        hideEmptyPopup={true}
-        {...{
-          onVisibleChange: this.onInnerPopupVisibleChange,
-          onOverlayClick: this.onOverlayClick,
-          ...(this.popupProps as TdSelectInputProps['popupProps']),
-          overlayInnerStyle: this.tOverlayInnerStyle,
-        }}
-      >
-        {this.multiple
-          ? this.renderSelectMultiple({
-              commonInputProps: this.commonInputProps,
-              onInnerClear: this.onInnerClear,
-              popupVisible: visibleProps.visible,
-              allowInput: this.allowInput,
-            })
-          : this.renderSelectSingle(visibleProps.visible)}
-      </Popup>
-    );
-
-    const tipsNode = this.renderTNodeJSX('tips');
-
-    const tipsClasses = [
-      `${this.classPrefix}-input__tips`,
-      `${this.classPrefix}-tips`,
-      `${this.classPrefix}-is-${this.status}`,
-    ];
-
-    return (
-      <div ref="selectInputRef" class={this.classes}>
-        {mainContent}
-        {tipsNode && <div class={tipsClasses}>{tipsNode}</div>}
-      </div>
-    );
   },
 });

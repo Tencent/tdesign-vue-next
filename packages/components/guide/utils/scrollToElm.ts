@@ -1,6 +1,6 @@
 import { getWindowSize, elementInViewport, scrollTo } from '../../utils/dom';
 
-export default function scrollToElm(elm: HTMLElement) {
+export function scrollToElm(elm: HTMLElement) {
   const rect = elm.getBoundingClientRect();
 
   if (!elementInViewport(elm)) {

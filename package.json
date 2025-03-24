@@ -1,7 +1,7 @@
 {
   "name": "tdesign-vue-mono",
   "private": true,
-  "packageManager": "pnpm@9.5.0",
+  "packageManager": "pnpm@9.15.9",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Tencent/tdesign-vue-next.git"
@@ -14,8 +14,8 @@
     "node": ">= 18"
   },
   "scripts": {
-    "pnpm:devPreinstall": "pnpm run init",
-    "postinstall": "husky install && pnpm -C internal/utils build",
+    "pnpm:devPreinstall": "node script/pnpm-dev-preinstall.js",
+    "postinstall": "husky install && pnpm -C internal/utils prebuild",
     "init": "git submodule init && git submodule update",
     "start": "pnpm dev",
     "dev": "pnpm -C packages/tdesign-vue-next/site dev",
@@ -25,12 +25,7 @@
     "generate:usage": "node script/generate-usage/index.js",
     "generate:component": "node script/init/index.js",
     "generate:coverage-badge": "pnpm test:unit-coverage && tsx script/test/generate-coverage.js",
-    "build": "cross-env NODE_ENV=production rollup -c script/rollup.config.js && pnpm build:tsc",
-    "build:tsc": "run-p build:tsc-*",
-    "build:tsc-es": "tsc --outDir packages/tdesign-vue-next/es/ -p tsconfig.components.json",
-    "build:tsc-esm": "tsc --outDir packages/tdesign-vue-next/esm/ -p tsconfig.components.json",
-    "build:tsc-lib": "tsc --outDir packages/tdesign-vue-next/lib/ -p tsconfig.components.json",
-    "build:tsc-cjs": "tsc --outDir packages/tdesign-vue-next/cjs/ -p tsconfig.components.json",
+    "build": "pnpm -C internal/builds build:vue-next",
     "lint:fix": "eslint --ext .vue,.js,.ts,.tsx ./packages --max-warnings 0 --fix --cache",
     "lint": "pnpm lint:tsc && eslint --ext .vue,.js,.ts,.tsx ./packages --max-warnings 0 --cache",
     "lint:tsc": "tsc --noEmit",
@@ -52,8 +47,8 @@
     "@tdesign/common-js": "workspace:^",
     "@tdesign/common-style": "workspace:^",
     "@tdesign/components": "workspace:^",
-    "@tdesign/internal-utils": "workspace:^",
     "@tdesign/internal-tests": "workspace:^",
+    "@tdesign/internal-utils": "workspace:^",
     "@types/sortablejs": "^1.15.1",
     "@types/tinycolor2": "^1.4.3",
     "@types/validator": "^13.7.17",
@@ -61,7 +56,7 @@
     "lodash-es": "^4.17.21",
     "mitt": "^3.0.1",
     "sortablejs": "^1.15.0",
-    "tdesign-icons-vue-next": "^0.3.4",
+    "tdesign-icons-vue-next": "^0.3.5",
     "tdesign-vue-next": "workspace:^",
     "tinycolor2": "^1.6.0",
     "validator": "^13.9.0"
@@ -105,7 +100,6 @@
     "clipboard": "^2.0.11",
     "codesandbox": "^2.2.3",
     "cross-env": "^7.0.3",
-    "cypress": "^12.17.2",
     "cz-git": "^1.7.0",
     "czg": "^1.7.0",
     "dom-parser": "^1.1.5",
