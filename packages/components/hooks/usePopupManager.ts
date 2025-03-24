@@ -2,6 +2,7 @@
 import { onMounted, onBeforeUnmount, readonly, Ref, ref, watch } from 'vue';
 export type PopupType = 'popup' | 'dialog' | 'message' | 'drawer';
 
+const popupStackType = ['dialog', 'drawer'];
 const POPUP_BASE_Z_INDEX = 1000;
 const MESSAGE_BASE_Z_INDEX = 5000;
 const Z_INDEX_STEP = 1;
@@ -27,7 +28,7 @@ class PopupManager {
   public add = (type: PopupType) => {
     const zIndex = this.getNextZIndex(type);
     this.popupStack[type].add(zIndex);
-    if (type === 'dialog' || type === 'drawer') {
+    if (popupStackType.includes(type)) {
       this.popupStack.popup.add(zIndex);
     }
     this.zIndexStack.push(zIndex);
@@ -36,7 +37,7 @@ class PopupManager {
 
   public delete = (zIndex: number, type: PopupType) => {
     this.popupStack[type].delete(zIndex);
-    if (type === 'dialog' || type === 'drawer') {
+    if (popupStackType.includes(type)) {
       this.popupStack.popup.delete(zIndex);
     }
     const index = this.zIndexStack.indexOf(zIndex);
@@ -46,7 +47,7 @@ class PopupManager {
   };
 
   public isLastDialogOrDrawer = (popupType: PopupType, zIndex: number) => {
-    if (popupType === 'drawer' || popupType === 'dialog') {
+    if (popupStackType.includes(popupType)) {
       const lastZIndex = this.zIndexStack[this.zIndexStack.length - 1];
       return zIndex === lastZIndex;
     }
@@ -86,7 +87,7 @@ export default function usePopupManager(
   };
 
   const isLastDialogOrDrawer = () => {
-    if (type === 'dialog' || type === 'drawer') {
+    if (popupStackType.includes(type)) {
       return popupManager.isLastDialogOrDrawer(type, zIndex.value);
     }
     return false;
