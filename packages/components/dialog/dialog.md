@@ -22,13 +22,13 @@
 
 组件实例指的是 `DialogInstance = this.$dialog(options)` 或者 `DialogInstance = DialogPlugin(options)`。
 
-- 销毁弹框：`DialogInstance.destroy()`
+- 销毁对话框：`DialogInstance.destroy()`
 
-- 隐藏弹框：`DialogInstance.hide()`
+- 隐藏对话框：`DialogInstance.hide()`
 
-- 显示弹框：`DialogInstance.show()`
+- 显示对话框：`DialogInstance.show()`
 
-- 更新弹框：`DialogInstance.update()`
+- 更新对话框：`DialogInstance.update()`
 
 注意在以下使用示例中，有多处并未销毁 DOM 元素。在实际应用中，需要考虑销毁 DOM 元素，否则当用户重复点击、创建插件或函数调用的实例后，会产生大量 DOM 元素、容易造成内存泄漏。
 
@@ -92,8 +92,8 @@ confirmBtn | String / Object / Slot / Function | - | 确认按钮。值为 null 
 confirmLoading | Boolean | undefined | 确认按钮加载状态 | N
 confirmOnEnter | Boolean | - | 是否在按下回车键时，触发确认事件 | N
 default | String / Slot / Function | - | 对话框内容，同 body。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
-destroyOnClose | Boolean | false | 是否在关闭弹框的时候销毁子元素 | N
-dialogClassName | String | - | 弹框元素类名，示例：'t-class-dialog-first t-class-dialog-second' | N
+destroyOnClose | Boolean | false | 是否在关闭对话框的时候销毁子元素 | N
+dialogClassName | String | - | 对话框元素类名，示例：'t-class-dialog-first t-class-dialog-second' | N
 dialogStyle | Object | - | 作用于对话框本身的样式。TS 类型：`Styles`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 draggable | Boolean | false | 对话框是否可以拖拽（仅在非模态对话框时有效） | N
 footer | Boolean / Slot / Function | true | 底部操作栏，默认会有“确认”和“取消”两个按钮。值为 true 显示默认操作按钮，值为 false 不显示任何内容，值类型为 Function 表示自定义底部内容。TS 类型：`boolean \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
@@ -104,7 +104,7 @@ preventScrollThrough | Boolean | true | 防止滚动穿透 | N
 showInAttachedElement | Boolean | false | 仅在挂载元素中显示抽屉，默认在浏览器可视区域显示。父元素需要有定位属性，如：position: relative | N
 showOverlay | Boolean | true | 是否显示遮罩层 | N
 theme | String | default | 对话框风格。可选项：default/info/warning/danger/success | N
-top | String / Number | - | 用于弹框具体窗口顶部的距离，优先级大于 placement | N
+top | String / Number | - | 用于对话框具体窗口顶部的距离，优先级大于 placement | N
 visible | Boolean | - | 控制对话框是否显示 | N
 width | String / Number | - | 对话框宽度，示例：320, '500px', '80%' | N
 zIndex | Number | - | 对话框层级，Web 侧样式默认为 2500，移动端和小程序样式默认为 1500 | N
@@ -139,19 +139,19 @@ overlay-click | `(context: { e: MouseEvent })` | 如果蒙层存在，点击蒙�
 名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
 attach | String / Function | 'body' | 对话框挂载的节点。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body。TS 类型：`AttachNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
-className | String | - | 弹框类名，示例：'t-class-dialog-first t-class-dialog-second' | N
-style | String / Object | - | 弹框 style 属性，输入 [CSSStyleDeclaration.cssText](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration/cssText)。TS 类型：`string \| Styles`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
+className | String | - | 对话框类名，示例：'t-class-dialog-first t-class-dialog-second' | N
+style | String / Object | - | 对话框 style 属性，输入 [CSSStyleDeclaration.cssText](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration/cssText)。TS 类型：`string \| Styles`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 `Omit<DialogProps, 'attach'>` | \- | - | 继承 `Omit<DialogProps, 'attach'>` 中的全部属性 | N
 
 ### DialogInstance
 
 名称 | 参数 | 返回值 | 描述
 -- | -- | -- | --
-destroy | \- | \- | 必需。销毁弹框
-hide | \- | \- | 必需。隐藏弹框
+destroy | \- | \- | 必需。销毁对话框
+hide | \- | \- | 必需。隐藏对话框
 setConfirmLoading | `(loading: boolean)` | \- | 必需。设置确认按钮加载状态
-show | \- | \- | 必需。显示弹框
-update | `(props: DialogOptions)` | \- | 必需。更新弹框内容
+show | \- | \- | 必需。显示对话框
+update | `(props: DialogOptions)` | \- | 必需。更新对话框内容
 
 ### DialogPlugin
 
