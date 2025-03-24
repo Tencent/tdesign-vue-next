@@ -47,44 +47,38 @@ export default defineComponent({
       props.onModeChange(v);
     };
 
-    return {
-      formatModel,
-      baseClassName,
-      handleModeChange,
-    };
-  },
-  render() {
-    const { baseClassName, handleModeChange } = this;
-    const newProps = {
-      ...this.$props,
-      format: this.formatModel,
-    };
-    const selectInputProps = {
-      ...((this.selectInputProps as Object) || {}),
-    };
-    return (
-      <div class={`${baseClassName}__format`}>
-        <div class={`${baseClassName}__format--item`}>
-          <TSelect
-            size="small"
-            class={`${baseClassName}__format-mode-select`}
-            selectInputProps={{ ...selectInputProps }}
-            popupProps={{
-              overlayClassName: `${baseClassName}__select-options`,
-              ...(selectInputProps as TdSelectInputProps).popupProps,
-            }}
-            v-model={this.formatModel}
-            onChange={handleModeChange}
-          >
-            {FORMATS.map((item) => (
-              <TOption key={item} value={item} label={upperCase(item)} style={{ fontSize: '12px' }} />
-            ))}
-          </TSelect>
+    return () => {
+      const newProps = {
+        ...props,
+        format: formatModel.value,
+      };
+      const selectInputProps = {
+        ...((props.selectInputProps as Object) || {}),
+      };
+      return (
+        <div class={`${baseClassName.value}__format`}>
+          <div class={`${baseClassName.value}__format--item`}>
+            <TSelect
+              size="small"
+              class={`${baseClassName.value}__format-mode-select`}
+              selectInputProps={{ ...selectInputProps }}
+              popupProps={{
+                overlayClassName: `${baseClassName.value}__select-options`,
+                ...(selectInputProps as TdSelectInputProps).popupProps,
+              }}
+              v-model={formatModel}
+              onChange={handleModeChange}
+            >
+              {FORMATS.map((item) => (
+                <TOption key={item} value={item} label={upperCase(item)} style={{ fontSize: '12px' }} />
+              ))}
+            </TSelect>
+          </div>
+          <div class={`${baseClassName.value}__format--item`}>
+            <FormatInputs {...newProps} />
+          </div>
         </div>
-        <div class={`${baseClassName}__format--item`}>
-          <FormatInputs {...newProps} />
-        </div>
-      </div>
-    );
+      );
+    };
   },
 });

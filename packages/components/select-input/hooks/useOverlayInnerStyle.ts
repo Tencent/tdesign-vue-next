@@ -1,10 +1,10 @@
 import { ref, toRefs, computed, CSSProperties } from 'vue';
 import { isObject } from 'lodash-es';
 import { isFunction } from 'lodash-es';
-import { TdSelectInputProps } from './type';
-import { TdPopupProps, PopupVisibleChangeContext } from '../popup';
-import { useDisabled } from '../hooks/useDisabled';
-import { useReadonly } from '../hooks/useReadonly';
+import { TdSelectInputProps } from '../type';
+import { TdPopupProps, PopupVisibleChangeContext } from '../../popup';
+import { useDisabled } from '../../hooks/useDisabled';
+import { useReadonly } from '../../hooks/useReadonly';
 
 export type overlayInnerStyleProps = Pick<
   TdSelectInputProps,
@@ -16,7 +16,7 @@ const MAX_POPUP_WIDTH = 1000;
 // 避免因滚动条出现文本省略，预留宽度 8
 const RESERVE_WIDTH = 0;
 
-export default function useOverlayInnerStyle(props: overlayInnerStyleProps) {
+export function useOverlayInnerStyle(props: overlayInnerStyleProps) {
   const { popupProps, autoWidth } = toRefs(props);
   const innerPopupVisible = ref(false);
   const disable = useDisabled();

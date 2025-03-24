@@ -1,16 +1,16 @@
 import { SetupContext, ref, computed, toRefs, Ref } from 'vue';
 import { isObject } from 'lodash-es';
 import { pick } from 'lodash-es';
-import Input, { StrInputProps } from '../input';
-import Loading from '../loading';
-import { useTNodeJSX } from '../hooks/tnode';
-import { usePrefixClass } from '../hooks/useConfig';
-import useDefaultValue from '../hooks/useDefaultValue';
-import { useDisabled } from '../hooks/useDisabled';
-import { useReadonly } from '../hooks/useReadonly';
-import { PopupInstanceFunctions } from '../popup';
-import { TdSelectInputProps } from './type';
-import { SelectInputCommonProperties } from './interface';
+import Input, { StrInputProps } from '../../input';
+import Loading from '../../loading';
+import { useTNodeJSX } from '../../hooks/tnode';
+import { usePrefixClass } from '../../hooks/useConfig';
+import useDefaultValue from '../../hooks/useDefaultValue';
+import { useDisabled } from '../../hooks/useDisabled';
+import { useReadonly } from '../../hooks/useReadonly';
+import { PopupInstanceFunctions } from '../../popup';
+import { TdSelectInputProps } from '../type';
+import { SelectInputCommonProperties } from '../types';
 
 // single 和 multiple 共有特性
 const COMMON_PROPERTIES = [
@@ -47,7 +47,7 @@ function getInputValue(value: TdSelectInputProps['value'], keys: TdSelectInputPr
   return isObject(value) ? (value as Record<string, any>)[iKeys.label] : value;
 }
 
-export default function useSingle(
+export function useSingle(
   props: TdSelectInputProps & { valueDisplayOptions: SelectInputValueDisplayOptions },
   context: SetupContext,
   popupRef: Ref<PopupInstanceFunctions>,

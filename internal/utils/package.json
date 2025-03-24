@@ -20,15 +20,21 @@
       "types": "./types/package-json.d.ts",
       "import": "./dist/es/package-json.js",
       "default": "./dist/cjs/package-json.js"
+    },
+    "./exec": {
+      "types": "./types/exec.d.ts",
+      "import": "./dist/es/exec.js",
+      "default": "./dist/cjs/exec.js"
     }
   },
   "scripts": {
-    "build": "rollup -c rollup.config.ts && pnpm build:tsc", 
+    "prebuild": "rollup -c rollup.config.ts && pnpm build:tsc",
     "build:tsc": "tsc --declaration --emitDeclarationOnly --rootDir . --outDir types --resolveJsonModule --esModuleInterop ./src/*.ts index.ts"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^16.0.0",
     "@rollup/plugin-typescript": "^12.1.2",
+    "execa": "^8.0.1",
     "rollup": "^2.79.1",
     "rollup-plugin-delete": "^2.1.0",
     "rollup-plugin-multi-input": "^1.4.1"
