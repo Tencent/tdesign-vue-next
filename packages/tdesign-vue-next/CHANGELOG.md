@@ -5,6 +5,15 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.11.5 `2025-03-25` 
+### 🐞 Bug Fixes
+- `menu`: 修复menu-item的props中to定义时缺少string类型问题 @calandnong ([#5198](https://github.com/Tencent/tdesign-vue-next/pull/5198))
+- `TreeSelect`: 修复 `panelTopContent` 和 `panelBottomContent` 的定义缺失问题 @uyarn ([#5220](https://github.com/Tencent/tdesign-vue-next/pull/5220))
+- `Table`: 修复表格内容未渲染时，设置 `drag-sort` 拖动事件报错的问题 @RSS1102 ([#5224](https://github.com/Tencent/tdesign-vue-next/pull/5224))
+- `Table`: 修复 `1.11.3` 版本后 Table 展开的详细内容文字无法被选中的问题 @RSS1102 ([#5224](https://github.com/Tencent/tdesign-vue-next/pull/5224))
+- `Table`: 修复可选中行表格在火狐浏览器中的样式异常问题 @uyarn([#5225](https://github.com/Tencent/tdesign-vue-next/pull/5225))
+-  `Bundle`: 修复`1.11.0` 版本的 esm 产物的使用问题 @zhangpaopao0609 ([#5192](https://github.com/Tencent/tdesign-vue-next/pull/5192))
+
 ## 🌈 1.11.4 `2025-03-15` 
 
 ### 🚀 Features
