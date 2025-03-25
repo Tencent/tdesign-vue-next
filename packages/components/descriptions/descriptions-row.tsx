@@ -1,13 +1,13 @@
 import { computed, defineComponent, inject, PropType } from 'vue';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { descriptionsKey } from './consts';
-import { ItemsType, TdDescriptionItem } from './types';
+import { ItemsType, TdDescriptionsItem } from './types';
 import { renderVNodeTNode, itemTypeIsProps } from './utils';
 
 export default defineComponent({
   name: 'TDescriptionsRow',
   props: {
-    row: Array as PropType<TdDescriptionItem[]>,
+    row: Array as PropType<TdDescriptionsItem[]>,
     itemType: String as PropType<ItemsType>,
   },
   setup(props) {
@@ -17,7 +17,7 @@ export default defineComponent({
     const layoutIsHorizontal = computed(() => descriptionsProps.layout === 'horizontal');
     const itemLayoutIsHorizontal = computed(() => descriptionsProps.itemLayout === 'horizontal');
 
-    const label = (node: TdDescriptionItem) => {
+    const label = (node: TdDescriptionsItem) => {
       const labelClass = [`${COMPONENT_NAME.value}__label`];
 
       let label = null;
@@ -39,7 +39,7 @@ export default defineComponent({
       );
     };
 
-    const content = (node: TdDescriptionItem) => {
+    const content = (node: TdDescriptionsItem) => {
       const contentClass = [`${COMPONENT_NAME.value}__content`];
 
       let content = null;

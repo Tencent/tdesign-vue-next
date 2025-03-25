@@ -6,9 +6,7 @@ import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'THeader',
-
   props,
-
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('layout__header');
     const renderTNodeJSX = useTNodeJSX();

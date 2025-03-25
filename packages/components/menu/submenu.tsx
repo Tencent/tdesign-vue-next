@@ -14,7 +14,7 @@ import {
   Transition,
 } from 'vue';
 import props from './submenu-props';
-import { TdMenuInterface, TdSubMenuInterface, TdMenuItem } from './consts';
+import { TdMenuInterface, TdSubMenuInterface, TdMenuItem } from './types';
 import FakeArrow from '../common-components/fake-arrow';
 import useRipple from '../hooks/useRipple';
 import { usePrefixClass } from '../hooks/useConfig';

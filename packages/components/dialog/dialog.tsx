@@ -1,19 +1,25 @@
-import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, ref, Transition, watch, Teleport } from 'vue';
+import {
+  computed,
+  defineComponent,
+  nextTick,
+  onBeforeUnmount,
+  onMounted,
+  ref,
+  Transition,
+  watch,
+  Teleport,
+  ComponentPublicInstance,
+} from 'vue';
 import { DialogCloseContext } from './type';
 import props from './props';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useSameTarget } from './hooks';
-import { useTNodeJSX, useContent } from '../hooks/tnode';
 import useDestroyOnClose from '../hooks/useDestroyOnClose';
 import { getScrollbarWidth } from '@tdesign/common-js/utils/getScrollbarWidth';
 import useTeleport from '../hooks/useTeleport';
 import usePopupManager from '../hooks/usePopupManager';
-
+import { getCSSValue } from './utils';
 import TDialogCard from './dialog-card';
-
-function GetCSSValue(v: string | number) {
-  return Number.isNaN(Number(v)) ? v : `${Number(v)}px`;
-}
 
 let mousePosition: { x: number; y: number } | null;
 const getClickPosition = (e: MouseEvent) => {
@@ -30,70 +36,17 @@ if (typeof window !== 'undefined' && window.document && window.document.document
   document.documentElement.addEventListener('click', getClickPosition, true);
 }
 
-function InitDragEvent(dragBox: HTMLElement) {
-  const target = dragBox;
-  const windowInnerWidth = window.innerWidth || document.documentElement.clientWidth;
-  const windowInnerHeight = window.innerHeight || document.documentElement.clientHeight;
-  target.addEventListener('mousedown', (targetEvent: MouseEvent) => {
-    // 算出鼠标相对元素的位置
-    const disX = targetEvent.clientX - target.offsetLeft;
-    const disY = targetEvent.clientY - target.offsetTop;
-    const dialogW = target.offsetWidth;
-    const dialogH = target.offsetHeight;
-    // 如果弹出框超出屏幕范围 不能进行拖拽
-    if (dialogW > windowInnerWidth || dialogH > windowInnerHeight) return;
-    function mouseMoverHandler(documentEvent: MouseEvent) {
-      // 用鼠标的位置减去鼠标相对元素的位置，得到元素的位置
-      let left = documentEvent.clientX - disX;
-      let top = documentEvent.clientY - disY;
-      // 临界判断
-      // 拖拽上左边界限制
-      if (left < 0) left = 0;
-      if (top < 0) top = 0;
-      if (windowInnerWidth - target.offsetWidth - left < 0) left = windowInnerWidth - target.offsetWidth;
-      if (windowInnerHeight - target.offsetHeight - top < 0) top = windowInnerHeight - target.offsetHeight;
-      target.style.position = 'absolute';
-      target.style.left = `${left}px`;
-      target.style.top = `${top}px`;
-    }
-    function mouseUpHandler() {
-      // 鼠标弹起来的时候不再移动
-      document.removeEventListener('mousemove', mouseMoverHandler);
-      // 预防鼠标弹起来后还会循环（即预防鼠标放上去的时候还会移动）
-      document.removeEventListener('mouseup', mouseUpHandler);
-    }
-    // 元素按下时注册document鼠标监听事件
-    document.addEventListener('mousemove', mouseMoverHandler);
-    // 鼠标弹起来移除document鼠标监听事件
-    document.addEventListener('mouseup', mouseUpHandler);
-    // 拖拽结束移除鼠标监听事件，解决文字拖拽结束事件未解绑问题
-    document.addEventListener('dragend', mouseUpHandler);
-  });
-}
-
 let key = 1;
 
 export default defineComponent({
   name: 'TDialog',
-  // 注册v-draggable指令,传入true时候初始化拖拽事件
-  directives: {
-    draggable(el, binding) {
-      // el 指令绑定的元素
-      if (el && binding && binding.value) {
-        InitDragEvent(el);
-      }
-    },
-  },
   inheritAttrs: false,
   props,
   emits: ['update:visible'],
   setup(props, context) {
     const COMPONENT_NAME = usePrefixClass('dialog');
     const classPrefix = usePrefixClass();
-    const renderContent = useContent();
-    const renderTNodeJSX = useTNodeJSX();
-    const dialogEle = ref<HTMLElement | null>(null);
-    const dialogCardRef = ref<HTMLElement | null>(null);
+    const dialogCardRef = ref<ComponentPublicInstance<{ resetPosition: () => void }>>(null);
     const { globalConfig } = useConfig('dialog');
     const confirmBtnAction = (context: { e: MouseEvent }) => {
       props.onConfirm?.(context);
@@ -139,29 +92,12 @@ export default defineComponent({
       const { top } = props;
       let topStyle = {};
       if (top !== undefined) {
-        const topValue = GetCSSValue(top);
+        const topValue = getCSSValue(top);
         topStyle = { paddingTop: topValue };
       }
       return topStyle;
     });
-    const dialogClass = computed(() => {
-      const dialogClass = [
-        `${COMPONENT_NAME.value}`,
-        `${COMPONENT_NAME.value}__modal-${props.theme}`,
-        isModeLess.value && props.draggable && `${COMPONENT_NAME.value}--draggable`,
-        props.dialogClassName,
-      ];
 
-      if (isFullScreen.value) {
-        dialogClass.push(`${COMPONENT_NAME.value}__fullscreen`);
-      } else {
-        dialogClass.push(...[`${COMPONENT_NAME.value}--default`, `${COMPONENT_NAME.value}--${props.placement}`]);
-      }
-      return dialogClass;
-    });
-    const dialogStyle = computed(() => {
-      return !isFullScreen.value ? { width: GetCSSValue(props.width), ...props.dialogStyle } : { ...props.dialogStyle }; // width全屏模式不生效
-    });
     const { isLastDialog } = usePopupManager('dialog', {
       visible: computedVisible,
     });
@@ -176,10 +112,9 @@ export default defineComponent({
             }
 
             nextTick(() => {
-              if (mousePosition && dialogEle.value) {
-                dialogEle.value.style.transformOrigin = `${mousePosition.x - dialogEle.value.offsetLeft}px ${
-                  mousePosition.y - dialogEle.value.offsetTop
-                }px`;
+              if (mousePosition && dialogCardRef.value?.$el) {
+                const el = dialogCardRef.value.$el as HTMLElement;
+                el.style.transformOrigin = `${mousePosition.x - el.offsetLeft}px ${mousePosition.y - el.offsetTop}px`;
               }
             });
           }
@@ -262,12 +197,7 @@ export default defineComponent({
 
     // 关闭弹窗动画结束时事件
     const afterLeave = () => {
-      if (isModeLess.value && props.draggable && dialogEle.value) {
-        // 关闭弹窗 清空拖拽设置的相关css
-        dialogEle.value.style.position = 'relative';
-        dialogEle.value.style.left = 'unset';
-        dialogEle.value.style.top = 'unset';
-      }
+      dialogCardRef.value?.resetPosition?.();
       props.onClosed?.();
     };
 
@@ -280,21 +210,19 @@ export default defineComponent({
     // Vue在引入阶段对事件的处理还做了哪些初始化操作。Vue在实例上用一个_events属性存贮管理事件的派发和更新，
     // 暴露出$on, $once, $off, $emit方法给外部管理事件和派发执行事件
     // 所以通过判断_events某个事件下监听函数数组是否超过一个，可以判断出组件是否监听了当前事件
-    const hasEventOn = (name: string) => {
-      // _events 因没有被暴露在vue实例接口中，只能把这个规则注释掉
-      // eslint-disable-next-line dot-notation
-      // @ts-ignore
-      const eventFuncs = this['_events']?.[name];
-      return !!eventFuncs?.length;
-    };
+    // const hasEventOn = (name: string) => {
+    //   // _events 因没有被暴露在vue实例接口中，只能把这个规则注释掉
+    //   // eslint-disable-next-line dot-notation
+    //   // @ts-ignore
+    //   const eventFuncs = this['_events']?.[name];
+    //   return !!eventFuncs?.length;
+    // };
+
     const renderDialog = () => {
-      // header 值为 true 显示空白头部
-      const headerContent = renderTNodeJSX('header', <h5 class="title"></h5>) ?? false;
-      const bodyContent = renderContent('default', 'body');
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { body, header, dialogClassName, theme, onConfirm, onCancel, onCloseBtnClick, ...otherProps } = props;
+      const { theme, onConfirm, onCancel, onCloseBtnClick, ...otherProps } = props;
       return (
-        // /* 非模态形态下draggable为true才允许拖拽 */
+        /** 非模态形态下draggable为true才允许拖拽 */
         <div class={wrapClass.value}>
           <div
             class={positionClass.value}
@@ -303,25 +231,15 @@ export default defineComponent({
             onMousedown={onMousedown}
             onMouseup={onMouseup}
           >
-            <div
-              key="dialog"
-              class={dialogClass.value}
-              style={dialogStyle.value}
-              v-draggable={isModeLess.value && props.draggable}
-              ref={dialogEle}
-            >
-              <TDialogCard
-                ref={dialogCardRef}
-                theme={theme}
-                {...otherProps}
-                header={headerContent}
-                body={bodyContent}
-                class={dialogClassName}
-                onConfirm={confirmBtnAction}
-                onCancel={cancelBtnAction}
-                onCloseBtnClick={closeBtnAction}
-              />
-            </div>
+            <TDialogCard
+              ref={dialogCardRef}
+              theme={theme}
+              {...otherProps}
+              v-slots={context.slots}
+              onConfirm={confirmBtnAction}
+              onCancel={cancelBtnAction}
+              onCloseBtnClick={closeBtnAction}
+            />
           </div>
         </div>
       );
@@ -345,58 +263,40 @@ export default defineComponent({
       destroySelf();
     });
 
-    return {
-      COMPONENT_NAME,
-      isModal,
-      isModeLess,
-      isFullScreen,
-      maskClass,
-      dialogClass,
-      dialogStyle,
-      dialogEle,
-      beforeEnter,
-      afterEnter,
-      beforeLeave,
-      afterLeave,
-      hasEventOn,
-      renderDialog,
-      teleportElement,
+    return () => {
+      const maskView = (isModal.value || isFullScreen.value) && <div key="mask" class={maskClass.value}></div>;
+      const dialogView = renderDialog();
+      const view = [maskView, dialogView];
+      const ctxStyle = { zIndex: props.zIndex };
+      // dialog__ctx--fixed 绝对定位
+      // dialog__ctx--absolute 挂载在attach元素上 相对定位
+      // __ctx--modeless modeless 点击穿透
+      const ctxClass = [
+        `${COMPONENT_NAME.value}__ctx`,
+        {
+          [`${COMPONENT_NAME.value}__ctx--fixed`]: isModal.value || isFullScreen.value,
+          [`${COMPONENT_NAME.value}__ctx--absolute`]: isModal.value && props.showInAttachedElement,
+          [`${COMPONENT_NAME.value}__ctx--modeless`]: isModeLess.value,
+        },
+      ];
+      return (
+        <Teleport disabled={!props.attach || !teleportElement.value} to={teleportElement.value}>
+          <Transition
+            duration={300}
+            name={`${COMPONENT_NAME.value}-zoom__vue`}
+            onBeforeEnter={beforeEnter}
+            onAfterEnter={afterEnter}
+            onBeforeLeave={beforeLeave}
+            onAfterLeave={afterLeave}
+          >
+            {(!props.destroyOnClose || props.visible) && (
+              <div v-show={props.visible} class={ctxClass} style={ctxStyle} {...context.attrs}>
+                {view}
+              </div>
+            )}
+          </Transition>
+        </Teleport>
+      );
     };
-  },
-  render() {
-    const { COMPONENT_NAME } = this;
-    const maskView = (this.isModal || this.isFullScreen) && <div key="mask" class={this.maskClass}></div>;
-    const dialogView = this.renderDialog();
-    const view = [maskView, dialogView];
-    const ctxStyle = { zIndex: this.zIndex };
-    // dialog__ctx--fixed 绝对定位
-    // dialog__ctx--absolute 挂载在attach元素上 相对定位
-    // __ctx--modeless modeless 点击穿透
-    const ctxClass = [
-      `${COMPONENT_NAME}__ctx`,
-      {
-        [`${COMPONENT_NAME}__ctx--fixed`]: this.isModal || this.isFullScreen,
-        [`${COMPONENT_NAME}__ctx--absolute`]: this.isModal && this.showInAttachedElement,
-        [`${COMPONENT_NAME}__ctx--modeless`]: this.isModeLess,
-      },
-    ];
-    return (
-      <Teleport disabled={!this.attach || !this.teleportElement} to={this.teleportElement}>
-        <Transition
-          duration={300}
-          name={`${COMPONENT_NAME}-zoom__vue`}
-          onBeforeEnter={this.beforeEnter}
-          onAfterEnter={this.afterEnter}
-          onBeforeLeave={this.beforeLeave}
-          onAfterLeave={this.afterLeave}
-        >
-          {(!this.destroyOnClose || this.visible) && (
-            <div v-show={this.visible} class={ctxClass} style={ctxStyle} {...this.$attrs}>
-              {view}
-            </div>
-          )}
-        </Transition>
-      </Teleport>
-    );
   },
 });

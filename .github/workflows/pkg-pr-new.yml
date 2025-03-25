@@ -7,6 +7,7 @@ on:
 
 jobs:
   build:
+    if: ${{ github.repository == 'Tencent/tdesign-vue-next' && !startsWith(github.head_ref, 'release/')}}
     runs-on: ubuntu-latest
 
     steps:

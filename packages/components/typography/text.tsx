@@ -6,7 +6,7 @@ import { CopyIcon, CheckIcon } from 'tdesign-icons-vue-next';
 import Ellipsis from './ellipsis';
 import TTooltip from '../tooltip';
 import TButton from '../button';
-import { useConfig } from '../config-provider/useConfig';
+import { useConfig } from '../config-provider/hooks/useConfig';
 import { useContent } from '../hooks/tnode';
 
 import type { TdTextProps } from './type';

@@ -4,7 +4,7 @@ import { set } from 'lodash-es';
 import { isFunction } from 'lodash-es';
 import { PrimaryTableProps } from '../interface';
 import { getEditableKeysMap } from '@tdesign/common-js/table/utils';
-import { validate } from '../../form/form-model';
+import { validate } from '../../form/utils/form-model';
 import { cloneDeep } from 'lodash-es';
 import {
   PrimaryTableRowEditContext,

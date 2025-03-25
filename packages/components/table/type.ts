@@ -641,7 +641,7 @@ export interface PrimaryTableInstanceFunctions<T extends TableRowData = TableRow
   /**
    * 校验表格可编辑单元格数据，校验完成后，会触发事件 `onValidate`
    */
-    validateTableCellData: () => Promise<{ result: TableErrorListMap }>;
+  validateTableCellData: () => Promise<{ result: TableErrorListMap }>;
   /**
    * 校验表格全部数据，校验完成后，会触发事件 `onValidate`
    */

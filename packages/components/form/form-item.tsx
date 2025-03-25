@@ -27,7 +27,7 @@ import { get as lodashGet } from 'lodash-es';
 import { set as lodashSet } from 'lodash-es';
 import { isNil } from 'lodash-es';
 
-import { validate } from './form-model';
+import { validate } from './utils/form-model';
 import {
   AllValidateResult,
   Data,
@@ -47,7 +47,7 @@ import {
   SuccessListType,
   useCLASSNAMES,
   ValidateStatus,
-} from './const';
+} from './consts';
 
 import { useConfig, usePrefixClass, useTNodeJSX } from '../hooks';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
@@ -62,7 +62,6 @@ export function getFormItemClassName(componentName: string, name?: string) {
 
 export default defineComponent({
   name: 'TFormItem',
-
   props,
   setup(props, { slots }) {
     const renderContent = useTNodeJSX();

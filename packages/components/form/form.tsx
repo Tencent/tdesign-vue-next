@@ -15,7 +15,7 @@ import {
   ValidateResultList,
 } from './type';
 import props from './props';
-import { FormInjectionKey, FormItemContext, useCLASSNAMES } from './const';
+import { FormInjectionKey, FormItemContext, useCLASSNAMES } from './consts';
 import { FormResetEvent, FormSubmitEvent } from '../common';
 
 import { FormDisabledProvider, FormReadonlyProvider } from './hooks';
@@ -25,9 +25,7 @@ type Result = FormValidateResult<TdFormProps['data']>;
 
 export default defineComponent({
   name: 'TForm',
-
   props,
-
   setup(props, { expose }) {
     const renderContent = useTNodeJSX();
     const { disabled, readonly } = toRefs(props);
