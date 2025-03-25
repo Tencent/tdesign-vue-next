@@ -15,13 +15,8 @@ docClass: timeline
 - `TreeSelect`: 修复 `panelTopContent` 和 `panelBottomContent` 的定义缺失问题 @uyarn ([#5220](https://github.com/Tencent/tdesign-vue-next/pull/5220))
 
 
-## 🌈 1.11.5 `2025-03-25` 
-### 🐞 Bug Fixes
-- `Table`: 
-  - 修复表格内容未渲染时，设置 `drag-sort` 拖动事件报错的问题 @RSS1102 ([#5224](https://github.com/Tencent/tdesign-vue-next/pull/5224))
-  - 修复 `Table` 展开的详细内容文字无法被选中的问题 @RSS1102 ([#5224](https://github.com/Tencent/tdesign-vue-next/pull/5224))
-  - 修复可选中行表格在火狐浏览器中的样式异常问题 @uyarn([#5225](https://github.com/Tencent/tdesign-vue-next/pull/5225))
-- `Menu`: 修复 `menu-item` 的 `props` 中 `to` 定义时缺少 `string` 类型的问题 @calandnong ([#5198](https://github.com/Tencent/tdesign-vue-next/pull/5198))
+- `Menu`: 修复 `menu-item` 的 `props` 中 `to` 定义时缺少 `string` 类型的问题 @calandnong ([#5198](https://github.com/Tencent/tdesign-vue-next/pull/5198))
+
 - `TreeSelect`: 修复 `panelTopContent` 和 `panelBottomContent` 的定义缺失问题 @uyarn ([#5220](https://github.com/Tencent/tdesign-vue-next/pull/5220))
 
 ## 🌈 1.11.4 `2025-03-15` 
