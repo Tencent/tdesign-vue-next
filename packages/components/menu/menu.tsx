@@ -1,7 +1,7 @@
 import { defineComponent, ref, computed, provide, watchEffect, watch, onMounted, toRefs } from 'vue';
 import props from './props';
 import { MenuValue } from './type';
-import { TdMenuInterface, TdOpenType } from './consts';
+import { TdMenuInterface, TdOpenType } from './types';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import { VMenu } from './utils';
 import log from '@tdesign/common-js/log/log';

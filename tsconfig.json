@@ -47,7 +47,6 @@
     "./**/*.ts",
     "./**/*.tsx",
     "packages/components/**/*.vue",
-    "scripts/rollup.config.js"
   ],
   "exclude": [
     "node_modules",

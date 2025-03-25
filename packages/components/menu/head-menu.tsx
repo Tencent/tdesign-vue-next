@@ -20,7 +20,7 @@ import { isArray } from 'lodash-es';
 import log from '@tdesign/common-js/log/log';
 import props from './head-menu-props';
 import { MenuValue } from './type';
-import { TdMenuInterface, TdOpenType } from './consts';
+import { TdMenuInterface, TdOpenType } from './types';
 import { Tabs, TabPanel } from '../tabs';
 import Submenu from './submenu';
 import { VMenu } from './utils';
