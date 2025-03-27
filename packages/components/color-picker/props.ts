@@ -98,6 +98,8 @@ export default {
   },
   /** 选中的色值发生变化时触发，第一个参数 `value` 表示新色值，`context.color` 表示当前调色板控制器的色值，`context.trigger` 表示触发颜色变化的来源 */
   onChange: Function as PropType<TdColorPickerProps['onChange']>,
+  /** 清空按钮点击时触发 */
+  onClear: Function as PropType<TdColorPickerProps['onClear']>,
   /** 调色板控制器的值变化时触发，`context.color` 指调色板控制器的值 */
   onPaletteBarChange: Function as PropType<TdColorPickerProps['onPaletteBarChange']>,
   /** 最近使用颜色发生变化时触发 */
