@@ -72,6 +72,7 @@ export const useDrag = (props: TdDrawerProps) => {
       width: isHorizontal ? '16px' : '100%',
       height: isHorizontal ? '100%' : '16px',
       cursor: isHorizontal ? 'col-resize' : 'row-resize',
+      userSelect: 'none',
     } as Styles;
   });
 
