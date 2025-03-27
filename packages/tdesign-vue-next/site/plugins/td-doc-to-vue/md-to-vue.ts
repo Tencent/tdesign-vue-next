@@ -1,6 +1,6 @@
 import fs from 'fs';
 import matter from 'gray-matter';
-import { compileUsage, getGitTimestamp } from '@tdesign/common/docs/compile';
+import { compileUsage, getGitTimestamp } from '@tdesign/common-docs/compile/index';
 import { camelCase } from 'lodash-es';
 import { resolvePackagesRoot } from '@tdesign/internal-utils';
 import testCoverage from '../../configs/test-coverage';
