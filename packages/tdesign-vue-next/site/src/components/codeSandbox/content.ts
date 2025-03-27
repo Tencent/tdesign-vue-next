@@ -39,7 +39,7 @@ export const styleContent = `
   }
 `;
 
-export const packageJSONContent = (name) => {
+export const packageJSONContent = (name: string) => {
   return {
     name: name,
     dependencies: {

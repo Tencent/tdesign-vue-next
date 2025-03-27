@@ -1,15 +1,11 @@
 import fs from 'fs';
-import path from 'path';
 import { camelCase } from 'lodash-es';
 import { parseFromString } from 'dom-parser';
+import { resolveTdesignVueNextRoot } from '@tdesign/internal-utils';
 
-function resolveCwd(...args) {
-  args.unshift(process.cwd());
-  return path.join(...args);
-}
-
-fs.readFile(resolveCwd('/packages/tdesign-vue-next/test/coverage/index.html'), 'utf8', (err, html) => {
+fs.readFile(resolveTdesignVueNextRoot('test/coverage/index.html'), 'utf8', (err, html) => {
   if (err) {
+    // eslint-disable-next-line
     console.log('please execute npm run test:unit-coverage first!', err);
     return;
   }
@@ -23,7 +19,7 @@ fs.readFile(resolveCwd('/packages/tdesign-vue-next/test/coverage/index.html'), '
     for (let i = 0; i < groups; i++) {
       componentCoverage.push(tds.slice(i * size, (i + 1) * size));
     }
-    const resultCoverage = {};
+    const resultCoverage: Record<string, Record<string, string>> = {};
 
     componentCoverage.forEach((item) => {
       const dataVal = item[0].getAttribute('data-value');
@@ -44,8 +40,9 @@ fs.readFile(resolveCwd('/packages/tdesign-vue-next/test/coverage/index.html'), '
       }
     });
 
-    const finalRes = `module.exports = ${JSON.stringify(resultCoverage, null, 2)};\n`;
-    fs.writeFileSync(resolveCwd('/packages/tdesign-vue-next/site/test-coverage.js'), finalRes);
+    const finalRes = `export default ${JSON.stringify(resultCoverage, null, 2)};\n`;
+    fs.writeFileSync(resolveTdesignVueNextRoot('my-site/configs/test-coverage.ts'), finalRes);
+    // eslint-disable-next-line
     console.log('successful re-generate coverage');
   }
 });

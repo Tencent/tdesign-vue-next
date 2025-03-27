@@ -1,14 +1,9 @@
-/* eslint-disable */
 import fs from 'fs';
-import path from 'path';
 import matter from 'gray-matter';
-// TODO: 后续将这里修改为 mjs 后修改为 @tdesign/common 引入
-import { compileUsage, getGitTimestamp } from '../../../../packages/common/docs/compile';
-// TODO: 同上
-import camelCase from 'lodash/camelCase';
+import { compileUsage, getGitTimestamp } from '@tdesign/common/docs/compile';
+import { camelCase } from 'lodash-es';
 import { resolvePackagesRoot } from '@tdesign/internal-utils';
-
-import testCoverage from '../test-coverage';
+import testCoverage from '../../configs/test-coverage';
 
 const DEFAULT_TABS = [
   { tab: 'demo', name: '示例' },
@@ -22,13 +17,13 @@ const DEFAULT_EN_TABS = [
   { tab: 'design', name: 'Guideline' },
 ];
 
-export default async function mdToVue(options) {
+export default async function mdToVue(options: any) {
   const mdSegment = await customRender(options);
   const { demoDefsStr, demoCodesDefsStr, demoInstallStr, demoCodeInstallStr } = options;
 
-  let coverage = {};
+  let coverage: any = {};
   if (mdSegment.isComponent) {
-    coverage = testCoverage[camelCase(mdSegment.componentName)] || {};
+    coverage = (testCoverage as any)[camelCase(mdSegment.componentName)] || {};
   }
 
   const sfc = `
@@ -154,14 +149,14 @@ export default async function mdToVue(options) {
 }
 
 // 解析 markdown 内容
-async function customRender({ source, file, md }) {
+async function customRender({ source, file, md }: any) {
   const { content, data } = matter(source);
   const lastUpdated = (await getGitTimestamp(file)) || Math.round(fs.statSync(file).mtimeMs);
   // console.log('data', data);
   const isEn = file.endsWith('en-US.md');
 
   // md top data
-  const pageData = {
+  const pageData: any = {
     spline: '',
     toc: true,
     title: '',
@@ -181,7 +176,9 @@ async function customRender({ source, file, md }) {
   const componentName = reg && reg[1];
 
   // split md
-  let [demoMd = '', apiMd = ''] = content.split(pageData.apiFlag);
+  const splittedMd = content.split(pageData.apiFlag);
+  let demoMd = splittedMd[0];
+  const apiMd = splittedMd[1];
 
   const mdSegment = {
     ...pageData,
@@ -223,9 +220,8 @@ async function customRender({ source, file, md }) {
   }
 
   // 设计指南内容 不展示 design Tab 则不解析
-  if (pageData.isComponent && pageData.tdDocTabs.some((item) => item.tab === 'design')) {
+  if (pageData.isComponent && pageData.tdDocTabs.some((item: any) => item.tab === 'design')) {
     const designDocPath = resolvePackagesRoot(`common/docs/web/design/${componentName}.md`);
-
     if (fs.existsSync(designDocPath)) {
       const designDocLastUpdated =
         (await getGitTimestamp(designDocPath)) || Math.round(fs.statSync(designDocPath).mtimeMs);
@@ -234,6 +230,7 @@ async function customRender({ source, file, md }) {
       const designMd = fs.readFileSync(designDocPath, 'utf-8');
       mdSegment.designMd = md.render.call(md, `${pageData.toc ? '[toc]\n' : ''}${designMd}`).html;
     } else {
+      // eslint-disable-next-line
       console.log(`[vite-plugin-tdoc]: 未找到 ${designDocPath} 文件`);
     }
   }

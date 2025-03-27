@@ -1,7 +1,7 @@
 import { createApp } from 'vue';
 import TDesign from '@tdesign/components';
-import App from './app.vue';
-import router from './routes';
+import App from './App.vue';
+import router from './router';
 
 import Stackblitz from './components/stackblitz/index.vue';
 import CodeSandbox from './components/codeSandbox/index.vue';
@@ -9,7 +9,7 @@ import BaseUsage from './components/base-usage.vue';
 
 // import tdesign style
 import '@tdesign/components/style/index.js';
-import '@common/style/web/docs.less';
+import '@tdesign/common/style/web/docs.less';
 
 // import site webComponents
 import 'tdesign-site-components';
@@ -20,7 +20,7 @@ import 'tdesign-site-components/lib/styles/prism-theme-dark.less';
 import 'tdesign-icons-view';
 
 import 'tdesign-theme-generator';
-
+// @ts-ignore
 import { registerLocaleChange } from 'tdesign-site-components';
 
 registerLocaleChange();

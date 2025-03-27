@@ -11,11 +11,13 @@
     "test:unit-gui": "vitest --ui",
     "test:unit-coverage": "vitest run --coverage",
     "test:snap": "cross-env NODE_ENV=test-snap vitest run",
-    "test:snap-update": "cross-env NODE_ENV=test-snap vitest run -u"
+    "test:snap-update": "cross-env NODE_ENV=test-snap vitest run -u",
+    "generate:coverage-badge": "pnpm test:unit-coverage && tsx ./scripts/generate-coverage.ts"
   },
   "devDependencies": {
     "@vue/test-utils": "^2.4.1",
     "glob": "^11.0.1",
+    "tsx": "^4.19.2",
     "vitest-fetch-mock": "^0.1.0",
     "vue": "3.3.9",
     "vue-router": "^4.2.4"

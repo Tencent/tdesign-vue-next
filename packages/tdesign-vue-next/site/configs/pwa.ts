@@ -1,3 +1,5 @@
+import { VitePWAOptions } from 'vite-plugin-pwa';
+
 export default {
   strategies: 'injectManifest',
   includeAssets: ['favicon.svg', 'favicon.ico', 'apple-touch-icon.png'],
@@ -19,4 +21,4 @@ export default {
       },
     ],
   },
-};
+} as VitePWAOptions;

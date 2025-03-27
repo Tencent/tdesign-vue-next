@@ -1,12 +1,11 @@
-/* eslint-disable */
 import path from 'path';
 
-export default function renderDemo(md, container) {
+export default function renderDemo(md: any, container: any) {
   md.use(container, 'demo', {
-    validate(params) {
+    validate(params: any) {
       return params.trim().match(/^demo\s+([\\/.\w-]+)(\s+(.+?))?(\s+--dev)?$/);
     },
-    render(tokens, idx) {
+    render(tokens: any, idx: any) {
       if (tokens[idx].nesting === 1) {
         const match = tokens[idx].info.trim().match(/^demo\s+([\\/.\w-]+)(\s+(.+?))?(\s+--dev)?$/);
         const [, demoPath, componentName = ''] = match;

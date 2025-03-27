@@ -1,18 +1,21 @@
-import { createRouter, createWebHistory } from 'vue-router';
-import config from '../site.config';
-import TdesignComponents from './components/components.jsx';
+import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router';
+import config from './site.config';
+import TdesignComponents from '../components/components.jsx';
+// @ts-ignore
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
 
 const { docs, enDocs } = config;
 
-function getDocsRoutes(docs, type) {
-  let docsRoutes = [];
+function getDocsRoutes(docs: any[], type?: any) {
+  let docsRoutes: any = [];
   let docRoute;
 
   docs.forEach((item) => {
     const docType = item.type || type;
     let { children } = item;
     if (item.type === 'component') {
-      children = item.children.sort((a, b) => {
+      children = item.children.sort((a: any, b: any) => {
         const nameA = a.name.toUpperCase();
         const nameB = b.name.toUpperCase();
         if (nameA < nameB) return -1;
@@ -30,7 +33,7 @@ function getDocsRoutes(docs, type) {
   return docsRoutes;
 }
 
-const routes = [
+const routes: RouteRecordRaw[] = [
   {
     path: '/vue-next/',
     redirect: '/vue-next/overview',
@@ -48,16 +51,16 @@ const routes = [
   {
     name: 'demosComponent',
     path: '/vue-next/demos/:componentName/',
-    component: () => import('./components/demo-page.vue'),
+    component: () => import('../components/demo-page.vue'),
   },
   {
     name: 'demos',
     path: '/vue-next/demos/:componentName/:demoName',
-    component: () => import('./components/demo-page.vue'),
+    component: () => import('../components/demo-page.vue'),
   },
 ];
 
-const routerConfig = {
+const router = createRouter({
   history: createWebHistory(),
   routes,
   scrollBehavior(to, from) {
@@ -65,13 +68,10 @@ const routerConfig = {
       return { top: 0 };
     }
   },
-};
-
-const router = createRouter(routerConfig);
+});
 
 router.beforeEach((to, from, next) => {
   if (typeof NProgress !== 'undefined') {
-    // eslint-disable-next-line no-undef
     NProgress.start();
   }
   next();
@@ -79,9 +79,10 @@ router.beforeEach((to, from, next) => {
 
 router.afterEach(() => {
   if (typeof NProgress !== 'undefined') {
-    // eslint-disable-next-line no-undef
     NProgress.done();
   }
+  // todo 这是干啥的
+  // @ts-ignore
   document.querySelector('td-stats')?.track?.();
 });
 

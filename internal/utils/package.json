@@ -1,6 +1,7 @@
 {
   "name": "@tdesign/internal-utils",
   "private": true,
+  "type": "module",
   "author": "tdesign",
   "license": "MIT",
   "main": "./dist/cjs/index.js",
