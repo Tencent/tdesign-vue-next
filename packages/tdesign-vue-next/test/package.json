@@ -19,8 +19,6 @@
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/test-utils": "^2.4.1",
     "glob": "^11.0.1",
-    "ts-node": "^10.9.2",
-    "tsx": "^4.19.2",
     "vitest": "^3.0.9",
     "vitest-fetch-mock": "^0.1.0",
     "vue": "3.3.9",
