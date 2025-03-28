@@ -26,7 +26,7 @@ export const docs = [
         titleEn: 'CHANGELOG',
         name: 'changelog',
         path: '/vue-next/changelog',
-        component: () => import('tdesign-vue-next/CHANGELOG.md'),
+        component: () => import('@tdesign/vue-next/CHANGELOG.md'),
       },
       {
         title: '组件概览',
