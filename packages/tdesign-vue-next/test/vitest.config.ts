@@ -4,6 +4,14 @@ import vueJsx from '@vitejs/plugin-vue-jsx';
 import { resolveComponentsRoot, resolveTdesignVueNextRoot } from '@tdesign/internal-utils';
 
 export default defineConfig({
+  resolve: {
+    // 做法 1，在 test 之前先 build 一次 es
+    // 做法 2，用 alias
+    alias: {
+      'tdesign-vue-next/es': resolveComponentsRoot(),
+      'tdesign-vue-next': resolveComponentsRoot(),
+    },
+  },
   plugins: [vue(), vueJsx()],
   test: {
     include:
