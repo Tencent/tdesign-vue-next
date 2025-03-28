@@ -76,12 +76,7 @@ export const useDrag = (props: TdDrawerProps) => {
     } as Styles;
   });
 
-  const draggingStyles = computed(
-    () =>
-      ({
-        userSelect: isSizeDragging.value ? 'none' : 'auto',
-      } as Styles),
-  );
+  const draggingStyles = computed<Styles>(() => (isSizeDragging.value ? { userSelect: 'none' } : {}));
 
   return {
     draggedSizeValue,
