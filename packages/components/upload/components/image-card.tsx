@@ -8,8 +8,8 @@ import {
 import Loading from '../../loading';
 import useGlobalIcon from '../../hooks/useGlobalIcon';
 import ImageViewer, { ImageViewerProps } from '../../image-viewer';
-import { CommonDisplayFileProps } from '../interface';
-import { commonProps } from '../constants';
+import { CommonDisplayFileProps } from '../types';
+import { commonProps } from '../consts';
 import { TdUploadProps, UploadFile } from '../type';
 import { abridgeName } from '@tdesign/common-js/upload/utils';
 import { UploadConfig } from '../../config-provider';
@@ -30,7 +30,6 @@ export interface ImageCardUploadProps extends CommonDisplayFileProps {
 
 export default defineComponent({
   name: 'UploadImageCard',
-
   props: {
     ...commonProps,
     multiple: Boolean,
@@ -43,7 +42,6 @@ export default defineComponent({
     onPreview: Function as PropType<ImageCardUploadProps['onPreview']>,
     showImageFileName: Boolean,
   },
-
   setup(props) {
     const { displayFiles, classPrefix, multiple, max } = toRefs(props);
     const locale = computed(() => props.locale as UploadConfig);

@@ -205,7 +205,7 @@ export default defineComponent({
         return (
           !item.disabled &&
           // @ts-ignore types only declare checkAll not declare check-all
-          !item['check-all'] &&
+          !(item['check-all'] || item['check-all'] === '') &&
           !item.checkAll &&
           filterMethods(item)
         );
