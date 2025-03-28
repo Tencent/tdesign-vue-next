@@ -29,7 +29,7 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const renderContent = useContent();
     const COMPONENT_NAME = usePrefixClass('drawer');
-    const { draggedSizeValue, enableDrag, draggableLineStyles } = useDrag(props as TdDrawerProps);
+    const { draggedSizeValue, enableDrag, draggableLineStyles, draggingStyles } = useDrag(props as TdDrawerProps);
 
     // teleport容器
     const teleportElement = useTeleport(() => props.attach);
@@ -267,7 +267,7 @@ export default defineComponent({
             {...context.attrs}
           >
             {props.showOverlay && <div class={`${COMPONENT_NAME.value}__mask`} onClick={handleWrapperClick} />}
-            <div class={wrapperClasses.value} style={wrapperStyles.value}>
+            <div class={wrapperClasses.value} style={{ ...wrapperStyles.value, ...draggingStyles.value }}>
               {headerContent && <div class={`${COMPONENT_NAME.value}__header`}>{headerContent}</div>}
               {props.closeBtn && (
                 <div class={`${COMPONENT_NAME.value}__close-btn`} onClick={handleCloseBtnClick}>
