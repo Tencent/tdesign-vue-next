@@ -3,6 +3,9 @@ import { VitePWAOptions } from 'vite-plugin-pwa';
 export default {
   strategies: 'injectManifest',
   includeAssets: ['favicon.svg', 'favicon.ico', 'apple-touch-icon.png'],
+  injectManifest: {
+    maximumFileSizeToCacheInBytes: 1024 * 1024 * 10,
+  },
   manifest: {
     name: 'TDesign for Vue Next',
     short_name: 'TDesign',
