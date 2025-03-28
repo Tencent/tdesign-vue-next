@@ -87,7 +87,6 @@ export const useDrag = (props: TdDrawerProps) => {
     draggedSizeValue,
     enableDrag,
     draggableLineStyles,
-    isSizeDragging,
     draggingStyles,
   };
 };
