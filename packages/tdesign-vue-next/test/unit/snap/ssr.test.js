@@ -1,6 +1,6 @@
 import { globSync } from 'glob';
 import MockDate from 'mockdate';
-import { vi } from 'vitest';
+import { vi, describe, it, expect } from 'vitest';
 import { config } from '@vue/test-utils';
 import { resolveComponentsRoot, getRelativeWorkspaceRootPath } from '@tdesign/internal-utils';
 

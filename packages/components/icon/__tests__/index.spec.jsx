@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, it, vi } from 'vitest';
 import { AppIcon } from 'tdesign-icons-vue-next';
-import Icon from '@src/icon/index.ts';
+import Icon from '@tdesign/components/icon/index.ts';
 
 describe('Icon', () => {
   describe(':props', () => {

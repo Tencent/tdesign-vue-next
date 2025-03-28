@@ -1,10 +1,11 @@
 import { defineConfig } from 'vitest/config';
-import { resolveConfig, basePlugin } from '../../../script/vite.base.config';
+import vue from '@vitejs/plugin-vue';
+import vueJsx from '@vitejs/plugin-vue-jsx';
 import { resolveComponentsRoot, resolveTdesignVueNextRoot } from '@tdesign/internal-utils';
 
-// 单元测试相关配置
-const testConfig = async () => {
-  return {
+export default defineConfig({
+  plugins: [vue(), vueJsx()],
+  test: {
     include:
       process.env.NODE_ENV === 'test-snap'
         ? [await resolveTdesignVueNextRoot('test/unit/snap/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}')]
@@ -13,19 +14,11 @@ const testConfig = async () => {
     environment: 'jsdom',
     testTimeout: 5000,
     setupFiles: process.env.NODE_ENV === 'test-snap' ? './unit/test-setup.js' : '',
-    transformMode: {
-      web: [/\.[jt]sx$/],
-    },
     coverage: {
+      provider: 'v8',
       reporter: ['text', 'json', 'html'],
       allowExternal: true,
       include: [await resolveComponentsRoot()],
     },
-  };
-};
-
-export default defineConfig(async () => ({
-  resolve: resolveConfig,
-  plugins: basePlugin,
-  test: await testConfig(),
-}));
+  },
+});

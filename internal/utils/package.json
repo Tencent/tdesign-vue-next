@@ -4,11 +4,20 @@
   "type": "module",
   "author": "tdesign",
   "license": "MIT",
-  "main": "./index.ts",
-  "module": "./index.ts",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/es/index.js",
   "exports": {
-    ".": "./index.ts",
-    "./*": "./src/*.ts"
+    ".": {
+      "import": "./dist/es/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./*": {
+      "import": "./dist/es/*.js",
+      "require": "./dist/cjs/*.js"
+    }
+  },
+  "scripts": {
+    "prebuild": "rollup -c rollup.config.ts"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^16.0.0",

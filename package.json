@@ -15,7 +15,7 @@
   },
   "scripts": {
     "pnpm:devPreinstall": "node script/pnpm-dev-preinstall.js",
-    "postinstall": "husky install",
+    "postinstall": "husky install && pnpm -C internal/utils prebuild",
     "init": "git submodule init && git submodule update",
     "start": "pnpm dev",
     "dev": "pnpm -C packages/tdesign-vue-next/site dev",

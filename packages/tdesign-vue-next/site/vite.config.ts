@@ -1,10 +1,10 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
+import vueJsx from '@vitejs/plugin-vue-jsx';
 import { VitePWA } from 'vite-plugin-pwa';
 import tdDocToVue from './plugins/td-doc-to-vue';
 import pwaConfig from './configs/pwa';
 import path from 'path';
-import vueJsx from '@vitejs/plugin-vue-jsx';
 
 const publicPathMap: Record<string, string> = {
   preview: '/',

@@ -4,17 +4,6 @@ import vueJsx from '@vitejs/plugin-vue-jsx';
 
 const isCustomElement = (tag) => tag.startsWith('td-') || tag.startsWith('tdesign-theme');
 
-export const resolveConfig = {
-  alias: {
-    '@': path.resolve(__dirname, '../'),
-    '@test': path.resolve(__dirname, '../test'),
-    '@src': path.resolve(__dirname, '../packages/components/'),
-    '@common': path.resolve(__dirname, '../packages/common'),
-    'tdesign-vue-next/es': path.resolve(__dirname, '../packages/components'),
-    'tdesign-vue-next': path.resolve(__dirname, '../packages/components'),
-  },
-};
-
 export const basePlugin = [
   [
     vue({

@@ -176,9 +176,9 @@ async function customRender({ source, file, md }: any) {
   const componentName = reg && reg[1];
 
   // split md
-  const splittedMd = content.split(pageData.apiFlag);
-  let demoMd = splittedMd[0];
-  const apiMd = splittedMd[1];
+  const splitData = content.split(pageData.apiFlag);
+  let demoMd = splitData[0];
+  const apiMd = splitData[1];
 
   const mdSegment = {
     ...pageData,
