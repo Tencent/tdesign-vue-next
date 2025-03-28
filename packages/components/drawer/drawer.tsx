@@ -181,9 +181,7 @@ export default defineComponent({
     );
 
     const { isLastDialogOrDrawer } = usePopupManager('drawer', {
-      visible: 
-      
-      ,
+      visible: computedVisible.value,
     });
 
     watch(
