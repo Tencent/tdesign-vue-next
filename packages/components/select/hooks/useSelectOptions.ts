@@ -1,5 +1,5 @@
 import { computed, Slots, Ref, ref } from 'vue';
-import { isArray } from 'lodash-es';
+import { isArray, omit } from 'lodash-es';
 import { get } from 'lodash-es';
 import { isFunction } from 'lodash-es';
 
@@ -23,8 +23,9 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inpu
       props.options?.map((option) => {
         const getFormatOption = (option: TdOptionProps) => {
           const { value, label, disabled } = keys.value;
+          const restOption = omit(option, [value, label, disabled]) as Partial<TdOptionProps>;
           const res = {
-            ...option,
+            ...restOption,
             index: dynamicIndex,
             label: get(option, label),
             value: get(option, value),
