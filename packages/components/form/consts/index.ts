@@ -111,6 +111,7 @@ export const FormInjectionKey: InjectionKey<{
   data: TdFormProps['data'];
   colon: TdFormProps['colon'];
   requiredMark: TdFormProps['requiredMark'];
+  requiredMarkPosition: TdFormProps['requiredMarkPosition'];
   rules: TdFormProps['rules'];
   errorMessage: TdFormProps['errorMessage'];
   resetType: TdFormProps['resetType'];

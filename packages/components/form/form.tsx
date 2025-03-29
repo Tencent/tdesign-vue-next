@@ -39,8 +39,18 @@ export default defineComponent({
     const formRef = ref<HTMLFormElement>(null);
     const children = ref<FormItemContext[]>([]);
 
-    const { showErrorMessage, labelWidth, labelAlign, data, colon, requiredMark, rules, errorMessage, resetType } =
-      toRefs(props);
+    const {
+      showErrorMessage,
+      labelWidth,
+      labelAlign,
+      data,
+      colon,
+      requiredMark,
+      requiredMarkPosition,
+      rules,
+      errorMessage,
+      resetType,
+    } = toRefs(props);
     provide(
       FormInjectionKey,
       reactive({
@@ -50,6 +60,7 @@ export default defineComponent({
         data,
         colon,
         requiredMark,
+        requiredMarkPosition,
         rules,
         errorMessage,
         resetType,

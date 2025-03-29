@@ -1,7 +1,6 @@
 :: BASE_DOC ::
 
 ## API
-
 ### Form Props
 
 name | type | default | description | required
@@ -18,6 +17,7 @@ layout | String | vertical | options: vertical/inline | N
 preventSubmitDefault | Boolean | true | \- | N
 readonly | Boolean | undefined | \- | N
 requiredMark | Boolean | true | \- | N
+requiredMarkPosition | String | left | Display position of required symbols。options: left/right | N
 resetType | String | empty | options: empty/initial | N
 rules | Object | - | Typescript：`FormRules<FormData>` `type FormRules<T extends Data = any> = { [field in keyof T]?: Array<FormRule> }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/form/type.ts) | N
 scrollToFirstError | String | - | options: ''/smooth/auto | N
