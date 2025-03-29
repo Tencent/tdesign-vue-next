@@ -1,6 +1,6 @@
 /* eslint-disable vue/order-in-components */
 import { mount } from '@vue/test-utils';
-import Tree from '@src/tree/index.ts';
+import Tree from '@tdesign/components/tree/index.ts';
 import { defineComponent } from './adapt';
 import { delay, step } from './kit';
 

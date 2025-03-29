@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { Anchor, AnchorItem, AnchorTarget } from '@src/anchor/index.ts';
+import { Anchor, AnchorItem, AnchorTarget } from '@tdesign/components/anchor/index.ts';
 
 describe('Anchor', () => {
   describe(':base', () => {

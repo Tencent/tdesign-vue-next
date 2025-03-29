@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 import { beforeEach, expect, it, vi } from 'vitest';
-import { Affix } from '@src/affix/index.ts';
+import { Affix } from '@tdesign/components/affix/index.ts';
 
 describe('Affix', () => {
   test('_______', () => {

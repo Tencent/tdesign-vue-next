@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue';
 import semver from 'semver';
-import siteConfig from '../../site.config';
+import siteConfig from '@/src/router/site.config';
 import { htmlContent, mainJsContent, styleContent, packageJSONContent } from './codeSandbox/content';
 import { tdesignVueNextPackageJson } from '@tdesign/internal-utils/package-json';
 

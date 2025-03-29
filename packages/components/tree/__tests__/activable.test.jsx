@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Tree from '@src/tree/index.ts';
+import Tree from '@tdesign/components/tree/index.ts';
 import { delay } from './kit';
 import { ref } from './adapt';
 
@@ -25,19 +25,19 @@ describe('Tree:activable', () => {
           return <Tree ref="tree" data={data} activable expand-all transition={false}></Tree>;
         },
       });
-      await delay(1);
+      await delay(3);
       const { tree } = wrapper.vm.$refs;
       tree.setItem('t1.1', {
         actived: true,
       });
-      await delay(1);
+      await delay(3);
       expect(wrapper.find('[data-value="t1"]').classes('t-is-active')).toBe(false);
       expect(wrapper.find('[data-value="t1.1"]').classes('t-is-active')).toBe(true);
       expect(wrapper.find('[data-value="t1.2"]').classes('t-is-active')).toBe(false);
       tree.setItem('t1.1', {
         actived: false,
       });
-      await delay(1);
+      await delay(3);
       expect(wrapper.find('[data-value="t1"]').classes('t-is-active')).toBe(false);
       expect(wrapper.find('[data-value="t1.1"]').classes('t-is-active')).toBe(false);
       expect(wrapper.find('[data-value="t1.2"]').classes('t-is-active')).toBe(false);
@@ -91,7 +91,7 @@ describe('Tree:activable', () => {
           return <Tree ref="tree" data={data} activable defaultActived={['t1.1']} expand-all transition={false}></Tree>;
         },
       });
-      await delay(1);
+      await delay(3);
       expect(wrapper.find('[data-value="t1"]').classes('t-is-active')).toBe(false);
       expect(wrapper.find('[data-value="t1.1"]').classes('t-is-active')).toBe(true);
       expect(wrapper.find('[data-value="t1.2"]').classes('t-is-active')).toBe(false);
@@ -118,7 +118,7 @@ describe('Tree:activable', () => {
           return <Tree ref="tree" data={data} activable actived={['t1.1']} expand-all transition={false}></Tree>;
         },
       });
-      await delay(1);
+      await delay(3);
       expect(wrapper.find('[data-value="t1"]').classes('t-is-active')).toBe(false);
       expect(wrapper.find('[data-value="t1.1"]').classes('t-is-active')).toBe(true);
       expect(wrapper.find('[data-value="t1.2"]').classes('t-is-active')).toBe(false);
@@ -148,21 +148,21 @@ describe('Tree:activable', () => {
           return <Tree ref="tree" data={data} activable actived={this.actived} expand-all transition={false}></Tree>;
         },
       });
-      await delay(1);
+      await delay(3);
       expect(wrapper.find('[data-value="t1"]').classes('t-is-active')).toBe(false);
       expect(wrapper.find('[data-value="t1.1"]').classes('t-is-active')).toBe(true);
       expect(wrapper.find('[data-value="t1.2"]').classes('t-is-active')).toBe(false);
       wrapper.setData({
         actived: ['t1.2'],
       });
-      await delay(1);
+      await delay(3);
       expect(wrapper.find('[data-value="t1"]').classes('t-is-active')).toBe(false);
       expect(wrapper.find('[data-value="t1.1"]').classes('t-is-active')).toBe(false);
       expect(wrapper.find('[data-value="t1.2"]').classes('t-is-active')).toBe(true);
       wrapper.setData({
         actived: ['t1'],
       });
-      await delay(1);
+      await delay(3);
       expect(wrapper.find('[data-value="t1"]').classes('t-is-active')).toBe(true);
       expect(wrapper.find('[data-value="t1.1"]').classes('t-is-active')).toBe(false);
       expect(wrapper.find('[data-value="t1.2"]').classes('t-is-active')).toBe(false);
@@ -208,11 +208,11 @@ describe('Tree:activable', () => {
           );
         },
       });
-      await delay(1);
+      await delay(3);
       expect(wrapper.find('[data-value="t1"]').classes('t-is-active')).toBe(true);
       await wrapper.find('[data-value="t1"] .t-tree__label').trigger('click');
       expect(wrapper.find('[data-value="t1"]').classes('t-is-active')).toBe(false);
-      await delay(1);
+      await delay(3);
       await wrapper.find('[data-value="t1"] .t-tree__label').trigger('click');
       expect(wrapper.find('[data-value="t1"]').classes('t-is-active')).toBe(false);
     });
@@ -239,7 +239,7 @@ describe('Tree:activable', () => {
           );
         },
       });
-      await delay(1);
+      await delay(3);
       expect(wrapper.find('[data-value="t1"]').classes('t-is-active')).toBe(false);
       expect(wrapper.find('[data-value="t1.1"]').classes('t-is-active')).toBe(true);
       expect(wrapper.find('[data-value="t1.2"]').classes('t-is-active')).toBe(false);
@@ -247,7 +247,7 @@ describe('Tree:activable', () => {
       refActived.value.push('t1.2');
       // refActived.value 为 t1.1, t1.2
       // 但由于默认为单选机制，仅第一个被激活
-      await delay(1);
+      await delay(3);
       expect(wrapper.find('[data-value="t1"]').classes('t-is-active')).toBe(false);
       expect(wrapper.find('[data-value="t1.1"]').classes('t-is-active')).toBe(true);
       expect(wrapper.find('[data-value="t1.2"]').classes('t-is-active')).toBe(false);
@@ -255,7 +255,7 @@ describe('Tree:activable', () => {
       refActived.value.shift();
       // refActived.value 为 t1.2
       // 第一个激活节点变更为了 t1.2
-      await delay(1);
+      await delay(3);
       expect(wrapper.find('[data-value="t1"]').classes('t-is-active')).toBe(false);
       expect(wrapper.find('[data-value="t1.1"]').classes('t-is-active')).toBe(false);
       expect(wrapper.find('[data-value="t1.2"]').classes('t-is-active')).toBe(true);
@@ -283,7 +283,7 @@ describe('Tree:activable', () => {
           return <Tree ref="tree" data={data} activable expand-all transition={false}></Tree>;
         },
       });
-      await delay(1);
+      await delay(3);
       const { tree } = wrapper.vm.$refs;
 
       expect(wrapper.find('[data-value="t1"]').classes('t-is-active')).toBe(true);
@@ -294,7 +294,7 @@ describe('Tree:activable', () => {
         actived: true,
       });
 
-      await delay(1);
+      await delay(3);
 
       expect(wrapper.find('[data-value="t1"]').classes('t-is-active')).toBe(false);
       expect(wrapper.find('[data-value="t1.1"]').classes('t-is-active')).toBe(true);
@@ -303,7 +303,7 @@ describe('Tree:activable', () => {
       tree.setItem('t1.2', {
         actived: true,
       });
-      await delay(1);
+      await delay(3);
 
       expect(wrapper.find('[data-value="t1"]').classes('t-is-active')).toBe(false);
       expect(wrapper.find('[data-value="t1.1"]').classes('t-is-active')).toBe(false);
@@ -330,7 +330,7 @@ describe('Tree:activable', () => {
           return <Tree ref="tree" data={data} activable expand-all activeMultiple={true} transition={false}></Tree>;
         },
       });
-      await delay(1);
+      await delay(3);
       const { tree } = wrapper.vm.$refs;
 
       expect(wrapper.find('[data-value="t1"]').classes('t-is-active')).toBe(true);
@@ -340,18 +340,14 @@ describe('Tree:activable', () => {
       tree.setItem('t1.1', {
         actived: true,
       });
-
-      await delay(1);
-
+      await delay(3);
       expect(wrapper.find('[data-value="t1"]').classes('t-is-active')).toBe(true);
       expect(wrapper.find('[data-value="t1.1"]').classes('t-is-active')).toBe(true);
       expect(wrapper.find('[data-value="t1.2"]').classes('t-is-active')).toBe(false);
-
       tree.setItem('t1.2', {
         actived: true,
       });
-      await delay(1);
-
+      await delay(3);
       expect(wrapper.find('[data-value="t1"]').classes('t-is-active')).toBe(true);
       expect(wrapper.find('[data-value="t1.1"]').classes('t-is-active')).toBe(true);
       expect(wrapper.find('[data-value="t1.2"]').classes('t-is-active')).toBe(true);

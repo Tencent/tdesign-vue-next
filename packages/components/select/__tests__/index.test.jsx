@@ -1,7 +1,7 @@
 import { ref } from 'vue';
 import { mount } from '@vue/test-utils';
 import { vi, describe, it, expect } from 'vitest';
-import { Select, OptionGroup, Option } from '@src/select/index.ts';
+import { Select, OptionGroup, Option } from '@tdesign/components/select/index.ts';
 import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
 const options = [

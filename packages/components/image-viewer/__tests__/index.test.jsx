@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { expect, it } from 'vitest';
-import { ImageViewer } from '@src/image-viewer/index.ts';
-import { Button } from '@src/button/index.ts';
+import { ImageViewer } from '@tdesign/components/image-viewer/index.ts';
+import { Button } from '@tdesign/components/button/index.ts';
 
 // every component needs four parts: props/events/slots/functions.
 describe('Image-viewer', () => {

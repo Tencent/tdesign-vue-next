@@ -1,4 +1,4 @@
-import SelectInput from '@src/select-input/select-input.tsx';
+import SelectInput from '@tdesign/components/select-input/select-input.tsx';
 import { mount } from '@vue/test-utils';
 import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { expect, it, vi } from 'vitest';

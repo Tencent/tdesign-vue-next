@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 import { describe, expect, it } from 'vitest';
-import Switch from '@src/switch/index.ts';
+import Switch from '@tdesign/components/switch/index.ts';
 
 describe('switch', () => {
   describe('ui render test', () => {

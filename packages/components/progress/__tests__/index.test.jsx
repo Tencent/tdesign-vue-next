@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
-import { Progress } from '@src/progress/index.ts';
+import { Progress } from '@tdesign/components/progress/index.ts';
 
 describe('Progress', () => {
   describe(':props', () => {

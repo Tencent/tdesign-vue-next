@@ -1,4 +1,4 @@
-import { getDataValues, cloneTreeWithFilter, getLefCount } from '@src/transfer/utils';
+import { getDataValues, cloneTreeWithFilter, getLefCount } from '@tdesign/components/transfer/utils';
 
 describe('Transfer', () => {
   describe('utils', () => {

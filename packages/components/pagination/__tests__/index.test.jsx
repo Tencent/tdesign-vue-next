@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
-import Pagination from '@src/pagination/index.ts';
-import { Select } from '@src/select';
-import { Input } from '@src/input';
+import Pagination from '@tdesign/components/pagination/index.ts';
+import { Select } from '@tdesign/components/select';
+import { Input } from '@tdesign/components/input';
 
 const defaultPaginationProps = {
   total: 100,

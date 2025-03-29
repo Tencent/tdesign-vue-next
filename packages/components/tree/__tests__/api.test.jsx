@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Tree from '@src/tree/index.ts';
+import Tree from '@tdesign/components/tree/index.ts';
 import { delay, step } from './kit';
 
 describe('Tree:api', () => {
@@ -372,7 +372,7 @@ describe('Tree:api', () => {
       expect(activeParams.actived.length).toBe(1);
       expect(activeParams.actived[0]).toBe('t2.1');
       expect(activeParams.context.node.value).toEqual('t2.1');
-      await delay(1);
+      await delay(3);
       expect(t2d1.classes('t-is-active')).toBe(true);
     });
   });

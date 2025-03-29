@@ -1,35 +1,23 @@
 {
   "name": "@tdesign/internal-utils",
   "private": true,
+  "type": "module",
   "author": "tdesign",
   "license": "MIT",
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
   "exports": {
     ".": {
-      "types": "./types/index.d.ts",
       "import": "./dist/es/index.js",
-      "default": "./dist/cjs/index.js"
+      "require": "./dist/cjs/index.js"
     },
-    "./paths": {
-      "types": "./types/paths.d.ts",
-      "import": "./dist/es/paths.js",
-      "default": "./dist/cjs/paths.js"
-    },
-    "./package-json": {
-      "types": "./types/package-json.d.ts",
-      "import": "./dist/es/package-json.js",
-      "default": "./dist/cjs/package-json.js"
-    },
-    "./exec": {
-      "types": "./types/exec.d.ts",
-      "import": "./dist/es/exec.js",
-      "default": "./dist/cjs/exec.js"
+    "./*": {
+      "import": "./dist/es/*.js",
+      "require": "./dist/cjs/*.js"
     }
   },
   "scripts": {
-    "prebuild": "rollup -c rollup.config.ts && pnpm build:tsc",
-    "build:tsc": "tsc --declaration --emitDeclarationOnly --rootDir . --outDir types --resolveJsonModule --esModuleInterop ./src/*.ts index.ts"
+    "prebuild": "rollup -c rollup.config.ts"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^16.0.0",

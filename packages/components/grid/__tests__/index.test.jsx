@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { it, expect, describe } from 'vitest';
-import { Row, Col } from '@src/grid/index.ts';
+import { Row, Col } from '@tdesign/components/grid/index.ts';
 
 const alignList = ['start', 'end', 'center', 'stretch', 'baseline', 'top', 'middle', 'bottom'];
 const justifyList = ['start', 'end', 'center', 'space-around', 'space-between'];
