@@ -76,7 +76,7 @@ disabled | Boolean | - | 是否禁用菜单项展开/收起/跳转等功能 | N
 href | String | - | 跳转链接 | N
 icon | Slot / Function | - | 图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 replace | Boolean | false | 路由跳转是否采用覆盖的方式（覆盖后将没有浏览器历史记录） | N
-router | Object | - | 路由对象。如果项目存在 Router，则默认使用 Router。。TS 类型：`Record<string, any>` | N
+router | Object | - | 路由对象。如果项目存在 Router，则默认使用 Router。TS 类型：`Record<string, any>` | N
 routerLink | Boolean | - | `1.3.11`。当且仅当 Router 存在时，该 API 有效。开启菜单项内容渲染为与router-link行为一致的`<a />`标签。 | N
 target | String | _self | 链接或路由跳转方式。可选项：_blank/_self/_parent/_top | N
 to | String / Object | - | 路由跳转目标，当且仅当 Router 存在时，该 API 有效。TS 类型：`MenuRoute` `interface MenuRoute { path?: string; name?: string; hash?: string; query?: MenuQueryData; params?: MenuQueryData }` `type MenuQueryData = { [key: string]: string \| string[] }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/menu/type.ts) | N
