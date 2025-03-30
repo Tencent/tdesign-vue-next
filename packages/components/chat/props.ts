@@ -21,7 +21,7 @@ export default {
       return ['skeleton', 'moving', 'gradient'].includes(val);
     },
   },
-  /** 自定义头像的插槽 */
+  /** 自定义每个对话单元的头像插槽 */
   avatar: {
     type: Function as PropType<TdChatProps['avatar']>,
   },
@@ -30,7 +30,7 @@ export default {
     type: Boolean,
     default: true,
   },
-  /** 自定义 markdown 的渲染效果 */
+  /** 自定义每个对话单独的聊天内容 */
   content: {
     type: Function as PropType<TdChatProps['content']>,
   },
@@ -38,7 +38,7 @@ export default {
   data: {
     type: Array as PropType<TdChatProps['data']>,
   },
-  /** 自定义时间的插槽 */
+  /** 自定义每个对话单元的时间 */
   datetime: {
     type: Function as PropType<TdChatProps['datetime']>,
   },
@@ -53,7 +53,7 @@ export default {
       return ['both', 'single'].includes(val);
     },
   },
-  /** 自定义昵称的插槽 */
+  /** 自定义每个对话单元的昵称 */
   name: {
     type: Function as PropType<TdChatProps['name']>,
   },

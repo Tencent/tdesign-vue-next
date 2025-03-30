@@ -5,6 +5,7 @@
  * */
 
 import { AvatarProps } from '../avatar';
+import { TextareaProps } from '../textarea';
 import { CollapsePanelProps } from '../collapse';
 import { CollapseValue } from '../collapse';
 import { TNode } from '../common';
@@ -20,26 +21,26 @@ export interface TdChatProps {
    */
   animation?: 'skeleton' | 'moving' | 'gradient';
   /**
-   * 自定义头像的插槽
+   * 自定义每个对话单元的头像插槽
    */
-  avatar?: TNode;
+  avatar?: TNode<{ item: TdChatItemProps }>;
   /**
    * 是否显示清空历史
    * @default true
    */
   clearHistory?: boolean;
   /**
-   * 自定义 markdown 的渲染效果
+   * 自定义每个对话单独的聊天内容
    */
-  content?: TNode;
+  content?: TNode<{ item: TdChatItemProps }>;
   /**
    * 对话列表的数据
    */
   data?: Array<TdChatItemProps>;
   /**
-   * 自定义时间的插槽
+   * 自定义每个对话单元的时间
    */
-  datetime?: TNode;
+  datetime?: TNode<{ item: TdChatItemProps }>;
   /**
    * 流式加载是否结束
    * @default false
@@ -51,9 +52,9 @@ export interface TdChatProps {
    */
   layout?: 'both' | 'single';
   /**
-   * 自定义昵称的插槽
+   * 自定义每个对话单元的昵称
    */
-  name?: TNode;
+  name?: TNode<{ item: TdChatItemProps }>;
   /**
    * 是否表现为倒序
    * @default true
@@ -177,6 +178,7 @@ export interface TdChatActionProps {
   isGood?: boolean;
   /**
    * 操作按钮配置项，可配置操作按钮选项和顺序
+   * @default ["replay", "copy", "good", "bad"]
    */
   operationBtn?: array;
   /**
@@ -212,6 +214,22 @@ export interface TdChatInputProps {
    */
   stopDisabled?: boolean;
   /**
+   * 发送按钮的自定义扩展
+   */
+  suffixIcon?: TNode;
+  /**
+   * 输入框的值
+   */
+  value?: T;
+  /**
+   * 输入框的值，非受控属性
+   */
+  defaultValue?: T;
+  /**
+   * 输入框的值
+   */
+  modelValue?: T;
+  /**
    * 输入框聚焦时触发
    */
   onBlur?: (value: string, context: { e: FocusEvent }) => void;
@@ -235,6 +253,16 @@ export interface TdChatInputProps {
 
 export interface TdChatSenderProps {
   /**
+   * 是否禁用输入框
+   * @default false
+   */
+  disabled?: boolean;
+  /**
+   * 输入框默认文案
+   * @default ''
+   */
+  placeholder?: string;
+  /**
    * 输入框左下角区域扩展
    */
   prefix?: string | TNode;
@@ -247,6 +275,34 @@ export interface TdChatSenderProps {
    * 输入框右下角区域扩展
    */
   suffix?: string | TNode;
+  /**
+   * 透传给  Textarea 组件的全部属性
+   */
+  textareaProps?: TextareaProps;
+  /**
+   * 输入框的值
+   */
+  value?: T;
+  /**
+   * 输入框的值，非受控属性
+   */
+  defaultValue?: T;
+  /**
+   * 输入框的值
+   */
+  modelValue?: T;
+  /**
+   * 输入框聚焦时触发
+   */
+  onBlur?: (value: string, context: { e: FocusEvent }) => void;
+  /**
+   * 输入框值发生变化时触发
+   */
+  onChange?: (value: string, context: { e: InputEvent | MouseEvent | KeyboardEvent }) => void;
+  /**
+   * 输入框聚焦时触发
+   */
+  onFocus?: (value: string, context: { e: FocusEvent }) => void;
   /**
    * 点击消息发送的回调方法
    */
@@ -290,3 +346,5 @@ export interface TdChatReasoning {
   onExpandChange?: (isExpand: boolean) => void;
   collapsePanelProps?: Object;
 }
+
+export type InputValue = string | number;

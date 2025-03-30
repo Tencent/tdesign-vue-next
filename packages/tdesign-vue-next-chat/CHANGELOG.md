@@ -5,6 +5,17 @@ toc: false
 spline: explain
 ---
 
+## 🌈 0.2.4 `2025-03-26`
+
+### 🚀 Features
+
+- `ChatSender`: 增加 `value`、`defaultValue` 、`onChange` 等一系列 API，用于处理输入相关的逻辑，与`ChatInput`保持一致
+- `Chat`: 增加`name`、`avatar`、`datetime`、`content` 等插槽，方便自定义每个对话单元的内容，具体使用参考实例
+
+### 🐞 Bug Fixes
+
+- `ChatSender`: 修复部分`textareaProps` 功能失效的问题
+
 ## 🌈 0.2.3 `2025-03-15`
 
 ### 🐞 Bug Fixes

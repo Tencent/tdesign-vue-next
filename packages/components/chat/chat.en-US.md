@@ -8,14 +8,14 @@ name | type | default | description | required
 -- | -- | -- | -- | --
 actions | Slot / Function | - | Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 animation | String | skeleton | options: skeleton/moving/gradient | N
-avatar | Slot / Function | - | Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
+avatar | Slot / Function | - | Typescript：`TNode<{ item: TdChatItemProps }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 clearHistory | Boolean | true | \- | N
-content | Slot / Function | - | Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
+content | Slot / Function | - | Typescript：`TNode<{ item: TdChatItemProps }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 data | Array | - | Typescript：`Array<TdChatItemProps>` | N
-datetime | Slot / Function | - | Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
+datetime | Slot / Function | - | Typescript：`TNode<{ item: TdChatItemProps }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 isStreamLoad | Boolean | false | \- | N
 layout | String | both | options: both/single | N
-name | Slot / Function | - | Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
+name | Slot / Function | - | Typescript：`TNode<{ item: TdChatItemProps }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 reverse | Boolean | true | \- | N
 textLoading | Boolean | false | \- | N
 onClear | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/>Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
@@ -75,7 +75,7 @@ content | String | - | \- | N
 disabled | Boolean | false | \- | N
 isBad | Boolean | false | \- | N
 isGood | Boolean | false | \- | N
-operationBtn | Array | - | \- | N
+operationBtn | Array | ["replay", "copy", "good", "bad"] | \- | N
 onOperation | Function |  | Typescript：`(value:string, context: { e: MouseEvent }) => void`<br/> | N
 
 ### ChatAction Events
@@ -94,6 +94,9 @@ autosize | Boolean / Object | { minRows: 1, maxRows: 5 } | Typescript：`boolean
 disabled | Boolean | false | \- | N
 placeholder | String | - | \- | N
 stopDisabled | Boolean | false | \- | N
+suffixIcon | Slot / Function | - | Typescript：`TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
+value | String / Number | - | input value。`v-model` and `v-model:value` is supported。Typescript：`T` `type InputValue = string \| number`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/chat/type.ts) | N
+defaultValue | String / Number | - | input value。uncontrolled property。Typescript：`T` `type InputValue = string \| number`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/chat/type.ts) | N
 onBlur | Function |  | Typescript：`(value:string, context: { e: FocusEvent }) => void`<br/> | N
 onChange | Function |  | Typescript：`(value:string, context: { e: InputEvent \| MouseEvent \| KeyboardEvent }) => void`<br/> | N
 onFocus | Function |  | Typescript：`(value:string, context: { e: FocusEvent })  => void`<br/> | N
@@ -115,9 +118,17 @@ stop | `(value:string, context: { e: MouseEvent })` | \-
 
 name | type | default | description | required
 -- | -- | -- | -- | --
+disabled | Boolean | false | \- | N
+placeholder | String | - | \- | N
 prefix | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 stopDisabled | Boolean | false | \- | N
 suffix | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
+textareaProps | Object | - | Typescript：`TextareaProps`，[Textarea API Documents](./textarea?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/chat/type.ts) | N
+value | String / Number | - | input value。`v-model` and `v-model:value` is supported。Typescript：`T` `type InputValue = string \| number`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/chat/type.ts) | N
+defaultValue | String / Number | - | input value。uncontrolled property。Typescript：`T` `type InputValue = string \| number`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/chat/type.ts) | N
+onBlur | Function |  | Typescript：`(value:string, context: { e: FocusEvent }) => void`<br/> | N
+onChange | Function |  | Typescript：`(value:string, context: { e: InputEvent \| MouseEvent \| KeyboardEvent }) => void`<br/> | N
+onFocus | Function |  | Typescript：`(value:string, context: { e: FocusEvent })  => void`<br/> | N
 onSend | Function |  | Typescript：`(value:string, context: { e: MouseEvent \| KeyboardEvent }) => void`<br/> | N
 onStop | Function |  | Typescript：`(value:string, context: { e: MouseEvent }) => void`<br/> | N
 
@@ -125,6 +136,9 @@ onStop | Function |  | Typescript：`(value:string, context: { e: MouseEvent }) 
 
 name | params | description
 -- | -- | --
+blur | `(value:string, context: { e: FocusEvent })` | \-
+change | `(value:string, context: { e: InputEvent \| MouseEvent \| KeyboardEvent })` | \-
+focus | `(value:string, context: { e: FocusEvent }) ` | \-
 send | `(value:string, context: { e: MouseEvent \| KeyboardEvent })` | \-
 stop | `(value:string, context: { e: MouseEvent })` | \-
 
