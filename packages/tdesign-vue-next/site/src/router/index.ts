@@ -81,7 +81,8 @@ router.afterEach(() => {
   if (typeof NProgress !== 'undefined') {
     NProgress.done();
   }
-  // todo 这是干啥的
+  // 站点埋点数据
+  // https://github.com/Tencent/tdesign/blob/main/packages/components/src/components/td-stats/index.js#L22
   // @ts-ignore
   document.querySelector('td-stats')?.track?.();
 });
