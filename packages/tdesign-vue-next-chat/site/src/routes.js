@@ -2,13 +2,13 @@ import { createRouter, createWebHistory } from 'vue-router';
 import config from '../site.config';
 import TdesignComponents from './components/components.jsx';
 
-const { docs, enDocs } = config;
+const { docs } = config;
 
 function getDocsRoutes(docs, type) {
   let docsRoutes = [];
   let docRoute;
-
-  docs.forEach((item) => {
+  console.log(docs, 'docs');
+  docs?.forEach((item) => {
     const docType = item.type || type;
     let { children } = item;
     if (item.type === 'component') {
@@ -33,17 +33,17 @@ function getDocsRoutes(docs, type) {
 const routes = [
   {
     path: '/chat/',
-    redirect: '/chat/overview',
+    redirect: '/chat/getting-started',
     component: TdesignComponents,
-    children: [...getDocsRoutes(docs), ...getDocsRoutes(enDocs)],
+    children: [...getDocsRoutes(docs)],
   },
   {
     path: '/',
-    redirect: '/chat/overview',
+    redirect: '/chat/getting-started',
   },
   {
     path: '/:w+',
-    redirect: '/chat/overview',
+    redirect: '/chat/getting-started',
   },
   {
     name: 'demosComponent',

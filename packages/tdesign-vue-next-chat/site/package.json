@@ -1,5 +1,5 @@
 {
-  "name": "@tdesign/vue-next-site",
+  "name": "@tdesign/vue-next-chat-site",
   "private": true,
   "scripts": {
     "start": "pnpm run dev",
@@ -28,7 +28,6 @@
     "tdesign-site-components": "0.16.0-alpha.10",
     "tdesign-theme-generator": "^1.0.17",
     "vite": "^2.9.16",
-    "vite-plugin-pwa": "^0.12.8",
     "vite-plugin-tdoc": "^2.0.4"
   }
 }

@@ -1,5 +1,7 @@
 import { createApp } from 'vue';
 import TDesign from '@tdesign/components';
+import TDesignChat from '@tdesign/components/pro-components';
+
 import App from './app.vue';
 import router from './routes';
 
@@ -31,4 +33,4 @@ app.component('Stackblitz', Stackblitz);
 app.component('CodeSandbox', CodeSandbox);
 app.component('BaseUsage', BaseUsage);
 
-app.use(TDesign).use(router).mount('#app');
+app.use(TDesign).use(TDesignChat).use(router).mount('#app');

@@ -7,8 +7,8 @@ const { docs, enDocs } = config;
 function getDocsRoutes(docs, type) {
   let docsRoutes = [];
   let docRoute;
-
-  docs.forEach((item) => {
+  console.log(docs, 'docs');
+  docs?.forEach((item) => {
     const docType = item.type || type;
     let { children } = item;
     if (item.type === 'component') {
