@@ -3,7 +3,6 @@
 <!-- 可在这里自行添加 demo 展示 -->
 
 ## API
-
 ### Form Props
 
 名称 | 类型 | 默认值 | 描述 | 必传
@@ -20,6 +19,7 @@ layout | String | vertical | 表单布局，有两种方式：纵向布局 和 �
 preventSubmitDefault | Boolean | true | 是否阻止表单提交默认事件（表单提交默认事件会刷新页面），设置为 `true` 可以避免刷新 | N
 readonly | Boolean | undefined | 是否整个表单只读 | N
 requiredMark | Boolean | true | 是否显示必填符号（*），默认显示 | N
+requiredMarkPosition | String | left | 表单必填符号（*）显示位置。可选项：left/right | N
 resetType | String | empty | 重置表单的方式，值为 empty 表示重置表单为空，值为 initial 表示重置表单数据为初始值。可选项：empty/initial | N
 rules | Object | - | 表单字段校验规则。TS 类型：`FormRules<FormData>` `type FormRules<T extends Data = any> = { [field in keyof T]?: Array<FormRule> }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/form/type.ts) | N
 scrollToFirstError | String | - | 表单校验不通过时，是否自动滚动到第一个校验不通过的字段，平滑滚动或是瞬间直达。值为空则表示不滚动。可选项：''/smooth/auto | N
