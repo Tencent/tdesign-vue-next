@@ -1,5 +1,5 @@
 import { defineComponent, computed, provide } from 'vue';
-import { usePrefixClass } from '../hooks/useConfig';
+import { usePrefixClass, useConfig } from '../hooks/useConfig';
 import props from './chat-item-props';
 import { isString, isArray, isObject } from 'lodash-es';
 import { Skeleton } from 'tdesign-vue-next';
@@ -21,6 +21,8 @@ export default defineComponent({
   emits: ['operation'],
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('chat');
+    const { globalConfig } = useConfig('chat');
+    const { loadingText, loadingEndText } = globalConfig.value;
     const renderTNodeJSX = useTNodeJSX();
     const role = computed(() => renderTNodeJSX('role'));
     const variant = computed(() => renderTNodeJSX('variant'));
@@ -60,7 +62,7 @@ export default defineComponent({
       const showActions = computed(() => renderTNodeJSX('actions'));
       const renderHeader = () => {
         if (reasoningLoading) {
-          return <ChatLoading text="思考中..." />;
+          return <ChatLoading text={loadingText} />;
         }
         return (
           <div style="display:flex;align-items:center">
@@ -71,7 +73,7 @@ export default defineComponent({
                 marginRight: '8px',
               }}
             />
-            <span>已深度思考</span>
+            <span>{loadingEndText}</span>
           </div>
         );
       };

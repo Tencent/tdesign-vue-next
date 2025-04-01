@@ -128,7 +128,7 @@ export default defineComponent({
     const showFooter = computed(() => renderTNodeJSX('footer'));
     const chatBoxRef = ref<HTMLDivElement>();
     // 滚动到底部
-    const scrollToBottom = (data: BackBottomParams) => {
+    const scrollToBottom = (data: ScrollToBottomParams) => {
       if (!chatBoxRef.value) return;
       const { behavior = 'auto' } = data;
       handleScrollToBottom(chatBoxRef.value, behavior);
