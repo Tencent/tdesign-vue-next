@@ -29,7 +29,7 @@ replace | Boolean | false | \- | N
 router | Object | - | Typescript：`any` | N
 target | String | _self | options: _blank/_self/_parent/_top | N
 to | String / Object | - | Typescript：`string \| Route` `interface Route { path?: string; name?: string; hash?: string; query?: RouteData; params?: RouteData }` `type RouteData = { [key: string]: string \| string[] }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/breadcrumb/type.ts) | N
-onClick | Function |  | Typescript：`(e: MouseEvent) => void`<br/>trigger on click | N
+onClick | Function | | Typescript：`(e: MouseEvent) => void`<br/>trigger on click | N
 
 ### BreadcrumbItem Events
 
