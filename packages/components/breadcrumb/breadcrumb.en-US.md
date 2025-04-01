@@ -1,14 +1,19 @@
 :: BASE_DOC ::
 
 ## API
+
 ### Breadcrumb Props
 
 name | type | default | description | required
 -- | -- | -- | -- | --
+ellipsis | String / Slot / Function | - | Typescript：`string \| TNode<{ items: Array<TdBreadcrumbItemProps>, separator: TdBreadcrumbProps['separator'] }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
+itemsAfterCollapse | Number | undefined | \- | N
+itemsBeforeCollapse | Number | undefined | \- | N
 maxItemWidth | String | undefined | \- | N
+maxItems | Number | undefined | \- | N
 options | Array | - | Typescript：`Array<TdBreadcrumbItemProps>` | N
 separator | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
-theme | String | light | options：light | N
+theme | String | light | options: light | N
 
 ### BreadcrumbItem Props
 
@@ -22,9 +27,9 @@ icon | Slot / Function | - | prefix icon in breadcrumb item。Typescript：`TNod
 maxWidth | String | undefined | \- | N
 replace | Boolean | false | \- | N
 router | Object | - | Typescript：`any` | N
-target | String | _self | options：_blank/_self/_parent/_top | N
+target | String | _self | options: _blank/_self/_parent/_top | N
 to | String / Object | - | Typescript：`string \| Route` `interface Route { path?: string; name?: string; hash?: string; query?: RouteData; params?: RouteData }` `type RouteData = { [key: string]: string \| string[] }`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/breadcrumb/type.ts) | N
-onClick | Function | | Typescript：`(e: MouseEvent) => void`<br/>trigger on click | N
+onClick | Function |  | Typescript：`(e: MouseEvent) => void`<br/>trigger on click | N
 
 ### BreadcrumbItem Events
 
