@@ -23,7 +23,7 @@ export interface TdChatProps {
   /**
    * 自定义每个对话单元的头像插槽
    */
-  avatar?: TNode<{ item: TdChatItemMeta }>;
+  avatar?: TNode<{ item: TdChatItemProps; index: number }>;
   /**
    * 是否显示清空历史
    * @default true
@@ -32,15 +32,15 @@ export interface TdChatProps {
   /**
    * 自定义每个对话单独的聊天内容
    */
-  content?: TNode<{ item: TdChatItemMeta }>;
+  content?: TNode<{ item: TdChatItemProps; index: number }>;
   /**
    * 对话列表的数据
    */
-  data?: Array<TdChatItemProps>;
+  data?: Array<TdChatItemMeta>;
   /**
    * 自定义每个对话单元的时间
    */
-  datetime?: TNode<{ item: TdChatItemMeta }>;
+  datetime?: TNode<{ item: TdChatItemProps; index: number }>;
   /**
    * 流式加载是否结束
    * @default false
@@ -54,11 +54,11 @@ export interface TdChatProps {
   /**
    * 自定义每个对话单元的昵称
    */
-  name?: TNode<{ item: TdChatItemMeta }>;
+  name?: TNode<{ item: TdChatItemProps; index: number }>;
   /**
    * 自定义每个对话单元的思考过程的插槽
    */
-  reasoning?: TNode<{ item: TdChatItemMeta }>;
+  reasoning?: TNode<{ item: TdChatItemProps; index: number }>;
   /**
    * 是否表现为倒序
    * @default true
