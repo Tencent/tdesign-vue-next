@@ -25,7 +25,7 @@ npm i tdesign-vue-next
 ```
 
 <div style="background: #fff5e4; display: flex; align-items: center; line-height: 20px; padding: 14px 24px; border-radius: 3px; color: #555a65;margin:16px 0">
-   Please note that we do not recommend this approach, as production projects will be directly affected by version updates and may also be affected by the stability of the CDN.
+   ⚠️ Please note that we do not recommend this approach, as production projects will be directly affected by version updates and may also be affected by the stability of the CDN.
 </div>
 
 The package of tdesign-vue-next provides kinds of bundles, read [the documentation](https://github.com/Tencent/tdesign/blob/main/docs/develop-install.md) for the detail of differences between bundles.
