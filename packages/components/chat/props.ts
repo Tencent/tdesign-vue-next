@@ -57,6 +57,10 @@ export default {
   name: {
     type: Function as PropType<TdChatProps['name']>,
   },
+  /** 自定义每个对话单元的思考过程的插槽 */
+  reasoning: {
+    type: Function as PropType<TdChatProps['reasoning']>,
+  },
   /** 是否表现为倒序 */
   reverse: {
     type: Boolean,
