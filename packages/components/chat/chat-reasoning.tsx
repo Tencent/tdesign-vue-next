@@ -11,7 +11,7 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('chat');
     // 修复响应式链断裂问题
     const injectedRole = inject<ComputedRef<string>>('role');
-    const role = computed(() => props.role || injectedRole?.value || '');
+    const role = computed(() => injectedRole?.value || '');
     provide('role', role);
     const renderTNodeJSX = useTNodeJSX();
 
@@ -29,14 +29,14 @@ export default defineComponent({
                 expandIcon={true}
                 value="0"
                 v-slots={{
-                  destroyOnCollapse: () => props.collapsePanelProps.destroyOnCollapse,
-                  disabled: () => props.collapsePanelProps.disabled,
-                  default: () => props.collapsePanelProps.content || renderTNodeJSX('default'),
-                  header: () => props.collapsePanelProps.header || renderTNodeJSX('header'), // 保证响应式
-                  expandIcon: () => props.collapsePanelProps.expandIcon || renderTNodeJSX('expandIcon'),
+                  destroyOnCollapse: () => props?.collapsePanelProps?.destroyOnCollapse,
+                  disabled: () => props?.collapsePanelProps?.disabled,
+                  default: () => props?.collapsePanelProps?.content || renderTNodeJSX('default'),
+                  header: () => props?.collapsePanelProps?.header || renderTNodeJSX('header'), // 保证响应式
+                  expandIcon: () => props?.collapsePanelProps?.expandIcon || renderTNodeJSX('expandIcon'),
                   headerRightContent: () =>
-                    props.collapsePanelProps.headerRightContent || renderTNodeJSX('headerRightContent'),
-                  content: () => props.collapsePanelProps.content || renderTNodeJSX('default'), // 保证响应式
+                    props?.collapsePanelProps?.headerRightContent || renderTNodeJSX('headerRightContent'),
+                  content: () => props?.collapsePanelProps?.content || renderTNodeJSX('default'), // 保证响应式
                 }}
               ></CollapsePanel>
             </Collapse>

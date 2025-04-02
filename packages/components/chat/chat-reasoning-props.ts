@@ -11,6 +11,9 @@ export default {
   /** 透传给 CollapsePanel 组件的全部属性 */
   collapsePanelProps: {
     type: Object as PropType<TdChatReasoningProps['collapsePanelProps']>,
+    default: () => ({
+      destroyOnCollapse: false,
+    }),
   },
   /** 当前折叠面板展开图标。优先级低于collapsePanelProps.expandIcon */
   expandIcon: {
@@ -34,5 +37,8 @@ export default {
     type: Function as PropType<TdChatReasoningProps['headerRightContent']>,
   },
   /** 展开图标点击事件 */
-  onExpandChange: Function as PropType<TdChatReasoningProps['onExpandChange']>,
+  onExpandChange: {
+    type: Function as PropType<TdChatReasoningProps['onExpandChange']>,
+    default: () => {},
+  },
 };
