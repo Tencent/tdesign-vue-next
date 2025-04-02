@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { it, expect } from 'vitest';
-import Card from '@src/card';
+import Card from '@tdesign/components/card';
 
 // every component needs four parts: props/events/slots/functions.
 describe('Card', () => {

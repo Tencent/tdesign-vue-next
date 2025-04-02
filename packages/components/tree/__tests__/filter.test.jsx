@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Tree from '@src/tree/index.ts';
+import Tree from '@tdesign/components/tree/index.ts';
 import { defineComponent } from './adapt';
 import { delay } from './kit';
 
