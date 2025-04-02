@@ -14,18 +14,18 @@ export default defineConfig({
   plugins: [vue(), vueJsx()],
   test: {
     include:
-      process.env.NODE_ENV === 'test-snap'
-        ? [await resolveTdesignVueNextRoot('test/unit/snap/*.test.ts')]
-        : [await resolveComponentsRoot('**/__tests__/*.test.{js,ts,jsx,tsx}')],
+      process.env.TEST_TARGET === 'snap'
+        ? [resolveTdesignVueNextRoot('test/src/snap/*.test.ts')]
+        : [resolveComponentsRoot('**/__tests__/*.test.{js,ts,jsx,tsx}')],
     globals: true,
     environment: 'jsdom',
     testTimeout: 5000,
-    setupFiles: process.env.NODE_ENV === 'test-snap' ? './unit/test-setup.ts' : '',
+    setupFiles: process.env.TEST_TARGET === 'snap' ? './src/setup.ts' : '',
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
       allowExternal: true,
-      include: [await resolveComponentsRoot()],
+      include: [resolveComponentsRoot()],
     },
   },
 });

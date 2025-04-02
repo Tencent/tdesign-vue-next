@@ -133,7 +133,7 @@ export const getAttach = (node: any, triggerNode?: any): HTMLElement | Element =
 };
 
 export const getSSRAttach = () => {
-  if (process.env.NODE_ENV === 'test-snap') return 'body';
+  if (process.env.TEST_TARGET === 'snap') return 'body';
 };
 
 /**
