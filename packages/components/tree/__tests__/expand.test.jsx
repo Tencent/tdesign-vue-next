@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Tree from '@src/tree/index.ts';
+import Tree from '@tdesign/components/tree/index.ts';
 import { delay } from './kit';
 import { ref } from './adapt';
 import { Icon } from 'tdesign-icons-vue-next';

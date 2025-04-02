@@ -5,7 +5,7 @@ import { CheckCircleFilledIcon, CloseCircleFilledIcon, InfoCircleIcon } from 'td
 import { isObject } from 'lodash-es';
 import { omit } from 'lodash-es';
 import { FormItem, Form } from '../index.ts';
-import { Input, InputNumber } from '@src/index.ts';
+import { Input, InputNumber } from '@tdesign/components/index.ts';
 import { useFormDisabled } from '../hooks';
 
 const delay = (time = 0) =>
