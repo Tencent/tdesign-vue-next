@@ -11,8 +11,8 @@
 
 <script>
 // TODO: 这种是否能优化一下呀，就不用路径的方式
-const demoVueReq = import.meta.glob('../../../../../packages/components/**/_example/*.vue');
-const demoJsxReq = import.meta.glob('../../../../../packages/components/**/_example/*.jsx');
+const demoVueReq = import.meta.glob('../../../../../packages/components/**/_example/*.vue', { eager: true });
+const demoJsxReq = import.meta.glob('../../../../../packages/components/**/_example/*.jsx', { eager: true });
 
 const demoReq = { ...demoVueReq, ...demoJsxReq };
 const demoObject = {};
