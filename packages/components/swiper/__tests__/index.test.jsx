@@ -165,6 +165,19 @@ describe('Swiper', () => {
       });
       expect(wrapper.element).toMatchSnapshot();
     });
+    it(':cardScale', () => {
+      const wrapper = mount({
+        render() {
+          return (
+            <Swiper type={'card'} cardScale={0.8}>
+              <SwiperItem>1</SwiperItem>
+              <SwiperItem>2</SwiperItem>
+            </Swiper>
+          );
+        },
+      });
+      expect(wrapper.element).toMatchSnapshot();
+    });
   });
   // test events
   describe('@event', () => {
