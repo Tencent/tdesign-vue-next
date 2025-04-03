@@ -8,8 +8,6 @@ import { compileUsage, getGitTimestamp } from '../../../../packages/common/docs/
 import camelCase from 'lodash/camelCase';
 import { resolvePackagesRoot } from '@tdesign/internal-utils';
 
-import testCoverage from '../test-coverage';
-
 const DEFAULT_TABS = [
   { tab: 'demo', name: '示例' },
   { tab: 'api', name: 'API' },
@@ -25,11 +23,6 @@ const DEFAULT_EN_TABS = [
 export default async function mdToVue(options) {
   const mdSegment = await customRender(options);
   const { demoDefsStr, demoCodesDefsStr, demoInstallStr, demoCodeInstallStr } = options;
-
-  let coverage = {};
-  if (mdSegment.isComponent) {
-    coverage = testCoverage[camelCase(mdSegment.componentName)] || {};
-  }
 
   const sfc = `
     <template>
