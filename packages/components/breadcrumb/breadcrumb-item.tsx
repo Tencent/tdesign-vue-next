@@ -1,34 +1,29 @@
 import { defineComponent, VNode, inject, ref, computed, getCurrentInstance, onMounted, onBeforeUpdate } from 'vue';
-import { ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
-
 import props from './breadcrumb-item-props';
 import Tooltip from '../tooltip/index';
 import { isTextEllipsis } from '../utils/dom';
 import { usePrefixClass } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
-import { isFunction } from 'lodash-es';
 
 interface LocalTBreadcrumb {
-  separator: (() => void) | string;
+  separator: VNode | string;
   theme: string;
-  slots: {
-    separator: VNode | string;
-  };
   maxItemWidth: string;
 }
 
 const localTBreadcrumbOrigin: LocalTBreadcrumb = {
   separator: '',
   theme: 'light',
-  slots: { separator: '' },
   maxItemWidth: undefined,
 };
 
 export default defineComponent({
   name: 'TBreadcrumbItem',
   inheritAttrs: false,
-  props,
+  props: {
+    ...props,
+    isEllipsisItem: Boolean,
+  },
   setup(props, { attrs }) {
     const renderContent = useContent();
     const renderTNodeJSX = useTNodeJSX();
@@ -43,13 +38,12 @@ export default defineComponent({
     const linkClass = usePrefixClass('link');
     const maxLengthClass = usePrefixClass('breadcrumb__inner');
     const textFlowClass = usePrefixClass('breadcrumb--text-overflow');
-
-    const { ChevronRightIcon } = useGlobalIcon({ ChevronRightIcon: TdChevronRightIcon });
     const maxWithStyle = computed(() => {
       const maxItemWidth = localTBreadcrumb?.maxItemWidth;
       const maxWith: string = props.maxWidth || maxItemWidth || '120';
       return { maxWidth: `${maxWith}px` };
     });
+    const { proxy } = getCurrentInstance();
 
     onMounted(() => {
       isCutOff.value = isTextEllipsis(breadcrumbText.value);
@@ -57,13 +51,6 @@ export default defineComponent({
     onBeforeUpdate(() => {
       isCutOff.value = isTextEllipsis(breadcrumbText.value);
     });
-
-    const separatorPropContent = localTBreadcrumb?.separator;
-    const separatorSlot = localTBreadcrumb?.slots?.separator;
-    const separatorContent = separatorPropContent || separatorSlot || (
-      <ChevronRightIcon {...{ color: 'rgba(0,0,0,.3)' }} />
-    );
-    const { proxy } = getCurrentInstance();
 
     const handleClick = () => {
       const router = props.router || proxy.$router;
@@ -74,6 +61,7 @@ export default defineComponent({
         window.location.href = props.href;
       }
     };
+
     const bindEvent = (e: MouseEvent) => {
       if (!props.disabled) {
         e.preventDefault();
@@ -122,6 +110,13 @@ export default defineComponent({
           </a>
         );
       }
+      if (props?.isEllipsisItem) {
+        itemContent = (
+          <div ref={breadcrumbText} style="display: flex">
+            {content}
+          </div>
+        );
+      }
       return (
         <div class={itemClass} {...attrs} onClick={!props.disabled && props.onClick}>
           {isCutOff.value ? <Tooltip content={() => content}>{itemContent}</Tooltip> : itemContent}
@@ -131,7 +126,7 @@ export default defineComponent({
               textOverflow: isCutOff.value ? 'ellipsis' : 'clip',
             }}
           >
-            {isFunction(separatorContent) ? separatorContent() : separatorContent}
+            {localTBreadcrumb.separator}
           </span>
         </div>
       );
