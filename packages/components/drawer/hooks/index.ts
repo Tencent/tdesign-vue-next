@@ -8,7 +8,8 @@ export const useDrag = (props: TdDrawerProps) => {
   const isSizeDragging = ref(false);
   const draggedSizeValue = ref<string>(null);
 
-  const enableDrag = () => {
+  const enableDrag = (e: MouseEvent) => {
+    e.stopPropagation(); // 阻止事件冒泡
     // mousedown绑定mousemove和mouseup事件
     document.addEventListener('mouseup', handleMouseup, true);
     document.addEventListener('mousemove', handleMousemove, true);
@@ -75,5 +76,12 @@ export const useDrag = (props: TdDrawerProps) => {
     } as Styles;
   });
 
-  return { draggedSizeValue, enableDrag, draggableLineStyles };
+  const draggingStyles = computed<Styles>(() => (isSizeDragging.value ? { userSelect: 'none' } : {}));
+
+  return {
+    draggedSizeValue,
+    enableDrag,
+    draggableLineStyles,
+    draggingStyles,
+  };
 };

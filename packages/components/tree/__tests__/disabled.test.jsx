@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Tree from '@src/tree/index.ts';
+import Tree from '@tdesign/components/tree/index.ts';
 import { delay } from './kit';
 
 describe('Tree:disabled', () => {
@@ -21,13 +21,13 @@ describe('Tree:disabled', () => {
           return <Tree transition={false} data={data} expandAll disabled checkable></Tree>;
         },
       });
-      await delay(1);
+      await delay(3);
       const t1 = wrapper.find('[data-value="t1"]');
       const t1d1 = wrapper.find('[data-value="t1.1"]');
       expect(t1.classes('t-is-disabled')).toBe(true);
       expect(t1d1.classes('t-is-disabled')).toBe(true);
       await wrapper.find('[data-value="t1"] input[type="checkbox"]').setChecked();
-      await delay(1);
+      await delay(3);
       expect(wrapper.find('[data-value="t1"] .t-checkbox').classes('t-is-checked')).toBe(false);
       expect(wrapper.find('[data-value="t1.1"] .t-checkbox').classes('t-is-checked')).toBe(false);
     });
@@ -114,7 +114,7 @@ describe('Tree:disabled', () => {
       disableMap['t1.1'] = false;
       const { tree } = wrapper.vm.$refs;
       tree.refresh();
-      await delay(1);
+      await delay(3);
       expect(t1d1.classes('t-is-disabled')).toBe(false);
     });
   });
@@ -140,7 +140,7 @@ describe('Tree:disabled', () => {
           return <Tree transition={false} data={data} expandAll></Tree>;
         },
       });
-      await delay(1);
+      await delay(3);
       const t1 = wrapper.find('[data-value="t1"]');
       const t1d1 = wrapper.find('[data-value="t1.1"]');
       const t1d2 = wrapper.find('[data-value="t1.2"]');
@@ -168,13 +168,13 @@ describe('Tree:disabled', () => {
           return <Tree ref="tree" transition={false} data={data} expandAll></Tree>;
         },
       });
-      await delay(1);
+      await delay(3);
       const { tree } = wrapper.vm.$refs;
       const t1 = wrapper.find('[data-value="t1"]');
       const t1d1 = wrapper.find('[data-value="t1.1"]');
       const t1d2 = wrapper.find('[data-value="t1.2"]');
       tree.setItem('t1.1', { disabled: true });
-      await delay(1);
+      await delay(3);
       expect(t1.classes('t-is-disabled')).toBe(false);
       expect(t1d1.classes('t-is-disabled')).toBe(true);
       expect(t1d2.classes('t-is-disabled')).toBe(false);
@@ -199,7 +199,7 @@ describe('Tree:disabled', () => {
           return <Tree ref="tree" transition={false} data={data} expandAll></Tree>;
         },
       });
-      await delay(1);
+      await delay(3);
       const { tree } = wrapper.vm.$refs;
       const t1 = wrapper.find('[data-value="t1"]');
       const t1d1 = wrapper.find('[data-value="t1.1"]');
@@ -208,7 +208,7 @@ describe('Tree:disabled', () => {
       expect(t1d1.classes('t-is-disabled')).toBe(false);
       expect(t1d2.classes('t-is-disabled')).toBe(false);
       tree.setItem('t1', { disabled: true });
-      await delay(1);
+      await delay(3);
       expect(t1.classes('t-is-disabled')).toBe(true);
       expect(t1d1.classes('t-is-disabled')).toBe(true);
       expect(t1d2.classes('t-is-disabled')).toBe(true);
@@ -233,7 +233,7 @@ describe('Tree:disabled', () => {
           return <Tree ref="tree" transition={false} data={data} expandAll checkable check-strictly={true}></Tree>;
         },
       });
-      await delay(1);
+      await delay(3);
       const { tree } = wrapper.vm.$refs;
       const t1 = wrapper.find('[data-value="t1"]');
       const t1d1 = wrapper.find('[data-value="t1.1"]');
@@ -242,7 +242,7 @@ describe('Tree:disabled', () => {
       expect(t1d1.classes('t-is-disabled')).toBe(false);
       expect(t1d2.classes('t-is-disabled')).toBe(false);
       tree.setItem('t1', { disabled: true });
-      await delay(1);
+      await delay(3);
       expect(t1.classes('t-is-disabled')).toBe(true);
       expect(t1d1.classes('t-is-disabled')).toBe(false);
       expect(t1d2.classes('t-is-disabled')).toBe(false);
@@ -269,21 +269,21 @@ describe('Tree:disabled', () => {
           return <Tree ref="tree" transition={false} data={data} expandAll checkable></Tree>;
         },
       });
-      await delay(1);
+      await delay(3);
       const { tree } = wrapper.vm.$refs;
       const t1d1 = wrapper.find('[data-value="t1.1"]');
       tree.setItem('t1.1', { disabled: true });
-      await delay(1);
+      await delay(3);
       expect(t1d1.classes('t-is-disabled')).toBe(true);
       expect(wrapper.find('[data-value="t1.1"] .t-checkbox').classes('t-is-checked')).toBe(false);
       await wrapper.find('[data-value="t1"] input[type="checkbox"]').setChecked();
-      await delay(1);
+      await delay(3);
       expect(wrapper.find('[data-value="t1"] .t-checkbox').classes('t-is-checked')).toBe(false);
       expect(wrapper.find('[data-value="t1"] .t-checkbox').classes('t-is-indeterminate')).toBe(true);
       expect(wrapper.find('[data-value="t1.1"] .t-checkbox').classes('t-is-checked')).toBe(false);
       expect(wrapper.find('[data-value="t1.2"] .t-checkbox').classes('t-is-checked')).toBe(true);
       await wrapper.find('[data-value="t1"] input[type="checkbox"]').setChecked(false);
-      await delay(1);
+      await delay(3);
       expect(wrapper.find('[data-value="t1"] .t-checkbox').classes('t-is-checked')).toBe(false);
       expect(wrapper.find('[data-value="t1"] .t-checkbox').classes('t-is-indeterminate')).toBe(false);
       expect(wrapper.find('[data-value="t1.1"] .t-checkbox').classes('t-is-checked')).toBe(false);
@@ -309,24 +309,24 @@ describe('Tree:disabled', () => {
           return <Tree ref="tree" transition={false} data={data} expandAll checkable></Tree>;
         },
       });
-      await delay(1);
+      await delay(3);
       const { tree } = wrapper.vm.$refs;
       const t1d1 = wrapper.find('[data-value="t1.1"]');
       tree.setItem('t1.1', {
         checked: true,
         disabled: true,
       });
-      await delay(1);
+      await delay(3);
       expect(t1d1.classes('t-is-disabled')).toBe(true);
       expect(wrapper.find('[data-value="t1.1"] .t-checkbox').classes('t-is-checked')).toBe(true);
       await wrapper.find('[data-value="t1"] input[type="checkbox"]').setChecked();
-      await delay(1);
+      await delay(3);
       expect(wrapper.find('[data-value="t1"] .t-checkbox').classes('t-is-checked')).toBe(true);
       expect(wrapper.find('[data-value="t1"] .t-checkbox').classes('t-is-indeterminate')).toBe(false);
       expect(wrapper.find('[data-value="t1.1"] .t-checkbox').classes('t-is-checked')).toBe(true);
       expect(wrapper.find('[data-value="t1.2"] .t-checkbox').classes('t-is-checked')).toBe(true);
       await wrapper.find('[data-value="t1"] input[type="checkbox"]').setChecked(false);
-      await delay(1);
+      await delay(3);
       expect(wrapper.find('[data-value="t1"] .t-checkbox').classes('t-is-checked')).toBe(false);
       expect(wrapper.find('[data-value="t1"] .t-checkbox').classes('t-is-indeterminate')).toBe(true);
       expect(wrapper.find('[data-value="t1.1"] .t-checkbox').classes('t-is-checked')).toBe(true);
@@ -356,7 +356,7 @@ describe('Tree:disabled', () => {
         return <Tree ref="tree" transition={false} data={data} expandAll checkable></Tree>;
       },
     });
-    await delay(1);
+    await delay(3);
     const { tree } = wrapper.vm.$refs;
     const t1d1 = wrapper.find('[data-value="t1.1"]');
     const t1d2 = wrapper.find('[data-value="t1.2"]');
@@ -368,20 +368,20 @@ describe('Tree:disabled', () => {
       checked: false,
       disabled: true,
     });
-    await delay(1);
+    await delay(3);
     expect(t1d1.classes('t-is-disabled')).toBe(true);
     expect(wrapper.find('[data-value="t1.1"] .t-checkbox').classes('t-is-checked')).toBe(true);
     expect(t1d2.classes('t-is-disabled')).toBe(true);
     expect(wrapper.find('[data-value="t1.2"] .t-checkbox').classes('t-is-checked')).toBe(false);
     await wrapper.find('[data-value="t1"] input[type="checkbox"]').setChecked();
-    await delay(1);
+    await delay(3);
     expect(wrapper.find('[data-value="t1"] .t-checkbox').classes('t-is-checked')).toBe(false);
     expect(wrapper.find('[data-value="t1"] .t-checkbox').classes('t-is-indeterminate')).toBe(true);
     expect(wrapper.find('[data-value="t1.1"] .t-checkbox').classes('t-is-checked')).toBe(true);
     expect(wrapper.find('[data-value="t1.2"] .t-checkbox').classes('t-is-checked')).toBe(false);
     expect(wrapper.find('[data-value="t1.3"] .t-checkbox').classes('t-is-checked')).toBe(true);
     await wrapper.find('[data-value="t1"] input[type="checkbox"]').setChecked(false);
-    await delay(1);
+    await delay(3);
     expect(wrapper.find('[data-value="t1"] .t-checkbox').classes('t-is-checked')).toBe(false);
     expect(wrapper.find('[data-value="t1"] .t-checkbox').classes('t-is-indeterminate')).toBe(true);
     expect(wrapper.find('[data-value="t1.1"] .t-checkbox').classes('t-is-checked')).toBe(true);
