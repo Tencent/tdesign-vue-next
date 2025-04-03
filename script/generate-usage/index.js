@@ -40,14 +40,14 @@ ${
 function genUsage() {
   // eslint-disable-next-line no-restricted-syntax
   for (const name of Object.keys(config)) {
-    const fileFolderPath = path.resolve(__dirname, `../../src/${name}/_usage`);
+    const fileFolderPath = path.resolve(__dirname, `../../packages/components/${name}/_usage`);
     if (!fs.existsSync(fileFolderPath)) {
       fs.mkdirSync(fileFolderPath);
     }
 
     try {
       const data = renderUsageStr(config[name]);
-      const filePath = path.resolve(__dirname, `../../src/${name}/_usage/index.vue`);
+      const filePath = path.resolve(__dirname, `../../packages/components/${name}/_usage/index.vue`);
       fs.writeFileSync(filePath, codeFormat(data));
     } catch (err) {
       console.error(`${name} usage 组件生成失败...`, err);

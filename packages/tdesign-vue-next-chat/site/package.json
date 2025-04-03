@@ -1,0 +1,35 @@
+{
+  "name": "@tdesign/vue-next-chat-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "pnpm run dev",
+    "dev": "vite",
+    "build": "vite build",
+    "intranet": "vite build --mode intranet",
+    "preview": "vite build --mode preview && cp dist/index.html dist/404.html"
+  },
+  "author": "tdesign",
+  "license": "MIT",
+  "dependencies": {
+    "semver": "^7.5.4",
+    "vue": "3.3.9",
+    "vue-router": "^4.2.4",
+    "workbox-precaching": "^6.6.0"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.17.15",
+    "@vitejs/plugin-vue": "^2.3.4",
+    "@vitejs/plugin-vue-jsx": "^1.3.10",
+    "@vue/compiler-sfc": "^3.3.4",
+    "less": "^4.1.3",
+    "lodash": "^4.17.21",
+    "prismjs": "^1.29.0",
+    "tdesign-icons-view": "^0.3.5",
+    "tdesign-site-components": "^0.15.9",
+    "tdesign-theme-generator": "^1.0.17",
+    "typescript": "~5.7.2",
+    "vite": "^6.2.0",
+    "vite-plugin-tdoc": "^2.0.4"
+  }
+}
