@@ -25,9 +25,11 @@ export const useBreadcrumbItems = (props: TdBreadcrumbProps) => {
     // slots
     const getFormatContent = (items: VNode | any) => {
       let content = items.props?.content;
+      let icon = items.props?.icon;
       if (items?.children) {
         if (isObject(items.children) && items.children?.default) {
           content = items.children.default?.();
+          icon = items.children.icon?.();
         }
         if (isArray(content)) {
           for (const child of content) {
@@ -37,16 +39,17 @@ export const useBreadcrumbItems = (props: TdBreadcrumbProps) => {
           }
         }
       }
-      return content;
+      return { content, icon };
     };
 
     const itemsSlots = getChildComponentSlots('TBreadcrumbItem');
     if (isArray(itemsSlots)) {
       for (const child of itemsSlots) {
-        const content = getFormatContent(child);
+        const { content, icon } = getFormatContent(child);
         breadcrumbItems.push({
           ...child.props,
           content,
+          icon,
         } as TdBreadcrumbItemProps);
         dynamicIndex++;
       }

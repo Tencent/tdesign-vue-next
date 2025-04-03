@@ -91,7 +91,6 @@ export default defineComponent({
       };
 
       const content = renderContent('default', 'content');
-
       const textContent = (
         <span {...{ class: maxLengthClass.value, style: maxWithStyle.value }}>
           {renderTNodeJSX('icon')}
