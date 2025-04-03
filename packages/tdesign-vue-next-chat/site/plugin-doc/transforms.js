@@ -1,5 +1,5 @@
-import fs from 'fs';
 import path from 'path';
+import fs from 'fs';
 import { resolvePackagesRoot } from '@tdesign/internal-utils';
 
 import mdToVue from './md-to-vue';
@@ -13,6 +13,7 @@ export default {
     const reg = file.match(/([\w-]+)\.?([\w-]+)?\.md/);
     const fileName = reg && reg[0];
     const componentName = reg && reg[1];
+    const localeName = reg && reg[2];
     demoImports = {};
     demoCodesImports = {};
 
@@ -36,31 +37,37 @@ export default {
     // 替换成对应 demo 文件
     source = source.replace(/\{\{\s+(.+)\s+\}\}/g, (demoStr, demoFileName) => {
       const defaultDemoPath = path.resolve(resourceDir, `./_example/${demoFileName}.vue`);
-      const tsDemoPath = path.resolve(resourceDir, `./_example-ts/${demoFileName}.vue`);
 
       if (!fs.existsSync(defaultDemoPath)) {
         console.log('\x1B[36m%s\x1B[0m', `${componentName} 组件需要实现 _example/${demoFileName}.vue 示例!`);
         return '\n<h3>DEMO (🚧建设中）...</h3>';
       }
 
-      if (!fs.existsSync(tsDemoPath)) {
-        console.log('\x1B[36m%s\x1B[0m', `${componentName} 组件需要实现 _example-ts/${demoFileName}.vue 示例!`);
-      }
-
       return `\n::: demo _example/${demoFileName} ${componentName}\n:::\n`;
     });
     source.replace(/:::\s*demo\s+([\\/.\w-]+)/g, (demoStr, relativeDemoPath) => {
-      const tsDemoPath = `_example-ts/${relativeDemoPath.split('/')?.[1]}`;
+      const isMockDemoDisplay = ['_example/base', '_example/chat-drag', '_example/chat-drawer'].includes(
+        relativeDemoPath,
+      );
+      const isMockReasoningDemoDisplay = [
+        '_example/reasoning',
+        '_example/reasoning-drag',
+        '_example/reasoning-drawer',
+      ].includes(relativeDemoPath);
+      const mockDemoPath = `mock-data/sseRequest.ts`;
+      const mockReasoningDemoPath = `mock-data/sseRequest-reasoning.ts`;
+
       const demoPathOnlyLetters = relativeDemoPath.replace(/[^a-zA-Z\d]/g, '');
       const demoDefName = `Demo${demoPathOnlyLetters}`;
-
       const demoCodeDefName = `Demo${demoPathOnlyLetters}Code`;
-      const demoTsCodeDefName = `Demo${demoPathOnlyLetters}TsCode`;
+      const demoMockDataDefName = `Demo${demoPathOnlyLetters}TsCode`;
 
       demoImports[demoDefName] = `import ${demoDefName} from './${relativeDemoPath}.vue'`;
       demoCodesImports[demoCodeDefName] = `import ${demoCodeDefName} from './${relativeDemoPath}.vue?raw'`;
-      if (fs.existsSync(path.resolve(resourceDir, `${tsDemoPath}.vue`)))
-        demoCodesImports[demoTsCodeDefName] = `import ${demoTsCodeDefName} from './${tsDemoPath}.vue?raw'`;
+      if (isMockDemoDisplay)
+        demoCodesImports[demoMockDataDefName] = `import ${demoMockDataDefName} from './${mockDemoPath}?raw'`;
+      if (isMockReasoningDemoDisplay)
+        demoCodesImports[demoMockDataDefName] = `import ${demoMockDataDefName} from './${mockReasoningDemoPath}?raw'`;
     });
 
     return source;
