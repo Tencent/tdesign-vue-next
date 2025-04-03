@@ -116,23 +116,8 @@ export default defineComponent({
   render() {
     return (
       <td-doc-layout>
-        <td-header ref="tdHeader" slot="header">
-          <div slot="search" style="display:flex; align-items:center;">
-            <td-ai-button style="margin-right:8px" framework={'vue'} demoRequestBody={demoRequestBody} />
-            <td-doc-search ref="tdDocSearch" />
-          </div>
-        </td-header>
-
-        <td-doc-aside ref="tdDocAside" title="Vue Next for Web">
-          <t-select
-            id="historyVersion"
-            slot="extra"
-            value={this.version.replace(/\./g, '_')}
-            popupProps={{ zIndex: 500, attach: this.getAttach }}
-            onChange={this.changeVersion}
-            options={this.options}
-          />
-        </td-doc-aside>
+        <td-header ref="tdHeader" slot="header" />
+        <td-doc-aside ref="tdDocAside" title="TD Chat for AI"></td-doc-aside>
         <router-view style={this.contentStyle} onLoaded={this.contentLoaded} />
         <td-theme-generator />
       </td-doc-layout>

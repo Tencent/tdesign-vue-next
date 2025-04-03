@@ -43,23 +43,6 @@ export default async function mdToVue(options) {
             spline="${mdSegment.spline}"
             ${mdSegment.isComponent ? `component-name="${mdSegment.componentName}"` : ''}
           >
-          ${
-            mdSegment.isComponent
-              ? `
-            <td-doc-badge style="margin-right: 10px" slot="badge" label="coverages: lines" message="${
-              coverage.lines || '0%'
-            }" />
-            <td-doc-badge style="margin-right: 10px" slot="badge" label="coverages: functions" message="${
-              coverage.functions || '0%'
-            }" />
-            <td-doc-badge style="margin-right: 10px" slot="badge" label="coverages: statements" message="${
-              coverage.statements || '0%'
-            }" />
-            <td-doc-badge style="margin-right: 10px" slot="badge" label="coverages: branches" message="${
-              coverage.branches || '0%'
-            }" />`
-              : ''
-          }
           </td-doc-header>`
             : ''
         }
