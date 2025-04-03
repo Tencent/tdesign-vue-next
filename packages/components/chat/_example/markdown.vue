@@ -52,7 +52,7 @@ This is [an example](http://example.com/ "Title") inline link.
 
 
 \`\`\`bash
-$ npm i tdesign-vue-next
+$ npm i @tdesign-vue-next/chat
 \`\`\`
 
 ---
@@ -60,6 +60,7 @@ $ npm i tdesign-vue-next
 \`\`\`javascript
 import { createApp } from 'vue';
 import App from './app.vue';
+import TDesignChat from '@tdesign-vue-next/chat'; // 引入chat组件
 
 const app = createApp(App);
 app.use(TDesignChat);
