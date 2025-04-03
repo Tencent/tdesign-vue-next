@@ -86,6 +86,84 @@ exports[`Swiper > :props > :autoplay 1`] = `
 </div>
 `;
 
+exports[`Swiper > :props > :cardScale 1`] = `
+<div
+  class="t-swiper"
+>
+  <div
+    class="t-swiper__wrap t-swiper--inside"
+  >
+    <div
+      class="t-swiper__content t-swiper-card"
+    >
+      <div
+        class="t-swiper__container"
+      >
+        
+        <div
+          class="t-swiper__container__item t-swiper__card"
+          style="transform: translateX(0px) scale(0.8); transition: transform 0.3s ease; z-index: 1;"
+        >
+          
+          
+          2
+          
+          
+        </div>
+        <div
+          class="t-swiper__container__item t-swiper__card t-is-active"
+          style="transform: translateX(0px) scale(1); transition: transform 0.3s ease; z-index: 2;"
+        >
+          
+          
+          1
+          
+          
+        </div>
+        <div
+          class="t-swiper__container__item t-swiper__card"
+          style="transform: translateX(0px) scale(0.8); transition: transform 0.3s ease; z-index: 1;"
+        >
+          
+          
+          2
+          
+          
+        </div>
+        <div
+          class="t-swiper__container__item t-swiper__card t-is-active"
+          style="transform: translateX(0px) scale(1); transition: transform 0.3s ease; z-index: 2;"
+        >
+          
+          
+          1
+          
+          
+        </div>
+        
+      </div>
+    </div>
+    <ul
+      class="t-swiper__navigation t-swiper__navigation-bars"
+    >
+      
+      <li
+        class="t-swiper__navigation-item t-is-active"
+      >
+        <span />
+      </li>
+      <li
+        class="t-swiper__navigation-item"
+      >
+        <span />
+      </li>
+      
+    </ul>
+    <!---->
+  </div>
+</div>
+`;
+
 exports[`Swiper > :props > :defaultCurrent 1`] = `
 <div
   class="t-swiper"
