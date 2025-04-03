@@ -31,10 +31,12 @@ export default defineComponent({
     return () => {
       // 因为外层的role不能拿到实时更新的值，但是又要给子组件注入，所以这里单独另存了个变量
       const roleValue = renderTNodeJSX('role');
-      const name = renderTNodeJSX('name') || props.name;
-      const datetime = renderTNodeJSX('datetime') || props.datetime;
-      const avatar = renderTNodeJSX('avatar') || props.avatar;
+      // props和同名slot同时存在优先取slot的值
+      const name = renderTNodeJSX('name', { slotFirst: true }) || props.name;
+      const datetime = renderTNodeJSX('datetime', { slotFirst: true }) || props.datetime;
+      const avatar = renderTNodeJSX('avatar', { slotFirst: true }) || props.avatar;
       const showNameDatetime = computed(() => name || datetime);
+      const content = renderTNodeJSX('content', { slotFirst: true }) || props.content;
       // showNameDatetime存在时，contentClasses有个padding-top
       const contentClasses = computed(() => {
         return showNameDatetime.value
@@ -56,8 +58,6 @@ export default defineComponent({
       );
       const textLoading = props.textLoading;
       const reasoningLoading = props.reasoningLoading;
-      // 流式加载是否结束
-      const content = renderTNodeJSX('content') || props.content;
       // 内置操作按钮，assistantActions和插槽判断 t-chat注入的属性获取不到默认为false
       const showActions = computed(() => renderTNodeJSX('actions'));
       const renderHeader = () => {
@@ -111,7 +111,7 @@ export default defineComponent({
                     }}
                   ></ChatReasoning>
                 )}
-                {isArray(content) ? content : <Text isNormalText={false} content={content} role={role.value} />}
+                {isString(content) ? <Text isNormalText={false} content={content} role={role.value} /> : content}
               </div>
             )}
             {role.value === 'assistant' && showActions.value && (

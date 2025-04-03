@@ -74,7 +74,7 @@ export default defineComponent({
        *  b. slots t-chat-item
        * a 优先级更高
        */
-      const data = renderTNodeJSX('data') || props.data;
+      const data = renderTNodeJSX('data');
       if (isArray(data) && data.length > 0) {
         const isLoading = (index: number) => {
           return (props.reverse ? index === 0 : index === data.length - 1) && props.textLoading;
