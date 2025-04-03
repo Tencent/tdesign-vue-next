@@ -1,50 +1,14 @@
 import { defineComponent } from 'vue';
 import semver from 'semver';
 import siteConfig from '../../site.config';
-import { htmlContent, mainJsContent, styleContent, packageJSONContent } from './codeSandbox/content';
 import { tdesignVueNextPackageJson } from '@tdesign/internal-utils/package-json';
 
 const { docs, enDocs } = JSON.parse(JSON.stringify(siteConfig).replace(/component:.+/g, ''));
-
-const demoRequestBody = JSON.stringify({
-  files: {
-    'package.json': {
-      content: packageJSONContent(`tdesign-vue-next-demo`),
-    },
-    'index.html': {
-      content: htmlContent,
-    },
-    'src/main.js': {
-      content: mainJsContent,
-    },
-    'src/index.css': {
-      content: styleContent,
-    },
-  },
-});
 
 const docsMap = {
   zh: docs,
   en: enDocs,
 };
-
-const currentVersion = tdesignVueNextPackageJson.version.replace(/\./g, '_');
-const registryUrl = 'https://service-edbzjd6y-1257786608.hk.apigw.tencentcs.com/release/npm/versions/tdesign-vue-next';
-
-// 过滤小版本号
-function getVersions(versions = []) {
-  const versionMap = new Map();
-
-  versions.forEach((v) => {
-    if (v.includes('alpha') || v.includes('patch') || v.includes('beta')) return false;
-    const nums = v.split('.');
-    versionMap.set(`${nums[0]}.${nums[1]}`, v);
-  });
-
-  return [...versionMap.values()].sort((a, b) => {
-    return semver.gt(b, a) ? -1 : 1;
-  });
-}
 
 export default defineComponent({
   data() {
@@ -74,26 +38,9 @@ export default defineComponent({
       this.$router.push(detail);
       window.scrollTo(0, 0);
     };
-    this.$refs.tdDocSearch.docsearchInfo = { indexName: 'tdesign_doc_vue_next' };
-    this.initHistoryVersions();
   },
 
   methods: {
-    initHistoryVersions() {
-      fetch(registryUrl)
-        .then((res) => res.json())
-        .then((res) => {
-          const options = [];
-          const versions = getVersions(Object.keys(res.versions));
-          versions.forEach((v) => {
-            const nums = v.split('.');
-            if (nums[0] === '0' && nums[1] < 6) return false;
-            options.unshift({ label: v, value: v.replace(/\./g, '_') });
-          });
-          this.options.push(...options);
-        });
-    },
-
     getAttach() {
       return document.querySelector('#historyVersion');
     },

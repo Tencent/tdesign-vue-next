@@ -10,6 +10,9 @@
       <input type="hidden" name="project[files][src/demo.vue]" :value="code" />
       <input type="hidden" name="project[files][src/index.css]" :value="styleContent" />
       <input type="hidden" name="project[files][src/main.js]" :value="mainJsContent" />
+      <input type="hidden" name="project[files][mock-data/sseRequest.ts]" :value="mockDataContent" />
+      <input type="hidden" name="project[files][mock-data/sseRequest-reasoning.ts]" :value="mockDataContent" />
+
       <input type="hidden" name="project[files][index.html]" :value="htmlContent" />
       <input type="hidden" name="project[files][package.json]" :value="packageJSONContent" />
       <input type="hidden" name="project[files][vite.config.js]" :value="viteConfigContent" />
@@ -37,6 +40,8 @@ import {
   packageJSONContent,
   stackblitzRc,
   viteConfigContent,
+  mockDataContent,
+  mockDataReasoningContent,
 } from './content';
 
 export default defineComponent({
@@ -54,6 +59,8 @@ export default defineComponent({
       stackblitzRc,
       viteConfigContent,
       packageJSONContent,
+      mockDataContent,
+      mockDataReasoningContent,
     };
     const code = ref('');
 

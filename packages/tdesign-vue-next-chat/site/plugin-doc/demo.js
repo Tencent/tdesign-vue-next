@@ -20,7 +20,6 @@ export default function renderDemo(md, container) {
           <td-doc-demo component-name="${componentName.trim()}" demo-name="${demoName}" language="markup" languages="JavaScript,TypeScript" :data-JavaScript="${demoCodeDefName}" :data-TypeScript="${demoTSCodeDefName}">
             <div slot="action">
               <Stackblitz demo-name="${demoName}" component-name="${componentName.trim()}" :code=${demoCodeDefName} />
-              <CodeSandbox demo-name="${demoName}" component-name="${componentName.trim()}" :code=${demoCodeDefName} />
             </div>
             <div class="tdesign-demo-item__body">
               <${demoDefName} />  
