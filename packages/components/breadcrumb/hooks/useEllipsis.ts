@@ -1,4 +1,4 @@
-import { computed, toRefs } from 'vue';
+import { computed, ComputedRef, toRefs } from 'vue';
 import { TdBreadcrumbItemProps, TdBreadcrumbProps } from '../type';
 import log from '@tdesign/common-js/log/index';
 
@@ -8,18 +8,17 @@ function valueIsZeroOrUndefined(val: number | string) {
 
 export const useEllipsis = (
   props: TdBreadcrumbProps,
-  getBreadcrumbItems: () => TdBreadcrumbItemProps[],
-  ellipsisContent: () => string | any,
+  getBreadcrumbItems: ComputedRef<TdBreadcrumbItemProps[]>,
+  ellipsisContent: ComputedRef<string | any>,
 ) => {
   const { maxItems, itemsBeforeCollapse, itemsAfterCollapse } = toRefs(props);
 
+  // 计算是否需要显示省略号
   const shouldShowEllipsis = computed(() => {
-    const items = getBreadcrumbItems();
+    const items = getBreadcrumbItems.value;
     const currentMaxItems = maxItems.value ?? 0;
     const totalItems = items.length;
-    const itemsCollapseSum = computed(() => {
-      return itemsBeforeCollapse.value + itemsAfterCollapse.value;
-    });
+    const itemsCollapseSum = itemsBeforeCollapse.value + itemsAfterCollapse.value;
 
     // 配置有误的情况，不显示省略并告警
     if (
@@ -34,7 +33,7 @@ export const useEllipsis = (
     // 1. 最大显示数量 <= 0
     // 2. 项目总数 <= 最大显示数量
     // 3. 省略号前后显示数量（itemsBeforeCollapse、itemsAfterCollapse）之和 >= 项目总数
-    if (currentMaxItems <= 0 || totalItems <= currentMaxItems || itemsCollapseSum.value >= totalItems) {
+    if (currentMaxItems <= 0 || totalItems <= currentMaxItems || itemsCollapseSum >= totalItems) {
       return false;
     }
 
@@ -43,37 +42,40 @@ export const useEllipsis = (
 
   // 显示的项目合集，包含省略符号
   const getDisplayItems = computed(() => {
-    const items = getBreadcrumbItems();
-    const totalItems = items.length;
+    const items = getBreadcrumbItems.value;
+    const showEllipsis = shouldShowEllipsis.value;
 
-    if (!shouldShowEllipsis.value) {
+    if (!showEllipsis) {
       return items;
     }
 
+    const totalItems = items.length;
     const beforeItems = items.slice(0, itemsBeforeCollapse.value);
     const afterItems = items.slice(totalItems - itemsAfterCollapse.value, totalItems);
 
-    const ellipsisItem = {
-      content: ellipsisContent(),
-      disabled: true,
-      isEllipsisItem: true,
-    };
-
-    return [...beforeItems, ellipsisItem, ...afterItems];
+    return [
+      ...beforeItems,
+      {
+        content: ellipsisContent.value,
+        disabled: true,
+        isEllipsisItem: true,
+      },
+      ...afterItems,
+    ];
   });
 
   // 被折叠的项目
-  // TODO: isLast是否需要呢？
-  const getEllipsisItems = () => {
-    const items = getBreadcrumbItems();
+  const getEllipsisItems = computed(() => {
+    const items = getBreadcrumbItems.value;
+    if (!shouldShowEllipsis.value) {
+      return [];
+    }
     const sliceItems = items.slice(itemsBeforeCollapse.value, items.length - itemsAfterCollapse.value);
-    return sliceItems.map((item, index) => {
-      return {
-        ...item,
-        isLast: index === sliceItems.length - 1,
-      };
-    });
-  };
+    return sliceItems.map((item, index) => ({
+      ...item,
+      isLast: index === sliceItems.length - 1,
+    }));
+  });
 
   return {
     getDisplayItems,

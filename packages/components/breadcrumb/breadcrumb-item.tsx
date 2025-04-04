@@ -46,10 +46,14 @@ export default defineComponent({
     const { proxy } = getCurrentInstance();
 
     onMounted(() => {
-      isCutOff.value = isTextEllipsis(breadcrumbText.value);
+      if (breadcrumbText.value) {
+        isCutOff.value = isTextEllipsis(breadcrumbText.value);
+      }
     });
     onBeforeUpdate(() => {
-      isCutOff.value = isTextEllipsis(breadcrumbText.value);
+      if (breadcrumbText.value) {
+        isCutOff.value = isTextEllipsis(breadcrumbText.value);
+      }
     });
 
     const handleClick = () => {
@@ -110,11 +114,7 @@ export default defineComponent({
         );
       }
       if (props?.isEllipsisItem) {
-        itemContent = (
-          <div ref={breadcrumbText} style="display: flex">
-            {content}
-          </div>
-        );
+        itemContent = <div style="display: flex">{content}</div>;
       }
       return (
         <div class={itemClass} {...attrs} onClick={!props.disabled && props.onClick}>

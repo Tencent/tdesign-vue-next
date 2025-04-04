@@ -32,21 +32,20 @@ export default defineComponent({
       }),
     );
 
-    const { getDisplayItems, getEllipsisItems } = useEllipsis(
-      props,
-      () => getBreadcrumbItems.value,
-      () => ellipsisContent.value,
-    );
-
+    // 计算 ellipsisContent
     const ellipsisContent = computed(() => {
+      const items = getBreadcrumbItems.value;
+      const ellipsisItems = items.slice(props.itemsBeforeCollapse, items.length - props.itemsAfterCollapse);
       const ellipsisSlot = renderTNodeJSX('ellipsis', {
         params: {
-          items: getEllipsisItems(),
+          items: ellipsisItems,
           separator,
         },
       });
       return ellipsisSlot || <EllipsisIcon />;
     });
+
+    const { getDisplayItems } = useEllipsis(props, getBreadcrumbItems, ellipsisContent);
 
     return () => {
       const items = getDisplayItems.value;
