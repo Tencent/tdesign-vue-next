@@ -6,17 +6,7 @@
 
 {{ href }}
 
-### 带省略的面包屑
-使用`maxItems`、`itemsAfterCollapse`、`itemsBeforeCollapse`，配置省略。
-
-#### 常规
-{{ ellipsis }}
-
-#### 自定义省略号
-{{ custom-ellipsis }}
-
 ## API
-
 ### Breadcrumb Props
 
 名称 | 类型 | 默认值 | 描述 | 必传
