@@ -7,10 +7,10 @@ interface BreadcrumbItemWithIndex extends TdBreadcrumbItemProps {
   index: number;
 }
 
-export const useBreadcrumbItems = (props: TdBreadcrumbProps) => {
+export const useOptions = (props: TdBreadcrumbProps) => {
   const getChildComponentSlots = useChildComponentSlots();
 
-  const getBreadcrumbItems = computed(() => {
+  const breadcrumbOptions = computed(() => {
     const breadcrumbItems: BreadcrumbItemWithIndex[] = [];
     let currentIndex = 0;
 
@@ -65,6 +65,6 @@ export const useBreadcrumbItems = (props: TdBreadcrumbProps) => {
   });
 
   return {
-    getBreadcrumbItems,
+    breadcrumbOptions,
   };
 };

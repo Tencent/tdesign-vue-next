@@ -13,7 +13,7 @@ export const useEllipsis = (
 ) => {
   const { maxItems, itemsBeforeCollapse, itemsAfterCollapse } = toRefs(props);
 
-  // 计算是否需要显示省略号
+  // 是否需要显示省略号
   const shouldShowEllipsis = computed(() => {
     const items = getBreadcrumbItems.value;
     const currentMaxItems = maxItems.value ?? 0;
@@ -40,7 +40,7 @@ export const useEllipsis = (
     return true;
   });
 
-  // 显示的项目合集，包含省略符号
+  // 显示的项目合集，包含省略号
   const getDisplayItems = computed(() => {
     const items = getBreadcrumbItems.value;
     const showEllipsis = shouldShowEllipsis.value;
@@ -64,7 +64,7 @@ export const useEllipsis = (
     ];
   });
 
-  // 被折叠的项目
+  // 被省略的项目
   const getEllipsisItems = computed(() => {
     const items = getBreadcrumbItems.value;
     if (!shouldShowEllipsis.value) {

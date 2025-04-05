@@ -4,7 +4,7 @@ import BreadcrumbItem from './breadcrumb-item';
 import { TdBreadcrumbItemProps, TdBreadcrumbProps } from './type';
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
-import { useBreadcrumbItems, useEllipsis } from './hooks';
+import { useOptions, useEllipsis } from './hooks';
 import { ChevronRightIcon as TdChevronRightIcon, EllipsisIcon as TdEllipsisIcon } from 'tdesign-icons-vue-next';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 
@@ -15,7 +15,7 @@ export default defineComponent({
     const { theme, maxItemWidth } = toRefs(props);
     const COMPONENT_NAME = usePrefixClass('breadcrumb');
     const renderTNodeJSX = useTNodeJSX();
-    const { getBreadcrumbItems } = useBreadcrumbItems(props);
+    const { breadcrumbOptions } = useOptions(props);
     const { ChevronRightIcon, EllipsisIcon } = useGlobalIcon({
       ChevronRightIcon: TdChevronRightIcon,
       EllipsisIcon: TdEllipsisIcon,
@@ -32,9 +32,9 @@ export default defineComponent({
       }),
     );
 
-    // 计算 ellipsisContent
+    // 省略号，支持自定义
     const ellipsisContent = computed(() => {
-      const items = getBreadcrumbItems.value;
+      const items = breadcrumbOptions.value;
       const ellipsisItems = items.slice(props.itemsBeforeCollapse, items.length - props.itemsAfterCollapse);
       const ellipsisSlot = renderTNodeJSX('ellipsis', {
         params: {
@@ -45,7 +45,7 @@ export default defineComponent({
       return ellipsisSlot || <EllipsisIcon />;
     });
 
-    const { getDisplayItems } = useEllipsis(props, getBreadcrumbItems, ellipsisContent);
+    const { getDisplayItems } = useEllipsis(props, breadcrumbOptions, ellipsisContent);
 
     return () => {
       const items = getDisplayItems.value;

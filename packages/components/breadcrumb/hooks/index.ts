@@ -1,2 +1,2 @@
 export * from './useEllipsis';
-export * from './useBreadcrumbItems';
+export * from './useOptions';
