@@ -52,6 +52,7 @@ const inputList = [
   `!${resolveComponentsRoot('**/type.ts')}`,
   `!${resolveComponentsRoot('**/types.ts')}`,
   `!${resolveComponentsRoot('**/__tests__')}`,
+  `!${resolveComponentsRoot('chat/')}`,
 ];
 
 const getPlugins = ({
