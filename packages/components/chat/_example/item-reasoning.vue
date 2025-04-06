@@ -28,10 +28,7 @@ const markdownContent = `牛顿第一定律（惯性定律）**并不适用于�
 const handleChange = (value) => {
   console.log('handleChange', value);
 };
-const hederStyle = {
-  display: 'flex',
-  alignItems: 'center',
-};
+
 /**
  * 渲染推理模块的头部自定义内容
  * @param {boolean} flag - 思维链内容是否加载中
