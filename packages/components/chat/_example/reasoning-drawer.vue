@@ -70,8 +70,6 @@ const fetchCancel = ref(null);
 const loading = ref(false);
 // 流式数据加载中
 const isStreamLoad = ref(false);
-const isGood = ref(false);
-const isBad = ref(false);
 const visible = ref(false);
 // 滚动到底部
 const operation = function (type, options) {

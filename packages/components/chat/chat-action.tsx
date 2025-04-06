@@ -14,7 +14,7 @@ import {
 } from 'tdesign-icons-vue-next';
 import { useTNodeJSX } from '../hooks/tnode';
 import Clipboard from 'clipboard';
-import { MessagePluginSingleton } from './util';
+import { MessagePluginSingleton } from './utils';
 
 export default defineComponent({
   name: 'TChatAction',

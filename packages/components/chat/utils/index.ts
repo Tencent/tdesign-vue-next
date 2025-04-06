@@ -1,4 +1,4 @@
-import { MessagePlugin } from '../plugins';
+import { MessagePlugin } from '../../plugins';
 
 // 单例模式解决复制成功提示只显示一次
 export class MessagePluginSingleton {
