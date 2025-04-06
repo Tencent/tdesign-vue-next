@@ -4,16 +4,14 @@ import vueJsx from '@vitejs/plugin-vue-jsx';
 import tDocPlugin from './plugin-doc';
 import { resolve, resolveComponentsRoot, resolveTdesignVueNextRoot } from '@tdesign/internal-utils';
 
-const isCustomElement = (tag) => tag.startsWith('td-') || tag.startsWith('tdesign-theme');
-
-const publicPathMap = {
+const publicPathMap: Record<string, string> = {
   preview: '/',
   intranet: '/chat/',
   production: 'https://static.tdesign.tencent.com/chat/',
 };
 
-export default ({ mode }) => {
-  return defineConfig({
+export default defineConfig(({ mode }) => {
+  return {
     base: publicPathMap[mode],
     resolve: {
       alias: {
@@ -29,27 +27,13 @@ export default ({ mode }) => {
       host: '0.0.0.0',
       port: 17001,
       open: '/',
-      https: false,
       fs: {
         allow: [searchForWorkspaceRoot(process.cwd())],
       },
     },
-    plugins: [
-      vue({
-        ssr: false,
-        template: {
-          compilerOptions: {
-            isCustomElement,
-          },
-        },
-      }),
-      vueJsx({
-        isCustomElement,
-      }),
-      tDocPlugin(),
-    ],
+    plugins: [vue(), vueJsx(), tDocPlugin()],
     optimizeDeps: {
       include: ['prismjs', 'prismjs/components/prism-bash.js'],
     },
-  });
-};
+  };
+});

@@ -1,7 +1,9 @@
 import { defineComponent } from 'vue';
 import { usePrefixClass, useConfig } from '../hooks/useConfig';
 import props from './chat-action-props';
-import { Button, Space, Tooltip } from 'tdesign-vue-next';
+import Button from '../button';
+import Space from '../space';
+import Tooltip from '../tooltip';
 import {
   ThumbUpIcon,
   ThumbUpFilledIcon,

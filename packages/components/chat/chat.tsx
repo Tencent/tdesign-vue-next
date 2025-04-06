@@ -1,8 +1,10 @@
 import { defineComponent, computed, provide, ref } from 'vue';
-import { Divider, Popconfirm } from 'tdesign-vue-next';
 import { ClearIcon } from 'tdesign-icons-vue-next';
 import { isArray } from 'lodash-es';
 import props from './props';
+import Divider from '../divider';
+import Popconfirm from '../popconfirm';
+
 import { usePrefixClass, useConfig } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
 import ChatItem from './chat-item';
@@ -147,7 +149,7 @@ export default defineComponent({
     return () => (
       <div class={classes.value}>
         <div class={listClasses.value} ref={chatBoxRef} onScroll={handleScroll}>
-          {props.reverse && <div className="place-holder"></div>}
+          {props.reverse && <div class="place-holder"></div>}
           {props.reverse && props.clearHistory && renderTNodeJSX('clearHistory', defaultClearHistory)}
           {renderBody()}
           {!props.reverse && props.clearHistory && renderTNodeJSX('clearHistory', defaultClearHistory)}

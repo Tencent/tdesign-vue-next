@@ -162,7 +162,7 @@ const getPlugins = ({
 export const buildEs = async () => {
   const buildCss = async () => {
     const bundle = await rollup({
-      input: [resolveComponentsRoot('**/style/index.js')],
+      input: [resolveComponentsRoot('**/style/index.js'), `!${resolveComponentsRoot('chat/style/index.js')}`],
       plugins: [multiInput({ relative: resolveComponentsRoot() }), styles({ mode: 'extract' }), nodeResolve()],
     });
     bundle.write({

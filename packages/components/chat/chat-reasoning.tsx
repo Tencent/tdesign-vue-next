@@ -1,7 +1,7 @@
 import { defineComponent, computed, provide, inject, ComputedRef, PropType } from 'vue';
 import { usePrefixClass } from '../hooks/useConfig';
 import props from './chat-reasoning-props';
-import { Collapse, CollapsePanel, CollapseProps } from 'tdesign-vue-next';
+import { Collapse, CollapsePanel } from '../collapse';
 import { useTNodeJSX } from '../hooks/tnode';
 
 export default defineComponent({

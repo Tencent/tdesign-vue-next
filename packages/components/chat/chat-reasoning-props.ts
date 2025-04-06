@@ -11,9 +11,10 @@ export default {
   /** 透传给 CollapsePanel 组件的全部属性 */
   collapsePanelProps: {
     type: Object as PropType<TdChatReasoningProps['collapsePanelProps']>,
-    default: () => ({
-      destroyOnCollapse: false,
-    }),
+    default: () =>
+      ({
+        destroyOnCollapse: false,
+      } as TdChatReasoningProps['collapsePanelProps']),
   },
   /** 当前折叠面板展开图标。优先级低于collapsePanelProps.expandIcon */
   expandIcon: {

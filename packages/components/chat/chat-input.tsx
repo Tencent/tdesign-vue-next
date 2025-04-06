@@ -1,6 +1,8 @@
 import { defineComponent, toRefs, computed } from 'vue';
-import { Button, Textarea } from 'tdesign-vue-next';
 import { RectangleIcon, SendIcon, StopCircleIcon } from 'tdesign-icons-vue-next';
+import Button from '../button';
+import Textarea from '../textarea';
+
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass, useConfig } from '../hooks/useConfig';
 import props from './chat-input-props';
@@ -134,7 +136,7 @@ export default defineComponent({
         {disabled.value && !textareaDisabled.value && (
           <div class={`${COMPONENT_NAME.value}__footer__stopbtn`}>
             <Button variant="outline" onClick={handleStop}>
-              <StopCircleIcon slot="icon" />
+              <StopCircleIcon />
               {stopBtnText}
             </Button>
           </div>

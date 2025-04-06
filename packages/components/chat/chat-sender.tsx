@@ -2,8 +2,8 @@ import { defineComponent, ref, computed, toRefs } from 'vue';
 import { usePrefixClass } from '../hooks/useConfig';
 import props from './chat-sender-props';
 import { SendFilledIcon } from 'tdesign-icons-vue-next';
-import { Button, Textarea } from 'tdesign-vue-next';
-
+import Button from '../button';
+import Textarea from '../textarea';
 import useVModel from '../hooks/useVModel';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 
@@ -151,7 +151,7 @@ export default defineComponent({
               {showStopBtn.value && (
                 <div class={`${COMPONENT_NAME.value}-sender__button__stopbtn`}>
                   <Button variant="text" class={`${COMPONENT_NAME.value}-sender__button__default`} onClick={handleStop}>
-                    <div class={`${COMPONENT_NAME.value}-sender__button__stopicon`} slot="icon" />
+                    <div class={`${COMPONENT_NAME.value}-sender__button__stopicon`} />
                   </Button>
                 </div>
               )}
