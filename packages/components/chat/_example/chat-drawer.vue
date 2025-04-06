@@ -40,7 +40,7 @@
 <script setup>
 import { ref } from 'vue';
 const visible = ref(false);
-import { MockSSEResponse } from '../mock-data/sseRequest';
+import { MockSSEResponse } from './mock-data/sseRequest';
 
 const fetchCancel = ref(null);
 const loading = ref(false);

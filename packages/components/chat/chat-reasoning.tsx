@@ -1,4 +1,4 @@
-import { defineComponent, computed, provide, inject, ComputedRef, PropType } from 'vue';
+import { defineComponent, computed, provide, inject, ComputedRef } from 'vue';
 import { usePrefixClass } from '../hooks/useConfig';
 import props from './chat-reasoning-props';
 import { Collapse, CollapsePanel } from '../collapse';

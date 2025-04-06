@@ -54,8 +54,8 @@ export default {
         '_example/reasoning-drag',
         '_example/reasoning-drawer',
       ].includes(relativeDemoPath);
-      const mockDemoPath = `mock-data/sseRequest.ts`;
-      const mockReasoningDemoPath = `mock-data/sseRequest-reasoning.ts`;
+      const mockDemoPath = `_example/mock-data/sseRequest.ts`;
+      const mockReasoningDemoPath = `_example/mock-data/sseRequest-reasoning.ts`;
 
       const demoPathOnlyLetters = relativeDemoPath.replace(/[^a-zA-Z\d]/g, '');
       const demoDefName = `Demo${demoPathOnlyLetters}`;

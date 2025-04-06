@@ -1,7 +1,7 @@
 import { defineComponent, computed, provide } from 'vue';
 import { usePrefixClass, useConfig } from '../hooks/useConfig';
 import props from './chat-item-props';
-import { isString, isArray, isObject } from 'lodash-es';
+import { isString, isObject } from 'lodash-es';
 import Skeleton from '../skeleton';
 import { useTNodeJSX } from '../hooks/tnode';
 import Text from './chat-content';

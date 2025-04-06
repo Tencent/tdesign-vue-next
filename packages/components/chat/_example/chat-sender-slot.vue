@@ -30,7 +30,7 @@
   </t-chat-sender>
 </template>
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 import { SystemSumIcon } from 'tdesign-icons-vue-next';
 const loading = ref(false);
 const allowToolTip = ref(false);

@@ -39,7 +39,7 @@
 <script setup>
 import { ref } from 'vue';
 const visibleModelessDrag = ref(false);
-import { MockSSEResponse } from '../mock-data/sseRequest';
+import { MockSSEResponse } from './mock-data/sseRequest';
 const fetchCancel = ref(null);
 const loading = ref(false);
 const isStreamLoad = ref(false);

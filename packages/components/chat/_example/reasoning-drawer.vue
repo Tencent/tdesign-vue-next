@@ -62,7 +62,7 @@
 </template>
 <script setup lang="jsx">
 import { ref } from 'vue';
-import { MockSSEResponse } from '../mock-data/sseRequest-reasoning';
+import { MockSSEResponse } from './mock-data/sseRequest-reasoning';
 import { SystemSumIcon } from 'tdesign-icons-vue-next';
 import { CheckCircleIcon } from 'tdesign-icons-vue-next';
 
@@ -197,20 +197,7 @@ const onStop = function () {
     isStreamLoad.value = false;
   }
 };
-const handleOperation = function (type, options) {
-  console.log('handleOperation', type, options);
-  const { index } = options;
-  if (type === 'good') {
-    isGood.value = !isGood.value;
-    isBad.value = false;
-  } else if (type === 'bad') {
-    isBad.value = !isBad.value;
-    isGood.value = false;
-  } else if (type === 'replay') {
-    const userQuery = chatList.value[index + 1].content;
-    inputEnter(userQuery);
-  }
-};
+
 const inputEnter = function (inputValue) {
   if (isStreamLoad.value) {
     return;

@@ -44,7 +44,7 @@
 </template>
 <script setup lang="jsx">
 import { ref } from 'vue';
-import { MockSSEResponse } from '../mock-data/sseRequest-reasoning';
+import { MockSSEResponse } from './mock-data/sseRequest-reasoning';
 import { ArrowDownIcon, CheckCircleIcon } from 'tdesign-icons-vue-next';
 const fetchCancel = ref(null);
 const loading = ref(false);
