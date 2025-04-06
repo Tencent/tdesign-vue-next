@@ -35,7 +35,7 @@
         <t-chat-input :stop-disabled="isStreamLoad" @send="inputEnter" @stop="onStop"> </t-chat-input>
       </template>
     </t-chat>
-    <t-button v-show="isShowToBottom" variant="text" class="bottonBtn" @click="backBottom">
+    <t-button v-show="isShowToBottom" variant="text" class="bottomBtn" @click="backBottom">
       <div class="to-bottom">
         <ArrowDownIcon />
       </div>
@@ -215,7 +215,7 @@ const handleData = async () => {
 }
 .chat-box {
   position: relative;
-  .bottonBtn {
+  .bottomBtn {
     position: absolute;
     left: 50%;
     margin-left: -20px;
