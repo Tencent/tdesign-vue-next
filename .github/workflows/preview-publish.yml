@@ -91,16 +91,18 @@ jobs:
               "tdesign-vue-next": { status: "", report_url: "" },
               "tdesign-vue-next-chat": { status: "", report_url: "" },
             };
-
+            const preview_success = `<img width="300" alt="完成" src="https://user-images.githubusercontent.com/15634204/150816437-9f5bb788-cd67-4cbc-9897-b82d74e9aa65.png" />`;
+            const preview_failure = `<img width="300" alt="失败" src="https://user-images.githubusercontent.com/5378891/75333447-1e63a280-58c1-11ea-975d-235367fd1522.png" />`;
             jobs
               .filter((job) => job.name.startsWith("tdesign-"))
               .map((job) => {
-                tdesign[job.name].status= "❌";
-                tdesign[job.name].report_url= job.html_url;
+                tdesign[job.name].status = preview_failure;
+                tdesign[job.name].report_url = job.html_url;
 
                 if (job.conclusion === "success") {
-                  tdesign[job.name].status= "👀" ;
+                  tdesign[job.name].status = preview_success;
                   if (job.name === "tdesign-vue-next") {
+                    
                     tdesign[job.name].report_url = tdesign_vue_next_domain;
                   }
                   if (job.name === "tdesign-vue-next-chat") {
