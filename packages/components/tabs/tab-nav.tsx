@@ -64,6 +64,9 @@ export default defineComponent({
     const toRightBtnRef = ref();
     const activeTabRef = ref();
     const maxScrollLeft = ref(0);
+    const showAction = computed(() => {
+      return ['top', 'bottom'].includes(props?.placement?.toLowerCase());
+    });
 
     const getRefs = () => ({
       navsContainer: navsContainerRef.value,
@@ -275,7 +278,7 @@ export default defineComponent({
               <AddIcon></AddIcon>
             </div>
           ) : null}
-          {props.action}
+          {showAction.value && props.action}
         </div>,
       ];
     };
