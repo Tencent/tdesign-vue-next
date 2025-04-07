@@ -1,6 +1,6 @@
 import { glob } from 'glob';
 import { readFile, copy, writeFile, remove } from 'fs-extra';
-import { run, resolve, joinWorkspaceRoot, joinTdesignVueNextRoot } from '@tdesign/internal-utils';
+import { run, posixNormalizePathJoin, joinWorkspaceRoot, joinTdesignVueNextRoot } from '@tdesign/internal-utils';
 
 const generateSourceTypes = async () => {
   // 1. 编译 tsc
@@ -9,7 +9,7 @@ const generateSourceTypes = async () => {
   const typesRoot = joinWorkspaceRoot('dist/types');
 
   // 2. 删除 style 目录
-  const styleDirPaths = await glob(`${resolve(typesRoot, 'packages/**/style')}`);
+  const styleDirPaths = await glob(`${posixNormalizePathJoin(typesRoot, 'packages/**/style')}`);
   await Promise.all(
     styleDirPaths.map(async (styleDirPath) => {
       await remove(styleDirPath);
@@ -17,7 +17,10 @@ const generateSourceTypes = async () => {
   );
 
   // 3. 复制 common 到 packages 下
-  await copy(resolve(typesRoot, 'packages/common'), resolve(typesRoot, 'packages/components/common'));
+  await copy(
+    posixNormalizePathJoin(typesRoot, 'packages/common'),
+    posixNormalizePathJoin(typesRoot, 'packages/components/common'),
+  );
 };
 
 const generateTargetTypes = async (target: 'es' | 'esm' | 'lib' | 'cjs') => {
@@ -25,10 +28,10 @@ const generateTargetTypes = async (target: 'es' | 'esm' | 'lib' | 'cjs') => {
 
   // 1. 复制 packages/components 到 packages/tdesign-vue-next/target 下
   const targetDir = joinTdesignVueNextRoot(`${target}`);
-  await copy(resolve(typesRoot, `packages/components`), targetDir);
+  await copy(posixNormalizePathJoin(typesRoot, `packages/components`), targetDir);
 
   // 2. 替换 @tdesign/common-js 为 tdesign-vue-next/common/js
-  const dtsPaths = await glob(`${resolve(targetDir, '**/*.d.ts')}`);
+  const dtsPaths = await glob(`${posixNormalizePathJoin(targetDir, '**/*.d.ts')}`);
   const rewrite = dtsPaths.map(async (filePath) => {
     const content = await readFile(filePath, 'utf8');
     await writeFile(filePath, content.replace(/@tdesign\/common-js/g, `tdesign-vue-next/${target}/common/js`), 'utf8');
