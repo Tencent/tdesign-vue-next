@@ -18,7 +18,7 @@ npm i @tdesign-vue-next/chat
 
 ### 基础使用
 
-基础使用会全量注册所有组件，如果您的项目大规模使用组件，请放心使用这种方式。
+基础使用的方式会全量注册所有组件，如果您的项目大规模使用组件，请放心使用这种方式。
 
 ```js
 import { createApp } from 'vue';
@@ -29,7 +29,7 @@ const app = createApp(App);
 app.use(TDesignChat);
 ```
 
-如果要搭配 TDesign 使用其他组件，和 TDesign 一起引入
+如果要搭配 TDesign 使用其他组件，和 TDesign 一起引入，请参考如下配置。
 
 ```js
 import { createApp } from 'vue';
@@ -49,18 +49,29 @@ app.use(TDesign).use(TDesignChat);
 
 ```js
 import {
-  Chat as TChat,
-  ChatAction as TChatAction,
-  ChatContent as TChatContent,
-  ChatInput as TChatInput,
-  ChatItem as TChatItem,
+  Chat,
+  ChatAction,
+  ChatContent,
+  ChatInput,
+  ChatItem
 } from '@tdesign-vue-next/chat';
 ```
 
-#### Webpack 配置
+## 多语言配置
 
-```
-transpileDependencies: ['marked']
+`@tdesign-vue-next/chat` 的所有组件都内置支持了多语言配置的能力。
+
+如果您有多语言的需求，可以通过 `tdesign-vue-next` 提供的[全局配置能力](https://tdesign.tencent.com/vue-next/components/config-provider#%E5%9B%BD%E9%99%85%E5%8C%96%E9%85%8D%E7%BD%AE)进行配置。
+
+```Vue
+<template>
+  <t-config-provider :global-config="enConfig">
+    <t-chat />
+  </t-config-provider>
+</template>
+<script setup>
+import enConfig from 'tdesign-vue-next/es/locale/en_US';
+</script>
 ```
 
 ## 浏览器兼容性
@@ -70,7 +81,3 @@ transpileDependencies: ['marked']
 | Edge >=84                                                                                                                                                                 | Firefox >=83                                                                                                                                                            | Chrome >=84                                                                                                                                                          | Safari >=14.1                                                                                                                                                        |
 
 详情参见[桌面端组件库浏览器兼容性说明](https://github.com/Tencent/tdesign/wiki/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E7%BB%84%E4%BB%B6%E5%BA%93%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7%E8%AF%B4%E6%98%8E)
-
-```
-
-```
