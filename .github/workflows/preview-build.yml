@@ -23,6 +23,12 @@ jobs:
 
       - run: pnpm run site:preview
 
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tdesign-vue-next-site
+          path: packages/tdesign-vue-next/site/dist
+          retention-days: 5
+
   tdesign-vue-next-chat-site:
     runs-on: ubuntu-latest
     steps:
@@ -38,4 +44,10 @@ jobs:
 
       - run: pnpm install
 
-      - run: pnpm run site:chat-preview    
+      - run: pnpm run site:chat-preview
+      
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tdesign-vue-next-chat-site
+          path: packages/tdesign-vue-next-chat/site/dist
+          retention-days: 5
