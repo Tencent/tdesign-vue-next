@@ -97,7 +97,7 @@ export default defineComponent({
       CLASS_NAMES.value.label,
       {
         [`${FROM_LABEL.value}--required`]: needRequiredMark.value,
-        [`${FROM_LABEL.value}--required-right`]: requiredMarkPosition.value === 'right',
+        [`${FROM_LABEL.value}--required-right`]: needRequiredMark.value && requiredMarkPosition.value === 'right',
         [`${FROM_LABEL.value}--top`]: hasLabel.value && (labelAlign.value === 'top' || !labelWidth.value),
         [`${FROM_LABEL.value}--left`]: labelAlign.value === 'left' && labelWidth.value,
         [`${FROM_LABEL.value}--right`]: labelAlign.value === 'right' && labelWidth.value,
