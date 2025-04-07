@@ -195,7 +195,7 @@ async function customRender({ source, file, md }: any) {
     const usageObj = compileUsage({
       componentName,
       usage: pageData.usage,
-      demoPath: resolvePackagesRoot(`components/${componentName}/_usage/index.vue`),
+      demoPath: `../../components/${componentName}/_usage/index.vue`,
     });
     if (usageObj) {
       mdSegment.usage = usageObj;

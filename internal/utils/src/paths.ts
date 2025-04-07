@@ -1,7 +1,5 @@
 import { existsSync } from 'fs-extra';
-import { posix, dirname } from 'path';
-
-const resolve = posix.resolve;
+import { posix, dirname, resolve } from 'path';
 
 export { resolve };
 
