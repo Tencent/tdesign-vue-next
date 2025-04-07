@@ -45,6 +45,11 @@ export interface GlobalConfigProvider {
    */
   cascader?: CascaderConfig;
   /**
+   * 对话组件全局配置
+   * @default t
+   */
+  chat?: ChatConfig;
+  /**
    * CSS 类名前缀
    * @default t
    */
@@ -280,6 +285,78 @@ export interface CascaderConfig {
   placeholder?: string;
 }
 
+export interface ChatConfig {
+  /**
+   * 语言配置，“请输入消息”占位描述文本
+   * @default ''
+   */
+  placeholder?: string;
+  /**
+   * 语言配置，“中止”占位描述文本
+   * @default ''
+   */
+  stopBtnText?: string;
+  /**
+   * 语言配置，“重新生成”占位描述文本
+   * @default ''
+   */
+  refreshTipText?: string;
+  /**
+   * 语言配置，“复制”占位描述文本
+   * @default ''
+   */
+  copyTipText?: string;
+  /**
+   * 语言配置，“点赞”占位描述文本
+   * @default ''
+   */
+  likeTipText?: string;
+  /**
+   * 语言配置，“点踩”占位描述文本
+   * @default ''
+   */
+  dislikeTipText?: string;
+  /**
+   * 语言配置，“复制代码”占位描述文本
+   * @default ''
+   */
+  copyCodeBtnText?: string;
+  /**
+   * 语言配置，“已复制”占位描述文本
+   * @default ''
+   */
+  copyCodeSuccessText?: string;
+  /**
+   * 语言配置，“清空历史记录”占位描述文本
+   * @default ''
+   */
+  clearHistoryBtnText?: string;
+  /**
+   * 语言配置，“已成功复制到剪贴板”占位描述文本
+   * @default ''
+   */
+  copyTextSuccess?: string;
+  /**
+   * 语言配置，“复制到剪贴板失败”占位描述文本
+   * @default ''
+   */
+  copyTextFail?: string;
+  /**
+   * 语言配置，“确定要清空消息”占位描述文本
+   * @default ''
+   */
+  confirmClearHistory?: string;
+  /**
+   * 语言配置，“思考中”占位描述文本
+   * @default ''
+   */
+  loadingText?: string;
+  /**
+   * 语言配置，“已深度思考”占位描述文本
+   * @default ''
+   */
+  loadingEndText?: string;
+}
 export interface ColorPickerConfig {
   /**
    * 语言配置，“确定清空最近使用的颜色吗？”清空颜色确认文案
