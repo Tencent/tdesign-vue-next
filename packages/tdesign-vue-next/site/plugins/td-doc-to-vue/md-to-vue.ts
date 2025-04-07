@@ -2,7 +2,7 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import { compileUsage, getGitTimestamp } from '@tdesign/common-docs/compile/index';
 import { camelCase } from 'lodash-es';
-import { resolvePackagesRoot } from '@tdesign/internal-utils';
+import { joinPackagesRoot } from '@tdesign/internal-utils';
 import testCoverage from '../../configs/test-coverage';
 
 const DEFAULT_TABS = [
@@ -195,7 +195,7 @@ async function customRender({ source, file, md }: any) {
     const usageObj = compileUsage({
       componentName,
       usage: pageData.usage,
-      demoPath: `../../components/${componentName}/_usage/index.vue`,
+      demoPath: joinPackagesRoot(`components/${componentName}/_usage/index.vue`),
     });
     if (usageObj) {
       mdSegment.usage = usageObj;
@@ -221,7 +221,7 @@ async function customRender({ source, file, md }: any) {
 
   // 设计指南内容 不展示 design Tab 则不解析
   if (pageData.isComponent && pageData.tdDocTabs.some((item: any) => item.tab === 'design')) {
-    const designDocPath = resolvePackagesRoot(`common/docs/web/design/${componentName}.md`);
+    const designDocPath = joinPackagesRoot(`common/docs/web/design/${componentName}.md`);
     if (fs.existsSync(designDocPath)) {
       const designDocLastUpdated =
         (await getGitTimestamp(designDocPath)) || Math.round(fs.statSync(designDocPath).mtimeMs);

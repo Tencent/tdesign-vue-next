@@ -6,7 +6,7 @@ import matter from 'gray-matter';
 import { compileUsage, getGitTimestamp } from '../../../../packages/common/docs/compile';
 // TODO: 同上
 import camelCase from 'lodash/camelCase';
-import { resolvePackagesRoot } from '@tdesign/internal-utils';
+import { joinPackagesRoot } from '@tdesign/internal-utils';
 
 const DEFAULT_TABS = [
   { tab: 'demo', name: '示例' },
@@ -174,7 +174,7 @@ async function customRender({ source, file, md }) {
     const usageObj = compileUsage({
       componentName,
       usage: pageData.usage,
-      demoPath: resolvePackagesRoot(`components/${componentName}/_usage/index.vue`),
+      demoPath: joinPackagesRoot(`components/${componentName}/_usage/index.vue`),
     });
     if (usageObj) {
       mdSegment.usage = usageObj;
@@ -200,7 +200,7 @@ async function customRender({ source, file, md }) {
 
   // 设计指南内容 不展示 design Tab 则不解析
   if (pageData.isComponent && pageData.tdDocTabs.some((item) => item.tab === 'design')) {
-    const designDocPath = resolvePackagesRoot(`common/docs/web/design/${componentName}.md`);
+    const designDocPath = joinPackagesRoot(`common/docs/web/design/${componentName}.md`);
 
     if (fs.existsSync(designDocPath)) {
       const designDocLastUpdated =

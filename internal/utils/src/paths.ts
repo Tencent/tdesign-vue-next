@@ -1,7 +1,24 @@
 import { existsSync } from 'fs-extra';
-import { posix, dirname, resolve } from 'path';
+import { posix, dirname, win32 } from 'path';
 
-export { resolve };
+const normalizePathRegExp = new RegExp(`\\${win32.sep}`, 'g');
+
+/**
+ *@description 归一化路径,将 windows 风格的路径转换为 posix 风格的路径
+ */
+const normalizePath = (filename: string) => filename.replace(normalizePathRegExp, posix.sep);
+
+/**
+ *@description POSIX 风格的路径解析,只能处理相对路径
+ */
+const posixNormalizePathResolve = (...paths: string[]) => normalizePath(posix.resolve(...paths));
+
+/**
+ *@description POSIX 风格的路径拼接
+ */
+const posixNormalizePathJoin = (...paths: string[]) => normalizePath(posix.join(...paths));
+
+export { posixNormalizePathResolve, posixNormalizePathJoin };
 
 /**
  * root 原本是使用 @pnpm/find-workspace-dir 获取的，但它的获取方式是异步的，导致部分地方使用时出现问题，比如 vitest 的 snapshot 测试，
@@ -12,7 +29,7 @@ export const getWorkspaceRoot = () => {
   let dir = process.cwd();
   while (dir !== '/') {
     if (existsSync(`${dir}/pnpm-workspace.yaml`)) {
-      return dir;
+      return normalizePath(dir);
     }
     dir = dirname(dir);
   }
@@ -21,43 +38,43 @@ export const getWorkspaceRoot = () => {
 
 // packages
 export const getPackagesRoot = () => {
-  return resolve(getWorkspaceRoot(), 'packages');
+  return posixNormalizePathJoin(getWorkspaceRoot(), 'packages');
 };
 
 // packages/common
 export const getCommonRoot = () => {
-  return resolve(getPackagesRoot(), 'common');
+  return posixNormalizePathJoin(getPackagesRoot(), 'common');
 };
 
 // packages/components
 export const getComponentsRoot = () => {
-  return resolve(getPackagesRoot(), 'components');
+  return posixNormalizePathJoin(getPackagesRoot(), 'components');
 };
 
 // packages/tdesign-vue-next
 export const getTdesignVueNextRoot = () => {
-  return resolve(getPackagesRoot(), 'tdesign-vue-next');
+  return posixNormalizePathJoin(getPackagesRoot(), 'tdesign-vue-next');
 };
 
-// resolve
-export const resolveWorkspaceRoot = (...paths: string[]) => {
-  return resolve(getWorkspaceRoot(), ...paths);
+// posixNormalizePathJoin
+export const joinWorkspaceRoot = (...paths: string[]) => {
+  return posixNormalizePathJoin(getWorkspaceRoot(), ...paths);
 };
 
-export const resolvePackagesRoot = (...paths: string[]) => {
-  return resolve(getPackagesRoot(), ...paths);
+export const joinPackagesRoot = (...paths: string[]) => {
+  return posixNormalizePathJoin(getPackagesRoot(), ...paths);
 };
 
-export const resolveCommonRoot = (...paths: string[]) => {
-  return resolve(getCommonRoot(), ...paths);
+export const joinCommonRoot = (...paths: string[]) => {
+  return posixNormalizePathJoin(getCommonRoot(), ...paths);
 };
 
-export const resolveComponentsRoot = (...paths: string[]) => {
-  return resolve(getComponentsRoot(), ...paths);
+export const joinComponentsRoot = (...paths: string[]) => {
+  return posixNormalizePathJoin(getComponentsRoot(), ...paths);
 };
 
-export const resolveTdesignVueNextRoot = (...paths: string[]) => {
-  return resolve(getTdesignVueNextRoot(), ...paths);
+export const joinTdesignVueNextRoot = (...paths: string[]) => {
+  return posixNormalizePathJoin(getTdesignVueNextRoot(), ...paths);
 };
 
 /**
