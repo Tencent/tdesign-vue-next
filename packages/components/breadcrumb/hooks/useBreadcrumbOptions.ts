@@ -2,6 +2,7 @@ import { computed, isVNode, Slots } from 'vue';
 import { isArray, isString } from 'lodash-es';
 import { useChildComponentSlots } from '../../hooks/slot';
 import { TdBreadcrumbProps, TdBreadcrumbItemProps } from '../type';
+import { renderVNodeTNode } from '../../descriptions/utils';
 
 interface BreadcrumbItemWithIndex extends TdBreadcrumbItemProps {
   index: number;
@@ -28,34 +29,10 @@ export const useOptions = (props: TdBreadcrumbProps) => {
     const itemsSlots = getChildComponentSlots('TBreadcrumbItem');
     if (isArray(itemsSlots)) {
       itemsSlots.forEach((child) => {
-        let content = child.props?.content;
-        let icon = child.props?.icon;
-
-        if (child?.children) {
-          const children = child.children as Slots;
-          if (children.default) {
-            const defaultContent = children.default();
-            if (defaultContent) {
-              content = defaultContent;
-            }
-          }
-          if (children.icon) {
-            const iconContent = children.icon?.();
-            if (iconContent) {
-              icon = iconContent;
-            }
-          }
-          if (isArray(content)) {
-            const firstChild = content[0];
-            if (isVNode(firstChild) && isString(firstChild?.children)) {
-              content = firstChild.children;
-            }
-          }
-        }
         breadcrumbItems.push({
           ...child.props,
-          content,
-          icon,
+          content: renderVNodeTNode(child, 'content', 'default'),
+          icon: renderVNodeTNode(child, 'icon'),
           index: currentIndex++,
         });
       });
