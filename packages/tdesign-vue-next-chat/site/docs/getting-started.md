@@ -49,13 +49,18 @@ app.use(TDesign).use(TDesignChat);
 
 ```js
 import {
-  Chat,
-  ChatAction,
-  ChatContent,
-  ChatInput,
-  ChatItem
+  Chat as TChat,
+  ChatAction as TChatAction,
+  ChatContent as TChatContent,
+  ChatInput as TChatInput,
+  ChatItem as TChatItem
 } from '@tdesign-vue-next/chat';
 ```
+
+<div style="background: #fff5e4; display: flex; align-items: center; line-height: 20px; padding: 14px 24px; border-radius: 3px; color: #555a65;margin:16px 0">
+   ⚠️ 请注意，如果配合 unplugin-vue-components 使用 TDesign，请勿重命名为 T 开头组件进行按需使用，后续将修复该使用问题。
+</div>
+
 
 ## 多语言配置
 
