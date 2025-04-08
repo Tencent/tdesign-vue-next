@@ -273,6 +273,7 @@ export default defineComponent({
 
     // 全选
     const isCheckAll = computed<boolean>(() => {
+      if (intersectionLen.value === 0) return false;
       return intersectionLen.value === optionalList.value.length;
     });
 
