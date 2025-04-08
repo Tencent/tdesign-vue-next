@@ -1,5 +1,5 @@
-import { computed, isVNode, Slots } from 'vue';
-import { isArray, isString } from 'lodash-es';
+import { computed } from 'vue';
+import { isArray } from 'lodash-es';
 import { useChildComponentSlots } from '../../hooks/slot';
 import { TdBreadcrumbProps, TdBreadcrumbItemProps } from '../type';
 import { renderVNodeTNode } from '../../descriptions/utils';
@@ -8,7 +8,7 @@ interface BreadcrumbItemWithIndex extends TdBreadcrumbItemProps {
   index: number;
 }
 
-export const useOptions = (props: TdBreadcrumbProps) => {
+export const useBreadcrumbOptions = (props: TdBreadcrumbProps) => {
   const getChildComponentSlots = useChildComponentSlots();
 
   const breadcrumbOptions = computed(() => {

@@ -4,7 +4,7 @@ import BreadcrumbItem from './breadcrumb-item';
 import { TdBreadcrumbItemProps, TdBreadcrumbProps } from './type';
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
-import { useOptions, useEllipsis } from './hooks';
+import { useBreadcrumbOptions, useEllipsis } from './hooks';
 import { ChevronRightIcon as TdChevronRightIcon, EllipsisIcon as TdEllipsisIcon } from 'tdesign-icons-vue-next';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 
@@ -15,7 +15,7 @@ export default defineComponent({
     const { theme, maxItemWidth } = toRefs(props);
     const COMPONENT_NAME = usePrefixClass('breadcrumb');
     const renderTNodeJSX = useTNodeJSX();
-    const { breadcrumbOptions } = useOptions(props);
+    const { breadcrumbOptions } = useBreadcrumbOptions(props);
     const { ChevronRightIcon, EllipsisIcon } = useGlobalIcon({
       ChevronRightIcon: TdChevronRightIcon,
       EllipsisIcon: TdEllipsisIcon,
