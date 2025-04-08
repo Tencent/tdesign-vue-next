@@ -9,6 +9,13 @@ jobs:
   tdesign-vue-next-site:
     runs-on: ubuntu-latest
     steps:
+      - run: echo ${{ github.event.number }} > pr-id.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pr-id
+          path: pr-id.txt
+          retention-days: 5
+
       - uses: actions/checkout@v4
         with:
           submodules: recursive
@@ -50,18 +57,4 @@ jobs:
         with:
           name: tdesign-vue-next-chat-site
           path: packages/tdesign-vue-next-chat/site/dist
-          retention-days: 5
-
-  preview-context:
-    if: always()
-    runs-on: ubuntu-latest
-    needs: 
-      - tdesign-vue-next-site
-      - tdesign-vue-next-chat-site
-    steps:
-      - run: echo ${{ github.event.number }} > pr-id.txt
-      - uses: actions/upload-artifact@v4
-        with:
-          name: pr-id
-          path: pr-id.txt
           retention-days: 5
