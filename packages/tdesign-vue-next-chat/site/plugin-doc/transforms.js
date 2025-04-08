@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs';
-import { resolvePackagesRoot } from '@tdesign/internal-utils';
+import { joinPackagesRoot } from '@tdesign/internal-utils';
 
 import mdToVue from './md-to-vue';
 
@@ -18,8 +18,8 @@ export default {
 
     // 统一换成 common 公共文档内容
     if (fileName && source.includes(':: BASE_DOC ::')) {
-      const localeDocPath = resolvePackagesRoot(`common/docs/web/api/${fileName}`);
-      const defaultDocPath = resolvePackagesRoot(`common/docs/web/api/${componentName}.md`);
+      const localeDocPath = joinPackagesRoot(`common/docs/web/api/${fileName}`);
+      const defaultDocPath = joinPackagesRoot(`common/docs/web/api/${componentName}.md`);
       let baseDoc = '';
       if (fs.existsSync(localeDocPath)) {
         // 优先载入语言版本
