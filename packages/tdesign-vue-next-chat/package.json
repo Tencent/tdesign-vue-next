@@ -35,6 +35,14 @@
     "es/**/style/**",
     "esm/**/style/**"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tencent/tdesign-vue-next.git"
+  },
+  "homepage": "https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/tdesign-vue-next-chat/README.md",
+  "bugs": {
+    "url": "https://github.com/Tencent/tdesign-vue-next/issues"
+  },
   "author": "tdesign",
   "license": "MIT",
   "dependencies": {
