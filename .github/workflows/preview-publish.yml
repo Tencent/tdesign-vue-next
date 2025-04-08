@@ -120,7 +120,12 @@ jobs:
               ${Object.keys(tdesign)
                 .map((component) => {
                   const preview_text = `[${tdesign[component].status}](${tdesign[component].report_url})`;
-                  return `| ${component} | ${preview_text} | `;
+                  let package_name = component;
+                  if (component === "tdesign-vue-next-chat") {
+                    package_name = "@tdesign-vue-next/chat";
+                  }
+
+                  return `| ${package_name} | ${preview_text} | `;
                 })
                 .join("\n")}
 
