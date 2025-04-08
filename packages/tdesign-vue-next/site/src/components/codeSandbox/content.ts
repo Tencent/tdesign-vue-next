@@ -37,6 +37,18 @@ export const styleContent = `
     column-gap: 16px;
     align-items: center;
   }
+
+  /* swiper 组件示例展示 */
+  .tdesign-demo-block--swiper .demo-item {
+    display: flex;
+    height: 280px;
+    background-color: #4b5b76;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 20px;
+  }
 `;
 
 export const packageJSONContent = (name: string) => {
