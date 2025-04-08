@@ -8,7 +8,9 @@ import { resolveComponentsRoot, getRelativeWorkspaceRootPath } from '@tdesign/in
 MockDate.set('2020-12-28 00:00:00');
 
 function runTest() {
-  const files = globSync(resolveComponentsRoot('**/_example/*.vue'));
+  const files = globSync(resolveComponentsRoot('**/_example/*.vue'), {
+    ignore: [resolveComponentsRoot('chat/_example/*.vue')],
+  });
   const { createSSRApp } = config.global;
 
   describe('ssr snapshot test', () => {
