@@ -40,7 +40,6 @@ export default defineComponent({
       e.stopPropagation();
       if (disabled.value) return;
       menu.select(value.value);
-      ctx.emit('click', { e, value: value.value });
       onClick.value?.({ e, value: value.value });
       if (to.value || (routerLink.value && href.value)) {
         const methods = replace.value ? 'replace' : 'push';

@@ -24,8 +24,10 @@ const createSSRApp = (comp: any) => {
   return renderToString(app);
 };
 
-const runTest = () => {
-  const files = globSync(resolveComponentsRoot('**/_example/*.vue'));
+function runTest() {
+  const files = globSync(resolveComponentsRoot('**/_example/*.vue'), {
+    ignore: [resolveComponentsRoot('chat/_example/*.vue')],
+  });
 
   describe('ssr snapshot test', () => {
     HTMLCanvasElement.prototype.getContext = vi.fn();
@@ -40,6 +42,6 @@ const runTest = () => {
       });
     });
   });
-};
+}
 
 runTest();

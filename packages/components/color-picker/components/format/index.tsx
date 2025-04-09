@@ -66,7 +66,7 @@ export default defineComponent({
                 overlayClassName: `${baseClassName.value}__select-options`,
                 ...(selectInputProps as TdSelectInputProps).popupProps,
               }}
-              v-model={formatModel}
+              v-model={formatModel.value}
               onChange={handleModeChange}
             >
               {FORMATS.map((item) => (

@@ -1,0 +1,60 @@
+name: PREVIEW_BUILD
+
+on:
+  pull_request:
+    branches: [develop, main]
+    types: [opened, synchronize, reopened]
+
+jobs:
+  tdesign-vue-next-site:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{ github.event.number }} > pr-id.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pr-id
+          path: pr-id.txt
+          retention-days: 5
+
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - run: pnpm install
+
+      - run: pnpm run site:preview
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tdesign-vue-next-site
+          path: packages/tdesign-vue-next/site/dist
+          retention-days: 5
+
+  tdesign-vue-next-chat-site:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - run: pnpm install
+
+      - run: pnpm run site:chat-preview
+      
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tdesign-vue-next-chat-site
+          path: packages/tdesign-vue-next-chat/site/dist
+          retention-days: 5
