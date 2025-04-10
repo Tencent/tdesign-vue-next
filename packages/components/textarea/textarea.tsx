@@ -1,32 +1,32 @@
+import { isObject, merge, omit } from 'lodash-es';
 import {
-  defineComponent,
   computed,
-  watch,
-  ref,
+  CSSProperties,
+  defineComponent,
+  inject,
   nextTick,
   onMounted,
-  toRefs,
-  inject,
+  ref,
   StyleValue,
-  CSSProperties,
+  toRefs,
+  watch,
 } from 'vue';
-import { isObject, merge, omit } from 'lodash-es';
 
-import { calcTextareaHeight } from './utils';
-import { FormItemInjectionKey } from '../form/consts';
-import setStyle from '@tdesign/common-js/utils/setStyle';
 import { getCharacterLength } from '@tdesign/common-js/utils/helper';
+import setStyle from '@tdesign/common-js/utils/setStyle';
+import { FormItemInjectionKey } from '../form/consts';
+import { calcTextareaHeight } from './utils';
 
 // hooks
-import useVModel from '../hooks/useVModel';
+import { useTNodeJSX } from '../hooks/tnode';
+import { useCommonClassName, usePrefixClass } from '../hooks/useConfig';
 import { useDisabled } from '../hooks/useDisabled';
 import { useReadonly } from '../hooks/useReadonly';
-import { useTNodeJSX } from '../hooks/tnode';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import useVModel from '../hooks/useVModel';
 import { useLengthLimit } from '../input/hooks/useLengthLimit';
 
 import props from './props';
-import type { TextareaValue, TdTextareaProps } from './type';
+import type { TdTextareaProps, TextareaValue } from './type';
 
 import { getValidAttrs } from '@tdesign/common-js/utils/helper';
 
@@ -185,18 +185,10 @@ export default defineComponent({
     watch(refTextareaElem, (el) => {
       if (!el) return;
       adjustTextareaHeight();
+      if (props.autofocus) {
+        el.focus();
+      }
     });
-
-    watch(
-      () => props.autofocus,
-      (val) => {
-        if (val) {
-          nextTick(() => {
-            refTextareaElem.value.focus();
-          });
-        }
-      },
-    );
 
     watch(textareaStyle, (val) => {
       const { style } = attrs as { style: StyleValue };
@@ -254,9 +246,8 @@ export default defineComponent({
           <span class={TEXTAREA_LIMIT.value}>{`${characterNumber.value}/${props.maxcharacter}`}</span>
         )) ||
         (!props.maxcharacter && props.maxlength && (
-          <span class={TEXTAREA_LIMIT.value}>{`${innerValue.value ? String(innerValue.value)?.length : 0}/${
-            props.maxlength
-          }`}</span>
+          <span class={TEXTAREA_LIMIT.value}>{`${innerValue.value ? String(innerValue.value)?.length : 0}/${props.maxlength
+            }`}</span>
         ));
 
       return (
