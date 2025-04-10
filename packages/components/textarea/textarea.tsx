@@ -1,32 +1,32 @@
-import { isObject, merge, omit } from 'lodash-es';
 import {
-  computed,
-  CSSProperties,
   defineComponent,
-  inject,
+  computed,
+  watch,
+  ref,
   nextTick,
   onMounted,
-  ref,
-  StyleValue,
   toRefs,
-  watch,
+  inject,
+  StyleValue,
+  CSSProperties,
 } from 'vue';
+import { isObject, merge, omit } from 'lodash-es';
 
-import { getCharacterLength } from '@tdesign/common-js/utils/helper';
-import setStyle from '@tdesign/common-js/utils/setStyle';
-import { FormItemInjectionKey } from '../form/consts';
 import { calcTextareaHeight } from './utils';
+import { FormItemInjectionKey } from '../form/consts';
+import setStyle from '@tdesign/common-js/utils/setStyle';
+import { getCharacterLength } from '@tdesign/common-js/utils/helper';
 
 // hooks
-import { useTNodeJSX } from '../hooks/tnode';
-import { useCommonClassName, usePrefixClass } from '../hooks/useConfig';
+import useVModel from '../hooks/useVModel';
 import { useDisabled } from '../hooks/useDisabled';
 import { useReadonly } from '../hooks/useReadonly';
-import useVModel from '../hooks/useVModel';
+import { useTNodeJSX } from '../hooks/tnode';
+import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useLengthLimit } from '../input/hooks/useLengthLimit';
 
 import props from './props';
-import type { TdTextareaProps, TextareaValue } from './type';
+import type { TextareaValue, TdTextareaProps } from './type';
 
 import { getValidAttrs } from '@tdesign/common-js/utils/helper';
 
@@ -246,8 +246,9 @@ export default defineComponent({
           <span class={TEXTAREA_LIMIT.value}>{`${characterNumber.value}/${props.maxcharacter}`}</span>
         )) ||
         (!props.maxcharacter && props.maxlength && (
-          <span class={TEXTAREA_LIMIT.value}>{`${innerValue.value ? String(innerValue.value)?.length : 0}/${props.maxlength
-            }`}</span>
+          <span class={TEXTAREA_LIMIT.value}>{`${innerValue.value ? String(innerValue.value)?.length : 0}/${
+            props.maxlength
+          }`}</span>
         ));
 
       return (
