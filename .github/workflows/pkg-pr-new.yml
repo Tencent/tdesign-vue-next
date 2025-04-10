@@ -24,4 +24,9 @@ jobs:
 
       - run: pnpm build
 
-      - run: pnpm dlx pkg-pr-new publish './packages/tdesign-vue-next' --compact
+      - uses: actions/checkout@v4
+        with: 
+          repository: Tencent/tdesign-vue-next-starter
+          path: tdesign-vue-next-starter
+          
+      - run: pnpm dlx pkg-pr-new publish './packages/tdesign-vue-next' --compact --template './tdesign-vue-next-starter'
