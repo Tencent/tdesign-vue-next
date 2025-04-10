@@ -367,7 +367,7 @@ export default defineComponent({
             onRemove: onTagRemoveClick,
           }}
           onClear={onTagClearClick}
-          prefixIcon={renderTNodeJSX('prefixIcon')}
+          prefixIcon={() => renderTNodeJSX('prefixIcon')}
           suffixIcon={() => renderTNodeJSX('suffixIcon') || <CalendarIcon />}
         />
       </div>

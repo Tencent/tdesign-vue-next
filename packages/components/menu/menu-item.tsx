@@ -1,16 +1,17 @@
 import { defineComponent, computed, inject, onMounted, ref, toRefs, getCurrentInstance } from 'vue';
 import props from './menu-item-props';
-import { TdMenuInterface, TdSubMenuInterface } from './consts';
+import { TdMenuInterface, TdSubMenuInterface } from './types';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import useRipple from '../hooks/useRipple';
 import { usePrefixClass } from '../hooks/useConfig';
 import Tooltip from '../tooltip';
+import type { TdMenuItemProps } from './type';
 
 export default defineComponent({
   name: 'TMenuItem',
   props,
   emits: ['click'],
-  setup(props, ctx) {
+  setup(props: TdMenuItemProps, ctx) {
     const { href, target, to, disabled, value, onClick, routerLink, replace } = toRefs(props);
     const classPrefix = usePrefixClass();
     const renderTNodeJSX = useTNodeJSX();
@@ -39,10 +40,9 @@ export default defineComponent({
       e.stopPropagation();
       if (disabled.value) return;
       menu.select(value.value);
-      ctx.emit('click', { e, value: value.value });
       onClick.value?.({ e, value: value.value });
       if (to.value || (routerLink.value && href.value)) {
-        const methods: string = replace.value ? 'replace' : 'push';
+        const methods = replace.value ? 'replace' : 'push';
         router.value[methods](to.value || href.value).catch((err: Error) => {
           // vue-router 3.1.0+ push/replace cause NavigationDuplicated error
           // https://github.com/vuejs/vue-router/issues/2872

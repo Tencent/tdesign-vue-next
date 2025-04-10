@@ -3,7 +3,7 @@ import useVModel from '../hooks/useVModel';
 import { useTNodeDefault } from '../hooks/tnode';
 import props from './props';
 import { Popup as TPopup } from '../popup';
-import ColorPanel from './panel';
+import ColorPanel from './components/panel';
 import DefaultTrigger from './components/trigger';
 import { TdColorContext } from './types';
 import { useBaseClassName } from './hooks';
@@ -21,6 +21,8 @@ export default defineComponent({
     const [innerValue, setInnerValue] = useVModel(inputValue, modelValue, props.defaultValue, props.onChange);
 
     const refTrigger = ref<HTMLElement>();
+
+    const handleClear = (context: { e: MouseEvent }) => props.onClear?.(context);
 
     const renderPopupContent = () => {
       if (props.disabled) {
@@ -73,6 +75,7 @@ export default defineComponent({
                 clearable={props.clearable}
                 input-props={props.inputProps}
                 onTriggerChange={setInnerValue}
+                onTriggerClear={handleClear}
                 size={props.size}
               />,
             )}
