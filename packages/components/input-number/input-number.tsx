@@ -25,7 +25,6 @@ export default defineComponent({
     });
     const p = useInputNumber(props);
     const { inputRef } = p;
-
     context.expose({ ...p });
 
     return () => {
@@ -33,8 +32,6 @@ export default defineComponent({
         props.theme === 'column' ? <ChevronDownIcon size={props.size} /> : <RemoveIcon size={props.size} />;
       const addIcon = props.theme === 'column' ? <ChevronUpIcon size={props.size} /> : <AddIcon size={props.size} />;
       const status = p.isError.value ? 'error' : props.status;
-      const classPrefix = p.classPrefix.value;
-      const tipsText = props.tips;
 
       return (
         <div class={p.wrapClasses.value}>
@@ -60,6 +57,7 @@ export default defineComponent({
             status={status}
             label={props.label}
             suffix={props.suffix}
+            tips={props.tips}
             {...p.listeners}
             {...props.inputProps}
             v-slots={context.slots}
@@ -75,9 +73,6 @@ export default defineComponent({
               shape="square"
               icon={() => addIcon}
             />
-          )}
-          {tipsText && (
-            <div class={`${classPrefix}-input__tips ${classPrefix}-tips ${classPrefix}-is-${status}`}>{tipsText}</div>
           )}
         </div>
       );
