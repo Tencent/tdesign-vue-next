@@ -99,6 +99,11 @@ export interface TdDatePickerProps {
    */
   presetsPlacement?: 'left' | 'top' | 'right' | 'bottom';
   /**
+   * 是否只读，优先级大于 allowInput
+   * @default false
+   */
+  readonly?: boolean;
+  /**
    * 透传 SelectInput 筛选器输入框组件的全部属性
    */
   selectInputProps?: SelectInputProps;
