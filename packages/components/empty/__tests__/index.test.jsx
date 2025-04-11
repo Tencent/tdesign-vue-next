@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Empty from '@src/empty/index.ts';
+import Empty from '@tdesign/components/empty/index.ts';
 
 // every component needs four parts: props/events/slots/functions.
 describe('Empty', () => {

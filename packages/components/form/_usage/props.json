@@ -18,6 +18,21 @@
     "options": []
   },
   {
+    "name": "requiredMarkPosition",
+    "type": "enum",
+    "defaultValue": "left",
+    "options": [
+      {
+        "label": "left",
+        "value": "left"
+      },
+      {
+        "label": "right",
+        "value": "right"
+      }
+    ]
+  },
+  {
     "name": "labelAlign",
     "type": "enum",
     "defaultValue": "right",

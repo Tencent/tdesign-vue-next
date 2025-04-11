@@ -39,6 +39,12 @@ export default defineComponent({
         return () => {};
       },
     },
+    onTriggerClear: {
+      type: Function,
+      default: () => {
+        return () => {};
+      },
+    },
     size: {
       type: String as PropType<TdColorPickerProps['size']>,
       default: 'medium',
@@ -64,6 +70,8 @@ export default defineComponent({
       }
       props.onTriggerChange(value.value);
     };
+
+    const handleClear = (context: { e: MouseEvent }) => props.onTriggerClear?.(context);
 
     return () => {
       const inputSlots = {
@@ -95,6 +103,7 @@ export default defineComponent({
           disabled={props.disabled}
           onBlur={handleChange}
           onChange={handleChange}
+          onClear={handleClear}
           {...props.inputProps}
         />
       );

@@ -22,6 +22,8 @@ export default defineComponent({
 
     const refTrigger = ref<HTMLElement>();
 
+    const handleClear = (context: { e: MouseEvent }) => props.onClear?.(context);
+
     const renderPopupContent = () => {
       if (props.disabled) {
         return null;
@@ -73,6 +75,7 @@ export default defineComponent({
                 clearable={props.clearable}
                 input-props={props.inputProps}
                 onTriggerChange={setInnerValue}
+                onTriggerClear={handleClear}
                 size={props.size}
               />,
             )}

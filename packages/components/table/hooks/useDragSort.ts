@@ -68,7 +68,7 @@ export default function useDragSort(
      * fix: https://github.com/Tencent/tdesign-vue-next/issues/4985
      * 若table内容未渲染（即element子元素为空），拖拽事件不注册
      */
-    if (element?.children?.length === 0 && !isRowHandlerDraggable.value && !isRowDraggable.value) return;
+    if (element?.children?.length === 0 || (!isRowHandlerDraggable.value && !isRowDraggable.value)) return;
     const dragContainer = element?.querySelector('tbody');
     if (!dragContainer) {
       console.error('tbody does not exist.');

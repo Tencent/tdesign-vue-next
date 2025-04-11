@@ -205,7 +205,7 @@ export default defineComponent({
         return (
           !item.disabled &&
           // @ts-ignore types only declare checkAll not declare check-all
-          !item['check-all'] &&
+          !(item['check-all'] || item['check-all'] === '') &&
           !item.checkAll &&
           filterMethods(item)
         );
@@ -273,6 +273,7 @@ export default defineComponent({
 
     // 全选
     const isCheckAll = computed<boolean>(() => {
+      if (intersectionLen.value === 0) return false;
       return intersectionLen.value === optionalList.value.length;
     });
 
@@ -423,7 +424,7 @@ export default defineComponent({
               clearable: props.clearable,
               loading: props.loading,
               status: props.status,
-              tips: props.tips,
+              tips: renderTNodeJSX('tips'),
               minCollapsedNum: props.minCollapsedNum,
               autofocus: props.autofocus,
               suffix: props.suffix,
