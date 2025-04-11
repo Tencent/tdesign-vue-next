@@ -1,55 +1,100 @@
 <template>
-  <t-space>
-    <!-- 方式一：使用 options 输出下拉选项。优先级高于 t-option-->
+  <t-space direction="vertical">
     <t-select
-      v-model="value1"
-      :options="options1"
-      placeholder="请选择云解决方案"
-      clearable
-      @focus="onFocus"
-      @blur="onBlur"
-    ></t-select>
+      v-model="value"
+      filterable
+      placeholder="请选择"
+      :loading="loading"
+      :options="options"
+      style="width: 200px; display: inline-block; margin: 0 20px 20px 0"
+      @search="remoteMethod"
+    />
 
-    <!-- 方式二：使用 t-option 输出下拉选项。options 和 t-option 两种实现方式二选一即可 -->
-    <!-- 宽度随内容自适应：auto-width -->
-    <t-select v-model="value2" label="产品：" placeholder="请选择云产品" auto-width clearable>
-      <t-option v-for="item in options2" :key="item.value" :value="item.value" :label="item.label"></t-option>
-    </t-select>
+    <t-select
+      v-model="multipleValue"
+      filterable
+      placeholder="请选择"
+      :loading="multipleLoading"
+      :options="multipleOptions"
+      multiple
+      value-type="object"
+      reserve-keyword
+      style="width: 200px; display: inline-block; margin: 0 20px 20px 0"
+      @search="remoteMultipleMethod"
+    />
   </t-space>
 </template>
-<script setup lang="jsx">
+<script setup>
 import { ref } from 'vue';
 
-const options1 = [
-  { label: '架构云', value: '1', title: '架构云选项' },
-  { label: '大数据', value: '2', title: '' },
-  { label: '区块链', value: '3' },
-  { label: '物联网', value: '4', disabled: true },
-  { label: '人工智能', value: '5' },
-  // 可以使用渲染函数自定义下拉选项内容和样式
-  {
-    label: '计算场景（高性能计算）',
-    value: '6',
-    content: () => <span>计算场景（高性能计算）</span>,
-  },
-];
-const options2 = [
-  { label: '云服务器', value: '1' },
-  { label: '云数据库', value: '2' },
-  { label: '域名注册', value: '3' },
-  { label: '网站备案', value: '4' },
-  { label: '对象存储', value: '5' },
-  { label: '低代码平台', value: '6' },
-];
+const options = ref([]);
+const value = ref('');
+const loading = ref(false);
 
-const value1 = ref('');
-const value2 = ref('');
+const multipleOptions = ref([]);
+const multipleValue = ref([]);
+const multipleLoading = ref(false);
 
-const onFocus = (ctx) => {
-  console.log('focus:', ctx);
+const remoteMethod = (search) => {
+  console.log('search', search);
+  if (search) {
+    loading.value = true;
+    setTimeout(() => {
+      loading.value = false;
+      options.value = [
+        {
+          value: `腾讯_test1`,
+          label: `腾讯_test1`,
+        },
+        {
+          value: `腾讯_test2`,
+          label: `腾讯_test2`,
+        },
+        {
+          value: `腾讯_test3`,
+          label: `腾讯_test3`,
+        },
+      ].filter((item) => item.label.includes(search));
+    }, 500);
+  }
 };
 
-const onBlur = (ctx) => {
-  console.log('blur:', ctx);
+const remoteMultipleMethod = (search) => {
+  console.log('search', search);
+  if (search) {
+    multipleLoading.value = true;
+    setTimeout(() => {
+      multipleLoading.value = false;
+      const remoteOptions = [
+        {
+          value: `腾讯_test1`,
+          label: `腾讯_test1`,
+        },
+        {
+          value: `腾讯_test2`,
+          label: `腾讯_test2`,
+        },
+        {
+          value: `腾讯_test3`,
+          label: `腾讯_test3`,
+        },
+        {
+          value: `腾讯_test1_1`,
+          label: `腾讯_test1_1`,
+        },
+        {
+          value: `腾讯_test2_2`,
+          label: `腾讯_test2_2`,
+        },
+        {
+          value: `腾讯_test3_3`,
+          label: `腾讯_test3_3`,
+        },
+      ].filter((item) => item.label.includes(search));
+
+      const mergedOptions = [...remoteOptions, ...multipleValue.value];
+      multipleOptions.value = Array.from(new Map(mergedOptions.map((item) => [item.value, item])).values());
+    }, 500);
+  }
 };
 </script>
