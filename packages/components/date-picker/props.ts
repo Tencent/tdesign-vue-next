@@ -94,7 +94,10 @@ export default {
     },
   },
   /** 是否只读，优先级大于 allowInput */
-  readonly: Boolean,
+  readonly: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 透传 SelectInput 筛选器输入框组件的全部属性 */
   selectInputProps: {
     type: Object as PropType<TdDatePickerProps['selectInputProps']>,
