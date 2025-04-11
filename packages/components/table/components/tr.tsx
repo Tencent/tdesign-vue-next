@@ -11,24 +11,20 @@ import {
   nextTick,
   onMounted,
 } from 'vue';
-import { isFunction } from 'lodash-es';
-import { upperFirst } from 'lodash-es';
-import { isString } from 'lodash-es';
-import { pick } from 'lodash-es';
-import { get } from 'lodash-es';
-import { formatClassNames, formatRowAttributes, formatRowClassNames } from './utils';
-import { getRowFixedStyles, getColumnFixedStyles } from './hooks/useFixed';
-import useClassName from './hooks/useClassName';
+import { isFunction, upperFirst, isString, get, pick } from 'lodash-es';
+import { formatClassNames, formatRowAttributes, formatRowClassNames } from '../utils';
+import { getRowFixedStyles, getColumnFixedStyles } from '../hooks/useFixed';
+import useClassName from '../hooks/useClassName';
 import TEllipsis from './ellipsis';
-import { BaseTableCellParams, TableRowData, RowspanColspan, TdPrimaryTableProps, TdBaseTableProps } from './type';
-import baseTableProps from './base-table-props';
-import useLazyLoad from './hooks/useLazyLoad';
-import { RowAndColFixedPosition } from './interface';
-import { getCellKey, SkipSpansValue } from './hooks/useRowspanAndColspan';
-import { TooltipProps } from '../tooltip';
-import { PaginationProps } from '..';
-import { VirtualScrollConfig } from '../hooks/useVirtualScrollNew';
-import { AttachNode, SlotReturnValue } from '../common';
+import { BaseTableCellParams, TableRowData, RowspanColspan, TdPrimaryTableProps, TdBaseTableProps } from '../type';
+import baseTableProps from '../base-table-props';
+import useLazyLoad from '../hooks/useLazyLoad';
+import { RowAndColFixedPosition } from '../types';
+import { getCellKey, SkipSpansValue } from '../hooks/useRowspanAndColspan';
+import { TooltipProps } from '../../tooltip';
+import { PaginationProps } from '../../pagination';
+import { VirtualScrollConfig } from '../../hooks/useVirtualScrollNew';
+import { AttachNode, SlotReturnValue } from '../../common';
 
 export interface RenderTdExtra {
   rowAndColFixedPosition: RowAndColFixedPosition;
@@ -143,7 +139,6 @@ export function renderCell(
 // 表格行组件
 export default defineComponent({
   name: 'TR',
-
   props: {
     row: Object as PropType<TableRowData>,
     rowIndex: Number,
@@ -162,9 +157,7 @@ export default defineComponent({
     // eslint-disable-next-line
     tableContentElm: {},
   },
-
   emits: ['row-mounted'],
-
   setup(props: TrProps, context: SetupContext) {
     const { tableContentElm, active, isHover } = toRefs(props);
     const trRef = ref(null);
