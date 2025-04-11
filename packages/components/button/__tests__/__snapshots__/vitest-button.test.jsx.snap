@@ -1,0 +1,633 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Button Component > props.block works fine 1`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle t-size-full-width"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    Text
+    
+  </span>
+</button>
+`;
+
+exports[`Button Component > props.block works fine 2`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    Text
+    
+  </span>
+</button>
+`;
+
+exports[`Button Component > props.content works fine 1`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    <span
+      class="custom-node"
+    >
+      TNode
+    </span>
+  </span>
+</button>
+`;
+
+exports[`Button Component > props.default works fine 1`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    <span
+      class="custom-node"
+    >
+      TNode
+    </span>
+  </span>
+</button>
+`;
+
+exports[`Button Component > props.disabled works fine 1`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle t-is-disabled"
+  disabled=""
+  href=""
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    Text
+    
+  </span>
+</button>
+`;
+
+exports[`Button Component > props.disabled works fine 2`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    Text
+    
+  </span>
+</button>
+`;
+
+exports[`Button Component > props.ghost works fine 1`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle t-button--ghost"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    Text
+    
+  </span>
+</button>
+`;
+
+exports[`Button Component > props.ghost works fine 2`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    Text
+    
+  </span>
+</button>
+`;
+
+exports[`Button Component > props.href works fine 1`] = `
+<a
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle"
+  disabled="false"
+  href="https://tdesign.tencent.com/"
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    Text
+    
+  </span>
+</a>
+`;
+
+exports[`Button Component > props.loading works fine 1`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle t-is-loading"
+  disabled=""
+  href=""
+  tabindex="0"
+  type="button"
+>
+  
+  <div
+    class="t-loading--center t-size-m t-loading--inherit-color t-loading"
+  >
+    <svg
+      class="t-loading__gradient t-icon-loading"
+      height="1em"
+      size="medium"
+      version="1.1"
+      viewBox="0 0 12 12"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <foreignobject
+        height="12"
+        width="12"
+        x="0"
+        y="0"
+      >
+        <div
+          class="t-loading__gradient-conic"
+        />
+      </foreignobject>
+    </svg>
+    <!---->
+  </div>
+  <span
+    class="t-button__text"
+  >
+    
+    Text
+    
+  </span>
+  
+</button>
+`;
+
+exports[`Button Component > props.loading works fine 2`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    Text
+    
+  </span>
+</button>
+`;
+
+exports[`Button Component > props.loading: Button contains element \`.t-loading\` 1`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle t-is-loading"
+  disabled=""
+  href=""
+  tabindex="0"
+  type="button"
+>
+  
+  <div
+    class="t-loading--center t-size-m t-loading--inherit-color t-loading"
+  >
+    <svg
+      class="t-loading__gradient t-icon-loading"
+      height="1em"
+      size="medium"
+      version="1.1"
+      viewBox="0 0 12 12"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <foreignobject
+        height="12"
+        width="12"
+        x="0"
+        y="0"
+      >
+        <div
+          class="t-loading__gradient-conic"
+        />
+      </foreignobject>
+    </svg>
+    <!---->
+  </div>
+  <span
+    class="t-button__text"
+  >
+    
+    Text
+    
+  </span>
+  
+</button>
+`;
+
+exports[`Button Component > props.shape is equal to circle 1`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-circle"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    Text
+    
+  </span>
+</button>
+`;
+
+exports[`Button Component > props.shape is equal to rectangle 1`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    Text
+    
+  </span>
+</button>
+`;
+
+exports[`Button Component > props.shape is equal to round 1`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-round"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    Text
+    
+  </span>
+</button>
+`;
+
+exports[`Button Component > props.shape is equal to square 1`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-square"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    Text
+    
+  </span>
+</button>
+`;
+
+exports[`Button Component > props.size is equal to large 1`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle t-size-l"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    Text
+    
+  </span>
+</button>
+`;
+
+exports[`Button Component > props.size is equal to medium 1`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    Text
+    
+  </span>
+</button>
+`;
+
+exports[`Button Component > props.size is equal to small 1`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle t-size-s"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    Text
+    
+  </span>
+</button>
+`;
+
+exports[`Button Component > props.tag is equal to a 1`] = `
+<a
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle"
+  disabled="false"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    Text
+    
+  </span>
+</a>
+`;
+
+exports[`Button Component > props.tag is equal to button 1`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    Text
+    
+  </span>
+</button>
+`;
+
+exports[`Button Component > props.tag is equal to div 1`] = `
+<div
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle"
+  disabled="false"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    Text
+    
+  </span>
+</div>
+`;
+
+exports[`Button Component > props.theme is equal to danger 1`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-danger t-button--shape-rectangle"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    Text
+    
+  </span>
+</button>
+`;
+
+exports[`Button Component > props.theme is equal to default 1`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-default t-button--shape-rectangle"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    Text
+    
+  </span>
+</button>
+`;
+
+exports[`Button Component > props.theme is equal to primary 1`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    Text
+    
+  </span>
+</button>
+`;
+
+exports[`Button Component > props.theme is equal to success 1`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-success t-button--shape-rectangle"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    Text
+    
+  </span>
+</button>
+`;
+
+exports[`Button Component > props.theme is equal to warning 1`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-warning t-button--shape-rectangle"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    Text
+    
+  </span>
+</button>
+`;
+
+exports[`Button Component > props.variant is equal to base 1`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    Text
+    
+  </span>
+</button>
+`;
+
+exports[`Button Component > props.variant is equal to dashed 1`] = `
+<button
+  class="t-button t-button--variant-dashed t-button--theme-default t-button--shape-rectangle"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    Text
+    
+  </span>
+</button>
+`;
+
+exports[`Button Component > props.variant is equal to outline 1`] = `
+<button
+  class="t-button t-button--variant-outline t-button--theme-default t-button--shape-rectangle"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    Text
+    
+  </span>
+</button>
+`;
+
+exports[`Button Component > props.variant is equal to text 1`] = `
+<button
+  class="t-button t-button--variant-text t-button--theme-default t-button--shape-rectangle"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    Text
+    
+  </span>
+</button>
+`;
+
+exports[`Button Component > slots.content works fine 1`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    <span
+      class="custom-node"
+    >
+      TNode
+    </span>
+    
+  </span>
+</button>
+`;
+
+exports[`Button Component > slots.default works fine 1`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    <span
+      class="custom-node"
+    >
+      TNode
+    </span>
+    
+  </span>
+</button>
+`;

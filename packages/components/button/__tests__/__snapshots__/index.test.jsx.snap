@@ -1,0 +1,234 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Button > :props > :block 1`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle t-size-full-width"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    text
+    
+  </span>
+</button>
+`;
+
+exports[`Button > :props > :content 1`] = `
+<div>
+  <button
+    class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle"
+    href=""
+    tabindex="0"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      bar
+      
+    </span>
+  </button>
+  <button
+    class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle"
+    href=""
+    tabindex="0"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      bar
+      
+    </span>
+  </button>
+  <button
+    class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle"
+    href=""
+    tabindex="0"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      foo
+    </span>
+  </button>
+  <button
+    class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle"
+    href=""
+    tabindex="0"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      foo
+    </span>
+  </button>
+  <button
+    class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle"
+    href=""
+    tabindex="0"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      bar
+      
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Button > :props > :disabled 1`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle t-is-disabled"
+  disabled=""
+  href=""
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    text
+    
+  </span>
+</button>
+`;
+
+exports[`Button > :props > :icon function 1`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle t-button--icon-only"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  
+  <i>
+    custom icon
+  </i>
+  
+  
+</button>
+`;
+
+exports[`Button > :props > :loading 1`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle t-is-loading"
+  disabled=""
+  href=""
+  tabindex="0"
+  type="button"
+>
+  
+  <div
+    class="t-loading--center t-size-m t-loading--inherit-color t-loading"
+  >
+    <svg
+      class="t-loading__gradient t-icon-loading"
+      height="1em"
+      size="medium"
+      version="1.1"
+      viewBox="0 0 12 12"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <foreignobject
+        height="12"
+        width="12"
+        x="0"
+        y="0"
+      >
+        <div
+          class="t-loading__gradient-conic"
+        />
+      </foreignobject>
+    </svg>
+    <!---->
+  </div>
+  <span
+    class="t-button__text"
+  >
+    
+    text
+    
+  </span>
+  
+</button>
+`;
+
+exports[`Button > :props > :shape 1`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-round"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    text
+    
+  </span>
+</button>
+`;
+
+exports[`Button > :props > :size 1`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle t-size-l"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    text
+    
+  </span>
+</button>
+`;
+
+exports[`Button > :props > :variant 1`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  <span
+    class="t-button__text"
+  >
+    
+    text
+    
+  </span>
+</button>
+`;
+
+exports[`Button > <slot> > <icon> 1`] = `
+<button
+  class="t-button t-button--variant-base t-button--theme-primary t-button--shape-rectangle t-button--icon-only"
+  href=""
+  tabindex="0"
+  type="button"
+>
+  
+  
+  <div />
+  
+  
+  
+</button>
+`;

@@ -21,5 +21,23 @@
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
-  "cSpell.words": ["tdesign", "popconfirm", "cascader", "tnode", "backtop", "wechat", "miniprogram","nuxt","codesandbox"]
+  "cSpell.words": [
+    "backtop",
+    "cascader",
+    "codesandbox",
+    "maxcharacter",
+    "maxlength",
+    "miniprogram",
+    "nuxt",
+    "popconfirm",
+    "popperjs",
+    "precaching",
+    "sider",
+    "tdesign",
+    "tdoc",
+    "tmenu",
+    "tnode",
+    "vnode",
+    "wechat"
+  ]
 }
