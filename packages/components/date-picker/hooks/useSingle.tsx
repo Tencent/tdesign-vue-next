@@ -120,11 +120,11 @@ export function useSingle(props: TdDatePickerProps) {
   const popupProps = computed(() => ({
     expandAnimation: true,
     ...omit(props.popupProps, 'on-visible-change'),
-    disabled: disabled.value,
+    disabled: disabled.value || isReadOnly.value,
     overlayInnerStyle: props.popupProps?.overlayInnerStyle ?? { width: 'auto' },
     overlayClassName: [props.popupProps?.overlayClassName, `${COMPONENT_NAME.value}__panel-container`],
     onVisibleChange: (visible: boolean, context: any) => {
-      if (disabled.value) return;
+      if (disabled.value || isReadOnly.value) return;
       // 这里劫持了进一步向 popup 传递的 onVisibleChange 事件，为了保证可以在 Datepicker 中使用 popupProps.onVisibleChange，故此处理
       props.popupProps?.onVisibleChange?.(visible, context);
       // TODO
