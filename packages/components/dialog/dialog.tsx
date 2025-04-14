@@ -101,11 +101,14 @@ export default defineComponent({
     const { isLastDialog } = usePopupManager('dialog', {
       visible: computedVisible,
     });
+    /**是否第一次渲染，懒加载判断 */
+    const isFirstRender = ref(false);
 
     watch(
       () => props.visible,
       (value) => {
         if (value) {
+          isFirstRender.value = true;
           if ((isModal.value && !props.showInAttachedElement) || isFullScreen.value) {
             if (props.preventScrollThrough) {
               document.body.appendChild(styleEl.value);
@@ -279,6 +282,12 @@ export default defineComponent({
           [`${COMPONENT_NAME.value}__ctx--modeless`]: isModeLess.value,
         },
       ];
+
+      const shouldRender = computed(() => {
+        return props.lazy
+          ? isFirstRender.value && (!props.destroyOnClose || props.visible)
+          : !props.destroyOnClose || props.visible;
+      });
       return (
         <Teleport disabled={!props.attach || !teleportElement.value} to={teleportElement.value}>
           <Transition
@@ -289,7 +298,7 @@ export default defineComponent({
             onBeforeLeave={beforeLeave}
             onAfterLeave={afterLeave}
           >
-            {(!props.destroyOnClose || props.visible) && (
+            {shouldRender.value && (
               <div v-show={props.visible} class={ctxClass} style={ctxStyle} {...context.attrs}>
                 {view}
               </div>
