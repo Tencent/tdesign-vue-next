@@ -1,4 +1,4 @@
-import { getSSRAttach, getAttach } from '../utils/dom';
+import { getAttach } from '../utils/dom';
 import { computed, Ref, onMounted, ref, watch } from 'vue';
 import { AttachNode } from '../common';
 import { isFunction } from 'lodash-es';
@@ -19,7 +19,7 @@ const useTeleport = (
   const element = ref<string | Element>();
 
   const getElement = () => {
-    element.value = getSSRAttach() || getAttach(to.value, innerTriggerNode.value);
+    element.value = getAttach(to.value, innerTriggerNode.value);
   };
 
   onMounted(() => getElement());
