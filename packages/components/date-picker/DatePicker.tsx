@@ -350,7 +350,8 @@ export default defineComponent({
           label={props.label}
           status={props.status}
           tips={props.tips}
-          clearable={props.clearable && !isReadOnly.value}
+          clearable={props.clearable}
+          readonly={isReadOnly.value}
           multiple={props.multiple}
           popupProps={popupProps.value}
           inputProps={inputProps.value}
