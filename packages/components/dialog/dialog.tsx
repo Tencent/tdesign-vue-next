@@ -162,6 +162,8 @@ export default defineComponent({
         // 根据closeOnEscKeydown判断按下ESC时是否触发close事件
         if (props.closeOnEscKeydown ?? globalConfig.value.closeOnEscKeydown) {
           emitCloseEvent({ e, trigger: 'esc' });
+          // 阻止事件冒泡
+          e.stopImmediatePropagation();
         }
       }
     };
