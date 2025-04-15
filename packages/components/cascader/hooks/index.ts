@@ -1,15 +1,13 @@
-import { Ref, reactive, computed, toRefs, watch, nextTick } from 'vue';
-import { isEqual } from 'lodash-es';
-import { isFunction } from 'lodash-es';
-import { isString } from 'lodash-es';
+import { isEqual, isFunction, isString } from 'lodash-es';
+import { Ref, computed, nextTick, reactive, toRefs, watch } from 'vue';
 
 import TreeStore from '@tdesign/common-js/tree/tree-store';
+import useDefaultValue from '../../hooks/useDefaultValue';
 import { useDisabled } from '../../hooks/useDisabled';
 import useVModel from '../../hooks/useVModel';
-import useDefaultValue from '../../hooks/useDefaultValue';
 import {
-  getTreeValue,
   getCascaderValue,
+  getTreeValue,
   isEmptyValues,
   isValueInvalid,
   treeNodesEffect,
@@ -17,12 +15,12 @@ import {
 } from '../utils';
 
 import {
-  TreeNode,
-  TreeNodeValue,
-  TdCascaderProps,
-  TreeNodeModel,
   CascaderChangeSource,
   CascaderValue,
+  TdCascaderProps,
+  TreeNode,
+  TreeNodeModel,
+  TreeNodeValue,
   TreeOptionData,
 } from '../types';
 
@@ -39,6 +37,7 @@ export const useContext = (
     scopeVal: undefined,
     treeNodes: [],
     expend: [],
+    isFiltering: false,
   });
 
   return {
@@ -88,6 +87,9 @@ export const useContext = (
         },
         setExpend: (val: TreeNodeValue[]) => {
           statusContext.expend = val;
+        },
+        setIsFiltering: (val: boolean) => {
+          statusContext.isFiltering = val;
         },
       };
     }),
@@ -227,8 +229,9 @@ export const useCascaderContext = (props: TdCascaderProps) => {
 
   watch(
     () => statusContext.inputVal,
-    () => {
+    (val) => {
       updatedTreeNodes();
+      cascaderContext.value.setIsFiltering(!!(cascaderContext.value.filterable && val?.length));
     },
   );
 

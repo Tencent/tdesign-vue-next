@@ -1,15 +1,15 @@
-import { defineComponent, PropType, computed, ref } from 'vue';
 import { ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
+import { computed, defineComponent, PropType, ref } from 'vue';
 
-import { getFullPathLabel, getCascaderItemClass, getCascaderItemIconClass } from '../utils';
+import { getCascaderItemClass, getCascaderItemIconClass, getFullPathLabel } from '../utils';
 
 import Checkbox from '../../checkbox/index';
 import TLoading from '../../loading';
 
-import { CascaderContextType, TreeNodeValue, TreeNode, TdCascaderProps } from '../types';
-import { usePrefixClass, useCommonClassName } from '../../hooks/useConfig';
+import { useCommonClassName, usePrefixClass } from '../../hooks/useConfig';
 import { useGlobalIcon } from '../../hooks/useGlobalIcon';
 import useRipple from '../../hooks/useRipple';
+import { CascaderContextType, TdCascaderProps, TreeNode, TreeNodeValue } from '../types';
 
 const props = {
   node: {
@@ -114,21 +114,25 @@ export default defineComponent({
     }
 
     return () => {
-      const { cascaderContext, node, optionChild } = props;
-      const isOptionChildAndMultiple = optionChild && cascaderContext.multiple;
+      const { cascaderContext, node, optionChild, onChange, onClick, onMouseenter } = props;
+      const { checkStrictly, multiple, isFiltering } = cascaderContext;
+      const { children: nodeChildren, loading } = node;
+
+      const handleClick = () => {
+        const useChangeHandler = multiple && (checkStrictly || !isFiltering);
+        useChangeHandler ? onChange() : onClick();
+      };
+
+      const showRightIcon = !(checkStrictly && isFiltering) && nodeChildren;
+
+      const renderMainContent = () =>
+        optionChild || (multiple ? RenderCheckBox(node, cascaderContext) : RenderLabelContent(node, cascaderContext));
+
       return (
-        <li
-          ref={liRef}
-          class={itemClass.value}
-          onClick={() => (isOptionChildAndMultiple ? props.onChange() : props.onClick())}
-          onMouseenter={props.onMouseenter}
-        >
-          {optionChild ||
-            (cascaderContext.multiple
-              ? RenderCheckBox(node, cascaderContext)
-              : RenderLabelContent(node, cascaderContext))}
-          {node.children &&
-            (node.loading ? (
+        <li ref={liRef} class={itemClass.value} onClick={handleClick} onMouseenter={onMouseenter}>
+          {renderMainContent()}
+          {showRightIcon &&
+            (loading ? (
               <TLoading class={iconClass.value} size="small" />
             ) : (
               <ChevronRightIcon class={iconClass.value} />

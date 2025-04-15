@@ -1,9 +1,6 @@
-import { isNumber } from 'lodash-es';
-import { isFunction } from 'lodash-es';
-import { isArray } from 'lodash-es';
-import { cloneDeep } from 'lodash-es';
+import { cloneDeep, isArray, isFunction, isNumber } from 'lodash-es';
 
-import type { TreeNode, CascaderContextType, TdCascaderProps, TreeNodeValue, TreeNodeModel } from '../types';
+import type { CascaderContextType, TdCascaderProps, TreeNode, TreeNodeModel, TreeNodeValue } from '../types';
 import { getFullPathLabel, getTreeValue, isEmptyValues } from './helper';
 
 /**
@@ -23,7 +20,6 @@ export function expendClickEffect(
     cascaderContext;
 
   const isDisabled = node.disabled || (multiple && (value as TreeNodeValue[]).length >= max && max !== 0);
-
   if (isDisabled) return;
   // 点击展开节点，设置展开状态
   if (propsTrigger === trigger) {
@@ -177,7 +173,9 @@ export const treeNodesEffect = (
   let nodes = [];
   if (inputVal) {
     const filterMethods = (node: TreeNode) => {
-      if (!node.isLeaf()) return;
+      // if (!node.isLeaf()) {
+      //   return true;
+      // };
       if (isFunction(filter)) {
         return filter(`${inputVal}`, node as TreeNodeModel & TreeNode);
       }

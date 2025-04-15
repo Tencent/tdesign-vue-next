@@ -1,12 +1,12 @@
-import { defineComponent, PropType, computed, h } from 'vue';
+import { computed, defineComponent, h, PropType } from 'vue';
 
-import Item from './Item';
-import { TreeNode, CascaderContextType } from '../types';
-import CascaderProps from '../props';
-import { usePrefixClass, useConfig } from '../../hooks/useConfig';
 import { useTNodeDefault } from '../../hooks/tnode';
+import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 import { getDefaultNode } from '../../utils/render-tnode';
-import { getPanels, expendClickEffect, valueChangeEffect } from '../utils';
+import CascaderProps from '../props';
+import { CascaderContextType, TreeNode } from '../types';
+import { expendClickEffect, getPanels, valueChangeEffect } from '../utils';
+import Item from './Item';
 
 export default defineComponent({
   name: 'TCascaderSubPanel',
@@ -40,6 +40,7 @@ export default defineComponent({
         : renderTNodeJSXDefault('option', {
             params: { item: node.data, index },
           });
+
       return (
         <Item
           key={node.value}

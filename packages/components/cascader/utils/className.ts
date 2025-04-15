@@ -34,8 +34,16 @@ export function getNodeStatusClass(
   cascaderContext: CascaderContextType,
 ) {
   const { checkStrictly, multiple, value, max } = cascaderContext;
+
+  const isChildrenHighlight = () => {
+    if (!cascaderContext.isFiltering) return node.expanded;
+    if (multiple && Array.isArray(value)) {
+      return value.some((item) => item === node.value);
+    }
+    return node.value === value;
+  };
   const expandedActive =
-    (!checkStrictly && node.expanded && (multiple ? !node.isLeaf() : true)) || (checkStrictly && node.expanded);
+    (!checkStrictly && node.expanded && (multiple ? !node.isLeaf() : true)) || (checkStrictly && isChildrenHighlight());
 
   const isLeaf = node.isLeaf();
 
