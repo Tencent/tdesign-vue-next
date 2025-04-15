@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 import { expect, vi } from 'vitest';
-import { Breadcrumb, BreadcrumbItem } from '@src/breadcrumb/index';
+import { Breadcrumb, BreadcrumbItem } from '@tdesign/components/breadcrumb/index';
 
 const innerMount = (render, $router = {}) =>
   mount(render, {
