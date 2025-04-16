@@ -170,6 +170,15 @@ describe('InputNumber', () => {
       expect(tips.text()).toBe('tips');
     });
 
+    it(':tips slot', () => {
+      const wrapper = mount(() => <InputNumber v-slots={{ tips: () => <>this is tips</> }}></InputNumber>);
+      const tips = wrapper.find('.t-input__tips');
+      const tipsArray = wrapper.findAll('.t-input__tips');
+      expect(tipsArray.length).toBe(1);
+      expect(tips.exists).toBeTruthy();
+      expect(tips.text()).toBe('this is tips');
+    });
+
     it(':value', () => {
       const value = ref(100);
       const wrapper = mount(() => <InputNumber value={value.value} />);
