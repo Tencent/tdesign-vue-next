@@ -42,6 +42,7 @@ fs.readFile(joinTdesignVueNextRoot('test/coverage/index.html'), 'utf8', (err, ht
 
     const finalRes = `export default ${JSON.stringify(resultCoverage, null, 2)};\n`;
     fs.writeFileSync(joinTdesignVueNextRoot('my-site/configs/test-coverage.ts'), finalRes);
+
     // eslint-disable-next-line
     console.log('successful re-generate coverage');
   }

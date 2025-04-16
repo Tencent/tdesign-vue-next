@@ -165,6 +165,25 @@ describe('Swiper', () => {
       });
       expect(wrapper.element).toMatchSnapshot();
     });
+    it(':cardScale', () => {
+      const wrapper = mount({
+        render() {
+          return (
+            <Swiper type={'card'} cardScale={0.8}>
+              <SwiperItem>1</SwiperItem>
+              <SwiperItem>2</SwiperItem>
+            </Swiper>
+          );
+        },
+      });
+      expect(wrapper.element).toMatchSnapshot();
+      // check if the transform and scale properties meet the expectations
+      const swiperItems = wrapper.findAll('.t-swiper__container__item');
+      const nonActiveItem = swiperItems.at(0);
+      const transformStyle = nonActiveItem.element.style.transform;
+      expect(transformStyle).toBeDefined();
+      expect(transformStyle.includes('scale(0.8)')).toBe(true);
+    });
   });
   // test events
   describe('@event', () => {
@@ -220,6 +239,12 @@ describe('Swiper', () => {
       await nextTick();
       // slide animation, the item length equal item list length add 2
       expect(swiper.findAll('.t-swiper__container__item').length).toBe(5);
+
+      // 检查transform属性是否符合预期
+      const container = swiper.find('.t-swiper__container');
+      const transformStyle = container.element.style.transform;
+      expect(transformStyle).toBeDefined();
+      expect(transformStyle.includes('translate')).toBe(true);
     });
   });
 });

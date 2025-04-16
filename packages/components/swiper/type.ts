@@ -75,6 +75,11 @@ export interface TdSwiperProps {
    */
   type?: 'default' | 'card';
   /**
+   * 卡片模式下的缩放比例
+   * @default 210/332
+   */
+  cardScale?: number;
+  /**
    * 轮播切换时触发
    */
   onChange?: (current: number, context: { source: SwiperChangeSource }) => void;

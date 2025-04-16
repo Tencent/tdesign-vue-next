@@ -5,8 +5,6 @@ import { joinComponentsRoot, joinTdesignVueNextRoot } from '@tdesign/internal-ut
 
 export default defineConfig({
   resolve: {
-    // 做法 1，在 test 之前先 build 一次 es
-    // 做法 2，用 alias
     alias: {
       // TODO: paopao 为什么还需要 alias，因为在 example 中的写法只能是 tdesign-vue-next，虽然有这个子应用，但没有 build 是没用的，同时即便是 prebuild 了，hmr 也是问题
       'tdesign-vue-next/es': joinComponentsRoot(),
@@ -22,7 +20,7 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     testTimeout: 5000,
-    setupFiles: process.env.NODE_ENV === 'test-snap' ? './unit/test-setup.js' : '',
+    setupFiles: process.env.TEST_TARGET === 'snap' ? './src/setup.ts' : '',
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
