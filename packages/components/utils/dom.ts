@@ -132,10 +132,6 @@ export const getAttach = (node: any, triggerNode?: any): HTMLElement | Element =
   return document.body;
 };
 
-export const getSSRAttach = () => {
-  if (process.env.NODE_ENV === 'test-snap') return 'body';
-};
-
 /**
  * 获取滚动容器
  * 因为document不存在scroll等属性, 因此排除document
