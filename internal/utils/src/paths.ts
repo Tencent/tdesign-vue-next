@@ -6,19 +6,19 @@ const normalizePathRegExp = new RegExp(`\\${win32.sep}`, 'g');
 /**
  *@description 归一化路径,将 windows 风格的路径转换为 posix 风格的路径
  */
-const normalizePath = (filename: string) => filename.replace(normalizePathRegExp, posix.sep);
+const toPosixPath = (filename: string) => filename.replace(normalizePathRegExp, posix.sep);
 
 /**
  *@description POSIX 风格的路径解析,只能处理相对路径
  */
-const posixNormalizePathResolve = (...paths: string[]) => normalizePath(posix.resolve(...paths));
+const resolvePosix = (...paths: string[]) => toPosixPath(posix.resolve(...paths));
 
 /**
  *@description POSIX 风格的路径拼接
  */
-const posixNormalizePathJoin = (...paths: string[]) => normalizePath(posix.join(...paths));
+const joinPosix = (...paths: string[]) => toPosixPath(posix.join(...paths));
 
-export { posixNormalizePathResolve, posixNormalizePathJoin };
+export { resolvePosix, joinPosix };
 
 /**
  * root 原本是使用 @pnpm/find-workspace-dir 获取的，但它的获取方式是异步的，导致部分地方使用时出现问题，比如 vitest 的 snapshot 测试，
@@ -29,7 +29,7 @@ export const getWorkspaceRoot = () => {
   let dir = process.cwd();
   while (dir !== '/') {
     if (existsSync(`${dir}/pnpm-workspace.yaml`)) {
-      return normalizePath(dir);
+      return toPosixPath(dir);
     }
     dir = dirname(dir);
   }
@@ -38,43 +38,43 @@ export const getWorkspaceRoot = () => {
 
 // packages
 export const getPackagesRoot = () => {
-  return posixNormalizePathJoin(getWorkspaceRoot(), 'packages');
+  return joinPosix(getWorkspaceRoot(), 'packages');
 };
 
 // packages/common
 export const getCommonRoot = () => {
-  return posixNormalizePathJoin(getPackagesRoot(), 'common');
+  return joinPosix(getPackagesRoot(), 'common');
 };
 
 // packages/components
 export const getComponentsRoot = () => {
-  return posixNormalizePathJoin(getPackagesRoot(), 'components');
+  return joinPosix(getPackagesRoot(), 'components');
 };
 
 // packages/tdesign-vue-next
 export const getTdesignVueNextRoot = () => {
-  return posixNormalizePathJoin(getPackagesRoot(), 'tdesign-vue-next');
+  return joinPosix(getPackagesRoot(), 'tdesign-vue-next');
 };
 
-// posixNormalizePathJoin
+// joinPosix
 export const joinWorkspaceRoot = (...paths: string[]) => {
-  return posixNormalizePathJoin(getWorkspaceRoot(), ...paths);
+  return joinPosix(getWorkspaceRoot(), ...paths);
 };
 
 export const joinPackagesRoot = (...paths: string[]) => {
-  return posixNormalizePathJoin(getPackagesRoot(), ...paths);
+  return joinPosix(getPackagesRoot(), ...paths);
 };
 
 export const joinCommonRoot = (...paths: string[]) => {
-  return posixNormalizePathJoin(getCommonRoot(), ...paths);
+  return joinPosix(getCommonRoot(), ...paths);
 };
 
 export const joinComponentsRoot = (...paths: string[]) => {
-  return posixNormalizePathJoin(getComponentsRoot(), ...paths);
+  return joinPosix(getComponentsRoot(), ...paths);
 };
 
 export const joinTdesignVueNextRoot = (...paths: string[]) => {
-  return posixNormalizePathJoin(getTdesignVueNextRoot(), ...paths);
+  return joinPosix(getTdesignVueNextRoot(), ...paths);
 };
 
 /**
