@@ -2,14 +2,14 @@ import { globSync } from 'glob';
 import MockDate from 'mockdate';
 import { vi, describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { resolveComponentsRoot, getRelativeWorkspaceRootPath } from '@tdesign/internal-utils';
+import { joinComponentsRoot, getRelativeWorkspaceRootPath } from '@tdesign/internal-utils';
 
 // 固定时间，当使用 new Date() 时，返回固定时间，防止“当前时间”的副作用影响，导致 snapshot 变更，mockdate 插件见 https://github.com/boblauer/MockDate
 MockDate.set('2020-12-28 00:00:00');
 
 function runTest() {
-  const files = globSync(resolveComponentsRoot('**!(chat)/_example/*.vue'), {
-    ignore: [resolveComponentsRoot('chat/_example/*.vue')],
+  const files = globSync(joinComponentsRoot('**!(chat)/_example/*.vue'), {
+    ignore: [joinComponentsRoot('chat/_example/*.vue')],
   });
   const $routerMock = { push: vi.fn() };
 
