@@ -1,9 +1,9 @@
 name: Publish_Any_Commit
 on:
   push:
-    branches: [develop]
+    branches: [develop, rss1102/chore/pkg-pr-new]
   pull_request:
-    branches: [develop]
+    branches: [develop, rss1102/chore/pkg-pr-new]
 
 jobs:
   build:
@@ -15,7 +15,7 @@ jobs:
         with:
           submodules: recursive
       - uses: pnpm/action-setup@v4
-  
+
       - uses: actions/setup-node@v4
         with:
           node-version: 18
@@ -24,4 +24,4 @@ jobs:
 
       - run: pnpm build
 
-      - run: pnpm dlx pkg-pr-new publish './packages/tdesign-vue-next' --compact
+      - run: pnpm dlx pkg-pr-new publish './packages/tdesign-vue-next' --compact --template ./tdesign-vue-next-demo
