@@ -1,6 +1,6 @@
 import { execSync } from 'child_process';
 import { resolve } from 'path';
-import { rmSync, writeFileSync } from 'fs';
+import { rmSync, writeFileSync, readFileSync } from 'fs';
 
 const projectName = 'tdesign-vue-next-demo';
 
