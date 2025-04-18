@@ -16,33 +16,29 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
 
     return () => (
-      <>
-        {role.value === 'assistant' ? (
-          <div class={`${COMPONENT_NAME.value}__detail-reasoning`}>
-            <Collapse
-              borderless={true}
-              defaultExpandAll={true}
-              expandIconPlacement={props.expandIconPlacement}
-              onChange={props.onExpandChange}
-            >
-              <CollapsePanel
-                expandIcon={true}
-                value="0"
-                v-slots={{
-                  destroyOnCollapse: () => props?.collapsePanelProps?.destroyOnCollapse,
-                  disabled: () => props?.collapsePanelProps?.disabled,
-                  default: () => props?.collapsePanelProps?.content || renderTNodeJSX('default'),
-                  header: () => props?.collapsePanelProps?.header || renderTNodeJSX('header'), // 保证响应式
-                  expandIcon: () => props?.collapsePanelProps?.expandIcon || renderTNodeJSX('expandIcon'),
-                  headerRightContent: () =>
-                    props?.collapsePanelProps?.headerRightContent || renderTNodeJSX('headerRightContent'),
-                  content: () => props?.collapsePanelProps?.content || renderTNodeJSX('default'), // 保证响应式
-                }}
-              ></CollapsePanel>
-            </Collapse>
-          </div>
-        ) : null}
-      </>
+      <div class={`${COMPONENT_NAME.value}__detail-reasoning`}>
+        <Collapse
+          borderless={true}
+          defaultExpandAll={true}
+          expandIconPlacement={props.expandIconPlacement}
+          onChange={props.onExpandChange}
+        >
+          <CollapsePanel
+            expandIcon={true}
+            value="0"
+            v-slots={{
+              destroyOnCollapse: () => props?.collapsePanelProps?.destroyOnCollapse,
+              disabled: () => props?.collapsePanelProps?.disabled,
+              default: () => props?.collapsePanelProps?.content || renderTNodeJSX('default'),
+              header: () => props?.collapsePanelProps?.header || renderTNodeJSX('header'), // 保证响应式
+              expandIcon: () => props?.collapsePanelProps?.expandIcon || renderTNodeJSX('expandIcon'),
+              headerRightContent: () =>
+                props?.collapsePanelProps?.headerRightContent || renderTNodeJSX('headerRightContent'),
+              content: () => props?.collapsePanelProps?.content || renderTNodeJSX('default'), // 保证响应式
+            }}
+          ></CollapsePanel>
+        </Collapse>
+      </div>
     );
   },
 });
