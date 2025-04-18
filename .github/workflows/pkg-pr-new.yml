@@ -24,6 +24,6 @@ jobs:
 
       - run: pnpm build
 
-      - run: node ./scripts/workflows/prepare-package.js
+      - run: node ./script/workflows/prepare-package.js
 
       - run: pnpm dlx pkg-pr-new publish './packages/tdesign-vue-next' --compact --template ./tdesign-vue-next-demo
