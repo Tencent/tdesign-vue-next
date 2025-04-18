@@ -8,7 +8,7 @@ execSync(`pnpm create vite ${projectName} --template vue-ts`);
 
 const mainFilePath = `${projectName}/src/main.ts`;
 const appFilePath = `${projectName}/src/App.vue`;
-const componentsFolders = `${projectName}/src/components`;
+const demoFilePath = `${projectName}/src/Demo.vue`;
 const packageJsonPath = `${projectName}/package.json`;
 
 const mainJsContent = `
@@ -23,7 +23,19 @@ const mainJsContent = `
 
   app.use(TDesign).mount('#app');
 `;
-const appVueContent = `
+
+const appVueContent= `
+<template>
+  <t-config-provider :global-config="zh_CN">
+    <Demo />
+  </t-config-provider>
+</template>
+<script setup lang="ts">
+import zh_CN from 'tdesign-vue-next/es/locale/zh_CN';
+import Demo from "./Demo.vue";
+</script>
+`
+const demoVueContent = `
 <template>
   <t-button>按钮</t-button>
 </template>
@@ -37,7 +49,10 @@ packageJson.dependencies = {
 
 writeFileSync(mainFilePath, mainJsContent, 'utf8');
 writeFileSync(appFilePath, appVueContent, 'utf8');
+writeFileSync(demoFilePath, demoVueContent, 'utf8');
 writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
 
+/** remove extra code  */
+const componentsFolders = `${projectName}/src/components`;
 const projectPath = resolve(componentsFolders);
 rmSync(projectPath, { recursive: true, force: true });
