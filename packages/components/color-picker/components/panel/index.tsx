@@ -38,19 +38,18 @@ export default defineComponent({
     const { value: inputValue, modelValue, recentColors } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(inputValue, modelValue, props.defaultValue, props.onChange);
 
+    const getModeByColor = (input: string) => {
+      if (props.colorModes.length === 1) return props.colorModes[0];
+      return props.colorModes.includes('linear-gradient') && Color.isGradientColor(input)
+        ? 'linear-gradient'
+        : 'monochrome';
+    };
+    const mode = ref<TdColorModes>(getModeByColor(innerValue.value));
+
+    const isGradient = computed(() => mode.value === 'linear-gradient');
     const defaultEmptyColor = computed(() => (isGradient.value ? DEFAULT_LINEAR_GRADIENT : DEFAULT_COLOR));
 
-    const mode = ref<TdColorModes>(
-      props.colorModes?.length !== 1 && innerValue.value?.includes('linear-gradient')
-        ? 'linear-gradient'
-        : props.colorModes?.length === 1
-        ? props.colorModes[0]
-        : 'monochrome',
-    );
-    const isGradient = computed(() => mode.value === 'linear-gradient');
-
     const color = ref(new Color(innerValue.value || defaultEmptyColor.value));
-    const updateColor = () => color.value.update(innerValue.value || defaultEmptyColor.value);
 
     const formatModel = ref<TdColorPickerProps['format']>(color.value.isGradient ? 'CSS' : 'RGB');
 
@@ -62,14 +61,20 @@ export default defineComponent({
     );
 
     const formatValue = () => {
-      // 渐变模式下直接输出css样式
-      if (mode.value === 'linear-gradient') {
+      // 渐变模式下直接输出 CSS 格式
+      if (color.value.isGradient) {
         return color.value.linearGradient;
       }
-      const colorMap = color.value.getFormatsColorMap();
-      return Object.keys(colorMap).includes(props.format)
-        ? colorMap[props.format as keyof typeof colorMap]
-        : color.value.css;
+
+      // 处理开启透明通道时的格式
+      let finalFormat = props.format as keyof ReturnType<Color['getFormatsColorMap']>;
+      if (props.enableAlpha) {
+        if (props.format === 'HEX') finalFormat = 'HEX8';
+        if (props.format === 'RGB' || props.format === 'RGBA') finalFormat = 'RGBA';
+        if (props.format === 'HSL') finalFormat = 'HSLA';
+        if (props.format === 'HSV') finalFormat = 'HSLA';
+      }
+      return color.value.getFormatsColorMap()[finalFormat];
     };
 
     /**
@@ -112,26 +117,30 @@ export default defineComponent({
       });
     };
 
-    watch(() => [props.defaultValue, props.enableAlpha], updateColor);
-
     watch(
       () => innerValue.value,
       (newColor) => {
         if (newColor !== formatValue()) {
-          updateColor();
-          mode.value = color.value.isGradient ? 'linear-gradient' : 'monochrome';
+          const newMode = getModeByColor(newColor);
+          mode.value = newMode;
+          color.value.isGradient = newMode === 'linear-gradient';
+          color.value.update(newColor);
         }
       },
     );
 
     /**
      * mode change
-     * @param value
+     * @param newMode
      * @returns
      */
-    const handleModeChange = (value: TdColorModes) => {
-      mode.value = value;
-      if (value === 'linear-gradient') {
+    const handleModeChange = (newMode: TdColorModes) => {
+      mode.value = newMode;
+
+      const isGradientMode = newMode === 'linear-gradient';
+      color.value.isGradient = isGradientMode;
+
+      if (isGradientMode) {
         color.value.update(
           color.value.gradientColors.length > 0 ? color.value.linearGradient : DEFAULT_LINEAR_GRADIENT,
         );
@@ -170,7 +179,6 @@ export default defineComponent({
         return;
       }
 
-      color.value.update(color.value.rgba);
       emitColorChange(changeTrigger);
     };
 
@@ -238,23 +246,12 @@ export default defineComponent({
      * @param type
      * @param value
      */
-    const handleSetColor = (type: 'system' | 'used', value: string) => {
-      const isGradientValue = Color.isGradientColor(value);
-      if (isGradientValue) {
-        if (props.colorModes.includes('linear-gradient')) {
-          mode.value = 'linear-gradient';
-          color.value.update(value);
-          color.value.updateCurrentGradientColor();
-        } else {
-          console.warn('该模式不支持渐变色');
-        }
-      } else if (mode.value === 'linear-gradient') {
-        color.value.updateStates(value);
-        color.value.updateCurrentGradientColor();
-      } else {
-        color.value.update(value);
-      }
-      emitColorChange();
+    const handleSetColor = (value: string, trigger: ColorPickerChangeTrigger) => {
+      const newMode = getModeByColor(value);
+      mode.value = newMode;
+      color.value.isGradient = newMode === 'linear-gradient';
+      color.value.update(value);
+      emitColorChange(trigger);
     };
 
     return () => {
@@ -267,6 +264,11 @@ export default defineComponent({
       let systemColors = props.swatchColors;
       if (systemColors === undefined) {
         systemColors = [...DEFAULT_SYSTEM_SWATCH_COLORS];
+      }
+      // 如果只支持渐变模式，则过滤掉非渐变色值
+      const onlySupportGradient = props.colorModes.length === 1 && props.colorModes.includes('linear-gradient');
+      if (onlySupportGradient) {
+        systemColors = systemColors.filter((color) => Color.isGradientColor(color));
       }
       const showSystemColors = systemColors?.length > 0;
 
@@ -284,7 +286,7 @@ export default defineComponent({
                   editable
                   colors={recentlyUsedColors.value as string[]}
                   handleAddColor={addRecentlyUsedColor}
-                  onSetColor={(color: string) => handleSetColor('used', color)}
+                  onSetColor={(color: string) => handleSetColor(color, 'recent')}
                   onChange={handleRecentlyUsedColorsChange}
                 />
               ) : null}
@@ -293,7 +295,7 @@ export default defineComponent({
                   {...baseProps}
                   title={t(globalConfig.value.swatchColorTitle)}
                   colors={systemColors}
-                  onSetColor={(color: string) => handleSetColor('system', color)}
+                  onSetColor={(color: string) => handleSetColor(color, 'preset')}
                 />
               ) : null}
             </div>
