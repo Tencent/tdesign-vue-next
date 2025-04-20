@@ -1,9 +1,9 @@
 name: Publish_Any_Commit
 on:
   push:
-    branches: [develop, rss1102/chore/pkg-pr-new]
+    branches: [develop]
   pull_request:
-    branches: [develop, rss1102/chore/pkg-pr-new]
+    branches: [develop]
 
 jobs:
   build:
