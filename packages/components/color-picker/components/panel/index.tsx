@@ -70,9 +70,9 @@ export default defineComponent({
       let finalFormat = props.format as keyof ReturnType<Color['getFormatsColorMap']>;
       if (props.enableAlpha) {
         if (props.format === 'HEX') finalFormat = 'HEX8';
-        if (props.format === 'RGB' || props.format === 'RGBA') finalFormat = 'RGBA';
+        if (props.format === 'RGB') finalFormat = 'RGBA';
         if (props.format === 'HSL') finalFormat = 'HSLA';
-        if (props.format === 'HSV') finalFormat = 'HSLA';
+        if (props.format === 'HSV') finalFormat = 'HSVA';
       }
       return color.value.getFormatsColorMap()[finalFormat];
     };
