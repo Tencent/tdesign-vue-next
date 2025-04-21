@@ -184,7 +184,7 @@ export interface TdChatActionProps {
    * 操作按钮配置项，可配置操作按钮选项和顺序
    * @default ["replay", "copy", "good", "bad"]
    */
-  operationBtn?: Array<'replay' | 'copy' | 'good' | 'bad'>;
+  operationBtn?: Array<'replay' | 'copy' | 'good' | 'bad' | 'sound'>;
   /**
    * 点击点赞，点踩，复制，重新生成按钮时触发
    */

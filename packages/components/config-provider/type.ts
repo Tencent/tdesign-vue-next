@@ -354,6 +354,12 @@ export interface ChatConfig {
    * @default ''
    */
   loadingEndText?: string;
+
+  /**
+   * 语言配置，“播放语音”占位描述文本
+   * @default ''
+   */
+  playSoundText?: string;
 }
 export interface ColorPickerConfig {
   /**

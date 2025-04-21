@@ -11,6 +11,7 @@ import {
   ThumbDownFilledIcon,
   RefreshIcon,
   CopyIcon,
+  SoundIcon,
 } from 'tdesign-icons-vue-next';
 import { useTNodeJSX } from '../hooks/tnode';
 import Clipboard from 'clipboard';
@@ -25,7 +26,7 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const messagePluginInstance = MessagePluginSingleton.getInstance();
     const { globalConfig } = useConfig('chat');
-    const { copyTipText, likeTipText, dislikeTipText, refreshTipText, copyTextSuccess, copyTextFail } =
+    const { copyTipText, likeTipText, dislikeTipText, refreshTipText, copyTextSuccess, copyTextFail, playSoundText } =
       globalConfig.value;
     return () => {
       // textLoading更新后要传给子组件和孙组件
@@ -114,12 +115,27 @@ export default defineComponent({
           </Tooltip>
         </Space>
       ) : null;
+      const soundButton = props.operationBtn.includes('sound') ? (
+        <Space>
+          <Tooltip content={playSoundText}>
+            <Button
+              theme="default"
+              size="small"
+              disabled={disabled}
+              onClick={(e: MouseEvent) => handleClick(e, 'sound')}
+            >
+              <SoundIcon />
+            </Button>
+          </Tooltip>
+        </Space>
+      ) : null;
       // 按钮组件的映射
       const buttonComponents = {
         replay: replayButton,
         copy: copyButton,
         good: goodButton,
         bad: badButton,
+        sound: soundButton,
       };
       return (
         <div class={`${COMPONENT_NAME.value}__actions`}>
