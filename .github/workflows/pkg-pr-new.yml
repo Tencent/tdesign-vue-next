@@ -32,4 +32,4 @@ jobs:
           pnpm dlx tdesign-starter-cli init tdesign-farm --type vue3 --buildToolType farm
           pnpm dlx tdesign-starter-cli init tdesign-webpack --type vue3 --buildToolType webpack
           
-      - run: pnpm dlx pkg-pr-new publish './packages/tdesign-vue-next' --compact --template './examples/*"
+      - run: pnpm dlx pkg-pr-new publish './packages/tdesign-vue-next' --compact --template './examples/*'
