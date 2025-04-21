@@ -37,7 +37,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Tencent/tdesign-vue-next.git"
+    "url": "git+https://github.com/Tencent/tdesign-vue-next.git",
+    "directory": "packages/tdesign-vue-next-chat"
   },
   "homepage": "https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/tdesign-vue-next-chat/README.md",
   "bugs": {
