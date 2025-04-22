@@ -74,7 +74,8 @@ export default defineComponent({
       props.onBlur?.({ value, inputValue: context.inputValue, e: context.e });
     };
 
-    const handleClickConfirm = () => {
+    const handleClickConfirm = (e: MouseEvent) => {
+      props?.onConfirm?.({ e });
       const isValidTime = validateInputValue(currentValue.value, format.value);
       if (isValidTime) setInnerValue(currentValue.value);
       isShowPanel.value = false;

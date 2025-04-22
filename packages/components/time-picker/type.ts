@@ -18,11 +18,6 @@ export interface TdTimePickerProps {
    */
   allowInput?: boolean;
   /**
-   * 是否自动调换左右区间的顺序，默认为 true；若需要支持跨天的场景，可以设置为 false
-   * @default true
-   */
-  autoSwap?: boolean;
-  /**
    * 无边框模式
    * @default false
    */
@@ -68,13 +63,17 @@ export interface TdTimePickerProps {
    */
   placeholder?: string;
   /**
-   * 透传给 popup 组件的参数
+   * 透传 Popup 组件全部属性
    */
   popupProps?: PopupProps;
   /**
    * 预设快捷时间选择，示例：`{ '前一小时': '11:00:00' }`
    */
   presets?: PresetTime;
+  /**
+   * 只读状态
+   */
+  readonly?: boolean;
   /**
    * 透传 SelectInput 筛选器输入框组件的全部属性
    */
@@ -126,9 +125,17 @@ export interface TdTimePickerProps {
    */
   onChange?: (value: TimePickerValue) => void;
   /**
+   * 清空按钮点击时触发
+   */
+  onClear?: (context: { e: MouseEvent }) => void;
+  /**
    * 面板关闭时触发
    */
   onClose?: (context: { e: MouseEvent }) => void;
+  /**
+   * 点击确认按钮时触发
+   */
+  onConfirm?: (context: { e: MouseEvent }) => void;
   /**
    * 输入框获得焦点时触发，value 表示组件当前有效值
    */
@@ -154,6 +161,11 @@ export interface TdTimeRangePickerProps {
    */
   allowInput?: boolean;
   /**
+   * 是否自动调换左右区间的顺序，默认为 true；若需要支持跨天的场景，可以设置为 false
+   * @default true
+   */
+  autoSwap?: boolean;
+  /**
    * 无边框模式
    * @default false
    */
@@ -170,6 +182,7 @@ export interface TdTimeRangePickerProps {
     h: number,
     m: number,
     s: number,
+    ms: number,
     context: { partial: TimeRangePickerPartial },
   ) => Partial<{ hour: Array<number>; minute: Array<number>; second: Array<number> }>;
   /**
@@ -195,7 +208,7 @@ export interface TdTimeRangePickerProps {
    */
   placeholder?: string | Array<string>;
   /**
-   * 透传给 popup 组件的参数
+   * 透传 Popup 组件全部属性
    */
   popupProps?: PopupProps;
   /**
