@@ -145,7 +145,7 @@ export default defineComponent({
       props.onFocus?.(tagValue.value, { e: context.e, inputValue });
     };
 
-    const onInnerBlur: InputProps['onFocus'] = (inputValue: string, context: { e: MouseEvent }) => {
+    const onInnerBlur: InputProps['onBlur'] = (inputValue: string, context: { e: MouseEvent }) => {
       isFocused.value = false;
       setTInputValue('', { e: context.e, trigger: 'blur' });
       props.onBlur?.(tagValue.value, { e: context.e, inputValue });
