@@ -120,12 +120,10 @@ export default defineComponent({
     watch(
       () => innerValue.value,
       (newColor) => {
-        if (newColor !== formatValue()) {
-          const newMode = getModeByColor(newColor);
-          mode.value = newMode;
-          color.value.isGradient = newMode === 'linear-gradient';
-          color.value.update(newColor);
-        }
+        const newMode = getModeByColor(newColor);
+        mode.value = newMode;
+        color.value.isGradient = newMode === 'linear-gradient';
+        color.value.update(newColor);
       },
     );
 
