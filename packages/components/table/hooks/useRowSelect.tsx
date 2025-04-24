@@ -78,6 +78,8 @@ export default function useRowSelect(
     },
     { immediate: true },
   );
+
+  // 在远程分页场景下，当前页全选功能的状态判定需基于当前页数据是否存在进行动态重新计算
   watch(data, () => {
     currentPaginateData.value = data.value;
   });
