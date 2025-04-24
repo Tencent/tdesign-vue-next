@@ -78,6 +78,9 @@ export default function useRowSelect(
     },
     { immediate: true },
   );
+  watch(data, () => {
+    currentPaginateData.value = data.value;
+  });
 
   function isDisabled(row: Record<string, any>, rowIndex: number): boolean {
     return isRowSelectedDisabled(selectColumn.value, row, rowIndex);
