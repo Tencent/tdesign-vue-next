@@ -1,35 +1,65 @@
-import { defineComponent, reactive, provide, toRefs } from 'vue';
+import { defineComponent, reactive, provide, toRefs, computed } from 'vue';
 import props from './props';
 import BreadcrumbItem from './breadcrumb-item';
-import { TdBreadcrumbItemProps } from './type';
+import type { TdBreadcrumbItemProps, TdBreadcrumbProps } from './type';
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
+import { useBreadcrumbOptions, useEllipsis } from './hooks';
+import { ChevronRightIcon as TdChevronRightIcon, EllipsisIcon as TdEllipsisIcon } from 'tdesign-icons-vue-next';
+import { useGlobalIcon } from '../hooks/useGlobalIcon';
 
 export default defineComponent({
   name: 'TBreadcrumb',
   props,
-  setup(props, { slots }) {
-    const { separator, theme, maxItemWidth } = toRefs(props);
+  setup(props: TdBreadcrumbProps) {
+    const { theme, maxItemWidth } = toRefs(props);
     const COMPONENT_NAME = usePrefixClass('breadcrumb');
+    const renderTNodeJSX = useTNodeJSX();
+    const { breadcrumbOptions } = useBreadcrumbOptions(props);
+    const { ChevronRightIcon, EllipsisIcon } = useGlobalIcon({
+      ChevronRightIcon: TdChevronRightIcon,
+      EllipsisIcon: TdEllipsisIcon,
+    });
+    const separatorContent = renderTNodeJSX('separator');
+    const separator = separatorContent || <ChevronRightIcon />;
+
     provide(
       'tBreadcrumb',
       reactive({
         separator,
         theme,
-        slots: { separator: slots.separator },
         maxItemWidth,
       }),
     );
-    const renderTNodeJSX = useTNodeJSX();
+
+    // 省略号，支持自定义
+    const ellipsisContent = computed(() => {
+      const items = breadcrumbOptions.value;
+      const ellipsisItems = items.slice(props.itemsBeforeCollapse, items.length - props.itemsAfterCollapse);
+      const ellipsisSlot = renderTNodeJSX('ellipsis', {
+        params: {
+          items: ellipsisItems,
+          separator,
+        },
+      });
+      return ellipsisSlot || <EllipsisIcon />;
+    });
+
+    const { getDisplayItems } = useEllipsis(props, breadcrumbOptions, ellipsisContent);
+
     return () => {
-      let content = renderTNodeJSX('default');
-      if (props.options && props.options.length) {
-        content = props.options.map((option: TdBreadcrumbItemProps, index: number) => (
-          <BreadcrumbItem {...option} key={index}>
-            {option.default || option.content}
-          </BreadcrumbItem>
-        ));
-      }
+      const items = getDisplayItems.value;
+      const content = items.map((item: TdBreadcrumbItemProps, index: number) => {
+        if (typeof item === 'object' && 'content' in item) {
+          return (
+            <BreadcrumbItem key={index} {...item}>
+              {item.content}
+            </BreadcrumbItem>
+          );
+        }
+        return item;
+      });
+
       return <div class={COMPONENT_NAME.value}>{content}</div>;
     };
   },

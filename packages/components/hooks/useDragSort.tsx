@@ -108,13 +108,15 @@ export default function useDragSort(props: any) {
   }
 
   onUnmounted(() => {
-    navsWrap.removeEventListener('dragstart', dragstart);
-    navsWrap.removeEventListener('dragend', dragend);
-    navsWrap.removeEventListener('dragover', dragover);
-    navsWrap.removeEventListener('dragenter', dragenter);
-    document.removeEventListener('dragleave', dragleave);
-    document.removeEventListener('mousemove', dragleave);
-    navsWrap.removeEventListener('drop', drop);
+    if (navsWrap) {
+      navsWrap.removeEventListener('dragstart', dragstart);
+      navsWrap.removeEventListener('dragend', dragend);
+      navsWrap.removeEventListener('dragover', dragover);
+      navsWrap.removeEventListener('dragenter', dragenter);
+      document.removeEventListener('dragleave', dragleave);
+      document.removeEventListener('mousemove', dragleave);
+      navsWrap.removeEventListener('drop', drop);
+    }
   });
   return { setNavsWrap };
 }
