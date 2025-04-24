@@ -21,7 +21,7 @@ export default defineComponent({
       EllipsisIcon: TdEllipsisIcon,
     });
     const separatorContent = renderTNodeJSX('separator');
-    const separator = separatorContent || <ChevronRightIcon {...{ color: 'rgba(0,0,0,.3)' }} />;
+    const separator = separatorContent || <ChevronRightIcon />;
 
     provide(
       'tBreadcrumb',
