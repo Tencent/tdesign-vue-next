@@ -1203,6 +1203,7 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
             class="t-upload__card-content t-is-bordered"
           >
             <!---->
+            <!---->
             <div
               class="t-image__wrapper t-image__wrapper--shape-square t-upload__card-image"
               fallback=""
@@ -1297,6 +1298,7 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
           <div
             class="t-upload__card-content t-is-bordered"
           >
+            <!---->
             <!---->
             <div
               class="t-image__wrapper t-image__wrapper--shape-square t-upload__card-image"
@@ -1415,6 +1417,7 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
             class="t-upload__card-content"
           >
             <!---->
+            <!---->
             <div
               class="t-image__wrapper t-image__wrapper--shape-square t-upload__card-image"
               fallback=""
@@ -1531,6 +1534,7 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
           <div
             class="t-upload__card-content t-is-bordered"
           >
+            <!---->
             <div
               class="t-upload__card-status-wrap t-upload__image-flow-fail"
             >
@@ -1548,7 +1552,6 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
               </svg>
               <p>
                 上传失败
-                
               </p>
             </div>
             <!---->
@@ -1620,6 +1623,7 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                  90%
               </p>
             </div>
+            <!---->
             <!---->
             <div
               class="t-upload__card-mask"

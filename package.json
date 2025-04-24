@@ -22,6 +22,10 @@
     "site": "pnpm -C packages/tdesign-vue-next/site build",
     "site:intranet": "pnpm -C packages/tdesign-vue-next/site intranet",
     "site:preview": "pnpm -C packages/tdesign-vue-next/site preview",
+    "dev:chat": "pnpm -C packages/tdesign-vue-next-chat/site dev",
+    "site:chat": "pnpm -C packages/tdesign-vue-next-chat/site build",
+    "site:chat-intranet": "pnpm -C packages/tdesign-vue-next-chat/site intranet",
+    "site:chat-preview": "pnpm -C packages/tdesign-vue-next-chat/site preview",
     "generate:usage": "node script/generate-usage/index.js",
     "generate:component": "node script/init/index.js",
     "generate:coverage-badge": "pnpm test:unit-coverage && tsx script/test/generate-coverage.js",
@@ -44,6 +48,7 @@
   "dependencies": {
     "@babel/runtime": "^7.22.6",
     "@popperjs/core": "^2.11.8",
+    "@tdesign/common-docs": "workspace:^",
     "@tdesign/common-js": "workspace:^",
     "@tdesign/common-style": "workspace:^",
     "@tdesign/components": "workspace:^",
@@ -56,7 +61,7 @@
     "lodash-es": "^4.17.21",
     "mitt": "^3.0.1",
     "sortablejs": "^1.15.0",
-    "tdesign-icons-vue-next": "^0.3.5",
+    "tdesign-icons-vue-next": "^0.3.6",
     "tdesign-vue-next": "workspace:^",
     "tinycolor2": "^1.6.0",
     "validator": "^13.9.0"

@@ -39,7 +39,7 @@
 
 <script setup>
 import { ref } from 'vue';
-import MyPopup from './my-popup.vue';
+import MyPopup from './components/my-popup.vue';
 
 const visible = ref(false);
 const current = ref(-1);

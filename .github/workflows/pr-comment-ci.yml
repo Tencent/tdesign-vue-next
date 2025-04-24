@@ -184,8 +184,8 @@ jobs:
           git status
           conflict_count=$(git status | grep -c 'both modified:') || true
           working_tree_clean=$(git status | grep -c 'nothing to commit, working tree clean') || true
-          csr_snap_conflict=$(git status | grep 'both modified:' | grep -c 'csr.test.js.snap') || true
-          ssr_snap_conflict=$(git status | grep 'both modified:' | grep -c 'ssr.test.js.snap') || true
+          csr_snap_conflict=$(git status | grep 'both modified:' | grep -c 'csr.test.ts.snap') || true
+          ssr_snap_conflict=$(git status | grep 'both modified:' | grep -c 'ssr.test.ts.snap') || true
           common_conflict=$(git status | grep 'both modified:' | grep -c 'packages/common') || true
           conflicts_sum=$((csr_snap_conflict + ssr_snap_conflict + common_conflict))
           echo "conflict_count: $conflict_count"
@@ -207,14 +207,14 @@ jobs:
           fi
 
           if [ "$csr_snap_conflict" -eq "1" ];then
-              git checkout --theirs packages/tdesign-vue-next/test/unit/snap/__snapshots__/csr.test.js.snap
-              git add packages/tdesign-vue-next/test/unit/snap/__snapshots__/csr.test.js.snap
+              git checkout --theirs packages/tdesign-vue-next/test/src/snap/__snapshots__/csr.test.ts.snap
+              git add packages/tdesign-vue-next/test/src/snap/__snapshots__/csr.test.ts.snap
               echo "resolve conflict csr.test.jsx.snap"
           fi
 
           if [ "$ssr_snap_conflict" -eq "1" ];then
-              git checkout --theirs packages/tdesign-vue-next/test/unit/snap/__snapshots__/ssr.test.js.snap
-              git add packages/tdesign-vue-next/test/unit/snap/__snapshots__/ssr.test.js.snap
+              git checkout --theirs packages/tdesign-vue-next/test/src/snap/__snapshots__/ssr.test.ts.snap
+              git add ppackages/tdesign-vue-next/test/src/snap/__snapshots__/ssr.test.ts.snap
               echo "resolve conflict ssr.test.jsx.snap"
           fi
 
