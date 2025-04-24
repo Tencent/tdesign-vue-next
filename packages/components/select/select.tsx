@@ -98,7 +98,10 @@ export default defineComponent({
         newVal = props.multiple ? (newVal as SelectValue[]).map((val) => getOption(val)) : getOption(newVal);
       }
       if (newVal === orgValue.value) return;
-      if (props.multiple && !props.reserveKeyword) setInputValue('');
+
+      // 多选场景下 在选中值时，且不保留reserveKeyword 的情况下 ，需要清空输入（筛选）值
+      if (props.multiple && !props.reserveKeyword && context.trigger == 'check') setInputValue('');
+
       setOrgValue(newVal, {
         selectedOptions: getSelectedOptions(newVal),
         ...context,
@@ -227,22 +230,6 @@ export default defineComponent({
       });
     };
 
-    const { hoverIndex, virtualFilteredOptions, handleKeyDown, filteredOptions } = useKeyboardControl({
-      displayOptions,
-      optionsList,
-      innerPopupVisible,
-      setInnerPopupVisible,
-      selectPanelRef,
-      isFilterable,
-      isRemoteSearch,
-      getSelectedOptions,
-      setInnerValue,
-      innerValue,
-      popupContentRef,
-      multiple: props.multiple,
-      max: props.max,
-    });
-
     /*
      * 全选逻辑：
      * 根据 checked 的值计算最终选中的值：
@@ -271,17 +258,35 @@ export default defineComponent({
       setInnerValue(values, { selectedOptions: getSelectedOptions(values), trigger: checked ? 'check' : 'clear' });
     };
 
+    // 全选
+    const isCheckAll = computed<boolean>(() => {
+      if (intersectionLen.value === 0) return false;
+      return intersectionLen.value === optionalList.value.length;
+    });
+
+    const { hoverIndex, virtualFilteredOptions, handleKeyDown, filteredOptions } = useKeyboardControl({
+      displayOptions,
+      optionsList,
+      innerPopupVisible,
+      setInnerPopupVisible,
+      selectPanelRef,
+      isFilterable,
+      isRemoteSearch,
+      getSelectedOptions,
+      setInnerValue,
+      onCheckAllChange,
+      isCheckAll,
+      innerValue,
+      popupContentRef,
+      multiple: props.multiple,
+      max: props.max,
+    });
+
     // 已选的长度
     const intersectionLen = computed<number>(() => {
       const values = optionalList.value.map((item) => item.value);
       const n = intersection(innerValue.value, values);
       return n.length;
-    });
-
-    // 全选
-    const isCheckAll = computed<boolean>(() => {
-      if (intersectionLen.value === 0) return false;
-      return intersectionLen.value === optionalList.value.length;
     });
 
     // 半选
