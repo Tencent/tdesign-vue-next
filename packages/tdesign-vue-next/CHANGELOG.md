@@ -6,9 +6,7 @@ docClass: timeline
 ---
 
 ## 🌈 1.12.0 `2025-04-24`
-
 ### 🚀 Features
-
 - `Breadcrumb`: 新增`ellipsis`、`maxItems`、`itemsAfterCollapse`、`itemsBeforeCollapse` 相关 API，用于折叠面包屑的场景，具体使用请参考文档示例 @Wesley-0808 ([#5261](https://github.com/Tencent/tdesign-vue-next/pull/5261))
 - `ColorPicker`: 新增`onClear`清除按钮事件回调 @mikasayw ([#5109](https://github.com/Tencent/tdesign-vue-next/pull/5109))
 - `DatePicker`: 新增`readonly`属性，用于只读配置 @mikasayw ([#5293](https://github.com/Tencent/tdesign-vue-next/pull/5293))
@@ -46,9 +44,7 @@ docClass: timeline
 - `Textarea`: 调整 focus 时机延迟到组件完全渲染之后 @RSS1102 ([#5153](https://github.com/Tencent/tdesign-vue-next/pull/5153))
 - `TreeSelect`: 修复当 `valueType='object '` 时无初始化选中数据时产生意外错误 @RSS1102 ([#5322](https://github.com/Tencent/tdesign-vue-next/pull/5322))
 
-
 ### 📝 Documentation
-
 - `Swiper`: 优化`Swiper` 组件跳转沙箱演示缺失示例样式的问题 @uyarn ([#5278](https://github.com/Tencent/tdesign-vue-next/pull/5278))
 - `Dialog`: 优化文档内容，统一内容描述 @Wesley-0808 ([#5067](https://github.com/Tencent/tdesign-vue-next/pull/5067))
 
