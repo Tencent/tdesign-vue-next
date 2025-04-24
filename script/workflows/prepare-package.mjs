@@ -24,7 +24,7 @@ const mainJsContent = `
   app.use(TDesign).mount('#app');
 `;
 
-const appVueContent= `
+const appVueContent = `
 <template>
   <t-config-provider :global-config="zh_CN">
     <Demo />
@@ -34,7 +34,7 @@ const appVueContent= `
 import zh_CN from 'tdesign-vue-next/es/locale/zh_CN';
 import Demo from "./Demo.vue";
 </script>
-`
+`;
 const demoVueContent = `
 <template>
   <t-button>按钮</t-button>
@@ -45,6 +45,7 @@ const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf8'));
 packageJson.dependencies = {
   ...packageJson.dependencies,
   'tdesign-vue-next': 'latest',
+  'tdesign-icons-vue-next': 'latest',
 };
 
 writeFileSync(mainFilePath, mainJsContent, 'utf8');
