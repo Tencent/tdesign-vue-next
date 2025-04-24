@@ -1,17 +1,18 @@
 import { onUnmounted } from 'vue';
 
-const traversalTabNavs = (tabNavs: HTMLCollection, fn: { (itemNode: any): void; (tabNav: HTMLDivElement): void }) => {
-  for (const itemNode of tabNavs) {
-    if (itemNode.getAttribute('draggable')) {
+const traversalTabNavs = (tabNavs: HTMLCollection, fn: (itemNode: HTMLDivElement) => void) => {
+  for (const itemNode of Array.from(tabNavs)) {
+    if (itemNode instanceof HTMLDivElement && itemNode.getAttribute('draggable')) {
       fn(itemNode);
     }
   }
 };
 
-const handleTarget = (target: EventTarget, tabNavs: HTMLCollection): any => {
-  let resultTarget;
+const handleTarget = (target: EventTarget | null, tabNavs: HTMLCollection | null): HTMLDivElement | null => {
+  if (!tabNavs) return null;
+  let resultTarget: HTMLDivElement | null = null;
   traversalTabNavs(tabNavs, (itemNode) => {
-    if (itemNode.contains(target)) {
+    if (target instanceof Node && itemNode.contains(target)) {
       resultTarget = itemNode;
     }
   });
@@ -19,102 +20,103 @@ const handleTarget = (target: EventTarget, tabNavs: HTMLCollection): any => {
 };
 
 export default function useDragSort(props: any) {
-  let navsWrap: HTMLDivElement = null;
+  let navsWrap: HTMLDivElement | null = null;
+  let dragged: HTMLDivElement | null = null;
+  const enterTargets: Set<HTMLDivElement> = new Set();
 
-  // 获取当前正在拖动的tabNav节点
-  let dragged: HTMLDivElement;
-  const enterTargets: HTMLDivElement[] = [];
+  const resetOutline = () => {
+    if (!navsWrap) return;
+    traversalTabNavs(navsWrap.children, (tabNav) => {
+      if (tabNav.firstChild instanceof HTMLElement) {
+        tabNav.firstChild.style.outline = 'none';
+      }
+    });
+  };
 
   const dragstart = (event: DragEvent) => {
     const target = event.target as HTMLDivElement;
-    // const { target } = event;
-    // 保存拖动元素的引用(ref.)
     dragged = target;
-    // 使其半透明
     target.style.opacity = '0.5';
   };
+
   const dragend = (event: DragEvent) => {
-    // 重置透明度
-    (event.target as HTMLDivElement).style.opacity = '';
+    if (event.target instanceof HTMLElement) {
+      event.target.style.opacity = '';
+    }
+    resetOutline();
   };
-  /* 放置目标元素时触发事件 */
+
   const dragover = (event: DragEvent) => {
-    // 阻止默认动作以启用drop
     event.preventDefault();
   };
-  // 当可拖动的元素进入可放置的目标时
+
   const dragenter = (event: DragEvent) => {
-    // 高亮目标节点
+    if (!navsWrap) return;
     const target = handleTarget(event.target, navsWrap.children);
     if (target && target !== dragged && target.draggable) {
-      target.firstChild.style.outline = '1px dashed #0052d9';
-      // 进入的节点全部记录下来
-      if (!enterTargets.includes(target)) {
-        enterTargets.push(target);
+      if (target.firstChild instanceof HTMLElement) {
+        target.firstChild.style.outline = '1px dashed #0052d9';
       }
+      enterTargets.add(target);
     }
   };
-  // 当拖动元素离开可放置目标节点
+
   const dragleave = (event: DragEvent) => {
     const target = event.target as HTMLDivElement;
-    // 重置其边框
-    // const { target } = event;
     for (const enterTarget of enterTargets) {
-      // 目标不在需要放入的节点内，则重置边框
       if (!enterTarget.contains(target)) {
-        // 记录过的节点全部重置边框
-        (enterTarget.firstChild as HTMLDivElement).style.outline = 'none';
+        if (enterTarget.firstChild instanceof HTMLElement) {
+          enterTarget.firstChild.style.outline = 'none';
+        }
       }
     }
   };
+
   const drop = (event: DragEvent) => {
-    // 阻止默认动作（如打开一些元素的链接）
     event.preventDefault();
+    resetOutline();
 
-    traversalTabNavs(navsWrap.children, (tabNav) => {
-      tabNav.firstChild.style.outline = 'none';
-    });
-    // 将拖动的元素到所选择的放置目标节点中
-    let target = handleTarget(event.target, navsWrap.children);
-    if (target && target.parentNode !== dragged && target.draggable) {
-      // 获取拖拽元素index
-      const dragIndex = [].indexOf.call(navsWrap.children, dragged);
-      // 获取放入元素index
-      const targetIndex = [].indexOf.call(navsWrap.children, target);
-      if (targetIndex > dragIndex) {
-        target = navsWrap.children[targetIndex + 1];
-      }
+    if (!navsWrap || !dragged) return;
 
-      // 当props.theme === "normal" 会多出一个指示条为第一个dom节点，所以需要减1
+    const target = handleTarget(event.target, navsWrap.children);
+    if (target && target.draggable) {
+      const dragIndex = Array.from(navsWrap.children).indexOf(dragged);
+      const targetIndex = Array.from(navsWrap.children).indexOf(target);
+
+      const adjustedTargetIndex = targetIndex > dragIndex ? targetIndex + 1 : targetIndex;
+
       const currentIndex = props.theme === 'card' ? dragIndex : dragIndex - 1;
-      const endIndex = props.theme === 'card' ? targetIndex : targetIndex - 1;
+      const endIndex = props.theme === 'card' ? adjustedTargetIndex : adjustedTargetIndex - 1;
+
       props.onDragSort?.({
         currentIndex,
-        current: props.panels[currentIndex].value,
+        current: props.panels[currentIndex]?.value,
         targetIndex: endIndex,
-        target: props.panels[endIndex].value,
+        target: props.panels[endIndex]?.value,
       });
     }
   };
+
   function setNavsWrap(val: HTMLDivElement) {
     navsWrap = val;
-    navsWrap.addEventListener('dragstart', dragstart, false);
-    navsWrap.addEventListener('dragend', dragend, false);
-    navsWrap.addEventListener('dragover', dragover, false);
-    navsWrap.addEventListener('dragenter', dragenter, false);
-    document.addEventListener('dragleave', dragleave, false);
-    document.addEventListener('mousemove', dragleave, false);
-    navsWrap.addEventListener('drop', drop, false);
+    navsWrap.addEventListener('dragstart', dragstart);
+    navsWrap.addEventListener('dragend', dragend);
+    navsWrap.addEventListener('dragover', dragover);
+    navsWrap.addEventListener('dragenter', dragenter);
+    navsWrap.addEventListener('dragleave', dragleave);
+    navsWrap.addEventListener('drop', drop);
   }
 
   onUnmounted(() => {
-    navsWrap.removeEventListener('dragstart', dragstart);
-    navsWrap.removeEventListener('dragend', dragend);
-    navsWrap.removeEventListener('dragover', dragover);
-    navsWrap.removeEventListener('dragenter', dragenter);
-    document.removeEventListener('dragleave', dragleave);
-    document.removeEventListener('mousemove', dragleave);
-    navsWrap.removeEventListener('drop', drop);
+    if (navsWrap) {
+      navsWrap.removeEventListener('dragstart', dragstart);
+      navsWrap.removeEventListener('dragend', dragend);
+      navsWrap.removeEventListener('dragover', dragover);
+      navsWrap.removeEventListener('dragenter', dragenter);
+      navsWrap.removeEventListener('dragleave', dragleave);
+      navsWrap.removeEventListener('drop', drop);
+    }
   });
+
   return { setNavsWrap };
 }
