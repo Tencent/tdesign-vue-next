@@ -58,7 +58,8 @@ export default function useRowSelect(
   const allowUncheck = computed(() => {
     if (props.rowSelectionAllowUncheck) return true;
     const singleSelectCol = selectionType.value === 'single';
-    if (!singleSelectCol || !selectColumn.value || !('allowUncheck' in selectColumn.value?.checkProps)) return false;
+    if (!singleSelectCol || !selectColumn.value?.checkProps || !('allowUncheck' in selectColumn.value?.checkProps))
+      return false;
     return selectColumn.value.checkProps.allowUncheck;
   });
 
