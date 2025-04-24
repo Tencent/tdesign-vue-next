@@ -118,8 +118,9 @@ export default defineComponent({
       const newValue = getNewMultipleValue(selectProvider.value.selectValue as SelectValue[], props.value);
       const selectedOptions = selectProvider.value.getSelectedOptions(newValue.value);
 
+      const currentOption = selectProvider.value.getSelectedOptions(props.value)?.[0];
       selectProvider.value.handleValueChange(newValue.value, {
-        option: selectedOptions.find((v) => v.value === props.value),
+        option: currentOption,
         selectedOptions,
         trigger: val ? 'check' : 'uncheck',
         e: context.e,

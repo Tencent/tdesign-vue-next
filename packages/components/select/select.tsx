@@ -103,6 +103,13 @@ export default defineComponent({
         selectedOptions: getSelectedOptions(newVal),
         ...context,
       });
+      if (props.multiple && context.trigger === 'uncheck' && context.option) {
+        props.onRemove?.({
+          value: get(context.option, keys.value.value),
+          data: context.option,
+          e: context.e,
+        });
+      }
     };
 
     const [innerPopupVisible, setInnerPopupVisible] = useDefaultValue(
