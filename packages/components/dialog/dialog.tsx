@@ -284,10 +284,14 @@ export default defineComponent({
       ];
 
       const shouldRender = computed(() => {
-        return props.lazy
-          ? isFirstRender.value && (!props.destroyOnClose || props.visible)
-          : !props.destroyOnClose || props.visible;
+        const { destroyOnClose, visible, lazy } = props;
+        const shouldDestroy = destroyOnClose && !visible;
+        const avoidRender = lazy && isFirstRender.value;
+        return shouldDestroy || avoidRender;
       });
+
+      if (!shouldRender.value) return null;
+
       return (
         <Teleport disabled={!props.attach || !teleportElement.value} to={teleportElement.value}>
           <Transition
@@ -298,11 +302,9 @@ export default defineComponent({
             onBeforeLeave={beforeLeave}
             onAfterLeave={afterLeave}
           >
-            {shouldRender.value && (
-              <div v-show={props.visible} class={ctxClass} style={ctxStyle} {...context.attrs}>
-                {view}
-              </div>
-            )}
+            <div v-show={props.visible} class={ctxClass} style={ctxStyle} {...context.attrs}>
+              {view}
+            </div>
           </Transition>
         </Teleport>
       );
