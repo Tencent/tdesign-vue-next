@@ -98,7 +98,10 @@ export default defineComponent({
         newVal = props.multiple ? (newVal as SelectValue[]).map((val) => getOption(val)) : getOption(newVal);
       }
       if (newVal === orgValue.value) return;
-      if (props.multiple && !props.reserveKeyword) setInputValue('');
+
+      // 多选场景下 在选中值时，且不保留reserveKeyword 的情况下 ，需要清空输入（筛选）值
+      if (props.multiple && !props.reserveKeyword && context.trigger == 'check') setInputValue('');
+
       setOrgValue(newVal, {
         selectedOptions: getSelectedOptions(newVal),
         ...context,
