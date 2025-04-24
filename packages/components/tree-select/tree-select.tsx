@@ -187,8 +187,8 @@ export default defineComponent({
       }
       if (isObjectValue.value) {
         actived.value = isArray(treeSelectValue.value)
-          ? (treeSelectValue.value as Array<TreeSelectValue>).map((item) => (item as INodeOptions).value)
-          : [(treeSelectValue.value as INodeOptions).value];
+          ? (treeSelectValue.value as Array<TreeSelectValue>).map((item) => (item as INodeOptions)?.value)
+          : [(treeSelectValue.value as INodeOptions)?.value];
       } else {
         (actived.value as TreeSelectValue) = isArray(treeSelectValue.value)
           ? treeSelectValue.value
@@ -231,8 +231,8 @@ export default defineComponent({
       if (!props.multiple) {
         setInnerVisible(false, context);
       }
-      // 多选模式屏蔽 Active 事件
-      if (props.multiple) {
+      // 多选模式屏蔽 Active 事件和取消选中状态改变
+      if (props.multiple || !context.node.actived) {
         return;
       }
       // 单选模式重复选择不清空

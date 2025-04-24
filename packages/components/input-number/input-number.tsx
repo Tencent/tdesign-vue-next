@@ -11,14 +11,12 @@ import props from './props';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { TdInputNumberProps } from './type';
 import useInputNumber from './hooks/useInputNumber';
-import { useTNodeJSX } from '../hooks';
 
 export default defineComponent({
   name: 'TInputNumber',
   props,
   // 保持纯净（逻辑和节点渲染分开）
   setup(props: TdInputNumberProps, context: SetupContext) {
-    const renderTNodeJSX = useTNodeJSX();
     const { AddIcon, RemoveIcon, ChevronDownIcon, ChevronUpIcon } = useGlobalIcon({
       AddIcon: TdAddIcon,
       RemoveIcon: TdRemoveIcon,
@@ -27,7 +25,6 @@ export default defineComponent({
     });
     const p = useInputNumber(props);
     const { inputRef } = p;
-
     context.expose({ ...p });
 
     return () => {
@@ -35,8 +32,6 @@ export default defineComponent({
         props.theme === 'column' ? <ChevronDownIcon size={props.size} /> : <RemoveIcon size={props.size} />;
       const addIcon = props.theme === 'column' ? <ChevronUpIcon size={props.size} /> : <AddIcon size={props.size} />;
       const status = p.isError.value ? 'error' : props.status;
-      const classPrefix = p.classPrefix.value;
-      const tipsNode = renderTNodeJSX('tips');
 
       return (
         <div class={p.wrapClasses.value}>
@@ -62,6 +57,7 @@ export default defineComponent({
             status={status}
             label={props.label}
             suffix={props.suffix}
+            tips={props.tips}
             {...p.listeners}
             {...props.inputProps}
             v-slots={context.slots}
@@ -77,9 +73,6 @@ export default defineComponent({
               shape="square"
               icon={() => addIcon}
             />
-          )}
-          {tipsNode && (
-            <div class={`${classPrefix}-input__tips ${classPrefix}-tips ${classPrefix}-is-${status}`}>{tipsNode}</div>
           )}
         </div>
       );

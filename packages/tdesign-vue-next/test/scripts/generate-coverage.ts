@@ -1,9 +1,9 @@
 import fs from 'fs';
 import { camelCase } from 'lodash-es';
 import { parseFromString } from 'dom-parser';
-import { resolveTdesignVueNextRoot } from '@tdesign/internal-utils';
+import { joinTdesignVueNextRoot } from '@tdesign/internal-utils';
 
-fs.readFile(resolveTdesignVueNextRoot('test/coverage/index.html'), 'utf8', (err, html) => {
+fs.readFile(joinTdesignVueNextRoot('test/coverage/index.html'), 'utf8', (err, html) => {
   if (err) {
     // eslint-disable-next-line
     console.log('please execute npm run test:unit-coverage first!', err);
@@ -41,7 +41,8 @@ fs.readFile(resolveTdesignVueNextRoot('test/coverage/index.html'), 'utf8', (err,
     });
 
     const finalRes = `export default ${JSON.stringify(resultCoverage, null, 2)};\n`;
-    fs.writeFileSync(resolveTdesignVueNextRoot('my-site/configs/test-coverage.ts'), finalRes);
+    fs.writeFileSync(joinTdesignVueNextRoot('my-site/configs/test-coverage.ts'), finalRes);
+
     // eslint-disable-next-line
     console.log('successful re-generate coverage');
   }
