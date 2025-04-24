@@ -17,6 +17,8 @@ export type useKeyboardControlType = {
   isRemoteSearch: ComputedRef<boolean>;
   getSelectedOptions: (selectValue?: SelectValue[] | SelectValue) => TdOptionProps[];
   setInnerValue: Function;
+  onCheckAllChange: Function;
+  isCheckAll: ComputedRef<boolean>;
   innerValue: Ref<SelectValue[]>;
   popupContentRef: ComputedRef<HTMLElement>;
   multiple: boolean;
@@ -34,10 +36,12 @@ export function useKeyboardControl({
   isRemoteSearch,
   getSelectedOptions,
   setInnerValue,
+  onCheckAllChange,
   innerValue,
   popupContentRef,
   multiple,
   max,
+  isCheckAll,
 }: useKeyboardControlType) {
   const hoverIndex = ref(-1);
   const filteredOptions = ref([]); // 处理普通场景选项过滤键盘选中的问题
@@ -101,6 +105,12 @@ export function useKeyboardControl({
           setInnerPopupVisible(false, { e });
         } else {
           if (hoverIndex.value === -1) return;
+
+          if (finalOptions[hoverIndex.value].checkAll) {
+            onCheckAllChange(!isCheckAll.value);
+            return;
+          }
+
           const optionValue = finalOptions[hoverIndex.value]?.value;
 
           if (!optionValue) return;
