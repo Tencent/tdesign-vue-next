@@ -22,7 +22,7 @@
           </template>
           <t-chat-content v-if="item.reasoning.length > 0" :content="item.reasoning" />
         </t-chat-reasoning>
-        <t-chat-item v-if="item.content.length > 0" :content="item.content" />
+        <t-chat-content v-if="item.content.length > 0" :content="item.content" />
       </template>
       <template #actions="{ item, index }">
         <t-chat-action
