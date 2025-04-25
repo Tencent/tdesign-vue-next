@@ -50,7 +50,7 @@ jobs:
             const tag_name = '${{ github.event.release.tag_name }}'
             const lastIndex = packageVersion.lastIndexOf('@');
             const version = packageVersion.slice(lastIndex + 1);
-            const domain= `${version.split('.').join('_')}-tdesign-vue-next.surge.sh`
+            const domain= `https://${version.split('.').join('_')}-tdesign-vue-next.surge.sh`
             core.setOutput('surge', domain);
             core.setOutput('project', 'packages/tdesign-vue-next/site/dist');
 
@@ -83,7 +83,7 @@ jobs:
             const tag_name = '${{ github.event.release.tag_name }}'
             const lastIndex = packageVersion.lastIndexOf('@');
             const version = packageVersion.slice(lastIndex + 1);
-            const domain= `${version.split('.').join('_')}-tdesign-vue-next-chat.surge.sh`
+            const domain= `https://${version.split('.').join('_')}-tdesign-vue-next-chat.surge.sh`
             core.setOutput('surge', domain);
             core.setOutput('project', 'packages/tdesign-vue-next-chat/site/dist');
 
