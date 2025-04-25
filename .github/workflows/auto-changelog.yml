@@ -13,5 +13,5 @@ jobs:
     steps:
       - uses: TDesignOteam/flow-pilot-action@develop
         with:
-          token: ${{ secrets.PERSONAL_TOKEN }}
+          token: ${{ secrets.TDESIGN_BOT_TOKEN }}
           packages: "tdesign-vue-next,@tdesign-vue-next/chat"
