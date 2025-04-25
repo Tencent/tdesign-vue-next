@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
-      
+
       - uses: pnpm/action-setup@v4
 
       - uses: actions/setup-node@v4
@@ -26,4 +26,4 @@ jobs:
           NPM_TOKEN: ${{ secrets.TDESIGN_NPM_TOKEN }}
         with:
           token: ${{ secrets.TDESIGN_BOT_TOKEN }}
-          packages: "tdesign-vue-next,@tdesign-vue-next/chat"
+          packages: 'tdesign-vue-next,@tdesign-vue-next/chat'

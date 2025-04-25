@@ -5,13 +5,14 @@ on:
     branches: [develop]
     types: [opened, edited]
   issue_comment:
-    types: [edited]  
+    types: [edited]
 
 jobs:
   changelog:
+    if: ${{ github.event.pull_request || github.event.issue.pull_request }}
     runs-on: ubuntu-latest
     steps:
       - uses: TDesignOteam/flow-pilot-action@develop
         with:
           token: ${{ secrets.TDESIGN_BOT_TOKEN }}
-          packages: "tdesign-vue-next,@tdesign-vue-next/chat"
+          packages: 'tdesign-vue-next,@tdesign-vue-next/chat'

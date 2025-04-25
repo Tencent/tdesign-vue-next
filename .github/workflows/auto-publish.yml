@@ -30,12 +30,14 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
-      
+
       - uses: pnpm/action-setup@v4
 
       - uses: actions/setup-node@v4
         with:
           node-version: 18
+
+      - run: pnpm install
 
       - run: pnpm site:preview
 
@@ -50,10 +52,10 @@ jobs:
             const domain= `${version.split('.').join('_')}-tdesign-vue-next.surge.sh`
             core.setOutput('surge', domain);
             core.setOutput('project', 'packages/tdesign-vue-next/site/dist');
-      
+
       - run: |
           export DEPLOY_DOMAIN=${{ steps.domain.surge }}
-          npx surge --project ${{ steps.domain.project }} --domain $DEPLOY_DOMAIN --token ${{ secrets.TDESIGN_SURGE_TOKEN }}      
+          npx surge --project ${{ steps.domain.project }} --domain $DEPLOY_DOMAIN --token ${{ secrets.TDESIGN_SURGE_TOKEN }}
 
   publish-tag-site-tdesign-vue-next-chat:
     if: startsWith(github.event.release.tag_name,'@tdesign-vue-next/chat')
@@ -62,7 +64,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
-      
+
       - uses: pnpm/action-setup@v4
 
       - uses: actions/setup-node@v4
@@ -84,7 +86,7 @@ jobs:
             const domain= `${version.split('.').join('_')}-tdesign-vue-next-chat.surge.sh`
             core.setOutput('surge', domain);
             core.setOutput('project', 'packages/tdesign-vue-next-chat/site/dist');
-      
+
       - run: |
           export DEPLOY_DOMAIN=${{ steps.domain.surge }}
-          npx surge --project ${{ steps.domain.project }} --domain $DEPLOY_DOMAIN --token ${{ secrets.TDESIGN_SURGE_TOKEN }}    
+          npx surge --project ${{ steps.domain.project }} --domain $DEPLOY_DOMAIN --token ${{ secrets.TDESIGN_SURGE_TOKEN }}
