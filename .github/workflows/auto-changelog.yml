@@ -1,0 +1,17 @@
+name: Auto_Changelog
+
+on:
+  pull_request:
+    branches: [develop]
+    types: [opened, edited]
+  issue_comment:
+    types: [edited]  
+
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: TDesignOteam/flow-pilot-action@develop
+        with:
+          token: ${{ secrets.PERSONAL_TOKEN }}
+          packages: "tdesign-vue-next,@tdesign-vue-next/chat"
