@@ -348,7 +348,12 @@ export interface TdChatReasoningProps {
   /**
    * 展开图标点击事件
    */
-  onExpandChange?: (value: CollapseValue) => void;
+  onExpandChange?: (value: boolean) => void;
+
+  /**
+   * 是否折叠
+   */
+  collapsed?: boolean;
 }
 
 export interface TdChatItemMeta {
@@ -366,4 +371,5 @@ export interface TdChatReasoning {
   expandIconPlacement?: 'left' | 'right';
   onExpandChange?: (isExpand: boolean) => void;
   collapsePanelProps?: Object;
+  collapsed?: boolean;
 }
