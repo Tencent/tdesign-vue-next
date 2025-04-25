@@ -101,14 +101,14 @@ export default defineComponent({
     const { isLastDialog } = usePopupManager('dialog', {
       visible: computedVisible,
     });
-    /**是否第一次渲染，懒加载判断 */
-    const isFirstRender = ref(false);
+    /**是否已经第一次渲染，懒加载判断 */
+    const isFirstAlreadyRender = ref(false);
 
     watch(
       () => props.visible,
       (value) => {
         if (value) {
-          isFirstRender.value = true;
+          isFirstAlreadyRender.value = true;
           if ((isModal.value && !props.showInAttachedElement) || isFullScreen.value) {
             if (props.preventScrollThrough) {
               document.body.appendChild(styleEl.value);
@@ -286,7 +286,7 @@ export default defineComponent({
       const shouldRender = computed(() => {
         const { destroyOnClose, visible, lazy } = props;
         const shouldDestroy = destroyOnClose && !visible;
-        const avoidRender = lazy && isFirstRender.value;
+        const avoidRender = !lazy || isFirstAlreadyRender.value;
         return shouldDestroy || avoidRender;
       });
 
