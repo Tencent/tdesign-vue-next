@@ -185,16 +185,10 @@ export default defineComponent({
     watch(refTextareaElem, (el) => {
       if (!el) return;
       adjustTextareaHeight();
+      if (props.autofocus) {
+        el.focus();
+      }
     });
-
-    watch(
-      () => props.autofocus,
-      (val) => {
-        if (val) {
-          refTextareaElem.value.focus();
-        }
-      },
-    );
 
     watch(textareaStyle, (val) => {
       const { style } = attrs as { style: StyleValue };

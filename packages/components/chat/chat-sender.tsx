@@ -12,7 +12,7 @@ import type { TdChatSenderProps } from './type';
 export default defineComponent({
   name: 'TChatSender',
   props,
-  emits: ['send', 'stop', 'focus', 'blur'], // declare the custom events here
+  emits: ['send', 'stop', 'focus', 'blur', 'update:modelValue'], // declare the custom events here
   setup(props, { emit }) {
     let shiftDownFlag = false;
     let isComposition = false;
