@@ -115,7 +115,7 @@ jobs:
       # upload report to codecov
 
       # 将测试报告上传到 Codecov
-      - uses: codecov/codecov-action@v2
+      - uses: codecov/codecov-action@v5
         with:
           # 使用 GitHub Secrets 中的 Codecov Token
           token: ${{ secrets.CODECOV_TOKEN }}
