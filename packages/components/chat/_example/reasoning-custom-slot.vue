@@ -2,7 +2,7 @@
   <t-chat ref="chatRef" layout="both" style="height: 150px" :clear-history="false" :reverse="false">
     <t-chat-reasoning v-model:collapsed="collapsed" expand-icon-placement="right" @expandChange="handleChange">
       <template #header>
-        <t-chat-loading text="思考中..." indicator />
+        <t-chat-loading text="思考中..." />
       </template>
       <t-chat-content :content="reasoning" />
     </t-chat-reasoning>
