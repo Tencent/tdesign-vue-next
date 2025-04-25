@@ -23,7 +23,7 @@ jobs:
           git merge origin/develop
           git push origin main
 
-  publish-tdesign-vue-next-history-site:
+  publish-tag-site-tdesign-vue-next:
     if: startsWith(github.event.release.tag_name,'tdesign-vue-next')
     runs-on: ubuntu-latest
     steps:
@@ -55,7 +55,7 @@ jobs:
           export DEPLOY_DOMAIN=${{ steps.domain.surge }}
           npx surge --project ${{ steps.domain.project }} --domain $DEPLOY_DOMAIN --token ${{ secrets.TDESIGN_SURGE_TOKEN }}      
 
-  publish-tdesign-vue-next-chat-history-site:
+  publish-tag-site-tdesign-vue-next-chat:
     if: startsWith(github.event.release.tag_name,'@tdesign-vue-next/chat')
     runs-on: ubuntu-latest
     steps:
