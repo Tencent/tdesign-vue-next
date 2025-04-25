@@ -1,6 +1,6 @@
 <template>
   <t-chat ref="chatRef" layout="both" style="height: 150px" :clear-history="false" :reverse="false">
-    <t-chat-reasoning v-model:collapsed="collapsed" expand-icon-placement="right" @expandChange="handleChange">
+    <t-chat-reasoning v-model:collapsed="collapsed" expand-icon-placement="right" @expand-change="handleChange">
       <template #header>
         <t-chat-loading text="思考中..." />
       </template>
