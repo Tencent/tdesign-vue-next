@@ -12,7 +12,9 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
+          submodules: recursive
           token: ${{ secrets.TDESIGN_BOT_TOKEN }}
+          
 
       - name: update official website
         run: |
