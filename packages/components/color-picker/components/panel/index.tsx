@@ -1,12 +1,17 @@
 import { defineComponent, ref, toRefs, watch, computed } from 'vue';
-import { useCommonClassName, useConfig } from '../../../hooks/useConfig';
-import props from '../../props';
+import { cloneDeep } from 'lodash-es';
 import {
+  Color,
   DEFAULT_COLOR,
   DEFAULT_LINEAR_GRADIENT,
-  TD_COLOR_USED_COLORS_MAX_SIZE,
   DEFAULT_SYSTEM_SWATCH_COLORS,
-} from '@tdesign/common-js/color-picker/constants';
+  getColorObject,
+  GradientColorPoint,
+  initColorFormat,
+  TD_COLOR_USED_COLORS_MAX_SIZE,
+} from '@tdesign/common-js/color-picker/index';
+import { useCommonClassName, useConfig } from '../../../hooks/useConfig';
+import props from '../../props';
 import PanelHeader from './header';
 import LinearGradient from './linear-gradient';
 import SaturationPanel from './saturation';
@@ -14,13 +19,11 @@ import HueSlider from './hue';
 import AlphaSlider from './alpha';
 import FormatPanel from '../format';
 import SwatchesPanel from './swatches';
-import { Color, getColorObject, GradientColorPoint } from '../../utils';
-import { TdColorPickerProps, ColorPickerChangeTrigger } from '../../type';
-import { TdColorModes } from '../../types';
+import type { TdColorPickerProps, ColorPickerChangeTrigger } from '../../type';
+import type { TdColorModes } from '../../types';
 import { useBaseClassName } from '../../hooks';
 import useVModel from '../../../hooks/useVModel';
 import useDefaultValue from '../../../hooks/useDefaultValue';
-import { cloneDeep } from 'lodash-es';
 
 export default defineComponent({
   name: 'ColorPanel',
@@ -51,7 +54,7 @@ export default defineComponent({
 
     const color = ref(new Color(innerValue.value || defaultEmptyColor.value));
 
-    const formatModel = ref<TdColorPickerProps['format']>(color.value.isGradient ? 'CSS' : 'RGB');
+    const formatModel = ref<TdColorPickerProps['format']>(initColorFormat(props.format, props.enableAlpha));
 
     const [recentlyUsedColors, setRecentlyUsedColors] = useDefaultValue(
       recentColors,
@@ -59,23 +62,6 @@ export default defineComponent({
       props.onRecentColorsChange,
       'recentColors',
     );
-
-    const formatValue = () => {
-      // 渐变模式下直接输出 CSS 格式
-      if (color.value.isGradient) {
-        return color.value.linearGradient;
-      }
-
-      // 处理开启透明通道时的格式
-      let finalFormat = props.format as keyof ReturnType<Color['getFormatsColorMap']>;
-      if (props.enableAlpha) {
-        if (props.format === 'HEX') finalFormat = 'HEX8';
-        if (props.format === 'RGB') finalFormat = 'RGBA';
-        if (props.format === 'HSL') finalFormat = 'HSLA';
-        if (props.format === 'HSV') finalFormat = 'HSVA';
-      }
-      return color.value.getFormatsColorMap()[finalFormat];
-    };
 
     /**
      * 添加最近使用颜色
@@ -111,7 +97,8 @@ export default defineComponent({
      * @param trigger
      */
     const emitColorChange = (trigger?: ColorPickerChangeTrigger) => {
-      setInnerValue(formatValue(), {
+      const value = color.value.getFormattedColor(props.format, props.enableAlpha);
+      setInnerValue(value, {
         color: getColorObject(color.value),
         trigger: trigger || 'palette-saturation-brightness',
       });

@@ -1,10 +1,9 @@
-import { computed, defineComponent, PropType, reactive, watch } from 'vue';
+import { defineComponent, PropType, reactive, watch } from 'vue';
 import { throttle } from 'lodash-es';
+import { Color, getColorFormatInputs, getColorFormatMap } from '@tdesign/common-js/color-picker/index';
 import props from '../../props';
-import { Color } from '../../utils';
 import TInput from '../../../input';
 import TInputNumber from '../../../input-number';
-import { FORMAT_INPUT_CONFIG } from './config';
 
 export default defineComponent({
   name: 'FormatInputs',
@@ -22,86 +21,49 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const inputConfigs = computed(() => {
-      const configs = [...FORMAT_INPUT_CONFIG[props.format]];
-      if (props.enableAlpha) {
-        configs.push({
-          type: 'inputNumber',
-          key: 'a',
-          min: 0,
-          max: 100,
-          format: (value: number) => `${value}%`,
-          flex: 1.15,
-        });
-      }
-      return configs;
-    });
-
     const modelValue = reactive<any>({});
     const lastModelValue = reactive<any>({});
 
-    /**
-     * 获取不同格式的输入输出值
-     * @param type 'encode' | 'decode'
-     * @returns
-     */
-    const getFormatColorMap = (type: 'encode' | 'decode') => {
-      const { color } = props;
-      if (type === 'encode') {
-        return {
-          HSV: color.getHsva(),
-          HSL: color.getHsla(),
-          RGB: color.getRgba(),
-          CMYK: color.getCmyk(),
-          CSS: {
-            css: color.css,
-          },
-          HEX: {
-            hex: color.hex,
-          },
-        };
-      }
-      // decode
-      return {
-        HSV: Color.object2color(modelValue, 'HSV'),
-        HSL: Color.object2color(modelValue, 'HSL'),
-        RGB: Color.object2color(modelValue, 'RGB'),
-        CMYK: Color.object2color(modelValue, 'CMYK'),
-        CSS: modelValue.css,
-        HEX: modelValue.hex,
-      };
-    };
-
-    // 更新modelValue
+    // 更新 modelValue
     const updateModelValue = () => {
       const { format, color } = props;
+      if (!color) return;
+      const values = getColorFormatMap(color, 'encode')[format];
       // @ts-ignore
-      // TODO: 从类型上看，values 可能为空，那么下面就会报错，需要同步类型处理 1.getFormatColorMap 2. format 前置过滤
-      const values = getFormatColorMap('encode')[format];
       values.a = Math.round(color.alpha * 100);
       Object.keys(values).forEach((key) => {
+        // @ts-ignore
         modelValue[key] = values[key];
+        // @ts-ignore
         lastModelValue[key] = values[key];
       });
     };
 
     updateModelValue();
-
     const throttleUpdate = throttle(updateModelValue, 100);
 
     watch(() => {
-      const { saturation, hue, value, alpha, css } = props.color;
-      return [saturation, hue, value, alpha, css, props.format];
+      const { saturation, hue, value, alpha } = props.color;
+      return [saturation, hue, value, alpha, props.format];
     }, throttleUpdate);
 
     const handleChange = (key: string, v: number | string) => {
-      if (v === lastModelValue[key]) {
-        return;
+      if (v === lastModelValue[key]) return;
+
+      if (key === 'a') {
+        // 透明通道
+        // eslint-disable-next-line vue/no-mutating-props, no-param-reassign
+        props.color.alpha = (v as number) / 100;
+      } else if (key === 'hex' || key === 'css') {
+        // 纯字符串类型的格式
+        props.color.update(v as string);
+      } else {
+        // 需要进一步转换的格式
+        props.color.update(Color.object2color(props.color.alpha, props.format));
       }
-      // @ts-ignore
-      // TODO: 如上
-      const value = getFormatColorMap('decode')[props.format];
-      props.onInputChange(value, modelValue.a / 100, key, v);
+
+      const value = getColorFormatMap(props.color, 'decode')[props.format];
+      props.onInputChange(value, props.color.alpha, key, v);
     };
 
     return () => {
@@ -110,7 +72,7 @@ export default defineComponent({
       };
       return (
         <div class="input-group">
-          {inputConfigs.value.map((config) => {
+          {getColorFormatInputs(props.format, props.enableAlpha).map((config) => {
             return (
               <div
                 class="input-group__item"
