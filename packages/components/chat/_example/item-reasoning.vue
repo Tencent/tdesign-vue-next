@@ -37,7 +37,7 @@ const handleChange = (value) => {
  */
 const renderHeader = (flag) => {
   if (flag) {
-    return <t-chat-loading text="思考中..." indicator />;
+    return <t-chat-loading text="思考中..." />;
   }
   return (
     <t-space align="center">
