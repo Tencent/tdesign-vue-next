@@ -5,7 +5,7 @@ on:
     types: [created]
 
 jobs:
-  update-official-website:
+  publish-official-website:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -47,9 +47,9 @@ jobs:
         id: domain
         with:
           script: |
-            const tag_name = '${{ github.event.release.tag_name }}'
-            const lastIndex = packageVersion.lastIndexOf('@');
-            const version = packageVersion.slice(lastIndex + 1);
+            const tagName = '${{ github.event.release.tag_name }}'
+            const lastIndex = tagName.lastIndexOf('@');
+            const version = tagName.slice(lastIndex + 1);
             const domain= `https://${version.split('.').join('_')}-tdesign-vue-next.surge.sh`
             core.setOutput('surge', domain);
             core.setOutput('project', 'packages/tdesign-vue-next/site/dist');
@@ -80,9 +80,9 @@ jobs:
         id: domain
         with:
           script: |
-            const tag_name = '${{ github.event.release.tag_name }}'
-            const lastIndex = packageVersion.lastIndexOf('@');
-            const version = packageVersion.slice(lastIndex + 1);
+            const tagName = '${{ github.event.release.tag_name }}'
+            const lastIndex = tagName.lastIndexOf('@');
+            const version = tagName.slice(lastIndex + 1);
             const domain= `https://${version.split('.').join('_')}-tdesign-vue-next-chat.surge.sh`
             core.setOutput('surge', domain);
             core.setOutput('project', 'packages/tdesign-vue-next-chat/site/dist');
