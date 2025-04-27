@@ -21,44 +21,29 @@ export default defineComponent({
   emits: ['update:visible'],
   setup(props, context) {
     const destroyOnCloseVisible = ref(false);
+    const firstAlreadyRender = ref(false);
     const isVisible = ref(false);
-    const styleEl = ref();
-    const styleTimer = ref();
+    const drawerEle = ref<HTMLElement | null>(null);
+    const styleEl = ref<HTMLStyleElement | null>(null);
+    const styleTimer = ref<ReturnType<typeof setTimeout>>();
     const { globalConfig } = useConfig('drawer');
+    const COMPONENT_NAME = usePrefixClass('drawer');
     const { CloseIcon } = useGlobalIcon({ CloseIcon: TdCloseIcon });
     const renderTNodeJSX = useTNodeJSX();
     const renderContent = useContent();
-    const COMPONENT_NAME = usePrefixClass('drawer');
     const { draggedSizeValue, enableDrag, draggableLineStyles, draggingStyles } = useDrag(props as TdDrawerProps);
-
-    // teleport容器
     const teleportElement = useTeleport(() => props.attach);
-
-    const confirmBtnAction = (e: MouseEvent) => {
-      props.onConfirm?.({ e });
-    };
-    const cancelBtnAction = (e: MouseEvent) => {
-      props.onCancel?.({ e });
-      closeDrawer({ trigger: 'cancel', e });
-    };
-    const { getConfirmBtn, getCancelBtn } = useAction({ confirmBtnAction, cancelBtnAction });
-    const drawerEle = ref<HTMLElement | null>(null);
-    const drawerClasses = computed(() => {
-      return [
-        COMPONENT_NAME.value,
-        `${COMPONENT_NAME.value}--${props.placement}`,
-        {
-          [`${COMPONENT_NAME.value}--open`]: isVisible.value,
-          [`${COMPONENT_NAME.value}--attach`]: props.showInAttachedElement,
-          [`${COMPONENT_NAME.value}--without-mask`]: !props.showOverlay,
-        },
-        props?.drawerClassName,
-      ];
+    const { getConfirmBtn, getCancelBtn } = useAction({
+      confirmBtnAction: (e: MouseEvent) => props.onConfirm?.({ e }),
+      cancelBtnAction: (e: MouseEvent) => {
+        props.onCancel?.({ e });
+        closeDrawer({ trigger: 'cancel', e });
+      },
     });
 
+    // 计算属性
     const sizeValue = computed(() => {
       if (draggedSizeValue.value) return draggedSizeValue.value;
-
       const size = props.size ?? globalConfig.value.size;
       const defaultSize = isNaN(Number(size)) ? size : `${size}px`;
       return (
@@ -69,62 +54,78 @@ export default defineComponent({
         }[size] || defaultSize
       );
     });
-    const wrapperStyles = computed(() => {
-      return {
-        // 用于抵消动画效果：transform: translateX(100%); 等
-        transform: isVisible.value ? 'translateX(0)' : undefined,
-        width: ['left', 'right'].includes(props.placement) ? sizeValue.value : '',
-        height: ['top', 'bottom'].includes(props.placement) ? sizeValue.value : '',
-      };
-    });
+    const drawerClasses = computed(() => [
+      COMPONENT_NAME.value,
+      `${COMPONENT_NAME.value}--${props.placement}`,
+      {
+        [`${COMPONENT_NAME.value}--open`]: isVisible.value,
+        [`${COMPONENT_NAME.value}--attach`]: props.showInAttachedElement,
+        [`${COMPONENT_NAME.value}--without-mask`]: !props.showOverlay,
+      },
+      props?.drawerClassName,
+    ]);
+    const wrapperStyles = computed(() => ({
+      transform: isVisible.value ? 'translateX(0)' : undefined,
+      width: ['left', 'right'].includes(props.placement) ? sizeValue.value : '',
+      height: ['top', 'bottom'].includes(props.placement) ? sizeValue.value : '',
+    }));
+    const wrapperClasses = computed(() => [
+      `${COMPONENT_NAME.value}__content-wrapper`,
+      `${COMPONENT_NAME.value}__content-wrapper--${props.placement}`,
+    ]);
+    const parentNode = computed<HTMLElement | null>(() => drawerEle.value?.parentNode as HTMLElement);
+    const modeAndPlacement = computed<string>(() => [props.mode, props.placement].join());
+    const footerStyle = computed(() => ({
+      display: 'flex',
+      justifyContent: props.placement === 'right' ? 'flex-start' : 'flex-end',
+    }));
 
-    const wrapperClasses = computed(() => {
-      return [
-        `${COMPONENT_NAME.value}__content-wrapper`,
-        `${COMPONENT_NAME.value}__content-wrapper--${props.placement}`,
-      ];
-    });
-
-    const parentNode = computed<HTMLElement>(() => {
-      return drawerEle.value && (drawerEle.value.parentNode as HTMLElement);
-    });
-
-    const modeAndPlacement = computed<string>(() => {
-      return [props.mode, props.placement].join();
-    });
-
-    const footerStyle = computed(() => {
-      return {
-        display: 'flex',
-        justifyContent: props.placement === 'right' ? 'flex-start' : 'flex-end',
-      };
-    });
-
+    // 事件处理函数
     const handleEscKeydown = (e: KeyboardEvent) => {
       if ((props.closeOnEscKeydown ?? globalConfig.value.closeOnEscKeydown) && e.key === 'Escape' && isVisible.value) {
         props.onEscKeydown?.({ e });
         closeDrawer({ trigger: 'esc', e });
       }
     };
-
-    const clearStyleFunc = () => {
-      clearTimeout(styleTimer.value);
-      styleTimer.value = setTimeout(() => {
-        styleEl.value?.parentNode?.removeChild?.(styleEl.value);
-      }, 150);
+    const handleCloseBtnClick = (e: MouseEvent) => {
+      props.onCloseBtnClick?.({ e });
+      closeDrawer({ trigger: 'close-btn', e });
+    };
+    const handleWrapperClick = (e: MouseEvent) => {
+      props.onOverlayClick?.({ e });
+      if (props.closeOnOverlayClick ?? globalConfig.value.closeOnOverlayClick) {
+        closeDrawer({ trigger: 'overlay', e });
+      }
     };
 
+    // 抽屉显示/隐藏逻辑
+    const showDrawer = () => {
+      destroyOnCloseVisible.value = false;
+      setTimeout(() => {
+        isVisible.value = true;
+      });
+    };
+    const hideDrawer = () => {
+      isVisible.value = false;
+      setTimeout(() => {
+        destroyOnCloseVisible.value = true;
+      }, 200);
+    };
+    const closeDrawer = (params: DrawerCloseContext) => {
+      props.onClose?.(params);
+      context.emit('update:visible', false);
+    };
+
+    // push 模式相关处理
     const handlePushMode = () => {
       if (props.mode !== 'push') return;
       nextTick(() => {
-        if (!parentNode.value) return;
-        parentNode.value.style.cssText = 'transition: margin 300ms cubic-bezier(0.7, 0.3, 0.1, 1) 0s;';
+        parentNode.value &&
+          (parentNode.value.style.cssText = 'transition: margin 300ms cubic-bezier(0.7, 0.3, 0.1, 1) 0s;');
       });
     };
-    // push 动画效果处理
     const updatePushMode = () => {
-      if (!parentNode.value) return;
-      if (props.mode !== 'push' || !parentNode.value) return;
+      if (!parentNode.value || props.mode !== 'push') return;
       const marginStr = {
         left: `margin: 0 0 0 ${sizeValue.value}`,
         right: `margin: 0 0 0 -${sizeValue.value}`,
@@ -138,15 +139,13 @@ export default defineComponent({
       }
     };
 
-    // locale 全局配置，插槽，props，默认值，决定了按钮最终呈现
+    // footer 内容生成
     const getDefaultFooter = () => {
-      // this.getConfirmBtn is a function of useAction
       const confirmBtn = getConfirmBtn({
         confirmBtn: props.confirmBtn as TdDrawerProps['confirmBtn'],
         globalConfirm: globalConfig.value.confirm,
         className: `${COMPONENT_NAME.value}__confirm`,
       });
-      // this.getCancelBtn is a function of useAction
       const cancelBtn = getCancelBtn({
         cancelBtn: props.cancelBtn as TdDrawerProps['cancelBtn'],
         globalCancel: globalConfig.value.cancel,
@@ -160,6 +159,29 @@ export default defineComponent({
         </div>
       );
     };
+
+    // style 标签创建与清理
+    const createStyleEl = () => {
+      styleEl.value = document.createElement('style');
+      styleEl.value.dataset.id = `td_drawer_${+new Date()}_${(key += 1)}`;
+      const hasScrollBar = window.innerWidth > document.documentElement.clientWidth;
+      const scrollWidth = hasScrollBar ? getScrollbarWidth() : 0;
+      styleEl.value.innerHTML = `
+        html body {
+          overflow-y: hidden;
+          transition: margin 300ms cubic-bezier(0.7, 0.3, 0.1, 1) 0s;
+          ${props.mode === 'push' ? '' : `width: calc(100% - ${scrollWidth}px);`}
+        }
+      `;
+    };
+    const clearStyleFunc = () => {
+      if (styleTimer.value) clearTimeout(styleTimer.value);
+      styleTimer.value = setTimeout(() => {
+        styleEl.value?.parentNode?.removeChild?.(styleEl.value);
+      }, 150);
+    };
+
+    // watcher
     watch(
       modeAndPlacement,
       () => {
@@ -167,35 +189,24 @@ export default defineComponent({
       },
       { immediate: true },
     );
+
     watch(
       () => props.visible,
       (value) => {
         if (isServer) return;
         if (value) {
+          firstAlreadyRender.value = true;
           if (!props.showInAttachedElement && props.preventScrollThrough) {
             styleEl.value && document.head.appendChild(styleEl.value);
           }
         } else {
           clearStyleFunc();
         }
-
-        // 打开前动画或关闭前动画
         value ? props.onBeforeOpen?.() : props.onBeforeClose?.();
 
-        // 处理显示逻辑
         if (props.destroyOnClose) {
-          if (value) {
-            destroyOnCloseVisible.value = false;
-            setTimeout(() => {
-              isVisible.value = true;
-            });
-          } else {
-            isVisible.value = false;
-            setTimeout(() => {
-              destroyOnCloseVisible.value = true;
-            }, 200);
-          }
-        } else if (destroyOnCloseVisible.value === true && value) {
+          value ? showDrawer() : hideDrawer();
+        } else if (destroyOnCloseVisible.value && value) {
           destroyOnCloseVisible.value = false;
           setTimeout(() => {
             isVisible.value = true;
@@ -208,54 +219,26 @@ export default defineComponent({
       },
       { immediate: true },
     );
-    const handleCloseBtnClick = (e: MouseEvent) => {
-      props.onCloseBtnClick?.({ e });
-      closeDrawer({ trigger: 'close-btn', e });
-    };
-    const handleWrapperClick = (e: MouseEvent) => {
-      props.onOverlayClick?.({ e });
-      if (props.closeOnOverlayClick ?? globalConfig.value.closeOnOverlayClick) {
-        closeDrawer({ trigger: 'overlay', e });
-      }
-    };
 
-    const closeDrawer = (params: DrawerCloseContext) => {
-      props.onClose?.(params);
-      context.emit('update:visible', false);
-    };
-
-    onUpdated(() => {
-      updatePushMode();
-    });
-
+    // 生命周期钩子
     onMounted(() => {
-      const hasScrollBar = window.innerWidth > document.documentElement.clientWidth;
-      const scrollWidth = hasScrollBar ? getScrollbarWidth() : 0;
-
-      styleEl.value = document.createElement('style');
-      styleEl.value.dataset.id = `td_drawer_${+new Date()}_${(key += 1)}`;
-      styleEl.value.innerHTML = `
-        html body {
-          overflow-y: hidden;
-          transition: margin 300ms cubic-bezier(0.7, 0.3, 0.1, 1) 0s;
-          ${props.mode === 'push' ? '' : `width: calc(100% - ${scrollWidth}px);`}
-        }
-      `;
-
-      if (isVisible.value && !props.showInAttachedElement && props.preventScrollThrough) {
+      if (!props.lazy || (isVisible.value && !props.showInAttachedElement && props.preventScrollThrough)) {
+        createStyleEl();
         document.head.appendChild(styleEl.value);
+        window.addEventListener('keydown', handleEscKeydown);
       }
-
-      window.addEventListener('keydown', handleEscKeydown);
     });
+
+    onUpdated(() => updatePushMode());
 
     onBeforeUnmount(() => {
       clearStyleFunc();
       window.removeEventListener('keydown', handleEscKeydown);
     });
 
+    // 渲染函数
     return () => {
-      if (destroyOnCloseVisible.value) return;
+      if (destroyOnCloseVisible.value || (!firstAlreadyRender.value && props.lazy)) return;
       const body = renderContent('body', 'default');
       const headerContent = renderTNodeJSX('header');
       const defaultFooter = getDefaultFooter();
