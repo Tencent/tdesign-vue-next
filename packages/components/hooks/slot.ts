@@ -9,6 +9,7 @@ import {
   VNodeArrayChildren,
   RendererElement,
   VNodeChild,
+  isVNode,
 } from 'vue';
 import { isArray } from 'lodash-es';
 import { getChildren } from '../utils/render-tnode';
@@ -71,5 +72,32 @@ export function useChildSlots(): () => (
         return item;
       })
       .flat();
+  };
+}
+
+/**
+ * 递归展开所有 Fragment，并跳过 Comment 节点，返回一维 VNodeChild 数组
+ * @example const getFlatChildrenSlots = useFlatChildrenSlots()
+ * @example getFlatChildrenSlots()
+ */
+export function useFlatChildrenSlots(): () => VNodeChild[] {
+  const instance = getCurrentInstance();
+  function flat(children: VNodeChild[]): VNodeChild[] {
+    const result: VNodeChild[] = [];
+    children.forEach((child) => {
+      if (isVNode(child) && child.type === Fragment && Array.isArray(child.children)) {
+        result.push(...flat(child.children as VNodeChild[]));
+      } else if (isVNode(child) && child.type === Comment) {
+        // skip comment
+      } else {
+        result.push(child);
+      }
+    });
+    return result;
+  }
+  return () => {
+    const { slots } = instance;
+    const content = slots?.default?.() || [];
+    return flat(content);
   };
 }
