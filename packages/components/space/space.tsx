@@ -1,8 +1,8 @@
-import { defineComponent, computed, CSSProperties, Fragment, Comment, isVNode } from 'vue';
+import { defineComponent, computed, CSSProperties, Fragment } from 'vue';
 import props from './props';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
-import { useChildSlots } from '../hooks/slot';
+import { useFlatChildrenSlots } from '../hooks/slot';
 import { isNumber } from 'lodash-es';
 import { isString } from 'lodash-es';
 import { isArray } from 'lodash-es';
@@ -22,7 +22,7 @@ export default defineComponent({
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('space');
     const renderTNodeJSX = useTNodeJSX();
-    const getChildSlots = useChildSlots();
+    const getFlatChildrenSlots = useFlatChildrenSlots();
 
     const needPolyfill = computed(() => props.forceFlexGapPolyfill || defaultNeedPolyfill);
 
@@ -54,20 +54,18 @@ export default defineComponent({
     });
 
     function renderChildren() {
-      const children = getChildSlots();
+      const children = getFlatChildrenSlots();
       const separatorContent = renderTNodeJSX('separator');
-      return children
-        .filter((child) => (isVNode(child) ? child.type !== Comment : true))
-        .map((child, index) => {
-          // filter last child
-          const showSeparator = index + 1 !== children.length && separatorContent;
-          return (
-            <Fragment>
-              <div class={`${COMPONENT_NAME.value}-item`}>{child}</div>
-              {showSeparator && <div class={`${COMPONENT_NAME.value}-item-separator`}>{separatorContent}</div>}
-            </Fragment>
-          );
-        });
+      return children.map((child, index) => {
+        // filter last child
+        const showSeparator = index + 1 !== children.length && separatorContent;
+        return (
+          <Fragment>
+            <div class={`${COMPONENT_NAME.value}-item`}>{child}</div>
+            {showSeparator && <div class={`${COMPONENT_NAME.value}-item-separator`}>{separatorContent}</div>}
+          </Fragment>
+        );
+      });
     }
 
     return () => {
