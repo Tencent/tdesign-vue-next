@@ -23,6 +23,6 @@ jobs:
 
       - run: pnpm build
 
-      - run: node ./script/workflows/prepare-package.mjs
+      - run: node ./script/workflows/pkg-pr-new-generate-template.mjs
 
       - run: pnpm dlx pkg-pr-new publish './packages/tdesign-vue-next' --compact --template ./tdesign-vue-next-demo/*
