@@ -237,23 +237,29 @@ export default defineComponent({
         color: color.value,
         disabled: props.disabled,
       };
-      const showUsedColors = recentlyUsedColors.value !== null && recentlyUsedColors.value !== false;
 
+      // 只支持渐变模式
+      const onlySupportGradient = props.colorModes.length === 1 && props.colorModes.includes('linear-gradient');
+
+      // 最近使用颜色
+      let recentColors = recentlyUsedColors.value;
+      if (onlySupportGradient && Array.isArray(recentColors)) {
+        recentColors = (recentColors as string[]).filter((color) => Color.isGradientColor(color));
+      }
+      const showUsedColors = Array.isArray(recentColors) || recentColors === true;
+
+      // 系统预设颜色
       let systemColors = props.swatchColors;
       if (systemColors === undefined) {
         systemColors = [...DEFAULT_SYSTEM_SWATCH_COLORS];
       }
-      // 如果只支持渐变模式，则过滤掉非渐变色值
-      const onlySupportGradient = props.colorModes.length === 1 && props.colorModes.includes('linear-gradient');
       if (onlySupportGradient) {
         systemColors = systemColors.filter((color) => Color.isGradientColor(color));
       }
-      const showSystemColors = systemColors?.length > 0;
+      const showSystemColors = Array.isArray(systemColors);
 
       const renderSwatches = () => {
-        if (!showSystemColors && !showUsedColors) {
-          return null;
-        }
+        if (!showSystemColors && !showUsedColors) return null;
         return (
           <>
             <div class={`${baseClassName.value}__swatches-wrap`}>
@@ -262,7 +268,7 @@ export default defineComponent({
                   {...baseProps}
                   title={t(globalConfig.value.recentColorTitle)}
                   editable
-                  colors={recentlyUsedColors.value as string[]}
+                  colors={recentColors as string[]}
                   handleAddColor={addRecentlyUsedColor}
                   onSetColor={(color: string) => handleSetColor(color, 'recent')}
                   onChange={handleRecentlyUsedColorsChange}
