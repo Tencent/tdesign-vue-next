@@ -244,7 +244,7 @@ export default defineComponent({
       // 最近使用颜色
       let recentColors = recentlyUsedColors.value;
       if (onlySupportGradient && Array.isArray(recentColors)) {
-        recentColors = (recentColors as string[]).filter((color) => Color.isGradientColor(color));
+        recentColors = recentColors.filter((color) => Color.isGradientColor(color));
       }
       const showUsedColors = Array.isArray(recentColors) || recentColors === true;
 
