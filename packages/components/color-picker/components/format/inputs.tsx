@@ -59,7 +59,7 @@ export default defineComponent({
         props.color.update(v as string);
       } else {
         // 需要进一步转换的格式
-        props.color.update(Color.object2color(props.color.alpha, props.format));
+        props.color.update(Color.object2color(modelValue, props.format));
       }
 
       const value = getColorFormatMap(props.color, 'decode')[props.format];
