@@ -3,7 +3,7 @@ import { resolve, join } from 'path';
 import { rmSync, writeFileSync, readFileSync, mkdirSync, existsSync } from 'fs';
 
 // 常量定义
-const PUBLIC_PATH = 'design-vue-next-demo';
+const PUBLIC_PATH = 'tdesign-vue-next-demo';
 const PROJECT_NAMES = {
   VUE_TS: 'tdesign-vue-next-vue-ts',
   VUE_TSX: 'tdesign-vue-next-vue-tsx',
