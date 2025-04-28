@@ -137,13 +137,6 @@ export default defineComponent({
     };
 
     /**
-     * 格式变化
-     * @param format
-     * @returns
-     */
-    const handleFormatModeChange = (format: TdColorPickerProps['format']) => (formatModel.value = format);
-
-    /**
      * 饱和度亮度变化
      * @param param0
      */
@@ -320,13 +313,7 @@ export default defineComponent({
               ) : null}
             </div>
 
-            <FormatPanel
-              {...props}
-              color={color.value}
-              format={formatModel.value}
-              onModeChange={handleFormatModeChange}
-              onInputChange={handleInputChange}
-            />
+            <FormatPanel {...props} color={color.value} format={formatModel.value} onInputChange={handleInputChange} />
             {renderSwatches()}
           </div>
         </div>

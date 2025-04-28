@@ -15,12 +15,6 @@ export default defineComponent({
     color: {
       type: Object as PropType<Color>,
     },
-    onModeChange: {
-      type: Function,
-      default: () => {
-        return () => {};
-      },
-    },
     onInputChange: {
       type: Function,
       default: () => {
@@ -43,7 +37,6 @@ export default defineComponent({
      */
     const handleModeChange = (v: TdColorPickerProps['format']) => {
       formatModel.value = v;
-      props.onModeChange(v);
     };
 
     return () => {
