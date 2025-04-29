@@ -63,6 +63,14 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, fail 
               <!---->
               
               
+              <div
+                class="t-space-item"
+              >
+                
+              </div>
+              <!---->
+              
+              
             </div>
           </div>
           <!---->
@@ -229,6 +237,14 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, progr
                     fill="currentColor"
                   />
                 </svg>
+              </div>
+              <!---->
+              
+              
+              <div
+                class="t-space-item"
+              >
+                
               </div>
               <!---->
               
@@ -408,6 +424,14 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
               <!---->
               
               
+              <div
+                class="t-space-item"
+              >
+                
+              </div>
+              <!---->
+              
+              
             </div>
           </div>
           <!---->
@@ -578,6 +602,14 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
               <!---->
               
               
+              <div
+                class="t-space-item"
+              >
+                
+              </div>
+              <!---->
+              
+              
             </div>
           </div>
           <!---->
@@ -744,6 +776,14 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, waiti
                     fill="currentColor"
                   />
                 </svg>
+              </div>
+              <!---->
+              
+              
+              <div
+                class="t-space-item"
+              >
+                
               </div>
               <!---->
               
@@ -1247,6 +1287,14 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                   <!---->
                   
                   
+                  <div
+                    class="t-space-item"
+                  >
+                    
+                  </div>
+                  <!---->
+                  
+                  
                 </div>
               </div>
               <!---->
@@ -1339,6 +1387,14 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                         fill="currentColor"
                       />
                     </svg>
+                  </div>
+                  <!---->
+                  
+                  
+                  <div
+                    class="t-space-item"
+                  >
+                    
                   </div>
                   <!---->
                   
@@ -1457,6 +1513,14 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                         fill="currentColor"
                       />
                     </svg>
+                  </div>
+                  <!---->
+                  
+                  
+                  <div
+                    class="t-space-item"
+                  >
+                    
                   </div>
                   <!---->
                   
