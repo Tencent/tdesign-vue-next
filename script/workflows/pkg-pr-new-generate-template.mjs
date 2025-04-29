@@ -78,12 +78,15 @@ function buildExample(projectName, extraDeps = {}) {
 
   // 处理 package.json
   const packageJson = JSON.parse(readFileSync(paths.packageJson, 'utf8'));
-  packageJson.dependencies = {
-    ...packageJson.dependencies,
-    'tdesign-vue-next': 'latest',
-    'tdesign-icons-vue-next': 'latest',
-    ...extraDeps,
-  };
+  Object.assign(packageJson, {
+    private: false,
+    dependencies: {
+      ...packageJson.dependencies,
+      'tdesign-vue-next': 'latest',
+      'tdesign-icons-vue-next': 'latest',
+      ...extraDeps,
+    },
+  });
 
   // 删除默认组件
   if (existsSync(paths.helloWorld)) {
