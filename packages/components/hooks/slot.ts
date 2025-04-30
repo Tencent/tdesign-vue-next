@@ -76,7 +76,7 @@ export function useChildSlots(): () => (
 }
 
 /**
- * 返回一个 hook，用于递归展开所有 Fragment，并跳过 Comment 节点，返回一维 VNodeChild 数组
+ * 递归展开所有 Fragment，并跳过 Comment 节点，返回一维 VNodeChild 数组
  * @example const useFlatChildrenSlots = useFlatChildrenSlotsHook()
  * @example useFlatChildrenSlots(children)
  */
