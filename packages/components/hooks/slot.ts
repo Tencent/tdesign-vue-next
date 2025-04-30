@@ -76,17 +76,16 @@ export function useChildSlots(): () => (
 }
 
 /**
- * 递归展开所有 Fragment，并跳过 Comment 节点，返回一维 VNodeChild 数组
- * @example const getFlatChildrenSlots = useFlatChildrenSlots()
- * @example getFlatChildrenSlots()
+ * 返回一个 hook，用于递归展开所有 Fragment，并跳过 Comment 节点，返回一维 VNodeChild 数组
+ * @example const useFlatChildrenSlots = useFlatChildrenSlotsHook()
+ * @example useFlatChildrenSlots(children)
  */
-export function useFlatChildrenSlots(): () => VNodeChild[] {
-  const instance = getCurrentInstance();
-  function flat(children: VNodeChild[]): VNodeChild[] {
+export function useFlatChildrenSlots() {
+  function getFlatChildren(children: VNodeChild[]): VNodeChild[] {
     const result: VNodeChild[] = [];
     children.forEach((child) => {
       if (isVNode(child) && child.type === Fragment && Array.isArray(child.children)) {
-        result.push(...flat(child.children as VNodeChild[]));
+        result.push(...getFlatChildren(child.children as VNodeChild[]));
       } else if (isVNode(child) && child.type === Comment) {
         // skip comment
       } else {
@@ -95,9 +94,5 @@ export function useFlatChildrenSlots(): () => VNodeChild[] {
     });
     return result;
   }
-  return () => {
-    const { slots } = instance;
-    const content = slots?.default?.() || [];
-    return flat(content);
-  };
+  return getFlatChildren;
 }

@@ -2,7 +2,7 @@ import { defineComponent, computed, CSSProperties, Fragment, isVNode, Teleport }
 import props from './props';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
-import { useFlatChildrenSlots } from '../hooks/slot';
+import { useChildSlots, useFlatChildrenSlots } from '../hooks/slot';
 import { isNumber } from 'lodash-es';
 import { isString } from 'lodash-es';
 import { isArray } from 'lodash-es';
@@ -22,7 +22,8 @@ export default defineComponent({
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('space');
     const renderTNodeJSX = useTNodeJSX();
-    const getFlatChildrenSlots = useFlatChildrenSlots();
+    const getChildSlots = useChildSlots();
+    const getFlatChildren = useFlatChildrenSlots();
 
     const needPolyfill = computed(() => props.forceFlexGapPolyfill || defaultNeedPolyfill);
 
@@ -52,9 +53,8 @@ export default defineComponent({
       }
       return style;
     });
-
     function renderChildren() {
-      const children = getFlatChildrenSlots();
+      const children = getFlatChildren(getChildSlots());
       const separatorContent = renderTNodeJSX('separator');
       return children.map((child, index) => {
         const isTeleport = isVNode(child) && child.type === Teleport;
