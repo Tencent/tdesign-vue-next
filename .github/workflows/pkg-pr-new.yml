@@ -1,12 +1,13 @@
 name: Publish_Any_Commit
 on:
   push:
-    branches: [develop, rss1102/ci/pkg-templates]
+    branches: [develop]
   pull_request:
-    branches: [develop, rss1102/ci/pkg-templates]
+    branches: [develop]
 
 jobs:
   build:
+    if: ${{ github.repository == 'Tencent/tdesign-vue-next' && !startsWith(github.head_ref, 'release/')}}
     runs-on: ubuntu-latest
 
     steps:
@@ -23,8 +24,7 @@ jobs:
 
       - run: pnpm build
 
-      - run: node ./script/workflows/pkg-pr-new-generate-template.mjs
+      - run: node ./script/workflows/prepare-package.mjs
 
-      - run: ls tdesign-vue-next-demo
-
-      - run: pnpm dlx pkg-pr-new publish './packages/tdesign-vue-next' --compact --template './tdesign-vue-next-demo/*'
+      - run: pnpm dlx pkg-pr-new publish './packages/tdesign-vue-next' --compact --template ./tdesign-vue-next-demo
+ 
