@@ -27,4 +27,4 @@ jobs:
 
       - run: ls tdesign-vue-next-demo
 
-      - run: pnpm dlx pkg-pr-new publish './packages/tdesign-vue-next' --compact --template ./tdesign-vue-next-demo/*
+      - run: pnpm dlx pkg-pr-new publish './packages/tdesign-vue-next' --compact --template './tdesign-vue-next-demo/*'
