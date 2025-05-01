@@ -23,7 +23,7 @@
     "@rollup/plugin-node-resolve": "^16.0.0",
     "@rollup/plugin-typescript": "^12.1.2",
     "execa": "^8.0.1",
-    "rollup": "^2.79.1",
+    "rollup": "^4.40.1",
     "rollup-plugin-delete": "^2.1.0",
     "rollup-plugin-multi-input": "^1.4.1"
   }
