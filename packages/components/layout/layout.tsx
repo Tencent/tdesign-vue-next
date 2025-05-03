@@ -1,10 +1,7 @@
-import { defineComponent, computed, provide, ref, Ref } from 'vue';
+import { defineComponent, computed, provide, ref } from 'vue';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
-
-export type LayoutProvideType = {
-  hasSide: Ref<boolean>;
-};
+import { LayoutInjectionKey } from './consts';
 
 export default defineComponent({
   name: 'TLayout',
@@ -19,7 +16,10 @@ export default defineComponent({
       },
     ]);
 
-    provide('layout', { hasSide });
+    const setHasSide = (value: boolean) => {
+      hasSide.value = value;
+    };
+    provide(LayoutInjectionKey, { hasSide, setHasSide });
 
     return () => <section class={classes.value}>{renderTNodeJSX('default')}</section>;
   },
