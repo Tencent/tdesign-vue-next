@@ -1,4 +1,4 @@
-import { computed, isVNode, Slots } from 'vue';
+import { computed, isVNode, ref, Slots, watchEffect } from 'vue';
 import { isArray, isString } from 'lodash-es';
 import { useChildComponentSlots } from '../../hooks/slot';
 import type { TdBreadcrumbProps, TdBreadcrumbItemProps } from '../type';
@@ -9,15 +9,18 @@ interface BreadcrumbItemWithIndex extends TdBreadcrumbItemProps {
 
 export const useBreadcrumbOptions = (props: TdBreadcrumbProps) => {
   const getChildComponentSlots = useChildComponentSlots();
+  const breadcrumbOptions = ref<BreadcrumbItemWithIndex[]>([]);
 
-  const breadcrumbOptions = computed(() => {
-    const breadcrumbItems: BreadcrumbItemWithIndex[] = [];
+  // fix: 响应式更新
+  watchEffect(() => {
+    // 重置list
+    breadcrumbOptions.value = [];
+
     let currentIndex = 0;
-
     // 处理 options
     if (props.options?.length) {
       props.options.forEach((option) => {
-        breadcrumbItems.push({
+        breadcrumbOptions.value.push({
           ...option,
           index: currentIndex++,
         });
@@ -48,7 +51,7 @@ export const useBreadcrumbOptions = (props: TdBreadcrumbProps) => {
           return child.props?.[propName];
         };
 
-        breadcrumbItems.push({
+        breadcrumbOptions.value.push({
           ...child.props,
           content: getSlotOrProp('default', 'content'),
           icon: getSlotOrProp('icon', 'icon'),
@@ -56,11 +59,9 @@ export const useBreadcrumbOptions = (props: TdBreadcrumbProps) => {
         });
       });
     }
-
-    return breadcrumbItems;
   });
 
   return {
-    breadcrumbOptions,
+    breadcrumbOptions: computed(() => breadcrumbOptions.value),
   };
 };
