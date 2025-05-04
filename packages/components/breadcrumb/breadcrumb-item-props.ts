@@ -25,7 +25,7 @@ export default {
   },
   /** 面板屑项内的前置图标 */
   icon: {
-    type: Function as PropType<TdBreadcrumbItemProps['icon']>,
+    type: [Function, Array] as PropType<TdBreadcrumbItemProps['icon']>,
   },
   /** 最大宽度，超出后会以省略号形式呈现。优先级高于 Breadcrumb 中的 maxItemWidth */
   maxWidth: {
