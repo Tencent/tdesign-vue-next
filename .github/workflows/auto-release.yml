@@ -1,4 +1,4 @@
-name: Auto_Release
+name: auto-release
 
 on:
   pull_request_target:

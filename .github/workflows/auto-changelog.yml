@@ -1,4 +1,4 @@
-name: Auto_Changelog
+name: auto-changelog
 
 on:
   pull_request:

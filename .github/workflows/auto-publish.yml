@@ -1,4 +1,4 @@
-name: Auto_Publish
+name: auto-publish
 
 on:
   release:
