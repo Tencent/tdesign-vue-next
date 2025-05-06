@@ -42,4 +42,16 @@ export default {
     type: Function as PropType<TdChatReasoningProps['onExpandChange']>,
     default: () => {},
   },
+  collapsed: {
+    type: Boolean as PropType<TdChatReasoningProps['collapsed']>,
+    default: false,
+  },
+  modelValue: {
+    type: Boolean as PropType<TdChatReasoningProps['collapsed']>,
+    default: undefined as TdChatReasoningProps['collapsed'],
+  },
+  defaultCollapsed: {
+    type: Boolean as PropType<TdChatReasoningProps['collapsed']>,
+    default: false,
+  },
 };

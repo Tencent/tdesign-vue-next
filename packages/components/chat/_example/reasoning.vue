@@ -17,6 +17,7 @@
           :text-loading="index === 0 && loading"
           :content="item.content"
           :reasoning="{
+            collapsed: index === 0 && !isStreamLoad,
             expandIconPlacement: 'right',
             onExpandChange: handleChange(value, { index }),
             collapsePanelProps: {
@@ -242,14 +243,9 @@ const handleData = async () => {
   const mockedData = {
     reasoning: `嗯，用户问牛顿第一定律是不是适用于所有参考系。首先，我得先回忆一下牛顿第一定律的内容。牛顿第一定律，也就是惯性定律，说物体在没有外力作用时会保持静止或匀速直线运动。也就是说，保持原来的运动状态。
 
-那问题来了，这个定律是否适用于所有参考系呢？记得以前学过的参考系分惯性系和非惯性系。惯性系里，牛顿定律成立；非惯性系里，可能需要引入惯性力之类的修正。所以牛顿第一定律应该只在惯性参考系中成立，而在非惯性系中不适用，比如加速的电梯或者旋转的参考系，这时候物体会有看似无外力下的加速度，所以必须引入假想的力来解释。`,
+`,
     content: `牛顿第一定律（惯性定律）**并不适用于所有参考系**，它只在**惯性参考系**中成立。以下是关键点：
-
----
-
-### **1. 牛顿第一定律的核心**
-- **内容**：物体在不受外力（或合力为零）时，将保持静止或匀速直线运动状态。
-- **本质**：定义了惯性系的存在——即存在一类参考系，在其中惯性定律成立。`,
+`,
   };
   const mockResponse = new MockSSEResponse(mockedData);
   fetchCancel.value = mockResponse;
