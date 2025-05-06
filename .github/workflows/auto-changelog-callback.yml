@@ -29,16 +29,16 @@ jobs:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
           name: changelog
-      - name: Set pr id
+      - name: Set pr changelog
         id : changelog
-        run: echo "id=$(cat changelog.md)" >> $GITHUB_OUTPUT    
+        run: echo "changelog=$(cat changelog.md)" >> $GITHUB_OUTPUT    
 
       - name: comment
         if: steps.changelog.outputs.changelog
         uses: actions-cool/maintain-one-comment@v3
         with:
             token: ${{ secrets.TDESIGN_BOT_TOKEN }}
-            number: ${{steps.pr.outputs.pr_id}}
+            number: ${{steps.pr.outputs.id}}
             body: ${{ steps.changelog.outputs.changelog }}
             body-include: '<!-- FLOW-PR-CHANGELOG -->'
   
