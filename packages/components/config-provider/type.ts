@@ -354,6 +354,16 @@ export interface ChatConfig {
    * @default ''
    */
   loadingEndText?: string;
+  /**
+   * 语言配置，“上传图片”占位描述文本
+   * @default ''
+   */
+  uploadImageText?: string;
+  /**
+   * 语言配置，“上传附件”占位描述文本
+   * @default ''
+   */
+  uploadAttachmentText?: string;
 }
 export interface ColorPickerConfig {
   /**
