@@ -31,13 +31,14 @@ jobs:
           name: changelog
       - name: Set pr id
         id : changelog
-        run: echo "id=$(cat pr-id.txt)" >> $GITHUB_OUTPUT    
+        run: echo "id=$(cat changelog.md)" >> $GITHUB_OUTPUT    
 
       - name: comment
+        if: steps.changelog.outputs.changelog
         uses: actions-cool/maintain-one-comment@v3
         with:
             token: ${{ secrets.TDESIGN_BOT_TOKEN }}
             number: ${{steps.pr.outputs.pr_id}}
-            body: ${{ steps.report.outputs.comment }}
-            body-include: '<!-- AUTO_PREVIEW_HOOK -->'
+            body: ${{ steps.changelog.outputs.changelog }}
+            body-include: '<!-- FLOW-PR-CHANGELOG -->'
   

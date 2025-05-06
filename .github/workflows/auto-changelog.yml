@@ -4,19 +4,40 @@ on:
   pull_request:
     branches: [develop]
     types: [opened, edited]
+
   issue_comment:
     types: [edited]
 
 jobs:
-  extract-changelog:
-    if: github.event.pull_request
+  changelog:
+    if: ${{ github.event.pull_request}}
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+      
       - uses: TDesignOteam/flow-pilot-action@develop
+        id: changelog
         with:
+          token: ${{ secrets.TDESIGN_BOT_TOKEN }}
           packages: 'tdesign-vue-next,@tdesign-vue-next/chat'
+      
+      - run: echo ${{ steps.changelog.outputs.changelog}} > changelog.md
+      
+      - uses: actions/upload-artifact@v4
+        with:
+          name: changelog
+          path: changelog.md
+          retention-days: 5
 
-  stash-changelog:
+      - run: echo ${{ github.event.number }} > changelog.md
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pr-id
+          path: pr-id.txt
+          retention-days: 5    
+
+  commit-changelog:
     if: github.event.issue.pull_request
     runs-on: ubuntu-latest
     steps:
