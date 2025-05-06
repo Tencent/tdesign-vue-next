@@ -1,0 +1,43 @@
+name: auto-changelog-callback
+
+on:
+  workflow_run:
+    workflows: 
+      - auto-changelog
+    types:
+      - completed
+
+jobs:
+  comment:
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'pull_request' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download pr id
+        uses: dawidd6/action-download-artifact@v8
+        with:
+          workflow: ${{ github.event.workflow_run.workflow_id }}
+          run_id: ${{ github.event.workflow_run.id }}
+          name: pr-id
+
+      - name: Set pr id
+        id : pr
+        run: echo "id=$(cat pr-id.txt)" >> $GITHUB_OUTPUT
+
+      - name: Download changelog
+        uses: dawidd6/action-download-artifact@v8
+        with:
+          workflow: ${{ github.event.workflow_run.workflow_id }}
+          run_id: ${{ github.event.workflow_run.id }}
+          name: changelog
+      - name: Set pr id
+        id : changelog
+        run: echo "id=$(cat pr-id.txt)" >> $GITHUB_OUTPUT    
+
+      - name: comment
+        uses: actions-cool/maintain-one-comment@v3
+        with:
+            token: ${{ secrets.TDESIGN_BOT_TOKEN }}
+            number: ${{steps.pr.outputs.pr_id}}
+            body: ${{ steps.report.outputs.comment }}
+            body-include: '<!-- AUTO_PREVIEW_HOOK -->'
+  
