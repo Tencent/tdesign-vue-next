@@ -21,7 +21,7 @@ jobs:
           token: ${{ secrets.TDESIGN_BOT_TOKEN }}
           packages: 'tdesign-vue-next,@tdesign-vue-next/chat'
       
-      - run: echo ${{ steps.changelog.outputs.changelog}} > changelog.md
+      - run: echo "${{ steps.changelog.outputs.changelog }}" > changelog.md
       
       - uses: actions/upload-artifact@v4
         with:
