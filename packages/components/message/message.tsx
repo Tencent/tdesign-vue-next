@@ -52,6 +52,10 @@ export default defineComponent({
       ];
     });
 
+    const styles = computed(() => ({
+      pointerEvents: 'auto',
+    }));
+
     const close = (e?: MouseEvent) => {
       props.onClose?.({ trigger: 'close-click', e });
       props.onCloseBtnClick?.({ e });
@@ -115,7 +119,7 @@ export default defineComponent({
     expose({ close });
 
     return () => (
-      <div ref={msgRef} class={classes.value} onMouseenter={clearTimer} onMouseleave={setTimer}>
+      <div ref={msgRef} class={classes.value} style={styles.value} onMouseenter={clearTimer} onMouseleave={setTimer}>
         {renderIcon()}
         {renderContent('content', 'default')}
         {renderClose()}

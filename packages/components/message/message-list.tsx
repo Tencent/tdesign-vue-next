@@ -35,6 +35,7 @@ export const MessageList = defineComponent({
     const styles = computed(() => ({
       ...(PLACEMENT_OFFSET[props.placement as keyof typeof PLACEMENT_OFFSET] as CSSProperties),
       zIndex: props.zIndex !== DEFAULT_Z_INDEX ? props.zIndex : DEFAULT_Z_INDEX,
+      pointerEvents: 'none',
     }));
 
     const add = (msg: MessageOptions): number => {
