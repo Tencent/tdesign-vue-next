@@ -7,7 +7,6 @@
 import { AvatarProps } from '../avatar';
 import { TextareaProps } from '../textarea';
 import { CollapsePanelProps } from '../collapse';
-import { CollapseValue } from '../collapse';
 import { TNode } from '../common';
 
 export interface TdChatProps {
@@ -372,4 +371,33 @@ export interface TdChatReasoning {
   onExpandChange?: (isExpand: boolean) => void;
   collapsePanelProps?: Object;
   collapsed?: boolean;
+}
+
+export type UploadActionType = 'uploadAttachment' | 'uploadImage';
+
+export interface UploadActionConfig {
+  /**
+   * 动作名称，标识上传类型
+   */
+  name: UploadActionType;
+  /**
+   * 上传属性配置（可选）
+   */
+  uploadProps?: {
+    /**
+     * 是否允许多选
+     */
+    multiple?: boolean;
+    /**
+     * 接受的文件类型
+     */
+    accept?: string;
+  };
+  /**
+   * 上传动作处理函数
+   * @param params - 上传参数对象
+   * @param params.files - 上传的文件列表
+   * @param params.name - 上传动作名称
+   */
+  action: (params: { files: File[]; name: UploadActionType }) => void;
 }

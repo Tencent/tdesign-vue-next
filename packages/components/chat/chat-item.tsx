@@ -93,7 +93,6 @@ export default defineComponent({
                 {isObject(props.reasoning) && role.value === 'assistant' && (
                   <ChatReasoning
                     role={role.value}
-                    v-model:collapsed={props.reasoning.collapsed}
                     expandIconPlacement={(props.reasoning as Record<string, any>).expandIconPlacement}
                     onExpandChange={(props.reasoning as Record<string, any>).onExpandChange}
                     collapse-panel-props={{

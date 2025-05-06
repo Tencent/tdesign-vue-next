@@ -5,6 +5,20 @@ toc: false
 spline: explain
 ---
 
+## 🌈 0.3.0 `2025-05-06`
+
+### 🚀 Features
+
+- `ChatSender`:
+  - 新增 `fileSelect` 回调，用于监听图片或者文件上传, 新增 `inner-header`，`header` 插槽功能
+  - `suffix` 默认新增支持上传图片和上传附件功能按钮，支持透传 `renderPresets`, 自定义控制内置的上传图片和上传附件按钮组合顺序，回调函数，具体请参考示例代码
+- `ChatReasoning`: 增加`collapse`, 用于定义展开收起状态，支持双向绑定
+
+### 🐞 Bug Fixes
+
+- `ConfigProvider`: 修复与 `tdesign-vue-next` 配合使用时，全局配置的告警和异常问题，具体使用参考文档
+- `ChatReasoning`: 修复组件独立使用的问题
+
 ## 🌈 0.2.4 `2025-03-26`
 
 ### 🚀 Features

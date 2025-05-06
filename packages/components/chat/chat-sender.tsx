@@ -1,24 +1,26 @@
-import { defineComponent, ref, computed, toRefs } from 'vue';
-import { usePrefixClass } from '../hooks/useConfig';
+import { defineComponent, ref, computed, toRefs, reactive } from 'vue';
+import { SendFilledIcon, FileAttachmentIcon, ImageIcon } from 'tdesign-icons-vue-next';
+import { usePrefixClass, useConfig } from '../hooks/useConfig';
 import props from './chat-sender-props';
-import { SendFilledIcon } from 'tdesign-icons-vue-next';
 import Button from '../button';
 import Textarea from '../textarea';
+import Tooltip from '../tooltip';
 import useVModel from '../hooks/useVModel';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 
-import type { TdChatSenderProps } from './type';
+import type { TdChatSenderProps, UploadActionType, UploadActionConfig } from './type';
 
 export default defineComponent({
   name: 'TChatSender',
   props,
-  emits: ['send', 'stop', 'focus', 'blur', 'update:modelValue'], // declare the custom events here
+  emits: ['send', 'stop', 'update:modelValue', 'blur', 'focus', 'fileSelect'], // declare the custom events here
   setup(props, { emit }) {
     let shiftDownFlag = false;
     let isComposition = false;
     const senderTextarea = ref(null);
     const COMPONENT_NAME = usePrefixClass('chat');
-
+    const { globalConfig } = useConfig('chat');
+    const { uploadImageText, uploadAttachmentText } = globalConfig.value;
     const { value, modelValue } = toRefs(props);
     const [textValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
 
@@ -26,7 +28,8 @@ export default defineComponent({
     const loading = ref(false);
     const showStopBtn = computed(() => props.stopDisabled && loading.value);
     const disabled = computed(() => props.disabled || false);
-
+    const uploadImageRef = ref(null);
+    const uploadFileRef = ref(null);
     const renderTNodeJSX = useTNodeJSX();
     const renderContent = useContent();
     // 点击了发送按钮
@@ -88,37 +91,139 @@ export default defineComponent({
     const compositionendFn = () => {
       isComposition = false;
     };
+    const actionsDefault = reactive<UploadActionConfig[]>([
+      {
+        name: 'uploadImage',
+        uploadProps: {
+          multiple: true,
+          accept: 'image/*',
+        },
+        action: ({ files, name }) => {
+          emit('fileSelect', { files, name });
+        },
+      },
+      {
+        name: 'uploadAttachment',
+        action: ({ files, name }) => {
+          emit('fileSelect', { files, name });
+        },
+      },
+    ]);
     // 默认suffixIcon
-    const getDefaultSuffixIcon = () => {
+    const getDefaultSuffixIcon = (actions = actionsDefault) => {
+      // 获取默认action处理函数
+      const getDefaultAction = (name: UploadActionType) => {
+        const defaultAction = actionsDefault.find((item) => item.name === name)?.action;
+        return defaultAction || (({ files, name }) => emit('fileSelect', { files, name }));
+      };
+
+      const uploadAttachment = actions.find((item) => item.name === 'uploadAttachment');
+      const uploadAttachmentButton = uploadAttachment ? (
+        <>
+          <input
+            {...uploadAttachment.uploadProps}
+            ref={uploadFileRef}
+            type="file"
+            onChange={(e: InputEvent) => {
+              const files = Array.from((e.target as HTMLInputElement).files || []);
+              if (!files.length) {
+                return;
+              }
+              const action = uploadAttachment.action || getDefaultAction('uploadAttachment');
+              action({ files, name: uploadAttachment.name });
+              (e.target as HTMLInputElement).value = '';
+            }}
+            hidden
+          />
+          <Tooltip content={uploadAttachmentText}>
+            <Button
+              theme="default"
+              onClick={() => uploadFileRef.value?.click()}
+              shape="circle"
+              variant="text"
+              class={[`${COMPONENT_NAME.value}-sender__upload`]}
+            >
+              <FileAttachmentIcon />
+            </Button>
+          </Tooltip>
+        </>
+      ) : null;
+
+      const uploadImage = actions.find((item) => item.name === 'uploadImage');
+      const renderUploadImageButton = uploadImage ? (
+        <>
+          <input
+            {...uploadImage.uploadProps}
+            ref={uploadImageRef}
+            type="file"
+            onChange={(e: InputEvent) => {
+              const files = Array.from((e.target as HTMLInputElement).files || []);
+              if (!files.length) {
+                return;
+              }
+              const action = uploadImage.action || getDefaultAction('uploadImage');
+              action({ files, name: uploadImage.name });
+              (e.target as HTMLInputElement).value = '';
+            }}
+            hidden
+          />
+          <Tooltip content={uploadImageText}>
+            <Button
+              theme="default"
+              onClick={() => uploadImageRef.value?.click()}
+              shape="circle"
+              variant="text"
+              class={[`${COMPONENT_NAME.value}-sender__upload`]}
+            >
+              <ImageIcon />
+            </Button>
+          </Tooltip>
+        </>
+      ) : null;
+      const buttonComponents = {
+        uploadAttachment: uploadAttachmentButton,
+        uploadImage: renderUploadImageButton,
+      };
+
       return (
-        <Button
-          theme="default"
-          size="small"
-          variant="text"
-          class={[
-            `${COMPONENT_NAME.value}-sender__button__default`,
-            textValue.value ? '' : `${COMPONENT_NAME.value}-sender__button--disabled`,
-          ]}
-          disabled={disabled.value || showStopBtn.value || !textValue.value}
-        >
-          <SendFilledIcon />
-        </Button>
+        <>
+          {actions
+            .filter(
+              (item): item is { name: UploadActionType; action: () => void } =>
+                item.name === 'uploadAttachment' || item.name === 'uploadImage',
+            )
+            .map((item) => buttonComponents[item.name])}
+          <Button
+            theme="default"
+            size="small"
+            variant="text"
+            class={[
+              `${COMPONENT_NAME.value}-sender__button__default`,
+              textValue.value ? '' : `${COMPONENT_NAME.value}-sender__button--disabled`,
+            ]}
+            disabled={disabled.value || showStopBtn.value || !textValue.value}
+          >
+            <SendFilledIcon />
+          </Button>
+        </>
       );
       // }
     };
     const renderSuffixIcon = () => {
-      const suffix = renderTNodeJSX('suffix');
+      const suffix = renderTNodeJSX('suffix', { params: { renderPresets: getDefaultSuffixIcon } });
 
       return suffix ? suffix : getDefaultSuffixIcon();
     };
     return () => (
       <div class={`${COMPONENT_NAME.value}-sender`}>
+        <div class={`${COMPONENT_NAME.value}-sender__header`}>{renderContent('default', 'header')}</div>
         <div
           class={[
             `${COMPONENT_NAME.value}-sender__textarea`,
             focusFlag.value ? `${COMPONENT_NAME.value}-sender__textarea--focus` : '',
           ]}
         >
+          <div class={`${COMPONENT_NAME.value}-sender__inner-header`}>{renderContent('default', 'inner-header')}</div>
           <Textarea
             ref={senderTextarea}
             value={textValue.value}
