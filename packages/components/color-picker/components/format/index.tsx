@@ -1,9 +1,7 @@
 import { defineComponent, PropType, ref, watch } from 'vue';
-import { upperCase } from 'lodash-es';
-import { TdColorPickerProps } from '../../type';
+import { Color, getColorFormatOptions } from '@tdesign/common-js/color-picker/index';
+import type { TdColorPickerProps } from '../../type';
 import props from '../../props';
-import { FORMATS } from '@tdesign/common-js/color-picker/constants';
-import { Color } from '../../utils';
 import { Select as TSelect, Option as TOption } from '../../../select';
 import FormatInputs from './inputs';
 import { useBaseClassName } from '../../hooks';
@@ -17,12 +15,6 @@ export default defineComponent({
     color: {
       type: Object as PropType<Color>,
     },
-    onModeChange: {
-      type: Function,
-      default: () => {
-        return () => {};
-      },
-    },
     onInputChange: {
       type: Function,
       default: () => {
@@ -33,6 +25,7 @@ export default defineComponent({
   setup(props) {
     const baseClassName = useBaseClassName();
     const formatModel = ref<TdColorPickerProps['format']>(props.format);
+
     watch(
       () => [props.format],
       () => (formatModel.value = props.format),
@@ -44,7 +37,6 @@ export default defineComponent({
      */
     const handleModeChange = (v: TdColorPickerProps['format']) => {
       formatModel.value = v;
-      props.onModeChange(v);
     };
 
     return () => {
@@ -69,8 +61,8 @@ export default defineComponent({
               v-model={formatModel.value}
               onChange={handleModeChange}
             >
-              {FORMATS.map((item) => (
-                <TOption key={item} value={item} label={upperCase(item)} style={{ fontSize: '12px' }} />
+              {getColorFormatOptions(props.enableAlpha).map((item) => (
+                <TOption key={item} value={item} label={item} style={{ fontSize: '12px' }} />
               ))}
             </TSelect>
           </div>
