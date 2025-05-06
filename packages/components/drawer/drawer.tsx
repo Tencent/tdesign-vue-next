@@ -54,6 +54,7 @@ export default defineComponent({
           [`${COMPONENT_NAME.value}--attach`]: props.showInAttachedElement,
           [`${COMPONENT_NAME.value}--without-mask`]: !props.showOverlay,
         },
+        props?.drawerClassName,
       ];
     });
 
@@ -218,7 +219,9 @@ export default defineComponent({
             isVisible.value = true;
           });
         } else {
-          isVisible.value = value;
+          setTimeout(() => {
+            isVisible.value = value;
+          });
         }
       },
       { immediate: true },
@@ -274,6 +277,7 @@ export default defineComponent({
       const body = renderContent('body', 'default');
       const headerContent = renderTNodeJSX('header');
       const defaultFooter = getDefaultFooter();
+
       return (
         <Teleport disabled={!props.attach || !teleportElement.value} to={teleportElement.value}>
           <div

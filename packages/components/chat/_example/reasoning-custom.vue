@@ -7,6 +7,7 @@
         :role="item.role"
         :datetime="item.datetime"
         :text-loading="index === 0 && loading"
+        :variant="item.role === 'assistant' ? 'outline' : 'base'"
       >
         <template #content>
           <t-chat-reasoning

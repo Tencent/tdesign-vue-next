@@ -10,7 +10,7 @@ import { PropType } from 'vue';
 export default {
   /** 子元素 */
   content: {
-    type: [String, Function] as PropType<TdBreadcrumbItemProps['content']>,
+    type: [String, Function, Object] as PropType<TdBreadcrumbItemProps['content']>,
   },
   /** 子元素，同 content */
   default: {

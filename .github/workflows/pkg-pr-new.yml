@@ -15,7 +15,7 @@ jobs:
         with:
           submodules: recursive
       - uses: pnpm/action-setup@v4
-  
+
       - uses: actions/setup-node@v4
         with:
           node-version: 18
@@ -24,4 +24,6 @@ jobs:
 
       - run: pnpm build
 
-      - run: pnpm dlx pkg-pr-new publish './packages/tdesign-vue-next' --compact
+      - run: node ./script/workflows/prepare-package.mjs
+
+      - run: pnpm dlx pkg-pr-new publish './packages/tdesign-vue-next' --compact --template ./tdesign-vue-next-demo
