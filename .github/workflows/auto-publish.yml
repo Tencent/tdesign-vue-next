@@ -1,0 +1,92 @@
+name: auto-publish
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  publish-official-website:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          submodules: recursive
+          token: ${{ secrets.TDESIGN_BOT_TOKEN }}
+          
+
+      - name: update official website
+        run: |
+          git config --local user.email "tdesign@tencent.com"
+          git config --local user.name "tdesign-bot"
+          git status
+          git fetch origin
+          git merge origin/develop
+          git push origin main
+
+  publish-tag-site-tdesign-vue-next:
+    if: startsWith(github.event.release.tag_name,'tdesign-vue-next')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - run: pnpm install
+
+      - run: pnpm site:preview
+
+      - uses: actions/github-script@v7
+        id: domain
+        with:
+          script: |
+            const tagName = '${{ github.event.release.tag_name }}'
+            const lastIndex = tagName.lastIndexOf('@');
+            const version = tagName.slice(lastIndex + 1);
+            const domain= `https://${version.split('.').join('_')}-tdesign-vue-next.surge.sh`
+            core.setOutput('surge', domain);
+            core.setOutput('project', 'packages/tdesign-vue-next/site/dist');
+
+      - run: |
+          export DEPLOY_DOMAIN=${{ steps.domain.surge }}
+          npx surge --project ${{ steps.domain.project }} --domain $DEPLOY_DOMAIN --token ${{ secrets.TDESIGN_SURGE_TOKEN }}
+
+  publish-tag-site-tdesign-vue-next-chat:
+    if: startsWith(github.event.release.tag_name,'@tdesign-vue-next/chat')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - run: pnpm install
+
+      - run: pnpm run site:chat-preview
+
+      - uses: actions/github-script@v7
+        id: domain
+        with:
+          script: |
+            const tagName = '${{ github.event.release.tag_name }}'
+            const lastIndex = tagName.lastIndexOf('@');
+            const version = tagName.slice(lastIndex + 1);
+            const domain= `https://${version.split('.').join('_')}-tdesign-vue-next-chat.surge.sh`
+            core.setOutput('surge', domain);
+            core.setOutput('project', 'packages/tdesign-vue-next-chat/site/dist');
+
+      - run: |
+          export DEPLOY_DOMAIN=${{ steps.domain.surge }}
+          npx surge --project ${{ steps.domain.project }} --domain $DEPLOY_DOMAIN --token ${{ secrets.TDESIGN_SURGE_TOKEN }}
