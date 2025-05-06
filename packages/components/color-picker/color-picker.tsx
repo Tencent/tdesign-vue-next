@@ -24,6 +24,20 @@ export default defineComponent({
 
     const handleClear = (context: { e: MouseEvent }) => props.onClear?.(context);
 
+    const isHover = ref(false);
+
+    // 按键trigger的clearable依赖此鼠标事件
+    const mouseEvent = (v: boolean) => (isHover.value = v);
+    const onMouseenter = (e: MouseEvent) => {
+      mouseEvent(true);
+      if (props.openOnHover) setVisible(true);
+      props.onMouseenter?.({ e });
+    };
+    const onMouseleave = (e: MouseEvent) => {
+      mouseEvent(false);
+      props.onMouseleave?.({ e });
+    };
+
     const renderPopupContent = () => {
       if (props.disabled) {
         return null;
@@ -65,7 +79,13 @@ export default defineComponent({
       };
       return (
         <TPopup {...popProps} content={renderPopupContent}>
-          <div class={`${baseClassName.value}__trigger`} onClick={() => setVisible(!visible.value)} ref={refTrigger}>
+          <div
+            class={`${baseClassName.value}__trigger`}
+            onClick={() => setVisible(!visible.value)}
+            ref={refTrigger}
+            onMouseenter={onMouseenter}
+            onMouseleave={onMouseleave}
+          >
             {renderTNodeJSXDefault(
               'default',
               <DefaultTrigger
@@ -74,9 +94,11 @@ export default defineComponent({
                 disabled={props.disabled}
                 clearable={props.clearable}
                 input-props={props.inputProps}
+                isHover={isHover.value}
                 onTriggerChange={setInnerValue}
                 onTriggerClear={handleClear}
                 size={props.size}
+                triggerType={props.triggerType}
               />,
             )}
           </div>

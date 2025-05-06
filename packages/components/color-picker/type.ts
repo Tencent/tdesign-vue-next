@@ -45,10 +45,10 @@ export interface TdColorPickerProps {
    */
   enableMultipleGradient?: boolean;
   /**
-   * 格式化色值。`enableAlpha` 为真时，`RGBA/HSLA/HSVA` 等值有效
+   * 格式化色值。`enableAlpha` 为真时，`HEX8/RGBA/HSLA/HSVA` 有效
    * @default RGB
    */
-  format?: 'RGB' | 'RGBA' | 'HSL' | 'HSLA' | 'HSB' | 'HSV' | 'HSVA' | 'HEX' | 'CMYK' | 'CSS';
+  format?: 'HEX' | 'HEX8' | 'RGB' | 'RGBA' | 'HSL' | 'HSLA' | 'HSV' | 'HSVA' | 'CMYK' | 'CSS';
   /**
    * 透传 Input 输入框组件全部属性
    */
@@ -58,6 +58,19 @@ export interface TdColorPickerProps {
    * @default false
    */
   multiple?: boolean;
+  /**
+   * 鼠标进入触发器组件时触发事件
+   */
+  onMouseenter?: (context: { e: MouseEvent }) => void;
+  /**
+   * 鼠标退出触发器组件时触发事件
+   */
+  onMouseleave?: (context: { e: MouseEvent }) => void;
+  /**
+   * 是否悬浮时打开颜色选择器面板
+   * @default false
+   */
+  openOnHover?: boolean;
   /**
    * 透传 Popup 组件全部属性，如 `placement` `overlayStyle` `overlayClassName` `trigger`等
    */
@@ -90,6 +103,11 @@ export interface TdColorPickerProps {
    * 系统预设的颜色样例，值为 `null` 或 `[]` 则不显示系统色，值为 `undefined` 会显示组件内置的系统默认色
    */
   swatchColors?: Array<string> | null;
+  /**
+   * 触发器类型，默认为input组件，可显示16进制色值，支持输入/清空。button模式下仅回显色块，无文本，支持清空
+   * @default input
+   */
+  triggerType?: 'input' | 'button';
   /**
    * 色值
    * @default ''
