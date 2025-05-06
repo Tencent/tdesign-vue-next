@@ -347,7 +347,7 @@ export default defineComponent({
           borderless={props.borderless}
           disabled={disabled.value}
           value={inputValue.value}
-          label={props.label}
+          label={() => renderTNodeJSX('label')}
           status={props.status}
           tips={props.tips}
           clearable={props.clearable}

@@ -91,8 +91,8 @@ export default defineComponent({
           }
           const option = optionsMap.value.get(val);
           return {
-            [value]: get(option, value),
-            [label]: get(option, label),
+            [value]: get(option, 'value'),
+            [label]: get(option, 'label'),
           };
         };
         newVal = props.multiple ? (newVal as SelectValue[]).map((val) => getOption(val)) : getOption(newVal);
