@@ -19,6 +19,8 @@ jobs:
         with:
           node-version: 18
 
+      - run: pnpm install
+
       - run: pnpm build
 
       - name: Set publishing config
