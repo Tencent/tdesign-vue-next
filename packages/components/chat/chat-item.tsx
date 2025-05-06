@@ -90,7 +90,7 @@ export default defineComponent({
               ))}
             {!textLoading && (
               <div class={`${COMPONENT_NAME.value}__detail`}>
-                {isObject(props.reasoning) && (
+                {isObject(props.reasoning) && role.value === 'assistant' && (
                   <ChatReasoning
                     role={role.value}
                     expandIconPlacement={(props.reasoning as Record<string, any>).expandIconPlacement}
@@ -101,7 +101,7 @@ export default defineComponent({
                   ></ChatReasoning>
                 )}
                 {/* 适配t-chat传入data */}
-                {isString(props.reasoning) && (
+                {isString(props.reasoning) && role.value === 'assistant' && (
                   <ChatReasoning
                     role={role.value}
                     expandIconPlacement={'right'}
