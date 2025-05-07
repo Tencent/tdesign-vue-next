@@ -117,7 +117,7 @@ const handleChange = (value, { index }) => {
  */
 const renderHeader = (flag, item) => {
   if (flag) {
-    return <t-chat-loading text="思考中..." indicator />;
+    return <t-chat-loading text="思考中..." />;
   }
   const endText = item.duration ? `已深度思考(用时${item.duration}秒)` : '已深度思考';
   return (
