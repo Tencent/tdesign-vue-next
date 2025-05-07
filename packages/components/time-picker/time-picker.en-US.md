@@ -30,7 +30,9 @@ defaultValue | String | - | uncontrolled property。Typescript：`TimePickerValu
 valueDisplay | String / Slot / Function | - | `MouseEvent<SVGElement>`。Typescript：`string \| TNode<{ value: TimePickerValue }>`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 onBlur | Function |  | Typescript：`(context: { value: TimePickerValue } & SelectInputBlurContext) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/time-picker/type.ts)。<br/>`import { SelectInputBlurContext } from '@SelectInput'`<br/> | N
 onChange | Function |  | Typescript：`(value: TimePickerValue) => void`<br/> | N
+onClear | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/>Triggered when the clear button is clicked | N
 onClose | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/> | N
+onConfirm | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/> | N
 onFocus | Function |  | Typescript：`(context: { value: TimePickerValue; e: FocusEvent }) => void`<br/> | N
 onInput | Function |  | Typescript：`(context: { value: TimePickerValue; e: InputEvent }) => void`<br/> | N
 onOpen | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/> | N
@@ -42,7 +44,9 @@ name | params | description
 -- | -- | --
 blur | `(context: { value: TimePickerValue } & SelectInputBlurContext)` | [see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/time-picker/type.ts)。<br/>`import { SelectInputBlurContext } from '@SelectInput'`<br/>
 change | `(value: TimePickerValue)` | \-
+clear | `(context: { e: MouseEvent })` | Triggered when the clear button is clicked
 close | `(context: { e: MouseEvent })` | \-
+confirm | `(context: { e: MouseEvent })` | \-
 focus | `(context: { value: TimePickerValue; e: FocusEvent })` | \-
 input | `(context: { value: TimePickerValue; e: InputEvent })` | \-
 open | `(context: { e: MouseEvent })` | \-
@@ -54,9 +58,10 @@ pick | `(value: TimePickerValue, context: { e: MouseEvent })` | \-
 name | type | default | description | required
 -- | -- | -- | -- | --
 allowInput | Boolean | false | \- | N
+autoSwap | Boolean | true | \- | N
 borderless | Boolean | false | \- | N
 clearable | Boolean | false | \- | N
-disableTime | Function | - | Typescript：`(h: number, m: number, s: number, context: { partial: TimeRangePickerPartial }) =>Partial<{ hour: Array<number>, minute: Array<number>, second: Array<number> }>` `type TimeRangePickerPartial = 'start' \| 'end'`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/time-picker/type.ts) | N
+disableTime | Function | - | Typescript：`(h: number, m: number, s: number, ms: number, context: { partial: TimeRangePickerPartial }) =>Partial<{ hour: Array<number>, minute: Array<number>, second: Array<number> }>` `type TimeRangePickerPartial = 'start' \| 'end'`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/time-picker/type.ts) | N
 disabled | Boolean / Array | undefined | Typescript：`boolean \| Array<boolean>` | N
 format | String | HH:mm:ss | \- | N
 hideDisabledTime | Boolean | true | \- | N

@@ -124,7 +124,7 @@ export default defineComponent({
               theme="primary"
               variant="base"
               disabled={!props.value}
-              onClick={() => props.handleConfirmClick?.(defaultValue.value)}
+              onClick={(e) => props.handleConfirmClick?.(e, defaultValue.value)}
               size="small"
             >
               {globalConfig.value.confirm}
