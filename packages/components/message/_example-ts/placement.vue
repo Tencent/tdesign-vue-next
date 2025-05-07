@@ -73,7 +73,7 @@ const msgList = computed(() =>
     ...item,
     offset: [offsetX.value, offsetY.value],
     ...(isLongMessage.value
-      ? { content: '这是一条特别长的提示，您可以根据这一条提示的长度，查看提示的显示效果并调整偏移量。' }
+      ? { content: '这是一条特别长的提示，您可以根据这一条提示的长度，查看提示的显示效果并调整偏移量。'.repeat(5) }
       : {}),
   })),
 );
