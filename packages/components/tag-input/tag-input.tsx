@@ -79,7 +79,7 @@ export default defineComponent({
           [BREAK_LINE_CLASS.value]: excessTagsDisplayType.value === 'break-line',
           [`${classPrefix.value}-is-empty`]: isEmpty,
           [`${classPrefix.value}-tag-input--with-tag`]: !isEmpty,
-          [`${classPrefix.value}-tag-input--drag-sort`]: props.dragSort,
+          [`${classPrefix.value}-tag-input--drag-sort`]: props.dragSort && !isReadonly.value && !isDisabled.value,
         },
       ];
     });
@@ -118,7 +118,7 @@ export default defineComponent({
     };
 
     const onClick: TdInputProps['onClick'] = (ctx) => {
-      if (isDisabled.value) return;
+      if (isDisabled.value || isReadonly.value) return;
       isFocused.value = true;
       tagInputRef.value?.focus();
       props.onClick?.(ctx);
