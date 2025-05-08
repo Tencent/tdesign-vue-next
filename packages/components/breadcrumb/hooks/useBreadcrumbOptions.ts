@@ -51,7 +51,7 @@ export const useBreadcrumbOptions = (props: TdBreadcrumbProps) => {
         breadcrumbItems.push({
           ...child.props,
           content: getSlotOrProp('default', 'content'),
-          icon: getSlotOrProp('icon', 'icon'),
+          icon: () => getSlotOrProp('icon', 'icon'),
           index: currentIndex++,
         });
       });
