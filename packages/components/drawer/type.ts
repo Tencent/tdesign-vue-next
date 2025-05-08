@@ -61,6 +61,11 @@ export interface TdDrawerProps {
    */
   header?: string | boolean | TNode;
   /**
+   * 是否启用抽屉懒加载，启用时抽屉的内容不渲染
+   * @default false
+   */
+  lazy?: boolean;
+  /**
    * 展开方式，有两种：直接展示在内容上方 和 推开内容区域
    * @default overlay
    */
