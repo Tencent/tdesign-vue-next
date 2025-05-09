@@ -1,6 +1,6 @@
 {
   "name": "@tdesign-vue-next/chat",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "title": "@tdesign-vue-next/chat",
   "description": "AI Chat Component for Vue 3",
   "keywords": [
@@ -44,7 +44,7 @@
     "lodash-es": "^4.17.21",
     "marked": "^12.0.1",
     "marked-highlight": "^2.1.1",
-    "tdesign-icons-vue-next": "^0.3.4",
+    "tdesign-icons-vue-next": "^0.3.6",
     "tdesign-vue-next": "~1.11.0"
   },
   "peerDependencies": {

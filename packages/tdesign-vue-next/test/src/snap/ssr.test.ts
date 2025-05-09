@@ -1,7 +1,7 @@
 import { globSync } from 'glob';
 import MockDate from 'mockdate';
 import { vi, describe, it, expect } from 'vitest';
-import { resolveComponentsRoot, getRelativeWorkspaceRootPath } from '@tdesign/internal-utils';
+import { joinComponentsRoot, getRelativeWorkspaceRootPath } from '@tdesign/internal-utils';
 import { createApp } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
 import { renderToString } from 'vue/server-renderer';
@@ -25,8 +25,8 @@ const createSSRApp = (comp: any) => {
 };
 
 function runTest() {
-  const files = globSync(resolveComponentsRoot('**/_example/*.vue'), {
-    ignore: [resolveComponentsRoot('chat/_example/*.vue')],
+  const files = globSync(joinComponentsRoot('**/_example/*.vue'), {
+    ignore: [joinComponentsRoot('chat/_example/*.vue')],
   });
 
   describe('ssr snapshot test', () => {
