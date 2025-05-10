@@ -11,8 +11,6 @@ export default defineComponent({
   setup(props, { attrs }) {
     const newProps = computed(() => pickBy({ ...props, ...attrs }, (v) => v !== undefined));
     const prefix = usePrefixClass();
-    return () => (
-      <ColorPanel {...newProps.value} popupProps={null} close-btn={false} class={`${prefix.value}-is-inline`} />
-    );
+    return () => <ColorPanel {...newProps.value} popupProps={null} class={`${prefix.value}-is-inline`} />;
   },
 });
