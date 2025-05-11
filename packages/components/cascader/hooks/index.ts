@@ -25,6 +25,35 @@ import {
   CascaderValue,
   TreeOptionData,
 } from '../types';
+import { CascaderProps } from '..';
+
+/**
+ * @description 扁平化树形数据，在 filterable 和 checkStrictly 时使用
+ */
+function flattenOptions(options: CascaderProps['options']) {
+  const result: CascaderProps['options'] = [];
+
+  function processNodes(nodes: any[], parentLabel = '', isParentDisabled = false) {
+    nodes.forEach((node) => {
+      const currentDisabled = isParentDisabled || node.disabled || false;
+      const currentLabel = parentLabel ? `${parentLabel}/${node.label}` : node.label;
+
+      const newNode = {
+        label: currentLabel,
+        value: node.value,
+        disabled: currentDisabled,
+      };
+      result.push(newNode);
+
+      if (node.children) {
+        processNodes(node.children, currentLabel, currentDisabled);
+      }
+    });
+  }
+
+  processNodes(options);
+  return result;
+}
 
 // 全局状态
 export const useContext = (
@@ -231,6 +260,19 @@ export const useCascaderContext = (props: TdCascaderProps) => {
       updatedTreeNodes();
     },
   );
+
+  // watch(
+  //   () => statusContext.inputVal,
+  //   () => {
+  //     if (props.checkStrictly) {
+  //       // 将 options 扁平化并重新加载树
+  //       const flattenedOptions = flattenOptions(props.options);
+
+  //       statusContext.treeStore.reload(flattenedOptions);
+  //       statusContext.treeStore.refreshNodes();
+  //     }
+  //   },
+  // );
 
   const getCascaderItems = (arrValue: CascaderValue[]) => {
     const options: TreeOptionData[] = [];
