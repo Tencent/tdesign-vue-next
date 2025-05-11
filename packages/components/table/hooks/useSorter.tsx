@@ -1,7 +1,7 @@
 import { SetupContext, computed, toRefs, ref, watch } from 'vue';
 import { isFunction } from 'lodash-es';
 import { SortInfo, TdPrimaryTableProps, PrimaryTableCol, TableRowData } from '../type';
-import SorterButton from '../sorter-button';
+import SorterButton from '../components/sorter-button';
 import useDefaultValue from '../../hooks/useDefaultValue';
 import { isArray } from 'lodash-es';
 
