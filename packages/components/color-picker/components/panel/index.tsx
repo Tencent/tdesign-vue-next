@@ -40,6 +40,12 @@ export default defineComponent({
     const statusClassNames = STATUS.value;
     const { value: inputValue, modelValue, recentColors } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(inputValue, modelValue, props.defaultValue, props.onChange);
+    const [innerRecentColors, setInnerRecentColors] = useDefaultValue(
+      recentColors,
+      props.defaultRecentColors,
+      props.onRecentColorsChange,
+      'recentColors',
+    );
 
     const getModeByColor = (input: string) => {
       if (props.colorModes.length === 1) return props.colorModes[0];
@@ -56,22 +62,15 @@ export default defineComponent({
 
     const formatModel = ref<TdColorPickerProps['format']>(initColorFormat(props.format, props.enableAlpha));
 
-    const [recentlyUsedColors, setRecentlyUsedColors] = useDefaultValue(
-      recentColors,
-      props.defaultRecentColors,
-      props.onRecentColorsChange,
-      'recentColors',
-    );
-
     /**
      * 添加最近使用颜色
      * @returns void
      */
     const addRecentlyUsedColor = () => {
-      if (recentlyUsedColors.value === null || recentlyUsedColors.value === false) {
+      if (innerRecentColors.value === null || innerRecentColors.value === false) {
         return;
       }
-      const colors = cloneDeep(recentlyUsedColors.value as string[]) || [];
+      const colors = cloneDeep(innerRecentColors.value as string[]) || [];
       const currentColor = color.value.isGradient ? color.value.linearGradient : color.value.rgba;
       const index = colors.indexOf(currentColor);
       if (index > -1) {
@@ -89,7 +88,7 @@ export default defineComponent({
      * @param colors
      */
     const handleRecentlyUsedColorsChange = (colors: string[]) => {
-      setRecentlyUsedColors(colors);
+      setInnerRecentColors(colors);
     };
 
     /**
@@ -242,11 +241,11 @@ export default defineComponent({
       const onlySupportGradient = props.colorModes.length === 1 && props.colorModes.includes('linear-gradient');
 
       // 最近使用颜色
-      let recentColors = recentlyUsedColors.value;
+      let recentColors = innerRecentColors.value;
       if (onlySupportGradient && Array.isArray(recentColors)) {
         recentColors = recentColors.filter((color) => Color.isGradientColor(color));
       }
-      const showUsedColors = Array.isArray(recentColors) || recentColors === true;
+      const showUsedColors = !!Array.isArray(recentColors);
 
       // 系统预设颜色
       let systemColors = props.swatchColors;
