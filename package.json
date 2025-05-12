@@ -54,6 +54,7 @@
     "@tdesign/components": "workspace:^",
     "@tdesign/internal-tests": "workspace:^",
     "@tdesign/internal-utils": "workspace:^",
+    "@tdesign/pro-components-chat": "workspace:^",
     "@types/sortablejs": "^1.15.1",
     "@types/tinycolor2": "^1.4.3",
     "@types/validator": "^13.7.17",

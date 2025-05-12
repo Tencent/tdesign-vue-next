@@ -1,9 +1,8 @@
 import { defineComponent } from 'vue';
-import { usePrefixClass, useConfig } from '../hooks/useConfig';
+// TODO: need refactor
+import { usePrefixClass, useConfig } from '../../components/hooks/useConfig';
 import props from './chat-action-props';
-import Button from '../button';
-import Space from '../space';
-import Tooltip from '../tooltip';
+import { Button, Space, Tooltip } from 'tdesign-vue-next';
 import {
   ThumbUpIcon,
   ThumbUpFilledIcon,
@@ -12,7 +11,8 @@ import {
   RefreshIcon,
   CopyIcon,
 } from 'tdesign-icons-vue-next';
-import { useTNodeJSX } from '../hooks/tnode';
+// TODO: need refactor
+import { useTNodeJSX } from '../../components/hooks/tnode';
 import Clipboard from 'clipboard';
 import { MessagePluginSingleton } from './utils';
 

@@ -2,11 +2,11 @@ import { defineComponent, computed, provide, ref } from 'vue';
 import { ClearIcon } from 'tdesign-icons-vue-next';
 import { isArray } from 'lodash-es';
 import props from './props';
-import Divider from '../divider';
-import Popconfirm from '../popconfirm';
-
-import { usePrefixClass, useConfig } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
+import { Divider, Popconfirm } from 'tdesign-vue-next';
+// TODO: need refactor
+import { usePrefixClass, useConfig } from '../../components/hooks/useConfig';
+// TODO: need refactor
+import { useTNodeJSX } from '../../components/hooks/tnode';
 import ChatItem from './chat-item';
 import { TdChatItemProps, ScrollToBottomParams } from './type';
 
