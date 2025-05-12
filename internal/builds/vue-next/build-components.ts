@@ -47,7 +47,6 @@ const inputList = [
   `!${joinComponentsRoot('**/type.ts')}`,
   `!${joinComponentsRoot('**/types.ts')}`,
   `!${joinComponentsRoot('**/__tests__')}`,
-  `!${joinComponentsRoot('chat/')}`,
 ];
 
 const getPlugins = ({
@@ -158,7 +157,7 @@ const getPlugins = ({
 export const buildEs = async () => {
   const buildCss = async () => {
     const bundle = await rollup({
-      input: [joinComponentsRoot('**/style/index.js'), `!${joinComponentsRoot('chat/style/index.js')}`],
+      input: [joinComponentsRoot('**/style/index.js')],
       plugins: [multiInput({ relative: joinComponentsRoot() }), styles({ mode: 'extract' }), nodeResolve()],
     });
     bundle.write({
