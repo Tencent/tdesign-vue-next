@@ -107,7 +107,7 @@ export default defineComponent({
         (props.closeOnEscKeydown ?? globalConfig.value.closeOnEscKeydown) &&
         e.key === 'Escape' &&
         isVisible.value &&
-        isLastDialogOrDrawer()
+        isTopInteractivePopup()
       ) {
         props.onEscKeydown?.({ e });
         closeDrawer({ trigger: 'esc', e });
@@ -181,7 +181,7 @@ export default defineComponent({
       { immediate: true },
     );
 
-    const { isLastDialogOrDrawer } = usePopupManager('drawer', {
+    const { isTopInteractivePopup } = usePopupManager('drawer', {
       visible: computedVisible,
     });
 

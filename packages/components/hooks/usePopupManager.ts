@@ -46,7 +46,8 @@ class PopupManager {
     }
   };
 
-  public isLastDialogOrDrawer = (popupType: PopupType, zIndex: number) => {
+  // 最顶层的交互式弹窗（指Dialog和Drawer）
+  public isTopInteractivePopup = (popupType: PopupType, zIndex: number) => {
     if (popupStackType.includes(popupType)) {
       const lastZIndex = this.zIndexStack[this.zIndexStack.length - 1];
       return zIndex === lastZIndex;
@@ -86,9 +87,9 @@ export default function usePopupManager(
     popupManager.delete(zIndex.value, type);
   };
 
-  const isLastDialogOrDrawer = () => {
+  const isTopInteractivePopup = () => {
     if (popupStackType.includes(type)) {
-      return popupManager.isLastDialogOrDrawer(type, zIndex.value);
+      return popupManager.isTopInteractivePopup(type, zIndex.value);
     }
     return false;
   };
@@ -121,6 +122,6 @@ export default function usePopupManager(
     zIndex: readonly(zIndex),
     open,
     close,
-    isLastDialogOrDrawer,
+    isTopInteractivePopup,
   };
 }

@@ -98,7 +98,7 @@ export default defineComponent({
       return topStyle;
     });
 
-    const { isLastDialogOrDrawer } = usePopupManager('dialog', {
+    const { isTopInteractivePopup } = usePopupManager('dialog', {
       visible: computedVisible,
     });
 
@@ -152,12 +152,12 @@ export default defineComponent({
       const eventSrc = e.target as HTMLElement;
       if (eventSrc.tagName.toLowerCase() === 'input') return; // 若是input触发 则不执行
       const { code } = e;
-      if ((code === 'Enter' || code === 'NumpadEnter') && isLastDialogOrDrawer()) {
+      if ((code === 'Enter' || code === 'NumpadEnter') && isTopInteractivePopup()) {
         props.onConfirm?.({ e });
       }
     };
     const keyboardEvent = (e: KeyboardEvent) => {
-      if (e.code === 'Escape' && isLastDialogOrDrawer()) {
+      if (e.code === 'Escape' && isTopInteractivePopup()) {
         props.onEscKeydown?.({ e });
         // 根据closeOnEscKeydown判断按下ESC时是否触发close事件
         if (props.closeOnEscKeydown ?? globalConfig.value.closeOnEscKeydown) {
