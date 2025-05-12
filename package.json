@@ -26,7 +26,7 @@
     "site:chat": "pnpm -C packages/tdesign-vue-next-chat/site build",
     "site:chat-intranet": "pnpm -C packages/tdesign-vue-next-chat/site intranet",
     "site:chat-preview": "pnpm -C packages/tdesign-vue-next-chat/site preview",
-    "build:chat": "pnpm -C internal/builds build:vue-next-chat",
+    "build:chat": "pnpm -C internal/builds build:chat",
     "generate:usage": "node script/generate-usage/index.js",
     "generate:component": "node script/init/index.js",
     "generate:coverage-badge": "pnpm test:unit-coverage && tsx script/test/generate-coverage.js",
