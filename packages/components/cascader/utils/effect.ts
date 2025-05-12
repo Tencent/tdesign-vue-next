@@ -42,7 +42,7 @@ export function expendClickEffect(
       setTreeNodes(nodes);
     };
 
-    if (checkStrictly) {
+    if (checkStrictly && cascaderContext.inputVal) {
       // 加载回 options,因为 treeStore 需要重新加载延迟避免闪烁
       setTimeout(() => {
         treeStore.reload(options);
@@ -191,7 +191,7 @@ export const treeNodesEffect = (
   filter: CascaderContextType['filter'],
 ) => {
   if (!treeStore) return;
-
+  let nodes = [];
   // 通用的过滤方法
   const filterMethods = (node: TreeNode) => {
     if (!node.isLeaf()) return false;
@@ -203,12 +203,11 @@ export const treeNodesEffect = (
   };
 
   if (inputVal) {
-    const nodes = treeStore.nodes.filter(filterMethods);
-    setTreeNodes(nodes);
+    nodes = treeStore.nodes.filter(filterMethods);
   } else {
-    const nodes = treeStore.getNodes().filter((node: TreeNode) => node.visible);
-    setTreeNodes(nodes);
+    nodes = treeStore.getNodes().filter((node: TreeNode) => node.visible);
   }
+  setTreeNodes(nodes);
 };
 
 /**
