@@ -125,7 +125,7 @@ export interface TdTimePickerProps {
    */
   onChange?: (value: TimePickerValue) => void;
   /**
-   * 清空按钮点击时触发
+   * 点击清空按钮时触发
    */
   onClear?: (context: { e: MouseEvent }) => void;
   /**
