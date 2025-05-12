@@ -58,7 +58,7 @@ export default defineComponent({
       e.stopPropagation();
       currentValue.value = null;
       setInnerValue(null);
-      props.onClear?.(context);
+      props?.onClear?.(context);
     };
 
     const handleInputChange = (value: string) => {
