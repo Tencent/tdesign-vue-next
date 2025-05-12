@@ -14,7 +14,7 @@
       <template #content="{ item, index }">
         <t-chat-reasoning v-if="item.reasoning?.length > 0" expand-icon-placement="right">
           <template #header>
-            <t-chat-loading v-if="isStreamLoad" text="思考中..." indicator />
+            <t-chat-loading v-if="isStreamLoad" text="思考中..." />
             <div v-else style="display: flex; align-items: center">
               <CheckCircleIcon style="color: var(--td-success-color-5); font-size: 20px; margin-right: 8px" />
               <span>已深度思考</span>

@@ -6,6 +6,7 @@
     :loading="isLoading"
     :pagination="pagination"
     :selected-row-keys="selectedRowKeys"
+    :reserve-selected-row-on-paginate="false"
     bordered
     stripe
     lazy-load
