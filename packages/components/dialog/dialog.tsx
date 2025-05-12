@@ -102,13 +102,13 @@ export default defineComponent({
       visible: computedVisible,
     });
     /**是否已经第一次渲染，懒加载判断 */
-    const isFirstAlreadyRender = ref(false);
+    const isMounted = ref(false);
 
     watch(
       () => props.visible,
       (value) => {
         if (value) {
-          isFirstAlreadyRender.value = true;
+          isMounted.value = true;
           if ((isModal.value && !props.showInAttachedElement) || isFullScreen.value) {
             if (props.preventScrollThrough) {
               document.body.appendChild(styleEl.value);
@@ -286,7 +286,7 @@ export default defineComponent({
       const shouldRender = computed(() => {
         const { destroyOnClose, visible, lazy } = props;
         const shouldDestroy = destroyOnClose && !visible;
-        const avoidRender = !lazy || isFirstAlreadyRender.value;
+        const avoidRender = !lazy || isMounted.value;
         return shouldDestroy || avoidRender;
       });
 
