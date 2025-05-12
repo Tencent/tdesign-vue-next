@@ -22,12 +22,15 @@
     </template>
     <template #header>
       123
-      <t-chat-attachments :files-list="filesList" />
+      <!-- @TODO: 改成withInstall方式 -->
+      <Attachments :items="filesList" />
+      <!-- <omitattachments :files-list="filesList" /> -->
     </template>
   </t-chat-sender>
 </template>
 <script setup lang="ts">
 import { ref } from 'vue';
+import { Attachments } from '../index';
 const query = ref('');
 const loading = ref(false);
 // 模拟消息发送
@@ -89,7 +92,6 @@ const filesList = ref([
     uid: '9',
     name: 'markdown-file.md',
     size: 999999,
-    description: 'Custom description',
   },
   {
     uid: '10',

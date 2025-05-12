@@ -8,10 +8,10 @@
     }"
     @send="inputEnter"
   >
-    <template #suffix="{ presets }">
+    <!-- <template #suffix="{ presets }">
       <t-button theme="default" variant="text" size="large" class="btn"> 发送 </t-button>
       <component :is="presets()" />
-    </template>
+    </template> -->
     <template #prefix>
       <div class="model-select">
         <t-tooltip v-model:visible="allowToolTip" content="切换模型" trigger="hover">
