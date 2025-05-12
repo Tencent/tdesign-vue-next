@@ -56,6 +56,11 @@ export const getProComponentsRoot = () => {
   return joinPosix(getPackagesRoot(), 'pro-components');
 };
 
+// packages/pro-components-chat
+export const getProComponentsChatRoot = () => {
+  return joinPosix(getProComponentsRoot(), 'chat');
+};
+
 // packages/tdesign-vue-next
 export const getTdesignVueNextRoot = () => {
   return joinPosix(getPackagesRoot(), 'tdesign-vue-next');
@@ -85,6 +90,10 @@ export const joinComponentsRoot = (...paths: string[]) => {
 
 export const joinProComponentsRoot = (...paths: string[]) => {
   return joinPosix(getProComponentsRoot(), ...paths);
+};
+
+export const joinProComponentsChatRoot = (...paths: string[]) => {
+  return joinPosix(getProComponentsChatRoot(), ...paths);
 };
 
 export const joinTdesignVueNextRoot = (...paths: string[]) => {

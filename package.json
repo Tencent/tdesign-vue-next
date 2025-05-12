@@ -48,6 +48,7 @@
   "dependencies": {
     "@babel/runtime": "^7.22.6",
     "@popperjs/core": "^2.11.8",
+    "@tdesign-vue-next/chat": "workspace:^",
     "@tdesign/common-docs": "workspace:^",
     "@tdesign/common-js": "workspace:^",
     "@tdesign/common-style": "workspace:^",

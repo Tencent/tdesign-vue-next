@@ -4,10 +4,11 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
-import { AvatarProps } from '../avatar';
-import { TextareaProps } from '../textarea';
-import { CollapsePanelProps } from '../collapse';
-import { TNode } from '../common';
+import { AvatarProps } from 'tdesign-vue-next';
+import { TextareaProps } from 'tdesign-vue-next';
+import { CollapsePanelProps } from 'tdesign-vue-next';
+// TODO: need refactor
+import { TNode } from '../../components/common';
 
 export interface TdChatProps {
   /**
