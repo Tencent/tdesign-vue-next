@@ -30,7 +30,7 @@ export default defineComponent({
     const renderContent = useContent();
     const COMPONENT_NAME = usePrefixClass('drawer');
     const { draggedSizeValue, enableDrag, draggableLineStyles, draggingStyles } = useDrag(props as TdDrawerProps);
-    const firstAlreadyRender = ref(false);
+    const isMounted = ref(false);
 
     // teleport容器
     const teleportElement = useTeleport(() => props.attach);
@@ -173,7 +173,7 @@ export default defineComponent({
 
     const updateVisibleState = (value: boolean) => {
       if (value) {
-        firstAlreadyRender.value = true;
+        isMounted.value = true;
       }
       if (props.destroyOnClose) {
         addDrawerTransitionEndListener(() => {
@@ -242,7 +242,7 @@ export default defineComponent({
     });
 
     return () => {
-      if (destroyOnCloseVisible.value || (!firstAlreadyRender.value && props.lazy)) return;
+      if (destroyOnCloseVisible.value || (!isMounted.value && props.lazy)) return;
       const body = renderContent('body', 'default');
       const headerContent = renderTNodeJSX('header');
       const defaultFooter = getDefaultFooter();
