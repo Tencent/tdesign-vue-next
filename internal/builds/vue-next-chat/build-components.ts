@@ -356,11 +356,11 @@ export const deleteOutput = async () => {
 };
 
 export const buildComponents = async () => {
-  // await deleteOutput();
-  // await buildEs();
-  // await buildEsm();
-  // await buildLib();
-  // await buildCjs();
+  await deleteOutput();
+  await buildEs();
+  await buildEsm();
+  await buildLib();
+  await buildCjs();
   await buildUmd();
   await buildUmd(true);
   // TODO: check if this is needed
