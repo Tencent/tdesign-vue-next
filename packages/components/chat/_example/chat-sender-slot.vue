@@ -8,8 +8,9 @@
     }"
     @send="inputEnter"
   >
-    <template #suffix>
+    <template #suffix="{ presets }">
       <t-button theme="default" variant="text" size="large" class="btn"> 发送 </t-button>
+      <component :is="presets()" />
     </template>
     <template #prefix>
       <div class="model-select">

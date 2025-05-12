@@ -22,6 +22,11 @@ import {
 } from './type';
 
 import './style';
+import '@tencent/tdesign-chatbot/lib/chat-sender';
+import '@tencent/tdesign-chatbot/lib/attachments';
+import { omiVueify } from 'omi-vueify';
+import type { DefineComponent } from 'vue';
+import type { TdAttachmentsProps } from '@tencent/tdesign-chatbot/lib/attachments';
 
 export * from './type';
 
@@ -42,5 +47,8 @@ export const ChatContent = withInstall(_ChatContent);
 export const ChatReasoning = withInstall(_ChatReasoning);
 export const ChatAction = withInstall(_ChatAction);
 export const ChatLoading = withInstall(_ChatLoading);
-
+export const Attachments = omiVueify('t-attachments', {
+  methodNames: [],
+}) as DefineComponent<TdAttachmentsProps>;
+export const ChatAttachments = withInstall(Attachments);
 export default Chat;

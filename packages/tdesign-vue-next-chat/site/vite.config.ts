@@ -31,7 +31,19 @@ export default defineConfig(({ mode }) => {
         allow: [searchForWorkspaceRoot(process.cwd())],
       },
     },
-    plugins: [vue(), vueJsx(), tDocPlugin()],
+    plugins: [
+      vue({
+        template: {
+          compilerOptions: {
+            isCustomElement: (tag) => tag.includes('t-'),
+          },
+        },
+      }),
+      vueJsx({
+        isCustomElement: (tag) => tag.includes('t-'),
+      }),
+      tDocPlugin(),
+    ],
     optimizeDeps: {
       include: ['prismjs', 'prismjs/components/prism-bash.js'],
     },

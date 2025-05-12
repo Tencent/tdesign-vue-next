@@ -30,6 +30,8 @@
     "tdesign-theme-generator": "^1.0.17",
     "typescript": "~5.7.2",
     "vite": "^6.2.0",
-    "vite-plugin-tdoc": "^2.0.4"
+    "vite-plugin-tdoc": "^2.0.4",
+    "@tencent/tdesign-chatbot": "1.0.0-beta.51",
+    "omi-vueify": "^0.0.6"
   }
 }
