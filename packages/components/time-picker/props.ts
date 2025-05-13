@@ -54,7 +54,7 @@ export default {
   presets: {
     type: Object as PropType<TdTimePickerProps['presets']>,
   },
-  /** 只读状态 */
+  /** 只读状态，优先级大于 `allowInput` */
   readonly: {
     type: Boolean,
     default: undefined,

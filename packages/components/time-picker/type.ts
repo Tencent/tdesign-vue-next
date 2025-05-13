@@ -71,7 +71,7 @@ export interface TdTimePickerProps {
    */
   presets?: PresetTime;
   /**
-   * 只读状态
+   * 只读状态，优先级大于 `allowInput`
    */
   readonly?: boolean;
   /**
