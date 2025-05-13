@@ -220,6 +220,10 @@ export interface TdTimeRangePickerProps {
    */
   rangeInputProps?: RangeInputProps;
   /**
+   * 只读状态，优先级大于 `allowInput`
+   */
+  readonly?: boolean;
+  /**
    * 尺寸
    * @default medium
    */

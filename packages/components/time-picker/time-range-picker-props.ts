@@ -59,7 +59,7 @@ export default {
   rangeInputProps: {
     type: Object as PropType<TdTimeRangePickerProps['rangeInputProps']>,
   },
-  /** 只读状态 */
+  /** 只读状态，优先级大于 `allowInput` */
   readonly: {
     type: Boolean,
     default: undefined,
