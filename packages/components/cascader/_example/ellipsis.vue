@@ -1,7 +1,12 @@
 <template>
   <t-space direction="vertical">
+    <t-cascader v-model="value1" :options="options" clearable placeholder="请选择" size="small" />
     <t-cascader v-model="value1" :options="options" clearable placeholder="请选择" />
+    <t-cascader v-model="value1" :options="options" clearable placeholder="请选择" size="large" />
+
+    <t-cascader v-model="value2" multiple :options="options" clearable placeholder="请选择" size="small" />
     <t-cascader v-model="value2" multiple :options="options" clearable placeholder="请选择" />
+    <t-cascader v-model="value2" multiple :options="options" clearable placeholder="请选择" size="large" />
   </t-space>
 </template>
 
