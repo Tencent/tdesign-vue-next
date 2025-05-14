@@ -6,6 +6,8 @@
 
 名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
+collapsed | Boolean | false | 是否折叠。支持语法糖 v-model:collapsed | N
+defaultCollapsed | Boolean | false | 是否折叠。非受控属性 | N
 collapsePanelProps | Object | - | 透传给 CollapsePanel 组件的全部属性。TS 类型：`CollapsePanelProps`，[Collapse API Documents](./collapse?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/chat/type.ts) | N
 expandIcon | Slot / Function | - | 当前折叠面板展开图标。优先级低于collapsePanelProps.expandIcon。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 expandIconPlacement | String | right | 展开图标位置，可选项：left/right。可选项：left/right | N
@@ -17,4 +19,4 @@ onExpandChange | Function |  | TS 类型：`(value: CollapseValue) => void`<br/>
 
 名称 | 参数 | 描述
 -- | -- | --
-expand-change | `(value: CollapseValue)` | 展开图标点击事件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/chat/type.ts)。<br/>`import { CollapseValue } from '@Collapse'`<br/>
+expand-change | `(value: Boolean)` | 展开图标点击事件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/chat/type.ts)。

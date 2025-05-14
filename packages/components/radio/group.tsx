@@ -12,13 +12,13 @@ import {
   toRefs,
   onUnmounted,
 } from 'vue';
-import { isString } from 'lodash-es';
+import { isEqual, isString } from 'lodash-es';
 import { isNumber } from 'lodash-es';
 import { isNil } from 'lodash-es';
 import { throttle } from 'lodash-es';
 
 import props from './radio-group-props';
-import { RadioOptionObj, RadioOption } from './type';
+import type { RadioOptionObj, RadioOption, TdRadioGroupProps } from './type';
 import TRadio from './radio';
 import TRadioButton from './radio-button';
 import { RadioGroupInjectionKey } from './consts';
@@ -43,8 +43,13 @@ export default defineComponent({
     const radioBtnName = usePrefixClass('radio-button');
     const { STATUS, SIZE } = useCommonClassName();
 
+    const updateInnerValue: TdRadioGroupProps['onChange'] = (value, context) => {
+      if (isEqual(value, innerValue.value)) return;
+      setInnerValue(value, context);
+    };
+
     // 键盘操作
-    useKeyboard(radioGroupRef, setInnerValue);
+    useKeyboard(radioGroupRef, updateInnerValue);
 
     const checkedClassName = computed(() => `.${radioBtnName.value}.${STATUS.value.checked}`);
 
@@ -153,7 +158,7 @@ export default defineComponent({
         readonly,
         value: innerValue,
         allowUncheck: props.allowUncheck,
-        setValue: setInnerValue,
+        setValue: updateInnerValue,
       }),
     );
 

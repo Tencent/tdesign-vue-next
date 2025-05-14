@@ -9,6 +9,8 @@ import {
   VNodeArrayChildren,
   RendererElement,
   VNodeChild,
+  isVNode,
+  Teleport,
 } from 'vue';
 import { isArray } from 'lodash-es';
 import { getChildren } from '../utils/render-tnode';
@@ -72,4 +74,26 @@ export function useChildSlots(): () => (
       })
       .flat();
   };
+}
+
+/**
+ * 递归展开所有 Fragment，并跳过 Comment 节点，返回一维 VNodeChild 数组
+ * @example const useFlatChildrenSlots = useFlatChildrenSlotsHook()
+ * @example useFlatChildrenSlots(children)
+ */
+export function useFlatChildrenSlots() {
+  function getFlatChildren(children: VNodeChild[]): VNodeChild[] {
+    const result: VNodeChild[] = [];
+    children.forEach((child) => {
+      if (isVNode(child) && child.type === Fragment && Array.isArray(child.children)) {
+        result.push(...getFlatChildren(child.children as VNodeChild[]));
+      } else if (isVNode(child) && [Teleport, Comment].some((vNode) => vNode === child.type)) {
+        // skip Teleport and Comment
+      } else {
+        result.push(child);
+      }
+    });
+    return result;
+  }
+  return getFlatChildren;
 }

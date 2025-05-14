@@ -7,7 +7,7 @@
 import { InputProps } from '../input';
 import { PopupProps } from '../popup';
 import { SelectInputProps } from '../select-input';
-import { TNode, SizeEnum } from '../common';
+import { SizeEnum } from '../common';
 
 export interface TdColorPickerProps {
   /**
@@ -20,11 +20,6 @@ export interface TdColorPickerProps {
    * @default false
    */
   clearable?: boolean;
-  /**
-   * 关闭按钮，值为 `true` 显示默认关闭按钮；值为 `false` 或 `undefined` 则不显示关闭按钮；值类型为函数，则表示自定义关闭按钮
-   * @default true
-   */
-  closeBtn?: string | boolean | TNode;
   /**
    * 颜色模式选择。同时支持单色和渐变两种模式，可仅使用单色或者渐变其中一种模式，也可以同时使用。`monochrome` 表示单色，`linear-gradient` 表示渐变色
    * @default ["monochrome", "linear-gradient"]
@@ -45,33 +40,28 @@ export interface TdColorPickerProps {
    */
   enableMultipleGradient?: boolean;
   /**
-   * 格式化色值。`enableAlpha` 为真时，`RGBA/HSLA/HSVA` 等值有效
+   * 格式化色值。`enableAlpha` 为真时，`HEX8/RGBA/HSLA/HSVA` 有效
    * @default RGB
    */
-  format?: 'RGB' | 'RGBA' | 'HSL' | 'HSLA' | 'HSB' | 'HSV' | 'HSVA' | 'HEX' | 'CMYK' | 'CSS';
+  format?: 'HEX' | 'HEX8' | 'RGB' | 'RGBA' | 'HSL' | 'HSLA' | 'HSV' | 'HSVA' | 'CMYK' | 'CSS';
   /**
    * 透传 Input 输入框组件全部属性
    */
   inputProps?: InputProps;
   /**
-   * 【开发中】是否允许选中多个颜色
-   * @default false
-   */
-  multiple?: boolean;
-  /**
    * 透传 Popup 组件全部属性，如 `placement` `overlayStyle` `overlayClassName` `trigger`等
    */
   popupProps?: PopupProps;
   /**
-   * 最近使用的颜色。值为 [] 表示以组件内部的“最近使用颜色”为准，值长度大于 0 则以该值为准显示“最近使用颜色”。值为 null 则完全不显示“最近使用颜色”
+   * 最近使用的颜色。值为 [] 表示以组件内部的“最近使用颜色”为准，值长度大于 0 则以该值为准显示“最近使用颜色”。值为 false 或 null 则完全不显示“最近使用颜色”
    * @default []
    */
-  recentColors?: boolean | Array<string> | null;
+  recentColors?: Array<string> | boolean | null;
   /**
-   * 最近使用的颜色。值为 [] 表示以组件内部的“最近使用颜色”为准，值长度大于 0 则以该值为准显示“最近使用颜色”。值为 null 则完全不显示“最近使用颜色”，非受控属性
+   * 最近使用的颜色。值为 [] 表示以组件内部的“最近使用颜色”为准，值长度大于 0 则以该值为准显示“最近使用颜色”。值为 false 或 null 则完全不显示“最近使用颜色”，非受控属性
    * @default []
    */
-  defaultRecentColors?: boolean | Array<string> | null;
+  defaultRecentColors?: Array<string> | boolean | null;
   /**
    * 透传 SelectInputProps 筛选器输入框组件全部属性
    */
@@ -89,7 +79,7 @@ export interface TdColorPickerProps {
   /**
    * 系统预设的颜色样例，值为 `null` 或 `[]` 则不显示系统色，值为 `undefined` 会显示组件内置的系统默认色
    */
-  swatchColors?: Array<string> | null;
+  swatchColors?: Array<string> | null | undefined;
   /**
    * 色值
    * @default ''
