@@ -37,7 +37,9 @@ export default defineComponent({
       if (textValue.value && !disabled.value) {
         emit('send', textValue.value, { e });
         loading.value = true;
-        textValue.value = '';
+        if (props.autoClearValue) {
+          setInnerValue('', { e });
+        }
       }
     };
     // 点击了停止按钮
@@ -119,7 +121,11 @@ export default defineComponent({
 
       const uploadAttachment = actions.find((item) => item.name === 'uploadAttachment');
       const uploadAttachmentButton = uploadAttachment ? (
-        <>
+        <span
+          onClick={(e) => {
+            e.stopPropagation(); // 阻止事件冒泡
+          }}
+        >
           <input
             {...uploadAttachment.uploadProps}
             ref={uploadFileRef}
@@ -146,12 +152,16 @@ export default defineComponent({
               <FileAttachmentIcon />
             </Button>
           </Tooltip>
-        </>
+        </span>
       ) : null;
 
       const uploadImage = actions.find((item) => item.name === 'uploadImage');
       const renderUploadImageButton = uploadImage ? (
-        <>
+        <span
+          onClick={(e) => {
+            e.stopPropagation(); // 阻止事件冒泡
+          }}
+        >
           <input
             {...uploadImage.uploadProps}
             ref={uploadImageRef}
@@ -178,7 +188,7 @@ export default defineComponent({
               <ImageIcon />
             </Button>
           </Tooltip>
-        </>
+        </span>
       ) : null;
       const buttonComponents = {
         uploadAttachment: uploadAttachmentButton,
@@ -202,7 +212,6 @@ export default defineComponent({
               textValue.value ? '' : `${COMPONENT_NAME.value}-sender__button--disabled`,
             ]}
             disabled={disabled.value || showStopBtn.value || !textValue.value}
-            onClick={sendClick}
           >
             <SendFilledIcon />
           </Button>
@@ -249,7 +258,9 @@ export default defineComponent({
             <div class={`${COMPONENT_NAME.value}-sender__button`}>
               {/* 发送按钮 */}
               {!showStopBtn.value && (
-                <div class={`${COMPONENT_NAME.value}-sender__button__sendbtn`}>{renderSuffixIcon()}</div>
+                <div class={`${COMPONENT_NAME.value}-sender__button__sendbtn`} onClick={sendClick}>
+                  {renderSuffixIcon()}
+                </div>
               )}
               {/* 停止按钮 */}
               {showStopBtn.value && (

@@ -16,6 +16,7 @@ inner-header | String / Slot / Function | - | 输入框内标题区域扩展 | N
 textareaProps | Object | - | 透传给  Textarea 组件的全部属性。TS 类型：`TextareaProps`，[Textarea API Documents](./textarea?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/chat/type.ts) | N
 value | String | - | 输入框的值。支持语法糖 `v-model` 或 `v-model:value` | N
 defaultValue | String | - | 输入框的值。非受控属性 | N
+autoClearValue | Boolean | true | 发送时是否自动清空输入框 | N
 onBlur | Function |  | TS 类型：`(value:string, context: { e: FocusEvent }) => void`<br/>输入框聚焦时触发 | N
 onChange | Function |  | TS 类型：`(value:string, context: { e: InputEvent \| MouseEvent \| KeyboardEvent }) => void`<br/>输入框值发生变化时触发 | N
 onFocus | Function |  | TS 类型：`(value:string, context: { e: FocusEvent })  => void`<br/>输入框聚焦时触发 | N
