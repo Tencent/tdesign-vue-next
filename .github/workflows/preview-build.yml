@@ -36,9 +36,9 @@ jobs:
             const tagName = 'tdesign-vue-next@1.13.0'
             const lastIndex = tagName.lastIndexOf('@');
             const version = tagName.slice(lastIndex + 1);
-            const domain= `https://${version.split('.').join('_')}-tdesign-vue-next-chat.surge.sh`
+            const domain= `https://${version.split('.').join('_')}-tdesign-vue-next.surge.sh`
             core.setOutput('surge', domain);
-            core.setOutput('project', 'packages/tdesign-vue-next-chat/site/dist');
+            core.setOutput('project', 'packages/tdesign-vue-next/site/dist');
 
       - run: |
           export DEPLOY_DOMAIN=${{ steps.domain.outputs.surge }}
