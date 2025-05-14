@@ -99,7 +99,7 @@ export const docs = [
         componentEn: () => import('@tdesign/common/theme.en-US.md'),
       },
       {
-        title: '暗色模式',
+        title: '深色模式',
         titleEn: 'Dark Mode',
         name: 'dark-mode',
         path: '/chat/dark-mode',

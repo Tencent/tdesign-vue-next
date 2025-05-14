@@ -16,7 +16,7 @@ import {
 import props from './props';
 import useResizeObserver from '../hooks/useResizeObserver';
 import { isArray } from 'lodash-es';
-import { getSSRAttach, getAttach } from '../utils/dom';
+import { getAttach } from '../utils/dom';
 
 function filterEmpty(children: VNode[] = []) {
   const vnodes: VNode[] = [];
@@ -162,7 +162,7 @@ export default defineComponent({
     });
 
     return () => {
-      const getElement = () => getSSRAttach() || getAttach(props.attach, triggerEl.value);
+      const getElement = () => getAttach(props.attach, triggerEl.value);
       return (
         <Fragment>
           <Trigger

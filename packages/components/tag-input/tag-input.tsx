@@ -79,6 +79,7 @@ export default defineComponent({
           [BREAK_LINE_CLASS.value]: excessTagsDisplayType.value === 'break-line',
           [`${classPrefix.value}-is-empty`]: isEmpty,
           [`${classPrefix.value}-tag-input--with-tag`]: !isEmpty,
+          [`${classPrefix.value}-tag-input--drag-sort`]: props.dragSort && !isReadonly.value && !isDisabled.value,
         },
       ];
     });
@@ -145,7 +146,7 @@ export default defineComponent({
       props.onFocus?.(tagValue.value, { e: context.e, inputValue });
     };
 
-    const onInnerBlur: InputProps['onFocus'] = (inputValue: string, context: { e: MouseEvent }) => {
+    const onInnerBlur: InputProps['onBlur'] = (inputValue: string, context: { e: MouseEvent }) => {
       isFocused.value = false;
       setTInputValue('', { e: context.e, trigger: 'blur' });
       props.onBlur?.(tagValue.value, { e: context.e, inputValue });

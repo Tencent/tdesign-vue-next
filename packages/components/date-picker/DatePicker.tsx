@@ -1,6 +1,6 @@
 import { defineComponent, computed, watch } from 'vue';
 import dayjs from 'dayjs';
-import { isFunction } from 'lodash-es';
+import { isFunction, isDate } from 'lodash-es';
 import { CalendarIcon as TdCalendarIcon } from 'tdesign-icons-vue-next';
 
 import { useTNodeJSX } from '../hooks/tnode';
@@ -17,7 +17,6 @@ import { useReadonly } from '../hooks/useReadonly';
 
 import type { TdDatePickerProps, DateMultipleValue, DateValue } from './type';
 import type { TagInputRemoveContext } from '../tag-input';
-import { isDate } from 'lodash-es';
 
 export default defineComponent({
   name: 'TDatePicker',
@@ -348,10 +347,11 @@ export default defineComponent({
           borderless={props.borderless}
           disabled={disabled.value}
           value={inputValue.value}
-          label={props.label}
+          label={() => renderTNodeJSX('label')}
           status={props.status}
           tips={props.tips}
           clearable={props.clearable}
+          readonly={isReadOnly.value}
           multiple={props.multiple}
           popupProps={popupProps.value}
           inputProps={inputProps.value}

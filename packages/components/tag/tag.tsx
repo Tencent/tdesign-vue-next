@@ -97,10 +97,6 @@ export default defineComponent({
     };
 
     const renderTitle = (tagContent: string) => {
-      if (!props.maxWidth) {
-        return undefined;
-      }
-
       const vProps = vnode.props || {};
       if (Reflect.has(vProps, 'title')) {
         return vProps.title || undefined;

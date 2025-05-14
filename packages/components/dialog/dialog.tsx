@@ -101,11 +101,14 @@ export default defineComponent({
     const { isLastDialog } = usePopupManager('dialog', {
       visible: computedVisible,
     });
+    /**是否已经第一次渲染，懒加载判断 */
+    const isMounted = ref(false);
 
     watch(
       () => props.visible,
       (value) => {
         if (value) {
+          isMounted.value = true;
           if ((isModal.value && !props.showInAttachedElement) || isFullScreen.value) {
             if (props.preventScrollThrough) {
               document.body.appendChild(styleEl.value);
@@ -263,6 +266,15 @@ export default defineComponent({
       destroySelf();
     });
 
+    const shouldRender = computed(() => {
+      const { destroyOnClose, visible, lazy } = props;
+      if (!isMounted.value) {
+        return !lazy;
+      } else {
+        return visible || !destroyOnClose;
+      }
+    });
+
     return () => {
       const maskView = (isModal.value || isFullScreen.value) && <div key="mask" class={maskClass.value}></div>;
       const dialogView = renderDialog();
@@ -279,6 +291,7 @@ export default defineComponent({
           [`${COMPONENT_NAME.value}__ctx--modeless`]: isModeLess.value,
         },
       ];
+
       return (
         <Teleport disabled={!props.attach || !teleportElement.value} to={teleportElement.value}>
           <Transition
@@ -289,7 +302,7 @@ export default defineComponent({
             onBeforeLeave={beforeLeave}
             onAfterLeave={afterLeave}
           >
-            {(!props.destroyOnClose || props.visible) && (
+            {shouldRender.value && (
               <div v-show={props.visible} class={ctxClass} style={ctxStyle} {...context.attrs}>
                 {view}
               </div>
