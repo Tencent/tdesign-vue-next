@@ -163,30 +163,38 @@ export default defineComponent({
 
     watch(modeAndPlacement, handlePushMode, { immediate: true });
 
-    const addDrawerTransitionEndListener = (callback: () => void) => {
-      const listener = () => {
-        callback();
-        drawerEle.value?.removeEventListener('transitionend', listener);
-      };
-      drawerEle.value?.addEventListener('transitionend', listener);
-    };
-
     const updateVisibleState = (value: boolean) => {
       if (value) {
         isMounted.value = true;
       }
+
       if (props.destroyOnClose) {
-        addDrawerTransitionEndListener(() => {
-          isVisible.value = value;
-          destroyOnCloseVisible.value = !value;
-        });
-      } else {
-        isVisible.value = value;
+        if (value) {
+          destroyOnCloseVisible.value = false;
+          setTimeout(() => (isVisible.value = true));
+        } else {
+          isVisible.value = false;
+          setTimeout(() => (destroyOnCloseVisible.value = true), 200);
+        }
+        return;
       }
+
+      if (destroyOnCloseVisible.value && value) {
+        destroyOnCloseVisible.value = false;
+        setTimeout(() => (isVisible.value = true));
+        return;
+      }
+
+      setTimeout(() => (isVisible.value = value));
     };
 
     const addStyleElToHead = () => {
-      if (!props.showInAttachedElement && props.preventScrollThrough && isVisible.value && !props.lazy) {
+      if (
+        !props.showInAttachedElement &&
+        props.preventScrollThrough &&
+        isVisible.value &&
+        (isMounted.value || !props.lazy)
+      ) {
         if (!styleEl.value) {
           createStyleEl();
         }
@@ -241,8 +249,17 @@ export default defineComponent({
       window.removeEventListener('keydown', handleEscKeydown);
     });
 
+    const shouldRender = computed(() => {
+      if (!isMounted.value) {
+        return !props.lazy;
+      } else {
+        return isVisible.value || !destroyOnCloseVisible.value;
+      }
+    });
+
     return () => {
-      if (destroyOnCloseVisible.value || (!isMounted.value && props.lazy)) return;
+      if (!shouldRender.value) return;
+
       const body = renderContent('body', 'default');
       const headerContent = renderTNodeJSX('header');
       const defaultFooter = getDefaultFooter();
