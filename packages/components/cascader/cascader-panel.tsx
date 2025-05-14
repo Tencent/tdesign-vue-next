@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue';
-import Panel from './components/Panel';
+import TCascaderSubPanel from './components/Panel';
 import props from './props';
 
 import { useCascaderContext } from './hooks';
@@ -11,7 +11,7 @@ export default defineComponent({
     const { cascaderContext } = useCascaderContext(props);
 
     return () => (
-      <Panel
+      <TCascaderSubPanel
         trigger={props.trigger}
         cascaderContext={cascaderContext.value}
         empty={props.empty}
