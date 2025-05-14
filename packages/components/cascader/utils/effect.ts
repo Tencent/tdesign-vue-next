@@ -31,28 +31,30 @@ export function expendClickEffect(
   if (propsTrigger === trigger) {
     const expanded = node.setExpanded(true);
 
-    // 多选条件下手动维护expend
-    if (multiple) {
-      setExpend(expanded);
-      return;
-    }
-
     const updateNodes = () => {
       const nodes = treeStore.getNodes().filter((node: TreeNode) => node.visible);
       setTreeNodes(nodes);
     };
 
-    if (checkStrictly && cascaderContext.inputVal) {
-      // 加载回 options,因为 treeStore 需要重新加载延迟避免闪烁
-      setTimeout(() => {
+    const handleTreeUpdate = () => {
+      if (checkStrictly && cascaderContext.inputVal) {
         treeStore.reload(options);
-        treeStore.replaceExpanded(expanded);
-        updateNodes();
-      }, 300);
-    } else {
-      treeStore.refreshNodes();
+      } else {
+        treeStore.refreshNodes();
+      }
       treeStore.replaceExpanded(expanded);
       updateNodes();
+    };
+
+    if (checkStrictly && cascaderContext.inputVal) {
+      setTimeout(handleTreeUpdate, 300);
+    } else {
+      handleTreeUpdate();
+    }
+
+    // 多选条件下手动维护expend
+    if (multiple) {
+      setExpend(expanded);
     }
   }
 
@@ -100,10 +102,6 @@ export function valueChangeEffect(node: TreeNode, cascaderContext: CascaderConte
       treeStore.refreshNodes();
     }, 0);
   }
-
-  // if (!multiple) {
-  //   setVisible(false, {});
-  // }
 
   const isSelectAll = treeNodes.every((item) => checked.indexOf(item.value) > -1);
 

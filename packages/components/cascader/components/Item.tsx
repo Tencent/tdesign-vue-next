@@ -94,7 +94,6 @@ export default defineComponent({
     function RenderCheckBox(node: TreeNode, cascaderContext: CascaderContextType) {
       const { checkProps, value, max, inputVal } = cascaderContext;
       const label = RenderLabelInner(node, cascaderContext);
-      // console.log('node', node.isChecked(), node);
       return (
         <Checkbox
           checked={node.checked}
