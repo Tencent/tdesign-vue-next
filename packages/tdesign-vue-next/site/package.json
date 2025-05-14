@@ -15,7 +15,7 @@
     "nprogress": "^0.2.0",
     "semver": "^7.5.4",
     "tdesign-icons-view": "^0.3.6",
-    "tdesign-site-components": "0.16.0-alpha.10",
+    "tdesign-site-components": "0.16.0-alpha.11",
     "tdesign-theme-generator": "^1.0.17",
     "vue": "3.3.9",
     "vue-router": "^4.2.4",
