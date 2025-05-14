@@ -34,17 +34,20 @@ export default defineComponent({
     return () => {
       const { breadcrumbOptions } = useBreadcrumbOptions(props);
       // 省略号，支持自定义
-      const ellipsisContent = () => {
-        const items = breadcrumbOptions.value;
-        const ellipsisItems = items.slice(props.itemsBeforeCollapse, items.length - props.itemsAfterCollapse);
-        const ellipsisSlot = renderTNodeJSX('ellipsis', {
-          params: {
-            items: ellipsisItems,
-            separator,
-          },
-        });
-        return ellipsisSlot || <EllipsisIcon />;
-      };
+
+      const ellipsisItems = breadcrumbOptions.value.slice(
+        props.itemsBeforeCollapse,
+        breadcrumbOptions.value.length - props.itemsAfterCollapse,
+      );
+      const ellipsisSlot = renderTNodeJSX('ellipsis', {
+        params: {
+          items: ellipsisItems,
+          separator,
+        },
+      });
+
+      const ellipsisContent = ellipsisSlot || <EllipsisIcon />;
+
       const { getDisplayItems } = useEllipsis(props, breadcrumbOptions, ellipsisContent);
       const items = getDisplayItems.value;
       const content = items.map((item: TdBreadcrumbItemProps, index: number) => {
