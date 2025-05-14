@@ -19,17 +19,17 @@ docClass: timeline
 - `Cascader`: 
   - 修复下拉面板默认存在边距的问题 @reallimengzhe  ([#5427](https://github.com/Tencent/tdesign-vue-next/pull/5427))
   - 修复选项存在超长文字时，在不同尺寸下显示异常的问题 @Shabi-x @uyarn ([#5373](https://github.com/Tencent/tdesign-vue-next/pull/5373))
-- ColorPicker: 
+- `ColorPicker`: 
   - 修复添加最近使用颜色功能异常的问题 @RylanBot ([#5428](https://github.com/Tencent/tdesign-vue-next/pull/5428))
   - 开启透明通道时的返回值格式化异常 @RylanBot ([#5319](https://github.com/Tencent/tdesign-vue-next/pull/5319))
 - `Comment`: 插槽内容渲染错误 @QuentinHsu ([#5446](https://github.com/Tencent/tdesign-vue-next/pull/5446))
 - `DatePicker`: 修复 `label` 插槽无效的问题 @RSS1102 ([#5393](https://github.com/Tencent/tdesign-vue-next/pull/5393))
 - `DateRangePicker`: 修复缺少 `readonly` 类型定义的问题 @Wesley-0808 ([#5430](https://github.com/Tencent/tdesign-vue-next/pull/5430))
 - `Drawer`: 修复 `DrawerPlugin` 返回实例类型错误的问题 @Wesley-0808 ([#5444](https://github.com/Tencent/tdesign-vue-next/pull/5444))
-- RadioGroup: 
+- `RadioGroup`: 
   - 修复阻止默认行为时机错误导致无法正确输入空格的问题 @betavs ([#5417](https://github.com/Tencent/tdesign-vue-next/pull/5417))
   - 修复键盘操作时重复触发`onChange`事件的问题 @betavs ([#5417](https://github.com/Tencent/tdesign-vue-next/pull/5417))
-- Select: 修复 `valueType` 为 `object` 且与 `keys` 同时设置时，选择绑定值错误的问题 @morningbao ([#5374](https://github.com/Tencent/tdesign-vue-next/pull/5374))
+- `Select`: 修复 `valueType` 为 `object` 且与 `keys` 同时设置时，选择绑定值错误的问题 @morningbao ([#5374](https://github.com/Tencent/tdesign-vue-next/pull/5374))
 - `Space`: 
   - 修复嵌套组件情况下，样式被错误应用的问题 @RylanBot  ([#5418](https://github.com/Tencent/tdesign-vue-next/pull/5418))
   - 修复`fragment`虚拟节点未展开的问题 @QuentinHsu ([#5388](https://github.com/Tencent/tdesign-vue-next/pull/5388))
