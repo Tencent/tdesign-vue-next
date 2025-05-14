@@ -10,6 +10,7 @@ import {
   RendererElement,
   VNodeChild,
   isVNode,
+  Teleport,
 } from 'vue';
 import { isArray } from 'lodash-es';
 import { getChildren } from '../utils/render-tnode';
@@ -86,8 +87,8 @@ export function useFlatChildrenSlots() {
     children.forEach((child) => {
       if (isVNode(child) && child.type === Fragment && Array.isArray(child.children)) {
         result.push(...getFlatChildren(child.children as VNodeChild[]));
-      } else if (isVNode(child) && child.type === Comment) {
-        // skip comment
+      } else if (isVNode(child) && [Teleport, Comment].some((vNode) => vNode === child.type)) {
+        // skip Teleport and Comment
       } else {
         result.push(child);
       }
