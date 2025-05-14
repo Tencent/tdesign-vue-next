@@ -9,13 +9,13 @@ on:
 
 jobs:
   changelog:
-    if: ${{ github.event.review.state == 'approved' }}
+    if: github.event.review.state == 'approved' 
     runs-on: ubuntu-latest
     steps:
       - run: echo 'trigger ci auto-changelog-callback'
 
   commit-changelog:
-    if: github.event.issue.pull_request || github.event.review.state == 'approved' 
+    if: github.event.issue.pull_request
     runs-on: ubuntu-latest
     steps:
       - name: auto-changelog
