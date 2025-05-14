@@ -1,4 +1,4 @@
-import { defineComponent, reactive, provide, toRefs, computed } from 'vue';
+import { defineComponent, reactive, provide, toRefs } from 'vue';
 import props from './props';
 import BreadcrumbItem from './breadcrumb-item';
 import type { TdBreadcrumbItemProps, TdBreadcrumbProps } from './type';
