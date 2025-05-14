@@ -266,7 +266,16 @@ export default defineComponent({
       destroySelf();
     });
 
+    const shouldRender = computed(() => {
+      const { destroyOnClose, visible, lazy } = props;
+      const shouldDestroy = destroyOnClose && !visible;
+      const avoidRender = !lazy || isMounted.value;
+      return shouldDestroy || avoidRender;
+    });
+
     return () => {
+      if (!shouldRender.value) return null;
+
       const maskView = (isModal.value || isFullScreen.value) && <div key="mask" class={maskClass.value}></div>;
       const dialogView = renderDialog();
       const view = [maskView, dialogView];
@@ -282,15 +291,6 @@ export default defineComponent({
           [`${COMPONENT_NAME.value}__ctx--modeless`]: isModeLess.value,
         },
       ];
-
-      const shouldRender = computed(() => {
-        const { destroyOnClose, visible, lazy } = props;
-        const shouldDestroy = destroyOnClose && !visible;
-        const avoidRender = !lazy || isMounted.value;
-        return shouldDestroy || avoidRender;
-      });
-
-      if (!shouldRender.value) return null;
 
       return (
         <Teleport disabled={!props.attach || !teleportElement.value} to={teleportElement.value}>
