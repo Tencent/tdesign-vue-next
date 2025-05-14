@@ -9,7 +9,7 @@ on:
 
 jobs:
   commit-changelog:
-    if: github.event.issue.pull_request || github.event.review.state == 'approved' 
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'pull_request_review' }}
     runs-on: ubuntu-latest
     steps:
       - name: auto-changelog
