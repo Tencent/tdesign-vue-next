@@ -258,21 +258,19 @@ export const useCascaderContext = (props: TdCascaderProps) => {
   watch(
     () => statusContext.inputVal,
     (val) => {
-      updatedTreeNodes();
       if (props.checkStrictly && props.filterable) {
         if (val) {
           const flattenedOptions = flattenOptions(props.options);
           statusContext.treeStore.reload(flattenedOptions);
           statusContext.treeStore.refreshNodes();
         } else {
-          const expand = calculateExpand(statusContext.treeStore, cascaderContext.value.value);
           statusContext.treeStore.reload(props.options);
-          statusContext.treeStore.refreshNodes();
-          statusContext.treeStore.replaceExpanded(expand);
-          updatedTreeNodes();
-          updateExpend();
         }
+        const expand = calculateExpand(statusContext.treeStore, cascaderContext.value.value);
+        statusContext.treeStore.replaceExpanded(expand);
+        updateExpend();
       }
+      updatedTreeNodes();
     },
   );
 
