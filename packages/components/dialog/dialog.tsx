@@ -268,7 +268,11 @@ export default defineComponent({
 
     const shouldRender = computed(() => {
       const { destroyOnClose, visible, lazy } = props;
-      return !isMounted.value ? !lazy : visible || !destroyOnClose;
+      if (!isMounted.value) {
+        return !lazy;
+      } else {
+        return visible || !destroyOnClose;
+      }
     });
 
     return () => {
