@@ -12,7 +12,13 @@ jobs:
     if: github.event.review.state == 'approved' 
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'trigger ci auto-changelog-callback'
+      - run: echo ${{ github.event.pull_request.number }} > pr-id.txt
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pr-id
+          path: pr-id.txt
+          retention-days: 5    
 
   commit-changelog:
     if: github.event.issue.pull_request
