@@ -47,7 +47,7 @@ export default {
     type: [String, Array] as PropType<TdTimeRangePickerProps['placeholder']>,
     default: undefined as TdTimeRangePickerProps['placeholder'],
   },
-  /** 透传给 popup 组件的参数 */
+  /** 透传 Popup 组件全部属性 */
   popupProps: {
     type: Object as PropType<TdTimeRangePickerProps['popupProps']>,
   },
@@ -59,7 +59,7 @@ export default {
   rangeInputProps: {
     type: Object as PropType<TdTimeRangePickerProps['rangeInputProps']>,
   },
-  /** 只读状态 */
+  /** 只读状态，优先级大于 `allowInput` */
   readonly: {
     type: Boolean,
     default: undefined,
