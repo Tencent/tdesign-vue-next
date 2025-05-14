@@ -274,8 +274,6 @@ export default defineComponent({
     });
 
     return () => {
-      if (!shouldRender.value) return null;
-
       const maskView = (isModal.value || isFullScreen.value) && <div key="mask" class={maskClass.value}></div>;
       const dialogView = renderDialog();
       const view = [maskView, dialogView];
@@ -302,9 +300,11 @@ export default defineComponent({
             onBeforeLeave={beforeLeave}
             onAfterLeave={afterLeave}
           >
-            <div v-show={props.visible} class={ctxClass} style={ctxStyle} {...context.attrs}>
-              {view}
-            </div>
+            {shouldRender.value && (
+              <div v-show={props.visible} class={ctxClass} style={ctxStyle} {...context.attrs}>
+                {view}
+              </div>
+            )}
           </Transition>
         </Teleport>
       );
