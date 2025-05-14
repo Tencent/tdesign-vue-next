@@ -43,6 +43,7 @@ destroyOnClose | Boolean | false | \- | N
 drawerClassName | String | - | \- | N
 footer | Boolean / Slot / Function | true | Typescript：`boolean \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 header | String / Boolean / Slot / Function | true | Typescript：`string \| boolean \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
+lazy | Boolean | false | Enable Drawer lazy loading, the contents of the Drawer are not rendered when enable | N
 mode | String | overlay | options: overlay/push | N
 placement | String | right | options: left/right/top/bottom | N
 preventScrollThrough | Boolean | true | \- | N
