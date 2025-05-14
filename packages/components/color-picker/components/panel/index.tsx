@@ -1,12 +1,17 @@
 import { defineComponent, ref, toRefs, watch, computed } from 'vue';
-import { useCommonClassName, useConfig } from '../../../hooks/useConfig';
-import props from '../../props';
+import { cloneDeep } from 'lodash-es';
 import {
+  Color,
   DEFAULT_COLOR,
   DEFAULT_LINEAR_GRADIENT,
-  TD_COLOR_USED_COLORS_MAX_SIZE,
   DEFAULT_SYSTEM_SWATCH_COLORS,
-} from '@tdesign/common-js/color-picker/constants';
+  getColorObject,
+  GradientColorPoint,
+  initColorFormat,
+  TD_COLOR_USED_COLORS_MAX_SIZE,
+} from '@tdesign/common-js/color-picker/index';
+import { useCommonClassName, useConfig } from '../../../hooks/useConfig';
+import props from '../../props';
 import PanelHeader from './header';
 import LinearGradient from './linear-gradient';
 import SaturationPanel from './saturation';
@@ -14,13 +19,11 @@ import HueSlider from './hue';
 import AlphaSlider from './alpha';
 import FormatPanel from '../format';
 import SwatchesPanel from './swatches';
-import { Color, getColorObject, GradientColorPoint } from '../../utils';
-import { TdColorPickerProps, ColorPickerChangeTrigger } from '../../type';
-import { TdColorModes } from '../../types';
+import type { TdColorPickerProps, ColorPickerChangeTrigger } from '../../type';
+import type { TdColorModes } from '../../types';
 import { useBaseClassName } from '../../hooks';
 import useVModel from '../../../hooks/useVModel';
 import useDefaultValue from '../../../hooks/useDefaultValue';
-import { cloneDeep } from 'lodash-es';
 
 export default defineComponent({
   name: 'ColorPanel',
@@ -37,50 +40,37 @@ export default defineComponent({
     const statusClassNames = STATUS.value;
     const { value: inputValue, modelValue, recentColors } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(inputValue, modelValue, props.defaultValue, props.onChange);
-
-    const defaultEmptyColor = computed(() => (isGradient.value ? DEFAULT_LINEAR_GRADIENT : DEFAULT_COLOR));
-
-    const mode = ref<TdColorModes>(
-      props.colorModes?.length !== 1 && innerValue.value?.includes('linear-gradient')
-        ? 'linear-gradient'
-        : props.colorModes?.length === 1
-        ? props.colorModes[0]
-        : 'monochrome',
-    );
-    const isGradient = computed(() => mode.value === 'linear-gradient');
-
-    const color = ref(new Color(innerValue.value || defaultEmptyColor.value));
-    const updateColor = () => color.value.update(innerValue.value || defaultEmptyColor.value);
-
-    const formatModel = ref<TdColorPickerProps['format']>(color.value.isGradient ? 'CSS' : 'RGB');
-
-    const [recentlyUsedColors, setRecentlyUsedColors] = useDefaultValue(
+    const [innerRecentColors, setInnerRecentColors] = useDefaultValue(
       recentColors,
       props.defaultRecentColors,
       props.onRecentColorsChange,
       'recentColors',
     );
 
-    const formatValue = () => {
-      // 渐变模式下直接输出css样式
-      if (mode.value === 'linear-gradient') {
-        return color.value.linearGradient;
-      }
-      const colorMap = color.value.getFormatsColorMap();
-      return Object.keys(colorMap).includes(props.format)
-        ? colorMap[props.format as keyof typeof colorMap]
-        : color.value.css;
+    const getModeByColor = (input: string) => {
+      if (props.colorModes.length === 1) return props.colorModes[0];
+      return props.colorModes.includes('linear-gradient') && Color.isGradientColor(input)
+        ? 'linear-gradient'
+        : 'monochrome';
     };
+    const mode = ref<TdColorModes>(getModeByColor(innerValue.value));
+
+    const isGradient = computed(() => mode.value === 'linear-gradient');
+    const defaultEmptyColor = computed(() => (isGradient.value ? DEFAULT_LINEAR_GRADIENT : DEFAULT_COLOR));
+
+    const color = ref(new Color(innerValue.value || defaultEmptyColor.value));
+
+    const formatModel = ref<TdColorPickerProps['format']>(initColorFormat(props.format, props.enableAlpha));
 
     /**
      * 添加最近使用颜色
      * @returns void
      */
     const addRecentlyUsedColor = () => {
-      if (recentlyUsedColors.value === null || recentlyUsedColors.value === false) {
+      if (innerRecentColors.value === null || innerRecentColors.value === false) {
         return;
       }
-      const colors = cloneDeep(recentlyUsedColors.value as string[]) || [];
+      const colors = cloneDeep(innerRecentColors.value as string[]) || [];
       const currentColor = color.value.isGradient ? color.value.linearGradient : color.value.rgba;
       const index = colors.indexOf(currentColor);
       if (index > -1) {
@@ -98,7 +88,7 @@ export default defineComponent({
      * @param colors
      */
     const handleRecentlyUsedColorsChange = (colors: string[]) => {
-      setRecentlyUsedColors(colors);
+      setInnerRecentColors(colors);
     };
 
     /**
@@ -106,32 +96,35 @@ export default defineComponent({
      * @param trigger
      */
     const emitColorChange = (trigger?: ColorPickerChangeTrigger) => {
-      setInnerValue(formatValue(), {
+      const value = color.value.getFormattedColor(props.format, props.enableAlpha);
+      setInnerValue(value, {
         color: getColorObject(color.value),
         trigger: trigger || 'palette-saturation-brightness',
       });
     };
 
-    watch(() => [props.defaultValue, props.enableAlpha], updateColor);
-
     watch(
       () => innerValue.value,
       (newColor) => {
-        if (newColor !== formatValue()) {
-          updateColor();
-          mode.value = color.value.isGradient ? 'linear-gradient' : 'monochrome';
-        }
+        const newMode = getModeByColor(newColor);
+        mode.value = newMode;
+        color.value.isGradient = newMode === 'linear-gradient';
+        color.value.update(newColor);
       },
     );
 
     /**
      * mode change
-     * @param value
+     * @param newMode
      * @returns
      */
-    const handleModeChange = (value: TdColorModes) => {
-      mode.value = value;
-      if (value === 'linear-gradient') {
+    const handleModeChange = (newMode: TdColorModes) => {
+      mode.value = newMode;
+
+      const isGradientMode = newMode === 'linear-gradient';
+      color.value.isGradient = isGradientMode;
+
+      if (isGradientMode) {
         color.value.update(
           color.value.gradientColors.length > 0 ? color.value.linearGradient : DEFAULT_LINEAR_GRADIENT,
         );
@@ -141,13 +134,6 @@ export default defineComponent({
 
       emitColorChange();
     };
-
-    /**
-     * 格式变化
-     * @param format
-     * @returns
-     */
-    const handleFormatModeChange = (format: TdColorPickerProps['format']) => (formatModel.value = format);
 
     /**
      * 饱和度亮度变化
@@ -170,7 +156,6 @@ export default defineComponent({
         return;
       }
 
-      color.value.update(color.value.rgba);
       emitColorChange(changeTrigger);
     };
 
@@ -238,23 +223,12 @@ export default defineComponent({
      * @param type
      * @param value
      */
-    const handleSetColor = (type: 'system' | 'used', value: string) => {
-      const isGradientValue = Color.isGradientColor(value);
-      if (isGradientValue) {
-        if (props.colorModes.includes('linear-gradient')) {
-          mode.value = 'linear-gradient';
-          color.value.update(value);
-          color.value.updateCurrentGradientColor();
-        } else {
-          console.warn('该模式不支持渐变色');
-        }
-      } else if (mode.value === 'linear-gradient') {
-        color.value.updateStates(value);
-        color.value.updateCurrentGradientColor();
-      } else {
-        color.value.update(value);
-      }
-      emitColorChange();
+    const handleSetColor = (value: string, trigger: ColorPickerChangeTrigger) => {
+      const newMode = getModeByColor(value);
+      mode.value = newMode;
+      color.value.isGradient = newMode === 'linear-gradient';
+      color.value.update(value);
+      emitColorChange(trigger);
     };
 
     return () => {
@@ -262,18 +236,29 @@ export default defineComponent({
         color: color.value,
         disabled: props.disabled,
       };
-      const showUsedColors = recentlyUsedColors.value !== null && recentlyUsedColors.value !== false;
 
+      // 只支持渐变模式
+      const onlySupportGradient = props.colorModes.length === 1 && props.colorModes.includes('linear-gradient');
+
+      // 最近使用颜色
+      let recentColors = innerRecentColors.value;
+      if (onlySupportGradient && Array.isArray(recentColors)) {
+        recentColors = recentColors.filter((color) => Color.isGradientColor(color));
+      }
+      const showUsedColors = !!Array.isArray(recentColors);
+
+      // 系统预设颜色
       let systemColors = props.swatchColors;
       if (systemColors === undefined) {
         systemColors = [...DEFAULT_SYSTEM_SWATCH_COLORS];
       }
-      const showSystemColors = systemColors?.length > 0;
+      if (onlySupportGradient) {
+        systemColors = systemColors.filter((color) => Color.isGradientColor(color));
+      }
+      const showSystemColors = Array.isArray(systemColors);
 
       const renderSwatches = () => {
-        if (!showSystemColors && !showUsedColors) {
-          return null;
-        }
+        if (!showSystemColors && !showUsedColors) return null;
         return (
           <>
             <div class={`${baseClassName.value}__swatches-wrap`}>
@@ -282,9 +267,9 @@ export default defineComponent({
                   {...baseProps}
                   title={t(globalConfig.value.recentColorTitle)}
                   editable
-                  colors={recentlyUsedColors.value as string[]}
+                  colors={recentColors as string[]}
                   handleAddColor={addRecentlyUsedColor}
-                  onSetColor={(color: string) => handleSetColor('used', color)}
+                  onSetColor={(color: string) => handleSetColor(color, 'recent')}
                   onChange={handleRecentlyUsedColorsChange}
                 />
               ) : null}
@@ -293,7 +278,7 @@ export default defineComponent({
                   {...baseProps}
                   title={t(globalConfig.value.swatchColorTitle)}
                   colors={systemColors}
-                  onSetColor={(color: string) => handleSetColor('system', color)}
+                  onSetColor={(color: string) => handleSetColor(color, 'preset')}
                 />
               ) : null}
             </div>
@@ -333,13 +318,7 @@ export default defineComponent({
               ) : null}
             </div>
 
-            <FormatPanel
-              {...props}
-              color={color.value}
-              format={formatModel.value}
-              onModeChange={handleFormatModeChange}
-              onInputChange={handleInputChange}
-            />
+            <FormatPanel {...props} color={color.value} format={formatModel.value} onInputChange={handleInputChange} />
             {renderSwatches()}
           </div>
         </div>
