@@ -60,6 +60,14 @@ export default defineComponent({
       };
     });
 
+    watch(
+      () => popupProps.value,
+      ({ visible = false }: { visible?: boolean }) => {
+        popupVisible.value = visible;
+      },
+      { immediate: true },
+    );
+
     watch(popupVisible, (visible) => {
       // 多选不考虑输入情况
       if (props.multiple) return;
