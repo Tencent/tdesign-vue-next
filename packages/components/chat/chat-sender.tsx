@@ -202,6 +202,7 @@ export default defineComponent({
               textValue.value ? '' : `${COMPONENT_NAME.value}-sender__button--disabled`,
             ]}
             disabled={disabled.value || showStopBtn.value || !textValue.value}
+            onClick={sendClick}
           >
             <SendFilledIcon />
           </Button>
@@ -248,9 +249,7 @@ export default defineComponent({
             <div class={`${COMPONENT_NAME.value}-sender__button`}>
               {/* 发送按钮 */}
               {!showStopBtn.value && (
-                <div class={`${COMPONENT_NAME.value}-sender__button__sendbtn`} onClick={sendClick}>
-                  {renderSuffixIcon()}
-                </div>
+                <div class={`${COMPONENT_NAME.value}-sender__button__sendbtn`}>{renderSuffixIcon()}</div>
               )}
               {/* 停止按钮 */}
               {showStopBtn.value && (
