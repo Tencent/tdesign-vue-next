@@ -29,6 +29,20 @@ jobs:
       - run: pnpm install
 
       - run: pnpm run site:preview
+      - uses: actions/github-script@v7
+        id: domain
+        with:
+          script: |
+            const tagName = 'tdesign-vue-next@1.13.0'
+            const lastIndex = tagName.lastIndexOf('@');
+            const version = tagName.slice(lastIndex + 1);
+            const domain= `https://${version.split('.').join('_')}-tdesign-vue-next-chat.surge.sh`
+            core.setOutput('surge', domain);
+            core.setOutput('project', 'packages/tdesign-vue-next-chat/site/dist');
+
+      - run: |
+          export DEPLOY_DOMAIN=${{ steps.domain.outputs.surge }}
+          npx surge --project ${{ steps.domain.outputs.project }} --domain $DEPLOY_DOMAIN --token ${{ secrets.TDESIGN_SURGE_TOKEN }}
 
       - uses: actions/upload-artifact@v4
         with:
