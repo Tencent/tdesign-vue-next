@@ -14,6 +14,7 @@ import {
   isValueInvalid,
   treeNodesEffect,
   treeStoreExpendEffect,
+  calculateExpand,
 } from '../utils';
 
 import {
@@ -256,20 +257,21 @@ export const useCascaderContext = (props: TdCascaderProps) => {
 
   watch(
     () => statusContext.inputVal,
-    () => {
+    (val) => {
       updatedTreeNodes();
-    },
-  );
-
-  watch(
-    () => statusContext.inputVal,
-    () => {
-      if (props.checkStrictly) {
-        // 将 options 扁平化并重新加载树
-        const flattenedOptions = flattenOptions(props.options);
-
-        statusContext.treeStore.reload(flattenedOptions);
-        statusContext.treeStore.refreshNodes();
+      if (props.checkStrictly && props.filterable) {
+        if (val) {
+          const flattenedOptions = flattenOptions(props.options);
+          statusContext.treeStore.reload(flattenedOptions);
+          statusContext.treeStore.refreshNodes();
+        } else {
+          const expand = calculateExpand(statusContext.treeStore, cascaderContext.value.value);
+          statusContext.treeStore.reload(props.options);
+          statusContext.treeStore.refreshNodes();
+          statusContext.treeStore.replaceExpanded(expand);
+          updatedTreeNodes();
+          updateExpend();
+        }
       }
     },
   );
