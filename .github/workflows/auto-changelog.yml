@@ -1,9 +1,6 @@
 name: auto-changelog
 
 on:
-  pull_request:
-    branches: [develop]
-    types: [opened, edited]
   pull_request_review:
     types: [submitted]  
 
@@ -12,33 +9,11 @@ on:
 
 jobs:
   changelog:
-    if: ${{ github.event.pull_request}}
+    if: ${{ github.event.review.state == 'approved' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      
-      - uses: TDesignOteam/flow-pilot-action@develop
-        id: changelog
-        with:
-          token: ${{ secrets.TDESIGN_BOT_TOKEN }}
-          packages: 'tdesign-vue-next,@tdesign-vue-next/chat'
-      
-      - run: echo '${{ steps.changelog.outputs.changelog }}' > changelog.md
-      
-      - uses: actions/upload-artifact@v4
-        with:
-          name: changelog
-          path: changelog.md
-          retention-days: 5
+      - run: echo 'trigger ci auto-changelog-callback'
 
-      - run: echo ${{ github.event.number }} > pr-id.txt
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: pr-id
-          path: pr-id.txt
-          retention-days: 5    
-  
   commit-changelog:
     if: github.event.issue.pull_request || github.event.review.state == 'approved' 
     runs-on: ubuntu-latest
