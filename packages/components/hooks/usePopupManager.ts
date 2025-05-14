@@ -1,7 +1,8 @@
 // https://github.dev/arco-design/arco-design-vue
 import { onMounted, onBeforeUnmount, readonly, Ref, ref, watch } from 'vue';
-export type PopupType = 'popup' | 'dialog' | 'message';
+export type PopupType = 'popup' | 'dialog' | 'message' | 'drawer';
 
+const popupStackType = ['dialog', 'drawer'];
 const POPUP_BASE_Z_INDEX = 1000;
 const MESSAGE_BASE_Z_INDEX = 5000;
 const Z_INDEX_STEP = 1;
@@ -11,7 +12,10 @@ class PopupManager {
     popup: new Set<number>(),
     dialog: new Set<number>(),
     message: new Set<number>(),
+    drawer: new Set<number>(),
   };
+
+  private zIndexStack: number[] = [];
 
   private getNextZIndex = (type: PopupType) => {
     const current =
@@ -24,24 +28,40 @@ class PopupManager {
   public add = (type: PopupType) => {
     const zIndex = this.getNextZIndex(type);
     this.popupStack[type].add(zIndex);
-    if (type === 'dialog') {
+    if (popupStackType.includes(type)) {
       this.popupStack.popup.add(zIndex);
     }
+    this.zIndexStack.push(zIndex);
     return zIndex;
   };
 
   public delete = (zIndex: number, type: PopupType) => {
     this.popupStack[type].delete(zIndex);
-    if (type === 'dialog') {
+    if (popupStackType.includes(type)) {
       this.popupStack.popup.delete(zIndex);
+    }
+    const index = this.zIndexStack.indexOf(zIndex);
+    if (index !== -1) {
+      this.zIndexStack.splice(index, 1);
     }
   };
 
-  public isLastDialog = (zIndex: number) => {
-    if (this.popupStack.dialog.size > 1) {
-      return zIndex === Array.from(this.popupStack.dialog).pop();
+  // 最顶层的交互式弹窗（指Dialog和Drawer）
+  public isTopInteractivePopup = (popupType: PopupType, zIndex: number) => {
+    if (popupStackType.includes(popupType)) {
+      const lastZIndex = this.zIndexStack[this.zIndexStack.length - 1];
+      return zIndex === lastZIndex;
     }
+
+    if (this.popupStack[popupType]?.size > 1) {
+      return zIndex === Array.from(this.popupStack[popupType]).pop();
+    }
+
     return true;
+  };
+
+  public getLastZIndex = () => {
+    return this.zIndexStack[this.zIndexStack.length - 1];
   };
 }
 
@@ -67,9 +87,9 @@ export default function usePopupManager(
     popupManager.delete(zIndex.value, type);
   };
 
-  const isLastDialog = () => {
-    if (type === 'dialog') {
-      return popupManager.isLastDialog(zIndex.value);
+  const isTopInteractivePopup = () => {
+    if (popupStackType.includes(type)) {
+      return popupManager.isTopInteractivePopup(type, zIndex.value);
     }
     return false;
   };
@@ -102,6 +122,6 @@ export default function usePopupManager(
     zIndex: readonly(zIndex),
     open,
     close,
-    isLastDialog,
+    isTopInteractivePopup,
   };
 }

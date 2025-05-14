@@ -11,6 +11,7 @@ import { useTNodeJSX, useContent } from '../hooks/tnode';
 import { useDrag } from './hooks';
 import type { TdDrawerProps } from './type';
 import useTeleport from '../hooks/useTeleport';
+import usePopupManager from '../hooks/usePopupManager';
 
 let key = 1;
 
@@ -30,6 +31,7 @@ export default defineComponent({
     const renderContent = useContent();
     const COMPONENT_NAME = usePrefixClass('drawer');
     const { draggedSizeValue, enableDrag, draggableLineStyles, draggingStyles } = useDrag(props as TdDrawerProps);
+    const computedVisible = computed(() => props.visible);
     const isMounted = ref(false);
 
     // teleport容器
@@ -87,9 +89,16 @@ export default defineComponent({
     }));
 
     const handleEscKeydown = (e: KeyboardEvent) => {
-      if ((props.closeOnEscKeydown ?? globalConfig.value.closeOnEscKeydown) && e.key === 'Escape' && isVisible.value) {
+      if (
+        (props.closeOnEscKeydown ?? globalConfig.value.closeOnEscKeydown) &&
+        e.key === 'Escape' &&
+        isVisible.value &&
+        isTopInteractivePopup()
+      ) {
         props.onEscKeydown?.({ e });
         closeDrawer({ trigger: 'esc', e });
+        // 阻止事件冒泡
+        e.stopImmediatePropagation();
       }
     };
 
@@ -99,6 +108,9 @@ export default defineComponent({
         styleEl.value?.parentNode?.removeChild?.(styleEl.value);
         styleEl.value = null;
       }, 150);
+      nextTick(() => {
+        drawerEle.value?.focus?.();
+      });
     };
 
     const createStyleEl = () => {
@@ -160,6 +172,10 @@ export default defineComponent({
         </div>
       );
     };
+
+    const { isTopInteractivePopup } = usePopupManager('drawer', {
+      visible: computedVisible,
+    });
 
     watch(modeAndPlacement, handlePushMode, { immediate: true });
 
