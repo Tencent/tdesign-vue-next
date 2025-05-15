@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build:vue-next": "cross-env NODE_ENV=production tsx ./vue-next/index.ts",
-    "build:chat": "cross-env NODE_ENV=production tsx ./vue-next-chat/index.ts"
+    "build:vue-next-chat": "cross-env NODE_ENV=production tsx ./vue-next-chat/index.ts"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^16.0.1",
