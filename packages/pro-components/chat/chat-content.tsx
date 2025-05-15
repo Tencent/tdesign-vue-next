@@ -1,5 +1,6 @@
 import { defineComponent, computed, onMounted, inject, ComputedRef } from 'vue';
-import { usePrefixClass, useConfig } from '../hooks/useConfig';
+// TODO: need refactor
+import { usePrefixClass, useConfig } from '../../components/hooks/useConfig';
 import props from './chat-content-props';
 import Clipboard from 'clipboard';
 import hljs from 'highlight.js';

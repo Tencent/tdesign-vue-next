@@ -1,12 +1,13 @@
-import { defineComponent, ref, computed, toRefs, reactive } from 'vue';
+import { defineComponent, ref, computed, toRefs, reactive, Fragment } from 'vue';
 import { SendFilledIcon, FileAttachmentIcon, ImageIcon } from 'tdesign-icons-vue-next';
-import { usePrefixClass, useConfig } from '../hooks/useConfig';
+// TODO: need refactor
+import { usePrefixClass, useConfig } from '../../components/hooks/useConfig';
 import props from './chat-sender-props';
-import Button from '../button';
-import Textarea from '../textarea';
-import Tooltip from '../tooltip';
-import useVModel from '../hooks/useVModel';
-import { useTNodeJSX, useContent } from '../hooks/tnode';
+import { Button, Textarea, Tooltip } from 'tdesign-vue-next';
+// TODO: need refactor
+import useVModel from '../../components/hooks/useVModel';
+// TODO: need refactor
+import { useTNodeJSX, useContent } from '../../components/hooks/tnode';
 
 import type { TdChatSenderProps, UploadActionType, UploadActionConfig } from './type';
 
@@ -119,7 +120,7 @@ export default defineComponent({
 
       const uploadAttachment = actions.find((item) => item.name === 'uploadAttachment');
       const uploadAttachmentButton = uploadAttachment ? (
-        <>
+        <Fragment>
           <input
             {...uploadAttachment.uploadProps}
             ref={uploadFileRef}
@@ -146,12 +147,12 @@ export default defineComponent({
               <FileAttachmentIcon />
             </Button>
           </Tooltip>
-        </>
+        </Fragment>
       ) : null;
 
       const uploadImage = actions.find((item) => item.name === 'uploadImage');
       const renderUploadImageButton = uploadImage ? (
-        <>
+        <Fragment>
           <input
             {...uploadImage.uploadProps}
             ref={uploadImageRef}
@@ -178,7 +179,7 @@ export default defineComponent({
               <ImageIcon />
             </Button>
           </Tooltip>
-        </>
+        </Fragment>
       ) : null;
       const buttonComponents = {
         uploadAttachment: uploadAttachmentButton,
@@ -186,7 +187,7 @@ export default defineComponent({
       };
 
       return (
-        <>
+        <Fragment>
           {actions
             .filter(
               (item): item is { name: UploadActionType; action: () => void } =>
@@ -205,7 +206,7 @@ export default defineComponent({
           >
             <SendFilledIcon />
           </Button>
-        </>
+        </Fragment>
       );
       // }
     };

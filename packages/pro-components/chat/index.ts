@@ -1,3 +1,5 @@
+import { App } from 'vue';
+
 import _Chat from './chat';
 import _ChatItem from './chat-item';
 import _ChatInput from './chat-input';
@@ -8,7 +10,8 @@ import _ChatLoading from './chat-loading';
 import _ChatAction from './chat-action';
 import _ChatSender from './chat-sender';
 
-import withInstall from '../utils/withInstall';
+// TODO: need refactor
+import withInstall from '../../components/utils/withInstall';
 
 import {
   TdChatProps,
@@ -43,4 +46,16 @@ export const ChatReasoning = withInstall(_ChatReasoning);
 export const ChatAction = withInstall(_ChatAction);
 export const ChatLoading = withInstall(_ChatLoading);
 
-export default Chat;
+export default {
+  // TODO: refactor
+  install(app: App, config?: Record<string, unknown>) {
+    app.use(Chat, config);
+    app.use(ChatItem, config);
+    app.use(ChatInput, config);
+    app.use(ChatContent, config);
+    app.use(ChatReasoning, config);
+    app.use(ChatAction, config);
+    app.use(ChatLoading, config);
+  },
+  version: typeof PKG_VERSION === 'undefined' ? '' : PKG_VERSION,
+};
