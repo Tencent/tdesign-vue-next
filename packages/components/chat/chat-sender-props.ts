@@ -42,10 +42,6 @@ export default {
   defaultValue: {
     type: [String, Number] as PropType<TdChatSenderProps['defaultValue']>,
   },
-  autoClearValue: {
-    type: Boolean,
-    default: true,
-  },
   /** 输入框聚焦时触发 */
   onBlur: Function as PropType<TdChatSenderProps['onBlur']>,
   /** 输入框值发生变化时触发 */
