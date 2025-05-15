@@ -174,12 +174,8 @@ export const buildEs = async () => {
   };
 
   const buildComp = async () => {
-    // const tdesignVueNextRoot = await getTdesignVueNextRoot();
-    // lodash会使ssr无法运行,@babel\runtime affix组件报错,tinycolor2 颜色组件报错,dayjs 日期组件报错
-    const exception = ['tinycolor2', 'dayjs'];
-    const esExternal = [...esExternalDeps, ...externalPeerDeps].filter((value) =>
-      typeof value === 'string' ? !exception.includes(value) : true,
-    );
+    const esExternal = [...esExternalDeps, ...externalPeerDeps];
+
     const bundle = await rollup({
       input: [...inputList, `!${joinProComponentsChatRoot('index-lib.ts')}`],
       // 为了保留 style/css.js
@@ -349,22 +345,11 @@ export const buildPluginCss = async () => {
 };
 
 export const deleteOutput = async () => {
-  const removes = ['es', 'esm', 'lib', 'cjs', 'dist'].map(
-    async (filePath) => await remove(joinTdesignVueNextChatRoot(filePath)),
-  );
+  const removes = ['es'].map(async (filePath) => await remove(joinTdesignVueNextChatRoot(filePath)));
   await Promise.all(removes);
 };
 
 export const buildComponents = async () => {
   await deleteOutput();
   await buildEs();
-  // await buildEsm();
-  // await buildLib();
-  // await buildCjs();
-  // await buildUmd();
-  // await buildUmd(true);
-  // TODO: check if this is needed
-  // await buildResetCss();
-  // TODO: check if this is needed
-  // await buildPluginCss();
 };
