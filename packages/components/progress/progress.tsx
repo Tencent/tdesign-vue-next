@@ -168,9 +168,8 @@ export default defineComponent({
         <div class={`${COMPONENT_NAME.value}__info`}>{renderTNodeJSX('label', getLabelContent())}</div>
       );
       // 进度大于 10 ，进度百分比显示在内部；进度百分比小于 10 进度显示在外部
-      const PLUMP_SEPARATE = 10;
       const separateClasses =
-        props.percentage > PLUMP_SEPARATE ? `${COMPONENT_NAME.value}--over-ten` : `${COMPONENT_NAME.value}--under-ten`;
+        props.percentage > props.separate ? `${COMPONENT_NAME.value}--over-ten` : `${COMPONENT_NAME.value}--under-ten`;
       return (
         <div class={COMPONENT_NAME.value}>
           {props.theme === PRO_THEME.LINE && (
@@ -191,9 +190,9 @@ export default defineComponent({
               style={trackBgStyle.value}
             >
               <div class={`${COMPONENT_NAME.value}__inner`} style={barStyle.value}>
-                {props.percentage > PLUMP_SEPARATE && labelContent}
+                {props.percentage > props.separate && labelContent}
               </div>
-              {props.percentage <= PLUMP_SEPARATE && labelContent}
+              {props.percentage <= props.separate && labelContent}
             </div>
           )}
 

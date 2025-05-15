@@ -14,3 +14,5 @@ status | String | - | options: success/error/warning/active。Typescript：`Prog
 strokeWidth | String / Number | - | \- | N
 theme | String | line | options: line/plump/circle。Typescript：`ProgressTheme` `type ProgressTheme = 'line' \| 'plump' \| 'circle'`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/progress/type.ts) | N
 trackColor | String | '' | \- | N
+separate | Number | 10 | When the progress is greater than what, the progress percentage is displayed internally; when the progress percentage is less than what, the progress is displayed externally. | N
+
