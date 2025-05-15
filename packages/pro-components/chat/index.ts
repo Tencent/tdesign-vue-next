@@ -46,9 +46,6 @@ export const ChatReasoning = withInstall(_ChatReasoning);
 export const ChatAction = withInstall(_ChatAction);
 export const ChatLoading = withInstall(_ChatLoading);
 
-// TODO: check if this is needed
-// export default Chat;
-
 export default {
   // TODO: refactor
   install(app: App, config?: Record<string, unknown>) {

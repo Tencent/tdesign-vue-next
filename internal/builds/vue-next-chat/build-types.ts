@@ -25,6 +25,10 @@ const generateTargetTypes = async (target: 'es' | 'esm' | 'lib' | 'cjs') => {
 
   // 1. 复制 packages/pro-components/chat 到 packages/tdesign-vue-next-chat/target 下
   const targetDir = joinTdesignVueNextChatRoot(`${target}`);
+  // TODO
+  // temp delete 'dist/types/packages/pro-components/chat/_example'
+  // should be use correct tsconfig.json to generate correct types
+  await remove(joinPosix(typesRoot, `packages/pro-components/chat/_example`));
   await copy(joinPosix(typesRoot, `packages/pro-components/chat`), targetDir);
 
   // 2. 替换 @tdesign/common-js 为 tdesign-vue-next/common/js
