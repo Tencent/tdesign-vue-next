@@ -11,7 +11,7 @@ animation | String | skeleton | 动画效果，支持「渐变加载动画」,�
 avatar | Slot / Function | - | 自定义每个对话单元的头像插槽。TS 类型：`TNode<{ item: TdChatItemProps, index: number }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 clearHistory | Boolean | true | 是否显示清空历史 | N
 content | Slot / Function | - | 自定义每个对话单独的聊天内容。TS 类型：`TNode<{ item: TdChatItemProps, index: number }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
-data | Array | - | 对话列表的数据。TS 类型：`Array<TdChatItemMeta>` ` interface TdChatItemMeta { avatar?: string; name?:string; role?:string; datetime?: string; content?: string; reasoning?: string }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/chat/type.ts) | N
+data | Array | - | 对话列表的数据。TS 类型：`Array<TdChatItemMeta>` ` interface TdChatItemMeta { avatar?: string; name?:string; role?:string; datetime?: string; content?: string; reasoning?: string }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/pro-components/chat/type.ts) | N
 datetime | Slot / Function | - | 自定义每个对话单元的时间。TS 类型：`TNode<{ item: TdChatItemProps, index: number }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 isStreamLoad | Boolean | false | 流式加载是否结束 | N
 layout | String | both | 对话布局形式，支持两侧对齐与左对齐。可选项：both/single | N
@@ -33,4 +33,4 @@ scroll | `(context: { e: MouseEvent })` | 滚动事件的回调。TS 类型：`T
 
 名称 | 参数 | 返回值 | 描述
 -- | -- | -- | --
-scrollToBottom | `(params: ScrollToBottomParams)` | \- | 对话列表过长时，支持对话列表重新滚动回底部的方法。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/chat/type.ts)。<br/>` type ScrollToBottomParams = { behavior: 'auto' \| 'smooth'} `<br/>
+scrollToBottom | `(params: ScrollToBottomParams)` | \- | 对话列表过长时，支持对话列表重新滚动回底部的方法。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/pro-components/chat/type.ts)。<br/>` type ScrollToBottomParams = { behavior: 'auto' \| 'smooth'} `<br/>

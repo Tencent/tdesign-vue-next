@@ -1,9 +1,11 @@
-import { defineComponent, computed, provide } from 'vue';
-import { usePrefixClass, useConfig } from '../hooks/useConfig';
+import { defineComponent, computed, provide, Fragment } from 'vue';
+// TODO: need refactor
+import { usePrefixClass, useConfig } from '../../components/hooks/useConfig';
 import props from './chat-item-props';
 import { isString, isObject } from 'lodash-es';
-import Skeleton from '../skeleton';
-import { useTNodeJSX } from '../hooks/tnode';
+import { Skeleton } from 'tdesign-vue-next';
+// TODO: need refactor
+import { useTNodeJSX } from '../../components/hooks/tnode';
 import Text from './chat-content';
 import { CheckCircleIcon } from 'tdesign-icons-vue-next';
 import ChatLoading from './chat-loading';
@@ -78,7 +80,7 @@ export default defineComponent({
         );
       };
       const contentDom = (
-        <>
+        <Fragment>
           {role.value !== 'model-change' && avatarDom}
           <div class={contentClasses.value}>
             {role.value !== 'model-change' && nameDatetimeDom}
@@ -118,7 +120,7 @@ export default defineComponent({
               <div class={`${COMPONENT_NAME.value}__actions-margin`}>{renderTNodeJSX('actions')}</div>
             )}
           </div>
-        </>
+        </Fragment>
       );
       return (
         <div
