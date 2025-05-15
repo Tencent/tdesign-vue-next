@@ -41,7 +41,6 @@ export default defineComponent({
     };
     // 点击了停止按钮
     const handleStop = (e: MouseEvent) => {
-      e.stopPropagation(); // 阻止事件冒泡
       loading.value = false;
       emit('stop', textValue.value, {
         e,
@@ -119,11 +118,7 @@ export default defineComponent({
 
       const uploadAttachment = actions.find((item) => item.name === 'uploadAttachment');
       const uploadAttachmentButton = uploadAttachment ? (
-        <span
-          onClick={(e) => {
-            e.stopPropagation(); // 阻止事件冒泡
-          }}
-        >
+        <>
           <input
             {...uploadAttachment.uploadProps}
             ref={uploadFileRef}
@@ -150,16 +145,12 @@ export default defineComponent({
               <FileAttachmentIcon />
             </Button>
           </Tooltip>
-        </span>
+        </>
       ) : null;
 
       const uploadImage = actions.find((item) => item.name === 'uploadImage');
       const renderUploadImageButton = uploadImage ? (
-        <span
-          onClick={(e) => {
-            e.stopPropagation(); // 阻止事件冒泡
-          }}
-        >
+        <>
           <input
             {...uploadImage.uploadProps}
             ref={uploadImageRef}
@@ -186,7 +177,7 @@ export default defineComponent({
               <ImageIcon />
             </Button>
           </Tooltip>
-        </span>
+        </>
       ) : null;
       const buttonComponents = {
         uploadAttachment: uploadAttachmentButton,
@@ -210,6 +201,7 @@ export default defineComponent({
                 `${COMPONENT_NAME.value}-sender__button__default`,
                 textValue.value ? '' : `${COMPONENT_NAME.value}-sender__button--disabled`,
               ]}
+              onClick={sendClick}
               disabled={disabled.value || showStopBtn.value || !textValue.value}
             >
               <SendFilledIcon />
@@ -261,9 +253,7 @@ export default defineComponent({
             <div class={`${COMPONENT_NAME.value}-sender__mode`}>{renderContent('default', 'prefix')}</div>
             <div class={`${COMPONENT_NAME.value}-sender__button`}>
               {/* 发送按钮 */}
-              <div class={`${COMPONENT_NAME.value}-sender__button__sendbtn`} onClick={sendClick}>
-                {renderSuffixIcon()}
-              </div>
+              <div class={`${COMPONENT_NAME.value}-sender__button__sendbtn`}>{renderSuffixIcon()}</div>
             </div>
           </div>
         </div>
