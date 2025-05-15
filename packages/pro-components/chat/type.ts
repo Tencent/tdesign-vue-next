@@ -7,8 +7,7 @@
 import { AvatarProps } from 'tdesign-vue-next';
 import { TextareaProps } from 'tdesign-vue-next';
 import { CollapsePanelProps } from 'tdesign-vue-next';
-// TODO: need refactor
-import { TNode } from '../../components/common';
+import { TNode } from 'tdesign-vue-next';
 
 export interface TdChatProps {
   /**
