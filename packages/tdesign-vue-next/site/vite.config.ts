@@ -17,6 +17,7 @@ export default defineConfig(({ mode }) => {
     base: publicPathMap[mode],
     server: {
       port: 17000,
+      host: '0.0.0.0',
       open: true,
     },
     resolve: {
