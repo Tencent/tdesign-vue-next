@@ -41,6 +41,7 @@ export default defineComponent({
     };
     // 点击了停止按钮
     const handleStop = (e: MouseEvent) => {
+      e.stopPropagation(); // 阻止事件冒泡
       loading.value = false;
       emit('stop', textValue.value, {
         e,
