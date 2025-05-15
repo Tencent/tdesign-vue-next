@@ -121,18 +121,51 @@ export const useCascaderContext = (props: TdCascaderProps) => {
   const updateExpend = () => {
     const { value, treeStore } = cascaderContext.value;
     const { expend } = statusContext;
-    treeStoreExpendEffect(treeStore, value, expend);
+    treeStoreExpendEffect(treeStore, value, expend, props.valueType, props.options);
     treeStore.replaceChecked(getTreeValue(value));
   };
+
+  /**
+   * 级联选择器选项接口
+   */
+  interface CascaderOption {
+    label: string;
+    value: string | number;
+    children?: CascaderOption[];
+    [key: string]: any; // 允许其他属性
+  }
+
+  /**
+   * 当 valueType='full'时,将级联选择器数据中的每个子节点 value 转换为完整路径形式
+   * @param data - 级联选择器数据
+   * @returns 处理后的数据
+   */
+  function transformCascaderValues(data: any[], parentReplicaValue = ''): any[] {
+    return data.map((item) => {
+      const currentReplicaValue = parentReplicaValue ? `${parentReplicaValue}-${item.value}` : item.value;
+      const newItem = {
+        ...item,
+        replicaValue: currentReplicaValue,
+      };
+
+      if (item.children && Array.isArray(item.children)) {
+        newItem.children = transformCascaderValues(item.children, currentReplicaValue);
+      }
+
+      return newItem;
+    });
+  }
 
   watch(
     () => props.options,
     () => {
-      const { options, keys = {}, checkStrictly, lazy, load, valueMode } = props;
+      const { options, keys = {}, checkStrictly, lazy, load, valueMode, valueType } = props;
       const { treeStore } = statusContext;
 
       if (!options.length && !treeStore) return;
 
+      const transformedOptionData =
+        valueType === 'full' ? transformCascaderValues(options as CascaderOption[]) : options;
       if (!treeStore) {
         const store = new TreeStore({
           keys: {
@@ -153,10 +186,10 @@ export const useCascaderContext = (props: TdCascaderProps) => {
             });
           },
         });
-        store.append(options);
+        store.append(transformedOptionData);
         statusContext.treeStore = store;
       } else {
-        treeStore.reload(options);
+        treeStore.reload(transformedOptionData);
         treeStore.refreshNodes();
       }
       updateExpend();
