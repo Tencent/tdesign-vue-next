@@ -152,9 +152,9 @@ jobs:
       - run: pnpm i
 
       # 运行测试
-      - run: pnpm run test
+      - run: pnpm run test:vue
 
-  build:
+  build_vue-next:
     # 在最新版本的 Ubuntu 环境中运行
     runs-on: ubuntu-latest
     # 如果需要依赖自身任务，可以取消注释（通常不需要）
@@ -197,6 +197,6 @@ jobs:
 
       # 运行构建任务
       - name: Build 
-        run: pnpm run build
+        run: pnpm run build:vue
 
-      - run: pnpm publish -r --no-git-checks --dry-run
+      - run: pnpm -F tdesign-vue-next publish --no-git-checks --dry-run
