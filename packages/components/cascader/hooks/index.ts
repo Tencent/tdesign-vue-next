@@ -121,7 +121,7 @@ export const useCascaderContext = (props: TdCascaderProps) => {
   const updateExpend = () => {
     const { value, treeStore } = cascaderContext.value;
     const { expend } = statusContext;
-    treeStoreExpendEffect(treeStore, value, expend);
+    treeStoreExpendEffect(treeStore, value, expend, props.valueType, props.options);
     treeStore.replaceChecked(getTreeValue(value));
   };
 
@@ -140,24 +140,20 @@ export const useCascaderContext = (props: TdCascaderProps) => {
    * @param data - 级联选择器数据
    * @returns 处理后的数据
    */
-  function transformCascaderValues(data: CascaderOption[]): CascaderOption[] {
-    function processNode(node: CascaderOption, ancestorValues: Array<string | number> = []): CascaderOption {
-      const result: CascaderOption = { ...node };
-      const originalValue = result.value;
+  function transformCascaderValues(data: any[], parentReplicaValue = ''): any[] {
+    return data.map((item) => {
+      const currentReplicaValue = parentReplicaValue ? `${parentReplicaValue}-${item.value}` : item.value;
+      const newItem = {
+        ...item,
+        replicaValue: currentReplicaValue,
+      };
 
-      if (ancestorValues.length > 0) {
-        result.value = [...ancestorValues, originalValue].join('/');
+      if (item.children && Array.isArray(item.children)) {
+        newItem.children = transformCascaderValues(item.children, currentReplicaValue);
       }
 
-      if (result.children && result.children.length) {
-        const newAncestorValues = [...ancestorValues, originalValue];
-        result.children = result.children.map((child) => processNode(child, newAncestorValues));
-      }
-
-      return result;
-    }
-
-    return data.map((item) => processNode(item));
+      return newItem;
+    });
   }
 
   watch(
@@ -170,7 +166,6 @@ export const useCascaderContext = (props: TdCascaderProps) => {
 
       const transformedOptionData =
         valueType === 'full' ? transformCascaderValues(options as CascaderOption[]) : options;
-
       if (!treeStore) {
         const store = new TreeStore({
           keys: {

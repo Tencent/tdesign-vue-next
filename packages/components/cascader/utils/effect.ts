@@ -202,12 +202,20 @@ export const treeStoreExpendEffect = (
   treeStore: CascaderContextType['treeStore'],
   value: CascaderContextType['value'],
   expend: TreeNodeValue[],
+  valueType: CascaderContextType['valueType'],
+  options: TdCascaderProps['options'],
 ) => {
   const treeValue = getTreeValue(value);
 
   if (!treeStore) return;
   // init expanded, 无expend状态时设置
   if (isArray(treeValue) && expend.length === 0) {
+    if (valueType === 'full') {
+      // const replicaValue = treeValue.join('/');
+      // console.warn('treeValue', treeValue);
+      // options.forEach((item) => {});
+    }
+
     const expandedMap = new Map();
     const [val] = treeValue;
     if (!isEmptyValues(val)) {
@@ -221,6 +229,7 @@ export const treeStoreExpendEffect = (
         expandedMap.set(tn.value, true);
       });
       const expandedArr = Array.from(expandedMap.keys());
+
       treeStore.replaceExpanded(expandedArr);
     }
   }
