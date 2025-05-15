@@ -1,6 +1,7 @@
 import { computed, ComputedRef, toRefs } from 'vue';
 import type { TdBreadcrumbItemProps, TdBreadcrumbProps } from '../type';
 import log from '@tdesign/common-js/log/index';
+import type { TNode } from '../../common';
 
 function valueIsZeroOrUndefined(val: number | string) {
   return val === 0 || val === undefined;
@@ -9,7 +10,7 @@ function valueIsZeroOrUndefined(val: number | string) {
 export const useEllipsis = (
   props: TdBreadcrumbProps,
   getBreadcrumbItems: ComputedRef<TdBreadcrumbItemProps[]>,
-  ellipsisContent: ComputedRef<string | any>,
+  ellipsisContent: string | TNode,
 ) => {
   const { maxItems, itemsBeforeCollapse, itemsAfterCollapse } = toRefs(props);
 
@@ -56,7 +57,7 @@ export const useEllipsis = (
     return [
       ...beforeItems,
       {
-        content: ellipsisContent.value,
+        content: ellipsisContent,
         disabled: true,
         isEllipsisItem: true,
       },
