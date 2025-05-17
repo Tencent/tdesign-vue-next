@@ -176,7 +176,7 @@ function filterTransferData(
   if (!isTreeMode) {
     if (needMatch) {
       // 正向过滤。要保持filterValues顺序
-      return filterValues.map((value) => data.find((item) => item.value === value)).filter((item) => !!item);
+      return filterValues?.map((value) => data.find((item) => item.value === value)).filter((item) => !!item);
     }
     // 反向过滤
     return data.filter((item) => {
