@@ -60,6 +60,7 @@ export default defineComponent({
     useDestroyOnClose();
     const timer = ref();
     const styleEl = ref();
+    const isDialogClosed = ref(false);
     // 是否模态形式的对话框
     const isModal = computed(() => props.mode === 'modal');
     // 是否非模态对话框
@@ -187,6 +188,7 @@ export default defineComponent({
 
     // 打开弹窗动画开始时事件
     const beforeEnter = () => {
+      isDialogClosed.value = false;
       props.onBeforeOpen?.();
     };
 
@@ -202,6 +204,7 @@ export default defineComponent({
 
     // 关闭弹窗动画结束时事件
     const afterLeave = () => {
+      isDialogClosed.value = true;
       dialogCardRef.value?.resetPosition?.();
       props.onClosed?.();
     };
@@ -240,11 +243,12 @@ export default defineComponent({
               ref={dialogCardRef}
               theme={theme}
               {...otherProps}
-              v-slots={context.slots}
               onConfirm={confirmBtnAction}
               onCancel={cancelBtnAction}
               onCloseBtnClick={closeBtnAction}
-            />
+            >
+              {!(props.destroyOnClose && isDialogClosed.value) && context.slots.default?.()}
+            </TDialogCard>
           </div>
         </div>
       );
