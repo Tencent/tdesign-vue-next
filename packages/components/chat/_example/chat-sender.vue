@@ -21,16 +21,13 @@
       <!-- <component :is="renderPresets([{ name: 'uploadAttachment' }, { name: 'uploadImage' }])" /> -->
     </template>
     <template #header>
-      123
-      <!-- @TODO: 改成withInstall方式 -->
-      <Attachments :items="filesList" />
-      <!-- <omitattachments :files-list="filesList" /> -->
+      <t-attachments :items="filesList" />
     </template>
   </t-chat-sender>
 </template>
 <script setup lang="ts">
 import { ref } from 'vue';
-import { Attachments } from '../index';
+// import { Attachments } from '../index';
 const query = ref('');
 const loading = ref(false);
 // 模拟消息发送
