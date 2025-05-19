@@ -1,5 +1,12 @@
 const componentDocs = [
   {
+    title: 'Chatbot 智能聊天',
+    titleEn: 'Chatbot',
+    name: 'Chatbot',
+    path: '/chat/components/chatbot',
+    component: () => import('tdesign-vue-next/chat/chatbot.md'),
+  },
+  {
     title: 'Chat 对话',
     titleEn: 'Chat',
     name: 'chat',
@@ -54,6 +61,20 @@ const componentDocs = [
     name: 'ChatLoading',
     path: '/chat/components/chat-loading',
     component: () => import('tdesign-vue-next/chat/chat-loading.md'),
+  },
+  {
+    title: 'Attachments 文件附件',
+    titleEn: 'Attachments',
+    name: 'Attachments',
+    path: '/chat/components/attachments',
+    component: () => import('tdesign-vue-next/chat/attachments.md'),
+  },
+  {
+    title: 'FileCard 文件缩略卡片',
+    titleEn: 'FileCard',
+    name: 'FileCard',
+    path: '/chat/components/fileCard',
+    component: () => import('tdesign-vue-next/chat/fileCard.md'),
   },
 ];
 
