@@ -10,30 +10,18 @@
     "ai-chat",
     "typescript"
   ],
-  "main": "cjs/index-lib.js",
   "module": "es/index.mjs",
   "typings": "es/index.d.ts",
-  "unpkg": "dist/tdesign-vue-chat.min.js",
-  "jsdelivr": "dist/tdesign-vue-chat.min.js",
   "files": [
     "es",
-    "esm",
-    "cjs",
-    "lib",
-    "dist",
     "LICENSE",
     "README.md",
-    "CHANGELOG.md",
-    "global.d.ts",
-    "helper"
+    "CHANGELOG.md"
   ],
   "sideEffects": [
     "*.vue",
-    "dist/*",
     "site/*",
-    "examples/*",
-    "es/**/style/**",
-    "esm/**/style/**"
+    "es/**/style/**"
   ],
   "author": "tdesign",
   "license": "MIT",

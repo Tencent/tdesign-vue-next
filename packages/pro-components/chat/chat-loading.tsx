@@ -1,5 +1,6 @@
 import { defineComponent } from 'vue';
-import { usePrefixClass } from '../hooks/useConfig';
+// TODO: need refactor
+import { usePrefixClass } from '../../components/hooks/useConfig';
 import props from './chat-loading-props';
 
 export default defineComponent({
