@@ -39,6 +39,7 @@ export const useContext = (
     scopeVal: undefined,
     treeNodes: [],
     expend: [],
+    replicaValue: [],
   });
 
   return {
@@ -89,6 +90,9 @@ export const useContext = (
         setExpend: (val: TreeNodeValue[]) => {
           statusContext.expend = val;
         },
+        setReplicaValue: (val: string[]) => {
+          statusContext.replicaValue = val;
+        },
       };
     }),
   };
@@ -121,7 +125,7 @@ export const useCascaderContext = (props: TdCascaderProps) => {
   const updateExpend = () => {
     const { value, treeStore } = cascaderContext.value;
     const { expend } = statusContext;
-    treeStoreExpendEffect(treeStore, value, expend, props.valueType, props.options);
+    treeStoreExpendEffect(treeStore, value, expend, props.valueType, props.options, innerValue.value, props.multiple);
     treeStore.replaceChecked(getTreeValue(value));
   };
 
