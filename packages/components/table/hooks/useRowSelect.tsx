@@ -33,6 +33,13 @@ export default function useRowSelect(
         )
       : data.value,
   );
+  const isLocalPagination = computed(() => {
+    return (
+      !!pagination.value &&
+      !props.disableDataPage &&
+      props.data.length > (pagination.value?.pageSize ?? pagination.value.defaultPageSize)
+    );
+  });
   const selectedRowClassNames = ref();
   const [tSelectedRowKeys, setTSelectedRowKeys] = useDefaultValue(
     selectedRowKeys,
@@ -81,9 +88,22 @@ export default function useRowSelect(
   );
 
   // 在远程分页场景下，当前页全选功能的状态判定需基于当前页数据是否存在进行动态重新计算
-  watch(data, () => {
-    currentPaginateData.value = data.value;
-  });
+  // 同步 currentPaginateData
+  watch(
+    [data, () => pagination.value?.current, () => pagination.value?.pageSize, () => props.disableDataPage],
+    ([currentPropsData, pageCurrent, pageSizeFromPagination]) => {
+      if (isLocalPagination.value) {
+        // 本地分页
+        const current = pageCurrent ?? pagination.value?.defaultCurrent ?? 1;
+        const pageSize = pageSizeFromPagination ?? pagination.value?.defaultPageSize ?? 10;
+        currentPaginateData.value = (currentPropsData || []).slice((current - 1) * pageSize, current * pageSize);
+      } else {
+        // 远程分页或无分页
+        currentPaginateData.value = Array.isArray(currentPropsData) ? currentPropsData : [];
+      }
+    },
+    { immediate: true },
+  );
 
   function isDisabled(row: Record<string, any>, rowIndex: number): boolean {
     return isRowSelectedDisabled(selectColumn.value, row, rowIndex);
@@ -171,11 +191,30 @@ export default function useRowSelect(
 
   function handleSelectAll(checked: boolean) {
     const reRowKey = props.rowKey || 'id';
+    const currentPageData = reserveSelectedRowOnPaginate.value ? data.value : currentPaginateData.value;
+    const currentPageKeys = currentPageData.map((record) => get(record, reRowKey));
+
+    // 当前页可选row的key
     const canSelectedRowKeys = canSelectedRows.value.map((record) => get(record, reRowKey));
-    const disabledSelectedRowKeys = selectedRowKeys.value?.filter((id) => !canSelectedRowKeys.includes(id)) || [];
-    const allIds = checked ? [...disabledSelectedRowKeys, ...canSelectedRowKeys] : [...disabledSelectedRowKeys];
-    setTSelectedRowKeys(allIds, {
-      selectedRowData: checked ? allIds.map((t) => selectedRowDataMap.value.get(t)) : [],
+
+    let newSelectedRowKeys = [...tSelectedRowKeys.value];
+    if (checked) {
+      // 去重追加当前页可选row的key
+      newSelectedRowKeys = [...new Set([...newSelectedRowKeys, ...canSelectedRowKeys])];
+    } else {
+      // 移除当前页可选row的key
+      newSelectedRowKeys = newSelectedRowKeys.filter(
+        (key) => !currentPageKeys.includes(key) || !canSelectedRowKeys.includes(key),
+      );
+    }
+
+    // 非跨页多选，清空非当前页selectedRowKeys
+    if (!props.reserveSelectedRowOnPaginate) {
+      newSelectedRowKeys = newSelectedRowKeys.filter((key) => currentPageKeys.includes(key));
+    }
+
+    setTSelectedRowKeys(newSelectedRowKeys, {
+      selectedRowData: newSelectedRowKeys.map((t) => selectedRowDataMap.value.get(t)),
       type: checked ? 'check' : 'uncheck',
       currentRowKey: 'CHECK_ALL_BOX',
     });
@@ -209,10 +248,72 @@ export default function useRowSelect(
   };
 
   watch(
-    [data, rowKey],
-    () => {
-      for (let i = 0, len = data.value.length; i < len; i++) {
-        selectedRowDataMap.value.set(get(data.value[i], rowKey.value || 'id'), data.value[i]);
+    data,
+    (newData) => {
+      const reRowKey = props.rowKey || 'id';
+      const currentPageData = pagination.value
+        ? newData.slice(
+            (pagination.value.current - 1) * pagination.value.pageSize,
+            pagination.value.current * pagination.value.pageSize,
+          )
+        : newData;
+      // 远程分页预加载当前页数据
+      if (!isLocalPagination.value) {
+        for (const row of currentPageData) {
+          const id = get(row, reRowKey);
+          selectedRowDataMap.value.set(id, row);
+        }
+      }
+      // 本地分页预加载全部数据
+      else {
+        for (const row of newData) {
+          const id = get(row, reRowKey);
+          selectedRowDataMap.value.set(id, row);
+        }
+      }
+    },
+    { immediate: true },
+  );
+
+  // 分页切换时取消引用不需要的map
+  watch(
+    [currentPaginateData, reserveSelectedRowOnPaginate],
+    ([val, isReserve]) => {
+      const reRowKey = props.rowKey || 'id';
+      const currentPageKeys = val.map((row) => get(row, reRowKey));
+      const preservedKeys = new Set(tSelectedRowKeys.value);
+      // 远程分页非跨页清空其他页dataMap
+      if (!isLocalPagination.value && !isReserve) {
+        for (const key of selectedRowDataMap.value.keys()) {
+          if (!currentPageKeys.includes(key)) {
+            selectedRowDataMap.value.delete(key);
+          }
+        }
+        for (const row of val) {
+          const id = get(row, reRowKey);
+          selectedRowDataMap.value.set(id, row);
+        }
+      }
+      // 远程分页跨页清空其他页未选项dataMap
+      else if (!isLocalPagination.value && isReserve) {
+        const keysToPreserve = new Set([...currentPageKeys, ...preservedKeys]);
+
+        for (const key of selectedRowDataMap.value.keys()) {
+          if (!keysToPreserve.has(key)) {
+            selectedRowDataMap.value.delete(key);
+          }
+        }
+        for (const row of val) {
+          const id = get(row, reRowKey);
+          selectedRowDataMap.value.set(id, row);
+        }
+      }
+      // 本地分页
+      else if (isLocalPagination.value) {
+        for (const row of val) {
+          const id = get(row, reRowKey);
+          selectedRowDataMap.value.set(id, row);
+        }
       }
     },
     { immediate: true },
@@ -261,16 +362,17 @@ export default function useRowSelect(
     );
     if (!validAreaSelection.length) return;
 
-    const areaSelectionKeys = validAreaSelection.map(({ row }) => get(row, props.rowKey));
+    const reRowKey = props.rowKey || 'id';
+    const areaSelectionKeys = validAreaSelection.map(({ row }) => get(row, reRowKey));
     const intersectionKeys = intersection(tSelectedRowKeys.value, areaSelectionKeys);
     const toCheck = intersectionKeys.length !== areaSelectionKeys.length;
     const clearedKeys = tSelectedRowKeys.value.filter((key) => !areaSelectionKeys.includes(key));
-    const newSelectedRowKeys = toCheck ? [...new Set(tSelectedRowKeys.value.concat(areaSelectionKeys))] : clearedKeys;
+    const newSelectedRowKeys = toCheck ? [...new Set([...tSelectedRowKeys.value, ...areaSelectionKeys])] : clearedKeys;
 
     const currentRowData = action === 'space-one-selection' ? activeRowList[0].row : undefined;
     setTSelectedRowKeys(newSelectedRowKeys, {
       selectedRowData: activeRowList,
-      currentRowKey: get(currentRowData, props.rowKey),
+      currentRowKey: get(currentRowData, reRowKey),
       currentRowData,
       type: toCheck ? 'check' : 'uncheck',
     });
