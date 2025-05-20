@@ -334,6 +334,7 @@ export default defineComponent({
     onMounted(() => {
       setTimer();
       showArrow.value = navigationConfig.value.showSlideBtn === 'always';
+      swiperTo(props.current || 0, { source: 'autoplay' }); // 初始化时跳转到目标 item
     });
 
     return () => (
