@@ -8,6 +8,7 @@ import props from './props';
 import { SwiperNavigation, SwiperChangeSource } from './type';
 import TSwiperItem from './swiper-item';
 import { useTNodeJSX } from '../hooks/tnode';
+import { isServer } from '../utils/dom';
 
 const defaultNavigation: SwiperNavigation = {
   placement: 'inside',
@@ -118,7 +119,7 @@ export default defineComponent({
         );
       });
       // SSR 时只渲染当前项，避免全部展示且默认跳转到目标 index
-      if (!isClient) {
+      if (!isServer) {
         return [items[currentIndex.value]];
       }
       // 客户端正常处理克隆逻辑
