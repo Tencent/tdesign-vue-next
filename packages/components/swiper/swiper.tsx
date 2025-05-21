@@ -44,11 +44,14 @@ export default defineComponent({
       ...defaultNavigation,
       ...(isVNode(props.navigation) ? {} : (props.navigation as object)),
     }));
+
     const isEnd = computed(() => {
       if (props.type === 'card') return !props.loop && currentIndex.value + 1 >= swiperItemLength.value;
       return !props.loop && currentIndex.value + 2 >= swiperItemLength.value;
     });
+
     const propsToUpdateSetTimer = computed(() => [props.autoplay, currentIndex.value, props.duration, props.interval]);
+
     const swiperWrapClass = computed(() => ({
       [`${prefix.value}-swiper__wrap`]: true,
       [`${prefix.value}-swiper--inside`]: navigationConfig.value.placement === 'inside',
@@ -58,7 +61,7 @@ export default defineComponent({
       [`${prefix.value}-swiper--small`]: navigationConfig.value.size === 'small',
     }));
 
-    // 关键修改：SSR 渲染时也计算 slide 位移，只是客户端才算 +1 克隆偏移
+    // SSR 渲染时也计算 slide 位移，只是客户端才 +1 克隆偏移
     const containerStyle = computed(() => {
       const offsetHeight = props.height ? `${props.height}px` : `${getWrapAttribute('offsetHeight')}px`;
 
@@ -66,7 +69,6 @@ export default defineComponent({
         return { height: offsetHeight };
       }
 
-      // slide 动画
       const style: Record<string, number | string> = {
         transition: isSwitching.value && !isServer ? `transform ${props.duration / 1000}s ease` : '',
       };
@@ -297,7 +299,6 @@ export default defineComponent({
     onMounted(() => {
       setTimer();
       showArrow.value = navigationConfig.value.showSlideBtn === 'always';
-      swiperTo(props.current || 0, { source: 'autoplay' });
     });
 
     return () => (
