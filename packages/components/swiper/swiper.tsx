@@ -27,10 +27,13 @@ export default defineComponent({
       ChevronLeftIcon: TdChevronLeftIcon,
       ChevronRightIcon: TdChevronRightIcon,
     });
+
     let swiperTimer: ReturnType<typeof setTimeout> | null = null;
     let swiperSwitchingTimer = 0;
     let isBeginToEnd = false;
     let isEndToBegin = false;
+    let mounted = false; // 客户端是否完成首次挂载
+
     const currentIndex = ref(props.current ?? props.defaultCurrent);
     const navActiveIndex = ref(props.current ?? props.defaultCurrent);
     const isSwitching = ref(false);
@@ -38,7 +41,6 @@ export default defineComponent({
     const swiperWrap = ref<HTMLElement>();
     const getChildComponentByName = useChildComponentSlots();
     const swiperItemLength = ref(0);
-    let mounted = false; // 标记客户端是否已挂载
 
     const navigationConfig = computed(() => ({
       ...defaultNavigation,
@@ -63,7 +65,31 @@ export default defineComponent({
       [`${prefix.value}-swiper--small`]: navigationConfig.value.size === 'small',
     }));
 
-    // SSR 只渲染 items，不做克隆；客户端才 clone
+    // 只在客户端 slide 模式下 +1 偏移，SSR 保持 currentIndex
+    const containerStyle = computed(() => {
+      const offsetH = props.height ? `${props.height}px` : `${getWrapAttribute('offsetHeight')}px`;
+      if (props.type === 'card' || props.animation === 'fade') {
+        return { height: offsetH };
+      }
+      const style: Record<string, string> = {
+        transition: isSwitching.value ? `transform ${props.duration / 1000}s ease` : '',
+      };
+      let active = currentIndex.value;
+      if (!isServer && props.animation === 'slide' && swiperItemLength.value > 1) {
+        active += 1;
+        if (isBeginToEnd || isEndToBegin) {
+          style.transition = '';
+        }
+      }
+      style.transform =
+        props.direction === 'vertical'
+          ? `translate3d(0, -${active * 100}%, 0)`
+          : `translate3d(-${active * 100}%, 0, 0)`;
+      ['msTransform', 'WebkitTransform'].forEach((k) => (style[k] = style.transform));
+      return style;
+    });
+
+    // SSR 不 clone；客户端 slide clone 首尾
     const swiperItems = () => {
       const list = getChildComponentByName('SwiperItem');
       swiperItemLength.value = list.length;
@@ -92,28 +118,6 @@ export default defineComponent({
       }
       return items;
     };
-
-    // SSR 保持 active = currentIndex；客户端 slide +1
-    const containerStyle = computed(() => {
-      const offsetH = props.height ? `${props.height}px` : `${getWrapAttribute('offsetHeight')}px`;
-      if (props.type === 'card' || props.animation === 'fade') {
-        return { height: offsetH };
-      }
-      const style: Record<string, string> = {
-        transition: isSwitching.value ? `transform ${props.duration / 1000}s ease` : '',
-      };
-      let active = currentIndex.value;
-      if (!isServer && props.animation === 'slide' && swiperItemLength.value > 1) {
-        active += 1;
-        if (isBeginToEnd || isEndToBegin) style.transition = '';
-      }
-      style.transform =
-        props.direction === 'vertical'
-          ? `translate3d(0, -${active * 100}%, 0)`
-          : `translate3d(-${active * 100}%, 0, 0)`;
-      ['msTransform', 'WebkitTransform'].forEach((k) => (style[k] = style.transform));
-      return style;
-    });
 
     const swiperTo = (idx: number, ctx: { source: SwiperChangeSource }) => {
       let t = idx % swiperItemLength.value;
@@ -166,15 +170,20 @@ export default defineComponent({
 
     const onMouseEnter = () => {
       if (props.stopOnHover) clearTimer();
-      if (navigationConfig.value.showSlideBtn === 'hover') showArrow.value = true;
+      if (navigationConfig.value.showSlideBtn === 'hover') {
+        showArrow.value = true;
+      }
     };
     const onMouseLeave = () => {
       if (!isEnd.value) setTimer();
-      if (navigationConfig.value.showSlideBtn === 'hover') showArrow.value = false;
+      if (navigationConfig.value.showSlideBtn === 'hover') {
+        showArrow.value = false;
+      }
     };
 
     const getWrapAttribute = (attr: string) => (swiperWrap.value?.parentNode as any)?.[attr];
 
+    // props.current watch 仅客户端已挂载后触发
     watch(
       () => props.current,
       (val) => {
@@ -204,6 +213,87 @@ export default defineComponent({
       showArrow.value = navigationConfig.value.showSlideBtn === 'always';
       navActiveIndex.value = currentIndex.value;
     });
+
+    const renderPagination = () => {
+      const frac = currentIndex.value + 1 > swiperItemLength.value ? 1 : currentIndex.value + 1;
+      return (
+        <div class={`${prefix.value}-swiper__arrow`}>
+          <div
+            class={`${prefix.value}-swiper__arrow-left`}
+            onClick={() => swiperTo(currentIndex.value - 1, { source: 'click' })}
+          >
+            <ChevronLeftIcon />
+          </div>
+          <div class={`${prefix.value}-swiper__navigation-text-fraction`}>
+            {frac}/{swiperItemLength.value}
+          </div>
+          <div
+            class={`${prefix.value}-swiper__arrow-right`}
+            onClick={() => swiperTo(currentIndex.value + 1, { source: 'click' })}
+          >
+            <ChevronRightIcon />
+          </div>
+        </div>
+      );
+    };
+
+    const renderArrow = () =>
+      showArrow.value && (
+        <div class={[`${prefix.value}-swiper__arrow`, `${prefix.value}-swiper__arrow--default`]}>
+          <div
+            class={`${prefix.value}-swiper__arrow-left`}
+            onClick={() => swiperTo(currentIndex.value - 1, { source: 'click' })}
+          >
+            <ChevronLeftIcon />
+          </div>
+          <div
+            class={`${prefix.value}-swiper__arrow-right`}
+            onClick={() => swiperTo(currentIndex.value + 1, { source: 'click' })}
+          >
+            <ChevronRightIcon />
+          </div>
+        </div>
+      );
+
+    const renderNavigation = () => {
+      if (isVNode(props.navigation)) return props.navigation;
+      const slot = renderTNodeJSX('navigation');
+      if (slot && isVNode(slot[0])) return slot;
+      if (navigationConfig.value.type === 'fraction') {
+        return (
+          <div class={[`${prefix.value}-swiper__navigation`, `${prefix.value}-swiper__navigation--fraction`]}>
+            {renderPagination()}
+          </div>
+        );
+      }
+      const list = getChildComponentByName('SwiperItem');
+      return (
+        <ul
+          class={[
+            `${prefix.value}-swiper__navigation`,
+            {
+              [`${prefix.value}-swiper__navigation-bars`]: navigationConfig.value.type === 'bars',
+              [`${prefix.value}-swiper__navigation-dots`]: navigationConfig.value.type === 'dots',
+              [`${prefix.value}-swiper__navigation-dots-bar`]: navigationConfig.value.type === 'dots-bar',
+            },
+          ]}
+        >
+          {list.map((_, i) => (
+            <li
+              key={i}
+              class={[
+                `${prefix.value}-swiper__navigation-item`,
+                { [`${prefix.value}-is-active`]: i === navActiveIndex.value },
+              ]}
+              onMouseenter={() => props.trigger === 'hover' && swiperTo(i, { source: 'hover' })}
+              onClick={() => props.trigger === 'click' && swiperTo(i, { source: 'click' })}
+            >
+              <span></span>
+            </li>
+          ))}
+        </ul>
+      );
+    };
 
     return () => (
       <div class={[`${prefix.value}-swiper`]} onMouseenter={onMouseEnter} onMouseleave={onMouseLeave} ref={swiperWrap}>
