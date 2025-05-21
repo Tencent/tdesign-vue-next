@@ -21,6 +21,7 @@ export default defineComponent({
   props,
   emits: ['update:current'],
   setup(props, { emit }) {
+    const isClient = typeof window !== 'undefined';
     const prefix = usePrefixClass();
     const renderTNodeJSX = useTNodeJSX();
 
@@ -97,6 +98,7 @@ export default defineComponent({
       }
       return {};
     });
+
     const swiperItems = () => {
       const swiperItemList = getChildComponentByName('SwiperItem');
       swiperItemLength.value = swiperItemList.length;
@@ -115,13 +117,14 @@ export default defineComponent({
           </TSwiperItem>
         );
       });
+      // SSR 时只渲染当前项，避免全部展示且默认跳转到目标 index
+      if (!isClient) {
+        return [items[currentIndex.value]];
+      }
+      // 客户端正常处理克隆逻辑
       if (props.animation === 'slide' && items.length > 1) {
-        const first = cloneVNode(items[0], {
-          key: `swiper-item-append-${0}`,
-        });
-        const last = cloneVNode(items[items.length - 1], {
-          key: `swiper-item-prepend-${items.length - 1}`,
-        });
+        const first = cloneVNode(items[0], { key: `swiper-item-append-0` });
+        const last = cloneVNode(items[items.length - 1], { key: `swiper-item-prepend-${items.length - 1}` });
         items.unshift(last);
         items.push(first);
       }
@@ -175,38 +178,26 @@ export default defineComponent({
           () => {
             swiperTo(currentIndex.value + 1, { source: 'autoplay' });
           },
-          currentIndex.value === 0 ? props.interval - (props.duration + 50) : props.interval, // 当 index 为 0 的时候，表明刚从克隆的最后一项跳转过来，已经经历了duration + 50 的间隔时间，减去即可
+          currentIndex.value === 0 ? props.interval - (props.duration + 50) : props.interval,
         );
       }
     };
 
     const onMouseEnter = () => {
       isHovering.value = true;
-      if (props.stopOnHover) {
-        clearTimer();
-      }
-      if (navigationConfig.value.showSlideBtn === 'hover') {
-        showArrow.value = true;
-      }
+      if (props.stopOnHover) clearTimer();
+      if (navigationConfig.value.showSlideBtn === 'hover') showArrow.value = true;
     };
     const onMouseLeave = () => {
       isHovering.value = false;
-      if (!isEnd.value) {
-        setTimer();
-      }
-      if (navigationConfig.value.showSlideBtn === 'hover') {
-        showArrow.value = false;
-      }
+      if (!isEnd.value) setTimer();
+      if (navigationConfig.value.showSlideBtn === 'hover') showArrow.value = false;
     };
     const onMouseEnterNavigationItem = (i: number) => {
-      if (props.trigger === 'hover') {
-        swiperTo(i, { source: 'hover' });
-      }
+      if (props.trigger === 'hover') swiperTo(i, { source: 'hover' });
     };
     const onClickNavigationItem = (i: number) => {
-      if (props.trigger === 'click') {
-        swiperTo(i, { source: 'click' });
-      }
+      if (props.trigger === 'click') swiperTo(i, { source: 'click' });
     };
     const goNext = (context: { source: SwiperChangeSource }) => {
       if (isSwitching.value) return;
@@ -218,9 +209,7 @@ export default defineComponent({
     const goPrevious = (context: { source: SwiperChangeSource }) => {
       if (isSwitching.value) return;
       if (currentIndex.value - 1 < 0) {
-        if (props.animation === 'slide' && swiperItemLength.value === 2) {
-          return swiperTo(0, context);
-        }
+        if (props.animation === 'slide' && swiperItemLength.value === 2) return swiperTo(0, context);
         return swiperTo(swiperItemLength.value - 1, context);
       }
       return swiperTo(currentIndex.value - 1, context);
@@ -261,7 +250,6 @@ export default defineComponent({
       if (isVNode(props.navigation)) return props.navigation;
       const navigationSlot = renderTNodeJSX('navigation');
       if (navigationSlot && isVNode(navigationSlot?.[0])) return navigationSlot;
-
       if (navigationConfig.value.type === 'fraction') {
         return (
           <div class={[`${prefix.value}-swiper__navigation`, `${prefix.value}-swiper__navigation--fraction`]}>
@@ -281,14 +269,12 @@ export default defineComponent({
             },
           ]}
         >
-          {swiperItemList.map((_, i: number) => (
+          {swiperItemList.map((_, i) => (
             <li
               key={i}
               class={[
                 `${prefix.value}-swiper__navigation-item`,
-                {
-                  [`${prefix.value}-is-active`]: i === navActiveIndex.value,
-                },
+                { [`${prefix.value}-is-active`]: i === navActiveIndex.value },
               ]}
               onMouseenter={() => onMouseEnterNavigationItem(i)}
               onClick={() => onClickNavigationItem(i)}
@@ -299,15 +285,11 @@ export default defineComponent({
         </ul>
       );
     };
-    const renderSwiperItems = () => {
-      return swiperItems();
-    };
+    const renderSwiperItems = () => swiperItems();
 
     watch(
       () => propsToUpdateSetTimer.value,
-      () => {
-        setTimer();
-      },
+      () => setTimer(),
     );
     watch(
       () => isSwitching.value,
@@ -317,18 +299,14 @@ export default defineComponent({
           swiperSwitchingTimer = setTimeout(() => {
             isSwitching.value = false;
             swiperSwitchingTimer = 0;
-            if (isEnd.value) {
-              clearTimer();
-            }
+            if (isEnd.value) clearTimer();
           }, props.duration + 50) as unknown as number;
         }
       },
     );
     watch(
       () => props.current,
-      () => {
-        swiperTo(props.current, { source: 'autoplay' });
-      },
+      () => swiperTo(props.current, { source: 'autoplay' }),
     );
 
     onMounted(() => {
