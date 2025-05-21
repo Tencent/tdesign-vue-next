@@ -1,6 +1,5 @@
 import { defineComponent, ref, computed, watch, isVNode, onMounted, cloneVNode } from 'vue';
 import { ChevronLeftIcon as TdChevronLeftIcon, ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
-
 import { usePrefixClass } from '../hooks/useConfig';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useChildComponentSlots } from '../hooks';
@@ -24,7 +23,6 @@ export default defineComponent({
   setup(props, { emit }) {
     const prefix = usePrefixClass();
     const renderTNodeJSX = useTNodeJSX();
-
     const { ChevronLeftIcon, ChevronRightIcon } = useGlobalIcon({
       ChevronLeftIcon: TdChevronLeftIcon,
       ChevronRightIcon: TdChevronRightIcon,
@@ -40,63 +38,54 @@ export default defineComponent({
     const showArrow = ref(false);
     const swiperWrap = ref<HTMLElement>();
     const getChildComponentByName = useChildComponentSlots();
-
     const swiperItemLength = ref(0);
-    const navigationConfig = computed(() => {
-      return {
-        ...defaultNavigation,
-        ...(isVNode(props.navigation) ? {} : (props.navigation as object)),
-      };
-    });
+
+    const navigationConfig = computed(() => ({
+      ...defaultNavigation,
+      ...(isVNode(props.navigation) ? {} : (props.navigation as object)),
+    }));
     const isEnd = computed(() => {
-      if (props.type === 'card') {
-        return !props.loop && currentIndex.value + 1 >= swiperItemLength.value;
-      }
+      if (props.type === 'card') return !props.loop && currentIndex.value + 1 >= swiperItemLength.value;
       return !props.loop && currentIndex.value + 2 >= swiperItemLength.value;
     });
-    const propsToUpdateSetTimer = computed(() => {
-      return [props.autoplay, currentIndex.value, props.duration, props.interval];
-    });
-    const swiperWrapClass = computed(() => {
-      return {
-        [`${prefix.value}-swiper__wrap`]: true,
-        [`${prefix.value}-swiper--inside`]: navigationConfig.value.placement === 'inside',
-        [`${prefix.value}-swiper--outside`]: navigationConfig.value.placement === 'outside',
-        [`${prefix.value}-swiper--vertical`]: props.direction === 'vertical',
-        [`${prefix.value}-swiper--large`]: navigationConfig.value.size === 'large',
-        [`${prefix.value}-swiper--small`]: navigationConfig.value.size === 'small',
-      };
-    });
+    const propsToUpdateSetTimer = computed(() => [props.autoplay, currentIndex.value, props.duration, props.interval]);
+    const swiperWrapClass = computed(() => ({
+      [`${prefix.value}-swiper__wrap`]: true,
+      [`${prefix.value}-swiper--inside`]: navigationConfig.value.placement === 'inside',
+      [`${prefix.value}-swiper--outside`]: navigationConfig.value.placement === 'outside',
+      [`${prefix.value}-swiper--vertical`]: props.direction === 'vertical',
+      [`${prefix.value}-swiper--large`]: navigationConfig.value.size === 'large',
+      [`${prefix.value}-swiper--small`]: navigationConfig.value.size === 'small',
+    }));
+
+    // 关键修改：SSR 渲染时也计算 slide 位移，只是客户端才算 +1 克隆偏移
     const containerStyle = computed(() => {
       const offsetHeight = props.height ? `${props.height}px` : `${getWrapAttribute('offsetHeight')}px`;
+
       if (props.type === 'card' || props.animation === 'fade') {
-        return {
-          height: offsetHeight,
-        };
+        return { height: offsetHeight };
       }
-      if (props.animation === 'slide') {
-        const style: Record<string, number | string> = {
-          transition: isSwitching.value ? `transform ${props.duration / 1000}s ease` : '',
-        };
-        let active = currentIndex.value;
-        if (swiperItemLength.value > 1) {
-          active += 1;
-          if (isBeginToEnd || isEndToBegin) {
-            style.transition = '';
-          }
-        }
-        if (props.direction === 'vertical') {
-          style.height = offsetHeight;
-          style.transform = `translate3d(0, -${active * 100}%, 0px)`;
-        } else {
-          style.transform = `translate3d(-${active * 100}%, 0px, 0px)`;
-        }
-        ['msTransform', 'WebkitTransform'].forEach((key) => {
-          style[key] = style.transform;
-        });
-        return style;
+
+      // slide 动画
+      const style: Record<string, number | string> = {
+        transition: isSwitching.value && !isServer ? `transform ${props.duration / 1000}s ease` : '',
+      };
+      let active = currentIndex.value;
+      // 客户端克隆后要 +1，SSR 不加
+      if (!isServer && props.animation === 'slide' && swiperItemLength.value > 1) {
+        active += 1;
+        if (isBeginToEnd || isEndToBegin) style.transition = '';
       }
-      return {};
+      if (props.direction === 'vertical') {
+        style.height = offsetHeight;
+        style.transform = `translate3d(0, -${active * 100}%, 0px)`;
+      } else {
+        style.transform = `translate3d(-${active * 100}%, 0px, 0px)`;
+      }
+      ['msTransform', 'WebkitTransform'].forEach((key) => {
+        style[key] = style.transform;
+      });
+      return style;
     });
 
     const swiperItems = () => {
@@ -117,14 +106,12 @@ export default defineComponent({
           </TSwiperItem>
         );
       });
-      // SSR 时只渲染当前项，避免全部展示且默认跳转到目标 index
-      if (isServer) {
-        return [items[currentIndex.value]];
-      }
-      // 客户端正常处理克隆逻辑
-      if (props.animation === 'slide' && items.length > 1) {
+      // 只在客户端 slide 时才做首尾克隆
+      if (!isServer && props.animation === 'slide' && items.length > 1) {
         const first = cloneVNode(items[0], { key: `swiper-item-append-0` });
-        const last = cloneVNode(items[items.length - 1], { key: `swiper-item-prepend-${items.length - 1}` });
+        const last = cloneVNode(items[items.length - 1], {
+          key: `swiper-item-prepend-${items.length - 1}`,
+        });
         items.unshift(last);
         items.push(first);
       }
@@ -165,6 +152,7 @@ export default defineComponent({
       }
       currentIndex.value = targetIndex;
     };
+
     const clearTimer = () => {
       if (swiperTimer) {
         clearTimeout(swiperTimer);
@@ -175,9 +163,7 @@ export default defineComponent({
       if (props.autoplay && props.interval > 0) {
         clearTimer();
         swiperTimer = setTimeout(
-          () => {
-            swiperTo(currentIndex.value + 1, { source: 'autoplay' });
-          },
+          () => swiperTo(currentIndex.value + 1, { source: 'autoplay' }),
           currentIndex.value === 0 ? props.interval - (props.duration + 50) : props.interval,
         );
       }
@@ -209,14 +195,15 @@ export default defineComponent({
     const goPrevious = (context: { source: SwiperChangeSource }) => {
       if (isSwitching.value) return;
       if (currentIndex.value - 1 < 0) {
-        if (props.animation === 'slide' && swiperItemLength.value === 2) return swiperTo(0, context);
+        if (props.animation === 'slide' && swiperItemLength.value === 2) {
+          return swiperTo(0, context);
+        }
         return swiperTo(swiperItemLength.value - 1, context);
       }
       return swiperTo(currentIndex.value - 1, context);
     };
-    const getWrapAttribute = (attr: string) => {
-      return swiperWrap.value?.parentNode?.[attr as keyof ParentNode];
-    };
+    const getWrapAttribute = (attr: string) => swiperWrap.value?.parentNode?.[attr as keyof ParentNode];
+
     const renderPagination = () => {
       const fractionIndex = currentIndex.value + 1 > swiperItemLength.value ? 1 : currentIndex.value + 1;
       return (
@@ -233,9 +220,9 @@ export default defineComponent({
         </div>
       );
     };
-    const renderArrow = () => {
-      if (!showArrow.value) return null;
-      return (
+
+    const renderArrow = () =>
+      showArrow.value && (
         <div class={[`${prefix.value}-swiper__arrow`, `${prefix.value}-swiper__arrow--default`]}>
           <div class={`${prefix.value}-swiper__arrow-left`} onClick={() => goPrevious({ source: 'click' })}>
             <ChevronLeftIcon />
@@ -245,19 +232,18 @@ export default defineComponent({
           </div>
         </div>
       );
-    };
+
     const renderNavigation = () => {
       if (isVNode(props.navigation)) return props.navigation;
-      const navigationSlot = renderTNodeJSX('navigation');
-      if (navigationSlot && isVNode(navigationSlot?.[0])) return navigationSlot;
-      if (navigationConfig.value.type === 'fraction') {
+      const slot = renderTNodeJSX('navigation');
+      if (slot && isVNode(slot[0])) return slot;
+      if (navigationConfig.value.type === 'fraction')
         return (
           <div class={[`${prefix.value}-swiper__navigation`, `${prefix.value}-swiper__navigation--fraction`]}>
             {renderPagination()}
           </div>
         );
-      }
-      const swiperItemList = getChildComponentByName('SwiperItem');
+      const list = getChildComponentByName('SwiperItem');
       return (
         <ul
           class={[
@@ -269,7 +255,7 @@ export default defineComponent({
             },
           ]}
         >
-          {swiperItemList.map((_, i) => (
+          {list.map((_, i) => (
             <li
               key={i}
               class={[
@@ -285,7 +271,6 @@ export default defineComponent({
         </ul>
       );
     };
-    const renderSwiperItems = () => swiperItems();
 
     watch(
       () => propsToUpdateSetTimer.value,
@@ -312,7 +297,7 @@ export default defineComponent({
     onMounted(() => {
       setTimer();
       showArrow.value = navigationConfig.value.showSlideBtn === 'always';
-      swiperTo(props.current || 0, { source: 'autoplay' }); // 初始化时跳转到目标 item
+      swiperTo(props.current || 0, { source: 'autoplay' });
     });
 
     return () => (
@@ -328,7 +313,7 @@ export default defineComponent({
             ]}
           >
             <div class={`${prefix.value}-swiper__container`} style={containerStyle.value}>
-              {renderSwiperItems()}
+              {swiperItems()}
             </div>
           </div>
           {renderNavigation()}
