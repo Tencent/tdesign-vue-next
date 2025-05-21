@@ -22,7 +22,6 @@ export default defineComponent({
   props,
   emits: ['update:current'],
   setup(props, { emit }) {
-    const isClient = typeof window !== 'undefined';
     const prefix = usePrefixClass();
     const renderTNodeJSX = useTNodeJSX();
 
@@ -119,7 +118,7 @@ export default defineComponent({
         );
       });
       // SSR 时只渲染当前项，避免全部展示且默认跳转到目标 index
-      if (!isServer) {
+      if (isServer) {
         return [items[currentIndex.value]];
       }
       // 客户端正常处理克隆逻辑
