@@ -67,7 +67,7 @@ const MessageFunction = (props: MessageOptions): Promise<MessageInstance> => {
   }
   const p = instanceMap.get(attachDom)[placement];
   let mgKey: number;
-  if (!p) {
+  if (!p || !attachDom.contains(p.$el)) {
     const wrapper = document.createElement('div');
 
     const instance = createApp(MessageList, {
