@@ -1,4 +1,4 @@
-import { defineComponent, reactive, provide, toRefs, computed } from 'vue';
+import { defineComponent, reactive, provide, toRefs } from 'vue';
 import props from './props';
 import BreadcrumbItem from './breadcrumb-item';
 import type { TdBreadcrumbItemProps, TdBreadcrumbProps } from './type';
@@ -15,7 +15,6 @@ export default defineComponent({
     const { theme, maxItemWidth } = toRefs(props);
     const COMPONENT_NAME = usePrefixClass('breadcrumb');
     const renderTNodeJSX = useTNodeJSX();
-    const { breadcrumbOptions } = useBreadcrumbOptions(props);
     const { ChevronRightIcon, EllipsisIcon } = useGlobalIcon({
       ChevronRightIcon: TdChevronRightIcon,
       EllipsisIcon: TdEllipsisIcon,
@@ -32,22 +31,24 @@ export default defineComponent({
       }),
     );
 
-    // 省略号，支持自定义
-    const ellipsisContent = computed(() => {
-      const items = breadcrumbOptions.value;
-      const ellipsisItems = items.slice(props.itemsBeforeCollapse, items.length - props.itemsAfterCollapse);
+    return () => {
+      const { breadcrumbOptions } = useBreadcrumbOptions(props);
+      // 省略号，支持自定义
+
+      const ellipsisItems = breadcrumbOptions.value.slice(
+        props.itemsBeforeCollapse,
+        breadcrumbOptions.value.length - props.itemsAfterCollapse,
+      );
       const ellipsisSlot = renderTNodeJSX('ellipsis', {
         params: {
           items: ellipsisItems,
           separator,
         },
       });
-      return ellipsisSlot || <EllipsisIcon />;
-    });
 
-    const { getDisplayItems } = useEllipsis(props, breadcrumbOptions, ellipsisContent);
+      const ellipsisContent = ellipsisSlot || <EllipsisIcon />;
 
-    return () => {
+      const { getDisplayItems } = useEllipsis(props, breadcrumbOptions, ellipsisContent);
       const items = getDisplayItems.value;
       const content = items.map((item: TdBreadcrumbItemProps, index: number) => {
         if (typeof item === 'object' && 'content' in item) {

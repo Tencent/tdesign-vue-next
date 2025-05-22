@@ -94,7 +94,7 @@ export default defineComponent({
       innerValue,
       (val) => {
         if (props.customValue && props.customValue.length && !props.customValue.includes(val)) {
-          throw new Error(`value is not in ${JSON.stringify(props.customValue)}`);
+          throw new Error(`value is ${val} not in ${JSON.stringify(props.customValue)}`);
         }
       },
       {

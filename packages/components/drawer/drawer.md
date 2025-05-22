@@ -79,6 +79,7 @@ destroyOnClose | Boolean | false | 抽屉关闭时是否销毁节点 | N
 drawerClassName | String | - | 抽屉元素类名。 | N
 footer | Boolean / Slot / Function | true | 底部操作栏，默认会有“确认”和“取消”两个按钮。值为 true 显示默认操作按钮，值为 false 或 null 不显示任何内容，值类型为 TNode 表示自定义底部内容。TS 类型：`boolean \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 header | String / Boolean / Slot / Function | true | 头部内容。值为 true 显示空白头部，值为 false 不显示头部，值类型为 string 则直接显示值，值类型为 TNode 表示自定义头部内容。TS 类型：`string \| boolean \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
+lazy | Boolean | false | 是否启用抽屉懒加载，启用时抽屉的内容不渲染 | N
 mode | String | overlay | 展开方式，有两种：直接展示在内容上方 和 推开内容区域。可选项：overlay/push | N
 placement | String | right | 抽屉方向。可选项：left/right/top/bottom | N
 preventScrollThrough | Boolean | true | 防止滚动穿透 | N
