@@ -9,8 +9,8 @@ docClass: timeline
 
 ### 🚀 Features
 - `ColorPicker`: 自动根据「触发器 / 最近颜色 / 预设颜色」的色值进行切换单色和渐变模式；只开启渐变模式时，过滤「预设颜色 / 当前颜色」中的非渐变色值；新增 format `HEX8`，移除 `HSB`；使用渐变模式的业务请注意此变更 ⚠️  @RylanBot ([#5319](https://github.com/Tencent/tdesign-vue-next/pull/5319))
-- `Dialog`: 新增 `lazy` API , 打开此配置默认不直接渲染 Dialog， 用于懒加载的场景 @RSS1102 ([#5375](https://github.com/Tencent/tdesign-vue-next/pull/5375))
-- `Drawer`: 新增 `lazy` API , 打开此配置默认不直接渲染 Drawer，用于懒加载的场景 @RSS1102 ([#5375](https://github.com/Tencent/tdesign-vue-next/pull/5375))
+- `Dialog`: 新增 `lazy` API , 打开此配置默认不直接渲染 Dialog， 用于懒加载的场景，此前有依赖 `destroyOnClose` 实现初始化不加载的业务请注意此变更 ⚠️ @RSS1102 ([#5307](https://github.com/Tencent/tdesign-vue-next/pull/5307))
+- `Drawer`: 新增 `lazy` API , 打开此配置默认不直接渲染 Drawer，用于懒加载的场景 @RSS1102，此前有依赖 `destroyOnClose` 实现初始化不加载的业务请注意此变更 ⚠️ ([#5375](https://github.com/Tencent/tdesign-vue-next/pull/5375))
 - `TagInput`: 优化可拖拽调整位置状态下，鼠标光标显示为移动样式 @liweijie0812 ([#5424](https://github.com/Tencent/tdesign-vue-next/pull/5424))
 - `TimePicker`: 新增`onConfirm` 和`onClear` 回调方法 @Wesley-0808 ([#5349](https://github.com/Tencent/tdesign-vue-next/pull/5349))
 
