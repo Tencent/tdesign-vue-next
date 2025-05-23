@@ -4,8 +4,8 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
-import { TdDialogProps } from './type';
 import { PropType } from 'vue';
+import { TdDialogProps } from './type';
 
 export default {
   /** 对话框挂载的节点。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body */
@@ -73,6 +73,8 @@ export default {
     type: [String, Boolean, Function] as PropType<TdDialogProps['header']>,
     default: true as TdDialogProps['header'],
   },
+  /** 是否启用对话框懒加载，启用时对话框内的内容不渲染 */
+  lazy: Boolean,
   /** 对话框类型，有 4 种：模态对话框、非模态对话框、普通对话框、全屏对话框。弹出「模态对话框」时，只能操作对话框里面的内容，不能操作其他内容。弹出「非模态对话框」时，则可以操作页面内所有内容。「普通对话框」是指没有脱离文档流的对话框，可以在这个基础上开发更多的插件 */
   mode: {
     type: String as PropType<TdDialogProps['mode']>,
