@@ -1,4 +1,4 @@
-import { defineComponent, VNode, computed, CSSProperties, onMounted, ref } from 'vue';
+import { defineComponent, VNode, computed, CSSProperties, onMounted, ref, nextTick, watch } from 'vue';
 import {
   CloseCircleFilledIcon as TdCloseCircleFilledIcon,
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
@@ -163,22 +163,28 @@ export default defineComponent({
       return labelContent;
     };
 
-    // 当plumpInfoDom的offsetLeft小于5的时候label在外部，否则在内部
-    const infoIsOut = ref(false);
+    // 当文字小于进度条宽度时，文字在进度条外部，否则在内部
+    const infoIsOut = ref(true);
+    const infoRef = ref<HTMLDivElement>(null);
 
     const separateClasses = computed(() => {
       return infoIsOut.value ? `${COMPONENT_NAME.value}--over-ten` : `${COMPONENT_NAME.value}--under-ten`;
     });
 
+    async function updateInfoIsOut() {
+      if (!infoRef.value) return;
+      await nextTick();
+      const infoEl = infoRef.value.querySelector(`.${COMPONENT_NAME.value}__info`) || infoRef.value.nextElementSibling;
+      infoIsOut.value = infoRef.value.clientWidth > infoEl?.clientWidth + 10;
+    }
+
     onMounted(() => {
       if (props.theme === PRO_THEME.PLUMP) {
-        const plumpInfoDom = document.querySelector(
-          `.${COMPONENT_NAME.value}--plump .${COMPONENT_NAME.value}__info`,
-        ) as HTMLElement;
-
-        infoIsOut.value = plumpInfoDom.offsetLeft > 5;
+        updateInfoIsOut();
       }
     });
+
+    watch(() => props.percentage, updateInfoIsOut);
 
     return () => {
       const labelContent = (
@@ -204,7 +210,7 @@ export default defineComponent({
               ]}
               style={trackBgStyle.value}
             >
-              <div class={`${COMPONENT_NAME.value}__inner`} style={barStyle.value}>
+              <div class={`${COMPONENT_NAME.value}__inner`} ref={infoRef} style={barStyle.value}>
                 {infoIsOut.value && labelContent}
               </div>
               {!infoIsOut.value && labelContent}
