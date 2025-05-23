@@ -1,15 +1,15 @@
 import { defineComponent, ref, toRefs, inject, watch, computed } from 'vue';
 import { isString } from 'lodash-es';
 import props from './props';
-import useVModel from '../hooks/useVModel';
-import useRipple from '../hooks/useRipple';
-import { useContent } from '../hooks/tnode';
-import { useCommonClassName, usePrefixClass } from '../hooks/useConfig';
+import { useVModel } from '@tdesign/hooks';
+import { useRipple } from '@tdesign/hooks';
+import { useContent } from '@tdesign/hooks';
+import { useCommonClassName, usePrefixClass } from '@tdesign/hooks';
 import { CheckboxGroupInjectionKey } from './consts';
 import useCheckboxLazyLoad from './hooks/useCheckboxLazyLoad';
 import useKeyboardEvent from './hooks/useKeyboardEvent';
-import { useDisabled } from '../hooks/useDisabled';
-import { useReadonly } from '../hooks/useReadonly';
+import { useDisabled } from '@tdesign/hooks';
+import { useReadonly } from '@tdesign/hooks';
 
 export default defineComponent({
   name: 'TCheckbox',

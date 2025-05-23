@@ -49,8 +49,8 @@ import {
   ValidateStatus,
 } from './consts';
 
-import { useConfig, usePrefixClass, useTNodeJSX } from '../hooks';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import { useConfig, usePrefixClass, useTNodeJSX } from '@tdesign/hooks';
+import { useGlobalIcon } from '@tdesign/hooks';
 import { template } from '@tdesign/common-js/utils/stringTemplate';
 
 export type FormItemValidateResult<T extends Data = Data> = { [key in keyof T]: boolean | AllValidateResult[] };

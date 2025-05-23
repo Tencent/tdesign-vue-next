@@ -1,13 +1,8 @@
 import { defineComponent, toRefs, computed } from 'vue';
 import { RectangleIcon, SendIcon, StopCircleIcon } from 'tdesign-icons-vue-next';
 import { Button, Textarea } from 'tdesign-vue-next';
-
-// TODO: need refactor
-import { useTNodeJSX } from '../../components/hooks/tnode';
-import { usePrefixClass, useConfig } from '../../components/hooks/useConfig';
+import { useTNodeJSX, usePrefixClass, useConfig, useVModel } from '@tdesign/hooks';
 import props from './chat-input-props';
-// TODO: need refactor
-import useVModel from '../../components/hooks/useVModel';
 
 export default defineComponent({
   name: 'TChatInput',

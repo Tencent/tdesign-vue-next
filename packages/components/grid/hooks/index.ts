@@ -1,7 +1,7 @@
 import { ref } from 'vue';
 import type { Ref } from 'vue';
 import { calcSize } from '@tdesign/common-js/utils/responsive';
-import { useListener } from '../../hooks/useListener';
+import { useListener } from '@tdesign/hooks';
 import { isServer } from '../../utils/dom';
 import { GutterObject } from '../type';
 /**

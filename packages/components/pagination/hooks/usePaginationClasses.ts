@@ -1,6 +1,6 @@
 import { computed, Ref } from 'vue';
 import { getIEVersion } from '@tdesign/common-js/utils/helper';
-import { useCommonClassName } from '../../hooks/useConfig';
+import { useCommonClassName } from '@tdesign/hooks';
 import { TdPaginationProps } from '../type';
 
 export function usePaginationClasses(

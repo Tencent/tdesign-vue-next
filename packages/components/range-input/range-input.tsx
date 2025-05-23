@@ -6,12 +6,12 @@ import props from './props';
 import { RangeInputValue, RangeInputPosition } from './type';
 
 // hooks
-import useVModel from '../hooks/useVModel';
-import { useDisabled } from '../hooks/useDisabled';
-import { useReadonly } from '../hooks/useReadonly';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
+import { useVModel } from '@tdesign/hooks';
+import { useDisabled } from '@tdesign/hooks';
+import { useReadonly } from '@tdesign/hooks';
+import { useGlobalIcon } from '@tdesign/hooks';
+import { usePrefixClass, useCommonClassName } from '@tdesign/hooks';
+import { useTNodeJSX } from '@tdesign/hooks';
 import { isArray } from 'lodash-es';
 
 function calcArrayValue(value: unknown | Array<unknown>) {

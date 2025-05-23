@@ -4,8 +4,8 @@ import { copyText } from './utils';
 import Message from '../message/plugin';
 import props from './anchor-target-props';
 import Popup from '../popup';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import { useGlobalIcon } from '@tdesign/hooks';
+import { useConfig, usePrefixClass } from '@tdesign/hooks';
 
 export default defineComponent({
   name: 'TAnchorTarget',

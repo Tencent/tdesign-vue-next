@@ -1,6 +1,6 @@
 import { computed, defineComponent } from 'vue';
 import type { PropType } from 'vue';
-import { usePrefixClass } from '../hooks/useConfig';
+import { usePrefixClass } from '@tdesign/hooks';
 import { isString } from 'lodash-es';
 import { escapeRegExp } from 'lodash-es';
 

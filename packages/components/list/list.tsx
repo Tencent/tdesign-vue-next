@@ -1,12 +1,12 @@
 import { defineComponent, VNodeChild, computed, ref } from 'vue';
 import { isString } from 'lodash-es';
 import { omit } from 'lodash-es';
-import { useTNodeJSX } from '../hooks/tnode';
+import { useTNodeJSX } from '@tdesign/hooks';
 import TLoading from '../loading';
 import TListItem from './list-item';
 import props from './props';
 import { LOAD_MORE, LOADING } from './consts';
-import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { useConfig, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
 import { useListItems, useListVirtualScroll } from './hooks';
 
 import type { TdListProps } from './type';

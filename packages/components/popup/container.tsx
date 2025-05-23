@@ -14,7 +14,7 @@ import {
   Comment,
 } from 'vue';
 import props from './props';
-import useResizeObserver from '../hooks/useResizeObserver';
+import { useResizeObserver } from '@tdesign/hooks';
 import { isArray } from 'lodash-es';
 import { getAttach } from '../utils/dom';
 

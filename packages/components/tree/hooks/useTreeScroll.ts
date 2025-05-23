@@ -1,4 +1,4 @@
-import { computed, onMounted, TypeRef, useVirtualScroll, TypeScroll, TreeNode } from '../adapt';
+import { computed, onMounted, TypeRef, useVirtualScrollNew, TypeScroll, TreeNode } from '../adapt';
 import { get } from 'lodash-es';
 import { TypeTreeState, TypeTimer } from '../tree-types';
 import log from '@tdesign/common-js/log/index';
@@ -27,7 +27,7 @@ export default function useTreeScroll(state: TypeTreeState) {
     };
   });
 
-  const virtualConfig = useVirtualScroll(treeContentRef, virtualScrollParams);
+  const virtualConfig = useVirtualScrollNew(treeContentRef, virtualScrollParams);
   scope.virtualConfig = virtualConfig;
   treeState.virtualConfig = virtualConfig;
 

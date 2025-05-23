@@ -1,11 +1,8 @@
 import { defineComponent, computed, provide, Fragment } from 'vue';
-// TODO: need refactor
-import { usePrefixClass, useConfig } from '../../components/hooks/useConfig';
+import { usePrefixClass, useConfig, useTNodeJSX } from '@tdesign/hooks';
 import props from './chat-item-props';
 import { isString, isObject } from 'lodash-es';
 import { Skeleton } from 'tdesign-vue-next';
-// TODO: need refactor
-import { useTNodeJSX } from '../../components/hooks/tnode';
 import Text from './chat-content';
 import { CheckCircleIcon } from 'tdesign-icons-vue-next';
 import ChatLoading from './chat-loading';

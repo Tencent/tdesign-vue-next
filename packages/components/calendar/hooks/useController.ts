@@ -5,7 +5,7 @@ import dayjs from 'dayjs';
 import { COMPONENT_NAME } from '../consts';
 import { CalendarState } from '../types';
 import { TdCalendarProps, ControllerOptions } from '../type';
-import { useConfig } from '../../hooks/useConfig';
+import { useConfig } from '@tdesign/hooks';
 
 const getDefaultControllerConfigData = (visible = true): Record<string, any> => ({
   visible, // 是否显示（全部控件）

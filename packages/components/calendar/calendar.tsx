@@ -7,8 +7,8 @@ import { isArray } from 'lodash-es';
 
 import props from './props';
 import * as utils from './utils';
-import { useConfig } from '../hooks/useConfig';
-import { useContent } from '../hooks/tnode';
+import { useConfig } from '@tdesign/hooks';
+import { useContent } from '@tdesign/hooks';
 import { useState, useCalendarClass, userController, useColHeaders } from './hooks';
 
 // 组件的一些常量

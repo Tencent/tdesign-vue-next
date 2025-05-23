@@ -1,5 +1,5 @@
 import { defineComponent, PropType, computed } from 'vue';
-import { useConfig, usePrefixClass } from '../../../hooks/useConfig';
+import { useConfig, usePrefixClass } from '@tdesign/hooks';
 import TPanelContent from './PanelContent';
 import TExtraContent from './ExtraContent';
 import { getDefaultFormat, parseToDayjs } from '@tdesign/common-js/date-picker/format';

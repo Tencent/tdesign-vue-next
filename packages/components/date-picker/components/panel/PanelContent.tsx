@@ -1,5 +1,5 @@
 import { defineComponent, PropType } from 'vue';
-import { usePrefixClass } from '../../../hooks/useConfig';
+import { usePrefixClass } from '@tdesign/hooks';
 import type { TdDatePickerProps } from '../../type';
 
 import TDateHeader from '../base/Header';

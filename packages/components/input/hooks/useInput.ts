@@ -1,10 +1,10 @@
 import { ref, computed, watch, nextTick, toRefs, inject } from 'vue';
 import { InputValue, TdInputProps } from './../type';
 import { FormItemInjectionKey } from '../../form/consts';
-import useVModel from '../../hooks/useVModel';
-import { useDisabled } from '../../hooks/useDisabled';
+import { useVModel } from '@tdesign/hooks';
+import { useDisabled } from '@tdesign/hooks';
 import { useLengthLimit } from './useLengthLimit';
-import { useReadonly } from '../../hooks/useReadonly';
+import { useReadonly } from '@tdesign/hooks';
 
 export function getOutputValue(val: InputValue, type: TdInputProps['type']) {
   if (type === 'number') {

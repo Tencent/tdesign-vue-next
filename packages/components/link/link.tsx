@@ -1,7 +1,7 @@
 import { computed, defineComponent } from 'vue';
-import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import { useContent, useTNodeJSX } from '../hooks/tnode';
-import { useDisabled } from '../hooks/useDisabled';
+import { useConfig, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
+import { useContent, useTNodeJSX } from '@tdesign/hooks';
+import { useDisabled } from '@tdesign/hooks';
 import props from './props';
 
 export default defineComponent({

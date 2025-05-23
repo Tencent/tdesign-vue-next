@@ -3,10 +3,7 @@ import { ClearIcon } from 'tdesign-icons-vue-next';
 import { isArray } from 'lodash-es';
 import props from './props';
 import { Divider, Popconfirm } from 'tdesign-vue-next';
-// TODO: need refactor
-import { usePrefixClass, useConfig } from '../../components/hooks/useConfig';
-// TODO: need refactor
-import { useTNodeJSX } from '../../components/hooks/tnode';
+import { usePrefixClass, useConfig, useTNodeJSX } from '@tdesign/hooks';
 import ChatItem from './chat-item';
 import { TdChatItemProps, ScrollToBottomParams } from './type';
 

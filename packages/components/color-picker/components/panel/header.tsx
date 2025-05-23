@@ -5,7 +5,7 @@ import { COLOR_MODES } from '@tdesign/common-js/color-picker/constants';
 import { RadioGroup as TRadioGroup, RadioButton as TRadioButton } from '../../../radio';
 import { TdColorModes } from '../../types';
 import { useBaseClassName } from '../../hooks';
-import { useConfig } from '../../../hooks';
+import { useConfig } from '@tdesign/hooks';
 
 export default defineComponent({
   name: 'PanelHeader',

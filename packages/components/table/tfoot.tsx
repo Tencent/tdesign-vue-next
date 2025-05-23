@@ -5,7 +5,7 @@ import { get } from 'lodash-es';
 import { BaseTableCellParams, RowspanColspan, TableRowData, TdBaseTableProps } from './type';
 import { formatRowAttributes, formatRowClassNames } from './utils';
 import { getColumnFixedStyles } from './hooks/useFixed';
-import { useTNodeJSX } from '../hooks/tnode';
+import { useTNodeJSX } from '@tdesign/hooks';
 import useRowspanAndColspan, { getCellKey } from './hooks/useRowspanAndColspan';
 import { RowAndColFixedPosition } from './interface';
 import useClassName from './hooks/useClassName';

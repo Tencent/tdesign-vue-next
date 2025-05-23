@@ -4,7 +4,7 @@ import { GRADIENT_SLIDER_DEFAULT_WIDTH } from '@tdesign/common-js/color-picker/c
 import { genGradientPoint, gradientColors2string, GradientColorPoint } from '../../utils';
 import { InputNumber as TInputNumber } from '../../../input-number';
 import { useBaseClassName } from '../../hooks';
-import { useCommonClassName } from '../../../hooks/useConfig';
+import { useCommonClassName } from '@tdesign/hooks';
 import baseProps from './base-props';
 
 const DELETE_KEYS: string[] = ['delete', 'backspace'];

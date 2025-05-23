@@ -1,7 +1,7 @@
 import { computed, defineComponent, PropType } from 'vue';
 import TDialog from '../../dialog';
-import { useTNodeJSX } from '../../hooks/tnode';
-import { usePrefixClass } from '../../hooks/useConfig';
+import { useTNodeJSX } from '@tdesign/hooks';
+import { usePrefixClass } from '@tdesign/hooks';
 import props from '../props';
 import { ImageInfo, TdImageViewerProps } from '../type';
 import TImageItem from './ImageItem';

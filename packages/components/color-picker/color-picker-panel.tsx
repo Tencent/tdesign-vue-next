@@ -1,7 +1,7 @@
 import { computed, defineComponent } from 'vue';
 import props from './props';
 import ColorPanel from './components/panel';
-import { usePrefixClass } from '../hooks/useConfig';
+import { usePrefixClass } from '@tdesign/hooks';
 import { pickBy } from 'lodash-es';
 
 export default defineComponent({
