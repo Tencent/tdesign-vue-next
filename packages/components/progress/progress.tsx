@@ -1,4 +1,4 @@
-import { defineComponent, VNode, computed, CSSProperties } from 'vue';
+import { defineComponent, VNode, computed, CSSProperties, onMounted, ref } from 'vue';
 import {
   CloseCircleFilledIcon as TdCloseCircleFilledIcon,
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
@@ -163,13 +163,28 @@ export default defineComponent({
       return labelContent;
     };
 
+    // 当plumpInfoDom的offsetLeft小于5的时候label在外部，否则在内部
+    const infoIsOut = ref(false);
+
+    const separateClasses = computed(() => {
+      return infoIsOut.value ? `${COMPONENT_NAME.value}--over-ten` : `${COMPONENT_NAME.value}--under-ten`;
+    });
+
+    onMounted(() => {
+      if (props.theme === PRO_THEME.PLUMP) {
+        const plumpInfoDom = document.querySelector(
+          `.${COMPONENT_NAME.value}--plump .${COMPONENT_NAME.value}__info`,
+        ) as HTMLElement;
+
+        infoIsOut.value = plumpInfoDom.offsetLeft > 5;
+      }
+    });
+
     return () => {
       const labelContent = (
         <div class={`${COMPONENT_NAME.value}__info`}>{renderTNodeJSX('label', getLabelContent())}</div>
       );
-      // 进度大于 10 ，进度百分比显示在内部；进度百分比小于 10 进度显示在外部
-      const separateClasses =
-        props.percentage > props.separate ? `${COMPONENT_NAME.value}--over-ten` : `${COMPONENT_NAME.value}--under-ten`;
+
       return (
         <div class={COMPONENT_NAME.value}>
           {props.theme === PRO_THEME.LINE && (
@@ -184,15 +199,15 @@ export default defineComponent({
           {props.theme === PRO_THEME.PLUMP && (
             <div
               class={[
-                `${COMPONENT_NAME.value}__bar ${COMPONENT_NAME.value}--plump ${separateClasses}`,
+                `${COMPONENT_NAME.value}__bar ${COMPONENT_NAME.value}--plump ${separateClasses.value}`,
                 { [`${COMPONENT_NAME.value}--status--${statusStyle.value}`]: statusStyle.value },
               ]}
               style={trackBgStyle.value}
             >
               <div class={`${COMPONENT_NAME.value}__inner`} style={barStyle.value}>
-                {props.percentage > props.separate && labelContent}
+                {infoIsOut.value && labelContent}
               </div>
-              {props.percentage <= props.separate && labelContent}
+              {!infoIsOut.value && labelContent}
             </div>
           )}
 
