@@ -1,5 +1,6 @@
 import { computed } from 'vue';
-import { useConfig } from '../config-provider/hooks/useConfig';
+// TODO need refactor
+import { useConfig } from '../../components/config-provider/hooks/useConfig';
 
 export function usePrefixClass(componentName?: string) {
   const { classPrefix } = useConfig('classPrefix');

@@ -1,6 +1,8 @@
-import { getAttach } from '../utils/dom';
+// TODO need refactor
+import { getAttach } from '../../components/utils/dom';
 import { computed, Ref, onMounted, ref, watch } from 'vue';
-import { AttachNode } from '../common';
+// TODO need refactor
+import { AttachNode } from '../../components/common';
 import { isFunction } from 'lodash-es';
 
 /**

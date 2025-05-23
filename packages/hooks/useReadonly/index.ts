@@ -1,6 +1,7 @@
 import { Ref, inject, computed, getCurrentInstance } from 'vue';
 import { isBoolean } from 'lodash-es';
-import { TdFormProps } from '../form/type';
+// TODO need refactor
+import { TdFormProps } from '../../components/form/type';
 
 export interface FormReadonlyProvider {
   readonly: Ref<TdFormProps['readonly']>;

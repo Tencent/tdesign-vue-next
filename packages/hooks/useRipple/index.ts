@@ -1,6 +1,6 @@
 import { ref, onMounted, onUnmounted, Ref } from 'vue';
-import useKeepAnimation from './useKeepAnimation';
-import { usePrefixClass } from './useConfig';
+import useKeepAnimation from '../useKeepAnimation';
+import { usePrefixClass } from '../useConfig';
 import setStyle from '@tdesign/common-js/utils/setStyle';
 
 const period = 200;

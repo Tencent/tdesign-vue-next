@@ -1,4 +1,4 @@
-import { useConfig } from './useConfig';
+import { useConfig } from '../useConfig';
 
 export default function useCommonClassName() {
   const { classPrefix } = useConfig();
