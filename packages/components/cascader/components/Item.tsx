@@ -7,9 +7,9 @@ import Checkbox from '../../checkbox/index';
 import TLoading from '../../loading';
 
 import { CascaderContextType, TreeNodeValue, TreeNode, TdCascaderProps } from '../types';
-import { usePrefixClass, useCommonClassName } from '../../hooks/useConfig';
-import { useGlobalIcon } from '../../hooks/useGlobalIcon';
-import useRipple from '../../hooks/useRipple';
+import { usePrefixClass, useCommonClassName } from '@tdesign/hooks';
+import { useGlobalIcon } from '@tdesign/hooks';
+import { useRipple } from '@tdesign/hooks';
 
 const props = {
   node: {

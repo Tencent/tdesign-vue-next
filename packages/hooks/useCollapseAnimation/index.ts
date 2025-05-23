@@ -1,4 +1,4 @@
-export default function useCollapseAnimation() {
+export function useCollapseAnimation() {
   const beforeEnter = (el: HTMLElement) => {
     el.dataset.oldPaddingTop = el.style.paddingTop;
     el.dataset.oldPaddingBottom = el.style.paddingBottom;

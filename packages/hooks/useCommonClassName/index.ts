@@ -1,6 +1,9 @@
+// what ??  same as useConfig
+// TODO: I replaced it with useConfig
+
 import { useConfig } from '../useConfig';
 
-export default function useCommonClassName() {
+export function useCommonClassName() {
   const { classPrefix } = useConfig();
 
   const sizeClassNames = {

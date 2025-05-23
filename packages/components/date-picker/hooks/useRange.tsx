@@ -2,10 +2,10 @@ import { ref, computed, watch } from 'vue';
 import { CalendarIcon as TdCalendarIcon } from 'tdesign-icons-vue-next';
 import { omit } from 'lodash-es';
 
-import { useTNodeJSX } from '../../hooks/tnode';
-import { useGlobalIcon } from '../../hooks/useGlobalIcon';
-import { usePrefixClass, useConfig } from '../../hooks/useConfig';
-import { useReadonly } from '../../hooks/useReadonly';
+import { useTNodeJSX } from '@tdesign/hooks';
+import { useGlobalIcon } from '@tdesign/hooks';
+import { usePrefixClass, useConfig } from '@tdesign/hooks';
+import { useReadonly } from '@tdesign/hooks';
 
 import { TdDateRangePickerProps, DateValue, DateRangePickerPartial } from '../type';
 import { isValidDate, formatDate, getDefaultFormat, parseToDayjs } from '@tdesign/common-js/date-picker/format';

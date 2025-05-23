@@ -5,10 +5,10 @@ import { isFunction } from 'lodash-es';
 import { ImageErrorIcon, ImageIcon } from 'tdesign-icons-vue-next';
 import observe from '@tdesign/common-js/utils/observe';
 import { useConfig } from '../config-provider/hooks/useConfig';
-import { useTNodeDefault, useTNodeJSX } from '../hooks/tnode';
+import { useTNodeDefault, useTNodeJSX } from '@tdesign/hooks';
 import props from './props';
 import Space from '../space';
-import { useImagePreviewUrl } from '../hooks/useImagePreviewUrl';
+import { useImagePreviewUrl } from '@tdesign/hooks';
 
 export default defineComponent({
   name: 'TImage',

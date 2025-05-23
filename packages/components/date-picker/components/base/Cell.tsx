@@ -1,5 +1,5 @@
 import { defineComponent, computed } from 'vue';
-import { usePrefixClass } from '../../../hooks/useConfig';
+import { usePrefixClass } from '@tdesign/hooks';
 import { extractTimeObj } from '@tdesign/common-js/date-picker/utils';
 import { Dayjs } from 'dayjs';
 

@@ -2,9 +2,9 @@ import { defineComponent, ref, computed, watch, onMounted, toRefs, CSSProperties
 import GradientIcon from './icon/gradient';
 import { addClass, removeClass } from '../utils/dom';
 import { getPropertyValFromObj } from '@tdesign/common-js/utils/general';
-import { useTNodeJSX, useContent } from '../hooks/tnode';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import useTeleport from '../hooks/useTeleport';
+import { useTNodeJSX, useContent } from '@tdesign/hooks';
+import { usePrefixClass, useCommonClassName } from '@tdesign/hooks';
+import { useTeleport } from '@tdesign/hooks';
 import props from './props';
 
 const useComponentClassName = () => {

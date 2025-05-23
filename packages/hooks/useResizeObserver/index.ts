@@ -1,9 +1,6 @@
 import { Ref, watch, onBeforeUnmount } from 'vue';
 
-export default function useResizeObserver(
-  container: Ref<HTMLElement>,
-  callback: (data: ResizeObserverEntry[]) => void,
-) {
+export function useResizeObserver(container: Ref<HTMLElement>, callback: (data: ResizeObserverEntry[]) => void) {
   if (typeof window === 'undefined') return;
 
   const isSupport = window && (window as Window & typeof globalThis).ResizeObserver;

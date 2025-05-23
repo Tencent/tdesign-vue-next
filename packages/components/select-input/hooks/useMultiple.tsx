@@ -4,10 +4,10 @@ import { TdSelectInputProps, SelectInputChangeContext, SelectInputKeys } from '.
 import { SelectInputCommonProperties } from '../types';
 import TagInput, { TagInputValue, TagInputProps } from '../../tag-input';
 import Loading from '../../loading';
-import useDefault from '../../hooks/useDefaultValue';
-import { usePrefixClass } from '../../hooks/useConfig';
-import { useDisabled } from '../../hooks/useDisabled';
-import { useReadonly } from '../../hooks/useReadonly';
+import { useDefaultValue } from '@tdesign/hooks';
+import { usePrefixClass } from '@tdesign/hooks';
+import { useDisabled } from '@tdesign/hooks';
+import { useReadonly } from '@tdesign/hooks';
 import { PopupInstanceFunctions } from '../../popup';
 
 export interface RenderSelectMultipleParams {
@@ -28,7 +28,7 @@ export function useMultiple(props: TdSelectInputProps, context: SetupContext, po
   const classPrefix = usePrefixClass();
   const tagInputRef = ref();
   const isMultipleFocus = ref(props.autofocus);
-  const [tInputValue, setTInputValue] = useDefault(
+  const [tInputValue, setTInputValue] = useDefaultValue(
     inputValue,
     props.defaultInputValue,
     props.onInputChange,

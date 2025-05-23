@@ -4,14 +4,14 @@ import TInput, { InputProps, StrInputProps, TdInputProps } from '../input';
 import { TdTagInputProps } from './type';
 import props from './props';
 import { useConfig } from '../config-provider/hooks/useConfig';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import { usePrefixClass } from '@tdesign/hooks';
+import { useGlobalIcon } from '@tdesign/hooks';
 import { useTagScroll, useHover, useDragSorter, useTagList } from './hooks';
-import useDefault from '../hooks/useDefaultValue';
+import { useDefaultValue } from '@tdesign/hooks';
 import { isArray } from 'lodash-es';
-import { useDisabled } from '../hooks/useDisabled';
-import { useReadonly } from '../hooks/useReadonly';
-import { useTNodeJSX } from '../hooks/tnode';
+import { useDisabled } from '@tdesign/hooks';
+import { useReadonly } from '@tdesign/hooks';
+import { useTNodeJSX } from '@tdesign/hooks';
 
 const useComponentClassName = () => {
   return {
@@ -33,7 +33,7 @@ export default defineComponent({
     const isReadonly = useReadonly();
 
     const { inputValue, inputProps, borderless, size, tips, status, suffix, autoWidth, onPaste } = toRefs(props);
-    const [tInputValue, setTInputValue] = useDefault(
+    const [tInputValue, setTInputValue] = useDefaultValue(
       inputValue,
       props.defaultInputValue,
       props.onInputChange,

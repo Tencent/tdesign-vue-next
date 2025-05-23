@@ -3,8 +3,8 @@ import { DeleteIcon as TdDeleteIcon, AddIcon as TdAddIcon } from 'tdesign-icons-
 
 import { Color } from '../../utils';
 import { useBaseClassName } from '../../hooks';
-import { useCommonClassName } from '../../../hooks/useConfig';
-import { useGlobalIcon } from '../../../hooks/useGlobalIcon';
+import { useCommonClassName } from '@tdesign/hooks';
+import { useGlobalIcon } from '@tdesign/hooks';
 import baseProps from './base-props';
 
 export default defineComponent({

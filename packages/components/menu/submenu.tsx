@@ -16,13 +16,13 @@ import {
 import props from './submenu-props';
 import { TdMenuInterface, TdSubMenuInterface, TdMenuItem } from './types';
 import FakeArrow from '../common-components/fake-arrow';
-import useRipple from '../hooks/useRipple';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useTNodeJSX, useContent } from '../hooks/tnode';
+import { useRipple } from '@tdesign/hooks';
+import { usePrefixClass } from '@tdesign/hooks';
+import { useTNodeJSX, useContent } from '@tdesign/hooks';
 import { Popup, PopupPlacement } from '../popup';
 import { isFunction } from 'lodash-es';
 import { TdSubmenuProps } from './type';
-import useCollapseAnimation from '../hooks/useCollapseAnimation';
+import { useCollapseAnimation } from '@tdesign/hooks';
 
 export default defineComponent({
   name: 'TSubmenu',

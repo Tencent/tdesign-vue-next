@@ -12,11 +12,11 @@ import {
 import { ANCHOR_SHARP_REGEXP, ANCHOR_CONTAINER, getOffsetTop } from './utils';
 import { isServer, on, off, getScroll, scrollTo, getScrollContainer as utilsGetScrollContainer } from '../utils/dom';
 import props from './props';
-import { useTNodeJSX } from '../hooks/tnode';
+import { useTNodeJSX } from '@tdesign/hooks';
 import { SlotReturnValue } from '../common';
 import Affix from '../affix';
 import { TdAnchorProps } from './type';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { usePrefixClass, useCommonClassName } from '@tdesign/hooks';
 import { AnchorInjectionKey } from './consts';
 
 export interface Anchor extends ComponentPublicInstance {

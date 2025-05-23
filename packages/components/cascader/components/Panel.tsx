@@ -3,8 +3,8 @@ import { defineComponent, PropType, computed, h } from 'vue';
 import Item from './Item';
 import { TreeNode, CascaderContextType } from '../types';
 import CascaderProps from '../props';
-import { usePrefixClass, useConfig } from '../../hooks/useConfig';
-import { useTNodeDefault } from '../../hooks/tnode';
+import { usePrefixClass, useConfig } from '@tdesign/hooks';
+import { useTNodeDefault } from '@tdesign/hooks';
 import { getDefaultNode } from '../../utils/render-tnode';
 import { getPanels, expendClickEffect, valueChangeEffect } from '../utils';
 

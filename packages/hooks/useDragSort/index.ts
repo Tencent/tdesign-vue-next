@@ -18,7 +18,7 @@ const handleTarget = (target: EventTarget, tabNavs: HTMLCollection): any => {
   return resultTarget;
 };
 
-export default function useDragSort(props: any) {
+export function useDragSort(props: any) {
   let navsWrap: HTMLDivElement = null;
 
   // 获取当前正在拖动的tabNav节点

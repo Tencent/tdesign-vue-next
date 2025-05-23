@@ -10,7 +10,7 @@ import {
   initColorFormat,
   TD_COLOR_USED_COLORS_MAX_SIZE,
 } from '@tdesign/common-js/color-picker/index';
-import { useCommonClassName, useConfig } from '../../../hooks/useConfig';
+import { useCommonClassName, useConfig } from '@tdesign/hooks';
 import props from '../../props';
 import PanelHeader from './header';
 import LinearGradient from './linear-gradient';
@@ -22,8 +22,8 @@ import SwatchesPanel from './swatches';
 import type { TdColorPickerProps, ColorPickerChangeTrigger } from '../../type';
 import type { TdColorModes } from '../../types';
 import { useBaseClassName } from '../../hooks';
-import useVModel from '../../../hooks/useVModel';
-import useDefaultValue from '../../../hooks/useDefaultValue';
+import { useVModel } from '@tdesign/hooks';
+import { useDefaultValue } from '@tdesign/hooks';
 
 export default defineComponent({
   name: 'ColorPanel',

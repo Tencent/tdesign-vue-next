@@ -9,11 +9,7 @@ export type UseLazyLoadParams = UnwrapRef<{
   bufferSize?: number;
 }>;
 
-export default function useLazyLoad(
-  containerRef: Ref<HTMLElement>,
-  childRef: Ref<HTMLElement>,
-  params: UseLazyLoadParams,
-) {
+export function useLazyLoad(containerRef: Ref<HTMLElement>, childRef: Ref<HTMLElement>, params: UseLazyLoadParams) {
   const tRowHeight = computed(() => Math.max(params.rowHeight || 48, 48));
   const isInit = ref(false);
   const hasLazyLoadHolder = computed(() => params?.type === 'lazy' && !isInit.value);

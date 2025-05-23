@@ -20,10 +20,10 @@ import props from './props';
 import { TNode } from '../common';
 
 // hooks
-import useVModel from '../hooks/useVModel';
-import useDefaultValue from '../hooks/useDefaultValue';
-import { useDisabled } from '../hooks/useDisabled';
-import { usePrefixClass } from '../hooks/useConfig';
+import { useVModel } from '@tdesign/hooks';
+import { useDefaultValue } from '@tdesign/hooks';
+import { useDisabled } from '@tdesign/hooks';
+import { usePrefixClass } from '@tdesign/hooks';
 
 export default defineComponent({
   name: TRANSFER_NAME,

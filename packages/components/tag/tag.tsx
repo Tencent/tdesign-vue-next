@@ -4,9 +4,9 @@ import { isString } from 'lodash-es';
 import tinycolor from 'tinycolor2';
 
 import props from './props';
-import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useTNodeJSX, useContent } from '../hooks/tnode';
+import { useConfig, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
+import { useGlobalIcon } from '@tdesign/hooks';
+import { useTNodeJSX, useContent } from '@tdesign/hooks';
 import { Styles } from '../common';
 
 export default defineComponent({

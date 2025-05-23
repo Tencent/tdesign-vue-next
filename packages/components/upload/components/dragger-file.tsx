@@ -8,12 +8,12 @@ import { TdUploadProps, UploadFile } from '../type';
 import Button from '../../button';
 import { CommonDisplayFileProps } from '../types';
 import { commonProps } from '../consts';
-import useCommonClassName from '../../hooks/useCommonClassName';
+import { useCommonClassName } from '@tdesign/hooks';
 import TLoading from '../../loading';
 import useDrag, { UploadDragEvents } from '../hooks/useDrag';
-import useGlobalIcon from '../../hooks/useGlobalIcon';
+import { useGlobalIcon } from '@tdesign/hooks';
 import ImageViewer, { ImageViewerProps } from '../../image-viewer';
-import { useTNodeJSX } from '../../hooks';
+import { useTNodeJSX } from '@tdesign/hooks';
 import { UploadConfig } from '../../config-provider';
 import Image from '../../image';
 
@@ -41,7 +41,7 @@ export default defineComponent({
 
     const renderTNodeJSX = useTNodeJSX();
 
-    const { sizeClassNames } = useCommonClassName();
+    const { SIZE } = useCommonClassName();
     const uploadPrefix = `${props.classPrefix}-upload`;
 
     const drag = useDrag(props.dragEvents, accept);
@@ -101,10 +101,10 @@ export default defineComponent({
           {file.status === 'success' && <CheckCircleFilledIcon />}
           {file.status === 'fail' && <ErrorCircleFilledIcon />}
         </div>,
-        <small class={`${sizeClassNames.small}`} key="size">
+        <small class={`${SIZE.value.small}`} key="size">
           {locale.value.file.fileSizeText}：{getFileSizeText(file.size)}
         </small>,
-        <small class={`${sizeClassNames.small}`} key="time">
+        <small class={`${SIZE.value.small}`} key="time">
           {locale.value.file.fileOperationDateText}：{file.uploadTime || '-'}
         </small>,
       ];

@@ -8,7 +8,7 @@
 import { ref, toRefs, reactive, onMounted, computed, watch, nextTick } from 'vue';
 
 // 虚拟滚动Hooks的完整实现，只所以封装成hooks，主要是为了方便跟其他组件搭配使用，比如说表格或者下拉框
-const useVirtualScroll = ({
+export function useVirtualScroll({
   data,
   container,
   fixedHeight = false,
@@ -22,7 +22,7 @@ const useVirtualScroll = ({
   lineHeight: number;
   bufferSize: number;
   threshold: number;
-}) => {
+}) {
   const state = reactive({
     visibleData: [],
     cachedHeight: [],
@@ -280,5 +280,4 @@ const useVirtualScroll = ({
     fixedHeight,
     calculateScrollY,
   };
-};
-export default useVirtualScroll;
+}

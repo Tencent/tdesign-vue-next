@@ -1,8 +1,8 @@
 import { defineComponent, computed, toRefs } from 'vue';
 import props from './check-tag-props';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import useVModel from '../hooks/useVModel';
-import { useContent } from '../hooks/tnode';
+import { usePrefixClass, useCommonClassName } from '@tdesign/hooks';
+import { useVModel } from '@tdesign/hooks';
+import { useContent } from '@tdesign/hooks';
 import Tag from './tag';
 import { TdCheckTagProps, TdTagProps } from './type';
 import { ENTER_REG, SPACE_REG } from '@tdesign/common-js/common';

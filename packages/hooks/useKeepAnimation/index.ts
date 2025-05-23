@@ -4,7 +4,7 @@ import { EAnimationType } from '../../components/config-provider/utils/context';
 
 const { expand, ripple, fade } = EAnimationType;
 
-export default function useKeepAnimation() {
+export function useKeepAnimation() {
   const { globalConfig } = useConfig('animation');
 
   const keepAnimation = (type: EAnimationType) => {

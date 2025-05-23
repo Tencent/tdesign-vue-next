@@ -67,7 +67,7 @@ class PopupManager {
 
 const popupManager = new PopupManager();
 
-export default function usePopupManager(
+export function usePopupManager(
   type: PopupType,
   {
     visible,

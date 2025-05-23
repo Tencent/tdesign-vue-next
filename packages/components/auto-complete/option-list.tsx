@@ -1,10 +1,10 @@
 import { ref, computed, defineComponent, PropType, h, watch, onBeforeUnmount } from 'vue';
 import { isFunction } from 'lodash-es';
 import HighlightOption from './highlight-option';
-import { CommonClassNameType } from '../hooks/useCommonClassName';
+import { CommonClassNameType } from '@tdesign/hooks';
 import { AutoCompleteOptionObj, TdAutoCompleteProps } from './type';
 import log from '@tdesign/common-js/log/index';
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import { useConfig, usePrefixClass } from '@tdesign/hooks';
 import { on, off } from '../utils/dom';
 import { isString } from 'lodash-es';
 import { escapeRegExp } from 'lodash-es';
@@ -14,7 +14,7 @@ export default defineComponent({
   name: 'AutoCompleteOptionList',
 
   props: {
-    sizeClassNames: Object as PropType<CommonClassNameType['sizeClassNames']>,
+    sizeClassNames: Object as PropType<CommonClassNameType['SIZE']>,
     value: String,
     size: String as PropType<TdAutoCompleteProps['size']>,
     options: Array as PropType<TdAutoCompleteProps['options']>,
@@ -36,7 +36,7 @@ export default defineComponent({
     const optionClasses = computed(() => [
       `${classPrefix.value}-select-option`,
       {
-        [props.sizeClassNames[props.size]]: props.size,
+        [props.sizeClassNames.value[props.size]]: props.size,
       },
     ]);
 

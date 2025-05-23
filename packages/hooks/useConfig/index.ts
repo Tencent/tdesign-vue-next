@@ -13,6 +13,7 @@ export function useCommonClassName() {
   const { classPrefix } = useConfig('classPrefix');
 
   return {
+    classPrefix,
     SIZE: computed(() => ({
       small: `${classPrefix.value}-size-s`,
       medium: `${classPrefix.value}-size-m`,
@@ -43,3 +44,5 @@ export function useCommonClassName() {
 }
 
 export { useConfig };
+
+export type CommonClassNameType = ReturnType<typeof useCommonClassName>;

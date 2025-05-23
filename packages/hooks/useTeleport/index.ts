@@ -10,10 +10,10 @@ import { isFunction } from 'lodash-es';
  * @param attach 既可以是一个函数, 也可以是一个ref
  * @param triggerNode 既可以是一个函数, 也可以是一个ref
  */
-const useTeleport = (
+export function useTeleport(
   attach: (() => AttachNode) | Ref<AttachNode>,
   triggerNode?: (() => any) | Ref<any>,
-): Ref<string | Element> => {
+): Ref<string | Element> {
   // 如果是函数, 则使用computed包裹 否则直接使用ref
   const to = isFunction(attach) ? computed(attach) : ref(attach);
   const innerTriggerNode = isFunction(triggerNode) ? computed(triggerNode) : ref(triggerNode);
@@ -29,6 +29,4 @@ const useTeleport = (
   watch([to, innerTriggerNode], () => getElement());
 
   return element;
-};
-
-export default useTeleport;
+}

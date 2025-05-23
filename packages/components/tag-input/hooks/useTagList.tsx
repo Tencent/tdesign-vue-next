@@ -3,11 +3,11 @@ import { TagInputValue, TagInputChangeContext } from '../type';
 import { TagInputProps } from '../types';
 import { InputValue } from '../../input';
 import Tag from '../../tag';
-import useVModel from '../../hooks/useVModel';
-import { usePrefixClass } from '../../hooks/useConfig';
-import { useTNodeJSX } from '../../hooks/tnode';
-import { useDisabled } from '../../hooks/useDisabled';
-import { useReadonly } from '../../hooks/useReadonly';
+import { useVModel } from '@tdesign/hooks';
+import { usePrefixClass } from '@tdesign/hooks';
+import { useTNodeJSX } from '@tdesign/hooks';
+import { useDisabled } from '@tdesign/hooks';
+import { useReadonly } from '@tdesign/hooks';
 
 export type ChangeParams = [TagInputChangeContext];
 

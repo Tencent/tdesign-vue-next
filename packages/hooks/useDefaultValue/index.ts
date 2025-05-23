@@ -2,7 +2,7 @@ import { ref, Ref, getCurrentInstance } from 'vue';
 import { kebabCase } from 'lodash-es';
 import { ChangeHandler } from '../useVModel';
 
-export default function useDefaultValue<T, P extends any[]>(
+export function useDefaultValue<T, P extends any[]>(
   value: Ref<T>,
   defaultValue: T,
   onChange: ChangeHandler<T, P>,

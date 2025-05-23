@@ -1,5 +1,5 @@
 import { ref, onMounted, onUnmounted, Ref } from 'vue';
-import useKeepAnimation from '../useKeepAnimation';
+import { useKeepAnimation } from '../useKeepAnimation';
 import { usePrefixClass } from '../useConfig';
 import setStyle from '@tdesign/common-js/utils/setStyle';
 
@@ -34,7 +34,7 @@ const getRippleColor = (el: HTMLElement, fixedRippleColor?: string) => {
  * @param ref 需要使用斜八角动画的DOM
  * @param fixedRippleColor 斜八角的动画颜色
  */
-export default function useRipple(el: Ref<HTMLElement>, fixedRippleColor?: Ref<string>) {
+export function useRipple(el: Ref<HTMLElement>, fixedRippleColor?: Ref<string>) {
   const rippleContainer = ref(null);
   const classPrefix = usePrefixClass();
 

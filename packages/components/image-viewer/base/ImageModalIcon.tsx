@@ -1,7 +1,7 @@
 import { computed, defineComponent, PropType } from 'vue';
-import { usePrefixClass } from '../../hooks/useConfig';
+import { usePrefixClass } from '@tdesign/hooks';
 import { TNode } from '../../common';
-import { useTNodeJSX } from '../../hooks/tnode';
+import { useTNodeJSX } from '@tdesign/hooks';
 
 export default defineComponent({
   name: 'TImageModalIcon',

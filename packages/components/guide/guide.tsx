@@ -6,9 +6,9 @@ import { TdGuideProps, GuideStep } from './type';
 import { scrollToParentVisibleArea, getRelativePosition, getTargetElm, scrollToElm } from './utils';
 import setStyle from '@tdesign/common-js/utils/setStyle';
 import { addClass, removeClass, isFixed, getWindowScroll } from '../utils/dom';
-import useVModel from '../hooks/useVModel';
-import { useTNodeJSX } from '../hooks/tnode';
-import { usePrefixClass, useConfig } from '../hooks/useConfig';
+import { useVModel } from '@tdesign/hooks';
+import { useTNodeJSX } from '@tdesign/hooks';
+import { usePrefixClass, useConfig } from '@tdesign/hooks';
 import Button from '../button';
 import Popup, { PopupProps } from '../popup';
 

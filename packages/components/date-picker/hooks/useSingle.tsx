@@ -2,8 +2,8 @@ import { ref, computed, watch } from 'vue';
 import dayjs from 'dayjs';
 import { omit } from 'lodash-es';
 
-import { useDisabled } from '../../hooks/useDisabled';
-import { usePrefixClass } from '../../hooks/useConfig';
+import { useDisabled } from '@tdesign/hooks';
+import { usePrefixClass } from '@tdesign/hooks';
 import { TdDatePickerProps, DateValue } from '../type';
 import {
   isValidDate,
@@ -13,7 +13,7 @@ import {
   parseToDayjs,
 } from '@tdesign/common-js/date-picker/format';
 import { useSingleValue } from './useSingleValue';
-import { useReadonly } from '../../hooks/useReadonly';
+import { useReadonly } from '@tdesign/hooks';
 
 export function useSingle(props: TdDatePickerProps) {
   const COMPONENT_NAME = usePrefixClass('date-picker');
