@@ -54,9 +54,4 @@ export default {
     type: String,
     default: '',
   },
-  /** 进度大于 多少时，进度百分比显示在内部；进度百分比小于 多少时，进度显示在外部 */
-  separate: {
-    type: Number,
-    default: 10,
-  },
 };
