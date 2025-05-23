@@ -172,17 +172,16 @@ export default defineComponent({
     });
 
     async function updateInfoIsOut() {
-      if (!infoRef.value) return;
-      await nextTick();
-      const infoEl = infoRef.value.querySelector(`.${COMPONENT_NAME.value}__info`) || infoRef.value.nextElementSibling;
-      infoIsOut.value = infoRef.value.clientWidth > infoEl?.clientWidth + 10;
+      if (props.theme === PRO_THEME.PLUMP) {
+        if (!infoRef.value) return;
+        await nextTick();
+        const infoEl =
+          infoRef.value.querySelector(`.${COMPONENT_NAME.value}__info`) || infoRef.value.nextElementSibling;
+        infoIsOut.value = infoRef.value.clientWidth > infoEl?.clientWidth + 10;
+      }
     }
 
-    onMounted(() => {
-      if (props.theme === PRO_THEME.PLUMP) {
-        updateInfoIsOut();
-      }
-    });
+    onMounted(updateInfoIsOut);
 
     watch(() => props.percentage, updateInfoIsOut);
 
