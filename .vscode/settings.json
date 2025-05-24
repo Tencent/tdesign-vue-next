@@ -28,6 +28,7 @@
     "maxcharacter",
     "maxlength",
     "miniprogram",
+    "modeless",
     "nuxt",
     "popconfirm",
     "popperjs",

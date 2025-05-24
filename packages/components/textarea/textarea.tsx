@@ -12,10 +12,9 @@ import {
 } from 'vue';
 import { isObject, merge, omit } from 'lodash-es';
 
-import { calcTextareaHeight } from './utils';
 import { FormItemInjectionKey } from '../form/consts';
 import setStyle from '@tdesign/common-js/utils/setStyle';
-import { getCharacterLength } from '@tdesign/common-js/utils/helper';
+import { getCharacterLength, getValidAttrs } from '@tdesign/common-js/utils/helper';
 
 // hooks
 import useVModel from '../hooks/useVModel';
@@ -28,7 +27,7 @@ import { useLengthLimit } from '../input/hooks/useLengthLimit';
 import props from './props';
 import type { TextareaValue, TdTextareaProps } from './type';
 
-import { getValidAttrs } from '@tdesign/common-js/utils/helper';
+import calcTextareaHeight from '@tdesign/common-js/utils/calcTextareaHeight';
 
 export default defineComponent({
   name: 'TTextarea',
@@ -56,10 +55,14 @@ export default defineComponent({
     // methods
     const adjustTextareaHeight = () => {
       if (props.autosize === true) {
-        textareaStyle.value = calcTextareaHeight(refTextareaElem.value);
+        nextTick(() => {
+          textareaStyle.value = calcTextareaHeight(refTextareaElem.value);
+        });
       } else if (props.autosize && typeof props.autosize === 'object') {
         const { minRows, maxRows } = props.autosize;
-        textareaStyle.value = calcTextareaHeight(refTextareaElem.value, minRows, maxRows);
+        nextTick(() => {
+          textareaStyle.value = calcTextareaHeight(refTextareaElem.value, minRows, maxRows);
+        });
       } else if (attrs.rows) {
         textareaStyle.value = { height: 'auto', minHeight: 'auto' };
       } else if (attrs.style && refTextareaElem.value?.style?.height) {

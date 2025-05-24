@@ -51,9 +51,24 @@ export const getComponentsRoot = () => {
   return joinPosix(getPackagesRoot(), 'components');
 };
 
+// packages/pro-components
+export const getProComponentsRoot = () => {
+  return joinPosix(getPackagesRoot(), 'pro-components');
+};
+
+// packages/pro-components-chat
+export const getProComponentsChatRoot = () => {
+  return joinPosix(getProComponentsRoot(), 'chat');
+};
+
 // packages/tdesign-vue-next
 export const getTdesignVueNextRoot = () => {
   return joinPosix(getPackagesRoot(), 'tdesign-vue-next');
+};
+
+// packages/tdesign-vue-next-chat
+export const getTdesignVueNextChatRoot = () => {
+  return joinPosix(getPackagesRoot(), 'tdesign-vue-next-chat');
 };
 
 // joinPosix
@@ -73,8 +88,20 @@ export const joinComponentsRoot = (...paths: string[]) => {
   return joinPosix(getComponentsRoot(), ...paths);
 };
 
+export const joinProComponentsRoot = (...paths: string[]) => {
+  return joinPosix(getProComponentsRoot(), ...paths);
+};
+
+export const joinProComponentsChatRoot = (...paths: string[]) => {
+  return joinPosix(getProComponentsChatRoot(), ...paths);
+};
+
 export const joinTdesignVueNextRoot = (...paths: string[]) => {
   return joinPosix(getTdesignVueNextRoot(), ...paths);
+};
+
+export const joinTdesignVueNextChatRoot = (...paths: string[]) => {
+  return joinPosix(getTdesignVueNextChatRoot(), ...paths);
 };
 
 /**

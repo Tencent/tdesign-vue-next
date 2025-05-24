@@ -5,7 +5,7 @@ import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
 import Button from '../button';
 import { isString } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { useFlatChildrenSlots } from '../hooks/slot';
 
 export default defineComponent({
   name: 'TComment',
@@ -13,6 +13,7 @@ export default defineComponent({
   setup() {
     const COMPONENT_NAME = usePrefixClass('comment');
     const renderTNodeJSX = useTNodeJSX();
+    const getFlatChildren = useFlatChildrenSlots();
 
     return () => {
       const reply = renderTNodeJSX('reply');
@@ -43,9 +44,10 @@ export default defineComponent({
 
       const renderActions = () => {
         if (!actions || !actions.length) return null;
+        const flatChildren = getFlatChildren(actions);
         return (
           <div class={`${COMPONENT_NAME.value}__actions`}>
-            {(isArray(actions) ? actions : [actions]).map((action, index) => (
+            {flatChildren.map((action, index) => (
               <Button key={`action-${index}`} size="small" variant="text">
                 {action}
               </Button>
