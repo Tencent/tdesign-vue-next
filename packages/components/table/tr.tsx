@@ -326,7 +326,7 @@ export default defineComponent({
 
     return () => {
       const { columns, skipSpansMap, row, dataLength, rowAndColFixedPosition } = props;
-      const columVNodeList = columns?.map((col, colIndex) => {
+      const columnVNodeList = columns?.map((col, colIndex) => {
         const cellSpans: RowspanColspan = {};
         const params = {
           row,
@@ -361,7 +361,7 @@ export default defineComponent({
         >
           {hasLazyLoadHolder.value
             ? [<td style={{ height: `${tRowHeight.value}px`, border: 'none' }} />]
-            : columVNodeList}
+            : columnVNodeList}
         </tr>
       );
     };
