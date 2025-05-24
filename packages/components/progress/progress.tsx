@@ -16,6 +16,7 @@ import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { useTNodeJSX } from '../hooks/tnode';
 import { isObject } from 'lodash-es';
 import { isString } from 'lodash-es';
+import useResizeObserver from '../hooks/useResizeObserver';
 
 export default defineComponent({
   name: 'TProgress',
@@ -181,9 +182,7 @@ export default defineComponent({
       }
     }
 
-    onMounted(updateInfoIsOut);
-
-    watch(() => props.percentage, updateInfoIsOut);
+    useResizeObserver(infoRef, updateInfoIsOut);
 
     return () => {
       const labelContent = (
