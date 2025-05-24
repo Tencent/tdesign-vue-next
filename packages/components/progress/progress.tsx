@@ -1,4 +1,4 @@
-import { defineComponent, VNode, computed, CSSProperties, onMounted, ref, nextTick, watch } from 'vue';
+import { defineComponent, VNode, computed, CSSProperties, ref, nextTick } from 'vue';
 import {
   CloseCircleFilledIcon as TdCloseCircleFilledIcon,
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
