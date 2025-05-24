@@ -186,7 +186,9 @@ export default defineComponent({
 
     return () => {
       const labelContent = (
-        <div class={`${COMPONENT_NAME.value}__info`}>{renderTNodeJSX('label', getLabelContent())}</div>
+        <div class={`${COMPONENT_NAME.value}__info`}>
+          {props.label === '' ? getLabelContent() : renderTNodeJSX('label', getLabelContent())}
+        </div>
       );
 
       return (
