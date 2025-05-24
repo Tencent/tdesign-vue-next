@@ -91,8 +91,11 @@ export default function useClassName() {
       fixed: `${classPrefix.value}-table--layout-fixed`,
     },
 
-    tdEllipsisClass: `${classPrefix.value}-table-td--ellipsis`,
-
+    ellipsisClasses: {
+      table: `${classPrefix.value}-table__ellipsis`,
+      text: `${classPrefix.value}-text-ellipsis`,
+      td: `${classPrefix.value}-table-td--ellipsis`,
+    },
     // 行通栏，一列铺满整行
     tableFullRowClasses: {
       base: `${classPrefix.value}-table__row--full`,
