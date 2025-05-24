@@ -169,7 +169,7 @@ export default defineComponent({
     const { tableContentElm, active, isHover } = toRefs(props);
     const trRef = ref(null);
     const {
-      tdEllipsisClass,
+      ellipsisClasses,
       tableBaseClass,
       tableColFixedClasses,
       tableRowFixedClasses,
@@ -300,7 +300,7 @@ export default defineComponent({
         tdStyles.classes,
         customClasses,
         {
-          [tdEllipsisClass]: col.ellipsis,
+          [ellipsisClasses.td]: col.ellipsis,
           [tableBaseClass.tdLastRow]: rowIndex + cellSpans.rowspan === dataLength,
           [tableBaseClass.tdFirstCol]: colIndex === 0 && props.rowspanAndColspan,
           [tdAlignClasses[col.align]]: col.align && col.align !== 'left',

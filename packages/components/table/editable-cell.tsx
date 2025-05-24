@@ -1,3 +1,5 @@
+import type { TableClassName } from './hooks/useClassName';
+
 import { computed, defineComponent, onMounted, PropType, ref, SetupContext, toRefs, watch } from 'vue';
 import { get } from 'lodash-es';
 import { set } from 'lodash-es';
@@ -12,7 +14,7 @@ import {
   TdBaseTableProps,
   TableEditableCellPropsParams,
 } from './type';
-import { TableClassName } from './hooks/useClassName';
+import useClassName from './hooks/useClassName';
 import { useGlobalIcon } from '../hooks/useGlobalIcon';
 import { renderCell } from './tr';
 import { validate } from '../form/utils/form-model';
@@ -91,6 +93,8 @@ export default defineComponent({
     const classPrefix = usePrefixClass();
 
     const { Edit1Icon } = useGlobalIcon({ Edit1Icon: TdEdit1Icon });
+
+    const { ellipsisClasses } = useClassName();
 
     const updateEditedCellValue: TableEditableCellPropsParams<TableRowData>['updateEditedCellValue'] = (obj) => {
       if (typeof obj === 'object' && ('rowValue' in obj || obj.isUpdateCurrentRow)) {
@@ -396,7 +400,13 @@ export default defineComponent({
       // props.editable = undefined 表示由组件内部控制编辑状态
       if ((props.editable === undefined && !isEdit.value) || props.editable === false) {
         return (
-          <div class={props.tableBaseClass.cellEditable} onClick={onCellClick}>
+          <div
+            class={[
+              props.tableBaseClass.cellEditable,
+              props.col.ellipsis ? [ellipsisClasses.text, ellipsisClasses.td] : '',
+            ]}
+            onClick={onCellClick}
+          >
             {cellNode.value}
             {col.value.edit?.showEditIcon !== false && <Edit1Icon />}
           </div>
