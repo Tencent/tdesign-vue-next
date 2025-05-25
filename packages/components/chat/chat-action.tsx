@@ -90,11 +90,11 @@ export default defineComponent({
             <Button
               theme="default"
               size="small"
-              class={props.isGood && `${COMPONENT_NAME.value}-button--active`}
+              class={props.comment === 'good' && `${COMPONENT_NAME.value}-button--active`}
               disabled={disabled}
               onClick={(e: MouseEvent) => handleClick(e, 'good')}
             >
-              {props.isGood ? <ThumbUpFilledIcon /> : <ThumbUpIcon />}
+              {props.comment === 'good' ? <ThumbUpFilledIcon /> : <ThumbUpIcon />}
             </Button>
           </Tooltip>
         </Space>
@@ -105,11 +105,11 @@ export default defineComponent({
             <Button
               theme="default"
               size="small"
-              class={props.isBad && `${COMPONENT_NAME.value}-button--active`}
+              class={props.comment === 'bad' && `${COMPONENT_NAME.value}-button--active`}
               disabled={disabled}
               onClick={(e: MouseEvent) => handleClick(e, 'bad')}
             >
-              {props.isBad ? <ThumbDownFilledIcon /> : <ThumbDownIcon />}
+              {props.comment === 'bad' ? <ThumbDownFilledIcon /> : <ThumbDownIcon />}
             </Button>
           </Tooltip>
         </Space>

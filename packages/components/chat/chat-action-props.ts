@@ -5,7 +5,7 @@
  * */
 
 import { TdChatActionProps } from '../chat/type';
-import { PropType } from 'vue';
+import { Prop, PropType } from 'vue';
 
 export default {
   /** 被复制的内容 */
@@ -15,10 +15,12 @@ export default {
   },
   /** 操作按钮是否可点击 */
   disabled: Boolean,
-  /** 是否点踩 */
-  isBad: Boolean,
-  /** 是否点赞 */
-  isGood: Boolean,
+  /** 评价类型， 可选值： 'good(点赞)'/'bad(点踩)', 默认值为空 */
+  comment: {
+    type: String as PropType<'good' | 'bad'>,
+    validator: (value: string) => ['good', 'bad'].includes(value),
+    default: '',
+  },
   /** 操作按钮配置项，可配置操作按钮选项和顺序 */
   operationBtn: {
     type: Array as PropType<TdChatActionProps['operationBtn']>,
