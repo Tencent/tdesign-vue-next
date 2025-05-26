@@ -176,7 +176,7 @@ export default defineComponent({
 
     async function updateInfoIsOut() {
       if (props.theme === PRO_THEME.PLUMP) {
-        if (!infoRef.value || props.label === false) return;
+        if (!infoRef.value || props.label === '') return;
         await nextTick();
         const infoEl =
           infoRef.value.querySelector(`.${COMPONENT_NAME.value}__info`) || infoRef.value.nextElementSibling;
@@ -187,9 +187,9 @@ export default defineComponent({
     useResizeObserver(infoRef, updateInfoIsOut);
 
     return () => {
-      const labelContent = (
-        <div class={`${COMPONENT_NAME.value}__info`}>{renderTNodeJSX('label', getLabelContent())}</div>
-      );
+      // 为了兼容 <xx label/> 被解析为空字符串的问题
+      const labelRender = props.label === '' ? getLabelContent() : renderTNodeJSX('label', getLabelContent());
+      const labelContent = <div class={`${COMPONENT_NAME.value}__info`}>{labelRender}</div>;
 
       return (
         <div class={COMPONENT_NAME.value}>
