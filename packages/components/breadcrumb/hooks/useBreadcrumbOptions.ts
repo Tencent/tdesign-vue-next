@@ -1,6 +1,6 @@
 import { computed, isVNode, Slots } from 'vue';
 import { isArray, isString } from 'lodash-es';
-import { useChildComponentSlots } from '../../hooks/slot';
+import { useChildComponentSlots } from '@tdesign/hooks';
 import type { TdBreadcrumbProps, TdBreadcrumbItemProps } from '../type';
 
 interface BreadcrumbItemWithIndex extends TdBreadcrumbItemProps {

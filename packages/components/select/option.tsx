@@ -4,10 +4,8 @@ import props from './option-props';
 import Checkbox from '../checkbox/index';
 
 // hooks
-import { useDisabled } from '../hooks/useDisabled';
-import useRipple from '../hooks/useRipple';
-import { useContent } from '../hooks/tnode';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { useRipple, useContent, useDisabled, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
+
 import { getNewMultipleValue } from './utils';
 import { selectInjectKey } from './consts';
 import { SelectValue } from './type';

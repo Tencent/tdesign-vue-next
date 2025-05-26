@@ -11,11 +11,8 @@ import {
   nextTick,
   onMounted,
 } from 'vue';
-import { isFunction } from 'lodash-es';
-import { upperFirst } from 'lodash-es';
-import { isString } from 'lodash-es';
-import { pick } from 'lodash-es';
-import { get } from 'lodash-es';
+import { get, pick, isString, isFunction, upperFirst } from 'lodash-es';
+
 import { formatClassNames, formatRowAttributes, formatRowClassNames } from './utils';
 import { getRowFixedStyles, getColumnFixedStyles } from './hooks/useFixed';
 import useClassName from './hooks/useClassName';
@@ -27,7 +24,7 @@ import { RowAndColFixedPosition } from './interface';
 import { getCellKey, SkipSpansValue } from './hooks/useRowspanAndColspan';
 import { TooltipProps } from '../tooltip';
 import { PaginationProps } from '..';
-import { VirtualScrollConfig } from '../hooks/useVirtualScrollNew';
+import { VirtualScrollConfig } from '@tdesign/hooks';
 import { AttachNode, SlotReturnValue } from '../common';
 
 export interface RenderTdExtra {

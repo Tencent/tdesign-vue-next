@@ -1,5 +1,5 @@
 import { h, defineComponent, Transition, ref, computed, watch, onMounted, nextTick } from 'vue';
-import { debounce } from 'lodash-es';
+import { debounce, isFunction } from 'lodash-es';
 import {
   ChevronLeftIcon as TdChevronLeftIcon,
   ChevronRightIcon as TdChevronRightIcon,
@@ -15,11 +15,7 @@ import TTabNavItem from './tab-nav-item';
 import TTabNavBar from './tab-nav-bar';
 
 // hooks
-import { useResize } from '../hooks/useListener';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import useDragSort from '../hooks/useDragSort';
-import { isFunction } from 'lodash-es';
+import { useResize, useDragSort, useGlobalIcon, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
 
 export default defineComponent({
   name: 'TTabNav',
