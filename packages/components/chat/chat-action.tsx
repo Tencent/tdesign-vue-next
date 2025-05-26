@@ -19,7 +19,7 @@ import { MessagePluginSingleton } from './utils';
 export default defineComponent({
   name: 'TChatAction',
   props,
-  emits: ['operation'],
+  emits: ['actions'],
   setup(props, { emit }) {
     const COMPONENT_NAME = usePrefixClass('chat');
     const renderTNodeJSX = useTNodeJSX();
@@ -47,11 +47,11 @@ export default defineComponent({
           copyAnswer();
         }
         // 如果通过default传入的chat-item 组件，如何获取index值todo
-        emit('operation', type, {
+        emit('actions', type, {
           e,
         });
       };
-      const replayButton = props.operationBtn.includes('replay') ? (
+      const replayButton = props.actionBar.includes('replay') ? (
         <Space>
           <div class={`${COMPONENT_NAME.value}__refresh`}>
             <Tooltip content={refreshTipText}>
@@ -68,7 +68,7 @@ export default defineComponent({
           </div>
         </Space>
       ) : null;
-      const copyButton = props.operationBtn.includes('copy') ? (
+      const copyButton = props.actionBar.includes('copy') ? (
         <Space>
           <Tooltip content={copyTipText}>
             <Button
@@ -84,7 +84,7 @@ export default defineComponent({
           </Tooltip>
         </Space>
       ) : null;
-      const goodButton = props.operationBtn.includes('good') ? (
+      const goodButton = props.actionBar.includes('good') ? (
         <Space>
           <Tooltip content={likeTipText}>
             <Button
@@ -99,7 +99,7 @@ export default defineComponent({
           </Tooltip>
         </Space>
       ) : null;
-      const badButton = props.operationBtn.includes('bad') ? (
+      const badButton = props.actionBar.includes('bad') ? (
         <Space>
           <Tooltip content={dislikeTipText}>
             <Button
@@ -123,7 +123,7 @@ export default defineComponent({
       };
       return (
         <div class={`${COMPONENT_NAME.value}__actions`}>
-          {props.operationBtn.map((btnKey) => {
+          {props.actionBar.map((btnKey) => {
             return buttonComponents[btnKey];
           })}
         </div>

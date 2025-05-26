@@ -22,10 +22,10 @@ export default {
     default: '',
   },
   /** 操作按钮配置项，可配置操作按钮选项和顺序 */
-  operationBtn: {
-    type: Array as PropType<TdChatActionProps['operationBtn']>,
-    default: (): TdChatActionProps['operationBtn'] => ['replay', 'copy', 'good', 'bad'],
+  actionBar: {
+    type: Array as PropType<TdChatActionProps['actionBar']>,
+    default: (): TdChatActionProps['actionBar'] => ['replay', 'copy', 'good', 'bad'],
   },
   /** 点击点赞，点踩，复制，重新生成按钮时触发 */
-  onOperation: Function as PropType<TdChatActionProps['onOperation']>,
+  onActions: Function as PropType<TdChatActionProps['onActions']>,
 };
