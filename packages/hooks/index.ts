@@ -2,8 +2,7 @@ export * from './icon';
 export * from './slot';
 export * from './tnode';
 export * from './useCollapseAnimation';
-// TODO need refactor
-// export * from './useCommonClassName';
+export * from './useCommonClassName';
 export * from './useConfig';
 export * from './useDefaultValue';
 export * from './useDestroyOnClose';
