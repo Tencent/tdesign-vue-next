@@ -174,7 +174,7 @@ export default defineComponent({
 
     async function updateInfoIsOut() {
       if (props.theme === PRO_THEME.PLUMP) {
-        if (!infoRef.value || props.label === '') return;
+        if (!infoRef.value || props.label === false) return;
         await nextTick();
         const infoEl =
           infoRef.value.querySelector(`.${COMPONENT_NAME.value}__info`) || infoRef.value.nextElementSibling;
