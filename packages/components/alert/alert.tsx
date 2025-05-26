@@ -6,17 +6,12 @@ import {
   HelpCircleFilledIcon as TdHelpCircleFilledIcon,
   InfoCircleFilledIcon as TdInfoCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
-import { isString } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { isArray, isString } from 'lodash-es';
 
 import { on, off, addClass } from '../utils/dom';
 import props from './props';
 import { SlotReturnValue } from '../common';
-import { useIcon } from '../hooks/icon';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
-
-import { useTNodeJSX } from '../hooks/tnode';
+import { useIcon, useConfig, useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/hooks';
 
 export default defineComponent({
   name: 'TAlert',
