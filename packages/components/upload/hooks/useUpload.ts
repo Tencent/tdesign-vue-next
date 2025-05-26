@@ -10,9 +10,8 @@ import {
   formatToUploadFile,
 } from '@tdesign/common-js/upload/main';
 import { getFileList } from '@tdesign/common-js/upload/utils';
-import { useVModel } from '@tdesign/hooks';
+import { useVModel, useConfig } from '@tdesign/hooks';
 import { InnerProgressContext, OnResponseErrorContext, SuccessContext } from '@tdesign/common-js/upload/types';
-import { useConfig } from '@tdesign/hooks';
 
 export type ValidateParams = Parameters<TdUploadProps['onValidate']>[0];
 

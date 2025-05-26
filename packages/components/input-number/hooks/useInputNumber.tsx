@@ -1,8 +1,7 @@
 import { computed, ref, toRefs, watch } from 'vue';
-import { useCommonClassName } from '@tdesign/hooks';
-import { useVModel } from '@tdesign/hooks';
+import { useVModel, useReadonly, useDisabled, useCommonClassName } from '@tdesign/hooks';
+
 import { InputNumberValue, TdInputNumberProps } from '../type';
-import { useReadonly } from '@tdesign/hooks';
 
 // 计算逻辑，统一到 common 中，方便各框架复用（如超过 16 位的大数处理）
 import {
@@ -16,7 +15,7 @@ import {
   formatUnCompleteNumber,
   largeNumberToFixed,
 } from '@tdesign/common-js/input-number/number';
-import { useDisabled } from '@tdesign/hooks';
+
 import { StrInputProps } from '../../input';
 
 /**

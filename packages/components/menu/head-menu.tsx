@@ -25,9 +25,7 @@ import { Tabs, TabPanel } from '../tabs';
 import Submenu from './submenu';
 import { VMenu } from './utils';
 
-import { usePrefixClass } from '@tdesign/hooks';
-import { useVModel } from '@tdesign/hooks';
-import { useDefaultValue } from '@tdesign/hooks';
+import { useVModel, usePrefixClass, useDefaultValue } from '@tdesign/hooks';
 
 export default defineComponent({
   name: 'THeadMenu',

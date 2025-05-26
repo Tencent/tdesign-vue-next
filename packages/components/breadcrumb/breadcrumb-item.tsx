@@ -2,8 +2,7 @@ import { defineComponent, VNode, inject, ref, computed, getCurrentInstance, onMo
 import props from './breadcrumb-item-props';
 import Tooltip from '../tooltip/index';
 import { isTextEllipsis } from '../utils/dom';
-import { usePrefixClass } from '@tdesign/hooks';
-import { useTNodeJSX, useContent } from '@tdesign/hooks';
+import { useContent, useTNodeJSX, usePrefixClass } from '@tdesign/hooks';
 
 interface LocalTBreadcrumb {
   separator: VNode | string;

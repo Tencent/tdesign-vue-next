@@ -6,10 +6,9 @@ import { CheckboxGroup } from '../checkbox';
 import { RadioGroup } from '../radio';
 import Input from '../input';
 import TButton from '../button';
-import { useTNodeDefault } from '@tdesign/hooks';
+import { useConfig, useGlobalIcon, useTNodeDefault } from '@tdesign/hooks';
 import { PrimaryTableCol, FilterValue, TdPrimaryTableProps } from './type';
-import { useConfig } from '@tdesign/hooks';
-import { useGlobalIcon } from '@tdesign/hooks';
+
 import { AttachNode } from '../common';
 import { isFunction } from 'lodash-es';
 import { TableConfig } from '../config-provider';

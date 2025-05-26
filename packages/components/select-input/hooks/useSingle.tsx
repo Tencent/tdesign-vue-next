@@ -3,11 +3,8 @@ import { isObject } from 'lodash-es';
 import { pick } from 'lodash-es';
 import Input, { StrInputProps } from '../../input';
 import Loading from '../../loading';
-import { useTNodeJSX } from '@tdesign/hooks';
-import { usePrefixClass } from '@tdesign/hooks';
-import { useDefaultValue } from '@tdesign/hooks';
-import { useDisabled } from '@tdesign/hooks';
-import { useReadonly } from '@tdesign/hooks';
+import { useTNodeJSX, useDisabled, useReadonly, usePrefixClass, useDefaultValue } from '@tdesign/hooks';
+
 import { PopupInstanceFunctions } from '../../popup';
 import { TdSelectInputProps } from '../type';
 import { SelectInputCommonProperties } from '../types';

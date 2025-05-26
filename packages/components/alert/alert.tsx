@@ -12,11 +12,7 @@ import { isArray } from 'lodash-es';
 import { on, off, addClass } from '../utils/dom';
 import props from './props';
 import { SlotReturnValue } from '../common';
-import { useIcon } from '@tdesign/hooks';
-import { useGlobalIcon } from '@tdesign/hooks';
-import { useConfig, usePrefixClass } from '@tdesign/hooks';
-
-import { useTNodeJSX } from '@tdesign/hooks';
+import { useIcon, useConfig, useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/hooks';
 
 export default defineComponent({
   name: 'TAlert',

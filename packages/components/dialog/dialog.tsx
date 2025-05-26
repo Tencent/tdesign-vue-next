@@ -12,12 +12,11 @@ import {
 } from 'vue';
 import { DialogCloseContext } from './type';
 import props from './props';
-import { useConfig, usePrefixClass } from '@tdesign/hooks';
+import { useConfig, useTeleport, usePrefixClass, usePopupManager, useDestroyOnClose } from '@tdesign/hooks';
 import { useSameTarget } from './hooks';
-import { useDestroyOnClose } from '@tdesign/hooks';
+
 import { getScrollbarWidth } from '@tdesign/common-js/utils/getScrollbarWidth';
-import { useTeleport } from '@tdesign/hooks';
-import { usePopupManager } from '@tdesign/hooks';
+
 import { getCSSValue } from './utils';
 import TDialogCard from './dialog-card';
 

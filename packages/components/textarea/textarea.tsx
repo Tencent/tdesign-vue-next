@@ -17,11 +17,8 @@ import setStyle from '@tdesign/common-js/utils/setStyle';
 import { getCharacterLength, getValidAttrs } from '@tdesign/common-js/utils/helper';
 
 // hooks
-import { useVModel } from '@tdesign/hooks';
-import { useDisabled } from '@tdesign/hooks';
-import { useReadonly } from '@tdesign/hooks';
-import { useTNodeJSX } from '@tdesign/hooks';
-import { usePrefixClass, useCommonClassName } from '@tdesign/hooks';
+import { useVModel, useDisabled, useReadonly, useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
+
 import { useLengthLimit } from '../input/hooks/useLengthLimit';
 
 import props from './props';

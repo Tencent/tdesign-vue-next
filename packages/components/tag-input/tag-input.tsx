@@ -4,14 +4,11 @@ import TInput, { InputProps, StrInputProps, TdInputProps } from '../input';
 import { TdTagInputProps } from './type';
 import props from './props';
 import { useConfig } from '../config-provider/hooks/useConfig';
-import { usePrefixClass } from '@tdesign/hooks';
-import { useGlobalIcon } from '@tdesign/hooks';
+import { useDisabled, useReadonly, useTNodeJSX, useGlobalIcon, usePrefixClass, useDefaultValue } from '@tdesign/hooks';
+
 import { useTagScroll, useHover, useDragSorter, useTagList } from './hooks';
-import { useDefaultValue } from '@tdesign/hooks';
+
 import { isArray } from 'lodash-es';
-import { useDisabled } from '@tdesign/hooks';
-import { useReadonly } from '@tdesign/hooks';
-import { useTNodeJSX } from '@tdesign/hooks';
 
 const useComponentClassName = () => {
   return {

@@ -3,9 +3,9 @@ import props from './props';
 import generateBase64Url from '@tdesign/common-js/watermark/generateBase64Url';
 import randomMovingStyle from '@tdesign/common-js/watermark/randomMovingStyle';
 import injectStyle from '@tdesign/common-js/utils/injectStyle';
-import { usePrefixClass } from '@tdesign/hooks';
+import { useContent, usePrefixClass } from '@tdesign/hooks';
 import { useMutationObserver } from './hooks';
-import { useContent } from '@tdesign/hooks';
+
 import setStyle from '@tdesign/common-js/utils/setStyle';
 
 export default defineComponent({

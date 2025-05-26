@@ -1,8 +1,7 @@
 import { defineComponent, onMounted, onUnmounted, inject } from 'vue';
 import props from './aside-props';
 import { LayoutProvideType } from './layout';
-import { usePrefixClass } from '@tdesign/hooks';
-import { useTNodeJSX } from '@tdesign/hooks';
+import { useTNodeJSX, usePrefixClass } from '@tdesign/hooks';
 
 export default defineComponent({
   name: 'TAside',

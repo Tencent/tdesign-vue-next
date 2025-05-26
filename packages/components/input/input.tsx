@@ -5,11 +5,16 @@ import {
   CloseCircleFilledIcon as TdCloseCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
 import props from './props';
-import { useDisabled } from '@tdesign/hooks';
-import { useReadonly } from '@tdesign/hooks';
-import { useConfig, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
-import { useGlobalIcon } from '@tdesign/hooks';
-import { useTNodeJSX } from '@tdesign/hooks';
+import {
+  useConfig,
+  useDisabled,
+  useReadonly,
+  useTNodeJSX,
+  useGlobalIcon,
+  usePrefixClass,
+  useCommonClassName,
+} from '@tdesign/hooks';
+
 import { useInput, useInputEventHandler, useInputWidth } from './hooks';
 import { getValidAttrs } from '@tdesign/common-js/utils/helper';
 

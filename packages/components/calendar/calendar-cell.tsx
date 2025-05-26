@@ -1,8 +1,7 @@
 import { computed, defineComponent } from 'vue';
 import dayjs from 'dayjs';
 
-import { useCommonClassName } from '@tdesign/hooks';
-import { useContent } from '@tdesign/hooks';
+import { useContent, useCommonClassName } from '@tdesign/hooks';
 
 import { useCalendarCellClass } from './hooks';
 

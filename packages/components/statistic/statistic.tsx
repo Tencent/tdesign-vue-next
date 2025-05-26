@@ -6,9 +6,8 @@ import {
 import { isNumber } from 'lodash-es';
 import { isFunction } from 'lodash-es';
 import props from './props';
-import { usePrefixClass } from '@tdesign/hooks';
-import { useGlobalIcon } from '@tdesign/hooks';
-import { useTNodeJSX } from '@tdesign/hooks';
+import { useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/hooks';
+
 import Skeleton from '../skeleton';
 import Tween from '@tdesign/common-js/statistic/tween';
 import { COLOR_MAP, getFormatValue } from '@tdesign/common-js/statistic/utils';

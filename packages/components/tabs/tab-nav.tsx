@@ -15,10 +15,8 @@ import TTabNavItem from './tab-nav-item';
 import TTabNavBar from './tab-nav-bar';
 
 // hooks
-import { useResize } from '@tdesign/hooks';
-import { usePrefixClass, useCommonClassName } from '@tdesign/hooks';
-import { useGlobalIcon } from '@tdesign/hooks';
-import { useDragSort } from '@tdesign/hooks';
+import { useResize, useDragSort, useGlobalIcon, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
+
 import { isFunction } from 'lodash-es';
 
 export default defineComponent({

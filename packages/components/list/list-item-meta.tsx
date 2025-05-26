@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue';
 import props from './list-item-meta-props';
-import { usePrefixClass } from '@tdesign/hooks';
-import { useContent, useTNodeJSX } from '@tdesign/hooks';
+import { useContent, useTNodeJSX, usePrefixClass } from '@tdesign/hooks';
+
 import { isString } from 'lodash-es';
 
 export default defineComponent({

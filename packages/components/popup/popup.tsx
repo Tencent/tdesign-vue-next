@@ -17,9 +17,8 @@ import {
   Transition,
   watch,
 } from 'vue';
-import { useContent, useTNodeJSX } from '@tdesign/hooks';
-import { useCommonClassName, usePrefixClass } from '@tdesign/hooks';
-import { useVModel } from '@tdesign/hooks';
+import { useVModel, useContent, useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
+
 import { off, on, once } from '../utils/dom';
 import setStyle from '@tdesign/common-js/utils/setStyle';
 import Container from './container';

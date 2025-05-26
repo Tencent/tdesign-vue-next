@@ -4,10 +4,8 @@ import { TdSelectInputProps, SelectInputChangeContext, SelectInputKeys } from '.
 import { SelectInputCommonProperties } from '../types';
 import TagInput, { TagInputValue, TagInputProps } from '../../tag-input';
 import Loading from '../../loading';
-import { useDefaultValue } from '@tdesign/hooks';
-import { usePrefixClass } from '@tdesign/hooks';
-import { useDisabled } from '@tdesign/hooks';
-import { useReadonly } from '@tdesign/hooks';
+import { useDisabled, useReadonly, usePrefixClass, useDefaultValue } from '@tdesign/hooks';
+
 import { PopupInstanceFunctions } from '../../popup';
 
 export interface RenderSelectMultipleParams {

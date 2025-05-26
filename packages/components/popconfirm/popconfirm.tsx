@@ -4,12 +4,19 @@ import {
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
 
-import { useConfig, usePrefixClass } from '@tdesign/hooks';
-import { useGlobalIcon } from '@tdesign/hooks';
+import {
+  useConfig,
+  useVModel,
+  useContent,
+  useTNodeJSX,
+  useGlobalIcon,
+  usePrefixClass,
+  useTNodeDefault,
+} from '@tdesign/hooks';
+
 import Popup, { PopupProps, PopupVisibleChangeContext } from '../popup/index';
 import props from './props';
-import { useContent, useTNodeJSX, useTNodeDefault } from '@tdesign/hooks';
-import { useVModel } from '@tdesign/hooks';
+
 import { useAction } from '../dialog/hooks';
 
 import type { PopconfirmVisibleChangeContext } from './type';

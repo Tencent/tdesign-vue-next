@@ -11,12 +11,16 @@ import SelectInput from '../select-input';
 import SelectPanel from './select-panel';
 import props from './props';
 // hooks
-import { useDisabled } from '@tdesign/hooks';
-import { useReadonly } from '@tdesign/hooks';
-import { useDefaultValue } from '@tdesign/hooks';
-import { useVModel } from '@tdesign/hooks';
-import { useTNodeJSX } from '@tdesign/hooks';
-import { useConfig, usePrefixClass } from '@tdesign/hooks';
+import {
+  useVModel,
+  useConfig,
+  useDisabled,
+  useReadonly,
+  useTNodeJSX,
+  usePrefixClass,
+  useDefaultValue,
+} from '@tdesign/hooks';
+
 import { getSingleContent, getMultipleContent } from './utils';
 import { selectInjectKey } from './consts';
 import { useSelectOptions, useKeyboardControl } from './hooks';

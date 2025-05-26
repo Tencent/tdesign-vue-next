@@ -3,8 +3,7 @@ import { SearchIcon as TdSearchIcon } from 'tdesign-icons-vue-next';
 
 import { SearchOption } from '../types';
 import TInput from '../../input';
-import { usePrefixClass } from '@tdesign/hooks';
-import { useGlobalIcon } from '@tdesign/hooks';
+import { useGlobalIcon, usePrefixClass } from '@tdesign/hooks';
 
 export default defineComponent({
   name: 'TTransferSearch',

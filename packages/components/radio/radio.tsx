@@ -1,14 +1,11 @@
 import { defineComponent, inject, toRefs, computed, ref } from 'vue';
-import { usePrefixClass, useCommonClassName } from '@tdesign/hooks';
+import { useVModel, useContent, useDisabled, useReadonly, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
 import { omit } from 'lodash-es';
 import props from './props';
 import { RadioGroupInjectionKey, RadioButtonInjectionKey } from './consts';
 
 // hooks
-import { useDisabled } from '@tdesign/hooks';
-import { useReadonly } from '@tdesign/hooks';
-import { useVModel } from '@tdesign/hooks';
-import { useContent } from '@tdesign/hooks';
+
 import { isString } from 'lodash-es';
 import { getValidAttrs } from '@tdesign/common-js/utils/helper';
 

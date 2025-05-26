@@ -1,11 +1,10 @@
 import { defineComponent, computed } from 'vue';
 import props from './props';
 
-import { usePrefixClass } from '@tdesign/hooks';
-import { useTNodeJSX } from '@tdesign/hooks';
+import { useTNodeJSX, usePrefixClass, useFlatChildrenSlots } from '@tdesign/hooks';
+
 import Button from '../button';
 import { isString } from 'lodash-es';
-import { useFlatChildrenSlots } from '@tdesign/hooks';
 
 export default defineComponent({
   name: 'TComment',

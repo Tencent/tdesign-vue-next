@@ -2,8 +2,8 @@ import { computed, defineComponent, PropType } from 'vue';
 import { ImageIcon, ZoomInIcon, ZoomOutIcon, DownloadIcon, MirrorIcon, RotationIcon } from 'tdesign-icons-vue-next';
 import TImageViewerIcon from './ImageModalIcon';
 import TToolTip from '../../tooltip';
-import { usePrefixClass, useConfig } from '@tdesign/hooks';
-import { useImagePreviewUrl } from '@tdesign/hooks';
+import { useConfig, usePrefixClass, useImagePreviewUrl } from '@tdesign/hooks';
+
 import { ImageInfo } from '../type';
 import { largeNumberToFixed } from '@tdesign/common-js/input-number/large-number';
 

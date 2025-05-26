@@ -17,12 +17,16 @@ import { TreeOptionData } from '../common';
 import props from './props';
 
 // hooks
-import { usePrefixClass, useConfig } from '@tdesign/hooks';
-import { useDisabled } from '@tdesign/hooks';
-import { useReadonly } from '@tdesign/hooks';
-import { useTNodeJSX, useTNodeDefault } from '@tdesign/hooks';
-import { useVModel } from '@tdesign/hooks';
-import { useDefaultValue } from '@tdesign/hooks';
+import {
+  useConfig,
+  useVModel,
+  useDisabled,
+  useReadonly,
+  useTNodeJSX,
+  usePrefixClass,
+  useTNodeDefault,
+  useDefaultValue,
+} from '@tdesign/hooks';
 
 export default defineComponent({
   name: 'TTreeSelect',

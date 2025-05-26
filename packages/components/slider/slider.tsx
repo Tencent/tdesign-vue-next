@@ -17,13 +17,11 @@ import TSliderButton from './slider-button';
 import { SliderValue } from './type';
 
 // hooks
-import { usePrefixClass, useCommonClassName } from '@tdesign/hooks';
+import { useVModel, useDisabled, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
 import { useSliderMark } from './hooks/useSliderMark';
 import { useSliderInput } from './hooks/useSliderInput';
 import { formatSliderValue, getStopStyle } from './utils';
 import { sliderPropsInjectKey } from './consts';
-import { useVModel } from '@tdesign/hooks';
-import { useDisabled } from '@tdesign/hooks';
 
 interface SliderButtonType {
   setPosition: (param: number) => {};

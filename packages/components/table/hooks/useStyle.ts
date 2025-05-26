@@ -1,8 +1,7 @@
 import { computed, toRefs } from 'vue';
 import { TdBaseTableProps } from '../type';
 import useClassName from './useClassName';
-import { useCommonClassName } from '@tdesign/hooks';
-import { useConfig } from '@tdesign/hooks';
+import { useConfig, useCommonClassName } from '@tdesign/hooks';
 
 export function formatCSSUnit(unit: string | number) {
   if (!unit) return unit;

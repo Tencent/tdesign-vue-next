@@ -13,14 +13,13 @@ import {
   TableEditableCellPropsParams,
 } from './type';
 import { TableClassName } from './hooks/useClassName';
-import { useGlobalIcon } from '@tdesign/hooks';
+import { useGlobalIcon, usePrefixClass } from '@tdesign/hooks';
 import { renderCell } from './tr';
 import { validate } from '../form/utils/form-model';
 import log from '@tdesign/common-js/log/index';
 import { AllValidateResult } from '../form/type';
 import { on, off } from '../utils/dom';
 import { isObject } from 'lodash-es';
-import { usePrefixClass } from '@tdesign/hooks';
 
 export interface OnEditableChangeContext<T> extends PrimaryTableRowEditContext<T> {
   isEdit: boolean;

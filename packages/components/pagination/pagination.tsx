@@ -9,16 +9,14 @@ import {
   ChevronRightDoubleIcon as TdChevronRightDoubleIcon,
   EllipsisIcon as TdEllipsisIcon,
 } from 'tdesign-icons-vue-next';
-import { useConfig, usePrefixClass } from '@tdesign/hooks';
-import { useGlobalIcon } from '@tdesign/hooks';
+import { useConfig, useVModel, useTNodeJSX, useGlobalIcon, usePrefixClass, useDefaultValue } from '@tdesign/hooks';
+
 import TInputNumber from '../input-number';
 import { Select } from '../select';
 import TInputAdornment from '../input-adornment';
 import props from './props';
 import { usePaginationClasses, useMoreAction } from './hooks';
-import { useVModel } from '@tdesign/hooks';
-import { useDefaultValue } from '@tdesign/hooks';
-import { useTNodeJSX } from '@tdesign/hooks';
+
 import { isObject } from 'lodash-es';
 
 import type { PageInfo, TdPaginationProps } from '../pagination/type';

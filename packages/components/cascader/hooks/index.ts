@@ -4,9 +4,8 @@ import { isFunction } from 'lodash-es';
 import { isString } from 'lodash-es';
 
 import TreeStore from '@tdesign/common-js/tree/tree-store';
-import { useDisabled } from '@tdesign/hooks';
-import { useVModel } from '@tdesign/hooks';
-import { useDefaultValue } from '@tdesign/hooks';
+import { useVModel, useDisabled, useDefaultValue } from '@tdesign/hooks';
+
 import {
   getTreeValue,
   getCascaderValue,

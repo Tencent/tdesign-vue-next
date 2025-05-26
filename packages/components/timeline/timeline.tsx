@@ -1,8 +1,8 @@
 import { defineComponent, provide, computed } from 'vue';
 import TimeLineProps from './props';
 import { TimelineInjectKey, DefaultAlign } from './hooks';
-import { usePrefixClass } from '@tdesign/hooks';
-import { useChildComponentSlots } from '@tdesign/hooks';
+import { usePrefixClass, useChildComponentSlots } from '@tdesign/hooks';
+
 import TimelineItem from './timeline-item';
 import log from '@tdesign/common-js/log/index';
 

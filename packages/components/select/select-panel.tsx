@@ -7,8 +7,8 @@ import Option from './option';
 import OptionGroup from './option-group';
 import TdSelectProps from './props';
 
-import { useTNodeJSX, useTNodeDefault } from '@tdesign/hooks';
-import { useConfig, usePrefixClass } from '@tdesign/hooks';
+import { useConfig, useTNodeJSX, usePrefixClass, useTNodeDefault } from '@tdesign/hooks';
+
 import { usePanelVirtualScroll } from './hooks/usePanelVirtualScroll';
 import { selectInjectKey } from './consts';
 

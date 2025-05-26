@@ -1,7 +1,6 @@
 import { defineComponent, ref, toRefs } from 'vue';
-import { useDefaultValue } from '@tdesign/hooks';
-import { useVModel } from '@tdesign/hooks';
-import { useTNodeDefault } from '@tdesign/hooks';
+import { useVModel, useDefaultValue, useTNodeDefault } from '@tdesign/hooks';
+
 import props from './props';
 import { Popup as TPopup } from '../popup';
 import ColorPanel from './components/panel';

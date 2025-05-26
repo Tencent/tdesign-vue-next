@@ -2,12 +2,10 @@ import { defineComponent, ref, computed, provide, watchEffect, watch, onMounted,
 import props from './props';
 import { MenuValue } from './type';
 import { TdMenuInterface, TdOpenType } from './types';
-import { useTNodeJSX, useContent } from '@tdesign/hooks';
+import { useVModel, useContent, useTNodeJSX, usePrefixClass, useDefaultValue } from '@tdesign/hooks';
 import { VMenu } from './utils';
 import log from '@tdesign/common-js/log/log';
-import { usePrefixClass } from '@tdesign/hooks';
-import { useVModel } from '@tdesign/hooks';
-import { useDefaultValue } from '@tdesign/hooks';
+
 import { isNumber } from 'lodash-es';
 import { isArray } from 'lodash-es';
 

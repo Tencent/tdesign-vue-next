@@ -22,14 +22,12 @@ import type { RadioOptionObj, RadioOption, TdRadioGroupProps } from './type';
 import TRadio from './radio';
 import TRadioButton from './radio-button';
 import { RadioGroupInjectionKey } from './consts';
-import { usePrefixClass, useCommonClassName } from '@tdesign/hooks';
-import { useVModel } from '@tdesign/hooks';
-import { useTNodeDefault } from '@tdesign/hooks';
+import { useVModel, usePrefixClass, useTNodeDefault, useResizeObserver, useCommonClassName } from '@tdesign/hooks';
+
 import { useKeyboard } from './hooks';
 import { isFunction } from 'lodash-es';
 import { useMutationObserver } from '../watermark/hooks';
 import type { UseMutationObserverReturn } from '../watermark/hooks';
-import { useResizeObserver } from '@tdesign/hooks';
 
 export default defineComponent({
   name: 'TRadioGroup',

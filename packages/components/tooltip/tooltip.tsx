@@ -4,10 +4,9 @@ import { omit } from 'lodash-es';
 import props from './props';
 import popupProps from '../popup/props';
 import Popup, { PopupVisibleChangeContext } from '../popup';
-import { usePrefixClass } from '@tdesign/hooks';
-import { useTNodeJSX, useContent } from '@tdesign/hooks';
+import { useVModel, useContent, useTNodeJSX, usePrefixClass } from '@tdesign/hooks';
+
 import { useMouse } from './utils';
-import { useVModel } from '@tdesign/hooks';
 
 export default defineComponent({
   name: 'TTooltip',

@@ -5,8 +5,8 @@ import DropdownItem from './dropdown-item';
 import { DropdownOption } from './type';
 import props from './props';
 import TDivider from '../divider';
-import { usePrefixClass } from '@tdesign/hooks';
-import { useGlobalIcon } from '@tdesign/hooks';
+import { useGlobalIcon, usePrefixClass } from '@tdesign/hooks';
+
 import { TNode } from '../common';
 import { isFunction } from 'lodash-es';
 

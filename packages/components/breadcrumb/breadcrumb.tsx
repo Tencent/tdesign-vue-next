@@ -2,11 +2,10 @@ import { defineComponent, reactive, provide, toRefs } from 'vue';
 import props from './props';
 import BreadcrumbItem from './breadcrumb-item';
 import type { TdBreadcrumbItemProps, TdBreadcrumbProps } from './type';
-import { useTNodeJSX } from '@tdesign/hooks';
-import { usePrefixClass } from '@tdesign/hooks';
+import { useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/hooks';
+
 import { useBreadcrumbOptions, useEllipsis } from './hooks';
 import { ChevronRightIcon as TdChevronRightIcon, EllipsisIcon as TdEllipsisIcon } from 'tdesign-icons-vue-next';
-import { useGlobalIcon } from '@tdesign/hooks';
 
 export default defineComponent({
   name: 'TBreadcrumb',

@@ -1,10 +1,8 @@
 import { computed, defineComponent, h, ref } from 'vue';
 import TLoading from '../loading';
 import props from './props';
-import { useRipple } from '@tdesign/hooks';
-import { usePrefixClass, useCommonClassName } from '@tdesign/hooks';
-import { useTNodeJSX, useContent } from '@tdesign/hooks';
-import { useDisabled } from '@tdesign/hooks';
+import { useRipple, useContent, useTNodeJSX, useDisabled, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
+
 import { TdButtonProps } from './type';
 
 export default defineComponent({

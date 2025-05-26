@@ -15,11 +15,8 @@ import {
   getMultipleContent,
 } from './utils';
 
-import { useConfig, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
+import { useConfig, useTNodeJSX, useDisabled, useReadonly, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
 import { useCascaderContext } from './hooks';
-import { useTNodeJSX } from '@tdesign/hooks';
-import { useDisabled } from '@tdesign/hooks';
-import { useReadonly } from '@tdesign/hooks';
 
 export default defineComponent({
   name: 'TCascader',

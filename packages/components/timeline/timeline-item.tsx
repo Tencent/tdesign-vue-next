@@ -1,8 +1,8 @@
 import { defineComponent, inject } from 'vue';
 import { omit } from 'lodash-es';
 import props from './timeline-item-props';
-import { usePrefixClass } from '@tdesign/hooks';
-import { useContent, useTNodeJSX } from '@tdesign/hooks';
+import { useContent, useTNodeJSX, usePrefixClass } from '@tdesign/hooks';
+
 import { TimelineInjectKey, DEFAULT_PROVIDER } from './hooks';
 import Loading from '../loading';
 

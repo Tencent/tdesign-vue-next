@@ -12,10 +12,7 @@ import {
   RowClassNameParams,
 } from '../type';
 import useClassName from './useClassName';
-import { useTNodeJSX } from '@tdesign/hooks';
-import { useDefaultValue } from '@tdesign/hooks';
-import { useConfig } from '@tdesign/hooks';
-import { useGlobalIcon } from '@tdesign/hooks';
+import { useConfig, useTNodeJSX, useGlobalIcon, useDefaultValue } from '@tdesign/hooks';
 
 export default function useRowExpand(props: TdPrimaryTableProps, context: SetupContext) {
   const { expandedRowKeys } = toRefs(props);

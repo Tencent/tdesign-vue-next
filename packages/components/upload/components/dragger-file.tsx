@@ -8,12 +8,12 @@ import { TdUploadProps, UploadFile } from '../type';
 import Button from '../../button';
 import { CommonDisplayFileProps } from '../types';
 import { commonProps } from '../consts';
-import { useCommonClassName } from '@tdesign/hooks';
+import { useTNodeJSX, useGlobalIcon, useCommonClassName } from '@tdesign/hooks';
 import TLoading from '../../loading';
 import useDrag, { UploadDragEvents } from '../hooks/useDrag';
-import { useGlobalIcon } from '@tdesign/hooks';
+
 import ImageViewer, { ImageViewerProps } from '../../image-viewer';
-import { useTNodeJSX } from '@tdesign/hooks';
+
 import { UploadConfig } from '../../config-provider';
 import Image from '../../image';
 

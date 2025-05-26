@@ -6,18 +6,23 @@ import { TimeIcon as TdTimeIcon } from 'tdesign-icons-vue-next';
 import TimePickerPanel from './panel/time-picker-panel';
 import TSelectInput, { SelectInputBlurContext } from '../select-input';
 import { formatInputValue, validateInputValue } from '@tdesign/common-js/time-picker/utils';
-import { useTNodeJSX } from '@tdesign/hooks';
+import {
+  useVModel,
+  useConfig,
+  useTNodeJSX,
+  useDisabled,
+  useReadonly,
+  useGlobalIcon,
+  usePrefixClass,
+  useCommonClassName,
+} from '@tdesign/hooks';
 import type { InputProps } from '../input';
 
 import props from './props';
 
 // hooks
-import { useVModel } from '@tdesign/hooks';
-import { useDisabled } from '@tdesign/hooks';
-import { useCommonClassName, useConfig, usePrefixClass } from '@tdesign/hooks';
-import { useGlobalIcon } from '@tdesign/hooks';
+
 import { TdTimePickerProps } from './type';
-import { useReadonly } from '@tdesign/hooks';
 
 dayjs.extend(customParseFormat);
 
