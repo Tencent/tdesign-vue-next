@@ -2,10 +2,9 @@
  * 行选中相关功能：单选 + 多选
  */
 import { computed, toRefs, h, ref, watch } from 'vue';
-import { intersection } from 'lodash-es';
-import { get } from 'lodash-es';
-import { isFunction } from 'lodash-es';
-import useDefaultValue from '../../hooks/useDefaultValue';
+import { get, isFunction, intersection } from 'lodash-es';
+
+import { useDefaultValue } from '@tdesign/hooks';
 import {
   ActiveRowActionContext,
   PrimaryTableCellParams,

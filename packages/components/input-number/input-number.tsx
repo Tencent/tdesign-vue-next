@@ -8,7 +8,7 @@ import {
 import TButton from '../button';
 import TInput from '../input';
 import props from './props';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import { useGlobalIcon } from '@tdesign/hooks';
 import { TdInputNumberProps } from './type';
 import useInputNumber from './hooks/useInputNumber';
 
