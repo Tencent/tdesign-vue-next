@@ -1,11 +1,9 @@
 import { defineComponent, computed, CSSProperties, Fragment } from 'vue';
 import props from './props';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
-import { useChildSlots, useFlatChildrenSlots } from '../hooks/slot';
-import { isNumber } from 'lodash-es';
-import { isString } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { useTNodeJSX, useChildSlots, usePrefixClass, useFlatChildrenSlots } from '@tdesign/hooks';
+
+import { isArray, isNumber, isString } from 'lodash-es';
+
 import { getFlexGapPolyFill } from '@tdesign/common-js/utils/helper';
 import { SizeEnum } from '../common';
 

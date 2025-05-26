@@ -1,17 +1,23 @@
 import { onBeforeUnmount, onMounted, computed, defineComponent, nextTick, onUpdated, ref, watch, Teleport } from 'vue';
 import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import {
+  useConfig,
+  useContent,
+  useTNodeJSX,
+  useTeleport,
+  useGlobalIcon,
+  usePrefixClass,
+  usePopupManager,
+} from '@tdesign/hooks';
+
 import { isServer } from '../utils/dom';
 import { getScrollbarWidth } from '@tdesign/common-js/utils/getScrollbarWidth';
 import props from './props';
 import { DrawerCloseContext } from './type';
 import { useAction } from '../dialog/hooks';
-import { useTNodeJSX, useContent } from '../hooks/tnode';
+
 import { useDrag } from './hooks';
 import type { TdDrawerProps } from './type';
-import useTeleport from '../hooks/useTeleport';
-import usePopupManager from '../hooks/usePopupManager';
 
 let key = 1;
 

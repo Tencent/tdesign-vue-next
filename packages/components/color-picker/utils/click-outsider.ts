@@ -1,5 +1,5 @@
 import { ComponentPublicInstance, VNode } from 'vue';
-import { usePrefixClass } from '../../hooks/useConfig';
+import { usePrefixClass } from '@tdesign/hooks';
 import { isServer, on } from '../../utils/dom';
 
 type Handler = (...args: unknown[]) => unknown;

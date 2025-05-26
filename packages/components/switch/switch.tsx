@@ -1,15 +1,12 @@
 import { defineComponent, h, VNodeChild, computed, watch, toRefs } from 'vue';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { useVModel, useDisabled, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
 import TLoading from '../loading';
 import props from './props';
 import { TNodeReturnValue } from '../common';
 
 // hooks
-import { useDisabled } from '../hooks/useDisabled';
-import useVModel from '../hooks/useVModel';
-import { isFunction } from 'lodash-es';
-import { isString } from 'lodash-es';
-import { isArray } from 'lodash-es';
+
+import { isArray, isString, isFunction } from 'lodash-es';
 
 export default defineComponent({
   name: 'TSwitch',
