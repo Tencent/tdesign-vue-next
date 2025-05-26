@@ -12,8 +12,8 @@ import {
   FileIcon as TdFileIcon,
   VideoIcon as TdVideoIcon,
 } from 'tdesign-icons-vue-next';
-import { isFunction } from 'lodash-es';
-import { isObject } from 'lodash-es';
+import { isObject, isFunction } from 'lodash-es';
+
 import { useTNodeJSX, useGlobalIcon } from '@tdesign/hooks';
 import ImageViewer, { ImageViewerProps } from '../../image-viewer';
 import { CommonDisplayFileProps } from '../types';

@@ -1,5 +1,5 @@
 import { defineComponent, computed, ref, watch, toRefs, getCurrentInstance } from 'vue';
-import { isNaN } from 'lodash-es';
+import { isNaN, isObject } from 'lodash-es';
 import {
   PageFirstIcon as TdPageFirstIcon,
   PageLastIcon as TdPageLastIcon,
@@ -16,8 +16,6 @@ import { Select } from '../select';
 import TInputAdornment from '../input-adornment';
 import props from './props';
 import { usePaginationClasses, useMoreAction } from './hooks';
-
-import { isObject } from 'lodash-es';
 
 import type { PageInfo, TdPaginationProps } from '../pagination/type';
 

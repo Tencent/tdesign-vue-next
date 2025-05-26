@@ -13,8 +13,7 @@ import { PRO_THEME, CIRCLE_SIZE, CIRCLE_SIZE_PX, STATUS_ICON, CIRCLE_FONT_SIZE_R
 import props from './props';
 import { useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/hooks';
 
-import { isObject } from 'lodash-es';
-import { isString } from 'lodash-es';
+import { isObject, isString } from 'lodash-es';
 
 export default defineComponent({
   name: 'TProgress',

@@ -1,8 +1,6 @@
 import { computed, defineComponent, onMounted, PropType, ref, SetupContext, toRefs, watch } from 'vue';
-import { get } from 'lodash-es';
-import { set } from 'lodash-es';
-import { isFunction } from 'lodash-es';
-import { cloneDeep } from 'lodash-es';
+import { get, set, isObject, cloneDeep, isFunction } from 'lodash-es';
+
 import { Edit1Icon as TdEdit1Icon } from 'tdesign-icons-vue-next';
 import {
   TableRowData,
@@ -19,7 +17,6 @@ import { validate } from '../form/utils/form-model';
 import log from '@tdesign/common-js/log/index';
 import { AllValidateResult } from '../form/type';
 import { on, off } from '../utils/dom';
-import { isObject } from 'lodash-es';
 
 export interface OnEditableChangeContext<T> extends PrimaryTableRowEditContext<T> {
   isEdit: boolean;

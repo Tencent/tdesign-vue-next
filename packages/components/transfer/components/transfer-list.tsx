@@ -14,9 +14,8 @@ import { getLefCount, getDataValues, TARGET } from '../utils';
 import Search from './transfer-search';
 import { useConfig, usePrefixClass, useTNodeDefault } from '@tdesign/hooks';
 
-import { isString } from 'lodash-es';
-import { filter } from 'lodash-es';
-import { cloneDeep } from 'lodash-es';
+import { filter, isString, cloneDeep } from 'lodash-es';
+
 import useDragSort from '../hooks/useDragSort';
 
 const props = {

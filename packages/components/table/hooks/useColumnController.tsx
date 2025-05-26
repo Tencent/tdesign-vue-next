@@ -3,7 +3,7 @@
  */
 import { computed, ref, SetupContext, toRefs, watch, h } from 'vue';
 import { SettingIcon as TdSettingIcon } from 'tdesign-icons-vue-next';
-// import { intersection } from 'lodash-es';
+// import { isFunction, intersection } from 'lodash-es';
 import { CheckboxGroupValue, CheckboxOptionObj, CheckboxGroupChangeContext } from '../../checkbox';
 import { DialogPlugin } from '../../dialog/plugin';
 import { renderTitle } from './useTableHeader';
@@ -14,7 +14,6 @@ import { getCurrentRowByKey } from '../utils';
 import { DialogInstance } from '../../dialog';
 import TButton from '../../button';
 import ColumnCheckboxGroup from '../column-checkbox-group';
-import { isFunction } from 'lodash-es';
 
 export function getColumnKeys(columns: PrimaryTableCol[], keys = new Set<string>()) {
   for (let i = 0, len = columns.length; i < len; i++) {

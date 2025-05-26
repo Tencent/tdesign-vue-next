@@ -6,8 +6,7 @@ import { useVModel, useContent, useTNodeJSX, usePrefixClass, useDefaultValue } f
 import { VMenu } from './utils';
 import log from '@tdesign/common-js/log/log';
 
-import { isNumber } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { isArray, isNumber } from 'lodash-es';
 
 export default defineComponent({
   name: 'TMenu',
