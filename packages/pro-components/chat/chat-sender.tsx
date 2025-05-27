@@ -1,13 +1,8 @@
 import { defineComponent, ref, computed, toRefs, reactive, Fragment } from 'vue';
 import { SendFilledIcon, FileAttachmentIcon, ImageIcon } from 'tdesign-icons-vue-next';
-// TODO: need refactor
-import { usePrefixClass, useConfig } from '../../components/hooks/useConfig';
+import { usePrefixClass, useConfig, useTNodeJSX, useContent, useVModel } from '@tdesign/hooks';
 import props from './chat-sender-props';
 import { Button, Textarea, Tooltip } from 'tdesign-vue-next';
-// TODO: need refactor
-import useVModel from '../../components/hooks/useVModel';
-// TODO: need refactor
-import { useTNodeJSX, useContent } from '../../components/hooks/tnode';
 
 import type { TdChatSenderProps, UploadActionType, UploadActionConfig } from './type';
 

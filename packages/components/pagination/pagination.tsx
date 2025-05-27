@@ -1,5 +1,5 @@
 import { defineComponent, computed, ref, watch, toRefs, getCurrentInstance } from 'vue';
-import { isNaN } from 'lodash-es';
+import { isNaN, isObject } from 'lodash-es';
 import {
   PageFirstIcon as TdPageFirstIcon,
   PageLastIcon as TdPageLastIcon,
@@ -9,17 +9,13 @@ import {
   ChevronRightDoubleIcon as TdChevronRightDoubleIcon,
   EllipsisIcon as TdEllipsisIcon,
 } from 'tdesign-icons-vue-next';
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import { useConfig, useVModel, useTNodeJSX, useGlobalIcon, usePrefixClass, useDefaultValue } from '@tdesign/hooks';
+
 import TInputNumber from '../input-number';
 import { Select } from '../select';
 import TInputAdornment from '../input-adornment';
 import props from './props';
 import { usePaginationClasses, useMoreAction } from './hooks';
-import useVModel from '../hooks/useVModel';
-import useDefaultValue from '../hooks/useDefaultValue';
-import { useTNodeJSX } from '../hooks/tnode';
-import { isObject } from 'lodash-es';
 
 import type { PageInfo, TdPaginationProps } from '../pagination/type';
 
