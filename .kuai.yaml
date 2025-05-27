@@ -1,0 +1,5 @@
+#`快码`插件配置文件，将其提交到git仓库是使用该插件的最佳实践。
+
+fastPublishCommand:
+  value: make upload2tkex
+  description: 快速发布命令，可根据项目实际情况进行修改
