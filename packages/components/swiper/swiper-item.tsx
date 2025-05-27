@@ -1,6 +1,6 @@
 import { defineComponent, computed } from 'vue';
 import props from './props';
-import { usePrefixClass } from '../hooks/useConfig';
+import { usePrefixClass } from '@tdesign/hooks';
 
 const swiperItemProps = {
   index: {
@@ -21,7 +21,6 @@ const swiperItemProps = {
     default: 0,
   },
 };
-const CARD_SCALE = 210 / 332; // 缩放比例
 const itemWidth = 0.415; // 依据设计稿使用t-swiper__card控制每个swiper的宽度为41.5%
 
 export default defineComponent({
@@ -55,12 +54,14 @@ export default defineComponent({
       const translateIndex = !active.value && props.swiperItemLength > 2 ? disposeIndex.value : props.index;
       const inStage = Math.abs(translateIndex - props.currentIndex) <= 1;
       if (inStage) {
-        return (wrapWidth * ((translateIndex - props.currentIndex) * (1 - itemWidth * CARD_SCALE) - itemWidth + 1)) / 2;
+        return (
+          (wrapWidth * ((translateIndex - props.currentIndex) * (1 - itemWidth * props.cardScale) - itemWidth + 1)) / 2
+        );
       }
       if (translateIndex < props.currentIndex) {
-        return (-itemWidth * (1 + CARD_SCALE) * wrapWidth) / 2;
+        return (-itemWidth * (1 + props.cardScale) * wrapWidth) / 2;
       }
-      return ((2 + itemWidth * (CARD_SCALE - 1)) * wrapWidth) / 2;
+      return ((2 + itemWidth * (props.cardScale - 1)) * wrapWidth) / 2;
     });
     const zIndex = computed(() => {
       if (props.type !== 'card') return 0;
@@ -87,7 +88,7 @@ export default defineComponent({
         const translateIndex = !active.value && props.swiperItemLength > 2 ? disposeIndex.value : props.index;
         const isActivity = translateIndex === props.currentIndex;
         return {
-          transform: `translateX(${translateX.value}px) scale(${isActivity ? 1 : CARD_SCALE})`,
+          transform: `translateX(${translateX.value}px) scale(${isActivity ? 1 : props.cardScale})`,
           transition: `transform ${props.duration / 1000}s ease`,
           zIndex: zIndex.value,
         };

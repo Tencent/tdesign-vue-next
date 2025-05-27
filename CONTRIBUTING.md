@@ -2,13 +2,17 @@
 
 `tdesign-vue-next` 是一个 Monorepo，承载 TDesign Vue 3 桌面端相关基础组件和高阶组件、插件的源码。
 
-> `packages/components` 是组件源码，承载大部分的组件框架相关的代码逻辑、示例代码和测试用例。
+> `packages/components` 是所有基础组件源码，承载基础组件框架相关的代码逻辑、示例代码和测试用例。
+
+> `packages/pro-components` 是所有高阶组件源码，承载高阶组件框架相关的代码逻辑、示例代码和测试用例。
 
 > `packages/common` 是子仓库，承载大部分组件样式、Design Token、框架无关的逻辑、文档内容结构等。
 
 > `packages/tdesign-vue-next` 是 Vue 3 基础组件的站点、打包入口。
 
-大部分情况下，您参与贡献的开发过程，都只需要关注 `packages/components` 和 `packages/common` 的相关代码。
+> `packages/tdesign-vue-next-chat` 是 Vue Chat 高阶组件的站点、打包入口。
+
+大部分情况下，您参与贡献的开发过程，都只需要关注 `packages/components`、`packages/pro-components` 和 `packages/common`的相关代码。
 
 ## 进行开发
 
@@ -23,7 +27,7 @@ pnpm run init
 ### 2.安装依赖
 
 ```bash
-pnpm install 
+pnpm install
 ```
 
 ### 3.本地运行项目
@@ -36,7 +40,7 @@ pnpm run dev
 
 ## 目录结构
 
-```text
+````text
 .
 ├── internal                  // 仅供仓库内使用的包
 │   ├── tests                 // 测试公共逻辑
@@ -88,7 +92,7 @@ pnpm run dev
     ...
   ],
 },
-```
+````
 
 ### Markdown 文件的 demo 引用
 
@@ -118,6 +122,7 @@ pnpm run dev
 TDesign 的项目都会以子仓库的形式引入 `tdesign-common` 公共仓库。
 
 公共仓库中包含：
+
 - 部分组件的一些框架无关的公共的工具函数
 - `组件库UI`，即 `HTML` 结构和 `CSS` 样式（多框架共用）
 - 每个组件的文档页面的内容结构
@@ -130,8 +135,9 @@ TDesign 的项目都会以子仓库的形式引入 `tdesign-common` 公共仓库
 2. 新建分支，并进行开发
 3. 提交子仓库的 PR，等待代码合入
 4. 如果仅涉及子仓库改动，项目维护方会通过评论触发 CI，自动更新主仓库的子仓库指向；
-   
+
    如果需要配合子仓库改动，需要在步骤 3 完成后，在主仓库的开发过程中，将子仓库的指向改为合并后的主干的 commit id
+
    ```bash
    git submodule update --init --remote
    ```

@@ -1,22 +1,21 @@
 import { defineComponent, provide, computed, toRefs, watch, ref, nextTick, PropType } from 'vue';
-import { pick as picker } from 'lodash-es';
-import { isArray } from 'lodash-es';
-import { isFunction } from 'lodash-es';
-import { debounce } from 'lodash-es';
-import { cloneDeep } from 'lodash-es';
-import { get } from 'lodash-es';
-import { intersection } from 'lodash-es';
+import { get, isArray, debounce, cloneDeep, isFunction, intersection, pick as picker } from 'lodash-es';
+
 import FakeArrow from '../common-components/fake-arrow';
 import SelectInput from '../select-input';
 import SelectPanel from './select-panel';
 import props from './props';
 // hooks
-import { useDisabled } from '../hooks/useDisabled';
-import { useReadonly } from '../hooks/useReadonly';
-import useDefaultValue from '../hooks/useDefaultValue';
-import useVModel from '../hooks/useVModel';
-import { useTNodeJSX } from '../hooks/tnode';
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import {
+  useVModel,
+  useConfig,
+  useDisabled,
+  useReadonly,
+  useTNodeJSX,
+  usePrefixClass,
+  useDefaultValue,
+} from '@tdesign/hooks';
+
 import { getSingleContent, getMultipleContent } from './utils';
 import { selectInjectKey } from './consts';
 import { useSelectOptions, useKeyboardControl } from './hooks';
@@ -91,18 +90,28 @@ export default defineComponent({
           }
           const option = optionsMap.value.get(val);
           return {
-            [value]: get(option, value),
-            [label]: get(option, label),
+            [value]: get(option, 'value'),
+            [label]: get(option, 'label'),
           };
         };
         newVal = props.multiple ? (newVal as SelectValue[]).map((val) => getOption(val)) : getOption(newVal);
       }
       if (newVal === orgValue.value) return;
-      if (props.multiple && !props.reserveKeyword) setInputValue('');
+
+      // 多选场景下 在选中值时，且不保留reserveKeyword 的情况下 ，需要清空输入（筛选）值
+      if (props.multiple && !props.reserveKeyword && context.trigger == 'check') setInputValue('');
+
       setOrgValue(newVal, {
         selectedOptions: getSelectedOptions(newVal),
         ...context,
       });
+      if (props.multiple && context.trigger === 'uncheck' && context.option) {
+        props.onRemove?.({
+          value: get(context.option, keys.value.value),
+          data: context.option,
+          e: context.e,
+        });
+      }
     };
 
     const [innerPopupVisible, setInnerPopupVisible] = useDefaultValue(
@@ -220,22 +229,6 @@ export default defineComponent({
       });
     };
 
-    const { hoverIndex, virtualFilteredOptions, handleKeyDown, filteredOptions } = useKeyboardControl({
-      displayOptions,
-      optionsList,
-      innerPopupVisible,
-      setInnerPopupVisible,
-      selectPanelRef,
-      isFilterable,
-      isRemoteSearch,
-      getSelectedOptions,
-      setInnerValue,
-      innerValue,
-      popupContentRef,
-      multiple: props.multiple,
-      max: props.max,
-    });
-
     /*
      * 全选逻辑：
      * 根据 checked 的值计算最终选中的值：
@@ -264,16 +257,35 @@ export default defineComponent({
       setInnerValue(values, { selectedOptions: getSelectedOptions(values), trigger: checked ? 'check' : 'clear' });
     };
 
+    // 全选
+    const isCheckAll = computed<boolean>(() => {
+      if (intersectionLen.value === 0) return false;
+      return intersectionLen.value === optionalList.value.length;
+    });
+
+    const { hoverIndex, virtualFilteredOptions, handleKeyDown, filteredOptions } = useKeyboardControl({
+      displayOptions,
+      optionsList,
+      innerPopupVisible,
+      setInnerPopupVisible,
+      selectPanelRef,
+      isFilterable,
+      isRemoteSearch,
+      getSelectedOptions,
+      setInnerValue,
+      onCheckAllChange,
+      isCheckAll,
+      innerValue,
+      popupContentRef,
+      multiple: props.multiple,
+      max: props.max,
+    });
+
     // 已选的长度
     const intersectionLen = computed<number>(() => {
       const values = optionalList.value.map((item) => item.value);
       const n = intersection(innerValue.value, values);
       return n.length;
-    });
-
-    // 全选
-    const isCheckAll = computed<boolean>(() => {
-      return intersectionLen.value === optionalList.value.length;
     });
 
     // 半选
@@ -423,7 +435,7 @@ export default defineComponent({
               clearable: props.clearable,
               loading: props.loading,
               status: props.status,
-              tips: props.tips,
+              tips: renderTNodeJSX('tips'),
               minCollapsedNum: props.minCollapsedNum,
               autofocus: props.autofocus,
               suffix: props.suffix,

@@ -2,10 +2,10 @@ import { nextTick, ref } from 'vue';
 import { mount } from '@vue/test-utils';
 import { expect, vi } from 'vitest';
 import { CheckCircleFilledIcon, CloseCircleFilledIcon, InfoCircleIcon } from 'tdesign-icons-vue-next';
-import { isObject } from 'lodash-es';
-import { omit } from 'lodash-es';
+import { omit, isObject } from 'lodash-es';
+
 import { FormItem, Form } from '../index.ts';
-import { Input, InputNumber } from '@src/index.ts';
+import { Input, InputNumber } from '@tdesign/components/index.ts';
 import { useFormDisabled } from '../hooks';
 
 const delay = (time = 0) =>

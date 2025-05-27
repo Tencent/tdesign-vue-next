@@ -30,7 +30,6 @@ export interface TdDrawerProps {
   closeOnEscKeydown?: boolean;
   /**
    * 点击蒙层时是否触发抽屉关闭事件
-   * @default true
    */
   closeOnOverlayClick?: boolean;
   /**
@@ -47,6 +46,11 @@ export interface TdDrawerProps {
    */
   destroyOnClose?: boolean;
   /**
+   * 抽屉元素类名。
+   * @default ''
+   */
+  drawerClassName?: string;
+  /**
    * 底部操作栏，默认会有“确认”和“取消”两个按钮。值为 true 显示默认操作按钮，值为 false 或 null 不显示任何内容，值类型为 TNode 表示自定义底部内容
    * @default true
    */
@@ -56,6 +60,11 @@ export interface TdDrawerProps {
    * @default true
    */
   header?: string | boolean | TNode;
+  /**
+   * 是否启用抽屉懒加载，启用时抽屉的内容不渲染
+   * @default false
+   */
+  lazy?: boolean;
   /**
    * 展开方式，有两种：直接展示在内容上方 和 推开内容区域
    * @default overlay
@@ -187,4 +196,4 @@ export interface DrawerCloseContext {
   e: MouseEvent | KeyboardEvent;
 }
 
-export type DrawerMethod = (options?: DrawerOptions) => void;
+export type DrawerMethod = (options?: DrawerOptions) => DrawerInstance;

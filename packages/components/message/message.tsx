@@ -10,10 +10,10 @@ import {
 import TLoading from '../loading';
 import { THEME_LIST } from './consts';
 import props from './props';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import { useContent, useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/hooks';
+
 import { fadeIn, fadeOut } from './utils';
-import { useTNodeJSX, useContent } from '../hooks/tnode';
+
 import { isFunction } from 'lodash-es';
 
 export default defineComponent({

@@ -5,6 +5,87 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.13.0 `2025-05-14` 
+
+### 🚀 Features
+- `ColorPicker`: 自动根据「触发器 / 最近颜色 / 预设颜色」的色值进行切换单色和渐变模式；只开启渐变模式时，过滤「预设颜色 / 当前颜色」中的非渐变色值；新增 format `HEX8`，移除 `HSB`；使用渐变模式的业务请注意此变更 ⚠️  @RylanBot ([#5319](https://github.com/Tencent/tdesign-vue-next/pull/5319))
+- `Dialog`: 新增 `lazy` API , 打开此配置默认不直接渲染 Dialog， 用于懒加载的场景，此前有依赖 `destroyOnClose` 实现初始化不加载的业务请注意此变更 ⚠️ @RSS1102 ([#5307](https://github.com/Tencent/tdesign-vue-next/pull/5307))
+- `Drawer`: 新增 `lazy` API , 打开此配置默认不直接渲染 Drawer，用于懒加载的场景 @RSS1102，此前有依赖 `destroyOnClose` 实现初始化不加载的业务请注意此变更 ⚠️ ([#5375](https://github.com/Tencent/tdesign-vue-next/pull/5375))
+- `TagInput`: 优化可拖拽调整位置状态下，鼠标光标显示为移动样式 @liweijie0812 ([#5424](https://github.com/Tencent/tdesign-vue-next/pull/5424))
+- `TimePicker`: 新增`onConfirm` 和`onClear` 回调方法 @Wesley-0808 ([#5349](https://github.com/Tencent/tdesign-vue-next/pull/5349))
+
+### 🐞 Bug Fixes
+- `Breadcrumb`: 修复 `1.12.0` 版本改动导致的响应式和控制台告警的问题 @Wesley-0808 ([#5414](https://github.com/Tencent/tdesign-vue-next/pull/5414))
+- `Cascader`: 
+  - 修复下拉面板默认存在边距的问题 @reallimengzhe  ([#5427](https://github.com/Tencent/tdesign-vue-next/pull/5427))
+  - 修复选项存在超长文字时，在不同尺寸下显示异常的问题 @Shabi-x @uyarn ([#5373](https://github.com/Tencent/tdesign-vue-next/pull/5373))
+- `ColorPicker`: 
+  - 修复添加最近使用颜色功能异常的问题 @RylanBot ([#5428](https://github.com/Tencent/tdesign-vue-next/pull/5428))
+  - 开启透明通道时的返回值格式化异常 @RylanBot ([#5319](https://github.com/Tencent/tdesign-vue-next/pull/5319))
+- `Comment`: 插槽内容渲染错误 @QuentinHsu ([#5446](https://github.com/Tencent/tdesign-vue-next/pull/5446))
+- `DatePicker`: 修复 `label` 插槽无效的问题 @RSS1102 ([#5393](https://github.com/Tencent/tdesign-vue-next/pull/5393))
+- `DateRangePicker`: 修复缺少 `readonly` 类型定义的问题 @Wesley-0808 ([#5430](https://github.com/Tencent/tdesign-vue-next/pull/5430))
+- `Drawer`: 修复 `DrawerPlugin` 返回实例类型错误的问题 @Wesley-0808 ([#5444](https://github.com/Tencent/tdesign-vue-next/pull/5444))
+- `RadioGroup`: 
+  - 修复阻止默认行为时机错误导致无法正确输入空格的问题 @betavs ([#5417](https://github.com/Tencent/tdesign-vue-next/pull/5417))
+  - 修复键盘操作时重复触发`onChange`事件的问题 @betavs ([#5417](https://github.com/Tencent/tdesign-vue-next/pull/5417))
+- `Select`: 修复 `valueType` 为 `object` 且与 `keys` 同时设置时，选择绑定值错误的问题 @morningbao ([#5374](https://github.com/Tencent/tdesign-vue-next/pull/5374))
+- `Space`: 
+  - 修复嵌套组件情况下，样式被错误应用的问题 @RylanBot  ([#5418](https://github.com/Tencent/tdesign-vue-next/pull/5418))
+  - 修复`fragment`虚拟节点未展开的问题 @QuentinHsu ([#5388](https://github.com/Tencent/tdesign-vue-next/pull/5388))
+  - 修复`Teleport`结构意外渲染为`SpaceItem`节点，导致额外占用间距的问题 @QuentinHsu ([#5388](https://github.com/Tencent/tdesign-vue-next/pull/5388))
+- `Tag`: 修复 `max-width` 未设置不渲染 `title` 属性的问题 @betavs ([#5413](https://github.com/Tencent/tdesign-vue-next/pull/5413))
+- `Textarea`: 修复`autosize` 模式下初始高度计算不正确的问题 @RSS1102 ([#5451](https://github.com/Tencent/tdesign-vue-next/pull/5451))
+- `Keyboard`: 修复 `Dialog`、 `Drawer` 或 `其他弹窗组件` 组合使用场景，使用`ESC`按键关闭弹窗冲突的问题 @Wesley-0808 ([#5143](https://github.com/Tencent/tdesign-vue-next/pull/5143))
+
+### 🚧 Others
+- `TagInput`: 优化 `TagInput` 处理空值的逻辑 @yuhengshen ([#5357](https://github.com/Tencent/tdesign-vue-next/pull/5357))
+
+
+## 🌈 1.12.0 `2025-04-24`
+### 🚀 Features
+- `Breadcrumb`: 新增 `ellipsis`、`maxItems`、`itemsAfterCollapse`、`itemsBeforeCollapse` 相关 API，用于折叠面包屑的场景，具体使用请参考文档示例 @Wesley-0808 ([#5261](https://github.com/Tencent/tdesign-vue-next/pull/5261))
+- `ColorPicker`: 新增 `onClear` 清除按钮事件回调 @mikasayw ([#5109](https://github.com/Tencent/tdesign-vue-next/pull/5109))
+- `DatePicker`: 新增 `readonly` 属性，用于只读配置 @mikasayw ([#5293](https://github.com/Tencent/tdesign-vue-next/pull/5293))
+- `Drawer`
+  - 新增 `DrawerPlugin`，支持`插件函数式`调用 @Wesley-0808 ([#5067](https://github.com/Tencent/tdesign-vue-next/pull/5067))
+  - 新增 `drawerClassName` API，用于定义抽屉本身的相关类名 @Wesley-0808 ([#5067](https://github.com/Tencent/tdesign-vue-next/pull/5067))
+- `Form`: 新增 `requiredMarkPosition`，可定义必填符号的位置 @Wesley-0808 ([#5223](https://github.com/Tencent/tdesign-vue-next/pull/5223))
+- `Icon`: 新增 `logo-miniprogram` 小程序、`logo-cnb` 云原生构建、`seal` 印章、`quote` 引号等图标 @taowensheng1997 @uyarn @RADWIMPS426 ([#5355](https://github.com/Tencent/tdesign-vue-next/pull/5355))
+- `Select`: 取消勾选面板中的已选项时触发 `remove` 事件回调 @QuentinHsu ([#5333](https://github.com/Tencent/tdesign-vue-next/pull/5333))
+- `Swiper`: 新增 `cardScale`，支持自定义卡片模式下的缩放比例 @joinmouse ([#5272](https://github.com/Tencent/tdesign-vue-next/pull/5272))
+- `Upload`: `image-flow` 模式下支持自定义错误文本 @ngyyuusora ([#5326](https://github.com/Tencent/tdesign-vue-next/pull/5326))
+
+### 🐞 Bug Fixes
+- `ColorPicker`: 修复切换颜色无效的问题 @mikasayw ([#5282](https://github.com/Tencent/tdesign-vue-next/pull/5282))
+- `Drawer`: 优化拖拽调整大小的过程中，Drawer 页内容会被选中的问题 @joinmouse ([#5233](https://github.com/Tencent/tdesign-vue-next/pull/5233))
+- `DatePicker`: 修复 `readonly`为 `true` 时， `clearable` 仍然生效的问题 @xiaojueshi ([#5303](https://github.com/Tencent/tdesign-vue-next/pull/5303)) ([#5305](https://github.com/Tencent/tdesign-vue-next/pull/5305))
+- `InputNumber`:
+  - 修复`tips`插槽重复渲染的问题 @mikasayw ([#5286](https://github.com/Tencent/tdesign-vue-next/pull/5286))
+  - 优化数字输入框的边界问题 @Sight-wcg([#5358](https://github.com/Tencent/tdesign-vue-next/pull/5358))
+- `Menu`: 修复 `menu-item` 的 `onClick ` 事件触发两次的问题 @RSS1102 ([#5235](https://github.com/Tencent/tdesign-vue-next/pull/5235))
+- `Select`
+  - 修复 `tips` 插槽无效的问题 @liweijie0812 ([#5250](https://github.com/Tencent/tdesign-vue-next/pull/5250))
+  - 修复当 `check-all` 为空字符串时的效果异常的问题 @betavs ([#5221](https://github.com/Tencent/tdesign-vue-next/pull/5221))
+  - 修复`1.11.x`版本中，未设置 `label` 时选项展示异常的问题 @RSS1102 ([#5257](https://github.com/Tencent/tdesign-vue-next/pull/5257))
+  - 修复多选场景下 `onEnter` 回调参数丢失的问题，同时保持多选单选回车交互逻辑一致 @uyarn ([#5361](https://github.com/Tencent/tdesign-vue-next/pull/5361))
+  - 修复 `keys` 属性配置 `content` 作为 value 时不生效问题 @hello-ishine ([#5199](https://github.com/Tencent/tdesign-vue-next/pull/5199))
+- `Table`:
+  - 修复当 `reserveSelectedRowOnPaginate` 为`false` 时，没有正确返回全选当前页数据的问题 @RSS1102 ([#5248](https://github.com/Tencent/tdesign-vue-next/pull/5248))
+  - 修复 column 的 `checkProps` 未配置导致的点击行选中行为异常的问题 @uyarn ([#5362](https://github.com/Tencent/tdesign-vue-next/pull/5362))
+- `Select`: 修复多选场景下无法通过键盘操作选中全选选项的问题 @uyarn ([#5361](https://github.com/Tencent/tdesign-vue-next/pull/5361))
+- `Swiper`: 优化默认容器高度，避免 navigator 位置异常的问题 @uyarn ([#5278](https://github.com/Tencent/tdesign-vue-next/pull/5278))
+- `Tabs`:
+  - 优化路由切换过程中，Tabs 未初始化出现卸载错误的场景 @RSS1102 ([#5359](https://github.com/Tencent/tdesign-vue-next/pull/5359))
+  - 优化选项卡存在超长 label 时的滑动效果 @wonkzhang([#5316](https://github.com/Tencent/tdesign-vue-next/pull/5316))
+- `Textarea`: 调整 focus 时机延迟到组件完全渲染之后 @RSS1102 ([#5153](https://github.com/Tencent/tdesign-vue-next/pull/5153))
+- `TreeSelect`: 修复当 `valueType='object '` 时无初始化选中数据时产生意外错误 @RSS1102 ([#5322](https://github.com/Tencent/tdesign-vue-next/pull/5322))
+
+### 📝 Documentation
+- `Swiper`: 优化`Swiper` 组件跳转沙箱演示缺失示例样式的问题 @uyarn ([#5278](https://github.com/Tencent/tdesign-vue-next/pull/5278))
+- `Dialog`: 优化文档内容，统一内容描述 @Wesley-0808 ([#5067](https://github.com/Tencent/tdesign-vue-next/pull/5067))
+
+
 ## 🌈 1.11.5 `2025-03-25` 
 ### 🐞 Bug Fixes
 - `Table`: 

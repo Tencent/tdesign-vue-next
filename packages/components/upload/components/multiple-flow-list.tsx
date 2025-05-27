@@ -12,9 +12,9 @@ import {
   FileIcon as TdFileIcon,
   VideoIcon as TdVideoIcon,
 } from 'tdesign-icons-vue-next';
-import { isFunction } from 'lodash-es';
-import { isObject } from 'lodash-es';
-import useGlobalIcon from '../../hooks/useGlobalIcon';
+import { isObject, isFunction } from 'lodash-es';
+
+import { useTNodeJSX, useGlobalIcon } from '@tdesign/hooks';
 import ImageViewer, { ImageViewerProps } from '../../image-viewer';
 import { CommonDisplayFileProps } from '../types';
 import { commonProps } from '../consts';
@@ -32,7 +32,7 @@ import {
   VIDEO_REGEXP,
 } from '@tdesign/common-js/upload/utils';
 import TLoading from '../../loading';
-import { useTNodeJSX } from '../../hooks';
+
 import Link from '../../link';
 import { UploadConfig } from '../../config-provider';
 import Image from '../../image';
@@ -159,15 +159,19 @@ export default defineComponent({
               { [`${classPrefix.value}-is-bordered`]: file.status !== 'waiting' },
             ]}
           >
-            {['fail', 'progress'].includes(file.status) && (
-              <div
-                class={`${uploadPrefix.value}__card-status-wrap ${uploadPrefix.value}__${props.theme}-${file.status}`}
-              >
-                {iconMap[file.status as 'fail' | 'progress']}
+            {file.status === 'progress' && (
+              <div class={`${uploadPrefix.value}__card-status-wrap ${uploadPrefix.value}__${props.theme}-progress`}>
+                {iconMap[file.status as 'progress']}
                 <p>
-                  {textMap[file.status as 'fail' | 'progress']}
-                  {props.showUploadProgress && file.status === 'progress' ? ` ${file.percent}%` : ''}
+                  {textMap[file.status as 'progress']}
+                  {props.showUploadProgress && ` ${file.percent}%`}
                 </p>
+              </div>
+            )}
+            {file.status === 'fail' && (
+              <div class={`${uploadPrefix.value}__card-status-wrap ${uploadPrefix.value}__${props.theme}-fail`}>
+                {iconMap[file.status as 'fail']}
+                <p>{file.response?.error || textMap[file.status as 'fail']}</p>
               </div>
             )}
             {(['waiting', 'success'].includes(file.status) || (!file.status && file.url)) && (

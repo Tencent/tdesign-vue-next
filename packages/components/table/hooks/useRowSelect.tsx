@@ -2,10 +2,9 @@
  * 行选中相关功能：单选 + 多选
  */
 import { computed, toRefs, h, ref, watch } from 'vue';
-import { intersection } from 'lodash-es';
-import { get } from 'lodash-es';
-import { isFunction } from 'lodash-es';
-import useDefaultValue from '../../hooks/useDefaultValue';
+import { get, isFunction, intersection } from 'lodash-es';
+
+import { useDefaultValue } from '@tdesign/hooks';
 import {
   ActiveRowActionContext,
   PrimaryTableCellParams,
@@ -24,8 +23,15 @@ export default function useRowSelect(
   props: TdPrimaryTableProps,
   tableSelectedClasses: TableClassName['tableSelectedClasses'],
 ) {
-  const { selectedRowKeys, columns, rowKey, data, reserveSelectedRowOnPaginate } = toRefs(props);
-  const currentPaginateData = ref<TableRowData[]>(data.value);
+  const { selectedRowKeys, columns, rowKey, data, reserveSelectedRowOnPaginate, pagination } = toRefs(props);
+  const currentPaginateData = ref<TableRowData[]>(
+    pagination.value
+      ? data.value.slice(
+          (pagination.value.current - 1) * pagination.value.pageSize,
+          pagination.value.current * pagination.value.pageSize,
+        )
+      : data.value,
+  );
   const selectedRowClassNames = ref();
   const [tSelectedRowKeys, setTSelectedRowKeys] = useDefaultValue(
     selectedRowKeys,
@@ -51,7 +57,8 @@ export default function useRowSelect(
   const allowUncheck = computed(() => {
     if (props.rowSelectionAllowUncheck) return true;
     const singleSelectCol = selectionType.value === 'single';
-    if (!singleSelectCol || !selectColumn.value || !('allowUncheck' in selectColumn.value?.checkProps)) return false;
+    if (!singleSelectCol || !selectColumn.value?.checkProps || !('allowUncheck' in selectColumn.value?.checkProps))
+      return false;
     return selectColumn.value.checkProps.allowUncheck;
   });
 
@@ -68,10 +75,14 @@ export default function useRowSelect(
       };
       const selectedRowClass = selected.size ? selectedRowClassFunc : undefined;
       selectedRowClassNames.value = [disabledRowClass, selectedRowClass];
-      currentPaginateData.value = data.value;
     },
     { immediate: true },
   );
+
+  // 在远程分页场景下，当前页全选功能的状态判定需基于当前页数据是否存在进行动态重新计算
+  watch(data, () => {
+    currentPaginateData.value = data.value;
+  });
 
   function isDisabled(row: Record<string, any>, rowIndex: number): boolean {
     return isRowSelectedDisabled(selectColumn.value, row, rowIndex);

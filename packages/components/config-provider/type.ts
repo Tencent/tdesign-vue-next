@@ -8,9 +8,9 @@ import { GlobalIconConfig } from 'tdesign-icons-vue-next';
 import { CalendarController } from '../calendar';
 import { ButtonProps } from '../button';
 import { FormErrorMessage } from '../form';
-import { MessageOptions } from '../message';
 import { ImageProps } from '../image';
-import { TNode, SizeEnum, AttachNode } from '../common';
+import { MessageOptions } from '../message';
+import { TNode, SizeEnum } from '../common';
 
 export interface TdConfigProviderProps {
   /**
@@ -44,6 +44,11 @@ export interface GlobalConfigProvider {
    * 级联选择器全局配置
    */
   cascader?: CascaderConfig;
+  /**
+   * 对话组件全局配置
+   * @default t
+   */
+  chat?: ChatConfig;
   /**
    * CSS 类名前缀
    * @default t
@@ -159,40 +164,38 @@ export interface GlobalConfigProvider {
   upload?: UploadConfig;
 }
 
-export interface InputConfig {
+export interface AlertConfig {
   /**
-   * 是否开启自动填充功能
+   * 语言配置，“收起”描述文本
    * @default ''
    */
-  autocomplete?: string;
+  collapseText?: string;
   /**
-   * 语言配置，“请输入”占位符描述文本
+   * 语言配置，“展开更多”描述文本
    * @default ''
    */
-  placeholder?: string;
+  expandText?: string;
 }
 
-export interface PaginationConfig {
+export interface AnchorConfig {
   /**
-   * 语言配置，每页条数文本，示例：`'{size} 条/页'`
+   * 语言配置，“链接复制成功”描述文本
    * @default ''
    */
-  itemsPerPage?: string;
+  copySuccessText?: string;
   /**
-   * 语言配置，页码跳转文本，示例：'跳至'
+   * 语言配置，“复制链接” 描述文本
    * @default ''
    */
-  jumpTo?: string;
+  copyText?: string;
+}
+
+export interface AutoCompleteConfig {
   /**
-   * 语言配置，“页”描述文本
+   * 语言配置，“暂无数据”描述文本
    * @default ''
    */
-  page?: string;
-  /**
-   * 语言配置，数据总条数文本，示例：`'共 {total} 项数据'`
-   * @default ''
-   */
-  total?: string;
+  empty?: string;
 }
 
 export interface CalendarConfig {
@@ -226,7 +229,7 @@ export interface CalendarConfig {
    */
   monthRadio?: string;
   /**
-   * 语言配置，\"月\"选择描述文本。示例：`'{month} 月'`
+   * 语言配置，“月”选择描述文本。示例：`'{month} 月'`
    * @default ''
    */
   monthSelection?: string;
@@ -280,6 +283,88 @@ export interface CascaderConfig {
   placeholder?: string;
 }
 
+export interface ChatConfig {
+  /**
+   * 语言配置，“请输入消息”占位描述文本
+   * @default ''
+   */
+  placeholder?: string;
+  /**
+   * 语言配置，“中止”占位描述文本
+   * @default ''
+   */
+  stopBtnText?: string;
+  /**
+   * 语言配置，“重新生成”占位描述文本
+   * @default ''
+   */
+  refreshTipText?: string;
+  /**
+   * 语言配置，“复制”占位描述文本
+   * @default ''
+   */
+  copyTipText?: string;
+  /**
+   * 语言配置，“点赞”占位描述文本
+   * @default ''
+   */
+  likeTipText?: string;
+  /**
+   * 语言配置，“点踩”占位描述文本
+   * @default ''
+   */
+  dislikeTipText?: string;
+  /**
+   * 语言配置，“复制代码”占位描述文本
+   * @default ''
+   */
+  copyCodeBtnText?: string;
+  /**
+   * 语言配置，“已复制”占位描述文本
+   * @default ''
+   */
+  copyCodeSuccessText?: string;
+  /**
+   * 语言配置，“清空历史记录”占位描述文本
+   * @default ''
+   */
+  clearHistoryBtnText?: string;
+  /**
+   * 语言配置，“已成功复制到剪贴板”占位描述文本
+   * @default ''
+   */
+  copyTextSuccess?: string;
+  /**
+   * 语言配置，“复制到剪贴板失败”占位描述文本
+   * @default ''
+   */
+  copyTextFail?: string;
+  /**
+   * 语言配置，“确定要清空消息”占位描述文本
+   * @default ''
+   */
+  confirmClearHistory?: string;
+  /**
+   * 语言配置，“思考中”占位描述文本
+   * @default ''
+   */
+  loadingText?: string;
+  /**
+   * 语言配置，“已深度思考”占位描述文本
+   * @default ''
+   */
+  loadingEndText?: string;
+  /**
+   * 语言配置，“上传图片”占位描述文本
+   * @default ''
+   */
+  uploadImageText?: string;
+  /**
+   * 语言配置，“上传附件”占位描述文本
+   * @default ''
+   */
+  uploadAttachmentText?: string;
+}
 export interface ColorPickerConfig {
   /**
    * 语言配置，“确定清空最近使用的颜色吗？”清空颜色确认文案
@@ -292,56 +377,10 @@ export interface ColorPickerConfig {
    */
   recentColorTitle?: string;
   /**
-   * 语言配置，\"系统预设颜色\" 区域标题文本
+   * 语言配置，“系统预设颜色” 区域标题文本
    * @default ''
    */
   swatchColorTitle?: string;
-}
-
-export interface TransferConfig {
-  /**
-   * 语言配置，“暂无数据”空数据描述文本
-   * @default ''
-   */
-  empty?: string;
-  /**
-   * 语言配置，“请输入关键词搜索”占位符描述文本
-   * @default ''
-   */
-  placeholder?: string;
-  /**
-   * 语言配置，穿梭框标题描述文本，示例：“{checked} / {total} 项”
-   * @default ''
-   */
-  title?: string;
-}
-
-export interface TimePickerConfig {
-  /**
-   * 语言配置，“上午”描述文本
-   * @default ''
-   */
-  anteMeridiem?: string;
-  /**
-   * 语言配置，“确定”描述文本
-   * @default ''
-   */
-  confirm?: string;
-  /**
-   * 语言配置，“此刻”描述文本
-   * @default ''
-   */
-  now?: string;
-  /**
-   * 语言配置，\"请选择时间\"占位符描述文本
-   * @default ''
-   */
-  placeholder?: string;
-  /**
-   * 语言配置，“下午”描述文本
-   * @default ''
-   */
-  postMeridiem?: string;
 }
 
 export interface DatePickerConfig {
@@ -381,7 +420,7 @@ export interface DatePickerConfig {
    */
   monthAriaLabel?: string;
   /**
-   * 星期文本描述，默认值：['1 月', '2 月', '3 月', '4 月', '5 月', '6 月', '7 月', '8 月', '9 月', '10 月', '11 月', '12 月']
+   * 月文本描述，默认值：['1 月', '2 月', '3 月', '4 月', '5 月', '6 月', '7 月', '8 月', '9 月', '10 月', '11 月', '12 月']
    */
   months?: string[];
   /**
@@ -462,6 +501,14 @@ export interface DatePickerConfig {
   yearAriaLabel?: string;
 }
 
+export interface DescriptionsConfig {
+  /**
+   * 字段旁边的冒号，中文为“：”
+   * @default ''
+   */
+  colonText?: string;
+}
+
 export interface DialogConfig {
   /**
    * 取消按钮风格
@@ -515,6 +562,144 @@ export interface DrawerConfig {
   size?: string;
 }
 
+export interface EmptyConfig {
+  /**
+   * 空状态组件各类型的图片配置
+   */
+  image?: { maintenance: TNode; success: TNode; fail: TNode; empty: TNode; networkError: TNode };
+  /**
+   * 空状态组件各类型的标题文本配置
+   */
+  titleText?: { maintenance: string; success: string; fail: string; empty: string; networkError: string };
+}
+
+export interface FormConfig {
+  /**
+   * 字段旁边的冒号，中文为“：”
+   * @default ''
+   */
+  colonText?: string;
+  /**
+   * 表单错误信息配置，示例：`{ idcard: '请输入正确的身份证号码', max: '字符长度不能超过 ${max}' }`
+   */
+  errorMessage?: FormErrorMessage;
+  /**
+   * 是否显示必填符号（*），默认显示
+   * @default true
+   */
+  requiredMark?: boolean;
+}
+
+export interface GuideConfig {
+  /**
+   * 最后一步中的完成按钮，示例：`{ content: '完成', theme: 'primary' }`
+   */
+  finishButtonProps?: ButtonProps;
+  /**
+   * 下一步按钮，示例：`{ content: '下一步', theme: 'primary' }`
+   */
+  nextButtonProps?: ButtonProps;
+  /**
+   * 上一步按钮，示例：`{ content: '上一步', theme: 'default' }`
+   */
+  prevButtonProps?: ButtonProps;
+  /**
+   * 跳过按钮，示例：`{ content: '跳过', theme: 'default' }`
+   */
+  skipButtonProps?: ButtonProps;
+}
+
+export interface ImageConfig {
+  /**
+   * 图片加载失败显示的文本，中文默认为“图片无法显示”
+   * @default ''
+   */
+  errorText?: string;
+  /**
+   * 图片加载中显示的文本，中文默认为“图片加载中”
+   * @default ''
+   */
+  loadingText?: string;
+  /**
+   * 统一替换图片 `src` 地址，参数为组件的全部属性，返回值为新的图片地址
+   */
+  replaceImageSrc?: (params: ImageProps) => string;
+}
+
+export interface ImageViewerConfig {
+  /**
+   * 全局语言配置，默认为 “图片加载失败，可尝试重新加载”
+   * @default ''
+   */
+  errorText?: string;
+  /**
+   * 全局语言配置，默认为 “镜像”
+   * @default ''
+   */
+  mirrorTipText?: string;
+  /**
+   * 全局语言配置，默认为 “原始大小”
+   * @default ''
+   */
+  originalSizeTipText?: string;
+  /**
+   * 全局语言配置，默认为 “旋转”
+   * @default ''
+   */
+  rotateTipText?: string;
+}
+
+export interface InputConfig {
+  /**
+   * 是否开启自动填充功能
+   * @default ''
+   */
+  autocomplete?: string;
+  /**
+   * 语言配置，“请输入”占位符描述文本
+   * @default ''
+   */
+  placeholder?: string;
+}
+
+export interface ListConfig {
+  /**
+   * 语言配置，'点击加载更多' 描述文本
+   * @default ''
+   */
+  loadingMoreText?: string;
+  /**
+   * 语言配置，'正在加载中，请稍后' 描述文本
+   * @default ''
+   */
+  loadingText?: string;
+}
+
+export interface MessageConfig extends MessageOptions {}
+
+export interface PaginationConfig {
+  /**
+   * 语言配置，每页条数文本，示例：`'{size} 条/页'`
+   * @default ''
+   */
+  itemsPerPage?: string;
+  /**
+   * 语言配置，页码跳转文本，示例：'跳至'
+   * @default ''
+   */
+  jumpTo?: string;
+  /**
+   * 语言配置，“页”描述文本
+   * @default ''
+   */
+  page?: string;
+  /**
+   * 语言配置，数据总条数文本，示例：`'共 {total} 项数据'`
+   * @default ''
+   */
+  total?: string;
+}
+
 export interface PopconfirmConfig {
   /**
    * 语言配置，“取消”描述文本
@@ -528,6 +713,51 @@ export interface PopconfirmConfig {
    * 确认按钮主题色，即 Popconfirm 的 `theme` 和 确认按钮的 `theme` 映射关系。示例：{ danger: 'danger' }
    */
   confirmBtnTheme?: { default: string; warning: string; danger: string };
+}
+
+export interface RateConfig {
+  /**
+   * 评分描述，默认值：['极差', '失望', '一般', '满意', '惊喜']
+   */
+  rateText?: string[];
+}
+
+export interface SelectConfig {
+  /**
+   * 清除图标，【注意】使用渲染函数输出图标组件
+   */
+  clearIcon?: TNode;
+  /**
+   * 语言配置，“暂无数据”描述文本
+   * @default ''
+   */
+  empty?: string;
+  /**
+   * 全局配置是否可筛选
+   * @default false
+   */
+  filterable?: boolean;
+  /**
+   * 语言配置，“加载中”描述文本
+   * @default ''
+   */
+  loadingText?: string;
+  /**
+   * 语言配置，“请选择”占位符描述文本
+   * @default ''
+   */
+  placeholder?: string;
+}
+
+export interface StepsConfig {
+  /**
+   * 已完成步骤图标，【注意】使用渲染函数输出图标组件
+   */
+  checkIcon?: TNode;
+  /**
+   * 错误步骤图标，【注意】使用渲染函数输出图标组件
+   */
+  errorIcon?: TNode;
 }
 
 export interface TableConfig {
@@ -633,31 +863,57 @@ export interface TableConfig {
   treeExpandAndFoldIcon?: TNode<{ type: 'expand' | 'fold' }>;
 }
 
-export interface SelectConfig {
+export interface TagConfig {
   /**
-   * 清除图标，【注意】使用渲染函数输出图标组件
+   * 关闭图标，【注意】使用渲染函数输出图标组件
    */
-  clearIcon?: TNode;
+  closeIcon?: TNode;
+}
+
+export interface TimePickerConfig {
   /**
-   * 语言配置，“暂无数据”描述文本
+   * 语言配置，“上午”描述文本
+   * @default ''
+   */
+  anteMeridiem?: string;
+  /**
+   * 语言配置，“确定”描述文本
+   * @default ''
+   */
+  confirm?: string;
+  /**
+   * 语言配置，“此刻”描述文本
+   * @default ''
+   */
+  now?: string;
+  /**
+   * 语言配置，\"请选择时间\"占位符描述文本
+   * @default ''
+   */
+  placeholder?: string;
+  /**
+   * 语言配置，“下午”描述文本
+   * @default ''
+   */
+  postMeridiem?: string;
+}
+
+export interface TransferConfig {
+  /**
+   * 语言配置，“暂无数据”空数据描述文本
    * @default ''
    */
   empty?: string;
   /**
-   * 全局配置是否可筛选
-   * @default false
-   */
-  filterable?: boolean;
-  /**
-   * 语言配置，“加载中”描述文本
-   * @default ''
-   */
-  loadingText?: string;
-  /**
-   * 语言配置，“请选择”占位符描述文本
+   * 语言配置，“请输入关键词搜索”占位符描述文本
    * @default ''
    */
   placeholder?: string;
+  /**
+   * 语言配置，穿梭框标题描述文本，示例：“{checked} / {total} 项”
+   * @default ''
+   */
+  title?: string;
 }
 
 export interface TreeConfig {
@@ -690,17 +946,22 @@ export interface TreeSelectConfig {
   placeholder?: string;
 }
 
-export interface ListConfig {
+export interface TypographyConfig {
   /**
-   * 语言配置，'点击加载更多' 描述文本
+   * 语言配置，“收起”描述文本
    * @default ''
    */
-  loadingMoreText?: string;
+  collapseText?: string;
   /**
-   * 语言配置，'正在加载中，请稍后' 描述文本
+   * 语言配置，“复制成功”描述文本
    * @default ''
    */
-  loadingText?: string;
+  copiedText?: string;
+  /**
+   * 语言配置，“展开”描述文本
+   * @default ''
+   */
+  expandText?: string;
 }
 
 export interface UploadConfig {
@@ -730,29 +991,6 @@ export interface UploadConfig {
    * 语言配置，上传功能触发文案。示例：{ image: '点击上传图片', normal: '点击上传',  fileInput: '选择文件', reupload: '重新上传', delete: '删除', continueUpload?: '继续选择' }
    */
   triggerUploadText?: UploadTriggerUploadText;
-}
-
-export interface UploadConfigProgress {
-  /**
-   * 语言配置，“上传失败”文本描述
-   * @default ''
-   */
-  failText?: string;
-  /**
-   * 语言配置，“上传成功”文本描述
-   * @default ''
-   */
-  successText?: string;
-  /**
-   * 语言配置，“上传中”文本描述
-   * @default ''
-   */
-  uploadingText?: string;
-  /**
-   * 语言配置，“待上传”文本描述
-   * @default ''
-   */
-  waitingText?: string;
 }
 
 export interface UploadConfigDragger {
@@ -801,178 +1039,27 @@ export interface UploadConfigFileList {
   fileStatusText?: string;
 }
 
-export interface FormConfig {
+export interface UploadConfigProgress {
   /**
-   * 字段旁边的冒号，中文为“：”
+   * 语言配置，“上传失败”文本描述
    * @default ''
    */
-  colonText?: string;
+  failText?: string;
   /**
-   * 表单错误信息配置，示例：`{ idcard: '请输入正确的身份证号码', max: '字符长度不能超过 ${max}' }`
-   */
-  errorMessage?: FormErrorMessage;
-  /**
-   * 是否显示必填符号（*），默认显示
-   * @default true
-   */
-  requiredMark?: boolean;
-}
-
-export interface TagConfig {
-  /**
-   * 关闭图标，【注意】使用渲染函数输出图标组件
-   */
-  closeIcon?: TNode;
-}
-
-export interface StepsConfig {
-  /**
-   * 已完成步骤图标，【注意】使用渲染函数输出图标组件
-   */
-  checkIcon?: TNode;
-  /**
-   * 错误步骤图标，【注意】使用渲染函数输出图标组件
-   */
-  errorIcon?: TNode;
-}
-
-export interface AlertConfig {
-  /**
-   * 语言配置，“收起”描述文本
+   * 语言配置，“上传成功”文本描述
    * @default ''
    */
-  collapseText?: string;
+  successText?: string;
   /**
-   * 语言配置，“展开更多”描述文本
+   * 语言配置，“上传中”文本描述
    * @default ''
    */
-  expandText?: string;
-}
-
-export interface DescriptionsConfig {
+  uploadingText?: string;
   /**
-   * 字段旁边的冒号，中文为“：”
+   * 语言配置，“待上传”文本描述
    * @default ''
    */
-  colonText?: string;
-}
-
-export interface AnchorConfig {
-  /**
-   * 语言配置，“链接复制成功”描述文本
-   * @default ''
-   */
-  copySuccessText?: string;
-  /**
-   * 语言配置，“复制链接” 描述文本
-   * @default ''
-   */
-  copyText?: string;
-}
-
-export interface MessageConfig extends MessageOptions {}
-
-export interface ImageConfig {
-  /**
-   * 图片加载失败显示的文本，中文默认为“图片无法显示”
-   * @default ''
-   */
-  errorText?: string;
-  /**
-   * 图片加载中显示的文本，中文默认为“图片加载中”
-   * @default ''
-   */
-  loadingText?: string;
-  /**
-   * 统一替换图片 `src` 地址，参数为组件的全部属性，返回值为新的图片地址
-   */
-  replaceImageSrc?: (params: ImageProps) => string;
-}
-
-export interface ImageViewerConfig {
-  /**
-   * 全局语言配置，默认为 “图片加载失败，可尝试重新加载”
-   * @default ''
-   */
-  errorText?: string;
-  /**
-   * 全局语言配置，默认为 “镜像”
-   * @default ''
-   */
-  mirrorTipText?: string;
-  /**
-   * 全局语言配置，默认为 “原始大小”
-   * @default ''
-   */
-  originalSizeTipText?: string;
-  /**
-   * 全局语言配置，默认为 “旋转”
-   * @default ''
-   */
-  rotateTipText?: string;
-}
-
-export interface GuideConfig {
-  /**
-   * 最后一步中的完成按钮，示例：`{ content: '完成', theme: 'primary' }`
-   */
-  finishButtonProps?: ButtonProps;
-  /**
-   * 下一步按钮，示例：`{ content: '下一步', theme: 'primary' }`
-   */
-  nextButtonProps?: ButtonProps;
-  /**
-   * 上一步按钮，示例：`{ content: '上一步', theme: 'default' }`
-   */
-  prevButtonProps?: ButtonProps;
-  /**
-   * 跳过按钮，示例：`{ content: '跳过', theme: 'default' }`
-   */
-  skipButtonProps?: ButtonProps;
-}
-
-export interface RateConfig {
-  /**
-   * 评分描述，默认值：['极差', '失望', '一般', '满意', '惊喜']
-   */
-  rateText?: string[];
-}
-
-export interface EmptyConfig {
-  /**
-   * 空状态组件各类型的图片配置
-   */
-  image?: { maintenance: TNode; success: TNode; fail: TNode; empty: TNode; networkError: TNode };
-  /**
-   * 空状态组件各类型的标题文本配置
-   */
-  titleText?: { maintenance: string; success: string; fail: string; empty: string; networkError: string };
-}
-
-export interface TypographyConfig {
-  /**
-   * 语言配置，“收起”描述文本
-   * @default ''
-   */
-  collapseText?: string;
-  /**
-   * 语言配置，“复制成功”描述文本
-   * @default ''
-   */
-  copiedText?: string;
-  /**
-   * 语言配置，“展开”描述文本
-   * @default ''
-   */
-  expandText?: string;
-}
-
-export interface AutoCompleteConfig {
-  /**
-   * 语言配置，“暂无数据”描述文本
-   * @default ''
-   */
-  empty?: string;
+  waitingText?: string;
 }
 
 export type AnimationType = 'ripple' | 'expand' | 'fade';

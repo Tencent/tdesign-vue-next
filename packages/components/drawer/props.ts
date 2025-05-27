@@ -44,6 +44,11 @@ export default {
   },
   /** 抽屉关闭时是否销毁节点 */
   destroyOnClose: Boolean,
+  /** 抽屉元素类名。 */
+  drawerClassName: {
+    type: String,
+    default: '',
+  },
   /** 底部操作栏，默认会有“确认”和“取消”两个按钮。值为 true 显示默认操作按钮，值为 false 或 null 不显示任何内容，值类型为 TNode 表示自定义底部内容 */
   footer: {
     type: [Boolean, Function] as PropType<TdDrawerProps['footer']>,
@@ -54,6 +59,8 @@ export default {
     type: [String, Boolean, Function] as PropType<TdDrawerProps['header']>,
     default: true as TdDrawerProps['header'],
   },
+  /** 是否启用抽屉懒加载，启用时抽屉的内容不渲染 */
+  lazy: Boolean,
   /** 展开方式，有两种：直接展示在内容上方 和 推开内容区域 */
   mode: {
     type: String as PropType<TdDrawerProps['mode']>,

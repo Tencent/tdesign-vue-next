@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { TimePicker } from '@src/time-picker/index.ts';
+import { TimePicker } from '@tdesign/components/time-picker/index.ts';
 
 describe('TimePicker', () => {
   describe(':props', () => {

@@ -4,10 +4,8 @@ import props from './option-props';
 import Checkbox from '../checkbox/index';
 
 // hooks
-import { useDisabled } from '../hooks/useDisabled';
-import useRipple from '../hooks/useRipple';
-import { useContent } from '../hooks/tnode';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { useRipple, useContent, useDisabled, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
+
 import { getNewMultipleValue } from './utils';
 import { selectInjectKey } from './consts';
 import { SelectValue } from './type';
@@ -118,8 +116,9 @@ export default defineComponent({
       const newValue = getNewMultipleValue(selectProvider.value.selectValue as SelectValue[], props.value);
       const selectedOptions = selectProvider.value.getSelectedOptions(newValue.value);
 
+      const currentOption = selectProvider.value.getSelectedOptions(props.value)?.[0];
       selectProvider.value.handleValueChange(newValue.value, {
-        option: selectedOptions.find((v) => v.value === props.value),
+        option: currentOption,
         selectedOptions,
         trigger: val ? 'check' : 'uncheck',
         e: context.e,

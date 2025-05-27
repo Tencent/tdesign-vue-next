@@ -62,6 +62,7 @@ dialogStyle | Object | - | Styles that apply to the dialog box itself. TypeScrip
 draggable | Boolean | false | \- | N
 footer | Boolean / Slot / Function | true | TypeScript: `boolean \| TNode`. [see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 header | String / Boolean / Slot / Function | true | TypeScript: `string \| boolean \| TNode`. [see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
+lazy | Boolean | false | Enable Dialog lazy loading, the contents of the dialog box are not rendered when enable | N
 mode | String | modal | options: modal/modeless/full-screen | N
 placement | String | top | options: top/center | N
 preventScrollThrough | Boolean | true | \- | N

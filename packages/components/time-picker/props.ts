@@ -46,7 +46,7 @@ export default {
     type: String,
     default: undefined,
   },
-  /** 透传给 popup 组件的参数 */
+  /** 透传 Popup 组件全部属性 */
   popupProps: {
     type: Object as PropType<TdTimePickerProps['popupProps']>,
   },
@@ -54,7 +54,7 @@ export default {
   presets: {
     type: Object as PropType<TdTimePickerProps['presets']>,
   },
-  /** 只读状态 */
+  /** 只读状态，优先级大于 `allowInput` */
   readonly: {
     type: Boolean,
     default: undefined,
@@ -112,8 +112,12 @@ export default {
   onBlur: Function as PropType<TdTimePickerProps['onBlur']>,
   /** 选中值发生变化时触发 */
   onChange: Function as PropType<TdTimePickerProps['onChange']>,
+  /** 点击清空按钮时触发 */
+  onClear: Function as PropType<TdTimePickerProps['onClear']>,
   /** 面板关闭时触发 */
   onClose: Function as PropType<TdTimePickerProps['onClose']>,
+  /** 点击确认按钮时触发 */
+  onConfirm: Function as PropType<TdTimePickerProps['onConfirm']>,
   /** 输入框获得焦点时触发，value 表示组件当前有效值 */
   onFocus: Function as PropType<TdTimePickerProps['onFocus']>,
   /** 当输入框内容发生变化时触发，参数 value 表示组件当前有效值 */
