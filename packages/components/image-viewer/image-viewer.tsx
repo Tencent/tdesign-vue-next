@@ -1,12 +1,8 @@
 import { ChevronDownIcon, ChevronLeftIcon, CloseIcon } from 'tdesign-icons-vue-next';
 import { Teleport, Transition, computed, defineComponent, nextTick, ref, toRefs, watch } from 'vue';
 
-import { useTNodeJSX } from '../hooks/tnode';
-import { usePrefixClass } from '../hooks/useConfig';
-import useDefaultValue from '../hooks/useDefaultValue';
-import usePopupManager from '../hooks/usePopupManager';
-import useTeleport from '../hooks/useTeleport';
-import useVModel from '../hooks/useVModel';
+import { useVModel, useTNodeJSX, useTeleport, usePrefixClass, useDefaultValue, usePopupManager } from '@tdesign/hooks';
+
 import Image from '../image';
 import TImageItem from './base/ImageItem';
 import TImageViewerIcon from './base/ImageModalIcon';

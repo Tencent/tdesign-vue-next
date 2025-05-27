@@ -11,9 +11,7 @@ import CustomFile from './components/custom-file';
 
 import { UploadDragEvents } from './hooks/useDrag';
 import useUpload from './hooks/useUpload';
-import { useContent, useTNodeJSX } from '../hooks/tnode';
-import { useDisabled } from '../hooks/useDisabled';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import { useContent, useTNodeJSX, useDisabled, useGlobalIcon } from '@tdesign/hooks';
 
 export default defineComponent({
   name: 'TUpload',

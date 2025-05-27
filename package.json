@@ -38,6 +38,7 @@
     "@tdesign/common-js": "workspace:^",
     "@tdesign/common-style": "workspace:^",
     "@tdesign/components": "workspace:^",
+    "@tdesign/hooks": "workspace:^",
     "@tdesign/internal-tests": "workspace:^",
     "@tdesign/internal-utils": "workspace:^",
     "@tdesign/pro-components-chat": "workspace:^",
