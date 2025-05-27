@@ -141,23 +141,18 @@ export default defineComponent({
     const valueDisplayParams = computed(() => {
       const val =
         props.multiple && isArray(innerValue.value)
-          ? (innerValue.value as SelectValue[]).map((value) => ({
-              value,
-              label: optionsMap.value.get(value)?.label,
-            }))
-          : innerValue.value;
+          ? (innerValue.value as SelectValue[]).map((value) => optionsMap.value.get(value))
+          : optionsMap.value.get(innerValue.value);
 
       const params = {
         value: val,
         onClose: props.multiple ? (index: number) => removeTag(index) : () => {},
       };
 
-      if (!props.multiple) Object.assign(params, { label: displayText.value });
-
-      if (props.minCollapsedNum && props.multiple) {
+      if (props.minCollapsedNum && props.multiple && isArray(innerValue.value)) {
         return {
           ...params,
-          displayValue: val?.slice?.(0, props.minCollapsedNum),
+          displayValue: Array.isArray(val) ? val.slice(0, props.minCollapsedNum) : [],
         };
       }
       return params;
