@@ -86,6 +86,14 @@ export const useTNodeJSX = () => {
       if (isPropExplicitlySet(instance, name)) {
         // 2.1.1 如果有传，那么优先使用 prop 的值
         const propsNode = instance.props[camelCase(name)] || instance.props[kebabCase(name)];
+        // 如果该属性的类型有多种且包含 Boolean 和 Slot 的情况下，处理 boolean casting true 的场景
+        // https://vuejs.org/guide/components/props.html#boolean-casting
+        const types = instance.type.props[name]?.type;
+        if (types?.length > 1) {
+          if (types.includes(Boolean) && types.includes(Function)) {
+            if (propsNode === '' && !renderSlot) return defaultNode;
+          }
+        }
         // 2.1.2 如果 prop 的值为 false 或者 null，那么直接不渲染
         if (propsNode === false || propsNode === null) return;
         // 2.1.3 如果 prop 的值为 true，那么使用 slot 渲染
