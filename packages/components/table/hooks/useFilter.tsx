@@ -2,10 +2,10 @@ import { toRefs, ref, watch, computed, SetupContext, h } from 'vue';
 import useClassName from './useClassName';
 import TButton from '../../button';
 import { TdPrimaryTableProps, PrimaryTableCol, TableRowData, FilterValue, TableFilterChangeContext } from '../type';
-import useDefaultValue from '../../hooks/useDefaultValue';
-import { useTNodeDefault } from '../../hooks/tnode';
+import { useConfig, useDefaultValue, useTNodeDefault } from '@tdesign/hooks';
+
 import TableFilterController from '../filter-controller';
-import { useConfig } from '../../hooks/useConfig';
+
 import { isFunction } from 'lodash-es';
 import { getColumnsResetValue } from '@tdesign/common-js/table/utils';
 import { renderTitle } from './useTableHeader';
