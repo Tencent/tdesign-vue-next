@@ -86,9 +86,8 @@ export const useTNodeJSX = () => {
       if (isPropExplicitlySet(instance, name)) {
         // 2.1.1 如果有传，那么优先使用 prop 的值
         const propsNode = instance.props[camelCase(name)] || instance.props[kebabCase(name)];
-        // 如果该属性的类型有多种且包含 Boolean 和 Slot 的情况下返回
+        // 如果该属性的类型有多种且包含 Boolean 和 Slot 的情况下，处理 boolean casting true 的场景
         // https://vuejs.org/guide/components/props.html#boolean-casting
-        // TODO：不确定用户使用场景
         const types = instance.type.props[name]?.type;
         if (types?.length > 1) {
           if (types.includes(Boolean) && types.includes(Function)) {
