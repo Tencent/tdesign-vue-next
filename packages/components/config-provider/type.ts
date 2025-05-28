@@ -588,6 +588,10 @@ export interface FormConfig {
    * @default true
    */
   requiredMark?: boolean;
+  /**
+   * 表单必填符号（*）显示位置
+   */
+  requiredMarkPosition?: 'left' | 'right';
 }
 
 export interface GuideConfig {
