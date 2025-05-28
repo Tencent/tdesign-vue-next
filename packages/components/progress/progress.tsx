@@ -1,4 +1,4 @@
-import { defineComponent, VNode, computed, CSSProperties } from 'vue';
+import { defineComponent, VNode, computed, CSSProperties, ref, nextTick } from 'vue';
 import {
   CloseCircleFilledIcon as TdCloseCircleFilledIcon,
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
@@ -11,7 +11,8 @@ import {
 import { getBackgroundColor } from '@tdesign/common-js/utils/helper';
 import { PRO_THEME, CIRCLE_SIZE, CIRCLE_SIZE_PX, STATUS_ICON, CIRCLE_FONT_SIZE_RATIO } from './consts';
 import props from './props';
-import { useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/hooks';
+
+import { useTNodeJSX, useGlobalIcon, usePrefixClass, useResizeObserver } from '@tdesign/hooks';
 
 import { isObject, isString } from 'lodash-es';
 
@@ -30,6 +31,17 @@ export default defineComponent({
         CheckIcon: TdCheckIcon,
         ErrorIcon: TdErrorIcon,
       });
+
+    const CIRCLE_ICONS_MAP = {
+      success: CheckIcon,
+      warning: ErrorIcon,
+      error: CloseIcon,
+    };
+    const NORMAL_ICONS_MAP = {
+      success: CheckCircleFilledIcon,
+      warning: ErrorCircleFilledIcon,
+      error: CloseCircleFilledIcon,
+    };
 
     const statusStyle = computed(() => {
       if (!props.status && props.percentage >= 100) {
@@ -74,26 +86,27 @@ export default defineComponent({
 
     // theme=circle 获取直径
     const diameter = computed(() => {
-      let diameter = CIRCLE_SIZE_PX.MEDIUM;
+      let diameterValue = CIRCLE_SIZE_PX.MEDIUM;
       if (!props.size) {
-        return diameter;
+        return diameterValue;
       }
       const { SMALL, LARGE, MEDIUM } = CIRCLE_SIZE;
       switch (props.size) {
         case SMALL:
-          diameter = CIRCLE_SIZE_PX.SMALL;
+          diameterValue = CIRCLE_SIZE_PX.SMALL;
           break;
         case MEDIUM:
-          diameter = CIRCLE_SIZE_PX.MEDIUM;
+          diameterValue = CIRCLE_SIZE_PX.MEDIUM;
           break;
         case LARGE:
-          diameter = CIRCLE_SIZE_PX.LARGE;
+          diameterValue = CIRCLE_SIZE_PX.LARGE;
           break;
         default:
-          diameter = Number(props.size);
+          const customSize = Number(props.size);
+          diameterValue = !isNaN(customSize) && customSize > 0 ? customSize : CIRCLE_SIZE_PX.MEDIUM;
           break;
       }
-      return diameter;
+      return diameterValue;
     });
 
     const rPoints = computed(() => {
@@ -135,40 +148,47 @@ export default defineComponent({
       return `${perimeter * percent}  ${perimeter * (1 - percent)}`;
     });
 
-    const getIconMap = () => {
-      const CIRCLE_ICONS = {
-        success: CheckIcon,
-        warning: ErrorIcon,
-        error: CloseIcon,
-      };
-      const NORMAL_ICONS = {
-        success: CheckCircleFilledIcon,
-        warning: ErrorCircleFilledIcon,
-        error: CloseCircleFilledIcon,
-      };
-      return props.theme === PRO_THEME.CIRCLE ? CIRCLE_ICONS : NORMAL_ICONS;
-    };
+    const getIconMap = computed(() => {
+      return props.theme === PRO_THEME.CIRCLE ? CIRCLE_ICONS_MAP : NORMAL_ICONS_MAP;
+    });
+
     const getLabelContent = () => {
-      let labelContent: string | VNode = `${props.percentage}%`;
+      let labelContentRender: string | VNode = `${props.percentage}%`;
       const status = props.status || '';
       if (STATUS_ICON.includes(status) && props.theme !== PRO_THEME.PLUMP) {
-        const components = getIconMap();
-        const component = components[status as keyof typeof components];
+        const component = getIconMap.value[status as keyof typeof CIRCLE_ICONS_MAP];
         if (component) {
-          labelContent = <component class={[`${COMPONENT_NAME.value}__icon`]}></component>;
+          labelContentRender = <component class={[`${COMPONENT_NAME.value}__icon`]}></component>;
         }
       }
-      return labelContent;
+      return labelContentRender;
     };
+
+    // 当文字小于进度条宽度时，文字在进度条外部，否则在内部
+    const infoIsOut = ref(true);
+    const infoRef = ref<HTMLDivElement>(null);
+
+    const separateClasses = computed(() => {
+      return infoIsOut.value ? `${COMPONENT_NAME.value}--over-ten` : `${COMPONENT_NAME.value}--under-ten`;
+    });
+
+    async function updateInfoIsOut() {
+      if (props.theme === PRO_THEME.PLUMP) {
+        if (!infoRef.value || props.label === false) return;
+        await nextTick();
+        const infoEl =
+          infoRef.value.querySelector(`.${COMPONENT_NAME.value}__info`) || infoRef.value.nextElementSibling;
+        infoIsOut.value = infoRef.value.clientWidth > infoEl?.clientWidth + 10;
+      }
+    }
+
+    useResizeObserver(infoRef, updateInfoIsOut);
 
     return () => {
       const labelContent = (
         <div class={`${COMPONENT_NAME.value}__info`}>{renderTNodeJSX('label', getLabelContent())}</div>
       );
-      // 进度大于 10 ，进度百分比显示在内部；进度百分比小于 10 进度显示在外部
-      const PLUMP_SEPARATE = 10;
-      const separateClasses =
-        props.percentage > PLUMP_SEPARATE ? `${COMPONENT_NAME.value}--over-ten` : `${COMPONENT_NAME.value}--under-ten`;
+
       return (
         <div class={COMPONENT_NAME.value}>
           {props.theme === PRO_THEME.LINE && (
@@ -183,15 +203,15 @@ export default defineComponent({
           {props.theme === PRO_THEME.PLUMP && (
             <div
               class={[
-                `${COMPONENT_NAME.value}__bar ${COMPONENT_NAME.value}--plump ${separateClasses}`,
+                `${COMPONENT_NAME.value}__bar ${COMPONENT_NAME.value}--plump ${separateClasses.value}`,
                 { [`${COMPONENT_NAME.value}--status--${statusStyle.value}`]: statusStyle.value },
               ]}
               style={trackBgStyle.value}
             >
-              <div class={`${COMPONENT_NAME.value}__inner`} style={barStyle.value}>
-                {props.percentage > PLUMP_SEPARATE && labelContent}
+              <div class={`${COMPONENT_NAME.value}__inner`} ref={infoRef} style={barStyle.value}>
+                {infoIsOut.value && labelContent}
               </div>
-              {props.percentage <= PLUMP_SEPARATE && labelContent}
+              {!infoIsOut.value && labelContent}
             </div>
           )}
 
