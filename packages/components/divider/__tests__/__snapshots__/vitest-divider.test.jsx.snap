@@ -1,0 +1,127 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Divider Component > props.align is equal to center 1`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    
+    Text
+    
+  </span>
+</div>
+`;
+
+exports[`Divider Component > props.align is equal to left 1`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-left"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    
+    Text
+    
+  </span>
+</div>
+`;
+
+exports[`Divider Component > props.align is equal to right 1`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-right"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    
+    Text
+    
+  </span>
+</div>
+`;
+
+exports[`Divider Component > props.content works fine 1`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    <span
+      class="custom-node"
+    >
+      TNode
+    </span>
+  </span>
+</div>
+`;
+
+exports[`Divider Component > props.default works fine 1`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    <span
+      class="custom-node"
+    >
+      TNode
+    </span>
+  </span>
+</div>
+`;
+
+exports[`Divider Component > props.layout is equal to horizontal 1`] = `
+<div
+  class="t-divider t-divider--horizontal"
+>
+  <!---->
+</div>
+`;
+
+exports[`Divider Component > props.layout is equal to vertical 1`] = `
+<div
+  class="t-divider t-divider--vertical"
+>
+  <!---->
+</div>
+`;
+
+exports[`Divider Component > slots.content works fine 1`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    
+    <span
+      class="custom-node"
+    >
+      TNode
+    </span>
+    
+  </span>
+</div>
+`;
+
+exports[`Divider Component > slots.default works fine 1`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    
+    <span
+      class="custom-node"
+    >
+      TNode
+    </span>
+    
+  </span>
+</div>
+`;

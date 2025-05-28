@@ -1,0 +1,20 @@
+[
+  {
+    "name": "disabled",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "enableAlpha",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "showPrimaryColorPreview",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  }
+]

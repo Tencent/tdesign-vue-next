@@ -1,0 +1,73 @@
+{
+  "name": "tdesign-vue-next",
+  "version": "1.13.0",
+  "title": "tdesign-vue-next",
+  "description": "TDesign Component for vue-next",
+  "keywords": [
+    "vue",
+    "vue3",
+    "vue-next",
+    "tdesign",
+    "typescript"
+  ],
+  "main": "cjs/index-lib.js",
+  "module": "es/index.mjs",
+  "typings": "es/index.d.ts",
+  "unpkg": "dist/tdesign.min.js",
+  "jsdelivr": "dist/tdesign.min.js",
+  "files": [
+    "es",
+    "esm",
+    "cjs",
+    "lib",
+    "dist",
+    "LICENSE",
+    "README.md",
+    "CHANGELOG.md",
+    "global.d.ts",
+    "helper"
+  ],
+  "sideEffects": [
+    "*.vue",
+    "dist/*",
+    "site/*",
+    "examples/*",
+    "es/**/style/**",
+    "esm/**/style/**"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tencent/tdesign-vue-next.git"
+  },
+  "homepage": "https://github.com/Tencent/tdesign-vue-next/blob/develop/README.md",
+  "bugs": {
+    "url": "https://github.com/Tencent/tdesign-vue-next/issues"
+  },
+  "engines": {
+    "node": ">= 18"
+  },
+  "author": "tdesign",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/runtime": "^7.22.6",
+    "@popperjs/core": "^2.11.8",
+    "@types/lodash-es": "^4.17.12",
+    "@types/sortablejs": "^1.15.1",
+    "@types/tinycolor2": "^1.4.3",
+    "@types/validator": "^13.7.17",
+    "dayjs": "1.11.10",
+    "lodash-es": "^4.17.21",
+    "mitt": "^3.0.1",
+    "sortablejs": "^1.15.0",
+    "tdesign-icons-vue-next": "^0.3.6",
+    "tinycolor2": "^1.6.0",
+    "validator": "^13.9.0"
+  },
+  "peerDependencies": {
+    "vue": ">=3.1.0"
+  },
+  "web-types": "helper/web-types.json"
+}

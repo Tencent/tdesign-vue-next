@@ -1,7 +1,6 @@
 snapshot*
 node_modules
-src/_common
-script/test/cypress
+packages/common
 temp*
 
 _site

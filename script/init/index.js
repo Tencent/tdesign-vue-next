@@ -27,7 +27,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const _ = require('lodash');
+const { template } = require('lodash-es');
 const utils = require('../utils');
 const config = require('./config');
 
@@ -75,20 +75,20 @@ function deleteComponent(toBeCreatedFiles, component) {
 function outputFileWithTemplate(item, component, desc, _d) {
   const tplPath = path.resolve(__dirname, `./tpl/${item.template}`);
   let data = fs.readFileSync(tplPath).toString();
-  const compiled = _.template(data);
+  const compiled = template(data);
   data = compiled({
     component,
     upperComponent: getFirstLetterUpper(component),
   });
-  const _f = path.resolve(_d, item.file);
-  createFile(_f, data, desc);
+  const fFn = path.resolve(_d, item.file);
+  createFile(fFn, data, desc);
 }
 
 function addComponent(toBeCreatedFiles, component) {
   // At first, we need to create directories for components.
   Object.keys(toBeCreatedFiles).forEach((dir) => {
-    const _d = path.resolve(cwdPath, dir);
-    fs.mkdir(_d, { recursive: true }, (err) => {
+    const dFn = path.resolve(cwdPath, dir);
+    fs.mkdir(dFn, { recursive: true }, (err) => {
       if (err) {
         utils.log(err, 'error');
         return;
@@ -102,8 +102,8 @@ function addComponent(toBeCreatedFiles, component) {
             outputFileWithTemplate(item, component, contents.desc, _d);
           }
         } else {
-          const _f = path.resolve(_d, item);
-          createFile(_f, '', contents.desc);
+          const fFn = path.resolve(_d, item);
+          createFile(fFn, '', contents.desc);
         }
       });
     });
