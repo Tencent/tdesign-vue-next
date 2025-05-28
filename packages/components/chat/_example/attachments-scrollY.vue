@@ -1,82 +1,65 @@
-import 'tdesign-web-components/attachments';
-import 'tdesign-web-components/space';
+<template>
+  <t-space>
+    <div style="width: 785px; height: 50px">
+      <t-attachments :items="filesList" overflow="scrollY" @remove="handleRemove"></t-attachments>
+    </div>
+  </t-space>
+</template>
 
-import { Component } from 'omi';
-
-export default class Button extends Component {
-  filesList = [
-    {
-      uid: '1',
-      name: 'excel-file.xlsx',
-      size: 111111,
-    },
-    {
-      uid: '2',
-      name: 'word-file.docx',
-      size: 222222,
-    },
-    {
-      uid: '3',
-      name: 'image-file.png',
-      size: 333333,
-    },
-    {
-      uid: '4',
-      name: 'pdf-file.pdf',
-      size: 444444,
-    },
-    {
-      uid: '5',
-      name: 'ppt-file.pptx',
-      size: 555555,
-    },
-    {
-      uid: '6',
-      name: 'video-file.mp4',
-      size: 666666,
-    },
-    {
-      uid: '7',
-      name: 'audio-file.mp3',
-      size: 777777,
-    },
-    {
-      uid: '8',
-      name: 'zip-file.zip',
-      size: 888888,
-    },
-    {
-      uid: '9',
-      name: 'markdown-file.md',
-      size: 999999,
-      description: 'Custom description',
-    },
-    {
-      uid: '10',
-      name: 'word-markdown-file.doc',
-      size: 99899,
-      status: 'progress',
-      percent: '50',
-    },
-  ];
-
-  render() {
-    return (
-      <>
-        <t-space>
-          <div style={{ width: '785px', height: '50px' }}>
-            <t-attachments
-              items={this.filesList}
-              overflow="scrollY"
-              onRemove={(item) => {
-                console.log('remove', item);
-                this.filesList = this.filesList.filter((a) => a.uid !== item.detail.uid);
-                this.update();
-              }}
-            ></t-attachments>
-          </div>
-        </t-space>
-      </>
-    );
-  }
-}
+<script setup lang="js">
+const filesList = [
+  {
+    uid: '1',
+    name: 'excel-file.xlsx',
+    size: 111111,
+  },
+  {
+    uid: '2',
+    name: 'word-file.docx',
+    size: 222222,
+  },
+  {
+    uid: '3',
+    name: 'image-file.png',
+    size: 333333,
+  },
+  {
+    uid: '4',
+    name: 'pdf-file.pdf',
+    size: 444444,
+  },
+  {
+    uid: '5',
+    name: 'ppt-file.pptx',
+    size: 555555,
+  },
+  {
+    uid: '6',
+    name: 'video-file.mp4',
+    size: 666666,
+  },
+  {
+    uid: '7',
+    name: 'audio-file.mp3',
+    size: 777777,
+  },
+  {
+    uid: '8',
+    name: 'zip-file.zip',
+    size: 888888,
+  },
+  {
+    uid: '9',
+    name: 'markdown-file.md',
+    size: 999999,
+    description: 'Custom description',
+  },
+  {
+    uid: '10',
+    name: 'word-markdown-file.doc',
+    size: 99899,
+    status: 'progress',
+    percent: '50',
+  },
+];
+</script>
