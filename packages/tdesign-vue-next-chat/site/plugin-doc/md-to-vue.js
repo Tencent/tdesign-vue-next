@@ -6,7 +6,7 @@ import matter from 'gray-matter';
 import { compileUsage, getGitTimestamp } from '../../../../packages/common/docs/compile';
 // TODO: 同上
 import camelCase from 'lodash/camelCase';
-import { joinPackagesRoot } from '@tdesign/internal-utils';
+import { joinPackagesRoot, joinProComponentsRoot } from '@tdesign/internal-utils';
 
 const DEFAULT_TABS = [
   { tab: 'demo', name: '示例' },
@@ -170,11 +170,11 @@ async function customRender({ source, file, md }) {
   };
 
   // 渲染 live demo
-  if (pageData.usage && pageData.isComponent) {
+  if (pageData.usage && pageData.isComponent && pageData.title === 'Chat') {
     const usageObj = compileUsage({
       componentName,
       usage: pageData.usage,
-      demoPath: joinPackagesRoot(`components/${componentName}/_usage/index.vue`),
+      demoPath: joinProComponentsRoot(`chat/_usage/index.vue`),
     });
     if (usageObj) {
       mdSegment.usage = usageObj;

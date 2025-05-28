@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
 import TDesign from '@tdesign/components';
-import TDesignChat from '@tdesign/components/pro-components';
+import TDesignChat from '@tdesign/pro-components-chat';
 
 import App from './app.vue';
 import router from './routes';

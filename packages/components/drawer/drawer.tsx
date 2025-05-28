@@ -1,16 +1,23 @@
 import { onBeforeUnmount, onMounted, computed, defineComponent, nextTick, onUpdated, ref, watch, Teleport } from 'vue';
 import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import {
+  useConfig,
+  useContent,
+  useTNodeJSX,
+  useTeleport,
+  useGlobalIcon,
+  usePrefixClass,
+  usePopupManager,
+} from '@tdesign/hooks';
+
 import { isServer } from '../utils/dom';
 import { getScrollbarWidth } from '@tdesign/common-js/utils/getScrollbarWidth';
 import props from './props';
 import { DrawerCloseContext } from './type';
 import { useAction } from '../dialog/hooks';
-import { useTNodeJSX, useContent } from '../hooks/tnode';
+
 import { useDrag } from './hooks';
 import type { TdDrawerProps } from './type';
-import useTeleport from '../hooks/useTeleport';
 
 let key = 1;
 
@@ -30,6 +37,8 @@ export default defineComponent({
     const renderContent = useContent();
     const COMPONENT_NAME = usePrefixClass('drawer');
     const { draggedSizeValue, enableDrag, draggableLineStyles, draggingStyles } = useDrag(props as TdDrawerProps);
+    const computedVisible = computed(() => props.visible);
+    const isMounted = ref(false);
 
     // teleport容器
     const teleportElement = useTeleport(() => props.attach);
@@ -43,22 +52,19 @@ export default defineComponent({
     };
     const { getConfirmBtn, getCancelBtn } = useAction({ confirmBtnAction, cancelBtnAction });
     const drawerEle = ref<HTMLElement | null>(null);
-    const drawerClasses = computed(() => {
-      return [
-        COMPONENT_NAME.value,
-        `${COMPONENT_NAME.value}--${props.placement}`,
-        {
-          [`${COMPONENT_NAME.value}--open`]: isVisible.value,
-          [`${COMPONENT_NAME.value}--attach`]: props.showInAttachedElement,
-          [`${COMPONENT_NAME.value}--without-mask`]: !props.showOverlay,
-        },
-        props?.drawerClassName,
-      ];
-    });
+    const drawerClasses = computed(() => [
+      COMPONENT_NAME.value,
+      `${COMPONENT_NAME.value}--${props.placement}`,
+      {
+        [`${COMPONENT_NAME.value}--open`]: isVisible.value,
+        [`${COMPONENT_NAME.value}--attach`]: props.showInAttachedElement,
+        [`${COMPONENT_NAME.value}--without-mask`]: !props.showOverlay,
+      },
+      props.drawerClassName,
+    ]);
 
     const sizeValue = computed(() => {
       if (draggedSizeValue.value) return draggedSizeValue.value;
-
       const size = props.size ?? globalConfig.value.size;
       const defaultSize = isNaN(Number(size)) ? size : `${size}px`;
       return (
@@ -69,49 +75,63 @@ export default defineComponent({
         }[size] || defaultSize
       );
     });
-    const wrapperStyles = computed(() => {
-      return {
-        // 用于抵消动画效果：transform: translateX(100%); 等
-        transform: isVisible.value ? 'translateX(0)' : undefined,
-        width: ['left', 'right'].includes(props.placement) ? sizeValue.value : '',
-        height: ['top', 'bottom'].includes(props.placement) ? sizeValue.value : '',
-      };
-    });
+    const wrapperStyles = computed(() => ({
+      transform: isVisible.value ? 'translateX(0)' : undefined,
+      width: ['left', 'right'].includes(props.placement) ? sizeValue.value : '',
+      height: ['top', 'bottom'].includes(props.placement) ? sizeValue.value : '',
+    }));
 
-    const wrapperClasses = computed(() => {
-      return [
-        `${COMPONENT_NAME.value}__content-wrapper`,
-        `${COMPONENT_NAME.value}__content-wrapper--${props.placement}`,
-      ];
-    });
+    const wrapperClasses = computed(() => [
+      `${COMPONENT_NAME.value}__content-wrapper`,
+      `${COMPONENT_NAME.value}__content-wrapper--${props.placement}`,
+    ]);
 
-    const parentNode = computed<HTMLElement>(() => {
-      return drawerEle.value && (drawerEle.value.parentNode as HTMLElement);
-    });
+    const parentNode = computed<HTMLElement>(() => drawerEle.value?.parentNode as HTMLElement);
 
-    const modeAndPlacement = computed<string>(() => {
-      return [props.mode, props.placement].join();
-    });
-
-    const footerStyle = computed(() => {
-      return {
-        display: 'flex',
-        justifyContent: props.placement === 'right' ? 'flex-start' : 'flex-end',
-      };
-    });
+    const modeAndPlacement = computed<string>(() => [props.mode, props.placement].join());
+    const footerStyle = computed(() => ({
+      display: 'flex',
+      justifyContent: props.placement === 'right' ? 'flex-start' : 'flex-end',
+    }));
 
     const handleEscKeydown = (e: KeyboardEvent) => {
-      if ((props.closeOnEscKeydown ?? globalConfig.value.closeOnEscKeydown) && e.key === 'Escape' && isVisible.value) {
+      if (
+        (props.closeOnEscKeydown ?? globalConfig.value.closeOnEscKeydown) &&
+        e.key === 'Escape' &&
+        isVisible.value &&
+        isTopInteractivePopup()
+      ) {
         props.onEscKeydown?.({ e });
         closeDrawer({ trigger: 'esc', e });
+        // 阻止事件冒泡
+        e.stopImmediatePropagation();
       }
     };
 
-    const clearStyleFunc = () => {
+    const clearStyleEl = () => {
       clearTimeout(styleTimer.value);
       styleTimer.value = setTimeout(() => {
         styleEl.value?.parentNode?.removeChild?.(styleEl.value);
+        styleEl.value = null;
       }, 150);
+      nextTick(() => {
+        drawerEle.value?.focus?.();
+      });
+    };
+
+    const createStyleEl = () => {
+      if (!styleEl.value) return;
+      const hasScrollBar = window.innerWidth > document.documentElement.clientWidth;
+      const scrollWidth = hasScrollBar ? getScrollbarWidth() : 0;
+      styleEl.value = document.createElement('style');
+      styleEl.value.dataset.id = `td_drawer_${+new Date()}_${(key += 1)}`;
+      styleEl.value.innerHTML = `
+        html body {
+          overflow-y: hidden;
+          transition: margin 300ms cubic-bezier(0.7, 0.3, 0.1, 1) 0s;
+          ${props.mode === 'push' ? '' : `width: calc(100% - ${scrollWidth}px);`}
+        }
+      `;
     };
 
     const handlePushMode = () => {
@@ -121,32 +141,30 @@ export default defineComponent({
         parentNode.value.style.cssText = 'transition: margin 300ms cubic-bezier(0.7, 0.3, 0.1, 1) 0s;';
       });
     };
+
     // push 动画效果处理
     const updatePushMode = () => {
-      if (!parentNode.value) return;
-      if (props.mode !== 'push' || !parentNode.value) return;
-      const marginStr = {
-        left: `margin: 0 0 0 ${sizeValue.value}`,
-        right: `margin: 0 0 0 -${sizeValue.value}`,
-        top: `margin: ${sizeValue.value} 0 0 0`,
-        bottom: `margin: -${sizeValue.value} 0 0 0`,
+      if (!parentNode.value || props.mode !== 'push') return;
+      const marginValueData = {
+        left: { name: 'margin-left', value: sizeValue.value },
+        right: { name: 'margin-right', value: `-${sizeValue.value}` },
+        top: { name: 'margin-top', value: sizeValue.value },
+        bottom: { name: 'margin-bottom', value: `-${sizeValue.value}` },
       }[props.placement];
       if (isVisible.value) {
-        parentNode.value.style.cssText += marginStr;
+        parentNode.value.style.setProperty(marginValueData.name, marginValueData.value);
       } else {
-        parentNode.value.style.cssText = parentNode.value.style.cssText.replace(/margin:.+;/, '');
+        parentNode.value.style.removeProperty(marginValueData.name);
       }
     };
 
     // locale 全局配置，插槽，props，默认值，决定了按钮最终呈现
     const getDefaultFooter = () => {
-      // this.getConfirmBtn is a function of useAction
       const confirmBtn = getConfirmBtn({
         confirmBtn: props.confirmBtn as TdDrawerProps['confirmBtn'],
         globalConfirm: globalConfig.value.confirm,
         className: `${COMPONENT_NAME.value}__confirm`,
       });
-      // this.getCancelBtn is a function of useAction
       const cancelBtn = getCancelBtn({
         cancelBtn: props.cancelBtn as TdDrawerProps['cancelBtn'],
         globalCancel: globalConfig.value.cancel,
@@ -160,54 +178,71 @@ export default defineComponent({
         </div>
       );
     };
-    watch(
-      modeAndPlacement,
-      () => {
-        handlePushMode();
-      },
-      { immediate: true },
-    );
+
+    const { isTopInteractivePopup } = usePopupManager('drawer', {
+      visible: computedVisible,
+    });
+
+    watch(modeAndPlacement, handlePushMode, { immediate: true });
+
+    const updateVisibleState = (value: boolean) => {
+      if (value) {
+        isMounted.value = true;
+      }
+
+      if (props.destroyOnClose) {
+        if (value) {
+          destroyOnCloseVisible.value = false;
+          setTimeout(() => (isVisible.value = true));
+        } else {
+          isVisible.value = false;
+          setTimeout(() => (destroyOnCloseVisible.value = true), 200);
+        }
+        return;
+      }
+
+      if (destroyOnCloseVisible.value && value) {
+        destroyOnCloseVisible.value = false;
+        setTimeout(() => (isVisible.value = true));
+        return;
+      }
+
+      setTimeout(() => (isVisible.value = value));
+    };
+
+    const addStyleElToHead = () => {
+      if (
+        !props.showInAttachedElement &&
+        props.preventScrollThrough &&
+        isVisible.value &&
+        (isMounted.value || !props.lazy)
+      ) {
+        if (!styleEl.value) {
+          createStyleEl();
+        }
+        if (styleEl.value && !document.head.contains(styleEl.value)) {
+          document.head.appendChild(styleEl.value);
+        }
+      }
+    };
+
     watch(
       () => props.visible,
       (value) => {
         if (isServer) return;
         if (value) {
-          if (!props.showInAttachedElement && props.preventScrollThrough) {
-            styleEl.value && document.head.appendChild(styleEl.value);
-          }
+          addStyleElToHead();
+          props.onBeforeOpen?.();
         } else {
-          clearStyleFunc();
+          clearStyleEl();
+          props.onBeforeClose?.();
         }
 
-        // 打开前动画或关闭前动画
-        value ? props.onBeforeOpen?.() : props.onBeforeClose?.();
-
-        // 处理显示逻辑
-        if (props.destroyOnClose) {
-          if (value) {
-            destroyOnCloseVisible.value = false;
-            setTimeout(() => {
-              isVisible.value = true;
-            });
-          } else {
-            isVisible.value = false;
-            setTimeout(() => {
-              destroyOnCloseVisible.value = true;
-            }, 200);
-          }
-        } else if (destroyOnCloseVisible.value === true && value) {
-          destroyOnCloseVisible.value = false;
-          setTimeout(() => {
-            isVisible.value = true;
-          });
-        } else {
-          setTimeout(() => {
-            isVisible.value = value;
-          });
-        }
+        updateVisibleState(value);
       },
       { immediate: true },
     );
+
     const handleCloseBtnClick = (e: MouseEvent) => {
       props.onCloseBtnClick?.({ e });
       closeDrawer({ trigger: 'close-btn', e });
@@ -224,38 +259,29 @@ export default defineComponent({
       context.emit('update:visible', false);
     };
 
-    onUpdated(() => {
-      updatePushMode();
-    });
+    onUpdated(updatePushMode);
 
     onMounted(() => {
-      const hasScrollBar = window.innerWidth > document.documentElement.clientWidth;
-      const scrollWidth = hasScrollBar ? getScrollbarWidth() : 0;
-
-      styleEl.value = document.createElement('style');
-      styleEl.value.dataset.id = `td_drawer_${+new Date()}_${(key += 1)}`;
-      styleEl.value.innerHTML = `
-        html body {
-          overflow-y: hidden;
-          transition: margin 300ms cubic-bezier(0.7, 0.3, 0.1, 1) 0s;
-          ${props.mode === 'push' ? '' : `width: calc(100% - ${scrollWidth}px);`}
-        }
-      `;
-
-      if (isVisible.value && !props.showInAttachedElement && props.preventScrollThrough) {
-        document.head.appendChild(styleEl.value);
-      }
-
+      addStyleElToHead();
       window.addEventListener('keydown', handleEscKeydown);
     });
 
     onBeforeUnmount(() => {
-      clearStyleFunc();
+      clearStyleEl();
       window.removeEventListener('keydown', handleEscKeydown);
     });
 
+    const shouldRender = computed(() => {
+      if (!isMounted.value) {
+        return !props.lazy;
+      } else {
+        return isVisible.value || !destroyOnCloseVisible.value;
+      }
+    });
+
     return () => {
-      if (destroyOnCloseVisible.value) return;
+      if (!shouldRender.value) return;
+
       const body = renderContent('body', 'default');
       const headerContent = renderTNodeJSX('header');
       const defaultFooter = getDefaultFooter();

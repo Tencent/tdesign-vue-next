@@ -1,6 +1,12 @@
 {
   "eslint.format.enable": true,
-  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "vue"],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue"
+  ],
   "[vue]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
@@ -28,6 +34,7 @@
     "maxcharacter",
     "maxlength",
     "miniprogram",
+    "modeless",
     "nuxt",
     "popconfirm",
     "popperjs",
@@ -39,32 +46,5 @@
     "tnode",
     "vnode",
     "wechat"
-  ],
-  "terminal.integrated.profiles.linux": {
-    "bash": {
-      "path": "bash",
-      "icon": "terminal-bash"
-    },
-    "zsh": {
-      "path": "zsh"
-    },
-    "fish": {
-      "path": "fish"
-    },
-    "tmux": {
-      "path": "tmux",
-      "icon": "terminal-tmux"
-    },
-    "pwsh": {
-      "path": "pwsh",
-      "icon": "terminal-powershell"
-    },
-    "supercode-sh": {
-      "path": "/bin/zsh",
-      "args": [
-        "-l"
-      ]
-    }
-  },
-  "terminal.integrated.defaultProfile.linux": "supercode-sh"
+  ]
 }
