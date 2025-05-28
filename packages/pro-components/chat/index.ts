@@ -56,6 +56,7 @@ export default {
     app.use(ChatReasoning, config);
     app.use(ChatAction, config);
     app.use(ChatLoading, config);
+    app.use(ChatSender, config);
   },
   version: typeof PKG_VERSION === 'undefined' ? '' : PKG_VERSION,
 };
