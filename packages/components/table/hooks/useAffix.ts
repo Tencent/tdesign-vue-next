@@ -1,9 +1,8 @@
-import { isBoolean } from 'lodash-es';
+import { debounce, isBoolean } from 'lodash-es';
 import { computed, ref, watch, onBeforeUnmount } from 'vue';
 import { TdBaseTableProps } from '../type';
 import { on, off } from '../../utils/dom';
 import { AffixProps } from '../../affix';
-import { debounce } from 'lodash-es';
 
 /**
  * 1. 表头吸顶（普通表头吸顶 和 虚拟滚动表头吸顶）

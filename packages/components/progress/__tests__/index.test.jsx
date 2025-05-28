@@ -28,11 +28,50 @@ describe('Progress', () => {
       expect(getComputedStyle(inner.element, null).background).toBe('red');
     });
 
-    it(':label', () => {
+    it(':label:string', () => {
       const wrapper = mount(() => <Progress percentage={30} label="label" />);
       const info = wrapper.find('.t-progress__info');
       expect(info.exists()).toBeTruthy();
       expect(info.text()).toBe('label');
+    });
+
+    it(':label:boolean', () => {
+      const wrapper = mount(() => <Progress percentage={30} label />);
+      const info = wrapper.find('.t-progress__info');
+      expect(info.exists()).toBeTruthy();
+      expect(info.text()).toBe('30%');
+    });
+
+    it(':label:slot', () => {
+      const customSlotLabel = 'Custom Label';
+      const wrapper = mount(() => (
+        <Progress
+          percentage={30}
+          v-slots={{
+            label: () => <span>{customSlotLabel}</span>,
+          }}
+        />
+      ));
+      const info = wrapper.find('.t-progress__info');
+      expect(info.exists()).toBeTruthy();
+      expect(info.text()).toBe(customSlotLabel);
+    });
+
+    it(':label:boolean-slot', () => {
+      const customLabel = '50%';
+      const customSlotLabel = 'Custom Label';
+      const wrapper = mount(() => (
+        <Progress
+          percentage={30}
+          label={customLabel}
+          v-slots={{
+            label: () => <span>{customSlotLabel}</span>,
+          }}
+        />
+      ));
+      const info = wrapper.find('.t-progress__info');
+      expect(info.exists()).toBeTruthy();
+      expect(info.text()).toBe(customLabel);
     });
 
     it(':trackColor', () => {

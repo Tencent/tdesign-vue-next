@@ -1,12 +1,9 @@
 import { Ref, reactive, computed, toRefs, watch, nextTick } from 'vue';
-import { isEqual } from 'lodash-es';
-import { isFunction } from 'lodash-es';
-import { isString } from 'lodash-es';
+import { isEqual, isString, isFunction } from 'lodash-es';
 
 import TreeStore from '@tdesign/common-js/tree/tree-store';
-import { useDisabled } from '../../hooks/useDisabled';
-import useVModel from '../../hooks/useVModel';
-import useDefaultValue from '../../hooks/useDefaultValue';
+import { useVModel, useDisabled, useDefaultValue } from '@tdesign/hooks';
+
 import {
   getTreeValue,
   getCascaderValue,

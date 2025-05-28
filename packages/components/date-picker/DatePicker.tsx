@@ -3,17 +3,14 @@ import dayjs from 'dayjs';
 import { isFunction, isDate } from 'lodash-es';
 import { CalendarIcon as TdCalendarIcon } from 'tdesign-icons-vue-next';
 
-import { useTNodeJSX } from '../hooks/tnode';
-import { usePrefixClass, useConfig } from '../hooks/useConfig';
-import { useDisabled } from '../hooks/useDisabled';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import { useConfig, useTNodeJSX, useDisabled, useReadonly, useGlobalIcon, usePrefixClass } from '@tdesign/hooks';
+
 import { useSingle } from './hooks/useSingle';
 import { parseToDayjs, getDefaultFormat, formatTime, formatDate } from '@tdesign/common-js/date-picker/format';
 import { subtractMonth, addMonth, extractTimeObj, covertToDate, isSame } from '@tdesign/common-js/date-picker/utils';
 import props from './props';
 import TSelectInput from '../select-input';
 import TSinglePanel from './components/panel/SinglePanel';
-import { useReadonly } from '../hooks/useReadonly';
 
 import type { TdDatePickerProps, DateMultipleValue, DateValue } from './type';
 import type { TagInputRemoveContext } from '../tag-input';
