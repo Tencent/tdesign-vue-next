@@ -1,4 +1,4 @@
-name: Publish_Any_Commit
+name: pkg-pr-new
 on:
   push:
     branches: [develop]
