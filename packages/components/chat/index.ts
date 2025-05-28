@@ -6,6 +6,7 @@ import _ChatReasoning from './chat-reasoning';
 import _ChatLoading from './chat-loading';
 
 import _ChatAction from './chat-action';
+import _FileCard from './file-card';
 import _ChatSender from './chat-sender';
 
 import withInstall from '../utils/withInstall';
@@ -46,6 +47,7 @@ export const ChatSender = withInstall(_ChatSender);
 export const ChatContent = withInstall(_ChatContent);
 export const ChatReasoning = withInstall(_ChatReasoning);
 export const ChatAction = withInstall(_ChatAction);
+export const FileCard = withInstall(_FileCard);
 export const ChatLoading = withInstall(_ChatLoading);
 export const Attachments = omiVueify('t-attachments', {
   methodNames: [],
