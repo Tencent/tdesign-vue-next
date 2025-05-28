@@ -186,6 +186,47 @@ export default defineComponent({
 
       selectValue.splice(index, 1);
 
+      if (trigger === 'backspace') {
+        // 如果最后一个为disabled，则应删除前一项（非disabled的）
+        let closest = -1;
+        let len = index;
+        const currentSelected = getCurrentSelectedOptions();
+        while (len >= 0) {
+          if (!currentSelected[len]?.disabled) {
+            closest = len;
+            break;
+          }
+          len -= 1;
+        }
+        // 只剩下disabled的情况，不做任何操作
+        if (closest < 0) {
+          return;
+        }
+        // 前面不是disabled的option
+        const values = currentSelected[closest];
+
+        const currentSelectedOptions = currentSelected.filter((item) => item.value !== values.value);
+
+        setInnerValue(
+          currentSelectedOptions.map((item) => item.value),
+          { selectedOptions: currentSelectedOptions, trigger, e },
+        );
+
+        props.onRemove?.({
+          value: value as string | number,
+          data: optionsMap.value.get(value),
+          e,
+        });
+
+        props?.onChange?.(value, {
+          e,
+          selectedOptions: currentSelectedOptions,
+          trigger,
+        });
+
+        return;
+      }
+
       if (trigger !== 'clear') {
         setInnerValue(selectValue, { selectedOptions: getSelectedOptions(selectValue), trigger, e });
       }
@@ -196,10 +237,10 @@ export default defineComponent({
         e,
       });
 
-      props?.onChange(value, {
+      props?.onChange?.(value, {
         e,
         selectedOptions: getSelectedOptions(selectValue),
-        trigger: 'tag-remove',
+        trigger,
       });
     };
 
