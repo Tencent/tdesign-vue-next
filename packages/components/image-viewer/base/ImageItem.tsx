@@ -1,7 +1,7 @@
 import { ImageErrorIcon } from 'tdesign-icons-vue-next';
 import { PropType, computed, defineComponent, onMounted, ref, toRefs, watch } from 'vue';
-import { useConfig, usePrefixClass } from '../../hooks/useConfig';
-import { useImagePreviewUrl } from '../../hooks/useImagePreviewUrl';
+import { useConfig, usePrefixClass, useImagePreviewUrl } from '@tdesign/hooks';
+
 import { useDrag } from '../hooks';
 import { TdImageViewerProps } from '../type';
 

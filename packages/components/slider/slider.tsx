@@ -10,20 +10,18 @@ import {
   watch,
   toRefs,
 } from 'vue';
-import { isNumber } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { isArray, isNumber } from 'lodash-es';
+
 import props from './props';
 import TSliderButton from './slider-button';
 import { SliderValue } from './type';
 
 // hooks
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { useVModel, useDisabled, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
 import { useSliderMark } from './hooks/useSliderMark';
 import { useSliderInput } from './hooks/useSliderInput';
 import { formatSliderValue, getStopStyle } from './utils';
 import { sliderPropsInjectKey } from './consts';
-import useVModel from '../hooks/useVModel';
-import { useDisabled } from '../hooks/useDisabled';
 
 interface SliderButtonType {
   setPosition: (param: number) => {};
