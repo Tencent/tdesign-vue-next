@@ -1,11 +1,5 @@
 import { h, ComponentPublicInstance, VNode, isVNode, Fragment } from 'vue';
-import { isEmpty } from 'lodash-es';
-import { isString } from 'lodash-es';
-import { isFunction } from 'lodash-es';
-import { isObject } from 'lodash-es';
-import { camelCase } from 'lodash-es';
-import { kebabCase } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { isEmpty, isArray, isString, isObject, camelCase, kebabCase, isFunction } from 'lodash-es';
 
 export interface JSXRenderContext {
   defaultNode?: VNode | string;

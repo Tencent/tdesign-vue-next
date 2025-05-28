@@ -170,7 +170,7 @@ async function customRender({ source, file, md }) {
   };
 
   // 渲染 live demo
-  if (pageData.usage && pageData.isComponent) {
+  if (pageData.usage && pageData.isComponent && pageData.title === 'Chat') {
     const usageObj = compileUsage({
       componentName,
       usage: pageData.usage,

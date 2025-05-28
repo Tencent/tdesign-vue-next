@@ -1,13 +1,12 @@
 import { computed, defineComponent, onMounted, ref, toRefs, watch, getCurrentInstance } from 'vue';
-import { isFunction } from 'lodash-es';
-import { omit } from 'lodash-es';
+import { omit, isFunction } from 'lodash-es';
+
 import props from './props';
 import popupProps from '../popup/props';
 import Popup, { PopupVisibleChangeContext } from '../popup';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useTNodeJSX, useContent } from '../hooks/tnode';
+import { useVModel, useContent, useTNodeJSX, usePrefixClass } from '@tdesign/hooks';
+
 import { useMouse } from './utils';
-import useVModel from '../hooks/useVModel';
 
 export default defineComponent({
   name: 'TTooltip',
