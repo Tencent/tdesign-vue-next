@@ -21,7 +21,7 @@
             expandIconPlacement: 'right',
             onExpandChange: handleChange(value, { index }),
             collapsePanelProps: {
-              header: renderHeader(index === 0 && isStreamLoad, item),
+              header: renderHeader(index === 0 && isStreamLoad && !item.content, item),
               content: renderReasoningContent(item.reasoning),
             },
           }"
