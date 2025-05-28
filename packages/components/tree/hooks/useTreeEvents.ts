@@ -40,7 +40,9 @@ export default function useTreeEvents(state: TypeTreeState) {
     });
 
     if (shouldExpand) {
+      // 展开节点 不应该同时触发Click事件
       toggleExpanded(node);
+      return;
     }
 
     if (shouldActive) {
