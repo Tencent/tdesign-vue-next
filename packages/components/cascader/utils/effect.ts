@@ -193,29 +193,6 @@ export const treeNodesEffect = (
 };
 
 /**
- * @description: options 添加 replicaValue
- */
-function translateReplicaOptions(
-  data: Array<TdCascaderProps['options'][number] & { replicaValue?: string }>,
-  parentReplicaValue = '',
-): Array<TdCascaderProps['options'][number] & { replicaValue: string }> {
-  return data.map((item) => {
-    const currentReplicaValue = parentReplicaValue ? `${parentReplicaValue}/${item.value}` : `${item.value}`;
-
-    const newItem = {
-      ...item,
-      replicaValue: currentReplicaValue,
-      children:
-        item.children && Array.isArray(item.children)
-          ? translateReplicaOptions(item.children, currentReplicaValue)
-          : undefined,
-    };
-
-    return newItem;
-  });
-}
-
-/**
  * 初始化展开阶段与展开状态副作用
  * @param treeStore
  * @param treeValue
@@ -227,7 +204,7 @@ export const treeStoreExpendEffect = (
   expend: TreeNodeValue[],
   valueType: CascaderContextType['valueType'],
   options: TdCascaderProps['options'],
-  innerValue: CascaderContextType['value'],
+  innerValue: TdCascaderProps['value'],
   multiple: CascaderContextType['multiple'],
 ) => {
   const treeValue = getTreeValue(value);
@@ -235,52 +212,32 @@ export const treeStoreExpendEffect = (
   if (!treeStore) return;
   // init expanded, 无expend状态时设置
   if (isArray(treeValue) && expend.length === 0) {
-    const replicaOptions = translateReplicaOptions(options);
-    console.warn('replicaOptions', replicaOptions);
-
-    function filterByReplicaValue(replicaOptions: any[], replicaValue: any): any[] {
-      return replicaOptions.filter((item) => {
-        if (item.replicaValue === replicaValue) {
-          return true;
-        }
-        if (item.children && item.children.length > 0) {
-          // 递归检查子级
-          item.children = filterByReplicaValue(item.children, replicaValue);
-          return item.children.length > 0;
-        }
-        return false;
-      });
-    }
-
     if (valueType === 'full' && Array.isArray(innerValue)) {
       if (multiple) {
-        const replicaValue = innerValue.join('/');
-        console.warn('replicaValue', replicaValue);
-
-        const filteredOptions = filterByReplicaValue(replicaOptions, replicaValue);
-        console.warn('filteredOptions', filteredOptions);
+        innerValue.forEach((val) => {
+          if (Array.isArray(val)) {
+            treeStore.replaceExpanded(expend.length ? expend : (val as TreeNodeValue[]));
+          }
+        });
       } else {
-        const replicaValue = innerValue.join('/');
-        console.warn('replicaValue', replicaValue);
-        const filteredOptions = filterByReplicaValue(replicaOptions, replicaValue);
-        console.warn('filteredOptions', filteredOptions);
+        treeStore.replaceExpanded(expend.length ? expend : (innerValue as TreeNodeValue[]));
       }
-    }
-    const expandedMap = new Map();
-    const [val] = treeValue;
-    if (!isEmptyValues(val)) {
-      expandedMap.set(val, true);
-      const node = treeStore.getNode(val);
-      if (!node) {
-        treeStore.refreshNodes();
-        return;
+    } else {
+      const expandedMap = new Map();
+      const [val] = treeValue;
+      if (!isEmptyValues(val)) {
+        expandedMap.set(val, true);
+        const node = treeStore.getNode(val);
+        if (!node) {
+          treeStore.refreshNodes();
+          return;
+        }
+        node.getParents().forEach((tn: TreeNode) => {
+          expandedMap.set(tn.value, true);
+        });
+        const expandedArr = Array.from(expandedMap.keys());
+        treeStore.replaceExpanded(expandedArr);
       }
-      node.getParents().forEach((tn: TreeNode) => {
-        expandedMap.set(tn.value, true);
-      });
-      const expandedArr = Array.from(expandedMap.keys());
-
-      treeStore.replaceExpanded(expandedArr);
     }
   }
   // 本地维护 expend，更加可控，不需要依赖于 tree 的状态

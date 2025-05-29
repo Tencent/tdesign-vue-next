@@ -121,12 +121,41 @@ export const useCascaderContext = (props: TdCascaderProps) => {
     treeNodesEffect(inputVal, treeStore, setTreeNodes, props.filter);
   };
 
+  /**
+   * 对每一级查询到的数据进行打印操作
+   * @param data - 数据节点数组
+   * @param targetValue - 当前目标值
+   */
+  function processMatchingNodes(children: TreeNode[], targetValue: string): void {
+    for (const node of children) {
+      if (node.value === targetValue) {
+        // console.log('Matched Node:', node); // 打印符合条件的节点
+        if (node.children && Array.isArray(node.children)) {
+          processMatchingNodes(node.children, targetValue); // 递归处理子节点
+        }
+        break; // 只查询一级符合条件的数据
+      }
+    }
+  }
+
   // 更新节点展开状态
   const updateExpend = () => {
-    const { value, treeStore } = cascaderContext.value;
+    const { value, treeStore, valueType, multiple } = cascaderContext.value;
     const { expend } = statusContext;
     treeStoreExpendEffect(treeStore, value, expend, props.valueType, props.options, innerValue.value, props.multiple);
-    treeStore.replaceChecked(getTreeValue(value));
+
+    if (valueType === 'full' && Array.isArray(innerValue.value)) {
+      if (multiple) {
+        // const firstNode = treeStore.getNode(['1']);
+      } else {
+        // treeStore.replaceChecked(['1.3']);
+        for (const value of ['1', '1.3']) {
+          processMatchingNodes(treeStore.children, value);
+        }
+      }
+    } else {
+      treeStore.replaceChecked(getTreeValue(value));
+    }
   };
 
   /**
