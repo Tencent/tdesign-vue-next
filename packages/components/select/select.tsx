@@ -199,9 +199,8 @@ export default defineComponent({
           len -= 1;
         }
         // 只剩下disabled的情况，不做任何操作
-        if (closest < 0) {
-          return;
-        }
+        if (closest < 0) return;
+
         // 前面不是disabled的option
         const values = currentSelected[closest];
 
@@ -213,15 +212,9 @@ export default defineComponent({
         );
 
         props.onRemove?.({
-          value: value as string | number,
-          data: optionsMap.value.get(value),
+          value: values.value as string | number,
+          data: values,
           e,
-        });
-
-        props?.onChange?.(value, {
-          e,
-          selectedOptions: currentSelectedOptions,
-          trigger,
         });
 
         return;
@@ -235,12 +228,6 @@ export default defineComponent({
         value: value as string | number,
         data: optionsMap.value.get(value),
         e,
-      });
-
-      props?.onChange?.(value, {
-        e,
-        selectedOptions: getSelectedOptions(selectValue),
-        trigger,
       });
     };
 
@@ -495,14 +482,13 @@ export default defineComponent({
             return (
               <Tag
                 key={key}
-                closable={!v?.disabled && !props?.disabled && !props?.readonly}
-                size={props?.size}
-                {...props?.tagProps}
+                closable={!v?.disabled && !props.disabled && !props.readonly}
+                size={props.size}
+                {...props.tagProps}
                 onClose={({ e }: { e: MouseEvent }) => {
                   e.stopPropagation();
-                  e?.stopImmediatePropagation?.();
                   const index = currentSelectedOptions.findIndex((item) => item.value === v.value);
-                  props?.tagProps?.onClose?.({ e });
+                  props.tagProps?.onClose?.({ e });
                   removeTag(index);
                 }}
               >
