@@ -25,11 +25,21 @@ import {
   TdChatLoadingProps,
 } from './type';
 
+import {
+  TdChatbotApi,
+  TdChatListProps,
+  TdChatSearchContentProps,
+  TdChatSuggestionContentProps,
+} from '@tencent/tdesign-chatbot';
+
 import './style';
 import 'tdesign-web-components/lib/style/index.css';
 import 'tdesign-web-components/lib/chat-sender';
 import 'tdesign-web-components/lib/attachments';
 import 'tdesign-web-components/lib/chat-message/content/thinking-content';
+import 'tdesign-web-components/lib/chatbot';
+import 'tdesign-web-components/lib/chat-message/content/search-content';
+import 'tdesign-web-components/lib/chat-message/content/suggestion-content';
 import { omiVueify } from 'omi-vueify';
 import type { DefineComponent } from 'vue';
 import type { TdAttachmentsProps } from 'tdesign-web-components';
@@ -64,6 +74,24 @@ export const ChatThinking = omiVueify('t-chat-thinking-content', {
   methodNames: [],
 }) as DefineComponent<TdChatThinkContentProps>;
 // export const ChatThinking = withInstall(ChatThinking);
+
+export const Bot = omiVueify('t-chatbot', {
+  methodNames: [],
+}) as DefineComponent<TdChatProps>;
+
+export const ChatBot = withInstall(Bot, 't-chatbot');
+
+export const ChatSearchContent = omiVueify('t-chat-search-content', {
+  methodNames: [],
+}) as DefineComponent<TdChatSearchContentProps>;
+
+export const ChatSuggestionContent = omiVueify('t-chat-suggestion-content', {
+  methodNames: [],
+}) as DefineComponent<TdChatSuggestionContentProps>;
+
+export const ChatList = omiVueify('t-chat-list', {
+  methodNames: [],
+}) as DefineComponent<TdChatListProps>;
 
 export default {
   // TODO: refactor
