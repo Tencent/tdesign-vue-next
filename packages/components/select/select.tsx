@@ -139,17 +139,21 @@ export default defineComponent({
 
     // valueDisplayParams参数
     const valueDisplayParams = computed(() => {
-      const val =
-        props.multiple && isArray(innerValue.value)
-          ? (innerValue.value as SelectValue[]).map((value) => optionsMap.value.get(value))
-          : optionsMap.value.get(innerValue.value);
+      if (!props.multiple) {
+        return {
+          ...optionsMap.value.get(innerValue.value),
+          value: innerValue.value,
+          label: displayText.value,
+        };
+      }
 
+      const val = isArray(innerValue.value) ? innerValue.value.map((value) => optionsMap.value.get(value)) : [];
       const params = {
         value: val,
         onClose: props.multiple ? (index: number) => removeTag(index) : () => {},
       };
 
-      if (props.minCollapsedNum && props.multiple && isArray(innerValue.value)) {
+      if (props.minCollapsedNum && isArray(innerValue.value)) {
         return {
           ...params,
           displayValue: Array.isArray(val) ? val.slice(0, props.minCollapsedNum) : [],
