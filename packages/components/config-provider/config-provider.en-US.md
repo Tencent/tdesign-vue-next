@@ -224,7 +224,7 @@ name | type | default | description | required
 colonText | String | - | colon on the right of label ":" | N
 errorMessage | Object | - | Typescript：`FormErrorMessage`，[Form API Documents](./form?tab=api)。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/config-provider/type.ts) | N
 requiredMark | Boolean | true | \- | N
-requiredMarkPosition | String | - | Display position of required symbols。options: left/right | N
+requiredMarkPosition | String | left | Display position of required symbols。options: left/right | N
 
 ### GuideConfig
 
