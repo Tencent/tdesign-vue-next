@@ -1,12 +1,12 @@
-import { isBoolean } from 'lodash-es';
-import { isObject } from 'lodash-es';
+import { isEmpty, isObject, isNumber, isBoolean } from 'lodash-es';
+
 // https://github.com/validatorjs/validator.js
 
 import isDate from 'validator/lib/isDate';
 import isEmail from 'validator/lib/isEmail';
-import { isEmpty } from 'lodash-es';
+
 import isURL from 'validator/lib/isURL';
-import { isNumber } from 'lodash-es';
+
 import { getCharacterLength } from '@tdesign/common-js/utils/helper';
 import {
   CustomValidator,

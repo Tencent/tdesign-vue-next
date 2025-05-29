@@ -235,7 +235,7 @@ jobs:
 
       - run: pnpm install
 
-      - run: pnpm run test:update
+      - run: pnpm -r run test:update
 
       - name: Commit Snapshot
         run: |
@@ -295,7 +295,7 @@ jobs:
 
       - run: pnpm install
 
-      - run: pnpm run generate:coverage-badge
+      - run: pnpm -r run generate:coverage-badge
 
       - name: commit coverage badge
         run: |

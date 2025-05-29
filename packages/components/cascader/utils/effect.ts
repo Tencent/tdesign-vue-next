@@ -1,7 +1,4 @@
-import { isNumber } from 'lodash-es';
-import { isFunction } from 'lodash-es';
-import { isArray } from 'lodash-es';
-import { cloneDeep } from 'lodash-es';
+import { isArray, isNumber, cloneDeep, isFunction } from 'lodash-es';
 
 import type { TreeNode, CascaderContextType, TdCascaderProps, TreeNodeValue, TreeNodeModel } from '../types';
 import { getFullPathLabel, getTreeValue, isEmptyValues } from './helper';

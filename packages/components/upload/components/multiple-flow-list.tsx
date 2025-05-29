@@ -12,9 +12,9 @@ import {
   FileIcon as TdFileIcon,
   VideoIcon as TdVideoIcon,
 } from 'tdesign-icons-vue-next';
-import { isFunction } from 'lodash-es';
-import { isObject } from 'lodash-es';
-import useGlobalIcon from '../../hooks/useGlobalIcon';
+import { isObject, isFunction } from 'lodash-es';
+
+import { useTNodeJSX, useGlobalIcon } from '@tdesign/hooks';
 import ImageViewer, { ImageViewerProps } from '../../image-viewer';
 import { CommonDisplayFileProps } from '../types';
 import { commonProps } from '../consts';
@@ -32,7 +32,7 @@ import {
   VIDEO_REGEXP,
 } from '@tdesign/common-js/upload/utils';
 import TLoading from '../../loading';
-import { useTNodeJSX } from '../../hooks';
+
 import Link from '../../link';
 import { UploadConfig } from '../../config-provider';
 import Image from '../../image';

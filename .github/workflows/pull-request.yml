@@ -65,8 +65,8 @@ jobs:
             # 否则，校验通过
             echo "邮箱 $log_emails 校验通过";
           fi
-
-  test:
+  
+  lint:
     # 如果需要依赖 check 任务，可以取消注释
     # needs: check
     # 在最新版本的 Ubuntu 环境中运行
@@ -110,17 +110,51 @@ jobs:
       # 运行代码 lint 检查
       - run: pnpm run lint
 
-      # 运行测试
-      - run: pnpm run test
-      # upload report to codecov
-
-      # 将测试报告上传到 Codecov
-      - uses: codecov/codecov-action@v2
+  test:
+    # 如果需要依赖 check 任务，可以取消注释
+    # needs: check
+    # 在最新版本的 Ubuntu 环境中运行
+    runs-on: ubuntu-latest
+    steps:
+      # 检出代码仓库，并递归初始化子模块
+      - uses: actions/checkout@v4
         with:
-          # 使用 GitHub Secrets 中的 Codecov Token
-          token: ${{ secrets.CODECOV_TOKEN }}
+          submodules: recursive
 
-  build:
+      # 设置 pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      # 设置 Node.js 环境，版本为 18
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      # 获取 pnpm 的存储目录路径
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: |
+          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      # 设置 pnpm 缓存
+      - uses: actions/cache@v4
+        name: Setup pnpm cache
+        with:
+          # 缓存路径
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          # 缓存键
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          # 恢复缓存的备用键
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      # 安装依赖
+      - run: pnpm i
+
+      # 运行测试
+      - run: pnpm run test:vue
+
+  build_vue-next:
     # 在最新版本的 Ubuntu 环境中运行
     runs-on: ubuntu-latest
     # 如果需要依赖自身任务，可以取消注释（通常不需要）
@@ -163,4 +197,53 @@ jobs:
 
       # 运行构建任务
       - name: Build 
-        run: pnpm run build
+        run: pnpm run build:vue
+
+      - run: pnpm -F tdesign-vue-next publish --no-git-checks --dry-run
+
+  build-chat:
+    # 在最新版本的 Ubuntu 环境中运行
+    runs-on: ubuntu-latest
+    # 如果需要依赖自身任务，可以取消注释（通常不需要）
+    # needs: build
+    steps:
+      # 检出代码仓库，并递归初始化子模块
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      # 设置 pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      # 设置 Node.js 环境，版本为 18
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      # 获取 pnpm 的存储目录路径
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: |
+          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      # 设置 pnpm 缓存
+      - uses: actions/cache@v4
+        name: Setup pnpm cache
+        with:
+          # 缓存路径
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          # 缓存键
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          # 恢复缓存的备用键
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      # 安装依赖
+      - run: pnpm i
+
+      # 运行构建任务
+      - name: Build 
+        run: pnpm run build:chat
+
+      - run: pnpm -F @tdesign-vue-next/chat publish --no-git-checks --dry-run

@@ -1,9 +1,9 @@
 import { defineComponent, PropType, ref, watch } from 'vue';
 import TInput from '../../../input';
-import { Color } from '../../utils';
+import { Color, getColorObject } from '../../utils';
 import { TdColorPickerProps } from '../../type';
 import { useBaseClassName } from '../../hooks';
-import { useCommonClassName } from '../../../hooks/useConfig';
+import { useCommonClassName } from '@tdesign/hooks';
 
 export default defineComponent({
   name: 'DefaultTrigger',
@@ -60,15 +60,12 @@ export default defineComponent({
     );
 
     const handleChange = (input: string) => {
-      if (input === props.color) {
-        return;
+      if (input !== props.color) {
+        props.onTriggerChange(value.value, {
+          color: getColorObject(new Color(input)),
+          trigger: 'input',
+        });
       }
-      if (input && !Color.isValid(input)) {
-        value.value = props.color;
-      } else {
-        value.value = input;
-      }
-      props.onTriggerChange(value.value);
     };
 
     const handleClear = (context: { e: MouseEvent }) => props.onTriggerClear?.(context);

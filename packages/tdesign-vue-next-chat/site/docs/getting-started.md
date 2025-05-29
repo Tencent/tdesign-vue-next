@@ -24,6 +24,7 @@ npm i @tdesign-vue-next/chat
 import { createApp } from 'vue';
 import App from './app.vue';
 import TDesignChat from '@tdesign-vue-next/chat'; // 引入chat组件
+import '@tdesign-vue-next/chat/es/style/index.css'; // 引入chat组件的少量全局样式变量
 
 const app = createApp(App);
 app.use(TDesignChat);
@@ -53,7 +54,7 @@ import {
   ChatAction as TChatAction,
   ChatContent as TChatContent,
   ChatInput as TChatInput,
-  ChatItem as TChatItem
+  ChatItem as TChatItem,
 } from '@tdesign-vue-next/chat';
 ```
 
@@ -61,20 +62,20 @@ import {
    ⚠️ 请注意，如果配合 unplugin-vue-components 使用 TDesign，请勿重命名为 T 开头组件进行按需使用，后续将修复该使用问题。
 </div>
 
-
 ## 多语言配置
 
 `@tdesign-vue-next/chat` 的所有组件都内置支持了多语言配置的能力。
 
 如果您有多语言的需求，可以通过 `tdesign-vue-next` 提供的[全局配置能力](https://tdesign.tencent.com/vue-next/components/config-provider#%E5%9B%BD%E9%99%85%E5%8C%96%E9%85%8D%E7%BD%AE)进行配置。
 
-```Vue
+```html
 <template>
-  <t-config-provider :global-config="enConfig">
+  <config-provider :global-config="enConfig">
     <t-chat />
-  </t-config-provider>
+  </config-provider>
 </template>
 <script setup>
+import { ConfigProvider } from '@tdesign-vue-next/chat/es/config-provider';
 import enConfig from 'tdesign-vue-next/es/locale/en_US';
 </script>
 ```
