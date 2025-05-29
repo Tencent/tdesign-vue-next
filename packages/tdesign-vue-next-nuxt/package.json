@@ -20,12 +20,11 @@
     "README"
   ],
   "scripts": {
-    "prepack": "nuxt-module-build build",
+    "build": "nuxt-module-build build",
     "dev": "nuxi dev site",
     "dev:build": "nuxi build site",
     "dev:preview": "nuxi generate site",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare site",
-    "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
     "test": "vitest run",
     "test:watch": "vitest watch"
   },
