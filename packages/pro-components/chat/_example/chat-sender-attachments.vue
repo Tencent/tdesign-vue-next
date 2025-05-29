@@ -26,7 +26,7 @@
   </t-chat-sender>
 </template>
 <script setup lang="ts">
-import { TdAttachmentItem } from '@tencent/tdesign-chatbot';
+import { TdAttachmentItem } from 'tdesign-web-components';
 import { ref } from 'vue';
 const query = ref('');
 const loading = ref(false);

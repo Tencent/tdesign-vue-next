@@ -129,7 +129,7 @@
     "tdesign-publish-cli": "^0.0.12",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3",
-    "@tencent/tdesign-chatbot": "1.1.0-beta.1",
+    "tdesign-web-components": "1.0.3",
     "omi-vueify": "^0.0.7"
   },
   "config": {
