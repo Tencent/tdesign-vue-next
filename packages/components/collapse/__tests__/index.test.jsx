@@ -17,8 +17,6 @@ describe('Collapse', () => {
         },
       });
 
-      const panel = wrapper.findComponent({ ref: '1' });
-
       expect(wrapper.classes()).not.toContain('t--border-less');
 
       borderless.value = true;
@@ -27,7 +25,6 @@ describe('Collapse', () => {
     });
 
     test(':defaultExpandAll', async () => {
-      const defaultExpandAll = ref(false);
       const wrapper = mount({
         setup() {
           return () => (
@@ -355,7 +352,7 @@ describe('CollapsePanel', () => {
       });
 
       const panel = wrapper.findComponent({ ref: '1' });
-      expect(panel.find('.t-collapse-panel__header > h4').html()).toBe('<h4>标题</h4>');
+      expect(panel.find('.t-collapse-panel__header-content > h4').html()).toBe('<h4>标题</h4>');
     });
 
     test('headerRightContent', () => {
@@ -374,7 +371,7 @@ describe('CollapsePanel', () => {
       });
 
       const panel = wrapper.findComponent({ ref: '1' });
-      expect(panel.find('.t-collapse-panel__header > div > span').html()).toBe('<span>操作</span>');
+      expect(panel.find('.t-collapse-panel__header-right-content > span').html()).toBe('<span>操作</span>');
     });
 
     test('content', () => {
