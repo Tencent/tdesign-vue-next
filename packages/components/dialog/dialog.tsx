@@ -60,7 +60,6 @@ export default defineComponent({
     useDestroyOnClose();
     const timer = ref();
     const styleEl = ref();
-    const isDialogClosed = ref(false);
     // 是否模态形式的对话框
     const isModal = computed(() => props.mode === 'modal');
     // 是否非模态对话框
@@ -186,7 +185,6 @@ export default defineComponent({
 
     // 打开弹窗动画开始时事件
     const beforeEnter = () => {
-      isDialogClosed.value = false;
       props.onBeforeOpen?.();
     };
 
@@ -202,7 +200,6 @@ export default defineComponent({
 
     // 关闭弹窗动画结束时事件
     const afterLeave = () => {
-      isDialogClosed.value = true;
       dialogCardRef.value?.resetPosition?.();
       props.onClosed?.();
     };
@@ -223,6 +220,15 @@ export default defineComponent({
     //   const eventFuncs = this['_events']?.[name];
     //   return !!eventFuncs?.length;
     // };
+
+    const shouldRender = computed(() => {
+      const { destroyOnClose, visible, lazy } = props;
+      if (!isMounted.value) {
+        return !lazy;
+      } else {
+        return visible || !destroyOnClose;
+      }
+    });
 
     const renderDialog = () => {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -245,7 +251,7 @@ export default defineComponent({
               onCancel={cancelBtnAction}
               onCloseBtnClick={closeBtnAction}
             >
-              {!(props.destroyOnClose && isDialogClosed.value) && context.slots.default?.()}
+              {shouldRender.value && context.slots.default?.()}
             </TDialogCard>
           </div>
         </div>
@@ -268,15 +274,6 @@ export default defineComponent({
     onBeforeUnmount(() => {
       addKeyboardEvent(false);
       destroySelf();
-    });
-
-    const shouldRender = computed(() => {
-      const { destroyOnClose, visible, lazy } = props;
-      if (!isMounted.value) {
-        return !lazy;
-      } else {
-        return visible || !destroyOnClose;
-      }
     });
 
     return () => {
@@ -306,11 +303,9 @@ export default defineComponent({
             onBeforeLeave={beforeLeave}
             onAfterLeave={afterLeave}
           >
-            {shouldRender.value && (
-              <div v-show={props.visible} class={ctxClass} style={ctxStyle} {...context.attrs}>
-                {view}
-              </div>
-            )}
+            <div v-show={props.visible} class={ctxClass} style={ctxStyle} {...context.attrs}>
+              {view}
+            </div>
           </Transition>
         </Teleport>
       );
