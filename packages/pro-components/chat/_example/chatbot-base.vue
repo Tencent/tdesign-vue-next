@@ -1,44 +1,23 @@
-/* eslint-disable no-await-in-loop */
-import 'tdesign-web-components/chatbot';
+<template>
+  <t-chatbot
+    ref="chatRef"
+    style="display: block; height: 80vh"
+    :messages="mockData"
+    :message-props="messageProps"
+    :sender-props="senderProps"
+    :chat-service-config="mockModels"
+  />
+</template>
 
+<script setup>
+import { ref, onMounted, onUnmounted } from 'vue';
 import MarkdownIt from 'markdown-it';
-import { Component, createRef } from 'omi';
-import { findTargetElement, type TdChatMessageConfig } from 'tdesign-web-components/chatbot';
+import { findTargetElement } from '@tencent/tdesign-chatbot';
+// import type { Attachment } from '../../filecard';
+// import type { AIMessageContent, ChatMessage, SSEChunkData } from '../core/type';
 
-import type { Attachment } from '../../filecard';
-import Chatbot from '../chat';
-import type { AIMessageContent, ChatMessage, SSEChunkData } from '../core/type';
-
-// 天气扩展类型定义
-declare module '../core/type' {
-  interface AIContentTypeOverrides {
-    weather: BaseContent<
-      'weather',
-      {
-        temp: number;
-        city: string;
-        conditions?: string;
-      }
-    >;
-  }
-}
-
-// function extractMarkdownLinks(msg: string): Array<{ title: string; url?: string }> {
-//   const linkRegex = /\[(.*?)\]\(#prompt:(.*?)\)/g;
-//   const matches = [];
-//   let match;
-
-//   while ((match = linkRegex.exec(msg)) !== null) {
-//     matches.push({
-//       title: match[1].trim(),
-//       prompt: match[2].trim(),
-//     });
-//   }
-
-//   return matches;
-// }
-
-const mockData: ChatMessage[] = [
+// Mock data and functions from the original file
+const mockData = ref([
   {
     id: 's1123',
     role: 'system',
@@ -92,7 +71,6 @@ const mockData: ChatMessage[] = [
               url: 'http://mp.weixin.qq.com/s?src=11&timestamp=1742897036&ver=5890&signature=Fh*UdzlSG9IgB8U4n9t5qSWHA73Xat54ReUUgCZ5hUiBG0KD-41hoa2HJm1CC7*ueTzp3loaKojnUO1JR3KD7bh1EgWwTmOIDum3aYtrN1EYDXF9jTh1KNJsalAXHeQI&new=1',
               type: 'mp',
             },
-
             // {
             //   title: '百度',
             //   icon: 'https://vfiles.gtimg.cn/wupload/creator_center.assets/45d68c02_u7V4BL0GqFgDFAwvzR345RxrLo3Gdv5m.png',
@@ -213,9 +191,9 @@ const mockData: ChatMessage[] = [
       },
     ],
   },
-];
+]);
 
-const defaultChunkParser = (chunk): AIMessageContent => {
+const defaultChunkParser = (chunk) => {
   try {
     return handleStructuredData(chunk);
   } catch (err) {
@@ -227,7 +205,7 @@ const defaultChunkParser = (chunk): AIMessageContent => {
   }
 };
 
-function handleStructuredData(chunk: SSEChunkData): AIMessageContent {
+function handleStructuredData(chunk) {
   if (!chunk?.data || typeof chunk === 'string') {
     return {
       type: 'markdown',
@@ -251,29 +229,23 @@ function handleStructuredData(chunk: SSEChunkData): AIMessageContent {
           text: rest.content || '',
         },
       };
-
-    case 'text': {
+    case 'text':
       return {
         type: 'markdown',
         data: rest?.msg || '',
       };
-    }
-
-    case 'image': {
+    case 'image':
       return {
         type: 'image',
         data: { ...JSON.parse(chunk.data.content) },
       };
-    }
-
     // case 'suggestion':
     //   return {
     //     type: 'suggestion',
     //     // title: '是不是想提问：',
     //     data: extractMarkdownLinks(rest.content),
     //   };
-
-    case 'weather': {
+    case 'weather':
       return {
         type: 'weather',
         data: {
@@ -282,8 +254,6 @@ function handleStructuredData(chunk: SSEChunkData): AIMessageContent {
           conditions: '多云',
         },
       };
-    }
-
     default:
       return {
         type: 'text',
@@ -292,7 +262,7 @@ function handleStructuredData(chunk: SSEChunkData): AIMessageContent {
   }
 }
 
-const mockModels = {
+const mockModels = ref({
   endpoint: 'http://localhost:3000/sse/normal',
   stream: true,
   onComplete: () => {
@@ -325,28 +295,21 @@ const mockModels = {
       }),
     };
   },
-};
+});
 
-const attachmentProps = {
-  onFileSelect: async (files: File[]): Promise<Attachment[]> => {
-    const attachments: Attachment[] = [];
-
-    // 串行处理每个文件
+const attachmentProps = ref({
+  onFileSelect: async (files) => {
+    const attachments = [];
     for (const file of files) {
       try {
         const formData = new FormData();
         formData.append('file', file);
-        // 上传单个文件
         const response = await fetch(`http://localhost:3000/file/upload`, {
           method: 'POST',
           body: formData,
         });
-
-        if (!response.ok) continue; // 跳过失败文件
-
+        if (!response.ok) continue;
         const data = await response.json();
-
-        // 构造附件对象
         const { name, size, type } = file;
         attachments.push({
           url: data.result.cdnurl,
@@ -361,16 +324,14 @@ const attachmentProps = {
         // 可选：记录失败文件信息到错误日志
       }
     }
-
     return attachments;
   },
   onFileRemove: () => {},
-};
+});
 
-const resourceLinkPlugin = (md: MarkdownIt) => {
+const resourceLinkPlugin = (md) => {
   // 保存原始链接渲染函数
   const defaultRender = md.renderer.rules.link_open?.bind(md.renderer);
-
   // 覆盖链接渲染规则
   md.renderer.rules.link_open = (tokens, idx, options, env, self) => {
     const token = tokens[idx];
@@ -387,92 +348,77 @@ const resourceLinkPlugin = (md: MarkdownIt) => {
       //   }))">`;
       return `<a part="resource-link" data-resource="${id}">`;
     }
-
     // 普通链接保持默认渲染
     return defaultRender(tokens, idx, options, env, self);
   };
 };
 
-export default class BasicChat extends Component {
-  chatRef = createRef<Chatbot>();
-
-  clickHandler?: (e: MouseEvent) => void;
-
-  messageProps: TdChatMessageConfig = {
-    // user: {
-    //   avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
+const chatRef = ref(null);
+const messageProps = {
+  // user: {
+  //   avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
+  // },
+  assistant: {
+    // avatar: 'https://tdesign.gtimg.com/site/chat-avatar.png',
+    // actions: (preset) => {
+    //   return preset.filter(({ name }) => name !== 'share');
     // },
-    assistant: {
-      // avatar: 'https://tdesign.gtimg.com/site/chat-avatar.png',
-      // actions: (preset) => {
-      //   return preset.filter(({ name }) => name !== 'share');
-      // },
-      onActions: {
-        replay: (data, callback) => {
-          console.log('自定义重新回复', data);
-          callback?.();
-        },
-        good: (data) => {
-          console.log('点赞', data);
-        },
-        suggestion: ({ prompt }) => {
-          this.chatRef.current.addPrompt(prompt);
-        },
-        searchItem: ({ content, event }) => {
-          event.preventDefault();
-          event.stopPropagation();
-          console.log('searchItem', content);
-        },
+    onActions: {
+      replay: (data, callback) => {
+        console.log('自定义重新回复', data);
+        callback?.();
       },
-      chatContentProps: {
-        search: {
-          expandable: true,
-        },
-        thinking: {
-          height: 100,
-        },
-        markdown: {
-          pluginConfig: [resourceLinkPlugin],
-        },
+      good: (data) => {
+        console.log('点赞', data);
+      },
+      suggestion: ({ prompt }) => {
+        chatRef.value.addPrompt(prompt);
+      },
+      searchItem: ({ content, event }) => {
+        event.preventDefault();
+        event.stopPropagation();
+        console.log('searchItem', content);
       },
     },
-  };
+    chatContentProps: {
+      search: {
+        expandable: true,
+      },
+      thinking: {
+        height: 100,
+      },
+      markdown: {
+        pluginConfig: [resourceLinkPlugin],
+      },
+    },
+  },
+};
 
-  ready() {
-    this.chatRef.current.addEventListener('message_action', (e: CustomEvent) => {
-      console.log('message_action', e.detail);
-    });
-    this.clickHandler = (e) => {
-      const target = findTargetElement(e, 'a[data-resource]');
-      if (target) {
-        console.log('捕获资源链接点击:', target.dataset);
-      }
-    };
-    document.addEventListener('mousedown', this.clickHandler);
-  }
+const senderProps = {
+  actions: true,
+  attachmentProps,
+  placeholder: '请输入问题',
+};
 
-  uninstall(): void {
-    // 移除全局点击监听
-    if (this.clickHandler) {
-      document.removeEventListener('mousedown', this.clickHandler);
+let clickHandler = null;
+
+onMounted(() => {
+  chatRef.value.addEventListener('message_action', (e) => {
+    console.log('message_action', e.detail);
+  });
+  clickHandler = (e) => {
+    const target = findTargetElement(e, 'a[data-resource]');
+    if (target) {
+      console.log('捕获资源链接点击:', target.dataset);
     }
-  }
+  };
+  document.addEventListener('mousedown', clickHandler);
+});
 
-  render() {
-    return (
-      <t-chatbot
-        ref={this.chatRef}
-        style={{ display: 'block', height: '80vh' }}
-        messages={mockData}
-        // autoSendPrompt="自动发送问题"
-        messageProps={this.messageProps}
-        senderProps={{
-          actions: true,
-          attachmentProps,
-          placeholder: '请输入问题',
-        }}
-        chatServiceConfig={mockModels}
-      ></t-chatbot>
-    );
+onUnmounted(() => {
+  // 移除全局点击监听
+  if (clickHandler) {
+    document.removeEventListener('mousedown', clickHandler);
   }
-}
+});
+</script>
