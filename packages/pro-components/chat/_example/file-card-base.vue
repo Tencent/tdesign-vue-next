@@ -1,26 +1,11 @@
 <template>
   <t-space break-line>
-    <!-- <t-filecard v-for="(file, index) in filesList" :key="index" :item="file"></t-filecard> -->
-    <t-filecard
-      :item="item"
-      :removable="true"
-      :card-type="'image'"
-      @remove="handelRemove"
-      @file-click="handelFileClick"
-    ></t-filecard>
+    <t-filecard v-for="(file, index) in filesList" :key="index" :item="file"></t-filecard>
   </t-space>
 </template>
 
 <script setup>
 import { ref } from 'vue';
-const item = ref({
-  name: 'image-file.png',
-  size: 33333,
-  // status: 'progress',
-  // description: '',
-  // percent: '50',
-  url: 'https://baike-med-1256891581.file.myqcloud.com/2019123/92d11b70-164a-11ea-bc63-19adad362542_1.png',
-});
 const filesList = ref([
   {
     uid: '1',
@@ -76,11 +61,4 @@ const filesList = ref([
     percent: '50',
   },
 ]);
-const handelRemove = (file) => {
-  console.log('remove file:', file);
-};
-
-const handelFileClick = (item) => {
-  console.log('file click:', item.detail);
-};
 </script>
