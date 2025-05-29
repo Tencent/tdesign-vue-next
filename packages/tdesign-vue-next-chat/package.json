@@ -3,6 +3,11 @@
   "version": "0.3.0",
   "title": "@tdesign-vue-next/chat",
   "description": "AI Chat Component for Vue 3",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tencent/tdesign-vue-next.git",
+    "directory": "packages/tdesign-vue-next-chat"
+  },
   "keywords": [
     "vue",
     "vue3",
