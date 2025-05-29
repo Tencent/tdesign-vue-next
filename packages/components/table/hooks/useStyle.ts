@@ -1,8 +1,7 @@
 import { computed, toRefs } from 'vue';
 import { TdBaseTableProps } from '../type';
 import useClassName from './useClassName';
-import useCommonClassName from '../../hooks/useCommonClassName';
-import { useConfig } from '../../hooks/useConfig';
+import { useConfig, useCommonClassName } from '@tdesign/hooks';
 
 export function formatCSSUnit(unit: string | number) {
   if (!unit) return unit;
@@ -13,14 +12,14 @@ export default function useStyle(props: TdBaseTableProps) {
   const { size, bordered, stripe, hover, verticalAlign, height, maxHeight, tableContentWidth } = toRefs(props);
 
   const { tableBaseClass, tableAlignClasses } = useClassName();
-  const { sizeClassNames } = useCommonClassName();
+  const { SIZE } = useCommonClassName();
   const { globalConfig } = useConfig('table', props.locale);
   const tableSize = computed(() => size.value ?? globalConfig.value.size);
 
   const tableClasses = computed(() => [
     tableBaseClass.table,
     {
-      [sizeClassNames[tableSize.value]]: tableSize.value !== 'medium',
+      [SIZE.value[tableSize.value]]: tableSize.value !== 'medium',
       [tableBaseClass.bordered]: bordered.value,
       [tableBaseClass.striped]: stripe.value,
       [tableBaseClass.hover]: hover.value,
@@ -42,7 +41,7 @@ export default function useStyle(props: TdBaseTableProps) {
 
   return {
     tableClasses,
-    sizeClassNames,
+    sizeClassNames: SIZE.value,
     tableElementStyles,
     tableContentStyles,
   };

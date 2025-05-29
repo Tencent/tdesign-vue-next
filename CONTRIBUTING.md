@@ -33,7 +33,7 @@ pnpm install
 ### 3.本地运行项目
 
 ```bash
-pnpm run dev
+pnpm run dev:vue
 ```
 
 完成以上 3 个步骤，浏览器访问 <http://127.0.0.1:17000> 即可调试该框架的任何内容。
