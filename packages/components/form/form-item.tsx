@@ -86,7 +86,7 @@ export default defineComponent({
     });
 
     const requiredMarkPosition = computed(() => {
-      return form?.requiredMarkPosition ?? 'left';
+      return form?.requiredMarkPosition ?? globalConfig.value.requiredMarkPosition;
     });
 
     const hasLabel = computed(() => slots.label || props.label);
