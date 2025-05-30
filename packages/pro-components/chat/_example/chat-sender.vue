@@ -27,11 +27,12 @@ import { ref } from 'vue';
 const query = ref('');
 const loading = ref(false);
 // 模拟消息发送
-const inputEnter = function (inputValue: string) {
+const inputEnter = function () {
   if (loading.value) {
     return;
   }
-  if (!inputValue) return;
+  if (!query.value) return;
+  query.value = '';
   loading.value = true;
   setTimeout(() => {
     loading.value = false;

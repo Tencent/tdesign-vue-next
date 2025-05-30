@@ -5,6 +5,25 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.13.1 `2025-05-29` 
+
+### 🚀 Features
+- `GlobalConfig`: `FormConfig` 新增 `requiredMarkPosition`，用于全局配置`requiredMark`的位置 @Wesley-0808 ([#5510](https://github.com/Tencent/tdesign-vue-next/pull/5510))
+- `Progress`: 当 `theme=plump` 时，当进度条填色区域大小足够容下百分比内容时，内容自动将显示于进度条填色区域内，否则将显示于进度条填色区域的右侧，具体呈现请参考文档示例 @RSS1102 @Soya-xy ([#5460](https://github.com/Tencent/tdesign-vue-next/pull/5460))
+- `Select`: `valueDisplay` 参数 `value` 返回完整选项内容，用于使用其他参数进行展示定制的场景 @RSS1102 ([#5509](https://github.com/Tencent/tdesign-vue-next/pull/5509))
+
+### 🐞 Bug Fixes
+- `Dropdown`: 修复默认下拉菜单样式存在额外边距的展示问题 @QuentinHsu  ([common#2151](https://github.com/Tencent/tdesign-common/pull/2151)) 
+- `Progress`: 修复声明`label`参数后不能正常展示默认 `label` 的异常 @Soya-xy @l123wx  ([#5507](https://github.com/Tencent/tdesign-vue-next/pull/5507))  ([#5517](https://github.com/Tencent/tdesign-vue-next/pull/5517))
+- `Select`: 修复多选模式下，存在不可选的选项已在选中项中时，仍可通过标签按钮和键盘删除的缺陷 @Wesley-0808 ([#5488](https://github.com/Tencent/tdesign-vue-next/pull/5488))
+- `Transfer`: 优化动态加载数据场景下的组件报错问题 @Wesley-0808 ([#5475](https://github.com/Tencent/tdesign-vue-next/pull/5475))
+- `Message`: 修复插件调用场景下， `attach` 所在节点被清空后，新的 `message` 无法显示的问题 @MrElvin ([#5477](https://github.com/Tencent/tdesign-vue-next/pull/5477))
+
+### 🚧 Others
+- 全局处理同时存在`Boolean`和`Slot`方式的 API 在声明 API 后无法正常展示默认渲染节点的问题 @Soya-xy ([#5507](https://github.com/Tencent/tdesign-vue-next/pull/5507))
+- 优化插槽方法的判断兼容更多组件类型的使用 @uyarn ([#5521](https://github.com/Tencent/tdesign-vue-next/pull/5521))
+
+
 ## 🌈 1.13.0 `2025-05-14` 
 
 ### 🚀 Features

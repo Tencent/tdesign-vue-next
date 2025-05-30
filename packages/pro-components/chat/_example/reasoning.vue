@@ -21,7 +21,7 @@
             expandIconPlacement: 'right',
             onExpandChange: handleChange(value, { index }),
             collapsePanelProps: {
-              header: renderHeader(index === 0 && isStreamLoad, item),
+              header: renderHeader(index === 0 && isStreamLoad && !item.content, item),
               content: renderReasoningContent(item.reasoning),
             },
           }"
@@ -30,6 +30,7 @@
       </template>
       <template #footer>
         <t-chat-sender
+          v-model="inputValue"
           :stop-disabled="isStreamLoad"
           :textarea-props="{
             placeholder: '请输入消息...',
@@ -73,7 +74,7 @@ const fetchCancel = ref(null);
 const loading = ref(false);
 // 流式数据加载中
 const isStreamLoad = ref(false);
-
+const inputValue = ref('');
 const chatRef = ref(null);
 const isShowToBottom = ref(false);
 // 滚动到底部
@@ -185,16 +186,17 @@ const handleChatScroll = function ({ e }) {
   isShowToBottom.value = scrollTop < 0;
 };
 
-const inputEnter = function (inputValue) {
+const inputEnter = function () {
+  console.log('inputEnter', inputValue.value);
   if (isStreamLoad.value) {
     return;
   }
-  if (!inputValue) return;
+  if (!inputValue.value) return;
   const params = {
     avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
     name: '自己',
     datetime: new Date().toDateString(),
-    content: inputValue,
+    content: inputValue.value,
     role: 'user',
   };
   chatList.value.unshift(params);
@@ -208,7 +210,8 @@ const inputEnter = function (inputValue) {
     role: 'assistant',
   };
   chatList.value.unshift(params2);
-  handleData(inputValue);
+  handleData(inputValue.value);
+  inputValue.value = '';
 };
 const fetchSSE = async (fetchFn, options) => {
   const response = await fetchFn();

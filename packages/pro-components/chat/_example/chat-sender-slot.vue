@@ -1,6 +1,7 @@
 <template>
   <t-chat-sender
     ref="chatSenderRef"
+    v-model="inputValue"
     class="chat-sender"
     :stop-disabled="loading"
     :textarea-props="{
@@ -9,7 +10,8 @@
     @send="inputEnter"
   >
     <template #suffix>
-      <t-button theme="default" variant="text" size="large" class="btn"> 发送 </t-button>
+      <!-- 监听键盘回车发送事件需要在sender组件监听 -->
+      <t-button theme="default" variant="text" size="large" class="btn" @click="inputEnter"> 发送 </t-button>
     </template>
     <template #prefix>
       <div class="model-select">
@@ -35,6 +37,7 @@ import { SystemSumIcon } from 'tdesign-icons-vue-next';
 const loading = ref(false);
 const allowToolTip = ref(false);
 const chatSenderRef = ref(null);
+const inputValue = ref('');
 const selectOptions = [
   {
     label: '默认模型',
@@ -58,11 +61,12 @@ const checkClick = () => {
   isChecked.value = !isChecked.value;
 };
 // 模拟消息发送
-const inputEnter = function (inputValue: string) {
+const inputEnter = function () {
   if (loading.value) {
     return;
   }
-  if (!inputValue) return;
+  if (!inputValue.value) return;
+  inputValue.value = '';
   loading.value = true;
   setTimeout(() => {
     loading.value = false;
