@@ -1,8 +1,11 @@
+
 <!-- eslint-disable vue/attribute-hyphenation -->
+
 <template>
   <t-chatbot
     ref="chatRef"
     style="display: block; height: 80vh"
+
     :defaultMessages="mockData"
     :messageProps="messageProps"
     :senderProps="senderProps"
@@ -179,7 +182,7 @@ const mockData = [
       },
     ],
   },
-];
+]);
 
 const defaultChunkParser = (chunk) => {
   try {
@@ -237,15 +240,12 @@ function handleStructuredData(chunk) {
           text: rest.content || '',
         },
       };
-
-    case 'text': {
+    case 'text':
       return {
         type: 'markdown',
         data: rest?.msg || '',
       };
-    }
-
-    case 'image': {
+    case 'image':
       return {
         type: 'image',
         data: { ...JSON.parse(chunk.data.content) },
@@ -268,8 +268,6 @@ function handleStructuredData(chunk) {
           conditions: '多云',
         },
       };
-    }
-
     default:
       return {
         type: 'text',
