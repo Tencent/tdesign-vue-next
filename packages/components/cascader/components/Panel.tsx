@@ -12,6 +12,7 @@ export default defineComponent({
   name: 'TCascaderSubPanel',
   props: {
     option: CascaderProps.option,
+    options: CascaderProps.options,
     empty: CascaderProps.empty,
     trigger: CascaderProps.trigger,
     onChange: CascaderProps.onChange,
@@ -31,7 +32,7 @@ export default defineComponent({
 
     const handleExpand = (node: TreeNode, trigger: 'hover' | 'click') => {
       const { trigger: propsTrigger, cascaderContext } = props;
-      expendClickEffect(propsTrigger, trigger, node, cascaderContext);
+      expendClickEffect(propsTrigger, trigger, node, cascaderContext, props.options);
     };
 
     const renderItem = (node: TreeNode, index: number) => {
