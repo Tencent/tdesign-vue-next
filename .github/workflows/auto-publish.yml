@@ -41,7 +41,7 @@ jobs:
 
       - run: pnpm install
 
-      - run: pnpm site:preview
+      - run: pnpm -C packages/tdesign-vue-next/site run preview
 
       - uses: actions/github-script@v7
         id: domain
@@ -74,7 +74,7 @@ jobs:
 
       - run: pnpm install
 
-      - run: pnpm run site:chat-preview
+      - run: pnpm -C packages/tdesign-vue-next-chat/site run preview
 
       - uses: actions/github-script@v7
         id: domain
