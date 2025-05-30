@@ -1681,4 +1681,4 @@ docClass: timeline
 - `Datepicker`: 兼容传入空字符串 @honkinglin ([#2169](https://github.com/Tencent/tdesign-vue-next/pull/2169))
 
 ## 🌈 0.x `2021-05-19 - 2022-12-14`
-去 [GitHub](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/tdesign-vue-next/CHANGELOG-0.x.md) 查看 `0.x` 更新日志
+前往 [GitHub](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/tdesign-vue-next/CHANGELOG-0.x.md) 查看 `0.x` 更新日志
