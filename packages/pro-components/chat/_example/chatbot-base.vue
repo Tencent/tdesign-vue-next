@@ -1,34 +1,25 @@
+
+<!-- eslint-disable vue/attribute-hyphenation -->
+
 <template>
   <t-chatbot
     ref="chatRef"
     style="display: block; height: 80vh"
-    :messages="mockData"
-    :message-props="messageProps"
-    :sender-props="senderProps"
-    :chat-service-config="mockModels"
+
+    :defaultMessages="mockData"
+    :messageProps="messageProps"
+    :senderProps="senderProps"
+    :chatServiceConfig="mockModels"
   />
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 import MarkdownIt from 'markdown-it';
-import { findTargetElement } from '@tencent/tdesign-chatbot';
-// import type { Attachment } from '../../filecard';
-// import type { AIMessageContent, ChatMessage, SSEChunkData } from '../core/type';
+import { findTargetElement } from 'tdesign-web-components';
 
 // Mock data and functions from the original file
-const mockData = ref([
-  {
-    id: 's1123',
-    role: 'system',
-    status: 'complete',
-    content: [
-      {
-        type: 'text',
-        data: '系统通知：初始化完成，样式看看怎么搞',
-      },
-    ],
-  },
+const mockData = [
   {
     id: '223',
     role: 'user',
@@ -221,9 +212,29 @@ function handleStructuredData(chunk) {
         status: 'error',
         data: rest.content,
       };
+    case 'search':
+      return {
+        type: 'search',
+        status: (status) => (rest.content ? status : 'complete'),
+        data: {
+          title: rest.title,
+          references: rest.content,
+        },
+      };
     case 'think':
+      if (rest.step === 'web_search' && rest.docs.length > 0) {
+        return {
+          type: 'search',
+          status: 'complete',
+          data: {
+            title: `共找到${rest.docs.length}个相关内容`,
+            references: rest.docs,
+          },
+        };
+      }
       return {
         type: 'thinking',
+        status: () => (/耗时/.test(rest.title) ? 'complete' : undefined),
         data: {
           title: rest.title || '思考中...',
           text: rest.content || '',
@@ -239,13 +250,16 @@ function handleStructuredData(chunk) {
         type: 'image',
         data: { ...JSON.parse(chunk.data.content) },
       };
-    // case 'suggestion':
-    //   return {
-    //     type: 'suggestion',
-    //     // title: '是不是想提问：',
-    //     data: extractMarkdownLinks(rest.content),
-    //   };
-    case 'weather':
+    }
+
+    case 'suggestion':
+      return {
+        type: 'suggestion',
+        // title: '是不是想提问：',
+        data: extractMarkdownLinks(rest.content),
+      };
+
+    case 'weather': {
       return {
         type: 'weather',
         data: {
@@ -263,10 +277,10 @@ function handleStructuredData(chunk) {
 }
 
 const mockModels = ref({
-  endpoint: 'http://localhost:3000/sse/normal',
+  endpoint: 'https://1257786608-9i9j1kpa67.ap-guangzhou.tencentscf.com/sse/normal',
   stream: true,
-  onComplete: () => {
-    console.log('onComplete');
+  onComplete: (isAborted) => {
+    console.log('onComplete', isAborted);
   },
   onError: (err) => {
     console.log('onError', err);
@@ -282,6 +296,8 @@ const mockModels = ref({
       },
       body: JSON.stringify({
         session_id: 'session_123456789',
+        search: true,
+        think: true,
         question: [
           {
             id: messageID,
@@ -360,9 +376,7 @@ const messageProps = {
   // },
   assistant: {
     // avatar: 'https://tdesign.gtimg.com/site/chat-avatar.png',
-    // actions: (preset) => {
-    //   return preset.filter(({ name }) => name !== 'share');
-    // },
+    actions: ['replay', 'copy', 'good', 'bad'],
     onActions: {
       replay: (data, callback) => {
         console.log('自定义重新回复', data);
@@ -385,7 +399,8 @@ const messageProps = {
         expandable: true,
       },
       thinking: {
-        height: 100,
+        maxHeight: 100,
+        layout: 'border',
       },
       markdown: {
         pluginConfig: [resourceLinkPlugin],
