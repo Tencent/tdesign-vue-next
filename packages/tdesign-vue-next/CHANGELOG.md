@@ -1680,6 +1680,5 @@ docClass: timeline
 - `Slider`: 修复 `tooltip` 属性自定义 `content` 不生效问题 ([issue #2180](https://github.com/Tencent/tdesign-vue-next/issues/2180)) @ChrisLee0211 ([#2181](https://github.com/Tencent/tdesign-vue-next/pull/2181))
 - `Datepicker`: 兼容传入空字符串 @honkinglin ([#2169](https://github.com/Tencent/tdesign-vue-next/pull/2169))
 
-## 历史版本
-### 🌈 0.x `2021-05-19 - 2022-12-14`
-- 去 [GitHub](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/tdesign-vue-next/CHANGELOG-0.x.md) 查看 `0.x` 更新日志
+## 🌈 0.x `2021-05-19 - 2022-12-14`
+去 [GitHub](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/tdesign-vue-next/CHANGELOG-0.x.md) 查看 `0.x` 更新日志
