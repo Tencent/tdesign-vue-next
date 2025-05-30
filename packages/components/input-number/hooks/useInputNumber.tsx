@@ -177,16 +177,31 @@ export default function useInputNumber(props: TdInputNumberProps) {
     const val = formatThousandths(inputValue);
     if (!canInputNumber(val, props.largeNumber)) return;
 
-    userInput.value = val;
+    // 先处理小数位数限制，然后再更新显示值和实际值
+    let processedVal = val;
+    if (props.decimalPlaces !== undefined && val !== '' && val.includes('.')) {
+      const parts = val.split('.');
+      // 获取实际小数位数限制
+      const decimalLimit = typeof props.decimalPlaces === 'number' ? props.decimalPlaces : props.decimalPlaces.places;
+
+      if (parts[1] && parts[1].length > decimalLimit) {
+        // 直接截断为指定小数位数
+        processedVal = `${parts[0]}.${parts[1].substring(0, decimalLimit)}`;
+      }
+    }
+
+    // 更新显示值
+    userInput.value = processedVal;
 
     if (props.largeNumber) {
-      setTValue(val, { type: 'input', e });
+      setTValue(processedVal, { type: 'input', e });
       return;
     }
 
-    if (canSetValue(String(val), Number(tValue.value))) {
-      const newVal = val === '' ? undefined : Number(val);
-      setTValue(newVal, { type: 'input', e });
+    // 当处理后的值与当前值不同时，才更新
+    const newNumber = processedVal === '' ? undefined : Number(processedVal);
+    if (canSetValue(processedVal, Number(tValue.value))) {
+      setTValue(newNumber, { type: 'input', e });
     }
   };
 
