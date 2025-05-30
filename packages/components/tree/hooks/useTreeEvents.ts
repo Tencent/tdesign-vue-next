@@ -17,7 +17,7 @@ export default function useTreeEvents(state: TypeTreeState) {
 
     let shouldExpand = props.expandOnClickNode;
     let shouldActive = !props.disabled && !node.disabled && node.isActivable();
-
+    let isRightClick = false;
     // 给节点添加属性 trigger="expand,active", ignore="expand,active"
     // 来确认或者屏蔽动作
     ['trigger', 'ignore'].forEach((markName) => {
@@ -27,6 +27,7 @@ export default function useTreeEvents(state: TypeTreeState) {
         // 路径节点包含了 trigger="expand" ignore="expand"
         if (markName === 'trigger') {
           shouldExpand = true;
+          isRightClick = true;
         } else if (markName === 'ignore') {
           shouldExpand = false;
         }
@@ -40,9 +41,8 @@ export default function useTreeEvents(state: TypeTreeState) {
     });
 
     if (shouldExpand) {
-      // 展开节点 不应该同时触发Click事件
       toggleExpanded(node);
-      return;
+      if (isRightClick) return;
     }
 
     if (shouldActive) {
