@@ -17,7 +17,7 @@
     "tdesign-icons-view": "^0.3.6",
     "tdesign-site-components": "0.16.0-alpha.11",
     "tdesign-theme-generator": "^1.0.17",
-    "vue": "3.3.9",
+    "vue": "3.5.16",
     "vue-router": "^4.2.4",
     "workbox-precaching": "^6.6.0"
   },

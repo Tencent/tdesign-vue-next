@@ -21,7 +21,7 @@
     "glob": "^11.0.1",
     "vitest": "^3.0.9",
     "vitest-fetch-mock": "^0.1.0",
-    "vue": "3.3.9",
+    "vue": "3.5.16",
     "vue-router": "^4.2.4"
   }
 }
