@@ -12,7 +12,7 @@
     <img src="https://img.shields.io/npm/v/tdesign-vue-next.svg?sanitize=true" alt="Version">
   </a>
   <a href="https://www.npmjs.com/package/tdesign-vue-next">
-    <img src="https://img.shields.io/npm/dm/tdesign-vue-next" alt="Downloads">
+   <img src="https://img.shields.io/npm/dm/tdesign-vue-next" alt="Downloads">
   </a>
 </p>
 
