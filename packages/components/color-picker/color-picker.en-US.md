@@ -42,8 +42,6 @@ recent-colors-change | `(value: Array<string>)` | \-
 
 name | type | default | description | required
 -- | -- | -- | -- | --
-borderless | Boolean | false | \- | N
-clearable | Boolean | false | \- | N
 colorModes | Array | ["monochrome", "linear-gradient"] | Typescript：`Array<'monochrome' \| 'linear-gradient'>` | N
 disabled | Boolean | - | \- | N
 enableAlpha | Boolean | false | \- | N
@@ -52,7 +50,6 @@ format | String | RGB | When `enableAlpha` is true, `HEX8/RGBA/HSLA/HSVA` are va
 recentColors | Array | [] | used color recently。`v-model:recentColors` is supported。Typescript：`Array<string> \| boolean \| null` | N
 defaultRecentColors | Array | [] | used color recently。uncontrolled property。Typescript：`Array<string> \| boolean \| null` | N
 showPrimaryColorPreview | Boolean | true | \- | N
-size | String | medium | options: small/medium/large。Typescript：`SizeEnum`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 swatchColors | Array | - | swatch colors。Typescript：`Array<string> \| null \| undefined` | N
 value | String | - | color value。`v-model` and `v-model:value` is supported | N
 defaultValue | String | - | color value。uncontrolled property | N

@@ -8,10 +8,6 @@ import { TdColorPickerPanelProps } from './type';
 import { PropType } from 'vue';
 
 export default {
-  /** 无边框模式 */
-  borderless: Boolean,
-  /** 是否可清空 */
-  clearable: Boolean,
   /** 颜色模式选择。同时支持单色和渐变两种模式，可仅使用单色或者渐变其中一种模式，也可以同时使用。`monochrome` 表示单色，`linear-gradient` 表示渐变色 */
   colorModes: {
     type: Array as PropType<TdColorPickerPanelProps['colorModes']>,
@@ -49,15 +45,6 @@ export default {
   showPrimaryColorPreview: {
     type: Boolean,
     default: true,
-  },
-  /** 组件尺寸 */
-  size: {
-    type: String as PropType<TdColorPickerPanelProps['size']>,
-    default: 'medium' as TdColorPickerPanelProps['size'],
-    validator(val: TdColorPickerPanelProps['size']): boolean {
-      if (!val) return true;
-      return ['small', 'medium', 'large'].includes(val);
-    },
   },
   /** 系统预设的颜色样例，值为 `null` 或 `[]` 则不显示系统色，值为 `undefined` 会显示组件内置的系统默认色 */
   swatchColors: {
