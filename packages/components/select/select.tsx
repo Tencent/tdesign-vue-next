@@ -469,29 +469,30 @@ export default defineComponent({
       });
     };
 
-    const renderValueDisplay = () => {
+    const renderValueDisplay = (_h: any, { value }: { value: any }) => {
       const renderTag = () => {
         if (!props.multiple) {
           return undefined;
         }
         const currentSelectedOptions = getCurrentSelectedOptions(innerValue.value);
-        return currentSelectedOptions
-          .slice(0, props.minCollapsedNum ? props.minCollapsedNum : currentSelectedOptions.length)
-          .map((v: TdOptionProps, key: number) => {
+        return value
+          .slice(0, props.minCollapsedNum ? props.minCollapsedNum : innerValue.value.length)
+          .map((v: string, key: number) => {
+            const filterOption = optionsMap.value.get(v);
             return (
               <Tag
                 key={key}
-                closable={!v?.disabled && !props.disabled && !props.readonly}
+                closable={!filterOption?.disabled && !props.disabled && !props.readonly}
                 size={props.size}
                 {...props.tagProps}
                 onClose={({ e }: { e: MouseEvent }) => {
                   e.stopPropagation();
-                  const index = currentSelectedOptions.findIndex((item) => item.value === v.value);
+                  const index = currentSelectedOptions.findIndex((item) => item.value === filterOption.value);
                   props.tagProps?.onClose?.({ e });
                   removeTag(index);
                 }}
               >
-                {v?.label ?? v?.value}
+                {v}
               </Tag>
             );
           });
