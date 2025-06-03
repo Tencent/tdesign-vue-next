@@ -59,6 +59,7 @@ export default defineComponent({
                 ...(selectInputProps as TdSelectInputProps).popupProps,
               }}
               v-model={formatModel.value}
+              disabled={props.disabled}
               onChange={handleModeChange}
             >
               {getColorFormatOptions(props.enableAlpha).map((item) => (
