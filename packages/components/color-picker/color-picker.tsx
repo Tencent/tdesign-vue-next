@@ -36,11 +36,13 @@ export default defineComponent({
 
       return (
         <ColorPanel
-          {...props}
+          {...{
+            ...props,
+            onChange: setInnerValue,
+            onRecentColorsChange: setInnerRecentColors,
+          }}
           value={innerValue.value}
           recentColors={innerRecentColors.value}
-          onChange={setInnerValue}
-          onRecentColorsChange={setInnerRecentColors}
         />
       );
     };

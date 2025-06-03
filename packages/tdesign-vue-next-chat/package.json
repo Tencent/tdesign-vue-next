@@ -3,6 +3,11 @@
   "version": "0.3.0",
   "title": "@tdesign-vue-next/chat",
   "description": "AI Chat Component for Vue 3",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tencent/tdesign-vue-next.git",
+    "directory": "packages/tdesign-vue-next-chat"
+  },
   "keywords": [
     "vue",
     "vue3",
@@ -26,7 +31,7 @@
   "author": "tdesign",
   "license": "MIT",
   "dependencies": {
-    "@babel/runtime": "~7.22.6",
+    "@babel/runtime": "~7.27.4",
     "clipboard": "^2.0.11",
     "highlight.js": "^11.9.0",
     "lodash-es": "^4.17.21",
