@@ -77,13 +77,17 @@ export default defineComponent({
           return null;
         }
 
+        const classes = computed(() => {
+          return [`${baseClassName.value}__icon`, { [`${prefixClassName.value}-is-disabled`]: props.disabled }];
+        });
+
         return (
-          <div class={[`${swatchesClass}--actions`, { [`${prefixClassName.value}-is-disabled`]: props.disabled }]}>
-            <span role="button" class={`${baseClassName.value}__icon`} onClick={() => props.handleAddColor()}>
+          <div class={`${swatchesClass}--actions`}>
+            <span role="button" class={classes.value} onClick={() => props.handleAddColor()}>
               <AddIcon />
             </span>
             {props.colors.length > 0 ? (
-              <span role="button" class={`${baseClassName.value}__icon`} onClick={() => handleRemoveColor()}>
+              <span role="button" class={classes.value} onClick={() => handleRemoveColor()}>
                 <DeleteIcon />
               </span>
             ) : null}
