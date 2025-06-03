@@ -177,10 +177,6 @@ export interface TdColorPickerPanelProps {
    */
   onChange?: (value: string, context: { color: ColorObject; trigger: ColorPickerChangeTrigger }) => void;
   /**
-   * 清空按钮点击时触发
-   */
-  onClear?: (context: { e: MouseEvent }) => void;
-  /**
    * 调色板控制器的值变化时触发，`context.color` 指调色板控制器的值
    */
   onPaletteBarChange?: (context: { color: ColorObject }) => void;
