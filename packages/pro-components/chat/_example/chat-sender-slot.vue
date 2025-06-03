@@ -2,8 +2,8 @@
   <t-chat-sender
     ref="chatSenderRef"
     v-model="inputValue"
+    v-model:stop-disabled="loading"
     class="chat-sender"
-    :stop-disabled="loading"
     :textarea-props="{
       placeholder: '请输入消息...',
     }"

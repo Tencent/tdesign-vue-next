@@ -320,6 +320,10 @@ export interface TdChatSenderProps {
    * 点击消息终止的回调方法
    */
   onStop?: (value: string, context: { e: MouseEvent }) => void;
+    /**
+   * 加载中状态变化
+   */
+  onLoadingChange?: (value: boolean) => void;
 }
 
 export interface TdChatReasoningProps {

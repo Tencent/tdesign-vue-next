@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed, toRefs, reactive, Fragment } from 'vue';
+import { defineComponent, ref, computed, toRefs, reactive, Fragment, watch } from 'vue';
 import { SendFilledIcon, FileAttachmentIcon, ImageIcon } from 'tdesign-icons-vue-next';
 import { usePrefixClass, useConfig, useTNodeJSX, useContent, useVModel } from '@tdesign/hooks';
 import props from './chat-sender-props';
@@ -9,7 +9,7 @@ import type { TdChatSenderProps, UploadActionType, UploadActionConfig } from './
 export default defineComponent({
   name: 'TChatSender',
   props,
-  emits: ['send', 'stop', 'update:modelValue', 'blur', 'focus', 'fileSelect'], // declare the custom events here
+  emits: ['send', 'stop', 'update:modelValue', 'blur', 'focus', 'fileSelect', 'update:stopDisabled'], // declare the custom events here
   setup(props, { emit }) {
     let shiftDownFlag = false;
     let isComposition = false;
@@ -17,12 +17,19 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('chat');
     const { globalConfig } = useConfig('chat');
     const { uploadImageText, uploadAttachmentText } = globalConfig.value;
-    const { value, modelValue } = toRefs(props);
+    const { value, modelValue, stopDisabled, modelValueStopDisabled } = toRefs(props);
     const [textValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
 
     const focusFlag = ref(false);
     const loading = ref(false);
-    const showStopBtn = computed(() => props.stopDisabled && loading.value);
+    const [innerStopDisabled, setInnerStopDisabledValue] = useVModel(
+      stopDisabled,
+      modelValueStopDisabled,
+      props.defaultStopDisabled,
+      props.onLoadingChange,
+      'stopDisabled',
+    );
+    const showStopBtn = computed(() => innerStopDisabled.value);
     const disabled = computed(() => props.disabled || false);
     const uploadImageRef = ref(null);
     const uploadFileRef = ref(null);
@@ -32,17 +39,26 @@ export default defineComponent({
     const sendClick = (e: MouseEvent | KeyboardEvent) => {
       if (textValue.value && !disabled.value) {
         emit('send', textValue.value, { e });
-        loading.value = true;
+        // loading.value = true;
       }
     };
     // 点击了停止按钮
     const handleStop = (e: MouseEvent) => {
+      console.log('handleStop');
       e.stopPropagation(); // 阻止事件冒泡
-      loading.value = false;
+      // loading.value = false;
+      // innerStopDisabled.value = false;
+      // setInnerStopDisabledValue(false);
+      setInnerStopDisabledValue(false);
       emit('stop', textValue.value, {
         e,
       });
     };
+    // Watch for changes in collapsed
+    watch(stopDisabled, (newValue, oldValue) => {
+      console.log('stopDisabled changed from', oldValue, 'to', newValue);
+      // Add your custom logic here
+    });
     const keydownFn = (value: string, context: { e: KeyboardEvent }) => {
       const {
         e: { key },
