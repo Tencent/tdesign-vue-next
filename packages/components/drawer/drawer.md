@@ -63,6 +63,7 @@
 如果您不确定问题是否是由该规则引起的，或者确定该规则不是问题的根本原因，请在 `GitHub` 上提出一个 `issue`，并提供可以重现问题的代码。这将有助于我们更好地了解您的问题并提供更好的帮助。
 
 ## API
+
 ### Drawer Props
 
 名称 | 类型 | 默认值 | 描述 | 必传
@@ -73,7 +74,7 @@ cancelBtn | String / Object / Slot / Function | - | 取消按钮，可自定义�
 closeBtn | String / Boolean / Slot / Function | - | 关闭按钮，可以自定义。值为 true 显示默认关闭按钮，值为 false 不显示关闭按钮。值类型为 string 则直接显示值，如：“关闭”。值类型为 TNode，则表示呈现自定义按钮示例。TS 类型：`string \| boolean \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 closeOnEscKeydown | Boolean | true | 按下 ESC 时是否触发抽屉关闭事件 | N
 closeOnOverlayClick | Boolean | true | 点击蒙层时是否触发抽屉关闭事件 | N
-confirmBtn | String / Object / Slot / Function | - | 确认按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制确认事件。TS 类型：`FooterButton` `type FooterButton = string \| ButtonProps \| TNode`，[Button API Documents](./button?tab=api)。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/drawer/type.ts) | N
+confirmBtn | String / Object / Slot / Function | - | 确认按钮，可自定义。值为 null 则不显示确认按钮。类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制确认事件。TS 类型：`FooterButton` `type FooterButton = string \| ButtonProps \| TNode \| null `，[Button API Documents](./button?tab=api)。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/drawer/type.ts) | N
 default | String / Slot / Function | - | 抽屉内容，同 body。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 destroyOnClose | Boolean | false | 抽屉关闭时是否销毁节点 | N
 drawerClassName | String | - | 抽屉元素类名。 | N
