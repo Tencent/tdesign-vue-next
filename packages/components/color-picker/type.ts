@@ -113,6 +113,79 @@ export interface TdColorPickerProps {
   onRecentColorsChange?: (value: Array<string>) => void;
 }
 
+export interface TdColorPickerPanelProps {
+  /**
+   * 颜色模式选择。同时支持单色和渐变两种模式，可仅使用单色或者渐变其中一种模式，也可以同时使用。`monochrome` 表示单色，`linear-gradient` 表示渐变色
+   * @default ["monochrome", "linear-gradient"]
+   */
+  colorModes?: Array<'monochrome' | 'linear-gradient'>;
+  /**
+   * 是否禁用组件
+   */
+  disabled?: boolean;
+  /**
+   * 是否开启透明通道
+   * @default false
+   */
+  enableAlpha?: boolean;
+  /**
+   * 是否允许开启通过点击渐变轴增加渐变梯度，默认开启，关闭时只会存在起始和结束两个颜色
+   * @default true
+   */
+  enableMultipleGradient?: boolean;
+  /**
+   * 格式化色值。`enableAlpha` 为真时，`HEX8/RGBA/HSLA/HSVA` 有效
+   * @default RGB
+   */
+  format?: 'HEX' | 'HEX8' | 'RGB' | 'RGBA' | 'HSL' | 'HSLA' | 'HSV' | 'HSVA' | 'CMYK' | 'CSS';
+  /**
+   * 最近使用的颜色。值为 [] 表示以组件内部的“最近使用颜色”为准，值长度大于 0 则以该值为准显示“最近使用颜色”。值为 false 或 null 则完全不显示“最近使用颜色”
+   * @default []
+   */
+  recentColors?: Array<string> | boolean | null;
+  /**
+   * 最近使用的颜色。值为 [] 表示以组件内部的“最近使用颜色”为准，值长度大于 0 则以该值为准显示“最近使用颜色”。值为 false 或 null 则完全不显示“最近使用颜色”，非受控属性
+   * @default []
+   */
+  defaultRecentColors?: Array<string> | boolean | null;
+  /**
+   * 是否展示颜色选择条右侧的颜色预览区域
+   * @default true
+   */
+  showPrimaryColorPreview?: boolean;
+  /**
+   * 系统预设的颜色样例，值为 `null` 或 `[]` 则不显示系统色，值为 `undefined` 会显示组件内置的系统默认色
+   */
+  swatchColors?: Array<string> | null | undefined;
+  /**
+   * 色值
+   * @default ''
+   */
+  value?: string;
+  /**
+   * 色值，非受控属性
+   * @default ''
+   */
+  defaultValue?: string;
+  /**
+   * 色值
+   * @default ''
+   */
+  modelValue?: string;
+  /**
+   * 选中的色值发生变化时触发，第一个参数 `value` 表示新色值，`context.color` 表示当前调色板控制器的色值，`context.trigger` 表示触发颜色变化的来源
+   */
+  onChange?: (value: string, context: { color: ColorObject; trigger: ColorPickerChangeTrigger }) => void;
+  /**
+   * 调色板控制器的值变化时触发，`context.color` 指调色板控制器的值
+   */
+  onPaletteBarChange?: (context: { color: ColorObject }) => void;
+  /**
+   * 最近使用颜色发生变化时触发
+   */
+  onRecentColorsChange?: (value: Array<string>) => void;
+}
+
 export type ColorPickerChangeTrigger =
   | 'palette-saturation-brightness'
   | 'palette-saturation'

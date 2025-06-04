@@ -1,5 +1,17 @@
 [
   {
+    "name": "borderless",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "clearable",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
     "name": "disabled",
     "type": "Boolean",
     "defaultValue": false,
@@ -10,6 +22,31 @@
     "type": "Boolean",
     "defaultValue": false,
     "options": []
+  },
+  {
+    "name": "enableMultipleGradient",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "size",
+    "type": "enum",
+    "defaultValue": "medium",
+    "options": [
+      {
+        "label": "small",
+        "value": "small"
+      },
+      {
+        "label": "medium",
+        "value": "medium"
+      },
+      {
+        "label": "large",
+        "value": "large"
+      }
+    ]
   },
   {
     "name": "showPrimaryColorPreview",

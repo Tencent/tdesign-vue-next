@@ -11,7 +11,7 @@ import {
   TD_COLOR_USED_COLORS_MAX_SIZE,
 } from '@tdesign/common-js/color-picker/index';
 import { useConfig, useVModel, useDefaultValue, useCommonClassName } from '@tdesign/hooks';
-import props from '../../props';
+import props from '../../color-picker-panel-props';
 import PanelHeader from './header';
 import LinearGradient from './linear-gradient';
 import SaturationPanel from './saturation';
