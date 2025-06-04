@@ -475,23 +475,30 @@ export default defineComponent({
           return undefined;
         }
         const currentSelectedOptions = getCurrentSelectedOptions(innerValue.value);
-        return currentSelectedOptions
-          .slice(0, props.minCollapsedNum ? props.minCollapsedNum : currentSelectedOptions.length)
-          .map((v: TdOptionProps, key: number) => {
+        return innerValue.value
+          .slice(0, props.minCollapsedNum ? props.minCollapsedNum : innerValue.value.length)
+          .map?.((v: string, key: number) => {
+            let tagIndex: number;
+            const option = currentSelectedOptions.find((item, index) => {
+              if (item.value === v) {
+                tagIndex = index;
+                return true;
+              }
+            });
+
             return (
               <Tag
                 key={key}
-                closable={!v?.disabled && !props.disabled && !props.readonly}
+                closable={!option?.disabled && !props.disabled && !props.readonly}
                 size={props.size}
                 {...props.tagProps}
                 onClose={({ e }: { e: MouseEvent }) => {
                   e.stopPropagation();
-                  const index = currentSelectedOptions.findIndex((item) => item.value === v.value);
                   props.tagProps?.onClose?.({ e });
-                  removeTag(index);
+                  removeTag(tagIndex);
                 }}
               >
-                {v?.label ?? v?.value}
+                {option ? option.label ?? option?.value : v}
               </Tag>
             );
           });

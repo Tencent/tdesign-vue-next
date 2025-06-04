@@ -148,6 +148,10 @@ export function useInput(props: ExtendsTdInputProps, expose: (exposed: Record<st
             : props.format(innerValue.value);
       }
       focused.value = false;
+      if (isComposition.value) {
+        isComposition.value = false;
+        compositionValue.value = '';
+      }
       props.onBlur?.(innerValue.value, { e });
       formItem?.handleBlur();
     } else {

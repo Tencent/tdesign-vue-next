@@ -5,6 +5,19 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.13.2 `2025-06-04` 
+
+### 🐞 Bug Fixes
+- `ColorPicker`: 修复 `onChange` 和  `onRecentChange`  回调失效的问题 @RylanBot ([#5545](https://github.com/Tencent/tdesign-vue-next/pull/5545))
+- `Input`: 修复输入框在 `composition` 方法中主动失去焦点后，丢失响应式的问题 @QuentinHsu ([#5538](https://github.com/Tencent/tdesign-vue-next/pull/5538))
+- `InputNumber`: 修复开启`decimalPlaces`后输入因进位导致展示差异的问题 @QuentinHsu ([#5522](https://github.com/Tencent/tdesign-vue-next/pull/5522))
+- `Select`: 修复 `1.13.1` 版本中多选场景不存在选项中的值不能正常展示的问题 @RSS1102 ([#5553](https://github.com/Tencent/tdesign-vue-next/pull/5553))
+- `Table`: 优化关闭列配置弹窗时，选择列数据与所展示列数据不一致的问题 @RSS1102 ([#5546](https://github.com/Tencent/tdesign-vue-next/pull/5546))
+
+### 🚧 Others
+- `Drawer`: 修复 `cancelBtn` 和 `confirmBtn` 的类型缺失`null` 类型声明的问题 @RSS1102 ([#5555](https://github.com/Tencent/tdesign-vue-next/pull/5555))
+
+
 ## 🌈 1.13.1 `2025-05-29` 
 
 ### 🚀 Features

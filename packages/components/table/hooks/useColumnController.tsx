@@ -218,6 +218,7 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
         }
       },
       onClose: () => {
+        columnCheckboxKeys.value = tDisplayColumns.value;
         // 此处逻辑不要随意改动，涉及到 内置列配置按钮 和 不包含列配置按钮等场景
         if (columnControllerVisible.value === undefined) {
           dialogInstance.value.hide();
