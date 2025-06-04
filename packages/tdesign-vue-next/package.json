@@ -1,6 +1,6 @@
 {
   "name": "tdesign-vue-next",
-  "version": "1.13.0",
+  "version": "1.13.1",
   "title": "tdesign-vue-next",
   "description": "TDesign Component for vue-next",
   "keywords": [
@@ -40,7 +40,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Tencent/tdesign-vue-next.git"
+    "url": "git+https://github.com/Tencent/tdesign-vue-next.git",
+    "directory": "packages/tdesign-vue-next"
   },
   "homepage": "https://github.com/Tencent/tdesign-vue-next/blob/develop/README.md",
   "bugs": {

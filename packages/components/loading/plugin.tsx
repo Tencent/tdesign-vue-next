@@ -3,7 +3,7 @@ import { merge } from 'lodash-es';
 import LoadingComponent from './loading';
 import { getAttach, removeClass, addClass } from '../utils/dom';
 import { TdLoadingProps, LoadingInstance, LoadingMethod } from './type';
-import { usePrefixClass } from '../hooks/useConfig';
+import { usePrefixClass } from '@tdesign/hooks';
 import { AppContext } from '@src/common';
 
 let fullScreenLoadingInstance: LoadingInstance = null;

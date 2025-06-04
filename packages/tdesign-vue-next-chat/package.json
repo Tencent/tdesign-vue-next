@@ -3,6 +3,11 @@
   "version": "0.3.0",
   "title": "@tdesign-vue-next/chat",
   "description": "AI Chat Component for Vue 3",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tencent/tdesign-vue-next.git",
+    "directory": "packages/tdesign-vue-next-chat"
+  },
   "keywords": [
     "vue",
     "vue3",
@@ -10,35 +15,23 @@
     "ai-chat",
     "typescript"
   ],
-  "main": "cjs/index-lib.js",
   "module": "es/index.mjs",
   "typings": "es/index.d.ts",
-  "unpkg": "dist/tdesign-vue-chat.min.js",
-  "jsdelivr": "dist/tdesign-vue-chat.min.js",
   "files": [
     "es",
-    "esm",
-    "cjs",
-    "lib",
-    "dist",
     "LICENSE",
     "README.md",
-    "CHANGELOG.md",
-    "global.d.ts",
-    "helper"
+    "CHANGELOG.md"
   ],
   "sideEffects": [
     "*.vue",
-    "dist/*",
     "site/*",
-    "examples/*",
-    "es/**/style/**",
-    "esm/**/style/**"
+    "es/**/style/**"
   ],
   "author": "tdesign",
   "license": "MIT",
   "dependencies": {
-    "@babel/runtime": "~7.22.6",
+    "@babel/runtime": "~7.27.4",
     "clipboard": "^2.0.11",
     "highlight.js": "^11.9.0",
     "lodash-es": "^4.17.21",

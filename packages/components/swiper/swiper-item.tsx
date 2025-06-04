@@ -1,6 +1,6 @@
 import { defineComponent, computed } from 'vue';
 import props from './props';
-import { usePrefixClass } from '../hooks/useConfig';
+import { usePrefixClass } from '@tdesign/hooks';
 
 const swiperItemProps = {
   index: {

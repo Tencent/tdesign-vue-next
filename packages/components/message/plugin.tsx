@@ -40,8 +40,7 @@ import {
   MessageCloseAllMethod,
 } from './type';
 import { AttachNodeReturnValue } from '../common';
-import { isObject } from 'lodash-es';
-import { isString } from 'lodash-es';
+import { isObject, isString } from 'lodash-es';
 
 // 存储不同 attach 和 不同 placement 消息列表实例
 const instanceMap: Map<AttachNodeReturnValue, Record<string, VNode>> = new Map();
@@ -67,7 +66,7 @@ const MessageFunction = (props: MessageOptions, context?: AppContext): Promise<M
   }
   const p = instanceMap.get(attachDom)[placement];
   let mgKey: number;
-  if (!p) {
+  if (!p || !attachDom.contains(p.$el)) {
     const wrapper = document.createElement('div');
 
     const instance = createVNode(MessageList, {

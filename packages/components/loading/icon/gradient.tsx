@@ -1,5 +1,5 @@
 import { defineComponent, onMounted, nextTick, ref } from 'vue';
-import { usePrefixClass } from '../../hooks/useConfig';
+import { usePrefixClass } from '@tdesign/hooks';
 import circleAdapter from '@tdesign/common-js/loading/circle-adapter';
 
 export default defineComponent({

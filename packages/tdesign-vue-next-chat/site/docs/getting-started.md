@@ -24,6 +24,7 @@ npm i @tdesign-vue-next/chat
 import { createApp } from 'vue';
 import App from './app.vue';
 import TDesignChat from '@tdesign-vue-next/chat'; // 引入chat组件
+import '@tdesign-vue-next/chat/es/style/index.css'; // 引入chat组件的少量全局样式变量
 
 const app = createApp(App);
 app.use(TDesignChat);

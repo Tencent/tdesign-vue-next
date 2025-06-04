@@ -76,8 +76,8 @@ Contributing is welcome. Read [guidelines for contributing](https://github.com/T
 
 ## Contributors
 
-<a href="https://github.com/tencent/tdesign-vue-next/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=tencent/tdesign-vue-next" />
+<a href="https://openomy.app/github/tencent/tdesign-vue-next" target="_blank" style="display: block; width: 100%;" align="center"> 
+  <img src="https://openomy.app/svg?repo=tencent/tdesign-vue-next&chart=bubble&latestMonth=12" target="_blank" alt="Contribution Leaderboard" style="display: block; width: 100%;" />
 </a>
 
 # Feedback
