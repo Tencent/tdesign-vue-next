@@ -1,3 +1,4 @@
+import { animation } from './../../../dist/types/packages/components/statistic/type.d';
 /* eslint-disable */
 
 /**
@@ -53,5 +54,9 @@ export default {
   defaultCollapsed: {
     type: Boolean as PropType<TdChatReasoningProps['collapsed']>,
     default: false,
+  },
+  layout: {
+    type: String as PropType<TdChatReasoningProps['layout']>,
+    default: 'block',
   },
 };
