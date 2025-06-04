@@ -177,8 +177,7 @@ export default defineComponent({
       if (props.disabled || !props.enableMultipleGradient) {
         return;
       }
-      let left = e.clientX - sliderRect.left;
-      left = Math.max(0, Math.min(sliderRect.width, left));
+      const left = e.offsetX;
       const percentLeft = (left / sliderRect.width) * 100;
       const newPoint = genGradientPoint(percentLeft, props.color.rgba);
       colors.value.push(newPoint);
