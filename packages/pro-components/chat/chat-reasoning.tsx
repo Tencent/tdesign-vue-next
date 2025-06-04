@@ -2,7 +2,6 @@ import { defineComponent, computed, provide, inject, ComputedRef, toRefs } from 
 import { usePrefixClass, useTNodeJSX, useVModel } from '@tdesign/hooks';
 import props from './chat-reasoning-props';
 import { Collapse, CollapsePanel } from 'tdesign-vue-next';
-import { CheckCircleIcon } from 'tdesign-icons-vue-next';
 
 export default defineComponent({
   name: 'TChatReasoning',
@@ -23,7 +22,9 @@ export default defineComponent({
       props.onExpandChange,
       'collapsed',
     );
-    const layoutClass = props.layout === 'border' ? `${COMPONENT_NAME.value}__detail-layout-border` : ``;
+    const layoutClass = computed(() =>
+      props.layout === 'border' ? `${COMPONENT_NAME.value}__detail-reasoning-border` : '',
+    );
 
     const onChangeFn = (value: Array<number>) => {
       setInnerCollapsed(value.length === 0); // Update collapsed state based on value
@@ -33,7 +34,7 @@ export default defineComponent({
       <div class={`${COMPONENT_NAME.value}__detail-reasoning`}>
         <Collapse
           borderless={true}
-          class={`${layoutClass}`}
+          class={`${layoutClass.value}`}
           expandIconPlacement={props.expandIconPlacement}
           onChange={onChangeFn}
           value={innerCollapsed.value ? [] : [0]}

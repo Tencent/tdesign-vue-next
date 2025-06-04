@@ -13,8 +13,7 @@ expandIcon | Slot / Function | - | 当前折叠面板展开图标。优先级低
 expandIconPlacement | String | right | 展开图标位置，可选项：left/right。可选项：left/right | N
 header | Slot / Function | - | 折叠面板头内容。优先级低于collapsePanelProps.header。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 headerRightContent | Slot / Function | - | 折叠面板尾内容。优先级低于collapsePanelProps.headerRightContent。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
-layout | String | border | 布局方式。可选项： `border`/`block` | N
-animation | String | moving |思考内容加载过程的动画效果。 可选项： `moving`/`gradient`/`circle` | N
+layout | String | block | 布局方式。可选项： `border`/`block` | N
 onExpandChange | Function | — | TS 类型：`(value: CollapseValue) => void`<br/>展开图标点击事件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/pro-components/chat/type.ts)。<br/>`import { CollapseValue } from '@Collapse'`<br/> | N
 
 ### ChatReasoning Events

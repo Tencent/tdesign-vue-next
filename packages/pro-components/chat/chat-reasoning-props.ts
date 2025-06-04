@@ -57,10 +57,6 @@ export default {
   },
   layout: {
     type: String as PropType<TdChatReasoningProps['layout']>,
-    default: 'border'
+    default: 'block',
   },
-  animation: {
-     type: String as PropType<TdChatReasoningProps['animation']>,
-     default: 'moving'
-  }
 };
