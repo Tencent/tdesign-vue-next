@@ -182,7 +182,7 @@ export interface DrawerInstance {
   update?: (props: DrawerOptions) => void;
 }
 
-export type FooterButton = string | ButtonProps | TNode;
+export type FooterButton = string | ButtonProps | TNode | null;
 
 export interface SizeDragLimit {
   max: number;
