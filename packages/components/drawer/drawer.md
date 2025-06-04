@@ -63,6 +63,7 @@
 如果您不确定问题是否是由该规则引起的，或者确定该规则不是问题的根本原因，请在 `GitHub` 上提出一个 `issue`，并提供可以重现问题的代码。这将有助于我们更好地了解您的问题并提供更好的帮助。
 
 ## API
+
 ### Drawer Props
 
 名称 | 类型 | 默认值 | 描述 | 必传
@@ -138,3 +139,4 @@ update | `(props: DrawerOptions)` | \- | 更新抽屉内容
 参数名称 | 参数类型 | 参数默认值 | 参数描述
 -- | -- | -- | --
 options | \- | - | TS 类型：`DrawerOptions`
+context | \- | - | TS 类型：`AppContext`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)
