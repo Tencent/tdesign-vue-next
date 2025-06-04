@@ -6,13 +6,13 @@
         name: 'excel-file.xlsx',
         size: 111111,
       }"
-      @remove="handelRemove"
+      @remove="handleRemove"
     />
   </t-space>
 </template>
 
 <script setup>
-const handelRemove = () => {
+const handleRemove = () => {
   console.log('remove');
 };
 </script>

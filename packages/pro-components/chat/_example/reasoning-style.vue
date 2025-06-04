@@ -86,7 +86,7 @@ const renderHeader = (status) => {
  */
 const renderReasoningContent = (reasoningContent) => <t-chat-content content={reasoningContent} role="assistant" />;
 
-const handelLayoutChange = (value) => {
+const onLayoutChange = (value) => {
   resetTypingEffect();
   layout.value = value;
 };
@@ -101,7 +101,7 @@ const handleChange = (value) => {
     <t-space>
       <t-space direction="vertical">
         <h5>layout：</h5>
-        <t-radio-group :default-value="layout" @change="handelLayoutChange">
+        <t-radio-group :default-value="layout" @change="onLayoutChange">
           <t-radio value="border">border</t-radio>
           <t-radio value="block">block</t-radio>
         </t-radio-group>
