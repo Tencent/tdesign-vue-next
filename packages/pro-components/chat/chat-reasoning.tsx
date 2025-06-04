@@ -22,6 +22,9 @@ export default defineComponent({
       props.onExpandChange,
       'collapsed',
     );
+    const layoutClass = computed(() =>
+      props.layout === 'border' ? `${COMPONENT_NAME.value}__detail-reasoning-border` : '',
+    );
 
     const onChangeFn = (value: Array<number>) => {
       setInnerCollapsed(value.length === 0); // Update collapsed state based on value
@@ -31,6 +34,7 @@ export default defineComponent({
       <div class={`${COMPONENT_NAME.value}__detail-reasoning`}>
         <Collapse
           borderless={true}
+          class={`${layoutClass.value}`}
           expandIconPlacement={props.expandIconPlacement}
           onChange={onChangeFn}
           value={innerCollapsed.value ? [] : [0]}

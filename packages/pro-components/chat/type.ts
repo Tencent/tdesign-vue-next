@@ -353,6 +353,14 @@ export interface TdChatReasoningProps {
    * 是否折叠
    */
   collapsed?: boolean;
+  /**
+   * 布局方式
+   */
+   layout?: 'border' | 'block';
+   /**
+    * 加载过程动画
+    */
+   animation?: 'moving' | 'gradient' | 'circle';
 }
 
 export interface TdChatItemMeta {
