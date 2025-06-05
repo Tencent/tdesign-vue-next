@@ -41,7 +41,13 @@ export default defineComponent({
       return (
         <div class={`${baseClassName.value}__head`}>
           <div class={`${baseClassName.value}__mode`}>
-            <TRadioGroup variant="default-filled" size="small" v-model={modeValue.value} onChange={handleModeChange}>
+            <TRadioGroup
+              variant="default-filled"
+              size="small"
+              v-model={modeValue.value}
+              disabled={props.disabled}
+              onChange={handleModeChange}
+            >
               {Object.keys(COLOR_MODES).map((key) => (
                 <TRadioButton key={key} value={key}>
                   {Reflect.get(globalConfig.value, COLOR_MODES[key as keyof typeof COLOR_MODES])}

@@ -3,7 +3,7 @@ import { DeleteIcon as TdDeleteIcon, AddIcon as TdAddIcon } from 'tdesign-icons-
 
 import { Color } from '../../utils';
 import { useBaseClassName } from '../../hooks';
-import { useGlobalIcon, useCommonClassName } from '@tdesign/hooks';
+import { useGlobalIcon, useCommonClassName, usePrefixClass } from '@tdesign/hooks';
 
 import baseProps from './base-props';
 
@@ -38,6 +38,7 @@ export default defineComponent({
   },
   setup(props) {
     const baseClassName = useBaseClassName();
+    const prefixClassName = usePrefixClass();
     const { DeleteIcon, AddIcon } = useGlobalIcon({ DeleteIcon: TdDeleteIcon, AddIcon: TdAddIcon });
     const { STATUS } = useCommonClassName();
     const statusClassNames = STATUS.value;
@@ -76,13 +77,17 @@ export default defineComponent({
           return null;
         }
 
+        const classes = computed(() => {
+          return [`${baseClassName.value}__icon`, { [`${prefixClassName.value}-is-disabled`]: props.disabled }];
+        });
+
         return (
           <div class={`${swatchesClass}--actions`}>
-            <span role="button" class={`${baseClassName.value}__icon`} onClick={() => props.handleAddColor()}>
+            <span role="button" class={classes.value} onClick={() => props.handleAddColor()}>
               <AddIcon />
             </span>
             {props.colors.length > 0 ? (
-              <span role="button" class={`${baseClassName.value}__icon`} onClick={() => handleRemoveColor()}>
+              <span role="button" class={classes.value} onClick={() => handleRemoveColor()}>
                 <DeleteIcon />
               </span>
             ) : null}
