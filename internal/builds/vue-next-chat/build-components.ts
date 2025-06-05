@@ -1,6 +1,5 @@
 import { glob } from 'glob';
-import { readFile, writeFile, remove } from 'fs-extra';
-
+import { readFile, writeFile, remove, mkdir } from 'fs-extra';
 import { rollup, Plugin } from 'rollup';
 import url from '@rollup/plugin-url';
 import copy from 'rollup-plugin-copy';
@@ -205,35 +204,7 @@ export const buildEsm = async () => {
   const bundle = await rollup({
     input: [...inputList, `!${joinProComponentsChatRoot('index-lib.ts')}`],
     external: [...externalDeps, ...externalPeerDeps, /@tdesign\/common-style/],
-    plugins: [
-      multiInput({ relative: joinProComponentsChatRoot() }),
-      copy({
-        targets: [
-          {
-            src: [
-              joinCommonRoot('style/web/*.less'),
-              joinCommonRoot('style/web/theme/*.less'),
-              joinCommonRoot('style/web/mixins/*.less'),
-              joinCommonRoot('style/web/components/chat/*.less'),
-            ],
-            dest: joinTdesignVueNextChatRoot('esm/common'),
-            rename: (_, __, fullPath) => `${fullPath.replace(joinCommonRoot(), '')}`,
-          },
-        ],
-        verbose: true,
-      }),
-      copy({
-        targets: [
-          {
-            src: joinProComponentsChatRoot('style/index.js'),
-            dest: joinTdesignVueNextChatRoot('esm'),
-            rename: (_, __, fullPath) => `${fullPath.replace(joinProComponentsChatRoot(), '')}`,
-          },
-        ],
-        verbose: true,
-      }),
-      ...getPlugins({ cssBuildType: 'source' }),
-    ],
+    plugins: [multiInput({ relative: joinProComponentsChatRoot() }), ...getPlugins({ cssBuildType: 'source' })],
   });
   await bundle.write({
     banner,
@@ -249,10 +220,18 @@ export const buildEsm = async () => {
   const files = await glob(`${joinTdesignVueNextChatRoot('esm/**/*.*')}`);
   const rewrite = files.map(async (filePath) => {
     const content = await readFile(filePath, 'utf8');
-
+    // 直接复用 vue-next 的 style 即可，因此 vue-next 一定存在
     await writeFile(filePath, content.replace(/@tdesign\/common-style/g, 'tdesign-vue-next/esm/common/style'), 'utf8');
   });
   await Promise.all(rewrite);
+
+  // 写 style，用于开发者引入全局的样式资源
+  await mkdir(joinTdesignVueNextChatRoot('esm/style'));
+  await writeFile(
+    joinTdesignVueNextChatRoot('esm/style/index.js'),
+    `import 'tdesign-vue-next/esm/style/index.js';`, // 直接复用 vue-next 的 style
+    'utf8',
+  );
 };
 
 export const buildLib = async () => {
@@ -350,7 +329,7 @@ export const buildPluginCss = async () => {
 };
 
 export const deleteOutput = async () => {
-  const removes = ['es'].map(async (filePath) => await remove(joinTdesignVueNextChatRoot(filePath)));
+  const removes = ['es', 'esm'].map(async (filePath) => await remove(joinTdesignVueNextChatRoot(filePath)));
   await Promise.all(removes);
 };
 
