@@ -1,13 +1,12 @@
 import { defineComponent, PropType, computed, h } from 'vue';
 
 import Item from './Item';
-import { TreeNode, CascaderContextType } from '../interface';
+import { TreeNode, CascaderContextType } from '../types';
 import CascaderProps from '../props';
-import { usePrefixClass, useConfig } from '../../hooks/useConfig';
-import { useTNodeDefault } from '../../hooks/tnode';
+import { useConfig, usePrefixClass, useTNodeDefault } from '@tdesign/hooks';
+
 import { getDefaultNode } from '../../utils/render-tnode';
-import { getPanels } from '../core/helper';
-import { expendClickEffect, valueChangeEffect } from '../core/effect';
+import { getPanels, expendClickEffect, valueChangeEffect } from '../utils';
 
 export default defineComponent({
   name: 'TCascaderSubPanel',

@@ -1,9 +1,7 @@
 import { computed, Slots, Ref, ref } from 'vue';
-import { isArray } from 'lodash-es';
-import { get } from 'lodash-es';
-import { isFunction } from 'lodash-es';
+import { get, omit, isArray, isFunction } from 'lodash-es';
 
-import { useChildComponentSlots } from '../../hooks/slot';
+import { useChildComponentSlots } from '@tdesign/hooks';
 import { TdSelectProps, TdOptionProps, SelectOptionGroup, SelectValue, SelectOption } from '../type';
 import { KeysType } from '../../common';
 
@@ -23,8 +21,9 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inpu
       props.options?.map((option) => {
         const getFormatOption = (option: TdOptionProps) => {
           const { value, label, disabled } = keys.value;
+          const restOption = omit(option, [value, label, disabled]) as Partial<TdOptionProps>;
           const res = {
-            ...option,
+            ...restOption,
             index: dynamicIndex,
             label: get(option, label),
             value: get(option, value),
@@ -104,20 +103,21 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inpu
     return res;
   });
 
+  const filterMethods = (option: SelectOption) => {
+    if (isFunction(props.filter)) {
+      return props.filter(`${inputValue.value}`, option);
+    }
+    return option.label?.toLowerCase?.().indexOf(`${inputValue.value}`.toLowerCase()) > -1;
+  };
+
   const displayOptions = computed(() => {
     if (props.onSearch && props.filterable) return options.value; // 远程搜索时，不执行内部的过滤，不干预用户的自行处理，如输入首字母搜索中文的场景等
 
     if (!inputValue.value || !(props.filterable || isFunction(props.filter))) return options.value;
 
-    const filterMethods = (option: SelectOption) => {
-      if (isFunction(props.filter)) {
-        return props.filter(`${inputValue.value}`, option);
-      }
+    let checkAllOption: SelectOption;
 
-      return option.label?.toLowerCase?.().indexOf(`${inputValue.value}`.toLowerCase()) > -1;
-    };
-
-    const res: SelectOption[] = [];
+    let res: SelectOption[] = [];
 
     options.value.forEach((option) => {
       if ((option as SelectOptionGroup).children) {
@@ -126,12 +126,24 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inpu
           children: (option as SelectOptionGroup).children.filter(filterMethods),
         });
       }
+
+      if ((option as TdOptionProps)?.checkAll === true) checkAllOption = option;
+
       if (filterMethods(option)) {
         res.push(option);
       }
     });
 
-    return res;
+    if (!isFunction(props.filter)) {
+      // 使用默认 filter，增加表现，调整全等项到首尾，避免全等项位于最后
+      // inputValue: ab
+      // options abcde, abcd, abc,  ab
+      const exactMatch = res.filter((item) => item.label === inputValue.value);
+      const fuzzyMatch = res.filter((item) => item.label !== inputValue.value);
+      res = exactMatch.concat(fuzzyMatch);
+    }
+
+    return res.length && checkAllOption ? [checkAllOption, ...res] : res;
   });
 
   return {
@@ -140,5 +152,6 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inpu
     optionsList,
     optionsCache,
     displayOptions,
+    filterMethods,
   };
 };

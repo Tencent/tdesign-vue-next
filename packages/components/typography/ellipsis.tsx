@@ -1,8 +1,8 @@
 import { defineComponent, computed, ref } from 'vue';
-import { usePrefixClass } from '../hooks/useConfig';
+import { usePrefixClass } from '@tdesign/hooks';
 import props from './paragraph-props';
 import TTooltip from '../tooltip/index';
-import { useConfig } from '../config-provider/useConfig';
+import { useConfig } from '../config-provider/hooks/useConfig';
 
 import type { TypographyEllipsis } from './type';
 

@@ -1,15 +1,19 @@
 import { defineComponent, ref, toRefs, inject, watch, computed } from 'vue';
 import { isString } from 'lodash-es';
 import props from './props';
-import useVModel from '../hooks/useVModel';
-import useRipple from '../hooks/useRipple';
-import { useContent } from '../hooks/tnode';
-import { useCommonClassName, usePrefixClass } from '../hooks/useConfig';
-import { CheckboxGroupInjectionKey } from './constants';
+import {
+  useVModel,
+  useRipple,
+  useContent,
+  useDisabled,
+  useReadonly,
+  usePrefixClass,
+  useCommonClassName,
+} from '@tdesign/hooks';
+
+import { CheckboxGroupInjectionKey } from './consts';
 import useCheckboxLazyLoad from './hooks/useCheckboxLazyLoad';
 import useKeyboardEvent from './hooks/useKeyboardEvent';
-import { useDisabled } from '../hooks/useDisabled';
-import { useReadonly } from '../hooks/useReadonly';
 
 export default defineComponent({
   name: 'TCheckbox',
@@ -21,7 +25,6 @@ export default defineComponent({
     // 传递给 Checkbox 组件额外的数据
     data: Object,
   },
-
   setup(props) {
     const labelRef = ref<HTMLElement>();
     if (props.needRipple) {

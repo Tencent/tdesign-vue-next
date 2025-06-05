@@ -1,14 +1,11 @@
 import { defineComponent, onMounted, onUnmounted, inject } from 'vue';
 import props from './aside-props';
 import { LayoutProvideType } from './layout';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
+import { useTNodeJSX, usePrefixClass } from '@tdesign/hooks';
 
 export default defineComponent({
   name: 'TAside',
-
   props,
-
   setup(props) {
     const { hasSide } = inject<LayoutProvideType>('layout', Object.create(null));
     const COMPONENT_NAME = usePrefixClass('layout__sider');

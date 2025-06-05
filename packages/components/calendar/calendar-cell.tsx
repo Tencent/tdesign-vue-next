@@ -1,10 +1,9 @@
 import { computed, defineComponent } from 'vue';
 import dayjs from 'dayjs';
 
-import { useCommonClassName } from '../hooks/useConfig';
-import { useContent } from '../hooks/tnode';
+import { useContent, useCommonClassName } from '@tdesign/hooks';
 
-import { useCalendarCellClass } from './hook';
+import { useCalendarCellClass } from './hooks';
 
 // 组件相关的自定义类型
 import { CalendarCell } from './type';

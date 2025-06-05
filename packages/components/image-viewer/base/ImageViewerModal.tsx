@@ -1,7 +1,7 @@
 import { computed, defineComponent, PropType } from 'vue';
 import TDialog from '../../dialog';
-import { useTNodeJSX } from '../../hooks/tnode';
-import { usePrefixClass } from '../../hooks/useConfig';
+import { useTNodeJSX, usePrefixClass } from '@tdesign/hooks';
+
 import props from '../props';
 import { ImageInfo, TdImageViewerProps } from '../type';
 import TImageItem from './ImageItem';
@@ -30,6 +30,7 @@ export default defineComponent({
     onMirror: Function as PropType<() => void>,
     onReset: Function as PropType<() => void>,
     onClose: props.onClose,
+    onDownload: props.onDownload,
     draggable: {
       type: Boolean,
       default: true,
@@ -42,6 +43,7 @@ export default defineComponent({
     },
     showOverlay: Boolean,
     closeBtn: props.closeBtn,
+    imageReferrerpolicy: props.imageReferrerpolicy,
   },
   setup(props) {
     const classPrefix = usePrefixClass();
@@ -77,6 +79,7 @@ export default defineComponent({
               onRotate={props.onRotate}
               onMirror={props.onMirror}
               onReset={props.onReset}
+              onDownload={props.onDownload}
             />
           </div>
         )}
@@ -89,6 +92,7 @@ export default defineComponent({
             src={props.currentImage.mainImage}
             placementSrc={props.currentImage.thumbnail}
             isSvg={props.currentImage.isSvg}
+            imageReferrerpolicy={props.imageReferrerpolicy}
           />
         </div>
       </TDialog>

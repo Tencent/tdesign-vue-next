@@ -2,17 +2,21 @@
 
 `tdesign-vue-next` 是一个 Monorepo，承载 TDesign Vue 3 桌面端相关基础组件和高阶组件、插件的源码。
 
-> `packages/components` 是组件源码，承载大部分的组件框架相关的代码逻辑、示例代码和测试用例。
+> `packages/components` 是所有基础组件源码，承载基础组件框架相关的代码逻辑、示例代码和测试用例。
+
+> `packages/pro-components` 是所有高阶组件源码，承载高阶组件框架相关的代码逻辑、示例代码和测试用例。
 
 > `packages/common` 是子仓库，承载大部分组件样式、Design Token、框架无关的逻辑、文档内容结构等。
 
 > `packages/tdesign-vue-next` 是 Vue 3 基础组件的站点、打包入口。
 
-大部分情况下，您参与贡献的开发过程，都只需要关注 `packages/components` 和 `packages/common` 的相关代码。
+> `packages/tdesign-vue-next-chat` 是 Vue Chat 高阶组件的站点、打包入口。
+
+大部分情况下，您参与贡献的开发过程，都只需要关注 `packages/components`、`packages/pro-components` 和 `packages/common`的相关代码。
 
 ## 进行开发
 
-请使用 `node 18` 与 `pnpm 9` 版本进行开发
+请使用 `node 18` 与 `pnpm 9` 版本进行开发。
 
 ### 1.初始化子仓库
 
@@ -23,30 +27,46 @@ pnpm run init
 ### 2.安装依赖
 
 ```bash
-pnpm install 
+pnpm install
 ```
 
 ### 3.本地运行项目
 
 ```bash
-pnpm run dev
+pnpm run dev:vue
 ```
 
-完成以上 3 个步骤，浏览器访问 <http://127.0.0.1:17000> 即可调试该框架的任何内容
+完成以上 3 个步骤，浏览器访问 <http://127.0.0.1:17000> 即可调试该框架的任何内容。
 
 ## 目录结构
 
-```text
-├── script // 构建代码
-└── packages // 组件代码
-     └─ components
-         └─ componentA     
-             ├── _example // 组件示例文档
-             ├── _usage // 组件 live demo
-             └── __tests__ // 组件测试用例
-     └─ tdesign-vue-next
-         └─ site 站点代码     
-```
+````text
+.
+├── internal                  // 仅供仓库内使用的包
+│   ├── tests                 // 测试公共逻辑
+│   └── utils                 // 基础 util
+├── script                    // 构建代码
+└── packages                  // 子应用
+    ├── common
+    │   ├── docs
+    │   ├── js
+    │   ├── style
+    │   │   ├── mobile
+    │   │   └── web
+    │   └── test
+    ├── components            // 组件
+    │   ├── componentA
+    │   │   ├── __tests__     // 组件测试用例
+    │   │   ├── _example      // 组件示例文档
+    │   │   ├── _example-ts   // 组件示例文档
+    │   │   ├── _usage        // 组件 live demo
+    │   │   └── style         // 组件样式
+    │   ├── style
+    │   ├── utils
+    └── tdesign-vue-next      // tdesign-vue-next 出口
+        ├── helper            // 供 vscode 等 IDE 使用
+        ├── site              // 站点
+        └── test              // 测试配置
 
 ### 组件页路由配置
 
@@ -72,7 +92,7 @@ pnpm run dev
     ...
   ],
 },
-```
+````
 
 ### Markdown 文件的 demo 引用
 
@@ -85,11 +105,11 @@ pnpm run dev
 
 ### Demo 调试
 
-我们可以通过打开组件的路由页进行开发调试，
+我们可以通过打开组件的路由页进行开发调试。
 
-如 `button`，则打开<http://127.0.0.1:17000/vue-next/components/button> 进行开发调试；
+如 `button`，则打开<http://127.0.0.1:17000/vue-next/components/button> 进行开发调试。
 
-但当组件的 `Markdown` 文件插入了很多个 `demo` 之后，一些组件生命周期方法调试起来会变得困难，若想对某个 `demo` 单独调试，可以访问路由：`/demos/组件名/demo` 名，
+但当组件的 `Markdown` 文件插入了很多个 `demo` 之后，一些组件生命周期方法调试起来会变得困难，若想对某个 `demo` 单独调试，可以访问路由：`/demos/组件名/demo` 名。
 
 如：<http://127.0.0.1:17000/vue-next/demos/button/base>
 
@@ -99,9 +119,10 @@ pnpm run dev
 
 ## 子仓库相关
 
-TDesign 的项目都会以子仓库的形式引入 `tdesign-common` 公共仓库
+TDesign 的项目都会以子仓库的形式引入 `tdesign-common` 公共仓库。
 
-公共仓库中包含
+公共仓库中包含：
+
 - 部分组件的一些框架无关的公共的工具函数
 - `组件库UI`，即 `HTML` 结构和 `CSS` 样式（多框架共用）
 - 每个组件的文档页面的内容结构
@@ -114,8 +135,9 @@ TDesign 的项目都会以子仓库的形式引入 `tdesign-common` 公共仓库
 2. 新建分支，并进行开发
 3. 提交子仓库的 PR，等待代码合入
 4. 如果仅涉及子仓库改动，项目维护方会通过评论触发 CI，自动更新主仓库的子仓库指向；
-   
+
    如果需要配合子仓库改动，需要在步骤 3 完成后，在主仓库的开发过程中，将子仓库的指向改为合并后的主干的 commit id
+
    ```bash
    git submodule update --init --remote
    ```
@@ -147,13 +169,13 @@ import './button.less';
 
 ### 分支
 
-遵循使用 `git flow` 规范，新组件分支从 `develop checkout`：[https://nvie.com/posts/a-successful-git-branching-model/](https://nvie.com/posts/a-successful-git-branching-model/)
+遵循使用 `git flow` 规范，新组件分支从 `develop checkout`：[https://nvie.com/posts/a-successful-git-branching-model/](https://nvie.com/posts/a-successful-git-branching-model/)。
 
-如果是贡献组件，则从 `develop checkout` 分支如：`feature/button`，记得如果同时要在子仓库开发 `UI`，子仓库也要 `checkout` 同名分支
+如果是贡献组件，则从 `develop checkout` 分支如：`feature/button`，记得如果同时要在子仓库开发 `UI`，子仓库也要 `checkout` 同名分支。
 
 > 关于 fork
 
-以下内容处理 `fork` 仓库后，远端仓库的更新如何同步到 `fork` 仓库
+以下内容处理 `fork` 仓库后，远端仓库的更新如何同步到 `fork` 仓库。
 
 ```bash
 # 建立 upstream remote
@@ -172,7 +194,7 @@ git merge upstream/develop
 
 项目使用基于 angular 提交规范：[https://github.com/conventional-changelog/commitlint/tree/master/@commitlint/config-conventional](https://github.com/conventional-changelog/commitlint/tree/master/@commitlint/config-conventional)
 
-每次提交会自动触发提交验证
+每次提交会自动触发提交验证：
 
 - 使用工具 `commitizen` 协助规范 `git commit` 信息
 - `fix` & `feat` 的提交会被用来生成 `changelog`
@@ -190,4 +212,4 @@ git merge upstream/develop
 
 ### CSS 规范
 
-组件样式在 `common` 子仓库开发，遵循 [tdesign-common 仓库 UI 开发规范](https://github.com/Tencent/tdesign-common/blob/main/style/web/README.md)
+组件样式在 `common` 子仓库开发，遵循 [tdesign-common 仓库 UI 开发规范](https://github.com/Tencent/tdesign-common/blob/main/style/web/README.md)。

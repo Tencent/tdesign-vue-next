@@ -1,10 +1,8 @@
 import { computed, defineComponent, h, ref } from 'vue';
 import TLoading from '../loading';
 import props from './props';
-import useRipple from '../hooks/useRipple';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import { useTNodeJSX, useContent } from '../hooks/tnode';
-import { useDisabled } from '../hooks/useDisabled';
+import { useRipple, useContent, useTNodeJSX, useDisabled, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
+
 import { TdButtonProps } from './type';
 
 export default defineComponent({
@@ -32,11 +30,11 @@ export default defineComponent({
       `${COMPONENT_NAME.value}`,
       `${COMPONENT_NAME.value}--variant-${props.variant}`,
       `${COMPONENT_NAME.value}--theme-${mergeTheme.value}`,
+      `${COMPONENT_NAME.value}--shape-${props.shape}`,
       {
         [SIZE.value[props.size]]: props.size !== 'medium',
         [STATUS.value.disabled]: isDisabled.value,
         [STATUS.value.loading]: props.loading,
-        [`${COMPONENT_NAME.value}--shape-${props.shape}`]: props.shape !== 'rectangle',
         [`${COMPONENT_NAME.value}--ghost`]: props.ghost,
         [SIZE.value.block]: props.block,
       },

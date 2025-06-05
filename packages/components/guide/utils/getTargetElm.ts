@@ -1,8 +1,8 @@
-import { isFunction } from 'lodash-es';
-import { isString } from 'lodash-es';
+import { isString, isFunction } from 'lodash-es';
+
 import { AttachNode } from '../../common';
 
-export default function getTargetElm(elm: AttachNode): HTMLElement {
+export function getTargetElm(elm: AttachNode): HTMLElement {
   if (elm) {
     let targetElement: HTMLElement = null;
     if (isString(elm)) {

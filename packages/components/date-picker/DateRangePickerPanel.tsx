@@ -1,7 +1,6 @@
 import { defineComponent, computed, ref, onMounted } from 'vue';
 import dayjs from 'dayjs';
-import { isFunction } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { isArray, isFunction } from 'lodash-es';
 
 import dateRangePickerPanelProps from './date-range-picker-panel-props';
 import dateRangePickerProps from './date-range-picker-props';
@@ -13,15 +12,14 @@ import {
   DatePickerMonthChangeTrigger,
 } from './type';
 
-import TRangePanel from './panel/RangePanel';
-import useRangeValue from './hooks/useRangeValue';
+import TRangePanel from './components/panel/RangePanel';
+import { useRangeValue } from './hooks/useRangeValue';
 import { formatDate, getDefaultFormat, parseToDayjs } from '@tdesign/common-js/date-picker/format';
 import { subtractMonth, addMonth, extractTimeObj } from '@tdesign/common-js/date-picker/utils';
 import { dateCorrection } from './utils';
 
 export default defineComponent({
   name: 'TDateRangePickerPanel',
-
   props: {
     value: dateRangePickerProps.value,
     defaultValue: dateRangePickerProps.defaultValue,

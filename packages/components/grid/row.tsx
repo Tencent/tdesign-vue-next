@@ -1,14 +1,12 @@
 import { defineComponent, provide, computed, toRefs, reactive } from 'vue';
 import props from './row-props';
-import { useRowSize, getRowClasses, RowProviderType, calcRowStyle } from './common';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
+import { useRowSize } from './hooks';
+import { getRowClasses, RowProviderType, calcRowStyle } from './utils';
+import { useTNodeJSX, usePrefixClass } from '@tdesign/hooks';
 
 export default defineComponent({
   name: 'TRow',
-
-  props: { ...props },
-
+  props,
   setup(props) {
     const { gutter } = toRefs(props);
     const renderTNodeJSX = useTNodeJSX();

@@ -24,7 +24,7 @@
  *
  */
 import { App, createApp, nextTick, Plugin, ComponentPublicInstance } from 'vue';
-import MessageList, { DEFAULT_Z_INDEX } from './messageList';
+import MessageList, { DEFAULT_Z_INDEX } from './message-list';
 import { getAttach } from '../utils/dom';
 import {
   MessageOptions,
@@ -40,8 +40,7 @@ import {
   MessageCloseAllMethod,
 } from './type';
 import { AttachNodeReturnValue } from '../common';
-import { isObject } from 'lodash-es';
-import { isString } from 'lodash-es';
+import { isObject, isString } from 'lodash-es';
 
 // 存储不同 attach 和 不同 placement 消息列表实例
 const instanceMap: Map<AttachNodeReturnValue, Record<string, ComponentPublicInstance>> = new Map();
@@ -67,7 +66,7 @@ const MessageFunction = (props: MessageOptions): Promise<MessageInstance> => {
   }
   const p = instanceMap.get(attachDom)[placement];
   let mgKey: number;
-  if (!p) {
+  if (!p || !attachDom.contains(p.$el)) {
     const wrapper = document.createElement('div');
 
     const instance = createApp(MessageList, {

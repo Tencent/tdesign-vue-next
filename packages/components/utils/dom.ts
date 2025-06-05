@@ -5,9 +5,8 @@
 /* eslint-disable no-undef */
 import { ComponentPublicInstance, VNode } from 'vue';
 import raf from 'raf';
-import { isString } from 'lodash-es';
-import { isFunction } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { isArray, isString, isFunction } from 'lodash-es';
+
 import { easeInOutCubic, EasingFunction } from '@tdesign/common-js/utils/easing';
 import { ScrollContainer, ScrollContainerElement } from '../common';
 
@@ -130,10 +129,6 @@ export const getAttach = (node: any, triggerNode?: any): HTMLElement | Element =
     return attachNode;
   }
   return document.body;
-};
-
-export const getSSRAttach = () => {
-  if (process.env.NODE_ENV === 'test-snap') return 'body';
 };
 
 /**

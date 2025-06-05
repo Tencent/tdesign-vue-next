@@ -3,12 +3,10 @@ import { ChevronRightIcon as TdChevronRightIcon, ChevronLeftIcon as TdChevronLef
 
 import Button from '../../button';
 import { TNode } from '../../common';
-import { usePrefixClass } from '../../hooks/useConfig';
-import { useGlobalIcon } from '../../hooks/useGlobalIcon';
+import { useGlobalIcon, usePrefixClass } from '@tdesign/hooks';
+
 import props from '../props';
-import { isFunction } from 'lodash-es';
-import { isString } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { isArray, isString, isFunction } from 'lodash-es';
 
 export default defineComponent({
   name: 'TTransferOperations',

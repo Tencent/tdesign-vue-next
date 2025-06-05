@@ -3,26 +3,21 @@ import props from './props';
 import { TdAutoCompleteProps } from './type';
 import TInput, { InputProps, StrInputProps } from '../input';
 import Popup, { PopupProps } from '../popup';
-import useCommonClassName from '../hooks/useCommonClassName';
+import { useVModel, useContent, useTNodeJSX, useDisabled, useReadonly, useCommonClassName } from '@tdesign/hooks';
 import AutoCompleteOptionList from './option-list';
-import useVModel from '../hooks/useVModel';
-import { useConfig } from '../config-provider/useConfig';
+
+import { useConfig } from '../config-provider/hooks/useConfig';
 import { ClassName } from '../common';
-import { useContent, useTNodeJSX } from '../hooks';
-import { useDisabled } from '../hooks/useDisabled';
-import { useReadonly } from '../hooks/useReadonly';
 
 export default defineComponent({
   name: 'TAutoComplete',
-
   props,
-
   setup(props: TdAutoCompleteProps, { slots }) {
     const { value, modelValue } = toRefs(props);
     const [tValue, setTValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
     const renderContent = useContent();
     const renderTNodeJSX = useTNodeJSX();
-    const { classPrefix, sizeClassNames } = useCommonClassName();
+    const { classPrefix, SIZE } = useCommonClassName();
     const { globalConfig: global } = useConfig('input');
     const isDisabled = useDisabled();
     const isReadonly = useReadonly();
@@ -131,30 +126,33 @@ export default defineComponent({
         />
       );
       // 联想词列表
-      const listContent = (
+      const listContent = Array.isArray(props.options) && (
         <AutoCompleteOptionList
           ref={optionListRef}
           value={tValue.value}
           options={props.options}
           size={props.size}
-          sizeClassNames={sizeClassNames}
+          sizeClassNames={SIZE}
           onSelect={onInnerSelect}
           popupVisible={popupVisible.value}
           highlightKeyword={props.highlightKeyword}
           filterable={props.filterable}
           filter={props.filter}
+          empty={renderTNodeJSX('empty')}
           v-slots={{ option: slots.option }}
         />
       );
+
       const topContent = renderTNodeJSX('panelTopContent');
       const bottomContent = renderTNodeJSX('panelBottomContent');
-      const panelContent = Boolean(topContent || props.options?.length || bottomContent) ? (
-        <div class={`${classPrefix.value}-auto-complete__panel`}>
-          {topContent}
-          {listContent}
-          {bottomContent}
-        </div>
-      ) : null;
+      const panelContent =
+        topContent || listContent || bottomContent ? (
+          <div class={`${classPrefix.value}-auto-complete__panel`}>
+            {topContent}
+            {listContent}
+            {bottomContent}
+          </div>
+        ) : null;
       const popupProps = {
         ...props.popupProps,
         overlayInnerStyle: getOverlayStyle,

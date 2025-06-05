@@ -1,26 +1,20 @@
 import { defineComponent, ref, computed, provide, watchEffect, watch, onMounted, toRefs } from 'vue';
 import props from './props';
 import { MenuValue } from './type';
-import { TdMenuInterface, TdOpenType } from './const';
-import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
-import VMenu from './v-menu';
+import { TdMenuInterface, TdOpenType } from './types';
+import { useVModel, useContent, useTNodeJSX, usePrefixClass, useDefaultValue } from '@tdesign/hooks';
+import { VMenu } from './utils';
 import log from '@tdesign/common-js/log/log';
-import { usePrefixClass } from '../hooks/useConfig';
-import useVModel from '../hooks/useVModel';
-import useDefaultValue from '../hooks/useDefaultValue';
-import { isNumber } from 'lodash-es';
-import { isArray } from 'lodash-es';
+
+import { isArray, isNumber } from 'lodash-es';
 
 export default defineComponent({
   name: 'TMenu',
   props: { ...props, onCollapsed: Function },
   setup(props, ctx) {
     const classPrefix = usePrefixClass();
-    watchEffect(() => {
-      if (ctx.slots.options) {
-        log.warnOnce('TMenu', '`options` slot is going to be deprecated, please use `operations` for slot instead.');
-      }
-    });
+    const renderTNodeJSX = useTNodeJSX();
+    const renderContent = useContent();
     const mode = ref(props.expandType);
     const theme = computed(() => props.theme);
     const isMutex = computed(() => props.expandMutex);
@@ -88,13 +82,13 @@ export default defineComponent({
       },
     });
 
-    // watch
     watch(
       () => props.expanded,
       (value) => {
         vMenu.expandValues = new Set(value);
       },
     );
+
     watch(
       () => props.collapsed,
       (newValue, oldValue) => {
@@ -105,37 +99,33 @@ export default defineComponent({
       },
     );
 
-    const updateActiveValues = (value: MenuValue) => {
+    watch(activeValue, (value: MenuValue) => {
       activeValues.value = vMenu.select(value);
-    };
-    watch(activeValue, updateActiveValues);
+    });
 
-    // timelifes
+    watchEffect(() => {
+      if (ctx.slots.options) {
+        log.warnOnce('TMenu', '`options` slot is going to be deprecated, please use `operations` for slot instead.');
+      }
+    });
+
     onMounted(() => {
       activeValues.value = vMenu.select(activeValue.value);
     });
 
-    return {
-      styles,
-      classPrefix,
-      menuClass,
-      innerClasses,
-      activeValue,
-      activeValues,
-      expandValues,
-    };
-  },
-  render() {
-    const operations = renderContent(this, 'operations', 'options');
-    const logo = renderTNodeJSX(this, 'logo');
-    return (
-      <div class={this.menuClass} style={this.styles}>
-        <div class={`${this.classPrefix}-default-menu__inner`}>
-          {logo && <div class={`${this.classPrefix}-menu__logo`}>{logo}</div>}
-          <ul class={this.innerClasses}>{renderContent(this, 'default', 'content')}</ul>
-          {operations && <div class={`${this.classPrefix}-menu__operations`}>{operations}</div>}
+    return () => {
+      const operations = renderContent('operations', 'options');
+      const logo = renderTNodeJSX('logo');
+
+      return (
+        <div class={menuClass.value} style={styles.value}>
+          <div class={`${classPrefix.value}-default-menu__inner`}>
+            {logo && <div class={`${classPrefix.value}-menu__logo`}>{logo}</div>}
+            <ul class={innerClasses.value}>{renderContent('default', 'content')}</ul>
+            {operations && <div class={`${classPrefix.value}-menu__operations`}>{operations}</div>}
+          </div>
         </div>
-      </div>
-    );
+      );
+    };
   },
 });

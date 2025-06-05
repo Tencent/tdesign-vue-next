@@ -1,11 +1,5 @@
 import { h, ComponentPublicInstance, VNode, isVNode, Fragment } from 'vue';
-import { isEmpty } from 'lodash-es';
-import { isString } from 'lodash-es';
-import { isFunction } from 'lodash-es';
-import { isObject } from 'lodash-es';
-import { camelCase } from 'lodash-es';
-import { kebabCase } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { isEmpty, isArray, isString, isObject, camelCase, kebabCase, isFunction } from 'lodash-es';
 
 export interface JSXRenderContext {
   defaultNode?: VNode | string;
@@ -51,7 +45,7 @@ export function getParams(options?: OptionsType) {
 }
 
 export function getSlotFirst(options?: OptionsType) {
-  return isObject(options) && 'slotFirst' in options ? options.slotFirst : {};
+  return isObject(options) && 'slotFirst' in options ? options.slotFirst : false;
 }
 
 // 同时支持驼峰命名和中划线命名的插槽，示例：value-display 和 valueDisplay

@@ -3,8 +3,7 @@ import props from './props';
 import { isObject } from 'lodash-es';
 import StickyItem from './sticky-item';
 
-import { usePrefixClass } from '../hooks/useConfig';
-import { useChildComponentSlots } from '../hooks';
+import { usePrefixClass, useChildComponentSlots } from '@tdesign/hooks';
 
 import stickyItemProps from './sticky-item-props';
 
@@ -13,7 +12,7 @@ import type { Styles } from '../common';
 
 export default defineComponent({
   name: 'TStickyTool',
-  props: { ...props },
+  props,
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('sticky-tool');
     const classes = computed(() => {

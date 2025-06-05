@@ -1,8 +1,9 @@
 import { defineConfig } from 'rollup';
-import typescript from '@rollup/plugin-typescript';
-import nodeResolve from '@rollup/plugin-node-resolve';
 import json from '@rollup/plugin-json';
 import del from 'rollup-plugin-delete';
+import commonjs from '@rollup/plugin-commonjs';
+import typescript from '@rollup/plugin-typescript';
+import nodeResolve from '@rollup/plugin-node-resolve';
 // @ts-ignore
 import multiInput from 'rollup-plugin-multi-input';
 
@@ -24,7 +25,8 @@ export default defineConfig({
       resolveJsonModule: true,
       allowSyntheticDefaultImports: true,
     }),
-    nodeResolve(),
+    nodeResolve({ preferBuiltins: true }),
+    commonjs(),
     json(),
     del({ targets: 'dist' }),
   ],

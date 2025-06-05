@@ -4,13 +4,13 @@ import { Styles } from '../common';
 
 import { SelectOption, SelectOptionGroup, TdOptionProps } from './type';
 import Option from './option';
-import OptionGroup from './optionGroup';
+import OptionGroup from './option-group';
 import TdSelectProps from './props';
 
-import { useTNodeJSX, useTNodeDefault } from '../hooks/tnode';
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import { useConfig, useTNodeJSX, usePrefixClass, useTNodeDefault } from '@tdesign/hooks';
+
 import { usePanelVirtualScroll } from './hooks/usePanelVirtualScroll';
-import { selectInjectKey } from './helper';
+import { selectInjectKey } from './consts';
 
 export default defineComponent({
   name: 'TSelectPanel',

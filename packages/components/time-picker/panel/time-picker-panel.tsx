@@ -7,7 +7,7 @@ import { DEFAULT_STEPS, DEFAULT_FORMAT } from '@tdesign/common-js/time-picker/co
 import { panelProps } from './props';
 import SinglePanel from './single-panel';
 import TButton from '../../button/button';
-import { useConfig, usePrefixClass } from '../../hooks/useConfig';
+import { useConfig, usePrefixClass } from '@tdesign/hooks';
 import { TimePickerValue, TimeRangeValue } from '../type';
 import log from '@tdesign/common-js/log/index';
 
@@ -15,14 +15,12 @@ dayjs.extend(customParseFormat);
 
 export default defineComponent({
   name: 'TTimePickerPanel',
-
   props: {
     ...panelProps(),
     isFooterDisplay: Boolean,
     handleConfirmClick: Function,
     onChange: Function,
   },
-
   setup(props) {
     const { globalConfig } = useConfig('timePicker');
     const COMPONENT_NAME = usePrefixClass('time-picker__panel');
@@ -126,7 +124,7 @@ export default defineComponent({
               theme="primary"
               variant="base"
               disabled={!props.value}
-              onClick={() => props.handleConfirmClick?.(defaultValue.value)}
+              onClick={(e) => props.handleConfirmClick?.(e, defaultValue.value)}
               size="small"
             >
               {globalConfig.value.confirm}
