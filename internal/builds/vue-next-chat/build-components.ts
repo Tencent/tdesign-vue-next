@@ -207,11 +207,15 @@ export const buildEsm = async () => {
     external: [...externalDeps, ...externalPeerDeps, /@tdesign\/common-style/],
     plugins: [
       multiInput({ relative: joinProComponentsChatRoot() }),
-      // TODO: check which less files are needed
       copy({
         targets: [
           {
-            src: joinCommonRoot('style/web/**/*.less'),
+            src: [
+              joinCommonRoot('style/web/*.less'),
+              joinCommonRoot('style/web/theme/*.less'),
+              joinCommonRoot('style/web/mixins/*.less'),
+              joinCommonRoot('style/web/components/chat/*.less'),
+            ],
             dest: joinTdesignVueNextChatRoot('esm/common'),
             rename: (_, __, fullPath) => `${fullPath.replace(joinCommonRoot(), '')}`,
           },
@@ -245,6 +249,7 @@ export const buildEsm = async () => {
   const files = await glob(`${joinTdesignVueNextChatRoot('esm/**/*.*')}`);
   const rewrite = files.map(async (filePath) => {
     const content = await readFile(filePath, 'utf8');
+
     await writeFile(filePath, content.replace(/@tdesign\/common-style/g, 'tdesign-vue-next/esm/common/style'), 'utf8');
   });
   await Promise.all(rewrite);
@@ -352,4 +357,5 @@ export const deleteOutput = async () => {
 export const buildComponents = async () => {
   await deleteOutput();
   await buildEs();
+  await buildEsm();
 };

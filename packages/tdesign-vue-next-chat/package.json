@@ -26,7 +26,8 @@
   "sideEffects": [
     "*.vue",
     "site/*",
-    "es/**/style/**"
+    "es/**/style/**",
+    "esm/**/style/**"
   ],
   "author": "tdesign",
   "license": "MIT",
