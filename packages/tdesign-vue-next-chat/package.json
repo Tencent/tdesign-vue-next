@@ -19,6 +19,7 @@
   "typings": "es/index.d.ts",
   "files": [
     "es",
+    "esm",
     "LICENSE",
     "README.md",
     "CHANGELOG.md"
