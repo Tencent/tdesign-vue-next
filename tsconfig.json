@@ -39,6 +39,7 @@
       "@src/*": [ "packages/components/*" ],
       "tdesign-vue-next": [ "packages/components" ],
       "tdesign-vue-next/es/locale/*": [ "packages/components/locale/*" ],
+      "tdesign-vue-next/es/config-provider/hooks": [ "packages/components/config-provider/hooks" ],
       "@common/*": ["packages/common/*"],
       "@test/utils": ["test/utils"]
     }
