@@ -50,7 +50,7 @@ export const buildTypes = async () => {
   await removeSourceTypes();
   await generateSourceTypes();
   // const targets = ['es', 'esm', 'lib', 'cjs'] as const;
-  const targets = ['es'] as const;
+  const targets = ['es', 'esm'] as const;
   await Promise.all(
     targets.map(async (target) => {
       await generateTargetTypes(target);
