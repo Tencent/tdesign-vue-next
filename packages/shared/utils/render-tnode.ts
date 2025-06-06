@@ -47,7 +47,6 @@ export function getParams(options?: OptionsType) {
 }
 
 // TODO:PAOPAO as above
-
 // and only hooks tnode import this one, so, can we move it to tnode hooks directly????
 export function getSlotFirst(options?: OptionsType): boolean {
   return isObject(options) && 'slotFirst' in options ? options.slotFirst : false;
