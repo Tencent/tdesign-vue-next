@@ -190,11 +190,7 @@ export default defineComponent({
         return renderMainPreview();
       }
 
-      return (
-        <div class={`${uploadPrefix}__trigger`} onClick={props.triggerUpload}>
-          {slots.default?.() || renderDefaultDragElement()}
-        </div>
-      );
+      return <div class={`${uploadPrefix}__trigger`}>{slots.default?.() || renderDefaultDragElement()}</div>;
     };
 
     const handleDraggerClick = (e: MouseEvent) => {
