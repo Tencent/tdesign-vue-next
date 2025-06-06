@@ -6,13 +6,17 @@ spline: explain
 ---
 
 ## 🌈 0.4.0 `2025-06-06` 
+### 🚨 Breaking Change
 - 优化产物内容，移除冗余的 bundle 或非冗余 bundle 中的冗余产物，若使用此前文档并未声明的 bundle 内容请注意此变更 ⚠️ @zhangpaopao0609 @uyarn ([#5568](https://github.com/Tencent/tdesign-vue-next/pull/5568))
 
-- ChatSender: @zydemail  @dingJieWork ([#5471](https://github.com/Tencent/tdesign-vue-next/pull/5471))
+### 🐞 Bug Fixes
+
+- `ChatSender`: @zydemail  @dingJieWork ([#5471](https://github.com/Tencent/tdesign-vue-next/pull/5471))
    - 修复输入框有内容点击上传触发 send 回调事件的问题 
    - 修复点击上传附件按钮时，按钮在loading 状态结束前不正常展示的异常问题
 
-- ChatSender: 优化部分示例的展示效果
+🚧 Others
+- `ChatSender`: 优化部分示例的展示效果
 
 
 ## 🌈 0.3.0 `2025-05-06`
