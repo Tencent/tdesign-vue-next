@@ -1,7 +1,8 @@
 import { defineComponent, toRefs, computed } from 'vue';
 import { RectangleIcon, SendIcon, StopCircleIcon } from 'tdesign-icons-vue-next';
 import { Button, Textarea } from 'tdesign-vue-next';
-import { useTNodeJSX, usePrefixClass, useConfig, useVModel } from '@tdesign/hooks';
+import { useConfig } from 'tdesign-vue-next/es/config-provider/hooks';
+import { useTNodeJSX, usePrefixClass, useVModel } from '@tdesign/hooks';
 import props from './chat-input-props';
 
 export default defineComponent({
