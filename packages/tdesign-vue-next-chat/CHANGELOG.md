@@ -15,7 +15,8 @@ spline: explain
    - 修复输入框有内容点击上传触发 send 回调事件的问题 
    - 修复点击上传附件按钮时，按钮在loading 状态结束前不正常展示的异常问题
 
-🚧 Others
+###  🚧 Others
+
 - `ChatSender`: 优化部分示例的展示效果
 
 
