@@ -1,7 +1,7 @@
 import { VNode, isVNode, Fragment } from 'vue';
 import { isArray, isString, isObject } from 'lodash-es';
 
-// TODO:PAOPAO 需要移动吗？
+// TODO:PAOPAO move? i have no idea
 export interface JSXRenderContext {
   defaultNode?: VNode | string;
   params?: Record<string, any>;
