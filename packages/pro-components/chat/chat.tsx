@@ -1,9 +1,10 @@
 import { defineComponent, computed, provide, ref } from 'vue';
 import { ClearIcon } from 'tdesign-icons-vue-next';
+import { useConfig } from 'tdesign-vue-next/es/config-provider/hooks';
 import { isArray } from 'lodash-es';
 import props from './props';
 import { Divider, Popconfirm } from 'tdesign-vue-next';
-import { usePrefixClass, useConfig, useTNodeJSX } from '@tdesign/hooks';
+import { usePrefixClass, useTNodeJSX } from '@tdesign/hooks';
 import ChatItem from './chat-item';
 import { TdChatItemProps, ScrollToBottomParams } from './type';
 

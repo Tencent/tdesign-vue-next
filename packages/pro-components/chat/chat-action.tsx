@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue';
-import { usePrefixClass, useConfig, useTNodeJSX } from '@tdesign/hooks';
-import props from './chat-action-props';
+import { usePrefixClass, useTNodeJSX } from '@tdesign/hooks';
 import { Button, Space, Tooltip } from 'tdesign-vue-next';
+import { useConfig } from 'tdesign-vue-next/es/config-provider/hooks';
 import {
   ThumbUpIcon,
   ThumbUpFilledIcon,
@@ -12,6 +12,7 @@ import {
 } from 'tdesign-icons-vue-next';
 // TODO: need refactor
 import Clipboard from 'clipboard';
+import props from './chat-action-props';
 import { MessagePluginSingleton } from './utils';
 
 export default defineComponent({

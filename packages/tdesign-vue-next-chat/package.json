@@ -1,6 +1,6 @@
 {
   "name": "@tdesign-vue-next/chat",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "title": "@tdesign-vue-next/chat",
   "description": "AI Chat Component for Vue 3",
   "repository": {
