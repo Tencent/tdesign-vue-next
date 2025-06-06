@@ -1,6 +1,6 @@
 import _Pagination from './pagination';
 import _PaginationMini from './pagination-mini';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 import { TdPaginationProps, TdPaginationMiniProps } from './type';
 
 import './style';

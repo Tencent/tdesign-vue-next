@@ -1,5 +1,5 @@
 import _Comment from './comment';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 import { TdCommentProps } from './type';
 
 import './style';

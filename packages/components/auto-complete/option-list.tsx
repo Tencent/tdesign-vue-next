@@ -5,7 +5,7 @@ import { useConfig, usePrefixClass, CommonClassNameType } from '@tdesign/hooks';
 import { AutoCompleteOptionObj, TdAutoCompleteProps } from './type';
 import log from '@tdesign/common-js/log/index';
 
-import { on, off } from '../utils/dom';
+import { on, off } from '@tdesign/shared-utils';
 
 import { ARROW_UP_REG, ARROW_DOWN_REG, ENTER_REG } from '@tdesign/common-js/common';
 

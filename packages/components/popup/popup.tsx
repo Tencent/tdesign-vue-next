@@ -17,7 +17,7 @@ import {
 } from 'vue';
 import { useVModel, useContent, useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
 
-import { off, on, once } from '../utils/dom';
+import { off, on, once } from '@tdesign/shared-utils';
 import setStyle from '@tdesign/common-js/utils/setStyle';
 import Container from './container';
 import props from './props';

@@ -1,5 +1,5 @@
 import _Progress from './progress';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 import { TdProgressProps } from './type';
 
 import './style';

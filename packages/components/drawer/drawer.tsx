@@ -10,7 +10,7 @@ import {
   usePopupManager,
 } from '@tdesign/hooks';
 
-import { isServer } from '../utils/dom';
+import { isServer } from '@tdesign/shared-utils';
 import { getScrollbarWidth } from '@tdesign/common-js/utils/getScrollbarWidth';
 import props from './props';
 import { DrawerCloseContext } from './type';

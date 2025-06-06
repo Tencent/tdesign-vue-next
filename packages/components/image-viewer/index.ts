@@ -1,5 +1,5 @@
 import _ImageViewer from './image-viewer';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 import { TdImageViewerProps } from './type';
 
 import './style';

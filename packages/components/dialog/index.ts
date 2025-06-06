@@ -1,6 +1,6 @@
 import _Dialog from './dialog';
 import _DialogCard from './dialog-card';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 import { TdDialogProps } from './type';
 
 import './style';

@@ -1,5 +1,5 @@
 import _Notification from './notification';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 import { TdNotificationProps } from './type';
 
 import './style';

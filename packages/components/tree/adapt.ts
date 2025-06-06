@@ -7,7 +7,7 @@ import { ClassName, TScroll, Styles, TNode, TreeOptionData, TNodeReturnValue } f
 import { TypeTreeEventState as TreeEventState } from '@tdesign/common-js/tree/types';
 import { TdTreeProps, TreeInstanceFunctions } from './type';
 import { VirtualScrollConfig, useVModel as tdUseVModel, useDefaultValue as tdUseDefaultValue } from '@tdesign/hooks';
-import tdWithInstall from '../utils/withInstall';
+import { withInstall as tdWithInstall } from '@tdesign/shared-utils';
 
 import { TreeStore } from '@tdesign/common-js/tree/tree-store';
 

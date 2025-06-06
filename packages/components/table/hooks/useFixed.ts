@@ -16,7 +16,7 @@ import log from '@tdesign/common-js/log/index';
 import { ClassName, Styles } from '../../common';
 import { BaseTableCol, BaseTableInstanceFunctions, TableRowData, TdBaseTableProps } from '../type';
 import { getScrollbarWidthWithCSS } from '@tdesign/common-js/utils/getScrollbarWidth';
-import { on, off } from '../../utils/dom';
+import { on, off } from '@tdesign/shared-utils';
 import { FixedColumnInfo, TableRowFixedClasses, RowAndColFixedPosition, TableColFixedClasses } from '../interface';
 import { getIEVersion } from '@tdesign/common-js/utils/helper';
 

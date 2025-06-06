@@ -1,5 +1,5 @@
 import _Skeleton from './skeleton';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 import { TdSkeletonProps } from './type';
 
 import './style';

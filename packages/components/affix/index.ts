@@ -1,5 +1,5 @@
 import _Affix from './affix';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 import { TdAffixProps } from './type';
 
 import './style';

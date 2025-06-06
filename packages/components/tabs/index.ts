@@ -1,6 +1,6 @@
 import _Tabs from './tabs';
 import _TabPanel from './tab-panel';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 import { TdTabsProps, TdTabPanelProps } from './type';
 
 import './style';

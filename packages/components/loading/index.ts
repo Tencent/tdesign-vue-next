@@ -1,6 +1,6 @@
 import { vLoading } from './directive';
 import _Loading from './loading';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 import { TdLoadingProps } from './type';
 
 import './style';

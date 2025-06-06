@@ -8,7 +8,7 @@
 import { ref, Ref, reactive, onMounted } from 'vue';
 import { isNumber } from 'lodash-es';
 import { BaseTableCol, TableRowData, TdBaseTableProps } from '../type';
-import { on, off } from '../../utils/dom';
+import { on, off } from '@tdesign/shared-utils';
 
 const DEFAULT_MIN_WIDTH = 80;
 const DEFAULT_MAX_WIDTH = 600;

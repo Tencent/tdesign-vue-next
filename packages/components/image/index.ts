@@ -1,5 +1,5 @@
 import _Image from './image';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 import { TdImageProps } from './type';
 
 import './style';

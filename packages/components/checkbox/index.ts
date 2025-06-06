@@ -1,6 +1,6 @@
 import _Checkbox from './checkbox';
 import _Group from './group';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 import { TdCheckboxProps, TdCheckboxGroupProps } from './type';
 
 import './style';

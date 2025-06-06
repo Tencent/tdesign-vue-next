@@ -1,6 +1,6 @@
 import _Row from './row';
 import _Col from './col';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 import { TdRowProps, TdColProps } from './type';
 
 import './style';

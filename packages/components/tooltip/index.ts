@@ -1,5 +1,5 @@
 import _Tooltip from './tooltip';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 import { TdTooltipProps } from './type';
 
 import './style';

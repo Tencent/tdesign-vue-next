@@ -1,6 +1,6 @@
 import _Steps from './steps';
 import _StepItem from './step-item';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 import { TdStepsProps, TdStepItemProps } from './type';
 
 import './style';
