@@ -11,7 +11,7 @@ import _ChatAction from './chat-action';
 import _ChatSender from './chat-sender';
 
 // TODO: need refactor
-import withInstall from '../../components/utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 
 import {
   TdChatProps,

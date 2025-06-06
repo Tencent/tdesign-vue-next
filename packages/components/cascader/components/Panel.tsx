@@ -5,7 +5,7 @@ import { TreeNode, CascaderContextType } from '../types';
 import CascaderProps from '../props';
 import { useConfig, usePrefixClass, useTNodeDefault } from '@tdesign/hooks';
 
-import { getDefaultNode } from '../../utils/render-tnode';
+import { getDefaultNode } from '@tdesign/shared-utils';
 import { getPanels, expendClickEffect, valueChangeEffect } from '../utils';
 
 export default defineComponent({

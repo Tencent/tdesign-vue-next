@@ -1,6 +1,6 @@
 import { App, createApp, ref, Plugin, defineComponent, h, onMounted, nextTick } from 'vue';
 import DrawerComponent from './drawer';
-import { getAttach } from '../utils/dom';
+import { getAttach } from '@tdesign/shared-utils';
 import { DrawerOptions, DrawerMethod, DrawerInstance } from './type';
 import { omit } from 'lodash-es';
 

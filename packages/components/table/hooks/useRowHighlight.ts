@@ -3,7 +3,7 @@ import { get } from 'lodash-es';
 import { useDefaultValue } from '@tdesign/hooks';
 import { BaseTableProps } from '../interface';
 import { RowEventContext, TableRowData } from '../type';
-import { on, off } from '../../utils/dom';
+import { on, off } from '@tdesign/shared-utils';
 import {
   ARROW_DOWN_REG,
   ARROW_UP_REG,

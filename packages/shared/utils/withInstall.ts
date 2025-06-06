@@ -1,6 +1,6 @@
 import { App, Plugin, Component, Directive } from 'vue';
 
-function withInstall<T>(
+export function withInstall<T>(
   comp: T,
   alias?: string,
   directive?: { name: string; comp: Directive<T & Plugin> },
@@ -14,5 +14,3 @@ function withInstall<T>(
 
   return componentPlugin as T & Plugin;
 }
-
-export default withInstall;
