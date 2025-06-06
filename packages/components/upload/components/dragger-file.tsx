@@ -180,16 +180,27 @@ export default defineComponent({
       return dragActive.value ? activeElement : unActiveElement;
     };
 
-    const getContent = () => {
+    const canTriggerUpload = computed(() => {
       const file = displayFiles.value[0];
-      if (file && (['progress', 'success', 'fail', 'waiting'].includes(file.status) || !file.status)) {
+      return !file || !(['progress', 'success', 'fail', 'waiting'].includes(file.status) || !file.status);
+    });
+
+    const getContent = () => {
+      if (!canTriggerUpload.value) {
         return renderMainPreview();
       }
+
       return (
         <div class={`${uploadPrefix}__trigger`} onClick={props.triggerUpload}>
           {slots.default?.() || renderDefaultDragElement()}
         </div>
       );
+    };
+
+    const handleDraggerClick = (e: MouseEvent) => {
+      if (canTriggerUpload.value) {
+        props.triggerUpload?.(e);
+      }
     };
 
     return () => (
@@ -200,6 +211,7 @@ export default defineComponent({
         onDragenter={drag.handleDragenter}
         onDragover={drag.handleDragover}
         onDragleave={drag.handleDragleave}
+        onClick={handleDraggerClick}
       >
         {props.trigger?.(h, { files: displayFiles.value, dragActive: dragActive.value }) || getContent()}
       </div>
