@@ -117,7 +117,7 @@ const onActions = {
 </script>
 
 <template>
-  <Space direction="vertical" style="width: 100%">
+  <t-space direction="vertical" style="width: 100%">
     <t-chat-message variant="base" placement="right" :message="userMessage1" />
     <t-chat-message
       :message="aiMessages"
@@ -129,5 +129,5 @@ const onActions = {
       :handle-actions="onActions"
     />
     <t-chat-message variant="base" placement="right" :message="userMessage2" />
-  </Space>
+  </t-space>
 </template>

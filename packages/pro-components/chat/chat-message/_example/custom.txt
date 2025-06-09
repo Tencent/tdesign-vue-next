@@ -1,5 +1,4 @@
 <script setup lang="jsx">
-import { Space } from 'tdesign-react';
 import TvisionTcharts from 'tvision-charts-vue';
 
 const message = {
@@ -62,7 +61,7 @@ const ChartDemo = ({ data }) => (
 </script>
 
 <template>
-  <Space direction="vertical" style="width: 100%">
+  <t-space direction="vertical" style="width: 100%">
     <t-chat-message
       variant="text"
       avatar="https://tdesign.gtimg.com/site/chat-avatar.png"
@@ -75,5 +74,5 @@ const ChartDemo = ({ data }) => (
         </div>
       </template>
     </t-chat-message>
-  </Space>
+  </t-space>
 </template>

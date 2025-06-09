@@ -45,8 +45,8 @@ const messages = {
 </script>
 
 <template>
-  <Space direction="vertical" style="width: 100%">
-    <Divider>可配置角色，头像，昵称，时间</Divider>
+  <t-space direction="vertical" style="width: 100%">
+    <t-divider>可配置角色，头像，昵称，时间</t-divider>
     <t-chat-message
       avatar="https://tdesign.gtimg.com/site/avatar.jpg"
       datetime="今天16:38"
@@ -59,10 +59,10 @@ const messages = {
       name="TDesignAI"
       :message="messages.ai"
     />
-    <Divider>可配置位置</Divider>
+    <t-divider>可配置位置</t-divider>
     <t-chat-message placement="right" variant="base" :message="messages.user" />
     <t-chat-message placement="left" :message="messages.ai" />
-    <Divider>角色为system的系统消息</Divider>
+    <t-divider>角色为system的系统消息</t-divider>
     <t-chat-message :message="messages.system" />
-  </Space>
+  </t-space>
 </template>

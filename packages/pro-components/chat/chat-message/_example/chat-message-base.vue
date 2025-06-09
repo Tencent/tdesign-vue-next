@@ -10,9 +10,9 @@ const message = {
 </script>
 
 <template>
-  <Space direction="vertical" style="width: 100%">
+  <t-space direction="vertical" style="width: 100%">
     <t-chat-message :message="message" />
     <t-chat-message variant="base" :message="message" />
     <t-chat-message variant="outline" :message="message" />
-  </Space>
+  </t-space>
 </template>

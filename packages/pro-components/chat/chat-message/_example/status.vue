@@ -24,9 +24,9 @@ const animationOptions = [
 </script>
 
 <template>
-  <Space direction="vertical" style="width: 100%">
-    <Divider>消息加载状态</Divider>
-    <Select v-model="animation" style="width: 20%" :options="animationOptions" />
+  <t-space direction="vertical" style="width: 100%">
+    <t-divider>消息加载状态</t-divider>
+    <t-select v-model="animation" style="width: 20%" :options="animationOptions" />
     <t-chat-message
       avatar="https://tdesign.gtimg.com/site/chat-avatar.png"
       datetime="今天16:38"
@@ -34,7 +34,7 @@ const animationOptions = [
       name="TDesignAI"
       :message="messages.loading"
     />
-    <Divider>出错状态下的消息</Divider>
+    <t-divider>出错状态下的消息</t-divider>
     <t-chat-message avatar="https://tdesign.gtimg.com/site/chat-avatar.png" :message="messages.error" />
-  </Space>
+  </t-space>
 </template>

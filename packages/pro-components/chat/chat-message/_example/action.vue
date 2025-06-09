@@ -1,5 +1,5 @@
 <template>
-  <space direction="vertical" style="width: 100%">
+  <t-space direction="vertical" style="width: 100%">
     <t-chat-message
       variant="text"
       avatar="https://tdesign.gtimg.com/site/chat-avatar.png"
@@ -8,10 +8,15 @@
     >
       <!-- 植入插槽用来追加消息底部操作栏 -->
       <template #actionbar>
-        <chat-action :content="message.content[0].data" />
+        <t-chat-action
+          :comment="comment"
+          :content="message.content[0].data"
+          :action-bar="['good', 'bad', 'replay', 'copy']"
+          @actions="handleActions"
+        />
       </template>
     </t-chat-message>
-  </space>
+  </t-space>
 </template>
 
 <script setup>
