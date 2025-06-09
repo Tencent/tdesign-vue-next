@@ -13,7 +13,6 @@ import {
   Teleport,
 } from 'vue';
 import { isArray } from 'lodash-es';
-// TODO need refactor
 import { getChildren } from '@tdesign/shared-utils';
 
 /**

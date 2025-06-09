@@ -1,6 +1,5 @@
 import { ref, onMounted, computed, nextTick, Ref, UnwrapRef } from 'vue';
 import observe from '@tdesign/common-js/utils/observe';
-// TODO need refactor
 import { isServer } from '@tdesign/shared-utils';
 
 export type UseLazyLoadParams = UnwrapRef<{

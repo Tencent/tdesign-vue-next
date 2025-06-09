@@ -1,7 +1,6 @@
 import { h, getCurrentInstance, ComponentInternalInstance, VNode } from 'vue';
 import { camelCase, kebabCase, isFunction } from 'lodash-es';
 
-// TODO need refactor
 import { getDefaultNode, getParams, OptionsType, JSXRenderContext, getSlotFirst } from '@tdesign/shared-utils';
 import { hasOwn } from '@tdesign/common-js/utils/general';
 
