@@ -4,8 +4,8 @@ import { isArray } from 'lodash-es';
 import props from './props';
 import { Divider, Popconfirm } from 'tdesign-vue-next';
 import { usePrefixClass, useConfig, useTNodeJSX } from '@tdesign/hooks';
-import ChatItem from './chat-item';
-import { TdChatItemProps, ScrollToBottomParams } from './type';
+import ChatItem from '../chat-item';
+import { TdChatItemProps, ScrollToBottomParams } from '../type';
 
 const handleScrollToBottom = (target: HTMLDivElement, behavior?: 'auto' | 'smooth') => {
   const currentScrollHeight = target.scrollHeight;

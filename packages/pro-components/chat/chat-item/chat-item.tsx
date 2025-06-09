@@ -3,10 +3,10 @@ import { usePrefixClass, useConfig, useTNodeJSX } from '@tdesign/hooks';
 import props from './chat-item-props';
 import { isString, isObject } from 'lodash-es';
 import { Skeleton } from 'tdesign-vue-next';
-import Text from './chat-content';
+import Text from '../chat-content/chat-content';
 import { CheckCircleIcon } from 'tdesign-icons-vue-next';
-import ChatLoading from './chat-loading';
-import ChatReasoning from './chat-reasoning';
+import ChatLoading from '../chat-loading';
+import ChatReasoning from '../chat-reasoning/chat-reasoning';
 
 export default defineComponent({
   name: 'TChatItem',

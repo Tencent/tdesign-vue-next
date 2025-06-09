@@ -12,7 +12,7 @@ import {
 } from 'tdesign-icons-vue-next';
 // TODO: need refactor
 import Clipboard from 'clipboard';
-import { MessagePluginSingleton } from './utils';
+import { MessagePluginSingleton } from '../utils';
 
 export default defineComponent({
   name: 'TChatAction',

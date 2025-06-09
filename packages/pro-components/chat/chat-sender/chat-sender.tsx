@@ -4,7 +4,7 @@ import { usePrefixClass, useConfig, useTNodeJSX, useContent, useVModel } from '@
 import props from './chat-sender-props';
 import { Button, Textarea, Tooltip } from 'tdesign-vue-next';
 
-import type { TdChatSenderProps, UploadActionType, UploadActionConfig } from './type';
+import type { TdChatSenderProps, UploadActionType, UploadActionConfig } from '../type';
 
 export default defineComponent({
   name: 'TChatSender',

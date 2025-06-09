@@ -7,10 +7,12 @@ import _ChatContent from './chat-content';
 import _ChatReasoning from './chat-reasoning';
 import _ChatLoading from './chat-loading';
 
-import _ChatAction from './chat-action';
+import _ChatAction from './chat-action/chat-action';
 // import _FileCard from './file-card';
-import _ChatSender from './chat-sender';
-
+import _ChatSender from './chat-sender/chat-sender';
+import _ChatAttachments from './attachments';
+import _ChatThinking from './chat-thinking';
+import _ChatBot from './chatbot';
 // TODO: need refactor
 import withInstall from '../../components/utils/withInstall';
 
@@ -30,22 +32,14 @@ import {
   TdChatListProps,
   TdChatSearchContentProps,
   TdChatSuggestionContentProps,
-
 } from 'tdesign-web-components';
-
 
 import './style';
 import 'tdesign-web-components/lib/style/index.css';
-import 'tdesign-web-components/lib/chat-sender';
-import 'tdesign-web-components/lib/attachments';
-import 'tdesign-web-components/lib/chat-message/content/thinking-content';
-import 'tdesign-web-components/lib/chatbot';
 import 'tdesign-web-components/lib/chat-message/content/search-content';
 import 'tdesign-web-components/lib/chat-message/content/suggestion-content';
 import { omiVueify } from 'omi-vueify';
 import type { DefineComponent } from 'vue';
-import type { TdAttachmentsProps } from 'tdesign-web-components';
-import type { TdChatThinkContentProps } from 'tdesign-web-components/lib/chat-message/content/thinking-content';
 export * from './type';
 
 export type ChatProps = TdChatProps;
@@ -67,37 +61,26 @@ export const ChatAction = withInstall(_ChatAction);
 // export const FileCard = withInstall(_FileCard);
 export const ChatLoading = withInstall(_ChatLoading);
 // 附件
-export const ChatAttachments = omiVueify('t-attachments', {
-  methodNames: [],
-}) as DefineComponent<TdAttachmentsProps>;
-// export const ChatAttachments = withInstall(Attachments);
-// 思考过程
-export const ChatThinking = omiVueify('t-chat-thinking-content', {
-  methodNames: [],
-}) as DefineComponent<TdChatThinkContentProps>;
-// export const ChatThinking = withInstall(ChatThinking);
+export const ChatAttachments = withInstall(_ChatAttachments);
+// 思考
+export const ChatThinking = withInstall(_ChatThinking);
+// 机器人
+export const ChatBot = withInstall(_ChatBot, 't-chatbot');
 
-export const Bot = omiVueify('t-chatbot', {
-
-  // TODO: 这里可以补充TdChatbotApi里需要暴露出来的方法（ref实例上的方法）
-  methodNames: ['addPrompt'],
-
-}) as DefineComponent<TdChatProps>;
-
-export const ChatBot = withInstall(Bot, 't-chatbot');
-
+// todo
 export const ChatSearchContent = omiVueify('t-chat-search-content', {
   methodNames: [],
 }) as DefineComponent<TdChatSearchContentProps>;
-
+// todo
 export const ChatSuggestionContent = omiVueify('t-chat-suggestion-content', {
   methodNames: [],
 }) as DefineComponent<TdChatSuggestionContentProps>;
-
+// todo
 export const ChatList = omiVueify('t-chat-list', {
   methodNames: [],
 }) as DefineComponent<TdChatListProps>;
 
+// webc组件没有加入use todo
 export default {
   // TODO: refactor
   install(app: App, config?: Record<string, unknown>) {
