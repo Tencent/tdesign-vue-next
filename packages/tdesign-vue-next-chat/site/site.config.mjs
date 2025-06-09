@@ -43,6 +43,13 @@ const componentDocs = [
     component: () => import('@tdesign/pro-components-chat/chat-reasoning/chat-reasoning.md'),
   },
   {
+    title: 'ChatThinking 思考过程',
+    titleEn: 'ChatThinking',
+    name: 'ChatThinking',
+    path: '/chat/components/chat-thinking',
+    component: () => import('@tdesign/pro-components-chat/chat-thinking/chat-thinking.md'),
+  },
+  {
     title: 'ChatInput 对话输入',
     titleEn: 'ChatInput',
     name: 'ChatInput',
