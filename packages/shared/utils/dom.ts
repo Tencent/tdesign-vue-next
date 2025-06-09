@@ -8,7 +8,7 @@ import raf from 'raf';
 import { isArray, isString, isFunction } from 'lodash-es';
 
 import { easeInOutCubic, EasingFunction } from '@tdesign/common-js/utils/easing';
-import { ScrollContainer, ScrollContainerElement } from '../common';
+import { ScrollContainer, ScrollContainerElement } from '../../components/common';
 
 export const isServer = typeof window === 'undefined';
 const trim = (str: string): string => (str || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');

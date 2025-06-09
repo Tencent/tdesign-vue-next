@@ -1,6 +1,6 @@
 import _Avatar from './avatar';
 import _AvatarGroup from './group';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 import { TdAvatarProps, TdAvatarGroupProps } from './type';
 
 import './style';

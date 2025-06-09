@@ -1,6 +1,6 @@
 import { onBeforeMount, onMounted, Ref } from 'vue';
 import { isString } from 'lodash-es';
-import { off, on } from '../../utils/dom';
+import { off, on } from '@tdesign/shared-utils';
 import { CHECKED_CODE_REG } from '@tdesign/common-js/common';
 
 /** 键盘操作 */
