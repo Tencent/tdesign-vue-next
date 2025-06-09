@@ -1,24 +1,8 @@
-import React from 'react';
-import TvisionTcharts from 'tvision-charts-react';
+<script setup lang="jsx">
 import { Space } from 'tdesign-react';
+import TvisionTcharts from 'tvision-charts-vue';
 
-import { ChatBaseContent, ChatMessage } from '@tdesign-react/aigc';
-
-// 扩展自定义消息体类型
-declare module 'tdesign-react' {
-  interface AIContentTypeOverrides {
-    chart: ChatBaseContent<
-      'chart',
-      {
-        chartType: string;
-        options: any;
-        theme: string;
-      }
-    >;
-  }
-}
-
-const message: any = {
+const message = {
   id: '123123',
   role: 'assistant',
   content: [
@@ -75,29 +59,21 @@ const ChartDemo = ({ data }) => (
     <TvisionTcharts chartType={data.chartType} options={data.options} theme={data.theme} />
   </div>
 );
+</script>
 
-export default function ChatMessageExample() {
-  return (
-    <Space direction="vertical" style={{ width: '100%' }}>
-      <ChatMessage
-        variant="text"
-        avatar="https://tdesign.gtimg.com/site/chat-avatar.png"
-        name="TDesignAI"
-        message={message}
-      >
-        {message.content.map(({ type, data }, index) => {
-          switch (type) {
-            /* 自定义渲染chart类型的消息内容--植入插槽 */
-            case 'chart':
-              return (
-                <div slot={`${type}-${index}`} key={data.id}>
-                  <ChartDemo data={data} />
-                </div>
-              );
-          }
-          return null;
-        })}
-      </ChatMessage>
-    </Space>
-  );
-}
+<template>
+  <Space direction="vertical" style="width: 100%">
+    <t-chat-message
+      variant="text"
+      avatar="https://tdesign.gtimg.com/site/chat-avatar.png"
+      name="TDesignAI"
+      :message="message"
+    >
+      <template v-for="(item, index) in message.content" :key="item.data.id">
+        <div v-if="item.type === 'chart'">
+          <ChartDemo :data="item.data" />
+        </div>
+      </template>
+    </t-chat-message>
+  </Space>
+</template>

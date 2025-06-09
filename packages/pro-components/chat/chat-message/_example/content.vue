@@ -1,9 +1,5 @@
-import React from 'react';
-import { Space } from 'tdesign-react';
-
-import { AIMessage, ChatMessage, UserMessage } from '@tdesign-react/aigc';
-
-const userMessage1: UserMessage = {
+<script setup>
+const userMessage1 = {
   id: '11111',
   role: 'user',
   status: 'complete',
@@ -31,7 +27,8 @@ const userMessage1: UserMessage = {
     },
   ],
 };
-const userMessage2: UserMessage = {
+
+const userMessage2 = {
   id: '22222',
   role: 'user',
   status: 'complete',
@@ -53,7 +50,8 @@ const userMessage2: UserMessage = {
     },
   ],
 };
-const aiMessages: AIMessage = {
+
+const aiMessages = {
   id: '33333',
   role: 'assistant',
   status: 'complete',
@@ -106,30 +104,30 @@ const aiMessages: AIMessage = {
   ],
 };
 
-export default function ChatMessageExample() {
-  const onActions = {
-    suggestion: ({ content }) => {
-      console.log('suggestionItem', content);
-    },
-    searchItem: ({ content, event }) => {
-      event.preventDefault();
-      event.stopPropagation();
-      console.log('searchItem', content);
-    },
-  };
-  return (
-    <Space direction="vertical" style={{ width: '100%' }}>
-      <ChatMessage variant="base" placement="right" message={userMessage1}></ChatMessage>
-      <ChatMessage
-        message={aiMessages}
-        animation="gradient"
-        chatContentProps={{
-          thinking: { maxHeight: 100, collapsed: true },
-          search: { expandable: true },
-        }}
-        handleActions={onActions}
-      ></ChatMessage>
-      <ChatMessage variant="base" placement="right" message={userMessage2}></ChatMessage>
-    </Space>
-  );
-}
+const onActions = {
+  suggestion: (content) => {
+    console.log('suggestionItem', content);
+  },
+  searchItem: (content, event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    console.log('searchItem', content);
+  },
+};
+</script>
+
+<template>
+  <Space direction="vertical" style="width: 100%">
+    <t-chat-message variant="base" placement="right" :message="userMessage1" />
+    <t-chat-message
+      :message="aiMessages"
+      animation="gradient"
+      :chat-content-props="{
+        thinking: { maxHeight: 100, collapsed: true },
+        search: { expandable: true },
+      }"
+      :handle-actions="onActions"
+    />
+    <t-chat-message variant="base" placement="right" :message="userMessage2" />
+  </Space>
+</template>

@@ -13,6 +13,7 @@ import _ChatSender from './chat-sender/chat-sender';
 import _ChatAttachments from './attachments';
 import _ChatThinking from './chat-thinking';
 import _ChatBot from './chatbot';
+import _ChatMessage from './chat-message';
 // TODO: need refactor
 import withInstall from '../../components/utils/withInstall';
 
@@ -66,7 +67,8 @@ export const ChatAttachments = withInstall(_ChatAttachments);
 export const ChatThinking = withInstall(_ChatThinking);
 // 机器人
 export const ChatBot = withInstall(_ChatBot, 't-chatbot');
-
+// 消息对话
+export const ChatMessage = withInstall(_ChatMessage, 't-chat-message');
 // todo
 export const ChatSearchContent = omiVueify('t-chat-search-content', {
   methodNames: [],
