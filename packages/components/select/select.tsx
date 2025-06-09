@@ -17,7 +17,7 @@ import {
   useDefaultValue,
 } from '@tdesign/hooks';
 
-import { getSingleContent, getMultipleContent } from './utils';
+import { getSingleSelectContent, getMultipleSelectContent } from './utils';
 import { selectInjectKey } from './consts';
 import { useSelectOptions, useKeyboardControl } from './hooks';
 import type { PopupProps, PopupVisibleChangeContext } from '../popup';
@@ -124,19 +124,38 @@ export default defineComponent({
       'popupVisible',
     );
 
+    /** 不同的 valueType 模式下，当 option 没有数据时要展示不同的数据 */
+    const displayObjectTypeValue = computed(() => {
+      if (orgValue.value === undefined) {
+        return props.multiple ? [] : undefined;
+      }
+      if (props.valueType === 'object') {
+        return !props.multiple
+          ? // @ts-ignore
+            // TODO optimize SelectValue
+            orgValue.value[keys.value.label]
+          : // @ts-ignore
+            // TODO optimize SelectValue
+            (orgValue.value as SelectValue[]).map((option) => option[keys.value.label]);
+      }
+      return orgValue.value;
+    });
+
     const placeholderText = computed(
       () =>
-        ((!props.multiple && innerPopupVisible.value && getSingleContent(innerValue.value, optionsMap)) ||
+        ((!props.multiple &&
+          innerPopupVisible.value &&
+          getSingleSelectContent(displayObjectTypeValue.value, optionsMap)) ||
           props.placeholder) ??
         t(globalConfig.value.placeholder),
     );
 
     // selectInput 展示值
-    const displayText = computed(() =>
-      props.multiple
-        ? getMultipleContent(innerValue.value as SelectValue[], optionsMap)
-        : getSingleContent(innerValue.value, optionsMap),
-    );
+    const displayText = computed(() => {
+      return props.multiple
+        ? getMultipleSelectContent(displayObjectTypeValue.value as SelectValue[], optionsMap)
+        : getSingleSelectContent(displayObjectTypeValue.value, optionsMap);
+    });
 
     // valueDisplayParams参数
     const valueDisplayParams = computed(() => {
@@ -475,7 +494,7 @@ export default defineComponent({
           return undefined;
         }
         const currentSelectedOptions = getCurrentSelectedOptions(innerValue.value);
-        return innerValue.value
+        return displayObjectTypeValue.value
           .slice(0, props.minCollapsedNum ? props.minCollapsedNum : innerValue.value.length)
           .map?.((v: string, key: number) => {
             let tagIndex: number;
@@ -498,7 +517,7 @@ export default defineComponent({
                   removeTag(tagIndex);
                 }}
               >
-                {option ? option.label ?? option?.value : v}
+                {option ? option.label : v}
               </Tag>
             );
           });
