@@ -420,9 +420,6 @@ const senderProps = {
 let clickHandler = null;
 
 onMounted(() => {
-  chatRef.value.addEventListener('message_action', (e) => {
-    console.log('message_action', e.detail);
-  });
   clickHandler = (e) => {
     const target = findTargetElement(e, 'a[data-resource]');
     if (target) {

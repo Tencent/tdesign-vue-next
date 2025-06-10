@@ -5,8 +5,14 @@
     :textarea-props="{
       placeholder: '请输入消息...',
     }"
+    :attachments-props="{
+      items: filesList,
+      overflow: 'scrollX',
+    }"
     @send="inputEnter"
     @file-select="handleUploadFile"
+    @file-click="handleFileClick"
+    @remove="handleRemoveFile"
   >
     <!-- 自定义操作区域的内容，默认支持图片上传、附件上传和发送按钮 -->
     <template #suffix="{ renderPresets }">
@@ -20,9 +26,9 @@
       <!-- 任意配置顺序-->
       <component :is="renderPresets([{ name: 'uploadAttachment' }, { name: 'uploadImage' }])" />
     </template>
-    <template #header>
+    <!-- <template #inner-header>
       <t-attachments v-if="filesList.length > 0" :items="filesList" @remove="handleRemoveFile" />
-    </template>
+    </template> -->
   </t-chat-sender>
 </template>
 <script setup lang="ts">
@@ -92,5 +98,8 @@ const handleUploadFile = (e: CustomEvent<File[]>) => {
         : file,
     );
   }, 1000);
+};
+const handleFileClick = (e: CustomEvent<TdAttachmentItem>) => {
+  console.log('fileClick', e.detail);
 };
 </script>

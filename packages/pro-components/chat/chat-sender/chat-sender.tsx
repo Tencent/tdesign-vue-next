@@ -6,18 +6,17 @@ import { Button, Textarea, Tooltip } from 'tdesign-vue-next';
 import Attachments from '../attachments';
 
 import type { TdChatSenderProps, UploadActionType, UploadActionConfig } from '../type';
-import Items from '@src/descriptions/_example-ts/items.vue';
 
 export default defineComponent({
   name: 'TChatSender',
   props: {
     ...props,
-    attachmentsProp: {
+    attachmentsProps: {
       type: Object,
       default: () => ({ items: [], overflow: 'scrollX' }),
     },
   },
-  emits: ['send', 'stop', 'update:modelValue', 'blur', 'focus', 'fileSelect'], // declare the custom events here
+  emits: ['send', 'stop', 'update:modelValue', 'blur', 'focus', 'fileSelect', 'remove', 'fileClick'], // declare the custom events here
   setup(props, { emit }) {
     let shiftDownFlag = false;
     let isComposition = false;
@@ -225,22 +224,34 @@ export default defineComponent({
 
       return suffix ? suffix : getDefaultSuffixIcon();
     };
-    const renderAttachments =
-      props.attachmentsProp.items.length > 0 ? (
-        <div class={`${COMPONENT_NAME.value}-sender__header`}>
-          <Attachments items={props.attachmentsProp.items} overflow={props.attachmentsProp.overflow} />
-        </div>
-      ) : null;
+    const handleRemove = (e: CustomEvent) => {
+      emit('remove', e);
+    };
+    const handleFileClick = (e: CustomEvent) => {
+      emit('fileClick', e);
+    };
+    const renderHeader = () => {
+      return props.attachmentsProps.items.length > 0 ? (
+        <Attachments
+          {...props.attachmentsProps}
+          onRemove={handleRemove}
+          onFileClick={handleFileClick}
+          class={`${COMPONENT_NAME.value}-sender__attachment`}
+        />
+      ) : (
+        renderTNodeJSX('header')
+      );
+    };
     return () => (
       <div class={`${COMPONENT_NAME.value}-sender`}>
-        <div class={`${COMPONENT_NAME.value}-sender__header`}>{renderContent('default', 'header')}</div>
+        <div class={`${COMPONENT_NAME.value}-sender__header`}>{renderHeader()}</div>
         <div
           class={[
             `${COMPONENT_NAME.value}-sender__textarea`,
             focusFlag.value ? `${COMPONENT_NAME.value}-sender__textarea--focus` : '',
           ]}
         >
-          <div class={`${COMPONENT_NAME.value}-sender__inner-header`}>{renderContent('default', 'inner-header')}</div>
+          <div class={`${COMPONENT_NAME.value}-sender__inner-header`}>{renderTNodeJSX('inner-header')}</div>
           <Textarea
             ref={senderTextarea}
             value={textValue.value}
@@ -261,7 +272,7 @@ export default defineComponent({
             onCompositionend={compositionendFn}
           />
           <div class={`${COMPONENT_NAME.value}-sender__footer`}>
-            <div class={`${COMPONENT_NAME.value}-sender__mode`}>{renderContent('default', 'prefix')}</div>
+            <div class={`${COMPONENT_NAME.value}-sender__mode`}>{renderTNodeJSX('prefix')}</div>
             <div class={`${COMPONENT_NAME.value}-sender__button`}>
               {/* 发送按钮 */}
               <div class={`${COMPONENT_NAME.value}-sender__button__sendbtn`}>{renderSuffixIcon()}</div>

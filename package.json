@@ -130,7 +130,7 @@
     "tsx": "^4.19.2",
     "typescript": "^5.7.3",
     "tdesign-web-components": "1.0.3",
-    "omi-vueify": "^0.0.7"
+    "omi-vueify": "^0.0.8"
   },
   "config": {
     "commitizen": {
