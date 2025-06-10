@@ -3,12 +3,20 @@ import { SendFilledIcon, FileAttachmentIcon, ImageIcon } from 'tdesign-icons-vue
 import { usePrefixClass, useConfig, useTNodeJSX, useContent, useVModel } from '@tdesign/hooks';
 import props from './chat-sender-props';
 import { Button, Textarea, Tooltip } from 'tdesign-vue-next';
+import Attachments from '../attachments';
 
 import type { TdChatSenderProps, UploadActionType, UploadActionConfig } from '../type';
+import Items from '@src/descriptions/_example-ts/items.vue';
 
 export default defineComponent({
   name: 'TChatSender',
-  props,
+  props: {
+    ...props,
+    attachmentsProp: {
+      type: Object,
+      default: () => ({ items: [], overflow: 'scrollX' }),
+    },
+  },
   emits: ['send', 'stop', 'update:modelValue', 'blur', 'focus', 'fileSelect'], // declare the custom events here
   setup(props, { emit }) {
     let shiftDownFlag = false;
@@ -217,6 +225,12 @@ export default defineComponent({
 
       return suffix ? suffix : getDefaultSuffixIcon();
     };
+    const renderAttachments =
+      props.attachmentsProp.items.length > 0 ? (
+        <div class={`${COMPONENT_NAME.value}-sender__header`}>
+          <Attachments items={props.attachmentsProp.items} overflow={props.attachmentsProp.overflow} />
+        </div>
+      ) : null;
     return () => (
       <div class={`${COMPONENT_NAME.value}-sender`}>
         <div class={`${COMPONENT_NAME.value}-sender__header`}>{renderContent('default', 'header')}</div>

@@ -95,6 +95,10 @@ export default {
     app.use(ChatAction, config);
     app.use(ChatLoading, config);
     app.use(ChatSender, config);
+    app.use(ChatThinking, config);
+    app.use(ChatMessage, config);
+    app.use(ChatBot, config);
+    app.use(ChatAttachments, config);
   },
   version: typeof PKG_VERSION === 'undefined' ? '' : PKG_VERSION,
 };
