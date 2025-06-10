@@ -7,9 +7,10 @@ import _ChatContent from './chat-content';
 import _ChatReasoning from './chat-reasoning';
 import _ChatLoading from './chat-loading';
 
-import _ChatAction from './chat-action/chat-action';
+// 用的vue源码
+import _ChatAction from './chat-action';
 // import _FileCard from './file-card';
-import _ChatSender from './chat-sender/chat-sender';
+import _ChatSender from './chat-sender';
 import _ChatAttachments from './attachments';
 import _ChatThinking from './chat-thinking';
 import _ChatBot from './chatbot';
