@@ -9,6 +9,7 @@ import {
   ThumbDownFilledIcon,
   RefreshIcon,
   CopyIcon,
+  Share1Icon,
 } from 'tdesign-icons-vue-next';
 // TODO: need refactor
 import Clipboard from 'clipboard';
@@ -112,12 +113,30 @@ export default defineComponent({
           </Tooltip>
         </Space>
       ) : null;
+      const shareButton = props.actionBar.includes('replay') ? (
+        <Space>
+          <div class={`${COMPONENT_NAME.value}__refresh`}>
+            <Tooltip content="分享">
+              <Button
+                theme="default"
+                size="small"
+                disabled={disabled}
+                onClick={(e: MouseEvent) => handleClick(e, 'share')}
+              >
+                <Share1Icon />
+              </Button>
+            </Tooltip>
+            <span class={`${COMPONENT_NAME.value}__refresh-line`}></span>
+          </div>
+        </Space>
+      ) : null;
       // 按钮组件的映射
       const buttonComponents = {
         replay: replayButton,
         copy: copyButton,
         good: goodButton,
         bad: badButton,
+        share: shareButton,
       };
       return (
         <div class={`${COMPONENT_NAME.value}__actions`}>

@@ -183,7 +183,7 @@ export interface TdChatActionProps {
    * 操作按钮配置项，可配置操作按钮选项和顺序
    * @default ["replay", "copy", "good", "bad"]
    */
-  actionBar?: Array<'replay' | 'copy' | 'good' | 'bad'>;
+  actionBar?: Array<'replay' | 'copy' | 'good' | 'bad' | 'share'>;
   /**
    * 点击点赞，点踩，复制，重新生成按钮时触发
    */
@@ -356,11 +356,11 @@ export interface TdChatReasoningProps {
   /**
    * 布局方式
    */
-   layout?: 'border' | 'block';
-   /**
-    * 加载过程动画
-    */
-   animation?: 'moving' | 'gradient' | 'circle';
+  layout?: 'border' | 'block';
+  /**
+   * 加载过程动画
+   */
+  animation?: 'moving' | 'gradient' | 'circle';
 }
 
 export interface TdChatItemMeta {
