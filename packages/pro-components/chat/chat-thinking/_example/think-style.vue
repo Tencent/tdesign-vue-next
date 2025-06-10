@@ -1,5 +1,5 @@
 <template>
-  <t-chat-thinking-content :content="content" status="pending" layout="border"> </t-chat-thinking-content>
+  <t-chat-thinking :content="content" status="pending" layout="border"> </t-chat-thinking>
 </template>
 <script setup lang="jsx">
 import { ref } from 'vue';

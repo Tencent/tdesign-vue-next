@@ -64,7 +64,7 @@ export const ChatLoading = withInstall(_ChatLoading);
 // 附件
 export const ChatAttachments = withInstall(_ChatAttachments);
 // 思考
-export const ChatThinking = withInstall(_ChatThinking);
+export const ChatThinking = withInstall(_ChatThinking, 't-chat-thinking');
 // 机器人
 export const ChatBot = withInstall(_ChatBot, 't-chatbot');
 // 消息对话
