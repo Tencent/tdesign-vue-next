@@ -2,10 +2,11 @@ import { defineComponent, ref, toRefs } from 'vue';
 import { useVModel, useDefaultValue, useTNodeDefault } from '@tdesign/hooks';
 
 import props from './props';
-import { Popup as TPopup } from '../popup';
+import { PopupTriggerEvent, PopupTriggerSource, Popup as TPopup } from '../popup';
 import ColorPanel from './components/panel';
 import DefaultTrigger from './components/trigger';
 import { useBaseClassName } from './hooks';
+import { TdColorPickerProps } from './type';
 
 export default defineComponent({
   name: 'TColorPicker',
@@ -59,14 +60,16 @@ export default defineComponent({
           padding: 0,
         },
         onVisibleChange: (
-          visible: boolean,
+          popupVisible: boolean,
           context: {
-            trigger: string;
+            e?: PopupTriggerEvent;
+            trigger: PopupTriggerSource;
           },
         ) => {
           if (context.trigger === 'document') {
             setVisible(false);
           }
+          (props.popupProps as TdColorPickerProps['popupProps'])?.onVisibleChange?.(visible.value, context);
         },
       };
       return (
