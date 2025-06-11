@@ -158,7 +158,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node: [18, 20, 22, 24]
+        node: [18, 20, 22]
         os: [ubuntu-latest, windows-latest]
     name: build-vue / ${{matrix.os}} / node- ${{ matrix.node }}
     runs-on: ${{ matrix.os }}
@@ -190,7 +190,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node: [18, 20, 22, 24]
+        node: [18, 20, 22]
         os: [ubuntu-latest, windows-latest]
 
     name: build-chat / ${{matrix.os}} / node- ${{ matrix.node }}
@@ -209,24 +209,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
-
-      # 获取 pnpm 的存储目录路径
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        run: |
-          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      # 设置 pnpm 缓存
-      - uses: actions/cache@v4
-        name: Setup pnpm cache
-        with:
-          # 缓存路径
-          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
-          # 缓存键
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          # 恢复缓存的备用键
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
 
       # 安装依赖
       - run: pnpm i
