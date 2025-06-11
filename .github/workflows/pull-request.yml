@@ -192,6 +192,7 @@ jobs:
       matrix:
         node: [18, 20, 22, 24]
         os: [ubuntu-latest, windows-latest]
+
     name: build-chat / ${{matrix.os}} / node- ${{ matrix.node }}
     runs-on: ${{ matrix.os }}
     steps:
@@ -207,7 +208,7 @@ jobs:
       # 设置 Node.js 环境，版本为 18
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: ${{ matrix.node }}
 
       # 获取 pnpm 的存储目录路径
       - name: Get pnpm store directory
