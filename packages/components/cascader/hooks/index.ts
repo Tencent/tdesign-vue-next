@@ -201,7 +201,7 @@ export const useCascaderContext = (props: TdCascaderProps) => {
         statusContext.scopeVal = multiple ? [] : '';
       }
 
-      if (!isEmptyValues(innerValue)) {
+      if (!isEmptyValues(innerValue.value)) {
         statusContext.scopeVal = getCascaderValue(innerValue.value, valueType, multiple);
       }
 

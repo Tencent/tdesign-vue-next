@@ -118,12 +118,11 @@ export const getCascaderValue = (value: CascaderValue, valueType: TdCascaderProp
 
 /**
  * 空值校验
- * 排除 undefined, 补充value为Number时的空值校验逻辑，排除NaN
+ * 补充value为Number时的空值校验逻辑，排除NaN
  * @param value
  * @returns
  */
 export function isEmptyValues(value: unknown): boolean {
-  if (isUndefined(value)) return false;
   if (isNumber(value) && !isNaN(value)) return false;
   return isEmpty(value);
 }
