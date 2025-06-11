@@ -315,6 +315,11 @@ export interface ChatConfig {
    */
   dislikeTipText?: string;
   /**
+   * 语言配置，“分享”占位描述文本
+   * @default ''
+   */
+  shareTipText?: string;
+  /**
    * 语言配置，“复制代码”占位描述文本
    * @default ''
    */

@@ -24,7 +24,7 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const messagePluginInstance = MessagePluginSingleton.getInstance();
     const { globalConfig } = useConfig('chat');
-    const { copyTipText, likeTipText, dislikeTipText, refreshTipText, copyTextSuccess, copyTextFail } =
+    const { copyTipText, likeTipText, dislikeTipText, refreshTipText, copyTextSuccess, copyTextFail, shareTipText } =
       globalConfig.value;
     return () => {
       // textLoading更新后要传给子组件和孙组件
@@ -116,7 +116,7 @@ export default defineComponent({
       const shareButton = props.actionBar.includes('replay') ? (
         <Space>
           <div class={`${COMPONENT_NAME.value}__refresh`}>
-            <Tooltip content="分享">
+            <Tooltip content={shareTipText}>
               <Button
                 theme="default"
                 size="small"
