@@ -155,11 +155,13 @@ jobs:
       - run: pnpm run test:vue
 
   build-vue-next:
-    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        node-version: [18, 20, 22]
+        node: [18, 20, 22]
+        os: [ubuntu-latest, windows-latest]
+    name: ${{matrix.os}} / Node ${{ matrix.node }}
+    runs-on: ${{ matrix.os }}
     steps:
       # 检出代码仓库，并递归初始化子模块
       - uses: actions/checkout@v4
@@ -173,7 +175,7 @@ jobs:
       # 设置 Node.js 环境，版本为 18
       - uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: ${{ matrix.node }}
 
       # 安装依赖
       - run: pnpm i
