@@ -2,7 +2,7 @@ import { Ref, reactive, computed, toRefs, watch, nextTick } from 'vue';
 import { isEqual, isString, isFunction } from 'lodash-es';
 
 import TreeStore from '@tdesign/common-js/tree/tree-store';
-import { useVModel, useDisabled, useDefaultValue } from '@tdesign/hooks';
+import { useVModel, useDisabled, useDefaultValue } from '@tdesign/shared-hooks';
 
 import {
   getTreeValue,

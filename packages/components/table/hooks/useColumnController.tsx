@@ -8,7 +8,7 @@ import { CheckboxGroupValue, CheckboxOptionObj, CheckboxGroupChangeContext } fro
 import { DialogPlugin } from '../../dialog/plugin';
 import { renderTitle } from './useTableHeader';
 import { PrimaryTableCol, TdPrimaryTableProps } from '../type';
-import { useConfig, useTNodeJSX, useGlobalIcon, useDefaultValue } from '@tdesign/hooks';
+import { useConfig, useTNodeJSX, useGlobalIcon, useDefaultValue } from '@tdesign/shared-hooks';
 
 import { getCurrentRowByKey } from '../utils';
 import { DialogInstance } from '../../dialog';

@@ -1,5 +1,5 @@
 import { computed, defineComponent, toRefs, h } from 'vue';
-import { useVModel, usePrefixClass } from '@tdesign/hooks';
+import { useVModel, usePrefixClass } from '@tdesign/shared-hooks';
 import props from './check-tag-group-props';
 import CheckTag from './check-tag';
 

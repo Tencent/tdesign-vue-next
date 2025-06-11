@@ -13,7 +13,7 @@ import {
   useGlobalIcon,
   usePrefixClass,
   useCommonClassName,
-} from '@tdesign/hooks';
+} from '@tdesign/shared-hooks';
 
 import { useInput, useInputEventHandler, useInputWidth } from './hooks';
 import { getValidAttrs } from '@tdesign/common-js/utils/helper';

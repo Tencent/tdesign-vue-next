@@ -12,7 +12,7 @@ import { PageInfo, TdPaginationProps, Pagination } from '../../pagination';
 import { Checkbox as TCheckbox, CheckboxGroup as TCheckboxGroup, CheckboxProps } from '../../checkbox';
 import { getLefCount, getDataValues, TARGET } from '../utils';
 import Search from './transfer-search';
-import { useConfig, usePrefixClass, useTNodeDefault } from '@tdesign/hooks';
+import { useConfig, usePrefixClass, useTNodeDefault } from '@tdesign/shared-hooks';
 
 import { filter, isString, cloneDeep } from 'lodash-es';
 

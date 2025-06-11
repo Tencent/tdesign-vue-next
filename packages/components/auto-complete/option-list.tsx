@@ -1,7 +1,7 @@
 import { ref, computed, defineComponent, PropType, h, watch, onBeforeUnmount } from 'vue';
 import { isString, isFunction, escapeRegExp } from 'lodash-es';
 import HighlightOption from './highlight-option';
-import { useConfig, usePrefixClass, CommonClassNameType } from '@tdesign/hooks';
+import { useConfig, usePrefixClass, CommonClassNameType } from '@tdesign/shared-hooks';
 import { AutoCompleteOptionObj, TdAutoCompleteProps } from './type';
 import log from '@tdesign/common-js/log/index';
 

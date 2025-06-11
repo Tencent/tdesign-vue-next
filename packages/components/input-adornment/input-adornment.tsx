@@ -1,7 +1,7 @@
 import { defineComponent, h, VNodeChild } from 'vue';
 import { isString, isNumber, isFunction } from 'lodash-es';
 
-import { useTNodeJSX, usePrefixClass } from '@tdesign/hooks';
+import { useTNodeJSX, usePrefixClass } from '@tdesign/shared-hooks';
 
 import props from './props';
 

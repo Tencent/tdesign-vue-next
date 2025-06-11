@@ -6,7 +6,7 @@ import useTableHeader from './hooks/useTableHeader';
 import useColumnResize from './hooks/useColumnResize';
 import useFixed from './hooks/useFixed';
 import usePagination from './hooks/usePagination';
-import { useConfig, useTNodeJSX, useVirtualScrollNew, useElementLazyRender } from '@tdesign/hooks';
+import { useConfig, useTNodeJSX, useVirtualScrollNew, useElementLazyRender } from '@tdesign/shared-hooks';
 import useAffix from './hooks/useAffix';
 import Loading from '../loading';
 import TBody, { extendTableProps } from './tbody';

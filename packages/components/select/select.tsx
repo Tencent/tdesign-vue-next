@@ -15,7 +15,7 @@ import {
   useTNodeJSX,
   usePrefixClass,
   useDefaultValue,
-} from '@tdesign/hooks';
+} from '@tdesign/shared-hooks';
 
 import { getSingleContent, getMultipleContent } from './utils';
 import { selectInjectKey } from './consts';
