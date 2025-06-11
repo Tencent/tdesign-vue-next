@@ -154,11 +154,12 @@ jobs:
       # 运行测试
       - run: pnpm run test:vue
 
-  build_vue-next:
-    # 在最新版本的 Ubuntu 环境中运行
+  build-vue-next:
     runs-on: ubuntu-latest
-    # 如果需要依赖自身任务，可以取消注释（通常不需要）
-    # needs: build
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [18, 20, 22]
     steps:
       # 检出代码仓库，并递归初始化子模块
       - uses: actions/checkout@v4
@@ -172,25 +173,7 @@ jobs:
       # 设置 Node.js 环境，版本为 18
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
-
-      # 获取 pnpm 的存储目录路径
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        run: |
-          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      # 设置 pnpm 缓存
-      - uses: actions/cache@v4
-        name: Setup pnpm cache
-        with:
-          # 缓存路径
-          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
-          # 缓存键
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          # 恢复缓存的备用键
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+          node-version: ${{ matrix.node-version }}
 
       # 安装依赖
       - run: pnpm i
