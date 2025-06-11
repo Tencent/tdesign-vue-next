@@ -3,7 +3,7 @@ import { SendFilledIcon, FileAttachmentIcon, ImageIcon } from 'tdesign-icons-vue
 import { Button, Textarea, Tooltip } from 'tdesign-vue-next';
 import { useConfig } from 'tdesign-vue-next/es/config-provider/hooks';
 
-import { usePrefixClass, useTNodeJSX, useContent, useVModel } from '@tdesign/hooks';
+import { usePrefixClass, useTNodeJSX, useVModel } from '@tdesign/hooks';
 import props from './chat-sender-props';
 
 import type { TdChatSenderProps, UploadActionType, UploadActionConfig } from './type';
