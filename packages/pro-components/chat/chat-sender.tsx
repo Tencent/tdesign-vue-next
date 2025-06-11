@@ -28,7 +28,6 @@ export default defineComponent({
     const uploadImageRef = ref(null);
     const uploadFileRef = ref(null);
     const renderTNodeJSX = useTNodeJSX();
-    const renderContent = useContent();
     // 点击了发送按钮
     const sendClick = (e: MouseEvent | KeyboardEvent) => {
       if (textValue.value && !disabled.value) {
@@ -218,14 +217,14 @@ export default defineComponent({
     };
     return () => (
       <div class={`${COMPONENT_NAME.value}-sender`}>
-        <div class={`${COMPONENT_NAME.value}-sender__header`}>{renderContent('default', 'header')}</div>
+        <div class={`${COMPONENT_NAME.value}-sender__header`}>{renderTNodeJSX('header')}</div>
         <div
           class={[
             `${COMPONENT_NAME.value}-sender__textarea`,
             focusFlag.value ? `${COMPONENT_NAME.value}-sender__textarea--focus` : '',
           ]}
         >
-          <div class={`${COMPONENT_NAME.value}-sender__inner-header`}>{renderContent('default', 'inner-header')}</div>
+          <div class={`${COMPONENT_NAME.value}-sender__inner-header`}>{renderTNodeJSX('inner-header')}</div>
           <Textarea
             ref={senderTextarea}
             value={textValue.value}
@@ -246,7 +245,7 @@ export default defineComponent({
             onCompositionend={compositionendFn}
           />
           <div class={`${COMPONENT_NAME.value}-sender__footer`}>
-            <div class={`${COMPONENT_NAME.value}-sender__mode`}>{renderContent('default', 'prefix')}</div>
+            <div class={`${COMPONENT_NAME.value}-sender__mode`}>{renderTNodeJSX('prefix')}</div>
             <div class={`${COMPONENT_NAME.value}-sender__button`}>
               {/* 发送按钮 */}
               <div class={`${COMPONENT_NAME.value}-sender__button__sendbtn`}>{renderSuffixIcon()}</div>
