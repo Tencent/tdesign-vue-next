@@ -160,7 +160,7 @@ jobs:
       matrix:
         node: [18, 20, 22]
         os: [ubuntu-latest, windows-latest]
-    name: ${{matrix.os}} / Node ${{ matrix.node }}
+    name: build-vue / ${{matrix.os}} / node- ${{ matrix.node }}
     runs-on: ${{ matrix.os }}
     steps:
       # 检出代码仓库，并递归初始化子模块
@@ -187,10 +187,13 @@ jobs:
       - run: pnpm -F tdesign-vue-next publish --no-git-checks --dry-run
 
   build-chat:
-    # 在最新版本的 Ubuntu 环境中运行
-    runs-on: ubuntu-latest
-    # 如果需要依赖自身任务，可以取消注释（通常不需要）
-    # needs: build
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [18, 20, 22]
+        os: [ubuntu-latest, windows-latest]
+    name: build-chat / ${{matrix.os}} / node- ${{ matrix.node }}
+    runs-on: ${{ matrix.os }}
     steps:
       # 检出代码仓库，并递归初始化子模块
       - uses: actions/checkout@v4
