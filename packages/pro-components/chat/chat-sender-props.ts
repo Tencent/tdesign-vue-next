@@ -19,8 +19,16 @@ export default {
   prefix: {
     type: [String, Function] as PropType<TdChatSenderProps['prefix']>,
   },
-  /** 中止按钮是否可点击。等流式数据全部返回结束置为false，注意跟textLoading的控制时机不是同一个 */
-  stopDisabled: Boolean,
+  /** 是否加载中 */
+  stopDisabled: {
+    type: Boolean as PropType<TdChatSenderProps['stopDisabled']>,
+    default: false,
+  },
+  /** 是否加载中 */
+  loading: {
+    type: Boolean as PropType<TdChatSenderProps['loading']>,
+    default: false,
+  },
   /** 输入框右下角区域扩展 */
   suffix: {
     type: [String, Function] as PropType<TdChatSenderProps['suffix']>,

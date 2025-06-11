@@ -273,10 +273,15 @@ export interface TdChatSenderProps {
    */
   prefix?: string | TNode;
   /**
-   * 中止按钮是否可点击。等流式数据全部返回结束置为false，注意跟textLoading的控制时机不是同一个
-   * @default false
+   * 请更为使用 `loading`
+   * @deprecated
    */
   stopDisabled?: boolean;
+  /**
+   * 是否加载中
+   * @default false
+   */
+  loading: boolean;
   /**
    * 输入框右下角区域扩展
    */
