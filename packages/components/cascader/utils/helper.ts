@@ -1,4 +1,4 @@
-import { isArray, isEmpty, isNumber, isObject, isUndefined } from 'lodash-es';
+import { isArray, isEmpty, isNumber, isObject } from 'lodash-es';
 
 import { TreeNode, CascaderContextType, TdCascaderProps, CascaderValue, TreeNodeValue, TreeOptionData } from '../types';
 
