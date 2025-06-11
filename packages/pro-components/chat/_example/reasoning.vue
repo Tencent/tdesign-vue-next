@@ -31,7 +31,7 @@
       <template #footer>
         <t-chat-sender
           v-model="inputValue"
-          :stop-disabled="isStreamLoad"
+          :loading="isStreamLoad"
           :textarea-props="{
             placeholder: '请输入消息...',
           }"

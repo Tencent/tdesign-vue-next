@@ -23,8 +23,7 @@ export default defineComponent({
     const [textValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
 
     const focusFlag = ref(false);
-    const loading = ref(false);
-    const showStopBtn = computed(() => props.stopDisabled && loading.value);
+    const showStopBtn = computed(() => props.loading || props.stopDisabled);
     const disabled = computed(() => props.disabled || false);
     const uploadImageRef = ref(null);
     const uploadFileRef = ref(null);
@@ -34,13 +33,11 @@ export default defineComponent({
     const sendClick = (e: MouseEvent | KeyboardEvent) => {
       if (textValue.value && !disabled.value) {
         emit('send', textValue.value, { e });
-        loading.value = true;
       }
     };
     // 点击了停止按钮
     const handleStop = (e: MouseEvent) => {
       e.stopPropagation(); // 阻止事件冒泡
-      loading.value = false;
       emit('stop', textValue.value, {
         e,
       });
