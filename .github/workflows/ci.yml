@@ -1,0 +1,31 @@
+name: ci
+on:
+  push:
+    branches: 
+        - develop
+        - ci/**
+
+jobs:
+  build:
+    if: github.repository == 'Tencent/tdesign-vue-next'
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [18, 20, 22 ]
+        os: [ubuntu-latest, windows-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+
+      - run: pnpm install
+
+      - run: pnpm run "/build:*/"
