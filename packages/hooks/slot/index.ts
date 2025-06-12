@@ -13,8 +13,7 @@ import {
   Teleport,
 } from 'vue';
 import { isArray } from 'lodash-es';
-// TODO need refactor
-import { getChildren } from '../../components/utils/render-tnode';
+import { getChildren } from '@tdesign/shared-utils';
 
 /**
  * 渲染default slot，获取子组件VNode。处理多种子组件创建场景

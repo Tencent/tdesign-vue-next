@@ -1,5 +1,5 @@
 import _Statistic from './statistic';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 import { TdStatisticProps } from './type';
 
 import './style';

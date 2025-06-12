@@ -1,5 +1,5 @@
 import _Badge from './badge';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 import { TdBadgeProps } from './type';
 
 import './style';

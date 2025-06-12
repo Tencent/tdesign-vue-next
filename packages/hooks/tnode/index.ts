@@ -1,14 +1,7 @@
 import { h, getCurrentInstance, ComponentInternalInstance, VNode } from 'vue';
 import { camelCase, kebabCase, isFunction } from 'lodash-es';
 
-// TODO need refactor
-import {
-  getDefaultNode,
-  getParams,
-  OptionsType,
-  JSXRenderContext,
-  getSlotFirst,
-} from '../../components/utils/render-tnode';
+import { getDefaultNode, getParams, OptionsType, JSXRenderContext, getSlotFirst } from '@tdesign/shared-utils';
 import { hasOwn } from '@tdesign/common-js/utils/general';
 
 // 兼容处理插槽名称，同时支持驼峰命名和中划线命名，示例：value-display 和 valueDisplay

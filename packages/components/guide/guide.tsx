@@ -5,7 +5,7 @@ import { GuideCrossProps } from './types';
 import { TdGuideProps, GuideStep } from './type';
 import { scrollToParentVisibleArea, getRelativePosition, getTargetElm, scrollToElm } from './utils';
 import setStyle from '@tdesign/common-js/utils/setStyle';
-import { addClass, removeClass, isFixed, getWindowScroll } from '../utils/dom';
+import { addClass, removeClass, isFixed, getWindowScroll } from '@tdesign/shared-utils';
 import { useVModel, useConfig, useTNodeJSX, usePrefixClass } from '@tdesign/hooks';
 
 import Button from '../button';

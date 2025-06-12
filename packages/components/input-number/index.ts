@@ -1,5 +1,5 @@
 import _InputNumber from './input-number';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 import { TdInputNumberProps } from './type';
 
 import './style';

@@ -3,7 +3,7 @@ import props from './avatar-group-props';
 import Avatar from './avatar';
 import { useTNodeJSX, usePrefixClass } from '@tdesign/hooks';
 
-import { getChildren } from '../utils/render-tnode';
+import { getChildren } from '@tdesign/shared-utils';
 
 export default defineComponent({
   name: 'TAvatarGroup',

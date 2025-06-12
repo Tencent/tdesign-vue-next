@@ -1,7 +1,7 @@
 import { App, Plugin, createApp, defineComponent, h, reactive } from 'vue';
 import { merge } from 'lodash-es';
 import LoadingComponent from './loading';
-import { getAttach, removeClass, addClass } from '../utils/dom';
+import { getAttach, removeClass, addClass } from '@tdesign/shared-utils';
 import { TdLoadingProps, LoadingInstance, LoadingMethod } from './type';
 import { usePrefixClass } from '@tdesign/hooks';
 

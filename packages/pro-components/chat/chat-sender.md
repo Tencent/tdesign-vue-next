@@ -9,7 +9,8 @@
 disabled | Boolean | false | 是否禁用输入框 | N
 placeholder | String | - | 输入框默认文案 | N
 prefix | String / Slot / Function | - | 输入框左下角区域扩展。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
-stopDisabled | Boolean | false | 中止按钮是否可点击。等流式数据全部返回结束置为false，注意跟textLoading的控制时机不是同一个 | N
+stopDisabled | Boolean | false | 发送按钮是否处于加载状态`待废弃，请尽快使用loading替换` | N
+loading | Boolean | false | 发送按钮是否处于加载状态 | N
 suffix | String / Slot / Function | - | 输入框右下角区域扩展。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)。当使用函数形式控制上传按钮时，参数为 `{ renderPresets: UploadActionConfig[] }`，其中 `UploadActionConfig` [详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/pro-components/chat/type.ts) | N
 header | String / Slot / Function | - | 输入框外标题区域扩展 | N
 inner-header | String / Slot / Function | - | 输入框内标题区域扩展 | N

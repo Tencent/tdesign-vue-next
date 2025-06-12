@@ -3,7 +3,8 @@ import { isArray, cloneDeep, isUndefined } from 'lodash-es';
 
 import { TransferListOptionBase, TransferItemOption, TdTransferProps, TransferValue, DataOption } from '../types';
 
-export { emitEvent } from '../../utils/event';
+// TODO:PAOPAO for what?
+// export { emitEvent } from '../../utils/event';
 
 export const TRANSFER_NAME = 'TTransfer';
 
