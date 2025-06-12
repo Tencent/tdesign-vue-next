@@ -19,12 +19,12 @@ export default {
   prefix: {
     type: [String, Function] as PropType<TdChatSenderProps['prefix']>,
   },
-  /** 是否加载中 */
+  /** 发送按钮是否处于加载状态 */
   stopDisabled: {
     type: Boolean as PropType<TdChatSenderProps['stopDisabled']>,
     default: false,
   },
-  /** 是否加载中 */
+  /** 发送按钮是否处于加载状态 */
   loading: {
     type: Boolean as PropType<TdChatSenderProps['loading']>,
     default: false,
