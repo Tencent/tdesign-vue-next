@@ -1,6 +1,6 @@
 import { defineComponent, computed } from 'vue';
 import props from './props';
-import { useContent, useTNodeJSX, usePrefixClass } from '@tdesign/hooks';
+import { useContent, useTNodeJSX, usePrefixClass } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'TBadge',

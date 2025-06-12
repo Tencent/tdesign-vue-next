@@ -3,7 +3,7 @@ import { isArray, isNumber, isFunction } from 'lodash-es';
 
 import props from './props';
 import { SkeletonRowCol, SkeletonRowColObj, TdSkeletonProps } from './type';
-import { useContent, usePrefixClass } from '@tdesign/hooks';
+import { useContent, usePrefixClass } from '@tdesign/shared-hooks';
 
 const ThemeMap: Record<TdSkeletonProps['theme'], SkeletonRowCol> = {
   text: [1],

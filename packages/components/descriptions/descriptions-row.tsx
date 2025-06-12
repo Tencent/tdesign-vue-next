@@ -1,5 +1,5 @@
 import { computed, defineComponent, inject, PropType } from 'vue';
-import { useConfig, usePrefixClass } from '@tdesign/hooks';
+import { useConfig, usePrefixClass } from '@tdesign/shared-hooks';
 import { descriptionsKey } from './consts';
 import { ItemsType, TdDescriptionsItem } from './types';
 import { renderVNodeTNode, itemTypeIsProps } from './utils';

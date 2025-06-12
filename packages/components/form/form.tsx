@@ -17,7 +17,7 @@ import { FormInjectionKey, FormItemContext, useCLASSNAMES } from './consts';
 import { FormResetEvent, FormSubmitEvent } from '../common';
 
 import { FormDisabledProvider, FormReadonlyProvider } from './hooks';
-import { usePrefixClass, useTNodeJSX } from '@tdesign/hooks';
+import { usePrefixClass, useTNodeJSX } from '@tdesign/shared-hooks';
 
 type Result = FormValidateResult<TdFormProps['data']>;
 

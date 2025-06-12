@@ -5,7 +5,7 @@ import stepItemProps from './step-item-props';
 import { TdStepItemProps } from './type';
 import StepItem from './step-item';
 
-import { useVModel, usePrefixClass, useChildComponentSlots } from '@tdesign/hooks';
+import { useVModel, usePrefixClass, useChildComponentSlots } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'TSteps',

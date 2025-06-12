@@ -4,7 +4,7 @@ import { TdSelectInputProps, SelectInputChangeContext, SelectInputKeys } from '.
 import { SelectInputCommonProperties } from '../types';
 import TagInput, { TagInputValue, TagInputProps } from '../../tag-input';
 import Loading from '../../loading';
-import { useDisabled, useReadonly, usePrefixClass, useDefaultValue } from '@tdesign/hooks';
+import { useDisabled, useReadonly, usePrefixClass, useDefaultValue } from '@tdesign/shared-hooks';
 
 import { PopupInstanceFunctions } from '../../popup';
 

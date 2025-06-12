@@ -19,7 +19,7 @@ import props from './props';
 import { TNode } from '../common';
 
 // hooks
-import { useVModel, useDisabled, usePrefixClass, useDefaultValue } from '@tdesign/hooks';
+import { useVModel, useDisabled, usePrefixClass, useDefaultValue } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: TRANSFER_NAME,

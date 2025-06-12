@@ -4,7 +4,7 @@ import { get, omit } from 'lodash-es';
 import baseTableProps from './base-table-props';
 import primaryTableProps from './primary-table-props';
 import BaseTable from './base-table';
-import { useConfig, useTNodeJSX, ScrollToElementParams } from '@tdesign/hooks';
+import { useConfig, useTNodeJSX, ScrollToElementParams } from '@tdesign/shared-hooks';
 import useColumnController from './hooks/useColumnController';
 import useRowExpand from './hooks/useRowExpand';
 import useTableHeader, { renderTitle } from './hooks/useTableHeader';

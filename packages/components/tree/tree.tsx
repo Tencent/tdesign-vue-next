@@ -22,7 +22,7 @@ import useTreeStyles from './hooks/useTreeStyles';
 import props from './props';
 import { TreeNodeState, TreeNodeValue, TypeTreeNodeModel } from './tree-types';
 import { getNode } from './util';
-import { useTNodeJSX } from '@tdesign/hooks';
+import { useTNodeJSX } from '@tdesign/shared-hooks';
 
 // 2022.11.02 tabliang 备注
 // 之前尝试实现了嵌套布局，原本预期嵌套布局能够提升大数据量下，全部渲染节点时的性能表现

@@ -1,6 +1,6 @@
 import { defineComponent, computed } from 'vue';
 import Popup from '../popup';
-import { usePrefixClass } from '@tdesign/hooks';
+import { usePrefixClass } from '@tdesign/shared-hooks';
 import RangeInput from './range-input';
 import props from './range-input-popup-props';
 import { useOverlayInnerStyle } from '../select-input/hooks/useOverlayInnerStyle';

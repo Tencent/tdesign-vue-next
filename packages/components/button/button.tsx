@@ -1,7 +1,14 @@
 import { computed, defineComponent, h, ref } from 'vue';
 import TLoading from '../loading';
 import props from './props';
-import { useRipple, useContent, useTNodeJSX, useDisabled, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
+import {
+  useRipple,
+  useContent,
+  useTNodeJSX,
+  useDisabled,
+  usePrefixClass,
+  useCommonClassName,
+} from '@tdesign/shared-hooks';
 
 import { TdButtonProps } from './type';
 

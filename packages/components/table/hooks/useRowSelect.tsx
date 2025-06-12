@@ -4,7 +4,7 @@
 import { computed, toRefs, h, ref, watch } from 'vue';
 import { get, isFunction, intersection } from 'lodash-es';
 
-import { useDefaultValue } from '@tdesign/hooks';
+import { useDefaultValue } from '@tdesign/shared-hooks';
 import {
   ActiveRowActionContext,
   PrimaryTableCellParams,

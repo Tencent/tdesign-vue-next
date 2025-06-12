@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import { isFunction, isDate } from 'lodash-es';
 import { CalendarIcon as TdCalendarIcon } from 'tdesign-icons-vue-next';
 
-import { useConfig, useTNodeJSX, useDisabled, useReadonly, useGlobalIcon, usePrefixClass } from '@tdesign/hooks';
+import { useConfig, useTNodeJSX, useDisabled, useReadonly, useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
 
 import { useSingle } from './hooks/useSingle';
 import { parseToDayjs, getDefaultFormat, formatTime, formatDate } from '@tdesign/common-js/date-picker/format';

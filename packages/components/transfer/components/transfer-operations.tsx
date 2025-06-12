@@ -3,7 +3,7 @@ import { ChevronRightIcon as TdChevronRightIcon, ChevronLeftIcon as TdChevronLef
 
 import Button from '../../button';
 import { TNode } from '../../common';
-import { useGlobalIcon, usePrefixClass } from '@tdesign/hooks';
+import { useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
 
 import props from '../props';
 import { isArray, isString, isFunction } from 'lodash-es';

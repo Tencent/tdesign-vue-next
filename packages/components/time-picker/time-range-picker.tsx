@@ -23,7 +23,7 @@ import {
   useGlobalIcon,
   usePrefixClass,
   useCommonClassName,
-} from '@tdesign/hooks';
+} from '@tdesign/shared-hooks';
 
 dayjs.extend(customParseFormat);
 
