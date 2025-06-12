@@ -273,12 +273,12 @@ export interface TdChatSenderProps {
    */
   prefix?: string | TNode;
   /**
-   * 请更为使用 `loading`
+   * 发送按钮是否处于加载状态，待废弃，请尽快使用 loading 替换
    * @deprecated
    */
   stopDisabled?: boolean;
   /**
-   * 是否加载中
+   * 发送按钮是否处于加载状态
    * @default false
    */
   loading: boolean;
