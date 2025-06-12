@@ -1,6 +1,6 @@
 import { useConfig } from '../useConfig';
 // TODO need refactor
-import { EAnimationType } from '../../components/config-provider/utils/context';
+import { EAnimationType } from '../../../components/config-provider/utils/context';
 
 const { expand, ripple, fade } = EAnimationType;
 

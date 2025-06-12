@@ -2,7 +2,7 @@ import { computed, defineComponent, inject } from 'vue';
 import props from './col-props';
 import { useRowSize } from './hooks';
 import { RowProviderType, parseFlex, calcColPadding, getColClasses } from './utils';
-import { useTNodeJSX, usePrefixClass } from '@tdesign/hooks';
+import { useTNodeJSX, usePrefixClass } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'TCol',

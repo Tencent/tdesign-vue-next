@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue';
 import props from './props';
-import { useContent, usePrefixClass } from '@tdesign/hooks';
+import { useContent, usePrefixClass } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'TDivider',

@@ -51,7 +51,7 @@ import {
   ValidateStatus,
 } from './consts';
 
-import { useConfig, useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/hooks';
+import { useConfig, useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
 
 import { template } from '@tdesign/common-js/utils/stringTemplate';
 

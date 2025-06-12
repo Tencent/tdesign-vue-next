@@ -3,7 +3,14 @@ import props from './props';
 import { TdAutoCompleteProps } from './type';
 import TInput, { InputProps, StrInputProps } from '../input';
 import Popup, { PopupProps } from '../popup';
-import { useVModel, useContent, useTNodeJSX, useDisabled, useReadonly, useCommonClassName } from '@tdesign/hooks';
+import {
+  useVModel,
+  useContent,
+  useTNodeJSX,
+  useDisabled,
+  useReadonly,
+  useCommonClassName,
+} from '@tdesign/shared-hooks';
 import AutoCompleteOptionList from './option-list';
 
 import { useConfig } from '../config-provider/hooks/useConfig';

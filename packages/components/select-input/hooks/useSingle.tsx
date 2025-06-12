@@ -3,7 +3,7 @@ import { pick, isObject } from 'lodash-es';
 
 import Input, { StrInputProps } from '../../input';
 import Loading from '../../loading';
-import { useTNodeJSX, useDisabled, useReadonly, usePrefixClass, useDefaultValue } from '@tdesign/hooks';
+import { useTNodeJSX, useDisabled, useReadonly, usePrefixClass, useDefaultValue } from '@tdesign/shared-hooks';
 
 import { PopupInstanceFunctions } from '../../popup';
 import { TdSelectInputProps } from '../type';

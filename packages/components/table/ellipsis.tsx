@@ -2,7 +2,7 @@
 import { defineComponent, PropType, ref, computed, onMounted, onUpdated } from 'vue';
 import { debounce } from 'lodash-es';
 import { AttachNode, TNode } from '../common';
-import { useContent } from '@tdesign/hooks';
+import { useContent } from '@tdesign/shared-hooks';
 import { isTextEllipsis } from '@tdesign/shared-utils';
 import TTooltip, { TooltipProps } from '../tooltip';
 

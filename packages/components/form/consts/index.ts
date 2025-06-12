@@ -10,7 +10,7 @@ import {
   ValidateResultType,
   ValidateTriggerType,
 } from '../type';
-import { usePrefixClass, useTNodeJSX } from '@tdesign/hooks';
+import { usePrefixClass, useTNodeJSX } from '@tdesign/shared-hooks';
 
 // 允许 Form 统一控制的表单
 export const FORM_CONTROL_COMPONENTS = [

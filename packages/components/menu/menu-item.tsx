@@ -1,7 +1,7 @@
 import { defineComponent, computed, inject, onMounted, ref, toRefs, getCurrentInstance } from 'vue';
 import props from './menu-item-props';
 import { TdMenuInterface, TdSubMenuInterface } from './types';
-import { useRipple, useContent, useTNodeJSX, usePrefixClass } from '@tdesign/hooks';
+import { useRipple, useContent, useTNodeJSX, usePrefixClass } from '@tdesign/shared-hooks';
 
 import Tooltip from '../tooltip';
 import type { TdMenuItemProps } from './type';

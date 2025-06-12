@@ -15,7 +15,7 @@ import {
   Transition,
   watch,
 } from 'vue';
-import { useVModel, useContent, useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
+import { useVModel, useContent, useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
 
 import { off, on, once } from '@tdesign/shared-utils';
 import setStyle from '@tdesign/common-js/utils/setStyle';

@@ -7,7 +7,7 @@
  */
 import { ref, computed, watch, Ref } from 'vue';
 // TODO need refactor
-import { TScroll } from '../../components/common';
+import { TScroll } from '../../../components/common';
 import { useResizeObserver } from '../useResizeObserver';
 import { max, min, sum, throttle } from 'lodash-es';
 

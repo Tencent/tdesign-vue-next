@@ -1,5 +1,5 @@
 import { defineComponent, computed, PropType } from 'vue';
-import { useConfig, usePrefixClass } from '@tdesign/hooks';
+import { useConfig, usePrefixClass } from '@tdesign/shared-hooks';
 import TButton from '../../../button';
 
 import type { TdDatePickerProps } from '../../type';

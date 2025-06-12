@@ -19,7 +19,7 @@ import {
   getScrollContainer as utilsGetScrollContainer,
 } from '@tdesign/shared-utils';
 import props from './props';
-import { useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
+import { useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
 import { SlotReturnValue } from '../common';
 import Affix from '../affix';
 import { TdAnchorProps } from './type';
