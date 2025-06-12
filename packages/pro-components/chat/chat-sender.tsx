@@ -69,7 +69,7 @@ export default defineComponent({
       const {
         e: { key },
       } = context;
-      if (key === 'Shift') {
+      if (key === 'Shift' || key === 'Process') {
         shiftDownFlag = false;
       }
     };
