@@ -471,7 +471,7 @@ export default defineComponent({
 
     const renderValueDisplay = () => {
       const renderTag = () => {
-        if (!props.multiple) {
+        if (!props.multiple || !props.selectInputProps?.multiple) {
           return undefined;
         }
         const currentSelectedOptions = getCurrentSelectedOptions(innerValue.value);
