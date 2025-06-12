@@ -1,5 +1,5 @@
 import _Guide from './guide';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 import { TdGuideProps, GuideStep } from './type';
 
 import './style';

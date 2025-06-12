@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { expect } from 'vitest';
-import Loading from '@src/loading/index.ts';
+import Loading from '@tdesign/components/loading/index.ts';
 
 // every component needs four parts: props/events/slots/functions.
 describe('Loading', () => {

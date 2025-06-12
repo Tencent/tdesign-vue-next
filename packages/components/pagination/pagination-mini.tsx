@@ -9,15 +9,13 @@ import {
 } from 'tdesign-icons-vue-next';
 
 import props from './pagination-mini-props';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import { useGlobalIcon, usePrefixClass } from '@tdesign/hooks';
+
 import TButton from '../button';
 
 export default defineComponent({
   name: 'TPaginationMini',
-
-  props: { ...props },
-
+  props,
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('pagination-mini');
     const { ChevronLeftIcon, RoundIcon, ChevronRightIcon, ChevronUpIcon, ChevronDownIcon } = useGlobalIcon({

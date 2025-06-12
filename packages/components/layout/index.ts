@@ -3,8 +3,8 @@ import _Header from './header';
 import _Footer from './footer';
 import _Aside from './aside';
 import _Content from './content';
-import withInstall from '../utils/withInstall';
-import { TdHeaderProps, TdFooterProps, TdAsideProps } from './type';
+import { withInstall } from '@tdesign/shared-utils';
+import { TdHeaderProps, TdFooterProps, TdAsideProps, TdContentProps } from './type';
 
 import './style';
 
@@ -12,6 +12,7 @@ export * from './type';
 export type HeaderProps = TdHeaderProps;
 export type FooterProps = TdFooterProps;
 export type AsideProps = TdAsideProps;
+export type ContentProps = TdContentProps;
 
 export const Aside = withInstall(_Aside);
 export const Layout = withInstall(_Layout);

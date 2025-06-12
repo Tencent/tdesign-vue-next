@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue';
 import semver from 'semver';
-import siteConfig from '../../site.config';
+import siteConfig from '@/src/router/site.config';
 import { htmlContent, mainJsContent, styleContent, packageJSONContent } from './codeSandbox/content';
 import { tdesignVueNextPackageJson } from '@tdesign/internal-utils/package-json';
 
@@ -36,7 +36,7 @@ function getVersions(versions = []) {
   const versionMap = new Map();
 
   versions.forEach((v) => {
-    if (v.includes('alpha') || v.includes('patch')) return false;
+    if (v.includes('alpha') || v.includes('patch') || v.includes('beta')) return false;
     const nums = v.split('.');
     versionMap.set(`${nums[0]}.${nums[1]}`, v);
   });

@@ -25,14 +25,20 @@
     "backtop",
     "cascader",
     "codesandbox",
+    "maxcharacter",
+    "maxlength",
     "miniprogram",
+    "modeless",
     "nuxt",
     "popconfirm",
     "popperjs",
     "precaching",
+    "sider",
     "tdesign",
     "tdoc",
+    "tmenu",
     "tnode",
+    "vnode",
     "wechat"
   ]
 }

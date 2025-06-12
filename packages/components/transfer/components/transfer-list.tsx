@@ -7,17 +7,15 @@ import {
   TdTransferProps,
   TransferListType,
   TransferItemOption,
-} from '../interface';
+} from '../types';
 import { PageInfo, TdPaginationProps, Pagination } from '../../pagination';
 import { Checkbox as TCheckbox, CheckboxGroup as TCheckboxGroup, CheckboxProps } from '../../checkbox';
 import { getLefCount, getDataValues, TARGET } from '../utils';
 import Search from './transfer-search';
-import { useTNodeDefault } from '../../hooks/tnode';
+import { useConfig, usePrefixClass, useTNodeDefault } from '@tdesign/hooks';
 
-import { useConfig, usePrefixClass } from '../../hooks/useConfig';
-import { isString } from 'lodash-es';
-import { filter } from 'lodash-es';
-import { cloneDeep } from 'lodash-es';
+import { filter, isString, cloneDeep } from 'lodash-es';
+
 import useDragSort from '../hooks/useDragSort';
 
 const props = {
@@ -76,7 +74,7 @@ const props = {
 
 export default defineComponent({
   name: 'TTransferList',
-  props: { ...props },
+  props,
   setup(props) {
     const classPrefix = usePrefixClass();
     const { currentValue } = toRefs(props);

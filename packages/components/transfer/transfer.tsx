@@ -1,10 +1,9 @@
 import { defineComponent, computed, toRefs } from 'vue';
-import { pick } from 'lodash-es';
-import { isFunction } from 'lodash-es';
+import { pick, isFunction } from 'lodash-es';
 
 import TransferList from './components/transfer-list';
 import TransferOperations from './components/transfer-operations';
-import { TransferListType, CheckedOptions, TransferValue, EmptyType, TargetParams, SearchEvent } from './interface';
+import { TransferListType, CheckedOptions, TransferValue, EmptyType, TargetParams, SearchEvent } from './types';
 
 import {
   getTransferListOption,
@@ -20,14 +19,11 @@ import props from './props';
 import { TNode } from '../common';
 
 // hooks
-import useVModel from '../hooks/useVModel';
-import useDefaultValue from '../hooks/useDefaultValue';
-import { useDisabled } from '../hooks/useDisabled';
-import { usePrefixClass } from '../hooks/useConfig';
+import { useVModel, useDisabled, usePrefixClass, useDefaultValue } from '@tdesign/hooks';
 
 export default defineComponent({
   name: TRANSFER_NAME,
-  props: { ...props },
+  props,
 
   setup(props, { slots }) {
     const disabled = useDisabled();

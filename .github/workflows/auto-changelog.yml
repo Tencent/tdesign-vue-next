@@ -1,0 +1,44 @@
+name: auto-changelog
+
+on:
+  pull_request:
+    types: [opened]
+
+  pull_request_review:
+    types: [submitted]  
+
+  issue_comment:
+    types: [edited]
+
+jobs:
+  changelog:
+    if: github.event.review.state == 'approved' 
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{ github.event.pull_request.number }} > pr-id.txt
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pr-id
+          path: pr-id.txt
+          retention-days: 5
+
+  comment-release-changelog:
+    if: github.event.pull_request && startsWith(github.head_ref, 'release/')
+    runs-on: ubuntu-latest
+    steps:
+      - name: auto-changelog
+        uses: TDesignOteam/flow-pilot-action@develop
+        with:
+          token: ${{ secrets.TDESIGN_BOT_TOKEN }}
+          packages: 'tdesign-vue-next,@tdesign-vue-next/chat'
+
+  commit-changelog:
+    if: github.event.issue.pull_request
+    runs-on: ubuntu-latest
+    steps:
+      - name: auto-changelog
+        uses: TDesignOteam/flow-pilot-action@develop
+        with:
+          token: ${{ secrets.TDESIGN_BOT_TOKEN }}
+          packages: 'tdesign-vue-next,@tdesign-vue-next/chat'

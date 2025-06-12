@@ -46,7 +46,7 @@ nextButtonProps | Object | - | 透传 下一步按钮 的全部属性，示例�
 prevButtonProps | Object | - | 透传 上一步按钮 的全部属性，示例：{ content: '上一步', theme: 'default' }。TS 类型：`ButtonProps` | N
 showOverlay | Boolean | true | 是否出现遮罩层 | N
 skipButtonProps | Object | - | 透传 跳过按钮 的全部属性，{ content: '跳过', theme: 'default' }。TS 类型：`ButtonProps` | N
-steps | Array | - | 用于定义每个步骤的内容，包括高亮的节点、相对位置和具体的文案内容等。。TS 类型：`Array<GuideStep>` | N
+steps | Array | - | 用于定义每个步骤的内容，包括高亮的节点、相对位置和具体的文案内容等。TS 类型：`Array<GuideStep>` | N
 zIndex | Number | 999999 | 提示框的层级 | N
 onChange | Function |  | TS 类型：`(current: number, context?: { e: MouseEvent,  total: number }) => void`<br/>当前步骤发生变化时触发 | N
 onFinish | Function |  | TS 类型：`(context: { e: MouseEvent, current: number, total: number  }) => void`<br/>点击完成按钮时触发 | N

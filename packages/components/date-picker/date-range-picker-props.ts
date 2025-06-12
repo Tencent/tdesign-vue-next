@@ -72,7 +72,7 @@ export default {
   placeholder: {
     type: [String, Array] as PropType<TdDateRangePickerProps['placeholder']>,
   },
-  /** 透传给 popup 组件的参数 */
+  /** 透传 Popup 组件全部属性 */
   popupProps: {
     type: Object as PropType<TdDateRangePickerProps['popupProps']>,
   },

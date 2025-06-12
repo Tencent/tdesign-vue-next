@@ -1,14 +1,13 @@
 import { defineComponent, computed, nextTick, onMounted, ref, toRefs, watch, h, Teleport } from 'vue';
 import { isFunction } from 'lodash-es';
 import props from './props';
-import { GuideCrossProps } from './interface';
+import { GuideCrossProps } from './types';
 import { TdGuideProps, GuideStep } from './type';
 import { scrollToParentVisibleArea, getRelativePosition, getTargetElm, scrollToElm } from './utils';
 import setStyle from '@tdesign/common-js/utils/setStyle';
-import { addClass, removeClass, isFixed, getWindowScroll } from '../utils/dom';
-import useVModel from '../hooks/useVModel';
-import { useTNodeJSX } from '../hooks/tnode';
-import { usePrefixClass, useConfig } from '../hooks/useConfig';
+import { addClass, removeClass, isFixed, getWindowScroll } from '@tdesign/shared-utils';
+import { useVModel, useConfig, useTNodeJSX, usePrefixClass } from '@tdesign/hooks';
+
 import Button from '../button';
 import Popup, { PopupProps } from '../popup';
 

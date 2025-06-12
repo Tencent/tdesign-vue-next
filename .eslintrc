@@ -8,8 +8,6 @@
   },
   "plugins": ["vue", "@typescript-eslint"],
   "globals": {
-    "cy": "readonly",
-    "Cypress": "readonly",
     "clipboardData": "readonly",
     "PKG_VERSION": true,
     "defineProps": "readonly",

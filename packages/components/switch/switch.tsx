@@ -1,20 +1,16 @@
 import { defineComponent, h, VNodeChild, computed, watch, toRefs } from 'vue';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { useVModel, useDisabled, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
 import TLoading from '../loading';
 import props from './props';
 import { TNodeReturnValue } from '../common';
 
 // hooks
-import { useDisabled } from '../hooks/useDisabled';
-import useVModel from '../hooks/useVModel';
-import { isFunction } from 'lodash-es';
-import { isString } from 'lodash-es';
-import { isArray } from 'lodash-es';
+
+import { isArray, isString, isFunction } from 'lodash-es';
 
 export default defineComponent({
   name: 'TSwitch',
-  props: { ...props },
-
+  props,
   setup(props, { slots }) {
     const disabled = useDisabled();
     const COMPONENT_NAME = usePrefixClass('switch');
@@ -95,7 +91,7 @@ export default defineComponent({
       innerValue,
       (val) => {
         if (props.customValue && props.customValue.length && !props.customValue.includes(val)) {
-          throw new Error(`value is not in ${JSON.stringify(props.customValue)}`);
+          throw new Error(`value is ${val} not in ${JSON.stringify(props.customValue)}`);
         }
       },
       {

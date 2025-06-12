@@ -18,16 +18,18 @@ import {
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
   GlobalIconType,
 } from 'tdesign-icons-vue-next';
-import { isArray } from 'lodash-es';
-import { isNumber } from 'lodash-es';
-import { isString } from 'lodash-es';
-import { isBoolean } from 'lodash-es';
-import { cloneDeep } from 'lodash-es';
-import { get as lodashGet } from 'lodash-es';
-import { set as lodashSet } from 'lodash-es';
-import { isNil } from 'lodash-es';
+import {
+  isNil,
+  isArray,
+  isNumber,
+  isString,
+  isBoolean,
+  cloneDeep,
+  get as lodashGet,
+  set as lodashSet,
+} from 'lodash-es';
 
-import { validate } from './form-model';
+import { validate } from './utils/form-model';
 import {
   AllValidateResult,
   Data,
@@ -47,10 +49,10 @@ import {
   SuccessListType,
   useCLASSNAMES,
   ValidateStatus,
-} from './const';
+} from './consts';
 
-import { useConfig, usePrefixClass, useTNodeJSX } from '../hooks';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import { useConfig, useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/hooks';
+
 import { template } from '@tdesign/common-js/utils/stringTemplate';
 
 export type FormItemValidateResult<T extends Data = Data> = { [key in keyof T]: boolean | AllValidateResult[] };
@@ -62,8 +64,7 @@ export function getFormItemClassName(componentName: string, name?: string) {
 
 export default defineComponent({
   name: 'TFormItem',
-
-  props: { ...props },
+  props,
   setup(props, { slots }) {
     const renderContent = useTNodeJSX();
     const CLASS_NAMES = useCLASSNAMES();
@@ -84,6 +85,10 @@ export default defineComponent({
       return requiredMark ?? isRequired;
     });
 
+    const requiredMarkPosition = computed(() => {
+      return form?.requiredMarkPosition ?? globalConfig.value.requiredMarkPosition;
+    });
+
     const hasLabel = computed(() => slots.label || props.label);
     const hasColon = computed(() => !!(form?.colon && hasLabel.value));
     const FROM_LABEL = usePrefixClass('form__label');
@@ -94,6 +99,7 @@ export default defineComponent({
       CLASS_NAMES.value.label,
       {
         [`${FROM_LABEL.value}--required`]: needRequiredMark.value,
+        [`${FROM_LABEL.value}--required-right`]: needRequiredMark.value && requiredMarkPosition.value === 'right',
         [`${FROM_LABEL.value}--top`]: hasLabel.value && (labelAlign.value === 'top' || !labelWidth.value),
         [`${FROM_LABEL.value}--left`]: labelAlign.value === 'left' && labelWidth.value,
         [`${FROM_LABEL.value}--right`]: labelAlign.value === 'right' && labelWidth.value,

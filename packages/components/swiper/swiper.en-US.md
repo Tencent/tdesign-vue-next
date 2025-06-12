@@ -20,6 +20,7 @@ stopOnHover | Boolean | true | \- | N
 theme | String | light | options：light/dark | N
 trigger | String | hover | options：hover/click | N
 type | String | default | options：default/card | N
+cardScale | Number | 210/332 | scale ratio in card mode | N
 onChange | Function |  | Typescript：`(current: number, context: { source: SwiperChangeSource }) => void`<br/>[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/swiper/type.ts)。<br/>`type SwiperChangeSource = 'autoplay' \| 'click' \| 'hover'`<br/> | N
 
 ### Swiper Events

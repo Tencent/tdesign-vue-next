@@ -1,7 +1,7 @@
 import { defineComponent, computed } from 'vue';
 import dayjs from 'dayjs';
 import { isFunction } from 'lodash-es';
-import useSingleValue from './hooks/useSingleValue';
+import { useSingleValue } from './hooks/useSingleValue';
 import { formatDate, getDefaultFormat, parseToDayjs } from '@tdesign/common-js/date-picker/format';
 import { subtractMonth, addMonth, extractTimeObj } from '@tdesign/common-js/date-picker/utils';
 import type {
@@ -14,11 +14,10 @@ import type {
 import datePickerPanelProps from './date-picker-panel-props';
 import datePickerProps from './props';
 
-import TSinglePanel from './panel/SinglePanel';
+import TSinglePanel from './components/panel/SinglePanel';
 
 export default defineComponent({
   name: 'TDatePickerPanel',
-
   props: {
     value: datePickerProps.value,
     defaultValue: datePickerProps.defaultValue,

@@ -8,7 +8,7 @@ import { PropType } from 'vue';
 import { TdImageViewerProps } from './type';
 
 export default {
-  /** 制定挂载节点。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body */
+  /** 指定挂载节点。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body */
   attach: {
     type: [String, Function] as PropType<TdImageViewerProps['attach']>,
     default: 'body' as TdImageViewerProps['attach'],
@@ -29,6 +29,23 @@ export default {
   draggable: {
     type: Boolean,
     default: undefined,
+  },
+  /** 图片预览中的 `<img>` 标签的原生属性，[MDN 定义](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) */
+  imageReferrerpolicy: {
+    type: String as PropType<TdImageViewerProps['imageReferrerpolicy']>,
+    validator(val: TdImageViewerProps['imageReferrerpolicy']): boolean {
+      if (!val) return true;
+      return [
+        'no-referrer',
+        'no-referrer-when-downgrade',
+        'origin',
+        'origin-when-cross-origin',
+        'same-origin',
+        'strict-origin',
+        'strict-origin-when-cross-origin',
+        'unsafe-url',
+      ].includes(val);
+    },
   },
   /**  图片缩放相关配置。`imageScale.max` 缩放的最大比例；`imageScale.min` 缩放的最小比例；`imageScale.step` 缩放的步长速度; `imageScale.defaultScale` 默认的缩放比例 */
   imageScale: {
@@ -97,6 +114,8 @@ export default {
   },
   /** 关闭时触发，事件参数包含触发关闭的来源：关闭按钮、遮罩层、ESC 键 */
   onClose: Function as PropType<TdImageViewerProps['onClose']>,
+  /** 自定义预览图片下载操作，url为图片链接 */
+  onDownload: Function as PropType<TdImageViewerProps['onDownload']>,
   /** 预览图片切换时触发，`context.prev` 切换到上一张图片，`context.next` 切换到下一张图片 */
   onIndexChange: Function as PropType<TdImageViewerProps['onIndexChange']>,
 };

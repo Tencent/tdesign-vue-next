@@ -4,9 +4,8 @@ import TTabNav from './tab-nav';
 import { TabValue, TdTabsProps } from './type';
 import props from './props';
 
-import { useTNodeJSX } from '../hooks/tnode';
-import { usePrefixClass } from '../hooks/useConfig';
-import useVModel from '../hooks/useVModel';
+import { useVModel, useTNodeJSX, usePrefixClass } from '@tdesign/hooks';
+
 import { isArray } from 'lodash-es';
 
 export interface InjectTabs {
@@ -15,9 +14,7 @@ export interface InjectTabs {
 
 export default defineComponent({
   name: 'TTabs',
-
   props,
-
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('tabs');
     const classPrefix = usePrefixClass();

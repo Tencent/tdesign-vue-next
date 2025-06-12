@@ -1,11 +1,9 @@
-import { defineComponent, computed, CSSProperties, Fragment, Comment, isVNode } from 'vue';
+import { defineComponent, computed, CSSProperties, Fragment } from 'vue';
 import props from './props';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
-import { useChildSlots } from '../hooks/slot';
-import { isNumber } from 'lodash-es';
-import { isString } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { useTNodeJSX, useChildSlots, usePrefixClass, useFlatChildrenSlots } from '@tdesign/hooks';
+
+import { isArray, isNumber, isString } from 'lodash-es';
+
 import { getFlexGapPolyFill } from '@tdesign/common-js/utils/helper';
 import { SizeEnum } from '../common';
 
@@ -14,17 +12,16 @@ const defaultNeedPolyfill = getFlexGapPolyFill();
 
 export default defineComponent({
   name: 'TSpace',
-
   props: {
     ...props,
     /** 强制使用 margin 间距代替 gap 属性间距（某些浏览器不支持 gap 属性） */
     forceFlexGapPolyfill: Boolean,
   },
-
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('space');
     const renderTNodeJSX = useTNodeJSX();
     const getChildSlots = useChildSlots();
+    const getFlatChildren = useFlatChildrenSlots();
 
     const needPolyfill = computed(() => props.forceFlexGapPolyfill || defaultNeedPolyfill);
 
@@ -54,22 +51,18 @@ export default defineComponent({
       }
       return style;
     });
-
     function renderChildren() {
-      const children = getChildSlots();
+      const children = getFlatChildren(getChildSlots());
       const separatorContent = renderTNodeJSX('separator');
-      return children
-        .filter((child) => (isVNode(child) ? child.type !== Comment : true))
-        .map((child, index) => {
-          // filter last child
-          const showSeparator = index + 1 !== children.length && separatorContent;
-          return (
-            <Fragment>
-              <div class={`${COMPONENT_NAME.value}-item`}>{child}</div>
-              {showSeparator && <div class={`${COMPONENT_NAME.value}-item-separator`}>{separatorContent}</div>}
-            </Fragment>
-          );
-        });
+      return children.map((child, index) => {
+        const showSeparator = index + 1 !== children.length && separatorContent;
+        return (
+          <Fragment>
+            <div class={`${COMPONENT_NAME.value}-item`}>{child}</div>
+            {showSeparator && <div class={`${COMPONENT_NAME.value}-item-separator`}>{separatorContent}</div>}
+          </Fragment>
+        );
+      });
     }
 
     return () => {

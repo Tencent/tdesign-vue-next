@@ -6,26 +6,29 @@ import { TimeIcon as TdTimeIcon } from 'tdesign-icons-vue-next';
 import TimePickerPanel from './panel/time-picker-panel';
 import TSelectInput, { SelectInputBlurContext } from '../select-input';
 import { formatInputValue, validateInputValue } from '@tdesign/common-js/time-picker/utils';
-import { useTNodeJSX } from '../hooks/tnode';
+import {
+  useVModel,
+  useConfig,
+  useTNodeJSX,
+  useDisabled,
+  useReadonly,
+  useGlobalIcon,
+  usePrefixClass,
+  useCommonClassName,
+} from '@tdesign/hooks';
 import type { InputProps } from '../input';
 
 import props from './props';
 
 // hooks
-import useVModel from '../hooks/useVModel';
-import { useDisabled } from '../hooks/useDisabled';
-import { useCommonClassName, useConfig, usePrefixClass } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
+
 import { TdTimePickerProps } from './type';
-import { useReadonly } from '../hooks/useReadonly';
 
 dayjs.extend(customParseFormat);
 
 export default defineComponent({
   name: 'TTimePicker',
-
-  props: { ...props },
-
+  props,
   setup(props) {
     const renderTNodeJSX = useTNodeJSX();
     const { globalConfig } = useConfig('timePicker');
@@ -60,6 +63,7 @@ export default defineComponent({
       e.stopPropagation();
       currentValue.value = null;
       setInnerValue(null);
+      props?.onClear?.(context);
     };
 
     const handleInputChange = (value: string) => {
@@ -76,7 +80,8 @@ export default defineComponent({
       props.onBlur?.({ value, inputValue: context.inputValue, e: context.e });
     };
 
-    const handleClickConfirm = () => {
+    const handleClickConfirm = (e: MouseEvent) => {
+      props?.onConfirm?.({ e });
       const isValidTime = validateInputValue(currentValue.value, format.value);
       if (isValidTime) setInnerValue(currentValue.value);
       isShowPanel.value = false;

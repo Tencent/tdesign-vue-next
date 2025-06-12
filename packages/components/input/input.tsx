@@ -5,14 +5,17 @@ import {
   CloseCircleFilledIcon as TdCloseCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
 import props from './props';
-import { useDisabled } from '../hooks/useDisabled';
-import { useReadonly } from '../hooks/useReadonly';
-import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useTNodeJSX } from '../hooks/tnode';
-import useInput from './useInput';
-import useInputEventHandler from './useInputEventHandler';
-import useInputWidth from './useInputWidth';
+import {
+  useConfig,
+  useDisabled,
+  useReadonly,
+  useTNodeJSX,
+  useGlobalIcon,
+  usePrefixClass,
+  useCommonClassName,
+} from '@tdesign/hooks';
+
+import { useInput, useInputEventHandler, useInputWidth } from './hooks';
 import { getValidAttrs } from '@tdesign/common-js/utils/helper';
 
 export default defineComponent({
@@ -34,7 +37,6 @@ export default defineComponent({
       default: false,
     },
   },
-
   setup(props, { expose }) {
     const { globalConfig } = useConfig('input');
     const { BrowseIcon, BrowseOffIcon, CloseCircleFilledIcon } = useGlobalIcon({

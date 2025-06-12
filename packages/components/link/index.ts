@@ -1,5 +1,5 @@
 import _Link from './link';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 import { TdLinkProps } from './type';
 
 import './style';

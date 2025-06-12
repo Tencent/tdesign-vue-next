@@ -4,9 +4,8 @@ import { isString } from 'lodash-es';
 import tinycolor from 'tinycolor2';
 
 import props from './props';
-import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useTNodeJSX, useContent } from '../hooks/tnode';
+import { useConfig, useContent, useTNodeJSX, useGlobalIcon, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
+
 import { Styles } from '../common';
 
 export default defineComponent({
@@ -97,10 +96,6 @@ export default defineComponent({
     };
 
     const renderTitle = (tagContent: string) => {
-      if (!props.maxWidth) {
-        return undefined;
-      }
-
       const vProps = vnode.props || {};
       if (Reflect.has(vProps, 'title')) {
         return vProps.title || undefined;
