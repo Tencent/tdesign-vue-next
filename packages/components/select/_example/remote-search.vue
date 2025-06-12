@@ -1,24 +1,41 @@
 <template>
-  <t-space direction="vertical">
+  <t-space direction="vertical" :style="{ width: '350px' }">
     <t-select
       v-model="value"
       filterable
       placeholder="请选择"
       :loading="loading"
       :options="options"
-      style="width: 200px; display: inline-block; margin: 0 20px 20px 0"
       @search="remoteMethod"
+    />
+    <t-select
+      v-model="multipleValue"
+      filterable
+      placeholder="请选择"
+      :loading="multipleLoading"
+      :options="multipleOptions"
+      multiple
+      value-type="object"
+      reserve-keyword
+      @search="remoteMultipleMethod"
+      @change="onChange"
     />
   </t-space>
 </template>
-<script setup>
-import { ref } from 'vue';
 
-const options = ref([]);
+<script lang="ts" setup>
+import { SelectProps } from 'tdesign-vue-next';
+import { ref, toRaw } from 'vue';
+
+const options = ref<SelectProps['options']>([]);
 const value = ref('');
 const loading = ref(false);
 
-const remoteMethod = (search) => {
+const multipleOptions = ref<SelectProps['options']>([]);
+const multipleValue = ref([]);
+const multipleLoading = ref(false);
+
+const remoteMethod = (search: string) => {
   console.log('search', search);
   if (search) {
     loading.value = true;
@@ -40,5 +57,50 @@ const remoteMethod = (search) => {
       ].filter((item) => item.label.includes(search));
     }, 500);
   }
+};
+
+const remoteMultipleMethod = (search: string) => {
+  console.log('search', search);
+  if (search) {
+    multipleLoading.value = true;
+    setTimeout(() => {
+      multipleLoading.value = false;
+      const remoteOptions = [
+        {
+          value: `腾讯_test1`,
+          label: `腾讯_test1`,
+        },
+        {
+          value: `腾讯_test2`,
+          label: `腾讯_test2`,
+        },
+        {
+          value: `腾讯_test3`,
+          label: `腾讯_test3`,
+        },
+        {
+          value: `腾讯_test1_1`,
+          label: `腾讯_test1_1`,
+        },
+        {
+          value: `腾讯_test2_2`,
+          label: `腾讯_test2_2`,
+        },
+        {
+          value: `腾讯_test3_3`,
+          label: `腾讯_test3_3`,
+        },
+      ].filter((item) => item.label.includes(search));
+
+      const rawMultipleValue = multipleValue.value.map((item) => toRaw(item));
+      const mergedOptions = [...remoteOptions, ...rawMultipleValue];
+      multipleOptions.value = Array.from(new Map(mergedOptions.map((item) => [item.value, item])).values());
+    }, 500);
+  } else {
+    multipleOptions.value = multipleValue.value;
+  }
+};
+const onChange = (value: any) => {
+  console.log('mergedOptions', value);
 };
 </script>
