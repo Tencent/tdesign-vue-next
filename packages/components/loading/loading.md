@@ -49,7 +49,7 @@
 
 ### Loading Props
 
-名称 | 类型 | 默认值 | 说明 | 必传
+名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
 attach | String / Function | '' | 挂载元素，默认挂载到组件本身所在的位置。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body。TS 类型：`AttachNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 content | String / Slot / Function | - | 子元素。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
@@ -67,10 +67,11 @@ zIndex | Number | - | 消息通知层级，样式默认为 3500 | N
 
 ### LoadingPlugin
 
-同时也支持 `this.$loading`。这是一个插件函数，参数形式为顺序参数（形如：(a, b, c)），而非对象参数（形如：({ a, b, c })）。顺序参数如下，
+同时也支持 `this.$loading`。
 
-参数名称 | 参数类型 | 参数默认值 | 参数说明
+参数名称 | 参数类型 | 参数默认值 | 参数描述
 -- | -- | -- | --
 options | Function | - | 必需。TS 类型：`boolean \| TdLoadingProps`
+context | \- | - | 要继承的应用的上下文。。TS 类型：`AppContext`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)
 
 插件返回值：`LoadingInstance【interface LoadingInstance { hide: () => void }】`
