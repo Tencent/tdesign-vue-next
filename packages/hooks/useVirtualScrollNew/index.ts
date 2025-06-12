@@ -171,7 +171,11 @@ export function useVirtualScrollNew(container: Ref<HTMLElement | null>, params: 
     // 如果宽度发生变化，重置滚动位置
     if (params.value.preventResizeRefresh) return;
     const maxScrollbarWidth = 16;
-    if (Math.abs(contentRect.width - containerWidth.value) > maxScrollbarWidth && !!container.value) {
+    if (
+      containerWidth.value &&
+      Math.abs(contentRect.width - containerWidth.value) > maxScrollbarWidth &&
+      !!container.value
+    ) {
       container.value.scrollTop = 0;
       translateY.value = 0;
     }
