@@ -3,10 +3,10 @@
     ref="chatSenderRef"
     v-model="inputValue"
     class="chat-sender"
-    :stop-disabled="loading"
     :textarea-props="{
       placeholder: '请输入消息...',
     }"
+    :loading="loading"
     @send="inputEnter"
   >
     <template #suffix>

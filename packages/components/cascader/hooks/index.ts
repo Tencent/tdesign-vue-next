@@ -197,12 +197,12 @@ export const useCascaderContext = (props: TdCascaderProps) => {
 
       if (isValueInvalid(innerValue.value, cascaderContext.value)) {
         setValue(multiple ? [] : '', 'invalid-value');
-      } else {
-        statusContext.scopeVal = multiple ? [] : '';
       }
 
-      if (!isEmptyValues(innerValue)) {
+      if (!isEmptyValues(innerValue.value)) {
         statusContext.scopeVal = getCascaderValue(innerValue.value, valueType, multiple);
+      } else {
+        statusContext.scopeVal = multiple ? [] : '';
       }
 
       if (!statusContext.treeStore) return;
