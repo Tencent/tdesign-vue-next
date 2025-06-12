@@ -28,4 +28,4 @@ jobs:
 
       - run: pnpm install
 
-      - run: pnpm run "/build:*/" --parallel
+      - run: pnpm exec run-p 'build:*'
