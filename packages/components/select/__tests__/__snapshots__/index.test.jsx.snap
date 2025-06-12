@@ -368,8 +368,6 @@ exports[`Select > :props > :multiple 1`] = `
         >
           
           
-          
-          
         </div>
         <input
           class="t-input__inner"
