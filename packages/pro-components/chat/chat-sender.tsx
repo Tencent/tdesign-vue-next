@@ -67,9 +67,9 @@ export default defineComponent({
 
     const keyupFn = (value: string, context: { e: KeyboardEvent }) => {
       const {
-        e: { key },
+        e: { key, shiftKey },
       } = context;
-      if (key === 'Shift') {
+      if (key === 'Shift' || !shiftKey) {
         shiftDownFlag = false;
       }
     };
