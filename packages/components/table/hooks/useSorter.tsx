@@ -2,7 +2,7 @@ import { SetupContext, computed, toRefs, ref, watch } from 'vue';
 import { isArray, isFunction } from 'lodash-es';
 import { SortInfo, TdPrimaryTableProps, PrimaryTableCol, TableRowData } from '../type';
 import SorterButton from '../sorter-button';
-import { useDefaultValue } from '@tdesign/hooks';
+import { useDefaultValue } from '@tdesign/shared-hooks';
 
 export type SortMap = Record<string, SortInfo & { index: number }>;
 

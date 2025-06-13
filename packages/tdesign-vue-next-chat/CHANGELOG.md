@@ -5,6 +5,17 @@ toc: false
 spline: explain
 ---
 
+## 🌈 0.4.1 `2025-06-12` 
+
+### 🚀 Features
+- `ChatSender`: 新增 `loading` API，用于控制按钮状态,  `stopDisabled` 将在未来版本废弃，请尽快使用 `loading` 替换⚠️ @zydemail ([#5595](https://github.com/Tencent/tdesign-vue-next/pull/5595))
+
+### 🐞 Bug Fixes
+- `ChatSender`: 
+  - 修复 `stopDisabled` 直接修改值不立即生效的问题 @zydemail ([#5595](https://github.com/Tencent/tdesign-vue-next/pull/5595))
+  - 修复 `header`、`innerHeader` 等插槽的传参问题 @zydemail ([#5595](https://github.com/Tencent/tdesign-vue-next/pull/5595))
+
+
 ## 🌈 0.4.0 `2025-06-06` 
 ### 🚨 Breaking Change
 - 优化产物内容，移除冗余的 bundle 或非冗余 bundle 中的冗余产物，若使用此前文档并未声明的 bundle 内容请注意此变更 ⚠️ @zhangpaopao0609 @uyarn ([#5568](https://github.com/Tencent/tdesign-vue-next/pull/5568))

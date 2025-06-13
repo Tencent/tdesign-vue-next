@@ -1,7 +1,7 @@
 import { getAttach } from '@tdesign/shared-utils';
 import { computed, Ref, onMounted, ref, watch } from 'vue';
 // TODO need refactor
-import { AttachNode } from '../../components/common';
+import { AttachNode } from '../../../components/common';
 import { isFunction } from 'lodash-es';
 
 /**

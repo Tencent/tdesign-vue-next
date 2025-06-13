@@ -4,7 +4,7 @@ import { omit, isFunction } from 'lodash-es';
 import props from './props';
 import popupProps from '../popup/props';
 import Popup, { PopupVisibleChangeContext } from '../popup';
-import { useVModel, useContent, useTNodeJSX, usePrefixClass } from '@tdesign/hooks';
+import { useVModel, useContent, useTNodeJSX, usePrefixClass } from '@tdesign/shared-hooks';
 
 import { useMouse } from './utils';
 

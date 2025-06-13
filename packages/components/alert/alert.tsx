@@ -11,7 +11,7 @@ import { isArray, isString } from 'lodash-es';
 import { on, off, addClass } from '@tdesign/shared-utils';
 import props from './props';
 import { SlotReturnValue } from '../common';
-import { useIcon, useConfig, useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/hooks';
+import { useIcon, useConfig, useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'TAlert',

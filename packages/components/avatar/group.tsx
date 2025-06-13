@@ -1,7 +1,7 @@
 import { defineComponent, provide, VNode } from 'vue';
 import props from './avatar-group-props';
 import Avatar from './avatar';
-import { useTNodeJSX, usePrefixClass } from '@tdesign/hooks';
+import { useTNodeJSX, usePrefixClass } from '@tdesign/shared-hooks';
 
 import { getChildren } from '@tdesign/shared-utils';
 

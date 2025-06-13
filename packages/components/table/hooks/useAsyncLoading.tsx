@@ -1,6 +1,6 @@
 import { isString } from 'lodash-es';
 import { computed } from 'vue';
-import { useConfig, useTNodeJSX } from '@tdesign/hooks';
+import { useConfig, useTNodeJSX } from '@tdesign/shared-hooks';
 import { TdPrimaryTableProps } from '../type';
 import Loading from '../../loading';
 import useClassName from './useClassName';

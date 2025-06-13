@@ -1,6 +1,6 @@
 import { defineComponent, computed, ref, watch } from 'vue';
 import dayjs from 'dayjs';
-import { useDisabled, useReadonly, usePrefixClass } from '@tdesign/hooks';
+import { useDisabled, useReadonly, usePrefixClass } from '@tdesign/shared-hooks';
 
 import { isArray, isFunction } from 'lodash-es';
 
