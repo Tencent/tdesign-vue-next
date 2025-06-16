@@ -48,9 +48,7 @@ export default defineComponent({
       }
       e.stopPropagation();
     };
-    const handleHeaderRightContentClick = (e: MouseEvent) => {
-      e.stopPropagation();
-    };
+
     const renderDefaultIcon = () => {
       return <FakeArrow overlayClassName={`${componentName.value}__icon--default`} />;
     };
@@ -68,14 +66,11 @@ export default defineComponent({
         </div>
       );
     };
+
     const renderBlank = () => {
       return <div class={`${componentName.value}__header--blank`}></div>;
     };
-    const renderHeaderRightContent = () => {
-      const headerRightContent = renderTNodeJSX('headerRightContent');
 
-      return headerRightContent ? <div onClick={handleHeaderRightContentClick}>{headerRightContent}</div> : null;
-    };
     const renderHeader = () => {
       const cls = [
         `${componentName.value}__header`,
@@ -84,13 +79,27 @@ export default defineComponent({
         },
       ];
 
+      const handleHeaderRightContentClick = (e: MouseEvent) => {
+        e.stopPropagation();
+      };
+
+      const renderHeaderRightContent = () => (
+        <div class={`${componentName.value}__header-right-content`} onClick={handleHeaderRightContentClick}>
+          {renderTNodeJSX('headerRightContent')}
+        </div>
+      );
+
       return (
         <div class={cls} onClick={handleClick}>
-          {expandIconPlacement.value === 'left' && renderIcon()}
-          {renderTNodeJSX('header')}
+          <div class={`${componentName.value}__header-left`}>
+            {expandIconPlacement.value === 'left' && renderIcon()}
+          </div>
+          <div class={`${componentName.value}__header-content`}>{renderTNodeJSX('header')}</div>
           {renderBlank()}
-          {renderHeaderRightContent()}
-          {expandIconPlacement.value === 'right' && renderIcon()}
+          <div class={`${componentName.value}__header-right`}>
+            {renderHeaderRightContent()}
+            {expandIconPlacement.value === 'right' && renderIcon()}
+          </div>
         </div>
       );
     };
