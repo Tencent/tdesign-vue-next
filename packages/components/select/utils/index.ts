@@ -2,21 +2,22 @@ import { ComputedRef } from 'vue';
 import { cloneDeep } from 'lodash-es';
 import { TdSelectProps, TdOptionProps, SelectValue, SelectOption } from '../type';
 
-export const getSingleContent = (
+export const getSingleSelectContent = (
   value: TdSelectProps['value'],
   optionsMap: ComputedRef<Map<SelectValue<SelectOption>, TdOptionProps>>,
 ): string => {
   const option = optionsMap.value.get(value);
+
   return option?.label || value?.toString();
 };
 
-export const getMultipleContent = (
+export const getMultipleSelectContent = (
   value: SelectValue[],
   optionsMap: ComputedRef<Map<SelectValue<SelectOption>, TdOptionProps>>,
 ) => {
   const res = [];
   for (const iterator of value) {
-    const resLabel = getSingleContent(iterator, optionsMap);
+    const resLabel = getSingleSelectContent(iterator, optionsMap);
     if (resLabel) {
       res.push(resLabel);
     }
