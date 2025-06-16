@@ -332,7 +332,7 @@ export default defineComponent({
     };
 
     onMounted(() => {
-      if (props.col.edit?.defaultEditable) {
+      if (props.col.edit?.defaultEditable || props.col.edit?.keepEditMode) {
         enterEdit();
       }
     });
