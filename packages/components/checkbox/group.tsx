@@ -5,7 +5,7 @@ import Checkbox from './checkbox';
 import props from './checkbox-group-props';
 import { CheckboxOptionObj, TdCheckboxProps, CheckboxGroupValue } from './type';
 import { CheckboxGroupInjectionKey } from './consts';
-import { useVModel, useTNodeJSX, usePrefixClass, useChildComponentSlots } from '@tdesign/hooks';
+import { useVModel, useTNodeJSX, usePrefixClass, useChildComponentSlots } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'TCheckboxGroup',

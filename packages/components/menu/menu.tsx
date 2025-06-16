@@ -2,7 +2,7 @@ import { defineComponent, ref, computed, provide, watchEffect, watch, onMounted,
 import props from './props';
 import { MenuValue } from './type';
 import { TdMenuInterface, TdOpenType } from './types';
-import { useVModel, useContent, useTNodeJSX, usePrefixClass, useDefaultValue } from '@tdesign/hooks';
+import { useVModel, useContent, useTNodeJSX, usePrefixClass, useDefaultValue } from '@tdesign/shared-hooks';
 import { VMenu } from './utils';
 import log from '@tdesign/common-js/log/log';
 

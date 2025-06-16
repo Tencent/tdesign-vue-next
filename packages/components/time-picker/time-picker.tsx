@@ -15,7 +15,7 @@ import {
   useGlobalIcon,
   usePrefixClass,
   useCommonClassName,
-} from '@tdesign/hooks';
+} from '@tdesign/shared-hooks';
 import type { InputProps } from '../input';
 
 import props from './props';

@@ -19,7 +19,13 @@ import type { RadioOptionObj, RadioOption, TdRadioGroupProps } from './type';
 import TRadio from './radio';
 import TRadioButton from './radio-button';
 import { RadioGroupInjectionKey } from './consts';
-import { useVModel, usePrefixClass, useTNodeDefault, useResizeObserver, useCommonClassName } from '@tdesign/hooks';
+import {
+  useVModel,
+  usePrefixClass,
+  useTNodeDefault,
+  useResizeObserver,
+  useCommonClassName,
+} from '@tdesign/shared-hooks';
 
 import { useKeyboard } from './hooks';
 

@@ -1,7 +1,7 @@
 import { computed, defineComponent, inject, nextTick, onMounted, onUpdated, ref, watch } from 'vue';
 import props from './props';
 import { TdAvatarProps } from './type';
-import { useContent, useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
+import { useContent, useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
 
 import Image, { ImageProps } from '../image';
 
