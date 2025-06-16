@@ -61,14 +61,15 @@ export default defineComponent({
 
     const blurFn = (value: string, context: { e: FocusEvent }) => {
       focusFlag.value = false;
+      shiftDownFlag = false;
       emit('blur', value, context);
     };
 
     const keyupFn = (value: string, context: { e: KeyboardEvent }) => {
       const {
-        e: { key },
+        e: { key, shiftKey },
       } = context;
-      if (key === 'Shift') {
+      if (key === 'Shift' || !shiftKey) {
         shiftDownFlag = false;
       }
     };
