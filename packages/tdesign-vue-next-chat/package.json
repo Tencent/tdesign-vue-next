@@ -22,7 +22,8 @@
     "esm",
     "LICENSE",
     "README.md",
-    "CHANGELOG.md"
+    "CHANGELOG.md",
+    "global.d.ts"
   ],
   "sideEffects": [
     "*.vue",
