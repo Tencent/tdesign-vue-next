@@ -1,7 +1,7 @@
 import { Ref, inject, computed, getCurrentInstance } from 'vue';
 import { isBoolean } from 'lodash-es';
 // TODO: need refator
-import { TdFormProps } from '../../components/form/type';
+import { TdFormProps } from '../../../components/form/type';
 
 export interface FormDisabledProvider {
   disabled: Ref<TdFormProps['disabled']>;

@@ -1,5 +1,5 @@
 {
-  "name": "@tdesign/hooks",
+  "name": "@tdesign/shared-hooks",
   "private": true,
   "main": "index.ts",
   "author": "tdesign",

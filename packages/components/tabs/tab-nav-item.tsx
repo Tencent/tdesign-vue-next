@@ -4,7 +4,7 @@ import tabProps from './props';
 import tabPanelProps from './tab-panel-props';
 
 // hooks
-import { useRipple, useGlobalIcon, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
+import { useRipple, useGlobalIcon, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'TTabNavItem',

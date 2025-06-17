@@ -11,7 +11,7 @@ import {
   TableEditableCellPropsParams,
 } from './type';
 import { TableClassName } from './hooks/useClassName';
-import { useGlobalIcon, usePrefixClass } from '@tdesign/hooks';
+import { useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
 import { renderCell } from './tr';
 import { validate } from '../form/utils/form-model';
 import log from '@tdesign/common-js/log/index';

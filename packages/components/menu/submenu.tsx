@@ -16,7 +16,7 @@ import {
 import props from './submenu-props';
 import { TdMenuInterface, TdSubMenuInterface, TdMenuItem } from './types';
 import FakeArrow from '../common-components/fake-arrow';
-import { useRipple, useContent, useTNodeJSX, usePrefixClass, useCollapseAnimation } from '@tdesign/hooks';
+import { useRipple, useContent, useTNodeJSX, usePrefixClass, useCollapseAnimation } from '@tdesign/shared-hooks';
 
 import { Popup, PopupPlacement } from '../popup';
 import { isFunction } from 'lodash-es';

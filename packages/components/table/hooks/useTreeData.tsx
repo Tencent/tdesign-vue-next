@@ -15,7 +15,7 @@ import {
 } from '../type';
 import useClassName from './useClassName';
 import { renderCell } from '../tr';
-import { useConfig, useGlobalIcon, useTNodeDefault } from '@tdesign/hooks';
+import { useConfig, useGlobalIcon, useTNodeDefault } from '@tdesign/shared-hooks';
 
 import useTreeDataExpand from './useTreeDataExpand';
 

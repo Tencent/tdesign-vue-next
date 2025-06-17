@@ -15,7 +15,7 @@ import {
   useTNodeJSX,
   usePrefixClass,
   useDefaultValue,
-} from '@tdesign/hooks';
+} from '@tdesign/shared-hooks';
 
 import { getSingleContent, getMultipleContent } from './utils';
 import { selectInjectKey } from './consts';
@@ -471,7 +471,7 @@ export default defineComponent({
 
     const renderValueDisplay = () => {
       const renderTag = () => {
-        if (!props.multiple) {
+        if (!props.multiple || !props.selectInputProps?.multiple) {
           return undefined;
         }
         const currentSelectedOptions = getCurrentSelectedOptions(innerValue.value);

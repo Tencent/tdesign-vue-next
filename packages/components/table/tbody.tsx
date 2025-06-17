@@ -2,7 +2,7 @@ import { defineComponent, computed, PropType, toRefs } from 'vue';
 import { get, pick, camelCase } from 'lodash-es';
 
 import TrElement, { ROW_LISTENERS, TABLE_PROPS } from './tr';
-import { useConfig, useTNodeJSX, VirtualScrollConfig } from '@tdesign/hooks';
+import { useConfig, useTNodeJSX, VirtualScrollConfig } from '@tdesign/shared-hooks';
 
 import useClassName from './hooks/useClassName';
 import baseTableProps from './base-table-props';

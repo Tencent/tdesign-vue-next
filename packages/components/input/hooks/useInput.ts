@@ -1,7 +1,7 @@
 import { ref, computed, watch, nextTick, toRefs, inject } from 'vue';
 import { InputValue, TdInputProps } from './../type';
 import { FormItemInjectionKey } from '../../form/consts';
-import { useVModel, useDisabled, useReadonly } from '@tdesign/hooks';
+import { useVModel, useDisabled, useReadonly } from '@tdesign/shared-hooks';
 
 import { useLengthLimit } from './useLengthLimit';
 

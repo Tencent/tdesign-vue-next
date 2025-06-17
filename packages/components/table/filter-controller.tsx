@@ -6,7 +6,7 @@ import { CheckboxGroup } from '../checkbox';
 import { RadioGroup } from '../radio';
 import Input from '../input';
 import TButton from '../button';
-import { useConfig, useGlobalIcon, useTNodeDefault } from '@tdesign/hooks';
+import { useConfig, useGlobalIcon, useTNodeDefault } from '@tdesign/shared-hooks';
 import { PrimaryTableCol, FilterValue, TdPrimaryTableProps } from './type';
 
 import { AttachNode } from '../common';

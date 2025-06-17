@@ -3,7 +3,7 @@ import props from './props';
 import { isObject } from 'lodash-es';
 import StickyItem from './sticky-item';
 
-import { usePrefixClass, useChildComponentSlots } from '@tdesign/hooks';
+import { usePrefixClass, useChildComponentSlots } from '@tdesign/shared-hooks';
 
 import stickyItemProps from './sticky-item-props';
 

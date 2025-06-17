@@ -1,6 +1,6 @@
 import { computed, defineComponent } from 'vue';
 import type { PropType } from 'vue';
-import { usePrefixClass } from '@tdesign/hooks';
+import { usePrefixClass } from '@tdesign/shared-hooks';
 import { isString, escapeRegExp } from 'lodash-es';
 
 export interface HighlightOptionProps {
