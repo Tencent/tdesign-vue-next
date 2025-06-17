@@ -170,11 +170,11 @@ async function customRender({ source, file, md }) {
   };
 
   // 渲染 live demo
-  if (pageData.usage && pageData.isComponent && pageData.title === 'Chat') {
+  if (pageData.usage && pageData.isComponent) {
     const usageObj = compileUsage({
       componentName,
       usage: pageData.usage,
-      demoPath: joinProComponentsRoot(`chat/_usage/index.vue`),
+      demoPath: joinProComponentsRoot(`chat/${componentName}/_usage/index.vue`),
     });
     if (usageObj) {
       mdSegment.usage = usageObj;
