@@ -1,5 +1,5 @@
 import { defineComponent, h } from 'vue';
-import { useContent, usePrefixClass } from '@tdesign/hooks';
+import { useContent, usePrefixClass } from '@tdesign/shared-hooks';
 import props from './title-props';
 import Ellipsis from './ellipsis';
 

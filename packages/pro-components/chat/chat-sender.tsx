@@ -2,8 +2,7 @@ import { defineComponent, ref, computed, toRefs, reactive, Fragment } from 'vue'
 import { SendFilledIcon, FileAttachmentIcon, ImageIcon } from 'tdesign-icons-vue-next';
 import { Button, Textarea, Tooltip } from 'tdesign-vue-next';
 import { useConfig } from 'tdesign-vue-next/es/config-provider/hooks';
-
-import { usePrefixClass, useTNodeJSX, useVModel } from '@tdesign/hooks';
+import { usePrefixClass, useTNodeJSX, useVModel } from '@tdesign/shared-hooks';
 import props from './chat-sender-props';
 
 import type { TdChatSenderProps, UploadActionType, UploadActionConfig } from './type';
@@ -62,14 +61,15 @@ export default defineComponent({
 
     const blurFn = (value: string, context: { e: FocusEvent }) => {
       focusFlag.value = false;
+      shiftDownFlag = false;
       emit('blur', value, context);
     };
 
     const keyupFn = (value: string, context: { e: KeyboardEvent }) => {
       const {
-        e: { key },
+        e: { key, shiftKey },
       } = context;
-      if (key === 'Shift') {
+      if (key === 'Shift' || !shiftKey) {
         shiftDownFlag = false;
       }
     };

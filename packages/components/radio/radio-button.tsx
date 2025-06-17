@@ -4,7 +4,7 @@ import Radio from './radio';
 import { omit } from 'lodash-es';
 import { RadioButtonInjectionKey } from './consts';
 
-import { useContent } from '@tdesign/hooks';
+import { useContent } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'TRadioButton',

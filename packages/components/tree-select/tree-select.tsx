@@ -23,7 +23,7 @@ import {
   usePrefixClass,
   useTNodeDefault,
   useDefaultValue,
-} from '@tdesign/hooks';
+} from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'TTreeSelect',

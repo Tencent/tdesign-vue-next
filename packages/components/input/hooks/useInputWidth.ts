@@ -1,5 +1,5 @@
 import { onMounted, Ref, ref, watch, nextTick, onBeforeUnmount, toRefs } from 'vue';
-import { useResizeObserver } from '@tdesign/hooks';
+import { useResizeObserver } from '@tdesign/shared-hooks';
 import { InputValue, TdInputProps } from './../type';
 
 const ANIMATION_TIME = 100;

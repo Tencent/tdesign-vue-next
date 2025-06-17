@@ -2,7 +2,7 @@ import { toRefs, ref, watch, computed, SetupContext, h } from 'vue';
 import useClassName from './useClassName';
 import TButton from '../../button';
 import { TdPrimaryTableProps, PrimaryTableCol, TableRowData, FilterValue, TableFilterChangeContext } from '../type';
-import { useConfig, useDefaultValue, useTNodeDefault } from '@tdesign/hooks';
+import { useConfig, useDefaultValue, useTNodeDefault } from '@tdesign/shared-hooks';
 
 import TableFilterController from '../filter-controller';
 

@@ -8,7 +8,7 @@ import {
   useGlobalIcon,
   usePrefixClass,
   usePopupManager,
-} from '@tdesign/hooks';
+} from '@tdesign/shared-hooks';
 
 import { isServer } from '@tdesign/shared-utils';
 import { getScrollbarWidth } from '@tdesign/common-js/utils/getScrollbarWidth';

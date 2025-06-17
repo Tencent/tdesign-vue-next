@@ -14,7 +14,7 @@ import {
   useGlobalIcon,
   usePrefixClass,
   useCommonClassName,
-} from '@tdesign/hooks';
+} from '@tdesign/shared-hooks';
 
 import { isArray } from 'lodash-es';
 
