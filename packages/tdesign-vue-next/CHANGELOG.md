@@ -21,7 +21,7 @@ docClass: timeline
 ## 🌈 1.13.1 `2025-05-29` 
 
 ### 🚀 Features
-- `GlobalConfig`: `FormConfig` 新增 `requiredMarkPosition`，用于全局配置`requiredMark`的位置 @Wesley-0808 ([#5510](https://github.com/Tencent/tdesign-vue-next/pull/5510))
+- `ConfigProvider`: `FormConfig` 新增 `requiredMarkPosition`，用于全局配置`requiredMark`的位置 @Wesley-0808 ([#5510](https://github.com/Tencent/tdesign-vue-next/pull/5510))
 - `Progress`: 当 `theme=plump` 时，当进度条填色区域大小足够容下百分比内容时，内容自动将显示于进度条填色区域内，否则将显示于进度条填色区域的右侧，具体呈现请参考文档示例 @RSS1102 @Soya-xy ([#5460](https://github.com/Tencent/tdesign-vue-next/pull/5460))
 - `Select`: `valueDisplay` 参数 `value` 返回完整选项内容，用于使用其他参数进行展示定制的场景 @RSS1102 ([#5509](https://github.com/Tencent/tdesign-vue-next/pull/5509))
 
