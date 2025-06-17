@@ -7,7 +7,7 @@ const outputPath = joinTdesignVueNextRoot('site/dist/changelog.json');
 const changelogPath = joinTdesignVueNextRoot('CHANGELOG.md');
 const componentsDir = getComponentsRoot();
 
-const excludedDir = ['_util', 'common', 'hooks', 'locale', 'style'];
+const excludedDir = ['locale', 'style'];
 
 const LOG_TYPES = ['🚨 Breaking Changes', '🚀 Features', '🐞 Bug Fixes'];
 
