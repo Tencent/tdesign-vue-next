@@ -1,7 +1,7 @@
 import { computed, defineComponent, provide, reactive, ref, toRefs } from 'vue';
 import { isEmpty, isArray, isBoolean, isFunction } from 'lodash-es';
 
-import { requestSubmit } from '../utils/dom';
+import { requestSubmit } from '@tdesign/shared-utils';
 import { FormItemValidateResult, getFormItemClassName } from './form-item';
 import {
   Data,
@@ -17,7 +17,7 @@ import { FormInjectionKey, FormItemContext, useCLASSNAMES } from './consts';
 import { FormResetEvent, FormSubmitEvent } from '../common';
 
 import { FormDisabledProvider, FormReadonlyProvider } from './hooks';
-import { usePrefixClass, useTNodeJSX } from '@tdesign/hooks';
+import { usePrefixClass, useTNodeJSX } from '@tdesign/shared-hooks';
 
 type Result = FormValidateResult<TdFormProps['data']>;
 

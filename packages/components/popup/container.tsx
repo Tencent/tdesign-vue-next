@@ -14,9 +14,9 @@ import {
   Comment,
 } from 'vue';
 import props from './props';
-import { useResizeObserver } from '@tdesign/hooks';
+import { useResizeObserver } from '@tdesign/shared-hooks';
 import { isArray } from 'lodash-es';
-import { getAttach } from '../utils/dom';
+import { getAttach } from '@tdesign/shared-utils';
 
 function filterEmpty(children: VNode[] = []) {
   const vnodes: VNode[] = [];

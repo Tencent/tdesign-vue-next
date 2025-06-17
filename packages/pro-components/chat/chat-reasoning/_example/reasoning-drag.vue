@@ -30,7 +30,7 @@
               expandIconPlacement: 'right',
               onExpandChange: handleChange(value, { index }),
               collapsePanelProps: {
-                header: renderHeader(index === 0 && isStreamLoad, item),
+                header: renderHeader(index === 0 && isStreamLoad && !item.content, item),
                 content: renderReasoningContent(item.reasoning),
               },
             }"
@@ -40,7 +40,7 @@
         <template #footer>
           <t-chat-sender
             v-model="inputValue"
-            :stop-disabled="isStreamLoad"
+            :loading="isStreamLoad"
             :textarea-props="{
               placeholder: '请输入消息...',
             }"

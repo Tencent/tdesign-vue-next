@@ -1,5 +1,5 @@
 import _Calendar from './calendar';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 import { TdCalendarProps } from './type';
 
 import './style';

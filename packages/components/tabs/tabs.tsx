@@ -4,7 +4,7 @@ import TTabNav from './tab-nav';
 import { TabValue, TdTabsProps } from './type';
 import props from './props';
 
-import { useVModel, useTNodeJSX, usePrefixClass } from '@tdesign/hooks';
+import { useVModel, useTNodeJSX, usePrefixClass } from '@tdesign/shared-hooks';
 
 import { isArray } from 'lodash-es';
 

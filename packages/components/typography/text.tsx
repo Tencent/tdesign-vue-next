@@ -1,5 +1,5 @@
 import { computed, defineComponent, ref } from 'vue';
-import { useContent, usePrefixClass } from '@tdesign/hooks';
+import { useContent, usePrefixClass } from '@tdesign/shared-hooks';
 import props from './text-props';
 import copy from './utils/copy-to-clipboard';
 import { CopyIcon, CheckIcon } from 'tdesign-icons-vue-next';

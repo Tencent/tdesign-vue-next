@@ -9,7 +9,14 @@ import {
   ChevronRightDoubleIcon as TdChevronRightDoubleIcon,
   EllipsisIcon as TdEllipsisIcon,
 } from 'tdesign-icons-vue-next';
-import { useConfig, useVModel, useTNodeJSX, useGlobalIcon, usePrefixClass, useDefaultValue } from '@tdesign/hooks';
+import {
+  useConfig,
+  useVModel,
+  useTNodeJSX,
+  useGlobalIcon,
+  usePrefixClass,
+  useDefaultValue,
+} from '@tdesign/shared-hooks';
 
 import TInputNumber from '../input-number';
 import { Select } from '../select';

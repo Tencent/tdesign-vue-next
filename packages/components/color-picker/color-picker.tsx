@@ -1,5 +1,5 @@
 import { defineComponent, ref, toRefs } from 'vue';
-import { useVModel, useDefaultValue, useTNodeDefault } from '@tdesign/hooks';
+import { useVModel, useDefaultValue, useTNodeDefault } from '@tdesign/shared-hooks';
 
 import props from './props';
 import { Popup as TPopup } from '../popup';
@@ -36,11 +36,13 @@ export default defineComponent({
 
       return (
         <ColorPanel
-          {...props}
+          {...{
+            ...props,
+            onChange: setInnerValue,
+            onRecentColorsChange: setInnerRecentColors,
+          }}
           value={innerValue.value}
           recentColors={innerRecentColors.value}
-          onChange={setInnerValue}
-          onRecentColorsChange={setInnerRecentColors}
         />
       );
     };

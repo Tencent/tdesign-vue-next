@@ -6,7 +6,7 @@ import {
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
 import Loading from '../../loading';
-import { useTNodeJSX, useGlobalIcon } from '@tdesign/hooks';
+import { useTNodeJSX, useGlobalIcon } from '@tdesign/shared-hooks';
 import ImageViewer, { ImageViewerProps } from '../../image-viewer';
 import { CommonDisplayFileProps } from '../types';
 import { commonProps } from '../consts';

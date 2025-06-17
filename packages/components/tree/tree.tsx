@@ -1,6 +1,4 @@
 import { isFunction, upperFirst } from 'lodash-es';
-
-import { renderTNodeJSX } from '../utils/render-tnode';
 import {
   defineComponent,
   getCreateElement,
@@ -24,6 +22,7 @@ import useTreeStyles from './hooks/useTreeStyles';
 import props from './props';
 import { TreeNodeState, TreeNodeValue, TypeTreeNodeModel } from './tree-types';
 import { getNode } from './util';
+import { useTNodeJSX } from '@tdesign/shared-hooks';
 
 // 2022.11.02 tabliang 备注
 // 之前尝试实现了嵌套布局，原本预期嵌套布局能够提升大数据量下，全部渲染节点时的性能表现
@@ -46,6 +45,7 @@ export default defineComponent({
     const { t, global } = useConfig('tree');
     const classPrefix = usePrefixClass();
     const componentName = usePrefixClass('tree');
+    const renderTNodeJSX = useTNodeJSX();
 
     // 用于 hooks 传递数据
     const { state } = useTreeState(props, context);
@@ -69,6 +69,7 @@ export default defineComponent({
       store,
       treeClasses,
       treeContentRef,
+      renderTNodeJSX,
 
       rebuild,
       updateStoreConfig,
@@ -276,7 +277,7 @@ export default defineComponent({
     let emptyNode: TypeTNodeReturnValue = null;
     if (nodesEmpty) {
       const useLocale = !this.empty && !this.$slots.empty;
-      const emptyContent = useLocale ? this.t(this.global.empty) : renderTNodeJSX(this, 'empty');
+      const emptyContent = useLocale ? this.t(this.global.empty) : this.renderTNodeJSX('empty');
       emptyNode = <div class={`${cname}__empty`}>{emptyContent}</div>;
     } else if (treeNodeViews.length <= 0) {
       // 数据切换时，有闪现的缓存节点呈现

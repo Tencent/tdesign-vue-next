@@ -1,11 +1,13 @@
 <template>
   <t-chat-sender
     v-model="query"
-    :stop-disabled="loading"
     :textarea-props="{
       placeholder: '请输入消息...',
     }"
+    :loading="loading"
     @send="inputEnter"
+    @file-select="fileSelect"
+    @stop="onStop"
   >
     <template #suffix="{ renderPresets }">
       <!-- 在这里可以进行自由的组合使用，或者新增预设 -->
@@ -29,5 +31,11 @@ const inputEnter = function () {
   setTimeout(() => {
     loading.value = false;
   }, 5000);
+};
+const fileSelect = (file: File) => {
+  console.log(file);
+};
+const onStop = function () {
+  loading.value = false;
 };
 </script>

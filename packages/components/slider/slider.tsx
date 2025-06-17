@@ -17,7 +17,7 @@ import TSliderButton from './slider-button';
 import { SliderValue } from './type';
 
 // hooks
-import { useVModel, useDisabled, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
+import { useVModel, useDisabled, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
 import { useSliderMark } from './hooks/useSliderMark';
 import { useSliderInput } from './hooks/useSliderInput';
 import { formatSliderValue, getStopStyle } from './utils';

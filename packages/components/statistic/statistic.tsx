@@ -6,7 +6,7 @@ import {
 import { isNumber, isFunction } from 'lodash-es';
 
 import props from './props';
-import { useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/hooks';
+import { useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
 
 import Skeleton from '../skeleton';
 import Tween from '@tdesign/common-js/statistic/tween';

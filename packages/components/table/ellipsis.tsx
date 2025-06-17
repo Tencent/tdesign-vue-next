@@ -2,8 +2,8 @@
 import { defineComponent, PropType, ref, computed, onMounted, onUpdated } from 'vue';
 import { debounce } from 'lodash-es';
 import { AttachNode, TNode } from '../common';
-import { renderContent } from '../utils/render-tnode';
-import { isTextEllipsis } from '../utils/dom';
+import { useContent } from '@tdesign/shared-hooks';
+import { isTextEllipsis } from '@tdesign/shared-utils';
 import TTooltip, { TooltipProps } from '../tooltip';
 
 export interface EllipsisProps {
@@ -18,7 +18,6 @@ export interface EllipsisProps {
 
 export default defineComponent({
   name: 'TEllipsis',
-
   props: {
     /** 内容 */
     content: {
@@ -52,6 +51,7 @@ export default defineComponent({
     // 用于判断是否需要渲染 Tooltip
     const flag = ref(false);
     const isOverflow = ref(false);
+    const renderContent = useContent();
 
     const ellipsisClasses = computed(() => [
       `${props.classPrefix}-table__ellipsis`,
@@ -96,11 +96,12 @@ export default defineComponent({
       innerEllipsisClassName,
       onMouseAround,
       handleVisibleChange,
+      renderContent,
     };
   },
 
   render() {
-    const cellNode = renderContent(this, 'default', 'content');
+    const cellNode = this.renderContent('default', 'content');
 
     const ellipsisContent = (
       <div

@@ -1,7 +1,7 @@
 import { defineComponent, computed } from 'vue';
 import props from './props';
 
-import { useTNodeJSX, usePrefixClass, useFlatChildrenSlots } from '@tdesign/hooks';
+import { useTNodeJSX, usePrefixClass, useFlatChildrenSlots } from '@tdesign/shared-hooks';
 
 import Button from '../button';
 import { isString } from 'lodash-es';

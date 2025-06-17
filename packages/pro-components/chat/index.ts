@@ -15,8 +15,7 @@ import _ChatAttachments from './attachments';
 import _ChatThinking from './chat-thinking';
 import _ChatBot from './chatbot';
 import _ChatMessage from './chat-message';
-// TODO: need refactor
-import withInstall from '../../components/utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 
 import {
   TdChatProps,

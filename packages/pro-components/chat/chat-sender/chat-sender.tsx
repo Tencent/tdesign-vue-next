@@ -1,9 +1,10 @@
 import { defineComponent, ref, computed, toRefs, reactive, Fragment } from 'vue';
 import { SendFilledIcon, FileAttachmentIcon, ImageIcon } from 'tdesign-icons-vue-next';
-import { usePrefixClass, useConfig, useTNodeJSX, useContent, useVModel } from '@tdesign/hooks';
-import props from './chat-sender-props';
 import { Button, Textarea, Tooltip } from 'tdesign-vue-next';
 import Attachments from '../attachments';
+import { useConfig } from 'tdesign-vue-next/es/config-provider/hooks';
+import { usePrefixClass, useTNodeJSX, useVModel } from '@tdesign/shared-hooks';
+import props from './chat-sender-props';
 
 import type { TdChatSenderProps, UploadActionType, UploadActionConfig } from '../type';
 
@@ -28,24 +29,20 @@ export default defineComponent({
     const [textValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
 
     const focusFlag = ref(false);
-    const loading = ref(false);
-    const showStopBtn = computed(() => props.stopDisabled && loading.value);
+    const showStopBtn = computed(() => props.loading || props.stopDisabled);
     const disabled = computed(() => props.disabled || false);
     const uploadImageRef = ref(null);
     const uploadFileRef = ref(null);
     const renderTNodeJSX = useTNodeJSX();
-    const renderContent = useContent();
     // 点击了发送按钮
     const sendClick = (e: MouseEvent | KeyboardEvent) => {
       if (textValue.value && !disabled.value) {
         emit('send', textValue.value, { e });
-        loading.value = true;
       }
     };
     // 点击了停止按钮
     const handleStop = (e: MouseEvent) => {
       e.stopPropagation(); // 阻止事件冒泡
-      loading.value = false;
       emit('stop', textValue.value, {
         e,
       });
@@ -71,14 +68,15 @@ export default defineComponent({
 
     const blurFn = (value: string, context: { e: FocusEvent }) => {
       focusFlag.value = false;
+      shiftDownFlag = false;
       emit('blur', value, context);
     };
 
     const keyupFn = (value: string, context: { e: KeyboardEvent }) => {
       const {
-        e: { key },
+        e: { key, shiftKey },
       } = context;
-      if (key === 'Shift') {
+      if (key === 'Shift' || !shiftKey) {
         shiftDownFlag = false;
       }
     };
@@ -244,7 +242,7 @@ export default defineComponent({
     };
     return () => (
       <div class={`${COMPONENT_NAME.value}-sender`}>
-        <div class={`${COMPONENT_NAME.value}-sender__header`}>{renderHeader()}</div>
+        <div class={`${COMPONENT_NAME.value}-sender__header`}>{renderTNodeJSX('header')}</div>
         <div
           class={[
             `${COMPONENT_NAME.value}-sender__textarea`,

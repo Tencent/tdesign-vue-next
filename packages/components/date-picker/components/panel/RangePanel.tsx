@@ -1,5 +1,5 @@
 import { defineComponent, PropType, computed } from 'vue';
-import { useConfig, usePrefixClass } from '@tdesign/hooks';
+import { useConfig, usePrefixClass } from '@tdesign/shared-hooks';
 import TPanelContent from './PanelContent';
 import TExtraContent from './ExtraContent';
 import { TdDateRangePickerProps } from '../../type';
