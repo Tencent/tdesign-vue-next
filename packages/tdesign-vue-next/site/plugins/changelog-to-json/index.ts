@@ -22,26 +22,29 @@ export default function changelog2Json() {
         res.setHeader('Content-Type', 'application/json');
         res.end(JSON.stringify(json));
       });
-      // eslint-disable-next-line no-console
-      console.log('✅ Sync CHANGELOG.md to JSON endpoint');
     },
     async closeBundle() {
       // 生产构建时写入物理文件
       if (process.env.NODE_ENV === 'production') {
         const json = await generateChangelogJson();
         await promises.writeFile(outputPath, JSON.stringify(json));
-        // eslint-disable-next-line no-console
-        console.log('✅ Generate changelog.json in dist');
       }
     },
   };
 }
 
 async function generateChangelogJson() {
-  const md = await promises.readFile(changelogPath, 'utf-8');
-  const parsedResult = parseMd2Json(md);
-  const compMap = formatJson2CompMap(parsedResult);
-  return compMap;
+  try {
+    const md = await promises.readFile(changelogPath, 'utf-8');
+    const parsedResult = parseMd2Json(md);
+    const compMap = formatJson2CompMap(parsedResult);
+    // eslint-disable-next-line no-console
+    console.log('\x1b[32m%s\x1b[0m', '✅ Sync CHANGELOG.md to changelog.json');
+    return compMap;
+  } catch (error) {
+    console.error('\x1b[31m%s\x1b[0m', '❌ Fail to generate changelog.json', '\x1b[33m', error);
+    return {};
+  }
 }
 
 /**
