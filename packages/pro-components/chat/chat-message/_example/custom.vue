@@ -1,7 +1,25 @@
-<script setup lang="jsx">
-import TvisionTcharts from 'tvision-charts-vue';
+<template>
+  <t-space direction="vertical" style="width: 100%">
+    <t-chat-message
+      variant="text"
+      avatar="https://tdesign.gtimg.com/site/chat-avatar.png"
+      name="TDesignAI"
+      :message="message"
+    >
+      <template v-for="(item, index) in message.content" :key="item.data.id">
+        <div v-if="item.type === 'chart'" :slot="`${item.type}-${index}`">
+          <TvisionTcharts class="chart" :chart-type="item.data.chartType" :options="item.data.options" />
+        </div>
+      </template>
+    </t-chat-message>
+  </t-space>
+</template>
 
-const message = {
+<script setup lang="jsx">
+import TvisionTcharts from 'tvision-charts-vue-next';
+import { ref } from 'vue';
+
+const message = ref({
   id: '123123',
   role: 'assistant',
   content: [
@@ -46,33 +64,11 @@ const message = {
       },
     },
   ],
-};
-
-const ChartDemo = ({ data }) => (
-  <div
-    style={{
-      width: '600px',
-      height: '400px',
-    }}
-  >
-    <TvisionTcharts chartType={data.chartType} options={data.options} theme={data.theme} />
-  </div>
-);
+});
 </script>
-
-<template>
-  <t-space direction="vertical" style="width: 100%">
-    <t-chat-message
-      variant="text"
-      avatar="https://tdesign.gtimg.com/site/chat-avatar.png"
-      name="TDesignAI"
-      :message="message"
-    >
-      <template v-for="(item, index) in message.content" :key="item.data.id">
-        <div v-if="item.type === 'chart'">
-          <ChartDemo :data="item.data" />
-        </div>
-      </template>
-    </t-chat-message>
-  </t-space>
-</template>
+<style scoped>
+.chart {
+  width: 800px;
+  height: 500px;
+}
+</style>

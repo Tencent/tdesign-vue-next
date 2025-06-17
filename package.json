@@ -128,9 +128,7 @@
     "rollup-plugin-vue": "^6.0.0",
     "tdesign-publish-cli": "^0.0.12",
     "tsx": "^4.19.2",
-    "typescript": "^5.7.3",
-    "tdesign-web-components": "1.0.3",
-    "omi-vueify": "^0.0.8"
+    "typescript": "^5.7.3"
   },
   "config": {
     "commitizen": {

@@ -43,6 +43,11 @@
     "tdesign-icons-vue-next": "^0.3.6",
     "tdesign-vue-next": "~1.11.0"
   },
+  "devDependencies": {
+    "tdesign-web-components": "1.0.3",
+    "omi-vueify": "^0.0.8",
+    "tvision-charts-vue-next": "^3.3.13"
+  },
   "peerDependencies": {
     "vue": ">=3.1.0"
   }
