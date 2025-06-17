@@ -9,7 +9,7 @@ const componentsDir = getComponentsRoot();
 
 const excludedDir = ['_util', 'common', 'hooks', 'locale', 'style'];
 
-const LOG_TYPES = ['❗ Breaking Changes', '🚀 Features', '🐞 Bug Fixes'];
+const LOG_TYPES = ['🚨 Breaking Changes', '🚀 Features', '🐞 Bug Fixes'];
 
 type LogType = Record<string, string | string[] | { component: string; description: string }[]>;
 export default function changelog2Json() {
