@@ -23,18 +23,19 @@
   </t-space>
 </template>
 
-<script setup>
+<script lang="ts" setup>
+import { SelectProps } from 'tdesign-vue-next';
 import { ref, toRaw } from 'vue';
 
-const options = ref([]);
+const options = ref<SelectProps['options']>([]);
 const value = ref('');
 const loading = ref(false);
 
-const multipleOptions = ref([]);
+const multipleOptions = ref<SelectProps['options']>([]);
 const multipleValue = ref([]);
 const multipleLoading = ref(false);
 
-const remoteMethod = (search) => {
+const remoteMethod = (search: string) => {
   console.log('search', search);
   if (search) {
     loading.value = true;
@@ -58,7 +59,7 @@ const remoteMethod = (search) => {
   }
 };
 
-const remoteMultipleMethod = (search) => {
+const remoteMultipleMethod = (search: string) => {
   console.log('search', search);
   if (search) {
     multipleLoading.value = true;
@@ -99,7 +100,7 @@ const remoteMultipleMethod = (search) => {
     multipleOptions.value = multipleValue.value;
   }
 };
-const onChange = (value) => {
+const onChange = (value: any) => {
   console.log('mergedOptions', value);
 };
 </script>
