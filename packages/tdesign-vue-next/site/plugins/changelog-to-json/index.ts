@@ -12,7 +12,7 @@ const componentsDir = getComponentsRoot();
 const EXCLUDED_DIR = ['locale', 'style'];
 const COMP_LIST = getComponentList();
 
-export const LOG_TYPES = ['🚨 Breaking Changes', '🚀 Features', '🐞 Bug Fixes'];
+export const LOG_TYPES = ['🚨 Breaking Changes', '🚀 Features', '🐞 Bug Fixes'] as const;
 
 export default function changelog2Json() {
   return {
