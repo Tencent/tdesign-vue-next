@@ -1,12 +1,12 @@
 import { SetupContext, h, defineComponent, PropType, toRefs } from 'vue';
 import { get, isString, isFunction } from 'lodash-es';
+import { useTNodeJSX } from '@tdesign/shared-hooks';
 
 import { BaseTableCellParams, RowspanColspan, TableRowData, TdBaseTableProps } from './type';
 import { formatRowAttributes, formatRowClassNames } from './utils';
 import { getColumnFixedStyles } from './hooks/useFixed';
-import { useTNodeJSX } from '@tdesign/shared-hooks';
 import useRowspanAndColspan, { getCellKey } from './hooks/useRowspanAndColspan';
-import { RowAndColFixedPosition } from './interface';
+import { RowAndColFixedPosition } from './types';
 import useClassName from './hooks/useClassName';
 import { Styles } from '../common';
 

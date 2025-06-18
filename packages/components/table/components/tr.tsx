@@ -24,7 +24,7 @@ import { RowAndColFixedPosition } from '../types';
 import { getCellKey, SkipSpansValue } from '../hooks/useRowspanAndColspan';
 import { TooltipProps } from '../../tooltip';
 import { PaginationProps } from '../../pagination';
-import { VirtualScrollConfig } from '@tdesign/shared-hooks';
+import type { VirtualScrollConfig } from '@tdesign/shared-hooks';
 import { AttachNode, SlotReturnValue } from '../../common';
 
 export interface RenderTdExtra {

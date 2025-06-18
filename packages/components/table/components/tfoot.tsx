@@ -3,7 +3,7 @@ import { isString, isFunction, get } from 'lodash-es';
 import { BaseTableCellParams, RowspanColspan, TableRowData, TdBaseTableProps } from '../type';
 import { formatRowAttributes, formatRowClassNames } from '../utils';
 import { getColumnFixedStyles } from '../hooks/useFixed';
-import { useTNodeJSX } from '../../hooks/tnode';
+import { useTNodeJSX } from '@tdesign/shared-hooks';
 import useRowspanAndColspan, { getCellKey } from '../hooks/useRowspanAndColspan';
 import { RowAndColFixedPosition } from '../types';
 import useClassName from '../hooks/useClassName';

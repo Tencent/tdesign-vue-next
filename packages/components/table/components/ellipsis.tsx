@@ -47,7 +47,6 @@ export default defineComponent({
 
   setup(props) {
     const root = ref();
-    const renderContent = useContent();
 
     // 用于判断是否需要渲染 Tooltip
     const flag = ref(false);
