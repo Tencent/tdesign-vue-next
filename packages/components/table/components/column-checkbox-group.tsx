@@ -1,5 +1,5 @@
 import { computed, defineComponent, PropType, toRefs } from 'vue';
-import Checkbox, { CheckboxGroup, CheckboxGroupChangeContext, CheckboxGroupProps, CheckboxProps } from '../checkbox';
+import Checkbox, { CheckboxGroup, CheckboxGroupChangeContext, CheckboxGroupProps, CheckboxProps } from '../../checkbox';
 import { intersection } from 'lodash-es';
 import { usePrefixClass } from '@tdesign/shared-hooks';
 
@@ -11,7 +11,6 @@ export type ColumnCheckboxGroupProps = Pick<CheckboxGroupProps, 'value' | 'onCha
 
 export default defineComponent({
   name: 'ColumnCheckboxGroup',
-
   props: {
     checkboxProps: Object as PropType<ColumnCheckboxGroupProps['checkboxProps']>,
     options: {

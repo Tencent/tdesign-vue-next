@@ -1,6 +1,5 @@
 import { computed, defineComponent, onMounted, PropType, ref, SetupContext, toRefs, watch } from 'vue';
-import { get, set, isObject, cloneDeep, isFunction } from 'lodash-es';
-
+import { get, set, isFunction, cloneDeep, isObject } from 'lodash-es';
 import { Edit1Icon as TdEdit1Icon } from 'tdesign-icons-vue-next';
 import {
   TableRowData,
@@ -9,13 +8,13 @@ import {
   PrimaryTableRowValidateContext,
   TdBaseTableProps,
   TableEditableCellPropsParams,
-} from './type';
-import { TableClassName } from './hooks/useClassName';
+} from '../type';
+import { TableClassName } from '../hooks/useClassName';
 import { useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
 import { renderCell } from './tr';
-import { validate } from '../form/utils/form-model';
+import { validate } from '../../form/utils/form-model';
 import log from '@tdesign/common-js/log/index';
-import { AllValidateResult } from '../form/type';
+import { AllValidateResult } from '../../form/type';
 import { on, off } from '@tdesign/shared-utils';
 
 export interface OnEditableChangeContext<T> extends PrimaryTableRowEditContext<T> {

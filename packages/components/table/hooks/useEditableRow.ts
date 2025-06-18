@@ -1,7 +1,7 @@
 import { ref, computed, watch, toRefs } from 'vue';
 import { get, set, cloneDeep, isFunction } from 'lodash-es';
 
-import { PrimaryTableProps } from '../interface';
+import { PrimaryTableProps } from '../types';
 import { getEditableKeysMap } from '@tdesign/common-js/table/utils';
 import { validate } from '../../form/utils/form-model';
 
@@ -14,7 +14,7 @@ import {
   PrimaryTableCellParams,
 } from '../type';
 import { getCellKey, getRowKeyFromCell } from './useRowspanAndColspan';
-import { OnEditableChangeContext } from '../editable-cell';
+import { OnEditableChangeContext } from '../components/editable-cell';
 
 export interface TablePromiseErrorData {
   errors: ErrorListObjectType<TableRowData>[];

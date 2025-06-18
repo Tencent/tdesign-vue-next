@@ -1,10 +1,10 @@
 /** 超出省略显示 */
 import { defineComponent, PropType, ref, computed, onMounted, onUpdated } from 'vue';
 import { debounce } from 'lodash-es';
-import { AttachNode, TNode } from '../common';
+import type { AttachNode, TNode } from '../../common';
 import { useContent } from '@tdesign/shared-hooks';
 import { isTextEllipsis } from '@tdesign/shared-utils';
-import TTooltip, { TooltipProps } from '../tooltip';
+import TTooltip, { TooltipProps } from '../../tooltip';
 
 export interface EllipsisProps {
   content: string | TNode;
@@ -88,53 +88,42 @@ export default defineComponent({
       e.type === 'mouseleave' ? onTriggerMouseleave() : onTriggerMouseenter();
     }, 80);
 
-    return {
-      flag,
-      root,
-      isOverflow,
-      ellipsisClasses,
-      innerEllipsisClassName,
-      onMouseAround,
-      handleVisibleChange,
-      renderContent,
+    return () => {
+      const cellNode = renderContent('default', 'content');
+
+      const ellipsisContent = (
+        <div
+          ref={root}
+          class={ellipsisClasses.value}
+          onMouseenter={onMouseAround}
+          onMouseleave={onMouseAround}
+          style={{
+            textOverflow: isOverflow.value ? 'ellipsis' : 'clip',
+          }}
+        >
+          {cellNode}
+        </div>
+      );
+      let content = null;
+      const tooltipProps = props.tooltipProps as EllipsisProps['tooltipProps'];
+      if (isOverflow.value && flag.value) {
+        const rProps = {
+          content: (props.tooltipContent as string) || (() => cellNode),
+          destroyOnClose: true,
+          zIndex: props.zIndex,
+          attach: props.attach,
+          placement: props.placement,
+          overlayClassName: tooltipProps?.overlayClassName
+            ? innerEllipsisClassName.value.concat(tooltipProps.overlayClassName)
+            : innerEllipsisClassName.value,
+          onVisibleChange: handleVisibleChange,
+          ...tooltipProps,
+        };
+        content = <TTooltip {...rProps}>{ellipsisContent}</TTooltip>;
+      } else {
+        content = ellipsisContent;
+      }
+      return content;
     };
-  },
-
-  render() {
-    const cellNode = this.renderContent('default', 'content');
-
-    const ellipsisContent = (
-      <div
-        ref="root"
-        class={this.ellipsisClasses}
-        onMouseenter={this.onMouseAround}
-        onMouseleave={this.onMouseAround}
-        style={{
-          textOverflow: this.isOverflow ? 'ellipsis' : 'clip',
-        }}
-      >
-        {cellNode}
-      </div>
-    );
-    let content = null;
-    const tooltipProps = this.tooltipProps as EllipsisProps['tooltipProps'];
-    if (this.isOverflow && this.flag) {
-      const rProps = {
-        content: (this.tooltipContent as string) || (() => cellNode),
-        destroyOnClose: true,
-        zIndex: this.zIndex,
-        attach: this.attach,
-        placement: this.placement,
-        overlayClassName: tooltipProps?.overlayClassName
-          ? this.innerEllipsisClassName.concat(tooltipProps.overlayClassName)
-          : this.innerEllipsisClassName,
-        onVisibleChange: this.handleVisibleChange,
-        ...tooltipProps,
-      };
-      content = <TTooltip {...rProps}>{ellipsisContent}</TTooltip>;
-    } else {
-      content = ellipsisContent;
-    }
-    return content;
   },
 });
