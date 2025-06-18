@@ -15,9 +15,8 @@ import {
 } from '../type';
 import useClassName from './useClassName';
 import { renderCell } from '../tr';
-import { useConfig } from '../../hooks/useConfig';
-import { useGlobalIcon } from '../../hooks/useGlobalIcon';
-import { useTNodeDefault } from '../../hooks';
+import { useConfig, useGlobalIcon, useTNodeDefault } from '@tdesign/shared-hooks';
+
 import useTreeDataExpand from './useTreeDataExpand';
 
 export default function useTreeData(props: TdEnhancedTableProps, context: SetupContext) {

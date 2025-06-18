@@ -1,9 +1,8 @@
 import { defineComponent, computed, ref, watch } from 'vue';
 import dayjs from 'dayjs';
-import { useDisabled } from '../hooks/useDisabled';
-import { usePrefixClass } from '../hooks/useConfig';
-import { isFunction } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { useDisabled, useReadonly, usePrefixClass } from '@tdesign/shared-hooks';
+
+import { isArray, isFunction } from 'lodash-es';
 
 import props from './date-range-picker-props';
 import { DateValue, DateRangePickerPartial } from './type';
@@ -21,7 +20,6 @@ import {
 } from '@tdesign/common-js/date-picker/format';
 import { subtractMonth, addMonth, extractTimeObj } from '@tdesign/common-js/date-picker/utils';
 import { dateCorrection } from './utils';
-import { useReadonly } from '../hooks/useReadonly';
 
 export default defineComponent({
   name: 'TDateRangePicker',

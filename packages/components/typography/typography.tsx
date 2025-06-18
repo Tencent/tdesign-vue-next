@@ -1,5 +1,6 @@
 import { defineComponent } from 'vue';
-import { useTNodeJSX } from '../hooks/tnode';
+import { useTNodeJSX } from '@tdesign/shared-hooks';
+
 import Text from './text';
 
 export default defineComponent({

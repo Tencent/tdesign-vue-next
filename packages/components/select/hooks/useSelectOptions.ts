@@ -1,9 +1,7 @@
 import { computed, Slots, Ref, ref } from 'vue';
-import { isArray } from 'lodash-es';
-import { get } from 'lodash-es';
-import { isFunction } from 'lodash-es';
+import { get, omit, isArray, isFunction } from 'lodash-es';
 
-import { useChildComponentSlots } from '../../hooks/slot';
+import { useChildComponentSlots } from '@tdesign/shared-hooks';
 import { TdSelectProps, TdOptionProps, SelectOptionGroup, SelectValue, SelectOption } from '../type';
 import { KeysType } from '../../common';
 
@@ -23,8 +21,9 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inpu
       props.options?.map((option) => {
         const getFormatOption = (option: TdOptionProps) => {
           const { value, label, disabled } = keys.value;
+          const restOption = omit(option, [value, label, disabled]) as Partial<TdOptionProps>;
           const res = {
-            ...option,
+            ...restOption,
             index: dynamicIndex,
             label: get(option, label),
             value: get(option, value),
@@ -105,7 +104,6 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inpu
   });
 
   const filterMethods = (option: SelectOption) => {
-    if (!props.filterable) return true;
     if (isFunction(props.filter)) {
       return props.filter(`${inputValue.value}`, option);
     }

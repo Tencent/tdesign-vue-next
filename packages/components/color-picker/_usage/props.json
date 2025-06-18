@@ -1,8 +1,14 @@
 [
   {
-    "name": "closeBtn",
+    "name": "borderless",
     "type": "Boolean",
-    "defaultValue": true,
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "clearable",
+    "type": "Boolean",
+    "defaultValue": false,
     "options": []
   },
   {
@@ -18,62 +24,34 @@
     "options": []
   },
   {
-    "name": "showPrimaryColorPreview",
+    "name": "enableMultipleGradient",
     "type": "Boolean",
     "defaultValue": true,
     "options": []
   },
   {
-    "name": "format",
+    "name": "size",
     "type": "enum",
-    "defaultValue": "RGB",
+    "defaultValue": "medium",
     "options": [
       {
-        "label": "RGB",
-        "value": "RGB"
+        "label": "small",
+        "value": "small"
       },
       {
-        "label": "RGBA",
-        "value": "RGBA"
+        "label": "medium",
+        "value": "medium"
       },
       {
-        "label": "HSL",
-        "value": "HSL"
-      },
-      {
-        "label": "HSLA",
-        "value": "HSLA"
-      },
-      {
-        "label": "HSB",
-        "value": "HSB"
-      },
-      {
-        "label": "HSV",
-        "value": "HSV"
-      },
-      {
-        "label": "HSVA",
-        "value": "HSVA"
-      },
-      {
-        "label": "HEX",
-        "value": "HEX"
-      },
-      {
-        "label": "CMYK",
-        "value": "CMYK"
-      },
-      {
-        "label": "CSS",
-        "value": "CSS"
+        "label": "large",
+        "value": "large"
       }
     ]
   },
   {
-    "name": "multiple",
+    "name": "showPrimaryColorPreview",
     "type": "Boolean",
-    "defaultValue": false,
+    "defaultValue": true,
     "options": []
   }
 ]

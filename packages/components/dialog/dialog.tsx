@@ -12,12 +12,11 @@ import {
 } from 'vue';
 import { DialogCloseContext } from './type';
 import props from './props';
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import { useConfig, useTeleport, usePrefixClass, usePopupManager, useDestroyOnClose } from '@tdesign/shared-hooks';
 import { useSameTarget } from './hooks';
-import useDestroyOnClose from '../hooks/useDestroyOnClose';
+
 import { getScrollbarWidth } from '@tdesign/common-js/utils/getScrollbarWidth';
-import useTeleport from '../hooks/useTeleport';
-import usePopupManager from '../hooks/usePopupManager';
+
 import { getCSSValue } from './utils';
 import TDialogCard from './dialog-card';
 
@@ -98,14 +97,17 @@ export default defineComponent({
       return topStyle;
     });
 
-    const { isLastDialog } = usePopupManager('dialog', {
+    const { isTopInteractivePopup } = usePopupManager('dialog', {
       visible: computedVisible,
     });
+    /**是否已经第一次渲染，懒加载判断 */
+    const isMounted = ref(false);
 
     watch(
       () => props.visible,
       (value) => {
         if (value) {
+          isMounted.value = true;
           if ((isModal.value && !props.showInAttachedElement) || isFullScreen.value) {
             if (props.preventScrollThrough) {
               document.body.appendChild(styleEl.value);
@@ -152,16 +154,18 @@ export default defineComponent({
       const eventSrc = e.target as HTMLElement;
       if (eventSrc.tagName.toLowerCase() === 'input') return; // 若是input触发 则不执行
       const { code } = e;
-      if ((code === 'Enter' || code === 'NumpadEnter') && isLastDialog()) {
+      if ((code === 'Enter' || code === 'NumpadEnter') && isTopInteractivePopup()) {
         props.onConfirm?.({ e });
       }
     };
     const keyboardEvent = (e: KeyboardEvent) => {
-      if (e.code === 'Escape' && isLastDialog()) {
+      if (e.code === 'Escape' && isTopInteractivePopup()) {
         props.onEscKeydown?.({ e });
         // 根据closeOnEscKeydown判断按下ESC时是否触发close事件
         if (props.closeOnEscKeydown ?? globalConfig.value.closeOnEscKeydown) {
           emitCloseEvent({ e, trigger: 'esc' });
+          // 阻止事件冒泡
+          e.stopImmediatePropagation();
         }
       }
     };
@@ -263,6 +267,15 @@ export default defineComponent({
       destroySelf();
     });
 
+    const shouldRender = computed(() => {
+      const { destroyOnClose, visible, lazy } = props;
+      if (!isMounted.value) {
+        return !lazy;
+      } else {
+        return visible || !destroyOnClose;
+      }
+    });
+
     return () => {
       const maskView = (isModal.value || isFullScreen.value) && <div key="mask" class={maskClass.value}></div>;
       const dialogView = renderDialog();
@@ -279,6 +292,7 @@ export default defineComponent({
           [`${COMPONENT_NAME.value}__ctx--modeless`]: isModeLess.value,
         },
       ];
+
       return (
         <Teleport disabled={!props.attach || !teleportElement.value} to={teleportElement.value}>
           <Transition
@@ -289,7 +303,7 @@ export default defineComponent({
             onBeforeLeave={beforeLeave}
             onAfterLeave={afterLeave}
           >
-            {(!props.destroyOnClose || props.visible) && (
+            {shouldRender.value && (
               <div v-show={props.visible} class={ctxClass} style={ctxStyle} {...context.attrs}>
                 {view}
               </div>

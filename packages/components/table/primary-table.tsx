@@ -1,10 +1,10 @@
 import { computed, defineComponent, toRefs, h, ref, onMounted, getCurrentInstance } from 'vue';
-import { get } from 'lodash-es';
-import { omit } from 'lodash-es';
+import { get, omit } from 'lodash-es';
+
 import baseTableProps from './base-table-props';
 import primaryTableProps from './primary-table-props';
 import BaseTable from './base-table';
-import { useTNodeJSX } from '../hooks/tnode';
+import { useConfig, useTNodeJSX, ScrollToElementParams } from '@tdesign/shared-hooks';
 import useColumnController from './hooks/useColumnController';
 import useRowExpand from './hooks/useRowExpand';
 import useTableHeader, { renderTitle } from './hooks/useTableHeader';
@@ -17,10 +17,10 @@ import useAsyncLoading from './hooks/useAsyncLoading';
 import EditableCell, { EditableCellProps } from './editable-cell';
 import { PageInfo } from '../pagination';
 import useClassName from './hooks/useClassName';
-import { useConfig } from '../hooks/useConfig';
+
 import useEditableRow from './hooks/useEditableRow';
 import useStyle from './hooks/useStyle';
-import { ScrollToElementParams } from '../hooks/useVirtualScrollNew';
+
 import { BaseTableProps } from './interface';
 
 export { BASE_TABLE_ALL_EVENTS } from './base-table';

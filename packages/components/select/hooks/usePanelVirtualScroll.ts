@@ -1,5 +1,5 @@
 import { Ref, computed, onMounted, onBeforeUnmount } from 'vue';
-import useVirtualScroll from '../../hooks/useVirtualScroll';
+import { useVirtualScroll } from '@tdesign/shared-hooks';
 import { TdSelectProps } from '../type';
 import { Styles } from '../../common';
 

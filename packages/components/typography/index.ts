@@ -2,7 +2,7 @@ import _Typography from './typography';
 import _Text from './text';
 import _Title from './title';
 import _Paragraph from './paragraph';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 
 export * from './type';
 import './style';

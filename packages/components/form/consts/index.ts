@@ -10,7 +10,7 @@ import {
   ValidateResultType,
   ValidateTriggerType,
 } from '../type';
-import { usePrefixClass, useTNodeJSX } from '../../hooks';
+import { usePrefixClass, useTNodeJSX } from '@tdesign/shared-hooks';
 
 // 允许 Form 统一控制的表单
 export const FORM_CONTROL_COMPONENTS = [
@@ -111,6 +111,7 @@ export const FormInjectionKey: InjectionKey<{
   data: TdFormProps['data'];
   colon: TdFormProps['colon'];
   requiredMark: TdFormProps['requiredMark'];
+  requiredMarkPosition: TdFormProps['requiredMarkPosition'];
   rules: TdFormProps['rules'];
   errorMessage: TdFormProps['errorMessage'];
   resetType: TdFormProps['resetType'];

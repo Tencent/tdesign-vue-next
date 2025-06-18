@@ -71,6 +71,14 @@ export default {
     type: Boolean,
     default: undefined,
   },
+  /** 表单必填符号（*）显示位置 */
+  requiredMarkPosition: {
+    type: String as PropType<TdFormProps['requiredMarkPosition']>,
+    validator(val: TdFormProps['requiredMarkPosition']): boolean {
+      if (!val) return true;
+      return ['left', 'right'].includes(val);
+    },
+  },
   /** 重置表单的方式，值为 empty 表示重置表单为空，值为 initial 表示重置表单数据为初始值 */
   resetType: {
     type: String as PropType<TdFormProps['resetType']>,

@@ -7,9 +7,9 @@ import Option from '../option';
 import OptionGroup from '../option-group';
 import TdSelectProps from '../props';
 
-import { useTNodeJSX, useTNodeDefault } from '../../hooks/tnode';
-import { useConfig, usePrefixClass } from '../../hooks/useConfig';
-import { usePanelVirtualScroll } from '../hooks/usePanelVirtualScroll';
+import { useConfig, useTNodeJSX, usePrefixClass, useTNodeDefault } from '@tdesign/shared-hooks';
+
+import { usePanelVirtualScroll } from '../hooks';
 import { selectInjectKey } from '../consts';
 
 export default defineComponent({

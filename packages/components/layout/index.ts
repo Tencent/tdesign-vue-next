@@ -3,7 +3,7 @@ import _Header from './header';
 import _Footer from './footer';
 import _Aside from './aside';
 import _Content from './content';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 import { TdHeaderProps, TdFooterProps, TdAsideProps, TdContentProps } from './type';
 
 import './style';

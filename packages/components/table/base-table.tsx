@@ -1,20 +1,20 @@
 import { computed, defineComponent, SetupContext, ref, nextTick, PropType, watch, onMounted, toRefs } from 'vue';
-import { pick } from 'lodash-es';
-import { get } from 'lodash-es';
+import { get, pick, throttle, isFunction } from 'lodash-es';
+
 import props from './base-table-props';
 import useTableHeader from './hooks/useTableHeader';
 import useColumnResize from './hooks/useColumnResize';
 import useFixed from './hooks/useFixed';
 import usePagination from './hooks/usePagination';
-import useVirtualScrollNew from '../hooks/useVirtualScrollNew';
+import { useConfig, useTNodeJSX, useVirtualScrollNew, useElementLazyRender } from '@tdesign/shared-hooks';
 import useAffix from './hooks/useAffix';
 import Loading from '../loading';
 import TBody, { extendTableProps } from './tbody';
 import { BaseTableProps } from './interface';
-import { useTNodeJSX } from '../hooks/tnode';
+
 import useStyle, { formatCSSUnit } from './hooks/useStyle';
 import useClassName from './hooks/useClassName';
-import { useConfig } from '../hooks/useConfig';
+
 import { Affix } from '../affix';
 import { ROW_LISTENERS } from './tr';
 import THead from './thead';
@@ -26,9 +26,6 @@ import { BaseTableInstanceFunctions } from './type';
 import log from '@tdesign/common-js/log/index';
 import { useRowHighlight } from './hooks/useRowHighlight';
 import useHoverKeyboardEvent from './hooks/useHoverKeyboardEvent';
-import useElementLazyRender from '../hooks/useElementLazyRender';
-import { isFunction } from 'lodash-es';
-import { throttle } from 'lodash-es';
 
 export const BASE_TABLE_EVENTS = ['page-change', 'cell-click', 'scroll', 'scrollX', 'scrollY'];
 export const BASE_TABLE_ALL_EVENTS = ROW_LISTENERS.map((t) => `row-${t}`).concat(BASE_TABLE_EVENTS);
