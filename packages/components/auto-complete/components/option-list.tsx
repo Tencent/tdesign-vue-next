@@ -2,7 +2,7 @@ import { ref, computed, defineComponent, PropType, h, watch, onBeforeUnmount } f
 import { isString, isFunction, escapeRegExp } from 'lodash-es';
 import HighlightOption from './highlight-option';
 import { useConfig, usePrefixClass, CommonClassNameType } from '@tdesign/shared-hooks';
-import { AutoCompleteOptionObj, TdAutoCompleteProps } from './type';
+import { AutoCompleteOptionObj, TdAutoCompleteProps } from '../type';
 import log from '@tdesign/common-js/log/index';
 
 import { on, off } from '@tdesign/shared-utils';
@@ -11,7 +11,6 @@ import { ARROW_UP_REG, ARROW_DOWN_REG, ENTER_REG } from '@tdesign/common-js/comm
 
 export default defineComponent({
   name: 'AutoCompleteOptionList',
-
   props: {
     sizeClassNames: Object as PropType<CommonClassNameType['SIZE']>,
     value: String,
@@ -23,9 +22,7 @@ export default defineComponent({
     filter: Function as PropType<TdAutoCompleteProps['filter']>,
     empty: [String, Function] as PropType<TdAutoCompleteProps['empty']>,
   },
-
   emits: ['select'],
-
   setup(props, { emit, slots, expose }) {
     const active = ref('');
     const classPrefix = usePrefixClass();

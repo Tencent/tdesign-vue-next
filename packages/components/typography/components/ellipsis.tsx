@@ -1,17 +1,14 @@
 import { defineComponent, computed, ref } from 'vue';
-import { usePrefixClass } from '@tdesign/shared-hooks';
-import props from './paragraph-props';
-import TTooltip from '../tooltip/index';
-import { useConfig } from '../config-provider/hooks/useConfig';
+import { usePrefixClass, useConfig } from '@tdesign/shared-hooks';
+import props from '../paragraph-props';
+import TTooltip from '../../tooltip/index';
 
-import type { TypographyEllipsis } from './type';
+import type { TypographyEllipsis } from '../type';
 
 export default defineComponent({
   name: 'TEllipsis',
   components: { TTooltip },
-  props: {
-    ...props,
-  },
+  props,
   setup(props, { slots }) {
     const COMPONENT_NAME = usePrefixClass('typography');
     const { globalConfig } = useConfig('typography');

@@ -3,7 +3,7 @@ import { useContent, usePrefixClass } from '@tdesign/shared-hooks';
 import props from './text-props';
 import copy from './utils/copy-to-clipboard';
 import { CopyIcon, CheckIcon } from 'tdesign-icons-vue-next';
-import Ellipsis from './ellipsis';
+import Ellipsis from './components/ellipsis';
 import TTooltip from '../tooltip';
 import TButton from '../button';
 import { useConfig } from '../config-provider/hooks/useConfig';

@@ -1,16 +1,16 @@
 import { computed, defineComponent, inject, Slots, ref } from 'vue';
 import { omit } from 'lodash-es';
-import { Styles } from '../common';
+import { Styles } from '../../common';
 
-import { SelectOption, SelectOptionGroup, TdOptionProps } from './type';
-import Option from './option';
-import OptionGroup from './option-group';
-import TdSelectProps from './props';
+import { SelectOption, SelectOptionGroup, TdOptionProps } from '../type';
+import Option from '../option';
+import OptionGroup from '../option-group';
+import TdSelectProps from '../props';
 
 import { useConfig, useTNodeJSX, usePrefixClass, useTNodeDefault } from '@tdesign/shared-hooks';
 
-import { usePanelVirtualScroll } from './hooks/usePanelVirtualScroll';
-import { selectInjectKey } from './consts';
+import { usePanelVirtualScroll } from '../hooks';
+import { selectInjectKey } from '../consts';
 
 export default defineComponent({
   name: 'TSelectPanel',
@@ -134,32 +134,24 @@ export default defineComponent({
         {!isEmpty.value && renderOptionsContent(options)}
       </div>
     );
-    return {
-      renderPanel,
-      panelStyle,
-      cursorStyle,
-      isVirtual,
-      displayOptions,
-      visibleData,
-      renderTNodeJSX,
+
+    return () => {
+      return isVirtual.value ? (
+        <>
+          {renderTNodeJSX('panelTopContent')}
+          <div>
+            <div style={cursorStyle.value}></div>
+            {renderPanel(visibleData.value, panelStyle.value)}
+          </div>
+          {renderTNodeJSX('panelBottomContent')}
+        </>
+      ) : (
+        <>
+          {renderTNodeJSX('panelTopContent')}
+          {renderPanel(displayOptions.value)}
+          {renderTNodeJSX('panelBottomContent')}
+        </>
+      );
     };
-  },
-  render() {
-    return this.isVirtual ? (
-      <>
-        {this.renderTNodeJSX('panelTopContent')}
-        <div>
-          <div style={this.cursorStyle}></div>
-          {this.renderPanel(this.visibleData, this.panelStyle)}
-        </div>
-        {this.renderTNodeJSX('panelBottomContent')}
-      </>
-    ) : (
-      <>
-        {this.renderTNodeJSX('panelTopContent')}
-        {this.renderPanel(this.displayOptions)}
-        {this.renderTNodeJSX('panelBottomContent')}
-      </>
-    );
   },
 });

@@ -3,6 +3,6 @@ import { withInstall } from '@tdesign/shared-utils';
 
 import './style';
 
-export * from './interface';
+export * from './types';
 export const TreeSelect = withInstall(_TreeSelect);
 export default TreeSelect;
