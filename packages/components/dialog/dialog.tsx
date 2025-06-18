@@ -1,18 +1,24 @@
-import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, ref, Transition, watch, Teleport } from 'vue';
+import {
+  computed,
+  defineComponent,
+  nextTick,
+  onBeforeUnmount,
+  onMounted,
+  ref,
+  Transition,
+  watch,
+  Teleport,
+  ComponentPublicInstance,
+} from 'vue';
 import { DialogCloseContext } from './type';
 import props from './props';
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import { useConfig, useTeleport, usePrefixClass, usePopupManager, useDestroyOnClose } from '@tdesign/shared-hooks';
 import { useSameTarget } from './hooks';
-import useDestroyOnClose from '../hooks/useDestroyOnClose';
+
 import { getScrollbarWidth } from '@tdesign/common-js/utils/getScrollbarWidth';
-import useTeleport from '../hooks/useTeleport';
-import usePopupManager from '../hooks/usePopupManager';
 
+import { getCSSValue } from './utils';
 import TDialogCard from './dialog-card';
-
-function GetCSSValue(v: string | number) {
-  return Number.isNaN(Number(v)) ? v : `${Number(v)}px`;
-}
 
 let mousePosition: { x: number; y: number } | null;
 const getClickPosition = (e: MouseEvent) => {
@@ -29,68 +35,17 @@ if (typeof window !== 'undefined' && window.document && window.document.document
   document.documentElement.addEventListener('click', getClickPosition, true);
 }
 
-function InitDragEvent(dragBox: HTMLElement) {
-  const target = dragBox;
-  const windowInnerWidth = window.innerWidth || document.documentElement.clientWidth;
-  const windowInnerHeight = window.innerHeight || document.documentElement.clientHeight;
-  target.addEventListener('mousedown', (targetEvent: MouseEvent) => {
-    // 算出鼠标相对元素的位置
-    const disX = targetEvent.clientX - target.offsetLeft;
-    const disY = targetEvent.clientY - target.offsetTop;
-    const dialogW = target.offsetWidth;
-    const dialogH = target.offsetHeight;
-    // 如果弹出框超出屏幕范围 不能进行拖拽
-    if (dialogW > windowInnerWidth || dialogH > windowInnerHeight) return;
-    function mouseMoverHandler(documentEvent: MouseEvent) {
-      // 用鼠标的位置减去鼠标相对元素的位置，得到元素的位置
-      let left = documentEvent.clientX - disX;
-      let top = documentEvent.clientY - disY;
-      // 临界判断
-      // 拖拽上左边界限制
-      if (left < 0) left = 0;
-      if (top < 0) top = 0;
-      if (windowInnerWidth - target.offsetWidth - left < 0) left = windowInnerWidth - target.offsetWidth;
-      if (windowInnerHeight - target.offsetHeight - top < 0) top = windowInnerHeight - target.offsetHeight;
-      target.style.position = 'absolute';
-      target.style.left = `${left}px`;
-      target.style.top = `${top}px`;
-    }
-    function mouseUpHandler() {
-      // 鼠标弹起来的时候不再移动
-      document.removeEventListener('mousemove', mouseMoverHandler);
-      // 预防鼠标弹起来后还会循环（即预防鼠标放上去的时候还会移动）
-      document.removeEventListener('mouseup', mouseUpHandler);
-    }
-    // 元素按下时注册document鼠标监听事件
-    document.addEventListener('mousemove', mouseMoverHandler);
-    // 鼠标弹起来移除document鼠标监听事件
-    document.addEventListener('mouseup', mouseUpHandler);
-    // 拖拽结束移除鼠标监听事件，解决文字拖拽结束事件未解绑问题
-    document.addEventListener('dragend', mouseUpHandler);
-  });
-}
-
 let key = 1;
 
 export default defineComponent({
   name: 'TDialog',
-  // 注册v-draggable指令,传入true时候初始化拖拽事件
-  directives: {
-    draggable(el, binding) {
-      // el 指令绑定的元素
-      if (el && binding && binding.value) {
-        InitDragEvent(el);
-      }
-    },
-  },
   inheritAttrs: false,
   props,
   emits: ['update:visible'],
   setup(props, context) {
     const COMPONENT_NAME = usePrefixClass('dialog');
     const classPrefix = usePrefixClass();
-    const dialogEle = ref<HTMLElement | null>(null);
-    const dialogCardRef = ref<HTMLElement | null>(null);
+    const dialogCardRef = ref<ComponentPublicInstance<{ resetPosition: () => void }>>(null);
     const { globalConfig } = useConfig('dialog');
     const confirmBtnAction = (context: { e: MouseEvent }) => {
       props.onConfirm?.(context);
@@ -136,47 +91,32 @@ export default defineComponent({
       const { top } = props;
       let topStyle = {};
       if (top !== undefined) {
-        const topValue = GetCSSValue(top);
+        const topValue = getCSSValue(top);
         topStyle = { paddingTop: topValue };
       }
       return topStyle;
     });
-    const dialogClass = computed(() => {
-      const dialogClass = [
-        `${COMPONENT_NAME.value}`,
-        `${COMPONENT_NAME.value}__modal-${props.theme}`,
-        isModeLess.value && props.draggable && `${COMPONENT_NAME.value}--draggable`,
-        props.dialogClassName,
-      ];
 
-      if (isFullScreen.value) {
-        dialogClass.push(`${COMPONENT_NAME.value}__fullscreen`);
-      } else {
-        dialogClass.push(...[`${COMPONENT_NAME.value}--default`, `${COMPONENT_NAME.value}--${props.placement}`]);
-      }
-      return dialogClass;
-    });
-    const dialogStyle = computed(() => {
-      return !isFullScreen.value ? { width: GetCSSValue(props.width), ...props.dialogStyle } : { ...props.dialogStyle }; // width全屏模式不生效
-    });
-    const { isLastDialog } = usePopupManager('dialog', {
+    const { isTopInteractivePopup } = usePopupManager('dialog', {
       visible: computedVisible,
     });
+    /**是否已经第一次渲染，懒加载判断 */
+    const isMounted = ref(false);
 
     watch(
       () => props.visible,
       (value) => {
         if (value) {
+          isMounted.value = true;
           if ((isModal.value && !props.showInAttachedElement) || isFullScreen.value) {
             if (props.preventScrollThrough) {
               document.body.appendChild(styleEl.value);
             }
 
             nextTick(() => {
-              if (mousePosition && dialogEle.value) {
-                dialogEle.value.style.transformOrigin = `${mousePosition.x - dialogEle.value.offsetLeft}px ${
-                  mousePosition.y - dialogEle.value.offsetTop
-                }px`;
+              if (mousePosition && dialogCardRef.value?.$el) {
+                const el = dialogCardRef.value.$el as HTMLElement;
+                el.style.transformOrigin = `${mousePosition.x - el.offsetLeft}px ${mousePosition.y - el.offsetTop}px`;
               }
             });
           }
@@ -214,16 +154,18 @@ export default defineComponent({
       const eventSrc = e.target as HTMLElement;
       if (eventSrc.tagName.toLowerCase() === 'input') return; // 若是input触发 则不执行
       const { code } = e;
-      if ((code === 'Enter' || code === 'NumpadEnter') && isLastDialog()) {
+      if ((code === 'Enter' || code === 'NumpadEnter') && isTopInteractivePopup()) {
         props.onConfirm?.({ e });
       }
     };
     const keyboardEvent = (e: KeyboardEvent) => {
-      if (e.code === 'Escape' && isLastDialog()) {
+      if (e.code === 'Escape' && isTopInteractivePopup()) {
         props.onEscKeydown?.({ e });
         // 根据closeOnEscKeydown判断按下ESC时是否触发close事件
         if (props.closeOnEscKeydown ?? globalConfig.value.closeOnEscKeydown) {
           emitCloseEvent({ e, trigger: 'esc' });
+          // 阻止事件冒泡
+          e.stopImmediatePropagation();
         }
       }
     };
@@ -259,12 +201,7 @@ export default defineComponent({
 
     // 关闭弹窗动画结束时事件
     const afterLeave = () => {
-      if (isModeLess.value && props.draggable && dialogEle.value) {
-        // 关闭弹窗 清空拖拽设置的相关css
-        dialogEle.value.style.position = 'relative';
-        dialogEle.value.style.left = 'unset';
-        dialogEle.value.style.top = 'unset';
-      }
+      dialogCardRef.value?.resetPosition?.();
       props.onClosed?.();
     };
 
@@ -298,23 +235,15 @@ export default defineComponent({
             onMousedown={onMousedown}
             onMouseup={onMouseup}
           >
-            <div
-              key="dialog"
-              class={dialogClass.value}
-              style={dialogStyle.value}
-              v-draggable={isModeLess.value && props.draggable}
-              ref={dialogEle}
-            >
-              <TDialogCard
-                ref={dialogCardRef}
-                theme={theme}
-                {...otherProps}
-                v-slots={context.slots}
-                onConfirm={confirmBtnAction}
-                onCancel={cancelBtnAction}
-                onCloseBtnClick={closeBtnAction}
-              />
-            </div>
+            <TDialogCard
+              ref={dialogCardRef}
+              theme={theme}
+              {...otherProps}
+              v-slots={context.slots}
+              onConfirm={confirmBtnAction}
+              onCancel={cancelBtnAction}
+              onCloseBtnClick={closeBtnAction}
+            />
           </div>
         </div>
       );
@@ -338,6 +267,15 @@ export default defineComponent({
       destroySelf();
     });
 
+    const shouldRender = computed(() => {
+      const { destroyOnClose, visible, lazy } = props;
+      if (!isMounted.value) {
+        return !lazy;
+      } else {
+        return visible || !destroyOnClose;
+      }
+    });
+
     return () => {
       const maskView = (isModal.value || isFullScreen.value) && <div key="mask" class={maskClass.value}></div>;
       const dialogView = renderDialog();
@@ -354,6 +292,7 @@ export default defineComponent({
           [`${COMPONENT_NAME.value}__ctx--modeless`]: isModeLess.value,
         },
       ];
+
       return (
         <Teleport disabled={!props.attach || !teleportElement.value} to={teleportElement.value}>
           <Transition
@@ -364,7 +303,7 @@ export default defineComponent({
             onBeforeLeave={beforeLeave}
             onAfterLeave={afterLeave}
           >
-            {(!props.destroyOnClose || props.visible) && (
+            {shouldRender.value && (
               <div v-show={props.visible} class={ctxClass} style={ctxStyle} {...context.attrs}>
                 {view}
               </div>

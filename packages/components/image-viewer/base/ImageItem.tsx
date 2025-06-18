@@ -1,8 +1,9 @@
 import { ImageErrorIcon } from 'tdesign-icons-vue-next';
 import { PropType, computed, defineComponent, onMounted, ref, toRefs, watch } from 'vue';
-import { useConfig, usePrefixClass } from '../../hooks/useConfig';
-import { useImagePreviewUrl } from '../../hooks/useImagePreviewUrl';
+import { useConfig, usePrefixClass, useImagePreviewUrl } from '@tdesign/shared-hooks';
+
 import { useDrag } from '../hooks';
+import { TdImageViewerProps } from '../type';
 
 export default defineComponent({
   name: 'TImageItem',
@@ -13,6 +14,7 @@ export default defineComponent({
     src: [String, Object] as PropType<string | File>,
     placementSrc: [String, Object] as PropType<string | File>,
     isSvg: Boolean,
+    imageReferrerpolicy: String as PropType<TdImageViewerProps['imageReferrerpolicy']>,
   },
 
   setup(props) {
@@ -139,6 +141,7 @@ export default defineComponent({
               }}
               src={placementImagePreviewUrl.value}
               style={placementImgStyle.value}
+              referrerpolicy={props.imageReferrerpolicy}
               alt="image"
               draggable="false"
             />
@@ -155,6 +158,7 @@ export default defineComponent({
               onLoad={() => (loaded.value = true)}
               onError={() => (error.value = true)}
               style={imgStyle.value}
+              referrerpolicy={props.imageReferrerpolicy}
               alt="image"
               draggable="false"
             />

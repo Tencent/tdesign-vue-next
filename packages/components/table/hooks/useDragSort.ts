@@ -5,7 +5,7 @@ import { isFunction } from 'lodash-es';
 import { TableRowData, TdPrimaryTableProps, DragSortContext, PrimaryTableCol } from '../type';
 import useClassName from './useClassName';
 import log from '@tdesign/common-js/log/index';
-import { hasClass } from '../../utils/dom';
+import { hasClass } from '@tdesign/shared-utils';
 import swapDragArrayElement from '@tdesign/common-js/utils/swapDragArrayElement';
 import { BaseTableColumns, SimplePageInfo } from '../types';
 import { getColumnDataByKey, getColumnIndexByKey } from '@tdesign/common-js/table/utils';
@@ -63,7 +63,11 @@ export default function useDragSort(
 
   // 行拖拽排序
   const registerRowDragEvent = (element: HTMLDivElement): void => {
-    if (!isRowHandlerDraggable.value && !isRowDraggable.value) return;
+    /**
+     * fix: https://github.com/Tencent/tdesign-vue-next/issues/4985
+     * 若table内容未渲染（即element子元素为空），拖拽事件不注册
+     */
+    if (element?.children?.length === 0 || (!isRowHandlerDraggable.value && !isRowDraggable.value)) return;
     const dragContainer = element?.querySelector('tbody');
     if (!dragContainer) {
       console.error('tbody does not exist.');

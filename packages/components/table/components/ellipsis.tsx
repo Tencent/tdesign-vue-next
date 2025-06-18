@@ -1,9 +1,9 @@
 /** 超出省略显示 */
 import { defineComponent, PropType, ref, computed, onMounted, onUpdated } from 'vue';
 import { debounce } from 'lodash-es';
-import { AttachNode, TNode } from '../../common';
-import { useContent } from '../../hooks';
-import { isTextEllipsis } from '../../utils/dom';
+import type { AttachNode, TNode } from '../../common';
+import { useContent } from '@tdesign/shared-hooks';
+import { isTextEllipsis } from '@tdesign/shared-utils';
 import TTooltip, { TooltipProps } from '../../tooltip';
 
 export interface EllipsisProps {
@@ -52,6 +52,7 @@ export default defineComponent({
     // 用于判断是否需要渲染 Tooltip
     const flag = ref(false);
     const isOverflow = ref(false);
+    const renderContent = useContent();
 
     const ellipsisClasses = computed(() => [
       `${props.classPrefix}-table__ellipsis`,

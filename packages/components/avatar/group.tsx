@@ -1,9 +1,9 @@
 import { defineComponent, provide, VNode } from 'vue';
 import props from './avatar-group-props';
 import Avatar from './avatar';
-import { useTNodeJSX } from '../hooks/tnode';
-import { usePrefixClass } from '../hooks/useConfig';
-import { getChildren } from '../utils/render-tnode';
+import { useTNodeJSX, usePrefixClass } from '@tdesign/shared-hooks';
+
+import { getChildren } from '@tdesign/shared-utils';
 
 export default defineComponent({
   name: 'TAvatarGroup',

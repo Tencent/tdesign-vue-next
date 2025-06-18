@@ -10,13 +10,20 @@ import {
   provide,
 } from 'vue';
 import { ANCHOR_SHARP_REGEXP, ANCHOR_CONTAINER, getOffsetTop } from './utils';
-import { isServer, on, off, getScroll, scrollTo, getScrollContainer as utilsGetScrollContainer } from '../utils/dom';
+import {
+  isServer,
+  on,
+  off,
+  getScroll,
+  scrollTo,
+  getScrollContainer as utilsGetScrollContainer,
+} from '@tdesign/shared-utils';
 import props from './props';
-import { useTNodeJSX } from '../hooks/tnode';
+import { useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
 import { SlotReturnValue } from '../common';
 import Affix from '../affix';
 import { TdAnchorProps } from './type';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+
 import { AnchorInjectionKey } from './consts';
 
 export interface Anchor extends ComponentPublicInstance {

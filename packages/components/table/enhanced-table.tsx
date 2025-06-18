@@ -16,7 +16,7 @@ import useTreeSelect from './hooks/useTreeSelect';
 import { get } from 'lodash-es';
 import { ComponentScrollToElementParams } from '../common';
 import log from '@tdesign/common-js/log/index';
-import { usePrefixClass } from '../hooks';
+import { usePrefixClass } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'TEnhancedTable',

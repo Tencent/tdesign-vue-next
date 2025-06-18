@@ -1,11 +1,10 @@
 import { defineComponent, ref, toRefs } from 'vue';
-import useVModel from '../hooks/useVModel';
-import { useTNodeDefault } from '../hooks/tnode';
+import { useVModel, useDefaultValue, useTNodeDefault } from '@tdesign/shared-hooks';
+
 import props from './props';
 import { Popup as TPopup } from '../popup';
-import ColorPanel from './panel';
+import ColorPanel from './components/panel';
 import DefaultTrigger from './components/trigger';
-import { TdColorContext } from './types';
 import { useBaseClassName } from './hooks';
 
 export default defineComponent({
@@ -17,24 +16,33 @@ export default defineComponent({
     const visible = ref(false);
     const setVisible = (value: boolean) => (visible.value = value);
 
-    const { value: inputValue, modelValue } = toRefs(props);
+    const { value: inputValue, modelValue, recentColors } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(inputValue, modelValue, props.defaultValue, props.onChange);
+    const [innerRecentColors, setInnerRecentColors] = useDefaultValue(
+      recentColors,
+      props.defaultRecentColors,
+      props.onRecentColorsChange,
+      'recentColors',
+    );
 
     const refTrigger = ref<HTMLElement>();
+
+    const handleClear = (context: { e: MouseEvent }) => props.onClear?.(context);
 
     const renderPopupContent = () => {
       if (props.disabled) {
         return null;
       }
-      const newProps = { ...props };
-      delete newProps.onChange;
+
       return (
         <ColorPanel
-          {...newProps}
-          disabled={props.disabled}
+          {...{
+            ...props,
+            onChange: setInnerValue,
+            onRecentColorsChange: setInnerRecentColors,
+          }}
           value={innerValue.value}
-          togglePopup={setVisible}
-          onChange={(value: string, context: TdColorContext) => setInnerValue(value, context)}
+          recentColors={innerRecentColors.value}
         />
       );
     };
@@ -73,6 +81,7 @@ export default defineComponent({
                 clearable={props.clearable}
                 input-props={props.inputProps}
                 onTriggerChange={setInnerValue}
+                onTriggerClear={handleClear}
                 size={props.size}
               />,
             )}

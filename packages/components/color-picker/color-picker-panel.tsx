@@ -1,7 +1,7 @@
 import { computed, defineComponent } from 'vue';
-import props from './props';
-import ColorPanel from './panel';
-import { usePrefixClass } from '../hooks/useConfig';
+import props from './color-picker-panel-props';
+import ColorPanel from './components/panel';
+import { usePrefixClass } from '@tdesign/shared-hooks';
 import { pickBy } from 'lodash-es';
 
 export default defineComponent({
@@ -11,8 +11,6 @@ export default defineComponent({
   setup(props, { attrs }) {
     const newProps = computed(() => pickBy({ ...props, ...attrs }, (v) => v !== undefined));
     const prefix = usePrefixClass();
-    return () => (
-      <ColorPanel {...newProps.value} popupProps={null} close-btn={false} class={`${prefix.value}-is-inline`} />
-    );
+    return () => <ColorPanel {...newProps.value} popupProps={null} class={`${prefix.value}-is-inline`} />;
   },
 });

@@ -1,15 +1,12 @@
 import { defineComponent, ref, computed, provide, watchEffect, watch, onMounted, toRefs } from 'vue';
 import props from './props';
 import { MenuValue } from './type';
-import { TdMenuInterface, TdOpenType } from './consts';
-import { useTNodeJSX, useContent } from '../hooks/tnode';
+import { TdMenuInterface, TdOpenType } from './types';
+import { useVModel, useContent, useTNodeJSX, usePrefixClass, useDefaultValue } from '@tdesign/shared-hooks';
 import { VMenu } from './utils';
 import log from '@tdesign/common-js/log/log';
-import { usePrefixClass } from '../hooks/useConfig';
-import useVModel from '../hooks/useVModel';
-import useDefaultValue from '../hooks/useDefaultValue';
-import { isNumber } from 'lodash-es';
-import { isArray } from 'lodash-es';
+
+import { isArray, isNumber } from 'lodash-es';
 
 export default defineComponent({
   name: 'TMenu',

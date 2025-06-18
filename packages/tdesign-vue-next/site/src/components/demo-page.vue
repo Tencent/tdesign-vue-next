@@ -10,9 +10,8 @@
 </template>
 
 <script>
-// TODO: 这种是否能优化一下呀，就不用路径的方式
-const demoVueReq = import.meta.globEager('../../../../../packages/components/**/_example/*.vue');
-const demoJsxReq = import.meta.globEager('../../../../../packages/components/**/_example/*.jsx');
+const demoVueReq = import.meta.glob('@tdesign/components/**/_example/*.vue', { eager: true });
+const demoJsxReq = import.meta.glob('@tdesign/components/**/_example/*.jsx', { eager: true });
 
 const demoReq = { ...demoVueReq, ...demoJsxReq };
 const demoObject = {};
@@ -22,13 +21,12 @@ Object.keys(demoReq).forEach((key) => {
   const match = key.match(/([\w-]+)._example.([\w-]+).(vue|jsx)/);
   const [, componentName, demoName] = match;
   demoObject[`${componentName}-${demoName}`] = demoReq[key].default;
-  demoList[componentName] = [demoName].concat(demoList[componentName]);
+  demoList[componentName] = [demoName].concat(demoList[componentName] ?? []);
 });
+
 export default {
   name: 'Demos',
-  components: {
-    ...demoObject,
-  },
+  components: demoObject,
   data() {
     return {
       demo: null,
@@ -45,7 +43,7 @@ export default {
   },
   watch: {
     $route(v) {
-      if (v.name !== 'demos') return;
+      if (!['demos', 'demosComponent'].includes(v.name)) return;
       this.renderDemo();
     },
   },

@@ -1,5 +1,5 @@
 import { defineComponent, computed, PropType } from 'vue';
-import { usePrefixClass } from '../hooks/useConfig';
+import { usePrefixClass } from '@tdesign/shared-hooks';
 import props from './paragraph-props';
 import TTooltip from '../tooltip/index';
 import Ellipsis from './ellipsis';

@@ -4,14 +4,18 @@ import TInput, { InputProps, StrInputProps, TdInputProps } from '../input';
 import { TdTagInputProps } from './type';
 import props from './props';
 import { useConfig } from '../config-provider/hooks/useConfig';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import {
+  useDisabled,
+  useReadonly,
+  useTNodeJSX,
+  useGlobalIcon,
+  usePrefixClass,
+  useDefaultValue,
+} from '@tdesign/shared-hooks';
+
 import { useTagScroll, useHover, useDragSorter, useTagList } from './hooks';
-import useDefault from '../hooks/useDefaultValue';
+
 import { isArray } from 'lodash-es';
-import { useDisabled } from '../hooks/useDisabled';
-import { useReadonly } from '../hooks/useReadonly';
-import { useTNodeJSX } from '../hooks/tnode';
 
 const useComponentClassName = () => {
   return {
@@ -33,7 +37,7 @@ export default defineComponent({
     const isReadonly = useReadonly();
 
     const { inputValue, inputProps, borderless, size, tips, status, suffix, autoWidth, onPaste } = toRefs(props);
-    const [tInputValue, setTInputValue] = useDefault(
+    const [tInputValue, setTInputValue] = useDefaultValue(
       inputValue,
       props.defaultInputValue,
       props.onInputChange,
@@ -79,6 +83,7 @@ export default defineComponent({
           [BREAK_LINE_CLASS.value]: excessTagsDisplayType.value === 'break-line',
           [`${classPrefix.value}-is-empty`]: isEmpty,
           [`${classPrefix.value}-tag-input--with-tag`]: !isEmpty,
+          [`${classPrefix.value}-tag-input--drag-sort`]: props.dragSort && !isReadonly.value && !isDisabled.value,
         },
       ];
     });
@@ -145,7 +150,7 @@ export default defineComponent({
       props.onFocus?.(tagValue.value, { e: context.e, inputValue });
     };
 
-    const onInnerBlur: InputProps['onFocus'] = (inputValue: string, context: { e: MouseEvent }) => {
+    const onInnerBlur: InputProps['onBlur'] = (inputValue: string, context: { e: MouseEvent }) => {
       isFocused.value = false;
       setTInputValue('', { e: context.e, trigger: 'blur' });
       props.onBlur?.(tagValue.value, { e: context.e, inputValue });

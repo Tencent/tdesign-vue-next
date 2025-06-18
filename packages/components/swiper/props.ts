@@ -97,6 +97,11 @@ export default {
       return ['default', 'card'].includes(val);
     },
   },
+  /** 卡片模式下的缩放比例 */
+  cardScale: {
+    type: Number,
+    default: 210 / 332,
+  },
   /** 轮播切换时触发 */
   onChange: Function as PropType<TdSwiperProps['onChange']>,
 };

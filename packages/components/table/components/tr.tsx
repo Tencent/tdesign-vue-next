@@ -11,7 +11,8 @@ import {
   nextTick,
   onMounted,
 } from 'vue';
-import { isFunction, upperFirst, isString, get, pick } from 'lodash-es';
+import { get, pick, isString, isFunction, upperFirst } from 'lodash-es';
+
 import { formatClassNames, formatRowAttributes, formatRowClassNames } from '../utils';
 import { getRowFixedStyles, getColumnFixedStyles } from '../hooks/useFixed';
 import useClassName from '../hooks/useClassName';
@@ -23,7 +24,7 @@ import { RowAndColFixedPosition } from '../types';
 import { getCellKey, SkipSpansValue } from '../hooks/useRowspanAndColspan';
 import { TooltipProps } from '../../tooltip';
 import { PaginationProps } from '../../pagination';
-import { VirtualScrollConfig } from '../../hooks/useVirtualScrollNew';
+import { VirtualScrollConfig } from '@tdesign/shared-hooks';
 import { AttachNode, SlotReturnValue } from '../../common';
 
 export interface RenderTdExtra {
@@ -319,7 +320,7 @@ export default defineComponent({
 
     return () => {
       const { columns, skipSpansMap, row, dataLength, rowAndColFixedPosition } = props;
-      const columVNodeList = columns?.map((col, colIndex) => {
+      const columnVNodeList = columns?.map((col, colIndex) => {
         const cellSpans: RowspanColspan = {};
         const params = {
           row,
@@ -354,7 +355,7 @@ export default defineComponent({
         >
           {hasLazyLoadHolder.value
             ? [<td style={{ height: `${tRowHeight.value}px`, border: 'none' }} />]
-            : columVNodeList}
+            : columnVNodeList}
         </tr>
       );
     };

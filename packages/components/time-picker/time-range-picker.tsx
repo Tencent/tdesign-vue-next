@@ -15,11 +15,15 @@ import props from './time-range-picker-props';
 import { TimeRangeValue } from './types';
 import { TimeRangePickerPartial } from './type';
 // hooks
-import useVModel from '../hooks/useVModel';
-import { useCommonClassName, useConfig, usePrefixClass } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useDisabled } from '../hooks/useDisabled';
-import { useReadonly } from '../hooks/useReadonly';
+import {
+  useVModel,
+  useConfig,
+  useDisabled,
+  useReadonly,
+  useGlobalIcon,
+  usePrefixClass,
+  useCommonClassName,
+} from '@tdesign/shared-hooks';
 
 dayjs.extend(customParseFormat);
 

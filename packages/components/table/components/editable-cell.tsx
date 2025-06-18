@@ -10,13 +10,12 @@ import {
   TableEditableCellPropsParams,
 } from '../type';
 import { TableClassName } from '../hooks/useClassName';
-import { useGlobalIcon } from '../../hooks/useGlobalIcon';
+import { useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
 import { renderCell } from './tr';
 import { validate } from '../../form/utils/form-model';
 import log from '@tdesign/common-js/log/index';
 import { AllValidateResult } from '../../form/type';
-import { on, off } from '../../utils/dom';
-import { usePrefixClass } from '../../hooks/useConfig';
+import { on, off } from '@tdesign/shared-utils';
 
 export interface OnEditableChangeContext<T> extends PrimaryTableRowEditContext<T> {
   isEdit: boolean;

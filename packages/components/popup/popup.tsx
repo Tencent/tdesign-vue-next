@@ -1,10 +1,8 @@
 import { createPopper, Placement } from '@popperjs/core';
-import { isFunction } from 'lodash-es';
-import { isObject } from 'lodash-es';
-import { debounce } from 'lodash-es';
-import { isString } from 'lodash-es';
+import { inRange, max, min, isObject, debounce, isString, isFunction } from 'lodash-es';
 import {
   computed,
+  CSSProperties,
   defineComponent,
   inject,
   InjectionKey,
@@ -17,10 +15,9 @@ import {
   Transition,
   watch,
 } from 'vue';
-import { useContent, useTNodeJSX } from '../hooks';
-import { useCommonClassName, usePrefixClass } from '../hooks/useConfig';
-import useVModel from '../hooks/useVModel';
-import { off, on, once } from '../utils/dom';
+import { useVModel, useContent, useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
+
+import { off, on, once } from '@tdesign/shared-utils';
 import setStyle from '@tdesign/common-js/utils/setStyle';
 import Container from './container';
 import props from './props';
@@ -115,6 +112,8 @@ export default defineComponent({
     const popperEl = ref<HTMLElement>(null);
     const containerRef = ref<typeof Container>(null);
     const isOverlayHover = ref(false);
+
+    const arrowStyle = ref<CSSProperties>({});
 
     const id = typeof process !== 'undefined' && process.env?.TEST ? '' : Date.now().toString(36);
     const parent = inject(parentKey, undefined);
@@ -253,6 +252,68 @@ export default defineComponent({
       }
     }
 
+    function getArrowStyle() {
+      if (!triggerEl.value || !popperEl.value) {
+        // 不做修改
+        return {};
+      }
+
+      const triggerRect = triggerEl.value.getBoundingClientRect();
+      const popupRect = popperEl.value.getBoundingClientRect();
+
+      const position = props.placement;
+
+      if (position.startsWith('top') || position.startsWith('bottom')) {
+        // 距离中线的距离
+        const offsetLeft = Math.abs(triggerRect.left + triggerRect.width / 2 - popupRect.left);
+
+        const popupWidth = popperEl.value.offsetWidth ?? popperEl.value.offsetWidth;
+
+        // 保留 padding 的安全 offset
+        const maxPopupOffsetLeft = popupWidth - 4;
+        const minPopupOffsetLeft = 12;
+
+        // 偏移超出元素本身
+        if (inRange(offsetLeft, 0, popupWidth)) {
+          return {
+            // 加上箭头元素本身的偏移
+            left: `${max([minPopupOffsetLeft, min([maxPopupOffsetLeft, offsetLeft])]) - 4}px`,
+            // 覆盖可能的 margin
+            marginLeft: 0,
+          };
+        } else {
+          // 此时箭头的指向将不准确
+          // 不作偏移保持默认
+          // 或许考虑隐藏箭头或尽可能偏移
+          return {};
+        }
+      }
+
+      // 判断元素顶部和触发器中线的距离
+      const offsetTop = triggerRect.top + triggerRect.height / 2 - popupRect.top;
+
+      const popupHeight = popperEl.value.offsetHeight ?? popperEl.value.clientHeight;
+
+      // 保留 padding 的安全 offset
+      const maxPopupOffsetTop = popupHeight - 8;
+      const minPopupOffsetTop = 8;
+
+      // 偏移超出元素本身
+      if (inRange(offsetTop, 0, popupHeight)) {
+        return {
+          // 加上箭头元素本身的偏移
+          top: `${max([minPopupOffsetTop, min([maxPopupOffsetTop, offsetTop])]) - 4}px`,
+          // 覆盖可能的 margin
+          marginTop: 0,
+        };
+      } else {
+        // 此时箭头的指向将不准确
+        // 不作偏移保持默认
+        // 或许考虑隐藏箭头或尽可能偏移
+        return {};
+      }
+    }
+
     function updatePopper() {
       if (!popperEl.value || !visible.value) return;
       if (popper) {
@@ -277,6 +338,9 @@ export default defineComponent({
             setVisible(false, { trigger: getTriggerType({ type: 'mouseenter' } as MouseEvent) });
           }
         }
+        if (props.showArrow) {
+          arrowStyle.value = getArrowStyle();
+        }
         return;
       }
 
@@ -287,6 +351,9 @@ export default defineComponent({
         },
         ...props.popperOptions,
       });
+      if (props.showArrow) {
+        arrowStyle.value = getArrowStyle();
+      }
     }
 
     function destroyPopper() {
@@ -446,7 +513,7 @@ export default defineComponent({
               onScroll={handleOnScroll}
             >
               {content}
-              {props.showArrow && <div class={`${prefixCls.value}__arrow`} />}
+              {props.showArrow && <div class={`${prefixCls.value}__arrow`} style={arrowStyle.value} />}
             </div>
           </div>
         ) : null;

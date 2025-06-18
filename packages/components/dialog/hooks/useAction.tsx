@@ -1,8 +1,7 @@
 import { getCurrentInstance } from 'vue';
-import { isString } from 'lodash-es';
-import { isObject } from 'lodash-es';
-import { omit } from 'lodash-es';
-import { useTNodeJSX } from '../../hooks/tnode';
+import { omit, isString, isObject } from 'lodash-es';
+
+import { useTNodeJSX } from '@tdesign/shared-hooks';
 import TButton, { ButtonProps } from '../../button';
 import { PopconfirmConfig, DialogConfig, DrawerConfig } from '../../config-provider';
 import type { ClassName } from '../../common';
@@ -128,7 +127,7 @@ export function useAction(action: BtnAction) {
     }
     // 如果属性存在，优先返回属性配置
     if (cancelBtn && ['string', 'object'].includes(typeof cancelBtn)) {
-      return getButtonByProps(cancelBtn as string | ButtonProps, { defaultButtonProps });
+      return getButtonByProps(cancelBtn as string | ButtonProps, { defaultButtonProps, className });
     }
     // 渲染插槽 或 function 类型的 confirmBtn，属性优先级更高
     return renderTNodeJSX('cancelBtn');

@@ -1,8 +1,7 @@
 import { defineComponent, h } from 'vue';
-import { usePrefixClass } from '../hooks/useConfig';
+import { useContent, usePrefixClass } from '@tdesign/shared-hooks';
 import props from './title-props';
 import Ellipsis from './ellipsis';
-import { useContent } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TTypographyTitle',
