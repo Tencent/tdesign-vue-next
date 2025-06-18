@@ -242,7 +242,7 @@ export default defineComponent({
     };
     return () => (
       <div class={`${COMPONENT_NAME.value}-sender`}>
-        <div class={`${COMPONENT_NAME.value}-sender__header`}>{renderTNodeJSX('header')}</div>
+        <div class={`${COMPONENT_NAME.value}-sender__header`}>{renderHeader()}</div>
         <div
           class={[
             `${COMPONENT_NAME.value}-sender__textarea`,
