@@ -17,7 +17,7 @@ export interface TdDescriptionsProps {
    */
   colon?: boolean;
   /**
-   * 一行 `DescriptionItem` 的数量
+   * 一行 `DescriptionsItem` 的数量
    * @default 2
    */
   column?: number;
@@ -33,9 +33,9 @@ export interface TdDescriptionsProps {
   /**
    * 描述项的列表
    */
-  items?: Array<TdDescriptionItemProps>;
+  items?: Array<TdDescriptionsItemProps>;
   /**
-   * 自定义描述项标签的样式
+   * 自定义描述项标签的样式，需要配合 `tableLayout` 为 `auto` 才可以生效
    */
   labelStyle?: Styles;
   /**
@@ -59,7 +59,7 @@ export interface TdDescriptionsProps {
   title?: string | TNode;
 }
 
-export interface TdDescriptionItemProps {
+export interface TdDescriptionsItemProps {
   /**
    * 描述项内容
    */

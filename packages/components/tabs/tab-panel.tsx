@@ -1,16 +1,12 @@
 import { computed, defineComponent, inject, ref, watch } from 'vue';
 import props from './tab-panel-props';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import useDestroyOnClose from '../hooks/useDestroyOnClose';
-import { useContent } from '../hooks/tnode';
+import { useContent, usePrefixClass, useDestroyOnClose, useCommonClassName } from '@tdesign/shared-hooks';
 
 import type { InjectTabs } from './tabs';
 
 export default defineComponent({
   name: 'TTabPanel',
-
-  props: { ...props },
-
+  props,
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('tab-panel');
     const { STATUS } = useCommonClassName();

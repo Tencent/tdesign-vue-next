@@ -1,7 +1,7 @@
 import { toRefs, Ref, ref, computed } from 'vue';
 import { get } from 'lodash-es';
-import { BaseTableProps } from '../interface';
-import { on, off } from '../../utils/dom';
+import { BaseTableProps } from '../types';
+import { on, off } from '@tdesign/shared-utils';
 import {
   ALL_REG,
   ARROW_DOWN_REG,
@@ -74,7 +74,8 @@ export function useHoverKeyboardEvent(props: BaseTableProps, tableRef: Ref<HTMLD
       props.onActiveRowAction?.({ action: 'clear', activeRowList: [] });
     } else if (ALL_REG.test(code) && !props.activeRowType) {
       props.onActiveRowAction?.({ action: 'select-all', activeRowList: [] });
-    } else if (CLEAR_REG.test(code) && !props.activeRowType) {
+      // fix: https://github.com/Tencent/tdesign-vue-next/issues/4990 ↓
+    } else if (CLEAR_REG.test(code) && !props.activeRowType && !e.ctrlKey && !e.metaKey) {
       props.onActiveRowAction?.({ action: 'clear', activeRowList: [] });
     }
 

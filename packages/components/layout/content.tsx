@@ -1,13 +1,15 @@
 import { defineComponent } from 'vue';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
+import { useContent, usePrefixClass } from '@tdesign/shared-hooks';
+
+import props from './content-props';
 
 export default defineComponent({
   name: 'TContent',
+  props,
   setup() {
     const COMPONENT_NAME = usePrefixClass('layout__content');
-    const renderTNodeJSX = useTNodeJSX();
+    const renderContent = useContent();
 
-    return () => <main class={COMPONENT_NAME.value}>{renderTNodeJSX('default')}</main>;
+    return () => <main class={COMPONENT_NAME.value}>{renderContent('default', 'content')}</main>;
   },
 });

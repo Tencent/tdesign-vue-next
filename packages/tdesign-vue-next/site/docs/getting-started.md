@@ -24,15 +24,20 @@ npm i tdesign-vue-next
 <script src="https://unpkg.com/tdesign-vue-next/dist/tdesign.min.js"></script>
 ...
 <script>
-	Vue.createApp({}).use(TDesign).mount('#app');
+ Vue.createApp({}).use(TDesign).mount('#app');
 </script>
 ```
+
+<div style="background: #fff5e4; display: flex; align-items: center; line-height: 20px; padding: 14px 24px; border-radius: 3px; color: #555a65;margin:16px 0">
+   ⚠️ 请注意，我们不推荐使用这种方式，生产项目会直接受版本更新影响，同时也可能受到 CDN 的稳定性的影响。
+</div>
 
 npm package 中提供了多种构建产物，可以阅读 [这里](https://github.com/Tencent/tdesign/blob/main/docs/develop-install.md) 了解不同目录下产物的差别。
 
 ## 使用
 
 TDesign 提供了三种方式使用组件，具体使用方式如下
+
 ### 基础使用
 
 基础使用会全量注册所有组件，如果您的项目大规模使用组件，请放心使用这种方式。
@@ -72,6 +77,7 @@ app.use(TButton);
 除此之外，也可以使用 `unplugin-vue-components` 和 `unplugin-auto-import` 来实现自动导入：
 
 您仍需在项目引入组件库的少量全局样式变量
+
 ```js
 import { createApp } from 'vue';
 // 引入组件库的少量全局样式变量
@@ -79,7 +85,9 @@ import 'tdesign-vue-next/es/style/index.css';
 
 const app = createApp(App);
 ```
+
 并安装两个unplugin相关的第三方包
+
 ```bash
 npm install -D unplugin-vue-components unplugin-auto-import
 ```
@@ -136,9 +144,11 @@ module.exports = {
 
 ### Nuxt 3 中使用
 
-在 nuxt 3 中，可以安装 nuxt module `@tdesign-vue-next/nuxt`
+在 nuxt 3 中，可以安装 nuxt module [@tdesign-vue-next/nuxt](https://nuxt.com/modules/tdesign-vue-next)
 
 ```bash
+npx nuxi@latest module add tdesign-vue-next
+# or
 npm install tdesign-vue-next
 npm install -D @tdesign-vue-next/nuxt
 ```
@@ -159,6 +169,7 @@ export default defineNuxtConfig({
   // }
 });
 ```
+
 ## 使用 AI 搜索
 
 站点接入 TDesign 知识库，您只需要点击菜单顶部的 `AI 搜索`按钮，即可开始通过站点的对话助手，对使用 TDesign 的问题进行对话式的互动。
@@ -170,10 +181,7 @@ export default defineNuxtConfig({
 
 即普通的对话聊天式输入。
 
-由于知识库内包括了 TDesign 相关的内容以及其他前端开发相关的知识，如果需要通过对话方式提问 `tdesign-vue-next` 框架内的相关问题，建议在问题中加入 `tdesign-vue-next` 的相关关键词。
-
 <img src="https://tdesign.gtimg.com/docs/ai-search-prompt.png" alt="ai-search-prompt" />
-
 
 ### 划词解释
 
@@ -191,7 +199,7 @@ export default defineNuxtConfig({
 
 <img src="https://tdesign.gtimg.com/docs/ai-search-api-2.png" alt="ai-search-api" />
 
-### 
+###
 
 ## 编辑器提示
 
@@ -208,7 +216,6 @@ export default defineNuxtConfig({
 | [<img src="https://tdesign.gtimg.com/docs/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/> IE / Edge | [<img src="https://tdesign.gtimg.com/docs/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Firefox | [<img src="https://tdesign.gtimg.com/docs/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Chrome | [<img src="https://tdesign.gtimg.com/docs/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Safari |
 | --- | --- | --- | --- |
 | Edge >=84 | Firefox >=83 | Chrome >=84 | Safari >=14.1 |
-
 
 详情参见[桌面端组件库浏览器兼容性说明](https://github.com/Tencent/tdesign/wiki/Browser-Compatibility)
 

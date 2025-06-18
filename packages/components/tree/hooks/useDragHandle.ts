@@ -1,5 +1,5 @@
 import { TreeNode } from '../utils/adapt';
-import { TreeProps, TypDragEventState, TypeTreeState, TypeDragHandle } from '../types';
+import { TreeProps, TypeDragEventState, TypeTreeState, TypeDragHandle } from '../types';
 import { DragPosition } from './useDraggable';
 import { emitEvent } from '../utils';
 
@@ -7,7 +7,7 @@ export default function useDragHandle(state: TypeTreeState) {
   const { props, context, scope, store } = state;
   let dragNode: TreeNode = null;
 
-  const handleDragStart = (state: TypDragEventState) => {
+  const handleDragStart = (state: TypeDragEventState) => {
     const { dragEvent, node } = state;
     dragNode = node;
 
@@ -18,7 +18,7 @@ export default function useDragHandle(state: TypeTreeState) {
     emitEvent<Parameters<TreeProps['onDragStart']>>(props, context, 'drag-start', ctx);
   };
 
-  const handleDragEnd = (state: TypDragEventState) => {
+  const handleDragEnd = (state: TypeDragEventState) => {
     const { dragEvent, node } = state;
     dragNode = node;
 
@@ -29,7 +29,7 @@ export default function useDragHandle(state: TypeTreeState) {
     emitEvent<Parameters<TreeProps['onDragEnd']>>(props, context, 'drag-end', ctx);
   };
 
-  const handleDragOver = (state: TypDragEventState) => {
+  const handleDragOver = (state: TypeDragEventState) => {
     const { dragEvent, node } = state;
     const ctx = {
       node: node.getModel(),
@@ -38,7 +38,7 @@ export default function useDragHandle(state: TypeTreeState) {
     emitEvent<Parameters<TreeProps['onDragOver']>>(props, context, 'drag-over', ctx);
   };
 
-  const handleDragLeave = (state: TypDragEventState) => {
+  const handleDragLeave = (state: TypeDragEventState) => {
     const { dragEvent, node } = state;
     const ctx = {
       node: node.getModel(),
@@ -47,7 +47,7 @@ export default function useDragHandle(state: TypeTreeState) {
     emitEvent<Parameters<TreeProps['onDragLeave']>>(props, context, 'drag-leave', ctx);
   };
 
-  const handleDrop = (state: TypDragEventState) => {
+  const handleDrop = (state: TypeDragEventState) => {
     const { dragEvent, node, dropPosition } = state;
     if (node.value === dragNode.value || node.getParents().some((_node) => _node.value === dragNode.value)) return;
 

@@ -1,26 +1,29 @@
 import { ChevronDownIcon, ChevronLeftIcon, CloseIcon } from 'tdesign-icons-vue-next';
 import { Teleport, Transition, computed, defineComponent, nextTick, ref, toRefs, watch } from 'vue';
 
-import { useTNodeJSX } from '../hooks/tnode';
-import { usePrefixClass } from '../hooks/useConfig';
-import useDefaultValue from '../hooks/useDefaultValue';
-import usePopupManager from '../hooks/usePopupManager';
-import useTeleport from '../hooks/useTeleport';
-import useVModel from '../hooks/useVModel';
+import {
+  useVModel,
+  useTNodeJSX,
+  useTeleport,
+  usePrefixClass,
+  useDefaultValue,
+  usePopupManager,
+} from '@tdesign/shared-hooks';
+
 import Image from '../image';
 import TImageItem from './base/ImageItem';
 import TImageViewerIcon from './base/ImageModalIcon';
 import TImageViewerModal from './base/ImageViewerModal';
 import TImageViewerUtils from './base/ImageViewerUtils';
-import { EVENT_CODE } from './const';
+import { EVENT_CODE } from './consts';
 import { useMirror, useRotate, useScale } from './hooks';
 import props from './props';
 import { TdImageViewerProps } from './type';
-import { formatImages, getOverlay } from './utils';
+import { downloadFile, formatImages, getOverlay } from './utils';
 
 export default defineComponent({
   name: 'TImageViewer',
-  props: { ...props },
+  props,
   setup(props) {
     const classPrefix = usePrefixClass();
     const COMPONENT_NAME = usePrefixClass('image-viewer');
@@ -28,7 +31,7 @@ export default defineComponent({
     const isExpand = ref(true);
     const showOverlayValue = computed(() => getOverlay(props));
 
-    const { index, visible, modelValue } = toRefs(props);
+    const { index, visible, modelValue, imageReferrerpolicy } = toRefs(props);
     const [indexValue, setIndexValue] = useDefaultValue(index, props.defaultIndex ?? 0, props.onIndexChange, 'index');
     const [visibleValue, setVisibleValue] = useVModel(visible, modelValue, props.defaultVisible, () => {}, 'visible');
     const animationEnd = ref(true);
@@ -66,7 +69,7 @@ export default defineComponent({
     const images = computed(() => formatImages(props.images));
     const currentImage = computed(() => images.value[indexValue.value] ?? { mainImage: '' });
 
-    const { isLastDialog } = usePopupManager('dialog', {
+    const { isTopInteractivePopup } = usePopupManager('dialog', {
       visible: visibleValue,
     });
 
@@ -84,6 +87,10 @@ export default defineComponent({
 
     const onImgClick = (i: number) => {
       setIndexValue(i, { trigger: 'current' });
+    };
+
+    const onDownloadClick = (url: string) => {
+      props.onDownload ? props.onDownload(url) : downloadFile(url);
     };
 
     const openHandler = () => {
@@ -119,7 +126,7 @@ export default defineComponent({
           onZoomOut();
           break;
         case EVENT_CODE.esc:
-          if (props.closeOnEscKeydown && isLastDialog()) {
+          if (props.closeOnEscKeydown && isTopInteractivePopup()) {
             onClose({ e, trigger: 'esc' });
           }
           break;
@@ -239,9 +246,11 @@ export default defineComponent({
               onMirror={onMirror}
               onReset={onRest}
               onClose={onClose}
+              onDownload={onDownloadClick}
               draggable={props.draggable}
               showOverlay={showOverlayValue.value}
               title={props.title}
+              imageReferrerpolicy={imageReferrerpolicy.value}
             />
           </>
         );
@@ -283,6 +292,7 @@ export default defineComponent({
                     onMirror={onMirror}
                     onReset={onRest}
                     onRotate={onRotate}
+                    onDownload={onDownloadClick}
                     scale={scale.value}
                     currentImage={currentImage.value}
                   />
@@ -293,6 +303,7 @@ export default defineComponent({
                     src={currentImage.value.mainImage}
                     placementSrc={currentImage.value.thumbnail}
                     isSvg={currentImage.value.isSvg}
+                    imageReferrerpolicy={imageReferrerpolicy.value}
                   />
                 </div>
               )}

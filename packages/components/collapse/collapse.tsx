@@ -1,14 +1,11 @@
 import { defineComponent, toRefs, provide, computed } from 'vue';
 import props from './props';
 import { CollapseValue, TdCollapseProps, CollapsePanelValue } from './type';
-import useVModel from '../hooks/useVModel';
-import { useTNodeJSX } from '../hooks/tnode';
-import { usePrefixClass } from '../hooks/useConfig';
+import { useVModel, useTNodeJSX, usePrefixClass } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'TCollapse',
   props,
-
   setup(props: TdCollapseProps) {
     const componentName = usePrefixClass('collapse');
     const borderlessClass = usePrefixClass('-border-less');
@@ -43,6 +40,7 @@ export default defineComponent({
     provide('updateCollapseValue', updateCollapseValue);
     provide('collapseProps', toRefs(props));
     provide('getUniqId', getUniqId);
+    // TODO 这里是有问题的，这是无法响应式，expandIcon 的值变化了，不会重新渲染
     provide('renderParentTNode', renderTNodeJSX);
     return () => {
       const nodes = renderTNodeJSX('default');

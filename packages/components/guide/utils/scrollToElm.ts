@@ -1,6 +1,6 @@
-import { getWindowSize, elementInViewport, scrollTo } from '../../utils/dom';
+import { getWindowSize, elementInViewport, scrollTo } from '@tdesign/shared-utils';
 
-export default function scrollToElm(elm: HTMLElement) {
+export function scrollToElm(elm: HTMLElement) {
   const rect = elm.getBoundingClientRect();
 
   if (!elementInViewport(elm)) {

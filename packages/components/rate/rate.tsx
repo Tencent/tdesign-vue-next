@@ -1,15 +1,14 @@
 import { defineComponent, computed, toRefs, ref } from 'vue';
 import { StarFilledIcon } from 'tdesign-icons-vue-next';
-import useVModel from '../hooks/useVModel';
+import { useVModel, useConfig, useTNodeJSX } from '@tdesign/shared-hooks';
 import props from './props';
-import { useConfig } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
+
 import Tooltip from '../tooltip/index';
 import { isArray } from 'lodash-es';
 
 export default defineComponent({
   name: 'TRate',
-  props: { ...props },
+  props,
   setup(props, { slots }) {
     const renderTNodeJSX = useTNodeJSX();
     const { globalConfig } = useConfig('rate');

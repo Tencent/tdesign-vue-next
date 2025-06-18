@@ -1,16 +1,14 @@
 import { computed, defineComponent, toRefs, h } from 'vue';
-import { usePrefixClass } from '../hooks/useConfig';
+import { useVModel, usePrefixClass } from '@tdesign/shared-hooks';
 import props from './check-tag-group-props';
 import CheckTag from './check-tag';
-import useVModel from '../hooks/useVModel';
+
 import { CheckTagGroupOption, CheckTagGroupValue, TdCheckTagProps } from './type';
 import { isFunction } from 'lodash-es';
 
 export default defineComponent({
   name: 'TCheckTagGroup',
-
   props,
-
   setup(props, context) {
     const { value, modelValue, options } = toRefs(props);
     const componentName = usePrefixClass('check-tag-group');

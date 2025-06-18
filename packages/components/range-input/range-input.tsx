@@ -6,12 +6,16 @@ import props from './props';
 import { RangeInputValue, RangeInputPosition } from './type';
 
 // hooks
-import useVModel from '../hooks/useVModel';
-import { useDisabled } from '../hooks/useDisabled';
-import { useReadonly } from '../hooks/useReadonly';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
+import {
+  useVModel,
+  useDisabled,
+  useReadonly,
+  useTNodeJSX,
+  useGlobalIcon,
+  usePrefixClass,
+  useCommonClassName,
+} from '@tdesign/shared-hooks';
+
 import { isArray } from 'lodash-es';
 
 function calcArrayValue(value: unknown | Array<unknown>) {
@@ -23,10 +27,8 @@ function calcArrayValue(value: unknown | Array<unknown>) {
 
 export default defineComponent({
   name: 'TRangeInput',
-
   inheritAttrs: false,
   props,
-
   setup(props, { expose, attrs }) {
     const { value, modelValue } = toRefs(props);
     const { STATUS, SIZE } = useCommonClassName();

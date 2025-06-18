@@ -1,13 +1,12 @@
 import { computed, defineComponent, ref } from 'vue';
-import { usePrefixClass } from '../hooks/useConfig';
+import { useContent, usePrefixClass } from '@tdesign/shared-hooks';
 import props from './text-props';
 import copy from './utils/copy-to-clipboard';
 import { CopyIcon, CheckIcon } from 'tdesign-icons-vue-next';
-import Ellipsis from './ellipsis';
+import Ellipsis from './components/ellipsis';
 import TTooltip from '../tooltip';
 import TButton from '../button';
-import { useConfig } from '../config-provider/useConfig';
-import { useContent } from '../hooks/tnode';
+import { useConfig } from '../config-provider/hooks/useConfig';
 
 import type { TdTextProps } from './type';
 import type { TdTooltipProps } from '../tooltip/type';

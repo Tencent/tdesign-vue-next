@@ -1,13 +1,10 @@
 import { defineComponent } from 'vue';
 import props from './props';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useContent } from '../hooks/tnode';
+import { useContent, usePrefixClass } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'TDivider',
-
-  props: { ...props },
-
+  props,
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('divider');
     const renderContent = useContent();

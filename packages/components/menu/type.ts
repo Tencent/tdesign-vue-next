@@ -193,7 +193,7 @@ export interface TdMenuItemProps {
   /**
    * 路由跳转目标，当且仅当 Router 存在时，该 API 有效
    */
-  to?: MenuRoute;
+  to?: string | MenuRoute;
   /**
    * 菜单项唯一标识
    */

@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { it, expect, describe, vi } from 'vitest';
 import { nextTick, ref } from 'vue';
-import Radio, { RadioButton, RadioGroup } from '@src/radio/index.ts';
+import Radio, { RadioButton, RadioGroup } from '@tdesign/components/radio/index.ts';
 
 // every component needs four parts: props/events/slots/functions.
 describe('Radio', () => {

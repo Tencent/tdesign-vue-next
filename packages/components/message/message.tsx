@@ -8,12 +8,12 @@ import {
 } from 'tdesign-icons-vue-next';
 
 import TLoading from '../loading';
-import { THEME_LIST } from './const';
+import { THEME_LIST } from './consts';
 import props from './props';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { fadeIn, fadeOut } from './animation';
-import { useTNodeJSX, useContent } from '../hooks/tnode';
+import { useContent, useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
+
+import { fadeIn, fadeOut } from './utils';
+
 import { isFunction } from 'lodash-es';
 
 export default defineComponent({

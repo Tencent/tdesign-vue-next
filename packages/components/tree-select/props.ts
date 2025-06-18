@@ -76,6 +76,14 @@ export default {
   },
   /** 是否允许多选 */
   multiple: Boolean,
+  /** 面板内的底部内容 */
+  panelBottomContent: {
+    type: [String, Function] as PropType<TdTreeSelectProps['panelBottomContent']>,
+  },
+  /** 面板内的顶部内容 */
+  panelTopContent: {
+    type: [String, Function] as PropType<TdTreeSelectProps['panelTopContent']>,
+  },
   /** 占位符 */
   placeholder: {
     type: String,

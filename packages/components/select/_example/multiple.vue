@@ -6,6 +6,7 @@
       :options="options1"
       placeholder="请选择云解决方案"
       multiple
+      filterable
       @focus="onFocus"
       @blur="onBlur"
     />
@@ -54,7 +55,7 @@ const options2 = [
   { label: '低代码平台', value: '6' },
 ];
 
-const value1 = ref(['1', '3']);
+const value1 = ref(['1', '3', '4']);
 const value2 = ref(['1', '2', '3', '4', '5', '6']);
 const value3 = ref(['3', '5', '6', '2']);
 

@@ -1,10 +1,9 @@
 import { computed, defineComponent, toRefs, h, ref, onMounted, getCurrentInstance } from 'vue';
-import { get } from 'lodash-es';
-import { omit } from 'lodash-es';
+import { get, omit } from 'lodash-es';
 import baseTableProps from './base-table-props';
 import primaryTableProps from './primary-table-props';
 import BaseTable from './base-table';
-import { useTNodeJSX } from '../hooks/tnode';
+import { useConfig, useTNodeJSX, ScrollToElementParams } from '@tdesign/shared-hooks';
 import useColumnController from './hooks/useColumnController';
 import useRowExpand from './hooks/useRowExpand';
 import useTableHeader, { renderTitle } from './hooks/useTableHeader';
@@ -14,14 +13,14 @@ import useSorter from './hooks/useSorter';
 import useFilter from './hooks/useFilter';
 import useDragSort from './hooks/useDragSort';
 import useAsyncLoading from './hooks/useAsyncLoading';
-import EditableCell, { EditableCellProps } from './editable-cell';
+import EditableCell, { EditableCellProps } from './components/editable-cell';
 import { PageInfo } from '../pagination';
 import useClassName from './hooks/useClassName';
-import { useConfig } from '../hooks/useConfig';
+
 import useEditableRow from './hooks/useEditableRow';
 import useStyle from './hooks/useStyle';
-import { ScrollToElementParams } from '../hooks/useVirtualScrollNew';
-import { BaseTableProps } from './interface';
+
+import type { BaseTableProps } from './types';
 
 export { BASE_TABLE_ALL_EVENTS } from './base-table';
 
@@ -76,12 +75,10 @@ const OMIT_PROPS = [
 
 export default defineComponent({
   name: 'TPrimaryTable',
-
   props: {
     ...baseTableProps,
     ...primaryTableProps,
   },
-
   setup(props, context) {
     const renderTNode = useTNodeJSX();
     const { columns, columnController } = toRefs(props);
@@ -152,6 +149,7 @@ export default defineComponent({
       editableKeysMap,
       validateRowData,
       validateTableData,
+      validateTableCellData,
       onRuleChange,
       clearValidateData,
       onUpdateEditedCell,
@@ -201,6 +199,7 @@ export default defineComponent({
     context.expose({
       validateRowData,
       validateTableData,
+      validateTableCellData,
       clearValidateData,
       refreshTable: () => {
         primaryTableRef.value.refreshTable();

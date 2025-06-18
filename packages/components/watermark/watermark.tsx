@@ -3,9 +3,9 @@ import props from './props';
 import generateBase64Url from '@tdesign/common-js/watermark/generateBase64Url';
 import randomMovingStyle from '@tdesign/common-js/watermark/randomMovingStyle';
 import injectStyle from '@tdesign/common-js/utils/injectStyle';
-import { usePrefixClass } from '../hooks/useConfig';
+import { useContent, usePrefixClass } from '@tdesign/shared-hooks';
 import { useMutationObserver } from './hooks';
-import { useContent } from '../hooks/tnode';
+
 import setStyle from '@tdesign/common-js/utils/setStyle';
 
 export default defineComponent({
@@ -120,29 +120,19 @@ export default defineComponent({
 
     watch(() => props, injectWaterMark, { deep: true, flush: 'post' });
 
-    return {
-      gapX,
-      gapY,
-      backgroundRepeat,
-      backgroundImage,
-      watermarkRef,
-      watermarkContentRef,
-      bgImageOptions,
+    return () => {
+      const COMPONENT_NAME = usePrefixClass('watermark');
+      const renderContent = useContent();
+
+      return (
+        <div
+          style={{ position: 'relative', overflow: 'hidden', width: '100%' }}
+          class={COMPONENT_NAME.value}
+          ref={watermarkRef}
+        >
+          {renderContent('default', 'content')}
+        </div>
+      );
     };
-  },
-
-  render() {
-    const COMPONENT_NAME = usePrefixClass('watermark');
-    const renderContent = useContent();
-
-    return (
-      <div
-        style={{ position: 'relative', overflow: 'hidden', width: '100%' }}
-        class={COMPONENT_NAME.value}
-        ref="watermarkRef"
-      >
-        {renderContent('default', 'content')}
-      </div>
-    );
   },
 });

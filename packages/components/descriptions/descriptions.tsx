@@ -1,17 +1,15 @@
-import { isNil } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { isNil, isArray } from 'lodash-es';
+
 import { defineComponent, provide, ref } from 'vue';
 
-import { useTNodeJSX } from '../hooks/tnode';
-import { useChildComponentSlots } from '../hooks/slot';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { useTNodeJSX, usePrefixClass, useCommonClassName, useChildComponentSlots } from '@tdesign/shared-hooks';
 
 import props from './props';
-import { descriptionsKey } from './const';
+import { descriptionsKey } from './consts';
 import { TdDescriptionsProps } from './type';
 import DescriptionsRow from './descriptions-row';
 import { renderCustomNode, itemTypeIsProps } from './utils';
-import { ItemsType, TdDescriptionItem } from './interface';
+import { ItemsType, TdDescriptionsItem } from './types';
 
 /**
  * 实现思路
@@ -47,7 +45,7 @@ export default defineComponent({
        */
       const { column, layout } = props;
 
-      let items: TdDescriptionItem[] = [];
+      let items: TdDescriptionsItem[] = [];
 
       if (isArray(props.items)) {
         /**
@@ -76,11 +74,11 @@ export default defineComponent({
       }
 
       // 3. 布局为 HORIZONTAL 时，需要计算每一行的 item 个数
-      let temp: TdDescriptionItem[] = [];
+      let temp: TdDescriptionsItem[] = [];
       let reset = column;
 
       // 4. 记录结果
-      const res: TdDescriptionItem[][] = [];
+      const res: TdDescriptionsItem[][] = [];
       items.forEach((item, index) => {
         let span = 1;
         if (itemTypeIsProps(itemsType.value, item)) {

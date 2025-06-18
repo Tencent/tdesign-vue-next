@@ -14,27 +14,29 @@ import {
   Transition,
 } from 'vue';
 import props from './submenu-props';
-import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
-import { TdMenuInterface, TdSubMenuInterface, TdMenuItem } from './const';
+import { TdMenuInterface, TdSubMenuInterface, TdMenuItem } from './types';
 import FakeArrow from '../common-components/fake-arrow';
-import useRipple from '../hooks/useRipple';
-import { usePrefixClass } from '../hooks/useConfig';
+import { useRipple, useContent, useTNodeJSX, usePrefixClass, useCollapseAnimation } from '@tdesign/shared-hooks';
+
 import { Popup, PopupPlacement } from '../popup';
 import { isFunction } from 'lodash-es';
 import { TdSubmenuProps } from './type';
-import useCollapseAnimation from '../hooks/useCollapseAnimation';
 
 export default defineComponent({
   name: 'TSubmenu',
-
   props,
-  setup(props, ctx) {
+  setup(props: TdSubmenuProps, { attrs, slots }) {
     const classPrefix = usePrefixClass();
+    const renderTNodeJSX = useTNodeJSX();
+    const renderContent = useContent();
+
+    const instance = getCurrentInstance();
     const menu = inject<TdMenuInterface>('TdMenu');
+    const { value } = toRefs(props);
     const { theme, activeValues, expandValues, isHead, open } = menu;
     const submenu = inject<TdSubMenuInterface>('TdSubmenu', {});
     const { setSubPopup, closeParentPopup } = submenu;
-    const mode = computed(() => ctx.attrs.expandType || menu.mode.value);
+    const mode = computed(() => attrs.expandType || menu.mode.value);
 
     const menuItems = ref([]); // 因composition-api的缺陷，不用reactive， 详见：https://github.com/vuejs/composition-api/issues/637
     const isActive = computed(() => activeValues.value.indexOf(props.value) > -1);
@@ -68,13 +70,13 @@ export default defineComponent({
       {
         [`${classPrefix.value}-is-opened`]: popupVisible.value,
       },
-      (props.popupProps as TdSubmenuProps['popupProps'])?.overlayInnerClassName,
+      props.popupProps?.overlayInnerClassName,
     ]);
     const overlayClassName = computed(() => [
       `${classPrefix.value}-menu--${theme.value}`,
       isHead && `${classPrefix.value}-is-head-menu`,
       { [`${classPrefix.value}-menu-is-nested`]: isNested.value },
-      (props.popupProps as TdSubmenuProps['popupProps'])?.overlayClassName,
+      props.popupProps?.overlayClassName,
     ]);
     const submenuClass = computed(() => [
       `${classPrefix.value}-menu__item`,
@@ -97,6 +99,27 @@ export default defineComponent({
         [`${classPrefix.value}-fake-arrow--active`]: isOpen.value,
       },
     ]);
+
+    provide<TdSubMenuInterface>(
+      'TdSubmenu',
+      reactive({
+        value,
+        addMenuItem: (item: TdMenuItem) => {
+          menuItems.value.push(item);
+          if (submenu) {
+            submenu.addMenuItem(item);
+          }
+        },
+        setSubPopup: (ref: HTMLElement) => {
+          subPopupRef.value = ref;
+        },
+        closeParentPopup: (e: MouseEvent) => {
+          const related = e.relatedTarget as HTMLElement;
+          if (loopInPopup(related)) return;
+          handleMouseLeavePopup(e);
+        },
+      }),
+    );
 
     const passSubPopupRefToParent = (val: HTMLElement) => {
       if (isFunction(setSubPopup)) {
@@ -163,147 +186,77 @@ export default defineComponent({
       open(props.value);
     };
 
-    watch(popupVisible, (visible) => {
-      menu.open(props.value, visible ? 'add' : 'remove');
-    });
-
-    // provide
-    const { value } = toRefs(props);
-    provide<TdSubMenuInterface>(
-      'TdSubmenu',
-      reactive({
-        value,
-        addMenuItem: (item: TdMenuItem) => {
-          menuItems.value.push(item);
-          if (submenu) {
-            submenu.addMenuItem(item);
-          }
-        },
-        setSubPopup: (ref: HTMLElement) => {
-          subPopupRef.value = ref;
-        },
-        closeParentPopup: (e: MouseEvent) => {
-          const related = e.relatedTarget as HTMLElement;
-          if (loopInPopup(related)) return;
-          handleMouseLeavePopup(e);
-        },
-      }),
-    );
-
-    watch(popupWrapperRef, () => {
-      // 第一次触发nextTick会取空值，导致subPopupRef拿不到对应的DOM
-      passSubPopupRefToParent(popupWrapperRef.value);
-    });
-
-    onMounted(() => {
-      menu?.vMenu?.add({ value: props.value, parent: submenu?.value, vnode: ctx.slots.default });
-      const instance = getCurrentInstance();
-      let node = instance.parent;
-
-      while (node && !/^t(head)?menu/i.test(node?.type.name)) {
-        if (/submenu/i.test(node?.type.name)) {
-          isNested.value = true;
-          break;
-        }
-        node = node?.parent;
-      }
-    });
-
-    return {
-      classPrefix,
-      menuItems,
-      mode,
-      theme,
-      isHead,
-      isNested,
-      classes,
-      subClass,
-      isOpen,
-      transitionClass,
-      arrowClass,
-      overlayInnerClassName,
-      overlayClassName,
-      submenuClass,
-      submenuRef,
-      popupWrapperRef,
-      popupVisible,
-      isCursorInPopup,
-      handleEnterPopup,
-      handleMouseEnter,
-      handleMouseLeave,
-      handleMouseLeavePopup,
-      handleSubmenuItemClick,
-    };
-  },
-  methods: {
-    renderPopup(triggerElement: Slots[]) {
-      let placement = 'right-top';
-      if (!this.isNested && this.isHead) {
+    const renderPopup = (triggerElement: Slots[]) => {
+      let placement: PopupPlacement = 'right-top';
+      if (!isNested.value && isHead) {
         placement = 'bottom-left';
       }
 
       const popupWrapper = (
         <div
-          ref="popupWrapperRef"
+          ref={popupWrapperRef}
           class={[
-            `${this.classPrefix}-menu__spacer`,
-            `${this.classPrefix}-menu__spacer--${!this.isNested && this.isHead ? 'top' : 'left'}`,
+            `${classPrefix.value}-menu__spacer`,
+            `${classPrefix.value}-menu__spacer--${!isNested.value && isHead ? 'top' : 'left'}`,
           ]}
-          onMouseenter={this.handleEnterPopup}
-          onMouseleave={this.handleMouseLeavePopup}
+          onMouseenter={handleEnterPopup}
+          onMouseleave={handleMouseLeavePopup}
         >
-          <ul class={`${this.classPrefix}-menu__popup-wrapper`}>{renderContent(this, 'default', 'content')}</ul>
+          <ul class={`${classPrefix.value}-menu__popup-wrapper`}>{renderContent('default', 'content')}</ul>
         </div>
       );
+
       const slots = {
         content: () => popupWrapper,
       };
 
       const realPopup = (
         <Popup
-          {...((this.popupProps ?? {}) as TdSubmenuProps['popupProps'])}
-          overlayInnerClassName={[...this.overlayInnerClassName]}
-          overlayClassName={[...this.overlayClassName]}
-          visible={this.popupVisible}
-          placement={placement as PopupPlacement}
+          {...(props.popupProps ?? {})}
+          overlayInnerClassName={[...overlayInnerClassName.value]}
+          overlayClassName={[...overlayClassName.value]}
+          visible={popupVisible.value}
+          placement={placement}
           v-slots={slots}
         >
-          <div ref="submenuRef" class={this.submenuClass}>
+          <div ref={submenuRef} class={submenuClass.value}>
             {triggerElement}
           </div>
         </Popup>
       );
 
       return realPopup;
-    },
-    renderHeadSubmenu() {
-      const icon = renderTNodeJSX(this, 'icon');
+    };
+
+    const renderHeadSubmenu = () => {
+      const icon = renderTNodeJSX('icon');
       const normalSubmenu = [
-        <div ref="submenuRef" class={this.submenuClass} onClick={this.handleSubmenuItemClick}>
+        <div ref={submenuRef} class={submenuClass.value} onClick={handleSubmenuItemClick}>
           {icon}
-          <span class={[`${this.classPrefix}-menu__content`]}>{renderTNodeJSX(this, 'title', { silent: true })}</span>
+          <span class={[`${classPrefix.value}-menu__content`]}>{renderTNodeJSX('title', { silent: true })}</span>
         </div>,
-        <ul style="opacity: 0; width: 0; height: 0; overflow: hidden">{renderContent(this, 'default', 'content')}</ul>,
+        <ul style="opacity: 0; width: 0; height: 0; overflow: hidden">{renderContent('default', 'content')}</ul>,
       ];
 
-      const needRotate = this.mode === 'popup' && this.isNested;
+      const needRotate = mode.value === 'popup' && isNested.value;
 
       const triggerElement = [
         icon,
-        <span class={[`${this.classPrefix}-menu__content`]}>{renderTNodeJSX(this, 'title', { silent: true })}</span>,
+        <span class={[`${classPrefix.value}-menu__content`]}>{renderTNodeJSX('title', { silent: true })}</span>,
         <FakeArrow
-          overlayClassName={/menu/i.test(this.$parent.$options.name) ? this.arrowClass : null}
+          overlayClassName={/menu/i.test(instance?.parent.proxy.$options.name) ? arrowClass.value : null}
           overlayStyle={{ transform: `rotate(${needRotate ? -90 : 0}deg)` }}
         />,
       ];
 
-      return this.mode === 'normal' ? normalSubmenu : this.renderPopup(triggerElement);
-    },
-    renderSubmenu() {
-      const hasContent = this.$slots.content || this.$slots.default;
-      const icon = renderTNodeJSX(this, 'icon');
-      const child = renderContent(this, 'default', 'content');
-      let { parent } = getCurrentInstance();
+      return mode.value === 'normal' ? normalSubmenu : renderPopup(triggerElement);
+    };
+
+    const renderSubmenu = () => {
+      const hasContent = slots.content || slots.default;
+      const icon = renderTNodeJSX('icon');
+      const child = renderContent('default', 'content');
+      let parent = instance.parent;
       let paddingLeft = 44;
 
       while (parent && parent.type.name !== 'TMenu') {
@@ -315,21 +268,21 @@ export default defineComponent({
 
       const { beforeEnter, enter, afterEnter, beforeLeave, leave, afterLeave } = useCollapseAnimation();
 
-      const needRotate = this.mode === 'popup' && this.isNested;
+      const needRotate = mode.value === 'popup' && isNested.value;
 
       const normalSubmenu = [
-        <div ref="submenuRef" class={this.submenuClass} onClick={this.handleSubmenuItemClick}>
+        <div ref={submenuRef} class={submenuClass.value} onClick={handleSubmenuItemClick}>
           {icon}
-          <span class={[`${this.classPrefix}-menu__content`]}>{renderTNodeJSX(this, 'title', { silent: true })}</span>
+          <span class={[`${classPrefix.value}-menu__content`]}>{renderTNodeJSX('title', { silent: true })}</span>
           {hasContent && (
             <FakeArrow
-              overlayClassName={this.arrowClass}
+              overlayClassName={arrowClass.value}
               overlayStyle={{ transform: `rotate(${needRotate ? -90 : 0}deg)` }}
             />
           )}
         </div>,
         <Transition
-          name={this.transitionClass}
+          name={transitionClass.value}
           onBeforeEnter={beforeEnter}
           onEnter={enter}
           onAfterEnter={afterEnter}
@@ -337,7 +290,7 @@ export default defineComponent({
           onLeave={leave}
           onAfterLeave={afterLeave}
         >
-          <ul v-show={this.isOpen} class={this.subClass} style={{ '--padding-left': `${paddingLeft}px` }}>
+          <ul v-show={isOpen.value} class={subClass.value} style={{ '--padding-left': `${paddingLeft}px` }}>
             {child}
           </ul>
         </Transition>,
@@ -345,33 +298,57 @@ export default defineComponent({
 
       const triggerElement = [
         icon,
-        <span class={[`${this.classPrefix}-menu__content`]}>{renderTNodeJSX(this, 'title', { silent: true })}</span>,
+        <span class={[`${classPrefix.value}-menu__content`]}>{renderTNodeJSX('title', { silent: true })}</span>,
         <FakeArrow
-          overlayClassName={/menu/i.test(this.$parent.$options.name) ? this.arrowClass : null}
+          overlayClassName={/menu/i.test(parent.proxy.$options.name) ? arrowClass.value : null}
           overlayStyle={{ transform: `rotate(${needRotate ? -90 : 0}deg)`, 'margin-left': 'auto' }}
         />,
       ];
 
-      return this.mode === 'normal' ? normalSubmenu : this.renderPopup(triggerElement);
-    },
-  },
-  render() {
-    let child = null;
-    let events = {};
+      return mode.value === 'normal' ? normalSubmenu : renderPopup(triggerElement);
+    };
 
-    if (this.mode === 'popup') {
-      events = {
-        onMouseenter: this.handleMouseEnter,
-        onMouseleave: this.handleMouseLeave,
-      };
-    }
-    if (Object.keys(this.$slots).length > 0) {
-      child = this.isHead ? this.renderHeadSubmenu() : this.renderSubmenu();
-    }
-    return (
-      <li class={this.classes} {...events}>
-        {child}
-      </li>
-    );
+    watch(popupVisible, (visible) => {
+      menu.open(props.value, visible ? 'add' : 'remove');
+    });
+
+    watch(popupWrapperRef, () => {
+      // 第一次触发nextTick会取空值，导致subPopupRef拿不到对应的DOM
+      passSubPopupRefToParent(popupWrapperRef.value);
+    });
+
+    onMounted(() => {
+      menu?.vMenu?.add({ value: props.value, parent: submenu?.value, vnode: slots.default });
+      let node = instance.parent;
+
+      while (node && !/^t(head)?menu/i.test(node?.type.name)) {
+        if (/submenu/i.test(node?.type.name)) {
+          isNested.value = true;
+          break;
+        }
+        node = node?.parent;
+      }
+    });
+
+    return () => {
+      let child = null;
+      let events = {};
+
+      if (mode.value === 'popup') {
+        events = {
+          onMouseenter: handleMouseEnter,
+          onMouseleave: handleMouseLeave,
+        };
+      }
+      if (Object.keys(slots).length > 0) {
+        child = isHead ? renderHeadSubmenu() : renderSubmenu();
+      }
+
+      return (
+        <li class={classes.value} {...events}>
+          {child}
+        </li>
+      );
+    };
   },
 });

@@ -2,18 +2,15 @@ import { ref, computed, watch } from 'vue';
 import { CalendarIcon as TdCalendarIcon } from 'tdesign-icons-vue-next';
 import { omit } from 'lodash-es';
 
-import { useTNodeJSX } from '../../hooks/tnode';
-import { useGlobalIcon } from '../../hooks/useGlobalIcon';
-import { usePrefixClass, useConfig } from '../../hooks/useConfig';
-import { useReadonly } from '../../hooks/useReadonly';
+import { useConfig, useTNodeJSX, useReadonly, useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
 
 import { TdDateRangePickerProps, DateValue, DateRangePickerPartial } from '../type';
 import { isValidDate, formatDate, getDefaultFormat, parseToDayjs } from '@tdesign/common-js/date-picker/format';
-import useRangeValue from './useRangeValue';
+import { useRangeValue } from './useRangeValue';
 
 export const PARTIAL_MAP: Record<'first' | 'second', DateRangePickerPartial> = { first: 'start', second: 'end' };
 
-export default function useRange(props: TdDateRangePickerProps) {
+export function useRange(props: TdDateRangePickerProps) {
   const COMPONENT_NAME = usePrefixClass('date-range-picker');
   const { globalConfig } = useConfig('datePicker');
   const { CalendarIcon } = useGlobalIcon({ CalendarIcon: TdCalendarIcon });
@@ -45,7 +42,7 @@ export default function useRange(props: TdDateRangePickerProps) {
     size: props.size,
     ref: inputRef,
     borderless: props.borderless,
-    clearable: props.clearable,
+    clearable: props.clearable && !isReadOnly.value,
     prefixIcon: () => renderTNodeJSX('prefixIcon'),
     readonly: isReadOnly.value || !props.allowInput,
     separator: props.separator || globalConfig.value.rangeSeparator,

@@ -1,8 +1,8 @@
 import { defineComponent, inject } from 'vue';
 import { omit } from 'lodash-es';
 import props from './timeline-item-props';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useContent, useTNodeJSX } from '../hooks/tnode';
+import { useContent, useTNodeJSX, usePrefixClass } from '@tdesign/shared-hooks';
+
 import { TimelineInjectKey, DEFAULT_PROVIDER } from './hooks';
 import Loading from '../loading';
 
@@ -16,7 +16,6 @@ export default defineComponent({
       type: Number,
     },
   },
-
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('timeline-item');
     // unit test need default value

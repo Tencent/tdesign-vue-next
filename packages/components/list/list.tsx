@@ -1,23 +1,20 @@
 import { defineComponent, VNodeChild, computed, ref } from 'vue';
-import { isString } from 'lodash-es';
-import { omit } from 'lodash-es';
-import { useTNodeJSX } from '../hooks/tnode';
+import { omit, isString } from 'lodash-es';
+
+import { useConfig, useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
 import TLoading from '../loading';
 import TListItem from './list-item';
 import props from './props';
-import { LOAD_MORE, LOADING } from './const';
-import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import { useListItems } from './hooks/useListItems';
-import { useListVirtualScroll } from './hooks/useListVirtualScroll';
+import { LOAD_MORE, LOADING } from './consts';
+
+import { useListItems, useListVirtualScroll } from './hooks';
 
 import type { TdListProps } from './type';
 
 export default defineComponent({
   name: 'TList',
-  props: {
-    ...props,
-  },
-  setup(props: TdListProps) {
+  props,
+  setup(props: TdListProps, { expose }) {
     const listRef = ref();
 
     const { globalConfig } = useConfig('list');
@@ -109,38 +106,25 @@ export default defineComponent({
       if (isString(props.asyncLoading) && props.asyncLoading !== LOAD_MORE) return;
       props.onLoadMore?.({ e });
     };
-    /** loading加载相关逻辑 end */
-    return {
-      COMPONENT_NAME,
-      listClass,
-      loadingClass,
-      renderLoading,
-      renderContent,
-      handleScroll,
-      handleLoadMore,
-      listRef,
-      isVirtualScroll,
-      scrollTo: scrollToElement,
-    };
-  },
+    expose({ scrollTo: scrollToElement });
+    return () => {
+      const listContent = [
+        renderContent(),
+        <div class={loadingClass.value} onClick={handleLoadMore}>
+          {renderLoading()}
+        </div>,
+      ];
 
-  render() {
-    let listContent = this.renderContent();
-    listContent = [
-      listContent,
-      <div class={this.loadingClass} onClick={this.handleLoadMore}>
-        {this.renderLoading()}
-      </div>,
-    ];
-    return (
-      <div
-        class={this.listClass}
-        onScroll={this.handleScroll}
-        ref="listRef"
-        style={this.isVirtualScroll ? 'position:relative' : undefined}
-      >
-        {listContent}
-      </div>
-    );
+      return (
+        <div
+          class={listClass.value}
+          onScroll={handleScroll}
+          ref={listRef}
+          style={isVirtualScroll.value ? 'position:relative' : undefined}
+        >
+          {listContent}
+        </div>
+      );
+    };
   },
 });
