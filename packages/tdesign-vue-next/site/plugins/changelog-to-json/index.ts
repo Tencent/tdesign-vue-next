@@ -154,8 +154,8 @@ function groupLogByComponent(entries: string[]) {
       ),
     ];
 
-    // 移除冒号前面的总结部分
-    const description = entry.replace(/^[^:]+[:]\s*/, '');
+    // 移除冒号前面的总结部分（兼容中英文符号）
+    const description = entry.replace(/^[^:：]+[:：]\s*/, '');
 
     // 如果一条日志提到了多个组件，则每个组件都插入一条对应的日志
     components.forEach((component) => {
