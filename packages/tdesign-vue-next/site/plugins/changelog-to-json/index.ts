@@ -1,17 +1,19 @@
+import { getComponentsRoot, joinTdesignVueNextRoot } from '@tdesign/internal-utils';
 import { promises, readdirSync, statSync } from 'fs';
 import path from 'path';
-import { joinTdesignVueNextRoot, getComponentsRoot } from '@tdesign/internal-utils';
+
 import type { ViteDevServer } from 'vite';
+import type { ComponentLog, ComponentLogMap, LogItem, Logs, LogType, VersionLog } from './types';
 
 const outputPath = joinTdesignVueNextRoot('site/dist/changelog.json');
 const changelogPath = joinTdesignVueNextRoot('CHANGELOG.md');
 const componentsDir = getComponentsRoot();
 
-const excludedDir = ['locale', 'style'];
+const EXCLUDED_DIR = ['locale', 'style'];
+const COMP_LIST = getComponentList();
 
-const LOG_TYPES = ['🚨 Breaking Changes', '🚀 Features', '🐞 Bug Fixes'];
+export const LOG_TYPES = ['🚨 Breaking Changes', '🚀 Features', '🐞 Bug Fixes'];
 
-type LogType = Record<string, string | string[] | { component: string; description: string }[]>;
 export default function changelog2Json() {
   return {
     name: 'changelog-to-json',
@@ -35,9 +37,9 @@ export default function changelog2Json() {
 
 async function generateChangelogJson() {
   try {
-    const md = await promises.readFile(changelogPath, 'utf-8');
-    const parsedResult = parseMd2Json(md);
-    const compMap = formatJson2CompMap(parsedResult);
+    const logMd = await promises.readFile(changelogPath, 'utf-8');
+    const detailedLogs = parseMd2Json(logMd);
+    const compMap = formatJson2CompMap(detailedLogs);
     // eslint-disable-next-line no-console
     console.log('\x1b[32m%s\x1b[0m', '✅ Sync CHANGELOG.md to changelog.json');
     return compMap;
@@ -49,238 +51,135 @@ async function generateChangelogJson() {
 
 /**
  * 将整份 Markdown 先根据版本号拆分
- * @returns
- * [{
- *   version: '',
- *   date: '',
- *   log: ''
- * }]
  */
 function parseMd2Json(logMd: string) {
-  const lines = logMd.split('\n');
-  const result = [];
-  let currentEntry = null;
-  let currentLogContent = '';
+  const headerRegex = /^\s*##\s*🌈\s*(\d+\.\d+\.\d+)\s+`(\d{4}-\d{2}-\d{2})`\s*$/gm;
+  const matches = Array.from(logMd.matchAll(headerRegex));
 
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-    const headerMatch = line.match(/^\s*##\s*🌈\s*(\d+\.\d+\.\d+)\s+`(\d{4}-\d{2}-\d{2})`\s*/);
+  const logs = matches.map((match, i) => {
+    const version = match[1];
+    const date = match[2];
 
-    if (headerMatch) {
-      if (currentEntry) {
-        currentEntry.log.push(currentLogContent.trim());
-        result.push(currentEntry);
-      }
-
-      currentEntry = {
-        version: headerMatch[1],
-        date: headerMatch[2],
-        log: [],
-      };
-      currentLogContent = '';
-    } else if (currentEntry && line && !line.startsWith('## ')) {
-      // 在当前条目存在且不是新的主标题时，添加内容进 `log`
-      currentLogContent += `\n${line}`;
-    }
-  }
-
-  // 处理最后一个版本
-  if (currentEntry) {
-    currentEntry.log.push(currentLogContent.trim());
-    result.push(currentEntry);
-  }
-
-  const logJson = result.map((entry) => ({
-    ...entry,
-    log: entry.log.join('\n'),
-  }));
-
-  return processLogContent(logJson);
-}
-
-/**
- * 进一步将 log 根据变更类型拆分
- * @returns
- * [{
- *   version: '',
- *   date: '',
- *   log: {
- *    '🚀 Features': ''
- *    '🐞 Bug Fixes': ''
- * }]
- */
-function processLogContent(logJson: Array<{ version: string; date: string; log: string }>) {
-  return logJson.map((entry) => {
-    const originalLog = entry.log;
-    const log: LogType = {};
-
-    LOG_TYPES.forEach((type) => {
-      const regex = new RegExp(`### ${type}\\r?\\n([\\s\\S]+?)(?=### |$)`, 'g');
-      const matches = [...originalLog.matchAll(regex)];
-
-      if (matches.length > 0) {
-        log[type] = matches.map((match) => match[1]).join('\n');
-        log[type] = processLogItem(log[type]);
-        log[type] = categorizeLogByComp(log[type]);
-      }
-    });
+    const start = match.index + match[0].length;
+    const end = i < matches.length - 1 ? matches[i + 1].index : logMd.length;
+    const log = logMd.slice(start, end).trim();
 
     return {
-      version: entry.version,
-      date: entry.date,
-      log,
+      version,
+      date,
+      log: parseLogByType(log),
     };
   });
+
+  return logs;
 }
 
 /**
- * 处理具体的一段日志
- * @returns
- * [{
- *   version: '',
- *   date: '',
- *   log: {
- *    '🚀 Features': ['', '']
- *    '🐞 Bug Fixes': ['', '']
- * }]
+ * 进一步根据指定的变更类型拆分
  */
-function processLogItem(logItem: string) {
-  if (!logItem || !logItem.trim()) return [];
+function parseLogByType(logBlock: string) {
+  const logs: Logs = {};
 
-  const lines = logItem.split(/\r?\n/).filter((line) => line.trim());
-  const result = [];
-  let currentItem = '';
+  LOG_TYPES.forEach((type) => {
+    const typeRegex = new RegExp(`### ${type}\\r?\\n([\\s\\S]+?)(?=### |$)`, 'g');
+    const matches = Array.from(logBlock.matchAll(typeRegex));
 
+    if (matches.length > 0) {
+      const logBlock = matches.map((match) => match[1]).join('\n');
+      const entries = extractLogEntries(logBlock);
+      logs[type] = groupLogByComponent(entries);
+    }
+  });
+
+  return logs;
+}
+
+/**
+ * 获取每种变更类型里面的每一段日志
+ * - case 1: 单独一行 -> 作为一条
+ * - case 2: 存在父子列表 -> 使用换行符，合并为一条
+ */
+function extractLogEntries(logBlock: string) {
+  const lines = logBlock.split('\n').filter((line) => line.trim() !== '');
+  const logs: string[] = [];
+
+  let currEntry = '';
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();
 
     // 跳过空行
     if (!line) continue;
 
-    // 判断是否为父项（直接以短横线开头，或者是第一行且不以空格开头）
-    const isParentItem = line.startsWith('-') && !/^\s+-/.test(lines[i]);
+    // 是否为子项（短横线前面有空格）
+    const isChildEntry = /^\s+-/.test(lines[i]);
 
-    // 判断是否为子项（短横线前面有空格）
-    const isChildItem = /^\s+-/.test(lines[i]);
+    // 是否为父项（直接以短横线开头）
+    const isParentEntry = line.startsWith('-') && !isChildEntry;
 
-    if (isParentItem) {
-      // 如果是父项，先保存之前的项目
-      if (currentItem) {
-        result.push(currentItem.trim());
+    if (isParentEntry) {
+      // 如果是父项，保存之前的日志
+      if (currEntry) {
+        logs.push(currEntry.trim());
       }
       // 开始新项，去掉开头的 -
-      currentItem = line.substring(1).trim();
-    } else if (isChildItem) {
+      currEntry = line.substring(1).trim();
+    } else if (isChildEntry) {
       // 如果是子项，添加到当前项中
       const childContent = line.replace(/^\s*-\s*/, '').trim();
-      if (childContent) {
-        currentItem += `\n${childContent}`;
-      }
+      currEntry += `\n${childContent}`;
     }
   }
 
-  // 将最后一个正在处理的项存入结果
-  if (currentItem.trim()) {
-    result.push(currentItem.trim());
-  }
-
-  return result;
-}
-
-// 统一转驼峰
-function convert2CamelCase(str: string) {
-  return str
-    .split(/[-_]/)
-    .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join('');
+  // 处理最后一项
+  logs.push(currEntry.trim());
+  return logs;
 }
 
 /**
- * 生成可用的组件名列表
+ * 根据每一条日志提及的组件名，将其归类
  */
-function generateCompList() {
-  const compList: Array<string> = [];
-  const files = readdirSync(componentsDir);
-  files.forEach((file) => {
-    const filePath = path.join(componentsDir, file);
-    const stat = statSync(filePath);
-    if (stat.isDirectory() && !excludedDir.includes(file)) {
-      const componentName = convert2CamelCase(file);
-      compList.push(componentName);
-    }
-  });
-  return compList;
-}
+function groupLogByComponent(entries: string[]) {
+  const logs: LogItem[] = [];
 
-/**
- * 根据组件名进行分类
- * @returns
- * [{
- *   version: '',
- *   date: '',
- *   log: {
- *    '🚀 Features': [
- *         {
- *           component: 'Button'
- *           description: ''
- *         }
- *    ]
- * }]
- */
-function categorizeLogByComp(log: Array<string>) {
-  if (!log || !Array.isArray(log)) return [];
+  const compRegex = /`([^`]+)`/g;
+  entries.forEach((entry) => {
+    // 使用 Set 去重
+    const components = [
+      ...new Set(
+        Array.from(entry.matchAll(compRegex))
+          // 所有反引号包裹的字符
+          .map((match) => match[1])
+          // 过滤无效组件名
+          .filter((name) => COMP_LIST.includes(name)),
+      ),
+    ];
 
-  const compList = generateCompList();
-  const categorizedLogs: Array<{ component: string; description: string }> = [];
+    // 移除冒号前面的总结部分
+    const description = entry.replace(/^[^:]+[:]\s*/, '');
 
-  log.forEach((logItem) => {
-    const matches = logItem.match(/`([^`]+)`/g); // 提取反引号包裹的内容
-    const components = matches
-      ? Array.from(
-          new Set(matches.map((name) => name.replace(/`/g, '').trim()).filter((name) => compList.includes(name))),
-        ) // 使用 Set 去重
-      : [];
-
-    const cleanLog = (logItem: string) =>
-      // 移除冒号前面的组件名字（容错处理中英文情况）
-      logItem.replace(/^[^:：]+[:：]\s*/, '');
-
-    if (components.length > 0) {
-      // 如果一条日志提到了多个组件，则每个组件都插入一条对应的日志
-      components.forEach((component) => {
-        categorizedLogs.push({
-          component,
-          description: cleanLog(logItem),
-        });
+    // 如果一条日志提到了多个组件，则每个组件都插入一条对应的日志
+    components.forEach((component) => {
+      logs.push({
+        component,
+        description,
       });
-    }
+    });
   });
 
-  return categorizedLogs;
+  return logs;
 }
 
 /**
- *
  * 将解析后的日志 JSON 转换为以组件名作为 key 的映射格式
- * @returns
- * {
- *  Button:[{
- *  version: '',
- *  date: '',
- *   '🚀 Features': ['', '']
- *   }]
- * }
  */
-function formatJson2CompMap(logJson: Array<{ version: string; date: string; log: any }>) {
-  if (!logJson || !Array.isArray(logJson)) return {};
-
-  const compMap: Record<string, Record<string, any>[]> = {};
+function formatJson2CompMap(logJson: VersionLog[]) {
+  const compMap: ComponentLogMap = {};
 
   logJson.forEach((entry) => {
     const { version, date, log } = entry;
 
-    Object.keys(log).forEach((type) => {
-      log[type].forEach((item: Record<string, string>) => {
+    (Object.keys(log) as LogType[]).forEach((type) => {
+      log[type].forEach((item: LogItem) => {
         const { component, description } = item;
 
         if (!compMap[component]) {
@@ -294,12 +193,10 @@ function formatJson2CompMap(logJson: Array<{ version: string; date: string; log:
           versionEntry = {
             version,
             date,
-            [type]: [],
-          };
+          } as ComponentLog;
           compMap[component].push(versionEntry);
         }
 
-        // 添加日志到对应的类型
         if (!versionEntry[type]) {
           versionEntry[type] = [];
         }
@@ -313,5 +210,32 @@ function formatJson2CompMap(logJson: Array<{ version: string; date: string; log:
     .sort((a, b) => a.localeCompare(b))
     .reduce((acc, key) => ({ ...acc, [key]: compMap[key] }), {});
 
-  return sortedCompMap;
+  return sortedCompMap as ComponentLogMap;
+}
+
+/**
+ * 使组件名符合帕斯卡命名规范
+ */
+function convert2PascalCase(str: string) {
+  return str
+    .split(/[-_]/)
+    .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join('');
+}
+
+/**
+ * 生成可用的组件名列表
+ */
+function getComponentList() {
+  const compList: string[] = [];
+  const files = readdirSync(componentsDir);
+  files.forEach((file) => {
+    const filePath = path.join(componentsDir, file);
+    const stat = statSync(filePath);
+    if (stat.isDirectory() && !EXCLUDED_DIR.includes(file)) {
+      const componentName = convert2PascalCase(file);
+      compList.push(componentName);
+    }
+  });
+  return compList;
 }

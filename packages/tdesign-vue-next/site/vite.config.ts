@@ -1,11 +1,13 @@
-import { defineConfig } from 'vite';
+import { joinComponentsRoot, joinPosix, joinTdesignVueNextRoot } from '@tdesign/internal-utils';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
+import { defineConfig } from 'vite';
+
 import { VitePWA } from 'vite-plugin-pwa';
-import tdDocToVue from './plugins/td-doc-to-vue';
-import changelog2Json from './plugins/changelog-to-json';
 import pwaConfig from './configs/pwa';
-import { joinPosix, joinComponentsRoot, joinTdesignVueNextRoot } from '@tdesign/internal-utils';
+
+import changelog2Json from './plugins/changelog-to-json';
+import tdDocToVue from './plugins/td-doc-to-vue';
 
 const publicPathMap: Record<string, string> = {
   preview: '/',

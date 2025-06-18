@@ -599,7 +599,7 @@ docClass: timeline
 - `DatePicker`: 修复有值时面板切换失效问题 @HQ-Lin ([#1425](https://github.com/Tencent/tdesign-vue-next/pull/1425))
 
 ## 🌈 0.20.0 `2022-08-15` 
-### ❗️ BREAKING CHANGES
+### 🚨 Breaking Change
 -  `Popup`: `overlayStyle` 调整为控制 `t-popup` 层级，新增 `overlayInnerStyle` 控制 `t-popup__content` 层级与原先 `overlayStyle` 效果一致。@HQ-Lin ([#1383](https://github.com/Tencent/tdesign-vue-next/pull/1383))
 ### 🚀 Features
 - `Icon`: 新增`qq`、`wechat`、`wecom`、`relativity`和`pin-filled`等图标 @uyarn ([#1382](https://github.com/Tencent/tdesign-vue-next/pull/1382))
@@ -666,7 +666,7 @@ docClass: timeline
 
 ## 🌈 0.19.0 `2022-08-03` 
 
-### ❗️ BREAKING CHANGES
+### 🚨 Breaking Change
 - 调整全局 `border-radius` 样式 token，`@border-radius` 改名为 `@border-radius-default`，支持更多圆角 `token`。 使用 `esm` 包修改 `less token` 的业务需要注意 @mingrutough1 [common #666](https://github.com/Tencent/tdesign-common/pull/666)，组件库中各组件实现圆角也做了统一调整，详情参见 https://github.com/Tencent/tdesign/discussions/158
 
 ### 🚀 Features
