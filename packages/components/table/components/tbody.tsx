@@ -1,15 +1,15 @@
 import { defineComponent, computed, PropType, toRefs } from 'vue';
 import { get, pick, camelCase } from 'lodash-es';
 
-import TrElement, { ROW_LISTENERS, TABLE_PROPS } from './components/tr';
+import TrElement, { ROW_LISTENERS, TABLE_PROPS } from '../components/tr';
 import { useConfig, useTNodeJSX, VirtualScrollConfig } from '@tdesign/shared-hooks';
 
-import useClassName from './hooks/useClassName';
-import baseTableProps from './base-table-props';
-import { TNodeReturnValue } from '../common';
-import useRowspanAndColspan from './hooks/useRowspanAndColspan';
-import { BaseTableProps, RowAndColFixedPosition } from './types';
-import { TdBaseTableProps } from './type';
+import useClassName from '../hooks/useClassName';
+import baseTableProps from '../base-table-props';
+import { TNodeReturnValue } from '../../common';
+import useRowspanAndColspan from '../hooks/useRowspanAndColspan';
+import { BaseTableProps, RowAndColFixedPosition } from '../types';
+import { TdBaseTableProps } from '../type';
 
 import type { CamelCase } from '@tdesign/common-js/utils/types';
 
