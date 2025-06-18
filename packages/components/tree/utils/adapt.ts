@@ -2,10 +2,10 @@
 // 除此文件之外的其他组件文件，可从 vue2 项目直接复制到 vue3 项目进行维护
 import * as Vue from 'vue';
 import { Ref, SetupContext, ToRefs, VNode, PropType, ComponentPublicInstance, UnwrapNestedRefs } from 'vue';
-import { CheckboxProps } from '../checkbox';
-import { ClassName, TScroll, Styles, TNode, TreeOptionData, TNodeReturnValue } from '../common';
+import { CheckboxProps } from '../../checkbox';
+import { ClassName, TScroll, Styles, TNode, TreeOptionData, TNodeReturnValue } from '../../common';
 import { TypeTreeEventState as TreeEventState } from '@tdesign/common-js/tree/types';
-import { TdTreeProps, TreeInstanceFunctions } from './type';
+import { TdTreeProps, TreeInstanceFunctions } from '../type';
 import {
   VirtualScrollConfig,
   useVModel as tdUseVModel,
@@ -17,8 +17,8 @@ import { TreeStore } from '@tdesign/common-js/tree/tree-store';
 
 export { ref, reactive, computed, watch, onMounted, toRefs, defineComponent, TransitionGroup } from 'vue';
 export { CaretRightSmallIcon as TdCaretRightSmallIcon } from 'tdesign-icons-vue-next';
-export { Checkbox as TCheckBox } from '../checkbox';
-export { Loading as TLoading } from '../loading';
+export { Checkbox as TCheckBox } from '../../checkbox';
+export { Loading as TLoading } from '../../loading';
 export { useConfig, usePrefixClass } from '@tdesign/shared-hooks';
 export { useGlobalIcon } from '@tdesign/shared-hooks';
 export { useLazyLoad } from '@tdesign/shared-hooks';
