@@ -1,6 +1,5 @@
 import { mount } from '@vue/test-utils';
 import { expect, it } from 'vitest';
-import { nextTick, ref } from 'vue';
 import Tooltip from '@tdesign/components/tooltip';
 
 const text = '这是一段内容';
@@ -8,7 +7,7 @@ const tootipClass = '.t-popup';
 
 describe('Tooltip', () => {
   it('', async () => {
-    const wrapper = mount(() => (
+    mount(() => (
       <Tooltip content={text} defaultVisible>
         <button>按钮</button>
       </Tooltip>
@@ -23,7 +22,7 @@ describe('Tooltip', () => {
   });
 
   it('showArrow', async () => {
-    const wrapper = mount(() => (
+    mount(() => (
       <Tooltip content={text} defaultVisible>
         <button>按钮</button>
       </Tooltip>
@@ -38,7 +37,7 @@ describe('Tooltip', () => {
   });
 
   it('theme', async () => {
-    const wrapper = mount(() => (
+    mount(() => (
       <Tooltip content={text} defaultVisible theme="success">
         <button>按钮</button>
       </Tooltip>

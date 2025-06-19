@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { ref, nextTick } from 'vue';
+import { ref } from 'vue';
 import { mount } from '@vue/test-utils';
 import { describe, expect, vi, it } from 'vitest';
 import Transfer from '@tdesign/components/transfer';
@@ -20,8 +20,6 @@ const pagination = {
   total: 20,
   current: 1,
 };
-const checkedValue = ['1', '2', '5'];
-const targetValue = ['1'];
 
 describe('Transfer', () => {
   // test for props

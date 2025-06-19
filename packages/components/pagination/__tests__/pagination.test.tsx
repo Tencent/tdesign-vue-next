@@ -1,9 +1,7 @@
 // @ts-nocheck
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
-import Pagination from '@tdesign/components/pagination';
-import { Select } from '@tdesign/components/select';
-import { Input } from '@tdesign/components/input';
+import { Select, Pagination } from '@tdesign/components';
 
 const defaultPaginationProps = {
   total: 100,

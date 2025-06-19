@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { mount } from '@vue/test-utils';
-import { describe, it, beforeEach, afterEach, expect, vi } from 'vitest';
+import { describe, it, beforeEach, afterEach, expect } from 'vitest';
 import { usePrefixClass } from '@tdesign/shared-hooks';
 import Popup from '@tdesign/components/popup';
 
@@ -158,7 +158,7 @@ describe('Popup', () => {
       expect(document.body.innerHTML.includes('666px')).toEqual(true);
       // typeof overlayStyle === 'function'
       await wrapper.setProps({
-        overlayStyle(triggerEl, overlayEl) {
+        overlayStyle(_triggerEl, _overlayEl) {
           overlayStyle.height = '233px';
           return overlayStyle;
         },

@@ -384,7 +384,7 @@ describe('RadioGroup', () => {
     });
 
     it(':variant', () => {
-      const variantList = ['outline', 'primary-filled', 'default-filled'];
+      // const variantList = ['outline', 'primary-filled', 'default-filled'];
       const wrapper1 = mount(() => (
         <RadioGroup variant="outline">
           <Radio value="1">选项一</Radio>

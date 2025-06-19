@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { mount } from '@vue/test-utils';
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { nextTick, ref } from 'vue';
 import { AppIcon } from 'tdesign-icons-vue-next';
 import { Steps, StepItem } from '@tdesign/components/steps';

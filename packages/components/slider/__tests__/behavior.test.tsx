@@ -5,13 +5,6 @@ import { nextTick } from 'vue';
 import { describe, expect, it } from 'vitest';
 import Slider from '@tdesign/components/slider';
 
-const inputNumberPropsInitData = {
-  decimalPlaces: 0,
-  format: (val) => `${val}%`,
-  placeholder: '',
-  theme: 'column',
-};
-
 // every component needs four parts: props/events/slots/functions.
 describe('Slider', () => {
   // test prop inputNumberProps

@@ -50,7 +50,7 @@ describe('switch', () => {
     describe('behavior for props.loading', () => {
       it('loading={true} can forbbid onChange event', async () => {
         let isChangeEventTrigger = false;
-        const onChangeFn = (val) => {
+        const onChangeFn = () => {
           isChangeEventTrigger = true;
         };
         const wrapper = mount({

@@ -1,5 +1,4 @@
 // @ts-nocheck
-import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
 import {
   getGuideDefaultMount,

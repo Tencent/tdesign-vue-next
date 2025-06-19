@@ -60,7 +60,7 @@ describe('Message', () => {
     it(':onDurationEnd', () => {
       vi.useFakeTimers();
       const onDurationEnd = vi.fn();
-      const wrapper = mount(() => <Message duration={3000} onDurationEnd={onDurationEnd} />);
+      mount(() => <Message duration={3000} onDurationEnd={onDurationEnd} />);
       expect(onDurationEnd).not.toBeCalled();
       vi.runAllTimers();
       expect(onDurationEnd).toHaveBeenCalledTimes(1);

@@ -1,6 +1,5 @@
 // @ts-nocheck
 import { mount } from '@vue/test-utils';
-import { nextTick } from 'vue';
 import { describe, expect, it } from 'vitest';
 import Switch from '@tdesign/components/switch';
 

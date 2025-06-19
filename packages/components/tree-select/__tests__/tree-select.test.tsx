@@ -357,7 +357,7 @@ describe('TreeSelect', () => {
   describe('function', () => {
     it(':collapsedItems', () => {
       const value = ['shenzhen', 'guangzhou'];
-      const renderCollapsedItems = (h) => (
+      const renderCollapsedItems = () => (
         <div>
           <span>更多...</span>
         </div>
@@ -378,7 +378,7 @@ describe('TreeSelect', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
     it(':empty', () => {
-      const renderEmpty = (h) => <div>found no data.</div>;
+      const renderEmpty = () => <div>found no data.</div>;
       const wrapper = mount({
         render() {
           return <TreeSelect data={[]} empty={renderEmpty}></TreeSelect>;
@@ -387,7 +387,7 @@ describe('TreeSelect', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
     it(':loadingText', () => {
-      const renderLoadingText = (h) => <div>loading...</div>;
+      const renderLoadingText = () => <div>loading...</div>;
       const wrapper = mount({
         render() {
           return <TreeSelect data={[]} loading={true} loadingText={renderLoadingText} />;
@@ -396,7 +396,7 @@ describe('TreeSelect', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
     it(':prefixIcon', () => {
-      const renderPrefixIcon = (h) => (
+      const renderPrefixIcon = () => (
         <div>
           <i>this is a icon.</i>
         </div>
@@ -409,7 +409,7 @@ describe('TreeSelect', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
     it(':valueDisplay', () => {
-      const renderValueDisplay = (h) => <div>深圳市(shenzhen)</div>;
+      const renderValueDisplay = () => <div>深圳市(shenzhen)</div>;
       const wrapper = mount({
         render() {
           return <TreeSelect data={options} valueDisplay={renderValueDisplay} />;

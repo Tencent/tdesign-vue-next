@@ -439,9 +439,7 @@ describe('SelectInput', () => {
           </div>
         ),
       };
-      const wrapper = mount(() => (
-        <SelectInput value={{ label: 'tdesign-vue', value: 1 }} v-slots={slots} popupVisible={true} />
-      ));
+      mount(() => <SelectInput value={{ label: 'tdesign-vue', value: 1 }} v-slots={slots} popupVisible={true} />);
       await new Promise(setTimeout);
       expect(document.querySelector('.red_panel').textContent).toEqual(text);
     });

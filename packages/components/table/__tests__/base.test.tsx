@@ -595,7 +595,7 @@ TABLES.forEach((TTable) => {
           render() {
             return (
               <TTable
-                v-slots={{ filterIcon: (col, colIndex) => filterIconText(col.col.colKey) }}
+                v-slots={{ filterIcon: (col) => filterIconText(col.col.colKey) }}
                 rowKey="index"
                 data={data}
                 columns={filterColumns}

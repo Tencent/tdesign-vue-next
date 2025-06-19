@@ -1,10 +1,8 @@
 // @ts-nocheck
-import { ref } from 'vue';
 import { mount } from '@vue/test-utils';
 import { expect } from 'vitest';
 import { CheckCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-import { FormItem, Form } from '@tdesign/components/form';
-import { Input } from '@tdesign/components/input';
+import { FormItem, Form, Input } from '@tdesign/components';
 
 describe('FormItem', () => {
   describe(':props', () => {
@@ -54,7 +52,7 @@ describe('FormItem', () => {
       expect(wrapper.find('.t-input__help').text()).toBe('help text');
 
       wrapper = mount({
-        setup(_, { slots }) {
+        setup() {
           const renderHelp = () => <CheckCircleFilledIcon />;
 
           return () => (
@@ -100,7 +98,7 @@ describe('FormItem', () => {
       expect(wrapper.find('label').text()).toBe('label');
 
       wrapper = mount({
-        setup(_, { slots }) {
+        setup() {
           const renderHelp = () => <CheckCircleFilledIcon />;
 
           return () => (

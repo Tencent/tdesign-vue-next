@@ -18,7 +18,7 @@ describe('Collapse', () => {
         },
       });
 
-      const panel = wrapper.findComponent({ ref: '1' });
+      // const panel = wrapper.findComponent({ ref: '1' });
 
       expect(wrapper.classes()).not.toContain('t--border-less');
 
@@ -28,7 +28,7 @@ describe('Collapse', () => {
     });
 
     test(':defaultExpandAll', async () => {
-      const defaultExpandAll = ref(false);
+      // const defaultExpandAll = ref(false);
       const wrapper = mount({
         setup() {
           return () => (

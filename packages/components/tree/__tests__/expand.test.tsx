@@ -4,7 +4,6 @@ import Tree from '@tdesign/components/tree';
 import { delay } from './kit';
 import { ref } from './adapt';
 import { Icon } from 'tdesign-icons-vue-next';
-import { nextTick } from 'vue';
 
 describe('Tree:expand', () => {
   vi.useRealTimers();

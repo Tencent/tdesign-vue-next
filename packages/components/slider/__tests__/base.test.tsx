@@ -92,7 +92,7 @@ describe('Slider', () => {
           { attachTo: document.getElementById('#app') },
         );
         const sliderTooltipVm = wrapper.findComponent({ name: 'TTooltip' });
-        sliderTooltipVm.trigger('mouseenter').then((val) => {
+        sliderTooltipVm.trigger('mouseenter').then(() => {
           const tooltipContent = sliderTooltipVm.componentVM.content;
           expect(String(tooltipContent) === String(testValue)).toBeTruthy();
         });
@@ -108,7 +108,7 @@ describe('Slider', () => {
           { attachTo: document.getElementById('#app') },
         );
         const sliderTooltipVm = wrapper.findComponent({ name: 'TTooltip' });
-        sliderTooltipVm.trigger('mouseenter').then((val) => {
+        sliderTooltipVm.trigger('mouseenter').then(() => {
           const tooltipContent = sliderTooltipVm.componentVM.content;
           expect(String(tooltipContent) === String(testLabel)).toBeTruthy();
         });
@@ -125,7 +125,7 @@ describe('Slider', () => {
           { attachTo: document.getElementById('#app') },
         );
         const sliderTooltipVm = wrapper.findComponent({ name: 'TTooltip' });
-        sliderTooltipVm.trigger('mouseenter').then((val) => {
+        sliderTooltipVm.trigger('mouseenter').then(() => {
           const tooltipContent = sliderTooltipVm.componentVM.content;
           const normalizeValue = formatLabel(testLabel, testValue);
           expect(String(tooltipContent) === String(normalizeValue)).toBeTruthy();

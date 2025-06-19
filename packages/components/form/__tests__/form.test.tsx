@@ -11,7 +11,7 @@ import { InputNumber } from '@tdesign/components/input-number';
 import { useFormDisabled } from '../hooks';
 
 const delay = (time = 0) =>
-  new Promise((res, rej) => {
+  new Promise((res, _) => {
     setTimeout(() => {
       res();
     }, time);
