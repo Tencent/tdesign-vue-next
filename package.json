@@ -38,10 +38,10 @@
     "@tdesign/common-js": "workspace:^",
     "@tdesign/common-style": "workspace:^",
     "@tdesign/components": "workspace:^",
-    "@tdesign/shared-hooks": "workspace:^",
     "@tdesign/internal-tests": "workspace:^",
     "@tdesign/internal-utils": "workspace:^",
     "@tdesign/pro-components-chat": "workspace:^",
+    "@tdesign/shared-hooks": "workspace:^",
     "@tdesign/shared-utils": "workspace:^",
     "@types/sortablejs": "^1.15.1",
     "@types/tinycolor2": "^1.4.3",
@@ -127,7 +127,8 @@
     "rollup-plugin-vue": "^6.0.0",
     "tdesign-publish-cli": "^0.0.12",
     "tsx": "^4.19.2",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "vitest": "^3.2.4"
   },
   "config": {
     "commitizen": {

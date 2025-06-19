@@ -24,6 +24,7 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
+      enabled: true,
       allowExternal: true,
       include: [await joinComponentsRoot()],
     },
