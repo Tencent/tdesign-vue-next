@@ -12,6 +12,7 @@ import { on, off, addClass } from '@tdesign/shared-utils';
 import props from './props';
 import { SlotReturnValue } from '../common';
 import { useIcon, useConfig, useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
+import log from '@tdesign/common-js/log/log';
 
 export default defineComponent({
   name: 'TAlert',
@@ -54,7 +55,13 @@ export default defineComponent({
     };
 
     const renderClose = () => {
-      const { close } = props;
+      // close属性变更为closeBtn过渡期使用，close废弃后可删除。（需兼容标签上直接写close和closeBtn的场景）
+      const { closeBtn } = props;
+      const isUsingClose = props.close || typeof props.close === 'string';
+      const close = isUsingClose ? props.close : closeBtn;
+      if (isUsingClose) {
+        log.warnOnce('TAlert', 'prop `close` is going to be deprecated, please use `closeBtn` instead.');
+      }
       let closeContent = null;
       if (close === true || close === '') {
         closeContent = <CloseIcon />;
