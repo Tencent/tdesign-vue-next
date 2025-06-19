@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import { BaseTable } from '@tdesign/components';
 
 function getTableData(total = 5) {
   const data = [];
@@ -26,24 +27,23 @@ const SIMPLE_COLUMNS = [
   { title: 'Time', colKey: 'createTime' },
 ];
 
-/** 基础表格，用于基础测试用例，第一个参数必须是组件名，第二个参数为组件属性 */
-export function getNormalTableMount(TTable, props = {}) {
+export function getNormalTableMount(props = {}) {
   const slots = props['v-slots'];
   delete props['v-slots'];
   return mount(
-    <TTable
+    <BaseTable
       rowKey="index"
       data={getTableData()}
       footData={getTableData(2)}
       columns={SIMPLE_COLUMNS}
       {...props}
       v-slots={slots}
-    ></TTable>,
+    ></BaseTable>,
   );
 }
 
-export function getEmptyDataTableMount(TTable, props = {}) {
+export function getEmptyDataTableMount(props = {}) {
   const slots = props['v-slots'];
   delete props['v-slots'];
-  return mount(<TTable rowKey="index" data={[]} columns={SIMPLE_COLUMNS} {...props} v-slots={slots}></TTable>);
+  return mount(<BaseTable rowKey="index" data={[]} columns={SIMPLE_COLUMNS} {...props} v-slots={slots}></BaseTable>);
 }

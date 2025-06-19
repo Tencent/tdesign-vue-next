@@ -97,7 +97,7 @@ describe('Image Component', () => {
   });
 
   it('props.overlayTrigger: show overlay content on hover', async () => {
-    const wrapper = getOverlayImageMount(Image, {
+    const wrapper = getOverlayImageMount({
       overlayTrigger: 'hover',
       src: 'https://tdesign.gtimg.com/demo/demo-image-1.png',
     });

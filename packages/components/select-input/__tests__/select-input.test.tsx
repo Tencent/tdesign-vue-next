@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
-import { SelectInput } from '@tdesign/components/select-input';
+import { SelectInput } from '@tdesign/components';
 import { getSelectInputMultipleMount } from './mount';
 import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 
@@ -45,7 +45,7 @@ describe('SelectInput Component', () => {
   });
 
   it('props.collapsedItems works fine', () => {
-    const wrapper = getSelectInputMultipleMount(SelectInput, {
+    const wrapper = getSelectInputMultipleMount({
       collapsedItems: () => <span class="custom-node">TNode</span>,
       minCollapsedNum: 3,
     });
@@ -53,14 +53,14 @@ describe('SelectInput Component', () => {
   });
 
   it('slots.collapsedItems works fine', () => {
-    const wrapper = getSelectInputMultipleMount(SelectInput, {
+    const wrapper = getSelectInputMultipleMount({
       'v-slots': { collapsedItems: () => <span class="custom-node">TNode</span> },
       minCollapsedNum: 3,
     });
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
   it('slots.collapsed-items works fine', () => {
-    const wrapper = getSelectInputMultipleMount(SelectInput, {
+    const wrapper = getSelectInputMultipleMount({
       'v-slots': { 'collapsed-items': () => <span class="custom-node">TNode</span> },
       minCollapsedNum: 3,
     });
@@ -69,13 +69,13 @@ describe('SelectInput Component', () => {
 
   it('props.collapsedItems is a function with params', () => {
     const fn = vi.fn();
-    getSelectInputMultipleMount(SelectInput, { collapsedItems: fn, minCollapsedNum: 3 });
+    getSelectInputMultipleMount({ collapsedItems: fn, minCollapsedNum: 3 });
     expect(fn).toHaveBeenCalled();
     expect(fn.mock.calls[0][1].count).toBe(2);
   });
   it('slots.collapsedItems: a function with params', () => {
     const fn = vi.fn();
-    getSelectInputMultipleMount(SelectInput, { 'v-slots': { collapsedItems: fn }, minCollapsedNum: 3 });
+    getSelectInputMultipleMount({ 'v-slots': { collapsedItems: fn }, minCollapsedNum: 3 });
 
     expect(fn).toHaveBeenCalled();
     expect(fn.mock.calls[0][0].count).toBe(2);

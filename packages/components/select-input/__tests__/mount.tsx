@@ -1,7 +1,8 @@
 import { mount } from '@vue/test-utils';
+import { SelectInput } from '@tdesign/components';
 
 // multiple select
-export function getSelectInputMultipleMount(SelectInput, props, events) {
+export function getSelectInputMultipleMount(props, events) {
   const slots = props['v-slots'];
   // eslint-disable-next-line
   delete props['v-slots'];

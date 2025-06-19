@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
-import { Button } from '../../button';
+import { Button, Space } from '@tdesign/components';
 
-export function getSpaceDefaultMount(Space, props = {}, events = {}) {
+export function getSpaceDefaultMount(props = {}, events = {}) {
   const slots = props['v-slots'];
   // eslint-disable-next-line
   delete props['v-slots'];

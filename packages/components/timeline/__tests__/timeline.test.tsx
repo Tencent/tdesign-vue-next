@@ -13,20 +13,20 @@ describe('Timeline Component', () => {
     it(`props.labelAlign is equal to ${enumValue}`, () => {
       let propValue = { true: true, false: false }[enumValue];
       propValue = propValue === undefined ? enumValue : propValue;
-      const wrapper = getTimelineDefaultMount(Timeline, { labelAlign: propValue });
+      const wrapper = getTimelineDefaultMount({ labelAlign: propValue });
       expect(wrapper.classes(expectedClassName)).toBeTruthy();
     });
   });
 
   it('props.labelAlign: layout=horizontal labelAlign=top works fine', async () => {
-    const wrapper = getTimelineDefaultMount(Timeline, { layout: 'horizontal', labelAlign: 'top' });
+    const wrapper = getTimelineDefaultMount({ layout: 'horizontal', labelAlign: 'top' });
     await wrapper.vm.$nextTick();
     const domWrapper = wrapper.find('.t-timeline');
     expect(domWrapper.classes('t-timeline-top')).toBeTruthy();
   });
 
   it('props.labelAlign: layout=horizontal labelAlign=bottom works fine', async () => {
-    const wrapper = getTimelineDefaultMount(Timeline, { layout: 'horizontal', labelAlign: 'bottom' });
+    const wrapper = getTimelineDefaultMount({ layout: 'horizontal', labelAlign: 'bottom' });
     await wrapper.vm.$nextTick();
     const domWrapper = wrapper.find('.t-timeline');
     expect(domWrapper.classes('t-timeline-bottom')).toBeTruthy();
@@ -34,7 +34,7 @@ describe('Timeline Component', () => {
 
   ['horizontal', 'vertical'].forEach((item) => {
     it(`props.layout is equal to ${item}`, () => {
-      const wrapper = getTimelineDefaultMount(Timeline, { layout: item });
+      const wrapper = getTimelineDefaultMount({ layout: item });
       expect(wrapper.classes(`t-timeline-${item}`)).toBeTruthy();
     });
   });
@@ -47,12 +47,12 @@ describe('Timeline Component', () => {
   });
 
   it('props.reverse works fine. `{".t-timeline-item__content":{"text":"Event4"}}` should exist', () => {
-    const wrapper = getTimelineDefaultMount(Timeline, { reverse: true });
+    const wrapper = getTimelineDefaultMount({ reverse: true });
     expect(wrapper.find('.t-timeline-item__content').text()).toBe('Event4');
   });
 
   it('props.theme is equal dot', () => {
-    const wrapper = getTimelineDefaultMount(Timeline, { theme: 'dot' });
+    const wrapper = getTimelineDefaultMount({ theme: 'dot' });
     expect(wrapper.findAll('.t-timeline-item__tail--theme-dot').length).toBe(4);
   });
 });
@@ -120,7 +120,7 @@ describe('TimelineItem Component', () => {
   });
 
   it('props.labelAlign is equal left', () => {
-    const wrapper = getTimelineItemMount(TimelineItem, { labelAlign: 'left' });
+    const wrapper = getTimelineItemMount({ labelAlign: 'left' });
     expect(wrapper.findAll('.t-timeline-item:first-child.t-timeline-item-left').length).toBe(1);
   });
 

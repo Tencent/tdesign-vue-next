@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
-import { Input, InputGroup } from '@tdesign/components/input';
+import { Input } from '@tdesign/components/input';
 import { getInputGroupDefaultMount } from './mount';
 import { simulateInputChange } from '@tdesign/internal-tests/utils';
 import { nextTick, ref } from 'vue';
@@ -481,13 +481,13 @@ describe('Input Component', () => {
 describe('InputGroup Component', () => {
   it('props.separate works fine', () => {
     // separate default value is
-    const wrapper1 = getInputGroupDefaultMount(InputGroup);
+    const wrapper1 = getInputGroupDefaultMount();
     expect(wrapper1.classes('t-input-group--separate')).toBeFalsy();
     // separate = true
-    const wrapper2 = getInputGroupDefaultMount(InputGroup, { separate: true });
+    const wrapper2 = getInputGroupDefaultMount({ separate: true });
     expect(wrapper2.classes('t-input-group--separate')).toBeTruthy();
     // separate = false
-    const wrapper3 = getInputGroupDefaultMount(InputGroup, { separate: false });
+    const wrapper3 = getInputGroupDefaultMount({ separate: false });
     expect(wrapper3.classes('t-input-group--separate')).toBeFalsy();
   });
 

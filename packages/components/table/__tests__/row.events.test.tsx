@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
-import { Table, BaseTable, PrimaryTable, EnhancedTable } from '@tdesign/components/table';
+import { Table, BaseTable, PrimaryTable, EnhancedTable } from '@tdesign/components';
 
 const data = new Array(5).fill(null).map((item, index) => ({
   id: index + 100,

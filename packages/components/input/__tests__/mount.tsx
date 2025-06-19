@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
-import { Input } from '@tdesign/components/input';
+import { Input, InputGroup } from '@tdesign/components/input';
 
-export function getInputGroupDefaultMount(InputGroup, props) {
+export function getInputGroupDefaultMount(props) {
   return mount(
     <InputGroup {...props}>
       <Input />

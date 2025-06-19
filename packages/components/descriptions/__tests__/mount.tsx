@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Descriptions, { DescriptionsItem } from '@tdesign/components/descriptions';
+import { Descriptions, DescriptionsItem } from '@tdesign/components';
 
 export function getDescriptionsMount({ props = {}, slots = {}, firstItemProps = {} }) {
   return mount({
@@ -17,5 +17,3 @@ export function getDescriptionsMount({ props = {}, slots = {}, firstItemProps = 
     },
   });
 }
-
-export default {};

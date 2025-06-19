@@ -100,7 +100,7 @@ describe('Radio Component', () => {
 describe('RadioGroup Component', () => {
   it('props.allowUncheck works fine', async () => {
     const onChangeFn = vi.fn();
-    const wrapper = getRadioGroupDefaultMount(RadioGroup, { value: 1, allowUncheck: true }, { onChange: onChangeFn });
+    const wrapper = getRadioGroupDefaultMount({ value: 1, allowUncheck: true }, { onChange: onChangeFn });
     wrapper.find('.t-radio').trigger('click');
     await wrapper.vm.$nextTick();
     expect(onChangeFn).toHaveBeenCalled();
@@ -110,7 +110,7 @@ describe('RadioGroup Component', () => {
 
   it('props.allowUncheck works fine', async () => {
     const onChangeFn = vi.fn();
-    const wrapper = getRadioGroupKidsMount(RadioGroup, { value: 1, allowUncheck: true }, { onChange: onChangeFn });
+    const wrapper = getRadioGroupKidsMount({ value: 1, allowUncheck: true }, { onChange: onChangeFn });
     wrapper.find('.t-radio').trigger('click');
     await wrapper.vm.$nextTick();
     expect(onChangeFn).toHaveBeenCalled();
@@ -119,20 +119,20 @@ describe('RadioGroup Component', () => {
   });
 
   it('props.disabled is equal true', () => {
-    const wrapper = getRadioGroupDefaultMount(RadioGroup, { disabled: true });
+    const wrapper = getRadioGroupDefaultMount({ disabled: true });
     expect(wrapper.findAll('.t-radio.t-is-disabled').length).toBe(4);
     expect(wrapper.element).toMatchSnapshot();
   });
 
   it('props.disabled is equal true', () => {
-    const wrapper = getRadioGroupKidsMount(RadioGroup, { disabled: true });
+    const wrapper = getRadioGroupKidsMount({ disabled: true });
     expect(wrapper.findAll('.t-radio.t-is-disabled').length).toBe(4);
     expect(wrapper.element).toMatchSnapshot();
   });
 
   it('Props.disabled: disabled radio can not trigger change', async () => {
     const onChangeFn = vi.fn();
-    const wrapper = getRadioGroupDefaultMount(RadioGroup, { disabled: true }, { onChange: onChangeFn });
+    const wrapper = getRadioGroupDefaultMount({ disabled: true }, { onChange: onChangeFn });
     wrapper.find('.t-radio').trigger('click');
     await wrapper.vm.$nextTick();
     expect(onChangeFn).not.toHaveBeenCalled();
@@ -140,49 +140,49 @@ describe('RadioGroup Component', () => {
 
   it('Props.disabled: disabled radio can not trigger change', async () => {
     const onChangeFn = vi.fn();
-    const wrapper = getRadioGroupKidsMount(RadioGroup, { disabled: true }, { onChange: onChangeFn });
+    const wrapper = getRadioGroupKidsMount({ disabled: true }, { onChange: onChangeFn });
     wrapper.find('.t-radio').trigger('click');
     await wrapper.vm.$nextTick();
     expect(onChangeFn).not.toHaveBeenCalled();
   });
 
   it(`props.name is equal to 'custom-radio-name'`, () => {
-    const wrapper = getRadioGroupDefaultMount(RadioGroup, { name: 'custom-radio-name' });
+    const wrapper = getRadioGroupDefaultMount({ name: 'custom-radio-name' });
     const domWrapper = wrapper.find('input');
     expect(domWrapper.attributes('name')).toBe('custom-radio-name');
     expect(wrapper.element).toMatchSnapshot();
   });
 
   it(`props.name is equal to 'custom-radio-name'`, () => {
-    const wrapper = getRadioGroupKidsMount(RadioGroup, { name: 'custom-radio-name' });
+    const wrapper = getRadioGroupKidsMount({ name: 'custom-radio-name' });
     const domWrapper = wrapper.find('input');
     expect(domWrapper.attributes('name')).toBe('custom-radio-name');
     expect(wrapper.element).toMatchSnapshot();
   });
 
   it('props.options works fine. `{".t-radio":4}` should exist', () => {
-    const wrapper = getRadioGroupDefaultMount(RadioGroup);
+    const wrapper = getRadioGroupDefaultMount();
     expect(wrapper.findAll('.t-radio').length).toBe(4);
   });
 
   it('props.options works fine. `".custom-node"` should exist', () => {
-    const wrapper = getRadioGroupDefaultMount(RadioGroup);
+    const wrapper = getRadioGroupDefaultMount();
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
 
   it('props.options works fine. `{".t-radio.t-is-disabled":1}` should exist', () => {
-    const wrapper = getRadioGroupDefaultMount(RadioGroup);
+    const wrapper = getRadioGroupDefaultMount();
     expect(wrapper.findAll('.t-radio.t-is-disabled').length).toBe(1);
   });
 
   it(`props.value is equal to '2'`, () => {
-    const wrapper = getRadioGroupDefaultMount(RadioGroup, { value: '2' });
+    const wrapper = getRadioGroupDefaultMount({ value: '2' });
     const domWrapper = wrapper.find('.t-radio.t-is-checked input');
     expect(domWrapper.element.value).toBe('2');
   });
 
   it(`props.value is equal to '2'`, () => {
-    const wrapper = getRadioGroupKidsMount(RadioGroup, { value: '2' });
+    const wrapper = getRadioGroupKidsMount({ value: '2' });
     const domWrapper = wrapper.find('.t-radio.t-is-checked input');
     expect(domWrapper.element.value).toBe('2');
   });
@@ -202,7 +202,7 @@ describe('RadioGroup Component', () => {
 
   it('Events.change: default value is 2, trigger change after click', async () => {
     const onChangeFn = vi.fn();
-    const wrapper = getRadioGroupDefaultMount(RadioGroup, { value: 2 }, { onChange: onChangeFn });
+    const wrapper = getRadioGroupDefaultMount({ value: 2 }, { onChange: onChangeFn });
     wrapper.find('.t-radio').trigger('click');
     await wrapper.vm.$nextTick();
     expect(onChangeFn).toHaveBeenCalled();
@@ -211,7 +211,7 @@ describe('RadioGroup Component', () => {
   });
   it('Events.change: default value is empty, trigger change after click', async () => {
     const onChangeFn = vi.fn();
-    const wrapper = getRadioGroupDefaultMount(RadioGroup, {}, { onChange: onChangeFn });
+    const wrapper = getRadioGroupDefaultMount({}, { onChange: onChangeFn });
     wrapper.find('.t-radio').trigger('click');
     await wrapper.vm.$nextTick();
     expect(onChangeFn).toHaveBeenCalled();
@@ -221,7 +221,7 @@ describe('RadioGroup Component', () => {
 
   it('Events.change: default value is 2, trigger change after click', async () => {
     const onChangeFn = vi.fn();
-    const wrapper = getRadioGroupKidsMount(RadioGroup, { value: 2 }, { onChange: onChangeFn });
+    const wrapper = getRadioGroupKidsMount({ value: 2 }, { onChange: onChangeFn });
     wrapper.find('.t-radio').trigger('click');
     await wrapper.vm.$nextTick();
     expect(onChangeFn).toHaveBeenCalled();
@@ -230,7 +230,7 @@ describe('RadioGroup Component', () => {
   });
   it('Events.change: default value is empty, trigger change after click', async () => {
     const onChangeFn = vi.fn();
-    const wrapper = getRadioGroupKidsMount(RadioGroup, {}, { onChange: onChangeFn });
+    const wrapper = getRadioGroupKidsMount({}, { onChange: onChangeFn });
     wrapper.find('.t-radio').trigger('click');
     await wrapper.vm.$nextTick();
     expect(onChangeFn).toHaveBeenCalled();

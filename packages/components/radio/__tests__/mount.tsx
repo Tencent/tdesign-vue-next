@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils';
-import { Radio } from '@tdesign/components/radio';
+import { Radio, RadioGroup } from '@tdesign/components/radio';
 
 // options 写法
-export function getRadioGroupDefaultMount(RadioGroup, props, events) {
+export function getRadioGroupDefaultMount(props, events) {
   const options = [
     { label: 'Radio1', value: 1 },
     { label: 'Radio2', value: '2', allowUncheck: true },
@@ -13,7 +13,7 @@ export function getRadioGroupDefaultMount(RadioGroup, props, events) {
 }
 
 // 子组件写法
-export function getRadioGroupKidsMount(RadioGroup, props, events) {
+export function getRadioGroupKidsMount(props, events) {
   return mount(
     <RadioGroup {...props} {...events}>
       <Radio value={1}>Radio1</Radio>

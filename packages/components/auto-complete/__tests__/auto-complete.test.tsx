@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
-import { AutoComplete } from '@tdesign/components/auto-complete';
+import { AutoComplete } from '@tdesign/components';
 import { getNormalAutoCompleteMount, getOptionSlotAutoCompleteMount } from './mount';
 import { simulateKeydownEvent } from '@tdesign/internal-tests/utils';
 
@@ -17,7 +17,7 @@ describe('AutoComplete Component', () => {
   });
 
   it('props.clearable: show clear icon on mouse enter', async () => {
-    const wrapper = getNormalAutoCompleteMount(AutoComplete, { value: 'Default Keyword', clearable: true });
+    const wrapper = getNormalAutoCompleteMount({ value: 'Default Keyword', clearable: true });
     wrapper.find('.t-input').trigger('mouseenter');
     await wrapper.vm.$nextTick();
     expect(wrapper.find('.t-input__suffix-clear').exists()).toBeTruthy();
@@ -26,7 +26,6 @@ describe('AutoComplete Component', () => {
     const onClearFn1 = vi.fn();
     const onChangeFn1 = vi.fn();
     const wrapper = getNormalAutoCompleteMount(
-      AutoComplete,
       { value: 'Default Keyword', clearable: true },
       { onClear: onClearFn1, onChange: onChangeFn1 },
     );
@@ -69,7 +68,7 @@ describe('AutoComplete Component', () => {
   });
 
   it('props.filter works fine', async () => {
-    const wrapper = getNormalAutoCompleteMount(AutoComplete, {
+    const wrapper = getNormalAutoCompleteMount({
       filter: (filterWords, option) => option.text.includes('Second'),
     });
     wrapper.find('input').trigger('focus');
@@ -82,7 +81,7 @@ describe('AutoComplete Component', () => {
   });
 
   it('props.filterable works fine', async () => {
-    const wrapper = getNormalAutoCompleteMount(AutoComplete, { value: 'First', filterable: true });
+    const wrapper = getNormalAutoCompleteMount({ value: 'First', filterable: true });
     wrapper.find('input').trigger('focus');
     await wrapper.vm.$nextTick();
     const tSelectOptionDom = document.querySelectorAll('.t-select-option');
@@ -93,7 +92,7 @@ describe('AutoComplete Component', () => {
   });
 
   it('props.highlightKeyword works fine', async () => {
-    const wrapper = getNormalAutoCompleteMount(AutoComplete, { value: 'Second', highlightKeyword: true });
+    const wrapper = getNormalAutoCompleteMount({ value: 'Second', highlightKeyword: true });
     wrapper.find('input').trigger('focus');
     await wrapper.vm.$nextTick();
     const tSelectOptionDom = document.querySelectorAll('.t-select-option');
@@ -134,7 +133,7 @@ describe('AutoComplete Component', () => {
     emptyOptionsClassNameTAutocompletePanelDom.forEach((node) => node.remove());
   });
   it('props.options: define one option', async () => {
-    const wrapper = getOptionSlotAutoCompleteMount(AutoComplete, {
+    const wrapper = getOptionSlotAutoCompleteMount({
       popupProps: { overlayClassName: 'option-slot-class-name' },
     });
     wrapper.find('input').trigger('focus');
@@ -247,7 +246,7 @@ describe('AutoComplete Component', () => {
   });
 
   it('props.popupProps works fine', async () => {
-    const wrapper = getNormalAutoCompleteMount(AutoComplete, { popupProps: { overlayClassName: 'custom-class-name' } });
+    const wrapper = getNormalAutoCompleteMount({ popupProps: { overlayClassName: 'custom-class-name' } });
     wrapper.find('input').trigger('focus');
     await wrapper.vm.$nextTick();
     const customClassNameDom = document.querySelector('.custom-class-name');
@@ -256,7 +255,7 @@ describe('AutoComplete Component', () => {
     customClassNameDom.remove();
   });
   it('props.popupProps works fine', async () => {
-    const wrapper = getNormalAutoCompleteMount(AutoComplete, {
+    const wrapper = getNormalAutoCompleteMount({
       popupProps: { overlayInnerClassName: 'custom-class-name' },
     });
     wrapper.find('input').trigger('focus');
@@ -272,17 +271,17 @@ describe('AutoComplete Component', () => {
     const wrapper1 = getNormalAutoCompleteMount(AutoComplete).find('.t-input');
     expect(wrapper1.classes('t-is-readonly')).toBeFalsy();
     // readonly = true
-    const wrapper2 = getNormalAutoCompleteMount(AutoComplete, { readonly: true }).find('.t-input');
+    const wrapper2 = getNormalAutoCompleteMount({ readonly: true }).find('.t-input');
     expect(wrapper2.classes('t-is-readonly')).toBeTruthy();
     // readonly = false
-    const wrapper3 = getNormalAutoCompleteMount(AutoComplete, { readonly: false }).find('.t-input');
+    const wrapper3 = getNormalAutoCompleteMount({ readonly: false }).find('.t-input');
     expect(wrapper3.classes('t-is-readonly')).toBeFalsy();
   });
 
   const sizeClassNameList = ['t-size-s', { 't-size-m': false }, 't-size-l'];
   ['small', 'medium', 'large'].forEach((item, index) => {
     it(`props.size is equal to ${item}`, () => {
-      const wrapper = getNormalAutoCompleteMount(AutoComplete, { size: item }).find('.t-input');
+      const wrapper = getNormalAutoCompleteMount({ size: item }).find('.t-input');
       if (typeof sizeClassNameList[index] === 'string') {
         expect(wrapper.classes(sizeClassNameList[index])).toBeTruthy();
       } else if (typeof sizeClassNameList[index] === 'object') {
@@ -295,7 +294,7 @@ describe('AutoComplete Component', () => {
   const statusClassNameList = [{ 't-is-default': false }, 't-is-success', 't-is-warning', 't-is-error'];
   ['default', 'success', 'warning', 'error'].forEach((item, index) => {
     it(`props.status is equal to ${item}`, () => {
-      const wrapper = getNormalAutoCompleteMount(AutoComplete, { status: item }).find('.t-input');
+      const wrapper = getNormalAutoCompleteMount({ status: item }).find('.t-input');
       if (typeof statusClassNameList[index] === 'string') {
         expect(wrapper.classes(statusClassNameList[index])).toBeTruthy();
       } else if (typeof statusClassNameList[index] === 'object') {
@@ -337,7 +336,7 @@ describe('AutoComplete Component', () => {
   it('events.blur works fine', async () => {
     const onFocusFn = vi.fn();
     const onBlurFn1 = vi.fn();
-    const wrapper = getNormalAutoCompleteMount(AutoComplete, {}, { onFocus: onFocusFn, onBlur: onBlurFn1 });
+    const wrapper = getNormalAutoCompleteMount({}, { onFocus: onFocusFn, onBlur: onBlurFn1 });
     wrapper.find('input').trigger('focus');
     await wrapper.vm.$nextTick();
     expect(onFocusFn).toHaveBeenCalled(1);
@@ -368,7 +367,7 @@ describe('AutoComplete Component', () => {
 
   it('events.enter works fine', async () => {
     const onEnterFn1 = vi.fn();
-    const wrapper = getNormalAutoCompleteMount(AutoComplete, {}, { onEnter: onEnterFn1 });
+    const wrapper = getNormalAutoCompleteMount({}, { onEnter: onEnterFn1 });
     wrapper.find('input').trigger('focus');
     await wrapper.vm.$nextTick();
     wrapper.find('input').trigger('keydown.enter');
@@ -380,7 +379,7 @@ describe('AutoComplete Component', () => {
 
   it('events.focus works fine', async () => {
     const onFocusFn = vi.fn();
-    const wrapper = getNormalAutoCompleteMount(AutoComplete, {}, { onFocus: onFocusFn });
+    const wrapper = getNormalAutoCompleteMount({}, { onFocus: onFocusFn });
     wrapper.find('input').trigger('focus');
     await wrapper.vm.$nextTick();
     expect(wrapper.find('.t-is-focused').exists()).toBeTruthy();
@@ -391,7 +390,6 @@ describe('AutoComplete Component', () => {
   it('events.select works fine', async () => {
     const onSelectFn1 = vi.fn();
     const wrapper = getNormalAutoCompleteMount(
-      AutoComplete,
       { popupProps: { overlayClassName: 'select-event-class-name' } },
       { onSelect: onSelectFn1 },
     );
@@ -407,7 +405,7 @@ describe('AutoComplete Component', () => {
 
   it('events.select: keyboard operations: ArrowDown & ArrowUp & Enter', async () => {
     const onSelectFn6 = vi.fn();
-    const wrapper = getNormalAutoCompleteMount(AutoComplete, {}, { onSelect: onSelectFn6 });
+    const wrapper = getNormalAutoCompleteMount({}, { onSelect: onSelectFn6 });
     wrapper.find('input').trigger('focus');
     await wrapper.vm.$nextTick();
     simulateKeydownEvent(document, 'ArrowDown');

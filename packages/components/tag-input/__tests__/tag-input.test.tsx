@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
-import TagInput from '@tdesign/components/tag-input';
+import { TagInput } from '@tdesign/components';
 import { getTagInputValueMount, getTagInputDefaultMount } from './mount';
 import { simulateInputChange, simulateInputEnter } from '@tdesign/internal-tests/utils';
 import { CloseCircleFilledIcon, AppIcon, CloseIcon } from 'tdesign-icons-vue-next';
@@ -15,7 +15,7 @@ describe('TagInput Component', () => {
   });
 
   it('props.clearable: show clearIcon on mouse enter', async () => {
-    const wrapper = getTagInputValueMount(TagInput, { clearable: true });
+    const wrapper = getTagInputValueMount({ clearable: true });
     wrapper.find('.t-input').trigger('mouseenter');
     await wrapper.vm.$nextTick();
     expect(wrapper.find('.t-tag-input__suffix-clear').exists()).toBeTruthy();
@@ -24,11 +24,7 @@ describe('TagInput Component', () => {
   it('props.clearable: clear all tags on click clearIcon', async () => {
     const onClearFn1 = vi.fn();
     const onChangeFn1 = vi.fn();
-    const wrapper = getTagInputValueMount(
-      TagInput,
-      { clearable: true },
-      { onClear: onClearFn1, onChange: onChangeFn1 },
-    );
+    const wrapper = getTagInputValueMount({ clearable: true }, { onClear: onClearFn1, onChange: onChangeFn1 });
     wrapper.find('.t-input').trigger('mouseenter');
     await wrapper.vm.$nextTick();
     wrapper.find('.t-tag-input__suffix-clear').trigger('click');
@@ -42,21 +38,21 @@ describe('TagInput Component', () => {
   });
 
   it('props.clearable: disabled TagInput can not show clear icon', async () => {
-    const wrapper = getTagInputValueMount(TagInput, { disabled: true, clearable: true });
+    const wrapper = getTagInputValueMount({ disabled: true, clearable: true });
     wrapper.find('.t-input').trigger('mouseenter');
     await wrapper.vm.$nextTick();
     expect(wrapper.find('.t-input__suffix-clear').exists()).toBeFalsy();
   });
 
   it('props.clearable: readonly TagInput can not show clear icon', async () => {
-    const wrapper = getTagInputValueMount(TagInput, { readonly: true, clearable: true });
+    const wrapper = getTagInputValueMount({ readonly: true, clearable: true });
     wrapper.find('.t-input').trigger('mouseenter');
     await wrapper.vm.$nextTick();
     expect(wrapper.find('.t-input__suffix-clear').exists()).toBeFalsy();
   });
 
   it('props.collapsedItems works fine', () => {
-    const wrapper = getTagInputValueMount(TagInput, {
+    const wrapper = getTagInputValueMount({
       collapsedItems: () => <span class="custom-node">TNode</span>,
       minCollapsedNum: 3,
     });
@@ -64,14 +60,14 @@ describe('TagInput Component', () => {
   });
 
   it('slots.collapsedItems works fine', () => {
-    const wrapper = getTagInputValueMount(TagInput, {
+    const wrapper = getTagInputValueMount({
       'v-slots': { collapsedItems: () => <span class="custom-node">TNode</span> },
       minCollapsedNum: 3,
     });
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
   it('slots.collapsed-items works fine', () => {
-    const wrapper = getTagInputValueMount(TagInput, {
+    const wrapper = getTagInputValueMount({
       'v-slots': { 'collapsed-items': () => <span class="custom-node">TNode</span> },
       minCollapsedNum: 3,
     });
@@ -91,7 +87,7 @@ describe('TagInput Component', () => {
   });
 
   it('props.disabled: disabled TagInput does not need clearIcon', async () => {
-    const wrapper = getTagInputValueMount(TagInput, { disabled: true });
+    const wrapper = getTagInputValueMount({ disabled: true });
     wrapper.find('.t-input').trigger('mouseenter');
     await wrapper.vm.$nextTick();
     expect(wrapper.find('.t-tag-input__suffix-clear').exists()).toBeFalsy();
@@ -108,7 +104,7 @@ describe('TagInput Component', () => {
   const excessTagsDisplayTypeClassNameList = [{ 't-tag-input--break-line': false }, 't-tag-input--break-line'];
   ['scroll', 'break-line'].forEach((item, index) => {
     it(`props.excessTagsDisplayType is equal to ${item}`, () => {
-      const wrapper = getTagInputValueMount(TagInput, { excessTagsDisplayType: item });
+      const wrapper = getTagInputValueMount({ excessTagsDisplayType: item });
       if (typeof excessTagsDisplayTypeClassNameList[index] === 'string') {
         expect(wrapper.classes(excessTagsDisplayTypeClassNameList[index])).toBeTruthy();
       } else if (typeof excessTagsDisplayTypeClassNameList[index] === 'object') {
@@ -141,7 +137,7 @@ describe('TagInput Component', () => {
   });
 
   it('props.max: could type only three tags', async () => {
-    const wrapper = getTagInputDefaultMount(TagInput, { max: 1 });
+    const wrapper = getTagInputDefaultMount({ max: 1 });
     wrapper.find('input').trigger('focus');
     await wrapper.vm.$nextTick();
     const inputDom1 = wrapper.find('input').element;
@@ -161,7 +157,7 @@ describe('TagInput Component', () => {
   });
 
   it('props.minCollapsedNum works fine. `{".t-tag":4}` should exist', () => {
-    const wrapper = getTagInputValueMount(TagInput, { minCollapsedNum: 3 });
+    const wrapper = getTagInputValueMount({ minCollapsedNum: 3 });
     expect(wrapper.findAll('.t-tag').length).toBe(4);
   });
 
@@ -184,7 +180,7 @@ describe('TagInput Component', () => {
 
   it('props.readonly: readonly TagInput does not need clearIcon', async () => {
     const on0Fn = vi.fn();
-    const wrapper = getTagInputValueMount(TagInput, { readonly: true }, { on0: on0Fn });
+    const wrapper = getTagInputValueMount({ readonly: true }, { on0: on0Fn });
     wrapper.find('.t-input').trigger('mouseenter');
     await wrapper.vm.$nextTick();
   });
@@ -250,7 +246,7 @@ describe('TagInput Component', () => {
   });
 
   it('props.tag works fine', () => {
-    const wrapper = getTagInputValueMount(TagInput, {
+    const wrapper = getTagInputValueMount({
       tag: () => <span class="custom-node">TNode</span>,
       value: ['tdesign-vue'],
     });
@@ -258,7 +254,7 @@ describe('TagInput Component', () => {
   });
 
   it('slots.tag works fine', () => {
-    const wrapper = getTagInputValueMount(TagInput, {
+    const wrapper = getTagInputValueMount({
       'v-slots': { tag: () => <span class="custom-node">TNode</span> },
       value: ['tdesign-vue'],
     });
@@ -267,25 +263,25 @@ describe('TagInput Component', () => {
 
   it('props.tag is a function with params', () => {
     const fn = vi.fn();
-    getTagInputValueMount(TagInput, { tag: fn, value: ['tdesign-vue'] });
+    getTagInputValueMount({ tag: fn, value: ['tdesign-vue'] });
     expect(fn).toHaveBeenCalled();
     expect(fn.mock.calls[0][1].value).toBe('tdesign-vue');
   });
   it('slots.tag: a function with params', () => {
     const fn = vi.fn();
-    getTagInputValueMount(TagInput, { 'v-slots': { tag: fn }, value: ['tdesign-vue'] });
+    getTagInputValueMount({ 'v-slots': { tag: fn }, value: ['tdesign-vue'] });
 
     expect(fn).toHaveBeenCalled();
     expect(fn.mock.calls[0][0].value).toBe('tdesign-vue');
   });
 
   it('props.tagProps is equal { theme: warning }', () => {
-    const wrapper = getTagInputValueMount(TagInput, { tagProps: { theme: 'warning' }, multiple: true });
+    const wrapper = getTagInputValueMount({ tagProps: { theme: 'warning' }, multiple: true });
     expect(wrapper.findAll('.t-tag--warning').length).toBe(5);
   });
 
   it('props.tagProps should effect minCollapseNum tag', () => {
-    const wrapper = getTagInputValueMount(TagInput, {
+    const wrapper = getTagInputValueMount({
       tagProps: { theme: 'warning' },
       multiple: true,
       minCollapsedNum: 2,
@@ -301,7 +297,7 @@ describe('TagInput Component', () => {
   });
 
   it('props.value: controlled value test: only props can change count of tags', async () => {
-    const wrapper = getTagInputDefaultMount(TagInput, { value: [] });
+    const wrapper = getTagInputDefaultMount({ value: [] });
     wrapper.find('input').trigger('focus');
     await wrapper.vm.$nextTick();
     const inputDom1 = wrapper.find('input').element;
@@ -327,18 +323,18 @@ describe('TagInput Component', () => {
   });
 
   it('props.valueDisplay works fine', () => {
-    const wrapper = getTagInputValueMount(TagInput, { valueDisplay: () => <span class="custom-node">TNode</span> });
+    const wrapper = getTagInputValueMount({ valueDisplay: () => <span class="custom-node">TNode</span> });
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
 
   it('slots.valueDisplay works fine', () => {
-    const wrapper = getTagInputValueMount(TagInput, {
+    const wrapper = getTagInputValueMount({
       'v-slots': { valueDisplay: () => <span class="custom-node">TNode</span> },
     });
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
   });
   it('slots.value-display works fine', () => {
-    const wrapper = getTagInputValueMount(TagInput, {
+    const wrapper = getTagInputValueMount({
       'v-slots': { 'value-display': () => <span class="custom-node">TNode</span> },
     });
     expect(wrapper.find('.custom-node').exists()).toBeTruthy();
@@ -346,7 +342,7 @@ describe('TagInput Component', () => {
 
   it('props.valueDisplay is a function with params', () => {
     const fn = vi.fn();
-    getTagInputValueMount(TagInput, { valueDisplay: fn });
+    getTagInputValueMount({ valueDisplay: fn });
     expect(fn).toHaveBeenCalled();
     expect(fn.mock.calls[0][1].value).toEqual([
       'tdesign-vue',
@@ -358,7 +354,7 @@ describe('TagInput Component', () => {
   });
   it('slots.valueDisplay: a function with params', () => {
     const fn = vi.fn();
-    getTagInputValueMount(TagInput, { 'v-slots': { valueDisplay: fn } });
+    getTagInputValueMount({ 'v-slots': { valueDisplay: fn } });
 
     expect(fn).toHaveBeenCalled();
     expect(fn.mock.calls[0][0].value).toEqual([
@@ -396,11 +392,7 @@ describe('TagInput Component', () => {
   it('events.clear: click clear icon, then clear all tags', async () => {
     const onClearFn1 = vi.fn();
     const onChangeFn1 = vi.fn();
-    const wrapper = getTagInputValueMount(
-      TagInput,
-      { clearable: true },
-      { onClear: onClearFn1, onChange: onChangeFn1 },
-    );
+    const wrapper = getTagInputValueMount({ clearable: true }, { onClear: onClearFn1, onChange: onChangeFn1 });
     wrapper.find('.t-input').trigger('mouseenter');
     await wrapper.vm.$nextTick();
     wrapper.find('.t-tag-input__suffix-clear').trigger('click');
@@ -423,7 +415,7 @@ describe('TagInput Component', () => {
 
   it('events.enter works fine', async () => {
     const onEnterFn = vi.fn();
-    const wrapper = getTagInputDefaultMount(TagInput, { value: ['tag'] }, { onEnter: onEnterFn });
+    const wrapper = getTagInputDefaultMount({ value: ['tag'] }, { onEnter: onEnterFn });
     const inputDom = wrapper.find('input').element;
     simulateInputEnter(inputDom);
     await wrapper.vm.$nextTick();
@@ -448,7 +440,7 @@ describe('TagInput Component', () => {
 
   it('events.focus works fine', async () => {
     const onFocusFn = vi.fn();
-    const wrapper = getTagInputDefaultMount(TagInput, {}, { onFocus: onFocusFn });
+    const wrapper = getTagInputDefaultMount({}, { onFocus: onFocusFn });
     wrapper.find('input').trigger('focus');
     await wrapper.vm.$nextTick();
     expect(onFocusFn).toHaveBeenCalled();
@@ -459,7 +451,7 @@ describe('TagInput Component', () => {
 
   it('events.focus: expect focus not change inputValue', async () => {
     const onFocusFn = vi.fn();
-    const wrapper = getTagInputDefaultMount(TagInput, { inputValue: 'tag' }, { onFocus: onFocusFn });
+    const wrapper = getTagInputDefaultMount({ inputValue: 'tag' }, { onFocus: onFocusFn });
     wrapper.find('input').trigger('focus');
     await wrapper.vm.$nextTick();
     expect(onFocusFn).toHaveBeenCalled();
@@ -497,7 +489,7 @@ describe('TagInput Component', () => {
 
   it('events.remove: remove last tag on keydown Backspace', async () => {
     const onRemoveFn = vi.fn();
-    const wrapper = getTagInputValueMount(TagInput, {}, { onRemove: onRemoveFn });
+    const wrapper = getTagInputValueMount({}, { onRemove: onRemoveFn });
     wrapper.find('input').trigger('keydown.backspace');
     await wrapper.vm.$nextTick();
     expect(onRemoveFn).toHaveBeenCalled();
@@ -515,7 +507,7 @@ describe('TagInput Component', () => {
 
   it('events.remove: remove any tag on click tag close icon', async () => {
     const onRemoveFn = vi.fn();
-    const wrapper = getTagInputValueMount(TagInput, {}, { onRemove: onRemoveFn });
+    const wrapper = getTagInputValueMount({}, { onRemove: onRemoveFn });
     wrapper.find('.t-tag__icon-close').trigger('click');
     await wrapper.vm.$nextTick();
     expect(onRemoveFn).toHaveBeenCalled();

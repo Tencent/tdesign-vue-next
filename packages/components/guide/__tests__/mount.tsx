@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils';
 import GuideContent from './GuideContent';
+import { Guide } from '@tdesign/components/guide';
 
 const STEPS = [
   {
@@ -23,7 +24,7 @@ const STEPS = [
 ];
 
 // only one step
-export function getGuideDefaultMount(Guide, props = {}, events) {
+export function getGuideDefaultMount(props = {}, events) {
   const slots = props['v-slots'];
   delete props['v-slots'];
 
@@ -43,7 +44,7 @@ export function getGuideDefaultMount(Guide, props = {}, events) {
 }
 
 // three steps
-export function getGuideMultipleStepsMount(Guide, props = {}, events) {
+export function getGuideMultipleStepsMount(props = {}, events) {
   const slots = props['v-slots'];
   delete props['v-slots'];
 
@@ -63,7 +64,7 @@ export function getGuideMultipleStepsMount(Guide, props = {}, events) {
 }
 
 // custom step props; only one step
-export function getCustomGuideStepMount(Guide, props = {}) {
+export function getCustomGuideStepMount(props = {}) {
   const slots = props['v-slots'];
   delete props['v-slots'];
 
@@ -85,7 +86,7 @@ export function getCustomGuideStepMount(Guide, props = {}) {
 }
 
 // custom multiple step props
-export function getCustomMultipleGuideStepMount(Guide, props = {}) {
+export function getCustomMultipleGuideStepMount(props = {}) {
   const slots = props['v-slots'];
   delete props['v-slots'];
 

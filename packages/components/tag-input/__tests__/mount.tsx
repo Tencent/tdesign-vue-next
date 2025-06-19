@@ -1,7 +1,8 @@
 import { mount } from '@vue/test-utils';
+import { TagInput } from '@tdesign/components';
 
 // empty value
-export function getTagInputDefaultMount(TagInput, props = {}, events) {
+export function getTagInputDefaultMount(props = {}, events) {
   const slots = props['v-slots'];
   // eslint-disable-next-line
   delete props['v-slots'];
@@ -10,7 +11,7 @@ export function getTagInputDefaultMount(TagInput, props = {}, events) {
 }
 
 // with default value
-export function getTagInputValueMount(TagInput, props = {}, events) {
+export function getTagInputValueMount(props = {}, events) {
   const slots = props['v-slots'];
   // eslint-disable-next-line
   delete props['v-slots'];

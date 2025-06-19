@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
-import { Timeline, TimelineItem } from '@tdesign/components/timeline';
+import { Timeline, TimelineItem } from '@tdesign/components';
 
-export function getTimelineDefaultMount(Timeline, props, events) {
+export function getTimelineDefaultMount(props, events) {
   return mount(
     <Timeline {...props} {...events}>
       <TimelineItem label="2022-01-01">Event1</TimelineItem>
@@ -15,7 +15,7 @@ export function getTimelineDefaultMount(Timeline, props, events) {
 }
 
 // labelAlign 优先级比较
-export function getTimelineItemMount(TimelineItem, props) {
+export function getTimelineItemMount(props) {
   return mount(
     <Timeline labelAlign="right">
       <TimelineItem {...props} label="2022-01-01">
