@@ -1,0 +1,231 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Link Component > props.content works fine 1`] = `
+<a
+  class="t-link t-link--theme-default t-link--hover-underline"
+>
+  <!---->
+  <span
+    class="custom-node"
+  >
+    TNode
+  </span>
+  <!---->
+</a>
+`;
+
+exports[`Link Component > props.default works fine 1`] = `
+<a
+  class="t-link t-link--theme-default t-link--hover-underline"
+>
+  <!---->
+  <span
+    class="custom-node"
+  >
+    TNode
+  </span>
+  <!---->
+</a>
+`;
+
+exports[`Link Component > props.disabled works fine 1`] = `
+<a
+  class="t-link t-link--theme-default t-is-disabled"
+>
+  <!---->
+  
+  Text
+  
+  <!---->
+</a>
+`;
+
+exports[`Link Component > props.disabled works fine 2`] = `
+<a
+  class="t-link t-link--theme-default t-link--hover-underline"
+>
+  <!---->
+  
+  Text
+  
+  <!---->
+</a>
+`;
+
+exports[`Link Component > props.hover is equal to color 1`] = `
+<a
+  class="t-link t-link--theme-default t-link--hover-color"
+>
+  <!---->
+  
+  Text
+  
+  <!---->
+</a>
+`;
+
+exports[`Link Component > props.hover is equal to underline 1`] = `
+<a
+  class="t-link t-link--theme-default t-link--hover-underline"
+>
+  <!---->
+  
+  Text
+  
+  <!---->
+</a>
+`;
+
+exports[`Link Component > props.href works fine 1`] = `
+<a
+  class="t-link t-link--theme-default t-link--hover-underline"
+  href="https://tdesign.tencent.com/"
+>
+  <!---->
+  
+  Text
+  
+  <!---->
+</a>
+`;
+
+exports[`Link Component > props.size is equal to large 1`] = `
+<a
+  class="t-link t-link--theme-default t-size-l t-link--hover-underline"
+>
+  <!---->
+  
+  Text
+  
+  <!---->
+</a>
+`;
+
+exports[`Link Component > props.size is equal to medium 1`] = `
+<a
+  class="t-link t-link--theme-default t-link--hover-underline"
+>
+  <!---->
+  
+  Text
+  
+  <!---->
+</a>
+`;
+
+exports[`Link Component > props.size is equal to small 1`] = `
+<a
+  class="t-link t-link--theme-default t-size-s t-link--hover-underline"
+>
+  <!---->
+  
+  Text
+  
+  <!---->
+</a>
+`;
+
+exports[`Link Component > props.target works fine 1`] = `
+<a
+  class="t-link t-link--theme-default t-link--hover-underline"
+  target="_blank"
+>
+  <!---->
+  
+  Text
+  
+  <!---->
+</a>
+`;
+
+exports[`Link Component > props.theme is equal to danger 1`] = `
+<a
+  class="t-link t-link--theme-danger t-link--hover-underline"
+>
+  <!---->
+  
+  Text
+  
+  <!---->
+</a>
+`;
+
+exports[`Link Component > props.theme is equal to default 1`] = `
+<a
+  class="t-link t-link--theme-default t-link--hover-underline"
+>
+  <!---->
+  
+  Text
+  
+  <!---->
+</a>
+`;
+
+exports[`Link Component > props.theme is equal to primary 1`] = `
+<a
+  class="t-link t-link--theme-primary t-link--hover-underline"
+>
+  <!---->
+  
+  Text
+  
+  <!---->
+</a>
+`;
+
+exports[`Link Component > props.theme is equal to success 1`] = `
+<a
+  class="t-link t-link--theme-success t-link--hover-underline"
+>
+  <!---->
+  
+  Text
+  
+  <!---->
+</a>
+`;
+
+exports[`Link Component > props.theme is equal to warning 1`] = `
+<a
+  class="t-link t-link--theme-warning t-link--hover-underline"
+>
+  <!---->
+  
+  Text
+  
+  <!---->
+</a>
+`;
+
+exports[`Link Component > slots.content works fine 1`] = `
+<a
+  class="t-link t-link--theme-default t-link--hover-underline"
+>
+  <!---->
+  
+  <span
+    class="custom-node"
+  >
+    TNode
+  </span>
+  
+  <!---->
+</a>
+`;
+
+exports[`Link Component > slots.default works fine 1`] = `
+<a
+  class="t-link t-link--theme-default t-link--hover-underline"
+>
+  <!---->
+  
+  <span
+    class="custom-node"
+  >
+    TNode
+  </span>
+  
+  <!---->
+</a>
+`;
