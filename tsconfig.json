@@ -11,7 +11,7 @@
     "moduleResolution": "bundler",
     "baseUrl": "./",
     "resolveJsonModule": true,
-    "types": ["vitest/globals"],
+    "types": ["vitest/globals", "lodash"],
 
     /* JavaScript Support */
     "allowJs": true,
