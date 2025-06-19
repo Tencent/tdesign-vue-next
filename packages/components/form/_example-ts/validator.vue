@@ -129,8 +129,13 @@ const rules: FormProps['rules'] = {
   email: [
     {
       required: true,
+      message: '邮箱必填',
+      type: 'error',
+    },
+    {
+      email: { ignore_max_length: true },
       message: '格式必须为邮箱',
-      type: 'warning',
+      type: 'error',
     },
   ],
   age: [
