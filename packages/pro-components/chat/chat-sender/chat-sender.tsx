@@ -242,14 +242,14 @@ export default defineComponent({
     };
     return () => (
       <div class={`${COMPONENT_NAME.value}-sender`}>
-        <div class={`${COMPONENT_NAME.value}-sender__header`}>{renderHeader()}</div>
+        {/* <div class={`${COMPONENT_NAME.value}-sender__header`}>{renderHeader()}</div> */}
         <div
           class={[
             `${COMPONENT_NAME.value}-sender__textarea`,
             focusFlag.value ? `${COMPONENT_NAME.value}-sender__textarea--focus` : '',
           ]}
         >
-          <div class={`${COMPONENT_NAME.value}-sender__inner-header`}>{renderTNodeJSX('inner-header')}</div>
+          <div class={`${COMPONENT_NAME.value}-sender__inner-header`}>{renderHeader()}</div>
           <Textarea
             ref={senderTextarea}
             value={textValue.value}
