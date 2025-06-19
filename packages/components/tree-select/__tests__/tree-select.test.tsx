@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { expect, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import TreeSelect from '@tdesign/components/tree-select';

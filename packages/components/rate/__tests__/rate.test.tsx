@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { mount } from '@vue/test-utils';
 import Rate from '@tdesign/components/rate';
 import { expect } from 'vitest';

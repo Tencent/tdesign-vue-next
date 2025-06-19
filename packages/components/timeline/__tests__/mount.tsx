@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { mount } from '@vue/test-utils';
 import { Timeline, TimelineItem } from '@tdesign/components';
 

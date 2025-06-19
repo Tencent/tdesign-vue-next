@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { mount } from '@vue/test-utils';
 import { Button, Space } from '@tdesign/components';
 

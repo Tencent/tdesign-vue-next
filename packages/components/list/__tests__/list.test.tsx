@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { mount } from '@vue/test-utils';
 import { describe, expect, vi, it } from 'vitest';
 import { List, ListItem, ListItemMeta } from '@tdesign/components/list';

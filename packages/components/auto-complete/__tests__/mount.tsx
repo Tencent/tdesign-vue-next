@@ -1,7 +1,8 @@
 import { mount } from '@vue/test-utils';
 import { AutoComplete } from '@tdesign/components';
+import { TdAutoCompleteProps } from '@tdesign/components/auto-complete/type';
 
-export function getNormalAutoCompleteMount(props, events = {}) {
+export function getNormalAutoCompleteMount(props: TdAutoCompleteProps = {}, events = {}) {
   // 5 different options
   const options = [
     'FirstKeyword',
@@ -22,7 +23,7 @@ export function getNormalAutoCompleteMount(props, events = {}) {
   return mount(<AutoComplete value="" options={options} {...props} {...events} />);
 }
 
-export function getOptionSlotAutoCompleteMount(props, events) {
+export function getOptionSlotAutoCompleteMount(props: TdAutoCompleteProps = {}, events = {}) {
   const options = ['First', 'Second'];
   return mount(
     <AutoComplete
@@ -31,7 +32,9 @@ export function getOptionSlotAutoCompleteMount(props, events) {
       {...props}
       {...events}
       v-slots={{
-        option: ({ option }) => <div class="custom-slot-option">{`${option.text} Keyword`}</div>,
+        option: ({ option }: { option: { text: string } }) => (
+          <div class="custom-slot-option">{`${option.text} Keyword`}</div>
+        ),
       }}
     />,
   );

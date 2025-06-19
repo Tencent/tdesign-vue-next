@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { mount } from '@vue/test-utils';
 import GuideContent from './GuideContent';
 import { Guide } from '@tdesign/components/guide';

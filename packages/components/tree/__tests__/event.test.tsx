@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* eslint-disable vue/order-in-components */
 import { mount } from '@vue/test-utils';
 import Tree from '@tdesign/components/tree';

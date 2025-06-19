@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { mount } from '@vue/test-utils';
 import Cascader from '@tdesign/components/cascader';
 

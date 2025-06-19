@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { mount } from '@vue/test-utils';
 import Tree from '@tdesign/components/tree';
 import { delay, step } from './kit';

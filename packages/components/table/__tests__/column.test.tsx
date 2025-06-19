@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { mount } from '@vue/test-utils';
 import { Table, BaseTable, PrimaryTable, EnhancedTable } from '@tdesign/components/table';
 

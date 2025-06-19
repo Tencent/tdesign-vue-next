@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* eslint-disable vue/one-component-per-file */
 import { mount } from '@vue/test-utils';
 import Tree from '@tdesign/components/tree';

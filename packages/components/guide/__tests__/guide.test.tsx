@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
 import {
@@ -147,12 +148,12 @@ describe('Guide Component', () => {
   it(`props.highlightPadding is equal to 32`, async () => {
     getGuideDefaultMount({ highlightPadding: 32 });
     await mockDelay(200);
-    const domWrapper = document.querySelector('.t-guide__highlight--mask');
+    const domWrapper = document.querySelector('.t-guide__highlight--mask') as HTMLElement;
     expect(domWrapper.style.width).toBe('64px');
     expect(domWrapper.style.height).toBe('64px');
     expect(domWrapper.style.top).toBe('-32px');
     expect(domWrapper.style.left).toBe('-32px');
-    const domWrapper1 = document.querySelector('.t-guide__reference');
+    const domWrapper1 = document.querySelector('.t-guide__reference') as HTMLElement;
     expect(domWrapper1.style.width).toBe('64px');
     expect(domWrapper1.style.height).toBe('64px');
     expect(domWrapper1.style.top).toBe('-32px');
@@ -216,9 +217,9 @@ describe('Guide Component', () => {
   it(`props.zIndex is equal to 5000`, async () => {
     getGuideDefaultMount({ zIndex: 5000 });
     await mockDelay(200);
-    const domWrapper = document.querySelector('.t-guide__overlay');
+    const domWrapper = document.querySelector('.t-guide__overlay') as HTMLElement;
     expect(domWrapper.style.zIndex).toBe('4998');
-    const domWrapper1 = document.querySelector('.t-guide__highlight--mask');
+    const domWrapper1 = document.querySelector('.t-guide__highlight--mask') as HTMLElement;
     expect(domWrapper1.style.zIndex).toBe('4999');
   });
 
@@ -226,7 +227,7 @@ describe('Guide Component', () => {
     const onChangeFn = vi.fn();
     const wrapper = getGuideMultipleStepsMount({ current: 0 }, { onChange: onChangeFn });
     await mockDelay(200);
-    document.querySelector('.t-guide__next').click();
+    (document.querySelector('.t-guide__next') as HTMLElement).click();
     await wrapper.vm.$nextTick();
     expect(onChangeFn).toHaveBeenCalled();
     expect(onChangeFn.mock.calls[0][0]).toBe(1);
@@ -238,7 +239,7 @@ describe('Guide Component', () => {
     const onChangeFn = vi.fn();
     const wrapper = getGuideMultipleStepsMount({ current: 1 }, { onChange: onChangeFn });
     await mockDelay(200);
-    document.querySelector('.t-guide__prev').click();
+    (document.querySelector('.t-guide__prev') as HTMLElement).click();
     await wrapper.vm.$nextTick();
     expect(onChangeFn).toHaveBeenCalled();
     expect(onChangeFn.mock.calls[0][0]).toBe(0);
@@ -250,7 +251,7 @@ describe('Guide Component', () => {
     const onFinishFn = vi.fn();
     const wrapper = getGuideMultipleStepsMount({ current: 2 }, { onFinish: onFinishFn });
     await mockDelay(200);
-    document.querySelector('.t-guide__finish').click();
+    (document.querySelector('.t-guide__finish') as HTMLElement).click();
     await wrapper.vm.$nextTick();
     expect(onFinishFn).toHaveBeenCalled();
     expect(onFinishFn.mock.calls[0][0].current).toBe(2);
@@ -262,7 +263,7 @@ describe('Guide Component', () => {
     const onNextStepClickFn = vi.fn();
     const wrapper = getGuideMultipleStepsMount({ current: 1 }, { onNextStepClick: onNextStepClickFn });
     await mockDelay(200);
-    document.querySelector('.t-guide__next').click();
+    (document.querySelector('.t-guide__next') as HTMLElement).click();
     await wrapper.vm.$nextTick();
     expect(onNextStepClickFn).toHaveBeenCalled();
     expect(onNextStepClickFn.mock.calls[0][0].current).toBe(1);
@@ -275,7 +276,7 @@ describe('Guide Component', () => {
     const onPrevStepClickFn = vi.fn();
     const wrapper = getGuideMultipleStepsMount({ current: 1 }, { onPrevStepClick: onPrevStepClickFn });
     await mockDelay(200);
-    document.querySelector('.t-guide__prev').click();
+    (document.querySelector('.t-guide__prev') as HTMLElement).click();
     await wrapper.vm.$nextTick();
     expect(onPrevStepClickFn).toHaveBeenCalled();
     expect(onPrevStepClickFn.mock.calls[0][0].current).toBe(1);
@@ -288,7 +289,7 @@ describe('Guide Component', () => {
     const onSkipFn = vi.fn();
     const wrapper = getGuideMultipleStepsMount({ current: 0 }, { onSkip: onSkipFn });
     await mockDelay(200);
-    document.querySelector('.t-guide__skip').click();
+    (document.querySelector('.t-guide__skip') as HTMLElement).click();
     await wrapper.vm.$nextTick();
     expect(onSkipFn).toHaveBeenCalled();
     expect(onSkipFn.mock.calls[0][0].current).toBe(0);
@@ -366,12 +367,12 @@ describe('Guide Component', () => {
   it(`GuideStep.highlightPadding is equal to 32`, async () => {
     getCustomGuideStepMount({ highlightPadding: 32 });
     await mockDelay(200);
-    const domWrapper = document.querySelector('.t-guide__highlight--mask');
+    const domWrapper = document.querySelector('.t-guide__highlight--mask') as HTMLElement;
     expect(domWrapper.style.width).toBe('64px');
     expect(domWrapper.style.height).toBe('64px');
     expect(domWrapper.style.top).toBe('-32px');
     expect(domWrapper.style.left).toBe('-32px');
-    const domWrapper1 = document.querySelector('.t-guide__reference');
+    const domWrapper1 = document.querySelector('.t-guide__reference') as HTMLElement;
     expect(domWrapper1.style.width).toBe('64px');
     expect(domWrapper1.style.height).toBe('64px');
     expect(domWrapper1.style.top).toBe('-32px');

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { getDataValues, cloneTreeWithFilter, getLefCount } from '@tdesign/components/transfer/utils';
 
 describe('Transfer', () => {

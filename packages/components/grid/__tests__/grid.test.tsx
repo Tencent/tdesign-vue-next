@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { mount } from '@vue/test-utils';
 import { it, expect, describe } from 'vitest';
 import { Row, Col } from '@tdesign/components/grid';

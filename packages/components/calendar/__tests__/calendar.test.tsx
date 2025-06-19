@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { mount } from '@vue/test-utils';
 import { expect, it, vi } from 'vitest';
 import MockDate from 'mockdate';

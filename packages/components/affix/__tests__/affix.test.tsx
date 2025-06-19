@@ -1,5 +1,5 @@
-import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
+import { mount } from '@vue/test-utils';
 import { beforeEach, expect, it, vi } from 'vitest';
 import { Affix } from '@tdesign/components/affix';
 
@@ -8,7 +8,10 @@ describe('Affix', () => {
     expect(true).toEqual(true);
   });
 
-  vi.spyOn(window, 'requestAnimationFrame').mockImplementation((cb) => cb());
+  vi.spyOn(window, 'requestAnimationFrame').mockImplementation((cb) => {
+    cb(performance.now());
+    return 1;
+  });
 
   describe('Test the state of the container under the window', () => {
     const offsetTop = 10;
@@ -24,7 +27,8 @@ describe('Affix', () => {
         );
       },
     });
-    const { affixRef } = wrapper.vm.$refs;
+    // TODO PAOPAO need refactor
+    const { affixRef } = wrapper.vm.$refs as { affixRef: { affixWrapRef: any; scrollContainer: HTMLElement } };
     // 模拟 affixWrap 的位置
     vi.spyOn(affixRef.affixWrapRef, 'getBoundingClientRect').mockImplementation(() => ({
       top: 5,
@@ -65,13 +69,19 @@ describe('Affix', () => {
 
     const wrapper = mount({
       methods: {
+        // TODO PAOPAO need refactor
+        // @ts-ignore
         container() {
-          return this.$refs?.container;
+          // TODO PAOPAO need refactor
+          // @ts-ignore
+          return (this.$refs as any)?.container;
         },
       },
       render() {
         return (
           <div class="container" ref="container">
+            {/* // TODO PAOPAO need refactor */}
+            {/* @ts-ignore */}
             <Affix ref="affixRef" container={this.container} offsetTop={offsetTop}>
               <div style="width: 100px; height: 20px">hello world</div>
             </Affix>
@@ -80,7 +90,10 @@ describe('Affix', () => {
       },
     });
 
-    const { affixRef } = wrapper.vm.$refs;
+    // TODO PAOPAO need refactor
+    const { affixRef } = wrapper.vm.$refs as {
+      affixRef: { affixWrapRef: any; scrollContainer: any; handleScroll: () => void };
+    };
 
     it('Test get container', async () => {
       await nextTick();

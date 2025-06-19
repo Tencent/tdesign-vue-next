@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { mount } from '@vue/test-utils';
 import { Input, InputGroup } from '@tdesign/components/input';
 

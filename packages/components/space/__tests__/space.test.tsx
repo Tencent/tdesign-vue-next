@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { getSpaceDefaultMount } from './mount';
 import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { mount } from '@vue/test-utils';
 import { Radio, RadioGroup } from '@tdesign/components/radio';
 
