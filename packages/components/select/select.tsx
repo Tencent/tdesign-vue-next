@@ -3,7 +3,7 @@ import { get, isArray, debounce, cloneDeep, isFunction, intersection, pick as pi
 
 import FakeArrow from '../common-components/fake-arrow';
 import SelectInput from '../select-input';
-import SelectPanel from './select-panel';
+import SelectPanel from './components/select-panel';
 import Tag from '../tag';
 import props from './props';
 // hooks

@@ -5,7 +5,6 @@ import Text from './text';
 
 export default defineComponent({
   name: 'TTypography',
-
   setup() {
     const renderTNodeJSX = useTNodeJSX();
     return () => {

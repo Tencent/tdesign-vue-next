@@ -92,7 +92,10 @@ const rules = {
     { max: 6, message: '输入字数应在3到6之间', type: 'error', trigger: 'blur' },
   ],
   password: [{ required: true, message: '密码必填', type: 'error' }],
-  email: [{ required: true, message: '格式必须为邮箱', type: 'warning' }],
+  email: [
+    { required: true, message: '邮箱必填', type: 'error' },
+    { email: { ignore_max_length: true }, message: '格式必须为邮箱', type: 'error' },
+  ],
   age: [
     { required: true, message: '年龄必填', type: 'error' },
     { number: true, message: '请输入数字', type: 'warning' },

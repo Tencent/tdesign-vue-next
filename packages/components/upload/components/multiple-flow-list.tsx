@@ -19,7 +19,7 @@ import ImageViewer, { ImageViewerProps } from '../../image-viewer';
 import { CommonDisplayFileProps } from '../types';
 import { commonProps } from '../consts';
 import TButton from '../../button';
-import { UploadFile, TdUploadProps } from '../type';
+import { UploadFile, TdUploadProps } from '../types';
 import useDrag, { UploadDragEvents } from '../hooks/useDrag';
 import {
   abridgeName,

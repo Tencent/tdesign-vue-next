@@ -317,6 +317,7 @@ export default defineComponent({
       const d = dayjs(cellData.date);
       if (props.multiple) {
         if (state.curDateList.find((item) => item.isSame(d))) {
+          // @ts-ignore @types/lodash 4.17.18
           state.curDateList = remove(state.curDateList, (item) => !item.isSame(d));
         } else {
           state.curDateList.push(d);
