@@ -2,17 +2,21 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { TdAlertProps } from './type';
 import { PropType } from 'vue';
 
 export default {
-  /** 关闭按钮。值为 true 则显示默认关闭按钮；值为 false 则不显示按钮；值类型为 string 则直接显示；值类型为 Function 则可以自定关闭按钮 */
+  /** 即将废弃，请使用 closeBtn 属性。关闭按钮。值为 true 则显示默认关闭按钮；值为 false 则不显示按钮；值类型为 string 则直接显示；值类型为 Function 则可以自定关闭按钮 */
   close: {
     type: [String, Boolean, Function] as PropType<TdAlertProps['close']>,
-    default: false,
+    default: false as TdAlertProps['close'],
+  },
+  /** 关闭按钮。值为 true 则显示默认关闭按钮；值为 false 则不显示按钮；值类型为 string 则直接显示；值类型为 Function 则可以自定关闭按钮 */
+  closeBtn: {
+    type: [String, Boolean, Function] as PropType<TdAlertProps['closeBtn']>,
+    default: false as TdAlertProps['closeBtn'],
   },
   /** 内容，同 message */
   default: {
@@ -40,6 +44,7 @@ export default {
     type: String as PropType<TdAlertProps['theme']>,
     default: 'info' as TdAlertProps['theme'],
     validator(val: TdAlertProps['theme']): boolean {
+      if (!val) return true;
       return ['success', 'info', 'warning', 'error'].includes(val);
     },
   },
