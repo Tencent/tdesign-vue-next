@@ -1,5 +1,5 @@
 import { computed, Slots, Ref, ref } from 'vue';
-import { get, omit, isArray, isFunction } from 'lodash-es';
+import { get, omit, isArray, isFunction, uniqBy } from 'lodash-es';
 
 import { useChildComponentSlots } from '@tdesign/shared-hooks';
 import { TdSelectProps, TdOptionProps, SelectOptionGroup, SelectValue, SelectOption } from '../type';
@@ -10,7 +10,12 @@ type UniOption = (TdOptionProps | SelectOptionGroup) & {
   slots?: Slots;
 };
 
-export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inputValue: Ref<string>) => {
+export const useSelectOptions = (
+  props: TdSelectProps,
+  keys: Ref<KeysType>,
+  inputValue: Ref<string>,
+  innerValue: Ref<SelectValue[]>,
+) => {
   const getChildComponentSlots = useChildComponentSlots();
   const optionsCache = ref<SelectOption[]>([]);
 
@@ -110,8 +115,36 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inpu
     return option.label?.toLowerCase?.().indexOf(`${inputValue.value}`.toLowerCase()) > -1;
   };
 
+  const checkedAllOptionsList = ref<TdOptionProps[]>([]);
+
   const displayOptions = computed(() => {
-    if (props.onSearch && props.filterable) return options.value; // 远程搜索时，不执行内部的过滤，不干预用户的自行处理，如输入首字母搜索中文的场景等
+    if (props.onSearch && props.filterable) {
+      const getSelectedOptions = (selectValue: SelectValue[] | SelectValue = innerValue.value) => {
+        return optionsList.value.filter((option) => {
+          if (option.checkAll) return;
+          if (isArray(selectValue)) return selectValue.includes(option.value);
+          return selectValue === option.value;
+        });
+      };
+      const checkedOptionsList = getSelectedOptions(innerValue.value);
+
+      checkedAllOptionsList.value = uniqBy([...checkedAllOptionsList.value, ...checkedOptionsList], keys.value.value);
+
+      // const getSelectedShowOptions = (selectValue: SelectValue[] | SelectValue = innerValue.value) => {
+      //   return checkedAllOptionsList.value.filter((option) => {
+      //     if (option.checkAll) return;
+      //     if (isArray(selectValue)) return selectValue.includes(option.value);
+      //     return selectValue === option.value;
+      //   });
+      // };
+      // console.log('getSelectedShowOptions', getSelectedShowOptions(innerValue.value));
+
+      // console.log(
+      //   'checkedAllOptionsList',
+      //   uniqBy([...checkedAllOptionsList.value, ...optionsList.value], keys.value.value),
+      // );
+      return uniqBy([...checkedAllOptionsList.value, ...optionsList.value], keys.value.value);
+    }
 
     if (!inputValue.value || !(props.filterable || isFunction(props.filter))) return options.value;
 

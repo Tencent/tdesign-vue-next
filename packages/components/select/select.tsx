@@ -59,11 +59,6 @@ export default defineComponent({
       value: props.keys?.value || 'value',
       disabled: props.keys?.disabled || 'disabled',
     }));
-    const { optionsMap, optionsList, optionsCache, displayOptions, filterMethods } = useSelectOptions(
-      props,
-      keys,
-      innerInputValue,
-    );
 
     // 内部数据,格式化过的
     const innerValue = computed(() => {
@@ -81,6 +76,13 @@ export default defineComponent({
       }
       return orgValue.value;
     });
+
+    const { optionsMap, optionsList, optionsCache, displayOptions, filterMethods } = useSelectOptions(
+      props,
+      keys,
+      innerInputValue,
+      innerValue,
+    );
 
     const setInnerValue: TdSelectProps['onChange'] = (newVal: SelectValue | SelectValue[], context) => {
       if (props.valueType === 'object') {
