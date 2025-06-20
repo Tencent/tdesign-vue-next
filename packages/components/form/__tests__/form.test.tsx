@@ -9,22 +9,18 @@ import { sleep } from '@tdesign/internal-utils';
 
 describe('Form', () => {
   describe('props', () => {
-    let wrapper: VueWrapper = null;
+    let wrapper: VueWrapper<InstanceType<typeof Form>> | null = null;
     beforeEach(() => {
-      wrapper = mount({
-        setup() {
-          return () => (
-            <Form>
-              <FormItem label="姓名" name="name">
-                <Input placeholder="请输入内容" />
-              </FormItem>
-              <FormItem label="接收短信" name="status">
-                <Switch />
-              </FormItem>
-            </Form>
-          );
-        },
-      });
+      wrapper = mount(
+        <Form>
+          <FormItem label="姓名" name="name">
+            <Input placeholder="请输入内容" />
+          </FormItem>
+          <FormItem label="接收短信" name="status">
+            <Switch />
+          </FormItem>
+        </Form>,
+      ) as VueWrapper<InstanceType<typeof Form>>;
     });
 
     it(':colon[boolean]', async () => {
@@ -115,24 +111,18 @@ describe('Form', () => {
     it(':resetType[empty/initial]', async () => {
       const rules = { name: [{ required: true }] };
       const formData = ref({ name: 'defaultName' });
-      const wrapper = mount({
-        setup() {
-          return () => (
-            <Form rules={rules} data={formData.value}>
-              <FormItem label="name" name="name">
-                <Input v-model={formData.value.name} />
-              </FormItem>
-            </Form>
-          );
-        },
-      });
+      const wrapper = mount(
+        <Form rules={rules} data={formData.value}>
+          <FormItem label="name" name="name">
+            <Input v-model={formData.value.name} />
+          </FormItem>
+        </Form>,
+      );
       const form = wrapper.findComponent(Form);
       expect(formData.value.name).eq('defaultName');
       form.vm.$.exposed.reset();
       expect(formData.value.name).eq('');
 
-      // @ts-ignore
-      // TODO ??
       await wrapper.setProps({ resetType: 'initial' });
       form.vm.$.exposed.reset();
       expect(formData.value.name).eq('defaultName');
@@ -447,17 +437,13 @@ describe('Form', () => {
     it(':showErrorMessage[boolean]', async () => {
       const rules = { name: [{ required: true, message: '姓名必填' }] };
       const formData = { name: '' };
-      const wrapper = mount({
-        setup() {
-          return () => (
-            <Form rules={rules} data={formData}>
-              <FormItem label="name" name="name">
-                <Input v-model={formData.name} />
-              </FormItem>
-            </Form>
-          );
-        },
-      });
+      const wrapper = mount(
+        <Form rules={rules} data={formData}>
+          <FormItem label="name" name="name">
+            <Input v-model={formData.name} />
+          </FormItem>
+        </Form>,
+      );
 
       await wrapper.findComponent(Form).vm.$.exposed.validate();
       expect(wrapper.find('.t-input__extra').text()).eq('姓名必填');
@@ -471,17 +457,13 @@ describe('Form', () => {
       const rules = { name: [{ required: true }] };
       const formData = ref({ name: '' });
 
-      let wrapper = mount({
-        setup() {
-          return () => (
-            <Form rules={rules} data={formData.value}>
-              <FormItem label="name" name="name">
-                <Input v-model={formData.value.name} />
-              </FormItem>
-            </Form>
-          );
-        },
-      });
+      let wrapper = mount(
+        <Form rules={rules} data={formData.value}>
+          <FormItem label="name" name="name">
+            <Input v-model={formData.value.name} />
+          </FormItem>
+        </Form>,
+      );
 
       // boolean
       let form = wrapper.findComponent(Form);
@@ -495,24 +477,19 @@ describe('Form', () => {
       await form.vm.$.exposed.validate();
       expect(form.findComponent(CheckCircleFilledIcon).exists()).eq(true);
 
-      // function
       await wrapper.setProps({ statusIcon: () => <InfoCircleIcon /> });
       await form.vm.$.exposed.validate();
       expect(form.findComponent(InfoCircleIcon).exists()).eq(true);
 
       // slots
-      wrapper = mount({
-        setup() {
-          return () => (
-            <Form rules={rules} data={formData.value} v-slots={{ statusIcon: () => <InfoCircleIcon /> }}>
-              <FormItem label="name" name="name">
-                <Input v-model={formData.value.name} />
-                {formData.value.name}
-              </FormItem>
-            </Form>
-          );
-        },
-      });
+      wrapper = mount(
+        <Form rules={rules} data={formData.value} v-slots={{ statusIcon: () => <InfoCircleIcon /> }}>
+          <FormItem label="name" name="name">
+            <Input v-model={formData.value.name} />
+            {formData.value.name}
+          </FormItem>
+        </Form>,
+      );
       form = wrapper.findComponent(Form);
       await form.vm.$.exposed.validate();
       expect(form.findComponent(InfoCircleIcon).exists()).eq(true);
@@ -539,20 +516,16 @@ describe('Form', () => {
           data,
         },
         slots: {
-          default: {
-            setup() {
-              return () => (
-                <>
-                  <FormItem label="name" name="name">
-                    <Input v-model={data.value.name} />
-                  </FormItem>
-                  <FormItem label="age" name="age">
-                    <InputNumber v-model={data.value.age} />
-                  </FormItem>
-                </>
-              );
-            },
-          },
+          default: () => (
+            <Fragment>
+              <FormItem label="name" name="name">
+                <Input v-model={data.value.name} />
+              </FormItem>
+              <FormItem label="age" name="age">
+                <InputNumber v-model={data.value.age} />
+              </FormItem>
+            </Fragment>
+          ),
         },
       });
       const form = wrapper.findComponent(Form);
@@ -615,15 +588,11 @@ describe('Form', () => {
           data,
         },
         slots: {
-          default: {
-            setup() {
-              return () => (
-                <FormItem label="name" name="name">
-                  <Input v-model={data.name} />
-                </FormItem>
-              );
-            },
-          },
+          default: () => (
+            <FormItem label="name" name="name">
+              <Input v-model={data.name} />
+            </FormItem>
+          ),
         },
       });
 
@@ -637,13 +606,13 @@ describe('Form', () => {
   });
 
   describe('function', () => {
-    let wrapper;
-    let form;
-    let data;
-    let rules;
-    let onValidate;
-    let onSubmit;
-    let onReset;
+    let wrapper: VueWrapper;
+    let form: VueWrapper;
+    let data: Ref<Record<string, any>>;
+    let rules: any;
+    let onValidate: any;
+    let onSubmit: any;
+    let onReset: any;
 
     beforeEach(() => {
       rules = ref({
@@ -669,20 +638,16 @@ describe('Form', () => {
           onReset,
         },
         slots: {
-          default: {
-            setup() {
-              return () => (
-                <>
-                  <FormItem label="name" name="name">
-                    <Input v-model={data.value.name} />
-                  </FormItem>
-                  <FormItem label="age" name="age">
-                    <InputNumber v-model={data.value.age} />
-                  </FormItem>
-                </>
-              );
-            },
-          },
+          default: () => (
+            <Fragment>
+              <FormItem label="name" name="name">
+                <Input v-model={data.value.name} />
+              </FormItem>
+              <FormItem label="age" name="age">
+                <InputNumber v-model={data.value.age} />
+              </FormItem>
+            </Fragment>
+          ),
         },
       });
       form = wrapper.findComponent(Form);
@@ -890,20 +855,16 @@ describe('Form', () => {
           onReset,
         },
         slots: {
-          default: {
-            setup() {
-              return () => (
-                <>
-                  <FormItem label="name" name="name">
-                    <Input v-model={data.value.name} />
-                  </FormItem>
-                  <FormItem label="age" name="age">
-                    <InputNumber v-model={data.value.age} />
-                  </FormItem>
-                </>
-              );
-            },
-          },
+          default: () => (
+            <Fragment>
+              <FormItem label="name" name="name">
+                <Input v-model={data.value.name} />
+              </FormItem>
+              <FormItem label="age" name="age">
+                <InputNumber v-model={data.value.age} />
+              </FormItem>
+            </Fragment>
+          ),
         },
       });
       form = wrapper.findComponent(Form);
