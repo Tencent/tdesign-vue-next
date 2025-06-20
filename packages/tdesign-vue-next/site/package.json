@@ -4,10 +4,10 @@
   "type": "module",
   "scripts": {
     "start": "pnpm run dev",
-    "dev": "vite",
-    "build": "vite build",
-    "intranet": "vite build --mode intranet",
-    "preview": "vite build --mode preview && cp dist/index.html dist/404.html"
+    "dev": "vite --configLoader runner",
+    "build": "vite build --configLoader runner",
+    "intranet": "vite build --mode intranet --configLoader runner",
+    "preview": "vite build --mode preview --configLoader runner && cp dist/index.html dist/404.html"
   },
   "author": "tdesign",
   "license": "MIT",
