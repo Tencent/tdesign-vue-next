@@ -31,14 +31,8 @@ function createLoading(props: TdLoadingProps): LoadingInstance {
   const component = defineComponent({
     setup() {
       const loadingOptions = reactive(mergedProps);
-      return {
-        loadingOptions,
-      };
-    },
-    render() {
-      return h(LoadingComponent, {
-        ...this.loadingOptions,
-      });
+
+      return () => h(LoadingComponent, loadingOptions);
     },
   });
 
