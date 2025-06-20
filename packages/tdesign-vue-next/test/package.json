@@ -5,7 +5,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "test": "pnpm test:unit && pnpm test:snap",
+    "test": "pnpm run test:unit && pnpm run test:snap && pnpm run test:unit-coverage",
     "test:unit": "vitest run",
     "test:update": "vitest run -u && pnpm test:snap-update",
     "test:unit-dev": "vitest",
