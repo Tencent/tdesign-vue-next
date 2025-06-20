@@ -1,7 +1,7 @@
 import { computed, defineComponent, h, toRefs } from 'vue';
 import { isString, isPlainObject } from 'lodash-es';
 
-import { useConfig, useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
+import { useConfig, useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
 
 import props from './props';
 import type { TdEmptyProps } from './type';

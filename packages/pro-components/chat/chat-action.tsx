@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue';
-import { usePrefixClass, useTNodeJSX } from '@tdesign/hooks';
+import { usePrefixClass, useTNodeJSX } from '@tdesign/shared-hooks';
 import { Button, Space, Tooltip } from 'tdesign-vue-next';
 import { useConfig } from 'tdesign-vue-next/es/config-provider/hooks';
 import {
@@ -10,7 +10,7 @@ import {
   RefreshIcon,
   CopyIcon,
 } from 'tdesign-icons-vue-next';
-// TODO: need refactor
+// TODO: need refactor packages/components/typography/utils/copy-to-clipboard/index.ts???
 import Clipboard from 'clipboard';
 import props from './chat-action-props';
 import { MessagePluginSingleton } from './utils';

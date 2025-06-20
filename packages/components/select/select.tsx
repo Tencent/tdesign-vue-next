@@ -3,7 +3,7 @@ import { get, isArray, debounce, cloneDeep, isFunction, intersection, pick as pi
 
 import FakeArrow from '../common-components/fake-arrow';
 import SelectInput from '../select-input';
-import SelectPanel from './select-panel';
+import SelectPanel from './components/select-panel';
 import Tag from '../tag';
 import props from './props';
 // hooks
@@ -15,7 +15,7 @@ import {
   useTNodeJSX,
   usePrefixClass,
   useDefaultValue,
-} from '@tdesign/hooks';
+} from '@tdesign/shared-hooks';
 
 import { getSingleContent, getMultipleContent } from './utils';
 import { selectInjectKey } from './consts';
@@ -471,7 +471,7 @@ export default defineComponent({
 
     const renderValueDisplay = () => {
       const renderTag = () => {
-        if (!props.multiple) {
+        if (!props.multiple || !props.selectInputProps?.multiple) {
           return undefined;
         }
         const currentSelectedOptions = getCurrentSelectedOptions(innerValue.value);

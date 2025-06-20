@@ -14,12 +14,12 @@ import {
 } from 'tdesign-icons-vue-next';
 import { isObject, isFunction } from 'lodash-es';
 
-import { useTNodeJSX, useGlobalIcon } from '@tdesign/hooks';
+import { useTNodeJSX, useGlobalIcon } from '@tdesign/shared-hooks';
 import ImageViewer, { ImageViewerProps } from '../../image-viewer';
 import { CommonDisplayFileProps } from '../types';
 import { commonProps } from '../consts';
 import TButton from '../../button';
-import { UploadFile, TdUploadProps } from '../type';
+import { UploadFile, TdUploadProps } from '../types';
 import useDrag, { UploadDragEvents } from '../hooks/useDrag';
 import {
   abridgeName,

@@ -1,4 +1,4 @@
-import { useConfig } from '@tdesign/hooks';
+import { useConfig } from '@tdesign/shared-hooks';
 
 import { getWeeks, getYears, getMonths, getQuarters, flagActive } from '@tdesign/common-js/date-picker/utils';
 

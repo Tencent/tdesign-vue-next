@@ -1,5 +1,5 @@
 import { defineComponent, computed } from 'vue';
-import { useTNodeJSX, usePrefixClass } from '@tdesign/hooks';
+import { useTNodeJSX, usePrefixClass } from '@tdesign/shared-hooks';
 
 import inputGroupProps from './input-group-props';
 

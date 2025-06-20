@@ -9,7 +9,7 @@ import {
   useReadonly,
   usePrefixClass,
   useCommonClassName,
-} from '@tdesign/hooks';
+} from '@tdesign/shared-hooks';
 
 import { CheckboxGroupInjectionKey } from './consts';
 import useCheckboxLazyLoad from './hooks/useCheckboxLazyLoad';

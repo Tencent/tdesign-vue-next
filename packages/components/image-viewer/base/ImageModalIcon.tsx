@@ -1,5 +1,5 @@
 import { computed, defineComponent, PropType } from 'vue';
-import { useTNodeJSX, usePrefixClass } from '@tdesign/hooks';
+import { useTNodeJSX, usePrefixClass } from '@tdesign/shared-hooks';
 import { TNode } from '../../common';
 
 export default defineComponent({

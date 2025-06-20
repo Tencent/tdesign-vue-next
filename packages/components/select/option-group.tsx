@@ -1,5 +1,5 @@
 import { defineComponent, inject, computed } from 'vue';
-import { useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
+import { useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
 import props from './option-group-props';
 
 import { selectInjectKey } from './consts';

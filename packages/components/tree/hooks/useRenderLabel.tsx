@@ -1,7 +1,7 @@
 import { isBoolean } from 'lodash-es';
-import { usePrefixClass, TypeCreateElement, computed, TCheckBox, TypeVNode } from '../adapt';
-import { TypeTreeItemState } from '../tree-types';
-import { getTNode } from '../util';
+import { usePrefixClass, TypeCreateElement, computed, TCheckBox, TypeVNode } from '../utils/adapt';
+import { TypeTreeItemState } from '../types';
+import { getTNode } from '../utils';
 import useItemEvents from './useItemEvents';
 
 // 渲染节点文本与内容

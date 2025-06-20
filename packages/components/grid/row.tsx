@@ -2,7 +2,7 @@ import { defineComponent, provide, computed, toRefs, reactive } from 'vue';
 import props from './row-props';
 import { useRowSize } from './hooks';
 import { getRowClasses, RowProviderType, calcRowStyle } from './utils';
-import { useTNodeJSX, usePrefixClass } from '@tdesign/hooks';
+import { useTNodeJSX, usePrefixClass } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'TRow',

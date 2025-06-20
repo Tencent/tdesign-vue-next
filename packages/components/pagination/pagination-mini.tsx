@@ -9,7 +9,7 @@ import {
 } from 'tdesign-icons-vue-next';
 
 import props from './pagination-mini-props';
-import { useGlobalIcon, usePrefixClass } from '@tdesign/hooks';
+import { useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
 
 import TButton from '../button';
 

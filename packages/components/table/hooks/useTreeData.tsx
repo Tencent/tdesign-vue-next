@@ -14,8 +14,8 @@ import {
   PrimaryTableCellParams,
 } from '../type';
 import useClassName from './useClassName';
-import { renderCell } from '../tr';
-import { useConfig, useGlobalIcon, useTNodeDefault } from '@tdesign/hooks';
+import { renderCell } from '../components/tr';
+import { useConfig, useGlobalIcon, useTNodeDefault } from '@tdesign/shared-hooks';
 
 import useTreeDataExpand from './useTreeDataExpand';
 

@@ -1,8 +1,8 @@
 import { defineComponent, computed, PropType } from 'vue';
-import { usePrefixClass } from '@tdesign/hooks';
+import { usePrefixClass } from '@tdesign/shared-hooks';
 import props from './paragraph-props';
 import TTooltip from '../tooltip/index';
-import Ellipsis from './ellipsis';
+import Ellipsis from './components/ellipsis';
 
 export default defineComponent({
   name: 'TTypographyParagraph',

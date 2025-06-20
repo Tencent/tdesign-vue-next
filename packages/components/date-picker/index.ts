@@ -2,7 +2,7 @@ import _DatePicker from './DatePicker';
 import _DatePickerPanel from './DatePickerPanel';
 import _DateRangePicker from './DateRangePicker';
 import _DateRangePickerPanel from './DateRangePickerPanel';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 import { TdDatePickerProps, TdDateRangePickerProps, TdDatePickerPanelProps, TdDateRangePickerPanelProps } from './type';
 
 import './style';

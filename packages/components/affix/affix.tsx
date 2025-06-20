@@ -1,10 +1,10 @@
 import { ref, watch, nextTick, onMounted, onBeforeUnmount, defineComponent, onActivated, onDeactivated } from 'vue';
 import { isFunction, isUndefined } from 'lodash-es';
 
-import { on, off, getScrollContainer } from '../utils/dom';
+import { on, off, getScrollContainer } from '@tdesign/shared-utils';
 import props from './props';
 import { ScrollContainerElement } from '../common';
-import { useTNodeJSX, usePrefixClass } from '@tdesign/hooks';
+import { useTNodeJSX, usePrefixClass } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'TAffix',

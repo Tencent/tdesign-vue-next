@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue';
 import props from './header-props';
 
-import { useTNodeJSX, usePrefixClass } from '@tdesign/hooks';
+import { useTNodeJSX, usePrefixClass } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'THeader',

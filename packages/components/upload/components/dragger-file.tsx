@@ -8,7 +8,7 @@ import { TdUploadProps, UploadFile } from '../type';
 import Button from '../../button';
 import { CommonDisplayFileProps } from '../types';
 import { commonProps } from '../consts';
-import { useTNodeJSX, useGlobalIcon, useCommonClassName } from '@tdesign/hooks';
+import { useTNodeJSX, useGlobalIcon, useCommonClassName } from '@tdesign/shared-hooks';
 import TLoading from '../../loading';
 import useDrag, { UploadDragEvents } from '../hooks/useDrag';
 

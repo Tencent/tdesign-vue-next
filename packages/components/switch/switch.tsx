@@ -1,5 +1,5 @@
 import { defineComponent, h, VNodeChild, computed, watch, toRefs } from 'vue';
-import { useVModel, useDisabled, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
+import { useVModel, useDisabled, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
 import TLoading from '../loading';
 import props from './props';
 import { TNodeReturnValue } from '../common';
