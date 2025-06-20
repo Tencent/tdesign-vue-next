@@ -1,45 +1,58 @@
-// @ts-nocheck
-import { nextTick, ref } from 'vue';
-import { mount } from '@vue/test-utils';
+import { nextTick, type Ref, ref, Fragment } from 'vue';
+import { mount, VueWrapper } from '@vue/test-utils';
 import { expect, vi } from 'vitest';
 import { CheckCircleFilledIcon, CloseCircleFilledIcon, InfoCircleIcon } from 'tdesign-icons-vue-next';
 import { omit, isObject } from 'lodash-es';
+import { FormItem, Form, Input, Switch, InputNumber } from '@tdesign/components';
+import { useFormDisabled } from '@tdesign/components/form/hooks';
+import { sleep } from '@tdesign/internal-utils';
 
-import { FormItem, Form } from '@tdesign/components/form';
-import { Input } from '@tdesign/components/input';
-import { InputNumber } from '@tdesign/components/input-number';
-import { useFormDisabled } from '../hooks';
-
-const delay = (time = 0) =>
-  new Promise((res, _) => {
-    setTimeout(() => {
-      res();
-    }, time);
-  });
-
-// every component needs four parts: props/events/slots/functions.
 describe('Form', () => {
-  // test props api
-  describe(':props', () => {
-    let wrapper = null;
+  describe('props', () => {
+    let wrapper: VueWrapper = null;
     beforeEach(() => {
       wrapper = mount({
         setup() {
           return () => (
             <Form>
-              <FormItem label="name" name="name">
+              <FormItem label="姓名" name="name">
                 <Input placeholder="请输入内容" />
+              </FormItem>
+              <FormItem label="接收短信" name="status">
+                <Switch />
               </FormItem>
             </Form>
           );
         },
       });
     });
-    it('exists', () => {
-      expect(wrapper.exists()).eq(true);
+
+    it(':colon[boolean]', async () => {
+      expect(wrapper.find('.t-form__label').element.children.length).eq(1);
+
+      await wrapper.setProps({ colon: true });
+      expect(wrapper.find('.t-form__label').element.childNodes[1].textContent).eq('：');
     });
 
-    it(':labelAlign', async () => {
+    it(':data[object]', async () => {});
+
+    it(':disabled[boolean]', async () => {
+      expect(wrapper.find('.t-input').classes('t-is-disabled')).eq(false);
+
+      await wrapper.setProps({ disabled: true });
+      expect(wrapper.find('.t-input').classes('t-is-disabled')).eq(true);
+    });
+
+    it(':errorMessage[object]', async () => {});
+
+    it(':id[string]', async () => {
+      expect(wrapper.find('.t-form').attributes('id')).eq(undefined);
+      // const id = 'tdesign'
+      // await wrapper.setProps({ id });
+      // expect(wrapper.find('.t-form').attributes('id')).eq(id);
+    });
+
+    it(':labelAlign[string]', async () => {
       expect(wrapper.find('.t-form__label').classes('t-form__label--right')).eq(true);
 
       await wrapper.setProps({ labelAlign: 'top' });
@@ -49,71 +62,59 @@ describe('Form', () => {
       expect(wrapper.find('.t-form__label').classes('t-form__label--left')).eq(true);
     });
 
-    it(':labelWidth', async () => {
-      expect(wrapper.find('.t-form__label').element.style.width).eq('100px');
-      expect(wrapper.find('.t-form__controls').element.style.marginLeft).eq('100px');
+    it(':labelWidth[string/number]', async () => {
+      expect((wrapper.find('.t-form__label').element as HTMLElement).style.width).eq('100px');
+      expect((wrapper.find('.t-form__controls').element as HTMLElement).style.marginLeft).eq('100px');
 
       await wrapper.setProps({ labelWidth: '200px' });
-      expect(wrapper.find('.t-form__label').element.style.width).eq('200px');
-      expect(wrapper.find('.t-form__controls').element.style.marginLeft).eq('200px');
+      expect((wrapper.find('.t-form__label').element as HTMLElement).style.width).eq('200px');
+      expect((wrapper.find('.t-form__controls').element as HTMLElement).style.marginLeft).eq('200px');
+
+      await wrapper.setProps({ labelWidth: 300 });
+      expect((wrapper.find('.t-form__label').element as HTMLElement).style.width).eq('300px');
+      expect((wrapper.find('.t-form__controls').element as HTMLElement).style.marginLeft).eq('300px');
     });
 
-    it(':layout', async () => {
+    it(':layout[vertical/inline]', async () => {
       expect(wrapper.find('.t-form').classes('t-form-inline')).eq(false);
 
       await wrapper.setProps({ layout: 'inline' });
       expect(wrapper.find('.t-form').classes('t-form-inline')).eq(true);
     });
 
-    // it(':colon', async () => {
-    //   expect(window.getComputedStyle(wrapper.find('label').element, '::after').content).eq('none');
+    it(':preventSubmitDefault[boolean]', async () => {
+      const submitEvent = new Event('submit', { bubbles: true, cancelable: true });
+      const preventDefaultSpy = vi.spyOn(submitEvent, 'preventDefault');
+      await wrapper.element.dispatchEvent(submitEvent);
+      expect(preventDefaultSpy).toHaveBeenCalled();
+      preventDefaultSpy.mockRestore();
 
-    //   await wrapper.setProps({ colon: true });
-    //   expect(window.getComputedStyle(wrapper.find('label').element, '::after').content).eq('":"');
-    // });
-
-    it(':showErrorMessage', async () => {
-      const rules = {
-        name: [{ required: true, message: '姓名必填' }],
-      };
-      const formData = {
-        name: '',
-      };
-
-      const wrapper = mount({
-        setup() {
-          return () => (
-            <Form rules={rules} data={formData}>
-              <FormItem label="name" name="name">
-                <Input v-model={formData.name} />
-              </FormItem>
-            </Form>
-          );
-        },
-      });
-      await wrapper.findComponent(Form).vm.$.exposed.validate();
-      expect(wrapper.find('.t-input__extra').text()).eq('姓名必填');
-
-      await wrapper.setProps({ showErrorMessage: false });
-      await wrapper.findComponent(Form).vm.$.exposed.validate();
-      expect(wrapper.find('.t-input__extra').exists()).eq(false);
+      await wrapper.setProps({ preventSubmitDefault: false });
+      await wrapper.element.dispatchEvent(submitEvent);
+      expect(preventDefaultSpy).not.toHaveBeenCalled();
     });
 
-    it(':disabled', async () => {
-      expect(wrapper.find('.t-input').classes('t-is-disabled')).eq(false);
+    it(':readonly[boolean]', async () => {
+      expect(wrapper.find('.t-input').classes('t-is-readonly')).eq(false);
 
-      await wrapper.setProps({ disabled: true });
-      expect(wrapper.find('.t-input').classes('t-is-disabled')).eq(true);
+      await wrapper.setProps({ readonly: true });
+      expect(wrapper.find('.t-input').classes('t-is-readonly')).eq(true);
+
+      // todo
+      // 更进一步可以模拟点击和键盘行为，然后看只读下是否无法输入
     });
 
-    it(':resetType', async () => {
-      const rules = {
-        name: [{ required: true }],
-      };
-      const formData = ref({
-        name: 'defaultName',
-      });
+    it(':requiredMark[boolean] + requiredMarkPosition[left/right]', async () => {
+      const rules = { name: [{ required: true, message: '姓名必填' }] };
+      await wrapper.setProps({ rules });
+      // TODO:JSDOM 不支持伪元素样式的获取，调用 getComputedStyle(el, '::before') 会报错 Not implemented，那怎么测呢
+      // const label = wrapper.find('.t-form-item__name').element;
+      // expect(getComputedStyle(label, '::before').content).toBe('"*"');
+    });
 
+    it(':resetType[empty/initial]', async () => {
+      const rules = { name: [{ required: true }] };
+      const formData = ref({ name: 'defaultName' });
       const wrapper = mount({
         setup() {
           return () => (
@@ -125,79 +126,25 @@ describe('Form', () => {
           );
         },
       });
-
       const form = wrapper.findComponent(Form);
-
       expect(formData.value.name).eq('defaultName');
       form.vm.$.exposed.reset();
       expect(formData.value.name).eq('');
 
+      // @ts-ignore
+      // TODO ??
       await wrapper.setProps({ resetType: 'initial' });
       form.vm.$.exposed.reset();
       expect(formData.value.name).eq('defaultName');
     });
 
-    it(':statusIcon', async () => {
-      const rules = {
-        name: [{ required: true }],
-      };
-      const formData = ref({
-        name: '',
-      });
-
-      let wrapper = mount({
-        setup() {
-          return () => (
-            <Form rules={rules} data={formData.value}>
-              <FormItem label="name" name="name">
-                <Input v-model={formData.value.name} />
-              </FormItem>
-            </Form>
-          );
-        },
-      });
-
-      // boolean
-      let form = wrapper.findComponent(Form);
-      await form.vm.$.exposed.validate();
-      expect(form.find('.t-form__status').exists()).eq(false);
-
-      await wrapper.setProps({ statusIcon: true });
-      await form.vm.$.exposed.validate();
-      expect(form.findComponent(CloseCircleFilledIcon).exists()).eq(true);
-      formData.value.name = 'test';
-      await form.vm.$.exposed.validate();
-      expect(form.findComponent(CheckCircleFilledIcon).exists()).eq(true);
-
-      // function
-      await wrapper.setProps({ statusIcon: () => <InfoCircleIcon /> });
-      await form.vm.$.exposed.validate();
-      expect(form.findComponent(InfoCircleIcon).exists()).eq(true);
-
-      // slots
-      wrapper = mount({
-        setup() {
-          return () => (
-            <Form rules={rules} data={formData.value} v-slots={{ statusIcon: () => <InfoCircleIcon /> }}>
-              <FormItem label="name" name="name">
-                <Input v-model={formData.value.name} />
-                {formData.value.name}
-              </FormItem>
-            </Form>
-          );
-        },
-      });
-      form = wrapper.findComponent(Form);
-      await form.vm.$.exposed.validate();
-      expect(form.findComponent(InfoCircleIcon).exists()).eq(true);
-    });
-
-    describe('rules', () => {
-      let wrapper;
-      let rules;
-      let formData;
-      let form;
+    describe('rules[object]', () => {
+      let wrapper: VueWrapper;
+      let rules: any; // TODO
+      let formData: Ref<Record<string, any>>;
+      let form: VueWrapper;
       let onValidate;
+
       beforeEach(() => {
         rules = ref();
         formData = ref({
@@ -209,34 +156,34 @@ describe('Form', () => {
           attachTo: document.body,
           props: { rules, data: formData, onValidate },
           slots: {
-            default: {
-              setup() {
-                return () => (
-                  <>
-                    <FormItem label="name" name="name">
-                      <InputNumber v-model={formData.value.name} />
-                    </FormItem>
-                    <FormItem label="radio" name="radio"></FormItem>
-                    <FormItem label="time" name="time"></FormItem>
-                  </>
-                );
-              },
-            },
+            default: () => (
+              <Fragment>
+                <FormItem label="name" name="name">
+                  <InputNumber v-model={formData.value.name} />
+                </FormItem>
+                <FormItem label="radio" name="radio"></FormItem>
+                <FormItem label="time" name="time"></FormItem>
+              </Fragment>
+            ),
           },
         });
         form = wrapper.findComponent(Form);
       });
-      const validate = async (...args) => {
+
+      const validate = async (...args: any) => {
         const res = await form.vm.$.exposed.validate(args);
         return res;
       };
-      const reset = (...args) => {
+
+      const reset = (...args: any) => {
         form.vm.$.exposed.reset(args);
       };
-      const expectToFailure = (res) => {
+
+      const expectToFailure = (res: any) => {
         expect(isObject(res)).toBe(true);
       };
-      const expectToSuccess = (res) => {
+
+      const expectToSuccess = (res: any) => {
         expect(res).toBe(true);
       };
 
@@ -436,7 +383,7 @@ describe('Form', () => {
 
         formData.value.name = 'test';
         formData.value.name = undefined;
-        await delay();
+        await sleep(16);
         expect(form.find('.t-input__extra').exists()).toBe(true);
 
         await reset();
@@ -444,14 +391,14 @@ describe('Form', () => {
         rules.value = { name: [{ required: true, trigger: 'blur' }] };
         await form.findComponent(Input).vm.$.exposed.focus();
         await form.findComponent(Input).vm.$.exposed.blur();
-        await delay();
+        await sleep(16);
         expect(form.find('.t-input__extra').exists()).toBe(true);
 
         await reset();
         await nextTick();
         rules.value = { name: [{ required: true, trigger: 'submit' }] };
         await form.trigger('submit');
-        await delay();
+        await sleep(16);
         expect(form.find('.t-input__extra').exists()).toBe(true);
       });
 
@@ -475,8 +422,8 @@ describe('Form', () => {
         expectToSuccess(res);
       });
       it('validator', async () => {
-        const isNumber = (val) => typeof val === 'number';
-        rules.value = { name: [{ validator: (val) => isNumber(val) }] };
+        const isNumber = (val: any) => typeof val === 'number';
+        rules.value = { name: [{ validator: (val: any) => isNumber(val) }] };
         formData.value.name = 'string';
         let res = await validate();
         expectToFailure(res);
@@ -485,20 +432,93 @@ describe('Form', () => {
         res = await validate();
         expectToSuccess(res);
       });
+
       it('whitespace', async () => {
         rules.value = { name: [{ whitespace: true }] };
         formData.value.name = ' ';
         let res = await validate();
         expectToFailure(res);
-
         formData.value.name = '';
         res = await validate();
         expectToSuccess(res);
       });
     });
+
+    it(':showErrorMessage[boolean]', async () => {
+      const rules = { name: [{ required: true, message: '姓名必填' }] };
+      const formData = { name: '' };
+      const wrapper = mount({
+        setup() {
+          return () => (
+            <Form rules={rules} data={formData}>
+              <FormItem label="name" name="name">
+                <Input v-model={formData.name} />
+              </FormItem>
+            </Form>
+          );
+        },
+      });
+
+      await wrapper.findComponent(Form).vm.$.exposed.validate();
+      expect(wrapper.find('.t-input__extra').text()).eq('姓名必填');
+
+      await wrapper.setProps({ showErrorMessage: false });
+      await wrapper.findComponent(Form).vm.$.exposed.validate();
+      expect(wrapper.find('.t-input__extra').exists()).eq(false);
+    });
+
+    it(':statusIcon', async () => {
+      const rules = { name: [{ required: true }] };
+      const formData = ref({ name: '' });
+
+      let wrapper = mount({
+        setup() {
+          return () => (
+            <Form rules={rules} data={formData.value}>
+              <FormItem label="name" name="name">
+                <Input v-model={formData.value.name} />
+              </FormItem>
+            </Form>
+          );
+        },
+      });
+
+      // boolean
+      let form = wrapper.findComponent(Form);
+      await form.vm.$.exposed.validate();
+      expect(form.find('.t-form__status').exists()).eq(false);
+
+      await wrapper.setProps({ statusIcon: true });
+      await form.vm.$.exposed.validate();
+      expect(form.findComponent(CloseCircleFilledIcon).exists()).eq(true);
+      formData.value.name = 'test';
+      await form.vm.$.exposed.validate();
+      expect(form.findComponent(CheckCircleFilledIcon).exists()).eq(true);
+
+      // function
+      await wrapper.setProps({ statusIcon: () => <InfoCircleIcon /> });
+      await form.vm.$.exposed.validate();
+      expect(form.findComponent(InfoCircleIcon).exists()).eq(true);
+
+      // slots
+      wrapper = mount({
+        setup() {
+          return () => (
+            <Form rules={rules} data={formData.value} v-slots={{ statusIcon: () => <InfoCircleIcon /> }}>
+              <FormItem label="name" name="name">
+                <Input v-model={formData.value.name} />
+                {formData.value.name}
+              </FormItem>
+            </Form>
+          );
+        },
+      });
+      form = wrapper.findComponent(Form);
+      await form.vm.$.exposed.validate();
+      expect(form.findComponent(InfoCircleIcon).exists()).eq(true);
+    });
   });
 
-  // test events
   describe('@event', () => {
     it('validate', async () => {
       const rules = {
@@ -543,7 +563,7 @@ describe('Form', () => {
       expect(onValidate.mock.calls[0][0]).toMatchSnapshot();
 
       form.vm.$.exposed.submit();
-      await delay();
+      await sleep(16);
       expect(onValidate).toHaveBeenCalledTimes(2);
       expect(onValidate.mock.calls[1][0]).toMatchSnapshot();
 
@@ -572,7 +592,7 @@ describe('Form', () => {
       expect(onSubmit).not.toBeCalled();
 
       await form.trigger('submit');
-      await delay();
+      await sleep(16);
       expect(onSubmit).toHaveBeenCalledTimes(1);
       expect(onSubmit.mock.calls[0][0].e).toBeInstanceOf(Event);
       expect(omit(onSubmit.mock.calls[0][0], 'e')).toMatchSnapshot();
@@ -616,7 +636,6 @@ describe('Form', () => {
     });
   });
 
-  // test exposure function
   describe('function', () => {
     let wrapper;
     let form;
@@ -790,7 +809,7 @@ describe('Form', () => {
 
     it('submit', async () => {
       await form.vm.$.exposed.submit({ showErrorMessage: false });
-      await delay();
+      await sleep(16);
 
       expect(form.find('.t-input__extra').exists()).eq(false);
       expect(form.find('.t-is-error').exists()).eq(false);
@@ -798,7 +817,7 @@ describe('Form', () => {
       expect(onValidate).toHaveBeenCalledTimes(1);
 
       await form.vm.$.exposed.submit({ showErrorMessage: false });
-      await delay();
+      await sleep(16);
 
       expect(form.findAll('.t-input__extra')).toHaveLength(0);
       expect(form.findAll('.t-is-error')).toHaveLength(0);
@@ -903,7 +922,7 @@ describe('Form', () => {
 
       // reset to empty value & clear style
       form.vm.$.exposed.reset();
-      await delay();
+      await sleep(16);
       expect(onReset).toHaveBeenCalledTimes(1);
       checkDefaultStyle();
       expect(data.value).toMatchObject({ name: '', age: undefined });
@@ -917,7 +936,7 @@ describe('Form', () => {
 
       // reset to initial value & clear style
       form.vm.$.exposed.reset({ type: 'initial' });
-      await delay();
+      await sleep(16);
       expect(onReset).toHaveBeenCalledTimes(2);
       checkDefaultStyle();
       expect(data.value).toMatchObject({ name: 'test', age: 18 });
@@ -933,7 +952,7 @@ describe('Form', () => {
       expect(form.findAll('.t-is-error')).toHaveLength(2);
       // reset "name" to empty value
       form.vm.$.exposed.reset({ fields: ['name'] });
-      await delay();
+      await sleep(16);
       expect(onReset).toHaveBeenCalledTimes(3);
       expect(data.value).toMatchObject({ name: '', age: 18 });
 
@@ -955,6 +974,7 @@ describe('Form', () => {
       expect(wrapper.findAll('.t-form__controls')[0].classes('t-is-warning')).eq(true);
     });
   });
+
   describe('hooks', () => {
     it('useFormDisabled', async () => {
       const extendedDisabled = ref(false);

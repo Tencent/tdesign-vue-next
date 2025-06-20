@@ -10,7 +10,7 @@ export interface FormReadonlyProvider {
 }
 
 /**
- * @deprecated use src/hooks/useDisabled instead
+ * @deprecated use @tdesign/shared-hooks useDisabled instead
  */
 export function useFormDisabled(extend?: Ref<boolean>) {
   const ctx = getCurrentInstance();
