@@ -59,11 +59,8 @@ export default defineComponent({
       value: props.keys?.value || 'value',
       disabled: props.keys?.disabled || 'disabled',
     }));
-    const { optionsMap, optionsList, optionsCache, displayOptions, filterMethods } = useSelectOptions(
-      props,
-      keys,
-      innerInputValue,
-    );
+    const { optionsMap, optionsList, optionsCache, displayOptions, filterMethods, getSearchDisPlayOptions } =
+      useSelectOptions(props, keys, innerInputValue, orgValue);
 
     // 内部数据,格式化过的
     const innerValue = computed(() => {
@@ -470,11 +467,19 @@ export default defineComponent({
     };
 
     const renderValueDisplay = () => {
+      // console.log('renderValueDisplay', !props.multiple, !props.selectInputProps?.multiple);
       const renderTag = () => {
+        // 这里判断有问题？
         if (!props.multiple || !props.selectInputProps?.multiple) {
           return undefined;
         }
-        const currentSelectedOptions = getCurrentSelectedOptions(innerValue.value);
+
+        // console.log(getSearchDisPlayOptions());
+
+        const currentSelectedOptions =
+          props.onSearch && props.filterable ? getSearchDisPlayOptions() : getCurrentSelectedOptions(innerValue.value);
+
+        // console.log('currentSelectedOptions', currentSelectedOptions);
         return innerValue.value
           .slice(0, props.minCollapsedNum ? props.minCollapsedNum : innerValue.value.length)
           .map?.((v: string, key: number) => {

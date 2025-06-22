@@ -1,5 +1,5 @@
 import { computed, Slots, Ref, ref } from 'vue';
-import { get, omit, isArray, isFunction } from 'lodash-es';
+import { get, omit, isArray, isFunction, uniqBy } from 'lodash-es';
 
 import { useChildComponentSlots } from '@tdesign/shared-hooks';
 import { TdSelectProps, TdOptionProps, SelectOptionGroup, SelectValue, SelectOption } from '../type';
@@ -10,7 +10,12 @@ type UniOption = (TdOptionProps | SelectOptionGroup) & {
   slots?: Slots;
 };
 
-export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inputValue: Ref<string>) => {
+export const useSelectOptions = (
+  props: TdSelectProps,
+  keys: Ref<KeysType>,
+  inputValue: Ref<string>,
+  orgValue: Ref<SelectValue<SelectOption>>,
+) => {
   const getChildComponentSlots = useChildComponentSlots();
   const optionsCache = ref<SelectOption[]>([]);
 
@@ -110,8 +115,33 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inpu
     return option.label?.toLowerCase?.().indexOf(`${inputValue.value}`.toLowerCase()) > -1;
   };
 
+  const searchOptions = ref<SelectOption[]>([]);
+
+  const getSelectedOptions = (options: TdOptionProps[], selectValue: SelectValue[] | SelectValue) => {
+    return options.filter((option) => {
+      if (option.checkAll) return;
+      if (isArray(selectValue)) return selectValue.includes(option.value);
+      return selectValue === option.value;
+    });
+  };
+
+  const getSearchDisPlayOptions = () => {
+    const everyTimeSelectedOptions = getSelectedOptions(optionsList.value, orgValue.value);
+
+    searchOptions.value = uniqBy([...everyTimeSelectedOptions, ...searchOptions.value], keys.value.value);
+
+    const currentSelectedOptions = getSelectedOptions(searchOptions.value, orgValue.value);
+    // console.log('currentSelectedOptions', currentSelectedOptions);
+
+    const disPlayOptions = uniqBy([...optionsList.value, ...currentSelectedOptions], keys.value.value);
+    // console.log('disPlayOptions', disPlayOptions);
+    return disPlayOptions;
+  };
+
   const displayOptions = computed(() => {
-    if (props.onSearch && props.filterable) return options.value; // 远程搜索时，不执行内部的过滤，不干预用户的自行处理，如输入首字母搜索中文的场景等
+    if (props.onSearch && props.filterable) return getSearchDisPlayOptions();
+
+    // if (props.onSearch && props.filterable) return options.value; // 远程搜索时，不执行内部的过滤，不干预用户的自行处理，如输入首字母搜索中文的场景等
 
     if (!inputValue.value || !(props.filterable || isFunction(props.filter))) return options.value;
 
@@ -153,5 +183,6 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inpu
     optionsCache,
     displayOptions,
     filterMethods,
+    getSearchDisPlayOptions,
   };
 };
