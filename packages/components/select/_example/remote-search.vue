@@ -1,5 +1,5 @@
 <template>
-  <t-select v-model="value" multiple remote filterable @search="remoteMethod">
+  <t-select v-model="modelValue" multiple remote filterable @search="remoteMethod">
     <t-option v-for="{ label, value } in options" :key="value" :value="value" :label="label"> </t-option>
   </t-select>
 </template>
@@ -31,11 +31,11 @@ const wholeOptions = [
 ];
 
 const options = ref([]);
-const value = ref(['test1', 'test3']);
+const modelValue = ref(['test1', 'test3']);
 
 // 回显初始值
 const initValue = () => {
-  if (value.value) {
+  if (modelValue.value) {
     setTimeout(() => {
       options.value = wholeOptions;
     }, 500);

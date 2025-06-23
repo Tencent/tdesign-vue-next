@@ -125,23 +125,20 @@ export const useSelectOptions = (
     });
   };
 
-  const getSearchDisPlayOptions = () => {
-    const everyTimeSelectedOptions = getSelectedOptions(optionsList.value, orgValue.value);
+  /**
+   * @description 获取搜索结果选项
+   * 这里通过记录所有时间选中的 options 来保证搜索结果中选中的选项不会被过滤掉
+   */
+  const getSearchDisplayOptions = () => {
+    const currentSelectedOptions = getSelectedOptions(optionsList.value, orgValue.value);
+    searchOptions.value = uniqBy([...currentSelectedOptions, ...searchOptions.value], keys.value.value);
+    const searchSelectedOptions = getSelectedOptions(searchOptions.value, orgValue.value);
 
-    searchOptions.value = uniqBy([...everyTimeSelectedOptions, ...searchOptions.value], keys.value.value);
-
-    const currentSelectedOptions = getSelectedOptions(searchOptions.value, orgValue.value);
-    // console.log('currentSelectedOptions', currentSelectedOptions);
-
-    const disPlayOptions = uniqBy([...optionsList.value, ...currentSelectedOptions], keys.value.value);
-    // console.log('disPlayOptions', disPlayOptions);
-    return disPlayOptions;
+    return uniqBy([...optionsList.value, ...searchSelectedOptions], keys.value.value);
   };
 
   const displayOptions = computed(() => {
-    if (props.onSearch && props.filterable) return getSearchDisPlayOptions();
-
-    // if (props.onSearch && props.filterable) return options.value; // 远程搜索时，不执行内部的过滤，不干预用户的自行处理，如输入首字母搜索中文的场景等
+    if (props.onSearch && props.filterable) return getSearchDisplayOptions();
 
     if (!inputValue.value || !(props.filterable || isFunction(props.filter))) return options.value;
 
@@ -183,6 +180,6 @@ export const useSelectOptions = (
     optionsCache,
     displayOptions,
     filterMethods,
-    getSearchDisPlayOptions,
+    getSearchDisplayOptions,
   };
 };
