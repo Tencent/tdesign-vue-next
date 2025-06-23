@@ -1,14 +1,15 @@
 import { ref, defineComponent, type SetupContext } from 'vue';
 import { mount } from '@vue/test-utils';
 import { expect } from 'vitest';
-import { Form } from '@tdesign/components';
-import { useFormDisabled, type FormDisabledProvider } from '@tdesign/components/form/hooks';
+import { useFormDisabled } from '@tdesign/components/form/hooks';
 
 describe('Form hooks', () => {
   describe('useFormDisabled', () => {
     const TestComponent = defineComponent({
-      props: ['disabled'],
-      setup(props: any, { expose }: SetupContext) {
+      props: {
+        disabled: Boolean,
+      },
+      setup(_, { expose }: SetupContext) {
         const disabledState = useFormDisabled(ref(false));
         expose({ disabledState });
         return () => <div></div>;

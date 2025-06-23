@@ -1,4 +1,4 @@
-import { nextTick, ref, Fragment, defineComponent } from 'vue';
+import { nextTick, ref, Fragment } from 'vue';
 import type { Ref } from 'vue';
 import { mount } from '@vue/test-utils';
 import type { VueWrapper } from '@vue/test-utils';

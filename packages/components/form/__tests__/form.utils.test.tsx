@@ -150,7 +150,7 @@ describe('Form utils', () => {
           message: 'nice',
           type: 'error',
         } as const;
-        const customValidatorObject = (val: any) => result;
+        const customValidatorObject = () => result;
         const rule2 = { validator: customValidatorObject, message: '自定义校验失败' };
         const validateResult = await validateOneRule('custom', rule2);
         expect(validateResult.result).toBe(result.result);
