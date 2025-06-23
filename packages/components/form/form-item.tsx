@@ -52,15 +52,10 @@ import {
 } from './consts';
 
 import { useConfig, useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
-
+import { getFormItemClassName } from './utils';
 import { template } from '@tdesign/common-js/utils/stringTemplate';
 
 export type FormItemValidateResult<T extends Data = Data> = { [key in keyof T]: boolean | AllValidateResult[] };
-
-export function getFormItemClassName(componentName: string, name?: string) {
-  if (!name) return '';
-  return `${componentName}__${name}`.replace(/(\[|\]\.)/g, '_');
-}
 
 export default defineComponent({
   name: 'TFormItem',
@@ -146,6 +141,7 @@ export default defineComponent({
       }
       if (list?.[0]) {
         const type = list[0].type || 'error';
+        // TODO 这里应该删除 ||，按照逻辑，这里永远走不到 ||（单测的时候发现）
         const icon =
           {
             error: CloseCircleFilledIcon,
