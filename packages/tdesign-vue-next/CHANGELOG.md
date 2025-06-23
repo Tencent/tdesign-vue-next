@@ -369,7 +369,7 @@ docClass: timeline
 
 ## 🌈 1.10.0 `2024-09-10` 
 ### 🚀 Features
-- `Empty`:  新增 `Empty` 空状态组件 @HaixingOoO ([#4519](https://github.com/Tencent/tdesign-vue-next/pull/4519))
+- `Empty`: 新增 `Empty` 空状态组件 @HaixingOoO ([#4519](https://github.com/Tencent/tdesign-vue-next/pull/4519))
 - `Typography`: 新增 `Typography` 排版组件 @byq1213 ([#4293](https://github.com/Tencent/tdesign-vue-next/pull/4293))
 - `Cascader`:  
   - 新增级联面板支持自定义下拉选项内容的能力 @uyarn ([#4513](https://github.com/Tencent/tdesign-vue-next/pull/4513))
@@ -683,7 +683,7 @@ docClass: timeline
   - 行选中功能，新增 `rowSelectionAllowUncheck` ，用于控制单选场景，是否允许取消选中
 - `ImageViewer`: 图片预览，加载失败时，不显示错误文本，只显示图标 @chaishi ([#3754](https://github.com/Tencent/tdesign-vue-next/pull/3754))
 - `Menu`: 选中后关闭菜单，与其他组件保持交互行为一致() @uyarn ([#3764](https://github.com/Tencent/tdesign-vue-next/pull/3764))
-- `RadioGroup`:  优化组件样式体验，`variant`为`default-filled`时初始状态不执行动画 @loganylwu ([#3765](https://github.com/Tencent/tdesign-vue-next/pull/3765))
+- `RadioGroup`: 优化组件样式体验，`variant`为`default-filled`时初始状态不执行动画 @loganylwu ([#3765](https://github.com/Tencent/tdesign-vue-next/pull/3765))
 - `Card`: `card` 组件支持传入 `loadingProps` 参数 @iiimix ([#3731](https://github.com/Tencent/tdesign-vue-next/pull/3731))
 - `DatePicker`:  支持 `cancelRangeSelectLimit` `API` @githubid0719 ([#3718](https://github.com/Tencent/tdesign-vue-next/pull/3718))
 - `Dropdown`: 移除对 `left` 的 `item` 样式特殊处理 @uyarn ([#3752](https://github.com/Tencent/tdesign-vue-next/pull/3752))
