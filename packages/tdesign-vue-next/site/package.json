@@ -4,10 +4,10 @@
   "type": "module",
   "scripts": {
     "start": "pnpm run dev",
-    "dev": "vite",
-    "build": "vite build",
-    "intranet": "vite build --mode intranet",
-    "preview": "vite build --mode preview && cp dist/index.html dist/404.html"
+    "dev": "vite --configLoader runner",
+    "build": "vite build --configLoader runner",
+    "intranet": "vite build --mode intranet --configLoader runner",
+    "preview": "vite build --mode preview --configLoader runner && cp dist/index.html dist/404.html"
   },
   "author": "tdesign",
   "license": "MIT",
@@ -15,8 +15,8 @@
     "nprogress": "^0.2.0",
     "semver": "^7.5.4",
     "tdesign-icons-view": "^0.3.6",
-    "tdesign-site-components": "0.16.0-alpha.11",
-    "tdesign-theme-generator": "^1.0.17",
+    "tdesign-site-components": "0.17.0-alpha.4",
+    "tdesign-theme-generator": "^1.1.6",
     "vue": "3.3.9",
     "vue-router": "^4.2.4",
     "workbox-precaching": "^6.6.0"
