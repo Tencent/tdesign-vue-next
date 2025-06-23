@@ -32,7 +32,10 @@
   </t-chat-sender>
 </template>
 <script setup lang="ts">
-import { TdAttachmentItem } from 'tdesign-web-components';
+// 正式用，待替换
+// import { TdAttachmentItem } from '@tdesign-vue-next/chat';
+import { TdAttachmentItem } from '@tdesign/pro-components-chat';
+
 import { ref } from 'vue';
 const query = ref('');
 const loading = ref(false);
@@ -73,13 +76,12 @@ const handleRemoveFile = (e: CustomEvent<TdAttachmentItem>) => {
   filesList.value = filesList.value.filter((item) => item.key !== e.detail.key);
 };
 
-const handleUploadFile = (e: CustomEvent<File[]>) => {
-  console.log('🚀 ~ handleUploadFile ~ eYLog :', e);
+const handleUploadFile = ({ files, name, e }) => {
+  console.log('🚀 ~ handleUploadFile ~ eYLog :', e, files, name);
   // 添加新文件并模拟上传进度
   const newFile = {
-    ...e.detail[0],
-    size: e.detail[0].size,
-    name: e.detail[0].name,
+    size: files[0].size,
+    name: files[0].name,
     status: 'progress' as TdAttachmentItem['status'],
     description: '上传中',
   };

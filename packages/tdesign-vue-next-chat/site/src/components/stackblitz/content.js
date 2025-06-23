@@ -81,6 +81,8 @@ export const packageJSONContent = JSON.stringify(
       '@tdesign-vue-next/chat': chatPkg.version,
       'highlight.js': chatPkg.dependencies['highlight.js'],
       'marked-highlight': chatPkg.dependencies['marked-highlight'],
+      'tdesign-web-components': chatPkg.dependencies['tdesign-web-components'],
+      'omi-vueify': chatPkg.dependencies['omi-vueify'], // 用于将 omi 组件转换为 vue 组件
     },
     devDependencies: {
       vite: sitePkg.devDependencies.vite,

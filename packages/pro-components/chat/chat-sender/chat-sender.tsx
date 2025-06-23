@@ -99,14 +99,14 @@ export default defineComponent({
           multiple: true,
           accept: 'image/*',
         },
-        action: ({ files, name }) => {
-          emit('fileSelect', { files, name });
+        action: ({ files, name, e }) => {
+          emit('fileSelect', { files, name, e });
         },
       },
       {
         name: 'uploadAttachment',
-        action: ({ files, name }) => {
-          emit('fileSelect', { files, name });
+        action: ({ files, name, e }) => {
+          emit('fileSelect', { files, name, e });
         },
       },
     ]);
@@ -115,7 +115,7 @@ export default defineComponent({
       // 获取默认action处理函数
       const getDefaultAction = (name: UploadActionType) => {
         const defaultAction = actionsDefault.find((item) => item.name === name)?.action;
-        return defaultAction || (({ files, name }) => emit('fileSelect', { files, name }));
+        return defaultAction || (({ files, name, e }) => emit('fileSelect', { files, name, e }));
       };
 
       const uploadAttachment = actions.find((item) => item.name === 'uploadAttachment');
@@ -131,7 +131,7 @@ export default defineComponent({
                 return;
               }
               const action = uploadAttachment.action || getDefaultAction('uploadAttachment');
-              action({ files, name: uploadAttachment.name });
+              action({ files, name: uploadAttachment.name, e });
               (e.target as HTMLInputElement).value = '';
             }}
             hidden
@@ -163,7 +163,7 @@ export default defineComponent({
                 return;
               }
               const action = uploadImage.action || getDefaultAction('uploadImage');
-              action({ files, name: uploadImage.name });
+              action({ files, name: uploadImage.name, e });
               (e.target as HTMLInputElement).value = '';
             }}
             hidden

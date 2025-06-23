@@ -411,6 +411,10 @@ export interface UploadActionConfig {
    * @param params - 上传参数对象
    * @param params.files - 上传的文件列表
    * @param params.name - 上传动作名称
+   * @param params.e - 事件对象
    */
-  action: (params: { files: File[]; name: UploadActionType }) => void;
+  action: (params: { files: File[]; name: UploadActionType; e?: Event }) => void;
 }
+
+export type * from 'tdesign-web-components/lib/chat-sender/type';
+export type * from 'tdesign-web-components/lib/filecard/type';

@@ -41,11 +41,11 @@
     "marked": "^12.0.1",
     "marked-highlight": "^2.1.1",
     "tdesign-icons-vue-next": "^0.3.6",
-    "tdesign-vue-next": "~1.11.0"
+    "tdesign-vue-next": "~1.11.0",
+    "tdesign-web-components": "1.0.3",
+    "omi-vueify": "^0.0.8"
   },
   "devDependencies": {
-    "tdesign-web-components": "1.0.3",
-    "omi-vueify": "^0.0.8",
     "tvision-charts-vue-next": "^3.3.13"
   },
   "peerDependencies": {
