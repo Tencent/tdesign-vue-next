@@ -141,12 +141,11 @@ export default defineComponent({
       }
       if (list?.[0]) {
         const type = list[0].type || 'error';
-        // TODO 从类型上看，这里永远走不到
-        const icon =
-          {
-            error: CloseCircleFilledIcon,
-            warning: ErrorCircleFilledIcon,
-          }[type] || CheckCircleFilledIcon;
+        const icon = {
+          error: CloseCircleFilledIcon,
+          warning: ErrorCircleFilledIcon,
+          success: CheckCircleFilledIcon,
+        }[type];
         return resultIcon(icon);
       }
       return null;
