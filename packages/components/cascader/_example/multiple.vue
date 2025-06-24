@@ -1,5 +1,5 @@
 <template>
-  <t-cascader v-model="value" :options="options" multiple clearable @focus="onFocus" @blur="onBlur" />
+  <t-cascader v-model="value" :options="options" multiple clearable value-type="full" @focus="onFocus" @blur="onBlur" />
 </template>
 
 <script setup>
@@ -34,13 +34,13 @@ const options = [
       },
       {
         label: '子选项二',
-        value: '2.2',
+        value: '1.3',
       },
     ],
   },
 ];
 
-const value = ref(['1.1']);
+const value = ref([['1', '1.3']]);
 
 const onFocus = (ctx) => {
   console.log('focus', ctx);

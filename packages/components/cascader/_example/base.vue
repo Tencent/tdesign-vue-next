@@ -1,5 +1,5 @@
 <template>
-  <t-cascader v-model="value" :options="options" clearable @change="onChange" @focus="onFocus" @blur="onBlur" />
+  <t-cascader v-model="value" :options="options" clearable value-type="full" @change="onChange" />
 </template>
 
 <script setup>
@@ -34,13 +34,18 @@ const options = [
       },
       {
         label: '子选项二',
-        value: '2.2',
+        value: '1.3',
       },
     ],
   },
 ];
 
-const value = ref('1.1');
+// const value = ref([
+//   ['1', '1.3'],
+//   ['2', '2.1'],
+// ]);
+
+const value = ref(['1', '1.3']);
 
 const onChange = (val, context) => {
   console.log(val, context);
@@ -53,4 +58,14 @@ const onFocus = (ctx) => {
 const onBlur = (ctx) => {
   console.log('blur', ctx);
 };
+
+// onMounted(() => {
+//   console.log('mounted');
+//   setTimeout(() => {
+//     value.value = [
+//       ['2', '1.3'],
+//       ['2', '2.1'],
+//     ];
+//   }, 5000);
+// });
 </script>

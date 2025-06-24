@@ -199,26 +199,42 @@ export const treeStoreExpendEffect = (
   treeStore: CascaderContextType['treeStore'],
   value: CascaderContextType['value'],
   expend: TreeNodeValue[],
+  valueType: CascaderContextType['valueType'],
+  options: TdCascaderProps['options'],
+  innerValue: TdCascaderProps['value'],
+  multiple: CascaderContextType['multiple'],
 ) => {
   const treeValue = getTreeValue(value);
 
   if (!treeStore) return;
   // init expanded, 无expend状态时设置
   if (isArray(treeValue) && expend.length === 0) {
-    const expandedMap = new Map();
-    const [val] = treeValue;
-    if (!isEmptyValues(val)) {
-      expandedMap.set(val, true);
-      const node = treeStore.getNode(val);
-      if (!node) {
-        treeStore.refreshNodes();
-        return;
+    if (valueType === 'full' && Array.isArray(innerValue)) {
+      if (multiple) {
+        innerValue.forEach((val) => {
+          if (Array.isArray(val)) {
+            treeStore.replaceExpanded(expend.length ? expend : (val as TreeNodeValue[]));
+          }
+        });
+      } else {
+        treeStore.replaceExpanded(expend.length ? expend : (innerValue as TreeNodeValue[]));
       }
-      node.getParents().forEach((tn: TreeNode) => {
-        expandedMap.set(tn.value, true);
-      });
-      const expandedArr = Array.from(expandedMap.keys());
-      treeStore.replaceExpanded(expandedArr);
+    } else {
+      const expandedMap = new Map();
+      const [val] = treeValue;
+      if (!isEmptyValues(val)) {
+        expandedMap.set(val, true);
+        const node = treeStore.getNode(val);
+        if (!node) {
+          treeStore.refreshNodes();
+          return;
+        }
+        node.getParents().forEach((tn: TreeNode) => {
+          expandedMap.set(tn.value, true);
+        });
+        const expandedArr = Array.from(expandedMap.keys());
+        treeStore.replaceExpanded(expandedArr);
+      }
     }
   }
   // 本地维护 expend，更加可控，不需要依赖于 tree 的状态
