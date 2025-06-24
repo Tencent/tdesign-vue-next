@@ -46,9 +46,9 @@ describe('Form', () => {
 
     it(':id[string]', async () => {
       expect(wrapper.find('.t-form').attributes('id')).eq(undefined);
-      // const id = 'tdesign'
-      // await wrapper.setProps({ id });
-      // expect(wrapper.find('.t-form').attributes('id')).eq(id);
+      const id = 'tdesign';
+      await wrapper.setProps({ id });
+      expect(wrapper.find('.t-form').attributes('id')).eq(id);
     });
 
     it(':labelAlign[string]', async () => {

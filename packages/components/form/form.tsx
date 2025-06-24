@@ -186,7 +186,13 @@ export default defineComponent({
     expose({ validate, submit, reset, clearValidate, setValidateMessage, validateOnly });
 
     return () => (
-      <form ref={formRef} class={formClass.value} onSubmit={(e) => onSubmit(e)} onReset={(e) => onReset(e)}>
+      <form
+        id={props.id}
+        ref={formRef}
+        class={formClass.value}
+        onSubmit={(e) => onSubmit(e)}
+        onReset={(e) => onReset(e)}
+      >
         {renderContent('default')}
       </form>
     );

@@ -141,7 +141,7 @@ export default defineComponent({
       }
       if (list?.[0]) {
         const type = list[0].type || 'error';
-        // TODO 这里应该删除 ||，按照逻辑，这里永远走不到 ||（单测的时候发现）
+        // TODO 从类型上看，这里永远走不到
         const icon =
           {
             error: CloseCircleFilledIcon,
