@@ -1,11 +1,9 @@
 import { h, defineComponent, ref, watch } from 'vue';
-import { isNumber } from 'lodash-es';
-import { isFunction } from 'lodash-es';
+import { isArray, isNumber, isFunction } from 'lodash-es';
+
 import props from './props';
 import { SkeletonRowCol, SkeletonRowColObj, TdSkeletonProps } from './type';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useContent } from '../hooks/tnode';
-import { isArray } from 'lodash-es';
+import { useContent, usePrefixClass } from '@tdesign/shared-hooks';
 
 const ThemeMap: Record<TdSkeletonProps['theme'], SkeletonRowCol> = {
   text: [1],

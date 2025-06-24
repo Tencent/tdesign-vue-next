@@ -1,9 +1,9 @@
 import { App, Plugin, createApp, defineComponent, h, reactive } from 'vue';
 import { merge } from 'lodash-es';
 import LoadingComponent from './loading';
-import { getAttach, removeClass, addClass } from '../utils/dom';
+import { getAttach, removeClass, addClass } from '@tdesign/shared-utils';
 import { TdLoadingProps, LoadingInstance, LoadingMethod } from './type';
-import { usePrefixClass } from '../hooks/useConfig';
+import { usePrefixClass } from '@tdesign/shared-hooks';
 
 let fullScreenLoadingInstance: LoadingInstance = null;
 
@@ -31,14 +31,8 @@ function createLoading(props: TdLoadingProps): LoadingInstance {
   const component = defineComponent({
     setup() {
       const loadingOptions = reactive(mergedProps);
-      return {
-        loadingOptions,
-      };
-    },
-    render() {
-      return h(LoadingComponent, {
-        ...this.loadingOptions,
-      });
+
+      return () => h(LoadingComponent, loadingOptions);
     },
   });
 

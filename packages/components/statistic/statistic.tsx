@@ -3,12 +3,11 @@ import {
   ArrowTriangleDownFilledIcon as TDArrowTriangleDownFilledIcon,
   ArrowTriangleUpFilledIcon as TDArrowTriangleUpFilledIcon,
 } from 'tdesign-icons-vue-next';
-import { isNumber } from 'lodash-es';
-import { isFunction } from 'lodash-es';
+import { isNumber, isFunction } from 'lodash-es';
+
 import props from './props';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useTNodeJSX } from '../hooks/tnode';
+import { useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
+
 import Skeleton from '../skeleton';
 import Tween from '@tdesign/common-js/statistic/tween';
 import { COLOR_MAP, getFormatValue } from '@tdesign/common-js/statistic/utils';

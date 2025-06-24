@@ -24,6 +24,7 @@ npm i @tdesign-vue-next/chat
 import { createApp } from 'vue';
 import App from './app.vue';
 import TDesignChat from '@tdesign-vue-next/chat'; // 引入chat组件
+import '@tdesign-vue-next/chat/es/style/index.css'; // 引入chat组件的少量全局样式变量
 
 const app = createApp(App);
 app.use(TDesignChat);
@@ -78,6 +79,12 @@ import { ConfigProvider } from '@tdesign-vue-next/chat/es/config-provider';
 import enConfig from 'tdesign-vue-next/es/locale/en_US';
 </script>
 ```
+
+## 编辑器提示
+
+安装注册 TDesign 之后，在开发项目时，可以配合插件在VSCode等主流编辑器中达到提示组件名及API的效果。
+
+推荐安装 `volar`，并在项目的 tsconfig.json 的 `includes` 属性中增加`node_modules/@tdesign-vue-next/chat/global.d.ts`，即可实现该效果。
 
 ## 浏览器兼容性
 

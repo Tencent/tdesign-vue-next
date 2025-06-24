@@ -3,7 +3,7 @@ import type { CSSProperties } from 'vue';
 import { PLACEMENT_OFFSET } from './consts';
 import TMessage from './message';
 import { MessageOptions } from './type';
-import { usePrefixClass } from '../hooks/useConfig';
+import { usePrefixClass } from '@tdesign/shared-hooks';
 
 export const DEFAULT_Z_INDEX = 6000;
 

@@ -1,14 +1,12 @@
 import { defineComponent, computed, watch } from 'vue';
 // 通用库
 import dayjs from 'dayjs';
-import { remove } from 'lodash-es';
-import { isFunction } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { remove, isArray, isFunction } from 'lodash-es';
 
 import props from './props';
 import * as utils from './utils';
-import { useConfig } from '../hooks/useConfig';
-import { useContent } from '../hooks/tnode';
+import { useConfig, useContent } from '@tdesign/shared-hooks';
+
 import { useState, useCalendarClass, userController, useColHeaders } from './hooks';
 
 // 组件的一些常量
@@ -319,6 +317,7 @@ export default defineComponent({
       const d = dayjs(cellData.date);
       if (props.multiple) {
         if (state.curDateList.find((item) => item.isSame(d))) {
+          // @ts-ignore @types/lodash 4.17.18
           state.curDateList = remove(state.curDateList, (item) => !item.isSame(d));
         } else {
           state.curDateList.push(d);

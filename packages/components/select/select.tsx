@@ -1,28 +1,28 @@
 import { defineComponent, provide, computed, toRefs, watch, ref, nextTick, PropType } from 'vue';
-import { pick as picker } from 'lodash-es';
-import { isArray } from 'lodash-es';
-import { isFunction } from 'lodash-es';
-import { debounce } from 'lodash-es';
-import { cloneDeep } from 'lodash-es';
-import { get } from 'lodash-es';
-import { intersection } from 'lodash-es';
+import { get, isArray, debounce, cloneDeep, isFunction, intersection, pick as picker } from 'lodash-es';
+
 import FakeArrow from '../common-components/fake-arrow';
 import SelectInput from '../select-input';
-import SelectPanel from './select-panel';
+import SelectPanel from './components/select-panel';
+import Tag from '../tag';
 import props from './props';
 // hooks
-import { useDisabled } from '../hooks/useDisabled';
-import { useReadonly } from '../hooks/useReadonly';
-import useDefaultValue from '../hooks/useDefaultValue';
-import useVModel from '../hooks/useVModel';
-import { useTNodeJSX } from '../hooks/tnode';
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import {
+  useVModel,
+  useConfig,
+  useDisabled,
+  useReadonly,
+  useTNodeJSX,
+  usePrefixClass,
+  useDefaultValue,
+} from '@tdesign/shared-hooks';
+
 import { getSingleContent, getMultipleContent } from './utils';
 import { selectInjectKey } from './consts';
 import { useSelectOptions, useKeyboardControl } from './hooks';
 import type { PopupProps, PopupVisibleChangeContext } from '../popup';
 import type { SelectInputChangeContext, SelectInputValueChangeContext } from '../select-input';
-import type { TdSelectProps, SelectValue } from './type';
+import type { TdSelectProps, SelectValue, TdOptionProps } from './type';
 import { SelectInputValueDisplayOptions } from '../select-input/hooks/useSingle';
 import { TagInputTriggerSource } from '../tag-input';
 
@@ -140,25 +140,24 @@ export default defineComponent({
 
     // valueDisplayParams参数
     const valueDisplayParams = computed(() => {
-      const val =
-        props.multiple && isArray(innerValue.value)
-          ? (innerValue.value as SelectValue[]).map((value) => ({
-              value,
-              label: optionsMap.value.get(value)?.label,
-            }))
-          : innerValue.value;
+      if (!props.multiple) {
+        return {
+          ...optionsMap.value.get(innerValue.value),
+          value: innerValue.value,
+          label: displayText.value,
+        };
+      }
 
+      const val = isArray(innerValue.value) ? innerValue.value.map((value) => optionsMap.value.get(value)) : [];
       const params = {
         value: val,
         onClose: props.multiple ? (index: number) => removeTag(index) : () => {},
       };
 
-      if (!props.multiple) Object.assign(params, { label: displayText.value });
-
-      if (props.minCollapsedNum && props.multiple) {
+      if (props.minCollapsedNum && isArray(innerValue.value)) {
         return {
           ...params,
-          displayValue: val?.slice?.(0, props.minCollapsedNum),
+          displayValue: Array.isArray(val) ? val.slice(0, props.minCollapsedNum) : [],
         };
       }
       return params;
@@ -185,6 +184,40 @@ export default defineComponent({
       const value = selectValue[index];
 
       selectValue.splice(index, 1);
+
+      if (trigger === 'backspace') {
+        // 如果最后一个为disabled，则应删除前一项（非disabled的）
+        let closest = -1;
+        let len = index;
+        const currentSelected = getCurrentSelectedOptions();
+        while (len >= 0) {
+          if (!currentSelected[len]?.disabled) {
+            closest = len;
+            break;
+          }
+          len -= 1;
+        }
+        // 只剩下disabled的情况，不做任何操作
+        if (closest < 0) return;
+
+        // 前面不是disabled的option
+        const values = currentSelected[closest];
+
+        const currentSelectedOptions = currentSelected.filter((item) => item.value !== values.value);
+
+        setInnerValue(
+          currentSelectedOptions.map((item) => item.value),
+          { selectedOptions: currentSelectedOptions, trigger, e },
+        );
+
+        props.onRemove?.({
+          value: values.value as string | number,
+          data: values,
+          e,
+        });
+
+        return;
+      }
 
       if (trigger !== 'clear') {
         setInnerValue(selectValue, { selectedOptions: getSelectedOptions(selectValue), trigger, e });
@@ -228,6 +261,19 @@ export default defineComponent({
         if (isArray(selectValue)) return selectValue.includes(option.value);
         return selectValue === option.value;
       });
+    };
+
+    //  获取当前选中的选项，和 getSelectedOptions 的区别是 这个会保持选择的先后顺序
+    const getCurrentSelectedOptions = (selectValue: SelectValue[] | SelectValue = innerValue.value) => {
+      const options: TdOptionProps[] = [];
+      const values = isArray(selectValue) ? selectValue : [selectValue];
+
+      values.forEach((value) => {
+        const option = optionsMap.value.get(value);
+        if (option) options.push(option);
+      });
+
+      return options;
     };
 
     /*
@@ -422,6 +468,49 @@ export default defineComponent({
         }
       });
     };
+
+    const renderValueDisplay = () => {
+      const renderTag = () => {
+        if (!props.multiple || !props.selectInputProps?.multiple) {
+          return undefined;
+        }
+        const currentSelectedOptions = getCurrentSelectedOptions(innerValue.value);
+        return innerValue.value
+          .slice(0, props.minCollapsedNum ? props.minCollapsedNum : innerValue.value.length)
+          .map?.((v: string, key: number) => {
+            let tagIndex: number;
+            const option = currentSelectedOptions.find((item, index) => {
+              if (item.value === v) {
+                tagIndex = index;
+                return true;
+              }
+            });
+
+            return (
+              <Tag
+                key={key}
+                closable={!option?.disabled && !props.disabled && !props.readonly}
+                size={props.size}
+                {...props.tagProps}
+                onClose={({ e }: { e: MouseEvent }) => {
+                  e.stopPropagation();
+                  props.tagProps?.onClose?.({ e });
+                  removeTag(tagIndex);
+                }}
+              >
+                {option ? option.label ?? option?.value : v}
+              </Tag>
+            );
+          });
+      };
+
+      return (
+        renderTNodeJSX('valueDisplay', {
+          params: valueDisplayParams.value,
+        }) || renderTag()
+      );
+    };
+
     provide('updateScrollTop', updateScrollTop);
     return () => {
       const { overlayClassName, ...restPopupProps } = (props.popupProps || {}) as TdSelectProps['popupProps'];
@@ -487,11 +576,7 @@ export default defineComponent({
                 )
               );
             }}
-            valueDisplay={() =>
-              renderTNodeJSX('valueDisplay', {
-                params: valueDisplayParams.value,
-              })
-            }
+            valueDisplay={renderValueDisplay}
             onPopupVisibleChange={handlerPopupVisibleChange}
             onInputChange={handlerInputChange}
             onClear={({ e }) => {

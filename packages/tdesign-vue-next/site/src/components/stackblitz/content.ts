@@ -52,6 +52,21 @@ export const styleContent = `
     font-weight: 500;
     font-size: 20px;
   }
+
+  /* grid 组件示例展示 */
+  .tdesign-demo-item--grid .t-col > div {
+    min-height: 40px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    background: #366ef4;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+  }
+
+  .tdesign-demo-item--grid .t-col:nth-of-type(2n) > div {
+    background: #8eabff;
+  }
 `;
 
 export const stackblitzRc = `

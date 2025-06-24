@@ -18,14 +18,16 @@ import {
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
   GlobalIconType,
 } from 'tdesign-icons-vue-next';
-import { isArray } from 'lodash-es';
-import { isNumber } from 'lodash-es';
-import { isString } from 'lodash-es';
-import { isBoolean } from 'lodash-es';
-import { cloneDeep } from 'lodash-es';
-import { get as lodashGet } from 'lodash-es';
-import { set as lodashSet } from 'lodash-es';
-import { isNil } from 'lodash-es';
+import {
+  isNil,
+  isArray,
+  isNumber,
+  isString,
+  isBoolean,
+  cloneDeep,
+  get as lodashGet,
+  set as lodashSet,
+} from 'lodash-es';
 
 import { validate } from './utils/form-model';
 import {
@@ -49,8 +51,8 @@ import {
   ValidateStatus,
 } from './consts';
 
-import { useConfig, usePrefixClass, useTNodeJSX } from '../hooks';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
+import { useConfig, useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
+
 import { template } from '@tdesign/common-js/utils/stringTemplate';
 
 export type FormItemValidateResult<T extends Data = Data> = { [key in keyof T]: boolean | AllValidateResult[] };
@@ -84,7 +86,7 @@ export default defineComponent({
     });
 
     const requiredMarkPosition = computed(() => {
-      return form?.requiredMarkPosition ?? 'left';
+      return form?.requiredMarkPosition ?? globalConfig.value.requiredMarkPosition;
     });
 
     const hasLabel = computed(() => slots.label || props.label);

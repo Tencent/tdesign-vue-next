@@ -6,10 +6,10 @@ import {
   ErrorCircleFilledIcon as TdErrorCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
 import dialogCardProps from './dialog-card-props';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import { useConfig, useContent, useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
+
 import { useAction } from './hooks';
-import { useContent, useTNodeJSX } from '../hooks/tnode';
+
 import type { TdDialogProps } from './type';
 import dialogProps from './props';
 import { getCSSValue, initDragEvent } from './utils';

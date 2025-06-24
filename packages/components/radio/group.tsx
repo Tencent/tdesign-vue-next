@@ -12,24 +12,25 @@ import {
   toRefs,
   onUnmounted,
 } from 'vue';
-import { isEqual, isString } from 'lodash-es';
-import { isNumber } from 'lodash-es';
-import { isNil } from 'lodash-es';
-import { throttle } from 'lodash-es';
+import { isNil, isEqual, isString, isNumber, throttle, isFunction } from 'lodash-es';
 
 import props from './radio-group-props';
 import type { RadioOptionObj, RadioOption, TdRadioGroupProps } from './type';
 import TRadio from './radio';
 import TRadioButton from './radio-button';
 import { RadioGroupInjectionKey } from './consts';
-import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-import useVModel from '../hooks/useVModel';
-import { useTNodeDefault } from '../hooks/tnode';
+import {
+  useVModel,
+  usePrefixClass,
+  useTNodeDefault,
+  useResizeObserver,
+  useCommonClassName,
+} from '@tdesign/shared-hooks';
+
 import { useKeyboard } from './hooks';
-import { isFunction } from 'lodash-es';
+
 import { useMutationObserver } from '../watermark/hooks';
 import type { UseMutationObserverReturn } from '../watermark/hooks';
-import useResizeObserver from '../hooks/useResizeObserver';
 
 export default defineComponent({
   name: 'TRadioGroup',

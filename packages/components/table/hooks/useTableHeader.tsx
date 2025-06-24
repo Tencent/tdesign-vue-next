@@ -1,12 +1,12 @@
 import { SetupContext, computed, h } from 'vue';
-import { isString } from 'lodash-es';
-import { isFunction } from 'lodash-es';
+import { isString, isFunction } from 'lodash-es';
+
 import { BaseTableCol, PrimaryTableCol, TableRowData, TdBaseTableProps } from '../type';
 import { getThRowspanAndColspan, getThList } from './useMultiHeader';
 import useClassName from './useClassName';
 import { TNodeReturnValue } from '../../common';
-import { BaseTableColumns } from '../interface';
-import TEllipsis from '../ellipsis';
+import { BaseTableColumns } from '../types';
+import TEllipsis from '../components/ellipsis';
 
 // 渲染表头的通用方法
 export function renderTitle(slots: SetupContext['slots'], col: BaseTableColumns[0], index: number) {

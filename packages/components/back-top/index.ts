@@ -1,4 +1,4 @@
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 import _BackTop from './back-top';
 import { TdBackTopProps } from './type';
 

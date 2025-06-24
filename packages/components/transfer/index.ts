@@ -1,5 +1,5 @@
 import _Transfer from './transfer';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 import { TdTransferProps } from './type';
 
 import './style';

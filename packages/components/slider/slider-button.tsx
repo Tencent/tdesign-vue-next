@@ -13,7 +13,7 @@ import TTooltip from '../tooltip/index';
 import { TdSliderProps } from './type';
 
 import { isFunction } from 'lodash-es';
-import { usePrefixClass } from '../hooks/useConfig';
+import { usePrefixClass } from '@tdesign/shared-hooks';
 import { useSliderTooltip } from './hooks/useSliderTooltip';
 import { sliderPropsInjectKey } from './consts';
 

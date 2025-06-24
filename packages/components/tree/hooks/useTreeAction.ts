@@ -1,4 +1,4 @@
-import { usePrefixClass } from '../adapt';
+import { usePrefixClass } from '../utils/adapt';
 import {
   TreeNodeValue,
   TypeTreeState,
@@ -6,8 +6,8 @@ import {
   TypeExpandEventContext,
   TypeActiveEventContext,
   TypeChangeEventContext,
-} from '../tree-types';
-import { getNode, pathMatchClass } from '../util';
+} from '../types';
+import { getNode, pathMatchClass } from '../utils';
 
 // tree 组件节点状态设置
 export default function useTreeAction(state: TypeTreeState) {

@@ -1,11 +1,9 @@
-import { defineComponent, computed, CSSProperties, Fragment, isVNode, Teleport } from 'vue';
+import { defineComponent, computed, CSSProperties, Fragment } from 'vue';
 import props from './props';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useTNodeJSX } from '../hooks/tnode';
-import { useChildSlots, useFlatChildrenSlots } from '../hooks/slot';
-import { isNumber } from 'lodash-es';
-import { isString } from 'lodash-es';
-import { isArray } from 'lodash-es';
+import { useTNodeJSX, useChildSlots, usePrefixClass, useFlatChildrenSlots } from '@tdesign/shared-hooks';
+
+import { isArray, isNumber, isString } from 'lodash-es';
+
 import { getFlexGapPolyFill } from '@tdesign/common-js/utils/helper';
 import { SizeEnum } from '../common';
 
@@ -57,9 +55,6 @@ export default defineComponent({
       const children = getFlatChildren(getChildSlots());
       const separatorContent = renderTNodeJSX('separator');
       return children.map((child, index) => {
-        const isTeleport = isVNode(child) && child.type === Teleport;
-        if (isTeleport) return null;
-        // filter last child
         const showSeparator = index + 1 !== children.length && separatorContent;
         return (
           <Fragment>
