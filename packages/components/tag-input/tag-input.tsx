@@ -1,4 +1,4 @@
-import { defineComponent, computed, toRefs, ref, nextTick, reactive, watch } from 'vue';
+import { defineComponent, computed, toRefs, ref, nextTick, reactive, watch, ComputedRef } from 'vue';
 import { CloseCircleFilledIcon as TdCloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import TInput, { InputProps, StrInputProps, TdInputProps } from '../input';
 import { TdTagInputProps } from './type';
@@ -33,7 +33,7 @@ export default defineComponent({
     const { NAME_CLASS, CLEAR_CLASS, BREAK_LINE_CLASS } = useComponentClassName();
     const { CloseCircleFilledIcon } = useGlobalIcon({ CloseCircleFilledIcon: TdCloseCircleFilledIcon });
 
-    const isDisabled = useDisabled();
+    const isDisabled = useDisabled() as ComputedRef<boolean>;
     const isReadonly = useReadonly();
 
     const { inputValue, inputProps, borderless, size, tips, status, suffix, autoWidth, onPaste } = toRefs(props);

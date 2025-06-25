@@ -1,4 +1,4 @@
-import { defineComponent, computed } from 'vue';
+import { defineComponent, computed, ComputedRef } from 'vue';
 import { omit } from 'lodash-es';
 import Panel from './components/Panel';
 import SelectInput from '../select-input';
@@ -34,7 +34,7 @@ export default defineComponent({
     const { STATUS } = useCommonClassName();
     const overlayClassName = usePrefixClass('cascader__popup');
     const { globalConfig } = useConfig('cascader');
-    const isDisabled = useDisabled();
+    const isDisabled = useDisabled() as ComputedRef<boolean>;
     const isReadonly = useReadonly();
     const renderTNodeJSX = useTNodeJSX();
 

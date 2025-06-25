@@ -1,5 +1,5 @@
 import { Ref, inject, computed, getCurrentInstance } from 'vue';
-import { isBoolean } from 'lodash-es';
+import { isArray, isBoolean } from 'lodash-es';
 // TODO: need refator
 import { TdFormProps } from '../../../components/form/type';
 
@@ -19,11 +19,16 @@ export interface DisabledContext {
  */
 export function useDisabled(context?: DisabledContext) {
   const currentInstance = getCurrentInstance();
-  const componentDisabled = computed(() => currentInstance.props.disabled as boolean);
+
+  const currentInstanceDisabled = currentInstance.props.disabled as boolean | [boolean, boolean];
+  const componentDisabled = computed(() => currentInstanceDisabled);
 
   const formDisabled = inject<FormDisabledProvider>('formDisabled', Object.create(null));
 
   return computed(() => {
+    // array
+    if (isArray(currentInstanceDisabled) && currentInstanceDisabled.length === 2) return componentDisabled.value;
+
     if (isBoolean(context?.beforeDisabled?.value)) return context.beforeDisabled.value;
     // Component
     if (isBoolean(componentDisabled.value)) return componentDisabled.value;

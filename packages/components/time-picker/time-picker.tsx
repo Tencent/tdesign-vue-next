@@ -1,4 +1,4 @@
-import { computed, defineComponent, ref, toRefs, watch } from 'vue';
+import { computed, ComputedRef, defineComponent, ref, toRefs, watch } from 'vue';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { TimeIcon as TdTimeIcon } from 'tdesign-icons-vue-next';
@@ -43,7 +43,7 @@ export default defineComponent({
     const { value, modelValue } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
 
-    const disabled = useDisabled();
+    const isDisabled = useDisabled() as ComputedRef<boolean>;
     const { allowInput, format } = toRefs(props);
 
     const inputClasses = computed(() => [
@@ -111,7 +111,7 @@ export default defineComponent({
           onFocus={props.onFocus}
           onClear={handleClear}
           borderless={props.borderless}
-          disabled={disabled.value}
+          disabled={isDisabled.value}
           clearable={props.clearable}
           allowInput={allowInput.value}
           class={inputClasses.value}

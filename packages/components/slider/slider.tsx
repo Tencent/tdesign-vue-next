@@ -9,6 +9,7 @@ import {
   onMounted,
   watch,
   toRefs,
+  ComputedRef,
 } from 'vue';
 import { isArray, isNumber } from 'lodash-es';
 
@@ -34,7 +35,7 @@ export default defineComponent({
   },
   props,
   setup(props) {
-    const disabled = useDisabled();
+    const isDisabled = useDisabled() as ComputedRef<boolean>;
     const COMPONENT_NAME = usePrefixClass('slider');
     const { STATUS } = useCommonClassName();
     const { value, modelValue } = toRefs(props) as any;
@@ -63,13 +64,13 @@ export default defineComponent({
           'is-vertical': vertical.value,
           [`${COMPONENT_NAME.value}--with-input`]: props.inputNumberProps,
           [`${COMPONENT_NAME.value}--vertical`]: vertical.value,
-          [STATUS.value.disabled]: disabled.value,
+          [STATUS.value.disabled]: isDisabled.value,
         },
       ];
     });
     const sliderRailClass = computed(() => [
       `${COMPONENT_NAME.value}__rail`,
-      { 'show-input': props.inputNumberProps, disabled: disabled.value },
+      { 'show-input': props.inputNumberProps, disabled: isDisabled.value },
     ]);
     const runwayStyle = computed(() => {
       return vertical.value ? { height: '100%' } : {};
@@ -240,7 +241,7 @@ export default defineComponent({
 
     // 全局点击
     const onSliderClick = (event: MouseEvent): void => {
-      if (disabled.value || dragging.value) {
+      if (isDisabled.value || dragging.value) {
         return;
       }
       if (!sliderRef.value) return;
@@ -261,7 +262,7 @@ export default defineComponent({
 
     // mark 点击触发修改事件
     const changeValue = (point: number) => {
-      if (disabled.value || dragging.value) {
+      if (isDisabled.value || dragging.value) {
         return;
       }
       resetSize();
@@ -329,7 +330,7 @@ export default defineComponent({
       step: props.step,
       prefixName: COMPONENT_NAME.value,
       vertical: vertical.value,
-      disabled: disabled.value,
+      disabled: isDisabled.value,
     }));
     const renderInputNumber = useSliderInput(inputConfig);
 
@@ -374,7 +375,7 @@ export default defineComponent({
         dragging,
         toggleDragging,
         precision,
-        disabled,
+        disabled: isDisabled,
         resetSize,
         sliderSize,
       }),
@@ -388,7 +389,7 @@ export default defineComponent({
           aria-valuemin={props.min}
           aria-valuemax={props.max}
           aria-orientation={props.layout}
-          aria-disabled={disabled.value}
+          aria-disabled={isDisabled.value}
           tooltip-props={props.tooltipProps}
         >
           <div class={sliderRailClass.value} style={runwayStyle.value} onClick={onSliderClick} ref={sliderRef}>
@@ -397,7 +398,7 @@ export default defineComponent({
               vertical={vertical.value}
               value={firstValue.value}
               ref={firstButtonRef}
-              disabled={disabled.value}
+              disabled={isDisabled.value}
               range={props.range}
               position="start"
               tooltip-props={props.tooltipProps}
@@ -415,7 +416,7 @@ export default defineComponent({
                 vertical={vertical.value}
                 value={secondValue.value}
                 ref={secondButtonRef}
-                disabled={disabled.value}
+                disabled={isDisabled.value}
                 label={props.label}
                 range={props.range}
                 position="end"
