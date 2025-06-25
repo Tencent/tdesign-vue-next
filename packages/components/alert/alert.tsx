@@ -11,7 +11,14 @@ import { isArray, isString } from 'lodash-es';
 import { on, off, addClass } from '@tdesign/shared-utils';
 import props from './props';
 import { SlotReturnValue } from '../common';
-import { useIcon, useConfig, useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
+import {
+  useIcon,
+  useConfig,
+  useTNodeJSX,
+  useGlobalIcon,
+  usePrefixClass,
+  filterCommentNode,
+} from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'TAlert',
@@ -86,12 +93,12 @@ export default defineComponent({
     };
 
     const renderDescription = () => {
-      let messageContent;
+      let messageContent = renderTNodeJSX('default') || renderTNodeJSX('message');
 
-      messageContent = renderTNodeJSX('default');
-      if (!messageContent) {
-        messageContent = renderTNodeJSX('message');
+      if (isArray(messageContent)) {
+        messageContent = filterCommentNode(messageContent);
       }
+
       const contentLength = isArray(messageContent) ? (messageContent as Array<SlotReturnValue>).length : 1;
       const hasCollapse = props.maxLine > 0 && props.maxLine < contentLength;
       const height = (descriptionRef.value?.children[0] as HTMLElement)?.offsetHeight;

@@ -1,4 +1,4 @@
-import { h, getCurrentInstance, ComponentInternalInstance, VNode } from 'vue';
+import { h, getCurrentInstance, ComponentInternalInstance, VNode, isVNode } from 'vue';
 import { camelCase, kebabCase, isFunction } from 'lodash-es';
 
 import { getDefaultNode, getParams, OptionsType, JSXRenderContext, getSlotFirst } from '@tdesign/shared-utils';
@@ -162,4 +162,30 @@ export const useContent = () => {
     const res = isEmptyNode(node1) ? node2 : node1;
     return isEmptyNode(res) ? defaultNode : res;
   };
+};
+
+/**
+ * 判断一个 VNode 是否是注释节点（Comment）
+ * Vue 3 中注释节点的 type 是 Symbol(v-cmt)
+ *
+ * @param node - 任意节点
+ * @returns 是否为注释类型的 VNode
+ */
+export const isCommentVNode = (node: unknown): node is VNode => {
+  return isVNode(node) && node.type === Symbol.for('v-cmt');
+};
+
+/**
+ * 过滤掉注释节点。若入参格式异常则保留原始数据。
+ *
+ * @param nodes - VNode 数组或其他类型
+ * @returns 去除注释节点后的 VNode 数组，异常时返回原始值（如未过滤）
+ */
+export const filterCommentNode = (nodes: VNode[]): VNode[] => {
+  try {
+    return nodes.filter((node) => !isCommentVNode(node)) as VNode[];
+  } catch (e) {
+    console.warn('[filterCommentNode] 非预期错误，跳过过滤：', e);
+    return nodes as VNode[];
+  }
 };
