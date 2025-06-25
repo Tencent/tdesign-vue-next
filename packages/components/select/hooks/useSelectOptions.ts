@@ -131,7 +131,7 @@ export const useSelectOptions = (
    */
   const getSearchDisplayOptions = () => {
     const currentSelectedOptions = getSelectedOptions(optionsList.value, orgValue.value);
-    searchOptions.value = uniqBy([...currentSelectedOptions, ...searchOptions.value], keys.value.value);
+    searchOptions.value = uniqBy([...searchOptions.value, ...currentSelectedOptions], keys.value.value);
     const searchSelectedOptions = getSelectedOptions(searchOptions.value, orgValue.value);
 
     return uniqBy([...searchSelectedOptions, ...optionsList.value], keys.value.value);
