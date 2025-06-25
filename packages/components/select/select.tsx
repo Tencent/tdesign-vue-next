@@ -186,7 +186,8 @@ export default defineComponent({
         // 如果最后一个为disabled，则应删除前一项（非disabled的）
         let closest = -1;
         let len = index;
-        const currentSelected = getCurrentSelectedOptions();
+        const currentSelected =
+          props.onSearch && props.filterable ? getSearchDisplayOptions() : getCurrentSelectedOptions();
         while (len >= 0) {
           if (!currentSelected[len]?.disabled) {
             closest = len;
@@ -200,7 +201,9 @@ export default defineComponent({
         // 前面不是disabled的option
         const values = currentSelected[closest];
 
-        const currentSelectedOptions = currentSelected.filter((item) => item.value !== values.value);
+        const currentSelectedOptions = currentSelected.filter((item) => {
+          return item.value !== values.value;
+        });
 
         setInnerValue(
           currentSelectedOptions.map((item) => item.value),
