@@ -190,12 +190,13 @@ export default defineComponent({
         let closest = -1;
         let len = index;
 
-        //  找到符合条件的最近一个option
+        // 找到符合条件的最近一个option
         const getSearchCurrentSelectedOptions = () => {
           return currentSelectOptions.value.filter((item, i) => item.value === innerValue.value[i]);
         };
 
         const currentSelected = isRemoteSearch.value ? getSearchCurrentSelectedOptions() : getCurrentSelectedOptions();
+
         while (len >= 0) {
           if (!currentSelected[len]?.disabled) {
             closest = len;
@@ -207,9 +208,21 @@ export default defineComponent({
         if (closest < 0) return;
 
         // 前面不是disabled的option
-        const values = currentSelected[closest];
+        const notDisabledOption = currentSelected[closest];
 
-        const currentSelectedOptions = currentSelected.filter((item) => item.value !== values.value);
+        const currentSelectedOptions = currentSelected.filter((item) => item.value !== notDisabledOption.value);
+
+        // 当前value不是options的配置项
+        if (currentSelected.length === 0) {
+          setInnerValue(selectValue, { selectedOptions: currentSelectedOptions, trigger, e });
+
+          props.onRemove?.({
+            value: value as string | number,
+            data: { value: value },
+            e,
+          });
+          return;
+        }
 
         setInnerValue(
           currentSelectedOptions.map((item) => item.value),
@@ -217,8 +230,8 @@ export default defineComponent({
         );
 
         props.onRemove?.({
-          value: values.value as string | number,
-          data: values,
+          value: notDisabledOption.value as string | number,
+          data: notDisabledOption,
           e,
         });
 
@@ -493,13 +506,8 @@ export default defineComponent({
         return innerValue.value
           .slice(0, props.minCollapsedNum ? props.minCollapsedNum : innerValue.value.length)
           .map?.((v: string, key: number) => {
-            let tagIndex: number;
-            const option = currentSelectOptions.value.find((item, index) => {
-              if (item.value === v) {
-                tagIndex = index;
-                return true;
-              }
-            });
+            const tagIndex = innerValue.value.indexOf(v);
+            const option = optionsMap.value.get(v);
 
             return (
               <Tag
