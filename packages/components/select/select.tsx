@@ -77,7 +77,7 @@ export default defineComponent({
       return orgValue.value;
     });
 
-    const { optionsMap, optionsList, optionsCache, displayOptions, filterMethods, getSearchDisplayOptions } =
+    const { optionsMap, optionsList, optionsCache, displayOptions, filterMethods, searchDisplayOptions } =
       useSelectOptions(props, keys, innerInputValue, innerValue);
 
     const setInnerValue: TdSelectProps['onChange'] = (newVal: SelectValue | SelectValue[], context) => {
@@ -126,13 +126,7 @@ export default defineComponent({
       () =>
         ((!props.multiple &&
           innerPopupVisible.value &&
-          getSingleContent(
-            props.onSearch && props.filterable,
-            innerValue.value,
-            keys,
-            searchDisplayOptions,
-            optionsMap,
-          )) ||
+          getSingleContent(innerValue.value, isRemoteSearch.value, keys, currentSelectOptions, optionsMap)) ||
           props.placeholder) ??
         t(globalConfig.value.placeholder),
     );
@@ -141,19 +135,13 @@ export default defineComponent({
     const displayText = computed(() =>
       props.multiple
         ? getMultipleContent(
-            props.onSearch && props.filterable,
             innerValue.value as SelectValue[],
+            isRemoteSearch.value,
             keys,
-            searchDisplayOptions,
+            currentSelectOptions,
             optionsMap,
           )
-        : getSingleContent(
-            props.onSearch && props.filterable,
-            innerValue.value,
-            keys,
-            searchDisplayOptions,
-            optionsMap,
-          ),
+        : getSingleContent(innerValue.value, isRemoteSearch.value, keys, currentSelectOptions, optionsMap),
     );
 
     // valueDisplayParams参数
@@ -208,14 +196,12 @@ export default defineComponent({
         let closest = -1;
         let len = index;
 
+        //  找到符合条件的最近一个option
         const getSearchCurrentSelectedOptions = () => {
-          return searchDisplayOptions.value.filter((item, i) => {
-            return item.value === innerValue.value[i];
-          });
+          return currentSelectOptions.value.filter((item, i) => item.value === innerValue.value[i]);
         };
 
-        const currentSelected =
-          props.onSearch && props.filterable ? getSearchCurrentSelectedOptions() : getCurrentSelectedOptions();
+        const currentSelected = isRemoteSearch.value ? getSearchCurrentSelectedOptions() : getCurrentSelectedOptions();
         while (len >= 0) {
           if (!currentSelected[len]?.disabled) {
             closest = len;
@@ -334,8 +320,7 @@ export default defineComponent({
     const isCheckAll = computed<boolean>(() => {
       if (intersectionLen.value === 0) return false;
       return (
-        intersectionLen.value ===
-        (props.onSearch && props.filterable ? searchDisplayOptions.value.length : optionalList.value.length)
+        intersectionLen.value === (isRemoteSearch.value ? searchDisplayOptions.value.length : optionalList.value.length)
       );
     });
 
@@ -498,10 +483,11 @@ export default defineComponent({
       });
     };
 
-    const searchDisplayOptions = computed(() => {
-      return props.onSearch && props.filterable
-        ? getSearchDisplayOptions()
-        : getCurrentSelectedOptions(innerValue.value);
+    /**
+     * 获取当前选中的选项 —— 远程搜索数据和本地传入的数据
+     */
+    const currentSelectOptions = computed(() => {
+      return isRemoteSearch.value ? searchDisplayOptions.value : getCurrentSelectedOptions(innerValue.value);
     });
 
     const renderValueDisplay = () => {
@@ -514,7 +500,7 @@ export default defineComponent({
           .slice(0, props.minCollapsedNum ? props.minCollapsedNum : innerValue.value.length)
           .map?.((v: string, key: number) => {
             let tagIndex: number;
-            const option = searchDisplayOptions.value.find((item, index) => {
+            const option = currentSelectOptions.value.find((item, index) => {
               if (item.value === v) {
                 tagIndex = index;
                 return true;

@@ -3,8 +3,8 @@ import { cloneDeep } from 'lodash-es';
 import { TdSelectProps, TdOptionProps, SelectValue, SelectOption } from '../type';
 
 export const getSingleContent = (
-  isRemote: boolean,
   value: TdSelectProps['value'],
+  isRemote: boolean,
   keys: ComputedRef<TdSelectProps['keys']>,
   searchDisplayOptions: ComputedRef<TdOptionProps[]>,
   optionsMap: ComputedRef<Map<SelectValue<SelectOption>, TdOptionProps>>,
@@ -18,15 +18,15 @@ export const getSingleContent = (
 };
 
 export const getMultipleContent = (
-  isRemote: boolean,
   value: SelectValue[],
+  isRemote: boolean,
   keys: ComputedRef<TdSelectProps['keys']>,
   searchDisplayOptions: ComputedRef<TdOptionProps[]>,
   optionsMap: ComputedRef<Map<SelectValue<SelectOption>, TdOptionProps>>,
 ) => {
   const res = [];
   for (const iterator of value) {
-    const resLabel = getSingleContent(isRemote, iterator, keys, searchDisplayOptions, optionsMap);
+    const resLabel = getSingleContent(iterator, isRemote, keys, searchDisplayOptions, optionsMap);
     if (resLabel) {
       res.push(resLabel);
     }
