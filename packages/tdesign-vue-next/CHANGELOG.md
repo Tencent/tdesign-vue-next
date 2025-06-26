@@ -5,6 +5,35 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.14.0 `2025-06-26` 
+
+### 🚀 Features
+- `Alert`: 新增 `closeBtn` API，与其他组件保持一致，`close` 将在未来版本废弃，请尽快调整为`closeBtn` 使用 @ngyyuusora ([#5621](https://github.com/Tencent/tdesign-vue-next/pull/5621))
+- `Dialog`: 新增支持 appContext 的绑定和传入，用于支持在插件场景中使用 router 或全局指令的场景 @Cat1007 ([#5559](https://github.com/Tencent/tdesign-vue-next/pull/5559))
+- `Drawer`: 新增支持 appContext 的绑定和传入，用于支持在插件场景中使用 router 或全局指令的场景 @Cat1007 ([#5559](https://github.com/Tencent/tdesign-vue-next/pull/5559))
+- `Loading`: 新增支持 appContext 的绑定和传入，用于支持在插件场景中使用 router 或全局指令的场景 @Cat1007 ([#5559](https://github.com/Tencent/tdesign-vue-next/pull/5559))
+- `Message`: 新增支持 appContext 的绑定和传入，用于支持在插件场景中使用 router 或全局指令的场景 @Cat1007 ([#5559](https://github.com/Tencent/tdesign-vue-next/pull/5559))
+- `Notification`: 新增支持 appContext 的绑定和传入，用于支持在插件场景中使用 router 或全局指令的场景 @Cat1007 ([#5559](https://github.com/Tencent/tdesign-vue-next/pull/5559))
+- `Popup`:   优化浮层箭头在空间不足场景下没有跟随浮层进行偏移，导致箭头位置不准确的问题 @Cat1007 ([#5038](https://github.com/Tencent/tdesign-vue-next/pull/5038))
+- `Select`: 远程搜索场景中，支持直接使用 `valueType= value` 的场景保留已选中 option 的数据进行展示，具体可参考示例代码 @RSS1102 ([#5638](https://github.com/Tencent/tdesign-vue-next/pull/5638))
+- `Tree`: 多选场景下每个节点新增 hover 提示，与单选场景保持一致 @RSS1102 ([#5632](https://github.com/Tencent/tdesign-vue-next/pull/5632))
+- `Tree`: 修复点击选项的展开按钮错误触发`onClick` 事件的问题，此前有基于此异常逻辑实现相关功能的业务请注意此变更⚠️ @Soya-xy ([#5512](https://github.com/Tencent/tdesign-vue-next/pull/5512))
+
+### 🐞 Bug Fixes
+- `Cascader`: 修复 `valueType="full"` ，value 为 undefined 时组件内部报错的问题 @liweijie0812 ([#5581](https://github.com/Tencent/tdesign-vue-next/pull/5581))
+- `ColorPicker`: 修复渐变模式下点击滑块添加色点时定位错误的问题 @betavs ([#5565](https://github.com/Tencent/tdesign-vue-next/pull/5565))
+- `Dialog`: 修复插件用法 `destroyOnClose` 表现不正常的问题 @Cat1007 ([#5559](https://github.com/Tencent/tdesign-vue-next/pull/5559))
+- `Drawer`: 修复插件用法 `destroyOnClose` 表现不正常的问题 @Cat1007 ([#5559](https://github.com/Tencent/tdesign-vue-next/pull/5559))
+- `Form`: 修复 `id` 属性不生效的问题 @zhangpaopao0609 ([#5640](https://github.com/Tencent/tdesign-vue-next/pull/5640))
+- `Popup`:  修复当 `triggerElement` 为字符串类型时，不能正常用于元素选择器的异常 @uyarn ([#5651](https://github.com/Tencent/tdesign-vue-next/pull/5651))
+- `Select`: 添加 `selectInputProps` 透传多选属性到 `valueDisplay` @RSS1102 ([#5594](https://github.com/Tencent/tdesign-vue-next/pull/5594))
+- `Textarea`: 优化滚动条的样式问题 @RSS1102 ([#5647](https://github.com/Tencent/tdesign-vue-next/pull/5647))
+- `TimeRangePicker`: 修复点击面板确定按钮未重置非法格式输入的问题 @QuentinHsu ([#5622](https://github.com/Tencent/tdesign-vue-next/pull/5622))
+
+### 📝 Documentation
+- `Alert`: 优化 Alert 演示交互，在关闭后显示“显示 Alert”按钮以恢复显示 @baozjj ([#5646](https://github.com/Tencent/tdesign-vue-next/pull/5646))
+
+
 ## 🌈 1.13.2 `2025-06-04` 
 
 ### 🐞 Bug Fixes
