@@ -3,7 +3,7 @@ import { get, isArray, debounce, cloneDeep, isFunction, intersection, pick as pi
 
 import FakeArrow from '../common-components/fake-arrow';
 import SelectInput from '../select-input';
-import SelectPanel from './select-panel';
+import SelectPanel from './components/select-panel';
 import Tag from '../tag';
 import props from './props';
 // hooks
@@ -15,7 +15,7 @@ import {
   useTNodeJSX,
   usePrefixClass,
   useDefaultValue,
-} from '@tdesign/hooks';
+} from '@tdesign/shared-hooks';
 
 import { getSingleContent, getMultipleContent } from './utils';
 import { selectInjectKey } from './consts';
@@ -471,27 +471,34 @@ export default defineComponent({
 
     const renderValueDisplay = () => {
       const renderTag = () => {
-        if (!props.multiple) {
+        if (!props.multiple || !props.selectInputProps?.multiple) {
           return undefined;
         }
         const currentSelectedOptions = getCurrentSelectedOptions(innerValue.value);
-        return currentSelectedOptions
-          .slice(0, props.minCollapsedNum ? props.minCollapsedNum : currentSelectedOptions.length)
-          .map((v: TdOptionProps, key: number) => {
+        return innerValue.value
+          .slice(0, props.minCollapsedNum ? props.minCollapsedNum : innerValue.value.length)
+          .map?.((v: string, key: number) => {
+            let tagIndex: number;
+            const option = currentSelectedOptions.find((item, index) => {
+              if (item.value === v) {
+                tagIndex = index;
+                return true;
+              }
+            });
+
             return (
               <Tag
                 key={key}
-                closable={!v?.disabled && !props.disabled && !props.readonly}
+                closable={!option?.disabled && !props.disabled && !props.readonly}
                 size={props.size}
                 {...props.tagProps}
                 onClose={({ e }: { e: MouseEvent }) => {
                   e.stopPropagation();
-                  const index = currentSelectedOptions.findIndex((item) => item.value === v.value);
                   props.tagProps?.onClose?.({ e });
-                  removeTag(index);
+                  removeTag(tagIndex);
                 }}
               >
-                {v?.label ?? v?.value}
+                {option ? option.label ?? option?.value : v}
               </Tag>
             );
           });

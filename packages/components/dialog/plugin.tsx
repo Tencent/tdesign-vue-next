@@ -1,6 +1,6 @@
 import { App, ref, Plugin, defineComponent, h, onMounted, nextTick, AppContext, createVNode, render } from 'vue';
 import DialogComponent from './dialog';
-import { getAttach } from '../utils/dom';
+import { getAttach } from '@tdesign/shared-utils';
 import { DialogOptions, DialogMethod, DialogConfirmMethod, DialogAlertMethod, DialogInstance } from './type';
 import { omit } from 'lodash-es';
 

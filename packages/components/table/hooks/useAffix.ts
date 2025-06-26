@@ -1,7 +1,7 @@
 import { debounce, isBoolean } from 'lodash-es';
 import { computed, ref, watch, onBeforeUnmount } from 'vue';
 import { TdBaseTableProps } from '../type';
-import { on, off } from '../../utils/dom';
+import { on, off } from '@tdesign/shared-utils';
 import { AffixProps } from '../../affix';
 
 /**
@@ -77,6 +77,7 @@ export default function useAffix(props: TdBaseTableProps) {
   const updateAffixHeaderOrFooter = () => {
     if (!isAffixed.value && !isVirtualScroll.value && !tableContentRef.value) return;
     const pos = tableContentRef.value?.getBoundingClientRect();
+    if (!pos) return;
     const headerRect = tableContentRef.value?.querySelector('thead')?.getBoundingClientRect();
     const headerHeight = headerRect?.height || 0;
     const footerRect = affixFooterRef.value?.getBoundingClientRect();

@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue';
-import { usePrefixClass } from '@tdesign/hooks';
+import { usePrefixClass } from '@tdesign/shared-hooks';
 import props from './chat-loading-props';
 
 export default defineComponent({

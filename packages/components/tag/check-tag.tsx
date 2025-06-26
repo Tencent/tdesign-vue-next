@@ -1,6 +1,6 @@
 import { defineComponent, computed, toRefs } from 'vue';
 import props from './check-tag-props';
-import { useVModel, useContent, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
+import { useVModel, useContent, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
 
 import Tag from './tag';
 import { TdCheckTagProps, TdTagProps } from './type';

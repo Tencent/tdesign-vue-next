@@ -2,7 +2,7 @@ import { isNil, isArray } from 'lodash-es';
 
 import { defineComponent, provide, ref } from 'vue';
 
-import { useTNodeJSX, usePrefixClass, useCommonClassName, useChildComponentSlots } from '@tdesign/hooks';
+import { useTNodeJSX, usePrefixClass, useCommonClassName, useChildComponentSlots } from '@tdesign/shared-hooks';
 
 import props from './props';
 import { descriptionsKey } from './consts';

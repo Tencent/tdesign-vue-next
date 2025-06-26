@@ -25,7 +25,7 @@
  */
 import { App, nextTick, Plugin, AppContext, VNode, createVNode, render } from 'vue';
 import MessageList, { DEFAULT_Z_INDEX } from './message-list';
-import { getAttach } from '../utils/dom';
+import { getAttach } from '@tdesign/shared-utils';
 import {
   MessageOptions,
   MessageMethod,

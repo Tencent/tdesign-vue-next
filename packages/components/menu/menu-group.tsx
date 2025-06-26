@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue';
 import props from './menu-group-props';
-import { useTNodeJSX, usePrefixClass } from '@tdesign/hooks';
+import { useTNodeJSX, usePrefixClass } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'TMenuGroup',

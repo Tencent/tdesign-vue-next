@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue';
 import props from './props';
-import { useTNodeJSX } from '@tdesign/hooks';
+import { useTNodeJSX } from '@tdesign/shared-hooks';
 import { provideConfig } from './hooks/useConfig';
 
 export default defineComponent({

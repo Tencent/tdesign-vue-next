@@ -2,7 +2,7 @@ import { ref, computed, watch } from 'vue';
 import dayjs from 'dayjs';
 import { omit } from 'lodash-es';
 
-import { useDisabled, useReadonly, usePrefixClass } from '@tdesign/hooks';
+import { useDisabled, useReadonly, usePrefixClass } from '@tdesign/shared-hooks';
 
 import { TdDatePickerProps, DateValue } from '../type';
 import {

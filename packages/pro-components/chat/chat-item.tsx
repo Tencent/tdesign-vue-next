@@ -1,5 +1,8 @@
 import { defineComponent, computed, provide, Fragment } from 'vue';
-import { usePrefixClass, useConfig, useTNodeJSX } from '@tdesign/hooks';
+import { useConfig } from 'tdesign-vue-next/es/config-provider/hooks';
+
+import { usePrefixClass, useTNodeJSX } from '@tdesign/shared-hooks';
+
 import props from './chat-item-props';
 import { isString, isObject } from 'lodash-es';
 import { Skeleton } from 'tdesign-vue-next';

@@ -2,7 +2,7 @@ import { defineComponent, ref, PropType } from 'vue';
 import { TdDropdownProps } from '../dropdown/type';
 
 import dropdownItemProps from './dropdown-item-props';
-import { useRipple, useContent, useTNodeJSX, usePrefixClass } from '@tdesign/hooks';
+import { useRipple, useContent, useTNodeJSX, usePrefixClass } from '@tdesign/shared-hooks';
 
 import { pxCompat } from '@tdesign/common-js/utils/helper';
 

@@ -1,6 +1,6 @@
 import { App, Plugin, nextTick, AppContext, createVNode, render, VNode } from 'vue';
 import NotificationList from './notification-list';
-import { getAttach } from '../utils/dom';
+import { getAttach } from '@tdesign/shared-utils';
 import {
   NotificationOptions,
   NotificationInstance,

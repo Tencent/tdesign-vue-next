@@ -4,7 +4,7 @@ import { GRADIENT_SLIDER_DEFAULT_WIDTH } from '@tdesign/common-js/color-picker/c
 import { genGradientPoint, gradientColors2string, GradientColorPoint } from '../../utils';
 import { InputNumber as TInputNumber } from '../../../input-number';
 import { useBaseClassName } from '../../hooks';
-import { useCommonClassName } from '@tdesign/hooks';
+import { useCommonClassName } from '@tdesign/shared-hooks';
 import baseProps from './base-props';
 
 const DELETE_KEYS: string[] = ['delete', 'backspace'];
@@ -177,8 +177,7 @@ export default defineComponent({
       if (props.disabled || !props.enableMultipleGradient) {
         return;
       }
-      let left = e.clientX - sliderRect.left;
-      left = Math.max(0, Math.min(sliderRect.width, left));
+      const left = e.offsetX;
       const percentLeft = (left / sliderRect.width) * 100;
       const newPoint = genGradientPoint(percentLeft, props.color.rgba);
       colors.value.push(newPoint);

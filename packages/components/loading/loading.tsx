@@ -1,8 +1,8 @@
 import { defineComponent, ref, computed, watch, onMounted, toRefs, CSSProperties, Teleport } from 'vue';
 import GradientIcon from './icon/gradient';
-import { addClass, removeClass } from '../utils/dom';
+import { addClass, removeClass } from '@tdesign/shared-utils';
 import { getPropertyValFromObj } from '@tdesign/common-js/utils/general';
-import { useContent, useTNodeJSX, useTeleport, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
+import { useContent, useTNodeJSX, useTeleport, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
 
 import props from './props';
 

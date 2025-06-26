@@ -15,7 +15,7 @@ import TTabNavItem from './tab-nav-item';
 import TTabNavBar from './tab-nav-bar';
 
 // hooks
-import { useResize, useDragSort, useGlobalIcon, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
+import { useResize, useDragSort, useGlobalIcon, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'TTabNav',

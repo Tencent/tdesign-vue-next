@@ -1,6 +1,6 @@
 import _RangeInput from './range-input';
 import _RangeInputPopup from './range-input-popup';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 import { TdRangeInputProps, TdRangeInputPopupProps } from './type';
 
 import './style';

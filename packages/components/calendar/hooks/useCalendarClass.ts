@@ -1,6 +1,6 @@
 import { computed } from 'vue';
 
-import { usePrefixClass } from '@tdesign/hooks';
+import { usePrefixClass } from '@tdesign/shared-hooks';
 import { CalendarState } from '../types';
 import { TdCalendarProps } from '../type';
 import { COMPONENT_NAME } from '../consts';

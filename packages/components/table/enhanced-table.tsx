@@ -16,17 +16,15 @@ import useTreeSelect from './hooks/useTreeSelect';
 import { get } from 'lodash-es';
 import { ComponentScrollToElementParams } from '../common';
 import log from '@tdesign/common-js/log/index';
-import { usePrefixClass } from '@tdesign/hooks';
+import { usePrefixClass } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'TEnhancedTable',
-
   props: {
     ...baseTableProps,
     ...primaryTableProps,
     ...enhancedTableProps,
   },
-
   setup(props: TdEnhancedTableProps, context: SetupContext) {
     const primaryTableRef = ref(null);
     const { store, dataSource, formatTreeColumn, swapData, onExpandFoldIconClick, ...treeInstanceFunctions } =

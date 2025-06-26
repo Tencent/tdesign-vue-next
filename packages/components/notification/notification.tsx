@@ -6,7 +6,7 @@ import {
 } from 'tdesign-icons-vue-next';
 import { isFunction } from 'lodash-es';
 
-import { useConfig, useContent, useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/hooks';
+import { useConfig, useContent, useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
 import props from './props';
 
 import { fadeIn, fadeOut } from './utils';

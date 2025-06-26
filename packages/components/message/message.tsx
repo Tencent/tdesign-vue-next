@@ -10,7 +10,7 @@ import {
 import TLoading from '../loading';
 import { THEME_LIST } from './consts';
 import props from './props';
-import { useContent, useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/hooks';
+import { useContent, useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
 
 import { fadeIn, fadeOut } from './utils';
 

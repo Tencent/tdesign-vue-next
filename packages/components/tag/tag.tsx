@@ -4,7 +4,14 @@ import { isString } from 'lodash-es';
 import tinycolor from 'tinycolor2';
 
 import props from './props';
-import { useConfig, useContent, useTNodeJSX, useGlobalIcon, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
+import {
+  useConfig,
+  useContent,
+  useTNodeJSX,
+  useGlobalIcon,
+  usePrefixClass,
+  useCommonClassName,
+} from '@tdesign/shared-hooks';
 
 import { Styles } from '../common';
 
