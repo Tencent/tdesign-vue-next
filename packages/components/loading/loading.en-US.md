@@ -38,7 +38,7 @@ zIndex | Number | - | \- | N
 
 ### LoadingPlugin
 
-同时也支持 `this.$loading`。
+The same as `this.$loading`。This is a plugin function with parameters in sequential form (e.g., (a, b, c)), not object form (e.g., ({ a, b, c })). The sequential parameters are as follows:
 
 name | params | default | description
 -- | -- | -- | --
