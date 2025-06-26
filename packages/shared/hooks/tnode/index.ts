@@ -1,7 +1,14 @@
-import { h, getCurrentInstance, ComponentInternalInstance, VNode, isVNode } from 'vue';
+import { h, getCurrentInstance, ComponentInternalInstance, VNode } from 'vue';
 import { camelCase, kebabCase, isFunction } from 'lodash-es';
 
-import { getDefaultNode, getParams, OptionsType, JSXRenderContext, getSlotFirst } from '@tdesign/shared-utils';
+import {
+  getDefaultNode,
+  getParams,
+  OptionsType,
+  JSXRenderContext,
+  getSlotFirst,
+  isCommentVNode,
+} from '@tdesign/shared-utils';
 import { hasOwn } from '@tdesign/common-js/utils/general';
 
 // 兼容处理插槽名称，同时支持驼峰命名和中划线命名，示例：value-display 和 valueDisplay
@@ -15,10 +22,10 @@ function handleSlots(instance: ComponentInternalInstance, name: string, params: 
 
   // 检查是否存在 驼峰命名 的插槽（过滤注释节点）
   let node = instance.slots[camelCase(name)]?.(params);
-  if (node && node.filter((t) => t.type.toString?.() !== 'Symbol(v-cmt)').length) return node;
+  if (node && node.filter((t) => !isCommentVNode(t)).length) return node;
   // 检查是否存在 中划线命名 的插槽
   node = instance.slots[kebabCase(name)]?.(params);
-  if (node && node.filter((t) => t.type.toString?.() !== 'Symbol(v-cmt)').length) return node;
+  if (node && node.filter((t) => !isCommentVNode(t)).length) return node;
   return null;
 }
 
@@ -162,17 +169,6 @@ export const useContent = () => {
     const res = isEmptyNode(node1) ? node2 : node1;
     return isEmptyNode(res) ? defaultNode : res;
   };
-};
-
-/**
- * 判断一个 VNode 是否是注释节点（Comment）
- * Vue 3 中注释节点的 type 是 Symbol(v-cmt)
- *
- * @param node - 任意节点
- * @returns 是否为注释类型的 VNode
- */
-export const isCommentVNode = (node: unknown): node is VNode => {
-  return isVNode(node) && node.type === Symbol.for('v-cmt');
 };
 
 /**
