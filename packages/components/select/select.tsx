@@ -59,8 +59,6 @@ export default defineComponent({
       value: props.keys?.value || 'value',
       disabled: props.keys?.disabled || 'disabled',
     }));
-    const { optionsMap, optionsList, optionsCache, displayOptions, filterMethods, getSearchDisplayOptions } =
-      useSelectOptions(props, keys, innerInputValue, orgValue);
 
     // 内部数据,格式化过的
     const innerValue = computed(() => {
@@ -78,6 +76,9 @@ export default defineComponent({
       }
       return orgValue.value;
     });
+
+    const { optionsMap, optionsList, optionsCache, displayOptions, filterMethods, getSearchDisplayOptions } =
+      useSelectOptions(props, keys, innerInputValue, innerValue);
 
     const setInnerValue: TdSelectProps['onChange'] = (newVal: SelectValue | SelectValue[], context) => {
       if (props.valueType === 'object') {
@@ -123,7 +124,15 @@ export default defineComponent({
 
     const placeholderText = computed(
       () =>
-        ((!props.multiple && innerPopupVisible.value && getSingleContent(innerValue.value, optionsMap)) ||
+        ((!props.multiple &&
+          innerPopupVisible.value &&
+          getSingleContent(
+            props.onSearch && props.filterable,
+            innerValue.value,
+            keys,
+            searchDisplayOptions,
+            optionsMap,
+          )) ||
           props.placeholder) ??
         t(globalConfig.value.placeholder),
     );
@@ -131,8 +140,20 @@ export default defineComponent({
     // selectInput 展示值
     const displayText = computed(() =>
       props.multiple
-        ? getMultipleContent(innerValue.value as SelectValue[], optionsMap)
-        : getSingleContent(innerValue.value, optionsMap),
+        ? getMultipleContent(
+            props.onSearch && props.filterable,
+            innerValue.value as SelectValue[],
+            keys,
+            searchDisplayOptions,
+            optionsMap,
+          )
+        : getSingleContent(
+            props.onSearch && props.filterable,
+            innerValue.value,
+            keys,
+            searchDisplayOptions,
+            optionsMap,
+          ),
     );
 
     // valueDisplayParams参数
@@ -188,7 +209,7 @@ export default defineComponent({
         let len = index;
 
         const getSearchCurrentSelectedOptions = () => {
-          return getSearchDisplayOptions().filter((item, i) => {
+          return searchDisplayOptions.value.filter((item, i) => {
             return item.value === innerValue.value[i];
           });
         };
@@ -208,9 +229,7 @@ export default defineComponent({
         // 前面不是disabled的option
         const values = currentSelected[closest];
 
-        const currentSelectedOptions = currentSelected.filter((item) => {
-          return item.value !== values.value;
-        });
+        const currentSelectedOptions = currentSelected.filter((item) => item.value !== values.value);
 
         setInnerValue(
           currentSelectedOptions.map((item) => item.value),
@@ -316,7 +335,7 @@ export default defineComponent({
       if (intersectionLen.value === 0) return false;
       return (
         intersectionLen.value ===
-        (props.onSearch && props.filterable ? getSearchDisplayOptions().length : optionalList.value.length)
+        (props.onSearch && props.filterable ? searchDisplayOptions.value.length : optionalList.value.length)
       );
     });
 
@@ -479,20 +498,23 @@ export default defineComponent({
       });
     };
 
+    const searchDisplayOptions = computed(() => {
+      return props.onSearch && props.filterable
+        ? getSearchDisplayOptions()
+        : getCurrentSelectedOptions(innerValue.value);
+    });
+
     const renderValueDisplay = () => {
       const renderTag = () => {
         if (!props.multiple || props.selectInputProps?.multiple === false) {
           return undefined;
         }
 
-        const currentSelectedOptions =
-          props.onSearch && props.filterable ? getSearchDisplayOptions() : getCurrentSelectedOptions(innerValue.value);
-
         return innerValue.value
           .slice(0, props.minCollapsedNum ? props.minCollapsedNum : innerValue.value.length)
           .map?.((v: string, key: number) => {
             let tagIndex: number;
-            const option = currentSelectedOptions.find((item, index) => {
+            const option = searchDisplayOptions.value.find((item, index) => {
               if (item.value === v) {
                 tagIndex = index;
                 return true;

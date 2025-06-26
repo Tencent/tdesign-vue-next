@@ -14,7 +14,7 @@ export const useSelectOptions = (
   props: TdSelectProps,
   keys: Ref<KeysType>,
   inputValue: Ref<string>,
-  orgValue: Ref<SelectValue<SelectOption>>,
+  innerValue: Ref<SelectValue<SelectOption>>,
 ) => {
   const getChildComponentSlots = useChildComponentSlots();
   const optionsCache = ref<SelectOption[]>([]);
@@ -130,15 +130,15 @@ export const useSelectOptions = (
    * 这里通过记录所有时间选中的 options 来保证搜索结果中选中的选项不会被过滤掉
    */
   const getSearchDisplayOptions = () => {
-    const currentSelectedOptions = getSelectedOptions(optionsList.value, orgValue.value);
+    const currentSelectedOptions = getSelectedOptions(optionsList.value, innerValue.value);
     searchOptions.value = uniqBy([...searchOptions.value, ...currentSelectedOptions], keys.value.value);
-    const searchSelectedOptions = getSelectedOptions(searchOptions.value, orgValue.value);
+    const searchSelectedOptions = getSelectedOptions(searchOptions.value, innerValue.value);
 
     return uniqBy([...searchSelectedOptions, ...optionsList.value], keys.value.value);
   };
 
   const displayOptions = computed(() => {
-    if (props.onSearch && props.filterable) return getSearchDisplayOptions();
+    if (props.onSearch && props.filterable) return options.value; // 远程搜索时，不执行内部的过滤，不干预用户的自行处理，如输入首字母搜索中文的场景等
 
     if (!inputValue.value || !(props.filterable || isFunction(props.filter))) return options.value;
 
