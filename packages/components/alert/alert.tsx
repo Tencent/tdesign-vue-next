@@ -58,7 +58,7 @@ export default defineComponent({
     const renderClose = () => {
       // close属性变更为closeBtn过渡期使用，close废弃后可删除。（需兼容标签上直接写close和closeBtn的场景）
       const { closeBtn } = props;
-      const isUsingClose = Object.prototype.hasOwnProperty.call(instance.vnode.props, 'close') || slots.close;
+      const isUsingClose = Object.prototype.hasOwnProperty.call(instance.vnode.props || {}, 'close') || slots.close;
       const close = isUsingClose ? props.close : closeBtn;
       if (isUsingClose) {
         log.warnOnce('TAlert', 'prop `close` is going to be deprecated, please use `closeBtn` instead.');
