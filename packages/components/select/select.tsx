@@ -134,13 +134,7 @@ export default defineComponent({
     // selectInput 展示值
     const displayText = computed(() =>
       props.multiple
-        ? getMultipleContent(
-            innerValue.value as SelectValue[],
-            isRemoteSearch.value,
-
-            currentSelectOptions,
-            optionsMap,
-          )
+        ? getMultipleContent(innerValue.value as SelectValue[], isRemoteSearch.value, currentSelectOptions, optionsMap)
         : getSingleContent(innerValue.value, isRemoteSearch.value, currentSelectOptions, optionsMap),
     );
 
