@@ -186,8 +186,15 @@ export default defineComponent({
         // 如果最后一个为disabled，则应删除前一项（非disabled的）
         let closest = -1;
         let len = index;
+
+        const getSearchCurrentSelectedOptions = () => {
+          return getSearchDisplayOptions().filter((item, i) => {
+            return item.value === innerValue.value[i];
+          });
+        };
+
         const currentSelected =
-          props.onSearch && props.filterable ? getSearchDisplayOptions() : getCurrentSelectedOptions();
+          props.onSearch && props.filterable ? getSearchCurrentSelectedOptions() : getCurrentSelectedOptions();
         while (len >= 0) {
           if (!currentSelected[len]?.disabled) {
             closest = len;
@@ -307,7 +314,10 @@ export default defineComponent({
     // 全选
     const isCheckAll = computed<boolean>(() => {
       if (intersectionLen.value === 0) return false;
-      return intersectionLen.value === optionalList.value.length;
+      return (
+        intersectionLen.value ===
+        (props.onSearch && props.filterable ? getSearchDisplayOptions().length : optionalList.value.length)
+      );
     });
 
     const { hoverIndex, virtualFilteredOptions, handleKeyDown, filteredOptions } = useKeyboardControl({
