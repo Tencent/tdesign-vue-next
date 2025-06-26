@@ -19,15 +19,12 @@ export interface DisabledContext {
  */
 export function useDisabled(context?: DisabledContext) {
   const currentInstance = getCurrentInstance();
-
-  const currentInstanceDisabled = currentInstance.props.disabled as boolean | [boolean, boolean];
-  const componentDisabled = computed(() => currentInstanceDisabled);
+  const componentDisabled = computed(() => currentInstance.props.disabled as boolean | [boolean, boolean]);
 
   const formDisabled = inject<FormDisabledProvider>('formDisabled', Object.create(null));
 
   return computed(() => {
-    // array
-    if (isArray(currentInstanceDisabled) && currentInstanceDisabled.length === 2) return componentDisabled.value;
+    if (isArray(componentDisabled.value) && componentDisabled.value.length === 2) return componentDisabled.value;
 
     if (isBoolean(context?.beforeDisabled?.value)) return context.beforeDisabled.value;
     // Component
