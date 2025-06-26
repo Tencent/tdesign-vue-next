@@ -55,6 +55,7 @@
     "cjs",
     "esm",
     "es",
-    "global.d.ts"
+    "global.d.ts",
+    "packages/tdesign-vue-next-nuxt",
   ]
 }
