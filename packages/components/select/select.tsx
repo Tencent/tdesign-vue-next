@@ -506,6 +506,7 @@ export default defineComponent({
         return innerValue.value
           .slice(0, props.minCollapsedNum ? props.minCollapsedNum : innerValue.value.length)
           .map?.((v: string, key: number) => {
+            // 适配value非options配置的情况，所以不在options中查找
             const tagIndex = innerValue.value.indexOf(v);
             const option = optionsMap.value.get(v);
 
