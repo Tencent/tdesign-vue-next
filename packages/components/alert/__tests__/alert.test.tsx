@@ -17,8 +17,8 @@ describe('Alert', () => {
       expect(wrapper.find('.t-alert__description').text()).toBe('text');
     });
 
-    it(':close', () => {
-      const wrapper = mount(() => <Alert close>text</Alert>);
+    it(':closeBtn', () => {
+      const wrapper = mount(() => <Alert closeBtn>text</Alert>);
       const close = wrapper.find('.t-alert__close');
       expect(close.exists()).toBeTruthy();
       expect(wrapper.findComponent(CloseIcon).exists()).toBeTruthy();
@@ -116,7 +116,7 @@ describe('Alert', () => {
     it(':onClose', async () => {
       const fn = vi.fn();
       const wrapper = mount(() => (
-        <Alert close onClose={fn}>
+        <Alert closeBtn onClose={fn}>
           text
         </Alert>
       ));

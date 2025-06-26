@@ -59,11 +59,6 @@ export default defineComponent({
       value: props.keys?.value || 'value',
       disabled: props.keys?.disabled || 'disabled',
     }));
-    const { optionsMap, optionsList, optionsCache, displayOptions, filterMethods } = useSelectOptions(
-      props,
-      keys,
-      innerInputValue,
-    );
 
     // 内部数据,格式化过的
     const innerValue = computed(() => {
@@ -81,6 +76,9 @@ export default defineComponent({
       }
       return orgValue.value;
     });
+
+    const { optionsMap, optionsList, optionsCache, displayOptions, filterMethods, searchDisplayOptions } =
+      useSelectOptions(props, keys, innerInputValue, innerValue);
 
     const setInnerValue: TdSelectProps['onChange'] = (newVal: SelectValue | SelectValue[], context) => {
       if (props.valueType === 'object') {
@@ -126,7 +124,9 @@ export default defineComponent({
 
     const placeholderText = computed(
       () =>
-        ((!props.multiple && innerPopupVisible.value && getSingleContent(innerValue.value, optionsMap)) ||
+        ((!props.multiple &&
+          innerPopupVisible.value &&
+          getSingleContent(innerValue.value, isRemoteSearch.value, currentSelectOptions, optionsMap)) ||
           props.placeholder) ??
         t(globalConfig.value.placeholder),
     );
@@ -134,8 +134,8 @@ export default defineComponent({
     // selectInput 展示值
     const displayText = computed(() =>
       props.multiple
-        ? getMultipleContent(innerValue.value as SelectValue[], optionsMap)
-        : getSingleContent(innerValue.value, optionsMap),
+        ? getMultipleContent(innerValue.value as SelectValue[], isRemoteSearch.value, currentSelectOptions, optionsMap)
+        : getSingleContent(innerValue.value, isRemoteSearch.value, currentSelectOptions, optionsMap),
     );
 
     // valueDisplayParams参数
@@ -189,7 +189,13 @@ export default defineComponent({
         // 如果最后一个为disabled，则应删除前一项（非disabled的）
         let closest = -1;
         let len = index;
-        const currentSelected = getCurrentSelectedOptions();
+
+        //  找到符合条件的最近一个option
+        const getSearchCurrentSelectedOptions = () => {
+          return currentSelectOptions.value.filter((item, i) => item.value === innerValue.value[i]);
+        };
+
+        const currentSelected = isRemoteSearch.value ? getSearchCurrentSelectedOptions() : getCurrentSelectedOptions();
         while (len >= 0) {
           if (!currentSelected[len]?.disabled) {
             closest = len;
@@ -307,7 +313,9 @@ export default defineComponent({
     // 全选
     const isCheckAll = computed<boolean>(() => {
       if (intersectionLen.value === 0) return false;
-      return intersectionLen.value === optionalList.value.length;
+      return (
+        intersectionLen.value === (isRemoteSearch.value ? searchDisplayOptions.value.length : optionalList.value.length)
+      );
     });
 
     const { hoverIndex, virtualFilteredOptions, handleKeyDown, filteredOptions } = useKeyboardControl({
@@ -469,17 +477,24 @@ export default defineComponent({
       });
     };
 
+    /**
+     * 获取当前选中的选项 —— 远程搜索数据和本地传入的数据
+     */
+    const currentSelectOptions = computed(() => {
+      return isRemoteSearch.value ? searchDisplayOptions.value : getCurrentSelectedOptions(innerValue.value);
+    });
+
     const renderValueDisplay = () => {
       const renderTag = () => {
-        if (!props.multiple || !props.selectInputProps?.multiple) {
+        if (!props.multiple || props.selectInputProps?.multiple === false) {
           return undefined;
         }
-        const currentSelectedOptions = getCurrentSelectedOptions(innerValue.value);
+
         return innerValue.value
           .slice(0, props.minCollapsedNum ? props.minCollapsedNum : innerValue.value.length)
           .map?.((v: string, key: number) => {
             let tagIndex: number;
-            const option = currentSelectedOptions.find((item, index) => {
+            const option = currentSelectOptions.value.find((item, index) => {
               if (item.value === v) {
                 tagIndex = index;
                 return true;

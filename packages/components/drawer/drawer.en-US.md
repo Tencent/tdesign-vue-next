@@ -103,3 +103,4 @@ update | `(props: DrawerOptions)` | \- | \-
 name | params | default | description
 -- | -- | -- | --
 options | \- | - | Typescript：`DrawerOptions`
+context | \- | - | Typescript：`AppContext`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts)
