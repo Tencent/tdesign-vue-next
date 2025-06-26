@@ -3,7 +3,7 @@
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
-
+import { ComponentPublicInstance } from 'vue';
 import { TNode, AttachNode, AppContext } from '../common';
 
 export interface TdMessageProps {
@@ -88,7 +88,7 @@ export type MessagePlacementList =
   | 'bottom-left'
   | 'bottom-right';
 
-export interface MessageInstance {
+export interface MessageInstance extends ComponentPublicInstance {
   close: () => void;
 }
 
