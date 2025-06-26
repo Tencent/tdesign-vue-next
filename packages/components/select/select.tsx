@@ -126,7 +126,7 @@ export default defineComponent({
       () =>
         ((!props.multiple &&
           innerPopupVisible.value &&
-          getSingleContent(innerValue.value, isRemoteSearch.value, keys, currentSelectOptions, optionsMap)) ||
+          getSingleContent(innerValue.value, isRemoteSearch.value, currentSelectOptions, optionsMap)) ||
           props.placeholder) ??
         t(globalConfig.value.placeholder),
     );
@@ -137,11 +137,11 @@ export default defineComponent({
         ? getMultipleContent(
             innerValue.value as SelectValue[],
             isRemoteSearch.value,
-            keys,
+
             currentSelectOptions,
             optionsMap,
           )
-        : getSingleContent(innerValue.value, isRemoteSearch.value, keys, currentSelectOptions, optionsMap),
+        : getSingleContent(innerValue.value, isRemoteSearch.value, currentSelectOptions, optionsMap),
     );
 
     // valueDisplayParams参数

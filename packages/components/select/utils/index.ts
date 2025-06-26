@@ -5,12 +5,11 @@ import { TdSelectProps, TdOptionProps, SelectValue, SelectOption } from '../type
 export const getSingleContent = (
   value: TdSelectProps['value'],
   isRemote: boolean,
-  keys: ComputedRef<TdSelectProps['keys']>,
   searchDisplayOptions: ComputedRef<TdOptionProps[]>,
   optionsMap: ComputedRef<Map<SelectValue<SelectOption>, TdOptionProps>>,
 ): string => {
   if (isRemote) {
-    return searchDisplayOptions.value.filter((option) => option[keys.value.value as 'value'] === value)[0]?.label || '';
+    return searchDisplayOptions.value.filter((option) => option.value === value)[0]?.label || '';
   }
 
   const option = optionsMap.value.get(value);
@@ -20,13 +19,12 @@ export const getSingleContent = (
 export const getMultipleContent = (
   value: SelectValue[],
   isRemote: boolean,
-  keys: ComputedRef<TdSelectProps['keys']>,
   searchDisplayOptions: ComputedRef<TdOptionProps[]>,
   optionsMap: ComputedRef<Map<SelectValue<SelectOption>, TdOptionProps>>,
 ) => {
   const res = [];
   for (const iterator of value) {
-    const resLabel = getSingleContent(iterator, isRemote, keys, searchDisplayOptions, optionsMap);
+    const resLabel = getSingleContent(iterator, isRemote, searchDisplayOptions, optionsMap);
     if (resLabel) {
       res.push(resLabel);
     }
