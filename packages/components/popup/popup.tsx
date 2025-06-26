@@ -184,6 +184,20 @@ export default defineComponent({
         updateOverlayInnerStyle();
         updatePopper();
       },
+      { immediate: true },
+    );
+
+    watch(
+      () => props.triggerElement,
+      (v) => {
+        // triggerElement 为字符串的情况，作为元素选择器使用
+        if (typeof v === 'string') {
+          nextTick(() => {
+            triggerEl.value = document.querySelector(v);
+          });
+        }
+      },
+      { immediate: true },
     );
 
     watch(
@@ -210,6 +224,15 @@ export default defineComponent({
           return;
         }
         off(document, 'mousedown', onDocumentMouseDown, true);
+      },
+    );
+
+    watch(
+      () => [visible.value, overlayEl.value],
+      () => {
+        if (visible.value && overlayEl.value && updateScrollTop) {
+          updateScrollTop?.(overlayEl.value);
+        }
       },
     );
 
@@ -471,14 +494,6 @@ export default defineComponent({
       }
       props.onScroll?.({ e });
     }
-    watch(
-      () => [visible.value, overlayEl.value],
-      () => {
-        if (visible.value && overlayEl.value && updateScrollTop) {
-          updateScrollTop?.(overlayEl.value);
-        }
-      },
-    );
 
     return () => {
       const content = renderTNodeJSX('content');
@@ -521,7 +536,9 @@ export default defineComponent({
       return (
         <Container
           ref={(ref: any) => (containerRef.value = ref)}
-          forwardRef={(ref) => (triggerEl.value = ref)}
+          forwardRef={(ref) => {
+            if (typeof props.triggerElement !== 'string') triggerEl.value = ref;
+          }}
           onContentMounted={() => {
             if (visible.value) {
               updatePopper();
@@ -552,7 +569,10 @@ export default defineComponent({
                 {overlay}
               </Transition>
             ),
-            default: () => renderContent('default', 'triggerElement'),
+            default: () => {
+              if (typeof props.triggerElement === 'string') return null;
+              return renderContent('default', 'triggerElement');
+            },
           }}
         </Container>
       );
