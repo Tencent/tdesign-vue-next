@@ -210,27 +210,13 @@ export default defineComponent({
         // 前面不是disabled的option
         const notDisabledOption = currentSelected[closest];
 
-        const currentSelectedOptions = currentSelected.filter((item) => item.value !== notDisabledOption.value);
-
         // 当前value不是options的配置项
-        if (currentSelected.length === 0) {
-          setInnerValue(selectValue, { selectedOptions: currentSelectedOptions, trigger, e });
+        const currentSelectedOptions = currentSelected.filter((item) => item?.value !== notDisabledOption?.value);
 
-          props.onRemove?.({
-            value: value as string | number,
-            data: { value: value },
-            e,
-          });
-          return;
-        }
-
-        setInnerValue(
-          currentSelectedOptions.map((item) => item.value),
-          { selectedOptions: currentSelectedOptions, trigger, e },
-        );
+        setInnerValue(selectValue, { selectedOptions: currentSelectedOptions, trigger, e });
 
         props.onRemove?.({
-          value: notDisabledOption.value as string | number,
+          value: value as string | number,
           data: notDisabledOption,
           e,
         });
