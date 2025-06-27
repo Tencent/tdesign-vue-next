@@ -277,6 +277,7 @@ export default defineComponent({
       values.forEach((value) => {
         const option = optionsMap.value.get(value);
         if (option) options.push(option);
+        else options.push({ value });
       });
 
       return options;
