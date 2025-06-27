@@ -172,16 +172,11 @@ export const useContent = () => {
 };
 
 /**
- * 过滤掉注释节点。若入参格式异常则保留原始数据。
+ * 过滤掉注释节点。
  *
- * @param nodes - VNode 数组或其他类型
- * @returns 去除注释节点后的 VNode 数组，异常时返回原始值（如未过滤）
+ * @param nodes - VNode 数组
+ * @returns 去除注释节点后的 VNode 数组。
  */
 export const filterCommentNode = (nodes: VNode[]): VNode[] => {
-  try {
-    return nodes.filter((node) => !isCommentVNode(node)) as VNode[];
-  } catch (e) {
-    console.warn('[filterCommentNode] 非预期错误，跳过过滤：', e);
-    return nodes as VNode[];
-  }
+  return nodes.filter((node) => !isCommentVNode(node));
 };
