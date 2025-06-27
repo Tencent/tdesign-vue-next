@@ -4,7 +4,8 @@ import { nextTick } from 'vue';
 import { it, expect, vi } from 'vitest';
 import { Avatar, AvatarGroup } from '@tdesign/components/avatar';
 import { getAvatarGroupDefaultMount } from './mount';
-import { mockDelay, simulateImageEvent } from '@tdesign/internal-tests/utils';
+import { simulateImageEvent } from '@tdesign/internal-tests/utils';
+import { sleep } from '@tdesign/internal-utils';
 import { UserIcon } from 'tdesign-icons-vue-next';
 
 describe('Avatar Component', () => {
@@ -43,7 +44,7 @@ describe('Avatar Component', () => {
     const wrapper = mount(<Avatar image={'https://this.is.an.error.path.jpg'} hideOnLoadFailed={true}></Avatar>);
     const imgDom = wrapper.find('img').element;
     simulateImageEvent(imgDom, 'error');
-    await mockDelay(300);
+    await sleep(300);
     expect(wrapper.find('.t-image').exists()).toBeFalsy();
   });
 
@@ -96,7 +97,7 @@ describe('Avatar Component', () => {
     const wrapper = mount(<Avatar image={'https://this.is.an.error.path.jpg'} onError={onErrorFn}></Avatar>);
     const imgDom = wrapper.find('img').element;
     simulateImageEvent(imgDom, 'error');
-    await mockDelay(300);
+    await sleep(300);
     expect(onErrorFn).toHaveBeenCalled();
     expect(onErrorFn.mock.calls[0][0].e.type).toBe('error');
   });

@@ -1,9 +1,9 @@
-import { App, Plugin, createApp, defineComponent, h, reactive } from 'vue';
+import { App, Plugin, createVNode, defineComponent, h, reactive, render, AppContext } from 'vue';
 import { merge } from 'lodash-es';
 import LoadingComponent from './loading';
+import { usePrefixClass } from '@tdesign/shared-hooks';
 import { getAttach, removeClass, addClass } from '@tdesign/shared-utils';
 import { TdLoadingProps, LoadingInstance, LoadingMethod } from './type';
-import { usePrefixClass } from '@tdesign/shared-hooks';
 
 let fullScreenLoadingInstance: LoadingInstance = null;
 
@@ -21,7 +21,7 @@ function mergeDefaultProps(props: TdLoadingProps): TdLoadingProps {
   return options;
 }
 
-function createLoading(props: TdLoadingProps): LoadingInstance {
+function createLoading(props: TdLoadingProps, context?: AppContext): LoadingInstance {
   const mergedProps = mergeDefaultProps(props);
 
   if (mergedProps.fullscreen && fullScreenLoadingInstance) {
@@ -38,8 +38,17 @@ function createLoading(props: TdLoadingProps): LoadingInstance {
 
   const attach = getAttach(mergedProps.fullscreen ? 'body' : mergedProps.attach);
 
-  const app = createApp(component);
-  const loading = app.mount(document.createElement('div'));
+  const instance = createVNode(component);
+
+  // eslint-disable-next-line no-underscore-dangle
+  if (context ?? LoadingPlugin._context) {
+    // eslint-disable-next-line no-underscore-dangle
+    instance.appContext = context ?? LoadingPlugin._context;
+  }
+
+  const wrapper = document.createElement('div');
+  render(instance, wrapper);
+
   const parentRelativeClass = usePrefixClass('loading__parent--relative').value;
   const lockClass = usePrefixClass('loading--lock');
   const lockFullscreen = mergedProps.preventScrollThrough && mergedProps.fullscreen;
@@ -56,24 +65,28 @@ function createLoading(props: TdLoadingProps): LoadingInstance {
 
   const loadingInstance: LoadingInstance = {
     hide: () => {
-      loading.loading = false;
       removeClass(attach, parentRelativeClass);
       removeClass(document.body, lockClass.value);
-      app.unmount();
+      // 卸载组件渲染
+      render(null, wrapper);
+      wrapper.remove();
     },
   };
   return loadingInstance;
 }
 
-function produceLoading(props: boolean | TdLoadingProps): LoadingInstance {
+function produceLoading(props: boolean | TdLoadingProps, context?: AppContext): LoadingInstance {
   // 全屏加载
   if (props === true) {
-    fullScreenLoadingInstance = createLoading({
-      fullscreen: true,
-      loading: true,
-      attach: 'body',
-      preventScrollThrough: true,
-    });
+    fullScreenLoadingInstance = createLoading(
+      {
+        fullscreen: true,
+        loading: true,
+        attach: 'body',
+        preventScrollThrough: true,
+      },
+      context,
+    );
     return fullScreenLoadingInstance;
   }
 
@@ -86,13 +99,18 @@ function produceLoading(props: boolean | TdLoadingProps): LoadingInstance {
   return createLoading(props);
 }
 
-export type LoadingPluginType = Plugin & LoadingMethod;
+export type LoadingPluginType = Plugin &
+  LoadingMethod & {
+    _context?: AppContext;
+  };
 
 export const LoadingPlugin: LoadingPluginType = produceLoading as LoadingPluginType;
 
 LoadingPlugin.install = (app: App) => {
   // eslint-disable-next-line no-param-reassign
   app.config.globalProperties.$loading = produceLoading;
+  // eslint-disable-next-line no-underscore-dangle
+  LoadingPlugin._context = app._context;
 };
 
 export default LoadingPlugin;
