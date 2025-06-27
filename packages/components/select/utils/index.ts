@@ -9,7 +9,7 @@ export const getSingleContent = (
   optionsMap: ComputedRef<Map<SelectValue<SelectOption>, TdOptionProps>>,
 ): string => {
   if (isRemote) {
-    return searchDisplayOptions.value.filter((option) => option.value === value)[0]?.label || '';
+    return searchDisplayOptions.value.filter((option) => option.value === value)[0]?.label || value?.toString();
   }
 
   const option = optionsMap.value.get(value);
