@@ -4,7 +4,14 @@ import TInput, { InputProps, StrInputProps, TdInputProps } from '../input';
 import { TdTagInputProps } from './type';
 import props from './props';
 import { useConfig } from '../config-provider/hooks/useConfig';
-import { useDisabled, useReadonly, useTNodeJSX, useGlobalIcon, usePrefixClass, useDefaultValue } from '@tdesign/hooks';
+import {
+  useDisabled,
+  useReadonly,
+  useTNodeJSX,
+  useGlobalIcon,
+  usePrefixClass,
+  useDefaultValue,
+} from '@tdesign/shared-hooks';
 
 import { useTagScroll, useHover, useDragSorter, useTagList } from './hooks';
 

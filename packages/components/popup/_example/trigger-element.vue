@@ -24,6 +24,10 @@
         <t-popup content="我的触发元素通过渲染函数 triggerElement 渲染" :trigger-element="renderTriggerElement2" />
       </div>
     </t-space>
+    <t-space size="large">
+      <t-button id="trigger-element" variant="outline">提供字符串选择器选择触发元素</t-button>
+      <t-popup content="我的触发元素通过 triggerElement 字符串选择已有元素" trigger-element="#trigger-element" />
+    </t-space>
   </t-space>
 </template>
 

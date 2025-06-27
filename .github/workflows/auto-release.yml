@@ -21,7 +21,7 @@ jobs:
 
       - run: pnpm install
 
-      - run: pnpm exec run-p 'build:*'
+      - run: pnpm run '/build:*/'
 
       - name: Set publishing config
         run: npm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"

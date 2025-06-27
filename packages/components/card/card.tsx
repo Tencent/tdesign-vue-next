@@ -1,6 +1,6 @@
 import { defineComponent, computed } from 'vue';
 
-import { useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
+import { useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
 
 import TLoading from '../loading';
 import props from './props';

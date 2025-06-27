@@ -2,7 +2,7 @@ import { Ref, reactive, computed, toRefs, watch, nextTick } from 'vue';
 import { isEqual, isString, isFunction } from 'lodash-es';
 
 import TreeStore from '@tdesign/common-js/tree/tree-store';
-import { useVModel, useDisabled, useDefaultValue } from '@tdesign/hooks';
+import { useVModel, useDisabled, useDefaultValue } from '@tdesign/shared-hooks';
 
 import {
   getTreeValue,
@@ -197,12 +197,12 @@ export const useCascaderContext = (props: TdCascaderProps) => {
 
       if (isValueInvalid(innerValue.value, cascaderContext.value)) {
         setValue(multiple ? [] : '', 'invalid-value');
-      } else {
-        statusContext.scopeVal = multiple ? [] : '';
       }
 
-      if (!isEmptyValues(innerValue)) {
+      if (!isEmptyValues(innerValue.value)) {
         statusContext.scopeVal = getCascaderValue(innerValue.value, valueType, multiple);
+      } else {
+        statusContext.scopeVal = multiple ? [] : '';
       }
 
       if (!statusContext.treeStore) return;

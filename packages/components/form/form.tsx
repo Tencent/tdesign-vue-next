@@ -1,8 +1,8 @@
 import { computed, defineComponent, provide, reactive, ref, toRefs } from 'vue';
 import { isEmpty, isArray, isBoolean, isFunction } from 'lodash-es';
 
-import { requestSubmit } from '../utils/dom';
-import { FormItemValidateResult, getFormItemClassName } from './form-item';
+import { requestSubmit } from '@tdesign/shared-utils';
+import { FormItemValidateResult } from './form-item';
 import {
   Data,
   FormResetParams,
@@ -15,9 +15,9 @@ import {
 import props from './props';
 import { FormInjectionKey, FormItemContext, useCLASSNAMES } from './consts';
 import { FormResetEvent, FormSubmitEvent } from '../common';
-
+import { getFormItemClassName } from './utils';
 import { FormDisabledProvider, FormReadonlyProvider } from './hooks';
-import { usePrefixClass, useTNodeJSX } from '@tdesign/hooks';
+import { usePrefixClass, useTNodeJSX } from '@tdesign/shared-hooks';
 
 type Result = FormValidateResult<TdFormProps['data']>;
 
@@ -186,7 +186,13 @@ export default defineComponent({
     expose({ validate, submit, reset, clearValidate, setValidateMessage, validateOnly });
 
     return () => (
-      <form ref={formRef} class={formClass.value} onSubmit={(e) => onSubmit(e)} onReset={(e) => onReset(e)}>
+      <form
+        id={props.id}
+        ref={formRef}
+        class={formClass.value}
+        onSubmit={(e) => onSubmit(e)}
+        onReset={(e) => onReset(e)}
+      >
         {renderContent('default')}
       </form>
     );

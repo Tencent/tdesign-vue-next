@@ -1,5 +1,5 @@
 import { defineComponent, ref, toRefs } from 'vue';
-import { useVModel, useDefaultValue, useTNodeDefault } from '@tdesign/hooks';
+import { useVModel, useDefaultValue, useTNodeDefault } from '@tdesign/shared-hooks';
 
 import props from './props';
 import { PopupTriggerEvent, PopupTriggerSource, Popup as TPopup } from '../popup';

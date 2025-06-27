@@ -1,7 +1,7 @@
 import { defineComponent, ref, computed, watch, isVNode, onMounted, cloneVNode } from 'vue';
 import { ChevronLeftIcon as TdChevronLeftIcon, ChevronRightIcon as TdChevronRightIcon } from 'tdesign-icons-vue-next';
 
-import { useTNodeJSX, useGlobalIcon, usePrefixClass, useChildComponentSlots } from '@tdesign/hooks';
+import { useTNodeJSX, useGlobalIcon, usePrefixClass, useChildComponentSlots } from '@tdesign/shared-hooks';
 
 import props from './props';
 import { SwiperNavigation, SwiperChangeSource } from './type';
@@ -144,10 +144,7 @@ export default defineComponent({
           }, props.duration);
         }
         if (currentIndex.value === 0) {
-          if (
-            (swiperItemLength.value > 2 && index === swiperItemLength.value - 1) ||
-            (swiperItemLength.value === 2 && index === 0)
-          ) {
+          if (swiperItemLength.value >= 2 && index === swiperItemLength.value - 1) {
             targetIndex = -1;
             navActiveIndex.value = swiperItemLength.value - 1;
             clearTimer();

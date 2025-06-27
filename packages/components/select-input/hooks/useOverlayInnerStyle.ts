@@ -3,7 +3,7 @@ import { isObject, isFunction } from 'lodash-es';
 
 import { TdSelectInputProps } from '../type';
 import { TdPopupProps, PopupVisibleChangeContext } from '../../popup';
-import { useDisabled, useReadonly } from '@tdesign/hooks';
+import { useDisabled, useReadonly } from '@tdesign/shared-hooks';
 
 export type overlayInnerStyleProps = Pick<
   TdSelectInputProps,

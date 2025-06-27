@@ -12,7 +12,7 @@ import {
   useGlobalIcon,
   usePrefixClass,
   useTNodeDefault,
-} from '@tdesign/hooks';
+} from '@tdesign/shared-hooks';
 
 import Popup, { PopupProps, PopupVisibleChangeContext } from '../popup/index';
 import props from './props';

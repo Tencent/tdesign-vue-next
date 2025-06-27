@@ -8,12 +8,12 @@ import { CheckboxGroupValue, CheckboxOptionObj, CheckboxGroupChangeContext } fro
 import { DialogPlugin } from '../../dialog/plugin';
 import { renderTitle } from './useTableHeader';
 import { PrimaryTableCol, TdPrimaryTableProps } from '../type';
-import { useConfig, useTNodeJSX, useGlobalIcon, useDefaultValue } from '@tdesign/hooks';
+import { useConfig, useTNodeJSX, useGlobalIcon, useDefaultValue } from '@tdesign/shared-hooks';
 
 import { getCurrentRowByKey } from '../utils';
 import { DialogInstance } from '../../dialog';
 import TButton from '../../button';
-import ColumnCheckboxGroup from '../column-checkbox-group';
+import ColumnCheckboxGroup from '../components/column-checkbox-group';
 
 export function getColumnKeys(columns: PrimaryTableCol[], keys = new Set<string>()) {
   for (let i = 0, len = columns.length; i < len; i++) {
@@ -218,6 +218,7 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
         }
       },
       onClose: () => {
+        columnCheckboxKeys.value = tDisplayColumns.value;
         // 此处逻辑不要随意改动，涉及到 内置列配置按钮 和 不包含列配置按钮等场景
         if (columnControllerVisible.value === undefined) {
           dialogInstance.value.hide();

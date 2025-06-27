@@ -1,6 +1,6 @@
 import { defineComponent, computed, toRefs, ref } from 'vue';
 import { StarFilledIcon } from 'tdesign-icons-vue-next';
-import { useVModel, useConfig, useTNodeJSX } from '@tdesign/hooks';
+import { useVModel, useConfig, useTNodeJSX } from '@tdesign/shared-hooks';
 import props from './props';
 
 import Tooltip from '../tooltip/index';

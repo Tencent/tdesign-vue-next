@@ -1,5 +1,5 @@
 import { computed, ref, toRefs, watch } from 'vue';
-import { useVModel, useReadonly, useDisabled, useCommonClassName } from '@tdesign/hooks';
+import { useVModel, useReadonly, useDisabled, useCommonClassName } from '@tdesign/shared-hooks';
 
 import { InputNumberValue, TdInputNumberProps } from '../type';
 

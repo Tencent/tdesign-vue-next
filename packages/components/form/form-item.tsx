@@ -51,16 +51,11 @@ import {
   ValidateStatus,
 } from './consts';
 
-import { useConfig, useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/hooks';
-
+import { useConfig, useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
+import { getFormItemClassName } from './utils';
 import { template } from '@tdesign/common-js/utils/stringTemplate';
 
 export type FormItemValidateResult<T extends Data = Data> = { [key in keyof T]: boolean | AllValidateResult[] };
-
-export function getFormItemClassName(componentName: string, name?: string) {
-  if (!name) return '';
-  return `${componentName}__${name}`.replace(/(\[|\]\.)/g, '_');
-}
 
 export default defineComponent({
   name: 'TFormItem',
@@ -146,11 +141,11 @@ export default defineComponent({
       }
       if (list?.[0]) {
         const type = list[0].type || 'error';
-        const icon =
-          {
-            error: CloseCircleFilledIcon,
-            warning: ErrorCircleFilledIcon,
-          }[type] || CheckCircleFilledIcon;
+        const icon = {
+          error: CloseCircleFilledIcon,
+          warning: ErrorCircleFilledIcon,
+          success: CheckCircleFilledIcon,
+        }[type];
         return resultIcon(icon);
       }
       return null;

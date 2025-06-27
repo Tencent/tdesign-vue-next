@@ -3,7 +3,7 @@ import TInput from '../../../input';
 import { Color, getColorObject } from '../../utils';
 import { TdColorPickerProps } from '../../type';
 import { useBaseClassName } from '../../hooks';
-import { useCommonClassName } from '@tdesign/hooks';
+import { useCommonClassName } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'DefaultTrigger',
