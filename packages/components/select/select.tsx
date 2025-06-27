@@ -192,12 +192,7 @@ export default defineComponent({
         let closest = -1;
         let len = index;
 
-        //  找到符合条件的最近一个option
-        const getSearchCurrentSelectedOptions = () => {
-          return currentSelectOptions.value.filter((item, i) => item.value === innerValue.value[i]);
-        };
-
-        const currentSelected = isRemoteSearch.value ? getSearchCurrentSelectedOptions() : getCurrentSelectedOptions();
+        const currentSelected = getCurrentSelectedOptions();
         while (len >= 0) {
           if (!currentSelected[len]?.disabled) {
             closest = len;
