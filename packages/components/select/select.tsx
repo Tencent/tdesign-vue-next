@@ -192,7 +192,7 @@ export default defineComponent({
 
         // 找到符合条件的最近一个option
         const getSearchCurrentSelectedOptions = () => {
-          return currentSelectOptions.value.filter((item, i) => item.value === innerValue.value[i]);
+          return currentSelectOptions.value.filter((item) => innerValue.value.includes(item.value));
         };
 
         const currentSelected = isRemoteSearch.value ? getSearchCurrentSelectedOptions() : getCurrentSelectedOptions();
@@ -207,13 +207,16 @@ export default defineComponent({
         // 只剩下disabled的情况，不做任何操作
         if (closest < 0) return;
 
-        // 前面不是disabled的option
+        // 前面不是disabled的项
         const notDisabledOption = currentSelected[closest];
 
-        // 当前value不是options的配置项
-        const currentSelectedOptions = currentSelected.filter((item) => item?.value !== notDisabledOption?.value);
+        // 当前已选中的options，且不是disabled
+        const currentSelectedOptions = currentSelected.filter((item) => item?.value !== notDisabledOption.value);
 
-        setInnerValue(selectValue, { selectedOptions: currentSelectedOptions, trigger, e });
+        setInnerValue(
+          currentSelectedOptions.map((item) => item.value),
+          { selectedOptions: currentSelectedOptions, trigger, e },
+        );
 
         props.onRemove?.({
           value: value as string | number,
