@@ -239,7 +239,6 @@ export default defineComponent({
           [STATUS.value.focused]: focused.value,
           [`${prefix.value}-resize-none`]: typeof props.autosize === 'object',
         },
-        'narrow-scrollbar',
       ]);
 
       const tips = renderTNodeJSX('tips');
