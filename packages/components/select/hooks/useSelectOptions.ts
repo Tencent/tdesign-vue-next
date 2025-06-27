@@ -23,7 +23,7 @@ export const useSelectOptions = (
     let dynamicIndex = 0;
     // 统一处理 keys,处理通用数据
     const innerOptions: UniOption[] =
-      props.options?.map((option) => {
+      props.options?.map((option: SelectOptionGroup) => {
         const getFormatOption = (option: TdOptionProps) => {
           const { value, label, disabled } = keys.value;
           const restOption = omit(option, [value, label, disabled]) as Partial<TdOptionProps>;
@@ -37,10 +37,10 @@ export const useSelectOptions = (
           dynamicIndex++;
           return res;
         };
-        if ((option as SelectOptionGroup).children) {
+        if (option.children?.length > 0 || !!option.group) {
           return {
             ...option,
-            children: (option as SelectOptionGroup).children.map((child) => getFormatOption(child)),
+            children: option.children.map((child) => getFormatOption(child)),
           };
         }
         return getFormatOption(option);
@@ -88,8 +88,9 @@ export const useSelectOptions = (
     const res: TdOptionProps[] = [];
     const getOptionsList = (options: TdOptionProps[]) => {
       for (const option of options) {
-        if ((option as SelectOptionGroup).children) {
-          getOptionsList((option as SelectOptionGroup).children);
+        const item = option as SelectOptionGroup;
+        if (item.children?.length > 0 || !!item.group) {
+          getOptionsList(item.children);
         } else {
           res.push(option);
         }
