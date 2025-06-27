@@ -6,7 +6,6 @@ import {
   reactive,
   watch,
   onMounted,
-  watchEffect,
   toRefs,
   h,
   VNode,
@@ -16,7 +15,6 @@ import {
 import { EllipsisIcon } from 'tdesign-icons-vue-next';
 import { isArray, isFunction } from 'lodash-es';
 
-import log from '@tdesign/common-js/log/log';
 import props from './head-menu-props';
 import { MenuValue } from './type';
 import { TdMenuInterface, TdOpenType } from './types';
@@ -32,11 +30,6 @@ export default defineComponent({
   setup(props, ctx) {
     const classPrefix = usePrefixClass();
     const { proxy } = getCurrentInstance();
-    watchEffect(() => {
-      if (ctx.slots.options) {
-        log.warnOnce('TMenu', '`options` slot is going to be deprecated, please use `operations` for slot instead.');
-      }
-    });
     const { value, modelValue, expanded } = toRefs(props);
     const [activeValue, setActiveValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
     const [expandValues, setExpanded] = useDefaultValue(expanded, props.defaultExpanded, props.onExpand, 'expanded');
