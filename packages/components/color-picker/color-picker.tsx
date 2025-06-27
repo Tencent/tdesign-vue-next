@@ -49,15 +49,18 @@ export default defineComponent({
     };
 
     return () => {
-      const popProps = {
-        placement: 'bottom-left',
-        ...((props.popupProps as any) || {}),
-        trigger: 'click',
-        attach: 'body',
-        overlayClassName: [baseClassName.value],
+      const sourcePopupProps = (props.popupProps as TdColorPickerProps['popupProps']) || {};
+      const popupProps = {
+        placement: sourcePopupProps?.placement || 'bottom-left',
+        trigger: sourcePopupProps?.trigger || 'click',
+        attach: sourcePopupProps?.attach || 'body',
+        overlayClassName: [...[sourcePopupProps?.overlayClassName], ...[baseClassName.value]],
         visible: visible.value,
         overlayInnerStyle: {
-          padding: 0,
+          ...{
+            padding: 0,
+            ...sourcePopupProps?.overlayInnerStyle,
+          },
         },
         onVisibleChange: (
           popupVisible: boolean,
@@ -71,9 +74,10 @@ export default defineComponent({
           }
           (props.popupProps as TdColorPickerProps['popupProps'])?.onVisibleChange?.(visible.value, context);
         },
+        ...sourcePopupProps,
       };
       return (
-        <TPopup {...popProps} content={renderPopupContent}>
+        <TPopup {...popupProps} content={renderPopupContent}>
           <div class={`${baseClassName.value}__trigger`} onClick={() => setVisible(!visible.value)} ref={refTrigger}>
             {renderTNodeJSXDefault(
               'default',
