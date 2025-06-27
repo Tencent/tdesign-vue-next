@@ -1,5 +1,5 @@
 import { computed, Slots, Ref, ref } from 'vue';
-import { get, omit, isArray, isFunction } from 'lodash-es';
+import { get, omit, isArray, isFunction, uniqBy } from 'lodash-es';
 
 import { useChildComponentSlots } from '@tdesign/shared-hooks';
 import { TdSelectProps, TdOptionProps, SelectOptionGroup, SelectValue, SelectOption } from '../type';
@@ -10,7 +10,12 @@ type UniOption = (TdOptionProps | SelectOptionGroup) & {
   slots?: Slots;
 };
 
-export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inputValue: Ref<string>) => {
+export const useSelectOptions = (
+  props: TdSelectProps,
+  keys: Ref<KeysType>,
+  inputValue: Ref<string>,
+  innerValue: Ref<SelectValue<SelectOption>>,
+) => {
   const getChildComponentSlots = useChildComponentSlots();
   const optionsCache = ref<SelectOption[]>([]);
 
@@ -110,6 +115,28 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inpu
     return option.label?.toLowerCase?.().indexOf(`${inputValue.value}`.toLowerCase()) > -1;
   };
 
+  const searchOptions = ref<SelectOption[]>([]);
+
+  const getSelectedOptions = (options: TdOptionProps[], selectValue: SelectValue[] | SelectValue) => {
+    return options.filter((option) => {
+      if (option.checkAll) return;
+      if (isArray(selectValue)) return selectValue.includes(option.value);
+      return selectValue === option.value;
+    });
+  };
+
+  /**
+   * @description 获取搜索结果选项
+   * 这里通过记录所有时间选中的 options 来保证搜索结果中选中的选项不会被过滤掉
+   */
+  const searchDisplayOptions = computed(() => {
+    const currentSelectedOptions = getSelectedOptions(optionsList.value, innerValue.value);
+    searchOptions.value = uniqBy([...searchOptions.value, ...currentSelectedOptions], 'value');
+    const searchSelectedOptions = getSelectedOptions(searchOptions.value, innerValue.value);
+
+    return uniqBy([...searchSelectedOptions, ...optionsList.value], 'value');
+  });
+
   const displayOptions = computed(() => {
     if (props.onSearch && props.filterable) return options.value; // 远程搜索时，不执行内部的过滤，不干预用户的自行处理，如输入首字母搜索中文的场景等
 
@@ -153,5 +180,6 @@ export const useSelectOptions = (props: TdSelectProps, keys: Ref<KeysType>, inpu
     optionsCache,
     displayOptions,
     filterMethods,
+    searchDisplayOptions,
   };
 };
