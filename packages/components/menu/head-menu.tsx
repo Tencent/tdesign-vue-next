@@ -228,7 +228,7 @@ export default defineComponent({
           return;
         }
         if (isArray(node.children)) {
-          initVMenu(node.children as VNode[], nodeValue);
+          initVMenu(node.children as VNode[], parentValue);
         }
       });
     };
