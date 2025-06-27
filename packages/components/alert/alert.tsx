@@ -11,7 +11,14 @@ import { isArray, isString } from 'lodash-es';
 import { on, off, addClass } from '@tdesign/shared-utils';
 import props from './props';
 import { SlotReturnValue } from '../common';
-import { useIcon, useConfig, useTNodeJSX, useGlobalIcon, usePrefixClass, filterCommentNode } from '@tdesign/shared-hooks';
+import {
+  useIcon,
+  useConfig,
+  useTNodeJSX,
+  useGlobalIcon,
+  usePrefixClass,
+  filterCommentNode,
+} from '@tdesign/shared-hooks';
 import log from '@tdesign/common-js/log/index';
 
 export default defineComponent({
