@@ -1,4 +1,4 @@
-import { computed, defineComponent } from 'vue';
+import { computed, ComputedRef, defineComponent } from 'vue';
 import { UploadIcon as TdUploadIcon } from 'tdesign-icons-vue-next';
 import props from './props';
 import NormalFile from './components/normal-file';
@@ -41,7 +41,7 @@ export default defineComponent({
       cancelUpload,
       uploadFilePercent,
     } = useUpload(props);
-    const disabled = useDisabled();
+    const isDisabled = useDisabled() as ComputedRef<boolean>;
 
     const { UploadIcon } = useGlobalIcon({
       UploadIcon: TdUploadIcon,
@@ -64,13 +64,18 @@ export default defineComponent({
       const getDefaultTrigger = () => {
         if (props.theme === 'file-input') {
           return (
-            <Button disabled={disabled.value} variant="outline" {...props.triggerButtonProps}>
+            <Button disabled={isDisabled.value} variant="outline" {...props.triggerButtonProps}>
               {triggerUploadButtonText.value}
             </Button>
           );
         }
         return (
-          <Button disabled={disabled.value} variant="outline" icon={() => <UploadIcon />} {...props.triggerButtonProps}>
+          <Button
+            disabled={isDisabled.value}
+            variant="outline"
+            icon={() => <UploadIcon />}
+            {...props.triggerButtonProps}
+          >
             {triggerUploadButtonText.value}
           </Button>
         );
@@ -89,7 +94,7 @@ export default defineComponent({
       displayFiles: displayFiles.value,
       theme: props.theme,
       placeholder: props.placeholder,
-      disabled: disabled.value,
+      disabled: isDisabled.value,
       tips: props.tips,
       status: props.status,
       sizeOverLimitMessage: sizeOverLimitMessage.value,
@@ -224,7 +229,7 @@ export default defineComponent({
         <input
           ref={inputRef}
           type="file"
-          disabled={disabled.value}
+          disabled={isDisabled.value}
           onChange={onNormalFileChange}
           multiple={props.multiple}
           accept={props.accept}

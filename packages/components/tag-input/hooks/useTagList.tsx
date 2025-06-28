@@ -1,4 +1,4 @@
-import { computed, ref, toRefs } from 'vue';
+import { computed, ComputedRef, ref, toRefs } from 'vue';
 import { TagInputValue, TagInputChangeContext } from '../type';
 import { TagInputProps } from '../types';
 import { InputValue } from '../../input';
@@ -17,7 +17,7 @@ export function useTagList(props: TagInputProps) {
   const tagValue = computed(() => _tagValue.value || []);
   const oldInputValue = ref<InputValue>();
 
-  const isDisabled = useDisabled();
+  const isDisabled = useDisabled() as ComputedRef<boolean>;
   const isReadonly = useReadonly();
 
   // 点击标签关闭按钮，删除标签
