@@ -553,8 +553,8 @@ importers:
         specifier: ^0.3.6
         version: 0.3.6
       tdesign-site-components:
-        specifier: ^0.15.9
-        version: 0.15.11
+        specifier: ^0.16.4
+        version: 0.16.4
       tdesign-theme-generator:
         specifier: ^1.0.17
         version: 1.1.6
@@ -580,8 +580,8 @@ importers:
         specifier: ^0.3.6
         version: 0.3.6
       tdesign-site-components:
-        specifier: 0.17.0-alpha.4
-        version: 0.17.0-alpha.4
+        specifier: 0.17.0-alpha.5
+        version: 0.17.0-alpha.5
       tdesign-theme-generator:
         specifier: ^1.1.6
         version: 1.1.6
@@ -6725,11 +6725,11 @@ packages:
     resolution: {integrity: sha512-eRmrOCUqR/55AAZ8dqUGV8+TU1qzljGoiU9TsFOroHcNe4T1u/dYwEBfg39NsupWUoO/v67XeUDlKyTjUHkO2w==}
     hasBin: true
 
-  tdesign-site-components@0.15.11:
-    resolution: {integrity: sha512-UxNEuv9aZj9OM1AtbI2lCCI7mG8mHj+4D2PPrTkVB9of+SD9LRGQVZyPQ4uY6rfn/01ZToJl+1YKXz1TJ4Kwlw==}
+  tdesign-site-components@0.16.4:
+    resolution: {integrity: sha512-Q182Huph8bExGqQCfiSroSC3beI0lF4FQ/LR0mreqvZQEk00N+57dz9CcO1ASQEEdJLq0auh3RlL7Sd8IFkOkg==}
 
-  tdesign-site-components@0.17.0-alpha.4:
-    resolution: {integrity: sha512-IPD0JBBgiOlHkEjfDnfrVnhfr1pt/tThY4r11px+OWlgpPqiZlTAAhOZxMeG10jU6GQHz1kaXESsyhIhykes4w==}
+  tdesign-site-components@0.17.0-alpha.5:
+    resolution: {integrity: sha512-153QAv/1QWVBsdYGJHH23TBkB7yJdjj64IcLIAhOau1r5zhKzKoWMDCc/v5qjXfSeSV72Flquk5+xR7MdD7b1A==}
 
   tdesign-theme-generator@1.1.6:
     resolution: {integrity: sha512-ld1bZqMkzJ/SEhITuVwgcwTCAMWC6CFniNPx/tueMuHdYQgtrLNWh047CMSTyLrfKwkcUI8qnTV5qS5E97Qqxg==}
@@ -14476,7 +14476,7 @@ snapshots:
       inquirer: 8.2.6
       standard-changelog: 2.0.27
 
-  tdesign-site-components@0.15.11:
+  tdesign-site-components@0.16.4:
     dependencies:
       '@popperjs/core': 2.11.8
       hybrids: 8.2.2
@@ -14485,7 +14485,7 @@ snapshots:
       qrcode: 1.5.4
       tdesign-icons-svg: 0.0.1
 
-  tdesign-site-components@0.17.0-alpha.4:
+  tdesign-site-components@0.17.0-alpha.5:
     dependencies:
       '@popperjs/core': 2.11.8
       hybrids: 8.2.2
