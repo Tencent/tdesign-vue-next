@@ -66,7 +66,7 @@ const MessageFunction = (props: MessageOptions, context?: AppContext): Promise<M
   }
   const p = instanceMap.get(attachDom)[placement] as ComponentPublicInstance;
   let mgKey: number;
-  if (!p || !attachDom.contains(p.$el)) {
+  if (!p || !attachDom.contains(p.component?.proxy?.$el)) {
     const wrapper = document.createElement('div');
 
     const instance = createVNode(MessageList, {
@@ -137,6 +137,7 @@ const extraApi: ExtraApi = {
       instanceMap.forEach((attach) => {
         Object.keys(attach).forEach((placement) => {
           const instance = attach[placement];
+          debugger;
           instance.component.exposed.removeAll();
         });
       });
