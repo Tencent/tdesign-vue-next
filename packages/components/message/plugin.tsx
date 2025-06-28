@@ -137,7 +137,6 @@ const extraApi: ExtraApi = {
       instanceMap.forEach((attach) => {
         Object.keys(attach).forEach((placement) => {
           const instance = attach[placement];
-          debugger;
           instance.component.exposed.removeAll();
         });
       });
