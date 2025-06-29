@@ -66,4 +66,52 @@ describe('Message', () => {
       expect(onDurationEnd).toHaveBeenCalledTimes(1);
     });
   });
+
+  describe('Message closeBtn prop', () => {
+    it('renders default close icon when closeBtn is empty string', () => {
+      const wrapper = mount(Message, {
+        props: { closeBtn: '' },
+      });
+      expect(wrapper.findComponent(CloseIcon).exists()).toBe(true);
+    });
+
+    it('renders default close icon when closeBtn is true', () => {
+      const wrapper = mount(Message, {
+        props: { closeBtn: true },
+      });
+      expect(wrapper.findComponent(CloseIcon).exists()).toBe(true);
+    });
+
+    it('does not render close button when closeBtn is false', () => {
+      const wrapper = mount(Message, {
+        props: { closeBtn: false },
+      });
+      expect(wrapper.findComponent(CloseIcon).exists()).toBe(false);
+    });
+
+    it('renders custom closeBtn string', () => {
+      const customText = '关闭';
+      const wrapper = mount(Message, {
+        props: { closeBtn: customText },
+      });
+      expect(wrapper.find('.t-message__close').text()).toBe(customText);
+    });
+
+    it('renders custom closeBtn function vnode', () => {
+      const customVNode = () => <button class="custom-close">X</button>;
+      const wrapper = mount(Message, {
+        props: { closeBtn: customVNode },
+      });
+      expect(wrapper.find('button.custom-close').exists()).toBe(true);
+    });
+
+    it('renders default close icon if closeBtn not passed but slot exists', () => {
+      const wrapper = mount(Message, {
+        slots: {
+          closeBtn: '<button class="slot-close">Close</button>',
+        },
+      });
+      expect(wrapper.find('button.slot-close').exists()).toBe(true);
+    });
+  });
 });

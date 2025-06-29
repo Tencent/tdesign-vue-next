@@ -47,7 +47,7 @@ export default defineComponent({
         COMPONENT_NAME.value,
         status,
         {
-          [`${classPrefix.value}-is-closable`]: props.closeBtn || slots.closeBtn,
+          [`${classPrefix.value}-is-closable`]: props.closeBtn || props.closeBtn === '' || slots.closeBtn,
         },
       ];
     });
