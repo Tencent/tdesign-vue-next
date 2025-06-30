@@ -4,7 +4,7 @@ export function useSameTarget(handleClick?: (e: MouseEvent) => void) {
   let MOUSEUP_TARGET = false;
 
   const onClick = (e: MouseEvent) => {
-    if (MOUSEDOWN_TARGET && MOUSEUP_TARGET) {
+    if (MOUSEDOWN_TARGET && MOUSEUP_TARGET && handleClick) {
       handleClick(e);
     }
     MOUSEDOWN_TARGET = false;
