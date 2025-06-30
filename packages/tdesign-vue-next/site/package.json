@@ -16,7 +16,7 @@
     "semver": "^7.5.4",
     "tdesign-icons-view": "^0.3.6",
     "tdesign-site-components": "0.17.0-alpha.5",
-    "tdesign-theme-generator": "^1.1.6",
+    "tdesign-theme-generator": "^1.1.7",
     "vue": "3.3.9",
     "vue-router": "^4.2.4",
     "workbox-precaching": "^6.6.0"
