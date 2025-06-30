@@ -172,6 +172,7 @@ export default defineComponent({
         v-slots={{
           fileListDisplay: slots.fileListDisplay,
           'file-list-display': slots['file-list-display'],
+          trigger: slots.trigger,
         }}
       />
     );
