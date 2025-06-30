@@ -64,7 +64,7 @@ export default defineComponent({
       return (
         <ul class={`${COMPONENT_NAME.value}__list`}>
           {options.map((item: SelectOptionGroup & TdOptionProps & { slots: Slots } & { $index: number }, index) => {
-            if (item.children) {
+            if (item.children?.length > 0 || !!item.group) {
               return (
                 <OptionGroup label={item.group} divider={item.divider}>
                   {renderOptionsContent(item.children)}
@@ -73,7 +73,7 @@ export default defineComponent({
             }
             return (
               <Option
-                {...omit(item, 'index', '$index', 'className', 'tagName')}
+                {...omit(item, 'index', '$index', 'className', 'tagName', 'children')}
                 {...(isVirtual.value
                   ? {
                       rowIndex: item.$index,
