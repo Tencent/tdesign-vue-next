@@ -15,11 +15,15 @@ import props from './time-range-picker-props';
 import { TimeRangeValue } from './types';
 import { TimeRangePickerPartial } from './type';
 // hooks
-import useVModel from '../hooks/useVModel';
-import { useCommonClassName, useConfig, usePrefixClass } from '../hooks/useConfig';
-import { useGlobalIcon } from '../hooks/useGlobalIcon';
-import { useDisabled } from '../hooks/useDisabled';
-import { useReadonly } from '../hooks/useReadonly';
+import {
+  useVModel,
+  useConfig,
+  useDisabled,
+  useReadonly,
+  useGlobalIcon,
+  usePrefixClass,
+  useCommonClassName,
+} from '@tdesign/shared-hooks';
 
 dayjs.extend(customParseFormat);
 
@@ -87,6 +91,11 @@ export default defineComponent({
           currentPanelIdx.value === 0
             ? (currentValue.value = [formattedVal, currentValue.value[1] ?? formattedVal])
             : (currentValue.value = [currentValue.value[0] ?? formattedVal, formattedVal]);
+        } else {
+          const previousValue = innerValue.value ?? TIME_PICKER_EMPTY;
+          currentPanelIdx.value === 0
+            ? (currentValue.value = [previousValue[0] ?? TIME_PICKER_EMPTY[0], currentValue.value[1]])
+            : (currentValue.value = [currentValue.value[0], previousValue[1] ?? TIME_PICKER_EMPTY[1]]);
         }
       }
       props.onBlur?.({ value, e });

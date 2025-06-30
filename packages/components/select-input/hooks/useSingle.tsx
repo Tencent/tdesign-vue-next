@@ -1,13 +1,10 @@
 import { SetupContext, ref, computed, toRefs, Ref } from 'vue';
-import { isObject } from 'lodash-es';
-import { pick } from 'lodash-es';
+import { pick, isObject } from 'lodash-es';
+
 import Input, { StrInputProps } from '../../input';
 import Loading from '../../loading';
-import { useTNodeJSX } from '../../hooks/tnode';
-import { usePrefixClass } from '../../hooks/useConfig';
-import useDefaultValue from '../../hooks/useDefaultValue';
-import { useDisabled } from '../../hooks/useDisabled';
-import { useReadonly } from '../../hooks/useReadonly';
+import { useTNodeJSX, useDisabled, useReadonly, usePrefixClass, useDefaultValue } from '@tdesign/shared-hooks';
+
 import { PopupInstanceFunctions } from '../../popup';
 import { TdSelectInputProps } from '../type';
 import { SelectInputCommonProperties } from '../types';

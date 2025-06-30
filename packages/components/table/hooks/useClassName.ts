@@ -1,4 +1,4 @@
-import { usePrefixClass } from '../../hooks/useConfig';
+import { usePrefixClass } from '@tdesign/shared-hooks';
 
 export default function useClassName() {
   const classPrefix = usePrefixClass();

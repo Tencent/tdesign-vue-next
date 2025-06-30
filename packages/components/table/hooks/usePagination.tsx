@@ -1,5 +1,5 @@
 import { ref, SetupContext, toRefs, watch } from 'vue';
-import { useConfig } from '../../hooks/useConfig';
+import { useConfig } from '@tdesign/shared-hooks';
 import Pagination, { PageInfo, PaginationProps } from '../../pagination';
 import { TdBaseTableProps, TableRowData } from '../type';
 

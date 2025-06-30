@@ -1,4 +1,4 @@
-import { elementInViewport } from '../../utils/dom';
+import { elementInViewport } from '@tdesign/shared-utils';
 
 export function getScrollParent(element: HTMLElement) {
   let style = window.getComputedStyle(element);

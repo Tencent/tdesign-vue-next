@@ -1,6 +1,6 @@
-import { App, Plugin, createApp, nextTick, ComponentPublicInstance } from 'vue';
+import { App, Plugin, nextTick, AppContext, createVNode, render, VNode } from 'vue';
 import NotificationList from './notification-list';
-import { getAttach } from '../utils/dom';
+import { getAttach } from '@tdesign/shared-utils';
 import {
   NotificationOptions,
   NotificationInstance,
@@ -17,9 +17,9 @@ import './style';
 
 let seed = 0;
 // 存储不同 attach 和 不同 placement 消息列表实例
-const instanceMap: Map<AttachNodeReturnValue, Record<string, ComponentPublicInstance>> = new Map();
+const instanceMap: Map<AttachNodeReturnValue, Record<string, VNode>> = new Map();
 
-const NotificationFunction = (options: NotificationOptions): Promise<NotificationInstance> => {
+const NotificationFunction = (options: NotificationOptions, context?: AppContext): Promise<NotificationInstance> => {
   seed += 1;
   const hackOptions = {
     placement: 'top-right',
@@ -39,30 +39,42 @@ const NotificationFunction = (options: NotificationOptions): Promise<Notificatio
   if (!tmpInstance) {
     const wrapper = document.createElement('div');
 
-    const instance = createApp(NotificationList, {
+    const instance = createVNode(NotificationList, {
       placement: hackOptions.placement,
-    }).mount(wrapper);
+    });
 
-    instance.add(hackOptions);
+    // eslint-disable-next-line no-underscore-dangle
+    if (context ?? NotificationPlugin._context) {
+      // eslint-disable-next-line no-underscore-dangle
+      instance.appContext = context ?? NotificationPlugin._context;
+    }
+
+    // 会遗留一个容器在 attach 中，需要找合适的时机回收
+    attachEl.appendChild(wrapper);
+    render(instance, wrapper);
+    instance.component.exposed.add(hackOptions);
     instanceMap.get(attachEl)[hackOptions.placement] = instance;
     tmpInstance = instance;
-    attachEl.appendChild(instance.$el);
   } else {
-    tmpInstance.add(hackOptions);
+    tmpInstance.component.exposed.add(hackOptions);
   }
 
   return new Promise((resolve) => {
     const ins = instanceMap.get(attachEl)[hackOptions.placement];
     nextTick(() => {
-      const notificationList: NotificationInstance[] = ins.notificationList;
-      resolve(notificationList?.find((notify) => notify.$?.vnode?.key === hackOptions.id));
+      const notificationList: NotificationInstance[] = ins.component.exposed.notificationList.value ?? [];
+      resolve(
+        notificationList?.find((notify) => {
+          return (notify as any).$?.vnode?.key === hackOptions.id;
+        }),
+      );
     });
   });
 };
 
-const showThemeNotification: NotificationMethod = (theme, options) => {
+const showThemeNotification: NotificationMethod = (theme, options, context) => {
   const hackOptions = { ...options, theme };
-  return NotificationFunction(hackOptions);
+  return NotificationFunction(hackOptions, context);
 };
 
 interface ExtraApi {
@@ -75,23 +87,27 @@ interface ExtraApi {
 }
 
 const extraApi: ExtraApi = {
-  info: (options) => showThemeNotification('info', options),
-  success: (options) => showThemeNotification('success', options),
-  warning: (options) => showThemeNotification('warning', options),
-  error: (options) => showThemeNotification('error', options),
+  info: (options, context) => showThemeNotification('info', options, context),
+  success: (options, context) => showThemeNotification('success', options, context),
+  warning: (options, context) => showThemeNotification('warning', options, context),
+  error: (options, context) => showThemeNotification('error', options, context),
   close: (promise) => {
     promise.then((instance) => instance.close());
   },
   closeAll: () => {
     instanceMap.forEach((attach) => {
       Object.keys(attach).forEach((placement) => {
-        attach[placement].removeAll();
+        attach[placement].component.exposed.removeAll();
       });
     });
   },
 };
 
-export type NotificationPluginType = Plugin & ExtraApi & NotificationMethod;
+export type NotificationPluginType = Plugin &
+  ExtraApi &
+  NotificationMethod & {
+    _context?: AppContext;
+  };
 
 const NotificationPlugin: NotificationPluginType = showThemeNotification as NotificationPluginType;
 
@@ -100,6 +116,8 @@ NotificationPlugin.install = (app: App) => {
   Object.keys(extraApi).forEach((funcName: keyof ExtraApi) => {
     app.config.globalProperties.$notify[funcName] = extraApi[funcName];
   });
+  // eslint-disable-next-line no-underscore-dangle
+  NotificationPlugin._context = app._context;
 };
 
 Object.keys(extraApi).forEach((funcName: keyof ExtraApi) => {

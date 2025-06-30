@@ -106,6 +106,14 @@ export interface TdTreeSelectProps<
    */
   multiple?: boolean;
   /**
+   * 面板内的底部内容
+   */
+  panelBottomContent?: string | TNode;
+  /**
+   * 面板内的顶部内容
+   */
+  panelTopContent?: string | TNode;
+  /**
    * 占位符
    */
   placeholder?: string;

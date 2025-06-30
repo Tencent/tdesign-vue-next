@@ -3,14 +3,18 @@ import props from './props';
 import { TdAutoCompleteProps } from './type';
 import TInput, { InputProps, StrInputProps } from '../input';
 import Popup, { PopupProps } from '../popup';
-import useCommonClassName from '../hooks/useCommonClassName';
-import AutoCompleteOptionList from './option-list';
-import useVModel from '../hooks/useVModel';
+import {
+  useVModel,
+  useContent,
+  useTNodeJSX,
+  useDisabled,
+  useReadonly,
+  useCommonClassName,
+} from '@tdesign/shared-hooks';
+import AutoCompleteOptionList from './components/option-list';
+
 import { useConfig } from '../config-provider/hooks/useConfig';
 import { ClassName } from '../common';
-import { useContent, useTNodeJSX } from '../hooks';
-import { useDisabled } from '../hooks/useDisabled';
-import { useReadonly } from '../hooks/useReadonly';
 
 export default defineComponent({
   name: 'TAutoComplete',
@@ -20,7 +24,7 @@ export default defineComponent({
     const [tValue, setTValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
     const renderContent = useContent();
     const renderTNodeJSX = useTNodeJSX();
-    const { classPrefix, sizeClassNames } = useCommonClassName();
+    const { classPrefix, SIZE } = useCommonClassName();
     const { globalConfig: global } = useConfig('input');
     const isDisabled = useDisabled();
     const isReadonly = useReadonly();
@@ -135,7 +139,7 @@ export default defineComponent({
           value={tValue.value}
           options={props.options}
           size={props.size}
-          sizeClassNames={sizeClassNames}
+          sizeClassNames={SIZE}
           onSelect={onInnerSelect}
           popupVisible={popupVisible.value}
           highlightKeyword={props.highlightKeyword}

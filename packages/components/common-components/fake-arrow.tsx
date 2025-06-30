@@ -1,5 +1,5 @@
 import { defineComponent, PropType, computed, CSSProperties } from 'vue';
-import { usePrefixClass } from '../hooks/useConfig';
+import { usePrefixClass } from '@tdesign/shared-hooks';
 
 // 统一使用的翻转箭头组件
 export default defineComponent({

@@ -3,7 +3,6 @@
 <!-- 可在这里自行添加 demo 展示 -->
 
 ## API
-
 ### Form Props
 
 名称 | 类型 | 默认值 | 描述 | 必传
@@ -12,7 +11,6 @@ colon | Boolean | false | 是否在表单标签字段右侧显示冒号 | N
 data | Object | {} | 表单数据。TS 类型：`FormData` | N
 disabled | Boolean | undefined | 是否禁用整个表单 | N
 errorMessage | Object | - | 表单错误信息配置，示例：`{ idcard: '请输入正确的身份证号码', max: '字符长度不能超过 ${max}' }`。TS 类型：`FormErrorMessage` | N
-formControlledComponents | Array | - | 允许表单统一控制禁用状态的自定义组件名称列表。默认会有组件库的全部输入类组件：TInput、TInputNumber、TCascader、TSelect、TOption、TSwitch、TCheckbox、TCheckboxGroup、TRadio、TRadioGroup、TTreeSelect、TDatePicker、TTimePicker、TUpload、TTransfer、TSlider。对于自定义组件，组件内部需要包含可以控制表单禁用状态的变量 `formDisabled`。示例：`['CustomUpload', 'CustomInput']`。TS 类型：`Array<string>` | N
 id | String | undefined | 表单原生的id属性，支持用于配合非表单内的按钮通过form属性来触发表单事件 | N
 labelAlign | String | right | 表单字段标签对齐方式：左对齐、右对齐、顶部对齐。可选项：left/right/top | N
 labelWidth | String / Number | '100px' | 可以整体设置label标签宽度，默认为100px | N
@@ -20,6 +18,7 @@ layout | String | vertical | 表单布局，有两种方式：纵向布局 和 �
 preventSubmitDefault | Boolean | true | 是否阻止表单提交默认事件（表单提交默认事件会刷新页面），设置为 `true` 可以避免刷新 | N
 readonly | Boolean | undefined | 是否整个表单只读 | N
 requiredMark | Boolean | true | 是否显示必填符号（*），默认显示 | N
+requiredMarkPosition | String | left | 表单必填符号（*）显示位置。可选项：left/right | N
 resetType | String | empty | 重置表单的方式，值为 empty 表示重置表单为空，值为 initial 表示重置表单数据为初始值。可选项：empty/initial | N
 rules | Object | - | 表单字段校验规则。TS 类型：`FormRules<FormData>` `type FormRules<T extends Data = any> = { [field in keyof T]?: Array<FormRule> }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/form/type.ts) | N
 scrollToFirstError | String | - | 表单校验不通过时，是否自动滚动到第一个校验不通过的字段，平滑滚动或是瞬间直达。值为空则表示不滚动。可选项：''/smooth/auto | N

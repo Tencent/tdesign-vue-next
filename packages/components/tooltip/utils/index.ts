@@ -1,5 +1,5 @@
 import { onMounted, onUnmounted, ref } from 'vue';
-import { isServer } from '../../utils/dom';
+import { isServer } from '@tdesign/shared-utils';
 
 export const useMouse = () => {
   const x = ref(0);

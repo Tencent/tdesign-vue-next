@@ -11,6 +11,7 @@
     "moduleResolution": "bundler",
     "baseUrl": "./",
     "resolveJsonModule": true,
+    "types": ["vitest/globals", "lodash"],
 
     /* JavaScript Support */
     "allowJs": true,
@@ -39,6 +40,8 @@
       "@src/*": [ "packages/components/*" ],
       "tdesign-vue-next": [ "packages/components" ],
       "tdesign-vue-next/es/locale/*": [ "packages/components/locale/*" ],
+      "tdesign-vue-next/es/config-provider/hooks": [ "packages/components/config-provider/hooks" ],
+      "@tdesign-vue-next/chat":["packages/pro-components/chat"],
       "@common/*": ["packages/common/*"],
       "@test/utils": ["test/utils"]
     }
@@ -47,11 +50,10 @@
     "./**/*.ts",
     "./**/*.tsx",
     "packages/components/**/*.vue",
-    "scripts/rollup.config.js"
+    "packages/pro-components/**/*.vue",
   ],
   "exclude": [
     "node_modules",
-    "packages/common",
     "dist",
     "lib",
     "cjs",

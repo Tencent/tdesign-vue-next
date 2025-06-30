@@ -3,7 +3,7 @@
  ** */
 
 import { RowspanColspan } from '../type';
-import { BaseTableColumns, ThRowspanAndColspan } from '../interface';
+import { BaseTableColumns, ThRowspanAndColspan } from '../types';
 
 // 获取节点深度，即表头总层级
 export function getNodeDepth(columns: BaseTableColumns, depthMap: Map<any, number>, depth = 1): number {

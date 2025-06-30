@@ -1,9 +1,6 @@
 import { defineComponent, ref, computed, watch, onMounted, toRefs } from 'vue';
-import { isArray } from 'lodash-es';
-import { isEmpty } from 'lodash-es';
-import { isBoolean } from 'lodash-es';
-import { isFunction } from 'lodash-es';
-import { isNil } from 'lodash-es';
+import { isNil, isArray, isEmpty, isBoolean, isFunction } from 'lodash-es';
+
 import { findParentValues } from '@tdesign/common-js/tree-select/utils';
 
 import Tree, { TreeProps, TreeNodeModel, TreeNodeValue } from '../tree';
@@ -11,18 +8,22 @@ import SelectInput, { TdSelectInputProps } from '../select-input';
 import FakeArrow from '../common-components/fake-arrow';
 import { PopupVisibleChangeContext } from '../popup';
 
-import { INodeOptions } from './interface';
+import { INodeOptions } from './types';
 import { TreeSelectValue, TdTreeSelectProps, TreeSelectValueChangeTrigger } from './type';
 import { TreeOptionData } from '../common';
 import props from './props';
 
 // hooks
-import { usePrefixClass, useConfig } from '../hooks/useConfig';
-import { useDisabled } from '../hooks/useDisabled';
-import { useReadonly } from '../hooks/useReadonly';
-import { useTNodeJSX, useTNodeDefault } from '../hooks/tnode';
-import useVModel from '../hooks/useVModel';
-import useDefaultValue from '../hooks/useDefaultValue';
+import {
+  useConfig,
+  useVModel,
+  useDisabled,
+  useReadonly,
+  useTNodeJSX,
+  usePrefixClass,
+  useTNodeDefault,
+  useDefaultValue,
+} from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'TTreeSelect',
@@ -187,8 +188,8 @@ export default defineComponent({
       }
       if (isObjectValue.value) {
         actived.value = isArray(treeSelectValue.value)
-          ? (treeSelectValue.value as Array<TreeSelectValue>).map((item) => (item as INodeOptions).value)
-          : [(treeSelectValue.value as INodeOptions).value];
+          ? (treeSelectValue.value as Array<TreeSelectValue>).map((item) => (item as INodeOptions)?.value)
+          : [(treeSelectValue.value as INodeOptions)?.value];
       } else {
         (actived.value as TreeSelectValue) = isArray(treeSelectValue.value)
           ? treeSelectValue.value
@@ -231,8 +232,8 @@ export default defineComponent({
       if (!props.multiple) {
         setInnerVisible(false, context);
       }
-      // 多选模式屏蔽 Active 事件
-      if (props.multiple) {
+      // 多选模式屏蔽 Active 事件和取消选中状态改变
+      if (props.multiple || !context.node.actived) {
         return;
       }
       // 单选模式重复选择不清空

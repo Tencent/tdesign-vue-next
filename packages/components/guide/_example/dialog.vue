@@ -40,7 +40,7 @@
 
 <script setup>
 import { ref } from 'vue';
-import DialogBody from './dialog-body.vue';
+import DialogBody from './components/dialog-body.vue';
 
 const visible = ref(false);
 const current = ref(-1);
