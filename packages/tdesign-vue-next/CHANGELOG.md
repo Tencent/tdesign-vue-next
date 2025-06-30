@@ -5,6 +5,14 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.14.1 `2025-06-27` 
+
+### 🐞 Bug Fixes
+- `Select`: 
+  - 修复多选远程搜索场景下， 当前选中项不存在 options 内时，placeholder 展示异常的问题 @uyarn ([#5660](https://github.com/Tencent/tdesign-vue-next/pull/5660))
+  - 修复多选远程搜索场景下，当前选中项不存在 options 内时，删除选项功能异常的问题 @uyarn ([#5660](https://github.com/Tencent/tdesign-vue-next/pull/5660))
+
+
 ## 🌈 1.14.0 `2025-06-26` 
 
 ### 🚀 Features

@@ -60,12 +60,14 @@ export default defineComponent({
       disabled: props.keys?.disabled || 'disabled',
     }));
 
+    const isObjectType = computed(() => props.valueType === 'object');
+
     // 内部数据,格式化过的
     const innerValue = computed(() => {
       if (orgValue.value === undefined) {
         return props.multiple ? [] : undefined;
       }
-      if (props.valueType === 'object') {
+      if (isObjectType.value) {
         return !props.multiple
           ? // @ts-ignore
             // TODO optimize SelectValue
@@ -81,7 +83,7 @@ export default defineComponent({
       useSelectOptions(props, keys, innerInputValue, innerValue);
 
     const setInnerValue: TdSelectProps['onChange'] = (newVal: SelectValue | SelectValue[], context) => {
-      if (props.valueType === 'object') {
+      if (isObjectType.value) {
         const { value, label } = keys.value;
         const getOption = (val: SelectValue) => {
           if (val === undefined) {
@@ -190,12 +192,7 @@ export default defineComponent({
         let closest = -1;
         let len = index;
 
-        //  找到符合条件的最近一个option
-        const getSearchCurrentSelectedOptions = () => {
-          return currentSelectOptions.value.filter((item, i) => item.value === innerValue.value[i]);
-        };
-
-        const currentSelected = isRemoteSearch.value ? getSearchCurrentSelectedOptions() : getCurrentSelectedOptions();
+        const currentSelected = getCurrentSelectedOptions();
         while (len >= 0) {
           if (!currentSelected[len]?.disabled) {
             closest = len;
@@ -270,15 +267,19 @@ export default defineComponent({
     };
 
     //  获取当前选中的选项，和 getSelectedOptions 的区别是 这个会保持选择的先后顺序
-    const getCurrentSelectedOptions = (selectValue: SelectValue[] | SelectValue = innerValue.value) => {
+    const getCurrentSelectedOptions = () => {
       const options: TdOptionProps[] = [];
-      const values = isArray(selectValue) ? selectValue : [selectValue];
+
+      // 需要处理 objectType 的情况
+      const selectedValue = isObjectType.value ? orgValue.value : innerValue.value;
+      const values = isArray(selectedValue) ? selectedValue : [selectedValue];
 
       values.forEach((value) => {
-        const option = optionsMap.value.get(value);
+        const option = optionsMap.value.get(isObjectType.value ? value.value : value);
         if (option) options.push(option);
+        // 处理不存在选项的值的场景，也需要推入
+        else options.push(isObjectType.value ? value : { value });
       });
-
       return options;
     };
 
@@ -299,10 +300,9 @@ export default defineComponent({
       });
 
       const activeValues = optionalList.value.map((option) => option.value);
-      const formattedOrgValue =
-        props.valueType === 'object'
-          ? (orgValue.value as Array<SelectValue>).map((v) => get(v, value))
-          : orgValue.value;
+      const formattedOrgValue = isObjectType.value
+        ? (orgValue.value as Array<SelectValue>).map((v) => get(v, value))
+        : orgValue.value;
 
       const values = checked
         ? [...new Set([...(formattedOrgValue as Array<SelectValue>), ...activeValues, ...lockedValues])]
@@ -481,7 +481,7 @@ export default defineComponent({
      * 获取当前选中的选项 —— 远程搜索数据和本地传入的数据
      */
     const currentSelectOptions = computed(() => {
-      return isRemoteSearch.value ? searchDisplayOptions.value : getCurrentSelectedOptions(innerValue.value);
+      return isRemoteSearch.value ? searchDisplayOptions.value : getCurrentSelectedOptions();
     });
 
     const renderValueDisplay = () => {
