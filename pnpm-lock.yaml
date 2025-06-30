@@ -556,8 +556,8 @@ importers:
         specifier: ^0.16.4
         version: 0.16.4
       tdesign-theme-generator:
-        specifier: ^1.0.17
-        version: 1.1.6
+        specifier: ^1.1.7
+        version: 1.1.7
       typescript:
         specifier: ~5.7.2
         version: 5.7.3
@@ -583,8 +583,8 @@ importers:
         specifier: 0.17.0-alpha.5
         version: 0.17.0-alpha.5
       tdesign-theme-generator:
-        specifier: ^1.1.6
-        version: 1.1.6
+        specifier: ^1.1.7
+        version: 1.1.7
       vue:
         specifier: 3.3.9
         version: 3.3.9(typescript@5.7.3)
@@ -6731,8 +6731,8 @@ packages:
   tdesign-site-components@0.17.0-alpha.5:
     resolution: {integrity: sha512-153QAv/1QWVBsdYGJHH23TBkB7yJdjj64IcLIAhOau1r5zhKzKoWMDCc/v5qjXfSeSV72Flquk5+xR7MdD7b1A==}
 
-  tdesign-theme-generator@1.1.6:
-    resolution: {integrity: sha512-ld1bZqMkzJ/SEhITuVwgcwTCAMWC6CFniNPx/tueMuHdYQgtrLNWh047CMSTyLrfKwkcUI8qnTV5qS5E97Qqxg==}
+  tdesign-theme-generator@1.1.7:
+    resolution: {integrity: sha512-iL9MW1aQ+tehJH9HvnjQb5kXmCct/+5bDzrGPMCed5i8LXJRbCBkEB3KHBaHJN/1VXktNEClN/+8p7sgHJ/bGw==}
 
   tdesign-vue@1.10.5-naruto:
     resolution: {integrity: sha512-sNi/Ga/beo7gNdyhv11ufOKvnLB1s9zU7Dt14NjHVkSFnYDELr6ck+nTXKYQF3Y0Fd4PVVWn2YaGCCDISZMJ7Q==}
@@ -8348,7 +8348,7 @@ snapshots:
       '@types/node': 20.5.1
       chalk: 4.1.2
       cosmiconfig: 8.3.6(typescript@5.7.3)
-      cosmiconfig-typescript-loader: 4.4.0(@types/node@20.5.1)(cosmiconfig@8.3.6(typescript@5.7.3))(ts-node@10.9.2(@types/node@22.15.32)(typescript@5.7.3))(typescript@5.7.3)
+      cosmiconfig-typescript-loader: 4.4.0(@types/node@20.5.1)(cosmiconfig@8.3.6(typescript@5.7.3))(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.7.3))(typescript@5.7.3)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -10400,7 +10400,7 @@ snapshots:
       - '@swc/core'
       - '@swc/wasm'
 
-  cosmiconfig-typescript-loader@4.4.0(@types/node@20.5.1)(cosmiconfig@8.3.6(typescript@5.7.3))(ts-node@10.9.2(@types/node@22.15.32)(typescript@5.7.3))(typescript@5.7.3):
+  cosmiconfig-typescript-loader@4.4.0(@types/node@20.5.1)(cosmiconfig@8.3.6(typescript@5.7.3))(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.7.3))(typescript@5.7.3):
     dependencies:
       '@types/node': 20.5.1
       cosmiconfig: 8.3.6(typescript@5.7.3)
@@ -14494,7 +14494,7 @@ snapshots:
       qrcode: 1.5.4
       tdesign-icons-svg: 0.0.1
 
-  tdesign-theme-generator@1.1.6:
+  tdesign-theme-generator@1.1.7:
     dependencies:
       core-js: 3.43.0
       cssbeautify: 0.3.1

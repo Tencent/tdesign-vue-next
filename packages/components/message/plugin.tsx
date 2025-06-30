@@ -23,7 +23,7 @@
  * msg.then(instance => instance.close())
  *
  */
-import { App, nextTick, Plugin, AppContext, ComponentPublicInstance, createVNode, render, VNode } from 'vue';
+import { App, nextTick, Plugin, AppContext, createVNode, render, VNode } from 'vue';
 import MessageList, { DEFAULT_Z_INDEX } from './message-list';
 import { getAttach } from '@tdesign/shared-utils';
 import {
@@ -43,7 +43,7 @@ import { AttachNodeReturnValue } from '../common';
 import { isObject, isString } from 'lodash-es';
 
 // 存储不同 attach 和 不同 placement 消息列表实例
-const instanceMap: Map<AttachNodeReturnValue, Record<string, ComponentPublicInstance | VNode>> = new Map();
+const instanceMap: Map<AttachNodeReturnValue, Record<string, VNode>> = new Map();
 
 function handleParams(params: MessageOptions): MessageOptions {
   const options: MessageOptions = {
@@ -64,9 +64,9 @@ const MessageFunction = (props: MessageOptions, context?: AppContext): Promise<M
   if (!instanceMap.get(attachDom)) {
     instanceMap.set(attachDom, {});
   }
-  const p = instanceMap.get(attachDom)[placement] as ComponentPublicInstance;
+  const p = instanceMap.get(attachDom)[placement];
   let mgKey: number;
-  if (!p || !attachDom.contains(p.$el)) {
+  if (!p || !attachDom.contains(p.el as HTMLElement)) {
     const wrapper = document.createElement('div');
 
     const instance = createVNode(MessageList, {

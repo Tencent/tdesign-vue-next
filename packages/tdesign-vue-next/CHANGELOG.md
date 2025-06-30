@@ -5,6 +5,17 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.14.2 `2025-06-30` 
+
+### 🐞 Bug Fixes
+- `Alert`: 优化 `max-line` 开启后，未过滤注释节点导致折叠按钮误判的问题 @baozjj ([#5650](https://github.com/Tencent/tdesign-vue-next/pull/5650))
+- `Form`: 修复 `form` 属性不生效的问题 @uyarn ([#5676](https://github.com/Tencent/tdesign-vue-next/pull/5676))
+- `Message`: 修复`1.14.0` 后由于 createVNode 替代 createApp 导致 message 实例重复创建，`closeAll` 功能异常的问题 @baozjj ([#5669](https://github.com/Tencent/tdesign-vue-next/pull/5669))
+
+###  📝 Documentation
+- `主题生成器`: 修复站点受主题生成器影响深色模式下box-shadow展示异常的问题 @liweijie0812
+
+
 ## 🌈 1.14.1 `2025-06-27` 
 
 ### 🐞 Bug Fixes

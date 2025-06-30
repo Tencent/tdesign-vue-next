@@ -2,7 +2,8 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, it, vi } from 'vitest';
 import { CloseIcon, InfoCircleFilledIcon } from 'tdesign-icons-vue-next';
-import { Message } from '@tdesign/components/message';
+import { Message, MessagePlugin } from '@tdesign/components/message';
+import { nextTick } from 'vue';
 
 const text = '这是一条Message信息';
 
@@ -64,6 +65,40 @@ describe('Message', () => {
       expect(onDurationEnd).not.toBeCalled();
       vi.runAllTimers();
       expect(onDurationEnd).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('MessagePlugin', () => {
+    beforeEach(() => {
+      MessagePlugin.closeAll();
+    });
+
+    it('should create only one instance per placement', async () => {
+      MessagePlugin.info('msg1', 0);
+      MessagePlugin.info('msg2', 0);
+      MessagePlugin.info('msg3', 0);
+
+      await nextTick();
+
+      const messages = document.querySelectorAll('.t-message');
+      expect(messages.length).toBe(3);
+
+      const containers = document.querySelectorAll('.t-message__list');
+      expect(containers.length).toBe(1);
+    });
+
+    it('should close all messages with closeAll()', async () => {
+      MessagePlugin.info('msg1', 0);
+      MessagePlugin.info('msg2', 0);
+
+      await nextTick();
+
+      expect(document.querySelectorAll('.t-message').length).toBe(2);
+
+      MessagePlugin.closeAll();
+      await nextTick();
+
+      expect(document.querySelectorAll('.t-message').length).toBe(0);
     });
   });
 });
