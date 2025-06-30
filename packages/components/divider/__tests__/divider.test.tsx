@@ -1,6 +1,7 @@
 // @ts-nocheck
 import { mount } from '@vue/test-utils';
 import { Divider } from '@tdesign/components/divider';
+import props from '@tdesign/components/divider/props';
 
 describe('Divider Component', () => {
   ['left', 'right', 'center'].forEach((item) => {
@@ -94,6 +95,59 @@ describe('Divider Component', () => {
         },
       });
       expect(wrapper.element).toMatchSnapshot();
+    });
+  });
+
+  it('props.content is a string', () => {
+    const wrapper = mount(<Divider content="TDesign" />);
+    expect(wrapper.text()).toBe('TDesign');
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('props.default is a string', () => {
+    const wrapper = mount(<Divider default="TDesign" />);
+    expect(wrapper.text()).toBe('TDesign');
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('content prop and default slot exist meanwhile', () => {
+    const wrapper = mount(<Divider content="prop content">TDesign</Divider>);
+    expect(wrapper.text()).toBe('TDesign');
+  });
+
+  describe('vertical divider', () => {
+    it('applies dashed class on vertical divider', () => {
+      const wrapper = mount(<Divider layout="vertical" dashed={true} />);
+      expect(wrapper.classes('t-divider--dashed')).toBeTruthy();
+    });
+
+    it('applies align class on vertical divider', () => {
+      const wrapper = mount(
+        <Divider layout="vertical" align="left">
+          text
+        </Divider>,
+      );
+      expect(wrapper.classes('t-divider--with-text-left')).toBeTruthy();
+    });
+  });
+
+  describe('props validator', () => {
+    it('align', () => {
+      const { validator } = props.align;
+      expect(validator('left')).toBeTruthy();
+      expect(validator('right')).toBeTruthy();
+      expect(validator('center')).toBeTruthy();
+      expect(validator('top')).toBeFalsy();
+      expect(validator('')).toBeTruthy();
+      expect(validator(undefined)).toBeTruthy();
+    });
+
+    it('layout', () => {
+      const { validator } = props.layout;
+      expect(validator('horizontal')).toBeTruthy();
+      expect(validator('vertical')).toBeTruthy();
+      expect(validator('other')).toBeFalsy();
+      expect(validator(undefined)).toBeTruthy();
     });
   });
 });
