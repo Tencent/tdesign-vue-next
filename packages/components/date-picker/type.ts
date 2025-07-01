@@ -454,7 +454,7 @@ export interface TdDateRangePickerPanelProps
   /**
    * 点击日期单元格时触发
    */
-  onCellClick?: (context: { date: Date; partial: DateRangePickerPartial; e: MouseEvent }) => void;
+  onCellClick?: (context: { date: Date[]; partial: DateRangePickerPartial; e: MouseEvent; partialDate: Date }) => void;
   /**
    * 选中值发生变化时触发。参数 `context.trigger` 表示触发当前事件的来源，不同的模式触发来源也会不同
    */
