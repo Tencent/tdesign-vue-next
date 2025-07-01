@@ -145,7 +145,6 @@ export default defineComponent({
           renderTNodeJSX('trigger', {
             params: {
               triggerUpload: props.triggerUpload,
-              files: displayFiles.value,
             },
           }) || (
             <li class={cardItemClasses} onClick={props.triggerUpload}>
