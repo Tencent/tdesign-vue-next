@@ -644,8 +644,8 @@ importers:
         specifier: ^3.2.4
         version: 3.2.4(@types/debug@4.1.12)(@types/node@22.15.32)(@vitest/ui@3.2.4)(jiti@2.4.2)(jsdom@19.0.0)(less@4.3.0)(msw@1.3.5(encoding@0.1.13)(typescript@5.7.3))(terser@5.43.1)(tsx@4.20.3)(yaml@2.8.0)
       vitest-fetch-mock:
-        specifier: ^0.1.0
-        version: 0.1.0(encoding@0.1.13)(vitest@3.2.4)
+        specifier: ^0.4.5
+        version: 0.4.5(vitest@3.2.4)
       vue:
         specifier: 3.3.9
         version: 3.3.9(typescript@5.7.3)
@@ -3096,9 +3096,6 @@ packages:
     resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==}
     engines: {node: '>=10.14', npm: '>=6', yarn: '>=1'}
     hasBin: true
-
-  cross-fetch@3.2.0:
-    resolution: {integrity: sha512-Q+xVJLoGOeIMXZmbUK4HYk+69cQH6LudR0Vu/pRm2YlU/hDV9CiS0gKUMaWY5f2NeUH9C1nV3bsTlCo0FsTV1Q==}
 
   cross-spawn@5.1.0:
     resolution: {integrity: sha512-pTgQJ5KC0d2hcY8eyL1IzlBPYjTkyH72XRZPnLyKus2mBfNjQs3klqbJU2VILqZryAZUt9JOb3h/mWMy23/f5A==}
@@ -7149,11 +7146,11 @@ packages:
       yaml:
         optional: true
 
-  vitest-fetch-mock@0.1.0:
-    resolution: {integrity: sha512-HpabFgokq0Q/cLwYNCTxwH6jV1TTUNg6IZxnLW4mFXgtDWcUQPJoiKS+LiOSf5cllXj2iCkIA8Cmuq5jU4oZQg==}
-    engines: {node: '>=14.14.0'}
+  vitest-fetch-mock@0.4.5:
+    resolution: {integrity: sha512-nhWdCQIGtaSEUVl96pMm0WggyDGPDv5FUy/Q9Hx3cs2RGmh3Q/uRsLClGbdG3kXBkJ3br5yTUjB2MeW25TwdOA==}
+    engines: {node: '>=18.0.0'}
     peerDependencies:
-      vitest: '*'
+      vitest: '>=2.0.0'
 
   vitest@3.2.4:
     resolution: {integrity: sha512-LUCP5ev3GURDysTWiP47wRRUpLKMOfPh+yKTx3kVIEiu5KOMeqzpnYNsKyOoVrULivR8tLcks4+lga33Whn90A==}
@@ -8348,7 +8345,7 @@ snapshots:
       '@types/node': 20.5.1
       chalk: 4.1.2
       cosmiconfig: 8.3.6(typescript@5.7.3)
-      cosmiconfig-typescript-loader: 4.4.0(@types/node@20.5.1)(cosmiconfig@8.3.6(typescript@5.7.3))(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.7.3))(typescript@5.7.3)
+      cosmiconfig-typescript-loader: 4.4.0(@types/node@20.5.1)(cosmiconfig@8.3.6(typescript@5.7.3))(ts-node@10.9.2(@types/node@22.15.32)(typescript@5.7.3))(typescript@5.7.3)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -10400,7 +10397,7 @@ snapshots:
       - '@swc/core'
       - '@swc/wasm'
 
-  cosmiconfig-typescript-loader@4.4.0(@types/node@20.5.1)(cosmiconfig@8.3.6(typescript@5.7.3))(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.7.3))(typescript@5.7.3):
+  cosmiconfig-typescript-loader@4.4.0(@types/node@20.5.1)(cosmiconfig@8.3.6(typescript@5.7.3))(ts-node@10.9.2(@types/node@22.15.32)(typescript@5.7.3))(typescript@5.7.3):
     dependencies:
       '@types/node': 20.5.1
       cosmiconfig: 8.3.6(typescript@5.7.3)
@@ -10455,12 +10452,6 @@ snapshots:
   cross-env@7.0.3:
     dependencies:
       cross-spawn: 7.0.6
-
-  cross-fetch@3.2.0(encoding@0.1.13):
-    dependencies:
-      node-fetch: 2.7.0(encoding@0.1.13)
-    transitivePeerDependencies:
-      - encoding
 
   cross-spawn@5.1.0:
     dependencies:
@@ -15023,12 +15014,9 @@ snapshots:
       tsx: 4.20.3
       yaml: 2.8.0
 
-  vitest-fetch-mock@0.1.0(encoding@0.1.13)(vitest@3.2.4):
+  vitest-fetch-mock@0.4.5(vitest@3.2.4):
     dependencies:
-      cross-fetch: 3.2.0(encoding@0.1.13)
       vitest: 3.2.4(@types/debug@4.1.12)(@types/node@22.15.32)(@vitest/ui@3.2.4)(jiti@2.4.2)(jsdom@19.0.0)(less@4.3.0)(msw@1.3.5(encoding@0.1.13)(typescript@5.7.3))(terser@5.43.1)(tsx@4.20.3)(yaml@2.8.0)
-    transitivePeerDependencies:
-      - encoding
 
   vitest@3.2.4(@types/debug@4.1.12)(@types/node@22.15.32)(@vitest/ui@3.2.4)(jiti@2.4.2)(jsdom@19.0.0)(less@4.3.0)(msw@1.3.5(encoding@0.1.13)(typescript@5.7.3))(terser@5.43.1)(tsx@4.20.3)(yaml@2.8.0):
     dependencies:

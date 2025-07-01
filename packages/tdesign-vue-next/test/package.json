@@ -20,7 +20,7 @@
     "@vue/test-utils": "^2.4.1",
     "glob": "^11.0.1",
     "vitest": "^3.2.4",
-    "vitest-fetch-mock": "^0.1.0",
+    "vitest-fetch-mock": "^0.4.5",
     "vue": "3.3.9",
     "vue-router": "^4.2.4"
   }
