@@ -39,6 +39,7 @@ export function useConfig<T extends keyof GlobalConfigProvider>(
       return pattern(...args);
     }
     // 使用公共翻译函数，以支持复数处理
+    // @ts-expect-error be passed to rest parameter
     return commonT(pattern, ...args);
   };
 
