@@ -5,6 +5,8 @@ import { cloneDeep, isFunction, isString } from 'lodash-es';
 import { defaultGlobalConfig, configProviderInjectKey, mergeWith } from '../utils/context';
 import { GlobalConfigProvider, TdConfigProviderProps } from '../type';
 
+import { t as commonT } from '../../../common/js/global-config/t';
+
 // 这是为了解决在非component里调用useConfig hook时发出的警告
 // https://github.com/Tencent/tdesign-vue-next/issues/2025
 const globalConfigCopy = ref<GlobalConfigProvider>();
@@ -31,24 +33,13 @@ export function useConfig<T extends keyof GlobalConfigProvider>(
 
   // 处理正则表达式
   const t = function <T>(pattern: T, ...args: any[]) {
-    const [data] = args;
-    if (isString(pattern)) {
-      if (!data) return pattern;
-      const regular = /\{\s*([\w-]+)\s*\}/g;
-      const translated = pattern.replace(regular, (match, key) => {
-        if (data) {
-          return String(data[key]);
-        }
-        return '';
-      });
-      return translated;
-    }
     if (isFunction(pattern)) {
       // 重要：组件的渲染必须存在参数 h，不能移除
       if (!args.length) return pattern(h);
       return pattern(...args);
     }
-    return '';
+    // 使用公共翻译函数，以支持复数处理
+    return commonT(pattern, ...args);
   };
 
   return {
