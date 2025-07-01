@@ -13,7 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "semver": "^7.5.4",
-    "vue": "3.3.9",
+    "vue": "3.5.17",
     "vue-router": "^4.2.4",
     "workbox-precaching": "^6.6.0"
   },
