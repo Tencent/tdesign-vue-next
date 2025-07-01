@@ -91,7 +91,7 @@ export default defineComponent({
       props.onCellClick?.({
         e,
         partial: activeIndex.value ? 'end' : 'start',
-        date: value.value.map((v) => dayjs(v).toDate()),
+        date,
       });
 
       isHoverCell.value = false;
