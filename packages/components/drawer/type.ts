@@ -196,4 +196,4 @@ export interface DrawerCloseContext {
   e: MouseEvent | KeyboardEvent;
 }
 
-export type DrawerMethod = (options?: DrawerOptions, context?: AppContext) => void;
+export type DrawerMethod = (options?: DrawerOptions, context?: AppContext) => DrawerInstance;
