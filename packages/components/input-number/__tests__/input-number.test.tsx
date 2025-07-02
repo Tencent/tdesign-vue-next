@@ -3,15 +3,19 @@ import { describe, expect, it, vi } from 'vitest';
 import { nextTick, ref } from 'vue';
 import { InputNumber } from '@tdesign/components/input-number';
 import InputNumberProps from '@tdesign/components/input-number/props';
+import { TdInputNumberProps } from '@tdesign/components/input-number/type';
 
 describe('InputNumber', () => {
   describe(':props', () => {
     it(':align', () => {
-      const alignList: Array<'center' | 'right' | 'left'> = ['center', 'right'];
+      const alignList: TdInputNumberProps['align'][] = ['center', 'right', 'left'];
       alignList.forEach((align) => {
         const wrapper = mount(() => <InputNumber align={align} />);
         const input = wrapper.find('.t-input');
-        expect(input.classes()).toContain(`t-align-${align}`);
+        if (align === 'left') {
+          return expect(input.classes()).toEqual(['t-input']);
+        }
+        expect(input.classes()).toEqual([`t-input`, `t-align-${align}`]);
       });
     });
 
