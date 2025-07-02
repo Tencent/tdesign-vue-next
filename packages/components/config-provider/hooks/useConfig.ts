@@ -5,7 +5,7 @@ import { cloneDeep, isFunction } from 'lodash-es';
 import { defaultGlobalConfig, configProviderInjectKey, mergeWith } from '../utils/context';
 import { GlobalConfigProvider, TdConfigProviderProps } from '../type';
 
-import { t as commonT } from '../../../common/js/global-config/t';
+import { t as commonT } from '@tdesign/common-js/global-config/t';
 
 // 这是为了解决在非component里调用useConfig hook时发出的警告
 // https://github.com/Tencent/tdesign-vue-next/issues/2025
