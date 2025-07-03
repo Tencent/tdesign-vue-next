@@ -12,6 +12,7 @@ import props from './pagination-mini-props';
 import { useGlobalIcon, usePrefixClass } from '@tdesign/shared-hooks';
 
 import TButton from '../button';
+import TTooltip from '../tooltip';
 
 export default defineComponent({
   name: 'TPaginationMini',
@@ -46,6 +47,15 @@ export default defineComponent({
       return { prev: false, current: false, next: false };
     });
 
+    const renderWithTooltip = (content: string | undefined, node: JSX.Element) => {
+      if (!content) return node;
+      return (
+        <TTooltip content={content} showArrow={false}>
+          {node}
+        </TTooltip>
+      );
+    };
+
     return () => {
       const jumperClass = [
         COMPONENT_NAME.value,
@@ -56,40 +66,45 @@ export default defineComponent({
 
       return (
         <div class={jumperClass}>
-          <TButton
-            title={titleConfig.value.prev}
-            variant={props.variant}
-            size={props.size}
-            shape="square"
-            onClick={(e) => props.onChange?.({ e, trigger: 'prev' })}
-            icon={props.layout === 'horizontal' ? () => <ChevronLeftIcon /> : () => <ChevronUpIcon />}
-            class={`${COMPONENT_NAME.value}__prev`}
-            disabled={disabledConfig.value.prev}
-          />
-
-          {props.showCurrent && (
+          {renderWithTooltip(
+            titleConfig.value.prev,
             <TButton
-              title={titleConfig.value.current}
               variant={props.variant}
               size={props.size}
               shape="square"
-              onClick={(e) => props.onChange?.({ e, trigger: 'current' })}
-              icon={() => <RoundIcon />}
-              class={`${COMPONENT_NAME.value}__current`}
-              disabled={disabledConfig.value.current}
-            />
+              onClick={(e) => props.onChange?.({ e, trigger: 'prev' })}
+              icon={props.layout === 'horizontal' ? () => <ChevronLeftIcon /> : () => <ChevronUpIcon />}
+              class={`${COMPONENT_NAME.value}__prev`}
+              disabled={disabledConfig.value.prev}
+            />,
           )}
 
-          <TButton
-            title={titleConfig.value.next}
-            variant={props.variant}
-            size={props.size}
-            shape="square"
-            onClick={(e) => props.onChange?.({ e, trigger: 'next' })}
-            icon={props.layout === 'horizontal' ? () => <ChevronRightIcon /> : () => <ChevronDownIcon />}
-            class={`${COMPONENT_NAME.value}__next`}
-            disabled={disabledConfig.value.next}
-          />
+          {props.showCurrent &&
+            renderWithTooltip(
+              titleConfig.value.current,
+              <TButton
+                variant={props.variant}
+                size={props.size}
+                shape="square"
+                onClick={(e) => props.onChange?.({ e, trigger: 'current' })}
+                icon={() => <RoundIcon />}
+                class={`${COMPONENT_NAME.value}__current`}
+                disabled={disabledConfig.value.current}
+              />,
+            )}
+
+          {renderWithTooltip(
+            titleConfig.value.next,
+            <TButton
+              variant={props.variant}
+              size={props.size}
+              shape="square"
+              onClick={(e) => props.onChange?.({ e, trigger: 'next' })}
+              icon={props.layout === 'horizontal' ? () => <ChevronRightIcon /> : () => <ChevronDownIcon />}
+              class={`${COMPONENT_NAME.value}__next`}
+              disabled={disabledConfig.value.next}
+            />,
+          )}
         </div>
       );
     };
