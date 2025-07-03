@@ -5,6 +5,16 @@ toc: false
 spline: explain
 ---
 
+## 🌈 0.4.2 `2025-07-03` 
+
+### 🚀 Features
+- 支持在`Volar`中提供类型提示 @liweijie0812 ([#5612](https://github.com/Tencent/tdesign-vue-next/pull/5612))
+
+### 🐞 Bug Fixes
+- `Chat`: 修复用户消息字体样式 @Nero978  ([#5617](https://github.com/Tencent/tdesign-vue-next/pull/5617))
+- `ChatSender`: 
+  - 修复 windows 中文输入法（微软拼音）下使用 `shift +组合键` 先松开 shift 键再松开组合键之后，未同步取消 shift 功能的问题 @verynong ([#5608](https://github.com/Tencent/tdesign-vue-next/pull/5608))
+
 ## 🌈 0.4.1 `2025-06-12` 
 
 ### 🚀 Features
