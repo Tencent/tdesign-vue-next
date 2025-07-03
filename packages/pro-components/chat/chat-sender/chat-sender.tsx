@@ -240,6 +240,7 @@ export default defineComponent({
         renderTNodeJSX('header')
       );
     };
+    const renderInputPrefix = renderTNodeJSX('input-prefix') || null;
     return () => (
       <div class={`${COMPONENT_NAME.value}-sender`}>
         {/* <div class={`${COMPONENT_NAME.value}-sender__header`}>{renderHeader()}</div> */}
@@ -250,25 +251,28 @@ export default defineComponent({
           ]}
         >
           <div class={`${COMPONENT_NAME.value}-sender__inner-header`}>{renderHeader()}</div>
-          <Textarea
-            ref={senderTextarea}
-            value={textValue.value}
-            onChange={textChange}
-            disabled={disabled.value || showStopBtn.value}
-            {...{
-              autosize: (props.textareaProps as TdChatSenderProps['textareaProps'])?.autosize || {
-                minRows: 2,
-                maxRows: 5,
-              },
-              ...(props.textareaProps as TdChatSenderProps['textareaProps']),
-            }}
-            onKeydown={keydownFn}
-            onKeyup={keyupFn}
-            onFocus={focusFn}
-            onBlur={blurFn}
-            onCompositionstart={compositionstartFn}
-            onCompositionend={compositionendFn}
-          />
+          <div class={`${COMPONENT_NAME.value}-sender__textarea__wrapper`}>
+            {renderInputPrefix}
+            <Textarea
+              ref={senderTextarea}
+              value={textValue.value}
+              onChange={textChange}
+              disabled={disabled.value || showStopBtn.value}
+              {...{
+                autosize: (props.textareaProps as TdChatSenderProps['textareaProps'])?.autosize || {
+                  minRows: 2,
+                  maxRows: 5,
+                },
+                ...(props.textareaProps as TdChatSenderProps['textareaProps']),
+              }}
+              onKeydown={keydownFn}
+              onKeyup={keyupFn}
+              onFocus={focusFn}
+              onBlur={blurFn}
+              onCompositionstart={compositionstartFn}
+              onCompositionend={compositionendFn}
+            />
+          </div>
           <div class={`${COMPONENT_NAME.value}-sender__footer`}>
             <div class={`${COMPONENT_NAME.value}-sender__mode`}>{renderTNodeJSX('footer-prefix')}</div>
             <div class={`${COMPONENT_NAME.value}-sender__button`}>
