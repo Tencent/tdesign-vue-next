@@ -13,7 +13,7 @@
       <!-- 监听键盘回车发送事件需要在sender组件监听 -->
       <t-button theme="default" variant="text" size="large" class="btn" @click="inputEnter"> 发送 </t-button>
     </template>
-    <template #prefix>
+    <template #footer-prefix>
       <div class="model-select">
         <t-tooltip v-model:visible="allowToolTip" content="切换模型" trigger="hover">
           <t-select

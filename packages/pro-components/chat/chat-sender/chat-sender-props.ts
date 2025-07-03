@@ -16,8 +16,8 @@ export default {
     default: '',
   },
   /** 输入框左下角区域扩展 */
-  prefix: {
-    type: [String, Function] as PropType<TdChatSenderProps['prefix']>,
+  footerPrefix: {
+    type: [String, Function] as PropType<TdChatSenderProps['footerPrefix']>,
   },
   /** 发送按钮是否处于加载状态 */
   stopDisabled: {

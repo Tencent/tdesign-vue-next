@@ -270,7 +270,7 @@ export default defineComponent({
             onCompositionend={compositionendFn}
           />
           <div class={`${COMPONENT_NAME.value}-sender__footer`}>
-            <div class={`${COMPONENT_NAME.value}-sender__mode`}>{renderTNodeJSX('prefix')}</div>
+            <div class={`${COMPONENT_NAME.value}-sender__mode`}>{renderTNodeJSX('footer-prefix')}</div>
             <div class={`${COMPONENT_NAME.value}-sender__button`}>
               {/* 发送按钮 */}
               <div class={`${COMPONENT_NAME.value}-sender__button__sendbtn`}>{renderSuffixIcon()}</div>

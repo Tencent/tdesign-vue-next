@@ -38,7 +38,7 @@
           @stop="onStop"
           @send="inputEnter"
         >
-          <template #prefix>
+          <template #footer-prefix>
             <div class="model-select">
               <t-tooltip v-model:visible="allowToolTip" content="切换模型" trigger="hover">
                 <t-select

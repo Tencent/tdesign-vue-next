@@ -271,7 +271,7 @@ export interface TdChatSenderProps {
   /**
    * 输入框左下角区域扩展
    */
-  prefix?: string | TNode;
+  footerPrefix?: string | TNode;
   /**
    * 发送按钮是否处于加载状态，待废弃，请尽快使用 loading 替换
    * @deprecated
