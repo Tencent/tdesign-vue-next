@@ -8,7 +8,7 @@ import SelectInput, { TdSelectInputProps } from '../select-input';
 import FakeArrow from '../common-components/fake-arrow';
 import { PopupVisibleChangeContext } from '../popup';
 
-import { INodeOptions } from './interface';
+import { INodeOptions } from './types';
 import { TreeSelectValue, TdTreeSelectProps, TreeSelectValueChangeTrigger } from './type';
 import { TreeOptionData } from '../common';
 import props from './props';

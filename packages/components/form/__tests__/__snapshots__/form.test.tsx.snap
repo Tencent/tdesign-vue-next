@@ -1,0 +1,1645 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Form > @event > submit 1`] = `
+{
+  "firstError": "",
+  "validateResult": true,
+}
+`;
+
+exports[`Form > @event > validate 1`] = `
+{
+  "firstError": "姓名必填",
+  "validateResult": {
+    "age": [
+      {
+        "message": "age必填",
+        "required": true,
+        "result": false,
+      },
+    ],
+    "name": [
+      {
+        "message": "姓名必填",
+        "required": true,
+        "result": false,
+      },
+    ],
+  },
+}
+`;
+
+exports[`Form > @event > validate 2`] = `
+{
+  "firstError": "姓名必填",
+  "validateResult": {
+    "age": [
+      {
+        "message": "age必填",
+        "required": true,
+        "result": false,
+      },
+    ],
+    "name": [
+      {
+        "message": "姓名必填",
+        "required": true,
+        "result": false,
+      },
+    ],
+  },
+}
+`;
+
+exports[`Form > @event > validate 3`] = `
+{
+  "firstError": "age必填",
+  "validateResult": {
+    "age": [
+      {
+        "message": "age必填",
+        "required": true,
+        "result": false,
+      },
+    ],
+  },
+}
+`;
+
+exports[`Form > @event > validate 4`] = `
+{
+  "firstError": "",
+  "validateResult": true,
+}
+`;
+
+exports[`Form > event > submit 1`] = `
+{
+  "firstError": "",
+  "validateResult": true,
+}
+`;
+
+exports[`Form > event > validate 1`] = `
+{
+  "firstError": "姓名必填",
+  "validateResult": {
+    "age": [
+      {
+        "message": "age必填",
+        "required": true,
+        "result": false,
+      },
+    ],
+    "name": [
+      {
+        "message": "姓名必填",
+        "required": true,
+        "result": false,
+      },
+    ],
+  },
+}
+`;
+
+exports[`Form > event > validate 2`] = `
+{
+  "firstError": "姓名必填",
+  "validateResult": {
+    "age": [
+      {
+        "message": "age必填",
+        "required": true,
+        "result": false,
+      },
+    ],
+    "name": [
+      {
+        "message": "姓名必填",
+        "required": true,
+        "result": false,
+      },
+    ],
+  },
+}
+`;
+
+exports[`Form > event > validate 3`] = `
+{
+  "firstError": "age必填",
+  "validateResult": {
+    "age": [
+      {
+        "message": "age必填",
+        "required": true,
+        "result": false,
+      },
+    ],
+  },
+}
+`;
+
+exports[`Form > event > validate 4`] = `
+{
+  "firstError": "",
+  "validateResult": true,
+}
+`;
+
+exports[`Form > events > submit 1`] = `
+{
+  "firstError": "",
+  "validateResult": true,
+}
+`;
+
+exports[`Form > events > validate 1`] = `
+{
+  "firstError": "姓名必填",
+  "validateResult": {
+    "age": [
+      {
+        "message": "age必填",
+        "required": true,
+        "result": false,
+      },
+    ],
+    "name": [
+      {
+        "message": "姓名必填",
+        "required": true,
+        "result": false,
+      },
+    ],
+  },
+}
+`;
+
+exports[`Form > events > validate 2`] = `
+{
+  "firstError": "姓名必填",
+  "validateResult": {
+    "age": [
+      {
+        "message": "age必填",
+        "required": true,
+        "result": false,
+      },
+    ],
+    "name": [
+      {
+        "message": "姓名必填",
+        "required": true,
+        "result": false,
+      },
+    ],
+  },
+}
+`;
+
+exports[`Form > events > validate 3`] = `
+{
+  "firstError": "age必填",
+  "validateResult": {
+    "age": [
+      {
+        "message": "age必填",
+        "required": true,
+        "result": false,
+      },
+    ],
+  },
+}
+`;
+
+exports[`Form > events > validate 4`] = `
+{
+  "firstError": "",
+  "validateResult": true,
+}
+`;
+
+exports[`Form > function > clearValidate 1`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="姓名必填"
+    >
+      姓名必填
+    </div>,
+  },
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="age必填"
+    >
+      age必填
+    </div>,
+  },
+]
+`;
+
+exports[`Form > function > clearValidate 2`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="age必填"
+    >
+      age必填
+    </div>,
+  },
+]
+`;
+
+exports[`Form > function > reset 1`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="姓名必填"
+    >
+      姓名必填
+    </div>,
+  },
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="age必填"
+    >
+      age必填
+    </div>,
+  },
+]
+`;
+
+exports[`Form > function > reset 2`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="姓名校验失败"
+    >
+      姓名校验失败
+    </div>,
+  },
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="年龄校验失败"
+    >
+      年龄校验失败
+    </div>,
+  },
+]
+`;
+
+exports[`Form > function > reset 3`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="年龄校验失败"
+    >
+      年龄校验失败
+    </div>,
+  },
+]
+`;
+
+exports[`Form > function > validate 1`] = `
+{
+  "age": [
+    {
+      "message": "age必填",
+      "required": true,
+      "result": false,
+      "trigger": "blur",
+    },
+  ],
+  "name": [
+    {
+      "message": "姓名必填",
+      "required": true,
+      "result": false,
+      "trigger": "blur",
+    },
+  ],
+}
+`;
+
+exports[`Form > function > validate 2`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="姓名必填"
+    >
+      姓名必填
+    </div>,
+  },
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="age必填"
+    >
+      age必填
+    </div>,
+  },
+]
+`;
+
+exports[`Form > function > validate 3`] = `true`;
+
+exports[`Form > function > validate 4`] = `
+{
+  "name": [
+    {
+      "message": "姓名校验失败",
+      "result": false,
+      "trigger": "blur",
+      "validator": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Form > function > validate 5`] = `
+{
+  "age": [
+    {
+      "message": "年龄校验失败",
+      "result": false,
+      "trigger": "change",
+      "validator": [Function],
+    },
+  ],
+  "name": [
+    {
+      "message": "姓名校验失败",
+      "result": false,
+      "trigger": "blur",
+      "validator": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Form > function > validate 6`] = `
+{
+  "name": [
+    {
+      "message": "姓名校验失败",
+      "result": false,
+      "trigger": "blur",
+      "validator": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Form > function > validateOnly 1`] = `
+{
+  "age": [
+    {
+      "message": "age必填",
+      "required": true,
+      "result": false,
+      "trigger": "blur",
+    },
+  ],
+  "name": [
+    {
+      "message": "姓名必填",
+      "required": true,
+      "result": false,
+      "trigger": "blur",
+    },
+  ],
+}
+`;
+
+exports[`Form > function > validateOnly 2`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="姓名必填"
+    >
+      姓名必填
+    </div>,
+  },
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="age必填"
+    >
+      age必填
+    </div>,
+  },
+]
+`;
+
+exports[`Form > function > validateOnly 3`] = `true`;
+
+exports[`Form > function > validateOnly 4`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="姓名必填"
+    >
+      姓名必填
+    </div>,
+  },
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="age必填"
+    >
+      age必填
+    </div>,
+  },
+]
+`;
+
+exports[`Form > function > validateOnly 5`] = `
+{
+  "name": [
+    {
+      "message": "姓名校验失败",
+      "result": false,
+      "trigger": "blur",
+      "validator": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Form > function > validateOnly 6`] = `
+{
+  "name": [
+    {
+      "message": "姓名校验失败",
+      "result": false,
+      "trigger": "blur",
+      "validator": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Form > functions > clearValidate 1`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="姓名必填"
+    >
+      姓名必填
+    </div>,
+  },
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="age必填"
+    >
+      age必填
+    </div>,
+  },
+]
+`;
+
+exports[`Form > functions > clearValidate 2`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="age必填"
+    >
+      age必填
+    </div>,
+  },
+]
+`;
+
+exports[`Form > functions > reset 1`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="姓名必填"
+    >
+      姓名必填
+    </div>,
+  },
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="age必填"
+    >
+      age必填
+    </div>,
+  },
+]
+`;
+
+exports[`Form > functions > reset 2`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="姓名校验失败"
+    >
+      姓名校验失败
+    </div>,
+  },
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="年龄校验失败"
+    >
+      年龄校验失败
+    </div>,
+  },
+]
+`;
+
+exports[`Form > functions > reset 3`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="年龄校验失败"
+    >
+      年龄校验失败
+    </div>,
+  },
+]
+`;
+
+exports[`Form > functions > validate 1`] = `
+{
+  "age": [
+    {
+      "message": "age必填",
+      "required": true,
+      "result": false,
+      "trigger": "blur",
+    },
+  ],
+  "name": [
+    {
+      "message": "姓名必填",
+      "required": true,
+      "result": false,
+      "trigger": "blur",
+    },
+  ],
+}
+`;
+
+exports[`Form > functions > validate 2`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="姓名必填"
+    >
+      姓名必填
+    </div>,
+  },
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="age必填"
+    >
+      age必填
+    </div>,
+  },
+]
+`;
+
+exports[`Form > functions > validate 3`] = `true`;
+
+exports[`Form > functions > validate 4`] = `
+{
+  "name": [
+    {
+      "message": "姓名校验失败",
+      "result": false,
+      "trigger": "blur",
+      "validator": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Form > functions > validate 5`] = `
+{
+  "age": [
+    {
+      "message": "年龄校验失败",
+      "result": false,
+      "trigger": "change",
+      "validator": [Function],
+    },
+  ],
+  "name": [
+    {
+      "message": "姓名校验失败",
+      "result": false,
+      "trigger": "blur",
+      "validator": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Form > functions > validate 6`] = `
+{
+  "name": [
+    {
+      "message": "姓名校验失败",
+      "result": false,
+      "trigger": "blur",
+      "validator": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Form > functions > validateOnly 1`] = `
+{
+  "age": [
+    {
+      "message": "age必填",
+      "required": true,
+      "result": false,
+      "trigger": "blur",
+    },
+  ],
+  "name": [
+    {
+      "message": "姓名必填",
+      "required": true,
+      "result": false,
+      "trigger": "blur",
+    },
+  ],
+}
+`;
+
+exports[`Form > functions > validateOnly 2`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="姓名必填"
+    >
+      姓名必填
+    </div>,
+  },
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="age必填"
+    >
+      age必填
+    </div>,
+  },
+]
+`;
+
+exports[`Form > functions > validateOnly 3`] = `true`;
+
+exports[`Form > functions > validateOnly 4`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="姓名必填"
+    >
+      姓名必填
+    </div>,
+  },
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="age必填"
+    >
+      age必填
+    </div>,
+  },
+]
+`;
+
+exports[`Form > functions > validateOnly 5`] = `
+{
+  "name": [
+    {
+      "message": "姓名校验失败",
+      "result": false,
+      "trigger": "blur",
+      "validator": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Form > functions > validateOnly 6`] = `
+{
+  "name": [
+    {
+      "message": "姓名校验失败",
+      "result": false,
+      "trigger": "blur",
+      "validator": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Form > instance functions > clearValidate 1`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="姓名必填"
+    >
+      姓名必填
+    </div>,
+  },
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="age必填"
+    >
+      age必填
+    </div>,
+  },
+]
+`;
+
+exports[`Form > instance functions > clearValidate 2`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="age必填"
+    >
+      age必填
+    </div>,
+  },
+]
+`;
+
+exports[`Form > instance functions > reset 1`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="姓名必填"
+    >
+      姓名必填
+    </div>,
+  },
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="age必填"
+    >
+      age必填
+    </div>,
+  },
+]
+`;
+
+exports[`Form > instance functions > reset 2`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="姓名校验失败"
+    >
+      姓名校验失败
+    </div>,
+  },
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="年龄校验失败"
+    >
+      年龄校验失败
+    </div>,
+  },
+]
+`;
+
+exports[`Form > instance functions > reset 3`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="年龄校验失败"
+    >
+      年龄校验失败
+    </div>,
+  },
+]
+`;
+
+exports[`Form > instance functions > validate 1`] = `
+{
+  "age": [
+    {
+      "message": "age必填",
+      "required": true,
+      "result": false,
+      "trigger": "blur",
+    },
+  ],
+  "name": [
+    {
+      "message": "姓名必填",
+      "required": true,
+      "result": false,
+      "trigger": "blur",
+    },
+  ],
+}
+`;
+
+exports[`Form > instance functions > validate 2`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="姓名必填"
+    >
+      姓名必填
+    </div>,
+  },
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="age必填"
+    >
+      age必填
+    </div>,
+  },
+]
+`;
+
+exports[`Form > instance functions > validate 3`] = `true`;
+
+exports[`Form > instance functions > validate 4`] = `
+{
+  "name": [
+    {
+      "message": "姓名校验失败",
+      "result": false,
+      "trigger": "blur",
+      "validator": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Form > instance functions > validate 5`] = `
+{
+  "age": [
+    {
+      "message": "年龄校验失败",
+      "result": false,
+      "trigger": "change",
+      "validator": [Function],
+    },
+  ],
+  "name": [
+    {
+      "message": "姓名校验失败",
+      "result": false,
+      "trigger": "blur",
+      "validator": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Form > instance functions > validate 6`] = `
+{
+  "name": [
+    {
+      "message": "姓名校验失败",
+      "result": false,
+      "trigger": "blur",
+      "validator": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Form > instance functions > validateOnly 1`] = `
+{
+  "age": [
+    {
+      "message": "age必填",
+      "required": true,
+      "result": false,
+      "trigger": "blur",
+    },
+  ],
+  "name": [
+    {
+      "message": "姓名必填",
+      "required": true,
+      "result": false,
+      "trigger": "blur",
+    },
+  ],
+}
+`;
+
+exports[`Form > instance functions > validateOnly 2`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="姓名必填"
+    >
+      姓名必填
+    </div>,
+  },
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="age必填"
+    >
+      age必填
+    </div>,
+  },
+]
+`;
+
+exports[`Form > instance functions > validateOnly 3`] = `true`;
+
+exports[`Form > instance functions > validateOnly 4`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="姓名必填"
+    >
+      姓名必填
+    </div>,
+  },
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="age必填"
+    >
+      age必填
+    </div>,
+  },
+]
+`;
+
+exports[`Form > instance functions > validateOnly 5`] = `
+{
+  "name": [
+    {
+      "message": "姓名校验失败",
+      "result": false,
+      "trigger": "blur",
+      "validator": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Form > instance functions > validateOnly 6`] = `
+{
+  "name": [
+    {
+      "message": "姓名校验失败",
+      "result": false,
+      "trigger": "blur",
+      "validator": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Form > instance-functions > clearValidate 1`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="姓名必填"
+    >
+      姓名必填
+    </div>,
+  },
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="age必填"
+    >
+      age必填
+    </div>,
+  },
+]
+`;
+
+exports[`Form > instance-functions > clearValidate 2`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="age必填"
+    >
+      age必填
+    </div>,
+  },
+]
+`;
+
+exports[`Form > instance-functions > reset 1`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="姓名必填"
+    >
+      姓名必填
+    </div>,
+  },
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="age必填"
+    >
+      age必填
+    </div>,
+  },
+]
+`;
+
+exports[`Form > instance-functions > reset 2`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="姓名校验失败"
+    >
+      姓名校验失败
+    </div>,
+  },
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="年龄校验失败"
+    >
+      年龄校验失败
+    </div>,
+  },
+]
+`;
+
+exports[`Form > instance-functions > reset 3`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="年龄校验失败"
+    >
+      年龄校验失败
+    </div>,
+  },
+]
+`;
+
+exports[`Form > instance-functions > validate 1`] = `
+{
+  "age": [
+    {
+      "message": "age必填",
+      "required": true,
+      "result": false,
+      "trigger": "blur",
+    },
+  ],
+  "name": [
+    {
+      "message": "姓名必填",
+      "required": true,
+      "result": false,
+      "trigger": "blur",
+    },
+  ],
+}
+`;
+
+exports[`Form > instance-functions > validate 2`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="姓名必填"
+    >
+      姓名必填
+    </div>,
+  },
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="age必填"
+    >
+      age必填
+    </div>,
+  },
+]
+`;
+
+exports[`Form > instance-functions > validate 3`] = `true`;
+
+exports[`Form > instance-functions > validate 4`] = `
+{
+  "name": [
+    {
+      "message": "姓名校验失败",
+      "result": false,
+      "trigger": "blur",
+      "validator": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Form > instance-functions > validate 5`] = `
+{
+  "age": [
+    {
+      "message": "年龄校验失败",
+      "result": false,
+      "trigger": "change",
+      "validator": [Function],
+    },
+  ],
+  "name": [
+    {
+      "message": "姓名校验失败",
+      "result": false,
+      "trigger": "blur",
+      "validator": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Form > instance-functions > validate 6`] = `
+{
+  "name": [
+    {
+      "message": "姓名校验失败",
+      "result": false,
+      "trigger": "blur",
+      "validator": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Form > instance-functions > validateOnly 1`] = `
+{
+  "age": [
+    {
+      "message": "age必填",
+      "required": true,
+      "result": false,
+      "trigger": "blur",
+    },
+  ],
+  "name": [
+    {
+      "message": "姓名必填",
+      "required": true,
+      "result": false,
+      "trigger": "blur",
+    },
+  ],
+}
+`;
+
+exports[`Form > instance-functions > validateOnly 2`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="姓名必填"
+    >
+      姓名必填
+    </div>,
+  },
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="age必填"
+    >
+      age必填
+    </div>,
+  },
+]
+`;
+
+exports[`Form > instance-functions > validateOnly 3`] = `true`;
+
+exports[`Form > instance-functions > validateOnly 4`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="姓名必填"
+    >
+      姓名必填
+    </div>,
+  },
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="age必填"
+    >
+      age必填
+    </div>,
+  },
+]
+`;
+
+exports[`Form > instance-functions > validateOnly 5`] = `
+{
+  "name": [
+    {
+      "message": "姓名校验失败",
+      "result": false,
+      "trigger": "blur",
+      "validator": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Form > instance-functions > validateOnly 6`] = `
+{
+  "name": [
+    {
+      "message": "姓名校验失败",
+      "result": false,
+      "trigger": "blur",
+      "validator": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Form > instanceFunctions > clearValidate 1`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="姓名必填"
+    >
+      姓名必填
+    </div>,
+  },
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="age必填"
+    >
+      age必填
+    </div>,
+  },
+]
+`;
+
+exports[`Form > instanceFunctions > clearValidate 2`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="age必填"
+    >
+      age必填
+    </div>,
+  },
+]
+`;
+
+exports[`Form > instanceFunctions > reset 1`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="姓名必填"
+    >
+      姓名必填
+    </div>,
+  },
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="age必填"
+    >
+      age必填
+    </div>,
+  },
+]
+`;
+
+exports[`Form > instanceFunctions > reset 2`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="姓名校验失败"
+    >
+      姓名校验失败
+    </div>,
+  },
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="年龄校验失败"
+    >
+      年龄校验失败
+    </div>,
+  },
+]
+`;
+
+exports[`Form > instanceFunctions > reset 3`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="年龄校验失败"
+    >
+      年龄校验失败
+    </div>,
+  },
+]
+`;
+
+exports[`Form > instanceFunctions > validate 1`] = `
+{
+  "age": [
+    {
+      "message": "age必填",
+      "required": true,
+      "result": false,
+      "trigger": "blur",
+    },
+  ],
+  "name": [
+    {
+      "message": "姓名必填",
+      "required": true,
+      "result": false,
+      "trigger": "blur",
+    },
+  ],
+}
+`;
+
+exports[`Form > instanceFunctions > validate 2`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="姓名必填"
+    >
+      姓名必填
+    </div>,
+  },
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="age必填"
+    >
+      age必填
+    </div>,
+  },
+]
+`;
+
+exports[`Form > instanceFunctions > validate 3`] = `true`;
+
+exports[`Form > instanceFunctions > validate 4`] = `
+{
+  "name": [
+    {
+      "message": "姓名校验失败",
+      "result": false,
+      "trigger": "blur",
+      "validator": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Form > instanceFunctions > validate 5`] = `
+{
+  "age": [
+    {
+      "message": "年龄校验失败",
+      "result": false,
+      "trigger": "change",
+      "validator": [Function],
+    },
+  ],
+  "name": [
+    {
+      "message": "姓名校验失败",
+      "result": false,
+      "trigger": "blur",
+      "validator": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Form > instanceFunctions > validate 6`] = `
+{
+  "name": [
+    {
+      "message": "姓名校验失败",
+      "result": false,
+      "trigger": "blur",
+      "validator": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Form > instanceFunctions > validateOnly 1`] = `
+{
+  "age": [
+    {
+      "message": "age必填",
+      "required": true,
+      "result": false,
+      "trigger": "blur",
+    },
+  ],
+  "name": [
+    {
+      "message": "姓名必填",
+      "required": true,
+      "result": false,
+      "trigger": "blur",
+    },
+  ],
+}
+`;
+
+exports[`Form > instanceFunctions > validateOnly 2`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="姓名必填"
+    >
+      姓名必填
+    </div>,
+  },
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="age必填"
+    >
+      age必填
+    </div>,
+  },
+]
+`;
+
+exports[`Form > instanceFunctions > validateOnly 3`] = `true`;
+
+exports[`Form > instanceFunctions > validateOnly 4`] = `
+[
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="姓名必填"
+    >
+      姓名必填
+    </div>,
+  },
+  DOMWrapper {
+    "isDisabled": [Function],
+    "wrapperElement": <div
+      class="t-input__extra"
+      title="age必填"
+    >
+      age必填
+    </div>,
+  },
+]
+`;
+
+exports[`Form > instanceFunctions > validateOnly 5`] = `
+{
+  "name": [
+    {
+      "message": "姓名校验失败",
+      "result": false,
+      "trigger": "blur",
+      "validator": [Function],
+    },
+  ],
+}
+`;
+
+exports[`Form > instanceFunctions > validateOnly 6`] = `
+{
+  "name": [
+    {
+      "message": "姓名校验失败",
+      "result": false,
+      "trigger": "blur",
+      "validator": [Function],
+    },
+  ],
+}
+`;

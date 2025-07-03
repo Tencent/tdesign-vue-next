@@ -13,7 +13,7 @@ import { useConfig, useTNodeJSX, useGlobalIcon, useDefaultValue } from '@tdesign
 import { getCurrentRowByKey } from '../utils';
 import { DialogInstance } from '../../dialog';
 import TButton from '../../button';
-import ColumnCheckboxGroup from '../column-checkbox-group';
+import ColumnCheckboxGroup from '../components/column-checkbox-group';
 
 export function getColumnKeys(columns: PrimaryTableCol[], keys = new Set<string>()) {
   for (let i = 0, len = columns.length; i < len; i++) {

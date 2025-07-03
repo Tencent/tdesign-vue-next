@@ -14,6 +14,9 @@
   <a href="https://www.npmjs.com/package/tdesign-vue-next">
     <img src="https://img.shields.io/npm/dm/tdesign-vue-next" alt="Downloads">
   </a>
+  <a href="https://deepwiki.com/Tencent/tdesign-vue-next">
+    <img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki">
+  </a>
 </p>
 
 English | [简体中文](./README-zh_CN.md)

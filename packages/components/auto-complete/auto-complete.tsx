@@ -11,7 +11,7 @@ import {
   useReadonly,
   useCommonClassName,
 } from '@tdesign/shared-hooks';
-import AutoCompleteOptionList from './option-list';
+import AutoCompleteOptionList from './components/option-list';
 
 import { useConfig } from '../config-provider/hooks/useConfig';
 import { ClassName } from '../common';
