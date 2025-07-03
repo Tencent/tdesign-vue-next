@@ -11,7 +11,7 @@ import {
   TypeTreeOptionData,
   useConfig,
   usePrefixClass,
-} from './adapt';
+} from './utils/adapt';
 import useDragHandle from './hooks/useDragHandle';
 import useTreeAction from './hooks/useTreeAction';
 import useTreeNodes from './hooks/useTreeNodes';
@@ -20,8 +20,8 @@ import useTreeState from './hooks/useTreeState';
 import useTreeStore from './hooks/useTreeStore';
 import useTreeStyles from './hooks/useTreeStyles';
 import props from './props';
-import { TreeNodeState, TreeNodeValue, TypeTreeNodeModel } from './tree-types';
-import { getNode } from './util';
+import { TreeNodeState, TreeNodeValue, TypeTreeNodeModel } from './types';
+import { getNode } from './utils';
 import { useTNodeJSX } from '@tdesign/shared-hooks';
 
 // 2022.11.02 tabliang 备注
@@ -36,11 +36,7 @@ export default defineComponent({
     prop: 'value',
     event: 'change',
   },
-
-  props: {
-    ...props,
-  },
-
+  props,
   setup(props, context) {
     const { t, global } = useConfig('tree');
     const classPrefix = usePrefixClass();

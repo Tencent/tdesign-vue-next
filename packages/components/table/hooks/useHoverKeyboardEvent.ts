@@ -1,6 +1,6 @@
 import { toRefs, Ref, ref, computed } from 'vue';
 import { get } from 'lodash-es';
-import { BaseTableProps } from '../interface';
+import { BaseTableProps } from '../types';
 import { on, off } from '@tdesign/shared-utils';
 import {
   ALL_REG,

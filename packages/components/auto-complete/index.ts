@@ -1,5 +1,5 @@
 import _AutoComplete from './auto-complete';
-import _HighlightOption from './highlight-option';
+import _HighlightOption from './components/highlight-option';
 import { withInstall } from '@tdesign/shared-utils';
 import { AutoCompleteOption, TdAutoCompleteProps } from './type';
 

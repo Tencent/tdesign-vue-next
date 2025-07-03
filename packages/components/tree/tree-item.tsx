@@ -6,8 +6,8 @@ import {
   TreeItemDefinition,
   useRipple,
   getCreateElement,
-} from './adapt';
-import { TypeTreeItemProps } from './tree-types';
+} from './utils/adapt';
+import { TypeTreeItemProps } from './types';
 import useItemState from './hooks/useItemState';
 import useTreeItem from './hooks/useTreeItem';
 

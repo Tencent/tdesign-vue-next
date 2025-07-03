@@ -5,7 +5,7 @@
  * */
 
 import { ButtonProps } from '../button';
-import { TNode, Styles, AttachNode } from '../common';
+import { TNode, Styles, AttachNode, AppContext } from '../common';
 
 export interface TdDrawerProps {
   /**
@@ -196,4 +196,4 @@ export interface DrawerCloseContext {
   e: MouseEvent | KeyboardEvent;
 }
 
-export type DrawerMethod = (options?: DrawerOptions) => DrawerInstance;
+export type DrawerMethod = (options?: DrawerOptions, context?: AppContext) => DrawerInstance;
