@@ -146,7 +146,7 @@ name | type | default | description | required
 -- | -- | -- | -- | --
 defaultTime | Array | ["00:00:00", "23:59:59"] | Time selector default value。Typescript：`string[]` | N
 `Pick<DateRangePickerProps, 'value'\| 'defaultValue' \| 'disableDate' \| 'enableTimePicker' \| 'firstDayOfWeek' \| 'format' \| 'mode' \| 'presets' \| 'presetsPlacement' \| 'panelPreselection' \| 'timePickerProps'>` | \- | - | extends `Pick<DateRangePickerProps, 'value'\| 'defaultValue' \| 'disableDate' \| 'enableTimePicker' \| 'firstDayOfWeek' \| 'format' \| 'mode' \| 'presets' \| 'presetsPlacement' \| 'panelPreselection' \| 'timePickerProps'>` | N
-onCellClick | Function |  | Typescript：`(context: { date: Date[], partial: DateRangePickerPartial, e: MouseEvent, partialDate:Date }) => void`<br/> | N
+onCellClick | Function |  | Typescript：`(context: { date: Date[], partial: DateRangePickerPartial, e: MouseEvent }) => void`<br/> | N
 onChange | Function |  | Typescript：`(value: DateRangeValue, context: { dayjsValue?: Dayjs[], partial: DateRangePickerPartial, e?: MouseEvent, trigger?: DatePickerTriggerSource }) => void`<br/> | N
 onConfirm | Function |  | Typescript：`(context: { date: Date[], e: MouseEvent }) => void`<br/> | N
 onMonthChange | Function |  | Typescript：`(context: { month: number, date: Date[], partial: DateRangePickerPartial, e?: MouseEvent, trigger: DatePickerMonthChangeTrigger }) => void`<br/> | N

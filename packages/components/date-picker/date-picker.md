@@ -146,7 +146,7 @@ year-change | `(context: { year: number, date: Date, trigger: DatePickerYearChan
 -- | -- | -- | -- | --
 defaultTime | Array | ["00:00:00", "23:59:59"] | 时间选择器默认值，当 value/defaultValue 未设置值时有效。TS 类型：`string[]` | N
 `Pick<DateRangePickerProps, 'value'\| 'defaultValue' \| 'disableDate' \| 'enableTimePicker' \| 'firstDayOfWeek' \| 'format' \| 'mode' \| 'presets' \| 'presetsPlacement' \| 'panelPreselection' \| 'timePickerProps'>` | \- | - | 继承 `Pick<DateRangePickerProps, 'value'\| 'defaultValue' \| 'disableDate' \| 'enableTimePicker' \| 'firstDayOfWeek' \| 'format' \| 'mode' \| 'presets' \| 'presetsPlacement' \| 'panelPreselection' \| 'timePickerProps'>` 中的全部属性 | N
-onCellClick | Function |  | TS 类型：`(context: { date: Date[], partial: DateRangePickerPartial, e: MouseEvent, partialDate:Date }) => void`<br/>点击日期单元格时触发 | N
+onCellClick | Function |  | TS 类型：`(context: { date: Date[], partial: DateRangePickerPartial, e: MouseEvent }) => void`<br/>点击日期单元格时触发 | N
 onChange | Function |  | TS 类型：`(value: DateRangeValue, context: { dayjsValue?: Dayjs[], partial: DateRangePickerPartial, e?: MouseEvent, trigger?: DatePickerTriggerSource }) => void`<br/>选中值发生变化时触发。参数 `context.trigger` 表示触发当前事件的来源，不同的模式触发来源也会不同 | N
 onConfirm | Function |  | TS 类型：`(context: { date: Date[], e: MouseEvent }) => void`<br/>如果存在“确定”按钮，则点击“确定”按钮时触发 | N
 onMonthChange | Function |  | TS 类型：`(context: { month: number, date: Date[], partial: DateRangePickerPartial, e?: MouseEvent, trigger: DatePickerMonthChangeTrigger }) => void`<br/>月份切换发生变化时触发 | N
