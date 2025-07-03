@@ -26,7 +26,7 @@
     "lodash": "^4.17.21",
     "prismjs": "^1.29.0",
     "tdesign-icons-view": "^0.3.6",
-    "tdesign-site-components": "^0.16.4",
+    "tdesign-site-components": "^0.16.5",
     "tdesign-theme-generator": "^1.1.7",
     "typescript": "~5.7.2",
     "vite": "^6.2.0",
