@@ -550,8 +550,8 @@ importers:
         specifier: ^1.29.0
         version: 1.30.0
       tdesign-site-components:
-        specifier: ^0.16.4
-        version: 0.16.4
+        specifier: ^0.16.5
+        version: 0.16.5
       tdesign-theme-generator:
         specifier: ^1.1.7
         version: 1.1.7
@@ -6715,8 +6715,8 @@ packages:
     resolution: {integrity: sha512-eRmrOCUqR/55AAZ8dqUGV8+TU1qzljGoiU9TsFOroHcNe4T1u/dYwEBfg39NsupWUoO/v67XeUDlKyTjUHkO2w==}
     hasBin: true
 
-  tdesign-site-components@0.16.4:
-    resolution: {integrity: sha512-Q182Huph8bExGqQCfiSroSC3beI0lF4FQ/LR0mreqvZQEk00N+57dz9CcO1ASQEEdJLq0auh3RlL7Sd8IFkOkg==}
+  tdesign-site-components@0.16.5:
+    resolution: {integrity: sha512-0NMP21yvaH8M8kT/+LSw/fxtTqEB8PMD44uQLkMYJP8KyUHZ8PwpKPO0klXyGHqTojy6YQzYVtwtHJ7vxMNmnQ==}
 
   tdesign-site-components@0.17.0-alpha.5:
     resolution: {integrity: sha512-153QAv/1QWVBsdYGJHH23TBkB7yJdjj64IcLIAhOau1r5zhKzKoWMDCc/v5qjXfSeSV72Flquk5+xR7MdD7b1A==}
@@ -14461,7 +14461,7 @@ snapshots:
       inquirer: 8.2.6
       standard-changelog: 2.0.27
 
-  tdesign-site-components@0.16.4:
+  tdesign-site-components@0.16.5:
     dependencies:
       '@popperjs/core': 2.11.8
       hybrids: 8.2.2
