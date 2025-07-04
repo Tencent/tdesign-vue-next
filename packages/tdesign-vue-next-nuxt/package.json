@@ -20,7 +20,8 @@
     "README"
   ],
   "scripts": {
-    "build": "pnpm dev:prepare && nuxt-module-build build",
+    "prepack": "nuxt-module-build prepare && nuxt-module-build build",
+    "build": "pnpm run prepack",
     "dev": "nuxi dev site",
     "dev:build": "nuxi build site",
     "dev:preview": "nuxi generate site",
