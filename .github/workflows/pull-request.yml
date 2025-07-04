@@ -201,7 +201,7 @@ jobs:
       # 设置 Node.js 环境，版本为 18
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 18
           cache: 'pnpm'
 
       # 安装依赖
