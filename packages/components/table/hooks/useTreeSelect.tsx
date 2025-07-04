@@ -3,7 +3,7 @@ import { get, intersection } from 'lodash-es';
 
 import { TdEnhancedTableProps, TdPrimaryTableProps, TableRowData, PrimaryTableCol } from '../type';
 import { KeysType, TableTreeDataMap, TreeDataMapType } from '@tdesign/common-js/table/tree-store';
-import { useDefaultValue } from '@tdesign/hooks';
+import { useDefaultValue } from '@tdesign/shared-hooks';
 
 export interface GetChildrenDataReturnValue {
   allChildren: Array<any>;

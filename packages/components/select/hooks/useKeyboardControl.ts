@@ -1,10 +1,10 @@
 import { ref, watch, ComputedRef, Ref } from 'vue';
-import { usePrefixClass } from '@tdesign/hooks';
+import { usePrefixClass } from '@tdesign/shared-hooks';
 
 import { getNewMultipleValue } from '../utils';
 
 import type { SelectOption, TdOptionProps, SelectValue } from '../type';
-import type { ChangeHandler } from '@tdesign/hooks';
+import type { ChangeHandler } from '@tdesign/shared-hooks';
 import type { PopupVisibleChangeContext } from '../../popup';
 
 export type useKeyboardControlType = {

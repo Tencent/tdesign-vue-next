@@ -1,6 +1,6 @@
 import _Timeline from './timeline';
 import _TimelineItem from './timeline-item';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 import { TdTimelineProps } from './type';
 
 import './style';

@@ -1,6 +1,6 @@
 import { defineComponent, computed, CSSProperties, Fragment } from 'vue';
 import props from './props';
-import { useTNodeJSX, useChildSlots, usePrefixClass, useFlatChildrenSlots } from '@tdesign/hooks';
+import { useTNodeJSX, useChildSlots, usePrefixClass, useFlatChildrenSlots } from '@tdesign/shared-hooks';
 
 import { isArray, isNumber, isString } from 'lodash-es';
 

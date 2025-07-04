@@ -1,6 +1,6 @@
 import { defineComponent, PropType } from 'vue';
 import { TdSliderProps } from './type';
-import { usePrefixClass } from '@tdesign/hooks';
+import { usePrefixClass } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'TSliderMark',

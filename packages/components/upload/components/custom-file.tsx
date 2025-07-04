@@ -2,7 +2,7 @@ import { defineComponent, PropType, toRefs } from 'vue';
 import useDrag, { UploadDragEvents } from '../hooks/useDrag';
 import { CommonDisplayFileProps } from '../types';
 import { commonProps } from '../consts';
-import { useContent } from '@tdesign/hooks';
+import { useContent } from '@tdesign/shared-hooks';
 import { TdUploadProps } from '../type';
 
 export interface CustomFileProps extends CommonDisplayFileProps {

@@ -9,7 +9,14 @@ import {
   ChevronRightDoubleIcon as TdChevronRightDoubleIcon,
   EllipsisIcon as TdEllipsisIcon,
 } from 'tdesign-icons-vue-next';
-import { useConfig, useVModel, useTNodeJSX, useGlobalIcon, usePrefixClass, useDefaultValue } from '@tdesign/hooks';
+import {
+  useConfig,
+  useVModel,
+  useTNodeJSX,
+  useGlobalIcon,
+  usePrefixClass,
+  useDefaultValue,
+} from '@tdesign/shared-hooks';
 
 import TInputNumber from '../input-number';
 import { Select } from '../select';
@@ -252,7 +259,7 @@ export default defineComponent({
           {/* 数据统计区 */}
           {renderTNodeJSX(
             'totalContent',
-            <div class={CLASS_MAP.totalClass.value}>{t(globalConfig.value.total, { total })}</div>,
+            <div class={CLASS_MAP.totalClass.value}>{t(globalConfig.value.total, total)}</div>,
           )}
           {/* 分页器 */}
           {showPageSize && pageSizeOptions.length > 0 && (

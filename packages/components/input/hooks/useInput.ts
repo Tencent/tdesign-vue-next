@@ -1,7 +1,7 @@
 import { ref, computed, watch, nextTick, toRefs, inject } from 'vue';
 import { InputValue, TdInputProps } from './../type';
 import { FormItemInjectionKey } from '../../form/consts';
-import { useVModel, useDisabled, useReadonly } from '@tdesign/hooks';
+import { useVModel, useDisabled, useReadonly } from '@tdesign/shared-hooks';
 
 import { useLengthLimit } from './useLengthLimit';
 
@@ -148,6 +148,10 @@ export function useInput(props: ExtendsTdInputProps, expose: (exposed: Record<st
             : props.format(innerValue.value);
       }
       focused.value = false;
+      if (isComposition.value) {
+        isComposition.value = false;
+        compositionValue.value = '';
+      }
       props.onBlur?.(innerValue.value, { e });
       formItem?.handleBlur();
     } else {

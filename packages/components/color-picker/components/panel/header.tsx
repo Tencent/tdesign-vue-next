@@ -1,11 +1,11 @@
 import { defineComponent, PropType, ref, watch } from 'vue';
 
-import props from '../../props';
+import props from '../../color-picker-panel-props';
 import { COLOR_MODES } from '@tdesign/common-js/color-picker/constants';
 import { RadioGroup as TRadioGroup, RadioButton as TRadioButton } from '../../../radio';
 import { TdColorModes } from '../../types';
 import { useBaseClassName } from '../../hooks';
-import { useConfig } from '@tdesign/hooks';
+import { useConfig } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'PanelHeader',

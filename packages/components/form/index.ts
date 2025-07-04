@@ -1,6 +1,6 @@
 import _Form from './form';
 import _FormItem from './form-item';
-import withInstall from '../utils/withInstall';
+import { withInstall } from '@tdesign/shared-utils';
 import { TdFormProps, TdFormItemProps, Data } from './type';
 
 import './style';

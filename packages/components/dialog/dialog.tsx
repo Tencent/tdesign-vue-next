@@ -12,7 +12,7 @@ import {
 } from 'vue';
 import { DialogCloseContext } from './type';
 import props from './props';
-import { useConfig, useTeleport, usePrefixClass, usePopupManager, useDestroyOnClose } from '@tdesign/hooks';
+import { useConfig, useTeleport, usePrefixClass, usePopupManager, useDestroyOnClose } from '@tdesign/shared-hooks';
 import { useSameTarget } from './hooks';
 
 import { getScrollbarWidth } from '@tdesign/common-js/utils/getScrollbarWidth';

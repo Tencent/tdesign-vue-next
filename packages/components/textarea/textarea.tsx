@@ -17,7 +17,14 @@ import setStyle from '@tdesign/common-js/utils/setStyle';
 import { getCharacterLength, getValidAttrs } from '@tdesign/common-js/utils/helper';
 
 // hooks
-import { useVModel, useDisabled, useReadonly, useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/hooks';
+import {
+  useVModel,
+  useDisabled,
+  useReadonly,
+  useTNodeJSX,
+  usePrefixClass,
+  useCommonClassName,
+} from '@tdesign/shared-hooks';
 
 import { useLengthLimit } from '../input/hooks/useLengthLimit';
 
@@ -232,7 +239,6 @@ export default defineComponent({
           [STATUS.value.focused]: focused.value,
           [`${prefix.value}-resize-none`]: typeof props.autosize === 'object',
         },
-        'narrow-scrollbar',
       ]);
 
       const tips = renderTNodeJSX('tips');

@@ -2,11 +2,13 @@ import { glob } from 'glob';
 import { readFile, copy, writeFile, remove } from 'fs-extra';
 import { run, joinPosix, joinWorkspaceRoot, joinTdesignVueNextChatRoot } from '@tdesign/internal-utils';
 
+const typesTempDir = 'vue-next-chat';
+
 const generateSourceTypes = async () => {
   // 1. 编译 tsc
-  await run('tsc --outDir dist/types -p tsconfig.json --emitDeclarationOnly');
+  await run(`tsc --outDir ${typesTempDir} -p tsconfig.json --emitDeclarationOnly`);
 
-  const typesRoot = joinWorkspaceRoot('dist/types');
+  const typesRoot = joinWorkspaceRoot(typesTempDir);
 
   // 2. 删除 style 目录
   const styleDirPaths = await glob(`${joinPosix(typesRoot, 'packages/**/style')}`);
@@ -21,7 +23,7 @@ const generateSourceTypes = async () => {
 };
 
 const generateTargetTypes = async (target: 'es' | 'esm' | 'lib' | 'cjs') => {
-  const typesRoot = joinWorkspaceRoot('dist/types');
+  const typesRoot = joinWorkspaceRoot(typesTempDir);
 
   // 1. 复制 packages/pro-components/chat 到 packages/tdesign-vue-next-chat/target 下
   const targetDir = joinTdesignVueNextChatRoot(`${target}`);
@@ -42,7 +44,7 @@ const generateTargetTypes = async (target: 'es' | 'esm' | 'lib' | 'cjs') => {
 };
 
 const removeSourceTypes = async () => {
-  const distTypesRoot = joinWorkspaceRoot('dist');
+  const distTypesRoot = joinWorkspaceRoot(typesTempDir);
   await remove(distTypesRoot);
 };
 
@@ -50,7 +52,7 @@ export const buildTypes = async () => {
   await removeSourceTypes();
   await generateSourceTypes();
   // const targets = ['es', 'esm', 'lib', 'cjs'] as const;
-  const targets = ['es'] as const;
+  const targets = ['es', 'esm'] as const;
   await Promise.all(
     targets.map(async (target) => {
       await generateTargetTypes(target);

@@ -3,7 +3,7 @@ import { get, isArray, debounce, cloneDeep, isFunction, intersection, pick as pi
 
 import FakeArrow from '../common-components/fake-arrow';
 import SelectInput from '../select-input';
-import SelectPanel from './select-panel';
+import SelectPanel from './components/select-panel';
 import Tag from '../tag';
 import props from './props';
 // hooks
@@ -15,7 +15,7 @@ import {
   useTNodeJSX,
   usePrefixClass,
   useDefaultValue,
-} from '@tdesign/hooks';
+} from '@tdesign/shared-hooks';
 
 import { getSingleContent, getMultipleContent } from './utils';
 import { selectInjectKey } from './consts';
@@ -59,18 +59,15 @@ export default defineComponent({
       value: props.keys?.value || 'value',
       disabled: props.keys?.disabled || 'disabled',
     }));
-    const { optionsMap, optionsList, optionsCache, displayOptions, filterMethods } = useSelectOptions(
-      props,
-      keys,
-      innerInputValue,
-    );
+
+    const isObjectType = computed(() => props.valueType === 'object');
 
     // 内部数据,格式化过的
     const innerValue = computed(() => {
       if (orgValue.value === undefined) {
         return props.multiple ? [] : undefined;
       }
-      if (props.valueType === 'object') {
+      if (isObjectType.value) {
         return !props.multiple
           ? // @ts-ignore
             // TODO optimize SelectValue
@@ -82,8 +79,11 @@ export default defineComponent({
       return orgValue.value;
     });
 
+    const { optionsMap, optionsList, optionsCache, displayOptions, filterMethods, searchDisplayOptions } =
+      useSelectOptions(props, keys, innerInputValue, innerValue);
+
     const setInnerValue: TdSelectProps['onChange'] = (newVal: SelectValue | SelectValue[], context) => {
-      if (props.valueType === 'object') {
+      if (isObjectType.value) {
         const { value, label } = keys.value;
         const getOption = (val: SelectValue) => {
           if (val === undefined) {
@@ -126,7 +126,9 @@ export default defineComponent({
 
     const placeholderText = computed(
       () =>
-        ((!props.multiple && innerPopupVisible.value && getSingleContent(innerValue.value, optionsMap)) ||
+        ((!props.multiple &&
+          innerPopupVisible.value &&
+          getSingleContent(innerValue.value, isRemoteSearch.value, currentSelectOptions, optionsMap)) ||
           props.placeholder) ??
         t(globalConfig.value.placeholder),
     );
@@ -134,8 +136,8 @@ export default defineComponent({
     // selectInput 展示值
     const displayText = computed(() =>
       props.multiple
-        ? getMultipleContent(innerValue.value as SelectValue[], optionsMap)
-        : getSingleContent(innerValue.value, optionsMap),
+        ? getMultipleContent(innerValue.value as SelectValue[], isRemoteSearch.value, currentSelectOptions, optionsMap)
+        : getSingleContent(innerValue.value, isRemoteSearch.value, currentSelectOptions, optionsMap),
     );
 
     // valueDisplayParams参数
@@ -189,6 +191,7 @@ export default defineComponent({
         // 如果最后一个为disabled，则应删除前一项（非disabled的）
         let closest = -1;
         let len = index;
+
         const currentSelected = getCurrentSelectedOptions();
         while (len >= 0) {
           if (!currentSelected[len]?.disabled) {
@@ -264,15 +267,19 @@ export default defineComponent({
     };
 
     //  获取当前选中的选项，和 getSelectedOptions 的区别是 这个会保持选择的先后顺序
-    const getCurrentSelectedOptions = (selectValue: SelectValue[] | SelectValue = innerValue.value) => {
+    const getCurrentSelectedOptions = () => {
       const options: TdOptionProps[] = [];
-      const values = isArray(selectValue) ? selectValue : [selectValue];
+
+      // 需要处理 objectType 的情况
+      const selectedValue = isObjectType.value ? orgValue.value : innerValue.value;
+      const values = isArray(selectedValue) ? selectedValue : [selectedValue];
 
       values.forEach((value) => {
-        const option = optionsMap.value.get(value);
+        const option = optionsMap.value.get(isObjectType.value ? value.value : value);
         if (option) options.push(option);
+        // 处理不存在选项的值的场景，也需要推入
+        else options.push(isObjectType.value ? value : { value });
       });
-
       return options;
     };
 
@@ -293,10 +300,9 @@ export default defineComponent({
       });
 
       const activeValues = optionalList.value.map((option) => option.value);
-      const formattedOrgValue =
-        props.valueType === 'object'
-          ? (orgValue.value as Array<SelectValue>).map((v) => get(v, value))
-          : orgValue.value;
+      const formattedOrgValue = isObjectType.value
+        ? (orgValue.value as Array<SelectValue>).map((v) => get(v, value))
+        : orgValue.value;
 
       const values = checked
         ? [...new Set([...(formattedOrgValue as Array<SelectValue>), ...activeValues, ...lockedValues])]
@@ -307,7 +313,9 @@ export default defineComponent({
     // 全选
     const isCheckAll = computed<boolean>(() => {
       if (intersectionLen.value === 0) return false;
-      return intersectionLen.value === optionalList.value.length;
+      return (
+        intersectionLen.value === (isRemoteSearch.value ? searchDisplayOptions.value.length : optionalList.value.length)
+      );
     });
 
     const { hoverIndex, virtualFilteredOptions, handleKeyDown, filteredOptions } = useKeyboardControl({
@@ -469,29 +477,43 @@ export default defineComponent({
       });
     };
 
+    /**
+     * 获取当前选中的选项 —— 远程搜索数据和本地传入的数据
+     */
+    const currentSelectOptions = computed(() => {
+      return isRemoteSearch.value ? searchDisplayOptions.value : getCurrentSelectedOptions();
+    });
+
     const renderValueDisplay = () => {
       const renderTag = () => {
-        if (!props.multiple) {
+        if (!props.multiple || props.selectInputProps?.multiple === false) {
           return undefined;
         }
-        const currentSelectedOptions = getCurrentSelectedOptions(innerValue.value);
-        return currentSelectedOptions
-          .slice(0, props.minCollapsedNum ? props.minCollapsedNum : currentSelectedOptions.length)
-          .map((v: TdOptionProps, key: number) => {
+
+        return innerValue.value
+          .slice(0, props.minCollapsedNum ? props.minCollapsedNum : innerValue.value.length)
+          .map?.((v: string, key: number) => {
+            let tagIndex: number;
+            const option = currentSelectOptions.value.find((item, index) => {
+              if (item.value === v) {
+                tagIndex = index;
+                return true;
+              }
+            });
+
             return (
               <Tag
                 key={key}
-                closable={!v?.disabled && !props.disabled && !props.readonly}
+                closable={!option?.disabled && !props.disabled && !props.readonly}
                 size={props.size}
                 {...props.tagProps}
                 onClose={({ e }: { e: MouseEvent }) => {
                   e.stopPropagation();
-                  const index = currentSelectedOptions.findIndex((item) => item.value === v.value);
                   props.tagProps?.onClose?.({ e });
-                  removeTag(index);
+                  removeTag(tagIndex);
                 }}
               >
-                {v?.label ?? v?.value}
+                {option ? option.label ?? option?.value : v}
               </Tag>
             );
           });

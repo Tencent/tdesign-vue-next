@@ -4,7 +4,7 @@ import { omit, isString, isFunction } from 'lodash-es';
 import { ImageErrorIcon, ImageIcon } from 'tdesign-icons-vue-next';
 import observe from '@tdesign/common-js/utils/observe';
 import { useConfig } from '../config-provider/hooks/useConfig';
-import { useTNodeJSX, useTNodeDefault, useImagePreviewUrl } from '@tdesign/hooks';
+import { useTNodeJSX, useTNodeDefault, useImagePreviewUrl } from '@tdesign/shared-hooks';
 import props from './props';
 import Space from '../space';
 
