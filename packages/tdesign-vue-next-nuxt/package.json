@@ -48,8 +48,8 @@
     "changelogen": "^0.5.7",
     "less": "^4.2.0",
     "nuxt": "^3.14.159",
-    "tdesign-icons-vue-next": "^0.3.3",
-    "tdesign-vue-next": "^1.10.3",
+    "tdesign-icons-vue-next": "^0.3.6",
+    "tdesign-vue-next": "workspace:^",
     "vitest": "^2.1.5"
   }
 }
