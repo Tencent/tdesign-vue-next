@@ -35,7 +35,7 @@ export default defineComponent({
       wrap(underline, 'u');
       wrap(del, 'del');
       wrap(code, 'code');
-      wrap(mark !== false, 'mark', mark ? { color: mark } : {});
+      wrap(mark !== false, 'mark', mark ? { backgroundColor: mark } : {});
       wrap(keyboard, 'kbd');
       wrap(italic, 'i');
       return currentContent;
