@@ -121,7 +121,7 @@ jobs:
       # 运行测试
       - run: pnpm run test:vue
 
-  build_vue-next:
+  build(vue-next):
     # 在最新版本的 Ubuntu 环境中运行
     runs-on: ubuntu-latest
     # 如果需要依赖自身任务，可以取消注释（通常不需要）
@@ -152,7 +152,7 @@ jobs:
 
       - run: pnpm -F tdesign-vue-next publish --no-git-checks --dry-run
 
-  build-chat:
+  build(chat):
     # 在最新版本的 Ubuntu 环境中运行
     runs-on: ubuntu-latest
     # 如果需要依赖自身任务，可以取消注释（通常不需要）
@@ -180,5 +180,35 @@ jobs:
       # 运行构建任务
       - name: Build 
         run: pnpm run build:chat
+
+      - run: pnpm -F @tdesign-vue-next/chat publish --no-git-checks --dry-run
+
+  build(nuxt):
+    # 在最新版本的 Ubuntu 环境中运行
+    runs-on: ubuntu-latest
+    # 如果需要依赖自身任务，可以取消注释（通常不需要）
+    # needs: build
+    steps:
+      # 检出代码仓库，并递归初始化子模块
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      # 设置 pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      # 设置 Node.js 环境，版本为 18
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'pnpm'
+
+      # 安装依赖
+      - run: pnpm install --frozen-lockfile
+
+      # 运行构建任务
+      - name: Build 
+        run: pnpm run build:nuxt
 
       - run: pnpm -F @tdesign-vue-next/chat publish --no-git-checks --dry-run
