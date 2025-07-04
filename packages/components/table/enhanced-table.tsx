@@ -27,8 +27,12 @@ export default defineComponent({
   },
   setup(props: TdEnhancedTableProps, context: SetupContext) {
     const primaryTableRef = ref(null);
+
+    // debugger;
+
     const { store, dataSource, formatTreeColumn, swapData, onExpandFoldIconClick, ...treeInstanceFunctions } =
-      useTreeData(props, context);
+      useTreeData(props, context); // todo
+
     const classPrefix = usePrefixClass();
 
     const treeDataMap = ref(store.value.treeDataMap);

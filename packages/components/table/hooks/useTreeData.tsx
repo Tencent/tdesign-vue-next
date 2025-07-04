@@ -74,7 +74,7 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
   };
 
   watch(
-    [data],
+    data,
     () => {
       if (props.tree) {
         resetData(data.value);
@@ -82,6 +82,7 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
         dataSource.value = data.value;
       }
     },
+    // { immediate: true, deep: true },
     { immediate: true },
   );
 
@@ -104,11 +105,17 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
     { immediate: true },
   );
 
+  // resetData -> initialTreeStore -> initialTreeDataMap
   function resetData(data: TableRowData[]) {
     const { columns, expandedTreeNodes, defaultExpandedTreeNodes, tree } = props;
+
     store.value.initialTreeStore(data, columns, rowDataKeys.value);
+
+    console.log('resetData store.value.treeDataMap', store.value.treeDataMap);
+
     const defaultNeedExpand = Boolean(!isDefaultExpandedTreeNodesExecute.value && defaultExpandedTreeNodes?.length);
     const needExpandAll = Boolean(tree?.defaultExpandAll && !isDefaultExpandAllExecute.value);
+
     if ((tExpandedTreeNode.value?.length && !!(expandedTreeNodes || defaultNeedExpand)) || needExpandAll) {
       updateExpandOnDataChange(data);
       isDefaultExpandedTreeNodesExecute.value = true;
@@ -209,7 +216,7 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
    * @param newRowData 新行数据
    */
   function setData<T>(key: TableRowValue, newRowData: T) {
-    const rowIndex = store.value.updateData(key, newRowData, dataSource.value, rowDataKeys.value);
+    const rowIndex = store.value.updateData(key, newRowData, dataSource.value, rowDataKeys.value); // todo1
     const newData = [...dataSource.value];
     newData[rowIndex] = newRowData;
     dataSource.value = newData;

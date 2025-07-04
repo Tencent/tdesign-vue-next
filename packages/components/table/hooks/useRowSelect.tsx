@@ -33,13 +33,14 @@ export default function useRowSelect(
       : data.value,
   );
   const selectedRowClassNames = ref();
+  // todo
   const [tSelectedRowKeys, setTSelectedRowKeys] = useDefaultValue(
     selectedRowKeys,
     props.defaultSelectedRowKeys || [],
     props.onSelectChange,
     'selectedRowKeys',
   );
-  const selectedRowDataMap = ref(new Map<string | number, TableRowData>());
+  const selectedRowDataMap = ref(new Map<string | number, TableRowData>()); // todo
   const selectColumn = computed(() => props.columns.find(({ type }) => ['multiple', 'single'].includes(type)));
   const selectionType = computed(() => props.rowSelectionType || selectColumn.value?.type || 'single');
   const canSelectedRows = computed(() => {
@@ -118,10 +119,15 @@ export default function useRowSelect(
   }
 
   function renderSelectCell(p: PrimaryTableCellParams<TableRowData>) {
+    console.log('❗️ ~ renderSelectCell ~ renderSelectCell outer raw row:', JSON.parse(JSON.stringify(p.row))); // 每一行都重新渲染，但 handleSelectChange 居然是旧的 row
+
     const { col: column, row = {} } = p;
     const checked = tSelectedRowKeys.value.includes(get(row, props.rowKey || 'id'));
     const { disabled, checkProps } = getRowSelectDisabledData(p);
-    const selectBoxProps: Object = {
+
+    let currDate = new Date(Date.now());
+
+    const selectBoxProps = {
       checked,
       disabled,
       ...checkProps,
@@ -134,36 +140,61 @@ export default function useRowSelect(
           e?.stopPropagation();
         }
       },
-      onChange: () => handleSelectChange(row),
+      // onChange: ((row) => {
+      //   handleSelectChange(row);
+      // })(row),
+      onChange: () => {
+        console.log('renderSelectCell change date', currDate, 'inner raw, row', JSON.parse(JSON.stringify(p.row)));
+        handleSelectChange(p.row);
+      },
+      // onChange: handleSelectChange.bind(null, row),
     };
     if (column.type === 'single') return <Radio {...selectBoxProps} />;
+
     if (column.type === 'multiple') {
       const isIndeterminate = props.indeterminateSelectedRowKeys?.length
         ? props.indeterminateSelectedRowKeys.includes(get(row, props.rowKey))
         : false;
-      return <Checkbox indeterminate={isIndeterminate} {...selectBoxProps} />;
+      return <Checkbox key={new Date() + ''} indeterminate={isIndeterminate} {...selectBoxProps} />;
+      // return <Checkbox v-if="true" indeterminate={isIndeterminate} {...selectBoxProps} />;
+      // return <Checkbox indeterminate={isIndeterminate} {...selectBoxProps} />;
     }
     return null;
   }
 
+  // todo1
   function handleSelectChange(row: TableRowData = {}) {
+    console.log('❗️ ~ handleSelectChange ~ row:', row); // 落后的 row
+
     let selectedRowKeys = [...tSelectedRowKeys.value];
+
     const reRowKey = props.rowKey || 'id';
     const id = get(row, reRowKey);
+
     const selectedRowIndex = selectedRowKeys.indexOf(id);
     const isExisted = selectedRowIndex !== -1;
+
     if (selectionType.value === 'multiple') {
-      isExisted ? selectedRowKeys.splice(selectedRowIndex, 1) : selectedRowKeys.push(id);
+      isExisted ? selectedRowKeys.splice(selectedRowIndex, 1) : selectedRowKeys.push(id); // 这里加入了
     } else if (selectionType.value === 'single') {
       selectedRowKeys = isExisted && allowUncheck.value ? [] : [id];
     } else {
       log.warn('Table', '`column.type` must be one of `multiple` and `single`');
       return;
     }
+
+    // console.log(
+    //   'useRowSelect handleSelectChange map11',
+    //   selectedRowKeys, // first_xxx
+    //   selectedRowKeys.map((t) => selectedRowDataMap.value.get(t)), // 获取到最新的子树
+    // );
+    // console.log('useRowSelect handleSelectChange selectedRowKeys', selectedRowKeys); // todo
+
+    // todo
     setTSelectedRowKeys(selectedRowKeys, {
-      selectedRowData: selectedRowKeys.map((t) => selectedRowDataMap.value.get(t)),
+      selectedRowData: selectedRowKeys.map((t) => selectedRowDataMap.value.get(t)), // 这个没变。。。
       currentRowKey: id,
-      currentRowData: row,
+      currentRowData: row, // 这个有问题 todo
       type: isExisted ? 'uncheck' : 'check',
     });
   }
@@ -192,7 +223,10 @@ export default function useRowSelect(
     };
   }
 
+  // todo
   const onInnerSelectRowClick: TdPrimaryTableProps['onRowClick'] = ({ row, index }) => {
+    // console.log('❗️ ~ onInnerSelectRowClick:');
+
     const selectedColIndex = props.columns.findIndex((item) => item.colKey === 'row-select');
     let disabled = false;
     if (selectedColIndex !== -1) {
@@ -211,8 +245,9 @@ export default function useRowSelect(
     [data, rowKey],
     () => {
       for (let i = 0, len = data.value.length; i < len; i++) {
-        selectedRowDataMap.value.set(get(data.value[i], rowKey.value || 'id'), data.value[i]);
+        selectedRowDataMap.value.set(get(data.value[i], rowKey.value || 'id'), data.value[i]); // todo { first_level }
       }
+      console.log('watch data change selectedRowDataMap', selectedRowDataMap);
     },
     { immediate: true },
   );

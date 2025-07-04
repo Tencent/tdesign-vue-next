@@ -126,7 +126,7 @@ export default defineComponent({
     const handleChange = (e: Event) => {
       if (isReadonly.value) return;
       const checked = !tChecked.value;
-      setInnerChecked(checked, { e });
+      setInnerChecked(checked, { e }); // todo
       if (checkboxGroupData?.value.handleCheckboxChange) {
         checkboxGroupData.value.onCheckedChange({ checked, checkAll: props.checkAll, e, option: props });
       }

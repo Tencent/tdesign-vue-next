@@ -1,4 +1,4 @@
-import { computed, toRefs, ref, Ref, watch } from 'vue';
+import { computed, toRefs, ref, Ref, watch, toRaw } from 'vue';
 import { get, intersection } from 'lodash-es';
 
 import { TdEnhancedTableProps, TdPrimaryTableProps, TableRowData, PrimaryTableCol } from '../type';
@@ -12,7 +12,7 @@ export interface GetChildrenDataReturnValue {
 }
 
 // 保存子节点信息，避免重复计算
-export const childrenMap = new Map();
+export const childrenMap = new Map(); // 重复
 
 export function getChildrenData(
   treeDataMap: TreeDataMapType,
@@ -21,6 +21,8 @@ export function getChildrenData(
   r?: GetChildrenDataReturnValue,
 ): GetChildrenDataReturnValue {
   if (childrenMap.get(data)) return childrenMap.get(data);
+  console.log('❗️ ~ childrenMap 未缓存:', childrenMap);
+
   const result = r || { allChildren: [], allChildrenKeys: [], leafNodeKeys: [] };
   const children = get(data, keys.childrenKey);
   if (!children || !children.length) return result;
@@ -48,6 +50,7 @@ export function getChildrenData(
   }
   result.allChildrenKeys = [...new Set(result.allChildrenKeys)];
   result.leafNodeKeys = [...new Set(result.leafNodeKeys)];
+
   return result;
 }
 
@@ -101,21 +104,36 @@ type SelectChangeParams = Parameters<TdPrimaryTableProps['onSelectChange']>;
 
 export default function useTreeSelect(props: TdEnhancedTableProps, treeDataMap: Ref<TableTreeDataMap>) {
   const { selectedRowKeys, tree, data, indeterminateSelectedRowKeys } = toRefs(props);
+
   // 半选状态的节点：子节点选中至少一个，且没有全部选中
   const tIndeterminateSelectedRowKeys = ref<(string | number)[]>([]);
 
   const [tSelectedRowKeys, setTSelectedRowKeys] = useDefaultValue(
     selectedRowKeys,
     props.defaultSelectedRowKeys || [],
-    props.onSelectChange,
+    props.onSelectChange, // 注意，这里是 props.onSelectChange，不再是被内部篡改的 onInnerSelectChange
     'selectedRowKeys',
   );
+  // console.log('❗️ ~ useTreeSelect ~ props.onSelectChange:', props.onSelectChange);
+
   const rowDataKeys = computed(() => ({
     rowKey: props.rowKey || 'id',
     childrenKey: props.tree?.childrenKey || 'children',
   }));
 
-  watch([tree, treeDataMap, data, tSelectedRowKeys], ([tree, treeDataMap]) => {
+  // watch(
+  //   () => props.data,
+  //   () => {
+  //     childrenMap.clear();
+  //     console.log('watch data', childrenMap);
+  //   },
+  //   {
+  //     deep: true,
+  //   },
+  // );
+
+  // todo
+  watch([tree, treeDataMap, tSelectedRowKeys], ([tree, treeDataMap]) => {
     if (!tree || !treeDataMap.size || tree.checkStrictly) return;
     updateIndeterminateState();
   });
@@ -216,9 +234,21 @@ export default function useTreeSelect(props: TdEnhancedTableProps, treeDataMap: 
     let newRowKeys = [...rowKeys];
     if (props.tree?.checkStrictly === false) {
       if (extraData?.type === 'check') {
-        const result = getChildrenData(treeDataMap.value, extraData.currentRowData, rowDataKeys.value);
+        // console.log(
+        //   '❗️ ~ handleSelect ~ treeDataMap.value, extraData.currentRowData, rowDataKeys.value:',
+        //   treeDataMap.value, // 正常
+        //   extraData.currentRowData, // 有问题
+        //   rowDataKeys.value, // 常量 不用管
+        // );
+
+        console.log('❗️ ~ handleSelect ~ extraData.currentRowData,:', extraData.currentRowData);
+
+        const result = getChildrenData(treeDataMap.value, extraData.currentRowData, rowDataKeys.value); // { allChildren, allChildrenKeys, leafNodeKeys }
+        console.log('❗️ ~ handleSelect ~ result:', result);
+
         const { allChildrenKeys } = result;
         childrenMap.set(extraData.currentRowData, result);
+
         newRowKeys = [...new Set(newRowKeys.concat(allChildrenKeys))];
       } else if (extraData?.type === 'uncheck') {
         const children = getChildrenData(treeDataMap.value, extraData.currentRowData, rowDataKeys.value);
@@ -231,6 +261,9 @@ export default function useTreeSelect(props: TdEnhancedTableProps, treeDataMap: 
     }
     newRowKeys = updateParentCheckedState(newRowKeys, extraData.currentRowKey, extraData.type);
     const newRowData = getRowDataByKeys({ treeDataMap: treeDataMap.value, selectedRowKeys: newRowKeys });
+
+    console.log('❗️ ~ useTreeSelect handleSelect ~ treeDataMap.value:', treeDataMap.value);
+
     const newExtraData = {
       ...extraData,
       selectedRowData: newRowData,

@@ -116,7 +116,7 @@ export default defineComponent({
       setTSelectedRowKeys,
       onInnerSelectRowClick,
       handleRowSelectWithAreaSelection,
-    } = useRowSelect(props, tableSelectedClasses);
+    } = useRowSelect(props, tableSelectedClasses); // todo
 
     // 过滤功能
     const {
@@ -236,7 +236,7 @@ export default defineComponent({
           !parentDisplay
         )
           continue;
-        item = formatToRowSelectColumn(item);
+        item = formatToRowSelectColumn(item); // todo
         const { sort } = props;
         if (item.sorter && props.showSortColumnBgColor) {
           const sorts = sort instanceof Array ? sort : [sort];

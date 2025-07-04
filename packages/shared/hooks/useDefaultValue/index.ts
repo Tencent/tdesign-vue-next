@@ -19,14 +19,19 @@ export function useDefaultValue<T, P extends any[]>(
   if (isVMP) {
     return [
       value,
+      //  setTSelectedRowKeys 第一个参数展位，后续全展开
       (newValue, ...args) => {
         emit(`update:${propsName}`, newValue);
+
+        console.log('2. useDefaultValue ~ isVMP newValue:', newValue, ...args);
+
         onChange?.(newValue, ...args);
       },
     ];
   }
 
   internalValue.value = defaultValue;
+
   return [
     internalValue,
     (newValue, ...args) => {
