@@ -303,8 +303,8 @@ export default defineComponent({
             onBeforeLeave={beforeLeave}
             onAfterLeave={afterLeave}
           >
-            {shouldRender.value && (
-              <div v-show={props.visible} class={ctxClass} style={ctxStyle} {...context.attrs}>
+            {shouldRender.value && props.visible && (
+              <div class={ctxClass} style={ctxStyle} {...context.attrs}>
                 {view}
               </div>
             )}
