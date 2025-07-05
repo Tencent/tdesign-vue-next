@@ -2,7 +2,11 @@
   "name": "@tdesign-vue-next/nuxt",
   "version": "0.1.5",
   "description": "Nuxt Module for TDesign",
-  "repository": "tdesignOteam/tdesign-nuxt",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tencent/tdesign-vue-next.git",
+    "directory": "packages/tdesign-vue-next-nuxt"
+  },
   "license": "MIT",
   "type": "module",
   "exports": {
