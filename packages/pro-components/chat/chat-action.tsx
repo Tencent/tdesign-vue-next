@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { defineComponent, toRefs } from 'vue';
 import { usePrefixClass, useTNodeJSX } from '@tdesign/shared-hooks';
 import { Button, Space, Tooltip } from 'tdesign-vue-next';
 import { useConfig } from 'tdesign-vue-next/es/config-provider/hooks';
@@ -24,8 +24,9 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const messagePluginInstance = MessagePluginSingleton.getInstance();
     const { globalConfig } = useConfig('chat');
-    const { copyTipText, likeTipText, dislikeTipText, refreshTipText, copyTextSuccess, copyTextFail } =
-      globalConfig.value;
+    const { copyTipText, likeTipText, dislikeTipText, refreshTipText, copyTextSuccess, copyTextFail } = toRefs(
+      globalConfig.value,
+    );
     return () => {
       // textLoading更新后要传给子组件和孙组件
       const content = renderTNodeJSX('content');
@@ -35,10 +36,10 @@ export default defineComponent({
         // 根据e获取当前按钮选择器
         const copyBtn = new Clipboard(`.copy-btn`);
         copyBtn.on('success', () => {
-          messagePluginInstance.showSuccess(copyTextSuccess);
+          messagePluginInstance.showSuccess(copyTextSuccess.value);
         });
         copyBtn.on('error', () => {
-          messagePluginInstance.showError(copyTextFail);
+          messagePluginInstance.showError(copyTextFail.value);
         });
       };
       const handleClick = (e: MouseEvent, type: string) => {
@@ -53,7 +54,7 @@ export default defineComponent({
       const replayButton = props.operationBtn.includes('replay') ? (
         <Space>
           <div class={`${COMPONENT_NAME.value}__refresh`}>
-            <Tooltip content={refreshTipText}>
+            <Tooltip content={refreshTipText.value}>
               <Button
                 theme="default"
                 size="small"
@@ -69,7 +70,7 @@ export default defineComponent({
       ) : null;
       const copyButton = props.operationBtn.includes('copy') ? (
         <Space>
-          <Tooltip content={copyTipText}>
+          <Tooltip content={copyTipText.value}>
             <Button
               theme="default"
               size="small"
@@ -85,7 +86,7 @@ export default defineComponent({
       ) : null;
       const goodButton = props.operationBtn.includes('good') ? (
         <Space>
-          <Tooltip content={likeTipText}>
+          <Tooltip content={likeTipText.value}>
             <Button
               theme="default"
               size="small"
@@ -100,7 +101,7 @@ export default defineComponent({
       ) : null;
       const badButton = props.operationBtn.includes('bad') ? (
         <Space>
-          <Tooltip content={dislikeTipText}>
+          <Tooltip content={dislikeTipText.value}>
             <Button
               theme="default"
               size="small"
