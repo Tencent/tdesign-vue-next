@@ -1,5 +1,5 @@
 import { computed, defineComponent, onMounted, PropType, ref, SetupContext, toRefs, watch } from 'vue';
-import { get, set, isFunction, cloneDeep, isObject } from 'lodash-es';
+import { get, set, isFunction, isObject } from 'lodash-es';
 import { Edit1Icon as TdEdit1Icon } from 'tdesign-icons-vue-next';
 import {
   TableRowData,
@@ -121,7 +121,7 @@ export default defineComponent({
       const [firstKey, ...restKeys] = colKey.split('.') || [];
       const newRow = { ...row.value };
       if (restKeys.length) {
-        newRow[firstKey] = cloneDeep(row.value[firstKey]);
+        newRow[firstKey] = row.value[firstKey];
         set(newRow[firstKey], restKeys.join('.'), editValue.value);
       } else {
         set(newRow, colKey, editValue.value);
