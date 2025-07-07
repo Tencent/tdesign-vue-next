@@ -51,6 +51,7 @@ export default defineComponent({
       setInnerValue(value, context);
     };
     const blurFn = (value: string, context: { e: FocusEvent }) => {
+      shiftDownFlag = false;
       emit('blur', value, context);
     };
     const focusFn = (value: string, context: { e: FocusEvent }) => {
