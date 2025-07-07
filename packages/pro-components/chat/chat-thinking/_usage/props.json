@@ -1,0 +1,50 @@
+[
+  {
+    "name": "content",
+    "type": "object",
+    "defaultValue": "-",
+    "description": "思考内容对象。TS类型：{ text?: string; title?: string }"
+  },
+  {
+    "name": "layout",
+    "type": "enum",
+    "defaultValue": "block",
+    "options": [
+      { "label": "block", "value": "block" },
+      { "label": "border", "value": "border" }
+    ]
+  },
+  {
+    "name": "status",
+    "type": "enum",
+    "defaultValue": "pending",
+    "options": [
+      { "label": "pending", "value": "pending" },
+      { "label": "complete", "value": "complete" },
+      { "label": "stop", "value": "stop" },
+      { "label": "error", "value": "error" }
+    ]
+  },
+  {
+    "name": "maxHeight",
+    "type": "number",
+    "defaultValue": "-",
+    "description": "内容区域最大高度，超出会自动滚动"
+  },
+  {
+    "name": "animation",
+    "type": "enum",
+    "defaultValue": "circle",
+    "options": [
+      { "label": "circle", "value": "circle" },
+      { "label": "moving", "value": "moving" },
+      { "label": "gradient", "value": "gradient" }
+    ]
+  },
+  {
+    "name": "collapsed",
+    "type": "boolean",
+    "defaultValue": false,
+    "description": "是否折叠（受控）"
+  }
+]
