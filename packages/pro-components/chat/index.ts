@@ -14,6 +14,10 @@ import _ChatSender from './chat-sender';
 import _ChatAttachments from './attachments';
 import _ChatThinking from './chat-thinking';
 import _ChatBot from './chatbot';
+// 修改为直接导出
+import { useChat } from './chatbot/useChat';
+export { useChat };
+
 import _ChatMessage from './chat-message';
 import { withInstall } from '@tdesign/shared-utils';
 
@@ -70,17 +74,21 @@ export const ChatBot = withInstall(_ChatBot, 't-chatbot');
 // 消息对话
 export const ChatMessage = withInstall(_ChatMessage, 't-chat-message');
 // todo
-export const ChatSearchContent = omiVueify('t-chat-search-content', {
+export const ChatSearchContentComponent = omiVueify('t-chat-search-content', {
   methodNames: [],
 }) as DefineComponent<TdChatSearchContentProps>;
+export const ChatSearchContent = withInstall(ChatSearchContentComponent, 't-chat-search-content');
 // todo
-export const ChatSuggestionContent = omiVueify('t-chat-suggestion-content', {
+export const ChatSuggestionContentComponent = omiVueify('t-chat-suggestion-content', {
   methodNames: [],
 }) as DefineComponent<TdChatSuggestionContentProps>;
+export const ChatSuggestionContent = withInstall(ChatSuggestionContentComponent, 't-chat-suggestion-content');
+
 // todo
-export const ChatList = omiVueify('t-chat-list', {
-  methodNames: [],
+export const ChatListComponent = omiVueify('t-chat-list', {
+  methodNames: ['scrollToBottom'],
 }) as DefineComponent<TdChatListProps>;
+export const ChatList = withInstall(ChatListComponent, 't-chat-list');
 
 // webc组件没有加入use todo
 export default {
@@ -98,6 +106,9 @@ export default {
     app.use(ChatMessage, config);
     app.use(ChatBot, config);
     app.use(ChatAttachments, config);
+    app.use(ChatSearchContent, config);
+    app.use(ChatSuggestionContent, config);
+    app.use(ChatList, config);
   },
   version: typeof PKG_VERSION === 'undefined' ? '' : PKG_VERSION,
 };
