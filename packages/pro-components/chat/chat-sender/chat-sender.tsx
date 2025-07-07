@@ -254,7 +254,7 @@ export default defineComponent({
             ref={senderTextarea}
             value={textValue.value}
             onChange={textChange}
-            disabled={disabled.value || showStopBtn.value}
+            disabled={disabled.value}
             {...{
               autosize: (props.textareaProps as TdChatSenderProps['textareaProps'])?.autosize || {
                 minRows: 2,
