@@ -314,24 +314,9 @@ importers:
 
   internal/utils:
     devDependencies:
-      '@rollup/plugin-node-resolve':
-        specifier: ^16.0.1
-        version: 16.0.1(rollup@2.79.2)
-      '@rollup/plugin-typescript':
-        specifier: ^12.1.2
-        version: 12.1.3(rollup@2.79.2)(tslib@2.8.1)(typescript@5.7.3)
       execa:
         specifier: ^8.0.1
         version: 8.0.1
-      rollup:
-        specifier: ^2.79.1
-        version: 2.79.2
-      rollup-plugin-delete:
-        specifier: ^2.1.0
-        version: 2.2.0(rollup@2.79.2)
-      rollup-plugin-multi-input:
-        specifier: ^1.4.1
-        version: 1.5.0
       tsdown:
         specifier: ^0.12.9
         version: 0.12.9(typescript@5.7.3)(vue-tsc@2.2.10(typescript@5.7.3))
@@ -1803,19 +1788,6 @@ packages:
       rollup: ^2.0.0||^3.0.0||^4.0.0
     peerDependenciesMeta:
       rollup:
-        optional: true
-
-  '@rollup/plugin-typescript@12.1.3':
-    resolution: {integrity: sha512-gAx0AYwkyjqOw4JrZV34N/abvAobLhczyLkZ7FVL2UXPrO4zv8oqTfYT3DLBRan1EXasp4SUuEJXqPTk0gnJzw==}
-    engines: {node: '>=14.0.0'}
-    peerDependencies:
-      rollup: ^2.14.0||^3.0.0||^4.0.0
-      tslib: '*'
-      typescript: '>=3.7.0'
-    peerDependenciesMeta:
-      rollup:
-        optional: true
-      tslib:
         optional: true
 
   '@rollup/plugin-url@7.0.0':
@@ -9030,15 +9002,6 @@ snapshots:
     optionalDependencies:
       rollup: 2.79.2
 
-  '@rollup/plugin-typescript@12.1.3(rollup@2.79.2)(tslib@2.8.1)(typescript@5.7.3)':
-    dependencies:
-      '@rollup/pluginutils': 5.2.0(rollup@2.79.2)
-      resolve: 1.22.10
-      typescript: 5.7.3
-    optionalDependencies:
-      rollup: 2.79.2
-      tslib: 2.8.1
-
   '@rollup/plugin-url@7.0.0(rollup@2.79.2)':
     dependencies:
       '@rollup/pluginutils': 4.2.1
@@ -9562,7 +9525,7 @@ snapshots:
       std-env: 3.9.0
       test-exclude: 7.0.1
       tinyrainbow: 2.0.0
-      vitest: 3.2.4(@types/debug@4.1.12)(@types/node@22.5.1)(@vitest/ui@3.2.4)(jiti@2.4.2)(jsdom@19.0.0)(less@4.3.0)(msw@1.3.5(encoding@0.1.13)(typescript@5.7.3))(terser@5.43.1)(tsx@4.20.3)(yaml@2.8.0)
+      vitest: 3.2.4(@types/debug@4.1.12)(@types/node@22.15.32)(@vitest/ui@3.2.4)(jiti@2.4.2)(jsdom@19.0.0)(less@4.3.0)(msw@1.3.5(encoding@0.1.13)(typescript@5.7.3))(terser@5.43.1)(tsx@4.20.3)(yaml@2.8.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -9573,6 +9536,15 @@ snapshots:
       '@vitest/utils': 3.2.4
       chai: 5.2.0
       tinyrainbow: 2.0.0
+
+  '@vitest/mocker@3.2.4(msw@1.3.5(encoding@0.1.13)(typescript@5.7.3))(vite@6.3.5(@types/node@22.15.32)(jiti@2.4.2)(less@4.3.0)(terser@5.43.1)(tsx@4.20.3)(yaml@2.8.0))':
+    dependencies:
+      '@vitest/spy': 3.2.4
+      estree-walker: 3.0.3
+      magic-string: 0.30.17
+    optionalDependencies:
+      msw: 1.3.5(encoding@0.1.13)(typescript@5.7.3)
+      vite: 6.3.5(@types/node@22.15.32)(jiti@2.4.2)(less@4.3.0)(terser@5.43.1)(tsx@4.20.3)(yaml@2.8.0)
 
   '@vitest/mocker@3.2.4(msw@1.3.5(encoding@0.1.13)(typescript@5.7.3))(vite@6.3.5(@types/node@22.5.1)(jiti@2.4.2)(less@4.3.0)(terser@5.43.1)(tsx@4.20.3)(yaml@2.8.0))':
     dependencies:
@@ -9612,7 +9584,7 @@ snapshots:
       sirv: 3.0.1
       tinyglobby: 0.2.14
       tinyrainbow: 2.0.0
-      vitest: 3.2.4(@types/debug@4.1.12)(@types/node@22.5.1)(@vitest/ui@3.2.4)(jiti@2.4.2)(jsdom@19.0.0)(less@4.3.0)(msw@1.3.5(encoding@0.1.13)(typescript@5.7.3))(terser@5.43.1)(tsx@4.20.3)(yaml@2.8.0)
+      vitest: 3.2.4(@types/debug@4.1.12)(@types/node@22.15.32)(@vitest/ui@3.2.4)(jiti@2.4.2)(jsdom@19.0.0)(less@4.3.0)(msw@1.3.5(encoding@0.1.13)(typescript@5.7.3))(terser@5.43.1)(tsx@4.20.3)(yaml@2.8.0)
 
   '@vitest/utils@3.2.4':
     dependencies:
@@ -15364,7 +15336,7 @@ snapshots:
     dependencies:
       '@types/chai': 5.2.2
       '@vitest/expect': 3.2.4
-      '@vitest/mocker': 3.2.4(msw@1.3.5(encoding@0.1.13)(typescript@5.7.3))(vite@6.3.5(@types/node@22.5.1)(jiti@2.4.2)(less@4.3.0)(terser@5.43.1)(tsx@4.20.3)(yaml@2.8.0))
+      '@vitest/mocker': 3.2.4(msw@1.3.5(encoding@0.1.13)(typescript@5.7.3))(vite@6.3.5(@types/node@22.15.32)(jiti@2.4.2)(less@4.3.0)(terser@5.43.1)(tsx@4.20.3)(yaml@2.8.0))
       '@vitest/pretty-format': 3.2.4
       '@vitest/runner': 3.2.4
       '@vitest/snapshot': 3.2.4
