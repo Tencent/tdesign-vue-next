@@ -4,14 +4,13 @@ import { MenuValue } from './type';
 import { TdMenuInterface, TdOpenType } from './types';
 import { useVModel, useContent, useTNodeJSX, usePrefixClass, useDefaultValue } from '@tdesign/shared-hooks';
 import { VMenu } from './utils';
-import log from '@tdesign/common-js/log/log';
 
 import { isArray, isNumber } from 'lodash-es';
 
 export default defineComponent({
   name: 'TMenu',
   props: { ...props, onCollapsed: Function },
-  setup(props, ctx) {
+  setup(props) {
     const classPrefix = usePrefixClass();
     const renderTNodeJSX = useTNodeJSX();
     const renderContent = useContent();
@@ -101,12 +100,6 @@ export default defineComponent({
 
     watch(activeValue, (value: MenuValue) => {
       activeValues.value = vMenu.select(value);
-    });
-
-    watchEffect(() => {
-      if (ctx.slots.options) {
-        log.warnOnce('TMenu', '`options` slot is going to be deprecated, please use `operations` for slot instead.');
-      }
     });
 
     onMounted(() => {
