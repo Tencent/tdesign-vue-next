@@ -58,11 +58,15 @@ export default defineComponent({
     });
 
     return () => {
-      const qrCodeProps = {
+      const QRCodeProps = {
         value: value.value,
         size: size.value,
+        // 关于fgColor为什么要undefined兜底：
+        // 如果当前环境（单测环境）获取不到当前主题色的情况，背景色有透明兜底，而前景色没有值。此处前景色设置undefined后，二维码颜色则由底层渲染组件的默认颜色决定。
+        // 即：自定义颜色>主题颜色>默认颜色
+        // TODO：其实这里直接可以用默认颜色兜底？
         bgColor: finalBgColor.value,
-        fgColor: color.value || themeColor.value,
+        fgColor: color.value || themeColor.value || undefined,
         imageSettings: icon.value ? imageSettings.value : undefined,
         level: level.value,
       };
@@ -82,9 +86,9 @@ export default defineComponent({
             </div>
           )}
           {type.value === 'canvas' ? (
-            <QRCodeCanvas {...qrCodeProps} size={size.value} />
+            <QRCodeCanvas {...QRCodeProps} size={size.value} />
           ) : (
-            <QRCodeSVG {...qrCodeProps} size={size.value} />
+            <QRCodeSVG {...QRCodeProps} size={size.value} />
           )}
         </div>
       );
