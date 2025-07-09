@@ -1,4 +1,4 @@
-import { defineComponent, computed, onMounted, inject, ComputedRef } from 'vue';
+import { defineComponent, computed, onMounted, inject, ComputedRef, toRefs } from 'vue';
 import { useConfig } from 'tdesign-vue-next/es/config-provider/hooks';
 import { usePrefixClass } from '@tdesign/shared-hooks';
 import props from './chat-content-props';
@@ -43,7 +43,7 @@ export default defineComponent({
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('chat');
     const { globalConfig } = useConfig('chat');
-    const { copyCodeBtnText, copyCodeSuccessText } = globalConfig.value;
+    const { copyCodeBtnText, copyCodeSuccessText } = toRefs(globalConfig.value);
 
     // role 没被注入的时候，使用props.role来自chat-item传入，content在插槽里的inject，修复role数据混乱问题
     const injectedRole = inject<ComputedRef<string>>('role');
@@ -54,9 +54,9 @@ export default defineComponent({
       });
 
       clipboard.on('success', (e) => {
-        e.trigger.textContent = copyCodeSuccessText;
+        e.trigger.textContent = copyCodeSuccessText.value;
         setTimeout(() => {
-          e.trigger.textContent = copyCodeBtnText;
+          e.trigger.textContent = copyCodeBtnText.value;
         }, 2000);
         e.clearSelection();
       });
