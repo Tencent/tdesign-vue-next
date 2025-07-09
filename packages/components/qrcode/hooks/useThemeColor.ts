@@ -27,27 +27,8 @@ const DEFAULT_OPTIONS: Options = {
 
 function useMutationObservable(targetEl: HTMLElement | null, cb: MutationCallback, options: Options = DEFAULT_OPTIONS) {
   const mergedOptions = ref<Options>({ ...DEFAULT_OPTIONS, ...options });
-  const signal = ref(0);
   const callbackRef = ref<MutationCallback>(cb);
   let observer: MutationObserver | null = null;
-
-  watch(
-    () => cb,
-    (newCb) => {
-      callbackRef.value = newCb;
-    },
-  );
-
-  watch(
-    () => options,
-    (newOptions) => {
-      if (!isEqual(newOptions, mergedOptions.value)) {
-        mergedOptions.value = { ...DEFAULT_OPTIONS, ...newOptions };
-        signal.value += 1;
-      }
-    },
-    { deep: true },
-  );
 
   const initObserver = () => {
     if (!targetEl) return;
@@ -57,29 +38,24 @@ function useMutationObservable(targetEl: HTMLElement | null, cb: MutationCallbac
       callbackRef.value(...args);
     };
 
-    if (observer) {
-      observer.disconnect();
-    }
-
+    observer?.disconnect();
     observer = new MutationObserver(debounceTime > 0 ? debounce(handler, debounceTime) : handler);
     observer.observe(targetEl, config);
   };
 
-  onMounted(() => {
-    initObserver();
-  });
+  watch(
+    () => options,
+    (newOptions) => {
+      if (!isEqual(newOptions, mergedOptions.value)) {
+        mergedOptions.value = { ...DEFAULT_OPTIONS, ...newOptions };
+        initObserver(); // 直接重新初始化
+      }
+    },
+    { deep: true },
+  );
 
-  onBeforeUnmount(() => {
-    if (observer) {
-      observer.disconnect();
-      observer = null;
-    }
-  });
-
-  // 每当 signal 变化时重新初始化 observer
-  watch(signal, () => {
-    initObserver();
-  });
+  onMounted(initObserver);
+  onBeforeUnmount(() => observer?.disconnect());
 }
 
 function useThemeColor(): ThemeColor {
