@@ -10,7 +10,7 @@ import { ButtonProps } from '../button';
 import { FormErrorMessage } from '../form';
 import { ImageProps } from '../image';
 import { MessageOptions } from '../message';
-import { TNode, SizeEnum, AttachNode } from '../common';
+import { TNode, SizeEnum } from '../common';
 
 export interface TdConfigProviderProps {
   /**
