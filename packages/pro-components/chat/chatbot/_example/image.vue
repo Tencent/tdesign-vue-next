@@ -7,6 +7,7 @@
       :sender-props="senderProps"
       :chat-service-config="chatServiceConfig"
       @messageChange="handleMessageChange"
+      @chatSent="onSend"
     >
       <!-- 渲染自定义消息内容 -->
       <template v-for="msg in mockMessage" :key="msg.id">
@@ -207,22 +208,22 @@ const onAttachClick = () => {
 };
 
 // 文件选择处理
-const onFileSelect = (e) => {
-  let files = e.detail;
+const onFileSelect = (e: CustomEvent<TdAttachmentItem[]>) => {
+  const currFiles = e.detail;
 
-  if (files.length === 0) return;
+  if (currFiles.length === 0) return;
 
   const newFile = {
-    ...files[0],
-    name: files[0].name,
+    ...currFiles[0],
+    name: currFiles[0].name,
     status: 'progress' as UploadFile['status'],
     description: '上传中',
   };
 
-  files = [newFile, ...files];
+  files.value = [newFile, ...files.value];
 
   setTimeout(() => {
-    files = files.map((file) =>
+    files.value = files.value.map((file) =>
       file.name === newFile.name
         ? {
             ...file,
@@ -237,18 +238,18 @@ const onFileSelect = (e) => {
 };
 
 // 文件移除处理
-const onFileRemove = (removedFiles: File[]) => {
-  files.value = removedFiles;
+const onFileRemove = (e: CustomEvent<TdAttachmentItem[]>) => {
+  files.value = e.detail;
 };
 
 // 发送消息处理
-const onSend = (params: TdChatSenderParams): ChatRequestParams => {
-  const { value, attachments } = params;
+const onSend = (e: CustomEvent<ChatRequestParams>): ChatRequestParams => {
+  const { prompt, attachments } = e.detail;
   files.value = [];
 
   return {
     attachments,
-    prompt: `${value}，要求比例：${
+    prompt: `${prompt}，要求比例：${
       ratio.value === 0 ? '默认比例' : RatioOptions.find((opt) => opt.value === ratio.value)?.content
     }, 风格：${style.value ? StyleOptions.find((opt) => opt.value === style.value)?.content : '默认风格'}`,
   };
@@ -287,7 +288,7 @@ watch([ratio, style], () => {
   };
 });
 
-const senderProps = {
+const senderProps = computed(() => ({
   defaultValue: '请为Tdesign设计三张品牌宣传图',
   placeholder: '描述你的生图需求~',
   uploadProps: {
@@ -295,12 +296,11 @@ const senderProps = {
     accept: 'image/*',
   },
   attachmentsProps: {
-    items: files,
+    items: files.value,
   },
-  onSend,
   onFileSelect,
   onFileRemove,
-};
+}));
 </script>
 
 <style scoped>

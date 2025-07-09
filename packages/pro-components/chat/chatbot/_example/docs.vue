@@ -8,12 +8,13 @@
       :chat-service-config="chatServiceConfig"
       @fileSelect="onFileSelect"
       @fileRemove="onFileRemove"
+      @chatSent="onSend"
     />
   </div>
 </template>
 
 <script lang="ts">
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import type {
   SSEChunkData,
   AIMessageContent,
@@ -165,7 +166,7 @@ export default {
       files.value = []; // 清除掉附件区域
     };
 
-    const senderProps = {
+    const senderProps = computed(() => ({
       defaultValue: '根据所提供的材料总结一篇文章，推荐春天户外郊游打卡目的地，需要符合小红书平台写作风格',
       placeholder: '输入你要撰写的主题，支持上传附件',
       actions: ['attachment', 'send'],
@@ -179,7 +180,7 @@ export default {
       onSend,
       onFileSelect,
       onFileRemove,
-    };
+    }));
 
     return {
       chatRef,
@@ -187,6 +188,7 @@ export default {
       messageProps,
       chatServiceConfig,
       senderProps,
+      onSend,
       onFileSelect,
       onFileRemove,
     };

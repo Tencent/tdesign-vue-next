@@ -42,8 +42,8 @@
     "marked-highlight": "^2.1.1",
     "tdesign-icons-vue-next": "^0.3.6",
     "tdesign-vue-next": "workspace:^",
-    "tdesign-web-components": "1.0.3",
-    "omi-vueify": "^0.0.8"
+    "tdesign-web-components": "1.1.6",
+    "omi-vueify": "^0.0.10"
   },
   "devDependencies": {
     "tvision-charts-vue-next": "^3.3.13"
