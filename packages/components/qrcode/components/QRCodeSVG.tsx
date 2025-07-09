@@ -1,4 +1,4 @@
-import { defineComponent, ref, toRefs } from 'vue';
+import { computed, defineComponent, ref, toRefs } from 'vue';
 import { QRCodeSubComponentProps } from './props';
 import {
   DEFAULT_BACKGROUND_COLOR,
@@ -40,28 +40,27 @@ export default defineComponent({
       size: size.value,
     });
 
-    const cellsToDraw = ref(cells.value);
-
-    const renderImg = () => {
-      let image = null;
-      if (imageSettings != null && calculatedImageSettings != null) {
-        if (calculatedImageSettings.value.excavation != null) {
-          cellsToDraw.value = excavateModules(cells.value, calculatedImageSettings.value.excavation);
-        }
-
-        image = (
-          <image
-            href={imageSettings.value.src}
-            height={calculatedImageSettings.value.h}
-            width={calculatedImageSettings.value.w}
-            x={calculatedImageSettings.value.x + margin.value}
-            y={calculatedImageSettings.value.y + margin.value}
-            crossOrigin={calculatedImageSettings.value.crossOrigin}
-          />
-        );
+    const cellsToDraw = computed(() => {
+      if (imageSettings.value && calculatedImageSettings.value?.excavation != null) {
+        return excavateModules(cells.value, calculatedImageSettings.value.excavation);
       }
-      return image;
-    };
+      return cells.value;
+    });
+
+    const imageNode = computed(() => {
+      if (!imageSettings.value || !calculatedImageSettings.value) return null;
+
+      return (
+        <image
+          href={imageSettings.value.src}
+          height={calculatedImageSettings.value.h}
+          width={calculatedImageSettings.value.w}
+          x={calculatedImageSettings.value.x + margin.value}
+          y={calculatedImageSettings.value.y + margin.value}
+          crossOrigin={calculatedImageSettings.value.crossOrigin}
+        />
+      );
+    });
 
     return () => {
       const fgPath = generatePath(cellsToDraw.value, margin.value);
@@ -76,7 +75,7 @@ export default defineComponent({
           {!!title.value && <title>{title.value}</title>}
           <path fill={bgColor.value} d={`M0,0 h${numCells.value}v${numCells.value}H0z`} shape-rendering="crispEdges" />
           <path fill={fgColor.value} d={fgPath} shape-rendering="crispEdges" />
-          {renderImg()}
+          {imageNode.value}
         </svg>
       );
     };
