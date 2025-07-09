@@ -1,0 +1,60 @@
+{
+  "name": "@tdesign-vue-next/nuxt",
+  "version": "0.1.5",
+  "description": "Nuxt Module for TDesign",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tencent/tdesign-vue-next.git",
+    "directory": "packages/tdesign-vue-next-nuxt"
+  },
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs"
+    }
+  },
+  "main": "./dist/module.cjs",
+  "types": "./dist/types.d.ts",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README"
+  ],
+  "scripts": {
+    "prepack": "nuxt-module-build prepare && nuxt-module-build build",
+    "build": "pnpm run prepack",
+    "dev": "nuxi dev site",
+    "dev:build": "nuxi build site",
+    "dev:preview": "nuxi generate site",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare site",
+    "test": "vitest run",
+    "test:watch": "vitest watch"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^3.14.159",
+    "lodash-es": "^4.17.21"
+  },
+  "peerDependencies": {
+    "tdesign-icons-vue-next": ">=0.3.3",
+    "tdesign-vue-next": ">=1"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@nuxt/eslint-config": "^0.7.0",
+    "@nuxt/module-builder": "^0.8.4",
+    "@nuxt/schema": "^3.14.159",
+    "@nuxt/test-utils": "^3.14.4",
+    "@types/lodash-es": "^4.17.12",
+    "@types/node": "^22.9.0",
+    "changelogen": "^0.5.7",
+    "less": "^4.2.0",
+    "nuxt": "^3.14.159",
+    "tdesign-icons-vue-next": "^0.3.6",
+    "tdesign-vue-next": "workspace:^",
+    "vitest": "^2.1.5",
+    "oxc-parser": "0.72.3"
+  }
+}

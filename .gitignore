@@ -7,7 +7,8 @@ esm/
 cjs/
 lib/
 dist/
-
+.nuxt
+.output
 _site
 _static_site
 package
