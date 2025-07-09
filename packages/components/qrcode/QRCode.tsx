@@ -1,5 +1,6 @@
 import { computed, defineComponent, toRefs } from 'vue';
 import props from './props';
+import { DEFAULT_FRONT_COLOR } from '@tdesign/common-js/qrcode/utils';
 import { usePrefixClass, useConfig } from '@tdesign/shared-hooks';
 import useThemeColor from './hooks/useThemeColor';
 
@@ -8,6 +9,7 @@ import QRCodeSVG from './components/QRCodeSVG';
 import QRcodeStatus from './components/QRCodeStatus';
 
 import type { ImageSettings } from '@tdesign/common-js/qrcode/types';
+import { isNumber } from 'lodash-es';
 
 export default defineComponent({
   name: 'TQrcode',
@@ -19,9 +21,12 @@ export default defineComponent({
 
     const { globalConfig } = useConfig('qrcode');
 
-    const { color: themeColor, bgColor: themeBgColor } = useThemeColor();
+    const { color: themeFgColor, bgColor: themeBgColor } = useThemeColor();
 
+    // bgColor：自定义颜色 > 主题色适配 > 透明[transparent]
     const finalBgColor = computed(() => bgColor.value || themeBgColor.value || 'transparent');
+    // color[fgColor]：自定义颜色 > 主题色适配 > 默认颜色[#000000]
+    const finalFgColor = computed(() => color.value || themeFgColor.value || DEFAULT_FRONT_COLOR);
 
     if (!value.value) {
       return null;
@@ -32,8 +37,8 @@ export default defineComponent({
         src: icon.value,
         x: undefined,
         y: undefined,
-        height: typeof iconSize.value === 'number' ? iconSize.value : iconSize.value?.height ?? 40,
-        width: typeof iconSize.value === 'number' ? iconSize.value : iconSize.value?.width ?? 40,
+        height: isNumber(iconSize.value) ? iconSize.value : iconSize.value?.height ?? 40,
+        width: isNumber(iconSize.value) ? iconSize.value : iconSize.value?.width ?? 40,
         excavate: true,
         crossOrigin: 'anonymous',
       };
@@ -61,20 +66,22 @@ export default defineComponent({
       const QRCodeProps = {
         value: value.value,
         size: size.value,
-        // 关于fgColor为什么要undefined兜底：
-        // 如果当前环境（单测环境）获取不到当前主题色的情况，背景色有透明兜底，而前景色没有值。此处前景色设置undefined后，二维码颜色则由底层渲染组件的默认颜色决定。
-        // 即：自定义颜色>主题颜色>默认颜色
-        // TODO：其实这里直接可以用默认颜色兜底？
+        // 优先级：自定义颜色 > 根据主题色适配 > 默认颜色
         bgColor: finalBgColor.value,
-        fgColor: color.value || themeColor.value || undefined,
+        fgColor: finalFgColor.value,
         imageSettings: icon.value ? imageSettings.value : undefined,
         level: level.value,
       };
 
       return (
-        <div class={classes.value} style={mergedStyle.value}>
+        <div class={classes.value} style={mergedStyle.value} {...{ level: level.value }}>
           {status.value !== 'active' && (
-            <div class={`${classPrefix.value}-mask`}>
+            <div
+              class={[
+                `${classPrefix.value}-mask`,
+                { [`${classPrefix.value}-${status.value}`]: status.value !== 'loading' },
+              ]}
+            >
               <QRcodeStatus
                 classPrefix={classPrefix.value}
                 locale={globalConfig.value}

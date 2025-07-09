@@ -1,12 +1,8 @@
 import { computed, defineComponent, ref, toRefs, watchEffect, onMounted } from 'vue';
 import { QRCodeSubComponentProps } from './props';
 import {
-  DEFAULT_BACKGROUND_COLOR,
-  DEFAULT_FRONT_COLOR,
   DEFAULT_NEED_MARGIN,
-  DEFAULT_LEVEL,
   DEFAULT_MINVERSION,
-  DEFAULT_SIZE,
   isSupportPath2d,
   excavateModules,
   generatePath,
@@ -19,10 +15,10 @@ export default defineComponent({
   setup(props) {
     const {
       value,
-      size = ref(DEFAULT_SIZE),
-      level = ref(DEFAULT_LEVEL),
-      bgColor = ref(DEFAULT_BACKGROUND_COLOR),
-      fgColor = ref(DEFAULT_FRONT_COLOR),
+      size,
+      level,
+      bgColor,
+      fgColor,
       includeMargin = ref(DEFAULT_NEED_MARGIN),
       minVersion = ref(DEFAULT_MINVERSION),
       marginSize,

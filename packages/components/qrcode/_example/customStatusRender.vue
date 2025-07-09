@@ -5,22 +5,12 @@
     <!-- 自定义状态-使用插槽 -->
     <t-qrcode value="https://tdesign.tencent.com/" status="expired">
       <template #status-render>
-        <div style="display: flex; align-items: center; flex-direction: column">
-          <p style="display: flex; align-items: center; gap: 8px">
-            <CloseCircleFilledIcon style="color: var(--td-error-color)" size="16" />
+        <div class="tdesign-demo-qrcode__status-render">
+          <p class="tdesign-demo-qrcode__status-render-title">
+            <CloseCircleFilledIcon size="16" />
             <span>二维码过期</span>
           </p>
-          <p
-            style="
-              display: flex;
-              align-items: center;
-              gap: 8px;
-              color: var(--td-brand-color);
-              cursor: pointer;
-              line-height: 32px;
-            "
-            @click="handleRefresh"
-          >
+          <p class="tdesign-demo-qrcode__status-render-action" @click="handleRefresh">
             <RefreshIcon size="16" />
             <span>点击刷新</span>
           </p>
@@ -48,3 +38,30 @@ const handleRefresh = () => {
   console.log('Click Refresh');
 };
 </script>
+
+<style>
+.tdesign-demo-qrcode__status-render {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.tdesign-demo-qrcode__status-render-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tdesign-demo-qrcode__status-render-title .t-icon {
+  color: var(--td-error-color);
+}
+
+.tdesign-demo-qrcode__status-render-action {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--td-brand-color);
+  cursor: pointer;
+  line-height: 32px;
+}
+</style>
