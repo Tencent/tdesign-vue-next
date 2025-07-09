@@ -86,6 +86,18 @@ exports[`Divider Component > props.align is equal to right 1`] = `
 </div>
 `;
 
+exports[`Divider Component > props.content is a string 1`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    TDesign
+  </span>
+</div>
+`;
+
 exports[`Divider Component > props.content works fine 1`] = `
 <div
   class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
@@ -98,6 +110,18 @@ exports[`Divider Component > props.content works fine 1`] = `
     >
       TNode
     </span>
+  </span>
+</div>
+`;
+
+exports[`Divider Component > props.default is a string 1`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    TDesign
   </span>
 </div>
 `;
