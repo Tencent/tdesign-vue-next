@@ -1,4 +1,4 @@
-import { computed, defineComponent, ref, toRefs, watchEffect, watch, onMounted, nextTick } from 'vue';
+import { computed, defineComponent, ref, toRefs, watchEffect, onMounted } from 'vue';
 import { QRCodeSubComponentProps } from './props';
 import {
   DEFAULT_BACKGROUND_COLOR,
@@ -116,14 +116,6 @@ export default defineComponent({
         );
       }
     };
-
-    // watch(
-    //   [value, size, fgColor, bgColor],
-    //   () => {
-    //   renderQRCode();
-    //   },
-    //   { immediate: true },
-    // );
 
     watchEffect(() => {
       renderQRCode();
