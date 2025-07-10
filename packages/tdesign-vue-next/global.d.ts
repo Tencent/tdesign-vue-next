@@ -31,6 +31,7 @@ declare module 'vue' {
     TCollapse: typeof import('tdesign-vue-next')['Collapse'];
     TCollapsePanel: typeof import('tdesign-vue-next')['CollapsePanel'];
     TColorPicker: typeof import('tdesign-vue-next')['ColorPicker'];
+    TColorPickerPanel: typeof import('tdesign-vue-next')['ColorPickerPanel'];
     TComment: typeof import('tdesign-vue-next')['Comment'];
     TConfigProvider: typeof import('tdesign-vue-next')['ConfigProvider'];
     TContent: typeof import('tdesign-vue-next')['Content'];
@@ -55,7 +56,7 @@ declare module 'vue' {
     THeader: typeof import('tdesign-vue-next')['Header'];
     THeadMenu: typeof import('tdesign-vue-next')['HeadMenu'];
     TIcon: typeof import('tdesign-vue-next')['Icon'];
-    Iconfont: typeof import('tdesign-icons-vue-next')['Iconfont'];
+    IconFont: typeof import('tdesign-icons-vue-next')['IconFont'];
     Icon: typeof import('tdesign-icons-vue-next')['Icon'];
     TImage: typeof import('tdesign-vue-next')['Image'];
     TImageViewer: typeof import('tdesign-vue-next')['ImageViewer'];
@@ -103,6 +104,7 @@ declare module 'vue' {
     TStickyTool: typeof import('tdesign-vue-next')['StickyTool'];
     TSubmenu: typeof import('tdesign-vue-next')['Submenu'];
     TSwiper: typeof import('tdesign-vue-next')['Swiper'];
+    TSwiperItem: typeof import('tdesign-vue-next')['SwiperItem'];
     TSwitch: typeof import('tdesign-vue-next')['Switch'];
     TTable: typeof import('tdesign-vue-next')['Table'];
     TTabPanel: typeof import('tdesign-vue-next')['TabPanel'];
