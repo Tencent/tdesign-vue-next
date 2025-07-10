@@ -1,4 +1,4 @@
-import { computed, defineComponent, toRefs } from 'vue';
+import { computed, defineComponent } from 'vue';
 import props from './props';
 import { DEFAULT_FRONT_COLOR } from '@tdesign/common-js/qrcode/utils';
 import { usePrefixClass, useConfig } from '@tdesign/shared-hooks';
@@ -15,8 +15,6 @@ export default defineComponent({
   name: 'TQrcode',
   props,
   setup(props, { slots }) {
-    const { value, borderless, iconSize, color, bgColor, icon, size, type, status, onRefresh, statusRender, level } =
-      toRefs(props);
     const classPrefix = usePrefixClass();
 
     const { globalConfig } = useConfig('qrcode');
@@ -24,21 +22,21 @@ export default defineComponent({
     const { color: themeFgColor, bgColor: themeBgColor } = useThemeColor();
 
     // bgColor：自定义颜色 > 主题色适配 > 透明[transparent]
-    const finalBgColor = computed(() => bgColor.value || themeBgColor.value || 'transparent');
+    const finalBgColor = computed(() => props.bgColor || themeBgColor.value || 'transparent');
     // color[fgColor]：自定义颜色 > 主题色适配 > 默认颜色[#000000]
-    const finalFgColor = computed(() => color.value || themeFgColor.value || DEFAULT_FRONT_COLOR);
+    const finalFgColor = computed(() => props.color || themeFgColor.value || DEFAULT_FRONT_COLOR);
 
-    if (!value.value) {
+    if (!props.value) {
       return null;
     }
 
     const imageSettings = computed<ImageSettings>(() => {
       return {
-        src: icon.value,
+        src: props.icon,
         x: undefined,
         y: undefined,
-        height: isNumber(iconSize.value) ? iconSize.value : iconSize.value?.height ?? 40,
-        width: isNumber(iconSize.value) ? iconSize.value : iconSize.value?.width ?? 40,
+        height: isNumber(props.iconSize) ? props.iconSize : props.iconSize?.height ?? 40,
+        width: isNumber(props.iconSize) ? props.iconSize : props.iconSize?.width ?? 40,
         excavate: true,
         crossOrigin: 'anonymous',
       };
@@ -48,8 +46,8 @@ export default defineComponent({
       return [
         `${classPrefix.value}-qrcode`,
         {
-          [`${classPrefix.value}-borderless`]: borderless.value,
-          [`${classPrefix.value}-qrcode-svg`]: type.value === 'svg',
+          [`${classPrefix.value}-borderless`]: props.borderless,
+          [`${classPrefix.value}-qrcode-svg`]: props.type === 'svg',
         },
       ];
     });
@@ -57,45 +55,44 @@ export default defineComponent({
     const mergedStyle = computed(() => {
       return {
         backgroundColor: finalBgColor.value,
-        width: `${size.value}px`,
-        height: `${size.value}px`,
+        width: `${props.size}px`,
+        height: `${props.size}px`,
       };
     });
 
     return () => {
       const QRCodeProps = {
-        value: value.value,
-        size: size.value,
-        // 优先级：自定义颜色 > 根据主题色适配 > 默认颜色
+        value: props.value,
+        size: props.size,
         bgColor: finalBgColor.value,
         fgColor: finalFgColor.value,
-        imageSettings: icon.value ? imageSettings.value : undefined,
-        level: level.value,
+        imageSettings: props.icon ? imageSettings.value : undefined,
+        level: props.level,
       };
 
       return (
-        <div class={classes.value} style={mergedStyle.value} {...{ level: level.value }}>
-          {status.value !== 'active' && (
+        <div class={classes.value} style={mergedStyle.value} {...{ level: props.level }}>
+          {props.status !== 'active' && (
             <div
               class={[
                 `${classPrefix.value}-mask`,
-                { [`${classPrefix.value}-${status.value}`]: status.value !== 'loading' },
+                { [`${classPrefix.value}-${props.status}`]: props.status !== 'loading' },
               ]}
             >
               <QRcodeStatus
                 classPrefix={classPrefix.value}
                 locale={globalConfig.value}
-                status={status.value}
-                onRefresh={onRefresh.value}
-                statusRender={statusRender.value}
+                status={props.status}
+                onRefresh={props.onRefresh}
+                statusRender={props.statusRender}
                 v-slots={{ statusRender: slots?.['status-render'] }}
               />
             </div>
           )}
-          {type.value === 'canvas' ? (
-            <QRCodeCanvas {...QRCodeProps} size={size.value} />
+          {props.type === 'canvas' ? (
+            <QRCodeCanvas {...QRCodeProps} size={props.size} />
           ) : (
-            <QRCodeSVG {...QRCodeProps} size={size.value} />
+            <QRCodeSVG {...QRCodeProps} size={props.size} />
           )}
         </div>
       );
