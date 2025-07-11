@@ -74,9 +74,7 @@
 
 当 dialog 嵌套，退出最外层的 dialog，vue 框架报错：
 
-```
-Uncaught (in promise) NotFoundError: Failed to execute 'insertBefore' on 'Node': The node before which the new node is to be inserted is not a child of this node.
-```
+> Uncaught (in promise) NotFoundError: Failed to execute 'insertBefore' on 'Node': The node before which the new node is to be inserted is not a child of this node.
 
 需要修改业务配置：
 
