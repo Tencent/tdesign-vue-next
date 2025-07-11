@@ -1,7 +1,7 @@
 import { computed, defineComponent } from 'vue';
 import props from './props';
 import { DEFAULT_FRONT_COLOR } from '@tdesign/common-js/qrcode/utils';
-import { usePrefixClass, useConfig } from '@tdesign/shared-hooks';
+import { usePrefixClass, useConfig, useTNodeJSX } from '@tdesign/shared-hooks';
 import useThemeColor from './hooks/useThemeColor';
 
 import QRCodeCanvas from './components/QRCodeCanvas';
@@ -16,7 +16,7 @@ export default defineComponent({
   props,
   setup(props, { slots }) {
     const classPrefix = usePrefixClass();
-
+    const renderTNodeJSX = useTNodeJSX();
     const { globalConfig } = useConfig('qrcode');
 
     const { color: themeFgColor, bgColor: themeBgColor } = useThemeColor();
@@ -84,7 +84,7 @@ export default defineComponent({
                 locale={globalConfig.value}
                 status={props.status}
                 onRefresh={props.onRefresh}
-                statusRender={props.statusRender}
+                statusRender={renderTNodeJSX('statusRender')}
                 v-slots={{ statusRender: slots?.['status-render'] }}
               />
             </div>
