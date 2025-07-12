@@ -22,3 +22,5 @@ export * from './useTeleport';
 export * from './useVModel';
 export * from './useVirtualScroll';
 export * from './useVirtualScrollNew';
+export * from './useMutationObservable';
+export * from './useVariables';
