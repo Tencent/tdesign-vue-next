@@ -34,13 +34,14 @@
   "author": "tdesign",
   "license": "MIT",
   "dependencies": {
-    "@babel/runtime": "~7.27.4",
-    "clipboard": "^2.0.11",
-    "highlight.js": "^11.9.0",
-    "lodash-es": "^4.17.21",
-    "marked": "^12.0.1",
-    "marked-highlight": "^2.1.1",
-    "tdesign-icons-vue-next": "^0.3.6",
+    "@babel/runtime": "catalog:",
+    "@types/lodash-es": "catalog:",
+    "clipboard": "catalog:",
+    "highlight.js": "catalog:",
+    "lodash-es": "catalog:",
+    "marked": "catalog:",
+    "marked-highlight": "catalog:",
+    "tdesign-icons-vue-next": "catalog:",
     "tdesign-vue-next": "workspace:^"
   },
   "peerDependencies": {

@@ -8,10 +8,27 @@
     "build:chat": "cross-env NODE_ENV=production tsx ./vue-next-chat/index.ts"
   },
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^16.0.1",
-    "cross-env": "^7.0.3",
-    "fs-extra": "^11.3.0",
-    "glob": "^11.0.1",
-    "tsx": "^4.19.2"
+    "@rollup/plugin-babel": "catalog:",
+    "@rollup/plugin-commonjs": "catalog:",
+    "@rollup/plugin-json": "catalog:",
+    "@rollup/plugin-node-resolve": "catalog:",
+    "@rollup/plugin-replace": "catalog:",
+    "@rollup/plugin-url": "catalog:",
+    "cross-env": "catalog:",
+    "esbuild": "catalog:",
+    "fs-extra": "catalog:",
+    "glob": "catalog:",
+    "rollup": "catalog:",
+    "rollup-plugin-analyzer": "catalog:",
+    "rollup-plugin-copy": "catalog:",
+    "rollup-plugin-esbuild": "catalog:",
+    "rollup-plugin-ignore-import": "catalog:",
+    "rollup-plugin-multi-input": "catalog:",
+    "rollup-plugin-postcss": "catalog:",
+    "rollup-plugin-static-import": "catalog:",
+    "rollup-plugin-styles": "catalog:",
+    "rollup-plugin-terser": "catalog:",
+    "rollup-plugin-vue": "catalog:",
+    "tsx": "catalog:"
   }
 }

@@ -3,5 +3,24 @@
   "private": true,
   "main": "index.ts",
   "author": "tdesign",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@tdesign/shared-hooks": "workspace:^",
+    "@tdesign/shared-utils": "workspace:^",
+    "@popperjs/core": "catalog:",
+    "clipboard": "catalog:",
+    "dayjs": "catalog:",
+    "lodash-es": "catalog:",
+    "mitt": "catalog:",
+    "sortablejs": "catalog:",
+    "tdesign-icons-vue-next": "catalog:",
+    "tinycolor2": "catalog:"
+  },
+  "devDependencies": {
+    "@types/lodash-es": "catalog:",
+    "@vue/test-utils": "catalog:"
+  },
+  "peerDependencies": {
+    "vue": ">=3.1.0"
+  }
 }

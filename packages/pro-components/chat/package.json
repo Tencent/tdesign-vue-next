@@ -3,5 +3,16 @@
   "private": true,
   "main": "index.ts",
   "author": "tdesign",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "clipboard": "catalog:",
+    "lodash-es": "catalog:",
+    "tdesign-icons-vue-next": "catalog:"
+  },
+  "devDependencies": {
+    "@types/lodash-es": "catalog:"
+  },
+  "peerDependencies": {
+    "vue": ">=3.1.0"
+  }
 }

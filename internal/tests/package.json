@@ -2,5 +2,9 @@
   "name": "@tdesign/internal-tests",
   "private": true,
   "author": "tdesign",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@testing-library/dom": "catalog:",
+    "vitest": "catalog:"
+  }
 }

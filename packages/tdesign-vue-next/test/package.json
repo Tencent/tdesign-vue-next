@@ -16,12 +16,18 @@
     "generate:coverage-badge": "pnpm test:unit-coverage && tsx ./scripts/generate-coverage.ts"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.2.1",
-    "@vue/test-utils": "^2.4.1",
-    "glob": "^11.0.1",
-    "vitest": "^3.2.4",
-    "vitest-fetch-mock": "^0.4.5",
-    "vue": "3.3.9",
-    "vue-router": "^4.2.4"
+    "@tdesign/components": "workspace:^",
+    "@tdesign/internal-utils": "workspace:^",
+    "@vitejs/plugin-vue": "catalog:",
+    "@vitejs/plugin-vue-jsx": "catalog:",
+    "@vue/test-utils": "catalog:",
+    "dom-parser": "catalog:",
+    "glob": "catalog:",
+    "lodash-es": "catalog:",
+    "mockdate": "catalog:",
+    "vitest": "catalog:",
+    "vitest-fetch-mock": "catalog:",
+    "vue": "catalog:",
+    "vue-router": "catalog:"
   }
 }

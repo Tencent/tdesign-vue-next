@@ -12,23 +12,28 @@
   "author": "tdesign",
   "license": "MIT",
   "dependencies": {
-    "semver": "^7.5.4",
-    "vue": "3.3.9",
-    "vue-router": "^4.2.4",
-    "workbox-precaching": "^6.6.0"
+    "@tdesign/common": "workspace:^",
+    "@tdesign/components": "workspace:^",
+    "@tdesign/internal-utils": "workspace:^",
+    "@tdesign/pro-components-chat": "workspace:^",
+    "@tdesign-vue-next/chat": "workspace:^",
+    "semver": "catalog:",
+    "tdesign-site-components": "catalog:",
+    "tdesign-theme-generator": "catalog:",
+    "vue": "catalog:",
+    "vue-router": "catalog:",
+    "workbox-precaching": "catalog:"
   },
   "devDependencies": {
-    "@types/lodash": "^4.17.15",
-    "@vitejs/plugin-vue": "^2.3.4",
-    "@vitejs/plugin-vue-jsx": "^1.3.10",
-    "@vue/compiler-sfc": "^3.3.4",
-    "less": "^4.1.3",
-    "lodash": "^4.17.21",
-    "prismjs": "^1.29.0",
-    "tdesign-site-components": "^0.16.5",
-    "tdesign-theme-generator": "^1.1.7",
-    "typescript": "~5.7.2",
-    "vite": "^6.2.0",
-    "vite-plugin-tdoc": "^2.0.4"
+    "@types/lodash-es": "catalog:",
+    "@vitejs/plugin-vue": "catalog:",
+    "@vitejs/plugin-vue-jsx": "catalog:",
+    "@vue/compiler-sfc": "catalog:",
+    "less": "catalog:",
+    "lodash": "catalog:",
+    "prismjs": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vite-plugin-tdoc": "catalog:"
   }
 }

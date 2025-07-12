@@ -20,11 +20,26 @@
     "prebuild": "rollup -c rollup.config.ts"
   },
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^16.0.1",
-    "@rollup/plugin-typescript": "^12.1.2",
-    "execa": "^8.0.1",
-    "rollup": "^2.79.1",
-    "rollup-plugin-delete": "^2.1.0",
-    "rollup-plugin-multi-input": "^1.4.1"
+    "@rollup/plugin-babel": "catalog:",
+    "@rollup/plugin-commonjs": "catalog:",
+    "rollup-plugin-delete": "catalog:",
+    "@rollup/plugin-json": "catalog:",
+    "@rollup/plugin-node-resolve": "catalog:",
+    "@rollup/plugin-replace": "catalog:",
+    "@rollup/plugin-typescript": "catalog:",
+    "@rollup/plugin-url": "catalog:",
+    "execa": "catalog:",
+    "fs-extra": "catalog:",
+    "rollup": "catalog:",
+    "rollup-plugin-analyzer": "catalog:",
+    "rollup-plugin-copy": "catalog:",
+    "rollup-plugin-esbuild": "catalog:",
+    "rollup-plugin-ignore-import": "catalog:",
+    "rollup-plugin-multi-input": "catalog:",
+    "rollup-plugin-postcss": "catalog:",
+    "rollup-plugin-static-import": "catalog:",
+    "rollup-plugin-styles": "catalog:",
+    "rollup-plugin-terser": "catalog:",
+    "rollup-plugin-vue": "catalog:"
   }
 }
