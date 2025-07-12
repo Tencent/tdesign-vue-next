@@ -1,8 +1,7 @@
 import { computed, defineComponent } from 'vue';
 import props from './props';
 import { DEFAULT_FRONT_COLOR } from '@tdesign/common-js/qrcode/utils';
-import { usePrefixClass, useConfig, useTNodeJSX } from '@tdesign/shared-hooks';
-import useThemeColor from './hooks/useThemeColor';
+import { usePrefixClass, useConfig, useTNodeJSX, useVariables } from '@tdesign/shared-hooks';
 
 import QRCodeCanvas from './components/QRCodeCanvas';
 import QRCodeSVG from './components/QRCodeSVG';
@@ -19,7 +18,8 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const { globalConfig } = useConfig('qrcode');
 
-    const { color: themeFgColor, bgColor: themeBgColor } = useThemeColor();
+    const themeFgColor = useVariables('--td-text-color-primary');
+    const themeBgColor = useVariables('--td-bg-color-specialcomponent');
 
     // bgColor：自定义颜色 > 主题色适配 > 透明[transparent]
     const finalBgColor = computed(() => props.bgColor || themeBgColor.value || 'transparent');
