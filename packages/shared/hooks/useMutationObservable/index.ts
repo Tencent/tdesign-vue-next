@@ -20,13 +20,18 @@ const DEFAULT_OPTIONS: Options = {
   },
 };
 
+/**
+ * useMutationObservable
+ * @param targetEl 监听对象
+ * @param callback 回调方法
+ * @param options 配置项
+ */
 export function useMutationObservable(
   targetEl: HTMLElement | null,
-  cb: MutationCallback,
+  callback: MutationCallback,
   options: Options = DEFAULT_OPTIONS,
 ) {
   const mergedOptions = ref<Options>({ ...DEFAULT_OPTIONS, ...options });
-  const callbackRef = ref<MutationCallback>(cb);
   let observer: MutationObserver | null = null;
 
   const initObserver = () => {
@@ -34,7 +39,7 @@ export function useMutationObservable(
 
     const { debounceTime = 0, config = DEFAULT_OPTIONS.config } = mergedOptions.value;
     const handler: MutationCallback = (...args) => {
-      callbackRef.value(...args);
+      callback?.(...args);
     };
 
     observer?.disconnect();

@@ -18,8 +18,10 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const { globalConfig } = useConfig('qrcode');
 
-    const themeFgColor = useVariables('--td-text-color-primary');
-    const themeBgColor = useVariables('--td-bg-color-specialcomponent');
+    const { themeFgColor, themeBgColor } = useVariables({
+      themeFgColor: '--td-text-color-primary',
+      themeBgColor: '--td-bg-color-specialcomponent',
+    });
 
     // bgColor：自定义颜色 > 主题色适配 > 透明[transparent]
     const finalBgColor = computed(() => props.bgColor || themeBgColor.value || 'transparent');
