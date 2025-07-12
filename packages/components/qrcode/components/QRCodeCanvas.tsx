@@ -1,4 +1,4 @@
-import { computed, defineComponent, ref, toRefs, watchEffect, onMounted } from 'vue';
+import { computed, defineComponent, ref, watchEffect, onMounted } from 'vue';
 import { QRCodeSubComponentProps } from './props';
 import {
   DEFAULT_NEED_MARGIN,
@@ -13,19 +13,7 @@ export default defineComponent({
   name: 'QRCodeCanvas',
   props: QRCodeSubComponentProps,
   setup(props) {
-    const {
-      value,
-      size,
-      level,
-      bgColor,
-      fgColor,
-      includeMargin = ref(DEFAULT_NEED_MARGIN),
-      minVersion = ref(DEFAULT_MINVERSION),
-      marginSize,
-      imageSettings,
-    } = toRefs(props);
-
-    const imgSrc = computed(() => imageSettings.value?.src);
+    const imgSrc = computed(() => props.imageSettings?.src);
 
     const imageRef = ref<HTMLImageElement>(null);
 
@@ -35,13 +23,13 @@ export default defineComponent({
 
     const renderQRCode = () => {
       const { margin, cells, numCells, calculatedImageSettings } = useQRCode({
-        value: value.value,
-        level: level.value,
-        minVersion: minVersion.value,
-        includeMargin: includeMargin.value,
-        marginSize: marginSize.value,
-        imageSettings: imageSettings.value,
-        size: size.value,
+        value: props.value,
+        level: props.level,
+        minVersion: DEFAULT_MINVERSION,
+        includeMargin: DEFAULT_NEED_MARGIN,
+        marginSize: props.marginSize,
+        imageSettings: props.imageSettings,
+        size: props.size,
       });
 
       if (!canvasRef.value) {
@@ -76,15 +64,15 @@ export default defineComponent({
       }
 
       const pixelRatio = window.devicePixelRatio || 1;
-      canvas.height = size.value * pixelRatio;
-      canvas.width = size.value * pixelRatio;
-      const scale = (size.value / numCells.value) * pixelRatio;
+      canvas.height = props.size * pixelRatio;
+      canvas.width = props.size * pixelRatio;
+      const scale = (props.size / numCells.value) * pixelRatio;
       ctx.scale(scale, scale);
 
-      ctx.fillStyle = bgColor.value;
+      ctx.fillStyle = props.bgColor;
       ctx.fillRect(0, 0, numCells.value, numCells.value);
 
-      ctx.fillStyle = fgColor.value;
+      ctx.fillStyle = props.fgColor;
       if (isSupportPath2d) {
         ctx.fill(new Path2D(generatePath(cellsToDraw.value, margin.value)));
       } else {

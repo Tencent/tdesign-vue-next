@@ -14,7 +14,7 @@ import { isNumber } from 'lodash-es';
 export default defineComponent({
   name: 'TQrcode',
   props,
-  setup(props, { slots }) {
+  setup(props) {
     const classPrefix = usePrefixClass();
     const renderTNodeJSX = useTNodeJSX();
     const { globalConfig } = useConfig('qrcode');
@@ -80,12 +80,10 @@ export default defineComponent({
               ]}
             >
               <QRcodeStatus
-                classPrefix={classPrefix.value}
                 locale={globalConfig.value}
                 status={props.status}
                 onRefresh={props.onRefresh}
                 statusRender={renderTNodeJSX('statusRender')}
-                v-slots={{ statusRender: slots?.['status-render'] }}
               />
             </div>
           )}

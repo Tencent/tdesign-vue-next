@@ -1,24 +1,25 @@
-import { computed, defineComponent, toRefs } from 'vue';
+import { computed, defineComponent } from 'vue';
 import { QRCodeStatusProps } from './props';
 import { CheckCircleFilledIcon, RefreshIcon } from 'tdesign-icons-vue-next';
 import Loading from '@tdesign/components/loading';
 import type { TdQRCodeProps } from '../type';
+import { usePrefixClass } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'QRCodeStatus',
   props: QRCodeStatusProps,
   setup(props) {
-    const { classPrefix, locale, status, statusRender } = toRefs(props);
+    const classPrefix = usePrefixClass();
 
     const defaultSpin = <Loading size="32px" />;
 
     const defaultExpiredNode = computed(() => (
       <>
-        <p class={`${classPrefix.value}-expired__text`}>{locale.value?.expiredText}</p>
+        <p class={`${classPrefix.value}-expired__text`}>{props.locale?.expiredText}</p>
         {props?.onRefresh && (
           <p class={`${classPrefix.value}-expired__button`} onClick={props?.onRefresh}>
             <RefreshIcon size="16" />
-            {locale.value?.refreshText}
+            {props.locale?.refreshText}
           </p>
         )}
       </>
@@ -27,7 +28,7 @@ export default defineComponent({
     const defaultScannedNode = (
       <p class={`${classPrefix.value}-scanned`}>
         <CheckCircleFilledIcon size="16" class={`${classPrefix.value}-scanned__icon`} />
-        {locale.value?.scannedText}
+        {props.locale?.scannedText}
       </p>
     );
 
@@ -47,9 +48,9 @@ export default defineComponent({
     return () => {
       return (
         <>
-          {statusRender.value ||
+          {props.statusRender ||
             renderStatus({
-              status: status.value,
+              status: props.status,
               onRefresh: props.onRefresh,
             })}
         </>

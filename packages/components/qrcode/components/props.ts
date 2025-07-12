@@ -104,10 +104,6 @@ export const QRCodeStatusProps = {
     type: Object as PropType<QRCodeStatus['locale']>,
     default: () => ({} as QRCodeStatus['locale']),
   },
-  classPrefix: {
-    type: String,
-    default: 't',
-  },
   onRefresh: {
     type: Function as PropType<QRCodeStatus['onRefresh']>,
   },
