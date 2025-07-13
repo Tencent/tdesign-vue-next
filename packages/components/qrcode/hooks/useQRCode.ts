@@ -49,3 +49,5 @@ export const useQRCode = (opt: Options): QRCodeResult => {
     qrcode: memoizedQrcode,
   };
 };
+
+export default useQRCode;

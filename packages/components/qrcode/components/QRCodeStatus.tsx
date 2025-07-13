@@ -2,7 +2,7 @@ import { computed, defineComponent } from 'vue';
 import { QRCodeStatusProps } from './props';
 import { CheckCircleFilledIcon, RefreshIcon } from 'tdesign-icons-vue-next';
 import Loading from '@tdesign/components/loading';
-import type { TdQRCodeProps } from '../type';
+import type { QRStatus, StatusRenderInfo, TdQRCodeProps } from '../type';
 import { usePrefixClass } from '@tdesign/shared-hooks';
 
 export default defineComponent({

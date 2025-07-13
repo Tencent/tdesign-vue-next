@@ -48,7 +48,7 @@ export function useVariables(
 
   const targetElement = document?.documentElement;
   useMutationObservable(targetElement, (mutationsList) => {
-    for (const mutation of mutationsList) {
+    mutationsList.some((mutation) => {
       if (mutation.type === 'attributes' && mutation.attributeName === THEME_MODE) {
         if (isString(variables) || Array.isArray(variables)) {
           varsArray.forEach((varName) => {
@@ -59,9 +59,10 @@ export function useVariables(
             values[key].value = getColorTokenColor(varName);
           });
         }
-        break;
+        return true;
       }
-    }
+      return false;
+    });
   });
 
   if (isString(variables)) {

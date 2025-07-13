@@ -85,7 +85,9 @@ export default defineComponent({
                 locale={globalConfig.value}
                 status={props.status}
                 onRefresh={props.onRefresh}
-                statusRender={renderTNodeJSX('statusRender')}
+                statusRender={renderTNodeJSX('statusRender', {
+                  params: { status: props.status, onRefresh: props.onRefresh },
+                })}
               />
             </div>
           )}

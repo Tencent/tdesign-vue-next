@@ -4,8 +4,8 @@
     <t-qrcode value="https://tdesign.tencent.com/" status="loading" :status-render="renderStatus" />
     <!-- 自定义状态-使用插槽 -->
     <t-qrcode value="https://tdesign.tencent.com/" status="expired">
-      <template #status-render>
-        <div class="tdesign-demo-qrcode__status-render">
+      <template #status-render="{ status }">
+        <div v-if="status === 'expired'" class="tdesign-demo-qrcode__status-render">
           <p class="tdesign-demo-qrcode__status-render-title">
             <CloseCircleFilledIcon size="16" />
             <span>二维码过期</span>
@@ -25,12 +25,14 @@
 <script lang="jsx" setup>
 import { CloseCircleFilledIcon, RefreshIcon } from 'tdesign-icons-vue-next';
 
-const renderStatus = () => {
+const renderStatus = (_h, { status }) => {
   return (
-    <t-space direction="vertical" size="4px">
-      <t-loading size="32px" />
-      <p>加载中...</p>
-    </t-space>
+    status === 'loading' && (
+      <t-space direction="vertical" size="4px">
+        <t-loading size="32px" />
+        <p>加载中...</p>
+      </t-space>
+    )
   );
 };
 
