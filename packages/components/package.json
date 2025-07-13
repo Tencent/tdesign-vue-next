@@ -16,7 +16,8 @@
   },
   "devDependencies": {
     "@types/lodash-es": "catalog:types",
-    "@vue/test-utils": "catalog:test"
+    "@vue/test-utils": "catalog:test",
+    "msw": "catalog:test"
   },
   "peerDependencies": {
     "vue": ">=3.1.0"
