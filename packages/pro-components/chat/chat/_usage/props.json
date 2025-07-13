@@ -15,34 +15,38 @@
       {
         "label": "gradient",
         "value": "gradient"
+      },
+      {
+        "label": "circle",
+        "value": "circle"
       }
     ]
-},
-    {
-        "name": "layout",
-        "type": "enum",
-        "defaultValue": "both",
-        "options": [
-          {
-            "label": "both",
-            "value": "both"
-          },
-          {
-            "label": "single",
-            "value": "single"
-          }
-        ]
-},
-{
-  "name": "clearHistory",
-  "type": "Boolean",
-  "defaultValue": true,
-  "options": []
-},
-{
-  "name": "textLoading",
-  "type": "Boolean",
-  "defaultValue": false,
-  "options": []
-}
+  },
+  {
+    "name": "layout",
+    "type": "enum",
+    "defaultValue": "both",
+    "options": [
+      {
+        "label": "both",
+        "value": "both"
+      },
+      {
+        "label": "single",
+        "value": "single"
+      }
+    ]
+  },
+  {
+    "name": "clearHistory",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "textLoading",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  }
 ]

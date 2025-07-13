@@ -74,7 +74,7 @@ import type {
   UploadFile,
   TdChatMessageConfig,
   TdChatbotApi,
-} from 'tdesign-web-components';
+} from '@tdesign-vue-next/chat';
 import { ImageViewer, Skeleton, ImageViewerProps, Button, Dropdown, Space, Image } from 'tdesign-vue-next';
 import { Bot } from '@tdesign-vue-next/chat';
 

@@ -59,7 +59,7 @@ import {
   type ChatServiceConfig,
   type ChatBaseContent,
   type ChatMessagesData,
-} from 'tdesign-web-components';
+} from '@tdesign-vue-next/chat';
 import { Bot } from '../index';
 import TvisionTcharts from 'tvision-charts-vue-next';
 

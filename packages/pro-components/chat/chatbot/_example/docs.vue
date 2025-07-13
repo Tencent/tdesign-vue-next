@@ -25,7 +25,7 @@ import type {
   ChatRequestParams,
   TdChatMessageConfig,
   TdChatbotApi,
-} from 'tdesign-web-components';
+} from '@tdesign-vue-next/chat';
 import Bot from '@tdesign-vue-next/chat';
 
 // 默认初始化消息

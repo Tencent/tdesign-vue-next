@@ -13,7 +13,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 import MarkdownIt from 'markdown-it';
-import { findTargetElement } from 'tdesign-web-components';
+import { findTargetElement } from '@tdesign-vue-next/chat';
 
 // Mock data and functions from the original file
 const mockData = [

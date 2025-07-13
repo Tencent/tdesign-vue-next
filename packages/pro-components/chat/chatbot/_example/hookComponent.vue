@@ -49,7 +49,7 @@ import {
   isAIMessage,
   getMessageContentForCopy,
   TdChatActionsName,
-} from 'tdesign-web-components';
+} from '@tdesign-vue-next/chat';
 import mockData from './mock/data';
 import { useChat } from '@tdesign/pro-components-chat';
 import { MessagePlugin } from 'tdesign-vue-next';

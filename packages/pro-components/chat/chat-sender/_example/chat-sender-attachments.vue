@@ -32,7 +32,6 @@
   </t-chat-sender>
 </template>
 <script setup lang="ts">
-// 正式用，待替换
 import { TdAttachmentItem } from '@tdesign-vue-next/chat';
 
 import { ref } from 'vue';

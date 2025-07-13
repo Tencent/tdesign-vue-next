@@ -7,11 +7,12 @@
       :text-loading="loading"
       :is-stream-load="isStreamLoad"
       style="height: 600px"
+      animation="gradient"
       @scroll="handleChatScroll"
       @clear="clearConfirm"
     >
       <!-- eslint-disable vue/no-unused-vars -->
-      <template #content="{ item, index }">
+      <!-- <template #content="{ item, index }">
         <t-chat-reasoning v-if="item.reasoning?.length > 0" expand-icon-placement="right">
           <template #header>
             <t-chat-loading v-if="isStreamLoad && item.content.length === 0" text="思考中..." />
@@ -23,14 +24,14 @@
           <t-chat-content v-if="item.reasoning.length > 0" :content="item.reasoning" />
         </t-chat-reasoning>
         <t-chat-content v-if="item.content.length > 0" :content="item.content" />
-      </template>
-      <template #actions="{ item, index }">
+      </template> -->
+      <!-- <template #actions="{ item, index }">
         <t-chat-action
           :content="item.content"
           :operation-btn="['good', 'bad', 'replay', 'copy']"
           @operation="handleOperation"
         />
-      </template>
+      </template> -->
       <template #footer>
         <t-chat-input :stop-disabled="isStreamLoad" @send="inputEnter" @stop="onStop"> </t-chat-input>
       </template>
@@ -46,6 +47,7 @@
 import { ref } from 'vue';
 import { MockSSEResponse } from './mock-data/sseRequest-reasoning';
 import { ArrowDownIcon, CheckCircleIcon } from 'tdesign-icons-vue-next';
+
 const fetchCancel = ref(null);
 const loading = ref(false);
 // 流式数据加载中
@@ -74,26 +76,32 @@ const handleOperation = function (type, options) {
 // 倒序渲染
 const chatList = ref([
   {
-    content: `模型由<span>hunyuan</span>变为<span>GPT4</span>`,
-    role: 'model-change',
-    reasoning: '',
-  },
-  {
     avatar: 'https://tdesign.gtimg.com/site/chat-avatar.png',
     name: 'TDesignAI',
     datetime: '今天16:38',
-    reasoning: '',
-    content: '它叫 McMurdo Station ATM，是美国富国银行安装在南极洲最大科学中心麦克默多站的一台自动提款机。',
-    role: 'assistant',
-    duration: 10,
+    message: {
+      role: 'assistant',
+      content: [
+        {
+          type: 'text',
+          data: '它叫 McMurdo Station ATM，是美国富国银行安装在南极洲最大科学中心麦克默多站的一台自动提款机。',
+        },
+      ],
+    },
   },
   {
     avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
     name: '自己',
     datetime: '今天16:38',
-    content: '南极的自动提款机叫什么名字？',
-    role: 'user',
-    reasoning: '',
+    message: {
+      role: 'user',
+      content: [
+        {
+          type: 'text',
+          data: '南极的自动提款机叫什么名字？',
+        },
+      ],
+    },
   },
 ]);
 
@@ -114,8 +122,15 @@ const inputEnter = function (inputValue) {
     avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
     name: '自己',
     datetime: new Date().toDateString(),
-    content: inputValue,
-    role: 'user',
+    message: {
+      content: [
+        {
+          type: 'text',
+          data: inputValue,
+        },
+      ],
+      role: 'user',
+    },
   };
   chatList.value.unshift(params);
   // 空消息占位
@@ -123,9 +138,23 @@ const inputEnter = function (inputValue) {
     avatar: 'https://tdesign.gtimg.com/site/chat-avatar.png',
     name: 'TDesignAI',
     datetime: new Date().toDateString(),
-    content: '',
-    reasoning: '',
-    role: 'assistant',
+    message: {
+      role: 'assistant',
+      content: [
+        {
+          type: 'thinking',
+          status: 'complete',
+          data: {
+            title: '思考中...',
+            content: '',
+          },
+        },
+        {
+          type: 'text',
+          data: '',
+        },
+      ],
+    },
   };
   chatList.value.unshift(params2);
   handleData(inputValue);

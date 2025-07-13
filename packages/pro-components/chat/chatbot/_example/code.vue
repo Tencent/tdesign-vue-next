@@ -48,7 +48,7 @@ import {
   ChatRequestParams,
   ChatServiceConfig,
   TdChatbotApi,
-} from 'tdesign-web-components';
+} from '@tdesign-vue-next/chat';
 import Bot from '../index';
 import Login from './components/Login.vue';
 

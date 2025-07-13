@@ -46,7 +46,7 @@ import {
   type ChatServiceConfig,
   type TdChatbotApi,
   type ChatMessageStatus,
-} from 'tdesign-web-components';
+} from '@tdesign-vue-next/chat';
 
 const renderIcon = () => <InternetIcon />;
 

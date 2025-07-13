@@ -46,7 +46,7 @@ import type {
   ChatBaseContent,
   ChatMessagesData,
   SSEChunkData,
-} from 'tdesign-web-components';
+} from '@tdesign-vue-next/chat';
 import { CheckCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { Timeline, TimelineItem } from 'tdesign-vue-next';
 import { Bot } from '@tdesign-vue-next/chat';

@@ -8,6 +8,7 @@ import { AvatarProps } from 'tdesign-vue-next';
 import { TextareaProps } from 'tdesign-vue-next';
 import { CollapsePanelProps } from 'tdesign-vue-next';
 import { TNode } from 'tdesign-vue-next';
+import type { ChatMessagesData } from 'tdesign-web-components';
 
 export interface TdChatProps {
   /**
@@ -144,6 +145,7 @@ export interface TdChatItemProps {
    * @default text
    */
   variant?: 'base' | 'outline' | 'text';
+  message?: ChatMessagesData;
 }
 
 export interface TdChatContentProps {
@@ -373,8 +375,7 @@ export interface TdChatItemMeta {
   name?: string;
   role?: string;
   datetime?: string;
-  content?: string;
-  reasoning?: string;
+  message?: ChatMessagesData;
 }
 
 export type ScrollToBottomParams = { behavior: 'auto' | 'smooth' };
@@ -418,3 +419,4 @@ export interface UploadActionConfig {
 
 export type * from 'tdesign-web-components/lib/chat-sender/type';
 export type * from 'tdesign-web-components/lib/filecard/type';
+export type * from 'tdesign-web-components/lib/chat-message/index';

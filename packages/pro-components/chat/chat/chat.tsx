@@ -5,8 +5,8 @@ import { isArray } from 'lodash-es';
 import props from './props';
 import { Divider, Popconfirm } from 'tdesign-vue-next';
 import { usePrefixClass, useTNodeJSX } from '@tdesign/shared-hooks';
-import ChatItem from '../chat-item';
-import { TdChatItemProps, ScrollToBottomParams } from '../type';
+import ChatMessage from '../chat-message';
+import { TdChatItemMeta, ScrollToBottomParams } from '../type';
 
 const handleScrollToBottom = (target: HTMLDivElement, behavior?: 'auto' | 'smooth') => {
   const currentScrollHeight = target.scrollHeight;
@@ -83,20 +83,16 @@ export default defineComponent({
           return (props.reverse ? index === 0 : index === data.length - 1) && props.isStreamLoad;
         };
         // 判断content是否为插槽，如果是插槽，则关闭reasoning默认渲染
-        const setReasoning = (item: TdChatItemProps) => {
+        const setReasoning = (item: TdChatItemMeta) => {
           return slots.content ? false : item.reasoning;
         };
-        return data.map((item: TdChatItemProps, index: number) => (
-          <ChatItem
+        console.log('Rendering data:', props.animation);
+        return data.map((item: TdChatItemMeta, index: number) => (
+          <ChatMessage
             avatar={item.avatar}
             name={item.name}
-            role={item.role}
+            message={item.message}
             datetime={item.datetime}
-            content={item.content}
-            reasoning={setReasoning(item)}
-            reasoningLoading={isReasoningLoading(index)}
-            text-loading={isLoading(index)}
-            itemIndex={index}
             animation={props.animation}
             v-slots={{
               actions: () =>
