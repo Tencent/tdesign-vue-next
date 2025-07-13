@@ -3,42 +3,6 @@ packages:
   - 'internal/**'
 
 catalogs:
-  lint:
-    '@commitlint/cli': ^16.3.0
-    '@commitlint/config-conventional': ^15.0.0
-    '@typescript-eslint/eslint-plugin': ^4.33.0
-    '@typescript-eslint/parser': ^4.33.0
-    '@vue/eslint-config-typescript': ^10.0.0
-    '@vue/tsconfig': ^0.7.0
-    cz-git: ^1.7.0
-    czg: ^1.7.0
-    eslint: ^7.32.0
-    eslint-config-prettier: ^8.8.0
-    eslint-plugin-import: ^2.27.5
-    eslint-plugin-prettier: ^4.2.1
-    eslint-plugin-vue: ^8.7.1
-    husky: ^7.0.4
-    lint-staged: ^13.2.3
-    prettier: ^2.8.1
-
-  tdesign:
-    tdesign-icons-view: ^0.3.6
-    tdesign-icons-vue-next: ^0.3.6
-    tdesign-publish-cli: ^0.0.12
-    tdesign-site-components: ^0.16.5
-    tdesign-theme-generator: ^1.1.7
-
-  types:
-    '@types/lodash-es': ^4.17.12
-    '@types/nprogress': ^0.2.3
-    '@types/node': ^22.5.1
-    '@types/raf': ^3.4.0
-    '@types/sortablejs': ^1.15.1
-    '@types/tinycolor2': ^1.4.3
-    '@types/validator': ^13.7.17
-    typescript: ^5.7.3
-    vue-tsc: ^2.2.4
-
   bundle:
     '@babel/cli': ^7.22.9
     '@babel/core': ^7.22.9
@@ -102,6 +66,38 @@ catalogs:
     vue: ^3.3.9
     vue-router: ^4.2.4
 
+  docs:
+    gray-matter: ^4.0.3
+    marked-highlight: ^2.1.1
+    prismjs: ^1.29.0
+    semver: ^7.5.4
+    workbox-precaching: ^6.6.0
+
+  lint:
+    '@commitlint/cli': ^16.3.0
+    '@commitlint/config-conventional': ^15.0.0
+    '@typescript-eslint/eslint-plugin': ^4.33.0
+    '@typescript-eslint/parser': ^4.33.0
+    '@vue/eslint-config-typescript': ^10.0.0
+    '@vue/tsconfig': ^0.7.0
+    cz-git: ^1.7.0
+    czg: ^1.7.0
+    eslint: ^7.32.0
+    eslint-config-prettier: ^8.8.0
+    eslint-plugin-import: ^2.27.5
+    eslint-plugin-prettier: ^4.2.1
+    eslint-plugin-vue: ^8.7.1
+    husky: ^7.0.4
+    lint-staged: ^13.2.3
+    prettier: ^2.8.1
+
+  tdesign:
+    tdesign-icons-view: ^0.3.6
+    tdesign-icons-vue-next: ^0.3.6
+    tdesign-publish-cli: ^0.0.12
+    tdesign-site-components: ^0.16.5
+    tdesign-theme-generator: ^1.1.7
+
   test:
     '@testing-library/dom': ^9.3.1
     '@vue/test-utils': ^2.4.1
@@ -111,9 +107,13 @@ catalogs:
     vitest: ^3.2.4
     vitest-fetch-mock: ^0.4.5
 
-  docs:
-    gray-matter: ^4.0.3
-    marked-highlight: ^2.1.1
-    prismjs: ^1.29.0
-    semver: ^7.5.4
-    workbox-precaching: ^6.6.0
+  types:
+    '@types/lodash-es': ^4.17.12
+    '@types/nprogress': ^0.2.3
+    '@types/node': ^22.5.1
+    '@types/raf': ^3.4.0
+    '@types/sortablejs': ^1.15.1
+    '@types/tinycolor2': ^1.4.3
+    '@types/validator': ^13.7.17
+    typescript: ^5.7.3
+    vue-tsc: ^2.2.4
