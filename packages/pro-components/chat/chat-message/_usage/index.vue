@@ -7,15 +7,11 @@
           datetime="今天16:38"
           name="TDesignAI"
           :message="{
+            role: 'user',
             content: [
               {
                 type: 'text',
                 data: '牛顿第一定律是否适用于所有参考系？',
-              },
-              {
-                id: '11111',
-                role: 'assistant',
-                status: 'pending',
               },
             ],
           }"
@@ -51,16 +47,12 @@ const usageCodeMap = {
         datetime="今天16:38"
         name="TDesignAI"
         :message="{
+              role: 'user',
   content: [
     {
       type: 'text',
       data: '牛顿第一定律是否适用于所有参考系？',
-    },
-    {
-      id: '11111',
-      role: 'assistant',
-      status: 'pending',
-    },
+    }
   ],
 }"
         v-bind="configProps"

@@ -1,5 +1,6 @@
 <script setup>
 const message = {
+  role: 'user',
   content: [
     {
       type: 'text',
