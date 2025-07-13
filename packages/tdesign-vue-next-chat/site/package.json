@@ -17,23 +17,24 @@
     "@tdesign/internal-utils": "workspace:^",
     "@tdesign/pro-components-chat": "workspace:^",
     "@tdesign-vue-next/chat": "workspace:^",
-    "semver": "catalog:",
-    "tdesign-site-components": "catalog:",
-    "tdesign-theme-generator": "catalog:",
-    "vue": "catalog:",
-    "vue-router": "catalog:",
-    "workbox-precaching": "catalog:"
+    "semver": "catalog:docs",
+    "tdesign-site-components": "catalog:tdesign",
+    "tdesign-theme-generator": "catalog:tdesign",
+    "vue": "catalog:deps",
+    "vue-router": "catalog:deps",
+    "workbox-precaching": "catalog:docs"
   },
   "devDependencies": {
-    "@types/lodash-es": "catalog:",
-    "@vitejs/plugin-vue": "catalog:",
-    "@vitejs/plugin-vue-jsx": "catalog:",
-    "@vue/compiler-sfc": "catalog:",
-    "less": "catalog:",
-    "lodash": "catalog:",
-    "prismjs": "catalog:",
-    "typescript": "catalog:",
-    "vite": "catalog:",
-    "vite-plugin-tdoc": "catalog:"
+    "@types/lodash-es": "catalog:types",
+    "@vitejs/plugin-vue": "catalog:bundle",
+    "@vitejs/plugin-vue-jsx": "catalog:bundle",
+    "@vue/compiler-sfc": "catalog:bundle",
+    "@vue/tsconfig": "catalog:lint",
+    "less": "catalog:bundle",
+    "lodash": "catalog:deps",
+    "prismjs": "catalog:docs",
+    "typescript": "catalog:types",
+    "vite": "catalog:bundle",
+    "vite-plugin-tdoc": "catalog:bundle"
   }
 }

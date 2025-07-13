@@ -5,12 +5,12 @@
   "author": "tdesign",
   "license": "MIT",
   "dependencies": {
-    "lodash-es": "catalog:",
-    "raf": "catalog:"
+    "lodash-es": "catalog:deps",
+    "raf": "catalog:deps"
   },
   "devDependencies": {
-    "@types/lodash-es": "catalog:",
-    "@types/raf": "catalog:"
+    "@types/lodash-es": "catalog:types",
+    "@types/raf": "catalog:types"
   },
   "peerDependencies": {
     "vue": ">=3.1.0"

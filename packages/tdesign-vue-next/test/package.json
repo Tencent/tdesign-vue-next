@@ -18,16 +18,16 @@
   "devDependencies": {
     "@tdesign/components": "workspace:^",
     "@tdesign/internal-utils": "workspace:^",
-    "@vitejs/plugin-vue": "catalog:",
-    "@vitejs/plugin-vue-jsx": "catalog:",
-    "@vue/test-utils": "catalog:",
-    "dom-parser": "catalog:",
-    "glob": "catalog:",
-    "lodash-es": "catalog:",
-    "mockdate": "catalog:",
-    "vitest": "catalog:",
-    "vitest-fetch-mock": "catalog:",
-    "vue": "catalog:",
-    "vue-router": "catalog:"
+    "@vitejs/plugin-vue": "catalog:bundle",
+    "@vitejs/plugin-vue-jsx": "catalog:bundle",
+    "@vue/test-utils": "catalog:test",
+    "dom-parser": "catalog:test",
+    "glob": "catalog:bundle",
+    "lodash-es": "catalog:deps",
+    "mockdate": "catalog:test",
+    "vitest": "catalog:test",
+    "vitest-fetch-mock": "catalog:test",
+    "vue": "catalog:deps",
+    "vue-router": "catalog:deps"
   }
 }

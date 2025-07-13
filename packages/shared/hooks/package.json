@@ -7,10 +7,10 @@
   "dependencies": {
     "@tdesign/components": "workspace:^",
     "@tdesign/shared-utils": "workspace:^",
-    "lodash-es": "catalog:"
+    "lodash-es": "catalog:deps"
   },
   "devDependencies": {
-    "@types/lodash-es": "catalog:"
+    "@types/lodash-es": "catalog:types"
   },
   "peerDependencies": {
     "vue": ">=3.1.0"

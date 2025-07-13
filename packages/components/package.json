@@ -5,20 +5,18 @@
   "author": "tdesign",
   "license": "MIT",
   "dependencies": {
-    "@tdesign/shared-hooks": "workspace:^",
-    "@tdesign/shared-utils": "workspace:^",
-    "@popperjs/core": "catalog:",
-    "clipboard": "catalog:",
-    "dayjs": "catalog:",
-    "lodash-es": "catalog:",
-    "mitt": "catalog:",
-    "sortablejs": "catalog:",
-    "tdesign-icons-vue-next": "catalog:",
-    "tinycolor2": "catalog:"
+    "@popperjs/core": "catalog:deps",
+    "clipboard": "catalog:deps",
+    "dayjs": "catalog:deps",
+    "lodash-es": "catalog:deps",
+    "mitt": "catalog:deps",
+    "sortablejs": "catalog:deps",
+    "tdesign-icons-vue-next": "catalog:tdesign",
+    "tinycolor2": "catalog:deps"
   },
   "devDependencies": {
-    "@types/lodash-es": "catalog:",
-    "@vue/test-utils": "catalog:"
+    "@types/lodash-es": "catalog:types",
+    "@vue/test-utils": "catalog:test"
   },
   "peerDependencies": {
     "vue": ">=3.1.0"

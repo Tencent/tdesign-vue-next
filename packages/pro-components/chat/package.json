@@ -5,12 +5,12 @@
   "author": "tdesign",
   "license": "MIT",
   "dependencies": {
-    "clipboard": "catalog:",
-    "lodash-es": "catalog:",
-    "tdesign-icons-vue-next": "catalog:"
+    "clipboard": "catalog:deps",
+    "lodash-es": "catalog:deps",
+    "tdesign-icons-vue-next": "catalog:tdesign"
   },
   "devDependencies": {
-    "@types/lodash-es": "catalog:"
+    "@types/lodash-es": "catalog:types"
   },
   "peerDependencies": {
     "vue": ">=3.1.0"

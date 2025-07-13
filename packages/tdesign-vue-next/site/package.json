@@ -12,27 +12,27 @@
   "author": "tdesign",
   "license": "MIT",
   "dependencies": {
-    "nprogress": "catalog:",
-    "semver": "catalog:",
-    "tdesign-icons-view": "catalog:",
-    "tdesign-site-components": "catalog:",
-    "tdesign-theme-generator": "catalog:",
-    "vue": "catalog:",
-    "vue-router": "catalog:",
-    "workbox-precaching": "catalog:"
+    "nprogress": "catalog:deps",
+    "semver": "catalog:docs",
+    "tdesign-icons-view": "catalog:tdesign",
+    "tdesign-site-components": "catalog:tdesign",
+    "tdesign-theme-generator": "catalog:tdesign",
+    "vue": "catalog:deps",
+    "vue-router": "catalog:deps",
+    "workbox-precaching": "catalog:docs"
   },
   "devDependencies": {
-    "@types/nprogress": "catalog:",
-    "@vitejs/plugin-vue": "catalog:",
-    "@vitejs/plugin-vue-jsx": "catalog:",
-    "@vue/compiler-sfc": "catalog:",
-    "@vue/tsconfig": "catalog:",
-    "gray-matter": "catalog:",
-    "less": "catalog:",
-    "typescript": "catalog:",
-    "vite": "catalog:",
-    "vite-plugin-pwa": "catalog:",
-    "vite-plugin-tdoc": "catalog:",
-    "vue-tsc": "catalog:"
+    "@types/nprogress": "catalog:types",
+    "@vitejs/plugin-vue": "catalog:bundle",
+    "@vitejs/plugin-vue-jsx": "catalog:bundle",
+    "@vue/compiler-sfc": "catalog:bundle",
+    "@vue/tsconfig": "catalog:lint",
+    "gray-matter": "catalog:docs",
+    "less": "catalog:bundle",
+    "typescript": "catalog:types",
+    "vite": "catalog:bundle",
+    "vite-plugin-pwa": "catalog:bundle",
+    "vite-plugin-tdoc": "catalog:bundle",
+    "vue-tsc": "catalog:types"
   }
 }

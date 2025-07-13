@@ -53,19 +53,19 @@
   "author": "tdesign",
   "license": "MIT",
   "dependencies": {
-    "@babel/runtime": "catalog:",
-    "@popperjs/core": "catalog:",
-    "@types/lodash-es": "catalog:",
-    "@types/sortablejs": "catalog:",
-    "@types/tinycolor2": "catalog:",
-    "@types/validator": "catalog:",
-    "dayjs": "catalog:",
-    "lodash-es": "catalog:",
-    "mitt": "catalog:",
-    "sortablejs": "catalog:",
-    "tdesign-icons-vue-next": "catalog:",
-    "tinycolor2": "catalog:",
-    "validator": "catalog:"
+    "@babel/runtime": "catalog:deps",
+    "@popperjs/core": "catalog:deps",
+    "@types/lodash-es": "catalog:types",
+    "@types/sortablejs": "catalog:types",
+    "@types/tinycolor2": "catalog:types",
+    "@types/validator": "catalog:types",
+    "dayjs": "catalog:deps",
+    "lodash-es": "catalog:deps",
+    "mitt": "catalog:deps",
+    "sortablejs": "catalog:deps",
+    "tdesign-icons-vue-next": "catalog:tdesign",
+    "tinycolor2": "catalog:deps",
+    "validator": "catalog:deps"
   },
   "peerDependencies": {
     "vue": ">=3.1.0"

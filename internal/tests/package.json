@@ -4,7 +4,7 @@
   "author": "tdesign",
   "license": "MIT",
   "devDependencies": {
-    "@testing-library/dom": "catalog:",
-    "vitest": "catalog:"
+    "@testing-library/dom": "catalog:test",
+    "vitest": "catalog:test"
   }
 }
