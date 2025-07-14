@@ -9,38 +9,19 @@ import useMutationObservable from '../useMutationObservable';
  * useVariables
  * @param variable CSS 变量名
  * @example
- *  单个变量：const textColor = useVariables('--td-color-primary');
- *
- *  多个变量（一）：
- *   const variables = useVariables('--td-color-primary','--td-brand-color');
- *   const textColor = variables['--td-color-primary'];
- *   const brandColor = variables['--td-brand-color'];
- *
- *  多个变量（二）：
  *   const { textColor, brandColor } = useVariables({
  *      textColor: '--td-color-primary',
  *      brandColor: '--td-brand-color',
  *   });
  */
-export function useVariables(variable: string): Ref<string>;
-export function useVariables(variables: string[]): Record<string, Ref<string>>;
-export function useVariables(variables: Record<string, string>): Record<string, Ref<string>>;
-export function useVariables(
-  variables: string | string[] | Record<string, string>,
-): Ref<string> | Record<string, Ref<string>> {
+export function useVariables(variables: Record<string, string>): Record<string, Ref<string>> {
   const values: Record<string, Ref<string>> = {};
   let varsArray: string[] = [];
 
-  if (isString(variables)) {
-    varsArray = [variables];
-  } else if (Array.isArray(variables)) {
-    varsArray = variables;
-  } else {
-    varsArray = Object.values(variables);
-    Object.entries(variables).forEach(([key, varName]) => {
-      values[key] = ref(getColorTokenColor(varName));
-    });
-  }
+  varsArray = Object.values(variables);
+  Object.entries(variables).forEach(([key, varName]) => {
+    values[key] = ref(getColorTokenColor(varName));
+  });
 
   varsArray.forEach((varName) => {
     values[varName] = ref(getColorTokenColor(varName));
@@ -65,11 +46,5 @@ export function useVariables(
     });
   });
 
-  if (isString(variables)) {
-    return values[variables];
-  } else if (Array.isArray(variables)) {
-    return values;
-  } else {
-    return values;
-  }
+  return values;
 }
