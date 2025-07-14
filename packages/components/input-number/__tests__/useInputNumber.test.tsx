@@ -124,7 +124,7 @@ describe('useInputNumber', () => {
       const wrapper = mount(TestComponent);
       const hook = wrapper.vm.hook;
 
-      hook.onInnerInputChange('10', { e: new Event('input') });
+      hook.onInnerInputChange('10', { e: new Event('input') as InputEvent });
       await nextTick();
 
       expect(hook.tValue.value).toBe(10);
@@ -136,7 +136,7 @@ describe('useInputNumber', () => {
       const wrapper = mount(TestComponent);
       const hook = wrapper.vm.hook;
 
-      hook.onInnerInputChange('', { e: new Event('input') });
+      hook.onInnerInputChange('', { e: new Event('input') as InputEvent });
       await nextTick();
 
       expect(hook.tValue.value).toBeUndefined();
@@ -148,7 +148,7 @@ describe('useInputNumber', () => {
       const wrapper = mount(TestComponent);
       const hook = wrapper.vm.hook;
 
-      hook.onInnerInputChange('5.123', { e: new Event('input') });
+      hook.onInnerInputChange('5.123', { e: new Event('input') as InputEvent });
       await nextTick();
 
       expect(hook.userInput.value).toBe('5.12');
@@ -250,7 +250,7 @@ describe('useInputNumber', () => {
       const wrapper = mount(TestComponent);
       const hook = wrapper.vm.hook;
 
-      hook.onInnerInputChange('15', { e: new Event('input') });
+      hook.onInnerInputChange('15', { e: new Event('input') as InputEvent });
       await nextTick();
 
       expect(hook.isError.value).toBe('exceed-maximum');
@@ -263,7 +263,7 @@ describe('useInputNumber', () => {
       const wrapper = mount(TestComponent);
       const hook = wrapper.vm.hook;
 
-      hook.onInnerInputChange('-5', { e: new Event('input') });
+      hook.onInnerInputChange('-5', { e: new Event('input') as InputEvent });
       await nextTick();
 
       expect(hook.isError.value).toBe('below-minimum');
@@ -276,7 +276,7 @@ describe('useInputNumber', () => {
       const wrapper = mount(TestComponent);
       const hook = wrapper.vm.hook;
 
-      hook.onInnerInputChange('', { e: new Event('input') });
+      hook.onInnerInputChange('', { e: new Event('input') as InputEvent });
       await nextTick();
 
       expect(hook.isError.value).toBeUndefined();
@@ -289,7 +289,7 @@ describe('useInputNumber', () => {
       const wrapper = mount(TestComponent);
       const hook = wrapper.vm.hook;
 
-      hook.onInnerInputChange('123456789012345678901234567890', { e: new Event('input') });
+      hook.onInnerInputChange('123456789012345678901234567890', { e: new Event('input') as InputEvent });
 
       expect(hook.tValue.value).toBe('123456789012345678901234567890');
     });

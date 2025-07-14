@@ -3,7 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { nextTick, ref } from 'vue';
 import { InputNumber } from '@tdesign/components/input-number';
 import InputNumberProps from '@tdesign/components/input-number/props';
-import { TdInputNumberProps } from '@tdesign/components/input-number/type';
+import { TdInputNumberProps, InputNumberValue } from '@tdesign/components/input-number/type';
 
 describe('InputNumber', () => {
   describe(':props', () => {
@@ -106,7 +106,7 @@ describe('InputNumber', () => {
 
     it(':format', () => {
       const value = ref(1234);
-      const format = (val: any) => `${val}元`;
+      const format = (val: InputNumberValue) => `${val}元`;
       const wrapper = mount(() => <InputNumber v-model={value.value} format={format} />);
       const input = wrapper.find('.t-input input');
       expect((input.element as HTMLInputElement).value).toBe('1234元');
@@ -324,7 +324,7 @@ describe('InputNumber', () => {
     });
 
     it(':size', () => {
-      const sizeList: Array<'small' | 'medium' | 'large'> = ['small', 'medium', 'large'];
+      const sizeList: TdInputNumberProps['size'][] = ['small', 'medium', 'large'];
       sizeList.forEach((size) => {
         const wrapper = mount(() => <InputNumber size={size} />);
         const container = wrapper.find('.t-input-number');
@@ -344,7 +344,7 @@ describe('InputNumber', () => {
     });
 
     it(':status', () => {
-      const statusList: Array<'success' | 'warning' | 'error'> = ['success', 'warning', 'error'];
+      const statusList: Exclude<TdInputNumberProps['status'], 'default'>[] = ['success', 'warning', 'error'];
       statusList.forEach((status) => {
         const wrapper = mount(() => <InputNumber status={status} />);
         const input = wrapper.find('.t-input');
@@ -399,7 +399,7 @@ describe('InputNumber', () => {
     });
 
     it(':theme', () => {
-      const themeList: Array<'column' | 'row' | 'normal'> = ['column', 'row', 'normal'];
+      const themeList: TdInputNumberProps['theme'][] = ['column', 'row', 'normal'];
       themeList.forEach((theme) => {
         const wrapper = mount(() => <InputNumber theme={theme} />);
         const container = wrapper.find('.t-input-number');
@@ -472,9 +472,9 @@ describe('InputNumber', () => {
     });
 
     it(':onChange', async () => {
-      const data = ref('');
-      const value = ref('');
-      const handleChange = (val: any) => {
+      const data = ref<InputNumberValue>('');
+      const value = ref<InputNumberValue>('');
+      const handleChange = (val: InputNumberValue) => {
         value.value = val;
       };
       const wrapper = mount(<InputNumber v-model={data.value} onChange={handleChange} />);
