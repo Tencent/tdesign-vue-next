@@ -420,3 +420,4 @@ export interface UploadActionConfig {
 export type * from 'tdesign-web-components/lib/chat-sender/type';
 export type * from 'tdesign-web-components/lib/filecard/type';
 export type * from 'tdesign-web-components/lib/chat-message/index';
+export type * from 'tdesign-web-components/lib/chatbot/type';
