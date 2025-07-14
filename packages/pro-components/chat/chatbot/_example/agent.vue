@@ -51,31 +51,6 @@ import { CheckCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { Timeline, TimelineItem } from 'tdesign-vue-next';
 import { Bot } from '@tdesign-vue-next/chat';
 
-// 类型扩展
-declare module '@tdesign-vue-next/chat' {
-  interface AIContentTypeOverrides {
-    agent: ChatBaseContent<
-      'agent',
-      {
-        id: string;
-        state: 'pending' | 'command' | 'result' | 'finish';
-        content: {
-          steps?: {
-            step: string;
-            agent_id: string;
-            status: string;
-            tasks?: {
-              type: 'command' | 'result';
-              text: string;
-            }[];
-          }[];
-          text?: string;
-        };
-      }
-    >;
-  }
-}
-
 // 默认初始化消息
 const mockData: ChatMessagesData[] = [
   {

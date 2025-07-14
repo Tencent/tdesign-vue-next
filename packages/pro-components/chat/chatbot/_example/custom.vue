@@ -63,20 +63,6 @@ import {
 import { Bot } from '../index';
 import TvisionTcharts from 'tvision-charts-vue-next';
 
-// 1、扩展自定义消息体类型
-declare module '@tdesign/pro-components-chat' {
-  interface AIContentTypeOverrides {
-    chart: ChatBaseContent<
-      'chart',
-      {
-        chartType: string;
-        options: any;
-        theme: string;
-      }
-    >;
-  }
-}
-
 const initMessage: ChatMessagesData[] = [
   {
     id: '123',

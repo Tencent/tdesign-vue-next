@@ -14,6 +14,7 @@ import _ChatSender from './chat-sender';
 import _ChatAttachments from './attachments';
 import _ChatThinking from './chat-thinking';
 import _ChatBot from './chatbot';
+import { ChatSearchContentComponent, ChatSuggestionContentComponent, ChatListComponent } from './chatbot';
 // 修改为直接导出
 import { useChat } from './chatbot/useChat';
 export { useChat };
@@ -32,19 +33,10 @@ import {
   TdChatLoadingProps,
 } from './type';
 
-import {
-  TdChatbotApi,
-  TdChatListProps,
-  TdChatSearchContentProps,
-  TdChatSuggestionContentProps,
-} from 'tdesign-web-components';
-
 import './style';
 import 'tdesign-web-components/lib/style/index.css';
 import 'tdesign-web-components/lib/chat-message/content/search-content';
 import 'tdesign-web-components/lib/chat-message/content/suggestion-content';
-import { omiVueify } from 'omi-vueify';
-import type { DefineComponent } from 'vue';
 export * from './type';
 
 export type ChatProps = TdChatProps;
@@ -73,21 +65,11 @@ export const ChatThinking = withInstall(_ChatThinking, 't-chat-thinking');
 export const ChatBot = withInstall(_ChatBot, 't-chatbot');
 // 消息对话
 export const ChatMessage = withInstall(_ChatMessage, 't-chat-message');
-// todo
-export const ChatSearchContentComponent = omiVueify('t-chat-search-content', {
-  methodNames: [],
-}) as DefineComponent<TdChatSearchContentProps>;
+
 export const ChatSearchContent = withInstall(ChatSearchContentComponent, 't-chat-search-content');
-// todo
-export const ChatSuggestionContentComponent = omiVueify('t-chat-suggestion-content', {
-  methodNames: [],
-}) as DefineComponent<TdChatSuggestionContentProps>;
+
 export const ChatSuggestionContent = withInstall(ChatSuggestionContentComponent, 't-chat-suggestion-content');
 
-// todo
-export const ChatListComponent = omiVueify('t-chat-list', {
-  methodNames: ['scrollToBottom'],
-}) as DefineComponent<TdChatListProps>;
 export const ChatList = withInstall(ChatListComponent, 't-chat-list');
 
 // webc组件没有加入use todo
