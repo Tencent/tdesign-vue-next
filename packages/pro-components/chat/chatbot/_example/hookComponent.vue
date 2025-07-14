@@ -8,13 +8,13 @@
         :message="message"
       >
         <template #actionbar>
-          <!-- <t-chat-action
+          <t-chat-action
             v-if="isAIMessage(message) && message.status === 'complete'"
             :action-bar="getChatActionBar(idx === messages.length - 1)"
             :content="getMessageContentForCopy(message)"
             :comment="message.role === 'assistant' ? message.comment : ''"
             @actions="actionHandler"
-          /> -->
+          />
         </template>
       </t-chat-message>
     </t-chat-list>
@@ -44,11 +44,14 @@ import {
   type AIMessageContent,
   type ChatRequestParams,
   type ChatMessagesData,
+  type TdChatActionsName,
   TdChatListApi,
   TdChatSenderApi,
-} from '@tdesign/pro-components-chat';
+  isAIMessage,
+  getMessageContentForCopy,
+  useChat,
+} from '@tdesign-vue-next/chat';
 import mockData from './mock/data';
-import { useChat } from '@tdesign/pro-components-chat';
 import { MessagePlugin } from 'tdesign-vue-next';
 
 // 状态管理
