@@ -11,7 +11,7 @@ import type { ImageSettings } from '@tdesign/common-js/qrcode/types';
 import { isNumber } from 'lodash-es';
 
 export default defineComponent({
-  name: 'TQrcode',
+  name: 'TQRCode',
   props,
   setup(props) {
     const classPrefix = usePrefixClass();

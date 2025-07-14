@@ -7,6 +7,6 @@ import './style';
 export type QRCodeProps = TdQRCodeProps;
 export * from './type';
 
-export const Qrcode = withInstall(_QRCode);
+export const QRCode = withInstall(_QRCode, 'TQrcode');
 
-export default Qrcode;
+export default QRCode;
