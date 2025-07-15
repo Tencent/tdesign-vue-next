@@ -7,7 +7,7 @@
       :sender-props="senderProps"
       :chat-service-config="chatServiceConfig"
       @messageChange="handleMessageChange"
-      @chatSent="onSend"
+      @chatAfterSend="onSend"
     >
       <!-- 渲染自定义消息内容 -->
       <template v-for="msg in mockMessage" :key="msg.id">
