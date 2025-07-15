@@ -3,9 +3,9 @@ import props from './props';
 import { DEFAULT_FRONT_COLOR } from '@tdesign/common-js/qrcode/utils';
 import { usePrefixClass, useConfig, useTNodeJSX, useVariables } from '@tdesign/shared-hooks';
 
-import QRCodeCanvas from './components/QRCodeCanvas';
-import QRCodeSVG from './components/QRCodeSVG';
-import QRcodeStatus from './components/QRCodeStatus';
+import QRCodeCanvas from './components/qrcode-canvas';
+import QRCodeSVG from './components/qrcode-svg';
+import QRcodeStatus from './components/qrcode-status';
 
 import type { ImageSettings } from '@tdesign/common-js/qrcode/types';
 import { isNumber } from 'lodash-es';

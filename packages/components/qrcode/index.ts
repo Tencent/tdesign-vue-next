@@ -1,4 +1,4 @@
-import _QRCode from './QRCode';
+import _QRCode from './qrcode';
 import { withInstall } from '@tdesign/shared-utils';
 import { TdQRCodeProps } from './type';
 
