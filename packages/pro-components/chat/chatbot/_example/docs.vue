@@ -8,7 +8,7 @@
       :chat-service-config="chatServiceConfig"
       @fileSelect="onFileSelect"
       @fileRemove="onFileRemove"
-      @chatSent="onSend"
+      @chatAfterSend="onSend"
     />
   </div>
 </template>
