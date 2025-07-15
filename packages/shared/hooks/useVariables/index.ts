@@ -14,17 +14,17 @@ import useMutationObservable from '../useMutationObservable';
  *      brandColor: '--td-brand-color',
  *   });
  */
-export function useVariables(variables: Record<string, string>): Record<string, Ref<string>> {
-  const values: Record<string, Ref<string>> = {};
+export function useVariables<T extends Record<string, string>>(variables: T): Record<keyof T, Ref<string>> {
+  const values = {} as Record<keyof T, Ref<string>>;
   let varsArray: string[] = [];
 
   varsArray = Object.values(variables);
   Object.entries(variables).forEach(([key, varName]) => {
-    values[key] = ref(getColorTokenColor(varName));
+    values[key as keyof T] = ref(getColorTokenColor(varName));
   });
 
   varsArray.forEach((varName) => {
-    values[varName] = ref(getColorTokenColor(varName));
+    values[varName as keyof T] = ref(getColorTokenColor(varName));
   });
 
   const targetElement = document?.documentElement;
