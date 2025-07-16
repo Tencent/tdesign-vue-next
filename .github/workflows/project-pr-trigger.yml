@@ -1,0 +1,18 @@
+# https://github.com/TDesignOteam/tdesign-projects-action
+
+name: project-pr-trigger
+
+on:
+  pull_request_target:
+    types: [opened, reopened, closed]
+
+jobs:
+  project-pr-trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: pr to project
+        uses: TDesignOteam/tdesign-projects-action@develop
+        env:
+          GH_TOKEN: ${{ secrets.TDESIGN_BOT_TOKEN }}
+          PROJECT_TYPE: PR2TRIGGER
+          PROJECT_ID: 1

@@ -1,0 +1,16 @@
+# https://github.com/TDesignOteam/tdesign-projects-action
+
+name: project-issue-trigger
+on:
+  issues:
+    types: [opened, closed]
+jobs:
+  project-issue-trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: issue to project
+        uses: TDesignOteam/tdesign-projects-action@develop
+        env:
+          GH_TOKEN: ${{ secrets.TDESIGN_BOT_TOKEN }}
+          PROJECT_TYPE: ISSUE2TRIGGER
+          PROJECT_ID: 1
