@@ -153,6 +153,87 @@ describe('useInputNumber', () => {
 
       expect(hook.userInput.value).toBe('5.12');
     });
+
+    it('should handle decimal places with largeNumber mode', async () => {
+      const TestComponent = createTestComponent({
+        defaultValue: '999999999999',
+        decimalPlaces: 3,
+        largeNumber: true,
+      });
+      const wrapper = mount(TestComponent);
+      const hook = wrapper.vm.hook;
+
+      hook.onInnerInputChange('999999999999.123456789', { e: new Event('input') as InputEvent });
+      await nextTick();
+
+      expect(hook.userInput.value).toBe('999999999999.123');
+    });
+
+    it('should handle decimal places truncation during input', async () => {
+      const TestComponent = createTestComponent({ defaultValue: 0, decimalPlaces: 2 });
+      const wrapper = mount(TestComponent);
+      const hook = wrapper.vm.hook;
+
+      // 测试逐步输入过程中的截断
+      hook.onInnerInputChange('12.3456', { e: new Event('input') as InputEvent });
+      await nextTick();
+
+      expect(hook.userInput.value).toBe('12.34');
+      expect(hook.tValue.value).toBe(12.34);
+    });
+
+    it('should not truncate when no decimal places limit', async () => {
+      const TestComponent = createTestComponent({ defaultValue: 0 });
+      const wrapper = mount(TestComponent);
+      const hook = wrapper.vm.hook;
+
+      hook.onInnerInputChange('12.3456789', { e: new Event('input') as InputEvent });
+      await nextTick();
+
+      expect(hook.userInput.value).toBe('12.3456789');
+      expect(hook.tValue.value).toBe(12.3456789);
+    });
+
+    it('should handle decimal places boundary cases with rounding digits', async () => {
+      // 测试小数位数限制的边界情况：输入6/7/8/9时应该被截断而不是四舍五入
+      const TestComponent = createTestComponent({ defaultValue: 0, decimalPlaces: 2 });
+      const wrapper = mount(TestComponent);
+      const hook = wrapper.vm.hook;
+
+      // 测试输入包含6/7/8/9的小数，应该被截断而不是四舍五入
+      hook.onInnerInputChange('1.116', { e: new Event('input') as InputEvent });
+      await nextTick();
+      expect(hook.userInput.value).toBe('1.11');
+
+      hook.onInnerInputChange('1.117', { e: new Event('input') as InputEvent });
+      await nextTick();
+      expect(hook.userInput.value).toBe('1.11');
+
+      hook.onInnerInputChange('1.118', { e: new Event('input') as InputEvent });
+      await nextTick();
+      expect(hook.userInput.value).toBe('1.11');
+
+      hook.onInnerInputChange('1.119', { e: new Event('input') as InputEvent });
+      await nextTick();
+      expect(hook.userInput.value).toBe('1.11');
+
+      // 测试另一个场景
+      hook.onInnerInputChange('2.346', { e: new Event('input') as InputEvent });
+      await nextTick();
+      expect(hook.userInput.value).toBe('2.34');
+
+      hook.onInnerInputChange('2.347', { e: new Event('input') as InputEvent });
+      await nextTick();
+      expect(hook.userInput.value).toBe('2.34');
+
+      hook.onInnerInputChange('2.348', { e: new Event('input') as InputEvent });
+      await nextTick();
+      expect(hook.userInput.value).toBe('2.34');
+
+      hook.onInnerInputChange('2.349', { e: new Event('input') as InputEvent });
+      await nextTick();
+      expect(hook.userInput.value).toBe('2.34');
+    });
   });
 
   describe('step operations', () => {

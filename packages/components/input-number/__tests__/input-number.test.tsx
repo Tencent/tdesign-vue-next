@@ -93,6 +93,51 @@ describe('InputNumber', () => {
       expect((input4.element as HTMLInputElement).value).toBe('1.35');
     });
 
+    it(':decimalPlaces with user input limit', async () => {
+      // 测试基本的小数位数限制显示效果
+      const value1 = ref('');
+      const wrapper1 = mount(() => <InputNumber v-model={value1.value} decimalPlaces={2} />);
+      const input1 = wrapper1.find('.t-input input');
+
+      await input1.setValue('123.456789');
+      await input1.trigger('input');
+      await nextTick();
+
+      expect((input1.element as HTMLInputElement).value).toBe('123.45');
+      expect(value1.value).toBe(123.45);
+
+      // 测试 largeNumber 模式的显示效果
+      const value2 = ref('');
+      const wrapper2 = mount(() => <InputNumber v-model={value2.value} decimalPlaces={3} largeNumber={true} />);
+      const input2 = wrapper2.find('.t-input input');
+
+      await input2.setValue('999999999999.123456789');
+      await input2.trigger('input');
+      await nextTick();
+
+      expect((input2.element as HTMLInputElement).value).toBe('999999999999.123');
+      expect(value2.value).toBe('999999999999.123');
+    });
+
+    it(':decimalPlaces boundary cases with rounding digits', async () => {
+      // 测试小数位数限制边界情况的UI表现
+      const value1 = ref('');
+      const wrapper1 = mount(() => <InputNumber v-model={value1.value} decimalPlaces={2} />);
+      const input1 = wrapper1.find('.t-input input');
+
+      // 测试输入6/7/8/9时应该被截断而不是四舍五入
+      await input1.setValue('1.116');
+      await input1.trigger('input');
+      await nextTick();
+      expect((input1.element as HTMLInputElement).value).toBe('1.11');
+
+      // 测试另一个边界情况
+      await input1.setValue('2.346');
+      await input1.trigger('input');
+      await nextTick();
+      expect((input1.element as HTMLInputElement).value).toBe('2.34');
+    });
+
     it(':disabled', () => {
       const wrapper = mount(() => <InputNumber disabled />);
       const container = wrapper.find('.t-input-number');
