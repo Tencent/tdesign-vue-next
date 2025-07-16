@@ -1,6 +1,6 @@
 # https://github.com/TDesignOteam/tdesign-projects-action
 
-name: Project & Label Trigger Workflow
+name: projects-label-trigger
 
 on:
   issues:

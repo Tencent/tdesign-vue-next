@@ -1,6 +1,6 @@
 # https://github.com/TDesignOteam/tdesign-projects-action
 
-name: Project & PR Trigger Workflow
+name: project-pr-trigger
 
 on:
   pull_request_target:

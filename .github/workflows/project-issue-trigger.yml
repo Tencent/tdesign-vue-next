@@ -1,11 +1,9 @@
 # https://github.com/TDesignOteam/tdesign-projects-action
 
-name: Project & Issue Trigger Workflow
-
+name: project-issue-trigger
 on:
   issues:
     types: [opened, closed]
-
 jobs:
   project-issue-trigger:
     runs-on: ubuntu-latest
