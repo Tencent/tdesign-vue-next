@@ -49,14 +49,19 @@ const removeSourceTypes = async () => {
 };
 
 export const buildTypes = async () => {
-  await removeSourceTypes();
-  await generateSourceTypes();
-  // const targets = ['es', 'esm', 'lib', 'cjs'] as const;
-  const targets = ['es', 'esm'] as const;
-  await Promise.all(
-    targets.map(async (target) => {
-      await generateTargetTypes(target);
-    }),
-  );
-  await removeSourceTypes();
+  try {
+    await removeSourceTypes();
+    await generateSourceTypes();
+    // const targets = ['es', 'esm', 'lib', 'cjs'] as const;
+    const targets = ['es', 'esm'] as const;
+    await Promise.all(
+      targets.map(async (target) => {
+        await generateTargetTypes(target);
+      }),
+    );
+  } catch (error) {
+    console.error(error);
+  } finally {
+    await removeSourceTypes();
+  }
 };
