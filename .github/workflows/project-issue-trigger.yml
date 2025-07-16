@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: issue to project
-        uses: TDesignOteam/tdesign-projects-action@develop
+        uses: TDesignOteam/tdesign-projects-action@main
         env:
           GH_TOKEN: ${{ secrets.TDESIGN_BOT_TOKEN }}
           PROJECT_TYPE: ISSUE2TRIGGER
