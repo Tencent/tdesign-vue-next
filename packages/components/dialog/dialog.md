@@ -70,16 +70,13 @@
 
 如果您不确定问题是否是由该规则引起的，或者确定该规则不是问题的根本原因，请在 `GitHub` 上提出一个 `issue`，并提供可以重现问题的代码。这将有助于我们更好地了解您的问题并提供更好的帮助。
 
-### 处理 dialog 嵌套
+### 多层 Dialog 嵌套时，外层 Dialog 开启 destroy-on-close 后出现异常的情况？
 
-当 dialog 嵌套，退出最外层的 dialog，vue 框架报错：
+使用嵌套多层使用 dialog 且最外层开启了 `destroy-on-close` ，会出现框架层的报错：
 
 > Uncaught (in promise) NotFoundError: Failed to execute 'insertBefore' on 'Node': The node before which the new node is to be inserted is not a child of this node.
 
-需要修改业务配置：
-
-1. 业务除最后一层 dialog，上层的所有 dialog 都设置 `lazy`；
-2. 或者业务除最后一层 dialog，上层的所有 dialog 都设置 `:destroy-on-close="false"`。
+解决方法： 除最后一层 dialog，外层的所有 dialog 都设置 `lazy` 为`true`；
 
 详情见 [issue](https://github.com/Tencent/tdesign-vue-next/pull/5659)，可通过此[链接](https://stackblitz.com/edit/vitejs-vite-vnywg115?file=src%2FApp.vue)体验。
 
