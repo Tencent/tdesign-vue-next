@@ -1,7 +1,9 @@
+# https://github.com/TDesignOteam/tdesign-projects-action
+
 name: Project & PR Trigger Workflow
 
 on:
-  pull_request:
+  pull_request_target:
     types: [opened, reopened, closed]
 
 jobs:
