@@ -1,10 +1,9 @@
-// @ts-nocheck
 import { mount } from '@vue/test-utils';
 import { Divider } from '@tdesign/components/divider';
 import props from '@tdesign/components/divider/props';
 
 describe('Divider Component', () => {
-  ['left', 'right', 'center'].forEach((item) => {
+  (['left', 'right', 'center'] as const).forEach((item) => {
     it(`props.align is equal to ${item}`, () => {
       const wrapper = mount(<Divider align={item}>Text</Divider>);
       expect(wrapper.classes(`t-divider--with-text-${item}`)).toBeTruthy();
@@ -25,13 +24,10 @@ describe('Divider Component', () => {
   });
 
   it('props.dashed works fine', () => {
-    // dashed default value is false
     const wrapper1 = mount(<Divider></Divider>);
     expect(wrapper1.classes('t-divider--dashed')).toBeFalsy();
-    // dashed = true
     const wrapper2 = mount(<Divider dashed={true}></Divider>);
     expect(wrapper2.classes('t-divider--dashed')).toBeTruthy();
-    // dashed = false
     const wrapper3 = mount(<Divider dashed={false}></Divider>);
     expect(wrapper3.classes('t-divider--dashed')).toBeFalsy();
   });
@@ -48,7 +44,7 @@ describe('Divider Component', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  ['horizontal', 'vertical'].forEach((item) => {
+  (['horizontal', 'vertical'] as const).forEach((item) => {
     it(`props.layout is equal to ${item}`, () => {
       const wrapper = mount(<Divider layout={item}></Divider>);
       expect(wrapper.classes(`t-divider--${item}`)).toBeTruthy();
@@ -56,7 +52,6 @@ describe('Divider Component', () => {
     });
   });
 
-  // test props api
   describe(':props', () => {
     it(':layout', () => {
       const wrapper = mount({
@@ -137,7 +132,9 @@ describe('Divider Component', () => {
       expect(validator('left')).toBeTruthy();
       expect(validator('right')).toBeTruthy();
       expect(validator('center')).toBeTruthy();
+      // @ts-expect-error error case
       expect(validator('top')).toBeFalsy();
+      // @ts-expect-error error case
       expect(validator('')).toBeTruthy();
       expect(validator(undefined)).toBeTruthy();
     });
@@ -146,6 +143,7 @@ describe('Divider Component', () => {
       const { validator } = props.layout;
       expect(validator('horizontal')).toBeTruthy();
       expect(validator('vertical')).toBeTruthy();
+      // @ts-expect-error error case
       expect(validator('other')).toBeFalsy();
       expect(validator(undefined)).toBeTruthy();
     });
