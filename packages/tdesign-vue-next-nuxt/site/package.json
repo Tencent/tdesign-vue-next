@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "name": "@tdesign/vue-next-nuxt-site",
+  "type": "module",
+  "scripts": {
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "preview": "nuxi generate"
+  },
+  "dependencies": {
+    "nuxt": "^3.14.159"
+  }
+}

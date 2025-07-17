@@ -26,6 +26,8 @@
     "build:vue": "pnpm -C internal/builds build:vue-next",
     "dev:chat": "pnpm -C packages/tdesign-vue-next-chat/site dev",
     "build:chat": "pnpm -C internal/builds build:chat",
+    "dev:nuxt": "pnpm -C packages/tdesign-vue-next-nuxt dev",
+    "build:nuxt": "pnpm -C packages/tdesign-vue-next-nuxt build",
     "robot": "publish-cli robot-msg"
   },
   "author": "tdesign",
