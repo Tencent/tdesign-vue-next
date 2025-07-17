@@ -5,6 +5,29 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.15.0 `2025-07-17` 
+
+### 🚀 Features
+- `QRCode`: 新增 `QRCode` 二维码组件 @Wesley-0808 ([#5719](https://github.com/Tencent/tdesign-vue-next/pull/5719))
+- `Variables`: `--td-font-size-title-large` 从 `20px` 调整为 `18px`, 新增`--td-font-size-title-extraLarge` 变量，值为 `20px`，此前有使用此变量，请注意此变更 ⚠️ @uyarn  ([#5752](https://github.com/Tencent/tdesign-vue-next/pull/5752))
+- `SelectInput`: 支持单选模式下可输入功能与自定义展示内容 `valueDisplay` 的配合使用，此功能可能影响单选下`valueDisplay`使用的场景，升级请注意此变更 ⚠️ @uyarn ([#5751](https://github.com/Tencent/tdesign-vue-next/pull/5751))
+- `Helper`: 修复代码提示中缺失 `SwiperItem` 类型和相关提示的问题，同时更新组件的 API 相关信息 @liweijie0812 ([#5722](https://github.com/Tencent/tdesign-vue-next/pull/5722))
+- `Locale`: 支持内置多语言的英文版本的单复数场景正常展示 @YunYouJun ([#5680](https://github.com/Tencent/tdesign-vue-next/pull/5680))
+- `Pagination`: 优化 `PaginationMini`  的显示提示文案展示 @baozjj ([#5670](https://github.com/Tencent/tdesign-vue-next/pull/5670))
+- `Upload`: 上传图片风格新增 `trigger` API，用于自定义触发上传的内容 @D-xuanmo ([#5678](https://github.com/Tencent/tdesign-vue-next/pull/5678))
+
+### 🐞 Bug Fixes
+- `Cascader`: 优化点击 `Cascader` 非叶子节点选项的部分区域错误触发选中的问题 @uyarn ([#5748](https://github.com/Tencent/tdesign-vue-next/pull/5748))
+- `Checkbox`: 修复全选功能在只读或禁用选项，但已选中场景下的功能问题 @uyarn ([#5749](https://github.com/Tencent/tdesign-vue-next/pull/5749))
+- `DatePicker`: 处理多选情况下周和季度模式的标签删除异常的问题 @betavs ([#5732](https://github.com/Tencent/tdesign-vue-next/pull/5732))
+- `DatePicker`: 修复 `DateRangePickerPanel` 的onCellClick 在初始为空时返回值不正确的问题 @Kyle-Alpha  ([#5681](https://github.com/Tencent/tdesign-vue-next/pull/5681))
+- `Drawer`: 修复 `Plugin` 插件的返回值类型 @Cat1007 ([#5679](https://github.com/Tencent/tdesign-vue-next/pull/5679))
+- `Input`: 优化不同尺寸下 `prefixIcon` 没有跟随变化的问题 @uyarn  ([#5752](https://github.com/Tencent/tdesign-vue-next/pull/5752))
+- `InputAdornment`: 修复 `InputAdornment` 透传原生属性无效的问题 @cfool ([#5726](https://github.com/Tencent/tdesign-vue-next/pull/5726))
+- `Loading`: 修复在 `iPadOS` 的微信中图标位置错误的问题 @Nero978  ([#5717](https://github.com/Tencent/tdesign-vue-next/pull/5717))
+- `Upload`: 增强对 `.jpg` 文件类型的支持 @QuentinHsu  ([#5754](https://github.com/Tencent/tdesign-vue-next/pull/5754))
+
+
 ## 🌈 1.14.2 `2025-06-30` 
 
 ### 🐞 Bug Fixes
