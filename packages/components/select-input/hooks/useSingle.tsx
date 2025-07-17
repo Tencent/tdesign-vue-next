@@ -85,6 +85,7 @@ export function useSingle(
     const singleValueDisplay = renderTNode('valueDisplay');
     const displayedValue = popupVisible && props.allowInput ? inputValue.value : getInputValue(value.value, keys.value);
     const prefixContent = renderPrefixContent(singleValueDisplay, popupVisible);
+
     const inputProps = {
       ...commonInputProps.value,
       value: renderInputDisplay(singleValueDisplay, displayedValue, popupVisible),
@@ -154,8 +155,9 @@ export function useSingle(
 
     if (singleValueDisplay) {
       if (
-        (props.valueDisplayOptions?.usePlaceholder && !value.value) ||
-        (props.valueDisplayOptions?.useInputDisplay && popupVisible)
+        !value.value ||
+        (props.valueDisplayOptions?.useInputDisplay && popupVisible) ||
+        (popupVisible && props.allowInput)
       ) {
         return [label];
       }
@@ -165,19 +167,26 @@ export function useSingle(
 
   const renderInputDisplay = (singleValueDisplay: any, displayedValue: any, popupVisible: boolean) => {
     // 使用valueDisplay插槽时，如用户传入useInputDisplay使用自带输入回显实现，未传则认为用户自行实现。
-    if (singleValueDisplay)
+    if (singleValueDisplay) {
+      if (popupVisible && props.allowInput) {
+        return displayedValue;
+      }
       if (
         !props.valueDisplayOptions?.useInputDisplay ||
         (props.valueDisplayOptions?.useInputDisplay && !popupVisible)
       ) {
         return undefined;
       }
+    }
+
     return displayedValue;
   };
 
   const renderPlaceholder = (singleValueDisplay: any) => {
     // 使用valueDisplay插槽时，如用户传入usePlaceholder使用自带占位符实现，未传则认为用户自行实现。
     // 如果当前存在value（对应直接使用组件和select组件调用时），不显示占位符。
+    if (!value.value) return props.placeholder;
+
     if (singleValueDisplay) {
       if (!props.valueDisplayOptions?.usePlaceholder || (props.valueDisplayOptions?.usePlaceholder && value.value)) {
         return '';
