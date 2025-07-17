@@ -1,4 +1,4 @@
-import { defineComponent, computed, provide, Fragment } from 'vue';
+import { defineComponent, computed, provide, Fragment, toRefs } from 'vue';
 import { useConfig } from 'tdesign-vue-next/es/config-provider/hooks';
 
 import { usePrefixClass, useTNodeJSX } from '@tdesign/shared-hooks';
@@ -24,7 +24,7 @@ export default defineComponent({
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('chat');
     const { globalConfig } = useConfig('chat');
-    const { loadingText, loadingEndText } = globalConfig.value;
+    const { loadingText, loadingEndText } = toRefs(globalConfig.value);
     const renderTNodeJSX = useTNodeJSX();
     const role = computed(() => renderTNodeJSX('role'));
     const variant = computed(() => renderTNodeJSX('variant'));
@@ -64,7 +64,7 @@ export default defineComponent({
       const showActions = computed(() => renderTNodeJSX('actions'));
       const renderHeader = () => {
         if (reasoningLoading) {
-          return <ChatLoading text={loadingText} />;
+          return <ChatLoading text={loadingText.value} />;
         }
         return (
           <div style="display:flex;align-items:center">
@@ -75,7 +75,7 @@ export default defineComponent({
                 marginRight: '8px',
               }}
             />
-            <span>{loadingEndText}</span>
+            <span>{loadingEndText.value}</span>
           </div>
         );
       };
