@@ -11,7 +11,7 @@
               content: [
                 {
                   type: 'text',
-                  data: '它叫 McMurdo Station ATM，是美国富国银行安装在南极洲最大科学中心麦克默多站的一台自动提款机。',
+                  data: '',
                 },
               ],
               role: 'assistant',
