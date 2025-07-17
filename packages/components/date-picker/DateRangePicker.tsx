@@ -1,4 +1,4 @@
-import { defineComponent, computed, ref, watch } from 'vue';
+import { defineComponent, computed, ref, watch, ComputedRef } from 'vue';
 import dayjs from 'dayjs';
 import { useDisabled, useReadonly, usePrefixClass } from '@tdesign/shared-hooks';
 
@@ -43,7 +43,7 @@ export default defineComponent({
       onChange,
     } = useRange(props);
 
-    const disabled = useDisabled();
+    const isDisabled = useDisabled() as ComputedRef<boolean>;
     const isReadOnly = useReadonly();
 
     const formatRef = computed(() =>
@@ -408,7 +408,7 @@ export default defineComponent({
       <div class={COMPONENT_NAME.value}>
         <TRangeInputPopup
           readonly={isReadOnly.value}
-          disabled={disabled.value}
+          disabled={isDisabled.value}
           label={props.label}
           status={props.status}
           tips={props.tips || slots.tips}

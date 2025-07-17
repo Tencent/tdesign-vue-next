@@ -1,4 +1,4 @@
-import { computed, ref, defineComponent, toRefs, nextTick } from 'vue';
+import { computed, ref, defineComponent, toRefs, nextTick, ComputedRef } from 'vue';
 import props from './props';
 import { TdAutoCompleteProps } from './type';
 import TInput, { InputProps, StrInputProps } from '../input';
@@ -26,7 +26,7 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const { classPrefix, SIZE } = useCommonClassName();
     const { globalConfig: global } = useConfig('input');
-    const isDisabled = useDisabled();
+    const isDisabled = useDisabled() as ComputedRef<boolean>;
     const isReadonly = useReadonly();
     const popupVisible = ref();
     const optionListRef = ref();

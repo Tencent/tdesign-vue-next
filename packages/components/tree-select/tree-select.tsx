@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed, watch, onMounted, toRefs } from 'vue';
+import { defineComponent, ref, computed, watch, onMounted, toRefs, ComputedRef } from 'vue';
 import { isNil, isArray, isEmpty, isBoolean, isFunction } from 'lodash-es';
 
 import { findParentValues } from '@tdesign/common-js/tree-select/utils';
@@ -33,7 +33,7 @@ export default defineComponent({
     const renderDefaultTNode = useTNodeDefault();
     const classPrefix = usePrefixClass();
     const { globalConfig } = useConfig('treeSelect');
-    const formDisabled = useDisabled();
+    const formDisabled = useDisabled() as ComputedRef<boolean>;
     const isReadonly = useReadonly();
 
     // ref
