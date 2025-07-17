@@ -1186,15 +1186,10 @@ exports[`TreeSelect > <slot> > <valueDisplay> 1`] = `
         
         <!---->
         
-        <div>
-          深圳市(shenzhen)
-        </div>
-        
-        
       </div>
       <input
         class="t-input__inner"
-        placeholder=""
+        placeholder="请选择"
         readonly=""
         spellcheck="false"
         type="text"
@@ -1509,14 +1504,11 @@ exports[`TreeSelect > function > :valueDisplay 1`] = `
       >
         
         <!---->
-        <div>
-          深圳市(shenzhen)
-        </div>
         
       </div>
       <input
         class="t-input__inner"
-        placeholder=""
+        placeholder="请选择"
         readonly=""
         spellcheck="false"
         type="text"
