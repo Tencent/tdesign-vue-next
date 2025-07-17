@@ -42,7 +42,7 @@
     "marked-highlight": "^2.1.1",
     "tdesign-icons-vue-next": "^0.3.6",
     "tdesign-vue-next": "workspace:^",
-    "tdesign-web-components": "1.1.6",
+    "tdesign-web-components": "1.1.7",
     "omi-vueify": "^0.0.10"
   },
   "devDependencies": {

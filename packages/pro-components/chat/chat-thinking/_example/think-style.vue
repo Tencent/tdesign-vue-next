@@ -19,7 +19,7 @@
           </t-radio-group>
         </t-space>
       </t-space>
-      <t-chat-thinking-content
+      <t-chat-thinking
         :content="{
           title: title,
           text: displayText,

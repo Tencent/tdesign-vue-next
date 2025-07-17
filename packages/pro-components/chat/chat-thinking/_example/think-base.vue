@@ -1,5 +1,5 @@
 <template>
-  <t-chat-thinking-content
+  <t-chat-thinking
     :content="{
       title: title,
       text: displayText,
