@@ -185,9 +185,9 @@ export function useSingle(
   const renderPlaceholder = (singleValueDisplay: any) => {
     // 使用valueDisplay插槽时，如用户传入usePlaceholder使用自带占位符实现，未传则认为用户自行实现。
     // 如果当前存在value（对应直接使用组件和select组件调用时），不显示占位符。
-    if (!value.value) return props.placeholder;
 
     if (singleValueDisplay) {
+      if (!value.value || (props.allowInput && props.popupVisible)) return props.placeholder;
       if (!props.valueDisplayOptions?.usePlaceholder || (props.valueDisplayOptions?.usePlaceholder && value.value)) {
         return '';
       }
