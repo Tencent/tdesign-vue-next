@@ -10,7 +10,7 @@ docClass: timeline
 ### 🚀 Features
 - `QRCode`: 新增 `QRCode` 二维码组件 @Wesley-0808 ([#5719](https://github.com/Tencent/tdesign-vue-next/pull/5719))
 - `Variables`: `--td-font-size-title-large` 从 `20px` 调整为 `18px`, 新增`--td-font-size-title-extraLarge` 变量，值为 `20px`，此前有使用此变量，请注意此变更 ⚠️ @uyarn  ([#5752](https://github.com/Tencent/tdesign-vue-next/pull/5752))
-- `SelectInput`: 支持单选模式下可输入功能与自定义展示内容 `valueDisplay` 的配合使用，此功能可能影响单选下`valueDisplay`使用的场景，升级请注意此变更 ⚠️ @uyarn ([#5751](https://github.com/Tencent/tdesign-vue-next/pull/5751))
+- `SelectInput`: 支持单选模式下可输入功能与自定义展示内容 `valueDisplay` 的配合使用，`Select`、`TreeSelect`、`Cascader` 等组件此功能同样支持；此功能可能影响单选下`valueDisplay`使用的场景，升级请注意此变更 ⚠️ @uyarn ([#5751](https://github.com/Tencent/tdesign-vue-next/pull/5751))
 - `Helper`: 修复代码提示中缺失 `SwiperItem` 类型和相关提示的问题，同时更新组件的 API 相关信息 @liweijie0812 ([#5722](https://github.com/Tencent/tdesign-vue-next/pull/5722))
 - `Locale`: 支持内置多语言的英文版本的单复数场景正常展示 @YunYouJun ([#5680](https://github.com/Tencent/tdesign-vue-next/pull/5680))
 - `Pagination`: 优化 `PaginationMini`  的显示提示文案展示 @baozjj ([#5670](https://github.com/Tencent/tdesign-vue-next/pull/5670))
