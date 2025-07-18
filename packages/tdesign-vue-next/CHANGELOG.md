@@ -5,6 +5,12 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.15.1 `2025-07-18` 
+
+### 🚀 Features
+- `QRCode`: 增加编辑器代码提示, 请注意该组件暂时不支持 `unplugin-auto-import` 的使用方式 ⚠️ @liweijie0812 ([#5758](https://github.com/Tencent/tdesign-vue-next/pull/5758))
+
+
 ## 🌈 1.15.0 `2025-07-17` 
 
 ### 🚀 Features
