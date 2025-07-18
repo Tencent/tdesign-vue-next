@@ -9,7 +9,7 @@
     "test:unit": "vitest run",
     "test:update": "vitest run -u && pnpm test:snap-update",
     "test:unit-dev": "vitest",
-    "test:unit-gui": "vitest --ui",
+    "test:unit-gui": "vitest --ui --coverage",
     "test:unit-coverage": "vitest run --coverage",
     "test:snap": "cross-env TEST_TARGET=snap vitest run",
     "test:snap-update": "cross-env TEST_TARGET=snap vitest run -u",
