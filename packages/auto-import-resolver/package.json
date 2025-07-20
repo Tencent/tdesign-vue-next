@@ -11,8 +11,8 @@
   "author": "tdesign",
   "license": "MIT",
   "devDependencies": {
-    "tsdown": "^0.12.9",
-    "typescript": "^5.8.3"
+    "tsdown": "catalog:bundle",
+    "typescript": "catalog:types"
   },
   "module": "./dist/index.js",
   "typings": "./dist/index.d.ts",
