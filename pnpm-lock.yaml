@@ -928,8 +928,8 @@ importers:
         specifier: catalog:tdesign
         version: 0.3.6
       tdesign-site-components:
-        specifier: catalog:tdesign
-        version: 0.16.5
+        specifier: 0.17.0-alpha.6
+        version: 0.17.0-alpha.6
       tdesign-theme-generator:
         specifier: catalog:tdesign
         version: 1.1.7
@@ -6400,6 +6400,9 @@ packages:
   tdesign-site-components@0.16.5:
     resolution: {integrity: sha512-0NMP21yvaH8M8kT/+LSw/fxtTqEB8PMD44uQLkMYJP8KyUHZ8PwpKPO0klXyGHqTojy6YQzYVtwtHJ7vxMNmnQ==}
 
+  tdesign-site-components@0.17.0-alpha.6:
+    resolution: {integrity: sha512-ewpC0wdLzcF9B4AvqDSg23z1UImh6J+xavioEoGL4GHe9CED/sKjHe7t6adgsfNdZ72CBjuPoP2ibatiZ5p77w==}
+
   tdesign-theme-generator@1.1.7:
     resolution: {integrity: sha512-iL9MW1aQ+tehJH9HvnjQb5kXmCct/+5bDzrGPMCed5i8LXJRbCBkEB3KHBaHJN/1VXktNEClN/+8p7sgHJ/bGw==}
 
@@ -7946,7 +7949,7 @@ snapshots:
       '@types/node': 20.5.1
       chalk: 4.1.2
       cosmiconfig: 8.3.6(typescript@5.7.3)
-      cosmiconfig-typescript-loader: 4.4.0(@types/node@20.5.1)(cosmiconfig@8.3.6(typescript@5.7.3))(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.7.3))(typescript@5.7.3)
+      cosmiconfig-typescript-loader: 4.4.0(@types/node@20.5.1)(cosmiconfig@8.3.6(typescript@5.7.3))(ts-node@10.9.2(@types/node@22.15.32)(typescript@5.7.3))(typescript@5.7.3)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -9722,7 +9725,7 @@ snapshots:
       - '@swc/core'
       - '@swc/wasm'
 
-  cosmiconfig-typescript-loader@4.4.0(@types/node@20.5.1)(cosmiconfig@8.3.6(typescript@5.7.3))(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.7.3))(typescript@5.7.3):
+  cosmiconfig-typescript-loader@4.4.0(@types/node@20.5.1)(cosmiconfig@8.3.6(typescript@5.7.3))(ts-node@10.9.2(@types/node@22.15.32)(typescript@5.7.3))(typescript@5.7.3):
     dependencies:
       '@types/node': 20.5.1
       cosmiconfig: 8.3.6(typescript@5.7.3)
@@ -13162,6 +13165,15 @@ snapshots:
       standard-changelog: 2.0.27
 
   tdesign-site-components@0.16.5:
+    dependencies:
+      '@popperjs/core': 2.11.8
+      hybrids: 8.2.2
+      nprogress: 0.2.0
+      prismjs: 1.30.0
+      qrcode: 1.5.4
+      tdesign-icons-svg: 0.0.1
+
+  tdesign-site-components@0.17.0-alpha.6:
     dependencies:
       '@popperjs/core': 2.11.8
       hybrids: 8.2.2
