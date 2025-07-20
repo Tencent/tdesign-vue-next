@@ -24,7 +24,7 @@ npm i @tdesign-vue-next/chat
 import { createApp } from 'vue';
 import App from './app.vue';
 import TDesignChat from '@tdesign-vue-next/chat'; // 引入chat组件
-import '@tdesign-vue-next/chat/es/style/index.css'; // 引入chat组件的少量全局样式变量
+import 'tdesign-vue-next/es/style/index.css'; // 引入少量全局样式变量
 
 const app = createApp(App);
 app.use(TDesignChat);
@@ -57,6 +57,10 @@ import {
   ChatItem as TChatItem,
 } from '@tdesign-vue-next/chat';
 ```
+
+<div style="background: #fff5e4; display: flex; align-items: center; line-height: 20px; padding: 14px 24px; border-radius: 3px; color: #555a65;margin:16px 0">
+   ⚠️ 如果按需使用的同时，需要通过主题生成器导出主题覆盖全局样式，建议请在 `main.ts` 按需注册使用 `createApp(App).use(TChatAction)`
+</div>
 
 <div style="background: #fff5e4; display: flex; align-items: center; line-height: 20px; padding: 14px 24px; border-radius: 3px; color: #555a65;margin:16px 0">
    ⚠️ 请注意，如果配合 unplugin-vue-components 使用 TDesign，请勿重命名为 T 开头组件进行按需使用，后续将修复该使用问题。
