@@ -96,7 +96,7 @@ catalogs:
     tdesign-icons-vue-next: ^0.3.6
     tdesign-publish-cli: ^0.0.12
     tdesign-site-components: ^0.16.5
-    tdesign-theme-generator: ^1.1.7
+    tdesign-theme-generator: ^1.1.8
 
   test:
     '@testing-library/dom': ^9.3.1
