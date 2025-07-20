@@ -3,7 +3,7 @@ import type { FilterPattern } from 'unplugin-utils';
 import { chatComponentMap, mobileComponentMap, webComponentMap } from './components';
 import { isExclude } from './utils';
 
-export type TDesignLibrary = 'vue' | 'vue-next' | 'react' | 'mobile-vue' | 'mobile-react' | 'chat';
+export type TDesignLibrary = 'vue' | 'vue-next' | 'mobile-vue' | 'chat';
 
 export interface TDesignResolverOptions {
   /**
