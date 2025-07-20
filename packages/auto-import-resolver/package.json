@@ -8,9 +8,8 @@
     "build": "tsdown"
   },
   "keywords": [],
-  "author": "",
+  "author": "tdesign",
   "license": "MIT",
-  "packageManager": "pnpm@10.12.1",
   "devDependencies": {
     "tsdown": "^0.12.9",
     "typescript": "^5.8.3"
