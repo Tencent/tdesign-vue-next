@@ -73,22 +73,6 @@ export function TDesignResolver(options: TDesignResolverOptions = {}): Component
           from: `${resolveComponentPkg(library)}${importFrom}`,
         };
       }
-
-      // if (name.startsWith('TTypography') || name.startsWith('Typography')) {
-      //     return {
-      //         name: name.slice(name.startsWith('TTypography') ? 11 : 10),
-      //         from: `tdesign-${library}${importFrom}`,
-      //     }
-      // }
-
-      // if (name.match(/^T[A-Z]/) || pluginList.includes(name)) {
-      //     const importName = name.match(/^T[A-Z]/) ? name.slice(1) : name
-
-      //     return {
-      //         name: importName,
-      //         from: `tdesign-${library}${importFrom}`,
-      //     }
-      // }
     },
   };
 }
@@ -104,7 +88,7 @@ function resolveImportName(name: string) {
 }
 
 function resolveIconPkg(library: TDesignLibrary): string {
-  if (library === 'chat' || library === 'vue-next' || library === 'mobile-vue') {
+  if (library === 'chat' || library === 'mobile-vue') {
     return 'tdesign-icons-vue-next';
   }
 
