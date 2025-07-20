@@ -172,7 +172,7 @@ Components({
 自动引入 `tdesign-icons` 图标库
 
 - **Type：** `boolean`
-- **Default：** `boolean`
+- **Default：** `flare`
 - **Example：**
 
 ```ts
@@ -190,7 +190,7 @@ Components({
 导入 esm 版本
 
 - **Type：** `boolean`
-- **Default：** `flase`
+- **Default：** `flare`
 
 ### exclude
 
