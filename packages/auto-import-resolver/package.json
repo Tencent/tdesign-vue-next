@@ -1,0 +1,39 @@
+{
+  "name": "@tdesign-vue-next/auto-import-resolver",
+  "version": "0.0.1",
+  "description": "",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "scripts": {
+    "build": "tsdown"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "packageManager": "pnpm@10.12.1",
+  "devDependencies": {
+    "tsdown": "^0.12.9",
+    "typescript": "^5.8.3"
+  },
+  "module": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "types": "./dist/index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "unplugin-utils": "^0.2.4",
+    "unplugin-vue-components": "^28.8.0"
+  }
+}
