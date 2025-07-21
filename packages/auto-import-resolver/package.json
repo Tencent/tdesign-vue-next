@@ -1,6 +1,6 @@
 {
   "name": "@tdesign-vue-next/auto-import-resolver",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "On-demand components auto importing for series of TDesign Vue Components",
   "type": "module",
   "main": "./dist/index.cjs",
