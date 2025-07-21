@@ -116,7 +116,7 @@ export const mobileComponentMap = {
   popup: ['Popup'],
   progress: ['Progress'],
   'pull-down-refresh': ['PullDownRefresh'],
-  qrcode: ['TQRCode'],
+  qrcode: ['QRCode'],
   radio: ['Radio', 'RadioGroup'],
   rate: ['Rate'],
   result: ['Result'],
