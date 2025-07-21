@@ -504,7 +504,7 @@ export default defineComponent({
             return (
               <Tag
                 key={key}
-                closable={!option?.disabled && !props.disabled && !props.readonly}
+                closable={!option?.disabled && !isDisabled.value && !isReadonly.value}
                 size={props.size}
                 {...props.tagProps}
                 onClose={({ e }: { e: MouseEvent }) => {
