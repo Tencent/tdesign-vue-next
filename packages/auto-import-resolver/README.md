@@ -1,4 +1,20 @@
-# TDesign Auto Import Resolver
+<p align="center">
+  <a href="https://tdesign.tencent.com/" target="_blank">
+    <img alt="TDesign Logo" width="200" src="https://tdesign.gtimg.com/site/TDesign.png">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/auto-import-resolver/LICENSE">
+    <img src="https://img.shields.io/npm/l/@tdesign-vue-next/auto-import-resolver.svg?sanitize=true" alt="License">
+  </a>
+  <a href="https://www.npmjs.com/package/@tdesign-vue-next/auto-import-resolver">
+    <img src="https://img.shields.io/npm/v/@tdesign-vue-next/auto-import-resolver.svg?sanitize=true" alt="Version">
+  </a>
+  <a href="https://www.npmjs.com/package/@tdesign-vue-next/auto-import-resolver">
+    <img src="https://img.shields.io/npm/dm/@tdesign-vue-next/auto-import-resolver" alt="Downloads">
+  </a>
+</p>
 
 `@tdesign-vue-next/auto-import-resolver` 是 [unplugin-vue-components](https://github.com/unplugin/unplugin-vue-components) 的一个解析器，用于实现 TDesign 按需引入。
 
