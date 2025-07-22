@@ -5,28 +5,29 @@ import { Styles } from '../../common';
 import { SelectOption, SelectOptionGroup, TdOptionProps } from '../type';
 import Option from '../option';
 import OptionGroup from '../option-group';
-import TdSelectProps from '../props';
+import tdSelectProps from '../props';
 
 import { useConfig, useTNodeJSX, usePrefixClass, useTNodeDefault } from '@tdesign/shared-hooks';
 
 import { usePanelVirtualScroll } from '../hooks';
 import { selectInjectKey } from '../consts';
+import type { TdSelectProps } from '../type';
 
 export default defineComponent({
   name: 'TSelectPanel',
   props: {
-    inputValue: TdSelectProps.inputValue,
-    panelTopContent: TdSelectProps.panelTopContent,
-    panelBottomContent: TdSelectProps.panelBottomContent,
-    empty: TdSelectProps.empty,
-    creatable: TdSelectProps.creatable,
-    loading: TdSelectProps.loading,
-    loadingText: TdSelectProps.loadingText,
-    multiple: TdSelectProps.multiple,
-    filterable: TdSelectProps.filterable,
-    filter: TdSelectProps.filter,
-    scroll: TdSelectProps.scroll,
-    size: TdSelectProps.size,
+    inputValue: tdSelectProps.inputValue,
+    panelTopContent: tdSelectProps.panelTopContent,
+    panelBottomContent: tdSelectProps.panelBottomContent,
+    empty: tdSelectProps.empty,
+    creatable: tdSelectProps.creatable,
+    loading: tdSelectProps.loading,
+    loadingText: tdSelectProps.loadingText,
+    multiple: tdSelectProps.multiple,
+    filterable: tdSelectProps.filterable,
+    filter: tdSelectProps.filter,
+    scroll: tdSelectProps.scroll,
+    keys: tdSelectProps.keys,
   },
   setup(props, { expose }) {
     const COMPONENT_NAME = usePrefixClass('select');
@@ -35,6 +36,7 @@ export default defineComponent({
     const { t, globalConfig } = useConfig('select');
     const tSelect = inject(selectInjectKey);
     const innerRef = ref<HTMLElement>(null);
+    const keys = computed(() => props.keys as TdSelectProps['keys']);
 
     const popupContentRef = computed(() => tSelect.value.popupContentRef.value);
     const showCreateOption = computed(() => props.creatable && props.filterable && props.inputValue);
@@ -71,9 +73,13 @@ export default defineComponent({
                 </OptionGroup>
               );
             }
+            const option = [keys?.['value'], keys.value?.['label'], keys.value?.['disabled']].includes('content')
+              ? omit(item, 'index', '$index', 'className', 'tagName', 'content')
+              : omit(item, 'index', '$index', 'className', 'tagName');
+
             return (
               <Option
-                {...omit(item, 'index', '$index', 'className', 'tagName')}
+                {...option}
                 {...(isVirtual.value
                   ? {
                       rowIndex: item.$index,
