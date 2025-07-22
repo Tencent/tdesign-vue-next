@@ -3,7 +3,7 @@ import props from './props';
 import generateBase64Url from '@tdesign/common-js/watermark/generateBase64Url';
 import randomMovingStyle from '@tdesign/common-js/watermark/randomMovingStyle';
 import injectStyle from '@tdesign/common-js/utils/injectStyle';
-import { useContent, usePrefixClass } from '@tdesign/shared-hooks';
+import { useContent, usePrefixClass, useVariables } from '@tdesign/shared-hooks';
 import { useMutationObserver } from './hooks';
 
 import setStyle from '@tdesign/common-js/utils/setStyle';
@@ -44,7 +44,9 @@ export default defineComponent({
     const offsetTop = computed(() => {
       return offset[1] || gapY.value / 2;
     });
-
+    const { fontColor } = useVariables({
+      fontColor: '--td-text-color-disabled',
+    });
     const bgImageOptions = computed(() => ({
       width: props.width,
       height: props.height,
@@ -56,6 +58,7 @@ export default defineComponent({
       watermarkContent: props.watermarkContent,
       offsetLeft: offsetLeft.value,
       offsetTop: offsetTop.value,
+      fontColor: fontColor.value,
     }));
 
     const removeWaterMark = () => {
@@ -118,7 +121,7 @@ export default defineComponent({
       );
     });
 
-    watch(() => props, injectWaterMark, { deep: true, flush: 'post' });
+    watch(() => [props, fontColor.value], injectWaterMark, { deep: true, flush: 'post' });
 
     return () => {
       const COMPONENT_NAME = usePrefixClass('watermark');
