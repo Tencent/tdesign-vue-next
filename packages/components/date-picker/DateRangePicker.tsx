@@ -106,10 +106,14 @@ export default defineComponent({
         activeIndex.value = 0;
         isHoverCell.value = false;
         isFirstValueSelected.value = false;
-        inputValue.value = formatDate(value.value, {
-          format: formatRef.value.valueType,
-          targetFormat: formatRef.value.format,
-        });
+        if (props.needConfirm) {
+          inputValue.value = formatDate(value.value, {
+            format: formatRef.value.valueType,
+            targetFormat: formatRef.value.format,
+          });
+        } else {
+          confirmValueChange();
+        }
       }
     });
 
@@ -246,7 +250,41 @@ export default defineComponent({
         format: formatRef.value.format,
       });
     }
+    const confirmValueChange = () => {
+      const nextValue = [...(inputValue.value as string[])];
 
+      const notValidIndex = nextValue.findIndex((v) => !v || !isValidDate(v, formatRef.value.format));
+
+      // 当两端都有有效值时更改 value
+      if (notValidIndex === -1 && nextValue.length === 2) {
+        // 二次修改时当其中一侧不符合上次区间规范时，清空另一侧数据
+        if (
+          !isFirstValueSelected.value &&
+          parseToDayjs(nextValue[0], formatRef.value.format).isAfter(parseToDayjs(nextValue[1], formatRef.value.format))
+        ) {
+          nextValue[activeIndex.value ? 0 : 1] = '';
+          cacheValue.value = nextValue;
+          inputValue.value = nextValue;
+        } else {
+          props?.onConfirm?.({
+            date: nextValue.map((v) => dayjs(v).toDate()),
+            e: null,
+            partial: activeIndex.value ? 'end' : 'start',
+          });
+          onChange?.(
+            formatDate(nextValue, {
+              format: formatRef.value.format,
+              targetFormat: formatRef.value.valueType,
+              autoSwap: true,
+            }) as DateValue[],
+            {
+              dayjsValue: nextValue.map((v) => parseToDayjs(v, formatRef.value.format)),
+              trigger: 'confirm',
+            },
+          );
+        }
+      }
+    };
     // 确定
     function onConfirmClick({ e }: { e: MouseEvent }) {
       const nextValue = [...(inputValue.value as string[])];
@@ -393,6 +431,7 @@ export default defineComponent({
       popupVisible: popupVisible.value,
       panelPreselection: props.panelPreselection,
       cancelRangeSelectLimit: props.cancelRangeSelectLimit,
+      needConfirm: props.needConfirm,
       onCellClick,
       onCellMouseEnter,
       onCellMouseLeave,

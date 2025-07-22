@@ -43,6 +43,7 @@ export default defineComponent({
     onYearChange: Function,
     onMonthChange: Function,
     onTimePickerChange: Function,
+    needConfirm: Boolean,
   },
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('date-range-picker__panel');
@@ -155,6 +156,7 @@ export default defineComponent({
             onPresetClick={props.onPresetClick}
             onConfirmClick={props.onConfirmClick}
             presetsPlacement={props.presetsPlacement}
+            needConfirm={props.needConfirm}
           />
         ) : null}
         <div class={`${COMPONENT_NAME.value}-content-wrapper`}>
@@ -202,6 +204,7 @@ export default defineComponent({
             onPresetClick={props.onPresetClick}
             onConfirmClick={props.onConfirmClick}
             presetsPlacement={props.presetsPlacement}
+            needConfirm={props.needConfirm}
           />
         ) : null}
       </div>
