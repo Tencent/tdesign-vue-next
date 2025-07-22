@@ -45,7 +45,7 @@ export default defineComponent({
       return offset[1] || gapY.value / 2;
     });
     const { fontColor } = useVariables({
-      fontColor: '--td-text-color-disabled',
+      fontColor: '--td-bg-color-secondarycontainer-hover',
     });
     const bgImageOptions = computed(() => ({
       width: props.width,
