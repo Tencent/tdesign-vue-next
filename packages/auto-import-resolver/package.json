@@ -2,20 +2,10 @@
   "name": "@tdesign-vue-next/auto-import-resolver",
   "version": "0.1.0",
   "description": "On-demand components auto importing for series of TDesign Vue Components",
-  "type": "module",
-  "main": "./dist/index.cjs",
-  "scripts": {
-    "build": "tsx scripts/prebuild.ts && tsdown"
-  },
-  "keywords": [],
   "author": "tdesign",
   "license": "MIT",
-  "devDependencies": {
-    "tdesign-icons-vue-next": "catalog:tdesign",
-    "tsdown": "catalog:bundle",
-    "tsx": "catalog:bundle",
-    "typescript": "catalog:types"
-  },
+  "type": "module",
+  "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "typings": "./dist/index.d.ts",
   "exports": {
@@ -26,6 +16,19 @@
     "./package.json": "./package.json"
   },
   "types": "./dist/index.d.cts",
+  "scripts": {
+    "build": "tsx scripts/prebuild.ts && tsdown"
+  },
+  "dependencies": {
+    "unplugin-utils": "^0.2.4",
+    "unplugin-vue-components": "^28.8.0"
+  },
+  "devDependencies": {
+    "tdesign-icons-vue-next": "catalog:tdesign",
+    "tsdown": "catalog:bundle",
+    "tsx": "catalog:bundle",
+    "typescript": "catalog:types"
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
@@ -37,9 +40,5 @@
   },
   "files": [
     "dist"
-  ],
-  "dependencies": {
-    "unplugin-utils": "^0.2.4",
-    "unplugin-vue-components": "^28.8.0"
-  }
+  ]
 }
