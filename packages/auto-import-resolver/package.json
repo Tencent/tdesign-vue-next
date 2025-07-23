@@ -5,13 +5,15 @@
   "type": "module",
   "main": "./dist/index.cjs",
   "scripts": {
-    "build": "tsdown"
+    "build": "tsx scripts/prebuild.ts && tsdown"
   },
   "keywords": [],
   "author": "tdesign",
   "license": "MIT",
   "devDependencies": {
+    "tdesign-icons-vue-next": "catalog:tdesign",
     "tsdown": "catalog:bundle",
+    "tsx": "catalog:bundle",
     "typescript": "catalog:types"
   },
   "module": "./dist/index.js",
@@ -23,7 +25,7 @@
     },
     "./package.json": "./package.json"
   },
-  "types": "./dist/index.d.ts",
+  "types": "./dist/index.d.cts",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
