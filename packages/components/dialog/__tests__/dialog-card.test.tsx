@@ -106,7 +106,7 @@ describe('props', () => {
   });
 
   it('theme[string]', async () => {
-    const themes = ['default', 'info', 'warning', 'danger', 'success'] as const;
+    const themes = ['default', 'info', 'warning', 'danger', 'success', ''] as const;
 
     themes.forEach(async (theme) => {
       const wrapper = mount(() => <DialogCard header="Title" body="Content" theme={theme} />);
@@ -201,6 +201,26 @@ describe('props', () => {
     expect(dialog.exists()).toBe(true);
     // 这里需要根据实际的行为进行测试调整
   });
+
+  it('should switch body className correctly in full-screen mode', async () => {
+    // footer 存在时
+    const wrapperWithFooter = mount(() => (
+      <DialogCard header="Title" body="Content" mode="full-screen" footer={true} />
+    ));
+    await nextTick();
+    const bodyWithFooter = wrapperWithFooter.find('.t-dialog__body');
+    expect(bodyWithFooter.exists()).toBe(true);
+    expect(bodyWithFooter.classes()).toContain('t-dialog__body--fullscreen');
+
+    // footer 不存在时
+    const wrapperWithoutFooter = mount(() => (
+      <DialogCard header="Title" body="Content" mode="full-screen" footer={false} />
+    ));
+    await nextTick();
+    const bodyWithoutFooter = wrapperWithoutFooter.find('.t-dialog__body');
+    expect(bodyWithoutFooter.exists()).toBe(true);
+    expect(bodyWithoutFooter.classes()).toContain('t-dialog__body--fullscreen--without-footer');
+  });
 });
 
 describe('events', () => {
@@ -212,6 +232,16 @@ describe('events', () => {
     const closeBtn = wrapper.find('.t-dialog__close');
     await closeBtn.trigger('click');
     expect(onCloseBtnClick).toHaveBeenCalled();
+  });
+
+  it('onStopDown: should call stopPropagation when mode is modeless and draggable is true', async () => {
+    const stopPropagation = vi.fn();
+    const wrapper = mount(() => <DialogCard header="Title" body="Content" mode="modeless" draggable={true} />);
+    await nextTick();
+    // 触发 body 区域的 mousedown
+    const body = wrapper.find('.t-dialog__body');
+    await body.trigger('mousedown', { stopPropagation });
+    expect(stopPropagation).toHaveBeenCalled();
   });
 });
 

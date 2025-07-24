@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { describe, expect, it, vi, beforeEach, afterEach } from 'vitest';
 import { getCSSValue, initDragEvent } from '../utils';
 
@@ -99,11 +98,11 @@ describe('initDragEvent', () => {
     });
 
     // 模拟style对象
-    mockElement.style = {
+    Object.assign(mockElement.style, {
       position: '',
       left: '',
       top: '',
-    } as CSSStyleDeclaration;
+    });
 
     // 设置窗口大小
     Object.defineProperty(window, 'innerWidth', {
@@ -163,7 +162,7 @@ describe('initDragEvent', () => {
       mockElement.dispatchEvent(mockMouseDownEvent);
 
       // 获取mouseup处理函数
-      const mouseUpHandler = addEventListenerSpy.mock.calls.find((call) => call[0] === 'mouseup')[1];
+      const mouseUpHandler = addEventListenerSpy.mock.calls.find((call: string[]) => call[0] === 'mouseup')[1];
 
       // 触发mouseup
       mouseUpHandler(mockMouseUpEvent);
@@ -179,7 +178,7 @@ describe('initDragEvent', () => {
       mockElement.dispatchEvent(mockMouseDownEvent);
 
       // 获取mousemove处理函数
-      const mouseMoveHandler = addEventListenerSpy.mock.calls.find((call) => call[0] === 'mousemove')[1];
+      const mouseMoveHandler = addEventListenerSpy.mock.calls.find((call: string[]) => call[0] === 'mousemove')[1];
 
       // 触发mousemove
       mouseMoveHandler(mockMouseMoveEvent);
@@ -196,7 +195,7 @@ describe('initDragEvent', () => {
 
       mockElement.dispatchEvent(mockMouseDownEvent);
 
-      const mouseMoveHandler = addEventListenerSpy.mock.calls.find((call) => call[0] === 'mousemove')[1];
+      const mouseMoveHandler = addEventListenerSpy.mock.calls.find((call: string[]) => call[0] === 'mousemove')[1];
 
       // 创建超出左边界的事件
       const leftBoundaryEvent = new MouseEvent('mousemove', {
@@ -214,7 +213,7 @@ describe('initDragEvent', () => {
 
       mockElement.dispatchEvent(mockMouseDownEvent);
 
-      const mouseMoveHandler = addEventListenerSpy.mock.calls.find((call) => call[0] === 'mousemove')[1];
+      const mouseMoveHandler = addEventListenerSpy.mock.calls.find((call: string[]) => call[0] === 'mousemove')[1];
 
       // 创建超出上边界的事件
       const topBoundaryEvent = new MouseEvent('mousemove', {
@@ -232,7 +231,7 @@ describe('initDragEvent', () => {
 
       mockElement.dispatchEvent(mockMouseDownEvent);
 
-      const mouseMoveHandler = addEventListenerSpy.mock.calls.find((call) => call[0] === 'mousemove')[1];
+      const mouseMoveHandler = addEventListenerSpy.mock.calls.find((call: string[]) => call[0] === 'mousemove')[1];
 
       // 创建超出右边界的事件
       const rightBoundaryEvent = new MouseEvent('mousemove', {
@@ -252,7 +251,7 @@ describe('initDragEvent', () => {
 
       mockElement.dispatchEvent(mockMouseDownEvent);
 
-      const mouseMoveHandler = addEventListenerSpy.mock.calls.find((call) => call[0] === 'mousemove')[1];
+      const mouseMoveHandler = addEventListenerSpy.mock.calls.find((call: string[]) => call[0] === 'mousemove')[1];
 
       // 创建超出下边界的事件
       const bottomBoundaryEvent = new MouseEvent('mousemove', {
@@ -306,13 +305,30 @@ describe('initDragEvent', () => {
       }).not.toThrow();
     });
 
+    it('should handle missing window innerHeight', () => {
+      // 模拟没有 window.innerHeight 的情况
+      Object.defineProperty(window, 'innerHeight', {
+        writable: true,
+        value: undefined,
+      });
+      Object.defineProperty(document.documentElement, 'clientHeight', {
+        writable: true,
+        value: 768,
+      });
+
+      expect(() => {
+        initDragEvent(mockElement);
+        mockElement.dispatchEvent(mockMouseDownEvent);
+      }).not.toThrow();
+    });
+
     it('should handle dragend event', () => {
       initDragEvent(mockElement);
 
       mockElement.dispatchEvent(mockMouseDownEvent);
 
       // 获取dragend处理函数
-      const dragEndHandler = addEventListenerSpy.mock.calls.find((call) => call[0] === 'dragend')[1];
+      const dragEndHandler = addEventListenerSpy.mock.calls.find((call: string[]) => call[0] === 'dragend')[1];
 
       // 触发dragend
       const dragEndEvent = new Event('dragend');
