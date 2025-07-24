@@ -225,6 +225,7 @@ export default defineComponent({
         }
         off(document, 'mousedown', onDocumentMouseDown, true);
       },
+      { immediate: true },
     );
 
     watch(
