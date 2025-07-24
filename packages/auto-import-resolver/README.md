@@ -51,7 +51,7 @@ import { TDesignResolver } from '@tdesign-vue-next/auto-import-resolver';
 export default defineConfig({
   plugins: [
     AutoImport({
-      resolvers: [TDesignResolver()],
+      resolvers: [TDesignResolver({autoImport:true})],
     }),
     Components({
       resolvers: [TDesignResolver()],
@@ -71,7 +71,7 @@ import { TDesignResolver } from '@tdesign-vue-next/auto-import-resolver';
 export default {
   plugins: [
     AutoImport({
-      resolvers: [TDesignResolver()],
+      resolvers: [TDesignResolver({autoImport:true})],
     }),
     Components({
       resolvers: [TDesignResolver()],
@@ -91,7 +91,7 @@ import { TDesignResolver } from '@tdesign-vue-next/auto-import-resolver';
 module.exports = {
   plugins: [
     AutoImport({
-      resolvers: [TDesignResolver()],
+      resolvers: [TDesignResolver({autoImport:true})],
     }),
     Components({
       resolvers: [TDesignResolver()],
@@ -111,7 +111,7 @@ import { TDesignResolver } from '@tdesign-vue-next/auto-import-resolver';
 module.exports = {
   plugins: [
     AutoImport({
-      resolvers: [TDesignResolver()],
+      resolvers: [TDesignResolver({autoImport:true})],
     }),
     Components({
       resolvers: [TDesignResolver()],
@@ -132,7 +132,7 @@ module.exports = {
   configureWebpack: {
     plugins: [
       AutoImport({
-        resolvers: [TDesignResolver()],
+        resolvers: [TDesignResolver({autoImport:true})],
       }),
       Components({
         resolvers: [TDesignResolver()],
@@ -154,7 +154,7 @@ import { TDesignResolver } from '@tdesign-vue-next/auto-import-resolver';
 build({
   plugins: [
     AutoImport({
-      resolvers: [TDesignResolver()],
+      resolvers: [TDesignResolver({autoImport:true})],
     }),
     Components({
       resolvers: [TDesignResolver()],
@@ -221,6 +221,24 @@ Components({
   resolvers: [
     TDesignResolver({
       exclude: ['Button'],
+    }),
+  ],
+});
+```
+
+### autoImport
+
+unplugin-auto-import 自动引入的插件。
+
+- **Type：** `boolean`
+- **Default：*false* 
+- **Example：**
+
+```ts
+Components({
+  resolvers: [
+    TDesignResolver({
+      autoImport: true,
     }),
   ],
 });
