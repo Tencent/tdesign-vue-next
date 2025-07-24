@@ -93,7 +93,7 @@ function resolveImportName(name: string) {
   if (componentName.startsWith('Typography')) {
     return componentName.slice('Typography'.length);
   }
-  return name;
+  return componentName;
 }
 
 function resolveIconPkg(library: TDesignLibrary): string {
