@@ -30,25 +30,16 @@ export interface TDesignResolverOptions {
    *
    */
   exclude?: FilterPattern;
-
-  /**
-   * compatible with unplugin-auto-import
-   *
-   * @default false
-   */
-  autoImport?: boolean;
 }
 
 export function TDesignResolver(options: TDesignResolverOptions = {}): ComponentResolver {
   return {
     type: 'component',
     resolve: (name: string) => {
-      const { library = 'vue', exclude, autoImport } = options;
+      const { library = 'vue', exclude } = options;
       const importFrom = options.esm ? '/esm' : '';
 
       if (isExclude(name, exclude)) return;
-
-      if (!autoImport && name.endsWith('Plugin')) return;
 
       if (options.resolveIcons && icons.includes(name)) {
         return {
