@@ -617,3 +617,96 @@ describe('BaseTable Component', () => {
     });
   });
 });
+
+describe('BaseTable Props and Edge Cases', () => {
+  const testColumns = [
+    { title: 'Name', colKey: 'name' },
+    { title: 'Age', colKey: 'age' },
+    { title: 'Status', colKey: 'status' },
+    { title: 'Email', colKey: 'email' },
+  ];
+  const testData = [
+    { id: 1, name: 'Alice', age: 25, status: 'active', email: 'alice@example.com' },
+    { id: 2, name: 'Bob', age: 30, status: 'inactive', email: 'bob@example.com' },
+    { id: 3, name: 'Charlie', age: 35, status: 'active', email: 'charlie@example.com' },
+  ];
+
+  it('should render cellEmptyContent when data is empty', async () => {
+    const wrapper = mount(() => <BaseTable data={[]} columns={testColumns} rowKey="id" cellEmptyContent="-" />);
+    await nextTick();
+    expect(wrapper.find('.t-table__empty').exists()).toBeTruthy();
+    // 兼容全局配置下的默认文案
+    expect(wrapper.text()).toMatch(/-|暂无数据|No Data/);
+  });
+
+  it('should render bottomContent and firstFullRow', async () => {
+    const wrapper = mount(() => (
+      <BaseTable
+        data={testData}
+        columns={testColumns}
+        rowKey="id"
+        bottomContent="Bottom Content"
+        firstFullRow="First Full Row Content"
+      />
+    ));
+    await nextTick();
+    expect(wrapper.text()).toContain('Bottom Content');
+    expect(wrapper.text()).toContain('First Full Row Content');
+  });
+
+  it('should render fixedRows and footData', async () => {
+    const wrapper = mount(() => (
+      <BaseTable
+        data={testData}
+        columns={testColumns}
+        rowKey="id"
+        fixedRows={[1, 1]}
+        footData={[{ id: 'f1', name: 'Summary', age: '', status: '', email: '' }]}
+      />
+    ));
+    await nextTick();
+    expect(wrapper.text()).toContain('Summary');
+  });
+
+  it('should render footerSummary', async () => {
+    const wrapper = mount(() => (
+      <BaseTable data={testData} columns={testColumns} rowKey="id" footerSummary="Footer Summary Content" />
+    ));
+    await nextTick();
+    expect(wrapper.text()).toContain('Footer Summary Content');
+  });
+
+  it('should support headerAffixedTop and footerAffixedBottom', async () => {
+    const wrapper = mount(() => (
+      <BaseTable data={testData} columns={testColumns} rowKey="id" headerAffixedTop={true} footerAffixedBottom={true} />
+    ));
+    await nextTick();
+    expect(wrapper.exists()).toBeTruthy();
+  });
+
+  it('should support attach prop', async () => {
+    const wrapper = mount(() => <BaseTable data={testData} columns={testColumns} rowKey="id" attach="body" />);
+    await nextTick();
+    expect(wrapper.exists()).toBeTruthy();
+  });
+
+  it('should support disableDataPage and disableSpaceInactiveRow', async () => {
+    const wrapper = mount(() => (
+      <BaseTable
+        data={testData}
+        columns={testColumns}
+        rowKey="id"
+        disableDataPage={true}
+        disableSpaceInactiveRow={true}
+      />
+    ));
+    await nextTick();
+    expect(wrapper.exists()).toBeTruthy();
+  });
+
+  it('should render empty slot or text', async () => {
+    const wrapper = mount(() => <BaseTable data={[]} columns={testColumns} rowKey="id" empty="No Data" />);
+    await nextTick();
+    expect(wrapper.text()).toContain('No Data');
+  });
+});

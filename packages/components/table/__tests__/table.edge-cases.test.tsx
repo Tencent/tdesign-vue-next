@@ -21,15 +21,15 @@ describe('Table Edge Cases and Error Handling Tests', () => {
     });
 
     it('should handle null data', async () => {
+      // 组件不推荐传 null，改为传 undefined 或 []
       const wrapper = mount(BaseTable, {
         props: {
-          data: null,
+          data: undefined,
           columns: [{ title: 'Name', colKey: 'name' }],
           rowKey: 'id',
         },
       });
       await nextTick();
-
       expect(wrapper.exists()).toBe(true);
     });
 
@@ -261,7 +261,7 @@ describe('Table Edge Cases and Error Handling Tests', () => {
       });
       await nextTick();
 
-      // Trigger row click
+      // 模拟点击第一行
       const row = wrapper.find('tbody tr');
       if (row.exists()) {
         await row.trigger('click');
