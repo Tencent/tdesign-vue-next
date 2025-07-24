@@ -91,6 +91,12 @@ describe('Divider', () => {
       expect(wrapperTNode.element).toMatchSnapshot('content-TNode');
     });
 
+    it(':content[slot]', () => {
+      const wrapperString = mount(<Divider v-slots={{ content: () => 'TDesign' }} />);
+      expect(wrapperString.text()).toBe('TDesign');
+      expect(wrapperString.element).toMatchSnapshot('content-string');
+    });
+
     it(':default[string/function]', () => {
       // string
       const wrapperString = mount(<Divider default="TDesign" />);
@@ -104,7 +110,7 @@ describe('Divider', () => {
       expect(wrapperFunction.element).toMatchSnapshot();
     });
 
-    it('default should be priority to content', () => {
+    it(':default[slot]:should be priority to content', () => {
       const wrapper = mount(<Divider content="prop content" v-slots={{ default: () => 'TDesign' }} />);
       expect(wrapper.text()).toBe('TDesign');
       expect(wrapper.element).toMatchSnapshot('default-priority');

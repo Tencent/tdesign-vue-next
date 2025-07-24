@@ -14,6 +14,20 @@ exports[`Divider > props > :align[left/right/center] > align-vertical-left 1`] =
 </div>
 `;
 
+exports[`Divider > props > :align[left/right/center] > align-vertical-left 2`] = `
+<div
+  class="t-divider t-divider--vertical t-divider--with-text t-divider--with-text-left"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    
+    text
+    
+  </span>
+</div>
+`;
+
 exports[`Divider > props > :align[left/right/center] 1`] = `
 <div
   class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-left"
@@ -56,7 +70,79 @@ exports[`Divider > props > :align[left/right/center] 3`] = `
 </div>
 `;
 
+exports[`Divider > props > :align[left/right/center] 4`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-left"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    
+    Text
+    
+  </span>
+</div>
+`;
+
+exports[`Divider > props > :align[left/right/center] 5`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-right"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    
+    Text
+    
+  </span>
+</div>
+`;
+
+exports[`Divider > props > :align[left/right/center] 6`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    
+    Text
+    
+  </span>
+</div>
+`;
+
+exports[`Divider > props > :content[slot] > content-string 1`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    
+    TDesign
+    
+  </span>
+</div>
+`;
+
 exports[`Divider > props > :content[string/function] > content-TNode 1`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    <span
+      class="custom-node"
+    >
+      TNode
+    </span>
+  </span>
+</div>
+`;
+
+exports[`Divider > props > :content[string/function] > content-TNode 2`] = `
 <div
   class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
 >
@@ -84,7 +170,27 @@ exports[`Divider > props > :content[string/function] > content-string 1`] = `
 </div>
 `;
 
+exports[`Divider > props > :content[string/function] > content-string 2`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    TDesign
+  </span>
+</div>
+`;
+
 exports[`Divider > props > :dashed[true/false] > dashed-false-default 1`] = `
+<div
+  class="t-divider t-divider--horizontal"
+>
+  <!---->
+</div>
+`;
+
+exports[`Divider > props > :dashed[true/false] > dashed-false-default 2`] = `
 <div
   class="t-divider t-divider--horizontal"
 >
@@ -100,7 +206,23 @@ exports[`Divider > props > :dashed[true/false] > dashed-false-explicit 1`] = `
 </div>
 `;
 
+exports[`Divider > props > :dashed[true/false] > dashed-false-explicit 2`] = `
+<div
+  class="t-divider t-divider--horizontal"
+>
+  <!---->
+</div>
+`;
+
 exports[`Divider > props > :dashed[true/false] > dashed-true 1`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--dashed"
+>
+  <!---->
+</div>
+`;
+
+exports[`Divider > props > :dashed[true/false] > dashed-true 2`] = `
 <div
   class="t-divider t-divider--horizontal t-divider--dashed"
 >
@@ -116,7 +238,41 @@ exports[`Divider > props > :dashed[true/false] > dashed-vertical-true 1`] = `
 </div>
 `;
 
+exports[`Divider > props > :dashed[true/false] > dashed-vertical-true 2`] = `
+<div
+  class="t-divider t-divider--vertical t-divider--dashed"
+>
+  <!---->
+</div>
+`;
+
+exports[`Divider > props > :default[slot]:should be priority to content > default-priority 1`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    
+    TDesign
+    
+  </span>
+</div>
+`;
+
 exports[`Divider > props > :default[string/function] > default-string 1`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    TDesign
+  </span>
+</div>
+`;
+
+exports[`Divider > props > :default[string/function] > default-string 2`] = `
 <div
   class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
 >
@@ -146,6 +302,38 @@ exports[`Divider > props > :default[string/function] 1`] = `
 </div>
 `;
 
+exports[`Divider > props > :default[string/function] 2`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    
+    <span
+      class="custom-node"
+    >
+      TNode
+    </span>
+    
+  </span>
+</div>
+`;
+
+exports[`Divider > props > :default[string/slot/function] > default-priority 1`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    
+    TDesign
+    
+  </span>
+</div>
+`;
+
 exports[`Divider > props > :layout[horizontal/vertical] 1`] = `
 <div
   class="t-divider t-divider--horizontal"
@@ -155,6 +343,22 @@ exports[`Divider > props > :layout[horizontal/vertical] 1`] = `
 `;
 
 exports[`Divider > props > :layout[horizontal/vertical] 2`] = `
+<div
+  class="t-divider t-divider--vertical"
+>
+  <!---->
+</div>
+`;
+
+exports[`Divider > props > :layout[horizontal/vertical] 3`] = `
+<div
+  class="t-divider t-divider--horizontal"
+>
+  <!---->
+</div>
+`;
+
+exports[`Divider > props > :layout[horizontal/vertical] 4`] = `
 <div
   class="t-divider t-divider--vertical"
 >
