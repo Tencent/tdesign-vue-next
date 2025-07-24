@@ -30,16 +30,25 @@ export interface TDesignResolverOptions {
    *
    */
   exclude?: FilterPattern;
+
+  /**
+   * compatible with unplugin-auto-import
+   *
+   * @default false
+   */
+  autoImport?: boolean;
 }
 
 export function TDesignResolver(options: TDesignResolverOptions = {}): ComponentResolver {
   return {
     type: 'component',
     resolve: (name: string) => {
-      const { library = 'vue', exclude } = options;
+      const { library = 'vue', exclude, autoImport } = options;
       const importFrom = options.esm ? '/esm' : '';
 
       if (isExclude(name, exclude)) return;
+
+      if (!autoImport && name.endsWith('Plugin')) return;
 
       if (options.resolveIcons && icons.includes(name)) {
         return {
@@ -57,11 +66,11 @@ export function TDesignResolver(options: TDesignResolverOptions = {}): Component
       if (library === 'chat') {
         componentMap = chatComponentMap;
       }
-      if (!name.startsWith('T')) {
-        return;
-      }
+
       let isTDesignComponent = false;
-      const importName = resolveImportName(name.slice(1));
+      const importName = resolveImportName(name);
+
+      if (!importName) return;
 
       for (const key in componentMap) {
         if (componentMap[key].includes(importName)) {
@@ -80,11 +89,18 @@ export function TDesignResolver(options: TDesignResolverOptions = {}): Component
 }
 
 function resolveImportName(name: string) {
-  if (name === 'Qrcode') {
+  if (name.endsWith('Plugin')) {
+    return name;
+  }
+  if (!name.startsWith('T')) {
+    return '';
+  }
+  const componentName = name.slice(1);
+  if (componentName === 'Qrcode') {
     return 'QRCode';
   }
-  if (name.startsWith('Typography')) {
-    return name.slice('Typography'.length);
+  if (componentName.startsWith('Typography')) {
+    return componentName.slice('Typography'.length);
   }
   return name;
 }
