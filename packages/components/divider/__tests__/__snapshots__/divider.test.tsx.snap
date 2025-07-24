@@ -1,64 +1,34 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Divider Component > :props > :align 1`] = `
+exports[`Divider > props > :align[left/right/center] > align-vertical-left 1`] = `
 <div
-  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-left"
+  class="t-divider t-divider--vertical t-divider--with-text t-divider--with-text-left"
 >
   <span
     class="t-divider__inner-text"
   >
     
-    TDesign
+    text
     
   </span>
 </div>
 `;
 
-exports[`Divider Component > :props > :dashed 1`] = `
+exports[`Divider > props > :align[left/right/center] > align-vertical-left 2`] = `
 <div
-  class="t-divider t-divider--horizontal t-divider--dashed"
->
-  <!---->
-</div>
-`;
-
-exports[`Divider Component > :props > :layout 1`] = `
-<div
-  class="t-divider t-divider--vertical"
->
-  <!---->
-</div>
-`;
-
-exports[`Divider Component > <slot> > default 1`] = `
-<div
-  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
+  class="t-divider t-divider--vertical t-divider--with-text t-divider--with-text-left"
 >
   <span
     class="t-divider__inner-text"
   >
     
-    TDesign
+    text
     
   </span>
 </div>
 `;
 
-exports[`Divider Component > props.align is equal to center 1`] = `
-<div
-  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
->
-  <span
-    class="t-divider__inner-text"
-  >
-    
-    Text
-    
-  </span>
-</div>
-`;
-
-exports[`Divider Component > props.align is equal to left 1`] = `
+exports[`Divider > props > :align[left/right/center] 1`] = `
 <div
   class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-left"
 >
@@ -72,7 +42,7 @@ exports[`Divider Component > props.align is equal to left 1`] = `
 </div>
 `;
 
-exports[`Divider Component > props.align is equal to right 1`] = `
+exports[`Divider > props > :align[left/right/center] 2`] = `
 <div
   class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-right"
 >
@@ -86,7 +56,77 @@ exports[`Divider Component > props.align is equal to right 1`] = `
 </div>
 `;
 
-exports[`Divider Component > props.content works fine 1`] = `
+exports[`Divider > props > :align[left/right/center] 3`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    
+    Text
+    
+  </span>
+</div>
+`;
+
+exports[`Divider > props > :align[left/right/center] 4`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-left"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    
+    Text
+    
+  </span>
+</div>
+`;
+
+exports[`Divider > props > :align[left/right/center] 5`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-right"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    
+    Text
+    
+  </span>
+</div>
+`;
+
+exports[`Divider > props > :align[left/right/center] 6`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    
+    Text
+    
+  </span>
+</div>
+`;
+
+exports[`Divider > props > :content[slot] > content-string 1`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    
+    TDesign
+    
+  </span>
+</div>
+`;
+
+exports[`Divider > props > :content[string/function] > content-TNode 1`] = `
 <div
   class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
 >
@@ -102,7 +142,7 @@ exports[`Divider Component > props.content works fine 1`] = `
 </div>
 `;
 
-exports[`Divider Component > props.default works fine 1`] = `
+exports[`Divider > props > :content[string/function] > content-TNode 2`] = `
 <div
   class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
 >
@@ -118,7 +158,31 @@ exports[`Divider Component > props.default works fine 1`] = `
 </div>
 `;
 
-exports[`Divider Component > props.layout is equal to horizontal 1`] = `
+exports[`Divider > props > :content[string/function] > content-string 1`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    TDesign
+  </span>
+</div>
+`;
+
+exports[`Divider > props > :content[string/function] > content-string 2`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    TDesign
+  </span>
+</div>
+`;
+
+exports[`Divider > props > :dashed[true/false] > dashed-false-default 1`] = `
 <div
   class="t-divider t-divider--horizontal"
 >
@@ -126,15 +190,101 @@ exports[`Divider Component > props.layout is equal to horizontal 1`] = `
 </div>
 `;
 
-exports[`Divider Component > props.layout is equal to vertical 1`] = `
+exports[`Divider > props > :dashed[true/false] > dashed-false-default 2`] = `
 <div
-  class="t-divider t-divider--vertical"
+  class="t-divider t-divider--horizontal"
 >
   <!---->
 </div>
 `;
 
-exports[`Divider Component > slots.content works fine 1`] = `
+exports[`Divider > props > :dashed[true/false] > dashed-false-explicit 1`] = `
+<div
+  class="t-divider t-divider--horizontal"
+>
+  <!---->
+</div>
+`;
+
+exports[`Divider > props > :dashed[true/false] > dashed-false-explicit 2`] = `
+<div
+  class="t-divider t-divider--horizontal"
+>
+  <!---->
+</div>
+`;
+
+exports[`Divider > props > :dashed[true/false] > dashed-true 1`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--dashed"
+>
+  <!---->
+</div>
+`;
+
+exports[`Divider > props > :dashed[true/false] > dashed-true 2`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--dashed"
+>
+  <!---->
+</div>
+`;
+
+exports[`Divider > props > :dashed[true/false] > dashed-vertical-true 1`] = `
+<div
+  class="t-divider t-divider--vertical t-divider--dashed"
+>
+  <!---->
+</div>
+`;
+
+exports[`Divider > props > :dashed[true/false] > dashed-vertical-true 2`] = `
+<div
+  class="t-divider t-divider--vertical t-divider--dashed"
+>
+  <!---->
+</div>
+`;
+
+exports[`Divider > props > :default[slot]:should be priority to content > default-priority 1`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    
+    TDesign
+    
+  </span>
+</div>
+`;
+
+exports[`Divider > props > :default[string/function] > default-string 1`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    TDesign
+  </span>
+</div>
+`;
+
+exports[`Divider > props > :default[string/function] > default-string 2`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    TDesign
+  </span>
+</div>
+`;
+
+exports[`Divider > props > :default[string/function] 1`] = `
 <div
   class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
 >
@@ -152,7 +302,7 @@ exports[`Divider Component > slots.content works fine 1`] = `
 </div>
 `;
 
-exports[`Divider Component > slots.default works fine 1`] = `
+exports[`Divider > props > :default[string/function] 2`] = `
 <div
   class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
 >
@@ -165,6 +315,66 @@ exports[`Divider Component > slots.default works fine 1`] = `
     >
       TNode
     </span>
+    
+  </span>
+</div>
+`;
+
+exports[`Divider > props > :default[string/slot/function] > default-priority 1`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    
+    TDesign
+    
+  </span>
+</div>
+`;
+
+exports[`Divider > props > :layout[horizontal/vertical] 1`] = `
+<div
+  class="t-divider t-divider--horizontal"
+>
+  <!---->
+</div>
+`;
+
+exports[`Divider > props > :layout[horizontal/vertical] 2`] = `
+<div
+  class="t-divider t-divider--vertical"
+>
+  <!---->
+</div>
+`;
+
+exports[`Divider > props > :layout[horizontal/vertical] 3`] = `
+<div
+  class="t-divider t-divider--horizontal"
+>
+  <!---->
+</div>
+`;
+
+exports[`Divider > props > :layout[horizontal/vertical] 4`] = `
+<div
+  class="t-divider t-divider--vertical"
+>
+  <!---->
+</div>
+`;
+
+exports[`Divider > props > default should be priority to content > default-priority 1`] = `
+<div
+  class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
+>
+  <span
+    class="t-divider__inner-text"
+  >
+    
+    TDesign
     
   </span>
 </div>
