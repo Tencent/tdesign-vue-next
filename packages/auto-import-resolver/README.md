@@ -225,21 +225,3 @@ Components({
   ],
 });
 ```
-
-### autoImport
-
-unplugin-auto-import 自动引入的插件。
-
-- **Type：** `boolean`
-- **Default：*false* 
-- **Example：**
-
-```ts
-Components({
-  resolvers: [
-    TDesignResolver({
-      autoImport: true,
-    }),
-  ],
-});
-```
