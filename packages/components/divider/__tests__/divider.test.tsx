@@ -69,6 +69,15 @@ describe('Divider', () => {
       });
     });
 
+    it(':theme[horizontal/vertical]', () => {
+      const { validator } = props.theme;
+      expect(validator('horizontal')).toBeTruthy();
+      expect(validator('vertical')).toBeTruthy();
+      // @ts-expect-error types error
+      expect(validator('other')).toBeFalsy();
+      expect(validator(undefined)).toBeTruthy();
+    });
+
     it(':content[string/function]', () => {
       // string
       const wrapperString = mount(<Divider content="TDesign" />);
