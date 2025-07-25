@@ -30,10 +30,7 @@ export default defineComponent({
     time: String,
     popupVisible: Boolean,
     multiple: Boolean,
-    needConfirm: {
-      type: Boolean,
-      default: true,
-    },
+    needConfirm: Boolean,
     onPanelClick: Function,
     onCellClick: Function,
     onCellMouseEnter: Function,
