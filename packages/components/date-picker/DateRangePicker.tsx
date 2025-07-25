@@ -250,7 +250,7 @@ export default defineComponent({
         format: formatRef.value.format,
       });
     }
-    const confirmValueChange = () => {
+    const confirmValueChange = (e?: MouseEvent) => {
       const nextValue = [...(inputValue.value as string[])];
 
       const notValidIndex = nextValue.findIndex((v) => !v || !isValidDate(v, formatRef.value.format));
@@ -268,7 +268,7 @@ export default defineComponent({
         } else {
           props?.onConfirm?.({
             date: nextValue.map((v) => dayjs(v).toDate()),
-            e: null,
+            e: e || null,
             partial: activeIndex.value ? 'end' : 'start',
           });
           onChange?.(
@@ -287,39 +287,11 @@ export default defineComponent({
     };
     // 确定
     function onConfirmClick({ e }: { e: MouseEvent }) {
+      confirmValueChange(e);
+
       const nextValue = [...(inputValue.value as string[])];
 
       const notValidIndex = nextValue.findIndex((v) => !v || !isValidDate(v, formatRef.value.format));
-
-      // 当两端都有有效值时更改 value
-      if (notValidIndex === -1 && nextValue.length === 2) {
-        // 二次修改时当其中一侧不符合上次区间规范时，清空另一侧数据
-        if (
-          !isFirstValueSelected.value &&
-          parseToDayjs(nextValue[0], formatRef.value.format).isAfter(parseToDayjs(nextValue[1], formatRef.value.format))
-        ) {
-          nextValue[activeIndex.value ? 0 : 1] = '';
-          cacheValue.value = nextValue;
-          inputValue.value = nextValue;
-        } else {
-          props?.onConfirm?.({
-            date: nextValue.map((v) => dayjs(v).toDate()),
-            e,
-            partial: activeIndex.value ? 'end' : 'start',
-          });
-          onChange?.(
-            formatDate(nextValue, {
-              format: formatRef.value.format,
-              targetFormat: formatRef.value.valueType,
-              autoSwap: true,
-            }) as DateValue[],
-            {
-              dayjsValue: nextValue.map((v) => parseToDayjs(v, formatRef.value.format)),
-              trigger: 'confirm',
-            },
-          );
-        }
-      }
 
       // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
       if (!isFirstValueSelected.value || !activeIndex.value) {
