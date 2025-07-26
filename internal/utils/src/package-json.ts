@@ -5,5 +5,6 @@
 import rootPackageJson from '../../../package.json';
 import tdesignVueNextPackageJson from 'tdesign-vue-next/package.json';
 import tdesignVueNextSitePackageJson from 'tdesign-vue-next/site/package.json';
+import tdesignVueNextChatPackageJson from '@tdesign-vue-next/chat/package.json';
 
-export { rootPackageJson, tdesignVueNextPackageJson, tdesignVueNextSitePackageJson };
+export { rootPackageJson, tdesignVueNextPackageJson, tdesignVueNextSitePackageJson, tdesignVueNextChatPackageJson };

@@ -1,4 +1,4 @@
-import { tdesignVueNextPackageJson, tdesignVueNextSitePackageJson } from '@tdesign/internal-utils/package-json';
+import { tdesignVueNextPackageJson, catalogs } from '@tdesign/internal-utils';
 
 export const htmlContent = `
   <div id="app"></div>
@@ -97,16 +97,16 @@ export const packageJSONContent = JSON.stringify(
       serve: 'vite preview',
     },
     dependencies: {
-      vue: tdesignVueNextSitePackageJson.dependencies.vue,
-      less: tdesignVueNextSitePackageJson.devDependencies.less,
+      vue: catalogs.deps.vue,
+      less: catalogs.bundle.less,
       'tdesign-vue-next': tdesignVueNextPackageJson.version,
-      'tdesign-icons-vue-next': tdesignVueNextPackageJson.dependencies['tdesign-icons-vue-next'],
+      'tdesign-icons-vue-next': catalogs.tdesign['tdesign-icons-vue-next'],
     },
     devDependencies: {
-      vite: tdesignVueNextSitePackageJson.devDependencies.vite,
-      '@vue/compiler-sfc': tdesignVueNextSitePackageJson.devDependencies['@vue/compiler-sfc'],
-      '@vitejs/plugin-vue': tdesignVueNextSitePackageJson.devDependencies['@vitejs/plugin-vue'],
-      '@vitejs/plugin-vue-jsx': tdesignVueNextSitePackageJson.devDependencies['@vitejs/plugin-vue-jsx'],
+      vite: catalogs.bundle.vite,
+      '@vue/compiler-sfc': catalogs.bundle['@vue/compiler-sfc'],
+      '@vitejs/plugin-vue': catalogs.bundle['@vitejs/plugin-vue'],
+      '@vitejs/plugin-vue-jsx': catalogs.bundle['@vitejs/plugin-vue-jsx'],
     },
   },
   null,
