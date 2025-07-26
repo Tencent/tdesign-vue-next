@@ -32,11 +32,11 @@
   "author": "tdesign",
   "license": "MIT",
   "dependencies": {
+    "@tdesign-vue-next/chat": "workspace:^",
     "@tdesign/components": "workspace:^",
     "@tdesign/internal-utils": "workspace:^",
     "@tdesign/shared-hooks": "workspace:^",
     "@tdesign/shared-utils": "workspace:^",
-    "@tdesign-vue-next/chat": "workspace:^",
     "tdesign-vue-next": "workspace:^"
   },
   "devDependencies": {
@@ -49,6 +49,7 @@
     "@babel/preset-env": "catalog:bundle",
     "@commitlint/cli": "catalog:lint",
     "@commitlint/config-conventional": "catalog:lint",
+    "@types/lodash": "catalog:types",
     "@types/node": "catalog:types",
     "@typescript-eslint/eslint-plugin": "catalog:lint",
     "@typescript-eslint/parser": "catalog:lint",
@@ -70,7 +71,8 @@
     "rimraf": "catalog:bundle",
     "tdesign-publish-cli": "catalog:tdesign",
     "tsx": "catalog:bundle",
-    "typescript": "catalog:types"
+    "typescript": "catalog:types",
+    "vitest": "catalog:test"
   },
   "config": {
     "commitizen": {

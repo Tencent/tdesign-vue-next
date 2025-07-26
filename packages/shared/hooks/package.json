@@ -6,6 +6,7 @@
   "license": "MIT",
   "dependencies": {
     "@tdesign/components": "workspace:^",
+    "@tdesign/common-js": "workspace:^",
     "@tdesign/shared-utils": "workspace:^",
     "lodash-es": "catalog:deps"
   },

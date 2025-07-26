@@ -25,6 +25,7 @@
     "glob": "catalog:bundle",
     "lodash-es": "catalog:deps",
     "mockdate": "catalog:test",
+    "vite": "catalog:bundle",
     "vitest": "catalog:test",
     "vitest-fetch-mock": "catalog:test",
     "vue": "catalog:deps",

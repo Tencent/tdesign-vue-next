@@ -108,6 +108,7 @@ export const catalogs = {
   },
   types: {
     '@types/fs-extra': '^11.0.4',
+    '@types/lodash': '^4.17.20',
     '@types/lodash-es': '^4.17.12',
     '@types/nprogress': '^0.2.3',
     '@types/node': '^22.5.1',
