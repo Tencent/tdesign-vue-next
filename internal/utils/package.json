@@ -17,7 +17,7 @@
     }
   },
   "scripts": {
-    "prebuild": "rollup -c rollup.config.ts"
+    "postinstall": "tsx ./scripts/postinstall-tasks.ts"
   },
   "devDependencies": {
     "@rollup/plugin-babel": "catalog:bundle",
