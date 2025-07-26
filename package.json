@@ -36,6 +36,7 @@
     "@tdesign/internal-utils": "workspace:^",
     "@tdesign/shared-hooks": "workspace:^",
     "@tdesign/shared-utils": "workspace:^",
+    "@tdesign-vue-next/chat": "workspace:^",
     "tdesign-vue-next": "workspace:^"
   },
   "devDependencies": {

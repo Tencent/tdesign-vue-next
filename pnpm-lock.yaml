@@ -332,6 +332,9 @@ importers:
 
   .:
     dependencies:
+      '@tdesign-vue-next/chat':
+        specifier: workspace:^
+        version: link:packages/tdesign-vue-next-chat
       '@tdesign/components':
         specifier: workspace:^
         version: link:packages/components

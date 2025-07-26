@@ -1,4 +1,4 @@
-export const deps = {
+export const catalogs = {
   bundle: {
     '@babel/cli': '^7.22.9',
     '@babel/core': '^7.22.9',
