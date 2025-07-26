@@ -1,4 +1,5 @@
-import { tdesignVueNextChatPackageJson, catalogs, tdesignVueNextPackageJson } from '@tdesign/internal-utils';
+import { tdesignVueNextChatPackageJson, tdesignVueNextPackageJson } from '@tdesign/internal-utils/package-json';
+import { catalogs } from '@tdesign/internal-utils/catalogs';
 
 export const htmlContent = `
   <div id="app"></div>
