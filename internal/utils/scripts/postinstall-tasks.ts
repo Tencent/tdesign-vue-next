@@ -9,6 +9,7 @@ const destPath = joinWorkspaceRoot('internal/utils/src/deps.ts');
 const yamlContent = readFileSync(sourcePath, 'utf-8');
 const documents = parse(yamlContent);
 writeFileSync(destPath, `export const deps = ${JSON.stringify(documents.catalogs, null, 2)}`);
+run('npx prettier --write ./internal/utils/src/deps.ts', { cwd: joinWorkspaceRoot() });
 
 // 2. rollup.config.ts
 run('npx rollup -c rollup.config.ts', { cwd: joinWorkspaceRoot('internal/utils') });
