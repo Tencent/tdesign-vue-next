@@ -14,8 +14,8 @@
     "node": ">= 18"
   },
   "scripts": {
-    "pnpm:devPreinstall": "node script/pnpm-dev-preinstall.js",
-    "postinstall": "husky install && pnpm -C internal/utils prebuild",
+    "pnpm:devPreinstall": "node script/preinstall-tasks.js",
+    "postinstall": "husky install && pnpm -r postinstall",
     "init": "git submodule init && git submodule update",
     "lint:tsc": "tsc --noEmit",
     "lint": "pnpm lint:tsc && eslint --ext .vue,.js,.ts,.tsx ./packages --max-warnings 0 --cache",

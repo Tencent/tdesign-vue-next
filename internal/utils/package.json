@@ -17,22 +17,25 @@
     }
   },
   "scripts": {
-    "prebuild": "rollup -c rollup.config.ts"
+    "postinstall": "tsx ./scripts/postinstall-tasks.ts"
+  },
+  "dependencies": {
+    "execa": "catalog:bundle",
+    "fs-extra": "catalog:bundle"
   },
   "devDependencies": {
     "@rollup/plugin-babel": "catalog:bundle",
     "@rollup/plugin-commonjs": "catalog:bundle",
-    "rollup-plugin-delete": "catalog:bundle",
     "@rollup/plugin-json": "catalog:bundle",
     "@rollup/plugin-node-resolve": "catalog:bundle",
     "@rollup/plugin-replace": "catalog:bundle",
     "@rollup/plugin-typescript": "catalog:bundle",
     "@rollup/plugin-url": "catalog:bundle",
-    "execa": "catalog:bundle",
-    "fs-extra": "catalog:bundle",
+    "@types/fs-extra": "catalog:types",
     "rollup": "catalog:bundle",
     "rollup-plugin-analyzer": "catalog:bundle",
     "rollup-plugin-copy": "catalog:bundle",
+    "rollup-plugin-delete": "catalog:bundle",
     "rollup-plugin-esbuild": "catalog:bundle",
     "rollup-plugin-ignore-import": "catalog:bundle",
     "rollup-plugin-multi-input": "catalog:bundle",
@@ -40,6 +43,9 @@
     "rollup-plugin-static-import": "catalog:bundle",
     "rollup-plugin-styles": "catalog:bundle",
     "rollup-plugin-terser": "catalog:bundle",
-    "rollup-plugin-vue": "catalog:bundle"
+    "rollup-plugin-vue": "catalog:bundle",
+    "tslib": "catalog:bundle",
+    "tsx": "catalog:bundle",
+    "yaml": "catalog:bundle"
   }
 }
