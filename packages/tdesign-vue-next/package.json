@@ -1,6 +1,6 @@
 {
   "name": "tdesign-vue-next",
-  "version": "1.14.2",
+  "version": "1.15.1",
   "title": "tdesign-vue-next",
   "description": "TDesign Component for vue-next",
   "keywords": [
@@ -53,19 +53,19 @@
   "author": "tdesign",
   "license": "MIT",
   "dependencies": {
-    "@babel/runtime": "^7.22.6",
-    "@popperjs/core": "^2.11.8",
-    "@types/lodash-es": "^4.17.12",
-    "@types/sortablejs": "^1.15.1",
-    "@types/tinycolor2": "^1.4.3",
-    "@types/validator": "^13.7.17",
-    "dayjs": "1.11.10",
-    "lodash-es": "^4.17.21",
-    "mitt": "^3.0.1",
-    "sortablejs": "^1.15.0",
-    "tdesign-icons-vue-next": "^0.3.6",
-    "tinycolor2": "^1.6.0",
-    "validator": "^13.9.0"
+    "@babel/runtime": "catalog:deps",
+    "@popperjs/core": "catalog:deps",
+    "@types/lodash-es": "catalog:types",
+    "@types/sortablejs": "catalog:types",
+    "@types/tinycolor2": "catalog:types",
+    "@types/validator": "catalog:types",
+    "dayjs": "catalog:deps",
+    "lodash-es": "catalog:deps",
+    "mitt": "catalog:deps",
+    "sortablejs": "catalog:deps",
+    "tdesign-icons-vue-next": "catalog:tdesign",
+    "tinycolor2": "catalog:deps",
+    "validator": "catalog:deps"
   },
   "peerDependencies": {
     "vue": ">=3.1.0"

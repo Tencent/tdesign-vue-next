@@ -31,6 +31,10 @@
     "type": "event",
     "description": "关闭按钮点击时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/alert?tab=api#alert-events)"
   },
+  "t-alert/close-btn": {
+    "type": "String|Boolean|TNode",
+    "description": "Close button. Value \"true\" show the close button. Value \"False\" hide close button. Value type string display as is. Use TNode to custom the close trigger.\n\n关闭按钮。值为 true 则显示默认关闭按钮；值为 false 则不显示按钮；值类型为 string 则直接显示；值类型为 Function 则可以自定关闭按钮\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/alert?tab=api#alert-props)"
+  },
   "t-alert/default": {
     "type": "String|TNode",
     "description": "内容，同 message\n\n[docs](https://tdesign.tencent.com/vue-next/components/alert?tab=api#alert-props)"
@@ -476,15 +480,7 @@
     "type": "Array",
     "description": "keys of highlight rows, used to mock area selection behavior, just like macOS or windows area selection\n\n高亮行，支持鼠标键盘操作(Shift)连续高亮行，可用于处理行选中等批量操作，模拟操作系统区域选择行为\n\ndefault: []\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
-  "t-table/active-row-keys": {
-    "type": "Array",
-    "description": "keys of highlight rows, used to mock area selection behavior, just like macOS or windows area selection\n\n高亮行，支持鼠标键盘操作(Shift)连续高亮行，可用于处理行选中等批量操作，模拟操作系统区域选择行为\n\ndefault: []\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
   "t-base-table/active-row-type": {
-    "type": "String",
-    "description": "make nodes can be highlight on clicked\n\n默认不会高亮点击行，`activeRowType=single` 表示鼠标点击仅允许同时高亮一行，Shift 键盘操作加鼠标操作依然可以高亮多行，因为这属于明显的区域选择行为。`activeRowType= multiple ` 表示允许鼠标点击同时高亮多行\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
-  "t-table/active-row-type": {
     "type": "String",
     "description": "make nodes can be highlight on clicked\n\n默认不会高亮点击行，`activeRowType=single` 表示鼠标点击仅允许同时高亮一行，Shift 键盘操作加鼠标操作依然可以高亮多行，因为这属于明显的区域选择行为。`activeRowType= multiple ` 表示允许鼠标点击同时高亮多行\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
@@ -492,15 +488,7 @@
     "type": "Boolean",
     "description": "allow to resize column width\n\n是否允许调整列宽。请更为使用 `resizable`\n\ndefault: undefined\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
-  "t-table/allow-resize-column-width": {
-    "type": "Boolean",
-    "description": "allow to resize column width\n\n是否允许调整列宽。请更为使用 `resizable`\n\ndefault: undefined\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
   "t-base-table/attach": {
-    "type": "String|Function",
-    "description": "elements with popup would be attached to `attach`\n\n超出省略等所有浮层元素统一绑定到 `attach`，可根据实际情况调整挂载元素\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
-  "t-table/attach": {
     "type": "String|Function",
     "description": "elements with popup would be attached to `attach`\n\n超出省略等所有浮层元素统一绑定到 `attach`，可根据实际情况调整挂载元素\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
@@ -508,15 +496,7 @@
     "type": "Boolean",
     "description": "show table bordered\n\n是否显示表格边框\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
-  "t-table/bordered": {
-    "type": "Boolean",
-    "description": "show table bordered\n\n是否显示表格边框\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
   "t-base-table/bottom-content": {
-    "type": "String|TNode",
-    "description": "表格底部内容，可以用于自定义列设置等\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
-  "t-table/bottom-content": {
     "type": "String|TNode",
     "description": "表格底部内容，可以用于自定义列设置等\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
@@ -524,23 +504,11 @@
     "type": "String|TNode",
     "description": "单元格数据为空时呈现的内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
-  "t-table/cell-empty-content": {
-    "type": "String|TNode",
-    "description": "单元格数据为空时呈现的内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
   "t-base-table/columns": {
     "type": "Array",
     "description": "table column configs\n\n列配置，泛型 T 指表格数据类型\n\ndefault: []\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
-  "t-table/columns": {
-    "type": "Array",
-    "description": "table column configs\n\n列配置，泛型 T 指表格数据类型\n\ndefault: []\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
-  },
   "t-base-table/data": {
-    "type": "Array",
-    "description": "table data\n\n数据源，泛型 T 指表格数据类型\n\ndefault: []\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
-  "t-table/data": {
     "type": "Array",
     "description": "table data\n\n数据源，泛型 T 指表格数据类型\n\ndefault: []\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
@@ -548,15 +516,7 @@
     "type": "Boolean",
     "description": "是否禁用本地数据分页。当 `data` 数据长度超过分页大小时，会自动进行本地数据分页。如果 `disableDataPage` 设置为 true，则无论何时，都不会进行本地数据分页\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
-  "t-table/disable-data-page": {
-    "type": "Boolean",
-    "description": "是否禁用本地数据分页。当 `data` 数据长度超过分页大小时，会自动进行本地数据分页。如果 `disableDataPage` 设置为 true，则无论何时，都不会进行本地数据分页\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
   "t-base-table/disable-space-inactive-row": {
-    "type": "Boolean",
-    "description": "can not set row to be inactive with Space keydown\n\n默认重复按下 Space 键可取消当前行高亮，是否禁用取消\n\ndefault: undefined\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
-  "t-table/disable-space-inactive-row": {
     "type": "Boolean",
     "description": "can not set row to be inactive with Space keydown\n\n默认重复按下 Space 键可取消当前行高亮，是否禁用取消\n\ndefault: undefined\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
@@ -564,15 +524,7 @@
     "type": "String|TNode",
     "description": "empty text or empty element\n\n空表格呈现样式，支持全局配置 `GlobalConfigProvider`\n\ndefault: ''\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
-  "t-table/empty": {
-    "type": "String|TNode",
-    "description": "empty text or empty element\n\n空表格呈现样式，支持全局配置 `GlobalConfigProvider`\n\ndefault: ''\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
   "t-base-table/first-full-row": {
-    "type": "String|TNode",
-    "description": "首行内容，横跨所有列\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
-  "t-table/first-full-row": {
     "type": "String|TNode",
     "description": "首行内容，横跨所有列\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
@@ -580,15 +532,7 @@
     "type": "Array",
     "description": "固定行（冻结行），示例：[M, N]，表示冻结表头 M 行和表尾 N 行。M 和 N 值为 0 时，表示不冻结行\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
-  "t-table/fixed-rows": {
-    "type": "Array",
-    "description": "固定行（冻结行），示例：[M, N]，表示冻结表头 M 行和表尾 N 行。M 和 N 值为 0 时，表示不冻结行\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
   "t-base-table/foot-data": {
-    "type": "Array",
-    "description": "table foot data\n\n表尾数据源，泛型 T 指表格数据类型\n\ndefault: []\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
-  "t-table/foot-data": {
     "type": "Array",
     "description": "table foot data\n\n表尾数据源，泛型 T 指表格数据类型\n\ndefault: []\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
@@ -596,15 +540,7 @@
     "type": "Object",
     "description": "affix props\n\n请更为使用 `footerAffixedBottom`。表尾吸底基于 Affix 组件开发，透传全部 Affix 组件属性\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
-  "t-table/footer-affix-props": {
-    "type": "Object",
-    "description": "affix props\n\n请更为使用 `footerAffixedBottom`。表尾吸底基于 Affix 组件开发，透传全部 Affix 组件属性\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
   "t-base-table/footer-affixed-bottom": {
-    "type": "Boolean|Object",
-    "description": "affix foot to viewport bottom\n\n表尾吸底。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，则表示相对于整个窗口吸底。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixedBottom.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
-  "t-table/footer-affixed-bottom": {
     "type": "Boolean|Object",
     "description": "affix foot to viewport bottom\n\n表尾吸底。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，则表示相对于整个窗口吸底。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixedBottom.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
@@ -612,15 +548,7 @@
     "type": "String|TNode",
     "description": "footer summary content\n\n表尾总结行\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
-  "t-table/footer-summary": {
-    "type": "String|TNode",
-    "description": "footer summary content\n\n表尾总结行\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
   "t-base-table/header-affix-props": {
-    "type": "Object",
-    "description": "affix props\n\n请更为使用 `headerAffixedTop`。表头吸顶基于 Affix 组件开发，透传全部 Affix 组件属性\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
-  "t-table/header-affix-props": {
     "type": "Object",
     "description": "affix props\n\n请更为使用 `headerAffixedTop`。表头吸顶基于 Affix 组件开发，透传全部 Affix 组件属性\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
@@ -628,15 +556,7 @@
     "type": "Boolean|Object",
     "description": "affix header to viewport top\n\n表头吸顶。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，表示相对于整个窗口吸顶。如果表格滚动的父元素不是整个窗口，请通过 `headerAffixedTop.container` 调整吸顶的位置。基于 Affix 组件开发，透传全部 Affix 组件属性\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
-  "t-table/header-affixed-top": {
-    "type": "Boolean|Object",
-    "description": "affix header to viewport top\n\n表头吸顶。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，表示相对于整个窗口吸顶。如果表格滚动的父元素不是整个窗口，请通过 `headerAffixedTop.container` 调整吸顶的位置。基于 Affix 组件开发，透传全部 Affix 组件属性\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
   "t-base-table/height": {
-    "type": "String|Number",
-    "description": "table height\n\n表格高度，超出后会出现滚动条。示例：100,  '30%',  '300'。值为数字类型，会自动加上单位 px。如果不是绝对固定表格高度，建议使用 `maxHeight`\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
-  "t-table/height": {
     "type": "String|Number",
     "description": "table height\n\n表格高度，超出后会出现滚动条。示例：100,  '30%',  '300'。值为数字类型，会自动加上单位 px。如果不是绝对固定表格高度，建议使用 `maxHeight`\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
@@ -644,15 +564,7 @@
     "type": "Boolean|Object",
     "description": "affix props\n\n滚动条吸底。基于 Affix 组件开发，透传全部 Affix 组件属性\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
-  "t-table/horizontal-scroll-affixed-bottom": {
-    "type": "Boolean|Object",
-    "description": "affix props\n\n滚动条吸底。基于 Affix 组件开发，透传全部 Affix 组件属性\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
   "t-base-table/hover": {
-    "type": "Boolean",
-    "description": "show hover style\n\n是否显示鼠标悬浮状态\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
-  "t-table/hover": {
     "type": "Boolean",
     "description": "show hover style\n\n是否显示鼠标悬浮状态\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
@@ -660,15 +572,7 @@
     "type": "Boolean",
     "description": "make table row to be hover by keydown ArrowUp/ArrowDown\n\n键盘操作行显示悬浮效果，一般用于键盘操作行选中、行展开、行高亮等功能\n\ndefault: true\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
-  "t-table/keyboard-row-hover": {
-    "type": "Boolean",
-    "description": "make table row to be hover by keydown ArrowUp/ArrowDown\n\n键盘操作行显示悬浮效果，一般用于键盘操作行选中、行展开、行高亮等功能\n\ndefault: true\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
   "t-base-table/last-full-row": {
-    "type": "String|TNode",
-    "description": "尾行内容，横跨所有列\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
-  "t-table/last-full-row": {
     "type": "String|TNode",
     "description": "尾行内容，横跨所有列\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
@@ -676,15 +580,7 @@
     "type": "Boolean",
     "description": "load table content when it entering the visible area, all elements in table are not rendered before it become visible\n\n是否启用整个表格元素的懒加载，当页面滚动到可视区域后再渲染表格。注意和表格内部行滚动懒加载的区别，内部行滚动无论表格是否在可视区域都会默认渲染第一屏的行元素\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
-  "t-table/lazy-load": {
-    "type": "Boolean",
-    "description": "load table content when it entering the visible area, all elements in table are not rendered before it become visible\n\n是否启用整个表格元素的懒加载，当页面滚动到可视区域后再渲染表格。注意和表格内部行滚动懒加载的区别，内部行滚动无论表格是否在可视区域都会默认渲染第一屏的行元素\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
   "t-base-table/loading": {
-    "type": "Boolean|TNode",
-    "description": "loading state table\n\n加载中状态。值为 `true` 会显示默认加载中样式，可以通过 Function 和 插槽 自定义加载状态呈现内容和样式。值为 `false` 则会取消加载状态\n\ndefault: undefined\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
-  "t-table/loading": {
     "type": "Boolean|TNode",
     "description": "loading state table\n\n加载中状态。值为 `true` 会显示默认加载中样式，可以通过 Function 和 插槽 自定义加载状态呈现内容和样式。值为 `false` 则会取消加载状态\n\ndefault: undefined\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
@@ -692,15 +588,7 @@
     "type": "Object",
     "description": "透传加载组件全部属性\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
-  "t-table/loading-props": {
-    "type": "Object",
-    "description": "透传加载组件全部属性\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
   "t-base-table/locale": {
-    "type": "Object",
-    "description": "table locale config\n\n语言配置\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
-  "t-table/locale": {
     "type": "Object",
     "description": "table locale config\n\n语言配置\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
@@ -708,15 +596,7 @@
     "type": "String|Number",
     "description": "table max height\n\n表格最大高度，超出后会出现滚动条。示例：100, '30%', '300'。值为数字类型，会自动加上单位 px\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
-  "t-table/max-height": {
-    "type": "String|Number",
-    "description": "table max height\n\n表格最大高度，超出后会出现滚动条。示例：100, '30%', '300'。值为数字类型，会自动加上单位 px\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
   "t-base-table/pagination": {
-    "type": "Object",
-    "description": "you can use all props of pagination component with paginationProps\n\n分页配置，值为空则不显示。具体 API 参考分页组件。当 `data` 数据长度超过分页大小时，会自动对本地数据 `data` 进行排序，如果不希望对于 `data` 进行排序，可以设置 `disableDataPage = true`\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
-  "t-table/pagination": {
     "type": "Object",
     "description": "you can use all props of pagination component with paginationProps\n\n分页配置，值为空则不显示。具体 API 参考分页组件。当 `data` 数据长度超过分页大小时，会自动对本地数据 `data` 进行排序，如果不希望对于 `data` 进行排序，可以设置 `disableDataPage = true`\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
@@ -724,15 +604,7 @@
     "type": "Boolean|Object",
     "description": "affix props\n\n分页吸底。基于 Affix 组件开发，透传全部 Affix 组件属性\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
-  "t-table/pagination-affixed-bottom": {
-    "type": "Boolean|Object",
-    "description": "affix props\n\n分页吸底。基于 Affix 组件开发，透传全部 Affix 组件属性\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
   "t-base-table/resizable": {
-    "type": "Boolean",
-    "description": "allow to resize column width, set `tableLayout=fixed` would be better\n\n是否允许调整列宽，设置 `tableLayout=fixed` 效果更友好，此时不允许通过 CSS 设置 `table`元素宽度，也不允许设置 `tableContentWidth`。一般不建议在列宽调整场景使用 `tableLayout: auto`。如果想要配置宽度可调整的最小值和最大值，请使用 `column.resize`，示例：`columns: [{ resize: { minWidth: 120, maxWidth: 300 } }]`。<br/> 默认规则：因列宽超出存在横向滚动条时，列宽调整仅影响当前列宽和总列宽；表格列较少没有横向滚动条时，列宽调整表现为自身宽度和相邻宽度变化\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
-  "t-table/resizable": {
     "type": "Boolean",
     "description": "allow to resize column width, set `tableLayout=fixed` would be better\n\n是否允许调整列宽，设置 `tableLayout=fixed` 效果更友好，此时不允许通过 CSS 设置 `table`元素宽度，也不允许设置 `tableContentWidth`。一般不建议在列宽调整场景使用 `tableLayout: auto`。如果想要配置宽度可调整的最小值和最大值，请使用 `column.resize`，示例：`columns: [{ resize: { minWidth: 120, maxWidth: 300 } }]`。<br/> 默认规则：因列宽超出存在横向滚动条时，列宽调整仅影响当前列宽和总列宽；表格列较少没有横向滚动条时，列宽调整表现为自身宽度和相邻宽度变化\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
@@ -740,15 +612,7 @@
     "type": "Object|Array|Function",
     "description": "`tr` attributes\n\nHTML 标签 `tr` 的属性。类型为 Function 时，参数说明：`params.row` 表示行数据；`params.rowIndex` 表示行下标；`params.type=body` 表示属性作用于 `tbody` 中的元素；`params.type=foot` 表示属性作用于 `tfoot` 中的元素。<br />示例一：{ draggable: true }，<br />示例二：[{ draggable: true }, { title: '超出省略显示' }]。<br /> 示例三：() => [{ draggable: true }]\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
-  "t-table/row-attributes": {
-    "type": "Object|Array|Function",
-    "description": "`tr` attributes\n\nHTML 标签 `tr` 的属性。类型为 Function 时，参数说明：`params.row` 表示行数据；`params.rowIndex` 表示行下标；`params.type=body` 表示属性作用于 `tbody` 中的元素；`params.type=foot` 表示属性作用于 `tfoot` 中的元素。<br />示例一：{ draggable: true }，<br />示例二：[{ draggable: true }, { title: '超出省略显示' }]。<br /> 示例三：() => [{ draggable: true }]\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
   "t-base-table/row-class-name": {
-    "type": "String|Object|Array|Function",
-    "description": "table `th` classname\n\n行类名，泛型 T 指表格数据类型。`params.row` 表示行数据；`params.rowIndex` 表示行下标；`params.type=body`  表示类名作用于 `tbody` 中的元素；`params.type= tfoot` 表示类名作用于 `tfoot` 中的元素\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
-  "t-table/row-class-name": {
     "type": "String|Object|Array|Function",
     "description": "table `th` classname\n\n行类名，泛型 T 指表格数据类型。`params.row` 表示行数据；`params.rowIndex` 表示行下标；`params.type=body`  表示类名作用于 `tbody` 中的元素；`params.type= tfoot` 表示类名作用于 `tfoot` 中的元素\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
@@ -756,15 +620,7 @@
     "type": "String",
     "description": "unique key for each row data\n\n唯一标识一行数据的字段名，来源于 `data` 中的字段。如果是字段嵌套多层，可以设置形如 `item.a.id` 的方法\n\ndefault: 'id'\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
-  "t-table/row-key": {
-    "type": "String",
-    "description": "unique key for each row data\n\n唯一标识一行数据的字段名，来源于 `data` 中的字段。如果是字段嵌套多层，可以设置形如 `item.a.id` 的方法\n\ndefault: 'id'\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
   "t-base-table/rowspan-and-colspan": {
-    "type": "Function",
-    "description": "rowspan and colspan\n\n用于自定义合并单元格，泛型 T 指表格数据类型。示例：`({ row, col, rowIndex, colIndex }) => { rowspan: 2, colspan: 3 }`\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
-  "t-table/rowspan-and-colspan": {
     "type": "Function",
     "description": "rowspan and colspan\n\n用于自定义合并单元格，泛型 T 指表格数据类型。示例：`({ row, col, rowIndex, colIndex }) => { rowspan: 2, colspan: 3 }`\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
@@ -772,23 +628,11 @@
     "type": "Function",
     "description": "rowspan and colspan for footer\n\n用于自定义表尾的合并单元格，泛型 T 指表格数据类型。示例：`({ row, col, rowIndex, colIndex }) => { rowspan: 2, colspan: 3 }`\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
-  "t-table/rowspan-and-colspan-in-footer": {
-    "type": "Function",
-    "description": "rowspan and colspan for footer\n\n用于自定义表尾的合并单元格，泛型 T 指表格数据类型。示例：`({ row, col, rowIndex, colIndex }) => { rowspan: 2, colspan: 3 }`\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
   "t-base-table/scroll": {
     "type": "event",
     "description": "trigger on table content scroll\n\n表格内容滚动时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-events)"
   },
-  "t-table/scroll": {
-    "type": "event",
-    "description": "trigger on table content scroll\n\n表格内容滚动时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-events)"
-  },
   "t-base-table/show-header": {
-    "type": "Boolean",
-    "description": "show table header\n\n是否显示表头\n\ndefault: true\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
-  "t-table/show-header": {
     "type": "Boolean",
     "description": "show table header\n\n是否显示表头\n\ndefault: true\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
@@ -801,28 +645,11 @@
     ],
     "description": "table size, support `GlobalConfigProvider`, default value is `medium`\n\n表格尺寸，支持全局配置 `GlobalConfigProvider`，默认全局配置值为 `medium`\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
-  "t-table/size": {
-    "type": "String",
-    "options": [
-      "small",
-      "medium",
-      "large"
-    ],
-    "description": "table size, support `GlobalConfigProvider`, default value is `medium`\n\n表格尺寸，支持全局配置 `GlobalConfigProvider`，默认全局配置值为 `medium`\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
   "t-base-table/stripe": {
     "type": "Boolean",
     "description": "show stripe style\n\n是否显示斑马纹\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
-  "t-table/stripe": {
-    "type": "Boolean",
-    "description": "show stripe style\n\n是否显示斑马纹\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
   "t-base-table/table-content-width": {
-    "type": "String",
-    "description": "表格内容的总宽度，注意不是表格可见宽度。主要应用于 `table-layout: auto` 模式下的固定列显示。`tableContentWidth` 内容宽度的值必须大于表格可见宽度\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
-  "t-table/table-content-width": {
     "type": "String",
     "description": "表格内容的总宽度，注意不是表格可见宽度。主要应用于 `table-layout: auto` 模式下的固定列显示。`tableContentWidth` 内容宽度的值必须大于表格可见宽度\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
@@ -834,19 +661,7 @@
     ],
     "description": "table-layout css properties, [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout). set value to be `fixed` on `resizable=true` please\n\n表格布局方式，`<table>` 元素原生属性。[MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout)。注意，在列宽调整下场景只能使用 `fixed` 模式\n\ndefault: fixed\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
-  "t-table/table-layout": {
-    "type": "String",
-    "options": [
-      "auto",
-      "fixed"
-    ],
-    "description": "table-layout css properties, [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout). set value to be `fixed` on `resizable=true` please\n\n表格布局方式，`<table>` 元素原生属性。[MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout)。注意，在列宽调整下场景只能使用 `fixed` 模式\n\ndefault: fixed\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
   "t-base-table/top-content": {
-    "type": "String|TNode",
-    "description": "表格顶部内容，可以用于自定义列设置、顶部查询条件等\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
-  "t-table/top-content": {
     "type": "String|TNode",
     "description": "表格顶部内容，可以用于自定义列设置、顶部查询条件等\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
@@ -859,20 +674,7 @@
     ],
     "description": "vertical align\n\n行内容上下方向对齐\n\ndefault: middle\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
   },
-  "t-table/vertical-align": {
-    "type": "String",
-    "options": [
-      "top",
-      "middle",
-      "bottom"
-    ],
-    "description": "vertical align\n\n行内容上下方向对齐\n\ndefault: middle\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-props)"
-  },
   "t-base-table/active-change": {
-    "type": "event",
-    "description": "trigger on row active change\n\n高亮行发生变化时触发，泛型 T 指表格数据类型。参数 `activeRowList` 表示所有高亮行数据， `currentRowData` 表示当前操作行数据\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-events)"
-  },
-  "t-table/active-change": {
     "type": "event",
     "description": "trigger on row active change\n\n高亮行发生变化时触发，泛型 T 指表格数据类型。参数 `activeRowList` 表示所有高亮行数据， `currentRowData` 表示当前操作行数据\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-events)"
   },
@@ -880,23 +682,11 @@
     "type": "event",
     "description": "keyboard operation event actions. used to mock selection behavior, just like macOS or windows\n\n键盘操作事件。开启行高亮功能后，会自动开启键盘操作功能，如：通过键盘(Shift)或鼠标操作连续选中高亮行时触发，一般用于处理行选中等批量操作，模拟操作系统区域选择行为\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-events)"
   },
-  "t-table/active-row-action": {
-    "type": "event",
-    "description": "keyboard operation event actions. used to mock selection behavior, just like macOS or windows\n\n键盘操作事件。开启行高亮功能后，会自动开启键盘操作功能，如：通过键盘(Shift)或鼠标操作连续选中高亮行时触发，一般用于处理行选中等批量操作，模拟操作系统区域选择行为\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-events)"
-  },
   "t-base-table/cell-click": {
     "type": "event",
     "description": "trigger on cell clicked\n\n单元格点击时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-events)"
   },
-  "t-table/cell-click": {
-    "type": "event",
-    "description": "trigger on cell clicked\n\n单元格点击时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-events)"
-  },
   "t-base-table/column-resize-change": {
-    "type": "event",
-    "description": "列调整大小之后触发。`context.columnsWidth` 表示操作后各个列的宽度；\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-events)"
-  },
-  "t-table/column-resize-change": {
     "type": "event",
     "description": "列调整大小之后触发。`context.columnsWidth` 表示操作后各个列的宽度；\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-events)"
   },
@@ -904,15 +694,7 @@
     "type": "event",
     "description": "trigger on pagination changing\n\n分页发生变化时触发。参数 newDataSource 表示分页后的数据。本地数据进行分页时，newDataSource 和源数据 data 会不一样。泛型 T 指表格数据类型\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-events)"
   },
-  "t-table/page-change": {
-    "type": "event",
-    "description": "trigger on pagination changing\n\n分页发生变化时触发。参数 newDataSource 表示分页后的数据。本地数据进行分页时，newDataSource 和源数据 data 会不一样。泛型 T 指表格数据类型\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-events)"
-  },
   "t-base-table/row-click": {
-    "type": "event",
-    "description": "trigger on row click\n\n行点击时触发，泛型 T 指表格数据类型\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-events)"
-  },
-  "t-table/row-click": {
     "type": "event",
     "description": "trigger on row click\n\n行点击时触发，泛型 T 指表格数据类型\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-events)"
   },
@@ -920,15 +702,7 @@
     "type": "event",
     "description": "trigger on double click\n\n行双击时触发，泛型 T 指表格数据类型\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-events)"
   },
-  "t-table/row-dblclick": {
-    "type": "event",
-    "description": "trigger on double click\n\n行双击时触发，泛型 T 指表格数据类型\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-events)"
-  },
   "t-base-table/row-mousedown": {
-    "type": "event",
-    "description": "trigger on row mousedown\n\n鼠标在表格行按下时触发，泛型 T 指表格数据类型\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-events)"
-  },
-  "t-table/row-mousedown": {
     "type": "event",
     "description": "trigger on row mousedown\n\n鼠标在表格行按下时触发，泛型 T 指表格数据类型\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-events)"
   },
@@ -936,15 +710,7 @@
     "type": "event",
     "description": "trigger on row mouseenter\n\n鼠标在表格行进入时触发，泛型 T 指表格数据类型\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-events)"
   },
-  "t-table/row-mouseenter": {
-    "type": "event",
-    "description": "trigger on row mouseenter\n\n鼠标在表格行进入时触发，泛型 T 指表格数据类型\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-events)"
-  },
   "t-base-table/row-mouseleave": {
-    "type": "event",
-    "description": "trigger on row mouseenter\n\n鼠标在表格行离开时触发，泛型 T 指表格数据类型\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-events)"
-  },
-  "t-table/row-mouseleave": {
     "type": "event",
     "description": "trigger on row mouseenter\n\n鼠标在表格行离开时触发，泛型 T 指表格数据类型\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-events)"
   },
@@ -952,15 +718,7 @@
     "type": "event",
     "description": "trigger on row mouseover\n\n鼠标悬浮到行时触发，泛型 T 指表格数据类型\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-events)"
   },
-  "t-table/row-mouseover": {
-    "type": "event",
-    "description": "trigger on row mouseover\n\n鼠标悬浮到行时触发，泛型 T 指表格数据类型\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-events)"
-  },
   "t-base-table/row-mouseup": {
-    "type": "event",
-    "description": "trigger on row mouseup\n\n鼠标在表格行按下又弹起时触发，泛型 T 指表格数据类型\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-events)"
-  },
-  "t-table/row-mouseup": {
     "type": "event",
     "description": "trigger on row mouseup\n\n鼠标在表格行按下又弹起时触发，泛型 T 指表格数据类型\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-events)"
   },
@@ -968,21 +726,29 @@
     "type": "event",
     "description": "trigger on scroll horizontal\n\n表格内容横向滚动时触发。请更为使用 `onScroll` 事件\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-events)"
   },
-  "t-table/scroll-x": {
-    "type": "event",
-    "description": "trigger on scroll horizontal\n\n表格内容横向滚动时触发。请更为使用 `onScroll` 事件\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-events)"
-  },
   "t-base-table/scroll-y": {
     "type": "event",
     "description": "trigger on scroll vertical\n\n表格内容纵向滚动时触发。当内容超出高度(height)或最大高度(max-height)时，会出现纵向滚动条。请更为使用 `onScroll` 事件\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-events)"
   },
-  "t-table/scroll-y": {
-    "type": "event",
-    "description": "trigger on scroll vertical\n\n表格内容纵向滚动时触发。当内容超出高度(height)或最大高度(max-height)时，会出现纵向滚动条。请更为使用 `onScroll` 事件\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#basetable-events)"
+  "t-breadcrumb/ellipsis": {
+    "type": "String|TNode",
+    "description": "自定义折叠时省略号的内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/breadcrumb?tab=api#breadcrumb-props)"
+  },
+  "t-breadcrumb/items-after-collapse": {
+    "type": "Number",
+    "description": "超过面包屑最大显示数量时，省略号后显示几项。`maxItems > 0`时有效\n\ndefault: undefined\n\n[docs](https://tdesign.tencent.com/vue-next/components/breadcrumb?tab=api#breadcrumb-props)"
+  },
+  "t-breadcrumb/items-before-collapse": {
+    "type": "Number",
+    "description": "超过面包屑最大显示数量时，省略号前显示几项。`maxItems > 0`时有效\n\ndefault: undefined\n\n[docs](https://tdesign.tencent.com/vue-next/components/breadcrumb?tab=api#breadcrumb-props)"
   },
   "t-breadcrumb/max-item-width": {
     "type": "String",
     "description": "单项最大宽度，超出后会以省略号形式呈现\n\ndefault: undefined\n\n[docs](https://tdesign.tencent.com/vue-next/components/breadcrumb?tab=api#breadcrumb-props)"
+  },
+  "t-breadcrumb/max-items": {
+    "type": "Number",
+    "description": "显示的面包屑的最大数量，超出该值后中间的面包屑内容将会显示为省略号。值`<= 0`代表不限制\n\ndefault: undefined\n\n[docs](https://tdesign.tencent.com/vue-next/components/breadcrumb?tab=api#breadcrumb-props)"
   },
   "t-breadcrumb/options": {
     "type": "Array",
@@ -1278,7 +1044,7 @@
   },
   "t-card/cover": {
     "type": "String|TNode",
-    "description": "卡片封面图。值类型为字符串，会自动使用 `img` 标签输出封面图；也可以完全最定义封面图\n\n[docs](https://tdesign.tencent.com/vue-next/components/card?tab=api#card-props)"
+    "description": "卡片封面图。值类型为字符串，会自动使用 `img` 标签输出封面图；也可以完全自定义封面图\n\n[docs](https://tdesign.tencent.com/vue-next/components/card?tab=api#card-props)"
   },
   "t-card/default": {
     "type": "String|TNode",
@@ -1552,6 +1318,10 @@
   "t-cascader/change": {
     "type": "event",
     "description": "选中值发生变化时触发。TreeNodeModel 从树组件中导出。`context.node` 表示触发事件的节点，`context.source` 表示触发事件的来源\n\n[docs](https://tdesign.tencent.com/vue-next/components/cascader?tab=api#cascader-events)"
+  },
+  "t-cascader/clear": {
+    "type": "event",
+    "description": "Triggered when the clear button is clicked\n\n清空按钮点击时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/cascader?tab=api#cascader-events)"
   },
   "t-cascader/focus": {
     "type": "event",
@@ -1846,10 +1616,6 @@
     "type": "Boolean",
     "description": "是否可清空\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/color-picker?tab=api#colorpicker-props)"
   },
-  "t-color-picker/close-btn": {
-    "type": "String|Boolean|TNode",
-    "description": "关闭按钮，值为 `true` 显示默认关闭按钮；值为 `false` 或 `undefined` 则不显示关闭按钮；值类型为函数，则表示自定义关闭按钮\n\ndefault: true\n\n[docs](https://tdesign.tencent.com/vue-next/components/color-picker?tab=api#colorpicker-props)"
-  },
   "t-color-picker/color-modes": {
     "type": "Array",
     "description": "颜色模式选择。同时支持单色和渐变两种模式，可仅使用单色或者渐变其中一种模式，也可以同时使用。`monochrome` 表示单色，`linear-gradient` 表示渐变色\n\ndefault: [\"monochrome\", \"linear-gradient\"]\n\n[docs](https://tdesign.tencent.com/vue-next/components/color-picker?tab=api#colorpicker-props)"
@@ -1869,26 +1635,22 @@
   "t-color-picker/format": {
     "type": "String",
     "options": [
+      "HEX",
+      "HEX8",
       "RGB",
       "RGBA",
       "HSL",
       "HSLA",
-      "HSB",
       "HSV",
       "HSVA",
-      "HEX",
       "CMYK",
       "CSS"
     ],
-    "description": "格式化色值。`enableAlpha` 为真时，`RGBA/HSLA/HSVA` 等值有效\n\ndefault: RGB\n\n[docs](https://tdesign.tencent.com/vue-next/components/color-picker?tab=api#colorpicker-props)"
+    "description": "When `enableAlpha` is true, `HEX8/RGBA/HSLA/HSVA` are valid\n\n格式化色值。`enableAlpha` 为真时，`HEX8/RGBA/HSLA/HSVA` 有效\n\ndefault: RGB\n\n[docs](https://tdesign.tencent.com/vue-next/components/color-picker?tab=api#colorpicker-props)"
   },
   "t-color-picker/input-props": {
     "type": "Object",
     "description": "透传 Input 输入框组件全部属性\n\n[docs](https://tdesign.tencent.com/vue-next/components/color-picker?tab=api#colorpicker-props)"
-  },
-  "t-color-picker/multiple": {
-    "type": "Boolean",
-    "description": "【开发中】是否允许选中多个颜色\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/color-picker?tab=api#colorpicker-props)"
   },
   "t-color-picker/popup-props": {
     "type": "Object",
@@ -1896,7 +1658,7 @@
   },
   "t-color-picker/recent-colors": {
     "type": "Array",
-    "description": "used color recently\n\n最近使用的颜色。值为 [] 表示以组件内部的“最近使用颜色”为准，值长度大于 0 则以该值为准显示“最近使用颜色”。值为 null 则完全不显示“最近使用颜色”\n\ndefault: []\n\n[docs](https://tdesign.tencent.com/vue-next/components/color-picker?tab=api#colorpicker-props)"
+    "description": "used color recently\n\n最近使用的颜色。值为 [] 表示以组件内部的“最近使用颜色”为准，值长度大于 0 则以该值为准显示“最近使用颜色”。值为 false 或 null 则完全不显示“最近使用颜色”\n\ndefault: []\n\n[docs](https://tdesign.tencent.com/vue-next/components/color-picker?tab=api#colorpicker-props)"
   },
   "t-color-picker/select-input-props": {
     "type": "Object",
@@ -1917,7 +1679,7 @@
   },
   "t-color-picker/swatch-colors": {
     "type": "Array",
-    "description": "swatch colors\n\n系统预设的颜色样例，值为 `null` 或 `[]` 则不显示系统色，值为 `undefined` 会显示组件内置的系统默认色\n\n[docs](https://tdesign.tencent.com/vue-next/components/color-picker?tab=api#colorpicker-props)"
+    "description": "swatch colors\n\n系统预设的颜色样例，值为 `null` 或 `[]` 则不显示系统色，值为 `undefined` 会显示组件内置的系统默认色\n\ndefault: undefined\n\n[docs](https://tdesign.tencent.com/vue-next/components/color-picker?tab=api#colorpicker-props)"
   },
   "t-color-picker/value": {
     "type": "String",
@@ -1927,6 +1689,10 @@
     "type": "event",
     "description": "选中的色值发生变化时触发，第一个参数 `value` 表示新色值，`context.color` 表示当前调色板控制器的色值，`context.trigger` 表示触发颜色变化的来源\n\n[docs](https://tdesign.tencent.com/vue-next/components/color-picker?tab=api#colorpicker-events)"
   },
+  "t-color-picker/clear": {
+    "type": "event",
+    "description": "清空按钮点击时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/color-picker?tab=api#colorpicker-events)"
+  },
   "t-color-picker/palette-bar-change": {
     "type": "event",
     "description": "调色板控制器的值变化时触发，`context.color` 指调色板控制器的值\n\n[docs](https://tdesign.tencent.com/vue-next/components/color-picker?tab=api#colorpicker-events)"
@@ -1934,6 +1700,66 @@
   "t-color-picker/recent-colors-change": {
     "type": "event",
     "description": "最近使用颜色发生变化时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/color-picker?tab=api#colorpicker-events)"
+  },
+  "t-color-picker-panel/color-modes": {
+    "type": "Array",
+    "description": "颜色模式选择。同时支持单色和渐变两种模式，可仅使用单色或者渐变其中一种模式，也可以同时使用。`monochrome` 表示单色，`linear-gradient` 表示渐变色\n\ndefault: [\"monochrome\", \"linear-gradient\"]\n\n[docs](https://tdesign.tencent.com/vue-next/components/color-picker?tab=api#colorpickerpanel-props)"
+  },
+  "t-color-picker-panel/disabled": {
+    "type": "Boolean",
+    "description": "是否禁用组件\n\n[docs](https://tdesign.tencent.com/vue-next/components/color-picker?tab=api#colorpickerpanel-props)"
+  },
+  "t-color-picker-panel/enable-alpha": {
+    "type": "Boolean",
+    "description": "是否开启透明通道\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/color-picker?tab=api#colorpickerpanel-props)"
+  },
+  "t-color-picker-panel/enable-multiple-gradient": {
+    "type": "Boolean",
+    "description": "是否允许开启通过点击渐变轴增加渐变梯度，默认开启，关闭时只会存在起始和结束两个颜色\n\ndefault: true\n\n[docs](https://tdesign.tencent.com/vue-next/components/color-picker?tab=api#colorpickerpanel-props)"
+  },
+  "t-color-picker-panel/format": {
+    "type": "String",
+    "options": [
+      "HEX",
+      "HEX8",
+      "RGB",
+      "RGBA",
+      "HSL",
+      "HSLA",
+      "HSV",
+      "HSVA",
+      "CMYK",
+      "CSS"
+    ],
+    "description": "When `enableAlpha` is true, `HEX8/RGBA/HSLA/HSVA` are valid\n\n格式化色值。`enableAlpha` 为真时，`HEX8/RGBA/HSLA/HSVA` 有效\n\ndefault: RGB\n\n[docs](https://tdesign.tencent.com/vue-next/components/color-picker?tab=api#colorpickerpanel-props)"
+  },
+  "t-color-picker-panel/recent-colors": {
+    "type": "Array",
+    "description": "used color recently\n\n最近使用的颜色。值为 [] 表示以组件内部的“最近使用颜色”为准，值长度大于 0 则以该值为准显示“最近使用颜色”。值为 false 或 null 则完全不显示“最近使用颜色”\n\ndefault: []\n\n[docs](https://tdesign.tencent.com/vue-next/components/color-picker?tab=api#colorpickerpanel-props)"
+  },
+  "t-color-picker-panel/show-primary-color-preview": {
+    "type": "Boolean",
+    "description": "是否展示颜色选择条右侧的颜色预览区域\n\ndefault: true\n\n[docs](https://tdesign.tencent.com/vue-next/components/color-picker?tab=api#colorpickerpanel-props)"
+  },
+  "t-color-picker-panel/swatch-colors": {
+    "type": "Array",
+    "description": "swatch colors\n\n系统预设的颜色样例，值为 `null` 或 `[]` 则不显示系统色，值为 `undefined` 会显示组件内置的系统默认色\n\n[docs](https://tdesign.tencent.com/vue-next/components/color-picker?tab=api#colorpickerpanel-props)"
+  },
+  "t-color-picker-panel/value": {
+    "type": "String",
+    "description": "color value\n\n色值\n\n[docs](https://tdesign.tencent.com/vue-next/components/color-picker?tab=api#colorpickerpanel-props)"
+  },
+  "t-color-picker-panel/change": {
+    "type": "event",
+    "description": "选中的色值发生变化时触发，第一个参数 `value` 表示新色值，`context.color` 表示当前调色板控制器的色值，`context.trigger` 表示触发颜色变化的来源\n\n[docs](https://tdesign.tencent.com/vue-next/components/color-picker?tab=api#colorpickerpanel-events)"
+  },
+  "t-color-picker-panel/palette-bar-change": {
+    "type": "event",
+    "description": "调色板控制器的值变化时触发，`context.color` 指调色板控制器的值\n\n[docs](https://tdesign.tencent.com/vue-next/components/color-picker?tab=api#colorpickerpanel-events)"
+  },
+  "t-color-picker-panel/recent-colors-change": {
+    "type": "event",
+    "description": "最近使用颜色发生变化时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/color-picker?tab=api#colorpickerpanel-events)"
   },
   "t-comment/actions": {
     "type": "Array",
@@ -2077,6 +1903,10 @@
     ],
     "description": "预设面板展示区域（包含确定按钮）\n\ndefault: bottom\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#datepicker-props)"
   },
+  "t-date-picker/readonly": {
+    "type": "Boolean",
+    "description": "Whether it is read only, the priority is greater than allowInput\n\n是否只读，优先级大于 allowInput\n\ndefault: undefined\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#datepicker-props)"
+  },
   "t-date-picker/select-input-props": {
     "type": "Object",
     "description": "透传 SelectInput 筛选器输入框组件的全部属性\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#datepicker-props)"
@@ -2132,6 +1962,10 @@
     "type": "event",
     "description": "选中值发生变化时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#datepicker-events)"
   },
+  "t-date-picker/clear": {
+    "type": "event",
+    "description": "Triggered when the clear button is clicked\n\n清空按钮点击时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#datepicker-events)"
+  },
   "t-date-picker/confirm": {
     "type": "event",
     "description": "如果存在“确定”按钮，则点击“确定”按钮时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#datepicker-events)"
@@ -2183,6 +2017,72 @@
   "t-date-picker-panel/year-change": {
     "type": "event",
     "description": "年份切换发生变化时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#datepickerpanel-events)"
+  },
+  "t-date-picker-panel/disable-date": {
+    "type": "Object|Array|Function",
+    "description": "禁用日期，示例：['A', 'B'] 表示日期 A 和日期 B 会被禁用。`{ from: 'A', to: 'B' }` 表示在 A 到 B 之间的日期会被禁用。`{ before: 'A', after: 'B' }` 表示在 A 之前和在 B 之后的日期都会被禁用。其中 A = '2021-01-01'，B = '2021-02-01'。值类型为 Function 则表示返回值为 true 的日期会被禁用\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#datepickerpanel-props)"
+  },
+  "t-date-picker-panel/disable-time": {
+    "type": "Function",
+    "description": "disable time config function\n\n禁用时间项的配置函数，仅在日期时间选择器中可用\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#datepickerpanel-props)"
+  },
+  "t-date-picker-panel/enable-time-picker": {
+    "type": "Boolean",
+    "description": "是否显示时间选择\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#datepickerpanel-props)"
+  },
+  "t-date-picker-panel/first-day-of-week": {
+    "type": "Number",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "description": "第一天从星期几开始\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#datepickerpanel-props)"
+  },
+  "t-date-picker-panel/format": {
+    "type": "String",
+    "description": "仅用于格式化日期显示的格式，不影响日期值。注意和 `valueType` 的区别，`valueType`会直接决定日期值 `value` 的格式。全局配置默认为：'YYYY-MM-DD'，[详细文档](https://day.js.org/docs/en/display/format)\n\ndefault: undefined\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#datepickerpanel-props)"
+  },
+  "t-date-picker-panel/mode": {
+    "type": "String",
+    "options": [
+      "year",
+      "quarter",
+      "month",
+      "week",
+      "date"
+    ],
+    "description": "选择器模式\n\ndefault: date\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#datepickerpanel-props)"
+  },
+  "t-date-picker-panel/need-confirm": {
+    "type": "Boolean",
+    "description": "whether a confirmation button needs to be clicked to complete the action in the date-time picker scenario, default is true\n\n决定在日期时间选择器的场景下是否需要点击确认按钮才完成选择动作，默认为`true`\n\ndefault: true\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#datepickerpanel-props)"
+  },
+  "t-date-picker-panel/presets": {
+    "type": "Object",
+    "description": "预设快捷日期选择，示例：`{ '元旦': '2021-01-01', '昨天':  dayjs().subtract(1, 'day').format('YYYY-MM-DD'), '特定日期': () => ['2021-02-01'] }`\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#datepickerpanel-props)"
+  },
+  "t-date-picker-panel/presets-placement": {
+    "type": "String",
+    "options": [
+      "left",
+      "top",
+      "right",
+      "bottom"
+    ],
+    "description": "预设面板展示区域（包含确定按钮）\n\ndefault: bottom\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#datepickerpanel-props)"
+  },
+  "t-date-picker-panel/time-picker-props": {
+    "type": "Object",
+    "description": "透传 TimePicker 组件属性\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#datepickerpanel-props)"
+  },
+  "t-date-picker-panel/value": {
+    "type": "String|Number|Array|Date",
+    "description": "选中值\n\ndefault: ''\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#datepickerpanel-props)"
   },
   "t-date-range-picker/allow-input": {
     "type": "Boolean",
@@ -2289,6 +2189,10 @@
   "t-date-range-picker/range-input-props": {
     "type": "Object",
     "description": "透传给范围输入框 RangeInput 组件的参数\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#daterangepicker-props)"
+  },
+  "t-date-range-picker/readonly": {
+    "type": "Boolean",
+    "description": "Whether it is read only, the priority is greater than allowInput\n\n是否只读，优先级大于 `allowInput`\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#daterangepicker-props)"
   },
   "t-date-range-picker/separator": {
     "type": "String",
@@ -2408,14 +2312,67 @@
     "type": "event",
     "description": "年份切换发生变化时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#daterangepickerpanel-events)"
   },
-  "t-descriptions/align": {
+  "t-date-range-picker-panel/disable-date": {
+    "type": "Object|Array|Function",
+    "description": "禁用日期，示例：['A', 'B'] 表示日期 A 和日期 B 会被禁用。{ from: 'A', to: 'B' } 表示在 A 到 B 之间的日期会被禁用。{ before: 'A', after: 'B' } 表示在 A 之前和在 B 之后的日期都会被禁用。其中 A = '2021-01-01'，B = '2021-02-01'。值类型为 Function 则表示返回值为 true 的日期会被禁用\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#daterangepickerpanel-props)"
+  },
+  "t-date-range-picker-panel/enable-time-picker": {
+    "type": "Boolean",
+    "description": "是否显示时间选择\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#daterangepickerpanel-props)"
+  },
+  "t-date-range-picker-panel/first-day-of-week": {
+    "type": "Number",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "description": "第一天从星期几开始\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#daterangepickerpanel-props)"
+  },
+  "t-date-range-picker-panel/format": {
+    "type": "String",
+    "description": "用于格式化日期，[详细文档](https://day.js.org/docs/en/display/format)\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#daterangepickerpanel-props)"
+  },
+  "t-date-range-picker-panel/mode": {
     "type": "String",
     "options": [
+      "year",
+      "quarter",
+      "month",
+      "week",
+      "date"
+    ],
+    "description": "选择器模式\n\ndefault: date\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#daterangepickerpanel-props)"
+  },
+  "t-date-range-picker-panel/panel-preselection": {
+    "type": "Boolean",
+    "description": "在开始日期选中之前，面板是否显示预选状态，即是否高亮预选日期\n\ndefault: true\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#daterangepickerpanel-props)"
+  },
+  "t-date-range-picker-panel/presets": {
+    "type": "Object",
+    "description": "预设快捷日期选择，示例：{ '特定日期范围': ['2021-01-01', '2022-01-01'], '本月': [dayjs().startOf('month'), dayjs().endOf('month')] }\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#daterangepickerpanel-props)"
+  },
+  "t-date-range-picker-panel/presets-placement": {
+    "type": "String",
+    "options": [
+      "left",
       "top",
-      "middle",
+      "right",
       "bottom"
     ],
-    "description": "content align type\n\n内容垂直对齐方式，DescriptionsItem.align 优先级高于 Descriptions.align\n\n[docs](https://tdesign.tencent.com/vue-next/components/descriptions?tab=api#descriptions-props)"
+    "description": "预设面板展示区域（包含确定按钮）\n\ndefault: bottom\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#daterangepickerpanel-props)"
+  },
+  "t-date-range-picker-panel/time-picker-props": {
+    "type": "Object",
+    "description": "透传 TimePicker 组件属性\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#daterangepickerpanel-props)"
+  },
+  "t-date-range-picker-panel/value": {
+    "type": "Array",
+    "description": "选中值\n\ndefault: []\n\n[docs](https://tdesign.tencent.com/vue-next/components/date-picker?tab=api#daterangepickerpanel-props)"
   },
   "t-descriptions/bordered": {
     "type": "Boolean",
@@ -2558,6 +2515,10 @@
     "type": "String|Boolean|TNode",
     "description": "头部内容。值为 true 显示空白头部，值为 false 不显示任何内容，值类型为 string 则直接显示值，值类型为 Function 表示自定义头部内容\n\ndefault: true\n\n[docs](https://tdesign.tencent.com/vue-next/components/dialog?tab=api#dialog-props)"
   },
+  "t-dialog/lazy": {
+    "type": "Boolean",
+    "description": "Enable Dialog lazy loading, the contents of the dialog box are not rendered when enable\n\n是否启用对话框懒加载，启用时对话框内的内容不渲染\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/dialog?tab=api#dialog-props)"
+  },
   "t-dialog/mode": {
     "type": "String",
     "options": [
@@ -2669,11 +2630,11 @@
   },
   "t-dialog-card/confirm-btn": {
     "type": "String|Object|TNode",
-    "description": "确认按钮。值为 null 则不显示确认按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制确认事件\n\ndefault: true\n\n[docs](https://tdesign.tencent.com/vue-next/components/dialog?tab=api#dialogcard-props)"
+    "description": "确认按钮。值为 null 则不显示确认按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制确认事件\n\n[docs](https://tdesign.tencent.com/vue-next/components/dialog?tab=api#dialogcard-props)"
   },
   "t-dialog-card/confirm-loading": {
     "type": "Boolean",
-    "description": "confirm button loading status\n\n确认按钮加载状态\n\n[docs](https://tdesign.tencent.com/vue-next/components/dialog?tab=api#dialogcard-props)"
+    "description": "confirm button loading status\n\n确认按钮加载状态\n\ndefault: undefined\n\n[docs](https://tdesign.tencent.com/vue-next/components/dialog?tab=api#dialogcard-props)"
   },
   "t-dialog-card/footer": {
     "type": "Boolean|TNode",
@@ -2769,7 +2730,7 @@
   },
   "t-drawer/confirm-btn": {
     "type": "String|Object|TNode",
-    "description": "确认按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制确认事件\n\n[docs](https://tdesign.tencent.com/vue-next/components/drawer?tab=api#drawer-props)"
+    "description": "确认按钮，可自定义。值为 null 则不显示确认按钮。类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制确认事件\n\n[docs](https://tdesign.tencent.com/vue-next/components/drawer?tab=api#drawer-props)"
   },
   "t-drawer/default": {
     "type": "String|TNode",
@@ -2790,6 +2751,10 @@
   "t-drawer/header": {
     "type": "String|Boolean|TNode",
     "description": "头部内容。值为 true 显示空白头部，值为 false 不显示头部，值类型为 string 则直接显示值，值类型为 TNode 表示自定义头部内容\n\ndefault: true\n\n[docs](https://tdesign.tencent.com/vue-next/components/drawer?tab=api#drawer-props)"
+  },
+  "t-drawer/lazy": {
+    "type": "Boolean",
+    "description": "Enable Drawer lazy loading, the contents of the Drawer are not rendered when enable\n\n是否启用抽屉懒加载，启用时抽屉的内容不渲染\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/drawer?tab=api#drawer-props)"
   },
   "t-drawer/mode": {
     "type": "String",
@@ -3116,6 +3081,14 @@
     "type": "Boolean",
     "description": "是否显示必填符号（*），默认显示\n\ndefault: undefined\n\n[docs](https://tdesign.tencent.com/vue-next/components/form?tab=api#form-props)"
   },
+  "t-form/required-mark-position": {
+    "type": "String",
+    "options": [
+      "left",
+      "right"
+    ],
+    "description": "Display position of required symbols\n\n表单必填符号（*）显示位置\n\n[docs](https://tdesign.tencent.com/vue-next/components/form?tab=api#form-props)"
+  },
   "t-form/reset-type": {
     "type": "String",
     "options": [
@@ -3342,7 +3315,35 @@
     "type": "String",
     "description": "顶栏高度。样式表（class）中定义的默认高度为：64px\n\n[docs](https://tdesign.tencent.com/vue-next/components/layout?tab=api#header-props)"
   },
-  "t-icon-svg/load-default-icons": {
+  "icon-font/load-default-icons": {
+    "type": "Boolean",
+    "description": "是否加载组件库内置图标\n\ndefault: true\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon?tab=api#iconfont-props)"
+  },
+  "icon-font/name": {
+    "type": "String",
+    "description": "图标名称\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon?tab=api#iconfont-props)"
+  },
+  "icon-font/size": {
+    "type": "String",
+    "description": "图标尺寸，支持 'small', 'medium', 'large'，'35px', '3em' 等\n\ndefault: undefined\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon?tab=api#iconfont-props)"
+  },
+  "icon-font/style": {
+    "type": "String",
+    "description": "可用于设置图标颜色，如：style=\\\"color: red\\\"\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon?tab=api#iconfont-props)"
+  },
+  "icon-font/tag": {
+    "type": "String",
+    "description": "图标 DOM 元素，可选值：i/span/div/...\n\ndefault: i\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon?tab=api#iconfont-props)"
+  },
+  "icon-font/url": {
+    "type": "String|Array",
+    "description": "图标地址，地址内容参考[组件内部默认加载图标](https://tdesign.gtimg.com/icon/web/index.css)。也可以在 index.html 中引入图标地址\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon?tab=api#iconfont-props)"
+  },
+  "icon-font/click": {
+    "type": "event",
+    "description": "点击时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon?tab=api#iconfont-events)"
+  },
+  "icon/load-default-icons": {
     "type": "Boolean",
     "description": "是否加载组件库内置图标\n\ndefault: true\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon?tab=api#iconsvg-props)"
   },
@@ -3350,7 +3351,7 @@
     "type": "Boolean",
     "description": "是否加载组件库内置图标\n\ndefault: true\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon?tab=api#iconsvg-props)"
   },
-  "t-icon-svg/name": {
+  "icon/name": {
     "type": "String",
     "description": "图标名称\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon?tab=api#iconsvg-props)"
   },
@@ -3358,7 +3359,7 @@
     "type": "String",
     "description": "图标名称\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon?tab=api#iconsvg-props)"
   },
-  "t-icon-svg/size": {
+  "icon/size": {
     "type": "String",
     "description": "图标尺寸，支持 'small', 'medium', 'large'，'35px', '3em' 等\n\ndefault: undefined\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon?tab=api#iconsvg-props)"
   },
@@ -3366,7 +3367,7 @@
     "type": "String",
     "description": "图标尺寸，支持 'small', 'medium', 'large'，'35px', '3em' 等\n\ndefault: undefined\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon?tab=api#iconsvg-props)"
   },
-  "t-icon-svg/style": {
+  "icon/style": {
     "type": "String",
     "description": "可用于设置图标颜色，如：style=\\\"color: red\\\"\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon?tab=api#iconsvg-props)"
   },
@@ -3374,7 +3375,7 @@
     "type": "String",
     "description": "可用于设置图标颜色，如：style=\\\"color: red\\\"\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon?tab=api#iconsvg-props)"
   },
-  "t-icon-svg/url": {
+  "icon/url": {
     "type": "String|Array",
     "description": "图标地址，地址内容参考[组件内部默认加载图标](https://tdesign.gtimg.com/icon/web/index.js)\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon?tab=api#iconsvg-props)"
   },
@@ -3382,41 +3383,13 @@
     "type": "String|Array",
     "description": "图标地址，地址内容参考[组件内部默认加载图标](https://tdesign.gtimg.com/icon/web/index.js)\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon?tab=api#iconsvg-props)"
   },
-  "t-icon-svg/click": {
+  "icon/click": {
     "type": "event",
     "description": "点击时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon?tab=api#iconsvg-events)"
   },
   "t-icon/click": {
     "type": "event",
     "description": "点击时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon?tab=api#iconsvg-events)"
-  },
-  "t-iconfont/load-default-icons": {
-    "type": "Boolean",
-    "description": "是否加载组件库内置图标\n\ndefault: true\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon?tab=api#iconfont-props)"
-  },
-  "t-iconfont/name": {
-    "type": "String",
-    "description": "图标名称\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon?tab=api#iconfont-props)"
-  },
-  "t-iconfont/size": {
-    "type": "String",
-    "description": "图标尺寸，支持 'small', 'medium', 'large'，'35px', '3em' 等\n\ndefault: undefined\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon?tab=api#iconfont-props)"
-  },
-  "t-iconfont/style": {
-    "type": "String",
-    "description": "可用于设置图标颜色，如：style=\\\"color: red\\\"\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon?tab=api#iconfont-props)"
-  },
-  "t-iconfont/tag": {
-    "type": "String",
-    "description": "图标 DOM 元素，可选值：i/span/div/...\n\ndefault: i\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon?tab=api#iconfont-props)"
-  },
-  "t-iconfont/url": {
-    "type": "String|Array",
-    "description": "图标地址，地址内容参考[组件内部默认加载图标](https://tdesign.gtimg.com/icon/web/index.css)。也可以在 index.html 中引入图标地址\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon?tab=api#iconfont-props)"
-  },
-  "t-iconfont/click": {
-    "type": "event",
-    "description": "点击时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/icon?tab=api#iconfont-events)"
   },
   "t-image/alt": {
     "type": "String",
@@ -4723,6 +4696,10 @@
     "type": "Array",
     "description": "table column configs\n\n列配置，泛型 T 指表格数据类型\n\ndefault: []\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
   },
+  "t-table/columns": {
+    "type": "Array",
+    "description": "table column configs\n\n列配置，泛型 T 指表格数据类型\n\ndefault: []\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
   "t-primary-table/display-columns": {
     "type": "Array",
     "description": "列配置功能中，当前显示的列\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
@@ -4935,6 +4912,10 @@
     "type": "event",
     "description": "trigger on cell clicked\n\n单元格点击时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-events)"
   },
+  "t-table/cell-click": {
+    "type": "event",
+    "description": "trigger on cell clicked\n\n单元格点击时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-events)"
+  },
   "t-primary-table/change": {
     "type": "event",
     "description": "分页、排序、过滤等内容变化时触发，泛型 T 指表格数据类型，`currentData` 表示变化后的数据\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-events)"
@@ -5031,6 +5012,498 @@
     "type": "event",
     "description": "trigger after row data validated\n\n可编辑行表格，全部数据校验完成后触发。即组件实例方法 `validateTableData` 执行结束后触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-events)"
   },
+  "t-primary-table/active-row-keys": {
+    "type": "Array",
+    "description": "keys of highlight rows, used to mock area selection behavior, just like macOS or windows area selection\n\n高亮行，支持鼠标键盘操作(Shift)连续高亮行，可用于处理行选中等批量操作，模拟操作系统区域选择行为\n\ndefault: []\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/active-row-keys": {
+    "type": "Array",
+    "description": "keys of highlight rows, used to mock area selection behavior, just like macOS or windows area selection\n\n高亮行，支持鼠标键盘操作(Shift)连续高亮行，可用于处理行选中等批量操作，模拟操作系统区域选择行为\n\ndefault: []\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/active-row-type": {
+    "type": "String",
+    "description": "make nodes can be highlight on clicked\n\n默认不会高亮点击行，`activeRowType=single` 表示鼠标点击仅允许同时高亮一行，Shift 键盘操作加鼠标操作依然可以高亮多行，因为这属于明显的区域选择行为。`activeRowType= multiple ` 表示允许鼠标点击同时高亮多行\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/active-row-type": {
+    "type": "String",
+    "description": "make nodes can be highlight on clicked\n\n默认不会高亮点击行，`activeRowType=single` 表示鼠标点击仅允许同时高亮一行，Shift 键盘操作加鼠标操作依然可以高亮多行，因为这属于明显的区域选择行为。`activeRowType= multiple ` 表示允许鼠标点击同时高亮多行\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/allow-resize-column-width": {
+    "type": "Boolean",
+    "description": "allow to resize column width\n\n是否允许调整列宽。请更为使用 `resizable`\n\ndefault: undefined\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/allow-resize-column-width": {
+    "type": "Boolean",
+    "description": "allow to resize column width\n\n是否允许调整列宽。请更为使用 `resizable`\n\ndefault: undefined\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/attach": {
+    "type": "String|Function",
+    "description": "elements with popup would be attached to `attach`\n\n超出省略等所有浮层元素统一绑定到 `attach`，可根据实际情况调整挂载元素\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/attach": {
+    "type": "String|Function",
+    "description": "elements with popup would be attached to `attach`\n\n超出省略等所有浮层元素统一绑定到 `attach`，可根据实际情况调整挂载元素\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/bordered": {
+    "type": "Boolean",
+    "description": "show table bordered\n\n是否显示表格边框\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/bordered": {
+    "type": "Boolean",
+    "description": "show table bordered\n\n是否显示表格边框\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/bottom-content": {
+    "type": "String|TNode",
+    "description": "表格底部内容，可以用于自定义列设置等\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/bottom-content": {
+    "type": "String|TNode",
+    "description": "表格底部内容，可以用于自定义列设置等\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/cell-empty-content": {
+    "type": "String|TNode",
+    "description": "单元格数据为空时呈现的内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/cell-empty-content": {
+    "type": "String|TNode",
+    "description": "单元格数据为空时呈现的内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/data": {
+    "type": "Array",
+    "description": "table data\n\n数据源，泛型 T 指表格数据类型\n\ndefault: []\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/data": {
+    "type": "Array",
+    "description": "table data\n\n数据源，泛型 T 指表格数据类型\n\ndefault: []\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/disable-data-page": {
+    "type": "Boolean",
+    "description": "是否禁用本地数据分页。当 `data` 数据长度超过分页大小时，会自动进行本地数据分页。如果 `disableDataPage` 设置为 true，则无论何时，都不会进行本地数据分页\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/disable-data-page": {
+    "type": "Boolean",
+    "description": "是否禁用本地数据分页。当 `data` 数据长度超过分页大小时，会自动进行本地数据分页。如果 `disableDataPage` 设置为 true，则无论何时，都不会进行本地数据分页\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/disable-space-inactive-row": {
+    "type": "Boolean",
+    "description": "can not set row to be inactive with Space keydown\n\n默认重复按下 Space 键可取消当前行高亮，是否禁用取消\n\ndefault: undefined\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/disable-space-inactive-row": {
+    "type": "Boolean",
+    "description": "can not set row to be inactive with Space keydown\n\n默认重复按下 Space 键可取消当前行高亮，是否禁用取消\n\ndefault: undefined\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/empty": {
+    "type": "String|TNode",
+    "description": "empty text or empty element\n\n空表格呈现样式，支持全局配置 `GlobalConfigProvider`\n\ndefault: ''\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/empty": {
+    "type": "String|TNode",
+    "description": "empty text or empty element\n\n空表格呈现样式，支持全局配置 `GlobalConfigProvider`\n\ndefault: ''\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/first-full-row": {
+    "type": "String|TNode",
+    "description": "首行内容，横跨所有列\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/first-full-row": {
+    "type": "String|TNode",
+    "description": "首行内容，横跨所有列\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/fixed-rows": {
+    "type": "Array",
+    "description": "固定行（冻结行），示例：[M, N]，表示冻结表头 M 行和表尾 N 行。M 和 N 值为 0 时，表示不冻结行\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/fixed-rows": {
+    "type": "Array",
+    "description": "固定行（冻结行），示例：[M, N]，表示冻结表头 M 行和表尾 N 行。M 和 N 值为 0 时，表示不冻结行\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/foot-data": {
+    "type": "Array",
+    "description": "table foot data\n\n表尾数据源，泛型 T 指表格数据类型\n\ndefault: []\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/foot-data": {
+    "type": "Array",
+    "description": "table foot data\n\n表尾数据源，泛型 T 指表格数据类型\n\ndefault: []\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/footer-affix-props": {
+    "type": "Object",
+    "description": "affix props\n\n请更为使用 `footerAffixedBottom`。表尾吸底基于 Affix 组件开发，透传全部 Affix 组件属性\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/footer-affix-props": {
+    "type": "Object",
+    "description": "affix props\n\n请更为使用 `footerAffixedBottom`。表尾吸底基于 Affix 组件开发，透传全部 Affix 组件属性\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/footer-affixed-bottom": {
+    "type": "Boolean|Object",
+    "description": "affix foot to viewport bottom\n\n表尾吸底。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，则表示相对于整个窗口吸底。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixedBottom.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/footer-affixed-bottom": {
+    "type": "Boolean|Object",
+    "description": "affix foot to viewport bottom\n\n表尾吸底。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，则表示相对于整个窗口吸底。如果表格滚动的父元素不是整个窗口，请通过 `footerAffixedBottom.container` 调整固钉的吸顶范围。基于 Affix 组件开发，透传全部 Affix 组件属性\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/footer-summary": {
+    "type": "String|TNode",
+    "description": "footer summary content\n\n表尾总结行\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/footer-summary": {
+    "type": "String|TNode",
+    "description": "footer summary content\n\n表尾总结行\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/header-affix-props": {
+    "type": "Object",
+    "description": "affix props\n\n请更为使用 `headerAffixedTop`。表头吸顶基于 Affix 组件开发，透传全部 Affix 组件属性\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/header-affix-props": {
+    "type": "Object",
+    "description": "affix props\n\n请更为使用 `headerAffixedTop`。表头吸顶基于 Affix 组件开发，透传全部 Affix 组件属性\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/header-affixed-top": {
+    "type": "Boolean|Object",
+    "description": "affix header to viewport top\n\n表头吸顶。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，表示相对于整个窗口吸顶。如果表格滚动的父元素不是整个窗口，请通过 `headerAffixedTop.container` 调整吸顶的位置。基于 Affix 组件开发，透传全部 Affix 组件属性\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/header-affixed-top": {
+    "type": "Boolean|Object",
+    "description": "affix header to viewport top\n\n表头吸顶。使用该功能，需要非常注意表格是相对于哪一个父元素进行滚动。值为 `true`，表示相对于整个窗口吸顶。如果表格滚动的父元素不是整个窗口，请通过 `headerAffixedTop.container` 调整吸顶的位置。基于 Affix 组件开发，透传全部 Affix 组件属性\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/height": {
+    "type": "String|Number",
+    "description": "table height\n\n表格高度，超出后会出现滚动条。示例：100,  '30%',  '300'。值为数字类型，会自动加上单位 px。如果不是绝对固定表格高度，建议使用 `maxHeight`\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/height": {
+    "type": "String|Number",
+    "description": "table height\n\n表格高度，超出后会出现滚动条。示例：100,  '30%',  '300'。值为数字类型，会自动加上单位 px。如果不是绝对固定表格高度，建议使用 `maxHeight`\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/horizontal-scroll-affixed-bottom": {
+    "type": "Boolean|Object",
+    "description": "affix props\n\n滚动条吸底。基于 Affix 组件开发，透传全部 Affix 组件属性\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/horizontal-scroll-affixed-bottom": {
+    "type": "Boolean|Object",
+    "description": "affix props\n\n滚动条吸底。基于 Affix 组件开发，透传全部 Affix 组件属性\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/hover": {
+    "type": "Boolean",
+    "description": "show hover style\n\n是否显示鼠标悬浮状态\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/hover": {
+    "type": "Boolean",
+    "description": "show hover style\n\n是否显示鼠标悬浮状态\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/keyboard-row-hover": {
+    "type": "Boolean",
+    "description": "make table row to be hover by keydown ArrowUp/ArrowDown\n\n键盘操作行显示悬浮效果，一般用于键盘操作行选中、行展开、行高亮等功能\n\ndefault: true\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/keyboard-row-hover": {
+    "type": "Boolean",
+    "description": "make table row to be hover by keydown ArrowUp/ArrowDown\n\n键盘操作行显示悬浮效果，一般用于键盘操作行选中、行展开、行高亮等功能\n\ndefault: true\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/last-full-row": {
+    "type": "String|TNode",
+    "description": "尾行内容，横跨所有列\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/last-full-row": {
+    "type": "String|TNode",
+    "description": "尾行内容，横跨所有列\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/lazy-load": {
+    "type": "Boolean",
+    "description": "load table content when it entering the visible area, all elements in table are not rendered before it become visible\n\n是否启用整个表格元素的懒加载，当页面滚动到可视区域后再渲染表格。注意和表格内部行滚动懒加载的区别，内部行滚动无论表格是否在可视区域都会默认渲染第一屏的行元素\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/lazy-load": {
+    "type": "Boolean",
+    "description": "load table content when it entering the visible area, all elements in table are not rendered before it become visible\n\n是否启用整个表格元素的懒加载，当页面滚动到可视区域后再渲染表格。注意和表格内部行滚动懒加载的区别，内部行滚动无论表格是否在可视区域都会默认渲染第一屏的行元素\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/loading": {
+    "type": "Boolean|TNode",
+    "description": "loading state table\n\n加载中状态。值为 `true` 会显示默认加载中样式，可以通过 Function 和 插槽 自定义加载状态呈现内容和样式。值为 `false` 则会取消加载状态\n\ndefault: undefined\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/loading": {
+    "type": "Boolean|TNode",
+    "description": "loading state table\n\n加载中状态。值为 `true` 会显示默认加载中样式，可以通过 Function 和 插槽 自定义加载状态呈现内容和样式。值为 `false` 则会取消加载状态\n\ndefault: undefined\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/loading-props": {
+    "type": "Object",
+    "description": "透传加载组件全部属性\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/loading-props": {
+    "type": "Object",
+    "description": "透传加载组件全部属性\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/locale": {
+    "type": "Object",
+    "description": "table locale config\n\n语言配置\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/locale": {
+    "type": "Object",
+    "description": "table locale config\n\n语言配置\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/max-height": {
+    "type": "String|Number",
+    "description": "table max height\n\n表格最大高度，超出后会出现滚动条。示例：100, '30%', '300'。值为数字类型，会自动加上单位 px\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/max-height": {
+    "type": "String|Number",
+    "description": "table max height\n\n表格最大高度，超出后会出现滚动条。示例：100, '30%', '300'。值为数字类型，会自动加上单位 px\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/pagination": {
+    "type": "Object",
+    "description": "you can use all props of pagination component with paginationProps\n\n分页配置，值为空则不显示。具体 API 参考分页组件。当 `data` 数据长度超过分页大小时，会自动对本地数据 `data` 进行排序，如果不希望对于 `data` 进行排序，可以设置 `disableDataPage = true`\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/pagination": {
+    "type": "Object",
+    "description": "you can use all props of pagination component with paginationProps\n\n分页配置，值为空则不显示。具体 API 参考分页组件。当 `data` 数据长度超过分页大小时，会自动对本地数据 `data` 进行排序，如果不希望对于 `data` 进行排序，可以设置 `disableDataPage = true`\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/pagination-affixed-bottom": {
+    "type": "Boolean|Object",
+    "description": "affix props\n\n分页吸底。基于 Affix 组件开发，透传全部 Affix 组件属性\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/pagination-affixed-bottom": {
+    "type": "Boolean|Object",
+    "description": "affix props\n\n分页吸底。基于 Affix 组件开发，透传全部 Affix 组件属性\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/resizable": {
+    "type": "Boolean",
+    "description": "allow to resize column width, set `tableLayout=fixed` would be better\n\n是否允许调整列宽，设置 `tableLayout=fixed` 效果更友好，此时不允许通过 CSS 设置 `table`元素宽度，也不允许设置 `tableContentWidth`。一般不建议在列宽调整场景使用 `tableLayout: auto`。如果想要配置宽度可调整的最小值和最大值，请使用 `column.resize`，示例：`columns: [{ resize: { minWidth: 120, maxWidth: 300 } }]`。<br/> 默认规则：因列宽超出存在横向滚动条时，列宽调整仅影响当前列宽和总列宽；表格列较少没有横向滚动条时，列宽调整表现为自身宽度和相邻宽度变化\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/resizable": {
+    "type": "Boolean",
+    "description": "allow to resize column width, set `tableLayout=fixed` would be better\n\n是否允许调整列宽，设置 `tableLayout=fixed` 效果更友好，此时不允许通过 CSS 设置 `table`元素宽度，也不允许设置 `tableContentWidth`。一般不建议在列宽调整场景使用 `tableLayout: auto`。如果想要配置宽度可调整的最小值和最大值，请使用 `column.resize`，示例：`columns: [{ resize: { minWidth: 120, maxWidth: 300 } }]`。<br/> 默认规则：因列宽超出存在横向滚动条时，列宽调整仅影响当前列宽和总列宽；表格列较少没有横向滚动条时，列宽调整表现为自身宽度和相邻宽度变化\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/row-attributes": {
+    "type": "Object|Array|Function",
+    "description": "`tr` attributes\n\nHTML 标签 `tr` 的属性。类型为 Function 时，参数说明：`params.row` 表示行数据；`params.rowIndex` 表示行下标；`params.type=body` 表示属性作用于 `tbody` 中的元素；`params.type=foot` 表示属性作用于 `tfoot` 中的元素。<br />示例一：{ draggable: true }，<br />示例二：[{ draggable: true }, { title: '超出省略显示' }]。<br /> 示例三：() => [{ draggable: true }]\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/row-attributes": {
+    "type": "Object|Array|Function",
+    "description": "`tr` attributes\n\nHTML 标签 `tr` 的属性。类型为 Function 时，参数说明：`params.row` 表示行数据；`params.rowIndex` 表示行下标；`params.type=body` 表示属性作用于 `tbody` 中的元素；`params.type=foot` 表示属性作用于 `tfoot` 中的元素。<br />示例一：{ draggable: true }，<br />示例二：[{ draggable: true }, { title: '超出省略显示' }]。<br /> 示例三：() => [{ draggable: true }]\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/row-class-name": {
+    "type": "String|Object|Array|Function",
+    "description": "table `th` classname\n\n行类名，泛型 T 指表格数据类型。`params.row` 表示行数据；`params.rowIndex` 表示行下标；`params.type=body`  表示类名作用于 `tbody` 中的元素；`params.type= tfoot` 表示类名作用于 `tfoot` 中的元素\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/row-class-name": {
+    "type": "String|Object|Array|Function",
+    "description": "table `th` classname\n\n行类名，泛型 T 指表格数据类型。`params.row` 表示行数据；`params.rowIndex` 表示行下标；`params.type=body`  表示类名作用于 `tbody` 中的元素；`params.type= tfoot` 表示类名作用于 `tfoot` 中的元素\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/row-key": {
+    "type": "String",
+    "description": "unique key for each row data\n\n唯一标识一行数据的字段名，来源于 `data` 中的字段。如果是字段嵌套多层，可以设置形如 `item.a.id` 的方法\n\ndefault: 'id'\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/row-key": {
+    "type": "String",
+    "description": "unique key for each row data\n\n唯一标识一行数据的字段名，来源于 `data` 中的字段。如果是字段嵌套多层，可以设置形如 `item.a.id` 的方法\n\ndefault: 'id'\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/rowspan-and-colspan": {
+    "type": "Function",
+    "description": "rowspan and colspan\n\n用于自定义合并单元格，泛型 T 指表格数据类型。示例：`({ row, col, rowIndex, colIndex }) => { rowspan: 2, colspan: 3 }`\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/rowspan-and-colspan": {
+    "type": "Function",
+    "description": "rowspan and colspan\n\n用于自定义合并单元格，泛型 T 指表格数据类型。示例：`({ row, col, rowIndex, colIndex }) => { rowspan: 2, colspan: 3 }`\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/rowspan-and-colspan-in-footer": {
+    "type": "Function",
+    "description": "rowspan and colspan for footer\n\n用于自定义表尾的合并单元格，泛型 T 指表格数据类型。示例：`({ row, col, rowIndex, colIndex }) => { rowspan: 2, colspan: 3 }`\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/rowspan-and-colspan-in-footer": {
+    "type": "Function",
+    "description": "rowspan and colspan for footer\n\n用于自定义表尾的合并单元格，泛型 T 指表格数据类型。示例：`({ row, col, rowIndex, colIndex }) => { rowspan: 2, colspan: 3 }`\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/scroll": {
+    "type": "event",
+    "description": "trigger on table content scroll\n\n表格内容滚动时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-events)"
+  },
+  "t-table/scroll": {
+    "type": "event",
+    "description": "trigger on table content scroll\n\n表格内容滚动时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-events)"
+  },
+  "t-primary-table/show-header": {
+    "type": "Boolean",
+    "description": "show table header\n\n是否显示表头\n\ndefault: true\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/show-header": {
+    "type": "Boolean",
+    "description": "show table header\n\n是否显示表头\n\ndefault: true\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/size": {
+    "type": "String",
+    "options": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "description": "table size, support `GlobalConfigProvider`, default value is `medium`\n\n表格尺寸，支持全局配置 `GlobalConfigProvider`，默认全局配置值为 `medium`\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/size": {
+    "type": "String",
+    "options": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "description": "table size, support `GlobalConfigProvider`, default value is `medium`\n\n表格尺寸，支持全局配置 `GlobalConfigProvider`，默认全局配置值为 `medium`\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/stripe": {
+    "type": "Boolean",
+    "description": "show stripe style\n\n是否显示斑马纹\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/stripe": {
+    "type": "Boolean",
+    "description": "show stripe style\n\n是否显示斑马纹\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/table-content-width": {
+    "type": "String",
+    "description": "表格内容的总宽度，注意不是表格可见宽度。主要应用于 `table-layout: auto` 模式下的固定列显示。`tableContentWidth` 内容宽度的值必须大于表格可见宽度\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/table-content-width": {
+    "type": "String",
+    "description": "表格内容的总宽度，注意不是表格可见宽度。主要应用于 `table-layout: auto` 模式下的固定列显示。`tableContentWidth` 内容宽度的值必须大于表格可见宽度\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/table-layout": {
+    "type": "String",
+    "options": [
+      "auto",
+      "fixed"
+    ],
+    "description": "table-layout css properties, [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout). set value to be `fixed` on `resizable=true` please\n\n表格布局方式，`<table>` 元素原生属性。[MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout)。注意，在列宽调整下场景只能使用 `fixed` 模式\n\ndefault: fixed\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/table-layout": {
+    "type": "String",
+    "options": [
+      "auto",
+      "fixed"
+    ],
+    "description": "table-layout css properties, [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout). set value to be `fixed` on `resizable=true` please\n\n表格布局方式，`<table>` 元素原生属性。[MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout)。注意，在列宽调整下场景只能使用 `fixed` 模式\n\ndefault: fixed\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/top-content": {
+    "type": "String|TNode",
+    "description": "表格顶部内容，可以用于自定义列设置、顶部查询条件等\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/top-content": {
+    "type": "String|TNode",
+    "description": "表格顶部内容，可以用于自定义列设置、顶部查询条件等\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/vertical-align": {
+    "type": "String",
+    "options": [
+      "top",
+      "middle",
+      "bottom"
+    ],
+    "description": "vertical align\n\n行内容上下方向对齐\n\ndefault: middle\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-table/vertical-align": {
+    "type": "String",
+    "options": [
+      "top",
+      "middle",
+      "bottom"
+    ],
+    "description": "vertical align\n\n行内容上下方向对齐\n\ndefault: middle\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-props)"
+  },
+  "t-primary-table/active-change": {
+    "type": "event",
+    "description": "trigger on row active change\n\n高亮行发生变化时触发，泛型 T 指表格数据类型。参数 `activeRowList` 表示所有高亮行数据， `currentRowData` 表示当前操作行数据\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-events)"
+  },
+  "t-table/active-change": {
+    "type": "event",
+    "description": "trigger on row active change\n\n高亮行发生变化时触发，泛型 T 指表格数据类型。参数 `activeRowList` 表示所有高亮行数据， `currentRowData` 表示当前操作行数据\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-events)"
+  },
+  "t-primary-table/active-row-action": {
+    "type": "event",
+    "description": "keyboard operation event actions. used to mock selection behavior, just like macOS or windows\n\n键盘操作事件。开启行高亮功能后，会自动开启键盘操作功能，如：通过键盘(Shift)或鼠标操作连续选中高亮行时触发，一般用于处理行选中等批量操作，模拟操作系统区域选择行为\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-events)"
+  },
+  "t-table/active-row-action": {
+    "type": "event",
+    "description": "keyboard operation event actions. used to mock selection behavior, just like macOS or windows\n\n键盘操作事件。开启行高亮功能后，会自动开启键盘操作功能，如：通过键盘(Shift)或鼠标操作连续选中高亮行时触发，一般用于处理行选中等批量操作，模拟操作系统区域选择行为\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-events)"
+  },
+  "t-primary-table/column-resize-change": {
+    "type": "event",
+    "description": "列调整大小之后触发。`context.columnsWidth` 表示操作后各个列的宽度；\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-events)"
+  },
+  "t-table/column-resize-change": {
+    "type": "event",
+    "description": "列调整大小之后触发。`context.columnsWidth` 表示操作后各个列的宽度；\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-events)"
+  },
+  "t-primary-table/page-change": {
+    "type": "event",
+    "description": "trigger on pagination changing\n\n分页发生变化时触发。参数 newDataSource 表示分页后的数据。本地数据进行分页时，newDataSource 和源数据 data 会不一样。泛型 T 指表格数据类型\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-events)"
+  },
+  "t-table/page-change": {
+    "type": "event",
+    "description": "trigger on pagination changing\n\n分页发生变化时触发。参数 newDataSource 表示分页后的数据。本地数据进行分页时，newDataSource 和源数据 data 会不一样。泛型 T 指表格数据类型\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-events)"
+  },
+  "t-primary-table/row-click": {
+    "type": "event",
+    "description": "trigger on row click\n\n行点击时触发，泛型 T 指表格数据类型\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-events)"
+  },
+  "t-table/row-click": {
+    "type": "event",
+    "description": "trigger on row click\n\n行点击时触发，泛型 T 指表格数据类型\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-events)"
+  },
+  "t-primary-table/row-dblclick": {
+    "type": "event",
+    "description": "trigger on double click\n\n行双击时触发，泛型 T 指表格数据类型\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-events)"
+  },
+  "t-table/row-dblclick": {
+    "type": "event",
+    "description": "trigger on double click\n\n行双击时触发，泛型 T 指表格数据类型\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-events)"
+  },
+  "t-primary-table/row-mousedown": {
+    "type": "event",
+    "description": "trigger on row mousedown\n\n鼠标在表格行按下时触发，泛型 T 指表格数据类型\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-events)"
+  },
+  "t-table/row-mousedown": {
+    "type": "event",
+    "description": "trigger on row mousedown\n\n鼠标在表格行按下时触发，泛型 T 指表格数据类型\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-events)"
+  },
+  "t-primary-table/row-mouseenter": {
+    "type": "event",
+    "description": "trigger on row mouseenter\n\n鼠标在表格行进入时触发，泛型 T 指表格数据类型\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-events)"
+  },
+  "t-table/row-mouseenter": {
+    "type": "event",
+    "description": "trigger on row mouseenter\n\n鼠标在表格行进入时触发，泛型 T 指表格数据类型\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-events)"
+  },
+  "t-primary-table/row-mouseleave": {
+    "type": "event",
+    "description": "trigger on row mouseenter\n\n鼠标在表格行离开时触发，泛型 T 指表格数据类型\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-events)"
+  },
+  "t-table/row-mouseleave": {
+    "type": "event",
+    "description": "trigger on row mouseenter\n\n鼠标在表格行离开时触发，泛型 T 指表格数据类型\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-events)"
+  },
+  "t-primary-table/row-mouseover": {
+    "type": "event",
+    "description": "trigger on row mouseover\n\n鼠标悬浮到行时触发，泛型 T 指表格数据类型\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-events)"
+  },
+  "t-table/row-mouseover": {
+    "type": "event",
+    "description": "trigger on row mouseover\n\n鼠标悬浮到行时触发，泛型 T 指表格数据类型\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-events)"
+  },
+  "t-primary-table/row-mouseup": {
+    "type": "event",
+    "description": "trigger on row mouseup\n\n鼠标在表格行按下又弹起时触发，泛型 T 指表格数据类型\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-events)"
+  },
+  "t-table/row-mouseup": {
+    "type": "event",
+    "description": "trigger on row mouseup\n\n鼠标在表格行按下又弹起时触发，泛型 T 指表格数据类型\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-events)"
+  },
+  "t-primary-table/scroll-x": {
+    "type": "event",
+    "description": "trigger on scroll horizontal\n\n表格内容横向滚动时触发。请更为使用 `onScroll` 事件\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-events)"
+  },
+  "t-table/scroll-x": {
+    "type": "event",
+    "description": "trigger on scroll horizontal\n\n表格内容横向滚动时触发。请更为使用 `onScroll` 事件\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-events)"
+  },
+  "t-primary-table/scroll-y": {
+    "type": "event",
+    "description": "trigger on scroll vertical\n\n表格内容纵向滚动时触发。当内容超出高度(height)或最大高度(max-height)时，会出现纵向滚动条。请更为使用 `onScroll` 事件\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-events)"
+  },
+  "t-table/scroll-y": {
+    "type": "event",
+    "description": "trigger on scroll vertical\n\n表格内容纵向滚动时触发。当内容超出高度(height)或最大高度(max-height)时，会出现纵向滚动条。请更为使用 `onScroll` 事件\n\n[docs](https://tdesign.tencent.com/vue-next/components/table?tab=api#primarytable-events)"
+  },
   "t-progress/color": {
     "type": "String|Object|Array",
     "description": "进度条颜色。示例：'#ED7B2F' 或 'orange' 或 `['#f00', '#0ff', '#f0f']` 或 `{ '0%': '#f00', '100%': '#0ff' }` 或  `{ from: '#000', to: '#000' }` 等\n\ndefault: ''\n\n[docs](https://tdesign.tencent.com/vue-next/components/progress?tab=api#progress-props)"
@@ -5073,6 +5546,70 @@
   "t-progress/track-color": {
     "type": "String",
     "description": "进度条未完成部分颜色\n\ndefault: ''\n\n[docs](https://tdesign.tencent.com/vue-next/components/progress?tab=api#progress-props)"
+  },
+  "t-qrcode/bg-color": {
+    "type": "String",
+    "description": "QR code background color\n\n二维码背景颜色\n\n[docs](https://tdesign.tencent.com/vue-next/components/qrcode?tab=api#qrcode-props)"
+  },
+  "t-qrcode/borderless": {
+    "type": "Boolean",
+    "description": "Is there a border\n\n是否有边框\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/qrcode?tab=api#qrcode-props)"
+  },
+  "t-qrcode/color": {
+    "type": "String",
+    "description": "QR code color\n\n二维码颜色\n\n[docs](https://tdesign.tencent.com/vue-next/components/qrcode?tab=api#qrcode-props)"
+  },
+  "t-qrcode/icon": {
+    "type": "String",
+    "description": "The address of the picture in the QR code\n\n二维码中图片的地址\n\n[docs](https://tdesign.tencent.com/vue-next/components/qrcode?tab=api#qrcode-props)"
+  },
+  "t-qrcode/icon-size": {
+    "type": "Number|Object",
+    "description": "The size of the picture in the QR code\n\n二维码中图片的大小\n\ndefault: 40\n\n[docs](https://tdesign.tencent.com/vue-next/components/qrcode?tab=api#qrcode-props)"
+  },
+  "t-qrcode/level": {
+    "type": "String",
+    "options": [
+      "L",
+      "M",
+      "Q",
+      "H"
+    ],
+    "description": "QR code error correction level\n\n二维码纠错等级\n\ndefault: M\n\n[docs](https://tdesign.tencent.com/vue-next/components/qrcode?tab=api#qrcode-props)"
+  },
+  "t-qrcode/size": {
+    "type": "Number",
+    "description": "QR code size\n\n二维码大小\n\ndefault: 160\n\n[docs](https://tdesign.tencent.com/vue-next/components/qrcode?tab=api#qrcode-props)"
+  },
+  "t-qrcode/status": {
+    "type": "String",
+    "options": [
+      "active",
+      "expired",
+      "loading",
+      "scanned"
+    ],
+    "description": "QR code status\n\n二维码状态\n\ndefault: active\n\n[docs](https://tdesign.tencent.com/vue-next/components/qrcode?tab=api#qrcode-props)"
+  },
+  "t-qrcode/status-render": {
+    "type": "TNode",
+    "description": "Custom state renderer\n\n自定义状态渲染器\n\n[docs](https://tdesign.tencent.com/vue-next/components/qrcode?tab=api#qrcode-props)"
+  },
+  "t-qrcode/type": {
+    "type": "String",
+    "options": [
+      "canvas",
+      "svg"
+    ],
+    "description": "render type\n\n渲染类型\n\ndefault: canvas\n\n[docs](https://tdesign.tencent.com/vue-next/components/qrcode?tab=api#qrcode-props)"
+  },
+  "t-qrcode/value": {
+    "type": "String",
+    "description": "scanned text\n\n扫描后的文本\n\n[docs](https://tdesign.tencent.com/vue-next/components/qrcode?tab=api#qrcode-props)"
+  },
+  "t-qrcode/refresh": {
+    "type": "event",
+    "description": "Click the \"Click to refresh\" callback\n\n点击\"点击刷新\"的回调\n\n[docs](https://tdesign.tencent.com/vue-next/components/qrcode?tab=api#qrcode-events)"
   },
   "t-radio/allow-uncheck": {
     "type": "Boolean",
@@ -6361,11 +6898,35 @@
     ],
     "description": "轮播切换动画效果类型：滑动、淡入淡出等\n\ndefault: slide\n\n[docs](https://tdesign.tencent.com/vue-next/components/swiper?tab=api#swiper-props)"
   },
+  "t-swiper-item/animation": {
+    "type": "String",
+    "options": [
+      "slide",
+      "fade"
+    ],
+    "description": "轮播切换动画效果类型：滑动、淡入淡出等\n\ndefault: slide\n\n[docs](https://tdesign.tencent.com/vue-next/components/swiper?tab=api#swiper-props)"
+  },
   "t-swiper/autoplay": {
     "type": "Boolean",
     "description": "是否自动播放\n\ndefault: true\n\n[docs](https://tdesign.tencent.com/vue-next/components/swiper?tab=api#swiper-props)"
   },
+  "t-swiper-item/autoplay": {
+    "type": "Boolean",
+    "description": "是否自动播放\n\ndefault: true\n\n[docs](https://tdesign.tencent.com/vue-next/components/swiper?tab=api#swiper-props)"
+  },
+  "t-swiper/card-scale": {
+    "type": "Number",
+    "description": "卡片模式下非当前展示轮播图的缩放比例\n\ndefault: 210/332\n\n[docs](https://tdesign.tencent.com/vue-next/components/swiper?tab=api#swiper-props)"
+  },
+  "t-swiper-item/card-scale": {
+    "type": "Number",
+    "description": "卡片模式下非当前展示轮播图的缩放比例\n\ndefault: 210/332\n\n[docs](https://tdesign.tencent.com/vue-next/components/swiper?tab=api#swiper-props)"
+  },
   "t-swiper/current": {
+    "type": "Number",
+    "description": "当前轮播在哪一项（下标）\n\ndefault: 0\n\n[docs](https://tdesign.tencent.com/vue-next/components/swiper?tab=api#swiper-props)"
+  },
+  "t-swiper-item/current": {
     "type": "Number",
     "description": "当前轮播在哪一项（下标）\n\ndefault: 0\n\n[docs](https://tdesign.tencent.com/vue-next/components/swiper?tab=api#swiper-props)"
   },
@@ -6377,7 +6938,19 @@
     ],
     "description": "轮播滑动方向，包括横向滑动和纵向滑动两个方向\n\ndefault: horizontal\n\n[docs](https://tdesign.tencent.com/vue-next/components/swiper?tab=api#swiper-props)"
   },
+  "t-swiper-item/direction": {
+    "type": "String",
+    "options": [
+      "horizontal",
+      "vertical"
+    ],
+    "description": "轮播滑动方向，包括横向滑动和纵向滑动两个方向\n\ndefault: horizontal\n\n[docs](https://tdesign.tencent.com/vue-next/components/swiper?tab=api#swiper-props)"
+  },
   "t-swiper/duration": {
+    "type": "Number",
+    "description": "滑动动画时长\n\ndefault: 300\n\n[docs](https://tdesign.tencent.com/vue-next/components/swiper?tab=api#swiper-props)"
+  },
+  "t-swiper-item/duration": {
     "type": "Number",
     "description": "滑动动画时长\n\ndefault: 300\n\n[docs](https://tdesign.tencent.com/vue-next/components/swiper?tab=api#swiper-props)"
   },
@@ -6385,7 +6958,15 @@
     "type": "Number",
     "description": "当使用垂直方向滚动时的高度\n\n[docs](https://tdesign.tencent.com/vue-next/components/swiper?tab=api#swiper-props)"
   },
+  "t-swiper-item/height": {
+    "type": "Number",
+    "description": "当使用垂直方向滚动时的高度\n\n[docs](https://tdesign.tencent.com/vue-next/components/swiper?tab=api#swiper-props)"
+  },
   "t-swiper/interval": {
+    "type": "Number",
+    "description": "轮播间隔时间\n\ndefault: 5000\n\n[docs](https://tdesign.tencent.com/vue-next/components/swiper?tab=api#swiper-props)"
+  },
+  "t-swiper-item/interval": {
     "type": "Number",
     "description": "轮播间隔时间\n\ndefault: 5000\n\n[docs](https://tdesign.tencent.com/vue-next/components/swiper?tab=api#swiper-props)"
   },
@@ -6393,7 +6974,15 @@
     "type": "Boolean",
     "description": "是否循环播放\n\ndefault: true\n\n[docs](https://tdesign.tencent.com/vue-next/components/swiper?tab=api#swiper-props)"
   },
+  "t-swiper-item/loop": {
+    "type": "Boolean",
+    "description": "是否循环播放\n\ndefault: true\n\n[docs](https://tdesign.tencent.com/vue-next/components/swiper?tab=api#swiper-props)"
+  },
   "t-swiper/navigation": {
+    "type": "Object|TNode",
+    "description": "导航器全部配置\n\n[docs](https://tdesign.tencent.com/vue-next/components/swiper?tab=api#swiper-props)"
+  },
+  "t-swiper-item/navigation": {
     "type": "Object|TNode",
     "description": "导航器全部配置\n\n[docs](https://tdesign.tencent.com/vue-next/components/swiper?tab=api#swiper-props)"
   },
@@ -6401,7 +6990,19 @@
     "type": "Boolean",
     "description": "是否悬浮时停止轮播\n\ndefault: true\n\n[docs](https://tdesign.tencent.com/vue-next/components/swiper?tab=api#swiper-props)"
   },
+  "t-swiper-item/stop-on-hover": {
+    "type": "Boolean",
+    "description": "是否悬浮时停止轮播\n\ndefault: true\n\n[docs](https://tdesign.tencent.com/vue-next/components/swiper?tab=api#swiper-props)"
+  },
   "t-swiper/theme": {
+    "type": "String",
+    "options": [
+      "light",
+      "dark"
+    ],
+    "description": "深色模式和浅色模式\n\ndefault: light\n\n[docs](https://tdesign.tencent.com/vue-next/components/swiper?tab=api#swiper-props)"
+  },
+  "t-swiper-item/theme": {
     "type": "String",
     "options": [
       "light",
@@ -6417,6 +7018,14 @@
     ],
     "description": "触发切换的方式：悬浮、点击等\n\ndefault: hover\n\n[docs](https://tdesign.tencent.com/vue-next/components/swiper?tab=api#swiper-props)"
   },
+  "t-swiper-item/trigger": {
+    "type": "String",
+    "options": [
+      "hover",
+      "click"
+    ],
+    "description": "触发切换的方式：悬浮、点击等\n\ndefault: hover\n\n[docs](https://tdesign.tencent.com/vue-next/components/swiper?tab=api#swiper-props)"
+  },
   "t-swiper/type": {
     "type": "String",
     "options": [
@@ -6425,7 +7034,19 @@
     ],
     "description": "样式类型：默认样式、卡片样式\n\ndefault: default\n\n[docs](https://tdesign.tencent.com/vue-next/components/swiper?tab=api#swiper-props)"
   },
+  "t-swiper-item/type": {
+    "type": "String",
+    "options": [
+      "default",
+      "card"
+    ],
+    "description": "样式类型：默认样式、卡片样式\n\ndefault: default\n\n[docs](https://tdesign.tencent.com/vue-next/components/swiper?tab=api#swiper-props)"
+  },
   "t-swiper/change": {
+    "type": "event",
+    "description": "轮播切换时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/swiper?tab=api#swiper-events)"
+  },
+  "t-swiper-item/change": {
     "type": "event",
     "description": "轮播切换时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/swiper?tab=api#swiper-events)"
   },
@@ -7001,6 +7622,10 @@
     "type": "Object",
     "description": "预设快捷时间选择，示例：`{ '前一小时': '11:00:00' }`\n\n[docs](https://tdesign.tencent.com/vue-next/components/time-picker?tab=api#timepicker-props)"
   },
+  "t-time-picker/readonly": {
+    "type": "Boolean",
+    "description": "Whether it is read only, the priority is greater than `allowInput`\n\n只读状态，优先级大于 `allowInput`\n\ndefault: undefined\n\n[docs](https://tdesign.tencent.com/vue-next/components/time-picker?tab=api#timepicker-props)"
+  },
   "t-time-picker/select-input-props": {
     "type": "Object",
     "description": "透传 SelectInput 筛选器输入框组件的全部属性\n\n[docs](https://tdesign.tencent.com/vue-next/components/time-picker?tab=api#timepicker-props)"
@@ -7048,9 +7673,17 @@
     "type": "event",
     "description": "选中值发生变化时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/time-picker?tab=api#timepicker-events)"
   },
+  "t-time-picker/clear": {
+    "type": "event",
+    "description": "Triggered when the clear button is clicked\n\n点击清空按钮时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/time-picker?tab=api#timepicker-events)"
+  },
   "t-time-picker/close": {
     "type": "event",
     "description": "面板关闭时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/time-picker?tab=api#timepicker-events)"
+  },
+  "t-time-picker/confirm": {
+    "type": "event",
+    "description": "点击确认按钮时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/time-picker?tab=api#timepicker-events)"
   },
   "t-time-picker/focus": {
     "type": "event",
@@ -7119,6 +7752,10 @@
   "t-time-range-picker/range-input-props": {
     "type": "Object",
     "description": "透传给范围输入框 RangeInput 组件的参数\n\n[docs](https://tdesign.tencent.com/vue-next/components/time-picker?tab=api#timerangepicker-props)"
+  },
+  "t-time-range-picker/readonly": {
+    "type": "Boolean",
+    "description": "Whether it is read only, the priority is greater than `allowInput`\n\n只读状态，优先级大于 `allowInput`\n\ndefault: undefined\n\n[docs](https://tdesign.tencent.com/vue-next/components/time-picker?tab=api#timerangepicker-props)"
   },
   "t-time-range-picker/size": {
     "type": "String",
@@ -7300,6 +7937,85 @@
     ],
     "description": "文字提示风格\n\ndefault: default\n\n[docs](https://tdesign.tencent.com/vue-next/components/tooltip?tab=api#tooltip-props)"
   },
+  "t-tooltip/attach": {
+    "type": "String|Function",
+    "description": "指定挂载节点。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body\n\ndefault: 'body'\n\n[docs](https://tdesign.tencent.com/vue-next/components/tooltip?tab=api#tooltip-props)"
+  },
+  "t-tooltip/content": {
+    "type": "String|TNode",
+    "description": "浮层里面的内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/tooltip?tab=api#tooltip-props)"
+  },
+  "t-tooltip/default": {
+    "type": "String|TNode",
+    "description": "触发元素，同 triggerElement\n\n[docs](https://tdesign.tencent.com/vue-next/components/tooltip?tab=api#tooltip-props)"
+  },
+  "t-tooltip/disabled": {
+    "type": "Boolean",
+    "description": "是否禁用组件\n\n[docs](https://tdesign.tencent.com/vue-next/components/tooltip?tab=api#tooltip-props)"
+  },
+  "t-tooltip/hide-empty-popup": {
+    "type": "Boolean",
+    "description": "浮层是否隐藏空内容，默认不隐藏\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/tooltip?tab=api#tooltip-props)"
+  },
+  "t-tooltip/overlay-class-name": {
+    "type": "String|Object|Array",
+    "description": "浮层类名，示例：'name1 name2 name3' 或 `['name1', 'name2']` 或 `[{ 'name1': true }]`\n\n[docs](https://tdesign.tencent.com/vue-next/components/tooltip?tab=api#tooltip-props)"
+  },
+  "t-tooltip/overlay-inner-class-name": {
+    "type": "String|Object|Array",
+    "description": "浮层内容部分类名，示例：'name1 name2 name3' 或 `['name1', 'name2']` 或 `[{ 'name1': true }]`\n\n[docs](https://tdesign.tencent.com/vue-next/components/tooltip?tab=api#tooltip-props)"
+  },
+  "t-tooltip/overlay-inner-style": {
+    "type": "Boolean|Object|Function",
+    "description": "浮层内容部分样式，第一个参数 `triggerElement` 表示触发元素 DOM 节点，第二个参数 `popupElement` 表示浮层元素 DOM 节点\n\n[docs](https://tdesign.tencent.com/vue-next/components/tooltip?tab=api#tooltip-props)"
+  },
+  "t-tooltip/overlay-style": {
+    "type": "Boolean|Object|Function",
+    "description": "浮层样式，第一个参数 `triggerElement` 表示触发元素 DOM 节点，第二个参数 `popupElement` 表示浮层元素 DOM 节点\n\n[docs](https://tdesign.tencent.com/vue-next/components/tooltip?tab=api#tooltip-props)"
+  },
+  "t-tooltip/popper-options": {
+    "type": "Object",
+    "description": "popper initial options，details refer to https://popper.js.org/docs\n\npopper 初始化配置，详情参考 https://popper.js.org/docs/\n\n[docs](https://tdesign.tencent.com/vue-next/components/tooltip?tab=api#tooltip-props)"
+  },
+  "t-tooltip/trigger": {
+    "type": "String",
+    "options": [
+      "hover",
+      "click",
+      "focus",
+      "mousedown",
+      "context-menu"
+    ],
+    "description": "触发浮层出现的方式\n\ndefault: hover\n\n[docs](https://tdesign.tencent.com/vue-next/components/tooltip?tab=api#tooltip-props)"
+  },
+  "t-tooltip/trigger-element": {
+    "type": "String|TNode",
+    "description": "触发元素。值类型为字符串表示元素选择器\n\n[docs](https://tdesign.tencent.com/vue-next/components/tooltip?tab=api#tooltip-props)"
+  },
+  "t-tooltip/visible": {
+    "type": "Boolean",
+    "description": "是否显示浮层\n\n[docs](https://tdesign.tencent.com/vue-next/components/tooltip?tab=api#tooltip-props)"
+  },
+  "t-tooltip/z-index": {
+    "type": "Number",
+    "description": "组件层级，Web 侧样式默认为 5500，移动端和小程序样式默认为 1500\n\n[docs](https://tdesign.tencent.com/vue-next/components/tooltip?tab=api#tooltip-props)"
+  },
+  "t-tooltip/overlay-click": {
+    "type": "event",
+    "description": "trigger on popup content click\n\n内容面板点击时触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/tooltip?tab=api#tooltip-events)"
+  },
+  "t-tooltip/scroll": {
+    "type": "event",
+    "description": "下拉选项滚动事件\n\n[docs](https://tdesign.tencent.com/vue-next/components/tooltip?tab=api#tooltip-events)"
+  },
+  "t-tooltip/scroll-to-bottom": {
+    "type": "event",
+    "description": "下拉滚动触底事件，常用于滚动到底执行具体业务逻辑\n\n[docs](https://tdesign.tencent.com/vue-next/components/tooltip?tab=api#tooltip-events)"
+  },
+  "t-tooltip/visible-change": {
+    "type": "event",
+    "description": "当浮层隐藏或显示时触发，`trigger=document` 表示点击非浮层元素触发；`trigger=context-menu` 表示右击触发\n\n[docs](https://tdesign.tencent.com/vue-next/components/tooltip?tab=api#tooltip-events)"
+  },
   "t-tooltip-lite/content": {
     "type": "String|TNode",
     "description": "tip content\n\n文字提示内容\n\n[docs](https://tdesign.tencent.com/vue-next/components/tooltip?tab=api#tooltiplite-props)"
@@ -7452,7 +8168,7 @@
     "description": "是否允许在过滤时节点折叠节点\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/tree?tab=api#tree-props)"
   },
   "t-tree/check-props": {
-    "type": "Object",
+    "type": "Object|Function",
     "description": "透传属性到 checkbox 组件。参考 checkbox 组件 API\n\n[docs](https://tdesign.tencent.com/vue-next/components/tree?tab=api#tree-props)"
   },
   "t-tree/check-strictly": {
@@ -7991,7 +8707,7 @@
   },
   "t-upload/trigger": {
     "type": "TNode",
-    "description": "trigger elements UI\n\n触发上传的元素，`files` 指本次显示的全部文件\n\n[docs](https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props)"
+    "description": "trigger elements UI\n\n触发上传的元素，`files` 指本次显示的全部文件; `triggerUpload` 用于触发上传文件的选择，在图片上传风格中有效\n\n[docs](https://tdesign.tencent.com/vue-next/components/upload?tab=api#upload-props)"
   },
   "t-upload/trigger-button-props": {
     "type": "Object",

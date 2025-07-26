@@ -12,26 +12,27 @@
   "author": "tdesign",
   "license": "MIT",
   "dependencies": {
-    "nprogress": "^0.2.0",
-    "semver": "^7.5.4",
-    "tdesign-icons-view": "^0.3.6",
-    "tdesign-site-components": "0.17.0-alpha.5",
-    "tdesign-theme-generator": "^1.1.7",
-    "vue": "3.3.9",
-    "vue-router": "^4.2.4",
-    "workbox-precaching": "^6.6.0"
+    "nprogress": "catalog:deps",
+    "semver": "catalog:docs",
+    "tdesign-icons-view": "catalog:tdesign",
+    "tdesign-site-components": "0.17.0-alpha.6",
+    "tdesign-theme-generator": "catalog:tdesign",
+    "vue": "catalog:deps",
+    "vue-router": "catalog:deps",
+    "workbox-precaching": "catalog:docs"
   },
   "devDependencies": {
-    "@types/nprogress": "^0.2.3",
-    "@vitejs/plugin-vue": "^5.2.1",
-    "@vitejs/plugin-vue-jsx": "^4.1.2",
-    "@vue/compiler-sfc": "^3.3.4",
-    "@vue/tsconfig": "^0.7.0",
-    "less": "^4.1.3",
-    "typescript": "~5.7.2",
-    "vite": "^6.2.0",
-    "vite-plugin-pwa": "^0.21.2",
-    "vite-plugin-tdoc": "^2.0.4",
-    "vue-tsc": "^2.2.4"
+    "@types/nprogress": "catalog:types",
+    "@vitejs/plugin-vue": "catalog:bundle",
+    "@vitejs/plugin-vue-jsx": "catalog:bundle",
+    "@vue/compiler-sfc": "catalog:bundle",
+    "@vue/tsconfig": "catalog:lint",
+    "gray-matter": "catalog:docs",
+    "less": "catalog:bundle",
+    "typescript": "catalog:types",
+    "vite": "catalog:bundle",
+    "vite-plugin-pwa": "catalog:bundle",
+    "vite-plugin-tdoc": "catalog:bundle",
+    "vue-tsc": "catalog:types"
   }
 }

@@ -491,7 +491,7 @@ describe('Form', () => {
       expect(wrapper.find('.t-input__extra').exists()).eq(false);
     });
 
-    it(':statusIcon[boolean]', async () => {
+    it(':statusIcon[boolean/function]', async () => {
       const rules = { name: [{ required: true }] };
       const formData = ref({ name: '' });
 

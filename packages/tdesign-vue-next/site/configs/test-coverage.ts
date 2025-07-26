@@ -6,10 +6,10 @@ export default {
     lines: '86.16%',
   },
   alert: {
-    statements: '95.58%',
-    branches: '90.47%',
+    statements: '94.81%',
+    branches: '83.33%',
     functions: '90.9%',
-    lines: '95.58%',
+    lines: '94.81%',
   },
   anchor: {
     statements: '84.9%',
@@ -120,10 +120,10 @@ export default {
     lines: '100%',
   },
   dialog: {
-    statements: '78.12%',
+    statements: '76.37%',
     branches: '87.73%',
     functions: '65%',
-    lines: '78.12%',
+    lines: '76.37%',
   },
   divider: {
     statements: '95.38%',
@@ -132,10 +132,10 @@ export default {
     lines: '95.38%',
   },
   drawer: {
-    statements: '65.91%',
+    statements: '62.42%',
     branches: '79.41%',
     functions: '75%',
-    lines: '65.91%',
+    lines: '62.42%',
   },
   dropdown: {
     statements: '51.25%',
@@ -150,10 +150,10 @@ export default {
     lines: '96.12%',
   },
   form: {
-    statements: '96.81%',
-    branches: '92.76%',
+    statements: '96.8%',
+    branches: '93.16%',
     functions: '97.29%',
-    lines: '96.81%',
+    lines: '96.8%',
   },
   grid: {
     statements: '100%',
@@ -222,10 +222,10 @@ export default {
     lines: '96.44%',
   },
   loading: {
-    statements: '61.73%',
+    statements: '59.44%',
     branches: '94.59%',
     functions: '30.76%',
-    lines: '61.73%',
+    lines: '59.44%',
   },
   menu: {
     statements: '61.26%',
@@ -234,16 +234,16 @@ export default {
     lines: '61.26%',
   },
   message: {
-    statements: '61.67%',
-    branches: '76%',
-    functions: '35%',
-    lines: '61.67%',
+    statements: '90.44%',
+    branches: '82.45%',
+    functions: '62.06%',
+    lines: '90.44%',
   },
   notification: {
-    statements: '90.41%',
-    branches: '88.46%',
+    statements: '89.7%',
+    branches: '85.18%',
     functions: '78.57%',
-    lines: '90.41%',
+    lines: '89.7%',
   },
   pagination: {
     statements: '83.11%',
@@ -258,16 +258,22 @@ export default {
     lines: '97.1%',
   },
   popup: {
-    statements: '83.85%',
-    branches: '84.52%',
-    functions: '81.25%',
-    lines: '83.85%',
+    statements: '83.69%',
+    branches: '83.9%',
+    functions: '82%',
+    lines: '83.69%',
   },
   progress: {
     statements: '92.71%',
     branches: '74%',
     functions: '80%',
     lines: '92.71%',
+  },
+  qrcode: {
+    statements: '98.61%',
+    branches: '76%',
+    functions: '100%',
+    lines: '98.61%',
   },
   radio: {
     statements: '95.34%',
@@ -288,10 +294,10 @@ export default {
     lines: '90.97%',
   },
   select: {
-    statements: '83.26%',
-    branches: '69.09%',
-    functions: '63.15%',
-    lines: '83.26%',
+    statements: '86%',
+    branches: '69.1%',
+    functions: '65%',
+    lines: '86%',
   },
   selectInput: {
     statements: '98.29%',
@@ -336,10 +342,10 @@ export default {
     lines: '37.87%',
   },
   swiper: {
-    statements: '82.54%',
-    branches: '69.79%',
+    statements: '83.62%',
+    branches: '71.27%',
     functions: '67.85%',
-    lines: '82.54%',
+    lines: '83.62%',
   },
   switch: {
     statements: '97.07%',
@@ -372,16 +378,16 @@ export default {
     lines: '97.48%',
   },
   textarea: {
-    statements: '89.52%',
+    statements: '89.49%',
     branches: '66.66%',
     functions: '76.47%',
-    lines: '89.52%',
+    lines: '89.49%',
   },
   timePicker: {
-    statements: '61.09%',
+    statements: '60.46%',
     branches: '57.14%',
     functions: '44.44%',
-    lines: '61.09%',
+    lines: '60.46%',
   },
   timeline: {
     statements: '98.13%',
