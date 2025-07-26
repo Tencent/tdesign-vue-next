@@ -1,6 +1,6 @@
 {
   "name": "@tdesign-vue-next/auto-import-resolver",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "On-demand components auto importing for series of TDesign Vue Components",
   "author": "tdesign",
   "license": "MIT",
