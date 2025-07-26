@@ -13,14 +13,12 @@
     "mitt": "catalog:deps",
     "sortablejs": "catalog:deps",
     "tdesign-icons-vue-next": "catalog:tdesign",
-    "tinycolor2": "catalog:deps"
+    "tinycolor2": "catalog:deps",
+    "vue": "catalog:deps"
   },
   "devDependencies": {
     "@types/lodash-es": "catalog:types",
     "@vue/test-utils": "catalog:test",
     "msw": "catalog:test"
-  },
-  "peerDependencies": {
-    "vue": ">=3.1.0"
   }
 }
