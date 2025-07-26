@@ -611,9 +611,15 @@ importers:
         specifier: ^28.8.0
         version: 28.8.0(@babel/parser@7.28.0)(vue@3.5.18(typescript@5.8.3))
     devDependencies:
+      tdesign-icons-vue-next:
+        specifier: catalog:tdesign
+        version: 0.3.6(vue@3.5.18(typescript@5.8.3))
       tsdown:
         specifier: catalog:bundle
         version: 0.12.9(typescript@5.8.3)(vue-tsc@2.2.12(typescript@5.8.3))
+      tsx:
+        specifier: catalog:bundle
+        version: 4.20.3
       typescript:
         specifier: catalog:types
         version: 5.8.3
@@ -5851,7 +5857,6 @@ packages:
     engines: {node: '>=0.6.0', teleport: '>=0.2.0'}
     deprecated: |-
       You or someone you depend on is using Q, the JavaScript Promise library that gave JavaScript developers strong feelings about promises. They can almost certainly migrate to the native JavaScript promise now. Thank you literally everyone for joining me in this bet against the odds. Be excellent to each other.
-
       (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
 
   qrcode@1.5.4:
