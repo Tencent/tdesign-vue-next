@@ -149,12 +149,32 @@ describe('Rate', () => {
       const onChange = vi.fn();
       const wrapper = mount(Rate, {
         props: {
-          value: 0,
+          value: 0.5,
+          allowHalf: true,
+          gap: '5px',
           onChange,
         },
       });
-      await wrapper.find('.t-rate__item').trigger('click');
+      const star = wrapper.findAll('.t-rate__item')[0];
+      expect(star.exists()).toBeTruthy();
+      await star.trigger('click');
+      expect(star.classes()).contains('t-rate__item--half');
       expect(onChange).toBeCalled();
+    });
+    it(':mouseleave', async () => {
+      const wrapper = mount(Rate, {
+        props: {
+          value: 0,
+        },
+      });
+      const star = wrapper.findAll('.t-rate__item')[0];
+      expect(star.exists()).toBeTruthy();
+      await star.trigger('mousemove');
+      expect(star.classes()).toContain('t-rate__item--full');
+      const rate = wrapper.find('.t-rate');
+      expect(rate.exists()).toBeTruthy();
+      await rate.trigger('mouseleave');
+      expect(star.classes()).not.toContain('t-rate__item--full');
     });
   });
   describe(':slot', () => {
