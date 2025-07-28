@@ -1,6 +1,8 @@
 import { mount } from '@vue/test-utils';
-import { Text } from '@tdesign/components/typography';
-import type { TdTextProps } from '@tdesign/components/typography';
+import { Tooltip, Text } from '@tdesign/components';
+import type { TdTextProps } from '@tdesign/components';
+import { nextTick } from 'vue';
+import { sleep } from '@tdesign/internal-utils';
 
 describe('Typography Text', () => {
   const longTextString = `TDesign was founded with the principles of open-source collaboration from the beginning. The collaboration scheme discussion, component design, and API design, including source code, are fully open within the company, garnering widespread attention from internal developers and designers. TDesign follows an equal, open, and strict policy, regardless of the participants' roles.`;
@@ -22,9 +24,23 @@ describe('Typography Text', () => {
       expect(propWrapper.find('.t-typography').element.innerHTML).toMatch(new RegExp(shortText));
     });
 
-    it(':copyable', () => {
+    it(':copyable', async () => {
       const handleCopy = vi.fn();
-      const wrapper = mount(() => <Text copyable={{ onCopy: handleCopy }}>{shortText}</Text>);
+      const renderCopySlot = () => 'test';
+      const wrapper = mount(() => (
+        <Text
+          id="test"
+          copyable={{
+            onCopy: handleCopy,
+            suffix: renderCopySlot,
+            tooltipProps: { trigger: 'click', attach: '#test' },
+          }}
+        >
+          {shortText}
+        </Text>
+      ));
+
+      expect(wrapper.find('.t-button').element.innerHTML).toMatch(new RegExp('test'));
 
       wrapper.find('.t-button').trigger('click');
 
@@ -47,6 +63,74 @@ describe('Typography Text', () => {
       const wrapper = mount(() => <Text ellipsis>{longTextString}</Text>);
 
       expect(wrapper.find('.t-typography').element.innerHTML).toMatch(ellipsisText);
+    });
+
+    it(':ellipsis with object config', async () => {
+      // 测试可展开的省略
+      const onExpand = vi.fn();
+      const wrapper = mount(() => (
+        <Text
+          ellipsis={{
+            row: 1,
+            onExpand,
+            expandable: true,
+            collapsible: true,
+            tooltipProps: { content: 'tooltip content' },
+          }}
+        >
+          {longTextString}
+        </Text>
+      ));
+
+      await nextTick();
+
+      const expandSymbol = wrapper.find('.t-typography-ellipsis-symbol');
+      expect(expandSymbol.exists()).toBe(true);
+
+      await expandSymbol.trigger('click');
+      expect(onExpand).toHaveBeenCalledWith(true);
+
+      const collapseSymbol = wrapper.find('.t-typography-ellipsis-symbol');
+      expect(collapseSymbol.exists()).toBe(true);
+
+      const collapsibleWrapper = mount(() => (
+        <Text
+          ellipsis={{
+            row: 2,
+            expandable: true,
+            collapsible: false,
+            onExpand,
+          }}
+        >
+          {longTextString}
+        </Text>
+      ));
+
+      await nextTick();
+
+      const expandBtn = collapsibleWrapper.find('.t-typography-ellipsis-symbol');
+      await expandBtn.trigger('click');
+
+      expect(collapsibleWrapper.find('.t-typography-ellipsis-symbol').exists()).toBe(false);
+    });
+
+    it(':ellipsis with custom suffix', async () => {
+      const wrapper = mount(() => (
+        <Text
+          ellipsis={{
+            expandable: true,
+            suffix: '...更多',
+          }}
+        >
+          {longTextString}
+        </Text>
+      ));
+
+      await nextTick();
+
+      const expandSymbol = wrapper.find('.t-typography-ellipsis-symbol');
+      expect(expandSymbol.exists()).toBe(true);
+      expect(expandSymbol.text()).toBe('...更多');
     });
 
     it(':italic', () => {

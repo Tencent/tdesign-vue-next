@@ -66,7 +66,6 @@ export default defineComponent({
 
     const renderCopy = () => {
       const { copyable } = props;
-      if (!copyable) return;
 
       let icon: any = isCopied.value ? () => <CheckIcon /> : () => <CopyIcon />;
       let tooltipConf: TdTooltipProps = {

@@ -8,7 +8,7 @@ describe('Typography Title', () => {
   const ellipsisText = new RegExp('...');
 
   describe('props', () => {
-    it(':', () => {
+    it(':[content/default slot]', () => {
       const defaultWrapper = mount(() => <Title>{shortText}</Title>);
       const propWrapper = mount(() => <Title content={shortText}></Title>);
 
