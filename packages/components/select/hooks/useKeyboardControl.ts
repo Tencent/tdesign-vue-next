@@ -3,12 +3,12 @@ import { usePrefixClass } from '@tdesign/shared-hooks';
 
 import { getNewMultipleValue } from '../utils';
 
-import type { SelectOption, TdOptionProps, SelectValue } from '../type';
+import type { TdOptionProps, SelectValue } from '../type';
 import type { ChangeHandler } from '@tdesign/shared-hooks';
 import type { PopupVisibleChangeContext } from '../../popup';
 
 export type useKeyboardControlType = {
-  displayOptions: ComputedRef<SelectOption[]>;
+  totalOptions: ComputedRef<number>;
   optionsList: ComputedRef<TdOptionProps[]>;
   innerPopupVisible: Ref<boolean>;
   setInnerPopupVisible: ChangeHandler<boolean, [context: PopupVisibleChangeContext]>;
@@ -27,7 +27,7 @@ export type useKeyboardControlType = {
 
 // 统一处理键盘控制的hooks
 export function useKeyboardControl({
-  displayOptions,
+  totalOptions,
   optionsList,
   innerPopupVisible,
   setInnerPopupVisible,
@@ -48,15 +48,15 @@ export function useKeyboardControl({
   const virtualFilteredOptions = ref([]); // 处理虚拟滚动下选项过滤通过键盘选择的问题
   const classPrefix = usePrefixClass();
   const handleKeyDown = (e: KeyboardEvent) => {
-    const optionsListLength = displayOptions.value.length;
+    const optionsListLength = totalOptions.value;
     let newIndex = hoverIndex.value;
     switch (e.code) {
       case 'ArrowUp':
         e.preventDefault();
         if (hoverIndex.value === -1) {
           newIndex = 0;
-        } else if (hoverIndex.value === 0 || hoverIndex.value > displayOptions.value.length - 1) {
-          newIndex = optionsListLength - 1;
+        } else if (hoverIndex.value === 0 || hoverIndex.value > totalOptions.value - 1) {
+          newIndex = totalOptions.value - 1;
         } else {
           newIndex--;
         }
