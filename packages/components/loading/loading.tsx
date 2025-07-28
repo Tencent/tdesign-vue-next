@@ -70,7 +70,13 @@ export default defineComponent({
         getPropertyValFromObj(SIZE.value, props.size),
         { [inheritColorClass.value]: props.inheritColor },
       ];
-      const fullScreenClasses = [name.value, fullscreenClass.value, centerClass.value, overlayClass.value];
+      const fullScreenClasses = [
+        name.value,
+        fullscreenClass.value,
+        centerClass.value,
+        overlayClass.value,
+        { [inheritColorClass.value]: props.inheritColor },
+      ];
 
       return {
         baseClasses,
