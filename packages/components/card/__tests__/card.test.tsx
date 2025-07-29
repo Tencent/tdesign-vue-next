@@ -1,6 +1,6 @@
-import { mount } from '@vue/test-utils';
-import { it, expect } from 'vitest';
 import Card from '@tdesign/components/card';
+import { mount } from '@vue/test-utils';
+import { expect, it } from 'vitest';
 
 // every component needs four parts: props/events/slots/functions.
 describe('Card', () => {
@@ -114,6 +114,11 @@ describe('Card', () => {
       expect(cover.element.getAttribute('src')).toBe(src);
     });
 
+    it(':cover:slot', () => {
+      const wrapper = mount(() => <Card v-slots={{ cover: <span class="custom-node" /> }} />);
+      expect(wrapper.find('.custom-node').exists()).toBeTruthy();
+    });
+
     it(':actions', () => {
       const wrapper = mount(() => <Card actions="actions">卡片内容</Card>);
       const actions = wrapper.find('.t-card__actions');
@@ -128,6 +133,11 @@ describe('Card', () => {
       expect(loading.exists()).toBeTruthy();
       expect(svg.exists()).toBeTruthy();
       expect(svg.classes()).toContain('t-icon-loading');
+    });
+
+    it(':loading:slot', () => {
+      const wrapper = mount(() => <Card v-slots={{ loading: <span class="custom-node" /> }} />);
+      expect(wrapper.find('.custom-node').exists()).toBeTruthy();
     });
 
     it(':loadingProps', () => {
