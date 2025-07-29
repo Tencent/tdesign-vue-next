@@ -636,6 +636,7 @@ export default defineComponent({
                     'panelBottomContent',
                     'filter',
                     'scroll',
+                    'keys',
                   ])}
                   inputValue={innerInputValue.value}
                   v-slots={slots}

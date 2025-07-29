@@ -73,7 +73,10 @@ export default defineComponent({
                 </OptionGroup>
               );
             }
-            const option = [keys?.['value'], keys.value?.['label'], keys.value?.['disabled']].includes('content')
+
+            // 如果keys中有content，则移除 content 渲染
+            const keysValue = keys.value;
+            const option = [keysValue?.['value'], keysValue?.['label'], keysValue?.['disabled']].includes('content')
               ? omit(item, 'index', '$index', 'className', 'tagName', 'content')
               : omit(item, 'index', '$index', 'className', 'tagName');
 
