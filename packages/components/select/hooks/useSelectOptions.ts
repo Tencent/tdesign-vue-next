@@ -173,13 +173,14 @@ export const useSelectOptions = (
     return res.length && checkAllOption ? [checkAllOption, ...res] : res;
   });
 
-  // 获取总计的option数量，包括children
+  // 获取总计的option数量，包括children项
   const totalOptions = computed(() => {
     let total = 0;
-    total += options.value.length;
     options.value.forEach((option: SelectOptionGroup) => {
       if (option?.children) {
         total += option.children.length;
+      } else {
+        total++;
       }
     });
     return total;
