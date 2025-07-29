@@ -6,10 +6,9 @@
       :options="options1"
       placeholder="请选择云解决方案"
       multiple
-      :keys="{ label: 'customLabel', value: 'customValue' }"
+      filterable
       @focus="onFocus"
       @blur="onBlur"
-      @change="onchange"
     />
 
     <!-- 方式二：使用 t-option 输出下拉选项。options 和 t-option 两种实现方式二选一即可 -->
@@ -33,16 +32,16 @@
 import { ref } from 'vue';
 
 const options1 = [
-  { customLabel: '全选', checkAll: true },
-  { customLabel: '架构云', customValue: '1' },
-  { customLabel: '大数据', customValue: '2' },
-  { customLabel: '区块链', customValue: '3' },
-  { customLabel: '物联网', customValue: '4', disabled: true },
-  { customLabel: '人工智能', customValue: '5' },
+  { label: '全选', checkAll: true },
+  { label: '架构云', value: '1' },
+  { label: '大数据', value: '2' },
+  { label: '区块链', value: '3' },
+  { label: '物联网', value: '4', disabled: true },
+  { label: '人工智能', value: '5' },
   // 可以使用渲染函数自定义下拉选项内容和样式
   {
-    customLabel: '计算场景',
-    customValue: '6',
+    label: '计算场景',
+    value: '6',
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     content: (h) => <span>计算场景（高性能计算）</span>,
   },
@@ -66,9 +65,5 @@ const onFocus = (ctx) => {
 
 const onBlur = (ctx) => {
   console.log('blur:', ctx);
-};
-
-const onchange = (value, options) => {
-  console.log('change:', value, options);
 };
 </script>
