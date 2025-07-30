@@ -13,4 +13,4 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.TDESIGN_BOT_TOKEN }}
           PROJECT_TYPE: ISSUE2TRIGGER
-          PROJECT_ID: 1
+          PROJECT_ID: 4
