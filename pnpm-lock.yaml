@@ -589,9 +589,6 @@ importers:
         specifier: ^28.8.0
         version: 28.8.0(@babel/parser@7.28.0)(vue@3.3.9(typescript@5.7.3))
     devDependencies:
-      '@tdesign/common-docs':
-        specifier: workspace:^
-        version: link:../common/docs
       tdesign-icons-vue-next:
         specifier: catalog:tdesign
         version: 0.3.6(vue@3.3.9(typescript@5.7.3))
