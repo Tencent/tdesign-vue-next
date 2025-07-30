@@ -1,4 +1,4 @@
-import { defineComponent, computed, inject, onMounted, ref, toRefs, getCurrentInstance } from 'vue';
+import { defineComponent, computed, inject, onMounted, ref, toRefs, getCurrentInstance, onBeforeMount } from 'vue';
 import props from './menu-item-props';
 import { TdMenuInterface, TdSubMenuInterface } from './types';
 import { useRipple, useContent, useTNodeJSX, usePrefixClass } from '@tdesign/shared-hooks';
@@ -60,6 +60,10 @@ export default defineComponent({
     // lifetimes
     onMounted(() => {
       menu?.vMenu?.add({ value: props.value, parent: submenu?.value, vnode: ctx.slots.default, ...props });
+      const activeValues = menu.activeValues.value;
+      if (activeValues.includes(props.value) && !activeValues.includes(submenu?.value)) {
+        activeValues.push(submenu?.value);
+      }
     });
 
     return () => {
