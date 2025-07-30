@@ -79,8 +79,15 @@ export default defineComponent({
       return orgValue.value;
     });
 
-    const { optionsMap, optionsList, optionsCache, displayOptions, filterMethods, searchDisplayOptions, totalOptions } =
-      useSelectOptions(props, keys, innerInputValue, innerValue);
+    const {
+      optionsMap,
+      optionsList,
+      optionsCache,
+      displayOptions,
+      filterMethods,
+      searchDisplayOptions,
+      optionsListLength,
+    } = useSelectOptions(props, keys, innerInputValue, innerValue);
 
     const setInnerValue: TdSelectProps['onChange'] = (newVal: SelectValue | SelectValue[], context) => {
       if (isObjectType.value) {
@@ -319,7 +326,7 @@ export default defineComponent({
     });
 
     const { hoverIndex, virtualFilteredOptions, handleKeyDown, filteredOptions } = useKeyboardControl({
-      totalOptions,
+      optionsListLength,
       optionsList,
       innerPopupVisible,
       setInnerPopupVisible,

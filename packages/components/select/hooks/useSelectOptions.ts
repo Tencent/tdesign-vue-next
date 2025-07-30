@@ -174,7 +174,7 @@ export const useSelectOptions = (
   });
 
   // 获取总计的option数量，包括children项
-  const totalOptions = computed(() => {
+  const optionsListLength = computed(() => {
     let total = 0;
     options.value.forEach((option: SelectOptionGroup) => {
       if (option?.children) {
@@ -194,6 +194,6 @@ export const useSelectOptions = (
     displayOptions,
     filterMethods,
     searchDisplayOptions,
-    totalOptions,
+    optionsListLength,
   };
 };
