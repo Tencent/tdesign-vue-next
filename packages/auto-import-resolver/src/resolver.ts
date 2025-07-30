@@ -1,7 +1,10 @@
 import type { ComponentResolver } from 'unplugin-vue-components';
 import type { FilterPattern } from 'unplugin-utils';
-import { chatComponentMap } from './components';
-import { WEB_COMPONENT_MAP, MOBILE_COMPONENT_MAP } from '@tdesign/common-docs/plugins/changelog-to-json/components';
+import {
+  WEB_COMPONENT_MAP,
+  MOBILE_COMPONENT_MAP,
+  CHAT_COMPONENT_MAP,
+} from '@tdesign/common-docs/plugins/changelog-to-json/components';
 
 import icons from './icons.json';
 import { isExclude } from './utils';
@@ -49,16 +52,7 @@ export function TDesignResolver(options: TDesignResolverOptions = {}): Component
           from: `${resolveIconPkg(library)}${importFrom}`,
         };
       }
-      let componentMap: Record<string, string[]> = {};
-      if (['vue', 'vue-next'].includes(library)) {
-        componentMap = WEB_COMPONENT_MAP;
-      }
-      if (library === 'mobile-vue') {
-        componentMap = MOBILE_COMPONENT_MAP;
-      }
-      if (library === 'chat') {
-        componentMap = chatComponentMap;
-      }
+      const componentMap = resolveComponentMap(library);
 
       let isTDesignComponent = false;
       const importName = resolveImportName(name);
@@ -110,4 +104,17 @@ function resolveComponentPkg(library: TDesignLibrary): string {
     return '@tdesign-vue-next/chat';
   }
   return `tdesign-${library}`;
+}
+
+function resolveComponentMap(library: TDesignLibrary): Record<string, string[]> {
+  if (['vue', 'vue-next'].includes(library)) {
+    return WEB_COMPONENT_MAP;
+  }
+  if (library === 'mobile-vue') {
+    return MOBILE_COMPONENT_MAP;
+  }
+  if (library === 'chat') {
+    return CHAT_COMPONENT_MAP;
+  }
+  return;
 }
