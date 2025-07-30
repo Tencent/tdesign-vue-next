@@ -1,6 +1,8 @@
 import type { ComponentResolver } from 'unplugin-vue-components';
 import type { FilterPattern } from 'unplugin-utils';
-import { chatComponentMap, mobileComponentMap, webComponentMap } from './components';
+import { chatComponentMap } from './components';
+import { WEB_COMPONENT_MAP, MOBILE_COMPONENT_MAP } from '@tdesign/common-docs/plugins/changelog-to-json/components';
+
 import icons from './icons.json';
 import { isExclude } from './utils';
 
@@ -49,10 +51,10 @@ export function TDesignResolver(options: TDesignResolverOptions = {}): Component
       }
       let componentMap: Record<string, string[]> = {};
       if (['vue', 'vue-next'].includes(library)) {
-        componentMap = webComponentMap;
+        componentMap = WEB_COMPONENT_MAP;
       }
       if (library === 'mobile-vue') {
-        componentMap = mobileComponentMap;
+        componentMap = MOBILE_COMPONENT_MAP;
       }
       if (library === 'chat') {
         componentMap = chatComponentMap;

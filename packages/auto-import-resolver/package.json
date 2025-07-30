@@ -24,6 +24,7 @@
     "unplugin-vue-components": "^28.8.0"
   },
   "devDependencies": {
+    "@tdesign/common-docs": "workspace:^",
     "tdesign-icons-vue-next": "catalog:tdesign",
     "tsdown": "catalog:bundle",
     "tsx": "catalog:bundle",
