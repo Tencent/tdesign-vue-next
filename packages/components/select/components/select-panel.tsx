@@ -74,13 +74,12 @@ export default defineComponent({
               );
             }
 
-            // 如果 keys 中刚好有 content，则移除 content 渲染 https://github.com/Tencent/tdesign-vue-next/issues/5088
             const defaultOmit = ['index', '$index', 'className', 'tagName'];
 
             const { value, label, disabled } = keys.value || {};
-            const option = [value, label, disabled].includes('content')
-              ? omit(item, defaultOmit.concat('content'))
-              : omit(item, defaultOmit);
+            // 如果 keys 中刚好有 content，则移除 content 渲染 https://github.com/Tencent/tdesign-vue-next/issues/5088
+            const shouldOmitContent = [value, label, disabled].includes('content');
+            const option = omit(item, defaultOmit.concat(shouldOmitContent ? 'content' : []));
 
             return (
               <Option
