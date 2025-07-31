@@ -24,7 +24,6 @@ export default defineComponent({
   name: 'NewWindow',
   props: {
     demoName: String,
-    componentName: String,
   },
   setup(props) {
     const onNewWindow = () => {
