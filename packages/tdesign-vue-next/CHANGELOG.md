@@ -8,6 +8,28 @@ docClass: timeline
 ## 🌈 1.15.2 `2025-07-31` 
 
 ### 🚀 Features
+- `DateRangePicker`: 支持 `needConfirm` API @uyarn ([#5795](https://github.com/Tencent/tdesign-vue-next/pull/5795))
+
+### 🐞 Bug Fixes
+- `ColorPicker`：
+  - 修复设置 `swatch-colors` 值为 `null` 时功能异常的问题 @betavs ([#5793](https://github.com/Tencent/tdesign-vue-next/pull/5793))
+  - 减少颜色跨色彩空间的多次转换，降低误差 @RylanBot ([#5814](https://github.com/Tencent/tdesign-vue-next/pull/5814))
+- `Menu`: 修复顶部菜单在`expandType=popup`模式下子组件存在多层封装后无法正常高亮的问题 @uyarn ([#5821](https://github.com/Tencent/tdesign-vue-next/pull/5821))
+- `PopConfirm`: 修复当初始 `visible` 为 true 时，点击外部区域时弹窗不关闭的问题 @RSS1102 ([#5790](https://github.com/Tencent/tdesign-vue-next/pull/5790))
+- `Popup`: 修复当初始 `visible` 为 true 时，点击外部区域时弹窗不关闭的问题 @RSS1102 ([#5790](https://github.com/Tencent/tdesign-vue-next/pull/5790))
+- `Select`: 修复 Form 设置为 disabled 或 readonly 时，多选选项仍可删除的错误 @An0510 ([#5775](https://github.com/Tencent/tdesign-vue-next/pull/5775))
+- `DatePicker`: 修复单周模式下切换年份时高亮仍显示的问题 @baozjj ([#5812](https://github.com/Tencent/tdesign-vue-next/pull/5812))
+- `Descriptions`:  修复无边框模式下左右内边距的异常问题 @liweijie0812 ([common#2219](https://github.com/Tencent/tdesign-common/pull/2219))
+- `Select`: 错误删除选项中不存在的标签 @RSS1102 ([#5781](https://github.com/Tencent/tdesign-vue-next/pull/5781))
+- `Table`: 
+    - 修复表格非多选模式，按`A`键触发全选的问题 @liweijie0812 ([#5809](https://github.com/Tencent/tdesign-vue-next/pull/5809))
+    - 修复 `resizable` 开启时，列边框线引起的列名内容移动的问题 @QuentinHsu ([common#2224](https://github.com/Tencent/tdesign-common/pull/2224))
+- `Watermark`: 修复深色模式下，文字水印内容显示不明显的问题 @liweijie0812 ([#5782](https://github.com/Tencent/tdesign-vue-next/pull/5782))
+
+
+## 🌈 1.15.2 `2025-07-31` 
+
+### 🚀 Features
 - `ColorPicker`:  减少颜色跨色彩空间的多次转换，降低误差 @RylanBot ([#5814](https://github.com/Tencent/tdesign-vue-next/pull/5814))
 - `DatePicker`: `DateRangePicker` 支持 `needConfirm` API @uyarn ([#5795](https://github.com/Tencent/tdesign-vue-next/pull/5795))
 
