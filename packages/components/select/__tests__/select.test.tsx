@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { ref } from 'vue';
+import { ref, nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
 import { vi, describe, it, expect } from 'vitest';
 import { Select, OptionGroup, Option } from '@tdesign/components/select';
@@ -202,6 +202,74 @@ describe('Select', () => {
         expect(fn).toBeCalled();
         expect(value.value).toBe([]);
       });
+    });
+    // TODO: rename describe name
+    describe('onChange #5779', () => {
+      it('should trigger onChange with correct data', async () => {
+        const onChangeFn = vi.fn();
+        const value = ref('');
+        const wrapper = mount({
+          render() {
+            return <Select v-model={value.value} onChange={onChangeFn} options={options} />;
+          },
+        });
+
+        const input = wrapper.find('.t-input');
+        await input.trigger('click');
+        await wrapper.setProps({ popupProps: { visible: true } });
+
+        const panelNode = document.querySelector('.t-select__list');
+        // 点击普通选项（跳过第一个全选特殊项）
+        const secondOption = panelNode.querySelectorAll('.t-select-option')[1];
+        secondOption.click();
+
+        // 等待Vue响应式更新
+        await nextTick();
+
+        // 验证onChange回调参数
+        expect(onChangeFn).toHaveBeenCalled();
+        expect(onChangeFn.mock.calls[0][0]).toEqual(options[1].value); // 验证选中的值
+        expect(onChangeFn.mock.calls[0][1]?.option).toEqual(expect.objectContaining(options[1])); // 验证选中的选项对象
+
+        panelNode.parentNode.removeChild(panelNode);
+      });
+    });
+  });
+
+  describe('keys', () => {
+    const contentOptions = [
+      { name: '架构云', content: '1' },
+      { name: '大数据', content: '2' },
+      { name: '区块链', content: '3' },
+    ];
+
+    const keys = {
+      label: 'name',
+      value: 'content',
+    };
+    it('content in option #5779', async () => {
+      const value = ref('');
+      const wrapper = mount({
+        render() {
+          return <Select v-model={value.value} options={contentOptions} keys={keys}></Select>;
+        },
+      });
+      const input = wrapper.find('.t-input');
+      await input.trigger('mouseenter');
+
+      await wrapper.setProps({ popupProps: { visible: true } });
+      const panelNode = document.querySelector('.t-select__list');
+
+      // 验证第一个选项的name
+      const firstOption = panelNode.querySelectorAll('.t-select-option')?.[0];
+      expect(firstOption.textContent).toContain('架构云');
+
+      firstOption.click();
+
+      // 验证选中的值是否为1
+      expect(value.value).toBe('1');
+
+      panelNode.parentNode.removeChild(panelNode);
     });
   });
 });
