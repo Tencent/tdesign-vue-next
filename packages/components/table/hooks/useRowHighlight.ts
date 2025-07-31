@@ -209,7 +209,9 @@ export function useRowHighlight(props: BaseTableProps, tableRef: Ref<HTMLDivElem
       clearShiftAreaSelection();
     } else if (ALL_REG.test(code)) {
       // 全选
-      setAllActive();
+      if (activeRowType.value === 'multiple') {
+        setAllActive();
+      }
     }
 
     if (!SPACE_REG.test(code)) {

@@ -73,7 +73,7 @@ export default defineComponent({
           code(code, lang, escaped) {
             return `<pre class="hljs"><div class="t-chat__code-header">
         <span class="t-chat__language-txt">${escape(lang) || ''}</span>
-        <div class="t-chat__copy-btn" data-clipboard-action="copy">${copyCodeBtnText}</div>
+        <div class="t-chat__copy-btn" data-clipboard-action="copy">${copyCodeBtnText.value}</div>
         </div><code class="hljs language-${escape(lang)}" >${escaped ? code : escape(code)}</code></pre>`;
           },
         },
