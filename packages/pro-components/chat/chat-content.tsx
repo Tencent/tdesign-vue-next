@@ -1,4 +1,4 @@
-import { defineComponent, computed, onMounted, inject, ComputedRef, toRefs } from 'vue';
+import { defineComponent, computed, onMounted, inject, ComputedRef } from 'vue';
 import { useConfig } from 'tdesign-vue-next/es/config-provider/hooks';
 import { usePrefixClass } from '@tdesign/shared-hooks';
 import props from './chat-content-props';
@@ -43,7 +43,6 @@ export default defineComponent({
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('chat');
     const { globalConfig } = useConfig('chat');
-    const { copyCodeBtnText, copyCodeSuccessText } = toRefs(globalConfig.value);
 
     // role 没被注入的时候，使用props.role来自chat-item传入，content在插槽里的inject，修复role数据混乱问题
     const injectedRole = inject<ComputedRef<string>>('role');
@@ -52,11 +51,12 @@ export default defineComponent({
       const clipboard = new Clipboard(`.${COMPONENT_NAME.value}__copy-btn`, {
         target: (trigger: HTMLDivElement) => (trigger.parentNode as HTMLElement).nextElementSibling,
       });
+      const { copyCodeBtnText, copyCodeSuccessText } = globalConfig.value;
 
       clipboard.on('success', (e) => {
-        e.trigger.textContent = copyCodeSuccessText.value;
+        e.trigger.textContent = copyCodeSuccessText;
         setTimeout(() => {
-          e.trigger.textContent = copyCodeBtnText.value;
+          e.trigger.textContent = copyCodeBtnText;
         }, 2000);
         e.clearSelection();
       });
@@ -73,7 +73,7 @@ export default defineComponent({
           code(code, lang, escaped) {
             return `<pre class="hljs"><div class="t-chat__code-header">
         <span class="t-chat__language-txt">${escape(lang) || ''}</span>
-        <div class="t-chat__copy-btn" data-clipboard-action="copy">${copyCodeBtnText.value}</div>
+        <div class="t-chat__copy-btn" data-clipboard-action="copy">${globalConfig.value.copyCodeBtnText}</div>
         </div><code class="hljs language-${escape(lang)}" >${escaped ? code : escape(code)}</code></pre>`;
           },
         },

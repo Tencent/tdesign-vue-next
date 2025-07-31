@@ -1,4 +1,4 @@
-import { defineComponent, computed, provide, ref, toRefs } from 'vue';
+import { defineComponent, computed, provide, ref } from 'vue';
 import { ClearIcon } from 'tdesign-icons-vue-next';
 import { useConfig } from 'tdesign-vue-next/es/config-provider/hooks';
 import { isArray } from 'lodash-es';
@@ -45,7 +45,6 @@ export default defineComponent({
   setup(props, { emit, expose, slots }) {
     const COMPONENT_NAME = usePrefixClass('chat');
     const { globalConfig } = useConfig('chat');
-    const { clearHistoryBtnText, confirmClearHistory } = toRefs(globalConfig.value);
     const renderTNodeJSX = useTNodeJSX();
     provide('textLoading', props.textLoading);
     provide('animation', props.animation);
@@ -118,10 +117,10 @@ export default defineComponent({
       emit('clear', context);
     };
     const defaultClearHistory = (
-      <Popconfirm content={confirmClearHistory.value} onConfirm={clearConfirm}>
+      <Popconfirm content={globalConfig.value.confirmClearHistory} onConfirm={clearConfirm}>
         <Divider class="clear-btn">
           <ClearIcon size="14px" />
-          <span class="clear-btn-text">{clearHistoryBtnText.value}</span>
+          <span class="clear-btn-text">{globalConfig.value.clearHistoryBtnText}</span>
         </Divider>
       </Popconfirm>
     );
