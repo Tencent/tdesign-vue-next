@@ -51,11 +51,12 @@ export default defineComponent({
       const clipboard = new Clipboard(`.${COMPONENT_NAME.value}__copy-btn`, {
         target: (trigger: HTMLDivElement) => (trigger.parentNode as HTMLElement).nextElementSibling,
       });
+      const { copyCodeBtnText, copyCodeSuccessText } = globalConfig.value;
 
       clipboard.on('success', (e) => {
-        e.trigger.textContent = globalConfig.value.copyCodeSuccessText;
+        e.trigger.textContent = copyCodeSuccessText;
         setTimeout(() => {
-          e.trigger.textContent = globalConfig.value.copyCodeBtnText;
+          e.trigger.textContent = copyCodeBtnText;
         }, 2000);
         e.clearSelection();
       });

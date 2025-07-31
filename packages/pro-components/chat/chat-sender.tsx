@@ -109,7 +109,7 @@ export default defineComponent({
         const defaultAction = actionsDefault.find((item) => item.name === name)?.action;
         return defaultAction || (({ files, name }) => emit('fileSelect', { files, name }));
       };
-
+      const { uploadAttachmentText, uploadImageText } = globalConfig.value;
       const uploadAttachment = actions.find((item) => item.name === 'uploadAttachment');
       const uploadAttachmentButton = uploadAttachment ? (
         <Fragment>
@@ -128,7 +128,7 @@ export default defineComponent({
             }}
             hidden
           />
-          <Tooltip content={globalConfig.value.uploadAttachmentText}>
+          <Tooltip content={uploadAttachmentText}>
             <Button
               theme="default"
               onClick={() => uploadFileRef.value?.click()}
@@ -160,7 +160,7 @@ export default defineComponent({
             }}
             hidden
           />
-          <Tooltip content={globalConfig.value.uploadImageText}>
+          <Tooltip content={uploadImageText}>
             <Button
               theme="default"
               onClick={() => uploadImageRef.value?.click()}

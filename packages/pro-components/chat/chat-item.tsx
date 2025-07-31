@@ -62,8 +62,9 @@ export default defineComponent({
       // 内置操作按钮，assistantActions和插槽判断 t-chat注入的属性获取不到默认为false
       const showActions = computed(() => renderTNodeJSX('actions'));
       const renderHeader = () => {
+        const { loadingText, loadingEndText } = globalConfig.value;
         if (reasoningLoading) {
-          return <ChatLoading text={globalConfig.value.loadingText} />;
+          return <ChatLoading text={loadingText} />;
         }
         return (
           <div style="display:flex;align-items:center">
@@ -74,7 +75,7 @@ export default defineComponent({
                 marginRight: '8px',
               }}
             />
-            <span>{globalConfig.value.loadingEndText}</span>
+            <span>{loadingEndText}</span>
           </div>
         );
       };
