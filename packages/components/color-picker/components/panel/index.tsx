@@ -1,5 +1,5 @@
 import { defineComponent, ref, toRefs, watch, computed } from 'vue';
-import { cloneDeep, isNull, isUndefined } from 'lodash-es';
+import { cloneDeep, isUndefined } from 'lodash-es';
 import {
   Color,
   DEFAULT_COLOR,
@@ -253,13 +253,10 @@ export default defineComponent({
       if (isUndefined(systemColors)) {
         systemColors = [...DEFAULT_SYSTEM_SWATCH_COLORS];
       }
-      if (isNull(systemColors)) {
-        systemColors = [];
-      }
       if (onlySupportGradient) {
-        systemColors = systemColors.filter((color) => Color.isGradientColor(color));
+        systemColors = systemColors?.filter((color) => Color.isGradientColor(color));
       }
-      const showSystemColors = Array.isArray(systemColors) && systemColors.length;
+      const showSystemColors = Array.isArray(systemColors) && systemColors.length > 0;
 
       const renderSwatches = () => {
         if (!showSystemColors && !showUsedColors) return null;
