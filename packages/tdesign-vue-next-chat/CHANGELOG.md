@@ -5,6 +5,12 @@ toc: false
 spline: explain
 ---
 
+## 🌈 0.4.4 `2025-07-31` 
+
+### 🐞 Bug Fixes
+- `ChatContent`: 错误使用变量导致文案显示异常 @BelinChung ([#5817](https://github.com/Tencent/tdesign-vue-next/pull/5817))
+
+
 ## 🌈 0.4.3 `2025-07-18` 
 
 ### 🐞 Bug Fixes
