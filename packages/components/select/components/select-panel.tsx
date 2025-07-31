@@ -5,29 +5,29 @@ import { Styles } from '../../common';
 import { SelectOption, SelectOptionGroup, TdOptionProps } from '../type';
 import Option from '../option';
 import OptionGroup from '../option-group';
-import tdSelectProps from '../props';
+import TdSelectProps from '../props';
 
 import { useConfig, useTNodeJSX, usePrefixClass, useTNodeDefault } from '@tdesign/shared-hooks';
 
 import { usePanelVirtualScroll } from '../hooks';
 import { selectInjectKey } from '../consts';
-import type { TdSelectProps } from '../type';
+import type { TdSelectProps as SelectProps } from '../type';
 
 export default defineComponent({
   name: 'TSelectPanel',
   props: {
-    inputValue: tdSelectProps.inputValue,
-    panelTopContent: tdSelectProps.panelTopContent,
-    panelBottomContent: tdSelectProps.panelBottomContent,
-    empty: tdSelectProps.empty,
-    creatable: tdSelectProps.creatable,
-    loading: tdSelectProps.loading,
-    loadingText: tdSelectProps.loadingText,
-    multiple: tdSelectProps.multiple,
-    filterable: tdSelectProps.filterable,
-    filter: tdSelectProps.filter,
-    scroll: tdSelectProps.scroll,
-    keys: tdSelectProps.keys,
+    inputValue: TdSelectProps.inputValue,
+    panelTopContent: TdSelectProps.panelTopContent,
+    panelBottomContent: TdSelectProps.panelBottomContent,
+    empty: TdSelectProps.empty,
+    creatable: TdSelectProps.creatable,
+    loading: TdSelectProps.loading,
+    loadingText: TdSelectProps.loadingText,
+    multiple: TdSelectProps.multiple,
+    filterable: TdSelectProps.filterable,
+    filter: TdSelectProps.filter,
+    scroll: TdSelectProps.scroll,
+    keys: TdSelectProps.keys,
   },
   setup(props, { expose }) {
     const COMPONENT_NAME = usePrefixClass('select');
@@ -36,7 +36,7 @@ export default defineComponent({
     const { t, globalConfig } = useConfig('select');
     const tSelect = inject(selectInjectKey);
     const innerRef = ref<HTMLElement>(null);
-    const keys = computed(() => props.keys as TdSelectProps['keys']);
+    const keys = computed(() => props.keys as SelectProps['keys']);
 
     const popupContentRef = computed(() => tSelect.value.popupContentRef.value);
     const showCreateOption = computed(() => props.creatable && props.filterable && props.inputValue);
@@ -74,11 +74,13 @@ export default defineComponent({
               );
             }
 
-            // 如果keys中有content，则移除 content 渲染
-            const keysValue = keys.value;
-            const option = [keysValue?.['value'], keysValue?.['label'], keysValue?.['disabled']].includes('content')
-              ? omit(item, 'index', '$index', 'className', 'tagName', 'content')
-              : omit(item, 'index', '$index', 'className', 'tagName');
+            // 如果 keys 中刚好有 content，则移除 content 渲染 https://github.com/Tencent/tdesign-vue-next/issues/5088
+            const defaultOmit = ['index', '$index', 'className', 'tagName'];
+
+            const { value, label, disabled } = keys.value || {};
+            const option = [value, label, disabled].includes('content')
+              ? omit(item, defaultOmit.concat('content'))
+              : omit(item, defaultOmit);
 
             return (
               <Option
