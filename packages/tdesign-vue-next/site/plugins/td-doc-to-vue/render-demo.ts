@@ -20,6 +20,7 @@ export default function renderDemo(md: any, container: any) {
             <div slot="action">
               <Stackblitz demo-name="${demoName}" component-name="${componentName.trim()}" :code=${demoCodeDefName} />
               <CodeSandbox demo-name="${demoName}" component-name="${componentName.trim()}" :code=${demoCodeDefName} />
+              <NewWindow demo-name="${demoName}" component-name="${componentName.trim()}" />
             </div>
             <div class="tdesign-demo-item__body">
               <${demoDefName} />  
