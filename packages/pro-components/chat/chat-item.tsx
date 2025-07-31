@@ -24,7 +24,6 @@ export default defineComponent({
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('chat');
     const { globalConfig } = useConfig('chat');
-    const { loadingText, loadingEndText } = toRefs(globalConfig.value);
     const renderTNodeJSX = useTNodeJSX();
     const role = computed(() => renderTNodeJSX('role'));
     const variant = computed(() => renderTNodeJSX('variant'));
@@ -64,7 +63,7 @@ export default defineComponent({
       const showActions = computed(() => renderTNodeJSX('actions'));
       const renderHeader = () => {
         if (reasoningLoading) {
-          return <ChatLoading text={loadingText.value} />;
+          return <ChatLoading text={globalConfig.value.loadingText} />;
         }
         return (
           <div style="display:flex;align-items:center">
@@ -75,7 +74,7 @@ export default defineComponent({
                 marginRight: '8px',
               }}
             />
-            <span>{loadingEndText.value}</span>
+            <span>{globalConfig.value.loadingEndText}</span>
           </div>
         );
       };

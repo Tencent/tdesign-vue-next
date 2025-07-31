@@ -17,7 +17,6 @@ export default defineComponent({
     const senderTextarea = ref(null);
     const COMPONENT_NAME = usePrefixClass('chat');
     const { globalConfig } = useConfig('chat');
-    const { uploadImageText, uploadAttachmentText } = toRefs(globalConfig.value);
     const { value, modelValue } = toRefs(props);
     const [textValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
 
@@ -129,7 +128,7 @@ export default defineComponent({
             }}
             hidden
           />
-          <Tooltip content={uploadAttachmentText.value}>
+          <Tooltip content={globalConfig.value.uploadAttachmentText}>
             <Button
               theme="default"
               onClick={() => uploadFileRef.value?.click()}
@@ -161,7 +160,7 @@ export default defineComponent({
             }}
             hidden
           />
-          <Tooltip content={uploadImageText.value}>
+          <Tooltip content={globalConfig.value.uploadImageText}>
             <Button
               theme="default"
               onClick={() => uploadImageRef.value?.click()}
