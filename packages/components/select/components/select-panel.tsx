@@ -61,40 +61,45 @@ export default defineComponent({
 
     // 递归render options
     const renderOptionsContent = (options: SelectOption[]) => {
-      return (
-        <ul class={`${COMPONENT_NAME.value}__list`}>
-          {options.map((item: SelectOptionGroup & TdOptionProps & { slots: Slots } & { $index: number }, index) => {
-            if (item.children) {
+      let globalIndex = 0;
+      const renderOptions = (items: SelectOption[]) => {
+        return (
+          <ul class={`${COMPONENT_NAME.value}__list`}>
+            {items.map((item: SelectOptionGroup & TdOptionProps & { slots: Slots } & { $index: number }) => {
+              if (item.children) {
+                return (
+                  <OptionGroup label={item.group} divider={item.divider}>
+                    {renderOptions(item.children)}
+                  </OptionGroup>
+                );
+              }
+              const currentIndex = globalIndex++;
               return (
-                <OptionGroup label={item.group} divider={item.divider}>
-                  {renderOptionsContent(item.children)}
-                </OptionGroup>
+                <Option
+                  {...omit(item, 'index', '$index', 'className', 'tagName')}
+                  {...(isVirtual.value
+                    ? {
+                        rowIndex: item.$index !== undefined ? item.$index : currentIndex,
+                        trs,
+                        scrollType: props.scroll?.type,
+                        isVirtual: isVirtual.value,
+                        bufferSize: props.scroll?.bufferSize,
+                        key: `${item.$index !== undefined ? item.$index : currentIndex}_${item.value}`,
+                      }
+                    : {
+                        key: `${currentIndex}_${item.value}`,
+                      })}
+                  index={currentIndex}
+                  multiple={props.multiple}
+                  v-slots={item.slots}
+                  onRowMounted={handleRowMounted}
+                />
               );
-            }
-            return (
-              <Option
-                {...omit(item, 'index', '$index', 'className', 'tagName')}
-                {...(isVirtual.value
-                  ? {
-                      rowIndex: item.$index,
-                      trs,
-                      scrollType: props.scroll?.type,
-                      isVirtual: isVirtual.value,
-                      bufferSize: props.scroll?.bufferSize,
-                      key: `${item.$index || ''}_${index}_${item.value}`,
-                    }
-                  : {
-                      key: `${index}_${item.value}`,
-                    })}
-                index={index}
-                multiple={props.multiple}
-                v-slots={item.slots}
-                onRowMounted={handleRowMounted}
-              />
-            );
-          })}
-        </ul>
-      );
+            })}
+          </ul>
+        );
+      };
+      return renderOptions(options);
     };
     const dropdownInnerSize = computed(() => {
       return {
