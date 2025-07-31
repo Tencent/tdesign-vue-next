@@ -5,6 +5,11 @@ toc: false
 spline: explain
 ---
 
+## 🌈 0.4.5 `2025-07-31` 
+
+### 🐞 Bug Fixes
+- `Chat`: 修复`0.4.3` 版本后多语言功能没有正确响应切换的问题 @uyarn ([#5828](https://github.com/Tencent/tdesign-vue-next/pull/5828))
+
 ## 🌈 0.4.4 `2025-07-31` 
 
 ### 🐞 Bug Fixes
