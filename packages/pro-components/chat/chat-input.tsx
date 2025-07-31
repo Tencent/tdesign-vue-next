@@ -16,7 +16,6 @@ export default defineComponent({
   setup(props, { slots, emit }) {
     const COMPONENT_NAME = usePrefixClass('chat');
     const { globalConfig } = useConfig('chat');
-    const { stopBtnText, placeholder } = toRefs(globalConfig.value);
     const { value, modelValue } = toRefs(props);
     const [textValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
     // 按钮禁用，
@@ -28,7 +27,7 @@ export default defineComponent({
     // 输入框高度
     const autosize = computed(() => props.autosize);
     // 输入框默认文案
-    const placeholderText = computed(() => props.placeholder ?? placeholder.value);
+    const placeholderText = computed(() => props.placeholder ?? globalConfig.value.placeholder);
 
     let shiftDownFlag = false;
     let isComposition = false;
@@ -135,7 +134,7 @@ export default defineComponent({
           <div class={`${COMPONENT_NAME.value}__footer__stopbtn`}>
             <Button variant="outline" onClick={handleStop}>
               <StopCircleIcon />
-              {stopBtnText.value}
+              {globalConfig.value.stopBtnText}
             </Button>
           </div>
         )}
