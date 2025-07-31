@@ -1,4 +1,4 @@
-import { defineComponent, computed, onMounted, inject, ComputedRef, toRefs } from 'vue';
+import { defineComponent, computed, onMounted, inject, ComputedRef } from 'vue';
 import { useConfig } from 'tdesign-vue-next/es/config-provider/hooks';
 import { usePrefixClass } from '@tdesign/shared-hooks';
 import props from './chat-content-props';

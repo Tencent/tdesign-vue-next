@@ -1,4 +1,4 @@
-import { defineComponent, computed, provide, ref, toRefs } from 'vue';
+import { defineComponent, computed, provide, ref } from 'vue';
 import { ClearIcon } from 'tdesign-icons-vue-next';
 import { useConfig } from 'tdesign-vue-next/es/config-provider/hooks';
 import { isArray } from 'lodash-es';
