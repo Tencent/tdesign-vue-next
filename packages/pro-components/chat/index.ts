@@ -9,7 +9,7 @@ import _ChatLoading from './chat-loading';
 
 // 用的vue源码
 import _ChatAction from './chat-action';
-// import _FileCard from './file-card';
+import _FileCard from './filecard';
 import _ChatSender from './chat-sender';
 import _ChatAttachments from './attachments';
 import _ChatThinking from './chat-thinking';
@@ -55,7 +55,7 @@ export const ChatSender = withInstall(_ChatSender);
 export const ChatContent = withInstall(_ChatContent);
 export const ChatReasoning = withInstall(_ChatReasoning);
 export const ChatAction = withInstall(_ChatAction);
-// export const FileCard = withInstall(_FileCard);
+export const FileCard = withInstall(_FileCard);
 export const ChatLoading = withInstall(_ChatLoading);
 // 附件
 export const ChatAttachments = withInstall(_ChatAttachments);
@@ -91,6 +91,7 @@ export default {
     app.use(ChatSearchContent, config);
     app.use(ChatSuggestionContent, config);
     app.use(ChatList, config);
+    app.use(FileCard, config);
   },
   version: typeof PKG_VERSION === 'undefined' ? '' : PKG_VERSION,
 };

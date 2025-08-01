@@ -1,4 +1,3 @@
-import { animation } from './../../../dist/types/packages/components/statistic/type.d';
 /* eslint-disable */
 
 /**

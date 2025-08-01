@@ -89,7 +89,7 @@ const componentDocs = [
     titleEn: 'FileCard',
     name: 'FileCard',
     path: '/chat/components/fileCard',
-    component: () => import('@tdesign/pro-components-chat/fileCard/fileCard.md'),
+    component: () => import('@tdesign/pro-components-chat/filecard/filecard.md'),
   },
 ];
 
