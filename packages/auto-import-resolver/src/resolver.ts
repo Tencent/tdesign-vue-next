@@ -1,10 +1,6 @@
 import type { ComponentResolver } from 'unplugin-vue-components';
 import type { FilterPattern } from 'unplugin-utils';
-import {
-  WEB_COMPONENT_MAP,
-  MOBILE_COMPONENT_MAP,
-  CHAT_COMPONENT_MAP,
-} from '@tdesign/common-docs/plugins/changelog-to-json/components';
+import { WEB_COMPONENT_MAP, MOBILE_COMPONENT_MAP, CHAT_COMPONENT_MAP } from '@tdesign/common-js/components';
 
 import icons from './icons.json';
 import { isExclude } from './utils';
