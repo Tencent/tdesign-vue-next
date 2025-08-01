@@ -6,6 +6,7 @@ import App from './app.vue';
 import router from './routes';
 
 import Stackblitz from './components/stackblitz/index.vue';
+import NewWindow from './components/newWindow/index.vue';
 import BaseUsage from './components/base-usage.vue';
 
 // import tdesign style
@@ -27,6 +28,7 @@ registerLocaleChange();
 const app = createApp(App);
 
 app.component('Stackblitz', Stackblitz);
+app.component('NewWindow', NewWindow);
 app.component('BaseUsage', BaseUsage);
 
 app.use(TDesign).use(TDesignChat).use(router).mount('#app');
