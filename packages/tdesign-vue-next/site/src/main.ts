@@ -5,6 +5,7 @@ import router from './router';
 
 import Stackblitz from './components/stackblitz/index.vue';
 import CodeSandbox from './components/codeSandbox/index.vue';
+import NewWindow from './components/newWindow/index.vue';
 import BaseUsage from './components/base-usage.vue';
 
 // import tdesign style
@@ -29,6 +30,7 @@ const app = createApp(App);
 
 app.component('Stackblitz', Stackblitz);
 app.component('CodeSandbox', CodeSandbox);
+app.component('NewWindow', NewWindow);
 app.component('BaseUsage', BaseUsage);
 
 app.use(TDesign).use(router).mount('#app');

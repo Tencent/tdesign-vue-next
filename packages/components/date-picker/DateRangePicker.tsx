@@ -106,10 +106,14 @@ export default defineComponent({
         activeIndex.value = 0;
         isHoverCell.value = false;
         isFirstValueSelected.value = false;
-        inputValue.value = formatDate(value.value, {
-          format: formatRef.value.valueType,
-          targetFormat: formatRef.value.format,
-        });
+        if (props.needConfirm) {
+          inputValue.value = formatDate(value.value, {
+            format: formatRef.value.valueType,
+            targetFormat: formatRef.value.format,
+          });
+        } else {
+          confirmValueChange();
+        }
       }
     });
 
@@ -246,9 +250,7 @@ export default defineComponent({
         format: formatRef.value.format,
       });
     }
-
-    // 确定
-    function onConfirmClick({ e }: { e: MouseEvent }) {
+    const confirmValueChange = (e?: MouseEvent) => {
       const nextValue = [...(inputValue.value as string[])];
 
       const notValidIndex = nextValue.findIndex((v) => !v || !isValidDate(v, formatRef.value.format));
@@ -266,7 +268,7 @@ export default defineComponent({
         } else {
           props?.onConfirm?.({
             date: nextValue.map((v) => dayjs(v).toDate()),
-            e,
+            e: e || null,
             partial: activeIndex.value ? 'end' : 'start',
           });
           onChange?.(
@@ -282,6 +284,14 @@ export default defineComponent({
           );
         }
       }
+    };
+    // 确定
+    function onConfirmClick({ e }: { e: MouseEvent }) {
+      confirmValueChange(e);
+
+      const nextValue = [...(inputValue.value as string[])];
+
+      const notValidIndex = nextValue.findIndex((v) => !v || !isValidDate(v, formatRef.value.format));
 
       // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
       if (!isFirstValueSelected.value || !activeIndex.value) {
@@ -393,6 +403,7 @@ export default defineComponent({
       popupVisible: popupVisible.value,
       panelPreselection: props.panelPreselection,
       cancelRangeSelectLimit: props.cancelRangeSelectLimit,
+      needConfirm: props.needConfirm,
       onCellClick,
       onCellMouseEnter,
       onCellMouseLeave,
