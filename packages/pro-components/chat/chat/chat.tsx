@@ -76,16 +76,17 @@ export default defineComponent({
        */
       const data = renderTNodeJSX('data');
       if (isArray(data) && data.length > 0) {
-        const isLoading = (index: number) => {
-          return (props.reverse ? index === 0 : index === data.length - 1) && props.textLoading;
-        };
-        const isReasoningLoading = (index: number) => {
-          return (props.reverse ? index === 0 : index === data.length - 1) && props.isStreamLoad;
-        };
+        // webc是通过message的content是否有值来判断是否是loading状态
+        // const isLoading = (index: number) => {
+        //   return (props.reverse ? index === 0 : index === data.length - 1) && props.textLoading;
+        // };
+        // const isReasoningLoading = (index: number) => {
+        //   return (props.reverse ? index === 0 : index === data.length - 1) && props.isStreamLoad;
+        // };
         // 判断content是否为插槽，如果是插槽，则关闭reasoning默认渲染
-        const setReasoning = (item: TdChatItemMeta) => {
-          return slots.content ? false : item.reasoning;
-        };
+        // const setReasoning = (item: TdChatItemMeta) => {
+        //   return slots.content ? false : item.reasoning;
+        // };
         console.log('Rendering data:', props.animation);
         return data.map((item: TdChatItemMeta, index: number) => (
           <ChatMessage
@@ -95,8 +96,8 @@ export default defineComponent({
             datetime={item.datetime}
             animation={props.animation}
             v-slots={{
-              actions: () =>
-                renderTNodeJSX('actions', {
+              actionbar: () =>
+                renderTNodeJSX('actionbar', {
                   params: { item, index },
                 }),
               name: () => renderTNodeJSX('name', { params: { item, index } }),

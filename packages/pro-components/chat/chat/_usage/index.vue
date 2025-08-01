@@ -8,10 +8,28 @@
           {
             avatar: 'https://tdesign.gtimg.com/site/chat-avatar.png',
             message: {
+              role: 'assistant',
+            },
+          },
+          {
+            avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
+            message: {
               content: [
                 {
                   type: 'text',
-                  data: '',
+                  data: '南极的自动提款机叫什么名字？',
+                },
+              ],
+              role: 'user',
+            },
+          },
+          {
+            avatar: 'https://tdesign.gtimg.com/site/chat-avatar.png',
+            message: {
+              content: [
+                {
+                  type: 'text',
+                  data: '它叫 McMurdo Station ATM，是美国富国银行安装在南极洲最大科学中心麦克默多站的一台自动提款机。',
                 },
               ],
               role: 'assistant',
@@ -23,7 +41,7 @@
               content: [
                 {
                   type: 'text',
-                  data: '牛顿第一定律是否适用于所有参考系？',
+                  data: '南极的自动提款机叫什么名字？',
                 },
               ],
               role: 'user',

@@ -12,7 +12,7 @@
       @clear="clearConfirm"
     >
       <!-- eslint-disable vue/no-unused-vars -->
-      <!-- <template #content="{ item, index }">
+      <template #content="{ item, index }">
         <t-chat-reasoning v-if="item.reasoning?.length > 0" expand-icon-placement="right">
           <template #header>
             <t-chat-loading v-if="isStreamLoad && item.content.length === 0" text="思考中..." />
@@ -24,14 +24,14 @@
           <t-chat-content v-if="item.reasoning.length > 0" :content="item.reasoning" />
         </t-chat-reasoning>
         <t-chat-content v-if="item.content.length > 0" :content="item.content" />
-      </template> -->
-      <!-- <template #actions="{ item, index }">
+      </template>
+      <template #actionbar="{ item, index }">
         <t-chat-action
           :content="item.content"
           :operation-btn="['good', 'bad', 'replay', 'copy']"
           @operation="handleOperation"
         />
-      </template> -->
+      </template>
       <template #footer>
         <t-chat-input :stop-disabled="isStreamLoad" @send="inputEnter" @stop="onStop"> </t-chat-input>
       </template>
