@@ -144,6 +144,11 @@ describe('Loading', () => {
       await nextTick();
       expect(wrapper.find('.t-loading').exists()).toBe(false);
       expect(wrapper.element).toMatchSnapshot();
+
+      // test branch for `if (!showAttachedLoading.value || !loading.value) return null;`
+      await wrapper.setProps({ attach: 'body' });
+      await nextTick();
+      expect(wrapper.find('.t-loading').exists()).toBe(false);
     });
 
     it(':preventScrollThrough[boolean]', async () => {
