@@ -140,13 +140,14 @@ describe('Avatar', () => {
     });
 
     it(':gap:avatarWidth', async () => {
+      // jsdom does not actually calculate layout properties, so offsetWidth is always 0 and we need to set it manually
+      vi.spyOn(HTMLElement.prototype, 'offsetWidth', 'get').mockReturnValue(100);
       const wrapper = mount(<Avatar content="content" />);
-      await nextTick();
       await sleep(100);
+      expect(wrapper.element).toMatchSnapshot();
       const avatar = wrapper.find('.t-avatar');
       const avatarSpan = avatar.find('span');
-      // TODO
-      // expect(avatarSpan.element.style.transform).toBe('scale(0.428571)');
+      expect(avatarSpan.element.style.transform).toBe('scale(0.92)');
     });
 
     it(':isImgExist', async () => {
