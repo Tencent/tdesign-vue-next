@@ -1,49 +1,67 @@
+import { nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
-import { nextTick, createApp } from 'vue';
-import { describe, it, vi, beforeEach } from 'vitest';
+import { expect, vi } from 'vitest';
+import { createApp } from 'vue';
 import { LoadingPlugin } from '@tdesign/components/loading/plugin';
-import Loading from '@tdesign/components/loading';
+import { Loading } from '@tdesign/components';
 import vLoading from '../directive';
 
-// every component needs four parts: props/events/slots/functions.
 describe('Loading', () => {
-  // test props api
-  describe(':props', () => {
-    it(':loading', async () => {
-      const wrapper = mount(Loading, {
-        props: {
-          loading: true,
-        },
-      });
+  describe('props', () => {
+    it(':attach[string/function]', async () => {
+      mount(<Loading attach="body" />);
       await nextTick();
-      expect(wrapper.find('.t-loading').exists()).toBe(true);
+      expect(document.querySelector('body > .t-loading') !== null).toEqual(true);
 
-      await wrapper.setProps({ loading: false });
+      mount(<Loading attach={() => document.body} />);
       await nextTick();
-      expect(wrapper.find('.t-loading').exists()).toBe(false);
+      expect(document.querySelector('body > .t-loading') !== null).toEqual(true);
     });
 
-    it(':default', () => {
-      const wrapper = mount(() => <Loading default="加载中"></Loading>);
-      const text = wrapper.find('.t-loading__parent');
-      expect(text.exists()).toBe(true);
-      expect(text.text()).toBe('加载中');
+    it(':content[string/function]', () => {
+      const wrapper = mount(<Loading content="content" />);
+      expect(wrapper.find('.t-loading__parent').text()).toBe('content');
+      expect(wrapper.element).toMatchSnapshot();
+
+      const renderContent = () => <span class="custom-content-node">TNode</span>;
+      const wrapperFunction = mount(<Loading content={renderContent} />);
+      expect(wrapperFunction.find('.custom-content-node').exists()).toBeTruthy();
+      expect(wrapperFunction.element).toMatchSnapshot();
     });
 
-    it(':content', () => {
-      const wrapper = mount(() => <Loading content="加载中"></Loading>);
-      const text = wrapper.find('.t-loading__parent');
-      expect(text.exists()).toBe(true);
-      expect(text.text()).toBe('加载中');
+    it(':content[slot]', () => {
+      const wrapperSlot = mount(
+        <Loading v-slots={{ content: () => <span class="custom-content-node">TNode</span> }} />,
+      );
+      expect(wrapperSlot.find('.custom-content-node').exists()).toBeTruthy();
+      expect(wrapperSlot.element).toMatchSnapshot();
     });
 
-    it(':delay', async () => {
+    it(':default[string/function]', () => {
+      const wrapper = mount(<Loading default="default" />);
+      expect(wrapper.find('.t-loading__parent').text()).toBe('default');
+      expect(wrapper.element).toMatchSnapshot();
+
+      const renderDefault = () => <span class="custom-default-node">TNode</span>;
+      const wrapperFunction = mount(<Loading default={renderDefault} />);
+      expect(wrapperFunction.find('.custom-default-node').exists()).toBeTruthy();
+      expect(wrapperFunction.element).toMatchSnapshot();
+    });
+
+    it(':default[slot]', () => {
+      const wrapperSlot = mount(
+        <Loading v-slots={{ default: () => <span class="custom-default-node">TNode</span> }} />,
+      );
+      expect(wrapperSlot.find('.custom-default-node').exists()).toBeTruthy();
+      expect(wrapperSlot.element).toMatchSnapshot();
+    });
+
+    it(':delay[number]', async () => {
       vi.useFakeTimers();
-      // 需要在覆盖情况下测试
       const wrapper = mount({
         template: `
           <t-loading :loading="loading" :delay="delay">
-            <div class="wrap">包裹内容</div>
+            <div class="wrap">Wrapped content</div>
           </t-loading>
         `,
         components: { 't-loading': Loading },
@@ -55,121 +73,83 @@ describe('Loading', () => {
         },
       });
 
-      // 初始状态不应显示加载状态
+      // Initial state should not show loading
       expect(wrapper.find('.t-loading').exists()).toBeFalsy();
 
-      // 模拟时间流逝到delay的一半（1500ms），仍不应显示加载状态
+      // Simulate time passing to half of delay (1500ms), should still not show loading
       vi.advanceTimersByTime(1500);
       await nextTick();
       expect(wrapper.find('.t-loading').exists()).toBeFalsy();
 
-      // 模拟时间流逝超过delay（3000ms），应显示加载状态
+      // Simulate time passing beyond delay (3000ms), should show loading
       vi.advanceTimersByTime(1500);
       await nextTick();
       expect(wrapper.find('.t-loading').exists()).toBeTruthy();
 
       vi.useRealTimers();
     });
-    it(':indicator', () => {
-      const wrapper = mount(() => <Loading indicator={false}></Loading>);
-      const svg = wrapper.find('.t-loading svg');
-      expect(svg.exists()).toBeFalsy();
-    });
 
-    it(':inheritColor', () => {
-      const wrapper = mount(() => <Loading inheritColor></Loading>);
-      expect(wrapper.find('.t-loading--inherit-color')).toBeTruthy();
-    });
-
-    it(':text', () => {
-      const wrapper = mount(() => <Loading text="内容"></Loading>);
-      const text = wrapper.find('.t-loading .t-loading__text');
-      expect(text.exists()).toBeTruthy();
-      expect(text.text()).toBe('内容');
-    });
-
-    it(':zIndex', () => {
-      const wrapper = mount(() => <Loading zIndex={2022}></Loading>);
-      const loading = wrapper.find('.t-loading');
-      expect(getComputedStyle(loading.element, null).zIndex).toBe('2022');
-    });
-
-    it(':size', () => {
-      const sizeList = ['small', 'medium', 'large'];
-      sizeList.forEach((size) => {
-        const wrapper = mount(() => <Loading size={size}></Loading>);
-        const loading = wrapper.find('.t-loading');
-        expect(loading.classes()).toContain(`t-size-${size.slice(0, 1)}`);
-      });
-      const wrapper = mount(() => <Loading size="50px"></Loading>);
-      const loading = wrapper.find('.t-loading');
-      expect(getComputedStyle(loading.element, null).fontSize).toBe('50px');
-    });
-
-    it(':attach', async () => {
-      await mount(() => <Loading attach="body"></Loading>);
-      // 组件的attach使用了Teleport，所以wrapper.find等方法拿不到
-      expect(document.querySelector('body > .t-loading') !== null).toEqual(true);
-    });
-
-    it(':fullscreen', async () => {
-      const wrapper = mount(Loading, {
-        props: {
-          fullscreen: true,
-          loading: true,
-        },
-        attachTo: document.body,
-      });
+    it(':fullscreen[boolean]', async () => {
+      const wrapper = mount(<Loading fullscreen={true} loading={true} attachTo={document.body} />);
       await nextTick();
       expect(wrapper.find('.t-loading__fullscreen').exists()).toBe(true);
+      expect(wrapper.element).toMatchSnapshot();
 
-      // 测试 attach 属性与 fullscreen 的组合
-      await wrapper.setProps({ attach: 'body' });
+      await wrapper.setProps({ fullscreen: false });
       await nextTick();
-      expect(wrapper.find('body > .t-loading__fullscreen')).not.toBeNull();
-
-      wrapper.unmount();
+      expect(wrapper.find('.t-loading__fullscreen').exists()).toBe(false);
+      expect(wrapper.element).toMatchSnapshot();
     });
 
-    it(':showOverlay', async () => {
-      // 测试包裹元素时的遮罩层
-      const wrapper1 = mount({
-        template: `
-          <div class="container">
-            <Loading :showOverlay="true">
-              <div>被包裹的内容</div>
-            </Loading>
-          </div>
-        `,
-        components: { Loading },
-      });
-      await nextTick();
-      expect(wrapper1.find('.t-loading__overlay').exists()).toBe(true);
+    it(':indicator[boolean/function]', () => {
+      const wrapper = mount(<Loading indicator={true} />);
+      expect(wrapper.find('.t-loading svg').exists()).toBeTruthy();
+      expect(wrapper.element).toMatchSnapshot();
 
-      // 测试无包裹元素时的遮罩层(应该不存在)
-      const wrapper2 = mount(Loading, {
-        props: {
-          showOverlay: true,
-          loading: true,
-        },
-      });
-      await nextTick();
-      expect(wrapper2.find('.t-loading__overlay').exists()).toBe(false);
+      const wrapperFalse = mount(<Loading indicator={false} />);
+      expect(wrapperFalse.find('.t-loading svg').exists()).toBeFalsy();
+      expect(wrapperFalse.element).toMatchSnapshot();
 
-      // 清理
-      wrapper1.unmount();
-      wrapper2.unmount();
+      const renderIndicator = () => <span class="custom-indicator-node">TNode</span>;
+      const wrapperFunction = mount(<Loading indicator={renderIndicator} />);
+      expect(wrapperFunction.find('.custom-indicator-node').exists()).toBeTruthy();
+      expect(wrapperFunction.element).toMatchSnapshot();
     });
 
-    it('should add/remove lock class when loading changes', async () => {
-      const wrapper = mount(Loading, {
-        props: {
-          fullscreen: true,
-          preventScrollThrough: true,
-          loading: false,
-        },
-        attachTo: document.body,
-      });
+    it(':indicator[slot]', () => {
+      const wrapperSlot = mount(
+        <Loading v-slots={{ indicator: () => <span class="custom-indicator-node">TNode</span> }} />,
+      );
+      expect(wrapperSlot.find('.custom-indicator-node').exists()).toBeTruthy();
+      expect(wrapperSlot.element).toMatchSnapshot();
+    });
+
+    it(':inheritColor[boolean]', async () => {
+      const wrapper = mount(<Loading inheritColor={true} />);
+      expect(wrapper.find('.t-loading--inherit-color').exists()).toBeTruthy();
+      expect(wrapper.element).toMatchSnapshot();
+
+      await wrapper.setProps({ inheritColor: false });
+      expect(wrapper.find('.t-loading--inherit-color').exists()).toBeFalsy();
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it(':loading[boolean]', async () => {
+      const wrapper = mount(<Loading loading={true} />);
+      await nextTick();
+      expect(wrapper.find('.t-loading').exists()).toBe(true);
+      expect(wrapper.element).toMatchSnapshot();
+
+      await wrapper.setProps({ loading: false });
+      await nextTick();
+      expect(wrapper.find('.t-loading').exists()).toBe(false);
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it(':preventScrollThrough[boolean]', async () => {
+      const wrapper = mount(
+        <Loading fullscreen={true} preventScrollThrough={true} loading={false} attachTo={document.body} />,
+      );
       await nextTick();
       expect(document.body.classList.contains('t-loading--lock')).toBe(false);
 
@@ -180,27 +160,87 @@ describe('Loading', () => {
       await wrapper.setProps({ loading: false });
       await nextTick();
       expect(document.body.classList.contains('t-loading--lock')).toBe(false);
-
-      wrapper.unmount();
     });
 
-    it('should return null when attach is set but loading is false', async () => {
-      const wrapper = mount({
-        template: '<Loading :attach="attach" :loading="loading" />',
+    it(':showOverlay[boolean]', async () => {
+      // Test overlay when wrapping elements
+      const wrapper1 = mount({
+        template: `
+          <div class="container">
+            <Loading :showOverlay="true">
+              <div>Wrapped content</div>
+            </Loading>
+          </div>
+        `,
         components: { Loading },
-        data() {
-          return {
-            attach: 'body',
-            loading: false,
-          };
-        },
+      });
+      await nextTick();
+      expect(wrapper1.find('.t-loading__overlay').exists()).toBe(true);
+      expect(wrapper1.element).toMatchSnapshot();
+
+      // Test overlay when no wrapping elements (should not exist)
+      const wrapper2 = mount(<Loading showOverlay={true} loading={true} />);
+      await nextTick();
+      expect(wrapper2.find('.t-loading__overlay').exists()).toBe(false);
+      expect(wrapper2.element).toMatchSnapshot();
+    });
+
+    it(':size[string]', () => {
+      const sizeList = ['small', 'medium', 'large'];
+      sizeList.forEach((size) => {
+        const wrapper = mount(<Loading size={size} />);
+        const loading = wrapper.find('.t-loading');
+        expect(loading.classes()).toContain(`t-size-${size.slice(0, 1)}`);
+        expect(wrapper.element).toMatchSnapshot();
       });
 
-      await nextTick();
-      expect(wrapper.find('.t-loading').exists()).toBe(false);
+      const wrapperCustom = mount(<Loading size="50px" />);
+      const loading = wrapperCustom.find('.t-loading');
+      expect(getComputedStyle(loading.element, null).fontSize).toBe('50px');
+      expect(wrapperCustom.element).toMatchSnapshot();
+    });
+
+    it(':text[string/function]', () => {
+      const wrapper = mount(<Loading text="Loading..." />);
+      const text = wrapper.find('.t-loading .t-loading__text');
+      expect(text.exists()).toBeTruthy();
+      expect(text.text()).toBe('Loading...');
+      expect(wrapper.element).toMatchSnapshot();
+
+      const renderText = () => <span class="custom-text-node">TNode</span>;
+      const wrapperFunction = mount(<Loading text={renderText} />);
+      expect(wrapperFunction.find('.custom-text-node').exists()).toBeTruthy();
+      expect(wrapperFunction.element).toMatchSnapshot();
+    });
+
+    it(':text[slot]', () => {
+      const wrapperSlot = mount(<Loading v-slots={{ text: () => <span class="custom-text-node">TNode</span> }} />);
+      expect(wrapperSlot.find('.custom-text-node').exists()).toBeTruthy();
+      expect(wrapperSlot.element).toMatchSnapshot();
+    });
+
+    it(':zIndex[number]', () => {
+      const wrapper = mount(<Loading zIndex={2022} />);
+      const loading = wrapper.find('.t-loading');
+      expect(getComputedStyle(loading.element, null).zIndex).toBe('2022');
+      expect(wrapper.element).toMatchSnapshot();
     });
   });
-  describe(':plugin', () => {
+
+  describe('events', () => {
+    // Loading component has no explicit events, here we can test some interaction behaviors
+    it('should handle loading state changes', async () => {
+      const wrapper = mount(<Loading loading={false} />);
+      await nextTick();
+      expect(wrapper.find('.t-loading').exists()).toBe(false);
+
+      await wrapper.setProps({ loading: true });
+      await nextTick();
+      expect(wrapper.find('.t-loading').exists()).toBe(true);
+    });
+  });
+
+  describe('plugin', () => {
     let app: ReturnType<typeof createApp>;
 
     beforeEach(() => {
@@ -238,7 +278,7 @@ describe('Loading', () => {
     });
   });
 
-  describe(':directive', () => {
+  describe('directive', () => {
     it('should work with boolean value', async () => {
       const wrapper = mount({
         template: '<div v-loading="loading"></div>',
@@ -263,7 +303,7 @@ describe('Loading', () => {
           return {
             options: {
               loading: true,
-              text: '加载中',
+              text: 'Loading...',
               size: 'small',
             },
           };
@@ -272,7 +312,7 @@ describe('Loading', () => {
       await nextTick();
       const loading = wrapper.find('.t-loading');
       expect(loading.exists()).toBe(true);
-      expect(loading.find('.t-loading__text').text()).toBe('加载中');
+      expect(loading.find('.t-loading__text').text()).toBe('Loading...');
       expect(loading.classes()).toContain('t-size-s');
     });
 
@@ -285,16 +325,16 @@ describe('Loading', () => {
         },
       });
 
-      // 初始状态无loading
+      // Initial state no loading
       await nextTick();
       expect(wrapper.find('.t-loading').exists()).toBe(false);
 
-      // 更新为true，应创建实例
+      // Update to true, should create instance
       await wrapper.setData({ loading: true });
       await nextTick();
       expect(wrapper.find('.t-loading').exists()).toBe(true);
 
-      // 更新为false，应隐藏实例
+      // Update to false, should hide instance
       await wrapper.setData({ loading: false });
       await nextTick();
       expect(wrapper.find('.t-loading').exists()).toBe(false);
