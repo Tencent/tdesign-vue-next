@@ -1,7 +1,7 @@
 import { defineComponent, ref, toRefs } from 'vue';
 import { useDefaultValue, useTNodeDefault, useVModel } from '@tdesign/shared-hooks';
 
-import { Popup as TPopup } from '../popup';
+import { type PopupProps, Popup as TPopup } from '../popup';
 import ColorPanel from './components/panel';
 import DefaultTrigger from './components/trigger';
 import { useBaseClassName } from './hooks';
@@ -47,10 +47,10 @@ export default defineComponent({
 
     return () => {
       const popProps = {
-        placement: 'bottom-left',
-        trigger: 'click',
+        placement: 'bottom-left' as const,
+        trigger: 'click' as const,
         overlayClassName: [baseClassName.value],
-        ...((props.popupProps as any) || {}),
+        ...((props.popupProps as PopupProps) || {}),
       };
       return (
         <TPopup {...popProps} content={renderPopupContent}>
