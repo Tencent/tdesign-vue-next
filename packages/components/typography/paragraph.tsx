@@ -1,12 +1,10 @@
 import { defineComponent, computed, PropType } from 'vue';
 import { usePrefixClass } from '@tdesign/shared-hooks';
 import props from './paragraph-props';
-import TTooltip from '../tooltip/index';
 import Ellipsis from './components/ellipsis';
 
 export default defineComponent({
   name: 'TTypographyParagraph',
-  components: { TTooltip },
   props: {
     style: {
       type: Object as PropType<Record<string, string | number>>,
@@ -14,7 +12,7 @@ export default defineComponent({
     },
     ...props,
   },
-  setup(props, { slots }) {
+  setup(props, { slots, attrs }) {
     const COMPONENT_NAME = usePrefixClass('typography');
     const content = computed(() => {
       return props.content || slots?.default();
@@ -22,7 +20,7 @@ export default defineComponent({
 
     return () => {
       return props.ellipsis ? (
-        <Ellipsis {...props} class={COMPONENT_NAME.value}>
+        <Ellipsis {...props} {...attrs} class={COMPONENT_NAME.value}>
           {content.value}
         </Ellipsis>
       ) : (

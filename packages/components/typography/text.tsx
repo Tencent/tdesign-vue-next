@@ -14,7 +14,7 @@ import type { TdTooltipProps } from '../tooltip/type';
 export default defineComponent({
   name: 'TTypographyText',
   props,
-  setup(props, { slots }) {
+  setup(props, { slots, attrs }) {
     const COMPONENT_NAME = usePrefixClass('typography');
     const { globalConfig } = useConfig('typography');
     const isCopied = ref(false);
@@ -121,7 +121,7 @@ export default defineComponent({
           {props.copyable ? renderCopy() : null}
         </Ellipsis>
       ) : (
-        <span class={classList.value}>
+        <span class={classList.value} {...attrs}>
           {wrapperDecorations(props, content)}
           {props.copyable ? renderCopy() : null}
         </span>
