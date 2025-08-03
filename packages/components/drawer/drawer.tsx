@@ -188,6 +188,7 @@ export default defineComponent({
     const updateVisibleState = (value: boolean) => {
       if (value) {
         isMounted.value = true;
+        props.onOpen?.();
       }
 
       if (props.destroyOnClose) {
