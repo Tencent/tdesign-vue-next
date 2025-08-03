@@ -11,6 +11,7 @@ import { useConfig, useTNodeJSX, usePrefixClass, useTNodeDefault } from '@tdesig
 
 import { usePanelVirtualScroll } from '../hooks';
 import { selectInjectKey } from '../consts';
+import type { TdSelectProps as SelectProps } from '../type';
 
 export default defineComponent({
   name: 'TSelectPanel',
@@ -26,7 +27,7 @@ export default defineComponent({
     filterable: TdSelectProps.filterable,
     filter: TdSelectProps.filter,
     scroll: TdSelectProps.scroll,
-    size: TdSelectProps.size,
+    keys: TdSelectProps.keys,
   },
   setup(props, { expose }) {
     const COMPONENT_NAME = usePrefixClass('select');
@@ -35,6 +36,7 @@ export default defineComponent({
     const { t, globalConfig } = useConfig('select');
     const tSelect = inject(selectInjectKey);
     const innerRef = ref<HTMLElement>(null);
+    const keys = computed(() => props.keys as SelectProps['keys']);
 
     const popupContentRef = computed(() => tSelect.value.popupContentRef.value);
     const showCreateOption = computed(() => props.creatable && props.filterable && props.inputValue);
@@ -95,11 +97,39 @@ export default defineComponent({
                   onRowMounted={handleRowMounted}
                 />
               );
-            })}
-          </ul>
-        );
-      };
-      return renderOptions(options);
+            }
+
+            const defaultOmit = ['index', '$index', 'className', 'tagName'];
+
+            const { value, label, disabled } = keys.value || {};
+            // 如果 keys 中刚好有 content，则移除 content 渲染 https://github.com/Tencent/tdesign-vue-next/issues/5088
+            const shouldOmitContent = [value, label, disabled].includes('content');
+            const option = omit(item, defaultOmit.concat(shouldOmitContent ? 'content' : []));
+
+            return (
+              <Option
+                {...option}
+                {...(isVirtual.value
+                  ? {
+                      rowIndex: item.$index,
+                      trs,
+                      scrollType: props.scroll?.type,
+                      isVirtual: isVirtual.value,
+                      bufferSize: props.scroll?.bufferSize,
+                      key: `${item.$index || ''}_${index}_${item.value}`,
+                    }
+                  : {
+                      key: `${index}_${item.value}`,
+                    })}
+                index={index}
+                multiple={props.multiple}
+                v-slots={item.slots}
+                onRowMounted={handleRowMounted}
+              />
+            );
+          })}
+        </ul>
+      );
     };
     const dropdownInnerSize = computed(() => {
       return {

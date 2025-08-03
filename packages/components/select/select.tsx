@@ -500,10 +500,8 @@ export default defineComponent({
         return innerValue.value
           .slice(0, props.minCollapsedNum ? props.minCollapsedNum : innerValue.value.length)
           .map?.((v: string, key: number) => {
-            let tagIndex: number;
-            const option = currentSelectOptions.value.find((item, index) => {
+            const option = currentSelectOptions.value.find((item) => {
               if (item.value === v) {
-                tagIndex = index;
                 return true;
               }
             });
@@ -517,7 +515,7 @@ export default defineComponent({
                 onClose={({ e }: { e: MouseEvent }) => {
                   e.stopPropagation();
                   props.tagProps?.onClose?.({ e });
-                  removeTag(tagIndex);
+                  removeTag(key);
                 }}
               >
                 {option ? option.label ?? option?.value : v}
@@ -643,6 +641,7 @@ export default defineComponent({
                     'panelBottomContent',
                     'filter',
                     'scroll',
+                    'keys',
                   ])}
                   inputValue={innerInputValue.value}
                   v-slots={slots}
