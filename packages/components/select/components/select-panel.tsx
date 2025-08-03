@@ -64,40 +64,18 @@ export default defineComponent({
     // 递归render options
     const renderOptionsContent = (options: SelectOption[]) => {
       let globalIndex = 0;
-      const renderOptions = (items: SelectOption[]) => {
-        return (
-          <ul class={`${COMPONENT_NAME.value}__list`}>
-            {items.map((item: SelectOptionGroup & TdOptionProps & { slots: Slots } & { $index: number }) => {
-              if (item.children) {
-                return (
-                  <OptionGroup label={item.group} divider={item.divider}>
-                    {renderOptions(item.children)}
-                  </OptionGroup>
-                );
-              }
-              const currentIndex = globalIndex++;
+      return (
+        <ul class={`${COMPONENT_NAME.value}__list`}>
+          {options.map((item: SelectOptionGroup & TdOptionProps & { slots: Slots } & { $index: number }) => {
+            if (item.children) {
               return (
-                <Option
-                  {...omit(item, 'index', '$index', 'className', 'tagName')}
-                  {...(isVirtual.value
-                    ? {
-                        rowIndex: item.$index !== undefined ? item.$index : currentIndex,
-                        trs,
-                        scrollType: props.scroll?.type,
-                        isVirtual: isVirtual.value,
-                        bufferSize: props.scroll?.bufferSize,
-                        key: `${item.$index !== undefined ? item.$index : currentIndex}_${item.value}`,
-                      }
-                    : {
-                        key: `${currentIndex}_${item.value}`,
-                      })}
-                  index={currentIndex}
-                  multiple={props.multiple}
-                  v-slots={item.slots}
-                  onRowMounted={handleRowMounted}
-                />
+                <OptionGroup label={item.group} divider={item.divider}>
+                  {renderOptionsContent(item.children)}
+                </OptionGroup>
               );
             }
+
+            const currentIndex = globalIndex++;
 
             const defaultOmit = ['index', '$index', 'className', 'tagName'];
 
@@ -116,12 +94,12 @@ export default defineComponent({
                       scrollType: props.scroll?.type,
                       isVirtual: isVirtual.value,
                       bufferSize: props.scroll?.bufferSize,
-                      key: `${item.$index || ''}_${index}_${item.value}`,
+                      key: `${item.$index || ''}_${currentIndex}_${item.value}`,
                     }
                   : {
-                      key: `${index}_${item.value}`,
+                      key: `${currentIndex}_${item.value}`,
                     })}
-                index={index}
+                index={currentIndex}
                 multiple={props.multiple}
                 v-slots={item.slots}
                 onRowMounted={handleRowMounted}
