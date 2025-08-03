@@ -121,6 +121,8 @@ export default {
   onConfirm: Function as PropType<TdDrawerProps['onConfirm']>,
   /** 按下 ESC 键时触发 */
   onEscKeydown: Function as PropType<TdDrawerProps['onEscKeydown']>,
+  /** 抽屉打开时触发 */
+  onOpen: Function as PropType<TdDrawerProps['onOpen']>,
   /** 如果蒙层存在，点击蒙层时触发 */
   onOverlayClick: Function as PropType<TdDrawerProps['onOverlayClick']>,
   /** 抽屉大小拖拽结束时触发，事件参数 `size` 在横向抽屉中表示宽度，在纵向抽屉中表示高度 */
