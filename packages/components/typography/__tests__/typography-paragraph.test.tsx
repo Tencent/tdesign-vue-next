@@ -8,22 +8,22 @@ describe('Typography Paragraph', () => {
   const ellipsisText = new RegExp('...');
 
   describe('props', () => {
-    it(':', () => {
-      const defaultWrapper = mount(() => <Paragraph>{shortText}</Paragraph>);
-      const propWrapper = mount(() => <Paragraph content={shortText}></Paragraph>);
+    it(':content[String/Function]', () => {
+      const defaultWrapperSlot = mount(() => <Paragraph>{shortText}</Paragraph>);
+      const propWrapperString = mount(() => <Paragraph content={shortText}></Paragraph>);
 
-      expect(defaultWrapper.find('.t-typography').element.innerHTML).toMatch(new RegExp(shortText));
-      expect(propWrapper.find('.t-typography').element.innerHTML).toMatch(new RegExp(shortText));
+      expect(defaultWrapperSlot.find('.t-typography').element.innerHTML).toMatch(new RegExp(shortText));
+      expect(propWrapperString.find('.t-typography').element.innerHTML).toMatch(new RegExp(shortText));
     });
 
-    it(':ellipsis', () => {
+    it(':ellipsis[boolean]', () => {
       const wrapper = mount(() => <Paragraph ellipsis>{longTextString}</Paragraph>);
 
       expect(wrapper.find('.t-typography').element.innerHTML).toMatch(ellipsisText);
     });
 
-    it(':ellipsis-expand', async () => {
-      const wrapper = await mount(() => (
+    it(':ellipsis[object]', async () => {
+      const wrapper = mount(() => (
         <Paragraph
           ellipsis={{
             expandable: true,
@@ -34,7 +34,6 @@ describe('Typography Paragraph', () => {
         </Paragraph>
       ));
 
-      // 模拟操作
       wrapper.find('.t-typography-ellipsis-symbol').trigger('click');
       await nextTick();
       expect(wrapper.find('.t-typography-ellipsis-symbol').element.innerHTML).toBe('收起');

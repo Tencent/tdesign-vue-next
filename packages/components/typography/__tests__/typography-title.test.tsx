@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import { nextTick } from 'vue';
 import { Title } from '@tdesign/components/typography';
 import type { TdTitleProps } from '@tdesign/components/typography';
 
@@ -8,7 +9,7 @@ describe('Typography Title', () => {
   const ellipsisText = new RegExp('...');
 
   describe('props', () => {
-    it(':[content/default slot]', () => {
+    it(':default[content/default slot]', () => {
       const defaultWrapper = mount(() => <Title>{shortText}</Title>);
       const propWrapper = mount(() => <Title content={shortText}></Title>);
 
@@ -16,16 +17,42 @@ describe('Typography Title', () => {
       expect(propWrapper.find('h1.t-typography').element.innerHTML).toMatch(new RegExp(shortText));
     });
 
-    it(':ellipsis', () => {
+    it(':ellipsis[Boolean/object]', async () => {
       const wrapper = mount(() => <Title ellipsis>{longTextString}</Title>);
 
       expect(wrapper.find('.t-typography').element.innerHTML).toMatch(ellipsisText);
+
+      const onExpand = vi.fn();
+      const objectWrapper = mount(() => (
+        <Title
+          ellipsis={{
+            row: 1,
+            onExpand,
+            expandable: true,
+            collapsible: true,
+            tooltipProps: { content: 'tooltip content' },
+          }}
+        >
+          {longTextString}
+        </Title>
+      ));
+
+      await nextTick();
+
+      const expandSymbol = objectWrapper.find('.t-typography-ellipsis-symbol');
+      expect(expandSymbol.exists()).toBe(true);
+
+      await expandSymbol.trigger('click');
+      expect(onExpand).toHaveBeenCalledWith(true);
+
+      const collapseSymbol = objectWrapper.find('.t-typography-ellipsis-symbol');
+      expect(collapseSymbol.exists()).toBe(true);
     });
 
     const levelList: TdTitleProps['level'][] = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 
     levelList.forEach((item) => {
-      it(`:level-${item}`, () => {
+      it(`:level[String]-${item}`, () => {
         const wrapper = mount(() => <Title level={item}>{longTextString}</Title>);
 
         expect(wrapper.find(`${item}.t-typography`).exists()).eq(true);

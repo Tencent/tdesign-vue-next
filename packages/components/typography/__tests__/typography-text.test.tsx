@@ -9,21 +9,25 @@ describe('Typography Text', () => {
   const ellipsisText = new RegExp('...');
 
   describe('props', () => {
-    it(':code', () => {
+    it(':code[Boolean]', () => {
       const wrapper = mount(() => <Text code>{shortText}</Text>);
 
       expect(wrapper.find('code').element.innerHTML).toMatch(new RegExp(shortText));
     });
 
-    it(':', () => {
-      const defaultWrapper = mount(() => <Text>{shortText}</Text>);
-      const propWrapper = mount(() => <Text content={shortText}></Text>);
+    it(':content[String/Function/Slot]', () => {
+      const defaultWrapperSlot = mount(() => <Text>{shortText}</Text>);
+      const propWrapperString = mount(() => <Text content={shortText}></Text>);
+      const propWrapperFunction = mount(() => <Text content={() => shortText}></Text>);
+      const propWrapperSlot = mount(() => <Text v-slots={{ content: () => <>{shortText}</> }}></Text>);
 
-      expect(defaultWrapper.find('.t-typography').element.innerHTML).toMatch(new RegExp(shortText));
-      expect(propWrapper.find('.t-typography').element.innerHTML).toMatch(new RegExp(shortText));
+      expect(defaultWrapperSlot.find('.t-typography').element.innerHTML).toMatch(new RegExp(shortText));
+      expect(propWrapperString.find('.t-typography').element.innerHTML).toMatch(new RegExp(shortText));
+      expect(propWrapperFunction.find('.t-typography').element.innerHTML).toMatch(new RegExp(shortText));
+      expect(propWrapperSlot.find('.t-typography').element.innerHTML).toMatch(new RegExp(shortText));
     });
 
-    it(':copyable', async () => {
+    it(':copyable[object]', async () => {
       const handleCopy = vi.fn();
       const renderCopySlot = () => 'test';
       const wrapper = mount(() => (
@@ -46,26 +50,25 @@ describe('Typography Text', () => {
       expect(handleCopy).toHaveBeenCalled();
     });
 
-    it(':delete', () => {
+    it(':delete[Boolean]', () => {
       const wrapper = mount(() => <Text delete>{longTextString}</Text>);
 
       expect(wrapper.find('del').exists()).eq(true);
     });
 
-    it(':disabled', () => {
+    it(':disabled[Boolean]', () => {
       const wrapper = mount(() => <Text disabled>{longTextString}</Text>);
 
       expect(wrapper.find('.t-typography').classes('t-typography--disabled')).eq(true);
     });
 
-    it(':ellipsis', () => {
+    it(':ellipsis[Boolean]', () => {
       const wrapper = mount(() => <Text ellipsis>{longTextString}</Text>);
 
       expect(wrapper.find('.t-typography').element.innerHTML).toMatch(ellipsisText);
     });
 
-    it(':ellipsis with object config', async () => {
-      // 测试可展开的省略
+    it(':ellipsis[object]', async () => {
       const onExpand = vi.fn();
       const wrapper = mount(() => (
         <Text
@@ -113,7 +116,7 @@ describe('Typography Text', () => {
       expect(collapsibleWrapper.find('.t-typography-ellipsis-symbol').exists()).toBe(false);
     });
 
-    it(':ellipsis with custom suffix', async () => {
+    it(':ellipsis[object(slot)]', async () => {
       const wrapper = mount(() => (
         <Text
           ellipsis={{
@@ -131,19 +134,19 @@ describe('Typography Text', () => {
       expect(expandSymbol.text()).toBe("() => '...更多'");
     });
 
-    it(':italic', () => {
+    it(':italic[Boolean]', () => {
       const wrapper = mount(() => <Text italic>{longTextString}</Text>);
 
       expect(wrapper.find('i').exists()).eq(true);
     });
 
-    it(':keyboard', () => {
+    it(':keyboard[Boolean]', () => {
       const wrapper = mount(() => <Text keyboard>{longTextString}</Text>);
 
       expect(wrapper.find('kbd').exists()).eq(true);
     });
 
-    it(':mark', () => {
+    it(':mark[String/Boolean]', () => {
       const defaultWrapper = mount(() => <Text mark>{longTextString}</Text>);
       const colorWrapper = mount(() => <Text mark="#07c160">{longTextString}</Text>);
 
@@ -151,7 +154,7 @@ describe('Typography Text', () => {
       expect(colorWrapper.find('mark').element.style.backgroundColor).eq('rgb(7, 193, 96)');
     });
 
-    it(':strong', () => {
+    it(':strong[Boolean]', () => {
       const wrapper = mount(() => <Text strong>{longTextString}</Text>);
 
       expect(wrapper.find('strong').exists()).eq(true);
@@ -161,13 +164,13 @@ describe('Typography Text', () => {
     const classPrefix = 't-typography--';
 
     themeList.forEach((item) => {
-      it(`:theme-${item}`, () => {
+      it(`:theme[String]-${item}`, () => {
         const wrapper = mount(() => <Text theme={item}>{longTextString}</Text>);
         expect(wrapper.find('.t-typography').classes(`${classPrefix}${item}`)).eq(true);
       });
     });
 
-    it(':underline', () => {
+    it(':underline[Boolean]', () => {
       const wrapper = mount(() => <Text underline>{longTextString}</Text>);
 
       expect(wrapper.find('u').exists()).eq(true);
