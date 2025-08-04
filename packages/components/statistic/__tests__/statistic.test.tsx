@@ -1,6 +1,5 @@
 import { mount } from '@vue/test-utils';
 import Statistic from '@tdesign/components/statistic';
-import props from '../props';
 
 describe('Statistic', () => {
   describe(':props', () => {
