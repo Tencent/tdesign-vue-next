@@ -55,7 +55,7 @@ export default defineComponent({
       emitCloseEvent({ e: context.e, trigger: 'cancel' });
     };
     // teleport容器
-    const teleportElement = useTeleport(() => props.attach);
+    // const teleportElement = useTeleport(() => props.attach);
     useDestroyOnClose();
     const timer = ref();
     const styleEl = ref();
@@ -294,7 +294,7 @@ export default defineComponent({
       ];
 
       return (
-        <Teleport disabled={!props.attach || !teleportElement.value} to={teleportElement.value}>
+        <Teleport disabled={!props.attach} to={props.attach}>
           <Transition
             duration={300}
             name={`${COMPONENT_NAME.value}-zoom__vue`}
