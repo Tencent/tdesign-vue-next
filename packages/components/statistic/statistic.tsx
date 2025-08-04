@@ -10,7 +10,7 @@ import { useTNodeJSX, useGlobalIcon, usePrefixClass } from '@tdesign/shared-hook
 
 import Skeleton from '../skeleton';
 import Tween from '@tdesign/common-js/statistic/tween';
-import { getFormatValue } from '@tdesign/common-js/statistic/utils';
+import { COLOR_MAP, getFormatValue } from '@tdesign/common-js/statistic/utils';
 
 export default defineComponent({
   name: 'TStatistic',
@@ -65,9 +65,8 @@ export default defineComponent({
     });
 
     const contentStyle = computed(() => {
-      const { color } = props;
       return {
-        color: color,
+        color: COLOR_MAP[props.color as keyof typeof COLOR_MAP] || props.color,
       };
     });
 
@@ -92,7 +91,7 @@ export default defineComponent({
 
     onMounted(() => props.animation && props.animationStart && start());
 
-    expose({ start });
+    expose({ start, contentStyle });
 
     return () => {
       const trendIcon = props.trend ? trendIcons[props.trend] : null;

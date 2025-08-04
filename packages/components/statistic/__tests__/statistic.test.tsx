@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils';
 import Statistic from '@tdesign/components/statistic';
+import { COLOR_MAP } from '@tdesign/common-js/statistic/utils';
 
 describe('Statistic', () => {
   describe(':props', () => {
@@ -125,18 +126,28 @@ describe('Statistic', () => {
       expect(contentElement.attributes('style')).toContain('color: rgb(255, 0, 0)');
     });
 
-    it('color with empty string', () => {
+    it('should handle all TDesign preset colors', async () => {
+      expect(COLOR_MAP).toBeDefined();
+      expect(COLOR_MAP.black).toBe('var(--td-text-color-primary)');
+
       const wrapper = mount(Statistic, {
         propsData: {
-          title: 'Total Sales',
           value: 1000,
-          color: '',
+          color: 'black',
         },
       });
 
-      const contentElement = wrapper.find('.t-statistic-content');
-      expect(contentElement.exists()).toBe(true);
-      expect(contentElement.attributes('style')).toBeFalsy();
+      const contentStyle = wrapper.vm.contentStyle;
+      expect(contentStyle).toBeDefined();
+      expect(contentStyle.color).toBe('var(--td-text-color-primary)');
+
+      for (const color of Object.keys(COLOR_MAP)) {
+        await wrapper.setProps({ color });
+        await wrapper.vm.$nextTick();
+        const updatedContentStyle = wrapper.vm.contentStyle;
+        const actualColor = updatedContentStyle ? updatedContentStyle.color : undefined;
+        expect(actualColor).toBe(COLOR_MAP[color as keyof typeof COLOR_MAP]);
+      }
     });
   });
 });
