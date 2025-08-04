@@ -14,27 +14,10 @@ export default {
   },
   /** 是否开始动画 */
   animationStart: Boolean,
-  /** 颜色风格，依次为 TDesign 风格的黑色、蓝色、红色、橙色、绿色。也可以为任何 [CSS color](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) 支持的 RGB 等值 */
+  /** 可以为任何 [CSS color](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) 支持的颜色值。 */
   color: {
-    type: String as PropType<TdStatisticProps['color']>,
-    validator(val: TdStatisticProps['color']): boolean {
-      if (!val) return true;
-
-      const predefinedColors = ['black', 'blue', 'red', 'orange', 'green'];
-      if (predefinedColors.includes(val)) return true;
-
-      // 验证是否为有效的 CSS 颜色值
-      if (typeof document !== 'undefined') {
-        const tempElement = document.createElement('div');
-        tempElement.style.color = val;
-        return tempElement.style.color !== '';
-      }
-
-      // 在服务端环境下，检查常见的 CSS 颜色格式
-      const cssColorRegex =
-        /^(#([0-9a-f]{3,4}|[0-9a-f]{6}|[0-9a-f]{8})|rgba?\(\s*(\d{1,3}%?)\s+(\d{1,3}%?)\s+(\d{1,3}%?)(?:\s*\/\s*(0|1|0?\.\d+))?\s*\)|hsla?\(\s*(\d{1,3})\s*,\s*(\d{1,3})%\s*,\s*(\d{1,3})%(?:\s*,\s*(0|1|0?\.\d+))?\s*\)|currentColor|transparent|inherit|initial|unset|black|blue|red|orange|green)$/i;
-      return cssColorRegex.test(val);
-    },
+    type: String,
+    default: '',
   },
   /** 小数保留位数 */
   decimalPlaces: {
