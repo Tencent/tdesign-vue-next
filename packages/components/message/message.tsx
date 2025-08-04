@@ -1,4 +1,5 @@
 import { defineComponent, h, onBeforeMount, onMounted, computed, ref } from 'vue';
+import type { CSSProperties } from 'vue';
 import {
   InfoCircleFilledIcon as TdInfoCircleFilledIcon,
   CheckCircleFilledIcon as TdCheckCircleFilledIcon,
@@ -51,6 +52,10 @@ export default defineComponent({
         },
       ];
     });
+
+    const styles: CSSProperties = {
+      pointerEvents: 'auto',
+    };
 
     const close = (e?: MouseEvent) => {
       props.onClose?.({ trigger: 'close-click', e });
@@ -115,7 +120,7 @@ export default defineComponent({
     expose({ close });
 
     return () => (
-      <div ref={msgRef} class={classes.value} onMouseenter={clearTimer} onMouseleave={setTimer}>
+      <div ref={msgRef} class={classes.value} style={styles} onMouseenter={clearTimer} onMouseleave={setTimer}>
         {renderIcon()}
         {renderContent('content', 'default')}
         {renderClose()}
