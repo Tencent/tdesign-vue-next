@@ -17,7 +17,7 @@ export interface TdStatisticProps {
    */
   animationStart?: boolean;
   /**
-   * 可以为任何 [CSS color](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) 支持的颜色值。
+   * 颜色风格可以为 TDesign 风格的黑色（black）、蓝色（blue）、红色（red）、橙色（orange）、绿色（green），可以支持 TDesign 的浅色和深色模式。也可以为任何 [CSS color](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) 支持颜色值，但不支持 TDesign 的浅色和深色模式。
    * @default ''
    */
   color?: string;

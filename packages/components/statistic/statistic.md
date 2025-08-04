@@ -1,14 +1,13 @@
 :: BASE_DOC ::
 
 ## API
-
 ### Statistic Props
 
 名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
 animation | Object | - | 动画效果控制，`duration` 指动画的过渡时间`单位：毫秒`，`valueFrom` 指动画的起始数值。`{ duration, valueFrom }`。TS 类型：`animation` `interface animation { duration: number; valueFrom: number;  }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/statistic/type.ts) | N
 animationStart | Boolean | false | 是否开始动画 | N
-color | String | - | 颜色风格，依次为 TDesign 风格的黑色、蓝色、红色、橙色、绿色。也可以为任何 [CSS color](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) 支持的 RGB 等值。可选项：black/blue/red/orange/green | N
+color | String | - | 颜色风格可以为 TDesign 风格的黑色（black）、蓝色（blue）、红色（red）、橙色（orange）、绿色（green），可以支持 TDesign 的浅色和深色模式。也可以为任何 [CSS color](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) 支持颜色值，但不支持 TDesign 的浅色和深色模式。 | N
 decimalPlaces | Number | - | 小数保留位数 | N
 extra | String / Slot / Function | - | 额外的显示内容。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 format | Function | - | 格式化数值显示值。TS 类型：`(value: number) => number` | N
