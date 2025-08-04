@@ -623,7 +623,6 @@ export default defineComponent({
                 <SelectPanel
                   ref={selectPanelRef}
                   {...picker(props, [
-                    'size',
                     'multiple',
                     'empty',
                     'loading',
