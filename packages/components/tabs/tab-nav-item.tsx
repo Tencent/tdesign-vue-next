@@ -57,13 +57,12 @@ export default defineComponent({
       };
     });
 
-    const removeBtn = () => {
+    const removeBtn = () =>
       props.removable && !props.disabled ? (
         <span onClick={(e) => removeBtnClick({ e })}>
           <CloseIcon class="remove-btn" />
         </span>
       ) : null;
-    };
 
     const renderCardItem = () => {
       return (
