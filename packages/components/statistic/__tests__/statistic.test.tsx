@@ -112,7 +112,7 @@ describe('Statistic', () => {
       expect(trendIconElement.element.tagName).toBe('svg');
     });
 
-    it('color', () => {
+    it('color:#ff0000', () => {
       const wrapper = mount(Statistic, {
         propsData: {
           title: 'Total Sales',
@@ -126,7 +126,21 @@ describe('Statistic', () => {
       expect(contentElement.attributes('style')).toContain('color: rgb(255, 0, 0)');
     });
 
-    it('should handle all TDesign preset colors', async () => {
+    it('color:yellow', () => {
+      const wrapper = mount(Statistic, {
+        propsData: {
+          title: 'Total Sales',
+          value: 1000,
+          color: 'yellow',
+        },
+      });
+
+      const contentElement = wrapper.find('.t-statistic-content');
+      expect(contentElement.exists()).toBe(true);
+      expect(contentElement.attributes('style')).toContain('color: yellow');
+    });
+
+    it('colors: colorKeys', async () => {
       expect(COLOR_MAP).toBeDefined();
       expect(COLOR_MAP.black).toBe('var(--td-text-color-primary)');
 
