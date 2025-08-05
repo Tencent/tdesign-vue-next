@@ -4,20 +4,43 @@ import { List, ListItem, ListProps } from '@tdesign/components/list';
 
 describe('List', () => {
   describe('props', () => {
-    it('size[string]', () => {
-      const sizeList: Array<ListProps['size']> = ['small', 'medium', 'large'];
-      sizeList.forEach((size) => {
-        const wrapper = mount(() => (
-          <List size={size}>
-            <ListItem>描述性文字一</ListItem>
-            <ListItem>描述性文字二</ListItem>
-          </List>
-        ));
-        expect(wrapper.classes()).toContain(`t-size-${size.slice(0, 1)}`);
-      });
+    it('footer[string]', () => {
+      const wrapper = mount(() => (
+        <List footer="footer">
+          <ListItem>描述性文字一</ListItem>
+          <ListItem>描述性文字二</ListItem>
+        </List>
+      ));
+      const footer = wrapper.find('.t-list__footer');
+      expect(footer.exists()).toBeTruthy();
+      expect(footer.text()).toBe('footer');
     });
 
-    it(':header', () => {
+    it('footer[slot]', () => {
+      const wrapper = mount(() => (
+        <List v-slots={{ footer: () => 'footer' }}>
+          <ListItem>描述性文字一</ListItem>
+          <ListItem>描述性文字二</ListItem>
+        </List>
+      ));
+      const footer = wrapper.find('.t-list__footer');
+      expect(footer.exists()).toBeTruthy();
+      expect(footer.text()).toBe('footer');
+    });
+
+    it('footer[function]', () => {
+      const wrapper = mount(() => (
+        <List footer={() => 'footer'}>
+          <ListItem>描述性文字一</ListItem>
+          <ListItem>描述性文字二</ListItem>
+        </List>
+      ));
+      const footer = wrapper.find('.t-list__footer');
+      expect(footer.exists()).toBeTruthy();
+      expect(footer.text()).toBe('footer');
+    });
+
+    it('header[string]', () => {
       const wrapper = mount(() => (
         <List header="header">
           <ListItem>描述性文字一</ListItem>
@@ -29,16 +52,41 @@ describe('List', () => {
       expect(header.text()).toBe('header');
     });
 
-    it(':footer', () => {
+    it('header[slot]', () => {
       const wrapper = mount(() => (
-        <List footer="footer">
+        <List v-slots={{ header: () => 'header' }}>
           <ListItem>描述性文字一</ListItem>
           <ListItem>描述性文字二</ListItem>
         </List>
       ));
-      const footer = wrapper.find('.t-list__footer');
-      expect(footer.exists()).toBeTruthy();
-      expect(footer.text()).toBe('footer');
+      const header = wrapper.find('.t-list__header');
+      expect(header.exists()).toBeTruthy();
+      expect(header.text()).toBe('header');
+    });
+
+    it('header[function]', () => {
+      const wrapper = mount(() => (
+        <List header={() => 'header'}>
+          <ListItem>描述性文字一</ListItem>
+          <ListItem>描述性文字二</ListItem>
+        </List>
+      ));
+      const header = wrapper.find('.t-list__header');
+      expect(header.exists()).toBeTruthy();
+      expect(header.text()).toBe('header');
+    });
+
+    it('size[string]', () => {
+      const sizeList: Array<ListProps['size']> = ['small', 'medium', 'large'];
+      sizeList.forEach((size) => {
+        const wrapper = mount(() => (
+          <List size={size}>
+            <ListItem>描述性文字一</ListItem>
+            <ListItem>描述性文字二</ListItem>
+          </List>
+        ));
+        expect(wrapper.classes()).toContain(`t-size-${size.slice(0, 1)}`);
+      });
     });
 
     it(':split', () => {
