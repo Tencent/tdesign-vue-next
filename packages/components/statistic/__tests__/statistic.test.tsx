@@ -141,27 +141,21 @@ describe('Statistic', () => {
     });
 
     it('colors: colorKeys', async () => {
-      expect(COLOR_MAP).toBeDefined();
-      expect(COLOR_MAP.black).toBe('var(--td-text-color-primary)');
+      Object.keys(COLOR_MAP).map((color) => {
+        const wrapper = mount(Statistic, {
+          props: {
+            title: 'Total Sales',
+            value: 1000,
+            color,
+          },
+        });
 
-      const wrapper = mount(Statistic, {
-        propsData: {
-          value: 1000,
-          color: 'black',
-        },
+        const contentElement = wrapper.find('.t-statistic-content');
+        const vm = wrapper.vm as any;
+        expect(contentElement.exists()).toBe(true);
+        const expectedColor = COLOR_MAP[color as keyof typeof COLOR_MAP];
+        expect(vm.contentStyle).toEqual({ color: expectedColor });
       });
-
-      const contentStyle = wrapper.vm.contentStyle;
-      expect(contentStyle).toBeDefined();
-      expect(contentStyle.color).toBe('var(--td-text-color-primary)');
-
-      for (const color of Object.keys(COLOR_MAP)) {
-        await wrapper.setProps({ color });
-        await wrapper.vm.$nextTick();
-        const updatedContentStyle = wrapper.vm.contentStyle;
-        const actualColor = updatedContentStyle ? updatedContentStyle.color : undefined;
-        expect(actualColor).toBe(COLOR_MAP[color as keyof typeof COLOR_MAP]);
-      }
     });
   });
 });
