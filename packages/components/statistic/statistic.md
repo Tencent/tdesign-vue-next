@@ -7,7 +7,7 @@
 -- | -- | -- | -- | --
 animation | Object | - | 动画效果控制，`duration` 指动画的过渡时间`单位：毫秒`，`valueFrom` 指动画的起始数值。`{ duration, valueFrom }`。TS 类型：`animation` `interface animation { duration: number; valueFrom: number;  }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/statistic/type.ts) | N
 animationStart | Boolean | false | 是否开始动画 | N
-color | String | - | 颜色风格可以为支持 TDesign 的浅色和深色模式的黑色（black）、蓝色（blue）、红色（red）、橙色（orange）、绿色（green）。也可以为任何 [CSS color](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) 支持颜色值，但不支持 TDesign 的浅色和深色模式。 | N
+color | String | - | 颜色风格，预设五个 TDesign 颜色风格：黑色（black）、蓝色（blue）、红色（red）、橙色（orange）、绿色（green）支持深浅色模式切换。也可以自定义任何 [CSS color](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) 支持颜色值，深浅色模式切换需自行适配。 | N
 decimalPlaces | Number | - | 小数保留位数 | N
 extra | String / Slot / Function | - | 额外的显示内容。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 format | Function | - | 格式化数值显示值。TS 类型：`(value: number) => number` | N
