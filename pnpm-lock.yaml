@@ -956,8 +956,8 @@ importers:
         specifier: catalog:tdesign
         version: 0.3.7
       tdesign-site-components:
-        specifier: 0.17.0-alpha.6
-        version: 0.17.0-alpha.6
+        specifier: 0.17.0-alpha.7
+        version: 0.17.0-alpha.7
       tdesign-theme-generator:
         specifier: catalog:tdesign
         version: 1.1.8
@@ -6634,8 +6634,8 @@ packages:
   tdesign-site-components@0.16.5:
     resolution: {integrity: sha512-0NMP21yvaH8M8kT/+LSw/fxtTqEB8PMD44uQLkMYJP8KyUHZ8PwpKPO0klXyGHqTojy6YQzYVtwtHJ7vxMNmnQ==}
 
-  tdesign-site-components@0.17.0-alpha.6:
-    resolution: {integrity: sha512-ewpC0wdLzcF9B4AvqDSg23z1UImh6J+xavioEoGL4GHe9CED/sKjHe7t6adgsfNdZ72CBjuPoP2ibatiZ5p77w==}
+  tdesign-site-components@0.17.0-alpha.7:
+    resolution: {integrity: sha512-Wb74fspHI6hDbH1qT7QlSRfiJ/XUuOUXVIzfn8zHodRHJkMjRtrNOIPlFCfSSPBlEMpopXRqldsXKWlXpxeu+w==}
 
   tdesign-theme-generator@1.1.8:
     resolution: {integrity: sha512-tbxqPf+weA1cb+rOXhs9dhRf/UayL7Uf8JTNqtkkR5bIbx434+2iVav9yi02F+rjC66ZPhcqSYvJnfPYDxvPiA==}
@@ -13700,7 +13700,7 @@ snapshots:
       qrcode: 1.5.4
       tdesign-icons-svg: 0.0.1
 
-  tdesign-site-components@0.17.0-alpha.6:
+  tdesign-site-components@0.17.0-alpha.7:
     dependencies:
       '@popperjs/core': 2.11.8
       hybrids: 8.2.2
