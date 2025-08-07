@@ -3,6 +3,17 @@ import { mount } from '@vue/test-utils';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { nextTick, ref } from 'vue';
 import { PrimaryTable } from '@tdesign/components/table';
+// Mock HTMLCollection for test environment
+if (typeof HTMLCollection === 'undefined') {
+  global.HTMLCollection = class HTMLCollection {
+    constructor(elements = []) {
+      this.length = elements.length;
+      elements.forEach((element, index) => {
+        this[index] = element;
+      });
+    }
+  };
+}
 
 // Mock Sortable.js properly
 vi.mock('sortablejs', () => ({

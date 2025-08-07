@@ -1,11 +1,29 @@
 // @ts-nocheck
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { ref, nextTick, h } from 'vue';
 import { mount } from '@vue/test-utils';
 import TTable from '../index';
 import TBaseTable from '../base-table';
 import TPrimaryTable from '../primary-table';
 import TEnhancedTable from '../enhanced-table';
+
+// Mock window and Sortable for drag sort tests
+if (typeof window === 'undefined') {
+  global.window = {
+    navigator: { userAgent: 'test' },
+    document: global.document || {},
+    addEventListener: vi.fn(),
+    removeEventListener: vi.fn(),
+  };
+}
+
+// Mock Sortable constructor
+vi.mock('sortablejs', () => ({
+  default: vi.fn().mockImplementation(() => ({
+    destroy: vi.fn(),
+    option: vi.fn(),
+  })),
+}));
 
 const mockData = [
   { id: 1, name: 'Alice', age: 25, status: 'active', email: 'alice@example.com' },
@@ -22,6 +40,14 @@ const mockColumns = [
 ];
 
 describe('table.components', () => {
+  beforeEach(() => {
+    vi.useFakeTimers();
+  });
+
+  afterEach(() => {
+    vi.clearAllTimers();
+    vi.useRealTimers();
+  });
   describe('BaseTable', () => {
     it('should render with basic props', async () => {
       const wrapper = mount(TBaseTable, {
@@ -33,6 +59,7 @@ describe('table.components', () => {
       });
 
       await nextTick();
+      vi.runAllTimers();
       expect(wrapper.exists()).toBe(true);
       expect(wrapper.find('table').exists()).toBe(true);
     });
@@ -392,6 +419,7 @@ describe('table.components', () => {
       });
 
       await nextTick();
+      vi.runAllTimers();
       expect(wrapper.exists()).toBe(true);
     });
 
@@ -414,6 +442,7 @@ describe('table.components', () => {
       });
 
       await nextTick();
+      vi.runAllTimers();
       // Don't expect specific expand icons, just check the component renders
       expect(wrapper.exists()).toBe(true);
     });
@@ -463,6 +492,8 @@ describe('table.components', () => {
       });
 
       await nextTick();
+      // Run all pending timers to trigger drag sort registration
+      vi.runAllTimers();
       // Don't expect specific drag classes, just check the component renders
       expect(wrapper.exists()).toBe(true);
     });

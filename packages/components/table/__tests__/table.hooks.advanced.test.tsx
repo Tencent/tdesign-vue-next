@@ -159,7 +159,7 @@ describe('table.hooks.advanced', () => {
         setup() {
           const props = {
             data: ref(mockTableData),
-            columns: ref(mockColumns),
+            columns: mockColumns,
             tree: ref({ indent: 24, treeNodeColumnIndex: 0 }),
             rowKey: ref('id'),
           };
