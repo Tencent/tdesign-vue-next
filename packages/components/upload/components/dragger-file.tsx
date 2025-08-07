@@ -180,13 +180,13 @@ export default defineComponent({
       return dragActive.value ? activeElement : unActiveElement;
     };
 
-    const canTriggerUpload = computed(() => {
+    const hasActiveFile = computed(() => {
       const file = displayFiles.value[0];
       return !file || !(['progress', 'success', 'fail', 'waiting'].includes(file.status) || !file.status);
     });
 
     const getContent = () => {
-      if (!canTriggerUpload.value) {
+      if (!hasActiveFile.value) {
         return renderMainPreview();
       }
 
@@ -194,7 +194,7 @@ export default defineComponent({
     };
 
     const handleDraggerClick = (e: MouseEvent) => {
-      if (canTriggerUpload.value) {
+      if (!hasActiveFile.value) {
         props.triggerUpload?.(e);
       }
     };
