@@ -1,6 +1,7 @@
 :: BASE_DOC ::
 
 ## API
+
 ### Statistic Props
 
 name | type | default | description | required

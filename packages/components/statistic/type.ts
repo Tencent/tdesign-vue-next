@@ -17,7 +17,7 @@ export interface TdStatisticProps {
    */
   animationStart?: boolean;
   /**
-   * 颜色风格可以为支持 TDesign 的浅色和深色模式的黑色（black）、蓝色（blue）、红色（red）、橙色（orange）、绿色（green）。也可以为任何 [CSS color](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) 支持颜色值，但不支持 TDesign 的浅色和深色模式。
+   * 颜色风格，预设五个 TDesign 颜色风格：黑色（black）、蓝色（blue）、红色（red）、橙色（orange）、绿色（green）支持深浅色模式切换。也可以自定义任何 [CSS color](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) 支持颜色值，深浅色模式切换需自行适配
    * @default ''
    */
   color?: string;
