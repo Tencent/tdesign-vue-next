@@ -4,6 +4,64 @@ import { List, ListItem, ListProps } from '@tdesign/components/list';
 
 describe('List', () => {
   describe('props', () => {
+    it('asyncLoading[string]', () => {
+      const wrapperLoading = mount(() => (
+        <List asyncLoading="loading">
+          <ListItem>描述性文字一</ListItem>
+          <ListItem>描述性文字二</ListItem>
+        </List>
+      ));
+      const loading = wrapperLoading.find('.t-list .t-list__load--loading');
+      expect(loading.exists()).toBeTruthy();
+      expect(loading.find('span').text()).toBe('正在加载中，请稍等');
+
+      const wrapperLoadingMore = mount(() => (
+        <List asyncLoading="loading">
+          <ListItem>描述性文字一</ListItem>
+          <ListItem>描述性文字二</ListItem>
+        </List>
+      ));
+      const loadingMore = wrapperLoadingMore.find('.t-list .t-list__load--loading');
+      expect(loadingMore.exists()).toBeTruthy();
+      expect(loadingMore.find('span').text()).toBe('正在加载中，请稍等');
+    });
+
+    it('asyncLoading[slot]', () => {
+      const wrapperLoading = mount(() => (
+        <List v-slots={{ asyncLoading: () => '自定义正在加载中' }}>
+          <ListItem>描述性文字一</ListItem>
+          <ListItem>描述性文字二</ListItem>
+        </List>
+      ));
+      const loading = wrapperLoading.find('.t-list .t-list__load');
+      expect(loading.exists()).toBeTruthy();
+      expect(loading.text()).toBe('自定义正在加载中');
+    });
+
+    it('async-loading[slot]', () => {
+      const wrapperLoading = mount(() => (
+        <List v-slots={{ 'async-loading': () => '自定义正在加载中' }}>
+          <ListItem>描述性文字一</ListItem>
+          <ListItem>描述性文字二</ListItem>
+        </List>
+      ));
+      const loading = wrapperLoading.find('.t-list .t-list__load');
+      expect(loading.exists()).toBeTruthy();
+      expect(loading.text()).toBe('自定义正在加载中');
+    });
+
+    it('asyncLoading[function]', () => {
+      const wrapper = mount(() => (
+        <List asyncLoading={() => '自定义正在加载中'}>
+          <ListItem>描述性文字一</ListItem>
+          <ListItem>描述性文字二</ListItem>
+        </List>
+      ));
+      const loading = wrapper.find('.t-list .t-list__load');
+      expect(loading.exists()).toBeTruthy();
+      expect(loading.text()).toBe('自定义正在加载中');
+    });
+
     it('footer[string]', () => {
       const wrapper = mount(() => (
         <List footer="footer">
@@ -76,6 +134,8 @@ describe('List', () => {
       expect(header.text()).toBe('header');
     });
 
+    it('scroll[object]', () => {});
+
     it('size[string]', () => {
       const sizeList: Array<ListProps['size']> = ['small', 'medium', 'large'];
       sizeList.forEach((size) => {
@@ -89,7 +149,7 @@ describe('List', () => {
       });
     });
 
-    it(':split', () => {
+    it('split[boolean]', () => {
       const wrapper = mount(() => (
         <List split>
           <ListItem>描述性文字一</ListItem>
@@ -100,7 +160,7 @@ describe('List', () => {
       expect(split.exists()).toBeTruthy();
     });
 
-    it(':stripe', () => {
+    it('stripe[boolean]', () => {
       const wrapper = mount(() => (
         <List stripe>
           <ListItem>描述性文字一</ListItem>
