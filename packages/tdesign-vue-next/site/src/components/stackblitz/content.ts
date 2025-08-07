@@ -72,9 +72,8 @@ export const styleContent = `
 
 export const stackblitzRc = `
   {
-    "packageManager": "pnpm",
-    "installDependencies": true,
-    "startCommand": "pnpm dev"
+    "installDependencies": false,
+    "startCommand": "pnpm install && pnpm dev"
   }
 `;
 
