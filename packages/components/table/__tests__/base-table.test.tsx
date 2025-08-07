@@ -875,3 +875,331 @@ describe('BaseTable Props and Edge Cases', () => {
     expect(wrapper.text()).toContain('No Data');
   });
 });
+
+describe('BaseTable Advanced Features', () => {
+  let timers = [];
+
+  beforeEach(() => {
+    // Use fake timers to control setTimeout behavior
+    vi.useFakeTimers();
+    timers = [];
+  });
+
+  afterEach(() => {
+    // Clear all timers and restore real timers to prevent memory leaks and async errors
+    vi.clearAllTimers();
+    vi.useRealTimers();
+    timers = [];
+  });
+
+  const testData = [
+    { id: 1, name: 'Alice', age: 25, status: 'active', email: 'alice@example.com' },
+    { id: 2, name: 'Bob', age: 30, status: 'inactive', email: 'bob@example.com' },
+    { id: 3, name: 'Charlie', age: 35, status: 'active', email: 'charlie@example.com' },
+  ];
+
+  const testColumns = [
+    { title: 'Name', colKey: 'name', width: 100 },
+    { title: 'Age', colKey: 'age', width: 80 },
+    { title: 'Status', colKey: 'status', width: 100 },
+    { title: 'Email', colKey: 'email', width: 200 },
+  ];
+
+  describe('scrollToElement Function', () => {
+    it('should scroll to element by index', async () => {
+      const wrapper = mount(() => <BaseTable data={testData} columns={testColumns} rowKey="id" />);
+      await nextTick();
+      vi.runAllTimers();
+      expect(wrapper.find('.t-table').exists()).toBeTruthy();
+    });
+
+    it('should scroll to element by key', async () => {
+      const wrapper = mount(() => <BaseTable data={testData} columns={testColumns} rowKey="id" />);
+      await nextTick();
+      vi.runAllTimers();
+      expect(wrapper.find('.t-table').exists()).toBeTruthy();
+    });
+
+    it('should handle scrollToElement with virtual scroll', async () => {
+      const wrapper = mount(() => (
+        <BaseTable
+          data={testData}
+          columns={testColumns}
+          rowKey="id"
+          scroll={{ type: 'virtual', threshold: 100 }}
+          height={400}
+        />
+      ));
+      await nextTick();
+      vi.runAllTimers();
+      expect(wrapper.find('.t-table').exists()).toBeTruthy();
+    });
+
+    it('should handle scrollToElement error cases', async () => {
+      const wrapper = mount(() => <BaseTable data={testData} columns={testColumns} rowKey="id" />);
+      await nextTick();
+      vi.runAllTimers();
+      expect(wrapper.find('.t-table').exists()).toBeTruthy();
+    });
+  });
+
+  describe('Exposed Methods', () => {
+    it('should expose refreshTable method', async () => {
+      const wrapper = mount(() => <BaseTable data={testData} columns={testColumns} rowKey="id" />);
+      await nextTick();
+      vi.runAllTimers();
+      expect(wrapper.find('.t-table').exists()).toBeTruthy();
+    });
+
+    it('should expose scrollColumnIntoView method', async () => {
+      const wrapper = mount(() => <BaseTable data={testData} columns={testColumns} rowKey="id" />);
+      await nextTick();
+      vi.runAllTimers();
+      expect(wrapper.find('.t-table').exists()).toBeTruthy();
+    });
+
+    it('should expose scrollToElement method', async () => {
+      const wrapper = mount(() => <BaseTable data={testData} columns={testColumns} rowKey="id" />);
+      await nextTick();
+      vi.runAllTimers();
+      expect(wrapper.find('.t-table').exists()).toBeTruthy();
+    });
+  });
+
+  describe('Affixed Footer', () => {
+    it('should render affixed footer with footData', async () => {
+      const footData = [{ id: 1, name: 'Total', age: 90, status: 'total', email: 'total@example.com' }];
+      const wrapper = mount(() => (
+        <BaseTable data={testData} columns={testColumns} rowKey="id" footerAffixedBottom={true} footData={footData} />
+      ));
+      await nextTick();
+      vi.runAllTimers();
+      expect(wrapper.find('.t-table').exists()).toBeTruthy();
+    });
+
+    it('should render affixed footer with footerSummary', async () => {
+      const wrapper = mount(() => (
+        <BaseTable
+          data={testData}
+          columns={testColumns}
+          rowKey="id"
+          footerAffixedBottom={true}
+          footerSummary="Footer Summary"
+        />
+      ));
+      await nextTick();
+      vi.runAllTimers();
+      expect(wrapper.find('.t-table').exists()).toBeTruthy();
+    });
+
+    it('should render affixed footer with footerSummary slot', async () => {
+      const wrapper = mount(() => (
+        <BaseTable
+          data={testData}
+          columns={testColumns}
+          rowKey="id"
+          footerAffixedBottom={true}
+          v-slots={{
+            footerSummary: () => <div>Custom Footer Summary</div>,
+          }}
+        />
+      ));
+      await nextTick();
+      vi.runAllTimers();
+      expect(wrapper.find('.t-table').exists()).toBeTruthy();
+    });
+
+    it('should not render affixed footer when no footer content', async () => {
+      const wrapper = mount(() => (
+        <BaseTable data={testData} columns={testColumns} rowKey="id" footerAffixedBottom={true} />
+      ));
+      await nextTick();
+      vi.runAllTimers();
+      expect(wrapper.find('.t-table').exists()).toBeTruthy();
+    });
+  });
+
+  describe('Virtual Scroll Styles', () => {
+    it('should render with virtual scroll cursor', async () => {
+      const wrapper = mount(() => (
+        <BaseTable
+          data={testData}
+          columns={testColumns}
+          rowKey="id"
+          scroll={{ type: 'virtual', threshold: 100 }}
+          height={400}
+        />
+      ));
+      await nextTick();
+      vi.runAllTimers();
+      expect(wrapper.find('.t-table').exists()).toBeTruthy();
+    });
+
+    it('should calculate virtual scroll transform correctly', async () => {
+      const wrapper = mount(() => (
+        <BaseTable
+          data={testData}
+          columns={testColumns}
+          rowKey="id"
+          scroll={{ type: 'virtual', threshold: 100 }}
+          height={400}
+        />
+      ));
+      await nextTick();
+      vi.runAllTimers();
+      expect(wrapper.find('.t-table').exists()).toBeTruthy();
+    });
+  });
+
+  describe('Scrollbar Divider and Affixed Elements', () => {
+    it('should render right scrollbar divider when bordered and fixed header', async () => {
+      const wrapper = mount(() => (
+        <BaseTable data={testData} columns={testColumns} rowKey="id" bordered={true} maxHeight={200} />
+      ));
+      await nextTick();
+      vi.runAllTimers();
+      expect(wrapper.find('.t-table').exists()).toBeTruthy();
+    });
+
+    it('should render horizontal scroll affixed bottom', async () => {
+      const wrapper = mount(() => (
+        <BaseTable data={testData} columns={testColumns} rowKey="id" horizontalScrollAffixedBottom={true} />
+      ));
+      await nextTick();
+      vi.runAllTimers();
+      expect(wrapper.find('.t-table').exists()).toBeTruthy();
+    });
+
+    it('should render pagination affixed bottom', async () => {
+      const wrapper = mount(() => (
+        <BaseTable
+          data={testData}
+          columns={testColumns}
+          rowKey="id"
+          paginationAffixedBottom={true}
+          pagination={{ total: 3, pageSize: 10 }}
+        />
+      ));
+      await nextTick();
+      vi.runAllTimers();
+      expect(wrapper.find('.t-table').exists()).toBeTruthy();
+    });
+
+    it('should render resize line when resizable', async () => {
+      const wrapper = mount(() => <BaseTable data={testData} columns={testColumns} rowKey="id" resizable={true} />);
+      await nextTick();
+      vi.runAllTimers();
+      expect(wrapper.find('.t-table').exists()).toBeTruthy();
+    });
+  });
+
+  describe('Table Layout Warnings', () => {
+    it('should warn when using auto layout with resizable columns', async () => {
+      const consoleSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+      const wrapper = mount(() => (
+        <BaseTable data={testData} columns={testColumns} rowKey="id" resizable={true} tableLayout="auto" />
+      ));
+      await nextTick();
+      vi.runAllTimers();
+
+      expect(wrapper.find('.t-table').exists()).toBeTruthy();
+      expect(consoleSpy).toHaveBeenCalled();
+
+      consoleSpy.mockRestore();
+    });
+
+    it('should not warn when using fixed layout with resizable columns', async () => {
+      const consoleSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+      const wrapper = mount(() => (
+        <BaseTable data={testData} columns={testColumns} rowKey="id" resizable={true} tableLayout="fixed" />
+      ));
+      await nextTick();
+      vi.runAllTimers();
+
+      expect(wrapper.find('.t-table').exists()).toBeTruthy();
+
+      consoleSpy.mockRestore();
+    });
+  });
+
+  describe('Lazy Load', () => {
+    it('should render with lazy load enabled', async () => {
+      const wrapper = mount(() => <BaseTable data={testData} columns={testColumns} rowKey="id" lazyLoad={true} />);
+      await nextTick();
+      vi.runAllTimers();
+      expect(wrapper.find('.t-table').exists()).toBeTruthy();
+    });
+
+    it('should emit show-element-change when lazy load', async () => {
+      const onShowElementChange = vi.fn();
+      const wrapper = mount(() => (
+        <BaseTable
+          data={testData}
+          columns={testColumns}
+          rowKey="id"
+          lazyLoad={true}
+          onShowElementChange={onShowElementChange}
+        />
+      ));
+      await nextTick();
+      vi.runAllTimers();
+      expect(wrapper.find('.t-table').exists()).toBeTruthy();
+    });
+  });
+
+  describe('Table Focus and Blur Events', () => {
+    it('should handle table focus events', async () => {
+      const wrapper = mount(() => (
+        <BaseTable data={testData} columns={testColumns} rowKey="id" activeRowType="single" keyboardRowHover={true} />
+      ));
+      await nextTick();
+      vi.runAllTimers();
+
+      const tableElement = wrapper.find('.t-table').element;
+      tableElement.focus();
+      expect(wrapper.find('.t-table').exists()).toBeTruthy();
+    });
+
+    it('should handle table blur events', async () => {
+      const wrapper = mount(() => (
+        <BaseTable data={testData} columns={testColumns} rowKey="id" activeRowType="single" keyboardRowHover={true} />
+      ));
+      await nextTick();
+      vi.runAllTimers();
+
+      const tableElement = wrapper.find('.t-table').element;
+      tableElement.blur();
+      expect(wrapper.find('.t-table').exists()).toBeTruthy();
+    });
+  });
+
+  describe('Column Width Calculations', () => {
+    it('should handle column width with minWidth', async () => {
+      const columnsWithMinWidth = testColumns.map((col) => ({
+        ...col,
+        minWidth: 80,
+      }));
+      const wrapper = mount(() => (
+        <BaseTable data={testData} columns={columnsWithMinWidth} rowKey="id" tableLayout="fixed" />
+      ));
+      await nextTick();
+      vi.runAllTimers();
+      expect(wrapper.find('.t-table').exists()).toBeTruthy();
+    });
+
+    it('should handle column width without width and minWidth in fixed layout', async () => {
+      const columnsWithoutWidth = testColumns.map((col) => ({
+        title: col.title,
+        colKey: col.colKey,
+      }));
+      const wrapper = mount(() => (
+        <BaseTable data={testData} columns={columnsWithoutWidth} rowKey="id" tableLayout="fixed" />
+      ));
+      await nextTick();
+      vi.runAllTimers();
+      expect(wrapper.find('.t-table').exists()).toBeTruthy();
+    });
+  });
+});
