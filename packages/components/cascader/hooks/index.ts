@@ -11,6 +11,7 @@ import {
   isValueInvalid,
   treeNodesEffect,
   treeStoreExpendEffect,
+  calculateExpand,
 } from '../utils';
 
 import {
@@ -22,6 +23,35 @@ import {
   CascaderValue,
   TreeOptionData,
 } from '../types';
+import { CascaderProps } from '..';
+
+/**
+ * @description 扁平化树形数据，在 filterable 和 checkStrictly 时使用
+ */
+function flattenOptions(options: CascaderProps['options']) {
+  const result: CascaderProps['options'] = [];
+
+  function processNodes(nodes: any[], parentLabel = '', isParentDisabled = false) {
+    nodes.forEach((node) => {
+      const currentDisabled = isParentDisabled || node.disabled || false;
+      const currentLabel = parentLabel ? `${parentLabel}/${node.label}` : node.label;
+
+      const newNode = {
+        label: currentLabel,
+        value: node.value,
+        disabled: currentDisabled,
+      };
+      result.push(newNode);
+
+      if (node.children) {
+        processNodes(node.children, currentLabel, currentDisabled);
+      }
+    });
+  }
+
+  processNodes(options);
+  return result;
+}
 
 // 全局状态
 export const useContext = (
@@ -224,7 +254,19 @@ export const useCascaderContext = (props: TdCascaderProps) => {
 
   watch(
     () => statusContext.inputVal,
-    () => {
+    (val) => {
+      if (props.checkStrictly && props.filterable) {
+        if (val) {
+          const flattenedOptions = flattenOptions(props.options);
+          statusContext.treeStore.reload(flattenedOptions);
+          statusContext.treeStore.refreshNodes();
+        } else {
+          statusContext.treeStore.reload(props.options);
+        }
+        const expand = calculateExpand(statusContext.treeStore, cascaderContext.value.value);
+        statusContext.treeStore.replaceExpanded(expand);
+        updateExpend();
+      }
       updatedTreeNodes();
     },
   );
