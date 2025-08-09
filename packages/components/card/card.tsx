@@ -28,9 +28,9 @@ export default defineComponent({
 
     const headerCls = computed(() => {
       const defaultClass = [`${COMPONENT_NAME.value}__header`];
-      return props.headerBordered
-        ? defaultClass.concat(`${COMPONENT_NAME.value}__title--bordered`)
-        : [`${COMPONENT_NAME.value}__header`];
+      if (props.headerBordered) defaultClass.push(`${COMPONENT_NAME.value}__title--bordered`);
+      if (props.headerClass) defaultClass.push(props.headerClass);
+      return defaultClass;
     });
 
     const headerWrapperCls = usePrefixClass('card__header-wrapper');
@@ -40,7 +40,16 @@ export default defineComponent({
     const headerDescriptionCls = usePrefixClass('card__description');
     const actionsCls = usePrefixClass('card__actions');
 
-    const bodyCls = usePrefixClass('card__body');
+    const bodyCls = computed(() => {
+      const defaultClass = [usePrefixClass('card__body').value];
+      if (props.bodyClass) defaultClass.push(props.bodyClass);
+      return defaultClass;
+    });
+    const contentCls = computed(() => {
+      const defaultClass = [usePrefixClass('card__content').value];
+      if (props.contentClass) defaultClass.push(props.contentClass);
+      return defaultClass;
+    });
     const coverCls = usePrefixClass('card__cover');
     const footerCls = usePrefixClass('card__footer');
     const footerWrapperCls = usePrefixClass('card__footer-wrapper');
@@ -78,9 +87,15 @@ export default defineComponent({
 
     // 头部区域渲染逻辑
     const renderHeader = () => {
-      if (showHeader.value) return <div class={headerCls.value}>{renderTNodeJSX('header')}</div>;
+      if (showHeader.value) {
+        return (
+          <div class={headerCls.value} style={props.headerStyle as any}>
+            {renderTNodeJSX('header')}
+          </div>
+        );
+      }
       return (
-        <div class={headerCls.value}>
+        <div class={headerCls.value} style={props.headerStyle as any}>
           <div class={headerWrapperCls.value}>
             {showAvatar.value && <div class={headerAvatarCls.value}>{renderTNodeJSX('avatar')}</div>}
             <div>
@@ -107,7 +122,11 @@ export default defineComponent({
           {isHeaderRender.value ? renderHeader() : null}
           {showCover.value ? renderCover() : null}
           {showContent.value && (
-            <div class={bodyCls.value}>{renderTNodeJSX('default') || renderTNodeJSX('content')}</div>
+            <div class={bodyCls.value} style={props.bodyStyle as any}>
+              <div class={contentCls.value} style={props.contentStyle as any}>
+                {renderTNodeJSX('default') || renderTNodeJSX('content')}
+              </div>
+            </div>
           )}
           {isFooterRender.value && (
             <div class={footerCls.value}>

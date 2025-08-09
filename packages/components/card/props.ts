@@ -21,6 +21,22 @@ export default {
     type: Boolean,
     default: true,
   },
+  /** 卡片内容区域自定义类名 */
+  bodyClass: {
+    type: String as PropType<TdCardProps['bodyClass']>,
+  },
+  /** body区域自定义样式 */
+  bodyStyle: {
+    type: Object as PropType<TdCardProps['bodyStyle']>,
+  },
+  /** content区域自定义类名 */
+  contentClass: {
+    type: String as PropType<TdCardProps['contentClass']>,
+  },
+  /** content区域自定义样式 */
+  contentStyle: {
+    type: Object as PropType<TdCardProps['contentStyle']>,
+  },
   /** 卡片内容 */
   content: {
     type: [String, Function] as PropType<TdCardProps['content']>,
@@ -44,6 +60,14 @@ export default {
   /** 卡片顶部内容，优先级高于其他所有元素 */
   header: {
     type: [String, Function] as PropType<TdCardProps['header']>,
+  },
+  /** 卡片顶部区域自定义类名 */
+  headerClass: {
+    type: String as PropType<TdCardProps['headerClass']>,
+  },
+  /** 卡片顶部区域自定义样式 */
+  headerStyle: {
+    type: Object as PropType<TdCardProps['headerStyle']>,
   },
   /** 头部是否带分割线，仅在有header时有效 */
   headerBordered: Boolean,
