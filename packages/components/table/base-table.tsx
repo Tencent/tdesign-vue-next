@@ -370,6 +370,13 @@ export default defineComponent({
             };
             if (col.minWidth) {
               style.minWidth = formatCSSUnit(col.minWidth);
+
+              // 不支持 minWidth 的浏览器需设置 width
+              // 判断是否为火狐浏览器
+              const isNotSupportMinWidth = Boolean(navigator.userAgent.toLowerCase().includes('firefox'));
+              if (isNotSupportMinWidth) {
+                style.width = style.minWidth;
+              }
             }
             // 没有设置任何宽度的场景下，需要保留表格正常显示的最小宽度，否则会出现因宽度过小的抖动问题
             if (!style.width && !col.minWidth && props.tableLayout === 'fixed') {
