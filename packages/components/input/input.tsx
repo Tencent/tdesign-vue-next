@@ -1,4 +1,4 @@
-import { defineComponent, computed } from 'vue';
+import { defineComponent, computed, ComputedRef } from 'vue';
 import {
   BrowseIcon as TdBrowseIcon,
   BrowseOffIcon as TdBrowseOffIcon,
@@ -45,7 +45,7 @@ export default defineComponent({
       CloseCircleFilledIcon: TdCloseCircleFilledIcon,
     });
     const readonly = useReadonly();
-    const disabled = useDisabled();
+    const isDisabled = useDisabled() as ComputedRef<boolean>;
 
     const COMPONENT_NAME = usePrefixClass('input');
     const INPUT_WRAP_CLASS = usePrefixClass('input__wrap');
@@ -76,7 +76,7 @@ export default defineComponent({
     const inputAttrs = computed(() => {
       const value = {
         autofocus: props.autofocus,
-        disabled: disabled.value,
+        disabled: isDisabled.value,
         readonly: readonly.value,
         placeholder: tPlaceholder.value,
         name: props.name || undefined,
@@ -121,7 +121,7 @@ export default defineComponent({
             class={[
               `${classPrefix.value}-input__limit-number`,
               {
-                [`${classPrefix.value}-is-disabled`]: disabled.value,
+                [`${classPrefix.value}-is-disabled`]: isDisabled.value,
               },
             ]}
           >
@@ -139,7 +139,7 @@ export default defineComponent({
         ) : null;
 
       if (props.type === 'password') {
-        const passwordClass = [{ [`${COMPONENT_NAME.value}__suffix-clear`]: !disabled.value }];
+        const passwordClass = [{ [`${COMPONENT_NAME.value}__suffix-clear`]: !isDisabled.value }];
         if (renderType.value === 'password') {
           suffixIcon = <BrowseOffIcon class={passwordClass} onClick={inputHandle.emitPassword} />;
         } else if (renderType.value === 'text') {
@@ -175,8 +175,8 @@ export default defineComponent({
         props.inputClass,
         {
           [SIZE.value[props.size]]: props.size !== 'medium',
-          [STATUS.value.disabled]: disabled.value,
-          [STATUS.value.focused]: disabled.value ? false : focused.value,
+          [STATUS.value.disabled]: isDisabled.value,
+          [STATUS.value.focused]: isDisabled.value ? false : focused.value,
           [`${classPrefix.value}-is-${tStatus.value}`]: tStatus.value && tStatus.value !== 'default',
           [`${classPrefix.value}-align-${props.align}`]: props.align !== 'left',
           [`${classPrefix.value}-is-readonly`]: readonly.value,

@@ -1,4 +1,4 @@
-import { defineComponent, ref, toRefs, inject, watch, computed } from 'vue';
+import { defineComponent, ref, toRefs, inject, watch, computed, ComputedRef } from 'vue';
 import { isString } from 'lodash-es';
 import props from './props';
 import {
@@ -88,7 +88,7 @@ export default defineComponent({
     const afterDisabled = computed(() => {
       return checkboxGroupData?.value.disabled;
     });
-    const isDisabled = useDisabled({ beforeDisabled, afterDisabled });
+    const isDisabled = useDisabled({ beforeDisabled, afterDisabled }) as ComputedRef<boolean>;
 
     //  Checkbox.readonly > CheckboxGroup.readonly > Form.readonly
     const afterReadonly = computed(() => {
