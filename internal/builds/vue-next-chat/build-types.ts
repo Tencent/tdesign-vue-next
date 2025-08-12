@@ -1,5 +1,5 @@
 import { glob } from 'glob';
-import { copy, remove } from 'fs-extra';
+import { readFile, copy, writeFile, remove } from 'fs-extra';
 import { run, joinPosix, joinWorkspaceRoot, joinTdesignVueNextChatRoot } from '@tdesign/internal-utils';
 
 const typesTempDir = 'vue-next-chat';
@@ -11,7 +11,7 @@ const generateSourceTypes = async () => {
   const typesRoot = joinWorkspaceRoot(typesTempDir);
 
   // 2. 删除 style 目录
-  const styleDirPaths = await glob(`${joinPosix(typesRoot, 'packages/**/style')}`);
+  const styleDirPaths = await glob(`${joinPosix(typesRoot, 'packages/pro-components/chat/**/style')}`);
   await Promise.all(
     styleDirPaths.map(async (styleDirPath) => {
       await remove(styleDirPath);
@@ -27,20 +27,17 @@ const generateTargetTypes = async (target: 'es' | 'esm' | 'lib' | 'cjs') => {
 
   // 1. 复制 packages/pro-components/chat 到 packages/tdesign-vue-next-chat/target 下
   const targetDir = joinTdesignVueNextChatRoot(`${target}`);
-  // TODO
-  // temp delete 'dist/types/packages/pro-components/chat/_example'
+
   // should be use correct tsconfig.json to generate correct types
-  await remove(joinPosix(typesRoot, `packages/pro-components/chat/_example`));
   await copy(joinPosix(typesRoot, `packages/pro-components/chat`), targetDir);
 
   // 2. 替换 @tdesign/common-js 为 tdesign-vue-next/common/js
-  // TODO: check if this is needed, NOW chat does not use common-js
-  // const dtsPaths = await glob(`${joinPosix(targetDir, '**/*.d.ts')}`);
-  // const rewrite = dtsPaths.map(async (filePath) => {
-  //   const content = await readFile(filePath, 'utf8');
-  //   await writeFile(filePath, content.replace(/@tdesign\/common-js/g, `tdesign-vue-next/${target}/common/js`), 'utf8');
-  // });
-  // await Promise.all(rewrite);
+  const dtsPaths = await glob(`${joinPosix(targetDir, '**/*.d.ts')}`);
+  const rewrite = dtsPaths.map(async (filePath) => {
+    const content = await readFile(filePath, 'utf8');
+    await writeFile(filePath, content.replace(/@tdesign\/common-js/g, `tdesign-vue-next/${target}/common/js`), 'utf8');
+  });
+  await Promise.all(rewrite);
 };
 
 const removeSourceTypes = async () => {
@@ -52,7 +49,6 @@ export const buildTypes = async () => {
   try {
     await removeSourceTypes();
     await generateSourceTypes();
-    // const targets = ['es', 'esm', 'lib', 'cjs'] as const;
     const targets = ['es', 'esm'] as const;
     await Promise.all(
       targets.map(async (target) => {
