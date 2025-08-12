@@ -9,9 +9,7 @@ import _ChatLoading from './chat-loading';
 
 // 用的vue源码
 import _ChatAction from './chat-action';
-import _FileCard from './file-card';
 import _ChatSender from './chat-sender';
-import _ChatAttachments from './attachments';
 import _ChatThinking from './chat-thinking';
 import _ChatBot from './chatbot';
 import { ChatSearchContentComponent, ChatSuggestionContentComponent, ChatListComponent } from './chatbot';
@@ -19,7 +17,6 @@ import { ChatSearchContentComponent, ChatSuggestionContentComponent, ChatListCom
 import { useChat } from './chatbot/useChat';
 export { useChat };
 
-import _ChatMessage from './chat-message';
 import { withInstall } from '@tdesign/shared-utils';
 
 import {
@@ -55,16 +52,13 @@ export const ChatSender = withInstall(_ChatSender);
 export const ChatContent = withInstall(_ChatContent);
 export const ChatReasoning = withInstall(_ChatReasoning);
 export const ChatAction = withInstall(_ChatAction);
-export const FileCard = withInstall(_FileCard);
 export const ChatLoading = withInstall(_ChatLoading);
 // 附件
-export const ChatAttachments = withInstall(_ChatAttachments);
 // 思考
 export const ChatThinking = withInstall(_ChatThinking, 't-chat-thinking');
 // 机器人
 export const ChatBot = withInstall(_ChatBot, 't-chatbot');
 // 消息对话
-export const ChatMessage = withInstall(_ChatMessage, 't-chat-message');
 
 export const ChatSearchContent = withInstall(ChatSearchContentComponent, 't-chat-search-content');
 
@@ -72,7 +66,6 @@ export const ChatSuggestionContent = withInstall(ChatSuggestionContentComponent,
 
 export const ChatList = withInstall(ChatListComponent, 't-chat-list');
 
-// webc组件没有加入use todo
 export default {
   // TODO: refactor
   install(app: App, config?: Record<string, unknown>) {
@@ -85,13 +78,10 @@ export default {
     app.use(ChatLoading, config);
     app.use(ChatSender, config);
     app.use(ChatThinking, config);
-    app.use(ChatMessage, config);
     app.use(ChatBot, config);
-    app.use(ChatAttachments, config);
     app.use(ChatSearchContent, config);
     app.use(ChatSuggestionContent, config);
     app.use(ChatList, config);
-    app.use(FileCard, config);
   },
   version: typeof PKG_VERSION === 'undefined' ? '' : PKG_VERSION,
 };

@@ -42,9 +42,7 @@
     "marked": "catalog:deps",
     "marked-highlight": "catalog:docs",
     "tdesign-icons-vue-next": "catalog:tdesign",
-    "tdesign-vue-next": "workspace:^",
-     "tdesign-web-components": "1.1.7",
-    "omi-vueify": "^0.0.10"
+    "tdesign-vue-next": "workspace:^"
   },
   "peerDependencies": {
     "vue": ">=3.1.0"

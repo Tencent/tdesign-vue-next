@@ -1,12 +1,10 @@
 import { defineComponent, computed, provide, ref } from 'vue';
 import { ClearIcon } from 'tdesign-icons-vue-next';
 import { useConfig } from 'tdesign-vue-next/es/config-provider/hooks';
-import { isArray } from 'lodash-es';
 import props from './props';
 import { Divider, Popconfirm } from 'tdesign-vue-next';
 import { usePrefixClass, useTNodeJSX } from '@tdesign/shared-hooks';
-import ChatMessage from '../chat-message';
-import { TdChatItemMeta, ScrollToBottomParams } from '../type';
+import { ScrollToBottomParams } from '../type';
 
 const handleScrollToBottom = (target: HTMLDivElement, behavior?: 'auto' | 'smooth') => {
   const currentScrollHeight = target.scrollHeight;
@@ -74,40 +72,6 @@ export default defineComponent({
        * a 优先级更高
        */
       const data = renderTNodeJSX('data');
-      if (isArray(data) && data.length > 0) {
-        // webc是通过message的content是否有值来判断是否是loading状态
-        // const isLoading = (index: number) => {
-        //   return (props.reverse ? index === 0 : index === data.length - 1) && props.textLoading;
-        // };
-        // const isReasoningLoading = (index: number) => {
-        //   return (props.reverse ? index === 0 : index === data.length - 1) && props.isStreamLoad;
-        // };
-        // 判断content是否为插槽，如果是插槽，则关闭reasoning默认渲染
-        // const setReasoning = (item: TdChatItemMeta) => {
-        //   return slots.content ? false : item.reasoning;
-        // };
-        return data.map((item: TdChatItemMeta, index: number) => (
-          <ChatMessage
-            avatar={item.avatar}
-            name={item.name}
-            message={item.message}
-            datetime={item.datetime}
-            animation={props.animation}
-            v-slots={{
-              actionbar: () =>
-                renderTNodeJSX('actionbar', {
-                  params: { item, index },
-                }),
-              name: () => renderTNodeJSX('name', { params: { item, index } }),
-              avatar: () => renderTNodeJSX('avatar', { params: { item, index } }),
-              datetime: () => renderTNodeJSX('datetime', { params: { item, index } }),
-              content: () => renderTNodeJSX('content', { params: { item, index } }),
-            }}
-          />
-        ));
-      } else {
-        return renderTNodeJSX('default');
-      }
     };
     const clearConfirm = (context: { e: MouseEvent }) => {
       emit('clear', context);
