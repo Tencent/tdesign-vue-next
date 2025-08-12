@@ -362,7 +362,6 @@ export default defineComponent({
           }
           popupVisible={!isReadOnly.value && popupVisible.value}
           valueDisplay={() => renderTNodeJSX('valueDisplay', { params: valueDisplayParams.value })}
-          needConfirm={props.needConfirm}
           {...(props.selectInputProps as TdDatePickerProps['selectInputProps'])}
           panel={() => <TSinglePanel {...panelProps.value} />}
           tagInputProps={{

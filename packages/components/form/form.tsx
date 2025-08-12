@@ -34,7 +34,7 @@ export default defineComponent({
       readonly,
     });
 
-    const formRef = ref<HTMLFormElement>(null);
+    const formRef = ref<HTMLFormElement>();
     const children = ref<FormItemContext[]>([]);
 
     const {

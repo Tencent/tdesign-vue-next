@@ -33,4 +33,5 @@ app.component('CodeSandbox', CodeSandbox);
 app.component('NewWindow', NewWindow);
 app.component('BaseUsage', BaseUsage);
 
+// @ts-ignore TODO
 app.use(TDesign).use(router).mount('#app');

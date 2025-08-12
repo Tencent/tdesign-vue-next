@@ -13,6 +13,7 @@ describe('Avatar', () => {
   describe('props', () => {
     let wrapper: VueWrapper<InstanceType<typeof Avatar>> | null = null;
     beforeEach(() => {
+      // @ts-ignore TODO
       wrapper = mount(<Avatar>Avatar</Avatar>) as VueWrapper<InstanceType<typeof Avatar>>;
     });
 

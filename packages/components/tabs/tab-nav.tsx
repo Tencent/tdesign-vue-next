@@ -213,7 +213,9 @@ export default defineComponent({
     const renderNavsContent = () => {
       return props.panels.map((panel, index) => {
         let label;
+        // @ts-ignore
         if (panel?.children?.label) {
+          // @ts-ignore
           label = panel.children.label();
         } else if (isFunction(panel.label)) {
           label = panel.label(h);
@@ -227,7 +229,6 @@ export default defineComponent({
         return (
           <TTabNavItem
             ref={setActiveTab}
-            draggable={draggable}
             key={panel.value}
             index={index}
             theme={props.theme}

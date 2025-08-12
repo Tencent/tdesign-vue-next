@@ -30,7 +30,7 @@ export default defineComponent({
     const placeholderText = computed(() => props.placeholder ?? globalConfig.value.placeholder);
 
     let shiftDownFlag = false;
-    let isComposition = false;
+    const isComposition = false;
     const renderTNodeJSX = useTNodeJSX();
     const suffixIcon = renderTNodeJSX('suffixIcon') || slots.suffixIcon;
     const sendClick = (e: MouseEvent | KeyboardEvent) => {
@@ -80,13 +80,6 @@ export default defineComponent({
       }
     };
 
-    const compositionstartFn = () => {
-      isComposition = true;
-    };
-
-    const compositionendFn = () => {
-      isComposition = false;
-    };
     // 默认suffixIcon
     const getDefaultSuffixIcon = () => {
       return (
@@ -123,8 +116,6 @@ export default defineComponent({
             onFocus={focusFn}
             onKeydown={keydownFn}
             onKeyup={keyupFn}
-            onCompositionstart={compositionstartFn}
-            onCompositionend={compositionendFn}
           />
           <div class={`${COMPONENT_NAME.value}__footer__textarea__icon`} onClick={sendClick}>
             {renderSuffixIcon()}

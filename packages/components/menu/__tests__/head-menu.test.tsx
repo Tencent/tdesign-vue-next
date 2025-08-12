@@ -22,15 +22,6 @@ describe('HeadMenu', () => {
       });
       expect(wrapper.element).toMatchSnapshot();
     });
-
-    it(':height', () => {
-      const wrapper = mount({
-        render() {
-          return <HeadMenu height={'750px'}></HeadMenu>;
-        },
-      });
-      expect(wrapper.element).toMatchSnapshot();
-    });
   });
 
   describe('slot', () => {

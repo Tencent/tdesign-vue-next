@@ -404,7 +404,6 @@ export default defineComponent({
           offsetBottom={0}
           {...getAffixProps(props.horizontalScrollAffixedBottom)}
           style={{ marginTop: `-${scrollbarWidth.value * 2}px` }}
-          horizontalScrollAffixedBottom
           ref={horizontalScrollAffixRef}
         >
           <div

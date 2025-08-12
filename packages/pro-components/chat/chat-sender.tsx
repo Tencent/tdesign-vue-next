@@ -13,7 +13,7 @@ export default defineComponent({
   emits: ['send', 'stop', 'update:modelValue', 'blur', 'focus', 'fileSelect'], // declare the custom events here
   setup(props, { emit }) {
     let shiftDownFlag = false;
-    let isComposition = false;
+    const isComposition = false;
     const senderTextarea = ref(null);
     const COMPONENT_NAME = usePrefixClass('chat');
     const { globalConfig } = useConfig('chat');
@@ -76,14 +76,7 @@ export default defineComponent({
     const textChange = (value: string, context: { e: InputEvent }) => {
       setInnerValue(value, context);
     };
-    // 当用户通过输入法开始输入组合文字（如中文拼音输入）时触发
-    const compositionstartFn = () => {
-      isComposition = true;
-    };
-    // 当用户通过输入法完成组合文字的选择（如从候选词中选择中文）时触发
-    const compositionendFn = () => {
-      isComposition = false;
-    };
+
     const actionsDefault = reactive<UploadActionConfig[]>([
       {
         name: 'uploadImage',
@@ -240,8 +233,6 @@ export default defineComponent({
             onKeyup={keyupFn}
             onFocus={focusFn}
             onBlur={blurFn}
-            onCompositionstart={compositionstartFn}
-            onCompositionend={compositionendFn}
           />
           <div class={`${COMPONENT_NAME.value}-sender__footer`}>
             <div class={`${COMPONENT_NAME.value}-sender__mode`}>{renderTNodeJSX('prefix')}</div>
