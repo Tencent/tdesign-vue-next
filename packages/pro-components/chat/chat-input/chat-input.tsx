@@ -16,7 +16,6 @@ export default defineComponent({
   setup(props, { slots, emit }) {
     const COMPONENT_NAME = usePrefixClass('chat');
     const { globalConfig } = useConfig('chat');
-    const { stopBtnText, placeholder } = globalConfig.value;
     const { value, modelValue } = toRefs(props);
     const [textValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
     // 按钮禁用，
@@ -28,7 +27,7 @@ export default defineComponent({
     // 输入框高度
     const autosize = computed(() => props.autosize);
     // 输入框默认文案
-    const placeholderText = computed(() => props.placeholder ?? placeholder);
+    const placeholderText = computed(() => props.placeholder ?? globalConfig.value.placeholder);
 
     let shiftDownFlag = false;
     let isComposition = false;
@@ -51,6 +50,7 @@ export default defineComponent({
       setInnerValue(value, context);
     };
     const blurFn = (value: string, context: { e: FocusEvent }) => {
+      shiftDownFlag = false;
       emit('blur', value, context);
     };
     const focusFn = (value: string, context: { e: FocusEvent }) => {
@@ -134,7 +134,7 @@ export default defineComponent({
           <div class={`${COMPONENT_NAME.value}__footer__stopbtn`}>
             <Button variant="outline" onClick={handleStop}>
               <StopCircleIcon />
-              {stopBtnText}
+              {globalConfig.value.stopBtnText}
             </Button>
           </div>
         )}

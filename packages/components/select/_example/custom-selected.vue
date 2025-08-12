@@ -30,7 +30,7 @@
       </template>
     </t-select>
 
-    <t-select v-model="value3" :options="options" placeholder="请选择" clearable>
+    <t-select v-model="value3" :options="options" placeholder="请选择" clearable filterable>
       <template #valueDisplay="{ value }"> {{ value ? `单选自定义（${value}）` : '' }} </template>
     </t-select>
   </t-space>

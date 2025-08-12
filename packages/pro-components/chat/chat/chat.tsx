@@ -42,10 +42,9 @@ export default defineComponent({
   name: 'TChat',
   props,
   emits: ['clear', 'scroll'],
-  setup(props, { emit, expose, slots }) {
+  setup(props, { emit, expose }) {
     const COMPONENT_NAME = usePrefixClass('chat');
     const { globalConfig } = useConfig('chat');
-    const { clearHistoryBtnText, confirmClearHistory } = globalConfig.value;
     const renderTNodeJSX = useTNodeJSX();
     provide('textLoading', props.textLoading);
     provide('animation', props.animation);
@@ -87,7 +86,6 @@ export default defineComponent({
         // const setReasoning = (item: TdChatItemMeta) => {
         //   return slots.content ? false : item.reasoning;
         // };
-        console.log('Rendering data:', props.animation);
         return data.map((item: TdChatItemMeta, index: number) => (
           <ChatMessage
             avatar={item.avatar}
@@ -115,10 +113,10 @@ export default defineComponent({
       emit('clear', context);
     };
     const defaultClearHistory = (
-      <Popconfirm content={confirmClearHistory} onConfirm={clearConfirm}>
+      <Popconfirm content={globalConfig.value.confirmClearHistory} onConfirm={clearConfirm}>
         <Divider class="clear-btn">
           <ClearIcon size="14px" />
-          <span class="clear-btn-text">{clearHistoryBtnText}</span>
+          <span class="clear-btn-text">{globalConfig.value.clearHistoryBtnText}</span>
         </Divider>
       </Popconfirm>
     );

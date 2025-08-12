@@ -5,12 +5,65 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.15.2 `2025-07-31` 
+
+### 🚀 Features
+- `DateRangePicker`: 支持 `needConfirm` API @uyarn ([#5795](https://github.com/Tencent/tdesign-vue-next/pull/5795))
+
+### 🐞 Bug Fixes
+- `ColorPicker`：
+  - 修复设置 `swatch-colors` 值为 `null` 时功能异常的问题 @betavs ([#5793](https://github.com/Tencent/tdesign-vue-next/pull/5793))
+  - 减少颜色跨色彩空间的多次转换，降低误差 @RylanBot ([#5814](https://github.com/Tencent/tdesign-vue-next/pull/5814))
+- `Menu`: 修复顶部菜单在`expandType=popup`模式下子组件存在多层封装后无法正常高亮的问题 @uyarn ([#5821](https://github.com/Tencent/tdesign-vue-next/pull/5821))
+- `PopConfirm`: 修复当初始 `visible` 为 true 时，点击外部区域时弹窗不关闭的问题 @RSS1102 ([#5790](https://github.com/Tencent/tdesign-vue-next/pull/5790))
+- `Popup`: 修复当初始 `visible` 为 true 时，点击外部区域时弹窗不关闭的问题 @RSS1102 ([#5790](https://github.com/Tencent/tdesign-vue-next/pull/5790))
+- `Select`: 修复 Form 设置为 disabled 或 readonly 时，多选选项仍可删除的错误 @An0510 ([#5775](https://github.com/Tencent/tdesign-vue-next/pull/5775))
+- `DatePicker`: 修复单周模式下切换年份时高亮仍显示的问题 @baozjj ([#5812](https://github.com/Tencent/tdesign-vue-next/pull/5812))
+- `Descriptions`:  修复无边框模式下左右内边距的异常问题 @liweijie0812 ([common#2219](https://github.com/Tencent/tdesign-common/pull/2219))
+- `Select`: 错误删除选项中不存在的标签 @RSS1102 ([#5781](https://github.com/Tencent/tdesign-vue-next/pull/5781))
+- `Table`: 
+    - 修复表格非多选模式，按`A`键触发全选的问题 @liweijie0812 ([#5809](https://github.com/Tencent/tdesign-vue-next/pull/5809))
+    - 修复 `resizable` 开启时，列边框线引起的列名内容移动的问题 @QuentinHsu ([common#2224](https://github.com/Tencent/tdesign-common/pull/2224))
+- `Watermark`: 修复深色模式下，文字水印内容显示不明显的问题 @liweijie0812 ([#5782](https://github.com/Tencent/tdesign-vue-next/pull/5782))
+
+
+## 🌈 1.15.1 `2025-07-18` 
+
+### 🚀 Features
+- `QRCode`: 增加编辑器代码提示 @liweijie0812 ([#5758](https://github.com/Tencent/tdesign-vue-next/pull/5758))
+
+
+
+## 🌈 1.15.0 `2025-07-17` 
+
+### 🚀 Features
+- `QRCode`: 新增 `QRCode` 二维码组件，通过 `unplugin` 插件按需引入,安装 `@tdesign-vue-next/auto-import-resolver`，导入 `TDesignResolver` 改为 `import { TDesignResolver } from '@tdesign-vue-next/auto-import-resolver';` @Wesley-0808 ([#5719](https://github.com/Tencent/tdesign-vue-next/pull/5719))
+
+- `Variables`: `--td-font-size-title-large` 从 `20px` 调整为 `18px`, 新增 `--td-font-size-title-extraLarge` 变量，值为 `20px`，此前有使用此变量，请注意此变更 ⚠️ @uyarn  ([#5752](https://github.com/Tencent/tdesign-vue-next/pull/5752))
+- `SelectInput`: 支持单选模式下可输入功能与自定义展示内容 `valueDisplay` 的配合使用，`Select`、`TreeSelect`、`Cascader` 等组件此功能同样支持；此功能可能影响单选下 `valueDisplay` 使用的场景，升级请注意此变更 ⚠️ @uyarn ([#5751](https://github.com/Tencent/tdesign-vue-next/pull/5751))
+- `Helper`: 修复代码提示中缺失 `SwiperItem` 类型和相关提示的问题，同时更新组件的 API 相关信息 @liweijie0812 ([#5722](https://github.com/Tencent/tdesign-vue-next/pull/5722))
+- `Locale`: 支持内置多语言的英文版本的单复数场景正常展示 @YunYouJun ([#5680](https://github.com/Tencent/tdesign-vue-next/pull/5680))
+- `PaginationMini`: 优化提示文案展示 @baozjj ([#5670](https://github.com/Tencent/tdesign-vue-next/pull/5670))
+- `Upload`: 上传图片风格新增 `trigger` API，用于自定义触发上传的内容 @D-xuanmo ([#5678](https://github.com/Tencent/tdesign-vue-next/pull/5678))
+
+### 🐞 Bug Fixes
+- `Cascader`: 优化点击非叶子节点选项的部分区域错误触发选中的问题 @uyarn ([#5748](https://github.com/Tencent/tdesign-vue-next/pull/5748))
+- `Checkbox`: 修复全选功能在只读或禁用选项，但已选中场景下的功能问题 @uyarn ([#5749](https://github.com/Tencent/tdesign-vue-next/pull/5749))
+- `DatePicker`: 处理多选情况下周和季度模式的标签删除异常的问题 @betavs ([#5732](https://github.com/Tencent/tdesign-vue-next/pull/5732))
+- `DateRangePickerPanel`: 修复 `onCellClick` 在初始为空时返回值不正确的问题 @Kyle-Alpha  ([#5681](https://github.com/Tencent/tdesign-vue-next/pull/5681))
+- `DrawerPlugin`: 修复返回值类型 @Cat1007 ([#5679](https://github.com/Tencent/tdesign-vue-next/pull/5679))
+- `Input`: 优化不同尺寸下 `prefixIcon` 没有跟随变化的问题 @uyarn  ([#5752](https://github.com/Tencent/tdesign-vue-next/pull/5752))
+- `InputAdornment`: 修复透传原生属性无效的问题 @cfool ([#5726](https://github.com/Tencent/tdesign-vue-next/pull/5726))
+- `Loading`: 修复在 `iPadOS` 的微信中图标位置错误的问题 @Nero978  ([#5717](https://github.com/Tencent/tdesign-vue-next/pull/5717))
+- `Upload`: 增强对 `.jpg` 文件类型的支持 @QuentinHsu  ([#5754](https://github.com/Tencent/tdesign-vue-next/pull/5754))
+
+
 ## 🌈 1.14.2 `2025-06-30` 
 
 ### 🐞 Bug Fixes
 - `Alert`: 优化 `max-line` 开启后，未过滤注释节点导致折叠按钮误判的问题 @baozjj ([#5650](https://github.com/Tencent/tdesign-vue-next/pull/5650))
-- `Form`: 修复 `form` 属性不生效的问题 @uyarn ([#5676](https://github.com/Tencent/tdesign-vue-next/pull/5676))
-- `Message`: 修复`1.14.0` 后由于 createVNode 替代 createApp 导致 message 实例重复创建，`closeAll` 功能异常的问题 @baozjj ([#5669](https://github.com/Tencent/tdesign-vue-next/pull/5669))
+- `Button`: 修复 `form` 属性不生效的问题 @uyarn ([#5676](https://github.com/Tencent/tdesign-vue-next/pull/5676))
+- `Message`: 修复 `1.14.0` 后由于 createVNode 替代 createApp 导致 message 实例重复创建，`closeAll` 功能异常的问题 @baozjj ([#5669](https://github.com/Tencent/tdesign-vue-next/pull/5669))
 
 ###  📝 Documentation
 - `主题生成器`: 修复站点受主题生成器影响深色模式下box-shadow展示异常的问题 @liweijie0812
@@ -28,23 +81,24 @@ docClass: timeline
 
 ### 🚀 Features
 - `Alert`: 新增 `closeBtn` API，与其他组件保持一致，`close` 将在未来版本废弃，请尽快调整为`closeBtn` 使用 @ngyyuusora ([#5621](https://github.com/Tencent/tdesign-vue-next/pull/5621))
-- `Dialog`: 新增支持 appContext 的绑定和传入，用于支持在插件场景中使用 router 或全局指令的场景 @Cat1007 ([#5559](https://github.com/Tencent/tdesign-vue-next/pull/5559))
-- `Drawer`: 新增支持 appContext 的绑定和传入，用于支持在插件场景中使用 router 或全局指令的场景 @Cat1007 ([#5559](https://github.com/Tencent/tdesign-vue-next/pull/5559))
-- `Loading`: 新增支持 appContext 的绑定和传入，用于支持在插件场景中使用 router 或全局指令的场景 @Cat1007 ([#5559](https://github.com/Tencent/tdesign-vue-next/pull/5559))
-- `Message`: 新增支持 appContext 的绑定和传入，用于支持在插件场景中使用 router 或全局指令的场景 @Cat1007 ([#5559](https://github.com/Tencent/tdesign-vue-next/pull/5559))
-- `Notification`: 新增支持 appContext 的绑定和传入，用于支持在插件场景中使用 router 或全局指令的场景 @Cat1007 ([#5559](https://github.com/Tencent/tdesign-vue-next/pull/5559))
-- `Popup`:   优化浮层箭头在空间不足场景下没有跟随浮层进行偏移，导致箭头位置不准确的问题 @Cat1007 ([#5038](https://github.com/Tencent/tdesign-vue-next/pull/5038))
+- `DialogPlugin`: 新增支持 appContext 的绑定和传入，用于支持在插件场景中使用 router 或全局指令的场景 @Cat1007 ([#5559](https://github.com/Tencent/tdesign-vue-next/pull/5559))
+- `DrawerPlugin`: 新增支持 appContext 的绑定和传入，用于支持在插件场景中使用 router 或全局指令的场景 @Cat1007 ([#5559](https://github.com/Tencent/tdesign-vue-next/pull/5559))
+- `LoadingPlugin`: 新增支持 appContext 的绑定和传入，用于支持在插件场景中使用 router 或全局指令的场景 @Cat1007 ([#5559](https://github.com/Tencent/tdesign-vue-next/pull/5559))
+- `MessagePlugin`: 新增支持 appContext 的绑定和传入，用于支持在插件场景中使用 router 或全局指令的场景 @Cat1007 ([#5559](https://github.com/Tencent/tdesign-vue-next/pull/5559))
+- `NotificationPlugin`: 新增支持 appContext 的绑定和传入，用于支持在插件场景中使用 router 或全局指令的场景 @Cat1007 ([#5559](https://github.com/Tencent/tdesign-vue-next/pull/5559))
+- `Popup`: 优化浮层箭头在空间不足场景下没有跟随浮层进行偏移，导致箭头位置不准确的问题 @Cat1007 ([#5038](https://github.com/Tencent/tdesign-vue-next/pull/5038))
 - `Select`: 远程搜索场景中，支持直接使用 `valueType= value` 的场景保留已选中 option 的数据进行展示，具体可参考示例代码 @RSS1102 ([#5638](https://github.com/Tencent/tdesign-vue-next/pull/5638))
-- `Tree`: 多选场景下每个节点新增 hover 提示，与单选场景保持一致 @RSS1102 ([#5632](https://github.com/Tencent/tdesign-vue-next/pull/5632))
-- `Tree`: 修复点击选项的展开按钮错误触发`onClick` 事件的问题，此前有基于此异常逻辑实现相关功能的业务请注意此变更⚠️ @Soya-xy ([#5512](https://github.com/Tencent/tdesign-vue-next/pull/5512))
+- `Tree`: 
+  - 多选场景下每个节点新增 hover 提示，与单选场景保持一致 @RSS1102 ([#5632](https://github.com/Tencent/tdesign-vue-next/pull/5632))
+  - 修复点击选项的展开按钮错误触发 `onClick` 事件的问题，此前有基于此异常逻辑实现相关功能的业务请注意此变更 ⚠️ @Soya-xy ([#5512](https://github.com/Tencent/tdesign-vue-next/pull/5512))
 
 ### 🐞 Bug Fixes
 - `Cascader`: 修复 `valueType="full"` ，value 为 undefined 时组件内部报错的问题 @liweijie0812 ([#5581](https://github.com/Tencent/tdesign-vue-next/pull/5581))
 - `ColorPicker`: 修复渐变模式下点击滑块添加色点时定位错误的问题 @betavs ([#5565](https://github.com/Tencent/tdesign-vue-next/pull/5565))
-- `Dialog`: 修复插件用法 `destroyOnClose` 表现不正常的问题 @Cat1007 ([#5559](https://github.com/Tencent/tdesign-vue-next/pull/5559))
-- `Drawer`: 修复插件用法 `destroyOnClose` 表现不正常的问题 @Cat1007 ([#5559](https://github.com/Tencent/tdesign-vue-next/pull/5559))
+- `DialogPlugin`: 修复插件用法 `destroyOnClose` 表现不正常的问题 @Cat1007 ([#5559](https://github.com/Tencent/tdesign-vue-next/pull/5559))
+- `DrawerPlugin`: 修复插件用法 `destroyOnClose` 表现不正常的问题 @Cat1007 ([#5559](https://github.com/Tencent/tdesign-vue-next/pull/5559))
 - `Form`: 修复 `id` 属性不生效的问题 @zhangpaopao0609 ([#5640](https://github.com/Tencent/tdesign-vue-next/pull/5640))
-- `Popup`:  修复当 `triggerElement` 为字符串类型时，不能正常用于元素选择器的异常 @uyarn ([#5651](https://github.com/Tencent/tdesign-vue-next/pull/5651))
+- `Popup`: 修复当 `triggerElement` 为字符串类型时，不能正常用于元素选择器的异常 @uyarn ([#5651](https://github.com/Tencent/tdesign-vue-next/pull/5651))
 - `Select`: 添加 `selectInputProps` 透传多选属性到 `valueDisplay` @RSS1102 ([#5594](https://github.com/Tencent/tdesign-vue-next/pull/5594))
 - `Textarea`: 优化滚动条的样式问题 @RSS1102 ([#5647](https://github.com/Tencent/tdesign-vue-next/pull/5647))
 - `TimeRangePicker`: 修复点击面板确定按钮未重置非法格式输入的问题 @QuentinHsu ([#5622](https://github.com/Tencent/tdesign-vue-next/pull/5622))
@@ -78,7 +132,7 @@ docClass: timeline
 - `Progress`: 修复声明`label`参数后不能正常展示默认 `label` 的异常 @Soya-xy @l123wx  ([#5507](https://github.com/Tencent/tdesign-vue-next/pull/5507))  ([#5517](https://github.com/Tencent/tdesign-vue-next/pull/5517))
 - `Select`: 修复多选模式下，存在不可选的选项已在选中项中时，仍可通过标签按钮和键盘删除的缺陷 @Wesley-0808 ([#5488](https://github.com/Tencent/tdesign-vue-next/pull/5488))
 - `Transfer`: 优化动态加载数据场景下的组件报错问题 @Wesley-0808 ([#5475](https://github.com/Tencent/tdesign-vue-next/pull/5475))
-- `Message`: 修复插件调用场景下，`attach` 所在节点被清空后，新的 `message` 无法显示的问题 @MrElvin ([#5477](https://github.com/Tencent/tdesign-vue-next/pull/5477))
+- `MessagePlugin`: 修复插件调用场景下，`attach` 所在节点被清空后，新的 `message` 无法显示的问题 @MrElvin ([#5477](https://github.com/Tencent/tdesign-vue-next/pull/5477))
 
 ### 🚧 Others
 - 全局处理同时存在`Boolean`和`Slot`方式的 API 在声明 API 后无法正常展示默认渲染节点的问题 @Soya-xy ([#5507](https://github.com/Tencent/tdesign-vue-next/pull/5507))
@@ -130,7 +184,7 @@ docClass: timeline
 - `Breadcrumb`: 新增 `ellipsis`、`maxItems`、`itemsAfterCollapse`、`itemsBeforeCollapse` 相关 API，用于折叠面包屑的场景，具体使用请参考文档示例 @Wesley-0808 ([#5261](https://github.com/Tencent/tdesign-vue-next/pull/5261))
 - `ColorPicker`: 新增 `onClear` 清除按钮事件回调 @mikasayw ([#5109](https://github.com/Tencent/tdesign-vue-next/pull/5109))
 - `DatePicker`: 新增 `readonly` 属性，用于只读配置 @mikasayw ([#5293](https://github.com/Tencent/tdesign-vue-next/pull/5293))
-- `Drawer`
+- `Drawer`: 
   - 新增 `DrawerPlugin`，支持`插件函数式`调用 @Wesley-0808 ([#5067](https://github.com/Tencent/tdesign-vue-next/pull/5067))
   - 新增 `drawerClassName` API，用于定义抽屉本身的相关类名 @Wesley-0808 ([#5067](https://github.com/Tencent/tdesign-vue-next/pull/5067))
 - `Form`: 新增 `requiredMarkPosition`，可定义必填符号的位置 @Wesley-0808 ([#5223](https://github.com/Tencent/tdesign-vue-next/pull/5223))
@@ -147,7 +201,7 @@ docClass: timeline
   - 修复`tips`插槽重复渲染的问题 @mikasayw ([#5286](https://github.com/Tencent/tdesign-vue-next/pull/5286))
   - 优化数字输入框的边界问题 @Sight-wcg([#5358](https://github.com/Tencent/tdesign-vue-next/pull/5358))
 - `Menu`: 修复 `menu-item` 的 `onClick` 事件触发两次的问题 @RSS1102 ([#5235](https://github.com/Tencent/tdesign-vue-next/pull/5235))
-- `Select`
+- `Select`: 
   - 修复 `tips` 插槽无效的问题 @liweijie0812 ([#5250](https://github.com/Tencent/tdesign-vue-next/pull/5250))
   - 修复当 `check-all` 为空字符串时的效果异常的问题 @betavs ([#5221](https://github.com/Tencent/tdesign-vue-next/pull/5221))
   - 修复`1.11.x`版本中，未设置 `label` 时选项展示异常的问题 @RSS1102 ([#5257](https://github.com/Tencent/tdesign-vue-next/pull/5257))
@@ -183,7 +237,7 @@ docClass: timeline
 ## 🌈 1.11.4 `2025-03-15` 
 
 ### 🚀 Features
-- `Button`:  默认 `shape` 补充相关类名,方便相关定制 @Saraph1nes  ([#5187](https://github.com/Tencent/tdesign-vue-next/pull/5187))
+- `Button`: 默认 `shape` 补充相关类名,方便相关定制 @Saraph1nes  ([#5187](https://github.com/Tencent/tdesign-vue-next/pull/5187))
 ### 🐞 Bug Fixes
 - `Table` : 修复 `1.11.3` 版本中浮层向上状态时的箭头位置异常问题 @uyarn ([common#2088](https://github.com/Tencent/tdesign-common/pull/2088))
 - `Plugin`: 修复 `WebStorm` 中 DescriptionsItem 组件的提示问题 @liweijie0812 ([#5182](https://github.com/Tencent/tdesign-vue-next/pull/5182))
@@ -193,7 +247,7 @@ docClass: timeline
 - `ConfigProvider`: 新增支持 `@tdesign-vue-next/chat` 的国际化配置能力 @uyarn @zydemail
  ([#5179](https://github.com/Tencent/tdesign-vue-next/pull/5179))
 ### 🐞 Bug Fixes
-- `Dialog`:  修复自定义 `cancelBtn` 文本时仍保留 `t-dialog__cancel` 样式问题 @RSS1102 ([#5157](https://github.com/Tencent/tdesign-vue-next/pull/5157))
+- `Dialog`: 修复自定义 `cancelBtn` 文本时仍保留 `t-dialog__cancel` 样式问题 @RSS1102 ([#5157](https://github.com/Tencent/tdesign-vue-next/pull/5157))
 - `Table`: 修复表格内容未渲染时，设置`drag-sort` 拖动事件报错的问题 @Wesley-0808 ([#5140](https://github.com/Tencent/tdesign-vue-next/pull/5140))
 - `Select`: 修复使用 `filter` 时无需设置 `filterable` @RSS1102 ([#5169](https://github.com/Tencent/tdesign-vue-next/pull/5169))
 - `DatePicker`: 修复日期禁用范围错误 @RSS1102 ([#5119](https://github.com/Tencent/tdesign-vue-next/pull/5119))
@@ -213,7 +267,7 @@ docClass: timeline
 
 ## 🌈 1.11.1 `2025-03-01` 
 ### 🐞 Bug Fixes
-- `bundle`:  修复`1.11.0`版本 `cjs` 产物的依赖报错问题 @uyarn ([#5116](https://github.com/Tencent/tdesign-vue-next/pull/5116))
+- `bundle`: 修复`1.11.0`版本 `cjs` 产物的依赖报错问题 @uyarn ([#5116](https://github.com/Tencent/tdesign-vue-next/pull/5116))
 - `List`: 修复`1.11.0`版本`scrollTo`实例方法异常的问题 @uyarn ([#5117](https://github.com/Tencent/tdesign-vue-next/pull/5117))
 - `Dialog`: 修复`1.11.0`版本控制台报错问题 @Wesley-0808 ([#5126](https://github.com/Tencent/tdesign-vue-next/pull/5126))
 - `Table`: 修复按下`Ctrl C`复制快捷键导致清空选中行的问题 @Wesley-0808 ([#5124](https://github.com/Tencent/tdesign-vue-next/pull/5124))

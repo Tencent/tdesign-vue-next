@@ -1,5 +1,5 @@
 import { defineComponent, ref, toRefs, watch, computed } from 'vue';
-import { cloneDeep } from 'lodash-es';
+import { cloneDeep, isNull, isUndefined } from 'lodash-es';
 import {
   Color,
   DEFAULT_COLOR,
@@ -107,7 +107,10 @@ export default defineComponent({
         const newMode = getModeByColor(newColor);
         mode.value = newMode;
         color.value.isGradient = newMode === 'linear-gradient';
-        color.value.update(newColor);
+        const currentColor = color.value.getFormattedColor(props.format, props.enableAlpha);
+        if (currentColor !== newColor) {
+          color.value.update(newColor);
+        }
       },
     );
 
@@ -247,13 +250,16 @@ export default defineComponent({
 
       // 系统预设颜色
       let systemColors = props.swatchColors;
-      if (systemColors === undefined) {
+      if (isUndefined(systemColors)) {
         systemColors = [...DEFAULT_SYSTEM_SWATCH_COLORS];
+      }
+      if (isNull(systemColors)) {
+        systemColors = [];
       }
       if (onlySupportGradient) {
         systemColors = systemColors.filter((color) => Color.isGradientColor(color));
       }
-      const showSystemColors = Array.isArray(systemColors);
+      const showSystemColors = Array.isArray(systemColors) && systemColors.length;
 
       const renderSwatches = () => {
         if (!showSystemColors && !showUsedColors) return null;

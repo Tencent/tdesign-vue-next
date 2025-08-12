@@ -15,11 +15,13 @@ export default function renderDemo(md, container) {
         const demoDefName = `Demo${demoPathOnlyLetters}`;
         const demoCodeDefName = `Demo${demoPathOnlyLetters}Code`;
         const demoMockDataDefName = `Demo${demoPathOnlyLetters}TsCode`; // ts示例
+        const isDev = process.env.NODE_ENV === 'development';
 
         const tpl = `
           <td-doc-demo component-name="${componentName.trim()}" demo-name="${demoName}" language="markup" languages="JavaScript,MockData" :data-JavaScript="${demoCodeDefName}" :data-MockData="${demoMockDataDefName}">
           <div slot="action">
           <Stackblitz demo-name="${demoName}" component-name="${componentName}" :code=${demoCodeDefName} />
+          <NewWindow v-if="${isDev}" demo-name="${demoName}" />
         </div>
             <div class="tdesign-demo-item__body">
               <${demoDefName} />  

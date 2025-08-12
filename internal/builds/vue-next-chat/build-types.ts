@@ -1,5 +1,5 @@
 import { glob } from 'glob';
-import { readFile, copy, writeFile, remove } from 'fs-extra';
+import { copy, remove } from 'fs-extra';
 import { run, joinPosix, joinWorkspaceRoot, joinTdesignVueNextChatRoot } from '@tdesign/internal-utils';
 
 const typesTempDir = 'vue-next-chat';
@@ -49,14 +49,19 @@ const removeSourceTypes = async () => {
 };
 
 export const buildTypes = async () => {
-  await removeSourceTypes();
-  await generateSourceTypes();
-  // const targets = ['es', 'esm', 'lib', 'cjs'] as const;
-  const targets = ['es', 'esm'] as const;
-  await Promise.all(
-    targets.map(async (target) => {
-      await generateTargetTypes(target);
-    }),
-  );
-  await removeSourceTypes();
+  try {
+    await removeSourceTypes();
+    await generateSourceTypes();
+    // const targets = ['es', 'esm', 'lib', 'cjs'] as const;
+    const targets = ['es', 'esm'] as const;
+    await Promise.all(
+      targets.map(async (target) => {
+        await generateTargetTypes(target);
+      }),
+    );
+  } catch (error) {
+    console.error(error);
+  } finally {
+    await removeSourceTypes();
+  }
 };

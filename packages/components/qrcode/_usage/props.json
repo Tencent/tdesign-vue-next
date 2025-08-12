@@ -1,0 +1,69 @@
+[
+  {
+    "name": "borderless",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "level",
+    "type": "enum",
+    "defaultValue": "M",
+    "options": [
+      {
+        "label": "L",
+        "value": "L"
+      },
+      {
+        "label": "M",
+        "value": "M"
+      },
+      {
+        "label": "Q",
+        "value": "Q"
+      },
+      {
+        "label": "H",
+        "value": "H"
+      }
+    ]
+  },
+  {
+    "name": "status",
+    "type": "enum",
+    "defaultValue": "active",
+    "options": [
+      {
+        "label": "active",
+        "value": "active"
+      },
+      {
+        "label": "expired",
+        "value": "expired"
+      },
+      {
+        "label": "loading",
+        "value": "loading"
+      },
+      {
+        "label": "scanned",
+        "value": "scanned"
+      }
+    ]
+  },
+  {
+    "name": "type",
+    "type": "enum",
+    "defaultValue": "canvas",
+    "options": [
+      {
+        "label": "canvas",
+        "value": "canvas"
+      },
+      {
+        "label": "svg",
+        "value": "svg"
+      }
+    ]
+  }
+]

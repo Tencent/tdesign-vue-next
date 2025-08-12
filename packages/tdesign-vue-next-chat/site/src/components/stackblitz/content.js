@@ -1,5 +1,5 @@
-import sitePkg from '../../../package.json';
-import chatPkg from '../../../../package.json';
+import { tdesignVueNextChatPackageJson, tdesignVueNextPackageJson } from '@tdesign/internal-utils/package-json';
+import { catalogs } from '@tdesign/internal-utils/catalogs';
 
 export const htmlContent = `
   <div id="app"></div>
@@ -47,7 +47,7 @@ export const styleContent = `
 export const stackblitzRc = `
   {
     "installDependencies": false,
-    "startCommand": "yarn install && yarn dev"
+    "startCommand": "pnpm install && pnpm dev"
   }
 `;
 
@@ -72,23 +72,23 @@ export const packageJSONContent = JSON.stringify(
       serve: 'vite preview',
     },
     dependencies: {
-      vue: sitePkg.dependencies.vue,
-      less: sitePkg.devDependencies.less,
-      clipboard: chatPkg.dependencies.clipboard,
-      marked: chatPkg.dependencies.marked,
-      'tdesign-vue-next': chatPkg.dependencies['tdesign-vue-next'],
-      'tdesign-icons-vue-next': chatPkg.dependencies['tdesign-icons-vue-next'],
-      '@tdesign-vue-next/chat': chatPkg.version,
-      'highlight.js': chatPkg.dependencies['highlight.js'],
-      'marked-highlight': chatPkg.dependencies['marked-highlight'],
-      'tdesign-web-components': chatPkg.dependencies['tdesign-web-components'],
-      'omi-vueify': chatPkg.dependencies['omi-vueify'], // 用于将 omi 组件转换为 vue 组件
+      vue: catalogs.deps.vue,
+      less: catalogs.bundle.less,
+      clipboard: catalogs.deps.clipboard,
+      marked: catalogs.deps.marked,
+      'tdesign-vue-next': tdesignVueNextPackageJson.version,
+      'tdesign-icons-vue-next': catalogs.tdesign['tdesign-icons-vue-next'],
+      '@tdesign-vue-next/chat': tdesignVueNextChatPackageJson.version,
+      'highlight.js': catalogs.deps['highlight.js'],
+      'marked-highlight': catalogs.docs['marked-highlight'],
     },
     devDependencies: {
-      vite: sitePkg.devDependencies.vite,
-      '@vue/compiler-sfc': sitePkg.devDependencies['@vue/compiler-sfc'],
-      '@vitejs/plugin-vue': sitePkg.devDependencies['@vitejs/plugin-vue'],
-      '@vitejs/plugin-vue-jsx': sitePkg.devDependencies['@vitejs/plugin-vue-jsx'],
+      vite: catalogs.bundle.vite,
+      '@vue/compiler-sfc': catalogs.bundle['@vue/compiler-sfc'],
+      '@vitejs/plugin-vue': catalogs.bundle['@vitejs/plugin-vue'],
+      '@vitejs/plugin-vue-jsx': catalogs.bundle['@vitejs/plugin-vue-jsx'],
+      'tdesign-web-components': '1.1.7',
+      'omi-vueify': '^0.0.10',
     },
   },
   null,

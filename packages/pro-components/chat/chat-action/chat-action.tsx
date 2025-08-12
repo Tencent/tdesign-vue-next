@@ -25,11 +25,12 @@ export default defineComponent({
     const renderTNodeJSX = useTNodeJSX();
     const messagePluginInstance = MessagePluginSingleton.getInstance();
     const { globalConfig } = useConfig('chat');
-    const { copyTipText, likeTipText, dislikeTipText, refreshTipText, copyTextSuccess, copyTextFail, shareTipText } =
-      globalConfig.value;
     return () => {
       // textLoading更新后要传给子组件和孙组件
       const content = renderTNodeJSX('content');
+      const { copyTipText, likeTipText, dislikeTipText, refreshTipText, copyTextSuccess, copyTextFail } =
+        globalConfig.value;
+
       // 内置操作按钮，assistantActions和插槽判断 t-chat注入的属性获取不到默认为false
       const disabled = props.disabled;
       const copyAnswer = () => {
