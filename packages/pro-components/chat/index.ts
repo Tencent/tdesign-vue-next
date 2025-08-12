@@ -9,7 +9,7 @@ import _ChatLoading from './chat-loading';
 
 // 用的vue源码
 import _ChatAction from './chat-action';
-import _FileCard from './filecard';
+import _FileCard from './file-card';
 import _ChatSender from './chat-sender';
 import _ChatAttachments from './attachments';
 import _ChatThinking from './chat-thinking';
