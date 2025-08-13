@@ -24,7 +24,7 @@ export interface TdCardProps {
   /**
    * 卡片内容区域自定义类名
    */
-  bodyClass?: string;
+  bodyClassName?: string;
   /**
    * 卡片内容区域自定义样式
    */
@@ -52,7 +52,7 @@ export interface TdCardProps {
   /**
    * 卡片底部区域自定义类名
    */
-  footerClass?: string;
+  footerClassName?: string;
   /**
    * 卡片底部区域自定义样式
    */
@@ -64,7 +64,7 @@ export interface TdCardProps {
   /**
    * 卡片顶部区域自定义类名
    */
-  headerClass?: string;
+  headerClassName?: string;
   /**
    * 卡片顶部区域自定义样式
    */

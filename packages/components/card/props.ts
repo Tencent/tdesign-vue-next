@@ -22,8 +22,8 @@ export default {
     default: true,
   },
   /** 卡片内容区域自定义类名 */
-  bodyClass: {
-    type: String as PropType<TdCardProps['bodyClass']>,
+  bodyClassName: {
+    type: String as PropType<TdCardProps['bodyClassName']>,
   },
   /** body区域自定义样式 */
   bodyStyle: {
@@ -50,8 +50,8 @@ export default {
     type: [String, Function] as PropType<TdCardProps['footer']>,
   },
   /** 卡片底部区域自定义类名 */
-  footerClass: {
-    type: String as PropType<TdCardProps['footerClass']>,
+  footerClassName: {
+    type: String as PropType<TdCardProps['footerClassName']>,
   },
   /** 卡片底部区域自定义样式 */
   footerStyle: {
@@ -62,8 +62,8 @@ export default {
     type: [String, Function] as PropType<TdCardProps['header']>,
   },
   /** 卡片顶部区域自定义类名 */
-  headerClass: {
-    type: String as PropType<TdCardProps['headerClass']>,
+  headerClassName: {
+    type: String as PropType<TdCardProps['headerClassName']>,
   },
   /** 卡片顶部区域自定义样式 */
   headerStyle: {

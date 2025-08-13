@@ -78,12 +78,12 @@ export default defineComponent({
     const renderHeader = () => {
       if (showHeader.value)
         return (
-          <div class={[headerCls.value, props.headerClass]} style={props.headerStyle}>
+          <div class={[headerCls.value, props.headerClassName]} style={props.headerStyle}>
             {renderTNodeJSX('header')}
           </div>
         );
       return (
-        <div class={[headerCls.value, props.headerClass]} style={props.headerStyle}>
+        <div class={[headerCls.value, props.headerClassName]} style={props.headerStyle}>
           <div class={headerWrapperCls.value}>
             {showAvatar.value && <div class={headerAvatarCls.value}>{renderTNodeJSX('avatar')}</div>}
             <div>
@@ -110,12 +110,12 @@ export default defineComponent({
           {isHeaderRender.value ? renderHeader() : null}
           {showCover.value ? renderCover() : null}
           {showContent.value && (
-            <div class={[bodyCls.value, props.bodyClass]} style={props.bodyStyle}>
+            <div class={[bodyCls.value, props.bodyClassName]} style={props.bodyStyle}>
               {renderTNodeJSX('default') || renderTNodeJSX('content')}
             </div>
           )}
           {isFooterRender.value && (
-            <div class={[footerCls.value, props.footerClass]} style={props.footerStyle}>
+            <div class={[footerCls.value, props.footerClassName]} style={props.footerStyle}>
               <div class={footerWrapperCls.value}>{renderTNodeJSX('footer')}</div>
               {showActions.value && isPoster2.value && <div class={actionsCls.value}>{renderTNodeJSX('actions')}</div>}
             </div>
