@@ -14,6 +14,7 @@ export default defineComponent({
     ...props,
     attachmentsProps: {
       type: Object,
+      // @ts-ignore
       default: () => ({ items: [], overflow: 'scrollX' }),
     },
   },
@@ -207,7 +208,6 @@ export default defineComponent({
           )}
         </Fragment>
       );
-      // }
     };
     const renderSuffixIcon = () => {
       const suffix = renderTNodeJSX('suffix', { params: { renderPresets: getDefaultSuffixIcon } });
@@ -222,6 +222,7 @@ export default defineComponent({
     };
     const renderHeader = () => {
       return props.attachmentsProps.items.length > 0 ? (
+        // @ts-ignore
         <Attachments
           {...props.attachmentsProps}
           onRemove={handleRemove}

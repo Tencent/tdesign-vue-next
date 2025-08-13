@@ -230,7 +230,7 @@ export default defineComponent({
     };
     const renderContent = () => {
       const isDraggable = props.draggable && props.listType === TARGET;
-      let defaultNode: JSX.Element = null;
+      let defaultNode: VNode = null;
       if (!isDraggable) {
         defaultNode = (
           <TCheckboxGroup value={props.checkedValue} onChange={handleCheckedChange}>
