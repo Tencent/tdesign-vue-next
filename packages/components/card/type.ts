@@ -22,6 +22,14 @@ export interface TdCardProps {
    */
   bordered?: boolean;
   /**
+   * 卡片内容区域自定义类名
+   */
+  bodyClass?: string;
+  /**
+   * 卡片内容区域自定义样式
+   */
+  bodyStyle?: Record<string, any>;
+  /**
    * 卡片内容
    */
   content?: string | TNode;
@@ -42,9 +50,25 @@ export interface TdCardProps {
    */
   footer?: string | TNode;
   /**
+   * 卡片底部区域自定义类名
+   */
+  footerClass?: string;
+  /**
+   * 卡片底部区域自定义样式
+   */
+  footerStyle?: Record<string, any>;
+  /**
    * 卡片顶部内容，优先级高于其他所有元素
    */
   header?: string | TNode;
+  /**
+   * 卡片顶部区域自定义类名
+   */
+  headerClass?: string;
+  /**
+   * 卡片顶部区域自定义样式
+   */
+  headerStyle?: Record<string, any>;
   /**
    * 头部是否带分割线，仅在有header时有效
    * @default false

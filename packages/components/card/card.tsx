@@ -6,6 +6,7 @@ import TLoading from '../loading';
 import props from './props';
 import { isString } from 'lodash-es';
 import { TdCardProps } from './type';
+import { Styles } from '../common';
 
 export default defineComponent({
   name: 'TCard',
@@ -28,9 +29,9 @@ export default defineComponent({
 
     const headerCls = computed(() => {
       const defaultClass = [`${COMPONENT_NAME.value}__header`];
-      return props.headerBordered
-        ? defaultClass.concat(`${COMPONENT_NAME.value}__title--bordered`)
-        : [`${COMPONENT_NAME.value}__header`];
+      if (props.headerBordered) defaultClass.push(`${COMPONENT_NAME.value}__title--bordered`);
+      if (props.headerClass) defaultClass.push(props.headerClass);
+      return defaultClass;
     });
 
     const headerWrapperCls = usePrefixClass('card__header-wrapper');
@@ -40,9 +41,17 @@ export default defineComponent({
     const headerDescriptionCls = usePrefixClass('card__description');
     const actionsCls = usePrefixClass('card__actions');
 
-    const bodyCls = usePrefixClass('card__body');
+    const bodyCls = computed(() => {
+      const defaultClass = [usePrefixClass('card__body').value];
+      if (props.bodyClass) defaultClass.push(props.bodyClass);
+      return defaultClass;
+    });
     const coverCls = usePrefixClass('card__cover');
-    const footerCls = usePrefixClass('card__footer');
+    const footerCls = computed(() => {
+      const defaultClass = [usePrefixClass('card__footer').value];
+      if (props.footerClass) defaultClass.push(props.footerClass);
+      return defaultClass;
+    });
     const footerWrapperCls = usePrefixClass('card__footer-wrapper');
 
     // 卡片风格：普通风格、海报风格1（操作区域在顶部）、海报风格2（操作区域在底部）。
@@ -78,9 +87,14 @@ export default defineComponent({
 
     // 头部区域渲染逻辑
     const renderHeader = () => {
-      if (showHeader.value) return <div class={headerCls.value}>{renderTNodeJSX('header')}</div>;
+      if (showHeader.value)
+        return (
+          <div class={headerCls.value} style={props.headerStyle as Styles}>
+            {renderTNodeJSX('header')}
+          </div>
+        );
       return (
-        <div class={headerCls.value}>
+        <div class={headerCls.value} style={props.headerStyle as Styles}>
           <div class={headerWrapperCls.value}>
             {showAvatar.value && <div class={headerAvatarCls.value}>{renderTNodeJSX('avatar')}</div>}
             <div>
@@ -107,10 +121,12 @@ export default defineComponent({
           {isHeaderRender.value ? renderHeader() : null}
           {showCover.value ? renderCover() : null}
           {showContent.value && (
-            <div class={bodyCls.value}>{renderTNodeJSX('default') || renderTNodeJSX('content')}</div>
+            <div class={bodyCls.value} style={props.bodyStyle as Styles}>
+              {renderTNodeJSX('default') || renderTNodeJSX('content')}
+            </div>
           )}
           {isFooterRender.value && (
-            <div class={footerCls.value}>
+            <div class={footerCls.value} style={props.footerStyle as Styles}>
               <div class={footerWrapperCls.value}>{renderTNodeJSX('footer')}</div>
               {showActions.value && isPoster2.value && <div class={actionsCls.value}>{renderTNodeJSX('actions')}</div>}
             </div>
