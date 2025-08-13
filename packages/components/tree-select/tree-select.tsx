@@ -370,7 +370,6 @@ export default defineComponent({
         activable={!props.multiple}
         checkable={props.multiple}
         disabled={tDisabled.value || multiLimitDisabled.value}
-        size={props.size}
         filter={filterByText.value}
         icon={!filterByText.value}
         actived={actived.value}
@@ -394,7 +393,6 @@ export default defineComponent({
     const renderSuffixIcon = () => (
       <FakeArrow
         isActive={innerVisible.value}
-        disabled={props.disabled}
         overlayClassName={{
           [`${classPrefix.value}-fake-arrow--highlight`]: innerVisible.value,
           [`${classPrefix.value}-fake-arrow--disable`]: props.disabled,

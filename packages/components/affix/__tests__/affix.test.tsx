@@ -97,6 +97,8 @@ describe('Affix', () => {
 
     it('Test get container', async () => {
       await nextTick();
+
+      /* @ts-ignore */
       expect(affixRef.scrollContainer).toBe(wrapper.vm.container());
     });
     // 模拟 affixWrap 的位置
@@ -110,6 +112,8 @@ describe('Affix', () => {
 
     it('Test the scrolling state', async () => {
       // 模拟容器滚动
+
+      /* @ts-ignore */
       wrapper.vm.container().dispatchEvent(new CustomEvent('scroll'));
       expect(wrapper.find('.t-affix').classes()).toContain('t-affix');
     });

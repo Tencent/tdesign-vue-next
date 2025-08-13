@@ -57,7 +57,6 @@ export default defineComponent({
           <TImageViewerIcon icon={() => <ZoomOutIcon size="medium" />} onClick={props.onZoomOut} />
           <TImageViewerIcon
             class={`${classPrefix.value}-image-viewer__utils-scale`}
-            size="medium"
             label={`${largeNumberToFixed(String(props.scale * 100))}%`}
           />
 

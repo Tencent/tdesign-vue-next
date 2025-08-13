@@ -111,6 +111,7 @@ export default defineComponent({
             const val = spec[name as keyof typeof spec];
             delete spec[name as keyof typeof spec];
             const methodName = `set${upperFirst(name)}`;
+            // @ts-ignore TODO
             const setupMethod = this[methodName];
             if (isFunction(setupMethod)) {
               setupMethod.call(this, node, val);
@@ -298,10 +299,8 @@ export default defineComponent({
       treeNodeList = (
         <TransitionGroup
           tag="div"
-          class={`${cname}__list`}
           enter-active-class={`${cname}__item--enter-active`}
           leave-active-class={`${cname}__item--leave-active`}
-          style={scrollStyles}
         >
           {treeNodeViews}
         </TransitionGroup>

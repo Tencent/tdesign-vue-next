@@ -357,10 +357,9 @@ export default defineComponent({
         >
           {props.search && (
             <Search
-              searchValue={filterValue.value}
+              value={filterValue.value}
               placeholder={t(globalConfig.value.placeholder)}
               onChange={handleSearch}
-              disabled={props.disabled}
               search={props.search}
             />
           )}

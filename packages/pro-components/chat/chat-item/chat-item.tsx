@@ -88,13 +88,12 @@ export default defineComponent({
               (props.animation === 'skeleton' ? (
                 <Skeleton loading={textLoading} animation={'gradient'}></Skeleton>
               ) : (
-                <ChatLoading loading={textLoading} animation={props.animation}></ChatLoading>
+                <ChatLoading animation={props.animation}></ChatLoading>
               ))}
             {!textLoading && (
               <div class={`${COMPONENT_NAME.value}__detail`}>
                 {isObject(props.reasoning) && role.value === 'assistant' && (
                   <ChatReasoning
-                    role={role.value}
                     expandIconPlacement={(props.reasoning as Record<string, any>).expandIconPlacement}
                     onExpandChange={(props.reasoning as Record<string, any>).onExpandChange}
                     collapse-panel-props={{
@@ -105,15 +104,14 @@ export default defineComponent({
                 {/* 适配t-chat传入data */}
                 {isString(props.reasoning) && role.value === 'assistant' && (
                   <ChatReasoning
-                    role={role.value}
                     expandIconPlacement={'right'}
                     collapse-panel-props={{
                       header: renderHeader(),
-                      content: <Text isNormalText={false} content={props.reasoning} role={role.value} />,
+                      content: <Text content={props.reasoning} role={role.value} />,
                     }}
                   ></ChatReasoning>
                 )}
-                {isString(content) ? <Text isNormalText={false} content={content} role={role.value} /> : content}
+                {isString(content) ? <Text content={content} role={role.value} /> : content}
               </div>
             )}
             {role.value === 'assistant' && showActions.value && (
