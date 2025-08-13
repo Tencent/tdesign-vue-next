@@ -21,7 +21,7 @@
     "@vitejs/plugin-vue": "catalog:bundle",
     "@vitejs/plugin-vue-jsx": "catalog:bundle",
     "@vue/test-utils": "catalog:test",
-    "canvas": "^3.1.2",
+    "canvas": "catalog:test",
     "dom-parser": "catalog:test",
     "glob": "catalog:bundle",
     "lodash-es": "catalog:deps",
