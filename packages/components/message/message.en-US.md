@@ -29,6 +29,11 @@ name | type | default | description | required
 -- | -- | -- | -- | --
 attach | String / Function | 'body' | Typescript：`AttachNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 className | String | - | HTMLElement class | N
+mergeIdentical | Boolean | false | Whether to enable merging of identical messages | N
+mergeKey | String | - | Custom merge identifier for distinguishing different types of messages. If not set, `${theme}-${content}` will be used as the merge identifier | N
+mergeWindow | Number | 500 | Merge time window in milliseconds. Messages with the same identifier within this time will be merged | N
+showMergeCount | Boolean | true | Whether to show merge count | N
+mergeCountFormat | String | '(×{count})' | Format for displaying merge count, {count} will be replaced with the actual merge count | N
 offset | Array | - | Typescript：`Array<string \| number>` | N
 placement | String | top | options: center/top/left/right/bottom/top-left/top-right/bottom-left/bottom-right。Typescript：`MessagePlacementList` `type MessagePlacementList = 'center' \| 'top' \| 'left' \| 'right' \| 'bottom' \| 'top-left' \| 'top-right' \| 'bottom-left' \| 'bottom-right'`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/message/type.ts) | N
 style | Object | - | CSS style。Typescript：`CSSProperties` | N
@@ -121,6 +126,22 @@ options | Object | - | required。Typescript：`Promise<MessageInstance>`
 name | params | default | description
 -- | -- | -- | --
 \- | \- | - | \-
+
+### MessagePlugin.clearByKey
+
+Also supports `this.$message.clearByKey`. Clear specific type of messages by merge key.
+
+name | params | default | description
+-- | -- | -- | --
+mergeKey | String | - | required. The merge key of messages to be cleared
+
+### MessagePlugin.configMerge
+
+Also supports `this.$message.configMerge`. Configure global message merge options.
+
+name | params | default | description
+-- | -- | -- | --
+config | Object | - | required. Global merge configuration options. Typescript：`MessageMergeConfig`
 
 ### MessagePlugin.config
 

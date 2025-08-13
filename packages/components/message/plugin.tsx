@@ -38,6 +38,9 @@ import {
   MessageQuestionMethod,
   MessageCloseMethod,
   MessageCloseAllMethod,
+  MessageClearByKeyMethod,
+  MessageConfigMergeMethod,
+  MessageMergeConfig,
 } from './type';
 import { AttachNodeReturnValue } from '../common';
 import { isObject, isString } from 'lodash-es';
@@ -118,6 +121,8 @@ interface ExtraApi {
   loading: MessageLoadingMethod;
   close: MessageCloseMethod;
   closeAll: MessageCloseAllMethod;
+  clearByKey: MessageClearByKeyMethod;
+  configMerge: MessageConfigMergeMethod;
 }
 
 export type MessagePluginType = Plugin & ExtraApi & MessageMethod;
@@ -138,6 +143,30 @@ const extraApi: ExtraApi = {
         Object.keys(attach).forEach((placement) => {
           const instance = attach[placement];
           instance.component.exposed.removeAll();
+        });
+      });
+    }
+  },
+  clearByKey: (mergeKey: string) => {
+    if (instanceMap instanceof Map) {
+      instanceMap.forEach((attach) => {
+        Object.keys(attach).forEach((placement) => {
+          const instance = attach[placement];
+          if (instance.component.exposed.clearByKey) {
+            instance.component.exposed.clearByKey(mergeKey);
+          }
+        });
+      });
+    }
+  },
+  configMerge: (config: MessageMergeConfig) => {
+    if (instanceMap instanceof Map) {
+      instanceMap.forEach((attach) => {
+        Object.keys(attach).forEach((placement) => {
+          const instance = attach[placement];
+          if (instance.component.exposed.configMerge) {
+            instance.component.exposed.configMerge(config);
+          }
         });
       });
     }
