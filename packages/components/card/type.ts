@@ -5,7 +5,7 @@
  * */
 
 import { LoadingProps } from '../loading';
-import { TNode } from '../common';
+import { TNode, Styles } from '../common';
 
 export interface TdCardProps {
   /**
@@ -28,7 +28,7 @@ export interface TdCardProps {
   /**
    * 卡片内容区域自定义样式
    */
-  bodyStyle?: Record<string, any>;
+  bodyStyle?: Styles;
   /**
    * 卡片内容
    */
@@ -56,7 +56,7 @@ export interface TdCardProps {
   /**
    * 卡片底部区域自定义样式
    */
-  footerStyle?: Record<string, any>;
+  footerStyle?: Styles;
   /**
    * 卡片顶部内容，优先级高于其他所有元素
    */
@@ -68,7 +68,7 @@ export interface TdCardProps {
   /**
    * 卡片顶部区域自定义样式
    */
-  headerStyle?: Record<string, any>;
+  headerStyle?: Styles;
   /**
    * 头部是否带分割线，仅在有header时有效
    * @default false
