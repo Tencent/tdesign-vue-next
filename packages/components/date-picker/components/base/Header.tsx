@@ -1,5 +1,4 @@
 import { defineComponent, PropType, ref, computed, watch } from 'vue';
-import { isArray, isNumber } from 'lodash-es';
 import { PaginationMini, JumperTrigger } from '../../../pagination';
 import TSelect from '../../../select';
 import { useConfig, usePrefixClass } from '@tdesign/shared-hooks';
