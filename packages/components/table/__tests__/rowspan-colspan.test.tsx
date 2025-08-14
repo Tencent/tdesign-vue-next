@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { BaseTable } from '../index';
 
 // Mock data
@@ -27,7 +27,7 @@ const columns = [
 
 describe('Table - Rowspan and Colspan Tests', () => {
   it('should render cells with rowspan correctly', async () => {
-    const rowspanAndColspanFunc = ({ row, col, rowIndex, colIndex }) => {
+    const rowspanAndColspanFunc = ({ row: _row, col: _col, rowIndex, colIndex }: any) => {
       if (rowIndex === 0 && colIndex === 0) {
         return { rowspan: 2 };
       }
@@ -55,7 +55,7 @@ describe('Table - Rowspan and Colspan Tests', () => {
   });
 
   it('should render cells with colspan correctly', async () => {
-    const rowspanAndColspanFunc = ({ row, col, rowIndex, colIndex }) => {
+    const rowspanAndColspanFunc = ({ row: _row, col: _col, rowIndex, colIndex }: any) => {
       if (rowIndex === 0 && colIndex === 0) {
         return { colspan: 2 };
       }
@@ -81,7 +81,7 @@ describe('Table - Rowspan and Colspan Tests', () => {
   });
 
   it('should render cells with both rowspan and colspan correctly', async () => {
-    const rowspanAndColspanFunc = ({ row, col, rowIndex, colIndex }) => {
+    const rowspanAndColspanFunc = ({ row: _row, col: _col, rowIndex, colIndex }: any) => {
       if (rowIndex === 0 && colIndex === 0) {
         return { rowspan: 2, colspan: 2 };
       }
@@ -111,7 +111,7 @@ describe('Table - Rowspan and Colspan Tests', () => {
   });
 
   it('should handle rowspanAndColspan in footer', async () => {
-    const rowspanAndColspanInFooterFunc = ({ row, col, rowIndex, colIndex }) => {
+    const rowspanAndColspanInFooterFunc = ({ row: _row, col: _col, rowIndex, colIndex }) => {
       if (rowIndex === 0 && colIndex === 0) {
         return { colspan: 2 };
       }
@@ -145,7 +145,7 @@ describe('Table - Rowspan and Colspan Tests', () => {
   });
 
   it('should handle complex rowspan and colspan patterns', async () => {
-    const rowspanAndColspanFunc = ({ row, col, rowIndex, colIndex }) => {
+    const rowspanAndColspanFunc = ({ row: _row, col: _col, rowIndex, colIndex }) => {
       // Create a checkerboard pattern
       if ((rowIndex % 2 === 0 && colIndex % 2 === 0) || (rowIndex % 2 === 1 && colIndex % 2 === 1)) {
         return { rowspan: 2, colspan: 2 };
@@ -169,7 +169,7 @@ describe('Table - Rowspan and Colspan Tests', () => {
   });
 
   it('should handle invalid rowspan and colspan values', async () => {
-    const rowspanAndColspanFunc = ({ row, col, rowIndex, colIndex }) => {
+    const rowspanAndColspanFunc = ({ row: _row, col: _col, rowIndex, colIndex }) => {
       if (rowIndex === 0 && colIndex === 0) {
         return { rowspan: -1, colspan: 0 }; // Invalid values
       }

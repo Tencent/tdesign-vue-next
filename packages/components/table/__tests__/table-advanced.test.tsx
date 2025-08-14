@@ -26,7 +26,7 @@ describe('Table Advanced Functionality', () => {
               title: 'Actions',
               colKey: 'actions',
               width: 120,
-              cell: (h: any, { row }: any) =>
+              cell: (h: any, { row: _row }: any) =>
                 h('div', { class: 'action-buttons' }, [
                   h('button', { class: 'btn-edit' }, 'Edit'),
                   h('button', { class: 'btn-delete' }, 'Delete'),

@@ -1,6 +1,7 @@
 // @ts-nocheck
+/* eslint-disable vue/one-component-per-file */
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { ref, reactive, defineComponent } from 'vue';
+import { ref, defineComponent } from 'vue';
 import { mount } from '@vue/test-utils';
 import useSorter from '../hooks/useSorter';
 

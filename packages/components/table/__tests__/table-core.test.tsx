@@ -5,7 +5,7 @@
 
 import { mount } from '@vue/test-utils';
 import { describe, it, expect, vi } from 'vitest';
-import { nextTick, ref } from 'vue';
+import { ref } from 'vue';
 import { Table, BaseTable, PrimaryTable, EnhancedTable } from '@tdesign/components/table';
 import {
   mockData,
@@ -16,7 +16,6 @@ import {
   expectTableColumns,
   expectCellContent,
   expectEmptyState,
-  expectLoadingState,
   clickTableRow,
   clickTableCell,
 } from './shared/test-utils';

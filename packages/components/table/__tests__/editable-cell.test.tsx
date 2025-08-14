@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { mount } from '@vue/test-utils';
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { nextTick, ref, h } from 'vue';
+import { describe, it, expect, vi } from 'vitest';
+import { nextTick } from 'vue';
 import EditableCell from '../components/editable-cell';
 
 // mock input component
@@ -549,7 +549,14 @@ describe('EditableCell Component', () => {
           props: {
             placeholder: 'Enter name',
           },
-          on: ({ row, col, rowIndex, colIndex, editedRow, updateEditedCellValue }) => ({
+          on: ({
+            row: _row,
+            col: _col,
+            rowIndex: _rowIndex,
+            colIndex: _colIndex,
+            editedRow: _editedRow,
+            updateEditedCellValue,
+          }) => ({
             onFocus: () => {},
             onBlur: () => updateEditedCellValue('New Value'),
           }),
