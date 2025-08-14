@@ -8,61 +8,61 @@ import { nextTick } from 'vue';
 
 // 标准测试数据
 export const mockData = [
-  { 
-    id: 1, 
-    name: 'Alice Johnson', 
-    age: 25, 
+  {
+    id: 1,
+    name: 'Alice Johnson',
+    age: 25,
     email: 'alice@example.com',
-    status: 'active', 
+    status: 'active',
     department: 'Engineering',
     salary: 75000,
     joinDate: '2022-01-15',
-    active: true
+    active: true,
   },
-  { 
-    id: 2, 
-    name: 'Bob Smith', 
-    age: 30, 
+  {
+    id: 2,
+    name: 'Bob Smith',
+    age: 30,
     email: 'bob@example.com',
-    status: 'inactive', 
+    status: 'inactive',
     department: 'Marketing',
     salary: 65000,
     joinDate: '2021-03-20',
-    active: false
+    active: false,
   },
-  { 
-    id: 3, 
-    name: 'Charlie Brown', 
-    age: 35, 
+  {
+    id: 3,
+    name: 'Charlie Brown',
+    age: 35,
     email: 'charlie@example.com',
-    status: 'active', 
+    status: 'active',
     department: 'Engineering',
     salary: 85000,
     joinDate: '2020-05-10',
-    active: true
+    active: true,
   },
-  { 
-    id: 4, 
-    name: 'Diana Prince', 
-    age: 28, 
+  {
+    id: 4,
+    name: 'Diana Prince',
+    age: 28,
     email: 'diana@example.com',
-    status: 'active', 
+    status: 'active',
     department: 'Design',
     salary: 70000,
     joinDate: '2022-07-01',
-    active: true
+    active: true,
   },
-  { 
-    id: 5, 
-    name: 'Edward Wilson', 
-    age: 42, 
+  {
+    id: 5,
+    name: 'Edward Wilson',
+    age: 42,
     email: 'edward@example.com',
-    status: 'inactive', 
+    status: 'inactive',
     department: 'Sales',
     salary: 60000,
     joinDate: '2019-11-12',
-    active: false
-  }
+    active: false,
+  },
 ];
 
 // 基础列配置
@@ -97,21 +97,21 @@ export const filterableColumns = [
   { title: 'Name', colKey: 'name', width: 150 },
   { title: 'Age', colKey: 'age', width: 80 },
   { title: 'Email', colKey: 'email', width: 200 },
-  { 
-    title: 'Status', 
-    colKey: 'status', 
+  {
+    title: 'Status',
+    colKey: 'status',
     width: 100,
     filter: {
       type: 'single' as const,
       list: [
         { label: 'Active', value: 'active' },
-        { label: 'Inactive', value: 'inactive' }
-      ]
-    }
+        { label: 'Inactive', value: 'inactive' },
+      ],
+    },
   },
-  { 
-    title: 'Department', 
-    colKey: 'department', 
+  {
+    title: 'Department',
+    colKey: 'department',
     width: 120,
     filter: {
       type: 'multiple' as const,
@@ -119,10 +119,10 @@ export const filterableColumns = [
         { label: 'Engineering', value: 'Engineering' },
         { label: 'Marketing', value: 'Marketing' },
         { label: 'Design', value: 'Design' },
-        { label: 'Sales', value: 'Sales' }
-      ]
-    }
-  }
+        { label: 'Sales', value: 'Sales' },
+      ],
+    },
+  },
 ] as const;
 
 // 固定列配置
@@ -172,7 +172,7 @@ export const largeDataset = Array.from({ length: 1000 }, (_, index) => ({
   status: index % 3 === 0 ? 'active' : index % 3 === 1 ? 'inactive' : 'pending',
   department: ['Engineering', 'Marketing', 'Design', 'Sales'][index % 4],
   salary: 50000 + (index % 50) * 1000,
-  joinDate: `2020-${String((index % 12) + 1).padStart(2, '0')}-${String((index % 28) + 1).padStart(2, '0')}`
+  joinDate: `2020-${String((index % 12) + 1).padStart(2, '0')}-${String((index % 28) + 1).padStart(2, '0')}`,
 }));
 
 /**
@@ -184,7 +184,7 @@ export async function waitForRender(wrapper?: VueWrapper<any>, timeout = 100): P
     await wrapper.vm.$nextTick();
   }
   // 额外等待确保DOM更新完成
-  await new Promise(resolve => setTimeout(resolve, timeout));
+  await new Promise((resolve) => setTimeout(resolve, timeout));
 }
 
 /**
@@ -216,10 +216,15 @@ export function expectTableColumns(wrapper: VueWrapper<any>, expectedColumnCount
 /**
  * 检查单元格内容
  */
-export function expectCellContent(wrapper: VueWrapper<any>, rowIndex: number, columnIndex: number, expectedContent: string) {
+export function expectCellContent(
+  wrapper: VueWrapper<any>,
+  rowIndex: number,
+  columnIndex: number,
+  expectedContent: string,
+) {
   const rows = wrapper.findAll('tbody tr');
   expect(rows[rowIndex]).toBeTruthy();
-  
+
   const cells = rows[rowIndex].findAll('td');
   expect(cells[columnIndex]).toBeTruthy();
   expect(cells[columnIndex].text()).toContain(expectedContent);
@@ -249,7 +254,7 @@ export async function simulateScroll(wrapper: VueWrapper<any>, scrollLeft = 0, s
     const element = scrollElement.element as HTMLElement;
     element.scrollLeft = scrollLeft;
     element.scrollTop = scrollTop;
-    
+
     // 触发滚动事件
     await scrollElement.trigger('scroll');
     await waitForRender(wrapper);
@@ -262,7 +267,7 @@ export async function simulateScroll(wrapper: VueWrapper<any>, scrollLeft = 0, s
 export async function clickTableRow(wrapper: VueWrapper<any>, rowIndex: number) {
   const rows = wrapper.findAll('tbody tr');
   expect(rows[rowIndex]).toBeTruthy();
-  
+
   await rows[rowIndex].trigger('click');
   await waitForRender(wrapper);
 }
@@ -273,10 +278,10 @@ export async function clickTableRow(wrapper: VueWrapper<any>, rowIndex: number) 
 export async function clickTableCell(wrapper: VueWrapper<any>, rowIndex: number, columnIndex: number) {
   const rows = wrapper.findAll('tbody tr');
   expect(rows[rowIndex]).toBeTruthy();
-  
+
   const cells = rows[rowIndex].findAll('td');
   expect(cells[columnIndex]).toBeTruthy();
-  
+
   await cells[columnIndex].trigger('click');
   await waitForRender(wrapper);
 }
@@ -287,7 +292,7 @@ export async function clickTableCell(wrapper: VueWrapper<any>, rowIndex: number,
 export async function clickSortIcon(wrapper: VueWrapper<any>, columnIndex: number) {
   const headers = wrapper.findAll('thead th');
   expect(headers[columnIndex]).toBeTruthy();
-  
+
   // 尝试多种可能的排序图标选择器
   const selectors = [
     '.t-table__sort-icon',
@@ -295,24 +300,24 @@ export async function clickSortIcon(wrapper: VueWrapper<any>, columnIndex: numbe
     '.t-table__cell--sort-trigger',
     '[class*="sort-icon"]',
     '.t-table-sort-asc',
-    '.t-table-sort-desc'
+    '.t-table-sort-desc',
   ];
-  
+
   let sortIcon;
   for (const selector of selectors) {
     sortIcon = headers[columnIndex].find(selector);
     if (sortIcon.exists()) {
-      console.log(`找到排序图标，使用选择器: ${selector}`);
+      // console.log(`找到排序图标，使用选择器: ${selector}`);
       break;
     }
   }
-  
+
   if (sortIcon && sortIcon.exists()) {
     await sortIcon.trigger('click');
     await waitForRender(wrapper);
   } else {
     // 如果找不到排序图标，直接点击表头单元格
-    console.warn(`排序图标未找到，尝试点击表头单元格，列索引: ${columnIndex}`);
+    // console.warn(`排序图标未找到，尝试点击表头单元格，列索引: ${columnIndex}`);
     await headers[columnIndex].trigger('click');
     await waitForRender(wrapper);
   }
@@ -351,7 +356,7 @@ export function expectLoadingState(wrapper: VueWrapper<any>, isLoading = true) {
 export function expectEmptyState(wrapper: VueWrapper<any>, expectedText?: string) {
   const emptyElement = wrapper.find('.t-table__empty');
   expect(emptyElement.exists()).toBeTruthy();
-  
+
   if (expectedText) {
     expect(emptyElement.text()).toContain(expectedText);
   }
@@ -370,8 +375,46 @@ export function expectSelectedRows(wrapper: VueWrapper<any>, selectedRowCount: n
  */
 export function getTableData(wrapper: VueWrapper<any>): string[][] {
   const rows = wrapper.findAll('tbody tr');
-  return rows.map(row => {
+  return rows.map((row) => {
     const cells = row.findAll('td');
-    return cells.map(cell => cell.text().trim());
+    return cells.map((cell) => cell.text().trim());
   });
 }
+
+// 重新导出常量
+export { ADVANCED_COMPONENTS } from './test-constants';
+
+// 重新导出断言函数
+export {
+  expectSortIcons,
+  expectFilterIcons,
+  expectEventTriggered,
+  expectEventParams,
+  expectCheckboxes,
+  expectDragHandles,
+  expectResizeHandles,
+  expectTreeIcons,
+  expectColumnController,
+  expectAsyncLoading,
+  expectPagination,
+  expectPaginationButtons,
+  expectPaginationInfo,
+  expectTableSize,
+  expectTableTheme,
+  expectTableBordered,
+  expectTableStriped,
+  expectTableHover,
+  expectTableLoading,
+  expectTableEmpty,
+  expectTableScroll,
+  expectTableFixed,
+  expectTableSelection,
+  expectTableSort,
+  expectTableFilter,
+  expectTableExpand,
+  expectTableDrag,
+  expectTableResize,
+  expectTableTree,
+  expectTableController,
+  expectTableAsyncLoading,
+} from './test-assertions';
