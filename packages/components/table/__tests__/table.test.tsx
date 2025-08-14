@@ -346,4 +346,93 @@ describe('BaseTable Component', () => {
       }
     });
   });
+
+  it('props.pagination: onPageChange should be triggered when switching pages', async () => {
+    const onPageChange = vi.fn();
+    const pagination = {
+      current: 1,
+      pageSize: 2,
+      total: 10,
+    };
+
+    const wrapper = getNormalTableMount({
+      pagination,
+      onPageChange,
+    });
+
+    expect(wrapper.find('.t-pagination').exists()).toBeTruthy();
+    const nextButton = wrapper.find('.t-pagination__btn-next');
+    expect(nextButton.exists()).toBeTruthy();
+
+    await nextButton.trigger('click');
+
+    // 验证 onPageChange 被触发
+    expect(onPageChange).toHaveBeenCalledTimes(1);
+    expect(onPageChange).toHaveBeenCalledWith(
+      expect.objectContaining({
+        current: 2,
+        pageSize: 2,
+        previous: 1,
+      }),
+      expect.arrayContaining([
+        expect.objectContaining({
+          index: 3,
+          applicant: '王芳',
+        }),
+        expect.objectContaining({
+          index: 4,
+          applicant: '贾明',
+        }),
+      ]),
+    );
+  });
+
+  // JSDOM 环境下 scrollHeight/clientHeight 默认都为 0，需 mock，辅助函数便于复用
+  function mockScrollHeight(element: HTMLElement, scrollHeight: number, clientHeight: number) {
+    Object.defineProperty(element, 'scrollHeight', { value: scrollHeight, configurable: true });
+    Object.defineProperty(element, 'clientHeight', { value: clientHeight, configurable: true });
+  }
+
+  it('props.pagination: scroll position should reset when switching pages', async () => {
+    const onPageChange = vi.fn();
+    const pagination = {
+      current: 1,
+      pageSize: 2,
+      total: 50,
+    };
+
+    const wrapper = getNormalTableMount({
+      pagination,
+      onPageChange,
+      maxHeight: 200,
+    });
+
+    expect(wrapper.find('.t-pagination').exists()).toBeTruthy();
+    const tableContent = wrapper.find('.t-table__content');
+    expect(tableContent.exists()).toBeTruthy();
+
+    const scrollElement = tableContent.element as HTMLElement;
+
+    // mock 滚动条高度，确保断言通过
+    mockScrollHeight(scrollElement, 100, 50);
+
+    // 1. 初始化后就断言有滚动条，且初始 scrollTop 为 0
+    expect(scrollElement.scrollHeight).toBeGreaterThan(scrollElement.clientHeight); // 有滚动条
+    expect(scrollElement.scrollTop).toBe(0); // 初始在顶部
+
+    // 2. 滚动到某个距离
+    scrollElement.scrollTop = 100;
+    expect(scrollElement.scrollTop).toBe(100); // 滚动后断言
+
+    // 3. 切换分页
+    const nextButton = wrapper.find('.t-pagination__btn-next');
+    expect(nextButton.exists()).toBeTruthy();
+    await nextButton.trigger('click');
+
+    // 4. 断言 onPageChange 被触发
+    expect(onPageChange).toHaveBeenCalledTimes(1);
+
+    // 5. 断言滚动条回到顶部
+    expect(scrollElement.scrollTop).toBe(0);
+  });
 });

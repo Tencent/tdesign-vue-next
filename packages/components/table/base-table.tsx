@@ -113,7 +113,21 @@ export default defineComponent({
       updateAffixHeaderOrFooter,
     } = useAffix(props);
 
-    const { dataSource, innerPagination, isPaginateData, renderPagination } = usePagination(props, context);
+    const onPageChange = (pageInfo: any, dataSource: any) => {
+      props.onPageChange?.(pageInfo, dataSource);
+      if (tableContentRef.value && tableContentRef.value.scrollTo) {
+        tableContentRef.value.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+      } else if (tableContentRef.value) {
+        // 兼容测试环境或旧浏览器
+        tableContentRef.value.scrollTop = 0;
+        tableContentRef.value.scrollLeft = 0;
+      }
+    };
+
+    const { dataSource, innerPagination, isPaginateData, renderPagination } = usePagination(
+      { ...props, onPageChange: onPageChange },
+      context,
+    );
 
     // 列宽拖拽逻辑
     const columnResizeParams = useColumnResize({
@@ -246,7 +260,11 @@ export default defineComponent({
       const domRect = thDom.getBoundingClientRect();
       const contentRect = tableContentRef.value.getBoundingClientRect();
       const distance = domRect.left - contentRect.left - totalWidth;
-      tableContentRef.value.scrollTo({ left: distance, behavior: 'smooth' });
+      if (tableContentRef.value.scrollTo) {
+        tableContentRef.value.scrollTo({ left: distance, behavior: 'smooth' });
+      } else {
+        tableContentRef.value.scrollLeft = distance;
+      }
     };
 
     watch(tableContentRef, () => {
@@ -330,7 +348,11 @@ export default defineComponent({
           const scrollTop = tableContentRef.value.scrollTop;
           const scrollHeight = offsetTop - scrollTop - (params.top ?? 0);
           // 实现偏移量的支持
-          tableContentRef.value.scrollBy({ top: scrollHeight, behavior: params.behavior ?? 'auto' });
+          if (tableContentRef.value.scrollBy) {
+            tableContentRef.value.scrollBy({ top: scrollHeight, behavior: params.behavior ?? 'auto' });
+          } else {
+            tableContentRef.value.scrollTop += scrollHeight;
+          }
         }
       }
     };
