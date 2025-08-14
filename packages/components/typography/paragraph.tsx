@@ -12,7 +12,7 @@ export default defineComponent({
     },
     ...props,
   },
-  setup(props, { slots, attrs }) {
+  setup(props, { slots }) {
     const COMPONENT_NAME = usePrefixClass('typography');
     const content = computed(() => {
       return props.content || slots?.default();
@@ -20,7 +20,7 @@ export default defineComponent({
 
     return () => {
       return props.ellipsis ? (
-        <Ellipsis {...props} {...attrs} class={COMPONENT_NAME.value}>
+        <Ellipsis {...props} class={COMPONENT_NAME.value}>
           {content.value}
         </Ellipsis>
       ) : (
