@@ -8,7 +8,7 @@ docClass: timeline
 ## 🌈 1.15.3 `2025-08-14` 
 
 ### 🚀 Features
-- `Card`: 新增 `headerClass`、`headerStyle`、`bodyClass`、`bodyStyle`、`footerClass`、`footerStyle`，方便用于定制卡片组件的各部分样式 @An0510 ([#5867](https://github.com/Tencent/tdesign-vue-next/pull/5867))
+- `Card`: 新增 `headerClassName`、`headerStyle`、`bodyClassName`、`bodyStyle`、`footerClassName`、`footerStyle`，方便用于定制卡片组件的各部分样式 @An0510 ([#5867](https://github.com/Tencent/tdesign-vue-next/pull/5867))
 - `InputNumber`: 当值为 undefined 或 null，且`allowInputOverLimit`为 false 时，需重置为最小值 @dhj-l ([#5881](https://github.com/Tencent/tdesign-vue-next/pull/5881))
 
 ### 🐞 Bug Fixes
@@ -1824,3 +1824,4 @@ docClass: timeline
 
 ## 🌈 0.x `2021-05-19 - 2022-12-14`
 前往 [GitHub](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/tdesign-vue-next/CHANGELOG-0.x.md) 查看 `0.x` 更新日志
+
