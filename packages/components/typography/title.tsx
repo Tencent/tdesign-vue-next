@@ -18,7 +18,7 @@ export default defineComponent({
           {h(Tag, ...content)}
         </Ellipsis>
       ) : (
-        <>{h(Tag, { class: COMPONENT_NAME.value, ...attrs }, ...content)}</>
+        <>{h(Tag, { ...attrs, class: [COMPONENT_NAME.value, attrs.class] }, ...content)}</>
       );
     };
   },
