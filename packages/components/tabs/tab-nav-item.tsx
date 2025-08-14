@@ -59,8 +59,8 @@ export default defineComponent({
 
     const removeBtn = () =>
       props.removable && !props.disabled ? (
-        <span onClick={(e) => removeBtnClick({ e })}>
-          <CloseIcon class="remove-btn" />
+        <span onClick={(e) => removeBtnClick({ e })} class="remove-btn">
+          <CloseIcon />
         </span>
       ) : null;
 
