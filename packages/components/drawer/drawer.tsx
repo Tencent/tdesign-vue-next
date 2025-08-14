@@ -188,15 +188,16 @@ export default defineComponent({
     const updateVisibleState = (value: boolean) => {
       if (value) {
         isMounted.value = true;
-        props.onOpen?.();
       }
 
       if (props.destroyOnClose) {
         if (value) {
           destroyOnCloseVisible.value = false;
           setTimeout(() => (isVisible.value = true));
+          props.onOpened?.();
         } else {
           isVisible.value = false;
+          props.onClosed?.();
           // immediate 的 watch 的第一次触发，会将设置为 true 的行为延后
           // 插件场景下，watch -> create 方法 的立刻调用，导致 destroyOnCloseVisible 被 watch 的第一次触发覆盖
           // 所以关闭时候，默认先置为 false
@@ -212,10 +213,18 @@ export default defineComponent({
       if (destroyOnCloseVisible.value && value) {
         destroyOnCloseVisible.value = false;
         setTimeout(() => (isVisible.value = true));
+        props.onOpened?.();
         return;
       }
 
-      setTimeout(() => (isVisible.value = value));
+      setTimeout(() => {
+        isVisible.value = value;
+        if (value) {
+          props.onOpened?.();
+        } else {
+          props.onClosed?.();
+        }
+      });
     };
 
     const addStyleElToHead = () => {
@@ -238,6 +247,7 @@ export default defineComponent({
       () => props.visible,
       (value) => {
         if (isServer) return;
+        if (value === isVisible.value) return;
         if (value) {
           addStyleElToHead();
           props.onBeforeOpen?.();
