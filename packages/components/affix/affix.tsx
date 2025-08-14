@@ -14,7 +14,7 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('affix');
     const renderTNodeJSX = useTNodeJSX();
 
-    const affixWrapRef = ref<HTMLElement>(null);
+    const affixWrapRef = ref(null);
     const affixRef = ref<HTMLElement>(null);
     const placeholderEL = ref(document?.createElement('div')); // 占位节点
     const ticking = ref(false);

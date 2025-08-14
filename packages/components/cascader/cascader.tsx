@@ -58,12 +58,11 @@ export default defineComponent({
         return renderTNodeJSX('suffixIcon');
       }
 
-      const { visible, disabled } = cascaderContext.value;
+      const { visible } = cascaderContext.value;
       return (
         <FakeArrow
           overlayClassName={getFakeArrowIconClass(classPrefix.value, STATUS.value, cascaderContext.value)}
           isActive={visible}
-          disabled={disabled}
         />
       );
     };
@@ -188,7 +187,6 @@ export default defineComponent({
                 <Panel
                   option={props.option}
                   empty={props.empty}
-                  visible={visible}
                   trigger={props.trigger}
                   loading={props.loading}
                   loadingText={props.loadingText}

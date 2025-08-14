@@ -95,7 +95,6 @@ export default defineComponent({
             reasoning={setReasoning(item)}
             reasoningLoading={isReasoningLoading(index)}
             text-loading={isLoading(index)}
-            itemIndex={index}
             animation={props.animation}
             v-slots={{
               actions: () =>

@@ -269,7 +269,6 @@ export default defineComponent({
               <div class={cls.controlSectionCell.value}>
                 <TCheckTag
                   class={cls.controlTag.value}
-                  theme={state.isShowWeekend ? 'default' : 'primary'}
                   size="large"
                   {...weekendBtn.vBind.value}
                   disabled={weekendBtn.isDisabled.value}
