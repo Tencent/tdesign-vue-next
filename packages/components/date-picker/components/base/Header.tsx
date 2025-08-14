@@ -14,6 +14,8 @@ export default defineComponent({
     },
     year: Number,
     month: Number,
+    internalYear: Array as PropType<Array<number>>,
+    partial: String,
     onMonthChange: Function,
     onYearChange: Function,
     onJumperClick: Function as PropType<(context: { e: MouseEvent; trigger: JumperTrigger }) => {}>,
@@ -25,13 +27,22 @@ export default defineComponent({
 
     const yearOptions = ref(initOptions(props.year));
     const showMonthPicker = computed(() => props.mode === 'date' || props.mode === 'week');
-
     // 年份选择展示区间
-    const nearestYear = computed(
-      () =>
-        yearOptions.value.find((option) => option.value - props.year <= 9 && option.value - props.year >= 0)?.value ||
-        props.year,
-    );
+    const nearestYear = computed(() => {
+      // 右侧面板年份选择需要保持大于左侧面板年份选择
+      const extraYear =
+        props.partial === 'end' &&
+        props.mode === 'year' &&
+        Number(props.internalYear[1]) - Number(props.internalYear[0]) <= 9
+          ? 9
+          : 0;
+
+      return (
+        yearOptions.value.find(
+          (option) => option.value - (props.year + extraYear) <= 9 && option.value - (props.year + extraYear) >= 0,
+        )?.value || props.year
+      );
+    });
 
     const monthOptions = computed(() =>
       globalConfig.value.months.map((item: string, index: number) => ({ label: item, value: index })),

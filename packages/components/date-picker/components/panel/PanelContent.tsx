@@ -33,6 +33,7 @@ export default defineComponent({
     onCellMouseLeave: Function,
     onTimePickerChange: Function,
     value: [String, Number, Array, Date],
+    internalYear: Array as PropType<Array<number>>,
   },
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('date-picker__panel');
@@ -52,6 +53,8 @@ export default defineComponent({
             mode={props.mode}
             year={props.year}
             month={props.month}
+            internalYear={props.internalYear}
+            partial={props.partial}
             onMonthChange={(val: number) => props.onMonthChange?.(val, { partial: props.partial })}
             onYearChange={(val: number) => props.onYearChange?.(val, { partial: props.partial })}
             onJumperClick={({ trigger }: { trigger: string }) =>
