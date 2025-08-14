@@ -98,6 +98,7 @@ export const catalogs = {
   test: {
     '@testing-library/dom': '^9.3.1',
     '@vue/test-utils': '^2.4.1',
+    canvas: '^3.1.2',
     'dom-parser': '^1.1.5',
     mockdate: '^3.0.5',
     msw: '^1.2.3',
