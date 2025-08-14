@@ -117,12 +117,14 @@ export default {
   onClose: Function as PropType<TdDrawerProps['onClose']>,
   /** 如果关闭按钮存在，点击关闭按钮时触发该事件，同时触发关闭事件 */
   onCloseBtnClick: Function as PropType<TdDrawerProps['onCloseBtnClick']>,
+  /** 抽屉关闭后触发 */
+  onClosed: Function as PropType<TdDrawerProps['onClosed']>,
   /** 如果“确认”按钮存在，则点击“确认”按钮时触发 */
   onConfirm: Function as PropType<TdDrawerProps['onConfirm']>,
   /** 按下 ESC 键时触发 */
   onEscKeydown: Function as PropType<TdDrawerProps['onEscKeydown']>,
-  /** 抽屉打开时触发 */
-  onOpen: Function as PropType<TdDrawerProps['onOpen']>,
+  /** 抽屉打开后触发 */
+  onOpened: Function as PropType<TdDrawerProps['onOpened']>,
   /** 如果蒙层存在，点击蒙层时触发 */
   onOverlayClick: Function as PropType<TdDrawerProps['onOverlayClick']>,
   /** 抽屉大小拖拽结束时触发，事件参数 `size` 在横向抽屉中表示宽度，在纵向抽屉中表示高度 */

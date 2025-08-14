@@ -95,9 +95,10 @@ onBeforeOpen | Function |  | TS 类型：`() => void`<br/>抽屉执行打开动�
 onCancel | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>如果“取消”按钮存在，点击“取消”按钮时触发，同时触发关闭事件 | N
 onClose | Function |  | TS 类型：`(context: DrawerCloseContext) => void`<br/>关闭事件，取消按钮点击时、关闭按钮点击时、ESC 按下时、点击蒙层时均会触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/drawer/type.ts)。<br/>`type DrawerEventSource = 'esc' \| 'close-btn' \| 'cancel' \| 'overlay'`<br/><br/>`interface DrawerCloseContext { trigger: DrawerEventSource; e: MouseEvent \| KeyboardEvent }`<br/> | N
 onCloseBtnClick | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>如果关闭按钮存在，点击关闭按钮时触发该事件，同时触发关闭事件 | N
+onClosed | Function |  | TS 类型：`() => void`<br/>抽屉关闭后触发 | N
 onConfirm | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>如果“确认”按钮存在，则点击“确认”按钮时触发 | N
 onEscKeydown | Function |  | TS 类型：`(context: { e: KeyboardEvent }) => void`<br/>按下 ESC 键时触发 | N
-onOpen | Function |  | TS 类型：`() => void`<br/>抽屉打开时触发 | N
+onOpened | Function |  | TS 类型：`() => void`<br/>抽屉打开后触发 | N
 onOverlayClick | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>如果蒙层存在，点击蒙层时触发 | N
 onSizeDragEnd | Function |  | TS 类型：`(context: { e: MouseEvent; size: number  }) => void`<br/>抽屉大小拖拽结束时触发，事件参数 `size` 在横向抽屉中表示宽度，在纵向抽屉中表示高度 | N
 
@@ -110,9 +111,10 @@ before-open | \- | 抽屉执行打开动画效果前触发
 cancel | `(context: { e: MouseEvent })` | 如果“取消”按钮存在，点击“取消”按钮时触发，同时触发关闭事件
 close | `(context: DrawerCloseContext)` | 关闭事件，取消按钮点击时、关闭按钮点击时、ESC 按下时、点击蒙层时均会触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/drawer/type.ts)。<br/>`type DrawerEventSource = 'esc' \| 'close-btn' \| 'cancel' \| 'overlay'`<br/><br/>`interface DrawerCloseContext { trigger: DrawerEventSource; e: MouseEvent \| KeyboardEvent }`<br/>
 close-btn-click | `(context: { e: MouseEvent })` | 如果关闭按钮存在，点击关闭按钮时触发该事件，同时触发关闭事件
+closed | \- | 抽屉关闭后触发
 confirm | `(context: { e: MouseEvent })` | 如果“确认”按钮存在，则点击“确认”按钮时触发
 esc-keydown | `(context: { e: KeyboardEvent })` | 按下 ESC 键时触发
-open | \- | 抽屉打开时触发
+opened | \- | 抽屉打开后触发
 overlay-click | `(context: { e: MouseEvent })` | 如果蒙层存在，点击蒙层时触发
 size-drag-end | `(context: { e: MouseEvent; size: number  })` | 抽屉大小拖拽结束时触发，事件参数 `size` 在横向抽屉中表示宽度，在纵向抽屉中表示高度
 
