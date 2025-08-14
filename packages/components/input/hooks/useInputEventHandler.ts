@@ -2,13 +2,16 @@ import { Ref } from 'vue';
 import { TdInputProps } from './../type';
 import { getOutputValue } from './useInput';
 
-export function useInputEventHandler(props: TdInputProps, isHover: Ref<Boolean>) {
+export function useInputEventHandler(props: TdInputProps, isHover: Ref<Boolean>, isComposition?: Ref<boolean>) {
   const handleKeydown = (e: KeyboardEvent) => {
     if (props.disabled) return;
     const { code } = e;
     const tmpValue = getOutputValue((e.currentTarget as HTMLInputElement).value, props.type);
     if (/enter/i.test(code) || /enter/i.test(e.key)) {
-      props.onEnter?.(tmpValue, { e });
+      // 修复中文输入法回车键冲突：在中文输入法激活时不触发onEnter事件
+      if (!isComposition?.value) {
+        props.onEnter?.(tmpValue, { e });
+      }
     } else {
       props.onKeydown?.(tmpValue, { e });
     }
