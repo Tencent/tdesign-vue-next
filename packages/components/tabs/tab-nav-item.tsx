@@ -57,11 +57,18 @@ export default defineComponent({
       };
     });
 
+    const removeBtn = () =>
+      props.removable && !props.disabled ? (
+        <span onClick={(e) => removeBtnClick({ e })} class="remove-btn">
+          <CloseIcon />
+        </span>
+      ) : null;
+
     const renderCardItem = () => {
       return (
         <div class={navItemClass.value} onClick={onClickNav} ref={itemRef}>
           <span class={`${COMPONENT_NAME.value}-text-wrapper`}>{props.label}</span>
-          {props.removable && !props.disabled ? <CloseIcon class="remove-btn" onClick={removeBtnClick} /> : null}
+          {removeBtn()}
         </div>
       );
     };
@@ -80,7 +87,7 @@ export default defineComponent({
           >
             <span class={`${COMPONENT_NAME.value}-text-wrapper`}>{props.label}</span>
           </div>
-          {props.removable && !props.disabled ? <CloseIcon class="remove-btn" onClick={removeBtnClick} /> : null}
+          {removeBtn()}
         </div>
       );
     };
