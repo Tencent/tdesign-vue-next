@@ -17,7 +17,7 @@ docClass: timeline
 - `DatePicker`: 优化年份选择模式下选择同面板年份后面板内容的展示效果 @uyarn ([#5882](https://github.com/Tencent/tdesign-vue-next/pull/5882))
 - `Input`: 修复中文输入法激活时回车触发 `onEnter` 事件的问题 @dhj-l ([#5862](https://github.com/Tencent/tdesign-vue-next/pull/5862))
 - `QRCode`: 修复 `type='svg'` 时 `value` 值变化而二维码未刷新的问题 @RSS1102 ([#5864](https://github.com/Tencent/tdesign-vue-next/pull/5864))
-- `Select`: 修复 `1.15.2` 版本中控制台关于 `size` 属性的告警问题 @novlan1 ([#5868](https://github.com/Tencent/tdesign-vue-next/pull/5868))
+- `Select`: 修复 `1.15.2` 版本中控制台关于 `size` 属性的告警问题 @RSS1102 ([#5868](https://github.com/Tencent/tdesign-vue-next/pull/5868))
 - `SelectInput`: 修复删除标签时组件闪烁的问题 @novlan1 ([#5868](https://github.com/Tencent/tdesign-vue-next/pull/5868))
 - `Typography`: 修复 Title 组件无法使用 `class` 的问题 @Wesley-0808 ([#5842](https://github.com/Tencent/tdesign-vue-next/pull/5842))
 - `Checkbox`: 修复点击之后 `onClick` 事件触发两次的问题 @RSS1102 ([#5825](https://github.com/Tencent/tdesign-vue-next/pull/5825))
@@ -1824,4 +1824,5 @@ docClass: timeline
 
 ## 🌈 0.x `2021-05-19 - 2022-12-14`
 前往 [GitHub](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/tdesign-vue-next/CHANGELOG-0.x.md) 查看 `0.x` 更新日志
+
 
