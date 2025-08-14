@@ -17,6 +17,14 @@ export default {
       return ['gradient', 'flashed', 'none'].includes(val);
     },
   },
+  /** 加载完成的内容 */
+  content: {
+    type: [String, Function] as PropType<TdSkeletonProps['content']>,
+  },
+  /** 加载完成的内容，同 content */
+  default: {
+    type: [String, Function] as PropType<TdSkeletonProps['default']>,
+  },
   /** 延迟显示加载效果的时间，用于防止请求速度过快引起的加载闪烁，单位：毫秒 */
   delay: {
     type: Number,
@@ -34,6 +42,7 @@ export default {
   /** 快捷定义骨架图风格，有基础、头像组合等，具体参看代码示例 */
   theme: {
     type: String as PropType<TdSkeletonProps['theme']>,
+    default: 'text' as TdSkeletonProps['theme'],
     validator(val: TdSkeletonProps['theme']): boolean {
       if (!val) return true;
       return ['text', 'avatar', 'paragraph', 'avatar-text', 'tab', 'article'].includes(val);
