@@ -387,7 +387,7 @@ describe('BaseTable Component', () => {
     );
   });
 
-  // JSDOM 环境下 scrollHeight/clientHeight 默认都为 0，需 mock，辅助函数便于复用
+  // JSDOM 环境下 scrollHeight/clientHeight 默认都为 0，需 mock
   function mockScrollHeight(element: HTMLElement, scrollHeight: number, clientHeight: number) {
     Object.defineProperty(element, 'scrollHeight', { value: scrollHeight, configurable: true });
     Object.defineProperty(element, 'clientHeight', { value: clientHeight, configurable: true });
@@ -413,26 +413,21 @@ describe('BaseTable Component', () => {
 
     const scrollElement = tableContent.element as HTMLElement;
 
-    // mock 滚动条高度，确保断言通过
     mockScrollHeight(scrollElement, 100, 50);
 
-    // 1. 初始化后就断言有滚动条，且初始 scrollTop 为 0
-    expect(scrollElement.scrollHeight).toBeGreaterThan(scrollElement.clientHeight); // 有滚动条
-    expect(scrollElement.scrollTop).toBe(0); // 初始在顶部
+    // 初始化后就断言有滚动条，且初始 scrollTop 为 0
+    expect(scrollElement.scrollHeight).toBeGreaterThan(scrollElement.clientHeight);
+    expect(scrollElement.scrollTop).toBe(0);
 
-    // 2. 滚动到某个距离
     scrollElement.scrollTop = 100;
-    expect(scrollElement.scrollTop).toBe(100); // 滚动后断言
+    expect(scrollElement.scrollTop).toBe(100);
 
-    // 3. 切换分页
     const nextButton = wrapper.find('.t-pagination__btn-next');
     expect(nextButton.exists()).toBeTruthy();
     await nextButton.trigger('click');
 
-    // 4. 断言 onPageChange 被触发
     expect(onPageChange).toHaveBeenCalledTimes(1);
-
-    // 5. 断言滚动条回到顶部
+    // 断言滚动条回到顶部
     expect(scrollElement.scrollTop).toBe(0);
   });
 });
