@@ -347,12 +347,8 @@ export default defineComponent({
           const { offsetTop } = row;
           const scrollTop = tableContentRef.value.scrollTop;
           const scrollHeight = offsetTop - scrollTop - (params.top ?? 0);
-          // 实现偏移量的支持
-          if (tableContentRef.value.scrollBy) {
-            tableContentRef.value.scrollBy({ top: scrollHeight, behavior: params.behavior ?? 'auto' });
-          } else {
-            tableContentRef.value.scrollTop += scrollHeight;
-          }
+          // 偏移量的支持
+          tableContentRef.value.scrollBy({ top: scrollHeight, behavior: params.behavior ?? 'auto' });
         }
       }
     };
