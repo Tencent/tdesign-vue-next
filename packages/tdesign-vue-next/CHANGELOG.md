@@ -5,6 +5,12 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.15.4 `2025-08-15` 
+
+### 🐞 Bug Fixes
+- `Textarea`: 修复 `allowInputOverMax` 无法在 `maxcharacter` 配置下生效的问题 @RSS1102 ([#5888](https://github.com/Tencent/tdesign-vue-next/pull/5888))
+
+
 ## 🌈 1.15.3 `2025-08-14` 
 
 ### 🚀 Features
