@@ -46,6 +46,9 @@
     "tdesign-web-components": "1.1.15-alpha.1",
     "omi-vueify": "^0.0.10"
   },
+  "devDependencies": {
+    "tvision-charts-vue-next": "^3.3.13"
+  },
   "peerDependencies": {
     "vue": ">=3.1.0"
   }
