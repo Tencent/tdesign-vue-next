@@ -1,4 +1,4 @@
-import { defineComponent, ref, toRefs, watch, computed } from 'vue';
+import { computed, defineComponent, ref, toRefs, watch } from 'vue';
 import { cloneDeep, isNull, isUndefined } from 'lodash-es';
 import {
   Color,
@@ -10,26 +10,23 @@ import {
   initColorFormat,
   TD_COLOR_USED_COLORS_MAX_SIZE,
 } from '@tdesign/common-js/color-picker/index';
-import { useConfig, useVModel, useDefaultValue, useCommonClassName } from '@tdesign/shared-hooks';
+import { useCommonClassName, useConfig, useDefaultValue, useVModel } from '@tdesign/shared-hooks';
 import props from '../../color-picker-panel-props';
+import { useBaseClassName } from '../../hooks';
+import type { ColorPickerChangeTrigger, TdColorPickerProps } from '../../type';
+import type { TdColorModes } from '../../types';
+import FormatPanel from '../format';
+import AlphaSlider from './alpha';
 import PanelHeader from './header';
+import HueSlider from './hue';
 import LinearGradient from './linear-gradient';
 import SaturationPanel from './saturation';
-import HueSlider from './hue';
-import AlphaSlider from './alpha';
-import FormatPanel from '../format';
 import SwatchesPanel from './swatches';
-import type { TdColorPickerProps, ColorPickerChangeTrigger } from '../../type';
-import type { TdColorModes } from '../../types';
-import { useBaseClassName } from '../../hooks';
 
 export default defineComponent({
   name: 'ColorPanel',
   props: {
     ...props,
-    togglePopup: {
-      type: Function,
-    },
   },
   setup(props) {
     const baseClassName = useBaseClassName();
