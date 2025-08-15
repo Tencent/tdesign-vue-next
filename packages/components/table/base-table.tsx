@@ -113,7 +113,21 @@ export default defineComponent({
       updateAffixHeaderOrFooter,
     } = useAffix(props);
 
-    const { dataSource, innerPagination, isPaginateData, renderPagination } = usePagination(props, context);
+    const resetScrollbar = () => {
+      if (tableContentRef.value && tableContentRef.value.scrollTo) {
+        tableContentRef.value.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+      } else if (tableContentRef.value) {
+        // 兼容测试环境或旧浏览器
+        tableContentRef.value.scrollTop = 0;
+        tableContentRef.value.scrollLeft = 0;
+      }
+    };
+
+    const { dataSource, innerPagination, isPaginateData, renderPagination } = usePagination(
+      props,
+      context,
+      resetScrollbar,
+    );
 
     // 列宽拖拽逻辑
     const columnResizeParams = useColumnResize({
@@ -246,7 +260,11 @@ export default defineComponent({
       const domRect = thDom.getBoundingClientRect();
       const contentRect = tableContentRef.value.getBoundingClientRect();
       const distance = domRect.left - contentRect.left - totalWidth;
-      tableContentRef.value.scrollTo({ left: distance, behavior: 'smooth' });
+      if (tableContentRef.value.scrollTo) {
+        tableContentRef.value.scrollTo({ left: distance, behavior: 'smooth' });
+      } else {
+        tableContentRef.value.scrollLeft = distance;
+      }
     };
 
     watch(tableContentRef, () => {

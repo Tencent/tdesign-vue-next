@@ -4,7 +4,7 @@ import Pagination, { PageInfo, PaginationProps } from '../../pagination';
 import { TdBaseTableProps, TableRowData } from '../type';
 
 // 分页功能包含：远程数据排序受控、远程数据排序非受控、本地数据排序受控、本地数据排序非受控 等 4 类功能
-export default function usePagination(props: TdBaseTableProps, context: SetupContext) {
+export default function usePagination(props: TdBaseTableProps, context: SetupContext, resetScrollbar: () => void) {
   const { pagination, data, disableDataPage } = toRefs(props);
   const { classPrefix } = useConfig();
   const innerPagination = ref<PaginationProps>(props.pagination);
@@ -69,6 +69,7 @@ export default function usePagination(props: TdBaseTableProps, context: SetupCon
             innerPagination.value = pageInfo;
             updateDataSourceAndPaginate(pageInfo.current, pageInfo.pageSize);
             props.onPageChange?.(pageInfo, dataSource.value);
+            resetScrollbar();
           }}
           v-slots={{ totalContent: context.slots.totalContent }}
         />
