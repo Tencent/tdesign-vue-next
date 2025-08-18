@@ -75,9 +75,9 @@ export default function usePagination(
             props.onPageChange?.(pageInfo, dataSource.value);
 
             // 当切换分页时，内容区域滚动到顶部
-            if (tableContentRef.value && tableContentRef.value.scrollTo) {
+            if (tableContentRef.value.scrollTo) {
               tableContentRef.value.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-            } else if (tableContentRef.value) {
+            } else {
               // 兼容测试环境或旧浏览器
               tableContentRef.value.scrollTop = 0;
               tableContentRef.value.scrollLeft = 0;
