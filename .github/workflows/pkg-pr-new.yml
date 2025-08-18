@@ -27,4 +27,8 @@ jobs:
 
       - run: node ./script/workflows/pkg-pr-new-generate-template.mjs
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
       - run: pnpm dlx pkg-pr-new publish './packages/tdesign-vue-next' './packages/tdesign-vue-next-chat' './packages/auto-import-resolver' --pnpm --template ./tdesign-vue-next-demo
