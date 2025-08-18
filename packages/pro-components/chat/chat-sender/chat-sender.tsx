@@ -222,12 +222,12 @@ export default defineComponent({
     };
     const renderHeader = () => {
       return props.attachmentsProps.items.length > 0 ? (
-        // @ts-ignore
         <Attachments
-          {...props.attachmentsProps}
+          items={props.attachmentsProps.items}
           onRemove={handleRemove}
           onFileClick={handleFileClick}
           class={`${COMPONENT_NAME.value}-sender__attachment`}
+          overflow={props.attachmentsProps.overflow}
         />
       ) : (
         renderTNodeJSX('header')
