@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="https://github.com/Tencent/tdesign-vue-next/blob/develop/LICENSE">
-    <img src="https://img.shielßds.io/npm/l/tdesign-vue-next.svg?sanitize=true" alt="License">
+    <img src="https://img.shields.io/npm/l/tdesign-vue-next.svg?sanitize=true" alt="License">
   </a>
   <a href="https://www.npmjs.com/package/tdesign-vue-next">
     <img src="https://img.shields.io/npm/v/tdesign-vue-next.svg?sanitize=true" alt="Version">
@@ -21,7 +21,7 @@
 
 English | [简体中文](./README-zh_CN.md)
 
-TDesign Vue Next is a UI component library for Vue 3 and desktop application..
+TDesign Vue Next is a UI component library for Vue 3 and desktop application.
 
 # 🎉 Features
 
