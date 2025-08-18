@@ -1,11 +1,11 @@
-import { defineComponent, computed, onMounted, inject, ComputedRef } from 'vue';
+import { defineComponent, computed, inject, onMounted, ComputedRef } from 'vue';
 import { useConfig } from 'tdesign-vue-next/es/config-provider/hooks';
 import { usePrefixClass } from '@tdesign/shared-hooks';
-import props from './chat-content-props';
-import Clipboard from 'clipboard';
-import hljs from 'highlight.js';
 import { Marked } from 'marked';
 import { markedHighlight } from 'marked-highlight';
+import hljs from 'highlight.js';
+import Clipboard from 'clipboard';
+import props from './chat-content-props';
 
 const escapeTest = /[&<>"']/;
 const escapeReplace = new RegExp(escapeTest.source, 'g');
@@ -90,12 +90,23 @@ export default defineComponent({
       if (role.value === 'model-change') {
         return props.content || '';
       }
-
-      if (role.value === 'user' && typeof props.content === 'string') {
-        return escape(props.content);
+      if (typeof props.content === 'string') {
+        return role.value === 'user' ? escape(props.content) : getHtmlByMarked(props.content);
       }
-      // @ts-ignore 暂时处理
-      return getHtmlByMarked(props.content);
+      // 处理结构化内容类型
+      if (typeof props.content === 'object' && props.content !== null) {
+        const { type, data } = props.content;
+        switch (type) {
+          case 'text':
+            return escape(data || '');
+          case 'markdown':
+            return getHtmlByMarked(data || '');
+          default:
+            return getHtmlByMarked(JSON.stringify(data) || '');
+        }
+      }
+      // 如果内容为空或不是字符串，返回空内容
+      return props.content || '';
     });
     return () => (
       <div class={[`${COMPONENT_NAME.value}__text`]}>

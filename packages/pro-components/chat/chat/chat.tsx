@@ -98,10 +98,26 @@ export default defineComponent({
                 renderTNodeJSX('actionbar', {
                   params: { item, index },
                 }),
-              name: () => renderTNodeJSX('name', { params: { item, index } }),
-              avatar: () => renderTNodeJSX('avatar', { params: { item, index } }),
-              datetime: () => renderTNodeJSX('datetime', { params: { item, index } }),
-              content: () => renderTNodeJSX('content', { params: { item, index } }),
+              name: () => {
+                const name = renderTNodeJSX('name', { params: { item, index } });
+                return name ? <div>{name}</div> : null;
+              },
+              avatar: () => {
+                const avatar = renderTNodeJSX('avatar', { params: { item, index } });
+                return avatar ? <div>{avatar}</div> : null;
+              },
+              datetime: () => {
+                const datetime = renderTNodeJSX('datetime', { params: { item, index } });
+                return datetime ? <div>{datetime}</div> : null;
+              },
+              header: () => {
+                const header = renderTNodeJSX('header', { params: { item, index } });
+                return header ? <div>{header}</div> : null;
+              },
+              content: () => {
+                const content = renderTNodeJSX('content', { params: { item, index } });
+                return content ? <div>{content}</div> : null;
+              },
             }}
           />
         ));

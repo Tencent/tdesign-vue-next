@@ -1,5 +1,6 @@
 <template>
-  <t-chat-content role="assistant" :content="doc" variant="base"> </t-chat-content>
+  <!-- <t-chat-content role="assistant" :content="doc" variant="base"> </t-chat-content> -->
+  <t-chat-content :content="message.content" :role="message.role" variant="base" />
 </template>
 <script setup lang="ts">
 const doc = `
@@ -65,4 +66,8 @@ const app = createApp(App);
 app.use(TDesignChat);
 \`\`\`
 `;
+const message = {
+  role: 'assistant',
+  content: doc,
+};
 </script>

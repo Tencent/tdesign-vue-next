@@ -13,17 +13,9 @@
     >
       <!-- eslint-disable vue/no-unused-vars -->
       <template #content="{ item, index }">
-        <t-chat-reasoning v-if="item.reasoning?.length > 0" expand-icon-placement="right">
-          <template #header>
-            <t-chat-loading v-if="isStreamLoad && item.content.length === 0" text="思考中..." />
-            <div v-else style="display: flex; align-items: center">
-              <CheckCircleIcon style="color: var(--td-success-color-5); font-size: 20px; margin-right: 8px" />
-              <span>已深度思考</span>
-            </div>
-          </template>
-          <t-chat-content v-if="item.reasoning.length > 0" :content="item.reasoning" />
-        </t-chat-reasoning>
-        <t-chat-content v-if="item.content.length > 0" :content="item.content" />
+        <template v-for="(content, idx) in item.message.content" :key="idx">
+          <t-chat-content :content="content" :role="item.message.role" />
+        </template>
       </template>
       <template #actionbar="{ item, index }">
         <t-chat-action
@@ -79,8 +71,8 @@ const chatList = ref([
     avatar: 'https://tdesign.gtimg.com/site/chat-avatar.png',
     name: 'TDesignAI',
     datetime: '今天16:38',
+    role: 'assistant',
     message: {
-      role: 'assistant',
       content: [
         {
           type: 'text',
@@ -93,8 +85,8 @@ const chatList = ref([
     avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
     name: '自己',
     datetime: '今天16:38',
+    role: 'user',
     message: {
-      role: 'user',
       content: [
         {
           type: 'text',
@@ -232,6 +224,9 @@ const handleData = async () => {
 };
 </script>
 <style lang="less">
+.text {
+  color: red;
+}
 /* 应用滚动条样式 */
 ::-webkit-scrollbar-thumb {
   background-color: var(--td-scrollbar-color);
