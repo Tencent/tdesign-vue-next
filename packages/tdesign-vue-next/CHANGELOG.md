@@ -5,6 +5,13 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.15.5 `2025-08-18` 
+
+### 🐞 Bug Fixes
+- `DatePicker`: 修复 `1.15.3` 版本中日期范围选择面板年份错误的问题 @uyarn ([#5901](https://github.com/Tencent/tdesign-vue-next/pull/5901))
+- `InputNumber`: 修复 `1.15.3` 版本后设置`allowInputOverLimit` 为 false 但未设置最小值的展示异常问题 @YuShengHou ([#5898](https://github.com/Tencent/tdesign-vue-next/pull/5898))
+
+
 ## 🌈 1.15.4 `2025-08-15` 
 
 ### 🐞 Bug Fixes
