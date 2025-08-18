@@ -208,8 +208,8 @@ export default function useInputNumber(props: TdInputNumberProps) {
   const handleBlur = (value: string, ctx: { e: FocusEvent }) => {
     const { largeNumber, max, min, decimalPlaces } = props;
     if (!props.allowInputOverLimit) {
-      // 当值为 undefined 或 null 时，设置为最小值
-      if ([undefined, null].includes(tValue.value)) {
+      // 当值为 undefined 或 null 且最小值不为默认值 -Infinity 时，设置为最小值
+      if ([undefined, null].includes(tValue.value) && min !== -Infinity) {
         setTValue(min, { type: 'blur', e: ctx.e });
         props.onBlur?.(min, ctx);
         return;
