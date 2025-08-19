@@ -1,8 +1,10 @@
 <template>
   <t-space direction="vertical" size="large">
-    <t-space>
+    <t-space align="center">
       <t-input v-model="offsetX" placeholder="请输入横向偏移量" />
       <t-input v-model="offsetY" placeholder="请输入纵向偏移量" />
+      显示超长提示文本效果
+      <t-switch v-model="isLongMessage" />
     </t-space>
     <div class="tdesign-tooltip-placement">
       <t-button variant="outline" class="placement-center" @click="$message.success(msgList[0])">center</t-button>
@@ -28,6 +30,7 @@
 import { computed, ref } from 'vue';
 const offsetX = ref('');
 const offsetY = ref('');
+const isLongMessage = ref(false);
 const msgList = computed(() =>
   [
     {
@@ -69,6 +72,9 @@ const msgList = computed(() =>
   ].map((item) => ({
     ...item,
     offset: [offsetX.value, offsetY.value],
+    ...(isLongMessage.value
+      ? { content: '这是一条特别长的提示，您可以根据这一条提示的长度，查看提示的显示效果并调整偏移量。'.repeat(5) }
+      : {}),
   })),
 );
 </script>
