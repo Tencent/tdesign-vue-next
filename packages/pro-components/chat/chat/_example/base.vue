@@ -14,7 +14,24 @@
       <!-- eslint-disable vue/no-unused-vars -->
       <template #content="{ item, index }">
         <template v-for="(content, idx) in item.message.content" :key="idx">
-          <t-chat-content :content="content" :role="item.message.role" />
+          <!-- <t-chat-thinking
+            v-if="content.type === 'thinking'"
+            :content="content.data"
+            :status="isStreamLoad ? 'pending' : 'complete'"
+            :collapsed="collapsed"
+            @collapsed-change="collapsedChangeHandle"
+          /> -->
+          <t-chat-reasoning v-if="content.type === 'thinking'" expand-icon-placement="right">
+            <template #header>
+              <t-chat-loading v-if="isStreamLoad" text="思考中..." />
+              <div v-else style="display: flex; align-items: center">
+                <CheckCircleIcon style="color: var(--td-success-color-5); font-size: 20px; margin-right: 8px" />
+                <span>已深度思考</span>
+              </div>
+            </template>
+            <t-chat-content v-if="content.data.text.length > 0" :content="content.data.text" role="assistant" />
+          </t-chat-reasoning>
+          <t-chat-content v-else :content="content" :role="item.message.role" />
         </template>
       </template>
       <template #actionbar="{ item, index }">
@@ -65,14 +82,18 @@ const clearConfirm = function () {
 const handleOperation = function (type, options) {
   console.log('handleOperation', type, options);
 };
+const collapsed = ref(false);
+const collapsedChangeHandle = (e) => {
+  collapsed.value = e.detail;
+};
 // 倒序渲染
 const chatList = ref([
   {
     avatar: 'https://tdesign.gtimg.com/site/chat-avatar.png',
     name: 'TDesignAI',
     datetime: '今天16:38',
-    role: 'assistant',
     message: {
+      role: 'assistant',
       content: [
         {
           type: 'text',
@@ -85,8 +106,8 @@ const chatList = ref([
     avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
     name: '自己',
     datetime: '今天16:38',
-    role: 'user',
     message: {
+      role: 'user',
       content: [
         {
           type: 'text',
@@ -138,11 +159,11 @@ const inputEnter = function (inputValue) {
           status: 'complete',
           data: {
             title: '思考中...',
-            content: '',
+            text: '',
           },
         },
         {
-          type: 'text',
+          type: 'markdown',
           data: '',
         },
       ],
@@ -204,14 +225,19 @@ const handleData = async () => {
       success(result) {
         console.log('success', result);
         loading.value = false;
-        lastItem.reasoning += result.delta.reasoning_content;
-        lastItem.content += result.delta.content;
+        // 设置思考过程的status
+        if (result.delta.reasoning_content) {
+          lastItem.message.content[0].data.text += result.delta.reasoning_content;
+        }
+        if (result.delta.content) {
+          lastItem.message.content[1].data += result.delta.content;
+        }
       },
       complete(isOk, msg) {
         if (!isOk) {
           lastItem.role = 'error';
-          lastItem.content = msg;
-          lastItem.reasoning = msg;
+          lastItem.message.content[0].data.text = msg;
+          lastItem.message.content[1].data = msg;
         }
         // 显示用时xx秒，业务侧需要自行处理
         lastItem.duration = 20;
