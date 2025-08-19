@@ -32,7 +32,6 @@ export default defineComponent({
     let shiftDownFlag = false;
     let isComposition = false;
     const renderTNodeJSX = useTNodeJSX();
-    const suffixIcon = renderTNodeJSX('suffixIcon') || slots.suffixIcon;
     const sendClick = (e: MouseEvent | KeyboardEvent) => {
       if (textValue.value && !disabled.value) {
         emit('send', textValue.value, { e });
@@ -105,6 +104,7 @@ export default defineComponent({
       );
     };
     const renderSuffixIcon = () => {
+      const suffixIcon = renderTNodeJSX('suffixIcon');
       return suffixIcon ? suffixIcon : getDefaultSuffixIcon();
     };
     return () => (
