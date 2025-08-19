@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ColorPickerPanel > :events > palette-bar-change 1`] = `{
+    "alpha": 1,
+    "css": "rgba(0, 163, 217, 1)",
+    "hex": "#00a3d9",
+    "hex8": "#00a3d9ff",
+    "hsl": "hsl(195, 100%, 43%)",
+    "hsla": "hsla(195, 100%, 43%, 1)",
+    "hsv": "hsv(195, 100%, 85%)",
+    "hsva": "hsva(195, 100%, 85%, 1)",
+    "rgb": "rgb(0, 163, 217)",
+    "rgba": "rgba(0, 163, 217, 1)",
+    "saturation": 1,
+    "value": 0.8509803921568627,
+    "isGradient": false
+}`;
