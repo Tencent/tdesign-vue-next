@@ -3,9 +3,9 @@ import { mount } from '@vue/test-utils';
 import { vi, describe, it, expect } from 'vitest';
 import { BackTop } from '@tdesign/components/back-top';
 import props from '@tdesign/components/back-top/props';
-import * as TDesignSharedUtils from '@tdesign/shared-utils';
+import * as SharedUtils from '@tdesign/shared-utils';
 
-const scrollToSpy = vi.spyOn(TDesignSharedUtils, 'scrollTo');
+const scrollToSpy = vi.spyOn(SharedUtils, 'scrollTo');
 
 describe('BackTop', () => {
   beforeEach(() => {
@@ -14,19 +14,16 @@ describe('BackTop', () => {
 
   describe('props', () => {
     it(':container[string/function]', () => {
-      // Function
       const containerEl = document.createElement('div');
       containerEl.className = 'custom-container';
       const wrapper = mount(<BackTop container={() => containerEl}></BackTop>);
       expect(wrapper.exists()).toBeTruthy();
 
-      // String selector
       const wrapper2 = mount(<BackTop container="body"></BackTop>);
       expect(wrapper2.exists()).toBeTruthy();
     });
 
     it(':content[string/function]', () => {
-      // Function
       const wrapper = mount(<BackTop content={() => <span class="custom-node">TNode</span>}></BackTop>);
       expect(wrapper.find('.custom-node').exists()).toBeTruthy();
       expect(wrapper.element).toMatchSnapshot('content-TNode');
@@ -39,7 +36,6 @@ describe('BackTop', () => {
     });
 
     it(':default[string/function]', () => {
-      // Function
       const wrapper = mount(<BackTop default={() => <span class="custom-node">TNode</span>}></BackTop>);
       expect(wrapper.find('.custom-node').exists()).toBeTruthy();
       expect(wrapper.element).toMatchSnapshot('default-TNode');
@@ -99,13 +95,13 @@ describe('BackTop', () => {
     });
 
     it(':target[string/function]', async () => {
-      // Function
+      // function
       const targetEl = document.createElement('div');
       targetEl.className = 'scroll-target';
       const wrapper = mount(<BackTop target={() => targetEl}></BackTop>);
       expect(wrapper.exists()).toBeTruthy();
 
-      // String selector
+      // string
       const wrapper2 = mount(<BackTop target="body"></BackTop>);
       expect(wrapper2.exists()).toBeTruthy();
     });
@@ -247,14 +243,14 @@ describe('BackTop', () => {
       // Scroll past threshold - should become visible
       container.scrollTop = 100;
       if (container.onscroll) {
-        container.onscroll(new Event('scroll') as any);
+        container.onscroll(new Event('scroll'));
       }
       await nextTick();
 
       // Scroll back below threshold - should become invisible
       container.scrollTop = 30;
       if (container.onscroll) {
-        container.onscroll(new Event('scroll') as any);
+        container.onscroll(new Event('scroll'));
       }
       await nextTick();
 
@@ -304,7 +300,7 @@ describe('BackTop', () => {
       expect(scrollToSpy).toHaveBeenCalledWith(0, expect.any(Object));
 
       // No target
-      const wrapper4 = mount(<BackTop target={undefined as any}></BackTop>);
+      const wrapper4 = mount(<BackTop target={undefined}></BackTop>);
       await wrapper4.trigger('click');
       expect(scrollToSpy).toHaveBeenCalled();
 
@@ -391,7 +387,8 @@ describe('BackTop', () => {
       const container = { someProperty: 'value' };
 
       try {
-        const wrapper = mount(<BackTop container={container as any}></BackTop>);
+        // @ts-expect-error error
+        const wrapper = mount(<BackTop container={container}></BackTop>);
         expect(wrapper.exists()).toBeTruthy();
 
         await nextTick();
@@ -403,12 +400,13 @@ describe('BackTop', () => {
 
     it.skipIf(process.env.TEST_TARGET === 'snap')('handles edge case target values', async () => {
       // Null value
-      const wrapper1 = mount(<BackTop target={null as any}></BackTop>);
+      const wrapper1 = mount(<BackTop target={null}></BackTop>);
       await wrapper1.trigger('click');
       expect(scrollToSpy).toHaveBeenCalled();
 
       // False value
-      const wrapper2 = mount(<BackTop target={false as any}></BackTop>);
+      // @ts-expect-error error
+      const wrapper2 = mount(<BackTop target={false}></BackTop>);
       await wrapper2.trigger('click');
       expect(scrollToSpy).toHaveBeenCalled();
 
@@ -418,7 +416,8 @@ describe('BackTop', () => {
       expect(scrollToSpy).toHaveBeenCalled();
 
       // Zero value
-      const wrapper4 = mount(<BackTop target={0 as any}></BackTop>);
+      // @ts-expect-error error
+      const wrapper4 = mount(<BackTop target={0}></BackTop>);
       await wrapper4.trigger('click');
       expect(scrollToSpy).toHaveBeenCalled();
     });
