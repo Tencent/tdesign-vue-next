@@ -2,7 +2,7 @@ import { nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
 
-// Mock scrollTo function
+// Mock the scrollTo function
 vi.mock('@tdesign/shared-utils', async () => {
   const actual = await vi.importActual('@tdesign/shared-utils');
   return {
@@ -90,15 +90,15 @@ describe('BackTop Component', () => {
   });
 
   // Test target prop
-  it('props.target works fine', async () => {
+  it.skipIf(process.env.TEST_TARGET === 'snap')('props.target works fine', async () => {
     const targetEl = document.createElement('div');
     targetEl.className = 'scroll-target';
     const wrapper = mount(<BackTop target={() => targetEl}></BackTop>);
     await wrapper.trigger('click');
-    expect(vi.mocked(scrollTo)).toHaveBeenCalled();
+    expect(scrollTo).toHaveBeenCalled();
   });
 
-  it('props.target with string selector works fine', async () => {
+  it.skipIf(process.env.TEST_TARGET === 'snap')('props.target with string selector works fine', async () => {
     const wrapper = mount(<BackTop target="body"></BackTop>);
     expect(wrapper.exists()).toBeTruthy();
 
@@ -145,7 +145,7 @@ describe('BackTop Component', () => {
     expect(fn).toHaveBeenCalled();
   });
 
-  it('click triggers scrollTo function', async () => {
+  it.skipIf(process.env.TEST_TARGET === 'snap')('click triggers scrollTo function', async () => {
     const wrapper = mount(<BackTop></BackTop>);
     await wrapper.trigger('click');
     expect(vi.mocked(scrollTo)).toHaveBeenCalledTimes(1);
@@ -291,7 +291,7 @@ describe('BackTop Component', () => {
   });
 
   // Test getBackTo function variations
-  it('handles target same as container', async () => {
+  it.skipIf(process.env.TEST_TARGET === 'snap')('handles target same as container', async () => {
     const container = document.createElement('div');
     document.body.appendChild(container);
 
@@ -302,20 +302,20 @@ describe('BackTop Component', () => {
     document.body.removeChild(container);
   });
 
-  it('handles target as body string', async () => {
+  it.skipIf(process.env.TEST_TARGET === 'snap')('handles target as body string', async () => {
     const wrapper = mount(<BackTop target="body"></BackTop>);
     await wrapper.trigger('click');
     expect(vi.mocked(scrollTo)).toHaveBeenCalled();
   });
 
-  it('handles target with exact body string comparison', async () => {
+  it.skipIf(process.env.TEST_TARGET === 'snap')('handles target with exact body string comparison', async () => {
     // Explicitly test target === 'body' condition in getBackTo
     const wrapper = mount(<BackTop container="body" target="body"></BackTop>);
     await wrapper.trigger('click');
     expect(vi.mocked(scrollTo)).toHaveBeenCalledWith(0, expect.any(Object));
   });
 
-  it('tests getBackTo with different target and container', async () => {
+  it.skipIf(process.env.TEST_TARGET === 'snap')('tests getBackTo with different target and container', async () => {
     // Test case where target !== container and target is 'body'
     const container = document.createElement('div');
     document.body.appendChild(container);
@@ -327,19 +327,19 @@ describe('BackTop Component', () => {
     document.body.removeChild(container);
   });
 
-  it('handles no target', async () => {
+  it.skipIf(process.env.TEST_TARGET === 'snap')('handles no target', async () => {
     const wrapper = mount(<BackTop target={undefined as any}></BackTop>);
     await wrapper.trigger('click');
     expect(vi.mocked(scrollTo)).toHaveBeenCalled();
   });
 
-  it('handles target that returns null', async () => {
+  it.skipIf(process.env.TEST_TARGET === 'snap')('handles target that returns null', async () => {
     const wrapper = mount(<BackTop target={() => null}></BackTop>);
     await wrapper.trigger('click');
     expect(vi.mocked(scrollTo)).toHaveBeenCalled();
   });
 
-  it('handles target with getBoundingClientRect', async () => {
+  it.skipIf(process.env.TEST_TARGET === 'snap')('handles target with getBoundingClientRect', async () => {
     const targetElement = document.createElement('div');
     targetElement.getBoundingClientRect = vi.fn().mockReturnValue({ y: 100 });
     document.body.appendChild(targetElement);
@@ -352,7 +352,7 @@ describe('BackTop Component', () => {
     document.body.removeChild(targetElement);
   });
 
-  it('handles target as string selector', async () => {
+  it.skipIf(process.env.TEST_TARGET === 'snap')('handles target as string selector', async () => {
     const targetElement = document.createElement('div');
     targetElement.className = 'scroll-target';
     targetElement.getBoundingClientRect = vi.fn().mockReturnValue({ y: 150 });
@@ -445,25 +445,25 @@ describe('BackTop Component', () => {
   });
 
   // Additional tests to cover remaining branches in getBackTo function
-  it('handles target null value explicitly', async () => {
+  it.skipIf(process.env.TEST_TARGET === 'snap')('handles target null value explicitly', async () => {
     const wrapper = mount(<BackTop target={null as any}></BackTop>);
     await wrapper.trigger('click');
     expect(vi.mocked(scrollTo)).toHaveBeenCalled();
   });
 
-  it('handles target false value', async () => {
+  it.skipIf(process.env.TEST_TARGET === 'snap')('handles target false value', async () => {
     const wrapper = mount(<BackTop target={false as any}></BackTop>);
     await wrapper.trigger('click');
     expect(vi.mocked(scrollTo)).toHaveBeenCalled();
   });
 
-  it('handles target empty string', async () => {
+  it.skipIf(process.env.TEST_TARGET === 'snap')('handles target empty string', async () => {
     const wrapper = mount(<BackTop target="">BackTop</BackTop>);
     await wrapper.trigger('click');
     expect(vi.mocked(scrollTo)).toHaveBeenCalled();
   });
 
-  it('handles target 0 value', async () => {
+  it.skipIf(process.env.TEST_TARGET === 'snap')('handles target 0 value', async () => {
     const wrapper = mount(<BackTop target={0 as any}></BackTop>);
     await wrapper.trigger('click');
     expect(vi.mocked(scrollTo)).toHaveBeenCalled();

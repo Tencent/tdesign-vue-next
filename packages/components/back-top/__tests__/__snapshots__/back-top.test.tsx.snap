@@ -172,20 +172,6 @@ exports[`BackTop Component > props.theme is equal to primary 1`] = `
 </button>
 `;
 
-exports[`BackTop Component > renders custom content via prop and slot 1`] = `
-<button
-  class="t-back-top t-back-top--theme-light t-back-top--square t-size-m"
-  style="inset-inline-end: 24px; inset-block-end: 80px;"
-  type="button"
->
-  <span
-    class="custom-node"
-  >
-    TNode
-  </span>
-</button>
-`;
-
 exports[`BackTop Component > slots.content works fine 1`] = `
 <button
   class="t-back-top t-back-top--theme-light t-back-top--square t-size-m"
