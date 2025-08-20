@@ -5,6 +5,7 @@
 
 import { VueWrapper } from '@vue/test-utils';
 import { nextTick } from 'vue';
+import { TdPrimaryTableProps } from '@tdesign/components/table';
 
 // 标准测试数据
 export const mockData = [
@@ -92,7 +93,7 @@ export const sortableColumns = [
 ];
 
 // 带过滤的列配置
-export const filterableColumns = [
+export const filterableColumns: TdPrimaryTableProps['columns'] = [
   { title: 'ID', colKey: 'id', width: 80 },
   { title: 'Name', colKey: 'name', width: 150 },
   { title: 'Age', colKey: 'age', width: 80 },
@@ -102,7 +103,7 @@ export const filterableColumns = [
     colKey: 'status',
     width: 100,
     filter: {
-      type: 'single' as const,
+      type: 'single',
       list: [
         { label: 'Active', value: 'active' },
         { label: 'Inactive', value: 'inactive' },
@@ -114,7 +115,7 @@ export const filterableColumns = [
     colKey: 'department',
     width: 120,
     filter: {
-      type: 'multiple' as const,
+      type: 'multiple',
       list: [
         { label: 'Engineering', value: 'Engineering' },
         { label: 'Marketing', value: 'Marketing' },
@@ -123,7 +124,7 @@ export const filterableColumns = [
       ],
     },
   },
-] as const;
+];
 
 // 固定列配置
 export const fixedColumns = [

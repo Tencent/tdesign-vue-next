@@ -18,6 +18,7 @@ import {
   expectDragHandles,
   expectCheckboxes,
 } from './shared/test-assertions';
+import { TdPrimaryTableProps } from '@tdesign/components/table';
 
 describe('Table Hooks Functionality', () => {
   // 测试useSorter hook
@@ -97,7 +98,7 @@ describe('Table Hooks Functionality', () => {
         });
 
         it('should support custom filter function', async () => {
-          const customFilterColumns = [
+          const customFilterColumns: TdPrimaryTableProps['columns'] = [
             { title: 'ID', colKey: 'id', width: 80 },
             { title: 'Name', colKey: 'name', width: 150 },
             { title: 'Age', colKey: 'age', width: 80 },
