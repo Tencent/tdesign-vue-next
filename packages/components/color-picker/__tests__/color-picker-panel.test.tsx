@@ -1,4 +1,4 @@
-import { ColorObject, ColorPickerPanel } from '@tdesign/components/color-picker';
+import { ColorPickerPanel } from '@tdesign/components/color-picker';
 import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
 import { nextTick, ref } from 'vue';
