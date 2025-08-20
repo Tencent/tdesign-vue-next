@@ -28,6 +28,34 @@ exports[`BackTop Component > props.default works fine 1`] = `
 </button>
 `;
 
+exports[`BackTop Component > props.offset works fine with array 1`] = `
+<button
+  class="t-back-top t-back-top--theme-light t-back-top--square t-size-m"
+  style="inset-inline-end: 10px; inset-block-end: 20px;"
+  type="button"
+>
+  
+  <svg
+    class="t-icon t-icon-backtop t-back-top__icon"
+    fill="none"
+    height="1em"
+    viewBox="0 0 24 24"
+    width="1em"
+  >
+    <path
+      d="M4 4H20V6H4V4ZM12 7.58579L18.9142 14.5L17.5 15.9142L13 11.4142V21H11V11.4142L6.5 15.9142L5.08579 14.5L12 7.58579Z"
+      fill="currentColor"
+    />
+  </svg>
+  <span
+    class="t-back-top__text"
+  >
+    TOP
+  </span>
+  
+</button>
+`;
+
 exports[`BackTop Component > props.shape is equal to circle 1`] = `
 <button
   class="t-back-top t-back-top--theme-light t-back-top--circle t-size-m"
@@ -141,6 +169,20 @@ exports[`BackTop Component > props.theme is equal to primary 1`] = `
   
   Text
   
+</button>
+`;
+
+exports[`BackTop Component > renders custom content via prop and slot 1`] = `
+<button
+  class="t-back-top t-back-top--theme-light t-back-top--square t-size-m"
+  style="inset-inline-end: 24px; inset-block-end: 80px;"
+  type="button"
+>
+  <span
+    class="custom-node"
+  >
+    TNode
+  </span>
 </button>
 `;
 
