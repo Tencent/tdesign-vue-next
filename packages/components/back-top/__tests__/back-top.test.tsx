@@ -113,7 +113,9 @@ describe('BackTop', () => {
       await wrapper.trigger('click');
       expect(scrollToSpy).toHaveBeenCalled();
 
-      const wrapper2 = mount(<BackTop target="body"></BackTop>);
+      const container = document.createElement('div');
+      container.className = 'custom-container';
+      const wrapper2 = mount(<BackTop container={() => container} target="body"></BackTop>);
       await wrapper2.trigger('click');
       expect(scrollToSpy).toHaveBeenCalled();
     });
