@@ -538,7 +538,7 @@ export default defineComponent({
               clearable: props.clearable,
               loading: props.loading,
               status: props.status,
-              tips: renderTNodeJSX('tips'),
+              tips: () => renderTNodeJSX('tips'),
               minCollapsedNum: props.minCollapsedNum,
               autofocus: props.autofocus,
               suffix: props.suffix,
