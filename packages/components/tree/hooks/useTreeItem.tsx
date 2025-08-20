@@ -143,7 +143,7 @@ export default function useTreeItem(state: TypeTreeItemState) {
         data-level={level}
         style={styles}
         onClick={(evt: MouseEvent) => handleClick(evt)}
-        draggable={node.isDraggable()}
+        draggable={!node.isDisabled() && node.isDraggable()}
         onDragstart={(evt: DragEvent) => handleDragStart(evt)}
         onDragend={(evt: DragEvent) => handleDragEnd(evt)}
         onDragover={(evt: DragEvent) => handleDragOver(evt)}
