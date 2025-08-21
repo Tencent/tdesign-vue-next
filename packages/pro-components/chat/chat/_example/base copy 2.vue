@@ -1,23 +1,35 @@
 <template>
-  <t-space align="center">
-    <t-button theme="primary" @click="visible = true">AI助手悬窗展示</t-button>
-  </t-space>
-  <t-drawer v-model:visible="visible" :footer="false" size="480px" :close-btn="true" class="drawer-box">
-    <template #header>
-      <t-avatar size="32px" shape="circle" image="https://tdesign.gtimg.com/site/chat-avatar.png"></t-avatar>
-      <span class="title">Hi, &nbsp;我是AI</span>
-    </template>
-    <template v-for="(item, index) in chatList" :key="index">
-      <t-chat-message :avatar="item.avatar" :name="item.name" :message="item.message" />
-    </template>
-    <t-chat-input :stop-disabled="isStreamLoad" @send="inputEnter" @stop="onStop"> </t-chat-input>
-  </t-drawer>
+  <div class="chat-box">
+    <t-chat
+      ref="chatRef"
+      :clear-history="chatList.length > 0 && !isStreamLoad"
+      :text-loading="loading"
+      :is-stream-load="isStreamLoad"
+      style="height: 600px"
+      animation="gradient"
+      @scroll="handleChatScroll"
+      @clear="clearConfirm"
+    >
+      <!-- eslint-disable vue/no-unused-vars -->
+      <template v-for="(item, index) in chatList" :key="index">
+        <t-chat-message :avatar="item.avatar" :name="item.name" :message="item.message" />
+      </template>
+      <template #footer>
+        <t-chat-input :stop-disabled="isStreamLoad" @send="inputEnter" @stop="onStop"> </t-chat-input>
+      </template>
+    </t-chat>
+    <t-button v-show="isShowToBottom" variant="text" class="bottomBtn" @click="backBottom">
+      <div class="to-bottom">
+        <ArrowDownIcon />
+      </div>
+    </t-button>
+  </div>
 </template>
 <script setup lang="jsx">
 import { ref } from 'vue';
 import { MockSSEResponse } from './mock-data/sseRequest-reasoning';
 import { ArrowDownIcon, CheckCircleIcon } from 'tdesign-icons-vue-next';
-const visible = ref(false);
+
 const fetchCancel = ref(null);
 const loading = ref(false);
 // 流式数据加载中

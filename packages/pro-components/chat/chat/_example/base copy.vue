@@ -1,23 +1,40 @@
 <template>
-  <t-space align="center">
-    <t-button theme="primary" @click="visible = true">AI助手悬窗展示</t-button>
-  </t-space>
-  <t-drawer v-model:visible="visible" :footer="false" size="480px" :close-btn="true" class="drawer-box">
-    <template #header>
-      <t-avatar size="32px" shape="circle" image="https://tdesign.gtimg.com/site/chat-avatar.png"></t-avatar>
-      <span class="title">Hi, &nbsp;我是AI</span>
-    </template>
-    <template v-for="(item, index) in chatList" :key="index">
-      <t-chat-message :avatar="item.avatar" :name="item.name" :message="item.message" />
-    </template>
-    <t-chat-input :stop-disabled="isStreamLoad" @send="inputEnter" @stop="onStop"> </t-chat-input>
-  </t-drawer>
+  <div class="chat-box">
+    <t-chat
+      ref="chatRef"
+      :clear-history="chatList.length > 0 && !isStreamLoad"
+      :data="chatList"
+      :text-loading="loading"
+      :is-stream-load="isStreamLoad"
+      style="height: 600px"
+      animation="gradient"
+      @scroll="handleChatScroll"
+      @clear="clearConfirm"
+    >
+      <!-- eslint-disable vue/no-unused-vars -->
+      <template #actionbar="{ item, index }">
+        <t-chat-action
+          :content="item.content"
+          :operation-btn="['good', 'bad', 'replay', 'copy']"
+          @operation="handleOperation"
+        />
+      </template>
+      <template #footer>
+        <t-chat-input :stop-disabled="isStreamLoad" @send="inputEnter" @stop="onStop"> </t-chat-input>
+      </template>
+    </t-chat>
+    <t-button v-show="isShowToBottom" variant="text" class="bottomBtn" @click="backBottom">
+      <div class="to-bottom">
+        <ArrowDownIcon />
+      </div>
+    </t-button>
+  </div>
 </template>
 <script setup lang="jsx">
 import { ref } from 'vue';
 import { MockSSEResponse } from './mock-data/sseRequest-reasoning';
 import { ArrowDownIcon, CheckCircleIcon } from 'tdesign-icons-vue-next';
-const visible = ref(false);
+
 const fetchCancel = ref(null);
 const loading = ref(false);
 // 流式数据加载中
@@ -78,73 +95,7 @@ const chatList = ref([
     },
   },
 ]);
-// const chatList = ref([
-//   {
-//     avatar: 'https://tdesign.gtimg.com/site/chat-avatar.png',
-//     name: 'TDesignAI',
-//     datetime: 'Thu Aug 21 2025',
-//     message: {
-//       role: 'assistant',
-//       content: [
-//         {
-//           type: 'thinking',
-//           status: 'complete',
-//           data: {
-//             title: '思考中...',
-//             text: '嗯，用户问牛顿第一定律是不是适用于所有参考系。首先，我得先回忆一下牛顿第一定律的内容。牛顿第一定律，也就是惯性定律，说物体在没有外力作用时会保持静止或匀速直线运动。也就是说，保持原来的运动状态。\n\n那问题来了，这个定律是否适用于所有参考系呢？记得以前学过的参考系分惯性系和非惯性系。惯性系里，牛顿定律成立；非惯性系里，可能需要引入惯性力之类的修正。所以牛顿第一定律应该只在惯性参考系中成立，而在非惯性系中不适用，比如加速的电梯或者旋转的参考系，这时候物体会有看似无外力下的加速度，所以必须引入假想的力来解释。',
-//           },
-//         },
-//         {
-//           type: 'markdown',
-//           data: '牛顿第一定律（惯性定律）**并不适用于所有参考系**，它只在**惯性参考系**中成立。以下是关键点：\n\n---\n\n### **1. 牛顿第一定律的核心**\n- **内容**：物体在不受外力（或合力为零）时，将保持静止或匀速直线运动状态。\n- **本质**：定义了惯性系的存在——即存在一类参考系，在其中惯性定律成立。',
-//         },
-//       ],
-//     },
-//     duration: 20,
-//   },
-//   {
-//     avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
-//     name: '自己',
-//     datetime: 'Thu Aug 21 2025',
-//     message: {
-//       content: [
-//         {
-//           type: 'text',
-//           data: 'haha',
-//         },
-//       ],
-//       role: 'user',
-//     },
-//   },
-//   {
-//     avatar: 'https://tdesign.gtimg.com/site/chat-avatar.png',
-//     name: 'TDesignAI',
-//     datetime: '今天16:38',
-//     message: {
-//       role: 'assistant',
-//       content: [
-//         {
-//           type: 'text',
-//           data: '它叫 McMurdo Station ATM，是美国富国银行安装在南极洲最大科学中心麦克默多站的一台自动提款机。',
-//         },
-//       ],
-//     },
-//   },
-//   {
-//     avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
-//     name: '自己',
-//     datetime: '今天16:38',
-//     message: {
-//       role: 'user',
-//       content: [
-//         {
-//           type: 'text',
-//           data: '南极的自动提款机叫什么名字？',
-//         },
-//       ],
-//     },
-//   },
-// ]);
+
 const onStop = function () {
   if (fetchCancel.value) {
     fetchCancel.value.controller.close();
@@ -271,7 +222,6 @@ const handleData = async () => {
         // 控制终止按钮
         isStreamLoad.value = false;
         loading.value = false;
-        console.log('chatList', chatList.value);
       },
     },
   );
