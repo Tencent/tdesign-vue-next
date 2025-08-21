@@ -2,7 +2,7 @@ import { ref, computed, watch } from 'vue';
 import dayjs from 'dayjs';
 import { omit } from 'lodash-es';
 
-import { useDisabled, useReadonly, usePrefixClass } from '@tdesign/shared-hooks';
+import { useConfig, useDisabled, useReadonly, usePrefixClass } from '@tdesign/shared-hooks';
 
 import { TdDatePickerProps, DateValue } from '../type';
 import {
@@ -16,6 +16,8 @@ import { useSingleValue } from './useSingleValue';
 
 export function useSingle(props: TdDatePickerProps) {
   const COMPONENT_NAME = usePrefixClass('date-picker');
+  const { globalConfig } = useConfig('datePicker');
+  const { dayjsLocale } = globalConfig.value;
   const disabled = useDisabled();
 
   const inputRef = ref();
@@ -37,8 +39,8 @@ export function useSingle(props: TdDatePickerProps) {
   // 未真正选中前可能不断变更输入框的内容
   const inputValue = ref(
     props.multiple
-      ? formatDate(value.value, { format: formatRef.value.format }) || []
-      : formatDate(value.value, { format: formatRef.value.format }),
+      ? formatDate(value.value, { format: formatRef.value.format, dayjsLocale }) || []
+      : formatDate(value.value, { format: formatRef.value.format, dayjsLocale }),
   );
 
   // input 设置

@@ -1,5 +1,5 @@
 import { ref, toRefs, watchEffect, computed } from 'vue';
-import { useVModel } from '@tdesign/shared-hooks';
+import { useConfig, useVModel } from '@tdesign/shared-hooks';
 import { isArray } from 'lodash-es';
 
 import { TdDateRangePickerProps } from '../type';
@@ -13,6 +13,8 @@ import {
 } from '@tdesign/common-js/date-picker/format';
 
 export function useRangeValue(props: TdDateRangePickerProps) {
+  const { globalConfig } = useConfig('datePicker');
+  const { dayjsLocale } = globalConfig.value;
   const { value: valueFromProps, modelValue } = toRefs(props);
 
   const [value, onChange] = useVModel(valueFromProps, modelValue, props.defaultValue, props.onChange);
@@ -58,7 +60,7 @@ export function useRangeValue(props: TdDateRangePickerProps) {
     }).month,
   );
   const year = ref(initYearMonthTime({ value: value.value, mode: props.mode, format: formatRef.value.format }).year);
-  const cacheValue = ref(formatDate(value.value, { format: formatRef.value.format })); // 选择阶段预选状态
+  const cacheValue = ref(formatDate(value.value, { format: formatRef.value.format, dayjsLocale })); // 选择阶段预选状态
 
   // 输入框响应 value 变化
   watchEffect(() => {
@@ -71,6 +73,7 @@ export function useRangeValue(props: TdDateRangePickerProps) {
     cacheValue.value = formatDate(value.value, {
       format: formatRef.value.valueType,
       targetFormat: formatRef.value.format,
+      dayjsLocale,
     });
     time.value = formatTime(
       value.value,
