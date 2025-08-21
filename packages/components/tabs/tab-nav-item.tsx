@@ -2,6 +2,7 @@ import { computed, defineComponent, ref, PropType } from 'vue';
 import { CloseIcon as TdCloseIcon } from 'tdesign-icons-vue-next';
 import tabProps from './props';
 import tabPanelProps from './tab-panel-props';
+import { TdTabsProps, TdTabPanelProps } from './type';
 
 // hooks
 import { useRipple, useGlobalIcon, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
@@ -23,7 +24,8 @@ export default defineComponent({
     removable: tabPanelProps.removable,
     value: tabPanelProps.value,
     onClick: Function as PropType<Function>,
-    onRemove: Function as PropType<Function>,
+    onTabRemove: Function as PropType<TdTabsProps['onRemove']>,
+    onTabPanelRemove: Function as PropType<TdTabPanelProps['onRemove']>,
   },
 
   setup(props) {
@@ -37,7 +39,8 @@ export default defineComponent({
 
     const removeBtnClick = ({ e }: { e: MouseEvent }) => {
       if (e) e.stopPropagation();
-      props.onRemove({ e, value: props.value, index: props.index });
+      props.onTabRemove({ e, value: props.value, index: props.index });
+      props.onTabPanelRemove({ e, value: props.value });
     };
     const onClickNav = (e: MouseEvent) => {
       if (props.disabled) return;
