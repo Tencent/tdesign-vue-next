@@ -17,7 +17,7 @@ describe('Card', () => {
     });
 
     it(':actions[slot]', () => {
-      const wrapper = mount(() => <Card v-slots={{ actions: <Button>按钮</Button> }}>卡片内容</Card>);
+      const wrapper = mount(() => <Card v-slots={{ actions: () => <Button>按钮</Button> }}>卡片内容</Card>);
       expect(wrapper.findComponent(Button).exists()).eq(true);
       expect(wrapper.find('.t-card__actions').text()).toBe('按钮');
     });
@@ -34,7 +34,7 @@ describe('Card', () => {
     });
 
     it(':avatar[slot]', () => {
-      const wrapper = mount(() => <Card v-slots={{ avatar: <Button>按钮</Button> }}>卡片内容</Card>);
+      const wrapper = mount(() => <Card v-slots={{ avatar: () => <Button>按钮</Button> }}>卡片内容</Card>);
       expect(wrapper.findComponent(Button).exists()).eq(true);
       expect(wrapper.find('.t-card__avatar').text()).toBe('按钮');
     });
@@ -62,7 +62,7 @@ describe('Card', () => {
     });
 
     it(':content[slot]', () => {
-      const wrapper = mount(() => <Card v-slots={{ content: <Button>按钮</Button> }}></Card>);
+      const wrapper = mount(() => <Card v-slots={{ content: () => <Button>按钮</Button> }}></Card>);
       expect(wrapper.findComponent(Button).exists()).eq(true);
       expect(wrapper.find('.t-card__body').text()).toBe('按钮');
     });
@@ -80,7 +80,7 @@ describe('Card', () => {
     });
 
     it(':cover:slot', () => {
-      const wrapper = mount(() => <Card v-slots={{ cover: <span class="custom-node" /> }} />);
+      const wrapper = mount(() => <Card v-slots={{ cover: () => <span class="custom-node" /> }} />);
       expect(wrapper.find('.custom-node').exists()).toBeTruthy();
     });
 
@@ -95,7 +95,7 @@ describe('Card', () => {
     });
 
     it(':default[slot]', () => {
-      const wrapper = mount(() => <Card v-slots={{ default: <Button>按钮</Button> }}></Card>);
+      const wrapper = mount(() => <Card v-slots={{ default: () => <Button>按钮</Button> }}></Card>);
       expect(wrapper.findComponent(Button).exists()).eq(true);
       expect(wrapper.find('.t-card__body').text()).toBe('按钮');
     });
@@ -112,7 +112,7 @@ describe('Card', () => {
     });
 
     it(':description[slot]', () => {
-      const wrapper = mount(() => <Card v-slots={{ description: <Button>按钮</Button> }}></Card>);
+      const wrapper = mount(() => <Card v-slots={{ description: () => <Button>按钮</Button> }}></Card>);
       expect(wrapper.findComponent(Button).exists()).eq(true);
       expect(wrapper.find('.t-card__description').text()).toBe('按钮');
     });
@@ -129,7 +129,7 @@ describe('Card', () => {
     });
 
     it(':footer[slot]', () => {
-      const wrapper = mount(() => <Card v-slots={{ footer: <Button>按钮</Button> }}></Card>);
+      const wrapper = mount(() => <Card v-slots={{ footer: () => <Button>按钮</Button> }}></Card>);
       expect(wrapper.findComponent(Button).exists()).eq(true);
       expect(wrapper.find('.t-card__footer').text()).toBe('按钮');
     });
@@ -146,7 +146,7 @@ describe('Card', () => {
     });
 
     it(':header[slot]', () => {
-      const wrapper = mount(() => <Card v-slots={{ header: <Button>按钮</Button> }}></Card>);
+      const wrapper = mount(() => <Card v-slots={{ header: () => <Button>按钮</Button> }}></Card>);
       expect(wrapper.findComponent(Button).exists()).eq(true);
       expect(wrapper.find('.t-card__header').text()).toBe('按钮');
     });
@@ -182,7 +182,7 @@ describe('Card', () => {
     });
 
     it(':loading[slot]', () => {
-      const wrapper = mount(() => <Card v-slots={{ loading: <span class="custom-node" /> }} />);
+      const wrapper = mount(() => <Card v-slots={{ loading: () => <span class="custom-node" /> }} />);
       expect(wrapper.find('.custom-node').exists()).toBeTruthy();
     });
 
@@ -248,7 +248,7 @@ describe('Card', () => {
     });
 
     it(':subtitle[slot]', () => {
-      const wrapper = mount(() => <Card v-slots={{ subtitle: <Button>按钮</Button> }}></Card>);
+      const wrapper = mount(() => <Card v-slots={{ subtitle: () => <Button>按钮</Button> }}></Card>);
       expect(wrapper.findComponent(Button).exists()).eq(true);
       expect(wrapper.find('.t-card__subtitle').text()).toBe('按钮');
     });
@@ -297,7 +297,7 @@ describe('Card', () => {
     });
 
     it(':title[slot]', () => {
-      const wrapper = mount(() => <Card v-slots={{ title: <Button>按钮</Button> }}></Card>);
+      const wrapper = mount(() => <Card v-slots={{ title: () => <Button>按钮</Button> }}></Card>);
       expect(wrapper.findComponent(Button).exists()).eq(true);
       expect(wrapper.find('.t-card__title').text()).toBe('按钮');
     });

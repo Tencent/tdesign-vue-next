@@ -95,7 +95,7 @@ scroll-y | `(params: { e: WheelEvent })` | 已废弃。表格内容纵向滚动�
 -- | -- | -- | --
 refreshTable | \- | \- | 必需。全部重新渲染表格
 scrollColumnIntoView | `(colKey: string)` | \- | 必需。横向滚动到指定列，呈现在可视范围内
-scrollToElement | `(params: ComponentScrollToElementParams)` | \- | 必需。纵向滚动到指定行。示例：`scrollToElement({ index: 100, top: 80, time: 200, behavior: 'smooth' })`
+scrollToElement | `(params: ComponentScrollToElementParams)` | \- | 必需。纵向滚动到指定行。示例：`scrollToElement({ index: 100, top: 80, time: 200, behavior: 'smooth' })`。 [通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts#L125)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/table/type.ts#L325C3-L325C18)
 
 ### BaseTableCol
 

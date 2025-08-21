@@ -47,7 +47,7 @@ export const styleContent = `
 export const stackblitzRc = `
   {
     "installDependencies": false,
-    "startCommand": "yarn install && yarn dev"
+    "startCommand": "pnpm install && pnpm dev"
   }
 `;
 

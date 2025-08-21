@@ -65,9 +65,8 @@ export default defineComponent({
     });
 
     const contentStyle = computed(() => {
-      const { color } = props;
       return {
-        color: COLOR_MAP[color] || color,
+        color: COLOR_MAP[props.color as keyof typeof COLOR_MAP] || props.color,
       };
     });
 
@@ -92,7 +91,7 @@ export default defineComponent({
 
     onMounted(() => props.animation && props.animationStart && start());
 
-    expose({ start });
+    expose({ start, contentStyle });
 
     return () => {
       const trendIcon = props.trend ? trendIcons[props.trend] : null;
