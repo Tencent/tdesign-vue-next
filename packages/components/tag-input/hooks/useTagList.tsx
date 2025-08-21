@@ -79,7 +79,7 @@ export function useTagList(props: TagInputProps) {
           const tagContent = renderTNode('tag', { params: { value: item } });
           return (
             <Tag
-              key={`${item}${index}`}
+              key={index}
               size={size.value}
               disabled={isDisabled.value}
               onClose={(context: { e: MouseEvent }) => onClose({ e: context.e, index })}

@@ -39,8 +39,8 @@ export const catalogs = {
     'rollup-plugin-styles': '^4.0.0',
     'rollup-plugin-terser': '^7.0.2',
     'rollup-plugin-vue': '^6.0.0',
-    tsx: '^4.19.2',
     tsdown: '^0.12.9',
+    tsx: '^4.19.2',
     vite: '^6.2.0',
     'vite-plugin-pwa': '^0.21.2',
     'vite-plugin-tdoc': '^2.0.4',
@@ -89,8 +89,8 @@ export const catalogs = {
     prettier: '^2.8.1',
   },
   tdesign: {
-    'tdesign-icons-view': '^0.3.6',
-    'tdesign-icons-vue-next': '^0.3.6',
+    'tdesign-icons-view': '^0.3.7',
+    'tdesign-icons-vue-next': '^0.3.7',
     'tdesign-publish-cli': '^0.0.12',
     'tdesign-site-components': '^0.16.5',
     'tdesign-theme-generator': '^1.1.8',
@@ -98,6 +98,7 @@ export const catalogs = {
   test: {
     '@testing-library/dom': '^9.3.1',
     '@vue/test-utils': '^2.4.1',
+    canvas: '^3.1.2',
     'dom-parser': '^1.1.5',
     mockdate: '^3.0.5',
     msw: '^1.2.3',
@@ -106,8 +107,8 @@ export const catalogs = {
   },
   types: {
     '@types/lodash-es': '^4.17.12',
-    '@types/nprogress': '^0.2.3',
     '@types/node': '^22.5.1',
+    '@types/nprogress': '^0.2.3',
     '@types/raf': '^3.4.0',
     '@types/sortablejs': '^1.15.1',
     '@types/tinycolor2': '^1.4.3',
