@@ -27,7 +27,6 @@ export default defineComponent({
   setup(props, { slots }) {
     const COMPONENT_NAME = usePrefixClass('date-range-picker');
     const { globalConfig } = useConfig('datePicker');
-    const { dayjsLocale } = globalConfig.value;
 
     const {
       inputValue,
@@ -67,7 +66,7 @@ export default defineComponent({
         cacheValue.value = formatDate(value.value || [], {
           format: formatRef.value.valueType,
           targetFormat: formatRef.value.format,
-          dayjsLocale,
+          dayjsLocale: globalConfig.value.dayjsLocale,
         }) as string[];
         time.value = formatTime(
           value.value || [dayjs().format(formatRef.value.timeFormat), dayjs().format(formatRef.value.timeFormat)],
@@ -113,7 +112,7 @@ export default defineComponent({
           inputValue.value = formatDate(value.value, {
             format: formatRef.value.valueType,
             targetFormat: formatRef.value.format,
-            dayjsLocale,
+            dayjsLocale: globalConfig.value.dayjsLocale,
           });
         } else {
           confirmValueChange();
@@ -127,7 +126,7 @@ export default defineComponent({
       const nextValue = [...(inputValue.value as string[])];
       nextValue[activeIndex.value] = formatDate(date, {
         format: formatRef.value.format,
-        dayjsLocale,
+        dayjsLocale: globalConfig.value.dayjsLocale,
       }) as string;
       inputValue.value = nextValue;
     }
@@ -148,7 +147,7 @@ export default defineComponent({
       const nextValue = [...(inputValue.value as string[])];
       nextValue[activeIndex.value] = formatDate(date, {
         format: formatRef.value.format,
-        dayjsLocale,
+        dayjsLocale: globalConfig.value.dayjsLocale,
       }) as string;
       cacheValue.value = nextValue;
       inputValue.value = nextValue;
@@ -175,7 +174,7 @@ export default defineComponent({
               format: formatRef.value.format,
               targetFormat: formatRef.value.valueType,
               autoSwap: true,
-              dayjsLocale,
+              dayjsLocale: globalConfig.value.dayjsLocale,
             }) as DateValue[],
             {
               dayjsValue: nextValue.map((v) => parseToDayjs(v, formatRef.value.format)),
@@ -252,11 +251,11 @@ export default defineComponent({
       isSelected.value = true;
       inputValue.value = formatDate(nextInputValue, {
         format: formatRef.value.format,
-        dayjsLocale,
+        dayjsLocale: globalConfig.value.dayjsLocale,
       });
       cacheValue.value = formatDate(nextInputValue, {
         format: formatRef.value.format,
-        dayjsLocale,
+        dayjsLocale: globalConfig.value.dayjsLocale,
       });
     }
     const confirmValueChange = (e?: MouseEvent) => {
@@ -285,7 +284,7 @@ export default defineComponent({
               format: formatRef.value.format,
               targetFormat: formatRef.value.valueType,
               autoSwap: true,
-              dayjsLocale,
+              dayjsLocale: globalConfig.value.dayjsLocale,
             }) as DateValue[],
             {
               dayjsValue: nextValue.map((v) => parseToDayjs(v, formatRef.value.format)),
@@ -328,7 +327,7 @@ export default defineComponent({
             format: formatRef.value.format,
             targetFormat: formatRef.value.valueType,
             autoSwap: true,
-            dayjsLocale,
+            dayjsLocale: globalConfig.value.dayjsLocale,
           }) as DateValue[],
           {
             dayjsValue: presetValue.map((p) => parseToDayjs(p, formatRef.value.format)),

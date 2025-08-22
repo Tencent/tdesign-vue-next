@@ -52,7 +52,7 @@ export function useSingleValue(props: TdDatePickerProps) {
   const cacheValue = ref(
     formatDate(props.multiple ? (value.value as DateMultipleValue)?.[0] : value.value, {
       format: formatRef.value.format,
-      dayjsLocale,
+      dayjsLocale: globalConfig.value.dayjsLocale,
     }),
   ); // 缓存选中值，panel 点击时更改
 
@@ -66,7 +66,7 @@ export function useSingleValue(props: TdDatePickerProps) {
 
     cacheValue.value = formatDate(value.value, {
       format: formatRef.value.format,
-      dayjsLocale,
+      dayjsLocale: globalConfig.value.dayjsLocale,
     });
     time.value = formatTime(value.value, formatRef.value.format, formatRef.value.timeFormat, props.defaultTime);
   });
