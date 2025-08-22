@@ -32,7 +32,6 @@ export default defineComponent({
     let shiftDownFlag = false;
     let isComposition = false;
     const renderTNodeJSX = useTNodeJSX();
-    const suffixIcon = renderTNodeJSX('suffixIcon') || slots.suffixIcon;
     const sendClick = (e: MouseEvent | KeyboardEvent) => {
       if (textValue.value && !disabled.value) {
         emit('send', textValue.value, { e });
@@ -104,9 +103,6 @@ export default defineComponent({
         </Button>
       );
     };
-    const renderSuffixIcon = () => {
-      return suffixIcon ? suffixIcon : getDefaultSuffixIcon();
-    };
     return () => (
       <div class={`${COMPONENT_NAME.value}__footer__content`}>
         {/* textAreaBox */}
@@ -127,7 +123,7 @@ export default defineComponent({
             onCompositionend={compositionendFn}
           />
           <div class={`${COMPONENT_NAME.value}__footer__textarea__icon`} onClick={sendClick}>
-            {renderSuffixIcon()}
+            {renderTNodeJSX('suffixIcon') || getDefaultSuffixIcon()}
           </div>
         </div>
         {disabled.value && !textareaDisabled.value && (
