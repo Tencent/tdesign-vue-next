@@ -12,7 +12,6 @@ import { TdDatePickerProps, DateMultipleValue, DateValue } from '../type';
 
 export function useSingleValue(props: TdDatePickerProps) {
   const { globalConfig } = useConfig('datePicker');
-  const { dayjsLocale } = globalConfig.value;
   const { value: valueFromProps, modelValue } = toRefs(props);
   const [value, onChange] = useVModel(valueFromProps, modelValue, props.defaultValue, props.onChange);
 
