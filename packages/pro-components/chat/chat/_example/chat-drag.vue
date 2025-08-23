@@ -22,11 +22,17 @@
         @clear="clearConfirm"
       >
         <!-- eslint-disable-next-line vue/no-unused-vars -->
-        <template #actions="{ item, index }">
+        <template #content="{ item }">
+          <template v-for="(content, contentIndex) in item.message.content" :key="contentIndex">
+            <t-chat-thinking v-if="content.type === 'thinking'" :status="content.status" :content="content.data" />
+            <t-chat-message v-else :message="item.message" />
+          </template>
+        </template>
+        <template #actions="{ item }">
           <t-chat-action
-            :content="item.content"
-            :operation-btn="['good', 'bad', 'replay', 'copy']"
-            @operation="handleOperation"
+            :content="item.message.content[1]?.data || ''"
+            :action-bar="['good', 'bad', 'replay', 'copy']"
+            @actions="handleOperation"
           />
         </template>
         <template #footer>
@@ -46,22 +52,43 @@ const isStreamLoad = ref(false);
 // 倒序渲染
 const chatList = ref([
   {
-    content: `模型由 <span>hunyuan</span> 变为 <span>GPT4</span>`,
-    role: 'model-change',
+    message: {
+      role: 'system',
+      content: [
+        {
+          type: 'text',
+          data: '模型由hunyuan变为GPT4',
+        },
+      ],
+    },
   },
   {
     avatar: 'https://tdesign.gtimg.com/site/chat-avatar.png',
     name: 'TDesignAI',
     datetime: '今天16:38',
-    content: '它叫 McMurdo Station ATM，是美国富国银行安装在南极洲最大科学中心麦克默多站的一台自动提款机。',
-    role: 'assistant',
+    message: {
+      role: 'assistant',
+      content: [
+        {
+          type: 'text',
+          data: '它叫 McMurdo Station ATM，是美国富国银行安装在南极洲最大科学中心麦克默多站的一台自动提款机。',
+        },
+      ],
+    },
   },
   {
     avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
     name: '自己',
     datetime: '今天16:38',
-    content: '南极的自动提款机叫什么名字？',
-    role: 'user',
+    message: {
+      role: 'user',
+      content: [
+        {
+          type: 'text',
+          data: '南极的自动提款机叫什么名字？',
+        },
+      ],
+    },
   },
 ]);
 const handleOperation = function (type, options) {
@@ -88,8 +115,15 @@ const inputEnter = function (inputValue) {
     avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
     name: '自己',
     datetime: new Date().toDateString(),
-    content: inputValue,
-    role: 'user',
+    message: {
+      role: 'user',
+      content: [
+        {
+          type: 'text',
+          data: inputValue,
+        },
+      ],
+    },
   };
   chatList.value.unshift(params);
   // 空消息占位
@@ -97,8 +131,15 @@ const inputEnter = function (inputValue) {
     avatar: 'https://tdesign.gtimg.com/site/chat-avatar.png',
     name: 'TDesignAI',
     datetime: new Date().toDateString(),
-    content: '',
-    role: 'assistant',
+    message: {
+      role: 'assistant',
+      content: [
+        {
+          type: 'text',
+          data: '',
+        },
+      ],
+    },
   };
   chatList.value.unshift(params2);
   handleData(inputValue);
@@ -160,12 +201,12 @@ const handleData = async () => {
       success(result) {
         loading.value = false;
         const { data } = result;
-        lastItem.content += data;
+        lastItem.message.content[0].data += data;
       },
       complete(isOk, msg) {
-        if (!isOk || !lastItem.content) {
-          lastItem.role = 'error';
-          lastItem.content = msg;
+        if (!isOk || !lastItem.message.content[0].data) {
+          lastItem.message.role = 'error';
+          lastItem.message.content[0].data = msg;
         }
         // 控制终止按钮
         isStreamLoad.value = false;

@@ -8,15 +8,29 @@
         avatar: 'https://tdesign.gtimg.com/site/chat-avatar.png',
         name: 'TDesignAI',
         datetime: '今天16:38',
-        content: '它叫 McMurdo Station ATM，是美国富国银行安装在南极洲最大科学中心麦克默多站的一台自动提款机。',
-        role: 'assistant',
+        message: {
+          role: 'assistant',
+          content: [
+            {
+              type: 'text',
+              data: '它叫 McMurdo Station ATM，是美国富国银行安装在南极洲最大科学中心麦克默多站的一台自动提款机。',
+            },
+          ],
+        },
       },
       {
         avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
         name: '自己',
         datetime: '今天16:38',
-        content: '南极的自动提款机叫什么名字？',
-        role: 'user',
+        message: {
+          role: 'user',
+          content: [
+            {
+              type: 'text',
+              data: '南极的自动提款机叫什么名字？',
+            },
+          ],
+        },
       },
     ]"
   >
@@ -31,7 +45,7 @@
       {{ item.datetime }}
     </template>
     <template #content="{ item, index }">
-      <t-chat-content :content="item.content" />
+      <t-chat-content :content="item.message.content[0]?.data || ''" />
     </template>
     <template #footer>
       <t-chat-input :stop-disabled="isStreamLoad" @send="inputEnter" @stop="handleStop"> </t-chat-input>
