@@ -54,7 +54,7 @@ export default {
   /** 图片数组。`mainImage` 表示主图，必传；`thumbnail` 表示缩略图，如果不存在，则使用主图显示；`download` 是否允许下载图片，默认允许下载。示例: `['img_url_1', 'img_url_2']`，`[{ thumbnail: 'small_image_url', mainImage: 'big_image_url', download: false }]` */
   images: {
     type: Array as PropType<TdImageViewerProps['images']>,
-    default: (): TdImageViewerProps['images'] => [],
+    default: (): TdImageViewerProps['images'] => ['https://tdesign.gtimg.com/demo/demo-image-1.png'],
   },
   /** 当前预览图片所在的下标 */
   index: {
