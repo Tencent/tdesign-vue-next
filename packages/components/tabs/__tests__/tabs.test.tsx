@@ -111,15 +111,16 @@ describe('Tabs', () => {
     });
 
     it('@remove', async () => {
-      const fn = vi.fn();
+      const onTabRemoveFn = vi.fn();
+      const onTabPanelRemoveFn = vi.fn();
       const wrapper = mount({
         render() {
           return (
-            <Tabs theme={'card'} onRemove={fn} value={2}>
-              <TabPanel value={1} label={'1'} removable={true}>
+            <Tabs theme={'card'} onRemove={onTabRemoveFn} value={2}>
+              <TabPanel value={1} label={'1'} removable={true} onRemove={onTabPanelRemoveFn}>
                 1
               </TabPanel>
-              <TabPanel value={2} label={'2'} removable={true}>
+              <TabPanel value={2} label={'2'} removable={true} onRemove={onTabPanelRemoveFn}>
                 2
               </TabPanel>
             </Tabs>
@@ -129,7 +130,12 @@ describe('Tabs', () => {
       await nextTick();
       const tabs = wrapper.findComponent(Tabs);
       tabs.vm.$el.getElementsByClassName('remove-btn')[0].dispatchEvent(new Event('click'));
-      expect(tabs.props('onRemove')).toBeTruthy();
+
+      expect(onTabRemoveFn).toHaveBeenCalledTimes(1);
+      expect(onTabPanelRemoveFn).toHaveBeenCalledTimes(1);
+
+      expect(onTabRemoveFn).toHaveBeenCalledWith({ value: 1, e: expect.any(Event), index: 0 });
+      expect(onTabPanelRemoveFn).toHaveBeenCalledWith({ value: 1, e: expect.any(Event) });
     });
   });
 });

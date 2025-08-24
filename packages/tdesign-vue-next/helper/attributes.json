@@ -5547,6 +5547,70 @@
     "type": "String",
     "description": "进度条未完成部分颜色\n\ndefault: ''\n\n[docs](https://tdesign.tencent.com/vue-next/components/progress?tab=api#progress-props)"
   },
+  "t-qrcode/bg-color": {
+    "type": "String",
+    "description": "QR code background color\n\n二维码背景颜色\n\n[docs](https://tdesign.tencent.com/vue-next/components/qrcode?tab=api#qrcode-props)"
+  },
+  "t-qrcode/borderless": {
+    "type": "Boolean",
+    "description": "Is there a border\n\n是否有边框\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/qrcode?tab=api#qrcode-props)"
+  },
+  "t-qrcode/color": {
+    "type": "String",
+    "description": "QR code color\n\n二维码颜色\n\n[docs](https://tdesign.tencent.com/vue-next/components/qrcode?tab=api#qrcode-props)"
+  },
+  "t-qrcode/icon": {
+    "type": "String",
+    "description": "The address of the picture in the QR code\n\n二维码中图片的地址\n\n[docs](https://tdesign.tencent.com/vue-next/components/qrcode?tab=api#qrcode-props)"
+  },
+  "t-qrcode/icon-size": {
+    "type": "Number|Object",
+    "description": "The size of the picture in the QR code\n\n二维码中图片的大小\n\ndefault: 40\n\n[docs](https://tdesign.tencent.com/vue-next/components/qrcode?tab=api#qrcode-props)"
+  },
+  "t-qrcode/level": {
+    "type": "String",
+    "options": [
+      "L",
+      "M",
+      "Q",
+      "H"
+    ],
+    "description": "QR code error correction level\n\n二维码纠错等级\n\ndefault: M\n\n[docs](https://tdesign.tencent.com/vue-next/components/qrcode?tab=api#qrcode-props)"
+  },
+  "t-qrcode/size": {
+    "type": "Number",
+    "description": "QR code size\n\n二维码大小\n\ndefault: 160\n\n[docs](https://tdesign.tencent.com/vue-next/components/qrcode?tab=api#qrcode-props)"
+  },
+  "t-qrcode/status": {
+    "type": "String",
+    "options": [
+      "active",
+      "expired",
+      "loading",
+      "scanned"
+    ],
+    "description": "QR code status\n\n二维码状态\n\ndefault: active\n\n[docs](https://tdesign.tencent.com/vue-next/components/qrcode?tab=api#qrcode-props)"
+  },
+  "t-qrcode/status-render": {
+    "type": "TNode",
+    "description": "Custom state renderer\n\n自定义状态渲染器\n\n[docs](https://tdesign.tencent.com/vue-next/components/qrcode?tab=api#qrcode-props)"
+  },
+  "t-qrcode/type": {
+    "type": "String",
+    "options": [
+      "canvas",
+      "svg"
+    ],
+    "description": "render type\n\n渲染类型\n\ndefault: canvas\n\n[docs](https://tdesign.tencent.com/vue-next/components/qrcode?tab=api#qrcode-props)"
+  },
+  "t-qrcode/value": {
+    "type": "String",
+    "description": "scanned text\n\n扫描后的文本\n\n[docs](https://tdesign.tencent.com/vue-next/components/qrcode?tab=api#qrcode-props)"
+  },
+  "t-qrcode/refresh": {
+    "type": "event",
+    "description": "Click the \"Click to refresh\" callback\n\n点击\"点击刷新\"的回调\n\n[docs](https://tdesign.tencent.com/vue-next/components/qrcode?tab=api#qrcode-events)"
+  },
   "t-radio/allow-uncheck": {
     "type": "Boolean",
     "description": "是否允许取消选中\n\ndefault: false\n\n[docs](https://tdesign.tencent.com/vue-next/components/radio?tab=api#radio-props)"

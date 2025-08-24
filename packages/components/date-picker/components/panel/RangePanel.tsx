@@ -43,6 +43,7 @@ export default defineComponent({
     onYearChange: Function,
     onMonthChange: Function,
     onTimePickerChange: Function,
+    needConfirm: Boolean,
   },
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('date-range-picker__panel');
@@ -111,7 +112,7 @@ export default defineComponent({
           !hidePreselection && props.hoverValue[1]
             ? parseToDayjs(props.hoverValue[1], format.value).toDate()
             : undefined,
-        year: props.year[1],
+        year: props.mode === 'year' && props.year[1] - props.year[0] <= 9 ? props.year[1] + 9 : props.year[1],
         month: props.month[1],
         mode: props.mode,
         firstDayOfWeek: props.firstDayOfWeek || globalConfig.value.firstDayOfWeek,
@@ -124,7 +125,7 @@ export default defineComponent({
       format: format.value,
       mode: props.mode,
       firstDayOfWeek: props.firstDayOfWeek || globalConfig.value.firstDayOfWeek,
-
+      internalYear: props.year,
       popupVisible: props.popupVisible,
       enableTimePicker: props.enableTimePicker,
       timePickerProps: props.timePickerProps,
@@ -155,6 +156,7 @@ export default defineComponent({
             onPresetClick={props.onPresetClick}
             onConfirmClick={props.onConfirmClick}
             presetsPlacement={props.presetsPlacement}
+            needConfirm={props.needConfirm}
           />
         ) : null}
         <div class={`${COMPONENT_NAME.value}-content-wrapper`}>
@@ -202,6 +204,7 @@ export default defineComponent({
             onPresetClick={props.onPresetClick}
             onConfirmClick={props.onConfirmClick}
             presetsPlacement={props.presetsPlacement}
+            needConfirm={props.needConfirm}
           />
         ) : null}
       </div>

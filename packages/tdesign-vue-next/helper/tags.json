@@ -1626,6 +1626,23 @@
     ],
     "description": "Progress\n\n进度条\n\n[docs](https://tdesign.tencent.com/vue-next/components/progress)"
   },
+  "t-qrcode": {
+    "attributes": [
+      "bg-color",
+      "borderless",
+      "color",
+      "icon",
+      "icon-size",
+      "level",
+      "size",
+      "status",
+      "status-render",
+      "type",
+      "value",
+      "refresh"
+    ],
+    "description": "QRCode\n\n二维码\n\n[docs](https://tdesign.tencent.com/vue-next/components/qrcode)"
+  },
   "t-radio": {
     "attributes": [
       "allow-uncheck",
