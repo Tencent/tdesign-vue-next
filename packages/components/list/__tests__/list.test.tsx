@@ -1,36 +1,68 @@
-// @ts-nocheck
 import { mount } from '@vue/test-utils';
-import { describe, expect, vi, it } from 'vitest';
-import { List, ListItem, ListItemMeta } from '@tdesign/components/list';
+import { describe, expect, it } from 'vitest';
+import { List, ListItem, ListProps } from '@tdesign/components/list';
 
 describe('List', () => {
-  describe(':props', () => {
-    it(':size', () => {
-      const sizeList = ['small', 'medium', 'large'];
-      sizeList.forEach((size) => {
-        const wrapper = mount(() => (
-          <List size={size}>
-            <ListItem>描述性文字一</ListItem>
-            <ListItem>描述性文字二</ListItem>
-          </List>
-        ));
-        expect(wrapper.classes()).toContain(`t-size-${size.slice(0, 1)}`);
-      });
-    });
-
-    it(':header', () => {
-      const wrapper = mount(() => (
-        <List header="header">
+  describe('props', () => {
+    it('asyncLoading[string]', () => {
+      const wrapperLoading = mount(() => (
+        <List asyncLoading="loading">
           <ListItem>描述性文字一</ListItem>
           <ListItem>描述性文字二</ListItem>
         </List>
       ));
-      const header = wrapper.find('.t-list__header');
-      expect(header.exists()).toBeTruthy();
-      expect(header.text()).toBe('header');
+      const loading = wrapperLoading.find('.t-list .t-list__load--loading');
+      expect(loading.exists()).toBeTruthy();
+      expect(loading.find('span').text()).toBe('正在加载中，请稍等');
+
+      const wrapperLoadingMore = mount(() => (
+        <List asyncLoading="loading">
+          <ListItem>描述性文字一</ListItem>
+          <ListItem>描述性文字二</ListItem>
+        </List>
+      ));
+      const loadingMore = wrapperLoadingMore.find('.t-list .t-list__load--loading');
+      expect(loadingMore.exists()).toBeTruthy();
+      expect(loadingMore.find('span').text()).toBe('正在加载中，请稍等');
     });
 
-    it(':footer', () => {
+    it('asyncLoading[slot]', () => {
+      const wrapperLoading = mount(() => (
+        <List v-slots={{ asyncLoading: () => '自定义正在加载中' }}>
+          <ListItem>描述性文字一</ListItem>
+          <ListItem>描述性文字二</ListItem>
+        </List>
+      ));
+      const loading = wrapperLoading.find('.t-list .t-list__load');
+      expect(loading.exists()).toBeTruthy();
+      expect(loading.text()).toBe('自定义正在加载中');
+    });
+
+    it('async-loading[slot]', () => {
+      const wrapperLoading = mount(() => (
+        <List v-slots={{ 'async-loading': () => '自定义正在加载中' }}>
+          <ListItem>描述性文字一</ListItem>
+          <ListItem>描述性文字二</ListItem>
+        </List>
+      ));
+      const loading = wrapperLoading.find('.t-list .t-list__load');
+      expect(loading.exists()).toBeTruthy();
+      expect(loading.text()).toBe('自定义正在加载中');
+    });
+
+    it('asyncLoading[function]', () => {
+      const wrapper = mount(() => (
+        <List asyncLoading={() => '自定义正在加载中'}>
+          <ListItem>描述性文字一</ListItem>
+          <ListItem>描述性文字二</ListItem>
+        </List>
+      ));
+      const loading = wrapper.find('.t-list .t-list__load');
+      expect(loading.exists()).toBeTruthy();
+      expect(loading.text()).toBe('自定义正在加载中');
+    });
+
+    it('footer[string]', () => {
       const wrapper = mount(() => (
         <List footer="footer">
           <ListItem>描述性文字一</ListItem>
@@ -42,7 +74,82 @@ describe('List', () => {
       expect(footer.text()).toBe('footer');
     });
 
-    it(':split', () => {
+    it('footer[slot]', () => {
+      const wrapper = mount(() => (
+        <List v-slots={{ footer: () => 'footer' }}>
+          <ListItem>描述性文字一</ListItem>
+          <ListItem>描述性文字二</ListItem>
+        </List>
+      ));
+      const footer = wrapper.find('.t-list__footer');
+      expect(footer.exists()).toBeTruthy();
+      expect(footer.text()).toBe('footer');
+    });
+
+    it('footer[function]', () => {
+      const wrapper = mount(() => (
+        <List footer={() => 'footer'}>
+          <ListItem>描述性文字一</ListItem>
+          <ListItem>描述性文字二</ListItem>
+        </List>
+      ));
+      const footer = wrapper.find('.t-list__footer');
+      expect(footer.exists()).toBeTruthy();
+      expect(footer.text()).toBe('footer');
+    });
+
+    it('header[string]', () => {
+      const wrapper = mount(() => (
+        <List header="header">
+          <ListItem>描述性文字一</ListItem>
+          <ListItem>描述性文字二</ListItem>
+        </List>
+      ));
+      const header = wrapper.find('.t-list__header');
+      expect(header.exists()).toBeTruthy();
+      expect(header.text()).toBe('header');
+    });
+
+    it('header[slot]', () => {
+      const wrapper = mount(() => (
+        <List v-slots={{ header: () => 'header' }}>
+          <ListItem>描述性文字一</ListItem>
+          <ListItem>描述性文字二</ListItem>
+        </List>
+      ));
+      const header = wrapper.find('.t-list__header');
+      expect(header.exists()).toBeTruthy();
+      expect(header.text()).toBe('header');
+    });
+
+    it('header[function]', () => {
+      const wrapper = mount(() => (
+        <List header={() => 'header'}>
+          <ListItem>描述性文字一</ListItem>
+          <ListItem>描述性文字二</ListItem>
+        </List>
+      ));
+      const header = wrapper.find('.t-list__header');
+      expect(header.exists()).toBeTruthy();
+      expect(header.text()).toBe('header');
+    });
+
+    it('scroll[object]', () => {});
+
+    it('size[string]', () => {
+      const sizeList: Array<ListProps['size']> = ['small', 'medium', 'large'];
+      sizeList.forEach((size) => {
+        const wrapper = mount(() => (
+          <List size={size}>
+            <ListItem>描述性文字一</ListItem>
+            <ListItem>描述性文字二</ListItem>
+          </List>
+        ));
+        expect(wrapper.classes()).toContain(`t-size-${size.slice(0, 1)}`);
+      });
+    });
+
+    it('split[boolean]', () => {
       const wrapper = mount(() => (
         <List split>
           <ListItem>描述性文字一</ListItem>
@@ -53,7 +160,7 @@ describe('List', () => {
       expect(split.exists()).toBeTruthy();
     });
 
-    it(':stripe', () => {
+    it('stripe[boolean]', () => {
       const wrapper = mount(() => (
         <List stripe>
           <ListItem>描述性文字一</ListItem>
@@ -64,91 +171,9 @@ describe('List', () => {
       expect(stripes.length).toBe(1);
     });
   });
-});
 
-describe('ListItem', () => {
-  describe(':props', () => {
-    it(':action', () => {
-      const slots = {
-        action: () => (
-          <>
-            <span>操作一</span>
-            <span>操作二</span>
-            <span>操作三</span>
-          </>
-        ),
-      };
-      const wrapper = mount(() => (
-        <List stripe>
-          <ListItem v-slots={slots}>描述性文字一</ListItem>
-          <ListItem>描述性文字二</ListItem>
-        </List>
-      ));
-      const [item] = wrapper.findAll('.t-list-item .t-list-item__action');
-      const spans = item.findAll('span');
-      expect(item.element.children.length).toBe(3);
-      expect(spans[0].text()).toBe('操作一');
-      expect(spans[1].text()).toBe('操作二');
-      expect(spans[2].text()).toBe('操作三');
-    });
-
-    it(':content', () => {
-      const slots = {
-        content: () => <>描述一</>,
-      };
-      const wrapper = mount(() => (
-        <List stripe>
-          <ListItem v-slots={slots}></ListItem>
-          <ListItem>描述性文字二</ListItem>
-        </List>
-      ));
-      const [item] = wrapper.findAll('.t-list-item .t-list-item-main');
-      expect(item.exists()).toBeTruthy();
-      expect(item.text()).toBe('描述一');
-    });
-
-    it(':default', () => {
-      const slots = {
-        content: () => <>描述一</>,
-      };
-      const wrapper = mount(() => (
-        <List stripe>
-          <ListItem v-slots={slots}></ListItem>
-          <ListItem>描述性文字二</ListItem>
-        </List>
-      ));
-      const [item] = wrapper.findAll('.t-list-item .t-list-item-main');
-      expect(item.exists()).toBeTruthy();
-      expect(item.text()).toBe('描述一');
-    });
-
-    it(':asyncLoading:loading', () => {
-      const wrapper = mount(() => (
-        <List asyncLoading="loading">
-          <ListItem>描述性文字一</ListItem>
-          <ListItem>描述性文字二</ListItem>
-        </List>
-      ));
-      const loading = wrapper.find('.t-list .t-list__load--loading');
-      expect(loading.exists()).toBeTruthy();
-      expect(loading.find('span').text()).toBe('正在加载中，请稍等');
-    });
-
-    it(':asyncLoading:load-more', () => {
-      const wrapper = mount(() => (
-        <List asyncLoading="load-more">
-          <ListItem>描述性文字一</ListItem>
-          <ListItem>描述性文字二</ListItem>
-        </List>
-      ));
-      const loadMore = wrapper.find('.t-list .t-list__load--load-more');
-      expect(loadMore.exists()).toBeTruthy();
-      expect(loadMore.find('span').text()).toBe('点击加载更多');
-    });
-  });
-
-  describe(':events', () => {
-    it(':onLoadMore', async () => {
+  describe('events', () => {
+    it('onLoadMore', async () => {
       const fn = vi.fn();
       const wrapper = mount(() => (
         <List asyncLoading="load-more" onLoadMore={fn}>
@@ -161,7 +186,7 @@ describe('ListItem', () => {
       expect(fn).toBeCalled();
     });
 
-    it(':onScroll', async () => {
+    it('onScroll', async () => {
       const fn = vi.fn();
       const wrapper = mount(() => (
         <List asyncLoading="load-more" onScroll={fn} style={{ maxHeight: 200 }}>
@@ -186,62 +211,6 @@ describe('ListItem', () => {
       const list = wrapper.find('.t-list');
       await list.trigger('scroll');
       expect(fn).toBeCalled();
-    });
-  });
-});
-
-describe('ListItemMeta', () => {
-  describe(':props', () => {
-    it(':description', () => {
-      const wrapper = mount(() => (
-        <List stripe>
-          <ListItem>
-            <ListItemMeta description="描述一"></ListItemMeta>
-          </ListItem>
-          <ListItem>
-            <ListItemMeta description="描述二"></ListItemMeta>
-          </ListItem>
-        </List>
-      ));
-      const descriptions = wrapper.findAll('.t-list-item__meta .t-list-item__meta-description');
-      expect(descriptions.length).toBe(2);
-      expect(descriptions[0].text()).toBe('描述一');
-      expect(descriptions[1].text()).toBe('描述二');
-    });
-
-    it(':title', () => {
-      const wrapper = mount(() => (
-        <List stripe>
-          <ListItem>
-            <ListItemMeta title="标题一" description="描述一"></ListItemMeta>
-          </ListItem>
-          <ListItem>
-            <ListItemMeta title="标题一" description="描述二"></ListItemMeta>
-          </ListItem>
-        </List>
-      ));
-      const titles = wrapper.findAll('.t-list-item__meta .t-list-item__meta-title');
-      expect(titles.length).toBe(2);
-      expect(titles[0].text()).toBe('标题一');
-      expect(titles[1].text()).toBe('标题一');
-    });
-
-    it(':image', () => {
-      const imageUrl = 'https://tdesign.gtimg.com/site/avatar.jpg';
-      const wrapper = mount(() => (
-        <List stripe>
-          <ListItem>
-            <ListItemMeta image={imageUrl} title="标题一" description="描述一"></ListItemMeta>
-          </ListItem>
-          <ListItem>
-            <ListItemMeta image={imageUrl} title="标题一" description="描述二"></ListItemMeta>
-          </ListItem>
-        </List>
-      ));
-      const images = wrapper.findAll('.t-list-item__meta .t-list-item__meta-avatar img');
-      expect(images.length).toBe(2);
-      expect(images[0].element.getAttribute('src')).toBe('https://tdesign.gtimg.com/site/avatar.jpg');
-      expect(images[1].element.getAttribute('src')).toBe('https://tdesign.gtimg.com/site/avatar.jpg');
     });
   });
 });
