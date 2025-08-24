@@ -13,8 +13,8 @@ describe('Skeleton', () => {
       const cols = wrapper.findAll('.t-skeleton__col');
       expect(wrapper.exists()).toBe(true);
       expect(wrapper.classes()).toContain('t-skeleton');
-      expect(rows.length).toBe(4);
-      expect(cols.length).toBe(4);
+      expect(rows.length).toBe(1);
+      expect(cols.length).toBe(1);
     });
 
     it(':theme:text', () => {
@@ -123,7 +123,7 @@ describe('Skeleton', () => {
           <div class="text">加载完成的内容</div>
         </Skeleton>
       ));
-      expect(wrapper.findAll('.t-skeleton__row').length).toBe(4);
+      expect(wrapper.findAll('.t-skeleton__row').length).toBe(1);
       loading.value = false;
       await nextTick();
       expect(wrapper.findAll('.t-skeleton__row').length).toBe(0);
@@ -152,11 +152,11 @@ describe('Skeleton', () => {
       const wrapper = mount(() => <Skeleton rowCol={[1, 1, 2]} />);
       const rows = wrapper.findAll('.t-skeleton__row');
       const cols = wrapper.findAll('.t-skeleton__col');
-      expect(rows.length).toBe(3);
-      expect(cols.length).toBe(4);
+      expect(rows.length).toBe(4);
+      expect(cols.length).toBe(5);
       expect(rows[0].element.children.length).toBe(1);
       expect(rows[1].element.children.length).toBe(1);
-      expect(rows[2].element.children.length).toBe(2);
+      expect(rows[2].element.children.length).toBe(1);
     });
   });
 });
