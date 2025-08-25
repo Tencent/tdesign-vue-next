@@ -293,14 +293,15 @@ export default defineComponent({
 
       const notValidIndex = nextValue.findIndex((v) => !v || !isValidDate(v, formatRef.value.format));
 
-      // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
-      if (!isFirstValueSelected.value || !activeIndex.value) {
+      // 如果两个日期都有效，关闭弹窗
+      if (notValidIndex === -1 && nextValue.length === 2) {
+        popupVisible.value = false;
+      } else {
+        // 如果还有无效日期，切换到下一个输入框
         let nextIndex = notValidIndex;
         if (nextIndex === -1) nextIndex = activeIndex.value ? 0 : 1;
         activeIndex.value = nextIndex as 0 | 1;
         isFirstValueSelected.value = !!nextValue[0];
-      } else if (nextValue.length === 2) {
-        popupVisible.value = false;
       }
     }
 

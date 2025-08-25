@@ -224,8 +224,12 @@ export default defineComponent({
     function onConfirmClick({ e }: { e: MouseEvent }) {
       const nextValue = [...(cacheValue.value as string[])];
 
-      // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
-      if (nextValue.length === 2 && isFirstValueSelected.value) {
+      // 检查是否有完整的有效日期范围
+      const hasValidStartDate = nextValue[0] && dayjs(nextValue[0], formatRef.value.format).isValid();
+      const hasValidEndDate = nextValue[1] && dayjs(nextValue[1], formatRef.value.format).isValid();
+
+      // 如果两个日期都有效，直接完成选择
+      if (hasValidStartDate && hasValidEndDate) {
         onChange?.(
           formatDate(nextValue, {
             format: formatRef.value.format,
@@ -239,8 +243,6 @@ export default defineComponent({
         year.value = nextValue.map((v) => dayjs(v, formatRef.value.format).year());
         month.value = nextValue.map((v) => dayjs(v, formatRef.value.format).month());
         isFirstValueSelected.value = false;
-      } else {
-        isFirstValueSelected.value = true;
       }
 
       props.onConfirm?.({ date: value.value.map((v) => dayjs(v).toDate()), e });

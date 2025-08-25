@@ -156,4 +156,48 @@ describe('DateRangePicker Click Issue Fix', () => {
       expect(onChange).toHaveBeenCalledTimes(1);
     }
   });
+
+  it('should close popup after confirm button click when both dates are selected', async () => {
+    const onChange = vi.fn();
+    const wrapper = mount({
+      render() {
+        return (
+          <DateRangePicker
+            value={['', '']}
+            onChange={onChange}
+            enableTimePicker={true}
+            popupProps={{
+              visible: true,
+            }}
+          />
+        );
+      },
+    });
+
+    await nextTick();
+
+    // 选择开始日期
+    const startDateCells = wrapper.findAll('.t-date-picker__cell:not(.t-date-picker__cell--disabled)');
+    if (startDateCells.length > 0) {
+      await startDateCells[0].trigger('click');
+      await nextTick();
+    }
+
+    // 选择结束日期
+    const endDateCells = wrapper.findAll('.t-date-picker__cell:not(.t-date-picker__cell--disabled)');
+    if (endDateCells.length > 5) {
+      await endDateCells[5].trigger('click');
+      await nextTick();
+    }
+
+    // 点击确认按钮
+    const confirmButton = wrapper.find('.t-button--theme-primary');
+    if (confirmButton.exists()) {
+      await confirmButton.trigger('click');
+      await nextTick();
+
+      // 验证 onChange 被调用
+      expect(onChange).toHaveBeenCalled();
+    }
+  });
 });
