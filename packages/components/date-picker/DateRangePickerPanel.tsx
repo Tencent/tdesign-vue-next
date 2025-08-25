@@ -105,8 +105,12 @@ export default defineComponent({
       // 有时间选择器走 confirm 逻辑
       if (props.enableTimePicker) return;
 
-      // 首次点击不关闭、确保两端都有有效值并且无时间选择器时点击后自动关闭
-      if (nextValue.length === 2 && isFirstValueSelected.value) {
+      // 修复点击逻辑：检查是否已经有完整的日期范围
+      const hasValidStartDate = nextValue[0] && dayjs(nextValue[0], formatRef.value.format).isValid();
+      const hasValidEndDate = nextValue[1] && dayjs(nextValue[1], formatRef.value.format).isValid();
+
+      // 如果两个日期都有效，直接完成选择
+      if (hasValidStartDate && hasValidEndDate) {
         onChange?.(
           formatDate(nextValue, {
             format: formatRef.value.format,
@@ -119,7 +123,8 @@ export default defineComponent({
         );
         isFirstValueSelected.value = false;
       } else {
-        isFirstValueSelected.value = true;
+        // 如果只有一个日期，标记为已选择第一个值
+        isFirstValueSelected.value = hasValidStartDate || hasValidEndDate;
       }
     }
 
