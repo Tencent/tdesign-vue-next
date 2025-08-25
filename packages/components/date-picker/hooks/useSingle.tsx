@@ -17,7 +17,6 @@ import { useSingleValue } from './useSingleValue';
 export function useSingle(props: TdDatePickerProps) {
   const COMPONENT_NAME = usePrefixClass('date-picker');
   const { globalConfig } = useConfig('datePicker');
-  const { dayjsLocale } = globalConfig.value;
   const disabled = useDisabled();
 
   const inputRef = ref();
@@ -39,8 +38,8 @@ export function useSingle(props: TdDatePickerProps) {
   // 未真正选中前可能不断变更输入框的内容
   const inputValue = ref(
     props.multiple
-      ? formatDate(value.value, { format: formatRef.value.format, dayjsLocale }) || []
-      : formatDate(value.value, { format: formatRef.value.format, dayjsLocale }),
+      ? formatDate(value.value, { format: formatRef.value.format, dayjsLocale: globalConfig.value.dayjsLocale }) || []
+      : formatDate(value.value, { format: formatRef.value.format, dayjsLocale: globalConfig.value.dayjsLocale }),
   );
 
   // input 设置
