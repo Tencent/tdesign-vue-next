@@ -123,8 +123,10 @@ export default defineComponent({
         );
         isFirstValueSelected.value = false;
       } else {
-        // 如果只有一个日期，标记为已选择第一个值
-        isFirstValueSelected.value = hasValidStartDate || hasValidEndDate;
+        // 如果只有一个日期，切换到下一个输入框
+        isFirstValueSelected.value = true;
+        // 切换 activeIndex 到下一个位置
+        activeIndex.value = activeIndex.value === 0 ? 1 : 0;
       }
     }
 
