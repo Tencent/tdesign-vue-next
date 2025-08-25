@@ -1,4 +1,4 @@
-import { defineComponent, inject, toRefs, computed, ref } from 'vue';
+import { defineComponent, inject, toRefs, computed, ref, ComputedRef } from 'vue';
 import {
   useVModel,
   useContent,
@@ -75,7 +75,7 @@ export default defineComponent({
     // extend radioGroup disabled props
     const groupDisabled = computed(() => radioGroup?.disabled);
     const groupReadonly = computed(() => radioGroup?.readonly);
-    const isDisabled = useDisabled({ afterDisabled: groupDisabled });
+    const isDisabled = useDisabled({ afterDisabled: groupDisabled }) as ComputedRef<boolean>;
     const isReadonly = useReadonly({ afterReadonly: groupReadonly });
 
     // attribute
