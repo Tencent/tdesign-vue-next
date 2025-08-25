@@ -33,7 +33,9 @@ export function useRange(props: TdDateRangePickerProps) {
   const popupVisible = ref(false);
   const isHoverCell = ref(false);
   const activeIndex = ref<0 | 1>(0); // 确定当前选中的输入框序号
-  const inputValue = ref(formatDate(props.value, { format: formatRef.value.format })); // 未真正选中前可能不断变更输入框的内容
+  const inputValue = ref(
+    formatDate(props.value, { format: formatRef.value.format, dayjsLocale: globalConfig.value.dayjsLocale }),
+  ); // 未真正选中前可能不断变更输入框的内容
   const isReadOnly = useReadonly();
 
   // input 设置
@@ -99,6 +101,7 @@ export function useRange(props: TdDateRangePickerProps) {
             format: formatRef.value.format,
             targetFormat: formatRef.value.valueType,
             autoSwap: true,
+            dayjsLocale: globalConfig.value.dayjsLocale,
           }) as DateValue[],
           {
             dayjsValue: newVal.map((v) => parseToDayjs(v, formatRef.value.format)),
@@ -108,6 +111,7 @@ export function useRange(props: TdDateRangePickerProps) {
       } else if (isValidDate(value.value, formatRef.value.format)) {
         inputValue.value = formatDate(value.value, {
           format: formatRef.value.format,
+          dayjsLocale: globalConfig.value.dayjsLocale,
         });
       } else {
         inputValue.value = [];
@@ -155,6 +159,7 @@ export function useRange(props: TdDateRangePickerProps) {
       inputValue.value = formatDate(value, {
         format: formatRef.value.valueType,
         targetFormat: formatRef.value.format,
+        dayjsLocale: globalConfig.value.dayjsLocale,
       });
     },
     {

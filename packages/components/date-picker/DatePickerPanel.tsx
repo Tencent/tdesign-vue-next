@@ -15,6 +15,7 @@ import datePickerPanelProps from './date-picker-panel-props';
 import datePickerProps from './props';
 
 import TSinglePanel from './components/panel/SinglePanel';
+import { useConfig } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'TDatePickerPanel',
@@ -35,6 +36,7 @@ export default defineComponent({
   },
 
   setup(props: TdDatePickerPanelProps) {
+    const { globalConfig } = useConfig('datePicker');
     const { cacheValue, value, year, month, time, onChange } = useSingleValue(props);
 
     const formatRef = computed(() =>
@@ -55,12 +57,21 @@ export default defineComponent({
         month.value = date.getMonth();
       }
       if (props.enableTimePicker) {
-        cacheValue.value = formatDate(date, { format: formatRef.value.format });
-      } else {
-        onChange?.(formatDate(date, { format: formatRef.value.format }) as DateValue, {
-          dayjsValue: parseToDayjs(date, formatRef.value.format),
-          trigger: 'pick',
+        cacheValue.value = formatDate(date, {
+          format: formatRef.value.format,
+          dayjsLocale: globalConfig.value.dayjsLocale,
         });
+      } else {
+        onChange?.(
+          formatDate(date, {
+            format: formatRef.value.format,
+            dayjsLocale: globalConfig.value.dayjsLocale,
+          }) as DateValue,
+          {
+            dayjsValue: parseToDayjs(date, formatRef.value.format),
+            trigger: 'pick',
+          },
+        );
       }
     }
 
@@ -120,7 +131,10 @@ export default defineComponent({
         ? dayjs()
         : dayjs(cacheValue.value as string, formatRef.value.format);
       const nextDate = currentDate.hour(nextHours).minute(minutes).second(seconds).millisecond(milliseconds).toDate();
-      cacheValue.value = formatDate(nextDate, { format: formatRef.value.format });
+      cacheValue.value = formatDate(nextDate, {
+        format: formatRef.value.format,
+        dayjsLocale: globalConfig.value.dayjsLocale,
+      });
 
       props.onTimeChange?.({
         time: val,
@@ -134,6 +148,7 @@ export default defineComponent({
       onChange?.(
         formatDate(cacheValue.value, {
           format: formatRef.value.format,
+          dayjsLocale: globalConfig.value.dayjsLocale,
         }) as DateValue,
         {
           dayjsValue: parseToDayjs(cacheValue.value as string, formatRef.value.format),
@@ -146,10 +161,16 @@ export default defineComponent({
     // 预设
     function onPresetClick(preset: any, context: any) {
       const presetVal = isFunction(preset) ? preset() : preset;
-      onChange?.(formatDate(presetVal, { format: formatRef.value.format }) as DateValue, {
-        dayjsValue: parseToDayjs(presetVal, formatRef.value.format),
-        trigger: 'preset',
-      });
+      onChange?.(
+        formatDate(presetVal, {
+          format: formatRef.value.format,
+          dayjsLocale: globalConfig.value.dayjsLocale,
+        }) as DateValue,
+        {
+          dayjsValue: parseToDayjs(presetVal, formatRef.value.format),
+          trigger: 'preset',
+        },
+      );
       props.onPresetClick?.(context);
     }
 
