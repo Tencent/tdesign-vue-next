@@ -1,10 +1,14 @@
-import { ref, SetupContext, toRefs, watch } from 'vue';
+import { Ref, ref, SetupContext, toRefs, watch } from 'vue';
 import { useConfig } from '@tdesign/shared-hooks';
 import Pagination, { PageInfo, PaginationProps } from '../../pagination';
 import { TdBaseTableProps, TableRowData } from '../type';
 
 // 分页功能包含：远程数据排序受控、远程数据排序非受控、本地数据排序受控、本地数据排序非受控 等 4 类功能
-export default function usePagination(props: TdBaseTableProps, context: SetupContext) {
+export default function usePagination(
+  props: TdBaseTableProps,
+  context: SetupContext,
+  tableContentRef: Ref<HTMLElement | null>,
+) {
   const { pagination, data, disableDataPage } = toRefs(props);
   const { classPrefix } = useConfig();
   const innerPagination = ref<PaginationProps>(props.pagination);
@@ -69,6 +73,16 @@ export default function usePagination(props: TdBaseTableProps, context: SetupCon
             innerPagination.value = pageInfo;
             updateDataSourceAndPaginate(pageInfo.current, pageInfo.pageSize);
             props.onPageChange?.(pageInfo, dataSource.value);
+
+            // 当切换分页时，内容区域滚动到顶部
+            const ref = tableContentRef.value;
+            if (ref.scrollTo) {
+              ref.scrollTo({ top: 0, left: 0 });
+            } else {
+              // 兼容测试环境或旧浏览器
+              ref.scrollTop = 0;
+              ref.scrollLeft = 0;
+            }
           }}
           v-slots={{ totalContent: context.slots.totalContent }}
         />
