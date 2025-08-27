@@ -35,7 +35,7 @@ export default defineComponent({
       wrap(underline, 'u');
       wrap(del, 'del');
       wrap(code, 'code');
-      wrap(mark !== false, 'mark', mark ? { color: mark } : {});
+      wrap(mark !== false, 'mark', mark ? { backgroundColor: mark } : {});
       wrap(keyboard, 'kbd');
       wrap(italic, 'i');
       return currentContent;
@@ -66,7 +66,6 @@ export default defineComponent({
 
     const renderCopy = () => {
       const { copyable } = props;
-      if (!copyable) return;
 
       let icon: any = isCopied.value ? () => <CheckIcon /> : () => <CopyIcon />;
       let tooltipConf: TdTooltipProps = {
