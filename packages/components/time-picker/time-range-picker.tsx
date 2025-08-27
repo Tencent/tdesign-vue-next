@@ -1,4 +1,4 @@
-import { defineComponent, ref, toRefs, watch, computed } from 'vue';
+import { defineComponent, ref, toRefs, watch, computed, ComputedRef } from 'vue';
 import dayjs from 'dayjs';
 import { isArray } from 'lodash-es';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
@@ -36,7 +36,7 @@ export default defineComponent({
     const { STATUS } = useCommonClassName();
     const { TimeIcon } = useGlobalIcon({ TimeIcon: TdTimeIcon });
 
-    const disabled = useDisabled();
+    const isDisabled = useDisabled() as ComputedRef<boolean>;
     const currentPanelIdx = ref(undefined);
     const currentValue = ref<Array<string>>(TIME_PICKER_EMPTY);
     const isShowPanel = ref(false);
@@ -159,7 +159,7 @@ export default defineComponent({
     return () => (
       <div class={COMPONENT_NAME.value}>
         <RangeInputPopup
-          disabled={disabled.value}
+          disabled={isDisabled.value}
           popupVisible={isShowPanel.value}
           popupProps={{
             overlayInnerStyle: {
