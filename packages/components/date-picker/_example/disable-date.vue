@@ -49,7 +49,6 @@ import dayjs from 'dayjs';
 const pickDate = ref();
 
 const getDisableTime = (value, { partial }) => {
-  console.log('partial', partial);
   if (partial === 'start') {
     return {
       hour: [10, 11],
