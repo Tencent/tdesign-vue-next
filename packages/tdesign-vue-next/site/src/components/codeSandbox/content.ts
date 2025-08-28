@@ -1,6 +1,3 @@
-import { catalogs } from '@tdesign/internal-utils/catalogs';
-import { tdesignVueNextPackageJson } from '@tdesign/internal-utils/package-json';
-
 export const htmlContent = `<div id="app"></div>`;
 
 export const mainJsContent = `
