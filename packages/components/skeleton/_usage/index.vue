@@ -2,7 +2,7 @@
 <template>
   <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" @panel-change="onPanelChange">
     <template #skeleton="{ configProps }"
-      ><t-skeleton v-bind="configProps">
+      ><t-skeleton v-bind="configProps" style="width: inherit">
         <div class="t-skeleton-demo-paragraph">
           <p>
             骨架屏组件，是指当网络较慢时，在页面真实数据加载之前，给用户展示出页面的大致结构。
