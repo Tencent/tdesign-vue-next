@@ -12,15 +12,21 @@
     <br /><br />
     <t-date-picker mode="year" range />
     <br /><br />
+    <t-date-picker mode="week" />
+    <br /><br />
+    <t-date-picker mode="week" range />
+    <br /><br />
   </t-config-provider>
 </template>
 
 <script setup>
 const DATE_PICK_CONFIGS = {
+  dayjsLocale: 'en',
   placeholder: {
     date: 'select date',
     month: 'select month',
     year: 'select year',
+    week: 'select week',
   },
   weekdays: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
   months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -30,6 +36,7 @@ const DATE_PICK_CONFIGS = {
   now: 'Now',
   selectTime: 'Select Time',
   selectDate: 'Select Date',
+  weekAbbreviation: 'W',
 };
 
 const globalConfig = {

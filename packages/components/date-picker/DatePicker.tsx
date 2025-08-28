@@ -61,15 +61,18 @@ export default defineComponent({
       // 多选不考虑输入情况
       if (props.multiple) return;
       // 如果不需要确认，直接保存当前值
+
       if (!props.needConfirm && props.enableTimePicker && !visible) {
         const nextValue = formatDate(inputValue.value, {
           format: formatRef.value.format,
+          dayjsLocale: globalConfig.value.dayjsLocale,
         });
         if (nextValue) {
           onChange?.(
             formatDate(inputValue.value, {
               format: formatRef.value.format,
               targetFormat: formatRef.value.valueType,
+              dayjsLocale: globalConfig.value.dayjsLocale,
             }) as DateValue,
             {
               dayjsValue: parseToDayjs(inputValue.value as string, formatRef.value.format),
@@ -79,6 +82,7 @@ export default defineComponent({
         } else {
           inputValue.value = formatDate(value.value, {
             format: formatRef.value.format,
+            dayjsLocale: globalConfig.value.dayjsLocale,
           });
         }
       }
@@ -93,10 +97,12 @@ export default defineComponent({
       cacheValue.value = formatDate(dateValue, {
         format: formatRef.value.valueType,
         targetFormat: formatRef.value.format,
+        dayjsLocale: globalConfig.value.dayjsLocale,
       });
       inputValue.value = formatDate(dateValue, {
         format: formatRef.value.valueType,
         targetFormat: formatRef.value.format,
+        dayjsLocale: globalConfig.value.dayjsLocale,
       });
 
       // 面板展开重置数据
@@ -112,10 +118,10 @@ export default defineComponent({
     // 日期 hover
     function onCellMouseEnter(date: Date) {
       if (props.multiple) return;
-
       isHoverCell.value = true;
       inputValue.value = formatDate(date, {
         format: formatRef.value.format,
+        dayjsLocale: globalConfig.value.dayjsLocale,
       });
     }
 
@@ -126,6 +132,7 @@ export default defineComponent({
       isHoverCell.value = false;
       inputValue.value = formatDate(cacheValue.value, {
         format: formatRef.value.format,
+        dayjsLocale: globalConfig.value.dayjsLocale,
       });
     }
 
@@ -140,6 +147,7 @@ export default defineComponent({
       if (props.enableTimePicker) {
         cacheValue.value = formatDate(date, {
           format: formatRef.value.format,
+          dayjsLocale: globalConfig.value.dayjsLocale,
         });
       } else {
         if (props.multiple) {
@@ -155,6 +163,7 @@ export default defineComponent({
           formatDate(date, {
             format: formatRef.value.format,
             targetFormat: formatRef.value.valueType,
+            dayjsLocale: globalConfig.value.dayjsLocale,
           }) as DateValue,
           {
             dayjsValue: parseToDayjs(date, formatRef.value.format),
@@ -170,26 +179,39 @@ export default defineComponent({
     function processDate(date: Date) {
       let isSameDate: boolean;
       const currentValue = (value.value || []) as DateMultipleValue;
-      const { dayjsLocale } = globalConfig.value;
 
       let currentDate: DateMultipleValue;
       if (props.mode !== 'week')
         isSameDate = currentValue.some((val) =>
-          isSame(parseToDayjs(val, formatRef.value.format).toDate(), date, props.mode, dayjsLocale),
+          isSame(parseToDayjs(val, formatRef.value.format).toDate(), date, props.mode, globalConfig.value.dayjsLocale),
         );
       else {
-        isSameDate = currentValue.some((val) => val === dayjs(date).locale(dayjsLocale).format(formatRef.value.format));
+        isSameDate = currentValue.some(
+          (val) => val === dayjs(date).locale(globalConfig.value.dayjsLocale).format(formatRef.value.format),
+        );
       }
 
       if (!isSameDate) {
         currentDate = currentValue.concat(
-          formatDate(date, { format: formatRef.value.format, targetFormat: formatRef.value.valueType }),
+          formatDate(date, {
+            format: formatRef.value.format,
+            targetFormat: formatRef.value.valueType,
+            dayjsLocale: globalConfig.value.dayjsLocale,
+          }),
         );
       } else {
         currentDate = currentValue.filter(
           (val) =>
-            formatDate(val, { format: formatRef.value.format, targetFormat: formatRef.value.valueType }) !==
-            formatDate(date, { format: formatRef.value.format, targetFormat: formatRef.value.valueType }),
+            formatDate(val, {
+              format: formatRef.value.format,
+              targetFormat: formatRef.value.valueType,
+              dayjsLocale: globalConfig.value.dayjsLocale,
+            }) !==
+            formatDate(date, {
+              format: formatRef.value.format,
+              targetFormat: formatRef.value.valueType,
+              dayjsLocale: globalConfig.value.dayjsLocale,
+            }),
         );
       }
       return currentDate;
@@ -254,9 +276,11 @@ export default defineComponent({
       const nextDate = currentDate.hour(nextHours).minute(minutes).second(seconds).millisecond(milliseconds).toDate();
       inputValue.value = formatDate(nextDate, {
         format: formatRef.value.format,
+        dayjsLocale: globalConfig.value.dayjsLocale,
       });
       cacheValue.value = formatDate(nextDate, {
         format: formatRef.value.format,
+        dayjsLocale: globalConfig.value.dayjsLocale,
       });
 
       props.onPick?.(nextDate);
@@ -266,13 +290,16 @@ export default defineComponent({
     function onConfirmClick({ e }: { e: MouseEvent }) {
       const nextValue = formatDate(inputValue.value, {
         format: formatRef.value.format,
+        dayjsLocale: globalConfig.value.dayjsLocale,
       });
       if (nextValue) {
         props?.onConfirm?.({ date: dayjs(nextValue as string).toDate(), e });
+
         onChange?.(
           formatDate(inputValue.value, {
             format: formatRef.value.format,
             targetFormat: formatRef.value.valueType,
+            dayjsLocale: globalConfig.value.dayjsLocale,
           }) as DateValue,
           {
             dayjsValue: parseToDayjs(inputValue.value as string, formatRef.value.format),
@@ -282,6 +309,7 @@ export default defineComponent({
       } else {
         inputValue.value = formatDate(value.value, {
           format: formatRef.value.format,
+          dayjsLocale: globalConfig.value.dayjsLocale,
         });
       }
       popupVisible.value = false;
@@ -294,6 +322,7 @@ export default defineComponent({
         formatDate(presetVal, {
           format: formatRef.value.format,
           targetFormat: formatRef.value.valueType,
+          dayjsLocale: globalConfig.value.dayjsLocale,
         }) as DateValue,
         {
           dayjsValue: parseToDayjs(presetVal, formatRef.value.format),
@@ -303,6 +332,7 @@ export default defineComponent({
       // 更新到 input，避免 needConfirm 导致值被覆盖
       inputValue.value = formatDate(presetVal, {
         format: formatRef.value.format,
+        dayjsLocale: globalConfig.value.dayjsLocale,
       });
       popupVisible.value = false;
     }

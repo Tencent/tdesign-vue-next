@@ -17,6 +17,7 @@ import { useRangeValue } from './hooks/useRangeValue';
 import { formatDate, getDefaultFormat, parseToDayjs } from '@tdesign/common-js/date-picker/format';
 import { subtractMonth, addMonth, extractTimeObj } from '@tdesign/common-js/date-picker/utils';
 import { dateCorrection } from './utils';
+import { useConfig } from '@tdesign/shared-hooks';
 
 export default defineComponent({
   name: 'TDateRangePickerPanel',
@@ -38,6 +39,7 @@ export default defineComponent({
   },
 
   setup(props: TdDateRangePickerPanelProps) {
+    const { globalConfig } = useConfig('datePicker');
     const { value, year, month, time, cacheValue, isFirstValueSelected, onChange } = useRangeValue(props);
 
     const formatRef = computed(() =>
@@ -76,6 +78,7 @@ export default defineComponent({
       const nextValue = [...(hoverValue.value as string[])];
       nextValue[activeIndex.value] = formatDate(date, {
         format: formatRef.value.format,
+        dayjsLocale: globalConfig.value.dayjsLocale,
       }) as string;
       hoverValue.value = nextValue;
     }
@@ -94,6 +97,7 @@ export default defineComponent({
       const nextValue = [...(cacheValue.value as string[])];
       nextValue[activeIndex.value] = formatDate(date, {
         format: formatRef.value.format,
+        dayjsLocale: globalConfig.value.dayjsLocale,
       }) as string;
       cacheValue.value = nextValue;
 
@@ -111,6 +115,7 @@ export default defineComponent({
           formatDate(nextValue, {
             format: formatRef.value.format,
             autoSwap: true,
+            dayjsLocale: globalConfig.value.dayjsLocale,
           }) as DateValue[],
           {
             dayjsValue: nextValue.map((v) => parseToDayjs(v, formatRef.value.format)),
@@ -205,6 +210,7 @@ export default defineComponent({
       isSelected.value = true;
       cacheValue.value = formatDate(nextInputValue, {
         format: formatRef.value.format,
+        dayjsLocale: globalConfig.value.dayjsLocale,
       });
 
       props.onTimeChange?.({
@@ -225,6 +231,7 @@ export default defineComponent({
           formatDate(nextValue, {
             format: formatRef.value.format,
             autoSwap: true,
+            dayjsLocale: globalConfig.value.dayjsLocale,
           }) as DateValue[],
           {
             dayjsValue: nextValue.map((v) => parseToDayjs(v, formatRef.value.format)),
@@ -254,6 +261,7 @@ export default defineComponent({
           formatDate(presetValue, {
             format: formatRef.value.format,
             autoSwap: true,
+            dayjsLocale: globalConfig.value.dayjsLocale,
           }) as DateValue[],
           {
             dayjsValue: presetValue.map((p) => parseToDayjs(p, formatRef.value.format)),
