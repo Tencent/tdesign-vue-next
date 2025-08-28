@@ -33,6 +33,12 @@
         after: dayjs().add(5, 'day').format(),
       }"
     />
+    <t-date-range-picker
+      placeholder="禁用日期精确到时间"
+      enable-time-picker
+      :disable-date="{ before: dayjs().subtract(1, 'day').format() }"
+      :disable-time="getDisableTime"
+    />
   </t-space>
 </template>
 
@@ -42,6 +48,17 @@ import dayjs from 'dayjs';
 
 const pickDate = ref();
 
+const getDisableTime = (value, { partial }) => {
+  console.log('partial', partial);
+  if (partial === 'start') {
+    return {
+      hour: [10, 11],
+    };
+  }
+  return {
+    hour: [12, 13],
+  };
+};
 const timePickerProps = computed(() => {
   return {
     disableTime: () => {
