@@ -1,14 +1,19 @@
 import { defineConfig, searchForWorkspaceRoot } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
-import tDocPlugin from './plugin-doc';
 import { joinPosix, joinComponentsRoot, joinTdesignVueNextRoot } from '@tdesign/internal-utils';
+import tDocPlugin from './plugins/plugin-doc';
+import siteMetadata from './plugins/site-metadata';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
 
 const publicPathMap: Record<string, string> = {
   preview: '/',
   intranet: '/chat/',
   production: 'https://static.tdesign.tencent.com/chat/',
 };
+// eslint-disable-next-line no-underscore-dangle
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig(({ mode }) => {
   return {
@@ -31,7 +36,7 @@ export default defineConfig(({ mode }) => {
         allow: [searchForWorkspaceRoot(process.cwd())],
       },
     },
-    plugins: [vue(), vueJsx(), tDocPlugin()],
+    plugins: [vue(), vueJsx(), tDocPlugin(), siteMetadata()],
     optimizeDeps: {
       include: ['prismjs', 'prismjs/components/prism-bash.js'],
     },
