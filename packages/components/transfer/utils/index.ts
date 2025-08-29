@@ -210,4 +210,5 @@ export {
   cloneTreeWithFilter,
   filterTransferData,
   getLefCount,
+  isTreeNodeValid,
 };

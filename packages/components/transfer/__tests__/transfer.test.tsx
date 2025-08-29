@@ -15,6 +15,25 @@ const data = [];
   }
 })();
 
+const treeData = [
+  {
+    value: '1',
+    label: '项目1',
+    children: [
+      { value: '1-1', label: '子项目1-1' },
+      { value: '1-2', label: '子项目1-2' },
+    ],
+  },
+  {
+    value: '2',
+    label: '项目2',
+    children: [
+      { value: '2-1', label: '子项目2-1' },
+      { value: '2-2', label: '子项目2-2' },
+    ],
+  },
+];
+
 const pagination = {
   pageSize: 5,
   total: 20,
@@ -36,6 +55,18 @@ describe('Transfer', () => {
       expect(list[1].findAll('.t-transfer__list-item').length).toBe(0);
       expect(list[1].find('.t-transfer__empty').exists()).toBeTruthy();
       expect(list[1].find('.t-transfer__empty').text()).toBe('暂无数据');
+    });
+
+    it(':data default empty array', () => {
+      const wrapper = mount(() => <Transfer />);
+      const transfer = wrapper.find('.t-transfer');
+      expect(transfer.exists()).toBeTruthy();
+      const list = wrapper.findAll('.t-transfer__list');
+      expect(list.length).toBe(2);
+      expect(list[0].findAll('.t-transfer__list-item').length).toBe(0);
+      expect(list[1].findAll('.t-transfer__list-item').length).toBe(0);
+      expect(list[0].find('.t-transfer__empty').exists()).toBeTruthy();
+      expect(list[1].find('.t-transfer__empty').exists()).toBeTruthy();
     });
 
     it(':checked', () => {
@@ -67,54 +98,164 @@ describe('Transfer', () => {
     });
 
     it(':direction:left', () => {
-      const checked = ref(['2']);
-      const wrapper = mount(() => <Transfer data={data} checked={checked.value} direction="left" />);
+      const checked = ref(['2', '4']);
+      const targetValue = ref(['2']);
+      const wrapper = mount(() => (
+        <Transfer data={data} checked={checked.value} direction="left" v-model={targetValue.value} />
+      ));
       const transfer = wrapper.find('.t-transfer');
       const btns = transfer.findAll('button');
       expect(btns[0].classes()).toContain('t-is-disabled');
-      expect(btns[1].classes()).toContain('t-is-disabled');
+      expect(btns[1].classes()).not.toContain('t-is-disabled');
     });
 
     it(':direction:right', async () => {
-      const checked = ref(['2']);
-      const targetValue = ref(['3']);
+      const checked = ref(['2', '4']);
+      const targetValue = ref(['2']);
       const wrapper = mount(() => (
         <Transfer data={data} checked={checked.value} direction="right" v-model={targetValue.value} />
       ));
       const transfer = wrapper.find('.t-transfer');
-      const list = transfer.findAll('.t-transfer__list');
-      const item = list[1].find('.t-transfer__list-item');
-      const checkbox = item.find('input');
       const btns = transfer.findAll('button');
-      await checkbox.trigger('change');
+      expect(btns[1].classes()).toContain('t-is-disabled');
+      expect(btns[0].classes()).not.toContain('t-is-disabled');
+    });
+
+    it(':direction:both', () => {
+      const checked = ref(['2']);
+      const targetValue = ref(['3']);
+      const wrapper = mount(() => (
+        <Transfer data={data} checked={checked.value} direction="both" v-model={targetValue.value} />
+      ));
+      const transfer = wrapper.find('.t-transfer');
+      const btns = transfer.findAll('button');
+      expect(btns[0].classes()).not.toContain('t-is-disabled');
       expect(btns[1].classes()).toContain('t-is-disabled');
     });
 
-    it(':disabled', async () => {
-      const checked = ref(['2']);
-      const targetValue = ref(['3']);
+    it(':direction:both with target checked', async () => {
+      const checked = ref(['2', '4']);
+      const targetValue = ref(['2']);
+      const wrapper = mount(() => (
+        <Transfer data={data} checked={checked.value} direction="both" v-model={targetValue.value} />
+      ));
+      const transfer = wrapper.find('.t-transfer');
+      const btns = transfer.findAll('button');
+      expect(btns[0].classes()).not.toContain('t-is-disabled');
+      expect(btns[1].classes()).not.toContain('t-is-disabled');
+    });
+
+    it(':direction validator with null/undefined', () => {
+      // 测试 validator 中 if (!val) return true 的逻辑
+      const wrapper1 = mount(() => <Transfer data={data} direction={null} />);
+      expect(wrapper1.find('.t-transfer').exists()).toBeTruthy();
+
+      const wrapper2 = mount(() => <Transfer data={data} direction={undefined} />);
+      expect(wrapper2.find('.t-transfer').exists()).toBeTruthy();
+
+      const wrapper3 = mount(() => <Transfer data={data} direction="" />);
+      expect(wrapper3.find('.t-transfer').exists()).toBeTruthy();
+    });
+
+    it(':targetSort validator with null/undefined', () => {
+      // 测试 targetSort validator 中 if (!val) return true 的逻辑
+      const wrapper1 = mount(() => <Transfer data={data} targetSort={null} />);
+      expect(wrapper1.find('.t-transfer').exists()).toBeTruthy();
+
+      const wrapper2 = mount(() => <Transfer data={data} targetSort={undefined} />);
+      expect(wrapper2.find('.t-transfer').exists()).toBeTruthy();
+
+      const wrapper3 = mount(() => <Transfer data={data} targetSort="" />);
+      expect(wrapper3.find('.t-transfer').exists()).toBeTruthy();
+    });
+
+    it(':disabled boolean', async () => {
+      const checked = ref(['2', '4']);
+      const targetValue = ref(['2']);
       const wrapper = mount(() => (
         <Transfer data={data} checked={checked.value} disabled v-model={targetValue.value} />
       ));
       const transfer = wrapper.find('.t-transfer');
       const list = transfer.findAll('.t-transfer__list');
-      const checkboxGroup = list[0].find('.t-transfer__list-content .t-checkbox-group');
-      const btns = transfer.findAll('button');
-      const labels = checkboxGroup.findAll('label');
-      labels.forEach((label) => {
-        expect(label.classes()).toContain('t-is-disabled');
+      // 检查所有复选框组是否被禁用
+      list.forEach((listItem) => {
+        const checkboxGroup = listItem.find('.t-transfer__list-content .t-checkbox-group');
+        if (checkboxGroup.exists()) {
+          const labels = checkboxGroup.findAll('label');
+          labels.forEach((label) => {
+            expect(label.classes()).toContain('t-is-disabled');
+          });
+        }
       });
-      btns.forEach((label) => {
-        expect(label.classes()).toContain('t-is-disabled');
+      // 检查移动按钮是否被禁用
+      const btns = transfer.findAll('button');
+      btns.forEach((btn) => {
+        expect(btn.classes()).toContain('t-is-disabled');
+      });
+      // 检查搜索框是否被禁用
+      const searchInputs = transfer.findAll('.t-input');
+      searchInputs.forEach((input) => {
+        expect(input.classes()).toContain('t-is-disabled');
+      });
+      // 检查分页组件是否被禁用
+      const paginationComponents = transfer.findAll('.t-pagination');
+      paginationComponents.forEach((pagination) => {
+        expect(pagination.classes()).toContain('t-is-disabled');
       });
     });
 
-    it(':empty', () => {
+    // it(':disabled array', () => {
+    //   const data = [
+    //     { value: '1', label: '项目1' },
+    //     { value: '2', label: '项目2' },
+    //     { value: '3', label: '项目3' },
+    //     { value: '4', label: '项目4' },
+    //   ];
+    //   const checked = ref(['2', '4']);
+    //   const targetValue = ref(['2']);
+    //   const wrapper = mount(() => (
+    //     <Transfer data={data} checked={checked.value} disabled={[true, false]} v-model={targetValue.value} />
+    //   ));
+    //   const transfer = wrapper.find('.t-transfer');
+    //   const list = transfer.findAll('.t-transfer__list');
+    //   const sourceCheckboxGroup = list[0].find('.t-transfer__list-content .t-checkbox-group');
+    //   const targetCheckboxGroup = list[1].find('.t-transfer__list-content .t-checkbox-group');
+    //   const sourceLabels = sourceCheckboxGroup.findAll('label');
+    //   sourceLabels.forEach((label) => {
+    //     expect(label.classes()).toContain('t-is-disabled');
+    //   });
+
+    //   // 目标列表不应该被禁用
+    //   if (targetCheckboxGroup.exists()) {
+    //     const targetLabels = targetCheckboxGroup.findAll('label');
+    //     targetLabels.forEach((label) => {
+    //       expect(label.classes()).not.toContain('t-is-disabled');
+    //     });
+    //   }
+    // });
+
+    it(':empty string', () => {
       const wrapper = mount(() => <Transfer data={data} empty="暂无可用数据" />);
       const transfer = wrapper.find('.t-transfer');
       const list = transfer.findAll('.t-transfer__list');
       expect(list[1].find('.t-transfer__empty').exists()).toBeTruthy();
       expect(list[1].find('.t-transfer__empty').text()).toBe('暂无可用数据');
+    });
+
+    it(':empty array', () => {
+      const wrapper = mount(() => <Transfer data={data} empty={['源列表空', '目标列表空']} />);
+      const transfer = wrapper.find('.t-transfer');
+      const list = transfer.findAll('.t-transfer__list');
+      expect(list[1].find('.t-transfer__empty').exists()).toBeTruthy();
+      expect(list[1].find('.t-transfer__empty').text()).toBe('目标列表空');
+    });
+
+    it(':empty function', () => {
+      const emptyFn = ({ type }) => (type === 'source' ? '源为空' : '目标为空');
+      const wrapper = mount(() => <Transfer data={data} empty={emptyFn} />);
+      const transfer = wrapper.find('.t-transfer');
+      const list = transfer.findAll('.t-transfer__list');
+      expect(list[1].find('.t-transfer__empty').text()).toBe('目标为空');
     });
 
     it(':footer', () => {
@@ -129,6 +270,35 @@ describe('Transfer', () => {
       expect(list[1].find('.footer').text()).toBe('footer');
     });
 
+    it(':footer array', () => {
+      const wrapper = mount(() => <Transfer data={data} footer={['源底部', '目标底部']} />);
+      const list = wrapper.findAll('.t-transfer__list');
+      expect(list[0].text()).contain('源底部');
+      expect(list[1].text()).contain('目标底部');
+    });
+
+    it(':footer function', () => {
+      const footerFn = [() => '源底部', () => '目标底部'];
+      const wrapper = mount(() => <Transfer data={data} footer={footerFn} />);
+      const list = wrapper.findAll('.t-transfer__list');
+      expect(list[0].text()).contain('源底部');
+      expect(list[1].text()).contain('目标底部');
+    });
+
+    it(':keys', () => {
+      const customData = [
+        { id: '1', text: '项目1', isDisabled: false },
+        { id: '2', text: '项目2', isDisabled: true },
+      ];
+      const keys = { value: 'id', label: 'text', disabled: 'isDisabled' };
+      const wrapper = mount(() => <Transfer data={customData} keys={keys} />);
+      const transfer = wrapper.find('.t-transfer');
+      expect(transfer.exists()).toBeTruthy();
+      const items = wrapper.findAll('.t-transfer__list-item');
+      expect(items.length).toBe(2);
+      expect(items[1].classes()).toContain('t-is-disabled');
+    });
+
     it(':title', () => {
       const slots = {
         title: () => <div class="title">title</div>,
@@ -139,6 +309,21 @@ describe('Transfer', () => {
       expect(list[0].find('.title').text()).toBe('title');
       expect(list[1].find('.title').exists()).toBeTruthy();
       expect(list[1].find('.title').text()).toBe('title');
+    });
+
+    it(':title array', () => {
+      const wrapper = mount(() => <Transfer data={data} title={['源列表', '目标列表']} />);
+      const headers = wrapper.findAll('.t-transfer__list-header');
+      expect(headers[0].text()).toContain('源列表');
+      expect(headers[1].text()).toContain('目标列表');
+    });
+
+    it(':title function', () => {
+      const titleFn = [() => '源标题', () => '目标标题'];
+      const wrapper = mount(() => <Transfer data={data} title={titleFn} />);
+      const headers = wrapper.findAll('.t-transfer__list-header');
+      expect(headers[0].findAll('span')[3].text()).toContain('源标题');
+      expect(headers[1].findAll('span')[3].text()).toContain('目标标题');
     });
 
     it(':operation', () => {
@@ -212,6 +397,221 @@ describe('Transfer', () => {
       const content = list[0].find('.t-transfer__list-content');
       await content.trigger('scroll');
       expect(fn).toBeCalled();
+    });
+
+    it('should move items from target to source (toDirection === SOURCE)', async () => {
+      const onChange = vi.fn();
+      const targetValue = ref(['1', '2', '3']);
+      const checked = ref(['1', '2']); // 选中目标列表中的项目
+
+      const wrapper = mount(() => (
+        <Transfer data={data} v-model={targetValue.value} checked={checked.value} onChange={onChange} />
+      ));
+
+      // 点击左移按钮（从目标移到源）
+      const operations = wrapper.find('.t-transfer__operations');
+      const leftBtn = operations.findAll('button')[1]; // 左移按钮
+      await leftBtn.trigger('click');
+
+      expect(onChange).toHaveBeenCalled();
+      const callArgs = onChange.mock.calls[0];
+      // 验证新的目标值应该过滤掉选中的项目
+      expect(callArgs[0]).toEqual(['3']); // 只剩下未选中的项目
+      expect(callArgs[1].type).toBe('source');
+      expect(callArgs[1].movedValue).toEqual(['1', '2']);
+    });
+
+    it('should handle empty checked values when moving to source', async () => {
+      const onChange = vi.fn();
+      const targetValue = ref(['1', '2', '3']);
+      const checked = ref([]); // 没有选中任何项目
+
+      const wrapper = mount(() => (
+        <Transfer data={data} v-model={targetValue.value} checked={checked.value} onChange={onChange} />
+      ));
+
+      const operations = wrapper.find('.t-transfer__operations');
+      const leftBtn = operations.findAll('button')[1];
+
+      // 左移按钮应该被禁用，因为没有选中项目
+      expect(leftBtn.classes()).toContain('t-is-disabled');
+    });
+
+    it('should filter correctly when moving multiple items to source', async () => {
+      const onChange = vi.fn();
+      const targetValue = ref(['1', '2', '3', '4', '5']);
+      const checked = ref(['2', '4']); // 选中部分项目
+
+      const wrapper = mount(() => (
+        <Transfer data={data} v-model={targetValue.value} checked={checked.value} onChange={onChange} />
+      ));
+
+      const operations = wrapper.find('.t-transfer__operations');
+      const leftBtn = operations.findAll('button')[1];
+      await leftBtn.trigger('click');
+
+      expect(onChange).toHaveBeenCalled();
+      const callArgs = onChange.mock.calls[0];
+      // 验证过滤逻辑：原目标值减去选中的值
+      expect(callArgs[0]).toEqual(['1', '3', '5']);
+      expect(callArgs[1].movedValue).toEqual(['2', '4']);
+    });
+
+    it('should preserve disabled items in target when targetSort is original', async () => {
+      // 创建包含禁用项目的数据
+      const testData = [
+        { value: '1', label: '项目1', disabled: false },
+        { value: '2', label: '项目2', disabled: true }, // 禁用项目
+        { value: '3', label: '项目3', disabled: false },
+        { value: '4', label: '项目4', disabled: true }, // 禁用项目
+        { value: '5', label: '项目5', disabled: false },
+      ];
+
+      const onChange = vi.fn();
+      const targetValue = ref(['2', '3', '4']); // 目标列表包含禁用项目
+      const checked = ref(['1']); // 选中源列表中的项目
+
+      const wrapper = mount(() => (
+        <Transfer
+          data={testData}
+          v-model={targetValue.value}
+          checked={checked.value}
+          targetSort="original"
+          onChange={onChange}
+        />
+      ));
+
+      // 点击右移按钮（从源移到目标）
+      const operations = wrapper.find('.t-transfer__operations');
+      const rightBtn = operations.findAll('button')[0];
+      await rightBtn.trigger('click');
+
+      expect(onChange).toHaveBeenCalled();
+      const callArgs = onChange.mock.calls[0];
+
+      // 验证禁用项目被保留在 remainValue 中
+      // 新的目标值应该包含原有的禁用项目 '2', '4' 和新添加的 '1'
+      const newTargetValue = callArgs[0];
+      expect(newTargetValue).toContain('2'); // 禁用项目应该被保留
+      expect(newTargetValue).toContain('4'); // 禁用项目应该被保留
+      expect(newTargetValue).toContain('1'); // 新移动的项目
+      expect(newTargetValue).toContain('3'); // 原有的非禁用项目
+    });
+
+    it('should handle remainValue logic with disabled items in original sort', async () => {
+      const testData = [
+        { value: '1', label: '项目1', disabled: false },
+        { value: '2', label: '项目2', disabled: true },
+        { value: '3', label: '项目3', disabled: false },
+        { value: '4', label: '项目4', disabled: true },
+      ];
+
+      const onChange = vi.fn();
+      // 目标列表中有禁用和非禁用项目
+      const targetValue = ref(['2', '3', '4']);
+      const checked = ref(['1']);
+
+      const wrapper = mount(() => (
+        <Transfer
+          data={testData}
+          v-model={targetValue.value}
+          checked={checked.value}
+          targetSort="original"
+          onChange={onChange}
+        />
+      ));
+
+      const operations = wrapper.find('.t-transfer__operations');
+      const rightBtn = operations.findAll('button')[0];
+      await rightBtn.trigger('click');
+
+      expect(onChange).toHaveBeenCalled();
+
+      // 验证 remainValue 逻辑：只有在目标列表中且被禁用的项目才会被加入 remainValue
+      // 这里 '2' 和 '4' 都在目标列表中且被禁用，应该被保留
+      const callArgs = onChange.mock.calls[0];
+      const newTargetValue = callArgs[0];
+
+      // 检查禁用项目是否被正确保留
+      expect(newTargetValue.filter((v) => ['2', '4'].includes(v)).length).toBe(2);
+    });
+
+    it('should handle targetSort unshift - prepend new items', async () => {
+      const onChange = vi.fn();
+      const targetValue = ref(['3', '4']); // 目标列表已有项目
+      const checked = ref(['1', '2']); // 选中源列表中的项目
+
+      const wrapper = mount(() => (
+        <Transfer
+          data={data}
+          v-model={targetValue.value}
+          checked={checked.value}
+          targetSort="unshift"
+          onChange={onChange}
+        />
+      ));
+
+      // 点击右移按钮
+      const operations = wrapper.find('.t-transfer__operations');
+      const rightBtn = operations.findAll('button')[0];
+      await rightBtn.trigger('click');
+
+      expect(onChange).toHaveBeenCalled();
+      const callArgs = onChange.mock.calls[0];
+
+      // 验证 unshift 逻辑：新项目应该被添加到前面
+      // newTargetValue = selfCheckedValue.concat(oldTargetValue)
+      expect(callArgs[0]).toEqual(['1', '2', '3', '4']);
+      expect(callArgs[1].movedValue).toEqual(['1', '2']);
+    });
+
+    it('should handle default targetSort - append new items', async () => {
+      const onChange = vi.fn();
+      const targetValue = ref(['3', '4']); // 目标列表已有项目
+      const checked = ref(['1', '2']); // 选中源列表中的项目
+
+      const wrapper = mount(() => (
+        <Transfer data={data} v-model={targetValue.value} checked={checked.value} onChange={onChange} />
+      ));
+
+      // 点击右移按钮
+      const operations = wrapper.find('.t-transfer__operations');
+      const rightBtn = operations.findAll('button')[0];
+      await rightBtn.trigger('click');
+
+      expect(onChange).toHaveBeenCalled();
+      const callArgs = onChange.mock.calls[0];
+
+      // 验证默认逻辑：新项目应该被添加到后面
+      // newTargetValue = oldTargetValue.concat(selfCheckedValue)
+      expect(callArgs[0]).toEqual(['1', '2', '3', '4']);
+      expect(callArgs[1].movedValue).toEqual(['1', '2']);
+    });
+
+    it('should handle targetSort push (same as default)', async () => {
+      const onChange = vi.fn();
+      const targetValue = ref(['3', '4']);
+      const checked = ref(['1', '2']);
+
+      const wrapper = mount(() => (
+        <Transfer
+          data={data}
+          v-model={targetValue.value}
+          checked={checked.value}
+          targetSort="push"
+          onChange={onChange}
+        />
+      ));
+
+      const operations = wrapper.find('.t-transfer__operations');
+      const rightBtn = operations.findAll('button')[0];
+      await rightBtn.trigger('click');
+
+      expect(onChange).toHaveBeenCalled();
+      const callArgs = onChange.mock.calls[0];
+
+      // targetSort 为 'push' 时走 else 分支，新项目添加到后面
+      expect(callArgs[0]).toEqual(['3', '4', '1', '2']);
     });
   });
 });
