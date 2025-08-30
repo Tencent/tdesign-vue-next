@@ -4,6 +4,7 @@ import { vi } from 'vitest';
 import { AutoComplete } from '@tdesign/components';
 import { getNormalAutoCompleteMount, getOptionSlotAutoCompleteMount } from './mount';
 import { simulateKeydownEvent } from '@tdesign/internal-tests/utils';
+import { ref } from 'vue';
 
 describe('AutoComplete Component', () => {
   it(`props.autofocus is equal to false`, () => {
@@ -435,5 +436,80 @@ describe('AutoComplete Component', () => {
     expect(onSelectFn6).toHaveBeenCalled(1);
     expect(onSelectFn6.mock.calls[0][0]).toBe('FirstKeyword');
     expect(onSelectFn6.mock.calls[0][1].e.type).toBe('keydown');
+  });
+
+  it('props.inputProps works fine', async () => {
+    const onChangeFn = vi.fn();
+    const wrapper = mount(<AutoComplete inputProps={{ maxlength: 5 }} onChange={onChangeFn} />);
+    await wrapper.vm.$nextTick();
+
+    const input = wrapper.find('input');
+    await input.setValue('123');
+    expect(onChangeFn.mock.calls[0][0]).toBe('123');
+    await input.setValue('123456');
+    expect(onChangeFn.mock.calls[1][0]).toBe('12345');
+  });
+
+  it('props.borderless works fine', () => {
+    const wrapper = mount(<AutoComplete borderless={true} />);
+    expect(wrapper.find('.t-input--borderless').exists()).toBeTruthy();
+  });
+
+  it('props.empty works fine', async () => {
+    const wrapper = mount(
+      <AutoComplete
+        options={[]}
+        empty={() => <span class="custom-empty">No Data</span>}
+        popupProps={{ overlayClassName: 'empty-test-class' }}
+      />,
+    );
+    wrapper.find('input').trigger('focus');
+    await wrapper.vm.$nextTick();
+    expect(document.querySelector('.empty-test-class .custom-empty')).toBeDefined();
+    document.querySelectorAll('.t-popup').forEach((node) => node.remove());
+  });
+
+  it('props.onClear works fine when value is empty', async () => {
+    const onClearFn = vi.fn();
+    const wrapper = mount(<AutoComplete clearable={true} value="" onClear={onClearFn} />);
+    wrapper.find('.t-input').trigger('mouseenter');
+    await wrapper.vm.$nextTick();
+    expect(wrapper.find('.t-input__suffix-clear').exists()).toBeFalsy();
+  });
+
+  it('props.onChange works fine when input value changes', async () => {
+    const onChangeFn = vi.fn();
+    const wrapper = mount(<AutoComplete onChange={onChangeFn} />);
+    const input = wrapper.find('input');
+    input.element.value = 'abc';
+    input.trigger('input');
+    await wrapper.vm.$nextTick();
+    expect(onChangeFn).toHaveBeenCalled();
+    expect(onChangeFn.mock.calls[0][0]).toBe('abc');
+    await input.setValue('123456');
+    expect(onChangeFn).toHaveBeenCalled();
+    expect(onChangeFn.mock.calls[1][0]).toBe('123456');
+  });
+
+  it('props.defaultValue works fine', () => {
+    const wrapper = mount(<AutoComplete defaultValue="default-keyword" />);
+    const input = wrapper.find('input');
+    expect(input.element.value).toBe('default-keyword');
+  });
+
+  it('v-model/modelValue works fine', async () => {
+    const wrapper = mount({
+      components: { AutoComplete },
+      data() {
+        return { val: 'init' };
+      },
+      template: `<AutoComplete v-model="val" />`,
+    });
+    const input = wrapper.find('input');
+    expect(input.element.value).toBe('init');
+    input.element.value = 'changed';
+    input.trigger('input');
+    await wrapper.vm.$nextTick();
+    expect(wrapper.vm.val).toBe('changed');
   });
 });
