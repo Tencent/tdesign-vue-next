@@ -4,7 +4,6 @@ import { vi } from 'vitest';
 import { AutoComplete } from '@tdesign/components';
 import { getNormalAutoCompleteMount, getOptionSlotAutoCompleteMount } from './mount';
 import { simulateKeydownEvent } from '@tdesign/internal-tests/utils';
-import { ref } from 'vue';
 
 describe('AutoComplete Component', () => {
   it(`props.autofocus is equal to false`, () => {
