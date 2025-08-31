@@ -1,23 +1,17 @@
 import { mount } from '@vue/test-utils';
-import { describe, expect, it } from 'vitest';
-import { ref, nextTick, render, reactive, Ref } from 'vue';
-import { ColorPicker, Input, Popup } from '@tdesign/components';
+import { nextTick } from 'vue';
+import { ColorPicker } from '@tdesign/components';
 import { TdColorPickerProps } from '@tdesign/components/color-picker/type';
 import ColorPanel from '@tdesign/components/color-picker/components/panel';
-import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-import { sleep } from '@tdesign/internal-utils';
+import { userEvent } from '@tdesign/internal-tests';
 
 /**
  * Mount a color picker and trigger the panel
- * 备注：预期的应该是通过点击输入框从而触发面板，但尝试后怎么都不行，因此改为 popup visible 为 true
- * @param param0
- * @returns
  */
 export async function mountColorPickerAndTriggerPanel({ props }: { props?: TdColorPickerProps }) {
-  const popupProps = reactive({ visible: false });
-  const wrapper = mount(<ColorPicker v-model={props.value} popupProps={popupProps} {...(props || {})} />);
-  popupProps.visible = true;
-  await nextTick();
-  const panel = wrapper.getComponent(ColorPanel);
-  return { wrapper, panel, getPanel: () => wrapper.getComponent(ColorPanel) };
+  const wrapper = mount(<ColorPicker v-model={props.value} {...(props || {})} />);
+  const trigger = wrapper.find('.t-color-picker__trigger');
+  await userEvent.click(trigger.element);
+  const panel = wrapper.findComponent(ColorPanel);
+  return { wrapper, panel };
 }

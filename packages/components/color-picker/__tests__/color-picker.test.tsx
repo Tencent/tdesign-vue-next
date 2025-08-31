@@ -1,12 +1,13 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
-import { ref, nextTick, render, reactive } from 'vue';
-import { ColorPicker, Input, Popup } from '@tdesign/components';
+import { ref, nextTick } from 'vue';
+import { ColorPicker } from '@tdesign/components';
+import type { ColorObject } from '@tdesign/components/color-picker';
+import colorPickerProps from '@tdesign/components/color-picker/props';
 import ColorPanel from '@tdesign/components/color-picker/components/panel';
 import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-import { sleep } from '@tdesign/internal-utils';
 import { mountColorPickerAndTriggerPanel } from './mount';
-import { simulateInputChange } from '@tdesign/internal-tests';
+import { clickAtPosition, simulateInputChange, userEvent } from '@tdesign/internal-tests';
 
 describe('ColorPicker', () => {
   describe(':props', () => {
@@ -33,19 +34,17 @@ describe('ColorPicker', () => {
       expect(labes[0].text()).toBe('单色');
       expect(labes[1].text()).toBe('渐变');
 
-      const { wrapper: wrapper2, panel: panel2 } = await mountColorPickerAndTriggerPanel({
+      const { panel: panel2 } = await mountColorPickerAndTriggerPanel({
         props: { colorModes: ['monochrome'], value },
       });
-      await wrapper2.setProps({ colorModes: ['monochrome'] });
       const group2 = panel2.find('.t-radio-group');
       expect(group2.exists()).toBeFalsy();
       const slider = panel2.find('.t-color-picker__sliders-wrapper');
       expect(slider.exists()).toBeTruthy();
 
-      const { wrapper: wrapper3, panel: panel3 } = await mountColorPickerAndTriggerPanel({
+      const { panel: panel3 } = await mountColorPickerAndTriggerPanel({
         props: { colorModes: ['linear-gradient'], value },
       });
-      await wrapper3.setProps({ colorModes: ['linear-gradient'] });
       const group3 = panel3.find('.t-radio-group');
       expect(group3.exists()).toBeFalsy();
       const degree = panel3.find('.t-color-picker__gradient-degree');
@@ -96,6 +95,11 @@ describe('ColorPicker', () => {
 
     describe(':format[HEX/HEX8/RGB/RGBA/HSL/HSLA/HSV/HSVA/CMYK/CSS]', async () => {
       // ps: enableAlpha true: HEX8/RGBA/HSLA/HSVA
+      it('format:validator', () => {
+        const validator = colorPickerProps.format.validator;
+        expect(validator(undefined)).toBe(true);
+      });
+
       const color = ref('red');
       const resultWithNoAlpha = {
         HEX: '#ff0000',
@@ -186,6 +190,9 @@ describe('ColorPicker', () => {
     });
 
     it(':size[small/medium/large]', async () => {
+      const validator = colorPickerProps.size.validator;
+      expect(validator(undefined)).toBe(true);
+
       const wrapper = mount(<ColorPicker size={'small'} />);
       expect(wrapper.find('.t-input').classes()).toContain('t-size-s');
 
@@ -238,46 +245,33 @@ describe('ColorPicker', () => {
     });
 
     it('palette-bar-change', async () => {
-      const value = ref('#0052d9');
-      const result = ref<string>('');
-      const handlePaletteBarChange = vi.fn();
-
-      await nextTick();
-      const popupVisible = reactive({ visible: false });
-      const wrapper = mount(
-        <ColorPicker v-model={value.value} onPaletteBarChange={handlePaletteBarChange} popupProps={popupVisible} />,
-      );
-      popupVisible.visible = true;
-      await nextTick();
-      const pp = wrapper.getComponent(ColorPanel);
-      // expect(pp).toMatchInlineSnapshot();
-      // const panel = document.body.querySelector('.t-color-picker__panel')
-      // const slider = panel.querySelector('.t-color-picker__rail');
-      // expect(handlePaletteBarChange).toBeCalled()
+      const handlePaletteBarChange = vi.fn((context: { color: ColorObject }) => {});
+      const wrapper = mount(<ColorPicker onPaletteBarChange={handlePaletteBarChange} />);
+      const trigger = wrapper.find('.t-color-picker__trigger');
+      await userEvent.click(trigger.element);
+      const panel = wrapper.findComponent(ColorPanel);
+      const railEle = panel.find('.t-color-picker__slider').element as HTMLElement;
+      await clickAtPosition({ target: railEle, offsetX: 10, offsetY: 10 });
+      expect(handlePaletteBarChange).toBeCalled();
+      // TODO: need test the color
+      // expect(trigger.find('input')).toBe('')
     });
 
     it('recent-colors-change', async () => {
-      const recentColors = ref(['red']);
-      const handleRecentColorsChange = vi.fn();
-
-      const props = reactive({
-        value: '0052d9',
-        recentColors: ['red'],
-        onRecentColorsChange: handleRecentColorsChange,
+      const color = '#0052d9';
+      const recentColors = ref([]);
+      const handleRecentColorsChange = vi.fn((value: string[]) => {
+        recentColors.value = value;
       });
-      const { panel, getPanel } = await mountColorPickerAndTriggerPanel({
-        props,
-      });
-
-      const swatch = panel.find('.t-color-picker__swatches');
-      const item = swatch.find('.t-color-picker__icon');
-      await nextTick();
-      props.recentColors = ['yellow'];
-      await nextTick();
-      // expect(handleRecentColorsChange).toBeCalled();
-      await nextTick();
-
-      // expect(result.value).toEqual(['rgba(0, 82, 217, 1)', 'red']);
+      const wrapper = mount(
+        <ColorPicker value={color} recentColors={recentColors.value} onRecentColorsChange={handleRecentColorsChange} />,
+      );
+      const trigger = wrapper.find('.t-color-picker__trigger');
+      await userEvent.click(trigger.element);
+      const panel = wrapper.findComponent(ColorPanel);
+      await panel.find('.t-color-picker__swatches').find('.t-color-picker__icon').trigger('click');
+      expect(handleRecentColorsChange).toBeCalled();
+      expect(recentColors.value).toEqual(['rgba(0, 31, 151, 1)']);
     });
   });
 });

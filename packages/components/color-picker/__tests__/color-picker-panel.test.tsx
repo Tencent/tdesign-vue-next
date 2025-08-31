@@ -1,166 +1,84 @@
-import { ColorPickerPanel } from '@tdesign/components/color-picker';
+import { ColorObject, ColorPickerChangeTrigger, ColorPickerPanel } from '@tdesign/components/color-picker';
 import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
-import { nextTick, ref } from 'vue';
+import { ref } from 'vue';
+import coloPickePaneProps from '@tdesign/components/color-picker/color-picker-panel-props';
 
-// every component needs four parts: props/events/slots/functions.
+/**
+ * 因为在 color-picker 中已经测试过基本的 props 了，因此这里只是做额外的测试
+ */
 describe('ColorPickerPanel', () => {
-  describe(':props', () => {
-    it(':colorModes', () => {
-      const modes = ref(['monochrome']);
-      const wrapper = mount(() => <ColorPickerPanel color-modes={modes.value} />);
-      // 单模式不生成mode dom
-      expect(wrapper.find('.t-color-picker__mode').exists()).toBe(false);
-    });
-
-    it(':disabled', () => {
-      const disabled = ref(true);
-      const wrapper = mount(() => <ColorPickerPanel disabled={disabled.value} />);
-      expect(wrapper.classes()).toContain('t-is-disabled');
-    });
-
-    it(':enableAlpha', () => {
-      const enableAlpha = ref(true);
-      const wrapper = mount(() => <ColorPickerPanel enable-alpha={enableAlpha.value} />);
-      expect(wrapper.find('.t-color-picker__alpha').exists()).toBe(true);
-    });
-
-    it(':enableMultipleGradient', async () => {
-      const testColor = ref('linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)');
-
-      const wrapper = mount(
-        <ColorPickerPanel v-model={testColor.value} color-modes={['linear-gradient']} enableMultipleGradient={true} />,
-      );
-      const sliderNode = wrapper.find('.gradient-thumbs').element;
-
-      const clickEvent = new MouseEvent('click', {
-        bubbles: true,
-        cancelable: true,
-        clientX: 10,
-        clientY: 0,
-      });
-
-      sliderNode.dispatchEvent(clickEvent);
-      await nextTick();
-      expect(sliderNode.children.length).toBe(3);
-    });
-
-    it(':format', () => {
-      const color = ref('red');
-
-      const wrapper = mount(() => <ColorPickerPanel v-model={color.value} format={'HEX'} />);
-
-      const input = wrapper.find('.t-input__inner');
-      expect(input.exists()).toBeTruthy();
-      expect((input.element as HTMLInputElement).value).toBe('HEX');
-      wrapper.unmount();
-    });
-
-    it(':recentColors', () => {
-      const recentColors = ref(['red', 'yellow', 'blue']);
-      const wrapper = mount(() => <ColorPickerPanel recent-colors={recentColors.value} />);
-      const swatch = wrapper.find('.t-color-picker__swatches');
-      const items = swatch.findAll('.t-color-picker__swatches--item');
-      expect(items.length).toBe(recentColors.value.length);
-    });
-
-    it(':defaultRecentColors', () => {
-      const recentColors = ref(['red', 'yellow', 'blue']);
-      const wrapper = mount(() => <ColorPickerPanel defaultRecentColors={recentColors.value} />);
-      const swatch = wrapper.find('.t-color-picker__swatches');
-      const items = swatch.findAll('.t-color-picker__swatches--item');
-      expect(items.length).toBe(recentColors.value.length);
-    });
-
-    it(':showPrimaryColorPreview', () => {
-      const wrapper = mount(() => <ColorPickerPanel show-primary-color-preview />);
-      expect(wrapper.find('.t-color-picker__sliders-preview').exists()).toBe(true);
-    });
-
-    it(':swatchColors', () => {
-      const wrapper = mount(() => <ColorPickerPanel recent-colors={null} swatch-colors={null} />);
-      const swatches = wrapper.findAll('.t-color-picker__swatches');
-      expect(swatches.length).toBe(0);
-    });
-
-    it(':value', async () => {
-      const value = '#0052d9';
-      const wrapper = mount(() => <ColorPickerPanel v-model={value} format={'HEX'} />);
-      const input = wrapper.findAll('.t-input__inner')[1];
-      expect((input.element as HTMLInputElement).value).toBe('#0052d9');
-    });
-
-    it(':defaultValue', async () => {
-      const wrapper = mount(() => <ColorPickerPanel defaultValue="#0052d9" format={'HEX'} />);
-      const input = wrapper.findAll('.t-input__inner')[1];
-      expect((input.element as HTMLInputElement).value).toBe('#0052d9');
+  describe(':ui', () => {
+    it(':mount', () => {
+      const wrapper = mount(() => <ColorPickerPanel />);
+      expect(wrapper.element).toMatchSnapshot();
     });
   });
 
-  describe(':events', () => {
-    it('change', async () => {
-      const value = ref('#0052d9');
-      const handleChange = (val: string) => {
-        value.value = val;
-      };
-      const recentColors = ref(['red']);
-
-      const wrapper = mount(() => (
-        <ColorPickerPanel recent-colors={recentColors.value} v-model={value.value} onChange={handleChange} />
-      ));
-      const swatch = wrapper.find('.t-color-picker__swatches');
-      const item = swatch.find('.t-color-picker__swatches--item');
-      item.trigger('click');
-      await nextTick();
-      expect(value.value).toBe('rgb(255, 0, 0)');
+  describe(':props', () => {
+    it(':format', () => {
+      const validator = coloPickePaneProps.format.validator;
+      expect(validator(undefined)).toBe(true);
     });
-    // it('palette-bar-change', async () => {
-    //   const value = ref('#0052d9');
-    //   const result = ref<ColorObject>();
 
-    //   const handlePaletteBarChange = (context: { color: ColorObject }) => {
-    //     result.value = context.color;
-    //   };
+    it(':colorModes[monochrome,linear-gradient]', async () => {
+      const wrapper = mount(() => <ColorPickerPanel />);
+      expect(wrapper.element).toMatchSnapshot();
 
-    //   const wrapper = mount(() => (
-    //     <ColorPickerPanel v-model={value.value} onPaletteBarChange={handlePaletteBarChange} />
-    //   ));
-    //   await nextTick();
+      const wrapper2 = mount(() => <ColorPickerPanel colorModes={['linear-gradient']} />);
+      expect(wrapper2.element).toMatchSnapshot();
 
-    //   const slider = wrapper.find('.t-color-picker__rail');
-
-    //   const clickEvent = new MouseEvent('click', {
-    //     bubbles: true,
-    //     cancelable: true,
-    //     clientX: 20,
-    //   });
-
-    //   slider.element.dispatchEvent(clickEvent);
-    //   await nextTick();
-    //   expect(result.value).toMatchSnapshot();
-    // });
-    it('recent-colors-change', async () => {
-      const value = ref('#0052d9');
-      const recentColors = ['red'];
-      const result = ref<Array<string>>([]);
-      const handleRecentColorsChange = (value: Array<string>) => {
-        result.value = value;
-      };
-
-      const wrapper = mount(() => (
+      const wrapper3 = mount(() => (
         <ColorPickerPanel
-          recent-colors={recentColors}
-          v-model={value.value}
-          onRecentColorsChange={handleRecentColorsChange}
+          value={'linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)'}
+          colorModes={['monochrome', 'linear-gradient']}
         />
       ));
+      expect(wrapper3.element).toMatchSnapshot();
+    });
 
-      const swatch = wrapper.find('.t-color-picker__swatches');
-      const items = swatch.findAll('.t-color-picker__icon');
-      items[0].trigger('click');
-      await nextTick();
+    it(':recentColors[array<string>]', async () => {
+      const recentColors = ref(null);
+      const handleRecentColorsChange = vi.fn((value: string[]) => {
+        recentColors.value = value;
+      });
+      const wrapper = mount(
+        <ColorPickerPanel recentColors={recentColors.value} onRecentColorsChange={handleRecentColorsChange} />,
+      );
+      expect(wrapper.find('.t-color-picker__swatches .t-color-picker__icon').exists()).toBeFalsy();
+    });
 
-      expect(result.value).toEqual(['rgba(0, 82, 217, 1)', 'red']);
+    it(':value[string]', async () => {
+      const value = ref('#0052d9');
+      const wrapper = mount(<ColorPickerPanel v-model={value} />);
+      value.value = 'red';
+    });
+  });
+
+  describe(':event', () => {
+    it(':change', async () => {
+      const fn1 = vi.fn((value: string, context: { color: ColorObject; trigger: ColorPickerChangeTrigger }) => {});
+      const wrapper = mount(() => <ColorPickerPanel onChange={fn1} colorModes={['monochrome']} format={'HEX'} />);
+      const swatches = wrapper.findAll('.t-color-picker__swatches');
+      const items = swatches[1].findAll('.t-color-picker__swatches--item');
+      expect(items.length).toBe(40);
+      await items[0].trigger('click');
+      expect(fn1).toBeCalled();
+      const args1 = fn1.mock.calls[0];
+      expect(args1[0]).toBe('#ecf2fe');
+      expect(args1[1].trigger).toBe('preset');
+
+      const fn2 = vi.fn((value: string, context: { color: ColorObject; trigger: ColorPickerChangeTrigger }) => {});
+      const wrapper2 = mount(() => <ColorPickerPanel onChange={fn2} colorModes={['linear-gradient']} format={'HEX'} />);
+      const degree = wrapper2.find('.t-color-picker__gradient-degree');
+      expect(degree.exists()).toBeTruthy();
+      const degreeInput = degree.find('input');
+      await degreeInput.setValue('80');
+      await degreeInput.trigger('keydown.enter');
+      expect(fn2).toBeCalled();
+      const args2 = fn2.mock.calls[0];
+      expect(args2[0]).toBe('linear-gradient(80deg,rgb(241, 29, 0) 0%,rgb(73, 106, 220) 100%)');
+      expect(args2[1].trigger).toBe('input');
     });
   });
 });
