@@ -1,7 +1,7 @@
 import ColorPanel from '@tdesign/components/color-picker/components/panel/index';
 import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
-import { nextTick, ref } from 'vue';
+import { ref } from 'vue';
 import { simulateInputChange, userEvent } from '@tdesign/internal-tests';
 
 /**
