@@ -245,6 +245,7 @@ describe('ColorPicker', () => {
     });
 
     it('palette-bar-change', async () => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const handlePaletteBarChange = vi.fn((context: { color: ColorObject }) => {});
       const wrapper = mount(<ColorPicker onPaletteBarChange={handlePaletteBarChange} />);
       const trigger = wrapper.find('.t-color-picker__trigger');

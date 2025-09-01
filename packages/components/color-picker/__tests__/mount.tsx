@@ -1,5 +1,4 @@
 import { mount } from '@vue/test-utils';
-import { nextTick } from 'vue';
 import { ColorPicker } from '@tdesign/components';
 import { TdColorPickerProps } from '@tdesign/components/color-picker/type';
 import ColorPanel from '@tdesign/components/color-picker/components/panel';
