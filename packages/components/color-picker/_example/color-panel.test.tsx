@@ -2,8 +2,7 @@ import ColorPanel from '@tdesign/components/color-picker/components/panel/index'
 import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
 import { nextTick, ref } from 'vue';
-import coloPickePaneProps from '@tdesign/components/color-picker/color-picker-panel-props';
-import { clickAtPosition, simulateInputChange, userEvent } from '@tdesign/internal-tests';
+import { simulateInputChange, userEvent } from '@tdesign/internal-tests';
 
 /**
  * 因为在 color-picker 中已经测试过基本的 props 了，因此这里只是做额外的测试
