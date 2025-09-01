@@ -149,6 +149,10 @@ export interface TdColorPickerPanelProps {
    */
   defaultRecentColors?: Array<string> | boolean | null;
   /**
+   * 透传 SelectInputProps 筛选器输入框组件全部属性
+   */
+  selectInputProps?: SelectInputProps;
+  /**
    * 是否展示颜色选择条右侧的颜色预览区域
    * @default true
    */
