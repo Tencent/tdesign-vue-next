@@ -5,6 +5,12 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.16.1 `2025-09-01` 
+
+### 🐞 Bug Fixes
+- `Tabs`: 修复`1.16.0` 新增 `TabPanel` onRemove 事件后导致的移除选项时控制台报错的问题 @uyarn ([#5955](https://github.com/Tencent/tdesign-vue-next/pull/5955))
+
+
 ## 🌈 1.16.0 `2025-08-28` 
 
 ### 🚀 Features
