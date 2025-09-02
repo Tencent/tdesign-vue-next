@@ -113,7 +113,11 @@ export default defineComponent({
       updateAffixHeaderOrFooter,
     } = useAffix(props);
 
-    const { dataSource, innerPagination, isPaginateData, renderPagination } = usePagination(props, context);
+    const { dataSource, innerPagination, isPaginateData, renderPagination } = usePagination(
+      props,
+      context,
+      tableContentRef,
+    );
 
     // 列宽拖拽逻辑
     const columnResizeParams = useColumnResize({
@@ -246,7 +250,11 @@ export default defineComponent({
       const domRect = thDom.getBoundingClientRect();
       const contentRect = tableContentRef.value.getBoundingClientRect();
       const distance = domRect.left - contentRect.left - totalWidth;
-      tableContentRef.value.scrollTo({ left: distance, behavior: 'smooth' });
+      if (tableContentRef.value.scrollTo) {
+        tableContentRef.value.scrollTo({ left: distance, behavior: 'smooth' });
+      } else {
+        tableContentRef.value.scrollLeft = distance;
+      }
     };
 
     watch(tableContentRef, () => {

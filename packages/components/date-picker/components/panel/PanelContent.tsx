@@ -1,11 +1,14 @@
 import { defineComponent, PropType } from 'vue';
+import { isFunction, isArray } from 'lodash-es';
 import { usePrefixClass } from '@tdesign/shared-hooks';
-import type { TdDatePickerProps } from '../../type';
+import type { TdDatePickerProps, TdDateRangePickerProps, DateRangePickerPartial } from '../../type';
 
 import TDateHeader from '../base/Header';
 import TDateTable from '../base/Table';
 import TTimePickerPanel from '../../../time-picker/panel/time-picker-panel';
 import { getDefaultFormat } from '@tdesign/common-js/date-picker/format';
+import type { DateValue } from '@tdesign/common-js/date-picker/utils';
+import { parseToDateTime } from '../../utils';
 
 export default defineComponent({
   name: 'TPanelContent',
@@ -34,6 +37,7 @@ export default defineComponent({
     onTimePickerChange: Function,
     value: [String, Number, Array, Date],
     internalYear: Array as PropType<Array<number>>,
+    disableTime: Function as PropType<TdDateRangePickerProps['disableTime']>,
   },
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('date-picker__panel');
@@ -43,6 +47,22 @@ export default defineComponent({
       format: props.format,
       enableTimePicker: props.enableTimePicker,
     });
+
+    const disableTimeOptions = () => {
+      if (!isFunction(props.disableTime)) {
+        return {};
+      }
+
+      const startValue = isArray(props.value) ? props.value[0] : props.value;
+      const endValue = isArray(props.value) ? props.value[1] : props.value;
+
+      return props.disableTime(
+        [parseToDateTime(startValue as DateValue, props.format), parseToDateTime(endValue as DateValue, props.format)],
+        {
+          partial: props.partial as DateRangePickerPartial,
+        },
+      );
+    };
 
     const defaultTimeValue = '00:00:00';
 
@@ -88,6 +108,7 @@ export default defineComponent({
                 format: timeFormat,
                 value: props.time || defaultTimeValue,
                 onChange: props.onTimePickerChange,
+                disableTime: disableTimeOptions,
                 ...props.timePickerProps,
               }}
             />

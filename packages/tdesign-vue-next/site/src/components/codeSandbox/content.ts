@@ -76,6 +76,7 @@ export const packageJSONContent = (name: string) => {
       less: catalogs.bundle.less,
       'tdesign-vue-next': tdesignVueNextPackageJson.version,
       'tdesign-icons-vue-next': catalogs.tdesign['tdesign-icons-vue-next'],
+      dayjs: catalogs.deps.dayjs,
     },
     devDependencies: {
       '@vue/cli-plugin-babel': '~4.5.0',

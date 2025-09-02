@@ -5,6 +5,7 @@
   "license": "MIT",
   "devDependencies": {
     "@testing-library/dom": "catalog:test",
+    "@testing-library/user-event": "^14.6.1",
     "vitest": "catalog:test"
   }
 }

@@ -5,6 +5,32 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.16.1 `2025-09-01` 
+
+### 🐞 Bug Fixes
+- `Tabs`: 修复`1.16.0` 新增 `TabPanel` onRemove 事件后导致的移除选项时控制台报错的问题 @uyarn ([#5955](https://github.com/Tencent/tdesign-vue-next/pull/5955))
+
+
+## 🌈 1.16.0 `2025-08-28` 
+
+### 🚀 Features
+- 新增 `--td-text-color-watermark` 变量， 用于水印等需要透明度的场景 @uyarn  ([#5932](https://github.com/Tencent/tdesign-vue-next/pull/5932))
+- `Skeleton`: 修复 `theme` 默认值不符合文档描述的问题，需要 `paragraph` 效果升级后手动设置`theme` ⚠️ @liweijie0812 ([#5872](https://github.com/Tencent/tdesign-vue-next/pull/5872))
+- `TabPanel`: 新增 `remove` 事件，方便独立Panel 处理移除后的相关逻辑 @RSS1102 ([#5853](https://github.com/Tencent/tdesign-vue-next/pull/5853))
+- `Table`: 新增切换分页后重置滚动条回到顶部的特性 @RSS1102 ([#5885](https://github.com/Tencent/tdesign-vue-next/pull/5885))
+- `Tabs`: 将 remove 事件从删除图标移至外层容器, 保证替换图标功能正常使用，有覆盖删除图标样式请注意此变更 ⚠️ @RSS1102 ([#5853](https://github.com/Tencent/tdesign-vue-next/pull/5853))
+
+### 🐞 Bug Fixes
+- `DateRangePicker`: 
+  - 修复`disableTime` 功能异常的问题 @uyarn ([#5940](https://github.com/Tencent/tdesign-vue-next/pull/5940))
+  - 修复`disableDate` 的函数用法返回参数回调与文档不符的问题，此前有基于错误参数请注意此变更 ⚠️ @uyarn ([#5940](https://github.com/Tencent/tdesign-vue-next/pull/5940))
+- `Select`: 修复`tips` API 插槽使用方式的告警问题 @Kalinrun ([#5910](https://github.com/Tencent/tdesign-vue-next/pull/5910))
+- `Skeleton`: 修复骨架屏动画 `animation-delay` 属性默认值问题 @anlyyao ([common#2248](https://github.com/Tencent/tdesign-common/pull/2248))
+- `Transfer`: 修复 `operation`  传递函数数组渲染错误的问题 @RSS1102 ([#5794](https://github.com/Tencent/tdesign-vue-next/pull/5794))
+- `Tree`: 修复树节点开启 `draggable` 后，在 disabled 状态下依旧生效的异常 @RylanBot ([#5914](https://github.com/Tencent/tdesign-vue-next/pull/5914))
+- `Watermark`: 修复水印组件因为透明度问题覆盖内容及在 SSR 场景下的使用问题 @uyarn  ([#5932](https://github.com/Tencent/tdesign-vue-next/pull/5932))
+
+
 ## 🌈 1.15.5 `2025-08-18` 
 
 ### 🐞 Bug Fixes
