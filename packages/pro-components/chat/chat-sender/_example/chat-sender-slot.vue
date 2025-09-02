@@ -36,7 +36,7 @@
         </t-button>
       </div>
     </template>
-    <template #header>
+    <template #inner-header>
       <t-space
         :style="{
           width: '100%',

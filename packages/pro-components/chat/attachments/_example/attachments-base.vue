@@ -1,6 +1,6 @@
 <template>
   <t-space>
-    <t-attachments :items="filesList"></t-attachments>
+    <t-attachments :items="filesList" @file-click="handleFileClick"></t-attachments>
   </t-space>
 </template>
 
@@ -60,4 +60,7 @@ const filesList = [
     percent: '50',
   },
 ];
+const handleFileClick = (e) => {
+  console.log('fileClick', e.detail);
+};
 </script>

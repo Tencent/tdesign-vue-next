@@ -15,8 +15,7 @@
       <template #content="{ item, index }">
         <template v-for="(content, contentIndex) in item.message.content" :key="contentIndex">
           <t-chat-thinking v-if="content.type === 'thinking'" :status="content.status" :content="content.data" />
-          <!-- <t-chat-content v-else :content="content.data" :role="item.message.role" /> -->
-          <t-chat-message v-else :message="item.message" />
+          <t-chat-content v-else :content="content.data" :role="item.message.role" />
         </template>
       </template>
       <template #actionbar="{ item, index }">

@@ -26,9 +26,6 @@
       <!-- 任意配置顺序-->
       <component :is="renderPresets([{ name: 'uploadAttachment' }, { name: 'uploadImage' }])" />
     </template>
-    <!-- <template #inner-header>
-      <t-attachments v-if="filesList.length > 0" :items="filesList" @remove="handleRemoveFile" />
-    </template> -->
   </t-chat-sender>
 </template>
 <script setup lang="ts">

@@ -43,8 +43,8 @@
     "marked-highlight": "catalog:docs",
     "tdesign-icons-vue-next": "catalog:tdesign",
     "tdesign-vue-next": "workspace:^",
-    "tdesign-web-components": "~1.1.15",
-    "omi-vueify": "^0.0.11"
+    "tdesign-web-components": "~1.1.16",
+    "omi-vueify": "^0.0.12"
   },
   "devDependencies": {
     "tvision-charts-vue-next": "^3.3.13"
