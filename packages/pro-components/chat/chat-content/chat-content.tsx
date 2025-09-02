@@ -45,7 +45,7 @@ export default defineComponent({
     const { globalConfig } = useConfig('chat');
 
     // role 没被注入的时候，使用props.role来自chat-item传入，content在插槽里的inject，修复role数据混乱问题
-    const injectedRole = inject<ComputedRef<string>>('role');
+    const injectedRole = inject<ComputedRef<string>>('role', null);
     const role = computed(() => props.role || injectedRole?.value || '');
     onMounted(() => {
       const clipboard = new Clipboard(`.${COMPONENT_NAME.value}__copy-btn`, {

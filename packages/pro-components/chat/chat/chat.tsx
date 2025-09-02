@@ -86,6 +86,10 @@ export default defineComponent({
         // const setReasoning = (item: TdChatItemMeta) => {
         //   return slots.content ? false : item.reasoning;
         // };
+        // 根据layout来设置placement，both时判断role是否为assistant，是则设置为right，否则设置为left
+        const setPlacement = (item: TdChatItemMeta) => {
+          return props.layout === 'both' ? (item.message.role === 'assistant' ? 'left' : 'right') : 'left';
+        };
         return data.map((item: TdChatItemMeta, index: number) => (
           <ChatMessage
             avatar={item.avatar}
@@ -93,6 +97,7 @@ export default defineComponent({
             message={item.message}
             datetime={item.datetime}
             animation={props.animation}
+            placement={setPlacement(item)}
             v-slots={{
               actionbar: () =>
                 renderTNodeJSX('actionbar', {
