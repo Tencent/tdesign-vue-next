@@ -16,9 +16,23 @@ export default {
   disabled: Boolean,
   /** 评价类型， 可选值： 'good(点赞)'/'bad(点踩)', 默认值为空 */
   comment: {
-    type: String as PropType<'good' | 'bad'>,
-    validator: (value: string) => ['good', 'bad'].includes(value),
+    type: String as PropType<'good' | 'bad' | ''>,
+    validator: (value: string) => ['good', 'bad', ''].includes(value),
     default: '',
+  },
+  /** 是否点踩（待废弃，请尽快使用comment）
+   * @deprecated
+   */
+  isBad: {
+    type: Boolean,
+    default: false,
+  },
+  /** 是否点赞（待废弃，请尽快使用comment）
+   * @deprecated
+   */
+  isGood: {
+    type: Boolean,
+    default: false,
   },
   /** 操作按钮配置项，可配置操作按钮选项和顺序 */
   actionBar: {

@@ -189,13 +189,20 @@ export interface TdChatActionProps {
    */
   disabled?: boolean;
   /**
-   * 是否点踩
+   * 评价类型，可选值：'good(点赞)'/'bad(点踩)'，默认为空
+   * @default ''
+   */
+  comment?: 'good' | 'bad' | '';
+  /**
+   * 是否点踩（待废弃，请尽快使用comment）
    * @default false
+   * @deprecated
    */
   isBad?: boolean;
   /**
-   * 是否点赞
+   * 是否点赞（待废弃，请尽快使用comment）
    * @default false
+   * @deprecated
    */
   isGood?: boolean;
   /**

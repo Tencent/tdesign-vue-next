@@ -22,8 +22,7 @@
     </template>
     <template #actions>
       <t-chat-action
-        :is-good="isGood"
-        :is-bad="isBad"
+        :comment="commentValue"
         content="牛顿第一定律并不适用于所有参考系，它只适用于惯性参考系。在质点不受外力作用时，能够判断出质点静止或作匀速直线运动的参考系一定是惯性参考系，因此只有在惯性参考系中牛顿第一定律才适用。"
         @actions="(type, { e }) => handleOperation(type, { e, index })"
       />
@@ -32,15 +31,12 @@
 </template>
 <script setup>
 import { ref } from 'vue';
-const isGood = ref(false);
-const isBad = ref(false);
+const commentValue = ref('');
 const handleOperation = (type) => {
   if (type === 'good') {
-    isGood.value = !isGood.value;
-    isBad.value = false;
+    commentValue.value = commentValue.value === 'good' ? '' : 'good';
   } else if (type === 'bad') {
-    isBad.value = !isBad.value;
-    isGood.value = false;
+    commentValue.value = commentValue.value === 'bad' ? '' : 'bad';
   }
 };
 </script>

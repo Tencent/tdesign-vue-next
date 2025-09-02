@@ -30,7 +30,8 @@
         <template #actionbar="{ item }">
           <t-chat-action
             v-if="item.message.role === 'assistant'"
-            :content="item.message.content[1]?.data || ''"
+            :comment="commentValue"
+            :content="item.message.content[0]?.data || ''"
             :action-bar="['good', 'bad', 'replay', 'copy']"
             @actions="handleOperation"
           />
@@ -49,6 +50,7 @@ import { MockSSEResponse } from './mock-data/sseRequest';
 const fetchCancel = ref(null);
 const loading = ref(false);
 const isStreamLoad = ref(false);
+const commentValue = ref('');
 // 倒序渲染
 const chatList = ref([
   {
@@ -91,8 +93,12 @@ const chatList = ref([
     },
   },
 ]);
-const handleOperation = function (type, options) {
-  console.log('handleOperation', type, options);
+const handleOperation = (type) => {
+  if (type === 'good') {
+    commentValue.value = commentValue.value === 'good' ? '' : 'good';
+  } else if (type === 'bad') {
+    commentValue.value = commentValue.value === 'bad' ? '' : 'bad';
+  }
 };
 const clearConfirm = function () {
   chatList.value = [];
@@ -225,4 +231,3 @@ const handleData = async () => {
   background-color: var(--td-scroll-track-color);
 }
 </style>
-../_example-mock/sseRequest

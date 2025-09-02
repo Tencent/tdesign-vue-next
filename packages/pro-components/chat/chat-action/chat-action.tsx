@@ -35,6 +35,8 @@ export default defineComponent({
       const disabled = props.disabled;
       // 向后兼容：优先使用 actionBar，如果没有则使用 operationBtn
       const actionButtons = props.actionBar || props.operationBtn;
+      // 向后兼容：优先使用 comment，如果没有则根据 isGood/isBad 计算
+      const commentValue = props.comment || (props.isGood ? 'good' : props.isBad ? 'bad' : '');
       const copyAnswer = () => {
         // 根据e获取当前按钮选择器
         const copyBtn = new Clipboard(`.copy-btn`);
@@ -97,11 +99,11 @@ export default defineComponent({
             <Button
               theme="default"
               size="small"
-              class={props.comment === 'good' && `${COMPONENT_NAME.value}-button--active`}
+              class={commentValue === 'good' && `${COMPONENT_NAME.value}-button--active`}
               disabled={disabled}
               onClick={(e: MouseEvent) => handleClick(e, 'good')}
             >
-              {props.comment === 'good' ? <ThumbUpFilledIcon /> : <ThumbUpIcon />}
+              {commentValue === 'good' ? <ThumbUpFilledIcon /> : <ThumbUpIcon />}
             </Button>
           </Tooltip>
         </Space>
@@ -112,11 +114,11 @@ export default defineComponent({
             <Button
               theme="default"
               size="small"
-              class={props.comment === 'bad' && `${COMPONENT_NAME.value}-button--active`}
+              class={commentValue === 'bad' && `${COMPONENT_NAME.value}-button--active`}
               disabled={disabled}
               onClick={(e: MouseEvent) => handleClick(e, 'bad')}
             >
-              {props.comment === 'bad' ? <ThumbDownFilledIcon /> : <ThumbDownIcon />}
+              {commentValue === 'bad' ? <ThumbDownFilledIcon /> : <ThumbDownIcon />}
             </Button>
           </Tooltip>
         </Space>

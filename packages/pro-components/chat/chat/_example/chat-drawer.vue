@@ -10,17 +10,16 @@
     <t-chat layout="both" :clear-history="chatList.length > 0 && !isStreamLoad" @clear="clearConfirm">
       <template v-for="(item, index) in chatList" :key="index">
         <t-chat-item
-          :role="item.role"
-          :content="item.content"
+          :role="item.message.role"
+          :content="item.message.content[1]?.data || ''"
           :text-loading="index === 0 && loading"
-          :variant="getStyle(item.role)"
+          :variant="getStyle(item.message.role)"
         >
           <template v-if="!isStreamLoad" #actions>
             <t-chat-action
-              :is-good="isGood"
+              :comment="commentValue"
               :item-index="index"
-              :is-bad="isBad"
-              :content="item.content"
+              :content="item.message.content[0]?.data || ''"
               @actions="handleOperation"
             />
           </template>
@@ -40,8 +39,7 @@ import { MockSSEResponse } from './mock-data/sseRequest';
 const fetchCancel = ref(null);
 const loading = ref(false);
 const isStreamLoad = ref(false);
-const isGood = ref(false);
-const isBad = ref(false);
+const commentValue = ref('');
 
 const getStyle = (role) => {
   if (role === 'assistant') {
@@ -59,29 +57,48 @@ const getStyle = (role) => {
 const handleOperation = function (type, options) {
   const { index } = options;
   if (type === 'good') {
-    isGood.value = !isGood.value;
-    isBad.value = false;
+    commentValue.value = commentValue.value === 'good' ? '' : 'good';
   } else if (type === 'bad') {
-    isBad.value = !isBad.value;
-    isGood.value = false;
+    commentValue.value = commentValue.value === 'bad' ? '' : 'bad';
   } else if (type === 'replay') {
-    const userQuery = chatList.value[index + 1].content;
+    const userQuery = chatList.value[index + 1].message.content[0].data;
     inputEnter(userQuery);
   }
 };
 // 倒序渲染
 const chatList = ref([
   {
-    content: `模型由 <span>hunyuan</span> 变为 <span>GPT4</span>`,
-    role: 'model-change',
+    message: {
+      role: 'model-change',
+      content: [
+        {
+          type: 'text',
+          data: '模型由 hunyuan 变为 GPT4',
+        },
+      ],
+    },
   },
   {
-    content: '它叫 McMurdo Station ATM，是美国富国银行安装在南极洲最大科学中心麦克默多站的一台自动提款机。',
-    role: 'assistant',
+    message: {
+      role: 'assistant',
+      content: [
+        {
+          type: 'text',
+          data: '它叫 McMurdo Station ATM，是美国富国银行安装在南极洲最大科学中心麦克默多站的一台自动提款机。',
+        },
+      ],
+    },
   },
   {
-    content: '南极的自动提款机叫什么名字？',
-    role: 'user',
+    message: {
+      role: 'user',
+      content: [
+        {
+          type: 'text',
+          data: '南极的自动提款机叫什么名字？',
+        },
+      ],
+    },
   },
 ]);
 const operation = function (type, options) {
@@ -102,14 +119,28 @@ const inputEnter = function (inputValue) {
   }
   if (!inputValue) return;
   const params = {
-    content: inputValue,
-    role: 'user',
+    message: {
+      role: 'user',
+      content: [
+        {
+          type: 'text',
+          data: inputValue,
+        },
+      ],
+    },
   };
   chatList.value.unshift(params);
   // 空消息占位
   const params2 = {
-    content: '',
-    role: 'assistant',
+    message: {
+      role: 'assistant',
+      content: [
+        {
+          type: 'text',
+          data: '',
+        },
+      ],
+    },
   };
   chatList.value.unshift(params2);
   handleData(inputValue);
@@ -171,12 +202,12 @@ const handleData = async () => {
       success(result) {
         loading.value = false;
         const { data } = result;
-        lastItem.content += data;
+        lastItem.message.content[0].data += data;
       },
       complete(isOk, msg) {
-        if (!isOk || !lastItem.content) {
-          lastItem.role = 'error';
-          lastItem.content = msg;
+        if (!isOk || !lastItem.message.content[0].data) {
+          lastItem.message.role = 'error';
+          lastItem.message.content[0].data = msg;
         }
         // 控制终止按钮
         isStreamLoad.value = false;
