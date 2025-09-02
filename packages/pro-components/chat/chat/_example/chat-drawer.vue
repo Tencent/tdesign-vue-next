@@ -21,7 +21,7 @@
               :item-index="index"
               :is-bad="isBad"
               :content="item.content"
-              @operation="handleOperation"
+              @actions="handleOperation"
             />
           </template>
         </t-chat-item>

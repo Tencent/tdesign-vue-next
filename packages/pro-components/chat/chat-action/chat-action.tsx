@@ -19,7 +19,7 @@ import props from './chat-action-props';
 export default defineComponent({
   name: 'TChatAction',
   props,
-  emits: ['actions'],
+  emits: ['actions', 'operation'],
   setup(props, { emit }) {
     const COMPONENT_NAME = usePrefixClass('chat');
     const renderTNodeJSX = useTNodeJSX();
@@ -33,6 +33,8 @@ export default defineComponent({
 
       // 内置操作按钮，assistantActions和插槽判断 t-chat注入的属性获取不到默认为false
       const disabled = props.disabled;
+      // 向后兼容：优先使用 actionBar，如果没有则使用 operationBtn
+      const actionButtons = props.actionBar || props.operationBtn;
       const copyAnswer = () => {
         // 根据e获取当前按钮选择器
         const copyBtn = new Clipboard(`.copy-btn`);
@@ -51,8 +53,12 @@ export default defineComponent({
         emit('actions', type, {
           e,
         });
+        // 向后兼容：同时触发 operation 事件
+        emit('operation', type, {
+          e,
+        });
       };
-      const replayButton = props.actionBar.includes('replay') ? (
+      const replayButton = actionButtons.includes('replay') ? (
         <Space>
           <div class={`${COMPONENT_NAME.value}__refresh`}>
             <Tooltip content={refreshTipText}>
@@ -69,7 +75,7 @@ export default defineComponent({
           </div>
         </Space>
       ) : null;
-      const copyButton = props.actionBar.includes('copy') ? (
+      const copyButton = actionButtons.includes('copy') ? (
         <Space>
           <Tooltip content={copyTipText}>
             <Button
@@ -85,7 +91,7 @@ export default defineComponent({
           </Tooltip>
         </Space>
       ) : null;
-      const goodButton = props.actionBar.includes('good') ? (
+      const goodButton = actionButtons.includes('good') ? (
         <Space>
           <Tooltip content={likeTipText}>
             <Button
@@ -100,7 +106,7 @@ export default defineComponent({
           </Tooltip>
         </Space>
       ) : null;
-      const badButton = props.actionBar.includes('bad') ? (
+      const badButton = actionButtons.includes('bad') ? (
         <Space>
           <Tooltip content={dislikeTipText}>
             <Button
@@ -115,7 +121,7 @@ export default defineComponent({
           </Tooltip>
         </Space>
       ) : null;
-      const shareButton = props.actionBar.includes('replay') ? (
+      const shareButton = actionButtons.includes('share') ? (
         <Space>
           <div class={`${COMPONENT_NAME.value}__refresh`}>
             <Tooltip content={shareTipText}>
@@ -142,7 +148,7 @@ export default defineComponent({
       };
       return (
         <div class={`${COMPONENT_NAME.value}__actions`}>
-          {props.actionBar.map((btnKey) => {
+          {actionButtons.map((btnKey) => {
             return buttonComponents[btnKey];
           })}
         </div>

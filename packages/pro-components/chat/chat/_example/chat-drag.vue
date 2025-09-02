@@ -24,11 +24,12 @@
         <template #content="{ item }">
           <template v-for="(content, contentIndex) in item.message.content" :key="contentIndex">
             <t-chat-thinking v-if="content.type === 'thinking'" :status="content.status" :content="content.data" />
-            <t-chat-message v-else :message="item.message" />
+            <t-chat-content v-else :content="content.data" :role="item.message.role" />
           </template>
         </template>
-        <template #actions="{ item }">
+        <template #actionbar="{ item }">
           <t-chat-action
+            v-if="item.message.role === 'assistant'"
             :content="item.message.content[1]?.data || ''"
             :action-bar="['good', 'bad', 'replay', 'copy']"
             @actions="handleOperation"

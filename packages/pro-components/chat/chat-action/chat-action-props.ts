@@ -25,6 +25,17 @@ export default {
     type: Array as PropType<TdChatActionProps['actionBar']>,
     default: (): TdChatActionProps['actionBar'] => ['replay', 'copy', 'good', 'bad', 'share'],
   },
+  /** 操作按钮配置项，可配置操作按钮选项和顺序（待废弃，请尽快使用actionBar）
+   * @deprecated
+   */
+  operationBtn: {
+    type: Array as PropType<TdChatActionProps['operationBtn']>,
+    default: (): TdChatActionProps['operationBtn'] => ['replay', 'copy', 'good', 'bad', 'share'],
+  },
   /** 点击点赞，点踩，复制，重新生成按钮时触发 */
   onActions: Function as PropType<TdChatActionProps['onActions']>,
+  /** 点击点赞，点踩，复制，重新生成按钮时触发（待废弃，请尽快使用onActions）
+   * @deprecated
+   */
+  onOperation: Function as PropType<TdChatActionProps['onOperation']>,
 };
