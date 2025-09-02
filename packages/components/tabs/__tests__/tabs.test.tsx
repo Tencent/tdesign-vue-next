@@ -137,5 +137,29 @@ describe('Tabs', () => {
       expect(onTabRemoveFn).toHaveBeenCalledWith({ value: 1, e: expect.any(Event), index: 0 });
       expect(onTabPanelRemoveFn).toHaveBeenCalledWith({ value: 1, e: expect.any(Event) });
     });
+    it('子组件没有 onRemove 但 removable 为 true 时', async () => {
+      const onTabRemoveFn = vi.fn();
+      const wrapper = mount({
+        render() {
+          return (
+            <Tabs theme={'card'} onRemove={onTabRemoveFn} value={2}>
+              <TabPanel value={1} label={'1'} removable={true}>
+                1
+              </TabPanel>
+              <TabPanel value={2} label={'2'} removable={true}>
+                2
+              </TabPanel>
+            </Tabs>
+          );
+        },
+      });
+      await nextTick();
+      const tabs = wrapper.findComponent(Tabs);
+      // 点击第一个标签的删除按钮
+      tabs.vm.$el.getElementsByClassName('remove-btn')[0].dispatchEvent(new Event('click'));
+
+      expect(onTabRemoveFn).toHaveBeenCalledTimes(1);
+      expect(onTabRemoveFn).toHaveBeenCalledWith({ value: 1, e: expect.any(Event), index: 0 });
+    });
   });
 });
