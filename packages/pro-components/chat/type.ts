@@ -13,8 +13,13 @@ import type { ChatMessagesData } from 'tdesign-web-components';
 export interface TdChatProps {
   /**
    * 自定义操作按钮的插槽
+   * @deprecated
    */
   actions?: TNode;
+  /**
+   * 自定义操作按钮的插槽（推荐使用）
+   */
+  actionbar?: TNode;
   /**
    * 动画效果，支持「渐变加载动画」,「闪烁加载动画」, 「骨架屏」三种
    * @default skeleton
@@ -103,8 +108,13 @@ export interface TdChatLoadingProps {
 export interface TdChatItemProps {
   /**
    * 自定义的操作内容
+   * @deprecated
    */
   actions?: string | TNode;
+  /**
+   * 自定义的操作内容（推荐使用）
+   */
+  actionbar?: string | TNode;
   /**
    * 动画效果，支持「渐变加载动画」,「闪烁加载动画」, 「骨架屏」三种
    * @default skeleton

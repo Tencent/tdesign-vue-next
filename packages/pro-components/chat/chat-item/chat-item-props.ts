@@ -7,7 +7,9 @@ import { TdChatItemProps } from '../type';
 import { PropType } from 'vue';
 
 export default {
-  /** 自定义的操作内容 */
+  /** 自定义的操作内容
+   * @deprecated
+   */
   actions: {
     type: [String, Function] as PropType<TdChatItemProps['actions']>,
   },

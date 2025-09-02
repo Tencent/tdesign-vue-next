@@ -20,7 +20,7 @@ export default defineComponent({
       default: false,
     },
   },
-  emits: ['operation'],
+  emits: [],
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('chat');
     const { globalConfig } = useConfig('chat');
@@ -60,7 +60,7 @@ export default defineComponent({
       const textLoading = props.textLoading;
       const reasoningLoading = props.reasoningLoading;
       // 内置操作按钮，assistantActions和插槽判断 t-chat注入的属性获取不到默认为false
-      const showActions = computed(() => renderTNodeJSX('actions'));
+      const showActions = computed(() => renderTNodeJSX('actionbar') || renderTNodeJSX('actions'));
       const renderHeader = () => {
         const { loadingText, loadingEndText } = globalConfig.value;
         if (reasoningLoading) {
@@ -115,7 +115,9 @@ export default defineComponent({
               </div>
             )}
             {role.value === 'assistant' && showActions.value && (
-              <div class={`${COMPONENT_NAME.value}__actions-margin`}>{renderTNodeJSX('actions')}</div>
+              <div class={`${COMPONENT_NAME.value}__actions-margin`}>
+                {renderTNodeJSX('actionbar') || renderTNodeJSX('actions')}
+              </div>
             )}
           </div>
         </Fragment>

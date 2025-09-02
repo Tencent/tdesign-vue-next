@@ -15,7 +15,6 @@
         layout="single"
         style="height: 600px"
         :clear-history="chatList.length > 0 && !isStreamLoad"
-        @on-action="operation"
         @clear="clearConfirm"
       >
         <template v-for="(item, index) in chatList" :key="index">

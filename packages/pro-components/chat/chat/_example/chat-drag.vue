@@ -18,7 +18,6 @@
         :clear-history="chatList.length > 0 && !isStreamLoad"
         :text-loading="loading"
         :is-stream-load="isStreamLoad"
-        @on-action="operation"
         @clear="clearConfirm"
       >
         <!-- eslint-disable-next-line vue/no-unused-vars -->
@@ -93,9 +92,6 @@ const chatList = ref([
 ]);
 const handleOperation = function (type, options) {
   console.log('handleOperation', type, options);
-};
-const operation = function (type, options) {
-  console.log(type, options);
 };
 const clearConfirm = function () {
   chatList.value = [];

@@ -48,7 +48,12 @@
       <t-chat-content :content="item.message.content[0]?.data || ''" />
     </template>
     <template #footer>
-      <t-chat-input :stop-disabled="isStreamLoad" @send="inputEnter" @stop="handleStop"> </t-chat-input>
+      <t-chat-sender :loading="isStreamLoad" @send="inputEnter" @stop="handleStop">
+        <template #suffix="{ renderPresets }">
+          <!-- 不需要附件操作的使用方式 -->
+          <component :is="renderPresets([])" />
+        </template>
+      </t-chat-sender>
     </template>
   </t-chat>
 </template>

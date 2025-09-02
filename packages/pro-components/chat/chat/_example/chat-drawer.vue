@@ -7,12 +7,7 @@
       <t-avatar size="32px" shape="circle" image="https://tdesign.gtimg.com/site/chat-avatar.png"></t-avatar>
       <span class="title">Hi, &nbsp;我是AI</span>
     </template>
-    <t-chat
-      layout="both"
-      :clear-history="chatList.length > 0 && !isStreamLoad"
-      @on-action="operation"
-      @clear="clearConfirm"
-    >
+    <t-chat layout="both" :clear-history="chatList.length > 0 && !isStreamLoad" @clear="clearConfirm">
       <template v-for="(item, index) in chatList" :key="index">
         <t-chat-item
           :role="item.role"

@@ -20,9 +20,9 @@
       </template>
       <template #actionbar="{ item, index }">
         <t-chat-action
-          :content="item.content"
-          :operation-btn="['good', 'bad', 'replay', 'copy']"
-          @operation="handleOperation"
+          :content="item.message.content[0]?.data || ''"
+          :action-bar="['good', 'bad', 'replay', 'copy']"
+          @actions="handleOperation"
         />
       </template>
       <template #footer>
@@ -219,7 +219,7 @@ const handleData = async () => {
       },
       complete(isOk, msg) {
         if (!isOk) {
-          lastItem.role = 'error';
+          lastItem.message.role = 'error';
           lastItem.message.content[0].data.text = msg;
           lastItem.message.content[1].data = msg;
         }

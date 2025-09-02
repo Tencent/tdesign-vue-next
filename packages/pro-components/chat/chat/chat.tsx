@@ -97,6 +97,9 @@ export default defineComponent({
               actionbar: () =>
                 renderTNodeJSX('actionbar', {
                   params: { item, index },
+                }) ||
+                renderTNodeJSX('actions', {
+                  params: { item, index },
                 }),
               name: () => {
                 const name = renderTNodeJSX('name', { params: { item, index } });
