@@ -7,23 +7,32 @@
       <t-avatar size="32px" shape="circle" image="https://tdesign.gtimg.com/site/chat-avatar.png"></t-avatar>
       <span class="title">Hi, &nbsp;我是AI</span>
     </template>
-    <t-chat layout="both" :clear-history="chatList.length > 0 && !isStreamLoad" @clear="clearConfirm">
+    <t-chat
+      layout="both"
+      :clear-history="chatList.length > 0 && !isStreamLoad"
+      :text-loading="loading"
+      :is-stream-load="isStreamLoad"
+      @clear="clearConfirm"
+    >
       <template v-for="(item, index) in chatList" :key="index">
-        <t-chat-item
-          :role="item.message.role"
-          :content="item.message.content[1]?.data || ''"
-          :text-loading="index === 0 && loading"
+        <t-chat-message
+          :avatar="item.avatar"
+          :name="item.name"
+          :message="item.message"
+          :datetime="item.datetime"
           :variant="getStyle(item.message.role)"
+          :placement="item.message.role === 'user' ? 'right' : item.message.role === 'assistant' ? 'left' : 'left'"
         >
-          <template v-if="!isStreamLoad" #actions>
+          <!-- 自定义操作按钮插槽 -->
+          <template #actionbar>
             <t-chat-action
-              :comment="commentValue"
-              :item-index="index"
-              :content="item.message.content[0]?.data || ''"
+              v-if="item.message.role === 'assistant'"
+              :content="getActionContent(item.message.content)"
+              :action-bar="['good', 'bad', 'replay', 'copy']"
               @actions="handleOperation"
             />
           </template>
-        </t-chat-item>
+        </t-chat-message>
       </template>
       <template #footer>
         <t-chat-input :stop-disabled="isStreamLoad" @send="inputEnter" @stop="onStop"> </t-chat-input>
@@ -34,25 +43,11 @@
 <script setup>
 import { ref } from 'vue';
 const visible = ref(false);
-import { MockSSEResponse } from './mock-data/sseRequest';
+import { MockSSEResponse } from './mock-data/sseRequest-reasoning';
 
 const fetchCancel = ref(null);
 const loading = ref(false);
 const isStreamLoad = ref(false);
-const commentValue = ref('');
-
-const getStyle = (role) => {
-  if (role === 'assistant') {
-    return 'outline';
-  }
-  if (role === 'user') {
-    return 'base';
-  }
-  if (role === 'error') {
-    return 'text';
-  }
-  return 'text';
-};
 
 const handleOperation = function (type, options) {
   const { index } = options;
@@ -65,11 +60,25 @@ const handleOperation = function (type, options) {
     inputEnter(userQuery);
   }
 };
+const getStyle = (role) => {
+  if (role === 'assistant') {
+    return 'outline';
+  }
+  if (role === 'user') {
+    return 'base';
+  }
+  return 'text';
+};
+// 获取操作按钮需要的内容（排除thinking类型）
+const getActionContent = function (contentArray) {
+  const textContent = contentArray.find((item) => item.type === 'text' || item.type === 'markdown');
+  return textContent ? textContent.data : '';
+};
 // 倒序渲染
 const chatList = ref([
   {
     message: {
-      role: 'model-change',
+      role: 'system',
       content: [
         {
           type: 'text',
@@ -101,9 +110,6 @@ const chatList = ref([
     },
   },
 ]);
-const operation = function (type, options) {
-  console.log(type, options);
-};
 const clearConfirm = function () {
   chatList.value = [];
 };
@@ -120,13 +126,13 @@ const inputEnter = function (inputValue) {
   if (!inputValue) return;
   const params = {
     message: {
-      role: 'user',
       content: [
         {
           type: 'text',
           data: inputValue,
         },
       ],
+      role: 'user',
     },
   };
   chatList.value.unshift(params);
@@ -136,7 +142,15 @@ const inputEnter = function (inputValue) {
       role: 'assistant',
       content: [
         {
-          type: 'text',
+          type: 'thinking',
+          status: 'complete',
+          data: {
+            title: '思考中...',
+            text: '',
+          },
+        },
+        {
+          type: 'markdown',
           data: '',
         },
       ],
@@ -157,9 +171,6 @@ const fetchSSE = async (fetchFn, options) => {
   const reader = response?.body?.getReader();
   const decoder = new TextDecoder();
   if (!reader) return;
-  const bufferArr = [];
-  let dataText = ''; // 记录数据
-  const event = { data: null };
 
   reader.read().then(function processText({ done, value }) {
     if (done) {
@@ -169,21 +180,8 @@ const fetchSSE = async (fetchFn, options) => {
     }
     const chunk = decoder.decode(value, { stream: true });
     const buffers = chunk.toString().split(/\r?\n/);
-    bufferArr.push(...buffers);
-    const i = 0;
-    while (i < bufferArr.length) {
-      const line = bufferArr[i];
-      if (line) {
-        dataText = dataText + line;
-        event.data = dataText;
-      }
-      if (event.data) {
-        const jsonData = JSON.parse(JSON.stringify(event));
-        success(jsonData);
-        event.data = null;
-      }
-      bufferArr.splice(i, 1);
-    }
+    const jsonData = JSON.parse(buffers);
+    success(jsonData);
     reader.read().then(processText);
   });
 };
@@ -191,7 +189,18 @@ const handleData = async () => {
   loading.value = true;
   isStreamLoad.value = true;
   const lastItem = chatList.value[0];
-  const mockedData = `这是一段模拟的流式字符串数据。`;
+  const mockedData = {
+    reasoning: `嗯，用户问牛顿第一定律是不是适用于所有参考系。首先，我得先回忆一下牛顿第一定律的内容。牛顿第一定律，也就是惯性定律，说物体在没有外力作用时会保持静止或匀速直线运动。也就是说，保持原来的运动状态。
+
+那问题来了，这个定律是否适用于所有参考系呢？记得以前学过的参考系分惯性系和非惯性系。惯性系里，牛顿定律成立；非惯性系里，可能需要引入惯性力之类的修正。所以牛顿第一定律应该只在惯性参考系中成立，而在非惯性系中不适用，比如加速的电梯或者旋转的参考系，这时候物体会有看似无外力下的加速度，所以必须引入假想的力来解释。`,
+    content: `牛顿第一定律（惯性定律）**并不适用于所有参考系**，它只在**惯性参考系**中成立。以下是关键点：
+
+---
+
+### **1. 牛顿第一定律的核心**
+- **内容**：物体在不受外力（或合力为零）时，将保持静止或匀速直线运动状态。
+- **本质**：定义了惯性系的存在——即存在一类参考系，在其中惯性定律成立。`,
+  };
   const mockResponse = new MockSSEResponse(mockedData);
   fetchCancel.value = mockResponse;
   await fetchSSE(
@@ -200,15 +209,24 @@ const handleData = async () => {
     },
     {
       success(result) {
+        console.log('success', result);
         loading.value = false;
-        const { data } = result;
-        lastItem.message.content[0].data += data;
+        // 设置思考过程的status
+        if (result.delta.reasoning_content) {
+          lastItem.message.content[0].data.text += result.delta.reasoning_content;
+        }
+        if (result.delta.content) {
+          lastItem.message.content[1].data += result.delta.content;
+        }
       },
       complete(isOk, msg) {
-        if (!isOk || !lastItem.message.content[0].data) {
+        if (!isOk) {
           lastItem.message.role = 'error';
-          lastItem.message.content[0].data = msg;
+          lastItem.message.content[0].data.text = msg;
+          lastItem.message.content[1].data = msg;
         }
+        // 显示用时xx秒，业务侧需要自行处理
+        lastItem.duration = 20;
         // 控制终止按钮
         isStreamLoad.value = false;
         loading.value = false;

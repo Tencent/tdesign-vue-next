@@ -86,9 +86,14 @@ export default defineComponent({
         // const setReasoning = (item: TdChatItemMeta) => {
         //   return slots.content ? false : item.reasoning;
         // };
-        // 根据layout来设置placement，both时判断role是否为assistant，是则设置为right，否则设置为left
+        // 根据layout来设置placement，both时仅对user、assistant设置placement，其他值使用默认left
         const setPlacement = (item: TdChatItemMeta) => {
-          return props.layout === 'both' ? (item.message.role === 'assistant' ? 'left' : 'right') : 'left';
+          if (props.layout === 'both') {
+            if (item.message.role === 'assistant') return 'left';
+            if (item.message.role === 'user') return 'right';
+            return 'left'; // 其他role使用默认值
+          }
+          return 'left';
         };
         return data.map((item: TdChatItemMeta, index: number) => (
           <ChatMessage

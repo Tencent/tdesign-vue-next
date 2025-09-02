@@ -10,7 +10,6 @@
       @scroll="handleChatScroll"
       @clear="clearConfirm"
     >
-      <!-- eslint-disable vue/no-unused-vars -->
       <template v-for="(item, index) in chatList" :key="index">
         <t-chat-message :avatar="item.avatar" :name="item.name" :message="item.message" :datetime="item.datetime">
           <!-- 自定义操作按钮插槽 -->
