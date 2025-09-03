@@ -4,8 +4,6 @@
       <p>插件调用</p>
       <!-- this.$notify 和 this.$notification 都支持，两者等价 -->
       <t-space>
-        <t-button @click="openNotify"> 打开通知 </t-button>
-        <t-button @click="closeNotify"> 关闭通知 </t-button>
         <t-button
           variant="outline"
           @click="
@@ -115,24 +113,5 @@ const iconRender = () => {
       }}
     />
   );
-};
-
-let notifyInstance = null;
-
-const openNotify = () => {
-  notifyInstance = NotifyPlugin.info({
-    title: '标题',
-    content: '用户表示普通操作信息提示',
-    closeBtn: true,
-    onCloseBtnClick: () => {
-      console.log('[NotifyPlugin] onCloseBtnClick 被触发（点击关闭按钮）');
-    },
-  });
-};
-
-const closeNotify = () => {
-  if (notifyInstance) {
-    NotifyPlugin.close(notifyInstance);
-  }
 };
 </script>
