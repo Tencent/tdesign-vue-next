@@ -47,7 +47,7 @@ export default defineComponent({
 
     // model
     const { value, modelValue, popupVisible, inputValue } = toRefs(props);
-    const [treeSelectValue, setTreeSelectValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const [treeSelectValue, setTreeSelectValue] = useVModel(value, modelValue, props.defaultValue, 'onChange');
     const [innerVisible, setInnerVisible] = useDefaultValue(
       popupVisible,
       false,

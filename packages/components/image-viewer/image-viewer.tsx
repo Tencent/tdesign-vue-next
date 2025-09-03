@@ -33,7 +33,7 @@ export default defineComponent({
 
     const { index, visible, modelValue, imageReferrerpolicy } = toRefs(props);
     const [indexValue, setIndexValue] = useDefaultValue(index, props.defaultIndex ?? 0, props.onIndexChange, 'index');
-    const [visibleValue, setVisibleValue] = useVModel(visible, modelValue, props.defaultVisible, () => {}, 'visible');
+    const [visibleValue, setVisibleValue] = useVModel(visible, modelValue, props.defaultVisible, '', 'visible');
     const animationEnd = ref(true);
     const animationTimer = ref();
     // teleport容器

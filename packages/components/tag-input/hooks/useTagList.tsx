@@ -13,7 +13,7 @@ export function useTagList(props: TagInputProps) {
   const classPrefix = usePrefixClass();
   const { value, modelValue, onRemove, max, minCollapsedNum, size, tagProps, getDragProps } = toRefs(props);
   // handle controlled property and uncontrolled property
-  const [_tagValue, setTagValue] = useVModel(value, modelValue, props.defaultValue || [], props.onChange);
+  const [_tagValue, setTagValue] = useVModel(value, modelValue, props.defaultValue || [], 'onChange');
   const tagValue = computed(() => _tagValue.value || []);
   const oldInputValue = ref<InputValue>();
 

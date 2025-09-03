@@ -44,7 +44,7 @@ export default defineComponent({
     const TEXTAREA_LIMIT = computed(() => `${name.value}__limit`);
 
     const { value, modelValue } = toRefs(props);
-    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, 'onChange');
     const disabled = useDisabled();
     const isReadonly = useReadonly();
     const textareaStyle = ref<CSSProperties>({});

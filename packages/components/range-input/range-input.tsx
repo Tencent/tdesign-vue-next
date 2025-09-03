@@ -44,7 +44,7 @@ export default defineComponent({
     const format = computed(() => calcArrayValue(props.format));
     const inputProps = computed(() => calcArrayValue(props.inputProps));
     const placeholder = computed(() => calcArrayValue(props.placeholder));
-    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, 'onChange');
 
     const inputValue = computed(() => String((innerValue.value?.[0] || innerValue.value?.[1]) ?? ''));
 

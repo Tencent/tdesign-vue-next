@@ -37,7 +37,7 @@ export default defineComponent({
   props,
   setup(props) {
     const { value, modelValue } = toRefs(props);
-    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, 'onChange');
 
     /** calculate bar style */
     const radioGroupRef = ref<HTMLElement>();

@@ -13,7 +13,7 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('chat');
     const { globalConfig } = useConfig('chat');
     const { value, modelValue } = toRefs(props);
-    const [textValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const [textValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, 'onChange');
     // 按钮禁用，
     const disabled = computed(() => props.stopDisabled);
     // textarea禁用，

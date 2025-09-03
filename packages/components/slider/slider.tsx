@@ -38,7 +38,7 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('slider');
     const { STATUS } = useCommonClassName();
     const { value, modelValue } = toRefs(props) as any;
-    const [sliderValue, setSliderValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const [sliderValue, setSliderValue] = useVModel(value, modelValue, props.defaultValue, 'onChange');
 
     const sliderContainerRef = ref<HTMLDivElement>();
     const sliderRef = ref<HTMLDivElement>();
