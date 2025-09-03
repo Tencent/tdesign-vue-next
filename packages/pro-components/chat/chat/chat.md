@@ -15,7 +15,7 @@ content | Slot / Function | - | 自定义每个对话单独的聊天内容。TS 
 data | Array | - | 对话列表的数据。TS 类型：`Array<TdChatItemMeta>` ` interface TdChatItemMeta { avatar?: string; name?:string; role?:string; datetime?: string; content?: string; reasoning?: string }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/pro-components/chat/type.ts) | N
 datetime | Slot / Function | - | 自定义每个对话单元的时间。TS 类型：`TNode<{ item: TdChatItemProps, index: number }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 isStreamLoad | Boolean | false | 流式加载是否结束 | N
-layout | String | both | 对话布局形式，支持两侧对齐与左对齐。可选项：both/single | N
+layout | String | both | 对话布局形式，支持两侧对齐与左对齐。可选项：both/single `使用默认插槽时无效，请使用ChatMessage的placement设置消息显示位置` | N
 name | Slot / Function | - | 自定义每个对话单元的昵称。TS 类型：`TNode<{ item: TdChatItemProps, index: number }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 reasoning | Slot / Function | - | 自定义每个对话单元的思考过程的插槽。TS 类型：`TNode<{ item: TdChatItemProps, index: number }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 reverse | Boolean | true | 是否表现为倒序 | N
