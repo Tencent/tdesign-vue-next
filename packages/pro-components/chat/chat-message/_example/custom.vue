@@ -6,16 +6,22 @@
       name="TDesignAI"
       :message="message"
     >
-      <template v-for="(item, index) in message.content" :key="item.data.id">
-        <div v-if="item.type === 'chart'" :slot="`${item.type}-${index}`">
-          <TvisionTcharts class="chart" :chart-type="item.data.chartType" :options="item.data.options" />
-        </div>
+      <template #content>
+        <template v-for="(contentItem, contentIndex) in message.content" :key="contentItem.data.id || contentIndex">
+          <t-chat-content v-if="contentItem.type === 'text'" :content="contentItem.data" />
+          <TvisionTcharts
+            v-else-if="contentItem.type === 'chart'"
+            class="chart"
+            :chart-type="contentItem.data.chartType"
+            :options="contentItem.data.options"
+          />
+        </template>
       </template>
     </t-chat-message>
   </t-space>
 </template>
 
-<script setup lang="jsx">
+<script setup lang="js">
 import TvisionTcharts from 'tvision-charts-vue-next';
 import { ref } from 'vue';
 
