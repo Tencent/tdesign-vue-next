@@ -5,16 +5,13 @@
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
-actions | Array/Function/Boolean | - | 操作按钮配置项，可配置操作按钮选项和顺序。数组可选项：replay/copy/good/bad/goodActived/badActived/share  | N
 name | String | - | 发送者名称 | N
 avatar | String/JSX.Element | - | 发送者头像 | N
 datetime | String | - | 消息发送时间 | N
 message | Object | - | 消息内容对象。类型定义见 `Message` | Y
 placement | String | left | 消息位置。可选项：left/right | N
-role | String | - | 发送者角色 | N
 variant | String | text | 消息变体样式。可选项：base/outline/text | N
 chatContentProps | Object | - | 消息内容属性配置。类型支持见 `chatContentProps` | N
-handleActions | Object | - | 操作按钮处理函数 | N
 animation | String | skeleton | 加载动画类型。可选项：skeleton/moving/gradient/circle | N
 
 ### ChatMessagesData 消息对象结构
@@ -56,5 +53,9 @@ id | string | N | - | 内容块唯一标识
 
 | 插槽名 | 说明 |
 |--------|------|
+| content | 自定义消息内容 |
+| avatar | 自定义头像 |
+| name | 自定义名称 |
+| datetime | 自定义时间 |
 | actionbar | 自定义操作栏 |
-| `${type}-${index}` | 消息内容动态插槽，默认命名规则为`消息类型-内容索引`，如`chart-1`等 |
+

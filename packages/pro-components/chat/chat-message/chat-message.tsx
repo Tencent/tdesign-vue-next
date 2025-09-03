@@ -4,22 +4,15 @@ import type { TdChatMessageProps } from 'tdesign-web-components';
 // 封装tdesign-web-components 的 chat-message
 import 'tdesign-web-components/lib/chat-message';
 import { omiVueify } from 'omi-vueify';
+import props from './chat-message-props';
 import { useTNodeJSX } from '@tdesign/shared-hooks';
+
 const BaseChatMessage = omiVueify('t-chat-item', {
   methodNames: [],
 }) as DefineComponent<TdChatMessageProps>;
-
 export default defineComponent({
   name: 'ChatMessage',
-  props: {
-    avatar: String,
-    name: String,
-    message: [String, Object],
-    datetime: String,
-    animation: [String, Boolean],
-    placement: String,
-    variant: String,
-  },
+  props,
   setup(props, { slots }) {
     return () => {
       const renderTNodeJSX = useTNodeJSX();
