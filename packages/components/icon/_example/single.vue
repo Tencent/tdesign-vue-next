@@ -14,37 +14,37 @@
     <t-space break-line>
       <component-checkbox-icon
         :stroke-width="strokeWidth"
-        :stroke-color="['#00000', '#0052d9']"
+        :stroke-color="['currentColor', '#0052d9']"
         :fill-color="['#bbd3fb', '#f78d94']"
       />
       <component-breadcrumb-icon
         :stroke-width="strokeWidth"
-        :stroke-color="['#00000', '#0052d9']"
+        :stroke-color="['currentColor', '#0052d9']"
         :fill-color="['#bbd3fb', '#f78d94']"
       />
       <component-input-icon
         :stroke-width="strokeWidth"
-        :stroke-color="['#00000', '#0052d9']"
+        :stroke-color="['currentColor', '#0052d9']"
         :fill-color="['#bbd3fb', '#f78d94']"
       />
       <component-switch-icon
         :stroke-width="strokeWidth"
-        :stroke-color="['#00000', '#0052d9']"
+        :stroke-color="['currentColor', '#0052d9']"
         :fill-color="['#bbd3fb', '#f78d94']"
       />
       <component-dropdown-icon
         :stroke-width="strokeWidth"
-        :stroke-color="['#00000', '#0052d9']"
+        :stroke-color="['currentColor', '#0052d9']"
         :fill-color="['#bbd3fb', '#f78d94']"
       />
       <component-radio-icon
         :stroke-width="strokeWidth"
-        :stroke-color="['#00000', '#0052d9']"
+        :stroke-color="['currentColor', '#0052d9']"
         :fill-color="['#bbd3fb', '#f78d94']"
       />
       <component-steps-icon
         :stroke-width="strokeWidth"
-        :stroke-color="['#00000', '#0052d9']"
+        :stroke-color="['currentColor', '#0052d9']"
         :fill-color="['#bbd3fb', '#f78d94']"
       />
     </t-space>
