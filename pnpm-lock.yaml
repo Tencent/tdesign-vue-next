@@ -256,12 +256,9 @@ catalogs:
     '@tdesign/site-components':
       specifier: ^0.17.0
       version: 0.17.0
-    tdesign-icons-view:
-      specifier: ^0.3.7
-      version: 0.3.7
     tdesign-icons-vue-next:
-      specifier: ^0.3.7
-      version: 0.3.7
+      specifier: 0.4.0-alpha.1
+      version: 0.4.0-alpha.1
     tdesign-publish-cli:
       specifier: ^0.0.12
       version: 0.0.12
@@ -597,7 +594,7 @@ importers:
     devDependencies:
       tdesign-icons-vue-next:
         specifier: catalog:tdesign
-        version: 0.3.7(vue@3.3.9(typescript@5.7.3))
+        version: 0.4.0-alpha.1(vue@3.3.9(typescript@5.7.3))
       tsdown:
         specifier: catalog:bundle
         version: 0.12.9(typescript@5.7.3)(vue-tsc@2.2.10(typescript@5.7.3))
@@ -727,7 +724,7 @@ importers:
         version: 1.15.6
       tdesign-icons-vue-next:
         specifier: catalog:tdesign
-        version: 0.3.7(vue@3.3.9(typescript@5.8.3))
+        version: 0.4.0-alpha.1(vue@3.3.9(typescript@5.8.3))
       tinycolor2:
         specifier: catalog:deps
         version: 1.6.0
@@ -755,7 +752,7 @@ importers:
         version: 4.17.21
       tdesign-icons-vue-next:
         specifier: catalog:tdesign
-        version: 0.3.7(vue@3.3.9(typescript@5.8.3))
+        version: 0.4.0-alpha.1(vue@3.3.9(typescript@5.8.3))
       vue:
         specifier: '>=3.1.0'
         version: 3.3.9(typescript@5.8.3)
@@ -836,7 +833,7 @@ importers:
         version: 1.15.6
       tdesign-icons-vue-next:
         specifier: catalog:tdesign
-        version: 0.3.7(vue@3.3.9(typescript@5.8.3))
+        version: 0.4.0-alpha.1(vue@3.3.9(typescript@5.8.3))
       tinycolor2:
         specifier: catalog:deps
         version: 1.6.0
@@ -872,7 +869,7 @@ importers:
         version: 2.2.1(marked@12.0.2)
       tdesign-icons-vue-next:
         specifier: catalog:tdesign
-        version: 0.3.7(vue@3.3.9(typescript@5.8.3))
+        version: 0.4.0-alpha.1(vue@3.3.9(typescript@5.8.3))
       tdesign-vue-next:
         specifier: workspace:^
         version: link:../tdesign-vue-next
@@ -961,9 +958,6 @@ importers:
       semver:
         specifier: catalog:docs
         version: 7.7.2
-      tdesign-icons-view:
-        specifier: catalog:tdesign
-        version: 0.3.7
       tdesign-theme-generator:
         specifier: catalog:tdesign
         version: 1.1.8
@@ -6487,6 +6481,7 @@ packages:
   source-map@0.8.0-beta.0:
     resolution: {integrity: sha512-2ymg6oRBpebeZi9UUNsgQ89bhx01TcTkmNTGnNO88imTmbSgy4nfujrgVEFKWpMTEGA11EDkTt7mqObTPdigIA==}
     engines: {node: '>= 8'}
+    deprecated: The work that was done in this beta branch won't be included in future versions
 
   sourcemap-codec@1.4.8:
     resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
@@ -6705,11 +6700,8 @@ packages:
   tdesign-icons-svg@0.0.1:
     resolution: {integrity: sha512-4l05CgPXwI33Y6hU8ytKYIIXVznR22x6blhhtB6MntSHj2xrA+Unx4U/qy+Do/lCMtYao9q1wVkaZvxNjuX7jw==}
 
-  tdesign-icons-view@0.3.7:
-    resolution: {integrity: sha512-dobHbcBSv3v0cqJ75zSdLeFnkb2Rq/BincBFknEvUspYlPH9zxzrNWM/+HjO5cN9Uo+o6qBmdvQ483WmXqg8VQ==}
-
-  tdesign-icons-vue-next@0.3.7:
-    resolution: {integrity: sha512-Q5ebVty/TCqhBa0l/17kkhjC0pBAOGvn7C35MAt1xS+johKVM9QEDOy9R6XEl332AiwQ37MwqioczqjYC30ckw==}
+  tdesign-icons-vue-next@0.4.0-alpha.1:
+    resolution: {integrity: sha512-aPnsbG78cyzrg80A06t/fGo9zbDPf1WmyGBnPYQe26nCkohRNjVi+VGFgZoyj4+jusdlAt0LaZlNamgssOQBxQ==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -6723,22 +6715,12 @@ packages:
     peerDependencies:
       vue: ^2.6.12
 
-  tdesign-icons-vue@0.3.6:
-    resolution: {integrity: sha512-FXE5Ryihyamk0cYKY1wuppuAOtyV2W0k2HxgR4EaocbbdmnFUWIcSBL0buNeFAQqSi16HQOtr2KpP9v87IwLXw==}
-    peerDependencies:
-      vue: ^2.6.12
-
   tdesign-publish-cli@0.0.12:
     resolution: {integrity: sha512-eRmrOCUqR/55AAZ8dqUGV8+TU1qzljGoiU9TsFOroHcNe4T1u/dYwEBfg39NsupWUoO/v67XeUDlKyTjUHkO2w==}
     hasBin: true
 
   tdesign-theme-generator@1.1.8:
     resolution: {integrity: sha512-tbxqPf+weA1cb+rOXhs9dhRf/UayL7Uf8JTNqtkkR5bIbx434+2iVav9yi02F+rjC66ZPhcqSYvJnfPYDxvPiA==}
-
-  tdesign-vue@1.10.5-naruto:
-    resolution: {integrity: sha512-sNi/Ga/beo7gNdyhv11ufOKvnLB1s9zU7Dt14NjHVkSFnYDELr6ck+nTXKYQF3Y0Fd4PVVWn2YaGCCDISZMJ7Q==}
-    peerDependencies:
-      vue: ~2.7.14
 
   tdesign-vue@1.9.4-naruto:
     resolution: {integrity: sha512-o+K27STem9UWwimENVVVjVzW5HwTKuNLyH3jG06uMn5hJRwuXrFT3XEzaD/h8A/pjJ2cA5MIqJG4cFsK59ss8Q==}
@@ -8358,7 +8340,7 @@ snapshots:
       '@types/node': 20.5.1
       chalk: 4.1.2
       cosmiconfig: 8.3.6(typescript@5.8.3)
-      cosmiconfig-typescript-loader: 4.4.0(@types/node@20.5.1)(cosmiconfig@8.3.6(typescript@5.8.3))(ts-node@10.9.2(@types/node@22.15.32)(typescript@5.7.3))(typescript@5.8.3)
+      cosmiconfig-typescript-loader: 4.4.0(@types/node@20.5.1)(cosmiconfig@8.3.6(typescript@5.8.3))(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.8.3))(typescript@5.8.3)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -10294,7 +10276,7 @@ snapshots:
       - '@swc/core'
       - '@swc/wasm'
 
-  cosmiconfig-typescript-loader@4.4.0(@types/node@20.5.1)(cosmiconfig@8.3.6(typescript@5.8.3))(ts-node@10.9.2(@types/node@22.15.32)(typescript@5.7.3))(typescript@5.8.3):
+  cosmiconfig-typescript-loader@4.4.0(@types/node@20.5.1)(cosmiconfig@8.3.6(typescript@5.8.3))(ts-node@10.9.2(@types/node@20.5.1)(typescript@5.8.3))(typescript@5.8.3):
     dependencies:
       '@types/node': 20.5.1
       cosmiconfig: 8.3.6(typescript@5.8.3)
@@ -13859,21 +13841,12 @@ snapshots:
 
   tdesign-icons-svg@0.0.1: {}
 
-  tdesign-icons-view@0.3.7:
-    dependencies:
-      core-js: 3.43.0
-      lodash: 4.17.21
-      tdesign-icons-vue: 0.3.6(vue@2.7.14)
-      tdesign-vue: 1.10.5-naruto(vue@2.7.14)
-      tvision-color: 1.6.0
-      vue: 2.7.14
-
-  tdesign-icons-vue-next@0.3.7(vue@3.3.9(typescript@5.7.3)):
+  tdesign-icons-vue-next@0.4.0-alpha.1(vue@3.3.9(typescript@5.7.3)):
     dependencies:
       '@babel/runtime': 7.27.6
       vue: 3.3.9(typescript@5.7.3)
 
-  tdesign-icons-vue-next@0.3.7(vue@3.3.9(typescript@5.8.3)):
+  tdesign-icons-vue-next@0.4.0-alpha.1(vue@3.3.9(typescript@5.8.3)):
     dependencies:
       '@babel/runtime': 7.27.6
       vue: 3.3.9(typescript@5.8.3)
@@ -13885,12 +13858,6 @@ snapshots:
       vue: 2.7.14
 
   tdesign-icons-vue@0.2.5(vue@2.7.14):
-    dependencies:
-      '@babel/runtime': 7.27.6
-      classnames: 2.5.1
-      vue: 2.7.14
-
-  tdesign-icons-vue@0.3.6(vue@2.7.14):
     dependencies:
       '@babel/runtime': 7.27.6
       classnames: 2.5.1
@@ -13910,27 +13877,6 @@ snapshots:
       tdesign-icons-vue: 0.0.8(vue@2.7.14)
       tdesign-vue: 1.9.4-naruto(vue@2.7.14)
       tvision-color: 1.6.0
-      vue: 2.7.14
-
-  tdesign-vue@1.10.5-naruto(vue@2.7.14):
-    dependencies:
-      '@babel/runtime': 7.27.6
-      '@popperjs/core': 2.11.8
-      '@types/clipboard': 2.0.10
-      '@types/lodash': 4.14.182
-      '@types/raf': 3.4.3
-      '@types/sortablejs': 1.15.8
-      '@types/tinycolor2': 1.4.6
-      '@types/validator': 13.15.2
-      clipboard: 2.0.11
-      dayjs: 1.11.10
-      lodash: 4.17.21
-      mitt: 3.0.1
-      raf: 3.4.1
-      sortablejs: 1.15.6
-      tdesign-icons-vue: 0.2.5(vue@2.7.14)
-      tinycolor2: 1.6.0
-      validator: 13.15.15
       vue: 2.7.14
 
   tdesign-vue@1.9.4-naruto(vue@2.7.14):
