@@ -8,7 +8,7 @@
     >
       <t-option v-for="item in options" :key="item.stem" :value="item.stem" class="overlay-options">
         <div>
-          <icon-font :name="item.stem" />
+          <t-icon :name="item.stem" />
         </div>
       </t-option>
       <template #valueDisplay><t-icon :name="value" :style="{ marginRight: '8px' }" />{{ value }}</template>
@@ -17,7 +17,7 @@
 </template>
 <script setup>
 import { ref } from 'vue';
-import { manifest, IconFont } from 'tdesign-icons-vue-next';
+import { manifest } from 'tdesign-icons-vue-next';
 // 获取全部图标的列表
 const options = ref(manifest);
 const value = ref('add');

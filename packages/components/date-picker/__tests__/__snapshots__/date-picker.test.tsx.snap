@@ -38,10 +38,26 @@ exports[`DatePicker > :mode 1`] = `
             viewBox="0 0 24 24"
             width="1em"
           >
-            <path
-              d="M6 4V1.5H8V4H16V1.5H18V4H22V22H2V4H6ZM4 6V9H20V6H4ZM20 11H4V20H20V11Z"
-              fill="currentColor"
-            />
+            <g
+              id="calendar"
+            >
+              <path
+                d="M21 10H3V21H21V10Z"
+                fill="transparent"
+                id="fill1"
+              />
+              <path
+                d="M21 10H3V5H21V10Z"
+                fill="transparent"
+                id="fill2"
+              />
+              <path
+                d="M3 10H21M3 10V5H21V10M3 10V21H21V10M7 5V1.5M17 5V1.5"
+                id="stroke1"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+            </g>
           </svg>
         </span>
       </div>
@@ -133,10 +149,26 @@ exports[`DatePicker > :range 1`] = `
             viewBox="0 0 24 24"
             width="1em"
           >
-            <path
-              d="M6 4V1.5H8V4H16V1.5H18V4H22V22H2V4H6ZM4 6V9H20V6H4ZM20 11H4V20H20V11Z"
-              fill="currentColor"
-            />
+            <g
+              id="calendar"
+            >
+              <path
+                d="M21 10H3V21H21V10Z"
+                fill="transparent"
+                id="fill1"
+              />
+              <path
+                d="M21 10H3V5H21V10Z"
+                fill="transparent"
+                id="fill2"
+              />
+              <path
+                d="M3 10H21M3 10V5H21V10M3 10V21H21V10M7 5V1.5M17 5V1.5"
+                id="stroke1"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+            </g>
           </svg>
         </span>
       </div>
@@ -187,10 +219,26 @@ exports[`DatePicker > :value 1`] = `
             viewBox="0 0 24 24"
             width="1em"
           >
-            <path
-              d="M6 4V1.5H8V4H16V1.5H18V4H22V22H2V4H6ZM4 6V9H20V6H4ZM20 11H4V20H20V11Z"
-              fill="currentColor"
-            />
+            <g
+              id="calendar"
+            >
+              <path
+                d="M21 10H3V21H21V10Z"
+                fill="transparent"
+                id="fill1"
+              />
+              <path
+                d="M21 10H3V5H21V10Z"
+                fill="transparent"
+                id="fill2"
+              />
+              <path
+                d="M3 10H21M3 10V5H21V10M3 10V21H21V10M7 5V1.5M17 5V1.5"
+                id="stroke1"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+            </g>
           </svg>
         </span>
       </div>
