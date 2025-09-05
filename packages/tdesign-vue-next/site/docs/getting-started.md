@@ -74,9 +74,13 @@ app.use(TButton);
 
 ### 通过插件按需引用使用
 
-除此之外，也可以使用 `unplugin-vue-components` 和 `unplugin-auto-import` 来实现自动导入：
+除此之外，也可以使用 `unplugin-vue-components` 、`unplugin-auto-import` 和 `@tdesign-vue-next/auto-import-resolver` 来实现自动导入：
 
-您仍需在项目引入组件库的少量全局样式变量
+```bash
+npm install -D @tdesign-vue-next/auto-import-resolver unplugin-vue-components unplugin-auto-import
+```
+
+您仍需在项目引入组件库的少量全局样式变量。
 
 ```js
 import { createApp } from 'vue';
@@ -84,12 +88,6 @@ import { createApp } from 'vue';
 import 'tdesign-vue-next/es/style/index.css';
 
 const app = createApp(App);
-```
-
-并安装 `@tdesign-vue-next/auto-import-resolver` 和两个unplugin相关的第三方包和
-
-```bash
-npm install -D @tdesign-vue-next/auto-import-resolver unplugin-vue-components unplugin-auto-import
 ```
 
 然后在 Webpack 或 Vite 对应的配置文件添加上述插件。

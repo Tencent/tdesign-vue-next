@@ -70,7 +70,11 @@ app.use(TButton);
 
 ### Import on-demand with Plugin
 
-You can also use `unplugin-vue-components` and `unplugin-auto-import` to achieve automatic on-demand import.
+You can also use `unplugin-vue-components` 、 `unplugin-auto-import` and `@tdesign-vue-next/auto-import-resolver` to achieve automatic on-demand import:
+
+```bash
+npm install -D @tdesign-vue-next/auto-import-resolver unplugin-vue-components unplugin-auto-import
+```
 
 ```js
 import { createApp } from 'vue';
@@ -78,12 +82,6 @@ import { createApp } from 'vue';
 import 'tdesign-vue-next/es/style/index.css';
 
 const app = createApp(App);
-```
-
-Install `@tdesign-vue-next/auto-import-resolver`, `unplugin-vue-components` and `unplugin-auto-import`.
-
-```bash
-npm install -D @tdesign-vue-next/auto-import-resolver unplugin-vue-components unplugin-auto-import
 ```
 
 Then, add the above plugins to the corresponding configuration files of Webpack or Vite.
