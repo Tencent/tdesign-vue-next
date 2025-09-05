@@ -14,7 +14,6 @@
   "dependencies": {
     "nprogress": "catalog:deps",
     "semver": "catalog:docs",
-    "tdesign-icons-view": "catalog:tdesign",
     "@tdesign/site-components": "0.18.0-alpha.1",
     "tdesign-theme-generator": "catalog:tdesign",
     "vue": "catalog:deps",

@@ -54,10 +54,36 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, fail 
                   viewBox="0 0 24 24"
                   width="1em"
                 >
-                  <path
-                    d="M2 2H22V22H2V2ZM4 20H17.5858L9 11.4142L4 16.4142V20ZM20 19.5858V4H4V13.5858L9 8.58579L20 19.5858ZM15.5469 7C14.9946 7 14.5469 7.44772 14.5469 8C14.5469 8.55228 14.9946 9 15.5469 9C16.0992 9 16.5469 8.55228 16.5469 8C16.5469 7.44772 16.0992 7 15.5469 7ZM12.5469 8C12.5469 6.34315 13.89 5 15.5469 5C17.2037 5 18.5469 6.34315 18.5469 8C18.5469 9.65685 17.2037 11 15.5469 11C13.89 11 12.5469 9.65685 12.5469 8Z"
-                    fill="currentColor"
-                  />
+                  <g
+                    id="image"
+                  >
+                    <path
+                      d="M3 21H20L9 10L3 16V21Z"
+                      fill="transparent"
+                      id="fill1"
+                    />
+                    <circle
+                      cx="15.75"
+                      cy="8.25"
+                      fill="transparent"
+                      id="fill2"
+                      r="2"
+                    />
+                    <path
+                      d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                      id="stroke1"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
+                    <circle
+                      cx="15.75"
+                      cy="8.25"
+                      id="stroke2"
+                      r="2"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
+                  </g>
                 </svg>
               </div>
               <!---->
@@ -102,7 +128,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, fail 
           >
             <path
               d="M12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12C1 5.92487 5.92487 1 12 1ZM11.0001 14H13.0001V6.49998H11.0001V14ZM13.004 15.5H11.0001V17.5039H13.004V15.5Z"
-              fill="currentColor"
+              fill="transparent"
             />
           </svg>
         </div>
@@ -224,10 +250,36 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, progr
                   viewBox="0 0 24 24"
                   width="1em"
                 >
-                  <path
-                    d="M2 2H22V22H2V2ZM4 20H17.5858L9 11.4142L4 16.4142V20ZM20 19.5858V4H4V13.5858L9 8.58579L20 19.5858ZM15.5469 7C14.9946 7 14.5469 7.44772 14.5469 8C14.5469 8.55228 14.9946 9 15.5469 9C16.0992 9 16.5469 8.55228 16.5469 8C16.5469 7.44772 16.0992 7 15.5469 7ZM12.5469 8C12.5469 6.34315 13.89 5 15.5469 5C17.2037 5 18.5469 6.34315 18.5469 8C18.5469 9.65685 17.2037 11 15.5469 11C13.89 11 12.5469 9.65685 12.5469 8Z"
-                    fill="currentColor"
-                  />
+                  <g
+                    id="image"
+                  >
+                    <path
+                      d="M3 21H20L9 10L3 16V21Z"
+                      fill="transparent"
+                      id="fill1"
+                    />
+                    <circle
+                      cx="15.75"
+                      cy="8.25"
+                      fill="transparent"
+                      id="fill2"
+                      r="2"
+                    />
+                    <path
+                      d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                      id="stroke1"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
+                    <circle
+                      cx="15.75"
+                      cy="8.25"
+                      id="stroke2"
+                      r="2"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
+                  </g>
                 </svg>
               </div>
               <!---->
@@ -399,10 +451,36 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
                   viewBox="0 0 24 24"
                   width="1em"
                 >
-                  <path
-                    d="M2 2H22V22H2V2ZM4 20H17.5858L9 11.4142L4 16.4142V20ZM20 19.5858V4H4V13.5858L9 8.58579L20 19.5858ZM15.5469 7C14.9946 7 14.5469 7.44772 14.5469 8C14.5469 8.55228 14.9946 9 15.5469 9C16.0992 9 16.5469 8.55228 16.5469 8C16.5469 7.44772 16.0992 7 15.5469 7ZM12.5469 8C12.5469 6.34315 13.89 5 15.5469 5C17.2037 5 18.5469 6.34315 18.5469 8C18.5469 9.65685 17.2037 11 15.5469 11C13.89 11 12.5469 9.65685 12.5469 8Z"
-                    fill="currentColor"
-                  />
+                  <g
+                    id="image"
+                  >
+                    <path
+                      d="M3 21H20L9 10L3 16V21Z"
+                      fill="transparent"
+                      id="fill1"
+                    />
+                    <circle
+                      cx="15.75"
+                      cy="8.25"
+                      fill="transparent"
+                      id="fill2"
+                      r="2"
+                    />
+                    <path
+                      d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                      id="stroke1"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
+                    <circle
+                      cx="15.75"
+                      cy="8.25"
+                      id="stroke2"
+                      r="2"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
+                  </g>
                 </svg>
               </div>
               <!---->
@@ -446,7 +524,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
           >
             <path
               d="M12 23C18.0751 23 23 18.0751 23 12C23 5.92487 18.0751 1 12 1C5.92487 1 1 5.92487 1 12C1 18.0751 5.92487 23 12 23ZM7.49985 10.5858L10.4999 13.5858L16.4999 7.58578L17.9141 8.99999L10.4999 16.4142L6.08564 12L7.49985 10.5858Z"
-              fill="currentColor"
+              fill="transparent"
             />
           </svg>
           <!---->
@@ -569,10 +647,36 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
                   viewBox="0 0 24 24"
                   width="1em"
                 >
-                  <path
-                    d="M2 2H22V22H2V2ZM4 20H17.5858L9 11.4142L4 16.4142V20ZM20 19.5858V4H4V13.5858L9 8.58579L20 19.5858ZM15.5469 7C14.9946 7 14.5469 7.44772 14.5469 8C14.5469 8.55228 14.9946 9 15.5469 9C16.0992 9 16.5469 8.55228 16.5469 8C16.5469 7.44772 16.0992 7 15.5469 7ZM12.5469 8C12.5469 6.34315 13.89 5 15.5469 5C17.2037 5 18.5469 6.34315 18.5469 8C18.5469 9.65685 17.2037 11 15.5469 11C13.89 11 12.5469 9.65685 12.5469 8Z"
-                    fill="currentColor"
-                  />
+                  <g
+                    id="image"
+                  >
+                    <path
+                      d="M3 21H20L9 10L3 16V21Z"
+                      fill="transparent"
+                      id="fill1"
+                    />
+                    <circle
+                      cx="15.75"
+                      cy="8.25"
+                      fill="transparent"
+                      id="fill2"
+                      r="2"
+                    />
+                    <path
+                      d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                      id="stroke1"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
+                    <circle
+                      cx="15.75"
+                      cy="8.25"
+                      id="stroke2"
+                      r="2"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
+                  </g>
                 </svg>
               </div>
               <!---->
@@ -616,7 +720,7 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, succe
           >
             <path
               d="M12 23C18.0751 23 23 18.0751 23 12C23 5.92487 18.0751 1 12 1C5.92487 1 1 5.92487 1 12C1 18.0751 5.92487 23 12 23ZM7.49985 10.5858L10.4999 13.5858L16.4999 7.58578L17.9141 8.99999L10.4999 16.4142L6.08564 12L7.49985 10.5858Z"
-              fill="currentColor"
+              fill="transparent"
             />
           </svg>
           <!---->
@@ -739,10 +843,36 @@ exports[`Upload Component > props.draggable: theme=image & draggable=true, waiti
                   viewBox="0 0 24 24"
                   width="1em"
                 >
-                  <path
-                    d="M2 2H22V22H2V2ZM4 20H17.5858L9 11.4142L4 16.4142V20ZM20 19.5858V4H4V13.5858L9 8.58579L20 19.5858ZM15.5469 7C14.9946 7 14.5469 7.44772 14.5469 8C14.5469 8.55228 14.9946 9 15.5469 9C16.0992 9 16.5469 8.55228 16.5469 8C16.5469 7.44772 16.0992 7 15.5469 7ZM12.5469 8C12.5469 6.34315 13.89 5 15.5469 5C17.2037 5 18.5469 6.34315 18.5469 8C18.5469 9.65685 17.2037 11 15.5469 11C13.89 11 12.5469 9.65685 12.5469 8Z"
-                    fill="currentColor"
-                  />
+                  <g
+                    id="image"
+                  >
+                    <path
+                      d="M3 21H20L9 10L3 16V21Z"
+                      fill="transparent"
+                      id="fill1"
+                    />
+                    <circle
+                      cx="15.75"
+                      cy="8.25"
+                      fill="transparent"
+                      id="fill2"
+                      r="2"
+                    />
+                    <path
+                      d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                      id="stroke1"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
+                    <circle
+                      cx="15.75"
+                      cy="8.25"
+                      id="stroke2"
+                      r="2"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
+                  </g>
                 </svg>
               </div>
               <!---->
@@ -862,10 +992,24 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
             viewBox="0 0 24 24"
             width="1em"
           >
-            <path
-              d="M12 2.58569L17.9142 8.49991L16.5 9.91412L13 6.41412L13 15.9999H11L11 6.41412L7.5 9.91412L6.08579 8.49991L12 2.58569ZM4.5 13.9999V18.9999H19.5V13.9999H21.5V20.9999H2.5V13.9999H4.5Z"
-              fill="currentColor"
-            />
+            <g
+              id="upload"
+            >
+              <path
+                d="M16.5 8.5L12 4L7.5 8.5M12 5.25V15"
+                id="stroke1"
+                stroke="currentColor"
+                stroke-linecap="square"
+                stroke-width="2"
+              />
+              <path
+                d="M20.5 15V20H3.5V15"
+                id="stroke2"
+                stroke="currentColor"
+                stroke-linecap="square"
+                stroke-width="2"
+              />
+            </g>
           </svg>
           <span
             class="t-button__text"
@@ -929,7 +1073,7 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
               >
                 <path
                   d="M12 23C18.0751 23 23 18.0751 23 12C23 5.92487 18.0751 1 12 1C5.92487 1 1 5.92487 1 12C1 18.0751 5.92487 23 12 23ZM7.49985 10.5858L10.4999 13.5858L16.4999 7.58578L17.9141 8.99999L10.4999 16.4142L6.08564 12L7.49985 10.5858Z"
-                  fill="currentColor"
+                  fill="transparent"
                 />
               </svg>
               <span
@@ -977,7 +1121,7 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
               >
                 <path
                   d="M12 23C5.92487 23 1 18.0751 1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23ZM12.9999 5.49999H10.9999L10.9998 12.4142L14.9999 16.4142L16.4141 15L12.9999 11.5858V5.49999Z"
-                  fill="currentColor"
+                  fill="transparent"
                 />
               </svg>
               <span
@@ -1025,7 +1169,7 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
               >
                 <path
                   d="M12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12C1 5.92487 5.92487 1 12 1ZM11.0001 14H13.0001V6.49998H11.0001V14ZM13.004 15.5H11.0001V17.5039H13.004V15.5Z"
-                  fill="currentColor"
+                  fill="transparent"
                 />
               </svg>
               <span
@@ -1171,10 +1315,24 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
             viewBox="0 0 24 24"
             width="1em"
           >
-            <path
-              d="M12 2.58569L17.9142 8.49991L16.5 9.91412L13 6.41412L13 15.9999H11L11 6.41412L7.5 9.91412L6.08579 8.49991L12 2.58569ZM4.5 13.9999V18.9999H19.5V13.9999H21.5V20.9999H2.5V13.9999H4.5Z"
-              fill="currentColor"
-            />
+            <g
+              id="upload"
+            >
+              <path
+                d="M16.5 8.5L12 4L7.5 8.5M12 5.25V15"
+                id="stroke1"
+                stroke="currentColor"
+                stroke-linecap="square"
+                stroke-width="2"
+              />
+              <path
+                d="M20.5 15V20H3.5V15"
+                id="stroke2"
+                stroke="currentColor"
+                stroke-linecap="square"
+                stroke-width="2"
+              />
+            </g>
           </svg>
           <span
             class="t-button__text"
@@ -1238,10 +1396,36 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                       viewBox="0 0 24 24"
                       width="1em"
                     >
-                      <path
-                        d="M2 2H22V22H2V2ZM4 20H17.5858L9 11.4142L4 16.4142V20ZM20 19.5858V4H4V13.5858L9 8.58579L20 19.5858ZM15.5469 7C14.9946 7 14.5469 7.44772 14.5469 8C14.5469 8.55228 14.9946 9 15.5469 9C16.0992 9 16.5469 8.55228 16.5469 8C16.5469 7.44772 16.0992 7 15.5469 7ZM12.5469 8C12.5469 6.34315 13.89 5 15.5469 5C17.2037 5 18.5469 6.34315 18.5469 8C18.5469 9.65685 17.2037 11 15.5469 11C13.89 11 12.5469 9.65685 12.5469 8Z"
-                        fill="currentColor"
-                      />
+                      <g
+                        id="image"
+                      >
+                        <path
+                          d="M3 21H20L9 10L3 16V21Z"
+                          fill="transparent"
+                          id="fill1"
+                        />
+                        <circle
+                          cx="15.75"
+                          cy="8.25"
+                          fill="transparent"
+                          id="fill2"
+                          r="2"
+                        />
+                        <path
+                          d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                          id="stroke1"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        />
+                        <circle
+                          cx="15.75"
+                          cy="8.25"
+                          id="stroke2"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        />
+                      </g>
                     </svg>
                   </div>
                   <!---->
@@ -1266,10 +1450,29 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                   viewBox="0 0 24 24"
                   width="1em"
                 >
-                  <path
-                    d="M7.5 1H16.5V4H22V6H19.971L19.471 23H4.52898L4.02898 6H2V4H7.5V1ZM9.5 4H14.5V3H9.5V4ZM6.02984 6L6.47102 21H17.529L17.9702 6H6.02984ZM13 8V19H11V8H13Z"
-                    fill="currentColor"
-                  />
+                  <g
+                    id="delete"
+                  >
+                    <path
+                      d="M5 5H19L18.5 22H5.5L5 5Z"
+                      fill="transparent"
+                      id="fill1"
+                    />
+                    <path
+                      d="M21 5H3M5 5H19L18.5 22H5.5L5 5ZM8.5 2H15.5V5H8.5V2Z"
+                      id="stroke1"
+                      stroke="currentColor"
+                      stroke-linecap="square"
+                      stroke-width="2"
+                    />
+                    <path
+                      d="M12 9V18"
+                      id="stroke2"
+                      stroke="currentColor"
+                      stroke-linecap="square"
+                      stroke-width="2"
+                    />
+                  </g>
                 </svg>
               </span>
             </div>
@@ -1286,7 +1489,7 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
             >
               <path
                 d="M12 23C18.0751 23 23 18.0751 23 12C23 5.92487 18.0751 1 12 1C5.92487 1 1 5.92487 1 12C1 18.0751 5.92487 23 12 23ZM7.49985 10.5858L10.4999 13.5858L16.4999 7.58578L17.9141 8.99999L10.4999 16.4142L6.08564 12L7.49985 10.5858Z"
-                fill="currentColor"
+                fill="transparent"
               />
             </svg>
             img.txt
@@ -1334,10 +1537,36 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                       viewBox="0 0 24 24"
                       width="1em"
                     >
-                      <path
-                        d="M2 2H22V22H2V2ZM4 20H17.5858L9 11.4142L4 16.4142V20ZM20 19.5858V4H4V13.5858L9 8.58579L20 19.5858ZM15.5469 7C14.9946 7 14.5469 7.44772 14.5469 8C14.5469 8.55228 14.9946 9 15.5469 9C16.0992 9 16.5469 8.55228 16.5469 8C16.5469 7.44772 16.0992 7 15.5469 7ZM12.5469 8C12.5469 6.34315 13.89 5 15.5469 5C17.2037 5 18.5469 6.34315 18.5469 8C18.5469 9.65685 17.2037 11 15.5469 11C13.89 11 12.5469 9.65685 12.5469 8Z"
-                        fill="currentColor"
-                      />
+                      <g
+                        id="image"
+                      >
+                        <path
+                          d="M3 21H20L9 10L3 16V21Z"
+                          fill="transparent"
+                          id="fill1"
+                        />
+                        <circle
+                          cx="15.75"
+                          cy="8.25"
+                          fill="transparent"
+                          id="fill2"
+                          r="2"
+                        />
+                        <path
+                          d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                          id="stroke1"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        />
+                        <circle
+                          cx="15.75"
+                          cy="8.25"
+                          id="stroke2"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        />
+                      </g>
                     </svg>
                   </div>
                   <!---->
@@ -1362,11 +1591,32 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                   width="1em"
                 >
                   <g
-                    clipPath="url(#clip0_8726_7319)"
+                    clipPath="url(#clip0_543_7945)"
+                    id="browse"
                   >
                     <path
-                      d="M2.09675 12C3.53842 16.0792 7.42915 19 11.9996 19C16.57 19 20.4607 16.0792 21.9024 12C20.4607 7.92079 16.57 5 11.9996 5C7.42915 5 3.53842 7.92079 2.09675 12ZM0.0892162 11.696C1.69842 6.65364 6.42102 3 11.9996 3C17.5781 3 22.3007 6.65364 23.9099 11.696L24.007 12L23.9099 12.304C22.3007 17.3464 17.5781 21 11.9996 21C6.42102 21 1.69842 17.3464 0.0892162 12.304L-0.0078125 12L0.0892162 11.696ZM11.9999 9C10.343 9 8.99989 10.3431 8.99989 12C8.99989 13.6569 10.343 15 11.9999 15C13.6567 15 14.9999 13.6569 14.9999 12C14.9999 10.3431 13.6567 9 11.9999 9ZM6.99989 12C6.99989 9.23858 9.23846 7 11.9999 7C14.7613 7 16.9999 9.23858 16.9999 12C16.9999 14.7614 14.7613 17 11.9999 17C9.23846 17 6.99989 14.7614 6.99989 12Z"
-                      fill="currentColor"
+                      d="M11.9997 4C6.86881 4 2.52275 7.36017 1.04199 12C2.52275 16.6398 6.86881 20 11.9997 20C17.1306 20 21.4766 16.6398 22.9574 12C21.4766 7.36017 17.1306 4 11.9997 4Z"
+                      fill="transparent"
+                      id="fill1"
+                    />
+                    <path
+                      d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z"
+                      fill="transparent"
+                      id="fill2"
+                    />
+                    <path
+                      d="M11.9997 4C6.86881 4 2.52275 7.36017 1.04199 12C2.52275 16.6398 6.86881 20 11.9997 20C17.1306 20 21.4766 16.6398 22.9574 12C21.4766 7.36017 17.1306 4 11.9997 4Z"
+                      id="stroke1"
+                      stroke="currentColor"
+                      stroke-linecap="square"
+                      stroke-width="2"
+                    />
+                    <path
+                      d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z"
+                      id="stroke2"
+                      stroke="currentColor"
+                      stroke-linecap="square"
+                      stroke-width="2"
                     />
                   </g>
                 </svg>
@@ -1384,10 +1634,29 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                   viewBox="0 0 24 24"
                   width="1em"
                 >
-                  <path
-                    d="M7.5 1H16.5V4H22V6H19.971L19.471 23H4.52898L4.02898 6H2V4H7.5V1ZM9.5 4H14.5V3H9.5V4ZM6.02984 6L6.47102 21H17.529L17.9702 6H6.02984ZM13 8V19H11V8H13Z"
-                    fill="currentColor"
-                  />
+                  <g
+                    id="delete"
+                  >
+                    <path
+                      d="M5 5H19L18.5 22H5.5L5 5Z"
+                      fill="transparent"
+                      id="fill1"
+                    />
+                    <path
+                      d="M21 5H3M5 5H19L18.5 22H5.5L5 5ZM8.5 2H15.5V5H8.5V2Z"
+                      id="stroke1"
+                      stroke="currentColor"
+                      stroke-linecap="square"
+                      stroke-width="2"
+                    />
+                    <path
+                      d="M12 9V18"
+                      id="stroke2"
+                      stroke="currentColor"
+                      stroke-linecap="square"
+                      stroke-width="2"
+                    />
+                  </g>
                 </svg>
               </span>
             </div>
@@ -1404,7 +1673,7 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
             >
               <path
                 d="M12 23C18.0751 23 23 18.0751 23 12C23 5.92487 18.0751 1 12 1C5.92487 1 1 5.92487 1 12C1 18.0751 5.92487 23 12 23ZM7.49985 10.5858L10.4999 13.5858L16.4999 7.58578L17.9141 8.99999L10.4999 16.4142L6.08564 12L7.49985 10.5858Z"
-                fill="currentColor"
+                fill="transparent"
               />
             </svg>
             img1.txt
@@ -1452,10 +1721,36 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                       viewBox="0 0 24 24"
                       width="1em"
                     >
-                      <path
-                        d="M2 2H22V22H2V2ZM4 20H17.5858L9 11.4142L4 16.4142V20ZM20 19.5858V4H4V13.5858L9 8.58579L20 19.5858ZM15.5469 7C14.9946 7 14.5469 7.44772 14.5469 8C14.5469 8.55228 14.9946 9 15.5469 9C16.0992 9 16.5469 8.55228 16.5469 8C16.5469 7.44772 16.0992 7 15.5469 7ZM12.5469 8C12.5469 6.34315 13.89 5 15.5469 5C17.2037 5 18.5469 6.34315 18.5469 8C18.5469 9.65685 17.2037 11 15.5469 11C13.89 11 12.5469 9.65685 12.5469 8Z"
-                        fill="currentColor"
-                      />
+                      <g
+                        id="image"
+                      >
+                        <path
+                          d="M3 21H20L9 10L3 16V21Z"
+                          fill="transparent"
+                          id="fill1"
+                        />
+                        <circle
+                          cx="15.75"
+                          cy="8.25"
+                          fill="transparent"
+                          id="fill2"
+                          r="2"
+                        />
+                        <path
+                          d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                          id="stroke1"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        />
+                        <circle
+                          cx="15.75"
+                          cy="8.25"
+                          id="stroke2"
+                          r="2"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        />
+                      </g>
                     </svg>
                   </div>
                   <!---->
@@ -1480,11 +1775,32 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                   width="1em"
                 >
                   <g
-                    clipPath="url(#clip0_8726_7319)"
+                    clipPath="url(#clip0_543_7945)"
+                    id="browse"
                   >
                     <path
-                      d="M2.09675 12C3.53842 16.0792 7.42915 19 11.9996 19C16.57 19 20.4607 16.0792 21.9024 12C20.4607 7.92079 16.57 5 11.9996 5C7.42915 5 3.53842 7.92079 2.09675 12ZM0.0892162 11.696C1.69842 6.65364 6.42102 3 11.9996 3C17.5781 3 22.3007 6.65364 23.9099 11.696L24.007 12L23.9099 12.304C22.3007 17.3464 17.5781 21 11.9996 21C6.42102 21 1.69842 17.3464 0.0892162 12.304L-0.0078125 12L0.0892162 11.696ZM11.9999 9C10.343 9 8.99989 10.3431 8.99989 12C8.99989 13.6569 10.343 15 11.9999 15C13.6567 15 14.9999 13.6569 14.9999 12C14.9999 10.3431 13.6567 9 11.9999 9ZM6.99989 12C6.99989 9.23858 9.23846 7 11.9999 7C14.7613 7 16.9999 9.23858 16.9999 12C16.9999 14.7614 14.7613 17 11.9999 17C9.23846 17 6.99989 14.7614 6.99989 12Z"
-                      fill="currentColor"
+                      d="M11.9997 4C6.86881 4 2.52275 7.36017 1.04199 12C2.52275 16.6398 6.86881 20 11.9997 20C17.1306 20 21.4766 16.6398 22.9574 12C21.4766 7.36017 17.1306 4 11.9997 4Z"
+                      fill="transparent"
+                      id="fill1"
+                    />
+                    <path
+                      d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z"
+                      fill="transparent"
+                      id="fill2"
+                    />
+                    <path
+                      d="M11.9997 4C6.86881 4 2.52275 7.36017 1.04199 12C2.52275 16.6398 6.86881 20 11.9997 20C17.1306 20 21.4766 16.6398 22.9574 12C21.4766 7.36017 17.1306 4 11.9997 4Z"
+                      id="stroke1"
+                      stroke="currentColor"
+                      stroke-linecap="square"
+                      stroke-width="2"
+                    />
+                    <path
+                      d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z"
+                      id="stroke2"
+                      stroke="currentColor"
+                      stroke-linecap="square"
+                      stroke-width="2"
                     />
                   </g>
                 </svg>
@@ -1502,10 +1818,29 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                   viewBox="0 0 24 24"
                   width="1em"
                 >
-                  <path
-                    d="M7.5 1H16.5V4H22V6H19.971L19.471 23H4.52898L4.02898 6H2V4H7.5V1ZM9.5 4H14.5V3H9.5V4ZM6.02984 6L6.47102 21H17.529L17.9702 6H6.02984ZM13 8V19H11V8H13Z"
-                    fill="currentColor"
-                  />
+                  <g
+                    id="delete"
+                  >
+                    <path
+                      d="M5 5H19L18.5 22H5.5L5 5Z"
+                      fill="transparent"
+                      id="fill1"
+                    />
+                    <path
+                      d="M21 5H3M5 5H19L18.5 22H5.5L5 5ZM8.5 2H15.5V5H8.5V2Z"
+                      id="stroke1"
+                      stroke="currentColor"
+                      stroke-linecap="square"
+                      stroke-width="2"
+                    />
+                    <path
+                      d="M12 9V18"
+                      id="stroke2"
+                      stroke="currentColor"
+                      stroke-linecap="square"
+                      stroke-width="2"
+                    />
+                  </g>
                 </svg>
               </span>
             </div>
@@ -1522,7 +1857,7 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
             >
               <path
                 d="M12 23C5.92487 23 1 18.0751 1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23ZM12.9999 5.49999H10.9999L10.9998 12.4142L14.9999 16.4142L16.4141 15L12.9999 11.5858V5.49999Z"
-                fill="currentColor"
+                fill="transparent"
               />
             </svg>
             img2.txt
@@ -1547,7 +1882,7 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
               >
                 <path
                   d="M12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12C1 5.92487 5.92487 1 12 1ZM11.0001 14H13.0001V6.49998H11.0001V14ZM13.004 15.5H11.0001V17.5039H13.004V15.5Z"
-                  fill="currentColor"
+                  fill="transparent"
                 />
               </svg>
               <p>
@@ -1569,10 +1904,29 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                   viewBox="0 0 24 24"
                   width="1em"
                 >
-                  <path
-                    d="M7.5 1H16.5V4H22V6H19.971L19.471 23H4.52898L4.02898 6H2V4H7.5V1ZM9.5 4H14.5V3H9.5V4ZM6.02984 6L6.47102 21H17.529L17.9702 6H6.02984ZM13 8V19H11V8H13Z"
-                    fill="currentColor"
-                  />
+                  <g
+                    id="delete"
+                  >
+                    <path
+                      d="M5 5H19L18.5 22H5.5L5 5Z"
+                      fill="transparent"
+                      id="fill1"
+                    />
+                    <path
+                      d="M21 5H3M5 5H19L18.5 22H5.5L5 5ZM8.5 2H15.5V5H8.5V2Z"
+                      id="stroke1"
+                      stroke="currentColor"
+                      stroke-linecap="square"
+                      stroke-width="2"
+                    />
+                    <path
+                      d="M12 9V18"
+                      id="stroke2"
+                      stroke="currentColor"
+                      stroke-linecap="square"
+                      stroke-width="2"
+                    />
+                  </g>
                 </svg>
               </span>
             </div>
@@ -1639,10 +1993,29 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
                   viewBox="0 0 24 24"
                   width="1em"
                 >
-                  <path
-                    d="M7.5 1H16.5V4H22V6H19.971L19.471 23H4.52898L4.02898 6H2V4H7.5V1ZM9.5 4H14.5V3H9.5V4ZM6.02984 6L6.47102 21H17.529L17.9702 6H6.02984ZM13 8V19H11V8H13Z"
-                    fill="currentColor"
-                  />
+                  <g
+                    id="delete"
+                  >
+                    <path
+                      d="M5 5H19L18.5 22H5.5L5 5Z"
+                      fill="transparent"
+                      id="fill1"
+                    />
+                    <path
+                      d="M21 5H3M5 5H19L18.5 22H5.5L5 5ZM8.5 2H15.5V5H8.5V2Z"
+                      id="stroke1"
+                      stroke="currentColor"
+                      stroke-linecap="square"
+                      stroke-width="2"
+                    />
+                    <path
+                      d="M12 9V18"
+                      id="stroke2"
+                      stroke="currentColor"
+                      stroke-linecap="square"
+                      stroke-width="2"
+                    />
+                  </g>
                 </svg>
               </span>
             </div>
