@@ -7,3 +7,8 @@ declare module '*.vue' {
   const component: DefineComponent<{}, {}, any> & Plugin;
   export default component;
 }
+
+declare const TD_SITE_METADATA: {
+  dependencies: Record<string, string>;
+  devDependencies: Record<string, string>;
+};

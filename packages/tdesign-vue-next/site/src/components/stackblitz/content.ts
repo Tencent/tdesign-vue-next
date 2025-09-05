@@ -1,6 +1,3 @@
-import { catalogs } from '@tdesign/internal-utils/catalogs';
-import { tdesignVueNextPackageJson } from '@tdesign/internal-utils/package-json';
-
 export const htmlContent = `
   <div id="app"></div>
   <script type="module" src="/src/main.js"></script>
@@ -98,17 +95,17 @@ export const packageJSONContent = JSON.stringify(
       serve: 'vite preview',
     },
     dependencies: {
-      vue: catalogs.deps.vue,
-      less: catalogs.bundle.less,
-      'tdesign-vue-next': tdesignVueNextPackageJson.version,
-      'tdesign-icons-vue-next': catalogs.tdesign['tdesign-icons-vue-next'],
-      dayjs: catalogs.deps.dayjs,
+      vue: TD_SITE_METADATA.dependencies.vue,
+      less: TD_SITE_METADATA.dependencies.less,
+      'tdesign-vue-next': TD_SITE_METADATA.dependencies['tdesign-vue-next'],
+      'tdesign-icons-vue-next': TD_SITE_METADATA.dependencies['tdesign-icons-vue-next'],
+      dayjs: TD_SITE_METADATA.dependencies.dayjs,
     },
     devDependencies: {
-      vite: catalogs.bundle.vite,
-      '@vue/compiler-sfc': catalogs.bundle['@vue/compiler-sfc'],
-      '@vitejs/plugin-vue': catalogs.bundle['@vitejs/plugin-vue'],
-      '@vitejs/plugin-vue-jsx': catalogs.bundle['@vitejs/plugin-vue-jsx'],
+      vite: TD_SITE_METADATA.devDependencies.vite,
+      '@vue/compiler-sfc': TD_SITE_METADATA.devDependencies['@vue/compiler-sfc'],
+      '@vitejs/plugin-vue': TD_SITE_METADATA.devDependencies['@vitejs/plugin-vue'],
+      '@vitejs/plugin-vue-jsx': TD_SITE_METADATA.devDependencies['@vitejs/plugin-vue-jsx'],
     },
   },
   null,
