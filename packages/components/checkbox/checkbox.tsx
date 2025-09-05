@@ -33,13 +33,7 @@ export default defineComponent({
     const { STATUS } = useCommonClassName();
 
     const { checked, modelValue, lazyLoad } = toRefs(props);
-    const [innerChecked, setInnerChecked] = useVModel(
-      checked,
-      modelValue,
-      props.defaultChecked,
-      props.onChange,
-      'checked',
-    );
+    const [innerChecked, setInnerChecked] = useVModel(checked, modelValue, props.defaultChecked, 'onChange', 'checked');
 
     const checkboxGroupData = inject(CheckboxGroupInjectionKey, undefined);
 
