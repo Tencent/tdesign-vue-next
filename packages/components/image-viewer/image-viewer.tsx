@@ -1,4 +1,4 @@
-import { ChevronDownIcon, ChevronLeftIcon, CloseIcon } from 'tdesign-icons-vue-next';
+import { BrowseIcon, ChevronDownIcon, ChevronLeftIcon, CloseIcon } from 'tdesign-icons-vue-next';
 import { Teleport, Transition, computed, defineComponent, nextTick, ref, toRefs, watch } from 'vue';
 
 import {
@@ -226,11 +226,38 @@ export default defineComponent({
       );
     };
 
+    // 渲染默认trigger
+    // 原本需要手动配置 需要添加完template插槽之后设置DOM元素，现在添加默认DOM
+    const renderDefaultTrigger = () => {
+      if (props.trigger) {
+        return renderTNodeJSX('trigger', { params: { open: openHandler } });
+      }
+
+      // 如果没有提供trigger，则渲染默认的图片预览按钮
+      const firstImage = images.value[0];
+      if (!firstImage) return null;
+
+      const imageSrc =
+        typeof firstImage === 'string' ? firstImage : (firstImage as any).mainImage || (firstImage as any).thumbnail;
+
+      return (
+        <div class={`${COMPONENT_NAME.value}__trigger`}>
+          <img src={imageSrc} alt="preview" class={`${COMPONENT_NAME.value}__trigger--img`} />
+          <div class={`${COMPONENT_NAME.value}__trigger--hover`} onClick={openHandler}>
+            <span>
+              <BrowseIcon size="1.4em" class={`${COMPONENT_NAME.value}__trigger--icon`} />
+              预览
+            </span>
+          </div>
+        </div>
+      );
+    };
+
     return () => {
       if (props.mode === 'modeless') {
         return (
           <>
-            {renderTNodeJSX('trigger', { params: { open: openHandler } })}
+            {renderDefaultTrigger()}
             <TImageViewerModal
               zIndex={zIndexValue.value}
               visible={visibleValue.value}
@@ -258,7 +285,7 @@ export default defineComponent({
 
       return (
         <>
-          {renderTNodeJSX('trigger', { params: { open: openHandler } })}
+          {renderDefaultTrigger()}
           <Teleport disabled={!props.attach || !teleportElement.value} to={teleportElement.value}>
             <Transition>
               {(visibleValue.value || !animationEnd.value) && (
