@@ -3,8 +3,8 @@ import { mount } from '@vue/test-utils';
 import { expect, vi } from 'vitest';
 import { Collapse, CollapsePanel } from '@tdesign/components/collapse';
 
-describe('Collapse Hooks and Internal Logic', () => {
-  describe('FakeArrow component coverage', () => {
+describe('Collapse Hooks', () => {
+  describe('FakeArrow component', () => {
     test('overlayStyle with different types', () => {
       // 测试 overlayStyle 的不同类型处理，覆盖 fake-arrow.tsx 第16行
       const stringStyle = 'color: red; font-size: 16px;';
@@ -80,7 +80,7 @@ describe('Collapse Hooks and Internal Logic', () => {
     });
   });
 
-  describe('useCollapseAnimation hooks', () => {
+  describe('useCollapseAnimation', () => {
     test('animation lifecycle hooks', async () => {
       const wrapper = mount({
         setup() {
@@ -108,7 +108,7 @@ describe('Collapse Hooks and Internal Logic', () => {
     });
   });
 
-  describe('renderTNodeJSX and renderContent hooks', () => {
+  describe('renderTNodeJSX and renderContent', () => {
     test('renderTNodeJSX with different node types', () => {
       const stringHeader = 'String Header';
       const functionHeader = () => <span class="func-header">Function Header</span>;
