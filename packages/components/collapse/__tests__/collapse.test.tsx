@@ -3,7 +3,7 @@ import { mount } from '@vue/test-utils';
 import type { VueWrapper } from '@vue/test-utils';
 import { expect, vi } from 'vitest';
 import { Collapse, CollapsePanel } from '@tdesign/components/collapse';
-import CollapseProps from '@tdesign/components/collapse/props';
+import collapseProps from '@tdesign/components/collapse/props';
 
 describe('Collapse', () => {
   describe('props', () => {
@@ -19,7 +19,6 @@ describe('Collapse', () => {
 
     it(':borderless[boolean]', async () => {
       expect(wrapper.classes()).not.toContain('t--border-less');
-
       await wrapper.setProps({ borderless: true });
       expect(wrapper.classes()).toContain('t--border-less');
     });
@@ -45,11 +44,9 @@ describe('Collapse', () => {
           <CollapsePanel value="1" header="标题" default="内容" />
         </Collapse>,
       );
-
       const panel = wrapper.findComponent(CollapsePanel);
       await panel.find('.t-collapse-panel__header').trigger('click');
       expect(handleChange).toHaveBeenCalled();
-
       await wrapper.setProps({ disabled: true });
       await panel.find('.t-collapse-panel__header').trigger('click');
       expect(handleChange).toHaveBeenCalledTimes(1);
@@ -61,13 +58,10 @@ describe('Collapse', () => {
           <CollapsePanel value="1" header="标题" default="内容" />
         </Collapse>,
       );
-
       const panel = wrapper.findComponent(CollapsePanel);
       expect(panel.find('.t-collapse-panel__header svg').exists()).toBeTruthy();
-
       await wrapper.setProps({ expandIcon: false });
       expect(panel.find('.t-collapse-panel__header svg').exists()).toBeFalsy();
-
       const customIcon = () => <span class="custom-icon">+</span>;
       await wrapper.setProps({ expandIcon: customIcon });
       expect(panel.find('.custom-icon').exists()).toBeTruthy();
@@ -75,7 +69,7 @@ describe('Collapse', () => {
     });
 
     it(':expandIconPlacement[left/right]', async () => {
-      const validator = (wrapper.vm.$options.props as typeof CollapseProps)?.expandIconPlacement.validator;
+      const validator = collapseProps.expandIconPlacement.validator;
       expect(validator(undefined)).toBe(true);
       expect(validator(null)).toBe(true);
       // @ts-expect-error
