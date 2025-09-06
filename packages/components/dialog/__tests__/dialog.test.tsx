@@ -55,9 +55,7 @@ describe('props', () => {
     attachElement.id = 'attach-container';
     document.body.appendChild(attachElement);
 
-    const wrapper = mount(() => (
-      <Dialog v-model:visible={visible.value} attach="#attach-container" body="this is content"></Dialog>
-    ));
+    mount(() => <Dialog v-model:visible={visible.value} attach="#attach-container" body="this is content"></Dialog>);
     await nextTick();
 
     expect(attachElement.children.length).toBeGreaterThan(0);
@@ -68,9 +66,7 @@ describe('props', () => {
     const attachElement = document.createElement('div');
     document.body.appendChild(attachElement);
 
-    const wrapper = mount(() => (
-      <Dialog v-model:visible={visible.value} attach={() => attachElement} body="this is content"></Dialog>
-    ));
+    mount(() => <Dialog v-model:visible={visible.value} attach={() => attachElement} body="this is content"></Dialog>);
     await nextTick();
 
     expect(attachElement.children.length).toBeGreaterThan(0);
@@ -226,7 +222,7 @@ describe('props', () => {
 
   it(':closeOnEscKeydown - false prevents closing on ESC', async () => {
     const onClose = vi.fn();
-    const wrapper = mount(() => (
+    mount(() => (
       <Dialog
         v-model:visible={visible.value}
         closeOnEscKeydown={false}
@@ -500,9 +496,7 @@ describe('props', () => {
 
   it(':preventScrollThrough - prevents scroll through by default', async () => {
     visible = ref(false);
-    const wrapper = mount(() => (
-      <Dialog preventScrollThrough v-model:visible={visible.value} body="this is content"></Dialog>
-    ));
+    mount(() => <Dialog preventScrollThrough v-model:visible={visible.value} body="this is content"></Dialog>);
     visible.value = true;
     await nextTick();
     const styleElements = document.body.querySelectorAll('style');
@@ -514,7 +508,7 @@ describe('props', () => {
     attachElement.style.position = 'relative';
     document.body.appendChild(attachElement);
 
-    const wrapper = mount(() => (
+    mount(() => (
       <Dialog
         v-model:visible={visible.value}
         attach={() => attachElement}
@@ -913,10 +907,10 @@ describe('special scenarios', () => {
     const onEscKeydown1 = vi.fn();
     const onEscKeydown2 = vi.fn();
 
-    const wrapper1 = mount(() => (
+    mount(() => (
       <Dialog v-model:visible={visible1.value} zIndex={1000} onEscKeydown={onEscKeydown1} body="dialog 1"></Dialog>
     ));
-    const wrapper2 = mount(() => (
+    mount(() => (
       <Dialog v-model:visible={visible2.value} zIndex={2000} onEscKeydown={onEscKeydown2} body="dialog 2"></Dialog>
     ));
 
@@ -934,7 +928,7 @@ describe('special scenarios', () => {
 
   it('cleans up styles when dialog closes', async () => {
     const visible = ref(true);
-    const wrapper = mount(() => (
+    mount(() => (
       <Dialog v-model:visible={visible.value} mode="modal" preventScrollThrough body="modal content"></Dialog>
     ));
 

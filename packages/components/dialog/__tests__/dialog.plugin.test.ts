@@ -278,7 +278,7 @@ describe('DialogPlugin', () => {
   });
 
   it('should destroy dialog after 300ms when destroyOnClose is true', async () => {
-    const dialog = app.config.globalProperties.$dialog({
+    app.config.globalProperties.$dialog({
       body: 'destroyOnClose test',
       destroyOnClose: true,
     });

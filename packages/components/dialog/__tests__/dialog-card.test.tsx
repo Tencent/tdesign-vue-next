@@ -1,8 +1,7 @@
 // @ts-nocheck
 import { mount } from '@vue/test-utils';
 import { describe, expect, it, vi, beforeEach, afterEach } from 'vitest';
-import { ref, nextTick } from 'vue';
-import { CheckCircleFilledIcon, CloseIcon } from 'tdesign-icons-vue-next';
+import { nextTick } from 'vue';
 import DialogCard from '../dialog-card';
 
 beforeEach(() => {
