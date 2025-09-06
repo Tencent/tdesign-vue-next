@@ -15,25 +15,6 @@ const data = [];
   }
 })();
 
-const treeData = [
-  {
-    value: '1',
-    label: '项目1',
-    children: [
-      { value: '1-1', label: '子项目1-1' },
-      { value: '1-2', label: '子项目1-2' },
-    ],
-  },
-  {
-    value: '2',
-    label: '项目2',
-    children: [
-      { value: '2-1', label: '子项目2-1' },
-      { value: '2-2', label: '子项目2-2' },
-    ],
-  },
-];
-
 const pagination = {
   pageSize: 5,
   total: 20,

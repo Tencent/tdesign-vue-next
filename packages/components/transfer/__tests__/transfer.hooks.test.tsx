@@ -1,6 +1,5 @@
 // @ts-nocheck
 import { ref, computed } from 'vue';
-import { mount } from '@vue/test-utils';
 import { describe, expect, it, vi } from 'vitest';
 import useDragSort from '@tdesign/components/transfer/hooks/useDragSort';
 
