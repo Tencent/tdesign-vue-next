@@ -20,16 +20,12 @@ describe('Collapse Utils and Edge Cases', () => {
       });
 
       const panels = wrapper.findAllComponents(CollapsePanel);
-
-      // 点击第一个面板
       await panels[0].find('.t-collapse-panel__header').trigger('click');
       expect(handleChange).toHaveBeenCalledWith([0]);
 
-      // 点击第二个面板
       await panels[1].find('.t-collapse-panel__header').trigger('click');
       expect(handleChange).toHaveBeenCalledWith([0, 1]);
 
-      // 点击第三个面板
       await panels[2].find('.t-collapse-panel__header').trigger('click');
       expect(handleChange).toHaveBeenCalledWith([0, 1, 2]);
     });
@@ -50,16 +46,13 @@ describe('Collapse Utils and Edge Cases', () => {
         },
       });
 
-      // 点击第一个面板
       const panel1 = wrapper.findAllComponents(CollapsePanel)[0];
       await panel1.find('.t-collapse-panel__header').trigger('click');
       expect(handleChange).toHaveBeenCalledWith([0]);
 
-      // 显示第三个面板
       showThirdPanel.value = true;
       await nextTick();
 
-      // 再次点击第一个面板（应该移除）
       await panel1.find('.t-collapse-panel__header').trigger('click');
       expect(handleChange).toHaveBeenCalledWith([]);
     });
@@ -67,7 +60,7 @@ describe('Collapse Utils and Edge Cases', () => {
 
   describe('updateCollapseValue function edge cases', () => {
     test('handles duplicate values correctly', async () => {
-      const value = ref(['1', '1']); // 重复值
+      const value = ref(['1', '1']);
       const handleChange = vi.fn();
 
       const wrapper = mount({
@@ -84,7 +77,6 @@ describe('Collapse Utils and Edge Cases', () => {
       const panel1 = wrapper.findAllComponents(CollapsePanel)[0];
       await panel1.find('.t-collapse-panel__header').trigger('click');
 
-      // 应该只移除第一个匹配的值
       expect(handleChange).toHaveBeenCalledWith(['1']);
     });
 
@@ -134,7 +126,6 @@ describe('Collapse Utils and Edge Cases', () => {
       const panel3 = wrapper.findAllComponents(CollapsePanel)[2];
       await panel3.find('.t-collapse-panel__header').trigger('click');
 
-      // expandMutex 模式下应该只保留新点击的面板
       expect(handleChange).toHaveBeenCalledWith(['3']);
     });
   });
@@ -153,7 +144,6 @@ describe('Collapse Utils and Edge Cases', () => {
 
       const panel = wrapper.findComponent(CollapsePanel);
 
-      // 验证子组件接收到正确的配置
       expect(panel.find('.t-collapse-panel__icon--right').exists()).toBeTruthy();
       expect(panel.find('.t-collapse-panel__header').classes()).not.toContain('t-is-clickable');
       expect(panel.classes()).toContain('t-is-disabled');
@@ -161,7 +151,6 @@ describe('Collapse Utils and Edge Cases', () => {
 
     test('renderParentTNode injection works correctly', () => {
       const customExpandIcon = () => <span class="parent-custom-icon">📁</span>;
-
       const wrapper = mount({
         setup() {
           return () => (
@@ -171,7 +160,6 @@ describe('Collapse Utils and Edge Cases', () => {
           );
         },
       });
-
       const panel = wrapper.findComponent(CollapsePanel);
       expect(panel.find('.parent-custom-icon').exists()).toBeTruthy();
       expect(panel.find('.parent-custom-icon').text()).toBe('📁');
@@ -182,7 +170,6 @@ describe('Collapse Utils and Edge Cases', () => {
     test('stopPropagation on panel click', async () => {
       const parentClick = vi.fn();
       const handleChange = vi.fn();
-
       const wrapper = mount({
         setup() {
           return () => (
@@ -194,17 +181,14 @@ describe('Collapse Utils and Edge Cases', () => {
           );
         },
       });
-
       const panel = wrapper.findComponent(CollapsePanel);
       await panel.find('.t-collapse-panel__header').trigger('click');
-
       expect(handleChange).toHaveBeenCalled();
       expect(parentClick).not.toHaveBeenCalled();
     });
 
     test('icon click when expandOnRowClick is false', async () => {
       const handleChange = vi.fn();
-
       const wrapper = mount({
         setup() {
           return () => (
@@ -214,16 +198,11 @@ describe('Collapse Utils and Edge Cases', () => {
           );
         },
       });
-
       const panel = wrapper.findComponent(CollapsePanel);
       const header = panel.find('.t-collapse-panel__header');
       const icon = panel.find('.t-collapse-panel__icon');
-
-      // 点击整行不应该触发
       await header.trigger('click');
       expect(handleChange).not.toHaveBeenCalled();
-
-      // 点击图标应该触发
       await icon.trigger('click');
       expect(handleChange).toHaveBeenCalledWith(['1']);
     });
@@ -257,10 +236,7 @@ describe('Collapse Utils and Edge Cases', () => {
 
       const panel = wrapper.findComponent(CollapsePanel);
       const icon = panel.find('.t-collapse-panel__icon');
-
       expect(icon.classes()).toContain('t-collapse-panel__icon--active');
-
-      // 收起后应该移除 active 类
       await panel.find('.t-collapse-panel__header').trigger('click');
       expect(icon.classes()).not.toContain('t-collapse-panel__icon--active');
     });
@@ -276,14 +252,8 @@ describe('Collapse Utils and Edge Cases', () => {
           );
         },
       });
-
       const panels = wrapper.findAllComponents(CollapsePanel);
-
-      // 第一个面板继承父组件的 disabled
       expect(panels[0].classes()).toContain('t-is-disabled');
-
-      // 第二个面板虽然设置了 disabled=false，但父组件的 disabled 仍然生效
-      // 因为 isDisabled = computed(() => disabled.value || disableAll.value)
       expect(panels[1].classes()).toContain('t-is-disabled');
     });
   });
@@ -299,7 +269,6 @@ describe('Collapse Utils and Edge Cases', () => {
           );
         },
       });
-
       const panel = wrapper.findComponent(CollapsePanel);
       expect(panel.exists()).toBeTruthy();
       expect(panel.find('.t-collapse-panel__header').exists()).toBeTruthy();
@@ -320,8 +289,6 @@ describe('Collapse Utils and Edge Cases', () => {
       const panel = wrapper.findComponent(CollapsePanel);
       const header = panel.find('.t-collapse-panel__header');
       const icons = header.findAll('.t-collapse-panel__icon');
-
-      // 应该只有一个图标，且在右侧
       expect(icons).toHaveLength(1);
       expect(icons[0].classes()).toContain('t-collapse-panel__icon--right');
     });
@@ -339,9 +306,7 @@ describe('Collapse Utils and Edge Cases', () => {
 
       const panel = wrapper.findComponent(CollapsePanel);
       const header = panel.find('.t-collapse-panel__header');
-
-      // headerRightContent 为 null 时，仍然会有 blank div 和 icon div
-      expect(header.findAll('div')).toHaveLength(2); // blank div + icon div
+      expect(header.findAll('div')).toHaveLength(2);
       expect(header.find('.t-collapse-panel__header--blank').exists()).toBeTruthy();
     });
   });

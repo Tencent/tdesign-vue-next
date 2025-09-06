@@ -3,8 +3,8 @@ import { expect } from 'vitest';
 import { Collapse, CollapsePanel } from '@tdesign/components/collapse';
 import FakeArrow from '@tdesign/components/common-components/fake-arrow';
 
-describe('FakeArrow Component Coverage', () => {
-  describe('overlayStyle prop type handling', () => {
+describe('FakeArrow Component', () => {
+  describe('overlayStyle', () => {
     test('overlayStyle with string type - type validation behavior', () => {
       // 测试 overlayStyle 为字符串类型
       // 注意：由于 fake-arrow.tsx 第16行的类型定义 `Object || String` 实际上只会是 Object
@@ -29,7 +29,6 @@ describe('FakeArrow Component Coverage', () => {
       const fakeArrow = wrapper.findComponent(FakeArrow);
       expect(fakeArrow.exists()).toBeTruthy();
       expect(fakeArrow.props('overlayStyle')).toBe(stringStyle);
-
       // 验证样式确实被应用到 SVG 元素上
       const svg = fakeArrow.find('svg');
       expect(svg.attributes('style')).toBe(stringStyle);
@@ -38,7 +37,6 @@ describe('FakeArrow Component Coverage', () => {
     test('overlayStyle with object type', () => {
       // 测试 overlayStyle 为对象类型，覆盖 fake-arrow.tsx 第16行的 Object 分支
       const objectStyle = { color: 'blue', fontSize: '18px' };
-
       const wrapper = mount({
         setup() {
           return () => (
@@ -163,7 +161,6 @@ describe('FakeArrow Component Coverage', () => {
       const stringClass = 'custom-class';
       const arrayClass = ['class1', 'class2'];
       const objectClass = { active: true, disabled: false };
-
       const wrapper1 = mount({
         setup() {
           return () => (
@@ -251,7 +248,6 @@ describe('FakeArrow Component Coverage', () => {
           );
         },
       });
-
       const fakeArrow2 = wrapper2.findComponent(FakeArrow);
       expect(fakeArrow2.props('isActive')).toBe(true);
     });
