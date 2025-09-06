@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { mount } from '@vue/test-utils';
 import { expect } from 'vitest';
 import { Collapse, CollapsePanel } from '@tdesign/components/collapse';
@@ -30,7 +29,7 @@ describe('FakeArrow Component Coverage', () => {
       const fakeArrow = wrapper.findComponent(FakeArrow);
       expect(fakeArrow.exists()).toBeTruthy();
       expect(fakeArrow.props('overlayStyle')).toBe(stringStyle);
-      
+
       // 验证样式确实被应用到 SVG 元素上
       const svg = fakeArrow.find('svg');
       expect(svg.attributes('style')).toBe(stringStyle);
