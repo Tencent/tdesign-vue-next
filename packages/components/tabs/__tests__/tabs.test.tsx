@@ -90,14 +90,15 @@ describe('Tabs', () => {
 
     it('@change', async () => {
       const fn = vi.fn();
+      const onTabRemoveFn = vi.fn();
       const wrapper = mount({
         render() {
           return (
-            <Tabs onChange={fn} value={2}>
-              <TabPanel value={1} label={'1'}>
+            <Tabs onChange={fn} value={2} removable={true} onRemove={onTabRemoveFn}>
+              <TabPanel value={1} label={'1'} removable={true}>
                 1
               </TabPanel>
-              <TabPanel value={2} label={'2'}>
+              <TabPanel value={2} label={'2'} removable={true}>
                 2
               </TabPanel>
             </Tabs>
@@ -108,6 +109,12 @@ describe('Tabs', () => {
       const tabs = wrapper.findComponent(Tabs);
       tabs.vm.$el.getElementsByClassName('t-tabs__nav-item')[0].click();
       expect(tabs.props('onChange')).toBeTruthy();
+
+      // 点击第一个标签的删除按钮
+      tabs.vm.$el.getElementsByClassName('remove-btn')[0].dispatchEvent(new Event('click'));
+
+      expect(onTabRemoveFn).toHaveBeenCalledTimes(1);
+      expect(onTabRemoveFn).toHaveBeenCalledWith({ value: 1, e: expect.any(Event), index: 0 });
     });
 
     it('@remove', async () => {
