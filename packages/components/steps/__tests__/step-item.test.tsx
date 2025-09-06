@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
 import { ref } from 'vue';
@@ -99,7 +98,7 @@ describe('StepItem', () => {
     });
 
     it(':status[default/process/finish/error]', () => {
-      const statusList = ['default', 'process', 'finish', 'error'];
+      const statusList = ['default', 'process', 'finish', 'error'] as const;
       statusList.forEach((status) => {
         const wrapper = mount(() => (
           <Steps>
@@ -134,8 +133,8 @@ describe('StepItem', () => {
     });
 
     it(':value[string/number]', async () => {
-      const current = ref('b');
-      const onChange = (val) => {
+      const current = ref<string | number>('b');
+      const onChange = (val: string | number) => {
         current.value = val;
       };
       const wrapper = mount(() => (
