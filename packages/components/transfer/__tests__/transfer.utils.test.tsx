@@ -246,12 +246,12 @@ describe('Transfer utils', () => {
 
       expect(result).toHaveLength(1);
       expect(result[0].children).toHaveLength(2);
-      expect(result[0].children![0]).toEqual({
+      expect(result[0].children?.[0]).toEqual({
         label: 'Child 1.1',
         value: '1.1',
         key: 'key__value_1.1_index_0',
         disabled: false,
-        data: treeRawData[0].children![0],
+        data: treeRawData[0].children?.[0],
       });
     });
 
@@ -353,8 +353,8 @@ describe('Transfer utils', () => {
       expect(targetTree).toHaveLength(2);
       expect(targetTree[0].value).toBe('1');
       expect(targetTree[0].children).toHaveLength(1);
-      expect(targetTree[0].children![0].value).toBe('1.1');
-      expect(targetTree[1].children![0].value).toBe('2.1');
+      expect(targetTree[0].children?.[0].value).toBe('1.1');
+      expect(targetTree[1].children?.[0].value).toBe('2.1');
     });
 
     it('should clone tree excluding matching nodes (needMatch=false)', () => {
@@ -365,8 +365,8 @@ describe('Transfer utils', () => {
 
       expect(targetTree).toHaveLength(2);
       expect(targetTree[0].children).toHaveLength(1);
-      expect(targetTree[0].children![0].value).toBe('1.2');
-      expect(targetTree[1].children![0].value).toBe('2.1');
+      expect(targetTree[0].children?.[0].value).toBe('1.2');
+      expect(targetTree[1].children?.[0].value).toBe('2.1');
     });
 
     it('should handle direct node matches', () => {
@@ -438,7 +438,7 @@ describe('Transfer utils', () => {
         expect(result).toHaveLength(1);
         expect(result[0].value).toBe('1');
         expect(result[0].children).toHaveLength(1);
-        expect(result[0].children![0].value).toBe('1.1');
+        expect(result[0].children?.[0].value).toBe('1.1');
       });
 
       it('should filter tree with needMatch=false', () => {

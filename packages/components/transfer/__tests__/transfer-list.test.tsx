@@ -1,6 +1,5 @@
 import { nextTick, ref, h } from 'vue';
 import { mount } from '@vue/test-utils';
-import type { VueWrapper } from '@vue/test-utils';
 import { describe, expect, it, vi } from 'vitest';
 import TransferList from '@tdesign/components/transfer/components/transfer-list';
 import { transferListMockData } from './mount';
