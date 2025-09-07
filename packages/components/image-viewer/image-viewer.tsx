@@ -242,10 +242,10 @@ export default defineComponent({
 
       return (
         <div class={`${COMPONENT_NAME.value}__trigger`}>
-          <img src={imageSrc} alt="preview" class={`${COMPONENT_NAME.value}__trigger--img`} />
-          <div class={`${COMPONENT_NAME.value}__trigger--hover`} onClick={openHandler}>
+          <img src={imageSrc} alt="preview" class={`${COMPONENT_NAME.value}__trigger-img`} />
+          <div class={`${COMPONENT_NAME.value}__trigger-hover`} onClick={openHandler}>
             <span>
-              <BrowseIcon size="1.4em" class={`${COMPONENT_NAME.value}__trigger--icon`} />
+              <BrowseIcon size="1.4em" class={`${COMPONENT_NAME.value}__trigger-icon`} />
               预览
             </span>
           </div>
@@ -257,7 +257,7 @@ export default defineComponent({
       if (props.mode === 'modeless') {
         return (
           <>
-            {renderDefaultTrigger()}
+            {renderTNodeJSX('trigger', { params: { open: openHandler } }) || renderDefaultTrigger()}
             <TImageViewerModal
               zIndex={zIndexValue.value}
               visible={visibleValue.value}
@@ -285,7 +285,7 @@ export default defineComponent({
 
       return (
         <>
-          {renderDefaultTrigger()}
+          {renderTNodeJSX('trigger', { params: { open: openHandler } }) || renderDefaultTrigger()}
           <Teleport disabled={!props.attach || !teleportElement.value} to={teleportElement.value}>
             <Transition>
               {(visibleValue.value || !animationEnd.value) && (
