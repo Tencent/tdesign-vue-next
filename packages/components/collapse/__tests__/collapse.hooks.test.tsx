@@ -6,10 +6,6 @@ import { Collapse, CollapsePanel } from '@tdesign/components/collapse';
 describe('Collapse Hooks', () => {
   describe('FakeArrow component', () => {
     test('overlayStyle with different types', () => {
-      // 测试 overlayStyle 的不同类型处理，覆盖 fake-arrow.tsx 第16行
-      const stringStyle = 'color: red; font-size: 16px;';
-      const objectStyle = { color: 'blue', fontSize: '18px' };
-
       const wrapper1 = mount({
         setup() {
           return () => (
