@@ -226,23 +226,15 @@ export default defineComponent({
       );
     };
 
-    // 渲染默认trigger
-    // 原本需要手动配置 需要添加完template插槽之后设置DOM元素，现在添加默认DOM
     const renderDefaultTrigger = () => {
-      if (props.trigger) {
-        return renderTNodeJSX('trigger', { params: { open: openHandler } });
-      }
-
-      // 如果没有提供trigger，则渲染默认的图片预览按钮
-      const firstImage = images.value[0];
-      if (!firstImage) return null;
-
+      // 如果不存在图片 使用t-image 展示无法展示图片的错误
+      // images 的 vo 是 ImageInfo
+      const firstImage = images.value[0] || 'error url';
       const imageSrc =
         typeof firstImage === 'string' ? firstImage : (firstImage as any).mainImage || (firstImage as any).thumbnail;
-
       return (
         <div class={`${COMPONENT_NAME.value}__trigger`}>
-          <img src={imageSrc} alt="preview" class={`${COMPONENT_NAME.value}__trigger-img`} />
+          <t-image src={imageSrc} alt="preview" class={`${COMPONENT_NAME.value}__trigger-img`} onClick={openHandler} />
           <div class={`${COMPONENT_NAME.value}__trigger-hover`} onClick={openHandler}>
             <span>
               <BrowseIcon size="1.4em" class={`${COMPONENT_NAME.value}__trigger-icon`} />
