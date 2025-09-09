@@ -1130,9 +1130,9 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
         <!---->
         <img
           alt="preview"
-          class="t-image t-image--fit-fill t-image--position-center"
+          class="t-image t-image--fit-contain t-image--position-center"
           referrerpolicy="strict-origin-when-cross-origin"
-          src="error url"
+          src=""
         />
         <div
           class="t-image__loading"
@@ -1177,7 +1177,7 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
         <!---->
       </div>
       <div
-        class="t-image-viewer__trigger-hover"
+        class="t-image-viewer__trigger--hover"
       >
         <span>
           <svg
@@ -1756,9 +1756,9 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
         <!---->
         <img
           alt="preview"
-          class="t-image t-image--fit-fill t-image--position-center"
+          class="t-image t-image--fit-contain t-image--position-center"
           referrerpolicy="strict-origin-when-cross-origin"
-          src="error url"
+          src=""
         />
         <div
           class="t-image__loading"
@@ -1803,7 +1803,7 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
         <!---->
       </div>
       <div
-        class="t-image-viewer__trigger-hover"
+        class="t-image-viewer__trigger--hover"
       >
         <span>
           <svg
