@@ -93,6 +93,10 @@ export default defineComponent({
     };
 
     const getChildrenText = () => {
+      const { copyable } = props;
+      if (typeof copyable === 'object' && copyable?.text) {
+        return copyable.text;
+      }
       if (typeof content.value === 'string') {
         return content.value;
       } else if (Array.isArray(content.value)) {
