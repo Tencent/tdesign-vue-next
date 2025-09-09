@@ -9,6 +9,7 @@ Icons are published and managed as a separate npm package. If you want to use it
 SVG icons can be imported on demand. When using the Icon component in component development, SVG icons are imported on demand.
 
 {{ single }}
+
 ### Full import
 
 The icon size supports multiple units, such as 'small', 'medium', 'large', '35px', '3em', etc. 
