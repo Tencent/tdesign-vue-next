@@ -61,7 +61,7 @@ exports[`Avatar > props > :content[string/function] 2`] = `
               class="t-icon t-icon-image"
               fill="none"
               height="1em"
-              style="font-size: 24px;"
+              style="fill: none; font-size: 24px;"
               viewBox="0 0 24 24"
               width="1em"
             >
@@ -178,7 +178,7 @@ exports[`Avatar > props > :default[string/function] 2`] = `
               class="t-icon t-icon-image"
               fill="none"
               height="1em"
-              style="font-size: 24px;"
+              style="fill: none; font-size: 24px;"
               viewBox="0 0 24 24"
               width="1em"
             >
@@ -325,7 +325,7 @@ exports[`AvatarGroup > props > :collapseAvatar[slot] 1`] = `
               class="t-icon t-icon-image"
               fill="none"
               height="1em"
-              style="font-size: 24px;"
+              style="fill: none; font-size: 24px;"
               viewBox="0 0 24 24"
               width="1em"
             >
@@ -456,7 +456,7 @@ exports[`AvatarGroup > props > :collapseAvatar[string/function] 1`] = `
               class="t-icon t-icon-image"
               fill="none"
               height="1em"
-              style="font-size: 24px;"
+              style="fill: none; font-size: 24px;"
               viewBox="0 0 24 24"
               width="1em"
             >
@@ -581,7 +581,7 @@ exports[`AvatarGroup > props > :collapseAvatar[string/function] 2`] = `
               class="t-icon t-icon-image"
               fill="none"
               height="1em"
-              style="font-size: 24px;"
+              style="fill: none; font-size: 24px;"
               viewBox="0 0 24 24"
               width="1em"
             >

@@ -327,6 +327,7 @@ exports[`ColorPickerPanel > :props > :colorModes[monochrome,linear-gradient] 1`]
                 class="t-icon t-icon-add"
                 fill="none"
                 height="1em"
+                style="fill: none;"
                 viewBox="0 0 24 24"
                 width="1em"
               >
@@ -1232,6 +1233,7 @@ exports[`ColorPickerPanel > :props > :colorModes[monochrome,linear-gradient] 2`]
                 class="t-icon t-icon-add"
                 fill="none"
                 height="1em"
+                style="fill: none;"
                 viewBox="0 0 24 24"
                 width="1em"
               >
@@ -1669,6 +1671,7 @@ exports[`ColorPickerPanel > :props > :colorModes[monochrome,linear-gradient] 3`]
                 class="t-icon t-icon-add"
                 fill="none"
                 height="1em"
+                style="fill: none;"
                 viewBox="0 0 24 24"
                 width="1em"
               >
@@ -2566,6 +2569,7 @@ exports[`ColorPickerPanel > :ui > :mount 1`] = `
                 class="t-icon t-icon-add"
                 fill="none"
                 height="1em"
+                style="fill: none;"
                 viewBox="0 0 24 24"
                 width="1em"
               >

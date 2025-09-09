@@ -20,6 +20,7 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
         class="t-icon t-icon-chevron-down"
         fill="none"
         height="1em"
+        style="fill: none;"
         viewBox="0 0 24 24"
         width="1em"
       >
@@ -78,7 +79,7 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
                     class="t-icon t-icon-image"
                     fill="none"
                     height="1em"
-                    style="font-size: 24px;"
+                    style="fill: none; font-size: 24px;"
                     viewBox="0 0 24 24"
                     width="1em"
                   >
@@ -164,7 +165,7 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
                     class="t-icon t-icon-image"
                     fill="none"
                     height="1em"
-                    style="font-size: 24px;"
+                    style="fill: none; font-size: 24px;"
                     viewBox="0 0 24 24"
                     width="1em"
                   >
@@ -250,7 +251,7 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
                     class="t-icon t-icon-image"
                     fill="none"
                     height="1em"
-                    style="font-size: 24px;"
+                    style="fill: none; font-size: 24px;"
                     viewBox="0 0 24 24"
                     width="1em"
                   >
@@ -320,7 +321,7 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
       class="t-icon t-icon-chevron-left"
       fill="none"
       height="1em"
-      style="font-size: 24px; transform: rotate(0deg);"
+      style="fill: none; font-size: 24px; transform: rotate(0deg);"
       viewBox="0 0 24 24"
       width="1em"
     >
@@ -345,7 +346,7 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
       class="t-icon t-icon-chevron-left"
       fill="none"
       height="1em"
-      style="font-size: 24px; transform: rotate(180deg);"
+      style="fill: none; font-size: 24px; transform: rotate(180deg);"
       viewBox="0 0 24 24"
       width="1em"
     >
@@ -371,7 +372,7 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
       class="t-icon t-icon-close"
       fill="none"
       height="1em"
-      style="font-size: 24px;"
+      style="fill: none; font-size: 24px;"
       viewBox="0 0 24 24"
       width="1em"
     >
@@ -402,6 +403,7 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
           class="t-icon t-icon-mirror t-size-m"
           fill="none"
           height="1em"
+          style="fill: none;"
           viewBox="0 0 24 24"
           width="1em"
         >
@@ -457,6 +459,7 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
           class="t-icon t-icon-rotation t-size-m"
           fill="none"
           height="1em"
+          style="fill: none;"
           viewBox="0 0 24 24"
           width="1em"
         >
@@ -483,6 +486,7 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
           class="t-icon t-icon-zoom-out t-size-m"
           fill="none"
           height="1em"
+          style="fill: none;"
           viewBox="0 0 24 24"
           width="1em"
         >
@@ -530,6 +534,7 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
           class="t-icon t-icon-zoom-in t-size-m"
           fill="none"
           height="1em"
+          style="fill: none;"
           viewBox="0 0 24 24"
           width="1em"
         >
@@ -570,6 +575,7 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
             class="t-icon t-icon-image t-size-m"
             fill="none"
             height="1em"
+            style="fill: none;"
             viewBox="0 0 24 24"
             width="1em"
           >
@@ -616,6 +622,7 @@ exports[`Image-viewer > :props > defaultVisible 1`] = `
           class="t-icon t-icon-download t-size-m"
           fill="none"
           height="1em"
+          style="fill: none;"
           viewBox="0 0 24 24"
           width="1em"
         >

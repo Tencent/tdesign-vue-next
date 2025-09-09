@@ -71,6 +71,7 @@ exports[`BackTop > props > :offset[Array] 1`] = `
     class="t-icon t-icon-backtop t-back-top__icon"
     fill="none"
     height="1em"
+    style="fill: none;"
     viewBox="0 0 24 24"
     width="1em"
   >
@@ -106,6 +107,7 @@ exports[`BackTop > props > :shape[circle/square] > shape-circle 1`] = `
     class="t-icon t-icon-backtop t-back-top__icon"
     fill="none"
     height="1em"
+    style="fill: none;"
     viewBox="0 0 24 24"
     width="1em"
   >
@@ -141,6 +143,7 @@ exports[`BackTop > props > :shape[circle/square] > shape-square 1`] = `
     class="t-icon t-icon-backtop t-back-top__icon"
     fill="none"
     height="1em"
+    style="fill: none;"
     viewBox="0 0 24 24"
     width="1em"
   >

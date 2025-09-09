@@ -35,6 +35,7 @@ exports[`DatePicker > :mode 1`] = `
             class="t-icon t-icon-calendar"
             fill="none"
             height="1em"
+            style="fill: none;"
             viewBox="0 0 24 24"
             width="1em"
           >
@@ -146,6 +147,7 @@ exports[`DatePicker > :range 1`] = `
             class="t-icon t-icon-calendar"
             fill="none"
             height="1em"
+            style="fill: none;"
             viewBox="0 0 24 24"
             width="1em"
           >
@@ -216,6 +218,7 @@ exports[`DatePicker > :value 1`] = `
             class="t-icon t-icon-calendar"
             fill="none"
             height="1em"
+            style="fill: none;"
             viewBox="0 0 24 24"
             width="1em"
           >

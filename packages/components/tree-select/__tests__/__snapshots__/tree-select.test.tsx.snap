@@ -82,6 +82,7 @@ exports[`TreeSelect > :props > :defaultValue 1`] = `
             class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
+            style="fill: none;"
             viewBox="0 0 24 24"
             width="1em"
           >
@@ -548,6 +549,7 @@ exports[`TreeSelect > :props > :multiple 1`] = `
             class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
+            style="fill: none;"
             viewBox="0 0 24 24"
             width="1em"
           >
@@ -951,6 +953,7 @@ exports[`TreeSelect > <slot> > <collapsedItems> 1`] = `
             class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
+            style="fill: none;"
             viewBox="0 0 24 24"
             width="1em"
           >
@@ -1277,6 +1280,7 @@ exports[`TreeSelect > function > :collapsedItems 1`] = `
             class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
+            style="fill: none;"
             viewBox="0 0 24 24"
             width="1em"
           >

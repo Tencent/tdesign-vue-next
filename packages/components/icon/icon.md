@@ -8,7 +8,7 @@
 推荐按需引用图标，减少产物的体积。同时，按需引入的图标还支持`任意的粗细调整`和`最多四种颜色填充`功能，具有更好的使用体验。
 
 <div style="background: #ecf2fe; display: flex; align-items: center; line-height: 20px; padding: 14px 24px; border-radius: 3px; color: #555a65;margin:16px 0">
-  打开 <a href='/icons'> TDesign 图标独立站点 </a>  查看全部支持的图标。
+  打开 <a style="margin: 0 4px" href='/icons'> TDesign 图标独立站点 </a>  查看全部支持的图标。
 </div>
 
 ### 按需引入使用图标

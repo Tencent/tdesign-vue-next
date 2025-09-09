@@ -45,6 +45,7 @@ exports[`Tabs > :props > :addable 1`] = `
             class="t-icon t-icon-add"
             fill="none"
             height="1em"
+            style="fill: none;"
             viewBox="0 0 24 24"
             width="1em"
           >
