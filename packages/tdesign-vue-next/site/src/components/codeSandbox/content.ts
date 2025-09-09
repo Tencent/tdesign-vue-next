@@ -1,6 +1,3 @@
-import { catalogs } from '@tdesign/internal-utils/catalogs';
-import { tdesignVueNextPackageJson } from '@tdesign/internal-utils/package-json';
-
 export const htmlContent = `<div id="app"></div>`;
 
 export const mainJsContent = `
@@ -72,11 +69,11 @@ export const packageJSONContent = (name: string) => {
   return {
     name: name,
     dependencies: {
-      vue: catalogs.deps.vue,
-      less: catalogs.bundle.less,
-      'tdesign-vue-next': tdesignVueNextPackageJson.version,
-      'tdesign-icons-vue-next': catalogs.tdesign['tdesign-icons-vue-next'],
-      dayjs: catalogs.deps.dayjs,
+      vue: TD_SITE_METADATA.dependencies.vue,
+      less: TD_SITE_METADATA.dependencies.less,
+      'tdesign-vue-next': TD_SITE_METADATA.dependencies['tdesign-vue-next'],
+      'tdesign-icons-vue-next': TD_SITE_METADATA.dependencies['tdesign-icons-vue-next'],
+      dayjs: TD_SITE_METADATA.dependencies.dayjs,
     },
     devDependencies: {
       '@vue/cli-plugin-babel': '~4.5.0',
