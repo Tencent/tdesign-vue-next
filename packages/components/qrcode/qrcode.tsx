@@ -28,10 +28,6 @@ export default defineComponent({
     // color[fgColor]：自定义颜色 > 主题色适配 > 默认颜色[#000000]
     const finalFgColor = computed(() => props.color || themeFgColor.value || DEFAULT_FRONT_COLOR);
 
-    if (!props.value) {
-      return null;
-    }
-
     const imageSettings = computed<ImageSettings>(() => {
       return {
         src: props.icon,
