@@ -227,15 +227,18 @@ export default defineComponent({
     };
 
     const renderDefaultTrigger = () => {
-      // 如果不存在图片 使用t-image 展示无法展示图片的错误
-      // images 的 vo 是 ImageInfo
-      const firstImage = images.value[0] || 'error url';
-      const imageSrc =
-        typeof firstImage === 'string' ? firstImage : (firstImage as any).mainImage || (firstImage as any).thumbnail;
+      const firstImage = images.value[0] || '';
+      const imageSrc = typeof firstImage === 'string' ? firstImage : firstImage.mainImage || firstImage.thumbnail;
       return (
         <div class={`${COMPONENT_NAME.value}__trigger`}>
-          <t-image src={imageSrc} alt="preview" class={`${COMPONENT_NAME.value}__trigger-img`} onClick={openHandler} />
-          <div class={`${COMPONENT_NAME.value}__trigger-hover`} onClick={openHandler}>
+          <Image
+            src={imageSrc}
+            alt="preview"
+            fit="contain"
+            class={`${COMPONENT_NAME.value}__trigger-img`}
+            onClick={openHandler}
+          />
+          <div class={`${COMPONENT_NAME.value}__trigger--hover`} onClick={openHandler}>
             <span>
               <BrowseIcon size="1.4em" class={`${COMPONENT_NAME.value}__trigger-icon`} />
               预览
