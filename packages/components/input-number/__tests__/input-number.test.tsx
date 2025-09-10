@@ -7,7 +7,7 @@ import { TdInputNumberProps, InputNumberValue } from '@tdesign/components/input-
 
 describe('InputNumber', () => {
   describe(':props', () => {
-    it(':align', () => {
+    it(':align[string]', () => {
       const alignList: TdInputNumberProps['align'][] = ['center', 'right', 'left'];
       alignList.forEach((align) => {
         const wrapper = mount(() => <InputNumber align={align} />);
@@ -19,7 +19,7 @@ describe('InputNumber', () => {
       });
     });
 
-    it(':align validator', () => {
+    it(":align.validator[TdInputNumberProps['align']]", () => {
       const validator = InputNumberProps.align.validator;
       expect(validator(undefined)).toBe(true);
       expect(validator(null)).toBe(true);
@@ -30,7 +30,7 @@ describe('InputNumber', () => {
       expect(validator('invalid')).toBe(false);
     });
 
-    it(':allowInputOverLimit', async () => {
+    it(':allowInputOverLimit[boolean]', async () => {
       const value = ref(90);
       const wrapper = mount(() => <InputNumber v-model={value.value} max={100} allowInputOverLimit={true} />);
       const input = wrapper.find('.t-input input');
@@ -50,7 +50,7 @@ describe('InputNumber', () => {
       expect(value.value).toBe(100);
     });
 
-    it(':autoWidth', () => {
+    it('autoWidth[boolean]', () => {
       const wrapper = mount(() => <InputNumber autoWidth />);
       const input = wrapper.find('.t-input__wrap');
       expect(input.classes()).toContain('t-input--auto-width');
