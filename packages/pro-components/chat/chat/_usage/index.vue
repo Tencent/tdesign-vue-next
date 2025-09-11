@@ -8,24 +8,6 @@
           {
             avatar: 'https://tdesign.gtimg.com/site/chat-avatar.png',
             message: {
-              role: 'assistant',
-            },
-          },
-          {
-            avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
-            message: {
-              content: [
-                {
-                  type: 'text',
-                  data: '南极的自动提款机叫什么名字？',
-                },
-              ],
-              role: 'user',
-            },
-          },
-          {
-            avatar: 'https://tdesign.gtimg.com/site/chat-avatar.png',
-            message: {
               content: [
                 {
                   type: 'text',

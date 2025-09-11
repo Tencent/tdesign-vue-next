@@ -874,8 +874,8 @@ importers:
         specifier: workspace:^
         version: link:../tdesign-vue-next
       tdesign-web-components:
-        specifier: ~1.1.16
-        version: 1.1.16(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+        specifier: ~1.1.18
+        version: 1.1.18(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       vue:
         specifier: '>=3.1.0'
         version: 3.3.9(typescript@5.8.3)
@@ -6632,6 +6632,7 @@ packages:
   source-map@0.8.0-beta.0:
     resolution: {integrity: sha512-2ymg6oRBpebeZi9UUNsgQ89bhx01TcTkmNTGnNO88imTmbSgy4nfujrgVEFKWpMTEGA11EDkTt7mqObTPdigIA==}
     engines: {node: '>= 8'}
+    deprecated: The work that was done in this beta branch won't be included in future versions
 
   sourcemap-codec@1.4.8:
     resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
@@ -6893,8 +6894,8 @@ packages:
     peerDependencies:
       vue: ~2.7.14
 
-  tdesign-web-components@1.1.16:
-    resolution: {integrity: sha512-rPrdhaTqtxQxb4aCIACGHN/OHRzOtiBLs1IwW+HctBntYfLVOFdZvCxHNp7tNejEysCYQHlDjY0RgwYqTXGgyA==}
+  tdesign-web-components@1.1.18:
+    resolution: {integrity: sha512-E2NK5lTOHISYM8W5xfeP2pNEsRxKKXhJvezfTRti1dIaDTWEPP00iMw6VBfRQ8V7MKe78fP/g/a/Cw5FWTrA3w==}
 
   temp-dir@2.0.0:
     resolution: {integrity: sha512-aoBAniQmmwtcKp/7BzsH8Cxzv8OL736p7v1ihGb5e9DJ9kTwGWHrQrVB5+lfVDzfGrdRzXch+ig7LHaY1JTOrg==}
@@ -14325,7 +14326,7 @@ snapshots:
       validator: 13.15.15
       vue: 2.7.14
 
-  tdesign-web-components@1.1.16(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
+  tdesign-web-components@1.1.18(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
     dependencies:
       '@babel/runtime': 7.27.6
       '@popperjs/core': 2.11.8

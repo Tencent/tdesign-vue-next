@@ -1,42 +1,35 @@
 <template>
-  <div class="chat-box">
-    <t-chat
-      ref="chatRef"
-      :clear-history="chatList.length > 0 && !isStreamLoad"
-      :data="chatList"
-      :text-loading="loading"
-      :is-stream-load="isStreamLoad"
-      style="height: 600px"
-      animation="gradient"
-      @scroll="handleChatScroll"
-      @clear="clearConfirm"
-    >
-      <!-- eslint-disable vue/no-unused-vars -->
-      <template #content="{ item, index }">
-        <template v-for="(content, contentIndex) in item.message.content" :key="contentIndex">
-          <t-chat-thinking v-if="content.type === 'thinking'" :status="content.status" :content="content.data" />
-          <t-chat-content v-else :content="content.data" :role="item.message.role" />
-        </template>
-      </template>
-      <template #actionbar="{ item, index }">
-        <t-chat-action
-          v-if="item.message.role === 'assistant'"
-          :content="getActionContent(item.message.content)"
-          :action-bar="['good', 'bad', 'replay', 'copy']"
-          @actions="handleOperation"
-        />
-      </template>
-      <template #footer>
-        <t-chat-input :stop-disabled="isStreamLoad" @send="inputEnter" @stop="onStop"> </t-chat-input>
-      </template>
-    </t-chat>
-    <t-button v-show="isShowToBottom" variant="text" class="bottomBtn" @click="backBottom">
-      <div class="to-bottom">
-        <ArrowDownIcon />
-      </div>
-    </t-button>
-  </div>
+  <t-chat
+    :data="[
+      {
+        avatar: 'https://tdesign.gtimg.com/site/chat-avatar.png',
+        message: {
+          content: [
+            {
+              type: 'text',
+              data: '它叫 McMurdo Station ATM，是美国富国银行安装在南极洲最大科学中心麦克默多站的一台自动提款机。',
+            },
+          ],
+          role: 'assistant',
+        },
+      },
+      {
+        avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
+        message: {
+          content: [
+            {
+              type: 'text',
+              data: '牛顿第一定律是否适用于所有参考系？',
+            },
+          ],
+          role: 'user',
+        },
+      },
+    ]"
+  >
+  </t-chat>
 </template>
+
 <script setup lang="jsx">
 import { ref } from 'vue';
 import { MockSSEResponse } from './mock-data/sseRequest-reasoning';

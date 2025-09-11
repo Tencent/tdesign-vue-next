@@ -87,7 +87,7 @@ export const packageJSONContent = JSON.stringify(
       '@vue/compiler-sfc': catalogs.bundle['@vue/compiler-sfc'],
       '@vitejs/plugin-vue': catalogs.bundle['@vitejs/plugin-vue'],
       '@vitejs/plugin-vue-jsx': catalogs.bundle['@vitejs/plugin-vue-jsx'],
-      'tdesign-web-components': '1.1.15',
+      'tdesign-web-components': '1.1.18',
       'omi-vueify': '^0.0.12',
       'tvision-charts-vue-next': '^3.3.13',
     },

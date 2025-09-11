@@ -84,13 +84,6 @@ const componentDocs = [
     path: '/chat/components/attachments',
     component: () => import('@tdesign/pro-components-chat/attachments/attachments.md'),
   },
-  {
-    title: 'FileCard 文件缩略卡片',
-    titleEn: 'FileCard',
-    name: 'FileCard',
-    path: '/chat/components/file-card',
-    component: () => import('@tdesign/pro-components-chat/file-card/file-card.md'),
-  },
 ];
 
 export const docs = [
