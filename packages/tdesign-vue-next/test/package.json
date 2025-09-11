@@ -30,5 +30,8 @@
     "vitest-fetch-mock": "catalog:test",
     "vue": "catalog:deps",
     "vue-router": "catalog:deps"
+  },
+  "dependencies": {
+    "@vitest/coverage-v8": "^3.1.4"
   }
 }
