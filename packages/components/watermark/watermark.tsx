@@ -1,6 +1,6 @@
 import { computed, onMounted, defineComponent, watch, ref, reactive, shallowRef } from 'vue';
 import props from './props';
-import generateBase64Url from '@tdesign/common-js/watermark/generateBase64Url';
+import generateWatermark from '@tdesign/common-js/watermark/generateWatermark';
 import randomMovingStyle from '@tdesign/common-js/watermark/randomMovingStyle';
 import injectStyle from '@tdesign/common-js/utils/injectStyle';
 import { useContent, usePrefixClass, useVariables } from '@tdesign/shared-hooks';
@@ -59,6 +59,7 @@ export default defineComponent({
       offsetLeft: offsetLeft.value,
       offsetTop: offsetTop.value,
       fontColor: fontColor.value,
+      layout: props.layout,
     }));
 
     const removeWaterMark = () => {
@@ -68,7 +69,7 @@ export default defineComponent({
     };
 
     const injectWaterMark = () => {
-      generateBase64Url(bgImageOptions.value, (base64Url) => {
+      generateWatermark(bgImageOptions.value, (base64Url, backgroundSize) => {
         removeWaterMark();
 
         backgroundImage.value = base64Url;
@@ -82,7 +83,7 @@ export default defineComponent({
           bottom: 0,
           width: '100%',
           height: '100%',
-          backgroundSize: `${gapX.value + props.width}px`,
+          backgroundSize: `${backgroundSize?.width || gapX.value + props.width}px`,
           pointerEvents: 'none',
           backgroundRepeat: backgroundRepeat.value,
           backgroundImage: `url('${backgroundImage.value}')`,
