@@ -77,7 +77,7 @@ export default defineComponent({
     const needRequiredMark = computed(() => {
       const requiredMark = props.requiredMark ?? form?.requiredMark ?? globalConfig.value.requiredMark;
       const isRequired = innerRules.value.filter((rule) => rule.required).length > 0;
-      return requiredMark ?? isRequired;
+      return requiredMark !== false && isRequired;
     });
 
     const requiredMarkPosition = computed(() => {
