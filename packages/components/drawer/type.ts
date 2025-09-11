@@ -129,6 +129,10 @@ export interface TdDrawerProps {
    */
   onCloseBtnClick?: (context: { e: MouseEvent }) => void;
   /**
+   * 抽屉关闭后触发
+   */
+  onClosed?: () => void;
+  /**
    * 如果“确认”按钮存在，则点击“确认”按钮时触发
    */
   onConfirm?: (context: { e: MouseEvent }) => void;
@@ -136,6 +140,10 @@ export interface TdDrawerProps {
    * 按下 ESC 键时触发
    */
   onEscKeydown?: (context: { e: KeyboardEvent }) => void;
+  /**
+   * 抽屉打开后触发
+   */
+  onOpened?: () => void;
   /**
    * 如果蒙层存在，点击蒙层时触发
    */
