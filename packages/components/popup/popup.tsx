@@ -214,7 +214,6 @@ export default defineComponent({
       () => visible.value,
       (visible) => {
         if (visible) {
-          console.warn('visible', visible);
           show();
           on(document, 'mousedown', onDocumentMouseDown, true);
           if (props.trigger === 'focus') {
