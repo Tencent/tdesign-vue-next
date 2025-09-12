@@ -168,6 +168,7 @@ export default defineComponent({
                   value={props.value ? props.value : undefined}
                   checked={tChecked.value}
                   onChange={handleChange}
+                  onClick={(e: MouseEvent) => e.stopPropagation()}
                   key="input"
                 ></input>,
                 <span

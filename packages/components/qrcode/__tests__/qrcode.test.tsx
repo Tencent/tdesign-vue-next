@@ -92,5 +92,41 @@ describe('QRCode', () => {
       await wrapper.setProps({ status: 'expired', statusRender });
       expect(statusRender).toBeCalled();
     });
+
+    it(':value[string] changes - canvas mode', async () => {
+      await wrapper.setProps({ type: 'canvas' });
+      const initialValue = 'https://tdesign.tencent.com/';
+      const newValue = 'https://github.com/Tencent/tdesign-vue-next';
+      expect(wrapper.vm.value).eq(initialValue);
+
+      await wrapper.setProps({ value: newValue });
+
+      expect(wrapper.vm.value).eq(newValue);
+      expect(wrapper.find('.t-qrcode').find('canvas').exists()).eq(true);
+    });
+
+    it(':value[string] changes - svg mode', async () => {
+      await wrapper.setProps({ type: 'svg' });
+
+      const initialValue = 'https://tdesign.tencent.com/';
+      const newValue = 'https://github.com/Tencent/tdesign-vue-next';
+
+      expect(wrapper.vm.value).eq(initialValue);
+
+      const initialSvg = wrapper.find('.t-qrcode').find('svg');
+      expect(initialSvg.exists()).eq(true);
+      const initialPaths = initialSvg.findAll('path');
+      const initialFgPath = initialPaths[1].attributes('d');
+      await wrapper.setProps({ value: newValue });
+
+      expect(wrapper.vm.value).eq(newValue);
+      const updatedSvg = wrapper.find('.t-qrcode').find('svg');
+      expect(updatedSvg.exists()).eq(true);
+      const updatedPaths = updatedSvg.findAll('path');
+      const updatedFgPath = updatedPaths[1].attributes('d');
+
+      // 验证前景路径已改变（不同的 value 应该生成不同的二维码图案）
+      expect(updatedFgPath).not.eq(initialFgPath);
+    });
   });
 });

@@ -1,4 +1,4 @@
-import { defineComponent, computed, provide, Fragment, toRefs } from 'vue';
+import { defineComponent, computed, provide, Fragment } from 'vue';
 import { useConfig } from 'tdesign-vue-next/es/config-provider/hooks';
 
 import { usePrefixClass, useTNodeJSX } from '@tdesign/shared-hooks';
@@ -24,7 +24,6 @@ export default defineComponent({
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('chat');
     const { globalConfig } = useConfig('chat');
-    const { loadingText, loadingEndText } = toRefs(globalConfig.value);
     const renderTNodeJSX = useTNodeJSX();
     const role = computed(() => renderTNodeJSX('role'));
     const variant = computed(() => renderTNodeJSX('variant'));
@@ -63,8 +62,9 @@ export default defineComponent({
       // 内置操作按钮，assistantActions和插槽判断 t-chat注入的属性获取不到默认为false
       const showActions = computed(() => renderTNodeJSX('actions'));
       const renderHeader = () => {
+        const { loadingText, loadingEndText } = globalConfig.value;
         if (reasoningLoading) {
-          return <ChatLoading text={loadingText.value} />;
+          return <ChatLoading text={loadingText} />;
         }
         return (
           <div style="display:flex;align-items:center">
@@ -75,7 +75,7 @@ export default defineComponent({
                 marginRight: '8px',
               }}
             />
-            <span>{loadingEndText.value}</span>
+            <span>{loadingEndText}</span>
           </div>
         );
       };

@@ -5,6 +5,7 @@ exports[`Submenu > props > :disabled 1`] = `
   class="t-submenu t-is-disabled"
 >
   <!---->
+  <!---->
 </li>
 `;
 
@@ -13,6 +14,7 @@ exports[`Submenu > props > :name 1`] = `
   class="t-submenu"
   name="1"
 >
+  <!---->
   <!---->
 </li>
 `;

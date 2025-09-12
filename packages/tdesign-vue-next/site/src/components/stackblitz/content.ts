@@ -72,8 +72,8 @@ export const styleContent = `
 
 export const stackblitzRc = `
   {
-    "installDependencies": true,
-    "startCommand": "npm run dev"
+    "installDependencies": false,
+    "startCommand": "pnpm install && pnpm dev"
   }
 `;
 
@@ -102,6 +102,7 @@ export const packageJSONContent = JSON.stringify(
       less: catalogs.bundle.less,
       'tdesign-vue-next': tdesignVueNextPackageJson.version,
       'tdesign-icons-vue-next': catalogs.tdesign['tdesign-icons-vue-next'],
+      dayjs: catalogs.deps.dayjs,
     },
     devDependencies: {
       vite: catalogs.bundle.vite,

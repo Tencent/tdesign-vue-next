@@ -26,9 +26,13 @@ export function expendClickEffect(
   if (propsTrigger === trigger) {
     const expanded = node.setExpanded(true);
     treeStore.refreshNodes();
-    treeStore.replaceExpanded(expanded);
-    const nodes = treeStore.getNodes().filter((node: TreeNode) => node.visible);
-    setTreeNodes(nodes);
+
+    // 筛选情况下，不更新展开节点
+    if (!cascaderContext.inputVal) {
+      treeStore.replaceExpanded(expanded);
+      const nodes = treeStore.getNodes().filter((node: TreeNode) => node.visible);
+      setTreeNodes(nodes);
+    }
 
     // 多选条件下手动维护expend
     if (multiple) {

@@ -205,6 +205,30 @@ describe('InputNumber', () => {
       expect(fn).toBeCalled();
     });
 
+    it(':onBlur with allowInputOverLimit false and undefined value should set to min', async () => {
+      const value = ref(undefined);
+      const fn = vi.fn();
+      const wrapper = mount(() => (
+        <InputNumber v-model={value.value} min={10} max={100} allowInputOverLimit={false} onBlur={fn} />
+      ));
+      const input = wrapper.find('.t-input input');
+      await input.trigger('blur');
+      expect(value.value).toBe(10);
+      expect(fn).toHaveBeenCalledWith(10, expect.any(Object));
+    });
+
+    it(':onBlur with allowInputOverLimit false and null value should set to min', async () => {
+      const value = ref(null);
+      const fn = vi.fn();
+      const wrapper = mount(() => (
+        <InputNumber v-model={value.value} min={5} max={50} allowInputOverLimit={false} onBlur={fn} />
+      ));
+      const input = wrapper.find('.t-input input');
+      await input.trigger('blur');
+      expect(value.value).toBe(5);
+      expect(fn).toHaveBeenCalledWith(5, expect.any(Object));
+    });
+
     it(':onChange', async () => {
       const data = ref('');
       const value = ref('');
