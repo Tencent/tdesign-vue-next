@@ -98,6 +98,8 @@ export default defineComponent({
       props.onVisibleChange,
       'visible',
     );
+
+    const overlayShow = ref(false);
     const renderTNodeJSX = useTNodeJSX();
     const renderContent = useContent();
 
@@ -126,7 +128,7 @@ export default defineComponent({
     const prefixCls = usePrefixClass('popup');
     const { STATUS: commonCls } = useCommonClassName();
     const delay = computed(() => {
-      const delay = props.trigger !== 'hover' ? [0, 0] : [].concat(props.delay ?? [250, 150]);
+      const delay = [].concat(props.delay ?? [250, 150]);
       return {
         show: delay[0],
         hide: delay[1] ?? delay[0],
@@ -212,6 +214,8 @@ export default defineComponent({
       () => visible.value,
       (visible) => {
         if (visible) {
+          console.warn('visible', visible);
+          show();
           on(document, 'mousedown', onDocumentMouseDown, true);
           if (props.trigger === 'focus') {
             once(triggerEl.value, 'keydown', (ev: KeyboardEvent) => {
@@ -223,6 +227,7 @@ export default defineComponent({
           }
           return;
         }
+        hide();
         off(document, 'mousedown', onDocumentMouseDown, true);
       },
       { immediate: true },
@@ -390,17 +395,23 @@ export default defineComponent({
       }
     }
 
-    function show(ev: PopupTriggerEvent) {
+    function show(ev?: PopupTriggerEvent) {
       clearAllTimeout();
       showTimeout = setTimeout(() => {
-        setVisible(true, { trigger: getTriggerType(ev) });
+        if (ev) {
+          setVisible(true, { trigger: getTriggerType(ev) });
+        }
+        overlayShow.value = true;
       }, delay.value.show);
     }
 
     function hide(ev?: PopupTriggerEvent) {
       clearAllTimeout();
       hideTimeout = setTimeout(() => {
-        setVisible(false, { trigger: getTriggerType(ev), e: ev });
+        if (ev) {
+          setVisible(false, { trigger: getTriggerType(ev), e: ev });
+        }
+        overlayShow.value = false;
       }, delay.value.hide);
     }
 
@@ -501,7 +512,7 @@ export default defineComponent({
       const hidePopup = props.hideEmptyPopup && ['', undefined, null].includes(content);
 
       const overlay =
-        visible.value || !props.destroyOnClose ? (
+        overlayShow.value || !props.destroyOnClose ? (
           <div
             {...{
               [POPUP_ATTR_NAME]: id,
@@ -510,7 +521,7 @@ export default defineComponent({
             class={[prefixCls.value, props.overlayClassName]}
             ref={(ref: HTMLElement) => (popperEl.value = ref)}
             style={[{ zIndex: props.zIndex }, getOverlayStyle(), hidePopup && { visibility: 'hidden' }]}
-            v-show={visible.value}
+            v-show={overlayShow.value}
             onClick={onOverlayClick}
             onMouseenter={onMouseenter}
             onMouseleave={onMouseLeave}
@@ -541,7 +552,7 @@ export default defineComponent({
             if (typeof props.triggerElement !== 'string') triggerEl.value = ref;
           }}
           onContentMounted={() => {
-            if (visible.value) {
+            if (overlayShow.value) {
               updatePopper();
 
               const timer = setTimeout(() => {
@@ -552,11 +563,11 @@ export default defineComponent({
             }
           }}
           onResize={() => {
-            if (visible.value) {
+            if (overlayShow.value) {
               updatePopper();
             }
           }}
-          visible={visible.value}
+          visible={overlayShow.value}
           attach={props.attach}
         >
           {{
