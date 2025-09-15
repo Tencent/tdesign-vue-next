@@ -1,0 +1,45 @@
+{
+  "name": "@tdesign/internal-cli",
+  "main": "dist/cli.js",
+  "bin": {
+    "@tdesign/internal-cli": "dist/cli.js"
+  },
+  "private": true,
+  "author": "tdesign",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-babel": "catalog:bundle",
+    "@rollup/plugin-commonjs": "catalog:bundle",
+    "@rollup/plugin-json": "catalog:bundle",
+    "@rollup/plugin-node-resolve": "catalog:bundle",
+    "@rollup/plugin-replace": "catalog:bundle",
+    "@rollup/plugin-typescript": "catalog:bundle",
+    "@rollup/plugin-url": "catalog:bundle",
+    "@types/degit": "catalog:types",
+    "@types/figlet": "catalog:types",
+    "@types/pacote": "catalog:types",
+    "execa": "catalog:bundle",
+    "fs-extra": "catalog:bundle",
+    "rollup": "catalog:bundle",
+    "rollup-plugin-analyzer": "catalog:bundle",
+    "rollup-plugin-copy": "catalog:bundle",
+    "rollup-plugin-delete": "catalog:bundle",
+    "rollup-plugin-esbuild": "catalog:bundle",
+    "rollup-plugin-ignore-import": "catalog:bundle",
+    "rollup-plugin-multi-input": "catalog:bundle",
+    "rollup-plugin-postcss": "catalog:bundle",
+    "rollup-plugin-static-import": "catalog:bundle",
+    "rollup-plugin-styles": "catalog:bundle",
+    "rollup-plugin-terser": "catalog:bundle",
+    "rollup-plugin-vue": "catalog:bundle"
+  },
+  "dependencies": {
+    "boxen": "catalog:cli",
+    "chalk": "catalog:cli",
+    "commander": "catalog:cli",
+    "degit": "catalog:cli",
+    "figlet": "catalog:cli",
+    "ora": "catalog:cli",
+    "pacote": "catalog:cli"
+  }
+}

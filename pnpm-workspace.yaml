@@ -102,12 +102,23 @@ catalogs:
     vitest: ^3.2.4
     vitest-fetch-mock: ^0.4.5
   types:
+    '@types/degit': "^2.8.6"
+    '@types/figlet': "^1.7.0"
     '@types/lodash-es': ^4.17.12
     '@types/node': ^22.5.1
     '@types/nprogress': ^0.2.3
+    '@types/pacote': "^11.1.8"
     '@types/raf': ^3.4.0
     '@types/sortablejs': ^1.15.1
     '@types/tinycolor2': ^1.4.3
     '@types/validator': ^13.7.17
     typescript: ^5.7.3
     vue-tsc: ^2.2.4
+  cli:
+    'degit': ^2.8.4
+    'commander': ^14.0.1
+    'pacote': ^21.0.1
+    'chalk': "^5.3.0"
+    'ora': "^8.2.0"
+    'boxen': "^8.0.1"
+    'figlet': "^1.9.1"
