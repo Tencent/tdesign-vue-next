@@ -1,5 +1,7 @@
 {
   "name": "@tdesign/internal-cli",
+  "version": "1.0.0",
+  "description": "TDesign internal CLI tool",
   "main": "dist/cli.js",
   "bin": {
     "@tdesign/internal-cli": "dist/cli.js"
@@ -7,6 +9,9 @@
   "private": true,
   "author": "tdesign",
   "license": "MIT",
+  "scripts": {
+    "build": "rollup -c"
+  },
   "devDependencies": {
     "@rollup/plugin-babel": "catalog:bundle",
     "@rollup/plugin-commonjs": "catalog:bundle",
