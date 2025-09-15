@@ -16,21 +16,6 @@ export default defineConfig({
       banner: '#!/usr/bin/env node',
     },
   ],
-  external: [
-    // Node.js 内置模块
-    'fs',
-    'path',
-    'util',
-    'events',
-    'stream',
-    'crypto',
-    'os',
-    'child_process',
-    // 外部依赖，不打包进去
-    'commander',
-    'degit',
-    'pacote',
-  ],
   plugins: [
     multiInput(),
     typescript({

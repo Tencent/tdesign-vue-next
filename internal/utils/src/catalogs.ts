@@ -121,7 +121,7 @@ export const catalogs = {
   cli: {
     degit: '^2.8.4',
     commander: '^14.0.1',
-    pacote: '^21.0.1',
+    pacote: '^9.5.12',
     chalk: '^5.3.0',
     ora: '^8.2.0',
     boxen: '^8.0.1',
