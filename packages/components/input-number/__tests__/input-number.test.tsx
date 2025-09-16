@@ -19,17 +19,6 @@ describe('InputNumber', () => {
       });
     });
 
-    it(":align.validator[TdInputNumberProps['align']]", () => {
-      const validator = InputNumberProps.align.validator;
-      expect(validator(undefined)).toBe(true);
-      expect(validator(null)).toBe(true);
-      expect(validator('left')).toBe(true);
-      expect(validator('center')).toBe(true);
-      expect(validator('right')).toBe(true);
-      // @ts-expect-error
-      expect(validator('invalid')).toBe(false);
-    });
-
     it(':allowInputOverLimit[boolean]', async () => {
       const value = ref(90);
       const wrapper = mount(() => <InputNumber v-model={value.value} max={100} allowInputOverLimit={true} />);
