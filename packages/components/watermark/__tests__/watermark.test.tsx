@@ -323,4 +323,46 @@ describe('Watermark', () => {
       });
     });
   });
+
+  describe.skip(':events', () => {});
+
+  describe(':slots', () => {
+    it('should render default slot content [string]', () => {
+      const wrapper = mount(Watermark, {
+        slots: {
+          default: 'Slot Content',
+        },
+      });
+      expect(wrapper.text()).toContain('Slot Content');
+    });
+
+    it('should render default slot content [function]', () => {
+      const wrapper = mount(Watermark, {
+        slots: {
+          default: () => 'Slot Content',
+        },
+      });
+      expect(wrapper.text()).toContain('Slot Content');
+    });
+
+    it('default slot should take higher priority', () => {
+      const contentFn = () => 'Function Content';
+      const wrapper = mount(Watermark, {
+        props: { content: contentFn },
+        slots: {
+          default: () => 'Slot Content',
+        },
+      });
+      expect(wrapper.text()).toContain('Slot Content');
+    });
+  });
+
+  describe(':functions', () => {
+    it(':generateBase64Url', () => {
+      mount(Watermark, {
+        props: { width: 200 },
+      });
+      expect(generateBase64Url).toBeCalledWith(expect.objectContaining({ width: 200 }), expect.any(Function));
+    });
+  });
 });
