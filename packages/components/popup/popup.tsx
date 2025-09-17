@@ -29,6 +29,7 @@ import setStyle from '@tdesign/common-js/utils/setStyle';
 import Container from './container';
 import props from './props';
 import { PopupTriggerEvent, TdPopupProps } from './type';
+import { isPropPassed } from './utils';
 
 const POPUP_ATTR_NAME = 'data-td-popup';
 const POPUP_PARENT_ATTR_NAME = 'data-td-popup-parent';
@@ -97,7 +98,7 @@ export default defineComponent({
     },
   },
   setup(props, { expose }) {
-    const { visible: propVisible, modelValue, delay: delayProps } = toRefs(props);
+    const { visible: propVisible, modelValue } = toRefs(props);
     const [visible, setVisible] = useVModel(
       propVisible,
       modelValue,
@@ -105,8 +106,6 @@ export default defineComponent({
       props.onVisibleChange,
       'visible',
     );
-
-    const [propDelay] = useDefaultValue(delayProps, null, null, 'delay');
 
     const overlayShow = ref(false);
     const renderTNodeJSX = useTNodeJSX();
@@ -412,12 +411,12 @@ export default defineComponent({
         }
         overlayShow.value = true;
       };
+      const isPropDelay = isPropPassed('delay');
 
-      if (!propDelay) {
+      if (!isPropDelay) {
         doShow();
         return;
       }
-
       showTimeout = setTimeout(doShow, delayComputed.value.show);
     }
 
@@ -426,12 +425,13 @@ export default defineComponent({
 
       const doHide = () => {
         if (ev) {
-          setVisible(true, { trigger: getTriggerType(ev) });
+          setVisible(false, { trigger: getTriggerType(ev) });
         }
         overlayShow.value = false;
       };
+      const isPropDelay = isPropPassed('delay');
 
-      if (!propDelay) {
+      if (!isPropDelay) {
         doHide();
         return;
       }
