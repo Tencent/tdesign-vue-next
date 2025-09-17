@@ -391,9 +391,7 @@ describe('InputNumber', () => {
         const input = wrapper.find('.t-input');
         expect(input.classes()).toContain(`t-is-${status}`);
       });
-    });
 
-    it(':status validator', () => {
       const validator = InputNumberProps.status.validator;
       expect(validator(undefined)).toBe(true);
       expect(validator(null)).toBe(true);
@@ -446,9 +444,7 @@ describe('InputNumber', () => {
         const container = wrapper.find('.t-input-number');
         expect(container.classes()).toContain(`t-input-number--${theme}`);
       });
-    });
 
-    it(':theme validator', () => {
       const validator = InputNumberProps.theme.validator;
       expect(validator(undefined)).toBe(true);
       expect(validator(null)).toBe(true);
