@@ -15,7 +15,14 @@ import {
   Transition,
   watch,
 } from 'vue';
-import { useVModel, useContent, useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
+import {
+  useVModel,
+  useContent,
+  useTNodeJSX,
+  usePrefixClass,
+  useCommonClassName,
+  useDefaultValue,
+} from '@tdesign/shared-hooks';
 
 import { off, on, once } from '@tdesign/shared-utils';
 import setStyle from '@tdesign/common-js/utils/setStyle';
@@ -90,7 +97,7 @@ export default defineComponent({
     },
   },
   setup(props, { expose }) {
-    const { visible: propVisible, modelValue } = toRefs(props);
+    const { visible: propVisible, modelValue, delay: delayProps } = toRefs(props);
     const [visible, setVisible] = useVModel(
       propVisible,
       modelValue,
@@ -98,6 +105,8 @@ export default defineComponent({
       props.onVisibleChange,
       'visible',
     );
+
+    const [propDelay] = useDefaultValue(delayProps, null, null, 'delay');
 
     const overlayShow = ref(false);
     const renderTNodeJSX = useTNodeJSX();
@@ -127,7 +136,7 @@ export default defineComponent({
 
     const prefixCls = usePrefixClass('popup');
     const { STATUS: commonCls } = useCommonClassName();
-    const delay = computed(() => {
+    const delayComputed = computed(() => {
       const delay = [].concat(props.delay ?? [250, 150]);
       return {
         show: delay[0],
@@ -396,22 +405,38 @@ export default defineComponent({
 
     function show(ev?: PopupTriggerEvent) {
       clearAllTimeout();
-      showTimeout = setTimeout(() => {
+
+      const doShow = () => {
         if (ev) {
           setVisible(true, { trigger: getTriggerType(ev) });
         }
         overlayShow.value = true;
-      }, delay.value.show);
+      };
+
+      if (!propDelay) {
+        doShow();
+        return;
+      }
+
+      showTimeout = setTimeout(doShow, delayComputed.value.show);
     }
 
     function hide(ev?: PopupTriggerEvent) {
       clearAllTimeout();
-      hideTimeout = setTimeout(() => {
+
+      const doHide = () => {
         if (ev) {
-          setVisible(false, { trigger: getTriggerType(ev), e: ev });
+          setVisible(true, { trigger: getTriggerType(ev) });
         }
         overlayShow.value = false;
-      }, delay.value.hide);
+      };
+
+      if (!propDelay) {
+        doHide();
+        return;
+      }
+
+      hideTimeout = setTimeout(doHide, delayComputed.value.hide);
     }
 
     function clearAllTimeout() {
