@@ -13,10 +13,20 @@ describe('InputNumber', () => {
         const wrapper = mount(() => <InputNumber align={align} />);
         const input = wrapper.find('.t-input');
         if (align === 'left') {
-          return expect(input.classes()).toEqual(['t-input']);
+          expect(input.classes()).toEqual(['t-input']);
+        } else {
+          expect(input.classes()).toContain(`t-align-${align}`);
         }
-        expect(input.classes()).toEqual([`t-input`, `t-align-${align}`]);
       });
+
+      const validator = InputNumberProps.align.validator;
+      expect(validator(undefined)).toBe(true);
+      expect(validator(null)).toBe(true);
+      expect(validator('left')).toBe(true);
+      expect(validator('center')).toBe(true);
+      expect(validator('right')).toBe(true);
+      // @ts-expect-error
+      expect(validator('invalid')).toBe(false);
     });
 
     it(':allowInputOverLimit[boolean]', async () => {
@@ -364,9 +374,6 @@ describe('InputNumber', () => {
         const container = wrapper.find('.t-input-number');
         expect(container.classes()).toContain(`t-size-${size.slice(0, 1)}`);
       });
-    });
-
-    it(':size validator', () => {
       const validator = InputNumberProps.size.validator;
       expect(validator(undefined)).toBe(true);
       expect(validator(null)).toBe(true);
