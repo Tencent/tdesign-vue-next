@@ -15,14 +15,7 @@ import {
   Transition,
   watch,
 } from 'vue';
-import {
-  useVModel,
-  useContent,
-  useTNodeJSX,
-  usePrefixClass,
-  useCommonClassName,
-  useDefaultValue,
-} from '@tdesign/shared-hooks';
+import { useVModel, useContent, useTNodeJSX, usePrefixClass, useCommonClassName } from '@tdesign/shared-hooks';
 
 import { off, on, once } from '@tdesign/shared-utils';
 import setStyle from '@tdesign/common-js/utils/setStyle';
@@ -425,7 +418,7 @@ export default defineComponent({
 
       const doHide = () => {
         if (ev) {
-          setVisible(false, { trigger: getTriggerType(ev) });
+          setVisible(false, { trigger: getTriggerType(ev), e: ev });
         }
         overlayShow.value = false;
       };
