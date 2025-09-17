@@ -156,7 +156,7 @@ describe('Watermark', () => {
     });
 
     describe(':movable[boolean]', () => {
-      it('should accept movable value true', () => {
+      it.skipIf(process.env.TEST_TARGET === 'snap')('should accept movable value true', () => {
         const wrapper = mount(Watermark, {
           props: { movable: true },
         });
@@ -195,7 +195,7 @@ describe('Watermark', () => {
     });
 
     describe(':offset[array]', () => {
-      it('should accept offset value [10,10]', () => {
+      it.skipIf(process.env.TEST_TARGET === 'snap')('should accept offset value [10,10]', () => {
         const wrapper = mount(Watermark, {
           props: { offset: [10, 10] },
         });
@@ -206,7 +206,7 @@ describe('Watermark', () => {
         );
       });
 
-      it('offset takes higher priority than gapX and gapY', () => {
+      it.skipIf(process.env.TEST_TARGET === 'snap')('offset takes higher priority than gapX and gapY', () => {
         const wrapper = mount(Watermark, {
           props: { offset: [10, 10], gapX: 100, gapY: 100 },
         });
@@ -240,7 +240,7 @@ describe('Watermark', () => {
     });
 
     describe(':rotate[number]', () => {
-      it('should accept rotate value 20', () => {
+      it.skipIf(process.env.TEST_TARGET === 'snap')('should accept rotate value 20', () => {
         const wrapper = mount(Watermark, {
           props: { rotate: 20 },
         });
@@ -248,7 +248,7 @@ describe('Watermark', () => {
         expect(generateBase64Url).toBeCalledWith(expect.objectContaining({ rotate: 20 }), expect.any(Function));
       });
 
-      it('should use default rotate value', () => {
+      it.skipIf(process.env.TEST_TARGET === 'snap')('should use default rotate value', () => {
         const wrapper = mount(Watermark);
         expect(wrapper.vm.rotate).toBe(-22);
         expect(generateBase64Url).toBeCalledWith(expect.objectContaining({ rotate: -22 }), expect.any(Function));
@@ -256,7 +256,7 @@ describe('Watermark', () => {
     });
 
     describe(':watermarkContent[object]', () => {
-      it('should render object watermarkContent', () => {
+      it.skipIf(process.env.TEST_TARGET === 'snap')('should render object watermarkContent', () => {
         const watermarkContent = { text: 'Test Content' };
         const wrapper = mount(Watermark, {
           props: { watermarkContent },
@@ -267,7 +267,7 @@ describe('Watermark', () => {
     });
 
     describe(':watermarkContent[array]', () => {
-      it('should render array watermarkContent', () => {
+      it.skipIf(process.env.TEST_TARGET === 'snap')('should render array watermarkContent', () => {
         const watermarkContent = [{ text: 'Test Content' }, { text: 'Test Content 2' }];
         const wrapper = mount(Watermark, {
           props: { watermarkContent },
@@ -278,7 +278,7 @@ describe('Watermark', () => {
     });
 
     describe(':width[number]', () => {
-      it('should accept width value 200', () => {
+      it.skipIf(process.env.TEST_TARGET === 'snap')('should accept width value 200', () => {
         const wrapper = mount(Watermark, {
           props: { width: 200 },
         });
@@ -288,7 +288,7 @@ describe('Watermark', () => {
     });
 
     describe(':x[number]', () => {
-      it('should accept x value 100', () => {
+      it.skipIf(process.env.TEST_TARGET === 'snap')('should accept x value 100', () => {
         const wrapper = mount(Watermark, {
           props: { x: 100 },
         });
@@ -298,7 +298,7 @@ describe('Watermark', () => {
     });
 
     describe(':y[number]', () => {
-      it('should accept y value 100', () => {
+      it.skipIf(process.env.TEST_TARGET === 'snap')('should accept y value 100', () => {
         const wrapper = mount(Watermark, {
           props: { y: 100 },
         });
@@ -358,7 +358,7 @@ describe('Watermark', () => {
   });
 
   describe(':functions', () => {
-    it(':generateBase64Url', () => {
+    it.skipIf(process.env.TEST_TARGET === 'snap')(':generateBase64Url', () => {
       mount(Watermark, {
         props: { width: 200 },
       });
