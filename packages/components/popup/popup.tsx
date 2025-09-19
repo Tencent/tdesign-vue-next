@@ -22,7 +22,6 @@ import setStyle from '@tdesign/common-js/utils/setStyle';
 import Container from './container';
 import props from './props';
 import { PopupTriggerEvent, TdPopupProps } from './type';
-import { isPropPassed } from './utils';
 
 const POPUP_ATTR_NAME = 'data-td-popup';
 const POPUP_PARENT_ATTR_NAME = 'data-td-popup-parent';
@@ -404,9 +403,8 @@ export default defineComponent({
         }
         overlayShow.value = true;
       };
-      const isPropDelay = isPropPassed('delay');
 
-      if (!isPropDelay) {
+      if (!props.delay) {
         doShow();
         return;
       }
@@ -422,9 +420,8 @@ export default defineComponent({
         }
         overlayShow.value = false;
       };
-      const isPropDelay = isPropPassed('delay');
 
-      if (!isPropDelay) {
+      if (!props.delay) {
         doHide();
         return;
       }
