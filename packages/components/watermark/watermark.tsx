@@ -1,6 +1,6 @@
 import { computed, onMounted, defineComponent, watch, ref, reactive, shallowRef } from 'vue';
 import props from './props';
-import generateWatermark from '@tdesign/common-js/watermark/generateWatermark';
+import generateBase64Url from '@tdesign/common-js/watermark/generateBase64Url';
 import randomMovingStyle from '@tdesign/common-js/watermark/randomMovingStyle';
 import injectStyle from '@tdesign/common-js/utils/injectStyle';
 import { useContent, usePrefixClass, useVariables } from '@tdesign/shared-hooks';
@@ -69,7 +69,7 @@ export default defineComponent({
     };
 
     const injectWaterMark = () => {
-      generateWatermark(bgImageOptions.value, (base64Url, backgroundSize) => {
+      generateBase64Url(bgImageOptions.value, (base64Url, backgroundSize) => {
         removeWaterMark();
 
         backgroundImage.value = base64Url;
