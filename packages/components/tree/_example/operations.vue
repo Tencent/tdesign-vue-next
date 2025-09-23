@@ -36,8 +36,9 @@
           <t-button size="small" variant="outline" @click="insertAfter(node)">后插节点</t-button>
           <t-button
             size="small"
-            :theme="node.disabled ? 'success' : 'warning'"
             variant="base"
+            :theme="node.disabled ? 'success' : 'warning'"
+            :disabled="!canToggleDisable(node)"
             @click="toggleDisable(node)"
           >
             {{ node.disabled ? 'enable' : 'disable' }}
@@ -75,7 +76,7 @@ const activeIds = ref([]);
 const expandIds = ref([]);
 const checkedIds = ref([]);
 const useActived = ref(false);
-const expandParent = ref(true);
+const expandParent = ref(false);
 const filterText = ref('');
 const filterByText = ref(null);
 const items = ref([
@@ -237,6 +238,14 @@ const getActivePlainData = () => {
     treeNodes = tree.value.getTreeData(node.value);
   }
   console.info('树结构数据:', treeNodes);
+};
+const canToggleDisable = (node) => {
+  const parent = node.getParent?.();
+  const isCheckStrictly = false; // 默认关闭
+  if (!isCheckStrictly && parent?.disabled) {
+    return false; // 父节点被禁用时，子节点状态不支持手动改变
+  }
+  return true;
 };
 const toggleDisable = (node) => {
   tree.value.setItem(node.value, {

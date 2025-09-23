@@ -43,6 +43,7 @@ const treeItems = [
       {
         value: '1.1',
         label: '1.1',
+        disabled: true,
         children: [
           {
             value: '1.1.1',
@@ -89,6 +90,7 @@ const treeItems = [
               {
                 value: '1.2.1.2',
                 label: '1.2.1.2',
+                disabled: true,
               },
             ],
           },

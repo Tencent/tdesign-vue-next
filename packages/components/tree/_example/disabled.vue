@@ -48,7 +48,7 @@ const tree = ref();
 const checkable = ref(true);
 const activable = ref(false);
 const disabled = ref(false);
-const disabledMap = ref(new Map([['1.1', true]]));
+
 const items = ref([
   {
     value: '1',
@@ -107,34 +107,17 @@ const items = ref([
   },
 ]);
 
-const fnDisableCheck = (node) => {
-  const map = disabledMap.value;
-  return map.get(node.value);
-};
 const label = (h, node) => {
   return String(node.value);
 };
 const setEnable = (node) => {
-  const map = disabledMap.value;
-  if (node.disabled) {
-    map.delete(node.value);
-    // 移除节点本身的 disabled 属性
-    // 这个属性在 data 中被预先定义
-    // 如果不更新状态，则该节点仍然被视为禁用状态
-    tree.value.setItem(node.value, {
-      disabled: false,
-    });
-    tree.value.refresh();
-  }
+  tree.value.setItem(node.value, {
+    disabled: false,
+  });
 };
 const setDisable = (node) => {
-  const map = disabledMap.value;
-  // 交给 disable-check 接管 disabled 属性判断
-  // 注意这里的逻辑: 如果先禁用了某个子节点，再禁用其父节点
-  // 启用父节点时，子节点会仍然为禁用状态，因为它还在 map 当中，这是符合逻辑的
-  map.set(node.value, true);
-  // 由于传递给 tree 的 disableCheck 函数未变更，所以不会自动更新节点状态
-  // 需要调用 refresh 方法来更新节点状态
-  tree.value.refresh();
+  tree.value.setItem(node.value, {
+    disabled: true,
+  });
 };
 </script>

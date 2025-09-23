@@ -52,8 +52,12 @@ describe('Tree:disabled', () => {
           ],
         },
       ];
+      const disableMap = {
+        't1.1': true,
+        't1.3': true,
+      };
       const disableCheck = (node) => {
-        if (node.value === 't1.1' || node.value === 't1.3') {
+        if (disableMap[node.value]) {
           return true;
         }
       };
@@ -70,51 +74,7 @@ describe('Tree:disabled', () => {
       expect(t1d1.classes('t-is-disabled')).toBe(true);
       expect(t1d2.classes('t-is-disabled')).toBe(false);
       expect(t1d3.classes('t-is-disabled')).toBe(true);
-    });
-
-    it('可以结合 refresh 方法，切换禁用节点', async () => {
-      const data = [
-        {
-          value: 't1',
-          children: [
-            {
-              value: 't1.1',
-            },
-            {
-              value: 't1.2',
-            },
-            {
-              value: 't1.3',
-            },
-          ],
-        },
-      ];
-      const disableMap = {
-        't1.1': true,
-        't1.3': true,
-      };
-      const disableCheck = (node) => {
-        if (disableMap[node.value]) {
-          return true;
-        }
-      };
-      const wrapper = mount({
-        render() {
-          return <Tree ref="tree" transition={false} data={data} expandAll disableCheck={disableCheck}></Tree>;
-        },
-      });
-      const t1 = wrapper.find('[data-value="t1"]');
-      const t1d1 = wrapper.find('[data-value="t1.1"]');
-      const t1d2 = wrapper.find('[data-value="t1.2"]');
-      const t1d3 = wrapper.find('[data-value="t1.3"]');
-      expect(t1.classes('t-is-disabled')).toBe(false);
-      expect(t1d1.classes('t-is-disabled')).toBe(true);
-      expect(t1d2.classes('t-is-disabled')).toBe(false);
-      expect(t1d3.classes('t-is-disabled')).toBe(true);
-
       disableMap['t1.1'] = false;
-      const { tree } = wrapper.vm.$refs;
-      tree.refresh();
       await delay(3);
       expect(t1d1.classes('t-is-disabled')).toBe(false);
     });
