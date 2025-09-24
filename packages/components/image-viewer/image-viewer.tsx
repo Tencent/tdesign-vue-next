@@ -18,8 +18,9 @@ import TImageViewerUtils from './base/ImageViewerUtils';
 import { EVENT_CODE } from './consts';
 import { useMirror, useRotate, useScale } from './hooks';
 import props from './props';
-import { TdImageViewerProps } from './type';
+import { ImageScale, TdImageViewerProps } from './type';
 import { downloadFile, formatImages, getOverlay } from './utils';
+import { isNumber } from 'lodash-es';
 
 export default defineComponent({
   name: 'TImageViewer',
@@ -58,7 +59,7 @@ export default defineComponent({
     };
 
     const { mirror, onMirror, resetMirror } = useMirror();
-    const { scale, onZoomIn, onZoomOut, resetScale } = useScale(props.imageScale);
+    const { scale, onZoomIn, onZoomOut, resetScale } = useScale(props.imageScale as ImageScale);
     const { rotate, onRotate, resetRotate } = useRotate();
     const onRest = () => {
       resetMirror();
@@ -93,7 +94,11 @@ export default defineComponent({
       props.onDownload ? props.onDownload(url) : downloadFile(url);
     };
 
-    const openHandler = () => {
+    const openHandler = (index: number) => {
+      if (isNumber(index)) {
+        onImgClick(index);
+      }
+
       setVisibleValue(true);
     };
     const onClose: TdImageViewerProps['onClose'] = (ctx) => {
