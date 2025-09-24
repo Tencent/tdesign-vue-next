@@ -322,6 +322,18 @@ describe('Watermark', () => {
         expect(wrapper.element.children[0].style.zIndex).toBe('');
       });
     });
+
+    describe(':layout[string]', () => {
+      it.skipIf(process.env.TEST_TARGET === 'snap')('should accept layout value hexagonal', () => {
+        mount(Watermark, {
+          props: { watermarkContent: { text: 'test content' }, layout: 'hexagonal' },
+        });
+        expect(generateBase64Url).toBeCalledWith(
+          expect.objectContaining({ layout: 'hexagonal' }),
+          expect.any(Function),
+        );
+      });
+    });
   });
 
   describe.skip(':events', () => {});
