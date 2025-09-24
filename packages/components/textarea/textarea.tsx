@@ -240,6 +240,7 @@ export default defineComponent({
           [STATUS.value.disabled]: disabled.value,
           [STATUS.value.focused]: focused.value,
           [`${prefix.value}-resize-none`]: typeof props.autosize === 'object',
+          [`${prefix.value}-hide-scrollbar`]: props.autosize === true,
         },
       ]);
 
