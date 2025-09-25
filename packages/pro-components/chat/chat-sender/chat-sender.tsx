@@ -241,6 +241,7 @@ export default defineComponent({
           class={[
             `${COMPONENT_NAME.value}-sender__textarea`,
             focusFlag.value ? `${COMPONENT_NAME.value}-sender__textarea--focus` : '',
+            props.attachmentsProps.items.length > 0 ? `${COMPONENT_NAME.value}-sender__textarea--attachments` : '',
           ]}
         >
           <div class={`${COMPONENT_NAME.value}-sender__inner-header`}>{renderTNodeJSX('inner-header')}</div>
