@@ -80,7 +80,7 @@ export interface TdImageViewerProps {
    */
   title?: string | TNode;
   /**
-   * 触发图片预览的元素，可能是一个预览按钮，可能是一张缩略图，完全自定义
+   * 触发图片预览的元素，可能是一个预览按钮，可能是一张缩略图，完全自定义，默认为预览图片的缩略图
    */
   trigger?: TNode | TNode<{ open: (index?: number) => void }>;
   /**

@@ -20,7 +20,7 @@ mode | String | modal | 模态预览（modal）和非模态预览（modeless)。
 navigationArrow | Boolean / Slot / Function | true | 切换预览图片的左图标，可自定义。TS 类型：`boolean \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 showOverlay | Boolean | undefined | 是否显示遮罩层。`mode=modal` 时，默认显示；`mode=modeless` 时，默认不显示 | N
 title | String / Slot / Function | - | 预览标题。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
-trigger | String / Slot / Function | - | 触发图片预览的元素，可能是一个预览按钮，可能是一张缩略图，完全自定义。TS 类型：`TNode \| TNode<{ open: (index?: number) => void }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
+trigger | String / Slot / Function | - | 触发图片预览的元素，可能是一个预览按钮，可能是一张缩略图，完全自定义，默认为预览图片的缩略图。TS 类型：`TNode \| TNode<{ open: (index?: number) => void }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 viewerScale | Object | - | 限制预览器缩放的最小宽度和最小高度，仅 `mode=modeless` 时有效。TS 类型：`ImageViewerScale` `interface ImageViewerScale { minWidth: number; minHeight: number }`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/image-viewer/type.ts) | N
 visible | Boolean | false | 隐藏/显示预览。支持语法糖 `v-model` 或 `v-model:visible` | N
 defaultVisible | Boolean | false | 隐藏/显示预览。非受控属性 | N
