@@ -94,7 +94,7 @@ export default defineComponent({
       props.onDownload ? props.onDownload(url) : downloadFile(url);
     };
 
-    const openHandler = (index: number) => {
+    const openHandler = (index?: number) => {
       if (isNumber(index)) {
         onImgClick(index);
       }
@@ -241,9 +241,9 @@ export default defineComponent({
             alt="preview"
             fit="contain"
             class={`${COMPONENT_NAME.value}__trigger-img`}
-            onClick={openHandler}
+            onClick={() => openHandler()}
           />
-          <div class={`${COMPONENT_NAME.value}__trigger--hover`} onClick={openHandler}>
+          <div class={`${COMPONENT_NAME.value}__trigger--hover`} onClick={() => openHandler()}>
             <span>
               <BrowseIcon size="1.4em" class={`${COMPONENT_NAME.value}__trigger-icon`} />
               预览
