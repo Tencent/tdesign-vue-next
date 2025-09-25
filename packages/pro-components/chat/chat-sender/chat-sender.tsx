@@ -137,7 +137,7 @@ export default defineComponent({
               variant="text"
               class={[`${COMPONENT_NAME.value}-sender__upload`]}
             >
-              <FileAttachmentIcon />
+              <FileAttachmentIcon size="20px" />
             </Button>
           </Tooltip>
         </Fragment>
@@ -169,7 +169,7 @@ export default defineComponent({
               variant="text"
               class={[`${COMPONENT_NAME.value}-sender__upload`]}
             >
-              <ImageIcon />
+              <ImageIcon size="20px" />
             </Button>
           </Tooltip>
         </Fragment>
@@ -236,14 +236,14 @@ export default defineComponent({
     const renderInputPrefix = renderTNodeJSX('input-prefix') || null;
     return () => (
       <div class={`${COMPONENT_NAME.value}-sender`}>
-        <div class={`${COMPONENT_NAME.value}-sender__header`}>{renderHeader()}</div>
+        {/* <div class={`${COMPONENT_NAME.value}-sender__header`}>{renderHeader()}</div> */}
         <div
           class={[
             `${COMPONENT_NAME.value}-sender__textarea`,
             focusFlag.value ? `${COMPONENT_NAME.value}-sender__textarea--focus` : '',
-            props.attachmentsProps.items.length > 0 ? `${COMPONENT_NAME.value}-sender__textarea--attachments` : '',
           ]}
         >
+          <div class={`${COMPONENT_NAME.value}-sender__header`}>{renderHeader()}</div>
           <div class={`${COMPONENT_NAME.value}-sender__inner-header`}>{renderTNodeJSX('inner-header')}</div>
           <div class={`${COMPONENT_NAME.value}-sender__textarea__wrapper`}>
             {renderInputPrefix}
