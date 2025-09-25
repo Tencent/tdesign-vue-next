@@ -437,7 +437,7 @@ describe('AutoComplete Component', () => {
     expect(onSelectFn6.mock.calls[0][1].e.type).toBe('keydown');
   });
 
-  it('props.inputProps works fine', async () => {
+  it(':inputProps[object]', async () => {
     const onChangeFn = vi.fn();
     const wrapper = mount(<AutoComplete inputProps={{ maxlength: 5 }} onChange={onChangeFn} />);
     await wrapper.vm.$nextTick();
@@ -449,12 +449,12 @@ describe('AutoComplete Component', () => {
     expect(onChangeFn.mock.calls[1][0]).toBe('12345');
   });
 
-  it('props.borderless works fine', () => {
+  it(':borderless[boolean]', () => {
     const wrapper = mount(<AutoComplete borderless={true} />);
     expect(wrapper.find('.t-input--borderless').exists()).toBeTruthy();
   });
 
-  it('props.empty works fine', async () => {
+  it(':empty[slot]', async () => {
     const wrapper = mount(
       <AutoComplete
         options={[]}
@@ -468,7 +468,7 @@ describe('AutoComplete Component', () => {
     document.querySelectorAll('.t-popup').forEach((node) => node.remove());
   });
 
-  it('props.onClear works fine when value is empty', async () => {
+  it('@clear when value is empty', async () => {
     const onClearFn = vi.fn();
     const wrapper = mount(<AutoComplete clearable={true} value="" onClear={onClearFn} />);
     wrapper.find('.t-input').trigger('mouseenter');
@@ -476,7 +476,7 @@ describe('AutoComplete Component', () => {
     expect(wrapper.find('.t-input__suffix-clear').exists()).toBeFalsy();
   });
 
-  it('props.onChange works fine when input value changes', async () => {
+  it('@change', async () => {
     const onChangeFn = vi.fn();
     const wrapper = mount(<AutoComplete onChange={onChangeFn} />);
     const input = wrapper.find('input');
@@ -490,13 +490,13 @@ describe('AutoComplete Component', () => {
     expect(onChangeFn.mock.calls[1][0]).toBe('123456');
   });
 
-  it('props.defaultValue works fine', () => {
+  it(':defaultValue[string]', () => {
     const wrapper = mount(<AutoComplete defaultValue="default-keyword" />);
     const input = wrapper.find('input');
     expect(input.element.value).toBe('default-keyword');
   });
 
-  it('v-model/modelValue works fine', async () => {
+  it(':v-model/modelValue', async () => {
     const wrapper = mount({
       components: { AutoComplete },
       data() {
