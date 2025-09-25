@@ -41,15 +41,14 @@
         :style="{
           width: '100%',
           marginBottom: '12px',
-          padding: '4px 6px',
-          background: '#f3f3f3',
-          borderRadius: '4px',
+          padding: '4px 0',
           boxSizing: 'border-box',
           justifyContent: 'space-between',
+          borderBottom: '1px solid #e7e7e7',
         }"
       >
         <t-space size="small">
-          <EnterIcon :size="'14px'" :style="{ color: 'rgba(0, 0, 0, 0.26)' }" />
+          <EnterIcon :size="'14px'" :style="{ color: 'rgba(0, 0, 0, 0.26)', transform: 'scaleX(-1)' }" />
           <span :style="{ fontSize: '14px', color: 'rgba(0, 0, 0, 0.4)' }">引用一段文字</span>
         </t-space>
         <div :style="{ marginLeft: 'auto', width: '16px' }" @click="onRemoveRef">
