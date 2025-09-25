@@ -1268,7 +1268,137 @@ exports[`Upload Component > props.theme: theme=file-flow works fine 1`] = `
     </table>
     <!---->
     
-    <!---->
+    <div
+      class="t-image-viewer__trigger"
+    >
+      <div
+        class="t-image__wrapper t-image__wrapper--shape-square t-image-viewer__trigger-img"
+        fallback=""
+        referrerpolicy="strict-origin-when-cross-origin"
+      >
+        <!---->
+        <!---->
+        <!---->
+        <img
+          alt="preview"
+          class="t-image t-image--fit-contain t-image--position-center"
+          referrerpolicy="strict-origin-when-cross-origin"
+          src=""
+        />
+        <div
+          class="t-image__loading"
+        >
+          <div
+            class="t-space t-space-align-center t-space-vertical"
+            style="gap: 8px;"
+          >
+            
+            
+            <div
+              class="t-space-item"
+            >
+              <svg
+                class="t-icon t-icon-image"
+                fill="none"
+                height="1em"
+                style="fill: none; font-size: 24px;"
+                viewBox="0 0 24 24"
+                width="1em"
+              >
+                <g
+                  id="image"
+                >
+                  <path
+                    d="M3 21H20L9 10L3 16V21Z"
+                    fill="transparent"
+                    id="fill1"
+                  />
+                  <circle
+                    cx="15.75"
+                    cy="8.25"
+                    fill="transparent"
+                    id="fill2"
+                    r="2"
+                  />
+                  <path
+                    d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                    id="stroke1"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <circle
+                    cx="15.75"
+                    cy="8.25"
+                    id="stroke2"
+                    r="2"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                </g>
+              </svg>
+            </div>
+            <!---->
+            
+            
+            <div
+              class="t-space-item"
+            >
+              图片加载中
+            </div>
+            <!---->
+            
+            
+          </div>
+        </div>
+        <!---->
+        <!---->
+      </div>
+      <div
+        class="t-image-viewer__trigger--hover"
+      >
+        <span>
+          <svg
+            class="t-icon t-icon-browse t-image-viewer__trigger-icon"
+            fill="none"
+            height="1em"
+            style="fill: none; font-size: 1.4em;"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <g
+              clipPath="url(#clip0_543_7945)"
+              id="browse"
+            >
+              <path
+                d="M11.9997 4C6.86881 4 2.52275 7.36017 1.04199 12C2.52275 16.6398 6.86881 20 11.9997 20C17.1306 20 21.4766 16.6398 22.9574 12C21.4766 7.36017 17.1306 4 11.9997 4Z"
+                fill="transparent"
+                id="fill1"
+              />
+              <path
+                d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z"
+                fill="transparent"
+                id="fill2"
+              />
+              <path
+                d="M11.9997 4C6.86881 4 2.52275 7.36017 1.04199 12C2.52275 16.6398 6.86881 20 11.9997 20C17.1306 20 21.4766 16.6398 22.9574 12C21.4766 7.36017 17.1306 4 11.9997 4Z"
+                id="stroke1"
+                stroke="currentColor"
+                stroke-linecap="square"
+                stroke-width="2"
+              />
+              <path
+                d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z"
+                id="stroke2"
+                stroke="currentColor"
+                stroke-linecap="square"
+                stroke-width="2"
+              />
+            </g>
+          </svg>
+          预览
+        </span>
+      </div>
+    </div>
     <!--teleport start-->
     <transition-stub
       appear="false"
@@ -2052,7 +2182,137 @@ exports[`Upload Component > props.theme: theme=image-flow works fine 1`] = `
     <!---->
     <!---->
     
-    <!---->
+    <div
+      class="t-image-viewer__trigger"
+    >
+      <div
+        class="t-image__wrapper t-image__wrapper--shape-square t-image-viewer__trigger-img"
+        fallback=""
+        referrerpolicy="strict-origin-when-cross-origin"
+      >
+        <!---->
+        <!---->
+        <!---->
+        <img
+          alt="preview"
+          class="t-image t-image--fit-contain t-image--position-center"
+          referrerpolicy="strict-origin-when-cross-origin"
+          src=""
+        />
+        <div
+          class="t-image__loading"
+        >
+          <div
+            class="t-space t-space-align-center t-space-vertical"
+            style="gap: 8px;"
+          >
+            
+            
+            <div
+              class="t-space-item"
+            >
+              <svg
+                class="t-icon t-icon-image"
+                fill="none"
+                height="1em"
+                style="fill: none; font-size: 24px;"
+                viewBox="0 0 24 24"
+                width="1em"
+              >
+                <g
+                  id="image"
+                >
+                  <path
+                    d="M3 21H20L9 10L3 16V21Z"
+                    fill="transparent"
+                    id="fill1"
+                  />
+                  <circle
+                    cx="15.75"
+                    cy="8.25"
+                    fill="transparent"
+                    id="fill2"
+                    r="2"
+                  />
+                  <path
+                    d="M3 16V3H21V21H20M3 16V21H20M3 16L9 10L20 21"
+                    id="stroke1"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <circle
+                    cx="15.75"
+                    cy="8.25"
+                    id="stroke2"
+                    r="2"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                </g>
+              </svg>
+            </div>
+            <!---->
+            
+            
+            <div
+              class="t-space-item"
+            >
+              图片加载中
+            </div>
+            <!---->
+            
+            
+          </div>
+        </div>
+        <!---->
+        <!---->
+      </div>
+      <div
+        class="t-image-viewer__trigger--hover"
+      >
+        <span>
+          <svg
+            class="t-icon t-icon-browse t-image-viewer__trigger-icon"
+            fill="none"
+            height="1em"
+            style="fill: none; font-size: 1.4em;"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <g
+              clipPath="url(#clip0_543_7945)"
+              id="browse"
+            >
+              <path
+                d="M11.9997 4C6.86881 4 2.52275 7.36017 1.04199 12C2.52275 16.6398 6.86881 20 11.9997 20C17.1306 20 21.4766 16.6398 22.9574 12C21.4766 7.36017 17.1306 4 11.9997 4Z"
+                fill="transparent"
+                id="fill1"
+              />
+              <path
+                d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z"
+                fill="transparent"
+                id="fill2"
+              />
+              <path
+                d="M11.9997 4C6.86881 4 2.52275 7.36017 1.04199 12C2.52275 16.6398 6.86881 20 11.9997 20C17.1306 20 21.4766 16.6398 22.9574 12C21.4766 7.36017 17.1306 4 11.9997 4Z"
+                id="stroke1"
+                stroke="currentColor"
+                stroke-linecap="square"
+                stroke-width="2"
+              />
+              <path
+                d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z"
+                id="stroke2"
+                stroke="currentColor"
+                stroke-linecap="square"
+                stroke-width="2"
+              />
+            </g>
+          </svg>
+          预览
+        </span>
+      </div>
+    </div>
     <!--teleport start-->
     <transition-stub
       appear="false"

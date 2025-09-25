@@ -50,6 +50,10 @@ export interface TdNotificationProps {
    * 计时结束时触发
    */
   onDurationEnd?: () => void;
+  /**
+   * 调用 NotificationPlugin.close  时触发
+   */
+  onClose?: () => void;
 }
 
 export interface NotificationOptions extends TdNotificationProps {
