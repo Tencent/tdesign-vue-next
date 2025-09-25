@@ -1,4 +1,4 @@
-import { ChevronDownIcon, ChevronLeftIcon, CloseIcon } from 'tdesign-icons-vue-next';
+import { BrowseIcon, ChevronDownIcon, ChevronLeftIcon, CloseIcon } from 'tdesign-icons-vue-next';
 import { Teleport, Transition, computed, defineComponent, nextTick, ref, toRefs, watch } from 'vue';
 
 import {
@@ -94,7 +94,7 @@ export default defineComponent({
       props.onDownload ? props.onDownload(url) : downloadFile(url);
     };
 
-    const openHandler = (index: number) => {
+    const openHandler = (index?: number) => {
       if (isNumber(index)) {
         onImgClick(index);
       }
@@ -231,11 +231,33 @@ export default defineComponent({
       );
     };
 
+    const renderDefaultTrigger = () => {
+      const firstImage = images.value[0] || '';
+      const imageSrc = typeof firstImage === 'string' ? firstImage : firstImage.mainImage || firstImage.thumbnail;
+      return (
+        <div class={`${COMPONENT_NAME.value}__trigger`}>
+          <Image
+            src={imageSrc}
+            alt="preview"
+            fit="contain"
+            class={`${COMPONENT_NAME.value}__trigger-img`}
+            onClick={() => openHandler()}
+          />
+          <div class={`${COMPONENT_NAME.value}__trigger--hover`} onClick={() => openHandler()}>
+            <span>
+              <BrowseIcon size="1.4em" class={`${COMPONENT_NAME.value}__trigger-icon`} />
+              预览
+            </span>
+          </div>
+        </div>
+      );
+    };
+
     return () => {
       if (props.mode === 'modeless') {
         return (
           <>
-            {renderTNodeJSX('trigger', { params: { open: openHandler } })}
+            {renderTNodeJSX('trigger', { params: { open: openHandler } }) || renderDefaultTrigger()}
             <TImageViewerModal
               zIndex={zIndexValue.value}
               visible={visibleValue.value}
@@ -263,7 +285,7 @@ export default defineComponent({
 
       return (
         <>
-          {renderTNodeJSX('trigger', { params: { open: openHandler } })}
+          {renderTNodeJSX('trigger', { params: { open: openHandler } }) || renderDefaultTrigger()}
           <Teleport disabled={!props.attach || !teleportElement.value} to={teleportElement.value}>
             <Transition>
               {(visibleValue.value || !animationEnd.value) && (
