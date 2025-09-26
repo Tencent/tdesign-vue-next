@@ -15,7 +15,7 @@ import {
 export function useRangeValue(props: TdDateRangePickerProps) {
   const { value: valueFromProps, modelValue } = toRefs(props);
 
-  const [value, onChange] = useVModel(valueFromProps, modelValue, props.defaultValue, props.onChange);
+  const [value, onChange] = useVModel(valueFromProps, modelValue, props.defaultValue, 'onChange');
 
   const formatRef = computed(() =>
     getDefaultFormat({
