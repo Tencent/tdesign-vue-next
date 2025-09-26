@@ -6,10 +6,18 @@
     :textarea-props="{
       placeholder: options.filter((item) => item.value === scene)[0].placeholder,
     }"
+    :attachments-props="{
+      items: filesList,
+      overflow: 'scrollX',
+    }"
     :loading="loading"
     @send="inputEnter"
+    @file-select="handleUploadFile"
+    @file-click="handleFileClick"
+    @remove="handleRemoveFile"
   >
-    <template #suffix>
+    <template #suffix="{ renderPresets }">
+      <component :is="renderPresets([{ name: 'uploadImage' }, { name: 'uploadAttachment' }])" />
       <!-- 监听键盘回车发送事件需要在sender组件监听 -->
       <t-button theme="default" variant="text" size="large" class="btn" @click="inputEnter"> 发送 </t-button>
     </template>
@@ -67,6 +75,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { SystemSumIcon, EnterIcon, CloseIcon } from 'tdesign-icons-vue-next';
+import { TdAttachmentItem } from '@tdesign-vue-next/chat';
 const loading = ref(false);
 const allowToolTip = ref(false);
 const chatSenderRef = ref(null);
@@ -108,6 +117,28 @@ const selectValue = ref({
   value: 'default',
 });
 const isChecked = ref(false);
+const filesList = ref<TdAttachmentItem[]>([
+  {
+    key: '1',
+    name: 'excel-file.xlsx',
+    size: 111111,
+  },
+  {
+    key: '2',
+    name: 'word-file.docx',
+    size: 222222,
+  },
+  {
+    key: '3',
+    name: 'image-file.png',
+    size: 333333,
+  },
+  {
+    key: '4',
+    name: 'pdf-file.pdf',
+    size: 444444,
+  },
+]);
 const checkClick = () => {
   isChecked.value = !isChecked.value;
 };
@@ -125,6 +156,39 @@ const inputEnter = function () {
 };
 const switchScene = (data: any) => {
   scene.value = data.value;
+};
+
+const handleRemoveFile = (e: CustomEvent<TdAttachmentItem>) => {
+  filesList.value = filesList.value.filter((item) => item.key !== e.detail.key);
+};
+
+const handleUploadFile = ({ files, name, e }) => {
+  console.log('🚀 ~ handleUploadFile ~ eYLog :', e, files, name);
+  // 添加新文件并模拟上传进度
+  const newFile = {
+    size: files[0].size,
+    name: files[0].name,
+    status: 'progress' as TdAttachmentItem['status'],
+    description: '上传中',
+  };
+
+  filesList.value = [newFile, ...filesList.value];
+  console.log('🚀 ~ handleUploadFile ~ filesListYLog :', filesList);
+  setTimeout(() => {
+    filesList.value = filesList.value.map((file) =>
+      file.name === newFile.name
+        ? {
+            ...file,
+            url: 'https://tdesign.gtimg.com/site/avatar.jpg',
+            status: 'success',
+            description: `${Math.floor(newFile.size / 1024)}KB`,
+          }
+        : file,
+    );
+  }, 1000);
+};
+const handleFileClick = (e: CustomEvent<TdAttachmentItem>) => {
+  console.log('fileClick', e.detail);
 };
 </script>
 <style lang="less">
