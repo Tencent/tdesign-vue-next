@@ -30,6 +30,12 @@
 
 {{ plugin }}
 
+### 消息合并功能
+
+当多个相同内容的消息同时出现时，可以启用合并功能来避免重复显示，提升用户体验。
+
+{{ merge }}
+
 ## API
 ### Message Props
 
@@ -58,6 +64,11 @@ duration-end | \- | 计时结束后触发
 -- | -- | -- | -- | --
 attach | String / Function | 'body' | 指定弹框挂载的父节点。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body。TS 类型：`AttachNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 className | String | - | 类名 | N
+mergeIdentical | Boolean | false | 是否启用相同内容消息合并功能 | N
+mergeKey | String | - | 自定义合并标识，用于区分不同类型的消息。如果不设置，则使用 `${theme}-${content}` 作为合并标识 | N
+mergeWindow | Number | 500 | 合并时间窗口，单位毫秒。在此时间内的相同消息将被合并 | N
+showMergeCount | Boolean | true | 是否显示合并计数 | N
+mergeCountFormat | String | '(×{count})' | 合并计数显示格式，{count} 会被替换为实际的合并次数 | N
 offset | Array | - | 相对于 placement 的偏移量，示例：[-10, 20] 或 ['10em', '8rem']。TS 类型：`Array<string \| number>` | N
 placement | String | top | 弹出消息位置。可选项：center/top/left/right/bottom/top-left/top-right/bottom-left/bottom-right。TS 类型：`MessagePlacementList` `type MessagePlacementList = 'center' \| 'top' \| 'left' \| 'right' \| 'bottom' \| 'top-left' \| 'top-right' \| 'bottom-left' \| 'bottom-right'`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/message/type.ts) | N
 style | Object | - | 内敛样式。TS 类型：`CSSProperties` | N
@@ -152,6 +163,22 @@ options | Object | - | 必需。该插件参数为 $Message.info() 等插件执�
 参数名称 | 参数类型 | 参数默认值 | 参数说明
 -- | -- | -- | --
 \- | \- | - | \-
+
+### MessagePlugin.clearByKey
+
+同时也支持 `this.$message.clearByKey`。根据合并标识清除特定类型的消息。
+
+参数名称 | 参数类型 | 参数默认值 | 参数说明
+-- | -- | -- | --
+mergeKey | String | - | 必需。要清除的消息的合并标识
+
+### MessagePlugin.configMerge
+
+同时也支持 `this.$message.configMerge`。配置全局消息合并选项。
+
+参数名称 | 参数类型 | 参数默认值 | 参数说明
+-- | -- | -- | --
+config | Object | - | 必需。全局合并配置选项。TS 类型：`MessageMergeConfig`
 
 ### MessagePlugin.config
 

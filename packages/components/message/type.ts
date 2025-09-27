@@ -73,6 +73,30 @@ export interface MessageOptions extends TdMessageProps {
    * @default 5000
    */
   zIndex?: number;
+  /**
+   * 是否启用相同内容消息合并
+   * @default false
+   */
+  mergeIdentical?: boolean;
+  /**
+   * 自定义合并标识，用于区分不同类型的消息
+   */
+  mergeKey?: string;
+  /**
+   * 合并时间窗口，单位毫秒。在此时间内的相同消息将被合并
+   * @default 500
+   */
+  mergeWindow?: number;
+  /**
+   * 是否显示合并计数
+   * @default true
+   */
+  showMergeCount?: boolean;
+  /**
+   * 合并计数显示格式
+   * @default '(×{count})'
+   */
+  mergeCountFormat?: string;
 }
 
 export type MessageThemeList = 'info' | 'success' | 'warning' | 'error' | 'question' | 'loading';
@@ -142,3 +166,54 @@ export type MessageCloseMethod = (options: Promise<MessageInstance>) => void;
 export type MessageCloseAllMethod = () => void;
 
 export type MessageConfigMethod = (message: MessageOptions) => void;
+
+/**
+ * 消息合并配置接口
+ */
+export interface MessageMergeConfig {
+  /**
+   * 是否启用相同内容消息合并
+   * @default false
+   */
+  mergeIdentical?: boolean;
+  /**
+   * 合并时间窗口，单位毫秒。在此时间内的相同消息将被合并
+   * @default 500
+   */
+  mergeWindow?: number;
+  /**
+   * 最大合并次数
+   * @default 99
+   */
+  maxMergeCount?: number;
+  /**
+   * 是否显示合并计数
+   * @default true
+   */
+  showMergeCount?: boolean;
+  /**
+   * 合并计数显示格式
+   * @default '(×{count})'
+   */
+  mergeCountFormat?: string;
+}
+
+/**
+ * 消息项内部接口，包含合并相关属性
+ */
+export interface MessageItemInternal extends MessageOptions {
+  key: number;
+  mergeCount?: number;
+  mergeTimer?: number;
+  originalContent?: string | TNode;
+}
+
+/**
+ * 根据合并标识清除消息的方法
+ */
+export type MessageClearByKeyMethod = (mergeKey: string) => void;
+
+/**
+ * 配置全局合并选项的方法
+ */
+export type MessageConfigMergeMethod = (config: MessageMergeConfig) => void;
