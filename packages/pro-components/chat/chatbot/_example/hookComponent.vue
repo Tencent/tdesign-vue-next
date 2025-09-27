@@ -9,9 +9,9 @@
       >
         <template #actionbar>
           <t-chat-action
-            v-if="isAIMessage(message) && message.status === 'complete'"
+            v-if="message.role === 'assistant' && message.status === 'complete'"
             :action-bar="getChatActionBar(idx === messages.length - 1)"
-            :content="getMessageContentForCopy(message)"
+            :content="message.content[0].data"
             :comment="message.role === 'assistant' ? message.comment : ''"
             @actions="actionHandler"
           />
@@ -47,8 +47,6 @@ import {
   type TdChatActionsName,
   TdChatListApi,
   TdChatSenderApi,
-  isAIMessage,
-  getMessageContentForCopy,
   useChat,
 } from '@tdesign-vue-next/chat';
 import { MessagePlugin } from 'tdesign-vue-next';

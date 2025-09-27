@@ -362,6 +362,13 @@ export interface TdChatSenderProps {
    * 点击消息终止的回调方法
    */
   onStop?: (value: string, context: { e: MouseEvent }) => void;
+  /**
+   * 附件配置属性
+   */
+  attachmentsProps?: {
+    items: any[];
+    overflow: 'scrollX' | 'scrollY' | 'wrap';
+  };
 }
 
 export interface TdChatReasoningProps {
@@ -456,5 +463,4 @@ export type * from 'tdesign-web-components/lib/chat-sender/type';
 export type * from 'tdesign-web-components/lib/filecard/type';
 export type * from 'tdesign-web-components/lib/chat-message/index';
 export type * from 'tdesign-web-components/lib/chatbot/type';
-export * from 'tdesign-web-components/lib/chatbot/core/utils';
 export type * from 'tdesign-web-components/lib/chat-action/type';

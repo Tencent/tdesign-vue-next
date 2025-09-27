@@ -1,7 +1,7 @@
 import { ref, onMounted, onUnmounted, type Ref } from 'vue';
-import type { ChatMessagesData, ChatStatus, ChatServiceConfig } from 'tdesign-web-components/lib/chatbot/core/type';
+import type { ChatMessagesData, ChatStatus, ChatServiceConfig } from 'tdesign-web-components/lib/chat-engine';
 import { TdChatProps } from 'tdesign-web-components';
-import ChatEngine from 'tdesign-web-components/lib/chatbot/core';
+import ChatEngine from 'tdesign-web-components/lib/chat-engine';
 
 export const useChat = (options: {
   defaultMessages: TdChatProps['defaultMessages'];
