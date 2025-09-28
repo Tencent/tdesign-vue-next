@@ -45,14 +45,16 @@ export default {
       return `\n::: demo _example/${demoFileName} ${componentName}\n:::\n`;
     });
     source.replace(/:::\s*demo\s+([\\/.\w-]+)/g, (demoStr, relativeDemoPath) => {
-      const isMockDemoDisplay = ['_example/base', '_example/chat-drag', '_example/chat-drawer'].includes(
-        relativeDemoPath,
-      );
-      const isMockReasoningDemoDisplay = [
-        '_example/reasoning',
-        '_example/reasoning-drag',
-        '_example/reasoning-drawer',
-      ].includes(relativeDemoPath);
+      // 需要携带 mock-data/sseRequest 的示例
+      const isMockDemoDisplay =
+        ['_example/base', '_example/chat-drag', '_example/chat-drawer'].includes(relativeDemoPath) &&
+        ['chat'].includes(componentName);
+
+      // 需要携带 mock-data/sseRequest-reasoning 的示例
+      const isMockReasoningDemoDisplay =
+        ['_example/reasoning', '_example/reasoning-drag', '_example/reasoning-drawer'].includes(relativeDemoPath) &&
+        ['chat', 'chat-reasoning'].includes(componentName);
+
       const mockDemoPath = `_example/mock-data/sseRequest.ts`;
       const mockReasoningDemoPath = `_example/mock-data/sseRequest-reasoning.ts`;
 
