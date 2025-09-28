@@ -100,6 +100,13 @@ export const docs = [
     type: 'doc',
     children: [
       {
+        title: '概述',
+        titleEn: 'Overview',
+        name: 'overview',
+        path: '/chat/overview',
+        component: () => import('./docs/intro.md'),
+      },
+      {
         title: '快速开始',
         titleEn: 'Getting Started',
         name: 'getting-started',
@@ -118,6 +125,13 @@ export const docs = [
         name: 'sse',
         path: '/chat/sse',
         component: () => import('./docs/sse.md'),
+      },
+      {
+        title: '与AG-UI协议集成',
+        titleEn: 'AG-UI',
+        name: 'agui',
+        path: '/chat/agui',
+        component: () => import('./docs/agui.md'),
       },
     ],
   },
@@ -141,6 +155,13 @@ export const docs = [
         path: '/chat/dark-mode',
         component: () => import('@tdesign/common/dark-mode.md'),
         componentEn: () => import('@tdesign/common/dark-mode.en-US.md'),
+      },
+      {
+        title: '自定义样式',
+        titleEn: 'Style Customization',
+        name: 'custom-style',
+        path: '/cha/custom-style',
+        component: () => import('./docs/style.md'),
       },
     ],
   },
