@@ -6,6 +6,7 @@ import { markedHighlight } from 'marked-highlight';
 import hljs from 'highlight.js';
 import Clipboard from 'clipboard';
 import props from './chat-content-props';
+import ChatMarkdown from '../chat-markdown';
 
 const escapeTest = /[&<>"']/;
 const escapeReplace = new RegExp(escapeTest.source, 'g');
@@ -81,13 +82,14 @@ export default defineComponent({
     );
 
     const getHtmlByMarked = (markdown: string) => {
+      if (props.markdownProps.engine !== 'marked') return;
       if (!markdown) {
         return '<div class="waiting"></div>';
       }
       return marked.parse(markdown);
     };
     const textInfo = computed(() => {
-      if (role.value === 'model-change') {
+      if (['model-change', 'system', 'error'].includes(role.value)) {
         return props.content || '';
       }
       if (typeof props.content === 'string') {
@@ -111,17 +113,29 @@ export default defineComponent({
     return () => (
       <div class={[`${COMPONENT_NAME.value}__text`]}>
         {/* role兼容旧版 */}
-        {(typeof props.content === 'object' && props.content?.type === 'text') || role.value === 'user' ? (
-          <div class={`${COMPONENT_NAME.value}__text--${role.value}`}>
+        {(typeof props.content === 'object' && props.content?.type === 'text') ||
+        (role.value && ['user', 'model-change', 'system', 'error'].includes(role.value)) ? (
+          <div class={[`${COMPONENT_NAME.value}__text--user`, `other__${role.value}`]}>
             <pre v-html={textInfo.value}></pre>
           </div>
-        ) : (
+        ) : props.markdownProps?.engine && props.markdownProps?.engine === 'marked' ? (
           <div class={`${COMPONENT_NAME.value}__text__assistant`}>
             <div
-              class={[`${COMPONENT_NAME.value}__text__content`, `${COMPONENT_NAME.value}__text--${role.value}`]}
+              class={[`${COMPONENT_NAME.value}__text__content`, `${COMPONENT_NAME.value}__text--assistant`]}
               v-html={textInfo.value}
             ></div>
           </div>
+        ) : (
+          <ChatMarkdown
+            content={
+              typeof props.content === 'string'
+                ? props.content
+                : typeof props.content === 'object' && props.content?.type === 'markdown'
+                ? props.content.data
+                : JSON.stringify(props.content)
+            }
+            options={props.markdownProps.options}
+          />
         )}
       </div>
     );

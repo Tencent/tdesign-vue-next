@@ -23,4 +23,11 @@ export default {
       return ['user', 'assistant', 'error', 'model-change', 'system'].includes(val);
     },
   },
+  markdownProps: {
+    type: Object as PropType<TdChatContentProps['markdownProps']>,
+    default: () => ({
+      engine: 'cherry-markdown',
+      options: {},
+    }),
+  },
 };

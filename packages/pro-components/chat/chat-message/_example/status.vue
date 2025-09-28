@@ -32,9 +32,14 @@ const animationOptions = [
       datetime="今天16:38"
       :animation="animation"
       name="TDesignAI"
-      :message="messages.loading"
+      role="assistant"
+      :status="messages.loading.status"
     />
     <t-divider>出错状态下的消息</t-divider>
-    <t-chat-message avatar="https://tdesign.gtimg.com/site/chat-avatar.png" :message="messages.error" />
+    <t-chat-message
+      avatar="https://tdesign.gtimg.com/site/chat-avatar.png"
+      role="assistant"
+      :status="messages.error.status"
+    />
   </t-space>
 </template>
