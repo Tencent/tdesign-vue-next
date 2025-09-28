@@ -874,8 +874,8 @@ importers:
         specifier: workspace:^
         version: link:../tdesign-vue-next
       tdesign-web-components:
-        specifier: 1.2.0-alpha.1
-        version: 1.2.0-alpha.1
+        specifier: 1.2.1-beta.4
+        version: 1.2.1-beta.4
       vue:
         specifier: '>=3.1.0'
         version: 3.3.9(typescript@5.8.3)
@@ -4481,6 +4481,9 @@ packages:
     resolution: {integrity: sha512-7MptL8U0cqcFdzIzwOTHoilX9x5BrNqye7Z/LuC7kCMRio1EMSyqRK3BEAUD7sXRq4iT4AzTVuZdhgQ2TCvYLg==}
     engines: {node: '>=8.6.0'}
 
+  fast-json-patch@3.1.1:
+    resolution: {integrity: sha512-vf6IHUX2SBcA+5/+4883dsIjpBTqmfBjmYiWK1savxQmFk4JfBMLa7ynTYOs1Rolp/T1betJxHiGD3g1Mn8lUQ==}
+
   fast-json-stable-stringify@2.1.0:
     resolution: {integrity: sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw==}
 
@@ -6795,6 +6798,7 @@ packages:
   source-map@0.8.0-beta.0:
     resolution: {integrity: sha512-2ymg6oRBpebeZi9UUNsgQ89bhx01TcTkmNTGnNO88imTmbSgy4nfujrgVEFKWpMTEGA11EDkTt7mqObTPdigIA==}
     engines: {node: '>= 8'}
+    deprecated: The work that was done in this beta branch won't be included in future versions
 
   sourcemap-codec@1.4.8:
     resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
@@ -7059,8 +7063,8 @@ packages:
     peerDependencies:
       vue: ~2.7.14
 
-  tdesign-web-components@1.2.0-alpha.1:
-    resolution: {integrity: sha512-FmzfNUt3UqCdJAHXxHptZgRGsGDu/XsDS8Bas1Begp/lYC2j9GAdGRskfEXitBrJhTh+SxPqPOYeEVRKnUEoSA==}
+  tdesign-web-components@1.2.1-beta.4:
+    resolution: {integrity: sha512-ipzJkBezI3Y3aAoNv/QZFJ0IrOEerOWHYOOBlea8uu+JgoDhNCkt1cFNwObHp5yNmyhTU5VdSKneduItigxkdQ==}
 
   temp-dir@2.0.0:
     resolution: {integrity: sha512-aoBAniQmmwtcKp/7BzsH8Cxzv8OL736p7v1ihGb5e9DJ9kTwGWHrQrVB5+lfVDzfGrdRzXch+ig7LHaY1JTOrg==}
@@ -11913,6 +11917,8 @@ snapshots:
       merge2: 1.4.1
       micromatch: 4.0.8
 
+  fast-json-patch@3.1.1: {}
+
   fast-json-stable-stringify@2.1.0: {}
 
   fast-levenshtein@2.0.6: {}
@@ -14746,7 +14752,7 @@ snapshots:
       validator: 13.15.15
       vue: 2.7.14
 
-  tdesign-web-components@1.2.0-alpha.1:
+  tdesign-web-components@1.2.1-beta.4:
     dependencies:
       '@babel/runtime': 7.27.6
       '@popperjs/core': 2.11.8
@@ -14754,6 +14760,7 @@ snapshots:
       class-variance-authority: 0.7.1
       clsx: 2.1.1
       copy-to-clipboard: 3.3.3
+      fast-json-patch: 3.1.1
       htm: 3.1.1
       immer: 10.1.1
       lodash-es: 4.17.21
