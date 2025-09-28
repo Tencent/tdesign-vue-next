@@ -6,12 +6,31 @@ spline: ai
 
 ## 安装
 
+
+### 环境要求
+
+- node >= 18.0.0
+- pnpm >= 9.0.0
+
+
 ### 使用 npm 安装
 
 推荐使用 npm 方式进行开发
 
 ```shell
 npm i @tdesign-vue-next/chat
+```
+
+### 使用 yarn 安装
+
+```shell
+yarn add @tdesign-vue-next/chat
+```
+
+### 使用 pnpm 安装
+
+```shell
+pnpm add @tdesign-vue-next/chat
 ```
 
 ## 使用
@@ -133,6 +152,84 @@ module.exports = {
 
 > `TDesignResolver` 支持的配置，可以点击此[链接](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/auto-import-resolver/README.md#%E9%80%89%E9%A1%B9)。
 
+## 配置服务
+
+TDesign Chat 支持两种后端AI Agent服务返回数据协议模式：**自定义协议**和**AG-UI标准协议**。您可以根据后端服务的实际情况选择合适的协议模式。
+
+### 自定义协议模式
+
+适用于已有后端服务或需要自定义数据结构的场景，您的后端服务只需要返回标准SSE格式即可。
+
+```js
+// 自定义后端接口（/api/chat）返回案例
+data: {"type": "think", "content": "正在分析您的问题..."}
+data: {"type": "text", "content": "我是**腾讯云**助手"}
+data: {"type": "text", "content": "很高兴为您服务！"}
+```
+
+接下来，前端通过配置 `onMessage` 回调来解析流式数据, 将自定义数据映射为组件所需格式。
+
+```javascript
+const chatServiceConfig = {
+  endpoint: '/api/chat',
+  onMessage: (chunk) => {
+    const { type, content } = chunk.data;
+    switch (type) {
+      case 'text':
+        return {
+          type: 'markdown',
+          data: content,
+        };
+      case 'think':
+        return {
+          type: 'thinking',
+          data: {
+            title: '思考中...',
+            text: content,
+          },
+        };
+      default:
+        return null;
+    }
+  },
+};
+```
+
+
+### AG-UI 标准协议
+
+**AG-UI协议**是专为AI代理与前端应用交互设计的标准化轻量级协议，内置支持工具调用、状态管理、多步骤任务等高级功能。AG-UI协议支持16种标准化事件类型，组件会自动解析并渲染，包括对话生命周期`RUN_*`、文本消息`TEXT_MESSAGE_*`、思考过程`THINKING_*`、工具调用`TOOL_CALL_*`、状态更新`STATE_*`等。
+
+TDesign Chat内置支持**AG-UI协议数据双向转换**，符合该协议的后端Agent服务，可以无缝接入使用，只需在配置中开启即可。详细介绍见[与AG-UI协议集成](/react-aigc/agui) 
+
+```js
+// 符合AG-UI协议的后端接口（/api/agui/chat）返回案例
+data: {"type": "RUN_STARTED", "runId": "run_456"}
+data: {"type": "TEXT_MESSAGE_CONTENT", "delta": "正在处理您的请求..."}
+data: {"type": "TOOL_CALL_START", "toolCallName": "search"}
+data: {"type": "TOOL_CALL_RESULT", "content": "查询结果"}
+data: {"type": "RUN_FINISHED", "runId": "run_456"}
+```
+
+```javascript
+const chatServiceConfig = {
+  endpoint: '/api/agui/chat',
+  protocol: 'agui', // 启用AG-UI协议
+  stream: true,
+};
+```
+
+
+### 协议选择建议
+
+| 场景 | 推荐协议 | 理由 |
+|------|---------|------|
+| 快速集成到现有服务 | 自定义协议 | 灵活适配现有数据结构 |
+| 构建复杂AI应用 | AG-UI协议 | 业界标准、功能完整、扩展性强 |
+| 多工具调用场景 | AG-UI协议 | 内置工具注册、调用及状态管理Hook |
+| 简单问答场景 | 自定义协议 | 配置简单、开发快速 |
+
+更多详细配置和示例请参考[组件文档](/chat/components/chatbot)。
 
 ## 多语言配置
 
