@@ -24,7 +24,7 @@
       <!-- 只需要图片上传的使用方式-->
       <!-- <component :is="renderPresets([{ name: 'uploadImage' }])" /> -->
       <!-- 任意配置顺序-->
-      <component :is="renderPresets([{ name: 'uploadAttachment' }, { name: 'uploadImage' }])" />
+      <component :is="renderPresets([{ name: 'uploadImage' }, { name: 'uploadAttachment' }])" />
     </template>
   </t-chat-sender>
 </template>
