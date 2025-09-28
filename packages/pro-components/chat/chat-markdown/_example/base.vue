@@ -1,0 +1,113 @@
+<template>
+  <t-space direction="vertical">
+    <t-button @click="toggleTyping">{{ isTyping ? '暂停' : '流式输出' }}</t-button>
+    <t-chat-markdown :content="displayText" />
+  </t-space>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+
+const doc = `
+# This is TDesign
+
+## This is TDesign
+
+### This is TDesign
+
+#### This is TDesign
+
+The point of reference-style links is not that they’re easier to write. The point is that with reference-style links, your document source is vastly more readable. Compare the above examples: using reference-style links, the paragraph itself is only 81 characters long; with inline-style links, it’s 176 characters; and as raw \`HTML\`, it’s 234 characters. In the raw \`HTML\`, there’s more markup than there is text.
+
+> This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet.
+
+an example | *an example* | **an example**
+
+1. Bird
+1. McHale
+1. Parish
+    1. Bird
+    1. McHale
+        1. Parish
+
+- Red
+- Green
+- Blue
+    - Red
+    - Green
+        - Blue
+
+This is [an example](http://example.com/ "Title") inline link.
+
+<http://example.com/>
+
+\`\`\`bash
+$ npm i tdesign-vue-next
+\`\`\`
+
+---
+
+\`\`\`javascript
+import { createApp } from 'vue';
+import App from './app.vue';
+
+const app = createApp(App);
+app.use(TDesignChat);
+\`\`\`
+`;
+
+const displayText = ref(doc);
+const isTyping = ref(false);
+const timerRef = ref(null);
+const currentIndex = ref(doc.length);
+const startTimeRef = ref(Date.now());
+
+const toggleTyping = () => {
+  if (currentIndex.value >= doc.length) {
+    currentIndex.value = 0;
+    displayText.value = '';
+  }
+  isTyping.value = !isTyping.value;
+};
+
+const typeEffect = () => {
+  if (!isTyping.value) return;
+
+  if (currentIndex.value < doc.length) {
+    const char = doc[currentIndex.value];
+    currentIndex.value += 1;
+    displayText.value += char;
+    timerRef.value = setTimeout(typeEffect, 10);
+  } else {
+    isTyping.value = false;
+  }
+};
+
+onMounted(() => {
+  const handleResourceClick = (event) => {
+    console.log(event.target);
+  };
+  document.addEventListener('click', handleResourceClick);
+
+  return () => {
+    document.removeEventListener('click', handleResourceClick);
+  };
+});
+
+onMounted(() => {
+  if (isTyping.value) {
+    if (currentIndex.value >= doc.length) {
+      currentIndex.value = 0;
+      displayText.value = '';
+    }
+    startTimeRef.value = Date.now();
+    timerRef.value = setTimeout(typeEffect, 500);
+  }
+
+  return () => {
+    if (timerRef.value) clearTimeout(timerRef.value);
+  };
+});
+</script>
+
+<style scoped></style>

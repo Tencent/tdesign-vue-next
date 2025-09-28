@@ -29,6 +29,13 @@ const componentDocs = [
     component: () => import('@tdesign/pro-components-chat/chat-message/chat-message.md'),
   },
   {
+    title: 'ChatMarkdown 对话markdown',
+    titleEn: 'ChatMarkdown',
+    name: 'ChatMarkdown',
+    path: '/chat/components/chat-markdown',
+    component: () => import('@tdesign/pro-components-chat/chat-markdown/chat-markdown.md'),
+  },
+  {
     title: 'ChatContent 对话正文',
     titleEn: 'ChatContent',
     name: 'ChatContent',

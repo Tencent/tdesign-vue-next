@@ -14,6 +14,7 @@ import _ChatSender from './chat-sender';
 import _ChatAttachments from './attachments';
 import _ChatThinking from './chat-thinking';
 import _ChatBot from './chatbot';
+import _ChatMarkdown from './chat-markdown';
 import { ChatSearchContentComponent, ChatSuggestionContentComponent, ChatListComponent } from './chatbot';
 // 修改为直接导出
 import { useChat } from './chatbot/useChat';
@@ -71,7 +72,7 @@ export const ChatSearchContent = withInstall(ChatSearchContentComponent, 't-chat
 export const ChatSuggestionContent = withInstall(ChatSuggestionContentComponent, 't-chat-suggestion-content');
 
 export const ChatList = withInstall(ChatListComponent, 't-chat-list');
-
+export const ChatMarkdown = withInstall(_ChatMarkdown, 't-chat-markdown');
 // webc组件没有加入use todo
 export default {
   // TODO: refactor
@@ -92,6 +93,7 @@ export default {
     app.use(ChatSuggestionContent, config);
     app.use(ChatList, config);
     app.use(FileCard, config);
+    app.use(ChatMarkdown, config);
   },
   version: typeof PKG_VERSION === 'undefined' ? '' : PKG_VERSION,
 };

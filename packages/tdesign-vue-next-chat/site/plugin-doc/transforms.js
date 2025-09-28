@@ -44,7 +44,7 @@ export default {
 
       return `\n::: demo _example/${demoFileName} ${componentName}\n:::\n`;
     });
-    source.replace(/:::\s*demo\s+([\\/.\w-]+)/g, (demoStr, relativeDemoPath) => {
+    source = source.replace(/:::\s*demo\s+([\\/.\w-]+)/g, (demoStr, relativeDemoPath) => {
       const isMockDemoDisplay = ['_example/base', '_example/chat-drag', '_example/chat-drawer'].includes(
         relativeDemoPath,
       );
@@ -63,10 +63,18 @@ export default {
 
       demoImports[demoDefName] = `import ${demoDefName} from './${relativeDemoPath}.vue'`;
       demoCodesImports[demoCodeDefName] = `import ${demoCodeDefName} from './${relativeDemoPath}.vue?raw'`;
-      if (isMockDemoDisplay)
-        demoCodesImports[demoMockDataDefName] = `import ${demoMockDataDefName} from './${mockDemoPath}?raw'`;
-      if (isMockReasoningDemoDisplay)
-        demoCodesImports[demoMockDataDefName] = `import ${demoMockDataDefName} from './${mockReasoningDemoPath}?raw'`;
+      if (isMockDemoDisplay) {
+        const mockDemoFullPath = path.resolve(resourceDir, `./${mockDemoPath}`);
+        if (fs.existsSync(mockDemoFullPath)) {
+          demoCodesImports[demoMockDataDefName] = `import ${demoMockDataDefName} from './${mockDemoPath}?raw'`;
+        }
+      }
+      if (isMockReasoningDemoDisplay) {
+        const mockReasoningDemoFullPath = path.resolve(resourceDir, `./${mockReasoningDemoPath}`);
+        if (fs.existsSync(mockReasoningDemoFullPath)) {
+          demoCodesImports[demoMockDataDefName] = `import ${demoMockDataDefName} from './${mockReasoningDemoPath}?raw'`;
+        }
+      }
     });
 
     return source;
