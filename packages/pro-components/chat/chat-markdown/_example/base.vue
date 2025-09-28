@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 
 const doc = `
 # This is TDesign
@@ -70,18 +70,39 @@ const toggleTyping = () => {
   isTyping.value = !isTyping.value;
 };
 
-const typeEffect = () => {
+const typeWriter = () => {
   if (!isTyping.value) return;
 
   if (currentIndex.value < doc.length) {
     const char = doc[currentIndex.value];
     currentIndex.value += 1;
     displayText.value += char;
-    timerRef.value = setTimeout(typeEffect, 10);
+    console.log('模拟流式输出：displayText==', displayText.value);
+    timerRef.value = setTimeout(typeWriter, 10);
   } else {
     isTyping.value = false;
   }
 };
+
+// 使用watch监听isTyping的变化
+watch(isTyping, (newValue) => {
+  // 清理之前的定时器
+  if (timerRef.value) {
+    clearTimeout(timerRef.value);
+    timerRef.value = null;
+  }
+
+  if (newValue) {
+    // 如果已经完成输入，点击开始则重置
+    if (currentIndex.value >= doc.length) {
+      currentIndex.value = 0;
+      displayText.value = '';
+    }
+    startTimeRef.value = Date.now();
+    // 延迟500ms开始打字效果
+    timerRef.value = setTimeout(typeWriter, 500);
+  }
+});
 
 onMounted(() => {
   const handleResourceClick = (event) => {
@@ -91,21 +112,6 @@ onMounted(() => {
 
   return () => {
     document.removeEventListener('click', handleResourceClick);
-  };
-});
-
-onMounted(() => {
-  if (isTyping.value) {
-    if (currentIndex.value >= doc.length) {
-      currentIndex.value = 0;
-      displayText.value = '';
-    }
-    startTimeRef.value = Date.now();
-    timerRef.value = setTimeout(typeEffect, 500);
-  }
-
-  return () => {
-    if (timerRef.value) clearTimeout(timerRef.value);
   };
 });
 </script>
