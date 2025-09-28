@@ -74,7 +74,7 @@ const message = ref({
 </script>
 <style scoped>
 .chart {
-  width: 800px;
+  width: 600px;
   height: 500px;
 }
 </style>

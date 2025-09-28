@@ -1,7 +1,7 @@
 <template>
   <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" @panel-change="onPanelChange">
     <template #chat="{ configProps }">
-      <div style="width: '600px'">
+      <div style="width: 560px">
         <t-chat-message
           avatar="https://tdesign.gtimg.com/site/chat-avatar.png"
           datetime="今天16:38"
@@ -41,7 +41,7 @@ const configList = ref(configJson);
 const panelList = [{ label: 'ChatMessage', value: 'chat' }];
 const usageCodeMap = {
   chat: ` 
-  <div style="width: '600px'">
+  <div style="width: 560px">
   <t-chat-message
         avatar="https://tdesign.gtimg.com/site/chat-avatar.png"
         datetime="今天16:38"
