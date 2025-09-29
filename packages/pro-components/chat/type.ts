@@ -175,6 +175,15 @@ export interface TdChatContentProps {
    * 角色，不同选项配置不同的样式，支持类型包括用户、助手、错误、模型切换、系统消息
    */
   role?: 'user' | 'assistant' | 'error' | 'model-change' | 'system';
+  /**
+   * Markdown引擎类型，用于解析Markdown内容
+   */
+  markdownProps?: {
+    engine: 'marked' | 'cherry-markdown';
+    options: {
+      [key: string]: any;
+    };
+  };
 }
 
 export interface TdChatActionProps {

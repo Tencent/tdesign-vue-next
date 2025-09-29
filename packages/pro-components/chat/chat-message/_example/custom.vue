@@ -4,7 +4,7 @@
       variant="text"
       avatar="https://tdesign.gtimg.com/site/chat-avatar.png"
       name="TDesignAI"
-      :message="message"
+      role="assistant"
     >
       <template #content>
         <template v-for="(contentItem, contentIndex) in message.content" :key="contentItem.data.id || contentIndex">

@@ -51,18 +51,20 @@ const messages = {
       avatar="https://tdesign.gtimg.com/site/avatar.jpg"
       datetime="今天16:38"
       name="张三"
-      :message="messages.user"
+      role="user"
+      :content="messages.user.content"
     />
     <t-chat-message
       avatar="https://tdesign.gtimg.com/site/chat-avatar.png"
       datetime="今天16:43"
       name="TDesignAI"
-      :message="messages.ai"
+      role="assistant"
+      :content="messages.ai.content"
     />
     <t-divider>可配置位置</t-divider>
-    <t-chat-message placement="right" variant="base" :message="messages.user" />
-    <t-chat-message placement="left" :message="messages.ai" />
+    <t-chat-message placement="right" variant="base" role="user" :content="messages.user.content" />
+    <t-chat-message placement="left" role="assistant" :content="messages.ai.content" />
     <t-divider>角色为system的系统消息</t-divider>
-    <t-chat-message :message="messages.system" />
+    <t-chat-message :content="messages.system.content" role="system" />
   </t-space>
 </template>
