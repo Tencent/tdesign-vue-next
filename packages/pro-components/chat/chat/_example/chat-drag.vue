@@ -28,7 +28,7 @@
           </template>
         </template>
         <template #actionbar="{ item }">
-          <t-chat-action
+          <t-chat-actionbar
             v-if="item.message.role === 'assistant'"
             :comment="commentValue"
             :content="item.message.content[0]?.data || ''"

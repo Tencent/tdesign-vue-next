@@ -8,7 +8,7 @@
     >
       <!-- 植入插槽用来追加消息底部操作栏 -->
       <template #actionbar>
-        <t-chat-action
+        <t-chat-actionbar
           :comment="comment"
           :content="message.content[0].data"
           :action-bar="['good', 'bad', 'replay', 'copy']"

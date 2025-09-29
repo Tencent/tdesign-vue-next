@@ -24,7 +24,7 @@
         >
           <!-- 自定义操作按钮插槽 -->
           <template #actionbar>
-            <t-chat-action
+            <t-chat-actionbar
               v-if="item.message.role === 'assistant'"
               :content="getActionContent(item.message.content)"
               :action-bar="['good', 'bad', 'replay', 'copy']"

@@ -8,7 +8,7 @@
         :message="message"
       >
         <template #actionbar>
-          <t-chat-action
+          <t-chat-actionbar
             v-if="message.role === 'assistant' && message.status === 'complete'"
             :action-bar="getChatActionBar(idx === messages.length - 1)"
             :content="message.content[0].data"
