@@ -11,6 +11,10 @@ const messages = {
     id: '22222',
     role: 'assistant',
     status: 'error',
+    content: {
+      type: 'text',
+      data: '出错了',
+    },
   },
 };
 
@@ -39,6 +43,7 @@ const animationOptions = [
     <t-chat-message
       avatar="https://tdesign.gtimg.com/site/chat-avatar.png"
       role="assistant"
+      :content="messages.error.content"
       :status="messages.error.status"
     />
   </t-space>
