@@ -8,7 +8,7 @@ import _ChatReasoning from './chat-reasoning';
 import _ChatLoading from './chat-loading';
 
 // 用的vue源码
-import _ChatAction from './chat-action';
+import _ChatActionbar from './chat-actionbar';
 import _FileCard from './file-card';
 import _ChatSender from './chat-sender';
 import _ChatAttachments from './attachments';
@@ -57,7 +57,9 @@ export const ChatInput = withInstall(_ChatInput);
 export const ChatSender = withInstall(_ChatSender);
 export const ChatContent = withInstall(_ChatContent);
 export const ChatReasoning = withInstall(_ChatReasoning);
-export const ChatAction = withInstall(_ChatAction);
+export const ChatActionbar = withInstall(_ChatActionbar);
+// 兼容历史版本，分别导出ChatActionbar，ChatAction
+export const ChatAction = withInstall(_ChatActionbar);
 export const FileCard = withInstall(_FileCard);
 export const ChatLoading = withInstall(_ChatLoading);
 // 附件
@@ -88,6 +90,7 @@ export default {
     app.use(ChatInput, config);
     app.use(ChatContent, config);
     app.use(ChatReasoning, config);
+    app.use(ChatActionbar, config);
     app.use(ChatAction, config);
     app.use(ChatLoading, config);
     app.use(ChatSender, config);

@@ -71,11 +71,11 @@ const componentDocs = [
     component: () => import('@tdesign/pro-components-chat/chat-sender/chat-sender.md'),
   },
   {
-    title: 'ChatAction 对话操作',
-    titleEn: 'ChatAction',
-    name: 'ChatAction',
-    path: '/chat/components/chat-action',
-    component: () => import('@tdesign/pro-components-chat/chat-action/chat-action.md'),
+    title: 'ChatActionbar 对话操作',
+    titleEn: 'ChatActionbar',
+    name: 'ChatActionbar',
+    path: '/chat/components/chat-actionbar',
+    component: () => import('@tdesign/pro-components-chat/chat-actionbar/chat-actionbar.md'),
   },
   {
     title: 'ChatLoading 对话加载',

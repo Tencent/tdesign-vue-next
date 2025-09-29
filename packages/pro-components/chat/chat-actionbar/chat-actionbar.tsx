@@ -14,10 +14,10 @@ import {
 // TODO: need refactor packages/components/typography/utils/copy-to-clipboard/index.ts???
 import Clipboard from 'clipboard';
 import { MessagePluginSingleton } from '../utils';
-import props from './chat-action-props';
+import props from './chat-actionbar-props';
 
 export default defineComponent({
-  name: 'TChatAction',
+  name: 'TChatActionbar',
   props,
   emits: ['actions', 'operation'],
   setup(props, { emit }) {
