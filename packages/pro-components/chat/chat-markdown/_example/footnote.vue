@@ -3,7 +3,8 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { onMounted, onUnmounted } from 'vue';
+// MarkdownEngine是内置的cherry
 import { MarkdownEngine } from '@tdesign-vue-next/chat';
 
 const hoverStyles = `

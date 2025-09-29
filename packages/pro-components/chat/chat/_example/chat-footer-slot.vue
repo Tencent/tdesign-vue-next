@@ -129,7 +129,7 @@ const inputEnter = function (inputValue: string) {
 </script>
 <style scoped>
 .chart {
-  width: 800px;
+  width: 600px;
   height: 500px;
 }
 </style>

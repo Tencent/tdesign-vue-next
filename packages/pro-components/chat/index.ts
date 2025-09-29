@@ -38,6 +38,8 @@ import './style';
 import 'tdesign-web-components/lib/style/index.css';
 import 'tdesign-web-components/lib/chat-message/content/search-content';
 import 'tdesign-web-components/lib/chat-message/content/suggestion-content';
+import { TdMarkdownEngine } from 'tdesign-web-components/lib/chat-message';
+
 export * from './type';
 
 export type ChatProps = TdChatProps;
@@ -73,6 +75,10 @@ export const ChatSuggestionContent = withInstall(ChatSuggestionContentComponent,
 
 export const ChatList = withInstall(ChatListComponent, 't-chat-list');
 export const ChatMarkdown = withInstall(_ChatMarkdown, 't-chat-markdown');
+
+// 导出 MarkdownEngine
+export { TdMarkdownEngine as MarkdownEngine };
+
 // webc组件没有加入use todo
 export default {
   // TODO: refactor
