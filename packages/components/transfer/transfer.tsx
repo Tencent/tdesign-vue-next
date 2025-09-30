@@ -29,7 +29,7 @@ export default defineComponent({
     const disabled = useDisabled();
     const classPrefix = usePrefixClass();
     const { value, modelValue, checked } = toRefs(props);
-    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, 'onChange');
     // @ts-ignore TODO
     const [innerChecked] = useDefaultValue(checked, props.defaultChecked, props.onCheckedChange, 'checked');
     const valueList = computed(() => innerValue.value);
