@@ -60,6 +60,29 @@ const parentKey = Symbol() as InjectionKey<{
   assertMouseLeave: (ev: MouseEvent) => void;
 }>;
 
+/** 判断是否为空字符串，或是空插槽 */
+function isEmptyContent(node: any) {
+  if (['', undefined, null].includes(node)) return true;
+
+  const innerNodes = node instanceof Array ? node : [node];
+  const r = innerNodes.filter((node) => {
+    // 过滤注释节点
+    if (node?.type?.toString() === 'Symbol(Comment)') return false;
+
+    // 检查 VNode 是否为空
+    if (node && typeof node === 'object' && node.type) {
+      // 如果 children 为空字符串或空数组，认为是空节点
+      if (node.children === '' || (Array.isArray(node.children) && node.children.length === 0)) {
+        return false;
+      }
+    }
+
+    return true;
+  });
+
+  return !r.length;
+}
+
 function getPopperPlacement(placement: TdPopupProps['placement']): Placement {
   return placement.replace(/-(left|top)$/, '-start').replace(/-(right|bottom)$/, '-end') as Placement;
 }
@@ -498,7 +521,7 @@ export default defineComponent({
 
     return () => {
       const content = renderTNodeJSX('content');
-      const hidePopup = props.hideEmptyPopup && ['', undefined, null].includes(content);
+      const hidePopup = props.hideEmptyPopup && isEmptyContent(content);
 
       const overlay =
         visible.value || !props.destroyOnClose ? (
