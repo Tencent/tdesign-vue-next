@@ -18,16 +18,17 @@
         <t-chat-message
           :avatar="item.avatar"
           :name="item.name"
-          :message="item.message"
+          :role="item.role"
+          :content="item.content"
           :datetime="item.datetime"
-          :variant="getStyle(item.message.role)"
-          :placement="item.message.role === 'user' ? 'right' : item.message.role === 'assistant' ? 'left' : 'left'"
+          :variant="getStyle(item.role)"
+          :placement="item.role === 'user' ? 'right' : item.role === 'assistant' ? 'left' : 'left'"
         >
           <!-- 自定义操作按钮插槽 -->
           <template #actionbar>
             <t-chat-actionbar
-              v-if="item.message.role === 'assistant'"
-              :content="getActionContent(item.message.content)"
+              v-if="item.role === 'assistant'"
+              :content="getActionContent(item.content)"
               :action-bar="['good', 'bad', 'replay', 'copy']"
               @actions="handleOperation"
             />
@@ -56,7 +57,8 @@ const handleOperation = function (type, options) {
   } else if (type === 'bad') {
     commentValue.value = commentValue.value === 'bad' ? '' : 'bad';
   } else if (type === 'replay') {
-    const userQuery = chatList.value[index + 1].message.content[0].data;
+    const userQuery = chatList.value[index + 1].content[0].data;
+
     inputEnter(userQuery);
   }
 };
@@ -77,39 +79,34 @@ const getActionContent = function (contentArray) {
 // 倒序渲染
 const chatList = ref([
   {
-    message: {
-      role: 'system',
-      content: [
-        {
-          type: 'text',
-          data: '模型由 hunyuan 变为 GPT4',
-        },
-      ],
-    },
+    role: 'system',
+    content: [
+      {
+        type: 'text',
+        data: '模型由 hunyuan 变为 GPT4',
+      },
+    ],
   },
   {
-    message: {
-      role: 'assistant',
-      content: [
-        {
-          type: 'text',
-          data: '它叫 McMurdo Station ATM，是美国富国银行安装在南极洲最大科学中心麦克默多站的一台自动提款机。',
-        },
-      ],
-    },
+    role: 'assistant',
+    content: [
+      {
+        type: 'text',
+        data: '它叫 McMurdo Station ATM，是美国富国银行安装在南极洲最大科学中心麦克默多站的一台自动提款机。',
+      },
+    ],
   },
   {
-    message: {
-      role: 'user',
-      content: [
-        {
-          type: 'text',
-          data: '南极的自动提款机叫什么名字？',
-        },
-      ],
-    },
+    role: 'user',
+    content: [
+      {
+        type: 'text',
+        data: '南极的自动提款机叫什么名字？',
+      },
+    ],
   },
 ]);
+
 const clearConfirm = function () {
   chatList.value = [];
 };
@@ -125,37 +122,35 @@ const inputEnter = function (inputValue) {
   }
   if (!inputValue) return;
   const params = {
-    message: {
-      content: [
-        {
-          type: 'text',
-          data: inputValue,
-        },
-      ],
-      role: 'user',
-    },
+    role: 'user',
+    content: [
+      {
+        type: 'text',
+        data: inputValue,
+      },
+    ],
   };
+
   chatList.value.unshift(params);
   // 空消息占位
   const params2 = {
-    message: {
-      role: 'assistant',
-      content: [
-        {
-          type: 'thinking',
-          status: 'complete',
-          data: {
-            title: '思考中...',
-            text: '',
-          },
+    role: 'assistant',
+    content: [
+      {
+        type: 'thinking',
+        status: 'complete',
+        data: {
+          title: '思考中...',
+          text: '',
         },
-        {
-          type: 'markdown',
-          data: '',
-        },
-      ],
-    },
+      },
+      {
+        type: 'markdown',
+        data: '',
+      },
+    ],
   };
+
   chatList.value.unshift(params2);
   handleData(inputValue);
 };
@@ -213,18 +208,19 @@ const handleData = async () => {
         loading.value = false;
         // 设置思考过程的status
         if (result.delta.reasoning_content) {
-          lastItem.message.content[0].data.text += result.delta.reasoning_content;
+          lastItem.content[0].data.text += result.delta.reasoning_content;
         }
         if (result.delta.content) {
-          lastItem.message.content[1].data += result.delta.content;
+          lastItem.content[1].data += result.delta.content;
         }
       },
       complete(isOk, msg) {
         if (!isOk) {
-          lastItem.message.role = 'error';
-          lastItem.message.content[0].data.text = msg;
-          lastItem.message.content[1].data = msg;
+          lastItem.role = 'error';
+          lastItem.content[0].data.text = msg;
+          lastItem.content[1].data = msg;
         }
+
         // 显示用时xx秒，业务侧需要自行处理
         lastItem.duration = 20;
         // 控制终止按钮

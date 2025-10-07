@@ -11,10 +11,12 @@ const messages = {
     id: '22222',
     role: 'assistant',
     status: 'error',
-    content: {
-      type: 'text',
-      data: '出错了',
-    },
+    content: [
+      {
+        type: 'text',
+        data: '出错了',
+      },
+    ],
   },
 };
 

@@ -8,7 +8,6 @@ import { AvatarProps } from 'tdesign-vue-next';
 import { TextareaProps } from 'tdesign-vue-next';
 import { CollapsePanelProps } from 'tdesign-vue-next';
 import { TNode } from 'tdesign-vue-next';
-import type { ChatMessagesData } from 'tdesign-web-components';
 
 export interface TdChatProps {
   /**
@@ -155,7 +154,7 @@ export interface TdChatItemProps {
    * @default text
    */
   variant?: 'base' | 'outline' | 'text';
-  message?: ChatMessagesData;
+  status?: '' | 'error';
 }
 
 export type ChatContentType = 'text' | 'markdown';
@@ -174,7 +173,7 @@ export interface TdChatContentProps {
   /**
    * 角色，不同选项配置不同的样式，支持类型包括用户、助手、错误、模型切换、系统消息
    */
-  role?: 'user' | 'assistant' | 'error' | 'model-change' | 'system';
+  role?: 'user' | 'assistant' | 'model-change' | 'system';
   /**
    * Markdown引擎类型，用于解析Markdown内容
    */
@@ -184,6 +183,7 @@ export interface TdChatContentProps {
       [key: string]: any;
     };
   };
+  status?: '' | 'error';
 }
 
 export interface TdChatActionProps {
@@ -426,7 +426,7 @@ export interface TdChatItemMeta {
   name?: string;
   role?: string;
   datetime?: string;
-  message?: ChatMessagesData;
+  content?: string;
 }
 
 export type ScrollToBottomParams = { behavior: 'auto' | 'smooth' };

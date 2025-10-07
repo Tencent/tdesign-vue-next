@@ -22,20 +22,26 @@
       >
         <!-- eslint-disable-next-line vue/no-unused-vars -->
         <template #content="{ item }">
-          <template v-for="(content, contentIndex) in item.message.content" :key="contentIndex">
-            <t-chat-thinking v-if="content.type === 'thinking'" :status="content.status" :content="content.data" />
-            <t-chat-content v-else :content="content.data" :role="item.message.role" />
+          <template v-for="(content, contentIndex) in item.content" :key="contentIndex">
+            <t-chat-thinking
+              v-if="content.type === 'thinking'"
+              :status="content.status"
+              :content="content.data"
+              :role="item.role"
+            />
+            <t-chat-content v-else :content="content.data" :role="item.role" />
           </template>
         </template>
         <template #actionbar="{ item }">
           <t-chat-actionbar
-            v-if="item.message.role === 'assistant'"
+            v-if="item.role === 'assistant'"
             :comment="commentValue"
-            :content="item.message.content[0]?.data || ''"
+            :content="item.content[0]?.data || ''"
             :action-bar="['good', 'bad', 'replay', 'copy']"
             @actions="handleOperation"
           />
         </template>
+
         <template #footer>
           <t-chat-input :stop-disabled="isStreamLoad" @send="inputEnter" @stop="onStop"> </t-chat-input>
         </template>
@@ -54,45 +60,40 @@ const commentValue = ref('');
 // 倒序渲染
 const chatList = ref([
   {
-    message: {
-      role: 'system',
-      content: [
-        {
-          type: 'text',
-          data: '模型由hunyuan变为GPT4',
-        },
-      ],
-    },
+    role: 'system',
+    content: [
+      {
+        type: 'text',
+        data: '模型由hunyuan变为GPT4',
+      },
+    ],
   },
   {
     avatar: 'https://tdesign.gtimg.com/site/chat-avatar.png',
     name: 'TDesignAI',
     datetime: '今天16:38',
-    message: {
-      role: 'assistant',
-      content: [
-        {
-          type: 'text',
-          data: '它叫 McMurdo Station ATM，是美国富国银行安装在南极洲最大科学中心麦克默多站的一台自动提款机。',
-        },
-      ],
-    },
+    role: 'assistant',
+    content: [
+      {
+        type: 'text',
+        data: '它叫 McMurdo Station ATM，是美国富国银行安装在南极洲最大科学中心麦克默多站的一台自动提款机。',
+      },
+    ],
   },
   {
     avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
     name: '自己',
     datetime: '今天16:38',
-    message: {
-      role: 'user',
-      content: [
-        {
-          type: 'text',
-          data: '南极的自动提款机叫什么名字？',
-        },
-      ],
-    },
+    role: 'user',
+    content: [
+      {
+        type: 'text',
+        data: '南极的自动提款机叫什么名字？',
+      },
+    ],
   },
 ]);
+
 const handleOperation = (type) => {
   if (type === 'good') {
     commentValue.value = commentValue.value === 'good' ? '' : 'good';
@@ -118,32 +119,30 @@ const inputEnter = function (inputValue) {
     avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
     name: '自己',
     datetime: new Date().toDateString(),
-    message: {
-      role: 'user',
-      content: [
-        {
-          type: 'text',
-          data: inputValue,
-        },
-      ],
-    },
+    role: 'user',
+    content: [
+      {
+        type: 'text',
+        data: inputValue,
+      },
+    ],
   };
+
   chatList.value.unshift(params);
   // 空消息占位
   const params2 = {
     avatar: 'https://tdesign.gtimg.com/site/chat-avatar.png',
     name: 'TDesignAI',
     datetime: new Date().toDateString(),
-    message: {
-      role: 'assistant',
-      content: [
-        {
-          type: 'text',
-          data: '',
-        },
-      ],
-    },
+    role: 'assistant',
+    content: [
+      {
+        type: 'text',
+        data: '',
+      },
+    ],
   };
+
   chatList.value.unshift(params2);
   handleData(inputValue);
 };
@@ -204,13 +203,14 @@ const handleData = async () => {
       success(result) {
         loading.value = false;
         const { data } = result;
-        lastItem.message.content[0].data += data;
+        lastItem.content[0].data += data;
       },
       complete(isOk, msg) {
-        if (!isOk || !lastItem.message.content[0].data) {
-          lastItem.message.role = 'error';
-          lastItem.message.content[0].data = msg;
+        if (!isOk || !lastItem.content[0].data) {
+          lastItem.role = 'error';
+          lastItem.content[0].data = msg;
         }
+
         // 控制终止按钮
         isStreamLoad.value = false;
         loading.value = false;

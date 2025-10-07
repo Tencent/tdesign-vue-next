@@ -5,7 +5,8 @@
         v-for="(message, idx) in messages"
         :key="message.id"
         v-bind="messageProps[message.role]"
-        :message="message"
+        :role="message.role"
+        :content="message.content"
       >
         <template #actionbar>
           <t-chat-actionbar

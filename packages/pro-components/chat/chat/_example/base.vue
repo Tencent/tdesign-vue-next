@@ -3,27 +3,23 @@
     :data="[
       {
         avatar: 'https://tdesign.gtimg.com/site/chat-avatar.png',
-        message: {
-          content: [
-            {
-              type: 'text',
-              data: '它叫 McMurdo Station ATM，是美国富国银行安装在南极洲最大科学中心麦克默多站的一台自动提款机。',
-            },
-          ],
-          role: 'assistant',
-        },
+        role: 'assistant',
+        content: [
+          {
+            type: 'text',
+            data: '它叫 McMurdo Station ATM，是美国富国银行安装在南极洲最大科学中心麦克默多站的一台自动提款机。',
+          },
+        ],
       },
       {
         avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
-        message: {
-          content: [
-            {
-              type: 'text',
-              data: '牛顿第一定律是否适用于所有参考系？',
-            },
-          ],
-          role: 'user',
-        },
+        role: 'user',
+        content: [
+          {
+            type: 'text',
+            data: '牛顿第一定律是否适用于所有参考系？',
+          },
+        ],
       },
     ]"
   >
@@ -72,29 +68,25 @@ const chatList = ref([
     avatar: 'https://tdesign.gtimg.com/site/chat-avatar.png',
     name: 'TDesignAI',
     datetime: '今天16:38',
-    message: {
-      role: 'assistant',
-      content: [
-        {
-          type: 'text',
-          data: '它叫 McMurdo Station ATM，是美国富国银行安装在南极洲最大科学中心麦克默多站的一台自动提款机。',
-        },
-      ],
-    },
+    role: 'assistant',
+    content: [
+      {
+        type: 'text',
+        data: '它叫 McMurdo Station ATM，是美国富国银行安装在南极洲最大科学中心麦克默多站的一台自动提款机。',
+      },
+    ],
   },
   {
     avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
     name: '自己',
     datetime: '今天16:38',
-    message: {
-      role: 'user',
-      content: [
-        {
-          type: 'text',
-          data: '南极的自动提款机叫什么名字？',
-        },
-      ],
-    },
+    role: 'user',
+    content: [
+      {
+        type: 'text',
+        data: '南极的自动提款机叫什么名字？',
+      },
+    ],
   },
 ]);
 
@@ -115,40 +107,38 @@ const inputEnter = function (inputValue) {
     avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
     name: '自己',
     datetime: new Date().toDateString(),
-    message: {
-      content: [
-        {
-          type: 'text',
-          data: inputValue,
-        },
-      ],
-      role: 'user',
-    },
+    role: 'user',
+    content: [
+      {
+        type: 'text',
+        data: inputValue,
+      },
+    ],
   };
+
   chatList.value.unshift(params);
   // 空消息占位
   const params2 = {
     avatar: 'https://tdesign.gtimg.com/site/chat-avatar.png',
     name: 'TDesignAI',
     datetime: new Date().toDateString(),
-    message: {
-      role: 'assistant',
-      content: [
-        {
-          type: 'thinking',
-          status: 'complete',
-          data: {
-            title: '思考中...',
-            text: '',
-          },
+    role: 'assistant',
+    content: [
+      {
+        type: 'thinking',
+        status: 'complete',
+        data: {
+          title: '思考中...',
+          text: '',
         },
-        {
-          type: 'markdown',
-          data: '',
-        },
-      ],
-    },
+      },
+      {
+        type: 'markdown',
+        data: '',
+      },
+    ],
   };
+
   chatList.value.unshift(params2);
   handleData(inputValue);
 };
@@ -207,18 +197,19 @@ const handleData = async () => {
         loading.value = false;
         // 设置思考过程的status
         if (result.delta.reasoning_content) {
-          lastItem.message.content[0].data.text += result.delta.reasoning_content;
+          lastItem.content[0].data.text += result.delta.reasoning_content;
         }
         if (result.delta.content) {
-          lastItem.message.content[1].data += result.delta.content;
+          lastItem.content[1].data += result.delta.content;
         }
       },
       complete(isOk, msg) {
         if (!isOk) {
-          lastItem.message.role = 'error';
-          lastItem.message.content[0].data.text = msg;
-          lastItem.message.content[1].data = msg;
+          lastItem.role = 'error';
+          lastItem.content[0].data.text = msg;
+          lastItem.content[1].data = msg;
         }
+
         // 显示用时xx秒，业务侧需要自行处理
         lastItem.duration = 20;
         // 控制终止按钮

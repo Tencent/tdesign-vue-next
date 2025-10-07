@@ -20,8 +20,12 @@ export default {
     type: String as PropType<TdChatContentProps['role']>,
     validator(val: TdChatContentProps['role']): boolean {
       if (!val) return true;
-      return ['user', 'assistant', 'error', 'model-change', 'system'].includes(val);
+      return ['user', 'assistant', 'model-change', 'system'].includes(val);
     },
+  },
+  status: {
+    type: String as PropType<TdChatContentProps['status']>,
+    default: '',
   },
   markdownProps: {
     type: Object as PropType<TdChatContentProps['markdownProps']>,

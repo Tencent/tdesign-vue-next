@@ -62,4 +62,8 @@ export default {
       return ['base', 'outline', 'text'].includes(val);
     },
   },
+  status: {
+    type: String as PropType<TdChatItemProps['status']>,
+    default: '' as TdChatItemProps['status'],
+  },
 };

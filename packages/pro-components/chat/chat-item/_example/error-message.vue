@@ -5,7 +5,7 @@
       name="自己"
       datetime="今天16:38"
       content="！！！请求出错"
-      role="error"
+      status="error"
     ></t-chat-item>
   </t-space>
 </template>
