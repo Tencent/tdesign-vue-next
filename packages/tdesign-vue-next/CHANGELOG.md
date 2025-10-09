@@ -5,6 +5,35 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.17.0 `2025-09-25` 
+
+### 🚀 Features
+- `Watermark`: 新增 `layout` API，支持生成不同布局的水印 @Wesley-0808 ([#5991](https://github.com/Tencent/tdesign-vue-next/pull/5991))
+- `Icon`: 
+  - `tdesign-icons-vue-next` 发布 `0.4.x` 版本，新增`align-bottom`、`no-result`、`no-result-filled`、 `tree-list`、`wifi-no`、 `wifi-no-filled`、`logo-stackblitz-filled`、`logo-stackblitz`、`logo-wecom-filled` 图标；移除 `video-camera-3`、`video-camera-3-filled`、`list` 图标，此前有依赖以上移除图标升级请注意 ⚠️ @uyarn ([#5968](https://github.com/Tencent/tdesign-vue-next/pull/5968))
+  - 按需加载方式使用的图标资源支持可变粗细功能，通过`strokeWidth`属性进行配置, 具体使用参考文档和示例 @uyarn ([#5968](https://github.com/Tencent/tdesign-vue-next/pull/5968))
+  - 按需加载方式使用的图标资源支持多色填充功能，通过`strokeColor` 和 `fillColor` 属性进行配置，具体使用参考文档和示例 @uyarn ([#5968](https://github.com/Tencent/tdesign-vue-next/pull/5968))
+- `ImageViewer`: 新增默认 trigger 渲染 ，默认为当前使用的图片作为默认 trigger，降低组件的使用难度，具体参考相关示例改动 @EthanShen10086 ([#5935](https://github.com/Tencent/tdesign-vue-next/pull/5935))
+- `Notification`: 新增 `onClose` 事件，用于处理调用 `NotifyPlugin.close()` 的相关回调场景 @baozjj ([#5958](https://github.com/Tencent/tdesign-vue-next/pull/5958))
+- `Tabs`: 拖拽至 `draggable = false` 区域时，将不显示可放置状态 @RSS1102 ([#5990](https://github.com/Tencent/tdesign-vue-next/pull/5990))
+
+### 🐞 Bug Fixes
+- `Form`: 修复校验规则在多级 name 对应 FormItem 错误触发的问题 @uyarn ([#6022](https://github.com/Tencent/tdesign-vue-next/pull/6022))
+- `ImageViewer`: trigger 方法新增传入图片 index 参数，具体使用方法参考示例 @betavs ([#6016](https://github.com/Tencent/tdesign-vue-next/pull/6016))
+- `Notification`: 修复调用 `NotifyPlugin.close()` 错误触发 `onCloseBtnClick` 回调的问题 @baozjj ([#5958](https://github.com/Tencent/tdesign-vue-next/pull/5958))
+- `QRCode`: 修复初始 value 值为空时，组件无法渲染的问题 @Wesley-0808 ([#5982](https://github.com/Tencent/tdesign-vue-next/pull/5982))
+- `Skeleton`: 修复使用 `rowCol` 时，额外渲染 `theme` 默认配置的错误行为 @uyarn ([#6009](https://github.com/Tencent/tdesign-vue-next/pull/6009))
+- `Textarea`: 修复内容超长情况下，设置 `autosize` 没有完整自动撑开高度，存在有滚动条的问题 @engvuchen ([#6019](https://github.com/Tencent/tdesign-vue-next/pull/6019))
+- `Tree`: 修复自定义 icon 全被设为 open 状态，导致图标颜色错误的问题 @RylanBot  ([#5993](https://github.com/Tencent/tdesign-vue-next/pull/5993))
+- `TreeSelect`: 
+  - 修复过滤场景下，展开状态节点前置图标没有正常展示的问题 @uyarn ([#6025](https://github.com/Tencent/tdesign-vue-next/pull/6025))
+  - 修复选中节点后展开状态触发不必要的更新的问题 @uyarn ([#6025](https://github.com/Tencent/tdesign-vue-next/pull/6025))
+- `Typography`: 
+  - 修复自定义复制内容无效的问题 @Wesley-0808 ([#5977](https://github.com/Tencent/tdesign-vue-next/pull/5977))
+  - 修复定义的 `mark` 颜色错误应用于文字颜色 @Wesley-0808 ([#5705](https://github.com/Tencent/tdesign-vue-next/pull/5705))
+- `Watermark`: 修复多行图文水印图片配置了灰度时，整个画布内容也会灰度的问题 @Wesley-0808 ([#5991](https://github.com/Tencent/tdesign-vue-next/pull/5991))
+- `FakeArrow`: 修复 `overlayStyle` 类型定义错误的问题 @haozang54-source ([#5971](https://github.com/Tencent/tdesign-vue-next/pull/5971))
+
 ## 🌈 1.16.1 `2025-09-01` 
 
 ### 🐞 Bug Fixes

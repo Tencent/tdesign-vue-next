@@ -14,6 +14,7 @@ footer | String / Slot / Function | - | Typescript：`string \| TNode`。[see mo
 icon | Boolean / Slot / Function | true | Typescript：`boolean \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 theme | String | info | options: info/success/warning/error。Typescript：`NotificationThemeList` `type NotificationThemeList = 'info' \| 'success' \| 'warning' \| 'error'`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/notification/type.ts) | N
 title | String / Slot / Function | - | Typescript：`string \| TNode`。[see more ts definition](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
+onClose | Function |  | Typescript：：`() => void`<br/> the callback event of NotificationPlugin.close | N
 onCloseBtnClick | Function |  | Typescript：`(context: { e: MouseEvent }) => void`<br/> | N
 onDurationEnd | Function |  | Typescript：`() => void`<br/> | N
 
@@ -21,6 +22,7 @@ onDurationEnd | Function |  | Typescript：`() => void`<br/> | N
 
 name | params | description
 -- | -- | --
+close |  \- | the callback event of NotificationPlugin.close
 close-btn-click | `(context: { e: MouseEvent })` | \-
 duration-end | \- | \-
 

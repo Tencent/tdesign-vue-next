@@ -73,6 +73,12 @@ export default defineComponent({
           }
           return remove(index);
         },
+        onClose: () => {
+          if (item.onClose) {
+            item.onClose();
+          }
+          return remove(index);
+        },
       };
     };
 
