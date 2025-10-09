@@ -9,10 +9,6 @@
     :loading="loading"
     @send="inputEnter"
   >
-    <template #suffix>
-      <!-- 监听键盘回车发送事件需要在sender组件监听 -->
-      <t-button theme="default" variant="text" size="large" class="btn" @click="inputEnter"> 发送 </t-button>
-    </template>
     <template #input-prefix>
       <t-dropdown :options="options" trigger="click" :style="{ padding: 0 }" @click="switchScene">
         <t-tag shape="round" variant="light" color="#0052D9" :style="{ marginRight: '4px', cursor: 'pointer' }">
@@ -41,26 +37,6 @@
           <span>深度思考</span>
         </t-button>
       </div>
-    </template>
-    <template #inner-header>
-      <t-space
-        :style="{
-          width: '100%',
-          marginBottom: '12px',
-          padding: '4px 0',
-          boxSizing: 'border-box',
-          justifyContent: 'space-between',
-          borderBottom: '1px solid #e7e7e7',
-        }"
-      >
-        <t-space size="small">
-          <EnterIcon :size="'14px'" :style="{ color: 'rgba(0, 0, 0, 0.26)', transform: 'scaleX(-1)' }" />
-          <span :style="{ fontSize: '14px', color: 'rgba(0, 0, 0, 0.4)' }">引用一段文字</span>
-        </t-space>
-        <div :style="{ marginLeft: 'auto', width: '16px' }" @click="onRemoveRef">
-          <CloseIcon :size="'14px'" :style="{ color: 'rgba(0, 0, 0, 0.26)' }" />
-        </div>
-      </t-space>
     </template>
   </t-chat-sender>
 </template>
