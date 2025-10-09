@@ -5,6 +5,14 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.17.1 `2025-10-09` 
+
+### 🐞 Bug Fixes
+- `Descriptions`: 修复无边框模式下的边距问题 @liweijie0812 ([#6043](https://github.com/Tencent/tdesign-vue-next/pull/6043))
+- `Watermark`: 修复 `1.17.0` SSR 场景下构建时报错的问题 @Wesley-0808  ([#6047](https://github.com/Tencent/tdesign-vue-next/pull/6047))
+- `Calendar`: 修复了当设定日历的range值为同一年内时，终止月份之后的月份选项没有正常禁用的问题 @shumuuu ([#6045](https://github.com/Tencent/tdesign-vue-next/pull/6045))
+
+
 ## 🌈 1.17.0 `2025-09-25` 
 
 ### 🚀 Features
