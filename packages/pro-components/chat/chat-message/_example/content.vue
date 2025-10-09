@@ -118,9 +118,10 @@ const onActions = {
 
 <template>
   <t-space direction="vertical" style="width: 100%">
-    <t-chat-message variant="base" placement="right" :message="userMessage1" />
+    <t-chat-message variant="base" placement="right" :content="userMessage1.content" :role="userMessage1.role" />
     <t-chat-message
-      :message="aiMessages"
+      :content="aiMessages.content"
+      :role="aiMessages.role"
       animation="gradient"
       :chat-content-props="{
         thinking: { maxHeight: 100, collapsed: true },
@@ -128,6 +129,6 @@ const onActions = {
       }"
       :handle-actions="onActions"
     />
-    <t-chat-message variant="base" placement="right" :message="userMessage2" />
+    <t-chat-message variant="base" placement="right" :content="userMessage2.content" :role="userMessage2.role" />
   </t-space>
 </template>

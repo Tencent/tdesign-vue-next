@@ -20,7 +20,7 @@
               :title="item.data.enName"
               style="margin: 14px 0"
             >
-              <template #actions>
+              <template #actionbar>
                 <t-space v-if="item.status === 'complete'">
                   <a style="cursor: pointer" @click="copyHandler(msg.content[0].data)">复制代码</a>
                   <a style="cursor: pointer" @click="previewHandler">预览</a>

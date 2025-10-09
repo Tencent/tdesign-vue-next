@@ -89,8 +89,8 @@ export default defineComponent({
         // 根据layout来设置placement，both时仅对user、assistant设置placement，其他值使用默认left
         const setPlacement = (item: TdChatItemMeta) => {
           if (props.layout === 'both') {
-            if (item.message.role === 'assistant') return 'left';
-            if (item.message.role === 'user') return 'right';
+            if (item.role === 'assistant') return 'left';
+            if (item.role === 'user') return 'right';
             return 'left'; // 其他role使用默认值
           }
           return 'left';
@@ -99,7 +99,9 @@ export default defineComponent({
           <ChatMessage
             avatar={item.avatar}
             name={item.name}
-            message={item.message}
+            role={item.role}
+            status={props.textLoading && (props.reverse ? index === 0 : index === data.length - 1) ? 'pending' : ''}
+            content={item.content}
             datetime={item.datetime}
             animation={props.animation}
             placement={setPlacement(item)}

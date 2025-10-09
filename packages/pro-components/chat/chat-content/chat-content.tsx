@@ -112,9 +112,10 @@ export default defineComponent({
     });
     return () => (
       <div class={[`${COMPONENT_NAME.value}__text`]}>
-        {/* role兼容旧版 */}
+        {/* role兼容旧版 status为rror*/}
         {(typeof props.content === 'object' && props.content?.type === 'text') ||
-        (role.value && ['user', 'model-change', 'system', 'error'].includes(role.value)) ? (
+        (role.value && ['user', 'model-change', 'system'].includes(role.value)) ||
+        props.status === 'error' ? (
           <div class={[`${COMPONENT_NAME.value}__text--user`, `other__${role.value}`]}>
             <pre v-html={textInfo.value}></pre>
           </div>

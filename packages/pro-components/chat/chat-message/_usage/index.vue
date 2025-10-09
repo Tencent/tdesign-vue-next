@@ -6,26 +6,21 @@
           avatar="https://tdesign.gtimg.com/site/chat-avatar.png"
           datetime="今天16:38"
           name="TDesignAI"
-          :message="{
-            role: 'user',
-            content: [
-              {
-                type: 'text',
-                data: '牛顿第一定律是否适用于所有参考系？',
-              },
-            ],
-          }"
+          role="user"
+          :content="[
+            {
+              type: 'text',
+              data: '牛顿第一定律是否适用于所有参考系？',
+            },
+          ]"
           v-bind="configProps"
         />
         <t-chat-message
           avatar="https://tdesign.gtimg.com/site/chat-avatar.png"
           datetime="今天16:38"
           name="TDesignAI"
-          :message="{
-            id: '11111',
-            role: 'assistant',
-            status: 'pending',
-          }"
+          role="assistant"
+          status="pending"
           v-bind="configProps"
         />
       </div>
@@ -46,26 +41,21 @@ const usageCodeMap = {
         avatar="https://tdesign.gtimg.com/site/chat-avatar.png"
         datetime="今天16:38"
         name="TDesignAI"
-        :message="{
-              role: 'user',
-  content: [
-    {
-      type: 'text',
-      data: '牛顿第一定律是否适用于所有参考系？',
-    }
-  ],
-}"
+        role="user"
+          :content="[
+            {
+              type: 'text',
+              data: '牛顿第一定律是否适用于所有参考系？',
+            },
+          ]"
         v-bind="configProps"
       />
       <t-chat-message
         avatar="https://tdesign.gtimg.com/site/chat-avatar.png"
         datetime="今天16:38"
         name="TDesignAI"
-        :message="{
-          id: '11111',
-            role: 'assistant',
-            status: 'pending'
-        }"
+        role="assistant"
+        status="pending"
         v-bind="configProps"
       />
        </div>

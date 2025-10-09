@@ -2,7 +2,7 @@
 
 ## API
 
-### ChatAction Props
+### ChatActionbar Props
 
 名称 | 类型 | 默认值 | 描述 | 必传
 -- | -- | -- | -- | --
@@ -16,7 +16,7 @@ operationBtn | Array | ["replay", "copy", "good", "bad", "share"] | 操作按钮
 onActions | Function |  | TS 类型：`(value:string, context: { e: MouseEvent }) => void`<br/>点击点赞，点踩，复制，重新生成按钮时触发 | N
 onOperation | Function |  | TS 类型：`(value:string, context: { e: MouseEvent }) => void`<br/>点击点赞，点踩，复制，重新生成按钮时触发`待废弃，请尽快使用onActions` | N
 
-### ChatAction Events
+### ChatActionbar Events
 
 名称 | 参数 | 描述
 -- | -- | --

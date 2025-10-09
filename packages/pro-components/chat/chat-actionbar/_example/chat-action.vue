@@ -1,6 +1,6 @@
 <template>
   <div class="chat-action-content">
-    <t-chat-action
+    <t-chat-actionbar
       :comment="comment"
       content="它叫 McMurdo Station ATM，是美国富国银行安装在南极洲最大科学中心麦克默多站的一台自动提款机。"
       :action-bar="['replay', 'copy', 'good', 'bad', 'share']"
