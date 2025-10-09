@@ -1,29 +1,41 @@
 <template>
-  <t-chat
-    :data="[
-      {
-        avatar: 'https://tdesign.gtimg.com/site/chat-avatar.png',
-        role: 'assistant',
-        content: [
-          {
-            type: 'text',
-            data: '它叫 McMurdo Station ATM，是美国富国银行安装在南极洲最大科学中心麦克默多站的一台自动提款机。',
-          },
-        ],
-      },
-      {
-        avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
-        role: 'user',
-        content: [
-          {
-            type: 'text',
-            data: '牛顿第一定律是否适用于所有参考系？',
-          },
-        ],
-      },
-    ]"
-  >
-  </t-chat>
+  <div class="chat-box">
+    <t-chat
+      ref="chatRef"
+      :clear-history="chatList.length > 0 && !isStreamLoad"
+      :data="chatList"
+      :text-loading="loading"
+      :is-stream-load="isStreamLoad"
+      style="height: 600px"
+      animation="gradient"
+      @scroll="handleChatScroll"
+      @clear="clearConfirm"
+    >
+      <!-- eslint-disable vue/no-unused-vars -->
+      <template #content="{ item, index }">
+        <template v-for="(content, contentIndex) in item.content" :key="contentIndex">
+          <t-chat-thinking v-if="content.type === 'thinking'" :status="content.status" :content="content.data" />
+          <t-chat-content v-else :content="content.data" :role="item.role" />
+        </template>
+      </template>
+      <template #actionbar="{ item, index }">
+        <t-chat-action
+          v-if="item.role === 'assistant'"
+          :content="getActionContent(item.content)"
+          :action-bar="['good', 'bad', 'replay', 'copy']"
+          @actions="handleOperation"
+        />
+      </template>
+      <template #footer>
+        <t-chat-sender :loading="isStreamLoad" @send="inputEnter" @stop="onStop"> </t-chat-sender>
+      </template>
+    </t-chat>
+    <t-button v-show="isShowToBottom" variant="text" class="bottomBtn" @click="backBottom">
+      <div class="to-bottom">
+        <ArrowDownIcon />
+      </div>
+    </t-button>
+  </div>
 </template>
 
 <script setup lang="jsx">
@@ -126,7 +138,7 @@ const inputEnter = function (inputValue) {
     content: [
       {
         type: 'thinking',
-        status: 'complete',
+        status: 'pending',
         data: {
           title: '思考中...',
           text: '',
@@ -211,7 +223,9 @@ const handleData = async () => {
         }
 
         // 显示用时xx秒，业务侧需要自行处理
-        lastItem.duration = 20;
+        // 设置思考过程的status
+        lastItem.content[0].status = 'complete';
+        lastItem.content[0].data.title = '已完成思考(耗时20秒)';
         // 控制终止按钮
         isStreamLoad.value = false;
         loading.value = false;

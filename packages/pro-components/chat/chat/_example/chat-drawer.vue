@@ -138,7 +138,7 @@ const inputEnter = function (inputValue) {
     content: [
       {
         type: 'thinking',
-        status: 'complete',
+        status: 'pending',
         data: {
           title: '思考中...',
           text: '',
@@ -220,9 +220,9 @@ const handleData = async () => {
           lastItem.content[0].data.text = msg;
           lastItem.content[1].data = msg;
         }
-
-        // 显示用时xx秒，业务侧需要自行处理
-        lastItem.duration = 20;
+        // 设置思考过程的status
+        lastItem.content[0].status = 'complete';
+        lastItem.content[0].data.title = '已完成思考(耗时20秒)';
         // 控制终止按钮
         isStreamLoad.value = false;
         loading.value = false;
