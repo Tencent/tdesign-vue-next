@@ -4,7 +4,7 @@
     v-model="inputValue"
     class="chat-sender"
     :textarea-props="{
-      placeholder: options.filter((item) => item.value === scene)[0].placeholder,
+      placeholder: '请输入消息...',
     }"
     :attachments-props="{
       items: filesList,
@@ -18,15 +18,6 @@
   >
     <template #suffix="{ renderPresets }">
       <component :is="renderPresets([{ name: 'uploadImage' }, { name: 'uploadAttachment' }])" />
-      <!-- 监听键盘回车发送事件需要在sender组件监听 -->
-      <t-button theme="default" variant="text" size="large" class="btn" @click="inputEnter"> 发送 </t-button>
-    </template>
-    <template #input-prefix>
-      <t-dropdown :options="options" trigger="click" :style="{ padding: 0 }" @click="switchScene">
-        <t-tag shape="round" variant="light" color="#0052D9" :style="{ marginRight: '4px', cursor: 'pointer' }">
-          {{ options.filter((item) => item.value === scene)[0].content }}
-        </t-tag>
-      </t-dropdown>
     </template>
     <template #footer-prefix>
       <div class="model-select">
@@ -53,10 +44,9 @@
     <template #inner-header>
       <t-space
         :style="{
-          width: '100%',
-          marginBottom: '12px',
+          width: 'calc(100% - 24px)',
+          margin: '0 12px 12px 12px',
           padding: '4px 0',
-          boxSizing: 'border-box',
           justifyContent: 'space-between',
           borderBottom: '1px solid #e7e7e7',
         }"
@@ -80,23 +70,6 @@ const loading = ref(false);
 const allowToolTip = ref(false);
 const chatSenderRef = ref(null);
 const inputValue = ref('');
-const options = [
-  {
-    content: '帮我写作',
-    value: 1,
-    placeholder: '输入你要撰写的主题',
-  },
-  {
-    content: '图像生成',
-    value: 2,
-    placeholder: '说说你的创作灵感',
-  },
-  {
-    content: '网页摘要',
-    value: 3,
-    placeholder: '输入你要解读的网页地址',
-  },
-];
 const scene = ref(1);
 const selectOptions = [
   {
