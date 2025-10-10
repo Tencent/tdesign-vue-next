@@ -19,7 +19,7 @@ import { computed, ComputedRef } from 'vue';
  */
 export function useEventForward<T extends Record<string, any>>(
   props: T,
-  internalHandlers: Partial<{
+  internalHandlers?: Partial<{
     [K in keyof T]: T[K] extends (...args: any[]) => void ? T[K] : never;
   }>,
 ): ComputedRef {
