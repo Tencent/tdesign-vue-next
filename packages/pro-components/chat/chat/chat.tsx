@@ -76,17 +76,6 @@ export default defineComponent({
        */
       const data = renderTNodeJSX('data');
       if (isArray(data) && data.length > 0) {
-        // webc是通过message的content是否有值来判断是否是loading状态
-        // const isLoading = (index: number) => {
-        //   return (props.reverse ? index === 0 : index === data.length - 1) && props.textLoading;
-        // };
-        // const isReasoningLoading = (index: number) => {
-        //   return (props.reverse ? index === 0 : index === data.length - 1) && props.isStreamLoad;
-        // };
-        // 判断content是否为插槽，如果是插槽，则关闭reasoning默认渲染
-        // const setReasoning = (item: TdChatItemMeta) => {
-        //   return slots.content ? false : item.reasoning;
-        // };
         // 根据layout来设置placement，both时仅对user、assistant设置placement，其他值使用默认left
         const setPlacement = (item: TdChatItemMeta) => {
           if (props.layout === 'both') {
@@ -156,8 +145,8 @@ export default defineComponent({
 
     /** 触发自动滚动 */
     const handleAutoScroll = throttle(() => {
-      const { autoScroll, defaultScrollTo } = props;
-      if (!autoScroll || !isAutoScrollEnabled.value) {
+      const { autoScroll, defaultScrollTo, reverse } = props;
+      if (!autoScroll || !isAutoScrollEnabled.value || reverse) {
         return;
       }
 
@@ -177,7 +166,7 @@ export default defineComponent({
 
     /** 检测自动滚动是否触发 */
     const checkAutoScroll = throttle(() => {
-      if (!listRef.value) return;
+      if (!listRef.value || props.reverse) return;
       const { scrollTop, scrollHeight, clientHeight } = listRef.value;
       const { defaultScrollTo } = props;
 
@@ -224,7 +213,7 @@ export default defineComponent({
     // 初始化自动滚动
     onMounted(() => {
       const { defaultScrollTo } = props;
-      defaultScrollTo === 'bottom' && (isAutoScrollEnabled.value = true);
+      defaultScrollTo === 'bottom' && !props.reverse && (isAutoScrollEnabled.value = true);
 
       const list = listRef.value;
       const inner = innerRef.value;

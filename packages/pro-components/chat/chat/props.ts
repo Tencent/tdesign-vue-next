@@ -82,10 +82,10 @@ export default {
   reasoning: {
     type: Function as PropType<TdChatProps['reasoning']>,
   },
-  /** 是否表现为倒序 */
+  /** 是否表现为倒序，默认为正序 */
   reverse: {
     type: Boolean,
-    default: true,
+    default: false,
   },
   /** 新消息是否处于加载状态，加载状态默认显示骨架屏，接口请求返回数据时请将新消息加载状态置为false */
   textLoading: Boolean,
