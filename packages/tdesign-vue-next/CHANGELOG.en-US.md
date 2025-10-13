@@ -1374,3 +1374,103 @@ docClass: timeline
 - `Test`: Fix test warnings @PengYYYYY ([#3229](https://github.com/Tencent/tdesign-vue-next/pull/3229))
 - `Affix`: Fix `offsetBottom/offsetTop` documentation description @xiaosansiji ([#3233](https://github.com/Tencent/tdesign-vue-next/pull/3233))
 - `Treeselect`: Fix `keys` documentation description @xiaosansiji ([#3233](https://github.com/Tencent/tdesign-vue-next/pull/3233))
+## 🌈 1.4.2 `2023-08-02` 
+### 🚀 Features
+- `Table`: Filterable table, when current `filterValue` has not set default value of filter value, no longer pass through `undefined` to filter component, as default value of some components must be array, not `undefined` @chaishi ([#3164](https://github.com/Tencent/tdesign-vue-next/pull/3164))
+- `Table`: Filterable table, support passing through `attrs/style/classNames` properties, styles, class names and other information to custom components @chaishi ([#3164](https://github.com/Tencent/tdesign-vue-next/pull/3164))
+### 🐞 Bug Fixes
+- `Table`: Fixed header fixed column empty data scenario, "No data" misalignment display issue @chaishi ([#3167](https://github.com/Tencent/tdesign-vue-next/pull/3167))
+- `Table`: Remote pagination using uncontrolled usage, switching page size exceeding `defaultPageSize` results in incomplete data display @ngyyuusora ([#3173](https://github.com/Tencent/tdesign-vue-next/pull/3173))
+### 🚧 Others
+- `Image`: Code refactoring @chaishi ([#3167](https://github.com/Tencent/tdesign-vue-next/pull/3167))
+## 🌈 1.4.1 `2023-07-27` 
+### 🐞 Bug Fixes
+- `Table`: Editable table validation error message style misalignment @chaishi ([#3155](https://github.com/Tencent/tdesign-vue-next/pull/3155))
+- `Tree`: Tree selector single selection cannot be selected @uyarn ([#3159](https://github.com/Tencent/tdesign-vue-next/pull/3159))
+### 🚧 Others
+- `Common`: Input box components' `tips` use unified text prompt style, note `tips` class name change @chaishi ([#3155](https://github.com/Tencent/tdesign-vue-next/pull/3155)) 
+## 🌈 1.4.0 `2023-07-26` 
+### 🚀 Features
+- `TimePicker`: 
+  - `disableTime` callback adds millisecond parameter @uyarn ([#3151](https://github.com/Tencent/tdesign-vue-next/pull/3151))
+  - Optimize experience when scrolling to unselectable options when displaying unselectable time options @uyarn ([#3151](https://github.com/Tencent/tdesign-vue-next/pull/3151))
+- `Menu`: Refactor sidebar navigation submenu expand/collapse animation implementation, fix issue where `SubMenu` menu items cannot be fully displayed when too many @xiaosansiji ([#3140](https://github.com/Tencent/tdesign-vue-next/pull/3140))
+- `Image`: Property `src` supports passing in `File` file type to display images @chaishi ([#3136](https://github.com/Tencent/tdesign-vue-next/pull/3136))
+- `ImageViewer`: Property `images` supports passing in `File` file type to preview images @chaishi ([#3136](https://github.com/Tencent/tdesign-vue-next/pull/3136))
+- `Upload`: File upload list supports displaying thumbnails, controlled through `showThumbnail` property @chaishi ([#3136](https://github.com/Tencent/tdesign-vue-next/pull/3136))
+
+### 🐞 Bug Fixes
+- `Table`: 
+  - Editable table scenario, support setting `colKey` value as chained property, such as: `a.b.c` @chaishi ([#3137](https://github.com/Tencent/tdesign-vue-next/pull/3137))
+  - Editable table scenario, row editing, when `edit.props` and `edit.on` are functions, add parameter `updateEditedCellValue` for updating edited state table data @chaishi ([#3137](https://github.com/Tencent/tdesign-vue-next/pull/3137))
+  - Column width adjustment + header sticky + column configuration customization comprehensive scenario, when column width decreases, table width cannot restore original width @chaishi ([#3137](https://github.com/Tencent/tdesign-vue-next/pull/3137))
+  - Fix issue where event `onValidate` is not triggered after executing `validateTableData` function in editable cell scenario @chaishi ([#3143](https://github.com/Tencent/tdesign-vue-next/pull/3143))
+- `Tree`: Fix issue where `actived` value in parameter `context` is opposite to actual state in `active` event @gaoachao ([#3134](https://github.com/Tencent/tdesign-vue-next/pull/3134))
+- `Button`: Disable priority, `Button.disabled > Form.disabled` @liweijie0812 ([#3133](https://github.com/Tencent/tdesign-vue-next/pull/3133))
+- `InputNumber`: When `decimalPlaces` exists, value meets requirements, but `onChange` event is triggered before user operation @chaishi ([#3145](https://github.com/Tencent/tdesign-vue-next/pull/3145))
+- `Menu`: Fix issue where `MenuItem`'s `click` click event does not pass `event` parameter @xiaosansiji ([#3140](https://github.com/Tencent/tdesign-vue-next/pull/3140)) 
+ ## 🌈 1.3.12 `2023-07-19` 
+### 🚀 Features
+- `Checkbox`: @chaishi ([#3103](https://github.com/Tencent/tdesign-vue-next/pull/3103))
+  - Add support for keyboard control to check or uncheck options
+  - Add support for `lazyLoad`, for scenarios requiring rendering large amounts of data, or lazy loading complex content/images
+### 🐞 Bug Fixes
+- `Input`: 
+  - Remove `Number` from input box `value` type @liweijie0812 ([#3100](https://github.com/Tencent/tdesign-vue-next/pull/3100))
+  - Restore default value data type definition for some properties @chaishi ([#3102](https://github.com/Tencent/tdesign-vue-next/pull/3102))
+  - Fix `prefixIcon` `padding` style issue @uyarn ([#3113](https://github.com/Tencent/tdesign-vue-next/pull/3113))
+- `Rate`: Fix abnormal `tooltip` display when `rate` enables text display and half star @xixileng ([#3097](https://github.com/Tencent/tdesign-vue-next/pull/3097))
+- `InputNumber`: Fix issue where `input-number` value is `undefined` when content is empty, should be `null` @xixileng ([#3098](https://github.com/Tencent/tdesign-vue-next/pull/3098))
+- `Checkbox`: Fix issue where `Form.disabled` form cannot uniformly control `Checkbox` component disabled state @chaishi ([#3103](https://github.com/Tencent/tdesign-vue-next/pull/3103))
+- `Select`: Fix issue where `autofocus` does not work @xixileng ([#3112](https://github.com/Tencent/tdesign-vue-next/pull/3112))
+- `Radio`: Optimize option group line wrapping @ontheroad1992 ([#3081](https://github.com/Tencent/tdesign-vue-next/pull/3081))
+- `Icon`: Fix issue where `manifest` field affects requests during development @uyarn ([#3113](https://github.com/Tencent/tdesign-vue-next/pull/3113))
+- `TagInput`: Fix issue where `tag-input` prefix is not centered and shakes @xixileng @uyarn ([#3113](https://github.com/Tencent/tdesign-vue-next/pull/3113))
+- `Transfer`: Fix priority issue between `t-transfer__list-item` and `t-checkbox` @uyarn ([#3113](https://github.com/Tencent/tdesign-vue-next/pull/3113))
+- `Select`: Fix issue where content cannot be entered when focused using `tab` key @xixileng ([#3119](https://github.com/Tencent/tdesign-vue-next/pull/3119))
+- `Stickytool`: Fix issue where `sticky-item` component cannot update data internally @uyarn ([#3118](https://github.com/Tencent/tdesign-vue-next/pull/3118))
+- `Dialog`: `dialog plugin` destroys component instance when executing `destroy` method @xixileng ([#3095](https://github.com/Tencent/tdesign-vue-next/pull/3095))
+- `DatePicker`: Optimize resetting default selected area after closing popup @honkinglin ([#3107](https://github.com/Tencent/tdesign-vue-next/pull/3107))
+- `Grid`: `Row`'s parameter `gutter` type supplements `lg,xl,xxl` @liweijie0812 ([#3105](https://github.com/Tencent/tdesign-vue-next/pull/3105))
+### 🚧 Others
+- `Form`: Replace `email` in example code with `t-auto-complete` component @liweijie0812 ([#3101](https://github.com/Tencent/tdesign-vue-next/pull/3101))
+ 
+## 🌈 1.3.11 `2023-07-12` 
+### 🚀 Features
+- `Upload`: @chaishi ([#3074](https://github.com/Tencent/tdesign-vue-next/pull/3074))
+  - Add component instance method, `uploadFilePercent` for updating file upload progress
+  - `theme=image`, support using `fileListDisplay` to customize UI content
+  - `theme=image`, support clicking name to open new window to visit image
+  - Drag upload scenario, support `accept` file type restriction
+  - Remove image file name color, use Link component unified color
+  - Add file type filtering method getFileList
+- `Textarea`: Support dynamically changing `autosize` property @Zz-ZzzZ ([#3077](https://github.com/Tencent/tdesign-vue-next/pull/3077))
+- `MenuItem`: Add `API: routerLink`, can specify menu item to render as `Router` controlled jump `a` tag @boogie-ben ([#3057](https://github.com/Tencent/tdesign-vue-next/pull/3057))
+### 🐞 Bug Fixes
+- `Menu`: @boogie-ben ([#3057](https://github.com/Tencent/tdesign-vue-next/pull/3057))
+  - Fix issue where when `MenuItem` renders as `a` tag, `a` tag coverage expands to entire menu item instead of just text portion
+  - Fix issue where menu item renders `a` tag and `menu` is in `collapsed` state, menu item content area hidden causing inability to click jump
+  - Fix issue where text alignment is inconsistent with normal menu item position when rendering as `a` tag and `popup` appears
+- `Table`: Fix issue where table serial number column is not recalculated when page number is actively triggered to update @tanhh326 ([#3071](https://github.com/Tencent/tdesign-vue-next/pull/3071))
+- `Upload`: Custom upload method, fix issue where file after successful or failed upload is not correctly returned @chaishi ([#3074](https://github.com/Tencent/tdesign-vue-next/pull/3074))
+- `SelectInput`: Fix issue where deleting content in `input` using backspace key also deletes `tag` @tanhh326 ([#3072](https://github.com/Tencent/tdesign-vue-next/pull/3072))
+- `DateRangePicker`: Fix issue where `suffix`, `prefix` cannot respond to data change rendering @uyarn ([#3085](https://github.com/Tencent/tdesign-vue-next/pull/3085))
+### 🚧 Others
+- `Upload`: API adds more English description @chaishi ([#3074](https://github.com/Tencent/tdesign-vue-next/pull/3074))
+
+## 🌈 1.3.10 `2023-07-05` 
+### 🚀 Features
+- `Table`: Tree structure, add row level class name, convenient for business to set styles for different levels @chaishi ([#3037](https://github.com/Tencent/tdesign-vue-next/pull/3037))
+- `Form`: FormRules, add default generic type, so it is no longer mandatory to define type, can directly write `FormRule` @chaishi ([#3040](https://github.com/Tencent/tdesign-vue-next/pull/3040))
+- `DatePicker`: Add `onConfirm` event @liweijie0812 ([#3033](https://github.com/Tencent/tdesign-vue-next/pull/3033))
+
+### 🐞 Bug Fixes
+- `Input`: Fix `limitNumber` partial style issue in `disabled` state @uyarn ([#3034](https://github.com/Tencent/tdesign-vue-next/pull/3034))
+- `Tree`: Fix functionality of separately setting `checkable` property @TabSpace @uyarn ([#3034](https://github.com/Tencent/tdesign-vue-next/pull/3034))
+- `Table`: Fix enable `multipleSort`, uncontrolled usage not working @ngyyuusora ([#3024](https://github.com/Tencent/tdesign-vue-next/pull/3024))
+- `Select`: Fix disabled state in multiple selection @uyarn ([#3054](https://github.com/Tencent/tdesign-vue-next/pull/3054))
+- `Calendar`: Fix actual selection range of custom date does not match definition @imp2002 ([#3049](https://github.com/Tencent/tdesign-vue-next/pull/3049))
+- `TagInput`: Fix style defect of prefix icon @uyarn ([#3058](https://github.com/Tencent/tdesign-vue-next/pull/3058))
+- `SelectInput`: Fix defect of not clearing input content when losing focus @uyarn ([#3058](https://github.com/Tencent/tdesign-vue-next/pull/3058))
+- `Submenu`: Fix `popup-props` passthrough issue @Kafuu-Chinocya ([#3061](https://github.com/Tencent/tdesign-vue-next/pull/3061))
+- `DatePicker`: Fix error when `value` is `null` @liweijie0812 ([#3053](https://github.com/Tencent/tdesign-vue-next/pull/3053))
