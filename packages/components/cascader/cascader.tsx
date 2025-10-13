@@ -196,7 +196,7 @@ export default defineComponent({
             ),
             collapsedItems: slots.collapsedItems,
           }}
-          {...selectInputEvents}
+          {...selectInputEvents.value}
         />
       );
     };

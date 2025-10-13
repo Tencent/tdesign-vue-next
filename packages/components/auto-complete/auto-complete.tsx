@@ -10,6 +10,7 @@ import {
   useDisabled,
   useReadonly,
   useCommonClassName,
+  useEventForward,
 } from '@tdesign/shared-hooks';
 import AutoCompleteOptionList from './components/option-list';
 
@@ -110,6 +111,16 @@ export default defineComponent({
     };
 
     return () => {
+      const inputEvents = useEventForward(innerInputProps.value, {
+        onChange: onInputChange,
+        onFocus: onInnerFocus,
+        onBlur: onInnerBlur,
+        onClear: props.onClear,
+        onCompositionend: onInnerCompositionend,
+        onCompositionstart: onInnerCompositionstart,
+        onEnter: onInnerEnter,
+      });
+
       // 触发元素
       const triggerNode = renderContent('default', 'triggerElement') || (
         <TInput
@@ -121,14 +132,7 @@ export default defineComponent({
           disabled={isDisabled.value}
           autofocus={props.autofocus}
           clearable={props.clearable}
-          onChange={onInputChange}
-          onFocus={onInnerFocus}
-          onBlur={onInnerBlur}
-          onClear={props.onClear}
-          onCompositionend={onInnerCompositionend}
-          onCompositionstart={onInnerCompositionstart}
-          onEnter={onInnerEnter}
-          {...innerInputProps.value}
+          {...inputEvents.value}
           v-slots={slots}
         />
       );
@@ -166,6 +170,9 @@ export default defineComponent({
         overlayInnerClassName: popupInnerClasses.value,
         overlayClassName: popupClasses.value,
       };
+      const popupEvents = useEventForward(popupProps, {
+        onVisibleChange: onPopupVisibleChange,
+      });
       return (
         <div class={classes.value}>
           <Popup
@@ -175,7 +182,7 @@ export default defineComponent({
             placement="bottom-left"
             hideEmptyPopup={true}
             content={panelContent ? () => panelContent : null}
-            {...popupProps}
+            {...popupEvents.value}
           >
             {triggerNode}
           </Popup>
