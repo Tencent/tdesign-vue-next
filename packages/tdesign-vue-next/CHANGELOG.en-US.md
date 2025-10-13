@@ -1573,3 +1573,104 @@ docClass: timeline
 ### 🚧 Others
 - `Image`: Interactive example @liweijie0812 ([#2845](https://github.com/Tencent/tdesign-vue-next/pull/2845))
 - `DatePicker`: Update prompt text @nined9 ([#2844](https://github.com/Tencent/tdesign-vue-next/pull/2844))
+
+## 🌈 1.3.3 `2023-05-12` 
+### 🚀 Features
+- `ColorPicker`: Add `size` and `enableMultipleGradient` API @uyarn ([#2803](https://github.com/Tencent/tdesign-vue-next/pull/2803))
+- `Upload`: Component supports `uploadPastedFiles` configuration @yanxugong ([#2814](https://github.com/Tencent/tdesign-vue-next/pull/2814))
+- `Select`: `onChange` event `context` adds `option` parameter for getting complete content of selected item @uyarn ([#2831](https://github.com/Tencent/tdesign-vue-next/pull/2831))
+- `Tree`: `TreeItem` adds `draggable` property, allows some nodes to not be draggable @decadef20 ([#2815](https://github.com/Tencent/tdesign-vue-next/pull/2815))
+### 🐞 Bug Fixes
+- `Select`: 
+  - Fix console warning exception in version `1.3.2` @uyarn ([#2809](https://github.com/Tencent/tdesign-vue-next/pull/2809))
+  - Limit selectable quantity invalid @AuYuHui ([#2828](https://github.com/Tencent/tdesign-vue-next/pull/2828))
+  - Options clickable after exceeding maximum limit @Zz-ZzzZ ([#2829](https://github.com/Tencent/tdesign-vue-next/pull/2829))
+  - Issue where `value` is `undefined` when `clearable` @wangyang0210 ([#2678](https://github.com/Tencent/tdesign-vue-next/pull/2678))
+- `Popup`: 
+  - Fix issue where `onScrollToBottom` cannot be triggered in some Windows environments @uyarn ([#2834](https://github.com/Tencent/tdesign-vue-next/pull/2834))
+  - Fix error when calling component exposed `close()` @Zz-ZzzZ ([#2838](https://github.com/Tencent/tdesign-vue-next/pull/2838))
+- `Table`: After enabling ellipsis `ellipsis` and virtual scrolling, fast scrolling causes console error reading property of `null` @nined9 ([#2799](https://github.com/Tencent/tdesign-vue-next/pull/2799))
+- `Image`: Fix `onload` invalid in `nuxt3` environment @liweijie0812 ([#2840](https://github.com/Tencent/tdesign-vue-next/pull/2840))
+### 🚧 Others
+- `Tree`: Fix issue where data cannot be switched in expand operation `demo` @palmcivet ([#2806](https://github.com/Tencent/tdesign-vue-next/pull/2806))
+
+## 🌈 1.3.2 `2023-04-28` 
+### 🚀 Features
+- `Select`: Support `panelTopContent` usage in scenarios requiring dropdown scrolling such as virtual scrolling, see example for specific usage @uyarn ([#2777](https://github.com/Tencent/tdesign-vue-next/pull/2777))
+### 🐞 Bug Fixes
+- `DatePicker`: 
+  - Fix abnormal panel closure on second click @honkinglin ([#2781](https://github.com/Tencent/tdesign-vue-next/pull/2781))
+  - Fix `valueType` `validator` validation error @nined9 ([#2757](https://github.com/Tencent/tdesign-vue-next/pull/2757))
+- `Select`: @uyarn ([#2777](https://github.com/Tencent/tdesign-vue-next/pull/2777))
+  - Fix abnormal `defaultValue` default value issue
+  - Fix issue where `inputClass` is not effective in single selection mode
+- `Table`: 
+  - Fix abnormal issue where `requestAnimationFrame` is still executed once after `Unmounted` when canceling table footer sticky @nined9 ([#2745](https://github.com/Tencent/tdesign-vue-next/pull/2745))
+  - Fix abnormal error when setting fixed row position information when tr does not exist @nined9 ([#2760](https://github.com/Tencent/tdesign-vue-next/pull/2760))
+- `Pagination`: Fix defect where content is not re-rendered when switching languages @uyarn ([#2775](https://github.com/Tencent/tdesign-vue-next/pull/2775))
+- `Link`: Form setting disable not working @liweijie0812 ([#2783](https://github.com/Tencent/tdesign-vue-next/pull/2783))
+- `Input`: Fix issue where component border is still displayed when `input` component `type = hidden` @PengYYYYY ([#2776](https://github.com/Tencent/tdesign-vue-next/pull/2776))
+
+### 🚧 Others
+- `Datepicker`: Fix example code error @honkinglin ([#2761](https://github.com/Tencent/tdesign-vue-next/pull/2761))
+## 🌈 1.3.1 `2023-04-21` 
+
+### 🚀 Features
+- `Theme`: Theme generator upgrade to `v1` version @uyarn ([#2747](https://github.com/Tencent/tdesign-vue-next/pull/2747))
+
+### 🐞 Bug Fixes
+- `Popup`: Fix issue where `popper` is still displayed in the top left corner of page when trigger element is hidden @nined9 ([#2713](https://github.com/Tencent/tdesign-vue-next/pull/2713))
+- `Select`: Fix issue where multiple selection options cannot be selected when switching from virtual scrolling to normal mode due to multiple click triggers @uyarn ([#2734](https://github.com/Tencent/tdesign-vue-next/pull/2734))
+- `Image`: Fix `loading` issue in `SSR` environment @liweijie0812 ([#2738](https://github.com/Tencent/tdesign-vue-next/pull/2738))
+- `DatePicker`: Support `onPresetClick` event @honkinglin ([#2743](https://github.com/Tencent/tdesign-vue-next/pull/2743))
+- `StickyTool`: Fix issue where `StickyItem` does not render properly when imported separately @uyarn ([#2751](https://github.com/Tencent/tdesign-vue-next/pull/2751))
+- `ColorPicker`: Fix defect where input cannot modify gradient point color in `hex` and `rgb` modes under gradient mode @uyarn ([#2751](https://github.com/Tencent/tdesign-vue-next/pull/2751))
+- `DatePicker`: Fix `valueType` parameter validation error
+- `Icon`: Fix issue where `manifest` unified entry export `esm` module, documentation not updated in time @Layouwen ([#2739](https://github.com/Tencent/tdesign-vue-next/pull/2739))
+
+### 🚧 Others
+- `Select`: `usage bordered` property deprecated and removed @liweijie0812 ([#2723](https://github.com/Tencent/tdesign-vue-next/pull/2723))
+- `Nuxt3`: Add `nuxt3` usage documentation @liweijie0812 ([#2726](https://github.com/Tencent/tdesign-vue-next/pull/2726))
+
+## 🌈 1.3.0 `2023-04-13` 
+### 🚀 Features
+- `BackTop`: Add `BackTop` component @shinyina ([#2665](https://github.com/Tencent/tdesign-vue-next/pull/2665))
+- `StickyTool`: Add `StickyTool` component @ZekunWu ([#2517](https://github.com/Tencent/tdesign-vue-next/pull/2517))
+- `RadioGroup`: `options.value` supports `boolean` @liweijie0812 ([#2659](https://github.com/Tencent/tdesign-vue-next/pull/2659))
+- `Local`: Add Traditional Chinese configuration package @chaishi ([#2685](https://github.com/Tencent/tdesign-vue-next/pull/2685))
+- `Select`: `value` supports `boolean` @liweijie0812 ([#2694](https://github.com/Tencent/tdesign-vue-next/pull/2694))
+
+### 🐞 Bug Fixes
+- `Table`: 
+  - Column width adjustment feature, fix issue where drag adjustment column width icon and auxiliary line are still displayed even when `resizable=false` @chaishi ([#2715](https://github.com/Tencent/tdesign-vue-next/pull/2715))
+  - Column width adjustment feature, fix issue where column width cannot be adjusted normally after dragging any column width to make table horizontal scrollbar disappear, i.e., support `resize.minWidth` @chaishi ([#2715](https://github.com/Tencent/tdesign-vue-next/pull/2715))
+  - Column width adjustment feature, fix console error when clicking child header after enabling multi-level header @chaishi ([#2715](https://github.com/Tencent/tdesign-vue-next/pull/2715))
+- `Select`: 
+  - Fix issue where label is not updated when option with duplicate `value` changes @uyarn ([#2687](https://github.com/Tencent/tdesign-vue-next/pull/2687))
+  - Fix defect where clicking edge area of multiple selection option does not trigger selection @uyarn ([#2687](https://github.com/Tencent/tdesign-vue-next/pull/2687))
+- `RadioGroup`: Option width cannot be dynamically updated, causing style error, text overflow @ZTH520 ([#2681](https://github.com/Tencent/tdesign-vue-next/pull/2681))
+- `Tooltip`: Fix not displaying tooltip when `content` is empty string or empty slot @PengYYYYY ([#2653](https://github.com/Tencent/tdesign-vue-next/pull/2653))
+- `Tree`: Fix issue where clicking `label` triggers selection when lazy loading child nodes @uyarn ([#2663](https://github.com/Tencent/tdesign-vue-next/pull/2663))
+- `InputAdornment`: Fix missing `class` name issue with `slot` method @ccccpj ([#2656](https://github.com/Tencent/tdesign-vue-next/pull/2656))
+- `InputNumber`: Fix abnormal issue in some boundary scenarios when decimal place operation ends with `0` @uyarn ([#2668](https://github.com/Tencent/tdesign-vue-next/pull/2668))
+- `TreeSelect`: Fix component not re-rendering after bound `data` data update @algerkong ([#2683](https://github.com/Tencent/tdesign-vue-next/pull/2683))
+- `DatePicker`: Fix `DatePicker`'s `prefixIcon` still passes through `prefixIcon` function when not passed, causing unexpected rendering @dexterBo ([#2658](https://github.com/Tencent/tdesign-vue-next/pull/2658))
+- `Dropdown`: Fix issue where dropdown menu configured `template`'s `content` or `prefixIcon` slot is not rendered @nined9 ([#2696](https://github.com/Tencent/tdesign-vue-next/pull/2696))
+### 🚧 Others
+- `Docs`: Optimize contribution guide and test guide @wangyang0210 ([#2706](https://github.com/Tencent/tdesign-vue-next/pull/2706))
+- `Loading`: Add `v-loading` example code @uyarn ([#2714](https://github.com/Tencent/tdesign-vue-next/pull/2714))
+- `Dialog`: Add `slot` related instructions and example code @Layouwen ([#2708](https://github.com/Tencent/tdesign-vue-next/pull/2708))
+
+## 🌈 1.2.3 `2023-03-30` 
+### 🚀 Features
+- `Table`: 
+  - Filter feature, support passing through property `column.filter.props.onChange` @chaishi ([#2623](https://github.com/Tencent/tdesign-vue-next/pull/2623))
+  - Support setting `filterRow=null` to hide filter result row @chaishi ([#2623](https://github.com/Tencent/tdesign-vue-next/pull/2623))
+- `Popup`: Add `close()` instance method @ikeq ([#2617](https://github.com/Tencent/tdesign-vue-next/pull/2617))
+### 🐞 Bug Fixes
+- `Table`: @chaishi ([#2636](https://github.com/Tencent/tdesign-vue-next/pull/2636))
+  - Fix `document` error in `SSR` environment
+  - Fix component instance method type issue
+- `Guide`: Resolve `popup` tooltip not updating in overlapping situations @zhangpaopao0609 ([#2605](https://github.com/Tencent/tdesign-vue-next/pull/2605))
+- `Swiper`: Fix carousel switching issue @btea ([#2614](https://github.com/Tencent/tdesign-vue-next/pull/2614))
+- `Popup`: Fix error when used in stacked manner @ikeq ([#2617](https://github.com/Tencent/tdesign-vue-next/pull/2617))
