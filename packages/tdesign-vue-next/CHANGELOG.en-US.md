@@ -5,6 +5,12 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.17.2-test `2025-10-13` 
+
+### 🐞 Bug Fixes
+- `AutoComplete`: Fixed the issue where the option pop-up window cannot be opened again when deleting the content of the input box after selecting with the keyboard @SaberA1ter ([#6059](https://github.com/Tencent/tdesign-vue-next/pull/6059))
+
+
 ## 🌈 1.17.1 `2025-10-09` 
 
 ### 🐞 Bug Fixes
