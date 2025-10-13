@@ -1,9 +1,20 @@
 <template>
   <t-chat
     :clear-history="false"
-    :reverse="true"
     :text-loading="loading"
     :data="[
+      {
+        avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
+        name: '自己',
+        datetime: '今天16:38',
+        role: 'user',
+        content: [
+          {
+            type: 'text',
+            data: '南极的自动提款机叫什么名字？',
+          },
+        ],
+      },
       {
         avatar: 'https://tdesign.gtimg.com/site/chat-avatar.png',
         name: 'TDesignAI',
@@ -49,18 +60,6 @@
                 ],
               },
             },
-          },
-        ],
-      },
-      {
-        avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
-        name: '自己',
-        datetime: '今天16:38',
-        role: 'user',
-        content: [
-          {
-            type: 'text',
-            data: '南极的自动提款机叫什么名字？',
           },
         ],
       },
