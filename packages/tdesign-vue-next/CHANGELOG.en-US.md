@@ -998,3 +998,103 @@ docClass: timeline
   - Under multi-level header, dynamic column configuration supports specifying parent column to display all its child columns @Cat1007 ([#3539](https://github.com/Tencent/tdesign-vue-next/pull/3539))
 - `Slider`: Add function method parameter support for `label` ([#3470](https://github.com/Tencent/tdesign-vue-next/pull/3470))@liect ([#3502](https://github.com/Tencent/tdesign-vue-next/pull/3502))
 - `Timeline`: `TimelineItem` adds `onClick` event @liweijie0812 ([#3512](https://github.com/Tencent/tdesign-vue-next/pull/3512))
+- `Select`: Support ability to scroll to visible option range when selecting by keyboard @uyarn ([#3542](https://github.com/Tencent/tdesign-vue-next/pull/3542))
+### 🐞 Bug Fixes
+- `Table`: 
+  - `primaryTableRef` not bound, causing its exported methods to be unusable @AuYuHui ([#3528](https://github.com/Tencent/tdesign-vue-next/pull/3528))
+  - Editable cell, fix issue where `editedRow` received by other columns is not the latest data when cell data in a column changes @chaishi ([#3536](https://github.com/Tencent/tdesign-vue-next/pull/3536))
+- `Select`: 
+  - Fix error in selecting filtered items by keyboard enter under virtual scroll @uyarn ([#3542](https://github.com/Tencent/tdesign-vue-next/pull/3542))
+  - Fix style defects for small and large sizes in multiple selection mode by @Zzongke ([#3542](https://github.com/Tencent/tdesign-vue-next/pull/3542))
+- `Tree`: 
+  - Improve controlled logic, solve delay in component state passing when `onChange` event is triggered @TabSpace ([#3509](https://github.com/Tencent/tdesign-vue-next/pull/3509))
+  - Solve `watch` timing issue @TabSpace ([#3526](https://github.com/Tencent/tdesign-vue-next/pull/3526))
+- `Upload`: 
+  - Fix the issue where progress cannot be displayed when `upload` is manual upload @ziyi99 ([#3531](https://github.com/Tencent/tdesign-vue-next/pull/3531))
+  - Fix the issue where `Drop` event is not triggered after drag ends when dragged file does not meet `accept` configuration @ziyi99 ([#3532](https://github.com/Tencent/tdesign-vue-next/pull/3532))
+- `Tabs`: Dynamically modifying `TabNav` tab count causes slide button to not meet expectations @betavs ([#3517](https://github.com/Tencent/tdesign-vue-next/pull/3517))
+- `Timeline`: Fix incorrect default value of `TimelineItem`'s `dotColor` @liweijie0812 ([#3512](https://github.com/Tencent/tdesign-vue-next/pull/3512))
+- `Pagination`: Fix triggering `onCurrentChange` event when current page is passively changed @Zz-ZzzZ ([#3511](https://github.com/Tencent/tdesign-vue-next/pull/3511))
+- `Menu`: Fix style issue when menu is collapsed by @RayJason ([#3542](https://github.com/Tencent/tdesign-vue-next/pull/3542))
+- `Radio`: Fix corner style defect when there is only one option  @uyarn ([#3542](https://github.com/Tencent/tdesign-vue-next/pull/3542))
+- `ColorPicker`: Fix recently used color abnormality issue @liect ([#3515](https://github.com/Tencent/tdesign-vue-next/pull/3515))
+- `TreeSelect`: Fix not using `keys` alias @liect ([#3520](https://github.com/Tencent/tdesign-vue-next/pull/3520))
+
+## 🌈 1.6.5 `2023-10-20` 
+### 🚀 Features
+- `TagInput`: Support scrolling in extra-long scroll mode, perform add/delete operations on options @liweijie0812 ([#3501](https://github.com/Tencent/tdesign-vue-next/pull/3501))
+- `Tabs`: `destroyOnHide` default value reverts to true, please use with `destroyOnHide` set to false for lazy loading, see example for details @liweijie0812 ([#3504](https://github.com/Tencent/tdesign-vue-next/pull/3504))
+### 🐞 Bug Fixes
+- `Tree`: Fix the issue where not rendering when `node`'s `value` is `0` @Zz-ZzzZ ([#3500](https://github.com/Tencent/tdesign-vue-next/pull/3500))
+- `SelectInput`: Fix issue where input box auto-focuses in non-multiple selection scenarios for components based on `SelectInput` such as `Select` after `1.6.2` @uyarn ([#3506](https://github.com/Tencent/tdesign-vue-next/pull/3506))
+- `DatePicker`: Fix console error issue when selecting after `1.6.2` @uyarn ([#3506](https://github.com/Tencent/tdesign-vue-next/pull/3506))
+### 🚧 Others
+- `Select`: Fix example errors @liect ([#3503](https://github.com/Tencent/tdesign-vue-next/pull/3503))
+
+
+
+## 🌈 1.6.4 `2023-10-19` 
+### 🚀 Features
+- `Table`: Filterable table, support automatic closing of filter floating layer after single selection filter (`Radio`) completes selection when setting `confirmEvents: ['onChange']` @chaishi ([#3478](https://github.com/Tencent/tdesign-vue-next/pull/3478))
+- `Tabs`: Change `destroyOnHide` default value to `false` @liweijie0812 ([#3467](https://github.com/Tencent/tdesign-vue-next/pull/3467))
+- `Tabs`: Add `lazy` to support tab lazy loading @liweijie0812 ([#3467](https://github.com/Tencent/tdesign-vue-next/pull/3467))
+### 🐞 Bug Fixes
+- `Cascader`: 
+  - Fix abnormal style expression caused by using `proxy` value for top-level `class` @PengYYYYY ([#3488](https://github.com/Tencent/tdesign-vue-next/pull/3488))
+  - Multiple selection scenario, search function not enabled, width adaptive mode, fix issue where width changes on mouse hover ([#1623](https://github.com/Tencent/tdesign-common/pull/1623))
+- `SelectInput`: 
+  - `renderPrefixContent` returns `[null,undefined]` or `[undefined,undefined]`, passing to `input props.label`, causing `input` to render empty `t-input__prefix` node @liweijie0812 ([#3479](https://github.com/Tencent/tdesign-vue-next/pull/3479))
+  - Fix inability to input or focus on focusable elements such as "input box", "number input box" in dropdown @chaishi ([#3492](https://github.com/Tencent/tdesign-vue-next/pull/3492))
+- `ImageViewer`: Control bar widget center data, precision loss issue when step value is not `0.5` @xiaojueshi ([#3476](https://github.com/Tencent/tdesign-vue-next/pull/3476))
+- `DatePicker`: `prefixIcon` slot does not take effect @liweijie0812 ([#3479](https://github.com/Tencent/tdesign-vue-next/pull/3479))
+- `TagInput`: Multiple selection scenario, search function not enabled, width adaptive mode, fix issue where width changes on mouse hover ([#1623](https://github.com/Tencent/tdesign-common/pull/1623))
+- `Select`: Multiple selection scenario, search function not enabled, width adaptive mode, fix issue where width changes on mouse hover ([#1623](https://github.com/Tencent/tdesign-common/pull/1623))
+- `TreeSelect`: Multiple selection scenario, search function not enabled, width adaptive mode, fix issue where width changes on mouse hover ([#1623](https://github.com/Tencent/tdesign-common/pull/1623))
+- `Grid`: Fix type issue where `Row` and `Col` child component configuration properties are all required @uyarn ([#3491](https://github.com/Tencent/tdesign-vue-next/pull/3491))
+
+## 🌈 1.6.2 `2023-10-12` 
+### 🚀 Features
+- `Tag`: `CheckTag` supports multiple style tag configurations @chaishi ([#3419](https://github.com/Tencent/tdesign-vue-next/pull/3419))
+- `Tag`: Support tag group `CheckTagGroup` selection @chaishi ([#3419](https://github.com/Tencent/tdesign-vue-next/pull/3419))
+### 🐞 Bug Fixes
+- `Badge`: Border rounded square style([common#1617](https://github.com/Tencent/tdesign-common/pull/1617)) @liweijie0812 ([#3461](https://github.com/Tencent/tdesign-vue-next/pull/3461))
+- `Badge`: When `dot` is enabled, ignore shape setting @liweijie0812 ([#3461](https://github.com/Tencent/tdesign-vue-next/pull/3461))
+- `Table`: Fix invalid controlled property `activeRowKeys` for row highlighting @chaishi ([#3463](https://github.com/Tencent/tdesign-vue-next/pull/3463))
+
+## 🌈 1.6.1 `2023-10-11` 
+### 🚀 Features
+- `Table`: 
+  - Keyboard operation, editable cell, support using `Tab` key to switch editable cells for quick modification @chaishi ([#3414](https://github.com/Tencent/tdesign-vue-next/pull/3414))
+  - Keyboard operation, optimize row highlight keyboard operation and style, compatible with row selection function @chaishi ([#3414](https://github.com/Tencent/tdesign-vue-next/pull/3414))
+  - Keyboard operation, row selection function supports keyboard operations for select, cancel select, select all, cancel select all without setting row highlight @chaishi ([#3414](https://github.com/Tencent/tdesign-vue-next/pull/3414))
+  - Tree structure table, support scrolling to specified row through row unique identifier (previously only supported scrolling to specified row through row index) @chaishi ([#3414](https://github.com/Tencent/tdesign-vue-next/pull/3414))
+  - Support entire table lazy loading @chaishi ([#3414](https://github.com/Tencent/tdesign-vue-next/pull/3414))
+- `Popup`: Component adds instance methods `update/getOverlay/getOverlayState`, used to update or get floating layer content, state, etc. @chaishi ([#3414](https://github.com/Tencent/tdesign-vue-next/pull/3414))
+- `Select`: Support keyboard operation dropdown option selection or cancellation @chaishi ([#3414](https://github.com/Tencent/tdesign-vue-next/pull/3414))
+- `Cascader`: Support using `valueDisplay` to customize content presentation of selected items @chaishi ([#3414](https://github.com/Tencent/tdesign-vue-next/pull/3414))
+- `Tree`: Provide virtual scroll capability @TabSpace ([#3410](https://github.com/Tencent/tdesign-vue-next/pull/3410))
+- `Badge`: `content`, `count` slot support @liweijie0812 ([#3454](https://github.com/Tencent/tdesign-vue-next/pull/3454))
+
+### 🐞 Bug Fixes
+- `Input`: Correct focus and blur events, when component is already in focus state, clicking `label/suffix/prefix/icon` and other elements no longer repeatedly triggers blur and focus events @chaishi ([#3414](https://github.com/Tencent/tdesign-vue-next/pull/3414))
+- `TagInput`: Correct focus and blur events, when component is already in focus state, clicking tags no longer repeatedly triggers blur and focus events @chaishi ([#3414](https://github.com/Tencent/tdesign-vue-next/pull/3414))
+- `Select`: 
+  - Correct focus and blur events, no longer auto blur when dropdown option is selected to continue switching options @chaishi ([#3414](https://github.com/Tencent/tdesign-vue-next/pull/3414))
+  - Abnormal functionality when using keyboard up/down keys to select after filtering @liweijie0812 ([#3420](https://github.com/Tencent/tdesign-vue-next/pull/3420))
+  - Fix dropdown option flashing @betavs ([#3418](https://github.com/Tencent/tdesign-vue-next/pull/3418))
+- `Cascader`: 
+  - Correct focus and blur events, no longer auto blur when dropdown option is selected to continue switching options @chaishi ([#3414](https://github.com/Tencent/tdesign-vue-next/pull/3414))
+   - Fix `cascader` rendering redundant `tag-input__prefix` element causing abnormal expression @PengYYYYY ([#3446](https://github.com/Tencent/tdesign-vue-next/pull/3446))
+  - `source` abnormality issue in `change` event @PengYYYYY ([#3456](https://github.com/Tencent/tdesign-vue-next/pull/3456))
+- `Tree`: Solve the issue where `setData` method cannot trigger property changes @TabSpace ([#3410](https://github.com/Tencent/tdesign-vue-next/pull/3410))
+- `Form`: Fix the issue where parameter is empty when `statusIcon` is function or slot @SBDaQingWa ([#3449](https://github.com/Tencent/tdesign-vue-next/pull/3449))
+### 🚧 Others
+- docs: Add `CodeSandbox` support @LadyChatterleyLover ([#3422](https://github.com/Tencent/tdesign-vue-next/pull/3422))
+
+## 🌈 1.5.7 `2023-09-21` 
+### 🚀 Features
+- `Table`: Support configuring all component text through property `local` @chaishi ([#3380](https://github.com/Tencent/tdesign-vue-next/pull/3380))
+- `Card`: `title` uses `div` instead of `span` to be more compliant in custom scenarios @uyarn ([#3385](https://github.com/Tencent/tdesign-vue-next/pull/3385))
+### 🐞 Bug Fixes
+- `Dialog`: 
+  - Fix `Dialog plugin` event destroys `Dialog` without destroying `wrapper`, causing multiple `wrapper`s on page @Zzongke ([#3383](https://github.com/Tencent/tdesign-vue-next/pull/3383))
