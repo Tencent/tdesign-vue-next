@@ -27,7 +27,7 @@
         />
       </template>
       <template #footer>
-        <t-chat-sender :loading="isStreamLoad" @send="inputEnter" @stop="onStop"> </t-chat-sender>
+        <t-chat-sender v-model="query" :loading="isStreamLoad" @send="inputEnter" @stop="onStop"> </t-chat-sender>
       </template>
     </t-chat>
     <t-button v-show="isShowToBottom" variant="text" class="bottomBtn" @click="backBottom">
@@ -47,7 +47,7 @@ const fetchCancel = ref(null);
 const loading = ref(false);
 // 流式数据加载中
 const isStreamLoad = ref(false);
-
+const query = ref('');
 const chatRef = ref(null);
 const isShowToBottom = ref(false);
 // 滚动到底部
@@ -58,8 +58,11 @@ const backBottom = () => {
 };
 // 是否显示回到底部按钮
 const handleChatScroll = function ({ e }) {
-  const scrollTop = e.target.scrollTop;
-  isShowToBottom.value = scrollTop < 0;
+  if (e.target.clientHeight + e.target.scrollTop < e.target.scrollHeight) {
+    isShowToBottom.value = true;
+  } else {
+    isShowToBottom.value = false;
+  }
 };
 // 清空消息
 const clearConfirm = function () {
@@ -153,6 +156,7 @@ const inputEnter = function (inputValue) {
 
   chatList.value.push(params2);
   handleData(inputValue);
+  query.value = '';
 };
 
 const fetchSSE = async (fetchFn, options) => {
@@ -205,7 +209,7 @@ const handleData = async () => {
     },
     {
       success(result) {
-        console.log('success', result);
+        // console.log('success', result);
         loading.value = false;
         // 设置思考过程的status
         if (result.delta.reasoning_content) {

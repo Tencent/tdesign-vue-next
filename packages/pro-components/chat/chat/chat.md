@@ -18,7 +18,7 @@ isStreamLoad | Boolean | false | 流式加载是否结束 | N
 layout | String | both | 对话布局形式，支持两侧对齐与左对齐。可选项：both/single `使用默认插槽时无效，请使用ChatMessage的placement设置消息显示位置` | N
 name | Slot / Function | - | 自定义每个对话单元的昵称。TS 类型：`TNode<{ item: TdChatItemProps, index: number }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 reasoning | Slot / Function | - | 自定义每个对话单元的思考过程的插槽。TS 类型：`TNode<{ item: TdChatItemProps, index: number }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
-reverse | Boolean | true | 是否表现为倒序 | N
+reverse | Boolean | false | 默认为正序 | N
 textLoading | Boolean | false | 新消息是否处于加载状态，加载状态默认显示骨架屏，接口请求返回数据时请将新消息加载状态置为false | N
 onClear | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>点击清空历史按钮回调。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 onScroll | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>滚动事件的回调。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
