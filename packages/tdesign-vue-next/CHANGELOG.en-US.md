@@ -596,3 +596,105 @@ docClass: timeline
 ### 🚧 Others
 - `Table`: Fix pagination documentation display example error issue @uyarn ([#4501](https://github.com/Tencent/tdesign-vue-next/pull/4501))
 - `Menu`: Update related documentation about `MenuItem`'s `routerLink` @Nero978 ([#4543](https://github.com/Tencent/tdesign-vue-next/pull/4543))
+
+## 🌈 1.9.9 `2024-08-16` 
+### 🚀 Features
+- `RangeInput`: Support borderless `borderless` mode @liweijie0812 ([#4442](https://github.com/Tencent/tdesign-vue-next/pull/4442))
+- `DateRangePicker`: Support borderless `borderless` mode @liweijie0812 ([#4442](https://github.com/Tencent/tdesign-vue-next/pull/4442))
+- `TimeRangePicker`: Support borderless `borderless` mode @liweijie0812 ([#4442](https://github.com/Tencent/tdesign-vue-next/pull/4442))
+### 🐞 Bug Fixes
+- `Cascader`: 
+  - Fix the issue where clicking clear button triggers `change` event multiple times @uyarn ([#4478](https://github.com/Tencent/tdesign-vue-next/pull/4478))
+   - Fix the issue where clicking clear button after entering value without selecting value in filterable mode incorrectly selects option @uyarn ([#4478](https://github.com/Tencent/tdesign-vue-next/pull/4478))
+- `Tabs`: 
+  - Fix the issue where component has abnormal removal operation due to replacing component `event` event when globally replacing icons @uyarn ([#4485](https://github.com/Tencent/tdesign-vue-next/pull/4485))
+  - Fix size issue of `t-tabs__bar` in `dialog` @RyouSY ([#4438](https://github.com/Tencent/tdesign-vue-next/pull/4438))
+- `Upload`: Fix the issue where some icons do not support global replacement @uyarn ([#4434](https://github.com/Tencent/tdesign-vue-next/pull/4434))
+- `Dialog`: Fix type issue when setting `cancelBtn` and `confirmBtn` to `null` @chouchouji ([#4439](https://github.com/Tencent/tdesign-vue-next/pull/4439))
+- `Input`: Fix inaccurate `maxlength` issue @novlan1 ([#4429](https://github.com/Tencent/tdesign-vue-next/pull/4429))
+- `TagInput`: Fix defect where `tagProps` does not apply to collapsed tags @uyarn ([#4465](https://github.com/Tencent/tdesign-vue-next/pull/4465))
+- `Pagination`: Fix the issue where `onChange` cannot get latest `pageSize` when `pageSize` changes in `pagination` @1379255913 ([#4450](https://github.com/Tencent/tdesign-vue-next/pull/4450))
+- `RangeInput`: Clear icon cannot display normally @betavs ([#4453](https://github.com/Tencent/tdesign-vue-next/pull/4453))
+- `Dropdown`: Fix incorrect position calculation issue after user modifies `DropdownItem` height due to lack of dynamic calculation @uyarn ([#4484](https://github.com/Tencent/tdesign-vue-next/pull/4484))
+- `Table`: Fix incorrect order within ancestor nodes when drag sorting @uyarn ([common#1880](https://github.com/Tencent/tdesign-common/pull/1880))
+- `InputNumber`: Fix decimal precision calculation, missing boundary logic starting with `0` leading to calculation errors @uyarn ([common#1879](https://github.com/Tencent/tdesign-common/pull/1879))
+### 🚧 Others
+- `Progress`: TS type renamed `StatusEnum`=>`ProgressStatus`,`ThemeEnum`=>`ProgressTheme` @liweijie0812 ([#4426](https://github.com/Tencent/tdesign-vue-next/pull/4426))
+- `RangeInput`: Add `liveDemo` @liweijie0812 ([#4442](https://github.com/Tencent/tdesign-vue-next/pull/4442))
+
+
+## 🌈 1.9.8 `2024-07-23` 
+### 🚀 Features
+- `Form`: Support affecting `TagInput` component through form's `readonly` property @xiaojueshi ([#4370](https://github.com/Tencent/tdesign-vue-next/pull/4370))
+- `Icon`: Add ordered list icon `list-numbered`, optimize drawing path of `lock-off` @double-deng ([#4378](https://github.com/Tencent/tdesign-vue-next/pull/4378))
+- `TreeSelect`: `valueDisplay` callback returns entire node information for input box callback display @uyarn ([#4389](https://github.com/Tencent/tdesign-vue-next/pull/4389))
+- `Dropdown`: Add implementation of `panelTopContent` and `panelBottomContent` API @uyarn ([#4388](https://github.com/Tencent/tdesign-vue-next/pull/4388))
+- `ImageViewer`: Add `attach` API to support custom mount node for `ImageViewer` @josonyang ([#4405](https://github.com/Tencent/tdesign-vue-next/pull/4405))
+- `Tree`: Use `getTreeData` to get tree structure, support `children` being `true` case @josonyang ([#4405](https://github.com/Tencent/tdesign-vue-next/pull/4405))
+- `DatePicker`: Add `needConfirm` API to support date time picker saving selected time without clicking confirm button @Cat1007 ([#4411](https://github.com/Tencent/tdesign-vue-next/pull/4411))
+### 🐞 Bug Fixes
+- `DateRangePicker`: @liweijie0812
+    - Fix the issue where disable does not take effect when `Form` form is disabled  ([#4380](https://github.com/Tencent/tdesign-vue-next/pull/4380))
+    - Fix abnormal `label` style issue  ([common#1845](https://github.com/Tencent/tdesign-common/pull/1845))
+- `TagInput`: Fix the issue where `Form` component `disabled` property cannot affect `TagInput` component @xiaojueshi ([#4353](https://github.com/Tencent/tdesign-vue-next/pull/4353))
+- `Icon`: Fix naming error issue of icon `chart-column` @uyarn ([#4378](https://github.com/Tencent/tdesign-vue-next/pull/4378))
+- `Input`: Fix the issue where plain/cipher text can still be switched in disabled state @jby0107 ([#4387](https://github.com/Tencent/tdesign-vue-next/pull/4387))
+- `Avatar`: Fix the issue where `max` property does not take effect in multi-level nesting @1379255913 ([#4326](https://github.com/Tencent/tdesign-vue-next/pull/4326))
+- `Table`: Fix defect where `thClassName` does not support function and array usage @theBestVayne ([#4406](https://github.com/Tencent/tdesign-vue-next/pull/4406))
+- `Breadcrumb`: Fix defect where `_blank` configuration opens two new `Tab` pages @uyarn ([#4421](https://github.com/Tencent/tdesign-vue-next/pull/4421))
+- `Notification`: Fix the issue where some node prefixes do not follow `classPrefix` changes @uyarn ([#4421](https://github.com/Tencent/tdesign-vue-next/pull/4421))
+### 🚧 Others
+- `Table`: Fix text error about `footerAffixedBottom` API in documentation @Tsuj100 ([#4384](https://github.com/Tencent/tdesign-vue-next/pull/4384))
+
+## 🌈 1.9.7 `2024-06-28` 
+### 🚀 Features
+- `Tree`: 
+  - Add `allowDrop` API to support drag and drop restriction ability @TabSpace ([#4312](https://github.com/Tencent/tdesign-vue-next/pull/4312))
+  - `ScrollTo` supports `key` property, supports scrolling to specified node through node unique value, see example code for details @uyarn ([#4334](https://github.com/Tencent/tdesign-vue-next/pull/4334))
+- `Descriptions`:  Add `tableLayout` property @zhangpaopao0609 ([#4257](https://github.com/Tencent/tdesign-vue-next/pull/4257))
+- `Tabs`: Add `scrollPosition` for selected slider scroll final stop position @oljc ([#4269](https://github.com/Tencent/tdesign-vue-next/pull/4269))
+- `Dialog`: Add `dialogStyle` and `dialogClassName` API, acting on the dialog itself, facilitating adjustment of dialog own style @uyarn ([#4347](https://github.com/Tencent/tdesign-vue-next/pull/4347))
+- `Plugin`: Separately export styles of components related to `Plugin`, supporting some scenarios that modify prefix @uyarn ([#4343](https://github.com/Tencent/tdesign-vue-next/pull/4343))
+- `InputNumber`: Support `Form` component's `readonly` API  @xiaojueshi ([#4321](https://github.com/Tencent/tdesign-vue-next/pull/4321))
+### 🐞 Bug Fixes
+- `Select`: 
+  - Fix the issue where `context.value` obtained by `onEnter` event is incorrect after selecting option with keyboard up/down keys @1379255913 ([#4303](https://github.com/Tencent/tdesign-vue-next/pull/4303))
+  - Fix defect where `Option` in `OptionGroup` must use `v-for` to work @1379255913 ([#4318](https://github.com/Tencent/tdesign-vue-next/pull/4318))
+- `DatePicker`: 
+  - Fix incorrect header display issue when switching `mode` in date picker @wilonjiang ([#4292](https://github.com/Tencent/tdesign-vue-next/pull/4292))
+  - Fix the issue where component parsing fails due to unmatched `format` when switching `mode` @wilonjiang ([#4292](https://github.com/Tencent/tdesign-vue-next/pull/4292))
+- `Table`: 
+  - Fix column width inconsistency issue when using `tableLayout: auto` with fixed header @Cat1007 ([#4285](https://github.com/Tencent/tdesign-vue-next/pull/4285))
+  - Remove unnecessary flag reset in `ellipsis.tsx` @xiaojueshi ([#4349](https://github.com/Tencent/tdesign-vue-next/pull/4349))
+- `Tree`: 
+  - Fix the issue where component does not expose `scrollTo` method, keep `scrollToElement` method @uyarn ([#4334](https://github.com/Tencent/tdesign-vue-next/pull/4334))
+  - Fix abnormal node position issue when scrolling multiple times to specified scroll node through `scrollTo` @uyarn ([#4334](https://github.com/Tencent/tdesign-vue-next/pull/4334))
+- `Pagination`: Internal current value not modified when selector changes @betavs ([#4284](https://github.com/Tencent/tdesign-vue-next/pull/4284))
+- `Cascader`:  Fix the issue where clicking on option without `children` does not show previous list @1379255913 ([#4301](https://github.com/Tencent/tdesign-vue-next/pull/4301))
+
+## 🌈 1.9.6 `2024-06-06` 
+### 🚀 Features
+- `Form`: Add `readonly` property to support configuring form as readonly @xiaojueshi ([#4176](https://github.com/Tencent/tdesign-vue-next/pull/4176))
+- `Button`: Add `loadingProps` API @novlan1 ([#4219](https://github.com/Tencent/tdesign-vue-next/pull/4219))
+- `Breadcrumb`: Optimize judgment condition for displaying `tooltip` when display text `overflow` @xiaojueshi ([#4220](https://github.com/Tencent/tdesign-vue-next/pull/4220))
+- `Table`: Optimize judgment condition for displaying `tooltip` when display text `overflow` @xiaojueshi ([#4220](https://github.com/Tencent/tdesign-vue-next/pull/4220))
+- `SelectInput`: Add `size` property @1379255913 ([#4229](https://github.com/Tencent/tdesign-vue-next/pull/4229))
+- `Watermark`: Enhance watermark anti-tampering capability @oljc ([#4233](https://github.com/Tencent/tdesign-vue-next/pull/4233))
+- `Tabs`: Support scrolling operations through wheel or touchpad @oljc ([#4222](https://github.com/Tencent/tdesign-vue-next/pull/4222))
+- `DatePicker`: Optimize change logic of date range picker header range, after selection if left range is greater than right range, default adjustment is that left range is always smaller than right range  @uyarn ([#4263](https://github.com/Tencent/tdesign-vue-next/pull/4263))
+- `Input`: Add `spellCheck` for whether to enable spell checking @liweijie0812 ([#4265](https://github.com/Tencent/tdesign-vue-next/pull/4265))
+- `TreeSelect`:  Expose `treeRef` externally @novlan1 ([#4235](https://github.com/Tencent/tdesign-vue-next/pull/4235))
+- `ImageViewer`: Support native `svg` rendering @josonyang ([#4249](https://github.com/Tencent/tdesign-vue-next/pull/4249))
+- `Drawer`: Add maximum and minimum limits when dragging, add `onSizeDragEnd` callback function @ZWkang ([#4009](https://github.com/Tencent/tdesign-vue-next/pull/4009))
+
+### 🐞 Bug Fixes
+
+- `Cascader`: 
+  - Fix missing `slot` functionality issue for `prefixIcon`, `suffix` and `suffixIcon` @1379255913 ([#4229](https://github.com/Tencent/tdesign-vue-next/pull/4229))
+  - Fix `autofocus` functionality failure issue @uyarn ([#4266](https://github.com/Tencent/tdesign-vue-next/pull/4266))
+- `Tabs`:  Fix slider positioning issue @ZTH520 ([#4207](https://github.com/Tencent/tdesign-vue-next/pull/4207))
+- `List`: Fix abnormality issue when enabling virtual scroll @uyarn ([#4208](https://github.com/Tencent/tdesign-vue-next/pull/4208))
+- `Table`: Fix combined usage scenario of fixed row and virtual scroll @Cat1007 ([#4145](https://github.com/Tencent/tdesign-vue-next/pull/4145))
+- `Select`:  Fix abnormal keyboard selection issue after entering filter conditions when remote search is combined with filtering @ZTH520 ([#4218](https://github.com/Tencent/tdesign-vue-next/pull/4218))
+- `Table`: Fix warning logic issue of `filter.type` @uyarn ([#4226](https://github.com/Tencent/tdesign-vue-next/pull/4226))
+- `InputNumber`: Fix the issue where when `allowInputOverLimit=false` and judging size value, if `value` is `undefined`, Infinity appears @HaixingOoO  @uyarn ([#4262](https://github.com/Tencent/tdesign-vue-next/pull/4262))
