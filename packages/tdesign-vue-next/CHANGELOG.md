@@ -5,6 +5,12 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.17.2-test `2025-10-13` 
+
+### 🐞 Bug Fixes
+- `AutoComplete`: 修复使用键盘选中后，删除输入框内容时无法再次打开选项弹窗的问题 @SaberA1ter ([#6059](https://github.com/Tencent/tdesign-vue-next/pull/6059))
+
+
 ## 🌈 1.17.1 `2025-10-09` 
 
 ### 🐞 Bug Fixes
