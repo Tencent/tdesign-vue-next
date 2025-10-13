@@ -123,7 +123,7 @@ export default defineComponent({
       }
 
       const children = [];
-      if (props.theme) {
+      if (props.theme && !props.rowCol) {
         children.push(renderRowCol(ThemeMap[props.theme]));
       }
       if (props.rowCol) {

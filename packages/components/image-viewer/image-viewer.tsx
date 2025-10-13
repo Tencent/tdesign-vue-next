@@ -1,4 +1,4 @@
-import { ChevronDownIcon, ChevronLeftIcon, CloseIcon } from 'tdesign-icons-vue-next';
+import { BrowseIcon, ChevronDownIcon, ChevronLeftIcon, CloseIcon } from 'tdesign-icons-vue-next';
 import { Teleport, Transition, computed, defineComponent, nextTick, ref, toRefs, watch } from 'vue';
 
 import {
@@ -18,8 +18,9 @@ import TImageViewerUtils from './base/ImageViewerUtils';
 import { EVENT_CODE } from './consts';
 import { useMirror, useRotate, useScale } from './hooks';
 import props from './props';
-import { TdImageViewerProps } from './type';
+import { ImageScale, TdImageViewerProps } from './type';
 import { downloadFile, formatImages, getOverlay } from './utils';
+import { isNumber } from 'lodash-es';
 
 export default defineComponent({
   name: 'TImageViewer',
@@ -58,7 +59,7 @@ export default defineComponent({
     };
 
     const { mirror, onMirror, resetMirror } = useMirror();
-    const { scale, onZoomIn, onZoomOut, resetScale } = useScale(props.imageScale);
+    const { scale, onZoomIn, onZoomOut, resetScale } = useScale(props.imageScale as ImageScale);
     const { rotate, onRotate, resetRotate } = useRotate();
     const onRest = () => {
       resetMirror();
@@ -93,7 +94,11 @@ export default defineComponent({
       props.onDownload ? props.onDownload(url) : downloadFile(url);
     };
 
-    const openHandler = () => {
+    const openHandler = (index?: number) => {
+      if (isNumber(index)) {
+        onImgClick(index);
+      }
+
       setVisibleValue(true);
     };
     const onClose: TdImageViewerProps['onClose'] = (ctx) => {
@@ -226,11 +231,33 @@ export default defineComponent({
       );
     };
 
+    const renderDefaultTrigger = () => {
+      const firstImage = images.value[0] || '';
+      const imageSrc = typeof firstImage === 'string' ? firstImage : firstImage.mainImage || firstImage.thumbnail;
+      return (
+        <div class={`${COMPONENT_NAME.value}__trigger`}>
+          <Image
+            src={imageSrc}
+            alt="preview"
+            fit="contain"
+            class={`${COMPONENT_NAME.value}__trigger-img`}
+            onClick={() => openHandler()}
+          />
+          <div class={`${COMPONENT_NAME.value}__trigger--hover`} onClick={() => openHandler()}>
+            <span>
+              <BrowseIcon size="1.4em" class={`${COMPONENT_NAME.value}__trigger-icon`} />
+              预览
+            </span>
+          </div>
+        </div>
+      );
+    };
+
     return () => {
       if (props.mode === 'modeless') {
         return (
           <>
-            {renderTNodeJSX('trigger', { params: { open: openHandler } })}
+            {renderTNodeJSX('trigger', { params: { open: openHandler } }) || renderDefaultTrigger()}
             <TImageViewerModal
               zIndex={zIndexValue.value}
               visible={visibleValue.value}
@@ -258,7 +285,7 @@ export default defineComponent({
 
       return (
         <>
-          {renderTNodeJSX('trigger', { params: { open: openHandler } })}
+          {renderTNodeJSX('trigger', { params: { open: openHandler } }) || renderDefaultTrigger()}
           <Teleport disabled={!props.attach || !teleportElement.value} to={teleportElement.value}>
             <Transition>
               {(visibleValue.value || !animationEnd.value) && (

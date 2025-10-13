@@ -52,4 +52,6 @@ export default {
   onCloseBtnClick: Function as PropType<TdNotificationProps['onCloseBtnClick']>,
   /** 计时结束时触发 */
   onDurationEnd: Function as PropType<TdNotificationProps['onDurationEnd']>,
+  /** 调用 NotificationPlugin.close 时触发 */
+  onClose: Function as PropType<TdNotificationProps['onClose']>,
 };

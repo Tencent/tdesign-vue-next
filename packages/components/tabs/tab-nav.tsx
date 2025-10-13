@@ -37,6 +37,7 @@ export default defineComponent({
     onAdd: tabProps.onAdd,
     onRemove: tabProps.onRemove,
     dragSort: tabProps.dragSort,
+    // 在 useDragSort 里会被调用
     onDragSort: tabProps.onDragSort,
   },
   setup(props) {

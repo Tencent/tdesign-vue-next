@@ -6,8 +6,7 @@ import { joinPosix, joinComponentsRoot, joinTdesignVueNextRoot } from '@tdesign/
 
 const publicPathMap: Record<string, string> = {
   preview: '/',
-  intranet: '/chat/',
-  production: 'https://static.tdesign.tencent.com/chat/',
+  production: '/chat/',
 };
 
 export default defineConfig(({ mode }) => {

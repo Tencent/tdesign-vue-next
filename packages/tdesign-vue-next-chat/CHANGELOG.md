@@ -5,6 +5,12 @@ toc: false
 spline: explain
 ---
 
+## 🌈 0.4.6 `2025-09-12` 
+
+### 🐞 Bug Fixes
+- `ChatInput`: 修复 `suffixIcon` 传值不是插槽，响应式无效 @liweijie0812 ([#5905](https://github.com/Tencent/tdesign-vue-next/pull/5905))
+
+
 ## 🌈 0.4.5 `2025-07-31` 
 
 ### 🐞 Bug Fixes

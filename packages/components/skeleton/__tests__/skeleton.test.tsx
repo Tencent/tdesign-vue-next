@@ -152,11 +152,11 @@ describe('Skeleton', () => {
       const wrapper = mount(() => <Skeleton rowCol={[1, 1, 2]} />);
       const rows = wrapper.findAll('.t-skeleton__row');
       const cols = wrapper.findAll('.t-skeleton__col');
-      expect(rows.length).toBe(4);
-      expect(cols.length).toBe(5);
+      expect(rows.length).toBe(3);
+      expect(cols.length).toBe(4);
       expect(rows[0].element.children.length).toBe(1);
       expect(rows[1].element.children.length).toBe(1);
-      expect(rows[2].element.children.length).toBe(1);
+      expect(rows[2].element.children.length).toBe(2);
     });
   });
 });

@@ -49,9 +49,10 @@ export function useMirror() {
   return { mirror, onMirror, resetMirror };
 }
 
-export function useScale(imageScale: ImageScale = { max: 2, min: 0.5, step: 0.2 }) {
-  const { max, min, step, defaultScale } = imageScale;
-  const scale = ref(defaultScale ?? 1);
+export function useScale(imageScale: ImageScale) {
+  const params = { max: 2, min: 0.5, step: 0.2, defaultScale: 1, ...imageScale };
+  const { max, min, step, defaultScale } = params;
+  const scale = ref(defaultScale);
 
   const onZoomIn = throttle(() => {
     const result = positiveAdd(scale.value, step);
@@ -64,7 +65,7 @@ export function useScale(imageScale: ImageScale = { max: 2, min: 0.5, step: 0.2 
   }, 50);
 
   const resetScale = () => {
-    scale.value = defaultScale ?? 1;
+    scale.value = defaultScale;
   };
 
   const setScale = (newScale: number) => {

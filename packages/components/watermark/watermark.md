@@ -11,6 +11,7 @@ content | String / Slot / Function | - | 水印所覆盖的内容节点。TS 类
 default | String / Slot / Function | - | 水印所覆盖的内容节点，同 `content`。TS 类型：`string \| TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/packages/components/common.ts) | N
 height | Number | - | 水印高度 | N
 isRepeat | Boolean | true | 水印是否重复出现 | N
+layout | String | rectangular | 水印的布局方式，rectangular：矩形，即横平竖直的水印；hexagonal：六边形，即错位的水印。可选项：rectangular/hexagonal | N
 lineSpace | Number | 16 | 行间距，只作用在多行（`content` 配置为数组）情况下 | N
 movable | Boolean | false | 水印是否可移动 | N
 moveInterval | Number | 3000 | 水印发生运动位移的间隙，单位：毫秒 | N
