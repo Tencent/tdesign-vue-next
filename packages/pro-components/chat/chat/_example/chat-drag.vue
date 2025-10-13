@@ -17,7 +17,7 @@
         :data="chatList"
         :clear-history="chatList.length > 0 && !isStreamLoad"
         :text-loading="loading"
-        :is-stream-load="isStreamLoad"
+        :reverse="true"
         @clear="clearConfirm"
       >
         <!-- eslint-disable-next-line vue/no-unused-vars -->

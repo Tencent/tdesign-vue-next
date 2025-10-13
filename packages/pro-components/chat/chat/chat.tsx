@@ -247,7 +247,7 @@ export default defineComponent({
         <div class={listClasses.value} ref={listRef} onScroll={handleScroll}>
           {props.reverse && <div class="place-holder"></div>}
           {props.reverse && props.clearHistory && renderTNodeJSX('clearHistory', defaultClearHistory)}
-          <div ref={innerRef}>{renderBody()}</div>
+          {props.reverse ? renderBody() : <div ref={innerRef}>{renderBody()}</div>}
           {!props.reverse && props.clearHistory && renderTNodeJSX('clearHistory', defaultClearHistory)}
         </div>
         {showFooter.value && <div class={`${COMPONENT_NAME.value}__footer`}>{showFooter.value}</div>}

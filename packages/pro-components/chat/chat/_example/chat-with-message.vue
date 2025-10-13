@@ -4,7 +4,6 @@
       ref="chatRef"
       :clear-history="chatList.length > 0 && !isStreamLoad"
       :text-loading="loading"
-      :is-stream-load="isStreamLoad"
       style="height: 600px"
       animation="gradient"
       @scroll="handleChatScroll"
