@@ -14,14 +14,15 @@
           :name="item.name"
           :role="item.role"
           :datetime="item.datetime"
-          :text-loading="index === 0 && loading"
+          :text-loading="index === chatList.length - 1 && loading"
           :content="item.content"
           :reasoning="{
-            collapsed: index === 0 && !isStreamLoad,
+            collapsed: index === chatList.length - 1 && !isStreamLoad,
             expandIconPlacement: 'right',
             onExpandChange: handleChange(value, { index }),
             collapsePanelProps: {
-              header: renderHeader(index === 0 && isStreamLoad && !item.content, item),
+              header: renderHeader(index === chatList.length - 1 && isStreamLoad && !item.content, item),
+
               content: renderReasoningContent(item.reasoning),
             },
           }"
@@ -134,11 +135,14 @@ const renderHeader = (flag, item) => {
   );
 };
 const renderReasoningContent = (reasoningContent) => <t-chat-content content={reasoningContent} role="assistant" />;
-// 倒序渲染
+// 正序渲染
 const chatList = ref([
   {
-    content: `模型由<span>hunyuan</span>变为<span>GPT4</span>`,
-    role: 'model-change',
+    avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
+    name: '自己',
+    datetime: '今天16:38',
+    content: '牛顿第一定律是否适用于所有参考系？',
+    role: 'user',
     reasoning: '',
   },
   {
@@ -162,14 +166,12 @@ const chatList = ref([
     duration: 10,
   },
   {
-    avatar: 'https://tdesign.gtimg.com/site/avatar.jpg',
-    name: '自己',
-    datetime: '今天16:38',
-    content: '牛顿第一定律是否适用于所有参考系？',
-    role: 'user',
+    content: `模型由<span>hunyuan</span>变为<span>GPT4</span>`,
+    role: 'system',
     reasoning: '',
   },
 ]);
+
 const clearConfirm = function () {
   chatList.value = [];
 };
@@ -182,8 +184,11 @@ const onStop = function () {
 };
 // 是否显示回到底部按钮
 const handleChatScroll = function ({ e }) {
-  const scrollTop = e.target.scrollTop;
-  isShowToBottom.value = scrollTop < 0;
+  if (e.target.clientHeight + e.target.scrollTop < e.target.scrollHeight) {
+    isShowToBottom.value = true;
+  } else {
+    isShowToBottom.value = false;
+  }
 };
 
 const inputEnter = function () {
@@ -199,7 +204,7 @@ const inputEnter = function () {
     content: inputValue.value,
     role: 'user',
   };
-  chatList.value.unshift(params);
+  chatList.value.push(params);
   // 空消息占位
   const params2 = {
     avatar: 'https://tdesign.gtimg.com/site/chat-avatar.png',
@@ -209,7 +214,8 @@ const inputEnter = function () {
     reasoning: '',
     role: 'assistant',
   };
-  chatList.value.unshift(params2);
+  chatList.value.push(params2);
+
   handleData(inputValue.value);
   inputValue.value = '';
 };
@@ -242,7 +248,8 @@ const fetchSSE = async (fetchFn, options) => {
 const handleData = async () => {
   loading.value = true;
   isStreamLoad.value = true;
-  const lastItem = chatList.value[0];
+  const lastItem = chatList.value[chatList.value.length - 1];
+
   const mockedData = {
     reasoning: `嗯，用户问牛顿第一定律是不是适用于所有参考系。首先，我得先回忆一下牛顿第一定律的内容。牛顿第一定律，也就是惯性定律，说物体在没有外力作用时会保持静止或匀速直线运动。也就是说，保持原来的运动状态。
 

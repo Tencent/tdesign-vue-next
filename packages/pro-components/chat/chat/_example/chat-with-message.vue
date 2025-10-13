@@ -35,7 +35,7 @@
         </t-chat-message>
       </template>
       <template #footer>
-        <t-chat-input :stop-disabled="isStreamLoad" @send="inputEnter" @stop="onStop"> </t-chat-input>
+        <t-chat-sender v-model="query" :loading="isStreamLoad" @send="inputEnter" @stop="onStop"> </t-chat-sender>
       </template>
     </t-chat>
     <t-button v-show="isShowToBottom" variant="text" class="bottomBtn" @click="backBottom">
@@ -52,6 +52,7 @@ import { ArrowDownIcon } from 'tdesign-icons-vue-next';
 
 const fetchCancel = ref(null);
 const loading = ref(false);
+const query = ref('');
 // 流式数据加载中
 const isStreamLoad = ref(false);
 
@@ -264,6 +265,7 @@ const inputEnter = function (inputValue) {
   chatList.value.push(params2);
 
   handleData(inputValue);
+  query.value = '';
 };
 
 const fetchSSE = async (fetchFn, options) => {
