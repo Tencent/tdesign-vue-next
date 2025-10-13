@@ -1274,3 +1274,103 @@ docClass: timeline
    - Tree structure, fix `tree.defaultExpandAll` invalid issue in `v1.5.3` ([#3296](https://github.com/Tencent/tdesign-vue-next/pull/3296))
    - Tree structure table, fix expandedTreeNodes.sync and @expanded-tree-nodes-change invalid when using expandTreeNodeOnClick
    - Support using column configuration even without columnController @ngyyuusora ([#3301](https://github.com/Tencent/tdesign-vue-next/pull/3301))
+   - Filterable table, solve display issue of filtered result row text when `title` is defined using function or slot ([#3321](https://github.com/Tencent/tdesign-vue-next/pull/3321))
+   - Editable table, fix validation mutual influence issue when multiple editable tables exist simultaneously ([#3341](https://github.com/Tencent/tdesign-vue-next/pull/3341))
+- `Image`: Fix issue where `fallback` is invalid after first load failure @chaishi ([#3319](https://github.com/Tencent/tdesign-vue-next/pull/3319))
+- `Select`: Fix dropdown box not displaying prefix icon in multiple selection state @LadyChatterleyLover ([#3323](https://github.com/Tencent/tdesign-vue-next/pull/3323))
+- `Menu`: Fix defect where `to` property cannot default jump based on `vue-router` when `router` is not configured for double-layer menu @uyarn ([#3325](https://github.com/Tencent/tdesign-vue-next/pull/3325))
+- `Breadcrumb`: Fix defect where `to` property cannot default jump based on `vue-router` when `router` is not configured @uyarn ([#3325](https://github.com/Tencent/tdesign-vue-next/pull/3325))
+- `Transfer`: Fix transfer component unable to search deep-level tree structure data @LadyChatterleyLover ([#3336](https://github.com/Tencent/tdesign-vue-next/pull/3336))
+- `Form`: Fix form component scrollToFirstError invalid issue @dreamlords ([#3294](https://github.com/Tencent/tdesign-vue-next/pull/3294))
+
+
+## 🌈 1.5.3 `2023-08-29` 
+### 🚀 Features
+- `Upload`: Upload component `theme='image'` does not display upload button in `disabled` state @yuzunyue ([#3277](https://github.com/Tencent/tdesign-vue-next/pull/3277))
+- `Input`: Add `maxlength` property `String` type @Zz-ZzzZ ([#3271](https://github.com/Tencent/tdesign-vue-next/pull/3271))
+- `Textarea`: Add `maxlength` property `String` type @Zz-ZzzZ ([#3271](https://github.com/Tencent/tdesign-vue-next/pull/3271))
+- `Table`: Tree structure, when `expandedTreeNodes` is not set, when `data` changes, automatically reset and collapse all expanded nodes. If you wish to maintain expanded nodes, please use property `expandedTreeNodes` to control expanded nodes after data changes. Reason: Nodes before and after table data changes may be different, `expandedTreeNodes` will naturally be different, component internally cannot predict which nodes to expand in new data @chaishi ([#3283](https://github.com/Tencent/tdesign-vue-next/pull/3283))
+
+### 🐞 Bug Fixes
+- `Table`: 
+  - Drag sort + local data pagination scenario, fix incorrect event parameters `currentIndex/targetIndex/current/target` for drag sort @chaishi ([#3283](https://github.com/Tencent/tdesign-vue-next/pull/3283))
+  - Drag sort + local data pagination scenario, fix automatic jump to first page after drag adjusting order in pagination data after second page @chaishi ([#3283](https://github.com/Tencent/tdesign-vue-next/pull/3283))
+  - Support drag sort scenario with uncontrolled pagination @chaishi ([#3283](https://github.com/Tencent/tdesign-vue-next/pull/3283))
+- `Button`: Fix issue where `button` can still trigger click event in `loading` state @yuzunyue ([#3269](https://github.com/Tencent/tdesign-vue-next/pull/3269))
+- `Upload`: Fix image thumbnail not displayed during non-automatic upload @imp2002 ([#3276](https://github.com/Tencent/tdesign-vue-next/pull/3276))
+- `Menu`: Fix issue where some properties are invalid when rendering double-layer menu through `v-for` @uyarn ([#3289](https://github.com/Tencent/tdesign-vue-next/pull/3289))
+- `Tabs`: Fix issue where using `v-for` does not render when `slot` is defined internally when encapsulating `tabs` component @Zz-ZzzZ ([#3288](https://github.com/Tencent/tdesign-vue-next/pull/3288))
+- `Cascader`: Fix `cascader` expansion state performance when cleared @PengYYYYY ([#3284](https://github.com/Tencent/tdesign-vue-next/pull/3284))
+- `Message`: Fix `message` not triggering `onClose` event @Zzongke ([#3258](https://github.com/Tencent/tdesign-vue-next/pull/3258))
+### 🚧 Others
+- `Table`: Documentation correction `tree.checkStrictly` default value is `false` @chaishi ([#3283](https://github.com/Tencent/tdesign-vue-next/pull/3283))
+
+## 🌈 1.5.2 `2023-08-22` 
+### 🚀 Features
+- `Table`: 
+  - Support using slot named `ellipsis` or `ellipsis-<colKey>` to customize popup content when overflowing ellipsis, see example code for usage @chaishi ([#3259](https://github.com/Tencent/tdesign-vue-next/pull/3259))
+  - Tree structure, support freely controlling expanded nodes through property `expandedTreeNodes.sync`, non-required property @chaishi ([#3260](https://github.com/Tencent/tdesign-vue-next/pull/3260))
+  - Tree structure, add component instance method `removeChildren` for removing child nodes @chaishi ([#3260](https://github.com/Tencent/tdesign-vue-next/pull/3260))
+- `Switch`: `onchange` parameter adds `context: { e: MouseEvent }` @liweijie0812 ([#3247](https://github.com/Tencent/tdesign-vue-next/pull/3247))
+- `Keys`: Global `keys api` references `common.ts` export variable @PengYYYYY ([#3243](https://github.com/Tencent/tdesign-vue-next/pull/3243))
+- `Transfer`: Support `targetDraggable`, can sort target list, see example code for specific usage @uyarn ([#3267](https://github.com/Tencent/tdesign-vue-next/pull/3267))
+### 🐞 Bug Fixes
+- `Menu`: @uyarn ([#3263](https://github.com/Tencent/tdesign-vue-next/pull/3263))
+  - Fix route jump function failure issue in normal double-layer menu mode
+  - Fix loss of `click` event in normal double-layer menu
+- `Table`: 
+  - Tree structure, fix component instance method expand all `expandAll` issue @chaishi ([#3260](https://github.com/Tencent/tdesign-vue-next/pull/3260))
+  - Click row to expand/click row to select, fix issue where `expandOnRowClick` and `selectOnRowClick` cannot independently control row click execution interaction @chaishi ([#3260](https://github.com/Tencent/tdesign-vue-next/pull/3260))
+- `Upload`: Fix `showUploadProgress` property not working @imp2002 ([#3245](https://github.com/Tencent/tdesign-vue-next/pull/3245))
+- `Switch`: Adjust `disabled` disable priority, `Switch.disabled > Form.disabled` @liweijie0812 ([#3247](https://github.com/Tencent/tdesign-vue-next/pull/3247))
+- `Link`: Adjust `disabled` disable priority, `Link.disabled > Form.disabled` @liweijie0812 ([#3252](https://github.com/Tencent/tdesign-vue-next/pull/3252))
+### 🚧 Others
+- `Transfer`: Tree example adds `keys` configuration for easy understanding of usage @uyarn ([#3267](https://github.com/Tencent/tdesign-vue-next/pull/3267))
+
+## 🌈 1.5.1 `2023-08-15`
+### 🚨 Breaking Changes
+- `Icon`: @uyarn ([#3174](https://github.com/Tencent/tdesign-vue-next/pull/3174))
+  - Add 960 new icons
+  - Adjust icon naming, `photo` to `camera`, `books` to `bookmark`, `stop-cirle-1` to `stop-circle-stroke`
+  - Remove `money-circle` icon, please check icon page for details
+
+### 🚀 Features
+- `Select`: 
+  - Support passing through `label` property to define internal label name @chaishi ([#3212](https://github.com/Tencent/tdesign-vue-next/pull/3212))
+  - Add `keys.disabled` for custom field control of option disable @PengYYYYY ([#3202](https://github.com/Tencent/tdesign-vue-next/pull/3202))
+- `Table`: Editable cell scenario, add `edit.keepEditMode` to keep cell always in edit mode @chaishi ([#3199](https://github.com/Tencent/tdesign-vue-next/pull/3199))
+- `Link`: Add passthrough `download` property, support browser direct download @xiaosansiji ([#3201](https://github.com/Tencent/tdesign-vue-next/pull/3201))
+- `Guide`: Fully support custom highlight box @zhangpaopao0609 ([#3111](https://github.com/Tencent/tdesign-vue-next/pull/3111))
+- `Button`: Support using `tab` key to focus @chaishi ([#3218](https://github.com/Tencent/tdesign-vue-next/pull/3218))
+- `Checkbox`: Support using space key to check or uncheck @chaishi ([#3218](https://github.com/Tencent/tdesign-vue-next/pull/3218))
+- `Radio`: Support using space key to check or uncheck @chaishi ([#3218](https://github.com/Tencent/tdesign-vue-next/pull/3218))
+- `Form`: `FormItem` component supports missing properties `status` and `tips` for defining prompt text in different states; `tips` supports slot form @chaishi ([#3225](https://github.com/Tencent/tdesign-vue-next/pull/3225))
+- `InputNumber`: `tips` supports using slot for customization @chaishi ([#3225](https://github.com/Tencent/tdesign-vue-next/pull/3225))
+- `TreeSelect`: Add `keys` field for customizing corresponding field aliases in data @PengYYYYY ([#3202](https://github.com/Tencent/tdesign-vue-next/pull/3202))
+- `Cascader`: Add `keys.disabled` for custom field control of node disable @PengYYYYY ([#3202](https://github.com/Tencent/tdesign-vue-next/pull/3202))
+- `Tree`: Add `keys.disabled` for custom field control of node disable @PengYYYYY ([#3202](https://github.com/Tencent/tdesign-vue-next/pull/3202))
+- `Transfer`: Add `keys.disabled` for custom field control of option disable @PengYYYYY ([#3202](https://github.com/Tencent/tdesign-vue-next/pull/3202))
+- `ImageViewer`: Fix image viewer global configuration invalid @sinbadmaster ([#3236](https://github.com/Tencent/tdesign-vue-next/pull/3236))
+- `MenuItem`: Fix callback function error after click @PengYYYYY ([#3237](https://github.com/Tencent/tdesign-vue-next/pull/3237))
+### 🐞 Bug Fixes
+- `Table`:
+  - Fix issue where drag sort does not work when `dragSort` is configured as `row-handler-col` @nined9 ([#2717](https://github.com/Tencent/tdesign-vue-next/pull/2717))
+  - Virtual scrolling scenario, fix inconsistency between default scrollbar length (position) and after scrolling @chaishi ([#3199](https://github.com/Tencent/tdesign-vue-next/pull/3199))
+- `Popup`: `overlayEl` not bound, first time opening cannot locate to selected item @AuYuHui ([#3189](https://github.com/Tencent/tdesign-vue-next/pull/3189))
+- `Menu`: Fix issue where same `MenuItem` triggers `onChange` multiple times @leezng ([#3187](https://github.com/Tencent/tdesign-vue-next/pull/3187))
+- `SelectInput`: Fix dropdown width too narrow in auto-width adapt mode `autoWidth` @chaishi ([#3212](https://github.com/Tencent/tdesign-vue-next/pull/3212))
+- `Select`: Fix dropdown width too narrow in auto-width adapt mode `autoWidth` @chaishi ([#3212](https://github.com/Tencent/tdesign-vue-next/pull/3212))
+- `Link`: Fix issue where `<a />` tag shows empty `target` attribute when `target` property is not passed @xiaosansiji ([#3201](https://github.com/Tencent/tdesign-vue-next/pull/3201))
+- `TreeSelect`: Custom display `tag` close abnormality @sinbadmaster ([#3217](https://github.com/Tencent/tdesign-vue-next/pull/3217))
+- `Form`: Fix `scrollToFirstError` unable to scroll to list elements like `<form-item :name="list[${index}].name"` @chaishi ([#3225](https://github.com/Tencent/tdesign-vue-next/pull/3225))
+- `ImageViewer`: Clear image view status @sinbadmaster ([#3224](https://github.com/Tencent/tdesign-vue-next/pull/3224))
+- `MenuItem`: `onClick` event parameter adjustment @dexterBo ([#3228](https://github.com/Tencent/tdesign-vue-next/pull/3228))
+- `Tree`: Fix `tree` component deep watch issue @PengYYYYY ([#3232](https://github.com/Tencent/tdesign-vue-next/pull/3232))
+### 🚧 Others
+- `Demo`: Fix `form`'s `custom-validator` example code @PengYYYYY ([#3205](https://github.com/Tencent/tdesign-vue-next/pull/3205))
+- `Icon`: Add UI to display all icons by category @uyarn ([#3174](https://github.com/Tencent/tdesign-vue-next/pull/3174))
+- `InputNumber`: `tips` use unified class name `.t-tips` and `t-is-xxx` @chaishi ([#3225](https://github.com/Tencent/tdesign-vue-next/pull/3225))
+- `Cascader`: Supplement `borderless` documentation @PengYYYYY ([#3202](https://github.com/Tencent/tdesign-vue-next/pull/3202))
+- `Test`: Fix test warnings @PengYYYYY ([#3229](https://github.com/Tencent/tdesign-vue-next/pull/3229))
+- `Affix`: Fix `offsetBottom/offsetTop` documentation description @xiaosansiji ([#3233](https://github.com/Tencent/tdesign-vue-next/pull/3233))
+- `Treeselect`: Fix `keys` documentation description @xiaosansiji ([#3233](https://github.com/Tencent/tdesign-vue-next/pull/3233))
